@@ -42,30 +42,30 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 7932
-  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 7932
+  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #6
   %6 = tail call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %1) #6
-  %7 = getelementptr inbounds i8, ptr %6, i64 1720
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1720
   %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
   %9 = icmp eq i8 %8, 0
   %10 = xor i1 %2, true
   %11 = zext i1 %10 to i8
   store i8 %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 2624
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %15 = load i16, ptr %14, align 4
   %16 = and i16 %15, 128
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %53, label %18
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %13, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %20 = sext i32 %1 to i64
   %21 = getelementptr [7 x i32], ptr %19, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %19, align 4
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %22, 458788
   %27 = sub i32 %26, %23
@@ -75,23 +75,23 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
 29:                                               ; preds = %18
   %30 = tail call i32 @i915_pipestat_enable_mask(ptr noundef %0, i32 noundef %1) #6
   %31 = or i32 %30, -2147483648
-  %32 = getelementptr inbounds i8, ptr %0, i64 7368
-  %33 = getelementptr inbounds i8, ptr %0, i64 7544
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %32, i32 %28, i32 noundef %31, i1 noundef zeroext true) #6
-  %35 = getelementptr inbounds i8, ptr %0, i64 7512
+  tail call void %34(ptr noundef nonnull %32, i32 %28, i32 noundef %31, i1 noundef zeroext true) #6
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 %36(ptr noundef %32, i32 %28, i1 noundef zeroext false) #6
+  %37 = tail call i32 %36(ptr noundef nonnull %32, i32 %28, i1 noundef zeroext false) #6
   br label %140
 
 38:                                               ; preds = %18
   br i1 %9, label %39, label %140
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 7368
-  %41 = getelementptr inbounds i8, ptr %0, i64 7512
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef %40, i32 %28, i1 noundef zeroext true) #6
+  %43 = tail call i32 %42(ptr noundef nonnull %40, i32 %28, i1 noundef zeroext true) #6
   %44 = icmp sgt i32 %43, -1
   br i1 %44, label %140, label %45
 
@@ -100,7 +100,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %50
 
@@ -111,7 +111,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
   br label %140
 
 53:                                               ; preds = %3
-  %54 = getelementptr inbounds i8, ptr %0, i64 7184
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 786432
   %57 = icmp eq i32 %56, 0
@@ -131,7 +131,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
   br label %140
 
 63:                                               ; preds = %53
-  %64 = getelementptr inbounds i8, ptr %0, i64 2632
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %65 = load i16, ptr %64, align 8
   %66 = icmp eq i16 %65, 7
   br i1 %66, label %67, label %114
@@ -142,11 +142,11 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
 68:                                               ; preds = %67
   %69 = mul i32 %1, 3
   %70 = shl nuw i32 1, %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 7368
-  %72 = getelementptr inbounds i8, ptr %0, i64 7544
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef %71, i32 278592, i32 noundef %70, i1 noundef zeroext true) #6
-  %74 = getelementptr inbounds i8, ptr %0, i64 2638
+  tail call void %73(ptr noundef nonnull %71, i32 278592, i32 noundef %70, i1 noundef zeroext true) #6
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   br label %75
 
 75:                                               ; preds = %89, %68
@@ -162,7 +162,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
 83:                                               ; preds = %75
   %84 = trunc i64 %76 to i32
   %85 = tail call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %84) #6
-  %86 = getelementptr inbounds i8, ptr %85, i64 1720
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1720
   %87 = load i8, ptr %86, align 8, !range !6, !noundef !7
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %89, label %93
@@ -186,10 +186,10 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
   br i1 %9, label %97, label %140
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %0, i64 7368
-  %99 = getelementptr inbounds i8, ptr %0, i64 7512
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 %100(ptr noundef %98, i32 278592, i1 noundef zeroext true) #6
+  %101 = tail call i32 %100(ptr noundef nonnull %98, i32 278592, i1 noundef zeroext true) #6
   %102 = mul i32 %1, 3
   %103 = shl nuw i32 1, %102
   %104 = and i32 %101, %103
@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
   br i1 %107, label %111, label %108
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = load ptr, ptr %109, align 8
   br label %111
 
@@ -226,22 +226,22 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %12, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 36
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 36
   %124 = sext i32 %1 to i64
   %125 = getelementptr [7 x i32], ptr %123, i64 0, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = load i32, ptr %123, align 4
-  %128 = getelementptr inbounds i8, ptr %122, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %126, 458840
   %131 = sub i32 %130, %127
   %132 = add i32 %131, %129
   %133 = icmp ugt i16 %119, 12
   %134 = select i1 %133, i32 -1677721600, i32 -2147483648
-  %135 = getelementptr inbounds i8, ptr %0, i64 7368
-  %136 = getelementptr inbounds i8, ptr %0, i64 7544
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %137 = load ptr, ptr %136, align 8
-  tail call void %137(ptr noundef %135, i32 %132, i32 noundef %134, i1 noundef zeroext true) #6
+  tail call void %137(ptr noundef nonnull %135, i32 %132, i32 noundef %134, i1 noundef zeroext true) #6
   br label %138
 
 138:                                              ; preds = %121, %118
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @intel_set_cpu_fifo_underrun_reporting(ptr n
   br label %140
 
 140:                                              ; preds = %139, %138, %114, %111, %97, %96, %95, %93, %62, %61, %50, %39, %38, %29
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #6
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %5) #6
   ret i1 %9
 }
 
@@ -263,15 +263,15 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = tail call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %1) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 7932
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 1721
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7932
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1721
   %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = icmp eq i8 %8, 0
   %10 = xor i1 %2, true
   %11 = zext i1 %10 to i8
   store i8 %11, ptr %7, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %20
@@ -295,11 +295,11 @@ define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr n
 21:                                               ; preds = %20
   %22 = mul i32 %1, 3
   %23 = shl nuw i32 1, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 7368
-  %25 = getelementptr inbounds i8, ptr %0, i64 7544
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef %24, i32 802880, i32 noundef %23, i1 noundef zeroext true) #6
-  %27 = getelementptr inbounds i8, ptr %0, i64 2638
+  tail call void %26(ptr noundef nonnull %24, i32 802880, i32 noundef %23, i1 noundef zeroext true) #6
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   br label %28
 
 28:                                               ; preds = %42, %21
@@ -315,7 +315,7 @@ define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr n
 36:                                               ; preds = %28
   %37 = trunc i64 %29 to i32
   %38 = tail call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %37) #6
-  %39 = getelementptr inbounds i8, ptr %38, i64 1721
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1721
   %40 = load i8, ptr %39, align 1, !range !6, !noundef !7
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %46
@@ -339,10 +339,10 @@ define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr n
   br i1 %9, label %50, label %67
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 7368
-  %52 = getelementptr inbounds i8, ptr %0, i64 7512
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef %51, i32 802880, i1 noundef zeroext true) #6
+  %54 = tail call i32 %53(ptr noundef nonnull %51, i32 802880, i1 noundef zeroext true) #6
   %55 = mul i32 %1, 3
   %56 = shl nuw i32 1, %55
   %57 = and i32 %54, %56
@@ -354,7 +354,7 @@ define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr n
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   br label %64
 
@@ -365,7 +365,7 @@ define dso_local noundef zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr n
   br label %67
 
 67:                                               ; preds = %64, %50, %49, %48, %46, %19, %18
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #6
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #6
   ret i1 %9
 }
 
@@ -379,58 +379,58 @@ define dso_local void @intel_cpu_fifo_underrun_irq_handler(ptr noundef %0, i32 n
   br i1 %4, label %105, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2624
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 128
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 1720
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1720
   %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %105
 
 16:                                               ; preds = %12, %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 2632
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %18 = load i16, ptr %17, align 8
   %19 = icmp ugt i16 %18, 10
   br i1 %19, label %20, label %51
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %7, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %22 = sext i32 %1 to i64
   %23 = getelementptr [7 x i32], ptr %21, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %21, align 4
-  %26 = getelementptr inbounds i8, ptr %7, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %24, 458840
   %29 = sub i32 %28, %25
   %30 = add i32 %29, %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 7368
-  %32 = getelementptr inbounds i8, ptr %0, i64 7512
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(ptr noundef %31, i32 %30, i1 noundef zeroext true) #6
+  %34 = tail call i32 %33(ptr noundef nonnull %31, i32 %30, i1 noundef zeroext true) #6
   %35 = load i16, ptr %17, align 8
   %36 = icmp ugt i16 %35, 12
   %37 = select i1 %36, i32 -1677721600, i32 -2147483648
   %38 = and i32 %37, %34
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 36
   %41 = getelementptr [7 x i32], ptr %40, i64 0, i64 %22
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %40, align 4
-  %44 = getelementptr inbounds i8, ptr %39, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %42, 458840
   %47 = sub i32 %46, %43
   %48 = add i32 %47, %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 7544
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef %31, i32 %48, i32 noundef %38, i1 noundef zeroext true) #6
+  tail call void %50(ptr noundef nonnull %31, i32 %48, i32 noundef %38, i1 noundef zeroext true) #6
   br label %51
 
 51:                                               ; preds = %20, %16
@@ -459,7 +459,7 @@ define dso_local void @intel_cpu_fifo_underrun_irq_handler(ptr noundef %0, i32 n
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @__SCT__tp_func_intel_cpu_fifo_underrun(ptr noundef %66, ptr noundef %0, i32 noundef %1) #6
   br label %68
@@ -488,7 +488,7 @@ define dso_local void @intel_cpu_fifo_underrun_irq_handler(ptr noundef %0, i32 n
   br i1 %78, label %83, label %80
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8
   br label %83
 
@@ -513,7 +513,7 @@ define dso_local void @intel_cpu_fifo_underrun_irq_handler(ptr noundef %0, i32 n
   br i1 %78, label %101, label %98
 
 98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %0, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %100 = load ptr, ptr %99, align 8
   br label %101
 
@@ -563,7 +563,7 @@ define dso_local void @intel_pch_fifo_underrun_irq_handler(ptr noundef %0, i32 n
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @__SCT__tp_func_intel_pch_fifo_underrun(ptr noundef %16, ptr noundef %0, i32 noundef %1) #6
   br label %18
@@ -587,7 +587,7 @@ define dso_local void @intel_pch_fifo_underrun_irq_handler(ptr noundef %0, i32 n
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -603,16 +603,16 @@ define dso_local void @intel_pch_fifo_underrun_irq_handler(ptr noundef %0, i32 n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %2) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 736
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %2) #6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 2624
-  %8 = getelementptr inbounds i8, ptr %0, i64 2632
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2624
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   br label %9
 
 9:                                                ; preds = %128, %6
@@ -625,7 +625,7 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 128
   %20 = icmp eq i16 %19, 0
@@ -633,24 +633,24 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 2624
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2624
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %26 = getelementptr i8, ptr %10, i64 1632
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
   %29 = getelementptr [7 x i32], ptr %25, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %25, align 4
-  %32 = getelementptr inbounds i8, ptr %24, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %30, 458788
   %35 = sub i32 %34, %31
   %36 = add i32 %35, %33
-  %37 = getelementptr inbounds i8, ptr %22, i64 7368
-  %38 = getelementptr inbounds i8, ptr %22, i64 7512
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 7368
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 7512
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call i32 %39(ptr noundef %37, i32 %36, i1 noundef zeroext true) #6
+  %40 = tail call i32 %39(ptr noundef nonnull %37, i32 %36, i1 noundef zeroext true) #6
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %128, label %42
 
@@ -658,11 +658,11 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   %43 = load i32, ptr %26, align 8
   %44 = tail call i32 @i915_pipestat_enable_mask(ptr noundef %22, i32 noundef %43) #6
   %45 = or i32 %44, -2147483648
-  %46 = getelementptr inbounds i8, ptr %22, i64 7544
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 7544
   %47 = load ptr, ptr %46, align 8
-  tail call void %47(ptr noundef %37, i32 %36, i32 noundef %45, i1 noundef zeroext true) #6
+  tail call void %47(ptr noundef nonnull %37, i32 %36, i32 noundef %45, i1 noundef zeroext true) #6
   %48 = load ptr, ptr %38, align 8
-  %49 = tail call i32 %48(ptr noundef %37, i32 %36, i1 noundef zeroext false) #6
+  %49 = tail call i32 %48(ptr noundef nonnull %37, i32 %36, i1 noundef zeroext false) #6
   %50 = load i32, ptr %26, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_intel_cpu_fifo_underrun, i64 8), i32 2) #6
           to label %71 [label %51], !srcloc !12
@@ -684,7 +684,7 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @__SCT__tp_func_intel_cpu_fifo_underrun(ptr noundef %62, ptr noundef %22, i32 noundef %50) #6
   br label %64
@@ -708,7 +708,7 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %22, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %75 = load ptr, ptr %74, align 8
   br label %76
 
@@ -728,10 +728,10 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   %84 = load ptr, ptr %11, align 8
   %85 = getelementptr i8, ptr %10, i64 1632
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %84, i64 7368
-  %88 = getelementptr inbounds i8, ptr %84, i64 7512
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 7368
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 7512
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call i32 %89(ptr noundef %87, i32 278592, i1 noundef zeroext true) #6
+  %90 = tail call i32 %89(ptr noundef nonnull %87, i32 278592, i1 noundef zeroext true) #6
   %91 = mul i32 %86, 3
   %92 = shl nuw i32 1, %91
   %93 = and i32 %90, %92
@@ -739,11 +739,11 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   br i1 %94, label %128, label %95
 
 95:                                               ; preds = %83
-  %96 = getelementptr inbounds i8, ptr %84, i64 7544
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 7544
   %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef %87, i32 278592, i32 noundef %92, i1 noundef zeroext true) #6
+  tail call void %97(ptr noundef nonnull %87, i32 278592, i32 noundef %92, i1 noundef zeroext true) #6
   %98 = load ptr, ptr %88, align 8
-  %99 = tail call i32 %98(ptr noundef %87, i32 278592, i1 noundef zeroext false) #6
+  %99 = tail call i32 %98(ptr noundef nonnull %87, i32 278592, i1 noundef zeroext false) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_intel_cpu_fifo_underrun, i64 8), i32 2) #6
           to label %120 [label %100], !srcloc !12
 
@@ -764,7 +764,7 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 @__SCT__tp_func_intel_cpu_fifo_underrun(ptr noundef %111, ptr noundef %84, i32 noundef %86) #6
   br label %113
@@ -788,7 +788,7 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   br i1 %121, label %125, label %122
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %84, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %124 = load ptr, ptr %123, align 8
   br label %125
 
@@ -804,21 +804,21 @@ define dso_local void @intel_check_cpu_fifo_underruns(ptr noundef %0) local_unna
   br i1 %130, label %.loopexit, label %9, !llvm.loop !25
 
 .loopexit:                                        ; preds = %128, %1
-  tail call void @_raw_spin_unlock_irq(ptr noundef %2) #6
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %2) #6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %2) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 736
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %2) #6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   br label %8
 
 8:                                                ; preds = %62, %6
@@ -838,10 +838,10 @@ define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unna
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr i8, ptr %9, i64 1632
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 7368
-  %22 = getelementptr inbounds i8, ptr %18, i64 7512
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 7368
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 7512
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %21, i32 802880, i1 noundef zeroext true) #6
+  %24 = tail call i32 %23(ptr noundef nonnull %21, i32 802880, i1 noundef zeroext true) #6
   %25 = mul i32 %20, 3
   %26 = shl nuw i32 1, %25
   %27 = and i32 %24, %26
@@ -849,11 +849,11 @@ define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unna
   br i1 %28, label %62, label %29
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %18, i64 7544
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 7544
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef %21, i32 802880, i32 noundef %26, i1 noundef zeroext true) #6
+  tail call void %31(ptr noundef nonnull %21, i32 802880, i32 noundef %26, i1 noundef zeroext true) #6
   %32 = load ptr, ptr %22, align 8
-  %33 = tail call i32 %32(ptr noundef %21, i32 802880, i1 noundef zeroext false) #6
+  %33 = tail call i32 %32(ptr noundef nonnull %21, i32 802880, i1 noundef zeroext false) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_intel_pch_fifo_underrun, i64 8), i32 2) #6
           to label %54 [label %34], !srcloc !12
 
@@ -874,7 +874,7 @@ define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unna
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @__SCT__tp_func_intel_pch_fifo_underrun(ptr noundef %45, ptr noundef %18, i32 noundef %20) #6
   br label %47
@@ -898,7 +898,7 @@ define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unna
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %18, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %58 = load ptr, ptr %57, align 8
   br label %59
 
@@ -914,23 +914,23 @@ define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unna
   br i1 %64, label %.loopexit, label %8, !llvm.loop !26
 
 .loopexit:                                        ; preds = %62, %1
-  tail call void @_raw_spin_unlock_irq(ptr noundef %2) #6
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %2) #6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_init_fifo_underrun_reporting(ptr noundef %0, ptr nocapture noundef initializes((1720, 1721)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = xor i1 %2, true
-  %5 = getelementptr inbounds i8, ptr %1, i64 1720
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1720
   %6 = zext i1 %4 to i8
   store i8 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 1648
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %8 = load i32, ptr %7, align 8
   %9 = tail call zeroext i1 @intel_has_pch_trancoder(ptr noundef %0, i32 noundef %8) #6
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 1721
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1721
   store i8 %6, ptr %11, align 1
   br label %12
 

@@ -82,7 +82,7 @@ define dso_local range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_u
   %4 = sdiv i32 %3, 2
   %5 = sext i32 %4 to i64
   %6 = getelementptr [3302 x %struct.pg_category_range], ptr @unicode_categories, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %0, %8
   br i1 %9, label %10, label %12
@@ -101,7 +101,7 @@ define dso_local range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_u
   br label %21
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i32
   br label %.loopexit
@@ -124,7 +124,7 @@ define dso_local noundef nonnull ptr @unicode_category_string(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [30 x ptr], ptr @switch.table.unicode_category_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table.unicode_category_string, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -140,7 +140,7 @@ define dso_local noundef nonnull ptr @unicode_category_abbrev(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [30 x ptr], ptr @switch.table.unicode_category_abbrev, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table.unicode_category_abbrev, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

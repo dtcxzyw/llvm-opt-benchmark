@@ -23,14 +23,14 @@ entry:
   %size = alloca i64, align 8
   %stmt = alloca ptr, align 8
   %tail = alloca ptr, align 8
-  %state1 = getelementptr inbounds i8, ptr %connection, i64 24
+  %state1 = getelementptr inbounds nuw i8, ptr %connection, i64 24
   %0 = load ptr, ptr %state1, align 8
   %call = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %sql, ptr noundef nonnull %size) #4
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %db2 = getelementptr inbounds i8, ptr %connection, i64 16
+  %db2 = getelementptr inbounds nuw i8, ptr %connection, i64 16
   %1 = load ptr, ptr %db2, align 8
   %call3 = call i32 @sqlite3_limit(ptr noundef %1, i32 noundef 1, i32 noundef -1) #4
   %2 = load i64, ptr %size, align 8
@@ -39,7 +39,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end
-  %DataError = getelementptr inbounds i8, ptr %connection, i64 176
+  %DataError = getelementptr inbounds nuw i8, ptr %connection, i64 176
   %3 = load ptr, ptr %DataError, align 8
   call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str) #4
   br label %return
@@ -50,7 +50,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
-  %ProgrammingError = getelementptr inbounds i8, ptr %connection, i64 208
+  %ProgrammingError = getelementptr inbounds nuw i8, ptr %connection, i64 208
   %4 = load ptr, ptr %ProgrammingError, align 8
   call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.1) #4
   br label %return
@@ -76,7 +76,7 @@ if.end20:                                         ; preds = %if.end12
   br i1 %cmp22.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
-  %ProgrammingError25 = getelementptr inbounds i8, ptr %connection, i64 208
+  %ProgrammingError25 = getelementptr inbounds nuw i8, ptr %connection, i64 208
   %7 = load ptr, ptr %ProgrammingError25, align 8
   call void @PyErr_SetString(ptr noundef %7, ptr noundef nonnull @.str.2) #4
   br label %error
@@ -109,7 +109,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false37
 
 if.end44:                                         ; preds = %if.then30, %lor.lhs.false, %lor.lhs.false37, %lor.rhs, %if.end26
   %is_dml.0 = phi i32 [ 0, %if.end26 ], [ 1, %lor.lhs.false37 ], [ 1, %lor.lhs.false ], [ 1, %if.then30 ], [ %8, %lor.rhs ]
-  %StatementType = getelementptr inbounds i8, ptr %0, i64 152
+  %StatementType = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %StatementType, align 8
   %call45 = call ptr @_PyObject_GC_New(ptr noundef %9) #4
   %cmp46 = icmp eq ptr %call45, null
@@ -117,9 +117,9 @@ if.end44:                                         ; preds = %if.then30, %lor.lhs
 
 if.end49:                                         ; preds = %if.end44
   %10 = load ptr, ptr %stmt, align 8
-  %st = getelementptr inbounds i8, ptr %call45, i64 16
+  %st = getelementptr inbounds nuw i8, ptr %call45, i64 16
   store ptr %10, ptr %st, align 8
-  %is_dml50 = getelementptr inbounds i8, ptr %call45, i64 24
+  %is_dml50 = getelementptr inbounds nuw i8, ptr %call45, i64 24
   store i32 %is_dml.0, ptr %is_dml50, align 8
   call void @PyObject_GC_Track(ptr noundef nonnull %call45) #4
   br label %return
@@ -254,7 +254,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #4
-  %StatementType = getelementptr inbounds i8, ptr %call.i, i64 152
+  %StatementType = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr %call, ptr %StatementType, align 8
   br label %return
 
@@ -271,7 +271,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #4
-  %st = getelementptr inbounds i8, ptr %self, i64 16
+  %st = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load ptr, ptr %st, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -285,7 +285,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %3 = load ptr, ptr %tp_free, align 8
   tail call void %3(ptr noundef nonnull %self) #4
   %4 = load i64, ptr %self.val, align 8

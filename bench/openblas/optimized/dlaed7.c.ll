@@ -204,11 +204,11 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 147:                                              ; preds = %.loopexit10._crit_edge, %143
   %148 = phi i64 [ %142, %.loopexit10._crit_edge ], [ 3, %143 ]
   %149 = zext nneg i32 %70 to i64
-  %150 = getelementptr inbounds double, ptr %36, i64 %149
+  %150 = getelementptr inbounds nuw double, ptr %36, i64 %149
   %151 = zext nneg i32 %72 to i64
-  %152 = getelementptr inbounds double, ptr %36, i64 %151
+  %152 = getelementptr inbounds nuw double, ptr %36, i64 %151
   %153 = zext nneg i32 %71 to i64
-  %154 = getelementptr inbounds double, ptr %36, i64 %153
+  %154 = getelementptr inbounds nuw double, ptr %36, i64 %153
   %155 = getelementptr inbounds i32, ptr %31, i64 %139
   %156 = load i32, ptr %155, align 4, !tbaa !3
   %157 = sext i32 %156 to i64
@@ -219,7 +219,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %162 = getelementptr inbounds i32, ptr %33, i64 %139
   %163 = getelementptr inbounds i32, ptr %34, i64 %148
   %164 = getelementptr inbounds double, ptr %35, i64 %148
-  %165 = getelementptr inbounds i32, ptr %37, i64 %151
+  %165 = getelementptr inbounds nuw i32, ptr %37, i64 %151
   call void @dlaed8_(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef %19, ptr noundef nonnull %150, ptr noundef nonnull %152, ptr noundef nonnull %27, ptr noundef nonnull %154, ptr noundef nonnull %158, ptr noundef nonnull %161, ptr noundef nonnull %163, ptr noundef nonnull %164, ptr noundef nonnull %165, ptr noundef %20, ptr noundef nonnull %21) #4
   %166 = load i32, ptr %155, align 4, !tbaa !3
   %167 = load i32, ptr %1, align 4, !tbaa !3
@@ -288,7 +288,7 @@ define void @dlaed7_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 208:                                              ; preds = %208, %205
   %209 = phi i64 [ 1, %205 ], [ %212, %208 ]
-  %210 = getelementptr inbounds i32, ptr %28, i64 %209
+  %210 = getelementptr inbounds nuw i32, ptr %28, i64 %209
   %211 = trunc i64 %209 to i32
   store i32 %211, ptr %210, align 4, !tbaa !3
   %212 = add nuw nsw i64 %209, 1

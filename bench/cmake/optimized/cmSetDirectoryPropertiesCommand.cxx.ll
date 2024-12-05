@@ -45,7 +45,7 @@ define dso_local noundef zeroext i1 @_Z31cmSetDirectoryPropertiesCommandRKSt6vec
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.0", align 1
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %15, label %25
@@ -70,7 +70,7 @@ define dso_local noundef zeroext i1 @_Z31cmSetDirectoryPropertiesCommandRKSt6vec
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc28
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.loopexit.sink.split unwind label %23
 
@@ -113,7 +113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; preds = %.noexc31
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %.loopexit.sink.split unwind label %38
 
@@ -129,7 +129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
   br label %.body
 
 40:                                               ; preds = %25
-  %41 = getelementptr inbounds i8, ptr %11, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.not57 = icmp eq ptr %41, %13
   br i1 %.not57, label %.loopexit, label %.lr.ph
 
@@ -159,7 +159,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41: ; preds = %.noexc38
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.loopexit.sink.split unwind label %52
 
@@ -199,7 +199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit41: ; 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48: ; preds = %.noexc45
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.loopexit.sink.split unwind label %65
 
@@ -216,9 +216,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit48: ; 
 
 67:                                               ; preds = %54
   %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %.sroa.053.058, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.053.058, i64 32
   tail call void @_ZN10cmMakefile11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7cmValue(ptr noundef nonnull align 8 dereferenceable(3520) %68, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.053.058, ptr nonnull align 8 dereferenceable(32) %69)
-  %70 = getelementptr inbounds i8, ptr %.sroa.053.058, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.053.058, i64 64
   %71 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %70, %71
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !5

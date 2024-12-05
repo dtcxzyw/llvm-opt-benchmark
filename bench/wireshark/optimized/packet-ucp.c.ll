@@ -895,7 +895,7 @@ define internal noundef i32 @ucp_stats_tree_per_packet(ptr noundef %0, ptr nocap
   %7 = load i32, ptr %3, align 4
   %8 = icmp eq i32 %7, 0
   %9 = load i32, ptr @st_ucp_messages, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %8, label %11, label %17
 
 11:                                               ; preds = %5
@@ -913,7 +913,7 @@ define internal noundef i32 @ucp_stats_tree_per_packet(ptr noundef %0, ptr nocap
   %21 = load i32, ptr @st_ucp_res, align 4
   %22 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %20, i32 noundef %21, i32 noundef 0, i32 noundef 1) #4
   %23 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @st_str_ucp_res, i32 noundef 0, i32 noundef 1, i32 noundef 1) #4
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %27 = load i32, ptr @st_ucp_results, align 4
@@ -987,7 +987,7 @@ define internal i32 @get_ucp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, 
 define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.323) #4
   %9 = load ptr, ptr %7, align 8
@@ -1069,7 +1069,7 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   %53 = zext i1 %52 to i32
   store i32 %53, ptr %50, align 4
   %54 = zext i8 %48 to i32
-  %55 = getelementptr inbounds i8, ptr %50, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %54, ptr %55, align 4
   %56 = load ptr, ptr %7, align 8
   %57 = tail call ptr @val_to_str_ext_const(i32 noundef %54, ptr noundef nonnull @vals_hdr_OT_ext, ptr noundef nonnull @.str.577) #4
@@ -1944,7 +1944,7 @@ ucp_handle_byte.exit165.i:                        ; preds = %382, %ucp_handle_by
   %421 = add nuw nsw i32 %420, 1
   %422 = lshr i32 %421, 1
   %423 = shl nuw nsw i32 %420, 2
-  %424 = getelementptr inbounds i8, ptr %415, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %425 = load i32, ptr %424, align 8
   %426 = add i32 %425, 1
   %427 = icmp ult i32 %426, %422
@@ -1962,7 +1962,7 @@ ucp_handle_byte.exit165.i:                        ; preds = %382, %ucp_handle_by
   %434 = phi ptr [ %.pre.i169.i, %428 ], [ %418, %417 ]
   %.0.in.i.i = phi i32 [ %432, %428 ], [ %423, %417 ]
   %.0.i167.i = udiv i32 %.0.in.i.i, 7
-  %435 = getelementptr inbounds i8, ptr %1, i64 408
+  %435 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %436 = load ptr, ptr %435, align 8
   %437 = getelementptr i8, ptr %434, i64 1
   %438 = call ptr @get_ts_23_038_7bits_string_packed(ptr noundef %436, ptr noundef %437, i32 noundef 0, i32 noundef %.0.i167.i) #4
@@ -2000,7 +2000,7 @@ ucp_handle_alphanum_OAdC.exit.i:                  ; preds = %445, %439
   br i1 %.not.i170.i, label %proto_item_set_hidden.exit.i, label %451
 
 451:                                              ; preds = %449
-  %452 = getelementptr inbounds i8, ptr %.val.i, i64 28
+  %452 = getelementptr inbounds nuw i8, ptr %.val.i, i64 28
   %453 = load i32, ptr %452, align 4
   %454 = or i32 %453, 1
   store i32 %454, ptr %452, align 4
@@ -2434,14 +2434,14 @@ ucp_handle_byte.exit49:                           ; preds = %ucp_handle_byte.exi
   %76 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %75, ptr noundef %5)
   %77 = load i32, ptr @hf_ucp_parm_NoB, align 4
   %78 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %77, ptr noundef %5)
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %79, align 4
   br label %ucp_handle_string.exit
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %80 = load i32, ptr @hf_ucp_parm_EC, align 4
   %81 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %80, ptr noundef %5)
-  %82 = getelementptr inbounds i8, ptr %3, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %81, ptr %82, align 4
   %83 = load i32, ptr @hf_ucp_parm_SM, align 4
   %84 = load i32, ptr %5, align 4
@@ -2582,14 +2582,14 @@ ucp_handle_byte.exit:                             ; preds = %4
 11:                                               ; preds = %ucp_handle_byte.exit
   %12 = load i32, ptr @hf_ucp_parm_EC, align 4
   %13 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, ptr noundef %5)
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %13, ptr %14, align 4
   %.pre = load i32, ptr %5, align 4
   br label %17
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %15 = phi i32 [ 2, %4 ], [ 3, %ucp_handle_byte.exit ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %16, align 4
   br label %17
 
@@ -3254,14 +3254,14 @@ ucp_handle_string.exit25:                         ; preds = %37, %39
   %41 = zext i1 %31 to i32
   %42 = add i32 %spec.select.i33.lcssa, %41
   %spec.select.i23 = add i32 %42, %.0.i21
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %43, align 4
   br label %47
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %44 = load i32, ptr @hf_ucp_parm_EC, align 4
   %45 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %44, ptr noundef %5)
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %45, ptr %46, align 4
   %.pre = load i32, ptr %5, align 4
   br label %47
@@ -3574,14 +3574,14 @@ ucp_handle_string.exit:                           ; preds = %22, %24
   %26 = zext i1 %16 to i32
   %27 = add i32 %14, %26
   %spec.select.i = add i32 %27, %.0.i
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %28, align 4
   br label %32
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %29 = load i32, ptr @hf_ucp_parm_EC, align 4
   %30 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %29, ptr noundef %5)
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %30, ptr %31, align 4
   %.pre = load i32, ptr %5, align 4
   br label %32
@@ -4071,14 +4071,14 @@ ucp_handle_string.exit:                           ; preds = %22, %24
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit, %11
   %spec.select.i24.lcssa = phi i32 [ %.promoted, %11 ], [ %spec.select.i, %ucp_handle_string.exit ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %29, align 4
   br label %33
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %30 = load i32, ptr @hf_ucp_parm_EC, align 4
   %31 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30, ptr noundef %5)
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %31, ptr %32, align 4
   %.pre = load i32, ptr %5, align 4
   br label %33
@@ -4315,14 +4315,14 @@ ucp_handle_string.exit:                           ; preds = %22, %24
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit, %11
   %spec.select.i24.lcssa = phi i32 [ %.promoted, %11 ], [ %spec.select.i, %ucp_handle_string.exit ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %29, align 4
   br label %33
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %30 = load i32, ptr @hf_ucp_parm_EC, align 4
   %31 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %30, ptr noundef %5)
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %31, ptr %32, align 4
   %.pre = load i32, ptr %5, align 4
   br label %33
@@ -4618,14 +4618,14 @@ ucp_handle_data.exit:                             ; preds = %18, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %ucp_handle_data.exit, %11
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %25, align 4
   br label %ucp_handle_string.exit
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %26 = load i32, ptr @hf_ucp_parm_EC, align 4
   %27 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, ptr noundef %5)
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr @hf_ucp_parm_SM, align 4
   %30 = load i32, ptr %5, align 4
@@ -5090,7 +5090,7 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ucp_handle_byte.exit21, %ucp_handle_byte.exit.thread
   %.sink = phi i32 [ %23, %ucp_handle_byte.exit.thread ], [ 0, %ucp_handle_byte.exit21 ], [ 0, %.lr.ph ]
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %24, align 4
   %25 = load i32, ptr @hf_ucp_parm_SM, align 4
   %26 = load i32, ptr %5, align 4
@@ -5463,7 +5463,7 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
 
 124:                                              ; preds = %119, %115, %109, %ucp_handle_byte.exit.thread
   %.sink = phi i32 [ %123, %ucp_handle_byte.exit.thread ], [ 0, %109 ], [ 0, %115 ], [ 0, %119 ]
-  %125 = getelementptr inbounds i8, ptr %3, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %125, align 4
   %126 = load i32, ptr @hf_ucp_parm_SM, align 4
   %127 = load i32, ptr %5, align 4
@@ -5679,7 +5679,7 @@ ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte
 
 15:                                               ; preds = %ucp_handle_byte.exit.thread, %11
   %.sink = phi i32 [ %14, %ucp_handle_byte.exit.thread ], [ 0, %11 ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %16, align 4
   %17 = load i32, ptr @hf_ucp_parm_SM, align 4
   %18 = load i32, ptr %5, align 4
@@ -6335,7 +6335,7 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
 20:                                               ; preds = %16
   %21 = call ptr @wmem_packet_scope() #4
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %21, ptr noundef %22, i32 noundef %24) #4
   br label %26
@@ -6370,7 +6370,7 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
 40:                                               ; preds = %35
   %41 = call ptr @wmem_packet_scope() #4
   %42 = load ptr, ptr %36, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %41, ptr noundef %42, i32 noundef %44) #4
   call void @wmem_strbuf_append(ptr noundef %28, ptr noundef %45) #4
@@ -6471,13 +6471,13 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %28 = sext i8 %27 to i32
   %29 = add nsw i32 %28, -528
   %30 = add nsw i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %5, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %30, ptr %31, align 4
   %32 = icmp samesign ugt i32 %.0, 3
   br i1 %32, label %34, label %.thread.i
 
 .thread.i:                                        ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %33, align 8
   br label %.thread18.i
 
@@ -6491,7 +6491,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %41 = sext i8 %40 to i32
   %42 = add nsw i32 %41, -529
   %43 = add nsw i32 %42, %38
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %43, ptr %44, align 8
   %45 = icmp samesign ugt i32 %.0, 5
   br i1 %45, label %46, label %.thread18.i
@@ -6506,14 +6506,14 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %53 = sext i8 %52 to i32
   %54 = add nsw i32 %53, -528
   %55 = add nsw i32 %54, %50
-  %56 = getelementptr inbounds i8, ptr %5, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %55, ptr %56, align 4
   %57 = icmp slt i32 %55, 90
   br i1 %57, label %.thread18.i, label %61
 
 .thread18.i:                                      ; preds = %46, %34, %.thread.i
   %58 = phi i32 [ %55, %46 ], [ 0, %34 ], [ 0, %.thread.i ]
-  %59 = getelementptr inbounds i8, ptr %5, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %60 = add nsw i32 %58, 100
   store i32 %60, ptr %59, align 4
   br label %61
@@ -6523,7 +6523,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   br i1 %62, label %64, label %.thread16.i
 
 .thread16.i:                                      ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %63, align 8
   br label %.thread17.i
 
@@ -6537,13 +6537,13 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %71 = sext i8 %70 to i32
   %72 = add nsw i32 %71, -528
   %73 = add nsw i32 %72, %68
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %73, ptr %74, align 8
   %75 = icmp samesign ugt i32 %.0, 9
   br i1 %75, label %77, label %.thread17.i
 
 .thread17.i:                                      ; preds = %64, %.thread16.i
-  %76 = getelementptr inbounds i8, ptr %5, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %76, align 4
   br label %ucp_mktime.exit
 
@@ -6557,7 +6557,7 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
   %84 = sext i8 %83 to i32
   %85 = add nsw i32 %84, -528
   %86 = add nsw i32 %85, %81
-  %87 = getelementptr inbounds i8, ptr %5, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %86, ptr %87, align 4
   %88 = icmp samesign ugt i32 %.0, 11
   br i1 %88, label %89, label %ucp_mktime.exit
@@ -6577,12 +6577,12 @@ define internal fastcc void @ucp_handle_time(ptr noundef %0, ptr noundef %1, i32
 ucp_mktime.exit:                                  ; preds = %.thread17.i, %77, %89
   %storemerge.i = phi i32 [ %98, %89 ], [ 0, %77 ], [ 0, %.thread17.i ]
   store i32 %storemerge.i, ptr %5, align 8
-  %99 = getelementptr inbounds i8, ptr %5, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %99, align 8
   %100 = call noundef i64 @mktime(ptr noundef nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   store i64 %100, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %6, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %101, align 8
   %102 = load i32, ptr %3, align 4
   %103 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %102, i32 noundef %.0, ptr noundef nonnull %6) #4

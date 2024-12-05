@@ -102,8 +102,8 @@ if.end:                                           ; preds = %entry
   store ptr %cb, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8
   call void @llvm.va_start.p0(ptr nonnull %va)
   store i8 70, ptr @gdbserver_syscall_state, align 8
-  %overflow_arg_area_p42 = getelementptr inbounds i8, ptr %va, i64 8
-  %3 = getelementptr inbounds i8, ptr %va, i64 16
+  %overflow_arg_area_p42 = getelementptr inbounds nuw i8, ptr %va, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %va, i64 16
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end
@@ -278,7 +278,7 @@ declare void @gdb_syscall_handling(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_file_io(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %params, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %cmp = icmp ne i32 %0, 0
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_syscall_state, i64 256), align 8

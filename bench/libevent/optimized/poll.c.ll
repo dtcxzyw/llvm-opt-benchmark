@@ -32,7 +32,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %weakrand_seed = getelementptr inbounds i8, ptr %base, i64 1160
+  %weakrand_seed = getelementptr inbounds nuw i8, ptr %base, i64 1160
   %call5 = tail call i32 @evutil_weakrand_seed_(ptr noundef nonnull %weakrand_seed, i32 noundef 0) #6
   br label %return
 
@@ -43,14 +43,14 @@ return:                                           ; preds = %entry, %if.end4
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @poll_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   %1 = and i16 %events, 134
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %nfds = getelementptr inbounds i8, ptr %0, i64 4
+  %nfds = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %nfds, align 4
   %add = add nsw i32 %2, 1
   %3 = load i32, ptr %0, align 8
@@ -61,7 +61,7 @@ if.then2:                                         ; preds = %if.end
   %cmp4 = icmp slt i32 %3, 32
   %mul = shl nuw nsw i32 %3, 1
   %tmp_event_count.0 = select i1 %cmp4, i32 32, i32 %mul
-  %event_set = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %event_set, align 8
   %conv9 = zext nneg i32 %tmp_event_count.0 to i64
   %mul10 = shl nuw nsw i64 %conv9, 3
@@ -76,7 +76,7 @@ if.then13:                                        ; preds = %if.then2
 if.end14:                                         ; preds = %if.then2
   store ptr %call, ptr %event_set, align 8
   store i32 %tmp_event_count.0, ptr %0, align 8
-  %realloc_copy = getelementptr inbounds i8, ptr %0, i64 8
+  %realloc_copy = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %realloc_copy, align 8
   br label %if.end17
 
@@ -86,7 +86,7 @@ if.end17:                                         ; preds = %if.end14, %if.end
   br i1 %cmp18, label %if.then20, label %if.else22
 
 if.then20:                                        ; preds = %if.end17
-  %event_set21 = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %event_set21, align 8
   %7 = zext nneg i32 %5 to i64
   %8 = getelementptr %struct.pollfd, ptr %6, i64 %7
@@ -97,11 +97,11 @@ if.else22:                                        ; preds = %if.end17
   %9 = load i32, ptr %nfds, align 4
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %nfds, align 4
-  %event_set24 = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %event_set24, align 8
   %idxprom25 = sext i32 %9 to i64
   %arrayidx26 = getelementptr inbounds %struct.pollfd, ptr %10, i64 %idxprom25
-  %events27 = getelementptr inbounds i8, ptr %arrayidx26, i64 4
+  %events27 = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 4
   store i16 0, ptr %events27, align 4
   store i32 %fd, ptr %arrayidx26, align 4
   store i32 %inc, ptr %idx_, align 4
@@ -109,14 +109,14 @@ if.else22:                                        ; preds = %if.end17
 
 if.end31:                                         ; preds = %if.else22, %if.then20
   %pfd.0 = phi ptr [ %arrayidx, %if.then20 ], [ %arrayidx26, %if.else22 ]
-  %revents = getelementptr inbounds i8, ptr %pfd.0, i64 6
+  %revents = getelementptr inbounds nuw i8, ptr %pfd.0, i64 6
   store i16 0, ptr %revents, align 2
   %11 = and i16 %events, 4
   %tobool34.not = icmp eq i16 %11, 0
   br i1 %tobool34.not, label %if.end39, label %if.then35
 
 if.then35:                                        ; preds = %if.end31
-  %events36 = getelementptr inbounds i8, ptr %pfd.0, i64 4
+  %events36 = getelementptr inbounds nuw i8, ptr %pfd.0, i64 4
   %12 = load i16, ptr %events36, align 4
   %13 = or i16 %12, 4
   store i16 %13, ptr %events36, align 4
@@ -128,7 +128,7 @@ if.end39:                                         ; preds = %if.then35, %if.end3
   br i1 %tobool42.not, label %if.end48, label %if.then43
 
 if.then43:                                        ; preds = %if.end39
-  %events44 = getelementptr inbounds i8, ptr %pfd.0, i64 4
+  %events44 = getelementptr inbounds nuw i8, ptr %pfd.0, i64 4
   %15 = load i16, ptr %events44, align 4
   %16 = or i16 %15, 1
   store i16 %16, ptr %events44, align 4
@@ -140,7 +140,7 @@ if.end48:                                         ; preds = %if.then43, %if.end3
   br i1 %tobool51.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.end48
-  %events53 = getelementptr inbounds i8, ptr %pfd.0, i64 4
+  %events53 = getelementptr inbounds nuw i8, ptr %pfd.0, i64 4
   %18 = load i16, ptr %events53, align 4
   %19 = or i16 %18, 8192
   store i16 %19, ptr %events53, align 4
@@ -154,7 +154,7 @@ return:                                           ; preds = %if.end48, %if.then5
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @poll_del(ptr noundef %base, i32 %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture noundef %idx_) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   %1 = and i16 %events, 134
   %tobool.not = icmp eq i16 %1, 0
@@ -167,16 +167,16 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %sub = add nsw i32 %2, -1
-  %event_set = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %event_set, align 8
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds %struct.pollfd, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %struct.pollfd, ptr %3, i64 %idxprom
   %4 = and i16 %events, 2
   %tobool6.not = icmp eq i16 %4, 0
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end3
-  %events8 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %events8 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %5 = load i16, ptr %events8, align 4
   %6 = and i16 %5, -2
   store i16 %6, ptr %events8, align 4
@@ -188,7 +188,7 @@ if.end12:                                         ; preds = %if.then7, %if.end3
   br i1 %tobool15.not, label %if.end21, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
-  %events17 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %events17 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %8 = load i16, ptr %events17, align 4
   %9 = and i16 %8, -5
   store i16 %9, ptr %events17, align 4
@@ -197,7 +197,7 @@ if.then16:                                        ; preds = %if.end12
 if.end21:                                         ; preds = %if.then16, %if.end12
   %10 = and i16 %events, 128
   %tobool24.not = icmp eq i16 %10, 0
-  %events31.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %events31.phi.trans.insert = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %.pre = load i16, ptr %events31.phi.trans.insert, align 4
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
@@ -213,7 +213,7 @@ if.end30:                                         ; preds = %if.end21, %if.then2
 
 if.end34:                                         ; preds = %if.end30
   store i32 0, ptr %idx_, align 4
-  %nfds = getelementptr inbounds i8, ptr %0, i64 4
+  %nfds = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %nfds, align 4
   %dec = add nsw i32 %13, -1
   store i32 %dec, ptr %nfds, align 4
@@ -222,14 +222,14 @@ if.end34:                                         ; preds = %if.end30
 
 if.then39:                                        ; preds = %if.end34
   %14 = load ptr, ptr %event_set, align 8
-  %arrayidx42 = getelementptr inbounds %struct.pollfd, ptr %14, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds nuw %struct.pollfd, ptr %14, i64 %idxprom
   %idxprom45 = sext i32 %dec to i64
   %arrayidx46 = getelementptr inbounds %struct.pollfd, ptr %14, i64 %idxprom45
   %15 = load i64, ptr %arrayidx46, align 4
   store i64 %15, ptr %arrayidx42, align 4
-  %io = getelementptr inbounds i8, ptr %base, i64 808
+  %io = getelementptr inbounds nuw i8, ptr %base, i64 808
   %16 = load ptr, ptr %event_set, align 8
-  %arrayidx49 = getelementptr inbounds %struct.pollfd, ptr %16, i64 %idxprom
+  %arrayidx49 = getelementptr inbounds nuw %struct.pollfd, ptr %16, i64 %idxprom
   %17 = load i32, ptr %arrayidx49, align 4
   %call = tail call ptr @evmap_io_get_fdinfo_(ptr noundef nonnull %io, i32 noundef %17) #6
   store i32 %2, ptr %call, align 4
@@ -243,20 +243,20 @@ return:                                           ; preds = %if.end34, %if.then3
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @poll_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
-  %nfds1 = getelementptr inbounds i8, ptr %0, i64 4
+  %nfds1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %nfds1, align 4
-  %th_base_lock = getelementptr inbounds i8, ptr %base, i64 952
+  %th_base_lock = getelementptr inbounds nuw i8, ptr %base, i64 952
   %2 = load ptr, ptr %th_base_lock, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %realloc_copy = getelementptr inbounds i8, ptr %0, i64 8
+  %realloc_copy = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %realloc_copy, align 8
   %tobool2.not = icmp eq i32 %3, 0
-  %event_set_copy9.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %event_set_copy9.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %event_set_copy9.phi.trans.insert, align 8
   br i1 %tobool2.not, label %if.end8, label %if.then3
 
@@ -275,8 +275,8 @@ if.end:                                           ; preds = %if.then3
 
 if.end8:                                          ; preds = %if.then, %if.end
   %5 = phi ptr [ %call, %if.end ], [ %.pre, %if.then ]
-  %event_set_copy9 = getelementptr inbounds i8, ptr %0, i64 24
-  %event_set10 = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set_copy9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %event_set10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %event_set10, align 8
   %conv11 = sext i32 %1 to i64
   %mul12 = shl nsw i64 %conv11, 3
@@ -284,7 +284,7 @@ if.end8:                                          ; preds = %if.then, %if.end
   br label %if.end15
 
 if.else:                                          ; preds = %entry
-  %event_set14 = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.end8
@@ -348,7 +348,7 @@ do.end61:                                         ; preds = %do.body57, %if.then
   br i1 %or.cond1, label %return, label %if.end68
 
 if.end68:                                         ; preds = %do.end61
-  %weakrand_seed = getelementptr inbounds i8, ptr %base, i64 1160
+  %weakrand_seed = getelementptr inbounds nuw i8, ptr %base, i64 1160
   %call69 = tail call i32 @evutil_weakrand_range_(ptr noundef nonnull %weakrand_seed, i32 noundef %1) #6
   %cmp7047 = icmp sgt i32 %1, 0
   br i1 %cmp7047, label %for.body, label %return
@@ -361,7 +361,7 @@ for.body:                                         ; preds = %if.end68, %for.inc
   %spec.store.select = select i1 %cmp72, i32 0, i32 %inc
   %idxprom = sext i32 %spec.store.select to i64
   %arrayidx = getelementptr inbounds %struct.pollfd, ptr %event_set.0, i64 %idxprom
-  %revents = getelementptr inbounds i8, ptr %arrayidx, i64 6
+  %revents = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
   %14 = load i16, ptr %revents, align 2
   %tobool77.not = icmp eq i16 %14, 0
   br i1 %tobool77.not, label %for.inc, label %if.end79
@@ -406,10 +406,10 @@ return:                                           ; preds = %for.inc, %return.si
 ; Function Attrs: nounwind uwtable
 define internal void @poll_dealloc(ptr noundef %base) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   tail call void @evsig_dealloc_(ptr noundef %base) #6
-  %event_set = getelementptr inbounds i8, ptr %0, i64 16
+  %event_set = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %event_set, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -419,7 +419,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %event_set_copy = getelementptr inbounds i8, ptr %0, i64 24
+  %event_set_copy = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %event_set_copy, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end5, label %if.then3

@@ -161,7 +161,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -174,7 +174,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -215,11 +215,11 @@ entry:
   %ref.tmp50 = alloca %"class.std::allocator.9", align 1
   %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr %0(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1)
   %vtable1 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 16
+  %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 16
   %1 = load ptr, ptr %vfn2, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(24) ptr %1(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -413,11 +413,11 @@ ehcleanup27:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %for.inc.i.i.i.i.i, %land.rhs.i
   %vtable29 = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 32
+  %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 32
   %29 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef nonnull align 8 dereferenceable(128) ptr %29(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1)
   %vtable32 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 32
+  %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 32
   %30 = load ptr, ptr %vfn33, align 8
   %call34 = tail call noundef nonnull align 8 dereferenceable(128) ptr %30(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2)
   %call36 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14evolutionTimesEv(ptr noundef nonnull align 8 dereferenceable(128) %call31)
@@ -613,21 +613,21 @@ ehcleanup73:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end76:                                         ; preds = %for.inc.i.i.i.i.i60, %land.rhs.i54
   %vtable77 = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 56
+  %vfn78 = getelementptr inbounds nuw i8, ptr %vtable77, i64 56
   %58 = load ptr, ptr %vfn78, align 8
   %call79 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1)
   %sub = add i64 %call79, -1
   %vtable80 = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 80
+  %vfn81 = getelementptr inbounds nuw i8, ptr %vtable80, i64 80
   %59 = load ptr, ptr %vfn81, align 8
   %call82 = tail call noundef nonnull align 8 dereferenceable(24) ptr %59(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1, i64 noundef %sub)
   %vtable83 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn84 = getelementptr inbounds i8, ptr %vtable83, i64 56
+  %vfn84 = getelementptr inbounds nuw i8, ptr %vtable83, i64 56
   %60 = load ptr, ptr %vfn84, align 8
   %call85 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2)
   %sub86 = add i64 %call85, -1
   %vtable87 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn88 = getelementptr inbounds i8, ptr %vtable87, i64 80
+  %vfn88 = getelementptr inbounds nuw i8, ptr %vtable87, i64 80
   %61 = load ptr, ptr %vfn88, align 8
   %call89 = tail call noundef nonnull align 8 dereferenceable(24) ptr %61(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2, i64 noundef %sub86)
   %call90 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14evolutionTimesEv(ptr noundef nonnull align 8 dereferenceable(128) %call31)
@@ -735,11 +735,11 @@ entry:
   %ref.tmp90 = alloca %"class.std::allocator.9", align 1
   %ref.tmp93 = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr %0(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1)
   %vtable1 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 16
+  %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 16
   %1 = load ptr, ptr %vfn2, align 8
   %call3 = tail call noundef nonnull align 8 dereferenceable(24) ptr %1(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -933,11 +933,11 @@ ehcleanup27:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %for.inc.i.i.i.i.i, %land.rhs.i
   %vtable29 = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 32
+  %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 32
   %29 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef nonnull align 8 dereferenceable(128) ptr %29(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1)
   %vtable32 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 32
+  %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 32
   %30 = load ptr, ptr %vfn33, align 8
   %call34 = tail call noundef nonnull align 8 dereferenceable(128) ptr %30(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2)
   %call36 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription14evolutionTimesEv(ptr noundef nonnull align 8 dereferenceable(128) %call31)
@@ -1346,14 +1346,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %83 = load double, ptr %add.ptr.i, align 8, !tbaa !21
   %sub = fsub double %83, %previousEvolutionTime.0196
   %vtable128 = load ptr, ptr %marketModel1, align 8, !tbaa !14
-  %vfn129 = getelementptr inbounds i8, ptr %vtable128, i64 72
+  %vfn129 = getelementptr inbounds nuw i8, ptr %vtable128, i64 72
   %84 = load ptr, ptr %vfn129, align 8
   %call132 = invoke noundef nonnull align 8 dereferenceable(24) ptr %84(ptr noundef nonnull align 8 dereferenceable(56) %marketModel1, i64 noundef %i.0197)
           to label %invoke.cont131 unwind label %lpad130
 
 invoke.cont131:                                   ; preds = %for.body
   %vtable133 = load ptr, ptr %marketModel2, align 8, !tbaa !14
-  %vfn134 = getelementptr inbounds i8, ptr %vtable133, i64 72
+  %vfn134 = getelementptr inbounds nuw i8, ptr %vtable133, i64 72
   %85 = load ptr, ptr %vfn134, align 8
   %call137 = invoke noundef nonnull align 8 dereferenceable(24) ptr %85(ptr noundef nonnull align 8 dereferenceable(56) %marketModel2, i64 noundef %i.0197)
           to label %invoke.cont141 unwind label %lpad135
@@ -1427,7 +1427,7 @@ entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %pseudoRoot = alloca %"class.QuantLib::Matrix", align 8
   %vtable = load ptr, ptr %piecewiseConstantCorrelation, align 8, !tbaa !14
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %piecewiseConstantCorrelation)
   %1 = load ptr, ptr %piecewiseConstantVariances, align 8, !tbaa !34
@@ -1443,7 +1443,7 @@ cond.false.i:                                     ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEptEv.exit: ; preds = %entry, %cond.false.i
   %3 = phi ptr [ %2, %entry ], [ %.pre.i, %cond.false.i ]
   %vtable3 = load ptr, ptr %3, align 8, !tbaa !14
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 32
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 32
   %4 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(24) ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -1653,7 +1653,7 @@ cond.false.i46:                                   ; preds = %do.end
 invoke.cont33:                                    ; preds = %.noexc, %do.end
   %34 = phi ptr [ %33, %do.end ], [ %.pre.i47, %.noexc ]
   %vtable35 = load ptr, ptr %34, align 8, !tbaa !14
-  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 32
+  %vfn36 = getelementptr inbounds nuw i8, ptr %vtable35, i64 32
   %35 = load ptr, ptr %vfn36, align 8
   %call38 = invoke noundef nonnull align 8 dereferenceable(24) ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %34)
           to label %for.cond.preheader unwind label %lpad32
@@ -1690,7 +1690,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub42 = fsub double %40, %41
   %call43 = call double @sqrt(double noundef %sub42) #19, !tbaa !35
   %vtable44 = load ptr, ptr %piecewiseConstantCorrelation, align 8, !tbaa !14
-  %vfn45 = getelementptr inbounds i8, ptr %vtable44, i64 40
+  %vfn45 = getelementptr inbounds nuw i8, ptr %vtable44, i64 40
   %42 = load ptr, ptr %vfn45, align 8
   %call48 = invoke noundef nonnull align 8 dereferenceable(24) ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %piecewiseConstantCorrelation, i64 noundef %i.0104)
           to label %invoke.cont47 unwind label %lpad46
@@ -2009,7 +2009,6 @@ _ZNKSt6vectorIN8QuantLib6MatrixESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %ent
   %cond.i = select i1 %cmp7.i, i64 384307168202282325, i64 %2
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
   %cmp.not.i = icmp eq i64 %cond.i, 0
   br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EE11_M_allocateEm.exit, label %cond.true.i
 
@@ -2020,7 +2019,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN8Qua
 
 _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN8QuantLib6MatrixESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i17 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN8QuantLib6MatrixESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %add.ptr = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %cond.i17, i64 %sub.ptr.div.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i17, i64 %sub.ptr.sub.i
   %rows_.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 8
   %3 = load i64, ptr %rows_.i.i.i.i, align 8, !tbaa !42
   %cmp.i.i.i.i = icmp eq i64 %3, 0

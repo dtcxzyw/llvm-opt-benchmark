@@ -22,7 +22,7 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i64, ptr %18, align 8
   br label %20
 
@@ -32,7 +32,7 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %23
 
 23:                                               ; preds = %.lr.ph, %35
@@ -52,7 +52,7 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
   %32 = call ptr @strerror(i32 noundef %31) #6
   %33 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIOI_GEN_WriteContig.myname, i32 noundef 80, i32 noundef 35, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %32) #6
   store i32 %33, ptr %7, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -1, ptr %34, align 8
   br label %51
 
@@ -66,12 +66,12 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
   %.138.lcssa = phi i64 [ -1, %20 ], [ %27, %35 ]
   %.1.lcssa = phi i64 [ 0, %20 ], [ %36, %35 ]
   %39 = add nsw i64 %.1.lcssa, %.035
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %39, ptr %40, align 8
   br i1 %16, label %41, label %45
 
 41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8
   %44 = add nsw i64 %43, %.1.lcssa
   store i64 %44, ptr %42, align 8

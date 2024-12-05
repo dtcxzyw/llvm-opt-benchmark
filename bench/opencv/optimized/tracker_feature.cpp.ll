@@ -27,14 +27,14 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6detail8tracking14TrackerFeature7computeERKSt6vectorINS_3MatESaIS4_EERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   br label %13

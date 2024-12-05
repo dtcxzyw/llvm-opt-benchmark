@@ -52,7 +52,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br i1 %7, label %8, label %.preheader
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.1, ptr noundef nonnull dereferenceable(1) %10) #4
   %12 = icmp eq i32 %11, 0
@@ -60,13 +60,13 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 .lr.ph:                                           ; preds = %8, %15
   %.012.i26 = phi ptr [ %13, %15 ], [ @rerrs, %8 ]
-  %13 = getelementptr inbounds i8, ptr %.012.i26, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.012.i26, i64 24
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %regatoi.exit, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.012.i26, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.012.i26, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %10) #4
   %19 = icmp eq i32 %18, 0
@@ -83,7 +83,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   %.not = icmp eq i32 %21, 0
   %22 = icmp eq i32 %21, %6
   %or.cond = or i1 %.not, %22
-  %23 = getelementptr inbounds i8, ptr %.017, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.017, i64 24
   br i1 %or.cond, label %24, label %.preheader
 
 24:                                               ; preds = %.preheader
@@ -95,7 +95,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.017, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call i64 @cli_strlcpy(ptr noundef nonnull %5, ptr noundef %29, i64 noundef 50) #5
   br label %regatoi.exit
@@ -105,7 +105,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br label %regatoi.exit
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %.017, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.017, i64 16
   %35 = load ptr, ptr %34, align 8
   br label %regatoi.exit
 

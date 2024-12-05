@@ -25,15 +25,15 @@ define range(i32 -22, 1) i32 @inode_getpath(ptr noundef %0, ptr noundef %1, i64 
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = tail call i64 @strlcat(ptr noundef nonnull %1, ptr noundef nonnull %13, i64 noundef %2) #2
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %22
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 26
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 15
   %21 = icmp eq i16 %20, 3

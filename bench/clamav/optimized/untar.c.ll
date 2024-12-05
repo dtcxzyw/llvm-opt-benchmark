@@ -42,14 +42,14 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %13 = alloca [128 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef %0) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %9, i8 0, i64 512, i1 false)
-  %14 = getelementptr inbounds i8, ptr %2, i64 96
-  %15 = getelementptr inbounds i8, ptr %2, i64 48
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not139 = icmp eq i32 %1, 0
-  %17 = getelementptr inbounds i8, ptr %10, i64 5
-  %18 = getelementptr inbounds i8, ptr %11, i64 12
-  %19 = getelementptr inbounds i8, ptr %8, i64 100
-  %20 = getelementptr inbounds i8, ptr %7, i64 4096
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4096
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %3
@@ -80,7 +80,7 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
   %.0108 = phi i64 [ %.0108.ph, %.outer ], [ %39, %.backedge.backedge ]
   %.0105 = phi i64 [ %.0105.ph, %.outer ], [ 0, %.backedge.backedge ]
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %24 = load i64, ptr %23, align 8
   %.not.i = icmp ult i64 %.0108, %24
   br i1 %.not.i, label %25, label %fmap_need_off_once_len.exit
@@ -88,7 +88,7 @@ define i32 @cli_untar(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
 25:                                               ; preds = %.backedge
   %26 = sub nuw i64 %24, %.0108
   %spec.select.i = call i64 @llvm.umin.i64(i64 %26, i64 512)
-  %27 = getelementptr inbounds i8, ptr %22, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr %28(ptr noundef nonnull %22, i64 noundef %.0108, i64 noundef range(i64 0, 513) %spec.select.i, i32 noundef 0) #11
   %.not20.i = icmp eq ptr %29, null
@@ -133,7 +133,7 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %25
   %44 = call i32 @cli_magic_scan_desc(i32 noundef %.0121, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 0) #11
   %45 = call i32 @close(i32 noundef %.0121) #11
   %46 = load ptr, ptr %15, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load i32, ptr %47, align 8
   %.not134 = icmp eq i32 %48, 0
   br i1 %.not134, label %49, label %51
@@ -163,7 +163,7 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %25
 
 59:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %6)
-  %.0.i.sroa.gep165 = getelementptr inbounds i8, ptr %.0.i, i64 148
+  %.0.i.sroa.gep165 = getelementptr inbounds nuw i8, ptr %.0.i, i64 148
   %60 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull readonly dereferenceable(1) %.0.i.sroa.gep165, i64 noundef 8) #11
   store i8 0, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -191,7 +191,7 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %25
   br label %74
 
 68:                                               ; preds = %.preheader.i
-  %69 = getelementptr inbounds i8, ptr %spec.select, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %indvars.iv.i
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = add nsw i32 %.02127.i, %71
@@ -226,7 +226,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
   br i1 %.not139, label %84, label %81
 
 81:                                               ; preds = %80
-  %spec.select.sroa.sel = getelementptr inbounds i8, ptr %.0.i, i64 257
+  %spec.select.sroa.sel = getelementptr inbounds nuw i8, ptr %.0.i, i64 257
   %82 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %spec.select.sroa.sel, i64 noundef 5) #11
   store i8 0, ptr %17, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %10, ptr noundef nonnull dereferenceable(6) @.str.8, i64 6)
@@ -238,7 +238,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
   br label %.loopexit
 
 84:                                               ; preds = %81, %80
-  %spec.select.sroa.sel161 = getelementptr inbounds i8, ptr %.0.i, i64 156
+  %spec.select.sroa.sel161 = getelementptr inbounds nuw i8, ptr %.0.i, i64 156
   %85 = load i8, ptr %spec.select.sroa.sel161, align 1
   switch i8 %85, label %86 [
     i8 48, label %.loopexit216
@@ -279,7 +279,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
 .loopexit217:                                     ; preds = %84, %84, %84, %84, %84, %84, %84, %84, %84, %.loopexit216
   %.1110.ph = phi i32 [ %88, %.loopexit216 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ], [ %.0109.ph.ph, %84 ]
   %.not142 = phi i1 [ true, %.loopexit216 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %84 ], [ false, %84 ]
-  %spec.select.sroa.sel164 = getelementptr inbounds i8, ptr %.0.i, i64 124
+  %spec.select.sroa.sel164 = getelementptr inbounds nuw i8, ptr %.0.i, i64 124
   %89 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %spec.select.sroa.sel164, i64 noundef 12) #11
   store i8 0, ptr %18, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -442,7 +442,7 @@ testchecksum.exit.thread:                         ; preds = %59, %testchecksum.e
   %148 = call i32 @cli_magic_scan_desc(i32 noundef %.0121, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 0) #11
   %149 = call i32 @close(i32 noundef %.0121) #11
   %150 = load ptr, ptr %15, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load i32, ptr %151, align 8
   %.not144 = icmp eq i32 %152, 0
   br i1 %.not144, label %153, label %155

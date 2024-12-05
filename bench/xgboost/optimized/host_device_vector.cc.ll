@@ -1077,21 +1077,21 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds float, ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw float, ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc4
   %.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %8, %.noexc4 ]
   store float %2, ptr %.07.i.i.i.i.i.i.i.i.i.i, align 4
-  %11 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i.i.i, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -1132,8 +1132,8 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i, label %10
 
 _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %23
 
@@ -1143,8 +1143,8 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 
 .noexc3.i.i:                                      ; preds = %10
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 4 %1, i64 %.idx.i.i, i1 false)
   br label %23
@@ -1157,7 +1157,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br i1 %.not.i.i4.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -1166,10 +1166,9 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br label %.body
 
 23:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %11, %.noexc3.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = phi ptr [ %8, %_ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.thread.i.i.i ], [ %12, %.noexc3.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %24, ptr %25, align 8
   store ptr %5, ptr %0, align 8
   ret void
 
@@ -1185,7 +1184,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIfEC2ERKSt6vectorIfSaIfEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorIfEC5ERKSt6vectorIfSaIfEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -1217,9 +1216,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -1243,7 +1242,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIfED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -1266,12 +1265,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -1289,12 +1288,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -1308,7 +1307,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIfED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -1331,7 +1330,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplIfEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIfE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -1341,7 +1340,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIfE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1408,7 +1407,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1416,7 +1415,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE8HostSpanEv(ptr dead_on_un
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -1424,7 +1423,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIfE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -1432,7 +1431,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIfE8HostSpanEv(ptr dead_on_u
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -1447,7 +1446,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %3 = load ptr, ptr %1, align 8, !noalias !9
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !9
   %6 = load ptr, ptr %3, align 8, !noalias !9
   %7 = ptrtoint ptr %5 to i64
@@ -1455,7 +1454,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIfE13ConstHostSpanEv(ptr dea
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8, !alias.scope !9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !9
   ret void
 }
@@ -1484,7 +1483,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorIfE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4FillEf(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not6.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -1492,7 +1491,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4FillEf(ptr noundef nonnul
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store float %1, ptr %.07.i.i.i.i, align 4
-  %7 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
@@ -1507,7 +1506,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -1516,7 +1515,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4CopyERKS1_(ptr noundef no
   %14 = ashr exact i64 %13, 2
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1612,7 +1611,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit, label %53
@@ -1765,7 +1764,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4CopyERKSt6vectorIfSaIfEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -1773,7 +1772,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4CopyERKSt6vectorIfSaIfEE(
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 2
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -1904,7 +1903,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -2028,7 +2027,7 @@ _ZSt4copyIPKfN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -2036,7 +2035,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ExtendERKS1_(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -2067,7 +2066,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ExtendERKS1_(ptr noundef 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit, label %31
@@ -2121,7 +2120,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ResizeEm(ptr noundef nonn
   %3 = alloca float, align 4
   %4 = load ptr, ptr %0, align 8
   store float 0.000000e+00, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -2158,7 +2157,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIfE6ResizeEmf(ptr noundef non
   %4 = alloca float, align 4
   store float %2, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -2216,21 +2215,21 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds double, ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw double, ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc4
   %.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %8, %.noexc4 ]
   store double %2, ptr %.07.i.i.i.i.i.i.i.i.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -2263,8 +2262,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i, label %10
 
 _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %23
 
@@ -2274,8 +2273,8 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 
 .noexc3.i.i:                                      ; preds = %10
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %1, i64 %.idx.i.i, i1 false)
   br label %23
@@ -2288,7 +2287,7 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br i1 %.not.i.i4.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -2297,10 +2296,9 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br label %.body
 
 23:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i ], [ %11, %.noexc3.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = phi ptr [ %8, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i ], [ %12, %.noexc3.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %24, ptr %25, align 8
   store ptr %5, ptr %0, align 8
   ret void
 
@@ -2313,7 +2311,7 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIdEC2ERKSt6vectorIdSaIdEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorIdEC5ERKSt6vectorIdSaIdEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -2345,9 +2343,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -2371,7 +2369,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIdED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -2394,12 +2392,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -2417,12 +2415,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2436,7 +2434,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIdED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -2459,7 +2457,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplIdEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIdE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -2469,7 +2467,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIdE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorIdE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -2533,7 +2531,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -2541,7 +2539,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE8HostSpanEv(ptr dead_on_un
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -2549,7 +2547,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIdE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.32") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -2557,7 +2555,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIdE8HostSpanEv(ptr dead_on_u
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -2572,7 +2570,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIdE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.32") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %3 = load ptr, ptr %1, align 8, !noalias !17
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !17
   %6 = load ptr, ptr %3, align 8, !noalias !17
   %7 = ptrtoint ptr %5 to i64
@@ -2580,7 +2578,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIdE13ConstHostSpanEv(ptr dea
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8, !alias.scope !17
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !17
   ret void
 }
@@ -2609,7 +2607,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorIdE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4FillEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not6.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -2617,7 +2615,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4FillEd(ptr noundef nonnul
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.07.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store double %1, ptr %.07.i.i.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
@@ -2632,7 +2630,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -2641,7 +2639,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4CopyERKS1_(ptr noundef no
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -2737,7 +2735,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, label %53
@@ -2774,7 +2772,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4CopyERKSt6vectorIdSaIdEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -2782,7 +2780,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4CopyERKSt6vectorIdSaIdEE(
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -2913,7 +2911,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -3037,7 +3035,7 @@ _ZSt4copyIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -3045,7 +3043,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ExtendERKS1_(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -3076,7 +3074,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ExtendERKS1_(ptr noundef 
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, label %31
@@ -3130,7 +3128,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ResizeEm(ptr noundef nonn
   %3 = alloca double, align 8
   %4 = load ptr, ptr %0, align 8
   store double 0.000000e+00, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -3167,7 +3165,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIdE6ResizeEmd(ptr noundef non
   %4 = alloca double, align 8
   store double %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -3225,8 +3223,8 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EEC2EmRKS4_.
 
 .noexc5:                                          ; preds = %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EEC2EmRKS4_.exit.i.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -3235,13 +3233,13 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EEC2EmRKS4_.
   %.068.i.i.i.i.i.i.i = phi i64 [ %11, %.lr.ph.i.i.i.i.i.i.i ], [ %1, %.noexc5 ]
   store <2 x float> %2, ptr %.09.i.i.i.i.i.i.i, align 4
   %11 = add i64 %.068.i.i.i.i.i.i.i, -1
-  %12 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ], [ %12, %.lr.ph.i.i.i.i.i.i.i ]
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %13, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -3274,8 +3272,8 @@ _ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_S_check_init_l
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %22
 
@@ -3286,7 +3284,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_alloc
 .noexc3.i.i:                                      ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i
   store ptr %10, ptr %5, align 8
   %11 = getelementptr i8, ptr %10, i64 %.idx.i.i
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr align 4 %1, i64 %.idx.i.i, i1 false)
   br label %22
@@ -3299,7 +3297,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_alloc
   br i1 %.not.i.i4.i.i, label %.body, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -3309,7 +3307,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_alloc
 
 22:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %11, %.noexc3.i.i ], [ null, %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -3323,7 +3321,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_alloc
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEEC2ERKSt6vectorIS3_SaIS3_EENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEEC5ERKSt6vectorIS3_SaIS3_EENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -3352,8 +3350,8 @@ _ZNSt16allocator_traitsISaIN7xgboost6detail20GradientPairInternalIfEEEE8allocate
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN7xgboost6detail20GradientPairInternalIfEEEE8allocateERS4_m.exit.i.i.i.i ]
   %14 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
   store i64 %14, ptr %.09.i.i.i.i.i, align 4
-  %15 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %16 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %15, %6
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !21
 
@@ -3362,9 +3360,9 @@ _ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EED2Ev.exit: ; pred
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %3 ], [ %16, %.lr.ph.i.i.i.i.i ]
   %18 = getelementptr inbounds i8, ptr %17, i64 %10
   store ptr %17, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %18, ptr %20, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -3388,7 +3386,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_6detail20GradientPairInternalIfEEED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -3411,12 +3409,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -3434,12 +3432,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -3453,7 +3451,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_6detail20GradientPairInternalIfEEED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -3476,7 +3474,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplINS0_6detail20GradientPairInter
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -3486,7 +3484,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_6detail20G
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -3550,7 +3548,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -3558,7 +3556,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -3566,7 +3564,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.52") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -3574,7 +3572,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInt
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -3589,7 +3587,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.52") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %3 = load ptr, ptr %1, align 8, !noalias !25
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !25
   %6 = load ptr, ptr %3, align 8, !noalias !25
   %7 = ptrtoint ptr %5 to i64
@@ -3597,7 +3595,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInt
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8, !alias.scope !25
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !25
   ret void
 }
@@ -3626,7 +3624,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorINS_6detail20Gradient
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE4FillES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, <2 x float> %1) local_unnamed_addr #11 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost6detail20GradientPairInternalIfEESt6vectorIS5_SaIS5_EEEES5_EvT_SB_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -3634,7 +3632,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store <2 x float> %1, ptr %.06.i.i.i.i, align 4
-  %7 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost6detail20GradientPairInternalIfEESt6vectorIS5_SaIS5_EEEES5_EvT_SB_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
@@ -3649,7 +3647,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3658,7 +3656,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -3754,7 +3752,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost6detail20GradientPairInternalIfEESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit, label %53
@@ -3791,7 +3789,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3799,7 +3797,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -3930,7 +3928,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -4054,7 +4052,7 @@ _ZSt4copyIPKN7xgboost6detail20GradientPairInternalIfEEN9__gnu_cxx17__normal_iter
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE6ExtendERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4062,7 +4060,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -4073,7 +4071,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   tail call void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %19)
   %20 = load ptr, ptr %1, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i.i.i = icmp eq ptr %23, %21
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost6detail20GradientPairInternalIfEESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit, label %24
@@ -4094,7 +4092,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost6detail20GradientPairInterna
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -4106,7 +4104,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfE
 
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
@@ -4153,8 +4151,8 @@ _ZNKSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE12_M_check_lenEm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %31 = load i64, ptr %.0911.i.i.i.i, align 4, !alias.scope !32, !noalias !29
   store i64 %31, ptr %.012.i.i.i.i, align 4, !alias.scope !29, !noalias !32
-  %32 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %32, %4
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
@@ -4171,7 +4169,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE13_M_deall
   store ptr %28, ptr %0, align 8
   %36 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %29, i64 %12
   store ptr %36, ptr %3, align 8
-  %37 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %28, i64 %26
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE17_M_default_appendEm.exit
 
@@ -4226,7 +4224,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIfEEE6ResizeEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::detail::GradientPairInternal", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %3, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
@@ -4264,7 +4262,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %4 = alloca %"class.xgboost::detail::GradientPairInternal", align 8
   store <2 x float> %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -4322,8 +4320,8 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EEC2EmRKS4_.
 
 .noexc6:                                          ; preds = %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EEC2EmRKS4_.exit.i.i
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.55", ptr %9, i64 %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.55", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %11, align 8
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -4331,16 +4329,16 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EEC2EmRKS4_.
   %.09.i.i.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %.noexc6 ]
   %.068.i.i.i.i.i.i.i = phi i64 [ %12, %.lr.ph.i.i.i.i.i.i.i ], [ %1, %.noexc6 ]
   store double %2, ptr %.09.i.i.i.i.i.i.i, align 8
-  %.sroa.2.0..09.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 8
+  %.sroa.2.0..09.i.i.i.i.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
   store double %3, ptr %.sroa.2.0..09.i.i.i.i.i.i.sroa_idx.i, align 8
   %12 = add i64 %.068.i.i.i.i.i.i.i, -1
-  %13 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ], [ %13, %.lr.ph.i.i.i.i.i.i.i ]
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %14, align 8
   store ptr %6, ptr %0, align 8
   ret void
@@ -4373,8 +4371,8 @@ _ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE17_S_check_init_l
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %22
 
@@ -4385,7 +4383,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_alloc
 .noexc3.i.i:                                      ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i
   store ptr %10, ptr %5, align 8
   %11 = getelementptr i8, ptr %10, i64 %.idx.i.i
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %1, i64 %.idx.i.i, i1 false)
   br label %22
@@ -4398,7 +4396,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_alloc
   br i1 %.not.i.i4.i.i, label %.body, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -4408,7 +4406,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_alloc
 
 22:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %11, %.noexc3.i.i ], [ null, %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_allocateEm.exit.thread.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -4422,7 +4420,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_alloc
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEEC2ERKSt6vectorIS3_SaIS3_EENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEEC5ERKSt6vectorIS3_SaIS3_EENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -4450,8 +4448,8 @@ _ZNSt16allocator_traitsISaIN7xgboost6detail20GradientPairInternalIdEEEE8allocate
   %.09.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %13, %_ZNSt16allocator_traitsISaIN7xgboost6detail20GradientPairInternalIdEEEE8allocateERS4_m.exit.i.i.i.i ]
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN7xgboost6detail20GradientPairInternalIdEEEE8allocateERS4_m.exit.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %15 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %14, %6
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EED2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !36
 
@@ -4460,9 +4458,9 @@ _ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EED2Ev.exit: ; pred
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %3 ], [ %15, %.lr.ph.i.i.i.i.i ]
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   store ptr %16, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %17, ptr %19, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -4486,7 +4484,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_6detail20GradientPairInternalIdEEED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -4509,12 +4507,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -4532,12 +4530,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -4551,7 +4549,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_6detail20GradientPairInternalIdEEED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -4574,7 +4572,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplINS0_6detail20GradientPairInter
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -4584,7 +4582,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_6detail20G
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -4648,7 +4646,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.72") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4656,7 +4654,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -4664,7 +4662,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.73") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4672,7 +4670,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInt
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -4687,7 +4685,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.73") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %3 = load ptr, ptr %1, align 8, !noalias !40
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !40
   %6 = load ptr, ptr %3, align 8, !noalias !40
   %7 = ptrtoint ptr %5 to i64
@@ -4695,7 +4693,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInt
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   store i64 %10, ptr %0, align 8, !alias.scope !40
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !40
   ret void
 }
@@ -4724,7 +4722,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorINS_6detail20Gradient
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE4FillES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, double %1, double %2) local_unnamed_addr #3 comdat align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not5.i.i.i.i = icmp eq ptr %5, %7
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost6detail20GradientPairInternalIdEESt6vectorIS5_SaIS5_EEEES5_EvT_SB_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -4732,9 +4730,9 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %5, %3 ]
   store double %1, ptr %.06.i.i.i.i, align 8
-  %.sroa.2.0..06.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %.sroa.2.0..06.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   store double %2, ptr %.sroa.2.0..06.i.i.i.i.sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %8, %7
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost6detail20GradientPairInternalIdEESt6vectorIS5_SaIS5_EEEES5_EvT_SB_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !43
 
@@ -4749,7 +4747,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -4758,7 +4756,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %14 = ashr exact i64 %13, 4
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -4854,7 +4852,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost6detail20GradientPairInternalIdEESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit, label %53
@@ -4891,7 +4889,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -4899,7 +4897,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 4
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -5030,7 +5028,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -5154,7 +5152,7 @@ _ZSt4copyIPKN7xgboost6detail20GradientPairInternalIdEEN9__gnu_cxx17__normal_iter
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE6ExtendERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -5162,7 +5160,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -5193,7 +5191,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInte
 _ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEm.exit: ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost6detail20GradientPairInternalIdEESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit, label %31
@@ -5246,7 +5244,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_6detail20GradientPairInt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE6ResizeEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::detail::GradientPairInternal.55", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
@@ -5283,10 +5281,10 @@ _ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE6resizeEmRKS3_.ex
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_6detail20GradientPairInternalIdEEE6ResizeEmS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, double %2, double %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.xgboost::detail::GradientPairInternal.55", align 8
   store double %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %3, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -5344,21 +5342,21 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc4
   %.06.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %8, %.noexc4 ]
   store i32 %2, ptr %.06.i.i.i.i.i.i.i.i.i.i, align 4
-  %11 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -5391,8 +5389,8 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i, label %10
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %23
 
@@ -5402,8 +5400,8 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 
 .noexc3.i.i:                                      ; preds = %10
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 4 %1, i64 %.idx.i.i, i1 false)
   br label %23
@@ -5416,7 +5414,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br i1 %.not.i.i4.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -5425,10 +5423,9 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br label %.body
 
 23:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %11, %.noexc3.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = phi ptr [ %8, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %12, %.noexc3.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %24, ptr %25, align 8
   store ptr %5, ptr %0, align 8
   ret void
 
@@ -5441,7 +5438,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIiEC2ERKSt6vectorIiSaIiEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorIiEC5ERKSt6vectorIiSaIiEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -5473,9 +5470,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -5499,7 +5496,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIiED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -5522,12 +5519,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -5545,12 +5542,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -5564,7 +5561,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIiED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -5587,7 +5584,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplIiEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIiE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -5597,7 +5594,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIiE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorIiE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -5661,7 +5658,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.92") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -5669,7 +5666,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE8HostSpanEv(ptr dead_on_un
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -5677,7 +5674,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIiE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.93") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -5685,7 +5682,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIiE8HostSpanEv(ptr dead_on_u
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -5700,7 +5697,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIiE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.93") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %3 = load ptr, ptr %1, align 8, !noalias !48
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !48
   %6 = load ptr, ptr %3, align 8, !noalias !48
   %7 = ptrtoint ptr %5 to i64
@@ -5708,7 +5705,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIiE13ConstHostSpanEv(ptr dea
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8, !alias.scope !48
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !48
   ret void
 }
@@ -5737,7 +5734,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorIiE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4FillEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -5745,7 +5742,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4FillEi(ptr noundef nonnul
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store i32 %1, ptr %.06.i.i.i.i, align 4
-  %7 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !44
 
@@ -5760,7 +5757,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -5769,7 +5766,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4CopyERKS1_(ptr noundef no
   %14 = ashr exact i64 %13, 2
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -5865,7 +5862,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit, label %53
@@ -5902,7 +5899,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4CopyERKSt6vectorIiSaIiEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -5910,7 +5907,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4CopyERKSt6vectorIiSaIiEE(
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 2
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -6041,7 +6038,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -6165,7 +6162,7 @@ _ZSt4copyIPKiN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -6173,7 +6170,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ExtendERKS1_(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -6204,7 +6201,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ExtendERKS1_(ptr noundef 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit, label %31
@@ -6258,7 +6255,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ResizeEm(ptr noundef nonn
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -6295,7 +6292,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIiE6ResizeEmi(ptr noundef non
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -6352,15 +6349,15 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 %2, i64 %1, i1 false)
   br label %10
 
 10:                                               ; preds = %.noexc4, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %8, %.noexc4 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %11, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -6397,8 +6394,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 
 .noexc3.i.i:                                      ; preds = %8
   store ptr %9, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %1, i64 %2, i1 false)
   br label %21
@@ -6411,7 +6408,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i4.i.i, label %.body, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
@@ -6421,7 +6418,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 
 21:                                               ; preds = %.noexc3.i.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %22 = phi ptr [ %10, %.noexc3.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %22, ptr %23, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -6435,7 +6432,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIhEC2ERKSt6vectorIhSaIhEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorIhEC5ERKSt6vectorIhSaIhEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -6467,9 +6464,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -6493,7 +6490,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIhED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -6516,12 +6513,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -6539,12 +6536,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -6558,7 +6555,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIhED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -6581,7 +6578,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplIhEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIhE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -6591,7 +6588,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIhE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorIhE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -6654,14 +6651,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.112") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8
   ret void
 }
@@ -6669,14 +6666,14 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIhE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.113") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8
   ret void
 }
@@ -6691,14 +6688,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIhE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.113") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %3 = load ptr, ptr %1, align 8, !noalias !54
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !54
   %6 = load ptr, ptr %3, align 8, !noalias !54
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8, !alias.scope !54
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8, !alias.scope !54
   ret void
 }
@@ -6727,7 +6724,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorIhE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE4FillEh(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef zeroext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit, label %7
@@ -6750,7 +6747,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -6758,7 +6755,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE4CopyERKS1_(ptr noundef no
   %13 = sub i64 %11, %12
   store i64 %13, ptr %4, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -6853,7 +6850,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %47 = load ptr, ptr %1, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit, label %51
@@ -6890,14 +6887,14 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE4CopyERKSt6vectorIhSaIhEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   store i64 %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -7027,7 +7024,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -7149,14 +7146,14 @@ _ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -7166,7 +7163,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ExtendERKS1_(ptr noundef 
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %17)
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %19
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit, label %22
@@ -7187,7 +7184,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -7198,7 +7195,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -7212,7 +7209,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
@@ -7240,14 +7237,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #25
-  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %32, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i
 
@@ -7272,7 +7269,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   store ptr %30, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %30, i64 %1
   store ptr %39, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 %29
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %40, ptr %12, align 8
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -7328,7 +7325,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ResizeEm(ptr noundef nonn
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   store i8 0, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -7364,7 +7361,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIhE6ResizeEmh(ptr noundef non
   %4 = alloca i8, align 1
   store i8 %2, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -7420,15 +7417,15 @@ _ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 %2, i64 %1, i1 false)
   br label %10
 
 10:                                               ; preds = %.noexc4, %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %8, %.noexc4 ], [ null, %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %11, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -7465,8 +7462,8 @@ _ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 
 .noexc3.i.i:                                      ; preds = %8
   store ptr %9, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %1, i64 %2, i1 false)
   br label %21
@@ -7479,7 +7476,7 @@ _ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i4.i.i, label %.body, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
@@ -7489,7 +7486,7 @@ _ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 
 21:                                               ; preds = %.noexc3.i.i, %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %22 = phi ptr [ %10, %.noexc3.i.i ], [ null, %_ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %22, ptr %23, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -7503,7 +7500,7 @@ _ZNSt6vectorIaSaIaEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIaEC2ERKSt6vectorIaSaIaEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorIaEC5ERKSt6vectorIaSaIaEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -7535,9 +7532,9 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -7561,7 +7558,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIaED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -7584,12 +7581,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -7607,12 +7604,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -7626,7 +7623,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIaED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -7649,7 +7646,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplIaEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIaE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -7659,7 +7656,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIaE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorIaE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -7722,14 +7719,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.132") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8
   ret void
 }
@@ -7737,14 +7734,14 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIaE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8
   ret void
 }
@@ -7759,14 +7756,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIaE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %3 = load ptr, ptr %1, align 8, !noalias !60
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !60
   %6 = load ptr, ptr %3, align 8, !noalias !60
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8, !alias.scope !60
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8, !alias.scope !60
   ret void
 }
@@ -7795,7 +7792,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorIaE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE4FillEa(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPaSt6vectorIaSaIaEEEEaEvT_S7_RKT0_.exit, label %7
@@ -7818,7 +7815,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -7826,7 +7823,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE4CopyERKS1_(ptr noundef no
   %13 = sub i64 %11, %12
   store i64 %13, ptr %4, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -7921,7 +7918,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %47 = load ptr, ptr %1, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKaSt6vectorIaSaIaEEEENS1_IPaS6_EEET0_T_SB_SA_.exit, label %51
@@ -7958,14 +7955,14 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE4CopyERKSt6vectorIaSaIaEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   store i64 %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -8095,7 +8092,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -8217,14 +8214,14 @@ _ZSt4copyIPKaN9__gnu_cxx17__normal_iteratorIPaSt6vectorIaSaIaEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -8234,7 +8231,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ExtendERKS1_(ptr noundef 
   tail call void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %17)
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %19
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKaSt6vectorIaSaIaEEEENS1_IPaS6_EEET0_T_SB_SA_.exit, label %22
@@ -8255,7 +8252,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKaSt6vectorIaSaIaEEEENS1_IPaS6_EEET0_T
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -8266,7 +8263,7 @@ define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull alig
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -8280,7 +8277,7 @@ define linkonce_odr void @_ZNSt6vectorIaSaIaEE6resizeEm(ptr noundef nonnull alig
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPamaET_S1_T0_RSaIT1_E.exit.i, label %23
@@ -8308,14 +8305,14 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #25
-  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPamaET_S1_T0_RSaIT1_E.exit31.i, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %32, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPamaET_S1_T0_RSaIT1_E.exit31.i
 
@@ -8340,7 +8337,7 @@ _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit34.i: ; preds = %37, %_ZNSt6v
   store ptr %30, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %30, i64 %1
   store ptr %39, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 %29
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %40, ptr %12, align 8
   br label %_ZNSt6vectorIaSaIaEE17_M_default_appendEm.exit
 
@@ -8396,7 +8393,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ResizeEm(ptr noundef nonn
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   store i8 0, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -8432,7 +8429,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIaE6ResizeEma(ptr noundef non
   %4 = alloca i8, align 1
   store i8 %2, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -8488,15 +8485,15 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i:
 
 .noexc4:                                          ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 %2, i64 %1, i1 false)
   br label %10
 
 10:                                               ; preds = %.noexc4, %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %8, %.noexc4 ], [ null, %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %11, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -8533,8 +8530,8 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.
 
 .noexc3.i.i:                                      ; preds = %8
   store ptr %9, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %10, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %1, i64 %2, i1 false)
   br label %21
@@ -8547,7 +8544,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.
   br i1 %.not.i.i4.i.i, label %.body, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
@@ -8557,7 +8554,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.
 
 21:                                               ; preds = %.noexc3.i.i, %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
   %22 = phi ptr [ %10, %.noexc3.i.i ], [ null, %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %22, ptr %23, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -8571,7 +8568,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEEC2ERKSt6vectorIS1_SaIS1_EENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEEC5ERKSt6vectorIS1_SaIS1_EENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -8603,9 +8600,9 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EED2Ev.exit: ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -8629,7 +8626,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEED2Ev(ptr n
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_11FeatureTypeEED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -8652,12 +8649,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEEC2EOS2_(pt
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -8675,12 +8672,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -8694,7 +8691,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_11FeatureTypeEED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -8717,7 +8714,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplINS0_11FeatureTypeEEESt14defaul
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -8727,7 +8724,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_11FeatureT
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -8790,14 +8787,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.152") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8
   ret void
 }
@@ -8805,14 +8802,14 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE8HostSpanE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.153") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8
   ret void
 }
@@ -8827,14 +8824,14 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.153") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %3 = load ptr, ptr %1, align 8, !noalias !66
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !66
   %6 = load ptr, ptr %3, align 8, !noalias !66
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   store i64 %9, ptr %0, align 8, !alias.scope !66
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %10, align 8, !alias.scope !66
   ret void
 }
@@ -8863,7 +8860,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorINS_11FeatureTypeEE11
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE4FillES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef zeroext %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit, label %.lr.ph.preheader.i.i.i.i
@@ -8886,7 +8883,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE4CopyERKS2
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -8894,7 +8891,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE4CopyERKS2
   %13 = sub i64 %11, %12
   store i64 %13, ptr %4, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %14, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -8989,7 +8986,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %47 = load ptr, ptr %1, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not.i.i.i.i.i = icmp eq ptr %50, %48
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %51
@@ -9026,14 +9023,14 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE4CopyERKSt
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   store i64 %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %1, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -9163,7 +9160,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE4CopyESt16
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -9285,14 +9282,14 @@ _ZSt4copyIPKN7xgboost11FeatureTypeEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorI
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ExtendERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -9302,7 +9299,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ExtendERK
   tail call void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %17)
   %18 = load ptr, ptr %1, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %19
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %22
@@ -9323,7 +9320,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost11FeatureTypeESt6vectorIS3_S
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -9334,7 +9331,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -9348,7 +9345,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEm(
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN7xgboost11FeatureTypeEmS1_ET_S3_T0_RSaIT1_E.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i
@@ -9376,14 +9373,14 @@ _ZNKSt6vectorIN7xgboost11FeatureTypeESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds
   %27 = add nuw i64 %.sroa.speculated.i.i, %8
   %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 9223372036854775807)
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #25
-  %30 = getelementptr inbounds i8, ptr %29, i64 %8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %8
   store i8 0, ptr %30, align 1
   %31 = add nsw i64 %11, -1
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %_ZSt27__uninitialized_default_n_aIPN7xgboost11FeatureTypeEmS1_ET_S3_T0_RSaIT1_E.exit32.i, label %.lr.ph.preheader.i.i.i.i.i.i.i30.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i30.i:               ; preds = %_ZNKSt6vectorIN7xgboost11FeatureTypeESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %33 = getelementptr inbounds i8, ptr %30, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %33, i8 0, i64 %31, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPN7xgboost11FeatureTypeEmS1_ET_S3_T0_RSaIT1_E.exit32.i
 
@@ -9408,7 +9405,7 @@ _ZNSt12_Vector_baseIN7xgboost11FeatureTypeESaIS1_EE13_M_deallocateEPS1_m.exit35.
   store ptr %29, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %29, i64 %1
   store ptr %37, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %29, i64 %28
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 %28
   store ptr %38, ptr %12, align 8
   br label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE17_M_default_appendEm.exit
 
@@ -9464,7 +9461,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ResizeEm(
   %3 = alloca i8, align 1
   %4 = load ptr, ptr %0, align 8
   store i8 0, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -9500,7 +9497,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_11FeatureTypeEE6ResizeEmS
   %4 = alloca i8, align 1
   store i8 %2, ptr %4, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -9557,21 +9554,21 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; pred
 
 .noexc5:                                          ; preds = %.noexc3.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds %"struct.xgboost::Entry", ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc5
   %.06.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %8, %.noexc5 ]
   store i64 %2, ptr %.06.i.i.i.i.i.i.i.i.i.i, align 4
-  %11 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -9604,8 +9601,8 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i: ; pr
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i, label %10
 
 _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %23
 
@@ -9615,8 +9612,8 @@ _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ;
 
 .noexc3.i.i:                                      ; preds = %10
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 4 %1, i64 %.idx.i.i, i1 false)
   br label %23
@@ -9629,7 +9626,7 @@ _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ;
   br i1 %.not.i.i4.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -9638,10 +9635,9 @@ _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ;
   br label %.body
 
 23:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i ], [ %11, %.noexc3.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = phi ptr [ %8, %_ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i ], [ %12, %.noexc3.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %24, ptr %25, align 8
   store ptr %5, ptr %0, align 8
   ret void
 
@@ -9654,7 +9650,7 @@ _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE11_M_allocateEm.exit.thread.i.i.i: ;
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEEC2ERKSt6vectorIS1_SaIS1_EENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorINS_5EntryEEC5ERKSt6vectorIS1_SaIS1_EENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -9686,9 +9682,9 @@ _ZNSt6vectorIN7xgboost5EntryESaIS1_EED2Ev.exit:   ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -9712,7 +9708,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEED2Ev(ptr noundef 
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_5EntryEED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -9735,12 +9731,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEEC2EOS2_(ptr nound
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -9758,12 +9754,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -9777,7 +9773,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplINS_5EntryEED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -9800,7 +9796,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplINS0_5EntryEEESt14default_delet
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -9810,7 +9806,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE5E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -9874,7 +9870,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.172") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -9882,7 +9878,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE8HostSpanEv(ptr d
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -9890,7 +9886,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE8HostSpanEv(ptr d
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.173") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -9898,7 +9894,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE8HostSpanEv(ptr 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -9913,7 +9909,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.173") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %3 = load ptr, ptr %1, align 8, !noalias !73
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !73
   %6 = load ptr, ptr %3, align 8, !noalias !73
   %7 = ptrtoint ptr %5 to i64
@@ -9921,7 +9917,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE13ConstHostSpanE
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8, !alias.scope !73
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !73
   ret void
 }
@@ -9950,7 +9946,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE11HostPoi
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4FillES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost5EntryESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -9958,7 +9954,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4FillES1_(ptr nou
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store i64 %1, ptr %.06.i.i.i.i, align 4
-  %7 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN7xgboost5EntryESt6vectorIS3_SaIS3_EEEES3_EvT_S9_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !69
 
@@ -9973,7 +9969,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4CopyERKS2_(ptr n
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -9982,7 +9978,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4CopyERKS2_(ptr n
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -10078,7 +10074,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost5EntryESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %53
@@ -10115,7 +10111,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4CopyERKSt6vector
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -10123,7 +10119,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4CopyERKSt6vector
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -10254,7 +10250,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE4CopyESt16initial
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -10378,7 +10374,7 @@ _ZSt4copyIPKN7xgboost5EntryEN9__gnu_cxx17__normal_iteratorIPS1_St6vectorIS1_SaIS
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ExtendERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -10386,7 +10382,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ExtendERKS2_(ptr
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -10417,7 +10413,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ExtendERKS2_(ptr
 _ZNSt6vectorIN7xgboost5EntryESaIS1_EE6resizeEm.exit: ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN7xgboost5EntryESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %31
@@ -10471,7 +10467,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ResizeEm(ptr nou
   %3 = alloca %"struct.xgboost::Entry", align 8
   %4 = load ptr, ptr %0, align 8
   store i64 0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -10508,7 +10504,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorINS_5EntryEE6ResizeEmS1_(ptr 
   %4 = alloca %"struct.xgboost::Entry", align 8
   store i64 %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -10566,21 +10562,21 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i64, ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc4
   %.06.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %8, %.noexc4 ]
   store i64 %2, ptr %.06.i.i.i.i.i.i.i.i.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !76
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -10613,8 +10609,8 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i, label %10
 
 _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %23
 
@@ -10624,8 +10620,8 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 
 .noexc3.i.i:                                      ; preds = %10
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %1, i64 %.idx.i.i, i1 false)
   br label %23
@@ -10638,7 +10634,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br i1 %.not.i.i4.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -10647,10 +10643,9 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br label %.body
 
 23:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i ], [ %11, %.noexc3.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = phi ptr [ %8, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i ], [ %12, %.noexc3.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %24, ptr %25, align 8
   store ptr %5, ptr %0, align 8
   ret void
 
@@ -10663,7 +10658,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 define weak_odr void @_ZN7xgboost16HostDeviceVectorImEC2ERKSt6vectorImSaImEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorImEC5ERKSt6vectorImSaImEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -10695,9 +10690,9 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -10721,7 +10716,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplImED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -10744,12 +10739,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -10767,12 +10762,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -10786,7 +10781,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplImED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -10809,7 +10804,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplImEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorImE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -10819,7 +10814,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorImE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorImE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -10883,7 +10878,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorImE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.192") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -10891,7 +10886,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE8HostSpanEv(ptr dead_on_un
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -10899,7 +10894,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorImE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -10907,7 +10902,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorImE8HostSpanEv(ptr dead_on_u
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -10922,7 +10917,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorImE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %3 = load ptr, ptr %1, align 8, !noalias !80
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !80
   %6 = load ptr, ptr %3, align 8, !noalias !80
   %7 = ptrtoint ptr %5 to i64
@@ -10930,7 +10925,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorImE13ConstHostSpanEv(ptr dea
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   store i64 %10, ptr %0, align 8, !alias.scope !80
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !80
   ret void
 }
@@ -10959,7 +10954,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorImE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4FillEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -10967,7 +10962,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4FillEm(ptr noundef nonnul
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store i64 %1, ptr %.06.i.i.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !76
 
@@ -10982,7 +10977,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -10991,7 +10986,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4CopyERKS1_(ptr noundef no
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -11087,7 +11082,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit, label %53
@@ -11124,7 +11119,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4CopyERKSt6vectorImSaImEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -11132,7 +11127,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4CopyERKSt6vectorImSaImEE(
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -11263,7 +11258,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -11387,7 +11382,7 @@ _ZSt4copyIPKmN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -11395,7 +11390,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ExtendERKS1_(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -11426,7 +11421,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ExtendERKS1_(ptr noundef 
 _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEENS1_IPmS6_EEET0_T_SB_SA_.exit, label %31
@@ -11480,7 +11475,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ResizeEm(ptr noundef nonn
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8
   store i64 0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -11517,7 +11512,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorImE6ResizeEmm(ptr noundef non
   %4 = alloca i64, align 8
   store i64 %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -11575,21 +11570,21 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
 
 .noexc4:                                          ; preds = %.noexc3.i
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %8, i64 %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc4
   %.06.i.i.i.i.i.i.i.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %8, %.noexc4 ]
   store i32 %2, ptr %.06.i.i.i.i.i.i.i.i.i.i, align 4
-  %11 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.0.i.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %9, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.i.i.i.i.i.i.i.i, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   ret void
@@ -11622,8 +11617,8 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %4
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, label %10
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i
-  %8 = getelementptr inbounds i8, ptr null, i64 %.idx.i.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %23
 
@@ -11633,8 +11628,8 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 
 .noexc3.i.i:                                      ; preds = %10
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.idx.i.i
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 4 %1, i64 %.idx.i.i, i1 false)
   br label %23
@@ -11647,7 +11642,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br i1 %.not.i.i4.i.i, label %.body, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -11656,10 +11651,9 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
   br label %.body
 
 23:                                               ; preds = %.noexc3.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i
-  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %11, %.noexc3.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 %.idx.i.i
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %25, ptr %26, align 8
+  %24 = phi ptr [ %8, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %12, %.noexc3.i.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %24, ptr %25, align 8
   store ptr %5, ptr %0, align 8
   ret void
 
@@ -11672,7 +11666,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6v
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIjEC2ERKSt6vectorIjSaIjEENS_9DeviceOrdE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 %2) unnamed_addr #3 comdat($_ZN7xgboost16HostDeviceVectorIjEC5ERKSt6vectorIjSaIjEENS_9DeviceOrdE) align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -11704,9 +11698,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %3, %14
   %15 = phi ptr [ %13, %14 ], [ null, %3 ]
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
   store ptr %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %18, align 8
   store ptr %4, ptr %0, align 8
   ret void
@@ -11730,7 +11724,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjED2Ev(ptr noundef nonnull a
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIjED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %5 to i64
@@ -11753,12 +11747,12 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjEC2EOS1_(ptr noundef nonnul
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -11776,12 +11770,12 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -11795,7 +11789,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost16Hos
   br i1 %.not.i.i.i.i, label %_ZN7xgboost20HostDeviceVectorImplIjED2Ev.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
@@ -11818,7 +11812,7 @@ _ZNSt10unique_ptrIN7xgboost20HostDeviceVectorImplIjEESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIjE5EmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -11828,7 +11822,7 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorIjE5EmptyEv(pt
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef i64 @_ZNK7xgboost16HostDeviceVectorIjE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -11892,7 +11886,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7xgboost16Ho
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.212") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -11900,7 +11894,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE8HostSpanEv(ptr dead_on_un
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -11908,7 +11902,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE8HostSpanEv(ptr dead_on_un
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIjE8HostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.213") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -11916,7 +11910,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIjE8HostSpanEv(ptr dead_on_u
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8
   ret void
 }
@@ -11931,7 +11925,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16H
 define weak_odr void @_ZNK7xgboost16HostDeviceVectorIjE13ConstHostSpanEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::common::Span.213") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %3 = load ptr, ptr %1, align 8, !noalias !87
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !87
   %6 = load ptr, ptr %3, align 8, !noalias !87
   %7 = ptrtoint ptr %5 to i64
@@ -11939,7 +11933,7 @@ define weak_odr void @_ZNK7xgboost16HostDeviceVectorIjE13ConstHostSpanEv(ptr dea
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   store i64 %10, ptr %0, align 8, !alias.scope !87
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %11, align 8, !alias.scope !87
   ret void
 }
@@ -11968,7 +11962,7 @@ define weak_odr noundef ptr @_ZNK7xgboost16HostDeviceVectorIjE11HostPointerEv(pt
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4FillEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not5.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not5.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i
@@ -11976,7 +11970,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4FillEj(ptr noundef nonnul
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %4, %2 ]
   store i32 %1, ptr %.06.i.i.i.i, align 4
-  %7 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 4
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !83
 
@@ -11991,7 +11985,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4CopyERKS1_(ptr noundef no
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -12000,7 +11994,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4CopyERKS1_(ptr noundef no
   %14 = ashr exact i64 %13, 2
   store i64 %14, ptr %4, align 8
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -12096,7 +12090,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store ptr null, ptr %3, align 8
   %49 = load ptr, ptr %1, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not.i.i.i.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit, label %53
@@ -12133,7 +12127,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4CopyERKSt6vectorIjSaIjEE(
   %5 = alloca i64, align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -12141,7 +12135,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4CopyERKSt6vectorIjSaIjEE(
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 2
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -12272,7 +12266,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE4CopyESt16initializer_list
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -12396,7 +12390,7 @@ _ZSt4copyIPKjN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET0_T_SA_S9_.ex
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ExtendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -12404,7 +12398,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ExtendERKS1_(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -12435,7 +12429,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ExtendERKS1_(ptr noundef 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %21, %22, %24, %26
   %27 = load ptr, ptr %1, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %30, %28
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKjSt6vectorIjSaIjEEEENS1_IPjS6_EEET0_T_SB_SA_.exit, label %31
@@ -12489,7 +12483,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ResizeEm(ptr noundef nonn
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -12526,7 +12520,7 @@ define weak_odr void @_ZN7xgboost16HostDeviceVectorIjE6ResizeEmj(ptr noundef non
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -12601,9 +12595,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %18 = call i64 @time(ptr noundef null) #12
   store i64 %18, ptr %4, align 8
   %19 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.10, i32 noundef %21, i32 noundef %23, i32 noundef %24) #12
@@ -13308,9 +13302,9 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE14_M_fill_
   br i1 %.not, label %_ZSt4fillIPN7xgboost11FeatureTypeES1_EvT_S3_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -13438,7 +13432,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost11FeatureTypeES2_SaIS1_EET0_T
 _ZNSt12_Vector_baseIN7xgboost11FeatureTypeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %57, %59
   store ptr %51, ptr %0, align 8
   store ptr %58, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %51, i64 %45
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 %45
   store ptr %61, ptr %6, align 8
   br label %_ZSt4fillIPN7xgboost11FeatureTypeES1_EvT_S3_RKT0_.exit
 
@@ -13510,14 +13504,14 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -13595,7 +13589,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds float, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -13609,9 +13603,9 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -13655,7 +13649,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit ]
   store float %15, ptr %.07.i.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !4
 
@@ -13671,7 +13665,7 @@ _ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.07.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store float %15, ptr %.07.i.i.i.i.i.i.i, align 4
-  %37 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !4
 
@@ -13696,7 +13690,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
   %.07.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit69 ]
   store float %15, ptr %.07.i.i.i72, align 4
-  %42 = getelementptr inbounds i8, ptr %.07.i.i.i72, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.07.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPffEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !4
 
@@ -13739,7 +13733,7 @@ _ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit:    ; preds = %43
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
   %.07.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   store float %64, ptr %.07.i.i.i.i.i.i.i76, align 4
-  %65 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i76, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i76, i64 4
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !4
 
@@ -13773,7 +13767,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds float, ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw float, ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
@@ -13787,14 +13781,14 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -13872,7 +13866,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds double, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds double, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw double, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -13886,9 +13880,9 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -13932,7 +13926,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit ]
   store double %15, ptr %.07.i.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
@@ -13948,7 +13942,7 @@ _ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.07.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store double %15, ptr %.07.i.i.i.i.i.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !13
 
@@ -13973,7 +13967,7 @@ _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
   %.07.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit69 ]
   store double %15, ptr %.07.i.i.i72, align 8
-  %42 = getelementptr inbounds i8, ptr %.07.i.i.i72, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.07.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !13
 
@@ -14016,7 +14010,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit:    ; preds = %43
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
   %.07.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   store double %64, ptr %.07.i.i.i.i.i.i.i76, align 8
-  %65 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i76, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i76, i64 8
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !13
 
@@ -14050,7 +14044,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds double, ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw double, ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPddEvT_S1_RKT0_.exit
 
@@ -14064,9 +14058,9 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfE
   br i1 %.not, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIfEES3_EvT_S5_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -14093,8 +14087,8 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIfE
   %.sroa.08.012.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %22, %20 ]
   %23 = load i64, ptr %.sroa.08.012.i.i.i.i.i, align 4
   store i64 %23, ptr %.013.i.i.i.i.i, align 4
-  %24 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
-  %25 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %24, %9
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !91
 
@@ -14121,7 +14115,7 @@ _ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIfEES4_ET0_T_S6_S5_.e
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIfEES4_ET0_T_S6_S5_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIfEES4_ET0_T_S6_S5_.exit ]
   store i64 %15, ptr %.06.i.i.i, align 4
-  %35 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %35, %34
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIfEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !28
 
@@ -14135,7 +14129,7 @@ _ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIfEES4_ET0_T_S6_S5_.e
   %.068.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i ], [ %37, %36 ]
   store i64 %15, ptr %.09.i.i.i.i, align 4
   %38 = add i64 %.068.i.i.i.i, -1
-  %39 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq i64 %38, 0
   br i1 %.not.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
@@ -14155,8 +14149,8 @@ _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3
   %.sroa.08.012.i.i.i.i.i72 = phi ptr [ %43, %.lr.ph.i.i.i.i.i70 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit ]
   %42 = load i64, ptr %.sroa.08.012.i.i.i.i.i72, align 4
   store i64 %42, ptr %.013.i.i.i.i.i71, align 4
-  %43 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 8
-  %44 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i71, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 8
   %.not.i.i.i.i.i73 = icmp eq ptr %43, %9
   br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !91
 
@@ -14169,7 +14163,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3
 .lr.ph.i.i.i77:                                   ; preds = %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, %.lr.ph.i.i.i77
   %.06.i.i.i78 = phi ptr [ %47, %.lr.ph.i.i.i77 ], [ %1, %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75 ]
   store i64 %15, ptr %.06.i.i.i78, align 4
-  %47 = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.06.i.i.i78, i64 8
   %.not.i.i.i79 = icmp eq ptr %47, %9
   br i1 %.not.i.i.i79, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIfEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i77, !llvm.loop !28
 
@@ -14213,7 +14207,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE11_M_alloc
   %67 = load i64, ptr %3, align 4
   store i64 %67, ptr %.09.i.i.i.i83, align 4
   %68 = add i64 %.068.i.i.i.i84, -1
-  %69 = getelementptr inbounds i8, ptr %.09.i.i.i.i83, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i83, i64 8
   %.not.i.i.i.i85 = icmp eq i64 %68, 0
   br i1 %.not.i.i.i.i85, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87, label %.lr.ph.i.i.i.i82, !llvm.loop !20
 
@@ -14226,8 +14220,8 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3
   %.sroa.08.012.i.i.i.i.i91 = phi ptr [ %71, %.lr.ph.i.i.i.i.i89 ], [ %49, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIfEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ]
   %70 = load i64, ptr %.sroa.08.012.i.i.i.i.i91, align 4
   store i64 %70, ptr %.013.i.i.i.i.i90, align 4
-  %71 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 8
-  %72 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i90, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 8
   %.not.i.i.i.i.i92 = icmp eq ptr %71, %1
   br i1 %.not.i.i.i.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i89, !llvm.loop !91
 
@@ -14242,8 +14236,8 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternal
   %.sroa.08.012.i.i.i.i.i97 = phi ptr [ %75, %.lr.ph.i.i.i.i.i95 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %74 = load i64, ptr %.sroa.08.012.i.i.i.i.i97, align 4
   store i64 %74, ptr %.013.i.i.i.i.i96, align 4
-  %75 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i97, i64 8
-  %76 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i96, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i97, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i96, i64 8
   %.not.i.i.i.i.i98 = icmp eq ptr %75, %9
   br i1 %.not.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95, !llvm.loop !91
 
@@ -14262,7 +14256,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternal
 _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIfEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIfEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, %77
   store ptr %65, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %8, align 8
-  %81 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal", ptr %65, i64 %59
+  %81 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %65, i64 %59
   store ptr %81, ptr %6, align 8
   br label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIfEES3_EvT_S5_RKT0_.exit
 
@@ -14276,14 +14270,14 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdE
   br i1 %.not, label %35, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -14327,8 +14321,8 @@ _ZNKSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE12_M_check_lenEm
   %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i64 16, i1 false), !alias.scope !92
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %29, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !96
 
@@ -14345,7 +14339,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE13_M_deall
   store ptr %26, ptr %0, align 8
   %33 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.55", ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.55", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.55", ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 
@@ -14360,9 +14354,9 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdE
   br i1 %.not, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -14373,7 +14367,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdE
 
 14:                                               ; preds = %5
   %.sroa.1.8.copyload = load i8, ptr %3, align 8
-  %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %3, i64 1
+  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.8..sroa_idx, i64 15, i1 false)
   %15 = ptrtoint ptr %1 to i64
   %16 = sub i64 %11, %15
@@ -14390,8 +14384,8 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost6detail20GradientPairInternalIdE
   %.013.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %9, %19 ]
   %.sroa.08.012.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %21, %19 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i, i64 16, i1 false)
-  %22 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
-  %23 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %22, %9
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !97
 
@@ -14418,9 +14412,9 @@ _ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.e
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.exit ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i, align 8
-  %.sroa.6.8..06.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i, i64 1
+  %.sroa.6.8..06.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.8..06.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, i64 15, i1 false)
-  %33 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %33, %32
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !43
 
@@ -14433,10 +14427,10 @@ _ZSt13move_backwardIPN7xgboost6detail20GradientPairInternalIdEES4_ET0_T_S6_S5_.e
   %.09.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %9, %34 ]
   %.068.i.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i.i ], [ %35, %34 ]
   store i8 %.sroa.1.8.copyload, ptr %.09.i.i.i.i, align 8
-  %.sroa.6.8..09.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 1
+  %.sroa.6.8..09.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.8..09.i.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, i64 15, i1 false)
   %36 = add i64 %.068.i.i.i.i, -1
-  %37 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
@@ -14455,8 +14449,8 @@ _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3
   %.013.i.i.i.i.i71 = phi ptr [ %41, %.lr.ph.i.i.i.i.i70 ], [ %38, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit ]
   %.sroa.08.012.i.i.i.i.i72 = phi ptr [ %40, %.lr.ph.i.i.i.i.i70 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i72, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 16
-  %41 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i71, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 16
   %.not.i.i.i.i.i73 = icmp eq ptr %40, %9
   br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !97
 
@@ -14469,9 +14463,9 @@ _ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3
 .lr.ph.i.i.i77:                                   ; preds = %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, %.lr.ph.i.i.i77
   %.06.i.i.i78 = phi ptr [ %44, %.lr.ph.i.i.i77 ], [ %1, %_ZSt22__uninitialized_move_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75 ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i78, align 8
-  %.sroa.6.8..06.i.i.i78.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 1
+  %.sroa.6.8..06.i.i.i78.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i78, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6.8..06.i.i.i78.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.6, i64 15, i1 false)
-  %44 = getelementptr inbounds i8, ptr %.06.i.i.i78, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.06.i.i.i78, i64 16
   %.not.i.i.i79 = icmp eq ptr %44, %9
   br i1 %.not.i.i.i79, label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i77, !llvm.loop !43
 
@@ -14514,7 +14508,7 @@ _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_alloc
   %.068.i.i.i.i84 = phi i64 [ %64, %.lr.ph.i.i.i.i82 ], [ %2, %_ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i83, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   %64 = add i64 %.068.i.i.i.i84, -1
-  %65 = getelementptr inbounds i8, ptr %.09.i.i.i.i83, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i83, i64 16
   %.not.i.i.i.i85 = icmp eq i64 %64, 0
   br i1 %.not.i.i.i.i85, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87, label %.lr.ph.i.i.i.i82, !llvm.loop !35
 
@@ -14526,8 +14520,8 @@ _ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3
   %.013.i.i.i.i.i90 = phi ptr [ %67, %.lr.ph.i.i.i.i.i89 ], [ %62, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ]
   %.sroa.08.012.i.i.i.i.i91 = phi ptr [ %66, %.lr.ph.i.i.i.i.i89 ], [ %46, %_ZSt24__uninitialized_fill_n_aIPN7xgboost6detail20GradientPairInternalIdEEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit87 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i90, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i91, i64 16, i1 false)
-  %66 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 16
-  %67 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i90, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i91, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i90, i64 16
   %.not.i.i.i.i.i92 = icmp eq ptr %66, %1
   br i1 %.not.i.i.i.i.i92, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %.lr.ph.i.i.i.i.i89, !llvm.loop !97
 
@@ -14541,8 +14535,8 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternal
   %.013.i.i.i.i.i96 = phi ptr [ %70, %.lr.ph.i.i.i.i.i95 ], [ %68, %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   %.sroa.08.012.i.i.i.i.i97 = phi ptr [ %69, %.lr.ph.i.i.i.i.i95 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.013.i.i.i.i.i96, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.08.012.i.i.i.i.i97, i64 16, i1 false)
-  %69 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i97, i64 16
-  %70 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i96, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i97, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i96, i64 16
   %.not.i.i.i.i.i98 = icmp eq ptr %69, %9
   br i1 %.not.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, label %.lr.ph.i.i.i.i.i95, !llvm.loop !97
 
@@ -14561,7 +14555,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternal
 _ZNSt12_Vector_baseIN7xgboost6detail20GradientPairInternalIdEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost6detail20GradientPairInternalIdEES4_SaIS3_EET0_T_S7_S6_RT1_.exit100, %71
   store ptr %62, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i99, ptr %8, align 8
-  %75 = getelementptr inbounds %"class.xgboost::detail::GradientPairInternal.55", ptr %62, i64 %56
+  %75 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal.55", ptr %62, i64 %56
   store ptr %75, ptr %6, align 8
   br label %_ZSt4fillIPN7xgboost6detail20GradientPairInternalIdEES3_EvT_S5_RKT0_.exit
 
@@ -14575,14 +14569,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -14660,7 +14654,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -14674,9 +14668,9 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -14720,7 +14714,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit ]
   store i32 %15, ptr %.06.i.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !44
 
@@ -14736,7 +14730,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.06.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4
-  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !44
 
@@ -14761,7 +14755,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
   %.06.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69 ]
   store i32 %15, ptr %.06.i.i.i72, align 4
-  %42 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !44
 
@@ -14804,7 +14798,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %43
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
   %.06.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   store i32 %64, ptr %.06.i.i.i.i.i.i.i76, align 4
-  %65 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i76, i64 4
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !44
 
@@ -14838,7 +14832,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds i32, ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw i32, ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
@@ -14852,9 +14846,9 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPhhEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -14982,7 +14976,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPhS0_SaIhEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit: ; preds = %60, %62
   store ptr %53, ptr %0, align 8
   store ptr %61, ptr %8, align 8
-  %64 = getelementptr inbounds i8, ptr %53, i64 %47
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 %47
   store ptr %64, ptr %6, align 8
   br label %_ZSt4fillIPhhEvT_S1_RKT0_.exit
 
@@ -14996,9 +14990,9 @@ define linkonce_odr void @_ZNSt6vectorIaSaIaEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPaaEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -15126,7 +15120,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPaS0_SaIaEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit: ; preds = %60, %62
   store ptr %53, ptr %0, align 8
   store ptr %61, ptr %8, align 8
-  %64 = getelementptr inbounds i8, ptr %53, i64 %47
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 %47
   store ptr %64, ptr %6, align 8
   br label %_ZSt4fillIPaaEvT_S1_RKT0_.exit
 
@@ -15140,14 +15134,14 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appe
   br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -15162,7 +15156,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appe
 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = icmp eq i64 %1, 1
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIPN7xgboost5EntryEmS1_ET_S3_T0_RSaIT1_E.exit, label %22
 
@@ -15174,7 +15168,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE17_M_default_appe
   %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
   %24 = load i64, ptr %5, align 4
   store i64 %24, ptr %.06.i.i.i.i.i.i.i, align 4
-  %25 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7xgboost5EntryEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !69
 
@@ -15203,7 +15197,7 @@ _ZNKSt6vectorIN7xgboost5EntryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %26
   br i1 %34, label %_ZSt27__uninitialized_default_n_aIPN7xgboost5EntryEmS1_ET_S3_T0_RSaIT1_E.exit34, label %35
 
 35:                                               ; preds = %_ZNKSt6vectorIN7xgboost5EntryESaIS1_EE12_M_check_lenEmPKc.exit
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = getelementptr %"struct.xgboost::Entry", ptr %33, i64 %1
   br label %.lr.ph.i.i.i.i.i.i.i30
 
@@ -15211,7 +15205,7 @@ _ZNKSt6vectorIN7xgboost5EntryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %26
   %.06.i.i.i.i.i.i.i31 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i30 ], [ %36, %35 ]
   %38 = load i64, ptr %33, align 4
   store i64 %38, ptr %.06.i.i.i.i.i.i.i31, align 4
-  %39 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 8
   %.not.i.i.i.i.i.i.i32 = icmp eq ptr %39, %37
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIPN7xgboost5EntryEmS1_ET_S3_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !69
 
@@ -15236,7 +15230,7 @@ _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; pred
   store ptr %32, ptr %0, align 8
   %44 = getelementptr inbounds %"struct.xgboost::Entry", ptr %33, i64 %1
   store ptr %44, ptr %4, align 8
-  %45 = getelementptr inbounds %"struct.xgboost::Entry", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %32, i64 %30
   store ptr %45, ptr %11, align 8
   br label %46
 
@@ -15250,9 +15244,9 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost5EntryESaIS1_EE14_M_fill_insertE
   br i1 %.not, label %_ZSt4fillIPN7xgboost5EntryES1_EvT_S3_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -15296,7 +15290,7 @@ _ZSt13move_backwardIPN7xgboost5EntryES2_ET0_T_S4_S3_.exit: ; preds = %24, %_ZSt2
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPN7xgboost5EntryES2_ET0_T_S4_S3_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPN7xgboost5EntryES2_ET0_T_S4_S3_.exit ]
   store i64 %15, ptr %.06.i.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPN7xgboost5EntryES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !69
 
@@ -15312,7 +15306,7 @@ _ZSt13move_backwardIPN7xgboost5EntryES2_ET0_T_S4_S3_.exit: ; preds = %24, %_ZSt2
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.06.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store i64 %15, ptr %.06.i.i.i.i.i.i.i, align 4
-  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost5EntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !69
 
@@ -15337,7 +15331,7 @@ _ZSt22__uninitialized_move_aIPN7xgboost5EntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69:
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPN7xgboost5EntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69, %.lr.ph.i.i.i71
   %.06.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPN7xgboost5EntryES2_SaIS1_EET0_T_S5_S4_RT1_.exit69 ]
   store i64 %15, ptr %.06.i.i.i72, align 4
-  %42 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPN7xgboost5EntryES1_EvT_S3_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !69
 
@@ -15380,7 +15374,7 @@ _ZNKSt6vectorIN7xgboost5EntryESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %43
   %.06.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   %64 = load i64, ptr %3, align 4
   store i64 %64, ptr %.06.i.i.i.i.i.i.i76, align 4
-  %65 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i76, i64 8
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPN7xgboost5EntryEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !69
 
@@ -15414,7 +15408,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7xgboost5EntryES2_SaIS1_EET0_T_S5_S4_
 _ZNSt12_Vector_baseIN7xgboost5EntryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds %"struct.xgboost::Entry", ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw %"struct.xgboost::Entry", ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPN7xgboost5EntryES1_EvT_S3_RKT0_.exit
 
@@ -15428,14 +15422,14 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -15513,7 +15507,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit35: ; preds = %_ZNSt6vectorIm
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i64, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i64, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i64, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -15527,9 +15521,9 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -15573,7 +15567,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit ]
   store i64 %15, ptr %.06.i.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !76
 
@@ -15589,7 +15583,7 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.06.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store i64 %15, ptr %.06.i.i.i.i.i.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !76
 
@@ -15614,7 +15608,7 @@ _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
   %.06.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit69 ]
   store i64 %15, ptr %.06.i.i.i72, align 8
-  %42 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !76
 
@@ -15657,7 +15651,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit:    ; preds = %43
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
   %.06.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   store i64 %64, ptr %.06.i.i.i.i.i.i.i76, align 8
-  %65 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i76, i64 8
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPmmmmET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !76
 
@@ -15691,7 +15685,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds i64, ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw i64, ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPmmEvT_S1_RKT0_.exit
 
@@ -15705,14 +15699,14 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -15790,7 +15784,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIj
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -15804,9 +15798,9 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
   br i1 %.not, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -15850,7 +15844,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit ]
   store i32 %15, ptr %.06.i.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !83
 
@@ -15866,7 +15860,7 @@ _ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %24, %_ZSt22__uninit
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.06.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4
-  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !83
 
@@ -15891,7 +15885,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69, %.lr.ph.i.i.i71
   %.06.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit69 ]
   store i32 %15, ptr %.06.i.i.i72, align 4
-  %42 = getelementptr inbounds i8, ptr %.06.i.i.i72, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !83
 
@@ -15934,7 +15928,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit:    ; preds = %43
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
   %.06.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   store i32 %64, ptr %.06.i.i.i.i.i.i.i76, align 4
-  %65 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i76, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i76, i64 4
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !83
 
@@ -15968,7 +15962,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds i32, ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw i32, ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 

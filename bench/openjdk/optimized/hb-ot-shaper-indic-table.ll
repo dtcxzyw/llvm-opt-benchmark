@@ -149,7 +149,7 @@ define hidden noundef zeroext i16 @_Z23hb_indic_get_categoriesj(i32 noundef %0) 
 .sink.split:                                      ; preds = %5, %11, %16, %21, %26, %31, %38, %43, %48, %52, %54, %56, %61, %65, %67
   %.sink = phi i32 [ %68, %67 ], [ %66, %65 ], [ %62, %61 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %49, %48 ], [ %44, %43 ], [ %39, %38 ], [ %32, %31 ], [ %27, %26 ], [ %22, %21 ], [ %17, %16 ], [ %12, %11 ], [ %6, %5 ]
   %69 = zext nneg i32 %.sink to i64
-  %70 = getelementptr inbounds [1728 x i16], ptr @_ZL11indic_table, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [1728 x i16], ptr @_ZL11indic_table, i64 0, i64 %69
   %71 = load i16, ptr %70, align 2
   br label %72
 

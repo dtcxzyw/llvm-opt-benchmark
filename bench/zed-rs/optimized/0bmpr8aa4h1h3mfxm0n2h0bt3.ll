@@ -25,17 +25,17 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !14, !noalias !15, !noundef !16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !15, !noalias !14, !noundef !16
   %.not.i.i.i = icmp eq i64 %4, %6
   br i1 %.not.i.i.i, label %7, label %"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b0e1ab980617b36E.llvm.15750769677959314825.exit"
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !15, !noalias !14, !nonnull !16, !noundef !16
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !14, !noalias !15, !nonnull !16, !noundef !16
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !17, !noalias !21
   %12 = icmp eq i32 %bcmp.i.i.i, 0
@@ -48,17 +48,17 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h9094118a9a0fc3ebE.llvm.15750769677959314825"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !16
   %.not.i = icmp eq i64 %4, %6
   br i1 %.not.i, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4bf7862abac30662E.exit"
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !16, !noundef !16
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !16, !noundef !16
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !22
   %12 = icmp eq i32 %bcmp.i, 0
@@ -242,17 +242,17 @@ define hidden noalias noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17t
 define hidden noundef zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3b0e1ab980617b36E.llvm.15750769677959314825"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !26, !noalias !29, !noundef !16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !29, !noalias !26, !noundef !16
   %.not.i.i = icmp eq i64 %4, %6
   br i1 %.not.i.i, label %7, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h9094118a9a0fc3ebE.llvm.15750769677959314825.exit"
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !29, !noalias !26, !nonnull !16, !noundef !16
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !26, !noalias !29, !nonnull !16, !noundef !16
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %11, ptr nonnull readonly align 1 %9, i64 %4), !alias.scope !31, !noalias !35
   %12 = icmp eq i32 %bcmp.i.i, 0
@@ -328,9 +328,9 @@ define hidden void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17
   %26 = icmp ult i64 %2, -9223372036854775807
   tail call void @llvm.assume(i1 %26)
   store i64 %2, ptr %0, align 8
-  %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %.sroa.411.0..sroa_idx, align 8
-  %.sroa.512.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %15, ptr %.sroa.512.0..sroa_idx, align 8
   br label %28
 
@@ -353,7 +353,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h748e
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h576bacb8877d04faE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !16
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %31, label %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.15750769677959314825.exit

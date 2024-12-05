@@ -583,7 +583,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @sbus_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i32
   %6 = add i32 %2, %5
@@ -598,9 +598,9 @@ define internal range(i32 0, 2) i32 @sbus_equal(ptr nocapture noundef readonly %
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i16, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %8, %10
   br i1 %11, label %13, label %12
@@ -655,17 +655,17 @@ is_sbus_pdu.exit:                                 ; preds = %20
   br i1 %24, label %is_sbus_pdu.exit.thread, label %25
 
 25:                                               ; preds = %is_sbus_pdu.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.393) #4
   %28 = load ptr, ptr %26, align 8
   tail call void @col_clear(ptr noundef %28, i32 noundef 25) #4
   %29 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %6, align 8
   %32 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
-  %33 = getelementptr inbounds i8, ptr %6, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %32, ptr %33, align 4
   %34 = load ptr, ptr @sbus_request_hash, align 8
   %35 = call ptr @wmem_map_lookup(ptr noundef %34, ptr noundef nonnull %6) #4
@@ -676,12 +676,12 @@ is_sbus_pdu.exit:                                 ; preds = %20
   br i1 %or.cond, label %39, label %53
 
 39:                                               ; preds = %25
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = icmp ult i32 %41, %43
-  %45 = getelementptr inbounds i8, ptr %35, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 4
   br i1 %44, label %46, label %49
 
 46:                                               ; preds = %39
@@ -694,8 +694,8 @@ is_sbus_pdu.exit:                                 ; preds = %20
   store i8 0, ptr %45, align 4
   %50 = load i32, ptr %42, align 4
   store i32 %50, ptr %40, align 8
-  %51 = getelementptr inbounds i8, ptr %35, i64 16
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
   br label %.thread
 
@@ -706,9 +706,9 @@ is_sbus_pdu.exit:                                 ; preds = %20
   br i1 %or.cond1119, label %55, label %.thread
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %1, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %35, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %57, ptr %58, align 4
   br label %.thread
 
@@ -728,18 +728,18 @@ is_sbus_pdu.exit:                                 ; preds = %20
   %67 = call noalias ptr @wmem_alloc(ptr noundef %66, i64 noundef 48) #4
   %68 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #4
   store i8 %68, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i8 0, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %1, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
-  %75 = getelementptr inbounds i8, ptr %67, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 12
   store i32 0, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %67, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store i8 0, ptr %76, align 8
   switch i8 %68, label %108 [
     i8 -95, label %77
@@ -750,17 +750,17 @@ is_sbus_pdu.exit:                                 ; preds = %20
 77:                                               ; preds = %62, %62
   %78 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   %79 = add i8 %78, 1
-  %80 = getelementptr inbounds i8, ptr %67, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store i8 %79, ptr %80, align 1
   br label %112
 
 81:                                               ; preds = %62
   %82 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #4
-  %83 = getelementptr inbounds i8, ptr %67, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store i8 %82, ptr %83, align 1
   %84 = call ptr @wmem_file_scope() #4
   %85 = call noalias ptr @wmem_list_new(ptr noundef %84) #4
-  %86 = getelementptr inbounds i8, ptr %67, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %85, ptr %86, align 8
   %87 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #4
   %88 = zext i8 %87 to i32
@@ -786,7 +786,7 @@ is_sbus_pdu.exit:                                 ; preds = %20
   %100 = add nuw nsw i32 %.02628.i, 3
   %101 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %100) #4
   %102 = add i8 %101, 1
-  %103 = getelementptr inbounds i8, ptr %94, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %94, i64 1
   store i8 %102, ptr %103, align 1
   %104 = add i32 %98, %97
   %105 = add i8 %.030.i, 1
@@ -807,7 +807,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 108:                                              ; preds = %62
   %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #4
   %110 = add i8 %109, 1
-  %111 = getelementptr inbounds i8, ptr %67, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store i8 %110, ptr %111, align 1
   br label %112
 
@@ -820,24 +820,24 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 114:                                              ; preds = %112
   %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
-  %116 = getelementptr inbounds i8, ptr %67, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i8 %115, ptr %116, align 2
   br label %122
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %67, i64 2
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i8 0, ptr %118, align 2
   %119 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #4
   br label %122
 
 120:                                              ; preds = %112
-  %121 = getelementptr inbounds i8, ptr %67, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i8 0, ptr %121, align 2
   br label %122
 
 122:                                              ; preds = %117, %120, %114
   %.sink = phi i8 [ %119, %117 ], [ 0, %120 ], [ 0, %114 ]
-  %123 = getelementptr inbounds i8, ptr %67, i64 3
+  %123 = getelementptr inbounds nuw i8, ptr %67, i64 3
   store i8 %.sink, ptr %123, align 1
   %124 = load ptr, ptr @sbus_request_hash, align 8
   %125 = call ptr @wmem_map_insert(ptr noundef %124, ptr noundef nonnull %64, ptr noundef nonnull %67) #4
@@ -871,7 +871,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 136:                                              ; preds = %127
   %137 = load ptr, ptr %26, align 8
-  %138 = getelementptr inbounds i8, ptr %.0, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %139 = load i8, ptr %138, align 8
   %140 = zext i8 %139 to i32
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.396, i32 noundef %140) #4
@@ -909,7 +909,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 154:                                              ; preds = %.preheader1150, %151
   %.01075.lcssa = phi i8 [ %.010751155, %.preheader1150 ], [ 24, %151 ]
-  %155 = getelementptr inbounds i8, ptr %1, i64 408
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %156 = load ptr, ptr %155, align 8
   %157 = zext nneg i8 %.01075.lcssa to i32
   %158 = call ptr @tvb_get_string_enc(ptr noundef %156, ptr noundef %0, i32 noundef 19, i32 noundef %157, i32 noundef 0) #4
@@ -938,7 +938,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 168:                                              ; preds = %.preheader1151, %165
   %.1.lcssa = phi i8 [ %.11153, %.preheader1151 ], [ 24, %165 ]
-  %169 = getelementptr inbounds i8, ptr %1, i64 408
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %170 = load ptr, ptr %169, align 8
   %171 = zext nneg i8 %.1.lcssa to i32
   %172 = call ptr @tvb_get_string_enc(ptr noundef %170, ptr noundef %0, i32 noundef 15, i32 noundef %171, i32 noundef 0) #4
@@ -954,7 +954,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   br label %178
 
 178:                                              ; preds = %141, %146, %154, %168, %160, %174, %136, %129
-  %179 = getelementptr inbounds i8, ptr %.0, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %180 = load i8, ptr %179, align 4
   %.not1112 = icmp eq i8 %180, 0
   br i1 %.not1112, label %222, label %181
@@ -995,14 +995,14 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 197:                                              ; preds = %184
   %198 = load ptr, ptr %26, align 8
-  %199 = getelementptr inbounds i8, ptr %.0, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %200 = load i8, ptr %199, align 8
   %201 = zext i8 %200 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef nonnull @.str.405, i32 noundef %201) #4
   br label %222
 
 202:                                              ; preds = %184
-  %203 = getelementptr inbounds i8, ptr %.0, i64 3
+  %203 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %204 = load i8, ptr %203, align 1
   switch i8 %204, label %210 [
     i8 0, label %205
@@ -1083,28 +1083,28 @@ add_sbus_subrequest.exit:                         ; preds = %106
   br i1 %.not1114, label %.critedge1122, label %249
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds i8, ptr %.0, i64 4
+  %250 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %251 = load i8, ptr %250, align 4
   %.not1115 = icmp eq i8 %251, 0
   br i1 %.not1115, label %262, label %252
 
 252:                                              ; preds = %249
   %253 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %227, ptr noundef nonnull @ei_sbus_retry) #4
-  %254 = getelementptr inbounds i8, ptr %1, i64 24
-  %255 = getelementptr inbounds i8, ptr %.0, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %254, ptr noundef nonnull %255) #4
   %256 = load i32, ptr @hf_sbus_timeout, align 4
   %257 = call ptr @proto_tree_add_time(ptr noundef %227, i32 noundef %256, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %258 = load i32, ptr @hf_sbus_request_in, align 4
-  %259 = getelementptr inbounds i8, ptr %.0, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %260 = load i32, ptr %259, align 8
   %261 = call ptr @proto_tree_add_uint(ptr noundef %227, i32 noundef %258, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %260) #4
   br label %262
 
 262:                                              ; preds = %249, %252
-  %263 = getelementptr inbounds i8, ptr %.0, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %264 = load i32, ptr %263, align 4
-  %265 = getelementptr inbounds i8, ptr %1, i64 20
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %266 = load i32, ptr %265, align 4
   %267 = icmp ugt i32 %264, %266
   br i1 %267, label %268, label %.critedge1122
@@ -1419,7 +1419,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 457:                                              ; preds = %451, %454
   %.2.lcssa = phi i8 [ %.21165, %451 ], [ 24, %454 ]
-  %458 = getelementptr inbounds i8, ptr %1, i64 408
+  %458 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %459 = load ptr, ptr %458, align 8
   %460 = zext nneg i8 %.2.lcssa to i32
   %461 = call ptr @tvb_get_string_enc(ptr noundef %459, ptr noundef %0, i32 noundef 19, i32 noundef %460, i32 noundef 0) #4
@@ -1480,7 +1480,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 497:                                              ; preds = %491, %494
   %.3.lcssa = phi i8 [ %.31161, %491 ], [ 24, %494 ]
-  %498 = getelementptr inbounds i8, ptr %1, i64 408
+  %498 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %499 = load ptr, ptr %498, align 8
   %500 = zext nneg i8 %.3.lcssa to i32
   %501 = call ptr @tvb_get_string_enc(ptr noundef %499, ptr noundef %0, i32 noundef 19, i32 noundef %500, i32 noundef 0) #4
@@ -1522,7 +1522,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 523:                                              ; preds = %.preheader1149, %520
   %.4.lcssa = phi i8 [ %.41159, %.preheader1149 ], [ 24, %520 ]
-  %524 = getelementptr inbounds i8, ptr %1, i64 408
+  %524 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %525 = load ptr, ptr %524, align 8
   %526 = zext nneg i8 %.4.lcssa to i32
   %527 = call ptr @tvb_get_string_enc(ptr noundef %525, ptr noundef %0, i32 noundef 14, i32 noundef %526, i32 noundef 0) #4
@@ -1571,7 +1571,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 553:                                              ; preds = %547, %550
   %.5.lcssa = phi i8 [ %.51157, %547 ], [ 24, %550 ]
-  %554 = getelementptr inbounds i8, ptr %1, i64 408
+  %554 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %555 = load ptr, ptr %554, align 8
   %556 = zext nneg i8 %.5.lcssa to i32
   %557 = call ptr @tvb_get_string_enc(ptr noundef %555, ptr noundef %0, i32 noundef 22, i32 noundef %556, i32 noundef 0) #4
@@ -1612,7 +1612,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 578:                                              ; preds = %.preheader, %575
   %.6.lcssa = phi i8 [ %.61163, %.preheader ], [ 24, %575 ]
-  %579 = getelementptr inbounds i8, ptr %1, i64 408
+  %579 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %580 = load ptr, ptr %579, align 8
   %581 = zext nneg i8 %.6.lcssa to i32
   %582 = call ptr @tvb_get_string_enc(ptr noundef %580, ptr noundef %0, i32 noundef 14, i32 noundef %581, i32 noundef 0) #4
@@ -1653,13 +1653,13 @@ add_sbus_subrequest.exit:                         ; preds = %106
   br i1 %or.cond31, label %602, label %899
 
 602:                                              ; preds = %.loopexit1145
-  %603 = getelementptr inbounds i8, ptr %1, i64 24
-  %604 = getelementptr inbounds i8, ptr %.0, i64 16
+  %603 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %604 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %603, ptr noundef nonnull %604) #4
   %605 = load i32, ptr @hf_sbus_response_time, align 4
   %606 = call ptr @proto_tree_add_time(ptr noundef %227, i32 noundef %605, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %607 = load i32, ptr @hf_sbus_response_to, align 4
-  %608 = getelementptr inbounds i8, ptr %.0, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %609 = load i32, ptr %608, align 8
   %610 = call ptr @proto_tree_add_uint(ptr noundef %227, i32 noundef %607, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %609) #4
   %611 = load i8, ptr %.0, align 8
@@ -1700,7 +1700,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 612:                                              ; preds = %602, %602, %602, %602, %602, %602, %602
   %613 = zext i8 %611 to i32
-  %614 = getelementptr inbounds i8, ptr %.0, i64 1
+  %614 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %615 = load i8, ptr %614, align 1
   %616 = zext i8 %615 to i32
   %617 = call fastcc i32 @add_media_response_to_tree(i32 noundef %613, i32 noundef %616, ptr noundef %0, ptr noundef %227, i32 noundef %.11084)
@@ -1714,7 +1714,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
 
 622:                                              ; preds = %602, %602, %602
   %623 = zext nneg i8 %611 to i32
-  %624 = getelementptr inbounds i8, ptr %.0, i64 1
+  %624 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %625 = load i8, ptr %624, align 1
   %626 = zext i8 %625 to i32
   %627 = call fastcc i32 @add_media_response_to_tree(i32 noundef %623, i32 noundef %626, ptr noundef %0, ptr noundef %227, i32 noundef %.11084)
@@ -1768,7 +1768,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %671 = load i32, ptr @ett_sbus_data, align 4
   %672 = call ptr @proto_tree_add_subtree(ptr noundef %227, ptr noundef %0, i32 noundef %670, i32 noundef %668, i32 noundef %671, ptr noundef null, ptr noundef nonnull @.str.420) #4
   %673 = add i32 %670, %668
-  %674 = getelementptr inbounds i8, ptr %.0, i64 40
+  %674 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %675 = load ptr, ptr %674, align 8
   %676 = call ptr @wmem_list_head(ptr noundef %675) #4
   %677 = icmp ne ptr %676, null
@@ -1782,7 +1782,7 @@ add_sbus_subrequest.exit:                         ; preds = %106
   %.010981191 = phi ptr [ %723, %722 ], [ %676, %665 ]
   %680 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.010981191) #4
   %681 = load i8, ptr %680, align 1
-  %682 = getelementptr inbounds i8, ptr %680, i64 1
+  %682 = getelementptr inbounds nuw i8, ptr %680, i64 1
   %683 = load i8, ptr %682, align 1
   %684 = add nsw i32 %.710901192, 1
   %685 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %684) #4
@@ -1897,7 +1897,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   br label %.thread1138
 
 755:                                              ; preds = %602
-  %756 = getelementptr inbounds i8, ptr %.0, i64 1
+  %756 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %757 = load i8, ptr %756, align 1
   %758 = zext i8 %757 to i32
   %759 = load i32, ptr @ett_sbus_data, align 4
@@ -1958,7 +1958,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   br label %.thread1138
 
 794:                                              ; preds = %602
-  %795 = getelementptr inbounds i8, ptr %.0, i64 2
+  %795 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %796 = load i8, ptr %795, align 2
   %797 = icmp eq i8 %796, 0
   br i1 %797, label %798, label %813
@@ -2023,7 +2023,7 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   br i1 %842, label %.lr.ph1183, label %.loopexit, !llvm.loop !20
 
 843:                                              ; preds = %602
-  %844 = getelementptr inbounds i8, ptr %.0, i64 3
+  %844 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %845 = load i8, ptr %844, align 1
   %846 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.11084) #4
   %847 = zext i8 %846 to i32
@@ -2133,13 +2133,13 @@ get_response_length.exit:                         ; preds = %703, %706, %708
   br i1 %601, label %908, label %917
 
 908:                                              ; preds = %907
-  %909 = getelementptr inbounds i8, ptr %1, i64 24
-  %910 = getelementptr inbounds i8, ptr %.0, i64 16
+  %909 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %910 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %909, ptr noundef nonnull %910) #4
   %911 = load i32, ptr @hf_sbus_response_time, align 4
   %912 = call ptr @proto_tree_add_time(ptr noundef %227, i32 noundef %911, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #4
   %913 = load i32, ptr @hf_sbus_response_to, align 4
-  %914 = getelementptr inbounds i8, ptr %.0, i64 8
+  %914 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %915 = load i32, ptr %914, align 8
   %916 = call ptr @proto_tree_add_uint(ptr noundef %227, i32 noundef %913, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %915) #4
   br label %917

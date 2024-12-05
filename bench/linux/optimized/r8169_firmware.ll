@@ -9,9 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtl_fw_write_firmware(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.loopexit, label %8
@@ -19,8 +19,8 @@ define dso_local void @rtl_fw_write_firmware(ptr noundef %0, ptr nocapture nound
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %13
 
 13:                                               ; preds = %66, %8
@@ -149,7 +149,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @rtl_fw_release_firmware(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @release_firmware(ptr noundef %3) #3
   ret void
@@ -160,20 +160,20 @@ declare dso_local void @release_firmware(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @request_firmware(ptr noundef %2, ptr noundef %4, ptr noundef %6) #3
+  %7 = tail call i32 @request_firmware(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %6) #3
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %89, label %9
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i64, ptr %10, align 8
   %15 = icmp ult i64 %14, 4
   br i1 %15, label %.critedge, label %16
@@ -202,14 +202,14 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
   br i1 %29, label %30, label %.critedge
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %12, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %32 = load i32, ptr %31, align 1
   %33 = zext i32 %32 to i64
   %34 = icmp ult i64 %14, %33
   br i1 %34, label %.critedge, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %12, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %37 = load i32, ptr %36, align 1
   %38 = zext i32 %37 to i64
   %39 = sub nuw i64 %14, %33
@@ -218,9 +218,9 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
   br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
-  %44 = getelementptr inbounds i8, ptr %12, i64 4
-  %45 = tail call i64 @strscpy(ptr noundef %43, ptr noundef %44, i64 noundef 32) #3
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %45 = tail call i64 @strscpy(ptr noundef nonnull %43, ptr noundef nonnull %44, i64 noundef 32) #3
   %46 = load ptr, ptr %11, align 8
   %47 = getelementptr i8, ptr %46, i64 %33
   store ptr %47, ptr %13, align 8
@@ -232,9 +232,9 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
   br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load ptr, ptr %3, align 8
-  %54 = tail call i64 @strscpy(ptr noundef %52, ptr noundef %53, i64 noundef 32) #3
+  %54 = tail call i64 @strscpy(ptr noundef nonnull %52, ptr noundef %53, i64 noundef 32) #3
   %55 = load ptr, ptr %11, align 8
   store ptr %55, ptr %13, align 8
   %56 = load i64, ptr %10, align 8
@@ -244,7 +244,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
 58:                                               ; preds = %51, %42
   %59 = phi ptr [ %55, %51 ], [ %47, %42 ]
   %60 = phi i64 [ %57, %51 ], [ %38, %42 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %60, ptr %61, align 8
   %62 = icmp eq i64 %60, 0
   br i1 %62, label %.loopexit, label %.preheader

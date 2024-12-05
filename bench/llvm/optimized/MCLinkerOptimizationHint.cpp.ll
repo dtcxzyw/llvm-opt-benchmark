@@ -43,7 +43,7 @@ define dso_local void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERN
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %13, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %18, ptr %7, align 8
   store i8 %.0.i, ptr %13, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -73,7 +73,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i18
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %25, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %30, ptr %7, align 8
   store i8 %.0.i16, ptr %25, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i18
@@ -111,7 +111,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_os
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i25
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %40, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %45, ptr %7, align 8
   store i8 %.0.i23, ptr %40, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i25
@@ -120,7 +120,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i25:               ; preds = %44, %42
   br i1 %.not.i22, label %36, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26, !llvm.loop !4
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i25
-  %46 = getelementptr inbounds i8, ptr %.028, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %.not = icmp eq ptr %46, %33
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -156,7 +156,7 @@ define dso_local noundef i64 @_ZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAs
   store i64 0, ptr %9, align 8
   call void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERNS_11raw_ostreamERKNS_16MachObjectWriterE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(2032) %2)
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -239,7 +239,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream12is_displa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_colorsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(48) %0) #7
   ret i1 %5

@@ -142,7 +142,7 @@ if.then1.i74.i:                                   ; preds = %if.end.i71.i
   br label %decode_unicode_with_escapes.exit
 
 if.end33.i:                                       ; preds = %decode_utf8.exit.i
-  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
@@ -324,7 +324,7 @@ declare ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef, i64 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_parse_string(ptr noundef %p, ptr noundef %t) local_unnamed_addr #0 {
 entry:
-  %bytes = getelementptr inbounds i8, ptr %t, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %bytes, align 8
   %call = tail call ptr @PyBytes_AsString(ptr noundef %0) #7
   %cmp = icmp eq ptr %call, null
@@ -487,16 +487,16 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.then97:                                        ; preds = %for.body
   %18 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds i8, ptr %t, i64 20
+  %lineno = getelementptr inbounds nuw i8, ptr %t, i64 20
   %19 = load i32, ptr %lineno, align 4
   %conv98 = sext i32 %19 to i64
-  %col_offset = getelementptr inbounds i8, ptr %t, i64 24
+  %col_offset = getelementptr inbounds nuw i8, ptr %t, i64 24
   %20 = load i32, ptr %col_offset, align 8
   %conv99 = sext i32 %20 to i64
-  %end_lineno = getelementptr inbounds i8, ptr %t, i64 28
+  %end_lineno = getelementptr inbounds nuw i8, ptr %t, i64 28
   %21 = load i32, ptr %end_lineno, align 4
   %conv100 = sext i32 %21 to i64
-  %end_col_offset = getelementptr inbounds i8, ptr %t, i64 32
+  %end_col_offset = getelementptr inbounds nuw i8, ptr %t, i64 32
   %22 = load i32, ptr %end_col_offset, align 8
   %conv101 = sext i32 %22 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef %p, ptr noundef %18, i64 noundef %conv98, i64 noundef %conv99, i64 noundef %conv100, i64 noundef %conv101, ptr nonnull poison)
@@ -600,7 +600,7 @@ declare ptr @_PyUnicode_DecodeUnicodeEscapeInternal(ptr noundef, i64 noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @warn_invalid_escape_sequence(ptr noundef %p, ptr noundef nonnull %first_invalid_escape, ptr noundef %t) unnamed_addr #0 {
 entry:
-  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
+  %call_invalid_rules = getelementptr inbounds nuw i8, ptr %p, i64 148
   %0 = load i32, ptr %call_invalid_rules, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -638,16 +638,16 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %cond.end
-  %feature_version = getelementptr inbounds i8, ptr %p, i64 104
+  %feature_version = getelementptr inbounds nuw i8, ptr %p, i64 104
   %6 = load i32, ptr %feature_version, align 8
   %cmp24 = icmp sgt i32 %6, 11
   %PyExc_SyntaxWarning.val = load ptr, ptr @PyExc_SyntaxWarning, align 8
   %PyExc_DeprecationWarning.val = load ptr, ptr @PyExc_DeprecationWarning, align 8
   %category.0 = select i1 %cmp24, ptr %PyExc_SyntaxWarning.val, ptr %PyExc_DeprecationWarning.val
   %7 = load ptr, ptr %p, align 8
-  %filename = getelementptr inbounds i8, ptr %7, i64 2336
+  %filename = getelementptr inbounds nuw i8, ptr %7, i64 2336
   %8 = load ptr, ptr %filename, align 8
-  %lineno = getelementptr inbounds i8, ptr %t, i64 20
+  %lineno = getelementptr inbounds nuw i8, ptr %t, i64 20
   %9 = load i32, ptr %lineno, align 4
   %call28 = tail call i32 @PyErr_WarnExplicitObject(ptr noundef %category.0, ptr noundef nonnull %cond, ptr noundef %8, i32 noundef %9, ptr noundef null, ptr noundef null) #7
   %cmp29 = icmp slt i32 %call28, 0
@@ -660,7 +660,7 @@ if.then31:                                        ; preds = %if.end23
 
 if.then34:                                        ; preds = %if.then31
   tail call void @PyErr_Clear() #7
-  %known_err_token = getelementptr inbounds i8, ptr %p, i64 136
+  %known_err_token = getelementptr inbounds nuw i8, ptr %p, i64 136
   store ptr %t, ptr %known_err_token, align 8
   %10 = load ptr, ptr @PyExc_SyntaxError, align 8
   br i1 %5, label %if.then36, label %if.else38

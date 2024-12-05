@@ -33,14 +33,14 @@ define noundef ptr @php_inet_ntop(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %2
   %5 = tail call noalias ptr @_emalloc_80() #6
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 46, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = tail call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 46) #6
   %.not170 = icmp eq ptr %11, null
   br i1 %.not170, label %thread-pre-split, label %12
@@ -53,14 +53,14 @@ define noundef ptr @php_inet_ntop(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %2
   %15 = tail call noalias ptr @_emalloc_48() #6
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 22, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = tail call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 16) #6
   %.not169 = icmp eq ptr %21, null
   br i1 %.not169, label %thread-pre-split, label %22
@@ -90,13 +90,13 @@ thread-pre-split:                                 ; preds = %14, %4
   %.0166 = phi i32 [ 16, %24 ], [ 28, %26 ]
   %28 = tail call noalias ptr @_emalloc_1280() #6
   store i32 1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 22, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 1025, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %33 = tail call i32 @getnameinfo(ptr noundef nonnull %0, i32 noundef %.0166, ptr noundef nonnull %32, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #6
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %40
@@ -142,7 +142,7 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -161,29 +161,29 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @strerror(i32 noundef %14) #6
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef %15) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %16, align 8
   br label %87
 
 17:                                               ; preds = %10
   %18 = call ptr @_zend_new_array_0() #6
   store ptr %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %19, align 8
   %.050 = load ptr, ptr %4, align 8
   %.not4451 = icmp eq ptr %.050, null
   br i1 %.not4451, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
 23:                                               ; preds = %.lr.ph, %85
   %.052 = phi ptr [ %.050, %.lr.ph ], [ %.0, %85 ]
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %.052, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #7
   %28 = call ptr @zend_hash_str_find(ptr noundef %24, ptr noundef %26, i64 noundef %27) #6
@@ -217,19 +217,19 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
 
 42:                                               ; preds = %38, %35
   %.040 = phi ptr [ %37, %35 ], [ %41, %38 ]
-  %43 = getelementptr inbounds i8, ptr %.052, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %.052, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.052, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.052, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.052, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = and i32 %44, 2
   %.not47 = icmp eq i32 %50, 0
   br i1 %.not47, label %54, label %51
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %.052, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.052, i64 40
   %53 = load ptr, ptr %52, align 8
   br label %54
 
@@ -240,7 +240,7 @@ define hidden void @zif_net_get_interfaces(ptr nocapture noundef readonly %0, pt
   br i1 %.not48, label %60, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.052, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.052, i64 40
   %59 = load ptr, ptr %58, align 8
   br label %60
 

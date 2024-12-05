@@ -443,7 +443,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i:              ; preds = %_ZSt7advanceIPPKclE
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ @_ZN5boost6locale4util12_GLOBAL__N_121simple_encoding_tableE, %1 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ 30, %1 ]
   %7 = lshr i64 %.01116.i.i, 1
-  %8 = getelementptr inbounds ptr, ptr %.017.i.i, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %.017.i.i, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %6) #22
   %11 = icmp slt i32 %10, 0
@@ -506,7 +506,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i:            ; preds = %_ZSt7advanceIPPKclE
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ @_ZN5boost6locale4util12_GLOBAL__N_121simple_encoding_tableE, %2 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ 30, %2 ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds ptr, ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %7) #22
   %12 = icmp slt i32 %11, 0
@@ -621,7 +621,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EE5r
 9:                                                ; preds = %7
   store ptr null, ptr %2, align 8, !tbaa !15
   %10 = load ptr, ptr %.in, align 8, !tbaa !22, !noalias !34
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8, !noalias !34
   %13 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %.in)
           to label %.noexc unwind label %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11
@@ -668,7 +668,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EE5r
 .body.thread:                                     ; preds = %21, %23
   %.pn4567.ph.i = phi { ptr, i32 } [ %22, %21 ], [ %lpad.thr_comm.i, %23 ]
   %24 = load ptr, ptr %.in, align 8, !tbaa !22, !noalias !34
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !34
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %.in) #19, !noalias !34
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 32) #20, !noalias !34
@@ -678,7 +678,7 @@ _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11: ; 
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %27 = load ptr, ptr %.in, align 8, !tbaa !22
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.in) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit12
@@ -686,7 +686,7 @@ _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11: ; 
 30:                                               ; preds = %7
   store ptr null, ptr %2, align 8, !tbaa !15
   %31 = load ptr, ptr %.in, align 8, !tbaa !22, !noalias !37
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !noalias !37
   %34 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(8) %.in)
           to label %.noexc20 unwind label %_ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i30
@@ -733,7 +733,7 @@ _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i11: ; 
 .body24.thread:                                   ; preds = %42, %44
   %.pn4567.ph.i15 = phi { ptr, i32 } [ %43, %42 ], [ %lpad.thr_comm.i18, %44 ]
   %45 = load ptr, ptr %.in, align 8, !tbaa !22, !noalias !37
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !noalias !37
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %.in) #19, !noalias !37
   tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 32) #20, !noalias !37
@@ -743,7 +743,7 @@ _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i30: ; 
   %lpad.thr_comm.split-lp50 = landingpad { ptr, i32 }
           cleanup
   %48 = load ptr, ptr %.in, align 8, !tbaa !22
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %.in) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit12
@@ -974,7 +974,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i:            ; preds = %_ZSt7advanceIPPKclE
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ @_ZN5boost6locale4util12_GLOBAL__N_121simple_encoding_tableE, %4 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ 30, %4 ]
   %11 = lshr i64 %.01116.i.i.i, 1
-  %12 = getelementptr inbounds ptr, ptr %.017.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %10) #22
   %15 = icmp slt i32 %14, 0
@@ -1690,7 +1690,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util21simple_converter_implC2E
 6:                                                ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   call void @_ZN5boost6locale4conv6detail16make_utf_encoderIwEESt10unique_ptrINS2_17charset_converterIcT_EESt14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11method_typeENS2_12conv_backendE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.30") align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0, i32 noundef 0)
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %14
@@ -1718,7 +1718,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util21simple_converter_implC2E
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
   %16 = load ptr, ptr %3, align 8, !tbaa !15, !noalias !51
   %17 = load ptr, ptr %16, align 8, !tbaa !22, !noalias !51
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !noalias !51
   invoke void %19(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.38") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %4, ptr noundef nonnull %7)
           to label %_ZNK5boost6locale4conv11utf_encoderIwE7convertB5cxx11EPKcS5_.exit unwind label %24
@@ -1793,7 +1793,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale4conv6detail17charset_converterIcwEEEclEPS5_.exit.i.i: ; preds = %.loopexit
   %43 = load ptr, ptr %42, align 8, !tbaa !22
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #19
   br label %_ZN5boost6locale4conv11utf_encoderIwED2Ev.exit
@@ -1809,7 +1809,7 @@ _ZN5boost6locale4conv11utf_encoderIwED2Ev.exit:   ; preds = %.loopexit, %_ZNKSt1
 
 _ZNKSt14default_deleteIN5boost6locale4conv6detail17charset_converterIcwEEEclEPS5_.exit.i.i36: ; preds = %46
   %48 = load ptr, ptr %47, align 8, !tbaa !22
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47) #19
   br label %_ZN5boost6locale4conv11utf_encoderIwED2Ev.exit37
@@ -2373,7 +2373,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb1EED2E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -2394,7 +2394,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb1EED0E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZN5boost6locale4util14code_converterIcLb1EED2Ev.exit
@@ -2475,7 +2475,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb0EED2E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -2496,7 +2496,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIcLb0EED0E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZN5boost6locale4util14code_converterIcLb0EED2Ev.exit
@@ -2656,7 +2656,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb1EED2E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -2677,7 +2677,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb1EED0E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZN5boost6locale4util14code_converterIwLb1EED2Ev.exit
@@ -2713,7 +2713,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale15generic_codecvtIwNS0_
 _ZNK5boost6locale4util14code_converterIwLb1EE12from_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EEjPcPKc.exit: ; preds = %13
   %17 = load ptr, ptr %12, align 8, !tbaa !15
   %18 = load ptr, ptr %17, align 8, !tbaa !22
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %14, ptr noundef %.02556, ptr noundef nonnull %6)
   switch i32 %21, label %22 [
@@ -2777,7 +2777,7 @@ _ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14
   %.01943 = phi ptr [ %5, %_ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit.lr.ph ], [ %21, %20 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !15
   %16 = load ptr, ptr %15, align 8, !tbaa !22
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   switch i32 %19, label %20 [
@@ -2840,7 +2840,7 @@ _ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %or.cond27 = icmp ugt i32 %15, -3
@@ -2858,7 +2858,7 @@ _ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14
 _ZNK5boost6locale4util14code_converterIwLb1EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit: ; preds = %.lr.ph
   %21 = load ptr, ptr %10, align 8, !tbaa !15
   %22 = load ptr, ptr %21, align 8, !tbaa !22
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %or.cond = icmp ugt i32 %25, -3
@@ -2878,7 +2878,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale15generic_codecvtIwNS0_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZNK5boost6locale4util14code_converterIwLb1EE19max_encoding_lengthEv.exit unwind label %8
@@ -2906,7 +2906,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb0EED2E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -2927,7 +2927,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util14code_converterIwLb0EED0E
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZN5boost6locale4util14code_converterIwLb0EED2Ev.exit
@@ -2945,7 +2945,7 @@ _ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codec
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !15, !noalias !67
   %10 = load ptr, ptr %9, align 8, !tbaa !22, !noalias !67
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !noalias !67
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %9), !noalias !67
   %14 = icmp ult ptr %5, %6
@@ -2965,7 +2965,7 @@ _ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codec
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %13, align 8, !tbaa !22
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = invoke noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %17, ptr noundef %.02559, ptr noundef nonnull %6)
           to label %_ZNK5boost6locale4util14code_converterIwLb0EE12from_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EEjPcPKc.exit unwind label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -2980,7 +2980,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = load ptr, ptr %13, align 8, !tbaa !22
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
   resume { ptr, i32 } %25
@@ -3019,7 +3019,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i38: ; preds = %36
   %38 = load ptr, ptr %13, align 8, !tbaa !22
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit39
@@ -3042,7 +3042,7 @@ _ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codec
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !15, !noalias !70
   %11 = load ptr, ptr %10, align 8, !tbaa !22, !noalias !70
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !70
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %10), !noalias !70
   %15 = icmp ult ptr %5, %6
@@ -3054,7 +3054,7 @@ _ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codec
   %18 = phi ptr [ %30, %27 ], [ %2, %_ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codecvt_base24initial_convertion_stateE.exit ]
   %.01948 = phi ptr [ %28, %27 ], [ %5, %_ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codecvt_base24initial_convertion_stateE.exit ]
   %19 = load ptr, ptr %14, align 8, !tbaa !22
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %3)
           to label %_ZNK5boost6locale4util14code_converterIwLb0EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit unwind label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -3069,7 +3069,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load ptr, ptr %14, align 8, !tbaa !22
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
   resume { ptr, i32 } %23
@@ -3111,7 +3111,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i27: ; preds = %._crit_edge.thread, %.thread39, %._crit_edge
   %33 = phi i32 [ %.121.ph, %.thread39 ], [ %spec.select, %._crit_edge ], [ %spec.select60, %._crit_edge.thread ]
   %34 = load ptr, ptr %14, align 8, !tbaa !22
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(8) %14) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit28
@@ -3139,7 +3139,7 @@ _ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codec
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !15, !noalias !73
   %8 = load ptr, ptr %7, align 8, !tbaa !22, !noalias !73
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !noalias !73
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !73
   %12 = icmp ne i64 %4, 0
@@ -3166,7 +3166,7 @@ _ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codec
   %25 = phi ptr [ %18, %15 ], [ %2, %_ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codecvt_base24initial_convertion_stateE.exit ]
   %.01227 = phi i64 [ %16, %15 ], [ %4, %_ZNK5boost6locale4util14code_converterIwLb0EE13initial_stateENS0_20generic_codecvt_base24initial_convertion_stateE.exit ]
   %26 = load ptr, ptr %11, align 8, !tbaa !22
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = invoke noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %3)
           to label %_ZNK5boost6locale4util14code_converterIwLb0EE10to_unicodeERSt10unique_ptrINS1_14base_converterESt14default_deleteIS5_EERPKcSB_.exit unwind label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -3187,7 +3187,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %11, align 8, !tbaa !22
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   resume { ptr, i32 } %34
@@ -3199,7 +3199,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i16: ; preds = %._crit_edge.thread, %.thread23, %._crit_edge
   %38 = phi i32 [ %33, %.thread23 ], [ 0, %._crit_edge ], [ %24, %._crit_edge.thread ]
   %39 = load ptr, ptr %11, align 8, !tbaa !22
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit17
@@ -3214,7 +3214,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale15generic_codecvtIwNS0_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = load ptr, ptr %3, align 8, !tbaa !22
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZNK5boost6locale4util14code_converterIwLb0EE19max_encoding_lengthEv.exit unwind label %8

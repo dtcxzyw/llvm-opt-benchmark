@@ -124,8 +124,8 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 74:                                               ; preds = %97, %69
   %75 = phi i64 [ 1, %69 ], [ %80, %97 ]
-  %76 = getelementptr inbounds double, ptr %24, i64 %75
-  %77 = getelementptr inbounds double, ptr %25, i64 %75
+  %76 = getelementptr inbounds nuw double, ptr %24, i64 %75
+  %77 = getelementptr inbounds nuw double, ptr %25, i64 %75
   call void @dlartg_(ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %16) #4
   %78 = load double, ptr %16, align 8, !tbaa !7
   store double %78, ptr %76, align 8, !tbaa !7
@@ -274,7 +274,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 156:                                              ; preds = %165, %153
   %157 = phi i64 [ 1, %153 ], [ %166, %165 ]
-  %158 = getelementptr inbounds double, ptr %24, i64 %157
+  %158 = getelementptr inbounds nuw double, ptr %24, i64 %157
   %159 = load double, ptr %158, align 8, !tbaa !7
   %160 = fcmp ugt double %159, %150
   %gep = getelementptr double, ptr %invariant.gep, i64 %157
@@ -354,7 +354,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 209:                                              ; preds = %220, %205
   %210 = phi i64 [ 1, %205 ], [ %221, %220 ]
-  %211 = getelementptr inbounds double, ptr %24, i64 %210
+  %211 = getelementptr inbounds nuw double, ptr %24, i64 %210
   %212 = load double, ptr %211, align 8, !tbaa !7
   %213 = fcmp oge double %212, 0.000000e+00
   %214 = fneg double %212
@@ -390,7 +390,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %232 = phi i64 [ 1, %225 ], [ %374, %371 ]
   %233 = phi i32 [ 1, %225 ], [ %373, %371 ]
   %234 = phi i32 [ 0, %225 ], [ %372, %371 ]
-  %235 = getelementptr inbounds double, ptr %25, i64 %232
+  %235 = getelementptr inbounds nuw double, ptr %25, i64 %232
   %236 = load double, ptr %235, align 8, !tbaa !7
   %237 = fcmp oge double %236, 0.000000e+00
   %238 = fneg double %236
@@ -601,7 +601,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 392:                                              ; preds = %406, %387
   %393 = phi i64 [ 1, %387 ], [ %411, %406 ]
-  %394 = getelementptr inbounds double, ptr %24, i64 %393
+  %394 = getelementptr inbounds nuw double, ptr %24, i64 %393
   %395 = load double, ptr %394, align 8, !tbaa !7
   %396 = fcmp oge double %395, 0.000000e+00
   %397 = fneg double %395
@@ -647,7 +647,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 420:                                              ; preds = %496, %414
   %421 = phi i64 [ 1, %414 ], [ %497, %496 ]
-  %422 = getelementptr inbounds i32, ptr %31, i64 %421
+  %422 = getelementptr inbounds nuw i32, ptr %31, i64 %421
   %423 = load i32, ptr %422, align 4, !tbaa !3
   %424 = add nsw i32 %423, -1
   %425 = trunc i64 %421 to i32

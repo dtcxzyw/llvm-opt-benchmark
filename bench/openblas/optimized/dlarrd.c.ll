@@ -280,22 +280,22 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %190 = getelementptr i8, ptr %184, i64 48
   store double %168, ptr %190, align 8, !tbaa !7
   store i32 -1, ptr %23, align 4, !tbaa !3
-  %191 = getelementptr inbounds i8, ptr %23, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 -1, ptr %191, align 4, !tbaa !3
   %192 = load i32, ptr %2, align 4, !tbaa !3
   %193 = add nsw i32 %192, 1
-  %194 = getelementptr inbounds i8, ptr %23, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %193, ptr %194, align 4, !tbaa !3
   %195 = load i32, ptr %2, align 4, !tbaa !3
   %196 = add nsw i32 %195, 1
-  %197 = getelementptr inbounds i8, ptr %23, i64 12
+  %197 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 %196, ptr %197, align 4, !tbaa !3
   %198 = load i32, ptr %5, align 4, !tbaa !3
   %199 = add nsw i32 %198, -1
-  %200 = getelementptr inbounds i8, ptr %23, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 %199, ptr %200, align 4, !tbaa !3
   %201 = load i32, ptr %6, align 4, !tbaa !3
-  %202 = getelementptr inbounds i8, ptr %23, i64 20
+  %202 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 %201, ptr %202, align 4, !tbaa !3
   %203 = load i32, ptr %2, align 4, !tbaa !3
   %204 = sext i32 %203 to i64
@@ -396,7 +396,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %264 = phi i32 [ 0, %254 ], [ %268, %467 ]
   %265 = trunc i64 %260 to i32
   %266 = add nsw i32 %264, 1
-  %267 = getelementptr inbounds i32, ptr %41, i64 %260
+  %267 = getelementptr inbounds nuw i32, ptr %41, i64 %260
   %268 = load i32, ptr %267, align 4, !tbaa !3
   %269 = sub nsw i32 %268, %264
   store i32 %269, ptr %33, align 4, !tbaa !3
@@ -618,7 +618,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %440 = getelementptr inbounds i32, ptr %35, i64 %426
   %441 = load i32, ptr %440, align 4, !tbaa !3
   %442 = add nsw i32 %441, %380
-  %443 = getelementptr inbounds i32, ptr %35, i64 %419
+  %443 = getelementptr inbounds nuw i32, ptr %35, i64 %419
   %444 = load i32, ptr %443, align 4, !tbaa !3
   %445 = add i32 %413, %444
   %446 = icmp sgt i32 %445, %442
@@ -701,7 +701,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %491 = phi i64 [ 1, %487 ], [ %517, %514 ]
   %492 = phi i32 [ %480, %487 ], [ %516, %514 ]
   %493 = phi i32 [ 0, %487 ], [ %515, %514 ]
-  %494 = getelementptr inbounds double, ptr %40, i64 %491
+  %494 = getelementptr inbounds nuw double, ptr %40, i64 %491
   %495 = load double, ptr %494, align 8, !tbaa !7
   %496 = fcmp ole double %495, %250
   %497 = icmp sgt i32 %492, 0
@@ -718,15 +718,15 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %503 = sext i32 %502 to i64
   %504 = getelementptr inbounds double, ptr %40, i64 %503
   store double %495, ptr %504, align 8, !tbaa !7
-  %505 = getelementptr inbounds double, ptr %39, i64 %491
+  %505 = getelementptr inbounds nuw double, ptr %39, i64 %491
   %506 = load double, ptr %505, align 8, !tbaa !7
   %507 = getelementptr inbounds double, ptr %39, i64 %503
   store double %506, ptr %507, align 8, !tbaa !7
-  %508 = getelementptr inbounds i32, ptr %37, i64 %491
+  %508 = getelementptr inbounds nuw i32, ptr %37, i64 %491
   %509 = load i32, ptr %508, align 4, !tbaa !3
   %510 = getelementptr inbounds i32, ptr %37, i64 %503
   store i32 %509, ptr %510, align 4, !tbaa !3
-  %511 = getelementptr inbounds i32, ptr %38, i64 %491
+  %511 = getelementptr inbounds nuw i32, ptr %38, i64 %491
   %512 = load i32, ptr %511, align 4, !tbaa !3
   %513 = getelementptr inbounds i32, ptr %38, i64 %503
   store i32 %512, ptr %513, align 4, !tbaa !3
@@ -886,13 +886,13 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %604 = phi i64 [ 1, %600 ], [ %622, %619 ]
   %605 = phi i32 [ 0, %600 ], [ %621, %619 ]
   %606 = phi double [ %596, %600 ], [ %620, %619 ]
-  %607 = getelementptr inbounds i32, ptr %38, i64 %604
+  %607 = getelementptr inbounds nuw i32, ptr %38, i64 %604
   %608 = load i32, ptr %607, align 4, !tbaa !3
   %609 = icmp eq i32 %608, 0
   br i1 %609, label %619, label %610
 
 610:                                              ; preds = %603
-  %611 = getelementptr inbounds double, ptr %40, i64 %604
+  %611 = getelementptr inbounds nuw double, ptr %40, i64 %604
   %612 = load double, ptr %611, align 8, !tbaa !7
   %613 = fcmp olt double %612, %606
   %614 = icmp eq i32 %605, 0
@@ -945,13 +945,13 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %641 = phi i64 [ 1, %637 ], [ %659, %656 ]
   %642 = phi i32 [ 0, %637 ], [ %658, %656 ]
   %643 = phi double [ %633, %637 ], [ %657, %656 ]
-  %644 = getelementptr inbounds i32, ptr %38, i64 %641
+  %644 = getelementptr inbounds nuw i32, ptr %38, i64 %641
   %645 = load i32, ptr %644, align 4, !tbaa !3
   %646 = icmp eq i32 %645, 0
   br i1 %646, label %656, label %647
 
 647:                                              ; preds = %640
-  %648 = getelementptr inbounds double, ptr %40, i64 %641
+  %648 = getelementptr inbounds nuw double, ptr %40, i64 %641
   %649 = load double, ptr %648, align 8, !tbaa !7
   %650 = fcmp oge double %649, %643
   %651 = icmp eq i32 %642, 0
@@ -995,7 +995,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 672:                                              ; preds = %692, %669
   %673 = phi i64 [ 1, %669 ], [ %694, %692 ]
   %674 = phi i32 [ 0, %669 ], [ %693, %692 ]
-  %675 = getelementptr inbounds i32, ptr %38, i64 %673
+  %675 = getelementptr inbounds nuw i32, ptr %38, i64 %673
   %676 = load i32, ptr %675, align 4, !tbaa !3
   %677 = icmp eq i32 %676, 0
   br i1 %677, label %692, label %678
@@ -1003,16 +1003,16 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 678:                                              ; preds = %672
   %679 = add nsw i32 %674, 1
   store i32 %679, ptr %32, align 4, !tbaa !3
-  %680 = getelementptr inbounds double, ptr %40, i64 %673
+  %680 = getelementptr inbounds nuw double, ptr %40, i64 %673
   %681 = load double, ptr %680, align 8, !tbaa !7
   %682 = sext i32 %679 to i64
   %683 = getelementptr inbounds double, ptr %40, i64 %682
   store double %681, ptr %683, align 8, !tbaa !7
-  %684 = getelementptr inbounds double, ptr %39, i64 %673
+  %684 = getelementptr inbounds nuw double, ptr %39, i64 %673
   %685 = load double, ptr %684, align 8, !tbaa !7
   %686 = getelementptr inbounds double, ptr %39, i64 %682
   store double %685, ptr %686, align 8, !tbaa !7
-  %687 = getelementptr inbounds i32, ptr %37, i64 %673
+  %687 = getelementptr inbounds nuw i32, ptr %37, i64 %673
   %688 = load i32, ptr %687, align 4, !tbaa !3
   %689 = getelementptr inbounds i32, ptr %37, i64 %682
   store i32 %688, ptr %689, align 4, !tbaa !3
@@ -1081,7 +1081,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 725:                                              ; preds = %.thread51, %723
   %726 = phi i64 [ 1, %723 ], [ %731, %.thread51 ]
   %727 = phi i64 [ 2, %723 ], [ %766, %.thread51 ]
-  %728 = getelementptr inbounds double, ptr %40, i64 %726
+  %728 = getelementptr inbounds nuw double, ptr %40, i64 %726
   %729 = load double, ptr %728, align 8, !tbaa !7
   %730 = load i32, ptr %15, align 4, !tbaa !3
   %731 = add nuw nsw i64 %726, 1
@@ -1098,7 +1098,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %738 = phi i64 [ %727, %734 ], [ %747, %737 ]
   %739 = phi double [ %729, %734 ], [ %746, %737 ]
   %740 = phi i32 [ 0, %734 ], [ %745, %737 ]
-  %741 = getelementptr inbounds double, ptr %40, i64 %738
+  %741 = getelementptr inbounds nuw double, ptr %40, i64 %738
   %742 = load double, ptr %741, align 8, !tbaa !7
   %743 = fcmp olt double %742, %739
   %744 = trunc i64 %738 to i32
@@ -1122,13 +1122,13 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %758 = load i32, ptr %757, align 4, !tbaa !3
   %759 = getelementptr inbounds double, ptr %40, i64 %752
   store double %729, ptr %759, align 8, !tbaa !7
-  %760 = getelementptr inbounds double, ptr %39, i64 %726
+  %760 = getelementptr inbounds nuw double, ptr %39, i64 %726
   %761 = load double, ptr %760, align 8, !tbaa !7
   store double %761, ptr %753, align 8, !tbaa !7
-  %762 = getelementptr inbounds i32, ptr %38, i64 %726
+  %762 = getelementptr inbounds nuw i32, ptr %38, i64 %726
   %763 = load i32, ptr %762, align 4, !tbaa !3
   store i32 %763, ptr %755, align 4, !tbaa !3
-  %764 = getelementptr inbounds i32, ptr %37, i64 %726
+  %764 = getelementptr inbounds nuw i32, ptr %37, i64 %726
   %765 = load i32, ptr %764, align 4, !tbaa !3
   store i32 %765, ptr %757, align 4, !tbaa !3
   store double %746, ptr %728, align 8, !tbaa !7

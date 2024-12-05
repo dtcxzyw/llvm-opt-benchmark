@@ -177,7 +177,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNod
   br i1 %23, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %24
 
 24:                                               ; preds = %.lr.ph, %29
@@ -263,15 +263,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26PcpDependencyFlagsToStringB5
   %15 = alloca %"class.std::allocator", align 1
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::allocator", align 1
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %18, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %22, align 8
   switch i32 %1, label %41 [
     i32 0, label %23
@@ -648,7 +648,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__12TfStringJoinERKSt3setINSt7_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EED2Ev.exit unwind label %4
@@ -831,8 +831,8 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02125.i = load ptr, ptr %3, align 8
   %.not26.i = icmp eq ptr %.02125.i, null
   br i1 %.not26.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -863,7 +863,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
   %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %2 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %.020.lcssa32.i, %12
   br i1 %13, label %select.unfold, label %14
@@ -917,7 +917,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %31, ptr noundef nonnull %32, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, 1
   store i64 %36, ptr %34, align 8

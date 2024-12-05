@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i32 @jsmn_parse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %0, align 4
   %9 = zext i32 %8 to i64
@@ -16,7 +16,7 @@ define hidden i32 @jsmn_parse(ptr nocapture noundef %0, ptr nocapture noundef re
 
 .lr.ph205:                                        ; preds = %5
   %.not215 = icmp eq ptr %3, null
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph205, %.loopexit
@@ -68,11 +68,11 @@ jsmn_alloc_token.exit:                            ; preds = %19
   %22 = add nuw i32 %20, 1
   store i32 %22, ptr %6, align 4
   %23 = getelementptr %struct.jsmntok_t, ptr %3, i64 %21
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 -1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 0, ptr %26, align 4
   %27 = icmp eq ptr %23, null
   br i1 %27, label %jsmn_alloc_token.exit.thread, label %28
@@ -120,13 +120,13 @@ jsmn_alloc_token.exit:                            ; preds = %19
   %indvars.iv238 = phi i64 [ %47, %.lr.ph200.preheader ], [ %indvars.iv.next239, %61 ]
   %.0111.in198 = phi i32 [ %45, %.lr.ph200.preheader ], [ %63, %61 ]
   %48 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv238
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %.not141 = icmp eq i32 %50, -1
   br i1 %.not141, label %61, label %51
 
 51:                                               ; preds = %.lr.ph200
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %55, label %61
@@ -137,7 +137,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
   br i1 %.not142, label %57, label %jsmn_alloc_token.exit.thread
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %48, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %59 = trunc nuw nsw i64 %indvars.iv238 to i32
   store i32 -1, ptr %11, align 4
   %60 = add i32 %14, 1
@@ -167,13 +167,13 @@ jsmn_alloc_token.exit:                            ; preds = %19
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %76
   %indvars.iv241 = phi i64 [ %66, %.lr.ph203.preheader ], [ %indvars.iv.next242, %76 ]
   %67 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv241
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %.not143 = icmp eq i32 %69, -1
   br i1 %.not143, label %76, label %70
 
 70:                                               ; preds = %.lr.ph203
-  %71 = getelementptr inbounds i8, ptr %67, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %74, label %76
@@ -223,11 +223,11 @@ jsmn_alloc_token.exit.i:                          ; preds = %87
   %90 = add nuw i32 %88, 1
   store i32 %90, ptr %6, align 4
   %91 = getelementptr %struct.jsmntok_t, ptr %3, i64 %89
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i32 -1, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %91, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 -1, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %91, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 12
   store i32 0, ptr %94, align 4
   %95 = icmp eq ptr %91, null
   br i1 %95, label %jsmn_alloc_token.exit.thread.sink.split, label %jsmn_parse_string.exit
@@ -374,13 +374,13 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
   br i1 %switch146, label %146, label %155
 
 146:                                              ; preds = %.lr.ph
-  %147 = getelementptr inbounds i8, ptr %144, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %148 = load i32, ptr %147, align 4
   %.not140 = icmp eq i32 %148, -1
   br i1 %.not140, label %155, label %149
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %144, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %151, -1
   br i1 %152, label %153, label %155
@@ -413,7 +413,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
   ]
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %162, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %166 = load i32, ptr %165, align 4
   %.not135 = icmp eq i32 %166, 0
   br i1 %.not135, label %.lr.ph.i149.preheader, label %jsmn_alloc_token.exit.thread
@@ -468,11 +468,11 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
   %183 = add nuw i32 %181, 1
   store i32 %183, ptr %6, align 4
   %184 = getelementptr %struct.jsmntok_t, ptr %3, i64 %182
-  %185 = getelementptr inbounds i8, ptr %184, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i32 -1, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %184, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store i32 -1, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %184, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 12
   store i32 0, ptr %187, align 4
   %188 = icmp eq ptr %184, null
   br i1 %188, label %jsmn_alloc_token.exit.thread.sink.split, label %189
@@ -526,13 +526,13 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
 .lr.ph211:                                        ; preds = %.lr.ph211.preheader, %215
   %indvars.iv244 = phi i64 [ %207, %.lr.ph211.preheader ], [ %indvars.iv.next245, %215 ]
   %208 = getelementptr %struct.jsmntok_t, ptr %3, i64 %indvars.iv244
-  %209 = getelementptr inbounds i8, ptr %208, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %210 = load i32, ptr %209, align 4
   %.not133 = icmp eq i32 %210, -1
   br i1 %.not133, label %215, label %211
 
 211:                                              ; preds = %.lr.ph211
-  %212 = getelementptr inbounds i8, ptr %208, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %213 = load i32, ptr %212, align 4
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %jsmn_alloc_token.exit.thread, label %215
@@ -555,9 +555,9 @@ jsmn_alloc_token.exit.thread:                     ; preds = %19, %12, %164, %160
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @jsmn_init(ptr nocapture noundef writeonly initializes((0, 12)) %0) local_unnamed_addr #1 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %3, align 4
   ret void
 }

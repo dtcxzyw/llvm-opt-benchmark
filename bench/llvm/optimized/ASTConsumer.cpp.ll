@@ -49,7 +49,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11ASTConsumer18HandleTopLevelDeclE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang11ASTConsumer21HandleInterestingDeclENS_12DeclGroupRefE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr %1) #3
   ret void
@@ -63,7 +63,7 @@ define dso_local void @_ZN5clang11ASTConsumer33HandleTopLevelDeclInObjCContainer
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang11ASTConsumer24HandleImplicitImportDeclEPNS_10ImportDeclE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr %1) #3
   ret void

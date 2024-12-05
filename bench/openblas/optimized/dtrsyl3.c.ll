@@ -276,7 +276,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 187:                                              ; preds = %187, %183
   %188 = phi i64 [ 1, %183 ], [ %194, %187 ]
-  %189 = getelementptr inbounds i32, ptr %84, i64 %188
+  %189 = getelementptr inbounds nuw i32, ptr %84, i64 %188
   %190 = trunc i64 %188 to i32
   %191 = add i32 %190, -1
   %192 = mul i32 %191, %92
@@ -304,7 +304,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 205:                                              ; preds = %.loopexit244, %196
   %206 = phi i64 [ 1, %196 ], [ %210, %.loopexit244 ]
   %207 = phi i32 [ 0, %196 ], [ %203, %.loopexit244 ]
-  %208 = getelementptr inbounds i32, ptr %84, i64 %206
+  %208 = getelementptr inbounds nuw i32, ptr %84, i64 %206
   %209 = load i32, ptr %208, align 4, !tbaa !3
   %210 = add nuw nsw i64 %206, 1
   %211 = getelementptr i32, ptr %12, i64 %206
@@ -559,7 +559,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 364:                                              ; preds = %.loopexit239, %357
   %365 = phi i64 [ 1, %357 ], [ %368, %.loopexit239 ]
-  %366 = getelementptr inbounds i32, ptr %84, i64 %365
+  %366 = getelementptr inbounds nuw i32, ptr %84, i64 %365
   %367 = load i32, ptr %366, align 4, !tbaa !3
   %368 = add nuw nsw i64 %365, 1
   %369 = getelementptr i32, ptr %12, i64 %365
@@ -578,7 +578,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 374:                                              ; preds = %374, %.split319.us
   %375 = phi i64 [ %365, %.split319.us ], [ %378, %374 ]
-  %376 = getelementptr inbounds i32, ptr %84, i64 %375
+  %376 = getelementptr inbounds nuw i32, ptr %84, i64 %375
   %377 = load i32, ptr %376, align 4, !tbaa !3
   %378 = add nuw nsw i64 %375, 1
   %379 = getelementptr i32, ptr %12, i64 %375
@@ -608,7 +608,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 394:                                              ; preds = %394, %.split319
   %395 = phi i64 [ %365, %.split319 ], [ %398, %394 ]
-  %396 = getelementptr inbounds i32, ptr %84, i64 %395
+  %396 = getelementptr inbounds nuw i32, ptr %84, i64 %395
   %397 = load i32, ptr %396, align 4, !tbaa !3
   %398 = add nuw nsw i64 %395, 1
   %399 = getelementptr i32, ptr %12, i64 %395
@@ -1593,7 +1593,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1027 = phi i64 [ 1, %1009 ], [ %1032, %.loopexit179 ]
   %1028 = phi i64 [ 2, %1009 ], [ %1024, %.loopexit179 ]
   %1029 = phi double [ 1.000000e+00, %1009 ], [ %1021, %.loopexit179 ]
-  %1030 = getelementptr inbounds i32, ptr %84, i64 %1027
+  %1030 = getelementptr inbounds nuw i32, ptr %84, i64 %1027
   %1031 = load i32, ptr %1030, align 4, !tbaa !3
   %1032 = add nuw nsw i64 %1027, 1
   %1033 = getelementptr i32, ptr %12, i64 %1027
@@ -1784,7 +1784,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 1155:                                             ; preds = %.loopexit166, %1150
   %1156 = phi i64 [ %1028, %1150 ], [ %1160, %.loopexit166 ]
   %1157 = phi double [ %1148, %1150 ], [ %1299, %.loopexit166 ]
-  %1158 = getelementptr inbounds i32, ptr %84, i64 %1156
+  %1158 = getelementptr inbounds nuw i32, ptr %84, i64 %1156
   %1159 = load i32, ptr %1158, align 4, !tbaa !3
   %1160 = add nuw nsw i64 %1156, 1
   %1161 = getelementptr i32, ptr %12, i64 %1156
@@ -2435,7 +2435,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %1567 = phi i32 [ 2, %1548 ], [ %1563, %.thread114 ]
   %1568 = phi double [ 1.000000e+00, %1548 ], [ %1560, %.thread114 ]
   %1569 = sext i32 %1567 to i64
-  %1570 = getelementptr inbounds i32, ptr %84, i64 %1566
+  %1570 = getelementptr inbounds nuw i32, ptr %84, i64 %1566
   %1571 = load i32, ptr %1570, align 4, !tbaa !3
   %1572 = add nuw nsw i64 %1566, 1
   br i1 %1549, label %1573, label %.thread114
@@ -3432,7 +3432,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 2216:                                             ; preds = %.loopexit196.us, %2211
   %2217 = phi i64 [ 1, %2211 ], [ %2221, %.loopexit196.us ]
   %2218 = phi double [ %2209, %2211 ], [ %2360, %.loopexit196.us ]
-  %2219 = getelementptr inbounds i32, ptr %84, i64 %2217
+  %2219 = getelementptr inbounds nuw i32, ptr %84, i64 %2217
   %2220 = load i32, ptr %2219, align 4, !tbaa !3
   %2221 = add nuw nsw i64 %2217, 1
   %2222 = getelementptr i32, ptr %12, i64 %2217
@@ -4138,7 +4138,7 @@ define void @dtrsyl3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 2646:                                             ; preds = %.loopexit120, %2641
   %2647 = phi i32 [ %261, %2641 ], [ %2643, %.loopexit120 ]
   %2648 = phi i64 [ 1, %2641 ], [ %2651, %.loopexit120 ]
-  %2649 = getelementptr inbounds i32, ptr %84, i64 %2648
+  %2649 = getelementptr inbounds nuw i32, ptr %84, i64 %2648
   %2650 = load i32, ptr %2649, align 4, !tbaa !3
   %2651 = add nuw nsw i64 %2648, 1
   %2652 = getelementptr i32, ptr %12, i64 %2648

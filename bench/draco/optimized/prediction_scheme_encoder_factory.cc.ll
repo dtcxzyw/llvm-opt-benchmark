@@ -47,7 +47,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 7) i32 @_ZN5draco22SelectPredictionMethodEiPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18EncoderOptionsBaseIiEEPKNS_17PointCloudEncoderE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull %1)
   ret i32 %5
@@ -71,7 +71,7 @@ define noundef range(i32 0, 7) i32 @_ZN5draco22SelectPredictionMethodEiRKNS_18En
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %20 = icmp eq i32 %19, 1
@@ -103,10 +103,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %4, align 4
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = sext i32 %29 to i64
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds %"class.std::unique_ptr.47", ptr %32, i64 %31
@@ -115,13 +115,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not, label %.critedge, label %35
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %34, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 3
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %34, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %41 = load i8, ptr %40, align 8
   %42 = icmp eq i8 %41, 2
   br i1 %42, label %43, label %.critedge
@@ -132,7 +132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not48, label %.critedge, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = call noundef zeroext i1 @_ZN5draco18IsDataTypeIntegralENS_8DataTypeE(i32 noundef %47)
   br i1 %48, label %.critedge56, label %53
@@ -190,7 +190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %69, label %.thread.thread, label %.critedge
 
 .critedge:                                        ; preds = %58, %43, %60, %.critedge56, %39, %35, %26
-  %70 = getelementptr inbounds i8, ptr %34, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 1
   %73 = call noundef i32 @_ZNK5draco18EncoderOptionsBaseIiE8GetSpeedEv(ptr noundef nonnull align 8 dereferenceable(144) %1)
@@ -210,7 +210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not51, label %.thread, label %81
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %80, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = call noundef zeroext i1 @_ZN5draco18IsDataTypeIntegralENS_8DataTypeE(i32 noundef %83)
   br i1 %84, label %.thread.thread, label %85
@@ -255,7 +255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %27, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 160
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 160
   %101 = load i32, ptr %100, align 8
   %102 = icmp ult i32 %101, 40
   %spec.select59 = select i1 %102, i32 1, i32 4
@@ -364,9 +364,9 @@ _ZNK5draco12DracoOptionsIiE12GetGlobalIntERKNSt7__cxx1112basic_stringIcSt11char_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERKiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not10.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not10.i.i.i.i, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread, label %.lr.ph.i.i.i.i
 
@@ -377,12 +377,12 @@ define linkonce_odr noundef i32 @_ZNK5draco12DracoOptionsIiE15GetAttributeIntERK
 9:                                                ; preds = %9, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %9 ]
   %.0811.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %9 ]
-  %10 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, %8
   %.19.i.i.i.i = select i1 %12, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %12, i64 24, i64 16
-  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %9, !llvm.loop !4
@@ -392,23 +392,23 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_E
   br i1 %13, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread, label %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
 
 _ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN5draco7OptionsEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %14 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %8, %15
-  %17 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 40
   br i1 %16, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit
 
 _ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit: ; preds = %_ZNKSt3mapIiN5draco7OptionsESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
-  %18 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %.not11.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not11.i.i.i.i, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread, label %.lr.ph.i.i.i.i11
 
 .lr.ph.i.i.i.i11:                                 ; preds = %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i
   %.013.i.i.i.i = phi ptr [ %.1.i.i.i.i15, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %19, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit ]
   %.0812.i.i.i.i = phi ptr [ %.19.i.i.i.i12, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i ], [ %20, %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit ]
-  %21 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
   %22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i.i unwind label %23
 
@@ -423,7 +423,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %26 = icmp slt i32 %22, 0
   %.19.i.i.i.i12 = select i1 %26, ptr %.0812.i.i.i.i, ptr %.013.i.i.i.i
   %.1.in.v.i.i.i.i13 = select i1 %26, i64 24, i64 16
-  %.1.in.i.i.i.i14 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i13
+  %.1.in.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i13
   %.1.i.i.i.i15 = load ptr, ptr %.1.in.i.i.i.i14, align 8
   %.not.i.i.i.i16 = icmp eq ptr %.1.i.i.i.i15, null
   br i1 %.not.i.i.i.i16, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i, label %.lr.ph.i.i.i.i11, !llvm.loop !6
@@ -433,7 +433,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br i1 %27, label %_ZNK5draco12DracoOptionsIiE20FindAttributeOptionsERKi.exit.thread, label %28
 
 28:                                               ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i
-  %29 = getelementptr inbounds i8, ptr %.19.i.i.i.i12, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i12, i64 32
   %30 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %29)
           to label %_ZNK5draco7Options11IsOptionSetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %31
 

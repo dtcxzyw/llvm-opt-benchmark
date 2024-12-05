@@ -35,7 +35,7 @@ $_ZN5faiss14FaissExceptionD2Ev = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.fr = freeze i64 %6
   %.not = icmp ult i64 %2, %.fr
@@ -43,7 +43,7 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
 
 7:                                                ; preds = %4
   %8 = udiv i64 %2, %.fr
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, %8
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
@@ -53,13 +53,13 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
 14:                                               ; preds = %7, %4
   %.019 = phi ptr [ %12, %7 ], [ %3, %4 ]
   %.0 = phi i64 [ %13, %7 ], [ %2, %4 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %.not26 = icmp eq i64 %16, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = urem i64 %.0, %.fr
   %19 = sub nuw i64 %.0, %18
   %20 = urem i64 %.0, %.fr
@@ -150,7 +150,7 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.fr26 = freeze i64 %6
   %.not = icmp ult i64 %2, %.fr26
@@ -158,7 +158,7 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
 
 7:                                                ; preds = %4
   %8 = udiv i64 %2, %.fr26
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, %8
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
@@ -168,13 +168,13 @@ define void @_ZNK5faiss13CodePackerPQ48unpack_1EPKhmPh(ptr nocapture noundef non
 14:                                               ; preds = %7, %4
   %.018 = phi i64 [ %13, %7 ], [ %2, %4 ]
   %.0 = phi ptr [ %12, %7 ], [ %1, %4 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %.not25 = icmp eq i64 %16, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = urem i64 %.018, %.fr26
   %19 = sub nuw i64 %.018, %18
   %20 = icmp ugt i64 %18, 15
@@ -423,40 +423,40 @@ define void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr nocapture noundef readonly
 
 85:                                               ; preds = %82, %78
   %.sink.i.us = phi i8 [ %84, %82 ], [ 0, %78 ]
-  %86 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %.017.i.us
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %.017.i.us
   store i8 %.sink.i.us, ptr %86, align 1
   %87 = add nuw nsw i64 %.017.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %87, 32
   br i1 %exitcond.not.i.us, label %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us, label %78, !llvm.loop !9
 
 88:                                               ; preds = %.preheader.us
-  %89 = getelementptr inbounds i8, ptr %.25971.us, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %.25971.us, i64 32
   %90 = add nuw i64 %.05472.us, 32
   %91 = icmp ult i64 %90, %4
   br i1 %91, label %76, label %74, !llvm.loop !10
 
 .preheader.us:                                    ; preds = %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us, %.preheader.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader.us ], [ 0, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ]
-  %92 = getelementptr inbounds [16 x i8], ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 0, i64 %indvars.iv79
+  %92 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 0, i64 %indvars.iv79
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = add nuw nsw i64 %94, 16
-  %98 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = shl i8 %99, 4
   %101 = or i8 %100, %96
-  %102 = getelementptr inbounds [32 x i8], ptr %13, i64 0, i64 %94
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %94
   %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds [32 x i8], ptr %13, i64 0, i64 %97
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %97
   %105 = load i8, ptr %104, align 1
   %106 = shl i8 %105, 4
   %107 = or i8 %106, %103
-  %108 = getelementptr inbounds i8, ptr %.25971.us, i64 %indvars.iv79
+  %108 = getelementptr inbounds nuw i8, ptr %.25971.us, i64 %indvars.iv79
   store i8 %101, ptr %108, align 1
   %109 = or disjoint i64 %indvars.iv79, 16
-  %110 = getelementptr inbounds i8, ptr %.25971.us, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %.25971.us, i64 %109
   store i8 %107, ptr %110, align 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 16
@@ -464,13 +464,13 @@ define void @_ZN5faiss14pq4_pack_codesEPKhmmmmmPh(ptr nocapture noundef readonly
 
 _ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us: ; preds = %85, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ], [ 0, %85 ]
-  %111 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %indvars.iv
   %112 = load i8, ptr %111, align 1
   %113 = and i8 %112, 15
-  %114 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %indvars.iv
   store i8 %113, ptr %114, align 1
   %115 = lshr i8 %112, 4
-  %116 = getelementptr inbounds [32 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %indvars.iv
   store i8 %115, ptr %116, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -525,7 +525,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   ret void
@@ -571,7 +571,7 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr nocapture noundef re
   %19 = mul i64 %.058.us, %4
   %.reass.us = mul i64 %.058.us, %invariant.op
   %20 = lshr i64 %.reass.us, 1
-  %21 = getelementptr inbounds i8, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 %20
   %22 = sub i64 %19, %2
   br label %.preheader51.us
 
@@ -602,42 +602,42 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr nocapture noundef re
 
 34:                                               ; preds = %31, %27
   %.sink.i.us = phi i8 [ %33, %31 ], [ 0, %27 ]
-  %35 = getelementptr inbounds [32 x i8], ptr %8, i64 0, i64 %.017.i.us
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %.017.i.us
   store i8 %.sink.i.us, ptr %35, align 1
   %36 = add nuw nsw i64 %.017.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %36, 32
   br i1 %exitcond.not.i.us, label %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us, label %27, !llvm.loop !9
 
 37:                                               ; preds = %.preheader.us
-  %38 = getelementptr inbounds i8, ptr %.155.us, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.155.us, i64 32
   %39 = add nuw i64 %.04954.us, 32
   %40 = icmp ult i64 %39, %4
   br i1 %40, label %25, label %23, !llvm.loop !15
 
 .preheader.us:                                    ; preds = %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us, %.preheader.us
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader.us ], [ 0, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ]
-  %41 = getelementptr inbounds [16 x i8], ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 0, i64 %indvars.iv63
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh.perm0, i64 0, i64 %indvars.iv63
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = add nuw nsw i64 %43, 16
-  %47 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = shl i8 %48, 4
   %50 = or i8 %49, %45
-  %51 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %43
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %43
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %46
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %46
   %54 = load i8, ptr %53, align 1
   %55 = shl i8 %54, 4
   %56 = or i8 %55, %52
-  %57 = getelementptr inbounds i8, ptr %.155.us, i64 %indvars.iv63
+  %57 = getelementptr inbounds nuw i8, ptr %.155.us, i64 %indvars.iv63
   %58 = load i8, ptr %57, align 1
   %59 = or i8 %50, %58
   store i8 %59, ptr %57, align 1
   %60 = or disjoint i64 %indvars.iv63, 16
-  %61 = getelementptr inbounds i8, ptr %.155.us, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %.155.us, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = or i8 %56, %62
   store i8 %63, ptr %61, align 1
@@ -647,13 +647,13 @@ define void @_ZN5faiss20pq4_pack_codes_rangeEPKhmmmmmPh(ptr nocapture noundef re
 
 _ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us: ; preds = %34, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss12_GLOBAL__N_117get_matrix_columnIKhSt5arrayIhLm32EEEEvPT_mmllRT0_.exit.us ], [ 0, %34 ]
-  %64 = getelementptr inbounds [32 x i8], ptr %8, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, 15
-  %67 = getelementptr inbounds [32 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 0, i64 %indvars.iv
   store i8 %66, ptr %67, align 1
   %68 = lshr i8 %65, 4
-  %69 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv
   store i8 %68, ptr %69, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -739,19 +739,19 @@ define void @_ZN5faiss22pq4_set_packed_elementEPhhmmmm(ptr nocapture noundef %0,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5faiss13CodePackerPQ4C2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13CodePackerPQ4E, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   %6 = shl i64 %1, 2
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8
   %10 = add i64 %1, 1
   %11 = lshr i64 %10, 1
   %12 = mul i64 %11, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %12, ptr %13, align 8
   ret void
 }
@@ -780,12 +780,12 @@ define void @_ZN5faiss12pq4_pack_LUTEiiPKhPh(i32 noundef %0, i32 noundef %1, ptr
   %12 = mul nuw nsw i64 %11, %7
   %13 = add nuw nsw i64 %12, %indvars.iv29
   %14 = shl nsw i64 %13, 5
-  %15 = getelementptr inbounds i8, ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %14
   %16 = add nuw nsw i64 %indvars.iv, %9
   %17 = shl nsw i64 %16, 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %18, i64 16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = shl i64 %16, 36
   %sext = add i64 %20, 68719476736
   %21 = ashr exact i64 %sext, 32
@@ -877,8 +877,8 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %33 = ashr i32 %.01925, 4
   %34 = zext nneg i32 %.02024 to i64
   %35 = mul nuw nsw i64 %34, %26
-  %36 = getelementptr inbounds i8, ptr %2, i64 %35
-  %37 = getelementptr inbounds i8, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 %35
   %.not26 = icmp eq i32 %32, 0
   br i1 %.not26, label %_ZN5faiss12pq4_pack_LUTEiiPKhPh.exit, label %.preheader.us.preheader.i
 
@@ -897,12 +897,12 @@ _ZN5faiss12pq4_pack_LUTEiiPKhPh.exit.us:          ; preds = %.lr.ph, %_ZN5faiss1
   %42 = mul nuw nsw i64 %41, %38
   %43 = add nuw nsw i64 %42, %indvars.iv29.i
   %44 = shl nsw i64 %43, 5
-  %45 = getelementptr inbounds i8, ptr %37, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 %44
   %46 = add nuw nsw i64 %indvars.iv.i, %39
   %47 = shl nsw i64 %46, 4
-  %48 = getelementptr inbounds i8, ptr %36, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %45, ptr noundef nonnull readonly align 1 dereferenceable(16) %48, i64 16, i1 false)
-  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %50 = shl i64 %46, 36
   %sext.i = ashr exact i64 %50, 32
   %51 = or i64 %sext.i, 16
@@ -1002,9 +1002,9 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %33 = and i32 %.01925, 15
   %34 = ashr i32 %.01925, 4
   %35 = zext nneg i32 %.02024 to i64
-  %36 = getelementptr inbounds i32, ptr %3, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %35
   %37 = mul nuw nsw i64 %35, %27
-  %38 = getelementptr inbounds i8, ptr %4, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 %37
   %.not.i.not = icmp eq i32 %33, 0
   br i1 %.not.i.not, label %_ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit, label %.lr.ph.us.preheader.i
 
@@ -1014,7 +1014,7 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next34.i, %._crit_edge.us.i ]
-  %40 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv33.i
+  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv33.i
   %41 = load i32, ptr %40, align 4
   %42 = mul nsw i32 %41, %1
   %43 = sext i32 %42 to i64
@@ -1026,12 +1026,12 @@ _ZN5faiss12_GLOBAL__N_116pack_LUT_1_q_mapEiPKiiPKhPh.exit.us: ; preds = %.lr.ph,
   %46 = mul nuw nsw i64 %45, %39
   %47 = add nuw nsw i64 %46, %indvars.iv33.i
   %48 = shl nsw i64 %47, 5
-  %49 = getelementptr inbounds i8, ptr %38, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 %48
   %50 = add nsw i64 %indvars.iv.i, %43
   %51 = shl nsw i64 %50, 4
   %52 = getelementptr inbounds i8, ptr %2, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, ptr noundef nonnull readonly align 1 dereferenceable(16) %52, i64 16, i1 false)
-  %53 = getelementptr inbounds i8, ptr %49, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %54 = shl i64 %50, 36
   %sext.i = ashr exact i64 %54, 32
   %55 = or i64 %sext.i, 16

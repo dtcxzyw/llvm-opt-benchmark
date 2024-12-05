@@ -13,7 +13,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %or.cond, label %61, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
   %.not = icmp slt i32 %1, %8
@@ -28,10 +28,10 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
 
 13:                                               ; preds = %9
   %14 = trunc nuw nsw i32 %1 to i16
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 %14, ptr %15, align 4
   %16 = tail call ptr @_nc_First_Active_Field(ptr noundef nonnull %0) #4
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %16, ptr %17, align 8
   br label %61
 
@@ -41,7 +41,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not46, label %20, label %61
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %22 = load i16, ptr %21, align 4
   %23 = sext i16 %22 to i32
   %.not47 = icmp eq i32 %1, %23
@@ -52,7 +52,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %25, label %26, label %61
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %.not48 = icmp eq ptr %28, null
   br i1 %.not48, label %34, label %29
@@ -68,7 +68,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   br label %34
 
 34:                                               ; preds = %26, %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %36 = load ptr, ptr %35, align 8
   %.not49 = icmp eq ptr %36, null
   br i1 %.not49, label %42, label %37
@@ -85,7 +85,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
 
 42:                                               ; preds = %37, %34
   %43 = tail call i32 @_nc_Set_Form_Page(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null) #4
-  %44 = getelementptr inbounds i8, ptr %0, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load ptr, ptr %44, align 8
   %.not50 = icmp eq ptr %45, null
   br i1 %.not50, label %51, label %46
@@ -101,7 +101,7 @@ define dso_local i32 @set_form_page(ptr noundef %0, i32 noundef %1) local_unname
   br label %51
 
 51:                                               ; preds = %42, %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr %52, align 8
   %.not51 = icmp eq ptr %53, null
   br i1 %.not51, label %59, label %54
@@ -143,7 +143,7 @@ define dso_local range(i32 -32768, 32768) i32 @form_page(ptr noundef readonly %0
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
-  %4 = getelementptr inbounds i8, ptr %3, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i16, ptr %4, align 4
   %6 = sext i16 %5 to i32
   ret i32 %6

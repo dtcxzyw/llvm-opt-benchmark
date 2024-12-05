@@ -98,7 +98,7 @@ test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smartho
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %test_tplink_smarthome.exit.thread [
     i32 3, label %9
@@ -128,7 +128,7 @@ test_tplink_smarthome.exit:                       ; preds = %12
   ]
 
 16:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.7) #2
   %19 = load ptr, ptr %17, align 8
@@ -148,7 +148,7 @@ test_tplink_smarthome.exit:                       ; preds = %12
 
 29:                                               ; preds = %26, %16
   %30 = sub i32 %5, %.058
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = add i32 %5, 1
   %34 = sub i32 %33, %.058
@@ -189,13 +189,13 @@ test_tplink_smarthome.exit:                       ; preds = %12
   %.060.lcssa = phi i64 [ %49, %._crit_edge.loopexit ], [ 0, %29 ]
   %50 = getelementptr i8, ptr %36, i64 %.060.lcssa
   store i8 0, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %1, i64 288
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 9999
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %1, i64 284
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 9999
   %.str.13..str.3 = select i1 %57, ptr @.str.13, ptr @.str.3

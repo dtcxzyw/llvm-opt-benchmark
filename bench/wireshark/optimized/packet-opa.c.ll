@@ -568,14 +568,14 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 28:                                               ; preds = %15, %19, %13
   %29 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %2) #5
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @col_set_str(ptr noundef %31, i32 noundef 34, ptr noundef nonnull @.str.311) #5
   %32 = load ptr, ptr %30, align 8
   tail call void @col_clear(ptr noundef %32, i32 noundef 25) #5
-  %33 = getelementptr inbounds i8, ptr %1, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 -1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 284
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 -1, ptr %34, align 4
   %35 = load i32, ptr @proto_opa_9b, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
@@ -601,18 +601,18 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   %55 = and i8 %54, 3
   %56 = load i32, ptr @hf_opa_9B_dlid, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %56, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
-  %58 = getelementptr inbounds i8, ptr %1, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef 2) #5
   %61 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #5
   store i16 %61, ptr %60, align 2
-  %62 = getelementptr inbounds i8, ptr %1, i64 232
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 9, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 236
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 2, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %60, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 248
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %65, align 8
   %66 = load i32, ptr @hf_opa_9B_reserved3, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %66, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
@@ -624,13 +624,13 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
   %73 = tail call noalias ptr @wmem_alloc(ptr noundef %72, i64 noundef 2) #5
   %74 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #5
   store i16 %74, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %1, i64 208
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 9, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 212
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 2, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %1, i64 216
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %73, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 224
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %78, align 8
   switch i8 %55, label %default.unreachable [
     i8 3, label %79
@@ -1174,7 +1174,7 @@ define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef initializes((284, 288)) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.319) #5
   %8 = load i32, ptr @hf_opa_DETH, align 4
@@ -1190,7 +1190,7 @@ define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef in
   %18 = load i32, ptr @hf_opa_DETH_source_qp, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 3, i32 noundef 0) #5
   %20 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %17) #5
-  %21 = getelementptr inbounds i8, ptr %1, i64 284
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %20, ptr %21, align 4
   %22 = add i32 %5, 8
   store i32 %22, ptr %3, align 4
@@ -1674,7 +1674,7 @@ define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef
   br label %.sink.split
 
 59:                                               ; preds = %6
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.332) #5
   %62 = load i32, ptr @hf_opa_TIDRDMA, align 4
@@ -1687,7 +1687,7 @@ define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef
   br label %.sink.split
 
 68:                                               ; preds = %6
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.334) #5
   %71 = load i32, ptr @hf_opa_TIDRDMA, align 4
@@ -1765,7 +1765,7 @@ define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef
   br label %.sink.split
 
 130:                                              ; preds = %6
-  %131 = getelementptr inbounds i8, ptr %1, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %132 = load ptr, ptr %131, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.340) #5
   %133 = load i32, ptr @hf_opa_TIDRDMA, align 4

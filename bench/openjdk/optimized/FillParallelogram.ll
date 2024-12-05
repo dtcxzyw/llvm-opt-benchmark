@@ -97,9 +97,9 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
 
 59:                                               ; preds = %37
   %60 = tail call i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %2) #4
-  %61 = getelementptr inbounds i8, ptr %57, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %66, label %65
@@ -116,15 +116,15 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
 69:                                               ; preds = %66
   call void @GrPrim_Sg2dGetClip(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %11) #4
   call void @SurfaceData_IntersectBoundsXYXY(ptr noundef nonnull %11, i32 noundef %45, i32 noundef %51, i32 noundef %48, i32 noundef %56) #4
-  %70 = getelementptr inbounds i8, ptr %11, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %11, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %73 = load i32, ptr %72, align 4
   %.not260 = icmp sgt i32 %71, %73
   br i1 %.not260, label %74, label %194
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %11, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = load i32, ptr %11, align 8
   %.not261 = icmp sgt i32 %76, %77
@@ -132,7 +132,7 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %67, align 8
-  %80 = getelementptr inbounds i8, ptr %57, i64 52
+  %80 = getelementptr inbounds nuw i8, ptr %57, i64 52
   %81 = load i32, ptr %80, align 4
   %82 = call i32 %79(ptr noundef %0, ptr noundef nonnull %67, ptr noundef nonnull %11, i32 noundef %81) #4
   %.not262 = icmp eq i32 %82, 0
@@ -149,10 +149,10 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   br i1 %or.cond266, label %90, label %190
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %67, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef %0, ptr noundef nonnull %67, ptr noundef nonnull %11) #4
-  %93 = getelementptr inbounds i8, ptr %11, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not263 = icmp eq ptr %94, null
   br i1 %.not263, label %186, label %95
@@ -194,7 +194,7 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   %126 = fmul double %125, 0x41F0000000000000
   %127 = fptosi double %126 to i64
   %128 = add nsw i64 %127, 2147483647
-  %129 = getelementptr inbounds i8, ptr %57, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %130 = load ptr, ptr %129, align 8
   call void %130(ptr noundef nonnull %11, i32 noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef %spec.select, i64 noundef %124, i64 noundef %103, i64 noundef %128, i64 noundef %105, i32 noundef %60, ptr noundef nonnull %57, ptr noundef nonnull %12) #4
   br label %131
@@ -221,7 +221,7 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   %144 = fmul double %143, 0x41F0000000000000
   %145 = fptosi double %144 to i64
   %146 = add nsw i64 %145, 2147483647
-  %147 = getelementptr inbounds i8, ptr %57, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull %11, i32 noundef %84, i32 noundef %spec.select267, i32 noundef %86, i32 noundef %.1234, i64 noundef %141, i64 noundef %105, i64 noundef %146, i64 noundef %105, i32 noundef %60, ptr noundef nonnull %57, ptr noundef nonnull %12) #4
   br label %168
@@ -249,7 +249,7 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   %163 = fmul double %162, 0x41F0000000000000
   %164 = fptosi double %163 to i64
   %165 = add nsw i64 %164, 2147483647
-  %166 = getelementptr inbounds i8, ptr %57, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %167 = load ptr, ptr %166, align 8
   call void %167(ptr noundef nonnull %11, i32 noundef %84, i32 noundef %spec.select268, i32 noundef %86, i32 noundef %.2, i64 noundef %160, i64 noundef %103, i64 noundef %165, i64 noundef %103, i32 noundef %60, ptr noundef nonnull %57, ptr noundef nonnull %12) #4
   br label %168
@@ -273,13 +273,13 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   %181 = fmul double %180, 0x41F0000000000000
   %182 = fptosi double %181 to i64
   %183 = add nsw i64 %182, 2147483647
-  %184 = getelementptr inbounds i8, ptr %57, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %185 = load ptr, ptr %184, align 8
   call void %185(ptr noundef nonnull %11, i32 noundef %84, i32 noundef %spec.select269, i32 noundef %86, i32 noundef %87, i64 noundef %178, i64 noundef %105, i64 noundef %183, i64 noundef %103, i32 noundef %60, ptr noundef nonnull %57, ptr noundef nonnull %12) #4
   br label %186
 
 186:                                              ; preds = %90, %171, %168
-  %187 = getelementptr inbounds i8, ptr %67, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %188 = load ptr, ptr %187, align 8
   %.not264 = icmp eq ptr %188, null
   br i1 %.not264, label %190, label %189
@@ -289,7 +289,7 @@ define void @Java_sun_java2d_loops_FillParallelogram_FillParallelogram(ptr nound
   br label %190
 
 190:                                              ; preds = %83, %186, %189
-  %191 = getelementptr inbounds i8, ptr %67, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %192 = load ptr, ptr %191, align 8
   %.not265 = icmp eq ptr %192, null
   br i1 %.not265, label %194, label %193

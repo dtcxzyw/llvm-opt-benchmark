@@ -70,25 +70,25 @@ define internal void @pci_testdev_class_init(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #6
-  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i10, i64 176
   store ptr @pci_testdev_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i10, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i10, i64 184
   store ptr @pci_testdev_uninit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i10, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i10, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 210
   store i16 5, ptr %device_id, align 2
-  %revision = getelementptr inbounds i8, ptr %call.i10, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call.i10, i64 212
   store i8 0, ptr %revision, align 4
-  %class_id = getelementptr inbounds i8, ptr %call.i10, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 214
   store i16 255, ptr %class_id, align 2
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @qdev_pci_testdev_reset, ptr %reset, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_testdev_properties) #6
   ret void
@@ -98,32 +98,32 @@ entry:
 define internal void @pci_testdev_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 98, ptr noundef nonnull @__func__.PCI_TEST_DEV) #6
-  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 0, ptr %arrayidx, align 1
-  %mmio = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %call.i, ptr noundef nonnull @pci_testdev_mmio_ops, ptr noundef %call.i, ptr noundef nonnull @.str.7, i64 noundef 4096) #6
-  %portio = getelementptr inbounds i8, ptr %call.i, i64 2880
+  %portio = getelementptr inbounds nuw i8, ptr %call.i, i64 2880
   tail call void @memory_region_init_io(ptr noundef nonnull %portio, ptr noundef %call.i, ptr noundef nonnull @pci_testdev_pio_ops, ptr noundef %call.i, ptr noundef nonnull @.str.8, i64 noundef 256) #6
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #6
   tail call void @pci_register_bar(ptr noundef %pci_dev, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %portio) #6
-  %membar_size = getelementptr inbounds i8, ptr %call.i, i64 3168
+  %membar_size = getelementptr inbounds nuw i8, ptr %call.i, i64 3168
   %1 = load i64, ptr %membar_size, align 16
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %membar = getelementptr inbounds i8, ptr %call.i, i64 3184
+  %membar = getelementptr inbounds nuw i8, ptr %call.i, i64 3184
   tail call void @memory_region_init(ptr noundef nonnull %membar, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.9, i64 noundef %1) #6
   tail call void @pci_register_bar(ptr noundef nonnull %pci_dev, i32 noundef 2, i8 noundef zeroext 12, ptr noundef nonnull %membar) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %current = getelementptr inbounds i8, ptr %call.i, i64 3160
+  %current = getelementptr inbounds nuw i8, ptr %call.i, i64 3160
   store i32 -1, ptr %current, align 8
   %call5 = tail call noalias dereferenceable_or_null(288) ptr @g_malloc0(i64 noundef 288) #7
-  %tests = getelementptr inbounds i8, ptr %call.i, i64 3152
+  %tests = getelementptr inbounds nuw i8, ptr %call.i, i64 3152
   store ptr %call5, ptr %tests, align 16
   br label %for.body
 
@@ -144,13 +144,13 @@ for.body:                                         ; preds = %if.end, %for.inc
   %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call13) #8
   %5 = trunc i64 %call14 to i32
   %conv16 = add i32 %5, 17
-  %bufsize = getelementptr inbounds i8, ptr %arrayidx8, i64 40
+  %bufsize = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 40
   store i32 %conv16, ptr %bufsize, align 8
   %conv18 = zext i32 %conv16 to i64
   %call19 = tail call noalias ptr @g_malloc0(i64 noundef %conv18) #7
-  %hdr = getelementptr inbounds i8, ptr %arrayidx8, i64 32
+  %hdr = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 32
   store ptr %call19, ptr %hdr, align 8
-  %name21 = getelementptr inbounds i8, ptr %call19, i64 16
+  %name21 = getelementptr inbounds nuw i8, ptr %call19, i64 16
   %call22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call13) #8
   %add23 = add i64 %call22, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name21, ptr align 1 %call13, i64 %add23, i1 false)
@@ -161,18 +161,18 @@ for.body:                                         ; preds = %if.end, %for.inc
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %add31 = or disjoint i32 %cond, %6
   %7 = load ptr, ptr %hdr, align 8
-  %offset = getelementptr inbounds i8, ptr %7, i64 4
+  %offset = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %add31, ptr %offset, align 4
   %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(17) @.str.12) #8
   %tobool39 = icmp ne i32 %call38, 0
-  %match_data = getelementptr inbounds i8, ptr %arrayidx8, i64 28
+  %match_data = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 28
   %frombool = zext i1 %tobool39 to i8
   store i8 %frombool, ptr %match_data, align 4
   %call43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.11) #8
   %tobool44.not = icmp eq i32 %call43, 0
   %brmerge = select i1 %tobool44.not, i1 true, i1 %tobool39
   %spec.select = zext i1 %brmerge to i32
-  %8 = getelementptr inbounds i8, ptr %arrayidx8, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 24
   store i32 %spec.select, ptr %8, align 8
   %conv50 = trunc i64 %indvars.iv to i8
   %9 = load ptr, ptr %hdr, align 8
@@ -181,10 +181,10 @@ for.body:                                         ; preds = %if.end, %for.inc
   %tobool54 = trunc i8 %10 to i1
   %conv57 = select i1 %tobool54, i8 -6, i8 -50
   %11 = load ptr, ptr %hdr, align 8
-  %data = getelementptr inbounds i8, ptr %11, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 %conv57, ptr %data, align 4
   %12 = load ptr, ptr %hdr, align 8
-  %width = getelementptr inbounds i8, ptr %12, i64 1
+  %width = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 1, ptr %width, align 1
   %call63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(7) @.str.11) #8
   %tobool64.not = icmp eq i32 %call63, 0
@@ -195,7 +195,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool72.not, label %for.inc, label %if.end74
 
 if.end74:                                         ; preds = %for.body
-  %notifier = getelementptr inbounds i8, ptr %arrayidx8, i64 8
+  %notifier = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 8
   %call75 = tail call i32 @event_notifier_init(ptr noundef nonnull %notifier, i32 noundef 0) #6
   %cmp76 = icmp sgt i32 %call75, -1
   br i1 %cmp76, label %for.inc, label %if.else79
@@ -206,7 +206,7 @@ if.else79:                                        ; preds = %if.end74
 
 for.inc:                                          ; preds = %if.end74, %for.body
   %.sink = phi i8 [ 0, %for.body ], [ 1, %if.end74 ]
-  %hasnotifier81 = getelementptr inbounds i8, ptr %arrayidx8, i64 20
+  %hasnotifier81 = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 20
   store i8 %.sink, ptr %hasnotifier81, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -220,37 +220,37 @@ for.end:                                          ; preds = %for.inc
 define internal void @pci_testdev_uninit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 98, ptr noundef nonnull @__func__.PCI_TEST_DEV) #6
-  %current.i = getelementptr inbounds i8, ptr %call.i, i64 3160
+  %current.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3160
   %0 = load i32, ptr %current.i, align 8
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %pci_testdev_reset.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %tests.i = getelementptr inbounds i8, ptr %call.i, i64 3152
+  %tests.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3152
   %1 = load ptr, ptr %tests.i, align 16
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr %struct.IOTest, ptr %1, i64 %idxprom.i
-  %hasnotifier.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %hasnotifier.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %2 = load i8, ptr %hasnotifier.i.i, align 4
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %pci_testdev_stop.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %hdr.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %hdr.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %4 = load ptr, ptr %hdr.i.i, align 8
-  %offset.i.i = getelementptr inbounds i8, ptr %4, i64 4
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %5 = load i32, ptr %offset.i.i, align 4
   %conv.i.i = zext i32 %5 to i64
-  %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %6 = load i32, ptr %size.i.i, align 8
-  %match_data.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %match_data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %7 = load i8, ptr %match_data.i.i, align 4
   %tobool1.i.i = trunc i8 %7 to i1
-  %data.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %data.i.i, align 4
   %conv3.i.i = zext i8 %8 to i64
-  %notifier.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @memory_region_del_eventfd(ptr noundef %3, i64 noundef %conv.i.i, i32 noundef %6, i1 noundef zeroext %tobool1.i.i, i64 noundef %conv3.i.i, ptr noundef nonnull %notifier.i.i) #6
   br label %pci_testdev_stop.exit.i
 
@@ -259,20 +259,20 @@ pci_testdev_stop.exit.i:                          ; preds = %if.end.i.i, %if.end
   br label %pci_testdev_reset.exit
 
 pci_testdev_reset.exit:                           ; preds = %entry, %pci_testdev_stop.exit.i
-  %tests = getelementptr inbounds i8, ptr %call.i, i64 3152
+  %tests = getelementptr inbounds nuw i8, ptr %call.i, i64 3152
   br label %for.body
 
 for.body:                                         ; preds = %pci_testdev_reset.exit, %if.end
   %indvars.iv = phi i64 [ 0, %pci_testdev_reset.exit ], [ %indvars.iv.next, %if.end ]
   %9 = load ptr, ptr %tests, align 16
   %arrayidx = getelementptr %struct.IOTest, ptr %9, i64 %indvars.iv
-  %hasnotifier = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %hasnotifier = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %10 = load i8, ptr %hasnotifier, align 4
   %tobool = trunc i8 %10 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %notifier = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %notifier = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   tail call void @event_notifier_cleanup(ptr noundef nonnull %notifier) #6
   %.pre = load ptr, ptr %tests, align 16
   br label %if.end
@@ -296,37 +296,37 @@ for.end:                                          ; preds = %if.end
 define internal void @qdev_pci_testdev_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef 98, ptr noundef nonnull @__func__.PCI_TEST_DEV) #6
-  %current.i = getelementptr inbounds i8, ptr %call.i, i64 3160
+  %current.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3160
   %0 = load i32, ptr %current.i, align 8
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %pci_testdev_reset.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %tests.i = getelementptr inbounds i8, ptr %call.i, i64 3152
+  %tests.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3152
   %1 = load ptr, ptr %tests.i, align 16
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr %struct.IOTest, ptr %1, i64 %idxprom.i
-  %hasnotifier.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %hasnotifier.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %2 = load i8, ptr %hasnotifier.i.i, align 4
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %pci_testdev_stop.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %hdr.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %hdr.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %4 = load ptr, ptr %hdr.i.i, align 8
-  %offset.i.i = getelementptr inbounds i8, ptr %4, i64 4
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %5 = load i32, ptr %offset.i.i, align 4
   %conv.i.i = zext i32 %5 to i64
-  %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %6 = load i32, ptr %size.i.i, align 8
-  %match_data.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %match_data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %7 = load i8, ptr %match_data.i.i, align 4
   %tobool1.i.i = trunc i8 %7 to i1
-  %data.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %data.i.i, align 4
   %conv3.i.i = zext i8 %8 to i64
-  %notifier.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @memory_region_del_eventfd(ptr noundef %3, i64 noundef %conv.i.i, i32 noundef %6, i1 noundef zeroext %tobool1.i.i, i64 noundef %conv3.i.i, ptr noundef nonnull %notifier.i.i) #6
   br label %pci_testdev_stop.exit.i
 
@@ -374,34 +374,34 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -128, 128) i64 @pci_testdev_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %current = getelementptr inbounds i8, ptr %opaque, i64 3160
+  %current = getelementptr inbounds nuw i8, ptr %opaque, i64 3160
   %0 = load i32, ptr %current, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tests = getelementptr inbounds i8, ptr %opaque, i64 3152
+  %tests = getelementptr inbounds nuw i8, ptr %opaque, i64 3152
   %1 = load ptr, ptr %tests, align 16
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr %struct.IOTest, ptr %1, i64 %idxprom
-  %hdr = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %hdr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %2 = load ptr, ptr %hdr, align 8
   %conv = zext i32 %size to i64
   %add = add i64 %addr, %conv
-  %bufsize = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %bufsize = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   %3 = load i32, ptr %bufsize, align 8
   %conv2 = zext i32 %3 to i64
   %cmp3.not = icmp ult i64 %add, %conv2
   br i1 %cmp3.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %hasnotifier = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %hasnotifier = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %4 = load i8, ptr %hasnotifier, align 4
   %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end6
-  %notifier = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %notifier = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %call = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %notifier) #6
   br label %if.end8
 
@@ -429,7 +429,7 @@ declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @pci_testdev_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %size, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %addr, 0
-  %current.i = getelementptr inbounds i8, ptr %opaque, i64 3160
+  %current.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3160
   %0 = load i32, ptr %current.i, align 8
   br i1 %cmp, label %if.then, label %if.end8
 
@@ -438,31 +438,31 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %pci_testdev_reset.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %tests.i = getelementptr inbounds i8, ptr %opaque, i64 3152
+  %tests.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3152
   %1 = load ptr, ptr %tests.i, align 16
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr %struct.IOTest, ptr %1, i64 %idxprom.i
-  %hasnotifier.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
+  %hasnotifier.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %2 = load i8, ptr %hasnotifier.i.i, align 4
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.end.i.i, label %pci_testdev_stop.exit.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %hdr.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %hdr.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %4 = load ptr, ptr %hdr.i.i, align 8
-  %offset.i.i = getelementptr inbounds i8, ptr %4, i64 4
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %5 = load i32, ptr %offset.i.i, align 4
   %conv.i.i = zext i32 %5 to i64
-  %size.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %size.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %6 = load i32, ptr %size.i.i, align 8
-  %match_data.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %match_data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %7 = load i8, ptr %match_data.i.i, align 4
   %tobool1.i.i = trunc i8 %7 to i1
-  %data.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i8, ptr %data.i.i, align 4
   %conv3.i.i = zext i8 %8 to i64
-  %notifier.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %notifier.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @memory_region_del_eventfd(ptr noundef %3, i64 noundef %conv.i.i, i32 noundef %6, i1 noundef zeroext %tobool1.i.i, i64 noundef %conv3.i.i, ptr noundef nonnull %notifier.i.i) #6
   br label %pci_testdev_stop.exit.i
 
@@ -478,33 +478,33 @@ if.end:                                           ; preds = %pci_testdev_reset.e
   %narrow = mul nuw nsw i32 %type, 3
   %9 = trunc nuw i64 %val to i32
   %conv3 = add nuw nsw i32 %narrow, %9
-  %tests = getelementptr inbounds i8, ptr %opaque, i64 3152
+  %tests = getelementptr inbounds nuw i8, ptr %opaque, i64 3152
   %10 = load ptr, ptr %tests, align 16
   %idxprom = zext nneg i32 %conv3 to i64
   %arrayidx = getelementptr %struct.IOTest, ptr %10, i64 %idxprom
-  %hdr.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %hdr.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %11 = load ptr, ptr %hdr.i, align 8
-  %count.i = getelementptr inbounds i8, ptr %11, i64 12
+  %count.i = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 0, ptr %count.i, align 4
-  %hasnotifier.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
+  %hasnotifier.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 20
   %12 = load i8, ptr %hasnotifier.i, align 4
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %if.end.i15, label %pci_testdev_start.exit
 
 if.end.i15:                                       ; preds = %if.end
-  %notifier.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %notifier.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %call.i = tail call i32 @event_notifier_test_and_clear(ptr noundef nonnull %notifier.i) #6
   %13 = load ptr, ptr %arrayidx, align 8
   %14 = load ptr, ptr %hdr.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %14, i64 4
+  %offset.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   %15 = load i32, ptr %offset.i, align 4
   %conv.i = zext i32 %15 to i64
-  %size.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %size.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %16 = load i32, ptr %size.i, align 8
-  %match_data.i = getelementptr inbounds i8, ptr %arrayidx, i64 28
+  %match_data.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 28
   %17 = load i8, ptr %match_data.i, align 4
   %tobool3.i = trunc i8 %17 to i1
-  %data.i = getelementptr inbounds i8, ptr %14, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i8, ptr %data.i, align 4
   %conv5.i = zext i8 %18 to i64
   tail call void @memory_region_add_eventfd(ptr noundef %13, i64 noundef %conv.i, i32 noundef %16, i1 noundef zeroext %tobool3.i, i64 noundef %conv5.i, ptr noundef nonnull %notifier.i) #6
@@ -519,39 +519,39 @@ if.end8:                                          ; preds = %entry
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end8
-  %tests14 = getelementptr inbounds i8, ptr %opaque, i64 3152
+  %tests14 = getelementptr inbounds nuw i8, ptr %opaque, i64 3152
   %19 = load ptr, ptr %tests14, align 16
   %idxprom16 = zext nneg i32 %0 to i64
   %arrayidx17 = getelementptr %struct.IOTest, ptr %19, i64 %idxprom16
-  %hdr = getelementptr inbounds i8, ptr %arrayidx17, i64 32
+  %hdr = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 32
   %20 = load ptr, ptr %hdr, align 8
-  %offset = getelementptr inbounds i8, ptr %20, i64 4
+  %offset = getelementptr inbounds nuw i8, ptr %20, i64 4
   %21 = load i32, ptr %offset, align 4
   %conv19 = zext i32 %21 to i64
   %cmp20.not = icmp eq i64 %addr, %conv19
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end13
-  %match_data = getelementptr inbounds i8, ptr %arrayidx17, i64 28
+  %match_data = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 28
   %22 = load i8, ptr %match_data, align 4
   %tobool = trunc i8 %22 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end39
 
 land.lhs.true:                                    ; preds = %if.end23
-  %size25 = getelementptr inbounds i8, ptr %arrayidx17, i64 24
+  %size25 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 24
   %23 = load i32, ptr %size25, align 8
   %cmp26.not = icmp eq i32 %23, %size
   br i1 %cmp26.not, label %land.lhs.true33, label %return
 
 land.lhs.true33:                                  ; preds = %land.lhs.true
-  %data = getelementptr inbounds i8, ptr %20, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i8, ptr %data, align 4
   %conv35 = zext i8 %24 to i64
   %cmp36.not = icmp eq i64 %val, %conv35
   br i1 %cmp36.not, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.end23, %land.lhs.true33
-  %count.i16 = getelementptr inbounds i8, ptr %20, i64 12
+  %count.i16 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %25 = load i32, ptr %count.i16, align 4
   %add.i = add i32 %25, 1
   store i32 %add.i, ptr %count.i16, align 4

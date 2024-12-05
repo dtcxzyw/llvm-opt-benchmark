@@ -174,7 +174,7 @@ define dso_local void @tcg_gen_qemu_ld_i32_chk(ptr noundef %val, ptr noundef %ad
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -193,7 +193,7 @@ define internal fastcc void @tcg_gen_qemu_ld_i32_int(ptr noundef %val, ptr nound
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %guest_mo.i = getelementptr inbounds i8, ptr %1, i64 72
+  %guest_mo.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load i32, ptr %guest_mo.i, align 8
   %and1.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and1.i, 0
@@ -228,7 +228,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %4 = load ptr, ptr %0, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %4, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %4, i64 68
   %5 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %5 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -262,9 +262,9 @@ do.body.i:                                        ; preds = %check_max_alignment
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %sw.bb.i, %sw.bb6.i
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %and8.i, %sw.bb6.i ]
   %6 = load ptr, ptr %0, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %6, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %6, i64 112
   %7 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %7, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %cflags.i, align 4
   %and19.i = and i32 %8, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
@@ -295,7 +295,7 @@ if.end10:                                         ; preds = %if.then, %land.lhs.
   %oi.0 = phi i32 [ %or.i18, %land.lhs.true ], [ %or.i20, %if.then ], [ %or.i18, %tcg_canonicalize_memop.exit ]
   %memop.addr.0 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %spec.select, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
+  %plugin_insn.i = getelementptr inbounds nuw i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.end10.plugin_maybe_preserve_addr.exit_crit_edge, label %if.then.i21
@@ -307,7 +307,7 @@ if.end10.plugin_maybe_preserve_addr.exit_crit_edge: ; preds = %if.end10
 if.then.i21:                                      ; preds = %if.end10
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %11 = load ptr, ptr %0, align 8
-  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %11, i64 60
   %12 = load i32, ptr %addr_type.i, align 4
   %cmp1.i = icmp eq i32 %12, 0
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
@@ -328,7 +328,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end10.plugin_may
   %.pre-phi = phi i64 [ %.pre, %if.end10.plugin_maybe_preserve_addr.exit_crit_edge ], [ %sub.ptr.lhs.cast.i.i.i, %if.then2.i ], [ %sub.ptr.lhs.cast.i.i.i, %if.else.i ]
   %retval.0.i = phi ptr [ null, %if.end10.plugin_maybe_preserve_addr.exit_crit_edge ], [ %call.i, %if.then2.i ], [ %call.i, %if.else.i ]
   %14 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %14, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %14, i64 60
   %15 = load i32, ptr %addr_type, align 4
   %cmp12 = icmp eq i32 %15, 0
   %. = select i1 %cmp12, i32 135, i32 139
@@ -374,7 +374,7 @@ define dso_local void @tcg_gen_qemu_st_i32_chk(ptr noundef %val, ptr noundef %ad
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -413,7 +413,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %1, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -443,9 +443,9 @@ do.body.i:                                        ; preds = %check_max_alignment
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %and17.i = and i32 %op.addr.1.i, -9
-  %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %4, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   %5 = load i32, ptr %cflags.i, align 4
   %and19.i = and i32 %5, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
@@ -493,7 +493,7 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %val.addr.0 = phi ptr [ %val, %land.lhs.true ], [ %call3, %sw.epilog ], [ %val, %tcg_canonicalize_memop.exit ]
   %oi.0 = phi i32 [ %or.i15, %land.lhs.true ], [ %or.i17, %sw.epilog ], [ %or.i15, %tcg_canonicalize_memop.exit ]
   %6 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %6, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %6, i64 60
   %7 = load i32, ptr %addr_type, align 4
   %cmp = icmp eq i32 %7, 0
   %. = select i1 %cmp, i32 136, i32 140
@@ -504,14 +504,14 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %conv5.i = zext i32 %oi.0 to i64
   tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i) #5
   %11 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %11, i64 224
+  %plugin_insn.i = getelementptr inbounds nuw i8, ptr %11, i64 224
   %12 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %plugin_gen_mem_callbacks.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %or.i.i = or i32 %or.i15, 131072
-  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %11, i64 60
   %13 = load i32, ptr %addr_type.i, align 4
   %cmp1.i = icmp eq i32 %13, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
@@ -551,7 +551,7 @@ define dso_local void @tcg_gen_qemu_ld_i64_chk(ptr noundef %val, ptr noundef %ad
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -567,7 +567,7 @@ define internal fastcc void @tcg_gen_qemu_ld_i64_int(ptr noundef %val, ptr nound
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %guest_mo.i = getelementptr inbounds i8, ptr %1, i64 72
+  %guest_mo.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %2 = load i32, ptr %guest_mo.i, align 8
   %and1.i = and i32 %2, 2
   %tobool.not.i = icmp eq i32 %and1.i, 0
@@ -602,7 +602,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %4 = load ptr, ptr %0, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %4, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %4, i64 68
   %5 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %5 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -637,9 +637,9 @@ do.body.i:                                        ; preds = %check_max_alignment
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i, %sw.bb10.i
   %op.addr.1.i = phi i32 [ %and13.i, %sw.bb10.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %6 = load ptr, ptr %0, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %6, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %6, i64 112
   %7 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %7, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %cflags.i, align 4
   %and19.i = and i32 %8, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
@@ -673,7 +673,7 @@ if.end13:                                         ; preds = %if.then, %land.lhs.
   %oi.0 = phi i32 [ %or.i22, %land.lhs.true ], [ %or.i24, %if.then ], [ %or.i22, %tcg_canonicalize_memop.exit ]
   %memop.addr.0 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %memop.addr.1, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
+  %plugin_insn.i = getelementptr inbounds nuw i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %plugin_maybe_preserve_addr.exit, label %if.then.i25
@@ -681,7 +681,7 @@ if.end13:                                         ; preds = %if.then, %land.lhs.
 if.then.i25:                                      ; preds = %if.end13
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %11 = load ptr, ptr %0, align 8
-  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %11, i64 60
   %12 = load i32, ptr %addr_type.i, align 4
   %cmp1.i = icmp eq i32 %12, 0
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %addr to i64
@@ -701,7 +701,7 @@ if.else.i:                                        ; preds = %if.then.i25
 plugin_maybe_preserve_addr.exit:                  ; preds = %if.end13, %if.then2.i, %if.else.i
   %retval.0.i = phi ptr [ %call.i, %if.else.i ], [ %call.i, %if.then2.i ], [ null, %if.end13 ]
   %14 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %14, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %14, i64 60
   %15 = load i32, ptr %addr_type, align 4
   %cmp15 = icmp eq i32 %15, 0
   %16 = ptrtoint ptr %val to i64
@@ -753,7 +753,7 @@ define dso_local void @tcg_gen_qemu_st_i64_chk(ptr noundef %val, ptr noundef %ad
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -792,7 +792,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %1, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -823,9 +823,9 @@ do.body.i:                                        ; preds = %check_max_alignment
 tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %and17.i = and i32 %op.addr.1.i, -9
-  %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %4, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   %5 = load i32, ptr %cflags.i, align 4
   %and19.i = and i32 %5, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
@@ -878,7 +878,7 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %val.addr.0 = phi ptr [ %val, %land.lhs.true ], [ %call3, %sw.epilog ], [ %val, %tcg_canonicalize_memop.exit ]
   %oi.0 = phi i32 [ %or.i17, %land.lhs.true ], [ %or.i19, %sw.epilog ], [ %or.i17, %tcg_canonicalize_memop.exit ]
   %6 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds i8, ptr %6, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %6, i64 60
   %7 = load i32, ptr %addr_type, align 4
   %cmp = icmp eq i32 %7, 0
   %8 = ptrtoint ptr %val.addr.0 to i64
@@ -889,14 +889,14 @@ if.end:                                           ; preds = %sw.epilog, %land.lh
   %. = select i1 %cmp, i32 138, i32 142
   tail call void @tcg_gen_op3(i32 noundef range(i32 135, 149) %., i64 noundef %9, i64 noundef %10, i64 noundef %conv5.i.i) #5
   %11 = load ptr, ptr %0, align 8
-  %plugin_insn.i = getelementptr inbounds i8, ptr %11, i64 224
+  %plugin_insn.i = getelementptr inbounds nuw i8, ptr %11, i64 224
   %12 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %plugin_gen_mem_callbacks.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %or.i.i = or i32 %or.i17, 131072
-  %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %11, i64 60
   %13 = load i32, ptr %addr_type.i, align 4
   %cmp1.i = icmp eq i32 %13, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
@@ -938,7 +938,7 @@ define dso_local void @tcg_gen_qemu_ld_i128_chk(ptr noundef %val, ptr noundef %a
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -984,7 +984,7 @@ do.body.i:                                        ; preds = %get_alignment_bits.
   %add.i = add nuw nsw i32 %a.0.i, 5
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
-  %page_bits.i = getelementptr inbounds i8, ptr %2, i64 68
+  %page_bits.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i, align 4
   %conv.i = zext i8 %3 to i32
   %cmp.i = icmp samesign ule i32 %add.i, %conv.i
@@ -994,7 +994,7 @@ do.body.i:                                        ; preds = %get_alignment_bits.
 check_max_alignment.exit:                         ; preds = %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, %do.body.i
   %.pre-phi102 = phi ptr [ %.pre101, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
   %4 = load ptr, ptr %.pre-phi102, align 8
-  %guest_mo.i = getelementptr inbounds i8, ptr %4, i64 72
+  %guest_mo.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   %5 = load i32, ptr %guest_mo.i, align 8
   %and1.i = and i32 %5, 2
   %tobool.not.i = icmp eq i32 %and1.i, 0
@@ -1007,9 +1007,9 @@ if.then.i:                                        ; preds = %check_max_alignment
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %if.then.i
   %6 = phi ptr [ %4, %check_max_alignment.exit ], [ %.pre, %if.then.i ]
-  %gen_tb = getelementptr inbounds i8, ptr %6, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %6, i64 112
   %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %7, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %cflags, align 4
   %and = and i32 %8, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -1065,7 +1065,7 @@ if.end17:                                         ; preds = %if.else, %if.then9
   %hi.0 = phi ptr [ %14, %if.else ], [ %val, %if.then9 ]
   %need_bswap.0 = phi i1 [ false, %if.else ], [ true, %if.then9 ]
   %oi.0 = phi i32 [ %or.i, %if.else ], [ %or.i48, %if.then9 ]
-  %addr_type = getelementptr inbounds i8, ptr %15, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %15, i64 60
   %16 = load i32, ptr %addr_type, align 4
   %cmp = icmp eq i32 %16, 0
   %. = select i1 %cmp, i32 145, i32 146
@@ -1172,7 +1172,7 @@ canonicalize_memop_i128_as_i64.exit:              ; preds = %sw.epilog.i, %land.
   %and31 = and i32 %xor, 16
   %tobool32.not = icmp eq i32 %and31, 0
   %24 = load ptr, ptr %.pre-phi102, align 8
-  %addr_type33 = getelementptr inbounds i8, ptr %24, i64 60
+  %addr_type33 = getelementptr inbounds nuw i8, ptr %24, i64 60
   %25 = load i32, ptr %addr_type33, align 4
   %cmp34 = icmp eq i32 %25, 0
   %.46 = select i1 %cmp34, i32 137, i32 141
@@ -1201,7 +1201,7 @@ if.then53:                                        ; preds = %canonicalize_memop_
 
 if.end54:                                         ; preds = %if.then53, %canonicalize_memop_i128_as_i64.exit
   %31 = load ptr, ptr %.pre-phi102, align 8
-  %addr_type55 = getelementptr inbounds i8, ptr %31, i64 60
+  %addr_type55 = getelementptr inbounds nuw i8, ptr %31, i64 60
   %32 = load i32, ptr %addr_type55, align 4
   %cmp56 = icmp eq i32 %32, 0
   br i1 %cmp56, label %if.then58, label %if.else62
@@ -1245,7 +1245,7 @@ if.then72:                                        ; preds = %if.end67
   br label %if.end86
 
 if.else74:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else27
-  %addr_type75 = getelementptr inbounds i8, ptr %6, i64 60
+  %addr_type75 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %42 = load i32, ptr %addr_type75, align 4
   %cmp76 = icmp eq i32 %42, 0
   br i1 %cmp76, label %if.then78, label %if.end82
@@ -1295,7 +1295,7 @@ define dso_local void @tcg_gen_qemu_st_i128_chk(ptr noundef %val, ptr noundef %a
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -1341,7 +1341,7 @@ do.body.i:                                        ; preds = %get_alignment_bits.
   %add.i = add nuw nsw i32 %a.0.i, 5
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
-  %page_bits.i = getelementptr inbounds i8, ptr %2, i64 68
+  %page_bits.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i, align 4
   %conv.i = zext i8 %3 to i32
   %cmp.i = icmp samesign ule i32 %add.i, %conv.i
@@ -1351,7 +1351,7 @@ do.body.i:                                        ; preds = %get_alignment_bits.
 check_max_alignment.exit:                         ; preds = %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, %do.body.i
   %.pre-phi123 = phi ptr [ %.pre122, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
   %4 = load ptr, ptr %.pre-phi123, align 8
-  %guest_mo.i = getelementptr inbounds i8, ptr %4, i64 72
+  %guest_mo.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   %5 = load i32, ptr %guest_mo.i, align 8
   %and1.i = and i32 %5, 2
   %tobool.not.i = icmp eq i32 %and1.i, 0
@@ -1364,9 +1364,9 @@ if.then.i:                                        ; preds = %check_max_alignment
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %if.then.i
   %6 = phi ptr [ %4, %check_max_alignment.exit ], [ %.pre, %if.then.i ]
-  %gen_tb = getelementptr inbounds i8, ptr %6, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %6, i64 112
   %7 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %7, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %7, i64 20
   %8 = load i32, ptr %cflags, align 4
   %and = and i32 %8, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -1431,7 +1431,7 @@ if.end19:                                         ; preds = %if.else, %if.then9
   %hi.0 = phi ptr [ %15, %if.else ], [ %call11, %if.then9 ]
   %oi.0 = phi i32 [ %or.i, %if.else ], [ %or.i53, %if.then9 ]
   %need_bswap.0 = phi i1 [ false, %if.else ], [ true, %if.then9 ]
-  %addr_type = getelementptr inbounds i8, ptr %16, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %16, i64 60
   %17 = load i32, ptr %addr_type, align 4
   %cmp = icmp eq i32 %17, 0
   %. = select i1 %cmp, i32 147, i32 148
@@ -1530,7 +1530,7 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %mop_1.1.i.ph = select i1 %call.i, i32 %mop_1.0.i, i32 %and12.i
   %mop_2.1.i.ph = select i1 %call.i, i32 %mop_2.0.i, i32 %and13.i
   %26 = load ptr, ptr %.pre-phi123, align 8
-  %addr_type32109 = getelementptr inbounds i8, ptr %26, i64 60
+  %addr_type32109 = getelementptr inbounds nuw i8, ptr %26, i64 60
   %27 = load i32, ptr %addr_type32109, align 4
   %cmp33110 = icmp eq i32 %27, 0
   %.51111 = select i1 %cmp33110, i32 138, i32 142
@@ -1544,7 +1544,7 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
   br label %if.end47
 
 if.then41:                                        ; preds = %sw.epilog.i
-  %addr_type32 = getelementptr inbounds i8, ptr %6, i64 60
+  %addr_type32 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %30 = load i32, ptr %addr_type32, align 4
   %cmp33 = icmp eq i32 %30, 0
   %.51 = select i1 %cmp33, i32 138, i32 142
@@ -1588,7 +1588,7 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   %conv5.i.i = zext i32 %or.i83 to i64
   tail call void @tcg_gen_op3(i32 noundef range(i32 137, 143) %.51116, i64 noundef %36, i64 noundef %37, i64 noundef %conv5.i.i) #5
   %38 = load ptr, ptr %.pre-phi123, align 8
-  %addr_type56 = getelementptr inbounds i8, ptr %38, i64 60
+  %addr_type56 = getelementptr inbounds nuw i8, ptr %38, i64 60
   %39 = load i32, ptr %addr_type56, align 4
   %cmp57 = icmp eq i32 %39, 0
   br i1 %cmp57, label %if.then59, label %if.else63
@@ -1649,7 +1649,7 @@ if.end78:                                         ; preds = %if.else74, %if.then
   br label %if.end91
 
 if.else79:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else29
-  %addr_type80 = getelementptr inbounds i8, ptr %6, i64 60
+  %addr_type80 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %53 = load i32, ptr %addr_type80, align 4
   %cmp81 = icmp eq i32 %53, 0
   br i1 %cmp81, label %if.then83, label %if.end87
@@ -1818,7 +1818,7 @@ define dso_local void @tcg_gen_nonatomic_cmpxchg_i32_chk(ptr noundef %retv, ptr 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -1863,7 +1863,7 @@ define dso_local void @tcg_gen_atomic_cmpxchg_i32_chk(ptr noundef %retv, ptr nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -1879,9 +1879,9 @@ define internal fastcc void @tcg_gen_atomic_cmpxchg_i32_int(ptr noundef %retv, p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %2 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %2, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %2, i64 20
   %3 = load i32, ptr %cflags, align 4
   %and = and i32 %3, 32768
   %tobool.not = icmp eq i32 %and, 0
@@ -1915,7 +1915,7 @@ get_alignment_bits.exit.i:                        ; preds = %if.else4.i.i, %if.t
 
 do.body.i.i:                                      ; preds = %get_alignment_bits.exit.i
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
-  %page_bits.i.i = getelementptr inbounds i8, ptr %1, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %5 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -1960,7 +1960,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %and4 = shl i32 %op.addr.1.i, 4
   %shl.i = and i32 %and4, -144
   %or.i15 = or i32 %shl.i, %conv
-  %addr_type.i = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %1, i64 60
   %9 = load i32, ptr %addr_type.i, align 4
   %cmp.i16 = icmp eq i32 %9, 0
   br i1 %cmp.i16, label %if.then.i, label %if.end.i
@@ -1988,7 +1988,7 @@ maybe_extend_addr64.exit:                         ; preds = %if.then.i, %if.end.
   %call7 = tail call ptr @tcg_constant_i32(i32 noundef %or.i15) #5
   tail call void %6(ptr noundef %retv, ptr noundef %13, ptr noundef %retval.0.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call7) #5
   %14 = load ptr, ptr %0, align 8
-  %addr_type.i17 = getelementptr inbounds i8, ptr %14, i64 60
+  %addr_type.i17 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %15 = load i32, ptr %addr_type.i17, align 4
   %cmp.i18 = icmp eq i32 %15, 0
   br i1 %cmp.i18, label %if.then.i20, label %maybe_free_addr64.exit
@@ -2015,7 +2015,7 @@ define dso_local void @tcg_gen_nonatomic_cmpxchg_i64_chk(ptr noundef %retv, ptr 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -2060,16 +2060,16 @@ define dso_local void @tcg_gen_atomic_cmpxchg_i64_chk(ptr noundef %retv, ptr nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags.i, align 4
   %and.i = and i32 %4, 32768
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -2107,7 +2107,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %1, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 68
   %6 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %6 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -2156,7 +2156,7 @@ maybe_extend_addr64.exit.i:                       ; preds = %if.end.i.i, %if.the
   %call8.i = tail call ptr @tcg_constant_i32(i32 noundef %or.i29.i) #5
   tail call void %7(ptr noundef %retv, ptr noundef %11, ptr noundef %retval.0.i.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call8.i) #5
   %12 = load ptr, ptr %0, align 8
-  %addr_type.i31.i = getelementptr inbounds i8, ptr %12, i64 60
+  %addr_type.i31.i = getelementptr inbounds nuw i8, ptr %12, i64 60
   %13 = load i32, ptr %addr_type.i31.i, align 4
   %cmp.i32.i = icmp eq i32 %13, 0
   br i1 %cmp.i32.i, label %if.then.i34.i, label %tcg_gen_atomic_cmpxchg_i64_int.exit
@@ -2202,7 +2202,7 @@ define dso_local void @tcg_gen_nonatomic_cmpxchg_i128_chk(ptr noundef %retv, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
@@ -2275,16 +2275,16 @@ define dso_local void @tcg_gen_atomic_cmpxchg_i128_chk(ptr noundef %retv, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 15
   %cmp3 = icmp eq i32 %and, 4
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags.i, align 4
   %and.i = and i32 %4, 32768
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -2328,7 +2328,7 @@ maybe_extend_addr64.exit.i:                       ; preds = %if.end.i.i, %if.the
   %call5.i = tail call ptr @tcg_constant_i32(i32 noundef %or.i.i) #5
   tail call void %5(ptr noundef %retv, ptr noundef %9, ptr noundef %retval.0.i.i, ptr noundef %cmpv, ptr noundef %newv, ptr noundef %call5.i) #5
   %10 = load ptr, ptr %0, align 8
-  %addr_type.i12.i = getelementptr inbounds i8, ptr %10, i64 60
+  %addr_type.i12.i = getelementptr inbounds nuw i8, ptr %10, i64 60
   %11 = load i32, ptr %addr_type.i12.i, align 4
   %cmp.i13.i = icmp eq i32 %11, 0
   br i1 %cmp.i13.i, label %if.then.i15.i, label %tcg_gen_atomic_cmpxchg_i128_int.exit
@@ -2346,16 +2346,16 @@ define dso_local void @tcg_gen_atomic_fetch_add_i32_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -2391,7 +2391,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -2424,9 +2424,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -2474,7 +2474,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %2, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -2509,9 +2509,9 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %and8.i, %sw.bb6.i ]
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %5 = load ptr, ptr %4, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %5, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %5, i64 112
   %6 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %6, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %7 = load i32, ptr %cflags.i, align 4
   %and19.i = and i32 %7, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
@@ -2526,7 +2526,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %and1 = shl i32 %op.addr.3.i, 4
   %shl.i = and i32 %and1, -144
   %or.i9 = or i32 %shl.i, %conv
-  %addr_type.i = getelementptr inbounds i8, ptr %5, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %5, i64 60
   %9 = load i32, ptr %addr_type.i, align 4
   %cmp.i10 = icmp eq i32 %9, 0
   br i1 %cmp.i10, label %if.then.i, label %if.end.i
@@ -2554,7 +2554,7 @@ maybe_extend_addr64.exit:                         ; preds = %if.then.i, %if.end.
   %call4 = tail call ptr @tcg_constant_i32(i32 noundef %or.i9) #5
   tail call void %8(ptr noundef %ret, ptr noundef %13, ptr noundef %retval.0.i, ptr noundef %val, ptr noundef %call4) #5
   %14 = load ptr, ptr %4, align 8
-  %addr_type.i11 = getelementptr inbounds i8, ptr %14, i64 60
+  %addr_type.i11 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %15 = load i32, ptr %addr_type.i11, align 4
   %cmp.i12 = icmp eq i32 %15, 0
   br i1 %cmp.i12, label %if.then.i14, label %maybe_free_addr64.exit
@@ -2583,16 +2583,16 @@ define dso_local void @tcg_gen_atomic_fetch_add_i64_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -2629,7 +2629,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -2663,9 +2663,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -2713,7 +2713,7 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
   %add.i.i = add nuw nsw i32 %a.0.i.i, 5
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %2 = load ptr, ptr %1, align 8
-  %page_bits.i.i = getelementptr inbounds i8, ptr %2, i64 68
+  %page_bits.i.i = getelementptr inbounds nuw i8, ptr %2, i64 68
   %3 = load i8, ptr %page_bits.i.i, align 4
   %conv.i.i = zext i8 %3 to i32
   %cmp.i.i = icmp samesign ule i32 %add.i.i, %conv.i.i
@@ -2749,9 +2749,9 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %op.addr.1.i = phi i32 [ %and13.i, %sw.bb10.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %5 = load ptr, ptr %4, align 8
-  %gen_tb.i = getelementptr inbounds i8, ptr %5, i64 112
+  %gen_tb.i = getelementptr inbounds nuw i8, ptr %5, i64 112
   %6 = load ptr, ptr %gen_tb.i, align 8
-  %cflags.i = getelementptr inbounds i8, ptr %6, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %6, i64 20
   %7 = load i32, ptr %cflags.i, align 4
   %and19.i = and i32 %7, 32768
   %tobool20.not.i = icmp eq i32 %and19.i, 0
@@ -2775,7 +2775,7 @@ if.then2:                                         ; preds = %if.then
   %and3 = shl i32 %op.addr.3.i, 4
   %shl.i = and i32 %and3, -208
   %or.i21 = or i32 %shl.i, %conv
-  %addr_type.i = getelementptr inbounds i8, ptr %5, i64 60
+  %addr_type.i = getelementptr inbounds nuw i8, ptr %5, i64 60
   %9 = load i32, ptr %addr_type.i, align 4
   %cmp.i22 = icmp eq i32 %9, 0
   br i1 %cmp.i22, label %if.then.i, label %if.end.i
@@ -2803,7 +2803,7 @@ maybe_extend_addr64.exit:                         ; preds = %if.then.i, %if.end.
   %call6 = tail call ptr @tcg_constant_i32(i32 noundef %or.i21) #5
   tail call void %8(ptr noundef %ret, ptr noundef %13, ptr noundef %retval.0.i, ptr noundef %val, ptr noundef %call6) #5
   %14 = load ptr, ptr %4, align 8
-  %addr_type.i23 = getelementptr inbounds i8, ptr %14, i64 60
+  %addr_type.i23 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %15 = load i32, ptr %addr_type.i23, align 4
   %cmp.i24 = icmp eq i32 %15, 0
   br i1 %cmp.i24, label %if.then.i26, label %if.end14
@@ -2848,16 +2848,16 @@ define dso_local void @tcg_gen_atomic_fetch_and_i32_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -2893,7 +2893,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -2926,9 +2926,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -2955,16 +2955,16 @@ define dso_local void @tcg_gen_atomic_fetch_and_i64_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3001,7 +3001,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3035,9 +3035,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3064,16 +3064,16 @@ define dso_local void @tcg_gen_atomic_fetch_or_i32_chk(ptr noundef %ret, ptr nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3109,7 +3109,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3142,9 +3142,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3171,16 +3171,16 @@ define dso_local void @tcg_gen_atomic_fetch_or_i64_chk(ptr noundef %ret, ptr nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3217,7 +3217,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3251,9 +3251,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3280,16 +3280,16 @@ define dso_local void @tcg_gen_atomic_fetch_xor_i32_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3325,7 +3325,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3358,9 +3358,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3387,16 +3387,16 @@ define dso_local void @tcg_gen_atomic_fetch_xor_i64_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3433,7 +3433,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3467,9 +3467,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3496,16 +3496,16 @@ define dso_local void @tcg_gen_atomic_fetch_smin_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3541,7 +3541,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3574,9 +3574,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3603,16 +3603,16 @@ define dso_local void @tcg_gen_atomic_fetch_smin_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3649,7 +3649,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3683,9 +3683,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3712,16 +3712,16 @@ define dso_local void @tcg_gen_atomic_fetch_umin_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3757,7 +3757,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3790,9 +3790,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3819,16 +3819,16 @@ define dso_local void @tcg_gen_atomic_fetch_umin_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3865,7 +3865,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -3899,9 +3899,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -3928,16 +3928,16 @@ define dso_local void @tcg_gen_atomic_fetch_smax_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -3973,7 +3973,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4006,9 +4006,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4035,16 +4035,16 @@ define dso_local void @tcg_gen_atomic_fetch_smax_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4081,7 +4081,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4115,9 +4115,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4144,16 +4144,16 @@ define dso_local void @tcg_gen_atomic_fetch_umax_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4189,7 +4189,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4222,9 +4222,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4251,16 +4251,16 @@ define dso_local void @tcg_gen_atomic_fetch_umax_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4297,7 +4297,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4331,9 +4331,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4360,16 +4360,16 @@ define dso_local void @tcg_gen_atomic_add_fetch_i32_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4405,7 +4405,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4438,9 +4438,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4465,16 +4465,16 @@ define dso_local void @tcg_gen_atomic_add_fetch_i64_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4511,7 +4511,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4545,9 +4545,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4572,16 +4572,16 @@ define dso_local void @tcg_gen_atomic_and_fetch_i32_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4617,7 +4617,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4650,9 +4650,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4677,16 +4677,16 @@ define dso_local void @tcg_gen_atomic_and_fetch_i64_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4723,7 +4723,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4757,9 +4757,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4784,16 +4784,16 @@ define dso_local void @tcg_gen_atomic_or_fetch_i32_chk(ptr noundef %ret, ptr nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4829,7 +4829,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4862,9 +4862,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4889,16 +4889,16 @@ define dso_local void @tcg_gen_atomic_or_fetch_i64_chk(ptr noundef %ret, ptr nou
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -4935,7 +4935,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -4969,9 +4969,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -4996,16 +4996,16 @@ define dso_local void @tcg_gen_atomic_xor_fetch_i32_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5041,7 +5041,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5074,9 +5074,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5101,16 +5101,16 @@ define dso_local void @tcg_gen_atomic_xor_fetch_i64_chk(ptr noundef %ret, ptr no
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5147,7 +5147,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5181,9 +5181,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5208,16 +5208,16 @@ define dso_local void @tcg_gen_atomic_smin_fetch_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5253,7 +5253,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5286,9 +5286,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5313,16 +5313,16 @@ define dso_local void @tcg_gen_atomic_smin_fetch_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5359,7 +5359,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5393,9 +5393,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5420,16 +5420,16 @@ define dso_local void @tcg_gen_atomic_umin_fetch_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5465,7 +5465,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5498,9 +5498,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5525,16 +5525,16 @@ define dso_local void @tcg_gen_atomic_umin_fetch_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5571,7 +5571,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5605,9 +5605,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5632,16 +5632,16 @@ define dso_local void @tcg_gen_atomic_smax_fetch_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5677,7 +5677,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5710,9 +5710,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5737,16 +5737,16 @@ define dso_local void @tcg_gen_atomic_smax_fetch_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5783,7 +5783,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5817,9 +5817,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5844,16 +5844,16 @@ define dso_local void @tcg_gen_atomic_umax_fetch_i32_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5889,7 +5889,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -5922,9 +5922,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -5949,16 +5949,16 @@ define dso_local void @tcg_gen_atomic_umax_fetch_i64_chk(ptr noundef %ret, ptr n
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -5995,7 +5995,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -6029,9 +6029,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -6056,16 +6056,16 @@ define dso_local void @tcg_gen_atomic_xchg_i32_chk(ptr noundef %ret, ptr noundef
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 7
   %cmp3 = icmp samesign ult i32 %and, 3
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -6101,7 +6101,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -6134,9 +6134,9 @@ do.body.i.i:                                      ; preds = %check_max_alignment
 do_nonatomic_op_i32.exit:                         ; preds = %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb6.i.i
   %op.addr.1.i.i = phi i32 [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %and8.i.i, %sw.bb6.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -6161,16 +6161,16 @@ define dso_local void @tcg_gen_atomic_xchg_i64_chk(ptr noundef %ret, ptr noundef
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %addr_type1 = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type1 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %2 = load i32, ptr %addr_type1, align 4
   %cmp = icmp eq i32 %addr_type, %2
   tail call void @llvm.assume(i1 %cmp)
   %and = and i32 %memop, 4
   %cmp3 = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %cmp3)
-  %gen_tb = getelementptr inbounds i8, ptr %1, i64 112
+  %gen_tb = getelementptr inbounds nuw i8, ptr %1, i64 112
   %3 = load ptr, ptr %gen_tb, align 8
-  %cflags = getelementptr inbounds i8, ptr %3, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %cflags, align 4
   %and7 = and i32 %4, 32768
   %tobool.not = icmp eq i32 %and7, 0
@@ -6207,7 +6207,7 @@ get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if
 do.body.i.i.i:                                    ; preds = %get_alignment_bits.exit.i.i
   %add.i.i.i = add nuw nsw i32 %a.0.i.i.i, 5
   %6 = load ptr, ptr %0, align 8
-  %page_bits.i.i.i = getelementptr inbounds i8, ptr %6, i64 68
+  %page_bits.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 68
   %7 = load i8, ptr %page_bits.i.i.i, align 4
   %conv.i.i.i = zext i8 %7 to i32
   %cmp.i.i.i = icmp samesign ule i32 %add.i.i.i, %conv.i.i.i
@@ -6241,9 +6241,9 @@ default.unreachable:                              ; preds = %check_max_alignment
 do_nonatomic_op_i64.exit:                         ; preds = %check_max_alignment.exit.i.i, %check_max_alignment.exit.i.i, %sw.bb.i.i, %sw.bb10.i.i
   %op.addr.1.i.i = phi i32 [ %and13.i.i, %sw.bb10.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ], [ %and4.i.i, %sw.bb.i.i ], [ %spec.select.i.i, %check_max_alignment.exit.i.i ]
   %8 = load ptr, ptr %0, align 8
-  %gen_tb.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %gen_tb.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %gen_tb.i.i, align 8
-  %cflags.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %cflags.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %cflags.i.i, align 4
   %and19.i.i = and i32 %10, 32768
   %tobool20.not.i.i = icmp eq i32 %and19.i.i, 0
@@ -6270,7 +6270,7 @@ define internal fastcc void @plugin_gen_mem_callbacks(ptr noundef %copy_addr, pt
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %plugin_insn = getelementptr inbounds i8, ptr %1, i64 224
+  %plugin_insn = getelementptr inbounds nuw i8, ptr %1, i64 224
   %2 = load ptr, ptr %plugin_insn, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end12, label %if.then
@@ -6278,7 +6278,7 @@ entry:
 if.then:                                          ; preds = %entry
   %shl.i = shl nuw nsw i32 %rw, 16
   %or.i = or i32 %shl.i, %oi
-  %addr_type = getelementptr inbounds i8, ptr %1, i64 60
+  %addr_type = getelementptr inbounds nuw i8, ptr %1, i64 60
   %3 = load i32, ptr %addr_type, align 4
   %cmp1 = icmp eq i32 %3, 0
   %tobool.not = icmp eq ptr %copy_addr, null

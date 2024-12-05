@@ -26,7 +26,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   %6 = sext i8 %5 to i32
   %7 = tail call i32 @isspace(i32 noundef %6) #5
   %.not = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %.059, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   br i1 %.not, label %9, label %4, !llvm.loop !6
 
 9:                                                ; preds = %4
@@ -54,13 +54,13 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   %.2153 = phi ptr [ %.160, %12 ], [ %20, %19 ]
   %14 = load i8, ptr %.2153, align 1
   %15 = or i8 %14, 32
-  %16 = getelementptr inbounds [9 x i8], ptr @.str, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [9 x i8], ptr @.str, i64 0, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %15, %17
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.2153, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.2153, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.critedge.thread, label %13, !llvm.loop !8
@@ -98,13 +98,13 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   %.3155 = phi ptr [ %28, %25 ], [ %37, %36 ]
   %31 = load i8, ptr %.3155, align 1
   %32 = or i8 %31, 32
-  %33 = getelementptr inbounds [4 x i8], ptr @.str.1, i64 0, i64 %indvars.iv217
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @.str.1, i64 0, i64 %indvars.iv217
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %32, %34
   br i1 %35, label %36, label %.critedge3.thread
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %.3155, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.3155, i64 1
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, 3
   br i1 %exitcond221.not, label %.critedge3, label %30, !llvm.loop !9
@@ -126,20 +126,20 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   br i1 %43, label %44, label %178
 
 44:                                               ; preds = %.critedge3.thread
-  %45 = getelementptr inbounds i8, ptr %41, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = and i8 %46, -33
   %48 = icmp eq i8 %47, 88
   br i1 %48, label %49, label %.thread.preheader
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %41, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 2
   br label %51
 
 51:                                               ; preds = %51, %49
   %.0111.in.in.i = phi ptr [ %50, %49 ], [ %storemerge129.i, %51 ]
   %.0100.i = phi i32 [ 0, %49 ], [ 1, %51 ]
-  %storemerge129.i = getelementptr inbounds i8, ptr %.0111.in.in.i, i64 1
+  %storemerge129.i = getelementptr inbounds nuw i8, ptr %.0111.in.in.i, i64 1
   %.0111.in.i = load i8, ptr %.0111.in.in.i, align 1
   switch i8 %.0111.in.i, label %.loopexit.i [
     i8 48, label %51
@@ -147,7 +147,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   ], !llvm.loop !10
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %.0111.in.in.i, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.0111.in.in.i, i64 2
   %.2113.in171.i = load i8, ptr %storemerge129.i, align 1
   %54 = icmp eq i8 %.2113.in171.i, 48
   br i1 %54, label %.lr.ph.i, label %.loopexit.i
@@ -155,7 +155,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i
   %.183173.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %52 ]
   %.1159172.i = phi ptr [ %55, %.lr.ph.i ], [ %53, %52 ]
-  %55 = getelementptr inbounds i8, ptr %.1159172.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.1159172.i, i64 1
   %56 = add nsw i64 %.183173.i, -1
   %.2113.in.i = load i8, ptr %.1159172.i, align 1
   %57 = icmp eq i8 %.2113.in.i, 48
@@ -243,7 +243,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   %.288.i = phi x86_fp80 [ %.187.i, %83 ], [ %.086185.i, %63 ]
   %.3.i = phi i64 [ %.284186.i, %83 ], [ %.080187.i, %63 ]
   %.181.i = phi i64 [ %84, %83 ], [ %.080187.i, %63 ]
-  %86 = getelementptr inbounds i8, ptr %.2160178.i, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.2160178.i, i64 1
   %87 = load i8, ptr %.2160178.i, align 1
   %.3114.i = sext i8 %87 to i32
   %88 = tail call i32 @isxdigit(i32 noundef %.3114.i) #5
@@ -315,7 +315,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   br i1 %99, label %100, label %121
 
 100:                                              ; preds = %._crit_edge211.i
-  %101 = getelementptr inbounds i8, ptr %.2160.lcssa243266.i, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.2160.lcssa243266.i, i64 1
   %102 = load i8, ptr %.2160.lcssa243266.i, align 1
   %103 = sext i8 %102 to i32
   %104 = icmp eq i8 %102, 45
@@ -332,7 +332,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   br i1 %isdigit.i.i, label %108, label %110
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %.2160.lcssa243266.i, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %.2160.lcssa243266.i, i64 2
   br label %110
 
 110:                                              ; preds = %108, %105, %100
@@ -351,7 +351,7 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1
   %112 = zext nneg i32 %.131.i.i to i64
   %113 = add i64 %111, -48
   %114 = add i64 %113, %112
-  %115 = getelementptr inbounds i8, ptr %.12430.i.i, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %.12430.i.i, i64 1
   %116 = load i8, ptr %.12430.i.i, align 1
   %117 = sext i8 %116 to i32
   %isdigittmp26.i.i = add nsw i32 %117, -48
@@ -531,7 +531,7 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   br i1 %181, label %182, label %287
 
 182:                                              ; preds = %180
-  %183 = getelementptr inbounds i8, ptr %41, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %184 = load i8, ptr %183, align 1
   %185 = sext i8 %184 to i32
   %isdigittmp65 = add nsw i32 %185, -48
@@ -545,7 +545,7 @@ scalbnx.exit.i:                                   ; preds = %.lr.ph.split.i.i, %
   %.0.in.in.i.i = phi ptr [ %.08.i.i, %.thread ], [ %41, %.thread.preheader ]
   %.0.in.i.i = load i8, ptr %.0.in.in.i.i, align 1
   %186 = icmp eq i8 %.0.in.i.i, 48
-  %.08.i.i = getelementptr inbounds i8, ptr %.0.in.in.i.i, i64 1
+  %.08.i.i = getelementptr inbounds nuw i8, ptr %.0.in.in.i.i, i64 1
   br i1 %186, label %.thread, label %ifallzero.exit.i.preheader, !llvm.loop !17
 
 ifallzero.exit.i.preheader:                       ; preds = %.thread
@@ -558,7 +558,7 @@ ifallzero.exitthread-pre-split.i:                 ; preds = %ifallzero.exit.i.pr
   %187 = phi i64 [ %188, %ifallzero.exitthread-pre-split.i ], [ 1, %ifallzero.exit.i.preheader ]
   %storemerge63.i161 = phi ptr [ %storemerge63.i, %ifallzero.exitthread-pre-split.i ], [ %.08.i.i, %ifallzero.exit.i.preheader ]
   %.044.in.pr.i = load i8, ptr %storemerge63.i161, align 1
-  %storemerge63.i = getelementptr inbounds i8, ptr %storemerge63.i161, i64 1
+  %storemerge63.i = getelementptr inbounds nuw i8, ptr %storemerge63.i161, i64 1
   %.044.i = sext i8 %.044.in.pr.i to i32
   %isdigittmp.i = add nsw i32 %.044.i, -48
   %isdigit.i = icmp ult i32 %isdigittmp.i, 10
@@ -579,7 +579,7 @@ ifallzero.exit.i._crit_edge:                      ; preds = %ifallzero.exitthrea
   %.0.in.in.i64.i = phi ptr [ %.08.i66.i, %.preheader117.i ], [ %storemerge63.i.lcssa, %ifallzero.exit.i._crit_edge ]
   %.0.in.i65.i = load i8, ptr %.0.in.in.i64.i, align 1
   %190 = icmp eq i8 %.0.in.i65.i, 48
-  %.08.i66.i = getelementptr inbounds i8, ptr %.0.in.in.i64.i, i64 1
+  %.08.i66.i = getelementptr inbounds nuw i8, ptr %.0.in.in.i64.i, i64 1
   br i1 %190, label %.preheader117.i, label %ifallzero.exit69.i, !llvm.loop !17
 
 ifallzero.exit69.i:                               ; preds = %.preheader117.i
@@ -589,7 +589,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   br i1 %isdigit.i68.i, label %.loopexit116.i, label %.preheader115.i
 
 .preheader115.i:                                  ; preds = %ifallzero.exit69.i
-  %storemerge143.i = getelementptr inbounds i8, ptr %.0102.i.lcssa, i64 2
+  %storemerge143.i = getelementptr inbounds nuw i8, ptr %.0102.i.lcssa, i64 2
   %.246.in144.i = load i8, ptr %storemerge63.i.lcssa, align 1
   %.246145.i = sext i8 %.246.in144.i to i32
   %isdigittmp54146.i = add nsw i32 %.246145.i, -48
@@ -602,7 +602,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   %.237148.i = phi i64 [ %192, %.lr.ph.i101 ], [ %.035.i.lcssa, %.preheader115.i ]
   %192 = add nuw nsw i64 %.237148.i, 1
   %193 = add nsw i64 %.1149.i, -1
-  %storemerge.i = getelementptr inbounds i8, ptr %storemerge150.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge150.i, i64 1
   %.246.in.i = load i8, ptr %storemerge150.i, align 1
   %.246.i = sext i8 %.246.in.i to i32
   %isdigittmp54.i = add nsw i32 %.246.i, -48
@@ -632,7 +632,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   ]
 
 200:                                              ; preds = %199, %199
-  %201 = getelementptr inbounds i8, ptr %.1103.i, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.1103.i, i64 1
   %202 = load i8, ptr %201, align 1
   %203 = sext i8 %202 to i32
   %isdigittmp58.i = add nsw i32 %203, -48
@@ -640,7 +640,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   br i1 %isdigit59.i, label %204, label %226
 
 204:                                              ; preds = %200, %196
-  %205 = getelementptr inbounds i8, ptr %.1103.i, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.1103.i, i64 1
   %206 = icmp eq i8 %197, 45
   switch i8 %197, label %211 [
     i8 45, label %207
@@ -655,7 +655,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   br i1 %isdigit.i70.i, label %.thread183.i, label %211
 
 .thread183.i:                                     ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %.1103.i, i64 2
+  %210 = getelementptr inbounds nuw i8, ptr %.1103.i, i64 2
   br label %.lr.ph.i.preheader.i
 
 211:                                              ; preds = %207, %204
@@ -675,7 +675,7 @@ ifallzero.exit69.i:                               ; preds = %.preheader117.i
   %213 = zext nneg i32 %.131.i.i97 to i64
   %214 = add i64 %212, -48
   %215 = add i64 %214, %213
-  %216 = getelementptr inbounds i8, ptr %.12430.i.i98, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %.12430.i.i98, i64 1
   %217 = load i8, ptr %.12430.i.i98, align 1
   %218 = sext i8 %217 to i32
   %isdigittmp26.i.i99 = add nsw i32 %218, -48
@@ -775,14 +775,14 @@ select.unfold.i.i:                                ; preds = %237, %235
   br i1 %.not60.i, label %248, label %.thread.i73
 
 248:                                              ; preds = %.critedge.thread.i
-  %249 = getelementptr inbounds i8, ptr %.3.i72, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %.3.i72, i64 1
   br label %250
 
 250:                                              ; preds = %250, %248
   %.0.in.in.i75.i = phi ptr [ %249, %248 ], [ %.08.i77.i, %250 ]
   %.0.in.i76.i = load i8, ptr %.0.in.in.i75.i, align 1
   %251 = icmp eq i8 %.0.in.i76.i, 48
-  %.08.i77.i = getelementptr inbounds i8, ptr %.0.in.in.i75.i, i64 1
+  %.08.i77.i = getelementptr inbounds nuw i8, ptr %.0.in.in.i75.i, i64 1
   br i1 %251, label %250, label %ifallzero.exit80.i, !llvm.loop !17
 
 ifallzero.exit80.i:                               ; preds = %250
@@ -793,7 +793,7 @@ ifallzero.exit80.i:                               ; preds = %250
 
 .loopexit.i90:                                    ; preds = %.critedge.i, %.critedge.thread111.i
   %253 = phi i32 [ %242, %.critedge.thread111.i ], [ %246, %.critedge.i ]
-  %254 = getelementptr inbounds i8, ptr %.3.i72, i64 1
+  %254 = getelementptr inbounds nuw i8, ptr %.3.i72, i64 1
   %255 = add nsw i32 %.042.ph.i, 1
   %256 = icmp eq i32 %255, 9
   %257 = uitofp i32 %253 to x86_fp80

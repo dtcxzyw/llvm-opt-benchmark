@@ -56,7 +56,7 @@ define dso_local nonnull ptr @GenerateRecoveryConfig(ptr noundef %0, ptr noundef
 
 14:                                               ; preds = %10
   call void @initPQExpBuffer(ptr noundef nonnull %3) #6
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %16
 
 16:                                               ; preds = %14, %40
@@ -81,7 +81,7 @@ define dso_local nonnull ptr @GenerateRecoveryConfig(ptr noundef %0, ptr noundef
   br i1 %26, label %40, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %.036, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.036, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %40, label %31
@@ -114,7 +114,7 @@ define dso_local nonnull ptr @GenerateRecoveryConfig(ptr noundef %0, ptr noundef
   br i1 %.not32, label %.critedge, label %16, !llvm.loop !5
 
 .critedge:                                        ; preds = %40, %16
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %46
@@ -147,7 +147,7 @@ escape_quotes.exit:                               ; preds = %46
   br label %51
 
 51:                                               ; preds = %escape_quotes.exit, %50
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %55, label %56
@@ -212,7 +212,7 @@ define dso_local void @WriteRecoveryConfig(ptr noundef %0, ptr noundef %1, ptr n
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = call i64 @fwrite(ptr noundef %14, i64 noundef %16, i64 noundef 1, ptr noundef nonnull %10)
   %.not = icmp eq i64 %17, 1

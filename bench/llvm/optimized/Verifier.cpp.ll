@@ -2262,7 +2262,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #23
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -2328,10 +2328,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %24 = getelementptr inbounds i8, ptr %0, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(124) %23, ptr noundef nonnull %24, i64 noundef 1) #23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %26 = getelementptr inbounds i8, ptr %0, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull %26, i64 noundef 6) #23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 324
@@ -2385,7 +2385,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 896
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, i8 0, i64 20, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %55 = getelementptr inbounds i8, ptr %0, i64 936
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 936
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull %55, i64 noundef 0) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %55, i8 0, i64 20, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 960
@@ -2400,7 +2400,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 984
   store i32 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %63 = getelementptr inbounds i8, ptr %0, i64 1264
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull %63, i64 noundef 4) #23
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1328
@@ -2425,7 +2425,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i32 0, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  %77 = getelementptr inbounds i8, ptr %0, i64 1888
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %76, ptr noundef nonnull %77, i64 noundef 16) #23
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   store ptr %0, ptr %78, align 8
@@ -2448,7 +2448,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierC2EPN4llvm11raw_ostreamEb
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   store i8 0, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2248
-  %89 = getelementptr inbounds i8, ptr %0, i64 2264
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull %89, i64 noundef 4) #23
   store i8 %7, ptr %22, align 2
   ret void
@@ -2649,7 +2649,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyERKN
 167:                                              ; preds = %156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %160, ptr noundef nonnull align 1 dereferenceable(25) @.str.30, i64 25, i1 false)
   %168 = load ptr, ptr %159, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 25
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 25
   store ptr %169, ptr %159, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2704,7 +2704,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %181, %183, %184
   %197 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %187, ptr noundef nonnull align 1 dereferenceable(28) @.str.31, i64 28, i1 false)
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 28
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 28
   store ptr %199, ptr %197, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
@@ -2727,7 +2727,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %194, %196
 210:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit16
   store i8 10, ptr %206, align 1
   %211 = load ptr, ptr %205, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 1
   store ptr %212, ptr %205, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
@@ -2744,7 +2744,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %194, %196
   %218 = getelementptr inbounds nuw i8, ptr %132, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %216, i64 16, i1 false)
   store ptr @_ZN4llvm12function_refIFvRKNS_5TwineEEE11callback_fnIZN12_GLOBAL__N_18Verifier6verifyERKNS_8FunctionEEUlS3_E_EEvlS3_, ptr %216, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 2088
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2088
   store i64 %215, ptr %.sroa.2.0..sroa_idx.i, align 8
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 2096
   %220 = load ptr, ptr %219, align 8
@@ -2945,7 +2945,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
 
 264:                                              ; preds = %257
-  %265 = getelementptr inbounds i8, ptr %259, i64 1
+  %265 = getelementptr inbounds nuw i8, ptr %259, i64 1
   store ptr %265, ptr %258, align 8
   store i8 10, ptr %259, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
@@ -3118,7 +3118,7 @@ _ZNK4llvm8Function16hasStructRetAttrEv.exit.thread.i.i: ; preds = %_ZNK4llvm8Fun
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 338:                                              ; preds = %.lr.ph.i.i
-  %339 = getelementptr inbounds i8, ptr %.0199302.i.i, i64 40
+  %339 = getelementptr inbounds nuw i8, ptr %.0199302.i.i, i64 40
   %.not.i.i = icmp eq ptr %339, %331
   br i1 %.not.i.i, label %.loopexit276.i.i, label %.lr.ph.i.i
 
@@ -3300,7 +3300,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %404, %397
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 413:                                              ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i, %395
-  %414 = getelementptr inbounds i8, ptr %.0201304.i.i, i64 40
+  %414 = getelementptr inbounds nuw i8, ptr %.0201304.i.i, i64 40
   %.not220.i.i = icmp eq ptr %414, %379
   br i1 %.not220.i.i, label %.loopexit275.i.i, label %.lr.ph306.i.i
 
@@ -3338,7 +3338,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %404, %397
   %430 = load ptr, ptr %429, align 8
   %431 = add i32 %.0202310.i.i, 1
   %432 = zext i32 %431 to i64
-  %433 = getelementptr inbounds ptr, ptr %430, i64 %432
+  %433 = getelementptr inbounds nuw ptr, ptr %430, i64 %432
   %434 = load ptr, ptr %433, align 8
   %435 = icmp eq ptr %427, %434
   br i1 %435, label %439, label %436
@@ -3425,7 +3425,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %404, %397
   br label %459
 
 459:                                              ; preds = %458, %456
-  %460 = getelementptr inbounds i8, ptr %.0203309.i.i, i64 40
+  %460 = getelementptr inbounds nuw i8, ptr %.0203309.i.i, i64 40
   %.not222.i.i = icmp eq ptr %460, %425
   br i1 %.not222.i.i, label %._crit_edge.i.i, label %.lr.ph311.i.i
 
@@ -3466,7 +3466,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %404, %397
   br label %_ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i
 
 474:                                              ; preds = %461, %._crit_edge.i.i
-  %475 = getelementptr inbounds i8, ptr %88, i64 16
+  %475 = getelementptr inbounds nuw i8, ptr %88, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %88, ptr noundef nonnull %475, i64 noundef 4) #23
   call void @_ZNK4llvm5Value14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(16) %88) #23
   %476 = load ptr, ptr %88, align 8
@@ -3596,7 +3596,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit.i.i: ; preds = %404, %397
 .thread.i.i:                                      ; preds = %516, %.lr.ph322..thread_crit_edge.i.i
   %529 = phi ptr [ %.pre.i.i, %.lr.ph322..thread_crit_edge.i.i ], [ %518, %516 ]
   call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %529, i32 noundef 1)
-  %530 = getelementptr inbounds i8, ptr %.0204320.i.i, i64 16
+  %530 = getelementptr inbounds nuw i8, ptr %.0204320.i.i, i64 16
   %.not226.i.i = icmp eq ptr %530, %514
   br i1 %.not226.i.i, label %._crit_edge323.i.i, label %.lr.ph322.i.i
 
@@ -3819,7 +3819,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %618 = getelementptr inbounds nuw i8, ptr %.0210313.i.i, i64 8
   %619 = load ptr, ptr %618, align 8
   call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %619, i32 noundef %.0211.i.i)
-  %620 = getelementptr inbounds i8, ptr %.0210313.i.i, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %.0210313.i.i, i64 16
   %.not224.i.i = icmp eq ptr %620, %570
   br i1 %.not224.i.i, label %.loopexit273.i.i, label %572
 
@@ -3893,7 +3893,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   br label %_ZN4llvm11SmallPtrSetIPKNS_6MDNodeELj32EED2Ev.exit.i.i
 
 654:                                              ; preds = %643
-  %655 = getelementptr inbounds i8, ptr %645, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %645, i64 8
   %656 = load ptr, ptr %655, align 8
   %657 = icmp eq ptr %656, %646
   br i1 %657, label %690, label %658
@@ -3926,7 +3926,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
 669:                                              ; preds = %661
   %670 = getelementptr inbounds nuw i8, ptr %662, i64 16
   %671 = load ptr, ptr %670, align 8
-  %672 = getelementptr inbounds i8, ptr %671, i64 8
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 8
   %673 = load ptr, ptr %672, align 8
   %674 = getelementptr inbounds nuw i8, ptr %673, i64 8
   %675 = load i32, ptr %674, align 8
@@ -4078,7 +4078,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i:      ; preds = %730, %727
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %740, %737
   %.sroa.0.0.i.i239.i.i = phi ptr [ %744, %740 ], [ %738, %737 ]
-  %745 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i239.i.i, i64 %indvars.iv.i.i
+  %745 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i239.i.i, i64 %indvars.iv.i.i
   %746 = load ptr, ptr %745, align 8
   %.not.i.i240.i.i = icmp eq ptr %746, null
   br i1 %.not.i.i240.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.i.i, label %747
@@ -4233,8 +4233,8 @@ _ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i: ; preds = %
   %760 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %762 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %763 = getelementptr inbounds i8, ptr %16, i64 16
-  %764 = getelementptr inbounds i8, ptr %17, i64 16
+  %763 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %764 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %765 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %766 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %767 = getelementptr inbounds nuw i8, ptr %18, i64 33
@@ -4310,7 +4310,7 @@ _ZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llvm8FunctionE.exit.i: ; preds = %
 
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.i.i.i: ; preds = %803, %799
   call void @_ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEE5visitERKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(169) %213, ptr noundef nonnull align 8 dereferenceable(80) %786) #23
-  %804 = getelementptr inbounds i8, ptr %.sroa.02.018.i.i, i64 24
+  %804 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i.i, i64 24
   %805 = load ptr, ptr %804, align 8
   %806 = icmp eq ptr %804, %805
   br i1 %806, label %812, label %807
@@ -4331,7 +4331,7 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i.i.i.i: ; preds = %803, %799
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_10BasicBlockE.exit.i.i
 
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.i.i.i.i: ; preds = %807
-  %813 = getelementptr inbounds i8, ptr %.sroa.02.018.i.i, i64 32
+  %813 = getelementptr inbounds nuw i8, ptr %.sroa.02.018.i.i, i64 32
   %814 = load ptr, ptr %813, align 8
   %815 = getelementptr inbounds i8, ptr %814, i64 -24
   %816 = load i8, ptr %815, align 8
@@ -4429,10 +4429,10 @@ _ZN4llvm15SmallVectorImplISt4pairIPNS_10BasicBlockEPNS_5ValueEEE7reserveEm.exit.
   %858 = load ptr, ptr %854, align 8
   %859 = load i32, ptr %855, align 8
   %860 = zext i32 %859 to i64
-  %861 = getelementptr inbounds %"class.llvm::Use", ptr %858, i64 %860
-  %862 = getelementptr inbounds ptr, ptr %861, i64 %indvars.iv.i.i.i.i
+  %861 = getelementptr inbounds nuw %"class.llvm::Use", ptr %858, i64 %860
+  %862 = getelementptr inbounds nuw ptr, ptr %861, i64 %indvars.iv.i.i.i.i
   %863 = load ptr, ptr %862, align 8
-  %864 = getelementptr inbounds %"class.llvm::Use", ptr %858, i64 %indvars.iv.i.i.i.i
+  %864 = getelementptr inbounds nuw %"class.llvm::Use", ptr %858, i64 %indvars.iv.i.i.i.i
   %865 = load ptr, ptr %864, align 8
   %866 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   %867 = add i64 %866, 1
@@ -4449,7 +4449,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockEPNS_5ValueEELb1EE9pus
   %871 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   %872 = getelementptr inbounds %"struct.std::pair.494", ptr %870, i64 %871
   store ptr %863, ptr %872, align 1
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %872, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %872, i64 8
   store ptr %865, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 1
   %873 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #23
   %874 = add i64 %873, 1
@@ -4499,7 +4499,7 @@ _ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EEEEEvOT
   br label %914
 
 889:                                              ; preds = %887
-  %890 = getelementptr inbounds %"struct.std::pair.494", ptr %884, i64 %indvars.iv.i.i.i
+  %890 = getelementptr inbounds nuw %"struct.std::pair.494", ptr %884, i64 %indvars.iv.i.i.i
   %891 = load ptr, ptr %890, align 8
   %892 = getelementptr i8, ptr %890, i64 -16
   %893 = load ptr, ptr %892, align 8
@@ -4543,7 +4543,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i.i.i: ; pre
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i
 
 911:                                              ; preds = %904
-  %912 = getelementptr inbounds i8, ptr %906, i64 1
+  %912 = getelementptr inbounds nuw i8, ptr %906, i64 1
   store ptr %912, ptr %905, align 8
   store i8 10, ptr %906, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i
@@ -4560,14 +4560,14 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; preds = %9
 
 914:                                              ; preds = %894, %889, %._crit_edge138.i.i.i.i
   %915 = phi ptr [ %.pre.i.i.i.i, %._crit_edge138.i.i.i.i ], [ %891, %889 ], [ %891, %894 ]
-  %916 = getelementptr inbounds ptr, ptr %885, i64 %indvars.iv.i.i.i
+  %916 = getelementptr inbounds nuw ptr, ptr %885, i64 %indvars.iv.i.i.i
   %917 = load ptr, ptr %916, align 8
   %918 = icmp eq ptr %915, %917
   br i1 %918, label %886, label %919
 
 919:                                              ; preds = %914
-  %920 = getelementptr inbounds ptr, ptr %885, i64 %indvars.iv.i.i.i
-  %921 = getelementptr inbounds %"struct.std::pair.494", ptr %884, i64 %indvars.iv.i.i.i
+  %920 = getelementptr inbounds nuw ptr, ptr %885, i64 %indvars.iv.i.i.i
+  %921 = getelementptr inbounds nuw %"struct.std::pair.494", ptr %884, i64 %indvars.iv.i.i.i
   store i8 1, ptr %771, align 1
   store ptr @.str.360, ptr %22, align 8
   store i8 3, ptr %770, align 8
@@ -4594,7 +4594,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i72.i.i.i.i: ; p
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i
 
 930:                                              ; preds = %923
-  %931 = getelementptr inbounds i8, ptr %925, i64 1
+  %931 = getelementptr inbounds nuw i8, ptr %925, i64 1
   store ptr %931, ptr %924, align 8
   store i8 10, ptr %925, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i
@@ -4611,7 +4611,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i69.i.i.i.i: ; preds = 
 
 ._crit_edge116.i.i.i.i:                           ; preds = %886, %_ZN4llvm4sortIRNS_11SmallVectorISt4pairIPNS_10BasicBlockEPNS_5ValueEELj8EEEEEvOT_.exit.i.i.i.i
   %933 = icmp eq ptr %.sroa.086.0118.i.i.i.i, null
-  %934 = getelementptr inbounds i8, ptr %.sroa.086.0118.i.i.i.i, i64 24
+  %934 = getelementptr inbounds nuw i8, ptr %.sroa.086.0118.i.i.i.i, i64 24
   %spec.select.i.i.i.i.i.i.i.i = select i1 %933, ptr null, ptr %934
   %935 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i.i.i, i64 8
   %936 = load ptr, ptr %935, align 8
@@ -4668,7 +4668,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EED2Ev.exit._crit_edge.i.i.i.i: ; pred
   %953 = icmp eq ptr %.sroa.081.0123.i.i.i.i, null
   %954 = getelementptr inbounds i8, ptr %.sroa.081.0123.i.i.i.i, i64 -24
   %955 = select i1 %953, ptr null, ptr %954
-  %956 = getelementptr inbounds i8, ptr %955, i64 40
+  %956 = getelementptr inbounds nuw i8, ptr %955, i64 40
   %957 = load ptr, ptr %956, align 8
   %958 = icmp eq ptr %957, %787
   br i1 %958, label %951, label %959
@@ -4695,7 +4695,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj8EED2Ev.exit._crit_edge.i.i.i.i: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i
 
 968:                                              ; preds = %961
-  %969 = getelementptr inbounds i8, ptr %963, i64 1
+  %969 = getelementptr inbounds nuw i8, ptr %963, i64 1
   store ptr %969, ptr %962, align 8
   store i8 10, ptr %963, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i.i
@@ -4749,7 +4749,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.thread
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i
 
 992:                                              ; preds = %985
-  %993 = getelementptr inbounds i8, ptr %987, i64 1
+  %993 = getelementptr inbounds nuw i8, ptr %987, i64 1
   store ptr %993, ptr %986, align 8
   store i8 10, ptr %987, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i
@@ -4858,7 +4858,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_8FunctionE.exit: ; p
 1028:                                             ; preds = %1023
   %1029 = load i32, ptr %1010, align 4
   %1030 = zext i32 %1029 to i64
-  %1031 = getelementptr inbounds ptr, ptr %1026, i64 %1030
+  %1031 = getelementptr inbounds nuw ptr, ptr %1026, i64 %1030
   %.not1317.i.i.i = icmp eq i32 %1029, 0
   br i1 %.not1317.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -4869,12 +4869,12 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_8FunctionE.exit: ; p
   br i1 %1033, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i, label %1034
 
 1034:                                             ; preds = %.lr.ph.i.i.i
-  %1035 = getelementptr inbounds i8, ptr %.01118.i.i.i, i64 8
+  %1035 = getelementptr inbounds nuw i8, ptr %.01118.i.i.i, i64 8
   %.not13.i.i.i = icmp eq ptr %1035, %1031
   br i1 %.not13.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i:                                ; preds = %1034, %1028
-  %1036 = getelementptr inbounds ptr, ptr %1025, i64 %1030
+  %1036 = getelementptr inbounds nuw ptr, ptr %1025, i64 %1030
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i
 
 1037:                                             ; preds = %1023
@@ -4894,7 +4894,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5visitERNS_8FunctionE.exit: ; p
   %1042 = load i32, ptr %1009, align 8
   %.v.v.i14.i.i.i = select i1 %1040, i32 %1041, i32 %1042
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
-  %1043 = getelementptr inbounds ptr, ptr %.pre.i.i22, i64 %.v.i15.i.i.i
+  %1043 = getelementptr inbounds nuw ptr, ptr %.pre.i.i22, i64 %.v.i15.i.i.i
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i: ; preds = %.lr.ph.i.i.i, %1039, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %._crit_edge.i.i.i
@@ -4906,7 +4906,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i: ; preds = %.l
   %1048 = load i32, ptr %1009, align 8
   %.v.v.i.i.i = select i1 %1047, i32 %1044, i32 %1048
   %.v.i.i.i = zext i32 %.v.v.i.i.i to i64
-  %1049 = getelementptr inbounds ptr, ptr %1046, i64 %.v.i.i.i
+  %1049 = getelementptr inbounds nuw ptr, ptr %1046, i64 %.v.i.i.i
   %.not118.i = icmp eq ptr %.0.i.i.i, %1049
   br i1 %.not118.i, label %1050, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
 
@@ -4919,7 +4919,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i: ; preds = %.l
 1054:                                             ; preds = %1050
   %1055 = load i32, ptr %1015, align 4, !noalias !12
   %1056 = zext i32 %1055 to i64
-  %1057 = getelementptr inbounds ptr, ptr %1052, i64 %1056
+  %1057 = getelementptr inbounds nuw ptr, ptr %1052, i64 %1056
   %.not24.i.i.i = icmp eq i32 %1055, 0
   br i1 %.not24.i.i.i, label %._crit_edge.i.i31.i, label %.lr.ph.i.i29.i
 
@@ -4930,7 +4930,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i: ; preds = %.l
   br i1 %1059, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit.i, label %1060
 
 1060:                                             ; preds = %.lr.ph.i.i29.i
-  %1061 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
+  %1061 = getelementptr inbounds nuw i8, ptr %.025.i.i.i, i64 8
   %.not.i.i30.i = icmp eq ptr %1061, %1057
   br i1 %.not.i.i30.i, label %._crit_edge.i.i31.i, label %.lr.ph.i.i29.i, !llvm.loop !15
 
@@ -4974,7 +4974,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit104.i: ; preds = %_
   call void @llvm.assume(i1 %.not.i.i32.i)
   %1077 = getelementptr inbounds i8, ptr %.020.i, i64 -8
   %1078 = load ptr, ptr %1077, align 8
-  %1079 = getelementptr inbounds i8, ptr %1078, i64 32
+  %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 32
   br label %_ZL10getSuccPadPN4llvm11InstructionE.exit.i
 
 1080:                                             ; preds = %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit104.i
@@ -4989,7 +4989,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit104.i: ; preds = %_
   %1087 = zext nneg i32 %1086 to i64
   %1088 = sub nsw i64 0, %1087
   %1089 = getelementptr inbounds %"class.llvm::Use", ptr %.020.i, i64 %1088
-  %1090 = getelementptr inbounds i8, ptr %1089, i64 32
+  %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 32
   br label %_ZL10getSuccPadPN4llvm11InstructionE.exit.i
 
 _ZL10getSuccPadPN4llvm11InstructionE.exit.i:      ; preds = %1080, %1073, %1071
@@ -5004,7 +5004,7 @@ _ZL10getSuccPadPN4llvm11InstructionE.exit.i:      ; preds = %1080, %1073, %1071
 1095:                                             ; preds = %_ZL10getSuccPadPN4llvm11InstructionE.exit.i
   %1096 = load i32, ptr %1015, align 4
   %1097 = zext i32 %1096 to i64
-  %1098 = getelementptr inbounds ptr, ptr %1093, i64 %1097
+  %1098 = getelementptr inbounds nuw ptr, ptr %1093, i64 %1097
   %.not1317.i.i44.i = icmp eq i32 %1096, 0
   br i1 %.not1317.i.i44.i, label %._crit_edge.i.i48.i, label %.lr.ph.i.i45.i
 
@@ -5015,12 +5015,12 @@ _ZL10getSuccPadPN4llvm11InstructionE.exit.i:      ; preds = %1080, %1073, %1071
   br i1 %1100, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i, label %1101
 
 1101:                                             ; preds = %.lr.ph.i.i45.i
-  %1102 = getelementptr inbounds i8, ptr %.01118.i.i46.i, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %.01118.i.i46.i, i64 8
   %.not13.i.i47.i = icmp eq ptr %1102, %1098
   br i1 %.not13.i.i47.i, label %._crit_edge.i.i48.i, label %.lr.ph.i.i45.i, !llvm.loop !11
 
 ._crit_edge.i.i48.i:                              ; preds = %1101, %1095
-  %1103 = getelementptr inbounds ptr, ptr %1092, i64 %1097
+  %1103 = getelementptr inbounds nuw ptr, ptr %1092, i64 %1097
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i
 
 1104:                                             ; preds = %_ZL10getSuccPadPN4llvm11InstructionE.exit.i
@@ -5040,7 +5040,7 @@ _ZL10getSuccPadPN4llvm11InstructionE.exit.i:      ; preds = %1080, %1073, %1071
   %1109 = load i32, ptr %1014, align 8
   %.v.v.i14.i.i42.i = select i1 %1107, i32 %1108, i32 %1109
   %.v.i15.i.i43.i = zext i32 %.v.v.i14.i.i42.i to i64
-  %1110 = getelementptr inbounds ptr, ptr %.pre.i34.i, i64 %.v.i15.i.i43.i
+  %1110 = getelementptr inbounds nuw ptr, ptr %.pre.i34.i, i64 %.v.i15.i.i43.i
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i: ; preds = %.lr.ph.i.i45.i, %1106, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i36.i, %._crit_edge.i.i48.i
@@ -5052,13 +5052,13 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i: ; preds = %
   %1115 = load i32, ptr %1014, align 8
   %.v.v.i.i40.i = select i1 %1114, i32 %1111, i32 %1115
   %.v.i.i41.i = zext i32 %.v.v.i.i40.i to i64
-  %1116 = getelementptr inbounds ptr, ptr %1113, i64 %.v.i.i41.i
+  %1116 = getelementptr inbounds nuw ptr, ptr %1113, i64 %.v.i.i41.i
   %.not119.i = icmp eq ptr %.0.i.i39.i, %1116
   br i1 %.not119.i, label %1188, label %1117
 
 1117:                                             ; preds = %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit49.i
   store ptr %1091, ptr %11, align 8
-  %1118 = getelementptr inbounds i8, ptr %12, i64 16
+  %1118 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull %1118, i64 noundef 8) #23
   br label %1119
 
@@ -5130,7 +5130,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit51.i
   call void @llvm.assume(i1 %.not.i.i52.i)
   %1153 = getelementptr inbounds i8, ptr %1132, i64 -8
   %1154 = load ptr, ptr %1153, align 8
-  %1155 = getelementptr inbounds i8, ptr %1154, i64 32
+  %1155 = getelementptr inbounds nuw i8, ptr %1154, i64 32
   br label %_ZL10getSuccPadPN4llvm11InstructionE.exit56.i
 
 1156:                                             ; preds = %1145
@@ -5145,7 +5145,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit51.i
   %1163 = zext nneg i32 %1162 to i64
   %1164 = sub nsw i64 0, %1163
   %1165 = getelementptr inbounds %"class.llvm::Use", ptr %1132, i64 %1164
-  %1166 = getelementptr inbounds i8, ptr %1165, i64 32
+  %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 32
   br label %_ZL10getSuccPadPN4llvm11InstructionE.exit56.i
 
 _ZL10getSuccPadPN4llvm11InstructionE.exit56.i:    ; preds = %1156, %1149, %1147
@@ -5186,7 +5186,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 1181:                                             ; preds = %1174
-  %1182 = getelementptr inbounds i8, ptr %1176, i64 1
+  %1182 = getelementptr inbounds nuw i8, ptr %1176, i64 1
   store ptr %1182, ptr %1175, align 8
   store i8 10, ptr %1176, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -5220,7 +5220,7 @@ _ZN4llvm15VerifierSupport11CheckFailedINS_8ArrayRefIPNS_11InstructionEEEJEEEvRKN
 1192:                                             ; preds = %1188
   %1193 = load i32, ptr %1010, align 4, !noalias !17
   %1194 = zext i32 %1193 to i64
-  %1195 = getelementptr inbounds ptr, ptr %1190, i64 %1194
+  %1195 = getelementptr inbounds nuw ptr, ptr %1190, i64 %1194
   %.not24.i.i76.i = icmp eq i32 %1193, 0
   br i1 %.not24.i.i76.i, label %._crit_edge.i.i80.i, label %.lr.ph.i.i77.i
 
@@ -5231,7 +5231,7 @@ _ZN4llvm15VerifierSupport11CheckFailedINS_8ArrayRefIPNS_11InstructionEEEJEEEvRKN
   br i1 %1197, label %split.i, label %1198
 
 1198:                                             ; preds = %.lr.ph.i.i77.i
-  %1199 = getelementptr inbounds i8, ptr %.025.i.i78.i, i64 8
+  %1199 = getelementptr inbounds nuw i8, ptr %.025.i.i78.i, i64 8
   %.not.i.i79.i = icmp eq ptr %1199, %1195
   br i1 %.not.i.i79.i, label %._crit_edge.i.i80.i, label %.lr.ph.i.i77.i, !llvm.loop !15
 
@@ -5271,7 +5271,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit81._crit_edge.i.loo
   %1216 = add i32 %1208, -1
   %.01618.i.i.i.i = and i32 %1216, %1215
   %1217 = zext nneg i32 %.01618.i.i.i.i to i64
-  %1218 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1217
+  %1218 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1217
   %1219 = load ptr, ptr %1218, align 8
   %1220 = icmp eq ptr %1091, %1219
   br i1 %1220, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i, label %.lr.ph.i.i.i.i29
@@ -5288,20 +5288,20 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit81._crit_edge.i.loo
   %1225 = add i32 %.01519.i.i.i.i, %.01620.i.i.i.i
   %.016.i.i.i.i = and i32 %1225, %1216
   %1226 = zext i32 %.016.i.i.i.i to i64
-  %1227 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1226
+  %1227 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1226
   %1228 = load ptr, ptr %1227, align 8
   %1229 = icmp eq ptr %1091, %1228
   br i1 %1229, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i, label %.lr.ph.i.i.i.i29, !llvm.loop !20
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i29, %1206
   %1230 = zext i32 %1208 to i64
-  %1231 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1230
+  %1231 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1230
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i.i: ; preds = %1223, %.loopexit.i.i.i, %1210
   %.0.i.pn.i.i.i = phi ptr [ %1231, %.loopexit.i.i.i ], [ %1218, %1210 ], [ %1227, %1223 ]
   %1232 = zext i32 %1208 to i64
-  %1233 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1232
+  %1233 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %1207, i64 %1232
   %1234 = icmp eq ptr %.0.i.pn.i.i.i, %1233
   %1235 = load ptr, ptr %1018, align 8
   br i1 %1234, label %1236, label %1238
@@ -5337,7 +5337,7 @@ _ZN4llvm9MapVectorIPNS_11InstructionES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vE
 1252:                                             ; preds = %1247
   %1253 = load i32, ptr %1015, align 4, !noalias !21
   %1254 = zext i32 %1253 to i64
-  %1255 = getelementptr inbounds ptr, ptr %1250, i64 %1254
+  %1255 = getelementptr inbounds nuw ptr, ptr %1250, i64 %1254
   %.not24.i.i99.i = icmp eq i32 %1253, 0
   br i1 %.not24.i.i99.i, label %._crit_edge.i.i103.i, label %.lr.ph.i.i100.i
 
@@ -5348,7 +5348,7 @@ _ZN4llvm9MapVectorIPNS_11InstructionES2_NS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vE
   br i1 %1257, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertES2_.exit104.i.backedge, label %1258, !llvm.loop !24
 
 1258:                                             ; preds = %.lr.ph.i.i100.i
-  %1259 = getelementptr inbounds i8, ptr %.025.i.i101.i, i64 8
+  %1259 = getelementptr inbounds nuw i8, ptr %.025.i.i101.i, i64 8
   %.not.i.i102.i = icmp eq ptr %1259, %1255
   br i1 %.not.i.i102.i, label %._crit_edge.i.i103.i, label %.lr.ph.i.i100.i, !llvm.loop !15
 
@@ -5403,7 +5403,7 @@ split.i:                                          ; preds = %_ZN4llvm9MapVectorI
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %1281, %1277, %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit.i
-  %1282 = getelementptr inbounds i8, ptr %.0128.i, i64 16
+  %1282 = getelementptr inbounds nuw i8, ptr %.0128.i, i64 16
   %.not.i23 = icmp eq ptr %1282, %1021
   br i1 %.not.i23, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit.i, label %1023
 
@@ -5516,14 +5516,14 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %1313, %1317
 1338:                                             ; preds = %1331
   %1339 = load ptr, ptr %1017, align 8
   %1340 = zext i32 %1334 to i64
-  %1341 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %1339, i64 %1340
+  %1341 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %1339, i64 %1340
   %.not6.i.i = icmp eq i32 %1334, 0
   br i1 %.not6.i.i, label %._crit_edge.i.i34, label %.lr.ph.i.i32
 
 .lr.ph.i.i32:                                     ; preds = %1338, %.lr.ph.i.i32
   %.07.i.i = phi ptr [ %1342, %.lr.ph.i.i32 ], [ %1339, %1338 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %1342 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %1342 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i33 = icmp eq ptr %1342, %1341
   br i1 %.not.i.i33, label %._crit_edge.i.i34, label %.lr.ph.i.i32, !llvm.loop !25
 
@@ -5629,7 +5629,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1379, %1375
 
 1387:                                             ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i
   call fastcc void @_ZN12_GLOBAL__N_18Verifier27visitAliasScopeListMetadataEPKN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef %1365)
-  %1388 = getelementptr inbounds i8, ptr %.070.i, i64 8
+  %1388 = getelementptr inbounds nuw i8, ptr %.070.i, i64 8
   %.not.i38 = icmp eq ptr %1388, %1350
   br i1 %.not.i38, label %._crit_edge.i, label %.lr.ph.i35
 
@@ -5655,7 +5655,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1379, %1375
   br i1 %1399, label %1400, label %1450
 
 1400:                                             ; preds = %1395
-  %1401 = getelementptr inbounds i8, ptr %1392, i64 128
+  %1401 = getelementptr inbounds nuw i8, ptr %1392, i64 128
   call fastcc void @"_ZSt16__insertion_sortIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_SB_T0_"(ptr noundef %1392, ptr noundef nonnull %1401)
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -5738,7 +5738,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1379, %1375
 
 "_ZSt25__unguarded_linear_insertIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPN4llvm13IntrinsicInstEPS9_EEbRT_T0_.exit.i.i.i.i.i.i.i.i"
   store ptr %1402, ptr %.09.i.i.i.i.i.i.i.i, align 8
-  %1449 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
+  %1449 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i43 = icmp eq ptr %1449, %1394
   br i1 %.not.i.i.i.i.i.i.i43, label %"_ZN4llvm4sortIRNS_11SmallVectorIPNS_13IntrinsicInstELj4EEEZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEvOT_T0_.exit.i", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
 
@@ -5793,7 +5793,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1379, %1375
 
 1477:                                             ; preds = %"_ZZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvENK3$_1clEPN4llvm13IntrinsicInstE.exit60.i", %"_ZZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvENK3$_1clEPN4llvm13IntrinsicInstE.exit.i"
   %.043.i = phi ptr [ %.04180.i, %"_ZZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvENK3$_1clEPN4llvm13IntrinsicInstE.exit.i" ], [ %1478, %"_ZZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvENK3$_1clEPN4llvm13IntrinsicInstE.exit60.i" ]
-  %1478 = getelementptr inbounds i8, ptr %.043.i, i64 8
+  %1478 = getelementptr inbounds nuw i8, ptr %.043.i, i64 8
   %1479 = load ptr, ptr %1345, align 8
   %1480 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1345) #23
   %1481 = getelementptr inbounds ptr, ptr %1479, i64 %1480
@@ -5868,12 +5868,12 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1379, %1375
   br label %_ZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEv.exit
 
 1518:                                             ; preds = %1513, %1511
-  %1519 = getelementptr inbounds i8, ptr %.04272.i, i64 8
+  %1519 = getelementptr inbounds nuw i8, ptr %.04272.i, i64 8
   %.not53.i = icmp eq ptr %.04272.i, %.043.i
   br i1 %.not53.i, label %._crit_edge75.i, label %1511
 
 ._crit_edge75.i:                                  ; preds = %1518
-  %1520 = getelementptr inbounds i8, ptr %.04477.i, i64 8
+  %1520 = getelementptr inbounds nuw i8, ptr %.04477.i, i64 8
   %.not52.i = icmp eq ptr %.04477.i, %.043.i
   br i1 %.not52.i, label %.loopexit.i, label %.lr.ph74.i
 
@@ -5909,7 +5909,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18VerifierD2Ev(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #23
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit, label %7
 
@@ -5969,7 +5969,7 @@ _ZN4llvm26GenericConvergenceVerifierINS_17GenericSSAContextINS_8FunctionEEEED2Ev
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %44) #23
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 1888
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %_ZN4llvm11SmallVectorIPKNS_15DILocalVariableELj16EED2Ev.exit, label %49
 
@@ -6005,7 +6005,7 @@ _ZN4llvm11SmallPtrSetIPKvLj32EED2Ev.exit:         ; preds = %_ZN4llvm11SmallPtrS
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %63 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %62) #23
   %64 = load ptr, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 1264
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %66 = icmp eq ptr %64, %65
   br i1 %66, label %_ZN4llvm11SmallVectorIPKNS_8FunctionELj4EED2Ev.exit, label %67
 
@@ -6026,7 +6026,7 @@ _ZN4llvm11SmallVectorIPKNS_8FunctionELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallP
   br label %_ZN4llvm11SmallPtrSetIPKNS_8ConstantELj32EED2Ev.exit
 
 _ZN4llvm11SmallPtrSetIPKNS_8ConstantELj32EED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPKNS_8FunctionELj4EED2Ev.exit, %73
-  %74 = getelementptr inbounds i8, ptr %0, i64 936
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 936
   tail call void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS2_EENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %74) #23
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 920
@@ -6136,7 +6136,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12verifyModuleERKNS_6ModuleEPNS_11r
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds i8, ptr %4, i64 201
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 201
   %.val = load i8, ptr %16, align 1
   %17 = and i8 %.val, 1
   store i8 %17, ptr %2, align 1
@@ -6270,7 +6270,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyEv(p
 
 .lr.ph:                                           ; preds = %1
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %115 = getelementptr inbounds i8, ptr %0, i64 1264
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   br label %116
 
 116:                                              ; preds = %.lr.ph, %134
@@ -6322,7 +6322,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8FunctionELb1EE9push_backES3_.exit: ; pre
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %142 = load i32, ptr %141, align 8
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %140, i64 %143
+  %144 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %140, i64 %143
   br i1 %139, label %_ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit, label %145
 
 145:                                              ; preds = %._crit_edge
@@ -6339,7 +6339,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8FunctionELb1EE9push_backES3_.exit: ; pre
   ]
 
 .critedge2.i8.i14.i6.i.i:                         ; preds = %.lr.ph.i6.i12.i3.i.i, %.lr.ph.i6.i12.i3.i.i
-  %147 = getelementptr inbounds i8, ptr %.sroa.0.3.i4.i.i, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i4.i.i, i64 16
   %.not.i9.i15.i7.i.i = icmp eq ptr %147, %144
   br i1 %.not.i9.i15.i7.i.i, label %_ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit, label %.lr.ph.i6.i12.i3.i.i, !llvm.loop !30
 
@@ -6369,7 +6369,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS
   br label %_ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit
 
 156:                                              ; preds = %.lr.ph.i
-  %157 = getelementptr inbounds i8, ptr %.sroa.07.012.i, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i, i64 16
   %.not5.i3.i.i = icmp eq ptr %157, %144
   br i1 %.not5.i3.i.i, label %_ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit, label %.lr.ph.i4.i.i
 
@@ -6383,7 +6383,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS
   ]
 
 .critedge2.i6.i.i:                                ; preds = %.lr.ph.i4.i.i, %.lr.ph.i4.i.i
-  %159 = getelementptr inbounds i8, ptr %.sroa.07.1.i, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i, i64 16
   %.not.i7.i.i = icmp eq ptr %159, %144
   br i1 %.not.i7.i.i, label %_ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit, label %.lr.ph.i4.i.i, !llvm.loop !30
 
@@ -6444,7 +6444,7 @@ _ZN12_GLOBAL__N_18Verifier25verifyFrameRecoverIndicesEv.exit: ; preds = %.crited
   %202 = getelementptr inbounds nuw i8, ptr %95, i64 33
   %203 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %204 = getelementptr inbounds nuw i8, ptr %86, i64 33
-  %205 = getelementptr inbounds i8, ptr %101, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %206 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %207 = getelementptr inbounds nuw i8, ptr %102, i64 33
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 202
@@ -6682,7 +6682,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
 
 303:                                              ; preds = %298
   %304 = load ptr, ptr %299, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = load ptr, ptr %305, align 8
   %307 = icmp eq ptr %306, %293
   br i1 %307, label %309, label %308
@@ -6708,7 +6708,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN12_GLOBAL__N_18Verifier19visitGlobalVariableERKN4llvm14GlobalVariableE.exit
 
 313:                                              ; preds = %309
-  %314 = getelementptr inbounds i8, ptr %304, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %315 = load ptr, ptr %314, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %317 = load i32, ptr %316, align 8
@@ -6860,12 +6860,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit108.thread.i:    ; preds = %_ZN4llvmeqENS_9Stri
 _ZNK4llvm4User8operandsEv.exit.i:                 ; preds = %373, %370
   %378 = phi ptr [ %372, %370 ], [ %377, %373 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %370 ], [ %375, %373 ]
-  %379 = getelementptr inbounds %"class.llvm::Use", ptr %378, i64 %.pre-phi2.i.i.i
+  %379 = getelementptr inbounds nuw %"class.llvm::Use", ptr %378, i64 %.pre-phi2.i.i.i
   %.not96161.i = icmp eq i64 %.pre-phi2.i.i.i, 0
   br i1 %.not96161.i, label %_ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i, label %.lr.ph.i22
 
 380:                                              ; preds = %389
-  %381 = getelementptr inbounds i8, ptr %.0162.i, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %.0162.i, i64 32
   %.not96.i = icmp eq ptr %381, %379
   br i1 %.not96.i, label %_ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i, label %.lr.ph.i22
 
@@ -6944,7 +6944,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i: ; preds = %380, %_ZNK4llvm4Use
 
 402:                                              ; preds = %.lr.ph165.i
   call fastcc void @_ZN12_GLOBAL__N_18Verifier31visitDIGlobalVariableExpressionERKN4llvm26DIGlobalVariableExpressionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %400)
-  %403 = getelementptr inbounds i8, ptr %.085164.i, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %.085164.i, i64 8
   %.not97.i = icmp eq ptr %403, %399
   br i1 %.not97.i, label %._crit_edge.i, label %.lr.ph165.i
 
@@ -6970,7 +6970,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit112.thread146.i: ; preds = %380, %_ZNK4llvm4Use
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 413:                                              ; preds = %406
-  %414 = getelementptr inbounds i8, ptr %408, i64 1
+  %414 = getelementptr inbounds nuw i8, ptr %408, i64 1
   store ptr %414, ptr %407, align 8
   store i8 10, ptr %408, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -7047,7 +7047,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 442:                                              ; preds = %435
-  %443 = getelementptr inbounds i8, ptr %437, i64 1
+  %443 = getelementptr inbounds nuw i8, ptr %437, i64 1
   store ptr %443, ptr %436, align 8
   store i8 10, ptr %437, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -7071,7 +7071,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i: ; preds = %442, %4
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i
 
 451:                                              ; preds = %444
-  %452 = getelementptr inbounds i8, ptr %446, i64 1
+  %452 = getelementptr inbounds nuw i8, ptr %446, i64 1
   store ptr %452, ptr %445, align 8
   store i8 32, ptr %446, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i
@@ -7569,7 +7569,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit28.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.ithread-pre-split
 
 603:                                              ; preds = %596
-  %604 = getelementptr inbounds i8, ptr %598, i64 1
+  %604 = getelementptr inbounds nuw i8, ptr %598, i64 1
   store ptr %604, ptr %597, align 8
   store i8 10, ptr %598, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.ithread-pre-split
@@ -7604,7 +7604,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_11NamedMDNodeE.exit.i.i
 
 618:                                              ; preds = %610
-  %619 = getelementptr inbounds i8, ptr %613, i64 1
+  %619 = getelementptr inbounds nuw i8, ptr %613, i64 1
   store ptr %619, ptr %612, align 8
   store i8 10, ptr %613, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_11NamedMDNodeE.exit.i.i
@@ -7629,7 +7629,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_11NamedMDNodeE.exit.i.i: ; preds = %618, %6
   br label %_ZN12_GLOBAL__N_18Verifier16visitNamedMDNodeERKN4llvm11NamedMDNodeE.exit
 
 630:                                              ; preds = %620
-  %631 = getelementptr inbounds i8, ptr %625, i64 1
+  %631 = getelementptr inbounds nuw i8, ptr %625, i64 1
   store ptr %631, ptr %624, align 8
   store i8 10, ptr %625, align 1
   br label %_ZN12_GLOBAL__N_18Verifier16visitNamedMDNodeERKN4llvm11NamedMDNodeE.exit
@@ -7679,13 +7679,13 @@ _ZN12_GLOBAL__N_18Verifier16visitNamedMDNodeERKN4llvm11NamedMDNodeE.exit: ; pred
   ]
 
 .critedge.i.i.i.i:                                ; preds = %.preheader.i.i.i, %.preheader.i.i.i
-  %642 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %642 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   br label %.preheader.i.i.i, !llvm.loop !45
 
 _ZNK4llvm9StringMapINS_6ComdatENS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.i.i.i, %._crit_edge192
   %.sroa.0.1.i = phi ptr [ %637, %._crit_edge192 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %643 = zext i32 %639 to i64
-  %644 = getelementptr inbounds ptr, ptr %637, i64 %643
+  %644 = getelementptr inbounds nuw ptr, ptr %637, i64 %643
   %.not143193 = icmp eq ptr %.sroa.0.1.i, %644
   br i1 %.not143193, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14StringMapEntryIS2_EEEppEv.exit._crit_edge, label %.lr.ph195
 
@@ -7741,7 +7741,7 @@ _ZN12_GLOBAL__N_18Verifier11visitComdatERKN4llvm6ComdatE.exit: ; preds = %648, %
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %_ZN12_GLOBAL__N_18Verifier11visitComdatERKN4llvm6ComdatE.exit
   %.pn.i = phi ptr [ %.sroa.0107.0194, %_ZN12_GLOBAL__N_18Verifier11visitComdatERKN4llvm6ComdatE.exit ], [ %storemerge.i, %.critedge.i.i.backedge ]
-  %storemerge.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %665 = load ptr, ptr %storemerge.i, align 8
   %magicptr.i.i = ptrtoint ptr %665 to i64
   switch i64 %magicptr.i.i, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14StringMapEntryIS2_EEEppEv.exit.loopexit [
@@ -7771,7 +7771,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14Strin
 
 669:                                              ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_6ComdatEEEKNS_14StringMapEntryIS2_EEEppEv.exit._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %35, i8 0, i64 20, i1 false)
-  %670 = getelementptr inbounds i8, ptr %36, i64 16
+  %670 = getelementptr inbounds nuw i8, ptr %36, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull %670, i64 noundef 16) #23
   %671 = call noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64) %668) #23, !noalias !46
   %.not130134.i = icmp eq i32 %671, 0
@@ -8003,7 +8003,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit45.i.i:        ; preds = %775, %771
 
 _ZNK4llvm6MDNode10getOperandEj.exit48.i.i:        ; preds = %785, %781
   %.sroa.0.0.i.i47.i.i = phi ptr [ %789, %785 ], [ %783, %781 ]
-  %790 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i47.i.i, i64 8
+  %790 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i47.i.i, i64 8
   %791 = load ptr, ptr %790, align 8
   %.not.i.i49.i.i = icmp eq ptr %791, null
   br i1 %.not.i.i49.i.i, label %795, label %792
@@ -8038,7 +8038,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit48.i.i:        ; preds = %785, %781
 
 _ZNK4llvm6MDNode10getOperandEj.exit53.i.i:        ; preds = %802, %798
   %.sroa.0.0.i.i52.i.i = phi ptr [ %806, %802 ], [ %800, %798 ]
-  %807 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i52.i.i, i64 8
+  %807 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i52.i.i, i64 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %24, ptr noundef nonnull align 8 dereferenceable(8) %807)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
@@ -8074,7 +8074,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit53.i.i:        ; preds = %802, %798
 
 _ZNK4llvm6MDNode10getOperandEj.exit56.i.i:        ; preds = %817, %813
   %.sroa.0.0.i.i55.i.i = phi ptr [ %821, %817 ], [ %815, %813 ]
-  %822 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i55.i.i, i64 16
+  %822 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i55.i.i, i64 16
   %823 = load ptr, ptr %822, align 8
   %.not.i.i.i57.i.i = icmp eq ptr %823, null
   br i1 %.not.i.i.i57.i.i, label %_ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit61.thread.i.i, label %824
@@ -8103,7 +8103,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
   %839 = load ptr, ptr %831, align 8
   %840 = lshr i32 %834, 6
   %841 = zext nneg i32 %840 to i64
-  %842 = getelementptr inbounds i64, ptr %839, i64 %841
+  %842 = getelementptr inbounds nuw i64, ptr %839, i64 %841
   %.in.i.i.i.i.i.i = select i1 %838, ptr %831, ptr %842
   %843 = load i64, ptr %.in.i.i.i.i.i.i, align 8
   %844 = and i64 %837, %843
@@ -8134,7 +8134,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
 
 _ZNK4llvm6MDNode10getOperandEj.exit64.i.i:        ; preds = %851, %847
   %.sroa.0.0.i.i63.i.i = phi ptr [ %855, %851 ], [ %849, %847 ]
-  %856 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i63.i.i, i64 16
+  %856 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i63.i.i, i64 16
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(8) %856)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
@@ -8159,7 +8159,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit64.i.i:        ; preds = %851, %847
 
 _ZNK4llvm6MDNode10getOperandEj.exit67.i.i:        ; preds = %864, %860
   %.sroa.0.0.i.i66.i.i = phi ptr [ %868, %864 ], [ %862, %860 ]
-  %869 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i66.i.i, i64 16
+  %869 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i66.i.i, i64 16
   %870 = load ptr, ptr %869, align 8
   %.not.i.i.i68.i.i = icmp eq ptr %870, null
   br i1 %.not.i.i.i68.i.i, label %878, label %871
@@ -8200,7 +8200,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
 
 _ZNK4llvm6MDNode10getOperandEj.exit75.i.i:        ; preds = %885, %881
   %.sroa.0.0.i.i74.i.i = phi ptr [ %889, %885 ], [ %883, %881 ]
-  %890 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i74.i.i, i64 16
+  %890 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i74.i.i, i64 16
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull align 8 dereferenceable(8) %890)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
@@ -8225,7 +8225,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit75.i.i:        ; preds = %885, %881
 
 _ZNK4llvm6MDNode10getOperandEj.exit78.i.i:        ; preds = %898, %894
   %.sroa.0.0.i.i77.i.i = phi ptr [ %902, %898 ], [ %896, %894 ]
-  %903 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i77.i.i, i64 16
+  %903 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i77.i.i, i64 16
   %904 = load ptr, ptr %903, align 8
   %905 = load i8, ptr %904, align 4
   %906 = add i8 %905, -36
@@ -8280,7 +8280,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit82.i.i:    ; preds = %915, %911
 
 _ZNK4llvm6MDNode10getOperandEj.exit85.i.i:        ; preds = %927, %923
   %.sroa.0.0.i.i84.i.i = phi ptr [ %931, %927 ], [ %925, %923 ]
-  %932 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i84.i.i, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i84.i.i, i64 16
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull align 8 dereferenceable(8) %932)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
@@ -8362,7 +8362,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit91.i.i:        ; preds = %955, %951
 
 _ZNK4llvm6MDNode10getOperandEj.exit94.i.i:        ; preds = %968, %964
   %.sroa.0.0.i.i93.i.i = phi ptr [ %972, %968 ], [ %966, %964 ]
-  %973 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i93.i.i, i64 16
+  %973 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i93.i.i, i64 16
   %974 = load ptr, ptr %973, align 8
   %975 = load i8, ptr %974, align 4
   %976 = add i8 %975, -5
@@ -8393,7 +8393,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit94.i.i:        ; preds = %968, %964
 
 _ZNK4llvm6MDNode10getOperandEj.exit97.i.i:        ; preds = %984, %980
   %.sroa.0.0.i.i96.i.i = phi ptr [ %988, %984 ], [ %982, %980 ]
-  %989 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i96.i.i, i64 16
+  %989 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i96.i.i, i64 16
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %29, ptr noundef nonnull align 8 dereferenceable(8) %989)
   br label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i
 
@@ -8423,7 +8423,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
   %1001 = add i32 %993, -1
   %.02733.i.i.i.i.i.i = and i32 %1001, %1000
   %1002 = zext nneg i32 %.02733.i.i.i.i.i.i to i64
-  %1003 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %992, i64 %1002
+  %1003 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %992, i64 %1002
   %1004 = load ptr, ptr %1003, align 8, !noalias !49
   %1005 = icmp eq ptr %791, %1004
   br i1 %1005, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i
@@ -8451,7 +8451,7 @@ _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9ena
   %1015 = add i32 %.02635.i.i.i.i.i.i, %.02736.i.i.i.i.i.i
   %.027.i.i.i.i.i.i = and i32 %1015, %1001
   %1016 = zext i32 %.027.i.i.i.i.i.i to i64
-  %1017 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %992, i64 %1016
+  %1017 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %992, i64 %1016
   %1018 = load ptr, ptr %1017, align 8, !noalias !49
   %1019 = icmp eq ptr %791, %1018
   br i1 %1019, label %.loopexit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !54
@@ -8506,7 +8506,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit103.i.i:       ; preds = %1035, %1031
   %.sroa.0.0.i.i102.i.i = phi ptr [ %1039, %1035 ], [ %1033, %1031 ]
-  %1040 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i102.i.i, i64 16
+  %1040 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i102.i.i, i64 16
   %1041 = load ptr, ptr %1040, align 8
   %.not.i.i.i104.i.i = icmp eq ptr %1041, null
   br i1 %.not.i.i.i104.i.i, label %1049, label %1042
@@ -8545,7 +8545,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit104.i
 
 1058:                                             ; preds = %1051
-  %1059 = getelementptr inbounds i8, ptr %1053, i64 1
+  %1059 = getelementptr inbounds nuw i8, ptr %1053, i64 1
   store ptr %1059, ptr %1052, align 8
   store i8 10, ptr %1053, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit104.i
@@ -8594,7 +8594,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit112.thread.i.i:  ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit101.i
 
 1075:                                             ; preds = %1068
-  %1076 = getelementptr inbounds i8, ptr %1070, i64 1
+  %1076 = getelementptr inbounds nuw i8, ptr %1070, i64 1
   store ptr %1076, ptr %1069, align 8
   store i8 10, ptr %1070, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit101.i
@@ -8636,7 +8636,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit116.thread.i.i:  ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit119.i.i:       ; preds = %1087, %1083
   %.sroa.0.0.i.i118.i.i = phi ptr [ %1091, %1087 ], [ %1085, %1083 ]
-  %1092 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i118.i.i, i64 16
+  %1092 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i118.i.i, i64 16
   %1093 = load ptr, ptr %1092, align 8
   %.not.i.i.i120.i.i = icmp eq ptr %1093, null
   br i1 %.not.i.i.i120.i.i, label %1101, label %1094
@@ -8675,7 +8675,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit98.i
 
 1110:                                             ; preds = %1103
-  %1111 = getelementptr inbounds i8, ptr %1105, i64 1
+  %1111 = getelementptr inbounds nuw i8, ptr %1105, i64 1
   store ptr %1111, ptr %1104, align 8
   store i8 10, ptr %1105, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit98.i
@@ -8717,7 +8717,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit128.thread.i.i:  ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit131.i.i:       ; preds = %1122, %1118
   %.sroa.0.0.i.i130.i.i = phi ptr [ %1126, %1122 ], [ %1120, %1118 ]
-  %1127 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i130.i.i, i64 16
+  %1127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i130.i.i, i64 16
   %1128 = load ptr, ptr %1127, align 8
   %1129 = getelementptr inbounds i8, ptr %1128, i64 -16
   %1130 = load i64, ptr %1129, align 8
@@ -8861,7 +8861,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %1167, %1163
 
 _ZNK4llvm6MDNode10getOperandEj.exit19.i.i.i:      ; preds = %1187, %1183
   %.sroa.0.0.i.i18.i.i.i = phi ptr [ %1191, %1187 ], [ %1185, %1183 ]
-  %1192 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i18.i.i.i, i64 8
+  %1192 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i18.i.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %1193 = load ptr, ptr %1192, align 8
   %.not.i20.i.i.i = icmp eq ptr %1193, null
@@ -8910,7 +8910,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit19.i.i.i:      ; preds = %1187, %1183
 
 _ZNK4llvm6MDNode10getOperandEj.exit27.i.i.i:      ; preds = %1208, %1204
   %.sroa.0.0.i.i26.i.i.i = phi ptr [ %1212, %1208 ], [ %1206, %1204 ]
-  %1213 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i26.i.i.i, i64 16
+  %1213 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i26.i.i.i, i64 16
   %1214 = load ptr, ptr %1213, align 8
   %.not.i.i28.i.i.i = icmp eq ptr %1214, null
   br i1 %.not.i.i28.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.thread.i.i.i, label %1215
@@ -8955,14 +8955,14 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
 
 _ZNK4llvm6MDNode10getOperandEj.exit33.i.i.i:      ; preds = %1232, %1228
   %.sroa.0.0.i.i32.i.i.i = phi ptr [ %1236, %1232 ], [ %1230, %1228 ]
-  %1237 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i32.i.i.i, i64 16
+  %1237 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i32.i.i.i, i64 16
   call void @_ZN4llvm15VerifierSupport11CheckFailedINS_9MDOperandEJEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(8) %1237)
   br label %_ZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandE.exit.i.i
 
 _ZN12_GLOBAL__N_18Verifier29visitModuleFlagCGProfileEntryERKN4llvm9MDOperandE.exit.i.i: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit33.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i134.i.i, %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  %1238 = getelementptr inbounds i8, ptr %.0185.i.i, i64 8
+  %1238 = getelementptr inbounds nuw i8, ptr %.0185.i.i, i64 8
   %.not35.i.i = icmp eq ptr %1238, %1143
   br i1 %.not35.i.i, label %_ZN12_GLOBAL__N_18Verifier15visitModuleFlagEPKN4llvm6MDNodeERNS1_8DenseMapIPKNS1_8MDStringES4_NS1_12DenseMapInfoIS8_vEENS1_6detail12DenseMapPairIS8_S4_EEEERNS1_15SmallVectorImplIS4_EE.exit.i, label %.lr.ph.i.i
 
@@ -9027,7 +9027,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %1245, %1241
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %1256, %1252
   %.sroa.0.0.i.i.i = phi ptr [ %1260, %1256 ], [ %1254, %1252 ]
-  %1261 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %1261 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %1262 = load ptr, ptr %1261, align 8
   %.not.i.i60.i = icmp eq ptr %1262, null
   br i1 %.not.i.i60.i, label %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.thread.i, label %1263
@@ -9070,7 +9070,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i54:     ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit64.i:          ; preds = %1276, %1272
   %.sroa.0.0.i.i63.i = phi ptr [ %1280, %1276 ], [ %1274, %1272 ]
-  %1281 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i63.i, i64 16
+  %1281 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i63.i, i64 16
   %1282 = load ptr, ptr %1281, align 8
   %.not.i.i.i65.i = icmp eq ptr %1282, null
   br i1 %.not.i.i.i65.i, label %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.thread.i, label %1283
@@ -9130,7 +9130,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit71.thread.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit74.i:          ; preds = %1305, %1301
   %.sroa.0.0.i.i73.i = phi ptr [ %1309, %1305 ], [ %1303, %1301 ]
-  %1310 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i73.i, i64 16
+  %1310 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i73.i, i64 16
   %1311 = load ptr, ptr %1310, align 8
   %.not.i.i.i75.i = icmp eq ptr %1311, null
   br i1 %.not.i.i.i75.i, label %_ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.thread.i, label %1312
@@ -9194,7 +9194,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8MDStringENS_9MDOperandEEEDaRKT0_.exit.thread.i: ;
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 1339:                                             ; preds = %1332
-  %1340 = getelementptr inbounds i8, ptr %1334, i64 1
+  %1340 = getelementptr inbounds nuw i8, ptr %1334, i64 1
   store ptr %1340, ptr %1333, align 8
   store i8 10, ptr %1334, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -9266,7 +9266,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit86.i:          ; preds = %1358, %1354
 _ZNK4llvm6MDNode10getOperandEj.exit89.i:          ; preds = %1370, %1366
   %1375 = phi ptr [ %1363, %1370 ], [ %.pre.i, %1366 ]
   %.sroa.0.0.i.i88.i = phi ptr [ %1374, %1370 ], [ %1368, %1366 ]
-  %1376 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i88.i, i64 8
+  %1376 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i88.i, i64 8
   %1377 = load ptr, ptr %1376, align 8
   %1378 = load ptr, ptr %35, align 8
   %1379 = load i32, ptr %1344, align 8
@@ -9282,7 +9282,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit89.i:          ; preds = %1370, %1366
   %1387 = add i32 %1379, -1
   %.01618.i.i.i.i = and i32 %1387, %1386
   %1388 = zext nneg i32 %.01618.i.i.i.i to i64
-  %1389 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %1378, i64 %1388
+  %1389 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %1378, i64 %1388
   %1390 = load ptr, ptr %1389, align 8
   %1391 = icmp eq ptr %1375, %1390
   br i1 %1391, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.i, label %.lr.ph.i.i.i.i
@@ -9299,14 +9299,14 @@ _ZNK4llvm6MDNode10getOperandEj.exit89.i:          ; preds = %1370, %1366
   %1396 = add i32 %.01519.i.i.i.i, %.01620.i.i.i.i
   %.016.i.i.i.i = and i32 %1396, %1387
   %1397 = zext i32 %.016.i.i.i.i to i64
-  %1398 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %1378, i64 %1397
+  %1398 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %1378, i64 %1397
   %1399 = load ptr, ptr %1398, align 8
   %1400 = icmp eq ptr %1375, %1399
   br i1 %1400, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !55
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.i: ; preds = %1394, %1381
   %1401 = phi i64 [ %1388, %1381 ], [ %1397, %1394 ]
-  %1402 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %1378, i64 %1401, i32 0, i32 1
+  %1402 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %1378, i64 %1401, i32 0, i32 1
   %1403 = load ptr, ptr %1402, align 8
   %.not47.i = icmp eq ptr %1403, null
   br i1 %.not47.i, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E6lookupES4_.exit.thread.i, label %1404
@@ -9339,7 +9339,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapIn
 
 _ZNK4llvm6MDNode10getOperandEj.exit93.i:          ; preds = %1412, %1408
   %.sroa.0.0.i.i92.i = phi ptr [ %1416, %1412 ], [ %1410, %1408 ]
-  %1417 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i92.i, i64 16
+  %1417 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i92.i, i64 16
   %1418 = load ptr, ptr %1417, align 8
   %.not48.i = icmp eq ptr %1418, %1377
   br i1 %.not48.i, label %1420, label %1419
@@ -9356,7 +9356,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit93.i:          ; preds = %1412, %1408
   br label %1420
 
 1420:                                             ; preds = %.sink.split.i, %_ZNK4llvm6MDNode10getOperandEj.exit93.i
-  %1421 = getelementptr inbounds i8, ptr %.039140.i, i64 8
+  %1421 = getelementptr inbounds nuw i8, ptr %.039140.i, i64 8
   %.not46.i = icmp eq ptr %1421, %1343
   br i1 %.not46.i, label %._crit_edge143.i, label %1349
 
@@ -9661,7 +9661,7 @@ _ZN12_GLOBAL__N_18Verifier23visitModuleCommandLinesEv.exit: ; preds = %1486, %_Z
 1550:                                             ; preds = %.lr.ph.i.i84
   %1551 = load i32, ptr %1542, align 4, !noalias !62
   %1552 = zext i32 %1551 to i64
-  %1553 = getelementptr inbounds ptr, ptr %1548, i64 %1552
+  %1553 = getelementptr inbounds nuw ptr, ptr %1548, i64 %1552
   %.not24.i.i.i.i = icmp eq i32 %1551, 0
   br i1 %.not24.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i94
 
@@ -9672,7 +9672,7 @@ _ZN12_GLOBAL__N_18Verifier23visitModuleCommandLinesEv.exit: ; preds = %1486, %_Z
   br i1 %1555, label %_ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertES3_.exit.i.i, label %1556
 
 1556:                                             ; preds = %.lr.ph.i.i.i.i94
-  %1557 = getelementptr inbounds i8, ptr %.025.i.i.i.i, i64 8
+  %1557 = getelementptr inbounds nuw i8, ptr %.025.i.i.i.i, i64 8
   %.not.i.i.i.i95 = icmp eq ptr %1557, %1553
   br i1 %.not.i.i.i.i95, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i94, !llvm.loop !15
 
@@ -9708,7 +9708,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertINS_11NamedMDNode16op_iterator_
   %1573 = load i32, ptr %1572, align 8
   %.v.v.i4.i2.i.i = select i1 %1569, i32 %1571, i32 %1573
   %.v.i5.i3.i.i = zext i32 %.v.v.i4.i2.i.i to i64
-  %1574 = getelementptr inbounds ptr, ptr %1567, i64 %.v.i5.i3.i.i
+  %1574 = getelementptr inbounds nuw ptr, ptr %1567, i64 %.v.i5.i3.i.i
   %.not3.i4.i.i6.i4.i.i = icmp eq i32 %.v.v.i4.i2.i.i, 0
   br i1 %.not3.i4.i.i6.i4.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5beginEv.exit.i, label %.lr.ph.i5.i.i7.i5.i.i
 
@@ -9719,7 +9719,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertINS_11NamedMDNode16op_iterator_
   br i1 %switch.i6.i.i8.i7.i.i, label %.critedge2.i7.i.i9.i11.i.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5beginEv.exit.i
 
 .critedge2.i7.i.i9.i11.i.i:                       ; preds = %.lr.ph.i5.i.i7.i5.i.i
-  %1576 = getelementptr inbounds i8, ptr %.sroa.0.3.i6.i.i, i64 8
+  %1576 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i6.i.i, i64 8
   %.not.i8.i.i10.i12.i.i = icmp eq ptr %1576, %1574
   br i1 %.not.i8.i.i10.i12.i.i, label %._crit_edge.i91, label %.lr.ph.i5.i.i7.i5.i.i, !llvm.loop !66
 
@@ -9737,9 +9737,9 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5beginEv.exit.i: ; preds = %.lr.ph.i5
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i86
   %1580 = load i32, ptr %1542, align 4
   %1581 = zext i32 %1580 to i64
-  %1582 = getelementptr inbounds ptr, ptr %1578, i64 %1581
+  %1582 = getelementptr inbounds nuw ptr, ptr %1578, i64 %1581
   %.not1317.i.i.us.i = icmp eq i32 %1580, 0
-  %1583 = getelementptr inbounds ptr, ptr %1577, i64 %1581
+  %1583 = getelementptr inbounds nuw ptr, ptr %1577, i64 %1581
   br i1 %.not1317.i.i.us.i, label %._crit_edge.i.i.us.us.us.i, label %.lr.ph.i.i.preheader.us.i
 
 ._crit_edge.i.i.us.us.us.i:                       ; preds = %.lr.ph.split.us.i
@@ -9760,7 +9760,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5beginEv.exit.i: ; preds = %.lr.ph.i5
   br i1 %1587, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.us.i, label %1588
 
 1588:                                             ; preds = %.lr.ph.i.i.us.i
-  %1589 = getelementptr inbounds i8, ptr %.01118.i.i.us.i, i64 8
+  %1589 = getelementptr inbounds nuw i8, ptr %.01118.i.i.us.i, i64 8
   %.not13.i.i.us.i = icmp eq ptr %1589, %1582
   br i1 %.not13.i.i.us.i, label %.split.us.i, label %.lr.ph.i.i.us.i, !llvm.loop !11
 
@@ -9769,7 +9769,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.us.i: ; preds = %.lr.
   br i1 %.not25.us.i, label %.split.us.i, label %1590
 
 1590:                                             ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.us.i
-  %1591 = getelementptr inbounds i8, ptr %.sroa.019.028.us.i, i64 8
+  %1591 = getelementptr inbounds nuw i8, ptr %.sroa.019.028.us.i, i64 8
   %.not3.i3.i.us.i = icmp eq ptr %1591, %1574
   br i1 %.not3.i3.i.us.i, label %._crit_edge.i91, label %.lr.ph.i4.i.us.i
 
@@ -9780,7 +9780,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.us.i: ; preds = %.lr.
   br i1 %switch.i5.i.us.i, label %.critedge2.i6.i.us.i, label %_ZN4llvm19SmallPtrSetIteratorIPKNS_8MetadataEEppEv.exit.us.i
 
 .critedge2.i6.i.us.i:                             ; preds = %.lr.ph.i4.i.us.i
-  %1593 = getelementptr inbounds i8, ptr %.sroa.019.1.us.i, i64 8
+  %1593 = getelementptr inbounds nuw i8, ptr %.sroa.019.1.us.i, i64 8
   %.not.i7.i.us.i = icmp eq ptr %1593, %1574
   br i1 %.not.i7.i.us.i, label %._crit_edge.i91, label %.lr.ph.i4.i.us.i, !llvm.loop !66
 
@@ -9800,7 +9800,7 @@ _ZN4llvm19SmallPtrSetIteratorIPKNS_8MetadataEEppEv.exit.us.i: ; preds = %.lr.ph.
 1598:                                             ; preds = %.lr.ph.split.i
   %1599 = load i32, ptr %1542, align 4
   %1600 = zext i32 %1599 to i64
-  %1601 = getelementptr inbounds ptr, ptr %1594, i64 %1600
+  %1601 = getelementptr inbounds nuw ptr, ptr %1594, i64 %1600
   %.not1317.i.i.i = icmp eq i32 %1599, 0
   br i1 %.not1317.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -9811,12 +9811,12 @@ _ZN4llvm19SmallPtrSetIteratorIPKNS_8MetadataEEppEv.exit.us.i: ; preds = %.lr.ph.
   br i1 %1603, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i, label %1604
 
 1604:                                             ; preds = %.lr.ph.i.i.i
-  %1605 = getelementptr inbounds i8, ptr %.01118.i.i.i, i64 8
+  %1605 = getelementptr inbounds nuw i8, ptr %.01118.i.i.i, i64 8
   %.not13.i.i.i = icmp eq ptr %1605, %1601
   br i1 %.not13.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 ._crit_edge.i.i.i:                                ; preds = %1604, %1598
-  %1606 = getelementptr inbounds ptr, ptr %1595, i64 %1600
+  %1606 = getelementptr inbounds nuw ptr, ptr %1595, i64 %1600
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i
 
 1607:                                             ; preds = %.lr.ph.split.i
@@ -9836,7 +9836,7 @@ _ZN4llvm19SmallPtrSetIteratorIPKNS_8MetadataEEppEv.exit.us.i: ; preds = %.lr.ph.
   %1612 = load i32, ptr %1541, align 8
   %.v.v.i14.i.i.i = select i1 %1610, i32 %1611, i32 %1612
   %.v.i15.i.i.i = zext i32 %.v.v.i14.i.i.i to i64
-  %1613 = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
+  %1613 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.v.i15.i.i.i
   br label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i
 
 _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i: ; preds = %.lr.ph.i.i.i, %1609, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %._crit_edge.i.i.i
@@ -9848,7 +9848,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i: ; preds = %.lr.ph.
   %1618 = load i32, ptr %1541, align 8
   %.v.v.i.i17.i = select i1 %1617, i32 %1616, i32 %1618
   %.v.i.i18.i = zext i32 %.v.v.i.i17.i to i64
-  %1619 = getelementptr inbounds ptr, ptr %1615, i64 %.v.i.i18.i
+  %1619 = getelementptr inbounds nuw ptr, ptr %1615, i64 %.v.i.i18.i
   %.not25.i = icmp eq ptr %.0.i.i.i88, %1619
   br i1 %.not25.i, label %.split.us.i, label %1622
 
@@ -9862,7 +9862,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i: ; preds = %.lr.ph.
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
 
 1622:                                             ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i
-  %1623 = getelementptr inbounds i8, ptr %.sroa.019.028.i, i64 8
+  %1623 = getelementptr inbounds nuw i8, ptr %.sroa.019.028.i, i64 8
   %.not3.i3.i.i = icmp eq ptr %1623, %1574
   br i1 %.not3.i3.i.i, label %._crit_edge.loopexit31.i, label %.lr.ph.i4.i.i89
 
@@ -9873,7 +9873,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE5countES3_.exit.i: ; preds = %.lr.ph.
   br i1 %switch.i5.i.i, label %.critedge2.i6.i.i92, label %_ZN4llvm19SmallPtrSetIteratorIPKNS_8MetadataEEppEv.exit.i
 
 .critedge2.i6.i.i92:                              ; preds = %.lr.ph.i4.i.i89
-  %1625 = getelementptr inbounds i8, ptr %.sroa.019.1.i, i64 8
+  %1625 = getelementptr inbounds nuw i8, ptr %.sroa.019.1.i, i64 8
   %.not.i7.i.i93 = icmp eq ptr %1625, %1574
   br i1 %.not.i7.i.i93, label %._crit_edge.loopexit31.i, label %.lr.ph.i4.i.i89, !llvm.loop !66
 
@@ -9952,7 +9952,7 @@ _ZN12_GLOBAL__N_18Verifier18verifyCompileUnitsEv.exit: ; preds = %_ZN12_GLOBAL__
 
 1656:                                             ; preds = %1657, %1650
   %.pn.i96 = phi ptr [ %1651, %1650 ], [ %.0.i, %1657 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i96, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i96, i64 8
   %.not.i97 = icmp eq ptr %.0.i, %1654
   br i1 %.not.i97, label %_ZN12_GLOBAL__N_18Verifier28verifyDeoptimizeCallingConvsEv.exit, label %1657
 
@@ -9995,7 +9995,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i103: ; preds 
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i100
 
 1676:                                             ; preds = %1669
-  %1677 = getelementptr inbounds i8, ptr %1671, i64 1
+  %1677 = getelementptr inbounds nuw i8, ptr %1671, i64 1
   store ptr %1677, ptr %1670, align 8
   store i8 10, ptr %1671, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i100
@@ -10040,14 +10040,14 @@ _ZN12_GLOBAL__N_18Verifier28verifyDeoptimizeCallingConvsEv.exit: ; preds = %1656
 1693:                                             ; preds = %1686
   %1694 = load ptr, ptr %1679, align 8
   %1695 = zext i32 %1689 to i64
-  %1696 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %1694, i64 %1695
+  %1696 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %1694, i64 %1695
   %.not6.i = icmp eq i32 %1689, 0
   br i1 %.not6.i, label %._crit_edge.i106, label %.lr.ph.i104
 
 .lr.ph.i104:                                      ; preds = %1693, %.lr.ph.i104
   %.07.i = phi ptr [ %1697, %.lr.ph.i104 ], [ %1694, %1693 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %1697 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %1697 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i105 = icmp eq ptr %1697, %1696
   br i1 %.not.i105, label %._crit_edge.i106, label %.lr.ph.i104, !llvm.loop !69
 
@@ -10129,7 +10129,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -10166,7 +10166,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA43_KcPNS_11InstructionERPKNS_6MDNodeEEEEv
   %51 = add i32 %43, -1
   %.01618.i.i = and i32 %50, %51
   %52 = zext nneg i32 %.01618.i.i to i64
-  %53 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %52
+  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %2, %54
   br i1 %55, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit, label %.lr.ph.i.i
@@ -10183,20 +10183,20 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA43_KcPNS_11InstructionERPKNS_6MDNodeEEEEv
   %60 = add i32 %.01519.i.i, %.01620.i.i
   %.016.i.i = and i32 %60, %51
   %61 = zext i32 %.016.i.i to i64
-  %62 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %2, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit, label %.lr.ph.i.i, !llvm.loop !70
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %39
   %65 = zext i32 %43 to i64
-  %66 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %65
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %65
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit: ; preds = %58, %45, %.loopexit.i
   %.0.i.pn.i = phi ptr [ %66, %.loopexit.i ], [ %53, %45 ], [ %62, %58 ]
   %67 = zext i32 %43 to i64
-  %68 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %67
+  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %67
   %.not = icmp eq ptr %.0.i.pn.i, %68
   br i1 %.not, label %72, label %69
 
@@ -10226,7 +10226,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
   %84 = add i32 %76, -1
   %.02733.i.i.i.i = and i32 %84, %83
   %85 = zext nneg i32 %.02733.i.i.i.i to i64
-  %86 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %85
+  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %85
   %87 = load ptr, ptr %86, align 8, !noalias !71
   %88 = icmp eq ptr %2, %87
   br i1 %88, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOS5_IS4_S6_E.exit, label %.lr.ph.i.i.i.i
@@ -10254,7 +10254,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
   %98 = add i32 %.02635.i.i.i.i, %.02736.i.i.i.i
   %.027.i.i.i.i = and i32 %98, %84
   %99 = zext i32 %.027.i.i.i.i to i64
-  %100 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %99
+  %100 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %75, i64 %99
   %101 = load ptr, ptr %100, align 8, !noalias !71
   %102 = icmp eq ptr %2, %101
   br i1 %102, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOS5_IS4_S6_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !76
@@ -10439,7 +10439,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA54_KcRPKNS_6MDNodeEEEEvDpOT_.exit: ; pred
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %71, %75
   %.sroa.0.0.i.i = phi ptr [ %79, %75 ], [ %73, %71 ]
-  %80 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not.i.i.i = icmp eq ptr %81, null
   br i1 %.not.i.i.i, label %89, label %82
@@ -10492,7 +10492,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 103:                                              ; preds = %96
-  %104 = getelementptr inbounds i8, ptr %98, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store ptr %104, ptr %97, align 8
   store i8 10, ptr %98, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -10632,7 +10632,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit58:            ; preds = %159, %163
   %169 = phi ptr [ %155, %163 ], [ %.pre235, %159 ]
   %.sroa.0.0.i.i57 = phi ptr [ %167, %163 ], [ %161, %159 ]
   %170 = zext i32 %.030 to i64
-  %171 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i57, i64 %170
+  %171 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i57, i64 %170
   %172 = add nuw i32 %.030, 1
   %173 = and i64 %168, 2
   %.not.i.i59 = icmp eq i64 %173, 0
@@ -10694,7 +10694,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i68: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i65
 
 199:                                              ; preds = %192
-  %200 = getelementptr inbounds i8, ptr %194, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 1
   store ptr %200, ptr %193, align 8
   store i8 10, ptr %194, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i65
@@ -10716,7 +10716,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA43_KcPNS_11InstructionERPKNS_6MDNodeEEEEv
 
 203:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit61
   %204 = zext i32 %172 to i64
-  %205 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i60, i64 %204
+  %205 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i60, i64 %204
   %206 = load ptr, ptr %205, align 8
   %.not.i.i.i69 = icmp eq ptr %206, null
   br i1 %.not.i.i.i69, label %214, label %207
@@ -10767,7 +10767,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i80: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i77
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds i8, ptr %221, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %221, i64 1
   store ptr %227, ptr %220, align 8
   store i8 10, ptr %221, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i77
@@ -10830,7 +10830,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i87: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i84
 
 246:                                              ; preds = %239
-  %247 = getelementptr inbounds i8, ptr %241, i64 1
+  %247 = getelementptr inbounds nuw i8, ptr %241, i64 1
   store ptr %247, ptr %240, align 8
   store i8 10, ptr %241, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i84
@@ -10895,7 +10895,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i94: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i91
 
 268:                                              ; preds = %261
-  %269 = getelementptr inbounds i8, ptr %263, i64 1
+  %269 = getelementptr inbounds nuw i8, ptr %263, i64 1
   store ptr %269, ptr %262, align 8
   store i8 10, ptr %263, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i91
@@ -10990,7 +10990,7 @@ _ZNSt8optionalIN4llvm5APIntEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_s
 _ZNK4llvm6MDNode10getOperandEj.exit97:            ; preds = %296, %300
   %.sroa.0.0.i.i96 = phi ptr [ %304, %300 ], [ %298, %296 ]
   %305 = zext i32 %292 to i64
-  %306 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i96, i64 %305
+  %306 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i96, i64 %305
   %307 = load ptr, ptr %306, align 8
   %.not.i.i.i98 = icmp eq ptr %307, null
   br i1 %.not.i.i.i98, label %315, label %308
@@ -11041,7 +11041,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i109: ; preds 
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i106
 
 327:                                              ; preds = %320
-  %328 = getelementptr inbounds i8, ptr %322, i64 1
+  %328 = getelementptr inbounds nuw i8, ptr %322, i64 1
   store ptr %328, ptr %321, align 8
   store i8 10, ptr %322, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i106
@@ -11121,7 +11121,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12TBAAVerifier21isValidScalarTBAANo
   %16 = add i32 %8, -1
   %.01618.i.i = and i32 %16, %15
   %17 = zext nneg i32 %.01618.i.i to i64
-  %18 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %1, %19
   br i1 %20, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E4findES4_.exit, label %.lr.ph.i.i
@@ -11138,20 +11138,20 @@ define dso_local noundef zeroext i1 @_ZN4llvm12TBAAVerifier21isValidScalarTBAANo
   %25 = add i32 %.01519.i.i, %.01620.i.i
   %.016.i.i = and i32 %25, %16
   %26 = zext i32 %.016.i.i to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %1, %28
   br i1 %29, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E4findES4_.exit, label %.lr.ph.i.i, !llvm.loop !78
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %2
   %30 = zext i32 %8 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %30
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E4findES4_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E4findES4_.exit: ; preds = %23, %10, %.loopexit.i
   %.0.i.pn.i = phi ptr [ %31, %.loopexit.i ], [ %18, %10 ], [ %27, %23 ]
   %32 = zext i32 %8 to i64
-  %33 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %6, i64 %32
   %.not = icmp eq ptr %.0.i.pn.i, %33
   br i1 %.not, label %37, label %34
 
@@ -11297,7 +11297,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit27.i:      ; preds = %86, %82
 
 _ZNK4llvm6MDNode10getOperandEj.exit30.i:          ; preds = %97, %93
   %.sroa.0.0.i.i29.i = phi ptr [ %101, %97 ], [ %95, %93 ]
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i29.i, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i29.i, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = load i8, ptr %103, align 4
   %.not.i.i = icmp eq i8 %104, 1
@@ -11378,7 +11378,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit34._crit_edge.i: ; preds = %_ZNK4llvm6MDNode1
 
 _ZNK4llvm6MDNode10getOperandEj.exit37.i:          ; preds = %141, %137
   %.sroa.0.0.i.i36.i = phi ptr [ %145, %141 ], [ %139, %137 ]
-  %146 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i36.i, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i36.i, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not.i.i38.i = icmp eq ptr %147, null
   br i1 %.not.i.i38.i, label %_ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit, label %148
@@ -11398,7 +11398,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.i: ; preds = 
 154:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.i
   %155 = load i32, ptr %41, align 4, !noalias !79
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %152, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr %152, i64 %156
   %.not24.i.i.i = icmp eq i32 %155, 0
   br i1 %.not24.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -11409,7 +11409,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit.i: ; preds = 
   br i1 %159, label %_ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit, label %160
 
 160:                                              ; preds = %.lr.ph.i.i.i
-  %161 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.025.i.i.i, i64 8
   %.not.i.i40.i = icmp eq ptr %161, %157
   br i1 %.not.i.i40.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
@@ -11473,7 +11473,7 @@ _ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit: ; pre
   %191 = add i32 %183, -1
   %.02733.i.i.i.i = and i32 %191, %190
   %192 = zext nneg i32 %.02733.i.i.i.i to i64
-  %193 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %182, i64 %192
+  %193 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %182, i64 %192
   %194 = load ptr, ptr %193, align 8, !noalias !82
   %195 = icmp eq ptr %1, %194
   br i1 %195, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E6insertEOSt4pairIS4_bE.exit, label %.lr.ph.i.i.i.i
@@ -11501,7 +11501,7 @@ _ZL20IsScalarTBAANodeImplPKN4llvm6MDNodeERNS_15SmallPtrSetImplIS2_EE.exit: ; pre
   %205 = add i32 %.02635.i.i.i.i, %.02736.i.i.i.i
   %.027.i.i.i.i = and i32 %205, %191
   %206 = zext i32 %.027.i.i.i.i to i64
-  %207 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %182, i64 %206
+  %207 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %182, i64 %206
   %208 = load ptr, ptr %207, align 8, !noalias !82
   %209 = icmp eq ptr %1, %208
   br i1 %209, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E6insertEOSt4pairIS4_bE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !87
@@ -11584,7 +11584,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %13, %17
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %25, %29
   %.sroa.0.0.i.i = phi ptr [ %33, %29 ], [ %27, %25 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %168
 
@@ -11639,7 +11639,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit29:        ; preds = %43, %47
 _ZNK4llvm6MDNode10getOperandEj.exit32:            ; preds = %55, %58
   %.sroa.0.0.i.i31 = phi ptr [ %62, %58 ], [ %56, %55 ]
   %63 = zext i32 %52 to i64
-  %64 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i31, i64 %63
+  %64 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i31, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 128
   %67 = load ptr, ptr %66, align 8
@@ -11689,7 +11689,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %82, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %88, ptr %81, align 8
   store i8 10, ptr %82, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -11732,7 +11732,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA47_KcPNS_11InstructionERPKNS_6MDNodeEPNS_
 _ZNK4llvm6MDNode10getOperandEj.exit35:            ; preds = %96, %99
   %.sroa.0.0.i.i34 = phi ptr [ %103, %99 ], [ %97, %96 ]
   %104 = zext i32 %93 to i64
-  %105 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i34, i64 %104
+  %105 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i34, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 128
   %108 = load ptr, ptr %107, align 8
@@ -11758,7 +11758,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit35:            ; preds = %96, %99
 _ZNK4llvm6MDNode10getOperandEj.exit38:            ; preds = %113, %116
   %.sroa.0.0.i.i37 = phi ptr [ %120, %116 ], [ %114, %113 ]
   %121 = zext i32 %92 to i64
-  %122 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i37, i64 %121
+  %122 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i37, i64 %121
   %123 = load ptr, ptr %122, align 8
   br label %168
 
@@ -11808,7 +11808,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit41:        ; preds = %129, %133
 _ZNK4llvm6MDNode10getOperandEj.exit44:            ; preds = %140, %143
   %.sroa.0.0.i.i43 = phi ptr [ %147, %143 ], [ %141, %140 ]
   %148 = zext i32 %138 to i64
-  %149 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i43, i64 %148
+  %149 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i43, i64 %148
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 128
   %152 = load ptr, ptr %151, align 8
@@ -11834,7 +11834,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit44:            ; preds = %140, %143
 _ZNK4llvm6MDNode10getOperandEj.exit47:            ; preds = %157, %160
   %.sroa.0.0.i.i46 = phi ptr [ %164, %160 ], [ %158, %157 ]
   %165 = zext i32 %137 to i64
-  %166 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i46, i64 %165
+  %166 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i46, i64 %165
   %167 = load ptr, ptr %166, align 8
   br label %168
 
@@ -11934,7 +11934,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %51, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %57, ptr %50, align 8
   store i8 10, ptr %51, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -12095,7 +12095,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit: ; preds = %_
 
 _ZNK4llvm6MDNode10getOperandEj.exit73:            ; preds = %112, %116
   %.sroa.0.0.i.i72 = phi ptr [ %120, %116 ], [ %114, %112 ]
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i72, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i72, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not.i.i74 = icmp eq ptr %122, null
   br i1 %.not.i.i74, label %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_9MDOperandEEEDaRKT0_.exit78.thread, label %123
@@ -12282,7 +12282,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i96: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i93
 
 204:                                              ; preds = %197
-  %205 = getelementptr inbounds i8, ptr %199, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %199, i64 1
   store ptr %205, ptr %198, align 8
   store i8 10, ptr %199, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i93
@@ -12323,7 +12323,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA53_KcPNS_11InstructionERPKNS_6MDNodeEEEEv
 
 _ZNK4llvm6MDNode10getOperandEj.exit99:            ; preds = %211, %215
   %.sroa.0.0.i.i98 = phi ptr [ %219, %215 ], [ %213, %211 ]
-  %220 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i98, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i98, i64 24
   %221 = load ptr, ptr %220, align 8
   %.not.i.i.i100 = icmp eq ptr %221, null
   br i1 %.not.i.i.i100, label %229, label %222
@@ -12394,7 +12394,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit104:       ; preds = %234, %238
 _ZNK4llvm6MDNode10getOperandEj.exit107:           ; preds = %247, %251
   %.sroa.0.0.i.i106 = phi ptr [ %255, %251 ], [ %249, %247 ]
   %256 = zext nneg i32 %231 to i64
-  %257 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i106, i64 %256
+  %257 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i106, i64 %256
   %258 = load ptr, ptr %257, align 8
   %.not.i.i.i108 = icmp eq ptr %258, null
   br i1 %.not.i.i.i108, label %266, label %259
@@ -12483,7 +12483,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i120: ; preds 
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i118
 
 295:                                              ; preds = %288
-  %296 = getelementptr inbounds i8, ptr %290, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %290, i64 1
   store ptr %296, ptr %289, align 8
   store i8 10, ptr %290, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i118
@@ -12536,7 +12536,7 @@ _ZN4llvm12TBAAVerifier11CheckFailedIJRA99_KcPNS_11InstructionERPKNS_6MDNodeERPS7
 
 _ZNK4llvm6MDNode10getOperandEj.exit123:           ; preds = %306, %310
   %.sroa.0.0.i.i122 = phi ptr [ %314, %310 ], [ %308, %306 ]
-  %315 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i122, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i122, i64 16
   %316 = load ptr, ptr %315, align 8
   %.not.i.i.i124 = icmp eq ptr %316, null
   br i1 %.not.i.i.i124, label %324, label %317
@@ -12625,7 +12625,7 @@ _ZL14IsRootTBAANodePKN4llvm6MDNodeE.exit:         ; preds = %342, %346
 356:                                              ; preds = %351
   %357 = load i32, ptr %336, align 4, !noalias !89
   %358 = zext i32 %357 to i64
-  %359 = getelementptr inbounds ptr, ptr %354, i64 %358
+  %359 = getelementptr inbounds nuw ptr, ptr %354, i64 %358
   %.not24.i.i = icmp eq i32 %357, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -12636,7 +12636,7 @@ _ZL14IsRootTBAANodePKN4llvm6MDNodeE.exit:         ; preds = %342, %346
   br i1 %361, label %.critedge175, label %362
 
 362:                                              ; preds = %.lr.ph.i.i
-  %363 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i132 = icmp eq ptr %363, %359
   br i1 %.not.i.i132, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -12828,7 +12828,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -12922,7 +12922,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -12987,7 +12987,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13052,7 +13052,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13117,7 +13117,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %23, ptr %16, align 8
   store i8 10, ptr %17, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13182,7 +13182,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13247,7 +13247,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13337,7 +13337,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %23, ptr %16, align 8
   store i8 10, ptr %17, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13402,7 +13402,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %18, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %24, ptr %17, align 8
   store i8 10, ptr %18, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13467,7 +13467,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -13519,11 +13519,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL36initializeVerifierLegacyPassPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
   store ptr @.str.1008, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 15, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.1009, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 6, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_118VerifierLegacyPass2IDE, ptr %4, align 8
@@ -13613,7 +13613,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm16VerifierAnalysis3runERNS_6Modu
 _ZN4llvm12verifyModuleERKNS_6ModuleEPNS_11raw_ostreamEPb.exit: ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i1 [ false, %3 ], [ %13, %.lr.ph.i ]
   %15 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_18Verifier6verifyEv(ptr noundef nonnull align 8 dereferenceable(2296) %4)
-  %16 = getelementptr inbounds i8, ptr %4, i64 201
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 201
   %.val.i = load i8, ptr %16, align 1
   %17 = and i8 %.val.i, 1
   %18 = xor i1 %15, true
@@ -13648,7 +13648,7 @@ define dso_local range(i16 0, 2) i16 @_ZN4llvm16VerifierAnalysis3runERNS_8Functi
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12VerifierPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_6ModuleEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm16VerifierAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(857) %2) #23
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 9
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
   %6 = load i8, ptr %1, align 1
   %7 = trunc i8 %6 to i1
@@ -13906,7 +13906,7 @@ define internal void @_ZN4llvm12function_refIFvRKNS_5TwineEEE11callback_fnIZN12_
   br label %_ZZN12_GLOBAL__N_18Verifier6verifyERKN4llvm8FunctionEENKUlRKNS1_5TwineEE_clES7_.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZZN12_GLOBAL__N_18Verifier6verifyERKN4llvm8FunctionEENKUlRKNS1_5TwineEE_clES7_.exit
@@ -13937,7 +13937,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport11CheckFailedERKNS_5Tw
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %12, ptr %5, align 8
   store i8 10, ptr %6, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -13962,7 +13962,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   br label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %10, ptr %3, align 8
   store i8 %1, ptr %4, align 1
   br label %11
@@ -14151,7 +14151,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %86
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 98:                                               ; preds = %91
-  %99 = getelementptr inbounds i8, ptr %93, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 1
   store ptr %99, ptr %92, align 8
   store i8 10, ptr %93, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -14221,7 +14221,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i62: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i59
 
 127:                                              ; preds = %120
-  %128 = getelementptr inbounds i8, ptr %122, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 1
   store ptr %128, ptr %121, align 8
   store i8 10, ptr %122, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i59
@@ -14272,7 +14272,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i70: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i67
 
 145:                                              ; preds = %138
-  %146 = getelementptr inbounds i8, ptr %140, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %140, i64 1
   store ptr %146, ptr %139, align 8
   store i8 10, ptr %140, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i67
@@ -14328,7 +14328,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i77: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i74
 
 170:                                              ; preds = %163
-  %171 = getelementptr inbounds i8, ptr %165, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 1
   store ptr %171, ptr %164, align 8
   store i8 10, ptr %165, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i74
@@ -14587,7 +14587,7 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread: ; preds = %.thread95
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %265 = load i32, ptr %264, align 4, !noalias !105
   %266 = zext i32 %265 to i64
-  %267 = getelementptr inbounds ptr, ptr %261, i64 %266
+  %267 = getelementptr inbounds nuw ptr, ptr %261, i64 %266
   %.not24.i.i.i = icmp eq i32 %265, 0
   br i1 %.not24.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -14598,7 +14598,7 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread: ; preds = %.thread95
   br i1 %269, label %_ZL11forEachUserPKN4llvm5ValueERNS_11SmallPtrSetIS2_Lj32EEENS_12function_refIFbS2_EEE.exit, label %270
 
 270:                                              ; preds = %.lr.ph.i.i.i
-  %271 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %.025.i.i.i, i64 8
   %.not.i.i.i84 = icmp eq ptr %271, %267
   br i1 %.not.i.i.i84, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
@@ -14622,7 +14622,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %257, %._crit_
 
 279:                                              ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.thread, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %281 = getelementptr inbounds i8, ptr %17, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %281, i64 noundef 6) #23
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %283 = load ptr, ptr %282, align 8
@@ -14669,7 +14669,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %257, %._crit_
 316:                                              ; preds = %305
   %317 = load i32, ptr %289, align 4, !noalias !108
   %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds ptr, ptr %314, i64 %318
+  %319 = getelementptr inbounds nuw ptr, ptr %314, i64 %318
   %.not24.i.i24.i = icmp eq i32 %317, 0
   br i1 %.not24.i.i24.i, label %._crit_edge.i.i28.i, label %.lr.ph.i.i25.i
 
@@ -14680,7 +14680,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %257, %._crit_
   br i1 %321, label %.backedge.i, label %322
 
 322:                                              ; preds = %.lr.ph.i.i25.i
-  %323 = getelementptr inbounds i8, ptr %.025.i.i26.i, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %.025.i.i26.i, i64 8
   %.not.i.i27.i = icmp eq ptr %323, %319
   br i1 %.not.i.i27.i, label %._crit_edge.i.i28.i, label %.lr.ph.i.i25.i, !llvm.loop !15
 
@@ -14724,7 +14724,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_5ValueEE6insertES3_.exit29.i: ; preds = %305, %._
   br i1 %.not.i.i111, label %368, label %333
 
 333:                                              ; preds = %330
-  %334 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i, i64 40
+  %334 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 40
   %335 = load ptr, ptr %334, align 8
   %.not8.i.i = icmp eq ptr %335, null
   br i1 %.not8.i.i, label %339, label %336
@@ -14764,7 +14764,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
 
 349:                                              ; preds = %342
-  %350 = getelementptr inbounds i8, ptr %344, i64 1
+  %350 = getelementptr inbounds nuw i8, ptr %344, i64 1
   store ptr %350, ptr %343, align 8
   store i8 10, ptr %344, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
@@ -14816,7 +14816,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i16.i.i: ; preds
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i13.i.i
 
 365:                                              ; preds = %358
-  %366 = getelementptr inbounds i8, ptr %360, i64 1
+  %366 = getelementptr inbounds nuw i8, ptr %360, i64 1
   store ptr %366, ptr %359, align 8
   store i8 10, ptr %360, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i13.i.i
@@ -14874,7 +14874,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i23.i.i: ; preds
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i20.i.i
 
 383:                                              ; preds = %376
-  %384 = getelementptr inbounds i8, ptr %378, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %378, i64 1
   store ptr %384, ptr %377, align 8
   store i8 10, ptr %378, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i20.i.i
@@ -14978,7 +14978,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -15016,7 +15016,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -15036,7 +15036,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -15080,7 +15080,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %10, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %16, ptr %9, align 8
   store i8 10, ptr %10, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -15202,7 +15202,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 1316
   %91 = load i32, ptr %90, align 4, !noalias !112
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %87, i64 %92
+  %93 = getelementptr inbounds nuw ptr, ptr %87, i64 %92
   %.not24.i.i = icmp eq i32 %91, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -15213,7 +15213,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyFunctionAttrsEPN4
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %.lr.ph.i.i
-  %97 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %97, %93
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -15271,7 +15271,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %10
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 121:                                              ; preds = %114
-  %122 = getelementptr inbounds i8, ptr %116, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 1
   store ptr %122, ptr %115, align 8
   store i8 10, ptr %116, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -15356,7 +15356,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i128: ; preds = 
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125
 
 152:                                              ; preds = %145
-  %153 = getelementptr inbounds i8, ptr %147, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %147, i64 1
   store ptr %153, ptr %146, align 8
   store i8 10, ptr %147, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125
@@ -15373,12 +15373,12 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %152, %
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AttributeListEJPKNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 156:                                              ; preds = %.lr.ph
-  %157 = getelementptr inbounds i8, ptr %.0100457, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.0100457, i64 8
   %.not120 = icmp eq ptr %157, %137
   br i1 %.not120, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %156, %135
-  %158 = getelementptr inbounds i8, ptr %.0459, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.0459, i64 8
   %.not = icmp eq ptr %158, %127
   br i1 %.not, label %.loopexit, label %.lr.ph461
 
@@ -15420,7 +15420,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %152, %
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AttributeListEJPKNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 172:                                              ; preds = %164, %.lr.ph465
-  %173 = getelementptr inbounds i8, ptr %.0112463, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %.0112463, i64 8
   %.not116 = icmp eq ptr %173, %161
   br i1 %.not116, label %._crit_edge466, label %.lr.ph465
 
@@ -15470,7 +15470,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %152, %
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %193 = getelementptr inbounds ptr, ptr %192, i64 %indvars.iv.next
+  %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.next
   %194 = load ptr, ptr %193, align 8
   %195 = trunc nuw i64 %indvars.iv to i32
   %196 = call ptr @_ZNK4llvm13AttributeList13getParamAttrsEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %195) #23
@@ -15720,7 +15720,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %152, %
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_13AttributeListEJPKNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 294:                                              ; preds = %286, %.lr.ph481
-  %295 = getelementptr inbounds i8, ptr %.0114479, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %.0114479, i64 8
   %.not118 = icmp eq ptr %295, %283
   br i1 %.not118, label %._crit_edge482, label %.lr.ph481
 
@@ -15984,7 +15984,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i125: ; preds = %152, %
 
 419:                                              ; preds = %418, %415
   %.0912.i.idx = phi i64 [ 0, %415 ], [ %.0912.i.add, %418 ]
-  %.0912.i.ptr = getelementptr inbounds i8, ptr @constinit, i64 %.0912.i.idx
+  %.0912.i.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0912.i.idx
   %420 = load i64, ptr %.0912.i.ptr, align 8
   %421 = icmp eq i64 %420, %417
   br i1 %421, label %_ZN4llvm12is_containedINS_11AllocFnKindES1_EEbSt16initializer_listIT_ERKT0_.exit.thread, label %418
@@ -16520,7 +16520,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -16558,7 +16558,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ArgumentEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ArgumentEJEEEvRKT_DpRKT0_.exit
@@ -16578,7 +16578,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ArgumentEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ArgumentEJEEEvRKT_DpRKT0_.exit
@@ -16612,7 +16612,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -16657,7 +16657,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -16738,7 +16738,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %17
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -16788,7 +16788,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i15: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i12
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %42, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %48, ptr %41, align 8
   store i8 10, ptr %42, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i12
@@ -16855,7 +16855,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %66, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 1
   store ptr %72, ptr %65, align 8
   store i8 10, ptr %66, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -16872,7 +16872,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i: ; preds = %71, %69
 
 74:                                               ; preds = %60, %.lr.ph.i
   %75 = add i32 %.sroa.5.020.i, 1
-  %76 = getelementptr inbounds i8, ptr %.sroa.010.019.i, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.010.019.i, i64 32
   %.not.i17 = icmp eq ptr %76, %57
   br i1 %.not.i17, label %_ZN12_GLOBAL__N_18Verifier20verifySwiftErrorCallERN4llvm8CallBaseEPKNS1_5ValueE.exit, label %.lr.ph.i
 
@@ -17095,7 +17095,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit33:            ; preds = %93, %97
   %.sroa.0.0.i.i32 = phi ptr [ %101, %97 ], [ %95, %93 ]
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i32, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i32, i64 8
   %103 = load ptr, ptr %102, align 8
   %.not19 = icmp eq ptr %103, null
   br i1 %.not19, label %104, label %107
@@ -17130,7 +17130,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit33:            ; preds = %93, %97
 
 _ZNK4llvm6MDNode10getOperandEj.exit36:            ; preds = %110, %114
   %.sroa.0.0.i.i35 = phi ptr [ %118, %114 ], [ %112, %110 ]
-  %119 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i35, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i35, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = load i8, ptr %120, align 4
   %122 = icmp eq i8 %121, 1
@@ -17312,7 +17312,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit48:            ; preds = %181, %185
   br label %.loopexit
 
 210:                                              ; preds = %.lr.ph, %_ZNK4llvm6MDNode10getOperandEj.exit36, %203
-  %211 = getelementptr inbounds i8, ptr %.064, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %.064, i64 16
   %.not = icmp eq ptr %211, %17
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -17347,7 +17347,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %6
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -17396,7 +17396,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10Basic
 16:                                               ; preds = %9
   %17 = load ptr, ptr %0, align 8
   %18 = zext i32 %12 to i64
-  %19 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %17, i64 %18
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -17423,7 +17423,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10Basic
 26:                                               ; preds = %21
   %27 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %25) #23
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %30 = icmp eq ptr %28, %29
   br i1 %30, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i, label %31
 
@@ -17440,7 +17440,7 @@ _ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit: ; preds = %_ZN4llvm11SmallV
   br label %32
 
 32:                                               ; preds = %.lr.ph, %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit
-  %33 = getelementptr inbounds i8, ptr %.01113, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.01113, i64 16
   %.not = icmp eq ptr %33, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !149
 
@@ -17481,7 +17481,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -17523,7 +17523,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -17568,7 +17568,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %31, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %37, ptr %30, align 8
   store i8 10, ptr %31, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -17588,7 +17588,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %41, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %47, ptr %40, align 8
   store i8 10, ptr %41, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -17621,7 +17621,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MD
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %22 = load i32, ptr %21, align 4, !noalias !150
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
   %.not24.i.i = icmp eq i32 %22, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -17632,7 +17632,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MD
   br i1 %26, label %_ZN4llvm15VerifierSupport11CheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %27
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %28, %24
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -17907,7 +17907,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %86, %90
   br label %109
 
 109:                                              ; preds = %108, %106, %105, %.lr.ph.split.us
-  %110 = getelementptr inbounds i8, ptr %.074.us, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.074.us, i64 8
   %.not56.us = icmp eq ptr %110, %97
   br i1 %.not56.us, label %._crit_edge, label %.lr.ph.split.us
 
@@ -17955,7 +17955,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %.s
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 125:                                              ; preds = %118
-  %126 = getelementptr inbounds i8, ptr %120, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %120, i64 1
   store ptr %126, ptr %119, align 8
   store i8 10, ptr %120, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -17996,7 +17996,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %125, %123
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 140:                                              ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %135, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 1
   store ptr %141, ptr %134, align 8
   store i8 10, ptr %135, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -18038,7 +18038,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
   br label %157
 
 157:                                              ; preds = %154, %.lr.ph.split, %156, %153
-  %158 = getelementptr inbounds i8, ptr %.074, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.074, i64 8
   %.not56 = icmp eq ptr %158, %97
   br i1 %.not56, label %._crit_edge, label %.lr.ph.split
 
@@ -18104,7 +18104,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -18142,7 +18142,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -18162,7 +18162,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -18195,7 +18195,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -18240,7 +18240,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %14 = add i32 %5, -1
   %.02733.i.i.i = and i32 %13, %14
   %15 = zext nneg i32 %.02733.i.i.i to i64
-  %16 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %3, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %8, %17
   br i1 %18, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E16FindAndConstructERKS4_.exit, label %.lr.ph.i.i.i
@@ -18268,7 +18268,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %28 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %28, %14
   %29 = zext i32 %.027.i.i.i to i64
-  %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %3, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %8, %31
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E16FindAndConstructERKS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !153
@@ -18308,7 +18308,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -18362,7 +18362,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -18400,7 +18400,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -18420,7 +18420,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -18454,7 +18454,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -18487,7 +18487,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -18507,7 +18507,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %33, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %39, ptr %32, align 8
   store i8 10, ptr %33, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -18555,7 +18555,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llv
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %29 = load i32, ptr %28, align 4, !noalias !154
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %25, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %30
   %.not24.i.i = icmp eq i32 %29, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -18566,7 +18566,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_18Verifier13visitFunctionERKN4llv
   br i1 %33, label %_ZN4llvm16dyn_cast_or_nullINS_10DILocationEKNS_6MDNodeEEEDaPT0_.exit.thread, label %34
 
 34:                                               ; preds = %.lr.ph.i.i
-  %35 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i10 = icmp eq ptr %35, %31
   br i1 %.not.i.i10, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -18684,7 +18684,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i:    ; preds = %75, %71
 
 _ZNK4llvm10DILocation12getInlinedAtEv.exit.i:     ; preds = %86, %82
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %90, %86 ], [ %84, %82 ]
-  %91 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not.i = icmp eq ptr %92, null
   br i1 %.not.i, label %_ZNK4llvm10DILocation12getInlinedAtEv.exit._ZNK4llvm10DILocation12getInlinedAtEv.exit.thread_crit_edge.i, label %tailrecurse.i
@@ -18740,7 +18740,7 @@ _ZNK4llvm10DILocation17getInlinedAtScopeEv.exit:  ; preds = %95, %99
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 20
   %116 = load i32, ptr %115, align 4, !noalias !157
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds ptr, ptr %112, i64 %117
+  %118 = getelementptr inbounds nuw ptr, ptr %112, i64 %117
   %.not24.i.i29 = icmp eq i32 %116, 0
   br i1 %.not24.i.i29, label %._crit_edge.i.i33, label %.lr.ph.i.i30
 
@@ -18751,7 +18751,7 @@ _ZNK4llvm10DILocation17getInlinedAtScopeEv.exit:  ; preds = %95, %99
   br i1 %120, label %_ZN4llvm16dyn_cast_or_nullINS_10DILocationEKNS_6MDNodeEEEDaPT0_.exit.thread, label %121
 
 121:                                              ; preds = %.lr.ph.i.i30
-  %122 = getelementptr inbounds i8, ptr %.025.i.i31, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.025.i.i31, i64 8
   %.not.i.i32 = icmp eq ptr %122, %118
   br i1 %.not.i.i32, label %._crit_edge.i.i33, label %.lr.ph.i.i30, !llvm.loop !15
 
@@ -18817,7 +18817,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10DILocationEKNS_6MDNodeEEEDaPT0_.exit.thread: ; p
 define linkonce_odr hidden void @_ZN4llvm11SmallVectorISt4pairIjPNS_6MDNodeEELj4EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 {
   %2 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEED2Ev.exit, label %6
 
@@ -18854,7 +18854,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -18892,7 +18892,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalValueEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalValueEJEEEvRKT_DpRKT0_.exit
@@ -18912,7 +18912,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalValueEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalValueEJEEEvRKT_DpRKT0_.exit
@@ -18946,7 +18946,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -18984,7 +18984,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12GlobalObjectEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12GlobalObjectEJEEEvRKT_DpRKT0_.exit
@@ -19004,7 +19004,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12GlobalObjectEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12GlobalObjectEJEEEvRKT_DpRKT0_.exit
@@ -19038,7 +19038,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -19083,7 +19083,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -19238,7 +19238,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %44, %48
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %89, %93
   %.sroa.0.0.i.i = phi ptr [ %97, %93 ], [ %91, %89 ]
-  %98 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %85
+  %98 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i, i64 %85
   %99 = load ptr, ptr %98, align 8
   %100 = load i8, ptr %99, align 4
   %.not.i = icmp eq i8 %100, 1
@@ -19286,7 +19286,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %89, %93
 
 _ZNK4llvm6MDNode10getOperandEj.exit31:            ; preds = %115, %119
   %.sroa.0.0.i.i30 = phi ptr [ %123, %119 ], [ %117, %115 ]
-  %124 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i30, i64 %111
+  %124 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i30, i64 %111
   %125 = load ptr, ptr %124, align 8
   %126 = load i8, ptr %125, align 4
   %.not.i32 = icmp eq i8 %126, 1
@@ -19894,7 +19894,7 @@ _ZN4llvm5APIntC2ERKS0_.exit63:                    ; preds = %365, %367
 
 _ZNK4llvm6MDNode10getOperandEj.exit66:            ; preds = %372, %376
   %.sroa.0.0.i.i65 = phi ptr [ %380, %376 ], [ %374, %372 ]
-  %381 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i65, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i65, i64 8
   %382 = load ptr, ptr %381, align 8
   %383 = load i8, ptr %382, align 4
   %.not.i67 = icmp eq i8 %383, 1
@@ -20215,7 +20215,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -20253,7 +20253,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14GlobalVariableEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14GlobalVariableEJEEEvRKT_DpRKT0_.exit
@@ -20273,7 +20273,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14GlobalVariableEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14GlobalVariableEJEEEvRKT_DpRKT0_.exit
@@ -20314,7 +20314,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -20334,7 +20334,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -20363,7 +20363,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -20402,7 +20402,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_12Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -20422,7 +20422,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_12Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -20451,7 +20451,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -20483,7 +20483,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_11GlobalVa
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -20503,7 +20503,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_11GlobalVa
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -20531,7 +20531,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -20570,7 +20570,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_12Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -20590,7 +20590,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_12Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -20622,7 +20622,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -20642,7 +20642,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -20676,7 +20676,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -20711,7 +20711,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -20747,7 +20747,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -20785,7 +20785,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
@@ -20805,7 +20805,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
@@ -20839,7 +20839,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -20877,7 +20877,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -20897,7 +20897,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -21048,7 +21048,7 @@ _ZSt8distanceIN4llvm5Value18user_iterator_implIKNS0_4UserEEEENSt15iterator_trait
   br i1 %22, label %23, label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
 
 23:                                               ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implIKNS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %24, i64 noundef %20, i64 noundef 8) #23
   br label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
 
@@ -21086,7 +21086,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %_ZSt8distance
   br i1 %49, label %50, label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i
 
 50:                                               ; preds = %33
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %51, i64 noundef %47, i64 noundef 8) #23
   br label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit.i
 
@@ -21127,7 +21127,7 @@ _ZSt13move_backwardIPPKN4llvm5ValueES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15S
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 24
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %.08.i.i.i.i.i, align 8
-  %67 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not.i.i.i.i.i42 = icmp eq ptr %69, %3
@@ -21159,7 +21159,7 @@ _ZSt13move_backwardIPPKN4llvm5ValueES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15S
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 24
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %.03851, align 8
-  %83 = getelementptr inbounds i8, ptr %.03851, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.03851, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.045.049, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = add i64 %.03950, -1
@@ -21177,7 +21177,7 @@ _ZSt13move_backwardIPPKN4llvm5ValueES4_ET0_T_S6_S5_.exit: ; preds = %_ZN4llvm15S
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 24
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %.08.i.i.i.i.i.i.i.i, align 8
-  %89 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %91, %3
@@ -21211,7 +21211,7 @@ _ZSt8distanceIN4llvm5Value18user_iterator_implIKNS0_4UserEEEENSt15iterator_trait
   br i1 %10, label %11, label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
 
 11:                                               ; preds = %_ZSt8distanceIN4llvm5Value18user_iterator_implIKNS0_4UserEEEENSt15iterator_traitsIT_E15difference_typeES7_S7_.exit
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %12, i64 noundef %8, i64 noundef 8) #23
   br label %_ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit
 
@@ -21230,7 +21230,7 @@ _ZN4llvm15SmallVectorImplIPKNS_5ValueEE7reserveEm.exit: ; preds = %_ZSt8distance
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %.08.i.i.i.i.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i.i, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %20, %2
@@ -21280,7 +21280,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21300,7 +21300,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21340,7 +21340,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6ModuleE
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -21360,7 +21360,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6ModuleE
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -21389,7 +21389,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteEPKNS_6ModuleE(p
 14:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %7, ptr noundef nonnull align 1 dereferenceable(14) @.str.108, i64 14, i1 false)
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 14
   store ptr %16, ptr %6, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -21416,7 +21416,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %12, %14
 31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i16 2599, ptr %24, align 1
   %32 = load ptr, ptr %23, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   store ptr %33, ptr %23, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit4
 
@@ -21452,7 +21452,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21472,7 +21472,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %25, align 8
   store i8 10, ptr %26, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21512,7 +21512,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Instru
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21532,7 +21532,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Instru
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21570,7 +21570,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21590,7 +21590,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21629,7 +21629,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21649,7 +21649,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21689,7 +21689,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21709,7 +21709,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21733,7 +21733,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 32, ptr %34, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
@@ -21771,7 +21771,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %12, ptr %5, align 8
   store i8 10, ptr %6, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -21817,7 +21817,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21837,7 +21837,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -21866,7 +21866,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIbJPKNS_6Modul
   br label %_ZN4llvm15VerifierSupport5WriteEj.exit
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEj.exit
@@ -21891,7 +21891,7 @@ _ZN4llvm15VerifierSupport5WriteEj.exit:           ; preds = %14, %16
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6ModuleEJbEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEj.exit
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6ModuleEJbEEEvRKT_DpRKT0_.exit
@@ -21935,7 +21935,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -22060,7 +22060,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   br label %368
 
 63:                                               ; preds = %55, %.lr.ph
-  %64 = getelementptr inbounds i8, ptr %.080, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   %.not = icmp eq ptr %64, %52
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -22291,7 +22291,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   %167 = call noundef i32 @_ZNK4llvm9Attribute13getKindAsEnumEv(ptr noundef nonnull align 8 dereferenceable(8) %24) #23
   %168 = zext i32 %167 to i64
   %169 = lshr i64 %168, 6
-  %170 = getelementptr inbounds [2 x i64], ptr %23, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [2 x i64], ptr %23, i64 0, i64 %169
   %171 = load i64, ptr %170, align 8
   %172 = and i64 %168, 63
   %173 = shl nuw i64 1, %172
@@ -22317,7 +22317,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyParameterAttrsEN4
   br label %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit58
 
 180:                                              ; preds = %.lr.ph84, %166
-  %181 = getelementptr inbounds i8, ptr %.04482, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %.04482, i64 8
   %.not47 = icmp eq ptr %181, %163
   br i1 %.not47, label %._crit_edge85, label %.lr.ph84
 
@@ -22721,7 +22721,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEj.exit:        ; preds = %333, %341
 
 _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit58: ; preds = %364, %.critedge54, %360, %.critedge52, %356, %.critedge50, %352, %.critedge, %331, %_ZNK4llvm4Type18isIntOrIntVectorTyEj.exit, %346, %328, %322, %314, %308, %194, %175
   %365 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %366 = getelementptr inbounds i8, ptr %23, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %367 = load ptr, ptr %366, align 8
   call void @_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %365, ptr noundef %367)
   br label %368
@@ -22764,46 +22764,46 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20verifyAttributeTypesEN4
 
 .lr.ph:                                           ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %.sroa.2563.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.3564.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.4565.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.5566.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 33
-  %.sroa.2556.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.3557.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.4558.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.5559.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 33
-  %.sroa.2549.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.3550.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.4551.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
-  %.sroa.5552.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 33
-  %.sroa.2542.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.3543.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.4544.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
-  %.sroa.5545.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 33
-  %.sroa.2535.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.3536.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.4537.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
-  %.sroa.5538.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 33
-  %.sroa.2528.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.3529.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
-  %.sroa.4530.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
-  %.sroa.5531.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 33
-  %.sroa.2521.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.3522.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.4523.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
-  %.sroa.5524.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 33
-  %.sroa.2514.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.3515.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.4516.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.5517.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 33
-  %.sroa.2507.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.3508.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  %.sroa.4509.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
-  %.sroa.5510.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 33
-  %.sroa.2504.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 33
+  %.sroa.2563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.3564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.4565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.5566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 33
+  %.sroa.2556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.3557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.4558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.5559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 33
+  %.sroa.2549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.3550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sroa.4551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.5552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 33
+  %.sroa.2542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.3543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sroa.4544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sroa.5545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 33
+  %.sroa.2535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.3536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.4537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sroa.5538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 33
+  %.sroa.2528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.3529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.4530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sroa.5531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 33
+  %.sroa.2521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.3522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sroa.4523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sroa.5524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 33
+  %.sroa.2514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %.sroa.3515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sroa.4516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sroa.5517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 33
+  %.sroa.2507.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.3508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.4509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sroa.5510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 33
+  %.sroa.2504.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 33
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit318.thread498
@@ -22869,7 +22869,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -22934,7 +22934,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit101:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit104
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %59, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %65, ptr %58, align 8
   store i8 10, ptr %59, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit104
@@ -22999,7 +22999,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit131:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit134
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %78, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %84, ptr %77, align 8
   store i8 10, ptr %78, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit134
@@ -23064,7 +23064,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit161:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit164
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %97, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store ptr %103, ptr %96, align 8
   store i8 10, ptr %97, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit164
@@ -23129,7 +23129,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit191:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit194
 
 121:                                              ; preds = %114
-  %122 = getelementptr inbounds i8, ptr %116, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 1
   store ptr %122, ptr %115, align 8
   store i8 10, ptr %116, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit194
@@ -23194,7 +23194,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit221:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit224
 
 140:                                              ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %135, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 1
   store ptr %141, ptr %134, align 8
   store i8 10, ptr %135, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit224
@@ -23259,7 +23259,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit251:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit254
 
 159:                                              ; preds = %152
-  %160 = getelementptr inbounds i8, ptr %154, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 1
   store ptr %160, ptr %153, align 8
   store i8 10, ptr %154, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit254
@@ -23324,7 +23324,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit281:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit284
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %173, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 1
   store ptr %179, ptr %172, align 8
   store i8 10, ptr %173, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit284
@@ -23389,7 +23389,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit311:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit314
 
 197:                                              ; preds = %190
-  %198 = getelementptr inbounds i8, ptr %192, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store ptr %198, ptr %191, align 8
   store i8 10, ptr %192, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit314
@@ -23454,7 +23454,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit341:               ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit344
 
 216:                                              ; preds = %209
-  %217 = getelementptr inbounds i8, ptr %211, i64 1
+  %217 = getelementptr inbounds nuw i8, ptr %211, i64 1
   store ptr %217, ptr %210, align 8
   store i8 10, ptr %211, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit344
@@ -23489,7 +23489,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit344: ; preds = %_ZN4llvm
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit318.thread498:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit318.thread, %_ZN4llvmeqENS_9StringRefES0_.exit288.thread493, %218, %_ZN4llvmeqENS_9StringRefES0_.exit318, %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit344, %_ZN4llvmeqENS_9StringRefES0_.exit326, %_ZN4llvmeqENS_9StringRefES0_.exit322
-  %229 = getelementptr inbounds i8, ptr %.0503, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %.0503, i64 8
   %.not = icmp eq ptr %229, %22
   br i1 %.not, label %.loopexit, label %24
 
@@ -23547,7 +23547,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   %22 = load ptr, ptr %21, align 8
   %23 = add nuw i32 %3, 1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
@@ -23643,7 +23643,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit17:                ; preds = %14
   store ptr %11, ptr %10, align 8, !alias.scope !206
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %17, ptr %28, align 8, !alias.scope !206
-  %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %18, ptr %.sroa.2.0..sroa_idx.i.i.i16, align 8, !alias.scope !206
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 2, ptr %29, align 8, !alias.scope !206
@@ -23674,7 +23674,7 @@ define linkonce_odr hidden void @_ZNSt8optionalIN4llvm6VFInfoEED2Ev(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #23
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZNSt14_Optional_baseIN4llvm6VFInfoELb0ELb0EED2Ev.exit, label %13
 
@@ -23724,7 +23724,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_13AttributeListE.exit: ; preds = %3, %5
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -23744,7 +23744,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_13AttributeListE.exit: ; preds = %3, %5
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %25, align 8
   store i8 10, ptr %26, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -23781,7 +23781,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_12Attrib
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -23818,7 +23818,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_12AttributeSetE.exit: ; preds = %3, %_ZN4ll
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -23838,7 +23838,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_12AttributeSetE.exit: ; preds = %3, %_ZN4ll
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -23875,7 +23875,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_9Attribu
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -23912,7 +23912,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9AttributeE.exit: ; preds = %3, %_ZN4llvm11
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -23932,7 +23932,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9AttributeE.exit: ; preds = %3, %_ZN4llvm11
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -24112,7 +24112,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 32:                                               ; preds = %2
   %33 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1) #23
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %33, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %34 = shl i64 %.sroa.0.0.copyload1.i.i.i.i, 3
   br label %58
@@ -24192,7 +24192,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_Ident
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #23
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %.07, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %.07, i64 56
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZNSt8_Rb_treeIN4llvm11SmallStringILj32EEES2_St9_IdentityIS2_ESt4lessIvESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit, label %12
 
@@ -24260,7 +24260,7 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %22 = load i8, ptr %21, align 1, !noalias !212
   %23 = icmp eq i8 %22, 1
   %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !212
-  %.sroa.36.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.36.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i = load i64, ptr %.sroa.36.0..sroa_idx.i, align 8, !noalias !212
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
@@ -24269,17 +24269,17 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %25 = load i8, ptr %24, align 1, !noalias !212
   %26 = icmp eq i8 %25, 1
   %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !212
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !212
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.3.0.i = select i1 %26, i64 %.sroa.3.0.copyload.i, i64 undef
   store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !212
-  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.36.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !alias.scope !212
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !212
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !212
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.014.i, ptr %28, align 8, !alias.scope !212
@@ -24331,7 +24331,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Argumen
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24351,7 +24351,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Argumen
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24375,7 +24375,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 32, ptr %34, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
@@ -24417,7 +24417,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Argumen
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24437,7 +24437,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Argumen
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24469,7 +24469,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -24489,7 +24489,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -24526,7 +24526,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJ
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24546,7 +24546,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJ
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24578,7 +24578,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -24598,7 +24598,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -24755,7 +24755,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJ
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24775,7 +24775,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_5ValueEJ
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24802,7 +24802,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 10, ptr %37, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -24822,7 +24822,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %47, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %53, ptr %46, align 8
   store i8 10, ptr %47, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -24856,7 +24856,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -24891,7 +24891,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -24932,7 +24932,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24952,7 +24952,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -24992,7 +24992,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -25012,7 +25012,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -25035,7 +25035,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtr
 .lr.ph.preheader.i:                               ; preds = %1
   %7 = load ptr, ptr %0, align 8
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %7, i64 %8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i, %.lr.ph.preheader.i
@@ -25061,7 +25061,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtr
 16:                                               ; preds = %11
   %17 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #23
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = icmp eq ptr %18, %19
   br i1 %20, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i, label %21
 
@@ -25074,7 +25074,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i: ; preds = %21, %16
   br label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i
 
 _ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i, %11, %.lr.ph.i, %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.011.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i = icmp eq ptr %22, %9
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E10destroyAllEv.exit, label %.lr.ph.i, !llvm.loop !215
 
@@ -25102,14 +25102,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_
   store i32 0, ptr %32, align 4
   %33 = load ptr, ptr %0, align 8
   %34 = zext nneg i32 %.0 to i64
-  %35 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %33, i64 %34
   %.not6.i = icmp eq i32 %.0, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %31, %.lr.ph.i6
   %.07.i = phi ptr [ %36, %.lr.ph.i6 ], [ %33, %31 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %36 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i7 = icmp eq ptr %36, %35
   br i1 %.not.i7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i6, !llvm.loop !216
 
@@ -25148,14 +25148,14 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_
   store i32 0, ptr %62, align 4
   %63 = load i32, ptr %2, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %61, i64 %64
   %.not6.i.i = icmp eq i32 %63, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %66, %.lr.ph.i.i ], [ %61, %42 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %66 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i8 = icmp eq ptr %66, %65
   br i1 %.not.i.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !216
 
@@ -25200,7 +25200,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -25220,7 +25220,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -25249,7 +25249,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -25270,7 +25270,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6inse
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
   %.not24.i = icmp eq i32 %10, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -25286,7 +25286,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6inse
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.not.i = icmp eq ptr %19, %12
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
@@ -25304,7 +25304,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6inse
   %26 = load i32, ptr %9, align 4
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
   %30 = insertvalue { ptr, i8 } poison, ptr %29, 0
   %31 = insertvalue { ptr, i8 } %30, i8 1, 1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit
@@ -25327,7 +25327,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %15, %23, %32
   %39 = load i32, ptr %38, align 8
   %.v.v.i4.i = select i1 %37, i32 %34, i32 %39
   %.v.i5.i = zext i32 %.v.v.i4.i to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %.v.i5.i
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract, %40
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
@@ -25338,7 +25338,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %15, %23, %32
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE12makeIteratorEPKPKv.exit
 
 .critedge2.i7.i.i9.i:                             ; preds = %.lr.ph.i5.i.i7.i
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.3.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 8
   %.not.i8.i.i10.i = icmp eq ptr %42, %40
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !66
 
@@ -25346,7 +25346,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_8MetadataEE12makeIteratorEPKPKv.exit: ; preds = 
   %.sroa.0.4.i = phi ptr [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %42, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   %.fca.1.extract = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
   store ptr %.sroa.0.4.i, ptr %0, align 8
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %.sroa.2.0..sroa_idx2, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = and i8 %.fca.1.extract, 1
@@ -25466,7 +25466,7 @@ _ZNK4llvm10DILocation11getRawScopeEv.exit18:      ; preds = %42, %46
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %55, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %61, ptr %54, align 8
   store i8 10, ptr %55, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -25532,7 +25532,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %77, %73
 
 _ZNK4llvm10DILocation15getRawInlinedAtEv.exit:    ; preds = %85, %89
   %.sroa.0.0.i.i.i21 = phi ptr [ %93, %89 ], [ %87, %85 ]
-  %94 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i21, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i21, i64 8
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %6, align 8
   %.not11 = icmp eq ptr %95, null
@@ -25568,7 +25568,7 @@ _ZNK4llvm10DILocation15getRawInlinedAtEv.exit:    ; preds = %85, %89
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i24
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %105, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store ptr %111, ptr %104, align 8
   store i8 10, ptr %105, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i24
@@ -25719,7 +25719,7 @@ _ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit: ; preds = %15, %19
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %31, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %37, ptr %30, align 8
   store i8 10, ptr %31, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -25786,7 +25786,7 @@ _ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit16: ; preds = %48, %52
 
 _ZNK4llvm26DIGlobalVariableExpression13getExpressionEv.exit: ; preds = %62, %66
   %.sroa.0.0.i.i.i.i18 = phi ptr [ %70, %66 ], [ %64, %62 ]
-  %71 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i18, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i18, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not13 = icmp eq ptr %72, null
   br i1 %.not13, label %153, label %73
@@ -25847,7 +25847,7 @@ _ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit21: ; preds = %92, %96
   %.sroa.0.0.i.i.i.i20 = phi ptr [ %100, %96 ], [ %94, %92 ]
   %101 = load ptr, ptr %.sroa.0.0.i.i.i.i20, align 8
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -25892,7 +25892,7 @@ _ZNK4llvm26DIGlobalVariableExpression11getVariableEv.exit21: ; preds = %92, %96
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i
 
 120:                                              ; preds = %113
-  %121 = getelementptr inbounds i8, ptr %115, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 1
   store ptr %121, ptr %114, align 8
   store i8 10, ptr %115, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i
@@ -25941,7 +25941,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i
 
 143:                                              ; preds = %136
-  %144 = getelementptr inbounds i8, ptr %138, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 1
   store ptr %144, ptr %137, align 8
   store i8 10, ptr %138, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i
@@ -26077,7 +26077,7 @@ _ZNK4llvm10DISubrange15getRawCountNodeEv.exit:    ; preds = %26, %30
 
 _ZNK4llvm10DISubrange16getRawUpperBoundEv.exit:   ; preds = %38, %42
   %.sroa.0.0.i.i.i22 = phi ptr [ %46, %42 ], [ %40, %38 ]
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i22, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i22, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not16 = icmp eq ptr %48, null
   br i1 %.not16, label %_ZNK4llvm10DISubrange16getRawUpperBoundEv.exit._crit_edge, label %49
@@ -26207,7 +26207,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %81, %70, %_ZNK4ll
 
 _ZNK4llvm10DISubrange16getRawLowerBoundEv.exit:   ; preds = %97, %101
   %.sroa.0.0.i.i.i27 = phi ptr [ %105, %101 ], [ %99, %97 ]
-  %106 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i27, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i27, i64 8
   %107 = load ptr, ptr %106, align 8
   %.not18 = icmp eq ptr %107, null
   br i1 %.not18, label %113, label %108
@@ -26252,7 +26252,7 @@ _ZNK4llvm10DISubrange16getRawLowerBoundEv.exit:   ; preds = %97, %101
 
 _ZNK4llvm10DISubrange16getRawUpperBoundEv.exit31: ; preds = %116, %120
   %.sroa.0.0.i.i.i30 = phi ptr [ %124, %120 ], [ %118, %116 ]
-  %125 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i30, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30, i64 16
   %126 = load ptr, ptr %125, align 8
   %.not19 = icmp eq ptr %126, null
   br i1 %.not19, label %132, label %127
@@ -26297,7 +26297,7 @@ _ZNK4llvm10DISubrange16getRawUpperBoundEv.exit31: ; preds = %116, %120
 
 _ZNK4llvm10DISubrange12getRawStrideEv.exit:       ; preds = %135, %139
   %.sroa.0.0.i.i.i34 = phi ptr [ %143, %139 ], [ %137, %135 ]
-  %144 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i34, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i34, i64 24
   %145 = load ptr, ptr %144, align 8
   %.not20 = icmp eq ptr %145, null
   br i1 %.not20, label %151, label %146
@@ -26526,7 +26526,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier18visitDIDerivedTypeERKN4
 
 _ZNK4llvm13DIDerivedType15getRawExtraDataEv.exit: ; preds = %83, %87
   %.sroa.0.0.i.i.i = phi ptr [ %91, %87 ], [ %85, %83 ]
-  %92 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not.i = icmp eq ptr %93, null
   br i1 %.not.i, label %_ZL6isTypePKN4llvm8MetadataE.exit.thread, label %94
@@ -26568,7 +26568,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %94
 
 _ZNK4llvm13DIDerivedType15getRawExtraDataEv.exit53: ; preds = %100, %104
   %.sroa.0.0.i.i.i52 = phi ptr [ %108, %104 ], [ %102, %100 ]
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i52, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i52, i64 32
   %110 = load ptr, ptr %109, align 8
   store ptr %110, ptr %7, align 8
   %111 = load ptr, ptr %0, align 8
@@ -26589,7 +26589,7 @@ _ZNK4llvm13DIDerivedType15getRawExtraDataEv.exit53: ; preds = %100, %104
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds i8, ptr %114, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 1
   store ptr %120, ptr %113, align 8
   store i8 10, ptr %114, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -26639,7 +26639,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit.thread:         ; preds = %94, %94, %94, %94, 
 
 _ZNK4llvm13DIDerivedType14getRawBaseTypeEv.exit:  ; preds = %136, %140
   %.sroa.0.0.i.i.i57 = phi ptr [ %144, %140 ], [ %138, %136 ]
-  %145 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i57, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i57, i64 24
   %146 = load ptr, ptr %145, align 8
   store ptr %146, ptr %8, align 8
   %.not = icmp eq ptr %146, null
@@ -26697,7 +26697,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11DIBasicTypeENS_8MetadataEEEDaPT0_.exit: ; preds 
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i64
 
 167:                                              ; preds = %160
-  %168 = getelementptr inbounds i8, ptr %162, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 1
   store ptr %168, ptr %161, align 8
   store i8 10, ptr %162, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i64
@@ -26742,7 +26742,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i64: ; preds =
 
 _ZNK4llvm6DIType11getRawScopeEv.exit:             ; preds = %182, %186
   %.sroa.0.0.i.i.i68 = phi ptr [ %190, %186 ], [ %184, %182 ]
-  %191 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i68, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i68, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not.i69 = icmp eq ptr %192, null
   br i1 %.not.i69, label %229, label %193
@@ -26792,7 +26792,7 @@ _ZL7isScopePKN4llvm8MetadataE.exit:               ; preds = %193
 
 _ZNK4llvm6DIType11getRawScopeEv.exit72:           ; preds = %199, %203
   %.sroa.0.0.i.i.i71 = phi ptr [ %207, %203 ], [ %201, %199 ]
-  %208 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i71, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i71, i64 8
   %209 = load ptr, ptr %208, align 8
   store ptr %209, ptr %13, align 8
   %210 = load ptr, ptr %0, align 8
@@ -26813,7 +26813,7 @@ _ZNK4llvm6DIType11getRawScopeEv.exit72:           ; preds = %199, %203
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i75
 
 218:                                              ; preds = %211
-  %219 = getelementptr inbounds i8, ptr %213, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %213, i64 1
   store ptr %219, ptr %212, align 8
   store i8 10, ptr %213, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i75
@@ -26857,7 +26857,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i75: ; preds =
 
 _ZNK4llvm13DIDerivedType14getRawBaseTypeEv.exit80: ; preds = %232, %236
   %.sroa.0.0.i.i.i79 = phi ptr [ %240, %236 ], [ %234, %232 ]
-  %241 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i79, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i79, i64 24
   %242 = load ptr, ptr %241, align 8
   %.not.i81 = icmp eq ptr %242, null
   br i1 %.not.i81, label %279, label %243
@@ -26899,7 +26899,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit82:              ; preds = %243
 
 _ZNK4llvm13DIDerivedType14getRawBaseTypeEv.exit85: ; preds = %249, %253
   %.sroa.0.0.i.i.i84 = phi ptr [ %257, %253 ], [ %251, %249 ]
-  %258 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i84, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i84, i64 24
   %259 = load ptr, ptr %258, align 8
   store ptr %259, ptr %16, align 8
   %260 = load ptr, ptr %0, align 8
@@ -26920,7 +26920,7 @@ _ZNK4llvm13DIDerivedType14getRawBaseTypeEv.exit85: ; preds = %249, %253
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i88
 
 268:                                              ; preds = %261
-  %269 = getelementptr inbounds i8, ptr %263, i64 1
+  %269 = getelementptr inbounds nuw i8, ptr %263, i64 1
   store ptr %269, ptr %262, align 8
   store i8 10, ptr %263, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i88
@@ -27075,7 +27075,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20visitDICompositeTypeERK
 
 _ZNK4llvm6DIType11getRawScopeEv.exit:             ; preds = %57, %61
   %.sroa.0.0.i.i.i = phi ptr [ %65, %61 ], [ %59, %57 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not.i = icmp eq ptr %67, null
   br i1 %.not.i, label %104, label %68
@@ -27125,7 +27125,7 @@ _ZL7isScopePKN4llvm8MetadataE.exit:               ; preds = %68
 
 _ZNK4llvm6DIType11getRawScopeEv.exit56:           ; preds = %74, %78
   %.sroa.0.0.i.i.i55 = phi ptr [ %82, %78 ], [ %76, %74 ]
-  %83 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i55, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i55, i64 8
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %7, align 8
   %85 = load ptr, ptr %0, align 8
@@ -27146,7 +27146,7 @@ _ZNK4llvm6DIType11getRawScopeEv.exit56:           ; preds = %74, %78
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %88, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store ptr %94, ptr %87, align 8
   store i8 10, ptr %88, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -27190,7 +27190,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 
 _ZNK4llvm15DICompositeType14getRawBaseTypeEv.exit: ; preds = %107, %111
   %.sroa.0.0.i.i.i60 = phi ptr [ %115, %111 ], [ %109, %107 ]
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i60, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i60, i64 24
   %117 = load ptr, ptr %116, align 8
   %.not.i61 = icmp eq ptr %117, null
   br i1 %.not.i61, label %154, label %118
@@ -27232,7 +27232,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %118
 
 _ZNK4llvm15DICompositeType14getRawBaseTypeEv.exit64: ; preds = %124, %128
   %.sroa.0.0.i.i.i63 = phi ptr [ %132, %128 ], [ %126, %124 ]
-  %133 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i63, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i63, i64 24
   %134 = load ptr, ptr %133, align 8
   store ptr %134, ptr %10, align 8
   %135 = load ptr, ptr %0, align 8
@@ -27253,7 +27253,7 @@ _ZNK4llvm15DICompositeType14getRawBaseTypeEv.exit64: ; preds = %124, %128
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i67
 
 143:                                              ; preds = %136
-  %144 = getelementptr inbounds i8, ptr %138, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 1
   store ptr %144, ptr %137, align 8
   store i8 10, ptr %138, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i67
@@ -27299,7 +27299,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i67: ; preds =
 _ZNK4llvm15DICompositeType14getRawElementsEv.exit: ; preds = %157, %161
   %.pre = phi i64 [ %155, %161 ], [ %.pre.pre, %157 ]
   %.sroa.0.0.i.i.i71 = phi ptr [ %165, %161 ], [ %159, %157 ]
-  %166 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i71, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i71, i64 32
   %167 = load ptr, ptr %166, align 8
   %.not = icmp eq ptr %167, null
   br i1 %.not, label %.critedge, label %168
@@ -27326,7 +27326,7 @@ _ZNK4llvm15DICompositeType14getRawElementsEv.exit: ; preds = %157, %161
 _ZNK4llvm15DICompositeType14getRawElementsEv.exit74: ; preds = %170, %174
   %.pre103 = phi i64 [ %.pre, %174 ], [ %.pre103.pre, %170 ]
   %.sroa.0.0.i.i.i73 = phi ptr [ %178, %174 ], [ %172, %170 ]
-  %179 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i73, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i73, i64 32
   %180 = load ptr, ptr %179, align 8
   %181 = load i8, ptr %180, align 4
   %.not101 = icmp eq i8 %181, 5
@@ -27358,7 +27358,7 @@ _ZNK4llvm15DICompositeType14getRawElementsEv.exit74: ; preds = %170, %174
 
 _ZNK4llvm15DICompositeType14getRawElementsEv.exit77: ; preds = %186, %190
   %.sroa.0.0.i.i.i76 = phi ptr [ %194, %190 ], [ %188, %186 ]
-  %195 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i76, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i76, i64 32
   %196 = load ptr, ptr %195, align 8
   store ptr %196, ptr %13, align 8
   %197 = load ptr, ptr %0, align 8
@@ -27379,7 +27379,7 @@ _ZNK4llvm15DICompositeType14getRawElementsEv.exit77: ; preds = %186, %190
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80
 
 205:                                              ; preds = %198
-  %206 = getelementptr inbounds i8, ptr %200, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %200, i64 1
   store ptr %206, ptr %199, align 8
   store i8 10, ptr %200, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80
@@ -27423,7 +27423,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80: ; preds =
 
 _ZNK4llvm15DICompositeType18getRawVTableHolderEv.exit: ; preds = %218, %222
   %.sroa.0.0.i.i.i84 = phi ptr [ %226, %222 ], [ %220, %218 ]
-  %227 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i84, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i84, i64 40
   %228 = load ptr, ptr %227, align 8
   %.not.i85 = icmp eq ptr %228, null
   br i1 %.not.i85, label %265, label %229
@@ -27465,7 +27465,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit86:              ; preds = %229
 
 _ZNK4llvm15DICompositeType18getRawVTableHolderEv.exit89: ; preds = %235, %239
   %.sroa.0.0.i.i.i88 = phi ptr [ %243, %239 ], [ %237, %235 ]
-  %244 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i88, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i88, i64 40
   %245 = load ptr, ptr %244, align 8
   store ptr %245, ptr %16, align 8
   %246 = load ptr, ptr %0, align 8
@@ -27486,7 +27486,7 @@ _ZNK4llvm15DICompositeType18getRawVTableHolderEv.exit89: ; preds = %235, %239
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i92
 
 254:                                              ; preds = %247
-  %255 = getelementptr inbounds i8, ptr %249, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %249, i64 1
   store ptr %255, ptr %248, align 8
   store i8 10, ptr %249, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i92
@@ -27795,7 +27795,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier21visitDISubroutineTypeER
 
 _ZNK4llvm16DISubroutineType15getRawTypeArrayEv.exit: ; preds = %22, %26
   %.sroa.0.0.i.i.i = phi ptr [ %30, %26 ], [ %24, %22 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %5, align 8
   %.not = icmp eq ptr %32, null
@@ -27831,7 +27831,7 @@ _ZNK4llvm16DISubroutineType15getRawTypeArrayEv.exit: ; preds = %22, %26
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %42, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %48, ptr %41, align 8
   store i8 10, ptr %42, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -27875,7 +27875,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 
 _ZNK4llvm16DISubroutineType12getTypeArrayEv.exit: ; preds = %61, %65
   %.sroa.0.0.i.i.i.i = phi ptr [ %69, %65 ], [ %63, %61 ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 -16
   %73 = load i64, ptr %72, align 8
@@ -27933,7 +27933,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %88
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_16DISubroutineTypeEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 92:                                               ; preds = %88, %88, %88, %88, %88, %.lr.ph
-  %93 = getelementptr inbounds i8, ptr %.022, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.not15 = icmp eq ptr %93, %86
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
@@ -28038,13 +28038,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier11visitDIFileERKN4llvm6DI
   %.sroa.0.013.i.i = phi ptr [ %42, %41 ], [ %33, %.lr.ph.i.i.preheader ]
   %37 = load i8, ptr %.sroa.0.013.i.i, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
   %.not = icmp eq i16 %40, -1
   br i1 %.not, label %_ZNK4llvm9StringRef11find_if_notENS_12function_refIFbcEEEm.exit, label %41
 
 41:                                               ; preds = %.lr.ph.i.i
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 1
   %43 = add i64 %.pn914.i.i, -1
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %_ZNK4llvm6DIFile11getChecksumEv.exit, label %.lr.ph.i.i, !llvm.loop !226
@@ -28267,7 +28267,7 @@ _ZNK4llvm7DIScope10getRawFileEv.exit95:           ; preds = %.critedge, %_ZNK4ll
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 120:                                              ; preds = %113
-  %121 = getelementptr inbounds i8, ptr %115, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 1
   store ptr %121, ptr %114, align 8
   store i8 10, ptr %115, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -28409,7 +28409,7 @@ _ZNK4llvm7DIScope7getFileEv.exit101:              ; preds = %_ZNK4llvm6DIFile11g
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i104
 
 191:                                              ; preds = %184
-  %192 = getelementptr inbounds i8, ptr %186, i64 1
+  %192 = getelementptr inbounds nuw i8, ptr %186, i64 1
   store ptr %192, ptr %185, align 8
   store i8 10, ptr %186, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i104
@@ -28479,7 +28479,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i104: ; preds 
   br i1 %.not74140, label %.loopexit139, label %.lr.ph
 
 223:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_15DICompositeTypeENS_8MetadataEEEDaPT0_.exit
-  %224 = getelementptr inbounds i8, ptr %.0141, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %.0141, i64 8
   %.not74 = icmp eq ptr %224, %222
   br i1 %.not74, label %.loopexit139, label %.lr.ph
 
@@ -28578,7 +28578,7 @@ _ZN4llvm16dyn_cast_or_nullINS_15DICompositeTypeENS_8MetadataEEEDaPT0_.exit.threa
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_13DICompileUnitEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 _ZN4llvm3isaINS_6DITypeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %248, %248, %248, %248, %248, %250
-  %257 = getelementptr inbounds i8, ptr %.069143, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %.069143, i64 8
   %.not76 = icmp eq ptr %257, %246
   br i1 %.not76, label %.loopexit138, label %.lr.ph144
 
@@ -28613,7 +28613,7 @@ _ZN4llvm3isaINS_6DITypeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %248, %248
   br i1 %.not78145, label %.loopexit137, label %.lr.ph147
 
 271:                                              ; preds = %274
-  %272 = getelementptr inbounds i8, ptr %.070146, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %.070146, i64 8
   %.not78 = icmp eq ptr %272, %270
   br i1 %.not78, label %.loopexit137, label %.lr.ph147
 
@@ -28670,7 +28670,7 @@ _ZN4llvm3isaINS_6DITypeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %248, %248
   br i1 %.not80148, label %.loopexit136, label %.lr.ph150
 
 293:                                              ; preds = %296
-  %294 = getelementptr inbounds i8, ptr %.071149, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %.071149, i64 8
   %.not80 = icmp eq ptr %294, %292
   br i1 %.not80, label %.loopexit136, label %.lr.ph150
 
@@ -28727,7 +28727,7 @@ _ZN4llvm3isaINS_6DITypeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %248, %248
   br i1 %.not82151, label %.loopexit, label %.lr.ph153
 
 315:                                              ; preds = %318
-  %316 = getelementptr inbounds i8, ptr %.068152, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.068152, i64 8
   %.not82 = icmp eq ptr %316, %314
   br i1 %.not82, label %.loopexit, label %.lr.ph153
 
@@ -28850,7 +28850,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier17visitDISubprogramERKN4l
 
 _ZNK4llvm12DISubprogram11getRawScopeEv.exit:      ; preds = %61, %65
   %.sroa.0.0.i.i.i = phi ptr [ %69, %65 ], [ %63, %61 ]
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %108, label %72
@@ -28900,7 +28900,7 @@ _ZL7isScopePKN4llvm8MetadataE.exit:               ; preds = %72
 
 _ZNK4llvm12DISubprogram11getRawScopeEv.exit83:    ; preds = %78, %82
   %.sroa.0.0.i.i.i82 = phi ptr [ %86, %82 ], [ %80, %78 ]
-  %87 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i82, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i82, i64 8
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %7, align 8
   %89 = load ptr, ptr %0, align 8
@@ -28921,7 +28921,7 @@ _ZNK4llvm12DISubprogram11getRawScopeEv.exit83:    ; preds = %78, %82
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 97:                                               ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %92, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store ptr %98, ptr %91, align 8
   store i8 10, ptr %92, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -29009,7 +29009,7 @@ _ZNK4llvm7DIScope10getRawFileEv.exit:             ; preds = %114, %118
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i90
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %132, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store ptr %138, ptr %131, align 8
   store i8 10, ptr %132, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i90
@@ -29070,7 +29070,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i90: ; preds =
 
 _ZNK4llvm12DISubprogram10getRawTypeEv.exit:       ; preds = %158, %162
   %.sroa.0.0.i.i.i95 = phi ptr [ %166, %162 ], [ %160, %158 ]
-  %167 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i95, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i95, i64 32
   %168 = load ptr, ptr %167, align 8
   store ptr %168, ptr %14, align 8
   %.not64 = icmp eq ptr %168, null
@@ -29106,7 +29106,7 @@ _ZNK4llvm12DISubprogram10getRawTypeEv.exit:       ; preds = %158, %162
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i98
 
 183:                                              ; preds = %176
-  %184 = getelementptr inbounds i8, ptr %178, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 1
   store ptr %184, ptr %177, align 8
   store i8 10, ptr %178, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i98
@@ -29173,7 +29173,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i:        ; preds = %201, %197
 
 _ZNK4llvm12DISubprogram20getRawContainingTypeEv.exit: ; preds = %209, %213
   %.sroa.0.0.i.i.i.i = phi ptr [ %217, %213 ], [ %211, %209 ]
-  %218 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 64
+  %218 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 64
   %219 = load ptr, ptr %218, align 8
   %.not.i102 = icmp eq ptr %219, null
   br i1 %.not.i102, label %_ZNK4llvm12DISubprogram20getRawContainingTypeEv.exit.thread, label %220
@@ -29238,7 +29238,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i104:     ; preds = %230, %226
 
 _ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit.i107: ; preds = %242, %238
   %.sroa.0.0.i.i.i.i108 = phi ptr [ %246, %242 ], [ %240, %238 ]
-  %247 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i108, i64 64
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i108, i64 64
   %248 = load ptr, ptr %247, align 8
   br label %_ZNK4llvm12DISubprogram20getRawContainingTypeEv.exit109
 
@@ -29263,7 +29263,7 @@ _ZNK4llvm12DISubprogram20getRawContainingTypeEv.exit109: ; preds = %_ZNK4llvm6MD
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i112
 
 258:                                              ; preds = %251
-  %259 = getelementptr inbounds i8, ptr %253, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %253, i64 1
   store ptr %259, ptr %252, align 8
   store i8 10, ptr %253, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i112
@@ -29330,7 +29330,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i116:     ; preds = %275, %271
 
 _ZNK4llvm12DISubprogram20getRawTemplateParamsEv.exit: ; preds = %283, %287
   %.sroa.0.0.i.i.i.i120 = phi ptr [ %291, %287 ], [ %285, %283 ]
-  %292 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i120, i64 72
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i120, i64 72
   %293 = load ptr, ptr %292, align 8
   %.not65 = icmp eq ptr %293, null
   br i1 %.not65, label %_ZNK4llvm12DISubprogram20getRawTemplateParamsEv.exit.thread, label %294
@@ -29360,7 +29360,7 @@ _ZNK4llvm12DISubprogram20getRawTemplateParamsEv.exit.thread: ; preds = %_ZNK4llv
 
 _ZNK4llvm12DISubprogram17getRawDeclarationEv.exit: ; preds = %297, %301
   %.sroa.0.0.i.i.i123 = phi ptr [ %305, %301 ], [ %299, %297 ]
-  %306 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i123, i64 48
+  %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i123, i64 48
   %307 = load ptr, ptr %306, align 8
   store ptr %307, ptr %20, align 8
   %.not66 = icmp eq ptr %307, null
@@ -29409,7 +29409,7 @@ _ZNK4llvm12DISubprogram17getRawDeclarationEv.exit: ; preds = %297, %301
 
 _ZNK4llvm12DISubprogram19getRawRetainedNodesEv.exit: ; preds = %321, %325
   %.sroa.0.0.i.i.i126 = phi ptr [ %329, %325 ], [ %323, %321 ]
-  %330 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i126, i64 56
+  %330 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i126, i64 56
   %331 = load ptr, ptr %330, align 8
   store ptr %331, ptr %23, align 8
   %.not67 = icmp eq ptr %331, null
@@ -29467,7 +29467,7 @@ _ZNK4llvm12DISubprogram19getRawRetainedNodesEv.exit: ; preds = %321, %325
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_12DISubprogramEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 349:                                              ; preds = %344, %344, %344
-  %350 = getelementptr inbounds i8, ptr %.0145, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %.0145, i64 8
   %.not69 = icmp eq ptr %350, %342
   br i1 %.not69, label %.loopexit143, label %.lr.ph
 
@@ -29671,7 +29671,7 @@ _ZN4llvm3isaINS_6DITypeEPNS_8MetadataEEEbRKT0_.exit: ; preds = %421, %.lr.ph148
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_12DISubprogramEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 425:                                              ; preds = %421, %421, %421, %421, %421
-  %426 = getelementptr inbounds i8, ptr %.057147, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %.057147, i64 8
   %.not78 = icmp eq ptr %426, %419
   br i1 %.not78, label %.loopexit, label %.lr.ph148
 
@@ -29771,7 +29771,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier16visitDINamespaceERKN4ll
 
 _ZNK4llvm11DINamespace11getRawScopeEv.exit:       ; preds = %17, %21
   %.sroa.0.0.i.i.i = phi ptr [ %25, %21 ], [ %19, %17 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %5, align 8
   %.not = icmp eq ptr %27, null
@@ -29820,7 +29820,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit: ; preds = %28
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -29889,7 +29889,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier13visitDIModuleERKN4llvm8
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %20, %16
   %.sroa.0.0.i.i.i.i.i = phi ptr [ %24, %20 ], [ %18, %16 ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNK4llvm8DIModule7getNameEv.exit.thread, label %_ZNK4llvm8DIModule7getNameEv.exit
@@ -30019,7 +30019,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier21visitDIGlobalVariableER
 
 _ZNK4llvm10DIVariable10getRawTypeEv.exit:         ; preds = %22, %26
   %.sroa.0.0.i.i.i = phi ptr [ %30, %26 ], [ %24, %22 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %69, label %33
@@ -30061,7 +30061,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %33
 
 _ZNK4llvm10DIVariable10getRawTypeEv.exit15:       ; preds = %39, %43
   %.sroa.0.0.i.i.i14 = phi ptr [ %47, %43 ], [ %41, %39 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i14, i64 24
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %7, align 8
   %50 = load ptr, ptr %0, align 8
@@ -30082,7 +30082,7 @@ _ZNK4llvm10DIVariable10getRawTypeEv.exit15:       ; preds = %39, %43
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %53, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %59, ptr %52, align 8
   store i8 10, ptr %53, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -30132,7 +30132,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 
 _ZNK4llvm10DIVariable7getTypeEv.exit:             ; preds = %75, %79
   %.sroa.0.0.i.i.i.i = phi ptr [ %83, %79 ], [ %77, %75 ]
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 24
   %85 = load ptr, ptr %84, align 8
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %86, label %_ZNK4llvm10DIVariable7getTypeEv.exit._crit_edge
@@ -30172,7 +30172,7 @@ _ZNK4llvm10DIVariable7getTypeEv.exit._crit_edge:  ; preds = %_ZNK4llvm10DIVariab
 
 _ZNK4llvm16DIGlobalVariable33getRawStaticDataMemberDeclarationEv.exit: ; preds = %92, %96
   %.sroa.0.0.i.i.i19 = phi ptr [ %100, %96 ], [ %94, %92 ]
-  %101 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i19, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i19, i64 48
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %10, align 8
   %.not12 = icmp eq ptr %102, null
@@ -30208,7 +30208,7 @@ _ZNK4llvm16DIGlobalVariable33getRawStaticDataMemberDeclarationEv.exit: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i22
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %112, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %118, ptr %111, align 8
   store i8 10, ptr %112, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i22
@@ -30270,7 +30270,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier20visitDILocalVariableERK
 
 _ZNK4llvm10DIVariable10getRawTypeEv.exit:         ; preds = %17, %21
   %.sroa.0.0.i.i.i = phi ptr [ %25, %21 ], [ %19, %17 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %64, label %28
@@ -30312,7 +30312,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %28
 
 _ZNK4llvm10DIVariable10getRawTypeEv.exit17:       ; preds = %34, %38
   %.sroa.0.0.i.i.i16 = phi ptr [ %42, %38 ], [ %36, %34 ]
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i16, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i16, i64 24
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %5, align 8
   %45 = load ptr, ptr %0, align 8
@@ -30333,7 +30333,7 @@ _ZNK4llvm10DIVariable10getRawTypeEv.exit17:       ; preds = %34, %38
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %48, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store ptr %54, ptr %47, align 8
   store i8 10, ptr %48, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -30473,7 +30473,7 @@ _ZNK4llvm10DIVariable11getRawScopeEv.exit27:      ; preds = %101, %105
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i30
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds i8, ptr %114, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 1
   store ptr %120, ptr %113, align 8
   store i8 10, ptr %114, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i30
@@ -30516,7 +30516,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i30: ; preds =
 
 _ZNK4llvm10DIVariable7getTypeEv.exit:             ; preds = %132, %136
   %.sroa.0.0.i.i.i.i = phi ptr [ %140, %136 ], [ %134, %132 ]
-  %141 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 24
   %142 = load ptr, ptr %141, align 8
   %.not14 = icmp eq ptr %142, null
   br i1 %.not14, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_15DILocalVariableEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %143
@@ -30553,7 +30553,7 @@ _ZNK4llvm10DIVariable7getTypeEv.exit:             ; preds = %132, %136
 
 _ZNK4llvm10DIVariable7getTypeEv.exit35:           ; preds = %151, %155
   %.sroa.0.0.i.i.i.i34 = phi ptr [ %159, %155 ], [ %153, %151 ]
-  %160 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i34, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i34, i64 24
   %161 = load ptr, ptr %160, align 8
   store ptr %161, ptr %13, align 8
   %162 = load ptr, ptr %0, align 8
@@ -30574,7 +30574,7 @@ _ZNK4llvm10DIVariable7getTypeEv.exit35:           ; preds = %151, %155
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i38
 
 170:                                              ; preds = %163
-  %171 = getelementptr inbounds i8, ptr %165, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %165, i64 1
   store ptr %171, ptr %164, align 8
   store i8 10, ptr %165, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i38
@@ -30683,7 +30683,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit: ; preds = %27
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -30727,7 +30727,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %27, %27,
 
 _ZNK4llvm7DILabel10getRawFileEv.exit:             ; preds = %52, %56
   %.sroa.0.0.i.i.i15 = phi ptr [ %60, %56 ], [ %54, %52 ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i15, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i15, i64 16
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %6, align 8
   %.not11 = icmp eq ptr %62, null
@@ -30763,7 +30763,7 @@ _ZNK4llvm7DILabel10getRawFileEv.exit:             ; preds = %52, %56
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i18
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %72, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %78, ptr %71, align 8
   store i8 10, ptr %72, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i18
@@ -30905,7 +30905,7 @@ _ZNK4llvm7DILabel11getRawScopeEv.exit29:          ; preds = %125, %129
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i32
 
 143:                                              ; preds = %136
-  %144 = getelementptr inbounds i8, ptr %138, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 1
   store ptr %144, ptr %137, align 8
   store i8 10, ptr %138, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i32
@@ -30978,7 +30978,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19visitDIObjCPropertyERKN
 
 _ZNK4llvm14DIObjCProperty10getRawTypeEv.exit:     ; preds = %20, %24
   %.sroa.0.0.i.i.i = phi ptr [ %28, %24 ], [ %22, %20 ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 32
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   %.not = icmp eq ptr %30, null
@@ -31019,7 +31019,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %31
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -31063,7 +31063,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit.thread:         ; preds = %31, %31, %31, %31, 
 
 _ZNK4llvm14DIObjCProperty10getRawFileEv.exit:     ; preds = %56, %60
   %.sroa.0.0.i.i.i11 = phi ptr [ %64, %60 ], [ %58, %56 ]
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i11, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i11, i64 8
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %8, align 8
   %.not7 = icmp eq ptr %66, null
@@ -31099,7 +31099,7 @@ _ZNK4llvm14DIObjCProperty10getRawFileEv.exit:     ; preds = %56, %60
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i14
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %76, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %82, ptr %75, align 8
   store i8 10, ptr %76, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i14
@@ -31225,7 +31225,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit: ; preds = %33
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -31269,7 +31269,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %33, %33,
 
 _ZNK4llvm16DIImportedEntity12getRawEntityEv.exit: ; preds = %58, %62
   %.sroa.0.0.i.i.i11 = phi ptr [ %66, %62 ], [ %60, %58 ]
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i11, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i11, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not.i12 = icmp eq ptr %68, null
   br i1 %.not.i12, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_16DIImportedEntityEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %69
@@ -31331,7 +31331,7 @@ _ZL8isDINodePKN4llvm8MetadataE.exit:              ; preds = %69
 
 _ZNK4llvm16DIImportedEntity12getRawEntityEv.exit15: ; preds = %75, %79
   %.sroa.0.0.i.i.i14 = phi ptr [ %83, %79 ], [ %77, %75 ]
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i14, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i14, i64 8
   %85 = load ptr, ptr %84, align 8
   store ptr %85, ptr %10, align 8
   %86 = load ptr, ptr %0, align 8
@@ -31352,7 +31352,7 @@ _ZNK4llvm16DIImportedEntity12getRawEntityEv.exit15: ; preds = %75, %79
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i18
 
 94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %89, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 1
   store ptr %95, ptr %88, align 8
   store i8 10, ptr %89, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i18
@@ -31524,7 +31524,7 @@ _ZNK4llvm7DIMacro7getNameEv.exit.thread:          ; preds = %_ZNK4llvm11DIMacroN
 
 _ZNK4llvm11DIMacroNode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i8: ; preds = %39, %35
   %.sroa.0.0.i.i.i.i.i9 = phi ptr [ %43, %39 ], [ %37, %35 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i9, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i9, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not.i.i10 = icmp eq ptr %45, null
   br i1 %.not.i.i10, label %_ZNK4llvm7DIMacro8getValueEv.exit, label %46
@@ -31622,7 +31622,7 @@ _ZNK4llvm11DIMacroFile10getRawFileEv.exit:        ; preds = %24, %28
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %43, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %49, ptr %42, align 8
   store i8 10, ptr %43, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -31666,7 +31666,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 
 _ZNK4llvm11DIMacroFile14getRawElementsEv.exit:    ; preds = %62, %66
   %.sroa.0.0.i.i.i20 = phi ptr [ %70, %66 ], [ %64, %62 ]
-  %71 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i20, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i20, i64 8
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %8, align 8
   %.not15 = icmp eq ptr %72, null
@@ -31702,7 +31702,7 @@ _ZNK4llvm11DIMacroFile14getRawElementsEv.exit:    ; preds = %62, %66
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i23
 
 87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %82, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %88, ptr %81, align 8
   store i8 10, ptr %82, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i23
@@ -31746,7 +31746,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i23: ; preds =
 
 _ZNK4llvm11DIMacroFile11getElementsEv.exit:       ; preds = %101, %105
   %.sroa.0.0.i.i.i.i = phi ptr [ %109, %105 ], [ %103, %101 ]
-  %110 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 -16
   %113 = load i64, ptr %112, align 8
@@ -31777,7 +31777,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %115, %119
   br i1 %.not1634, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_11DIMacroFileEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph
 
 127:                                              ; preds = %130
-  %128 = getelementptr inbounds i8, ptr %.035, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   %.not16 = icmp eq ptr %128, %126
   br i1 %.not16, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_11DIMacroFileEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph
 
@@ -31819,7 +31819,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %115, %119
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i29
 
 144:                                              ; preds = %137
-  %145 = getelementptr inbounds i8, ptr %139, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 1
   store ptr %145, ptr %138, align 8
   store i8 10, ptr %139, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i29
@@ -31940,7 +31940,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit: ; preds = %30
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 10, ptr %37, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -31984,7 +31984,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %30, %30,
 
 _ZNK4llvm13DICommonBlock10getRawDeclEv.exit:      ; preds = %55, %59
   %.sroa.0.0.i.i.i10 = phi ptr [ %63, %59 ], [ %57, %55 ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i10, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i10, i64 8
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %8, align 8
   %.not7 = icmp eq ptr %65, null
@@ -32020,7 +32020,7 @@ _ZNK4llvm13DICommonBlock10getRawDeclEv.exit:      ; preds = %55, %59
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i13
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %75, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %81, ptr %74, align 8
   store i8 10, ptr %75, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i13
@@ -32168,7 +32168,7 @@ _ZNK4llvm17DIGenericSubrange15getRawCountNodeEv.exit: ; preds = %28, %32
 
 _ZNK4llvm17DIGenericSubrange16getRawUpperBoundEv.exit: ; preds = %40, %44
   %.sroa.0.0.i.i.i22 = phi ptr [ %48, %44 ], [ %42, %40 ]
-  %49 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i22, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i22, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not16 = icmp eq ptr %50, null
   br i1 %.not16, label %_ZNK4llvm17DIGenericSubrange16getRawUpperBoundEv.exit._crit_edge, label %51
@@ -32251,7 +32251,7 @@ _ZNK4llvm17DIGenericSubrange15getRawCountNodeEv.exit25: ; preds = %57, %61
 
 _ZNK4llvm17DIGenericSubrange16getRawLowerBoundEv.exit: ; preds = %75, %79
   %.sroa.0.0.i.i.i27 = phi ptr [ %83, %79 ], [ %77, %75 ]
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i27, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i27, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not18 = icmp eq ptr %85, null
   br i1 %.not18, label %86, label %89
@@ -32305,7 +32305,7 @@ _ZNK4llvm17DIGenericSubrange16getRawLowerBoundEv.exit: ; preds = %75, %79
 
 _ZNK4llvm17DIGenericSubrange16getRawUpperBoundEv.exit31: ; preds = %97, %101
   %.sroa.0.0.i.i.i30 = phi ptr [ %105, %101 ], [ %99, %97 ]
-  %106 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i30, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i30, i64 16
   %107 = load ptr, ptr %106, align 8
   %.not19 = icmp eq ptr %107, null
   br i1 %.not19, label %113, label %108
@@ -32349,7 +32349,7 @@ _ZNK4llvm17DIGenericSubrange16getRawUpperBoundEv.exit31: ; preds = %97, %101
 
 _ZNK4llvm17DIGenericSubrange12getRawStrideEv.exit: ; preds = %116, %120
   %.sroa.0.0.i.i.i34 = phi ptr [ %124, %120 ], [ %118, %116 ]
-  %125 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i34, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i34, i64 24
   %126 = load ptr, ptr %125, align 8
   %.not20 = icmp eq ptr %126, null
   br i1 %.not20, label %127, label %130
@@ -32484,7 +32484,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %26
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %33, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %39, ptr %32, align 8
   store i8 10, ptr %33, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -32531,7 +32531,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %38, %36
   br i1 %.not21, label %75, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %spec.select.i.i25, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %spec.select.i.i25, i64 40
   %55 = load ptr, ptr %54, align 8
   %.not24 = icmp eq ptr %55, null
   br i1 %.not24, label %56, label %72
@@ -32565,7 +32565,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i31: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i28
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %63, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %69, ptr %62, align 8
   store i8 10, ptr %63, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i28
@@ -32640,7 +32640,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -32682,7 +32682,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILocationEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILocationEJEEEvRKT_DpRKT0_.exit
@@ -32716,7 +32716,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILoca
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -32745,7 +32745,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -32776,7 +32776,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -32818,7 +32818,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DIExpressionEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DIExpressionEJEEEvRKT_DpRKT0_.exit
@@ -32856,7 +32856,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_26DIGlob
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -32885,7 +32885,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIVariableEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIVariableEJEEEvRKT_DpRKT0_.exit
@@ -32916,7 +32916,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -32958,7 +32958,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13GenericDINodeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13GenericDINodeEJEEEvRKT_DpRKT0_.exit
@@ -32989,7 +32989,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -33031,7 +33031,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DISubrangeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DISubrangeEJEEEvRKT_DpRKT0_.exit
@@ -33062,7 +33062,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -33104,7 +33104,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DIEnumeratorEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DIEnumeratorEJEEEvRKT_DpRKT0_.exit
@@ -33133,7 +33133,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -33175,7 +33175,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DIBasicTypeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DIBasicTypeEJEEEvRKT_DpRKT0_.exit
@@ -33250,7 +33250,7 @@ _ZNK4llvm7DIScope10getRawFileEv.exit:             ; preds = %12, %16
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -33297,7 +33297,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -33339,7 +33339,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DIDerivedTypeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DIDerivedTypeEJEEEvRKT_DpRKT0_.exit
@@ -33373,7 +33373,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7DIScope
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -33402,7 +33402,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -33436,7 +33436,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DIDeri
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -33465,7 +33465,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -33494,7 +33494,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -33536,7 +33536,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DICompositeTypeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DICompositeTypeEJEEEvRKT_DpRKT0_.exit
@@ -33568,7 +33568,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType14getRawBaseTy
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 24
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33596,7 +33596,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm15DICompositeType11getElementsEv(ptr no
 
 _ZNK4llvm15DICompositeType14getRawElementsEv.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33624,7 +33624,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType20getRawTempla
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33670,7 +33670,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19visitTemplateParamsERKN
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %18, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %24, ptr %17, align 8
   store i8 10, ptr %18, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -33723,7 +33723,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %38, %42
   br i1 %.not1216, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph
 
 50:                                               ; preds = %53
-  %51 = getelementptr inbounds i8, ptr %.017, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not12 = icmp eq ptr %51, %49
   br i1 %.not12, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_6MDNodeEJPKNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph
 
@@ -33777,7 +33777,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType19getRawDiscri
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33805,7 +33805,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType18getRawDataLo
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 72
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33833,7 +33833,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType16getRawAssoci
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 80
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33861,7 +33861,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType15getRawAlloca
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 88
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33889,7 +33889,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType10getRawRankEv
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 96
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -33919,7 +33919,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DIComp
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -33948,7 +33948,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -33977,7 +33977,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34019,7 +34019,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %5,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPKNS_7MDTupleEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %32, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %38, ptr %31, align 8
   store i8 10, ptr %32, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPKNS_7MDTupleEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
@@ -34057,7 +34057,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7MDTuple
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -34086,7 +34086,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -34115,7 +34115,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34157,7 +34157,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DISubroutineTypeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DISubroutineTypeEJEEEvRKT_DpRKT0_.exit
@@ -34186,7 +34186,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34228,7 +34228,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %5,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DISubroutineTypeEJPNS_8MetadataES6_EEEvRKT_DpRKT0_.exit
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %32, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %38, ptr %31, align 8
   store i8 10, ptr %32, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DISubroutineTypeEJPNS_8MetadataES6_EEEvRKT_DpRKT0_.exit
@@ -34266,7 +34266,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DISubr
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -34295,7 +34295,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -34329,7 +34329,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Metadata
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -34358,7 +34358,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -34387,7 +34387,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34429,7 +34429,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6DIFileEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6DIFileEJEEEvRKT_DpRKT0_.exit
@@ -34458,7 +34458,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34500,7 +34500,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DICompileUnitEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DICompileUnitEJEEEvRKT_DpRKT0_.exit
@@ -34529,7 +34529,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34579,7 +34579,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm13DICompileUnit15getRawEnumType
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34607,7 +34607,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm13DICompileUnit12getEnumTypesEv(ptr nou
 
 _ZNK4llvm13DICompileUnit15getRawEnumTypesEv.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34632,7 +34632,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -34674,7 +34674,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %5,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DICompileUnitEJNS_24MDTupleTypedArrayWrapperINS_15DICompositeTypeEEEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %32, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %38, ptr %31, align 8
   store i8 10, ptr %32, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DICompileUnitEJNS_24MDTupleTypedArrayWrapperINS_15DICompositeTypeEEEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
@@ -34710,7 +34710,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm13DICompileUnit19getRawRetained
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34738,7 +34738,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm13DICompileUnit16getRetainedTypesEv(ptr
 
 _ZNK4llvm13DICompileUnit19getRawRetainedTypesEv.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34766,7 +34766,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm13DICompileUnit21getRawGlobalVa
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34794,7 +34794,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm13DICompileUnit18getGlobalVariablesEv(p
 
 _ZNK4llvm13DICompileUnit21getRawGlobalVariablesEv.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 48
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34822,7 +34822,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm13DICompileUnit22getRawImported
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 56
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34850,7 +34850,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm13DICompileUnit19getImportedEntitiesEv(
 
 _ZNK4llvm13DICompileUnit22getRawImportedEntitiesEv.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 56
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34878,7 +34878,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm13DICompileUnit12getRawMacrosEv
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34906,7 +34906,7 @@ define linkonce_odr hidden ptr @_ZNK4llvm13DICompileUnit9getMacrosEv(ptr noundef
 
 _ZNK4llvm13DICompileUnit12getRawMacrosEv.exit:    ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 64
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -34936,7 +34936,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DIComp
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -34965,7 +34965,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -34999,7 +34999,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DIComp
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -35028,7 +35028,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6DIFileEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6DIFileEJEEEvRKT_DpRKT0_.exit
@@ -35062,7 +35062,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_24MDTupleT
   br label %_ZN4llvm15VerifierSupport5WriteINS_15DICompositeTypeEEEvRKNS_24MDTupleTypedArrayWrapperIT_EE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteINS_15DICompositeTypeEEEvRKNS_24MDTupleTypedArrayWrapperIT_EE.exit
@@ -35091,7 +35091,7 @@ _ZN4llvm15VerifierSupport5WriteINS_15DICompositeTypeEEEvRKNS_24MDTupleTypedArray
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -35120,7 +35120,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -35162,7 +35162,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit
@@ -35194,7 +35194,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm12DISubprogram11getRawScopeEv(p
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -35219,7 +35219,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -35266,7 +35266,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -35308,7 +35308,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %4,
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
 
 36:                                               ; preds = %25
-  %37 = getelementptr inbounds i8, ptr %31, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %37, ptr %30, align 8
   store i8 10, ptr %31, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
@@ -35330,7 +35330,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i: ; preds = %36, %34, %23
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubprogramEJjEEEvRKT_DpRKT0_.exit
 
 48:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
-  %49 = getelementptr inbounds i8, ptr %43, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %49, ptr %42, align 8
   store i8 10, ptr %43, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubprogramEJjEEEvRKT_DpRKT0_.exit
@@ -35362,7 +35362,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm12DISubprogram17getRawDeclarati
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -35387,7 +35387,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -35429,7 +35429,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %5,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubprogramEJPNS_7MDTupleEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %32, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %38, ptr %31, align 8
   store i8 10, ptr %32, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubprogramEJPNS_7MDTupleEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
@@ -35465,7 +35465,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm12DISubprogram10getRawUnitEv(pt
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -35493,7 +35493,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm15DICompositeType16getRawIdenti
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 56
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -35523,7 +35523,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm12DISubprogram14getDeclarationE
 
 _ZNK4llvm12DISubprogram17getRawDeclarationEv.exit: ; preds = %5, %9
   %.sroa.0.0.i.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 48
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -35574,7 +35574,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %5, %9
 
 _ZNK4llvm6DINode12getOperandAsINS_8MetadataEEEPT_j.exit: ; preds = %17, %21
   %.sroa.0.0.i.i.i = phi ptr [ %25, %21 ], [ %19, %17 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 80
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -35608,7 +35608,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DISubp
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -35637,7 +35637,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -35671,7 +35671,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_7MDTupleE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -35700,7 +35700,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -35756,7 +35756,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitDILexicalBlockBase
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit: ; preds = %19, %23
   %.pre = phi i64 [ %17, %23 ], [ %.pre.pre, %19 ]
   %.sroa.0.0.i.i.i = phi ptr [ %27, %23 ], [ %21, %19 ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.critedge, label %30
@@ -35783,7 +35783,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit: ; preds = %19, %23
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit14: ; preds = %32, %36
   %.pre25 = phi i64 [ %.pre, %36 ], [ %.pre25.pre, %32 ]
   %.sroa.0.0.i.i.i13 = phi ptr [ %40, %36 ], [ %34, %32 ]
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i13, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i13, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load i8, ptr %42, align 4
   %44 = add i8 %43, -21
@@ -35817,7 +35817,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit14: ; preds = %32, %36
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit17: ; preds = %49, %53
   %.sroa.0.0.i.i.i16 = phi ptr [ %57, %53 ], [ %51, %49 ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i16, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i16, i64 8
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %7, align 8
   %60 = load ptr, ptr %0, align 8
@@ -35838,7 +35838,7 @@ _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit17: ; preds = %49, %53
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %63, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %69, ptr %62, align 8
   store i8 10, ptr %63, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -35881,7 +35881,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit21: ; preds = %81, %85
   %.sroa.0.0.i.i.i20 = phi ptr [ %89, %85 ], [ %83, %81 ]
-  %90 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i20, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i20, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = load i8, ptr %91, align 4
   %.not23 = icmp eq i8 %92, 18
@@ -35928,7 +35928,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -35970,7 +35970,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14DILexicalBlockEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14DILexicalBlockEJEEEvRKT_DpRKT0_.exit
@@ -35999,7 +35999,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -36041,7 +36041,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_18DILexicalBlockBaseEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_18DILexicalBlockBaseEJEEEvRKT_DpRKT0_.exit
@@ -36075,7 +36075,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_18DILexi
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -36104,7 +36104,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -36133,7 +36133,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -36175,7 +36175,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DINamespaceEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DINamespaceEJEEEvRKT_DpRKT0_.exit
@@ -36209,7 +36209,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DIName
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -36238,7 +36238,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -36267,7 +36267,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -36309,7 +36309,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8DIModuleEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8DIModuleEJEEEvRKT_DpRKT0_.exit
@@ -36344,7 +36344,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24visitDITemplateParamete
 
 _ZNK4llvm19DITemplateParameter10getRawTypeEv.exit: ; preds = %9, %13
   %.sroa.0.0.i.i.i = phi ptr [ %17, %13 ], [ %11, %9 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_19DITemplateParameterEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %20
@@ -36386,7 +36386,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit:                ; preds = %20
 
 _ZNK4llvm19DITemplateParameter10getRawTypeEv.exit6: ; preds = %26, %30
   %.sroa.0.0.i.i.i5 = phi ptr [ %34, %30 ], [ %28, %26 ]
-  %35 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i5, i64 8
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %5, align 8
   %37 = load ptr, ptr %0, align 8
@@ -36407,7 +36407,7 @@ _ZNK4llvm19DITemplateParameter10getRawTypeEv.exit6: ; preds = %26, %30
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -36454,7 +36454,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -36496,7 +36496,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_23DITemplateTypeParameterEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_23DITemplateTypeParameterEJEEEvRKT_DpRKT0_.exit
@@ -36530,7 +36530,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_19DITemp
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -36559,7 +36559,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -36588,7 +36588,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -36630,7 +36630,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_24DITemplateValueParameterEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_24DITemplateValueParameterEJEEEvRKT_DpRKT0_.exit
@@ -36716,7 +36716,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit: ; preds = %22
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %29, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %35, ptr %28, align 8
   store i8 10, ptr %29, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -36760,7 +36760,7 @@ _ZN4llvm3isaINS_7DIScopeEPNS_8MetadataEEEbRKT0_.exit.thread: ; preds = %22, %22,
 
 _ZNK4llvm10DIVariable10getRawFileEv.exit:         ; preds = %47, %51
   %.sroa.0.0.i.i.i8 = phi ptr [ %55, %51 ], [ %49, %47 ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i8, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i8, i64 16
   %57 = load ptr, ptr %56, align 8
   store ptr %57, ptr %6, align 8
   %.not5 = icmp eq ptr %57, null
@@ -36796,7 +36796,7 @@ _ZNK4llvm10DIVariable10getRawFileEv.exit:         ; preds = %47, %51
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i11
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %67, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %73, ptr %66, align 8
   store i8 10, ptr %67, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i11
@@ -36843,7 +36843,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -36885,7 +36885,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DIGlobalVariableEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DIGlobalVariableEJEEEvRKT_DpRKT0_.exit
@@ -36917,7 +36917,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm10DIVariable10getRawTypeEv(ptr 
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %5, %9
   %.sroa.0.0.i.i = phi ptr [ %13, %9 ], [ %7, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 24
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -36947,7 +36947,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -36976,7 +36976,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37010,7 +37010,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DIGlob
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37039,7 +37039,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37068,7 +37068,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37110,7 +37110,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DILocalVariableEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DILocalVariableEJEEEvRKT_DpRKT0_.exit
@@ -37144,7 +37144,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DILoca
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37173,7 +37173,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37207,7 +37207,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DILoca
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37236,7 +37236,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6DITypeEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6DITypeEJEEEvRKT_DpRKT0_.exit
@@ -37265,7 +37265,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37307,7 +37307,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7DILabelEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7DILabelEJEEEvRKT_DpRKT0_.exit
@@ -37341,7 +37341,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7DILabel
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37370,7 +37370,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37399,7 +37399,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37441,7 +37441,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14DIObjCPropertyEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_14DIObjCPropertyEJEEEvRKT_DpRKT0_.exit
@@ -37475,7 +37475,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_14DIObjC
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37504,7 +37504,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37533,7 +37533,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37575,7 +37575,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DIImportedEntityEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DIImportedEntityEJEEEvRKT_DpRKT0_.exit
@@ -37609,7 +37609,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_16DIImpo
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37638,7 +37638,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37667,7 +37667,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37709,7 +37709,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIAssignIDEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIAssignIDEJEEEvRKT_DpRKT0_.exit
@@ -37738,7 +37738,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37780,7 +37780,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7DIMacroEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7DIMacroEJEEEvRKT_DpRKT0_.exit
@@ -37809,7 +37809,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37851,7 +37851,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DIMacroFileEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DIMacroFileEJEEEvRKT_DpRKT0_.exit
@@ -37885,7 +37885,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11DIMacr
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -37914,7 +37914,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -37943,7 +37943,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -37985,7 +37985,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DICommonBlockEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DICommonBlockEJEEEvRKT_DpRKT0_.exit
@@ -38019,7 +38019,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_13DIComm
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -38048,7 +38048,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -38077,7 +38077,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -38119,7 +38119,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DIStringTypeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12DIStringTypeEJEEEvRKT_DpRKT0_.exit
@@ -38148,7 +38148,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -38190,7 +38190,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_17DIGenericSubrangeEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_17DIGenericSubrangeEJEEEvRKT_DpRKT0_.exit
@@ -38224,7 +38224,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -38253,7 +38253,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -38287,7 +38287,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -38322,7 +38322,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15ValueAsMetadataEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15ValueAsMetadataEJEEEvRKT_DpRKT0_.exit
@@ -38356,7 +38356,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -38391,7 +38391,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15LocalAsMetadataEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_15LocalAsMetadataEJEEEvRKT_DpRKT0_.exit
@@ -38425,7 +38425,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_15ValueA
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -38457,7 +38457,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -38477,7 +38477,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -38511,7 +38511,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_15LocalA
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -38543,7 +38543,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -38563,7 +38563,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -38602,7 +38602,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %24 = add i32 %15, -1
   %.02733.i.i = and i32 %23, %24
   %25 = zext nneg i32 %.02733.i.i to i64
-  %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %14, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i
@@ -38630,7 +38630,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %38 = add i32 %.02635.i.i, %.02736.i.i
   %.027.i.i = and i32 %38, %24
   %39 = zext i32 %.027.i.i to i64
-  %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %14, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %18, %41
   br i1 %42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i, !llvm.loop !153
@@ -38662,7 +38662,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %59 = add i32 %50, -1
   %.02733.i.i11 = and i32 %58, %59
   %60 = zext nneg i32 %.02733.i.i11 to i64
-  %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %53, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i12
@@ -38690,7 +38690,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %73 = add i32 %.02635.i.i14, %.02736.i.i13
   %.027.i.i18 = and i32 %73, %59
   %74 = zext i32 %.027.i.i18 to i64
-  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %49, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %49, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %53, %76
   br i1 %77, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i12, !llvm.loop !153
@@ -38751,34 +38751,34 @@ _ZN4llvm8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS3_vEENS_
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %21, i64 %26
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %21, %22 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !227
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr %2, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %21, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %21, i64 %35
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %21, %29 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !227
 
@@ -38807,7 +38807,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12Dens
   %47 = add i32 %41, -1
   %.02733.i.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02733.i.i.i to i64
-  %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, label %.lr.ph.i.i.i
@@ -38835,7 +38835,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12Dens
   %61 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %61, %47
   %62 = zext i32 %.027.i.i.i to i64
-  %63 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !153
@@ -38853,7 +38853,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12Dens
   br label %71
 
 71:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, %.lr.ph.i7, %.lr.ph.i7
-  %72 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit, label %.lr.ph.i7, !llvm.loop !228
 
@@ -38891,7 +38891,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubpr
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -38923,7 +38923,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -38943,7 +38943,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -38964,7 +38964,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_6MDNodeEE6insert
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
   %.not24.i = icmp eq i32 %10, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -38980,7 +38980,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_6MDNodeEE6insert
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.not.i = icmp eq ptr %19, %12
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
@@ -38998,7 +38998,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPKNS_6MDNodeEE6insert
   %26 = load i32, ptr %9, align 4
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
   %30 = insertvalue { ptr, i8 } poison, ptr %29, 0
   %31 = insertvalue { ptr, i8 } %30, i8 1, 1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit
@@ -39021,7 +39021,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %15, %23, %32
   %39 = load i32, ptr %38, align 8
   %.v.v.i4.i = select i1 %37, i32 %34, i32 %39
   %.v.i5.i = zext i32 %.v.v.i4.i to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %.v.i5.i
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract, %40
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
@@ -39032,7 +39032,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %15, %23, %32
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE12makeIteratorEPKPKv.exit
 
 .critedge2.i7.i.i9.i:                             ; preds = %.lr.ph.i5.i.i7.i
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.3.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 8
   %.not.i8.i.i10.i = icmp eq ptr %42, %40
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !66
 
@@ -39040,7 +39040,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_6MDNodeEE12makeIteratorEPKPKv.exit: ; preds = %.
   %.sroa.0.4.i = phi ptr [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %42, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   %.fca.1.extract = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
   store ptr %.sroa.0.4.i, ptr %0, align 8
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %.sroa.2.0..sroa_idx2, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = and i8 %.fca.1.extract, 1
@@ -39068,7 +39068,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -39110,7 +39110,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %7,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPKNS_8FunctionEPKNS_11InstructionEPKNS_10DILocationEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPKNS_8FunctionEPKNS_11InstructionEPKNS_10DILocationEPNS_8MetadataEEEEvRKT_DpRKT0_.exit
@@ -39148,7 +39148,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -39183,7 +39183,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILocationEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILocationEJEEEvRKT_DpRKT0_.exit
@@ -39216,7 +39216,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -39258,7 +39258,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %8,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPKNS_8FunctionEPKNS_11InstructionEPKNS_10DILocationEPNS_12DILocalScopeES3_EEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPKNS_8FunctionEPKNS_11InstructionEPKNS_10DILocationEPNS_12DILocalScopeES3_EEEvRKT_DpRKT0_.exit
@@ -39299,7 +39299,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39319,7 +39319,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39357,7 +39357,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Instru
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39377,7 +39377,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Instru
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39442,7 +39442,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39462,7 +39462,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %25, align 8
   store i8 10, ptr %26, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39500,7 +39500,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Instru
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39520,7 +39520,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Instru
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -39549,7 +39549,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %5, %18, %20, %28, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILocationEJPNS_12DILocalScopeEPNS_12DISubprogramEEEEvRKT_DpRKT0_.exit
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DILocationEJPNS_12DILocalScopeEPNS_12DISubprogramEEEEvRKT_DpRKT0_.exit
@@ -39584,7 +39584,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DILocal
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -39613,7 +39613,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit
@@ -40065,7 +40065,7 @@ define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5v
   %438 = getelementptr inbounds nuw i8, ptr %377, i64 32
   %439 = getelementptr inbounds nuw i8, ptr %377, i64 33
   %440 = getelementptr inbounds nuw i8, ptr %371, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %371, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %371, i64 8
   %441 = getelementptr inbounds nuw i8, ptr %370, i64 32
   %442 = getelementptr inbounds nuw i8, ptr %370, i64 33
   %443 = getelementptr inbounds nuw i8, ptr %369, i64 32
@@ -40123,18 +40123,18 @@ define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5v
   %495 = getelementptr inbounds nuw i8, ptr %299, i64 33
   %496 = getelementptr inbounds nuw i8, ptr %303, i64 32
   %497 = getelementptr inbounds nuw i8, ptr %303, i64 33
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %306, i64 8
-  %498 = getelementptr inbounds i8, ptr %306, i64 16
-  %499 = getelementptr inbounds i8, ptr %306, i64 24
-  %500 = getelementptr inbounds i8, ptr %305, i64 24
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %306, i64 8
+  %498 = getelementptr inbounds nuw i8, ptr %306, i64 16
+  %499 = getelementptr inbounds nuw i8, ptr %306, i64 24
+  %500 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %501 = getelementptr inbounds nuw i8, ptr %304, i64 8
-  %502 = getelementptr inbounds i8, ptr %304, i64 24
-  %.sroa.4.0..sroa_idx122.i.i.i = getelementptr inbounds i8, ptr %309, i64 8
-  %503 = getelementptr inbounds i8, ptr %309, i64 16
-  %504 = getelementptr inbounds i8, ptr %309, i64 24
-  %505 = getelementptr inbounds i8, ptr %308, i64 24
+  %502 = getelementptr inbounds nuw i8, ptr %304, i64 24
+  %.sroa.4.0..sroa_idx122.i.i.i = getelementptr inbounds nuw i8, ptr %309, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %309, i64 16
+  %504 = getelementptr inbounds nuw i8, ptr %309, i64 24
+  %505 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %506 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %507 = getelementptr inbounds i8, ptr %307, i64 24
+  %507 = getelementptr inbounds nuw i8, ptr %307, i64 24
   %508 = getelementptr inbounds nuw i8, ptr %312, i64 32
   %509 = getelementptr inbounds nuw i8, ptr %312, i64 33
   %510 = getelementptr inbounds nuw i8, ptr %313, i64 32
@@ -40149,9 +40149,9 @@ define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5v
   %519 = getelementptr inbounds nuw i8, ptr %321, i64 32
   %520 = getelementptr inbounds nuw i8, ptr %321, i64 33
   %521 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  %522 = getelementptr inbounds i8, ptr %320, i64 24
+  %522 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %523 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %524 = getelementptr inbounds i8, ptr %319, i64 24
+  %524 = getelementptr inbounds nuw i8, ptr %319, i64 24
   %525 = getelementptr inbounds nuw i8, ptr %301, i64 32
   %526 = getelementptr inbounds nuw i8, ptr %301, i64 33
   %527 = getelementptr inbounds nuw i8, ptr %292, i64 32
@@ -40326,7 +40326,7 @@ define internal fastcc void @_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE5v
   %696 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %697 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %698 = getelementptr inbounds nuw i8, ptr %126, i64 33
-  %699 = getelementptr inbounds i8, ptr %128, i64 16
+  %699 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %700 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %701 = getelementptr inbounds nuw i8, ptr %129, i64 33
   %702 = getelementptr inbounds nuw i8, ptr %136, i64 32
@@ -40570,7 +40570,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.thread.i: 
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i
 
 870:                                              ; preds = %863
-  %871 = getelementptr inbounds i8, ptr %865, i64 1
+  %871 = getelementptr inbounds nuw i8, ptr %865, i64 1
   store ptr %871, ptr %864, align 8
   store i8 10, ptr %865, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i
@@ -40672,7 +40672,7 @@ _ZN4llvm8DebugLocD2Ev.exit.thread.i.i:            ; preds = %_ZN4llvm8DebugLocD2
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 894:                                              ; preds = %887
-  %895 = getelementptr inbounds i8, ptr %.sroa.068.087.i.i, i64 40
+  %895 = getelementptr inbounds nuw i8, ptr %.sroa.068.087.i.i, i64 40
   %896 = load ptr, ptr %895, align 8
   %.not.i36.i.i = icmp eq ptr %896, null
   br i1 %.not.i36.i.i, label %913, label %897
@@ -40740,7 +40740,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit._crit_edge.i.i.i: ; preds = %_ZNK4llvm6M
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.ithread-pre-split.i.i
 
 922:                                              ; preds = %915
-  %923 = getelementptr inbounds i8, ptr %917, i64 1
+  %923 = getelementptr inbounds nuw i8, ptr %917, i64 1
   store ptr %923, ptr %916, align 8
   store i8 10, ptr %917, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.ithread-pre-split.i.i
@@ -40775,7 +40775,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i: ; pre
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i
 
 937:                                              ; preds = %929
-  %938 = getelementptr inbounds i8, ptr %932, i64 1
+  %938 = getelementptr inbounds nuw i8, ptr %932, i64 1
   store ptr %938, ptr %931, align 8
   store i8 10, ptr %932, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i
@@ -40800,7 +40800,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i: ; preds = %937, %
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 949:                                              ; preds = %939
-  %950 = getelementptr inbounds i8, ptr %944, i64 1
+  %950 = getelementptr inbounds nuw i8, ptr %944, i64 1
   store ptr %950, ptr %943, align 8
   store i8 10, ptr %944, align 1
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
@@ -40831,7 +40831,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i: ; preds = %937, %
   %.012.i.i.i.i = phi ptr [ %962, %.lr.ph.i.i.i.i ], [ %958, %956 ]
   %961 = load ptr, ptr %.012.i.i.i.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %961, ptr noundef %890)
-  %962 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
+  %962 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i69.i.i.i = icmp eq ptr %962, %960
   br i1 %.not.i69.i.i.i, label %_ZN12_GLOBAL__N_18Verifier14visitDIArgListERKN4llvm9DIArgListEPNS1_8FunctionE.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -40868,7 +40868,7 @@ _ZN4llvm15isa_and_nonnullIJNS_15DILocalVariableEEPNS_6MDNodeEEEbRKT0_.exit.threa
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74.ithread-pre-split.i.i
 
 975:                                              ; preds = %968
-  %976 = getelementptr inbounds i8, ptr %970, i64 1
+  %976 = getelementptr inbounds nuw i8, ptr %970, i64 1
   store ptr %976, ptr %969, align 8
   store i8 10, ptr %970, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74.ithread-pre-split.i.i
@@ -40903,7 +40903,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74.i.i.i: ; p
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i122.i.i.i
 
 990:                                              ; preds = %982
-  %991 = getelementptr inbounds i8, ptr %985, i64 1
+  %991 = getelementptr inbounds nuw i8, ptr %985, i64 1
   store ptr %991, ptr %984, align 8
   store i8 10, ptr %985, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i122.i.i.i
@@ -40928,7 +40928,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i122.i.i.i: ; preds = %990
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1002:                                             ; preds = %992
-  %1003 = getelementptr inbounds i8, ptr %997, i64 1
+  %1003 = getelementptr inbounds nuw i8, ptr %997, i64 1
   store ptr %1003, ptr %996, align 8
   store i8 10, ptr %997, align 1
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
@@ -40967,7 +40967,7 @@ _ZN4llvm15isa_and_nonnullIJNS_12DIExpressionEEPNS_6MDNodeEEEbRKT0_.exit.thread.i
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80.ithread-pre-split.i.i
 
 1017:                                             ; preds = %1010
-  %1018 = getelementptr inbounds i8, ptr %1012, i64 1
+  %1018 = getelementptr inbounds nuw i8, ptr %1012, i64 1
   store ptr %1018, ptr %1011, align 8
   store i8 10, ptr %1012, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80.ithread-pre-split.i.i
@@ -41002,7 +41002,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80.i.i.i: ; p
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i127.i.i.i
 
 1032:                                             ; preds = %1024
-  %1033 = getelementptr inbounds i8, ptr %1027, i64 1
+  %1033 = getelementptr inbounds nuw i8, ptr %1027, i64 1
   store ptr %1033, ptr %1026, align 8
   store i8 10, ptr %1027, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i127.i.i.i
@@ -41027,7 +41027,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i127.i.i.i: ; preds = %103
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1044:                                             ; preds = %1034
-  %1045 = getelementptr inbounds i8, ptr %1039, i64 1
+  %1045 = getelementptr inbounds nuw i8, ptr %1039, i64 1
   store ptr %1045, ptr %1038, align 8
   store i8 10, ptr %1039, align 1
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
@@ -41040,7 +41040,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i127.i.i.i: ; preds = %103
   br i1 %1049, label %1050, label %.loopexit.i.i.i
 
 1050:                                             ; preds = %1046
-  %1051 = getelementptr inbounds i8, ptr %.sroa.068.087.i.i, i64 56
+  %1051 = getelementptr inbounds nuw i8, ptr %.sroa.068.087.i.i, i64 56
   %1052 = load ptr, ptr %1051, align 8
   %.not.i.i83.i.i.i = icmp eq ptr %1052, null
   br i1 %.not.i.i83.i.i.i, label %_ZN4llvm15isa_and_nonnullIJNS_10DIAssignIDEEPNS_8MetadataEEEbRKT0_.exit.thread.i.i.i, label %_ZN4llvm15isa_and_nonnullIJNS_10DIAssignIDEEPNS_8MetadataEEEbRKT0_.exit.i.i.i
@@ -41081,7 +41081,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i87.i.i.thread
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i87.i.i.i
 
 1067:                                             ; preds = %1060
-  %1068 = getelementptr inbounds i8, ptr %1062, i64 1
+  %1068 = getelementptr inbounds nuw i8, ptr %1062, i64 1
   store ptr %1068, ptr %1061, align 8
   store i8 10, ptr %1062, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i87.i.i.i
@@ -41112,7 +41112,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i87.i.i.i: ; p
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i
 
 1082:                                             ; preds = %1074
-  %1083 = getelementptr inbounds i8, ptr %1077, i64 1
+  %1083 = getelementptr inbounds nuw i8, ptr %1077, i64 1
   store ptr %1083, ptr %1076, align 8
   store i8 10, ptr %1077, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i
@@ -41137,7 +41137,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i: ; preds = %1082, %1080
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1094:                                             ; preds = %1084
-  %1095 = getelementptr inbounds i8, ptr %1089, i64 1
+  %1095 = getelementptr inbounds nuw i8, ptr %1089, i64 1
   store ptr %1095, ptr %1088, align 8
   store i8 10, ptr %1089, align 1
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
@@ -41147,7 +41147,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i: ; preds = %1082, %1080
   %1097 = load i8, ptr %891, align 8
   %1098 = icmp eq i8 %1097, 2
   %.in.v.i.i.i.i = select i1 %1098, i64 48, i64 40
-  %.in.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.068.087.i.i, i64 %.in.v.i.i.i.i
+  %.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.068.087.i.i, i64 %.in.v.i.i.i.i
   %1099 = load ptr, ptr %.in.i.i.i.i, align 8
   %1100 = load i8, ptr %1099, align 4
   %1101 = add i8 %1100, -1
@@ -41199,7 +41199,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit94._crit_edge.i.i.i: ; preds = %_ZNK4llvm
   store ptr %.sroa.068.087.i.i, ptr %382, align 8
   %1118 = icmp eq i8 %1117, 2
   %.in.v.i95.i.i.i = select i1 %1118, i64 48, i64 40
-  %.in.i96.i.i.i = getelementptr inbounds i8, ptr %.sroa.068.087.i.i, i64 %.in.v.i95.i.i.i
+  %.in.i96.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.068.087.i.i, i64 %.in.v.i95.i.i.i
   %1119 = load ptr, ptr %.in.i96.i.i.i, align 8
   store ptr %1119, ptr %383, align 8
   %1120 = load ptr, ptr %0, align 8
@@ -41220,7 +41220,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit94._crit_edge.i.i.i: ; preds = %_ZNK4llvm
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i391thread-pre-split
 
 1128:                                             ; preds = %1121
-  %1129 = getelementptr inbounds i8, ptr %1123, i64 1
+  %1129 = getelementptr inbounds nuw i8, ptr %1123, i64 1
   store ptr %1129, ptr %1122, align 8
   store i8 10, ptr %1123, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i391thread-pre-split
@@ -41285,7 +41285,7 @@ _ZN4llvm15isa_and_nonnullIJNS_12DIExpressionEEPNS_6MDNodeEEEbRKT0_.exit101.threa
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i386thread-pre-split
 
 1153:                                             ; preds = %1146
-  %1154 = getelementptr inbounds i8, ptr %1148, i64 1
+  %1154 = getelementptr inbounds nuw i8, ptr %1148, i64 1
   store ptr %1154, ptr %1147, align 8
   store i8 10, ptr %1148, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i386thread-pre-split
@@ -41316,7 +41316,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i386thread-pre
   br i1 %.not65163.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
 
 1167:                                             ; preds = %.lr.ph.i.i.i
-  %1168 = getelementptr inbounds i8, ptr %.0164.i.i.i, i64 8
+  %1168 = getelementptr inbounds nuw i8, ptr %.0164.i.i.i, i64 8
   %.not65.i.i.i = icmp eq ptr %1168, %1166
   br i1 %.not65.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
 
@@ -41361,7 +41361,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i386thread-pre
 
 _ZNK4llvm10DIVariable10getRawTypeEv.exit.i.i.i:   ; preds = %1182, %1178
   %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %1186, %1182 ], [ %1180, %1178 ]
-  %1187 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 24
+  %1187 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 24
   %1188 = load ptr, ptr %1187, align 8
   %.not.i103.i.i.i = icmp eq ptr %1188, null
   br i1 %.not.i103.i.i.i, label %1224, label %1189
@@ -41400,7 +41400,7 @@ _ZL6isTypePKN4llvm8MetadataE.exit.i.i.i:          ; preds = %1189
 
 _ZNK4llvm10DIVariable10getRawTypeEv.exit106.i.i.i: ; preds = %1197, %1193
   %.sroa.0.0.i.i.i105.i.i.i = phi ptr [ %1201, %1197 ], [ %1195, %1193 ]
-  %1202 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i105.i.i.i, i64 24
+  %1202 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i105.i.i.i, i64 24
   %1203 = load ptr, ptr %1202, align 8
   store ptr %1203, ptr %392, align 8
   %1204 = load ptr, ptr %0, align 8
@@ -41430,7 +41430,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i109.i.i.threa
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i109.i.i.i
 
 1216:                                             ; preds = %1209
-  %1217 = getelementptr inbounds i8, ptr %1211, i64 1
+  %1217 = getelementptr inbounds nuw i8, ptr %1211, i64 1
   store ptr %1217, ptr %1210, align 8
   store i8 10, ptr %1211, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i109.i.i.i
@@ -41492,7 +41492,7 @@ _ZN4llvm15isa_and_nonnullIJNS_10DILocationEEPNS_6MDNodeEEEbRKT0_.exit.thread.i.i
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.ithread-pre-split
 
 1237:                                             ; preds = %1230
-  %1238 = getelementptr inbounds i8, ptr %1232, i64 1
+  %1238 = getelementptr inbounds nuw i8, ptr %1232, i64 1
   store ptr %1238, ptr %1231, align 8
   store i8 10, ptr %1232, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.ithread-pre-split
@@ -41527,7 +41527,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i398
 
 1252:                                             ; preds = %1244
-  %1253 = getelementptr inbounds i8, ptr %1247, i64 1
+  %1253 = getelementptr inbounds nuw i8, ptr %1247, i64 1
   store ptr %1253, ptr %1246, align 8
   store i8 10, ptr %1247, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i398
@@ -41553,7 +41553,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i398: ; preds = %1252, %12
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
 
 1264:                                             ; preds = %1254
-  %1265 = getelementptr inbounds i8, ptr %1259, i64 1
+  %1265 = getelementptr inbounds nuw i8, ptr %1259, i64 1
   store ptr %1265, ptr %1258, align 8
   store i8 10, ptr %1259, align 1
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i
@@ -41640,7 +41640,7 @@ _ZNK4llvm10DIVariable11getRawScopeEv.exit:        ; preds = %1277, %1281
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i373: ; preds = %1298, %1294
   %.sroa.0.0.i.i.i.i374 = phi ptr [ %1302, %1298 ], [ %1296, %1294 ]
-  %1303 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i374, i64 8
+  %1303 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i374, i64 8
   %1304 = load ptr, ptr %1303, align 8
   %.not.i375 = icmp eq ptr %1304, null
   br i1 %.not.i375, label %_ZL13getSubprogramPN4llvm8MetadataE.exit378, label %.lr.ph.i368
@@ -41705,7 +41705,7 @@ _ZNK4llvm10DILocation11getRawScopeEv.exit:        ; preds = %1308, %1312
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i: ; preds = %1329, %1325
   %.sroa.0.0.i.i.i.i = phi ptr [ %1333, %1329 ], [ %1327, %1325 ]
-  %1334 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %1334 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %1335 = load ptr, ptr %1334, align 8
   %.not.i364 = icmp eq ptr %1335, null
   br i1 %.not.i364, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm17DbgVariableRecordE.exit.i.i, label %.lr.ph.i362
@@ -41881,7 +41881,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DIExpressionENS_6MDNodeEEEDaPT0_.exit.i.i.i: ; p
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.ithread-pre-split.i.i
 
 1397:                                             ; preds = %1390
-  %1398 = getelementptr inbounds i8, ptr %1392, i64 1
+  %1398 = getelementptr inbounds nuw i8, ptr %1392, i64 1
   store ptr %1398, ptr %1391, align 8
   store i8 10, ptr %1392, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.ithread-pre-split.i.i
@@ -41916,7 +41916,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i.i.i.i: ; p
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i.i
 
 1412:                                             ; preds = %1404
-  %1413 = getelementptr inbounds i8, ptr %1407, i64 1
+  %1413 = getelementptr inbounds nuw i8, ptr %1407, i64 1
   store ptr %1413, ptr %1406, align 8
   store i8 10, ptr %1407, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i.i
@@ -41938,7 +41938,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i.i: ; preds = %1412
   br label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm17DbgVariableRecordEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit.i.i.i
 
 1423:                                             ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i.i
-  %1424 = getelementptr inbounds i8, ptr %1418, i64 1
+  %1424 = getelementptr inbounds nuw i8, ptr %1418, i64 1
   store ptr %1424, ptr %1417, align 8
   store i8 10, ptr %1418, align 1
   br label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm17DbgVariableRecordEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit.i.i.i
@@ -41970,7 +41970,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i.i.i.i: ; preds = %1412
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i.ithread-pre-split.i.i
 
 1436:                                             ; preds = %1429
-  %1437 = getelementptr inbounds i8, ptr %1431, i64 1
+  %1437 = getelementptr inbounds nuw i8, ptr %1431, i64 1
   store ptr %1437, ptr %1430, align 8
   store i8 10, ptr %1431, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i.ithread-pre-split.i.i
@@ -42005,7 +42005,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i.i.i.i: ; 
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i16.i.i.i.i
 
 1451:                                             ; preds = %1443
-  %1452 = getelementptr inbounds i8, ptr %1446, i64 1
+  %1452 = getelementptr inbounds nuw i8, ptr %1446, i64 1
   store ptr %1452, ptr %1445, align 8
   store i8 10, ptr %1446, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i16.i.i.i.i
@@ -42027,7 +42027,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i16.i.i.i.i: ; preds = %14
   br label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm17DbgVariableRecordEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit.i.i.i
 
 1462:                                             ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i16.i.i.i.i
-  %1463 = getelementptr inbounds i8, ptr %1457, i64 1
+  %1463 = getelementptr inbounds nuw i8, ptr %1457, i64 1
   store ptr %1463, ptr %1456, align 8
   store i8 10, ptr %1457, align 1
   br label %_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressionIKN4llvm17DbgVariableRecordEEEvRKNS2_10DIVariableENS2_23DbgVariableFragmentInfoEPT_.exit.i.i.i
@@ -42055,7 +42055,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DIExpressionENS_6MDNodeEEEDaPT0_.exit.i51.i.i: ;
   br i1 %1467, label %1468, label %_ZN12_GLOBAL__N_18Verifier19verifyNotEntryValueERKN4llvm17DbgVariableRecordE.exit.i.i
 
 1468:                                             ; preds = %_ZN4llvm16dyn_cast_or_nullINS_12DIExpressionENS_6MDNodeEEEDaPT0_.exit.i51.i.i
-  %1469 = getelementptr inbounds i8, ptr %.sroa.068.087.i.i, i64 40
+  %1469 = getelementptr inbounds nuw i8, ptr %.sroa.068.087.i.i, i64 40
   %1470 = load ptr, ptr %1469, align 8
   %1471 = load i8, ptr %1470, align 4
   %1472 = add i8 %1471, -1
@@ -42136,7 +42136,7 @@ _ZN12_GLOBAL__N_18Verifier19verifyNotEntryValueERKN4llvm17DbgVariableRecordE.exi
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i56thread-pre-split.i.i
 
 1496:                                             ; preds = %1489
-  %1497 = getelementptr inbounds i8, ptr %1491, i64 1
+  %1497 = getelementptr inbounds nuw i8, ptr %1491, i64 1
   store ptr %1497, ptr %1490, align 8
   store i8 10, ptr %1491, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i56thread-pre-split.i.i
@@ -42171,7 +42171,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i56.i.i: ; p
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i58.i.i
 
 1511:                                             ; preds = %1503
-  %1512 = getelementptr inbounds i8, ptr %1506, i64 1
+  %1512 = getelementptr inbounds nuw i8, ptr %1506, i64 1
   store ptr %1512, ptr %1505, align 8
   store i8 10, ptr %1506, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i58.i.i
@@ -42193,7 +42193,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i58.i.i: ; preds = %1511
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i
 
 1522:                                             ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit.i.i58.i.i
-  %1523 = getelementptr inbounds i8, ptr %1517, i64 1
+  %1523 = getelementptr inbounds nuw i8, ptr %1517, i64 1
   store ptr %1523, ptr %1516, align 8
   store i8 10, ptr %1517, align 1
   br label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i
@@ -42325,7 +42325,7 @@ _ZNK4llvm7DILabel11getRawScopeEv.exit.i.i.i:      ; preds = %1552, %1548
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i.i.i.i: ; preds = %1569, %1565
   %.sroa.0.0.i.i.i.i.i.i.i = phi ptr [ %1573, %1569 ], [ %1567, %1565 ]
-  %1574 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 8
+  %1574 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i.i, i64 8
   %1575 = load ptr, ptr %1574, align 8
   %.not.i26.i.i.i = icmp eq ptr %1575, null
   br i1 %.not.i26.i.i.i, label %_ZL13getSubprogramPN4llvm8MetadataE.exit.loopexit.i.i.i, label %.lr.ph.i.i64.i.i
@@ -42396,7 +42396,7 @@ _ZNK4llvm10DILocation11getRawScopeEv.exit.i.i.i:  ; preds = %1584, %1580
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i35.i.i.i: ; preds = %1601, %1597
   %.sroa.0.0.i.i.i.i36.i.i.i = phi ptr [ %1605, %1601 ], [ %1599, %1597 ]
-  %1606 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i36.i.i.i, i64 8
+  %1606 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i36.i.i.i, i64 8
   %1607 = load ptr, ptr %1606, align 8
   %.not.i37.i.i.i = icmp eq ptr %1607, null
   br i1 %.not.i37.i.i.i, label %_ZN12_GLOBAL__N_18Verifier5visitERN4llvm14DbgLabelRecordE.exit.i.i, label %.lr.ph.i30.i.i.i
@@ -42512,7 +42512,7 @@ _ZN12_GLOBAL__N_18Verifier15visitDbgRecordsERN4llvm11InstructionE.exit.i: ; pred
 
 _ZNK4llvm4User10getOperandEj.exit.us.i:           ; preds = %.lr.ph.i, %1652
   %indvars.iv462 = phi i64 [ %indvars.iv.next463, %1652 ], [ 0, %.lr.ph.i ]
-  %1650 = getelementptr inbounds %"class.llvm::Use", ptr %1649, i64 %indvars.iv462
+  %1650 = getelementptr inbounds nuw %"class.llvm::Use", ptr %1649, i64 %indvars.iv462
   %1651 = load ptr, ptr %1650, align 8
   %.not9.us.i = icmp eq ptr %1651, null
   br i1 %.not9.us.i, label %.split.us.i, label %1652
@@ -42534,7 +42534,7 @@ _ZNK4llvm4User10getOperandEj.exit.us.i:           ; preds = %.lr.ph.i, %1652
 
 _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %1655, %.lr.ph.split.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %1655 ], [ 0, %.lr.ph.split.i ]
-  %1656 = getelementptr inbounds %"class.llvm::Use", ptr %1654, i64 %indvars.iv
+  %1656 = getelementptr inbounds nuw %"class.llvm::Use", ptr %1654, i64 %indvars.iv
   %1657 = load ptr, ptr %1656, align 8
   %.not9.i = icmp eq ptr %1657, null
   br i1 %.not9.i, label %.split.us.i, label %1655
@@ -42629,7 +42629,7 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %1655, %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %1661 = getelementptr inbounds i8, ptr %836, i64 40
+  %1661 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1662 = load ptr, ptr %1661, align 8
   %1663 = getelementptr inbounds nuw i8, ptr %1662, i64 72
   %1664 = load ptr, ptr %1663, align 8
@@ -42675,7 +42675,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i361: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i358
 
 1684:                                             ; preds = %1677
-  %1685 = getelementptr inbounds i8, ptr %1679, i64 1
+  %1685 = getelementptr inbounds nuw i8, ptr %1679, i64 1
   store ptr %1685, ptr %1678, align 8
   store i8 10, ptr %1679, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i358
@@ -42730,7 +42730,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i17.i.i: ; preds
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i14.i.i
 
 1704:                                             ; preds = %1697
-  %1705 = getelementptr inbounds i8, ptr %1699, i64 1
+  %1705 = getelementptr inbounds nuw i8, ptr %1699, i64 1
   store ptr %1705, ptr %1698, align 8
   store i8 10, ptr %1699, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i14.i.i
@@ -42832,7 +42832,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i352: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i349
 
 1736:                                             ; preds = %1729
-  %1737 = getelementptr inbounds i8, ptr %1731, i64 1
+  %1737 = getelementptr inbounds nuw i8, ptr %1731, i64 1
   store ptr %1737, ptr %1730, align 8
   store i8 10, ptr %1731, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i349
@@ -42850,7 +42850,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i349: ; preds = %17
 1739:                                             ; preds = %1720, %1718
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %1740 = getelementptr inbounds i8, ptr %836, i64 40
+  %1740 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1741 = load ptr, ptr %1740, align 8
   %1742 = getelementptr inbounds nuw i8, ptr %1741, i64 48
   %1743 = load ptr, ptr %1742, align 8
@@ -42954,7 +42954,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
   %1782 = add nuw nsw i64 %1781, 2
   %1783 = load ptr, ptr %1761, align 8
   %1784 = and i64 %1782, 4294967294
-  %1785 = getelementptr inbounds %"class.llvm::Use", ptr %1783, i64 %1784
+  %1785 = getelementptr inbounds nuw %"class.llvm::Use", ptr %1783, i64 %1784
   %1786 = load ptr, ptr %1785, align 8
   %1787 = load i8, ptr %1786, align 8
   %1788 = icmp eq i8 %1787, 17
@@ -42988,7 +42988,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
 
 1797:                                             ; preds = %1795
   %1798 = zext i32 %1778 to i64
-  %1799 = getelementptr inbounds ptr, ptr %1779, i64 %1798
+  %1799 = getelementptr inbounds nuw ptr, ptr %1779, i64 %1798
   %.not24.i.i.i.i = icmp eq i32 %1778, 0
   br i1 %.not24.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i342
 
@@ -42999,7 +42999,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE7visitBrERNS_10BranchInstE.exit
   br i1 %1801, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.thread3.i, label %1802
 
 1802:                                             ; preds = %.lr.ph.i.i.i.i342
-  %1803 = getelementptr inbounds i8, ptr %.025.i.i.i.i, i64 8
+  %1803 = getelementptr inbounds nuw i8, ptr %.025.i.i.i.i, i64 8
   %.not.i.i.i.i343 = icmp eq ptr %1803, %1799
   br i1 %.not.i.i.i.i343, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i342, !llvm.loop !15
 
@@ -43023,7 +43023,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i: ; preds = %._crit_edge
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.thread3.loopexit10.i: ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
   %.pre.i = load ptr, ptr %1761, align 8
-  %.phi.trans.insert.i = getelementptr inbounds %"class.llvm::Use", ptr %.pre.i, i64 %1784
+  %.phi.trans.insert.i = getelementptr inbounds nuw %"class.llvm::Use", ptr %.pre.i, i64 %1784
   %.pre15.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.thread3.i
 
@@ -43056,7 +43056,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i336: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i333
 
 1819:                                             ; preds = %1812
-  %1820 = getelementptr inbounds i8, ptr %1814, i64 1
+  %1820 = getelementptr inbounds nuw i8, ptr %1814, i64 1
   store ptr %1820, ptr %1813, align 8
   store i8 10, ptr %1814, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i333
@@ -43074,7 +43074,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i333: ; preds = %18
 ._crit_edge.i.i338:                               ; preds = %1771, %1760
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  %1822 = getelementptr inbounds i8, ptr %836, i64 40
+  %1822 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1823 = load ptr, ptr %1822, align 8
   %1824 = getelementptr inbounds nuw i8, ptr %1823, i64 48
   %1825 = load ptr, ptr %1824, align 8
@@ -43167,7 +43167,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSwitchERNS_10SwitchInstE
 1853:                                             ; preds = %1852
   %indvars.iv.next.i.i327 = add nuw nsw i64 %indvars.iv.i.i325, 1
   %1854 = and i64 %indvars.iv.next.i.i327, 4294967295
-  %1855 = getelementptr inbounds %"class.llvm::Use", ptr %1840, i64 %1854
+  %1855 = getelementptr inbounds nuw %"class.llvm::Use", ptr %1840, i64 %1854
   %1856 = load ptr, ptr %1855, align 8
   %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 8
   %1858 = load ptr, ptr %1857, align 8
@@ -43188,7 +43188,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitSwitchERNS_10SwitchInstE
 1864:                                             ; preds = %1852
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  %1865 = getelementptr inbounds i8, ptr %836, i64 40
+  %1865 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1866 = load ptr, ptr %1865, align 8
   %1867 = getelementptr inbounds nuw i8, ptr %1866, i64 48
   %1868 = load ptr, ptr %1867, align 8
@@ -43254,7 +43254,7 @@ _ZNK4llvm10BasicBlock7isEHPadEv.exit.i.i:         ; preds = %1877
 1882:                                             ; preds = %1877, %1877, %1877, %1877
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  %1883 = getelementptr inbounds i8, ptr %836, i64 40
+  %1883 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1884 = load ptr, ptr %1883, align 8
   %1885 = getelementptr inbounds nuw i8, ptr %1884, i64 48
   %1886 = load ptr, ptr %1885, align 8
@@ -43340,7 +43340,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitInvokeERNS_10InvokeInstE
 1911:                                             ; preds = %1908, %1907
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  %1912 = getelementptr inbounds i8, ptr %836, i64 40
+  %1912 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1913 = load ptr, ptr %1912, align 8
   %1914 = getelementptr inbounds nuw i8, ptr %1913, i64 48
   %1915 = load ptr, ptr %1914, align 8
@@ -43383,7 +43383,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE11visitResumeERNS_10ResumeInstE
 1924:                                             ; preds = %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
-  %1925 = getelementptr inbounds i8, ptr %836, i64 40
+  %1925 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1926 = load ptr, ptr %1925, align 8
   %1927 = getelementptr inbounds nuw i8, ptr %1926, i64 48
   %1928 = load ptr, ptr %1927, align 8
@@ -43458,7 +43458,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i310: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i307
 
 1953:                                             ; preds = %1946
-  %1954 = getelementptr inbounds i8, ptr %1948, i64 1
+  %1954 = getelementptr inbounds nuw i8, ptr %1948, i64 1
   store ptr %1954, ptr %1947, align 8
   store i8 10, ptr %1948, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i307
@@ -43481,7 +43481,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i307: ; preds = %19
   br i1 %.not.i9.i.i, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread.i.i, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.i.i
 
 _ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.i.i: ; preds = %1956
-  %1960 = getelementptr inbounds i8, ptr %1940, i64 32
+  %1960 = getelementptr inbounds nuw i8, ptr %1940, i64 32
   %1961 = load ptr, ptr %1960, align 8
   %.not.i.i311 = icmp eq ptr %1961, null
   br i1 %.not.i.i311, label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread.i.i, label %1962
@@ -43506,7 +43506,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.i.i315:     ; preds = %1962
 _ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.thread.i.i: ; preds = %1962, %1962, %1962, %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit.i.i, %1956
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
-  %1965 = getelementptr inbounds i8, ptr %836, i64 40
+  %1965 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1966 = load ptr, ptr %1965, align 8
   %1967 = getelementptr inbounds nuw i8, ptr %1966, i64 48
   %1968 = load ptr, ptr %1967, align 8
@@ -43585,7 +43585,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i301: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i298
 
 1991:                                             ; preds = %1984
-  %1992 = getelementptr inbounds i8, ptr %1986, i64 1
+  %1992 = getelementptr inbounds nuw i8, ptr %1986, i64 1
   store ptr %1992, ptr %1985, align 8
   store i8 10, ptr %1986, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i298
@@ -43603,7 +43603,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i298: ; preds = %19
 1994:                                             ; preds = %1977
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55)
-  %1995 = getelementptr inbounds i8, ptr %836, i64 40
+  %1995 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %1996 = load ptr, ptr %1995, align 8
   %1997 = getelementptr inbounds nuw i8, ptr %1996, i64 48
   %1998 = load ptr, ptr %1997, align 8
@@ -43657,7 +43657,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchRetu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %72)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
-  %2008 = getelementptr inbounds i8, ptr %836, i64 40
+  %2008 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %2009 = load ptr, ptr %2008, align 8
   %2010 = getelementptr inbounds nuw i8, ptr %2009, i64 72
   %2011 = load ptr, ptr %2010, align 8
@@ -43719,7 +43719,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE13visitCatchRetERNS_15CatchRetu
   br i1 %.not.i.i.i281, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread.i.i, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.i.i
 
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.i.i: ; preds = %2032
-  %2036 = getelementptr inbounds i8, ptr %2022, i64 32
+  %2036 = getelementptr inbounds nuw i8, ptr %2022, i64 32
   %2037 = load ptr, ptr %2036, align 8
   %.not.i.i282 = icmp eq ptr %2037, null
   br i1 %.not.i.i282, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread.i.i, label %2038
@@ -43790,16 +43790,16 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread.i.i: ; preds = %2049, %_
   %spec.select.v.i.i.i.i = select i1 %.not.i27.i.i, i64 32, i64 64
   %2058 = shl i32 %2053, 5
   %.idx.i.i = zext i32 %2058 to i64
-  %2059 = getelementptr inbounds i8, ptr %2057, i64 %.idx.i.i
+  %2059 = getelementptr inbounds nuw i8, ptr %2057, i64 %.idx.i.i
   %.not4748.i.i = icmp eq i64 %spec.select.v.i.i.i.i, %.idx.i.i
   br i1 %.not4748.i.i, label %._crit_edge.i.i292, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2056
-  %spec.select.i.i.i.i284 = getelementptr inbounds i8, ptr %2057, i64 %spec.select.v.i.i.i.i
+  %spec.select.i.i.i.i284 = getelementptr inbounds nuw i8, ptr %2057, i64 %spec.select.v.i.i.i.i
   br label %.lr.ph.i.i285
 
 2060:                                             ; preds = %.lr.ph.i.i285
-  %2061 = getelementptr inbounds i8, ptr %.sroa.035.049.i.i, i64 32
+  %2061 = getelementptr inbounds nuw i8, ptr %.sroa.035.049.i.i, i64 32
   %.not47.i.i291 = icmp eq ptr %2061, %2059
   br i1 %.not47.i.i291, label %._crit_edge.i.i292, label %.lr.ph.i.i285
 
@@ -43839,7 +43839,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i290: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i288
 
 2075:                                             ; preds = %2068
-  %2076 = getelementptr inbounds i8, ptr %2070, i64 1
+  %2076 = getelementptr inbounds nuw i8, ptr %2070, i64 1
   store ptr %2076, ptr %2069, align 8
   store i8 10, ptr %2070, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i288
@@ -43953,7 +43953,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitCatchSwitchERNS_15CatchS
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i279
 
 2108:                                             ; preds = %2101
-  %2109 = getelementptr inbounds i8, ptr %2103, i64 1
+  %2109 = getelementptr inbounds nuw i8, ptr %2103, i64 1
   store ptr %2109, ptr %2102, align 8
   store i8 10, ptr %2103, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i279
@@ -43966,7 +43966,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i279: ; preds = %2108
   call fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyInlineAsmCallERKN4llvm8CallBaseE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(92) %836)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76)
-  %2111 = getelementptr inbounds i8, ptr %836, i64 40
+  %2111 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %2112 = load ptr, ptr %2111, align 8
   %2113 = getelementptr inbounds nuw i8, ptr %2112, i64 48
   %2114 = load ptr, ptr %2113, align 8
@@ -44851,7 +44851,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   %2354 = zext nneg i32 %2353 to i64
   %2355 = sub nsw i64 0, %2354
   %2356 = getelementptr inbounds %"class.llvm::Use", ptr %836, i64 %2355
-  %2357 = getelementptr inbounds i8, ptr %2356, i64 32
+  %2357 = getelementptr inbounds nuw i8, ptr %2356, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %128, ptr noundef nonnull %699, i64 noundef 16) #23
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPNS_3UseEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(144) %128, ptr noundef nonnull %2357, ptr noundef nonnull align 8 dereferenceable(88) %836)
   %2358 = load ptr, ptr %128, align 8
@@ -44895,7 +44895,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not71.i.i.i.i.i.i.i, label %2373, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 2373:                                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit.i.i.i.i.i.i.i"
-  %2374 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 8
+  %2374 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i.i = load ptr, ptr %2374, align 8
   %2375 = getelementptr i8, ptr %.val.i.i.i.i.i.i.i, i64 8
   %.val.val.i.i.i.i.i.i.i = load ptr, ptr %2375, align 8
@@ -44921,7 +44921,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not72.i.i.i.i.i.i.i, label %2384, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit"
 
 2384:                                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit38.i.i.i.i.i.i.i"
-  %2385 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 16
+  %2385 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i.i = load ptr, ptr %2385, align 8
   %2386 = getelementptr i8, ptr %.val30.i.i.i.i.i.i.i, i64 8
   %.val30.val.i.i.i.i.i.i.i = load ptr, ptr %2386, align 8
@@ -44947,7 +44947,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not73.i.i.i.i.i.i.i, label %2395, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit482"
 
 2395:                                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit44.i.i.i.i.i.i.i"
-  %2396 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 24
+  %2396 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i.i.i = load ptr, ptr %2396, align 8
   %2397 = getelementptr i8, ptr %.val31.i.i.i.i.i.i.i, i64 8
   %.val31.val.i.i.i.i.i.i.i = load ptr, ptr %2397, align 8
@@ -44973,7 +44973,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not74.i.i.i.i.i.i.i, label %2406, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit484"
 
 2406:                                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit50.i.i.i.i.i.i.i"
-  %2407 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 32
+  %2407 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 32
   %2408 = add nsw i64 %.086.i.i.i.i.i.i.i, -1
   %2409 = icmp sgt i64 %.086.i.i.i.i.i.i.i, 1
   br i1 %2409, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !261
@@ -45017,7 +45017,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not.i.i.i.i.i.i.i227, label %2421, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 2421:                                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit56.i.i.i.i.i.i.i"
-  %2422 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 8
+  %2422 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i.i, i64 8
   br label %2423
 
 2423:                                             ; preds = %2421, %._crit_edge.i.i.i.i.i.i.i
@@ -45047,7 +45047,7 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not69.i.i.i.i.i.i.i, label %2433, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 2433:                                             ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit62.i.i.i.i.i.i.i"
-  %2434 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 8
+  %2434 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i.i, i64 8
   br label %2435
 
 2435:                                             ; preds = %2433, %._crit_edge.i.i.i.i.i.i.i
@@ -45077,15 +45077,15 @@ _ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit.i.i: ; preds = %2350, %2346
   br i1 %.not70.i.i.i.i.i.i.i, label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.thread.i.i", label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 "_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit38.i.i.i.i.i.i.i"
-  %2445 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 8
+  %2445 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 "_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit482": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit44.i.i.i.i.i.i.i"
-  %2446 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 16
+  %2446 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 "_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit484": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit50.i.i.i.i.i.i.i"
-  %2447 = getelementptr inbounds i8, ptr %.02985.i.i.i.i.i.i.i, i64 24
+  %2447 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i"
 
 "_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit.i.i.i.i.i.i.i", %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit482", %"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj16EEEZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERNS_17GetElementPtrInstEE3$_0EEbOT_T0_.exit.i.i.loopexit.split.loop.exit484", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit68.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit62.i.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18Verifier22visitGetElementPtrInstERN4llvm17GetElementPtrInstEE3$_0EclIPPNS4_5ValueEEEbT_.exit56.i.i.i.i.i.i.i"
@@ -45177,7 +45177,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i218: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i215
 
 2482:                                             ; preds = %2475
-  %2483 = getelementptr inbounds i8, ptr %2477, i64 1
+  %2483 = getelementptr inbounds nuw i8, ptr %2477, i64 1
   store ptr %2483, ptr %2476, align 8
   store i8 10, ptr %2477, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i215
@@ -45236,7 +45236,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   br i1 %.not4798.i.i, label %.loopexit.i.i, label %.lr.ph.i.i220
 
 2511:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit.i.i222
-  %2512 = getelementptr inbounds i8, ptr %.04099.i.i, i64 8
+  %2512 = getelementptr inbounds nuw i8, ptr %.04099.i.i, i64 8
   %.not47.i.i = icmp eq ptr %2512, %2510
   br i1 %.not47.i.i, label %.loopexit.i.i, label %.lr.ph.i.i220
 
@@ -45450,7 +45450,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i204: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i201
 
 2585:                                             ; preds = %2578
-  %2586 = getelementptr inbounds i8, ptr %2580, i64 1
+  %2586 = getelementptr inbounds nuw i8, ptr %2580, i64 1
   store ptr %2586, ptr %2579, align 8
   store i8 10, ptr %2580, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i201
@@ -45577,7 +45577,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i197: ; pred
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i194
 
 2622:                                             ; preds = %2615
-  %2623 = getelementptr inbounds i8, ptr %2617, i64 1
+  %2623 = getelementptr inbounds nuw i8, ptr %2617, i64 1
   store ptr %2623, ptr %2616, align 8
   store i8 10, ptr %2617, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i194
@@ -45671,7 +45671,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i38.i.i: ; preds
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i35.i.i
 
 2650:                                             ; preds = %2643
-  %2651 = getelementptr inbounds i8, ptr %2645, i64 1
+  %2651 = getelementptr inbounds nuw i8, ptr %2645, i64 1
   store ptr %2651, ptr %2644, align 8
   store i8 10, ptr %2645, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i35.i.i
@@ -45726,7 +45726,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i60.i.i: ; preds
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i
 
 2666:                                             ; preds = %2659
-  %2667 = getelementptr inbounds i8, ptr %2661, i64 1
+  %2667 = getelementptr inbounds nuw i8, ptr %2661, i64 1
   store ptr %2667, ptr %2660, align 8
   store i8 10, ptr %2661, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i57.i.i
@@ -47371,7 +47371,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE18visitAddrSpaceCastERNS_17Addr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %263)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %264)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %265)
-  %3176 = getelementptr inbounds i8, ptr %836, i64 40
+  %3176 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %3177 = load ptr, ptr %3176, align 8
   %3178 = getelementptr inbounds nuw i8, ptr %3177, i64 72
   %3179 = load ptr, ptr %3178, align 8
@@ -47445,7 +47445,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitCleanupPadERNS_14Cleanup
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %269)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %270)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %271)
-  %3201 = getelementptr inbounds i8, ptr %836, i64 40
+  %3201 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %3202 = load ptr, ptr %3201, align 8
   %3203 = getelementptr inbounds nuw i8, ptr %3202, i64 72
   %3204 = load ptr, ptr %3203, align 8
@@ -47696,7 +47696,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFCmpERNS_8FCmpInstE.exit:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %287)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %288)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %289)
-  %3281 = getelementptr inbounds i8, ptr %836, i64 40
+  %3281 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %3282 = load ptr, ptr %3281, align 8
   %3283 = getelementptr inbounds nuw i8, ptr %3282, i64 56
   %3284 = load ptr, ptr %3283, align 8
@@ -47707,7 +47707,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE9visitFCmpERNS_8FCmpInstE.exit:
   br i1 %3288, label %.critedge.i.i14, label %3289
 
 3289:                                             ; preds = %3280
-  %3290 = getelementptr inbounds i8, ptr %836, i64 24
+  %3290 = getelementptr inbounds nuw i8, ptr %836, i64 24
   %3291 = load ptr, ptr %3290, align 8
   %3292 = getelementptr inbounds i8, ptr %3291, i64 -24
   %3293 = load i8, ptr %3292, align 8
@@ -47742,7 +47742,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
 
 3303:                                             ; preds = %3296
-  %3304 = getelementptr inbounds i8, ptr %3298, i64 1
+  %3304 = getelementptr inbounds nuw i8, ptr %3298, i64 1
   store ptr %3304, ptr %3297, align 8
   store i8 10, ptr %3298, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i
@@ -47788,7 +47788,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i.i: ; preds = %3303,
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
 
 3321:                                             ; preds = %3314
-  %3322 = getelementptr inbounds i8, ptr %3316, i64 1
+  %3322 = getelementptr inbounds nuw i8, ptr %3316, i64 1
   store ptr %3322, ptr %3315, align 8
   store i8 10, ptr %3316, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i
@@ -47817,12 +47817,12 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i.i: ; preds = %3321, %
 _ZN4llvm7PHINode15incoming_valuesEv.exit.i.i:     ; preds = %3328, %3325
   %3332 = phi ptr [ %3327, %3325 ], [ %3331, %3328 ]
   %.pre-phi2.i.i.i.i.i = phi i64 [ %.pre1.i.i.i.i.i, %3325 ], [ %3329, %3328 ]
-  %3333 = getelementptr inbounds %"class.llvm::Use", ptr %3332, i64 %.pre-phi2.i.i.i.i.i
+  %3333 = getelementptr inbounds nuw %"class.llvm::Use", ptr %3332, i64 %.pre-phi2.i.i.i.i.i
   %.not24.i.i = icmp eq i64 %.pre-phi2.i.i.i.i.i, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i18, label %.lr.ph.i.i16
 
 3334:                                             ; preds = %.lr.ph.i.i16
-  %3335 = getelementptr inbounds i8, ptr %.025.i.i, i64 32
+  %3335 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 32
   %.not.i.i17 = icmp eq ptr %3335, %3333
   br i1 %.not.i.i17, label %._crit_edge.i.i18, label %.lr.ph.i.i16
 
@@ -47913,7 +47913,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE8visitPHIERNS_7PHINodeE.exit: ;
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3352:                                             ; preds = %3346
-  %3353 = getelementptr inbounds i8, ptr %836, i64 40
+  %3353 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %3354 = load ptr, ptr %3353, align 8
   %3355 = getelementptr inbounds nuw i8, ptr %3354, i64 72
   %3356 = load ptr, ptr %3355, align 8
@@ -48000,8 +48000,8 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i: ; preds = %_ZL15isTypeCo
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3401:                                             ; preds = %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i
-  %3402 = getelementptr inbounds i8, ptr %3354, i64 48
-  %3403 = getelementptr inbounds i8, ptr %836, i64 32
+  %3402 = getelementptr inbounds nuw i8, ptr %3354, i64 48
+  %3403 = getelementptr inbounds nuw i8, ptr %836, i64 32
   %3404 = load ptr, ptr %3403, align 8
   %3405 = icmp eq ptr %3404, %3402
   %3406 = icmp eq ptr %3404, null
@@ -48029,10 +48029,10 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit.thread.i.i.i: ; preds = %_ZL15isTypeCo
   br label %_ZN12_GLOBAL__N_18Verifier18verifyMustTailCallERN4llvm8CallInstE.exit.i.i
 
 3417:                                             ; preds = %3412
-  %3418 = getelementptr inbounds i8, ptr %3404, i64 16
+  %3418 = getelementptr inbounds nuw i8, ptr %3404, i64 16
   %3419 = load ptr, ptr %3418, align 8
-  %3420 = getelementptr inbounds i8, ptr %3419, i64 48
-  %3421 = getelementptr inbounds i8, ptr %3404, i64 8
+  %3420 = getelementptr inbounds nuw i8, ptr %3419, i64 48
+  %3421 = getelementptr inbounds nuw i8, ptr %3404, i64 8
   %3422 = load ptr, ptr %3421, align 8
   %3423 = icmp eq ptr %3422, %3420
   %3424 = icmp eq ptr %3422, null
@@ -48263,9 +48263,9 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread.i.i.i: ; preds = %_ZNK4llvm8
 .lr.ph162.i.i.i:                                  ; preds = %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i, %.lr.ph162.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph162.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %3496 = getelementptr inbounds ptr, ptr %3371, i64 %indvars.iv.next.i.i.i
+  %3496 = getelementptr inbounds nuw ptr, ptr %3371, i64 %indvars.iv.next.i.i.i
   %3497 = load ptr, ptr %3496, align 8
-  %3498 = getelementptr inbounds ptr, ptr %3374, i64 %indvars.iv.next.i.i.i
+  %3498 = getelementptr inbounds nuw ptr, ptr %3374, i64 %indvars.iv.next.i.i.i
   %3499 = load ptr, ptr %3498, align 8
   %3500 = icmp eq ptr %3497, %3499
   br i1 %3500, label %_ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i, label %3501
@@ -48336,7 +48336,7 @@ _ZL15isTypeCongruentPN4llvm4TypeES1_.exit118.thread.i.i.i: ; preds = %_ZL15isTyp
   %3526 = zext nneg i32 %3525 to i64
   %3527 = sub nsw i64 0, %3526
   %3528 = getelementptr inbounds %"class.llvm::Use", ptr %836, i64 %3527
-  %3529 = getelementptr inbounds %"class.llvm::Use", ptr %3528, i64 %indvars.iv168.i.i.i
+  %3529 = getelementptr inbounds nuw %"class.llvm::Use", ptr %3528, i64 %indvars.iv168.i.i.i
   %3530 = load ptr, ptr %3529, align 8
   store ptr %3530, ptr %323, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_8CallInstEJPNS_5ValueEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(34) %321, ptr noundef nonnull align 8 dereferenceable(8) %322, ptr noundef nonnull align 8 dereferenceable(8) %323)
@@ -48693,7 +48693,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15Insert
   br label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE15visitLandingPadERNS_14LandingPadInstE.exit
 
 3634:                                             ; preds = %3631, %3630
-  %3635 = getelementptr inbounds i8, ptr %836, i64 40
+  %3635 = getelementptr inbounds nuw i8, ptr %836, i64 40
   %3636 = load ptr, ptr %3635, align 8
   %3637 = getelementptr inbounds nuw i8, ptr %3636, i64 72
   %3638 = load ptr, ptr %3637, align 8
@@ -48740,7 +48740,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_18VerifierEvE16visitInsertValueERNS_15Insert
 
 _ZNK4llvm14LandingPadInst7isCatchEj.exit.us.i.i:  ; preds = %.lr.ph.i.i2, %3661
   %indvars.iv51.i.i = phi i64 [ %indvars.iv.next52.i.i, %3661 ], [ 0, %.lr.ph.i.i2 ]
-  %3654 = getelementptr inbounds %"class.llvm::Use", ptr %3653, i64 %indvars.iv51.i.i
+  %3654 = getelementptr inbounds nuw %"class.llvm::Use", ptr %3653, i64 %indvars.iv51.i.i
   %3655 = load ptr, ptr %3654, align 8
   %3656 = getelementptr inbounds nuw i8, ptr %3655, i64 8
   %3657 = load ptr, ptr %3656, align 8
@@ -48771,7 +48771,7 @@ _ZNK4llvm14LandingPadInst8isFilterEj.exit.us.i.i: ; preds = %_ZNK4llvm14LandingP
 
 _ZNK4llvm14LandingPadInst7isCatchEj.exit.thread.i.i: ; preds = %3671, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.split.i.i ], [ %indvars.iv.next.i.i, %3671 ]
-  %3664 = getelementptr inbounds %"class.llvm::Use", ptr %3663, i64 %indvars.iv.i.i
+  %3664 = getelementptr inbounds nuw %"class.llvm::Use", ptr %3663, i64 %indvars.iv.i.i
   %3665 = load ptr, ptr %3664, align 8
   %3666 = getelementptr inbounds nuw i8, ptr %3665, i64 8
   %3667 = load ptr, ptr %3666, align 8
@@ -48871,7 +48871,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -48909,7 +48909,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -48929,7 +48929,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -48965,7 +48965,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -49003,7 +49003,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
@@ -49023,7 +49023,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
@@ -49054,7 +49054,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -49099,7 +49099,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %31, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %37, ptr %30, align 8
   store i8 10, ptr %31, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -49119,7 +49119,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %41, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %47, ptr %40, align 8
   store i8 10, ptr %41, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -49171,7 +49171,7 @@ _ZSt8distanceIN4llvm12PredIteratorINS0_10BasicBlockENS0_5Value18user_iterator_im
   br i1 %19, label %20, label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit
 
 20:                                               ; preds = %_ZSt8distanceIN4llvm12PredIteratorINS0_10BasicBlockENS0_5Value18user_iterator_implINS0_4UserEEEEEENSt15iterator_traitsIT_E15difference_typeES9_S9_.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %17, i64 noundef 8) #23
   br label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit
 
@@ -49189,7 +49189,7 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit: ; preds = %_ZSt8dis
   %.sroa.04.08.i.i.i.i = phi ptr [ %.sroa.04.2.i.i.i.i, %_ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i9.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %.09.i.i.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 8
@@ -49214,7 +49214,7 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit: ; preds = %_ZSt8dis
 
 _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEppEv.exit.i.i.i.i: ; preds = %36, %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i9
   %.sroa.04.2.i.i.i.i = phi ptr [ null, %.lr.ph.i.i.i.i9 ], [ null, %36 ], [ %.sroa.04.1.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
-  %40 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.sroa.04.2.i.i.i.i, %2
   br i1 %.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE18uninitialized_copyINS_12PredIteratorIS1_NS_5Value18user_iterator_implINS_4UserEEEEEPS2_EEvT_SC_T0_.exit, label %.lr.ph.i.i.i.i9, !llvm.loop !293
 
@@ -49261,9 +49261,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIPN4llvm10BasicBlockEPN
   %10 = lshr exact i64 %.lcssa, 4
   %11 = add nsw i64 %10, -2
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds %"struct.std::pair.494", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.std::pair.494", ptr %0, i64 %12
   %.sroa.01.0.copyload13.i.i = load ptr, ptr %13, align 8
-  %.sroa.22.0..sroa_idx14.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.22.0..sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.22.0.copyload15.i.i = load ptr, ptr %.sroa.22.0..sroa_idx14.i.i, align 8
   tail call void @_ZSt13__adjust_heapIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr noundef %0, i64 noundef %12, i64 noundef %10, ptr %.sroa.01.0.copyload13.i.i, ptr %.sroa.22.0.copyload15.i.i)
   br label %.split17.i.i
@@ -49273,7 +49273,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIPN4llvm10BasicBlockEPN
   %14 = add nsw i64 %.022.i.i, -1
   %15 = getelementptr inbounds %"struct.std::pair.494", ptr %0, i64 %14
   %.sroa.01.0.copyload18.i.i = load ptr, ptr %15, align 8
-  %.sroa.22.0..sroa_idx19.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.22.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.22.0.copyload20.i.i = load ptr, ptr %.sroa.22.0..sroa_idx19.i.i, align 8
   tail call void @_ZSt13__adjust_heapIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr noundef nonnull %0, i64 noundef %14, i64 noundef %10, ptr %.sroa.01.0.copyload18.i.i, ptr %.sroa.22.0.copyload20.i.i)
   %16 = icmp eq i64 %14, 0
@@ -49330,20 +49330,20 @@ define linkonce_odr void @_ZSt22__final_insertion_sortIPSt4pairIPN4llvm10BasicBl
 9:                                                ; preds = %37, %7
   %.020.i.idx = phi i64 [ 16, %7 ], [ %.020.i.add, %37 ]
   %.pn19.i = phi ptr [ %0, %7 ], [ %.020.i.ptr, %37 ]
-  %.020.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.020.i.idx
+  %.020.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.020.i.idx
   %10 = load ptr, ptr %.020.i.ptr, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = icmp ult ptr %10, %11
   br i1 %12, label %._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread_crit_edge.i, label %13
 
 ._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread_crit_edge.i: ; preds = %9
-  %.sroa.2.0..0.sroa_idx.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pn19.i, i64 24
+  %.sroa.2.0..0.sroa_idx.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pn19.i, i64 24
   %.sroa.2.0.copyload.pre.i = load ptr, ptr %.sroa.2.0..0.sroa_idx.phi.trans.insert.i, align 8
   br label %.lr.ph.i.i.i.i.i.preheader.i
 
 13:                                               ; preds = %9
   %14 = icmp ult ptr %11, %10
-  %.sroa.3.0..sroa_idx.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pn19.i, i64 24
+  %.sroa.3.0..sroa_idx.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pn19.i, i64 24
   %.sroa.3.0.copyload.i.pre.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.phi.trans.insert.i, align 8
   br i1 %14, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread16.i.preheader, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i
 
@@ -49358,7 +49358,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread_crit_edge.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i
   %.sroa.2.0.copyload.i = phi ptr [ %.sroa.2.0.copyload.pre.i, %._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread_crit_edge.i ], [ %.sroa.3.0.copyload.i.pre.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i ]
   %17 = lshr exact i64 %.020.i.idx, 4
-  %18 = getelementptr inbounds i8, ptr %.pn19.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.pn19.i, i64 32
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
@@ -49423,14 +49423,14 @@ _ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gn
   br i1 %.not.i, label %_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, label %9, !llvm.loop !299
 
 _ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit: ; preds = %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 256
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.not5.i = icmp eq ptr %38, %1
   br i1 %.not5.i, label %_ZSt26__unguarded_insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, %_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11
   %.06.i = phi ptr [ %50, %_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11 ], [ %38, %_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit ]
   %.sroa.0.0.copyload.i.i = load ptr, ptr %.06.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %.sroa.3.0.copyload.i.i = load ptr, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   br label %39
 
@@ -49467,7 +49467,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gn
   store ptr %.sroa.0.0.copyload.i.i, ptr %.09.i.i8, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.09.i.i8, i64 8
   store ptr %.sroa.3.0.copyload.i.i, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.06.i, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %.not.i12 = icmp eq ptr %50, %1
   br i1 %.not.i12, label %_ZSt26__unguarded_insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, label %.lr.ph.i, !llvm.loop !300
 
@@ -49476,7 +49476,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gn
   br i1 %52, label %_ZSt26__unguarded_insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %51
-  %.017.i17 = getelementptr inbounds i8, ptr %0, i64 16
+  %.017.i17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not18.i = icmp eq ptr %.017.i17, %1
   br i1 %.not18.i, label %_ZSt26__unguarded_insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, label %.lr.ph.i18
 
@@ -49493,13 +49493,13 @@ _ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gn
   br i1 %57, label %._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread_crit_edge.i43, label %58
 
 ._ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread_crit_edge.i43: ; preds = %54
-  %.sroa.2.0..0.sroa_idx.phi.trans.insert.i44 = getelementptr inbounds i8, ptr %.pn19.i20, i64 24
+  %.sroa.2.0..0.sroa_idx.phi.trans.insert.i44 = getelementptr inbounds nuw i8, ptr %.pn19.i20, i64 24
   %.sroa.2.0.copyload.pre.i45 = load ptr, ptr %.sroa.2.0..0.sroa_idx.phi.trans.insert.i44, align 8
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread.i35
 
 58:                                               ; preds = %54
   %59 = icmp ult ptr %56, %55
-  %.sroa.3.0..sroa_idx.i.phi.trans.insert.i21 = getelementptr inbounds i8, ptr %.pn19.i20, i64 24
+  %.sroa.3.0..sroa_idx.i.phi.trans.insert.i21 = getelementptr inbounds nuw i8, ptr %.pn19.i20, i64 24
   %.sroa.3.0.copyload.i.pre.i22 = load ptr, ptr %.sroa.3.0..sroa_idx.i.phi.trans.insert.i21, align 8
   br i1 %59, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread16.i24.preheader, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i23
 
@@ -49520,7 +49520,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   br i1 %65, label %.lr.ph.i.i.i.i.i.preheader.i38, label %_ZSt13move_backwardIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEES7_ET0_T_S9_S8_.exit.i37
 
 .lr.ph.i.i.i.i.i.preheader.i38:                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread.i35
-  %66 = getelementptr inbounds i8, ptr %.pn19.i20, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.pn19.i20, i64 32
   br label %.lr.ph.i.i.i.i.i.i39
 
 .lr.ph.i.i.i.i.i.i39:                             ; preds = %.lr.ph.i.i.i.i.i.i39, %.lr.ph.i.i.i.i.i.preheader.i38
@@ -49580,7 +49580,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gn
   br label %85
 
 85:                                               ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i28, %_ZSt13move_backwardIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEES7_ET0_T_S9_S8_.exit.i37
-  %.0.i29 = getelementptr inbounds i8, ptr %.020.i19, i64 16
+  %.0.i29 = getelementptr inbounds nuw i8, ptr %.020.i19, i64 16
   %.not.i30 = icmp eq ptr %.0.i29, %1
   br i1 %.not.i30, label %_ZSt26__unguarded_insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_T0_.exit, label %54, !llvm.loop !299
 
@@ -49596,7 +49596,7 @@ define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIPN4l
   %6 = ashr exact i64 %5, 4
   %7 = sdiv i64 %6, 2
   %8 = getelementptr inbounds %"struct.std::pair.494", ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 -16
   %11 = load ptr, ptr %9, align 8
   %12 = load ptr, ptr %8, align 8
@@ -49608,7 +49608,7 @@ define linkonce_odr noundef ptr @_ZSt27__unguarded_partition_pivotIPSt4pairIPN4l
   br i1 %15, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread26.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i: ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -49641,7 +49641,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit23.thread28.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit23.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit23.i: ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 -8
   %36 = load ptr, ptr %35, align 8
@@ -49661,7 +49661,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   br i1 %41, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit24.thread29.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit24.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit24.i: ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %1, i64 -8
   %45 = load ptr, ptr %44, align 8
@@ -49728,7 +49728,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   br i1 %71, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread.i11, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i10.preheader
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.thread.i11: ; preds = %67, %62
-  %72 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   br label %62, !llvm.loop !301
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i10: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i10.backedge, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit.i10.preheader
@@ -49765,7 +49765,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5Value
   %87 = load ptr, ptr %85, align 8
   store ptr %87, ptr %84, align 8
   store ptr %86, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   br label %60, !llvm.loop !303
 
 _ZSt21__unguarded_partitionIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_less_iterEET_SB_SB_SB_T0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIPN4llvm10BasicBlockEPNS4_5ValueEESA_EEbT_T0_.exit15.thread.i
@@ -49922,7 +49922,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINode
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -49942,7 +49942,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINode
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -49980,7 +49980,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50000,7 +50000,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50038,7 +50038,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJS
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50058,7 +50058,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJS
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50090,7 +50090,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -50110,7 +50110,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -50147,7 +50147,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINode
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50167,7 +50167,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_7PHINode
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50205,7 +50205,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50225,7 +50225,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50257,7 +50257,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -50277,7 +50277,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -50314,7 +50314,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50334,7 +50334,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50357,7 +50357,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %5, %18, %20, %28, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIbJPNS_8FunctionEbEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIbJPNS_8FunctionEbEEEvRKT_DpRKT0_.exit
@@ -50395,7 +50395,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50415,7 +50415,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50438,7 +50438,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIbJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIbJEEEvRKT_DpRKT0_.exit
@@ -50472,7 +50472,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -50510,7 +50510,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -50530,7 +50530,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -50559,7 +50559,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -50604,7 +50604,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %31, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %37, ptr %30, align 8
   store i8 10, ptr %31, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -50624,7 +50624,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %41, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %47, ptr %40, align 8
   store i8 10, ptr %41, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -50665,7 +50665,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50685,7 +50685,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -50712,7 +50712,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9DbgRecordEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9DbgRecordEJEEEvRKT_DpRKT0_.exit
@@ -50749,7 +50749,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -50789,7 +50789,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %4,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJNS2_12LocationTypeEEEEvRKT_DpRKT0_.exit
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %29, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %35, ptr %28, align 8
   store i8 10, ptr %29, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJNS2_12LocationTypeEEEEvRKT_DpRKT0_.exit
@@ -50825,7 +50825,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -50872,7 +50872,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -50919,7 +50919,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -50959,7 +50959,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %9,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_15DILocalVariableEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_15DILocalVariableEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKT_DpRKT0_.exit
@@ -51070,7 +51070,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i:      ; preds = %25, %21
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %37, %33
   %.sroa.0.0.i.i.i.i = phi ptr [ %41, %37 ], [ %35, %33 ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br label %_ZNK4llvm10DILocation12getInlinedAtEv.exit
@@ -51119,7 +51119,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm10DILocati
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %56, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %62, ptr %55, align 8
   store i8 10, ptr %56, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -51157,7 +51157,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %50
   %80 = add nuw nsw i64 %73, 4294967295
   %81 = and i64 %80, 4294967295
   %82 = load ptr, ptr %75, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %6, align 8
   store ptr %49, ptr %83, align 8
@@ -51209,7 +51209,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteENS_17DbgVariabl
 15:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.378, i64 5, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 5
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -51232,7 +51232,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteENS_17DbgVariabl
 30:                                               ; preds = %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %23, ptr noundef nonnull align 1 dereferenceable(7) @.str.379, i64 7, i1 false)
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 7
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 7
   store ptr %32, ptr %22, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -51255,7 +51255,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteENS_17DbgVariabl
 45:                                               ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) @.str.380, i64 6, i1 false)
   %46 = load ptr, ptr %37, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 6
   store ptr %47, ptr %37, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -51278,7 +51278,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteENS_17DbgVariabl
 60:                                               ; preds = %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %53, ptr noundef nonnull align 1 dereferenceable(3) @.str.381, i64 3, i1 false)
   %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 3
   store ptr %62, ptr %52, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -51301,7 +51301,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteENS_17DbgVariabl
 75:                                               ; preds = %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %68, ptr noundef nonnull align 1 dereferenceable(3) @.str.382, i64 3, i1 false)
   %76 = load ptr, ptr %67, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 3
   store ptr %77, ptr %67, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -51332,7 +51332,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %10, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %16, ptr %9, align 8
   store i8 10, ptr %10, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit
@@ -51361,7 +51361,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit: ; preds = %3, %13, %15
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -51393,7 +51393,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %10, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %16, ptr %9, align 8
   store i8 10, ptr %10, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit
@@ -51422,7 +51422,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit: ; preds = %3, %13, %15
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -51467,7 +51467,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -51487,7 +51487,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -51514,7 +51514,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVariableRecordEJEEEvRKT_DpRKT0_.exit
@@ -51550,7 +51550,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15DILocal
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -51579,7 +51579,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -51618,7 +51618,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %23, ptr %16, align 8
   store i8 10, ptr %17, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -51638,7 +51638,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -51676,7 +51676,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -51696,7 +51696,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %25, align 8
   store i8 10, ptr %26, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -51731,7 +51731,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15DILocal
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -51760,7 +51760,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %5, %17, %19
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPNS_10DILocationES3_EEEvRKT_DpRKT0_.exit
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %29, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %35, ptr %28, align 8
   store i8 10, ptr %29, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPNS_10DILocationES3_EEEvRKT_DpRKT0_.exit
@@ -51795,7 +51795,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10DILocat
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -51824,7 +51824,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJEEEvRKT_DpRKT0_.exit
@@ -51854,7 +51854,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPKNS_15DILocalVariabl
   br i1 %.not.i.i.i, label %15, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamAndGetAddressERS3_m.exit.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %16, i64 noundef %13, i64 noundef 8) #23
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamAndGetAddressERS3_m.exit.i
 
@@ -51872,7 +51872,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_15DILocalVariableELb1EE28reserveForParamA
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %20
   %.07.i.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %20 ]
   store ptr %2, ptr %.07.i.i.i.i.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %23, %22
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIPKNS_15DILocalVariableEE6appendEmS3_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !309
 
@@ -51910,7 +51910,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -51950,7 +51950,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %5,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_17DbgVariableRecordEJPKNS_15DILocalVariableEPS5_EEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_17DbgVariableRecordEJPKNS_15DILocalVariableEPS5_EEEvRKT_DpRKT0_.exit
@@ -51988,7 +51988,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_15DILoca
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -52017,7 +52017,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15DILocalVariableEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15DILocalVariableEJEEEvRKT_DpRKT0_.exit
@@ -52052,7 +52052,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -52092,7 +52092,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_17DbgVariableRecordEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_17DbgVariableRecordEJEEEvRKT_DpRKT0_.exit
@@ -52121,7 +52121,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -52161,7 +52161,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %5,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEEEEvRKT_DpRKT0_.exit
@@ -52194,7 +52194,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -52234,7 +52234,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %9,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_7DILabelEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14DbgLabelRecordEJPNS_10BasicBlockEPNS_8FunctionEPNS_7DILabelEPNS_12DISubprogramEPNS_10DILocationESB_EEEvRKT_DpRKT0_.exit
@@ -52277,7 +52277,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52297,7 +52297,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52329,7 +52329,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -52349,7 +52349,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -52386,7 +52386,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %23, ptr %16, align 8
   store i8 10, ptr %17, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52406,7 +52406,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBl
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52444,7 +52444,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %16, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %22, ptr %15, align 8
   store i8 10, ptr %16, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52464,7 +52464,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Function
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %25, align 8
   store i8 10, ptr %26, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52499,7 +52499,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_7DILabelE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -52528,7 +52528,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %5, %17, %19
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPNS_10DILocationES3_EEEvRKT_DpRKT0_.exit
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %29, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %35, ptr %28, align 8
   store i8 10, ptr %29, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12DISubprogramEJPNS_10DILocationES3_EEEvRKT_DpRKT0_.exit
@@ -52566,7 +52566,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52586,7 +52586,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -52610,7 +52610,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 32, ptr %34, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
@@ -52703,7 +52703,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llv
   %77 = alloca ptr, align 8
   %78 = alloca %"class.llvm::SmallVector.309", align 8
   %79 = alloca %"struct.std::pair.538", align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %81 = load ptr, ptr %80, align 8
   %.not = icmp eq ptr %81, null
   br i1 %.not, label %82, label %85
@@ -52834,7 +52834,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier16visitInstructionERN4llv
   br i1 %.not272, label %144, label %125
 
 125:                                              ; preds = %.lr.ph496
-  %126 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
   %127 = load ptr, ptr %126, align 8
   %.not273 = icmp eq ptr %127, null
   br i1 %.not273, label %128, label %147
@@ -52869,7 +52869,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %12
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 140:                                              ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %135, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 1
   store ptr %141, ptr %134, align 8
   store i8 10, ptr %135, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -52941,14 +52941,14 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %160
   %164 = zext nneg i32 %163 to i64
   %165 = sub nsw i64 0, %164
   %166 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %165
-  %167 = getelementptr inbounds %"class.llvm::Use", ptr %166, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw %"class.llvm::Use", ptr %166, i64 %indvars.iv
   %168 = load ptr, ptr %167, align 8
   %.not262 = icmp eq ptr %168, null
   br i1 %.not262, label %172, label %_ZNK4llvm4User10getOperandEj.exit282
 
 _ZNK4llvm4User10getOperandEj.exit.thread:         ; preds = %160
   %169 = load ptr, ptr %154, align 8
-  %170 = getelementptr inbounds %"class.llvm::Use", ptr %169, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw %"class.llvm::Use", ptr %169, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8
   %.not262398 = icmp eq ptr %171, null
   br i1 %.not262398, label %172, label %_ZNK4llvm4User10getOperandEj.exit282
@@ -53001,7 +53001,7 @@ _ZNK4llvm4User10getOperandEj.exit282:             ; preds = %_ZNK4llvm4User10get
 
 _ZNK4llvm4User10getOperandEj.exit286:             ; preds = %184, %186
   %191 = phi ptr [ %185, %184 ], [ %190, %186 ]
-  %192 = getelementptr inbounds %"class.llvm::Use", ptr %191, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw %"class.llvm::Use", ptr %191, i64 %indvars.iv
   %193 = load ptr, ptr %192, align 8
   %194 = load i8, ptr %193, align 8
   %195 = icmp eq i8 %194, 0
@@ -53036,7 +53036,7 @@ _ZNK4llvm4User10getOperandEj.exit286:             ; preds = %184, %186
 
 _ZN4llvm4User13getOperandUseEj.exit:              ; preds = %202, %204
   %209 = phi ptr [ %203, %202 ], [ %208, %204 ]
-  %210 = getelementptr inbounds %"class.llvm::Use", ptr %209, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw %"class.llvm::Use", ptr %209, i64 %indvars.iv
   %211 = icmp eq ptr %155, %210
   br i1 %211, label %253, label %.split207
 
@@ -53190,7 +53190,7 @@ _ZNK4llvm4User10getOperandEj.exit292:             ; preds = %272
   %274 = zext nneg i32 %273 to i64
   %275 = sub nsw i64 0, %274
   %276 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %275
-  %277 = getelementptr inbounds %"class.llvm::Use", ptr %276, i64 %indvars.iv
+  %277 = getelementptr inbounds nuw %"class.llvm::Use", ptr %276, i64 %indvars.iv
   %278 = load ptr, ptr %277, align 8
   %279 = load i8, ptr %278, align 8
   switch i8 %279, label %_ZNK4llvm4User10getOperandEj.exit298 [
@@ -53200,7 +53200,7 @@ _ZNK4llvm4User10getOperandEj.exit292:             ; preds = %272
 
 _ZNK4llvm4User10getOperandEj.exit292.thread:      ; preds = %272
   %280 = load ptr, ptr %154, align 8
-  %281 = getelementptr inbounds %"class.llvm::Use", ptr %280, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw %"class.llvm::Use", ptr %280, i64 %indvars.iv
   %282 = load ptr, ptr %281, align 8
   %283 = load i8, ptr %282, align 8
   switch i8 %283, label %_ZNK4llvm4User10getOperandEj.exit298.thread [
@@ -53281,7 +53281,7 @@ _ZNK4llvm4User10getOperandEj.exit301:             ; preds = %_ZNK4llvm4User10get
   %309 = zext nneg i32 %308 to i64
   %310 = sub nsw i64 0, %309
   %311 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %310
-  %312 = getelementptr inbounds %"class.llvm::Use", ptr %311, i64 %indvars.iv
+  %312 = getelementptr inbounds nuw %"class.llvm::Use", ptr %311, i64 %indvars.iv
   %313 = load ptr, ptr %312, align 8
   %314 = load i8, ptr %313, align 8
   %315 = icmp ult i8 %314, 29
@@ -53289,7 +53289,7 @@ _ZNK4llvm4User10getOperandEj.exit301:             ; preds = %_ZNK4llvm4User10get
 
 _ZNK4llvm4User10getOperandEj.exit301.thread:      ; preds = %_ZNK4llvm4User10getOperandEj.exit298.thread
   %316 = load ptr, ptr %154, align 8
-  %317 = getelementptr inbounds %"class.llvm::Use", ptr %316, i64 %indvars.iv
+  %317 = getelementptr inbounds nuw %"class.llvm::Use", ptr %316, i64 %indvars.iv
   %318 = load ptr, ptr %317, align 8
   %319 = load i8, ptr %318, align 8
   %320 = icmp ult i8 %319, 29
@@ -53337,7 +53337,7 @@ _ZNK4llvm4User10getOperandEj.exit304.thread:      ; preds = %_ZNK4llvm4User10get
 
 _ZN4llvm4User13getOperandUseEj.exit306:           ; preds = %330, %.thread456
   %331 = phi ptr [ %316, %.thread456 ], [ %311, %330 ]
-  %332 = getelementptr inbounds %"class.llvm::Use", ptr %331, i64 %indvars.iv
+  %332 = getelementptr inbounds nuw %"class.llvm::Use", ptr %331, i64 %indvars.iv
   %333 = icmp eq ptr %155, %332
   br i1 %333, label %353, label %334
 
@@ -54100,7 +54100,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit386.thread: ; preds = %_ZNK4llvm11Inst
   br label %618
 
 618:                                              ; preds = %617, %615
-  %619 = getelementptr inbounds i8, ptr %78, i64 16
+  %619 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %78, ptr noundef nonnull %619, i64 noundef 4) #23
   %620 = load ptr, ptr %606, align 8
   %621 = icmp ne ptr %620, null
@@ -54124,14 +54124,14 @@ _ZNK4llvm11Instruction14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNod
 .lr.ph504:                                        ; preds = %_ZNK4llvm11Instruction14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE.exit, %.lr.ph504
   %.0206503 = phi ptr [ %634, %.lr.ph504 ], [ %627, %_ZNK4llvm11Instruction14getAllMetadataERNS_15SmallVectorImplISt4pairIjPNS_6MDNodeEEEE.exit ]
   %.sroa.0.0.copyload = load i32, ptr %.0206503, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %.0206503, i64 8
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0206503, i64 8
   %.sroa.23.0.copyload = load ptr, ptr %.sroa.23.0..sroa_idx, align 8
   %630 = icmp eq i32 %.sroa.0.0.copyload, 0
   %631 = icmp eq i32 %.sroa.0.0.copyload, 18
   %632 = or i1 %630, %631
   %633 = zext i1 %632 to i32
   call fastcc void @_ZN12_GLOBAL__N_18Verifier11visitMDNodeERKN4llvm6MDNodeENS0_19AreDebugLocsAllowedE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.23.0.copyload, i32 noundef %633)
-  %634 = getelementptr inbounds i8, ptr %.0206503, i64 16
+  %634 = getelementptr inbounds nuw i8, ptr %.0206503, i64 16
   %.not261 = icmp eq ptr %634, %629
   br i1 %.not261, label %._crit_edge505, label %.lr.ph504
 
@@ -54172,7 +54172,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -54217,7 +54217,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -54255,7 +54255,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_3UseEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_3UseEJEEEvRKT_DpRKT0_.exit
@@ -54275,7 +54275,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_3UseEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_3UseEJEEEvRKT_DpRKT0_.exit
@@ -54381,7 +54381,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %6
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -54426,7 +54426,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %6
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -54472,7 +54472,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier18verifyDominatesUseERN4l
 _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   %18 = phi ptr [ %12, %10 ], [ %17, %13 ]
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds %"class.llvm::Use", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw %"class.llvm::Use", ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
   %22 = load i8, ptr %21, align 8
@@ -54504,7 +54504,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %36, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %41
   %.not1317.i.i = icmp eq i32 %40, 0
   br i1 %.not1317.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -54515,12 +54515,12 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   br i1 %44, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit, label %45
 
 45:                                               ; preds = %.lr.ph.i.i
-  %46 = getelementptr inbounds i8, ptr %.01118.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 8
   %.not13.i.i = icmp eq ptr %46, %42
   br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %45, %38
-  %47 = getelementptr inbounds ptr, ptr %35, i64 %41
+  %47 = getelementptr inbounds nuw ptr, ptr %35, i64 %41
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit
 
 48:                                               ; preds = %32
@@ -54543,7 +54543,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %10, %13
   %55 = load i32, ptr %54, align 8
   %.v.v.i14.i.i = select i1 %51, i32 %53, i32 %55
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
-  %56 = getelementptr inbounds ptr, ptr %.pre.i, i64 %.v.i15.i.i
+  %56 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.v.i15.i.i
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i, %50
@@ -54556,7 +54556,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit: ; preds = %.lr.
   %62 = load i32, ptr %61, align 8
   %.v.v.i.i = select i1 %60, i32 %57, i32 %62
   %.v.i.i = zext i32 %.v.v.i.i to i64
-  %63 = getelementptr inbounds ptr, ptr %59, i64 %.v.i.i
+  %63 = getelementptr inbounds nuw ptr, ptr %59, i64 %.v.i.i
   %.not15 = icmp eq ptr %.0.i.i, %63
   br i1 %.not15, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit._crit_edge, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJS3_EEEvRKNS_5TwineERKT_DpRKT0_.exit
 
@@ -54584,7 +54584,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5countEPKS1_.exit._crit_edge: ; pr
 
 _ZN4llvm4User13getOperandUseEj.exit:              ; preds = %67, %70
   %75 = phi ptr [ %69, %67 ], [ %74, %70 ]
-  %76 = getelementptr inbounds %"class.llvm::Use", ptr %75, i64 %19
+  %76 = getelementptr inbounds nuw %"class.llvm::Use", ptr %75, i64 %19
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueERKNS_3UseE(ptr noundef nonnull align 8 dereferenceable(124) %77, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %76) #23
   br i1 %78, label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_11InstructionEJS3_EEEvRKNS_5TwineERKT_DpRKT0_.exit, label %79
@@ -54619,7 +54619,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %79
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %86, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %92, ptr %85, align 8
   store i8 10, ptr %86, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -54666,7 +54666,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier29visitConstantExprsRecur
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 980
   %23 = load i32, ptr %22, align 4, !noalias !323
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %24
   %.not24.i.i = icmp eq i32 %23, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -54677,7 +54677,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier29visitConstantExprsRecur
   br i1 %27, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
-  %29 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %29, %25
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -54705,7 +54705,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %.lr.ph.i.i, %35
   br i1 %.fca.1.insert.merged.i.i, label %40, label %_ZN4llvm11SmallVectorIPKNS_8ConstantELj16EED2Ev.exit
 
 40:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
-  %41 = getelementptr inbounds i8, ptr %11, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull %41, i64 noundef 16) #23
   %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
   %43 = add i64 %42, 1
@@ -54840,7 +54840,7 @@ _ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit: ; pr
   br label %.sink.split.i
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %110, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 1
   store ptr %116, ptr %109, align 8
   store i8 10, ptr %110, align 1
   br label %.sink.split.i
@@ -54873,7 +54873,7 @@ _ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit: ; pr
   br label %.sink.split.i
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds i8, ptr %125, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 1
   store ptr %131, ptr %124, align 8
   store i8 10, ptr %125, align 1
   br label %.sink.split.i
@@ -54908,7 +54908,7 @@ _ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit: ; pr
   br label %.sink.split.i
 
 147:                                              ; preds = %140
-  %148 = getelementptr inbounds i8, ptr %142, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %148, ptr %141, align 8
   store i8 10, ptr %142, align 1
   br label %.sink.split.i
@@ -54946,7 +54946,7 @@ _ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit: ; pr
   br label %.sink.split.i
 
 167:                                              ; preds = %160
-  %168 = getelementptr inbounds i8, ptr %162, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 1
   store ptr %168, ptr %161, align 8
   store i8 10, ptr %162, align 1
   br label %.sink.split.i
@@ -54981,7 +54981,7 @@ _ZN12_GLOBAL__N_18Verifier17visitConstantExprEPKN4llvm12ConstantExprE.exit: ; pr
   br label %.sink.split.i
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %179, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %179, i64 1
   store ptr %185, ptr %178, align 8
   store i8 10, ptr %179, align 1
   br label %.sink.split.i
@@ -55048,7 +55048,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %19
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 205:                                              ; preds = %198
-  %206 = getelementptr inbounds i8, ptr %200, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %200, i64 1
   store ptr %206, ptr %199, align 8
   store i8 10, ptr %200, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -55087,7 +55087,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %205, %203
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %212, %215
   %220 = phi ptr [ %214, %212 ], [ %219, %215 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %212 ], [ %217, %215 ]
-  %221 = getelementptr inbounds %"class.llvm::Use", ptr %220, i64 %.pre-phi2.i.i
+  %221 = getelementptr inbounds nuw %"class.llvm::Use", ptr %220, i64 %.pre-phi2.i.i
   %.not2572 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not2572, label %.backedge, label %.lr.ph, !llvm.loop !326
 
@@ -55107,7 +55107,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %212, %215
 229:                                              ; preds = %225
   %230 = load i32, ptr %67, align 4, !noalias !327
   %231 = zext i32 %230 to i64
-  %232 = getelementptr inbounds ptr, ptr %227, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr %227, i64 %231
   %.not24.i.i51 = icmp eq i32 %230, 0
   br i1 %.not24.i.i51, label %._crit_edge.i.i55, label %.lr.ph.i.i52
 
@@ -55118,7 +55118,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %212, %215
   br i1 %234, label %.critedge83, label %235
 
 235:                                              ; preds = %.lr.ph.i.i52
-  %236 = getelementptr inbounds i8, ptr %.025.i.i53, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %.025.i.i53, i64 8
   %.not.i.i54 = icmp eq ptr %236, %232
   br i1 %.not.i.i54, label %._crit_edge.i.i55, label %.lr.ph.i.i52, !llvm.loop !15
 
@@ -55162,7 +55162,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit58: ; p
   br label %.critedge83
 
 .critedge83:                                      ; preds = %.lr.ph.i.i52, %_ZN4llvm15SmallPtrSetImplIPKNS_8ConstantEE6insertES3_.exit56, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit58
-  %254 = getelementptr inbounds i8, ptr %.073, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %.073, i64 32
   %.not25 = icmp eq ptr %254, %221
   br i1 %.not25, label %.backedge, label %.lr.ph, !llvm.loop !326
 
@@ -55541,7 +55541,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit16._crit_edge.i: ; preds = %_ZNK4llvm6MDNode1
 
 _ZNK4llvm6MDNode10getOperandEj.exit19.i:          ; preds = %101, %97
   %.sroa.0.0.i.i18.i = phi ptr [ %105, %101 ], [ %99, %97 ]
-  %106 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i18.i, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i18.i, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = load i8, ptr %107, align 4
   %109 = icmp eq i8 %108, 0
@@ -55579,7 +55579,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit19._crit_edge.i: ; preds = %_ZNK4llvm6MDNode1
 
 _ZNK4llvm6MDNode10getOperandEj.exit22.i:          ; preds = %118, %114
   %.sroa.0.0.i.i21.i = phi ptr [ %122, %118 ], [ %116, %114 ]
-  %123 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i21.i, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i21.i, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = load i8, ptr %124, align 4
   %126 = add i8 %125, -5
@@ -55711,7 +55711,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit31.i:          ; preds = %163, %159
 
 _ZNK4llvm6MDNode10getOperandEj.exit34.i:          ; preds = %181, %177
   %.sroa.0.0.i.i33.i = phi ptr [ %185, %181 ], [ %179, %177 ]
-  %186 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i33.i, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i33.i, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = load i8, ptr %187, align 4
   %189 = icmp eq i8 %188, 0
@@ -55734,7 +55734,7 @@ _ZN12_GLOBAL__N_18Verifier23visitAliasScopeMetadataEPKN4llvm6MDNodeE.exit: ; pre
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
-  %191 = getelementptr inbounds i8, ptr %.015, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %.not = icmp eq ptr %191, %28
   br i1 %.not, label %.loopexit, label %43
 
@@ -55807,7 +55807,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %24, %28
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 36:                                               ; preds = %"_ZZN12_GLOBAL__N_18Verifier24visitAccessGroupMetadataEPKN4llvm6MDNodeEENK3$_0clES4_.exit15"
-  %37 = getelementptr inbounds i8, ptr %.019, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %.not = icmp eq ptr %37, %35
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -56160,7 +56160,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit51:        ; preds = %123, %126
 
 _ZNK4llvm6MDNode10getOperandEj.exit54:            ; preds = %136, %140
   %.sroa.0.0.i.i53 = phi ptr [ %144, %140 ], [ %138, %136 ]
-  %145 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i53, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i53, i64 %indvars.iv
   %146 = load ptr, ptr %145, align 8
   %.not37 = icmp eq ptr %146, null
   br i1 %.not37, label %147, label %150
@@ -56451,7 +56451,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit27:            ; preds = %102, %106
 _ZNK4llvm6MDNode8operandsEv.exit35:               ; preds = %116, %120
   %.sroa.3.0.i.i31 = phi i64 [ %126, %120 ], [ %119, %116 ]
   %.sroa.0.0.i.i32 = phi ptr [ %124, %120 ], [ %118, %116 ]
-  %127 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i32, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i32, i64 8
   %128 = add i64 %.sroa.3.0.i.i31, -2
   %.idx1.i = shl nsw i64 %128, 3
   %129 = getelementptr inbounds i8, ptr %127, i64 %.idx1.i
@@ -56473,28 +56473,28 @@ _ZNK4llvm6MDNode8operandsEv.exit35:               ; preds = %116, %120
   br i1 %.not35.i.i.i.i.i, label %133, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 133:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %134 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %134, align 8
   %.val.val.i.i.i.i.i = load i8, ptr %.val.i.i.i.i.i, align 4
   %.not36.i.i.i.i.i = icmp eq i8 %.val.val.i.i.i.i.i, 0
   br i1 %.not36.i.i.i.i.i, label %135, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i = load ptr, ptr %136, align 8
   %.val30.val.i.i.i.i.i = load i8, ptr %.val30.i.i.i.i.i, align 4
   %.not37.i.i.i.i.i = icmp eq i8 %.val30.val.i.i.i.i.i, 0
   br i1 %.not37.i.i.i.i.i, label %137, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit70"
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i = load ptr, ptr %138, align 8
   %.val31.val.i.i.i.i.i = load i8, ptr %.val31.i.i.i.i.i, align 4
   %.not38.i.i.i.i.i = icmp eq i8 %.val31.val.i.i.i.i.i, 0
   br i1 %.not38.i.i.i.i.i, label %139, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit72"
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 32
   %141 = add nsw i64 %.050.i.i.i.i.i, -1
   %142 = icmp sgt i64 %.050.i.i.i.i.i, 1
   br i1 %142, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !331
@@ -56519,7 +56519,7 @@ _ZNK4llvm6MDNode8operandsEv.exit35:               ; preds = %116, %120
   br i1 %.not.i.i.i.i.i, label %145, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %147
 
 147:                                              ; preds = %145, %._crit_edge.i.i.i.i.i
@@ -56530,7 +56530,7 @@ _ZNK4llvm6MDNode8operandsEv.exit35:               ; preds = %116, %120
   br i1 %.not33.i.i.i.i.i, label %148, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 148:                                              ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %150
 
 150:                                              ; preds = %148, %._crit_edge.i.i.i.i.i
@@ -56541,15 +56541,15 @@ _ZNK4llvm6MDNode8operandsEv.exit35:               ; preds = %116, %120
   br i1 %.not34.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %133
-  %151 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit70": ; preds = %135
-  %152 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit72": ; preds = %137
-  %153 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit70", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier20visitMemProfMetadataERNS_11InstructionEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit72", %144, %147, %150
@@ -56616,7 +56616,7 @@ _ZN4llvm7mdconst4hasaINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detai
   br label %.loopexit
 
 181:                                              ; preds = %_ZNK4llvm6MDNode8operandsEv.exit45, %_ZN4llvm7mdconst4hasaINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEbE4typeEOS8_.exit
-  %182 = getelementptr inbounds i8, ptr %.065, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %.065, i64 8
   %.not13 = icmp eq ptr %182, %46
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
@@ -56736,7 +56736,7 @@ _ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -56837,7 +56837,7 @@ _ZN4llvm3isaINS_18DbgAssignIntrinsicEPNS_4UserEEEbRKT0_.exit.thread: ; preds = %
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i26
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %87, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %93, ptr %86, align 8
   store i8 10, ptr %87, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i26
@@ -56892,7 +56892,7 @@ _ZN4llvm14CastIsPossibleINS_18DbgAssignIntrinsicEPNS_4UserEvE10isPossibleERKS3_.
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i34
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %112, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %118, ptr %111, align 8
   store i8 10, ptr %112, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i34
@@ -56937,7 +56937,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i34: ; preds =
   br i1 %.not2158, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph60
 
 137:                                              ; preds = %190
-  %138 = getelementptr inbounds i8, ptr %.059, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %.not21 = icmp eq ptr %138, %136
   br i1 %.not21, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph60
 
@@ -56974,7 +56974,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i34: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i40
 
 154:                                              ; preds = %147
-  %155 = getelementptr inbounds i8, ptr %149, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %149, i64 1
   store ptr %155, ptr %148, align 8
   store i8 10, ptr %149, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i40
@@ -57016,7 +57016,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i40: ; preds =
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
 
 177:                                              ; preds = %166
-  %178 = getelementptr inbounds i8, ptr %172, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 1
   store ptr %178, ptr %171, align 8
   store i8 10, ptr %172, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
@@ -57038,7 +57038,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i: ; preds = %164, %175, %1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 188:                                              ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
-  %189 = getelementptr inbounds i8, ptr %183, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 1
   store ptr %189, ptr %182, align 8
   store i8 10, ptr %183, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit
@@ -57074,7 +57074,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i: ; preds = %164, %175, %1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i44
 
 205:                                              ; preds = %198
-  %206 = getelementptr inbounds i8, ptr %200, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %200, i64 1
   store ptr %206, ptr %199, align 8
   store i8 10, ptr %200, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i44
@@ -57100,7 +57100,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i44: ; preds =
 _ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_6MDNodeEJPNS_17DbgVariableRecordEEEEvRKNS_5TwineERKT_DpRKT0_.exit: ; preds = %137, %.loopexit, %215, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i44, %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i40, %186, %188
   %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %11) #23
   %217 = load ptr, ptr %11, align 8
-  %218 = getelementptr inbounds i8, ptr %11, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %219 = icmp eq ptr %217, %218
   br i1 %219, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedINS_11InstructionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %220
 
@@ -57152,7 +57152,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %10
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %23, ptr %16, align 8
   store i8 10, ptr %17, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -57206,7 +57206,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i18: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i15
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i15
@@ -57288,7 +57288,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i26: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i23
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %73, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %79, ptr %72, align 8
   store i8 10, ptr %73, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i23
@@ -57305,7 +57305,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i23: ; preds = %78, %76
   br label %_ZN4llvm15VerifierSupport11CheckFailedINS_11InstructionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 82:                                               ; preds = %.lr.ph
-  %83 = getelementptr inbounds i8, ptr %.030, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %.not = icmp eq ptr %83, %62
   br i1 %.not, label %_ZN4llvm15VerifierSupport11CheckFailedINS_11InstructionEJPNS_6MDNodeEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph
 
@@ -57346,7 +57346,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier23visitAnnotationMetadata
   br label %.loopexit.sink.split
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %.loopexit.sink.split
@@ -57399,7 +57399,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %25, %29
   br label %.loopexit.sink.split
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %.loopexit.sink.split
@@ -57433,7 +57433,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %49, %53
   br i1 %.not1040, label %.loopexit, label %.lr.ph
 
 61:                                               ; preds = %108
-  %62 = getelementptr inbounds i8, ptr %.041, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.041, i64 8
   %.not10 = icmp eq ptr %62, %60
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
@@ -57489,28 +57489,28 @@ _ZNK4llvm6MDNode8operandsEv.exit22:               ; preds = %70, %74
   br i1 %.not35.i.i.i.i.i, label %85, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 85:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %86 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i = load ptr, ptr %86, align 8
   %.val.val.i.i.i.i.i = load i8, ptr %.val.i.i.i.i.i, align 4
   %.not36.i.i.i.i.i = icmp eq i8 %.val.val.i.i.i.i.i, 0
   br i1 %.not36.i.i.i.i.i, label %87, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit"
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i = load ptr, ptr %88, align 8
   %.val30.val.i.i.i.i.i = load i8, ptr %.val30.i.i.i.i.i, align 4
   %.not37.i.i.i.i.i = icmp eq i8 %.val30.val.i.i.i.i.i, 0
   br i1 %.not37.i.i.i.i.i, label %89, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit47"
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 24
   %.val31.i.i.i.i.i = load ptr, ptr %90, align 8
   %.val31.val.i.i.i.i.i = load i8, ptr %.val31.i.i.i.i.i, align 4
   %.not38.i.i.i.i.i = icmp eq i8 %.val31.val.i.i.i.i.i, 0
   br i1 %.not38.i.i.i.i.i, label %91, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit49"
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 32
   %93 = add nsw i64 %.050.i.i.i.i.i, -1
   %94 = icmp sgt i64 %.050.i.i.i.i.i, 1
   br i1 %94, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !335
@@ -57535,7 +57535,7 @@ _ZNK4llvm6MDNode8operandsEv.exit22:               ; preds = %70, %74
   br i1 %.not.i.i.i.i.i, label %97, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %99
 
 99:                                               ; preds = %97, %._crit_edge.i.i.i.i.i
@@ -57546,7 +57546,7 @@ _ZNK4llvm6MDNode8operandsEv.exit22:               ; preds = %70, %74
   br i1 %.not33.i.i.i.i.i, label %100, label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %102
 
 102:                                              ; preds = %100, %._crit_edge.i.i.i.i.i
@@ -57560,15 +57560,15 @@ _ZNK4llvm6MDNode8operandsEv.exit22:               ; preds = %70, %74
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %85
-  %104 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit47": ; preds = %87
-  %105 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit49": ; preds = %89
-  %106 = getelementptr inbounds i8, ptr %.02949.i.i.i.i.i, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit47", %"_ZN4llvm6all_ofINS_8ArrayRefINS_9MDOperandEEEZN12_GLOBAL__N_18Verifier23visitAnnotationMetadataEPNS_6MDNodeEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit49", %96, %99, %102, %103
@@ -57609,7 +57609,7 @@ _ZNK4llvm6MDNode8operandsEv.exit22:               ; preds = %70, %74
   br label %.loopexit.sink.split
 
 124:                                              ; preds = %117
-  %125 = getelementptr inbounds i8, ptr %119, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store ptr %125, ptr %118, align 8
   store i8 10, ptr %119, align 1
   br label %.loopexit.sink.split
@@ -57643,7 +57643,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -57733,7 +57733,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressio
   %12 = zext nneg i32 %11 to i64
   %13 = sub nsw i64 0, %12
   %14 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -57748,7 +57748,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24verifyFragmentExpressio
 
 _ZN4llvm16dyn_cast_or_nullINS_15DILocalVariableENS_8MetadataEEEDaPT0_.exit: ; preds = %2, %19
   %.0.i.i = phi ptr [ %spec.select.i.i.i, %19 ], [ null, %2 ]
-  %22 = getelementptr inbounds i8, ptr %14, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
@@ -57790,7 +57790,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DIExpressionENS_8MetadataEEEDaPT0_.exit: ; preds
 
 47:                                               ; preds = %43
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -57835,7 +57835,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DIExpressionENS_8MetadataEEEDaPT0_.exit: ; preds
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %61, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %67, ptr %60, align 8
   store i8 10, ptr %61, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i
@@ -57884,7 +57884,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i.i: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %84, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 1
   store ptr %90, ptr %83, align 8
   store i8 10, ptr %84, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i9.i
@@ -57930,7 +57930,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19verifyNotEntryValueERKN
   %8 = zext nneg i32 %7 to i64
   %9 = sub nsw i64 0, %8
   %10 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
@@ -58005,7 +58005,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
   %.not24.i = icmp eq i32 %10, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -58021,7 +58021,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6i
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.not.i = icmp eq ptr %19, %12
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
@@ -58039,7 +58039,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6i
   %26 = load i32, ptr %9, align 4
   %27 = add i32 %26, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
   %30 = insertvalue { ptr, i8 } poison, ptr %29, 0
   %31 = insertvalue { ptr, i8 } %30, i8 1, 1
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit
@@ -58062,7 +58062,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %15, %23, %32
   %39 = load i32, ptr %38, align 8
   %.v.v.i4.i = select i1 %37, i32 %34, i32 %39
   %.v.i5.i = zext i32 %.v.v.i4.i to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %.v.i5.i
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %.v.i5.i
   %.not3.i4.i.i6.i = icmp eq ptr %.fca.0.extract, %40
   br i1 %.not3.i4.i.i6.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i
 
@@ -58073,7 +58073,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit: ; preds = %15, %23, %32
   br i1 %switch.i6.i.i8.i, label %.critedge2.i7.i.i9.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit
 
 .critedge2.i7.i.i9.i:                             ; preds = %.lr.ph.i5.i.i7.i
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.3.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i, i64 8
   %.not.i8.i.i10.i = icmp eq ptr %42, %40
   br i1 %.not.i8.i.i10.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit, label %.lr.ph.i5.i.i7.i, !llvm.loop !66
 
@@ -58081,7 +58081,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE12makeIteratorEPKPKv.exit: ; preds
   %.sroa.0.4.i = phi ptr [ %.fca.0.extract, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit ], [ %42, %.critedge2.i7.i.i9.i ], [ %.sroa.0.3.i, %.lr.ph.i5.i.i7.i ]
   %.fca.1.extract = extractvalue { ptr, i8 } %.fca.1.insert.merged.i, 1
   store ptr %.sroa.0.4.i, ptr %0, align 8
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %.sroa.2.0..sroa_idx2, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = and i8 %.fca.1.extract, 1
@@ -58117,7 +58117,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58137,7 +58137,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58169,7 +58169,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -58189,7 +58189,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -58228,7 +58228,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58248,7 +58248,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58288,7 +58288,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58308,7 +58308,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58348,7 +58348,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11GlobalV
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58368,7 +58368,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11GlobalV
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58408,7 +58408,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -58446,7 +58446,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12ConstantExprEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12ConstantExprEJEEEvRKT_DpRKT0_.exit
@@ -58466,7 +58466,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12ConstantExprEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_12ConstantExprEJEEEvRKT_DpRKT0_.exit
@@ -58505,7 +58505,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Constan
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58525,7 +58525,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Constan
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58565,7 +58565,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58585,7 +58585,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_11Global
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58697,7 +58697,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.
   br label %.loopexit
 
 _ZN4llvm7mdconst19dyn_extract_or_nullINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS7_E4typeEOS8_.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_9MDOperandEEEDaRKT0_.exit.i
-  %46 = getelementptr inbounds i8, ptr %.017, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not9 = icmp eq ptr %46, %34
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
@@ -58730,7 +58730,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -58765,7 +58765,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_9MDOperandEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_9MDOperandEJEEEvRKT_DpRKT0_.exit
@@ -58799,7 +58799,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_11Instruct
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -58819,7 +58819,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_11Instruct
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -58847,7 +58847,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -58881,7 +58881,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJ
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -58913,7 +58913,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -58933,7 +58933,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -58970,7 +58970,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_18DbgAssi
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -58990,7 +58990,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_18DbgAssi
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59022,7 +59022,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -59042,7 +59042,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -59076,7 +59076,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %10, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %16, ptr %9, align 8
   store i8 10, ptr %10, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit
@@ -59108,7 +59108,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit: ; preds = %3, %13, %15
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %32, ptr %25, align 8
   store i8 10, ptr %26, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -59128,7 +59128,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_9DbgRecordE.exit: ; preds = %3, %13, %15
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -59164,7 +59164,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_11Instruct
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -59184,7 +59184,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_11Instruct
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -59212,7 +59212,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -59249,7 +59249,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59269,7 +59269,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59298,7 +59298,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -59335,7 +59335,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVar
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59355,7 +59355,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVar
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59384,7 +59384,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIVariableEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_10DIVariableEJEEEvRKT_DpRKT0_.exit
@@ -59415,7 +59415,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -59460,7 +59460,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVariableIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %31, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %37, ptr %30, align 8
   store i8 10, ptr %31, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVariableIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -59480,7 +59480,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVariableIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %41, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %47, ptr %40, align 8
   store i8 10, ptr %41, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVariableIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -59519,7 +59519,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BranchI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59539,7 +59539,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10BranchI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59571,7 +59571,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -59591,7 +59591,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -59625,7 +59625,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -59663,7 +59663,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchInstEJEEEvRKT_DpRKT0_.exit
@@ -59683,7 +59683,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchInstEJEEEvRKT_DpRKT0_.exit
@@ -59720,7 +59720,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59740,7 +59740,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10SwitchI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -59772,7 +59772,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
@@ -59792,7 +59792,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11ConstantIntEJEEEvRKT_DpRKT0_.exit
@@ -59826,7 +59826,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -59864,7 +59864,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14IndirectBrInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14IndirectBrInstEJEEEvRKT_DpRKT0_.exit
@@ -59884,7 +59884,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14IndirectBrInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14IndirectBrInstEJEEEvRKT_DpRKT0_.exit
@@ -60040,14 +60040,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier13visitCallBaseERN4llvm8C
 
 113:                                              ; preds = %112
   %114 = zext i32 %.0 to i64
-  %115 = getelementptr inbounds %"class.llvm::Use", ptr %110, i64 %114
+  %115 = getelementptr inbounds nuw %"class.llvm::Use", ptr %110, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %111, align 8
   %120 = add i32 %.0, 1
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %119, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %118, %123
   br i1 %124, label %112, label %125, !llvm.loop !342
@@ -60083,7 +60083,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %12
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %132, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store ptr %138, ptr %131, align 8
   store i8 10, ptr %132, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -60216,7 +60216,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i: ; preds = %137, %135
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %197 ]
   %198 = load ptr, ptr %111, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %199 = getelementptr inbounds ptr, ptr %198, i64 %indvars.iv.next
+  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %indvars.iv.next
   %200 = load ptr, ptr %199, align 8
   store i8 1, ptr %195, align 1
   store ptr @.str.488, ptr %15, align 8
@@ -60295,7 +60295,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
   %232 = sub nsw i64 0, %231
   %233 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %232
   %234 = zext i32 %228 to i64
-  %235 = getelementptr inbounds %"class.llvm::Use", ptr %233, i64 %234
+  %235 = getelementptr inbounds nuw %"class.llvm::Use", ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8
   %237 = ptrtoint ptr %19 to i64
   %238 = call noundef ptr @_ZNK4llvm5Value20stripInBoundsOffsetsENS_12function_refIFvPKS0_EEE(ptr noundef nonnull align 8 dereferenceable(24) %236, ptr nonnull @_ZN4llvm12function_refIFvPKNS_5ValueEEE11callback_fnIZNS1_20stripInBoundsOffsetsES5_Ed_UlS3_E_EEvlS3_, i64 %237) #23
@@ -60345,7 +60345,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
   %259 = zext nneg i32 %258 to i64
   %260 = sub nsw i64 0, %259
   %261 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %260
-  %262 = getelementptr inbounds %"class.llvm::Use", ptr %261, i64 %indvars.iv419
+  %262 = getelementptr inbounds nuw %"class.llvm::Use", ptr %261, i64 %indvars.iv419
   %263 = load ptr, ptr %262, align 8
   store ptr %263, ptr %21, align 8
   %264 = call noundef ptr @_ZNK4llvm5Value20stripInBoundsOffsetsENS_12function_refIFvPKS0_EEE(ptr noundef nonnull align 8 dereferenceable(24) %263, ptr nonnull @_ZN4llvm12function_refIFvPKNS_5ValueEEE11callback_fnIZNS1_20stripInBoundsOffsetsES5_Ed_UlS3_E_EEvlS3_, i64 %251) #23
@@ -60431,7 +60431,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
   %298 = sub nsw i64 0, %297
   %299 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %298
   %300 = and i64 %indvars.iv419, 4294967295
-  %301 = getelementptr inbounds %"class.llvm::Use", ptr %299, i64 %300
+  %301 = getelementptr inbounds nuw %"class.llvm::Use", ptr %299, i64 %300
   %302 = load ptr, ptr %301, align 8
   store ptr %302, ptr %29, align 8
   call void @_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJNS_8CallBaseEEEEvRKNS_5TwineERKT_DpRKT0_(ptr noundef nonnull align 8 dereferenceable(203) %0, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(88) %1)
@@ -60447,7 +60447,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
   %308 = zext nneg i32 %307 to i64
   %309 = sub nsw i64 0, %308
   %310 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %309
-  %311 = getelementptr inbounds %"class.llvm::Use", ptr %310, i64 %indvars.iv419
+  %311 = getelementptr inbounds nuw %"class.llvm::Use", ptr %310, i64 %indvars.iv419
   %312 = load ptr, ptr %311, align 8
   store ptr %312, ptr %30, align 8
   %313 = load i8, ptr %312, align 8
@@ -60474,7 +60474,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %20
   %322 = zext nneg i32 %321 to i64
   %323 = sub nsw i64 0, %322
   %324 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %323
-  %325 = getelementptr inbounds %"class.llvm::Use", ptr %324, i64 %indvars.iv419
+  %325 = getelementptr inbounds nuw %"class.llvm::Use", ptr %324, i64 %indvars.iv419
   %326 = load ptr, ptr %325, align 8
   store ptr %326, ptr %32, align 8
   %327 = icmp slt i32 %320, 0
@@ -60521,7 +60521,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i._ZNK4llvm8CallBase25countOpera
   call void @llvm.assume(i1 %344)
   %345 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23, !noalias !344
   %346 = extractvalue { ptr, i64 } %345, 0
-  %347 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %346, i64 %indvars.iv.i
+  %347 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %346, i64 %indvars.iv.i
   %348 = load ptr, ptr %347, align 8, !noalias !347
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %350 = load i32, ptr %349, align 4
@@ -60604,7 +60604,7 @@ _ZNK4llvm8CallBase25countOperandBundlesOfTypeEj.exit: ; preds = %.lr.ph.i
   %.2392 = phi i1 [ %.0224.lcssa, %.lr.ph393 ], [ %.2.mux, %442 ]
   %.2228391 = phi i1 [ %.0226.lcssa, %.lr.ph393 ], [ %.3229, %442 ]
   %383 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %382
-  %384 = getelementptr inbounds %"class.llvm::Use", ptr %383, i64 %indvars.iv422
+  %384 = getelementptr inbounds nuw %"class.llvm::Use", ptr %383, i64 %indvars.iv422
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load ptr, ptr %386, align 8
@@ -60752,7 +60752,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit274.thread: ; preds = %_ZN4llvm16dyn
 
 460:                                              ; preds = %461, %455
   %.pn = phi ptr [ %456, %455 ], [ %.0232, %461 ]
-  %.0232 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0232 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.not248 = icmp eq ptr %.0232, %459
   br i1 %.not248, label %.loopexit, label %461
 
@@ -60861,7 +60861,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit289.thread: ; preds = %_ZN4llvm16dyn
   br i1 %.not408, label %._crit_edge405, label %.lr.ph404
 
 .lr.ph404:                                        ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit289.thread
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   %499 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %wide.trip.count = zext i32 %498 to i64
   br label %500
@@ -60883,7 +60883,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit289.thread: ; preds = %_ZN4llvm16dyn
   call void @llvm.assume(i1 %502)
   %503 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23, !noalias !354
   %504 = extractvalue { ptr, i64 } %503, 0
-  %505 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %504, i64 %indvars.iv424
+  %505 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %504, i64 %indvars.iv424
   call void @llvm.experimental.noalias.scope.decl(metadata !357)
   %506 = load i32, ptr %109, align 4, !noalias !360
   %507 = and i32 %506, 134217727
@@ -60894,7 +60894,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit289.thread: ; preds = %_ZN4llvm16dyn
   %512 = load i32, ptr %511, align 8, !noalias !357
   %513 = zext i32 %512 to i64
   %.idx6.i.i = shl nuw nsw i64 %513, 5
-  %514 = getelementptr inbounds i8, ptr %510, i64 %.idx6.i.i
+  %514 = getelementptr inbounds nuw i8, ptr %510, i64 %.idx6.i.i
   %515 = getelementptr inbounds nuw i8, ptr %505, i64 12
   %516 = load i32, ptr %515, align 4, !noalias !357
   %517 = zext i32 %516 to i64
@@ -61057,7 +61057,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit289.thread: ; preds = %_ZN4llvm16dyn
   br label %_ZN4llvm15VerifierSupport11CheckFailedIPNS_5ValueEJPNS_4TypeENS_8CallBaseEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 579:                                              ; preds = %572
-  %580 = getelementptr inbounds i8, ptr %514, i64 32
+  %580 = getelementptr inbounds nuw i8, ptr %514, i64 32
   %581 = load ptr, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 8
   %583 = load ptr, ptr %582, align 8
@@ -61368,7 +61368,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -61406,7 +61406,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
@@ -61426,7 +61426,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
@@ -61460,7 +61460,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -61493,7 +61493,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -61513,7 +61513,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %33, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %39, ptr %32, align 8
   store i8 10, ptr %33, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -61599,7 +61599,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %9, %
   %28 = load i8, ptr %27, align 1, !noalias !369
   %29 = icmp eq i8 %28, 1
   %.sroa.04.0.copyload.i.i = load ptr, ptr %1, align 8, !noalias !369
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !369
   %.0.i.i = select i1 %29, i8 %22, i8 2
   %.sroa.04.0.i.i = select i1 %29, ptr %.sroa.04.0.copyload.i.i, ptr %1
@@ -61607,7 +61607,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %9, %
   store ptr @.str.525, ptr %4, align 8, !alias.scope !369
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sroa.04.0.i.i, ptr %30, align 8, !alias.scope !369
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.3.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !369
   br label %31
 
@@ -61615,9 +61615,9 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %9, %
   %.0.i.i.sink = phi i8 [ %.0.i.i, %26 ], [ 1, %.thread17 ]
   %32 = phi i8 [ 2, %26 ], [ 3, %.thread17 ]
   %33 = phi ptr [ %4, %26 ], [ @.str.525, %.thread17 ]
-  %34 = getelementptr inbounds i8, ptr %4, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 3, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 33
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 %.0.i.i.sink, ptr %35, align 1
   store ptr %33, ptr %3, align 8, !alias.scope !370
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -61696,7 +61696,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -61741,7 +61741,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -61788,7 +61788,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -61854,7 +61854,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %2, %_ZNK4llvm8CallB
   tail call void @llvm.assume(i1 %21)
   %22 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #23, !noalias !375
   %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !noalias !378
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 4
@@ -62137,7 +62137,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %243 = load ptr, ptr %242, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i32, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %8, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %8, ptr noundef nonnull %246, i64 noundef 8) #23
   call void @_ZN4llvm9Intrinsic28getIntrinsicInfoTableEntriesEjRNS_15SmallVectorImplINS0_13IITDescriptorEEE(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   %247 = load ptr, ptr %8, align 8
@@ -62145,7 +62145,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
   %248 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
   store i64 %249, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %10, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %250, i64 noundef 4) #23
   %251 = call noundef i32 @_ZN4llvm9Intrinsic23matchIntrinsicSignatureEPNS_12FunctionTypeERNS_8ArrayRefINS0_13IITDescriptorEEERNS_15SmallVectorImplIPNS_4TypeEEE(ptr noundef nonnull %243, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10) #23
   switch i32 %251, label %258 [
@@ -62311,7 +62311,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %288, %_ZN4llvmeqENS
 321:                                              ; preds = %317
   %322 = load i32, ptr %306, align 4, !noalias !384
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds ptr, ptr %319, i64 %323
+  %324 = getelementptr inbounds nuw ptr, ptr %319, i64 %323
   %.not24.i.i.i = icmp eq i32 %322, 0
   br i1 %.not24.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -62322,7 +62322,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %288, %_ZN4llvmeqENS
   br i1 %326, label %_ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_8FunctionE.exitthread-pre-split, label %327
 
 327:                                              ; preds = %.lr.ph.i.i.i
-  %328 = getelementptr inbounds i8, ptr %.025.i.i.i, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %.025.i.i.i, i64 8
   %.not.i.i.i714 = icmp eq ptr %328, %324
   br i1 %.not.i.i.i714, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
@@ -62371,7 +62371,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_8MetadataEE6insertES3_.exit.i: ; preds = %317, %.
   %.012.i.i = phi ptr [ %347, %.lr.ph.i.i ], [ %343, %341 ]
   %346 = load ptr, ptr %.012.i.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_18Verifier20visitValueAsMetadataERKN4llvm15ValueAsMetadataEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(2296) %0, ptr noundef nonnull align 8 dereferenceable(136) %346, ptr noundef %312)
-  %347 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %.not.i.i = icmp eq ptr %347, %345
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_8FunctionE.exitthread-pre-split, label %.lr.ph.i.i
 
@@ -62403,7 +62403,7 @@ _ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_
   br label %_ZN4llvm5APIntD2Ev.exit
 
 360:                                              ; preds = %_ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_8FunctionE.exit, %350
-  %361 = getelementptr inbounds i8, ptr %.05961249, i64 32
+  %361 = getelementptr inbounds nuw i8, ptr %.05961249, i64 32
   %.not653 = icmp eq ptr %361, %303
   br i1 %.not653, label %._crit_edge, label %308
 
@@ -62666,7 +62666,7 @@ _ZN12_GLOBAL__N_18Verifier20visitMetadataAsValueERKN4llvm15MetadataAsValueEPNS1_
   %369 = load i32, ptr %368, align 8
   %370 = sub i32 %367, %369
   %371 = load ptr, ptr %.05971266, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 16
   %373 = load i64, ptr %371, align 8
   switch i64 %373, label %_ZN4llvmeqENS_9StringRefES0_.exit725.thread1133 [
     i64 16, label %_ZN4llvmeqENS_9StringRefES0_.exit719
@@ -62698,7 +62698,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit719.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %383 = sub nsw i64 0, %382
   %384 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %383
   %385 = zext i32 %369 to i64
-  %386 = getelementptr inbounds %"class.llvm::Use", ptr %384, i64 %385
+  %386 = getelementptr inbounds nuw %"class.llvm::Use", ptr %384, i64 %385
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
@@ -62711,7 +62711,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit719.thread:      ; preds = %_ZN4llvmeqENS_9Stri
 394:                                              ; preds = %379
   %395 = add i32 %369, 1
   %396 = zext i32 %395 to i64
-  %397 = getelementptr inbounds %"class.llvm::Use", ptr %384, i64 %396
+  %397 = getelementptr inbounds nuw %"class.llvm::Use", ptr %384, i64 %396
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
@@ -62756,7 +62756,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit725.thread1133._ZN4llvmeqENS_9StringRefES0_.exi
 _ZN4llvmeqENS_9StringRefES0_.exit725.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit725.thread1133._ZN4llvmeqENS_9StringRefES0_.exit725.thread_crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit725
   %413 = phi i64 [ %.pre1325, %_ZN4llvmeqENS_9StringRefES0_.exit725.thread1133._ZN4llvmeqENS_9StringRefES0_.exit725.thread_crit_edge ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit725 ]
   %414 = phi ptr [ %.pre1324, %_ZN4llvmeqENS_9StringRefES0_.exit725.thread1133._ZN4llvmeqENS_9StringRefES0_.exit725.thread_crit_edge ], [ %371, %_ZN4llvmeqENS_9StringRefES0_.exit725 ]
-  %415 = getelementptr inbounds i8, ptr %414, i64 16
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 16
   %416 = call noundef i32 @_ZN4llvm9Attribute19getAttrKindFromNameENS_9StringRefE(ptr nonnull %415, i64 %413) #23
   %417 = icmp eq i32 %416, 82
   br i1 %417, label %418, label %472
@@ -62783,7 +62783,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit725.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %428 = sub nsw i64 0, %427
   %429 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %428
   %430 = zext i32 %424 to i64
-  %431 = getelementptr inbounds %"class.llvm::Use", ptr %429, i64 %430
+  %431 = getelementptr inbounds nuw %"class.llvm::Use", ptr %429, i64 %430
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   %434 = load ptr, ptr %433, align 8
@@ -62805,7 +62805,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit725.thread:      ; preds = %_ZN4llvmeqENS_9Stri
 442:                                              ; preds = %423
   %443 = add i32 %424, 1
   %444 = zext i32 %443 to i64
-  %445 = getelementptr inbounds %"class.llvm::Use", ptr %429, i64 %444
+  %445 = getelementptr inbounds nuw %"class.llvm::Use", ptr %429, i64 %444
   %446 = load ptr, ptr %445, align 8
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %448 = load ptr, ptr %447, align 8
@@ -62831,7 +62831,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit725.thread:      ; preds = %_ZN4llvmeqENS_9Stri
 458:                                              ; preds = %456
   %459 = add i32 %424, 2
   %460 = zext i32 %459 to i64
-  %461 = getelementptr inbounds %"class.llvm::Use", ptr %429, i64 %460
+  %461 = getelementptr inbounds nuw %"class.llvm::Use", ptr %429, i64 %460
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %464 = load ptr, ptr %463, align 8
@@ -62894,7 +62894,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit725.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %493 = sub nsw i64 0, %492
   %494 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %493
   %495 = zext i32 %489 to i64
-  %496 = getelementptr inbounds %"class.llvm::Use", ptr %494, i64 %495
+  %496 = getelementptr inbounds nuw %"class.llvm::Use", ptr %494, i64 %495
   %497 = load ptr, ptr %496, align 8
   %498 = load i8, ptr %497, align 8
   %499 = icmp eq i8 %498, 17
@@ -62942,7 +62942,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit725.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %_ZN4llvm5APIntD2Ev.exit
 
 516:                                              ; preds = %487, %510, %505
-  %517 = getelementptr inbounds i8, ptr %.05971266, i64 16
+  %517 = getelementptr inbounds nuw i8, ptr %.05971266, i64 16
   %.not693 = icmp eq ptr %517, %365
   br i1 %.not693, label %_ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.exit.thread, label %.lr.ph1268
 
@@ -63023,7 +63023,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   %562 = zext nneg i32 %561 to i64
   %563 = sub nsw i64 0, %562
   %564 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %563
-  %565 = getelementptr inbounds i8, ptr %564, i64 96
+  %565 = getelementptr inbounds nuw i8, ptr %564, i64 96
   %566 = load ptr, ptr %565, align 8
   %567 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %566) #23
   %568 = load i8, ptr %567, align 8
@@ -63074,7 +63074,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   %588 = zext nneg i32 %587 to i64
   %589 = sub nsw i64 0, %588
   %590 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %589
-  %591 = getelementptr inbounds i8, ptr %590, i64 32
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 32
   %592 = load ptr, ptr %591, align 8
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 24
   %594 = getelementptr inbounds nuw i8, ptr %592, i64 32
@@ -63103,7 +63103,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit.thr
   %606 = zext nneg i32 %605 to i64
   %607 = sub nsw i64 0, %606
   %608 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %607
-  %609 = getelementptr inbounds i8, ptr %608, i64 32
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 32
   %610 = load ptr, ptr %609, align 8
   %611 = load i8, ptr %610, align 8
   %.not1206 = icmp eq i8 %611, 24
@@ -63210,7 +63210,7 @@ thread-pre-split.thread:                          ; preds = %603, %thread-pre-sp
   %653 = zext nneg i32 %652 to i64
   %654 = sub nsw i64 0, %653
   %655 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %654
-  %656 = getelementptr inbounds i8, ptr %655, i64 96
+  %656 = getelementptr inbounds nuw i8, ptr %655, i64 96
   %657 = load ptr, ptr %656, align 8
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 24
   %659 = call noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr noundef nonnull align 8 dereferenceable(12) %658)
@@ -63363,7 +63363,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit744:  ; preds = %_ZN4llvm16dyn_cast_
   %727 = zext nneg i32 %726 to i64
   %728 = sub nsw i64 0, %727
   %729 = getelementptr inbounds %"class.llvm::Use", ptr %704, i64 %728
-  %730 = getelementptr inbounds i8, ptr %729, i64 32
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 32
   %731 = load ptr, ptr %730, align 8
   %732 = load i8, ptr %731, align 8
   %.not1203 = icmp eq i8 %732, 17
@@ -63686,7 +63686,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   %886 = zext nneg i32 %885 to i64
   %887 = sub nsw i64 0, %886
   %888 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %887
-  %889 = getelementptr inbounds i8, ptr %888, i64 32
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 32
   %890 = load ptr, ptr %889, align 8
   %891 = load i8, ptr %890, align 8
   %892 = icmp ult i8 %891, 22
@@ -63722,7 +63722,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm5APIntD2Ev.exit
 
 907:                                              ; preds = %869, %896
-  %908 = getelementptr inbounds i8, ptr %2, i64 40
+  %908 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %909 = load ptr, ptr %908, align 8
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 72
   %911 = load ptr, ptr %910, align 8
@@ -63747,7 +63747,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   %921 = zext nneg i32 %920 to i64
   %922 = sub nsw i64 0, %921
   %923 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %922
-  %924 = getelementptr inbounds i8, ptr %923, i64 32
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 32
   %925 = load ptr, ptr %924, align 8
   %926 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %925) #23
   %927 = load i8, ptr %926, align 8
@@ -63769,7 +63769,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   %935 = zext nneg i32 %934 to i64
   %936 = sub nsw i64 0, %935
   %937 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %936
-  %938 = getelementptr inbounds i8, ptr %937, i64 32
+  %938 = getelementptr inbounds nuw i8, ptr %937, i64 32
   %939 = load ptr, ptr %938, align 8
   %940 = getelementptr inbounds nuw i8, ptr %939, i64 24
   %941 = getelementptr inbounds nuw i8, ptr %939, i64 32
@@ -63791,7 +63791,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm5APIntD2Ev.exit
 
 949:                                              ; preds = %932
-  %950 = getelementptr inbounds i8, ptr %937, i64 64
+  %950 = getelementptr inbounds nuw i8, ptr %937, i64 64
   %951 = load ptr, ptr %950, align 8
   %952 = getelementptr inbounds nuw i8, ptr %951, i64 24
   %953 = getelementptr inbounds nuw i8, ptr %951, i64 32
@@ -63813,7 +63813,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm5APIntD2Ev.exit
 
 961:                                              ; preds = %949
-  %962 = getelementptr inbounds i8, ptr %937, i64 96
+  %962 = getelementptr inbounds nuw i8, ptr %937, i64 96
   %963 = load ptr, ptr %962, align 8
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 24
   %965 = getelementptr inbounds nuw i8, ptr %963, i64 32
@@ -63840,7 +63840,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   %976 = zext nneg i32 %975 to i64
   %977 = sub nsw i64 0, %976
   %978 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %977
-  %979 = getelementptr inbounds i8, ptr %978, i64 32
+  %979 = getelementptr inbounds nuw i8, ptr %978, i64 32
   %980 = load ptr, ptr %979, align 8
   %981 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %980) #23
   %982 = load i8, ptr %981, align 8
@@ -63857,7 +63857,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm5APIntD2Ev.exit
 
 987:                                              ; preds = %._crit_edge
-  %988 = getelementptr inbounds i8, ptr %2, i64 40
+  %988 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %989 = load ptr, ptr %988, align 8
   %990 = call noundef zeroext i1 @_ZNK4llvm10BasicBlock12isEntryBlockEv(ptr noundef nonnull align 8 dereferenceable(80) %989) #23
   br i1 %990, label %994, label %991
@@ -63923,7 +63923,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1019:                                             ; preds = %1014, %.lr.ph1253
-  %1020 = getelementptr inbounds i8, ptr %.06061251, i64 32
+  %1020 = getelementptr inbounds nuw i8, ptr %.06061251, i64 32
   %.not678 = icmp eq ptr %1020, %1007
   br i1 %.not678, label %._crit_edge1254, label %.lr.ph1253
 
@@ -63982,7 +63982,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   %1054 = zext nneg i32 %1053 to i64
   %1055 = sub nsw i64 0, %1054
   %1056 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1055
-  %1057 = getelementptr inbounds i8, ptr %1056, i64 64
+  %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 64
   %1058 = load ptr, ptr %1057, align 8
   %1059 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %1060 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %1059, ptr noundef nonnull align 8 dereferenceable(8) %73)
@@ -64020,7 +64020,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1077:                                             ; preds = %1067, %1069
-  %1078 = getelementptr inbounds i8, ptr %2, i64 40
+  %1078 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1079 = load ptr, ptr %1078, align 8
   %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 72
   %1081 = load ptr, ptr %1080, align 8
@@ -64044,7 +64044,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_5ValueEEEDcPT0_.exit754.thread: ; preds = %854
   br label %_ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.exit.thread
 
 1089:                                             ; preds = %._crit_edge
-  %1090 = getelementptr inbounds i8, ptr %2, i64 40
+  %1090 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1091 = load ptr, ptr %1090, align 8
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 72
   %1093 = load ptr, ptr %1092, align 8
@@ -64214,7 +64214,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %1162, %1169
   br i1 %.not, label %1182, label %1206
 
 1182:                                             ; preds = %1179
-  %1183 = getelementptr inbounds i8, ptr %1180, i64 40
+  %1183 = getelementptr inbounds nuw i8, ptr %1180, i64 40
   %1184 = load ptr, ptr %1183, align 8
   %1185 = call noundef ptr @_ZNK4llvm10BasicBlock20getUniquePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %1184) #23
   store ptr %1185, ptr %84, align 8
@@ -64296,7 +64296,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %1194
   %1219 = zext nneg i32 %1218 to i64
   %1220 = sub nsw i64 0, %1219
   %1221 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1220
-  %1222 = getelementptr inbounds i8, ptr %1221, i64 32
+  %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 32
   %1223 = load ptr, ptr %1222, align 8
   %1224 = load i8, ptr %1223, align 8
   %1225 = icmp eq i8 %1224, 17
@@ -64312,7 +64312,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %1194
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1229:                                             ; preds = %1215
-  %1230 = getelementptr inbounds i8, ptr %1221, i64 64
+  %1230 = getelementptr inbounds nuw i8, ptr %1221, i64 64
   %1231 = load ptr, ptr %1230, align 8
   %1232 = load i8, ptr %1231, align 8
   %1233 = icmp eq i8 %1232, 17
@@ -64544,7 +64544,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit804: ; preds = %_ZNK4llvm4Type22get
 "_ZZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseEENK3$_1clEPNS1_4TypeE.exit": ; preds = %1333, %1337
   %.0.i.i806 = phi ptr [ %1340, %1337 ], [ %1267, %1333 ]
   %1341 = load ptr, ptr %1328, align 8
-  %1342 = getelementptr inbounds i8, ptr %1341, i64 16
+  %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 16
   %1343 = load ptr, ptr %1342, align 8
   %1344 = call i16 %1343(ptr noundef nonnull align 8 dereferenceable(44) %1328, ptr noundef %.0.i.i806) #23
   %1345 = and i16 %1344, 256
@@ -64579,7 +64579,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit804: ; preds = %_ZNK4llvm4Type22get
 "_ZZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseEENK3$_1clEPNS1_4TypeE.exit812": ; preds = %1350, %1354
   %.0.i.i809 = phi ptr [ %1357, %1354 ], [ %1273, %1350 ]
   %1358 = load ptr, ptr %.val710.val, align 8
-  %1359 = getelementptr inbounds i8, ptr %1358, i64 16
+  %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 16
   %1360 = load ptr, ptr %1359, align 8
   %1361 = call i16 %1360(ptr noundef nonnull align 8 dereferenceable(44) %.val710.val, ptr noundef %.0.i.i809) #23
   %1362 = and i16 %1361, 256
@@ -64614,7 +64614,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit804: ; preds = %_ZNK4llvm4Type22get
 "_ZZN12_GLOBAL__N_18Verifier18visitIntrinsicCallEjRN4llvm8CallBaseEENK3$_1clEPNS1_4TypeE.exit817": ; preds = %1367, %1371
   %.0.i.i814 = phi ptr [ %1374, %1371 ], [ %1270, %1367 ]
   %1375 = load ptr, ptr %.val711.val, align 8
-  %1376 = getelementptr inbounds i8, ptr %1375, i64 16
+  %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 16
   %1377 = load ptr, ptr %1376, align 8
   %1378 = call i16 %1377(ptr noundef nonnull align 8 dereferenceable(44) %.val711.val, ptr noundef %.0.i.i814) #23
   %1379 = and i16 %1378, 256
@@ -64639,7 +64639,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit804: ; preds = %_ZNK4llvm4Type22get
 
 _ZNKSt14default_deleteIN4llvm10GCStrategyEEclEPS1_.exit.i: ; preds = %1384
   %1386 = load ptr, ptr %1385, align 8
-  %1387 = getelementptr inbounds i8, ptr %1386, i64 8
+  %1387 = getelementptr inbounds nuw i8, ptr %1386, i64 8
   %1388 = load ptr, ptr %1387, align 8
   call void %1388(ptr noundef nonnull align 8 dereferenceable(44) %1385) #23
   br label %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit
@@ -64754,7 +64754,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit823:          ; preds = %1415
   %1435 = zext nneg i32 %1434 to i64
   %1436 = sub nsw i64 0, %1435
   %1437 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1436
-  %1438 = getelementptr inbounds i8, ptr %1437, i64 32
+  %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 32
   %1439 = load ptr, ptr %1438, align 8
   %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 24
   %1441 = getelementptr inbounds nuw i8, ptr %1439, i64 32
@@ -64767,7 +64767,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit823:          ; preds = %1415
   %1448 = load ptr, ptr %1440, align 8
   %1449 = lshr i32 %1443, 6
   %1450 = zext nneg i32 %1449 to i64
-  %1451 = getelementptr inbounds i64, ptr %1448, i64 %1450
+  %1451 = getelementptr inbounds nuw i64, ptr %1448, i64 %1450
   %.in.i.i.i.i = select i1 %1447, ptr %1440, ptr %1451
   %1452 = load i64, ptr %.in.i.i.i.i, align 8
   %1453 = and i64 %1446, %1452
@@ -64820,9 +64820,9 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %1454
   %1475 = zext nneg i32 %1474 to i64
   %1476 = sub nsw i64 0, %1475
   %1477 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1476
-  %1478 = getelementptr inbounds i8, ptr %1477, i64 64
+  %1478 = getelementptr inbounds nuw i8, ptr %1477, i64 64
   %1479 = load ptr, ptr %1478, align 8
-  %1480 = getelementptr inbounds i8, ptr %1477, i64 96
+  %1480 = getelementptr inbounds nuw i8, ptr %1477, i64 96
   %1481 = load ptr, ptr %1480, align 8
   %1482 = getelementptr inbounds nuw i8, ptr %1479, i64 8
   %1483 = load ptr, ptr %1482, align 8
@@ -64843,7 +64843,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %1454
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1491:                                             ; preds = %1472
-  %1492 = getelementptr inbounds i8, ptr %1477, i64 32
+  %1492 = getelementptr inbounds nuw i8, ptr %1477, i64 32
   %1493 = load ptr, ptr %1492, align 8
   %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 24
   %1495 = call noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr noundef nonnull align 8 dereferenceable(12) %1494)
@@ -64909,7 +64909,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit833.
   %1529 = sub nsw i64 0, %1528
   %1530 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1529
   %1531 = load ptr, ptr %1530, align 8
-  %1532 = getelementptr inbounds i8, ptr %1530, i64 96
+  %1532 = getelementptr inbounds nuw i8, ptr %1530, i64 96
   %1533 = load ptr, ptr %1532, align 8
   %1534 = getelementptr inbounds nuw i8, ptr %1533, i64 8
   %1535 = load ptr, ptr %1534, align 8
@@ -64930,7 +64930,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit833.
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1543:                                             ; preds = %1525
-  %1544 = getelementptr inbounds i8, ptr %1530, i64 64
+  %1544 = getelementptr inbounds nuw i8, ptr %1530, i64 64
   %1545 = load ptr, ptr %1544, align 8
   %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 24
   %1547 = call noundef zeroext i1 @_ZNK4llvm5APInt10isPowerOf2Ev(ptr noundef nonnull align 8 dereferenceable(12) %1546)
@@ -64981,7 +64981,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit841.
   %1574 = zext nneg i32 %1573 to i64
   %1575 = sub nsw i64 0, %1574
   %1576 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1575
-  %1577 = getelementptr inbounds i8, ptr %1576, i64 32
+  %1577 = getelementptr inbounds nuw i8, ptr %1576, i64 32
   %1578 = load ptr, ptr %1577, align 8
   %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 24
   %1580 = getelementptr inbounds nuw i8, ptr %1578, i64 32
@@ -65018,7 +65018,7 @@ _ZNK4llvm5APInt6isZeroEv.exit:                    ; preds = %1571
   %1596 = zext nneg i32 %1595 to i64
   %1597 = sub nsw i64 0, %1596
   %1598 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1597
-  %1599 = getelementptr inbounds i8, ptr %1598, i64 64
+  %1599 = getelementptr inbounds nuw i8, ptr %1598, i64 64
   %1600 = load ptr, ptr %1599, align 8
   %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 24
   %1602 = getelementptr inbounds nuw i8, ptr %1600, i64 32
@@ -65132,10 +65132,10 @@ _ZNK4llvm5APInt6isZeroEv.exit844:                 ; preds = %1593
   br i1 %1654, label %1655, label %_ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.exit.thread
 
 1655:                                             ; preds = %1652
-  %1656 = getelementptr inbounds i8, ptr %2, i64 40
+  %1656 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %1657 = load ptr, ptr %1656, align 8
-  %1658 = getelementptr inbounds i8, ptr %1657, i64 48
-  %1659 = getelementptr inbounds i8, ptr %2, i64 32
+  %1658 = getelementptr inbounds nuw i8, ptr %1657, i64 48
+  %1659 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %1660 = load ptr, ptr %1659, align 8
   %1661 = icmp eq ptr %1660, %1658
   %1662 = icmp eq ptr %1660, null
@@ -65300,7 +65300,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   %1741 = zext nneg i32 %1740 to i64
   %1742 = sub nsw i64 0, %1741
   %1743 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1742
-  %1744 = getelementptr inbounds i8, ptr %1743, i64 32
+  %1744 = getelementptr inbounds nuw i8, ptr %1743, i64 32
   %1745 = load ptr, ptr %1744, align 8
   %1746 = getelementptr inbounds nuw i8, ptr %1745, i64 8
   %1747 = load ptr, ptr %1746, align 8
@@ -65355,7 +65355,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit869.thread: ; preds = %_ZNK4llvm4Type13ge
   %1765 = sub nsw i64 0, %1764
   %1766 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %1765
   %1767 = load ptr, ptr %1766, align 8
-  %1768 = getelementptr inbounds i8, ptr %1766, i64 32
+  %1768 = getelementptr inbounds nuw i8, ptr %1766, i64 32
   %1769 = load ptr, ptr %1768, align 8
   %1770 = getelementptr inbounds nuw i8, ptr %1767, i64 8
   %1771 = load ptr, ptr %1770, align 8
@@ -65423,7 +65423,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit884:     ; preds = %1784, %1791
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1799:                                             ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit884
-  %1800 = getelementptr inbounds i8, ptr %1766, i64 64
+  %1800 = getelementptr inbounds nuw i8, ptr %1766, i64 64
   %1801 = load ptr, ptr %1800, align 8
   %1802 = getelementptr inbounds nuw i8, ptr %1801, i64 8
   %1803 = load ptr, ptr %1802, align 8
@@ -65671,7 +65671,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit917.
   %1919 = load ptr, ptr %1911, align 8
   %1920 = lshr i32 %1914, 6
   %1921 = zext nneg i32 %1920 to i64
-  %1922 = getelementptr inbounds i64, ptr %1919, i64 %1921
+  %1922 = getelementptr inbounds nuw i64, ptr %1919, i64 %1921
   %.in.i.i.i.i919 = select i1 %1918, ptr %1911, ptr %1922
   %1923 = load i64, ptr %.in.i.i.i.i919, align 8
   %1924 = and i64 %1917, %1923
@@ -65729,11 +65729,11 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit924:  ; preds = %_ZN4llvm16dyn_cast_
   ]
 
 1945:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit924
-  %1946 = getelementptr inbounds i8, ptr %1944, i64 64
+  %1946 = getelementptr inbounds nuw i8, ptr %1944, i64 64
   %1947 = load ptr, ptr %1946, align 8
-  %1948 = getelementptr inbounds i8, ptr %1944, i64 96
+  %1948 = getelementptr inbounds nuw i8, ptr %1944, i64 96
   %1949 = load ptr, ptr %1948, align 8
-  %1950 = getelementptr inbounds i8, ptr %1944, i64 128
+  %1950 = getelementptr inbounds nuw i8, ptr %1944, i64 128
   %1951 = load ptr, ptr %1950, align 8
   %1952 = load ptr, ptr %1944, align 8
   %1953 = getelementptr inbounds nuw i8, ptr %1952, i64 8
@@ -65769,7 +65769,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit924:  ; preds = %_ZN4llvm16dyn_cast_
   br label %_ZN4llvm5APIntD2Ev.exit
 
 1973:                                             ; preds = %1945
-  %1974 = getelementptr inbounds i8, ptr %1944, i64 32
+  %1974 = getelementptr inbounds nuw i8, ptr %1944, i64 32
   %1975 = load ptr, ptr %1974, align 8
   %1976 = getelementptr inbounds nuw i8, ptr %1975, i64 8
   %1977 = load ptr, ptr %1976, align 8
@@ -65806,9 +65806,9 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit924:  ; preds = %_ZN4llvm16dyn_cast_
   br label %2036
 
 1998:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit924
-  %1999 = getelementptr inbounds i8, ptr %1944, i64 32
+  %1999 = getelementptr inbounds nuw i8, ptr %1944, i64 32
   %2000 = load ptr, ptr %1999, align 8
-  %2001 = getelementptr inbounds i8, ptr %1944, i64 64
+  %2001 = getelementptr inbounds nuw i8, ptr %1944, i64 64
   %2002 = load ptr, ptr %2001, align 8
   %2003 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2004 = load ptr, ptr %2003, align 8
@@ -65820,28 +65820,28 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit924:  ; preds = %_ZN4llvm16dyn_cast_
   br label %2036
 
 2010:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit924
-  %2011 = getelementptr inbounds i8, ptr %1944, i64 32
+  %2011 = getelementptr inbounds nuw i8, ptr %1944, i64 32
   %2012 = load ptr, ptr %2011, align 8
   %2013 = load i8, ptr %2012, align 8
   %2014 = icmp eq i8 %2013, 17
   %spec.select.i.i933 = select i1 %2014, ptr %2012, ptr null
-  %2015 = getelementptr inbounds i8, ptr %1944, i64 96
+  %2015 = getelementptr inbounds nuw i8, ptr %1944, i64 96
   %2016 = load ptr, ptr %2015, align 8
-  %2017 = getelementptr inbounds i8, ptr %1944, i64 128
+  %2017 = getelementptr inbounds nuw i8, ptr %1944, i64 128
   %2018 = load ptr, ptr %2017, align 8
   %2019 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2020 = load ptr, ptr %2019, align 8
   br label %2036
 
 2021:                                             ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit924
-  %2022 = getelementptr inbounds i8, ptr %1944, i64 64
+  %2022 = getelementptr inbounds nuw i8, ptr %1944, i64 64
   %2023 = load ptr, ptr %2022, align 8
   %2024 = load i8, ptr %2023, align 8
   %2025 = icmp eq i8 %2024, 17
   %spec.select.i.i934 = select i1 %2025, ptr %2023, ptr null
-  %2026 = getelementptr inbounds i8, ptr %1944, i64 128
+  %2026 = getelementptr inbounds nuw i8, ptr %1944, i64 128
   %2027 = load ptr, ptr %2026, align 8
-  %2028 = getelementptr inbounds i8, ptr %1944, i64 160
+  %2028 = getelementptr inbounds nuw i8, ptr %1944, i64 160
   %2029 = load ptr, ptr %2028, align 8
   %2030 = load ptr, ptr %1944, align 8
   %2031 = getelementptr inbounds nuw i8, ptr %2030, i64 8
@@ -65985,7 +65985,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %2043, %2043, %2043,
   %2091 = zext nneg i32 %2090 to i64
   %2092 = sub nsw i64 0, %2091
   %2093 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %2092
-  %2094 = getelementptr inbounds i8, ptr %2093, i64 64
+  %2094 = getelementptr inbounds nuw i8, ptr %2093, i64 64
   %2095 = load ptr, ptr %2094, align 8
   %2096 = getelementptr inbounds nuw i8, ptr %2095, i64 24
   %2097 = getelementptr inbounds nuw i8, ptr %2095, i64 32
@@ -66013,7 +66013,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %2100, %2107
   %2110 = getelementptr inbounds nuw i8, ptr %2088, i64 32
   %2111 = load i32, ptr %2110, align 8
   %2112 = zext i32 %2111 to i64
-  %2113 = getelementptr inbounds i8, ptr %2, i64 40
+  %2113 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2114 = load ptr, ptr %2113, align 8
   %.not661 = icmp eq ptr %2114, null
   br i1 %.not661, label %2126, label %2115
@@ -66107,9 +66107,9 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   %2156 = sub nsw i64 0, %2155
   %2157 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %2156
   %2158 = load ptr, ptr %2157, align 8
-  %2159 = getelementptr inbounds i8, ptr %2157, i64 32
+  %2159 = getelementptr inbounds nuw i8, ptr %2157, i64 32
   %2160 = load ptr, ptr %2159, align 8
-  %2161 = getelementptr inbounds i8, ptr %2157, i64 64
+  %2161 = getelementptr inbounds nuw i8, ptr %2157, i64 64
   %2162 = load ptr, ptr %2161, align 8
   %2163 = getelementptr inbounds nuw i8, ptr %2162, i64 24
   %2164 = getelementptr inbounds nuw i8, ptr %2162, i64 32
@@ -66193,7 +66193,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   %2211 = sub nsw i64 0, %2210
   %2212 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %2211
   %2213 = load ptr, ptr %2212, align 8
-  %2214 = getelementptr inbounds i8, ptr %2212, i64 32
+  %2214 = getelementptr inbounds nuw i8, ptr %2212, i64 32
   %2215 = load ptr, ptr %2214, align 8
   %2216 = getelementptr inbounds nuw i8, ptr %2215, i64 24
   %2217 = getelementptr inbounds nuw i8, ptr %2215, i64 32
@@ -66279,7 +66279,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   %2266 = load ptr, ptr %2265, align 8
   %2267 = getelementptr inbounds nuw i8, ptr %2266, i64 8
   %2268 = load ptr, ptr %2267, align 8
-  %2269 = getelementptr inbounds i8, ptr %2265, i64 32
+  %2269 = getelementptr inbounds nuw i8, ptr %2265, i64 32
   %2270 = load ptr, ptr %2269, align 8
   %2271 = getelementptr inbounds nuw i8, ptr %2270, i64 8
   %2272 = load ptr, ptr %2271, align 8
@@ -66345,7 +66345,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   %2299 = zext nneg i32 %2298 to i64
   %2300 = sub nsw i64 0, %2299
   %2301 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %2300
-  %2302 = getelementptr inbounds i8, ptr %2301, i64 32
+  %2302 = getelementptr inbounds nuw i8, ptr %2301, i64 32
   %2303 = load ptr, ptr %2302, align 8
   %2304 = getelementptr inbounds nuw i8, ptr %2303, i64 24
   %2305 = getelementptr inbounds nuw i8, ptr %2303, i64 32
@@ -66367,7 +66367,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   br label %_ZN4llvm5APIntD2Ev.exit
 
 2313:                                             ; preds = %2296
-  %2314 = getelementptr inbounds i8, ptr %2301, i64 64
+  %2314 = getelementptr inbounds nuw i8, ptr %2301, i64 64
   %2315 = load ptr, ptr %2314, align 8
   %2316 = getelementptr inbounds nuw i8, ptr %2315, i64 24
   %2317 = getelementptr inbounds nuw i8, ptr %2315, i64 32
@@ -66389,7 +66389,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   br label %_ZN4llvm5APIntD2Ev.exit
 
 2325:                                             ; preds = %2313
-  %2326 = getelementptr inbounds i8, ptr %2301, i64 96
+  %2326 = getelementptr inbounds nuw i8, ptr %2301, i64 96
   %2327 = load ptr, ptr %2326, align 8
   %2328 = getelementptr inbounds nuw i8, ptr %2327, i64 24
   %2329 = getelementptr inbounds nuw i8, ptr %2327, i64 32
@@ -66411,7 +66411,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   br label %_ZN4llvm5APIntD2Ev.exit
 
 2337:                                             ; preds = %2325
-  %2338 = getelementptr inbounds i8, ptr %2301, i64 128
+  %2338 = getelementptr inbounds nuw i8, ptr %2301, i64 128
   %2339 = load ptr, ptr %2338, align 8
   %2340 = getelementptr inbounds nuw i8, ptr %2339, i64 24
   %2341 = getelementptr inbounds nuw i8, ptr %2339, i64 32
@@ -66454,7 +66454,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit953:          ; preds = %2134
   br label %_ZN4llvm5APIntD2Ev.exit
 
 2360:                                             ; preds = %2349
-  %2361 = getelementptr inbounds i8, ptr %2, i64 40
+  %2361 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2362 = load ptr, ptr %2361, align 8
   store ptr %2362, ptr %186, align 8
   %2363 = call noundef ptr @_ZNK4llvm10BasicBlock20getUniquePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %2362) #23
@@ -66615,7 +66615,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit988:   ; preds = %2360
   %2427 = zext nneg i32 %2426 to i64
   %2428 = sub nsw i64 0, %2427
   %2429 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %2428
-  %2430 = getelementptr inbounds i8, ptr %2429, i64 32
+  %2430 = getelementptr inbounds nuw i8, ptr %2429, i64 32
   %2431 = load ptr, ptr %2430, align 8
   %2432 = load i8, ptr %2431, align 8
   %2433 = icmp eq i8 %2432, 22
@@ -66696,7 +66696,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit988:   ; preds = %2360
   %2471 = load ptr, ptr %2470, align 8
   %2472 = getelementptr inbounds nuw i8, ptr %2471, i64 8
   %2473 = load ptr, ptr %2472, align 8
-  %2474 = getelementptr inbounds i8, ptr %2470, i64 32
+  %2474 = getelementptr inbounds nuw i8, ptr %2470, i64 32
   %2475 = load ptr, ptr %2474, align 8
   %2476 = getelementptr inbounds nuw i8, ptr %2475, i64 8
   %2477 = load ptr, ptr %2476, align 8
@@ -66835,7 +66835,7 @@ _ZNK4llvm7details23FixedOrScalableQuantityINS_12ElementCountEjEeqERKS3_.exit1009
   %2541 = zext nneg i32 %2540 to i64
   %2542 = sub nsw i64 0, %2541
   %2543 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %2542
-  %2544 = getelementptr inbounds i8, ptr %2543, i64 32
+  %2544 = getelementptr inbounds nuw i8, ptr %2543, i64 32
   %2545 = load ptr, ptr %2544, align 8
   %2546 = getelementptr inbounds nuw i8, ptr %2545, i64 24
   %2547 = getelementptr inbounds nuw i8, ptr %2545, i64 32
@@ -66862,7 +66862,7 @@ _ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.e
   br i1 %2556, label %2557, label %_ZN4llvm5APIntD2Ev.exit
 
 2557:                                             ; preds = %_ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.exit.thread
-  %2558 = getelementptr inbounds i8, ptr %2, i64 40
+  %2558 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %2559 = load ptr, ptr %2558, align 8
   %2560 = getelementptr inbounds nuw i8, ptr %2559, i64 72
   %2561 = load ptr, ptr %2560, align 8
@@ -66909,7 +66909,7 @@ _ZN4llvm8dyn_castINS_21AtomicMemTransferInstEKNS_18AtomicMemIntrinsicEEEDcPT0_.e
 _ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEE5beginEv.exit.i.i: ; preds = %2575
   %.not.i.i.i1016 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 7
   %2582 = zext i1 %.not.i.i.i1016 to i64
-  %2583 = getelementptr inbounds ptr, ptr %2579, i64 %2582
+  %2583 = getelementptr inbounds nuw ptr, ptr %2579, i64 %2582
   br label %_ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE3endEv.exit
 
 2584:                                             ; preds = %2575
@@ -66943,7 +66943,7 @@ _ZNK4llvm13TinyPtrVectorIPNS_10BasicBlockEE3endEv.exit: ; preds = %_ZN4llvm13Tin
 
 _ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_11InstructionEEEDaPT0_.exit: ; preds = %.lr.ph1273, %2592
   %.0.i.i1019 = phi i1 [ %2595, %2592 ], [ %.06041271, %.lr.ph1273 ]
-  %2596 = getelementptr inbounds i8, ptr %.05981272, i64 8
+  %2596 = getelementptr inbounds nuw i8, ptr %.05981272, i64 8
   %.not695 = icmp eq ptr %2596, %.0.i.i1015
   br i1 %.not695, label %._crit_edge1274.loopexit, label %.lr.ph1273
 
@@ -66969,7 +66969,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_11InstructionEEEDaPT0_.exit: ;
   call void @llvm.assume(i1 %2601)
   %2602 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #23, !noalias !388
   %2603 = extractvalue { ptr, i64 } %2602, 0
-  %2604 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %2603, i64 %indvars.iv
+  %2604 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %2603, i64 %indvars.iv
   %2605 = load ptr, ptr %2604, align 8, !noalias !391
   %2606 = getelementptr inbounds nuw i8, ptr %2605, i64 8
   %2607 = load i32, ptr %2606, align 4
@@ -67001,7 +67001,7 @@ _ZN4llvm16dyn_cast_or_nullINS_14FuncletPadInstENS_11InstructionEEEDaPT0_.exit: ;
 
 _ZNKSt14default_deleteIN4llvm10GCStrategyEEclEPS1_.exit.i1021: ; preds = %.critedge703
   %2613 = load ptr, ptr %2612, align 8
-  %2614 = getelementptr inbounds i8, ptr %2613, i64 8
+  %2614 = getelementptr inbounds nuw i8, ptr %2613, i64 8
   %2615 = load ptr, ptr %2614, align 8
   call void %2615(ptr noundef nonnull align 8 dereferenceable(44) %2612) #23
   br label %_ZNSt10unique_ptrIN4llvm10GCStrategyESt14default_deleteIS1_EED2Ev.exit1022
@@ -67216,7 +67216,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -67256,7 +67256,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %29, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %35, ptr %28, align 8
   store i8 10, ptr %29, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67276,7 +67276,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67353,7 +67353,7 @@ _ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit.thread: ; preds = %._ZNK4llvm9
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %37
   %39 = zext i32 %.049 to i64
-  %40 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw %"class.llvm::Use", ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -67409,7 +67409,7 @@ _ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit.thread: ; preds = %._ZNK4llvm9
 _ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit.thread35: ; preds = %24, %_ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit, %61, %26
   %.128 = phi i32 [ %27, %26 ], [ %.02748, %61 ], [ %.02748, %_ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit ], [ %.02748, %24 ]
   %.1 = phi i32 [ %.049, %26 ], [ %62, %61 ], [ %.049, %_ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit ], [ %.049, %24 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.032.047, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.032.047, i64 80
   %.not36 = icmp eq ptr %63, %21
   br i1 %.not36, label %.loopexit, label %24
 
@@ -67424,7 +67424,7 @@ _ZNK4llvm9InlineAsm14ConstraintInfo6hasArgEv.exit.thread35: ; preds = %24, %_ZNK
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i ], [ %64, %.loopexit ]
   call void @_ZN4llvm9InlineAsm14ConstraintInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %.05.i.i.i.i) #23
-  %66 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 80
   %.not.i.i.i.i = icmp eq ptr %66, %65
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm9InlineAsm14ConstraintInfoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !398
 
@@ -67518,7 +67518,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJP
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67538,7 +67538,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJP
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67568,7 +67568,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJNS
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 32, ptr %8, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -67600,7 +67600,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %22, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %28, ptr %21, align 8
   store i8 10, ptr %22, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67620,7 +67620,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %32, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %38, ptr %31, align 8
   store i8 10, ptr %32, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67666,7 +67666,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10AllocaI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67686,7 +67686,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_10AllocaI
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67713,7 +67713,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 10, ptr %37, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67733,7 +67733,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %47, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %53, ptr %46, align 8
   store i8 10, ptr %47, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67770,7 +67770,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJN
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67790,7 +67790,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJN
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67817,7 +67817,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 10, ptr %37, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67837,7 +67837,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %47, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %53, ptr %46, align 8
   store i8 10, ptr %47, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67874,7 +67874,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Argument
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67894,7 +67894,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8Argument
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -67921,7 +67921,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 10, ptr %37, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67941,7 +67941,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %47, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %53, ptr %46, align 8
   store i8 10, ptr %47, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -67975,7 +67975,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -68013,7 +68013,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -68033,7 +68033,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -68134,7 +68134,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -68169,7 +68169,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -68880,7 +68880,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   %282 = zext nneg i32 %281 to i64
   %283 = sub nsw i64 0, %282
   %284 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %283
-  %285 = getelementptr inbounds i8, ptr %284, i64 32
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 32
   %286 = load ptr, ptr %285, align 8
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 32
@@ -68917,7 +68917,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 305:                                              ; preds = %298
-  %306 = getelementptr inbounds i8, ptr %300, i64 1
+  %306 = getelementptr inbounds nuw i8, ptr %300, i64 1
   store ptr %306, ptr %299, align 8
   store i8 10, ptr %300, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -69723,7 +69723,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %54, %_ZNK4llvm6MDNo
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %78, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %84, ptr %77, align 8
   store i8 10, ptr %78, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -69749,7 +69749,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
 94:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit._crit_edge, %4, %4, %4
   %.pre-phi176 = phi i64 [ %.pre175, %_ZNK4llvm6MDNode14getNumOperandsEv.exit._crit_edge ], [ %48, %4 ], [ %48, %4 ], [ %48, %4 ]
   %95 = getelementptr inbounds %"class.llvm::Use", ptr %3, i64 %.pre-phi176
-  %96 = getelementptr inbounds i8, ptr %95, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
@@ -69794,7 +69794,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit57:                ; preds = %94
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i60
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %112, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %118, ptr %111, align 8
   store i8 10, ptr %112, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i60
@@ -69818,7 +69818,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i60: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_20DbgVariableIntrinsicEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 128:                                              ; preds = %94
-  %129 = getelementptr inbounds i8, ptr %95, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
@@ -69863,7 +69863,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit77:                ; preds = %128
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80
 
 150:                                              ; preds = %143
-  %151 = getelementptr inbounds i8, ptr %145, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %145, i64 1
   store ptr %151, ptr %144, align 8
   store i8 10, ptr %145, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80
@@ -69912,7 +69912,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80: ; preds =
   %177 = zext nneg i32 %176 to i64
   %178 = sub nsw i64 0, %177
   %179 = getelementptr inbounds %"class.llvm::Use", ptr %3, i64 %178
-  %180 = getelementptr inbounds i8, ptr %179, i64 96
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 96
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   %183 = load ptr, ptr %182, align 8
@@ -69946,7 +69946,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i80: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i85
 
 197:                                              ; preds = %190
-  %198 = getelementptr inbounds i8, ptr %192, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store ptr %198, ptr %191, align 8
   store i8 10, ptr %192, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i85
@@ -69970,7 +69970,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i85: ; preds =
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_20DbgVariableIntrinsicEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 208:                                              ; preds = %173
-  %209 = getelementptr inbounds i8, ptr %179, i64 128
+  %209 = getelementptr inbounds nuw i8, ptr %179, i64 128
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %212 = load ptr, ptr %211, align 8
@@ -70022,7 +70022,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge: ; preds = %_ZNK4llvm6MDNod
   store i8 3, ptr %229, align 8
   store ptr %3, ptr %22, align 8
   %231 = getelementptr inbounds %"class.llvm::Use", ptr %3, i64 %.pre-phi182
-  %232 = getelementptr inbounds i8, ptr %231, i64 128
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 128
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = load ptr, ptr %234, align 8
@@ -70045,7 +70045,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge: ; preds = %_ZNK4llvm6MDNod
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i95
 
 244:                                              ; preds = %237
-  %245 = getelementptr inbounds i8, ptr %239, i64 1
+  %245 = getelementptr inbounds nuw i8, ptr %239, i64 1
   store ptr %245, ptr %238, align 8
   store i8 10, ptr %239, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i95
@@ -70071,7 +70071,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i95: ; preds =
 _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge183: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit92, %208
   %.pre-phi189 = phi i64 [ %178, %208 ], [ %.pre188, %_ZNK4llvm6MDNode14getNumOperandsEv.exit92 ]
   %255 = getelementptr inbounds %"class.llvm::Use", ptr %3, i64 %.pre-phi189
-  %256 = getelementptr inbounds i8, ptr %255, i64 160
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 160
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %259 = load ptr, ptr %258, align 8
@@ -70091,7 +70091,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge183: ; preds = %_ZNK4llvm6MD
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_20DbgVariableIntrinsicEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 265:                                              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge183
-  %266 = getelementptr inbounds i8, ptr %255, i64 96
+  %266 = getelementptr inbounds nuw i8, ptr %255, i64 96
   %267 = load ptr, ptr %266, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = load ptr, ptr %268, align 8
@@ -70102,7 +70102,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge183: ; preds = %_ZNK4llvm6MD
   br i1 %.not37154, label %.loopexit, label %.lr.ph
 
 273:                                              ; preds = %.lr.ph
-  %274 = getelementptr inbounds i8, ptr %.0155, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
   %.not37 = icmp eq ptr %274, %272
   br i1 %.not37, label %.loopexit, label %.lr.ph
 
@@ -70136,7 +70136,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge183: ; preds = %_ZNK4llvm6MD
   br i1 %286, label %287, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_20DbgVariableIntrinsicEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 287:                                              ; preds = %284, %.loopexit
-  %288 = getelementptr inbounds i8, ptr %3, i64 40
+  %288 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %289 = load ptr, ptr %288, align 8
   store ptr %289, ptr %29, align 8
   %.not39 = icmp eq ptr %289, null
@@ -70155,7 +70155,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit92._crit_edge183: ; preds = %_ZNK4llvm6MD
   %297 = zext nneg i32 %296 to i64
   %298 = sub nsw i64 0, %297
   %299 = getelementptr inbounds %"class.llvm::Use", ptr %3, i64 %298
-  %300 = getelementptr inbounds i8, ptr %299, i64 32
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 32
   %301 = load ptr, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 24
   %303 = load ptr, ptr %302, align 8
@@ -70201,7 +70201,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit112:               ; preds = %293
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i115
 
 320:                                              ; preds = %313
-  %321 = getelementptr inbounds i8, ptr %315, i64 1
+  %321 = getelementptr inbounds nuw i8, ptr %315, i64 1
   store ptr %321, ptr %314, align 8
   store i8 10, ptr %315, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i115
@@ -70283,7 +70283,7 @@ _ZNK4llvm10DIVariable11getRawScopeEv.exit:        ; preds = %335, %339
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i: ; preds = %356, %352
   %.sroa.0.0.i.i.i.i = phi ptr [ %360, %356 ], [ %354, %352 ]
-  %361 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %362 = load ptr, ptr %361, align 8
   %.not.i118 = icmp eq ptr %362, null
   br i1 %.not.i118, label %_ZL13getSubprogramPN4llvm8MetadataE.exit, label %.lr.ph.i
@@ -70348,7 +70348,7 @@ _ZNK4llvm10DILocation11getRawScopeEv.exit:        ; preds = %366, %370
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i127: ; preds = %387, %383
   %.sroa.0.0.i.i.i.i128 = phi ptr [ %391, %387 ], [ %385, %383 ]
-  %392 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i128, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i128, i64 8
   %393 = load ptr, ptr %392, align 8
   %.not.i129 = icmp eq ptr %393, null
   br i1 %.not.i129, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_20DbgVariableIntrinsicEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph.i122
@@ -70490,7 +70490,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %42, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %48, ptr %41, align 8
   store i8 10, ptr %42, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -70525,7 +70525,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i: ; preds = %
   br i1 %63, label %64, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_12DbgLabelInstEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit
 
 64:                                               ; preds = %61, %58
-  %65 = getelementptr inbounds i8, ptr %3, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %9, align 8
   %.not17 = icmp eq ptr %66, null
@@ -70586,7 +70586,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %_Z
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %84, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 1
   store ptr %90, ptr %83, align 8
   store i8 10, ptr %84, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -70661,7 +70661,7 @@ _ZNK4llvm7DILabel11getRawScopeEv.exit:            ; preds = %97, %101
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i: ; preds = %118, %114
   %.sroa.0.0.i.i.i.i = phi ptr [ %122, %118 ], [ %116, %114 ]
-  %123 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %124 = load ptr, ptr %123, align 8
   %.not.i39 = icmp eq ptr %124, null
   br i1 %.not.i39, label %_ZL13getSubprogramPN4llvm8MetadataE.exit, label %.lr.ph.i
@@ -70726,7 +70726,7 @@ _ZNK4llvm10DILocation11getRawScopeEv.exit:        ; preds = %128, %132
 
 _ZNK4llvm18DILexicalBlockBase11getRawScopeEv.exit.i48: ; preds = %149, %145
   %.sroa.0.0.i.i.i.i49 = phi ptr [ %153, %149 ], [ %147, %145 ]
-  %154 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i49, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i49, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not.i50 = icmp eq ptr %155, null
   br i1 %.not.i50, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPNS_12DbgLabelInstEJPNS_8MetadataEEEEvRKNS_5TwineERKT_DpRKT0_.exit, label %.lr.ph.i43
@@ -70819,7 +70819,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit:            ; preds = %179, %183
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74
 
 198:                                              ; preds = %191
-  %199 = getelementptr inbounds i8, ptr %193, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %193, i64 1
   store ptr %199, ptr %192, align 8
   store i8 10, ptr %193, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i74
@@ -70921,7 +70921,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm5APInt3sgeEl(ptr noundef
   %11 = load ptr, ptr %0, align 8
   %12 = lshr i32 %7, 6
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, %10
   %.not.i.i.i = icmp eq i64 %16, 0
@@ -71022,7 +71022,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -71087,7 +71087,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %3, %_ZNK4llvm8CallB
   %24 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #23, !noalias !459
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = zext i32 %.08 to i64
-  %27 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !noalias !462
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 4
@@ -71108,11 +71108,11 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit:  ; preds = %3, %_ZNK4llvm8CallB
   %43 = sub nsw i64 0, %42
   %44 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %43
   %.idx6.i.i = shl nuw nsw i64 %38, 5
-  %45 = getelementptr inbounds i8, ptr %44, i64 %.idx6.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx6.i.i
   store ptr %45, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %39, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %.sroa.3.0..sroa_idx, align 8
   br label %._crit_edge
 
@@ -71160,7 +71160,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %14 = add i32 %5, -1
   %.02733.i.i.i = and i32 %13, %14
   %15 = zext nneg i32 %.02733.i.i.i to i64
-  %16 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %8, %17
   br i1 %18, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16FindAndConstructEOS3_.exit, label %.lr.ph.i.i.i
@@ -71188,7 +71188,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %28 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %28, %14
   %29 = zext i32 %.027.i.i.i to i64
-  %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %8, %31
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16FindAndConstructEOS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !466
@@ -71228,7 +71228,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %14 = add i32 %5, -1
   %.02733.i.i.i = and i32 %13, %14
   %15 = zext nneg i32 %.02733.i.i.i to i64
-  %16 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %8, %17
   br i1 %18, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16FindAndConstructERKS3_.exit, label %.lr.ph.i.i.i
@@ -71256,7 +71256,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN4l
   %28 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %28, %14
   %29 = zext i32 %.027.i.i.i to i64
-  %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %3, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %8, %31
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E16FindAndConstructERKS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !466
@@ -71329,7 +71329,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -71367,7 +71367,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallInstEJEEEvRKT_DpRKT0_.exit
@@ -71387,7 +71387,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallInstEJEEEvRKT_DpRKT0_.exit
@@ -71449,7 +71449,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier16verifyStatepointERKN4ll
   %39 = zext nneg i32 %38 to i64
   %40 = sub nsw i64 0, %39
   %41 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -71522,7 +71522,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %48, %_ZNK4llvm11C
   %77 = zext nneg i32 %76 to i64
   %78 = sub nsw i64 0, %77
   %79 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %78
-  %80 = getelementptr inbounds i8, ptr %79, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -71597,7 +71597,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %48, %_ZNK4llvm11C
   br label %.loopexit
 
 117:                                              ; preds = %112, %101
-  %118 = getelementptr inbounds i8, ptr %79, i64 128
+  %118 = getelementptr inbounds nuw i8, ptr %79, i64 128
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
@@ -71633,7 +71633,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %48, %_ZNK4llvm11C
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %160 ]
   %133 = load ptr, ptr %131, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv.next
+  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.next
   %135 = load ptr, ptr %134, align 8
   %136 = add nuw nsw i64 %indvars.iv, 5
   %137 = load i32, ptr %36, align 4
@@ -71641,7 +71641,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %48, %_ZNK4llvm11C
   %139 = zext nneg i32 %138 to i64
   %140 = sub nsw i64 0, %139
   %141 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %140
-  %142 = getelementptr inbounds %"class.llvm::Use", ptr %141, i64 %136
+  %142 = getelementptr inbounds nuw %"class.llvm::Use", ptr %141, i64 %136
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
@@ -71694,7 +71694,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %48, %_ZNK4llvm11C
   %161 = add nuw nsw i64 %.0.i.i78, 5
   %162 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %.pre-phi110
   %163 = and i64 %161, 4294967295
-  %164 = getelementptr inbounds %"class.llvm::Use", ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw %"class.llvm::Use", ptr %162, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = load i8, ptr %165, align 8
   %167 = icmp eq i8 %166, 17
@@ -71733,7 +71733,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit.thread: ; preds = %48, %_ZNK4llvm11C
 182:                                              ; preds = %171
   %183 = add nuw nsw i64 %.0.i.i78, 6
   %184 = and i64 %183, 4294967295
-  %185 = getelementptr inbounds %"class.llvm::Use", ptr %162, i64 %184
+  %185 = getelementptr inbounds nuw %"class.llvm::Use", ptr %162, i64 %184
   %186 = load ptr, ptr %185, align 8
   %187 = load i8, ptr %186, align 8
   %188 = icmp eq i8 %187, 17
@@ -71923,7 +71923,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -72066,7 +72066,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -72104,7 +72104,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -72124,7 +72124,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -72172,7 +72172,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPNS_13Intrins
   br i1 %.not.i.i, label %6, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE28reserveForParamAndGetAddressERS2_m.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %4, i64 noundef 8) #23
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE28reserveForParamAndGetAddressERS2_m.exit
 
@@ -72216,25 +72216,25 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_11SmallVectorI
   br i1 %12, label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %8
   br i1 %16, label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %8
   br i1 %20, label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit17, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %8
   br i1 %24, label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit19, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 32
   %27 = add nsw i64 %.047.i.i.i, -1
   %28 = icmp sgt i64 %.047.i.i.i, 1
   br i1 %28, label %10, label %._crit_edge.loopexit.i.i.i, !llvm.loop !468
@@ -72267,7 +72267,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_11SmallVectorI
   br i1 %33, label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i, i64 8
   br label %36
 
 36:                                               ; preds = %34, %._crit_edge._crit_edge.i.i.i
@@ -72278,7 +72278,7 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_11SmallVectorI
   br i1 %39, label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   br label %42
 
 42:                                               ; preds = %40, %._crit_edge._crit_edge52.i.i.i
@@ -72292,15 +72292,15 @@ define linkonce_odr noundef zeroext i1 @_ZN4llvm12is_containedINS_11SmallVectorI
   br label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit
 
 _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit: ; preds = %13
-  %47 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 8
   br label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit
 
 _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit17: ; preds = %17
-  %48 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 16
   br label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit
 
 _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit19: ; preds = %21
-  %49 = getelementptr inbounds i8, ptr %.02946.i.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 24
   br label %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit
 
 _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %10, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit17, %_ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit.loopexit.split.loop.exit19, %30, %36, %42, %46
@@ -72314,7 +72314,7 @@ _ZSt4findIPPN4llvm10BasicBlockEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %10, %_ZSt4fi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm10CallBrInst16getIndirectDestsEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.616") align 8 %0, ptr noundef nonnull align 8 dereferenceable(92) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %3, i64 noundef 16) #23
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8
@@ -72332,7 +72332,7 @@ define linkonce_odr hidden void @_ZNK4llvm10CallBrInst16getIndirectDestsEv(ptr d
   %9 = zext i32 %8 to i64
   %10 = sub nsw i64 0, %9
   %11 = getelementptr inbounds %"class.llvm::Use", ptr %6, i64 %10
-  %12 = getelementptr inbounds %"class.llvm::Use", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.llvm::Use", ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %15 = add i64 %14, 1
@@ -72365,7 +72365,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10BasicBlockELb1EE9push_backES2_.exit: ; p
 define linkonce_odr hidden void @_ZN4llvm11SmallVectorIPNS_10BasicBlockELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   %2 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEED2Ev.exit, label %6
 
@@ -72397,7 +72397,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4
 
 .lr.ph.preheader.i:                               ; preds = %2
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %.pre2, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %.pre2, i64 %6
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i, %.lr.ph.preheader.i
@@ -72423,7 +72423,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4
 14:                                               ; preds = %9
   %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %13) #23
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i, label %19
 
@@ -72436,7 +72436,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i: ; preds = %19, %14
   br label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i
 
 _ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i, %9, %.lr.ph.i, %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.011.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i = icmp eq ptr %20, %7
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E10destroyAllEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !215
 
@@ -72485,7 +72485,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtr
 
 .lr.ph.preheader.i:                               ; preds = %1
   %5 = zext i32 %3 to i64
-  %6 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %.pre1, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %.pre1, i64 %5
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i, %.lr.ph.preheader.i
@@ -72511,7 +72511,7 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_10BasicBlockENS_13TinyPtr
 13:                                               ; preds = %8
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #23
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i, label %18
 
@@ -72524,7 +72524,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i: ; preds = %18, %13
   br label %_ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i
 
 _ZN4llvm13TinyPtrVectorIPNS_10BasicBlockEED2Ev.exit.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EED2Ev.exit.i.i, %8, %.lr.ph.i, %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.011.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i = icmp eq ptr %19, %6
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockENS_13TinyPtrVectorIS3_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E10destroyAllEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !215
 
@@ -72559,7 +72559,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS
   %13 = add i32 %5, -1
   %.01618.i = and i32 %13, %12
   %14 = zext nneg i32 %.01618.i to i64
-  %15 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %1, %16
   br i1 %17, label %.loopexit8, label %.lr.ph.i
@@ -72576,7 +72576,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS
   %22 = add i32 %.01519.i, %.01620.i
   %.016.i = and i32 %22, %13
   %23 = zext i32 %.016.i to i64
-  %24 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %1, %25
   br i1 %26, label %.loopexit8, label %.lr.ph.i, !llvm.loop !470
@@ -72584,12 +72584,12 @@ define linkonce_odr hidden { ptr, ptr } @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS
 .loopexit8:                                       ; preds = %20, %7
   %.0.i = phi ptr [ %15, %7 ], [ %24, %20 ]
   %27 = zext i32 %5 to i64
-  %28 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %27
   br label %31
 
 .loopexit:                                        ; preds = %.lr.ph.i, %2
   %29 = zext i32 %5 to i64
-  %30 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.280", ptr %3, i64 %29
   br label %31
 
 31:                                               ; preds = %.loopexit, %.loopexit8
@@ -72646,7 +72646,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -72679,7 +72679,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_15VPCastIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_15VPCastIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -72699,7 +72699,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_15VPCastIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %33, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %39, ptr %32, align 8
   store i8 10, ptr %33, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_15VPCastIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -72735,7 +72735,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -72773,7 +72773,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11VPIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11VPIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -72793,7 +72793,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11VPIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11VPIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -72833,7 +72833,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -72871,7 +72871,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_22ConstrainedFPIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_22ConstrainedFPIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -72891,7 +72891,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_22ConstrainedFPIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_22ConstrainedFPIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -72926,7 +72926,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -72973,7 +72973,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -73020,7 +73020,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -73106,7 +73106,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i:      ; preds = %21, %17
 
 _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %29, %33
   %.sroa.0.0.i.i.i.i = phi ptr [ %37, %33 ], [ %31, %29 ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %_ZNK4llvm10DILocation12getInlinedAtEv.exit.thread, label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedIPKNS_20DbgVariableIntrinsicEJPKNS_15DILocalVariableEPS5_EEEvRKNS_5TwineERKT_DpRKT0_.exit
@@ -73118,7 +73118,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14
   %43 = zext nneg i32 %42 to i64
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
@@ -73150,7 +73150,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %56, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %62, ptr %55, align 8
   store i8 10, ptr %56, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -73188,7 +73188,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %50
   %80 = add nuw nsw i64 %73, 4294967295
   %81 = and i64 %80, 4294967295
   %82 = load ptr, ptr %75, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %5, align 8
   store ptr %49, ptr %83, align 8
@@ -73222,7 +73222,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %50
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
 
 97:                                               ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %92, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store ptr %98, ptr %91, align 8
   store i8 10, ptr %92, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit.i
@@ -73277,7 +73277,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_20DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73297,7 +73297,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_20DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73326,7 +73326,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -73363,7 +73363,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73383,7 +73383,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73415,7 +73415,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18DbgAssignIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18DbgAssignIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -73435,7 +73435,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18DbgAssignIntrinsicEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18DbgAssignIntrinsicEJEEEvRKT_DpRKT0_.exit
@@ -73472,7 +73472,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_20DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73492,7 +73492,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_20DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73530,7 +73530,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_20DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %18, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %24, ptr %17, align 8
   store i8 10, ptr %18, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73550,7 +73550,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_20DbgVari
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73588,7 +73588,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVar
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73608,7 +73608,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_20DbgVar
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73646,7 +73646,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DbgLabe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73666,7 +73666,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DbgLabe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73695,7 +73695,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -73732,7 +73732,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DbgLabe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73752,7 +73752,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DbgLabe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73790,7 +73790,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DbgLabe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %18, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %24, ptr %17, align 8
   store i8 10, ptr %18, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73810,7 +73810,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_12DbgLabe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -73851,7 +73851,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -73871,7 +73871,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -73897,7 +73897,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -73917,7 +73917,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %44, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %50, ptr %43, align 8
   store i8 10, ptr %44, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -73958,7 +73958,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %24 = add i32 %15, -1
   %.02733.i.i = and i32 %23, %24
   %25 = zext nneg i32 %.02733.i.i to i64
-  %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %14, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit, label %.lr.ph.i.i
@@ -73986,7 +73986,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %38 = add i32 %.02635.i.i, %.02736.i.i
   %.027.i.i = and i32 %38, %24
   %39 = zext i32 %.027.i.i to i64
-  %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %14, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %18, %41
   br i1 %42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit, label %.lr.ph.i.i, !llvm.loop !466
@@ -74018,7 +74018,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %59 = add i32 %50, -1
   %.02733.i.i11 = and i32 %58, %59
   %60 = zext nneg i32 %.02733.i.i11 to i64
-  %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %53, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit, label %.lr.ph.i.i12
@@ -74046,7 +74046,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %73 = add i32 %.02635.i.i14, %.02736.i.i13
   %.027.i.i18 = and i32 %73, %59
   %74 = zext i32 %.027.i.i18 to i64
-  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %49, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %49, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %53, %76
   br i1 %77, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit, label %.lr.ph.i.i12, !llvm.loop !466
@@ -74107,34 +74107,34 @@ _ZN4llvm8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS2_vEENS_6detail12D
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %21, i64 %26
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %21, %22 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !471
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr %2, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %21, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %21, i64 %35
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %21, %29 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !471
 
@@ -74163,7 +74163,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS
   %47 = add i32 %41, -1
   %.02733.i.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02733.i.i.i to i64
-  %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i, label %.lr.ph.i.i.i
@@ -74191,7 +74191,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS
   %61 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %61, %47
   %62 = zext i32 %.027.i.i.i to i64
-  %63 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.270", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.270", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !466
@@ -74209,7 +74209,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS
   br label %71
 
 71:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E15LookupBucketForIS3_EEbRKT_RPSA_.exit.i, %.lr.ph.i7, %.lr.ph.i7
-  %72 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8FunctionESt4pairIjjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %.lr.ph.i7, !llvm.loop !472
 
@@ -74253,7 +74253,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -74386,7 +74386,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -74472,7 +74472,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -74492,7 +74492,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -74523,7 +74523,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -74543,7 +74543,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %46, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %52, ptr %45, align 8
   store i8 10, ptr %46, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -74575,7 +74575,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -74595,7 +74595,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -74626,7 +74626,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallInstEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallInstEJEEEvRKT_DpRKT0_.exit
@@ -74646,7 +74646,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallInstEJEEEvRKT_DpRKT0_.exit
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %46, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %52, ptr %45, align 8
   store i8 10, ptr %46, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallInstEJEEEvRKT_DpRKT0_.exit
@@ -74678,7 +74678,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 10, ptr %11, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -74698,7 +74698,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsINS_8CallBaseE
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 10, ptr %21, align 1
   br label %_ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit
@@ -74729,7 +74729,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %36, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %42, ptr %35, align 8
   store i8 10, ptr %36, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -74749,7 +74749,7 @@ _ZN4llvm15VerifierSupport5WriteERKNS_5ValueE.exit: ; preds = %14, %16, %24, %26
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %46, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store ptr %52, ptr %45, align 8
   store i8 10, ptr %46, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -74787,7 +74787,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -74825,7 +74825,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -74845,7 +74845,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8CallBaseEJEEEvRKT_DpRKT0_.exit
@@ -74877,7 +74877,7 @@ define linkonce_odr hidden void @_ZN4llvm9InlineAsm14ConstraintInfoD2Ev(ptr noun
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i.i.i.i.i.i) #23
-  %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %9
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !473
 
@@ -74900,7 +74900,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIN4llvm9InlineAsm17SubConstraintInfoEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN4llvm9InlineAsm17SubConstraintInfoEEvPT_.exit.i.i.i.i: ; preds = %12, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %18, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm9InlineAsm17SubConstraintInfoES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !474
 
@@ -74933,7 +74933,7 @@ _ZNSt6vectorIN4llvm9InlineAsm17SubConstraintInfoESaIS2_EED2Ev.exit: ; preds = %_
 .lr.ph.i.i.i.i2:                                  ; preds = %_ZNSt6vectorIN4llvm9InlineAsm17SubConstraintInfoESaIS2_EED2Ev.exit, %.lr.ph.i.i.i.i2
   %.05.i.i.i.i3 = phi ptr [ %30, %.lr.ph.i.i.i.i2 ], [ %27, %_ZNSt6vectorIN4llvm9InlineAsm17SubConstraintInfoESaIS2_EED2Ev.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i3) #23
-  %30 = getelementptr inbounds i8, ptr %.05.i.i.i.i3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3, i64 32
   %.not.i.i.i.i4 = icmp eq ptr %30, %29
   br i1 %.not.i.i.i.i4, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i2, !llvm.loop !473
 
@@ -74984,7 +74984,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -75022,7 +75022,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ResumeInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ResumeInstEJEEEvRKT_DpRKT0_.exit
@@ -75042,7 +75042,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ResumeInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ResumeInstEJEEEvRKT_DpRKT0_.exit
@@ -75076,7 +75076,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -75114,7 +75114,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17CleanupReturnInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17CleanupReturnInstEJEEEvRKT_DpRKT0_.exit
@@ -75134,7 +75134,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17CleanupReturnInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17CleanupReturnInstEJEEEvRKT_DpRKT0_.exit
@@ -75171,7 +75171,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17Cleanup
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -75191,7 +75191,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17Cleanup
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -75223,7 +75223,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -75243,7 +75243,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -75280,7 +75280,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchRe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -75300,7 +75300,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchRe
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -75332,7 +75332,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -75352,7 +75352,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -75386,7 +75386,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -75424,7 +75424,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
@@ -75444,7 +75444,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
@@ -75478,7 +75478,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -75516,7 +75516,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -75536,7 +75536,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -75567,7 +75567,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %16 = add i32 %8, -1
   %.02733.i.i.i.i = and i32 %16, %15
   %17 = zext nneg i32 %.02733.i.i.i.i to i64
-  %18 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %6, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %6, i64 %17
   %19 = load ptr, ptr %18, align 8, !noalias !475
   %20 = icmp eq ptr %4, %19
   br i1 %20, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertERKSt4pairIS3_jE.exit.thread, label %.lr.ph.i.i.i.i
@@ -75595,14 +75595,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %30 = add i32 %.02635.i.i.i.i, %.02736.i.i.i.i
   %.027.i.i.i.i = and i32 %30, %16
   %31 = zext i32 %.027.i.i.i.i to i64
-  %32 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %6, i64 %31
   %33 = load ptr, ptr %32, align 8, !noalias !475
   %34 = icmp eq ptr %4, %33
   br i1 %34, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertERKSt4pairIS3_jE.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !480
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertERKSt4pairIS3_jE.exit.thread: ; preds = %26, %10
   %35 = phi i64 [ %17, %10 ], [ %31, %26 ]
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %6, i64 %35, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %6, i64 %35, i32 0, i32 1
   %.pre = load i32, ptr %36, align 4
   br label %57
 
@@ -75623,7 +75623,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   br i1 %.not.i.i.i, label %47, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE9push_backES4_.exit
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %48, i64 noundef %45, i64 noundef 16) #23
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE9push_backES4_.exit
 
@@ -75632,7 +75632,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE9push_backE
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #23
   %51 = getelementptr inbounds %"struct.std::pair.656", ptr %49, i64 %50
   store ptr %43, ptr %51, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %51, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 1
   %52 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %42) #23
   %53 = add i64 %52, 1
@@ -75648,7 +75648,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionES3_ELb1EE9push_backE
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = zext i32 %58 to i64
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds %"struct.std::pair.656", ptr %61, i64 %60, i32 1
+  %62 = getelementptr inbounds nuw %"struct.std::pair.656", ptr %61, i64 %60, i32 1
   ret ptr %62
 }
 
@@ -75675,7 +75675,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier22visitEHPadPredecessorsE
   %21 = alloca %"class.llvm::Twine", align 8
   %22 = alloca %"class.llvm::Twine", align 8
   %23 = alloca %"class.llvm::Twine", align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8
@@ -75722,7 +75722,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier22visitEHPadPredecessorsE
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader: ; preds = %.lr.ph.i.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
@@ -75746,7 +75746,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.preheader: ; preds = %.lr.ph.i.i.i.i
 _ZN4llvm10BasicBlock13getTerminatorEv.exit.loopexit: ; preds = %.lr.ph.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0110.1, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = load ptr, ptr %66, align 8
@@ -75836,7 +75836,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit:     ; preds = %.lr.ph.i.i.i.i57
   %107 = tail call noundef ptr @_ZNK4llvm10BasicBlock20getUniquePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %25) #23
   %108 = getelementptr inbounds i8, ptr %spec.select.i.i56, i64 -32
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %107, %111
   br i1 %112, label %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread, label %113
@@ -75862,7 +75862,7 @@ _ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread: ; preds = %103, %95, %_ZN4l
 121:                                              ; preds = %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.thread
   %122 = getelementptr inbounds i8, ptr %117, i64 -8
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = load ptr, ptr %124, align 8
   br label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit
 
@@ -75901,7 +75901,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %12
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 138:                                              ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %133, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 1
   store ptr %139, ptr %132, align 8
   store i8 10, ptr %133, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -75978,7 +75978,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
   %.sroa.0104.0137 = phi ptr [ %.sroa.0.0.i.i64, %.lr.ph138 ], [ %.sroa.0104.1, %.lr.ph.i.i98 ]
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0137, i64 24
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load ptr, ptr %180, align 8
@@ -76037,7 +76037,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i81: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i78
 
 207:                                              ; preds = %200
-  %208 = getelementptr inbounds i8, ptr %202, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 1
   store ptr %208, ptr %201, align 8
   store i8 10, ptr %202, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i78
@@ -76130,7 +76130,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %234, %_ZNK4llvm8Ca
   call void @llvm.assume(i1 %247)
   %248 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %227) #23, !noalias !484
   %249 = extractvalue { ptr, i64 } %248, 0
-  %250 = getelementptr inbounds %"struct.llvm::CallBase::BundleOpInfo", ptr %249, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %249, i64 %indvars.iv
   %251 = load ptr, ptr %250, align 8, !noalias !487
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i32, ptr %252, align 4, !noalias !481
@@ -76147,7 +76147,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %234, %_ZNK4llvm8Ca
   %262 = sub nsw i64 0, %261
   %263 = getelementptr inbounds %"class.llvm::Use", ptr %227, i64 %262
   %.idx6.i.i.i = shl nuw nsw i64 %258, 5
-  %264 = getelementptr inbounds i8, ptr %263, i64 %.idx6.i.i.i
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 %.idx6.i.i.i
   %265 = load ptr, ptr %264, align 8
   br label %.sink.split
 
@@ -76239,7 +76239,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i91: ; preds = %
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i88
 
 296:                                              ; preds = %289
-  %297 = getelementptr inbounds i8, ptr %291, i64 1
+  %297 = getelementptr inbounds nuw i8, ptr %291, i64 1
   store ptr %297, ptr %290, align 8
   store i8 10, ptr %291, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i88
@@ -76281,7 +76281,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i88: ; preds = %296, %2
 
 311:                                              ; preds = %309
   %312 = zext i32 %300 to i64
-  %313 = getelementptr inbounds ptr, ptr %301, i64 %312
+  %313 = getelementptr inbounds nuw ptr, ptr %301, i64 %312
   %.not24.i.i = icmp eq i32 %300, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i92
 
@@ -76292,7 +76292,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i88: ; preds = %296, %2
   br i1 %315, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, label %316
 
 316:                                              ; preds = %.lr.ph.i.i92
-  %317 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i93 = icmp eq ptr %317, %313
   br i1 %.not.i.i93, label %._crit_edge.i.i, label %.lr.ph.i.i92, !llvm.loop !15
 
@@ -76437,7 +76437,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %24 = add i32 %15, -1
   %.02733.i.i = and i32 %23, %24
   %25 = zext nneg i32 %.02733.i.i to i64
-  %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %14, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i.i
@@ -76465,7 +76465,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %38 = add i32 %.02635.i.i, %.02736.i.i
   %.027.i.i = and i32 %38, %24
   %39 = zext i32 %.027.i.i to i64
-  %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %14, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %18, %41
   br i1 %42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i.i, !llvm.loop !480
@@ -76497,7 +76497,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %59 = add i32 %50, -1
   %.02733.i.i11 = and i32 %58, %59
   %60 = zext nneg i32 %.02733.i.i11 to i64
-  %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %53, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i.i12
@@ -76525,7 +76525,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %73 = add i32 %.02635.i.i14, %.02736.i.i13
   %.027.i.i18 = and i32 %73, %59
   %74 = zext i32 %.027.i.i18 to i64
-  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %49, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %49, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %53, %76
   br i1 %77, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit, label %.lr.ph.i.i12, !llvm.loop !480
@@ -76586,34 +76586,34 @@ _ZN4llvm8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMa
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %21, i64 %26
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %21, %22 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !495
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr %2, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %21, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %21, i64 %35
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %21, %29 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !495
 
@@ -76642,7 +76642,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %47 = add i32 %41, -1
   %.02733.i.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02733.i.i.i to i64
-  %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %.lr.ph.i.i.i
@@ -76670,7 +76670,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   %61 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %61, %47
   %62 = zext i32 %.027.i.i.i to i64
-  %63 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !480
@@ -76688,7 +76688,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
   br label %71
 
 71:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPS8_.exit.i, %.lr.ph.i7, %.lr.ph.i7
-  %72 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %.lr.ph.i7, !llvm.loop !496
 
@@ -76729,7 +76729,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSw
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -76749,7 +76749,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSw
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -76781,7 +76781,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -76801,7 +76801,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -76835,7 +76835,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -76873,7 +76873,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14LandingPadInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14LandingPadInstEJEEEvRKT_DpRKT0_.exit
@@ -76893,7 +76893,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14LandingPadInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14LandingPadInstEJEEEvRKT_DpRKT0_.exit
@@ -76927,7 +76927,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -76965,7 +76965,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
@@ -76985,7 +76985,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
@@ -77026,7 +77026,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSw
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -77046,7 +77046,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSw
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -77078,7 +77078,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
@@ -77098,7 +77098,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12CatchPadInstEJEEEvRKT_DpRKT0_.exit
@@ -77135,7 +77135,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -77155,7 +77155,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -77187,7 +77187,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
@@ -77207,7 +77207,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10InvokeInstEJEEEvRKT_DpRKT0_.exit
@@ -77244,7 +77244,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJP
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -77264,7 +77264,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJP
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -77296,7 +77296,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -77316,7 +77316,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -77350,7 +77350,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -77388,7 +77388,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10CallBrInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10CallBrInstEJEEEvRKT_DpRKT0_.exit
@@ -77408,7 +77408,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10CallBrInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10CallBrInstEJEEEvRKT_DpRKT0_.exit
@@ -77442,7 +77442,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -77480,7 +77480,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13UnaryOperatorEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13UnaryOperatorEJEEEvRKT_DpRKT0_.exit
@@ -77500,7 +77500,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13UnaryOperatorEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13UnaryOperatorEJEEEvRKT_DpRKT0_.exit
@@ -77811,7 +77811,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -77849,7 +77849,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14BinaryOperatorEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14BinaryOperatorEJEEEvRKT_DpRKT0_.exit
@@ -77869,7 +77869,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14BinaryOperatorEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14BinaryOperatorEJEEEvRKT_DpRKT0_.exit
@@ -77903,7 +77903,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -77941,7 +77941,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10AllocaInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10AllocaInstEJEEEvRKT_DpRKT0_.exit
@@ -77961,7 +77961,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10AllocaInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10AllocaInstEJEEEvRKT_DpRKT0_.exit
@@ -77997,7 +77997,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -78035,7 +78035,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
@@ -78055,7 +78055,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
@@ -78092,7 +78092,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -78127,7 +78127,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier24checkAtomicMemAccessSiz
   %.fca.0.extract = extractvalue { i64, i8 } %11, 0
   %.fca.1.extract = extractvalue { i64, i8 } %11, 1
   store i64 %.fca.0.extract, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %12 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #23
   %13 = trunc i64 %12 to i32
@@ -78163,7 +78163,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %15
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %22, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %28, ptr %21, align 8
   store i8 10, ptr %22, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -78213,7 +78213,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i8: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i5
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i5
@@ -78253,7 +78253,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJPN
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 32, ptr %8, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -78290,7 +78290,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
@@ -78310,7 +78310,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8LoadInstEJEEEvRKT_DpRKT0_.exit
@@ -78341,7 +78341,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJPK
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 32, ptr %8, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -78378,7 +78378,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -78398,7 +78398,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11InstructionEJEEEvRKT_DpRKT0_.exit
@@ -78432,7 +78432,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -78470,7 +78470,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
@@ -78490,7 +78490,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
@@ -78524,7 +78524,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -78564,7 +78564,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJPN
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 32, ptr %8, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -78601,7 +78601,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
@@ -78621,7 +78621,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9StoreInstEJEEEvRKT_DpRKT0_.exit
@@ -78655,7 +78655,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -78693,7 +78693,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElementPtrInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElementPtrInstEJEEEvRKT_DpRKT0_.exit
@@ -78713,7 +78713,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElementPtrInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElementPtrInstEJEEEvRKT_DpRKT0_.exit
@@ -78739,7 +78739,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIP
   br i1 %11, label %12, label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %9, i64 noundef 8) #23
   br label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
 
@@ -78758,8 +78758,8 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit: ; preds = %3, %12
   %.0810.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
   %17 = load ptr, ptr %.0810.i.i.i.i, align 8
   store ptr %17, ptr %.011.i.i.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 32
-  %19 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %18, %2
   br i1 %.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyIPNS_3UseEPS2_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !497
 
@@ -78798,7 +78798,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElem
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -78818,7 +78818,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_17GetElem
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -78842,7 +78842,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 32, ptr %34, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
@@ -78881,7 +78881,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -78919,7 +78919,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FenceInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FenceInstEJEEEvRKT_DpRKT0_.exit
@@ -78939,7 +78939,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FenceInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FenceInstEJEEEvRKT_DpRKT0_.exit
@@ -78968,7 +78968,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4TypeEJPN
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 32, ptr %8, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
@@ -79005,7 +79005,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AtomicCmpXchgInstEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AtomicCmpXchgInstEJEEEvRKT_DpRKT0_.exit
@@ -79025,7 +79025,7 @@ _ZN4llvm15VerifierSupport5WriteEPNS_4TypeE.exit:  ; preds = %3, %_ZN4llvm11raw_o
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AtomicCmpXchgInstEJEEEvRKT_DpRKT0_.exit
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 10, ptr %34, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AtomicCmpXchgInstEJEEEvRKT_DpRKT0_.exit
@@ -79059,7 +79059,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79097,7 +79097,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJEEEvRKT_DpRKT0_.exit
@@ -79117,7 +79117,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicRMWInstEJEEEvRKT_DpRKT0_.exit
@@ -79156,7 +79156,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicR
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -79176,7 +79176,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_13AtomicR
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -79200,7 +79200,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %34, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %40, ptr %33, align 8
   store i8 32, ptr %34, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i
@@ -79239,7 +79239,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79277,7 +79277,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9TruncInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9TruncInstEJEEEvRKT_DpRKT0_.exit
@@ -79297,7 +79297,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9TruncInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9TruncInstEJEEEvRKT_DpRKT0_.exit
@@ -79331,7 +79331,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79369,7 +79369,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ZExtInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ZExtInstEJEEEvRKT_DpRKT0_.exit
@@ -79389,7 +79389,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ZExtInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ZExtInstEJEEEvRKT_DpRKT0_.exit
@@ -79423,7 +79423,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79461,7 +79461,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8SExtInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8SExtInstEJEEEvRKT_DpRKT0_.exit
@@ -79481,7 +79481,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8SExtInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8SExtInstEJEEEvRKT_DpRKT0_.exit
@@ -79515,7 +79515,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79553,7 +79553,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToUIInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToUIInstEJEEEvRKT_DpRKT0_.exit
@@ -79573,7 +79573,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToUIInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToUIInstEJEEEvRKT_DpRKT0_.exit
@@ -79607,7 +79607,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79645,7 +79645,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToSIInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToSIInstEJEEEvRKT_DpRKT0_.exit
@@ -79665,7 +79665,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToSIInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10FPToSIInstEJEEEvRKT_DpRKT0_.exit
@@ -79699,7 +79699,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79737,7 +79737,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10UIToFPInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10UIToFPInstEJEEEvRKT_DpRKT0_.exit
@@ -79757,7 +79757,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10UIToFPInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10UIToFPInstEJEEEvRKT_DpRKT0_.exit
@@ -79791,7 +79791,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79829,7 +79829,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SIToFPInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SIToFPInstEJEEEvRKT_DpRKT0_.exit
@@ -79849,7 +79849,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SIToFPInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SIToFPInstEJEEEvRKT_DpRKT0_.exit
@@ -79883,7 +79883,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -79921,7 +79921,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11FPTruncInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11FPTruncInstEJEEEvRKT_DpRKT0_.exit
@@ -79941,7 +79941,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11FPTruncInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11FPTruncInstEJEEEvRKT_DpRKT0_.exit
@@ -79975,7 +79975,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -80013,7 +80013,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FPExtInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FPExtInstEJEEEvRKT_DpRKT0_.exit
@@ -80033,7 +80033,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FPExtInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_9FPExtInstEJEEEvRKT_DpRKT0_.exit
@@ -80067,7 +80067,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -80105,7 +80105,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12PtrToIntInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12PtrToIntInstEJEEEvRKT_DpRKT0_.exit
@@ -80125,7 +80125,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12PtrToIntInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12PtrToIntInstEJEEEvRKT_DpRKT0_.exit
@@ -80159,7 +80159,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -80197,7 +80197,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12IntToPtrInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12IntToPtrInstEJEEEvRKT_DpRKT0_.exit
@@ -80217,7 +80217,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12IntToPtrInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_12IntToPtrInstEJEEEvRKT_DpRKT0_.exit
@@ -80251,7 +80251,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -80289,7 +80289,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11BitCastInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11BitCastInstEJEEEvRKT_DpRKT0_.exit
@@ -80309,7 +80309,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11BitCastInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_11BitCastInstEJEEEvRKT_DpRKT0_.exit
@@ -80343,7 +80343,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -80381,7 +80381,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AddrSpaceCastInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AddrSpaceCastInstEJEEEvRKT_DpRKT0_.exit
@@ -80401,7 +80401,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AddrSpaceCastInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17AddrSpaceCastInstEJEEEvRKT_DpRKT0_.exit
@@ -80435,7 +80435,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -80473,7 +80473,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14CleanupPadInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14CleanupPadInstEJEEEvRKT_DpRKT0_.exit
@@ -80493,7 +80493,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14CleanupPadInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14CleanupPadInstEJEEEvRKT_DpRKT0_.exit
@@ -80520,9 +80520,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19visitFuncletPadInstERN4
   %16 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store ptr %1, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %17, i64 noundef 8) #23
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @_ZN4llvm15SmallVectorImplIPNS_14FuncletPadInstEE6appendIPKS2_vEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5, ptr noundef nonnull %18)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %19, ptr %6, align 8
@@ -80561,7 +80561,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19visitFuncletPadInstERN4
 38:                                               ; preds = %27
   %39 = load i32, ptr %22, align 4, !noalias !498
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
   %.not24.i.i = icmp eq i32 %39, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -80572,7 +80572,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_18Verifier19visitFuncletPadInstERN4
   br i1 %43, label %.critedge202, label %44
 
 44:                                               ; preds = %.lr.ph.i.i
-  %45 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %45, %41
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -80643,7 +80643,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_14FuncletPadInstEE6insertES2_.exit: ; preds = %._c
   %67 = zext nneg i32 %66 to i64
   %68 = sub nsw i64 0, %67
   %69 = getelementptr inbounds %"class.llvm::Use", ptr %57, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
 
 71:                                               ; preds = %.lr.ph
@@ -80656,7 +80656,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_14FuncletPadInstEE6insertES2_.exit: ; preds = %._c
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit: ; preds = %71
   %75 = getelementptr inbounds i8, ptr %57, i64 -8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
   br label %_ZNK4llvm17CleanupReturnInst13getUnwindDestEv.exit
 
 78:                                               ; preds = %.lr.ph
@@ -80808,7 +80808,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i: ; preds = %12
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %132, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store ptr %138, ptr %131, align 8
   store i8 10, ptr %132, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i
@@ -80982,7 +80982,7 @@ _ZL12getParentPadPN4llvm5ValueE.exit116:          ; preds = %183, %185
 _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit120: ; preds = %198
   %202 = getelementptr inbounds i8, ptr %spec.select.i.i117, i64 -8
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %205 = load ptr, ptr %204, align 8
   %.not74 = icmp eq ptr %205, null
   br i1 %.not74, label %_ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit120.thread, label %206
@@ -81031,7 +81031,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread.i126: ; preds = 
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i123
 
 224:                                              ; preds = %217
-  %225 = getelementptr inbounds i8, ptr %219, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 1
   store ptr %225, ptr %218, align 8
   store i8 10, ptr %219, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.i123
@@ -81100,7 +81100,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -81138,7 +81138,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14FuncletPadInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14FuncletPadInstEJEEEvRKT_DpRKT0_.exit
@@ -81158,7 +81158,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14FuncletPadInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_14FuncletPadInstEJEEEvRKT_DpRKT0_.exit
@@ -81192,7 +81192,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -81230,7 +81230,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -81250,7 +81250,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -81281,7 +81281,7 @@ _ZN4llvm25SmallVectorTemplateCommonIPNS_14FuncletPadInstEvE20assertSafeToAddRang
   br i1 %15, label %16, label %_ZN4llvm15SmallVectorImplIPNS_14FuncletPadInstEE7reserveEm.exit
 
 16:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIPNS_14FuncletPadInstEvE20assertSafeToAddRangeEPKS2_S5_.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %13, i64 noundef 8) #23
   br label %_ZN4llvm15SmallVectorImplIPNS_14FuncletPadInstEE7reserveEm.exit
 
@@ -81330,7 +81330,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_14Funclet
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81350,7 +81350,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_14Funclet
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81388,7 +81388,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJS3
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81408,7 +81408,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJS3
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81440,7 +81440,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -81460,7 +81460,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJEEEvRKT_DpRKT0_.exit
@@ -81497,7 +81497,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_14Funclet
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81517,7 +81517,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_14Funclet
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81555,7 +81555,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJPN
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81575,7 +81575,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_4UserEJPN
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81607,7 +81607,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
@@ -81627,7 +81627,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15CatchSwitchInstEJEEEvRKT_DpRKT0_.exit
@@ -81661,7 +81661,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -81699,7 +81699,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ICmpInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ICmpInstEJEEEvRKT_DpRKT0_.exit
@@ -81719,7 +81719,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ICmpInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8ICmpInstEJEEEvRKT_DpRKT0_.exit
@@ -81753,7 +81753,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -81791,7 +81791,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FCmpInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FCmpInstEJEEEvRKT_DpRKT0_.exit
@@ -81811,7 +81811,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FCmpInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8FCmpInstEJEEEvRKT_DpRKT0_.exit
@@ -81845,7 +81845,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -81883,7 +81883,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
@@ -81903,7 +81903,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeEJEEEvRKT_DpRKT0_.exit
@@ -81940,7 +81940,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81960,7 +81960,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_7PHINodeE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -81992,7 +81992,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -82012,7 +82012,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10BasicBlockEJEEEvRKT_DpRKT0_.exit
@@ -82046,7 +82046,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -82084,7 +82084,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJEEEvRKT_DpRKT0_.exit
@@ -82104,7 +82104,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10ReturnInstEJEEEvRKT_DpRKT0_.exit
@@ -82120,13 +82120,13 @@ define internal fastcc void @_ZL25getParameterABIAttributesRN4llvm11LLVMContextE
   store ptr %3, ptr %5, align 8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %8, i64 noundef 8) #23
   br label %9
 
 9:                                                ; preds = %4, %15
   %.0.idx13 = phi i64 [ 0, %4 ], [ %.0.add, %15 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListEE8ABIAttrs, i64 %.0.idx13
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZZL25getParameterABIAttributesRN4llvm11LLVMContextEjNS_13AttributeListEE8ABIAttrs, i64 %.0.idx13
   %10 = load i32, ptr %.0.ptr, align 4
   %11 = call ptr @_ZNK4llvm13AttributeList13getParamAttrsEj(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2) #23
   store ptr %11, ptr %6, align 8
@@ -82179,7 +82179,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   store ptr @.str.910, ptr %5, align 8, !alias.scope !505
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %11, align 8, !alias.scope !505
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !505
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 3, ptr %12, align 8, !alias.scope !505
@@ -82203,7 +82203,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %4
   br label %.sink.split
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %17, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %23, ptr %16, align 8
   store i8 10, ptr %17, align 1
   br label %.sink.split
@@ -82216,7 +82216,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit20:                ; preds = %24
   store ptr @.str.911, ptr %6, align 8, !alias.scope !510
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %26, align 8, !alias.scope !510
-  %.sroa.2.0..sroa_idx.i.i.i19 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i.i19, align 8, !alias.scope !510
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 3, ptr %27, align 8, !alias.scope !510
@@ -82240,7 +82240,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit20:                ; preds = %24
   br label %.sink.split
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %32, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %38, ptr %31, align 8
   store i8 10, ptr %32, align 1
   br label %.sink.split
@@ -82253,7 +82253,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit38:                ; preds = %39
   store ptr @.str.912, ptr %7, align 8, !alias.scope !515
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %41, align 8, !alias.scope !515
-  %.sroa.2.0..sroa_idx.i.i.i37 = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i37 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i.i37, align 8, !alias.scope !515
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 3, ptr %42, align 8, !alias.scope !515
@@ -82277,7 +82277,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit38:                ; preds = %39
   br label %.sink.split
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %47, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %53, ptr %46, align 8
   store i8 10, ptr %47, align 1
   br label %.sink.split
@@ -82290,7 +82290,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit56:                ; preds = %54
   store ptr @.str.913, ptr %8, align 8, !alias.scope !520
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %56, align 8, !alias.scope !520
-  %.sroa.2.0..sroa_idx.i.i.i55 = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i55 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i.i55, align 8, !alias.scope !520
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 3, ptr %57, align 8, !alias.scope !520
@@ -82314,7 +82314,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit56:                ; preds = %54
   br label %.sink.split
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %62, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store ptr %68, ptr %61, align 8
   store i8 10, ptr %62, align 1
   br label %.sink.split
@@ -82327,7 +82327,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit74:                ; preds = %69
   store ptr @.str.914, ptr %9, align 8, !alias.scope !525
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %2, ptr %71, align 8, !alias.scope !525
-  %.sroa.2.0..sroa_idx.i.i.i73 = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i73 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %3, ptr %.sroa.2.0..sroa_idx.i.i.i73, align 8, !alias.scope !525
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 3, ptr %72, align 8, !alias.scope !525
@@ -82351,7 +82351,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit74:                ; preds = %69
   br label %.sink.split
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %77, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 1
   store ptr %83, ptr %76, align 8
   store i8 10, ptr %77, align 1
   br label %.sink.split
@@ -82392,7 +82392,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %4
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %15, ptr %8, align 8
   store i8 10, ptr %9, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -82429,7 +82429,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallStringILj32EE6appendESt16initial
   %6 = getelementptr inbounds nuw i8, ptr %.02330, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %.02131
-  %9 = getelementptr inbounds i8, ptr %.02330, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.02330, i64 16
   %.not = icmp eq ptr %9, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -82450,7 +82450,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallStringILj32EE6appendESt16initial
   br i1 %17, label %18, label %.sink.split.i.i
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %19, i64 noundef %.021.lcssa, i64 noundef 1) #23
   br label %.sink.split.i.i
 
@@ -82481,7 +82481,7 @@ _ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit: ; preds = %._crit_edg
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %.lr.ph35, %23
   %27 = phi i64 [ 0, %.lr.ph35 ], [ %.pre, %23 ]
   %28 = add i64 %27, %.034
-  %29 = getelementptr inbounds i8, ptr %.02233, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.02233, i64 16
   %.not24 = icmp eq ptr %29, %5
   br i1 %.not24, label %._crit_edge36, label %.lr.ph35
 
@@ -82527,7 +82527,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallInst
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -82547,7 +82547,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_8CallInst
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -82579,7 +82579,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -82599,7 +82599,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_5ValueEJEEEvRKT_DpRKT0_.exit
@@ -82635,7 +82635,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -82673,7 +82673,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SelectInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SelectInstEJEEEvRKT_DpRKT0_.exit
@@ -82693,7 +82693,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SelectInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_10SelectInstEJEEEvRKT_DpRKT0_.exit
@@ -82729,7 +82729,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -82767,7 +82767,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18ExtractElementInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18ExtractElementInstEJEEEvRKT_DpRKT0_.exit
@@ -82787,7 +82787,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18ExtractElementInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_18ExtractElementInstEJEEEvRKT_DpRKT0_.exit
@@ -82823,7 +82823,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -82861,7 +82861,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17InsertElementInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17InsertElementInstEJEEEvRKT_DpRKT0_.exit
@@ -82881,7 +82881,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17InsertElementInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17InsertElementInstEJEEEvRKT_DpRKT0_.exit
@@ -82917,7 +82917,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -82955,7 +82955,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17ShuffleVectorInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17ShuffleVectorInstEJEEEvRKT_DpRKT0_.exit
@@ -82975,7 +82975,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17ShuffleVectorInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_17ShuffleVectorInstEJEEEvRKT_DpRKT0_.exit
@@ -83011,7 +83011,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -83049,7 +83049,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_16ExtractValueInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_16ExtractValueInstEJEEEvRKT_DpRKT0_.exit
@@ -83069,7 +83069,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_16ExtractValueInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_16ExtractValueInstEJEEEvRKT_DpRKT0_.exit
@@ -83103,7 +83103,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -83141,7 +83141,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15InsertValueInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15InsertValueInstEJEEEvRKT_DpRKT0_.exit
@@ -83161,7 +83161,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15InsertValueInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_15InsertValueInstEJEEEvRKT_DpRKT0_.exit
@@ -83209,7 +83209,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteIPNS_11Instructi
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -83229,13 +83229,13 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport5WriteIPNS_11Instructi
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %6, %18, %20, %28, %30
-  %32 = getelementptr inbounds i8, ptr %.010, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %32, %4
   br i1 %.not, label %._crit_edge, label %6
 
@@ -83273,14 +83273,14 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_11InstructionEjNS_12Dense
   store i32 0, ptr %14, align 4
   %15 = load ptr, ptr %0, align 8
   %16 = zext nneg i32 %3 to i64
-  %17 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %15, i64 %16
   %.not6.i = icmp eq i32 %3, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.07.i = phi ptr [ %18, %.lr.ph.i ], [ %15, %13 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %18, %17
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !495
 
@@ -83319,14 +83319,14 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPNS_11InstructionEjNS_12Dense
   store i32 0, ptr %44, align 4
   %45 = load i32, ptr %2, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.275", ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.275", ptr %43, i64 %46
   %.not6.i.i = icmp eq i32 %45, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %43, %24 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %48 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %48, %47
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !495
 
@@ -83363,7 +83363,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -83401,7 +83401,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13IntrinsicInstEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13IntrinsicInstEJEEEvRKT_DpRKT0_.exit
@@ -83421,7 +83421,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13IntrinsicInstEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_13IntrinsicInstEJEEEvRKT_DpRKT0_.exit
@@ -83441,7 +83441,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13IntrinsicInstElN9
   br i1 %7, label %.lr.ph, label %"_ZSt14__partial_sortIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_SB_SB_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEET_SB_SB_T0_.exit"
@@ -83455,7 +83455,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13IntrinsicInstElN9
   %12 = lshr exact i64 %10, 3
   %13 = add nsw i64 %12, -2
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr noundef %0, i64 noundef %14, i64 noundef %12, ptr noundef %16)
   br label %.split14.i.i.i
@@ -83485,7 +83485,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13IntrinsicInstElN9
 28:                                               ; preds = %9
   %29 = add nsw i64 %.01724, -1
   %30 = lshr i64 %10, 4
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %.025, i64 -8
   %.val29.i.i = load ptr, ptr %8, align 8
   %.val30.i.i = load ptr, ptr %31, align 8
@@ -83928,7 +83928,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13IntrinsicInstElN9
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstESA_EEbT_T0_.exit.i17.i": ; preds = %306, %302
   %.sroa.0.0.i.i.i4.i.i.i18.i = phi ptr [ %310, %306 ], [ %304, %302 ]
   %311 = icmp ult ptr %.sroa.0.0.i.i.i.i.i.i15.i, %.sroa.0.0.i.i.i4.i.i.i18.i
-  %312 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   br i1 %311, label %268, label %.preheader.i.i, !llvm.loop !532
 
 .preheader.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstESA_EEbT_T0_.exit.i17.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstESA_EEbT_T0_.exit21.i.i"
@@ -84224,7 +84224,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm13IntrinsicInstEN9_
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %.018 = getelementptr inbounds i8, ptr %0, i64 8
+  %.018 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not19 = icmp eq ptr %.018, %1
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -84302,7 +84302,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm13IntrinsicInstEN9_
   br i1 %48, label %50, label %57
 
 50:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstESA_EEbT_T0_.exit"
-  %51 = getelementptr inbounds i8, ptr %.pn20, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.pn20, i64 16
   %52 = ptrtoint ptr %.021 to i64
   %53 = sub i64 %52, %4
   %54 = ashr exact i64 %53, 3
@@ -84389,7 +84389,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm13IntrinsicInstEN9_
 "_ZSt25__unguarded_linear_insertIPPN4llvm13IntrinsicInstEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPN4llvm13IntrinsicInstEPS9_EEbRT_T0_.exit.i", %50
   %.sink = phi ptr [ %0, %50 ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPN4llvm13IntrinsicInstEPS9_EEbRT_T0_.exit.i" ]
   store ptr %49, ptr %.sink, align 8
-  %.0 = getelementptr inbounds i8, ptr %.021, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !538
 
@@ -84416,7 +84416,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN4llvm12GenericCycl
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %8) #23
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_NS_12DenseMapInfoIS7_vEEEELj8EED2Ev.exit, label %13
 
@@ -84436,7 +84436,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #23
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %_ZNKSt14default_deleteIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEEclEPS5_.exit.i, label %25
 
@@ -84450,7 +84450,7 @@ _ZNKSt14default_deleteIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8Functio
 
 _ZSt8_DestroyISt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt14default_deleteIS6_EEEvPT_.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN4llvm12GenericCycleINS0_17GenericSSAContextINS0_8FunctionEEEEEEclEPS5_.exit.i
   store ptr null, ptr %.0.i.i4, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 8
   %.not.i.i1 = icmp eq ptr %26, %4
   br i1 %.not.i.i1, label %_ZSt8_DestroyIPSt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8FunctionEEEEESt14default_deleteIS6_EEEvT_SB_.exit.loopexit, label %.lr.ph, !llvm.loop !539
 
@@ -84499,7 +84499,7 @@ define linkonce_odr hidden void @_ZN4llvm17DominatorTreeBaseINS_10BasicBlockELb0
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #23
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZNKSt14default_deleteIN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEEEclEPS3_.exit.i.i.i, label %14
 
@@ -84518,7 +84518,7 @@ _ZNSt10unique_ptrIN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEESt14default_deleteI
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELb0EE13destroy_rangeEPS7_S9_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEESt14default_deleteIS3_EED2Ev.exit.i.i, %1
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm11SmallVectorISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELj6EED2Ev.exit, label %18
 
@@ -84529,7 +84529,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_15DomTreeNodeBaseINS_10Basic
 _ZN4llvm11SmallVectorISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELj6EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_15DomTreeNodeBaseINS_10BasicBlockEEESt14default_deleteIS4_EELb0EE13destroy_rangeEPS7_S9_.exit.i, %18
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #23
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = icmp eq ptr %20, %21
   br i1 %22, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj1EED2Ev.exit, label %23
 
@@ -84573,7 +84573,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -84611,7 +84611,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ConstantEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ConstantEJEEEvRKT_DpRKT0_.exit
@@ -84631,7 +84631,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ConstantEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8ConstantEJEEEvRKT_DpRKT0_.exit
@@ -84671,7 +84671,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -84709,7 +84709,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalAliasEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalAliasEJEEEvRKT_DpRKT0_.exit
@@ -84729,7 +84729,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalAliasEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalAliasEJEEEvRKT_DpRKT0_.exit
@@ -84822,7 +84822,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %.thread
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %43 = load i32, ptr %42, align 4, !noalias !541
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %44
   %.not24.i.i = icmp eq i32 %43, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -84833,7 +84833,7 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %.thread
   br i1 %47, label %.critedge73, label %48
 
 48:                                               ; preds = %.lr.ph.i.i
-  %49 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %49, %45
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
@@ -84916,7 +84916,7 @@ _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalAliasEE6insertES3_.exit: ; preds = %._cri
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %71, %74
   %79 = phi ptr [ %73, %71 ], [ %78, %74 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %71 ], [ %76, %74 ]
-  %80 = getelementptr inbounds %"class.llvm::Use", ptr %79, i64 %.pre-phi2.i.i
+  %80 = getelementptr inbounds nuw %"class.llvm::Use", ptr %79, i64 %.pre-phi2.i.i
   %.not4568 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not4568, label %.loopexit, label %.lr.ph
 
@@ -84942,7 +84942,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %71, %74
   br label %88
 
 88:                                               ; preds = %.sink.split, %86
-  %89 = getelementptr inbounds i8, ptr %.069, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %.069, i64 32
   %.not45 = icmp eq ptr %89, %80
   br i1 %.not45, label %.loopexit, label %.lr.ph
 
@@ -84975,7 +84975,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -85013,7 +85013,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalIFuncEJEEEvRKT_DpRKT0_.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalIFuncEJEEEvRKT_DpRKT0_.exit
@@ -85033,7 +85033,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalIFuncEJEEEvRKT_DpRKT0_.exit
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %35, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %41, ptr %34, align 8
   store i8 10, ptr %35, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11GlobalIFuncEJEEEvRKT_DpRKT0_.exit
@@ -85066,7 +85066,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -85106,7 +85106,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11NamedMDNodeEJEEEvRKT_DpRKT0_.exit
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 10, ptr %28, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_11NamedMDNodeEJEEEvRKT_DpRKT0_.exit
@@ -85150,7 +85150,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -85185,7 +85185,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8MDStringEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8MDStringEJEEEvRKT_DpRKT0_.exit
@@ -85205,7 +85205,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPKNS_6MDNodeE
   br i1 %.not.i.i, label %6, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6MDNodeELb1EE28reserveForParamAndGetAddressERS3_m.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %4, i64 noundef 8) #23
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6MDNodeELb1EE28reserveForParamAndGetAddressERS3_m.exit
 
@@ -85246,7 +85246,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit.thread: ; preds = %3
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %14, ptr %7, align 8
   store i8 10, ptr %8, align 1
   br label %_ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit
@@ -85281,7 +85281,7 @@ _ZN4llvm15VerifierSupport11CheckFailedERKNS_5TwineE.exit: ; preds = %11, %13
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MDStringEJEEEvRKT_DpRKT0_.exit
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_8MDStringEJEEEvRKT_DpRKT0_.exit
@@ -85322,7 +85322,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %24 = add i32 %15, -1
   %.02733.i.i = and i32 %23, %24
   %25 = zext nneg i32 %.02733.i.i to i64
-  %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %14, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i
@@ -85350,7 +85350,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %38 = add i32 %.02635.i.i, %.02736.i.i
   %.027.i.i = and i32 %38, %24
   %39 = zext i32 %.027.i.i to i64
-  %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %14, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %18, %41
   br i1 %42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i, !llvm.loop !54
@@ -85382,7 +85382,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %59 = add i32 %50, -1
   %.02733.i.i11 = and i32 %58, %59
   %60 = zext nneg i32 %.02733.i.i11 to i64
-  %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %53, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i12
@@ -85410,7 +85410,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %73 = add i32 %.02635.i.i14, %.02736.i.i13
   %.027.i.i18 = and i32 %73, %59
   %74 = zext i32 %.027.i.i18 to i64
-  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %49, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %49, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %53, %76
   br i1 %77, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit, label %.lr.ph.i.i12, !llvm.loop !54
@@ -85471,34 +85471,34 @@ _ZN4llvm8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS3_vEENS_6detail
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %21, i64 %26
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %21, %22 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !544
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr %2, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %21, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %21, i64 %35
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %21, %29 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !544
 
@@ -85527,7 +85527,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInf
   %47 = add i32 %41, -1
   %.02733.i.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02733.i.i.i to i64
-  %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, label %.lr.ph.i.i.i
@@ -85555,7 +85555,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInf
   %61 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %61, %47
   %62 = zext i32 %.027.i.i.i to i64
-  %63 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.782", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.782", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !54
@@ -85573,7 +85573,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInf
   br label %71
 
 71:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E15LookupBucketForIS4_EEbRKT_RPSC_.exit.i, %.lr.ph.i7, %.lr.ph.i7
-  %72 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8MDStringEPKNS_6MDNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E18moveFromOldBucketsEPSC_SF_.exit, label %.lr.ph.i7, !llvm.loop !545
 
@@ -85606,7 +85606,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport20DebugInfoCheckFailed
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %6, align 8
   store i8 10, ptr %7, align 1
   br label %_ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit
@@ -85648,7 +85648,7 @@ _ZN4llvm15VerifierSupport20DebugInfoCheckFailedERKNS_5TwineE.exit: ; preds = %3,
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8MetadataEJEEEvRKT_DpRKT0_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %30, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %36, ptr %29, align 8
   store i8 10, ptr %30, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8MetadataEJEEEvRKT_DpRKT0_.exit
@@ -85685,7 +85685,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -85705,7 +85705,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_8Functio
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -85737,7 +85737,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -85757,7 +85757,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %49, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %55, ptr %48, align 8
   store i8 10, ptr %49, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_8FunctionEJEEEvRKT_DpRKT0_.exit
@@ -85794,14 +85794,14 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_12DISubprogramEPKNS_8Fun
   store i32 0, ptr %14, align 4
   %15 = load ptr, ptr %0, align 8
   %16 = zext nneg i32 %3 to i64
-  %17 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %15, i64 %16
   %.not6.i = icmp eq i32 %3, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.07.i = phi ptr [ %18, %.lr.ph.i ], [ %15, %13 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %18, %17
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !227
 
@@ -85840,14 +85840,14 @@ define linkonce_odr hidden void @_ZN4llvm8DenseMapIPKNS_12DISubprogramEPKNS_8Fun
   store i32 0, ptr %44, align 4
   %45 = load i32, ptr %2, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.267", ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.267", ptr %43, i64 %46
   %.not6.i.i = icmp eq i32 %45, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %43, %24 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %48 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %48, %47
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12DISubprogramEPKNS_8FunctionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E9initEmptyEv.exit, label %.lr.ph.i.i, !llvm.loop !227
 
@@ -86124,7 +86124,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -86253,7 +86253,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -86273,7 +86273,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %29, ptr %22, align 8
   store i8 10, ptr %23, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -86302,7 +86302,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %3, %16, %18, %26, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %44, ptr %37, align 8
   store i8 10, ptr %38, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -86341,7 +86341,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %24 = add i32 %15, -1
   %.02733.i.i = and i32 %23, %24
   %25 = zext nneg i32 %.02733.i.i to i64
-  %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit, label %.lr.ph.i.i
@@ -86369,7 +86369,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %38 = add i32 %.02635.i.i, %.02736.i.i
   %.027.i.i = and i32 %38, %24
   %39 = zext i32 %.027.i.i to i64
-  %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %14, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %18, %41
   br i1 %42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit, label %.lr.ph.i.i, !llvm.loop !76
@@ -86401,7 +86401,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %59 = add i32 %50, -1
   %.02733.i.i11 = and i32 %58, %59
   %60 = zext nneg i32 %.02733.i.i11 to i64
-  %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %53, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit, label %.lr.ph.i.i12
@@ -86429,7 +86429,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %73 = add i32 %.02635.i.i14, %.02736.i.i13
   %.027.i.i18 = and i32 %73, %59
   %74 = zext i32 %.027.i.i18 to i64
-  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %49, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %49, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %53, %76
   br i1 %77, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit, label %.lr.ph.i.i12, !llvm.loop !76
@@ -86490,34 +86490,34 @@ _ZN4llvm8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS3_vEENS_6detail12De
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %26
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %21, %22 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !549
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr %2, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %35
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %21, %29 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !549
 
@@ -86546,7 +86546,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
   %47 = add i32 %41, -1
   %.02733.i.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02733.i.i.i to i64
-  %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i, label %.lr.ph.i.i.i
@@ -86574,7 +86574,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
   %61 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %61, %47
   %62 = zext i32 %.027.i.i.i to i64
-  %63 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !76
@@ -86592,7 +86592,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4
   br label %71
 
 71:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E15LookupBucketForIS4_EEbRKT_RPSB_.exit.i, %.lr.ph.i7, %.lr.ph.i7
-  %72 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.not.i8 = icmp eq ptr %72, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeESt4pairIbjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit, label %.lr.ph.i7, !llvm.loop !550
 
@@ -86637,7 +86637,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %24 = add i32 %15, -1
   %.02733.i.i = and i32 %23, %24
   %25 = zext nneg i32 %.02733.i.i to i64
-  %26 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %14, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %14, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i.i
@@ -86665,7 +86665,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %38 = add i32 %.02635.i.i, %.02736.i.i
   %.027.i.i = and i32 %38, %24
   %39 = zext i32 %.027.i.i to i64
-  %40 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %14, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %18, %41
   br i1 %42, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i.i, !llvm.loop !87
@@ -86697,7 +86697,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %59 = add i32 %50, -1
   %.02733.i.i11 = and i32 %58, %59
   %60 = zext nneg i32 %.02733.i.i11 to i64
-  %61 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %49, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %49, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %53, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i.i12
@@ -86725,7 +86725,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS
   %73 = add i32 %.02635.i.i14, %.02736.i.i13
   %.027.i.i18 = and i32 %73, %59
   %74 = zext i32 %.027.i.i18 to i64
-  %75 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %49, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %49, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %53, %76
   br i1 %77, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i.i12, !llvm.loop !87
@@ -86786,34 +86786,34 @@ _ZN4llvm8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPair
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %21, i64 %26
   %.not6.i = icmp eq i32 %25, 0
   br i1 %.not6.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E9initEmptyEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %21, %22 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %27
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E9initEmptyEv.exit, label %.lr.ph.i, !llvm.loop !551
 
 29:                                               ; preds = %_ZN4llvm8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_bEEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %4, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %33, align 4
   %34 = load i32, ptr %2, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %21, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %21, i64 %35
   %.not6.i.i = icmp eq i32 %34, 0
   br i1 %.not6.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.i.i
   %.07.i.i = phi ptr [ %37, %.lr.ph.i.i ], [ %21, %29 ]
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %.not.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E9initEmptyEv.exit.i, label %.lr.ph.i.i, !llvm.loop !551
 
@@ -86842,7 +86842,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6de
   %47 = add i32 %41, -1
   %.02733.i.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02733.i.i.i to i64
-  %49 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i.i.i
@@ -86870,7 +86870,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6de
   %61 = add i32 %.02635.i.i.i, %.02736.i.i.i
   %.027.i.i.i = and i32 %61, %47
   %62 = zext i32 %.027.i.i.i to i64
-  %63 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.198", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.198", ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !87
@@ -86889,7 +86889,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6de
   br label %72
 
 72:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit.i, %.lr.ph.i7, %.lr.ph.i7
-  %73 = getelementptr inbounds i8, ptr %.020.i, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
   %.not.i8 = icmp eq ptr %73, %31
   br i1 %.not.i8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6MDNodeEbNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_bEEEES4_bS6_S9_E18moveFromOldBucketsEPS9_SC_.exit, label %.lr.ph.i7, !llvm.loop !552
 
@@ -86930,7 +86930,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -86950,7 +86950,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -86979,7 +86979,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %4, %17, %19, %27, 
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 10, ptr %39, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i
@@ -87004,7 +87004,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit.i: ; preds = %44, %42, %_ZN
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPNS_5APIntEEEEvRKT_DpRKT0_.exit
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %50, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %56, ptr %49, align 8
   store i8 10, ptr %50, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPNS_5APIntEEEEvRKT_DpRKT0_.exit
@@ -87043,7 +87043,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -87063,7 +87063,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -87092,7 +87092,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit: ; preds = %5, %18, %20, %28, 
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPS2_S5_EEEvRKT_DpRKT0_.exit
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %40, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %46, ptr %39, align 8
   store i8 10, ptr %40, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeEJPS2_S5_EEEvRKT_DpRKT0_.exit
@@ -87127,7 +87127,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJ
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -87156,7 +87156,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -87193,7 +87193,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %20, ptr %13, align 8
   store i8 10, ptr %14, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -87213,7 +87213,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %30, ptr %23, align 8
   store i8 10, ptr %24, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -87248,7 +87248,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %18, ptr %11, align 8
   store i8 10, ptr %12, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -87277,7 +87277,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %3, %15, %17
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 10, ptr %27, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIPNS_6MDNodeEJEEEvRKT_DpRKT0_.exit
@@ -87314,7 +87314,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 10, ptr %15, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -87334,7 +87334,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPNS_11Instruc
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_5ValueE.exit
@@ -87369,7 +87369,7 @@ define linkonce_odr hidden void @_ZN4llvm15VerifierSupport7WriteTsIPKNS_6MDNodeE
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 10, ptr %13, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
@@ -87391,7 +87391,7 @@ _ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit: ; preds = %4, %16, %18
   br label %_ZN4llvm15VerifierSupport5WriteEj.exit.i
 
 30:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEPKNS_8MetadataE.exit
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 10, ptr %25, align 1
   br label %_ZN4llvm15VerifierSupport5WriteEj.exit.i
@@ -87413,7 +87413,7 @@ _ZN4llvm15VerifierSupport5WriteEj.exit.i:         ; preds = %30, %28
   br label %_ZN4llvm15VerifierSupport7WriteTsIjJjEEEvRKT_DpRKT0_.exit
 
 42:                                               ; preds = %_ZN4llvm15VerifierSupport5WriteEj.exit.i
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 10, ptr %37, align 1
   br label %_ZN4llvm15VerifierSupport7WriteTsIjJjEEEvRKT_DpRKT0_.exit
@@ -87454,9 +87454,9 @@ define internal void @_GLOBAL__sub_I_Verifier.cpp() #17 section ".text.startup" 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 0, ptr %1, align 1
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL28VerifyNoAliasScopeDomination, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL28VerifyNoAliasScopeDomination, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL28VerifyNoAliasScopeDomination) #23
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 152), align 8
@@ -87470,7 +87470,7 @@ define internal void @_GLOBAL__sub_I_Verifier.cpp() #17 section ".text.startup" 
   store i16 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 10), align 2
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL28VerifyNoAliasScopeDomination, ptr noundef nonnull align 1 dereferenceable(1) %1) #23
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 32), align 8
-  store i64 88, ptr getelementptr inbounds (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 40), align 8
+  store i64 88, ptr getelementptr inbounds nuw (i8, ptr @_ZL28VerifyNoAliasScopeDomination, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL28VerifyNoAliasScopeDomination) #23
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL28VerifyNoAliasScopeDomination, ptr nonnull @__dso_handle) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)

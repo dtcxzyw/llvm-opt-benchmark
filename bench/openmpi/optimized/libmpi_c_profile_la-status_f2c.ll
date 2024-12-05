@@ -45,9 +45,9 @@ define i32 @PMPI_Status_f2c(ptr noundef readonly %0, ptr noundef writeonly %1) #
 
 17:                                               ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

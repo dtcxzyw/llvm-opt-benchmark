@@ -111,7 +111,7 @@ define void @dlatrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %79 = sext i32 %75 to i64
   %80 = getelementptr double, ptr %33, i64 %79
   %81 = zext nneg i32 %74 to i64
-  %82 = getelementptr inbounds double, ptr %19, i64 %81
+  %82 = getelementptr inbounds nuw double, ptr %19, i64 %81
   call void @dlarfg_(ptr noundef nonnull %10, ptr noundef %78, ptr noundef %80, ptr noundef nonnull @c__1, ptr noundef nonnull %82) #4
   %83 = load i32, ptr %12, align 4, !tbaa !3
   %84 = add nsw i32 %83, -1

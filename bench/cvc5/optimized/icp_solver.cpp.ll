@@ -128,9 +128,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11

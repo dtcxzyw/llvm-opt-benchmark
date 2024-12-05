@@ -27,10 +27,10 @@ define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7
   %17 = alloca double, align 8
   %18 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @3)
   store ptr %2, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %3, ptr %19, align 8
   store ptr %4, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %20, align 8
   store i32 %0, ptr %13, align 4
   %21 = add nsw i32 %1, %0
@@ -44,16 +44,16 @@ define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7
   %23 = load double, ptr %15, align 8
   store double %23, ptr %8, align 8
   %24 = load double, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %24, ptr %25, align 8
   %26 = load double, ptr %17, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store double %26, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %10, %28
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds double, ptr %8, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
   %30 = load double, ptr %29, align 8
   %31 = fmul double %30, 0x4048041A1EC6696C
   store double %31, ptr %29, align 8
@@ -76,7 +76,7 @@ define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7
   store double %36, ptr %9, align 8
   %37 = load double, ptr %16, align 8
   %38 = fmul double %37, 0x4048041A1EC6696C
-  %39 = getelementptr inbounds i8, ptr %9, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %38, ptr %39, align 8
   %40 = load double, ptr %17, align 8
   %41 = fmul double %40, 0x4048041A1EC6696C
@@ -86,14 +86,14 @@ define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7
   %43 = load double, ptr %8, align 8
   store double %43, ptr %9, align 8
   %44 = load double, ptr %25, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store double %44, ptr %45, align 8
   %46 = load double, ptr %27, align 8
   br label %47
 
 47:                                               ; preds = %42, %33
   %.sink = phi double [ %41, %33 ], [ %46, %42 ]
-  %48 = getelementptr inbounds i8, ptr %9, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %.sink, ptr %48, align 8
   ret void
 }
@@ -155,13 +155,13 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
   %45 = fpext float %44 to double
   %46 = fadd double %35, %45
   store double %46, ptr %14, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %48 = load float, ptr %47, align 4
   %49 = fmul float %41, %48
   %50 = fpext float %49 to double
   %51 = fadd double %36, %50
   store double %51, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %53 = load float, ptr %52, align 4
   %54 = fmul float %41, %53
   %55 = fpext float %54 to double
@@ -174,9 +174,9 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
 ._crit_edge:                                      ; preds = %34, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %24)
   store ptr %14, ptr %17, align 8
-  %58 = getelementptr inbounds i8, ptr %17, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %15, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %16, ptr %59, align 8
   %60 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %24, i32 3, i64 24, ptr nonnull %17, ptr nonnull @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
   switch i32 %60, label %78 [
@@ -225,13 +225,13 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #2
 define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load double, ptr %4, align 8
   %14 = load double, ptr %3, align 8
@@ -322,13 +322,13 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
   %45 = fpext float %44 to double
   %46 = fadd double %35, %45
   store double %46, ptr %14, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %48 = load float, ptr %47, align 4
   %49 = fmul float %41, %48
   %50 = fpext float %49 to double
   %51 = fadd double %36, %50
   store double %51, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %53 = load float, ptr %52, align 4
   %54 = fmul float %41, %53
   %55 = fpext float %54 to double
@@ -341,9 +341,9 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
 ._crit_edge:                                      ; preds = %34, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %24)
   store ptr %14, ptr %17, align 8
-  %58 = getelementptr inbounds i8, ptr %17, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %15, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %16, ptr %59, align 8
   %60 = call i32 @__kmpc_reduce_nowait(ptr nonnull @2, i32 %24, i32 3, i64 24, ptr nonnull %17, ptr nonnull @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_.omp_outlined.1.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
   switch i32 %60, label %78 [
@@ -384,13 +384,13 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
 define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7_.omp_outlined.1.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load double, ptr %4, align 8
   %14 = load double, ptr %3, align 8

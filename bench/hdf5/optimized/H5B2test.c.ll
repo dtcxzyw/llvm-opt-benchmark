@@ -99,12 +99,12 @@ define internal noundef i32 @H5B2__test_encode(ptr nocapture noundef writeonly %
   %6 = load i64, ptr %1, align 8
   %7 = trunc i64 %6 to i8
   store i8 %7, ptr %0, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 8
   %11 = trunc i64 %10 to i8
   store i8 %11, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i64, ptr %1, align 8
   %14 = lshr i64 %13, 16
   %15 = trunc i64 %14 to i8
@@ -120,7 +120,7 @@ define internal noundef i32 @H5B2__test_encode(ptr nocapture noundef writeonly %
   %.03034 = phi i64 [ 0, %16 ], [ %21, %18 ]
   %.03233 = phi i64 [ %17, %16 ], [ %22, %18 ]
   %19 = trunc i64 %.03233 to i8
-  %20 = getelementptr inbounds i8, ptr %.035, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   store i8 %19, ptr %.035, align 1
   %21 = add nuw nsw i64 %.03034, 1
   %22 = lshr i64 %.03233, 8
@@ -136,7 +136,7 @@ define internal noundef i32 @H5B2__test_encode(ptr nocapture noundef writeonly %
 .loopexit.sink.split:                             ; preds = %23, %5
   %.sink = phi i64 [ 3, %5 ], [ 1, %23 ]
   %.sink38 = phi i64 [ 24, %5 ], [ 8, %23 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %27 = load i64, ptr %1, align 8
   %28 = lshr i64 %27, %.sink38
   %29 = trunc i64 %28 to i8
@@ -160,13 +160,13 @@ define internal noundef i32 @H5B2__test_decode(ptr nocapture noundef readonly %0
   %6 = load i8, ptr %0, align 1
   %7 = zext i8 %6 to i64
   store i64 %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 8
   %12 = or disjoint i64 %11, %7
   store i64 %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 16
@@ -175,7 +175,7 @@ define internal noundef i32 @H5B2__test_decode(ptr nocapture noundef readonly %0
 
 18:                                               ; preds = %3
   store i64 0, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
 20:                                               ; preds = %18, %20
@@ -202,7 +202,7 @@ define internal noundef i32 @H5B2__test_decode(ptr nocapture noundef readonly %0
   %.sink34 = phi i64 [ 3, %5 ], [ 1, %28 ]
   %.sink32 = phi i64 [ 24, %5 ], [ 8, %28 ]
   store i64 %.sink, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 %.sink34
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink34
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, %.sink32
@@ -250,12 +250,12 @@ define internal noundef i32 @H5B2__test2_encode(ptr nocapture noundef writeonly 
   %6 = load i64, ptr %1, align 8
   %7 = trunc i64 %6 to i8
   store i8 %7, ptr %0, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i64, ptr %1, align 8
   %10 = lshr i64 %9, 8
   %11 = trunc i64 %10 to i8
   store i8 %11, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i64, ptr %1, align 8
   %14 = lshr i64 %13, 16
   %15 = trunc i64 %14 to i8
@@ -271,7 +271,7 @@ define internal noundef i32 @H5B2__test2_encode(ptr nocapture noundef writeonly 
   %.06570 = phi i64 [ 0, %16 ], [ %21, %18 ]
   %.06769 = phi i64 [ %17, %16 ], [ %22, %18 ]
   %19 = trunc i64 %.06769 to i8
-  %20 = getelementptr inbounds i8, ptr %.06371, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.06371, i64 1
   store i8 %19, ptr %.06371, align 1
   %21 = add nuw nsw i64 %.06570, 1
   %22 = lshr i64 %.06769, 8
@@ -288,7 +288,7 @@ thread-pre-split.sink.split:                      ; preds = %23, %5
   %.sink81 = phi i64 [ 3, %5 ], [ 1, %23 ]
   %.sink80 = phi i64 [ 24, %5 ], [ 8, %23 ]
   %.sink.ph = phi i64 [ 4, %5 ], [ 2, %23 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 %.sink81
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink81
   %27 = load i64, ptr %1, align 8
   %28 = lshr i64 %27, %.sink80
   %29 = trunc i64 %28 to i8
@@ -297,7 +297,7 @@ thread-pre-split.sink.split:                      ; preds = %23, %5
 
 thread-pre-split:                                 ; preds = %18, %thread-pre-split.sink.split
   %.sink = phi i64 [ %.sink.ph, %thread-pre-split.sink.split ], [ 8, %18 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %.pr = load i8, ptr %2, align 1
   br label %31
 
@@ -311,21 +311,21 @@ thread-pre-split:                                 ; preds = %18, %thread-pre-spl
   ]
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = trunc i64 %35 to i8
   store i8 %36, ptr %.068, align 1
-  %37 = getelementptr inbounds i8, ptr %.068, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.068, i64 1
   %38 = load i64, ptr %34, align 8
   %39 = lshr i64 %38, 8
   %40 = trunc i64 %39 to i8
   store i8 %40, ptr %37, align 1
-  %41 = getelementptr inbounds i8, ptr %.068, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.068, i64 2
   %42 = load i64, ptr %34, align 8
   %43 = lshr i64 %42, 16
   %44 = trunc i64 %43 to i8
   store i8 %44, ptr %41, align 1
-  %45 = getelementptr inbounds i8, ptr %.068, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.068, i64 3
   %46 = load i64, ptr %34, align 8
   %47 = lshr i64 %46, 24
   %48 = trunc i64 %47 to i8
@@ -333,7 +333,7 @@ thread-pre-split:                                 ; preds = %18, %thread-pre-spl
   br label %.loopexit
 
 49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load i64, ptr %50, align 8
   br label %52
 
@@ -342,7 +342,7 @@ thread-pre-split:                                 ; preds = %18, %thread-pre-spl
   %.06073 = phi i64 [ 0, %49 ], [ %55, %52 ]
   %.06272 = phi i64 [ %51, %49 ], [ %56, %52 ]
   %53 = trunc i64 %.06272 to i8
-  %54 = getelementptr inbounds i8, ptr %.074, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.074, i64 1
   store i8 %53, ptr %.074, align 1
   %55 = add nuw nsw i64 %.06073, 1
   %56 = lshr i64 %.06272, 8
@@ -350,11 +350,11 @@ thread-pre-split:                                 ; preds = %18, %thread-pre-spl
   br i1 %exitcond75.not, label %.loopexit, label %52
 
 57:                                               ; preds = %31
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i8
   store i8 %60, ptr %.068, align 1
-  %61 = getelementptr inbounds i8, ptr %.068, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.068, i64 1
   %62 = load i64, ptr %58, align 8
   %63 = lshr i64 %62, 8
   %64 = trunc i64 %63 to i8
@@ -378,30 +378,30 @@ define internal noundef i32 @H5B2__test2_decode(ptr nocapture noundef readonly %
   %6 = load i8, ptr %0, align 1
   %7 = zext i8 %6 to i64
   store i64 %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 8
   %12 = or disjoint i64 %11, %7
   store i64 %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
   %16 = shl nuw nsw i64 %15, 16
   %17 = or disjoint i64 %16, %12
   store i64 %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
   %21 = shl nuw nsw i64 %20, 24
   %22 = or disjoint i64 %21, %17
   store i64 %22, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %thread-pre-split
 
 24:                                               ; preds = %3
   store i64 0, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %26
 
 26:                                               ; preds = %24, %26
@@ -419,20 +419,20 @@ define internal noundef i32 @H5B2__test2_decode(ptr nocapture noundef readonly %
   br i1 %exitcond.not, label %34, label %26
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %.05556, i64 7
+  %35 = getelementptr inbounds nuw i8, ptr %.05556, i64 7
   br label %thread-pre-split
 
 36:                                               ; preds = %3
   %37 = load i8, ptr %0, align 1
   %38 = zext i8 %37 to i64
   store i64 %38, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   %42 = shl nuw nsw i64 %41, 8
   %43 = or disjoint i64 %42, %38
   store i64 %43, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %5, %34, %36
@@ -452,21 +452,21 @@ thread-pre-split:                                 ; preds = %5, %34, %36
 47:                                               ; preds = %45
   %48 = load i8, ptr %.1, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.1, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
   %54 = shl nuw nsw i64 %53, 8
   %55 = or disjoint i64 %54, %49
   store i64 %55, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %.1, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 16
   %60 = or disjoint i64 %59, %55
   store i64 %60, ptr %50, align 8
-  %61 = getelementptr inbounds i8, ptr %.1, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
   %64 = shl nuw nsw i64 %63, 24
@@ -475,9 +475,9 @@ thread-pre-split:                                 ; preds = %5, %34, %36
   br label %.loopexit
 
 66:                                               ; preds = %45
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %.1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   br label %69
 
 69:                                               ; preds = %66, %69
@@ -497,9 +497,9 @@ thread-pre-split:                                 ; preds = %5, %34, %36
 77:                                               ; preds = %45
   %78 = load i8, ptr %.1, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %.1, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i64
   %84 = shl nuw nsw i64 %83, 8
@@ -514,7 +514,7 @@ thread-pre-split:                                 ; preds = %5, %34, %36
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5B2__test2_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #3 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %1, ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull @.str.15, i64 noundef %6, i64 noundef %8) #8
   ret i32 0
@@ -523,7 +523,7 @@ define internal noundef i32 @H5B2__test2_debug(ptr nocapture noundef %0, i32 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5B2__get_root_addr_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %1, align 8
   ret i32 0
@@ -535,19 +535,19 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.H5B2_node_ptr_t, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 288
   store ptr %9, ptr %11, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %14 = getelementptr inbounds i8, ptr %12, i64 392
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 392
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   %spec.select = select i1 %16, ptr %12, ptr null
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %20, label %24
@@ -559,16 +559,16 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %151
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %12, i64 284
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 284
   %26 = load i16, ptr %25, align 4
   store i32 -1, ptr %5, align 4
   %.not103 = icmp eq i16 %26, 0
   br i1 %.not103, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %12, i64 424
-  %28 = getelementptr inbounds i8, ptr %12, i64 360
-  %29 = getelementptr inbounds i8, ptr %12, i64 288
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 424
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 360
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 288
   br label %30
 
 30:                                               ; preds = %.lr.ph, %82
@@ -603,11 +603,11 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 
 45:                                               ; preds = %38, %37
   %46 = load ptr, ptr %27, align 8
-  %47 = getelementptr inbounds i8, ptr %31, i64 272
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 272
   %48 = load i16, ptr %47, align 8
   %49 = zext i16 %48 to i32
   %50 = load ptr, ptr %28, align 8
-  %51 = getelementptr inbounds i8, ptr %31, i64 256
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 256
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 @H5B2__locate_record(ptr noundef %46, i32 noundef %49, ptr noundef %50, ptr noundef %52, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #8
   %54 = icmp slt i32 %53, 0
@@ -640,10 +640,10 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 
 65:                                               ; preds = %._crit_edge120, %.thread
   %66 = phi i32 [ %.pre, %._crit_edge120 ], [ %63, %.thread ]
-  %67 = getelementptr inbounds i8, ptr %31, i64 264
+  %67 = getelementptr inbounds nuw i8, ptr %31, i64 264
   %68 = load ptr, ptr %67, align 8
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %68, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false)
   %71 = load ptr, ptr %29, align 8
   %72 = load i64, ptr %4, align 8
@@ -688,7 +688,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 99:                                               ; preds = %90
   store i16 %.064100, ptr %2, align 2
   %100 = load i16, ptr %17, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %100, ptr %101, align 2
   br label %.thread80
 
@@ -723,14 +723,14 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %151
 
 116:                                              ; preds = %109, %108
-  %117 = getelementptr inbounds i8, ptr %12, i64 424
+  %117 = getelementptr inbounds nuw i8, ptr %12, i64 424
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %102, i64 264
+  %119 = getelementptr inbounds nuw i8, ptr %102, i64 264
   %120 = load i16, ptr %119, align 8
   %121 = zext i16 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %12, i64 360
+  %122 = getelementptr inbounds nuw i8, ptr %12, i64 360
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %102, i64 256
+  %124 = getelementptr inbounds nuw i8, ptr %102, i64 256
   %125 = load ptr, ptr %124, align 8
   %126 = call i32 @H5B2__locate_record(ptr noundef %118, i32 noundef %121, ptr noundef %123, ptr noundef %125, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #8
   %127 = icmp slt i32 %126, 0
@@ -743,7 +743,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
   br label %.thread80
 
 132:                                              ; preds = %116
-  %133 = getelementptr inbounds i8, ptr %12, i64 288
+  %133 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %134 = load ptr, ptr %133, align 8
   %135 = load i64, ptr %4, align 8
   %136 = call i32 @H5AC_unprotect(ptr noundef %134, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %135, ptr noundef nonnull %102, i32 noundef 0) #8
@@ -770,7 +770,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 148:                                              ; preds = %142
   store i16 %.064.lcssa, ptr %2, align 2
   %149 = load i16, ptr %17, align 8
-  %150 = getelementptr inbounds i8, ptr %2, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %149, ptr %150, align 2
   br label %.thread80
 

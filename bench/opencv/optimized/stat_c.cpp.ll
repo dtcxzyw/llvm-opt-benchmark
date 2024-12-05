@@ -32,12 +32,12 @@ define void @cvSum(ptr dead_on_unwind noalias nocapture writable writeonly sret(
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   call void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %5, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %9, align 4
   store i32 16842752, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %10, align 8
   invoke void @_ZN2cv3sumERKNS_11_InputArrayE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %11 unwind label %21
@@ -53,7 +53,7 @@ define void @cvSum(ptr dead_on_unwind noalias nocapture writable writeonly sret(
   br i1 %14, label %15, label %37
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load ptr, ptr %16, align 8
   %.not17 = icmp eq ptr %17, null
   br i1 %.not17, label %37, label %18
@@ -104,10 +104,10 @@ define void @cvSum(ptr dead_on_unwind noalias nocapture writable writeonly sret(
 31:                                               ; preds = %20
   %32 = add nsw i32 %19, -1
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [4 x double], ptr %3, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [4 x double], ptr %3, i64 0, i64 %33
   %35 = load double, ptr %34, align 8
   store double %35, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   br label %37
 
@@ -115,17 +115,17 @@ define void @cvSum(ptr dead_on_unwind noalias nocapture writable writeonly sret(
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %38 = load double, ptr %3, align 8, !noalias !4
   store double %38, ptr %0, align 8, !alias.scope !4
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load double, ptr %39, align 8, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %40, ptr %41, align 8, !alias.scope !4
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %43 = load double, ptr %42, align 8, !noalias !4
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %43, ptr %44, align 8, !alias.scope !4
-  %45 = getelementptr inbounds i8, ptr %3, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %46 = load double, ptr %45, align 8, !noalias !4
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %46, ptr %47, align 8, !alias.scope !4
   ret void
 
@@ -171,8 +171,8 @@ define noundef i32 @cvCountNonZero(ptr noundef %0) local_unnamed_addr #0 persona
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %9, align 8
   store i32 33619968, ptr %3, align 8
   store ptr %2, ptr %8, align 8
@@ -185,12 +185,12 @@ define noundef i32 @cvCountNonZero(ptr noundef %0) local_unnamed_addr #0 persona
   br label %20
 
 12:                                               ; preds = %1, %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %14, align 4
   store i32 16842752, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %15, align 8
   %16 = invoke noundef i32 @_ZN2cv12countNonZeroERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %17 unwind label %18
@@ -229,12 +229,12 @@ define void @cvAvg(ptr dead_on_unwind noalias nocapture writable writeonly sret(
   br i1 %.not, label %12, label %18
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %14, align 4
   store i32 16842752, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %15, align 8
   %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %17 unwind label %42
@@ -244,23 +244,23 @@ define void @cvAvg(ptr dead_on_unwind noalias nocapture writable writeonly sret(
           to label %.critedge46 unwind label %42
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %20, align 4
   store i32 16842752, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %21, align 8
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %9, ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, ptr noundef null)
           to label %22 unwind label %38
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %24, align 4
   store i32 16842752, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %25, align 8
   invoke void @_ZN2cv4meanERKNS_11_InputArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.cv::Scalar_") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %.critedge unwind label %40
@@ -279,7 +279,7 @@ define void @cvAvg(ptr dead_on_unwind noalias nocapture writable writeonly sret(
   br i1 %28, label %29, label %58
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %31 = load ptr, ptr %30, align 8
   %.not39 = icmp eq ptr %31, null
   br i1 %.not39, label %58, label %32
@@ -348,10 +348,10 @@ define void @cvAvg(ptr dead_on_unwind noalias nocapture writable writeonly sret(
 52:                                               ; preds = %35
   %53 = add nsw i32 %33, -1
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %54
   %56 = load double, ptr %55, align 8
   store double %56, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   br label %58
 
@@ -359,17 +359,17 @@ define void @cvAvg(ptr dead_on_unwind noalias nocapture writable writeonly sret(
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %59 = load double, ptr %5, align 8, !noalias !7
   store double %59, ptr %0, align 8, !alias.scope !7
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %61 = load double, ptr %60, align 8, !noalias !7
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %61, ptr %62, align 8, !alias.scope !7
-  %63 = getelementptr inbounds i8, ptr %5, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %64 = load double, ptr %63, align 8, !noalias !7
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %64, ptr %65, align 8, !alias.scope !7
-  %66 = getelementptr inbounds i8, ptr %5, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %67 = load double, ptr %66, align 8, !noalias !7
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %67, ptr %68, align 8, !alias.scope !7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #6
   ret void
@@ -431,29 +431,29 @@ define void @cvAvgSdv(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writ
           to label %25 unwind label %20
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %27, align 4
   store i32 16842752, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 -1040056314, ptr %11, align 8
   store ptr %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 17179869185, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 -1040056314, ptr %12, align 8
   store ptr %6, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 17179869185, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %13, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %13, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %34, align 4
   store i32 16842752, ptr %13, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %7, ptr %35, align 8
   invoke void @_ZN2cv10meanStdDevERKNS_11_InputArrayERKNS_12_OutputArrayES5_S2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %36 unwind label %47
@@ -469,7 +469,7 @@ define void @cvAvgSdv(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writ
   br i1 %39, label %40, label %66
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
   %.not34 = icmp eq ptr %42, null
   br i1 %.not34, label %66, label %43
@@ -523,15 +523,15 @@ define void @cvAvgSdv(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writ
 57:                                               ; preds = %46
   %58 = add nsw i32 %44, -1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds [4 x double], ptr %5, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [4 x double], ptr %5, i64 0, i64 %59
   %61 = load double, ptr %60, align 8
   store double %61, ptr %5, align 8
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
-  %63 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %59
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw [4 x double], ptr %6, i64 0, i64 %59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
   %64 = load double, ptr %63, align 8
   store double %64, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   br label %66
 
@@ -542,17 +542,17 @@ define void @cvAvgSdv(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writ
 67:                                               ; preds = %66
   %68 = load double, ptr %5, align 8
   store double %68, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %73 = load double, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %5, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %76, ptr %77, align 8
   br label %78
 
@@ -563,17 +563,17 @@ define void @cvAvgSdv(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writ
 79:                                               ; preds = %78
   %80 = load double, ptr %6, align 8
   store double %80, ptr %2, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %6, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %88 = load double, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %88, ptr %89, align 8
   br label %90
 
@@ -645,8 +645,8 @@ define void @cvMinMaxLoc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br i1 %.not16, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %29, align 8
   store i32 33619968, ptr %10, align 8
   store ptr %8, ptr %28, align 8
@@ -659,19 +659,19 @@ define void @cvMinMaxLoc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   br label %42
 
 32:                                               ; preds = %27, %24
-  %33 = getelementptr inbounds i8, ptr %11, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %34, align 4
   store i32 16842752, ptr %11, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %8, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %12, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %37, align 4
   store i32 16842752, ptr %12, align 8
-  %38 = getelementptr inbounds i8, ptr %12, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %7, ptr %38, align 8
   invoke void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %39 unwind label %40
@@ -776,7 +776,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %40, label %41, label %53
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %spec.select85, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %spec.select85, i64 88
   %43 = load ptr, ptr %42, align 8
   %.not73 = icmp eq ptr %43, null
   br i1 %.not73, label %53, label %44
@@ -790,8 +790,8 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %9, i64 8
-  %50 = getelementptr inbounds i8, ptr %9, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %50, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %5, ptr %49, align 8
@@ -811,12 +811,12 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not72, label %55, label %62
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %5, ptr %58, align 8
   %59 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %60 unwind label %72
@@ -826,19 +826,19 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
           to label %.critedge unwind label %72
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %11, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %11, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %64, align 4
   store i32 16842752, ptr %11, align 8
-  %65 = getelementptr inbounds i8, ptr %11, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %5, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %12, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %12, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %67, align 4
   store i32 16842752, ptr %12, align 8
-  %68 = getelementptr inbounds i8, ptr %12, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %6, ptr %68, align 8
   %69 = invoke noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %.critedge unwind label %70
@@ -869,7 +869,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %80, label %81, label %95
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %spec.select, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %spec.select, i64 88
   %83 = load ptr, ptr %82, align 8
   %.not77 = icmp eq ptr %83, null
   br i1 %.not77, label %95, label %84
@@ -883,8 +883,8 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %14, i64 8
-  %90 = getelementptr inbounds i8, ptr %14, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %90, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %13, ptr %89, align 8
@@ -905,19 +905,19 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %.not72, label %96, label %106
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %15, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %15, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %98, align 4
   store i32 16842752, ptr %15, align 8
-  %99 = getelementptr inbounds i8, ptr %15, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %5, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %16, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %16, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %16, align 8
-  %102 = getelementptr inbounds i8, ptr %16, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %13, ptr %102, align 8
   %103 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %104 unwind label %120
@@ -927,26 +927,26 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
           to label %.critedge92 unwind label %120
 
 106:                                              ; preds = %95
-  %107 = getelementptr inbounds i8, ptr %17, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %17, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %108, align 4
   store i32 16842752, ptr %17, align 8
-  %109 = getelementptr inbounds i8, ptr %17, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %18, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %18, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %111, align 4
   store i32 16842752, ptr %18, align 8
-  %112 = getelementptr inbounds i8, ptr %18, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %13, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %19, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %19, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 0, ptr %114, align 4
   store i32 16842752, ptr %19, align 8
-  %115 = getelementptr inbounds i8, ptr %19, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %6, ptr %115, align 8
   %116 = invoke noundef double @_ZN2cv4normERKNS_11_InputArrayES2_iS2_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %.critedge92 unwind label %118

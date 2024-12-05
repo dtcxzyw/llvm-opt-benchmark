@@ -127,7 +127,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(410) ptr @_ZNK4llvm21Gen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2ENS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, i8 noundef zeroext %1) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5ENS4_14UpdateStrategyE) align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %3, i64 noundef 16) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -153,7 +153,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2ERS2_NS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull align 8 dereferenceable(1200) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5ERS2_NS4_14UpdateStrategyE) align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %4, i64 noundef 16) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -183,7 +183,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2EPS2_NS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5EPS2_NS4_14UpdateStrategyE) align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %4, i64 noundef 16) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -213,7 +213,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2ERS3_NS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, i8 noundef zeroext %2) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5ERS3_NS4_14UpdateStrategyE) align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %4, i64 noundef 16) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -241,7 +241,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2EPS3_NS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5EPS3_NS4_14UpdateStrategyE) align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %4, i64 noundef 16) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -269,7 +269,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2ERS2_RS3_NS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull align 8 dereferenceable(1200) %1, ptr noundef nonnull align 8 dereferenceable(148) %2, i8 noundef zeroext %3) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5ERS2_RS3_NS4_14UpdateStrategyE) align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %5, i64 noundef 16) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -299,7 +299,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC2EPS2_PS3_NS4_14UpdateStrategyE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 comdat($_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEEC5EPS2_PS3_NS4_14UpdateStrategyE) align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull %5, i64 noundef 16) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -343,7 +343,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 _ZN4llvm11SmallPtrSetIPNS_17MachineBasicBlockELj8EED2Ev.exit: ; preds = %1, %7
   %8 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(272) %0) #11
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELj16EED2Ev.exit, label %12
 
@@ -422,7 +422,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
 
 18:                                               ; preds = %13
   %19 = zext i32 %9 to i64
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
   %.not1317.i.i = icmp eq i32 %9, 0
   br i1 %.not1317.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -433,12 +433,12 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
   br i1 %22, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE8containsEPKS1_.exit, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.01118.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 8
   %.not13.i.i = icmp eq ptr %24, %20
   br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %23, %18
-  %25 = getelementptr inbounds ptr, ptr %15, i64 %19
+  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %19
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE8containsEPKS1_.exit
 
 26:                                               ; preds = %13
@@ -459,7 +459,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
   %32 = load i32, ptr %31, align 8
   %.v.v.i14.i.i = select i1 %29, i32 %30, i32 %32
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
-  %33 = getelementptr inbounds ptr, ptr %.pre.i, i64 %.v.i15.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.v.i15.i.i
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE8containsEPKS1_.exit
 
 _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE8containsEPKS1_.exit: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i, %28
@@ -472,7 +472,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE8containsEPKS1_.exit: ; pred
   %39 = load i32, ptr %38, align 8
   %.v.v.i.i = select i1 %37, i32 %34, i32 %39
   %.v.i.i = zext i32 %.v.v.i.i to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %.v.i.i
+  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %.v.i.i
   %41 = icmp ne ptr %.0.i.i, %40
   br label %42
 
@@ -578,7 +578,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   br i1 %16, label %17, label %_ZN4llvm15SmallVectorImplINS_3cfg6UpdateIPNS_17MachineBasicBlockEEEE7reserveEm.exit
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %14, i64 noundef 16) #11
   br label %_ZN4llvm15SmallVectorImplINS_3cfg6UpdateIPNS_17MachineBasicBlockEEEE7reserveEm.exit
 
@@ -588,13 +588,13 @@ _ZN4llvm15SmallVectorImplINS_3cfg6UpdateIPNS_17MachineBasicBlockEEEE7reserveEm.e
   br i1 %.not2026, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplINS_3cfg6UpdateIPNS_17MachineBasicBlockEEEE7reserveEm.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph, %35
   %.027 = phi ptr [ %1, %.lr.ph ], [ %36, %35 ]
   %.sroa.05.0.copyload = load ptr, ptr %.027, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %.027, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
   %22 = and i64 %.sroa.26.0.copyload, -8
   %23 = inttoptr i64 %22 to ptr
@@ -617,7 +617,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE
   %31 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %32 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %30, i64 %31
   store ptr %.sroa.05.0.copyload, ptr %32, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %.sroa.26.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
   %33 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %34 = add i64 %33, 1
@@ -625,7 +625,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE
   br label %35
 
 35:                                               ; preds = %21, %_ZN4llvm23SmallVectorTemplateBaseINS_3cfg6UpdateIPNS_17MachineBasicBlockEEELb1EE9push_backES5_.exit
-  %36 = getelementptr inbounds i8, ptr %.027, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %.not20 = icmp eq ptr %36, %19
   br i1 %.not20, label %.loopexit, label %21
 
@@ -681,19 +681,19 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   br i1 %or.cond, label %_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull %13, i64 noundef 8) #11
-  %14 = getelementptr inbounds i8, ptr %4, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %14, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull %19, i64 noundef 8) #11
   %20 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %1, i64 %2
   %.not2244 = icmp eq i64 %2, 0
@@ -702,7 +702,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
 .lr.ph:                                           ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit.thread
@@ -750,25 +750,25 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   br i1 %45, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %35
   br i1 %49, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %35
   br i1 %53, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit51, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %35
   br i1 %57, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit53, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %60 = add nsw i64 %.047.i.i.i.i.i, -1
   %61 = icmp sgt i64 %.047.i.i.i.i.i, 1
   br i1 %61, label %43, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !6
@@ -792,7 +792,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   br i1 %65, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %66, %._crit_edge.i.i.i.i.i
@@ -802,7 +802,7 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   br i1 %69, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i, label %70
 
 70:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %71 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %70, %._crit_edge.i.i.i.i.i
@@ -817,15 +817,15 @@ define weak_odr void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdater
   br i1 %.not68, label %_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit.thread, label %82
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %46
-  %76 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit51: ; preds = %50
-  %77 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit53: ; preds = %54
-  %78 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i: ; preds = %43, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit51, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit53, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %63
@@ -871,7 +871,7 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominato
   %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink67) #11
   %97 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %95, i64 %96
   store ptr %.sroa.01.0.copyload, ptr %97, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %97, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 %.sroa.22.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
   %98 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink67) #11
   %99 = add i64 %98, 1
@@ -879,7 +879,7 @@ _ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominato
   br label %_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit.thread
 
 _ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit.thread: ; preds = %_ZNK4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE13isUpdateValidENS_3cfg6UpdateIPNS_17MachineBasicBlockEEE.exit.thread.sink.split, %74, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.i, %24, %30
-  %100 = getelementptr inbounds i8, ptr %.045, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.045, i64 16
   %.not22 = icmp eq ptr %100, %20
   br i1 %.not22, label %._crit_edge, label %24
 
@@ -940,7 +940,7 @@ _ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5countERKS4_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %29
@@ -969,7 +969,7 @@ define linkonce_odr hidden noundef i64 @_ZNK4llvm8SmallSetISt4pairIPNS_17Machine
   br i1 %19, label %_ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5vfindERKS4_.exit, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.0811.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
   %.not.i = icmp eq ptr %21, %9
   br i1 %.not.i, label %._crit_edge.i, label %13, !llvm.loop !7
 
@@ -988,9 +988,9 @@ _ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5vfindER
   br label %57
 
 29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not11.i.i.i = icmp eq ptr %31, null
   br i1 %.not11.i.i.i, label %_ZNKSt3setISt4pairIPN4llvm17MachineBasicBlockES3_ESt4lessIS4_ESaIS4_EE5countERKS4_.exit, label %.lr.ph.i.i.i
 
@@ -1065,7 +1065,7 @@ _ZNKSt3setISt4pairIPN4llvm17MachineBasicBlockES3_ESt4lessIS4_ESaIS4_EE5countERKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE6insertERKS4_(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.28") align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %11, label %7
@@ -1102,7 +1102,7 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlo
   br i1 %24, label %_ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5vfindERKS4_.exit, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %.0811.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 16
   %.not.i = icmp eq ptr %26, %14
   br i1 %.not.i, label %._crit_edge.i, label %18, !llvm.loop !7
 
@@ -1135,7 +1135,7 @@ _ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5vfindER
 
 38:                                               ; preds = %33
   %.sroa.05.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.26.0.copyload = load ptr, ptr %.sroa.26.0..sroa_idx, align 8
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   %40 = add i64 %39, 1
@@ -1144,7 +1144,7 @@ _ZNK4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EE5vfindER
   br i1 %.not.i.i.i, label %42, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_17MachineBasicBlockES3_ELb1EE9push_backES4_.exit
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %43, i64 noundef %40, i64 noundef 16) #11
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_17MachineBasicBlockES3_ELb1EE9push_backES4_.exit
 
@@ -1153,7 +1153,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_17MachineBasicBlockES3_ELb1EE9push
   %45 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   %46 = getelementptr inbounds %"struct.std::pair", ptr %44, i64 %45
   store ptr %.sroa.05.0.copyload, ptr %46, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.sroa.26.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
   %47 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   %48 = add i64 %47, 1
@@ -1224,25 +1224,25 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
   br i1 %18, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %5
   br i1 %22, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %5
   br i1 %26, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit26, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %5
   br i1 %30, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit28, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
   %33 = add nsw i64 %.047.i.i.i.i, -1
   %34 = icmp sgt i64 %.047.i.i.i.i, 1
   br i1 %34, label %16, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !6
@@ -1266,7 +1266,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
   br i1 %38, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %39
@@ -1276,7 +1276,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
   br i1 %42, label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit, label %43
 
 43:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %44 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %43
@@ -1289,15 +1289,15 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm21GenericDomTreeUpdaterINS_21Machin
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %19
-  %48 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit26: ; preds = %23
-  %49 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %27
-  %50 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit
 
 _ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit: ; preds = %16, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit26, %_ZN4llvm12is_containedINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEbOT_RKT0_.exit.loopexit.split.loop.exit28, %36, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %47
@@ -1754,7 +1754,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MachineDomTreeUpdater19forceFlush
   %14 = load i32, ptr %13, align 8
   %.v.v.i4.i2.i = select i1 %12, i32 %4, i32 %14
   %.v.i5.i3.i = zext i32 %.v.v.i4.i2.i to i64
-  %15 = getelementptr inbounds ptr, ptr %10, i64 %.v.i5.i3.i
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %.v.i5.i3.i
   %.not3.i4.i.i6.i4.i = icmp eq i32 %.v.v.i4.i2.i, 0
   br i1 %.not3.i4.i.i6.i4.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5beginEv.exit, label %.lr.ph.i5.i.i7.i5.i
 
@@ -1765,7 +1765,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MachineDomTreeUpdater19forceFlush
   br i1 %switch.i6.i.i8.i7.i, label %.critedge2.i7.i.i9.i11.i, label %_ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5beginEv.exit
 
 .critedge2.i7.i.i9.i11.i:                         ; preds = %.lr.ph.i5.i.i7.i5.i
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.3.i6.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i6.i, i64 8
   %.not.i8.i.i10.i12.i = icmp eq ptr %17, %15
   br i1 %.not.i8.i.i10.i12.i, label %._crit_edge, label %.lr.ph.i5.i.i7.i5.i, !llvm.loop !10
 
@@ -1779,7 +1779,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5beginEv.exit: ; preds = %.l
   %18 = load ptr, ptr %.sroa.06.010, align 8
   tail call void @_ZN4llvm21GenericDomTreeUpdaterINS_21MachineDomTreeUpdaterENS_20MachineDominatorTreeENS_24MachinePostDominatorTreeEE14eraseDelBBNodeEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %18)
   tail call void @_ZN4llvm17MachineBasicBlock15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(288) %18) #11
-  %19 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not3.i3.i = icmp eq ptr %19, %15
   br i1 %.not3.i3.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_17MachineBasicBlockEEppEv.exit, label %.lr.ph.i4.i
 
@@ -1790,7 +1790,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE5beginEv.exit: ; preds = %.l
   br i1 %switch.i5.i, label %.critedge2.i6.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_17MachineBasicBlockEEppEv.exit
 
 .critedge2.i6.i:                                  ; preds = %.lr.ph.i4.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.06.1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.06.1, i64 8
   %.not.i7.i = icmp eq ptr %21, %15
   br i1 %.not.i7.i, label %_ZN4llvm19SmallPtrSetIteratorIPNS_17MachineBasicBlockEEppEv.exit, label %.lr.ph.i4.i, !llvm.loop !10
 
@@ -1932,7 +1932,7 @@ define dso_local void @_ZN4llvm21MachineDomTreeUpdater8deleteBBEPNS_17MachineBas
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %14 = load i32, ptr %13, align 4, !noalias !11
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
   %.not24.i.i = icmp eq i32 %14, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1943,7 +1943,7 @@ define dso_local void @_ZN4llvm21MachineDomTreeUpdater8deleteBBEPNS_17MachineBas
   br i1 %18, label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %20, %16
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
@@ -2030,8 +2030,8 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlockES3_ES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE16_M_insert_uniqueIRKS4_EES0_ISt17_Rb_tree_iteratorIS4_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02124.i = load ptr, ptr %3, align 8
   %.not25.i = icmp eq ptr %.02124.i, null
   br i1 %.not25.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -2077,7 +2077,7 @@ _ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i.th
 
 ._crit_edge.thread.i:                             ; preds = %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i, %2
   %.020.lcssa31.i = phi ptr [ %4, %2 ], [ %.02126.i, %_ZNKSt4lessISt4pairIPN4llvm17MachineBasicBlockES3_EEclERKS4_S7_.exit.thread.i ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %.020.lcssa31.i, %19
   br i1 %20, label %33, label %21
@@ -2139,7 +2139,7 @@ _ZNSt8_Rb_treeISt4pairIPN4llvm17MachineBasicBlockES3_ES4_St9_IdentityIS4_ESt4les
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %48, ptr noundef nonnull %49, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #11
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, 1
   store i64 %53, ptr %51, align 8

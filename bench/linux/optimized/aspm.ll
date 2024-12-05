@@ -105,9 +105,9 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %18 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
   store i32 0, ptr %18, align 4, !annotation !5
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %21
   br i1 %23, label %.loopexit, label %.preheader
@@ -115,7 +115,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 .preheader:                                       ; preds = %1, %39
   %24 = phi ptr [ %40, %39 ], [ %20, %1 ]
   %25 = phi ptr [ %41, %39 ], [ %22, %1 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 100
   %27 = load i8, ptr %26, align 4
   %.not.not = icmp ne i8 %27, 0
   br i1 %.not.not, label %28, label %.loopexit
@@ -138,14 +138,14 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br label %39
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %25, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %38, ptr noundef nonnull @.str.1) #15
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %38, ptr noundef nonnull @.str.1) #15
   br label %.loopexit
 
 39:                                               ; preds = %._crit_edge, %28
   %40 = phi ptr [ %.pre, %._crit_edge ], [ %24, %28 ]
   %41 = load ptr, ptr %25, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !6
 
@@ -156,13 +156,13 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %45, label %593, label %46
 
 46:                                               ; preds = %.loopexit
-  %47 = getelementptr inbounds i8, ptr %0, i64 168
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %593
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 106
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 208
   %54 = icmp eq i16 %53, 64
@@ -176,9 +176,9 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %593
@@ -186,7 +186,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 66:                                               ; preds = %60, %58
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
   %67 = load ptr, ptr %19, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load volatile ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %68
   br i1 %70, label %592, label %71
@@ -199,13 +199,13 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %74, label %pcie_aspm_update_sysfs_visibility.exit, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %73, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store volatile ptr %76, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %73, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store volatile ptr %76, ptr %77, align 8
   store ptr %0, ptr %73, align 8
   %78 = load ptr, ptr %19, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   br label %80
 
 80:                                               ; preds = %84, %75
@@ -215,7 +215,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %83, label %89, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %82, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 7
   %88 = icmp eq i32 %87, 0
@@ -223,7 +223,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 89:                                               ; preds = %84, %80
   %90 = phi ptr [ %82, %84 ], [ null, %80 ]
-  %91 = getelementptr inbounds i8, ptr %73, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %90, ptr %91, align 8
   %92 = load i16, ptr %51, align 2
   %93 = lshr i16 %92, 4
@@ -234,17 +234,17 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   ]
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %111, label %103
 
 103:                                              ; preds = %95
-  %104 = getelementptr inbounds i8, ptr %101, i64 168
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 168
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread, label %107
@@ -254,18 +254,18 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br label %pcie_aspm_update_sysfs_visibility.exit
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %73, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %105, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %105, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %110 = load ptr, ptr %109, align 8
   br label %111
 
 111:                                              ; preds = %89, %89, %95, %107
   %.sink = phi ptr [ %110, %107 ], [ %73, %95 ], [ %73, %89 ], [ %73, %89 ]
-  %112 = getelementptr inbounds i8, ptr %73, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %.sink, ptr %112, align 8
   %113 = load ptr, ptr @link_list, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %76, ptr %114, align 8
   store ptr %113, ptr %76, align 8
   store ptr @link_list, ptr %77, align 8
@@ -277,16 +277,16 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #14
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
   br i1 %44, label %126, label %119
 
 119:                                              ; preds = %111
-  %120 = getelementptr inbounds i8, ptr %73, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %121 = load i32, ptr %120, align 8
   %122 = or i32 %121, 16256
   store i32 %122, ptr %120, align 8
-  %123 = getelementptr inbounds i8, ptr %73, i64 52
+  %123 = getelementptr inbounds nuw i8, ptr %73, i64 52
   %124 = load i16, ptr %123, align 4
   %125 = or i16 %124, 127
   store i16 %125, ptr %123, align 4
@@ -312,11 +312,11 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false), !annotation !5
   %135 = load ptr, ptr %73, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 100
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 100
   %141 = load i8, ptr %140, align 4
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %143, label %144, !prof !10
@@ -359,8 +359,8 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %166, label %167, label %.preheader16.i, !llvm.loop !13
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %135, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %168, ptr noundef nonnull @.str.4) #15
+  %168 = getelementptr inbounds nuw i8, ptr %135, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %168, ptr noundef nonnull @.str.4) #15
   br label %169
 
 169:                                              ; preds = %167, %157, %144
@@ -374,7 +374,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %174 = call i32 @pcie_capability_read_word(ptr noundef %173, i32 noundef 16, ptr noundef nonnull %12) #14
   %175 = load i16, ptr %12, align 2
   %176 = and i16 %175, 64
-  %177 = getelementptr inbounds i8, ptr %173, i64 56
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 56
   %178 = load i32, ptr %177, align 8
   %179 = and i32 %178, 7
   %180 = zext nneg i32 %179 to i64
@@ -393,15 +393,15 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %188, label %.loopexit17.i, label %189
 
 189:                                              ; preds = %.loopexit15.i
-  %190 = getelementptr inbounds i8, ptr %135, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %190, ptr noundef nonnull @.str.5) #15
+  %190 = getelementptr inbounds nuw i8, ptr %135, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %190, ptr noundef nonnull @.str.5) #15
   %191 = load ptr, ptr %138, align 8
   %192 = icmp eq ptr %191, %138
   br i1 %192, label %.loopexit13.i, label %.preheader12.i
 
 .preheader12.i:                                   ; preds = %189, %.preheader12.i
   %193 = phi ptr [ %201, %.preheader12.i ], [ %191, %189 ]
-  %194 = getelementptr inbounds i8, ptr %193, i64 56
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 56
   %195 = load i32, ptr %194, align 8
   %196 = and i32 %195, 7
   %197 = zext nneg i32 %196 to i64
@@ -431,7 +431,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %212, label %217, label %213
 
 213:                                              ; preds = %.loopexit17.i
-  %214 = getelementptr inbounds i8, ptr %73, i64 48
+  %214 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %215 = load i32, ptr %214, align 8
   %216 = or i32 %215, 3
   store i32 %216, ptr %214, align 8
@@ -444,7 +444,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %220, label %225, label %221
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %73, i64 48
+  %222 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %223 = load i32, ptr %222, align 8
   %224 = or i32 %223, 128
   store i32 %224, ptr %222, align 8
@@ -457,7 +457,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %228, label %233, label %229
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %73, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %231 = load i32, ptr %230, align 8
   %232 = or i32 %231, 256
   store i32 %232, ptr %230, align 8
@@ -469,7 +469,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %235, label %240, label %236
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds i8, ptr %73, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %238 = load i32, ptr %237, align 8
   %239 = or i32 %238, 4
   store i32 %239, ptr %237, align 8
@@ -482,7 +482,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %243, label %248, label %244
 
 244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %73, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %246 = load i32, ptr %245, align 8
   %247 = or i32 %246, 512
   store i32 %247, ptr %245, align 8
@@ -499,13 +499,13 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   store i32 0, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   store i32 0, ptr %11, align 4
-  %251 = getelementptr inbounds i8, ptr %250, i64 176
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 176
   %252 = load i16, ptr %251, align 8
   %253 = icmp eq i16 %252, 0
   br i1 %253, label %512, label %254
 
 254:                                              ; preds = %248
-  %255 = getelementptr inbounds i8, ptr %249, i64 176
+  %255 = getelementptr inbounds nuw i8, ptr %249, i64 176
   %256 = load i16, ptr %255, align 8
   %257 = icmp eq i16 %256, 0
   br i1 %257, label %512, label %258
@@ -540,7 +540,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 
 276:                                              ; preds = %275, %270
   %277 = phi i32 [ 0, %275 ], [ %272, %270 ]
-  %278 = getelementptr inbounds i8, ptr %249, i64 178
+  %278 = getelementptr inbounds nuw i8, ptr %249, i64 178
   %279 = load i8, ptr %278, align 2
   %280 = and i8 %279, 1
   %281 = icmp eq i8 %280, 0
@@ -559,7 +559,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %288, label %293, label %289
 
 289:                                              ; preds = %284
-  %290 = getelementptr inbounds i8, ptr %73, i64 48
+  %290 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %291 = load i32, ptr %290, align 8
   %292 = or i32 %291, 8
   store i32 %292, ptr %290, align 8
@@ -571,7 +571,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %295, label %300, label %296
 
 296:                                              ; preds = %293
-  %297 = getelementptr inbounds i8, ptr %73, i64 48
+  %297 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %298 = load i32, ptr %297, align 8
   %299 = or i32 %298, 16
   store i32 %299, ptr %297, align 8
@@ -583,7 +583,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %302, label %307, label %303
 
 303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %73, i64 48
+  %304 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %305 = load i32, ptr %304, align 8
   %306 = or i32 %305, 32
   store i32 %306, ptr %304, align 8
@@ -595,7 +595,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %309, label %314, label %310
 
 310:                                              ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %73, i64 48
+  %311 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %312 = load i32, ptr %311, align 8
   %313 = or i32 %312, 64
   store i32 %313, ptr %311, align 8
@@ -634,7 +634,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %334, label %339, label %335
 
 335:                                              ; preds = %329
-  %336 = getelementptr inbounds i8, ptr %73, i64 48
+  %336 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %337 = load i32, ptr %336, align 8
   %338 = or i32 %337, 1024
   store i32 %338, ptr %336, align 8
@@ -646,7 +646,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %341, label %346, label %342
 
 342:                                              ; preds = %339
-  %343 = getelementptr inbounds i8, ptr %73, i64 48
+  %343 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %344 = load i32, ptr %343, align 8
   %345 = or i32 %344, 2048
   store i32 %345, ptr %343, align 8
@@ -655,7 +655,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
 346:                                              ; preds = %342, %339
   %347 = and i32 %332, 2
   %348 = icmp eq i32 %347, 0
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i8, ptr %73, i64 48
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %73, i64 48
   %.pre18.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 8
   br i1 %348, label %._crit_edge12, label %349
 
@@ -671,7 +671,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   br i1 %352, label %._crit_edge.i, label %353
 
 353:                                              ; preds = %._crit_edge12
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %73, i64 48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %73, i64 48
   %354 = or i32 %.pre18.i, 8192
   store i32 %354, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
@@ -731,8 +731,8 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   unreachable
 
 382:                                              ; preds = %358
-  %383 = getelementptr inbounds i8, ptr %362, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %383, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
+  %383 = getelementptr inbounds nuw i8, ptr %362, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %383, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %384
 
 384:                                              ; preds = %382, %380, %378, %376
@@ -757,8 +757,8 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   br label %394
 
 392:                                              ; preds = %384
-  %393 = getelementptr inbounds i8, ptr %361, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %393, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
+  %393 = getelementptr inbounds nuw i8, ptr %361, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %393, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %394
 
 394:                                              ; preds = %392, %390, %388, %386
@@ -790,8 +790,8 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   br label %421
 
 407:                                              ; preds = %397
-  %408 = getelementptr inbounds i8, ptr %362, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %408, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
+  %408 = getelementptr inbounds nuw i8, ptr %362, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %408, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %421
 
 409:                                              ; preds = %394
@@ -818,8 +818,8 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   br label %421
 
 419:                                              ; preds = %409
-  %420 = getelementptr inbounds i8, ptr %361, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %420, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
+  %420 = getelementptr inbounds nuw i8, ptr %361, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %420, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.calc_l12_pwron, i32 noundef 3) #15
   br label %421
 
 421:                                              ; preds = %419, %417, %415, %413, %407, %405, %403, %401
@@ -845,7 +845,7 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   %441 = and i32 %440, 67043328
   %442 = or disjoint i32 %441, %439
   %443 = or disjoint i32 %442, %435
-  %444 = getelementptr inbounds i8, ptr %362, i64 176
+  %444 = getelementptr inbounds nuw i8, ptr %362, i64 176
   %445 = load i16, ptr %444, align 8
   %446 = zext i16 %445 to i32
   %447 = add nuw nsw i32 %446, 8
@@ -854,7 +854,7 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   %450 = zext i16 %449 to i32
   %451 = add nuw nsw i32 %450, 12
   %452 = call i32 @pci_read_config_dword(ptr noundef %362, i32 noundef %451, ptr noundef nonnull %5) #14
-  %453 = getelementptr inbounds i8, ptr %361, i64 176
+  %453 = getelementptr inbounds nuw i8, ptr %361, i64 176
   %454 = load i16, ptr %453, align 8
   %455 = zext i16 %454 to i32
   %456 = add nuw nsw i32 %455, 8
@@ -941,21 +941,21 @@ default.unreachable:                              ; preds = %409, %397, %384, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
-  %513 = getelementptr inbounds i8, ptr %73, i64 48
+  %513 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %514 = load i32, ptr %513, align 8
   %515 = shl i32 %514, 14
   %516 = and i32 %514, -268419073
   %517 = and i32 %515, 268419072
   %518 = or disjoint i32 %517, %516
   store i32 %518, ptr %513, align 8
-  %519 = getelementptr inbounds i8, ptr %118, i64 40
+  %519 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %520 = load ptr, ptr %519, align 8
   %521 = icmp eq ptr %520, %519
   br i1 %521, label %pcie_aspm_cap_init.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %512, %528
   %522 = phi ptr [ %529, %528 ], [ %520, %512 ]
-  %523 = getelementptr inbounds i8, ptr %522, i64 106
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 106
   %524 = load i16, ptr %523, align 2
   %525 = and i16 %524, 224
   %526 = icmp eq i16 %525, 0
@@ -978,9 +978,9 @@ pcie_aspm_cap_init.exit:                          ; preds = %528, %119, %126, %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #14
   %531 = load ptr, ptr %73, align 8
-  %532 = getelementptr inbounds i8, ptr %531, i64 24
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 24
   %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 40
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 40
   %535 = load ptr, ptr %534, align 8
   %536 = icmp eq ptr %535, %534
   br i1 %536, label %pcie_clkpm_cap_init.exit, label %.preheader.preheader.i
@@ -1018,7 +1018,7 @@ pcie_aspm_cap_init.exit:                          ; preds = %528, %119, %126, %5
 pcie_clkpm_cap_init.exit:                         ; preds = %pcie_aspm_cap_init.exit, %551
   %555 = phi i16 [ 1, %pcie_aspm_cap_init.exit ], [ %554, %551 ]
   %556 = phi i16 [ 128, %pcie_aspm_cap_init.exit ], [ %553, %551 ]
-  %557 = getelementptr inbounds i8, ptr %73, i64 52
+  %557 = getelementptr inbounds nuw i8, ptr %73, i64 52
   %558 = load i16, ptr %557, align 4
   %559 = shl nuw nsw i16 %555, 8
   %560 = and i16 %558, -1921
@@ -1062,18 +1062,18 @@ pcie_clkpm_cap_init.exit:                         ; preds = %pcie_aspm_cap_init.
 
 580:                                              ; preds = %578, %pcie_clkpm_cap_init.exit
   %581 = load ptr, ptr %19, align 8
-  %582 = getelementptr inbounds i8, ptr %581, i64 40
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 40
   %583 = load ptr, ptr %582, align 8
   %584 = icmp eq ptr %583, %582
   br i1 %584, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8
 
 .preheader.i8:                                    ; preds = %580, %.preheader.i8
   %585 = phi ptr [ %588, %.preheader.i8 ], [ %583, %580 ]
-  %586 = getelementptr inbounds i8, ptr %585, i64 184
-  %587 = call i32 @sysfs_update_group(ptr noundef %586, ptr noundef nonnull @aspm_ctrl_attr_group) #14
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 184
+  %587 = call i32 @sysfs_update_group(ptr noundef nonnull %586, ptr noundef nonnull @aspm_ctrl_attr_group) #14
   %588 = load ptr, ptr %585, align 8
   %589 = load ptr, ptr %19, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 40
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 40
   %591 = icmp eq ptr %588, %590
   br i1 %591, label %pcie_aspm_update_sysfs_visibility.exit, label %.preheader.i8, !llvm.loop !18
 
@@ -1118,7 +1118,7 @@ define internal fastcc void @pcie_config_aspm_path(ptr nocapture noundef nonnull
   br label %12
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 21
   %11 = and i32 %10, 127
@@ -1127,7 +1127,7 @@ define internal fastcc void @pcie_config_aspm_path(ptr nocapture noundef nonnull
 12:                                               ; preds = %7, %6, %5, %2
   %13 = phi i32 [ %11, %7 ], [ 127, %6 ], [ 7, %5 ], [ 0, %2 ]
   tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %3, i32 noundef %13)
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %2, !llvm.loop !19
@@ -1138,7 +1138,7 @@ define internal fastcc void @pcie_config_aspm_path(ptr nocapture noundef nonnull
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pcie_set_clkpm(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 52
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, 1152
   %6 = icmp eq i16 %5, 128
@@ -1151,10 +1151,10 @@ define internal fastcc void @pcie_set_clkpm(ptr nocapture noundef nonnull %0, i3
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq i32 %7, 0
-  %17 = getelementptr inbounds i8, ptr %15, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   %.pre3 = select i1 %16, i16 0, i16 256
@@ -1193,15 +1193,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcie_aspm_exit_link_state(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %86, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %86, label %11
@@ -1210,29 +1210,29 @@ define dso_local void @pcie_aspm_exit_link_state(ptr nocapture noundef readonly 
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
   tail call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call fastcc void @pcie_config_aspm_link(ptr noundef %12, i32 noundef 0)
-  %17 = getelementptr inbounds i8, ptr %12, i64 32
-  %18 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %18, align 8
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   store ptr null, ptr %23, align 8
   tail call void @kfree(ptr noundef %12) #14
   %24 = icmp eq ptr %16, null
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds i8, ptr %14, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %32, !prof !21
@@ -1284,16 +1284,16 @@ define dso_local void @pcie_aspm_exit_link_state(ptr nocapture noundef readonly 
 53:                                               ; preds = %.preheader6.i
   %54 = getelementptr i8, ptr %49, i64 -32
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %58
   br i1 %60, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %53, %67
   %61 = phi ptr [ %68, %67 ], [ %59, %53 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 106
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 106
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 224
   %65 = icmp eq i16 %64, 0
@@ -1332,7 +1332,7 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
   br label %81
 
 76:                                               ; preds = %pcie_update_aspm_capable.exit
-  %77 = getelementptr inbounds i8, ptr %72, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %78 = load i32, ptr %77, align 8
   %79 = lshr i32 %78, 21
   %80 = and i32 %79, 127
@@ -1341,7 +1341,7 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
 81:                                               ; preds = %76, %75, %74, %pcie_update_aspm_capable.exit
   %82 = phi i32 [ %80, %76 ], [ 127, %75 ], [ 7, %74 ], [ 0, %pcie_update_aspm_capable.exit ]
   tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %72, i32 noundef %82)
-  %83 = getelementptr inbounds i8, ptr %72, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.loopexit, label %pcie_update_aspm_capable.exit, !llvm.loop !19
@@ -1357,15 +1357,15 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = lshr i32 %9, 14
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %12 = load i16, ptr %11, align 4
   %13 = xor i16 %12, -1
   %14 = zext i16 %13 to i32
@@ -1375,13 +1375,13 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
   %18 = icmp eq i32 %17, 0
   %19 = and i32 %16, 3
   %20 = select i1 %18, i32 %19, i32 %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %4, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %._crit_edge, label %28
@@ -1417,12 +1417,12 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
   br i1 %46, label %79, label %47
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %4, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %49 = load i16, ptr %48, align 8
   %50 = zext i16 %49 to i32
   %51 = add nuw nsw i32 %50, 8
   tail call void @pci_clear_and_set_config_dword(ptr noundef %4, i32 noundef %51, i32 noundef 15, i32 noundef 0) #14
-  %52 = getelementptr inbounds i8, ptr %5, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %53 = load i16, ptr %52, align 8
   %54 = zext i16 %53 to i32
   %55 = add nuw nsw i32 %54, 8
@@ -1467,7 +1467,7 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
   br label %83
 
 83:                                               ; preds = %80, %79
-  %84 = getelementptr inbounds i8, ptr %7, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, %84
   br i1 %86, label %.loopexit, label %87
@@ -1506,7 +1506,7 @@ define internal fastcc void @pcie_config_aspm_link(ptr nocapture noundef %0, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcie_aspm_pm_state_change(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = load i1, ptr @aspm_disabled, align 4
   %6 = icmp eq ptr %4, null
@@ -1519,9 +1519,9 @@ define dso_local void @pcie_aspm_pm_state_change(ptr nocapture noundef readonly 
 9:                                                ; preds = %8
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
   tail call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18, !prof !21
@@ -1573,16 +1573,16 @@ define dso_local void @pcie_aspm_pm_state_change(ptr nocapture noundef readonly 
 39:                                               ; preds = %.preheader6.i
   %40 = getelementptr i8, ptr %35, i64 -32
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %44
   br i1 %46, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %39, %53
   %47 = phi ptr [ %54, %53 ], [ %45, %39 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 106
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 106
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 224
   %51 = icmp eq i16 %50, 0
@@ -1621,7 +1621,7 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
   br label %67
 
 62:                                               ; preds = %pcie_update_aspm_capable.exit
-  %63 = getelementptr inbounds i8, ptr %58, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %64 = load i32, ptr %63, align 8
   %65 = lshr i32 %64, 21
   %66 = and i32 %65, 127
@@ -1630,7 +1630,7 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
 67:                                               ; preds = %62, %61, %60, %pcie_update_aspm_capable.exit
   %68 = phi i32 [ %66, %62 ], [ 127, %61 ], [ 7, %60 ], [ 0, %pcie_update_aspm_capable.exit ]
   tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %58, i32 noundef %68)
-  %69 = getelementptr inbounds i8, ptr %58, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %pcie_update_aspm_capable.exit, !llvm.loop !19
@@ -1642,9 +1642,9 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
 
 73:                                               ; preds = %8
   tail call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
-  %74 = getelementptr inbounds i8, ptr %4, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %82, !prof !21
@@ -1696,16 +1696,16 @@ pcie_update_aspm_capable.exit:                    ; preds = %pcie_update_aspm_ca
 103:                                              ; preds = %.preheader6.i5
   %104 = getelementptr i8, ptr %99, i64 -32
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, %108
   br i1 %110, label %.loopexit.i6, label %.preheader.i7
 
 .preheader.i7:                                    ; preds = %103, %117
   %111 = phi ptr [ %118, %117 ], [ %109, %103 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 106
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 106
   %113 = load i16, ptr %112, align 2
   %114 = and i16 %113, 224
   %115 = icmp eq i16 %114, 0
@@ -1744,7 +1744,7 @@ pcie_update_aspm_capable.exit8:                   ; preds = %pcie_update_aspm_ca
   br label %131
 
 126:                                              ; preds = %pcie_update_aspm_capable.exit8
-  %127 = getelementptr inbounds i8, ptr %122, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 48
   %128 = load i32, ptr %127, align 8
   %129 = lshr i32 %128, 21
   %130 = and i32 %129, 127
@@ -1753,7 +1753,7 @@ pcie_update_aspm_capable.exit8:                   ; preds = %pcie_update_aspm_ca
 131:                                              ; preds = %126, %125, %124, %pcie_update_aspm_capable.exit8
   %132 = phi i32 [ %130, %126 ], [ 127, %125 ], [ 7, %124 ], [ 0, %pcie_update_aspm_capable.exit8 ]
   tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %122, i32 noundef %132)
-  %133 = getelementptr inbounds i8, ptr %122, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %pcie_update_aspm_capable.exit8, !llvm.loop !19
@@ -1768,7 +1768,7 @@ pcie_update_aspm_capable.exit8:                   ; preds = %pcie_update_aspm_ca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = load i1, ptr @aspm_disabled, align 4
   %5 = icmp eq ptr %3, null
@@ -1802,7 +1802,7 @@ define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef rea
   br label %22
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %13, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = lshr i32 %19, 21
   %21 = and i32 %20, 127
@@ -1811,7 +1811,7 @@ define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef rea
 22:                                               ; preds = %17, %16, %15, %12
   %23 = phi i32 [ %21, %17 ], [ 127, %16 ], [ 7, %15 ], [ 0, %12 ]
   tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %13, i32 noundef %23)
-  %24 = getelementptr inbounds i8, ptr %13, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %12, !llvm.loop !19
@@ -1828,7 +1828,7 @@ define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef rea
   br label %36
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %32 = load i16, ptr %31, align 4
   %33 = lshr i16 %32, 9
   %34 = and i16 %33, 1
@@ -1837,7 +1837,7 @@ define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef rea
 
 36:                                               ; preds = %30, %29, %27
   %37 = phi i32 [ %35, %30 ], [ 1, %29 ], [ 0, %27 ]
-  %38 = getelementptr inbounds i8, ptr %3, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 1152
   %41 = icmp eq i16 %40, 128
@@ -1850,10 +1850,10 @@ define dso_local void @pcie_aspm_powersave_config_link(ptr nocapture noundef rea
 
 47:                                               ; preds = %36
   %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq i32 %42, 0
-  %52 = getelementptr inbounds i8, ptr %50, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %52
   %.pre5 = select i1 %51, i16 0, i16 256
@@ -1894,33 +1894,33 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_disable_link_state_locked(pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 100
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.thread5, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread5, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread5, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread5, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread5, label %25
@@ -1930,8 +1930,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %28, ptr noundef nonnull @.str.7) #15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %28, ptr noundef nonnull @.str.7) #15
   br label %.thread5
 
 29:                                               ; preds = %25
@@ -1949,7 +1949,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %23, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %37 = load i16, ptr %36, align 4
   %38 = or i16 %37, 3
   store i16 %38, ptr %36, align 4
@@ -1961,7 +1961,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %23, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %44 = load i16, ptr %43, align 4
   %45 = or i16 %44, 124
   store i16 %45, ptr %43, align 4
@@ -1973,7 +1973,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %23, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %51 = load i16, ptr %50, align 4
   %52 = or i16 %51, 8
   store i16 %52, ptr %50, align 4
@@ -1985,7 +1985,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %23, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %58 = load i16, ptr %57, align 4
   %59 = or i16 %58, 16
   store i16 %59, ptr %57, align 4
@@ -1997,7 +1997,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %23, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %65 = load i16, ptr %64, align 4
   %66 = or i16 %65, 32
   store i16 %66, ptr %64, align 4
@@ -2009,7 +2009,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %23, i64 52
+  %71 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %72 = load i16, ptr %71, align 4
   %73 = or i16 %72, 64
   store i16 %73, ptr %71, align 4
@@ -2030,7 +2030,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br label %83
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %23, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %80 = load i32, ptr %79, align 8
   %81 = lshr i32 %80, 21
   %82 = and i32 %81, 127
@@ -2044,7 +2044,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %23, i64 52
+  %88 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %89 = load i16, ptr %88, align 4
   %90 = or i16 %89, 1024
   store i16 %90, ptr %88, align 4
@@ -2062,7 +2062,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
   br label %100
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %23, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %96 = load i16, ptr %95, align 4
   %97 = lshr i16 %96, 9
   %98 = and i16 %97, 1
@@ -2071,7 +2071,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
 
 100:                                              ; preds = %94, %93, %91
   %101 = phi i32 [ %99, %94 ], [ 1, %93 ], [ 0, %91 ]
-  %102 = getelementptr inbounds i8, ptr %23, i64 52
+  %102 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %103 = load i16, ptr %102, align 4
   %104 = and i16 %103, 1152
   %105 = icmp eq i16 %104, 128
@@ -2084,10 +2084,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_disable_link_state(p
 
 111:                                              ; preds = %100
   %112 = load ptr, ptr %23, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq i32 %106, 0
-  %116 = getelementptr inbounds i8, ptr %114, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %116
   %.pre6 = select i1 %115, i16 0, i16 256
@@ -2138,33 +2138,33 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_link_state(ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 100
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.thread5, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread5, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread5, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread5, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread5, label %25
@@ -2174,8 +2174,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(pt
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %28, ptr noundef nonnull @.str.8) #15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %28, ptr noundef nonnull @.str.8) #15
   br label %.thread5
 
 29:                                               ; preds = %25
@@ -2187,7 +2187,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(pt
 
 31:                                               ; preds = %30, %29
   tail call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
-  %32 = getelementptr inbounds i8, ptr %23, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, -266338305
   %35 = zext i32 %1 to i64
@@ -2235,7 +2235,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(pt
 60:                                               ; preds = %57, %56, %55, %31
   %61 = phi i32 [ %59, %57 ], [ 127, %56 ], [ 7, %55 ], [ 0, %31 ]
   tail call fastcc void @pcie_config_aspm_link(ptr noundef nonnull %23, i32 noundef %61)
-  %62 = getelementptr inbounds i8, ptr %23, i64 52
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %63 = trunc i32 %1 to i16
   %64 = load i16, ptr %62, align 4
   %65 = shl i16 %63, 7
@@ -2272,10 +2272,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__pci_enable_link_state(pt
 
 84:                                               ; preds = %75
   %85 = load ptr, ptr %23, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq i32 %79, 0
-  %89 = getelementptr inbounds i8, ptr %87, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, %89
   %.pre7 = select i1 %88, i16 0, i16 256
@@ -2320,39 +2320,39 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_link_state_locked(ptr
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @pcie_aspm_enabled(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 100
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.thread2, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread2, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread2, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 100
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %17 = load i8, ptr %16, align 4
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.thread2, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread2, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16256
   %27 = icmp ne i32 %26, 0
@@ -2373,25 +2373,25 @@ define internal zeroext i16 @aspm_ctrl_attrs_are_visible(ptr nocapture noundef r
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread3, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread3, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread3, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = load i1, ptr @aspm_disabled, align 4
   %25 = icmp eq ptr %23, null
@@ -2403,14 +2403,14 @@ define internal zeroext i16 @aspm_ctrl_attrs_are_visible(ptr nocapture noundef r
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %23, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %31 = load i16, ptr %30, align 4
   %32 = and i16 %31, 128
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %.thread3, label %46
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %23, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %36 = load i32, ptr %35, align 8
   %37 = lshr i32 %36, 14
   %38 = and i32 %37, 127
@@ -2424,7 +2424,7 @@ define internal zeroext i16 @aspm_ctrl_attrs_are_visible(ptr nocapture noundef r
   br i1 %45, label %.thread3, label %46
 
 46:                                               ; preds = %34, %29
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i16, ptr %47, align 8
   br label %.thread3
 
@@ -2507,7 +2507,7 @@ define internal fastcc void @pcie_aspm_check_latency(ptr nocapture noundef reado
   store i32 0, ptr %2, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   store i32 0, ptr %3, align 4, !annotation !5
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
     i32 0, label %6
@@ -2515,12 +2515,12 @@ define internal fastcc void @pcie_aspm_check_latency(ptr nocapture noundef reado
   ]
 
 6:                                                ; preds = %1, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 168
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 6
   %15 = and i32 %14, 7
@@ -2539,9 +2539,9 @@ define internal fastcc void @pcie_aspm_check_latency(ptr nocapture noundef reado
   %25 = phi ptr [ %93, %90 ], [ %23, %6 ]
   %26 = phi i32 [ %91, %90 ], [ 0, %6 ]
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   br label %31
 
 31:                                               ; preds = %35, %.preheader
@@ -2551,7 +2551,7 @@ define internal fastcc void @pcie_aspm_check_latency(ptr nocapture noundef reado
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %33, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 7
   %39 = icmp eq i32 %38, 0
@@ -2583,7 +2583,7 @@ define internal fastcc void @pcie_aspm_check_latency(ptr nocapture noundef reado
   %63 = icmp eq i32 %62, 7
   %64 = shl nuw nsw i32 1000, %62
   %65 = select i1 %63, i32 65000, i32 %64
-  %66 = getelementptr inbounds i8, ptr %25, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 16384
   %69 = icmp ne i32 %68, 0
@@ -2623,7 +2623,7 @@ define internal fastcc void @pcie_aspm_check_latency(ptr nocapture noundef reado
 
 90:                                               ; preds = %88, %83, %80
   %91 = add i32 %26, 1000
-  %92 = getelementptr inbounds i8, ptr %25, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !29
@@ -2747,10 +2747,10 @@ thread-pre-split:                                 ; preds = %59
 
 44:                                               ; preds = %33
   %45 = load ptr, ptr %15, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq i32 %39, 0
-  %49 = getelementptr inbounds i8, ptr %47, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %49
   %.pre7 = select i1 %48, i16 0, i16 256
@@ -2834,31 +2834,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @clkpm_show(ptr nocapture
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 52
   %26 = load i16, ptr %25, align 4
   %27 = lshr i16 %26, 8
   %28 = and i16 %27, 1
@@ -2879,25 +2879,25 @@ define internal noundef i64 @clkpm_store(ptr nocapture noundef readonly %0, ptr 
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %0, i64 -168
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 100
   %21 = load i8, ptr %20, align 4
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %17, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %25 = load ptr, ptr %24, align 8
   br label %.thread
 
@@ -2913,7 +2913,7 @@ define internal noundef i64 @clkpm_store(ptr nocapture noundef readonly %0, ptr 
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #14
   call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
   %30 = load i8, ptr %5, align 1, !range !32, !noundef !33
-  %31 = getelementptr inbounds i8, ptr %26, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %32 = load i16, ptr %31, align 4
   %33 = xor i8 %30, 1
   %34 = zext nneg i8 %33 to i16
@@ -2950,10 +2950,10 @@ define internal noundef i64 @clkpm_store(ptr nocapture noundef readonly %0, ptr 
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %26, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq i32 %48, 0
-  %58 = getelementptr inbounds i8, ptr %56, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %58
   %.pre4 = select i1 %57, i16 0, i16 256
@@ -3004,31 +3004,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @l0s_aspm_show(ptr nocapt
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 384
   %28 = icmp ne i32 %27, 0
@@ -3055,25 +3055,25 @@ define internal fastcc noundef i64 @aspm_attr_store_common(ptr nocapture noundef
 9:                                                ; preds = %4
   %10 = getelementptr i8, ptr %0, i64 -168
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 100
   %21 = load i8, ptr %20, align 4
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %17, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %25 = load ptr, ptr %24, align 8
   br label %.thread
 
@@ -3090,7 +3090,7 @@ define internal fastcc noundef i64 @aspm_attr_store_common(ptr nocapture noundef
   call void @mutex_lock(ptr noundef nonnull @aspm_lock) #14
   %30 = load i8, ptr %5, align 1, !range !32, !noundef !33
   %31 = icmp eq i8 %30, 0
-  %32 = getelementptr inbounds i8, ptr %26, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %33 = load i16, ptr %32, align 4
   br i1 %31, label %44, label %34
 
@@ -3144,7 +3144,7 @@ define internal fastcc noundef i64 @aspm_attr_store_common(ptr nocapture noundef
   br label %65
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %26, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %62 = load i32, ptr %61, align 8
   %63 = lshr i32 %62, 21
   %64 = and i32 %63, 127
@@ -3173,31 +3173,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @l1_aspm_show(ptr nocaptu
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 9
   %28 = and i32 %27, 1
@@ -3222,31 +3222,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @l1_1_aspm_show(ptr nocap
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 10
   %28 = and i32 %27, 1
@@ -3271,31 +3271,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @l1_2_aspm_show(ptr nocap
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 11
   %28 = and i32 %27, 1
@@ -3320,31 +3320,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @l1_1_pcipm_show(ptr noca
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 12
   %28 = and i32 %27, 1
@@ -3369,31 +3369,31 @@ define internal range(i64 -2147483648, 2147483648) i64 @l1_2_pcipm_show(ptr noca
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %0, i64 -168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 100
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %23 = load ptr, ptr %22, align 8
   br label %.thread
 
 .thread:                                          ; preds = %7, %21, %17, %13, %3
   %24 = phi ptr [ %23, %21 ], [ null, %3 ], [ null, %17 ], [ null, %13 ], [ null, %7 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = lshr i32 %26, 13
   %28 = and i32 %27, 1

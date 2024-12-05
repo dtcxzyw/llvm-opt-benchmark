@@ -63,7 +63,7 @@ gv_calloc.exit:                                   ; preds = %9
 
 gv_calloc.exit78:                                 ; preds = %23
   tail call void @srand(i32 noundef %2) #14
-  %30 = getelementptr inbounds double, ptr %11, i64 %5
+  %30 = getelementptr inbounds nuw double, ptr %11, i64 %5
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -74,7 +74,7 @@ gv_calloc.exit78:                                 ; preds = %23
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %31 = tail call double @drand() #14
-  %32 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   store double %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -121,10 +121,10 @@ gv_calloc.exit78:                                 ; preds = %23
 
 .lr.ph85.us:                                      ; preds = %.preheader79.split.us, %.lr.ph85.us
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph85.us ], [ 0, %.preheader79.split.us ]
-  %47 = getelementptr inbounds double, ptr %24, i64 %indvars.iv102
+  %47 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv102
   %48 = load double, ptr %47, align 8
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds double, ptr %49, i64 %indvars.iv102
+  %50 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv102
   store double %48, ptr %50, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count106
@@ -142,12 +142,12 @@ gv_calloc.exit78:                                 ; preds = %23
 54:                                               ; preds = %.lr.ph90.us, %54
   %indvars.iv108 = phi i64 [ 0, %.lr.ph90.us ], [ %indvars.iv.next109, %54 ]
   %.16587.us = phi double [ 0.000000e+00, %.lr.ph90.us ], [ %61, %54 ]
-  %55 = getelementptr inbounds double, ptr %53, i64 %indvars.iv108
+  %55 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv108
   %56 = load double, ptr %55, align 8
   %57 = fmul double %.063.us, %56
-  %58 = getelementptr inbounds double, ptr %24, i64 %indvars.iv108
+  %58 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv108
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds double, ptr %30, i64 %indvars.iv108
+  %59 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv108
   %60 = load double, ptr %59, align 8
   %61 = call double @llvm.fmuladd.f64(double %57, double %60, double %.16587.us)
   store double %57, ptr %59, align 8
@@ -164,11 +164,11 @@ gv_calloc.exit78:                                 ; preds = %23
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv97 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next98, %.lr.ph83 ]
-  %65 = getelementptr inbounds double, ptr %24, i64 %indvars.iv97
+  %65 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv97
   %66 = load double, ptr %65, align 8
   %67 = fmul double %.064, %66
   store double %67, ptr %65, align 8
-  %68 = getelementptr inbounds double, ptr %30, i64 %indvars.iv97
+  %68 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv97
   store double %67, ptr %68, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100

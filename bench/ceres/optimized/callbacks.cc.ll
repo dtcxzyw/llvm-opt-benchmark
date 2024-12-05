@@ -59,9 +59,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5ceres8internal21StateUpdatingCallbackC2EPNS0_7ProgramEPd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21StateUpdatingCallbackE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %5, align 8
   ret void
 }
@@ -87,9 +87,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN5ceres8internal21StateUpdatingCallbackclERKNS_16IterationSummaryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 @_ZN5ceres8internal7Program28StateVectorToParameterBlocksEPKd(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %6)
   %8 = load ptr, ptr %3, align 8
@@ -104,11 +104,11 @@ declare void @_ZN5ceres8internal7Program34CopyParameterBlockStateToUserStateEv(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallbackC2EiPKdPd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal42GradientProblemSolverStateUpdatingCallbackE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %7, align 8
   ret void
 }
@@ -128,21 +128,21 @@ define hidden void @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallba
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN5ceres8internal42GradientProblemSolverStateUpdatingCallbackclERKNS_16IterationSummaryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 1
   br i1 %9, label %_ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit, label %_ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i
 
 _ZSt8__copy_nIPKdiPdET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %8 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 3
@@ -157,9 +157,9 @@ _ZSt6copy_nIPKdiPdET1_T_T0_S3_.exit:              ; preds = %_ZSt8__copy_nIPKdiP
 define hidden void @_ZN5ceres8internal15LoggingCallbackC2ENS_13MinimizerTypeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 13)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal15LoggingCallbackE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %4, ptr %6, align 4
   ret void
 }
@@ -185,7 +185,7 @@ define hidden noundef i32 @_ZN5ceres8internal15LoggingCallbackclERKNS_16Iteratio
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"class.google::LogMessage", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %61 [
     i32 0, label %10
@@ -194,21 +194,21 @@ define hidden noundef i32 @_ZN5ceres8internal15LoggingCallbackclERKNS_16Iteratio
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %27 = load double, ptr %26, align 8
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str, i32 noundef %11, double noundef %13, double noundef %15, double noundef %17, double noundef %19, double noundef %21, i32 noundef %23, double noundef %25, double noundef %27)
           to label %28 unwind label %30
@@ -237,23 +237,23 @@ define hidden noundef i32 @_ZN5ceres8internal15LoggingCallbackclERKNS_16Iteratio
 
 37:                                               ; preds = %._crit_edge, %32
   %38 = phi i32 [ %.pre, %._crit_edge ], [ %33, %32 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load double, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %56 = load double, ptr %55, align 8
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.2, i32 noundef %38, double noundef %40, double noundef %42, double noundef %44, double noundef %46, double noundef %48, double noundef %50, i32 noundef %52, double noundef %54, double noundef %56)
           to label %57 unwind label %30
@@ -293,7 +293,7 @@ define hidden noundef i32 @_ZN5ceres8internal15LoggingCallbackclERKNS_16Iteratio
 69:                                               ; preds = %57, %28
   %.sink = phi ptr [ %4, %28 ], [ %5, %57 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #11
-  %70 = getelementptr inbounds i8, ptr %0, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %71 = load i8, ptr %70, align 4
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %77

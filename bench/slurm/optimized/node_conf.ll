@@ -167,7 +167,7 @@ define void @build_all_nodeline_info(i1 noundef zeroext %0, i32 noundef %1) #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @config_record_from_conf_node(ptr noundef %8, i32 noundef %1)
   %10 = call i32 @expand_nodeline_info(ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef nonnull @_check_callback)
@@ -187,9 +187,9 @@ define void @build_all_nodeline_info(i1 noundef zeroext %0, i32 noundef %1) #0 {
 
 .lr.ph16:                                         ; preds = %11, %.lr.ph16
   %15 = phi ptr [ %20, %.lr.ph16 ], [ %14, %11 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %19 = call i32 @node_name2bitmap(ptr noundef %17, i1 noundef zeroext true, ptr noundef nonnull %18)
   %20 = call ptr @list_next(ptr noundef %13) #15
   %.not = icmp eq ptr %20, null
@@ -246,7 +246,7 @@ define void @rehash_node() #0 {
 
 next_node.exit:                                   ; preds = %.preheader.i
   %12 = trunc nsw i64 %indvars.iv to i32
-  %13 = getelementptr inbounds i8, ptr %10, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %22, label %16
@@ -305,7 +305,7 @@ define range(i32 0, 23) i32 @hostlist2bitmap(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not19.us, label %18, label %14
 
 14:                                               ; preds = %.lr.ph.split.us
-  %15 = getelementptr inbounds i8, ptr %13, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   tail call void @bit_set(ptr noundef %9, i64 noundef %17) #15
@@ -329,7 +329,7 @@ define range(i32 0, 23) i32 @hostlist2bitmap(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not19, label %28, label %24
 
 24:                                               ; preds = %.lr.ph.split
-  %25 = getelementptr inbounds i8, ptr %23, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 192
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   tail call void @bit_set(ptr noundef %9, i64 noundef %27) #15
@@ -421,7 +421,7 @@ define ptr @bitmap2hostlist(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %21, label %next_node_bitmap.exit.thread, label %.lr.ph.i
 
 next_node_bitmap.exit:                            ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %15, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 256
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @hostlist_push_host(ptr noundef %4, ptr noundef %23) #15
   %25 = add nuw nsw i32 %.09, 1
@@ -545,48 +545,48 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define noundef ptr @config_record_from_conf_node(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.20, i32 noundef 733, ptr noundef nonnull @__func__.create_config_record) #15
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1067061779, ptr %4, align 8
   store i16 1, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i16 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i16 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i16 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i32 1, ptr %10, align 8
   %11 = load ptr, ptr @config_list, align 8
   tail call void @list_append(ptr noundef %11, ptr noundef nonnull %3) #15
   %12 = tail call i64 @time(ptr noundef null) #15
   store i64 %12, ptr @last_node_update, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i16, ptr %13, align 8
   store i16 %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 78
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %16 = load i16, ptr %15, align 2
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %16, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %19 = load i16, ptr %18, align 4
   store i16 %19, ptr %5, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @xstrdup(ptr noundef %24) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 60
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %28 = load i16, ptr %27, align 4
   store i16 %28, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %36, label %31
@@ -598,47 +598,47 @@ define noundef ptr @config_record_from_conf_node(ptr nocapture noundef readonly 
 
 33:                                               ; preds = %31
   %34 = tail call ptr @xstrdup(ptr noundef nonnull %30) #15
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %34, ptr %35, align 8
   br label %36
 
 36:                                               ; preds = %33, %31, %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %38, ptr %39, align 8
   %40 = load ptr, ptr %0, align 8
   %41 = tail call ptr @xstrdup(ptr noundef %40) #15
-  %42 = getelementptr inbounds i8, ptr %3, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load i16, ptr %45, align 8
   store i16 %46, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 92
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 74
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %51 = load i16, ptr %50, align 2
   store i16 %51, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 136
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %53 = load i32, ptr %52, align 8
   store i32 %53, ptr %10, align 8
   %.not42 = icmp eq i32 %1, 0
   br i1 %.not42, label %62, label %54
 
 54:                                               ; preds = %36
-  %55 = getelementptr inbounds i8, ptr %0, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @xstrdup(ptr noundef %56) #15
-  %58 = getelementptr inbounds i8, ptr %3, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr %55, align 8
   %60 = tail call ptr @slurm_get_tres_weight_array(ptr noundef %59, i32 noundef %1, i1 noundef zeroext true) #15
-  %61 = getelementptr inbounds i8, ptr %3, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %60, ptr %61, align 8
   br label %62
 
@@ -647,11 +647,11 @@ define noundef ptr @config_record_from_conf_node(ptr nocapture noundef readonly 
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %0, align 8
   %68 = tail call ptr @gres_name_filter(ptr noundef %66, ptr noundef %67) #15
-  %69 = getelementptr inbounds i8, ptr %3, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %68, ptr %69, align 8
   br label %70
 
@@ -662,20 +662,20 @@ define noundef ptr @config_record_from_conf_node(ptr nocapture noundef readonly 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @create_config_record() local_unnamed_addr #0 {
   %1 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.20, i32 noundef 733, ptr noundef nonnull @__func__.create_config_record) #15
-  %2 = getelementptr inbounds i8, ptr %1, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 -1067061779, ptr %2, align 8
   store i16 1, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i16 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i16 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i16 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 1, ptr %8, align 8
   %9 = load ptr, ptr @config_list, align 8
   tail call void @list_append(ptr noundef %9, ptr noundef nonnull %1) #15
@@ -712,7 +712,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %.not142 = icmp eq ptr %14, null
   br i1 %.not142, label %21, label %15
@@ -730,7 +730,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 21:                                               ; preds = %15, %12
   %.0110 = phi i32 [ %16, %15 ], [ 0, %12 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @hostlist_create(ptr noundef %23) #15
   %.not143 = icmp eq ptr %24, null
@@ -753,7 +753,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @hostlist_create(ptr noundef %34) #15
   %.not145 = icmp eq ptr %35, null
@@ -765,7 +765,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @hostlist_create(ptr noundef %40) #15
   %.not146 = icmp eq ptr %41, null
@@ -777,7 +777,7 @@ define i32 @expand_nodeline_info(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
   %.not147 = icmp eq ptr %46, null
   br i1 %.not147, label %56, label %47
@@ -1071,37 +1071,37 @@ define internal range(i32 0, 2170) i32 @_check_callback(ptr noundef %0, ptr noun
   ]
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %17, i64 304
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 304
   store i32 %5, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %18, %18, %21
-  %24 = getelementptr inbounds i8, ptr %17, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 224
   store i64 0, ptr %24, align 8
   %25 = tail call ptr @xstrdup(ptr noundef %2) #15
-  %26 = getelementptr inbounds i8, ptr %17, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 76
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 76
   store i32 %28, ptr %29, align 4
   %30 = tail call ptr @xstrdup(ptr noundef %1) #15
-  %31 = getelementptr inbounds i8, ptr %17, i64 272
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 272
   store ptr %30, ptr %31, align 8
   %32 = tail call ptr @xstrdup(ptr noundef %3) #15
-  %33 = getelementptr inbounds i8, ptr %17, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %17, i64 336
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 336
   store i16 %4, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @xstrdup(ptr noundef %36) #15
-  %38 = getelementptr inbounds i8, ptr %17, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 144
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @xstrdup(ptr noundef %40) #15
-  %42 = getelementptr inbounds i8, ptr %17, i64 368
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 368
   store ptr %41, ptr %42, align 8
   br label %create_node_record.exit
 
@@ -1152,7 +1152,7 @@ define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext
   br i1 %.not23.us, label %22, label %18
 
 18:                                               ; preds = %.lr.ph.split.us
-  %19 = getelementptr inbounds i8, ptr %17, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 192
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   tail call void @bit_set(ptr noundef %6, i64 noundef %21) #15
@@ -1181,7 +1181,7 @@ define range(i32 0, 23) i32 @node_name2bitmap(ptr noundef %0, i1 noundef zeroext
   br i1 %.not23, label %34, label %30
 
 30:                                               ; preds = %.lr.ph.split
-  %31 = getelementptr inbounds i8, ptr %29, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 192
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   tail call void @bit_set(ptr noundef %6, i64 noundef %33) #15
@@ -1213,28 +1213,28 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 512
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 0) #15
   br label %51
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %51, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 496
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 296
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %18 = load ptr, ptr %17, align 8
   %.not35 = icmp eq ptr %18, null
   br i1 %.not35, label %20, label %19
@@ -1271,7 +1271,7 @@ define range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) local_unname
 
 33:                                               ; preds = %.lr.ph
   %34 = or disjoint i64 %indvars.iv, 1
-  %35 = getelementptr inbounds i32, ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = sdiv i32 %36, %28
   %38 = icmp ugt i32 %37, %16
@@ -1288,7 +1288,7 @@ define range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) local_unname
   %44 = zext nneg i32 %.0 to i64
   tail call void @bit_nclear(ptr noundef %42, i64 noundef %43, i64 noundef %44) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %45 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next
   %46 = load i32, ptr %45, align 4
   %.not36 = icmp eq i32 %46, -1
   br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !16
@@ -1297,7 +1297,7 @@ define range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) local_unname
   %47 = load ptr, ptr %17, align 8
   %48 = tail call i32 @bit_clear_count(ptr noundef %47) #15
   %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i16 %49, ptr %50, align 8
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %51
@@ -1468,7 +1468,7 @@ define void @grow_node_record_table_ptr() local_unnamed_addr #0 {
 
 next_node.exit.i:                                 ; preds = %.preheader.i.i
   %22 = trunc nsw i64 %indvars.iv.i to i32
-  %23 = getelementptr inbounds i8, ptr %20, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %32, label %26
@@ -1559,98 +1559,98 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %17 = sext i32 %0 to i64
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
   store ptr %15, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 192
   store i32 %0, ptr %19, align 8
   %20 = tail call ptr @xstrdup(ptr noundef %1) #15
-  %21 = getelementptr inbounds i8, ptr %15, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr @node_hash_table, align 8
   %23 = tail call ptr @xhash_add(ptr noundef %22, ptr noundef %15) #15
   %24 = load i32, ptr @active_node_record_count, align 4
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr @active_node_record_count, align 4
-  %26 = getelementptr inbounds i8, ptr %15, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 232
   store i32 233141741, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %15, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store i32 0, ptr %27, align 8
   %28 = tail call ptr @acct_gather_energy_alloc(i16 noundef zeroext 1) #15
-  %29 = getelementptr inbounds i8, ptr %15, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store ptr %28, ptr %29, align 8
   %30 = tail call ptr @ext_sensors_alloc() #15
-  %31 = getelementptr inbounds i8, ptr %15, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 120
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store i64 -2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %15, i64 264
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 264
   store i32 -2, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 320
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 320
   store i32 -2, ptr %34, align 8
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
   %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds i8, ptr %15, i64 336
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 336
   store i16 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 352
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 352
   store i16 9984, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 400
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 400
   store i16 -2, ptr %39, align 8
   %40 = tail call zeroext i1 @running_in_slurmctld() #15
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %14
   %42 = tail call ptr @select_g_select_nodeinfo_alloc() #15
-  %43 = getelementptr inbounds i8, ptr %15, i64 432
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 432
   store ptr %42, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %41, %14
-  %45 = getelementptr inbounds i8, ptr %15, i64 452
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 452
   store i32 -2, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %15, i64 456
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 456
   store i16 -2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %15, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %2, ptr %47, align 8
   %48 = load i16, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %15, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i16 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %51 = load i16, ptr %50, align 2
-  %52 = getelementptr inbounds i8, ptr %15, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i16 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %54 = load i16, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %15, i64 74
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 74
   store i16 %54, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %57 = load i16, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %15, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i16 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %15, i64 248
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 248
   store i64 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %15, i64 360
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 360
   store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %66 = load i16, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %15, i64 488
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 488
   store i16 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 92
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %15, i64 492
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 492
   store i32 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %72 = load i16, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %15, i64 498
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 498
   store i16 %72, ptr %73, align 2
   %74 = load i16, ptr %53, align 4
   %75 = mul i16 %74, %72
-  %76 = getelementptr inbounds i8, ptr %15, i64 496
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 496
   store i16 %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %15, i64 516
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 516
   store i32 %78, ptr %79, align 4
   %80 = load i16, ptr %56, align 8
   %.not.i = icmp ult i16 %75, %80
@@ -1662,12 +1662,12 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
 
 83:                                               ; preds = %81, %44
   %.sink.i = phi i16 [ %82, %81 ], [ 1, %44 ]
-  %84 = getelementptr inbounds i8, ptr %15, i64 512
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 512
   store i16 %.sink.i, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @xstrdup(ptr noundef %86) #15
-  %88 = getelementptr inbounds i8, ptr %15, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store ptr %87, ptr %88, align 8
   %.not55.i = icmp eq ptr %87, null
   br i1 %.not55.i, label %116, label %89
@@ -1689,7 +1689,7 @@ define ptr @create_node_record_at(i32 noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %15, i64 296
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 296
   br label %99
 
 99:                                               ; preds = %110, %.lr.ph.i.i
@@ -1752,7 +1752,7 @@ _convert_cpu_spec_list.exit.i:                    ; preds = %115, %._crit_edge.i
   %123 = load i16, ptr %76, align 8
   %124 = zext i16 %123 to i64
   %125 = tail call ptr @bit_alloc(i64 noundef %124) #15
-  %126 = getelementptr inbounds i8, ptr %15, i64 296
+  %126 = getelementptr inbounds nuw i8, ptr %15, i64 296
   store ptr %125, ptr %126, align 8
   tail call void @bit_set_all(ptr noundef %125) #15
   %127 = load i8, ptr @spec_cores_first, align 1
@@ -1844,7 +1844,7 @@ _init_node_record.exit:                           ; preds = %89, %_convert_cpu_s
   %170 = load i16, ptr %84, align 8
   %171 = mul i16 %170, %169
   %172 = sub i16 %168, %171
-  %173 = getelementptr inbounds i8, ptr %15, i64 106
+  %173 = getelementptr inbounds nuw i8, ptr %15, i64 106
   store i16 %172, ptr %173, align 2
   br label %174
 
@@ -1874,7 +1874,7 @@ define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, p
 
 8:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %11, label %25
@@ -1887,15 +1887,15 @@ define range(i32 0, 2170) i32 @add_node_record(ptr noundef %0, ptr noundef %1, p
   br i1 %.not16, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load ptr, ptr %15, align 8
   tail call void @bit_set(ptr noundef %16, i64 noundef %indvars.iv) #15
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 184
   tail call void @gres_init_node_config(ptr noundef %21, ptr noundef nonnull %22) #15
   %.pre = load ptr, ptr %2, align 8
   %23 = icmp eq ptr %.pre, null
@@ -1935,7 +1935,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %41
@@ -1951,7 +1951,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %15, null
   br i1 %.not18, label %16, label %18
@@ -1976,18 +1976,18 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %22, %18
   %26 = load ptr, ptr @node_record_table_ptr, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   store ptr %0, ptr %27, align 8
   %28 = load ptr, ptr %14, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
   tail call void @bit_clear(ptr noundef %30, i64 noundef %33) #15
   store i32 %9, ptr %31, align 8
   %34 = load ptr, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %36 = load ptr, ptr %35, align 8
   tail call void @bit_set(ptr noundef %36, i64 noundef %indvars.iv) #15
   %37 = load ptr, ptr @node_hash_table, align 8
@@ -2004,7 +2004,7 @@ define void @insert_node_record(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %41, %1
-  %42 = getelementptr inbounds i8, ptr %0, i64 256
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %43) #15
   br label %45
@@ -2029,10 +2029,10 @@ declare void @slurm_conf_add_node(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @node_record_table_ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
   store ptr null, ptr %6, align 8
   %7 = load i32, ptr %3, align 8
   %8 = load i32, ptr @last_node_index, align 4
@@ -2052,7 +2052,7 @@ define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   %16 = add nsw i64 %indvars.iv, -1
-  %17 = getelementptr inbounds ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %12, label %19, !llvm.loop !23
@@ -2070,13 +2070,13 @@ define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load i32, ptr @active_node_record_count, align 4
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr @active_node_record_count, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %_delete_node_config_ptr.exit, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %28 = load ptr, ptr %27, align 8
   %.not12.i = icmp eq ptr %28, null
   br i1 %.not12.i, label %31, label %29
@@ -2131,7 +2131,7 @@ define void @delete_node_record(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.i.i, label %.preheader.i.i, label %.critedge.i, !llvm.loop !6
 
 next_node.exit.i:                                 ; preds = %.preheader.i.i
-  %45 = getelementptr inbounds i8, ptr %43, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %32
   br i1 %47, label %_delete_node_config_ptr.exit, label %38
@@ -2151,15 +2151,15 @@ define void @purge_node_rec(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   tail call void @slurm_xfree(ptr noundef %0) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %3) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %4) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @slurm_xfree(ptr noundef nonnull %5) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @slurm_xfree(ptr noundef nonnull %6) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -2170,13 +2170,13 @@ define void @purge_node_rec(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %9, %1
   store ptr null, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @slurm_xfree(ptr noundef nonnull %11) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @slurm_xfree(ptr noundef nonnull %12) #15
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @slurm_xfree(ptr noundef nonnull %13) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load ptr, ptr %14, align 8
   %.not2 = icmp eq ptr %15, null
   br i1 %.not2, label %17, label %16
@@ -2187,17 +2187,17 @@ define void @purge_node_rec(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %16, %10
   store ptr null, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @slurm_xfree(ptr noundef nonnull %18) #15
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @slurm_xfree(ptr noundef nonnull %19) #15
-  %20 = getelementptr inbounds i8, ptr %0, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @slurm_xfree(ptr noundef nonnull %20) #15
-  %21 = getelementptr inbounds i8, ptr %0, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @slurm_xfree(ptr noundef nonnull %21) #15
-  %22 = getelementptr inbounds i8, ptr %0, i64 272
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @slurm_xfree(ptr noundef nonnull %22) #15
-  %23 = getelementptr inbounds i8, ptr %0, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %24 = load ptr, ptr %23, align 8
   %.not3 = icmp eq ptr %24, null
   br i1 %.not3, label %26, label %25
@@ -2208,37 +2208,37 @@ define void @purge_node_rec(ptr noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %25, %17
   store ptr null, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @slurm_xfree(ptr noundef nonnull %27) #15
-  %28 = getelementptr inbounds i8, ptr %0, i64 328
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @slurm_xfree(ptr noundef nonnull %28) #15
-  %29 = getelementptr inbounds i8, ptr %0, i64 368
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 368
   tail call void @slurm_xfree(ptr noundef nonnull %29) #15
-  %30 = getelementptr inbounds i8, ptr %0, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @slurm_xfree(ptr noundef nonnull %30) #15
-  %31 = getelementptr inbounds i8, ptr %0, i64 504
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 504
   tail call void @slurm_xfree(ptr noundef nonnull %31) #15
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load ptr, ptr %32, align 8
   tail call void @acct_gather_energy_destroy(ptr noundef %33) #15
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load ptr, ptr %34, align 8
   tail call void @ext_sensors_destroy(ptr noundef %35) #15
   %36 = tail call zeroext i1 @running_in_slurmctld() #15
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %0, i64 432
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @select_g_select_nodeinfo_free(ptr noundef %39) #15
   br label %41
 
 41:                                               ; preds = %37, %26
-  %42 = getelementptr inbounds i8, ptr %0, i64 480
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @slurm_xfree(ptr noundef nonnull %42) #15
-  %43 = getelementptr inbounds i8, ptr %0, i64 472
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 472
   tail call void @slurm_xfree(ptr noundef nonnull %43) #15
-  %44 = getelementptr inbounds i8, ptr %0, i64 464
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @slurm_xfree(ptr noundef nonnull %44) #15
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   ret void
@@ -2286,7 +2286,7 @@ define internal fastcc ptr @_find_node_record(ptr noundef %0, i1 noundef zeroext
   br i1 %.not17, label %31, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 256
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 256
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @xstrcmp(ptr noundef %25, ptr noundef nonnull @.str.36) #15
   %27 = icmp eq i32 %26, 0
@@ -2381,15 +2381,15 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 define internal void @_list_delete_config(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %3) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %4) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %5) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @slurm_xfree(ptr noundef nonnull %6) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -2400,9 +2400,9 @@ define internal void @_list_delete_config(ptr noundef %0) #0 {
 
 10:                                               ; preds = %9, %1
   store ptr null, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @slurm_xfree(ptr noundef nonnull %11) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @slurm_xfree(ptr noundef nonnull %12) #15
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   ret void
@@ -2493,7 +2493,7 @@ define i32 @node_name_get_inx(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %6 = load i32, ptr %5, align 8
   br label %.thread
 
@@ -2526,7 +2526,7 @@ declare ptr @xhash_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_node_record_hash_identity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
@@ -2567,16 +2567,16 @@ define void @cr_init_global_core_data(ptr nocapture noundef readonly %0, i32 nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %.021 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %30 ]
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %30, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %11, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 496
   %14 = load i16, ptr %13, align 8
   %15 = load ptr, ptr @cr_node_num_cores, align 8
-  %16 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
   store i16 %14, ptr %16, align 2
   %.not19 = icmp eq i64 %indvars.iv, 0
   %17 = load ptr, ptr @cr_node_cores_offset, align 8
@@ -2591,7 +2591,7 @@ define void @cr_init_global_core_data(ptr nocapture noundef readonly %0, i32 nou
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = add i32 %21, %25
-  %27 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
   %28 = trunc nuw i64 %indvars.iv to i32
   br label %30
@@ -2858,14 +2858,14 @@ define noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nocapture nou
   ]
 
 .preheader..critedge2_crit_edge:                  ; preds = %.preheader
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.pr.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.critedge2
 
 10:                                               ; preds = %.preheader
   %11 = tail call ptr @__ctype_b_loc() #18
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i64
   %16 = getelementptr inbounds i16, ptr %12, i64 %15
@@ -2876,11 +2876,11 @@ define noundef ptr @node_conf_nodestr_tokenize(ptr noundef %0, ptr nocapture nou
 
 .critedge2:                                       ; preds = %.preheader..critedge2_crit_edge, %10
   %.pr = phi i8 [ %.pr.pre, %.preheader..critedge2_crit_edge ], [ %14, %10 ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !27
 
 .critedge:                                        ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %.0, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 0, ptr %.0, align 1
   br label %.critedge.thread
 

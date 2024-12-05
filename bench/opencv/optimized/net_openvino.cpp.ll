@@ -66,14 +66,14 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net22readFromModelOptimizerERKNSt7__cxx1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr dead_on_unwind writable sret(%"class.cv::dnn::dnn4_v20240521::Net") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %14 unwind label %26
 
 14:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 8
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %17
@@ -142,7 +142,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -171,7 +171,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net22readFromModelOptimizerERKSt6vectorI
   %8 = alloca %"class.std::allocator", align 1
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3dnn14dnn4_v202405213Net22readFromModelOptimizerERKSt6vectorIhSaIhEES7_E25__cv_trace_location_fn833)
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %13, label %21
@@ -206,7 +206,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net22readFromModelOptimizerERKSt6vectorI
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %22, %24
   br i1 %25, label %26, label %34
@@ -250,7 +250,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net22readFromModelOptimizerERKSt6vectorI
           to label %41 unwind label %48
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = load i32, ptr %42, align 8
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %44
@@ -303,14 +303,14 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net22readFromModelOptimizerEPKhmS4_m(ptr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr dead_on_unwind writable sret(%"class.cv::dnn::dnn4_v20240521::Net") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4)
           to label %16 unwind label %28
 
 16:                                               ; preds = %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #9
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %19

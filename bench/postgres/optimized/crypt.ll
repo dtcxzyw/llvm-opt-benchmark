@@ -97,13 +97,13 @@ sub_0:
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %.not4 = icmp eq i8 %9, 100
   br i1 %.not4, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 53
   br i1 %12, label %13, label %.tail.thread
@@ -158,13 +158,13 @@ define dso_local ptr @encrypt_password(i32 noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %13 = load i8, ptr %12, align 1
   %.not4.i = icmp eq i8 %13, 100
   br i1 %.not4.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %14 = getelementptr inbounds i8, ptr %2, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 53
   br i1 %16, label %17, label %.tail.thread.i
@@ -283,13 +283,13 @@ define dso_local range(i32 -1, 1) i32 @md5_crypt_verify(ptr noundef %0, ptr noun
   br i1 %.not.i, label %sub_1.i, label %get_password_type.exit
 
 sub_1.i:                                          ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   %.not4.i = icmp eq i8 %17, 100
   br i1 %.not4.i, label %.tail.i, label %get_password_type.exit
 
 .tail.i:                                          ; preds = %sub_1.i
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 53
   br i1 %20, label %21, label %get_password_type.exit
@@ -376,13 +376,13 @@ define dso_local range(i32 -1, 1) i32 @plain_crypt_verify(ptr noundef %0, ptr no
   br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1
   %.not4.i = icmp eq i8 %15, 100
   br i1 %.not4.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 53
   br i1 %18, label %19, label %.tail.thread.i

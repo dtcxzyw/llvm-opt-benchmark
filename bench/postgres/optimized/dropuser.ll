@@ -185,15 +185,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 47:                                               ; preds = %43, %42
   %.164 = phi ptr [ %.163, %43 ], [ %37, %42 ]
   store ptr null, ptr %4, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.032, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.042, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.040, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %4, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.038, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %52, align 8
   %53 = call ptr @connectMaintenanceDatabase(ptr noundef nonnull %4, ptr noundef %8, i1 noundef zeroext %.036) #5
   call void @initPQExpBuffer(ptr noundef nonnull %5) #5

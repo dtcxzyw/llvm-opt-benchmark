@@ -30,7 +30,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @long_new(ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr nocapture noundef readonly %it) #1 {
 entry:
-  %size = getelementptr inbounds i8, ptr %it, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   store i64 %0, ptr %pval, align 8
   ret i32 1
@@ -39,7 +39,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @long_free(ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr nocapture noundef readonly %it) #1 {
 entry:
-  %size = getelementptr inbounds i8, ptr %it, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   store i64 %0, ptr %pval, align 8
   ret void
@@ -88,7 +88,7 @@ if.then10:                                        ; preds = %entry
   br i1 %tobool.not, label %if.end33, label %if.end24
 
 if.else16:                                        ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %cont, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cont, i64 1
   %2 = load i8, ptr %incdec.ptr, align 1
   %conv18 = zext i8 %2 to i64
   %xor = xor i64 %sign.0, %conv18
@@ -119,7 +119,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %utmp.047 = phi i64 [ 0, %for.body.preheader ], [ %or, %for.body ]
   %shl = shl i64 %utmp.047, 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %cont.addr.0263367, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %cont.addr.0263367, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %4 to i64
   %xor29 = xor i64 %sign.168, %conv28
@@ -144,7 +144,7 @@ if.end33:                                         ; preds = %if.then10, %if.end2
   %tobool34.not = icmp ne i64 %sign.16982, 0
   %sub36 = sext i1 %tobool34.not to i64
   %spec.select = xor i64 %utmp.0.lcssa83, %sub36
-  %size = getelementptr inbounds i8, ptr %it, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %5 = load i64, ptr %size, align 8
   %cmp38 = icmp eq i64 %spec.select, %5
   br i1 %cmp38, label %if.then40, label %if.end41
@@ -168,7 +168,7 @@ return:                                           ; preds = %if.end41, %if.then4
 define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr nocapture noundef readonly %pval, ptr noundef writeonly %cont, ptr nocapture readnone %putype, ptr nocapture noundef readonly %it) #3 {
 entry:
   %ltmp.0.copyload = load i64, ptr %pval, align 8
-  %size = getelementptr inbounds i8, ptr %it, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %ltmp.0.copyload, %0
   br i1 %cmp, label %return, label %if.end
@@ -206,7 +206,7 @@ if.then9:                                         ; preds = %num_bits_ulong.exit
 
 if.then11:                                        ; preds = %if.then9
   %conv = trunc nuw i64 %sign.0 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %cont, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cont, i64 1
   store i8 %conv, ptr %cont, align 1
   br label %if.end12
 
@@ -225,7 +225,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %xor = xor i64 %utmp.116, %sign.0
   %conv16 = trunc i64 %xor to i8
-  %arrayidx = getelementptr inbounds i8, ptr %cont.addr.0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw i8, ptr %cont.addr.0, i64 %indvars.iv.next
   store i8 %conv16, ptr %arrayidx, align 1
   %shr17 = lshr i64 %utmp.116, 8
   %cmp14 = icmp samesign ugt i64 %indvars.iv, 1

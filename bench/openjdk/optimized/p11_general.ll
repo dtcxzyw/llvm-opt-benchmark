@@ -63,7 +63,7 @@ declare ptr @createLockObject(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @prefetchFields(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #7
   store ptr %6, ptr @pNativeDataID, align 8
@@ -72,7 +72,7 @@ define hidden void @prefetchFields(ptr noundef %0, ptr noundef %1) local_unnamed
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #7
   %13 = icmp eq ptr %12, null
@@ -80,7 +80,7 @@ define hidden void @prefetchFields(ptr noundef %0, ptr noundef %1) local_unnamed
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1) #7
   store ptr %18, ptr @mech_mechanismID, align 8
@@ -89,7 +89,7 @@ define hidden void @prefetchFields(ptr noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #7
   store ptr %24, ptr @mech_pParameterID, align 8
@@ -98,7 +98,7 @@ define hidden void @prefetchFields(ptr noundef %0, ptr noundef %1) local_unnamed
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #7
   %31 = icmp eq ptr %30, null
@@ -110,7 +110,7 @@ fetchClass.exit.thread:                           ; preds = %26
 
 fetchClass.exit:                                  ; preds = %26
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 168
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull %30) #7
   store ptr %35, ptr @jByteArrayClass, align 8
@@ -119,7 +119,7 @@ fetchClass.exit:                                  ; preds = %26
 
 37:                                               ; preds = %fetchClass.exit
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #7
   %42 = icmp eq ptr %41, null
@@ -127,7 +127,7 @@ fetchClass.exit:                                  ; preds = %26
 
 43:                                               ; preds = %37
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef nonnull %41) #7
   br label %fetchClass.exit15
@@ -144,7 +144,7 @@ fetchClass.exit15:                                ; preds = %37, %43
 ; Function Attrs: nounwind uwtable
 define hidden ptr @fetchClass(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1) #7
   %7 = icmp eq ptr %6, null
@@ -152,7 +152,7 @@ define hidden ptr @fetchClass(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   br label %13
@@ -183,7 +183,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Initialize(ptr noundef %
 
 9:                                                ; preds = %6, %7
   %10 = phi ptr [ %8, %7 ], [ null, %6 ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 %12(ptr noundef %10) #7
   tail call void @free(ptr noundef %10) #7
@@ -210,7 +210,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1Finalize(ptr noundef %0,
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 %8(ptr noundef %2) #7
   %10 = tail call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %9) #7
@@ -229,7 +229,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetInfo(ptr noundef %0, p
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i64 %8(ptr noundef nonnull %3) #7
   %10 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %9) #7
@@ -251,7 +251,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckInfoPtrToJInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #7
   %7 = icmp eq ptr %6, null
@@ -259,7 +259,7 @@ define hidden ptr @ckInfoPtrToJInfo(ptr noundef %0, ptr noundef %1) local_unname
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #7
   %13 = icmp eq ptr %12, null
@@ -271,28 +271,28 @@ define hidden ptr @ckInfoPtrToJInfo(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %16, label %53, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 32) #7
   %20 = icmp eq ptr %19, null
   br i1 %20, label %53, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %24, i64 noundef 32) #7
   %26 = icmp eq ptr %25, null
   br i1 %26, label %53, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %29 = tail call ptr @ckVersionPtrToJVersion(ptr noundef nonnull %0, ptr noundef nonnull %28) #7
   %30 = icmp eq ptr %29, null
   br i1 %30, label %53, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 224
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %19, i64 noundef %23, ptr noundef nonnull %25, ptr noundef nonnull %29) #7
   %36 = icmp eq ptr %35, null
@@ -300,23 +300,23 @@ define hidden ptr @ckInfoPtrToJInfo(ptr noundef %0, ptr noundef %1) local_unname
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %15) #7
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 184
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef nonnull %19) #7
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %25) #7
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 184
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %29) #7
   br label %53
@@ -340,7 +340,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetSlotList(ptr noundef %
 7:                                                ; preds = %3
   %8 = icmp eq i8 %2, 1
   %9 = zext i1 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = call i64 %11(i8 noundef zeroext %9, ptr noundef null, ptr noundef nonnull %4) #7
   %13 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %12) #7
@@ -395,7 +395,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetSlotInfo(ptr noundef %
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = call i64 %9(i64 noundef %2, ptr noundef nonnull %4) #7
   %11 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %10) #7
@@ -414,7 +414,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetSlotInfo(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckSlotInfoPtrToJSlotInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #7
   %7 = icmp eq ptr %6, null
@@ -422,7 +422,7 @@ define hidden ptr @ckSlotInfoPtrToJSlotInfo(ptr noundef %0, ptr noundef %1) loca
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12) #7
   %13 = icmp eq ptr %12, null
@@ -434,28 +434,28 @@ define hidden ptr @ckSlotInfoPtrToJSlotInfo(ptr noundef %0, ptr noundef %1) loca
   br i1 %16, label %53, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 32) #7
   %20 = icmp eq ptr %19, null
   br i1 %20, label %53, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %25 = tail call ptr @ckVersionPtrToJVersion(ptr noundef nonnull %0, ptr noundef nonnull %24) #7
   %26 = icmp eq ptr %25, null
   br i1 %26, label %53, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %1, i64 106
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %29 = tail call ptr @ckVersionPtrToJVersion(ptr noundef nonnull %0, ptr noundef nonnull %28) #7
   %30 = icmp eq ptr %29, null
   br i1 %30, label %53, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 224
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %19, i64 noundef %23, ptr noundef nonnull %25, ptr noundef nonnull %29) #7
   %36 = icmp eq ptr %35, null
@@ -463,23 +463,23 @@ define hidden ptr @ckSlotInfoPtrToJSlotInfo(ptr noundef %0, ptr noundef %1) loca
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %0, ptr noundef nonnull %15) #7
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 184
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef nonnull %19) #7
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 184
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %25) #7
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 184
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef nonnull %29) #7
   br label %53
@@ -497,7 +497,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetTokenInfo(ptr noundef 
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = call i64 %9(i64 noundef %2, ptr noundef nonnull %4) #7
   %11 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %10) #7
@@ -516,7 +516,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetTokenInfo(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckTokenInfoPtrToJTokenInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #7
   %7 = icmp eq ptr %6, null
@@ -524,7 +524,7 @@ define hidden ptr @ckTokenInfoPtrToJTokenInfo(ptr noundef %0, ptr noundef %1) lo
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.14) #7
   %13 = icmp eq ptr %12, null
@@ -536,66 +536,66 @@ define hidden ptr @ckTokenInfoPtrToJTokenInfo(ptr noundef %0, ptr noundef %1) lo
   br i1 %16, label %91, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef 32) #7
   %20 = icmp eq ptr %19, null
   br i1 %20, label %91, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef 16) #7
   %24 = icmp eq ptr %23, null
   br i1 %24, label %91, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %27 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %26, i64 noundef 16) #7
   %28 = icmp eq ptr %27, null
   br i1 %28, label %91, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 160
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 168
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %53 = tail call ptr @ckVersionPtrToJVersion(ptr noundef nonnull %0, ptr noundef nonnull %52) #7
   %54 = icmp eq ptr %53, null
   br i1 %54, label %91, label %55
 
 55:                                               ; preds = %29
-  %56 = getelementptr inbounds i8, ptr %1, i64 186
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %57 = tail call ptr @ckVersionPtrToJVersion(ptr noundef nonnull %0, ptr noundef nonnull %56) #7
   %58 = icmp eq ptr %57, null
   br i1 %58, label %91, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 188
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %61 = tail call ptr @ckUTF8CharArrayToJCharArray(ptr noundef nonnull %0, ptr noundef nonnull %60, i64 noundef 16) #7
   %62 = icmp eq ptr %61, null
   br i1 %62, label %91, label %63
 
 63:                                               ; preds = %59
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 224
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr (ptr, ptr, ptr, ...) %66(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %19, ptr noundef nonnull %23, ptr noundef nonnull %27, i64 noundef %31, i64 noundef %33, i64 noundef %35, i64 noundef %37, i64 noundef %39, i64 noundef %41, i64 noundef %43, i64 noundef %45, i64 noundef %47, i64 noundef %49, i64 noundef %51, ptr noundef nonnull %53, ptr noundef nonnull %57, ptr noundef nonnull %61) #7
   %68 = icmp eq ptr %67, null
@@ -603,31 +603,31 @@ define hidden ptr @ckTokenInfoPtrToJTokenInfo(ptr noundef %0, ptr noundef %1) lo
 
 69:                                               ; preds = %63
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 184
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 184
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 184
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 184
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef nonnull %0, ptr noundef nonnull %15) #7
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 184
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull %0, ptr noundef nonnull %19) #7
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 184
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   tail call void %81(ptr noundef nonnull %0, ptr noundef nonnull %23) #7
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 184
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 184
   %84 = load ptr, ptr %83, align 8
   tail call void %84(ptr noundef nonnull %0, ptr noundef nonnull %27) #7
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 184
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 184
   %87 = load ptr, ptr %86, align 8
   tail call void %87(ptr noundef nonnull %0, ptr noundef nonnull %53) #7
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 184
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 184
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef nonnull %0, ptr noundef nonnull %57) #7
   br label %91
@@ -645,7 +645,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetMechanismList(ptr noun
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = call i64 %9(i64 noundef %2, ptr noundef null, ptr noundef nonnull %4) #7
   %11 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %10) #7
@@ -693,7 +693,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetMechanismInfo(ptr noun
   br i1 %7, label %ckMechanismInfoPtrToJMechanismInfo.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 %10(i64 noundef %2, i64 noundef %3, ptr noundef nonnull %5) #7
   %12 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %11) #7
@@ -702,7 +702,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetMechanismInfo(ptr noun
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #7
   %19 = icmp eq ptr %18, null
@@ -710,7 +710,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetMechanismInfo(ptr noun
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.16) #7
   %25 = icmp eq ptr %24, null
@@ -718,12 +718,12 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetMechanismInfo(ptr noun
 
 26:                                               ; preds = %20
   %27 = load i64, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 224
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %24, i64 noundef %27, i64 noundef %29, i64 noundef %31) #7
   %36 = icmp eq ptr %35, null
@@ -731,7 +731,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetMechanismInfo(ptr noun
 
 37:                                               ; preds = %26
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %0, ptr noundef nonnull %18) #7
   br label %ckMechanismInfoPtrToJMechanismInfo.exit
@@ -744,7 +744,7 @@ ckMechanismInfoPtrToJMechanismInfo.exit:          ; preds = %37, %26, %20, %14, 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ckMechanismInfoPtrToJMechanismInfo(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #7
   %7 = icmp eq ptr %6, null
@@ -752,7 +752,7 @@ define hidden ptr @ckMechanismInfoPtrToJMechanismInfo(ptr noundef %0, ptr nocapt
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.16) #7
   %13 = icmp eq ptr %12, null
@@ -760,12 +760,12 @@ define hidden ptr @ckMechanismInfoPtrToJMechanismInfo(ptr noundef %0, ptr nocapt
 
 14:                                               ; preds = %8
   %15 = load i64, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 224
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr (ptr, ptr, ptr, ...) %22(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef %15, i64 noundef %17, i64 noundef %19) #7
   %24 = icmp eq ptr %23, null
@@ -773,7 +773,7 @@ define hidden ptr @ckMechanismInfoPtrToJMechanismInfo(ptr noundef %0, ptr nocapt
 
 25:                                               ; preds = %14
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   br label %29

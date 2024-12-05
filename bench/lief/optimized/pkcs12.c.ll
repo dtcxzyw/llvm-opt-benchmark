@@ -28,11 +28,11 @@ define hidden i32 @mbedtls_pkcs12_pbe(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %21, label %88, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = lshr i32 %24, 3
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
@@ -45,9 +45,9 @@ define hidden i32 @mbedtls_pkcs12_pbe(ptr noundef %0, i32 noundef %1, i32 nounde
 31:                                               ; preds = %22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(258) %12, i8 0, i64 258, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
   %37 = load i32, ptr %0, align 8
@@ -55,14 +55,14 @@ define hidden i32 @mbedtls_pkcs12_pbe(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not.i.i, label %38, label %pkcs12_pbe_derive_key_iv.exit.thread
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %40 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %32, ptr noundef %36, ptr noundef nonnull %39, i32 noundef 4) #6
   %.not20.i.i = icmp eq i32 %40, 0
   br i1 %.not20.i.i, label %41, label %pkcs12_parse_pbe_params.exit.i
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %32, align 8
-  %43 = getelementptr inbounds i8, ptr %11, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %42, ptr %43, align 8
   %44 = load i64, ptr %39, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 %44
@@ -88,11 +88,11 @@ pkcs12_parse_pbe_params.exit.i:                   ; preds = %41, %38
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.033.i = phi i64 [ %55, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %50 = getelementptr inbounds i8, ptr %4, i64 %.033.i
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.033.i
   %51 = load i8, ptr %50, align 1
   %52 = shl nuw nsw i64 %.033.i, 1
   %53 = or disjoint i64 %52, 1
-  %54 = getelementptr inbounds [258 x i8], ptr %12, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [258 x i8], ptr %12, i64 0, i64 %53
   store i8 %51, ptr %54, align 1
   %55 = add nuw nsw i64 %.033.i, 1
   %exitcond.not.i = icmp eq i64 %55, %5
@@ -101,7 +101,7 @@ pkcs12_parse_pbe_params.exit.i:                   ; preds = %41, %38
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %56 = shl nuw nsw i64 %5, 1
   %57 = add nuw nsw i64 %56, 2
-  %58 = getelementptr inbounds i8, ptr %11, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load i64, ptr %39, align 8
   %61 = load i32, ptr %10, align 4
@@ -267,7 +267,7 @@ define hidden i32 @mbedtls_pkcs12_derivation(ptr nocapture noundef writeonly %0,
   %.0.i = phi i64 [ %41, %.preheader.i ], [ %., %34 ]
   %39 = call i64 @llvm.umin.i64(i64 %.0.i, i64 range(i64 0, 256) %5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i, ptr nonnull readonly align 1 %4, i64 %39, i1 false)
-  %40 = getelementptr inbounds i8, ptr %.018.i, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %.018.i, i64 %39
   %41 = sub i64 %.0.i, %39
   %.old2.not.i = icmp eq i64 %41, 0
   br i1 %.old2.not.i, label %pkcs12_fill_buffer.exit, label %.preheader.i
@@ -280,7 +280,7 @@ pkcs12_fill_buffer.exit:                          ; preds = %.preheader.i, %34
   %.0.i119 = phi i64 [ %44, %.preheader.i117 ], [ %., %pkcs12_fill_buffer.exit ]
   %42 = call i64 @llvm.umin.i64(i64 %.0.i119, i64 range(i64 0, 256) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i118, ptr nonnull readonly align 1 %2, i64 %42, i1 false)
-  %43 = getelementptr inbounds i8, ptr %.018.i118, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.018.i118, i64 %42
   %44 = sub i64 %.0.i119, %42
   %.old2.not.i120 = icmp eq i64 %44, 0
   br i1 %.old2.not.i120, label %pkcs12_fill_buffer.exit121, label %.preheader.i117
@@ -343,7 +343,7 @@ pkcs12_fill_buffer.exit121:                       ; preds = %.preheader.i117, %p
   %60 = call i64 @llvm.umin.i64(i64 %.086140161, i64 %36)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.090139162, ptr nonnull align 16 %14, i64 %60, i1 false)
   %61 = sub i64 %.086140161, %60
-  %62 = getelementptr inbounds i8, ptr %.090139162, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %.090139162, i64 %60
   %63 = icmp eq i64 %61, 0
   br i1 %63, label %.loopexit131, label %64
 
@@ -355,7 +355,7 @@ pkcs12_fill_buffer.exit121:                       ; preds = %.preheader.i117, %p
   %.0.i125 = phi i64 [ %67, %.preheader.i123 ], [ %., %64 ]
   %65 = call i64 @llvm.umin.i64(i64 %.0.i125, i64 range(i64 0, 256) %36)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.018.i124, ptr nonnull readonly align 16 %14, i64 %65, i1 false)
-  %66 = getelementptr inbounds i8, ptr %.018.i124, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %.018.i124, i64 %65
   %67 = sub i64 %.0.i125, %65
   %.old2.not.i126 = icmp eq i64 %67, 0
   br i1 %.old2.not.i126, label %pkcs12_fill_buffer.exit127.preheader, label %.preheader.i123

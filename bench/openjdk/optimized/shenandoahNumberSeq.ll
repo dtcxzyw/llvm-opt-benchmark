@@ -22,14 +22,14 @@ define hidden void @_ZN6HdrSeqC2Ev(ptr noundef nonnull align 8 dereferenceable(8
   tail call void @_ZN9NumberSeqC2Ed(ptr noundef nonnull align 8 dereferenceable(72) %0, double noundef 3.000000e-01) #9
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 192, i8 noundef zeroext 9, i32 noundef 0) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %3, align 8
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   store ptr null, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
@@ -46,13 +46,13 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6HdrSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %3
 
 3:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -114,10 +114,10 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %13 = tail call i32 @llvm.smax.i32(i32 %.2, i32 -12)
   %14 = tail call i32 @llvm.smin.i32(i32 %13, i32 11)
   %spec.store.select2 = add nsw i32 %14, 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %spec.store.select2 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %25
@@ -126,7 +126,7 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2048, i8 noundef zeroext 9, i32 noundef 0) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %22, i8 0, i64 2048, i1 false)
   %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %17
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %17
   store ptr %22, ptr %24, align 8
   br label %25
 
@@ -137,7 +137,7 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %27, i32 0)
   %spec.store.select3 = tail call i32 @llvm.umin.i32(i32 %spec.store.select1, i32 511)
   %28 = zext nneg i32 %spec.store.select3 to i64
-  %29 = getelementptr inbounds i32, ptr %.029, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %.029, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4
@@ -148,21 +148,21 @@ declare void @_ZN9NumberSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull align 8 dereferenceable(80) %0, double noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sitofp i32 %4 to double
   %6 = fmul double %1, %5
   %7 = fdiv double %6, 1.000000e+02
   %8 = fptosi double %7 to i32
   %9 = tail call noundef i32 @llvm.smax.i32(i32 %8, i32 1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %2, %.loopexit
   %indvars.iv30 = phi i64 [ 0, %2 ], [ %indvars.iv.next31, %.loopexit ]
   %.01524 = phi i32 [ 0, %2 ], [ %.2, %.loopexit ]
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv30
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv30
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -170,7 +170,7 @@ define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull alig
 .preheader:                                       ; preds = %12, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %12 ]
   %.122 = phi i32 [ %17, %27 ], [ %.01524, %12 ]
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %.122
   %.not18 = icmp slt i32 %17, %9
@@ -200,7 +200,7 @@ define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull alig
 
 28:                                               ; preds = %.loopexit
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef double %31(ptr noundef nonnull align 8 dereferenceable(72) %0) #9
   br label %33
@@ -213,14 +213,14 @@ define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18BinaryMagnitudeSeqC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 512, i8 noundef zeroext 9, i32 noundef 0) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   br label %4
 
 4:                                                ; preds = %4, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   store i64 0, ptr %6, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -233,13 +233,13 @@ _ZN18BinaryMagnitudeSeq5clearEv.exit:             ; preds = %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN18BinaryMagnitudeSeq5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 0, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -252,7 +252,7 @@ define hidden void @_ZN18BinaryMagnitudeSeq5clearEv(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18BinaryMagnitudeSeqD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #9
   ret void
@@ -266,7 +266,7 @@ define hidden void @_ZN18BinaryMagnitudeSeq3addEm(ptr noundef nonnull align 8 de
   %6 = trunc nuw nsw i64 %5 to i32
   %7 = xor i32 %6, 63
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 62)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %8 to i64
   %12 = select i1 %4, i64 -1, i64 %11
@@ -282,10 +282,10 @@ define hidden noundef i64 @_ZNK18BinaryMagnitudeSeq5levelEi(ptr nocapture nounde
   br i1 %or.cond, label %3, label %9
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds i64, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8
   br label %9
 
@@ -296,14 +296,14 @@ define hidden noundef i64 @_ZNK18BinaryMagnitudeSeq5levelEi(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK18BinaryMagnitudeSeq3numEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %.056 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %5 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -322,13 +322,13 @@ define hidden noundef i64 @_ZNK18BinaryMagnitudeSeq3sumEv(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, 64) i32 @_ZNK18BinaryMagnitudeSeq9min_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
 4:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %5 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %7, label %.split.loop.exit8
@@ -349,14 +349,14 @@ define hidden noundef range(i32 0, 64) i32 @_ZNK18BinaryMagnitudeSeq9min_levelEv
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, -2147483648) i32 @_ZNK18BinaryMagnitudeSeq9max_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
 4:                                                ; preds = %1, %8
   %.06 = phi i32 [ 63, %1 ], [ %9, %8 ]
   %5 = zext nneg i32 %.06 to i64
-  %6 = getelementptr inbounds i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %11
@@ -373,7 +373,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK18BinaryMagnitudeSeq9ma
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK6AbsSeq5totalEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sitofp i32 %3 to double
   ret double %4
@@ -381,14 +381,14 @@ define linkonce_odr hidden noundef double @_ZNK6AbsSeq5totalEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK9NumberSeq7maximumEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK9NumberSeq4lastEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load double, ptr %2, align 8
   ret double %3
 }

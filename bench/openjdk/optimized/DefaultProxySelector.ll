@@ -198,7 +198,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1352
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1352
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #10
   %.not = icmp eq ptr %12, null
@@ -214,7 +214,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1352
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1352
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr %21(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %8) #10
   %.not26 = icmp eq ptr %22, null
@@ -246,7 +246,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %12, i64 %30, i1 false)
   %36 = getelementptr inbounds i8, ptr %34, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, i64 3, i1 false)
-  %37 = getelementptr inbounds i8, ptr %36, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
   %38 = add i64 %31, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %22, i64 %38, i1 false)
   %39 = load ptr, ptr @g_proxy_resolver_lookup, align 8
@@ -269,7 +269,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   %.076105.i = phi ptr [ %45, %.lr.ph.i ], [ %40, %.preheader102.i ]
   %.077104.i = phi i32 [ %44, %.lr.ph.i ], [ 0, %.preheader102.i ]
   %44 = add nuw nsw i32 %.077104.i, 1
-  %45 = getelementptr inbounds i8, ptr %.076105.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.076105.i, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not92.i = icmp eq ptr %46, null
   br i1 %.not92.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
@@ -277,7 +277,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader102.i
   %.077.lcssa.i = phi i32 [ 0, %.preheader102.i ], [ %44, %.lr.ph.i ]
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1376
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1376
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @proxy_class, align 8
   %51 = call ptr %49(ptr noundef nonnull %0, i32 noundef %.077.lcssa.i, ptr noundef %50, ptr noundef null) #10
@@ -286,7 +286,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 52:                                               ; preds = %._crit_edge.i
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1824
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1824
   %55 = load ptr, ptr %54, align 8
   %56 = call zeroext i8 %55(ptr noundef nonnull %0) #10
   %.not94.i = icmp eq i8 %56, 0
@@ -300,7 +300,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 .lr.ph108.i:                                      ; preds = %.preheader.i, %115
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %115 ], [ 0, %.preheader.i ]
   %58 = phi ptr [ %117, %115 ], [ %57, %.preheader.i ]
-  %59 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   %60 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(10) @.str.17, i64 noundef 9) #11
   %.not96.i = icmp eq i32 %60, 0
   br i1 %.not96.i, label %93, label %61
@@ -337,7 +337,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 1824
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1824
   %82 = load ptr, ptr %81, align 8
   %83 = call zeroext i8 %82(ptr noundef nonnull %0) #10
   %.not100.i = icmp eq i8 %83, 0
@@ -345,12 +345,12 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 1392
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1392
   %87 = load ptr, ptr %86, align 8
   %88 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void %87(ptr noundef nonnull %0, ptr noundef nonnull %51, i32 noundef %88, ptr noundef nonnull %77) #10
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1824
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
   %91 = load ptr, ptr %90, align 8
   %92 = call zeroext i8 %91(ptr noundef nonnull %0) #10
   %.not101.i = icmp eq i8 %92, 0
@@ -358,7 +358,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 93:                                               ; preds = %.lr.ph108.i
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1160
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1160
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr @proxy_class, align 8
   %98 = load ptr, ptr @pr_no_proxyID, align 8
@@ -368,7 +368,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 101:                                              ; preds = %93
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1824
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1824
   %104 = load ptr, ptr %103, align 8
   %105 = call zeroext i8 %104(ptr noundef nonnull %0) #10
   %.not97.i = icmp eq i8 %105, 0
@@ -376,12 +376,12 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 1392
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1392
   %109 = load ptr, ptr %108, align 8
   %110 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void %109(ptr noundef nonnull %0, ptr noundef nonnull %51, i32 noundef %110, ptr noundef nonnull %99) #10
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1824
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1824
   %113 = load ptr, ptr %112, align 8
   %114 = call zeroext i8 %113(ptr noundef nonnull %0) #10
   %.not98.i = icmp eq i8 %114, 0
@@ -389,7 +389,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 115:                                              ; preds = %106, %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %116 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.next.i
+  %116 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next.i
   %117 = load ptr, ptr %116, align 8
   %.not95.i = icmp eq ptr %117, null
   br i1 %.not95.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !8
@@ -574,7 +574,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
 
 .critedge85.i:                                    ; preds = %211, %.lr.ph.i30, %202, %.thread98.i
   %213 = load ptr, ptr %0, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 1376
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 1376
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr @proxy_class, align 8
   %217 = call ptr %215(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %216, ptr noundef null) #10
@@ -583,7 +583,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
 
 219:                                              ; preds = %.critedge85.i
   %220 = load ptr, ptr %0, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 1824
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 1824
   %222 = load ptr, ptr %221, align 8
   %223 = call zeroext i8 %222(ptr noundef nonnull %0) #10
   %.not82.i = icmp eq i8 %223, 0
@@ -597,7 +597,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
 
 228:                                              ; preds = %224
   %229 = load ptr, ptr %0, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 1824
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 1824
   %231 = load ptr, ptr %230, align 8
   %232 = call zeroext i8 %231(ptr noundef nonnull %0) #10
   %.not83.i = icmp eq i8 %232, 0
@@ -605,11 +605,11 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
 
 233:                                              ; preds = %228
   %234 = load ptr, ptr %0, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 1392
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1392
   %236 = load ptr, ptr %235, align 8
   call void %236(ptr noundef nonnull %0, ptr noundef nonnull %217, i32 noundef 0, ptr noundef nonnull %226) #10
   %237 = load ptr, ptr %0, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 1824
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 1824
   %239 = load ptr, ptr %238, align 8
   %240 = call zeroext i8 %239(ptr noundef nonnull %0) #10
   %.not84.i = icmp eq i8 %240, 0
@@ -629,7 +629,7 @@ getProxyByGConf.exit:                             ; preds = %206, %122, %127, %1
 
 244:                                              ; preds = %241
   %245 = load ptr, ptr %0, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 1360
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 1360
   %247 = load ptr, ptr %246, align 8
   call void %247(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %22) #10
   br label %248
@@ -642,7 +642,7 @@ getProxyByGConf.exit:                             ; preds = %206, %122, %127, %1
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr %0, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 1360
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 1360
   %254 = load ptr, ptr %253, align 8
   call void %254(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12) #10
   br label %255

@@ -37,21 +37,21 @@ define dso_local i32 @uv_fs_access(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %6, label %31, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 12, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
   %16 = icmp eq ptr %4, null
   br i1 %16, label %26, label %17
@@ -63,21 +63,21 @@ define dso_local i32 @uv_fs_access(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 284
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %31
 
 26:                                               ; preds = %7
   store ptr %2, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 336
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %28)
   %29 = load i64, ptr %10, align 8
   %30 = trunc i64 %29 to i32
@@ -123,118 +123,118 @@ define internal void @uv__fs_work(ptr noundef %0) #0 {
   %27 = getelementptr inbounds i8, ptr %0, i64 -40
   %28 = getelementptr inbounds i8, ptr %0, i64 -32
   %29 = getelementptr i8, ptr %0, i64 -56
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = getelementptr inbounds i8, ptr %0, i64 -16
-  %.sroa.22.0..sroa_idx.i112 = getelementptr inbounds i8, ptr %2, i64 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.22.0..sroa_idx.i112 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = getelementptr inbounds i8, ptr %0, i64 -8
-  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = getelementptr i8, ptr %0, i64 -232
   %35 = getelementptr inbounds i8, ptr %0, i64 -64
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
-  %38 = getelementptr inbounds i8, ptr %3, i64 24
-  %39 = getelementptr inbounds i8, ptr %3, i64 32
-  %40 = getelementptr inbounds i8, ptr %3, i64 40
-  %41 = getelementptr inbounds i8, ptr %3, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %42 = getelementptr i8, ptr %0, i64 -240
   %43 = getelementptr inbounds i8, ptr %0, i64 -224
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds i8, ptr %0, i64 -216
-  %46 = getelementptr inbounds i8, ptr %4, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = getelementptr inbounds i8, ptr %0, i64 -208
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = getelementptr inbounds i8, ptr %0, i64 -200
-  %50 = getelementptr inbounds i8, ptr %4, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %51 = getelementptr inbounds i8, ptr %0, i64 -192
-  %52 = getelementptr inbounds i8, ptr %4, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %53 = getelementptr inbounds i8, ptr %0, i64 -184
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %55 = getelementptr inbounds i8, ptr %0, i64 -176
-  %56 = getelementptr inbounds i8, ptr %4, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %57 = getelementptr inbounds i8, ptr %0, i64 -168
-  %58 = getelementptr inbounds i8, ptr %4, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %59 = getelementptr inbounds i8, ptr %0, i64 -160
-  %60 = getelementptr inbounds i8, ptr %4, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %61 = getelementptr inbounds i8, ptr %0, i64 -152
-  %62 = getelementptr inbounds i8, ptr %4, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %63 = getelementptr inbounds i8, ptr %0, i64 -128
-  %64 = getelementptr inbounds i8, ptr %4, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %65 = getelementptr inbounds i8, ptr %0, i64 -120
-  %66 = getelementptr inbounds i8, ptr %4, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %67 = getelementptr inbounds i8, ptr %0, i64 -112
-  %68 = getelementptr inbounds i8, ptr %4, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %69 = getelementptr inbounds i8, ptr %0, i64 -104
-  %70 = getelementptr inbounds i8, ptr %4, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %71 = getelementptr inbounds i8, ptr %0, i64 -96
-  %72 = getelementptr inbounds i8, ptr %4, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %73 = getelementptr inbounds i8, ptr %0, i64 -88
   %74 = getelementptr inbounds i8, ptr %0, i64 -80
   %75 = getelementptr inbounds i8, ptr %0, i64 -72
   %76 = getelementptr inbounds i8, ptr %0, i64 -144
   %77 = getelementptr inbounds i8, ptr %0, i64 -52
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
-  %79 = getelementptr inbounds i8, ptr %8, i64 130
-  %80 = getelementptr inbounds i8, ptr %5, i64 4
-  %81 = getelementptr inbounds i8, ptr %5, i64 6
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 130
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %82 = getelementptr inbounds i8, ptr %0, i64 -48
   %83 = getelementptr inbounds i8, ptr %0, i64 -256
   %84 = getelementptr inbounds i8, ptr %0, i64 -264
-  %85 = getelementptr inbounds i8, ptr %15, i64 24
-  %86 = getelementptr inbounds i8, ptr %15, i64 16
-  %87 = getelementptr inbounds i8, ptr %15, i64 28
-  %88 = getelementptr inbounds i8, ptr %15, i64 32
-  %89 = getelementptr inbounds i8, ptr %15, i64 40
-  %90 = getelementptr inbounds i8, ptr %15, i64 8
-  %91 = getelementptr inbounds i8, ptr %15, i64 48
-  %92 = getelementptr inbounds i8, ptr %15, i64 56
-  %93 = getelementptr inbounds i8, ptr %15, i64 64
-  %94 = getelementptr inbounds i8, ptr %15, i64 72
-  %95 = getelementptr inbounds i8, ptr %15, i64 80
-  %96 = getelementptr inbounds i8, ptr %15, i64 88
-  %97 = getelementptr inbounds i8, ptr %15, i64 96
-  %98 = getelementptr inbounds i8, ptr %15, i64 104
-  %99 = getelementptr inbounds i8, ptr %15, i64 112
-  %.sroa.22.0..sroa_idx.i81 = getelementptr inbounds i8, ptr %16, i64 8
-  %100 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds i8, ptr %16, i64 24
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
-  %101 = getelementptr inbounds i8, ptr %17, i64 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 24
-  %102 = getelementptr inbounds i8, ptr %18, i64 24
-  %103 = getelementptr inbounds i8, ptr %18, i64 16
-  %104 = getelementptr inbounds i8, ptr %18, i64 28
-  %105 = getelementptr inbounds i8, ptr %18, i64 32
-  %106 = getelementptr inbounds i8, ptr %18, i64 40
-  %107 = getelementptr inbounds i8, ptr %18, i64 8
-  %108 = getelementptr inbounds i8, ptr %18, i64 48
-  %109 = getelementptr inbounds i8, ptr %18, i64 56
-  %110 = getelementptr inbounds i8, ptr %18, i64 64
-  %111 = getelementptr inbounds i8, ptr %18, i64 72
-  %112 = getelementptr inbounds i8, ptr %18, i64 80
-  %113 = getelementptr inbounds i8, ptr %18, i64 88
-  %114 = getelementptr inbounds i8, ptr %18, i64 96
-  %115 = getelementptr inbounds i8, ptr %18, i64 104
-  %116 = getelementptr inbounds i8, ptr %18, i64 112
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %.sroa.22.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %117 = getelementptr inbounds i8, ptr %0, i64 -24
   %118 = getelementptr inbounds i8, ptr %0, i64 -20
-  %119 = getelementptr inbounds i8, ptr %19, i64 8
-  %120 = getelementptr inbounds i8, ptr %19, i64 64
-  %121 = getelementptr inbounds i8, ptr %19, i64 88
-  %122 = getelementptr inbounds i8, ptr %19, i64 72
-  %123 = getelementptr inbounds i8, ptr %19, i64 104
-  %124 = getelementptr inbounds i8, ptr %19, i64 272
-  %125 = getelementptr inbounds i8, ptr %19, i64 296
-  %126 = getelementptr inbounds i8, ptr %19, i64 284
-  %127 = getelementptr inbounds i8, ptr %19, i64 288
-  %128 = getelementptr inbounds i8, ptr %19, i64 336
-  %129 = getelementptr inbounds i8, ptr %20, i64 24
-  %130 = getelementptr inbounds i8, ptr %20, i64 8
-  %131 = getelementptr inbounds i8, ptr %21, i64 8
-  %132 = getelementptr inbounds i8, ptr %20, i64 48
-  %133 = getelementptr inbounds i8, ptr %19, i64 280
-  %134 = getelementptr inbounds i8, ptr %19, i64 304
-  %135 = getelementptr inbounds i8, ptr %19, i64 384
+  %119 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %19, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %19, i64 104
+  %124 = getelementptr inbounds nuw i8, ptr %19, i64 272
+  %125 = getelementptr inbounds nuw i8, ptr %19, i64 296
+  %126 = getelementptr inbounds nuw i8, ptr %19, i64 284
+  %127 = getelementptr inbounds nuw i8, ptr %19, i64 288
+  %128 = getelementptr inbounds nuw i8, ptr %19, i64 336
+  %129 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %19, i64 280
+  %134 = getelementptr inbounds nuw i8, ptr %19, i64 304
+  %135 = getelementptr inbounds nuw i8, ptr %19, i64 384
   br label %136
 
 136:                                              ; preds = %uv__fs_readlink.exit.thread, %1
@@ -853,7 +853,7 @@ uv__fs_lstat.exit:                                ; preds = %359, %362, %365
 
 419:                                              ; preds = %417
   %420 = load ptr, ptr %84, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 304
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 304
   call void @uv_rwlock_rdlock(ptr noundef nonnull %421) #15
   br label %422
 
@@ -884,7 +884,7 @@ uv__fs_lstat.exit:                                ; preds = %359, %362, %365
 
 432:                                              ; preds = %430
   %433 = load ptr, ptr %84, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 304
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 304
   call void @uv_rwlock_rdunlock(ptr noundef nonnull %434) #15
   br label %435
 
@@ -935,7 +935,7 @@ uv__fs_mkstemp.exit:                              ; preds = %411, %435, %.thread
 
 458:                                              ; preds = %455
   %459 = load ptr, ptr %457, align 8
-  %460 = getelementptr inbounds i8, ptr %457, i64 8
+  %460 = getelementptr inbounds nuw i8, ptr %457, i64 8
   %461 = load i64, ptr %460, align 8
   %462 = call i64 @read(i32 noundef %456, ptr noundef %459, i64 noundef %461) #15
   br label %uv__fs_preadv.exit.i
@@ -951,7 +951,7 @@ uv__fs_mkstemp.exit:                              ; preds = %411, %435, %.thread
   %467 = load i32, ptr %29, align 8
   %468 = load ptr, ptr %27, align 8
   %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds i8, ptr %468, i64 8
+  %470 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %471 = load i64, ptr %470, align 8
   %472 = call i64 @pread(i32 noundef %467, ptr noundef %469, i64 noundef %471, i64 noundef %452) #15
   br label %uv__fs_preadv.exit.i
@@ -966,13 +966,13 @@ uv__fs_mkstemp.exit:                              ; preds = %411, %435, %.thread
   %477 = load i32, ptr %29, align 8
   %478 = load ptr, ptr %27, align 8
   %479 = zext i32 %476 to i64
-  %480 = getelementptr inbounds %struct.uv_buf_t, ptr %478, i64 %479
+  %480 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %478, i64 %479
   br label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %503, %474
   %.028.ph.i.i = phi ptr [ %504, %503 ], [ %478, %474 ]
   %.027.ph.i.i = phi i64 [ %500, %503 ], [ 0, %474 ]
-  %481 = getelementptr inbounds i8, ptr %.028.ph.i.i, i64 8
+  %481 = getelementptr inbounds nuw i8, ptr %.028.ph.i.i, i64 8
   br label %482
 
 482:                                              ; preds = %498, %.outer.i.i
@@ -1014,7 +1014,7 @@ uv__fs_mkstemp.exit:                              ; preds = %411, %435, %.thread
   br i1 %502, label %482, label %503
 
 503:                                              ; preds = %498
-  %504 = getelementptr inbounds i8, ptr %.028.ph.i.i, i64 16
+  %504 = getelementptr inbounds nuw i8, ptr %.028.ph.i.i, i64 16
   %505 = icmp eq ptr %504, %480
   br i1 %505, label %uv__fs_preadv.exit.i, label %.outer.i.i
 
@@ -1090,7 +1090,7 @@ uv__fs_scandir.exit:                              ; preds = %517, %522
 528:                                              ; preds = %525
   %529 = load ptr, ptr %34, align 8
   %530 = call ptr @opendir(ptr noundef %529)
-  %531 = getelementptr inbounds i8, ptr %526, i64 48
+  %531 = getelementptr inbounds nuw i8, ptr %526, i64 48
   store ptr %530, ptr %531, align 8
   %532 = icmp eq ptr %530, null
   br i1 %532, label %533, label %uv__fs_opendir.exit
@@ -1107,13 +1107,13 @@ uv__fs_opendir.exit:                              ; preds = %528, %533
 
 534:                                              ; preds = %136
   %.val74 = load ptr, ptr %42, align 8
-  %535 = getelementptr inbounds i8, ptr %.val74, i64 8
+  %535 = getelementptr inbounds nuw i8, ptr %.val74, i64 8
   %536 = load i64, ptr %535, align 8
   %.not22.i = icmp eq i64 %536, 0
   br i1 %.not22.i, label %uv__fs_readdir.exit, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %534
-  %537 = getelementptr inbounds i8, ptr %.val74, i64 48
+  %537 = getelementptr inbounds nuw i8, ptr %.val74, i64 48
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
@@ -1134,13 +1134,13 @@ uv__fs_opendir.exit:                              ; preds = %528, %533
   br i1 %.not.i97, label %uv__fs_readdir.exit, label %.loopexit6.i
 
 sub_0.i:                                          ; preds = %539
-  %545 = getelementptr inbounds i8, ptr %541, i64 19
+  %545 = getelementptr inbounds nuw i8, ptr %541, i64 19
   %546 = load i8, ptr %545, align 1
   %.not23.i = icmp eq i8 %546, 46
   br i1 %.not23.i, label %.tail.i, label %.tail1.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %547 = getelementptr inbounds i8, ptr %541, i64 20
+  %547 = getelementptr inbounds nuw i8, ptr %541, i64 20
   %548 = load i8, ptr %547, align 1
   switch i8 %548, label %.tail1.thread.i [
     i8 0, label %552
@@ -1148,7 +1148,7 @@ sub_0.i:                                          ; preds = %539
   ]
 
 .tail1.i:                                         ; preds = %.tail.i
-  %549 = getelementptr inbounds i8, ptr %541, i64 21
+  %549 = getelementptr inbounds nuw i8, ptr %541, i64 21
   %550 = load i8, ptr %549, align 1
   %551 = icmp eq i8 %550, 0
   br i1 %551, label %552, label %.tail1.thread.i
@@ -1159,9 +1159,9 @@ sub_0.i:                                          ; preds = %539
   br i1 %554, label %539, label %uv__fs_readdir.exit, !llvm.loop !8
 
 .tail1.thread.i:                                  ; preds = %.tail.i, %.tail1.i, %sub_0.i
-  %555 = getelementptr inbounds i8, ptr %541, i64 19
+  %555 = getelementptr inbounds nuw i8, ptr %541, i64 19
   %556 = load ptr, ptr %.val74, align 8
-  %557 = getelementptr inbounds %struct.uv_dirent_s, ptr %556, i64 %538
+  %557 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %556, i64 %538
   %558 = call ptr @uv__strdup(ptr noundef nonnull %555) #15
   store ptr %558, ptr %557, align 8
   %559 = icmp eq ptr %558, null
@@ -1169,7 +1169,7 @@ sub_0.i:                                          ; preds = %539
 
 .outer.i:                                         ; preds = %.tail1.thread.i
   %560 = call i32 @uv__fs_get_dirent_type(ptr noundef nonnull %541) #15
-  %561 = getelementptr inbounds i8, ptr %557, i64 8
+  %561 = getelementptr inbounds nuw i8, ptr %557, i64 8
   store i32 %560, ptr %561, align 8
   %562 = add i32 %.023.ph18.i, 1
   %563 = zext i32 %562 to i64
@@ -1188,11 +1188,11 @@ sub_0.i:                                          ; preds = %539
 .lr.ph21.i:                                       ; preds = %.lr.ph21.i, %.lr.ph21.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph21.preheader.i ], [ %indvars.iv.next.i, %.lr.ph21.i ]
   %566 = load ptr, ptr %.val74, align 8
-  %567 = getelementptr inbounds %struct.uv_dirent_s, ptr %566, i64 %indvars.iv.i
+  %567 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %566, i64 %indvars.iv.i
   %568 = load ptr, ptr %567, align 8
   call void @uv__free(ptr noundef %568) #15
   %569 = load ptr, ptr %.val74, align 8
-  %570 = getelementptr inbounds %struct.uv_dirent_s, ptr %569, i64 %indvars.iv.i
+  %570 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %569, i64 %indvars.iv.i
   store ptr null, ptr %570, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1205,7 +1205,7 @@ uv__fs_readdir.exit:                              ; preds = %.outer.i, %.lr.ph21
 
 572:                                              ; preds = %136
   %573 = load ptr, ptr %42, align 8
-  %574 = getelementptr inbounds i8, ptr %573, i64 48
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 48
   %575 = load ptr, ptr %574, align 8
   %.not.i98 = icmp eq ptr %575, null
   br i1 %.not.i98, label %uv__fs_closedir.exit, label %576
@@ -1679,22 +1679,22 @@ uv__fs_stat.exit:                                 ; preds = %703, %706, %709
   %738 = load i64, ptr %3, align 8
   store i64 %738, ptr %734, align 8
   %739 = load i64, ptr %36, align 8
-  %740 = getelementptr inbounds i8, ptr %734, i64 8
+  %740 = getelementptr inbounds nuw i8, ptr %734, i64 8
   store i64 %739, ptr %740, align 8
   %741 = load i64, ptr %37, align 8
-  %742 = getelementptr inbounds i8, ptr %734, i64 16
+  %742 = getelementptr inbounds nuw i8, ptr %734, i64 16
   store i64 %741, ptr %742, align 8
   %743 = load i64, ptr %38, align 8
-  %744 = getelementptr inbounds i8, ptr %734, i64 24
+  %744 = getelementptr inbounds nuw i8, ptr %734, i64 24
   store i64 %743, ptr %744, align 8
   %745 = load i64, ptr %39, align 8
-  %746 = getelementptr inbounds i8, ptr %734, i64 32
+  %746 = getelementptr inbounds nuw i8, ptr %734, i64 32
   store i64 %745, ptr %746, align 8
   %747 = load i64, ptr %40, align 8
-  %748 = getelementptr inbounds i8, ptr %734, i64 40
+  %748 = getelementptr inbounds nuw i8, ptr %734, i64 40
   store i64 %747, ptr %748, align 8
   %749 = load i64, ptr %41, align 8
-  %750 = getelementptr inbounds i8, ptr %734, i64 48
+  %750 = getelementptr inbounds nuw i8, ptr %734, i64 48
   store i64 %749, ptr %750, align 8
   store ptr %734, ptr %42, align 8
   br label %uv__fs_statfs.exit
@@ -1791,7 +1791,7 @@ thread-pre-split.i127:                            ; preds = %uv__fs_write.exit.t
 
 800:                                              ; preds = %797
   %801 = load ptr, ptr %799, align 8
-  %802 = getelementptr inbounds i8, ptr %799, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %799, i64 8
   %803 = load i64, ptr %802, align 8
   %804 = call i64 @write(i32 noundef %798, ptr noundef %801, i64 noundef %803) #15
   br label %uv__fs_write.exit.i
@@ -1807,7 +1807,7 @@ thread-pre-split.i127:                            ; preds = %uv__fs_write.exit.t
 809:                                              ; preds = %807
   %810 = load i32, ptr %29, align 8
   %811 = load ptr, ptr %808, align 8
-  %812 = getelementptr inbounds i8, ptr %808, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %808, i64 8
   %813 = load i64, ptr %812, align 8
   %814 = call i64 @pwrite(i32 noundef %810, ptr noundef %811, i64 noundef %813, i64 noundef %794) #15
   br label %uv__fs_write.exit.i
@@ -1821,7 +1821,7 @@ thread-pre-split.i127:                            ; preds = %uv__fs_write.exit.t
   %818 = phi i64 [ %794, %815 ], [ %.pre.i.i, %831 ]
   %819 = load i32, ptr %29, align 8
   %820 = load ptr, ptr %817, align 8
-  %821 = getelementptr inbounds i8, ptr %817, i64 8
+  %821 = getelementptr inbounds nuw i8, ptr %817, i64 8
   %822 = load i64, ptr %821, align 8
   %823 = call i64 @pwrite(i32 noundef %819, ptr noundef %820, i64 noundef %822, i64 noundef %818) #15
   br label %uv__fs_write.exit.i
@@ -1901,7 +1901,7 @@ uv__fs_write.exit.thread.i:                       ; preds = %uv__fs_write.exit.u
   %851 = load ptr, ptr %850, align 8
   %852 = getelementptr inbounds i8, ptr %851, i64 %.01522.i.i
   store ptr %852, ptr %850, align 8
-  %853 = getelementptr inbounds i8, ptr %850, i64 8
+  %853 = getelementptr inbounds nuw i8, ptr %850, i64 8
   %854 = sub nuw i64 %846, %.01522.i.i
   store i64 %854, ptr %853, align 8
   %.pre67.i = load ptr, ptr %27, align 8
@@ -1913,7 +1913,7 @@ uv__fs_buf_offset.exit.i:                         ; preds = %847, %.critedge.i.i
   %856 = trunc i64 %.020.i.i to i32
   store i32 %856, ptr %26, align 4
   %857 = and i64 %.020.i.i, 4294967295
-  %858 = getelementptr inbounds %struct.uv_buf_t, ptr %855, i64 %857
+  %858 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %855, i64 %857
   store ptr %858, ptr %27, align 8
   %859 = sub i32 %.056.i118, %856
   %860 = add nuw nsw i64 %.0.i.i121, %.03155.i
@@ -1987,7 +1987,7 @@ uv__fs_readlink.exit.thread:                      ; preds = %599, %593, %590, %5
 define internal void @uv__fs_done(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -264
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 8
@@ -2013,21 +2013,21 @@ define dso_local i32 @uv_fs_chmod(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %6, label %31, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 13, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
   %16 = icmp eq ptr %4, null
   br i1 %16, label %26, label %17
@@ -2039,21 +2039,21 @@ define dso_local i32 @uv_fs_chmod(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %31
 
 26:                                               ; preds = %7
   store ptr %2, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 288
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 336
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %28)
   %29 = load i64, ptr %10, align 8
   %30 = trunc i64 %29 to i32
@@ -2070,21 +2070,21 @@ define dso_local i32 @uv_fs_chown(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 26, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %17 = icmp eq ptr %5, null
   br i1 %17, label %28, label %18
@@ -2096,25 +2096,25 @@ define dso_local i32 @uv_fs_chown(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 316
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 316
   store i32 %4, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %34
 
 28:                                               ; preds = %8
   store ptr %2, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 312
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 316
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 316
   store i32 %4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %31)
   %32 = load i64, ptr %11, align 8
   %33 = trunc i64 %32 to i32
@@ -2131,38 +2131,38 @@ define dso_local i32 @uv_fs_close(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %15, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %20, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %25
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %22)
   %23 = load i64, ptr %9, align 8
   %24 = trunc i64 %23 to i32
@@ -2179,40 +2179,40 @@ define dso_local i32 @uv_fs_fchmod(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 14, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %3, ptr %17, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %27
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %24)
   %25 = load i64, ptr %10, align 8
   %26 = trunc i64 %25 to i32
@@ -2229,42 +2229,42 @@ define dso_local i32 @uv_fs_fchown(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 27, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 312
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 316
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 316
   store i32 %4, ptr %19, align 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %25, label %20
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %29
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %26)
   %27 = load i64, ptr %11, align 8
   %28 = trunc i64 %27 to i32
@@ -2281,21 +2281,21 @@ define dso_local i32 @uv_fs_lchown(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 30, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %17 = icmp eq ptr %5, null
   br i1 %17, label %28, label %18
@@ -2307,25 +2307,25 @@ define dso_local i32 @uv_fs_lchown(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 316
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 316
   store i32 %4, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %34
 
 28:                                               ; preds = %8
   store ptr %2, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 312
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 316
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 316
   store i32 %4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %31)
   %32 = load i64, ptr %11, align 8
   %33 = trunc i64 %32 to i32
@@ -2342,38 +2342,38 @@ define dso_local i32 @uv_fs_fdatasync(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 16, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %15, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %20, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %25
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %22)
   %23 = load i64, ptr %9, align 8
   %24 = trunc i64 %23 to i32
@@ -2390,38 +2390,38 @@ define dso_local i32 @uv_fs_fstat(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %15, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %20, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %25
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %22)
   %23 = load i64, ptr %9, align 8
   %24 = trunc i64 %23 to i32
@@ -2438,38 +2438,38 @@ define dso_local i32 @uv_fs_fsync(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 15, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %15, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %20, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %25
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %22)
   %23 = load i64, ptr %9, align 8
   %24 = trunc i64 %23 to i32
@@ -2486,40 +2486,40 @@ define dso_local i32 @uv_fs_ftruncate(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 9, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 %3, ptr %17, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %27
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %24)
   %25 = load i64, ptr %10, align 8
   %26 = trunc i64 %25 to i32
@@ -2536,42 +2536,42 @@ define dso_local i32 @uv_fs_futime(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 11, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 320
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store double %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store double %4, ptr %19, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %25, label %20
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %29
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %26)
   %27 = load i64, ptr %11, align 8
   %28 = trunc i64 %27 to i32
@@ -2588,21 +2588,21 @@ define dso_local i32 @uv_fs_lutime(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 36, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %17 = icmp eq ptr %5, null
   br i1 %17, label %28, label %18
@@ -2614,25 +2614,25 @@ define dso_local i32 @uv_fs_lutime(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 320
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store double %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store double %4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %34
 
 28:                                               ; preds = %8
   store ptr %2, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store double %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 328
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store double %4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %31)
   %32 = load i64, ptr %11, align 8
   %33 = trunc i64 %32 to i32
@@ -2649,21 +2649,21 @@ define dso_local i32 @uv_fs_lstat(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -2675,17 +2675,17 @@ define dso_local i32 @uv_fs_lstat(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -2702,21 +2702,21 @@ define dso_local i32 @uv_fs_link(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %6, label %36, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 23, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
   %16 = icmp eq ptr %4, null
   br i1 %16, label %32, label %17
@@ -2738,18 +2738,18 @@ define dso_local i32 @uv_fs_link(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %2, i64 %19, i1 false)
   %27 = load ptr, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %3, i64 %21, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %31, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %36
 
 32:                                               ; preds = %7
   store ptr %2, ptr %12, align 8
   store ptr %3, ptr %13, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 336
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %33)
   %34 = load i64, ptr %10, align 8
   %35 = trunc i64 %34 to i32
@@ -2774,21 +2774,21 @@ define dso_local i32 @uv_fs_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %6, label %31, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 19, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
   %16 = icmp eq ptr %4, null
   br i1 %16, label %26, label %17
@@ -2800,21 +2800,21 @@ define dso_local i32 @uv_fs_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %31
 
 26:                                               ; preds = %7
   store ptr %2, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 288
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 336
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %28)
   %29 = load i64, ptr %10, align 8
   %30 = trunc i64 %29 to i32
@@ -2831,21 +2831,21 @@ define dso_local i32 @uv_fs_mkdtemp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 20, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = tail call ptr @uv__strdup(ptr noundef %2) #15
   store ptr %15, ptr %11, align 8
@@ -2857,16 +2857,16 @@ define dso_local i32 @uv_fs_mkdtemp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %27
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %24)
   %25 = load i64, ptr %9, align 8
   %26 = trunc i64 %25 to i32
@@ -2883,21 +2883,21 @@ define dso_local i32 @uv_fs_mkstemp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 35, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = tail call ptr @uv__strdup(ptr noundef %2) #15
   store ptr %15, ptr %11, align 8
@@ -2909,16 +2909,16 @@ define dso_local i32 @uv_fs_mkstemp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %27
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %24)
   %25 = load i64, ptr %9, align 8
   %26 = trunc i64 %25 to i32
@@ -2935,21 +2935,21 @@ define dso_local i32 @uv_fs_open(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %17 = icmp eq ptr %5, null
   br i1 %17, label %28, label %18
@@ -2961,25 +2961,25 @@ define dso_local i32 @uv_fs_open(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 284
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %34
 
 28:                                               ; preds = %8
   store ptr %2, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 284
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 288
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 %4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %31)
   %32 = load i64, ptr %11, align 8
   %33 = trunc i64 %32 to i32
@@ -2996,21 +2996,21 @@ define dso_local i32 @uv_fs_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %8, label %41, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %6, ptr %17, align 8
   %18 = icmp eq ptr %3, null
   %19 = icmp eq i32 %4, 0
@@ -3018,11 +3018,11 @@ define dso_local i32 @uv_fs_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %or.cond, label %41, label %20
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %1, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 292
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 292
   store i32 %4, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 376
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 376
   store ptr %23, ptr %16, align 8
   %24 = zext i32 %4 to i64
   %25 = icmp ugt i32 %4, 4
@@ -3038,22 +3038,22 @@ define dso_local i32 @uv_fs_read(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .thread:                                          ; preds = %20, %27
   %30 = phi ptr [ %28, %27 ], [ %23, %20 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %3, i64 %26, i1 false)
-  %31 = getelementptr inbounds i8, ptr %1, i64 304
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 %5, ptr %31, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %37, label %32
 
 32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %36, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %41
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %1, i64 336
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %38)
   %39 = load i64, ptr %12, align 8
   %40 = trunc i64 %39 to i32
@@ -3070,21 +3070,21 @@ define dso_local i32 @uv_fs_scandir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %6, label %31, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 22, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
   %16 = icmp eq ptr %4, null
   br i1 %16, label %26, label %17
@@ -3096,21 +3096,21 @@ define dso_local i32 @uv_fs_scandir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %19, label %31, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 284
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %31
 
 26:                                               ; preds = %7
   store ptr %2, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 336
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %28)
   %29 = load i64, ptr %10, align 8
   %30 = trunc i64 %29 to i32
@@ -3127,21 +3127,21 @@ define dso_local i32 @uv_fs_opendir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 31, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -3153,17 +3153,17 @@ define dso_local i32 @uv_fs_opendir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -3180,28 +3180,28 @@ define dso_local i32 @uv_fs_readdir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 32, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %15, align 8
   %16 = icmp eq ptr %2, null
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %34, label %21
@@ -3217,16 +3217,16 @@ define dso_local i32 @uv_fs_readdir(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %30, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 336
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %34
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %31)
   %32 = load i64, ptr %9, align 8
   %33 = trunc i64 %32 to i32
@@ -3243,42 +3243,42 @@ define dso_local i32 @uv_fs_closedir(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 33, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %2, null
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %1, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %2, ptr %17, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %27
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %24)
   %25 = load i64, ptr %9, align 8
   %26 = trunc i64 %25 to i32
@@ -3295,21 +3295,21 @@ define dso_local i32 @uv_fs_readlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 25, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -3321,17 +3321,17 @@ define dso_local i32 @uv_fs_readlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -3348,21 +3348,21 @@ define dso_local i32 @uv_fs_realpath(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 28, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -3374,17 +3374,17 @@ define dso_local i32 @uv_fs_realpath(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -3401,21 +3401,21 @@ define dso_local i32 @uv_fs_rename(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %6, label %36, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 21, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %4, ptr %15, align 8
   %16 = icmp eq ptr %4, null
   br i1 %16, label %32, label %17
@@ -3437,18 +3437,18 @@ define dso_local i32 @uv_fs_rename(ptr noundef %0, ptr noundef %1, ptr noundef %
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %2, i64 %19, i1 false)
   %27 = load ptr, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %3, i64 %21, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %31, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %36
 
 32:                                               ; preds = %7
   store ptr %2, ptr %12, align 8
   store ptr %3, ptr %13, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 336
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %33)
   %34 = load i64, ptr %10, align 8
   %35 = trunc i64 %34 to i32
@@ -3465,21 +3465,21 @@ define dso_local i32 @uv_fs_rmdir(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 18, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -3491,17 +3491,17 @@ define dso_local i32 @uv_fs_rmdir(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -3518,44 +3518,44 @@ define dso_local i32 @uv_fs_sendfile(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %6, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 284
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 %4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 384
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store i64 %5, ptr %21, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %27, label %22
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %31
 
 27:                                               ; preds = %9
-  %28 = getelementptr inbounds i8, ptr %1, i64 336
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %28)
   %29 = load i64, ptr %12, align 8
   %30 = trunc i64 %29 to i32
@@ -3572,21 +3572,21 @@ define dso_local i32 @uv_fs_stat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -3598,17 +3598,17 @@ define dso_local i32 @uv_fs_stat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -3625,21 +3625,21 @@ define dso_local i32 @uv_fs_symlink(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %7, label %39, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 24, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %17 = icmp eq ptr %5, null
   br i1 %17, label %34, label %18
@@ -3661,22 +3661,22 @@ define dso_local i32 @uv_fs_symlink(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %2, i64 %20, i1 false)
   %28 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %3, i64 %22, i1 false)
-  %29 = getelementptr inbounds i8, ptr %1, i64 284
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %4, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 336
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %33, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %39
 
 34:                                               ; preds = %8
   store ptr %2, ptr %13, align 8
   store ptr %3, ptr %14, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 284
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %4, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %36)
   %37 = load i64, ptr %11, align 8
   %38 = trunc i64 %37 to i32
@@ -3693,21 +3693,21 @@ define dso_local i32 @uv_fs_unlink(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 17, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -3719,17 +3719,17 @@ define dso_local i32 @uv_fs_unlink(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -3746,21 +3746,21 @@ define dso_local i32 @uv_fs_utime(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 10, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %17 = icmp eq ptr %5, null
   br i1 %17, label %28, label %18
@@ -3772,25 +3772,25 @@ define dso_local i32 @uv_fs_utime(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 320
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store double %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store double %4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %27, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %34
 
 28:                                               ; preds = %8
   store ptr %2, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store double %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 328
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store double %4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %31)
   %32 = load i64, ptr %11, align 8
   %33 = trunc i64 %32 to i32
@@ -3807,21 +3807,21 @@ define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %8, label %41, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %6, ptr %17, align 8
   %18 = icmp eq ptr %3, null
   %19 = icmp eq i32 %4, 0
@@ -3829,11 +3829,11 @@ define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond, label %41, label %20
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %1, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 292
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 292
   store i32 %4, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 376
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 376
   store ptr %23, ptr %16, align 8
   %24 = zext i32 %4 to i64
   %25 = icmp ugt i32 %4, 4
@@ -3849,22 +3849,22 @@ define dso_local i32 @uv_fs_write(ptr noundef %0, ptr noundef %1, i32 noundef %2
 .thread:                                          ; preds = %20, %27
   %30 = phi ptr [ %28, %27 ], [ %23, %20 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %3, i64 %26, i1 false)
-  %31 = getelementptr inbounds i8, ptr %1, i64 304
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i64 %5, ptr %31, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %37, label %32
 
 32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %36, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %41
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %1, i64 336
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %38)
   %39 = load i64, ptr %12, align 8
   %40 = trunc i64 %39 to i32
@@ -3881,19 +3881,19 @@ define dso_local void @uv_fs_req_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %41, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not26 = icmp eq ptr %8, null
   br i1 %.not26, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %13 [
     i32 20, label %12
@@ -3906,15 +3906,15 @@ define dso_local void @uv_fs_req_cleanup(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %9, %12, %3
   store ptr null, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 32
   br i1 %17, label %18, label %thread-pre-split
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %thread-pre-split.thread, label %21
@@ -3930,7 +3930,7 @@ thread-pre-split:                                 ; preds = %21, %13
   br i1 %23, label %24, label %thread-pre-split.thread
 
 24:                                               ; preds = %thread-pre-split
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %.not28 = icmp eq ptr %26, null
   br i1 %.not28, label %thread-pre-split.thread, label %27
@@ -3940,9 +3940,9 @@ thread-pre-split:                                 ; preds = %21, %13
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %18, %27, %24, %thread-pre-split
-  %28 = getelementptr inbounds i8, ptr %0, i64 296
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 376
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %.not29 = icmp eq ptr %29, %30
   br i1 %.not29, label %32, label %31
 
@@ -3957,9 +3957,9 @@ thread-pre-split.thread:                          ; preds = %18, %27, %24, %thre
   br i1 %.not30, label %39, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.not31 = icmp eq ptr %36, %37
   br i1 %.not31, label %39, label %38
 
@@ -3968,7 +3968,7 @@ thread-pre-split.thread:                          ; preds = %18, %27, %24, %thre
   br label %39
 
 39:                                               ; preds = %38, %34, %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %40, align 8
   br label %41
 
@@ -3988,21 +3988,21 @@ define dso_local i32 @uv_fs_copyfile(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %7, label %40, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 29, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %5, ptr %16, align 8
   %.not = icmp ult i32 %4, 8
   br i1 %.not, label %17, label %40
@@ -4028,22 +4028,22 @@ define dso_local i32 @uv_fs_copyfile(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %2, i64 %21, i1 false)
   %29 = load ptr, ptr %14, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %3, i64 %23, i1 false)
-  %30 = getelementptr inbounds i8, ptr %1, i64 284
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 336
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %34, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %40
 
 35:                                               ; preds = %17
   store ptr %2, ptr %13, align 8
   store ptr %3, ptr %14, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 284
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 284
   store i32 %4, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 336
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %37)
   %38 = load i64, ptr %11, align 8
   %39 = trunc i64 %38 to i32
@@ -4060,21 +4060,21 @@ define dso_local i32 @uv_fs_statfs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 34, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %14, align 8
   %15 = icmp eq ptr %3, null
   br i1 %15, label %24, label %16
@@ -4086,17 +4086,17 @@ define dso_local i32 @uv_fs_statfs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__work_submit(ptr noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull @uv__fs_work, ptr noundef nonnull @uv__fs_done) #15
   br label %28
 
 24:                                               ; preds = %6
   store ptr %2, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
   tail call void @uv__fs_work(ptr noundef nonnull %25)
   %26 = load i64, ptr %9, align 8
   %27 = trunc i64 %26 to i32
@@ -4109,7 +4109,7 @@ define dso_local i32 @uv_fs_statfs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @uv_fs_get_system_error(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = sub i32 0, %4
@@ -4234,93 +4234,93 @@ define internal fastcc range(i32 -38, 1) i32 @uv__fs_statx(i32 noundef %0, ptr n
   br label %84
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %6, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 140
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 140
   %18 = load i32, ptr %17, align 4
   %19 = call i64 @gnu_dev_makedev(i32 noundef %16, i32 noundef %18) #16
   store i64 %19, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 132
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %39 = load i32, ptr %38, align 4
   %40 = call i64 @gnu_dev_makedev(i32 noundef %37, i32 noundef %39) #16
-  %41 = getelementptr inbounds i8, ptr %4, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %4, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %59 = load i32, ptr %58, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %4, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %4, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 96
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %4, i64 136
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %74, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 144
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %4, i64 152
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   br label %84
 
@@ -4397,25 +4397,25 @@ declare i32 @scandir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @uv__fs_scandir_filter(ptr nocapture noundef readonly %0) #4 {
 sub_0:
-  %1 = getelementptr inbounds i8, ptr %0, i64 19
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %2 = load i8, ptr %1, align 1
   %.not6 = icmp eq i8 %2, 46
   br i1 %.not6, label %.tail, label %.tail2
 
 .tail:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.tail2, label %sub_14
 
 sub_14:                                           ; preds = %.tail
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i8, ptr %6, align 1
   %.not8 = icmp eq i8 %7, 46
   br i1 %.not8, label %sub_2, label %.tail2
 
 sub_2:                                            ; preds = %sub_14
-  %8 = getelementptr inbounds i8, ptr %0, i64 21
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %9 = load i8, ptr %8, align 1
   %10 = icmp ne i8 %9, 0
   %11 = zext i1 %10 to i32
@@ -4429,9 +4429,9 @@ sub_2:                                            ; preds = %sub_14
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @uv__fs_scandir_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 19
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 19
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 19
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #17
   ret i32 %7
 }

@@ -39,7 +39,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_set_freezabl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @freezing_slow_path(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 44
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -2147450880
   %5 = icmp eq i32 %4, 0
@@ -84,7 +84,7 @@ declare dso_local zeroext i1 @cgroup_freezing(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local zeroext i1 @frozen(ptr noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile i32, ptr %2, align 8
   %4 = and i32 %3, 32768
   %5 = icmp ne i32 %4, 0
@@ -95,7 +95,7 @@ define dso_local zeroext i1 @frozen(ptr noundef %0) local_unnamed_addr #2 align 
 define dso_local noundef zeroext i1 @__refrigerator(i1 noundef zeroext %0) #0 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !7
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load volatile i32, ptr %4, align 8
   %6 = icmp ne i32 %5, 0
   %7 = and i32 %5, 3
@@ -110,17 +110,17 @@ define dso_local noundef zeroext i1 @__refrigerator(i1 noundef zeroext %0) #0 al
   br label %11
 
 11:                                               ; preds = %10, %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 2060
-  %13 = getelementptr inbounds i8, ptr %3, i64 28
-  %14 = getelementptr inbounds i8, ptr %3, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2060
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 44
   br i1 %0, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %11, %39
   %15 = phi i1 [ true, %39 ], [ false, %11 ]
-  tail call void @_raw_spin_lock_irq(ptr noundef %12) #5
-  %16 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 32768, ptr elementtype(i32) %4) #5, !srcloc !12
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %12) #5
+  %16 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, ptr nonnull elementtype(i32) %4) #5, !srcloc !12
   store i32 0, ptr %13, align 4
-  tail call void @_raw_spin_unlock_irq(ptr noundef %12) #5
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %12) #5
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @freezer_lock) #5
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @freezer_active, i32 2) #5
           to label %.split3.us [label %17], !srcloc !13
@@ -168,10 +168,10 @@ define dso_local noundef zeroext i1 @__refrigerator(i1 noundef zeroext %0) #0 al
 
 .split:                                           ; preds = %11, %62
   %40 = phi i1 [ true, %62 ], [ false, %11 ]
-  tail call void @_raw_spin_lock_irq(ptr noundef %12) #5
-  %41 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 32768, ptr elementtype(i32) %4) #5, !srcloc !12
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %12) #5
+  %41 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, ptr nonnull elementtype(i32) %4) #5, !srcloc !12
   store i32 0, ptr %13, align 4
-  tail call void @_raw_spin_unlock_irq(ptr noundef %12) #5
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %12) #5
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @freezer_lock) #5
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @freezer_active, i32 2) #5
           to label %.split3.us [label %42], !srcloc !13
@@ -250,7 +250,7 @@ define dso_local noundef zeroext i1 @freeze_task(ptr noundef %0) local_unnamed_a
           to label %47 [label %4], !srcloc !13
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -2147450880
   %8 = icmp eq i32 %7, 0
@@ -283,7 +283,7 @@ define dso_local noundef zeroext i1 @freeze_task(ptr noundef %0) local_unnamed_a
   br i1 %24, label %25, label %47
 
 25:                                               ; preds = %21, %16, %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load volatile i32, ptr %26, align 8
   %28 = and i32 %27, 32768
   %29 = icmp eq i32 %28, 0
@@ -309,7 +309,7 @@ define dso_local noundef zeroext i1 @freeze_task(ptr noundef %0) local_unnamed_a
 
 40:                                               ; preds = %37
   call void @signal_wake_up_state(ptr noundef %0, i32 noundef 0) #5
-  %41 = getelementptr inbounds i8, ptr %0, i64 1888
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   %42 = load ptr, ptr %41, align 32
   %43 = load i64, ptr %2, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %42, i64 noundef %43) #5
@@ -342,7 +342,7 @@ define dso_local void @__thaw_task(ptr noundef %0) local_unnamed_addr #0 align 1
           to label %25 [label %3], !srcloc !13
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, -2147450880
   %7 = icmp eq i32 %6, 0
@@ -381,7 +381,7 @@ define dso_local void @__thaw_task(ptr noundef %0) local_unnamed_addr #0 align 1
   br label %35
 
 25:                                               ; preds = %20, %17, %8, %3, %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load volatile i32, ptr %26, align 8
   %28 = and i32 %27, 32768
   %29 = icmp eq i32 %28, 0
@@ -406,13 +406,13 @@ declare dso_local i32 @task_call_func(ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal noundef range(i32 0, 2) i32 @__restore_freezer_state(ptr noundef %0, ptr nocapture readnone %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i32 %4, ptr %7, align 8
   store i32 0, ptr %3, align 4
   br label %8
@@ -428,7 +428,7 @@ define dso_local noundef zeroext i1 @set_freezable() #0 align 16 {
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @freezer_lock) #5
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !7
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, -32769
   store i32 %6, ptr %4, align 4
@@ -480,9 +480,9 @@ define dso_local noundef zeroext i1 @set_freezable() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 32769) i32 @__set_task_frozen(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load volatile i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %28
@@ -519,7 +519,7 @@ define internal noundef range(i32 0, 32769) i32 @__set_task_frozen(ptr noundef %
 
 25:                                               ; preds = %24, %21
   %26 = load i32, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %26, ptr %27, align 4
   store volatile i32 32768, ptr %3, align 8
   br label %28

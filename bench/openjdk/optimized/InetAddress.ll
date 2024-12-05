@@ -29,7 +29,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str) #2
   %8 = icmp eq ptr %7, null
@@ -37,7 +37,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %7) #2
   store ptr %13, ptr @ia_class, align 8
@@ -46,7 +46,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #2
   %20 = icmp eq ptr %19, null
@@ -54,7 +54,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull %19) #2
   store ptr %25, ptr @iac_class, align 8
@@ -63,7 +63,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 752
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 752
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @ia_class, align 8
   %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #2
@@ -73,7 +73,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 34:                                               ; preds = %27
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 752
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 752
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @iac_class, align 8
   %39 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #2
@@ -83,7 +83,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 752
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 752
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @iac_class, align 8
   %46 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef %45, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #2
@@ -93,7 +93,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 752
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 752
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @iac_class, align 8
   %53 = tail call ptr %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #2
@@ -103,7 +103,7 @@ define void @Java_java_net_InetAddress_init(ptr noundef %0, ptr nocapture nounde
 
 55:                                               ; preds = %48
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 752
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 752
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @iac_class, align 8
   %60 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8) #2

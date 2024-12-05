@@ -13,11 +13,11 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   %2 = alloca { { i64, [2 x i64] }, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store i64 0, ptr %2, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %3, align 8
   %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4
   %5 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #14, !noalias !4
@@ -54,9 +54,9 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..error..Error$GT$11description17hf8ea983abca4d1c9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -74,9 +74,9 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17he7e7d5245dd898b7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !8
   store i64 %6, ptr %4, align 8, !noalias !8
-  %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !8
-  %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !8
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !13
   %10 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #14, !noalias !13
@@ -122,9 +122,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4core3ops8function6FnOnce9call_once17h3556101b299a7cf6E.llvm.9015401963480915999(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #2 {
   store i64 0, ptr %0, align 8, !alias.scope !17
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !17
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !17
   ret void
 }
@@ -244,9 +244,9 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.9015401963480915999.ex
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5alloc6string6String3new17hdbf1a7b90c6676b8E.llvm.9015401963480915999(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #2 {
   store i64 0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }

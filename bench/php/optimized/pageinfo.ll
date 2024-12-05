@@ -40,18 +40,18 @@ define void @php_statpage() local_unnamed_addr #0 {
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   store i64 %10, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   store i64 %13, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %23
@@ -92,18 +92,18 @@ define hidden i64 @php_getuid() local_unnamed_addr #0 {
   br i1 %.not.i, label %18, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   store i64 %10, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   store i64 %13, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %php_statpage.exit
@@ -138,18 +138,18 @@ define hidden range(i64 0, -1) i64 @php_getgid() local_unnamed_addr #0 {
   br i1 %.not.i, label %18, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   store i64 %10, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   store i64 %13, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %php_statpage.exit
@@ -170,7 +170,7 @@ php_statpage.exit:                                ; preds = %0, %7, %18
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_getmyuid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -193,18 +193,18 @@ define hidden void @zif_getmyuid(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not.i.i, label %23, label %php_getuid.exit.thread
 
 php_getuid.exit.thread:                           ; preds = %12
-  %13 = getelementptr inbounds i8, ptr %7, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   store i64 %15, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   store i64 %18, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %32
@@ -225,14 +225,14 @@ php_getuid.exit:                                  ; preds = %6, %23
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %php_getuid.exit
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %35
 
 32:                                               ; preds = %php_getuid.exit.thread, %php_getuid.exit
   %33 = phi i64 [ %15, %php_getuid.exit.thread ], [ %28, %php_getuid.exit ]
   store i64 %33, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %34, align 8
   br label %35
 
@@ -244,7 +244,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_getmygid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -267,18 +267,18 @@ define hidden void @zif_getmygid(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not.i.i, label %24, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   store i64 %16, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   store i64 %19, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %php_getgid.exit.thread
@@ -297,14 +297,14 @@ php_getgid.exit:                                  ; preds = %6
   br i1 %29, label %30, label %php_getgid.exit.thread
 
 30:                                               ; preds = %php_getgid.exit
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %34
 
 php_getgid.exit.thread:                           ; preds = %24, %13, %php_getgid.exit
   %32 = phi i64 [ %10, %php_getgid.exit ], [ %28, %24 ], [ %19, %13 ]
   store i64 %32, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %33, align 8
   br label %34
 
@@ -314,7 +314,7 @@ php_getgid.exit.thread:                           ; preds = %24, %13, %php_getgi
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_getmypid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -329,14 +329,14 @@ define hidden void @zif_getmypid(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %10, align 8
   br label %14
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %7 to i64
   store i64 %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %13, align 8
   br label %14
 
@@ -349,7 +349,7 @@ declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_getmyinode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -372,18 +372,18 @@ define hidden void @zif_getmyinode(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not.i, label %24, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   store i64 %16, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   store i64 %19, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %php_statpage.exit
@@ -407,13 +407,13 @@ php_statpage.exit:                                ; preds = %php_statpage.exitth
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %php_statpage.exit
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
   br label %35
 
 33:                                               ; preds = %php_statpage.exit
   store i64 %29, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %34, align 8
   br label %35
 
@@ -436,18 +436,18 @@ define i64 @php_getlastmod() local_unnamed_addr #0 {
   br i1 %.not.i, label %18, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   store i64 %10, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   store i64 %13, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %php_statpage.exit
@@ -468,7 +468,7 @@ php_statpage.exit:                                ; preds = %0, %7, %18
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_getlastmod(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -491,18 +491,18 @@ define hidden void @zif_getlastmod(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not.i.i, label %24, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   store i64 %16, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 504), align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   store i64 %19, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 512), align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 520), align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 528), align 8
   br label %php_getlastmod.exit
@@ -526,13 +526,13 @@ php_getlastmod.exit:                              ; preds = %php_getlastmod.exit
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %php_getlastmod.exit
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
   br label %35
 
 33:                                               ; preds = %php_getlastmod.exit
   store i64 %29, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %34, align 8
   br label %35
 

@@ -7,67 +7,67 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [81 x double], align 16
   %5 = alloca [9 x double], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load float, ptr %1, align 4, !tbaa !6
   %10 = fpext float %9 to double
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !11
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load float, ptr %14, align 4, !tbaa !6
   %16 = fpext float %15 to double
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load float, ptr %17, align 4, !tbaa !11
   %19 = fpext float %18 to double
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load float, ptr %20, align 4, !tbaa !6
   %22 = fpext float %21 to double
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load float, ptr %23, align 4, !tbaa !11
   %25 = fpext float %24 to double
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load float, ptr %26, align 4, !tbaa !6
   %28 = fpext float %27 to double
-  %29 = getelementptr inbounds i8, ptr %1, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %30 = load float, ptr %29, align 4, !tbaa !11
   %31 = fpext float %30 to double
   call void @llvm.lifetime.start.p0(i64 648, ptr nonnull %4) #9
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load <2 x float>, ptr %0, align 4, !tbaa !12
   %34 = fpext <2 x float> %33 to <2 x double>
   %35 = fneg reassoc nsz arcp contract afn <2 x double> %34
   store <2 x double> %35, ptr %4, align 16, !tbaa !13
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double -1.000000e+00, ptr %36, align 16, !tbaa !13
-  %37 = getelementptr inbounds i8, ptr %4, i64 24
-  %38 = getelementptr inbounds i8, ptr %4, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %39 = insertelement <2 x double> poison, double %10, i64 0
   %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
   %41 = fmul reassoc nsz arcp contract afn <2 x double> %40, %34
   store <2 x double> %41, ptr %38, align 16, !tbaa !13
-  %42 = getelementptr inbounds i8, ptr %4, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store double %10, ptr %42, align 16, !tbaa !13
-  %43 = getelementptr inbounds i8, ptr %4, i64 80
-  %44 = getelementptr inbounds i8, ptr %4, i64 88
-  %45 = getelementptr inbounds i8, ptr %4, i64 96
-  %46 = getelementptr inbounds i8, ptr %4, i64 104
-  %47 = getelementptr inbounds i8, ptr %4, i64 112
-  %48 = getelementptr inbounds i8, ptr %4, i64 120
-  %49 = getelementptr inbounds i8, ptr %4, i64 136
-  %50 = getelementptr inbounds i8, ptr %4, i64 160
-  %51 = getelementptr inbounds i8, ptr %4, i64 168
-  %52 = getelementptr inbounds i8, ptr %4, i64 176
-  %53 = getelementptr inbounds i8, ptr %4, i64 184
-  %54 = getelementptr inbounds i8, ptr %4, i64 192
-  %55 = getelementptr inbounds i8, ptr %4, i64 208
-  %56 = getelementptr inbounds i8, ptr %4, i64 240
-  %57 = getelementptr inbounds i8, ptr %4, i64 248
-  %58 = getelementptr inbounds i8, ptr %4, i64 256
-  %59 = getelementptr inbounds i8, ptr %4, i64 264
-  %60 = getelementptr inbounds i8, ptr %4, i64 280
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 248
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 256
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 264
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %61 = insertelement <4 x ptr> poison, ptr %4, i64 0
   %62 = shufflevector <4 x ptr> %61, <4 x ptr> poison, <4 x i32> zeroinitializer
   %63 = getelementptr i8, <4 x ptr> %62, <4 x i64> <i64 72, i64 144, i64 216, i64 288>
@@ -88,27 +88,27 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %78 = shufflevector <2 x double> %77, <2 x double> poison, <2 x i32> zeroinitializer
   %79 = fmul reassoc nsz arcp contract afn <2 x double> %78, %68
   %80 = extractelement <4 x ptr> %63, i64 3
-  %81 = getelementptr inbounds i8, ptr %4, i64 320
-  %82 = getelementptr inbounds i8, ptr %4, i64 328
-  %83 = getelementptr inbounds i8, ptr %4, i64 336
-  %84 = getelementptr inbounds i8, ptr %4, i64 352
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 320
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 328
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 336
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %85 = getelementptr i8, <4 x ptr> %62, <4 x i64> <i64 152, i64 224, i64 296, i64 368>
   %86 = extractelement <4 x ptr> %85, i64 0
   %87 = extractelement <2 x double> %69, i64 1
   %88 = extractelement <4 x ptr> %85, i64 2
-  %89 = getelementptr inbounds i8, ptr %4, i64 400
-  %90 = getelementptr inbounds i8, ptr %4, i64 408
-  %91 = getelementptr inbounds i8, ptr %4, i64 416
-  %92 = getelementptr inbounds i8, ptr %4, i64 424
-  %93 = getelementptr inbounds i8, ptr %4, i64 440
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 400
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 416
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 424
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 440
   %94 = getelementptr i8, <4 x ptr> %62, <4 x i64> <i64 232, i64 304, i64 376, i64 448>
   %95 = extractelement <4 x ptr> %94, i64 1
-  %96 = getelementptr inbounds i8, ptr %4, i64 472
-  %97 = getelementptr inbounds i8, ptr %4, i64 480
-  %98 = getelementptr inbounds i8, ptr %4, i64 488
-  %99 = getelementptr inbounds i8, ptr %4, i64 496
-  %100 = getelementptr inbounds i8, ptr %4, i64 512
-  %101 = getelementptr inbounds i8, ptr %4, i64 520
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 472
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 480
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 488
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 496
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 520
   %102 = getelementptr i8, <4 x ptr> %62, <4 x i64> <i64 312, i64 384, i64 456, i64 528>
   %103 = extractelement <4 x ptr> %102, i64 0
   %104 = load <2 x float>, ptr %7, align 4, !tbaa !12
@@ -124,9 +124,9 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %114 = extractelement <4 x ptr> %94, i64 3
   %115 = extractelement <4 x ptr> %102, i64 2
   %116 = extractelement <4 x ptr> %102, i64 3
-  %117 = getelementptr inbounds i8, ptr %4, i64 544
-  %118 = getelementptr inbounds i8, ptr %4, i64 552
-  %119 = getelementptr inbounds i8, ptr %4, i64 568
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 544
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 552
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 568
   %120 = getelementptr i8, <4 x ptr> %62, <4 x i64> <i64 360, i64 432, i64 504, i64 576>
   %121 = extractelement <4 x ptr> %120, i64 0
   %122 = insertelement <2 x double> poison, double %25, i64 0
@@ -184,29 +184,29 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %138 = fmul reassoc nsz arcp contract afn <2 x double> %137, %127
   store <2 x double> %138, ptr %118, align 8, !tbaa !13
   store double %31, ptr %119, align 8, !tbaa !13
-  %139 = getelementptr inbounds i8, ptr %4, i64 584
-  %140 = getelementptr inbounds i8, ptr %4, i64 592
-  %141 = getelementptr inbounds i8, ptr %4, i64 600
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 584
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 592
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 600
   %142 = getelementptr i8, <4 x ptr> %62, <4 x i64> <i64 392, i64 464, i64 536, i64 608>
   %143 = extractelement <4 x ptr> %142, i64 0
   store double %109, ptr %143, align 8, !tbaa !13
   %144 = extractelement <4 x ptr> %142, i64 2
   store double %131, ptr %144, align 8, !tbaa !13
-  %145 = getelementptr inbounds i8, ptr %4, i64 616
-  %146 = getelementptr inbounds i8, ptr %4, i64 624
-  %147 = getelementptr inbounds i8, ptr %4, i64 632
-  %148 = getelementptr inbounds i8, ptr %4, i64 640
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 616
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 624
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 632
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 640
   %149 = extractelement <4 x ptr> %120, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %149, i8 0, i64 64, i1 false)
   store double 1.000000e+00, ptr %148, align 16, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !tbaa !13
-  %150 = getelementptr inbounds i8, ptr %5, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store double 1.000000e+00, ptr %150, align 16, !tbaa !13
   %151 = tail call noalias dereferenceable_or_null(36) ptr @malloc(i64 noundef 36) #10
-  %152 = getelementptr inbounds i8, ptr %151, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
   store i32 8, ptr %152, align 4, !tbaa !15
-  %153 = getelementptr inbounds i8, ptr %4, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %462
@@ -271,7 +271,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
 
 .loopexit39:                                      ; preds = %.preheader38, %.loopexit41, %.loopexit
   %197 = phi i32 [ 8, %.loopexit ], [ %192, %.loopexit41 ], [ %301, %.preheader38 ]
-  %198 = getelementptr inbounds i32, ptr %151, i64 %155
+  %198 = getelementptr inbounds nuw i32, ptr %151, i64 %155
   store i32 %197, ptr %198, align 4, !tbaa !15
   %199 = mul nsw i32 %197, 9
   %200 = sext i32 %199 to i64
@@ -279,7 +279,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %202 = getelementptr double, ptr %201, i64 %200
   %203 = load double, ptr %202, align 8, !tbaa !13
   %204 = mul nuw nsw i64 %155, 9
-  %205 = getelementptr inbounds i8, ptr %4, i64 %159
+  %205 = getelementptr inbounds nuw i8, ptr %4, i64 %159
   %206 = load double, ptr %205, align 16, !tbaa !13
   store double %206, ptr %202, align 8, !tbaa !13
   store double %203, ptr %205, align 16, !tbaa !13
@@ -655,10 +655,10 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %469 = load double, ptr %468, align 8, !tbaa !13
   store double 0.000000e+00, ptr %468, align 8, !tbaa !13
   store double %469, ptr %5, align 16, !tbaa !13
-  %470 = getelementptr inbounds i8, ptr %5, i64 8
-  %471 = getelementptr inbounds i8, ptr %5, i64 16
-  %472 = getelementptr inbounds i8, ptr %5, i64 24
-  %473 = getelementptr inbounds i8, ptr %5, i64 32
+  %470 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %473 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %474 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %63, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %475 = insertelement <4 x double> poison, double %469, i64 0
   %476 = shufflevector <4 x double> %475, <4 x double> poison, <4 x i32> zeroinitializer
@@ -666,15 +666,15 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %478 = load <4 x double>, ptr %470, align 8, !tbaa !13
   %479 = fadd reassoc nsz arcp contract afn <4 x double> %478, %477
   store <4 x double> %479, ptr %470, align 8, !tbaa !13
-  %480 = getelementptr inbounds i8, ptr %5, i64 40
-  %481 = getelementptr inbounds i8, ptr %5, i64 48
-  %482 = getelementptr inbounds i8, ptr %5, i64 56
+  %480 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %481 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %482 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %483 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %120, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %484 = fmul reassoc nsz arcp contract afn <4 x double> %483, %476
   %485 = load <4 x double>, ptr %480, align 8, !tbaa !13
   %486 = fadd reassoc nsz arcp contract afn <4 x double> %485, %484
   store <4 x double> %486, ptr %480, align 8, !tbaa !13
-  %487 = getelementptr inbounds i8, ptr %151, i64 4
+  %487 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %488 = load i32, ptr %487, align 4, !tbaa !15
   %489 = sext i32 %488 to i64
   %490 = getelementptr inbounds double, ptr %5, i64 %489
@@ -703,7 +703,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %509 = load double, ptr %150, align 16, !tbaa !13
   %510 = fadd reassoc nsz arcp contract afn double %509, %508
   store double %510, ptr %150, align 16, !tbaa !13
-  %511 = getelementptr inbounds i8, ptr %151, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %512 = load i32, ptr %511, align 4, !tbaa !15
   %513 = sext i32 %512 to i64
   %514 = getelementptr inbounds double, ptr %5, i64 %513
@@ -727,7 +727,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %529 = load <2 x double>, ptr %482, align 8, !tbaa !13
   %530 = fadd reassoc nsz arcp contract afn <2 x double> %528, %529
   store <2 x double> %530, ptr %482, align 8, !tbaa !13
-  %531 = getelementptr inbounds i8, ptr %151, i64 12
+  %531 = getelementptr inbounds nuw i8, ptr %151, i64 12
   %532 = load i32, ptr %531, align 4, !tbaa !15
   %533 = sext i32 %532 to i64
   %534 = getelementptr inbounds double, ptr %5, i64 %533
@@ -747,7 +747,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %545 = load double, ptr %150, align 16, !tbaa !13
   %546 = fadd reassoc nsz arcp contract afn double %545, %544
   store double %546, ptr %150, align 16, !tbaa !13
-  %547 = getelementptr inbounds i8, ptr %151, i64 16
+  %547 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %548 = load i32, ptr %547, align 4, !tbaa !15
   %549 = sext i32 %548 to i64
   %550 = getelementptr inbounds double, ptr %5, i64 %549
@@ -762,7 +762,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %557 = load <4 x double>, ptr %480, align 8, !tbaa !13
   %558 = fadd reassoc nsz arcp contract afn <4 x double> %557, %556
   store <4 x double> %558, ptr %480, align 8, !tbaa !13
-  %559 = getelementptr inbounds i8, ptr %151, i64 20
+  %559 = getelementptr inbounds nuw i8, ptr %151, i64 20
   %560 = load i32, ptr %559, align 4, !tbaa !15
   %561 = sext i32 %560 to i64
   %562 = getelementptr inbounds double, ptr %5, i64 %561
@@ -784,7 +784,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %575 = load double, ptr %150, align 16, !tbaa !13
   %576 = fadd reassoc nsz arcp contract afn double %575, %574
   store double %576, ptr %150, align 16, !tbaa !13
-  %577 = getelementptr inbounds i8, ptr %151, i64 24
+  %577 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %578 = load i32, ptr %577, align 4, !tbaa !15
   %579 = sext i32 %578 to i64
   %580 = getelementptr inbounds double, ptr %5, i64 %579
@@ -801,7 +801,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %589 = load <2 x double>, ptr %482, align 8, !tbaa !13
   %590 = fadd reassoc nsz arcp contract afn <2 x double> %588, %589
   store <2 x double> %590, ptr %482, align 8, !tbaa !13
-  %591 = getelementptr inbounds i8, ptr %151, i64 28
+  %591 = getelementptr inbounds nuw i8, ptr %151, i64 28
   %592 = load i32, ptr %591, align 4, !tbaa !15
   %593 = sext i32 %592 to i64
   %594 = getelementptr inbounds double, ptr %5, i64 %593
@@ -917,7 +917,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %689 = fptrunc <8 x double> %688 to <8 x float>
   store <8 x float> %689, ptr %2, align 4, !tbaa !12
   %690 = fptrunc double %632 to float
-  %691 = getelementptr inbounds i8, ptr %2, i64 32
+  %691 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store float %690, ptr %691, align 4, !tbaa !12
   br label %692
 
@@ -936,25 +936,25 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden <2 x float> @apply_homography(<2 x float> %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load <2 x float>, ptr %3, align 4, !tbaa !12
   %5 = fmul reassoc nsz arcp contract afn <2 x float> %4, %0
   %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %7 = fadd reassoc nsz arcp contract afn <2 x float> %6, %5
   %8 = extractelement <2 x float> %7, i64 0
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load float, ptr %9, align 4, !tbaa !12
   %11 = fadd reassoc nsz arcp contract afn float %8, %10
   %12 = load float, ptr %1, align 4, !tbaa !12
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load float, ptr %13, align 4, !tbaa !12
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load float, ptr %15, align 4, !tbaa !12
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load float, ptr %17, align 4, !tbaa !12
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load float, ptr %19, align 4, !tbaa !12
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load float, ptr %21, align 4, !tbaa !12
   %23 = insertelement <2 x float> poison, float %18, i64 0
   %24 = insertelement <2 x float> %23, float %14, i64 1
@@ -975,13 +975,13 @@ define hidden <2 x float> @apply_homography(<2 x float> %0, ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden float @apply_homography_scaling(<2 x float> %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load float, ptr %3, align 4, !tbaa !12
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
-  %6 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load float, ptr %6, align 4, !tbaa !12
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load float, ptr %9, align 4, !tbaa !12
   %11 = load <2 x float>, ptr %1, align 4, !tbaa !12
   %12 = fmul reassoc nsz arcp contract afn <2 x float> %11, %0

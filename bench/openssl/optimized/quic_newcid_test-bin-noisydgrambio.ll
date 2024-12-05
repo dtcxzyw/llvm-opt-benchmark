@@ -88,7 +88,7 @@ sw.bb1:                                           ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end5
 
 if.end5:                                          ; preds = %sw.bb1
-  %backoff = getelementptr inbounds i8, ptr %call2, i64 56
+  %backoff = getelementptr inbounds nuw i8, ptr %call2, i64 56
   store i32 1, ptr %backoff, align 8
   br label %return
 
@@ -140,7 +140,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp71.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data_len9 = getelementptr inbounds i8, ptr %msg, i64 8
+  %data_len9 = getelementptr inbounds nuw i8, ptr %msg, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -179,9 +179,9 @@ if.end24:                                         ; preds = %for.end
   br i1 %cmp2676.not, label %if.then106, label %for.body27.lr.ph
 
 for.body27.lr.ph:                                 ; preds = %if.end24
-  %reinject_dgram = getelementptr inbounds i8, ptr %call2, i64 48
-  %msg45 = getelementptr inbounds i8, ptr %call2, i64 8
-  %backoff = getelementptr inbounds i8, ptr %call2, i64 56
+  %reinject_dgram = getelementptr inbounds nuw i8, ptr %call2, i64 48
+  %msg45 = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %backoff = getelementptr inbounds nuw i8, ptr %call2, i64 56
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.inc99
@@ -294,7 +294,7 @@ if.end62.thread:                                  ; preds = %get_noise.exit
   br label %flip_bits.exit
 
 if.end62:                                         ; preds = %get_noise.exit
-  %data_len64 = getelementptr inbounds i8, ptr %thismsg.081, i64 8
+  %data_len64 = getelementptr inbounds nuw i8, ptr %thismsg.081, i64 8
   %10 = load i64, ptr %data_len64, align 8
   %cmp.i = icmp eq i16 %flip.1, 0
   %cmp2.i = icmp ult i64 %10, 2
@@ -365,7 +365,7 @@ for.inc99:                                        ; preds = %if.end79, %for.end9
   %flip_offset.1 = phi i64 [ %flip_offset.2, %if.end79 ], [ %flip_offset.2, %for.end96 ], [ %flip_offset.077, %if.end49 ]
   %msg_cnt.1 = phi i64 [ %msg_cnt.080, %if.end79 ], [ %dec97, %for.end96 ], [ %inc50, %if.end49 ]
   %inc100 = add nuw i64 %i.178, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %thismsg.081, i64 40
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %thismsg.081, i64 40
   %18 = load i64, ptr %call2, align 8
   %inc102 = add i64 %18, 1
   store i64 %inc102, ptr %call2, align 8
@@ -400,13 +400,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1472, ptr noundef nonnull @.str.1, i32 noundef 344) #2
-  %msg = getelementptr inbounds i8, ptr %call, i64 8
+  %msg = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call2, ptr %msg, align 8
   %call4 = tail call ptr @BIO_ADDR_new() #2
-  %peer = getelementptr inbounds i8, ptr %call, i64 24
+  %peer = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call4, ptr %peer, align 8
   %call6 = tail call ptr @BIO_ADDR_new() #2
-  %local = getelementptr inbounds i8, ptr %call, i64 32
+  %local = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %call6, ptr %local, align 8
   %0 = load ptr, ptr %msg, align 8
   %cmp = icmp eq ptr %0, null
@@ -448,13 +448,13 @@ entry:
   br i1 %cmp.i, label %data_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %msg.i = getelementptr inbounds i8, ptr %call, i64 8
+  %msg.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %msg.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 331) #2
-  %peer.i = getelementptr inbounds i8, ptr %call, i64 24
+  %peer.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load ptr, ptr %peer.i, align 8
   tail call void @BIO_ADDR_free(ptr noundef %1) #2
-  %local.i = getelementptr inbounds i8, ptr %call, i64 32
+  %local.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %2 = load ptr, ptr %local.i, align 8
   tail call void @BIO_ADDR_free(ptr noundef %2) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, i32 noundef 334) #2

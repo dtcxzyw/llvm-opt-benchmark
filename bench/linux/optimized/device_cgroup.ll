@@ -49,11 +49,11 @@ define internal noundef ptr @devcgroup_css_alloc(ptr nocapture readnone %0) #0 a
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store volatile ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i32 0, ptr %8, align 8
   br label %9
 
@@ -64,21 +64,21 @@ define internal noundef ptr @devcgroup_css_alloc(ptr nocapture readnone %0) #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   tail call void @mutex_lock(ptr noundef nonnull @devcgroup_mutex) #9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
-  %7 = getelementptr inbounds i8, ptr %3, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit6, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %12
 
 12:                                               ; preds = %17, %10
@@ -89,11 +89,11 @@ define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) 
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %11, align 8
   store ptr %18, ptr %11, align 8
   store ptr %6, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %19, ptr %20, align 8
   store volatile ptr %18, ptr %19, align 8
   %21 = load ptr, ptr %13, align 8
@@ -109,9 +109,9 @@ define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) 
   %26 = phi ptr [ %28, %.preheader ], [ %24, %23 ]
   %27 = getelementptr i8, ptr %26, i64 -16
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
   store volatile ptr %28, ptr %30, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %26, align 8
@@ -121,13 +121,13 @@ define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) 
   br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit6:                                       ; preds = %17, %5
-  %33 = getelementptr inbounds i8, ptr %3, i64 216
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %34 = load i32, ptr %33, align 8
   br label %35
 
 35:                                               ; preds = %.loopexit6, %1
   %36 = phi i32 [ %34, %.loopexit6 ], [ 1, %1 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %36, ptr %37, align 8
   br label %.loopexit
 
@@ -140,7 +140,7 @@ define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devcgroup_offline(ptr nocapture noundef writeonly initializes((216, 220)) %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @devcgroup_mutex) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %2, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
   ret void
@@ -148,7 +148,7 @@ define internal void @devcgroup_offline(ptr nocapture noundef writeonly initiali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devcgroup_css_free(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -157,9 +157,9 @@ define internal void @devcgroup_css_free(ptr noundef %0) #0 align 16 {
   %5 = phi ptr [ %7, %14 ], [ %3, %1 ]
   %6 = getelementptr i8, ptr %5, i64 -16
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   store volatile ptr %7, ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
@@ -185,14 +185,14 @@ define dso_local range(i32 -1, 1) i32 @devcgroup_check_permission(i16 noundef si
   tail call void @__rcu_read_lock() #9
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !10
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 2272
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2272
   %8 = load volatile ptr, ptr %7, align 32
   %9 = getelementptr i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
-  %14 = getelementptr inbounds i8, ptr %10, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %15 = load volatile ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, %14
   br i1 %13, label %16, label %59
@@ -444,7 +444,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exceptions_copy(ptr no
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %12, %5
@@ -455,11 +455,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exceptions_copy(ptr no
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %6, align 8
   store ptr %13, ptr %6, align 8
   store ptr %0, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %14, ptr %15, align 8
   store volatile ptr %13, ptr %14, align 8
   %16 = load ptr, ptr %8, align 8
@@ -475,9 +475,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exceptions_copy(ptr no
   %21 = phi ptr [ %23, %.preheader ], [ %19, %18 ]
   %22 = getelementptr i8, ptr %21, i64 -16
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %25, ptr %26, align 8
   store volatile ptr %23, ptr %25, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %21, align 8
@@ -511,16 +511,16 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   tail call void @mutex_lock(ptr noundef nonnull @devcgroup_mutex) #9
   %8 = tail call ptr @of_css(ptr noundef %0) #9
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = tail call ptr @strim(ptr noundef %1) #9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !13
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #9
-  %16 = getelementptr inbounds i8, ptr %8, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %7) #9
   %18 = tail call zeroext i1 @capable(i32 noundef 21) #9
@@ -551,31 +551,31 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %17, i64 216
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 216
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %32, label %.thread13
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %8, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store i32 1, ptr %31, align 8
   tail call fastcc void @dev_exception_clean(ptr noundef %8)
   br label %.thread16
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %7, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store volatile ptr %33, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store volatile ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 200
-  %36 = call fastcc i32 @dev_exceptions_copy(ptr noundef %33, ptr noundef %35), !range !14
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 200
+  %36 = call fastcc i32 @dev_exceptions_copy(ptr noundef nonnull %33, ptr noundef nonnull %35), !range !14
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %.thread13
 
 38:                                               ; preds = %32
   call fastcc void @dev_exception_clean(ptr noundef %8)
-  %39 = getelementptr inbounds i8, ptr %17, i64 200
-  %40 = call fastcc i32 @dev_exceptions_copy(ptr noundef %35, ptr noundef %39), !range !14
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 200
+  %40 = call fastcc i32 @dev_exceptions_copy(ptr noundef nonnull %35, ptr noundef nonnull %39), !range !14
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %55, label %42
 
@@ -585,15 +585,15 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %44, label %.thread13, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %8, i64 208
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 208
   br label %47
 
 47:                                               ; preds = %47, %45
   %48 = phi ptr [ %43, %45 ], [ %49, %47 ]
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %51, ptr %52, align 8
   store volatile ptr %49, ptr %51, align 8
   %53 = load ptr, ptr %46, align 8
@@ -605,7 +605,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %54, label %.loopexit, label %47, !llvm.loop !15
 
 55:                                               ; preds = %38
-  %56 = getelementptr inbounds i8, ptr %8, i64 216
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store i32 1, ptr %56, align 8
   call fastcc void @dev_exception_clean(ptr noundef nonnull %7)
   br label %.thread16
@@ -615,7 +615,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %58, label %.thread13, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %8, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %60
   br i1 %62, label %.loopexit18, label %.preheader
@@ -624,9 +624,9 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %63 = phi ptr [ %65, %72 ], [ %61, %59 ]
   %64 = getelementptr i8, ptr %63, i64 -16
   %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %67, ptr %68, align 8
   store volatile ptr %65, ptr %67, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %66, align 8
@@ -643,7 +643,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %73, label %.loopexit18, label %.preheader, !llvm.loop !9
 
 .loopexit18:                                      ; preds = %72, %59
-  %74 = getelementptr inbounds i8, ptr %8, i64 216
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store i32 2, ptr %74, align 8
   br label %.thread16
 
@@ -652,7 +652,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 
 76:                                               ; preds = %75, %19
   %77 = phi i16 [ 2, %75 ], [ 1, %19 ]
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %77, ptr %78, align 8
   %79 = getelementptr i8, ptr %15, i64 1
   %80 = load i8, ptr %79, align 1
@@ -718,7 +718,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %6, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %122, align 4
   %123 = getelementptr i8, ptr %114, i64 2
   br label %146
@@ -751,8 +751,8 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %141, label %142, label %129, !llvm.loop !17
 
 142:                                              ; preds = %129
-  %143 = getelementptr inbounds i8, ptr %6, i64 4
-  %144 = call i32 @kstrtouint(ptr noundef nonnull %5, i32 noundef 10, ptr noundef %143) #9
+  %143 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %144 = call i32 @kstrtouint(ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %143) #9
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %.thread13
 
@@ -767,7 +767,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br i1 %153, label %.thread13, label %154
 
 154:                                              ; preds = %146
-  %155 = getelementptr inbounds i8, ptr %6, i64 10
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %156 = load i16, ptr %155, align 2
   br label %157
 
@@ -806,7 +806,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   ]
 
 168:                                              ; preds = %.thread
-  %169 = getelementptr inbounds i8, ptr %8, i64 216
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %170 = load i32, ptr %169, align 8
   %171 = icmp eq i32 %170, 1
   br i1 %171, label %172, label %175
@@ -829,7 +829,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 180:                                              ; preds = %.thread
-  %181 = getelementptr inbounds i8, ptr %8, i64 216
+  %181 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, 2
   br i1 %183, label %.thread11, label %184
@@ -887,7 +887,7 @@ define internal noundef i32 @devcgroup_seq_show(ptr noundef %0, ptr nocapture re
   %3 = alloca [13 x i8], align 2
   %4 = alloca [13 x i8], align 2
   %5 = alloca [4 x i8], align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @of_css(ptr noundef %7) #9
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %3) #9
@@ -897,7 +897,7 @@ define internal noundef i32 @devcgroup_seq_show(ptr noundef %0, ptr nocapture re
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 0, ptr %5, align 4, !annotation !13
   tail call void @__rcu_read_lock() #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %13
@@ -910,7 +910,7 @@ define internal noundef i32 @devcgroup_seq_show(ptr noundef %0, ptr nocapture re
   br label %.loopexit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %8, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
   br i1 %16, label %.loopexit, label %.preheader
@@ -1029,7 +1029,7 @@ declare dso_local zeroext i1 @css_has_online_children(ptr noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @dev_exception_clean(ptr noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -1038,9 +1038,9 @@ define internal fastcc void @dev_exception_clean(ptr noundef readonly %0) unname
   %5 = phi ptr [ %7, %14 ], [ %3, %1 ]
   %6 = getelementptr i8, ptr %5, i64 -16
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   store volatile ptr %7, ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %8, align 8
@@ -1062,27 +1062,27 @@ define internal fastcc void @dev_exception_clean(ptr noundef readonly %0) unname
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 200
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = load i32, ptr %1, align 8
   %.fr = freeze i32 %14
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   %.fr20 = freeze i32 %16
-  %17 = getelementptr inbounds i8, ptr %1, i64 10
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %18 = load i16, ptr %17, align 2
   %19 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %19, %11
@@ -1310,15 +1310,15 @@ define internal fastcc noundef zeroext i1 @parent_allows_removal(ptr nocapture n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %10
 
 10:                                               ; preds = %41, %6
@@ -1355,9 +1355,9 @@ define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr nocap
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %36, ptr %37, align 8
   store volatile ptr %13, ptr %36, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %35, align 8
@@ -1379,31 +1379,31 @@ define internal fastcc void @dev_exception_rm(ptr noundef readonly %0, ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %66
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 200
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i16, ptr %16, align 8
   %18 = load i32, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %22 = load i16, ptr %21, align 2
   %23 = load volatile ptr, ptr %15, align 8
   %.not13 = icmp eq ptr %23, %15
@@ -1471,13 +1471,13 @@ define internal fastcc range(i32 0, 2) i32 @parent_has_perm(ptr nocapture nounde
   br i1 %.not14, label %.loopexit, label %32, !llvm.loop !11
 
 66:                                               ; preds = %6
-  %67 = getelementptr inbounds i8, ptr %4, i64 200
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load i16, ptr %68, align 8
   %70 = load i32, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 10
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %74 = load i16, ptr %73, align 2
   %75 = load volatile ptr, ptr %67, align 8
   %.not = icmp eq ptr %75, %67
@@ -1651,15 +1651,15 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noun
   br i1 %4, label %.thread6, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 10
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %.outer
 
 .outer:                                           ; preds = %.thread5, %9
@@ -1711,11 +1711,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dev_exception_add(ptr noun
 
 .thread:                                          ; preds = %5, %38
   %40 = phi ptr [ %.ph7, %38 ], [ %3, %5 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
-  %42 = getelementptr inbounds i8, ptr %0, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %43 = load ptr, ptr %42, align 8
   store ptr %6, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %40, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %43, ptr %44, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !23
   store volatile ptr %41, ptr %43, align 8
@@ -1735,10 +1735,10 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br i1 %4, label %.loopexit23, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %10
 
 10:                                               ; preds = %146, %5
@@ -1747,7 +1747,7 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br i1 %12, label %146, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 216
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %146, label %17
@@ -1769,7 +1769,7 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br i1 %25, label %.thread16, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %11, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %27
   br i1 %29, label %.thread, label %.preheader20.outer
@@ -1823,11 +1823,11 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
 
 .thread:                                          ; preds = %26, %54
   %56 = phi ptr [ %.ph26, %54 ], [ %24, %26 ]
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
-  %58 = getelementptr inbounds i8, ptr %11, i64 208
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 208
   %59 = load ptr, ptr %58, align 8
   store ptr %27, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %59, ptr %60, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !23
   store volatile ptr %57, ptr %59, align 8
@@ -1835,7 +1835,7 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br label %.loopexit22
 
 61:                                               ; preds = %20, %17
-  %62 = getelementptr inbounds i8, ptr %11, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %62
   br i1 %64, label %.loopexit22, label %.preheader21
@@ -1874,9 +1874,9 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %65, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %90, ptr %91, align 8
   store volatile ptr %67, ptr %90, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %89, align 8
@@ -1893,7 +1893,7 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br i1 %96, label %.loopexit22, label %.preheader21, !llvm.loop !21
 
 .loopexit22:                                      ; preds = %95, %.thread24, %54, %.thread, %61
-  %97 = getelementptr inbounds i8, ptr %11, i64 200
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %97
   br i1 %99, label %.loopexit19, label %.preheader
@@ -1951,9 +1951,9 @@ define internal fastcc range(i32 -12, 1) i32 @propagate_exception(ptr noundef %0
   br i1 %135, label %136, label %143
 
 136:                                              ; preds = %129
-  %137 = getelementptr inbounds i8, ptr %113, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %115, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %138, ptr %139, align 8
   store volatile ptr %115, ptr %138, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %137, align 8

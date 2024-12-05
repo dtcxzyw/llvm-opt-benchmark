@@ -13,9 +13,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @csc_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %5, %7
   br i1 %.not, label %.preheader, label %.loopexit37
@@ -25,14 +25,14 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr nocapture noundef readonly %0, ptr noc
   br i1 %8, label %.lr.ph41, label %.loopexit37
 
 .lr.ph41:                                         ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %17
 
 .loopexit:                                        ; preds = %29, %23
@@ -42,15 +42,15 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr nocapture noundef readonly %0, ptr noc
 17:                                               ; preds = %.lr.ph41, %.loopexit
   %.03240 = phi i64 [ 0, %.lr.ph41 ], [ %18, %.loopexit ]
   %18 = add nuw nsw i64 %.03240, 1
-  %19 = getelementptr inbounds i64, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %10, i64 %18
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i64, ptr %12, i64 %18
+  %21 = getelementptr inbounds nuw i64, ptr %12, i64 %18
   %22 = load i64, ptr %21, align 8
   %.not35 = icmp eq i64 %20, %22
   br i1 %.not35, label %23, label %.loopexit37
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i64, ptr %10, i64 %.03240
+  %24 = getelementptr inbounds nuw i64, ptr %10, i64 %.03240
   %25 = load i64, ptr %24, align 8
   %26 = icmp slt i64 %25, %20
   br i1 %26, label %.lr.ph, label %.loopexit
@@ -107,9 +107,9 @@ define i64 @csc_cumsum(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2)
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.026 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
   %.02025 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds i64, ptr %0, i64 %.02025
+  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.02025
   store i64 %.026, ptr %7, align 8
-  %8 = getelementptr inbounds i64, ptr %1, i64 %.02025
+  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %.02025
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, %.026
   store i64 %.026, ptr %8, align 8
@@ -136,20 +136,20 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
 
 7:                                                ; preds = %5
   store i64 %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %8, align 8
   %9 = tail call i64 @llvm.smax.i64(i64 %2, i64 0)
-  %10 = getelementptr inbounds i8, ptr %6, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %9, ptr %10, align 8
   %.not28 = icmp eq i64 %4, 0
   %11 = sext i1 %.not28 to i64
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %11, ptr %12, align 8
   %13 = add nsw i64 %1, 1
   %14 = select i1 %.not28, i64 %13, i64 %9
   %15 = shl nsw i64 %14, 3
   %16 = tail call noalias noundef ptr @malloc(i64 noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %16, ptr %17, align 8
   %.not29 = icmp eq i64 %3, 0
   br i1 %.not29, label %18, label %.thread33
@@ -161,10 +161,10 @@ define noalias noundef ptr @csc_spalloc(i64 noundef %0, i64 noundef %1, i64 noun
 .thread33:                                        ; preds = %7
   %19 = shl nsw i64 %9, 3
   %20 = tail call noalias noundef ptr @malloc(i64 noundef %19) #16
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %20, ptr %21, align 8
   %22 = tail call noalias noundef ptr @malloc(i64 noundef %19) #16
-  %23 = getelementptr inbounds i8, ptr %6, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %22, ptr %23, align 8
   %.not3034 = icmp eq ptr %16, null
   br i1 %.not3034, label %26, label %24
@@ -213,7 +213,7 @@ define void @csc_spfree(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not11 = icmp eq ptr %4, null
   br i1 %.not11, label %6, label %5
@@ -223,7 +223,7 @@ define void @csc_spfree(ptr noundef %0) local_unnamed_addr #4 {
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %10, label %9
@@ -233,7 +233,7 @@ define void @csc_spfree(ptr noundef %0) local_unnamed_addr #4 {
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %14, label %13
@@ -255,14 +255,14 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = shl i64 %5, 3
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #16
@@ -283,14 +283,14 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %.preheader78, %23
   %.06580 = phi i64 [ %.1, %23 ], [ 0, %.preheader78 ]
   %.06679 = phi i64 [ %24, %23 ], [ 0, %.preheader78 ]
-  %18 = getelementptr inbounds i64, ptr %1, i64 %.06679
+  %18 = getelementptr inbounds nuw i64, ptr %1, i64 %.06679
   %19 = load i64, ptr %18, align 8
   %.not77 = icmp eq i64 %19, 0
   br i1 %.not77, label %23, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = add nsw i64 %.06580, 1
-  %22 = getelementptr inbounds i64, ptr %13, i64 %.06679
+  %22 = getelementptr inbounds nuw i64, ptr %13, i64 %.06679
   store i64 %.06580, ptr %22, align 8
   br label %23
 
@@ -303,7 +303,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
 .lr.ph83:                                         ; preds = %.preheader, %.lr.ph83
   %.16782 = phi i64 [ %30, %.lr.ph83 ], [ 0, %.preheader ]
   %.06881 = phi i64 [ %spec.select, %.lr.ph83 ], [ 0, %.preheader ]
-  %25 = getelementptr inbounds i64, ptr %9, i64 %.16782
+  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %.16782
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i64, ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8
@@ -329,7 +329,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
   br i1 %35, label %.lr.ph.preheader.i, label %.sink.split
 
 .lr.ph.preheader.i:                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = shl i64 %4, 3
   %39 = add i64 %38, 8
@@ -337,11 +337,11 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
   br label %.sink.split
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %31, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %31, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %31, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = icmp sgt i64 %4, 0
   br i1 %47, label %.lr.ph94, label %._crit_edge95
@@ -354,12 +354,12 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr nocapture noundef readonly 
 .lr.ph94:                                         ; preds = %40, %.loopexit
   %.292 = phi i64 [ %51, %.loopexit ], [ 0, %40 ]
   %.27091 = phi i64 [ %.3.lcssa, %.loopexit ], [ 0, %40 ]
-  %48 = getelementptr inbounds i64, ptr %42, i64 %.292
+  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %.292
   store i64 %.27091, ptr %48, align 8
-  %49 = getelementptr inbounds i64, ptr %7, i64 %.292
+  %49 = getelementptr inbounds nuw i64, ptr %7, i64 %.292
   %50 = load i64, ptr %49, align 8
   %51 = add nuw nsw i64 %.292, 1
-  %52 = getelementptr inbounds i64, ptr %7, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %7, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = icmp slt i64 %50, %53
   br i1 %54, label %.lr.ph88, label %.loopexit
@@ -420,15 +420,15 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = icmp ne ptr %11, null
   %15 = zext i1 %14 to i64
@@ -445,7 +445,7 @@ define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i.i, label %csc_done.exit, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %23, null
   br i1 %.not11.i.i, label %25, label %24
@@ -455,7 +455,7 @@ define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, pt
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not12.i.i = icmp eq ptr %27, null
   br i1 %.not12.i.i, label %29, label %28
@@ -465,7 +465,7 @@ define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, pt
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = getelementptr inbounds i8, ptr %16, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not13.i.i = icmp eq ptr %31, null
   br i1 %.not13.i.i, label %csc_done.exit.sink.split, label %32
@@ -475,18 +475,18 @@ define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, pt
   br label %csc_done.exit.sink.split
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %16, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %16, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = icmp sgt i64 %13, 0
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.04856 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds i64, ptr %9, i64 %.04856
+  %41 = getelementptr inbounds nuw i64, ptr %9, i64 %.04856
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %17, i64 %42
   %44 = load i64, ptr %43, align 8
@@ -507,9 +507,9 @@ define noalias noundef ptr @triplet_to_csc(ptr nocapture noundef readonly %0, pt
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.026.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.02025.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds i64, ptr %35, i64 %.02025.i
+  %48 = getelementptr inbounds nuw i64, ptr %35, i64 %.02025.i
   store i64 %.026.i, ptr %48, align 8
-  %49 = getelementptr inbounds i64, ptr %17, i64 %.02025.i
+  %49 = getelementptr inbounds nuw i64, ptr %17, i64 %.02025.i
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, %.026.i
   store i64 %.026.i, ptr %49, align 8
@@ -532,9 +532,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58, %.lr.ph58.split.us
   %.157.us = phi i64 [ %62, %.lr.ph58.split.us ], [ 0, %.lr.ph58 ]
-  %54 = getelementptr inbounds i64, ptr %7, i64 %.157.us
+  %54 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i64, ptr %9, i64 %.157.us
+  %56 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds i64, ptr %17, i64 %57
   %59 = load i64, ptr %58, align 8
@@ -552,9 +552,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split.us:                          ; preds = %.lr.ph58.split, %.lr.ph58.split.split.us
   %.157.us60 = phi i64 [ %74, %.lr.ph58.split.split.us ], [ 0, %.lr.ph58.split ]
-  %63 = getelementptr inbounds i64, ptr %7, i64 %.157.us60
+  %63 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us60
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i64, ptr %9, i64 %.157.us60
+  %65 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us60
   %66 = load i64, ptr %65, align 8
   %67 = getelementptr inbounds i64, ptr %17, i64 %66
   %68 = load i64, ptr %67, align 8
@@ -562,7 +562,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %69, ptr %67, align 8
   %70 = getelementptr inbounds i64, ptr %37, i64 %68
   store i64 %64, ptr %70, align 8
-  %71 = getelementptr inbounds double, ptr %11, i64 %.157.us60
+  %71 = getelementptr inbounds nuw double, ptr %11, i64 %.157.us60
   %72 = load double, ptr %71, align 8
   %73 = getelementptr inbounds double, ptr %39, i64 %68
   store double %72, ptr %73, align 8
@@ -572,9 +572,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split:                             ; preds = %.lr.ph58.split, %.lr.ph58.split.split
   %.157 = phi i64 [ %87, %.lr.ph58.split.split ], [ 0, %.lr.ph58.split ]
-  %75 = getelementptr inbounds i64, ptr %7, i64 %.157
+  %75 = getelementptr inbounds nuw i64, ptr %7, i64 %.157
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i64, ptr %9, i64 %.157
+  %77 = getelementptr inbounds nuw i64, ptr %9, i64 %.157
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr inbounds i64, ptr %17, i64 %78
   %80 = load i64, ptr %79, align 8
@@ -582,11 +582,11 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %81, ptr %79, align 8
   %82 = getelementptr inbounds i64, ptr %37, i64 %80
   store i64 %76, ptr %82, align 8
-  %83 = getelementptr inbounds double, ptr %11, i64 %.157
+  %83 = getelementptr inbounds nuw double, ptr %11, i64 %.157
   %84 = load double, ptr %83, align 8
   %85 = getelementptr inbounds double, ptr %39, i64 %80
   store double %84, ptr %85, align 8
-  %86 = getelementptr inbounds i64, ptr %1, i64 %.157
+  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %.157
   store i64 %80, ptr %86, align 8
   %87 = add nuw nsw i64 %.157, 1
   %exitcond63.not = icmp eq i64 %87, %13
@@ -615,7 +615,7 @@ define noundef ptr @csc_done(ptr noundef %0, ptr nocapture noundef %1, ptr nocap
   br i1 %.not.i, label %csc_spfree.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not11.i = icmp eq ptr %8, null
   br i1 %.not11.i, label %10, label %9
@@ -625,7 +625,7 @@ define noundef ptr @csc_done(ptr noundef %0, ptr nocapture noundef %1, ptr nocap
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not12.i = icmp eq ptr %12, null
   br i1 %.not12.i, label %14, label %13
@@ -635,7 +635,7 @@ define noundef ptr @csc_done(ptr noundef %0, ptr nocapture noundef %1, ptr nocap
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not13.i = icmp eq ptr %16, null
   br i1 %.not13.i, label %18, label %17
@@ -656,15 +656,15 @@ csc_spfree.exit:                                  ; preds = %18, %5, %4
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = icmp ne ptr %11, null
   %15 = zext i1 %14 to i64
@@ -681,7 +681,7 @@ define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i.i, label %csc_done.exit, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %23, null
   br i1 %.not11.i.i, label %25, label %24
@@ -691,7 +691,7 @@ define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, pt
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = getelementptr inbounds i8, ptr %16, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not12.i.i = icmp eq ptr %27, null
   br i1 %.not12.i.i, label %29, label %28
@@ -701,7 +701,7 @@ define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, pt
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = getelementptr inbounds i8, ptr %16, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not13.i.i = icmp eq ptr %31, null
   br i1 %.not13.i.i, label %csc_done.exit.sink.split, label %32
@@ -711,18 +711,18 @@ define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, pt
   br label %csc_done.exit.sink.split
 
 33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %16, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %16, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = icmp sgt i64 %13, 0
   br i1 %40, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.04856 = phi i64 [ %46, %.lr.ph ], [ 0, %33 ]
-  %41 = getelementptr inbounds i64, ptr %7, i64 %.04856
+  %41 = getelementptr inbounds nuw i64, ptr %7, i64 %.04856
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i64, ptr %17, i64 %42
   %44 = load i64, ptr %43, align 8
@@ -743,9 +743,9 @@ define noalias noundef ptr @triplet_to_csr(ptr nocapture noundef readonly %0, pt
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.026.i = phi i64 [ %51, %.lr.ph.i ], [ 0, %.preheader.i ]
   %.02025.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %48 = getelementptr inbounds i64, ptr %35, i64 %.02025.i
+  %48 = getelementptr inbounds nuw i64, ptr %35, i64 %.02025.i
   store i64 %.026.i, ptr %48, align 8
-  %49 = getelementptr inbounds i64, ptr %17, i64 %.02025.i
+  %49 = getelementptr inbounds nuw i64, ptr %17, i64 %.02025.i
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, %.026.i
   store i64 %.026.i, ptr %49, align 8
@@ -768,9 +768,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.us:                                ; preds = %.lr.ph58, %.lr.ph58.split.us
   %.157.us = phi i64 [ %62, %.lr.ph58.split.us ], [ 0, %.lr.ph58 ]
-  %54 = getelementptr inbounds i64, ptr %9, i64 %.157.us
+  %54 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i64, ptr %7, i64 %.157.us
+  %56 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds i64, ptr %17, i64 %57
   %59 = load i64, ptr %58, align 8
@@ -788,9 +788,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split.us:                          ; preds = %.lr.ph58.split, %.lr.ph58.split.split.us
   %.157.us60 = phi i64 [ %74, %.lr.ph58.split.split.us ], [ 0, %.lr.ph58.split ]
-  %63 = getelementptr inbounds i64, ptr %9, i64 %.157.us60
+  %63 = getelementptr inbounds nuw i64, ptr %9, i64 %.157.us60
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i64, ptr %7, i64 %.157.us60
+  %65 = getelementptr inbounds nuw i64, ptr %7, i64 %.157.us60
   %66 = load i64, ptr %65, align 8
   %67 = getelementptr inbounds i64, ptr %17, i64 %66
   %68 = load i64, ptr %67, align 8
@@ -798,7 +798,7 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %69, ptr %67, align 8
   %70 = getelementptr inbounds i64, ptr %37, i64 %68
   store i64 %64, ptr %70, align 8
-  %71 = getelementptr inbounds double, ptr %11, i64 %.157.us60
+  %71 = getelementptr inbounds nuw double, ptr %11, i64 %.157.us60
   %72 = load double, ptr %71, align 8
   %73 = getelementptr inbounds double, ptr %39, i64 %68
   store double %72, ptr %73, align 8
@@ -808,9 +808,9 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 
 .lr.ph58.split.split:                             ; preds = %.lr.ph58.split, %.lr.ph58.split.split
   %.157 = phi i64 [ %87, %.lr.ph58.split.split ], [ 0, %.lr.ph58.split ]
-  %75 = getelementptr inbounds i64, ptr %9, i64 %.157
+  %75 = getelementptr inbounds nuw i64, ptr %9, i64 %.157
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i64, ptr %7, i64 %.157
+  %77 = getelementptr inbounds nuw i64, ptr %7, i64 %.157
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr inbounds i64, ptr %17, i64 %78
   %80 = load i64, ptr %79, align 8
@@ -818,11 +818,11 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   store i64 %81, ptr %79, align 8
   %82 = getelementptr inbounds i64, ptr %37, i64 %80
   store i64 %76, ptr %82, align 8
-  %83 = getelementptr inbounds double, ptr %11, i64 %.157
+  %83 = getelementptr inbounds nuw double, ptr %11, i64 %.157
   %84 = load double, ptr %83, align 8
   %85 = getelementptr inbounds double, ptr %39, i64 %80
   store double %84, ptr %85, align 8
-  %86 = getelementptr inbounds i64, ptr %1, i64 %.157
+  %86 = getelementptr inbounds nuw i64, ptr %1, i64 %.157
   store i64 %80, ptr %86, align 8
   %87 = add nuw nsw i64 %.157, 1
   %exitcond63.not = icmp eq i64 %87, %13
@@ -841,13 +841,13 @@ csc_done.exit:                                    ; preds = %csc_done.exit.sink.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp sgt i64 %4, 0
   br i1 %11, label %.lr.ph24.preheader, label %._crit_edge
@@ -867,13 +867,13 @@ define void @csc_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture n
   %14 = phi i64 [ %13, %.loopexit ], [ %.pre, %.lr.ph24.preheader ]
   %.023 = phi i64 [ %15, %.loopexit ], [ 0, %.lr.ph24.preheader ]
   %15 = add nuw nsw i64 %.023, 1
-  %16 = getelementptr inbounds i64, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp slt i64 %14, %17
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph24
-  %19 = getelementptr inbounds double, ptr %1, i64 %.023
+  %19 = getelementptr inbounds nuw double, ptr %1, i64 %.023
   br label %20
 
 20:                                               ; preds = %.lr.ph, %28
@@ -918,7 +918,7 @@ define noalias noundef ptr @csc_pinv(ptr noundef readonly %0, i64 noundef %1) lo
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01115 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
-  %7 = getelementptr inbounds i64, ptr %0, i64 %.01115
+  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.01115
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i64, ptr %5, i64 %8
   store i64 %.01115, ptr %9, align 8
@@ -933,13 +933,13 @@ define noalias noundef ptr @csc_pinv(ptr noundef readonly %0, i64 noundef %1) lo
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #6 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i64, ptr %8, i64 %6
   %14 = load i64, ptr %13, align 8
@@ -960,7 +960,7 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not.i.i, label %csc_done.exit, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not11.i.i = icmp eq ptr %26, null
   br i1 %.not11.i.i, label %28, label %27
@@ -970,7 +970,7 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not12.i.i = icmp eq ptr %30, null
   br i1 %.not12.i.i, label %32, label %31
@@ -980,7 +980,7 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br label %32
 
 32:                                               ; preds = %31, %28
-  %33 = getelementptr inbounds i8, ptr %19, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not13.i.i = icmp eq ptr %34, null
   br i1 %.not13.i.i, label %csc_done.exit.sink.split, label %35
@@ -990,11 +990,11 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   br label %csc_done.exit.sink.split
 
 36:                                               ; preds = %4
-  %37 = getelementptr inbounds i8, ptr %19, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %19, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %42 = load ptr, ptr %41, align 8
   %.fr = freeze ptr %42
   %43 = icmp sgt i64 %6, 0
@@ -1009,13 +1009,13 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
   %44 = phi i64 [ %47, %.loopexit106.us ], [ %.pre138, %.lr.ph111 ]
   %.090110.us = phi i64 [ %45, %.loopexit106.us ], [ 0, %.lr.ph111 ]
   %45 = add nuw nsw i64 %.090110.us, 1
-  %46 = getelementptr inbounds i64, ptr %8, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %8, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = icmp slt i64 %44, %47
   br i1 %48, label %.lr.ph.us.preheader, label %.loopexit106.us
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph111.split.us
-  %49 = getelementptr inbounds i64, ptr %20, i64 %.090110.us
+  %49 = getelementptr inbounds nuw i64, ptr %20, i64 %.090110.us
   br label %.lr.ph.us
 
 .loopexit106.us:                                  ; preds = %56, %.lr.ph111.split.us
@@ -1047,10 +1047,10 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
 .lr.ph111.split:                                  ; preds = %.lr.ph111, %.loopexit106
   %58 = phi i64 [ %63, %.loopexit106 ], [ %.pre138, %.lr.ph111 ]
   %.090110 = phi i64 [ %61, %.loopexit106 ], [ 0, %.lr.ph111 ]
-  %59 = getelementptr inbounds i64, ptr %1, i64 %.090110
+  %59 = getelementptr inbounds nuw i64, ptr %1, i64 %.090110
   %60 = load i64, ptr %59, align 8
   %61 = add nuw nsw i64 %.090110, 1
-  %62 = getelementptr inbounds i64, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw i64, ptr %8, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = icmp slt i64 %58, %63
   br i1 %64, label %.lr.ph, label %.loopexit106
@@ -1088,9 +1088,9 @@ define noalias noundef ptr @csc_symperm(ptr nocapture noundef readonly %0, ptr n
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.026.i = phi i64 [ %80, %.lr.ph.i ], [ 0, %._crit_edge ]
   %.02025.i = phi i64 [ %81, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %77 = getelementptr inbounds i64, ptr %38, i64 %.02025.i
+  %77 = getelementptr inbounds nuw i64, ptr %38, i64 %.02025.i
   store i64 %.026.i, ptr %77, align 8
-  %78 = getelementptr inbounds i64, ptr %20, i64 %.02025.i
+  %78 = getelementptr inbounds nuw i64, ptr %20, i64 %.02025.i
   %79 = load i64, ptr %78, align 8
   %80 = add nsw i64 %79, %.026.i
   store i64 %.026.i, ptr %78, align 8
@@ -1124,13 +1124,13 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %83 = phi i64 [ %89, %.loopexit.us.us.us ], [ %.pre145, %.lr.ph117.split.us.split.us ]
   %.1116.us.us.us = phi i64 [ %84, %.loopexit.us.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
   %84 = add nuw nsw i64 %.1116.us.us.us, 1
-  %85 = getelementptr inbounds i64, ptr %8, i64 %84
+  %85 = getelementptr inbounds nuw i64, ptr %8, i64 %84
   %86 = load i64, ptr %85, align 8
   %87 = icmp slt i64 %83, %86
   br i1 %87, label %.lr.ph114.us.us.us.preheader, label %.loopexit.us.us.us
 
 .lr.ph114.us.us.us.preheader:                     ; preds = %.lr.ph117.split.us.split.us.split.us
-  %88 = getelementptr inbounds i64, ptr %20, i64 %.1116.us.us.us
+  %88 = getelementptr inbounds nuw i64, ptr %20, i64 %.1116.us.us.us
   br label %.lr.ph114.us.us.us
 
 .loopexit.us.us.us:                               ; preds = %98, %.lr.ph117.split.us.split.us.split.us
@@ -1164,10 +1164,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph117.split.us.split.us.split:                ; preds = %.lr.ph117.split.us.split.us, %.loopexit.us.us
   %102 = phi i64 [ %109, %.loopexit.us.us ], [ %.pre145, %.lr.ph117.split.us.split.us ]
   %.1116.us.us = phi i64 [ %105, %.loopexit.us.us ], [ 0, %.lr.ph117.split.us.split.us ]
-  %103 = getelementptr inbounds i64, ptr %1, i64 %.1116.us.us
+  %103 = getelementptr inbounds nuw i64, ptr %1, i64 %.1116.us.us
   %104 = load i64, ptr %103, align 8
   %105 = add nuw nsw i64 %.1116.us.us, 1
-  %106 = getelementptr inbounds i64, ptr %8, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %8, i64 %105
   %107 = load i64, ptr %106, align 8
   %108 = icmp slt i64 %102, %107
   br i1 %108, label %.lr.ph114.us.us, label %.loopexit.us.us
@@ -1212,13 +1212,13 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   %127 = phi i64 [ %133, %.loopexit.us.us123 ], [ %.pre145, %.lr.ph117.split.us.split ]
   %.1116.us.us122 = phi i64 [ %128, %.loopexit.us.us123 ], [ 0, %.lr.ph117.split.us.split ]
   %128 = add nuw nsw i64 %.1116.us.us122, 1
-  %129 = getelementptr inbounds i64, ptr %8, i64 %128
+  %129 = getelementptr inbounds nuw i64, ptr %8, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = icmp slt i64 %127, %130
   br i1 %131, label %.lr.ph114.us.us124.preheader, label %.loopexit.us.us123
 
 .lr.ph114.us.us124.preheader:                     ; preds = %.lr.ph117.split.us.split.split.us
-  %132 = getelementptr inbounds i64, ptr %20, i64 %.1116.us.us122
+  %132 = getelementptr inbounds nuw i64, ptr %20, i64 %.1116.us.us122
   br label %.lr.ph114.us.us124
 
 .loopexit.us.us123:                               ; preds = %143, %.lr.ph117.split.us.split.split.us
@@ -1254,10 +1254,10 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
 .lr.ph117.split.us.split.split:                   ; preds = %.lr.ph117.split.us.split, %.loopexit.us
   %147 = phi i64 [ %154, %.loopexit.us ], [ %.pre145, %.lr.ph117.split.us.split ]
   %.1116.us = phi i64 [ %150, %.loopexit.us ], [ 0, %.lr.ph117.split.us.split ]
-  %148 = getelementptr inbounds i64, ptr %1, i64 %.1116.us
+  %148 = getelementptr inbounds nuw i64, ptr %1, i64 %.1116.us
   %149 = load i64, ptr %148, align 8
   %150 = add nuw nsw i64 %.1116.us, 1
-  %151 = getelementptr inbounds i64, ptr %8, i64 %150
+  %151 = getelementptr inbounds nuw i64, ptr %8, i64 %150
   %152 = load i64, ptr %151, align 8
   %153 = icmp slt i64 %147, %152
   br i1 %153, label %.lr.ph114.us, label %.loopexit.us
@@ -1306,16 +1306,16 @@ csc_cumsum.exit:                                  ; preds = %._crit_edge, %._cri
   br i1 %.not, label %176, label %173
 
 173:                                              ; preds = %.lr.ph117.split
-  %174 = getelementptr inbounds i64, ptr %1, i64 %.1116
+  %174 = getelementptr inbounds nuw i64, ptr %1, i64 %.1116
   %175 = load i64, ptr %174, align 8
   br label %176
 
 176:                                              ; preds = %.lr.ph117.split, %173
   %177 = phi i64 [ %175, %173 ], [ %.1116, %.lr.ph117.split ]
-  %178 = getelementptr inbounds i64, ptr %8, i64 %.1116
+  %178 = getelementptr inbounds nuw i64, ptr %8, i64 %.1116
   %179 = load i64, ptr %178, align 8
   %180 = add nuw nsw i64 %.1116, 1
-  %181 = getelementptr inbounds i64, ptr %8, i64 %180
+  %181 = getelementptr inbounds nuw i64, ptr %8, i64 %180
   %182 = load i64, ptr %181, align 8
   %183 = icmp slt i64 %179, %182
   br i1 %183, label %.lr.ph114, label %.loopexit
@@ -1376,13 +1376,13 @@ csc_done.exit:                                    ; preds = %csc_done.exit.sink.
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @csc_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i64, ptr %6, i64 %4
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   %12 = zext i1 %11 to i64
@@ -1392,7 +1392,7 @@ define noalias noundef ptr @csc_copy(ptr nocapture noundef readonly %0) local_un
 
 14:                                               ; preds = %1
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %3, align 8
   %19 = icmp sgt i64 %18, -1
@@ -1400,9 +1400,9 @@ define noalias noundef ptr @csc_copy(ptr nocapture noundef readonly %0) local_un
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %.06.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %14 ]
-  %20 = getelementptr inbounds i64, ptr %15, i64 %.06.i
+  %20 = getelementptr inbounds nuw i64, ptr %15, i64 %.06.i
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i64, ptr %17, i64 %.06.i
+  %22 = getelementptr inbounds nuw i64, ptr %17, i64 %.06.i
   store i64 %21, ptr %22, align 8
   %23 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %.06.i, %18
@@ -1416,9 +1416,9 @@ prea_int_vec_copy.exit.loopexit:                  ; preds = %.lr.ph.i
 prea_int_vec_copy.exit:                           ; preds = %prea_int_vec_copy.exit.loopexit, %14
   %24 = phi i64 [ %.pre27, %prea_int_vec_copy.exit.loopexit ], [ %18, %14 ]
   %25 = phi ptr [ %.pre, %prea_int_vec_copy.exit.loopexit ], [ %15, %14 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i64, ptr %25, i64 %24
   %31 = load i64, ptr %30, align 8
@@ -1427,9 +1427,9 @@ prea_int_vec_copy.exit:                           ; preds = %prea_int_vec_copy.e
 
 .lr.ph.i20:                                       ; preds = %prea_int_vec_copy.exit, %.lr.ph.i20
   %.06.i21 = phi i64 [ %36, %.lr.ph.i20 ], [ 0, %prea_int_vec_copy.exit ]
-  %33 = getelementptr inbounds i64, ptr %27, i64 %.06.i21
+  %33 = getelementptr inbounds nuw i64, ptr %27, i64 %.06.i21
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i64, ptr %29, i64 %.06.i21
+  %35 = getelementptr inbounds nuw i64, ptr %29, i64 %.06.i21
   store i64 %34, ptr %35, align 8
   %36 = add nuw nsw i64 %.06.i21, 1
   %exitcond.not.i22 = icmp eq i64 %36, %31
@@ -1441,16 +1441,16 @@ prea_int_vec_copy.exit23:                         ; preds = %.lr.ph.i20
   %.phi.trans.insert = getelementptr inbounds i64, ptr %.pre28, i64 %.pre29
   %.pre30 = load i64, ptr %.phi.trans.insert, align 8
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = icmp sgt i64 %.pre30, 0
   br i1 %40, label %.lr.ph.i24, label %prea_vec_copy.exit
 
 .lr.ph.i24:                                       ; preds = %prea_int_vec_copy.exit23, %.lr.ph.i24
   %.06.i25 = phi i64 [ %44, %.lr.ph.i24 ], [ 0, %prea_int_vec_copy.exit23 ]
-  %41 = getelementptr inbounds double, ptr %37, i64 %.06.i25
+  %41 = getelementptr inbounds nuw double, ptr %37, i64 %.06.i25
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds double, ptr %39, i64 %.06.i25
+  %43 = getelementptr inbounds nuw double, ptr %39, i64 %.06.i25
   store double %42, ptr %43, align 8
   %44 = add nuw nsw i64 %.06.i25, 1
   %exitcond.not.i26 = icmp eq i64 %44, %.pre30
@@ -1463,7 +1463,7 @@ prea_vec_copy.exit:                               ; preds = %.lr.ph.i24, %prea_i
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @csc_to_dns(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = mul nsw i64 %4, %2
   %6 = tail call noalias ptr @calloc(i64 noundef %5, i64 noundef 8) #15
@@ -1471,7 +1471,7 @@ define noalias noundef ptr @csc_to_dns(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i64, ptr %8, i64 %4
   %10 = load i64, ptr %9, align 8
@@ -1479,16 +1479,16 @@ define noalias noundef ptr @csc_to_dns(ptr nocapture noundef readonly %0) local_
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   br label %16
 
 16:                                               ; preds = %.lr.ph, %23
   %.02025 = phi i64 [ 0, %.lr.ph ], [ %29, %23 ]
   %.02124 = phi i64 [ 0, %.lr.ph ], [ %.1, %23 ]
-  %17 = getelementptr inbounds i64, ptr %13, i64 %.02025
+  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %.02025
   %18 = load i64, ptr %17, align 8
   br label %19
 
@@ -1501,7 +1501,7 @@ define noalias noundef ptr @csc_to_dns(ptr nocapture noundef readonly %0) local_
   br i1 %.not23, label %23, label %19, !llvm.loop !25
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds double, ptr %15, i64 %.02025
+  %24 = getelementptr inbounds nuw double, ptr %15, i64 %.02025
   %25 = load double, ptr %24, align 8
   %26 = mul nsw i64 %.1, %2
   %27 = getelementptr double, ptr %6, i64 %26
@@ -1518,7 +1518,7 @@ define noalias noundef ptr @csc_to_dns(ptr nocapture noundef readonly %0) local_
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %2, %4
   br i1 %.not, label %8, label %5
@@ -1530,7 +1530,7 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   br label %76
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i64, ptr %10, i64 %2
   %12 = load i64, ptr %11, align 8
@@ -1544,11 +1544,11 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   br i1 %15, label %.lr.ph63, label %._crit_edge
 
 .lr.ph63:                                         ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.pre = load ptr, ptr %9, align 8
   br label %25
 
@@ -1568,10 +1568,10 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   %26 = phi ptr [ %.pre, %.lr.ph63 ], [ %24, %.loopexit ]
   %.062 = phi i64 [ 0, %.lr.ph63 ], [ %.1.lcssa, %.loopexit ]
   %.05061 = phi i64 [ 0, %.lr.ph63 ], [ %29, %.loopexit ]
-  %27 = getelementptr inbounds i64, ptr %26, i64 %.05061
+  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.05061
   %28 = load i64, ptr %27, align 8
   %29 = add nuw nsw i64 %.05061, 1
-  %30 = getelementptr inbounds i64, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = icmp slt i64 %28, %31
   br i1 %32, label %.lr.ph, label %.loopexit
@@ -1618,19 +1618,19 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   %.2 = phi i64 [ %55, %48 ], [ %46, %36 ]
   %57 = add nsw i64 %.05258, 1
   %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %29
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %29
   %60 = load i64, ptr %59, align 8
   %61 = icmp slt i64 %57, %60
   br i1 %61, label %36, label %.loopexit, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.1.lcssa, %.loopexit ]
-  %62 = getelementptr inbounds i8, ptr %14, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i64 %.0.lcssa, ptr %62, align 8
   %63 = tail call ptr @triplet_to_csc(ptr noundef nonnull %14, ptr noundef null)
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store i64 %.0.lcssa, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %14, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %66 = load ptr, ptr %65, align 8
   %.not11.i = icmp eq ptr %66, null
   br i1 %.not11.i, label %68, label %67
@@ -1640,7 +1640,7 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   br label %68
 
 68:                                               ; preds = %67, %._crit_edge
-  %69 = getelementptr inbounds i8, ptr %14, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not12.i = icmp eq ptr %70, null
   br i1 %.not12.i, label %72, label %71
@@ -1650,7 +1650,7 @@ define noalias noundef ptr @triu_to_csc(ptr nocapture noundef readonly %0) local
   br label %72
 
 72:                                               ; preds = %71, %68
-  %73 = getelementptr inbounds i8, ptr %14, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not13.i = icmp eq ptr %74, null
   br i1 %.not13.i, label %csc_spfree.exit, label %75
@@ -1673,9 +1673,9 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %10, label %7
@@ -1690,9 +1690,9 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %11 = load i64, ptr %0, align 8
   %12 = load i64, ptr %1, align 8
   %13 = add nsw i64 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %17, %15
   %19 = tail call ptr @csc_spalloc(i64 noundef %13, i64 noundef %4, i64 noundef %18, i64 noundef 1, i64 noundef 1)
@@ -1704,12 +1704,12 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %20, label %.lr.ph80, label %._crit_edge
 
 .lr.ph80:                                         ; preds = %.preheader73
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.pre = load ptr, ptr %21, align 8
   br label %37
 
@@ -1726,12 +1726,12 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %.lr.ph89, label %37, !llvm.loop !29
 
 .lr.ph89:                                         ; preds = %.loopexit72
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
-  %33 = getelementptr inbounds i8, ptr %19, i64 24
-  %34 = getelementptr inbounds i8, ptr %19, i64 16
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
-  %36 = getelementptr inbounds i8, ptr %19, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.pre93 = load ptr, ptr %31, align 8
   br label %65
 
@@ -1739,10 +1739,10 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %38 = phi ptr [ %.pre, %.lr.ph80 ], [ %30, %.loopexit72 ]
   %.079 = phi i64 [ 0, %.lr.ph80 ], [ %.1.lcssa, %.loopexit72 ]
   %.06378 = phi i64 [ 0, %.lr.ph80 ], [ %41, %.loopexit72 ]
-  %39 = getelementptr inbounds i64, ptr %38, i64 %.06378
+  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %.06378
   %40 = load i64, ptr %39, align 8
   %41 = add nuw nsw i64 %.06378, 1
-  %42 = getelementptr inbounds i64, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw i64, ptr %38, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = icmp slt i64 %40, %43
   br i1 %44, label %.lr.ph, label %.loopexit72
@@ -1771,7 +1771,7 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %58 = add nsw i64 %.176, 1
   %59 = add nsw i64 %.06575, 1
   %60 = load ptr, ptr %21, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %41
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %41
   %62 = load i64, ptr %61, align 8
   %63 = icmp slt i64 %59, %62
   br i1 %63, label %48, label %.loopexit72, !llvm.loop !30
@@ -1786,10 +1786,10 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %66 = phi ptr [ %.pre93, %.lr.ph89 ], [ %64, %.loopexit ]
   %.288 = phi i64 [ %.1.lcssa, %.lr.ph89 ], [ %.3.lcssa, %.loopexit ]
   %.16487 = phi i64 [ 0, %.lr.ph89 ], [ %69, %.loopexit ]
-  %67 = getelementptr inbounds i64, ptr %66, i64 %.16487
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %.16487
   %68 = load i64, ptr %67, align 8
   %69 = add nuw nsw i64 %.16487, 1
-  %70 = getelementptr inbounds i64, ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw i64, ptr %66, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = icmp slt i64 %68, %71
   br i1 %72, label %.lr.ph84, label %.loopexit
@@ -1819,19 +1819,19 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   %87 = add nsw i64 %.383, 1
   %88 = add nsw i64 %.16682, 1
   %89 = load ptr, ptr %31, align 8
-  %90 = getelementptr inbounds i64, ptr %89, i64 %69
+  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %69
   %91 = load i64, ptr %90, align 8
   %92 = icmp slt i64 %88, %91
   br i1 %92, label %76, label %.loopexit, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader73
   %.2.lcssa = phi i64 [ 0, %.preheader73 ], [ %.3.lcssa, %.loopexit ]
-  %93 = getelementptr inbounds i8, ptr %19, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i64 %.2.lcssa, ptr %93, align 8
   %94 = tail call ptr @triplet_to_csc(ptr noundef nonnull %19, ptr noundef null)
-  %95 = getelementptr inbounds i8, ptr %94, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store i64 %.2.lcssa, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %19, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %97 = load ptr, ptr %96, align 8
   %.not11.i = icmp eq ptr %97, null
   br i1 %.not11.i, label %99, label %98
@@ -1841,7 +1841,7 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   br label %99
 
 99:                                               ; preds = %98, %._crit_edge
-  %100 = getelementptr inbounds i8, ptr %19, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %101 = load ptr, ptr %100, align 8
   %.not12.i = icmp eq ptr %101, null
   br i1 %.not12.i, label %103, label %102
@@ -1851,7 +1851,7 @@ define noalias noundef ptr @vstack(ptr nocapture noundef readonly %0, ptr nocapt
   br label %103
 
 103:                                              ; preds = %102, %99
-  %104 = getelementptr inbounds i8, ptr %19, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %105 = load ptr, ptr %104, align 8
   %.not13.i = icmp eq ptr %105, null
   br i1 %.not13.i, label %csc_spfree.exit, label %106

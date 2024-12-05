@@ -40,13 +40,13 @@ define ptr @Java_java_net_Inet4AddressImpl_getLocalHostName(ptr noundef %0, ptr 
   br label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 1025
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1025
   store i8 0, ptr %7, align 1
   br label %8
 
 8:                                                ; preds = %6, %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1336
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1336
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   ret ptr %12
@@ -62,7 +62,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   store ptr null, ptr %5, align 8
   tail call void @initInetAddressIDs(ptr noundef %0) #11
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #11
   %.not = icmp eq i8 %9, 0
@@ -82,10 +82,10 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %15, label %82, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, i8 0, i64 40, i1 false)
   store i32 2, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %18, align 4
   %19 = call i32 @getaddrinfo(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %.not86 = icmp eq i32 %19, 0
@@ -109,23 +109,23 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not91101, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader96
-  %21 = getelementptr inbounds i8, ptr %.074108, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.074108, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   br label %25
 
 25:                                               ; preds = %.lr.ph, %31
   %.069102 = phi ptr [ %.1107, %.lr.ph ], [ %33, %31 ]
-  %26 = getelementptr inbounds i8, ptr %.069102, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.069102, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %24, %29
   br i1 %30, label %.loopexit97, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %.069102, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.069102, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not91 = icmp eq ptr %33, null
   br i1 %.not91, label %.critedge, label %25, !llvm.loop !6
@@ -141,12 +141,12 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 36:                                               ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %.074108, i64 40, i1 false)
-  %37 = getelementptr inbounds i8, ptr %34, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store ptr null, ptr %37, align 8
   br i1 %.not91101, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.076105, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.076105, i64 40
   store ptr %34, ptr %39, align 8
   br label %40
 
@@ -159,7 +159,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.177 = phi ptr [ %34, %40 ], [ %.076105, %25 ]
   %.172 = phi i32 [ %41, %40 ], [ %.071106, %25 ]
   %.2 = phi ptr [ %.3, %40 ], [ %.1107, %25 ]
-  %42 = getelementptr inbounds i8, ptr %.074108, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.074108, i64 40
   %.074 = load ptr, ptr %42, align 8
   %.not87 = icmp eq ptr %.074, null
   br i1 %.not87, label %._crit_edge, label %.preheader96, !llvm.loop !8
@@ -168,7 +168,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.071.lcssa = phi i32 [ 0, %.preheader98 ], [ %.172, %.loopexit97 ]
   %.1.lcssa = phi ptr [ null, %.preheader98 ], [ %.2, %.loopexit97 ]
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1376
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1376
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @ia_class, align 8
   %47 = call ptr %45(ptr noundef nonnull %0, i32 noundef %.071.lcssa, ptr noundef %46, ptr noundef null) #11
@@ -183,7 +183,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.273112 = phi i32 [ %75, %71 ], [ 0, %.preheader ]
   %.175111 = phi ptr [ %77, %71 ], [ %.1.lcssa, %.preheader ]
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 224
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @ia4_class, align 8
   %53 = load ptr, ptr @ia4_ctrID, align 8
@@ -192,14 +192,14 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %.lr.ph113
-  %57 = getelementptr inbounds i8, ptr %.175111, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.175111, i64 24
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = call i32 @ntohl(i32 noundef %60) #13
   call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %61) #11
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1824
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
   %65 = call zeroext i8 %64(ptr noundef nonnull %0) #11
   %.not89 = icmp eq i8 %65, 0
@@ -208,7 +208,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 66:                                               ; preds = %56
   call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %54, ptr noundef nonnull %2) #11
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1824
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1824
   %69 = load ptr, ptr %68, align 8
   %70 = call zeroext i8 %69(ptr noundef nonnull %0) #11
   %.not90 = icmp eq i8 %70, 0
@@ -216,11 +216,11 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1392
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1392
   %74 = load ptr, ptr %73, align 8
   %75 = add nuw nsw i32 %.273112, 1
   call void %74(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef %.273112, ptr noundef nonnull %54) #11
-  %76 = getelementptr inbounds i8, ptr %.175111, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %.175111, i64 40
   %77 = load ptr, ptr %76, align 8
   %.not88 = icmp eq ptr %77, null
   br i1 %.not88, label %.loopexit, label %.lr.ph113, !llvm.loop !9
@@ -239,7 +239,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 .lr.ph124:                                        ; preds = %.loopexit, %.lr.ph124
   %.4122 = phi ptr [ %79, %.lr.ph124 ], [ %.068, %.loopexit ]
-  %78 = getelementptr inbounds i8, ptr %.4122, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %.4122, i64 40
   %79 = load ptr, ptr %78, align 8
   call void @free(ptr noundef nonnull %.4122) #11
   %.not94 = icmp eq ptr %79, null
@@ -303,30 +303,30 @@ define ptr @Java_java_net_Inet4AddressImpl_getHostByAddr(ptr noundef %0, ptr noc
   %6 = alloca %struct.sockaddr_in, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1600
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1600
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %5) #11
   %10 = load i8, ptr %5, align 1
   %11 = sext i8 %10 to i32
   %12 = shl nsw i32 %11, 24
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = shl nsw i32 %15, 16
   %17 = and i32 %16, 16711680
   %18 = or disjoint i32 %17, %12
-  %19 = getelementptr inbounds i8, ptr %5, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i32
   %22 = shl nsw i32 %21, 8
   %23 = and i32 %22, 65280
   %24 = or disjoint i32 %18, %23
-  %25 = getelementptr inbounds i8, ptr %5, i64 3
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %24, %27
   %29 = call i32 @htonl(i32 noundef %28) #13
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %29, ptr %30, align 4
   store i16 2, ptr %6, align 4
   %31 = call i32 @getnameinfo(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 1026, ptr noundef null, i32 noundef 0, i32 noundef 8) #11
@@ -335,7 +335,7 @@ define ptr @Java_java_net_Inet4AddressImpl_getHostByAddr(ptr noundef %0, ptr noc
 
 32:                                               ; preds = %3
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1336
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1336
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %4) #11
   %37 = icmp eq ptr %36, null
@@ -373,7 +373,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %18 = alloca %union.SOCKETADDRESS, align 4
   %19 = alloca %union.SOCKETADDRESS, align 4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1368
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %2) #11
   %.not = icmp eq i32 %23, 4
@@ -382,31 +382,31 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
 24:                                               ; preds = %6
   store i32 0, ptr %17, align 4
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1600
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1600
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %17) #11
   %28 = load i8, ptr %17, align 4
   %29 = sext i8 %28 to i32
   %30 = shl nsw i32 %29, 24
-  %31 = getelementptr inbounds i8, ptr %17, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i32
   %34 = shl nsw i32 %33, 16
   %35 = and i32 %34, 16711680
   %36 = or disjoint i32 %35, %30
-  %37 = getelementptr inbounds i8, ptr %17, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %38 = load i8, ptr %37, align 2
   %39 = sext i8 %38 to i32
   %40 = shl nsw i32 %39, 8
   %41 = and i32 %40, 65280
   %42 = or disjoint i32 %36, %41
-  %43 = getelementptr inbounds i8, ptr %17, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 3
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   %47 = call i32 @htonl(i32 noundef %46) #13
-  %48 = getelementptr inbounds i8, ptr %18, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %47, ptr %48, align 4
   store i16 2, ptr %18, align 4
   %49 = icmp eq ptr %4, null
@@ -415,7 +415,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
 50:                                               ; preds = %24
   store i32 0, ptr %17, align 4
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1600
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1600
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %17) #11
   %54 = load i8, ptr %17, align 4
@@ -436,7 +436,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %69 = or disjoint i32 %66, %68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 0, i64 28, i1 false)
   %70 = call i32 @htonl(i32 noundef %69) #13
-  %71 = getelementptr inbounds i8, ptr %19, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %70, ptr %71, align 4
   store i16 2, ptr %19, align 4
   br label %72
@@ -499,7 +499,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %100 = or i32 %99, 2048
   %101 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %76, i32 noundef 4, i32 noundef %100) #11
   %102 = call zeroext i16 @htons(i16 noundef zeroext 7) #13
-  %103 = getelementptr inbounds i8, ptr %18, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 %102, ptr %103, align 2
   %104 = call i32 @connect(i32 noundef %76, ptr nonnull %18, i32 noundef 16) #11
   store i32 %104, ptr %15, align 4
@@ -631,13 +631,13 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   %153 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %73, i32 noundef 3) #11
   %154 = or i32 %153, 2048
   %155 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %73, i32 noundef 4, i32 noundef %154) #11
-  %156 = getelementptr inbounds i8, ptr %10, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %157 = call zeroext i16 @htons(i16 noundef zeroext %152) #13
-  %158 = getelementptr inbounds i8, ptr %10, i64 4
-  %159 = getelementptr inbounds i8, ptr %10, i64 6
-  %160 = getelementptr inbounds i8, ptr %10, i64 8
-  %161 = getelementptr inbounds i8, ptr %10, i64 2
-  %162 = getelementptr inbounds i8, ptr %12, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %163
 
 163:                                              ; preds = %.thread.i, %150
@@ -700,13 +700,13 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
 
 189:                                              ; preds = %183
   %190 = zext nneg i8 %186 to i64
-  %191 = getelementptr inbounds i8, ptr %11, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %11, i64 %190
   %192 = load i8, ptr %191, align 4
   %193 = icmp eq i8 %192, 0
   br i1 %193, label %194, label %204
 
 194:                                              ; preds = %189
-  %195 = getelementptr inbounds i8, ptr %191, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %196 = load i16, ptr %195, align 4
   %197 = call zeroext i16 @ntohs(i16 noundef zeroext %196) #13
   %198 = icmp eq i16 %197, %152

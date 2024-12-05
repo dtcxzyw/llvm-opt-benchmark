@@ -74,9 +74,9 @@ declare i32 @cgroup_g_step_destroy(i32 noundef) local_unnamed_addr #1
 define i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.handle_dev_args, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 760
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load ptr, ptr %6, align 8
   %.b = load i1, ptr @is_first_task, align 1
   br i1 %.b, label %11, label %8
@@ -97,7 +97,7 @@ define i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %11
   store i32 3, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %14, align 8
   %15 = call i32 @list_for_each(ptr noundef nonnull %12, ptr noundef nonnull @_handle_device_access, ptr noundef nonnull %3) #4
   call void @list_destroy(ptr noundef nonnull %12) #4
@@ -109,14 +109,14 @@ define i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %17, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i32, ptr %20, align 8
   %.off = add i32 %21, 6
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %34, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 672
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 32
   %.not32 = icmp eq i32 %25, 0
@@ -129,7 +129,7 @@ define i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %26
   store i32 4, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %29, align 8
   %30 = call i32 @list_for_each(ptr noundef nonnull %27, ptr noundef nonnull @_handle_device_access, ptr noundef nonnull %3) #4
   call void @list_destroy(ptr noundef nonnull %27) #4
@@ -162,7 +162,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   %3 = alloca %struct.cgroup_limits_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call ptr @gres_device_id2str(ptr noundef nonnull %6) #4
   store ptr %7, ptr %4, align 8
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -179,7 +179,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.2, i32 noundef %14) #4
   br label %22
@@ -210,11 +210,11 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   %.not13 = icmp eq i32 %30, 0
   %31 = select i1 %.not13, ptr @.str.8, ptr @.str.7
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_device_access, ptr noundef %.sink, ptr noundef nonnull %31, ptr noundef %7, ptr noundef %33) #4
   br label %34
@@ -225,17 +225,17 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
 
 35:                                               ; preds = %34, %2
   call void @cgroup_init_limits(ptr noundef nonnull %3) #4
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp ne i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %3, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %40 = zext i1 %38 to i8
   store i8 %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false)
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %43, ptr %44, align 8
   %45 = load i32, ptr %1, align 8
   %46 = call i32 @cgroup_g_constrain_set(i32 noundef 3, i32 noundef %45, ptr noundef nonnull %3) #4
@@ -243,7 +243,7 @@ define internal range(i32 -1, 1) i32 @_handle_device_access(ptr noundef %0, ptr 
   br i1 %.not14, label %51, label %47
 
 47:                                               ; preds = %35
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %7, ptr noundef %49) #4
   br label %51
@@ -274,25 +274,25 @@ declare i32 @cgroup_g_task_addto(i32 noundef, ptr noundef, i32 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @task_cgroup_devices_constrain(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.handle_dev_args, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %.off = add i32 %6, 6
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %26, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 672
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 32
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %26
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 760
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 344
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %15 = load i16, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 768
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @gres_g_get_devices(ptr noundef %13, i1 noundef zeroext false, i16 noundef zeroext %15, ptr noundef %17, i32 noundef %1, ptr noundef nonnull %0) #4
   %.not19 = icmp eq ptr %18, null
@@ -300,9 +300,9 @@ define range(i32 -1, 1) i32 @task_cgroup_devices_constrain(ptr noundef %0, i32 n
 
 19:                                               ; preds = %11
   store i32 7, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %2, ptr %21, align 4
   %22 = call i32 @list_for_each(ptr noundef nonnull %18, ptr noundef nonnull @_handle_device_access, ptr noundef nonnull %4) #4
   call void @list_destroy(ptr noundef nonnull %18) #4

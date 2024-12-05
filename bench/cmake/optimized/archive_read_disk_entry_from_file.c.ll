@@ -29,13 +29,13 @@ define dso_local ptr @archive_read_disk_entry_setup_path(ptr noundef %0, ptr nou
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull %8) #12
   %.not21 = icmp eq i32 %12, 0
@@ -61,13 +61,13 @@ define dso_local ptr @archive_read_disk_entry_setup_path(ptr noundef %0, ptr nou
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %22 = load ptr, ptr %21, align 8
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %33, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 153
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 153
   %25 = load i8, ptr %24, align 1
   %.not24 = icmp eq i8 %25, 0
   br i1 %.not24, label %26, label %28
@@ -83,7 +83,7 @@ define dso_local ptr @archive_read_disk_entry_setup_path(ptr noundef %0, ptr nou
 
 28:                                               ; preds = %._crit_edge, %23
   %29 = phi ptr [ %.pre, %._crit_edge ], [ %22, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef %29, ptr noundef nonnull %.028, i32 noundef 2048) #12
   store i32 %32, ptr %2, align 4
@@ -125,7 +125,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
 
 16:                                               ; preds = %14, %11
   %.087 = phi ptr [ %15, %14 ], [ %12, %11 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %43
@@ -150,7 +150,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
   br label %280
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 153
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 153
   %31 = load i8, ptr %30, align 1
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %32, label %37
@@ -204,14 +204,14 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
   br label %51
 
 51:                                               ; preds = %50, %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 64
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %80
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %.086, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.086, i64 24
   %58 = load i32, ptr %57, align 8
   %59 = trunc i32 %58 to i16
   %trunc = and i16 %59, -4096
@@ -231,7 +231,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
   br i1 %.not110, label %69, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 168
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 %67(ptr noundef nonnull %64, ptr noundef %.087, i32 noundef 526336) #12
   br label %71
@@ -263,14 +263,14 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
   br label %80
 
 80:                                               ; preds = %56, %71, %78, %.thread, %51
-  %81 = getelementptr inbounds i8, ptr %.086, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.086, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, 61440
   %84 = icmp eq i32 %83, 40960
   br i1 %84, label %85, label %109
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %.086, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %.086, i64 48
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 1
   %89 = call noalias ptr @malloc(i64 noundef %88) #14
@@ -287,7 +287,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
   br i1 %.not111, label %99, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %0, i64 176
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 %96(ptr noundef nonnull %93) #12
   %98 = call i64 @readlinkat(i32 noundef %97, ptr noundef %.087, ptr noundef nonnull %89, i64 noundef %87) #12
@@ -312,7 +312,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
 
 106:                                              ; preds = %101
   %107 = and i64 %.0.in, 2147483647
-  %108 = getelementptr inbounds i8, ptr %89, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %89, i64 %107
   store i8 0, ptr %108, align 1
   call void @archive_entry_set_symlink(ptr noundef %1, ptr noundef nonnull %89) #12
   call void @free(ptr noundef nonnull %89) #12
@@ -420,7 +420,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_disk_entry_from_file(ptr no
   br i1 %.not.i.i.i, label %.thread116, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %0, i64 184
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 %161(ptr noundef nonnull %158) #12
   %.not21.i.i.i = icmp eq i32 %162, 0
@@ -442,7 +442,7 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   br i1 %.not71.i.i, label %.thread116, label %167
 
 167:                                              ; preds = %166
-  %168 = getelementptr inbounds i8, ptr %0, i64 168
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %169 = load ptr, ptr %168, align 8
   %170 = call i32 %169(ptr noundef nonnull %.pr115, ptr noundef nonnull %.027.i.ph.i.i.ph, i32 noundef 526336) #12
   br label %172
@@ -470,12 +470,12 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   br label %178
 
 178:                                              ; preds = %177, %151
-  %179 = getelementptr inbounds i8, ptr %5, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
   store i64 -1, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %5, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %180, align 16
-  %181 = getelementptr inbounds i8, ptr %5, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 72, ptr %181, align 8
   %182 = call i64 @archive_entry_size(ptr noundef %1) #12
   %183 = load i32, ptr %6, align 4
@@ -484,8 +484,8 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   br i1 %185, label %setup_sparse_fiemap.exit.i, label %.lr.ph90.i.i
 
 .lr.ph90.i.i:                                     ; preds = %178
-  %186 = getelementptr inbounds i8, ptr %5, i64 20
-  %187 = getelementptr inbounds i8, ptr %5, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %188
 
 188:                                              ; preds = %._crit_edge.thread.i.i, %.lr.ph90.i.i
@@ -511,14 +511,14 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   %.06186.i.i = phi i32 [ %215, %211 ], [ 0, %194 ]
   %.06285.i.i = phi ptr [ %216, %211 ], [ %187, %194 ]
   %.184.i.i = phi i32 [ %spec.select.i.i, %211 ], [ 1, %194 ]
-  %197 = getelementptr inbounds i8, ptr %.06285.i.i, i64 40
+  %197 = getelementptr inbounds nuw i8, ptr %.06285.i.i, i64 40
   %198 = load i32, ptr %197, align 8
   %199 = and i32 %198, 2048
   %.not72.i.i = icmp eq i32 %199, 0
   br i1 %.not72.i.i, label %200, label %211
 
 200:                                              ; preds = %.lr.ph.i.i
-  %201 = getelementptr inbounds i8, ptr %.06285.i.i, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %.06285.i.i, i64 16
   %202 = load i64, ptr %201, align 8
   %203 = load i64, ptr %.06285.i.i, align 8
   %204 = add i64 %203, %202
@@ -546,7 +546,7 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
   %.not74.i.i = icmp eq i32 %214, 0
   %spec.select.i.i = select i1 %.not74.i.i, i32 %.184.i.i, i32 0
   %215 = add nuw nsw i32 %.06186.i.i, 1
-  %216 = getelementptr inbounds i8, ptr %.06285.i.i, i64 56
+  %216 = getelementptr inbounds nuw i8, ptr %.06285.i.i, i64 56
   %217 = icmp slt i32 %215, %212
   br i1 %217, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !5
 
@@ -557,7 +557,7 @@ archive_read_disk_entry_setup_path.exit.i.i:      ; preds = %163
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %194
   %.lcssa99.i.i = phi i32 [ %212, %._crit_edge.i.i ], [ %189, %194 ]
   %219 = zext i32 %.lcssa99.i.i to i64
-  %220 = getelementptr inbounds %struct.fiemap_extent, ptr %187, i64 %219
+  %220 = getelementptr inbounds nuw %struct.fiemap_extent, ptr %187, i64 %219
   %221 = getelementptr inbounds i8, ptr %220, i64 -56
   %222 = load i64, ptr %221, align 8
   %223 = getelementptr inbounds i8, ptr %220, i64 -40

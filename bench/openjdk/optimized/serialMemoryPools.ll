@@ -35,24 +35,24 @@ $_ZN21TenuredGenerationPoolD0Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ContiguousSpacePoolC2EP15ContiguousSpacePKcmb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
   %11 = sub i64 %9, %10
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %11, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext true) #4
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV19ContiguousSpacePool, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN19ContiguousSpacePool13used_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
@@ -62,14 +62,14 @@ define hidden noundef i64 @_ZN19ContiguousSpacePool13used_in_bytesEv(ptr nocaptu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ContiguousSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(201) %1) #4
   br label %11
@@ -77,54 +77,54 @@ define hidden void @_ZN19ContiguousSpacePool16get_memory_usageEv(ptr dead_on_unw
 11:                                               ; preds = %2, %6
   %12 = phi i64 [ %10, %6 ], [ 0, %2 ]
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(216) %1) #4
-  %17 = getelementptr inbounds i8, ptr %1, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %19 to i64
   %24 = sub i64 %22, %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %24, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %12, ptr %29, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27SurvivorContiguousSpacePoolC2EP16DefNewGenerationPKcmb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 680
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %8 to i64
   %13 = sub i64 %11, %12
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %13, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext true) #4
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV27SurvivorContiguousSpacePool, i64 16), ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN27SurvivorContiguousSpacePool13used_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 680
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 680
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
@@ -134,12 +134,12 @@ define hidden noundef i64 @_ZN27SurvivorContiguousSpacePool13used_in_bytesEv(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN27SurvivorContiguousSpacePool18committed_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 680
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 680
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
@@ -149,14 +149,14 @@ define hidden noundef i64 @_ZN27SurvivorContiguousSpacePool18committed_in_bytesE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27SurvivorContiguousSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(201) %1) #4
   br label %11
@@ -164,27 +164,27 @@ define hidden void @_ZN27SurvivorContiguousSpacePool16get_memory_usageEv(ptr dea
 11:                                               ; preds = %2, %6
   %12 = phi i64 [ %10, %6 ], [ 0, %2 ]
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(216) %1) #4
-  %17 = getelementptr inbounds i8, ptr %1, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 680
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 680
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %21 to i64
   %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %26, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %12, ptr %31, align 8
   ret void
 }
@@ -195,22 +195,22 @@ define hidden void @_ZN21TenuredGenerationPoolC2EP17TenuredGenerationPKcb(ptr no
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(248) %1) #4
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(152) %1) #4
   tail call void @_ZN10MemoryPoolC2EPKcNS_8PoolTypeEmmbb(ptr noundef nonnull align 8 dereferenceable(201) %0, ptr noundef %2, i32 noundef 1, i64 noundef %7, i64 noundef %11, i1 noundef zeroext %3, i1 noundef zeroext true) #4
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV21TenuredGenerationPool, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN21TenuredGenerationPool13used_in_bytesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(248) %3) #4
   ret i64 %7
@@ -219,36 +219,36 @@ define hidden noundef i64 @_ZN21TenuredGenerationPool13used_in_bytesEv(ptr nocap
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21TenuredGenerationPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(216) %1) #4
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(248) %8) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(201) %1) #4
   br label %20
 
 20:                                               ; preds = %2, %15
   %21 = phi i64 [ %19, %15 ], [ 0, %2 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %11, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %21, ptr %26, align 8
   ret void
 }
@@ -266,7 +266,7 @@ define linkonce_odr hidden void @_ZN19ContiguousSpacePoolD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK10MemoryPool8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(201) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -280,7 +280,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19CollectedMemoryPool17is_coll
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10MemoryPool25get_last_collection_usageEv(ptr dead_on_unwind noalias writable sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }

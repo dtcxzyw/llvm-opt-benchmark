@@ -714,7 +714,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %6, label %108, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.388) #7
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7
@@ -725,17 +725,17 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = zext i8 %10 to i32
   %16 = add i8 %10, -3
   %or.cond = icmp ult i8 %16, -2
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 208
-  %20 = getelementptr inbounds i8, ptr %1, i64 232
-  %21 = getelementptr inbounds i8, ptr %1, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %3, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %3, i64 58
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = tail call ptr @find_conversation(i32 noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %23, i32 noundef %26, i32 noundef %29, i32 noundef 131072) #7
@@ -758,7 +758,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
 
 41:                                               ; preds = %32, %31
   %.096 = phi ptr [ %30, %31 ], [ %40, %32 ]
-  %42 = getelementptr inbounds i8, ptr %.096, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.096, i64 24
   %43 = load i32, ptr %42, align 8
   store i32 %43, ptr %5, align 4
   %44 = load ptr, ptr @fcswils_req_hash, align 8
@@ -796,7 +796,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %108
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %30, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %63 = load i32, ptr %62, align 8
   store i32 %63, ptr %5, align 4
   %64 = load ptr, ptr @fcswils_req_hash, align 8
@@ -995,7 +995,7 @@ define internal void @dissect_swils_elp(ptr noundef %0, ptr nocapture noundef re
   %22 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 36, i64 noundef 6) #7
   %23 = load i8, ptr %5, align 1
   %.not142 = icmp sgt i8 %23, -1
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 32
   %.not143 = icmp eq i8 %26, 0
@@ -1017,7 +1017,7 @@ define internal void @dissect_swils_elp(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not144, label %66, label %39
 
 39:                                               ; preds = %9
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 40) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %42, ptr noundef nonnull align 1 dereferenceable(14) @.str.398, i64 14, i1 false)
@@ -1519,7 +1519,7 @@ define internal void @dissect_swils_mergereq(ptr noundef %0, ptr noundef %1, ptr
 
 9:                                                ; preds = %5
   %10 = zext i16 %6 to i32
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #7
   %14 = zext i8 %13 to i32
@@ -1687,7 +1687,7 @@ define internal void @dissect_swils_sfc(ptr noundef %0, ptr noundef %1, ptr noun
 
 11:                                               ; preds = %5
   %12 = zext i16 %8 to i32
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #7
   %16 = zext i8 %15 to i32
@@ -2327,7 +2327,7 @@ define internal fastcc void @dissect_swils_zone_obj(ptr noundef %0, ptr noundef 
   %8 = load i32, ptr @hf_swils_zone_protocol, align 4
   %9 = add i32 %3, 1
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0) #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %3, 4
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #7

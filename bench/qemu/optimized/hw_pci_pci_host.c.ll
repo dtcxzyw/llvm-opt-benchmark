@@ -86,7 +86,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %hotplugged = getelementptr inbounds i8, ptr %pci_dev, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %pci_dev, i64 80
   %1 = load i32, ptr %hotplugged, align 16
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
@@ -97,30 +97,30 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %tobool5.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end3
-  %has_power = getelementptr inbounds i8, ptr %pci_dev, i64 161
+  %has_power = getelementptr inbounds nuw i8, ptr %pci_dev, i64 161
   %2 = load i8, ptr %has_power, align 1
   %tobool6 = trunc i8 %2 to i1
   br i1 %tobool6, label %land.lhs.true.i18, label %return
 
 land.lhs.true.i18:                                ; preds = %lor.lhs.false
-  %partially_hotplugged.i = getelementptr inbounds i8, ptr %pci_dev, i64 160
+  %partially_hotplugged.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 160
   %3 = load i8, ptr %partially_hotplugged.i, align 16
   %tobool1.i = trunc i8 %3 to i1
   br i1 %tobool1.i, label %is_pci_dev_ejected.exit, label %if.end10
 
 is_pci_dev_ejected.exit:                          ; preds = %land.lhs.true.i18
-  %pending_deleted_event.i = getelementptr inbounds i8, ptr %pci_dev, i64 57
+  %pending_deleted_event.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 57
   %4 = load i8, ptr %pending_deleted_event.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.end10, label %return
 
 if.end10:                                         ; preds = %land.lhs.true.i18, %is_pci_dev_ejected.exit
-  %name = getelementptr inbounds i8, ptr %pci_dev, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %pci_dev, i64 232
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #8
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #8
   %call1.i19 = tail call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #8
-  %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
+  %devfn = getelementptr inbounds nuw i8, ptr %pci_dev, i64 208
   %5 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %5, 3
   %and = and i32 %shr, 31
@@ -148,7 +148,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %name, i32 noundef %call1.i19, i32 noundef range(i32 0, 256) %and, i32 noundef range(i32 0, 256) %and13, i32 noundef %addr, i32 noundef %val) #8
   br label %trace_pci_cfg_write.exit
@@ -159,7 +159,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pci_cfg_write.exit:                         ; preds = %if.end10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %config_write = getelementptr inbounds i8, ptr %pci_dev, i64 1224
+  %config_write = getelementptr inbounds nuw i8, ptr %pci_dev, i64 1224
   %12 = load ptr, ptr %config_write, align 8
   %sub = sub i32 %limit.addr.0, %addr
   %cond = tail call i32 @llvm.umin.i32(i32 %len, i32 %sub)
@@ -207,7 +207,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %hotplugged = getelementptr inbounds i8, ptr %pci_dev, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %pci_dev, i64 80
   %1 = load i32, ptr %hotplugged, align 16
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %lor.lhs.false, label %land.lhs.true
@@ -218,35 +218,35 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %tobool5.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end3
-  %has_power = getelementptr inbounds i8, ptr %pci_dev, i64 161
+  %has_power = getelementptr inbounds nuw i8, ptr %pci_dev, i64 161
   %2 = load i8, ptr %has_power, align 1
   %tobool6 = trunc i8 %2 to i1
   br i1 %tobool6, label %land.lhs.true.i18, label %return
 
 land.lhs.true.i18:                                ; preds = %lor.lhs.false
-  %partially_hotplugged.i = getelementptr inbounds i8, ptr %pci_dev, i64 160
+  %partially_hotplugged.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 160
   %3 = load i8, ptr %partially_hotplugged.i, align 16
   %tobool1.i = trunc i8 %3 to i1
   br i1 %tobool1.i, label %is_pci_dev_ejected.exit, label %if.end10
 
 is_pci_dev_ejected.exit:                          ; preds = %land.lhs.true.i18
-  %pending_deleted_event.i = getelementptr inbounds i8, ptr %pci_dev, i64 57
+  %pending_deleted_event.i = getelementptr inbounds nuw i8, ptr %pci_dev, i64 57
   %4 = load i8, ptr %pending_deleted_event.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.end10, label %return
 
 if.end10:                                         ; preds = %land.lhs.true.i18, %is_pci_dev_ejected.exit
-  %config_read = getelementptr inbounds i8, ptr %pci_dev, i64 1216
+  %config_read = getelementptr inbounds nuw i8, ptr %pci_dev, i64 1216
   %5 = load ptr, ptr %config_read, align 16
   %sub = sub i32 %limit.addr.0, %addr
   %cond = tail call i32 @llvm.umin.i32(i32 %len, i32 %sub)
   %call12 = tail call i32 %5(ptr noundef nonnull %pci_dev, i32 noundef %addr, i32 noundef %cond) #8
-  %name = getelementptr inbounds i8, ptr %pci_dev, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %pci_dev, i64 232
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #8
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #8
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #8
   %call1.i19 = tail call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #8
-  %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
+  %devfn = getelementptr inbounds nuw i8, ptr %pci_dev, i64 208
   %6 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %6, 3
   %and = and i32 %shr, 31
@@ -274,7 +274,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %name, i32 noundef %call1.i19, i32 noundef range(i32 0, 256) %and, i32 noundef range(i32 0, 256) %and15, i32 noundef %addr, i32 noundef %call12) #8
   br label %trace_pci_cfg_read.exit
@@ -332,7 +332,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull @.str.2, i32 noundef %conv3.i, i32 noundef range(i32 0, 256) %and.i10, i32 noundef range(i32 0, 256) %and.i12, i32 noundef %and, i32 noundef %val) #8
   br label %trace_pci_cfg_write.exit
@@ -393,7 +393,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull @.str.2, i32 noundef %conv3.i, i32 noundef range(i32 0, 256) %and.i9, i32 noundef range(i32 0, 256) %and.i11, i32 noundef %and, i32 noundef -1) #8
   br label %trace_pci_cfg_read.exit
@@ -418,7 +418,7 @@ return:                                           ; preds = %if.end, %trace_pci_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i64 0, 4294967296) i64 @pci_host_config_read(ptr nocapture noundef readonly %opaque, i64 %addr, i32 %len) #3 {
 entry:
-  %config_reg = getelementptr inbounds i8, ptr %opaque, i64 1632
+  %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
   %conv = zext i32 %0 to i64
   ret i64 %conv
@@ -434,7 +434,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = trunc i64 %val to i32
-  %config_reg = getelementptr inbounds i8, ptr %opaque, i64 1632
+  %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   store i32 %conv, ptr %config_reg, align 16
   br label %return
 
@@ -445,13 +445,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 4294967296) i64 @pci_host_data_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %len) #0 {
 entry:
-  %config_reg = getelementptr inbounds i8, ptr %opaque, i64 1632
+  %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
   %tobool.not = icmp sgt i32 %0, -1
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bus = getelementptr inbounds i8, ptr %opaque, i64 1640
+  %bus = getelementptr inbounds nuw i8, ptr %opaque, i64 1640
   %1 = load ptr, ptr %bus, align 8
   %2 = trunc i64 %addr to i32
   %3 = and i32 %2, 3
@@ -468,13 +468,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pci_host_data_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %val, i32 noundef %len) #0 {
 entry:
-  %config_reg = getelementptr inbounds i8, ptr %opaque, i64 1632
+  %config_reg = getelementptr inbounds nuw i8, ptr %opaque, i64 1632
   %0 = load i32, ptr %config_reg, align 16
   %tobool.not = icmp sgt i32 %0, -1
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bus = getelementptr inbounds i8, ptr %opaque, i64 1640
+  %bus = getelementptr inbounds nuw i8, ptr %opaque, i64 1640
   %1 = load ptr, ptr %bus, align 8
   %2 = trunc i64 %addr to i32
   %3 = and i32 %2, 3
@@ -490,7 +490,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @pci_host_needed(ptr nocapture noundef readonly %opaque) #3 {
 entry:
-  %mig_enabled = getelementptr inbounds i8, ptr %opaque, i64 1636
+  %mig_enabled = getelementptr inbounds nuw i8, ptr %opaque, i64 1636
   %0 = load i8, ptr %mig_enabled, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -534,7 +534,7 @@ define internal void @pci_host_class_init(ptr noundef %klass, ptr nocapture read
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_host_properties_common) #8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_pcihost, ptr %vmsd, align 8
   ret void
 }

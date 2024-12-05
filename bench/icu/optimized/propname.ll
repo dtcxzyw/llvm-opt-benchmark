@@ -23,7 +23,7 @@ for.cond:                                         ; preds = %if.end9, %entry
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %for.cond
   %indvars.iv.i = phi i64 [ 0, %for.cond ], [ %indvars.iv.next.i, %for.cond.i.backedge ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %name1.addr.0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %name1.addr.0, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   switch i8 %0, label %lor.rhs.i [
     i8 95, label %for.cond.i.backedge
@@ -58,7 +58,7 @@ _ZL24getASCIIPropertyNameCharPKc.exit:            ; preds = %for.end.i, %if.then
 for.cond.i10:                                     ; preds = %for.cond.i10.backedge, %_ZL24getASCIIPropertyNameCharPKc.exit
   %indvars.iv.i11 = phi i64 [ 0, %_ZL24getASCIIPropertyNameCharPKc.exit ], [ %indvars.iv.next.i12, %for.cond.i10.backedge ]
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %name2.addr.0, i64 %indvars.iv.i11
+  %arrayidx.i13 = getelementptr inbounds nuw i8, ptr %name2.addr.0, i64 %indvars.iv.i11
   %4 = load i8, ptr %arrayidx.i13, align 1
   switch i8 %4, label %lor.rhs.i15 [
     i8 95, label %for.cond.i10.backedge
@@ -131,7 +131,7 @@ for.cond:                                         ; preds = %if.end9, %entry
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %for.cond
   %indvars.iv.i = phi i64 [ 0, %for.cond ], [ %indvars.iv.next.i, %for.cond.i.backedge ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %name1.addr.0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %name1.addr.0, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
   switch i8 %0, label %if.then.i [
     i8 109, label %for.cond.i.backedge
@@ -169,7 +169,7 @@ _ZL25getEBCDICPropertyNameCharPKc.exit:           ; preds = %if.then.i, %if.else
 for.cond.i10:                                     ; preds = %for.cond.i10.backedge, %_ZL25getEBCDICPropertyNameCharPKc.exit
   %indvars.iv.i11 = phi i64 [ 0, %_ZL25getEBCDICPropertyNameCharPKc.exit ], [ %indvars.iv.next.i12, %for.cond.i10.backedge ]
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %name2.addr.0, i64 %indvars.iv.i11
+  %arrayidx.i13 = getelementptr inbounds nuw i8, ptr %name2.addr.0, i64 %indvars.iv.i11
   %3 = load i8, ptr %arrayidx.i13, align 1
   switch i8 %3, label %if.then.i18 [
     i8 109, label %for.cond.i10.backedge
@@ -377,7 +377,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
-  %nameGroup.addr.07 = getelementptr inbounds i8, ptr %nameGroup, i64 1
+  %nameGroup.addr.07 = getelementptr inbounds nuw i8, ptr %nameGroup, i64 1
   %cmp28.not = icmp eq i32 %nameIndex, 0
   br i1 %cmp28.not, label %for.end, label %for.body
 
@@ -387,7 +387,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %nameGroup.addr.010)
   %strchr = getelementptr inbounds i8, ptr %nameGroup.addr.010, i64 %strlen
   %dec = add nsw i32 %nameIndex.addr.09, -1
-  %nameGroup.addr.0 = getelementptr inbounds i8, ptr %strchr, i64 1
+  %nameGroup.addr.0 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %cmp2 = icmp samesign ugt i32 %nameIndex.addr.09, 1
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !11
 
@@ -423,7 +423,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 while.body:                                       ; preds = %while.body.lr.ph, %if.then14
   %2 = phi i8 [ %1, %while.body.lr.ph ], [ %4, %if.then14 ]
   %incdec.ptr.lcssa11.pn.pn = phi ptr [ %incdec.ptr.lcssa11.pn, %while.body.lr.ph ], [ %incdec.ptr15, %if.then14 ]
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %incdec.ptr.lcssa11.pn.pn, i64 1
+  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %incdec.ptr.lcssa11.pn.pn, i64 1
   %call = tail call signext i8 @uprv_asciitolower_75(i8 noundef signext %2)
   switch i8 %call, label %lor.lhs.false9 [
     i8 95, label %if.then14
@@ -522,7 +522,7 @@ lor.lhs.false.i:                                  ; preds = %if.end
   br i1 %cmp1.not.i, label %for.cond.preheader.i, label %return
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false.i
-  %nameGroup.addr.07.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %nameGroup.addr.07.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %cmp28.not.i = icmp eq i32 %nameChoice, 0
   br i1 %cmp28.not.i, label %for.end.i, label %for.body.i4
 
@@ -532,7 +532,7 @@ for.body.i4:                                      ; preds = %for.cond.preheader.
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %nameGroup.addr.010.i)
   %strchr.i = getelementptr inbounds i8, ptr %nameGroup.addr.010.i, i64 %strlen.i
   %dec.i5 = add nsw i32 %nameIndex.addr.09.i, -1
-  %nameGroup.addr.0.i = getelementptr inbounds i8, ptr %strchr.i, i64 1
+  %nameGroup.addr.0.i = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
   %cmp2.i = icmp samesign ugt i32 %nameIndex.addr.09.i, 1
   br i1 %cmp2.i, label %for.body.i4, label %for.end.i, !llvm.loop !11
 
@@ -687,7 +687,7 @@ lor.lhs.false.i:                                  ; preds = %if.end4
   br i1 %cmp1.not.i, label %for.cond.preheader.i15, label %return
 
 for.cond.preheader.i15:                           ; preds = %lor.lhs.false.i
-  %nameGroup.addr.07.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %nameGroup.addr.07.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %cmp28.not.i = icmp eq i32 %nameChoice, 0
   br i1 %cmp28.not.i, label %for.end.i, label %for.body.i16
 
@@ -697,7 +697,7 @@ for.body.i16:                                     ; preds = %for.cond.preheader.
   %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %nameGroup.addr.010.i)
   %strchr.i = getelementptr inbounds i8, ptr %nameGroup.addr.010.i, i64 %strlen.i
   %dec.i17 = add nsw i32 %nameIndex.addr.09.i, -1
-  %nameGroup.addr.0.i = getelementptr inbounds i8, ptr %strchr.i, i64 1
+  %nameGroup.addr.0.i = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
   %cmp2.i18 = icmp samesign ugt i32 %nameIndex.addr.09.i, 1
   br i1 %cmp2.i18, label %for.body.i16, label %for.end.i, !llvm.loop !11
 
@@ -720,11 +720,11 @@ entry:
   %idx.ext = sext i32 %bytesTrieOffset to i64
   %add.ptr = getelementptr inbounds i8, ptr @_ZN6icu_7512PropNameData10bytesTriesE, i64 %idx.ext
   store ptr null, ptr %trie, align 8
-  %bytes_.i = getelementptr inbounds i8, ptr %trie, i64 8
+  %bytes_.i = getelementptr inbounds nuw i8, ptr %trie, i64 8
   store ptr %add.ptr, ptr %bytes_.i, align 8
-  %pos_.i = getelementptr inbounds i8, ptr %trie, i64 16
+  %pos_.i = getelementptr inbounds nuw i8, ptr %trie, i64 16
   store ptr %add.ptr, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %trie, i64 24
+  %remainingMatchLength_.i = getelementptr inbounds nuw i8, ptr %trie, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   %cmp.i = icmp eq ptr %alias, null
   br i1 %cmp.i, label %cleanup, label %while.cond.preheader.i
@@ -743,7 +743,7 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %if.then14.i, %while.body.lr.ph.i
   %2 = phi i8 [ %1, %while.body.lr.ph.i ], [ %4, %if.then14.i ]
   %incdec.ptr.lcssa11.pn.pn.i = phi ptr [ %incdec.ptr.lcssa11.pn.i, %while.body.lr.ph.i ], [ %incdec.ptr15.i, %if.then14.i ]
-  %incdec.ptr15.i = getelementptr inbounds i8, ptr %incdec.ptr.lcssa11.pn.pn.i, i64 1
+  %incdec.ptr15.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.lcssa11.pn.pn.i, i64 1
   %call.i1 = invoke signext i8 @uprv_asciitolower_75(i8 noundef signext %2)
           to label %call.i.noexc unwind label %lpad.loopexit
 
@@ -786,7 +786,7 @@ invoke.cont:                                      ; preds = %call19.i.noexc, %if
 
 if.then:                                          ; preds = %invoke.cont
   %6 = load ptr, ptr %pos_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = lshr i8 %7, 1
   %shr.i = zext nneg i8 %8 to i32
@@ -943,7 +943,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i
   br i1 %cmp1.not.i.i, label %for.cond.preheader.i.i, label %_ZN6icu_7512PropNameData15getPropertyNameEii.exit
 
 for.cond.preheader.i.i:                           ; preds = %lor.lhs.false.i.i
-  %nameGroup.addr.07.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %nameGroup.addr.07.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %cmp28.not.i.i = icmp eq i32 %nameChoice, 0
   br i1 %cmp28.not.i.i, label %for.end.i.i, label %for.body.i4.i
 
@@ -953,7 +953,7 @@ for.body.i4.i:                                    ; preds = %for.cond.preheader.
   %strlen.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %nameGroup.addr.010.i.i)
   %strchr.i.i = getelementptr inbounds i8, ptr %nameGroup.addr.010.i.i, i64 %strlen.i.i
   %dec.i5.i = add nsw i32 %nameIndex.addr.09.i.i, -1
-  %nameGroup.addr.0.i.i = getelementptr inbounds i8, ptr %strchr.i.i, i64 1
+  %nameGroup.addr.0.i.i = getelementptr inbounds nuw i8, ptr %strchr.i.i, i64 1
   %cmp2.i.i = icmp samesign ugt i32 %nameIndex.addr.09.i.i, 1
   br i1 %cmp2.i.i, label %for.body.i4.i, label %for.end.i.i, !llvm.loop !11
 

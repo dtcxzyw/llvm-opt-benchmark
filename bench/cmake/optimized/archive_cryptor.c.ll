@@ -48,22 +48,22 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeon
   br label %15
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %14, align 8
   br label %22
 
 15:                                               ; preds = %11, %9, %7
   %.sink = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %16, align 8
   %17 = trunc i64 %2 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %1, i64 %2, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 16, ptr %21, align 4
   br label %22
 
@@ -76,8 +76,8 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeon
 define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %10 = load i32, ptr %9, align 4
   %11 = load i64, ptr %4, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
@@ -86,9 +86,9 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocaptu
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %16
 
 16:                                               ; preds = %.lr.ph, %55
@@ -99,7 +99,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocaptu
 
 .preheader78:                                     ; preds = %16, %.preheader78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader78 ], [ 0, %16 ]
-  %18 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
   %19 = load i8, ptr %18, align 1
   %20 = add i8 %19, 1
   store i8 %20, ptr %18, align 1
@@ -143,12 +143,12 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = add i32 %.3, %32
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %38 = load i8, ptr %37, align 1
   %39 = xor i8 %38, %36
-  %40 = getelementptr inbounds i8, ptr %3, i64 %34
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %34
   store i8 %39, ptr %40, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -156,7 +156,7 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
 
 .preheader86:                                     ; preds = %.preheader, %.preheader86
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i52, %.preheader86 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i50
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i50
   %42 = load i8, ptr %41, align 1
   %43 = add i8 %42, 1
   store i8 %43, ptr %41, align 1
@@ -198,14 +198,14 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   %.242 = phi i32 [ 0, %54 ], [ %.04072, %16 ]
   %.2 = phi i32 [ %.3, %54 ], [ %.073, %16 ]
   %56 = zext i32 %.2 to i64
-  %57 = getelementptr inbounds i8, ptr %1, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = add i32 %.242, 1
   %60 = zext i32 %.242 to i64
-  %61 = getelementptr inbounds i8, ptr %8, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = xor i8 %62, %58
-  %64 = getelementptr inbounds i8, ptr %3, i64 %56
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 %56
   store i8 %63, ptr %64, align 1
   %65 = add nuw i32 %.2, 1
   %66 = icmp ult i32 %65, %12
@@ -233,12 +233,12 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
 define internal noundef i32 @aes_ctr_release(ptr nocapture noundef initializes((52, 68)) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %6, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   ret i32 0
 }

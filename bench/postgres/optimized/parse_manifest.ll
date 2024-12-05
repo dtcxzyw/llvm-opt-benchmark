@@ -65,25 +65,25 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   %6 = alloca %struct.JsonSemAction, align 8
   %7 = alloca %struct.JsonManifestParseState, align 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i8 0, ptr %9, align 8
   %10 = trunc i64 %2 to i32
   %11 = tail call ptr @makeJsonLexContextCstringLen(ptr noundef null, ptr noundef %1, i32 noundef %10, i32 noundef 6, i1 noundef zeroext true) #8
   store ptr %7, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @json_manifest_object_start, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @json_manifest_object_end, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @json_manifest_array_start, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @json_manifest_array_end, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @json_manifest_object_field_start, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
-  %18 = getelementptr inbounds i8, ptr %6, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store ptr @json_manifest_scalar, ptr %18, align 8
   %19 = call i32 @pg_parse_json(ptr noundef %11, ptr noundef nonnull %6) #8
@@ -91,7 +91,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   call void (ptr, ptr, ...) %22(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str) #9
   unreachable
@@ -102,7 +102,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not9, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   call void (ptr, ptr, ...) %27(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1) #9
   unreachable
@@ -136,7 +136,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %35, label %._crit_edge.thread.i, label %39
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %28
-  %37 = getelementptr inbounds i8, ptr %29, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %38 = load ptr, ptr %37, align 8
   call void (ptr, ptr, ...) %38(ptr noundef %29, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.42) #9
   unreachable
@@ -147,7 +147,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not.i, label %44, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %29, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %43 = load ptr, ptr %42, align 8
   call void (ptr, ptr, ...) %43(ptr noundef %29, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.43) #9
   unreachable
@@ -158,7 +158,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %29, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %49 = load ptr, ptr %48, align 8
   call void (ptr, ptr, ...) %49(ptr noundef %29, ptr noundef nonnull @.str.44) #9
   unreachable
@@ -169,7 +169,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %29, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %55 = load ptr, ptr %54, align 8
   call void (ptr, ptr, ...) %55(ptr noundef %29, ptr noundef nonnull @.str.45) #9
   unreachable
@@ -180,7 +180,7 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %29, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %61 = load ptr, ptr %60, align 8
   call void (ptr, ptr, ...) %61(ptr noundef %29, ptr noundef nonnull @.str.46) #9
   unreachable
@@ -191,19 +191,19 @@ define dso_local void @json_parse_manifest(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %29, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %67 = load ptr, ptr %66, align 8
   call void (ptr, ptr, ...) %67(ptr noundef %29, ptr noundef nonnull @.str.47) #9
   unreachable
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %7, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %29, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) %74(ptr noundef %75, ptr noundef nonnull @.str.48) #9
@@ -292,7 +292,7 @@ hexdecode_char.exit22.i.i:                        ; preds = %103, %101, %97
   br i1 %exitcond.not.i.i, label %115, label %.lr.ph.i.i, !llvm.loop !7
 
 hexdecode_string.exit.i:                          ; preds = %hexdecode_char.exit22.i.i, %76
-  %113 = getelementptr inbounds i8, ptr %29, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %114 = load ptr, ptr %113, align 8
   call void (ptr, ptr, ...) %114(ptr noundef %29, ptr noundef nonnull @.str.49, ptr noundef nonnull %70) #9
   unreachable
@@ -303,7 +303,7 @@ hexdecode_string.exit.i:                          ; preds = %hexdecode_char.exit
   br i1 %.not47.i, label %verify_manifest_checksum.exit, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %29, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %118 = load ptr, ptr %117, align 8
   call void (ptr, ptr, ...) %118(ptr noundef %29, ptr noundef nonnull @.str.50) #9
   unreachable
@@ -320,7 +320,7 @@ declare ptr @makeJsonLexContextCstringLen(ptr noundef, ptr noundef, i32 noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_manifest_object_start(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %10 [
     i32 0, label %4
@@ -334,21 +334,21 @@ define internal noundef i32 @json_manifest_object_start(ptr nocapture noundef %0
 
 5:                                                ; preds = %1
   store i32 6, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   br label %14
 
 8:                                                ; preds = %1
   store i32 10, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   br label %14
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) %13(ptr noundef %11, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.2) #9
   unreachable
@@ -366,7 +366,7 @@ define internal noundef i32 @json_manifest_object_end(ptr nocapture noundef %0) 
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %249 [
     i32 1, label %253
@@ -378,10 +378,10 @@ define internal noundef i32 @json_manifest_object_end(ptr nocapture noundef %0) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %15, label %19, label %23
@@ -390,7 +390,7 @@ define internal noundef i32 @json_manifest_object_end(ptr nocapture noundef %0) 
   br i1 %18, label %20, label %.thread.i
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %12, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) %22(ptr noundef %12, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.4) #9
   unreachable
@@ -399,38 +399,38 @@ define internal noundef i32 @json_manifest_object_end(ptr nocapture noundef %0) 
   br i1 %18, label %.thread.i, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ptr, ...) %26(ptr noundef %12, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.5) #9
   unreachable
 
 .thread.i:                                        ; preds = %23, %19
   %27 = phi ptr [ %17, %19 ], [ null, %23 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %.thread.i
-  %32 = getelementptr inbounds i8, ptr %12, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void (ptr, ptr, ...) %33(ptr noundef %12, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.6) #9
   unreachable
 
 34:                                               ; preds = %.thread.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
   %.not69.i = icmp eq ptr %40, null
   br i1 %.not69.i, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %12, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void (ptr, ptr, ...) %43(ptr noundef %12, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.7) #9
   unreachable
@@ -539,7 +539,7 @@ hexdecode_char.exit22.i.i:                        ; preds = %81, %79, %75
 
 hexdecode_string.exit.i:                          ; preds = %hexdecode_char.exit22.i.i, %45
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8
   tail call void (ptr, ptr, ...) %93(ptr noundef %91, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.8) #9
   unreachable
@@ -569,7 +569,7 @@ hexdecode_string.exit.thread.i:                   ; preds = %hexdecode_string.ex
 
 103:                                              ; preds = %98
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   tail call void (ptr, ptr, ...) %106(ptr noundef %104, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.9) #9
   unreachable
@@ -588,14 +588,14 @@ hexdecode_string.exit.thread.i:                   ; preds = %hexdecode_string.ex
   br i1 %112, label %117, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %12, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %35, align 8
   call void (ptr, ptr, ...) %115(ptr noundef %12, ptr noundef nonnull @.str.10, ptr noundef %116) #9
   unreachable
 
 117:                                              ; preds = %111, %110
-  %118 = getelementptr inbounds i8, ptr %0, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %.thread105.i, label %121
@@ -706,7 +706,7 @@ hexdecode_string.exit102.loopexit.i:              ; preds = %hexdecode_char.exit
 
 hexdecode_string.exit102.i:                       ; preds = %hexdecode_string.exit102.loopexit.i, %125
   %167 = phi ptr [ %.pre108.i, %hexdecode_string.exit102.loopexit.i ], [ %.pre109.i, %125 ]
-  %168 = getelementptr inbounds i8, ptr %12, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %169 = load ptr, ptr %168, align 8
   %170 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) %169(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef %170, ptr noundef %167) #9
@@ -715,7 +715,7 @@ hexdecode_string.exit102.i:                       ; preds = %hexdecode_string.ex
 .thread105.i:                                     ; preds = %162, %130, %121, %117
   %.060.i = phi ptr [ null, %121 ], [ null, %117 ], [ %128, %130 ], [ %128, %162 ]
   %.0.i = phi i32 [ 0, %121 ], [ 0, %117 ], [ %126, %130 ], [ %126, %162 ]
-  %171 = getelementptr inbounds i8, ptr %12, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %13, align 8
   %174 = load i32, ptr %8, align 4
@@ -757,37 +757,37 @@ json_manifest_finalize_file.exit:                 ; preds = %180, %182
 183:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 72
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds i8, ptr %184, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %190 = load ptr, ptr %189, align 8
   tail call void (ptr, ptr, ...) %190(ptr noundef %184, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.12) #9
   unreachable
 
 191:                                              ; preds = %183
-  %192 = getelementptr inbounds i8, ptr %0, i64 80
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %193 = load ptr, ptr %192, align 8
   %194 = icmp eq ptr %193, null
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %184, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %197 = load ptr, ptr %196, align 8
   tail call void (ptr, ptr, ...) %197(ptr noundef %184, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.13) #9
   unreachable
 
 198:                                              ; preds = %191
-  %199 = getelementptr inbounds i8, ptr %0, i64 88
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %200 = load ptr, ptr %199, align 8
   %201 = icmp eq ptr %200, null
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %198
-  %203 = getelementptr inbounds i8, ptr %184, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %204 = load ptr, ptr %203, align 8
   tail call void (ptr, ptr, ...) %204(ptr noundef %184, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.14) #9
   unreachable
@@ -802,7 +802,7 @@ json_manifest_finalize_file.exit:                 ; preds = %180, %182
 
 210:                                              ; preds = %205
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %213 = load ptr, ptr %212, align 8
   tail call void (ptr, ptr, ...) %213(ptr noundef %211, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.15) #9
   unreachable
@@ -831,7 +831,7 @@ parse_xlogrecptr.exit.thread.i:                   ; preds = %214
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %222 = load ptr, ptr %0, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = load ptr, ptr %223, align 8
   call void (ptr, ptr, ...) %224(ptr noundef %222, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.16) #9
   unreachable
@@ -849,7 +849,7 @@ parse_xlogrecptr.exit34.thread.i:                 ; preds = %parse_xlogrecptr.ex
   %234 = or disjoint i64 %231, %233
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %235 = getelementptr inbounds i8, ptr %184, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %236 = load ptr, ptr %235, align 8
   call void %236(ptr noundef %184, i32 noundef %207, i64 noundef %228, i64 noundef %234) #8
   %237 = load ptr, ptr %185, align 8
@@ -860,7 +860,7 @@ parse_xlogrecptr.exit34.thread.i:                 ; preds = %parse_xlogrecptr.ex
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %239 = load ptr, ptr %0, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load ptr, ptr %240, align 8
   call void (ptr, ptr, ...) %241(ptr noundef %239, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.17) #9
   unreachable
@@ -896,7 +896,7 @@ json_manifest_finalize_wal_range.exit:            ; preds = %246, %248
 
 249:                                              ; preds = %1
   %250 = load ptr, ptr %0, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %252 = load ptr, ptr %251, align 8
   tail call void (ptr, ptr, ...) %252(ptr noundef %250, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.3) #9
   unreachable
@@ -909,7 +909,7 @@ json_manifest_finalize_wal_range.exit:            ; preds = %246, %248
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_manifest_array_start(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %5 [
     i32 4, label %9
@@ -921,7 +921,7 @@ define internal noundef i32 @json_manifest_array_start(ptr nocapture noundef %0)
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) %8(ptr noundef %6, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.19) #9
   unreachable
@@ -934,7 +934,7 @@ define internal noundef i32 @json_manifest_array_start(ptr nocapture noundef %0)
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_manifest_array_end(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %5 [
     i32 5, label %4
@@ -947,7 +947,7 @@ define internal noundef i32 @json_manifest_array_end(ptr nocapture noundef %0) #
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) %8(ptr noundef %6, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.20) #9
   unreachable
@@ -955,7 +955,7 @@ define internal noundef i32 @json_manifest_array_end(ptr nocapture noundef %0) #
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %72 [
     i32 2, label %6
@@ -964,7 +964,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %17, label %10
@@ -976,7 +976,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) %15(ptr noundef %13, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.22) #9
   unreachable
@@ -1015,7 +1015,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void (ptr, ptr, ...) %32(ptr noundef %30, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.26) #9
   unreachable
@@ -1052,14 +1052,14 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   tail call void (ptr, ptr, ...) %54(ptr noundef %52, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.33) #9
   unreachable
 
 55:                                               ; preds = %48, %45, %42, %39, %36, %33
   %.sink = phi i32 [ 0, %33 ], [ 1, %36 ], [ 2, %39 ], [ 3, %42 ], [ 4, %45 ], [ 5, %48 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink, ptr %56, align 4
   store i32 7, ptr %4, align 8
   br label %76
@@ -1081,21 +1081,21 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   tail call void (ptr, ptr, ...) %69(ptr noundef %67, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.37) #9
   unreachable
 
 70:                                               ; preds = %63, %60, %57
   %.sink42 = phi i32 [ 0, %57 ], [ 1, %60 ], [ 2, %63 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink42, ptr %71, align 8
   store i32 11, ptr %4, align 8
   br label %76
 
 72:                                               ; preds = %3
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   tail call void (ptr, ptr, ...) %75(ptr noundef %73, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.38) #9
   unreachable
@@ -1106,7 +1106,7 @@ define internal noundef i32 @json_manifest_object_field_start(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @json_manifest_scalar(ptr nocapture noundef %0, ptr noundef %1, i32 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %40 [
     i32 3, label %sub_0
@@ -1121,14 +1121,14 @@ sub_0:                                            ; preds = %3
   br i1 %.not31, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %13, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) %12(ptr noundef %10, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.40) #9
   unreachable
@@ -1138,7 +1138,7 @@ sub_0:                                            ; preds = %3
   br label %44
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %28 [
     i32 0, label %17
@@ -1150,17 +1150,17 @@ sub_0:                                            ; preds = %3
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %18, align 8
   br label %28
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %20, align 8
   br label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %22, align 8
   br label %28
 
@@ -1169,12 +1169,12 @@ sub_0:                                            ; preds = %3
   br label %28
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %25, align 8
   br label %28
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %27, align 8
   br label %28
 
@@ -1183,7 +1183,7 @@ sub_0:                                            ; preds = %3
   br label %44
 
 29:                                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = icmp ult i32 %31, 3
   br i1 %32, label %switch.lookup, label %37
@@ -1191,8 +1191,8 @@ sub_0:                                            ; preds = %3
 switch.lookup:                                    ; preds = %29
   %33 = shl nuw nsw i32 %31, 3
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   store ptr %1, ptr %36, align 8
   br label %37
 
@@ -1202,13 +1202,13 @@ switch.lookup:                                    ; preds = %29
 
 38:                                               ; preds = %3
   store i32 1, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %39, align 8
   br label %44
 
 40:                                               ; preds = %3
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void (ptr, ptr, ...) %43(ptr noundef %41, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.41) #9
   unreachable

@@ -95,30 +95,30 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_device_new(ptr noundef %
 
 15:                                               ; preds = %10
   store ptr %0, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store i32 %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 136
-  tail call void @device_initialize(ptr noundef %19) #6
-  %20 = getelementptr inbounds i8, ptr %0, i64 648
-  %21 = getelementptr inbounds i8, ptr %13, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 136
+  tail call void @device_initialize(ptr noundef nonnull %19) #6
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 200
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 232
   store ptr @snd_seq_bus_type, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 824
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 824
   store ptr @snd_seq_dev_release, ptr %23, align 8
   %24 = load ptr, ptr %17, align 8
   %25 = load i32, ptr %0, align 8
-  %26 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %19, ptr noundef nonnull @.str, ptr noundef %24, i32 noundef %25, i32 noundef %1) #6
+  %26 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %19, ptr noundef nonnull @.str, ptr noundef %24, i32 noundef %25, i32 noundef %1) #6
   %27 = tail call i32 @snd_device_new(ptr noundef %0, i32 noundef 8, ptr noundef nonnull %13, ptr noundef nonnull @snd_seq_device_new.dops) #6
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %15
-  tail call void @put_device(ptr noundef %19) #6
+  tail call void @put_device(ptr noundef nonnull %19) #6
   br label %32
 
 30:                                               ; preds = %15
@@ -135,10 +135,10 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_device_new(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @snd_seq_device_dev_free(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull @autoload_work) #6
-  %5 = getelementptr inbounds i8, ptr %3, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -148,22 +148,22 @@ define internal noundef i32 @snd_seq_device_dev_free(ptr nocapture noundef reado
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 136
-  tail call void @put_device(ptr noundef %10) #6
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  tail call void @put_device(ptr noundef nonnull %10) #6
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @snd_seq_device_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 136
-  %5 = tail call i32 @device_add(ptr noundef %4) #6
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %5 = tail call i32 @device_add(ptr noundef nonnull %4) #6
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %14
@@ -180,10 +180,10 @@ define internal range(i32 -2147483648, 1) i32 @snd_seq_device_dev_register(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @snd_seq_device_dev_disconnect(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 136
-  tail call void @device_del(ptr noundef %4) #6
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  tail call void @device_del(ptr noundef nonnull %4) #6
   ret i32 0
 }
 
@@ -213,7 +213,7 @@ define dso_local i32 @__snd_seq_driver_register(ptr noundef %0, ptr noundef %1) 
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10, !prof !7
@@ -225,9 +225,9 @@ define dso_local i32 @__snd_seq_driver_register(ptr noundef %0, ptr noundef %1) 
   br label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @snd_seq_bus_type, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %12, align 8
   %13 = tail call i32 @driver_register(ptr noundef %0) #6
   br label %14
@@ -310,7 +310,7 @@ declare dso_local i32 @bus_for_each_dev(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @request_seq_drv(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -339,7 +339,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 0, 2) i32 @snd_seq_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -120
   %6 = load ptr, ptr %5, align 8
@@ -348,7 +348,7 @@ define internal range(i32 0, 2) i32 @snd_seq_bus_match(ptr nocapture noundef rea
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 -32
   %13 = load i32, ptr %12, align 8
@@ -379,9 +379,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @seq_dev_proc_init() unname
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i16 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @snd_seq_device_info, ptr %6, align 8
   %7 = tail call i32 @snd_info_register(ptr noundef nonnull %2) #6
   %8 = icmp slt i32 %7, 0
@@ -414,7 +414,7 @@ define internal noundef i32 @print_dev_info(ptr nocapture noundef readonly %0, p
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr i8, ptr %0, i64 -120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   %9 = select i1 %8, ptr @.str.7, ptr @.str.8

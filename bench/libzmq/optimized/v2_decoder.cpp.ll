@@ -51,8 +51,8 @@ $_ZTVN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocato
 define void @_ZN3zmq12v2_decoder_tC2Emlb(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 40)) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_, i1 noundef zeroext %zero_copy_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEEE, i64 16), ptr %this, align 8
-  %_next.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_allocator.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_allocator.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_next.i, i8 0, i64 32, i1 false)
   tail call void @_ZN3zmq31shared_message_memory_allocatorC1Em(ptr noundef nonnull align 8 dereferenceable(40) %_allocator.i, i64 noundef %bufsize_)
   %call.i = invoke noundef ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator.i)
@@ -70,16 +70,16 @@ lpad3.i:                                          ; preds = %entry
 
 _ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEEC2Em.exit: ; preds = %entry
   %frombool = zext i1 %zero_copy_ to i8
-  %_buf.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_buf.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %call.i, ptr %_buf.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12v2_decoder_tE, i64 16), ptr %this, align 8
-  %_msg_flags = getelementptr inbounds i8, ptr %this, i64 96
+  %_msg_flags = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 0, ptr %_msg_flags, align 8
-  %_zero_copy = getelementptr inbounds i8, ptr %this, i64 168
+  %_zero_copy = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i8 %frombool, ptr %_zero_copy, align 8
-  %_max_msg_size = getelementptr inbounds i8, ptr %this, i64 176
+  %_max_msg_size = getelementptr inbounds nuw i8, ptr %this, i64 176
   store i64 %maxmsgsize_, ptr %_max_msg_size, align 8
-  %_in_progress3 = getelementptr inbounds i8, ptr %this, i64 104
+  %_in_progress3 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call = invoke noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress3)
           to label %invoke.cont unwind label %lpad
 
@@ -105,13 +105,13 @@ lpad:                                             ; preds = %if.then, %_ZN3zmq14
   br label %common.resume
 
 do.end:                                           ; preds = %if.then, %invoke.cont
-  %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
-  %_read_pos.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_tmpbuf = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_read_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %_tmpbuf, ptr %_read_pos.i, align 8
-  %_to_read.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_to_read.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 1, ptr %_to_read.i, align 8
   store i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t11flags_readyEPKh to i64), ptr %_next.i, align 8
-  %_next.repack1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_next.repack1.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %_next.repack1.i, align 8
   ret void
 }
@@ -137,8 +137,8 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN3zmq12v2_decoder_t11flags_readyEPKh(ptr noundef nonnull align 8 dereferenceable(184) initializes((96, 97)) %this, ptr nocapture readnone %0) #5 align 2 {
 entry:
-  %_msg_flags = getelementptr inbounds i8, ptr %this, i64 96
-  %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
+  %_msg_flags = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %_tmpbuf = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load i8, ptr %_tmpbuf, align 8
   %2 = and i8 %1, 1
   %3 = lshr i8 %1, 1
@@ -149,13 +149,13 @@ entry:
   %tobool20.not = icmp eq i8 %5, 0
   %spec.select6 = select i1 %tobool20.not, i64 1, i64 8
   %spec.select7 = select i1 %tobool20.not, i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t19one_byte_size_readyEPKh to i64), i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t21eight_byte_size_readyEPKh to i64)
-  %6 = getelementptr inbounds i8, ptr %this, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %_tmpbuf, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %this, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %spec.select6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %spec.select7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %this, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %9, align 8
   ret i32 0
 }
@@ -163,7 +163,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq12v2_decoder_tD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_in_progress = getelementptr inbounds i8, ptr %this, i64 104
+  %_in_progress = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call = invoke noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -184,7 +184,7 @@ if.then:                                          ; preds = %invoke.cont
 
 do.end:                                           ; preds = %if.then, %invoke.cont
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEEE, i64 16), ptr %this, align 8
-  %_allocator.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_allocator.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN3zmq31shared_message_memory_allocator10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator.i)
           to label %_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -235,41 +235,41 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq12v2_decoder_t21eight_byte_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
-  %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
+  %_tmpbuf = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8
   %conv.i = zext i8 %0 to i64
   %shl.i = shl nuw i64 %conv.i, 56
-  %arrayidx1.i = getelementptr inbounds i8, ptr %this, i64 89
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %this, i64 89
   %1 = load i8, ptr %arrayidx1.i, align 1
   %conv2.i = zext i8 %1 to i64
   %shl3.i = shl nuw nsw i64 %conv2.i, 48
   %or.i = or disjoint i64 %shl3.i, %shl.i
-  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 90
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %this, i64 90
   %2 = load i8, ptr %arrayidx4.i, align 2
   %conv5.i = zext i8 %2 to i64
   %shl6.i = shl nuw nsw i64 %conv5.i, 40
   %or7.i = or disjoint i64 %or.i, %shl6.i
-  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 91
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %this, i64 91
   %3 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %3 to i64
   %shl10.i = shl nuw nsw i64 %conv9.i, 32
   %or11.i = or disjoint i64 %or7.i, %shl10.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 92
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   %4 = load i8, ptr %arrayidx12.i, align 4
   %conv13.i = zext i8 %4 to i64
   %shl14.i = shl nuw nsw i64 %conv13.i, 24
   %or15.i = or disjoint i64 %or11.i, %shl14.i
-  %arrayidx16.i = getelementptr inbounds i8, ptr %this, i64 93
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %this, i64 93
   %5 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %5 to i64
   %shl18.i = shl nuw nsw i64 %conv17.i, 16
   %or19.i = or disjoint i64 %or15.i, %shl18.i
-  %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 94
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %this, i64 94
   %6 = load i8, ptr %arrayidx20.i, align 2
   %conv21.i = zext i8 %6 to i64
   %shl22.i = shl nuw nsw i64 %conv21.i, 8
   %or23.i = or i64 %or19.i, %shl22.i
-  %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 95
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %this, i64 95
   %7 = load i8, ptr %arrayidx24.i, align 1
   %conv25.i = zext i8 %7 to i64
   %or26.i = or i64 %or23.i, %conv25.i
@@ -280,7 +280,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq12v2_decoder_t19one_byte_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
-  %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
+  %_tmpbuf = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8
   %conv = zext i8 %0 to i64
   %call = tail call noundef i32 @_ZN3zmq12v2_decoder_t10size_readyEmPKh(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %conv, ptr noundef %read_from_)
@@ -290,7 +290,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq12v2_decoder_t10size_readyEmPKh(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %msg_size_, ptr noundef %read_pos_) local_unnamed_addr #0 align 2 {
 entry:
-  %_max_msg_size = getelementptr inbounds i8, ptr %this, i64 176
+  %_max_msg_size = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i64, ptr %_max_msg_size, align 8
   %cmp = icmp sgt i64 %0, -1
   %cmp3 = icmp ugt i64 %msg_size_, %0
@@ -303,10 +303,10 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %_in_progress = getelementptr inbounds i8, ptr %this, i64 104
+  %_in_progress = getelementptr inbounds nuw i8, ptr %this, i64 104
   %call10 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
-  %_allocator.i = getelementptr inbounds i8, ptr %this, i64 40
-  %_zero_copy = getelementptr inbounds i8, ptr %this, i64 168
+  %_allocator.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_zero_copy = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load i8, ptr %_zero_copy, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %lor.rhs, label %if.then15
@@ -327,7 +327,7 @@ if.then15:                                        ; preds = %if.end9, %lor.rhs
 
 if.else:                                          ; preds = %lor.rhs
   %2 = load ptr, ptr %_allocator.i, align 8
-  %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_msg_content.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %_msg_content.i, align 8
   %call21 = tail call noundef i32 @_ZN3zmq5msg_t4initEPvmPFvS1_S1_ES1_PNS0_9content_tE(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, ptr noundef %read_pos_, i64 noundef %msg_size_, ptr noundef nonnull @_ZN3zmq31shared_message_memory_allocator12call_dec_refEPvS1_, ptr noundef %2, ptr noundef %3)
   %call23 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t8is_zcmsgEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
@@ -335,7 +335,7 @@ if.else:                                          ; preds = %lor.rhs
 
 if.then24:                                        ; preds = %if.else
   %4 = load ptr, ptr %_msg_content.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 40
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %incdec.ptr.i, ptr %_msg_content.i, align 8
   tail call void @_ZN3zmq31shared_message_memory_allocator7inc_refEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator.i)
   br label %if.end26
@@ -380,18 +380,18 @@ do.end51:                                         ; preds = %do.end, %if.then44
   br label %return
 
 if.end53:                                         ; preds = %if.end26
-  %_msg_flags = getelementptr inbounds i8, ptr %this, i64 96
+  %_msg_flags = getelementptr inbounds nuw i8, ptr %this, i64 96
   %11 = load i8, ptr %_msg_flags, align 8
   tail call void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress, i8 noundef zeroext %11)
   %call56 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
   %call58 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %_in_progress)
-  %_read_pos.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_read_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call56, ptr %_read_pos.i, align 8
-  %_to_read.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_to_read.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %call58, ptr %_to_read.i, align 8
-  %_next.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t13message_readyEPKh to i64), ptr %_next.i, align 8
-  %_next.repack1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_next.repack1.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %_next.repack1.i, align 8
   br label %return
 
@@ -423,14 +423,14 @@ declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @_ZN3zmq12v2_decoder_t13message_readyEPKh(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture readnone %0) #10 align 2 {
 entry:
-  %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
-  %_read_pos.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_tmpbuf = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_read_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %_tmpbuf, ptr %_read_pos.i, align 8
-  %_to_read.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_to_read.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 1, ptr %_to_read.i, align 8
-  %_next.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 ptrtoint (ptr @_ZN3zmq12v2_decoder_t11flags_readyEPKh to i64), ptr %_next.i, align 8
-  %_next.repack1.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_next.repack1.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %_next.repack1.i, align 8
   ret i32 1
 }
@@ -438,18 +438,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEE10get_bufferEPPhPm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %data_, ptr noundef %size_) unnamed_addr #0 comdat align 2 {
 entry:
-  %_allocator = getelementptr inbounds i8, ptr %this, i64 40
+  %_allocator = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call = tail call noundef ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
-  %_buf = getelementptr inbounds i8, ptr %this, i64 80
+  %_buf = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %call, ptr %_buf, align 8
-  %_to_read = getelementptr inbounds i8, ptr %this, i64 32
+  %_to_read = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %_to_read, align 8
   %call3 = tail call noundef i64 @_ZNK3zmq31shared_message_memory_allocator4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
   %cmp.not = icmp ult i64 %0, %call3
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_read_pos = getelementptr inbounds i8, ptr %this, i64 24
+  %_read_pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_read_pos, align 8
   store ptr %1, ptr %data_, align 8
   %2 = load i64, ptr %_to_read, align 8
@@ -470,7 +470,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEE13resize_bufferEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %new_size_) unnamed_addr #0 comdat align 2 {
 entry:
-  %_buf_size.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_buf_size.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 %new_size_, ptr %_buf_size.i, align 8
   ret void
 }
@@ -479,7 +479,7 @@ entry:
 define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEE6decodeEPKhmRm(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %data_, i64 noundef %size_, ptr noundef nonnull align 8 dereferenceable(8) %bytes_used_) unnamed_addr #0 comdat align 2 {
 entry:
   store i64 0, ptr %bytes_used_, align 8
-  %_read_pos = getelementptr inbounds i8, ptr %this, i64 24
+  %_read_pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_read_pos, align 8
   %cmp = icmp eq ptr %data_, %0
   br i1 %cmp, label %do.body, label %while.cond15.preheader
@@ -489,14 +489,14 @@ while.cond15.preheader:                           ; preds = %entry
   br i1 %cmp1632.not, label %return, label %while.body17.lr.ph
 
 while.body17.lr.ph:                               ; preds = %while.cond15.preheader
-  %_to_read18 = getelementptr inbounds i8, ptr %this, i64 32
-  %_next37 = getelementptr inbounds i8, ptr %this, i64 8
-  %.elt24 = getelementptr inbounds i8, ptr %this, i64 16
+  %_to_read18 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_next37 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %.elt24 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre = load i64, ptr %_to_read18, align 8
   br label %while.body17
 
 do.body:                                          ; preds = %entry
-  %_to_read = getelementptr inbounds i8, ptr %this, i64 32
+  %_to_read = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %_to_read, align 8
   %cmp2.not = icmp ugt i64 %size_, %1
   br i1 %cmp2.not, label %if.then3, label %do.end
@@ -519,8 +519,8 @@ do.end:                                           ; preds = %do.body, %if.then3
   %sub = sub i64 %4, %size_
   store i64 %sub, ptr %_to_read, align 8
   store i64 %size_, ptr %bytes_used_, align 8
-  %_next = getelementptr inbounds i8, ptr %this, i64 8
-  %.elt27 = getelementptr inbounds i8, ptr %this, i64 16
+  %_next = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %.elt27 = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %memptr.end, %do.end
@@ -628,7 +628,7 @@ return:                                           ; preds = %while.cond15.loopex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN3zmq12v2_decoder_t3msgEv(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %_in_progress = getelementptr inbounds i8, ptr %this, i64 104
+  %_in_progress = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %_in_progress
 }
 
@@ -643,7 +643,7 @@ declare void @_ZN3zmq31shared_message_memory_allocatorD1Ev(ptr noundef nonnull a
 define linkonce_odr void @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v2_decoder_tENS_31shared_message_memory_allocatorEEE, i64 16), ptr %this, align 8
-  %_allocator = getelementptr inbounds i8, ptr %this, i64 40
+  %_allocator = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN3zmq31shared_message_memory_allocator10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %_allocator)
           to label %invoke.cont unwind label %terminate.lpad
 

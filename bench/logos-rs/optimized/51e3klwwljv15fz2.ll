@@ -8,10 +8,10 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   %3 = alloca [48 x i8], align 8
   %4 = alloca [64 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %6, ptr %7, align 8
   call void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5bef92b2c5ef46efE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
   ret void
@@ -20,9 +20,9 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hc8575fe5fc983b71E"(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 %5, ptr %3, align 8
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0f2a9e5ed0c69e3bE"(ptr align 8 %0, ptr nonnull align 8 %3)
@@ -40,7 +40,7 @@ define { i64, i8 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
 
 4:                                                ; preds = %1
   %5 = and i8 %2, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8
@@ -61,7 +61,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -81,7 +81,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -101,7 +101,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -121,7 +121,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -143,17 +143,17 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775801, ptr %7, align 8
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
   store i64 %11, ptr %9, align 8
   store i64 %10, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
   br label %12
 
@@ -165,23 +165,23 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h706138a890ce27ccE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((16, 24)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90eb41074c80e993E"(ptr nonnull sret([32 x i8]) align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, -9223372036854775808
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 -9223372036854775808, ptr %8, align 8
   br label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
   store i64 %11, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %13
 
@@ -196,7 +196,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8

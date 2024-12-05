@@ -7,22 +7,22 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_coll_inter_allgather_inter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %6, i64 220
   %.val = load i32, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 248
   %.val78 = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val78, i64 16
   %.val78.val = load i32, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %17
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %6, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   br label %ompi_comm_remote_size.exit
 
@@ -32,7 +32,7 @@ ompi_comm_remote_size.exit:                       ; preds = %8, %17
   br i1 %23, label %24, label %58
 
 24:                                               ; preds = %ompi_comm_remote_size.exit
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   %28 = icmp eq i32 %.val78.val, 0
@@ -43,14 +43,14 @@ ompi_comm_remote_size.exit:                       ; preds = %8, %17
   %30 = sext i32 %.val78.val to i64
   %31 = zext nneg i32 %1 to i64
   %32 = mul nsw i64 %30, %31
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %38 = load i64, ptr %37, align 8
   %39 = sub nsw i64 %36, %38
-  %40 = getelementptr inbounds i8, ptr %2, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = load i64, ptr %40, align 8
   %42 = sub i64 %41, %34
   %43 = add nsw i64 %32, -1
@@ -68,11 +68,11 @@ opal_datatype_span.exit:                          ; preds = %24, %29
 48:                                               ; preds = %opal_datatype_span.exit
   %49 = sub i64 0, %.082
   %50 = getelementptr inbounds i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds i8, ptr %11, i64 328
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 328
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 144
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 152
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 %54(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %50, i32 noundef %1, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %11, ptr noundef %56) #5
   %.not = icmp eq i32 %57, 0
@@ -113,20 +113,20 @@ opal_datatype_span.exit:                          ; preds = %24, %29
   br i1 %74, label %75, label %105
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %5, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %opal_datatype_span.exit81, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %5, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %5, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %5, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %85 = load i64, ptr %84, align 8
   %86 = sub nsw i64 %83, %85
-  %87 = getelementptr inbounds i8, ptr %5, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %88 = load i64, ptr %87, align 8
   %89 = sub i64 %88, %81
   %90 = add nsw i64 %72, -1
@@ -153,11 +153,11 @@ opal_datatype_span.exit81:                        ; preds = %75, %79
   %95 = mul i64 %.0.i80, %indvars.iv
   %96 = getelementptr inbounds i8, ptr %3, i64 %95
   %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 328
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 328
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 112
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 112
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 120
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 120
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 %101(ptr noundef %96, i32 noundef %4, ptr noundef %5, i32 noundef 0, ptr noundef %97, ptr noundef %103) #5
   %.not76 = icmp eq i32 %104, 0
@@ -165,12 +165,12 @@ opal_datatype_span.exit81:                        ; preds = %75, %79
 
 105:                                              ; preds = %71
   %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 328
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 328
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 112
   %110 = load ptr, ptr %109, align 8
   %111 = mul nsw i32 %22, %4
-  %112 = getelementptr inbounds i8, ptr %108, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 120
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 %110(ptr noundef %3, i32 noundef %111, ptr noundef %5, i32 noundef 0, ptr noundef %106, ptr noundef %113) #5
   br label %.loopexit

@@ -51,10 +51,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @nsm_monitor(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.nsm_res, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 496
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %8 = icmp eq i8 %7, 0
@@ -66,18 +66,18 @@ define dso_local range(i32 -2147483648, 1) i32 @nsm_monitor(ptr noundef %0) loca
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load ptr, ptr %13, align 8
   br label %17
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %4, i64 193
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 193
   br label %17
 
 17:                                               ; preds = %15, %12
   %18 = phi ptr [ %14, %12 ], [ %16, %15 ]
   store i64 0, ptr %2, align 8, !annotation !7
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %19, align 8
   %20 = call fastcc i32 @nsm_mon_unmon(ptr noundef %4, i32 noundef 2, ptr noundef nonnull %2, ptr noundef %0)
   %21 = load i32, ptr %2, align 8
@@ -95,7 +95,7 @@ define dso_local range(i32 -2147483648, 1) i32 @nsm_monitor(ptr noundef %0) loca
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %.thread
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %30) #11
   br label %40
@@ -105,7 +105,7 @@ define dso_local range(i32 -2147483648, 1) i32 @nsm_monitor(ptr noundef %0) loca
   %34 = or i8 %33, 1
   store i8 %34, ptr %5, align 8
   %35 = load i32, ptr @nsm_local_state, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %35, %37
   br i1 %38, label %40, label %39, !prof !8
@@ -133,80 +133,80 @@ define internal fastcc i32 @nsm_mon_unmon(ptr noundef %0, i32 noundef range(i32 
   %7 = alloca %struct.nsm_args, align 8
   %8 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #10
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %9, align 8, !annotation !7
-  %10 = getelementptr inbounds i8, ptr %0, i64 177
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 177
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 100021, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 16, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  %18 = getelementptr inbounds i8, ptr %3, i64 528
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 528
   store ptr %18, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %8, align 8
   store ptr %7, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %21, align 8
   store i64 0, ptr %2, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 512
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 512
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   store i16 2, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 0, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 16777343, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %26, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #10
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %27, align 8, !annotation !7
   store ptr %23, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 6, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 16, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 32
-  %32 = getelementptr inbounds i8, ptr %6, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store ptr @.str.3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %18, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @nsm_program, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 76
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 84
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 84
   store i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i64 16, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 96
-  %41 = getelementptr inbounds i8, ptr %6, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %42 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !10
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 1784
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1784
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %41, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   %47 = call ptr @rpc_create(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -219,7 +219,7 @@ define internal fastcc i32 @nsm_mon_unmon(ptr noundef %0, i32 noundef range(i32 
   br label %64
 
 52:                                               ; preds = %4
-  %53 = getelementptr inbounds i8, ptr %47, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = zext nneg i32 %1 to i64
   %56 = getelementptr %struct.rpc_procinfo, ptr %54, i64 %55
@@ -258,16 +258,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nsm_unmonitor(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.nsm_res, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 496
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load volatile i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 3
   %12 = icmp eq i8 %11, 1
@@ -283,7 +283,7 @@ define dso_local void @nsm_unmonitor(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %21) #11
   br label %26
@@ -303,7 +303,7 @@ define dso_local void @nsm_unmonitor(ptr noundef %0) local_unnamed_addr #0 align
 define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = load i32, ptr @lockd_net_id, align 4
   tail call void @__rcu_read_lock() #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 2536
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %8 = load volatile ptr, ptr %7, align 8
   %9 = zext i32 %6 to i64
   %10 = getelementptr [0 x ptr], ptr %8, i64 0, i64 %9
@@ -328,11 +328,11 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
   br label %.thread13
 
 22:                                               ; preds = %13, %5
-  %23 = getelementptr inbounds i8, ptr %11, i64 136
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = getelementptr i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = icmp eq ptr %3, null
   %29 = add i64 %4, 249
   br label %30
@@ -352,7 +352,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
 
 .preheader:                                       ; preds = %37, %46
   %38 = phi ptr [ %47, %46 ], [ %35, %37 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @strlen(ptr noundef %40) #10
   %42 = icmp eq i64 %41, %4
@@ -373,7 +373,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
 
 .preheader14:                                     ; preds = %49, %77
   %50 = phi ptr [ %78, %77 ], [ %35, %49 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load i16, ptr %51, align 2
   %53 = load i16, ptr %1, align 2
   %54 = icmp eq i16 %52, %53
@@ -386,7 +386,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
   ]
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %50, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = load i64, ptr %24, align 8
   %60 = getelementptr i8, ptr %50, i64 56
@@ -398,7 +398,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
   br i1 %65, label %66, label %77
 
 66:                                               ; preds = %56
-  %67 = tail call i32 @__ipv6_addr_type(ptr noundef %57) #10
+  %67 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %57) #10
   %68 = and i32 %67, 32
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.loopexit, label %70
@@ -406,7 +406,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
 70:                                               ; preds = %66, %55
   %71 = phi i64 [ 44, %55 ], [ 64, %66 ]
   %72 = phi ptr [ %27, %55 ], [ %26, %66 ]
-  %73 = getelementptr inbounds i8, ptr %50, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %50, i64 %71
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %72, align 4
   %76 = icmp eq i32 %74, %75
@@ -423,8 +423,8 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
   br i1 %81, label %.thread, label %82
 
 82:                                               ; preds = %.loopexit
-  %83 = getelementptr inbounds i8, ptr %80, i64 16
-  %84 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %83, i32 1, ptr elementtype(i32) %83) #10, !srcloc !15
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %84 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %83, i32 1, ptr nonnull elementtype(i32) %83) #10, !srcloc !15
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %90, label %86, !prof !16
 
@@ -436,7 +436,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
 
 90:                                               ; preds = %86, %82
   %91 = phi i32 [ 2, %82 ], [ 1, %86 ]
-  tail call void @refcount_warn_saturate(ptr noundef %83, i32 noundef %91) #10
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %83, i32 noundef %91) #10
   br label %92
 
 92:                                               ; preds = %90, %86
@@ -450,10 +450,10 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
 
 94:                                               ; preds = %.thread
   %95 = load ptr, ptr %23, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %31, ptr %96, align 8
   store ptr %95, ptr %31, align 8
-  %97 = getelementptr inbounds i8, ptr %31, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %23, ptr %97, align 8
   store volatile ptr %31, ptr %23, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nsm_lock) #10
@@ -469,28 +469,28 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr nocapture noundef reado
   br i1 %101, label %.thread13, label %102, !prof !16
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %100, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store volatile i32 1, ptr %103, align 8
   %104 = getelementptr i8, ptr %100, i64 248
-  %105 = getelementptr inbounds i8, ptr %100, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store ptr %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %100, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr align 2 %1, i64 %2, i1 false)
-  %107 = getelementptr inbounds i8, ptr %100, i64 168
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %106, ptr align 2 %1, i64 %2, i1 false)
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 168
   store i64 %2, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %100, i64 177
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 177
   %109 = tail call i64 @ktime_get() #10
   store i64 %109, ptr %108, align 1
   %110 = getelementptr i8, ptr %100, i64 185
   %111 = ptrtoint ptr %100 to i64
   store i64 %111, ptr %110, align 1
-  %112 = getelementptr inbounds i8, ptr %100, i64 193
-  %113 = tail call i64 @rpc_ntop(ptr noundef %106, ptr noundef %112, i64 noundef 51) #10
+  %112 = getelementptr inbounds nuw i8, ptr %100, i64 193
+  %113 = tail call i64 @rpc_ntop(ptr noundef nonnull %106, ptr noundef nonnull %112, i64 noundef 51) #10
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %102
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(27) %112, ptr noundef nonnull align 1 dereferenceable(27) @.str.7, i64 27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %112, ptr noundef nonnull align 1 dereferenceable(27) @.str.7, i64 27, i1 false)
   br label %116
 
 116:                                              ; preds = %102, %115
@@ -519,15 +519,15 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i32, ptr @lockd_net_id, align 4
   tail call void @__rcu_read_lock() #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 2536
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
   %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #10
   tail call void @_raw_spin_lock(ptr noundef nonnull @nsm_lock) #10
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
 11:                                               ; preds = %15, %2
@@ -537,8 +537,8 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr nocapture noundef re
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 177
-  %17 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %16, ptr noundef dereferenceable(16) %10, i64 16)
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 177
+  %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %10, i64 16)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %11, !llvm.loop !17
 
@@ -547,8 +547,8 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr nocapture noundef re
   br i1 %20, label %.thread, label %21, !prof !9
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
-  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %22, i32 1, ptr elementtype(i32) %22) #10, !srcloc !15
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, i32 1, ptr nonnull elementtype(i32) %22) #10, !srcloc !15
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %29, label %25, !prof !16
 
@@ -560,7 +560,7 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr nocapture noundef re
 
 29:                                               ; preds = %25, %21
   %30 = phi i32 [ 2, %21 ], [ 1, %25 ]
-  tail call void @refcount_warn_saturate(ptr noundef %22, i32 noundef %30) #10
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %22, i32 noundef %30) #10
   br label %.thread
 
 .thread:                                          ; preds = %11, %29, %25, %19
@@ -571,15 +571,15 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @nsm_release(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call zeroext i1 @refcount_dec_and_lock(ptr noundef %2, ptr noundef nonnull @nsm_lock) #10
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = tail call zeroext i1 @refcount_dec_and_lock(ptr noundef nonnull %2, ptr noundef nonnull @nsm_lock) #10
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
@@ -609,7 +609,7 @@ declare dso_local ptr @rpc_create(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nsm_xdr_enc_mon(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef %5) #10
   %7 = trunc i64 %6 to i32
@@ -617,7 +617,7 @@ define internal void @nsm_xdr_enc_mon(ptr nocapture readnone %0, ptr noundef %1,
   %9 = and i64 %8, 4294967295
   %10 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %9) #10
   %11 = tail call ptr @xdr_encode_opaque(ptr noundef %10, ptr noundef %5, i32 noundef %7) #10
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @strlen(ptr noundef %13) #10
   %15 = trunc i64 %14 to i32
@@ -626,17 +626,17 @@ define internal void @nsm_xdr_enc_mon(ptr nocapture readnone %0, ptr noundef %1,
   %18 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %17) #10
   %19 = tail call ptr @xdr_encode_opaque(ptr noundef %18, ptr noundef %13, i32 noundef %15) #10
   %20 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 12) #10
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
   %24 = getelementptr i8, ptr %20, i64 4
   store i32 %23, ptr %20, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
   %28 = getelementptr i8, ptr %20, i64 8
   store i32 %27, ptr %24, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   store i32 %31, ptr %28, align 4
@@ -659,7 +659,7 @@ define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat_res(ptr nocapture
   store i32 %9, ptr %2, align 4
   %10 = load i32, ptr %7, align 4
   %11 = tail call i32 @llvm.bswap.i32(i32 %10)
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %11, ptr %12, align 4
   br label %13
 
@@ -670,7 +670,7 @@ define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat_res(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nsm_xdr_enc_unmon(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef %5) #10
   %7 = trunc i64 %6 to i32
@@ -678,7 +678,7 @@ define internal void @nsm_xdr_enc_unmon(ptr nocapture readnone %0, ptr noundef %
   %9 = and i64 %8, 4294967295
   %10 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %9) #10
   %11 = tail call ptr @xdr_encode_opaque(ptr noundef %10, ptr noundef %5, i32 noundef %7) #10
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @strlen(ptr noundef %13) #10
   %15 = trunc i64 %14 to i32
@@ -687,17 +687,17 @@ define internal void @nsm_xdr_enc_unmon(ptr nocapture readnone %0, ptr noundef %
   %18 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %17) #10
   %19 = tail call ptr @xdr_encode_opaque(ptr noundef %18, ptr noundef %13, i32 noundef %15) #10
   %20 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 12) #10
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
   %24 = getelementptr i8, ptr %20, i64 4
   store i32 %23, ptr %20, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
   %28 = getelementptr i8, ptr %20, i64 8
   store i32 %27, ptr %24, align 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   store i32 %31, ptr %28, align 4
@@ -713,7 +713,7 @@ define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat(ptr nocapture rea
 6:                                                ; preds = %3
   %7 = load i32, ptr %4, align 4
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %8, ptr %9, align 4
   br label %10
 

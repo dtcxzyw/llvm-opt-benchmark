@@ -1887,13 +1887,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i:                                     ; preds = %857, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220
   %.03847.i = phi i64 [ %858, %857 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220 ]
-  %849 = getelementptr inbounds float, ptr %76, i64 %.03847.i
+  %849 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i
   %850 = load float, ptr %849, align 4
   %851 = fcmp oeq float %850, 0.000000e+00
   br i1 %851, label %852, label %855
 
 852:                                              ; preds = %.preheader.i
-  %853 = getelementptr inbounds float, ptr %77, i64 %.03847.i
+  %853 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i
   %854 = load float, ptr %853, align 4
   br label %888
 
@@ -1951,7 +1951,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %875 = fsub float %850, %863
   %876 = fdiv float %874, %875
   %877 = getelementptr inbounds float, ptr %77, i64 %861
-  %878 = getelementptr inbounds float, ptr %77, i64 %.03847.i
+  %878 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i
   %879 = fpext float %876 to double
   %880 = fsub double 1.000000e+00, %879
   %881 = load float, ptr %877, align 4
@@ -1988,13 +1988,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i222:                                  ; preds = %905, %896
   %.03847.i223 = phi i64 [ %906, %905 ], [ 0, %896 ]
-  %897 = getelementptr inbounds float, ptr %76, i64 %.03847.i223
+  %897 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i223
   %898 = load float, ptr %897, align 4
   %899 = fcmp oeq float %898, 1.000000e+00
   br i1 %899, label %900, label %903
 
 900:                                              ; preds = %.preheader.i222
-  %901 = getelementptr inbounds float, ptr %77, i64 %.03847.i223
+  %901 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i223
   %902 = load float, ptr %901, align 4
   br label %940
 
@@ -2018,7 +2018,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %940
 
 .thread.thread.i225:                              ; preds = %905, %907
-  %910 = getelementptr inbounds i8, ptr %77, i64 4
+  %910 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %911 = load float, ptr %910, align 4
   br label %940
 
@@ -2053,7 +2053,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %927 = fsub float %898, %915
   %928 = fdiv float %926, %927
   %929 = getelementptr inbounds float, ptr %77, i64 %913
-  %930 = getelementptr inbounds float, ptr %77, i64 %.03847.i223
+  %930 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i223
   %931 = fpext float %928 to double
   %932 = fsub double 1.000000e+00, %931
   %933 = load float, ptr %929, align 4
@@ -2090,13 +2090,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i230:                                  ; preds = %957, %948
   %.03847.i231 = phi i64 [ %958, %957 ], [ 0, %948 ]
-  %949 = getelementptr inbounds float, ptr %76, i64 %.03847.i231
+  %949 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i231
   %950 = load float, ptr %949, align 4
   %951 = fcmp oeq float %950, 2.500000e-01
   br i1 %951, label %952, label %955
 
 952:                                              ; preds = %.preheader.i230
-  %953 = getelementptr inbounds float, ptr %77, i64 %.03847.i231
+  %953 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i231
   %954 = load float, ptr %953, align 4
   br label %992
 
@@ -2120,7 +2120,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %992
 
 .thread.thread.i233:                              ; preds = %957, %959
-  %962 = getelementptr inbounds i8, ptr %77, i64 4
+  %962 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %963 = load float, ptr %962, align 4
   br label %992
 
@@ -2155,7 +2155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %979 = fsub float %950, %967
   %980 = fdiv float %978, %979
   %981 = getelementptr inbounds float, ptr %77, i64 %965
-  %982 = getelementptr inbounds float, ptr %77, i64 %.03847.i231
+  %982 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i231
   %983 = fpext float %980 to double
   %984 = fsub double 1.000000e+00, %983
   %985 = load float, ptr %981, align 4
@@ -2192,13 +2192,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i238:                                  ; preds = %1009, %1000
   %.03847.i239 = phi i64 [ %1010, %1009 ], [ 0, %1000 ]
-  %1001 = getelementptr inbounds float, ptr %76, i64 %.03847.i239
+  %1001 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i239
   %1002 = load float, ptr %1001, align 4
   %1003 = fcmp oeq float %1002, 2.500000e-01
   br i1 %1003, label %1004, label %1007
 
 1004:                                             ; preds = %.preheader.i238
-  %1005 = getelementptr inbounds float, ptr %77, i64 %.03847.i239
+  %1005 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i239
   %1006 = load float, ptr %1005, align 4
   br label %1044
 
@@ -2222,7 +2222,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1044
 
 .thread.thread.i241:                              ; preds = %1009, %1011
-  %1014 = getelementptr inbounds i8, ptr %77, i64 4
+  %1014 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1015 = load float, ptr %1014, align 4
   br label %1044
 
@@ -2257,7 +2257,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1031 = fsub float %1002, %1019
   %1032 = fdiv float %1030, %1031
   %1033 = getelementptr inbounds float, ptr %77, i64 %1017
-  %1034 = getelementptr inbounds float, ptr %77, i64 %.03847.i239
+  %1034 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i239
   %1035 = fpext float %1032 to double
   %1036 = fsub double 1.000000e+00, %1035
   %1037 = load float, ptr %1033, align 4
@@ -2294,13 +2294,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i246:                                  ; preds = %1061, %1052
   %.03847.i247 = phi i64 [ %1062, %1061 ], [ 0, %1052 ]
-  %1053 = getelementptr inbounds float, ptr %76, i64 %.03847.i247
+  %1053 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i247
   %1054 = load float, ptr %1053, align 4
   %1055 = fcmp oeq float %1054, 5.000000e-01
   br i1 %1055, label %1056, label %1059
 
 1056:                                             ; preds = %.preheader.i246
-  %1057 = getelementptr inbounds float, ptr %77, i64 %.03847.i247
+  %1057 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i247
   %1058 = load float, ptr %1057, align 4
   br label %1096
 
@@ -2324,7 +2324,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1096
 
 .thread.thread.i249:                              ; preds = %1061, %1063
-  %1066 = getelementptr inbounds i8, ptr %77, i64 4
+  %1066 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1067 = load float, ptr %1066, align 4
   br label %1096
 
@@ -2359,7 +2359,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1083 = fsub float %1054, %1071
   %1084 = fdiv float %1082, %1083
   %1085 = getelementptr inbounds float, ptr %77, i64 %1069
-  %1086 = getelementptr inbounds float, ptr %77, i64 %.03847.i247
+  %1086 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i247
   %1087 = fpext float %1084 to double
   %1088 = fsub double 1.000000e+00, %1087
   %1089 = load float, ptr %1085, align 4
@@ -2396,13 +2396,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i254:                                  ; preds = %1113, %1104
   %.03847.i255 = phi i64 [ %1114, %1113 ], [ 0, %1104 ]
-  %1105 = getelementptr inbounds float, ptr %76, i64 %.03847.i255
+  %1105 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i255
   %1106 = load float, ptr %1105, align 4
   %1107 = fcmp oeq float %1106, 5.000000e-01
   br i1 %1107, label %1108, label %1111
 
 1108:                                             ; preds = %.preheader.i254
-  %1109 = getelementptr inbounds float, ptr %77, i64 %.03847.i255
+  %1109 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i255
   %1110 = load float, ptr %1109, align 4
   br label %1148
 
@@ -2426,7 +2426,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1148
 
 .thread.thread.i257:                              ; preds = %1113, %1115
-  %1118 = getelementptr inbounds i8, ptr %77, i64 4
+  %1118 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1119 = load float, ptr %1118, align 4
   br label %1148
 
@@ -2461,7 +2461,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1135 = fsub float %1106, %1123
   %1136 = fdiv float %1134, %1135
   %1137 = getelementptr inbounds float, ptr %77, i64 %1121
-  %1138 = getelementptr inbounds float, ptr %77, i64 %.03847.i255
+  %1138 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i255
   %1139 = fpext float %1136 to double
   %1140 = fsub double 1.000000e+00, %1139
   %1141 = load float, ptr %1137, align 4
@@ -2498,13 +2498,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i262:                                  ; preds = %1165, %1156
   %.03847.i263 = phi i64 [ %1166, %1165 ], [ 0, %1156 ]
-  %1157 = getelementptr inbounds float, ptr %76, i64 %.03847.i263
+  %1157 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i263
   %1158 = load float, ptr %1157, align 4
   %1159 = fcmp oeq float %1158, 7.500000e-01
   br i1 %1159, label %1160, label %1163
 
 1160:                                             ; preds = %.preheader.i262
-  %1161 = getelementptr inbounds float, ptr %77, i64 %.03847.i263
+  %1161 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i263
   %1162 = load float, ptr %1161, align 4
   br label %1200
 
@@ -2528,7 +2528,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1200
 
 .thread.thread.i265:                              ; preds = %1165, %1167
-  %1170 = getelementptr inbounds i8, ptr %77, i64 4
+  %1170 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1171 = load float, ptr %1170, align 4
   br label %1200
 
@@ -2563,7 +2563,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1187 = fsub float %1158, %1175
   %1188 = fdiv float %1186, %1187
   %1189 = getelementptr inbounds float, ptr %77, i64 %1173
-  %1190 = getelementptr inbounds float, ptr %77, i64 %.03847.i263
+  %1190 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i263
   %1191 = fpext float %1188 to double
   %1192 = fsub double 1.000000e+00, %1191
   %1193 = load float, ptr %1189, align 4
@@ -2600,13 +2600,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i270:                                  ; preds = %1217, %1208
   %.03847.i271 = phi i64 [ %1218, %1217 ], [ 0, %1208 ]
-  %1209 = getelementptr inbounds float, ptr %76, i64 %.03847.i271
+  %1209 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i271
   %1210 = load float, ptr %1209, align 4
   %1211 = fcmp oeq float %1210, 7.500000e-01
   br i1 %1211, label %1212, label %1215
 
 1212:                                             ; preds = %.preheader.i270
-  %1213 = getelementptr inbounds float, ptr %77, i64 %.03847.i271
+  %1213 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i271
   %1214 = load float, ptr %1213, align 4
   br label %1252
 
@@ -2630,7 +2630,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1252
 
 .thread.thread.i273:                              ; preds = %1217, %1219
-  %1222 = getelementptr inbounds i8, ptr %77, i64 4
+  %1222 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1223 = load float, ptr %1222, align 4
   br label %1252
 
@@ -2665,7 +2665,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1239 = fsub float %1210, %1227
   %1240 = fdiv float %1238, %1239
   %1241 = getelementptr inbounds float, ptr %77, i64 %1225
-  %1242 = getelementptr inbounds float, ptr %77, i64 %.03847.i271
+  %1242 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i271
   %1243 = fpext float %1240 to double
   %1244 = fsub double 1.000000e+00, %1243
   %1245 = load float, ptr %1241, align 4
@@ -2702,13 +2702,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i278:                                  ; preds = %1269, %1260
   %.03847.i279 = phi i64 [ %1270, %1269 ], [ 0, %1260 ]
-  %1261 = getelementptr inbounds float, ptr %76, i64 %.03847.i279
+  %1261 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i279
   %1262 = load float, ptr %1261, align 4
   %1263 = fcmp oeq float %1262, -1.000000e+00
   br i1 %1263, label %1264, label %1267
 
 1264:                                             ; preds = %.preheader.i278
-  %1265 = getelementptr inbounds float, ptr %77, i64 %.03847.i279
+  %1265 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i279
   %1266 = load float, ptr %1265, align 4
   br label %1304
 
@@ -2732,7 +2732,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1304
 
 .thread.thread.i281:                              ; preds = %1269, %1271
-  %1274 = getelementptr inbounds i8, ptr %77, i64 4
+  %1274 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1275 = load float, ptr %1274, align 4
   br label %1304
 
@@ -2767,7 +2767,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1291 = fsub float %1262, %1279
   %1292 = fdiv float %1290, %1291
   %1293 = getelementptr inbounds float, ptr %77, i64 %1277
-  %1294 = getelementptr inbounds float, ptr %77, i64 %.03847.i279
+  %1294 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i279
   %1295 = fpext float %1292 to double
   %1296 = fsub double 1.000000e+00, %1295
   %1297 = load float, ptr %1293, align 4
@@ -2804,13 +2804,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
 
 .preheader.i286:                                  ; preds = %1321, %1312
   %.03847.i287 = phi i64 [ %1322, %1321 ], [ 0, %1312 ]
-  %1313 = getelementptr inbounds float, ptr %76, i64 %.03847.i287
+  %1313 = getelementptr inbounds nuw float, ptr %76, i64 %.03847.i287
   %1314 = load float, ptr %1313, align 4
   %1315 = fcmp oeq float %1314, 2.000000e+00
   br i1 %1315, label %1316, label %1319
 
 1316:                                             ; preds = %.preheader.i286
-  %1317 = getelementptr inbounds float, ptr %77, i64 %.03847.i287
+  %1317 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i287
   %1318 = load float, ptr %1317, align 4
   br label %1356
 
@@ -2834,7 +2834,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   br label %1356
 
 .thread.thread.i289:                              ; preds = %1321, %1323
-  %1326 = getelementptr inbounds i8, ptr %77, i64 4
+  %1326 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %1327 = load float, ptr %1326, align 4
   br label %1356
 
@@ -2869,7 +2869,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit220: ; preds = %
   %1343 = fsub float %1314, %1331
   %1344 = fdiv float %1342, %1343
   %1345 = getelementptr inbounds float, ptr %77, i64 %1329
-  %1346 = getelementptr inbounds float, ptr %77, i64 %.03847.i287
+  %1346 = getelementptr inbounds nuw float, ptr %77, i64 %.03847.i287
   %1347 = fpext float %1344 to double
   %1348 = fsub double 1.000000e+00, %1347
   %1349 = load float, ptr %1345, align 4
@@ -3443,7 +3443,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %14 = xor i64 %notmask.i, -1
   %15 = sub i64 64, %13
   %16 = lshr i64 %5, %15
-  %17 = getelementptr inbounds i8, ptr %.05273, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.05273, i64 16
   %18 = getelementptr inbounds %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %16
   %19 = load atomic i64, ptr %18 monotonic, align 8
   %20 = icmp eq i64 %19, 0
@@ -3468,7 +3468,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
 29:                                               ; preds = %.lr.ph
   %30 = add i64 %.05371, 1
   %31 = and i64 %30, %14
-  %32 = getelementptr inbounds %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
   %33 = load atomic i64, ptr %32 monotonic, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -3515,12 +3515,12 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %54 = shl i64 16, %.055
   %55 = add nuw i64 %54, 16
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %55)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.055, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %61, i8 0, i64 %54, i1 false)
   %62 = ptrtoint ptr %59 to i64
   br label %63
@@ -3546,7 +3546,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %74 = shl i64 16, %73
   %75 = add nuw i64 %74, 16
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %59, i64 noundef %75)
   br label %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread
@@ -3561,7 +3561,7 @@ _ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23co
   %82 = xor i64 %notmask.i63, -1
   %83 = sub i64 64, %81
   %84 = lshr i64 %5, %83
-  %85 = getelementptr inbounds i8, ptr %.0.i62, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 16
   br label %86
 
 86:                                               ; preds = %95, %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread
@@ -3710,7 +3710,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   %10 = load i8, ptr %5, align 1
   %11 = icmp eq i8 %10, 42
   %.idx.i.i.i.i = zext i1 %11 to i64
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12) #17
   %14 = icmp eq i32 %13, 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIfvE9HoldsTypeERKfRKSt9type_info.exit
@@ -4032,7 +4032,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   %10 = load i8, ptr %5, align 1
   %11 = icmp eq i8 %10, 42
   %.idx.i.i.i.i = zext i1 %11 to i64
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12) #17
   %14 = icmp eq i32 %13, 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIdvE9HoldsTypeERKdRKSt9type_info.exit

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 1) i32 @e1000e_poll_eerd_eewr_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq i32 %1, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %11
@@ -55,7 +55,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 1) i32 @e1000e_acquire_nvm(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #5, !srcloc !5
@@ -99,11 +99,11 @@ declare dso_local void @__ew32(ptr noundef, i64 noundef, i32 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @e1000e_release_nvm(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #5, !srcloc !5
-  %6 = getelementptr inbounds i8, ptr %0, i64 1120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %18
@@ -115,7 +115,7 @@ define dso_local void @e1000e_release_nvm(ptr noundef %0) local_unnamed_addr #0 
   %12 = load ptr, ptr %2, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #5, !srcloc !5
-  %15 = getelementptr inbounds i8, ptr %0, i64 1138
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1138
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   tail call void @__udelay(i64 noundef %17) #5
@@ -132,7 +132,7 @@ define dso_local void @e1000e_release_nvm(ptr noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %6 = load i16, ptr %5, align 8
   %7 = icmp ugt i16 %6, %1
   br i1 %7, label %8, label %.thread
@@ -144,7 +144,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef 
   br i1 %.not, label %10, label %.thread
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = zext i16 %1 to i64
   %13 = zext i16 %2 to i64
   br label %14
@@ -192,9 +192,9 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000e_read_nvm_eerd(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %6 = zext i16 %1 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 1136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %8 = load i16, ptr %7, align 8
   %9 = icmp ugt i16 %8, %1
   br i1 %9, label %10, label %.thread10
@@ -206,14 +206,14 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
   br i1 %.not, label %12, label %.thread10
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1120
-  %15 = getelementptr inbounds i8, ptr %0, i64 1142
-  %16 = getelementptr inbounds i8, ptr %0, i64 1138
-  %17 = getelementptr inbounds i8, ptr %0, i64 1140
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1142
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1138
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1140
   %18 = icmp ugt i16 %1, 127
-  %19 = getelementptr inbounds i8, ptr %0, i64 1144
-  %20 = getelementptr inbounds i8, ptr %0, i64 1072
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   br label %24
 
 .loopexit:                                        ; preds = %170, %130, %157, %151
@@ -456,7 +456,7 @@ define dso_local i32 @e1000e_write_nvm_spi(ptr noundef %0, i16 noundef zeroext %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @e1000_shift_out_eec_bits(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %7 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %6) #5, !srcloc !5
@@ -465,13 +465,13 @@ define internal fastcc void @e1000_shift_out_eec_bits(ptr noundef %0, i16 nounde
   %10 = and i64 %9, 4294967295
   %11 = shl nuw i64 1, %10
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 1120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 2
   %16 = or i32 %7, 8
   %17 = select i1 %15, i32 %16, i32 %7
   %18 = zext i16 %1 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 1138
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1138
   br label %20
 
 20:                                               ; preds = %20, %3
@@ -530,7 +530,7 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   store i16 0, ptr %4, align 2, !annotation !15
   store i16 0, ptr %5, align 2, !annotation !15
   store i16 0, ptr %6, align 2, !annotation !15
-  %9 = getelementptr inbounds i8, ptr %0, i64 1064
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 %10(ptr noundef %0, i16 noundef zeroext 8, i16 noundef zeroext 1, ptr noundef nonnull %4) #5
   %12 = icmp eq i32 %11, 0
@@ -699,14 +699,14 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @e1000_read_mac_addr_generic(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 21508
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #5, !srcloc !5
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr i8, ptr %6, i64 21504
   %8 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %7) #5, !srcloc !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 214
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 214
   br label %10
 
 10:                                               ; preds = %10, %1
@@ -729,8 +729,8 @@ define dso_local noundef i32 @e1000_read_mac_addr_generic(ptr nocapture noundef 
   %22 = trunc i32 %21 to i8
   %23 = getelementptr i8, ptr %0, i64 219
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %24, ptr noundef align 1 dereferenceable(6) %9, i64 6, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %24, ptr noundef nonnull align 1 dereferenceable(6) %9, i64 6, i1 false)
   ret i32 0
 }
 
@@ -739,7 +739,7 @@ define dso_local i32 @e1000e_validate_nvm_checksum_generic(ptr noundef %0) local
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   store i16 0, ptr %2, align 2, !annotation !15
-  %3 = getelementptr inbounds i8, ptr %0, i64 1064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   br label %4
 
 4:                                                ; preds = %10, %1
@@ -775,7 +775,7 @@ define dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef %0) local_u
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   store i16 0, ptr %3, align 2, !annotation !15
-  %4 = getelementptr inbounds i8, ptr %0, i64 1064
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   br label %5
 
 5:                                                ; preds = %11, %1
@@ -796,7 +796,7 @@ define dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef %0) local_u
 16:                                               ; preds = %11
   %17 = sub i16 -17734, %13
   store i16 %17, ptr %2, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 1112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %19(ptr noundef %0, i16 noundef zeroext 63, i16 noundef zeroext 1, ptr noundef nonnull %2) #5
   br label %.loopexit
@@ -811,7 +811,7 @@ define dso_local i32 @e1000e_update_nvm_checksum_generic(ptr noundef %0) local_u
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @e1000e_reload_nvm_generic(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @usleep_range_state(i64 noundef 10, i64 noundef 20, i32 noundef 2) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
   %5 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4) #5, !srcloc !5

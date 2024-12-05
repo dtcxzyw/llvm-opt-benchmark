@@ -38,7 +38,7 @@ entry:
   %TheBucket.i = alloca ptr, align 8
   %str = alloca %"class.llvh::StringRef", align 8
   store ptr %str.coerce0, ptr %str, align 8
-  %0 = getelementptr inbounds i8, ptr %str, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %str, i64 8
   store i64 %str.coerce1, ptr %0, align 8
   %1 = load atomic i8, ptr @_ZGVZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined acquire, align 8
   %guard.uninitialized = icmp eq i8 %1, 0
@@ -60,16 +60,16 @@ init.end:                                         ; preds = %init, %init.check, 
   %call.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, ptr noundef nonnull align 8 dereferenceable(16) %str, ptr noundef nonnull align 8 dereferenceable(8) %TheBucket.i)
   %4 = load ptr, ptr %TheBucket.i, align 8
   %5 = load ptr, ptr @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, align 8
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, i64 16), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, i64 16), align 8
   %idx.ext.i.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %5, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %5, i64 %idx.ext.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %TheBucket.i)
   %cmp.i5 = icmp ne ptr %4, %add.ptr.i.i.i
   %cmp.i.not = select i1 %call.i, i1 %cmp.i5, i1 false
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %init.end
-  %second = getelementptr inbounds i8, ptr %4, i64 16
+  %second = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %second, align 4
   %8 = zext i32 %7 to i64
   br label %return
@@ -90,18 +90,18 @@ entry:
   %ConstFoundBucket.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.llvh::StringRef", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, i8 0, i64 20, i1 false)
-  %Length.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %Length.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS2_S5_S7_SA_Lb0EEEbEOS2_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS2_S5_S7_SA_Lb0EEEbEOS2_DpOT_.exit ]
   %chars.02 = phi ptr [ @.str, %entry ], [ %add.ptr, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS2_S5_S7_SA_Lb0EEEbEOS2_DpOT_.exit ]
-  %arrayidx.i = getelementptr inbounds i8, ptr @_ZN6hermes2vmL20_predefStringLengthsE, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr @_ZN6hermes2vmL20_predefStringLengthsE, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv3 = zext i8 %0 to i64
   store ptr %chars.02, ptr %ref.tmp, align 8
   store i64 %conv3, ptr %Length.i, align 8
-  %arrayidx = getelementptr inbounds [534 x i32], ptr @_ZZN12_GLOBAL__N_125createPredefinedStringSetEvE3ids, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [534 x i32], ptr @_ZZN12_GLOBAL__N_125createPredefinedStringSetEvE3ids, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i), !noalias !5
   %call.i.i = call noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ConstFoundBucket.i.i), !noalias !5
@@ -112,13 +112,13 @@ for.body:                                         ; preds = %entry, %_ZN4llvh12D
 if.end.i:                                         ; preds = %for.body
   %call.i2.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E20InsertIntoBucketImplIS2_EEPSA_RKS2_RKT_SE_(ptr noundef nonnull align 1 dereferenceable(1) @_ZZN6hermes2vm21getPredefinedStringIDEN4llvh9StringRefEE10predefined, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %2), !noalias !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false), !noalias !5
-  %second.i.i3.i = getelementptr inbounds i8, ptr %call.i2.i, i64 16
+  %second.i.i3.i = getelementptr inbounds nuw i8, ptr %call.i2.i, i64 16
   store i32 %1, ptr %second.i.i3.i, align 4, !noalias !5
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS2_S5_S7_SA_Lb0EEEbEOS2_DpOT_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E11try_emplaceIJS5_EEESt4pairINS_16DenseMapIteratorIS2_S5_S7_SA_Lb0EEEbEOS2_DpOT_.exit: ; preds = %for.body, %if.end.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr = getelementptr inbounds i8, ptr %chars.02, i64 %conv3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %chars.02, i64 %conv3
   %exitcond.not = icmp eq i64 %indvars.iv.next, 534
   br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !8
 
@@ -150,14 +150,14 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E15LookupBucketForIS2_EEbRKT_RPKSA_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Val, align 8
-  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %Val, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %Val, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %call.i.i = tail call i64 @_ZN4llvh10hash_valueENS_9StringRefE(ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i) #10
   %conv.i.i = trunc i64 %call.i.i to i32
@@ -180,7 +180,7 @@ while.body.us.us:                                 ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us.us = phi ptr [ %spec.select.us.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us.us = and i32 %call5.pn.us.us, %sub
   %idx.ext.us.us = zext i32 %BucketNo.0.us.us to i64
-  %add.ptr.us.us = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
+  %add.ptr.us.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
   %agg.tmp6.sroa.0.0.copyload.us.us = load ptr, ptr %add.ptr.us.us, align 8
   %magicptr.i.us.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us.us to i64
   switch i64 %magicptr.i.us.us, label %if.end19.i.us.us [
@@ -192,7 +192,7 @@ if.then.i.us.us:                                  ; preds = %while.body.us.us
   br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
 
 if.end19.i.us.us:                                 ; preds = %while.body.us.us
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us = getelementptr inbounds i8, ptr %add.ptr.us.us, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.us.us, i64 8
   %agg.tmp6.sroa.2.0.copyload.us.us = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us.us, align 8
   %cmp.i.i.us.us = icmp eq i64 %agg.tmp6.sroa.2.0.copyload.us.us, 0
   br i1 %cmp.i.i.us.us, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us.us
@@ -216,7 +216,7 @@ while.body.us:                                    ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us = and i32 %call5.pn.us, %sub
   %idx.ext.us = zext i32 %BucketNo.0.us to i64
-  %add.ptr.us = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
+  %add.ptr.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %add.ptr.us, align 8
   %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
   switch i64 %magicptr, label %if.end19.i.us [
@@ -228,7 +228,7 @@ if.then.i.us:                                     ; preds = %while.body.us
   br i1 %cmp7.i, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
 
 if.end19.i.us:                                    ; preds = %while.body.us
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 8
   %agg.tmp6.sroa.2.0.copyload.us = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us, align 8
   %cmp.i.i.us = icmp eq i64 %agg.tmp6.sroa.2.0.copyload.us, 0
   br i1 %cmp.i.i.us, label %return, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us
@@ -255,7 +255,7 @@ while.body.us50:                                  ; preds = %if.end.split, %_ZN4
   %FoundTombstone.0.us53 = phi ptr [ %spec.select.us72, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us68 ], [ null, %if.end.split ]
   %BucketNo.0.us54 = and i32 %call5.pn.us52, %sub
   %idx.ext.us55 = zext i32 %BucketNo.0.us54 to i64
-  %add.ptr.us56 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us55
+  %add.ptr.us56 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us55
   %agg.tmp6.sroa.0.0.copyload.us57 = load ptr, ptr %add.ptr.us56, align 8
   %magicptr133 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us57 to i64
   switch i64 %magicptr133, label %if.end19.i.us61 [
@@ -264,7 +264,7 @@ while.body.us50:                                  ; preds = %if.end.split, %_ZN4
   ]
 
 if.end19.i.us61:                                  ; preds = %while.body.us50
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us62 = getelementptr inbounds i8, ptr %add.ptr.us56, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us62 = getelementptr inbounds nuw i8, ptr %add.ptr.us56, i64 8
   %agg.tmp6.sroa.2.0.copyload.us63 = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us62, align 8
   %cmp.i.i.us64 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, %agg.tmp6.sroa.2.0.copyload.us63
   br i1 %cmp.i.i.us64, label %land.rhs.i.i.us65, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us66
@@ -296,7 +296,7 @@ while.body.us83:                                  ; preds = %if.end.split.split,
   %FoundTombstone.0.us86 = phi ptr [ %spec.select.us106, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40.us102 ], [ null, %if.end.split.split ]
   %BucketNo.0.us87 = and i32 %call5.pn.us85, %sub
   %idx.ext.us88 = zext i32 %BucketNo.0.us87 to i64
-  %add.ptr.us89 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us88
+  %add.ptr.us89 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us88
   %agg.tmp6.sroa.0.0.copyload.us90 = load ptr, ptr %add.ptr.us89, align 8
   %magicptr134 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us90 to i64
   switch i64 %magicptr134, label %if.end19.i.us94 [
@@ -305,7 +305,7 @@ while.body.us83:                                  ; preds = %if.end.split.split,
   ]
 
 if.end19.i.us94:                                  ; preds = %while.body.us83
-  %agg.tmp6.sroa.2.0.call7.sroa_idx.us95 = getelementptr inbounds i8, ptr %add.ptr.us89, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx.us95 = getelementptr inbounds nuw i8, ptr %add.ptr.us89, i64 8
   %agg.tmp6.sroa.2.0.copyload.us96 = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx.us95, align 8
   %cmp.i.i.us97 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, %agg.tmp6.sroa.2.0.copyload.us96
   br i1 %cmp.i.i.us97, label %land.rhs.i.i.us98, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27.us100
@@ -334,13 +334,13 @@ while.body:                                       ; preds = %if.end.split.split,
   %FoundTombstone.0 = phi ptr [ %spec.select, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit40 ], [ null, %if.end.split.split ]
   %BucketNo.0 = and i32 %call5.pn, %sub
   %idx.ext = zext i32 %BucketNo.0 to i64
-  %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %add.ptr, align 8
   %switch = icmp ugt ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27, label %if.end19.i
 
 if.end19.i:                                       ; preds = %while.body
-  %agg.tmp6.sroa.2.0.call7.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %agg.tmp6.sroa.2.0.call7.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.call7.sroa_idx, align 8
   %cmp.i.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload.fr, %agg.tmp6.sroa.2.0.copyload
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit27
@@ -384,9 +384,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9
 entry:
   %ConstFoundBucket.i9 = alloca ptr, align 8
   %ConstFoundBucket.i = alloca ptr, align 8
-  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %NumEntries.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -404,7 +404,7 @@ if.then:                                          ; preds = %entry
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %3 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -431,7 +431,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.else, 
   br i1 %cmp7.i, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
-  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %6 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %6, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -445,7 +445,7 @@ if.end18:                                         ; preds = %if.then17, %_ZN4llv
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit:
   %ConstFoundBucket.i.i = alloca ptr, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -472,44 +472,44 @@ _ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %NumEntries.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
   %B.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %call.i, %if.then ]
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %NumTombstones.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %B.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i, %if.end ]
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
-  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
+  %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !11
 
@@ -529,8 +529,8 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.027.i, i64 16, i1 false)
-  %second.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %second.i22.i = getelementptr inbounds i8, ptr %B.027.i, i64 16
+  %second.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %second.i22.i = getelementptr inbounds nuw i8, ptr %B.027.i, i64 16
   %6 = load i32, ptr %second.i22.i, align 4
   store i32 %6, ptr %second.i.i, align 4
   %7 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -539,7 +539,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   br label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
-  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.027.i, i64 24
+  %incdec.ptr.i6 = getelementptr inbounds nuw i8, ptr %B.027.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !12
 

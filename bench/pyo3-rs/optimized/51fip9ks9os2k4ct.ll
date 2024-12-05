@@ -52,7 +52,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
 
 _ZN4core4iter8adapters5chain17and_then_or_clear17h00a2a42d8346e21bE.exit: ; preds = %7, %11
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %3)
-  %18 = getelementptr inbounds i8, ptr %1, i64 2184
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2184
   call void @"_ZN4core6option15Option$LT$T$GT$7or_else17h5456579a737a6992E"(ptr sret([352 x i8]) align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 8 %18)
   ret void
 }
@@ -96,7 +96,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   %4 = alloca [24 x i8], align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 2184
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2184
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %6, label %10, label %11
@@ -109,9 +109,9 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
 
 12:                                               ; preds = %10
   store i64 0, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %14, align 8
   br label %16
 
@@ -129,13 +129,13 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
 18:                                               ; preds = %11
   call void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9cd3d7329050d94eE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %1)
   %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i64, ptr %22, align 8
   call void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5357fec2d458c58fE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %7)
   %24 = load i64, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @llvm.uadd.sat.i64(i64 %19, i64 %24)
   %28 = icmp eq i64 %21, 1
@@ -144,7 +144,7 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   br i1 %or.cond, label %30, label %36
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %32)
   %34 = extractvalue { i64, i1 } %33, 1
@@ -157,9 +157,9 @@ define void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$
   %.sroa.04.0 = phi i64 [ 0, %18 ], [ %spec.select, %30 ]
   %.sroa.4.0 = phi i64 [ undef, %18 ], [ %35, %30 ]
   store i64 %27, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.04.0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.4.0, ptr %38, align 8
   br label %16
 }

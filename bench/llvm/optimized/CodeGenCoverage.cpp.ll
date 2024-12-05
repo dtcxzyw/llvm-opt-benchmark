@@ -29,7 +29,7 @@ $_ZN4llvm15SmallVectorImplImE6resizeEmm = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15CodeGenCoverageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %2, i64 noundef 6) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %3, align 8
@@ -92,7 +92,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %25, %_ZN4llvm9BitVe
   %35 = lshr i64 %1, 6
   %36 = and i64 %35, 67108863
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i64, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %36
   %39 = and i64 %1, 63
   %40 = shl nuw i64 1, %39
   %41 = load i64, ptr %38, align 8
@@ -117,7 +117,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15CodeGenCoverage9isCoveredEm(ptr 
   %8 = shl nuw i64 1, %7
   %9 = lshr i64 %1, 6
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %8
   %14 = icmp ne i64 %13, 0
@@ -151,7 +151,7 @@ define dso_local void @_ZNK4llvm15CodeGenCoverage7coveredEv(ptr dead_on_unwind n
 
 16:                                               ; preds = %27, %6
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i.i.i.i.i, %27 ]
-  %17 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i.i.i.i.i
+  %17 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i.i.i.i
   %18 = load i64, ptr %17, align 8, !noalias !4
   %19 = icmp eq i64 %indvars.iv.i.i.i.i.i, %14
   %20 = select i1 %19, i64 %13, i64 -1
@@ -175,11 +175,11 @@ define dso_local void @_ZNK4llvm15CodeGenCoverage7coveredEv(ptr dead_on_unwind n
 _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %27, %2, %21
   %.0.i.i.i.i.i = phi i32 [ %26, %21 ], [ -1, %2 ], [ -1, %27 ]
   store ptr %1, ptr %0, align 8, !alias.scope !9
-  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.0.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !alias.scope !9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %28, align 8, !alias.scope !9
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !9
   ret void
 }
@@ -205,7 +205,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeGenCoverage5parseERNS_12Memor
 
 11:                                               ; preds = %.preheader, %11
   %.1 = phi ptr [ %12, %11 ], [ %.02036, %.preheader ]
-  %12 = getelementptr inbounds i8, ptr %.1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %13 = load i8, ptr %.1, align 1
   %.not23 = icmp eq i8 %13, 0
   br i1 %.not23, label %14, label %11, !llvm.loop !12
@@ -252,7 +252,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %15, %16
 26:                                               ; preds = %.lr.ph.split.us
   call void @llvm.assume(i1 true) [ "align"(ptr %.230.us, i64 1) ]
   %.0.copyload.i.i.us = load i64, ptr %.230.us, align 1
-  %27 = getelementptr inbounds i8, ptr %.230.us, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.230.us, i64 8
   %28 = icmp eq i64 %.0.copyload.i.i.us, -1
   br i1 %28, label %._crit_edge, label %29
 
@@ -276,7 +276,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %15, %16
 36:                                               ; preds = %32
   call void @llvm.assume(i1 true) [ "align"(ptr %.230, i64 1) ]
   %.0.copyload.i.i = load i64, ptr %.230, align 1
-  %37 = getelementptr inbounds i8, ptr %.230, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.230, i64 8
   %38 = icmp eq i64 %.0.copyload.i.i, -1
   %.not24 = icmp eq ptr %37, %10
   %or.cond = select i1 %38, i1 true, i1 %.not24
@@ -342,7 +342,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %19
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   store ptr %1, ptr %9, align 8, !alias.scope !18
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %2, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !alias.scope !18
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %7, ptr %30, align 8, !alias.scope !18
@@ -415,7 +415,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %50, %52, %53
 
 70:                                               ; preds = %75, %60
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i.i.i.i.i, %75 ]
-  %71 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv.i.i.i.i.i
+  %71 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv.i.i.i.i.i
   %72 = load i64, ptr %71, align 8, !noalias !26
   %73 = icmp eq i64 %indvars.iv.i.i.i.i.i, %68
   %74 = select i1 %73, i64 %67, i64 -1
@@ -476,7 +476,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %70
 
 106:                                              ; preds = %113, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %103, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %113 ]
-  %107 = getelementptr inbounds i64, ptr %91, i64 %indvars.iv.i.i.i.i
+  %107 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv.i.i.i.i
   %108 = load i64, ptr %107, align 8
   %109 = icmp eq i64 %indvars.iv.i.i.i.i, %103
   %110 = select i1 %109, i64 %98, i64 -1
@@ -614,7 +614,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noun
   br i1 %.not.i.i.i, label %15, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %16, i64 noundef %13, i64 noundef 8) #17
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i
 
@@ -632,7 +632,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %20
   %.06.i.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %20 ]
   store i64 %2, ptr %.06.i.i.i.i.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %23, %22
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplImE6appendEmm.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !29
 

@@ -77,9 +77,9 @@ declare dso_local i32 @pcie_capability_clear_and_set_word_locked(ptr noundef, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 106
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 106
   %5 = load i16, ptr %4, align 2
   %6 = lshr i16 %5, 4
   %7 = and i16 %6, 15
@@ -96,17 +96,17 @@ define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
 
 12:                                               ; preds = %8
   store i32 0, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 68719476704, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @pcie_pme_work_fn, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %18, align 8
   %19 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %3, i32 noundef 28, i16 noundef zeroext 8, i16 noundef zeroext 0) #9
   tail call void @pcie_clear_root_pme_status(ptr noundef %3) #9
@@ -120,10 +120,10 @@ define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
   br label %38
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %3, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %26 = load i32, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.3, i32 noundef %26) #11
-  tail call void @device_set_wakeup_capable(ptr noundef %25, i1 noundef zeroext true) #9
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %25, ptr noundef nonnull @.str.3, i32 noundef %26) #11
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %25, i1 noundef zeroext true) #9
   %27 = load i16, ptr %4, align 2
   %28 = and i16 %27, 240
   %29 = icmp eq i16 %28, 160
@@ -134,7 +134,7 @@ define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
   br label %36
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35
@@ -154,45 +154,45 @@ define internal i32 @pcie_pme_probe(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @pcie_pme_remove(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
   %6 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %5, i32 noundef 28, i16 noundef zeroext 8, i16 noundef zeroext 0) #9
   tail call void @pcie_clear_root_pme_status(ptr noundef %5) #9
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 1, ptr %7, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #9
   %8 = load i32, ptr %0, align 8
   %9 = tail call ptr @free_irq(i32 noundef %8, ptr noundef %0) #9
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %11 = tail call zeroext i1 @cancel_work_sync(ptr noundef %10) #9
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %10) #9
   tail call void @kfree(ptr noundef %3) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pcie_pme_suspend(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 404
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 404
   %7 = load i16, ptr %6, align 4
   %8 = and i16 %7, 1
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 464
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 464
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10, %1
   tail call void @down_read(ptr noundef nonnull @pci_bus_sem) #9
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc zeroext i1 @pcie_pme_check_wakeup(ptr noundef %16)
   tail call void @up_read(ptr noundef nonnull @pci_bus_sem) #9
@@ -208,7 +208,7 @@ define internal noundef i32 @pcie_pme_suspend(ptr nocapture noundef readonly %0)
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
   %23 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %5, i32 noundef 28, i16 noundef zeroext 8, i16 noundef zeroext 0) #9
   tail call void @pcie_clear_root_pme_status(ptr noundef %5) #9
-  %24 = getelementptr inbounds i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 1, ptr %24, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %3) #9
   %25 = load i32, ptr %0, align 8
@@ -221,16 +221,16 @@ define internal noundef i32 @pcie_pme_suspend(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pcie_pme_resume(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @pcie_clear_root_pme_status(ptr noundef %9) #9
   %10 = tail call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %9, i32 noundef 28, i16 noundef zeroext 0, i16 noundef zeroext 8) #9
@@ -256,7 +256,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4, !annotation !7
@@ -267,11 +267,11 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br i1 %10, label %11, label %.thread17
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = getelementptr inbounds i8, ptr %7, i64 184
-  %15 = getelementptr inbounds i8, ptr %7, i64 157
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 157
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %17
 
 17:                                               ; preds = %.thread15, %11
@@ -300,7 +300,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br i1 %32, label %33, label %52
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %.pre, i64 216
+  %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 216
   %35 = load i8, ptr %34, align 8
   %36 = zext i8 %35 to i16
   %37 = icmp eq i16 %27, %36
@@ -322,7 +322,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
-  %47 = call i32 @__pm_runtime_resume(ptr noundef %14, i32 noundef 1) #9
+  %47 = call i32 @__pm_runtime_resume(ptr noundef nonnull %14, i32 noundef 1) #9
   br label %.thread15
 
 48:                                               ; preds = %44
@@ -334,7 +334,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br label %121
 
 52:                                               ; preds = %33, %24
-  %53 = getelementptr inbounds i8, ptr %.pre, i64 200
+  %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 200
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   %56 = call ptr @pci_find_bus(i32 noundef %55, i32 noundef %28) #9
@@ -346,20 +346,20 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br i1 %59, label %60, label %.thread
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %56, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr @pci_dev_get(ptr noundef %62) #9
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %63, i64 100
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 100
   %67 = load i8, ptr %66, align 4
   %68 = icmp eq i8 %67, 0
   br i1 %68, label %.thread9, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %63, i64 106
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 106
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 240
   %73 = icmp eq i16 %72, 112
@@ -378,7 +378,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
 
 .thread:                                          ; preds = %60, %58, %.thread9, %74
   call void @down_read(ptr noundef nonnull @pci_bus_sem) #9
-  %76 = getelementptr inbounds i8, ptr %56, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, %76
   br i1 %78, label %.thread10, label %.preheader
@@ -386,7 +386,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
 .preheader:                                       ; preds = %.thread, %86
   %79 = phi ptr [ %87, %86 ], [ %77, %.thread ]
   %80 = call ptr @pci_dev_get(ptr noundef %79) #9
-  %81 = getelementptr inbounds i8, ptr %79, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, %31
   br i1 %83, label %.thread11, label %86
@@ -404,7 +404,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br i1 %88, label %.thread10, label %.preheader, !llvm.loop !8
 
 89:                                               ; preds = %.thread11
-  %90 = getelementptr inbounds i8, ptr %79, i64 157
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 157
   %91 = load i24, ptr %90, align 1
   %92 = and i24 %91, 64
   %93 = icmp eq i24 %92, 0
@@ -416,9 +416,9 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br label %96
 
 96:                                               ; preds = %94, %89
-  %97 = getelementptr inbounds i8, ptr %79, i64 184
-  call void @pm_wakeup_dev_event(ptr noundef %97, i32 noundef 100, i1 noundef zeroext false) #9
-  %98 = call i32 @__pm_runtime_resume(ptr noundef %97, i32 noundef 1) #9
+  %97 = getelementptr inbounds nuw i8, ptr %79, i64 184
+  call void @pm_wakeup_dev_event(ptr noundef nonnull %97, i32 noundef 100, i1 noundef zeroext false) #9
+  %98 = call i32 @__pm_runtime_resume(ptr noundef nonnull %97, i32 noundef 1) #9
   br label %99
 
 99:                                               ; preds = %96, %.thread11
@@ -432,21 +432,21 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
 100:                                              ; preds = %.thread10
   %101 = lshr i32 %31, 3
   %102 = and i32 %25, 7
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %14, ptr noundef nonnull @.str.5, i32 noundef %28, i32 noundef %101, i32 noundef %102) #11
-  %103 = getelementptr inbounds i8, ptr %56, i64 56
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.5, i32 noundef %28, i32 noundef %101, i32 noundef %102) #11
+  %103 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %104 = load ptr, ptr %103, align 8
   %105 = call ptr @pci_dev_get(ptr noundef %104) #9
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread13, label %107
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %105, i64 100
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 100
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
   br i1 %110, label %119, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %105, i64 106
+  %112 = getelementptr inbounds nuw i8, ptr %105, i64 106
   %113 = load i16, ptr %112, align 2
   %114 = and i16 %113, 240
   %115 = icmp eq i16 %114, 112
@@ -470,7 +470,7 @@ define internal void @pcie_pme_work_fn(ptr noundef %0) #1 align 16 {
   br i1 %123, label %.thread13, label %.thread15
 
 .thread13:                                        ; preds = %100, %52, %.thread10, %121
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %14, ptr noundef nonnull @.str.6) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.6) #11
   br label %.thread15
 
 .thread15:                                        ; preds = %74, %46, %129, %.thread13, %121
@@ -512,9 +512,9 @@ define internal noundef range(i32 0, 2) i32 @pcie_pme_irq(i32 %0, ptr nocapture 
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #9
   %9 = call i32 @pcie_capability_read_dword(ptr noundef %5, i32 noundef 32, ptr noundef nonnull %3) #9
@@ -532,9 +532,9 @@ define internal noundef range(i32 0, 2) i32 @pcie_pme_irq(i32 %0, ptr nocapture 
 16:                                               ; preds = %2
   %17 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %5, i32 noundef 28, i16 noundef zeroext 8, i16 noundef zeroext 0) #9
   call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %8) #9
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %19 = load ptr, ptr @system_wq, align 8
-  %20 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %19, ptr noundef %18) #9
+  %20 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %19, ptr noundef nonnull %18) #9
   br label %21
 
 21:                                               ; preds = %16, %15
@@ -572,7 +572,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly %0) unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %37, label %.preheader
@@ -580,7 +580,7 @@ define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly %0) un
 .preheader:                                       ; preds = %1, %30
   %5 = phi ptr [ %32, %30 ], [ %3, %1 ]
   %6 = phi i8 [ %31, %30 ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 100
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %8 = load i8, ptr %7, align 4
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %22
@@ -590,7 +590,7 @@ define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly %0) un
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %5, i64 157
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 157
   %14 = load i24, ptr %13, align 1
   %15 = and i24 %14, 64
   %16 = icmp eq i24 %15, 0
@@ -602,14 +602,14 @@ define internal fastcc zeroext i1 @pcie_pme_walk_bus(ptr noundef readonly %0) un
   br label %19
 
 19:                                               ; preds = %17, %12
-  %20 = getelementptr inbounds i8, ptr %5, i64 184
-  tail call void @pm_wakeup_dev_event(ptr noundef %20, i32 noundef 100, i1 noundef zeroext false) #9
-  %21 = tail call i32 @__pm_runtime_resume(ptr noundef %20, i32 noundef 1) #9
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  tail call void @pm_wakeup_dev_event(ptr noundef nonnull %20, i32 noundef 100, i1 noundef zeroext false) #9
+  %21 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %20, i32 noundef 1) #9
   br label %22
 
 22:                                               ; preds = %19, %10, %.preheader
   %23 = phi i8 [ %6, %.preheader ], [ 1, %19 ], [ %6, %10 ]
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %30, label %27
@@ -667,8 +667,8 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pcie_pme_can_wakeup(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @device_set_wakeup_capable(ptr noundef %3, i1 noundef zeroext true) #9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %3, i1 noundef zeroext true) #9
   ret i32 0
 }
 
@@ -693,7 +693,7 @@ define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef rea
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %5
 
 5:                                                ; preds = %17, %3
@@ -703,20 +703,20 @@ define internal fastcc noundef zeroext i1 @pcie_pme_check_wakeup(ptr noundef rea
   br i1 %.not.not.not, label %8, label %.loopexit
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 404
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 404
   %10 = load i16, ptr %9, align 4
   %11 = and i16 %10, 1
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %7, i64 464
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 464
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %13, %8
-  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc zeroext i1 @pcie_pme_check_wakeup(ptr noundef %19)
   br i1 %20, label %.loopexit, label %5, !llvm.loop !14

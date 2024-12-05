@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call i32 @VP8GetValue(ptr noundef nonnull %2, i32 noundef 7) #4
   %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %2, i32 noundef 1) #4
   %.not = icmp eq i32 %4, 0
@@ -62,12 +62,12 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %22, %25
   %28 = phi i32 [ %26, %25 ], [ 0, %22 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 132
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %30 = load i32, ptr %29, align 4
   %.not54 = icmp eq i32 %30, 0
-  %31 = getelementptr inbounds i8, ptr %0, i64 144
-  %32 = getelementptr inbounds i8, ptr %0, i64 140
-  %33 = getelementptr inbounds i8, ptr %0, i64 1060
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   br label %34
 
 34:                                               ; preds = %27, %103
@@ -75,7 +75,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not54, label %41, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds [4 x i8], ptr %31, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 0, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = load i32, ptr %32, align 4
@@ -89,19 +89,19 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not55, label %44, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(32) %33, i64 32, i1 false)
   br label %103
 
 44:                                               ; preds = %35, %41
   %.049 = phi i32 [ %spec.select, %35 ], [ %3, %41 ]
-  %45 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
   %46 = add nsw i32 %.049, %8
   %47 = icmp slt i32 %46, 0
   %48 = tail call i32 @llvm.umin.i32(i32 %46, i32 127)
   %49 = select i1 %47, i32 0, i32 %48
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   store i32 %53, ptr %45, align 4
@@ -109,33 +109,33 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %55 = tail call i32 @llvm.umin.i32(i32 %.049, i32 127)
   %56 = select i1 %54, i32 0, i32 %55
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %45, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %60, ptr %61, align 4
   %62 = add nsw i32 %.049, %13
   %63 = icmp slt i32 %62, 0
   %64 = tail call i32 @llvm.umin.i32(i32 %62, i32 127)
   %65 = select i1 %63, i32 0, i32 %64
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 1
-  %71 = getelementptr inbounds i8, ptr %45, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %70, ptr %71, align 4
   %72 = add nsw i32 %.049, %18
   %73 = icmp slt i32 %72, 0
   %74 = tail call i32 @llvm.umin.i32(i32 %72, i32 127)
   %75 = select i1 %73, i32 0, i32 %74
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %76
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i32
   %80 = mul nuw nsw i32 %79, 101581
   %81 = lshr i32 %80, 16
-  %82 = getelementptr inbounds i8, ptr %45, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %83 = icmp samesign ult i32 %75, 2
   %spec.select57 = select i1 %83, i32 8, i32 %81
   store i32 %spec.select57, ptr %82, align 4
@@ -144,22 +144,22 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %86 = tail call i32 @llvm.umin.i32(i32 %84, i32 117)
   %87 = select i1 %85, i32 0, i32 %86
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [128 x i8], ptr @kDcTable, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
-  %92 = getelementptr inbounds i8, ptr %45, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 %91, ptr %92, align 4
   %93 = add nsw i32 %.049, %28
   %94 = icmp slt i32 %93, 0
   %95 = tail call i32 @llvm.umin.i32(i32 %93, i32 127)
   %96 = select i1 %94, i32 0, i32 %95
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [128 x i16], ptr @kAcTable, i64 0, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = zext i16 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %45, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i32 %100, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %45, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i32 %93, ptr %102, align 4
   br label %103
 

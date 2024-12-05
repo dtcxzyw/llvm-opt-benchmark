@@ -103,7 +103,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Reduction10load_paramERKNS_
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30)
           to label %37 unwind label %124
@@ -178,7 +178,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Reduction10load_paramERKNS_
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
   invoke void %78(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef %74)
           to label %81 unwind label %85
@@ -221,7 +221,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Reduction10load_paramERKNS_
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %92, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
   invoke void %97(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %93)
           to label %100 unwind label %107
@@ -298,7 +298,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Reduction10load_paramERKNS_
 
 134:                                              ; preds = %130
   %135 = load ptr, ptr %132, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %137 = load ptr, ptr %136, align 8
   invoke void %137(ptr noundef nonnull align 8 dereferenceable(8) %132, ptr noundef %133)
           to label %140 unwind label %143
@@ -345,7 +345,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9Reduction10load_paramERKNS_
 
 154:                                              ; preds = %151
   %155 = load ptr, ptr %152, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load ptr, ptr %156, align 8
   invoke void %157(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef %153)
           to label %160 unwind label %161
@@ -448,7 +448,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %60 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = icmp slt i32 %61, 0
   %63 = select i1 %62, i32 %51, i32 0
@@ -471,7 +471,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 66:                                               ; preds = %._crit_edge
   %67 = load i32, ptr %49, align 16
   %68 = icmp eq i32 %67, 1
-  %69 = getelementptr inbounds i8, ptr %49, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, 1
   br label %93
@@ -479,10 +479,10 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 72:                                               ; preds = %._crit_edge
   %73 = load i32, ptr %49, align 16
   %74 = icmp eq i32 %73, 1
-  %75 = getelementptr inbounds i8, ptr %49, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 1
-  %78 = getelementptr inbounds i8, ptr %49, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = icmp eq i32 %79, 1
   br label %93
@@ -490,13 +490,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 81:                                               ; preds = %._crit_edge
   %82 = load i32, ptr %49, align 16
   %83 = icmp eq i32 %82, 1
-  %84 = getelementptr inbounds i8, ptr %49, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 1
-  %87 = getelementptr inbounds i8, ptr %49, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, 1
-  %90 = getelementptr inbounds i8, ptr %49, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 1
   br label %93
@@ -690,7 +690,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5407.i.i:                                   ; preds = %.lr.ph5407.i.i, %.lr.ph5407.preheader.i.i
   %indvars.iv6002.i.i = phi i64 [ 0, %.lr.ph5407.preheader.i.i ], [ %indvars.iv.next6003.i.i, %.lr.ph5407.i.i ]
   %.048325404.i.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph5407.preheader.i.i ], [ %184, %.lr.ph5407.i.i ]
-  %181 = getelementptr inbounds float, ptr %179, i64 %indvars.iv6002.i.i
+  %181 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv6002.i.i
   %182 = load float, ptr %181, align 4
   %183 = fcmp fast olt float %.048325404.i.i, %182
   %184 = select i1 %183, float %182, float %.048325404.i.i
@@ -779,7 +779,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5375.i.i:                                   ; preds = %214, %.lr.ph5375.i.i
   %indvars.iv5966.i.i = phi i64 [ %indvars.iv.next5967.i.i, %.lr.ph5375.i.i ], [ 0, %214 ]
   %.048315372.i.i = phi float [ %225, %.lr.ph5375.i.i ], [ 0xC7EFFFFFE0000000, %214 ]
-  %222 = getelementptr inbounds float, ptr %221, i64 %indvars.iv5966.i.i
+  %222 = getelementptr inbounds nuw float, ptr %221, i64 %indvars.iv5966.i.i
   %223 = load float, ptr %222, align 4
   %224 = fcmp fast olt float %.048315372.i.i, %223
   %225 = select i1 %224, float %223, float %.048315372.i.i
@@ -790,7 +790,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 ._crit_edge5376.i.i:                              ; preds = %.lr.ph5375.i.i, %214
   %.04831.lcssa.i.i = phi float [ 0xC7EFFFFFE0000000, %214 ], [ %225, %.lr.ph5375.i.i ]
   %226 = load ptr, ptr %38, align 8
-  %227 = getelementptr inbounds float, ptr %226, i64 %indvars.iv5971.i.i
+  %227 = getelementptr inbounds nuw float, ptr %226, i64 %indvars.iv5971.i.i
   store float %.04831.lcssa.i.i, ptr %227, align 4
   %indvars.iv.next5972.i.i = add nuw nsw i64 %indvars.iv5971.i.i, 1
   %exitcond5975.not.i.i = icmp eq i64 %indvars.iv.next5972.i.i, %wide.trip.count5974.i.i
@@ -799,7 +799,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 228:                                              ; preds = %228, %.preheader4834.i.i
   %indvars.iv5976.i.i = phi i64 [ 0, %.preheader4834.i.i ], [ %indvars.iv.next5977.i.i, %228 ]
   %.048305380.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4834.i.i ], [ %232, %228 ]
-  %229 = getelementptr inbounds float, ptr %213, i64 %indvars.iv5976.i.i
+  %229 = getelementptr inbounds nuw float, ptr %213, i64 %indvars.iv5976.i.i
   %230 = load float, ptr %229, align 4
   %231 = fcmp fast olt float %.048305380.i.i, %230
   %232 = select i1 %231, float %230, float %.048305380.i.i
@@ -832,7 +832,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %239, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %244 = load ptr, ptr %243, align 8
   invoke void %244(ptr noundef nonnull align 8 dereferenceable(8) %239, ptr noundef %240)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %246
@@ -890,7 +890,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5388.i.i:                                   ; preds = %258, %.lr.ph5388.i.i
   %indvars.iv5981.i.i = phi i64 [ %indvars.iv.next5982.i.i, %.lr.ph5388.i.i ], [ 0, %258 ]
   %.048295385.i.i = phi float [ %269, %.lr.ph5388.i.i ], [ 0xC7EFFFFFE0000000, %258 ]
-  %266 = getelementptr inbounds float, ptr %265, i64 %indvars.iv5981.i.i
+  %266 = getelementptr inbounds nuw float, ptr %265, i64 %indvars.iv5981.i.i
   %267 = load float, ptr %266, align 4
   %268 = fcmp fast olt float %.048295385.i.i, %267
   %269 = select i1 %268, float %267, float %.048295385.i.i
@@ -901,7 +901,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 ._crit_edge5389.i.i:                              ; preds = %.lr.ph5388.i.i, %258
   %.04829.lcssa.i.i = phi float [ 0xC7EFFFFFE0000000, %258 ], [ %269, %.lr.ph5388.i.i ]
   %270 = load ptr, ptr %2, align 8
-  %271 = getelementptr inbounds float, ptr %270, i64 %indvars.iv5986.i.i
+  %271 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv5986.i.i
   store float %.04829.lcssa.i.i, ptr %271, align 4
   %indvars.iv.next5987.i.i = add nuw nsw i64 %indvars.iv5986.i.i, 1
   %exitcond5990.not.i.i = icmp eq i64 %indvars.iv.next5987.i.i, %wide.trip.count5989.i.i
@@ -952,7 +952,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5397.i.i:                                   ; preds = %.lr.ph5397.i.i, %.lr.ph5397.preheader.i.i
   %.031425395.i.i = phi ptr [ %289, %.lr.ph5397.i.i ], [ %286, %.lr.ph5397.preheader.i.i ]
   %.031435394.i.i = phi i32 [ %290, %.lr.ph5397.i.i ], [ 0, %.lr.ph5397.preheader.i.i ]
-  %289 = getelementptr inbounds i8, ptr %.031425395.i.i, i64 4
+  %289 = getelementptr inbounds nuw i8, ptr %.031425395.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031425395.i.i, align 4
   %290 = add nuw nsw i32 %.031435394.i.i, 1
   %exitcond5991.not.i.i = icmp eq i32 %290, %284
@@ -972,8 +972,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5400.i.i:                                   ; preds = %291, %.lr.ph5400.i.i
   %indvars.iv5992.i.i = phi i64 [ %indvars.iv.next5993.i.i, %.lr.ph5400.i.i ], [ 0, %291 ]
   %299 = load ptr, ptr %2, align 8
-  %300 = getelementptr inbounds float, ptr %299, i64 %indvars.iv5992.i.i
-  %301 = getelementptr inbounds float, ptr %298, i64 %indvars.iv5992.i.i
+  %300 = getelementptr inbounds nuw float, ptr %299, i64 %indvars.iv5992.i.i
+  %301 = getelementptr inbounds nuw float, ptr %298, i64 %indvars.iv5992.i.i
   %302 = load float, ptr %300, align 4
   %303 = load float, ptr %301, align 4
   %304 = fcmp fast olt float %302, %303
@@ -1068,7 +1068,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5272.i.i:                                   ; preds = %338, %.lr.ph5272.i.i
   %indvars.iv5843.i.i = phi i64 [ %indvars.iv.next5844.i.i, %.lr.ph5272.i.i ], [ 0, %338 ]
   %.048285269.i.i = phi float [ %348, %.lr.ph5272.i.i ], [ 0xC7EFFFFFE0000000, %338 ]
-  %345 = getelementptr inbounds float, ptr %344, i64 %indvars.iv5843.i.i
+  %345 = getelementptr inbounds nuw float, ptr %344, i64 %indvars.iv5843.i.i
   %346 = load float, ptr %345, align 4
   %347 = fcmp fast olt float %.048285269.i.i, %346
   %348 = select i1 %347, float %346, float %.048285269.i.i
@@ -1079,7 +1079,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 ._crit_edge5273.i.i:                              ; preds = %.lr.ph5272.i.i, %338
   %.04828.lcssa.i.i = phi float [ 0xC7EFFFFFE0000000, %338 ], [ %348, %.lr.ph5272.i.i ]
   %349 = load ptr, ptr %39, align 8
-  %350 = getelementptr inbounds float, ptr %349, i64 %indvars.iv5848.i.i
+  %350 = getelementptr inbounds nuw float, ptr %349, i64 %indvars.iv5848.i.i
   store float %.04828.lcssa.i.i, ptr %350, align 4
   %indvars.iv.next5849.i.i = add nuw nsw i64 %indvars.iv5848.i.i, 1
   %exitcond5852.not.i.i = icmp eq i64 %indvars.iv.next5849.i.i, %wide.trip.count5851.i.i
@@ -1088,7 +1088,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 351:                                              ; preds = %351, %.preheader4850.i.i
   %indvars.iv5853.i.i = phi i64 [ 0, %.preheader4850.i.i ], [ %indvars.iv.next5854.i.i, %351 ]
   %.048275277.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4850.i.i ], [ %355, %351 ]
-  %352 = getelementptr inbounds float, ptr %337, i64 %indvars.iv5853.i.i
+  %352 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv5853.i.i
   %353 = load float, ptr %352, align 4
   %354 = fcmp fast olt float %.048275277.i.i, %353
   %355 = select i1 %354, float %353, float %.048275277.i.i
@@ -1121,7 +1121,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 364:                                              ; preds = %361
   %365 = load ptr, ptr %362, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8
   invoke void %367(ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef %363)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %369
@@ -1181,7 +1181,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5285.i.i:                                   ; preds = %384, %.lr.ph5285.i.i
   %indvars.iv5858.i.i = phi i64 [ %indvars.iv.next5859.i.i, %.lr.ph5285.i.i ], [ 0, %384 ]
   %.048265282.i.i = phi float [ %394, %.lr.ph5285.i.i ], [ 0xC7EFFFFFE0000000, %384 ]
-  %391 = getelementptr inbounds float, ptr %390, i64 %indvars.iv5858.i.i
+  %391 = getelementptr inbounds nuw float, ptr %390, i64 %indvars.iv5858.i.i
   %392 = load float, ptr %391, align 4
   %393 = fcmp fast olt float %.048265282.i.i, %392
   %394 = select i1 %393, float %392, float %.048265282.i.i
@@ -1204,7 +1204,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br label %404
 
 402:                                              ; preds = %._crit_edge5286.i.i
-  %403 = getelementptr inbounds float, ptr %395, i64 %indvars.iv5863.i.i
+  %403 = getelementptr inbounds nuw float, ptr %395, i64 %indvars.iv5863.i.i
   store float %.04826.lcssa.i.i, ptr %403, align 4
   br label %404
 
@@ -1278,7 +1278,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5294.i.i:                                   ; preds = %427, %.lr.ph5294.i.i
   %.031445292.i.i = phi ptr [ %435, %.lr.ph5294.i.i ], [ %418, %427 ]
   %.031455291.i.i = phi i32 [ %436, %.lr.ph5294.i.i ], [ 0, %427 ]
-  %435 = getelementptr inbounds i8, ptr %.031445292.i.i, i64 4
+  %435 = getelementptr inbounds nuw i8, ptr %.031445292.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031445292.i.i, align 4
   %436 = add nuw nsw i32 %.031455291.i.i, 1
   %exitcond5868.not.i.i = icmp eq i32 %436, %428
@@ -1314,7 +1314,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 450:                                              ; preds = %450, %.preheader4847.us.i.i
   %indvars.iv5874.i.i = phi i64 [ 0, %.preheader4847.us.i.i ], [ %indvars.iv.next5875.i.i, %450 ]
   %.048255295.us.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4847.us.i.i ], [ %454, %450 ]
-  %451 = getelementptr inbounds float, ptr %.031215300.us.i.i, i64 %indvars.iv5874.i.i
+  %451 = getelementptr inbounds nuw float, ptr %.031215300.us.i.i, i64 %indvars.iv5874.i.i
   %452 = load float, ptr %451, align 4
   %453 = fcmp fast olt float %.048255295.us.i.i, %452
   %454 = select i1 %453, float %452, float %.048255295.us.i.i
@@ -1323,16 +1323,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5878.not.i.i, label %._crit_edge5298.us.i.i, label %450, !llvm.loop !20
 
 ._crit_edge5298.us.i.i:                           ; preds = %450
-  %455 = getelementptr inbounds float, ptr %443, i64 %indvars.iv5879.i.i
+  %455 = getelementptr inbounds nuw float, ptr %443, i64 %indvars.iv5879.i.i
   store float %454, ptr %455, align 4
-  %456 = getelementptr inbounds float, ptr %.031215300.us.i.i, i64 %434
+  %456 = getelementptr inbounds nuw float, ptr %.031215300.us.i.i, i64 %434
   %indvars.iv.next5880.i.i = add nuw nsw i64 %indvars.iv5879.i.i, 1
   %exitcond5883.not.i.i = icmp eq i64 %indvars.iv.next5880.i.i, %wide.trip.count5872.i.i
   br i1 %exitcond5883.not.i.i, label %._crit_edge5302.i.i, label %.preheader4847.us.i.i, !llvm.loop !21
 
 .preheader4847.i.i:                               ; preds = %.preheader4847.lr.ph.i.i, %.preheader4847.i.i
   %indvars.iv5869.i.i = phi i64 [ %indvars.iv.next5870.i.i, %.preheader4847.i.i ], [ 0, %.preheader4847.lr.ph.i.i ]
-  %457 = getelementptr inbounds float, ptr %443, i64 %indvars.iv5869.i.i
+  %457 = getelementptr inbounds nuw float, ptr %443, i64 %indvars.iv5869.i.i
   store float 0xC7EFFFFFE0000000, ptr %457, align 4
   %indvars.iv.next5870.i.i = add nuw nsw i64 %indvars.iv5869.i.i, 1
   %exitcond5873.not.i.i = icmp eq i64 %indvars.iv.next5870.i.i, %wide.trip.count5872.i.i
@@ -1369,7 +1369,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5309.i.i:                                   ; preds = %.lr.ph5309.i.i, %.lr.ph5309.preheader.i.i
   %.031465307.i.i = phi ptr [ %467, %.lr.ph5309.i.i ], [ %465, %.lr.ph5309.preheader.i.i ]
   %.031475306.i.i = phi i32 [ %468, %.lr.ph5309.i.i ], [ 0, %.lr.ph5309.preheader.i.i ]
-  %467 = getelementptr inbounds i8, ptr %.031465307.i.i, i64 4
+  %467 = getelementptr inbounds nuw i8, ptr %.031465307.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031465307.i.i, align 4
   %468 = add nuw nsw i32 %.031475306.i.i, 1
   %exitcond5889.not.i.i = icmp eq i32 %468, %463
@@ -1388,8 +1388,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5312.i.i:                                   ; preds = %469, %.lr.ph5312.i.i
   %indvars.iv5890.i.i = phi i64 [ %indvars.iv.next5891.i.i, %.lr.ph5312.i.i ], [ 0, %469 ]
   %476 = load ptr, ptr %2, align 8
-  %477 = getelementptr inbounds float, ptr %476, i64 %indvars.iv5890.i.i
-  %478 = getelementptr inbounds float, ptr %475, i64 %indvars.iv5890.i.i
+  %477 = getelementptr inbounds nuw float, ptr %476, i64 %indvars.iv5890.i.i
+  %478 = getelementptr inbounds nuw float, ptr %475, i64 %indvars.iv5890.i.i
   %479 = load float, ptr %477, align 4
   %480 = load float, ptr %478, align 4
   %481 = fcmp fast olt float %479, %480
@@ -1423,7 +1423,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 490:                                              ; preds = %487
   %491 = load ptr, ptr %488, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 24
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 24
   %493 = load ptr, ptr %492, align 8
   invoke void %493(ptr noundef nonnull align 8 dereferenceable(8) %488, ptr noundef %489)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %495
@@ -1504,7 +1504,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5319.i.i:                                   ; preds = %520, %.lr.ph5319.i.i
   %.031485317.i.i = phi ptr [ %528, %.lr.ph5319.i.i ], [ %511, %520 ]
   %.031495316.i.i = phi i32 [ %529, %.lr.ph5319.i.i ], [ 0, %520 ]
-  %528 = getelementptr inbounds i8, ptr %.031485317.i.i, i64 4
+  %528 = getelementptr inbounds nuw i8, ptr %.031485317.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031485317.i.i, align 4
   %529 = add nuw nsw i32 %.031495316.i.i, 1
   %exitcond5900.not.i.i = icmp eq i32 %529, %521
@@ -1536,8 +1536,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 543:                                              ; preds = %543, %.preheader4844.us.i.i
   %indvars.iv5901.i.i = phi i64 [ 0, %.preheader4844.us.i.i ], [ %indvars.iv.next5902.i.i, %543 ]
-  %544 = getelementptr inbounds float, ptr %536, i64 %indvars.iv5901.i.i
-  %545 = getelementptr inbounds float, ptr %.031155323.us.i.i, i64 %indvars.iv5901.i.i
+  %544 = getelementptr inbounds nuw float, ptr %536, i64 %indvars.iv5901.i.i
+  %545 = getelementptr inbounds nuw float, ptr %.031155323.us.i.i, i64 %indvars.iv5901.i.i
   %546 = load float, ptr %544, align 4
   %547 = load float, ptr %545, align 4
   %548 = fcmp fast olt float %546, %547
@@ -1548,7 +1548,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5905.not.i.i, label %._crit_edge5322.us.i.i, label %543, !llvm.loop !25
 
 ._crit_edge5322.us.i.i:                           ; preds = %543
-  %550 = getelementptr inbounds float, ptr %.031155323.us.i.i, i64 %527
+  %550 = getelementptr inbounds nuw float, ptr %.031155323.us.i.i, i64 %527
   %551 = add nuw nsw i32 %.031145324.us.i.i, 1
   %exitcond5906.not.i.i = icmp eq i32 %551, %310
   br i1 %exitcond5906.not.i.i, label %._crit_edge5325.i.i, label %.preheader4844.us.i.i, !llvm.loop !26
@@ -1584,7 +1584,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5332.i.i:                                   ; preds = %.lr.ph5332.i.i, %.lr.ph5332.preheader.i.i
   %.031505330.i.i = phi ptr [ %561, %.lr.ph5332.i.i ], [ %559, %.lr.ph5332.preheader.i.i ]
   %.031515329.i.i = phi i32 [ %562, %.lr.ph5332.i.i ], [ 0, %.lr.ph5332.preheader.i.i ]
-  %561 = getelementptr inbounds i8, ptr %.031505330.i.i, i64 4
+  %561 = getelementptr inbounds nuw i8, ptr %.031505330.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031505330.i.i, align 4
   %562 = add nuw nsw i32 %.031515329.i.i, 1
   %exitcond5912.not.i.i = icmp eq i32 %562, %557
@@ -1603,8 +1603,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5335.i.i:                                   ; preds = %563, %.lr.ph5335.i.i
   %indvars.iv5913.i.i = phi i64 [ %indvars.iv.next5914.i.i, %.lr.ph5335.i.i ], [ 0, %563 ]
   %570 = load ptr, ptr %2, align 8
-  %571 = getelementptr inbounds float, ptr %570, i64 %indvars.iv5913.i.i
-  %572 = getelementptr inbounds float, ptr %569, i64 %indvars.iv5913.i.i
+  %571 = getelementptr inbounds nuw float, ptr %570, i64 %indvars.iv5913.i.i
+  %572 = getelementptr inbounds nuw float, ptr %569, i64 %indvars.iv5913.i.i
   %573 = load float, ptr %571, align 4
   %574 = load float, ptr %572, align 4
   %575 = fcmp fast olt float %573, %574
@@ -1638,7 +1638,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 584:                                              ; preds = %581
   %585 = load ptr, ptr %582, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 24
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 24
   %587 = load ptr, ptr %586, align 8
   invoke void %587(ptr noundef nonnull align 8 dereferenceable(8) %582, ptr noundef %583)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %589
@@ -1729,7 +1729,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 626:                                              ; preds = %626, %.preheader4841.us.i.i
   %indvars.iv5928.i.i = phi i64 [ 0, %.preheader4841.us.i.i ], [ %indvars.iv.next5929.i.i, %626 ]
   %.048245339.us.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4841.us.i.i ], [ %630, %626 ]
-  %627 = getelementptr inbounds float, ptr %.031095344.us.i.i, i64 %indvars.iv5928.i.i
+  %627 = getelementptr inbounds nuw float, ptr %.031095344.us.i.i, i64 %indvars.iv5928.i.i
   %628 = load float, ptr %627, align 4
   %629 = fcmp fast olt float %.048245339.us.i.i, %628
   %630 = select i1 %629, float %628, float %.048245339.us.i.i
@@ -1738,16 +1738,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5932.not.i.i, label %._crit_edge5342.us.i.i, label %626, !llvm.loop !30
 
 ._crit_edge5342.us.i.i:                           ; preds = %626
-  %631 = getelementptr inbounds float, ptr %625, i64 %indvars.iv5933.i.i
+  %631 = getelementptr inbounds nuw float, ptr %625, i64 %indvars.iv5933.i.i
   store float %630, ptr %631, align 4
-  %632 = getelementptr inbounds float, ptr %.031095344.us.i.i, i64 %606
+  %632 = getelementptr inbounds nuw float, ptr %.031095344.us.i.i, i64 %606
   %indvars.iv.next5934.i.i = add nuw nsw i64 %indvars.iv5933.i.i, 1
   %exitcond5937.not.i.i = icmp eq i64 %indvars.iv.next5934.i.i, %wide.trip.count5926.i.i
   br i1 %exitcond5937.not.i.i, label %._crit_edge5346.i.i, label %.preheader4841.us.i.i, !llvm.loop !31
 
 .preheader4841.i.i:                               ; preds = %.preheader4841.lr.ph.i.i, %.preheader4841.i.i
   %indvars.iv5923.i.i = phi i64 [ %indvars.iv.next5924.i.i, %.preheader4841.i.i ], [ 0, %.preheader4841.lr.ph.i.i ]
-  %633 = getelementptr inbounds float, ptr %625, i64 %indvars.iv5923.i.i
+  %633 = getelementptr inbounds nuw float, ptr %625, i64 %indvars.iv5923.i.i
   store float 0xC7EFFFFFE0000000, ptr %633, align 4
   %indvars.iv.next5924.i.i = add nuw nsw i64 %indvars.iv5923.i.i, 1
   %exitcond5927.not.i.i = icmp eq i64 %indvars.iv.next5924.i.i, %wide.trip.count5926.i.i
@@ -1805,7 +1805,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5353.i.i:                                   ; preds = %.lr.ph5353.i.i, %.lr.ph5353.preheader.i.i
   %.031525351.i.i = phi ptr [ %652, %.lr.ph5353.i.i ], [ %648, %.lr.ph5353.preheader.i.i ]
   %.031575350.i.i = phi i32 [ %653, %.lr.ph5353.i.i ], [ 0, %.lr.ph5353.preheader.i.i ]
-  %652 = getelementptr inbounds i8, ptr %.031525351.i.i, i64 4
+  %652 = getelementptr inbounds nuw i8, ptr %.031525351.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031525351.i.i, align 4
   %653 = add nuw nsw i32 %.031575350.i.i, 1
   %exitcond5943.not.i.i = icmp eq i32 %653, %646
@@ -1824,8 +1824,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5356.i.i:                                   ; preds = %654, %.lr.ph5356.i.i
   %indvars.iv5944.i.i = phi i64 [ %indvars.iv.next5945.i.i, %.lr.ph5356.i.i ], [ 0, %654 ]
   %661 = load ptr, ptr %2, align 8
-  %662 = getelementptr inbounds float, ptr %661, i64 %indvars.iv5944.i.i
-  %663 = getelementptr inbounds float, ptr %660, i64 %indvars.iv5944.i.i
+  %662 = getelementptr inbounds nuw float, ptr %661, i64 %indvars.iv5944.i.i
+  %663 = getelementptr inbounds nuw float, ptr %660, i64 %indvars.iv5944.i.i
   %664 = load float, ptr %662, align 4
   %665 = load float, ptr %663, align 4
   %666 = fcmp fast olt float %664, %665
@@ -1891,7 +1891,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5363.i.i:                                   ; preds = %.lr.ph5363.i.i, %.lr.ph5363.preheader.i.i
   %.031585361.i.i = phi ptr [ %690, %.lr.ph5363.i.i ], [ %682, %.lr.ph5363.preheader.i.i ]
   %.031595360.i.i = phi i32 [ %691, %.lr.ph5363.i.i ], [ 0, %.lr.ph5363.preheader.i.i ]
-  %690 = getelementptr inbounds i8, ptr %.031585361.i.i, i64 4
+  %690 = getelementptr inbounds nuw i8, ptr %.031585361.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031585361.i.i, align 4
   %691 = add nuw nsw i32 %.031595360.i.i, 1
   %exitcond5954.not.i.i = icmp eq i32 %691, %680
@@ -1933,8 +1933,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 711:                                              ; preds = %711, %.preheader4836.us.i.i
   %indvars.iv5955.i.i = phi i64 [ 0, %.preheader4836.us.i.i ], [ %indvars.iv.next5956.i.i, %711 ]
-  %712 = getelementptr inbounds float, ptr %710, i64 %indvars.iv5955.i.i
-  %713 = getelementptr inbounds float, ptr %.031025367.us.i.i, i64 %indvars.iv5955.i.i
+  %712 = getelementptr inbounds nuw float, ptr %710, i64 %indvars.iv5955.i.i
+  %713 = getelementptr inbounds nuw float, ptr %.031025367.us.i.i, i64 %indvars.iv5955.i.i
   %714 = load float, ptr %712, align 4
   %715 = load float, ptr %713, align 4
   %716 = fcmp fast olt float %714, %715
@@ -1945,7 +1945,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5959.not.i.i, label %._crit_edge5366.us.i.i, label %711, !llvm.loop !35
 
 ._crit_edge5366.us.i.i:                           ; preds = %711
-  %718 = getelementptr inbounds float, ptr %.031025367.us.i.i, i64 %689
+  %718 = getelementptr inbounds nuw float, ptr %.031025367.us.i.i, i64 %689
   %719 = add nuw nsw i32 %.031005368.us.i.i, 1
   %exitcond5960.not.i.i = icmp eq i32 %719, %310
   br i1 %exitcond5960.not.i.i, label %._crit_edge5369.i.i, label %.preheader4836.us.i.i, !llvm.loop !36
@@ -2040,7 +2040,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph.i.i:                                       ; preds = %755, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %755 ]
   %.048234895.i.i = phi float [ %765, %.lr.ph.i.i ], [ 0xC7EFFFFFE0000000, %755 ]
-  %762 = getelementptr inbounds float, ptr %761, i64 %indvars.iv.i.i
+  %762 = getelementptr inbounds nuw float, ptr %761, i64 %indvars.iv.i.i
   %763 = load float, ptr %762, align 4
   %764 = fcmp fast olt float %.048234895.i.i, %763
   %765 = select i1 %764, float %763, float %.048234895.i.i
@@ -2051,7 +2051,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %755
   %.04823.lcssa.i.i = phi float [ 0xC7EFFFFFE0000000, %755 ], [ %765, %.lr.ph.i.i ]
   %766 = load ptr, ptr %42, align 8
-  %767 = getelementptr inbounds float, ptr %766, i64 %indvars.iv5491.i.i
+  %767 = getelementptr inbounds nuw float, ptr %766, i64 %indvars.iv5491.i.i
   store float %.04823.lcssa.i.i, ptr %767, align 4
   %indvars.iv.next5492.i.i = add nuw nsw i64 %indvars.iv5491.i.i, 1
   %exitcond5495.not.i.i = icmp eq i64 %indvars.iv.next5492.i.i, %wide.trip.count5494.i.i
@@ -2060,7 +2060,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 768:                                              ; preds = %768, %.preheader4893.i.i
   %indvars.iv5496.i.i = phi i64 [ 0, %.preheader4893.i.i ], [ %indvars.iv.next5497.i.i, %768 ]
   %.048224899.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4893.i.i ], [ %772, %768 ]
-  %769 = getelementptr inbounds float, ptr %754, i64 %indvars.iv5496.i.i
+  %769 = getelementptr inbounds nuw float, ptr %754, i64 %indvars.iv5496.i.i
   %770 = load float, ptr %769, align 4
   %771 = fcmp fast olt float %.048224899.i.i, %770
   %772 = select i1 %771, float %770, float %.048224899.i.i
@@ -2093,7 +2093,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 781:                                              ; preds = %778
   %782 = load ptr, ptr %779, align 8
-  %783 = getelementptr inbounds i8, ptr %782, i64 24
+  %783 = getelementptr inbounds nuw i8, ptr %782, i64 24
   %784 = load ptr, ptr %783, align 8
   invoke void %784(ptr noundef nonnull align 8 dereferenceable(8) %779, ptr noundef %780)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %786
@@ -2153,7 +2153,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4907.i.i:                                   ; preds = %801, %.lr.ph4907.i.i
   %indvars.iv5501.i.i = phi i64 [ %indvars.iv.next5502.i.i, %.lr.ph4907.i.i ], [ 0, %801 ]
   %.048214904.i.i = phi float [ %811, %.lr.ph4907.i.i ], [ 0xC7EFFFFFE0000000, %801 ]
-  %808 = getelementptr inbounds float, ptr %807, i64 %indvars.iv5501.i.i
+  %808 = getelementptr inbounds nuw float, ptr %807, i64 %indvars.iv5501.i.i
   %809 = load float, ptr %808, align 4
   %810 = fcmp fast olt float %.048214904.i.i, %809
   %811 = select i1 %810, float %809, float %.048214904.i.i
@@ -2176,7 +2176,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br label %821
 
 819:                                              ; preds = %._crit_edge4908.i.i
-  %820 = getelementptr inbounds float, ptr %812, i64 %indvars.iv5506.i.i
+  %820 = getelementptr inbounds nuw float, ptr %812, i64 %indvars.iv5506.i.i
   store float %.04821.lcssa.i.i, ptr %820, align 4
   br label %821
 
@@ -2250,7 +2250,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4916.i.i:                                   ; preds = %844, %.lr.ph4916.i.i
   %.031604914.i.i = phi ptr [ %852, %.lr.ph4916.i.i ], [ %835, %844 ]
   %.031614913.i.i = phi i32 [ %853, %.lr.ph4916.i.i ], [ 0, %844 ]
-  %852 = getelementptr inbounds i8, ptr %.031604914.i.i, i64 4
+  %852 = getelementptr inbounds nuw i8, ptr %.031604914.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031604914.i.i, align 4
   %853 = add nuw nsw i32 %.031614913.i.i, 1
   %exitcond5511.not.i.i = icmp eq i32 %853, %845
@@ -2286,7 +2286,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 867:                                              ; preds = %867, %.preheader4890.us.i.i
   %indvars.iv5517.i.i = phi i64 [ 0, %.preheader4890.us.i.i ], [ %indvars.iv.next5518.i.i, %867 ]
   %.048204917.us.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4890.us.i.i ], [ %871, %867 ]
-  %868 = getelementptr inbounds float, ptr %.030924922.us.i.i, i64 %indvars.iv5517.i.i
+  %868 = getelementptr inbounds nuw float, ptr %.030924922.us.i.i, i64 %indvars.iv5517.i.i
   %869 = load float, ptr %868, align 4
   %870 = fcmp fast olt float %.048204917.us.i.i, %869
   %871 = select i1 %870, float %869, float %.048204917.us.i.i
@@ -2295,16 +2295,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5521.not.i.i, label %._crit_edge4920.us.i.i, label %867, !llvm.loop !43
 
 ._crit_edge4920.us.i.i:                           ; preds = %867
-  %872 = getelementptr inbounds float, ptr %860, i64 %indvars.iv5522.i.i
+  %872 = getelementptr inbounds nuw float, ptr %860, i64 %indvars.iv5522.i.i
   store float %871, ptr %872, align 4
-  %873 = getelementptr inbounds float, ptr %.030924922.us.i.i, i64 %851
+  %873 = getelementptr inbounds nuw float, ptr %.030924922.us.i.i, i64 %851
   %indvars.iv.next5523.i.i = add nuw nsw i64 %indvars.iv5522.i.i, 1
   %exitcond5526.not.i.i = icmp eq i64 %indvars.iv.next5523.i.i, %wide.trip.count5515.i.i
   br i1 %exitcond5526.not.i.i, label %._crit_edge4924.i.i, label %.preheader4890.us.i.i, !llvm.loop !44
 
 .preheader4890.i.i:                               ; preds = %.preheader4890.lr.ph.i.i, %.preheader4890.i.i
   %indvars.iv5512.i.i = phi i64 [ %indvars.iv.next5513.i.i, %.preheader4890.i.i ], [ 0, %.preheader4890.lr.ph.i.i ]
-  %874 = getelementptr inbounds float, ptr %860, i64 %indvars.iv5512.i.i
+  %874 = getelementptr inbounds nuw float, ptr %860, i64 %indvars.iv5512.i.i
   store float 0xC7EFFFFFE0000000, ptr %874, align 4
   %indvars.iv.next5513.i.i = add nuw nsw i64 %indvars.iv5512.i.i, 1
   %exitcond5516.not.i.i = icmp eq i64 %indvars.iv.next5513.i.i, %wide.trip.count5515.i.i
@@ -2341,7 +2341,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4931.i.i:                                   ; preds = %.lr.ph4931.i.i, %.lr.ph4931.preheader.i.i
   %.031624929.i.i = phi ptr [ %884, %.lr.ph4931.i.i ], [ %882, %.lr.ph4931.preheader.i.i ]
   %.031634928.i.i = phi i32 [ %885, %.lr.ph4931.i.i ], [ 0, %.lr.ph4931.preheader.i.i ]
-  %884 = getelementptr inbounds i8, ptr %.031624929.i.i, i64 4
+  %884 = getelementptr inbounds nuw i8, ptr %.031624929.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031624929.i.i, align 4
   %885 = add nuw nsw i32 %.031634928.i.i, 1
   %exitcond5532.not.i.i = icmp eq i32 %885, %880
@@ -2360,8 +2360,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4934.i.i:                                   ; preds = %886, %.lr.ph4934.i.i
   %indvars.iv5533.i.i = phi i64 [ %indvars.iv.next5534.i.i, %.lr.ph4934.i.i ], [ 0, %886 ]
   %893 = load ptr, ptr %2, align 8
-  %894 = getelementptr inbounds float, ptr %893, i64 %indvars.iv5533.i.i
-  %895 = getelementptr inbounds float, ptr %892, i64 %indvars.iv5533.i.i
+  %894 = getelementptr inbounds nuw float, ptr %893, i64 %indvars.iv5533.i.i
+  %895 = getelementptr inbounds nuw float, ptr %892, i64 %indvars.iv5533.i.i
   %896 = load float, ptr %894, align 4
   %897 = load float, ptr %895, align 4
   %898 = fcmp fast olt float %896, %897
@@ -2395,7 +2395,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 907:                                              ; preds = %904
   %908 = load ptr, ptr %905, align 8
-  %909 = getelementptr inbounds i8, ptr %908, i64 24
+  %909 = getelementptr inbounds nuw i8, ptr %908, i64 24
   %910 = load ptr, ptr %909, align 8
   invoke void %910(ptr noundef nonnull align 8 dereferenceable(8) %905, ptr noundef %906)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %912
@@ -2480,7 +2480,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4941.i.i:                                   ; preds = %937, %.lr.ph4941.i.i
   %.031644939.i.i = phi ptr [ %946, %.lr.ph4941.i.i ], [ %928, %937 ]
   %.031654938.i.i = phi i32 [ %947, %.lr.ph4941.i.i ], [ 0, %937 ]
-  %946 = getelementptr inbounds i8, ptr %.031644939.i.i, i64 4
+  %946 = getelementptr inbounds nuw i8, ptr %.031644939.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031644939.i.i, align 4
   %947 = add nuw nsw i32 %.031654938.i.i, 1
   %exitcond5543.not.i.i = icmp eq i32 %947, %938
@@ -2513,14 +2513,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .preheader4886.us.us.us.i.i:                      ; preds = %._crit_edge4944.us.us.us.i.i, %.preheader4887.us.us.i.i
   %indvars.iv5549.i.i = phi i64 [ %indvars.iv.next5550.i.i, %._crit_edge4944.us.us.us.i.i ], [ 0, %.preheader4887.us.us.i.i ]
   %.130864945.us.us.us.i.i = phi ptr [ %968, %._crit_edge4944.us.us.us.i.i ], [ %.030854949.us.us.i.i, %.preheader4887.us.us.i.i ]
-  %961 = getelementptr inbounds float, ptr %954, i64 %indvars.iv5549.i.i
+  %961 = getelementptr inbounds nuw float, ptr %954, i64 %indvars.iv5549.i.i
   %.promoted.us.us.us.i.i = load float, ptr %961, align 4
   br label %962
 
 962:                                              ; preds = %962, %.preheader4886.us.us.us.i.i
   %indvars.iv5544.i.i = phi i64 [ %indvars.iv.next5545.i.i, %962 ], [ 0, %.preheader4886.us.us.us.i.i ]
   %963 = phi float [ %967, %962 ], [ %.promoted.us.us.us.i.i, %.preheader4886.us.us.us.i.i ]
-  %964 = getelementptr inbounds float, ptr %.130864945.us.us.us.i.i, i64 %indvars.iv5544.i.i
+  %964 = getelementptr inbounds nuw float, ptr %.130864945.us.us.us.i.i, i64 %indvars.iv5544.i.i
   %965 = load float, ptr %964, align 4
   %966 = fcmp fast olt float %963, %965
   %967 = select i1 %966, float %965, float %963
@@ -2530,7 +2530,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5548.not.i.i, label %._crit_edge4944.us.us.us.i.i, label %962, !llvm.loop !48
 
 ._crit_edge4944.us.us.us.i.i:                     ; preds = %962
-  %968 = getelementptr inbounds float, ptr %.130864945.us.us.us.i.i, i64 %945
+  %968 = getelementptr inbounds nuw float, ptr %.130864945.us.us.us.i.i, i64 %945
   %indvars.iv.next5550.i.i = add nuw nsw i64 %indvars.iv5549.i.i, 1
   %exitcond5553.not.i.i = icmp eq i64 %indvars.iv.next5550.i.i, %wide.trip.count5552.i.i
   br i1 %exitcond5553.not.i.i, label %._crit_edge4947.split.us.us.us.i.i, label %.preheader4886.us.us.us.i.i, !llvm.loop !49
@@ -2571,7 +2571,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4964.i.i:                                   ; preds = %.lr.ph4964.i.i, %.lr.ph4964.preheader.i.i
   %.031664962.i.i = phi ptr [ %979, %.lr.ph4964.i.i ], [ %977, %.lr.ph4964.preheader.i.i ]
   %.031674961.i.i = phi i32 [ %980, %.lr.ph4964.i.i ], [ 0, %.lr.ph4964.preheader.i.i ]
-  %979 = getelementptr inbounds i8, ptr %.031664962.i.i, i64 4
+  %979 = getelementptr inbounds nuw i8, ptr %.031664962.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031664962.i.i, align 4
   %980 = add nuw nsw i32 %.031674961.i.i, 1
   %exitcond5560.not.i.i = icmp eq i32 %980, %975
@@ -2590,8 +2590,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4967.i.i:                                   ; preds = %981, %.lr.ph4967.i.i
   %indvars.iv5561.i.i = phi i64 [ %indvars.iv.next5562.i.i, %.lr.ph4967.i.i ], [ 0, %981 ]
   %988 = load ptr, ptr %2, align 8
-  %989 = getelementptr inbounds float, ptr %988, i64 %indvars.iv5561.i.i
-  %990 = getelementptr inbounds float, ptr %987, i64 %indvars.iv5561.i.i
+  %989 = getelementptr inbounds nuw float, ptr %988, i64 %indvars.iv5561.i.i
+  %990 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv5561.i.i
   %991 = load float, ptr %989, align 4
   %992 = load float, ptr %990, align 4
   %993 = fcmp fast olt float %991, %992
@@ -2625,7 +2625,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1002:                                             ; preds = %999
   %1003 = load ptr, ptr %1000, align 8
-  %1004 = getelementptr inbounds i8, ptr %1003, i64 24
+  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 24
   %1005 = load ptr, ptr %1004, align 8
   invoke void %1005(ptr noundef nonnull align 8 dereferenceable(8) %1000, ptr noundef %1001)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %1007
@@ -2709,7 +2709,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4974.i.i:                                   ; preds = %1032, %.lr.ph4974.i.i
   %.031684972.i.i = phi ptr [ %1041, %.lr.ph4974.i.i ], [ %1023, %1032 ]
   %.031694971.i.i = phi i32 [ %1042, %.lr.ph4974.i.i ], [ 0, %1032 ]
-  %1041 = getelementptr inbounds i8, ptr %.031684972.i.i, i64 4
+  %1041 = getelementptr inbounds nuw i8, ptr %.031684972.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031684972.i.i, align 4
   %1042 = add nuw nsw i32 %.031694971.i.i, 1
   %exitcond5571.not.i.i = icmp eq i32 %1042, %1033
@@ -2746,8 +2746,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1056:                                             ; preds = %1056, %.preheader4882.us.us.us.i.i
   %indvars.iv5572.i.i = phi i64 [ %indvars.iv.next5573.i.i, %1056 ], [ 0, %.preheader4882.us.us.us.i.i ]
-  %1057 = getelementptr inbounds float, ptr %1049, i64 %indvars.iv5572.i.i
-  %1058 = getelementptr inbounds float, ptr %.130784978.us.us.us.i.i, i64 %indvars.iv5572.i.i
+  %1057 = getelementptr inbounds nuw float, ptr %1049, i64 %indvars.iv5572.i.i
+  %1058 = getelementptr inbounds nuw float, ptr %.130784978.us.us.us.i.i, i64 %indvars.iv5572.i.i
   %1059 = load float, ptr %1057, align 4
   %1060 = load float, ptr %1058, align 4
   %1061 = fcmp fast olt float %1059, %1060
@@ -2758,7 +2758,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5576.not.i.i, label %._crit_edge4977.us.us.us.i.i, label %1056, !llvm.loop !54
 
 ._crit_edge4977.us.us.us.i.i:                     ; preds = %1056
-  %1063 = getelementptr inbounds float, ptr %.130784978.us.us.us.i.i, i64 %1040
+  %1063 = getelementptr inbounds nuw float, ptr %.130784978.us.us.us.i.i, i64 %1040
   %1064 = add nuw nsw i32 %.030754979.us.us.us.i.i, 1
   %exitcond5577.not.i.i = icmp eq i32 %1064, %724
   br i1 %exitcond5577.not.i.i, label %._crit_edge4980.split.us.us.us.i.i, label %.preheader4882.us.us.us.i.i, !llvm.loop !55
@@ -2799,7 +2799,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph4997.i.i:                                   ; preds = %.lr.ph4997.i.i, %.lr.ph4997.preheader.i.i
   %.031704995.i.i = phi ptr [ %1075, %.lr.ph4997.i.i ], [ %1073, %.lr.ph4997.preheader.i.i ]
   %.031714994.i.i = phi i32 [ %1076, %.lr.ph4997.i.i ], [ 0, %.lr.ph4997.preheader.i.i ]
-  %1075 = getelementptr inbounds i8, ptr %.031704995.i.i, i64 4
+  %1075 = getelementptr inbounds nuw i8, ptr %.031704995.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031704995.i.i, align 4
   %1076 = add nuw nsw i32 %.031714994.i.i, 1
   %exitcond5584.not.i.i = icmp eq i32 %1076, %1071
@@ -2818,8 +2818,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5000.i.i:                                   ; preds = %1077, %.lr.ph5000.i.i
   %indvars.iv5585.i.i = phi i64 [ %indvars.iv.next5586.i.i, %.lr.ph5000.i.i ], [ 0, %1077 ]
   %1084 = load ptr, ptr %2, align 8
-  %1085 = getelementptr inbounds float, ptr %1084, i64 %indvars.iv5585.i.i
-  %1086 = getelementptr inbounds float, ptr %1083, i64 %indvars.iv5585.i.i
+  %1085 = getelementptr inbounds nuw float, ptr %1084, i64 %indvars.iv5585.i.i
+  %1086 = getelementptr inbounds nuw float, ptr %1083, i64 %indvars.iv5585.i.i
   %1087 = load float, ptr %1085, align 4
   %1088 = load float, ptr %1086, align 4
   %1089 = fcmp fast olt float %1087, %1088
@@ -2853,7 +2853,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1098:                                             ; preds = %1095
   %1099 = load ptr, ptr %1096, align 8
-  %1100 = getelementptr inbounds i8, ptr %1099, i64 24
+  %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 24
   %1101 = load ptr, ptr %1100, align 8
   invoke void %1101(ptr noundef nonnull align 8 dereferenceable(8) %1096, ptr noundef %1097)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %1103
@@ -2944,7 +2944,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 1140:                                             ; preds = %1140, %.preheader4879.us.i.i
   %indvars.iv5600.i.i = phi i64 [ 0, %.preheader4879.us.i.i ], [ %indvars.iv.next5601.i.i, %1140 ]
   %.048195004.us.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4879.us.i.i ], [ %1144, %1140 ]
-  %1141 = getelementptr inbounds float, ptr %.030705009.us.i.i, i64 %indvars.iv5600.i.i
+  %1141 = getelementptr inbounds nuw float, ptr %.030705009.us.i.i, i64 %indvars.iv5600.i.i
   %1142 = load float, ptr %1141, align 4
   %1143 = fcmp fast olt float %.048195004.us.i.i, %1142
   %1144 = select i1 %1143, float %1142, float %.048195004.us.i.i
@@ -2953,16 +2953,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5604.not.i.i, label %._crit_edge5007.us.i.i, label %1140, !llvm.loop !60
 
 ._crit_edge5007.us.i.i:                           ; preds = %1140
-  %1145 = getelementptr inbounds float, ptr %1139, i64 %indvars.iv5605.i.i
+  %1145 = getelementptr inbounds nuw float, ptr %1139, i64 %indvars.iv5605.i.i
   store float %1144, ptr %1145, align 4
-  %1146 = getelementptr inbounds float, ptr %.030705009.us.i.i, i64 %1120
+  %1146 = getelementptr inbounds nuw float, ptr %.030705009.us.i.i, i64 %1120
   %indvars.iv.next5606.i.i = add nuw nsw i64 %indvars.iv5605.i.i, 1
   %exitcond5609.not.i.i = icmp eq i64 %indvars.iv.next5606.i.i, %wide.trip.count5598.i.i
   br i1 %exitcond5609.not.i.i, label %._crit_edge5011.i.i, label %.preheader4879.us.i.i, !llvm.loop !61
 
 .preheader4879.i.i:                               ; preds = %.preheader4879.lr.ph.i.i, %.preheader4879.i.i
   %indvars.iv5595.i.i = phi i64 [ %indvars.iv.next5596.i.i, %.preheader4879.i.i ], [ 0, %.preheader4879.lr.ph.i.i ]
-  %1147 = getelementptr inbounds float, ptr %1139, i64 %indvars.iv5595.i.i
+  %1147 = getelementptr inbounds nuw float, ptr %1139, i64 %indvars.iv5595.i.i
   store float 0xC7EFFFFFE0000000, ptr %1147, align 4
   %indvars.iv.next5596.i.i = add nuw nsw i64 %indvars.iv5595.i.i, 1
   %exitcond5599.not.i.i = icmp eq i64 %indvars.iv.next5596.i.i, %wide.trip.count5598.i.i
@@ -3042,7 +3042,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5018.i.i:                                   ; preds = %1171, %.lr.ph5018.i.i
   %.031725016.i.i = phi ptr [ %1180, %.lr.ph5018.i.i ], [ %1162, %1171 ]
   %.031735015.i.i = phi i32 [ %1181, %.lr.ph5018.i.i ], [ 0, %1171 ]
-  %1180 = getelementptr inbounds i8, ptr %.031725016.i.i, i64 4
+  %1180 = getelementptr inbounds nuw i8, ptr %.031725016.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031725016.i.i, align 4
   %1181 = add nuw nsw i32 %.031735015.i.i, 1
   %exitcond5615.not.i.i = icmp eq i32 %1181, %1172
@@ -3083,14 +3083,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .preheader4877.us.us.us.i.i:                      ; preds = %._crit_edge5021.us.us.us.i.i, %.preheader4877.lr.ph.us.us.i.i
   %indvars.iv5621.i.i = phi i64 [ %indvars.iv.next5622.i.i, %._crit_edge5021.us.us.us.i.i ], [ 0, %.preheader4877.lr.ph.us.us.i.i ]
   %.130655022.us.us.us.i.i = phi ptr [ %1207, %._crit_edge5021.us.us.us.i.i ], [ %.030645026.us.us.i.i, %.preheader4877.lr.ph.us.us.i.i ]
-  %1200 = getelementptr inbounds float, ptr %1199, i64 %indvars.iv5621.i.i
+  %1200 = getelementptr inbounds nuw float, ptr %1199, i64 %indvars.iv5621.i.i
   %.promoted.us.us.us5037.i.i = load float, ptr %1200, align 4
   br label %1201
 
 1201:                                             ; preds = %1201, %.preheader4877.us.us.us.i.i
   %indvars.iv5616.i.i = phi i64 [ %indvars.iv.next5617.i.i, %1201 ], [ 0, %.preheader4877.us.us.us.i.i ]
   %1202 = phi float [ %1206, %1201 ], [ %.promoted.us.us.us5037.i.i, %.preheader4877.us.us.us.i.i ]
-  %1203 = getelementptr inbounds float, ptr %.130655022.us.us.us.i.i, i64 %indvars.iv5616.i.i
+  %1203 = getelementptr inbounds nuw float, ptr %.130655022.us.us.us.i.i, i64 %indvars.iv5616.i.i
   %1204 = load float, ptr %1203, align 4
   %1205 = fcmp fast olt float %1202, %1204
   %1206 = select i1 %1205, float %1204, float %1202
@@ -3100,7 +3100,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5620.not.i.i, label %._crit_edge5021.us.us.us.i.i, label %1201, !llvm.loop !63
 
 ._crit_edge5021.us.us.us.i.i:                     ; preds = %1201
-  %1207 = getelementptr inbounds float, ptr %.130655022.us.us.us.i.i, i64 %1179
+  %1207 = getelementptr inbounds nuw float, ptr %.130655022.us.us.us.i.i, i64 %1179
   %indvars.iv.next5622.i.i = add nuw nsw i64 %indvars.iv5621.i.i, 1
   %exitcond5625.not.i.i = icmp eq i64 %indvars.iv.next5622.i.i, %wide.trip.count5624.i.i
   br i1 %exitcond5625.not.i.i, label %._crit_edge5024.split.us.us.us.i.i, label %.preheader4877.us.us.us.i.i, !llvm.loop !64
@@ -3146,7 +3146,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5044.i.i:                                   ; preds = %.lr.ph5044.i.i, %.lr.ph5044.preheader.i.i
   %.031745042.i.i = phi ptr [ %1221, %.lr.ph5044.i.i ], [ %1215, %.lr.ph5044.preheader.i.i ]
   %.031755041.i.i = phi i32 [ %1222, %.lr.ph5044.i.i ], [ 0, %.lr.ph5044.preheader.i.i ]
-  %1221 = getelementptr inbounds i8, ptr %.031745042.i.i, i64 4
+  %1221 = getelementptr inbounds nuw i8, ptr %.031745042.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031745042.i.i, align 4
   %1222 = add nuw nsw i32 %.031755041.i.i, 1
   %exitcond5636.not.i.i = icmp eq i32 %1222, %1213
@@ -3186,8 +3186,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1242:                                             ; preds = %1242, %.lr.ph5047.us.us.i.i
   %indvars.iv5647.i.i = phi i64 [ 0, %.lr.ph5047.us.us.i.i ], [ %indvars.iv.next5648.i.i, %1242 ]
-  %1243 = getelementptr inbounds float, ptr %1241, i64 %indvars.iv5647.i.i
-  %1244 = getelementptr inbounds float, ptr %1234, i64 %indvars.iv5647.i.i
+  %1243 = getelementptr inbounds nuw float, ptr %1241, i64 %indvars.iv5647.i.i
+  %1244 = getelementptr inbounds nuw float, ptr %1234, i64 %indvars.iv5647.i.i
   %1245 = load float, ptr %1243, align 4
   %1246 = load float, ptr %1244, align 4
   %1247 = fcmp fast olt float %1245, %1246
@@ -3223,8 +3223,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1261:                                             ; preds = %1261, %.lr.ph5047.us5055.i.i
   %indvars.iv5637.i.i = phi i64 [ 0, %.lr.ph5047.us5055.i.i ], [ %indvars.iv.next5638.i.i, %1261 ]
-  %1262 = getelementptr inbounds float, ptr %1260, i64 %indvars.iv5637.i.i
-  %1263 = getelementptr inbounds float, ptr %1250, i64 %indvars.iv5637.i.i
+  %1262 = getelementptr inbounds nuw float, ptr %1260, i64 %indvars.iv5637.i.i
+  %1263 = getelementptr inbounds nuw float, ptr %1250, i64 %indvars.iv5637.i.i
   %1264 = load float, ptr %1262, align 4
   %1265 = load float, ptr %1263, align 4
   %1266 = fcmp fast olt float %1264, %1265
@@ -3263,7 +3263,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1275:                                             ; preds = %1272
   %1276 = load ptr, ptr %1273, align 8
-  %1277 = getelementptr inbounds i8, ptr %1276, i64 24
+  %1277 = getelementptr inbounds nuw i8, ptr %1276, i64 24
   %1278 = load ptr, ptr %1277, align 8
   invoke void %1278(ptr noundef nonnull align 8 dereferenceable(8) %1273, ptr noundef %1274)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %1280
@@ -3348,7 +3348,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5062.i.i:                                   ; preds = %1306, %.lr.ph5062.i.i
   %.031765060.i.i = phi ptr [ %1315, %.lr.ph5062.i.i ], [ %1297, %1306 ]
   %.031775059.i.i = phi i32 [ %1316, %.lr.ph5062.i.i ], [ 0, %1306 ]
-  %1315 = getelementptr inbounds i8, ptr %.031765060.i.i, i64 4
+  %1315 = getelementptr inbounds nuw i8, ptr %.031765060.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031765060.i.i, align 4
   %1316 = add nuw nsw i32 %.031775059.i.i, 1
   %exitcond5662.not.i.i = icmp eq i32 %1316, %1307
@@ -3393,8 +3393,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1335:                                             ; preds = %1335, %.lr.ph5065.us.us.us.i.i
   %indvars.iv5663.i.i = phi i64 [ %indvars.iv.next5664.i.i, %1335 ], [ 0, %.lr.ph5065.us.us.us.i.i ]
-  %1336 = getelementptr inbounds float, ptr %1334, i64 %indvars.iv5663.i.i
-  %1337 = getelementptr inbounds float, ptr %.130555067.us.us.us.i.i, i64 %indvars.iv5663.i.i
+  %1336 = getelementptr inbounds nuw float, ptr %1334, i64 %indvars.iv5663.i.i
+  %1337 = getelementptr inbounds nuw float, ptr %.130555067.us.us.us.i.i, i64 %indvars.iv5663.i.i
   %1338 = load float, ptr %1336, align 4
   %1339 = load float, ptr %1337, align 4
   %1340 = fcmp fast olt float %1338, %1339
@@ -3405,7 +3405,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5667.not.i.i, label %._crit_edge5066.us.us.us.i.i, label %1335, !llvm.loop !70
 
 ._crit_edge5066.us.us.us.i.i:                     ; preds = %1335
-  %1342 = getelementptr inbounds float, ptr %.130555067.us.us.us.i.i, i64 %1314
+  %1342 = getelementptr inbounds nuw float, ptr %.130555067.us.us.us.i.i, i64 %1314
   %indvars.iv.next5669.i.i = add nuw nsw i64 %indvars.iv5668.i.i, 1
   %exitcond5672.not.i.i = icmp eq i64 %indvars.iv.next5669.i.i, %wide.trip.count5671.i.i
   br i1 %exitcond5672.not.i.i, label %._crit_edge5070.split.us.us.us.i.i, label %.lr.ph5065.us.us.us.i.i, !llvm.loop !71
@@ -3450,7 +3450,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5086.i.i:                                   ; preds = %.lr.ph5086.i.i, %.lr.ph5086.preheader.i.i
   %.031785084.i.i = phi ptr [ %1356, %.lr.ph5086.i.i ], [ %1351, %.lr.ph5086.preheader.i.i ]
   %.031795083.i.i = phi i32 [ %1357, %.lr.ph5086.i.i ], [ 0, %.lr.ph5086.preheader.i.i ]
-  %1356 = getelementptr inbounds i8, ptr %.031785084.i.i, i64 4
+  %1356 = getelementptr inbounds nuw i8, ptr %.031785084.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031785084.i.i, align 4
   %1357 = add nuw nsw i32 %.031795083.i.i, 1
   %exitcond5679.not.i.i = icmp eq i32 %1357, %1349
@@ -3487,8 +3487,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1377:                                             ; preds = %1377, %.lr.ph5089.us.i.i
   %indvars.iv5680.i.i = phi i64 [ 0, %.lr.ph5089.us.i.i ], [ %indvars.iv.next5681.i.i, %1377 ]
-  %1378 = getelementptr inbounds float, ptr %1376, i64 %indvars.iv5680.i.i
-  %1379 = getelementptr inbounds float, ptr %1369, i64 %indvars.iv5680.i.i
+  %1378 = getelementptr inbounds nuw float, ptr %1376, i64 %indvars.iv5680.i.i
+  %1379 = getelementptr inbounds nuw float, ptr %1369, i64 %indvars.iv5680.i.i
   %1380 = load float, ptr %1378, align 4
   %1381 = load float, ptr %1379, align 4
   %1382 = fcmp fast olt float %1380, %1381
@@ -3527,7 +3527,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1391:                                             ; preds = %1388
   %1392 = load ptr, ptr %1389, align 8
-  %1393 = getelementptr inbounds i8, ptr %1392, i64 24
+  %1393 = getelementptr inbounds nuw i8, ptr %1392, i64 24
   %1394 = load ptr, ptr %1393, align 8
   invoke void %1394(ptr noundef nonnull align 8 dereferenceable(8) %1389, ptr noundef %1390)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %1396
@@ -3620,14 +3620,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .preheader4869.us.us.us.i.i:                      ; preds = %._crit_edge5102.us.us.us.i.i, %.preheader4870.us.us.i.i
   %indvars.iv5705.i.i = phi i64 [ %indvars.iv.next5706.i.i, %._crit_edge5102.us.us.us.i.i ], [ 0, %.preheader4870.us.us.i.i ]
   %.130465103.us.us.us.i.i = phi ptr [ %1441, %._crit_edge5102.us.us.us.i.i ], [ %.030455107.us.us.i.i, %.preheader4870.us.us.i.i ]
-  %1434 = getelementptr inbounds float, ptr %1433, i64 %indvars.iv5705.i.i
+  %1434 = getelementptr inbounds nuw float, ptr %1433, i64 %indvars.iv5705.i.i
   %.promoted.us.us.us5116.i.i = load float, ptr %1434, align 4
   br label %1435
 
 1435:                                             ; preds = %1435, %.preheader4869.us.us.us.i.i
   %indvars.iv5700.i.i = phi i64 [ %indvars.iv.next5701.i.i, %1435 ], [ 0, %.preheader4869.us.us.us.i.i ]
   %1436 = phi float [ %1440, %1435 ], [ %.promoted.us.us.us5116.i.i, %.preheader4869.us.us.us.i.i ]
-  %1437 = getelementptr inbounds float, ptr %.130465103.us.us.us.i.i, i64 %indvars.iv5700.i.i
+  %1437 = getelementptr inbounds nuw float, ptr %.130465103.us.us.us.i.i, i64 %indvars.iv5700.i.i
   %1438 = load float, ptr %1437, align 4
   %1439 = fcmp fast olt float %1436, %1438
   %1440 = select i1 %1439, float %1438, float %1436
@@ -3637,7 +3637,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5704.not.i.i, label %._crit_edge5102.us.us.us.i.i, label %1435, !llvm.loop !77
 
 ._crit_edge5102.us.us.us.i.i:                     ; preds = %1435
-  %1441 = getelementptr inbounds float, ptr %.130465103.us.us.us.i.i, i64 %1414
+  %1441 = getelementptr inbounds nuw float, ptr %.130465103.us.us.us.i.i, i64 %1414
   %indvars.iv.next5706.i.i = add nuw nsw i64 %indvars.iv5705.i.i, 1
   %exitcond5709.not.i.i = icmp eq i64 %indvars.iv.next5706.i.i, %wide.trip.count5698.i.i
   br i1 %exitcond5709.not.i.i, label %._crit_edge5105.split.us.us.us.i.i, label %.preheader4869.us.us.us.i.i, !llvm.loop !78
@@ -3649,7 +3649,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 .lr.ph5099.i.i:                                   ; preds = %1430, %.lr.ph5099.i.i
   %indvars.iv5695.i.i = phi i64 [ %indvars.iv.next5696.i.i, %.lr.ph5099.i.i ], [ 0, %1430 ]
-  %1443 = getelementptr inbounds float, ptr %1433, i64 %indvars.iv5695.i.i
+  %1443 = getelementptr inbounds nuw float, ptr %1433, i64 %indvars.iv5695.i.i
   store float 0xC7EFFFFFE0000000, ptr %1443, align 4
   %indvars.iv.next5696.i.i = add nuw nsw i64 %indvars.iv5695.i.i, 1
   %exitcond5699.not.i.i = icmp eq i64 %indvars.iv.next5696.i.i, %wide.trip.count5698.i.i
@@ -3728,7 +3728,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5123.i.i:                                   ; preds = %1467, %.lr.ph5123.i.i
   %.031805121.i.i = phi ptr [ %1476, %.lr.ph5123.i.i ], [ %1458, %1467 ]
   %.031815120.i.i = phi i32 [ %1477, %.lr.ph5123.i.i ], [ 0, %1467 ]
-  %1476 = getelementptr inbounds i8, ptr %.031805121.i.i, i64 4
+  %1476 = getelementptr inbounds nuw i8, ptr %.031805121.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031805121.i.i, align 4
   %1477 = add nuw nsw i32 %.031815120.i.i, 1
   %exitcond5716.not.i.i = icmp eq i32 %1477, %1468
@@ -3773,8 +3773,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1496:                                             ; preds = %1496, %.preheader4867.us.us.us.i.i
   %indvars.iv5717.i.i = phi i64 [ %indvars.iv.next5718.i.i, %1496 ], [ 0, %.preheader4867.us.us.us.i.i ]
-  %1497 = getelementptr inbounds float, ptr %1495, i64 %indvars.iv5717.i.i
-  %1498 = getelementptr inbounds float, ptr %.130385127.us.us.us.i.i, i64 %indvars.iv5717.i.i
+  %1497 = getelementptr inbounds nuw float, ptr %1495, i64 %indvars.iv5717.i.i
+  %1498 = getelementptr inbounds nuw float, ptr %.130385127.us.us.us.i.i, i64 %indvars.iv5717.i.i
   %1499 = load float, ptr %1497, align 4
   %1500 = load float, ptr %1498, align 4
   %1501 = fcmp fast olt float %1499, %1500
@@ -3785,7 +3785,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5721.not.i.i, label %._crit_edge5126.us.us.us.i.i, label %1496, !llvm.loop !82
 
 ._crit_edge5126.us.us.us.i.i:                     ; preds = %1496
-  %1503 = getelementptr inbounds float, ptr %.130385127.us.us.us.i.i, i64 %1475
+  %1503 = getelementptr inbounds nuw float, ptr %.130385127.us.us.us.i.i, i64 %1475
   %1504 = add nuw nsw i32 %.030355128.us.us.us.i.i, 1
   %exitcond5722.not.i.i = icmp eq i32 %1504, %724
   br i1 %exitcond5722.not.i.i, label %._crit_edge5129.split.us.us.us.i.i, label %.preheader4867.us.us.us.i.i, !llvm.loop !83
@@ -3830,7 +3830,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5148.i.i:                                   ; preds = %.lr.ph5148.i.i, %.lr.ph5148.preheader.i.i
   %.031825146.i.i = phi ptr [ %1517, %.lr.ph5148.i.i ], [ %1512, %.lr.ph5148.preheader.i.i ]
   %.031835145.i.i = phi i32 [ %1518, %.lr.ph5148.i.i ], [ 0, %.lr.ph5148.preheader.i.i ]
-  %1517 = getelementptr inbounds i8, ptr %.031825146.i.i, i64 4
+  %1517 = getelementptr inbounds nuw i8, ptr %.031825146.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031825146.i.i, align 4
   %1518 = add nuw nsw i32 %.031835145.i.i, 1
   %exitcond5733.not.i.i = icmp eq i32 %1518, %1510
@@ -3867,8 +3867,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1538:                                             ; preds = %1538, %.lr.ph5151.us.i.i
   %indvars.iv5734.i.i = phi i64 [ 0, %.lr.ph5151.us.i.i ], [ %indvars.iv.next5735.i.i, %1538 ]
-  %1539 = getelementptr inbounds float, ptr %1537, i64 %indvars.iv5734.i.i
-  %1540 = getelementptr inbounds float, ptr %1530, i64 %indvars.iv5734.i.i
+  %1539 = getelementptr inbounds nuw float, ptr %1537, i64 %indvars.iv5734.i.i
+  %1540 = getelementptr inbounds nuw float, ptr %1530, i64 %indvars.iv5734.i.i
   %1541 = load float, ptr %1539, align 4
   %1542 = load float, ptr %1540, align 4
   %1543 = fcmp fast olt float %1541, %1542
@@ -3907,7 +3907,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1552:                                             ; preds = %1549
   %1553 = load ptr, ptr %1550, align 8
-  %1554 = getelementptr inbounds i8, ptr %1553, i64 24
+  %1554 = getelementptr inbounds nuw i8, ptr %1553, i64 24
   %1555 = load ptr, ptr %1554, align 8
   invoke void %1555(ptr noundef nonnull align 8 dereferenceable(8) %1550, ptr noundef %1551)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %1557
@@ -4003,8 +4003,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1595:                                             ; preds = %1595, %.preheader4862.us.us.us.i.i
   %indvars.iv5754.i.i = phi i64 [ %indvars.iv.next5755.i.i, %1595 ], [ 0, %.preheader4862.us.us.us.i.i ]
-  %1596 = getelementptr inbounds float, ptr %1594, i64 %indvars.iv5754.i.i
-  %1597 = getelementptr inbounds float, ptr %.130295165.us.us.us.i.i, i64 %indvars.iv5754.i.i
+  %1596 = getelementptr inbounds nuw float, ptr %1594, i64 %indvars.iv5754.i.i
+  %1597 = getelementptr inbounds nuw float, ptr %.130295165.us.us.us.i.i, i64 %indvars.iv5754.i.i
   %1598 = load float, ptr %1596, align 4
   %1599 = load float, ptr %1597, align 4
   %1600 = fcmp fast olt float %1598, %1599
@@ -4015,7 +4015,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5758.not.i.i, label %._crit_edge5164.us.us.us.i.i, label %1595, !llvm.loop !89
 
 ._crit_edge5164.us.us.us.i.i:                     ; preds = %1595
-  %1602 = getelementptr inbounds float, ptr %.130295165.us.us.us.i.i, i64 %1575
+  %1602 = getelementptr inbounds nuw float, ptr %.130295165.us.us.us.i.i, i64 %1575
   %1603 = add nuw nsw i32 %.030245166.us.us.us.i.i, 1
   %exitcond5759.not.i.i = icmp eq i32 %1603, %724
   br i1 %exitcond5759.not.i.i, label %._crit_edge5167.split.us.us.us.i.i, label %.preheader4862.us.us.us.i.i, !llvm.loop !90
@@ -4027,7 +4027,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 .lr.ph5161.i.i:                                   ; preds = %1591, %.lr.ph5161.i.i
   %indvars.iv5749.i.i = phi i64 [ %indvars.iv.next5750.i.i, %.lr.ph5161.i.i ], [ 0, %1591 ]
-  %1605 = getelementptr inbounds float, ptr %1594, i64 %indvars.iv5749.i.i
+  %1605 = getelementptr inbounds nuw float, ptr %1594, i64 %indvars.iv5749.i.i
   store float 0xC7EFFFFFE0000000, ptr %1605, align 4
   %indvars.iv.next5750.i.i = add nuw nsw i64 %indvars.iv5749.i.i, 1
   %exitcond5753.not.i.i = icmp eq i64 %indvars.iv.next5750.i.i, %wide.trip.count5752.i.i
@@ -4103,7 +4103,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 1634:                                             ; preds = %1634, %.preheader4860.us.i.i
   %indvars.iv5771.i.i = phi i64 [ 0, %.preheader4860.us.i.i ], [ %indvars.iv.next5772.i.i, %1634 ]
   %.048185181.us.i.i = phi float [ 0xC7EFFFFFE0000000, %.preheader4860.us.i.i ], [ %1638, %1634 ]
-  %1635 = getelementptr inbounds float, ptr %.030215186.us.i.i, i64 %indvars.iv5771.i.i
+  %1635 = getelementptr inbounds nuw float, ptr %.030215186.us.i.i, i64 %indvars.iv5771.i.i
   %1636 = load float, ptr %1635, align 4
   %1637 = fcmp fast olt float %.048185181.us.i.i, %1636
   %1638 = select i1 %1637, float %1636, float %.048185181.us.i.i
@@ -4112,16 +4112,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5775.not.i.i, label %._crit_edge5184.us.i.i, label %1634, !llvm.loop !94
 
 ._crit_edge5184.us.i.i:                           ; preds = %1634
-  %1639 = getelementptr inbounds float, ptr %1627, i64 %indvars.iv5776.i.i
+  %1639 = getelementptr inbounds nuw float, ptr %1627, i64 %indvars.iv5776.i.i
   store float %1638, ptr %1639, align 4
-  %1640 = getelementptr inbounds float, ptr %.030215186.us.i.i, i64 %1620
+  %1640 = getelementptr inbounds nuw float, ptr %.030215186.us.i.i, i64 %1620
   %indvars.iv.next5777.i.i = add nuw nsw i64 %indvars.iv5776.i.i, 1
   %exitcond5780.not.i.i = icmp eq i64 %indvars.iv.next5777.i.i, %wide.trip.count5769.i.i
   br i1 %exitcond5780.not.i.i, label %._crit_edge5188.i.i, label %.preheader4860.us.i.i, !llvm.loop !95
 
 .preheader4860.i.i:                               ; preds = %.preheader4860.lr.ph.i.i, %.preheader4860.i.i
   %indvars.iv5766.i.i = phi i64 [ %indvars.iv.next5767.i.i, %.preheader4860.i.i ], [ 0, %.preheader4860.lr.ph.i.i ]
-  %1641 = getelementptr inbounds float, ptr %1627, i64 %indvars.iv5766.i.i
+  %1641 = getelementptr inbounds nuw float, ptr %1627, i64 %indvars.iv5766.i.i
   store float 0xC7EFFFFFE0000000, ptr %1641, align 4
   %indvars.iv.next5767.i.i = add nuw nsw i64 %indvars.iv5766.i.i, 1
   %exitcond5770.not.i.i = icmp eq i64 %indvars.iv.next5767.i.i, %wide.trip.count5769.i.i
@@ -4189,7 +4189,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5195.i.i:                                   ; preds = %.lr.ph5195.i.i, %.lr.ph5195.preheader.i.i
   %.031845193.i.i = phi ptr [ %1666, %.lr.ph5195.i.i ], [ %1656, %.lr.ph5195.preheader.i.i ]
   %.031855192.i.i = phi i32 [ %1667, %.lr.ph5195.i.i ], [ 0, %.lr.ph5195.preheader.i.i ]
-  %1666 = getelementptr inbounds i8, ptr %.031845193.i.i, i64 4
+  %1666 = getelementptr inbounds nuw i8, ptr %.031845193.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031845193.i.i, align 4
   %1667 = add nuw nsw i32 %.031855192.i.i, 1
   %exitcond5786.not.i.i = icmp eq i32 %1667, %1654
@@ -4231,8 +4231,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1685:                                             ; preds = %1685, %.lr.ph5198.us.us.i.us.i.us
   %indvars.iv5787.i.us.i.us = phi i64 [ %indvars.iv.next5788.i.us.i.us, %1685 ], [ 0, %.lr.ph5198.us.us.i.us.i.us ]
-  %1686 = getelementptr inbounds float, ptr %1684, i64 %indvars.iv5787.i.us.i.us
-  %1687 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i.us, i64 %indvars.iv5787.i.us.i.us
+  %1686 = getelementptr inbounds nuw float, ptr %1684, i64 %indvars.iv5787.i.us.i.us
+  %1687 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i.us, i64 %indvars.iv5787.i.us.i.us
   %1688 = load float, ptr %1686, align 4
   %1689 = load float, ptr %1687, align 4
   %1690 = fcmp fast olt float %1688, %1689
@@ -4243,7 +4243,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5791.not.i.us.i.us, label %._crit_edge5199.us.us.i.us.i.us, label %1685, !llvm.loop !97
 
 ._crit_edge5199.us.us.i.us.i.us:                  ; preds = %1685
-  %1692 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i.us, i64 %1665
+  %1692 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i.us, i64 %1665
   %indvars.iv.next5793.i.us.i.us = add nuw nsw i64 %indvars.iv5792.i.us.i.us, 1
   %exitcond5796.not.i.us.i.us = icmp eq i64 %indvars.iv.next5793.i.us.i.us, %wide.trip.count5795.i.i
   br i1 %exitcond5796.not.i.us.i.us, label %._crit_edge5204.us.i.loopexit.us.i.us, label %.lr.ph5198.us.us.i.us.i.us, !llvm.loop !98
@@ -4278,8 +4278,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1706:                                             ; preds = %1706, %.lr.ph5198.us.us.i.us.i
   %indvars.iv5787.i.us.i = phi i64 [ %indvars.iv.next5788.i.us.i, %1706 ], [ 0, %.lr.ph5198.us.us.i.us.i ]
-  %1707 = getelementptr inbounds float, ptr %1705, i64 %indvars.iv5787.i.us.i
-  %1708 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i, i64 %indvars.iv5787.i.us.i
+  %1707 = getelementptr inbounds nuw float, ptr %1705, i64 %indvars.iv5787.i.us.i
+  %1708 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i, i64 %indvars.iv5787.i.us.i
   %1709 = load float, ptr %1707, align 4
   %1710 = load float, ptr %1708, align 4
   %1711 = fcmp fast olt float %1709, %1710
@@ -4290,7 +4290,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5791.not.i.us.i, label %._crit_edge5199.us.us.i.us.i, label %1706, !llvm.loop !97
 
 ._crit_edge5199.us.us.i.us.i:                     ; preds = %1706
-  %1713 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i, i64 %1665
+  %1713 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i, i64 %1665
   %indvars.iv.next5793.i.us.i = add nuw nsw i64 %indvars.iv5792.i.us.i, 1
   %exitcond5796.not.i.us.i = icmp eq i64 %indvars.iv.next5793.i.us.i, %wide.trip.count5795.i.i
   br i1 %exitcond5796.not.i.us.i, label %._crit_edge5204.us.i.loopexit.us.i, label %.lr.ph5198.us.us.i.us.i, !llvm.loop !98
@@ -4398,8 +4398,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1764:                                             ; preds = %1764, %.preheader4855.us.us.us.i.i
   %indvars.iv5809.i.i = phi i64 [ %indvars.iv.next5810.i.i, %1764 ], [ 0, %.preheader4855.us.us.us.i.i ]
-  %1765 = getelementptr inbounds float, ptr %1763, i64 %indvars.iv5809.i.i
-  %1766 = getelementptr inbounds float, ptr %.130115226.us.us.us.i.i, i64 %indvars.iv5809.i.i
+  %1765 = getelementptr inbounds nuw float, ptr %1763, i64 %indvars.iv5809.i.i
+  %1766 = getelementptr inbounds nuw float, ptr %.130115226.us.us.us.i.i, i64 %indvars.iv5809.i.i
   %1767 = load float, ptr %1765, align 4
   %1768 = load float, ptr %1766, align 4
   %1769 = fcmp fast olt float %1767, %1768
@@ -4410,7 +4410,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5813.not.i.i, label %._crit_edge5225.us.us.us.i.i, label %1764, !llvm.loop !101
 
 ._crit_edge5225.us.us.us.i.i:                     ; preds = %1764
-  %1771 = getelementptr inbounds float, ptr %.130115226.us.us.us.i.i, i64 %1732
+  %1771 = getelementptr inbounds nuw float, ptr %.130115226.us.us.us.i.i, i64 %1732
   %1772 = add nuw nsw i32 %.030085227.us.us.us.i.i, 1
   %exitcond5814.not.i.i = icmp eq i32 %1772, %724
   br i1 %exitcond5814.not.i.i, label %._crit_edge5228.split.us.us.us.i.i, label %.preheader4855.us.us.us.i.i, !llvm.loop !102
@@ -4423,7 +4423,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5222.i.i:                                   ; preds = %1733, %.lr.ph5222.i.i
   %.031865220.i.i = phi ptr [ %1773, %.lr.ph5222.i.i ], [ %1748, %1733 ]
   %.031875219.i.i = phi i32 [ %1774, %.lr.ph5222.i.i ], [ 0, %1733 ]
-  %1773 = getelementptr inbounds i8, ptr %.031865220.i.i, i64 4
+  %1773 = getelementptr inbounds nuw i8, ptr %.031865220.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031865220.i.i, align 4
   %1774 = add nuw nsw i32 %.031875219.i.i, 1
   %exitcond5807.not.i.i = icmp eq i32 %1774, %1759
@@ -4527,8 +4527,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 
 1825:                                             ; preds = %1825, %.lr.ph5250.us.us.us.i.i
   %indvars.iv5827.i.i = phi i64 [ %indvars.iv.next5828.i.i, %1825 ], [ 0, %.lr.ph5250.us.us.us.i.i ]
-  %1826 = getelementptr inbounds float, ptr %1824, i64 %indvars.iv5827.i.i
-  %1827 = getelementptr inbounds float, ptr %.15252.us.us.us.i.i, i64 %indvars.iv5827.i.i
+  %1826 = getelementptr inbounds nuw float, ptr %1824, i64 %indvars.iv5827.i.i
+  %1827 = getelementptr inbounds nuw float, ptr %.15252.us.us.us.i.i, i64 %indvars.iv5827.i.i
   %1828 = load float, ptr %1826, align 4
   %1829 = load float, ptr %1827, align 4
   %1830 = fcmp fast olt float %1828, %1829
@@ -4539,7 +4539,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
   br i1 %exitcond5831.not.i.i, label %._crit_edge5251.us.us.us.i.i, label %1825, !llvm.loop !105
 
 ._crit_edge5251.us.us.us.i.i:                     ; preds = %1825
-  %1832 = getelementptr inbounds float, ptr %.15252.us.us.us.i.i, i64 %1793
+  %1832 = getelementptr inbounds nuw float, ptr %.15252.us.us.us.i.i, i64 %1793
   %indvars.iv.next5833.i.i = add nuw nsw i64 %indvars.iv5832.i.i, 1
   %exitcond5836.not.i.i = icmp eq i64 %indvars.iv.next5833.i.i, %wide.trip.count5835.i.i
   br i1 %exitcond5836.not.i.i, label %._crit_edge5255.split.us.us.us.i.i, label %.lr.ph5250.us.us.us.i.i, !llvm.loop !106
@@ -4552,7 +4552,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Reduction7forwardERKNS_3
 .lr.ph5247.i.i:                                   ; preds = %1794, %.lr.ph5247.i.i
   %.031885245.i.i = phi ptr [ %1834, %.lr.ph5247.i.i ], [ %1809, %1794 ]
   %.031895244.i.i = phi i32 [ %1835, %.lr.ph5247.i.i ], [ 0, %1794 ]
-  %1834 = getelementptr inbounds i8, ptr %.031885245.i.i, i64 4
+  %1834 = getelementptr inbounds nuw i8, ptr %.031885245.i.i, i64 4
   store float 0xC7EFFFFFE0000000, ptr %.031885245.i.i, align 4
   %1835 = add nuw nsw i32 %.031895244.i.i, 1
   %exitcond5825.not.i.i = icmp eq i32 %1835, %1820
@@ -4651,7 +4651,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5407.i.i1088:                               ; preds = %.lr.ph5407.i.i1088, %.lr.ph5407.preheader.i.i1086
   %indvars.iv6002.i.i1089 = phi i64 [ 0, %.lr.ph5407.preheader.i.i1086 ], [ %indvars.iv.next6003.i.i1091, %.lr.ph5407.i.i1088 ]
   %.048325404.i.i1090 = phi float [ 0x47EFFFFFE0000000, %.lr.ph5407.preheader.i.i1086 ], [ %1858, %.lr.ph5407.i.i1088 ]
-  %1855 = getelementptr inbounds float, ptr %1853, i64 %indvars.iv6002.i.i1089
+  %1855 = getelementptr inbounds nuw float, ptr %1853, i64 %indvars.iv6002.i.i1089
   %1856 = load float, ptr %1855, align 4
   %1857 = fcmp fast olt float %1856, %.048325404.i.i1090
   %1858 = select i1 %1857, float %1856, float %.048325404.i.i1090
@@ -4740,7 +4740,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5375.i.i1045:                               ; preds = %1888, %.lr.ph5375.i.i1045
   %indvars.iv5966.i.i1046 = phi i64 [ %indvars.iv.next5967.i.i1048, %.lr.ph5375.i.i1045 ], [ 0, %1888 ]
   %.048315372.i.i1047 = phi float [ %1899, %.lr.ph5375.i.i1045 ], [ 0x47EFFFFFE0000000, %1888 ]
-  %1896 = getelementptr inbounds float, ptr %1895, i64 %indvars.iv5966.i.i1046
+  %1896 = getelementptr inbounds nuw float, ptr %1895, i64 %indvars.iv5966.i.i1046
   %1897 = load float, ptr %1896, align 4
   %1898 = fcmp fast olt float %1897, %.048315372.i.i1047
   %1899 = select i1 %1898, float %1897, float %.048315372.i.i1047
@@ -4751,7 +4751,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5376.i.i1036:                          ; preds = %.lr.ph5375.i.i1045, %1888
   %.04831.lcssa.i.i1037 = phi float [ 0x47EFFFFFE0000000, %1888 ], [ %1899, %.lr.ph5375.i.i1045 ]
   %1900 = load ptr, ptr %27, align 8
-  %1901 = getelementptr inbounds float, ptr %1900, i64 %indvars.iv5971.i.i1035
+  %1901 = getelementptr inbounds nuw float, ptr %1900, i64 %indvars.iv5971.i.i1035
   store float %.04831.lcssa.i.i1037, ptr %1901, align 4
   %indvars.iv.next5972.i.i1038 = add nuw nsw i64 %indvars.iv5971.i.i1035, 1
   %exitcond5975.not.i.i1039 = icmp eq i64 %indvars.iv.next5972.i.i1038, %wide.trip.count5974.i.i1033
@@ -4760,7 +4760,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 1902:                                             ; preds = %1902, %.preheader4834.i.i1040
   %indvars.iv5976.i.i1041 = phi i64 [ 0, %.preheader4834.i.i1040 ], [ %indvars.iv.next5977.i.i1043, %1902 ]
   %.048305380.i.i1042 = phi float [ 0x47EFFFFFE0000000, %.preheader4834.i.i1040 ], [ %1906, %1902 ]
-  %1903 = getelementptr inbounds float, ptr %1887, i64 %indvars.iv5976.i.i1041
+  %1903 = getelementptr inbounds nuw float, ptr %1887, i64 %indvars.iv5976.i.i1041
   %1904 = load float, ptr %1903, align 4
   %1905 = fcmp fast olt float %1904, %.048305380.i.i1042
   %1906 = select i1 %1905, float %1904, float %.048305380.i.i1042
@@ -4793,7 +4793,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 1915:                                             ; preds = %1912
   %1916 = load ptr, ptr %1913, align 8
-  %1917 = getelementptr inbounds i8, ptr %1916, i64 24
+  %1917 = getelementptr inbounds nuw i8, ptr %1916, i64 24
   %1918 = load ptr, ptr %1917, align 8
   invoke void %1918(ptr noundef nonnull align 8 dereferenceable(8) %1913, ptr noundef %1914)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %1920
@@ -4851,7 +4851,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5388.i.i1060:                               ; preds = %1932, %.lr.ph5388.i.i1060
   %indvars.iv5981.i.i1061 = phi i64 [ %indvars.iv.next5982.i.i1063, %.lr.ph5388.i.i1060 ], [ 0, %1932 ]
   %.048295385.i.i1062 = phi float [ %1943, %.lr.ph5388.i.i1060 ], [ 0x47EFFFFFE0000000, %1932 ]
-  %1940 = getelementptr inbounds float, ptr %1939, i64 %indvars.iv5981.i.i1061
+  %1940 = getelementptr inbounds nuw float, ptr %1939, i64 %indvars.iv5981.i.i1061
   %1941 = load float, ptr %1940, align 4
   %1942 = fcmp fast olt float %1941, %.048295385.i.i1062
   %1943 = select i1 %1942, float %1941, float %.048295385.i.i1062
@@ -4862,7 +4862,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5389.i.i1056:                          ; preds = %.lr.ph5388.i.i1060, %1932
   %.04829.lcssa.i.i1057 = phi float [ 0x47EFFFFFE0000000, %1932 ], [ %1943, %.lr.ph5388.i.i1060 ]
   %1944 = load ptr, ptr %2, align 8
-  %1945 = getelementptr inbounds float, ptr %1944, i64 %indvars.iv5986.i.i1055
+  %1945 = getelementptr inbounds nuw float, ptr %1944, i64 %indvars.iv5986.i.i1055
   store float %.04829.lcssa.i.i1057, ptr %1945, align 4
   %indvars.iv.next5987.i.i1058 = add nuw nsw i64 %indvars.iv5986.i.i1055, 1
   %exitcond5990.not.i.i1059 = icmp eq i64 %indvars.iv.next5987.i.i1058, %wide.trip.count5989.i.i1053
@@ -4913,7 +4913,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5397.i.i1080:                               ; preds = %.lr.ph5397.i.i1080, %.lr.ph5397.preheader.i.i1079
   %.031425395.i.i1081 = phi ptr [ %1963, %.lr.ph5397.i.i1080 ], [ %1960, %.lr.ph5397.preheader.i.i1079 ]
   %.031435394.i.i1082 = phi i32 [ %1964, %.lr.ph5397.i.i1080 ], [ 0, %.lr.ph5397.preheader.i.i1079 ]
-  %1963 = getelementptr inbounds i8, ptr %.031425395.i.i1081, i64 4
+  %1963 = getelementptr inbounds nuw i8, ptr %.031425395.i.i1081, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031425395.i.i1081, align 4
   %1964 = add nuw nsw i32 %.031435394.i.i1082, 1
   %exitcond5991.not.i.i1083 = icmp eq i32 %1964, %1958
@@ -4933,8 +4933,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5400.i.i1075:                               ; preds = %1965, %.lr.ph5400.i.i1075
   %indvars.iv5992.i.i1076 = phi i64 [ %indvars.iv.next5993.i.i1077, %.lr.ph5400.i.i1075 ], [ 0, %1965 ]
   %1973 = load ptr, ptr %2, align 8
-  %1974 = getelementptr inbounds float, ptr %1973, i64 %indvars.iv5992.i.i1076
-  %1975 = getelementptr inbounds float, ptr %1972, i64 %indvars.iv5992.i.i1076
+  %1974 = getelementptr inbounds nuw float, ptr %1973, i64 %indvars.iv5992.i.i1076
+  %1975 = getelementptr inbounds nuw float, ptr %1972, i64 %indvars.iv5992.i.i1076
   %1976 = load float, ptr %1975, align 4
   %1977 = load float, ptr %1974, align 4
   %1978 = fcmp fast olt float %1976, %1977
@@ -5029,7 +5029,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5272.i.i826:                                ; preds = %2012, %.lr.ph5272.i.i826
   %indvars.iv5843.i.i827 = phi i64 [ %indvars.iv.next5844.i.i829, %.lr.ph5272.i.i826 ], [ 0, %2012 ]
   %.048285269.i.i828 = phi float [ %2022, %.lr.ph5272.i.i826 ], [ 0x47EFFFFFE0000000, %2012 ]
-  %2019 = getelementptr inbounds float, ptr %2018, i64 %indvars.iv5843.i.i827
+  %2019 = getelementptr inbounds nuw float, ptr %2018, i64 %indvars.iv5843.i.i827
   %2020 = load float, ptr %2019, align 4
   %2021 = fcmp fast olt float %2020, %.048285269.i.i828
   %2022 = select i1 %2021, float %2020, float %.048285269.i.i828
@@ -5040,7 +5040,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5273.i.i817:                           ; preds = %.lr.ph5272.i.i826, %2012
   %.04828.lcssa.i.i818 = phi float [ 0x47EFFFFFE0000000, %2012 ], [ %2022, %.lr.ph5272.i.i826 ]
   %2023 = load ptr, ptr %28, align 8
-  %2024 = getelementptr inbounds float, ptr %2023, i64 %indvars.iv5848.i.i816
+  %2024 = getelementptr inbounds nuw float, ptr %2023, i64 %indvars.iv5848.i.i816
   store float %.04828.lcssa.i.i818, ptr %2024, align 4
   %indvars.iv.next5849.i.i819 = add nuw nsw i64 %indvars.iv5848.i.i816, 1
   %exitcond5852.not.i.i820 = icmp eq i64 %indvars.iv.next5849.i.i819, %wide.trip.count5851.i.i814
@@ -5049,7 +5049,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 2025:                                             ; preds = %2025, %.preheader4850.i.i821
   %indvars.iv5853.i.i822 = phi i64 [ 0, %.preheader4850.i.i821 ], [ %indvars.iv.next5854.i.i824, %2025 ]
   %.048275277.i.i823 = phi float [ 0x47EFFFFFE0000000, %.preheader4850.i.i821 ], [ %2029, %2025 ]
-  %2026 = getelementptr inbounds float, ptr %2011, i64 %indvars.iv5853.i.i822
+  %2026 = getelementptr inbounds nuw float, ptr %2011, i64 %indvars.iv5853.i.i822
   %2027 = load float, ptr %2026, align 4
   %2028 = fcmp fast olt float %2027, %.048275277.i.i823
   %2029 = select i1 %2028, float %2027, float %.048275277.i.i823
@@ -5082,7 +5082,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2038:                                             ; preds = %2035
   %2039 = load ptr, ptr %2036, align 8
-  %2040 = getelementptr inbounds i8, ptr %2039, i64 24
+  %2040 = getelementptr inbounds nuw i8, ptr %2039, i64 24
   %2041 = load ptr, ptr %2040, align 8
   invoke void %2041(ptr noundef nonnull align 8 dereferenceable(8) %2036, ptr noundef %2037)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2043
@@ -5142,7 +5142,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5285.i.i841:                                ; preds = %2058, %.lr.ph5285.i.i841
   %indvars.iv5858.i.i842 = phi i64 [ %indvars.iv.next5859.i.i844, %.lr.ph5285.i.i841 ], [ 0, %2058 ]
   %.048265282.i.i843 = phi float [ %2068, %.lr.ph5285.i.i841 ], [ 0x47EFFFFFE0000000, %2058 ]
-  %2065 = getelementptr inbounds float, ptr %2064, i64 %indvars.iv5858.i.i842
+  %2065 = getelementptr inbounds nuw float, ptr %2064, i64 %indvars.iv5858.i.i842
   %2066 = load float, ptr %2065, align 4
   %2067 = fcmp fast olt float %2066, %.048265282.i.i843
   %2068 = select i1 %2067, float %2066, float %.048265282.i.i843
@@ -5165,7 +5165,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br label %2078
 
 2076:                                             ; preds = %._crit_edge5286.i.i837
-  %2077 = getelementptr inbounds float, ptr %2069, i64 %indvars.iv5863.i.i836
+  %2077 = getelementptr inbounds nuw float, ptr %2069, i64 %indvars.iv5863.i.i836
   store float %.04826.lcssa.i.i838, ptr %2077, align 4
   br label %2078
 
@@ -5239,7 +5239,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5294.i.i897:                                ; preds = %2101, %.lr.ph5294.i.i897
   %.031445292.i.i898 = phi ptr [ %2109, %.lr.ph5294.i.i897 ], [ %2092, %2101 ]
   %.031455291.i.i899 = phi i32 [ %2110, %.lr.ph5294.i.i897 ], [ 0, %2101 ]
-  %2109 = getelementptr inbounds i8, ptr %.031445292.i.i898, i64 4
+  %2109 = getelementptr inbounds nuw i8, ptr %.031445292.i.i898, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031445292.i.i898, align 4
   %2110 = add nuw nsw i32 %.031455291.i.i899, 1
   %exitcond5868.not.i.i900 = icmp eq i32 %2110, %2102
@@ -5275,7 +5275,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 2124:                                             ; preds = %2124, %.preheader4847.us.i.i887
   %indvars.iv5874.i.i890 = phi i64 [ 0, %.preheader4847.us.i.i887 ], [ %indvars.iv.next5875.i.i892, %2124 ]
   %.048255295.us.i.i891 = phi float [ 0x47EFFFFFE0000000, %.preheader4847.us.i.i887 ], [ %2128, %2124 ]
-  %2125 = getelementptr inbounds float, ptr %.031215300.us.i.i889, i64 %indvars.iv5874.i.i890
+  %2125 = getelementptr inbounds nuw float, ptr %.031215300.us.i.i889, i64 %indvars.iv5874.i.i890
   %2126 = load float, ptr %2125, align 4
   %2127 = fcmp fast olt float %2126, %.048255295.us.i.i891
   %2128 = select i1 %2127, float %2126, float %.048255295.us.i.i891
@@ -5284,16 +5284,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5878.not.i.i893, label %._crit_edge5298.us.i.i894, label %2124, !llvm.loop !122
 
 ._crit_edge5298.us.i.i894:                        ; preds = %2124
-  %2129 = getelementptr inbounds float, ptr %2117, i64 %indvars.iv5879.i.i888
+  %2129 = getelementptr inbounds nuw float, ptr %2117, i64 %indvars.iv5879.i.i888
   store float %2128, ptr %2129, align 4
-  %2130 = getelementptr inbounds float, ptr %.031215300.us.i.i889, i64 %2108
+  %2130 = getelementptr inbounds nuw float, ptr %.031215300.us.i.i889, i64 %2108
   %indvars.iv.next5880.i.i895 = add nuw nsw i64 %indvars.iv5879.i.i888, 1
   %exitcond5883.not.i.i896 = icmp eq i64 %indvars.iv.next5880.i.i895, %wide.trip.count5872.i.i875
   br i1 %exitcond5883.not.i.i896, label %._crit_edge5302.i.i878, label %.preheader4847.us.i.i887, !llvm.loop !123
 
 .preheader4847.i.i882:                            ; preds = %.preheader4847.lr.ph.i.i881, %.preheader4847.i.i882
   %indvars.iv5869.i.i883 = phi i64 [ %indvars.iv.next5870.i.i884, %.preheader4847.i.i882 ], [ 0, %.preheader4847.lr.ph.i.i881 ]
-  %2131 = getelementptr inbounds float, ptr %2117, i64 %indvars.iv5869.i.i883
+  %2131 = getelementptr inbounds nuw float, ptr %2117, i64 %indvars.iv5869.i.i883
   store float 0x47EFFFFFE0000000, ptr %2131, align 4
   %indvars.iv.next5870.i.i884 = add nuw nsw i64 %indvars.iv5869.i.i883, 1
   %exitcond5873.not.i.i885 = icmp eq i64 %indvars.iv.next5870.i.i884, %wide.trip.count5872.i.i875
@@ -5330,7 +5330,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5309.i.i869:                                ; preds = %.lr.ph5309.i.i869, %.lr.ph5309.preheader.i.i868
   %.031465307.i.i870 = phi ptr [ %2141, %.lr.ph5309.i.i869 ], [ %2139, %.lr.ph5309.preheader.i.i868 ]
   %.031475306.i.i871 = phi i32 [ %2142, %.lr.ph5309.i.i869 ], [ 0, %.lr.ph5309.preheader.i.i868 ]
-  %2141 = getelementptr inbounds i8, ptr %.031465307.i.i870, i64 4
+  %2141 = getelementptr inbounds nuw i8, ptr %.031465307.i.i870, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031465307.i.i870, align 4
   %2142 = add nuw nsw i32 %.031475306.i.i871, 1
   %exitcond5889.not.i.i872 = icmp eq i32 %2142, %2137
@@ -5349,8 +5349,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5312.i.i864:                                ; preds = %2143, %.lr.ph5312.i.i864
   %indvars.iv5890.i.i865 = phi i64 [ %indvars.iv.next5891.i.i866, %.lr.ph5312.i.i864 ], [ 0, %2143 ]
   %2150 = load ptr, ptr %2, align 8
-  %2151 = getelementptr inbounds float, ptr %2150, i64 %indvars.iv5890.i.i865
-  %2152 = getelementptr inbounds float, ptr %2149, i64 %indvars.iv5890.i.i865
+  %2151 = getelementptr inbounds nuw float, ptr %2150, i64 %indvars.iv5890.i.i865
+  %2152 = getelementptr inbounds nuw float, ptr %2149, i64 %indvars.iv5890.i.i865
   %2153 = load float, ptr %2152, align 4
   %2154 = load float, ptr %2151, align 4
   %2155 = fcmp fast olt float %2153, %2154
@@ -5384,7 +5384,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2164:                                             ; preds = %2161
   %2165 = load ptr, ptr %2162, align 8
-  %2166 = getelementptr inbounds i8, ptr %2165, i64 24
+  %2166 = getelementptr inbounds nuw i8, ptr %2165, i64 24
   %2167 = load ptr, ptr %2166, align 8
   invoke void %2167(ptr noundef nonnull align 8 dereferenceable(8) %2162, ptr noundef %2163)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2169
@@ -5465,7 +5465,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5319.i.i945:                                ; preds = %2194, %.lr.ph5319.i.i945
   %.031485317.i.i946 = phi ptr [ %2202, %.lr.ph5319.i.i945 ], [ %2185, %2194 ]
   %.031495316.i.i947 = phi i32 [ %2203, %.lr.ph5319.i.i945 ], [ 0, %2194 ]
-  %2202 = getelementptr inbounds i8, ptr %.031485317.i.i946, i64 4
+  %2202 = getelementptr inbounds nuw i8, ptr %.031485317.i.i946, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031485317.i.i946, align 4
   %2203 = add nuw nsw i32 %.031495316.i.i947, 1
   %exitcond5900.not.i.i948 = icmp eq i32 %2203, %2195
@@ -5497,8 +5497,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2217:                                             ; preds = %2217, %.preheader4844.us.i.i934
   %indvars.iv5901.i.i937 = phi i64 [ 0, %.preheader4844.us.i.i934 ], [ %indvars.iv.next5902.i.i938, %2217 ]
-  %2218 = getelementptr inbounds float, ptr %2210, i64 %indvars.iv5901.i.i937
-  %2219 = getelementptr inbounds float, ptr %.031155323.us.i.i936, i64 %indvars.iv5901.i.i937
+  %2218 = getelementptr inbounds nuw float, ptr %2210, i64 %indvars.iv5901.i.i937
+  %2219 = getelementptr inbounds nuw float, ptr %.031155323.us.i.i936, i64 %indvars.iv5901.i.i937
   %2220 = load float, ptr %2219, align 4
   %2221 = load float, ptr %2218, align 4
   %2222 = fcmp fast olt float %2220, %2221
@@ -5509,7 +5509,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5905.not.i.i939, label %._crit_edge5322.us.i.i940, label %2217, !llvm.loop !127
 
 ._crit_edge5322.us.i.i940:                        ; preds = %2217
-  %2224 = getelementptr inbounds float, ptr %.031155323.us.i.i936, i64 %2201
+  %2224 = getelementptr inbounds nuw float, ptr %.031155323.us.i.i936, i64 %2201
   %2225 = add nuw nsw i32 %.031145324.us.i.i935, 1
   %exitcond5906.not.i.i941 = icmp eq i32 %2225, %1984
   br i1 %exitcond5906.not.i.i941, label %._crit_edge5325.i.i942, label %.preheader4844.us.i.i934, !llvm.loop !128
@@ -5545,7 +5545,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5332.i.i924:                                ; preds = %.lr.ph5332.i.i924, %.lr.ph5332.preheader.i.i923
   %.031505330.i.i925 = phi ptr [ %2235, %.lr.ph5332.i.i924 ], [ %2233, %.lr.ph5332.preheader.i.i923 ]
   %.031515329.i.i926 = phi i32 [ %2236, %.lr.ph5332.i.i924 ], [ 0, %.lr.ph5332.preheader.i.i923 ]
-  %2235 = getelementptr inbounds i8, ptr %.031505330.i.i925, i64 4
+  %2235 = getelementptr inbounds nuw i8, ptr %.031505330.i.i925, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031505330.i.i925, align 4
   %2236 = add nuw nsw i32 %.031515329.i.i926, 1
   %exitcond5912.not.i.i927 = icmp eq i32 %2236, %2231
@@ -5564,8 +5564,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5335.i.i919:                                ; preds = %2237, %.lr.ph5335.i.i919
   %indvars.iv5913.i.i920 = phi i64 [ %indvars.iv.next5914.i.i921, %.lr.ph5335.i.i919 ], [ 0, %2237 ]
   %2244 = load ptr, ptr %2, align 8
-  %2245 = getelementptr inbounds float, ptr %2244, i64 %indvars.iv5913.i.i920
-  %2246 = getelementptr inbounds float, ptr %2243, i64 %indvars.iv5913.i.i920
+  %2245 = getelementptr inbounds nuw float, ptr %2244, i64 %indvars.iv5913.i.i920
+  %2246 = getelementptr inbounds nuw float, ptr %2243, i64 %indvars.iv5913.i.i920
   %2247 = load float, ptr %2246, align 4
   %2248 = load float, ptr %2245, align 4
   %2249 = fcmp fast olt float %2247, %2248
@@ -5599,7 +5599,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2258:                                             ; preds = %2255
   %2259 = load ptr, ptr %2256, align 8
-  %2260 = getelementptr inbounds i8, ptr %2259, i64 24
+  %2260 = getelementptr inbounds nuw i8, ptr %2259, i64 24
   %2261 = load ptr, ptr %2260, align 8
   invoke void %2261(ptr noundef nonnull align 8 dereferenceable(8) %2256, ptr noundef %2257)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2263
@@ -5690,7 +5690,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 2300:                                             ; preds = %2300, %.preheader4841.us.i.i965
   %indvars.iv5928.i.i968 = phi i64 [ 0, %.preheader4841.us.i.i965 ], [ %indvars.iv.next5929.i.i970, %2300 ]
   %.048245339.us.i.i969 = phi float [ 0x47EFFFFFE0000000, %.preheader4841.us.i.i965 ], [ %2304, %2300 ]
-  %2301 = getelementptr inbounds float, ptr %.031095344.us.i.i967, i64 %indvars.iv5928.i.i968
+  %2301 = getelementptr inbounds nuw float, ptr %.031095344.us.i.i967, i64 %indvars.iv5928.i.i968
   %2302 = load float, ptr %2301, align 4
   %2303 = fcmp fast olt float %2302, %.048245339.us.i.i969
   %2304 = select i1 %2303, float %2302, float %.048245339.us.i.i969
@@ -5699,16 +5699,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5932.not.i.i971, label %._crit_edge5342.us.i.i972, label %2300, !llvm.loop !132
 
 ._crit_edge5342.us.i.i972:                        ; preds = %2300
-  %2305 = getelementptr inbounds float, ptr %2299, i64 %indvars.iv5933.i.i966
+  %2305 = getelementptr inbounds nuw float, ptr %2299, i64 %indvars.iv5933.i.i966
   store float %2304, ptr %2305, align 4
-  %2306 = getelementptr inbounds float, ptr %.031095344.us.i.i967, i64 %2280
+  %2306 = getelementptr inbounds nuw float, ptr %.031095344.us.i.i967, i64 %2280
   %indvars.iv.next5934.i.i973 = add nuw nsw i64 %indvars.iv5933.i.i966, 1
   %exitcond5937.not.i.i974 = icmp eq i64 %indvars.iv.next5934.i.i973, %wide.trip.count5926.i.i953
   br i1 %exitcond5937.not.i.i974, label %._crit_edge5346.i.i957, label %.preheader4841.us.i.i965, !llvm.loop !133
 
 .preheader4841.i.i961:                            ; preds = %.preheader4841.lr.ph.i.i960, %.preheader4841.i.i961
   %indvars.iv5923.i.i962 = phi i64 [ %indvars.iv.next5924.i.i963, %.preheader4841.i.i961 ], [ 0, %.preheader4841.lr.ph.i.i960 ]
-  %2307 = getelementptr inbounds float, ptr %2299, i64 %indvars.iv5923.i.i962
+  %2307 = getelementptr inbounds nuw float, ptr %2299, i64 %indvars.iv5923.i.i962
   store float 0x47EFFFFFE0000000, ptr %2307, align 4
   %indvars.iv.next5924.i.i963 = add nuw nsw i64 %indvars.iv5923.i.i962, 1
   %exitcond5927.not.i.i964 = icmp eq i64 %indvars.iv.next5924.i.i963, %wide.trip.count5926.i.i953
@@ -5766,7 +5766,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5353.i.i991:                                ; preds = %.lr.ph5353.i.i991, %.lr.ph5353.preheader.i.i990
   %.031525351.i.i992 = phi ptr [ %2326, %.lr.ph5353.i.i991 ], [ %2322, %.lr.ph5353.preheader.i.i990 ]
   %.031575350.i.i993 = phi i32 [ %2327, %.lr.ph5353.i.i991 ], [ 0, %.lr.ph5353.preheader.i.i990 ]
-  %2326 = getelementptr inbounds i8, ptr %.031525351.i.i992, i64 4
+  %2326 = getelementptr inbounds nuw i8, ptr %.031525351.i.i992, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031525351.i.i992, align 4
   %2327 = add nuw nsw i32 %.031575350.i.i993, 1
   %exitcond5943.not.i.i994 = icmp eq i32 %2327, %2320
@@ -5785,8 +5785,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5356.i.i986:                                ; preds = %2328, %.lr.ph5356.i.i986
   %indvars.iv5944.i.i987 = phi i64 [ %indvars.iv.next5945.i.i988, %.lr.ph5356.i.i986 ], [ 0, %2328 ]
   %2335 = load ptr, ptr %2, align 8
-  %2336 = getelementptr inbounds float, ptr %2335, i64 %indvars.iv5944.i.i987
-  %2337 = getelementptr inbounds float, ptr %2334, i64 %indvars.iv5944.i.i987
+  %2336 = getelementptr inbounds nuw float, ptr %2335, i64 %indvars.iv5944.i.i987
+  %2337 = getelementptr inbounds nuw float, ptr %2334, i64 %indvars.iv5944.i.i987
   %2338 = load float, ptr %2337, align 4
   %2339 = load float, ptr %2336, align 4
   %2340 = fcmp fast olt float %2338, %2339
@@ -5852,7 +5852,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5363.i.i1016:                               ; preds = %.lr.ph5363.i.i1016, %.lr.ph5363.preheader.i.i1015
   %.031585361.i.i1017 = phi ptr [ %2364, %.lr.ph5363.i.i1016 ], [ %2356, %.lr.ph5363.preheader.i.i1015 ]
   %.031595360.i.i1018 = phi i32 [ %2365, %.lr.ph5363.i.i1016 ], [ 0, %.lr.ph5363.preheader.i.i1015 ]
-  %2364 = getelementptr inbounds i8, ptr %.031585361.i.i1017, i64 4
+  %2364 = getelementptr inbounds nuw i8, ptr %.031585361.i.i1017, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031585361.i.i1017, align 4
   %2365 = add nuw nsw i32 %.031595360.i.i1018, 1
   %exitcond5954.not.i.i1019 = icmp eq i32 %2365, %2354
@@ -5894,8 +5894,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2385:                                             ; preds = %2385, %.preheader4836.us.i.i1004
   %indvars.iv5955.i.i1007 = phi i64 [ 0, %.preheader4836.us.i.i1004 ], [ %indvars.iv.next5956.i.i1008, %2385 ]
-  %2386 = getelementptr inbounds float, ptr %2384, i64 %indvars.iv5955.i.i1007
-  %2387 = getelementptr inbounds float, ptr %.031025367.us.i.i1006, i64 %indvars.iv5955.i.i1007
+  %2386 = getelementptr inbounds nuw float, ptr %2384, i64 %indvars.iv5955.i.i1007
+  %2387 = getelementptr inbounds nuw float, ptr %.031025367.us.i.i1006, i64 %indvars.iv5955.i.i1007
   %2388 = load float, ptr %2387, align 4
   %2389 = load float, ptr %2386, align 4
   %2390 = fcmp fast olt float %2388, %2389
@@ -5906,7 +5906,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5959.not.i.i1009, label %._crit_edge5366.us.i.i1010, label %2385, !llvm.loop !137
 
 ._crit_edge5366.us.i.i1010:                       ; preds = %2385
-  %2392 = getelementptr inbounds float, ptr %.031025367.us.i.i1006, i64 %2363
+  %2392 = getelementptr inbounds nuw float, ptr %.031025367.us.i.i1006, i64 %2363
   %2393 = add nuw nsw i32 %.031005368.us.i.i1005, 1
   %exitcond5960.not.i.i1011 = icmp eq i32 %2393, %1984
   br i1 %exitcond5960.not.i.i1011, label %._crit_edge5369.i.i1012, label %.preheader4836.us.i.i1004, !llvm.loop !138
@@ -6001,7 +6001,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph.i.i193:                                    ; preds = %2429, %.lr.ph.i.i193
   %indvars.iv.i.i194 = phi i64 [ %indvars.iv.next.i.i196, %.lr.ph.i.i193 ], [ 0, %2429 ]
   %.048234895.i.i195 = phi float [ %2439, %.lr.ph.i.i193 ], [ 0x47EFFFFFE0000000, %2429 ]
-  %2436 = getelementptr inbounds float, ptr %2435, i64 %indvars.iv.i.i194
+  %2436 = getelementptr inbounds nuw float, ptr %2435, i64 %indvars.iv.i.i194
   %2437 = load float, ptr %2436, align 4
   %2438 = fcmp fast olt float %2437, %.048234895.i.i195
   %2439 = select i1 %2438, float %2437, float %.048234895.i.i195
@@ -6012,7 +6012,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge.i.i184:                               ; preds = %.lr.ph.i.i193, %2429
   %.04823.lcssa.i.i185 = phi float [ 0x47EFFFFFE0000000, %2429 ], [ %2439, %.lr.ph.i.i193 ]
   %2440 = load ptr, ptr %31, align 8
-  %2441 = getelementptr inbounds float, ptr %2440, i64 %indvars.iv5491.i.i183
+  %2441 = getelementptr inbounds nuw float, ptr %2440, i64 %indvars.iv5491.i.i183
   store float %.04823.lcssa.i.i185, ptr %2441, align 4
   %indvars.iv.next5492.i.i186 = add nuw nsw i64 %indvars.iv5491.i.i183, 1
   %exitcond5495.not.i.i187 = icmp eq i64 %indvars.iv.next5492.i.i186, %wide.trip.count5494.i.i181
@@ -6021,7 +6021,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 2442:                                             ; preds = %2442, %.preheader4893.i.i188
   %indvars.iv5496.i.i189 = phi i64 [ 0, %.preheader4893.i.i188 ], [ %indvars.iv.next5497.i.i191, %2442 ]
   %.048224899.i.i190 = phi float [ 0x47EFFFFFE0000000, %.preheader4893.i.i188 ], [ %2446, %2442 ]
-  %2443 = getelementptr inbounds float, ptr %2428, i64 %indvars.iv5496.i.i189
+  %2443 = getelementptr inbounds nuw float, ptr %2428, i64 %indvars.iv5496.i.i189
   %2444 = load float, ptr %2443, align 4
   %2445 = fcmp fast olt float %2444, %.048224899.i.i190
   %2446 = select i1 %2445, float %2444, float %.048224899.i.i190
@@ -6054,7 +6054,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2455:                                             ; preds = %2452
   %2456 = load ptr, ptr %2453, align 8
-  %2457 = getelementptr inbounds i8, ptr %2456, i64 24
+  %2457 = getelementptr inbounds nuw i8, ptr %2456, i64 24
   %2458 = load ptr, ptr %2457, align 8
   invoke void %2458(ptr noundef nonnull align 8 dereferenceable(8) %2453, ptr noundef %2454)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2460
@@ -6114,7 +6114,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4907.i.i208:                                ; preds = %2475, %.lr.ph4907.i.i208
   %indvars.iv5501.i.i209 = phi i64 [ %indvars.iv.next5502.i.i211, %.lr.ph4907.i.i208 ], [ 0, %2475 ]
   %.048214904.i.i210 = phi float [ %2485, %.lr.ph4907.i.i208 ], [ 0x47EFFFFFE0000000, %2475 ]
-  %2482 = getelementptr inbounds float, ptr %2481, i64 %indvars.iv5501.i.i209
+  %2482 = getelementptr inbounds nuw float, ptr %2481, i64 %indvars.iv5501.i.i209
   %2483 = load float, ptr %2482, align 4
   %2484 = fcmp fast olt float %2483, %.048214904.i.i210
   %2485 = select i1 %2484, float %2483, float %.048214904.i.i210
@@ -6137,7 +6137,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br label %2495
 
 2493:                                             ; preds = %._crit_edge4908.i.i204
-  %2494 = getelementptr inbounds float, ptr %2486, i64 %indvars.iv5506.i.i203
+  %2494 = getelementptr inbounds nuw float, ptr %2486, i64 %indvars.iv5506.i.i203
   store float %.04821.lcssa.i.i205, ptr %2494, align 4
   br label %2495
 
@@ -6211,7 +6211,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4916.i.i264:                                ; preds = %2518, %.lr.ph4916.i.i264
   %.031604914.i.i265 = phi ptr [ %2526, %.lr.ph4916.i.i264 ], [ %2509, %2518 ]
   %.031614913.i.i266 = phi i32 [ %2527, %.lr.ph4916.i.i264 ], [ 0, %2518 ]
-  %2526 = getelementptr inbounds i8, ptr %.031604914.i.i265, i64 4
+  %2526 = getelementptr inbounds nuw i8, ptr %.031604914.i.i265, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031604914.i.i265, align 4
   %2527 = add nuw nsw i32 %.031614913.i.i266, 1
   %exitcond5511.not.i.i267 = icmp eq i32 %2527, %2519
@@ -6247,7 +6247,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 2541:                                             ; preds = %2541, %.preheader4890.us.i.i254
   %indvars.iv5517.i.i257 = phi i64 [ 0, %.preheader4890.us.i.i254 ], [ %indvars.iv.next5518.i.i259, %2541 ]
   %.048204917.us.i.i258 = phi float [ 0x47EFFFFFE0000000, %.preheader4890.us.i.i254 ], [ %2545, %2541 ]
-  %2542 = getelementptr inbounds float, ptr %.030924922.us.i.i256, i64 %indvars.iv5517.i.i257
+  %2542 = getelementptr inbounds nuw float, ptr %.030924922.us.i.i256, i64 %indvars.iv5517.i.i257
   %2543 = load float, ptr %2542, align 4
   %2544 = fcmp fast olt float %2543, %.048204917.us.i.i258
   %2545 = select i1 %2544, float %2543, float %.048204917.us.i.i258
@@ -6256,16 +6256,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5521.not.i.i260, label %._crit_edge4920.us.i.i261, label %2541, !llvm.loop !145
 
 ._crit_edge4920.us.i.i261:                        ; preds = %2541
-  %2546 = getelementptr inbounds float, ptr %2534, i64 %indvars.iv5522.i.i255
+  %2546 = getelementptr inbounds nuw float, ptr %2534, i64 %indvars.iv5522.i.i255
   store float %2545, ptr %2546, align 4
-  %2547 = getelementptr inbounds float, ptr %.030924922.us.i.i256, i64 %2525
+  %2547 = getelementptr inbounds nuw float, ptr %.030924922.us.i.i256, i64 %2525
   %indvars.iv.next5523.i.i262 = add nuw nsw i64 %indvars.iv5522.i.i255, 1
   %exitcond5526.not.i.i263 = icmp eq i64 %indvars.iv.next5523.i.i262, %wide.trip.count5515.i.i242
   br i1 %exitcond5526.not.i.i263, label %._crit_edge4924.i.i245, label %.preheader4890.us.i.i254, !llvm.loop !146
 
 .preheader4890.i.i249:                            ; preds = %.preheader4890.lr.ph.i.i248, %.preheader4890.i.i249
   %indvars.iv5512.i.i250 = phi i64 [ %indvars.iv.next5513.i.i251, %.preheader4890.i.i249 ], [ 0, %.preheader4890.lr.ph.i.i248 ]
-  %2548 = getelementptr inbounds float, ptr %2534, i64 %indvars.iv5512.i.i250
+  %2548 = getelementptr inbounds nuw float, ptr %2534, i64 %indvars.iv5512.i.i250
   store float 0x47EFFFFFE0000000, ptr %2548, align 4
   %indvars.iv.next5513.i.i251 = add nuw nsw i64 %indvars.iv5512.i.i250, 1
   %exitcond5516.not.i.i252 = icmp eq i64 %indvars.iv.next5513.i.i251, %wide.trip.count5515.i.i242
@@ -6302,7 +6302,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4931.i.i236:                                ; preds = %.lr.ph4931.i.i236, %.lr.ph4931.preheader.i.i235
   %.031624929.i.i237 = phi ptr [ %2558, %.lr.ph4931.i.i236 ], [ %2556, %.lr.ph4931.preheader.i.i235 ]
   %.031634928.i.i238 = phi i32 [ %2559, %.lr.ph4931.i.i236 ], [ 0, %.lr.ph4931.preheader.i.i235 ]
-  %2558 = getelementptr inbounds i8, ptr %.031624929.i.i237, i64 4
+  %2558 = getelementptr inbounds nuw i8, ptr %.031624929.i.i237, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031624929.i.i237, align 4
   %2559 = add nuw nsw i32 %.031634928.i.i238, 1
   %exitcond5532.not.i.i239 = icmp eq i32 %2559, %2554
@@ -6321,8 +6321,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4934.i.i231:                                ; preds = %2560, %.lr.ph4934.i.i231
   %indvars.iv5533.i.i232 = phi i64 [ %indvars.iv.next5534.i.i233, %.lr.ph4934.i.i231 ], [ 0, %2560 ]
   %2567 = load ptr, ptr %2, align 8
-  %2568 = getelementptr inbounds float, ptr %2567, i64 %indvars.iv5533.i.i232
-  %2569 = getelementptr inbounds float, ptr %2566, i64 %indvars.iv5533.i.i232
+  %2568 = getelementptr inbounds nuw float, ptr %2567, i64 %indvars.iv5533.i.i232
+  %2569 = getelementptr inbounds nuw float, ptr %2566, i64 %indvars.iv5533.i.i232
   %2570 = load float, ptr %2569, align 4
   %2571 = load float, ptr %2568, align 4
   %2572 = fcmp fast olt float %2570, %2571
@@ -6356,7 +6356,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2581:                                             ; preds = %2578
   %2582 = load ptr, ptr %2579, align 8
-  %2583 = getelementptr inbounds i8, ptr %2582, i64 24
+  %2583 = getelementptr inbounds nuw i8, ptr %2582, i64 24
   %2584 = load ptr, ptr %2583, align 8
   invoke void %2584(ptr noundef nonnull align 8 dereferenceable(8) %2579, ptr noundef %2580)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2586
@@ -6441,7 +6441,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4941.i.i322:                                ; preds = %2611, %.lr.ph4941.i.i322
   %.031644939.i.i323 = phi ptr [ %2620, %.lr.ph4941.i.i322 ], [ %2602, %2611 ]
   %.031654938.i.i324 = phi i32 [ %2621, %.lr.ph4941.i.i322 ], [ 0, %2611 ]
-  %2620 = getelementptr inbounds i8, ptr %.031644939.i.i323, i64 4
+  %2620 = getelementptr inbounds nuw i8, ptr %.031644939.i.i323, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031644939.i.i323, align 4
   %2621 = add nuw nsw i32 %.031654938.i.i324, 1
   %exitcond5543.not.i.i325 = icmp eq i32 %2621, %2612
@@ -6474,14 +6474,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4886.us.us.us.i.i307:                   ; preds = %._crit_edge4944.us.us.us.i.i314, %.preheader4887.us.us.i.i304
   %indvars.iv5549.i.i308 = phi i64 [ %indvars.iv.next5550.i.i315, %._crit_edge4944.us.us.us.i.i314 ], [ 0, %.preheader4887.us.us.i.i304 ]
   %.130864945.us.us.us.i.i309 = phi ptr [ %2642, %._crit_edge4944.us.us.us.i.i314 ], [ %.030854949.us.us.i.i306, %.preheader4887.us.us.i.i304 ]
-  %2635 = getelementptr inbounds float, ptr %2628, i64 %indvars.iv5549.i.i308
+  %2635 = getelementptr inbounds nuw float, ptr %2628, i64 %indvars.iv5549.i.i308
   %.promoted.us.us.us.i.i310 = load float, ptr %2635, align 4
   br label %2636
 
 2636:                                             ; preds = %2636, %.preheader4886.us.us.us.i.i307
   %indvars.iv5544.i.i311 = phi i64 [ %indvars.iv.next5545.i.i312, %2636 ], [ 0, %.preheader4886.us.us.us.i.i307 ]
   %2637 = phi float [ %2641, %2636 ], [ %.promoted.us.us.us.i.i310, %.preheader4886.us.us.us.i.i307 ]
-  %2638 = getelementptr inbounds float, ptr %.130864945.us.us.us.i.i309, i64 %indvars.iv5544.i.i311
+  %2638 = getelementptr inbounds nuw float, ptr %.130864945.us.us.us.i.i309, i64 %indvars.iv5544.i.i311
   %2639 = load float, ptr %2638, align 4
   %2640 = fcmp fast olt float %2639, %2637
   %2641 = select i1 %2640, float %2639, float %2637
@@ -6491,7 +6491,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5548.not.i.i313, label %._crit_edge4944.us.us.us.i.i314, label %2636, !llvm.loop !150
 
 ._crit_edge4944.us.us.us.i.i314:                  ; preds = %2636
-  %2642 = getelementptr inbounds float, ptr %.130864945.us.us.us.i.i309, i64 %2619
+  %2642 = getelementptr inbounds nuw float, ptr %.130864945.us.us.us.i.i309, i64 %2619
   %indvars.iv.next5550.i.i315 = add nuw nsw i64 %indvars.iv5549.i.i308, 1
   %exitcond5553.not.i.i316 = icmp eq i64 %indvars.iv.next5550.i.i315, %wide.trip.count5552.i.i298
   br i1 %exitcond5553.not.i.i316, label %._crit_edge4947.split.us.us.us.i.i317, label %.preheader4886.us.us.us.i.i307, !llvm.loop !151
@@ -6532,7 +6532,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4964.i.i292:                                ; preds = %.lr.ph4964.i.i292, %.lr.ph4964.preheader.i.i291
   %.031664962.i.i293 = phi ptr [ %2653, %.lr.ph4964.i.i292 ], [ %2651, %.lr.ph4964.preheader.i.i291 ]
   %.031674961.i.i294 = phi i32 [ %2654, %.lr.ph4964.i.i292 ], [ 0, %.lr.ph4964.preheader.i.i291 ]
-  %2653 = getelementptr inbounds i8, ptr %.031664962.i.i293, i64 4
+  %2653 = getelementptr inbounds nuw i8, ptr %.031664962.i.i293, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031664962.i.i293, align 4
   %2654 = add nuw nsw i32 %.031674961.i.i294, 1
   %exitcond5560.not.i.i295 = icmp eq i32 %2654, %2649
@@ -6551,8 +6551,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4967.i.i287:                                ; preds = %2655, %.lr.ph4967.i.i287
   %indvars.iv5561.i.i288 = phi i64 [ %indvars.iv.next5562.i.i289, %.lr.ph4967.i.i287 ], [ 0, %2655 ]
   %2662 = load ptr, ptr %2, align 8
-  %2663 = getelementptr inbounds float, ptr %2662, i64 %indvars.iv5561.i.i288
-  %2664 = getelementptr inbounds float, ptr %2661, i64 %indvars.iv5561.i.i288
+  %2663 = getelementptr inbounds nuw float, ptr %2662, i64 %indvars.iv5561.i.i288
+  %2664 = getelementptr inbounds nuw float, ptr %2661, i64 %indvars.iv5561.i.i288
   %2665 = load float, ptr %2664, align 4
   %2666 = load float, ptr %2663, align 4
   %2667 = fcmp fast olt float %2665, %2666
@@ -6586,7 +6586,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2676:                                             ; preds = %2673
   %2677 = load ptr, ptr %2674, align 8
-  %2678 = getelementptr inbounds i8, ptr %2677, i64 24
+  %2678 = getelementptr inbounds nuw i8, ptr %2677, i64 24
   %2679 = load ptr, ptr %2678, align 8
   invoke void %2679(ptr noundef nonnull align 8 dereferenceable(8) %2674, ptr noundef %2675)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2681
@@ -6670,7 +6670,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4974.i.i377:                                ; preds = %2706, %.lr.ph4974.i.i377
   %.031684972.i.i378 = phi ptr [ %2715, %.lr.ph4974.i.i377 ], [ %2697, %2706 ]
   %.031694971.i.i379 = phi i32 [ %2716, %.lr.ph4974.i.i377 ], [ 0, %2706 ]
-  %2715 = getelementptr inbounds i8, ptr %.031684972.i.i378, i64 4
+  %2715 = getelementptr inbounds nuw i8, ptr %.031684972.i.i378, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031684972.i.i378, align 4
   %2716 = add nuw nsw i32 %.031694971.i.i379, 1
   %exitcond5571.not.i.i380 = icmp eq i32 %2716, %2707
@@ -6707,8 +6707,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2730:                                             ; preds = %2730, %.preheader4882.us.us.us.i.i364
   %indvars.iv5572.i.i367 = phi i64 [ %indvars.iv.next5573.i.i368, %2730 ], [ 0, %.preheader4882.us.us.us.i.i364 ]
-  %2731 = getelementptr inbounds float, ptr %2723, i64 %indvars.iv5572.i.i367
-  %2732 = getelementptr inbounds float, ptr %.130784978.us.us.us.i.i366, i64 %indvars.iv5572.i.i367
+  %2731 = getelementptr inbounds nuw float, ptr %2723, i64 %indvars.iv5572.i.i367
+  %2732 = getelementptr inbounds nuw float, ptr %.130784978.us.us.us.i.i366, i64 %indvars.iv5572.i.i367
   %2733 = load float, ptr %2732, align 4
   %2734 = load float, ptr %2731, align 4
   %2735 = fcmp fast olt float %2733, %2734
@@ -6719,7 +6719,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5576.not.i.i369, label %._crit_edge4977.us.us.us.i.i370, label %2730, !llvm.loop !156
 
 ._crit_edge4977.us.us.us.i.i370:                  ; preds = %2730
-  %2737 = getelementptr inbounds float, ptr %.130784978.us.us.us.i.i366, i64 %2714
+  %2737 = getelementptr inbounds nuw float, ptr %.130784978.us.us.us.i.i366, i64 %2714
   %2738 = add nuw nsw i32 %.030754979.us.us.us.i.i365, 1
   %exitcond5577.not.i.i371 = icmp eq i32 %2738, %2398
   br i1 %exitcond5577.not.i.i371, label %._crit_edge4980.split.us.us.us.i.i372, label %.preheader4882.us.us.us.i.i364, !llvm.loop !157
@@ -6760,7 +6760,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4997.i.i350:                                ; preds = %.lr.ph4997.i.i350, %.lr.ph4997.preheader.i.i349
   %.031704995.i.i351 = phi ptr [ %2749, %.lr.ph4997.i.i350 ], [ %2747, %.lr.ph4997.preheader.i.i349 ]
   %.031714994.i.i352 = phi i32 [ %2750, %.lr.ph4997.i.i350 ], [ 0, %.lr.ph4997.preheader.i.i349 ]
-  %2749 = getelementptr inbounds i8, ptr %.031704995.i.i351, i64 4
+  %2749 = getelementptr inbounds nuw i8, ptr %.031704995.i.i351, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031704995.i.i351, align 4
   %2750 = add nuw nsw i32 %.031714994.i.i352, 1
   %exitcond5584.not.i.i353 = icmp eq i32 %2750, %2745
@@ -6779,8 +6779,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5000.i.i345:                                ; preds = %2751, %.lr.ph5000.i.i345
   %indvars.iv5585.i.i346 = phi i64 [ %indvars.iv.next5586.i.i347, %.lr.ph5000.i.i345 ], [ 0, %2751 ]
   %2758 = load ptr, ptr %2, align 8
-  %2759 = getelementptr inbounds float, ptr %2758, i64 %indvars.iv5585.i.i346
-  %2760 = getelementptr inbounds float, ptr %2757, i64 %indvars.iv5585.i.i346
+  %2759 = getelementptr inbounds nuw float, ptr %2758, i64 %indvars.iv5585.i.i346
+  %2760 = getelementptr inbounds nuw float, ptr %2757, i64 %indvars.iv5585.i.i346
   %2761 = load float, ptr %2760, align 4
   %2762 = load float, ptr %2759, align 4
   %2763 = fcmp fast olt float %2761, %2762
@@ -6814,7 +6814,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2772:                                             ; preds = %2769
   %2773 = load ptr, ptr %2770, align 8
-  %2774 = getelementptr inbounds i8, ptr %2773, i64 24
+  %2774 = getelementptr inbounds nuw i8, ptr %2773, i64 24
   %2775 = load ptr, ptr %2774, align 8
   invoke void %2775(ptr noundef nonnull align 8 dereferenceable(8) %2770, ptr noundef %2771)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2777
@@ -6905,7 +6905,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 2814:                                             ; preds = %2814, %.preheader4879.us.i.i397
   %indvars.iv5600.i.i400 = phi i64 [ 0, %.preheader4879.us.i.i397 ], [ %indvars.iv.next5601.i.i402, %2814 ]
   %.048195004.us.i.i401 = phi float [ 0x47EFFFFFE0000000, %.preheader4879.us.i.i397 ], [ %2818, %2814 ]
-  %2815 = getelementptr inbounds float, ptr %.030705009.us.i.i399, i64 %indvars.iv5600.i.i400
+  %2815 = getelementptr inbounds nuw float, ptr %.030705009.us.i.i399, i64 %indvars.iv5600.i.i400
   %2816 = load float, ptr %2815, align 4
   %2817 = fcmp fast olt float %2816, %.048195004.us.i.i401
   %2818 = select i1 %2817, float %2816, float %.048195004.us.i.i401
@@ -6914,16 +6914,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5604.not.i.i403, label %._crit_edge5007.us.i.i404, label %2814, !llvm.loop !162
 
 ._crit_edge5007.us.i.i404:                        ; preds = %2814
-  %2819 = getelementptr inbounds float, ptr %2813, i64 %indvars.iv5605.i.i398
+  %2819 = getelementptr inbounds nuw float, ptr %2813, i64 %indvars.iv5605.i.i398
   store float %2818, ptr %2819, align 4
-  %2820 = getelementptr inbounds float, ptr %.030705009.us.i.i399, i64 %2794
+  %2820 = getelementptr inbounds nuw float, ptr %.030705009.us.i.i399, i64 %2794
   %indvars.iv.next5606.i.i405 = add nuw nsw i64 %indvars.iv5605.i.i398, 1
   %exitcond5609.not.i.i406 = icmp eq i64 %indvars.iv.next5606.i.i405, %wide.trip.count5598.i.i385
   br i1 %exitcond5609.not.i.i406, label %._crit_edge5011.i.i389, label %.preheader4879.us.i.i397, !llvm.loop !163
 
 .preheader4879.i.i393:                            ; preds = %.preheader4879.lr.ph.i.i392, %.preheader4879.i.i393
   %indvars.iv5595.i.i394 = phi i64 [ %indvars.iv.next5596.i.i395, %.preheader4879.i.i393 ], [ 0, %.preheader4879.lr.ph.i.i392 ]
-  %2821 = getelementptr inbounds float, ptr %2813, i64 %indvars.iv5595.i.i394
+  %2821 = getelementptr inbounds nuw float, ptr %2813, i64 %indvars.iv5595.i.i394
   store float 0x47EFFFFFE0000000, ptr %2821, align 4
   %indvars.iv.next5596.i.i395 = add nuw nsw i64 %indvars.iv5595.i.i394, 1
   %exitcond5599.not.i.i396 = icmp eq i64 %indvars.iv.next5596.i.i395, %wide.trip.count5598.i.i385
@@ -7003,7 +7003,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5018.i.i478:                                ; preds = %2845, %.lr.ph5018.i.i478
   %.031725016.i.i479 = phi ptr [ %2854, %.lr.ph5018.i.i478 ], [ %2836, %2845 ]
   %.031735015.i.i480 = phi i32 [ %2855, %.lr.ph5018.i.i478 ], [ 0, %2845 ]
-  %2854 = getelementptr inbounds i8, ptr %.031725016.i.i479, i64 4
+  %2854 = getelementptr inbounds nuw i8, ptr %.031725016.i.i479, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031725016.i.i479, align 4
   %2855 = add nuw nsw i32 %.031735015.i.i480, 1
   %exitcond5615.not.i.i481 = icmp eq i32 %2855, %2846
@@ -7044,14 +7044,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4877.us.us.us.i.i465:                   ; preds = %._crit_edge5021.us.us.us.i.i472, %.preheader4877.lr.ph.us.us.i.i462
   %indvars.iv5621.i.i466 = phi i64 [ %indvars.iv.next5622.i.i473, %._crit_edge5021.us.us.us.i.i472 ], [ 0, %.preheader4877.lr.ph.us.us.i.i462 ]
   %.130655022.us.us.us.i.i467 = phi ptr [ %2881, %._crit_edge5021.us.us.us.i.i472 ], [ %.030645026.us.us.i.i464, %.preheader4877.lr.ph.us.us.i.i462 ]
-  %2874 = getelementptr inbounds float, ptr %2873, i64 %indvars.iv5621.i.i466
+  %2874 = getelementptr inbounds nuw float, ptr %2873, i64 %indvars.iv5621.i.i466
   %.promoted.us.us.us5037.i.i468 = load float, ptr %2874, align 4
   br label %2875
 
 2875:                                             ; preds = %2875, %.preheader4877.us.us.us.i.i465
   %indvars.iv5616.i.i469 = phi i64 [ %indvars.iv.next5617.i.i470, %2875 ], [ 0, %.preheader4877.us.us.us.i.i465 ]
   %2876 = phi float [ %2880, %2875 ], [ %.promoted.us.us.us5037.i.i468, %.preheader4877.us.us.us.i.i465 ]
-  %2877 = getelementptr inbounds float, ptr %.130655022.us.us.us.i.i467, i64 %indvars.iv5616.i.i469
+  %2877 = getelementptr inbounds nuw float, ptr %.130655022.us.us.us.i.i467, i64 %indvars.iv5616.i.i469
   %2878 = load float, ptr %2877, align 4
   %2879 = fcmp fast olt float %2878, %2876
   %2880 = select i1 %2879, float %2878, float %2876
@@ -7061,7 +7061,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5620.not.i.i471, label %._crit_edge5021.us.us.us.i.i472, label %2875, !llvm.loop !165
 
 ._crit_edge5021.us.us.us.i.i472:                  ; preds = %2875
-  %2881 = getelementptr inbounds float, ptr %.130655022.us.us.us.i.i467, i64 %2853
+  %2881 = getelementptr inbounds nuw float, ptr %.130655022.us.us.us.i.i467, i64 %2853
   %indvars.iv.next5622.i.i473 = add nuw nsw i64 %indvars.iv5621.i.i466, 1
   %exitcond5625.not.i.i474 = icmp eq i64 %indvars.iv.next5622.i.i473, %wide.trip.count5624.i.i453
   br i1 %exitcond5625.not.i.i474, label %._crit_edge5024.split.us.us.us.i.i475, label %.preheader4877.us.us.us.i.i465, !llvm.loop !166
@@ -7107,7 +7107,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5044.i.i446:                                ; preds = %.lr.ph5044.i.i446, %.lr.ph5044.preheader.i.i445
   %.031745042.i.i447 = phi ptr [ %2895, %.lr.ph5044.i.i446 ], [ %2889, %.lr.ph5044.preheader.i.i445 ]
   %.031755041.i.i448 = phi i32 [ %2896, %.lr.ph5044.i.i446 ], [ 0, %.lr.ph5044.preheader.i.i445 ]
-  %2895 = getelementptr inbounds i8, ptr %.031745042.i.i447, i64 4
+  %2895 = getelementptr inbounds nuw i8, ptr %.031745042.i.i447, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031745042.i.i447, align 4
   %2896 = add nuw nsw i32 %.031755041.i.i448, 1
   %exitcond5636.not.i.i449 = icmp eq i32 %2896, %2887
@@ -7147,8 +7147,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2916:                                             ; preds = %2916, %.lr.ph5047.us.us.i.i437
   %indvars.iv5647.i.i439 = phi i64 [ 0, %.lr.ph5047.us.us.i.i437 ], [ %indvars.iv.next5648.i.i440, %2916 ]
-  %2917 = getelementptr inbounds float, ptr %2915, i64 %indvars.iv5647.i.i439
-  %2918 = getelementptr inbounds float, ptr %2908, i64 %indvars.iv5647.i.i439
+  %2917 = getelementptr inbounds nuw float, ptr %2915, i64 %indvars.iv5647.i.i439
+  %2918 = getelementptr inbounds nuw float, ptr %2908, i64 %indvars.iv5647.i.i439
   %2919 = load float, ptr %2918, align 4
   %2920 = load float, ptr %2917, align 4
   %2921 = fcmp fast olt float %2919, %2920
@@ -7184,8 +7184,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2935:                                             ; preds = %2935, %.lr.ph5047.us5055.i.i428
   %indvars.iv5637.i.i430 = phi i64 [ 0, %.lr.ph5047.us5055.i.i428 ], [ %indvars.iv.next5638.i.i431, %2935 ]
-  %2936 = getelementptr inbounds float, ptr %2934, i64 %indvars.iv5637.i.i430
-  %2937 = getelementptr inbounds float, ptr %2924, i64 %indvars.iv5637.i.i430
+  %2936 = getelementptr inbounds nuw float, ptr %2934, i64 %indvars.iv5637.i.i430
+  %2937 = getelementptr inbounds nuw float, ptr %2924, i64 %indvars.iv5637.i.i430
   %2938 = load float, ptr %2937, align 4
   %2939 = load float, ptr %2936, align 4
   %2940 = fcmp fast olt float %2938, %2939
@@ -7224,7 +7224,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 2949:                                             ; preds = %2946
   %2950 = load ptr, ptr %2947, align 8
-  %2951 = getelementptr inbounds i8, ptr %2950, i64 24
+  %2951 = getelementptr inbounds nuw i8, ptr %2950, i64 24
   %2952 = load ptr, ptr %2951, align 8
   invoke void %2952(ptr noundef nonnull align 8 dereferenceable(8) %2947, ptr noundef %2948)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %2954
@@ -7309,7 +7309,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5062.i.i541:                                ; preds = %2980, %.lr.ph5062.i.i541
   %.031765060.i.i542 = phi ptr [ %2989, %.lr.ph5062.i.i541 ], [ %2971, %2980 ]
   %.031775059.i.i543 = phi i32 [ %2990, %.lr.ph5062.i.i541 ], [ 0, %2980 ]
-  %2989 = getelementptr inbounds i8, ptr %.031765060.i.i542, i64 4
+  %2989 = getelementptr inbounds nuw i8, ptr %.031765060.i.i542, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031765060.i.i542, align 4
   %2990 = add nuw nsw i32 %.031775059.i.i543, 1
   %exitcond5662.not.i.i544 = icmp eq i32 %2990, %2981
@@ -7354,8 +7354,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3009:                                             ; preds = %3009, %.lr.ph5065.us.us.us.i.i530
   %indvars.iv5663.i.i533 = phi i64 [ %indvars.iv.next5664.i.i534, %3009 ], [ 0, %.lr.ph5065.us.us.us.i.i530 ]
-  %3010 = getelementptr inbounds float, ptr %3008, i64 %indvars.iv5663.i.i533
-  %3011 = getelementptr inbounds float, ptr %.130555067.us.us.us.i.i532, i64 %indvars.iv5663.i.i533
+  %3010 = getelementptr inbounds nuw float, ptr %3008, i64 %indvars.iv5663.i.i533
+  %3011 = getelementptr inbounds nuw float, ptr %.130555067.us.us.us.i.i532, i64 %indvars.iv5663.i.i533
   %3012 = load float, ptr %3011, align 4
   %3013 = load float, ptr %3010, align 4
   %3014 = fcmp fast olt float %3012, %3013
@@ -7366,7 +7366,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5667.not.i.i535, label %._crit_edge5066.us.us.us.i.i536, label %3009, !llvm.loop !172
 
 ._crit_edge5066.us.us.us.i.i536:                  ; preds = %3009
-  %3016 = getelementptr inbounds float, ptr %.130555067.us.us.us.i.i532, i64 %2988
+  %3016 = getelementptr inbounds nuw float, ptr %.130555067.us.us.us.i.i532, i64 %2988
   %indvars.iv.next5669.i.i537 = add nuw nsw i64 %indvars.iv5668.i.i531, 1
   %exitcond5672.not.i.i538 = icmp eq i64 %indvars.iv.next5669.i.i537, %wide.trip.count5671.i.i518
   br i1 %exitcond5672.not.i.i538, label %._crit_edge5070.split.us.us.us.i.i539, label %.lr.ph5065.us.us.us.i.i530, !llvm.loop !173
@@ -7411,7 +7411,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5086.i.i512:                                ; preds = %.lr.ph5086.i.i512, %.lr.ph5086.preheader.i.i511
   %.031785084.i.i513 = phi ptr [ %3030, %.lr.ph5086.i.i512 ], [ %3025, %.lr.ph5086.preheader.i.i511 ]
   %.031795083.i.i514 = phi i32 [ %3031, %.lr.ph5086.i.i512 ], [ 0, %.lr.ph5086.preheader.i.i511 ]
-  %3030 = getelementptr inbounds i8, ptr %.031785084.i.i513, i64 4
+  %3030 = getelementptr inbounds nuw i8, ptr %.031785084.i.i513, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031785084.i.i513, align 4
   %3031 = add nuw nsw i32 %.031795083.i.i514, 1
   %exitcond5679.not.i.i515 = icmp eq i32 %3031, %3023
@@ -7448,8 +7448,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3051:                                             ; preds = %3051, %.lr.ph5089.us.i.i503
   %indvars.iv5680.i.i505 = phi i64 [ 0, %.lr.ph5089.us.i.i503 ], [ %indvars.iv.next5681.i.i506, %3051 ]
-  %3052 = getelementptr inbounds float, ptr %3050, i64 %indvars.iv5680.i.i505
-  %3053 = getelementptr inbounds float, ptr %3043, i64 %indvars.iv5680.i.i505
+  %3052 = getelementptr inbounds nuw float, ptr %3050, i64 %indvars.iv5680.i.i505
+  %3053 = getelementptr inbounds nuw float, ptr %3043, i64 %indvars.iv5680.i.i505
   %3054 = load float, ptr %3053, align 4
   %3055 = load float, ptr %3052, align 4
   %3056 = fcmp fast olt float %3054, %3055
@@ -7488,7 +7488,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3065:                                             ; preds = %3062
   %3066 = load ptr, ptr %3063, align 8
-  %3067 = getelementptr inbounds i8, ptr %3066, i64 24
+  %3067 = getelementptr inbounds nuw i8, ptr %3066, i64 24
   %3068 = load ptr, ptr %3067, align 8
   invoke void %3068(ptr noundef nonnull align 8 dereferenceable(8) %3063, ptr noundef %3064)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %3070
@@ -7581,14 +7581,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4869.us.us.us.i.i565:                   ; preds = %._crit_edge5102.us.us.us.i.i572, %.preheader4870.us.us.i.i562
   %indvars.iv5705.i.i566 = phi i64 [ %indvars.iv.next5706.i.i573, %._crit_edge5102.us.us.us.i.i572 ], [ 0, %.preheader4870.us.us.i.i562 ]
   %.130465103.us.us.us.i.i567 = phi ptr [ %3115, %._crit_edge5102.us.us.us.i.i572 ], [ %.030455107.us.us.i.i564, %.preheader4870.us.us.i.i562 ]
-  %3108 = getelementptr inbounds float, ptr %3107, i64 %indvars.iv5705.i.i566
+  %3108 = getelementptr inbounds nuw float, ptr %3107, i64 %indvars.iv5705.i.i566
   %.promoted.us.us.us5116.i.i568 = load float, ptr %3108, align 4
   br label %3109
 
 3109:                                             ; preds = %3109, %.preheader4869.us.us.us.i.i565
   %indvars.iv5700.i.i569 = phi i64 [ %indvars.iv.next5701.i.i570, %3109 ], [ 0, %.preheader4869.us.us.us.i.i565 ]
   %3110 = phi float [ %3114, %3109 ], [ %.promoted.us.us.us5116.i.i568, %.preheader4869.us.us.us.i.i565 ]
-  %3111 = getelementptr inbounds float, ptr %.130465103.us.us.us.i.i567, i64 %indvars.iv5700.i.i569
+  %3111 = getelementptr inbounds nuw float, ptr %.130465103.us.us.us.i.i567, i64 %indvars.iv5700.i.i569
   %3112 = load float, ptr %3111, align 4
   %3113 = fcmp fast olt float %3112, %3110
   %3114 = select i1 %3113, float %3112, float %3110
@@ -7598,7 +7598,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5704.not.i.i571, label %._crit_edge5102.us.us.us.i.i572, label %3109, !llvm.loop !179
 
 ._crit_edge5102.us.us.us.i.i572:                  ; preds = %3109
-  %3115 = getelementptr inbounds float, ptr %.130465103.us.us.us.i.i567, i64 %3088
+  %3115 = getelementptr inbounds nuw float, ptr %.130465103.us.us.us.i.i567, i64 %3088
   %indvars.iv.next5706.i.i573 = add nuw nsw i64 %indvars.iv5705.i.i566, 1
   %exitcond5709.not.i.i574 = icmp eq i64 %indvars.iv.next5706.i.i573, %wide.trip.count5698.i.i549
   br i1 %exitcond5709.not.i.i574, label %._crit_edge5105.split.us.us.us.i.i575, label %.preheader4869.us.us.us.i.i565, !llvm.loop !180
@@ -7610,7 +7610,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 .lr.ph5099.i.i557:                                ; preds = %3104, %.lr.ph5099.i.i557
   %indvars.iv5695.i.i558 = phi i64 [ %indvars.iv.next5696.i.i559, %.lr.ph5099.i.i557 ], [ 0, %3104 ]
-  %3117 = getelementptr inbounds float, ptr %3107, i64 %indvars.iv5695.i.i558
+  %3117 = getelementptr inbounds nuw float, ptr %3107, i64 %indvars.iv5695.i.i558
   store float 0x47EFFFFFE0000000, ptr %3117, align 4
   %indvars.iv.next5696.i.i559 = add nuw nsw i64 %indvars.iv5695.i.i558, 1
   %exitcond5699.not.i.i560 = icmp eq i64 %indvars.iv.next5696.i.i559, %wide.trip.count5698.i.i549
@@ -7689,7 +7689,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5123.i.i635:                                ; preds = %3141, %.lr.ph5123.i.i635
   %.031805121.i.i636 = phi ptr [ %3150, %.lr.ph5123.i.i635 ], [ %3132, %3141 ]
   %.031815120.i.i637 = phi i32 [ %3151, %.lr.ph5123.i.i635 ], [ 0, %3141 ]
-  %3150 = getelementptr inbounds i8, ptr %.031805121.i.i636, i64 4
+  %3150 = getelementptr inbounds nuw i8, ptr %.031805121.i.i636, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031805121.i.i636, align 4
   %3151 = add nuw nsw i32 %.031815120.i.i637, 1
   %exitcond5716.not.i.i638 = icmp eq i32 %3151, %3142
@@ -7734,8 +7734,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3170:                                             ; preds = %3170, %.preheader4867.us.us.us.i.i624
   %indvars.iv5717.i.i627 = phi i64 [ %indvars.iv.next5718.i.i628, %3170 ], [ 0, %.preheader4867.us.us.us.i.i624 ]
-  %3171 = getelementptr inbounds float, ptr %3169, i64 %indvars.iv5717.i.i627
-  %3172 = getelementptr inbounds float, ptr %.130385127.us.us.us.i.i626, i64 %indvars.iv5717.i.i627
+  %3171 = getelementptr inbounds nuw float, ptr %3169, i64 %indvars.iv5717.i.i627
+  %3172 = getelementptr inbounds nuw float, ptr %.130385127.us.us.us.i.i626, i64 %indvars.iv5717.i.i627
   %3173 = load float, ptr %3172, align 4
   %3174 = load float, ptr %3171, align 4
   %3175 = fcmp fast olt float %3173, %3174
@@ -7746,7 +7746,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5721.not.i.i629, label %._crit_edge5126.us.us.us.i.i630, label %3170, !llvm.loop !184
 
 ._crit_edge5126.us.us.us.i.i630:                  ; preds = %3170
-  %3177 = getelementptr inbounds float, ptr %.130385127.us.us.us.i.i626, i64 %3149
+  %3177 = getelementptr inbounds nuw float, ptr %.130385127.us.us.us.i.i626, i64 %3149
   %3178 = add nuw nsw i32 %.030355128.us.us.us.i.i625, 1
   %exitcond5722.not.i.i631 = icmp eq i32 %3178, %2398
   br i1 %exitcond5722.not.i.i631, label %._crit_edge5129.split.us.us.us.i.i632, label %.preheader4867.us.us.us.i.i624, !llvm.loop !185
@@ -7791,7 +7791,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5148.i.i606:                                ; preds = %.lr.ph5148.i.i606, %.lr.ph5148.preheader.i.i605
   %.031825146.i.i607 = phi ptr [ %3191, %.lr.ph5148.i.i606 ], [ %3186, %.lr.ph5148.preheader.i.i605 ]
   %.031835145.i.i608 = phi i32 [ %3192, %.lr.ph5148.i.i606 ], [ 0, %.lr.ph5148.preheader.i.i605 ]
-  %3191 = getelementptr inbounds i8, ptr %.031825146.i.i607, i64 4
+  %3191 = getelementptr inbounds nuw i8, ptr %.031825146.i.i607, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031825146.i.i607, align 4
   %3192 = add nuw nsw i32 %.031835145.i.i608, 1
   %exitcond5733.not.i.i609 = icmp eq i32 %3192, %3184
@@ -7828,8 +7828,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3212:                                             ; preds = %3212, %.lr.ph5151.us.i.i597
   %indvars.iv5734.i.i599 = phi i64 [ 0, %.lr.ph5151.us.i.i597 ], [ %indvars.iv.next5735.i.i600, %3212 ]
-  %3213 = getelementptr inbounds float, ptr %3211, i64 %indvars.iv5734.i.i599
-  %3214 = getelementptr inbounds float, ptr %3204, i64 %indvars.iv5734.i.i599
+  %3213 = getelementptr inbounds nuw float, ptr %3211, i64 %indvars.iv5734.i.i599
+  %3214 = getelementptr inbounds nuw float, ptr %3204, i64 %indvars.iv5734.i.i599
   %3215 = load float, ptr %3214, align 4
   %3216 = load float, ptr %3213, align 4
   %3217 = fcmp fast olt float %3215, %3216
@@ -7868,7 +7868,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3226:                                             ; preds = %3223
   %3227 = load ptr, ptr %3224, align 8
-  %3228 = getelementptr inbounds i8, ptr %3227, i64 24
+  %3228 = getelementptr inbounds nuw i8, ptr %3227, i64 24
   %3229 = load ptr, ptr %3228, align 8
   invoke void %3229(ptr noundef nonnull align 8 dereferenceable(8) %3224, ptr noundef %3225)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %3231
@@ -7964,8 +7964,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3269:                                             ; preds = %3269, %.preheader4862.us.us.us.i.i655
   %indvars.iv5754.i.i658 = phi i64 [ %indvars.iv.next5755.i.i659, %3269 ], [ 0, %.preheader4862.us.us.us.i.i655 ]
-  %3270 = getelementptr inbounds float, ptr %3268, i64 %indvars.iv5754.i.i658
-  %3271 = getelementptr inbounds float, ptr %.130295165.us.us.us.i.i657, i64 %indvars.iv5754.i.i658
+  %3270 = getelementptr inbounds nuw float, ptr %3268, i64 %indvars.iv5754.i.i658
+  %3271 = getelementptr inbounds nuw float, ptr %.130295165.us.us.us.i.i657, i64 %indvars.iv5754.i.i658
   %3272 = load float, ptr %3271, align 4
   %3273 = load float, ptr %3270, align 4
   %3274 = fcmp fast olt float %3272, %3273
@@ -7976,7 +7976,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5758.not.i.i660, label %._crit_edge5164.us.us.us.i.i661, label %3269, !llvm.loop !191
 
 ._crit_edge5164.us.us.us.i.i661:                  ; preds = %3269
-  %3276 = getelementptr inbounds float, ptr %.130295165.us.us.us.i.i657, i64 %3249
+  %3276 = getelementptr inbounds nuw float, ptr %.130295165.us.us.us.i.i657, i64 %3249
   %3277 = add nuw nsw i32 %.030245166.us.us.us.i.i656, 1
   %exitcond5759.not.i.i662 = icmp eq i32 %3277, %2398
   br i1 %exitcond5759.not.i.i662, label %._crit_edge5167.split.us.us.us.i.i663, label %.preheader4862.us.us.us.i.i655, !llvm.loop !192
@@ -7988,7 +7988,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 .lr.ph5161.i.i647:                                ; preds = %3265, %.lr.ph5161.i.i647
   %indvars.iv5749.i.i648 = phi i64 [ %indvars.iv.next5750.i.i649, %.lr.ph5161.i.i647 ], [ 0, %3265 ]
-  %3279 = getelementptr inbounds float, ptr %3268, i64 %indvars.iv5749.i.i648
+  %3279 = getelementptr inbounds nuw float, ptr %3268, i64 %indvars.iv5749.i.i648
   store float 0x47EFFFFFE0000000, ptr %3279, align 4
   %indvars.iv.next5750.i.i649 = add nuw nsw i64 %indvars.iv5749.i.i648, 1
   %exitcond5753.not.i.i650 = icmp eq i64 %indvars.iv.next5750.i.i649, %wide.trip.count5752.i.i643
@@ -8064,7 +8064,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 3308:                                             ; preds = %3308, %.preheader4860.us.i.i684
   %indvars.iv5771.i.i687 = phi i64 [ 0, %.preheader4860.us.i.i684 ], [ %indvars.iv.next5772.i.i689, %3308 ]
   %.048185181.us.i.i688 = phi float [ 0x47EFFFFFE0000000, %.preheader4860.us.i.i684 ], [ %3312, %3308 ]
-  %3309 = getelementptr inbounds float, ptr %.030215186.us.i.i686, i64 %indvars.iv5771.i.i687
+  %3309 = getelementptr inbounds nuw float, ptr %.030215186.us.i.i686, i64 %indvars.iv5771.i.i687
   %3310 = load float, ptr %3309, align 4
   %3311 = fcmp fast olt float %3310, %.048185181.us.i.i688
   %3312 = select i1 %3311, float %3310, float %.048185181.us.i.i688
@@ -8073,16 +8073,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5775.not.i.i690, label %._crit_edge5184.us.i.i691, label %3308, !llvm.loop !196
 
 ._crit_edge5184.us.i.i691:                        ; preds = %3308
-  %3313 = getelementptr inbounds float, ptr %3301, i64 %indvars.iv5776.i.i685
+  %3313 = getelementptr inbounds nuw float, ptr %3301, i64 %indvars.iv5776.i.i685
   store float %3312, ptr %3313, align 4
-  %3314 = getelementptr inbounds float, ptr %.030215186.us.i.i686, i64 %3294
+  %3314 = getelementptr inbounds nuw float, ptr %.030215186.us.i.i686, i64 %3294
   %indvars.iv.next5777.i.i692 = add nuw nsw i64 %indvars.iv5776.i.i685, 1
   %exitcond5780.not.i.i693 = icmp eq i64 %indvars.iv.next5777.i.i692, %wide.trip.count5769.i.i672
   br i1 %exitcond5780.not.i.i693, label %._crit_edge5188.i.i675, label %.preheader4860.us.i.i684, !llvm.loop !197
 
 .preheader4860.i.i679:                            ; preds = %.preheader4860.lr.ph.i.i678, %.preheader4860.i.i679
   %indvars.iv5766.i.i680 = phi i64 [ %indvars.iv.next5767.i.i681, %.preheader4860.i.i679 ], [ 0, %.preheader4860.lr.ph.i.i678 ]
-  %3315 = getelementptr inbounds float, ptr %3301, i64 %indvars.iv5766.i.i680
+  %3315 = getelementptr inbounds nuw float, ptr %3301, i64 %indvars.iv5766.i.i680
   store float 0x47EFFFFFE0000000, ptr %3315, align 4
   %indvars.iv.next5767.i.i681 = add nuw nsw i64 %indvars.iv5766.i.i680, 1
   %exitcond5770.not.i.i682 = icmp eq i64 %indvars.iv.next5767.i.i681, %wide.trip.count5769.i.i672
@@ -8150,7 +8150,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5195.i.i731:                                ; preds = %.lr.ph5195.i.i731, %.lr.ph5195.preheader.i.i730
   %.031845193.i.i732 = phi ptr [ %3340, %.lr.ph5195.i.i731 ], [ %3330, %.lr.ph5195.preheader.i.i730 ]
   %.031855192.i.i733 = phi i32 [ %3341, %.lr.ph5195.i.i731 ], [ 0, %.lr.ph5195.preheader.i.i730 ]
-  %3340 = getelementptr inbounds i8, ptr %.031845193.i.i732, i64 4
+  %3340 = getelementptr inbounds nuw i8, ptr %.031845193.i.i732, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031845193.i.i732, align 4
   %3341 = add nuw nsw i32 %.031855192.i.i733, 1
   %exitcond5786.not.i.i734 = icmp eq i32 %3341, %3328
@@ -8192,8 +8192,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3359:                                             ; preds = %3359, %.lr.ph5198.us.us.i.us.i714.us
   %indvars.iv5787.i.us.i717.us = phi i64 [ %indvars.iv.next5788.i.us.i718.us, %3359 ], [ 0, %.lr.ph5198.us.us.i.us.i714.us ]
-  %3360 = getelementptr inbounds float, ptr %3358, i64 %indvars.iv5787.i.us.i717.us
-  %3361 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i716.us, i64 %indvars.iv5787.i.us.i717.us
+  %3360 = getelementptr inbounds nuw float, ptr %3358, i64 %indvars.iv5787.i.us.i717.us
+  %3361 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i716.us, i64 %indvars.iv5787.i.us.i717.us
   %3362 = load float, ptr %3361, align 4
   %3363 = load float, ptr %3360, align 4
   %3364 = fcmp fast olt float %3362, %3363
@@ -8204,7 +8204,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5791.not.i.us.i719.us, label %._crit_edge5199.us.us.i.us.i720.us, label %3359, !llvm.loop !199
 
 ._crit_edge5199.us.us.i.us.i720.us:               ; preds = %3359
-  %3366 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i716.us, i64 %3339
+  %3366 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i716.us, i64 %3339
   %indvars.iv.next5793.i.us.i721.us = add nuw nsw i64 %indvars.iv5792.i.us.i715.us, 1
   %exitcond5796.not.i.us.i722.us = icmp eq i64 %indvars.iv.next5793.i.us.i721.us, %wide.trip.count5795.i.i701
   br i1 %exitcond5796.not.i.us.i722.us, label %._crit_edge5204.us.i.loopexit.us.i723.us, label %.lr.ph5198.us.us.i.us.i714.us, !llvm.loop !200
@@ -8239,8 +8239,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3380:                                             ; preds = %3380, %.lr.ph5198.us.us.i.us.i714
   %indvars.iv5787.i.us.i717 = phi i64 [ %indvars.iv.next5788.i.us.i718, %3380 ], [ 0, %.lr.ph5198.us.us.i.us.i714 ]
-  %3381 = getelementptr inbounds float, ptr %3379, i64 %indvars.iv5787.i.us.i717
-  %3382 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i716, i64 %indvars.iv5787.i.us.i717
+  %3381 = getelementptr inbounds nuw float, ptr %3379, i64 %indvars.iv5787.i.us.i717
+  %3382 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i716, i64 %indvars.iv5787.i.us.i717
   %3383 = load float, ptr %3382, align 4
   %3384 = load float, ptr %3381, align 4
   %3385 = fcmp fast olt float %3383, %3384
@@ -8251,7 +8251,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5791.not.i.us.i719, label %._crit_edge5199.us.us.i.us.i720, label %3380, !llvm.loop !199
 
 ._crit_edge5199.us.us.i.us.i720:                  ; preds = %3380
-  %3387 = getelementptr inbounds float, ptr %.130175200.us.us.i.us.i716, i64 %3339
+  %3387 = getelementptr inbounds nuw float, ptr %.130175200.us.us.i.us.i716, i64 %3339
   %indvars.iv.next5793.i.us.i721 = add nuw nsw i64 %indvars.iv5792.i.us.i715, 1
   %exitcond5796.not.i.us.i722 = icmp eq i64 %indvars.iv.next5793.i.us.i721, %wide.trip.count5795.i.i701
   br i1 %exitcond5796.not.i.us.i722, label %._crit_edge5204.us.i.loopexit.us.i723, label %.lr.ph5198.us.us.i.us.i714, !llvm.loop !200
@@ -8359,8 +8359,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3438:                                             ; preds = %3438, %.preheader4855.us.us.us.i.i752
   %indvars.iv5809.i.i755 = phi i64 [ %indvars.iv.next5810.i.i756, %3438 ], [ 0, %.preheader4855.us.us.us.i.i752 ]
-  %3439 = getelementptr inbounds float, ptr %3437, i64 %indvars.iv5809.i.i755
-  %3440 = getelementptr inbounds float, ptr %.130115226.us.us.us.i.i754, i64 %indvars.iv5809.i.i755
+  %3439 = getelementptr inbounds nuw float, ptr %3437, i64 %indvars.iv5809.i.i755
+  %3440 = getelementptr inbounds nuw float, ptr %.130115226.us.us.us.i.i754, i64 %indvars.iv5809.i.i755
   %3441 = load float, ptr %3440, align 4
   %3442 = load float, ptr %3439, align 4
   %3443 = fcmp fast olt float %3441, %3442
@@ -8371,7 +8371,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5813.not.i.i757, label %._crit_edge5225.us.us.us.i.i758, label %3438, !llvm.loop !203
 
 ._crit_edge5225.us.us.us.i.i758:                  ; preds = %3438
-  %3445 = getelementptr inbounds float, ptr %.130115226.us.us.us.i.i754, i64 %3406
+  %3445 = getelementptr inbounds nuw float, ptr %.130115226.us.us.us.i.i754, i64 %3406
   %3446 = add nuw nsw i32 %.030085227.us.us.us.i.i753, 1
   %exitcond5814.not.i.i759 = icmp eq i32 %3446, %2398
   br i1 %exitcond5814.not.i.i759, label %._crit_edge5228.split.us.us.us.i.i760, label %.preheader4855.us.us.us.i.i752, !llvm.loop !204
@@ -8384,7 +8384,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5222.i.i763:                                ; preds = %3407, %.lr.ph5222.i.i763
   %.031865220.i.i764 = phi ptr [ %3447, %.lr.ph5222.i.i763 ], [ %3422, %3407 ]
   %.031875219.i.i765 = phi i32 [ %3448, %.lr.ph5222.i.i763 ], [ 0, %3407 ]
-  %3447 = getelementptr inbounds i8, ptr %.031865220.i.i764, i64 4
+  %3447 = getelementptr inbounds nuw i8, ptr %.031865220.i.i764, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031865220.i.i764, align 4
   %3448 = add nuw nsw i32 %.031875219.i.i765, 1
   %exitcond5807.not.i.i766 = icmp eq i32 %3448, %3433
@@ -8488,8 +8488,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3499:                                             ; preds = %3499, %.lr.ph5250.us.us.us.i.i784
   %indvars.iv5827.i.i787 = phi i64 [ %indvars.iv.next5828.i.i788, %3499 ], [ 0, %.lr.ph5250.us.us.us.i.i784 ]
-  %3500 = getelementptr inbounds float, ptr %3498, i64 %indvars.iv5827.i.i787
-  %3501 = getelementptr inbounds float, ptr %.15252.us.us.us.i.i786, i64 %indvars.iv5827.i.i787
+  %3500 = getelementptr inbounds nuw float, ptr %3498, i64 %indvars.iv5827.i.i787
+  %3501 = getelementptr inbounds nuw float, ptr %.15252.us.us.us.i.i786, i64 %indvars.iv5827.i.i787
   %3502 = load float, ptr %3501, align 4
   %3503 = load float, ptr %3500, align 4
   %3504 = fcmp fast olt float %3502, %3503
@@ -8500,7 +8500,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5831.not.i.i789, label %._crit_edge5251.us.us.us.i.i790, label %3499, !llvm.loop !207
 
 ._crit_edge5251.us.us.us.i.i790:                  ; preds = %3499
-  %3506 = getelementptr inbounds float, ptr %.15252.us.us.us.i.i786, i64 %3467
+  %3506 = getelementptr inbounds nuw float, ptr %.15252.us.us.us.i.i786, i64 %3467
   %indvars.iv.next5833.i.i791 = add nuw nsw i64 %indvars.iv5832.i.i785, 1
   %exitcond5836.not.i.i792 = icmp eq i64 %indvars.iv.next5833.i.i791, %wide.trip.count5835.i.i771
   br i1 %exitcond5836.not.i.i792, label %._crit_edge5255.split.us.us.us.i.i793, label %.lr.ph5250.us.us.us.i.i784, !llvm.loop !208
@@ -8513,7 +8513,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_maxIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5247.i.i795:                                ; preds = %3468, %.lr.ph5247.i.i795
   %.031885245.i.i796 = phi ptr [ %3508, %.lr.ph5247.i.i795 ], [ %3483, %3468 ]
   %.031895244.i.i797 = phi i32 [ %3509, %.lr.ph5247.i.i795 ], [ 0, %3468 ]
-  %3508 = getelementptr inbounds i8, ptr %.031885245.i.i796, i64 4
+  %3508 = getelementptr inbounds nuw i8, ptr %.031885245.i.i796, i64 4
   store float 0x47EFFFFFE0000000, ptr %.031885245.i.i796, align 4
   %3509 = add nuw nsw i32 %.031895244.i.i797, 1
   %exitcond5825.not.i.i798 = icmp eq i32 %3509, %3494
@@ -8612,7 +8612,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5145.i.i:                                   ; preds = %.lr.ph5145.i.i, %.lr.ph5145.preheader.i.i
   %indvars.iv5740.i.i = phi i64 [ 0, %.lr.ph5145.preheader.i.i ], [ %indvars.iv.next5741.i.i, %.lr.ph5145.i.i ]
   %.045705142.i.i = phi float [ 1.000000e+00, %.lr.ph5145.preheader.i.i ], [ %3531, %.lr.ph5145.i.i ]
-  %3529 = getelementptr inbounds float, ptr %3527, i64 %indvars.iv5740.i.i
+  %3529 = getelementptr inbounds nuw float, ptr %3527, i64 %indvars.iv5740.i.i
   %3530 = load float, ptr %3529, align 4
   %3531 = fmul fast float %3530, %.045705142.i.i
   %indvars.iv.next5741.i.i = add nuw nsw i64 %indvars.iv5740.i.i, 1
@@ -8700,7 +8700,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5113.i.i:                                   ; preds = %3561, %.lr.ph5113.i.i
   %indvars.iv5704.i.i = phi i64 [ %indvars.iv.next5705.i.i, %.lr.ph5113.i.i ], [ 0, %3561 ]
   %.045695110.i.i = phi float [ %3571, %.lr.ph5113.i.i ], [ 1.000000e+00, %3561 ]
-  %3569 = getelementptr inbounds float, ptr %3568, i64 %indvars.iv5704.i.i
+  %3569 = getelementptr inbounds nuw float, ptr %3568, i64 %indvars.iv5704.i.i
   %3570 = load float, ptr %3569, align 4
   %3571 = fmul fast float %3570, %.045695110.i.i
   %indvars.iv.next5705.i.i = add nuw nsw i64 %indvars.iv5704.i.i, 1
@@ -8710,7 +8710,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5114.i.i:                              ; preds = %.lr.ph5113.i.i, %3561
   %.04569.lcssa.i.i = phi float [ 1.000000e+00, %3561 ], [ %3571, %.lr.ph5113.i.i ]
   %3572 = load ptr, ptr %16, align 8
-  %3573 = getelementptr inbounds float, ptr %3572, i64 %indvars.iv5709.i.i
+  %3573 = getelementptr inbounds nuw float, ptr %3572, i64 %indvars.iv5709.i.i
   store float %.04569.lcssa.i.i, ptr %3573, align 4
   %indvars.iv.next5710.i.i = add nuw nsw i64 %indvars.iv5709.i.i, 1
   %exitcond5713.not.i.i = icmp eq i64 %indvars.iv.next5710.i.i, %wide.trip.count5712.i.i
@@ -8719,7 +8719,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 3574:                                             ; preds = %3574, %.preheader4572.i.i
   %indvars.iv5714.i.i = phi i64 [ 0, %.preheader4572.i.i ], [ %indvars.iv.next5715.i.i, %3574 ]
   %.045685118.i.i = phi float [ 1.000000e+00, %.preheader4572.i.i ], [ %3577, %3574 ]
-  %3575 = getelementptr inbounds float, ptr %3560, i64 %indvars.iv5714.i.i
+  %3575 = getelementptr inbounds nuw float, ptr %3560, i64 %indvars.iv5714.i.i
   %3576 = load float, ptr %3575, align 4
   %3577 = fmul fast float %3576, %.045685118.i.i
   %indvars.iv.next5715.i.i = add nuw nsw i64 %indvars.iv5714.i.i, 1
@@ -8751,7 +8751,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3586:                                             ; preds = %3583
   %3587 = load ptr, ptr %3584, align 8
-  %3588 = getelementptr inbounds i8, ptr %3587, i64 24
+  %3588 = getelementptr inbounds nuw i8, ptr %3587, i64 24
   %3589 = load ptr, ptr %3588, align 8
   invoke void %3589(ptr noundef nonnull align 8 dereferenceable(8) %3584, ptr noundef %3585)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %3591
@@ -8809,7 +8809,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5126.i.i:                                   ; preds = %3603, %.lr.ph5126.i.i
   %indvars.iv5719.i.i = phi i64 [ %indvars.iv.next5720.i.i, %.lr.ph5126.i.i ], [ 0, %3603 ]
   %.045675123.i.i = phi float [ %3613, %.lr.ph5126.i.i ], [ 1.000000e+00, %3603 ]
-  %3611 = getelementptr inbounds float, ptr %3610, i64 %indvars.iv5719.i.i
+  %3611 = getelementptr inbounds nuw float, ptr %3610, i64 %indvars.iv5719.i.i
   %3612 = load float, ptr %3611, align 4
   %3613 = fmul fast float %3612, %.045675123.i.i
   %indvars.iv.next5720.i.i = add nuw nsw i64 %indvars.iv5719.i.i, 1
@@ -8819,7 +8819,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5127.i.i:                              ; preds = %.lr.ph5126.i.i, %3603
   %.04567.lcssa.i.i = phi float [ 1.000000e+00, %3603 ], [ %3613, %.lr.ph5126.i.i ]
   %3614 = load ptr, ptr %2, align 8
-  %3615 = getelementptr inbounds float, ptr %3614, i64 %indvars.iv5724.i.i
+  %3615 = getelementptr inbounds nuw float, ptr %3614, i64 %indvars.iv5724.i.i
   store float %.04567.lcssa.i.i, ptr %3615, align 4
   %indvars.iv.next5725.i.i = add nuw nsw i64 %indvars.iv5724.i.i, 1
   %exitcond5728.not.i.i = icmp eq i64 %indvars.iv.next5725.i.i, %wide.trip.count5727.i.i
@@ -8870,7 +8870,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5135.i.i:                                   ; preds = %.lr.ph5135.i.i, %.lr.ph5135.preheader.i.i
   %.030145133.i.i = phi ptr [ %3633, %.lr.ph5135.i.i ], [ %3630, %.lr.ph5135.preheader.i.i ]
   %.030155132.i.i = phi i32 [ %3634, %.lr.ph5135.i.i ], [ 0, %.lr.ph5135.preheader.i.i ]
-  %3633 = getelementptr inbounds i8, ptr %.030145133.i.i, i64 4
+  %3633 = getelementptr inbounds nuw i8, ptr %.030145133.i.i, i64 4
   store float 1.000000e+00, ptr %.030145133.i.i, align 4
   %3634 = add nuw nsw i32 %.030155132.i.i, 1
   %exitcond5729.not.i.i = icmp eq i32 %3634, %3628
@@ -8890,8 +8890,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5138.i.i:                                   ; preds = %3635, %.lr.ph5138.i.i
   %indvars.iv5730.i.i = phi i64 [ %indvars.iv.next5731.i.i, %.lr.ph5138.i.i ], [ 0, %3635 ]
   %3643 = load ptr, ptr %2, align 8
-  %3644 = getelementptr inbounds float, ptr %3643, i64 %indvars.iv5730.i.i
-  %3645 = getelementptr inbounds float, ptr %3642, i64 %indvars.iv5730.i.i
+  %3644 = getelementptr inbounds nuw float, ptr %3643, i64 %indvars.iv5730.i.i
+  %3645 = getelementptr inbounds nuw float, ptr %3642, i64 %indvars.iv5730.i.i
   %3646 = load float, ptr %3644, align 4
   %3647 = load float, ptr %3645, align 4
   %3648 = fmul fast float %3647, %3646
@@ -8985,7 +8985,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5010.i.i:                                   ; preds = %3681, %.lr.ph5010.i.i
   %indvars.iv5581.i.i = phi i64 [ %indvars.iv.next5582.i.i, %.lr.ph5010.i.i ], [ 0, %3681 ]
   %.045665007.i.i = phi float [ %3690, %.lr.ph5010.i.i ], [ 1.000000e+00, %3681 ]
-  %3688 = getelementptr inbounds float, ptr %3687, i64 %indvars.iv5581.i.i
+  %3688 = getelementptr inbounds nuw float, ptr %3687, i64 %indvars.iv5581.i.i
   %3689 = load float, ptr %3688, align 4
   %3690 = fmul fast float %3689, %.045665007.i.i
   %indvars.iv.next5582.i.i = add nuw nsw i64 %indvars.iv5581.i.i, 1
@@ -8995,7 +8995,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5011.i.i1120:                          ; preds = %.lr.ph5010.i.i, %3681
   %.04566.lcssa.i.i = phi float [ 1.000000e+00, %3681 ], [ %3690, %.lr.ph5010.i.i ]
   %3691 = load ptr, ptr %17, align 8
-  %3692 = getelementptr inbounds float, ptr %3691, i64 %indvars.iv5586.i.i
+  %3692 = getelementptr inbounds nuw float, ptr %3691, i64 %indvars.iv5586.i.i
   store float %.04566.lcssa.i.i, ptr %3692, align 4
   %indvars.iv.next5587.i.i = add nuw nsw i64 %indvars.iv5586.i.i, 1
   %exitcond5590.not.i.i = icmp eq i64 %indvars.iv.next5587.i.i, %wide.trip.count5589.i.i
@@ -9004,7 +9004,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 3693:                                             ; preds = %3693, %.preheader4588.i.i
   %indvars.iv5591.i.i = phi i64 [ 0, %.preheader4588.i.i ], [ %indvars.iv.next5592.i.i, %3693 ]
   %.045655015.i.i = phi float [ 1.000000e+00, %.preheader4588.i.i ], [ %3696, %3693 ]
-  %3694 = getelementptr inbounds float, ptr %3680, i64 %indvars.iv5591.i.i
+  %3694 = getelementptr inbounds nuw float, ptr %3680, i64 %indvars.iv5591.i.i
   %3695 = load float, ptr %3694, align 4
   %3696 = fmul fast float %3695, %.045655015.i.i
   %indvars.iv.next5592.i.i = add nuw nsw i64 %indvars.iv5591.i.i, 1
@@ -9036,7 +9036,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3705:                                             ; preds = %3702
   %3706 = load ptr, ptr %3703, align 8
-  %3707 = getelementptr inbounds i8, ptr %3706, i64 24
+  %3707 = getelementptr inbounds nuw i8, ptr %3706, i64 24
   %3708 = load ptr, ptr %3707, align 8
   invoke void %3708(ptr noundef nonnull align 8 dereferenceable(8) %3703, ptr noundef %3704)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %3710
@@ -9096,7 +9096,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5023.i.i:                                   ; preds = %3725, %.lr.ph5023.i.i
   %indvars.iv5596.i.i = phi i64 [ %indvars.iv.next5597.i.i, %.lr.ph5023.i.i ], [ 0, %3725 ]
   %.045645020.i.i = phi float [ %3734, %.lr.ph5023.i.i ], [ 1.000000e+00, %3725 ]
-  %3732 = getelementptr inbounds float, ptr %3731, i64 %indvars.iv5596.i.i
+  %3732 = getelementptr inbounds nuw float, ptr %3731, i64 %indvars.iv5596.i.i
   %3733 = load float, ptr %3732, align 4
   %3734 = fmul fast float %3733, %.045645020.i.i
   %indvars.iv.next5597.i.i = add nuw nsw i64 %indvars.iv5596.i.i, 1
@@ -9118,7 +9118,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br label %3744
 
 3742:                                             ; preds = %._crit_edge5024.i.i
-  %3743 = getelementptr inbounds float, ptr %3735, i64 %indvars.iv5601.i.i
+  %3743 = getelementptr inbounds nuw float, ptr %3735, i64 %indvars.iv5601.i.i
   store float %.04564.lcssa.i.i, ptr %3743, align 4
   br label %3744
 
@@ -9192,7 +9192,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5032.i.i:                                   ; preds = %3767, %.lr.ph5032.i.i
   %.030165030.i.i = phi ptr [ %3775, %.lr.ph5032.i.i ], [ %3758, %3767 ]
   %.030175029.i.i = phi i32 [ %3776, %.lr.ph5032.i.i ], [ 0, %3767 ]
-  %3775 = getelementptr inbounds i8, ptr %.030165030.i.i, i64 4
+  %3775 = getelementptr inbounds nuw i8, ptr %.030165030.i.i, i64 4
   store float 1.000000e+00, ptr %.030165030.i.i, align 4
   %3776 = add nuw nsw i32 %.030175029.i.i, 1
   %exitcond5606.not.i.i = icmp eq i32 %3776, %3768
@@ -9228,7 +9228,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 3790:                                             ; preds = %3790, %.preheader4585.us.i.i
   %indvars.iv5612.i.i = phi i64 [ 0, %.preheader4585.us.i.i ], [ %indvars.iv.next5613.i.i, %3790 ]
   %.045635033.us.i.i = phi float [ 1.000000e+00, %.preheader4585.us.i.i ], [ %3793, %3790 ]
-  %3791 = getelementptr inbounds float, ptr %.029995038.us.i.i, i64 %indvars.iv5612.i.i
+  %3791 = getelementptr inbounds nuw float, ptr %.029995038.us.i.i, i64 %indvars.iv5612.i.i
   %3792 = load float, ptr %3791, align 4
   %3793 = fmul fast float %3792, %.045635033.us.i.i
   %indvars.iv.next5613.i.i = add nuw nsw i64 %indvars.iv5612.i.i, 1
@@ -9236,16 +9236,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5616.not.i.i, label %._crit_edge5036.us.i.i, label %3790, !llvm.loop !224
 
 ._crit_edge5036.us.i.i:                           ; preds = %3790
-  %3794 = getelementptr inbounds float, ptr %3783, i64 %indvars.iv5617.i.i
+  %3794 = getelementptr inbounds nuw float, ptr %3783, i64 %indvars.iv5617.i.i
   store float %3793, ptr %3794, align 4
-  %3795 = getelementptr inbounds float, ptr %.029995038.us.i.i, i64 %3774
+  %3795 = getelementptr inbounds nuw float, ptr %.029995038.us.i.i, i64 %3774
   %indvars.iv.next5618.i.i = add nuw nsw i64 %indvars.iv5617.i.i, 1
   %exitcond5621.not.i.i = icmp eq i64 %indvars.iv.next5618.i.i, %wide.trip.count5610.i.i
   br i1 %exitcond5621.not.i.i, label %._crit_edge5040.i.i1122, label %.preheader4585.us.i.i, !llvm.loop !225
 
 .preheader4585.i.i:                               ; preds = %.preheader4585.lr.ph.i.i, %.preheader4585.i.i
   %indvars.iv5607.i.i = phi i64 [ %indvars.iv.next5608.i.i, %.preheader4585.i.i ], [ 0, %.preheader4585.lr.ph.i.i ]
-  %3796 = getelementptr inbounds float, ptr %3783, i64 %indvars.iv5607.i.i
+  %3796 = getelementptr inbounds nuw float, ptr %3783, i64 %indvars.iv5607.i.i
   store float 1.000000e+00, ptr %3796, align 4
   %indvars.iv.next5608.i.i = add nuw nsw i64 %indvars.iv5607.i.i, 1
   %exitcond5611.not.i.i = icmp eq i64 %indvars.iv.next5608.i.i, %wide.trip.count5610.i.i
@@ -9282,7 +9282,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5047.i.i:                                   ; preds = %.lr.ph5047.i.i, %.lr.ph5047.preheader.i.i
   %.030185045.i.i = phi ptr [ %3806, %.lr.ph5047.i.i ], [ %3804, %.lr.ph5047.preheader.i.i ]
   %.030195044.i.i = phi i32 [ %3807, %.lr.ph5047.i.i ], [ 0, %.lr.ph5047.preheader.i.i ]
-  %3806 = getelementptr inbounds i8, ptr %.030185045.i.i, i64 4
+  %3806 = getelementptr inbounds nuw i8, ptr %.030185045.i.i, i64 4
   store float 1.000000e+00, ptr %.030185045.i.i, align 4
   %3807 = add nuw nsw i32 %.030195044.i.i, 1
   %exitcond5627.not.i.i = icmp eq i32 %3807, %3802
@@ -9301,8 +9301,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5050.i.i:                                   ; preds = %3808, %.lr.ph5050.i.i
   %indvars.iv5628.i.i = phi i64 [ %indvars.iv.next5629.i.i, %.lr.ph5050.i.i ], [ 0, %3808 ]
   %3815 = load ptr, ptr %2, align 8
-  %3816 = getelementptr inbounds float, ptr %3815, i64 %indvars.iv5628.i.i
-  %3817 = getelementptr inbounds float, ptr %3814, i64 %indvars.iv5628.i.i
+  %3816 = getelementptr inbounds nuw float, ptr %3815, i64 %indvars.iv5628.i.i
+  %3817 = getelementptr inbounds nuw float, ptr %3814, i64 %indvars.iv5628.i.i
   %3818 = load float, ptr %3816, align 4
   %3819 = load float, ptr %3817, align 4
   %3820 = fmul fast float %3819, %3818
@@ -9335,7 +9335,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3828:                                             ; preds = %3825
   %3829 = load ptr, ptr %3826, align 8
-  %3830 = getelementptr inbounds i8, ptr %3829, i64 24
+  %3830 = getelementptr inbounds nuw i8, ptr %3829, i64 24
   %3831 = load ptr, ptr %3830, align 8
   invoke void %3831(ptr noundef nonnull align 8 dereferenceable(8) %3826, ptr noundef %3827)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %3833
@@ -9416,7 +9416,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5057.i.i:                                   ; preds = %3858, %.lr.ph5057.i.i
   %.030205055.i.i = phi ptr [ %3866, %.lr.ph5057.i.i ], [ %3849, %3858 ]
   %.030215054.i.i = phi i32 [ %3867, %.lr.ph5057.i.i ], [ 0, %3858 ]
-  %3866 = getelementptr inbounds i8, ptr %.030205055.i.i, i64 4
+  %3866 = getelementptr inbounds nuw i8, ptr %.030205055.i.i, i64 4
   store float 1.000000e+00, ptr %.030205055.i.i, align 4
   %3867 = add nuw nsw i32 %.030215054.i.i, 1
   %exitcond5638.not.i.i = icmp eq i32 %3867, %3859
@@ -9448,8 +9448,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3881:                                             ; preds = %3881, %.preheader4582.us.i.i
   %indvars.iv5639.i.i = phi i64 [ 0, %.preheader4582.us.i.i ], [ %indvars.iv.next5640.i.i, %3881 ]
-  %3882 = getelementptr inbounds float, ptr %3874, i64 %indvars.iv5639.i.i
-  %3883 = getelementptr inbounds float, ptr %.029935061.us.i.i, i64 %indvars.iv5639.i.i
+  %3882 = getelementptr inbounds nuw float, ptr %3874, i64 %indvars.iv5639.i.i
+  %3883 = getelementptr inbounds nuw float, ptr %.029935061.us.i.i, i64 %indvars.iv5639.i.i
   %3884 = load float, ptr %3882, align 4
   %3885 = load float, ptr %3883, align 4
   %3886 = fmul fast float %3885, %3884
@@ -9459,7 +9459,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5643.not.i.i, label %._crit_edge5060.us.i.i, label %3881, !llvm.loop !229
 
 ._crit_edge5060.us.i.i:                           ; preds = %3881
-  %3887 = getelementptr inbounds float, ptr %.029935061.us.i.i, i64 %3865
+  %3887 = getelementptr inbounds nuw float, ptr %.029935061.us.i.i, i64 %3865
   %3888 = add nuw nsw i32 %.029925062.us.i.i, 1
   %exitcond5644.not.i.i = icmp eq i32 %3888, %3653
   br i1 %exitcond5644.not.i.i, label %._crit_edge5063.i.i, label %.preheader4582.us.i.i, !llvm.loop !230
@@ -9495,7 +9495,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5070.i.i:                                   ; preds = %.lr.ph5070.i.i, %.lr.ph5070.preheader.i.i
   %.030225068.i.i = phi ptr [ %3898, %.lr.ph5070.i.i ], [ %3896, %.lr.ph5070.preheader.i.i ]
   %.030235067.i.i = phi i32 [ %3899, %.lr.ph5070.i.i ], [ 0, %.lr.ph5070.preheader.i.i ]
-  %3898 = getelementptr inbounds i8, ptr %.030225068.i.i, i64 4
+  %3898 = getelementptr inbounds nuw i8, ptr %.030225068.i.i, i64 4
   store float 1.000000e+00, ptr %.030225068.i.i, align 4
   %3899 = add nuw nsw i32 %.030235067.i.i, 1
   %exitcond5650.not.i.i = icmp eq i32 %3899, %3894
@@ -9514,8 +9514,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5073.i.i:                                   ; preds = %3900, %.lr.ph5073.i.i
   %indvars.iv5651.i.i = phi i64 [ %indvars.iv.next5652.i.i, %.lr.ph5073.i.i ], [ 0, %3900 ]
   %3907 = load ptr, ptr %2, align 8
-  %3908 = getelementptr inbounds float, ptr %3907, i64 %indvars.iv5651.i.i
-  %3909 = getelementptr inbounds float, ptr %3906, i64 %indvars.iv5651.i.i
+  %3908 = getelementptr inbounds nuw float, ptr %3907, i64 %indvars.iv5651.i.i
+  %3909 = getelementptr inbounds nuw float, ptr %3906, i64 %indvars.iv5651.i.i
   %3910 = load float, ptr %3908, align 4
   %3911 = load float, ptr %3909, align 4
   %3912 = fmul fast float %3911, %3910
@@ -9548,7 +9548,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 3920:                                             ; preds = %3917
   %3921 = load ptr, ptr %3918, align 8
-  %3922 = getelementptr inbounds i8, ptr %3921, i64 24
+  %3922 = getelementptr inbounds nuw i8, ptr %3921, i64 24
   %3923 = load ptr, ptr %3922, align 8
   invoke void %3923(ptr noundef nonnull align 8 dereferenceable(8) %3918, ptr noundef %3919)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %3925
@@ -9639,7 +9639,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 3962:                                             ; preds = %3962, %.preheader4579.us.i.i
   %indvars.iv5666.i.i = phi i64 [ 0, %.preheader4579.us.i.i ], [ %indvars.iv.next5667.i.i, %3962 ]
   %.045625077.us.i.i = phi float [ 1.000000e+00, %.preheader4579.us.i.i ], [ %3965, %3962 ]
-  %3963 = getelementptr inbounds float, ptr %.029875082.us.i.i, i64 %indvars.iv5666.i.i
+  %3963 = getelementptr inbounds nuw float, ptr %.029875082.us.i.i, i64 %indvars.iv5666.i.i
   %3964 = load float, ptr %3963, align 4
   %3965 = fmul fast float %3964, %.045625077.us.i.i
   %indvars.iv.next5667.i.i = add nuw nsw i64 %indvars.iv5666.i.i, 1
@@ -9647,16 +9647,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5670.not.i.i, label %._crit_edge5080.us.i.i, label %3962, !llvm.loop !234
 
 ._crit_edge5080.us.i.i:                           ; preds = %3962
-  %3966 = getelementptr inbounds float, ptr %3961, i64 %indvars.iv5671.i.i
+  %3966 = getelementptr inbounds nuw float, ptr %3961, i64 %indvars.iv5671.i.i
   store float %3965, ptr %3966, align 4
-  %3967 = getelementptr inbounds float, ptr %.029875082.us.i.i, i64 %3942
+  %3967 = getelementptr inbounds nuw float, ptr %.029875082.us.i.i, i64 %3942
   %indvars.iv.next5672.i.i = add nuw nsw i64 %indvars.iv5671.i.i, 1
   %exitcond5675.not.i.i = icmp eq i64 %indvars.iv.next5672.i.i, %wide.trip.count5664.i.i
   br i1 %exitcond5675.not.i.i, label %._crit_edge5084.i.i, label %.preheader4579.us.i.i, !llvm.loop !235
 
 .preheader4579.i.i:                               ; preds = %.preheader4579.lr.ph.i.i, %.preheader4579.i.i
   %indvars.iv5661.i.i = phi i64 [ %indvars.iv.next5662.i.i, %.preheader4579.i.i ], [ 0, %.preheader4579.lr.ph.i.i ]
-  %3968 = getelementptr inbounds float, ptr %3961, i64 %indvars.iv5661.i.i
+  %3968 = getelementptr inbounds nuw float, ptr %3961, i64 %indvars.iv5661.i.i
   store float 1.000000e+00, ptr %3968, align 4
   %indvars.iv.next5662.i.i = add nuw nsw i64 %indvars.iv5661.i.i, 1
   %exitcond5665.not.i.i = icmp eq i64 %indvars.iv.next5662.i.i, %wide.trip.count5664.i.i
@@ -9714,7 +9714,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5091.i.i:                                   ; preds = %.lr.ph5091.i.i, %.lr.ph5091.preheader.i.i
   %.030245089.i.i = phi ptr [ %3987, %.lr.ph5091.i.i ], [ %3983, %.lr.ph5091.preheader.i.i ]
   %.030275088.i.i = phi i32 [ %3988, %.lr.ph5091.i.i ], [ 0, %.lr.ph5091.preheader.i.i ]
-  %3987 = getelementptr inbounds i8, ptr %.030245089.i.i, i64 4
+  %3987 = getelementptr inbounds nuw i8, ptr %.030245089.i.i, i64 4
   store float 1.000000e+00, ptr %.030245089.i.i, align 4
   %3988 = add nuw nsw i32 %.030275088.i.i, 1
   %exitcond5681.not.i.i = icmp eq i32 %3988, %3981
@@ -9733,8 +9733,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5094.i.i:                                   ; preds = %3989, %.lr.ph5094.i.i
   %indvars.iv5682.i.i = phi i64 [ %indvars.iv.next5683.i.i, %.lr.ph5094.i.i ], [ 0, %3989 ]
   %3996 = load ptr, ptr %2, align 8
-  %3997 = getelementptr inbounds float, ptr %3996, i64 %indvars.iv5682.i.i
-  %3998 = getelementptr inbounds float, ptr %3995, i64 %indvars.iv5682.i.i
+  %3997 = getelementptr inbounds nuw float, ptr %3996, i64 %indvars.iv5682.i.i
+  %3998 = getelementptr inbounds nuw float, ptr %3995, i64 %indvars.iv5682.i.i
   %3999 = load float, ptr %3997, align 4
   %4000 = load float, ptr %3998, align 4
   %4001 = fmul fast float %4000, %3999
@@ -9799,7 +9799,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5101.i.i:                                   ; preds = %.lr.ph5101.i.i, %.lr.ph5101.preheader.i.i
   %.030285099.i.i = phi ptr [ %4024, %.lr.ph5101.i.i ], [ %4016, %.lr.ph5101.preheader.i.i ]
   %.030295098.i.i = phi i32 [ %4025, %.lr.ph5101.i.i ], [ 0, %.lr.ph5101.preheader.i.i ]
-  %4024 = getelementptr inbounds i8, ptr %.030285099.i.i, i64 4
+  %4024 = getelementptr inbounds nuw i8, ptr %.030285099.i.i, i64 4
   store float 1.000000e+00, ptr %.030285099.i.i, align 4
   %4025 = add nuw nsw i32 %.030295098.i.i, 1
   %exitcond5692.not.i.i = icmp eq i32 %4025, %4014
@@ -9841,8 +9841,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4045:                                             ; preds = %4045, %.preheader4574.us.i.i
   %indvars.iv5693.i.i = phi i64 [ 0, %.preheader4574.us.i.i ], [ %indvars.iv.next5694.i.i, %4045 ]
-  %4046 = getelementptr inbounds float, ptr %4044, i64 %indvars.iv5693.i.i
-  %4047 = getelementptr inbounds float, ptr %.029805105.us.i.i, i64 %indvars.iv5693.i.i
+  %4046 = getelementptr inbounds nuw float, ptr %4044, i64 %indvars.iv5693.i.i
+  %4047 = getelementptr inbounds nuw float, ptr %.029805105.us.i.i, i64 %indvars.iv5693.i.i
   %4048 = load float, ptr %4046, align 4
   %4049 = load float, ptr %4047, align 4
   %4050 = fmul fast float %4049, %4048
@@ -9852,7 +9852,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5697.not.i.i, label %._crit_edge5104.us.i.i, label %4045, !llvm.loop !239
 
 ._crit_edge5104.us.i.i:                           ; preds = %4045
-  %4051 = getelementptr inbounds float, ptr %.029805105.us.i.i, i64 %4023
+  %4051 = getelementptr inbounds nuw float, ptr %.029805105.us.i.i, i64 %4023
   %4052 = add nuw nsw i32 %.029785106.us.i.i, 1
   %exitcond5698.not.i.i = icmp eq i32 %4052, %3653
   br i1 %exitcond5698.not.i.i, label %._crit_edge5107.i.i, label %.preheader4574.us.i.i, !llvm.loop !240
@@ -9947,7 +9947,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph.i.i1100:                                   ; preds = %4088, %.lr.ph.i.i1100
   %indvars.iv.i.i1101 = phi i64 [ %indvars.iv.next.i.i1102, %.lr.ph.i.i1100 ], [ 0, %4088 ]
   %.045614633.i.i = phi float [ %4097, %.lr.ph.i.i1100 ], [ 1.000000e+00, %4088 ]
-  %4095 = getelementptr inbounds float, ptr %4094, i64 %indvars.iv.i.i1101
+  %4095 = getelementptr inbounds nuw float, ptr %4094, i64 %indvars.iv.i.i1101
   %4096 = load float, ptr %4095, align 4
   %4097 = fmul fast float %4096, %.045614633.i.i
   %indvars.iv.next.i.i1102 = add nuw nsw i64 %indvars.iv.i.i1101, 1
@@ -9957,7 +9957,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge.i.i1099:                              ; preds = %.lr.ph.i.i1100, %4088
   %.04561.lcssa.i.i = phi float [ 1.000000e+00, %4088 ], [ %4097, %.lr.ph.i.i1100 ]
   %4098 = load ptr, ptr %20, align 8
-  %4099 = getelementptr inbounds float, ptr %4098, i64 %indvars.iv5229.i.i
+  %4099 = getelementptr inbounds nuw float, ptr %4098, i64 %indvars.iv5229.i.i
   store float %.04561.lcssa.i.i, ptr %4099, align 4
   %indvars.iv.next5230.i.i = add nuw nsw i64 %indvars.iv5229.i.i, 1
   %exitcond5233.not.i.i = icmp eq i64 %indvars.iv.next5230.i.i, %wide.trip.count5232.i.i
@@ -9966,7 +9966,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 4100:                                             ; preds = %4100, %.preheader4631.i.i
   %indvars.iv5234.i.i = phi i64 [ 0, %.preheader4631.i.i ], [ %indvars.iv.next5235.i.i, %4100 ]
   %.045604637.i.i = phi float [ 1.000000e+00, %.preheader4631.i.i ], [ %4103, %4100 ]
-  %4101 = getelementptr inbounds float, ptr %4087, i64 %indvars.iv5234.i.i
+  %4101 = getelementptr inbounds nuw float, ptr %4087, i64 %indvars.iv5234.i.i
   %4102 = load float, ptr %4101, align 4
   %4103 = fmul fast float %4102, %.045604637.i.i
   %indvars.iv.next5235.i.i = add nuw nsw i64 %indvars.iv5234.i.i, 1
@@ -9998,7 +9998,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4112:                                             ; preds = %4109
   %4113 = load ptr, ptr %4110, align 8
-  %4114 = getelementptr inbounds i8, ptr %4113, i64 24
+  %4114 = getelementptr inbounds nuw i8, ptr %4113, i64 24
   %4115 = load ptr, ptr %4114, align 8
   invoke void %4115(ptr noundef nonnull align 8 dereferenceable(8) %4110, ptr noundef %4111)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4117
@@ -10058,7 +10058,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4645.i.i:                                   ; preds = %4132, %.lr.ph4645.i.i
   %indvars.iv5239.i.i = phi i64 [ %indvars.iv.next5240.i.i, %.lr.ph4645.i.i ], [ 0, %4132 ]
   %.045594642.i.i = phi float [ %4141, %.lr.ph4645.i.i ], [ 1.000000e+00, %4132 ]
-  %4139 = getelementptr inbounds float, ptr %4138, i64 %indvars.iv5239.i.i
+  %4139 = getelementptr inbounds nuw float, ptr %4138, i64 %indvars.iv5239.i.i
   %4140 = load float, ptr %4139, align 4
   %4141 = fmul fast float %4140, %.045594642.i.i
   %indvars.iv.next5240.i.i = add nuw nsw i64 %indvars.iv5239.i.i, 1
@@ -10080,7 +10080,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br label %4151
 
 4149:                                             ; preds = %._crit_edge4646.i.i
-  %4150 = getelementptr inbounds float, ptr %4142, i64 %indvars.iv5244.i.i
+  %4150 = getelementptr inbounds nuw float, ptr %4142, i64 %indvars.iv5244.i.i
   store float %.04559.lcssa.i.i, ptr %4150, align 4
   br label %4151
 
@@ -10154,7 +10154,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4654.i.i:                                   ; preds = %4174, %.lr.ph4654.i.i
   %.030304652.i.i = phi ptr [ %4182, %.lr.ph4654.i.i ], [ %4165, %4174 ]
   %.030314651.i.i = phi i32 [ %4183, %.lr.ph4654.i.i ], [ 0, %4174 ]
-  %4182 = getelementptr inbounds i8, ptr %.030304652.i.i, i64 4
+  %4182 = getelementptr inbounds nuw i8, ptr %.030304652.i.i, i64 4
   store float 1.000000e+00, ptr %.030304652.i.i, align 4
   %4183 = add nuw nsw i32 %.030314651.i.i, 1
   %exitcond5249.not.i.i = icmp eq i32 %4183, %4175
@@ -10190,7 +10190,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 4197:                                             ; preds = %4197, %.preheader4628.us.i.i
   %indvars.iv5255.i.i = phi i64 [ 0, %.preheader4628.us.i.i ], [ %indvars.iv.next5256.i.i, %4197 ]
   %.045584655.us.i.i = phi float [ 1.000000e+00, %.preheader4628.us.i.i ], [ %4200, %4197 ]
-  %4198 = getelementptr inbounds float, ptr %.029704660.us.i.i, i64 %indvars.iv5255.i.i
+  %4198 = getelementptr inbounds nuw float, ptr %.029704660.us.i.i, i64 %indvars.iv5255.i.i
   %4199 = load float, ptr %4198, align 4
   %4200 = fmul fast float %4199, %.045584655.us.i.i
   %indvars.iv.next5256.i.i = add nuw nsw i64 %indvars.iv5255.i.i, 1
@@ -10198,16 +10198,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5259.not.i.i, label %._crit_edge4658.us.i.i, label %4197, !llvm.loop !247
 
 ._crit_edge4658.us.i.i:                           ; preds = %4197
-  %4201 = getelementptr inbounds float, ptr %4190, i64 %indvars.iv5260.i.i
+  %4201 = getelementptr inbounds nuw float, ptr %4190, i64 %indvars.iv5260.i.i
   store float %4200, ptr %4201, align 4
-  %4202 = getelementptr inbounds float, ptr %.029704660.us.i.i, i64 %4181
+  %4202 = getelementptr inbounds nuw float, ptr %.029704660.us.i.i, i64 %4181
   %indvars.iv.next5261.i.i = add nuw nsw i64 %indvars.iv5260.i.i, 1
   %exitcond5264.not.i.i = icmp eq i64 %indvars.iv.next5261.i.i, %wide.trip.count5253.i.i
   br i1 %exitcond5264.not.i.i, label %._crit_edge4662.i.i, label %.preheader4628.us.i.i, !llvm.loop !248
 
 .preheader4628.i.i:                               ; preds = %.preheader4628.lr.ph.i.i, %.preheader4628.i.i
   %indvars.iv5250.i.i = phi i64 [ %indvars.iv.next5251.i.i, %.preheader4628.i.i ], [ 0, %.preheader4628.lr.ph.i.i ]
-  %4203 = getelementptr inbounds float, ptr %4190, i64 %indvars.iv5250.i.i
+  %4203 = getelementptr inbounds nuw float, ptr %4190, i64 %indvars.iv5250.i.i
   store float 1.000000e+00, ptr %4203, align 4
   %indvars.iv.next5251.i.i = add nuw nsw i64 %indvars.iv5250.i.i, 1
   %exitcond5254.not.i.i = icmp eq i64 %indvars.iv.next5251.i.i, %wide.trip.count5253.i.i
@@ -10244,7 +10244,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4669.i.i:                                   ; preds = %.lr.ph4669.i.i, %.lr.ph4669.preheader.i.i
   %.030324667.i.i = phi ptr [ %4213, %.lr.ph4669.i.i ], [ %4211, %.lr.ph4669.preheader.i.i ]
   %.030334666.i.i = phi i32 [ %4214, %.lr.ph4669.i.i ], [ 0, %.lr.ph4669.preheader.i.i ]
-  %4213 = getelementptr inbounds i8, ptr %.030324667.i.i, i64 4
+  %4213 = getelementptr inbounds nuw i8, ptr %.030324667.i.i, i64 4
   store float 1.000000e+00, ptr %.030324667.i.i, align 4
   %4214 = add nuw nsw i32 %.030334666.i.i, 1
   %exitcond5270.not.i.i = icmp eq i32 %4214, %4209
@@ -10263,8 +10263,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4672.i.i:                                   ; preds = %4215, %.lr.ph4672.i.i
   %indvars.iv5271.i.i = phi i64 [ %indvars.iv.next5272.i.i, %.lr.ph4672.i.i ], [ 0, %4215 ]
   %4222 = load ptr, ptr %2, align 8
-  %4223 = getelementptr inbounds float, ptr %4222, i64 %indvars.iv5271.i.i
-  %4224 = getelementptr inbounds float, ptr %4221, i64 %indvars.iv5271.i.i
+  %4223 = getelementptr inbounds nuw float, ptr %4222, i64 %indvars.iv5271.i.i
+  %4224 = getelementptr inbounds nuw float, ptr %4221, i64 %indvars.iv5271.i.i
   %4225 = load float, ptr %4223, align 4
   %4226 = load float, ptr %4224, align 4
   %4227 = fmul fast float %4226, %4225
@@ -10297,7 +10297,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4235:                                             ; preds = %4232
   %4236 = load ptr, ptr %4233, align 8
-  %4237 = getelementptr inbounds i8, ptr %4236, i64 24
+  %4237 = getelementptr inbounds nuw i8, ptr %4236, i64 24
   %4238 = load ptr, ptr %4237, align 8
   invoke void %4238(ptr noundef nonnull align 8 dereferenceable(8) %4233, ptr noundef %4234)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4240
@@ -10382,7 +10382,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4679.i.i:                                   ; preds = %4265, %.lr.ph4679.i.i
   %.030344677.i.i = phi ptr [ %4274, %.lr.ph4679.i.i ], [ %4256, %4265 ]
   %.030354676.i.i = phi i32 [ %4275, %.lr.ph4679.i.i ], [ 0, %4265 ]
-  %4274 = getelementptr inbounds i8, ptr %.030344677.i.i, i64 4
+  %4274 = getelementptr inbounds nuw i8, ptr %.030344677.i.i, i64 4
   store float 1.000000e+00, ptr %.030344677.i.i, align 4
   %4275 = add nuw nsw i32 %.030354676.i.i, 1
   %exitcond5281.not.i.i = icmp eq i32 %4275, %4266
@@ -10415,14 +10415,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4624.us.us.us.i.i:                      ; preds = %._crit_edge4682.us.us.us.i.i, %.preheader4625.us.us.i.i
   %indvars.iv5287.i.i = phi i64 [ %indvars.iv.next5288.i.i, %._crit_edge4682.us.us.us.i.i ], [ 0, %.preheader4625.us.us.i.i ]
   %.129644683.us.us.us.i.i = phi ptr [ %4295, %._crit_edge4682.us.us.us.i.i ], [ %.029634687.us.us.i.i, %.preheader4625.us.us.i.i ]
-  %4289 = getelementptr inbounds float, ptr %4282, i64 %indvars.iv5287.i.i
+  %4289 = getelementptr inbounds nuw float, ptr %4282, i64 %indvars.iv5287.i.i
   %.promoted.us.us.us.i.i1108 = load float, ptr %4289, align 4
   br label %4290
 
 4290:                                             ; preds = %4290, %.preheader4624.us.us.us.i.i
   %indvars.iv5282.i.i = phi i64 [ %indvars.iv.next5283.i.i, %4290 ], [ 0, %.preheader4624.us.us.us.i.i ]
   %4291 = phi float [ %4294, %4290 ], [ %.promoted.us.us.us.i.i1108, %.preheader4624.us.us.us.i.i ]
-  %4292 = getelementptr inbounds float, ptr %.129644683.us.us.us.i.i, i64 %indvars.iv5282.i.i
+  %4292 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us.i.i, i64 %indvars.iv5282.i.i
   %4293 = load float, ptr %4292, align 4
   %4294 = fmul fast float %4293, %4291
   store float %4294, ptr %4289, align 4
@@ -10431,7 +10431,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5286.not.i.i, label %._crit_edge4682.us.us.us.i.i, label %4290, !llvm.loop !252
 
 ._crit_edge4682.us.us.us.i.i:                     ; preds = %4290
-  %4295 = getelementptr inbounds float, ptr %.129644683.us.us.us.i.i, i64 %4273
+  %4295 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us.i.i, i64 %4273
   %indvars.iv.next5288.i.i = add nuw nsw i64 %indvars.iv5287.i.i, 1
   %exitcond5291.not.i.i = icmp eq i64 %indvars.iv.next5288.i.i, %wide.trip.count5290.i.i
   br i1 %exitcond5291.not.i.i, label %._crit_edge4685.split.us.us.us.i.i, label %.preheader4624.us.us.us.i.i, !llvm.loop !253
@@ -10472,7 +10472,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4702.i.i:                                   ; preds = %.lr.ph4702.i.i, %.lr.ph4702.preheader.i.i
   %.030364700.i.i = phi ptr [ %4306, %.lr.ph4702.i.i ], [ %4304, %.lr.ph4702.preheader.i.i ]
   %.030374699.i.i = phi i32 [ %4307, %.lr.ph4702.i.i ], [ 0, %.lr.ph4702.preheader.i.i ]
-  %4306 = getelementptr inbounds i8, ptr %.030364700.i.i, i64 4
+  %4306 = getelementptr inbounds nuw i8, ptr %.030364700.i.i, i64 4
   store float 1.000000e+00, ptr %.030364700.i.i, align 4
   %4307 = add nuw nsw i32 %.030374699.i.i, 1
   %exitcond5298.not.i.i = icmp eq i32 %4307, %4302
@@ -10491,8 +10491,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4705.i.i:                                   ; preds = %4308, %.lr.ph4705.i.i
   %indvars.iv5299.i.i = phi i64 [ %indvars.iv.next5300.i.i, %.lr.ph4705.i.i ], [ 0, %4308 ]
   %4315 = load ptr, ptr %2, align 8
-  %4316 = getelementptr inbounds float, ptr %4315, i64 %indvars.iv5299.i.i
-  %4317 = getelementptr inbounds float, ptr %4314, i64 %indvars.iv5299.i.i
+  %4316 = getelementptr inbounds nuw float, ptr %4315, i64 %indvars.iv5299.i.i
+  %4317 = getelementptr inbounds nuw float, ptr %4314, i64 %indvars.iv5299.i.i
   %4318 = load float, ptr %4316, align 4
   %4319 = load float, ptr %4317, align 4
   %4320 = fmul fast float %4319, %4318
@@ -10525,7 +10525,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4328:                                             ; preds = %4325
   %4329 = load ptr, ptr %4326, align 8
-  %4330 = getelementptr inbounds i8, ptr %4329, i64 24
+  %4330 = getelementptr inbounds nuw i8, ptr %4329, i64 24
   %4331 = load ptr, ptr %4330, align 8
   invoke void %4331(ptr noundef nonnull align 8 dereferenceable(8) %4326, ptr noundef %4327)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4333
@@ -10609,7 +10609,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4712.i.i:                                   ; preds = %4358, %.lr.ph4712.i.i
   %.030384710.i.i = phi ptr [ %4367, %.lr.ph4712.i.i ], [ %4349, %4358 ]
   %.030394709.i.i = phi i32 [ %4368, %.lr.ph4712.i.i ], [ 0, %4358 ]
-  %4367 = getelementptr inbounds i8, ptr %.030384710.i.i, i64 4
+  %4367 = getelementptr inbounds nuw i8, ptr %.030384710.i.i, i64 4
   store float 1.000000e+00, ptr %.030384710.i.i, align 4
   %4368 = add nuw nsw i32 %.030394709.i.i, 1
   %exitcond5309.not.i.i = icmp eq i32 %4368, %4359
@@ -10646,8 +10646,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4382:                                             ; preds = %4382, %.preheader4620.us.us.us.i.i
   %indvars.iv5310.i.i = phi i64 [ %indvars.iv.next5311.i.i, %4382 ], [ 0, %.preheader4620.us.us.us.i.i ]
-  %4383 = getelementptr inbounds float, ptr %4375, i64 %indvars.iv5310.i.i
-  %4384 = getelementptr inbounds float, ptr %.129564716.us.us.us.i.i, i64 %indvars.iv5310.i.i
+  %4383 = getelementptr inbounds nuw float, ptr %4375, i64 %indvars.iv5310.i.i
+  %4384 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us.i.i, i64 %indvars.iv5310.i.i
   %4385 = load float, ptr %4383, align 4
   %4386 = load float, ptr %4384, align 4
   %4387 = fmul fast float %4386, %4385
@@ -10657,7 +10657,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5314.not.i.i, label %._crit_edge4715.us.us.us.i.i, label %4382, !llvm.loop !258
 
 ._crit_edge4715.us.us.us.i.i:                     ; preds = %4382
-  %4388 = getelementptr inbounds float, ptr %.129564716.us.us.us.i.i, i64 %4366
+  %4388 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us.i.i, i64 %4366
   %4389 = add nuw nsw i32 %.029534717.us.us.us.i.i, 1
   %exitcond5315.not.i.i = icmp eq i32 %4389, %4057
   br i1 %exitcond5315.not.i.i, label %._crit_edge4718.split.us.us.us.i.i, label %.preheader4620.us.us.us.i.i, !llvm.loop !259
@@ -10698,7 +10698,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4735.i.i:                                   ; preds = %.lr.ph4735.i.i, %.lr.ph4735.preheader.i.i
   %.030404733.i.i = phi ptr [ %4400, %.lr.ph4735.i.i ], [ %4398, %.lr.ph4735.preheader.i.i ]
   %.030414732.i.i = phi i32 [ %4401, %.lr.ph4735.i.i ], [ 0, %.lr.ph4735.preheader.i.i ]
-  %4400 = getelementptr inbounds i8, ptr %.030404733.i.i, i64 4
+  %4400 = getelementptr inbounds nuw i8, ptr %.030404733.i.i, i64 4
   store float 1.000000e+00, ptr %.030404733.i.i, align 4
   %4401 = add nuw nsw i32 %.030414732.i.i, 1
   %exitcond5322.not.i.i = icmp eq i32 %4401, %4396
@@ -10717,8 +10717,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4738.i.i:                                   ; preds = %4402, %.lr.ph4738.i.i
   %indvars.iv5323.i.i = phi i64 [ %indvars.iv.next5324.i.i, %.lr.ph4738.i.i ], [ 0, %4402 ]
   %4409 = load ptr, ptr %2, align 8
-  %4410 = getelementptr inbounds float, ptr %4409, i64 %indvars.iv5323.i.i
-  %4411 = getelementptr inbounds float, ptr %4408, i64 %indvars.iv5323.i.i
+  %4410 = getelementptr inbounds nuw float, ptr %4409, i64 %indvars.iv5323.i.i
+  %4411 = getelementptr inbounds nuw float, ptr %4408, i64 %indvars.iv5323.i.i
   %4412 = load float, ptr %4410, align 4
   %4413 = load float, ptr %4411, align 4
   %4414 = fmul fast float %4413, %4412
@@ -10751,7 +10751,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4422:                                             ; preds = %4419
   %4423 = load ptr, ptr %4420, align 8
-  %4424 = getelementptr inbounds i8, ptr %4423, i64 24
+  %4424 = getelementptr inbounds nuw i8, ptr %4423, i64 24
   %4425 = load ptr, ptr %4424, align 8
   invoke void %4425(ptr noundef nonnull align 8 dereferenceable(8) %4420, ptr noundef %4421)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4427
@@ -10842,7 +10842,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 4464:                                             ; preds = %4464, %.preheader4617.us.i.i
   %indvars.iv5338.i.i = phi i64 [ 0, %.preheader4617.us.i.i ], [ %indvars.iv.next5339.i.i, %4464 ]
   %.045574742.us.i.i = phi float [ 1.000000e+00, %.preheader4617.us.i.i ], [ %4467, %4464 ]
-  %4465 = getelementptr inbounds float, ptr %.029484747.us.i.i, i64 %indvars.iv5338.i.i
+  %4465 = getelementptr inbounds nuw float, ptr %.029484747.us.i.i, i64 %indvars.iv5338.i.i
   %4466 = load float, ptr %4465, align 4
   %4467 = fmul fast float %4466, %.045574742.us.i.i
   %indvars.iv.next5339.i.i = add nuw nsw i64 %indvars.iv5338.i.i, 1
@@ -10850,16 +10850,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5342.not.i.i, label %._crit_edge4745.us.i.i, label %4464, !llvm.loop !264
 
 ._crit_edge4745.us.i.i:                           ; preds = %4464
-  %4468 = getelementptr inbounds float, ptr %4463, i64 %indvars.iv5343.i.i
+  %4468 = getelementptr inbounds nuw float, ptr %4463, i64 %indvars.iv5343.i.i
   store float %4467, ptr %4468, align 4
-  %4469 = getelementptr inbounds float, ptr %.029484747.us.i.i, i64 %4444
+  %4469 = getelementptr inbounds nuw float, ptr %.029484747.us.i.i, i64 %4444
   %indvars.iv.next5344.i.i = add nuw nsw i64 %indvars.iv5343.i.i, 1
   %exitcond5347.not.i.i = icmp eq i64 %indvars.iv.next5344.i.i, %wide.trip.count5336.i.i
   br i1 %exitcond5347.not.i.i, label %._crit_edge4749.i.i, label %.preheader4617.us.i.i, !llvm.loop !265
 
 .preheader4617.i.i:                               ; preds = %.preheader4617.lr.ph.i.i, %.preheader4617.i.i
   %indvars.iv5333.i.i = phi i64 [ %indvars.iv.next5334.i.i, %.preheader4617.i.i ], [ 0, %.preheader4617.lr.ph.i.i ]
-  %4470 = getelementptr inbounds float, ptr %4463, i64 %indvars.iv5333.i.i
+  %4470 = getelementptr inbounds nuw float, ptr %4463, i64 %indvars.iv5333.i.i
   store float 1.000000e+00, ptr %4470, align 4
   %indvars.iv.next5334.i.i = add nuw nsw i64 %indvars.iv5333.i.i, 1
   %exitcond5337.not.i.i = icmp eq i64 %indvars.iv.next5334.i.i, %wide.trip.count5336.i.i
@@ -10939,7 +10939,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4756.i.i:                                   ; preds = %4494, %.lr.ph4756.i.i
   %.030424754.i.i = phi ptr [ %4503, %.lr.ph4756.i.i ], [ %4485, %4494 ]
   %.030434753.i.i = phi i32 [ %4504, %.lr.ph4756.i.i ], [ 0, %4494 ]
-  %4503 = getelementptr inbounds i8, ptr %.030424754.i.i, i64 4
+  %4503 = getelementptr inbounds nuw i8, ptr %.030424754.i.i, i64 4
   store float 1.000000e+00, ptr %.030424754.i.i, align 4
   %4504 = add nuw nsw i32 %.030434753.i.i, 1
   %exitcond5353.not.i.i = icmp eq i32 %4504, %4495
@@ -10980,14 +10980,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4615.us.us.us.i.i:                      ; preds = %._crit_edge4759.us.us.us.i.i, %.preheader4615.lr.ph.us.us.i.i
   %indvars.iv5359.i.i = phi i64 [ %indvars.iv.next5360.i.i, %._crit_edge4759.us.us.us.i.i ], [ 0, %.preheader4615.lr.ph.us.us.i.i ]
   %.129434760.us.us.us.i.i = phi ptr [ %4529, %._crit_edge4759.us.us.us.i.i ], [ %.029424764.us.us.i.i, %.preheader4615.lr.ph.us.us.i.i ]
-  %4523 = getelementptr inbounds float, ptr %4522, i64 %indvars.iv5359.i.i
+  %4523 = getelementptr inbounds nuw float, ptr %4522, i64 %indvars.iv5359.i.i
   %.promoted.us.us.us4775.i.i = load float, ptr %4523, align 4
   br label %4524
 
 4524:                                             ; preds = %4524, %.preheader4615.us.us.us.i.i
   %indvars.iv5354.i.i = phi i64 [ %indvars.iv.next5355.i.i, %4524 ], [ 0, %.preheader4615.us.us.us.i.i ]
   %4525 = phi float [ %4528, %4524 ], [ %.promoted.us.us.us4775.i.i, %.preheader4615.us.us.us.i.i ]
-  %4526 = getelementptr inbounds float, ptr %.129434760.us.us.us.i.i, i64 %indvars.iv5354.i.i
+  %4526 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us.i.i, i64 %indvars.iv5354.i.i
   %4527 = load float, ptr %4526, align 4
   %4528 = fmul fast float %4527, %4525
   store float %4528, ptr %4523, align 4
@@ -10996,7 +10996,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5358.not.i.i, label %._crit_edge4759.us.us.us.i.i, label %4524, !llvm.loop !267
 
 ._crit_edge4759.us.us.us.i.i:                     ; preds = %4524
-  %4529 = getelementptr inbounds float, ptr %.129434760.us.us.us.i.i, i64 %4502
+  %4529 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us.i.i, i64 %4502
   %indvars.iv.next5360.i.i = add nuw nsw i64 %indvars.iv5359.i.i, 1
   %exitcond5363.not.i.i = icmp eq i64 %indvars.iv.next5360.i.i, %wide.trip.count5362.i.i
   br i1 %exitcond5363.not.i.i, label %._crit_edge4762.split.us.us.us.i.i, label %.preheader4615.us.us.us.i.i, !llvm.loop !268
@@ -11042,7 +11042,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4782.i.i:                                   ; preds = %.lr.ph4782.i.i, %.lr.ph4782.preheader.i.i
   %.030444780.i.i = phi ptr [ %4543, %.lr.ph4782.i.i ], [ %4537, %.lr.ph4782.preheader.i.i ]
   %.030454779.i.i = phi i32 [ %4544, %.lr.ph4782.i.i ], [ 0, %.lr.ph4782.preheader.i.i ]
-  %4543 = getelementptr inbounds i8, ptr %.030444780.i.i, i64 4
+  %4543 = getelementptr inbounds nuw i8, ptr %.030444780.i.i, i64 4
   store float 1.000000e+00, ptr %.030444780.i.i, align 4
   %4544 = add nuw nsw i32 %.030454779.i.i, 1
   %exitcond5374.not.i.i = icmp eq i32 %4544, %4535
@@ -11082,8 +11082,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4564:                                             ; preds = %4564, %.lr.ph4785.us.us.i.i
   %indvars.iv5385.i.i = phi i64 [ 0, %.lr.ph4785.us.us.i.i ], [ %indvars.iv.next5386.i.i, %4564 ]
-  %4565 = getelementptr inbounds float, ptr %4563, i64 %indvars.iv5385.i.i
-  %4566 = getelementptr inbounds float, ptr %4556, i64 %indvars.iv5385.i.i
+  %4565 = getelementptr inbounds nuw float, ptr %4563, i64 %indvars.iv5385.i.i
+  %4566 = getelementptr inbounds nuw float, ptr %4556, i64 %indvars.iv5385.i.i
   %4567 = load float, ptr %4565, align 4
   %4568 = load float, ptr %4566, align 4
   %4569 = fmul fast float %4568, %4567
@@ -11118,8 +11118,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4582:                                             ; preds = %4582, %.lr.ph4785.us4793.i.i
   %indvars.iv5375.i.i = phi i64 [ 0, %.lr.ph4785.us4793.i.i ], [ %indvars.iv.next5376.i.i, %4582 ]
-  %4583 = getelementptr inbounds float, ptr %4581, i64 %indvars.iv5375.i.i
-  %4584 = getelementptr inbounds float, ptr %4571, i64 %indvars.iv5375.i.i
+  %4583 = getelementptr inbounds nuw float, ptr %4581, i64 %indvars.iv5375.i.i
+  %4584 = getelementptr inbounds nuw float, ptr %4571, i64 %indvars.iv5375.i.i
   %4585 = load float, ptr %4583, align 4
   %4586 = load float, ptr %4584, align 4
   %4587 = fmul fast float %4586, %4585
@@ -11157,7 +11157,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4595:                                             ; preds = %4592
   %4596 = load ptr, ptr %4593, align 8
-  %4597 = getelementptr inbounds i8, ptr %4596, i64 24
+  %4597 = getelementptr inbounds nuw i8, ptr %4596, i64 24
   %4598 = load ptr, ptr %4597, align 8
   invoke void %4598(ptr noundef nonnull align 8 dereferenceable(8) %4593, ptr noundef %4594)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4600
@@ -11242,7 +11242,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4800.i.i:                                   ; preds = %4626, %.lr.ph4800.i.i
   %.030464798.i.i = phi ptr [ %4635, %.lr.ph4800.i.i ], [ %4617, %4626 ]
   %.030474797.i.i = phi i32 [ %4636, %.lr.ph4800.i.i ], [ 0, %4626 ]
-  %4635 = getelementptr inbounds i8, ptr %.030464798.i.i, i64 4
+  %4635 = getelementptr inbounds nuw i8, ptr %.030464798.i.i, i64 4
   store float 1.000000e+00, ptr %.030464798.i.i, align 4
   %4636 = add nuw nsw i32 %.030474797.i.i, 1
   %exitcond5400.not.i.i = icmp eq i32 %4636, %4627
@@ -11287,8 +11287,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4655:                                             ; preds = %4655, %.lr.ph4803.us.us.us.i.i
   %indvars.iv5401.i.i = phi i64 [ %indvars.iv.next5402.i.i, %4655 ], [ 0, %.lr.ph4803.us.us.us.i.i ]
-  %4656 = getelementptr inbounds float, ptr %4654, i64 %indvars.iv5401.i.i
-  %4657 = getelementptr inbounds float, ptr %.129334805.us.us.us.i.i, i64 %indvars.iv5401.i.i
+  %4656 = getelementptr inbounds nuw float, ptr %4654, i64 %indvars.iv5401.i.i
+  %4657 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us.i.i, i64 %indvars.iv5401.i.i
   %4658 = load float, ptr %4656, align 4
   %4659 = load float, ptr %4657, align 4
   %4660 = fmul fast float %4659, %4658
@@ -11298,7 +11298,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5405.not.i.i, label %._crit_edge4804.us.us.us.i.i, label %4655, !llvm.loop !274
 
 ._crit_edge4804.us.us.us.i.i:                     ; preds = %4655
-  %4661 = getelementptr inbounds float, ptr %.129334805.us.us.us.i.i, i64 %4634
+  %4661 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us.i.i, i64 %4634
   %indvars.iv.next5407.i.i = add nuw nsw i64 %indvars.iv5406.i.i, 1
   %exitcond5410.not.i.i = icmp eq i64 %indvars.iv.next5407.i.i, %wide.trip.count5409.i.i
   br i1 %exitcond5410.not.i.i, label %._crit_edge4808.split.us.us.us.i.i, label %.lr.ph4803.us.us.us.i.i, !llvm.loop !275
@@ -11343,7 +11343,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4824.i.i:                                   ; preds = %.lr.ph4824.i.i, %.lr.ph4824.preheader.i.i
   %.030484822.i.i = phi ptr [ %4675, %.lr.ph4824.i.i ], [ %4670, %.lr.ph4824.preheader.i.i ]
   %.030494821.i.i = phi i32 [ %4676, %.lr.ph4824.i.i ], [ 0, %.lr.ph4824.preheader.i.i ]
-  %4675 = getelementptr inbounds i8, ptr %.030484822.i.i, i64 4
+  %4675 = getelementptr inbounds nuw i8, ptr %.030484822.i.i, i64 4
   store float 1.000000e+00, ptr %.030484822.i.i, align 4
   %4676 = add nuw nsw i32 %.030494821.i.i, 1
   %exitcond5417.not.i.i = icmp eq i32 %4676, %4668
@@ -11380,8 +11380,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4696:                                             ; preds = %4696, %.lr.ph4827.us.i.i
   %indvars.iv5418.i.i = phi i64 [ 0, %.lr.ph4827.us.i.i ], [ %indvars.iv.next5419.i.i, %4696 ]
-  %4697 = getelementptr inbounds float, ptr %4695, i64 %indvars.iv5418.i.i
-  %4698 = getelementptr inbounds float, ptr %4688, i64 %indvars.iv5418.i.i
+  %4697 = getelementptr inbounds nuw float, ptr %4695, i64 %indvars.iv5418.i.i
+  %4698 = getelementptr inbounds nuw float, ptr %4688, i64 %indvars.iv5418.i.i
   %4699 = load float, ptr %4697, align 4
   %4700 = load float, ptr %4698, align 4
   %4701 = fmul fast float %4700, %4699
@@ -11419,7 +11419,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4709:                                             ; preds = %4706
   %4710 = load ptr, ptr %4707, align 8
-  %4711 = getelementptr inbounds i8, ptr %4710, i64 24
+  %4711 = getelementptr inbounds nuw i8, ptr %4710, i64 24
   %4712 = load ptr, ptr %4711, align 8
   invoke void %4712(ptr noundef nonnull align 8 dereferenceable(8) %4707, ptr noundef %4708)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4714
@@ -11512,14 +11512,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4607.us.us.us.i.i:                      ; preds = %._crit_edge4840.us.us.us.i.i, %.preheader4608.us.us.i.i
   %indvars.iv5443.i.i = phi i64 [ %indvars.iv.next5444.i.i, %._crit_edge4840.us.us.us.i.i ], [ 0, %.preheader4608.us.us.i.i ]
   %.129244841.us.us.us.i.i = phi ptr [ %4758, %._crit_edge4840.us.us.us.i.i ], [ %.029234845.us.us.i.i, %.preheader4608.us.us.i.i ]
-  %4752 = getelementptr inbounds float, ptr %4751, i64 %indvars.iv5443.i.i
+  %4752 = getelementptr inbounds nuw float, ptr %4751, i64 %indvars.iv5443.i.i
   %.promoted.us.us.us4854.i.i = load float, ptr %4752, align 4
   br label %4753
 
 4753:                                             ; preds = %4753, %.preheader4607.us.us.us.i.i
   %indvars.iv5438.i.i = phi i64 [ %indvars.iv.next5439.i.i, %4753 ], [ 0, %.preheader4607.us.us.us.i.i ]
   %4754 = phi float [ %4757, %4753 ], [ %.promoted.us.us.us4854.i.i, %.preheader4607.us.us.us.i.i ]
-  %4755 = getelementptr inbounds float, ptr %.129244841.us.us.us.i.i, i64 %indvars.iv5438.i.i
+  %4755 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us.i.i, i64 %indvars.iv5438.i.i
   %4756 = load float, ptr %4755, align 4
   %4757 = fmul fast float %4756, %4754
   store float %4757, ptr %4752, align 4
@@ -11528,7 +11528,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5442.not.i.i, label %._crit_edge4840.us.us.us.i.i, label %4753, !llvm.loop !281
 
 ._crit_edge4840.us.us.us.i.i:                     ; preds = %4753
-  %4758 = getelementptr inbounds float, ptr %.129244841.us.us.us.i.i, i64 %4732
+  %4758 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us.i.i, i64 %4732
   %indvars.iv.next5444.i.i = add nuw nsw i64 %indvars.iv5443.i.i, 1
   %exitcond5447.not.i.i = icmp eq i64 %indvars.iv.next5444.i.i, %wide.trip.count5436.i.i
   br i1 %exitcond5447.not.i.i, label %._crit_edge4843.split.us.us.us.i.i, label %.preheader4607.us.us.us.i.i, !llvm.loop !282
@@ -11540,7 +11540,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 .lr.ph4837.i.i:                                   ; preds = %4748, %.lr.ph4837.i.i
   %indvars.iv5433.i.i = phi i64 [ %indvars.iv.next5434.i.i, %.lr.ph4837.i.i ], [ 0, %4748 ]
-  %4760 = getelementptr inbounds float, ptr %4751, i64 %indvars.iv5433.i.i
+  %4760 = getelementptr inbounds nuw float, ptr %4751, i64 %indvars.iv5433.i.i
   store float 1.000000e+00, ptr %4760, align 4
   %indvars.iv.next5434.i.i = add nuw nsw i64 %indvars.iv5433.i.i, 1
   %exitcond5437.not.i.i = icmp eq i64 %indvars.iv.next5434.i.i, %wide.trip.count5436.i.i
@@ -11619,7 +11619,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4861.i.i:                                   ; preds = %4784, %.lr.ph4861.i.i
   %.030504859.i.i = phi ptr [ %4793, %.lr.ph4861.i.i ], [ %4775, %4784 ]
   %.030514858.i.i = phi i32 [ %4794, %.lr.ph4861.i.i ], [ 0, %4784 ]
-  %4793 = getelementptr inbounds i8, ptr %.030504859.i.i, i64 4
+  %4793 = getelementptr inbounds nuw i8, ptr %.030504859.i.i, i64 4
   store float 1.000000e+00, ptr %.030504859.i.i, align 4
   %4794 = add nuw nsw i32 %.030514858.i.i, 1
   %exitcond5454.not.i.i = icmp eq i32 %4794, %4785
@@ -11664,8 +11664,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4813:                                             ; preds = %4813, %.preheader4605.us.us.us.i.i
   %indvars.iv5455.i.i = phi i64 [ %indvars.iv.next5456.i.i, %4813 ], [ 0, %.preheader4605.us.us.us.i.i ]
-  %4814 = getelementptr inbounds float, ptr %4812, i64 %indvars.iv5455.i.i
-  %4815 = getelementptr inbounds float, ptr %.129164865.us.us.us.i.i, i64 %indvars.iv5455.i.i
+  %4814 = getelementptr inbounds nuw float, ptr %4812, i64 %indvars.iv5455.i.i
+  %4815 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us.i.i, i64 %indvars.iv5455.i.i
   %4816 = load float, ptr %4814, align 4
   %4817 = load float, ptr %4815, align 4
   %4818 = fmul fast float %4817, %4816
@@ -11675,7 +11675,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5459.not.i.i, label %._crit_edge4864.us.us.us.i.i, label %4813, !llvm.loop !286
 
 ._crit_edge4864.us.us.us.i.i:                     ; preds = %4813
-  %4819 = getelementptr inbounds float, ptr %.129164865.us.us.us.i.i, i64 %4792
+  %4819 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us.i.i, i64 %4792
   %4820 = add nuw nsw i32 %.029134866.us.us.us.i.i, 1
   %exitcond5460.not.i.i = icmp eq i32 %4820, %4057
   br i1 %exitcond5460.not.i.i, label %._crit_edge4867.split.us.us.us.i.i, label %.preheader4605.us.us.us.i.i, !llvm.loop !287
@@ -11720,7 +11720,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4886.i.i:                                   ; preds = %.lr.ph4886.i.i, %.lr.ph4886.preheader.i.i
   %.030524884.i.i = phi ptr [ %4833, %.lr.ph4886.i.i ], [ %4828, %.lr.ph4886.preheader.i.i ]
   %.030534883.i.i = phi i32 [ %4834, %.lr.ph4886.i.i ], [ 0, %.lr.ph4886.preheader.i.i ]
-  %4833 = getelementptr inbounds i8, ptr %.030524884.i.i, i64 4
+  %4833 = getelementptr inbounds nuw i8, ptr %.030524884.i.i, i64 4
   store float 1.000000e+00, ptr %.030524884.i.i, align 4
   %4834 = add nuw nsw i32 %.030534883.i.i, 1
   %exitcond5471.not.i.i = icmp eq i32 %4834, %4826
@@ -11757,8 +11757,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4854:                                             ; preds = %4854, %.lr.ph4889.us.i.i
   %indvars.iv5472.i.i = phi i64 [ 0, %.lr.ph4889.us.i.i ], [ %indvars.iv.next5473.i.i, %4854 ]
-  %4855 = getelementptr inbounds float, ptr %4853, i64 %indvars.iv5472.i.i
-  %4856 = getelementptr inbounds float, ptr %4846, i64 %indvars.iv5472.i.i
+  %4855 = getelementptr inbounds nuw float, ptr %4853, i64 %indvars.iv5472.i.i
+  %4856 = getelementptr inbounds nuw float, ptr %4846, i64 %indvars.iv5472.i.i
   %4857 = load float, ptr %4855, align 4
   %4858 = load float, ptr %4856, align 4
   %4859 = fmul fast float %4858, %4857
@@ -11796,7 +11796,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4867:                                             ; preds = %4864
   %4868 = load ptr, ptr %4865, align 8
-  %4869 = getelementptr inbounds i8, ptr %4868, i64 24
+  %4869 = getelementptr inbounds nuw i8, ptr %4868, i64 24
   %4870 = load ptr, ptr %4869, align 8
   invoke void %4870(ptr noundef nonnull align 8 dereferenceable(8) %4865, ptr noundef %4866)
           to label %_ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_6OptionE.exit.i unwind label %4872
@@ -11892,8 +11892,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4910:                                             ; preds = %4910, %.preheader4600.us.us.us.i.i
   %indvars.iv5492.i.i = phi i64 [ %indvars.iv.next5493.i.i, %4910 ], [ 0, %.preheader4600.us.us.us.i.i ]
-  %4911 = getelementptr inbounds float, ptr %4909, i64 %indvars.iv5492.i.i
-  %4912 = getelementptr inbounds float, ptr %.129074903.us.us.us.i.i, i64 %indvars.iv5492.i.i
+  %4911 = getelementptr inbounds nuw float, ptr %4909, i64 %indvars.iv5492.i.i
+  %4912 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us.i.i, i64 %indvars.iv5492.i.i
   %4913 = load float, ptr %4911, align 4
   %4914 = load float, ptr %4912, align 4
   %4915 = fmul fast float %4914, %4913
@@ -11903,7 +11903,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5496.not.i.i, label %._crit_edge4902.us.us.us.i.i, label %4910, !llvm.loop !293
 
 ._crit_edge4902.us.us.us.i.i:                     ; preds = %4910
-  %4916 = getelementptr inbounds float, ptr %.129074903.us.us.us.i.i, i64 %4890
+  %4916 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us.i.i, i64 %4890
   %4917 = add nuw nsw i32 %.029024904.us.us.us.i.i, 1
   %exitcond5497.not.i.i = icmp eq i32 %4917, %4057
   br i1 %exitcond5497.not.i.i, label %._crit_edge4905.split.us.us.us.i.i, label %.preheader4600.us.us.us.i.i, !llvm.loop !294
@@ -11915,7 +11915,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 .lr.ph4899.i.i:                                   ; preds = %4906, %.lr.ph4899.i.i
   %indvars.iv5487.i.i = phi i64 [ %indvars.iv.next5488.i.i, %.lr.ph4899.i.i ], [ 0, %4906 ]
-  %4919 = getelementptr inbounds float, ptr %4909, i64 %indvars.iv5487.i.i
+  %4919 = getelementptr inbounds nuw float, ptr %4909, i64 %indvars.iv5487.i.i
   store float 1.000000e+00, ptr %4919, align 4
   %indvars.iv.next5488.i.i = add nuw nsw i64 %indvars.iv5487.i.i, 1
   %exitcond5491.not.i.i = icmp eq i64 %indvars.iv.next5488.i.i, %wide.trip.count5490.i.i
@@ -11991,7 +11991,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 4948:                                             ; preds = %4948, %.preheader4598.us.i.i
   %indvars.iv5509.i.i = phi i64 [ 0, %.preheader4598.us.i.i ], [ %indvars.iv.next5510.i.i, %4948 ]
   %.045564919.us.i.i = phi float [ 1.000000e+00, %.preheader4598.us.i.i ], [ %4951, %4948 ]
-  %4949 = getelementptr inbounds float, ptr %.028994924.us.i.i, i64 %indvars.iv5509.i.i
+  %4949 = getelementptr inbounds nuw float, ptr %.028994924.us.i.i, i64 %indvars.iv5509.i.i
   %4950 = load float, ptr %4949, align 4
   %4951 = fmul fast float %4950, %.045564919.us.i.i
   %indvars.iv.next5510.i.i = add nuw nsw i64 %indvars.iv5509.i.i, 1
@@ -11999,16 +11999,16 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5513.not.i.i, label %._crit_edge4922.us.i.i, label %4948, !llvm.loop !298
 
 ._crit_edge4922.us.i.i:                           ; preds = %4948
-  %4952 = getelementptr inbounds float, ptr %4941, i64 %indvars.iv5514.i.i
+  %4952 = getelementptr inbounds nuw float, ptr %4941, i64 %indvars.iv5514.i.i
   store float %4951, ptr %4952, align 4
-  %4953 = getelementptr inbounds float, ptr %.028994924.us.i.i, i64 %4934
+  %4953 = getelementptr inbounds nuw float, ptr %.028994924.us.i.i, i64 %4934
   %indvars.iv.next5515.i.i = add nuw nsw i64 %indvars.iv5514.i.i, 1
   %exitcond5518.not.i.i = icmp eq i64 %indvars.iv.next5515.i.i, %wide.trip.count5507.i.i
   br i1 %exitcond5518.not.i.i, label %._crit_edge4926.i.i, label %.preheader4598.us.i.i, !llvm.loop !299
 
 .preheader4598.i.i:                               ; preds = %.preheader4598.lr.ph.i.i, %.preheader4598.i.i
   %indvars.iv5504.i.i = phi i64 [ %indvars.iv.next5505.i.i, %.preheader4598.i.i ], [ 0, %.preheader4598.lr.ph.i.i ]
-  %4954 = getelementptr inbounds float, ptr %4941, i64 %indvars.iv5504.i.i
+  %4954 = getelementptr inbounds nuw float, ptr %4941, i64 %indvars.iv5504.i.i
   store float 1.000000e+00, ptr %4954, align 4
   %indvars.iv.next5505.i.i = add nuw nsw i64 %indvars.iv5504.i.i, 1
   %exitcond5508.not.i.i = icmp eq i64 %indvars.iv.next5505.i.i, %wide.trip.count5507.i.i
@@ -12075,7 +12075,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4933.i.i:                                   ; preds = %.lr.ph4933.i.i, %.lr.ph4933.preheader.i.i
   %.030544931.i.i = phi ptr [ %4979, %.lr.ph4933.i.i ], [ %4969, %.lr.ph4933.preheader.i.i ]
   %.030554930.i.i = phi i32 [ %4980, %.lr.ph4933.i.i ], [ 0, %.lr.ph4933.preheader.i.i ]
-  %4979 = getelementptr inbounds i8, ptr %.030544931.i.i, i64 4
+  %4979 = getelementptr inbounds nuw i8, ptr %.030544931.i.i, i64 4
   store float 1.000000e+00, ptr %.030544931.i.i, align 4
   %4980 = add nuw nsw i32 %.030554930.i.i, 1
   %exitcond5524.not.i.i = icmp eq i32 %4980, %4967
@@ -12120,8 +12120,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 4998:                                             ; preds = %4998, %.lr.ph4936.us.us.i.us.us.i
   %indvars.iv5525.i.us.us.i = phi i64 [ %indvars.iv.next5526.i.us.us.i, %4998 ], [ 0, %.lr.ph4936.us.us.i.us.us.i ]
-  %4999 = getelementptr inbounds float, ptr %4997, i64 %indvars.iv5525.i.us.us.i
-  %5000 = getelementptr inbounds float, ptr %.128954938.us.us.i.us.us.i, i64 %indvars.iv5525.i.us.us.i
+  %4999 = getelementptr inbounds nuw float, ptr %4997, i64 %indvars.iv5525.i.us.us.i
+  %5000 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us.us.i, i64 %indvars.iv5525.i.us.us.i
   %5001 = load float, ptr %4999, align 4
   %5002 = load float, ptr %5000, align 4
   %5003 = fmul fast float %5002, %5001
@@ -12131,7 +12131,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5529.not.i.us.us.i, label %._crit_edge4937.us.us.i.us.us.i, label %4998, !llvm.loop !301
 
 ._crit_edge4937.us.us.i.us.us.i:                  ; preds = %4998
-  %5004 = getelementptr inbounds float, ptr %.128954938.us.us.i.us.us.i, i64 %4978
+  %5004 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us.us.i, i64 %4978
   %indvars.iv.next5531.i.us.us.i = add nuw nsw i64 %indvars.iv5530.i.us.us.i, 1
   %exitcond5534.not.i.us.us.i = icmp eq i64 %indvars.iv.next5531.i.us.us.i, %wide.trip.count5533.i.i
   br i1 %exitcond5534.not.i.us.us.i, label %._crit_edge4942.us.i.loopexit.us.us.i, label %.lr.ph4936.us.us.i.us.us.i, !llvm.loop !302
@@ -12168,8 +12168,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5017:                                             ; preds = %5017, %.lr.ph4936.us.us.i.us66.i
   %indvars.iv5525.i.us69.i = phi i64 [ %indvars.iv.next5526.i.us70.i, %5017 ], [ 0, %.lr.ph4936.us.us.i.us66.i ]
-  %5018 = getelementptr inbounds float, ptr %5016, i64 %indvars.iv5525.i.us69.i
-  %5019 = getelementptr inbounds float, ptr %.128954938.us.us.i.us68.i, i64 %indvars.iv5525.i.us69.i
+  %5018 = getelementptr inbounds nuw float, ptr %5016, i64 %indvars.iv5525.i.us69.i
+  %5019 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us68.i, i64 %indvars.iv5525.i.us69.i
   %5020 = load float, ptr %5018, align 4
   %5021 = load float, ptr %5019, align 4
   %5022 = fmul fast float %5021, %5020
@@ -12179,7 +12179,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5529.not.i.us71.i, label %._crit_edge4937.us.us.i.us72.i, label %5017, !llvm.loop !301
 
 ._crit_edge4937.us.us.i.us72.i:                   ; preds = %5017
-  %5023 = getelementptr inbounds float, ptr %.128954938.us.us.i.us68.i, i64 %4978
+  %5023 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us68.i, i64 %4978
   %indvars.iv.next5531.i.us73.i = add nuw nsw i64 %indvars.iv5530.i.us67.i, 1
   %exitcond5534.not.i.us74.i = icmp eq i64 %indvars.iv.next5531.i.us73.i, %wide.trip.count5533.i.i
   br i1 %exitcond5534.not.i.us74.i, label %._crit_edge4942.us.i.loopexit.us80.i, label %.lr.ph4936.us.us.i.us66.i, !llvm.loop !302
@@ -12287,8 +12287,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5074:                                             ; preds = %5074, %.preheader4593.us.us.us.i.i
   %indvars.iv5547.i.i = phi i64 [ %indvars.iv.next5548.i.i, %5074 ], [ 0, %.preheader4593.us.us.us.i.i ]
-  %5075 = getelementptr inbounds float, ptr %5073, i64 %indvars.iv5547.i.i
-  %5076 = getelementptr inbounds float, ptr %.128894964.us.us.us.i.i, i64 %indvars.iv5547.i.i
+  %5075 = getelementptr inbounds nuw float, ptr %5073, i64 %indvars.iv5547.i.i
+  %5076 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us.i.i, i64 %indvars.iv5547.i.i
   %5077 = load float, ptr %5075, align 4
   %5078 = load float, ptr %5076, align 4
   %5079 = fmul fast float %5078, %5077
@@ -12298,7 +12298,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5551.not.i.i, label %._crit_edge4963.us.us.us.i.i, label %5074, !llvm.loop !305
 
 ._crit_edge4963.us.us.us.i.i:                     ; preds = %5074
-  %5080 = getelementptr inbounds float, ptr %.128894964.us.us.us.i.i, i64 %5042
+  %5080 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us.i.i, i64 %5042
   %5081 = add nuw nsw i32 %.028864965.us.us.us.i.i, 1
   %exitcond5552.not.i.i = icmp eq i32 %5081, %4057
   br i1 %exitcond5552.not.i.i, label %._crit_edge4966.split.us.us.us.i.i, label %.preheader4593.us.us.us.i.i, !llvm.loop !306
@@ -12311,7 +12311,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4960.i.i:                                   ; preds = %5043, %.lr.ph4960.i.i
   %.030564958.i.i = phi ptr [ %5082, %.lr.ph4960.i.i ], [ %5058, %5043 ]
   %.030574957.i.i = phi i32 [ %5083, %.lr.ph4960.i.i ], [ 0, %5043 ]
-  %5082 = getelementptr inbounds i8, ptr %.030564958.i.i, i64 4
+  %5082 = getelementptr inbounds nuw i8, ptr %.030564958.i.i, i64 4
   store float 1.000000e+00, ptr %.030564958.i.i, align 4
   %5083 = add nuw nsw i32 %.030574957.i.i, 1
   %exitcond5545.not.i.i = icmp eq i32 %5083, %5069
@@ -12415,8 +12415,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5134:                                             ; preds = %5134, %.lr.ph4988.us.us.us.i.i
   %indvars.iv5565.i.i = phi i64 [ %indvars.iv.next5566.i.i, %5134 ], [ 0, %.lr.ph4988.us.us.us.i.i ]
-  %5135 = getelementptr inbounds float, ptr %5133, i64 %indvars.iv5565.i.i
-  %5136 = getelementptr inbounds float, ptr %.14990.us.us.us.i.i, i64 %indvars.iv5565.i.i
+  %5135 = getelementptr inbounds nuw float, ptr %5133, i64 %indvars.iv5565.i.i
+  %5136 = getelementptr inbounds nuw float, ptr %.14990.us.us.us.i.i, i64 %indvars.iv5565.i.i
   %5137 = load float, ptr %5135, align 4
   %5138 = load float, ptr %5136, align 4
   %5139 = fmul fast float %5138, %5137
@@ -12426,7 +12426,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5569.not.i.i, label %._crit_edge4989.us.us.us.i.i, label %5134, !llvm.loop !309
 
 ._crit_edge4989.us.us.us.i.i:                     ; preds = %5134
-  %5140 = getelementptr inbounds float, ptr %.14990.us.us.us.i.i, i64 %5102
+  %5140 = getelementptr inbounds nuw float, ptr %.14990.us.us.us.i.i, i64 %5102
   %indvars.iv.next5571.i.i = add nuw nsw i64 %indvars.iv5570.i.i, 1
   %exitcond5574.not.i.i = icmp eq i64 %indvars.iv.next5571.i.i, %wide.trip.count5573.i.i
   br i1 %exitcond5574.not.i.i, label %._crit_edge4993.split.us.us.us.i.i, label %.lr.ph4988.us.us.us.i.i, !llvm.loop !310
@@ -12439,7 +12439,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_minIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4985.i.i:                                   ; preds = %5103, %.lr.ph4985.i.i
   %.030584983.i.i = phi ptr [ %5142, %.lr.ph4985.i.i ], [ %5118, %5103 ]
   %.030594982.i.i = phi i32 [ %5143, %.lr.ph4985.i.i ], [ 0, %5103 ]
-  %5142 = getelementptr inbounds i8, ptr %.030584983.i.i, i64 4
+  %5142 = getelementptr inbounds nuw i8, ptr %.030584983.i.i, i64 4
   store float 1.000000e+00, ptr %.030584983.i.i, align 4
   %5143 = add nuw nsw i32 %.030594982.i.i, 1
   %exitcond5563.not.i.i = icmp eq i32 %5143, %5129
@@ -12530,7 +12530,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph7.i.i:                                      ; preds = %.lr.ph7.i.i, %.lr.ph7.preheader.i.i
   %indvars.iv19.i.i = phi i64 [ 0, %.lr.ph7.preheader.i.i ], [ %indvars.iv.next20.i.i, %.lr.ph7.i.i ]
   %5164 = load ptr, ptr %2, align 8
-  %5165 = getelementptr inbounds float, ptr %5164, i64 %indvars.iv19.i.i
+  %5165 = getelementptr inbounds nuw float, ptr %5164, i64 %indvars.iv19.i.i
   %5166 = load float, ptr %5165, align 4
   %5167 = fcmp fast olt float %5166, 0x3810000000000000
   %5168 = tail call fast float @llvm.sqrt.f32(float %5166)
@@ -12556,7 +12556,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph.i.i1133:                                   ; preds = %.lr.ph.i.i1133, %.lr.ph.preheader.i.i
   %indvars.iv.i.i1134 = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i1135, %.lr.ph.i.i1133 ]
   %5177 = load ptr, ptr %2, align 8
-  %5178 = getelementptr inbounds float, ptr %5177, i64 %indvars.iv.i.i1134
+  %5178 = getelementptr inbounds nuw float, ptr %5177, i64 %indvars.iv.i.i1134
   %5179 = load float, ptr %5178, align 4
   %5180 = fcmp fast olt float %5179, 0x3810000000000000
   %5181 = tail call fast float @llvm.sqrt.f32(float %5179)
@@ -12612,7 +12612,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5207:                                             ; preds = %5207, %.lr.ph9.us.i.i
   %indvars.iv24.i.i = phi i64 [ 0, %.lr.ph9.us.i.i ], [ %indvars.iv.next25.i.i, %5207 ]
-  %5208 = getelementptr inbounds float, ptr %5206, i64 %indvars.iv24.i.i
+  %5208 = getelementptr inbounds nuw float, ptr %5206, i64 %indvars.iv24.i.i
   %5209 = load float, ptr %5208, align 4
   %5210 = fcmp fast olt float %5209, 0x3810000000000000
   %5211 = tail call fast float @llvm.sqrt.f32(float %5209)
@@ -12638,7 +12638,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph13.i.i:                                     ; preds = %.lr.ph13.i.i, %.lr.ph13.preheader.i.i
   %indvars.iv34.i.i = phi i64 [ 0, %.lr.ph13.preheader.i.i ], [ %indvars.iv.next35.i.i, %.lr.ph13.i.i ]
   %5214 = load ptr, ptr %2, align 8
-  %5215 = getelementptr inbounds float, ptr %5214, i64 %indvars.iv34.i.i
+  %5215 = getelementptr inbounds nuw float, ptr %5214, i64 %indvars.iv34.i.i
   %5216 = load float, ptr %5215, align 4
   %5217 = fcmp fast olt float %5216, 0x3810000000000000
   %5218 = tail call fast float @llvm.sqrt.f32(float %5216)
@@ -12699,7 +12699,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5145.i.i1680:                               ; preds = %.lr.ph5145.i.i1680, %.lr.ph5145.preheader.i.i1678
   %indvars.iv5704.i.i1681 = phi i64 [ 0, %.lr.ph5145.preheader.i.i1678 ], [ %indvars.iv.next5705.i.i1683, %.lr.ph5145.i.i1680 ]
   %.045705142.i.i1682 = phi float [ 0.000000e+00, %.lr.ph5145.preheader.i.i1678 ], [ %5240, %.lr.ph5145.i.i1680 ]
-  %5237 = getelementptr inbounds float, ptr %5235, i64 %indvars.iv5704.i.i1681
+  %5237 = getelementptr inbounds nuw float, ptr %5235, i64 %indvars.iv5704.i.i1681
   %5238 = load float, ptr %5237, align 4
   %5239 = tail call fast float @llvm.exp.f32(float %5238)
   %5240 = fadd fast float %5239, %.045705142.i.i1682
@@ -12788,7 +12788,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5113.i.i1654:                               ; preds = %5270, %.lr.ph5113.i.i1654
   %indvars.iv5669.i.i = phi i64 [ %indvars.iv.next5670.i.i, %.lr.ph5113.i.i1654 ], [ 0, %5270 ]
   %.045695110.i.i1655 = phi float [ %5281, %.lr.ph5113.i.i1654 ], [ 0.000000e+00, %5270 ]
-  %5278 = getelementptr inbounds float, ptr %5277, i64 %indvars.iv5669.i.i
+  %5278 = getelementptr inbounds nuw float, ptr %5277, i64 %indvars.iv5669.i.i
   %5279 = load float, ptr %5278, align 4
   %5280 = call fast float @llvm.exp.f32(float %5279)
   %5281 = fadd fast float %5280, %.045695110.i.i1655
@@ -12799,7 +12799,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5114.i.i1648:                          ; preds = %.lr.ph5113.i.i1654, %5270
   %.04569.lcssa.i.i1649 = phi float [ 0.000000e+00, %5270 ], [ %5281, %.lr.ph5113.i.i1654 ]
   %5282 = load ptr, ptr %5, align 8
-  %5283 = getelementptr inbounds float, ptr %5282, i64 %indvars.iv5674.i.i1647
+  %5283 = getelementptr inbounds nuw float, ptr %5282, i64 %indvars.iv5674.i.i1647
   store float %.04569.lcssa.i.i1649, ptr %5283, align 4
   %indvars.iv.next5675.i.i1650 = add nuw nsw i64 %indvars.iv5674.i.i1647, 1
   %exitcond5678.not.i.i1651 = icmp eq i64 %indvars.iv.next5675.i.i1650, %wide.trip.count5677.i.i1646
@@ -12808,7 +12808,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5284:                                             ; preds = %5284, %.preheader4572.i.i1652
   %indvars.iv5679.i.i = phi i64 [ 0, %.preheader4572.i.i1652 ], [ %indvars.iv.next5680.i.i, %5284 ]
   %.045685118.i.i1653 = phi float [ 0.000000e+00, %.preheader4572.i.i1652 ], [ %5287, %5284 ]
-  %5285 = getelementptr inbounds float, ptr %5269, i64 %indvars.iv5679.i.i
+  %5285 = getelementptr inbounds nuw float, ptr %5269, i64 %indvars.iv5679.i.i
   %5286 = load float, ptr %5285, align 4
   %5287 = fadd fast float %5286, %.045685118.i.i1653
   %indvars.iv.next5680.i.i = add nuw nsw i64 %indvars.iv5679.i.i, 1
@@ -12840,7 +12840,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5296:                                             ; preds = %5293
   %5297 = load ptr, ptr %5294, align 8
-  %5298 = getelementptr inbounds i8, ptr %5297, i64 24
+  %5298 = getelementptr inbounds nuw i8, ptr %5297, i64 24
   %5299 = load ptr, ptr %5298, align 8
   invoke void %5299(ptr noundef nonnull align 8 dereferenceable(8) %5294, ptr noundef %5295)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %5301
@@ -12898,7 +12898,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5126.i.i1662:                               ; preds = %5313, %.lr.ph5126.i.i1662
   %indvars.iv5684.i.i = phi i64 [ %indvars.iv.next5685.i.i, %.lr.ph5126.i.i1662 ], [ 0, %5313 ]
   %.045675123.i.i1663 = phi float [ %5324, %.lr.ph5126.i.i1662 ], [ 0.000000e+00, %5313 ]
-  %5321 = getelementptr inbounds float, ptr %5320, i64 %indvars.iv5684.i.i
+  %5321 = getelementptr inbounds nuw float, ptr %5320, i64 %indvars.iv5684.i.i
   %5322 = load float, ptr %5321, align 4
   %5323 = tail call fast float @llvm.exp.f32(float %5322)
   %5324 = fadd fast float %5323, %.045675123.i.i1663
@@ -12909,7 +12909,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5127.i.i1660:                          ; preds = %.lr.ph5126.i.i1662, %5313
   %.04567.lcssa.i.i1661 = phi float [ 0.000000e+00, %5313 ], [ %5324, %.lr.ph5126.i.i1662 ]
   %5325 = load ptr, ptr %2, align 8
-  %5326 = getelementptr inbounds float, ptr %5325, i64 %indvars.iv5689.i.i
+  %5326 = getelementptr inbounds nuw float, ptr %5325, i64 %indvars.iv5689.i.i
   store float %.04567.lcssa.i.i1661, ptr %5326, align 4
   %indvars.iv.next5690.i.i = add nuw nsw i64 %indvars.iv5689.i.i, 1
   %exitcond5693.not.i.i = icmp eq i64 %indvars.iv.next5690.i.i, %wide.trip.count5692.i.i
@@ -12974,8 +12974,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5138.i.i1673:                               ; preds = %5346, %.lr.ph5138.i.i1673
   %indvars.iv5694.i.i = phi i64 [ %indvars.iv.next5695.i.i, %.lr.ph5138.i.i1673 ], [ 0, %5346 ]
   %5354 = load ptr, ptr %2, align 8
-  %5355 = getelementptr inbounds float, ptr %5354, i64 %indvars.iv5694.i.i
-  %5356 = getelementptr inbounds float, ptr %5353, i64 %indvars.iv5694.i.i
+  %5355 = getelementptr inbounds nuw float, ptr %5354, i64 %indvars.iv5694.i.i
+  %5356 = getelementptr inbounds nuw float, ptr %5353, i64 %indvars.iv5694.i.i
   %5357 = load float, ptr %5355, align 4
   %5358 = load float, ptr %5356, align 4
   %5359 = tail call fast float @llvm.exp.f32(float %5358)
@@ -13070,7 +13070,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5010.i.i1540:                               ; preds = %5393, %.lr.ph5010.i.i1540
   %indvars.iv5556.i.i = phi i64 [ %indvars.iv.next5557.i.i, %.lr.ph5010.i.i1540 ], [ 0, %5393 ]
   %.045665007.i.i1541 = phi float [ %5403, %.lr.ph5010.i.i1540 ], [ 0.000000e+00, %5393 ]
-  %5400 = getelementptr inbounds float, ptr %5399, i64 %indvars.iv5556.i.i
+  %5400 = getelementptr inbounds nuw float, ptr %5399, i64 %indvars.iv5556.i.i
   %5401 = load float, ptr %5400, align 4
   %5402 = call fast float @llvm.exp.f32(float %5401)
   %5403 = fadd fast float %5402, %.045665007.i.i1541
@@ -13081,7 +13081,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge5011.i.i1531:                          ; preds = %.lr.ph5010.i.i1540, %5393
   %.04566.lcssa.i.i1532 = phi float [ 0.000000e+00, %5393 ], [ %5403, %.lr.ph5010.i.i1540 ]
   %5404 = load ptr, ptr %6, align 8
-  %5405 = getelementptr inbounds float, ptr %5404, i64 %indvars.iv5561.i.i1530
+  %5405 = getelementptr inbounds nuw float, ptr %5404, i64 %indvars.iv5561.i.i1530
   store float %.04566.lcssa.i.i1532, ptr %5405, align 4
   %indvars.iv.next5562.i.i1533 = add nuw nsw i64 %indvars.iv5561.i.i1530, 1
   %exitcond5565.not.i.i1534 = icmp eq i64 %indvars.iv.next5562.i.i1533, %wide.trip.count5564.i.i1529
@@ -13090,7 +13090,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5406:                                             ; preds = %5406, %.preheader4588.i.i1535
   %indvars.iv5566.i.i1536 = phi i64 [ 0, %.preheader4588.i.i1535 ], [ %indvars.iv.next5567.i.i1538, %5406 ]
   %.045655015.i.i1537 = phi float [ 0.000000e+00, %.preheader4588.i.i1535 ], [ %5409, %5406 ]
-  %5407 = getelementptr inbounds float, ptr %5392, i64 %indvars.iv5566.i.i1536
+  %5407 = getelementptr inbounds nuw float, ptr %5392, i64 %indvars.iv5566.i.i1536
   %5408 = load float, ptr %5407, align 4
   %5409 = fadd fast float %5408, %.045655015.i.i1537
   %indvars.iv.next5567.i.i1538 = add nuw nsw i64 %indvars.iv5566.i.i1536, 1
@@ -13122,7 +13122,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5418:                                             ; preds = %5415
   %5419 = load ptr, ptr %5416, align 8
-  %5420 = getelementptr inbounds i8, ptr %5419, i64 24
+  %5420 = getelementptr inbounds nuw i8, ptr %5419, i64 24
   %5421 = load ptr, ptr %5420, align 8
   invoke void %5421(ptr noundef nonnull align 8 dereferenceable(8) %5416, ptr noundef %5417)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %5423
@@ -13182,7 +13182,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5023.i.i1552:                               ; preds = %5438, %.lr.ph5023.i.i1552
   %indvars.iv5571.i.i = phi i64 [ %indvars.iv.next5572.i.i, %.lr.ph5023.i.i1552 ], [ 0, %5438 ]
   %.045645020.i.i1553 = phi float [ %5448, %.lr.ph5023.i.i1552 ], [ 0.000000e+00, %5438 ]
-  %5445 = getelementptr inbounds float, ptr %5444, i64 %indvars.iv5571.i.i
+  %5445 = getelementptr inbounds nuw float, ptr %5444, i64 %indvars.iv5571.i.i
   %5446 = load float, ptr %5445, align 4
   %5447 = tail call fast float @llvm.exp.f32(float %5446)
   %5448 = fadd fast float %5447, %.045645020.i.i1553
@@ -13205,7 +13205,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br label %5458
 
 5456:                                             ; preds = %._crit_edge5024.i.i1548
-  %5457 = getelementptr inbounds float, ptr %5449, i64 %indvars.iv5576.i.i1547
+  %5457 = getelementptr inbounds nuw float, ptr %5449, i64 %indvars.iv5576.i.i1547
   store float %.04564.lcssa.i.i1549, ptr %5457, align 4
   br label %5458
 
@@ -13317,7 +13317,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5506:                                             ; preds = %5506, %.preheader4585.us.i.i1574
   %indvars.iv5584.i.i = phi i64 [ 0, %.preheader4585.us.i.i1574 ], [ %indvars.iv.next5585.i.i, %5506 ]
   %.045635033.us.i.i1576 = phi float [ 0.000000e+00, %.preheader4585.us.i.i1574 ], [ %5510, %5506 ]
-  %5507 = getelementptr inbounds float, ptr %.029995038.us.i.i1575, i64 %indvars.iv5584.i.i
+  %5507 = getelementptr inbounds nuw float, ptr %.029995038.us.i.i1575, i64 %indvars.iv5584.i.i
   %5508 = load float, ptr %5507, align 4
   %5509 = call fast float @llvm.exp.f32(float %5508)
   %5510 = fadd fast float %5509, %.045635033.us.i.i1576
@@ -13326,9 +13326,9 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5588.not.i.i, label %._crit_edge5036.us.i.i1577, label %5506, !llvm.loop !331
 
 ._crit_edge5036.us.i.i1577:                       ; preds = %5506
-  %5511 = getelementptr inbounds float, ptr %5499, i64 %indvars.iv5589.i.i
+  %5511 = getelementptr inbounds nuw float, ptr %5499, i64 %indvars.iv5589.i.i
   store float %5510, ptr %5511, align 4
-  %5512 = getelementptr inbounds float, ptr %.029995038.us.i.i1575, i64 %5490
+  %5512 = getelementptr inbounds nuw float, ptr %.029995038.us.i.i1575, i64 %5490
   %indvars.iv.next5590.i.i = add nuw nsw i64 %indvars.iv5589.i.i, 1
   %exitcond5593.not.i.i = icmp eq i64 %indvars.iv.next5590.i.i, %5491
   br i1 %exitcond5593.not.i.i, label %._crit_edge5040.i.i1571, label %.preheader4585.us.i.i1574, !llvm.loop !332
@@ -13377,8 +13377,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5050.i.i1568:                               ; preds = %5524, %.lr.ph5050.i.i1568
   %indvars.iv5599.i.i = phi i64 [ %indvars.iv.next5600.i.i, %.lr.ph5050.i.i1568 ], [ 0, %5524 ]
   %5531 = load ptr, ptr %2, align 8
-  %5532 = getelementptr inbounds float, ptr %5531, i64 %indvars.iv5599.i.i
-  %5533 = getelementptr inbounds float, ptr %5530, i64 %indvars.iv5599.i.i
+  %5532 = getelementptr inbounds nuw float, ptr %5531, i64 %indvars.iv5599.i.i
+  %5533 = getelementptr inbounds nuw float, ptr %5530, i64 %indvars.iv5599.i.i
   %5534 = load float, ptr %5532, align 4
   %5535 = load float, ptr %5533, align 4
   %5536 = fadd fast float %5535, %5534
@@ -13411,7 +13411,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5544:                                             ; preds = %5541
   %5545 = load ptr, ptr %5542, align 8
-  %5546 = getelementptr inbounds i8, ptr %5545, i64 24
+  %5546 = getelementptr inbounds nuw i8, ptr %5545, i64 24
   %5547 = load ptr, ptr %5546, align 8
   invoke void %5547(ptr noundef nonnull align 8 dereferenceable(8) %5542, ptr noundef %5543)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %5549
@@ -13521,8 +13521,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5597:                                             ; preds = %5597, %.preheader4582.us.i.i1595
   %indvars.iv5609.i.i = phi i64 [ 0, %.preheader4582.us.i.i1595 ], [ %indvars.iv.next5610.i.i, %5597 ]
-  %5598 = getelementptr inbounds float, ptr %5590, i64 %indvars.iv5609.i.i
-  %5599 = getelementptr inbounds float, ptr %.029935061.us.i.i1597, i64 %indvars.iv5609.i.i
+  %5598 = getelementptr inbounds nuw float, ptr %5590, i64 %indvars.iv5609.i.i
+  %5599 = getelementptr inbounds nuw float, ptr %.029935061.us.i.i1597, i64 %indvars.iv5609.i.i
   %5600 = load float, ptr %5598, align 4
   %5601 = load float, ptr %5599, align 4
   %5602 = call fast float @llvm.exp.f32(float %5601)
@@ -13533,7 +13533,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5613.not.i.i, label %._crit_edge5060.us.i.i1598, label %5597, !llvm.loop !336
 
 ._crit_edge5060.us.i.i1598:                       ; preds = %5597
-  %5604 = getelementptr inbounds float, ptr %.029935061.us.i.i1597, i64 %5583
+  %5604 = getelementptr inbounds nuw float, ptr %.029935061.us.i.i1597, i64 %5583
   %5605 = add nuw nsw i32 %.029925062.us.i.i1596, 1
   %exitcond5614.not.i.i1599 = icmp eq i32 %5605, %5365
   br i1 %exitcond5614.not.i.i1599, label %._crit_edge5063.i.i1600, label %.preheader4582.us.i.i1595, !llvm.loop !337
@@ -13582,8 +13582,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5073.i.i1591:                               ; preds = %5617, %.lr.ph5073.i.i1591
   %indvars.iv5620.i.i = phi i64 [ %indvars.iv.next5621.i.i, %.lr.ph5073.i.i1591 ], [ 0, %5617 ]
   %5624 = load ptr, ptr %2, align 8
-  %5625 = getelementptr inbounds float, ptr %5624, i64 %indvars.iv5620.i.i
-  %5626 = getelementptr inbounds float, ptr %5623, i64 %indvars.iv5620.i.i
+  %5625 = getelementptr inbounds nuw float, ptr %5624, i64 %indvars.iv5620.i.i
+  %5626 = getelementptr inbounds nuw float, ptr %5623, i64 %indvars.iv5620.i.i
   %5627 = load float, ptr %5625, align 4
   %5628 = load float, ptr %5626, align 4
   %5629 = fadd fast float %5628, %5627
@@ -13616,7 +13616,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5637:                                             ; preds = %5634
   %5638 = load ptr, ptr %5635, align 8
-  %5639 = getelementptr inbounds i8, ptr %5638, i64 24
+  %5639 = getelementptr inbounds nuw i8, ptr %5638, i64 24
   %5640 = load ptr, ptr %5639, align 8
   invoke void %5640(ptr noundef nonnull align 8 dereferenceable(8) %5635, ptr noundef %5636)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %5642
@@ -13712,7 +13712,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5681:                                             ; preds = %5681, %.preheader4579.us.i.i1607
   %indvars.iv5633.i.i1609 = phi i64 [ 0, %.preheader4579.us.i.i1607 ], [ %indvars.iv.next5634.i.i1611, %5681 ]
   %.045625077.us.i.i1610 = phi float [ 0.000000e+00, %.preheader4579.us.i.i1607 ], [ %5685, %5681 ]
-  %5682 = getelementptr inbounds float, ptr %.029875082.us.i.i1608, i64 %indvars.iv5633.i.i1609
+  %5682 = getelementptr inbounds nuw float, ptr %.029875082.us.i.i1608, i64 %indvars.iv5633.i.i1609
   %5683 = load float, ptr %5682, align 4
   %5684 = tail call fast float @llvm.exp.f32(float %5683)
   %5685 = fadd fast float %5684, %.045625077.us.i.i1610
@@ -13721,9 +13721,9 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5637.not.i.i1612, label %._crit_edge5080.us.i.i1613, label %5681, !llvm.loop !341
 
 ._crit_edge5080.us.i.i1613:                       ; preds = %5681
-  %5686 = getelementptr inbounds float, ptr %5680, i64 %indvars.iv5638.i.i
+  %5686 = getelementptr inbounds nuw float, ptr %5680, i64 %indvars.iv5638.i.i
   store float %5685, ptr %5686, align 4
-  %5687 = getelementptr inbounds float, ptr %.029875082.us.i.i1608, i64 %5659
+  %5687 = getelementptr inbounds nuw float, ptr %.029875082.us.i.i1608, i64 %5659
   %indvars.iv.next5639.i.i = add nuw nsw i64 %indvars.iv5638.i.i, 1
   %exitcond5642.not.i.i = icmp eq i64 %indvars.iv.next5639.i.i, %5660
   br i1 %exitcond5642.not.i.i, label %._crit_edge5084.i.i1605, label %.preheader4579.us.i.i1607, !llvm.loop !342
@@ -13793,8 +13793,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph5094.i.i1620:                               ; preds = %5708, %.lr.ph5094.i.i1620
   %indvars.iv5648.i.i = phi i64 [ %indvars.iv.next5649.i.i, %.lr.ph5094.i.i1620 ], [ 0, %5708 ]
   %5715 = load ptr, ptr %2, align 8
-  %5716 = getelementptr inbounds float, ptr %5715, i64 %indvars.iv5648.i.i
-  %5717 = getelementptr inbounds float, ptr %5714, i64 %indvars.iv5648.i.i
+  %5716 = getelementptr inbounds nuw float, ptr %5715, i64 %indvars.iv5648.i.i
+  %5717 = getelementptr inbounds nuw float, ptr %5714, i64 %indvars.iv5648.i.i
   %5718 = load float, ptr %5716, align 4
   %5719 = load float, ptr %5717, align 4
   %5720 = tail call fast float @llvm.exp.f32(float %5719)
@@ -13896,8 +13896,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5765:                                             ; preds = %5765, %.preheader4574.us.i.i1626
   %indvars.iv5658.i.i = phi i64 [ 0, %.preheader4574.us.i.i1626 ], [ %indvars.iv.next5659.i.i, %5765 ]
-  %5766 = getelementptr inbounds float, ptr %5764, i64 %indvars.iv5658.i.i
-  %5767 = getelementptr inbounds float, ptr %.029805105.us.i.i1628, i64 %indvars.iv5658.i.i
+  %5766 = getelementptr inbounds nuw float, ptr %5764, i64 %indvars.iv5658.i.i
+  %5767 = getelementptr inbounds nuw float, ptr %.029805105.us.i.i1628, i64 %indvars.iv5658.i.i
   %5768 = load float, ptr %5766, align 4
   %5769 = load float, ptr %5767, align 4
   %5770 = tail call fast float @llvm.exp.f32(float %5769)
@@ -13908,7 +13908,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5662.not.i.i1629, label %._crit_edge5104.us.i.i1630, label %5765, !llvm.loop !346
 
 ._crit_edge5104.us.i.i1630:                       ; preds = %5765
-  %5772 = getelementptr inbounds float, ptr %.029805105.us.i.i1628, i64 %5745
+  %5772 = getelementptr inbounds nuw float, ptr %.029805105.us.i.i1628, i64 %5745
   %5773 = add nuw nsw i32 %.029785106.us.i.i1627, 1
   %exitcond5663.not.i.i = icmp eq i32 %5773, %5365
   br i1 %exitcond5663.not.i.i, label %._crit_edge5107.i.i1631, label %.preheader4574.us.i.i1626, !llvm.loop !347
@@ -14003,7 +14003,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph.i.i1174:                                   ; preds = %5809, %.lr.ph.i.i1174
   %indvars.iv.i.i1175 = phi i64 [ %indvars.iv.next.i.i1177, %.lr.ph.i.i1174 ], [ 0, %5809 ]
   %.045614633.i.i1176 = phi float [ %5819, %.lr.ph.i.i1174 ], [ 0.000000e+00, %5809 ]
-  %5816 = getelementptr inbounds float, ptr %5815, i64 %indvars.iv.i.i1175
+  %5816 = getelementptr inbounds nuw float, ptr %5815, i64 %indvars.iv.i.i1175
   %5817 = load float, ptr %5816, align 4
   %5818 = call fast float @llvm.exp.f32(float %5817)
   %5819 = fadd fast float %5818, %.045614633.i.i1176
@@ -14014,7 +14014,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 ._crit_edge.i.i1165:                              ; preds = %.lr.ph.i.i1174, %5809
   %.04561.lcssa.i.i1166 = phi float [ 0.000000e+00, %5809 ], [ %5819, %.lr.ph.i.i1174 ]
   %5820 = load ptr, ptr %9, align 8
-  %5821 = getelementptr inbounds float, ptr %5820, i64 %indvars.iv5229.i.i1164
+  %5821 = getelementptr inbounds nuw float, ptr %5820, i64 %indvars.iv5229.i.i1164
   store float %.04561.lcssa.i.i1166, ptr %5821, align 4
   %indvars.iv.next5230.i.i1167 = add nuw nsw i64 %indvars.iv5229.i.i1164, 1
   %exitcond5233.not.i.i1168 = icmp eq i64 %indvars.iv.next5230.i.i1167, %wide.trip.count5232.i.i1162
@@ -14023,7 +14023,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5822:                                             ; preds = %5822, %.preheader4631.i.i1169
   %indvars.iv5234.i.i1170 = phi i64 [ 0, %.preheader4631.i.i1169 ], [ %indvars.iv.next5235.i.i1172, %5822 ]
   %.045604637.i.i1171 = phi float [ 0.000000e+00, %.preheader4631.i.i1169 ], [ %5825, %5822 ]
-  %5823 = getelementptr inbounds float, ptr %5808, i64 %indvars.iv5234.i.i1170
+  %5823 = getelementptr inbounds nuw float, ptr %5808, i64 %indvars.iv5234.i.i1170
   %5824 = load float, ptr %5823, align 4
   %5825 = fadd fast float %5824, %.045604637.i.i1171
   %indvars.iv.next5235.i.i1172 = add nuw nsw i64 %indvars.iv5234.i.i1170, 1
@@ -14055,7 +14055,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5834:                                             ; preds = %5831
   %5835 = load ptr, ptr %5832, align 8
-  %5836 = getelementptr inbounds i8, ptr %5835, i64 24
+  %5836 = getelementptr inbounds nuw i8, ptr %5835, i64 24
   %5837 = load ptr, ptr %5836, align 8
   invoke void %5837(ptr noundef nonnull align 8 dereferenceable(8) %5832, ptr noundef %5833)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %5839
@@ -14115,7 +14115,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4645.i.i1189:                               ; preds = %5854, %.lr.ph4645.i.i1189
   %indvars.iv5239.i.i1190 = phi i64 [ %indvars.iv.next5240.i.i1192, %.lr.ph4645.i.i1189 ], [ 0, %5854 ]
   %.045594642.i.i1191 = phi float [ %5864, %.lr.ph4645.i.i1189 ], [ 0.000000e+00, %5854 ]
-  %5861 = getelementptr inbounds float, ptr %5860, i64 %indvars.iv5239.i.i1190
+  %5861 = getelementptr inbounds nuw float, ptr %5860, i64 %indvars.iv5239.i.i1190
   %5862 = load float, ptr %5861, align 4
   %5863 = tail call fast float @llvm.exp.f32(float %5862)
   %5864 = fadd fast float %5863, %.045594642.i.i1191
@@ -14138,7 +14138,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br label %5874
 
 5872:                                             ; preds = %._crit_edge4646.i.i1185
-  %5873 = getelementptr inbounds float, ptr %5865, i64 %indvars.iv5244.i.i1184
+  %5873 = getelementptr inbounds nuw float, ptr %5865, i64 %indvars.iv5244.i.i1184
   store float %.04559.lcssa.i.i1186, ptr %5873, align 4
   br label %5874
 
@@ -14250,7 +14250,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 5922:                                             ; preds = %5922, %.preheader4628.us.i.i1213
   %indvars.iv5252.i.i = phi i64 [ 0, %.preheader4628.us.i.i1213 ], [ %indvars.iv.next5253.i.i, %5922 ]
   %.045584655.us.i.i1215 = phi float [ 0.000000e+00, %.preheader4628.us.i.i1213 ], [ %5926, %5922 ]
-  %5923 = getelementptr inbounds float, ptr %.029704660.us.i.i1214, i64 %indvars.iv5252.i.i
+  %5923 = getelementptr inbounds nuw float, ptr %.029704660.us.i.i1214, i64 %indvars.iv5252.i.i
   %5924 = load float, ptr %5923, align 4
   %5925 = call fast float @llvm.exp.f32(float %5924)
   %5926 = fadd fast float %5925, %.045584655.us.i.i1215
@@ -14259,9 +14259,9 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5256.not.i.i, label %._crit_edge4658.us.i.i1216, label %5922, !llvm.loop !354
 
 ._crit_edge4658.us.i.i1216:                       ; preds = %5922
-  %5927 = getelementptr inbounds float, ptr %5915, i64 %indvars.iv5257.i.i
+  %5927 = getelementptr inbounds nuw float, ptr %5915, i64 %indvars.iv5257.i.i
   store float %5926, ptr %5927, align 4
-  %5928 = getelementptr inbounds float, ptr %.029704660.us.i.i1214, i64 %5906
+  %5928 = getelementptr inbounds nuw float, ptr %.029704660.us.i.i1214, i64 %5906
   %indvars.iv.next5258.i.i = add nuw nsw i64 %indvars.iv5257.i.i, 1
   %exitcond5261.not.i.i = icmp eq i64 %indvars.iv.next5258.i.i, %5907
   br i1 %exitcond5261.not.i.i, label %._crit_edge4662.i.i1210, label %.preheader4628.us.i.i1213, !llvm.loop !355
@@ -14310,8 +14310,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4672.i.i1207:                               ; preds = %5940, %.lr.ph4672.i.i1207
   %indvars.iv5267.i.i = phi i64 [ %indvars.iv.next5268.i.i, %.lr.ph4672.i.i1207 ], [ 0, %5940 ]
   %5947 = load ptr, ptr %2, align 8
-  %5948 = getelementptr inbounds float, ptr %5947, i64 %indvars.iv5267.i.i
-  %5949 = getelementptr inbounds float, ptr %5946, i64 %indvars.iv5267.i.i
+  %5948 = getelementptr inbounds nuw float, ptr %5947, i64 %indvars.iv5267.i.i
+  %5949 = getelementptr inbounds nuw float, ptr %5946, i64 %indvars.iv5267.i.i
   %5950 = load float, ptr %5948, align 4
   %5951 = load float, ptr %5949, align 4
   %5952 = fadd fast float %5951, %5950
@@ -14344,7 +14344,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 5960:                                             ; preds = %5957
   %5961 = load ptr, ptr %5958, align 8
-  %5962 = getelementptr inbounds i8, ptr %5961, i64 24
+  %5962 = getelementptr inbounds nuw i8, ptr %5961, i64 24
   %5963 = load ptr, ptr %5962, align 8
   invoke void %5963(ptr noundef nonnull align 8 dereferenceable(8) %5958, ptr noundef %5959)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %5965
@@ -14459,14 +14459,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4624.us.us.us.i.i1243:                  ; preds = %._crit_edge4682.us.us.us.i.i1248, %.preheader4625.us.us.i.i1240
   %indvars.iv5282.i.i1244 = phi i64 [ %indvars.iv.next5283.i.i1249, %._crit_edge4682.us.us.us.i.i1248 ], [ 0, %.preheader4625.us.us.i.i1240 ]
   %.129644683.us.us.us.i.i1245 = phi ptr [ %6021, %._crit_edge4682.us.us.us.i.i1248 ], [ %.029634687.us.us.i.i1242, %.preheader4625.us.us.i.i1240 ]
-  %6014 = getelementptr inbounds float, ptr %6007, i64 %indvars.iv5282.i.i1244
+  %6014 = getelementptr inbounds nuw float, ptr %6007, i64 %indvars.iv5282.i.i1244
   %.promoted.us.us.us.i.i1246 = load float, ptr %6014, align 4
   br label %6015
 
 6015:                                             ; preds = %6015, %.preheader4624.us.us.us.i.i1243
   %indvars.iv5277.i.i = phi i64 [ %indvars.iv.next5278.i.i, %6015 ], [ 0, %.preheader4624.us.us.us.i.i1243 ]
   %6016 = phi float [ %6020, %6015 ], [ %.promoted.us.us.us.i.i1246, %.preheader4624.us.us.us.i.i1243 ]
-  %6017 = getelementptr inbounds float, ptr %.129644683.us.us.us.i.i1245, i64 %indvars.iv5277.i.i
+  %6017 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us.i.i1245, i64 %indvars.iv5277.i.i
   %6018 = load float, ptr %6017, align 4
   %6019 = call fast float @llvm.exp.f32(float %6018)
   %6020 = fadd fast float %6019, %6016
@@ -14476,7 +14476,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5281.not.i.i1247, label %._crit_edge4682.us.us.us.i.i1248, label %6015, !llvm.loop !359
 
 ._crit_edge4682.us.us.us.i.i1248:                 ; preds = %6015
-  %6021 = getelementptr inbounds float, ptr %.129644683.us.us.us.i.i1245, i64 %6000
+  %6021 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us.i.i1245, i64 %6000
   %indvars.iv.next5283.i.i1249 = add nuw nsw i64 %indvars.iv5282.i.i1244, 1
   %exitcond5286.not.i.i1250 = icmp eq i64 %indvars.iv.next5283.i.i1249, %wide.trip.count5285.i.i1238
   br i1 %exitcond5286.not.i.i1250, label %._crit_edge4685.split.us.us.us.i.i1251, label %.preheader4624.us.us.us.i.i1243, !llvm.loop !360
@@ -14530,8 +14530,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4705.i.i1232:                               ; preds = %6034, %.lr.ph4705.i.i1232
   %indvars.iv5293.i.i1233 = phi i64 [ %indvars.iv.next5294.i.i1234, %.lr.ph4705.i.i1232 ], [ 0, %6034 ]
   %6041 = load ptr, ptr %2, align 8
-  %6042 = getelementptr inbounds float, ptr %6041, i64 %indvars.iv5293.i.i1233
-  %6043 = getelementptr inbounds float, ptr %6040, i64 %indvars.iv5293.i.i1233
+  %6042 = getelementptr inbounds nuw float, ptr %6041, i64 %indvars.iv5293.i.i1233
+  %6043 = getelementptr inbounds nuw float, ptr %6040, i64 %indvars.iv5293.i.i1233
   %6044 = load float, ptr %6042, align 4
   %6045 = load float, ptr %6043, align 4
   %6046 = fadd fast float %6045, %6044
@@ -14564,7 +14564,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6054:                                             ; preds = %6051
   %6055 = load ptr, ptr %6052, align 8
-  %6056 = getelementptr inbounds i8, ptr %6055, i64 24
+  %6056 = getelementptr inbounds nuw i8, ptr %6055, i64 24
   %6057 = load ptr, ptr %6056, align 8
   invoke void %6057(ptr noundef nonnull align 8 dereferenceable(8) %6052, ptr noundef %6053)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %6059
@@ -14682,8 +14682,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6108:                                             ; preds = %6108, %.preheader4620.us.us.us.i.i1277
   %indvars.iv5303.i.i = phi i64 [ %indvars.iv.next5304.i.i, %6108 ], [ 0, %.preheader4620.us.us.us.i.i1277 ]
-  %6109 = getelementptr inbounds float, ptr %6101, i64 %indvars.iv5303.i.i
-  %6110 = getelementptr inbounds float, ptr %.129564716.us.us.us.i.i1279, i64 %indvars.iv5303.i.i
+  %6109 = getelementptr inbounds nuw float, ptr %6101, i64 %indvars.iv5303.i.i
+  %6110 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us.i.i1279, i64 %indvars.iv5303.i.i
   %6111 = load float, ptr %6109, align 4
   %6112 = load float, ptr %6110, align 4
   %6113 = call fast float @llvm.exp.f32(float %6112)
@@ -14694,7 +14694,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5307.not.i.i, label %._crit_edge4715.us.us.us.i.i1280, label %6108, !llvm.loop !365
 
 ._crit_edge4715.us.us.us.i.i1280:                 ; preds = %6108
-  %6115 = getelementptr inbounds float, ptr %.129564716.us.us.us.i.i1279, i64 %6094
+  %6115 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us.i.i1279, i64 %6094
   %6116 = add nuw nsw i32 %.029534717.us.us.us.i.i1278, 1
   %exitcond5308.not.i.i1281 = icmp eq i32 %6116, %5778
   br i1 %exitcond5308.not.i.i1281, label %._crit_edge4718.split.us.us.us.i.i1282, label %.preheader4620.us.us.us.i.i1277, !llvm.loop !366
@@ -14748,8 +14748,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .lr.ph4738.i.i1268:                               ; preds = %6129, %.lr.ph4738.i.i1268
   %indvars.iv5315.i.i = phi i64 [ %indvars.iv.next5316.i.i, %.lr.ph4738.i.i1268 ], [ 0, %6129 ]
   %6136 = load ptr, ptr %2, align 8
-  %6137 = getelementptr inbounds float, ptr %6136, i64 %indvars.iv5315.i.i
-  %6138 = getelementptr inbounds float, ptr %6135, i64 %indvars.iv5315.i.i
+  %6137 = getelementptr inbounds nuw float, ptr %6136, i64 %indvars.iv5315.i.i
+  %6138 = getelementptr inbounds nuw float, ptr %6135, i64 %indvars.iv5315.i.i
   %6139 = load float, ptr %6137, align 4
   %6140 = load float, ptr %6138, align 4
   %6141 = fadd fast float %6140, %6139
@@ -14782,7 +14782,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6149:                                             ; preds = %6146
   %6150 = load ptr, ptr %6147, align 8
-  %6151 = getelementptr inbounds i8, ptr %6150, i64 24
+  %6151 = getelementptr inbounds nuw i8, ptr %6150, i64 24
   %6152 = load ptr, ptr %6151, align 8
   invoke void %6152(ptr noundef nonnull align 8 dereferenceable(8) %6147, ptr noundef %6148)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %6154
@@ -14878,7 +14878,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 6193:                                             ; preds = %6193, %.preheader4617.us.i.i1297
   %indvars.iv5328.i.i1300 = phi i64 [ 0, %.preheader4617.us.i.i1297 ], [ %indvars.iv.next5329.i.i1302, %6193 ]
   %.045574742.us.i.i1301 = phi float [ 0.000000e+00, %.preheader4617.us.i.i1297 ], [ %6197, %6193 ]
-  %6194 = getelementptr inbounds float, ptr %.029484747.us.i.i1299, i64 %indvars.iv5328.i.i1300
+  %6194 = getelementptr inbounds nuw float, ptr %.029484747.us.i.i1299, i64 %indvars.iv5328.i.i1300
   %6195 = load float, ptr %6194, align 4
   %6196 = tail call fast float @llvm.exp.f32(float %6195)
   %6197 = fadd fast float %6196, %.045574742.us.i.i1301
@@ -14887,9 +14887,9 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5332.not.i.i1303, label %._crit_edge4745.us.i.i1304, label %6193, !llvm.loop !371
 
 ._crit_edge4745.us.i.i1304:                       ; preds = %6193
-  %6198 = getelementptr inbounds float, ptr %6192, i64 %indvars.iv5333.i.i1298
+  %6198 = getelementptr inbounds nuw float, ptr %6192, i64 %indvars.iv5333.i.i1298
   store float %6197, ptr %6198, align 4
-  %6199 = getelementptr inbounds float, ptr %.029484747.us.i.i1299, i64 %6171
+  %6199 = getelementptr inbounds nuw float, ptr %.029484747.us.i.i1299, i64 %6171
   %indvars.iv.next5334.i.i1305 = add nuw nsw i64 %indvars.iv5333.i.i1298, 1
   %exitcond5337.not.i.i1306 = icmp eq i64 %indvars.iv.next5334.i.i1305, %6172
   br i1 %exitcond5337.not.i.i1306, label %._crit_edge4749.i.i1293, label %.preheader4617.us.i.i1297, !llvm.loop !372
@@ -15006,14 +15006,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4615.us.us.us.i.i1335:                  ; preds = %._crit_edge4759.us.us.us.i.i1342, %.preheader4615.lr.ph.us.us.i.i1333
   %indvars.iv5348.i.i1336 = phi i64 [ %indvars.iv.next5349.i.i1343, %._crit_edge4759.us.us.us.i.i1342 ], [ 0, %.preheader4615.lr.ph.us.us.i.i1333 ]
   %.129434760.us.us.us.i.i1337 = phi ptr [ %6259, %._crit_edge4759.us.us.us.i.i1342 ], [ %.029424764.us.us.i.i1334, %.preheader4615.lr.ph.us.us.i.i1333 ]
-  %6252 = getelementptr inbounds float, ptr %6251, i64 %indvars.iv5348.i.i1336
+  %6252 = getelementptr inbounds nuw float, ptr %6251, i64 %indvars.iv5348.i.i1336
   %.promoted.us.us.us4775.i.i1338 = load float, ptr %6252, align 4
   br label %6253
 
 6253:                                             ; preds = %6253, %.preheader4615.us.us.us.i.i1335
   %indvars.iv5343.i.i1339 = phi i64 [ %indvars.iv.next5344.i.i1340, %6253 ], [ 0, %.preheader4615.us.us.us.i.i1335 ]
   %6254 = phi float [ %6258, %6253 ], [ %.promoted.us.us.us4775.i.i1338, %.preheader4615.us.us.us.i.i1335 ]
-  %6255 = getelementptr inbounds float, ptr %.129434760.us.us.us.i.i1337, i64 %indvars.iv5343.i.i1339
+  %6255 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us.i.i1337, i64 %indvars.iv5343.i.i1339
   %6256 = load float, ptr %6255, align 4
   %6257 = call fast float @llvm.exp.f32(float %6256)
   %6258 = fadd fast float %6257, %6254
@@ -15023,7 +15023,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5347.not.i.i1341, label %._crit_edge4759.us.us.us.i.i1342, label %6253, !llvm.loop !374
 
 ._crit_edge4759.us.us.us.i.i1342:                 ; preds = %6253
-  %6259 = getelementptr inbounds float, ptr %.129434760.us.us.us.i.i1337, i64 %6233
+  %6259 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us.i.i1337, i64 %6233
   %indvars.iv.next5349.i.i1343 = add nuw nsw i64 %indvars.iv5348.i.i1336, 1
   %exitcond5352.not.i.i1344 = icmp eq i64 %indvars.iv.next5349.i.i1343, %wide.trip.count5351.i.i1329
   br i1 %exitcond5352.not.i.i1344, label %._crit_edge4762.split.us.us.us.i.i1345, label %.preheader4615.us.us.us.i.i1335, !llvm.loop !375
@@ -15103,8 +15103,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6294:                                             ; preds = %6294, %.lr.ph4785.us.us.i.i1325
   %indvars.iv5373.i.i = phi i64 [ 0, %.lr.ph4785.us.us.i.i1325 ], [ %indvars.iv.next5374.i.i, %6294 ]
-  %6295 = getelementptr inbounds float, ptr %6293, i64 %indvars.iv5373.i.i
-  %6296 = getelementptr inbounds float, ptr %6286, i64 %indvars.iv5373.i.i
+  %6295 = getelementptr inbounds nuw float, ptr %6293, i64 %indvars.iv5373.i.i
+  %6296 = getelementptr inbounds nuw float, ptr %6286, i64 %indvars.iv5373.i.i
   %6297 = load float, ptr %6295, align 4
   %6298 = load float, ptr %6296, align 4
   %6299 = fadd fast float %6298, %6297
@@ -15139,8 +15139,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6312:                                             ; preds = %6312, %.lr.ph4785.us4793.i.i1322
   %indvars.iv5363.i.i = phi i64 [ 0, %.lr.ph4785.us4793.i.i1322 ], [ %indvars.iv.next5364.i.i, %6312 ]
-  %6313 = getelementptr inbounds float, ptr %6311, i64 %indvars.iv5363.i.i
-  %6314 = getelementptr inbounds float, ptr %6301, i64 %indvars.iv5363.i.i
+  %6313 = getelementptr inbounds nuw float, ptr %6311, i64 %indvars.iv5363.i.i
+  %6314 = getelementptr inbounds nuw float, ptr %6301, i64 %indvars.iv5363.i.i
   %6315 = load float, ptr %6313, align 4
   %6316 = load float, ptr %6314, align 4
   %6317 = fadd fast float %6316, %6315
@@ -15178,7 +15178,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6325:                                             ; preds = %6322
   %6326 = load ptr, ptr %6323, align 8
-  %6327 = getelementptr inbounds i8, ptr %6326, i64 24
+  %6327 = getelementptr inbounds nuw i8, ptr %6326, i64 24
   %6328 = load ptr, ptr %6327, align 8
   invoke void %6328(ptr noundef nonnull align 8 dereferenceable(8) %6323, ptr noundef %6324)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %6330
@@ -15305,8 +15305,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6385:                                             ; preds = %6385, %.lr.ph4803.us.us.us.i.i1371
   %indvars.iv5388.i.i = phi i64 [ %indvars.iv.next5389.i.i, %6385 ], [ 0, %.lr.ph4803.us.us.us.i.i1371 ]
-  %6386 = getelementptr inbounds float, ptr %6384, i64 %indvars.iv5388.i.i
-  %6387 = getelementptr inbounds float, ptr %.129334805.us.us.us.i.i1372, i64 %indvars.iv5388.i.i
+  %6386 = getelementptr inbounds nuw float, ptr %6384, i64 %indvars.iv5388.i.i
+  %6387 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us.i.i1372, i64 %indvars.iv5388.i.i
   %6388 = load float, ptr %6386, align 4
   %6389 = load float, ptr %6387, align 4
   %6390 = call fast float @llvm.exp.f32(float %6389)
@@ -15317,7 +15317,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5392.not.i.i, label %._crit_edge4804.us.us.us.i.i1373, label %6385, !llvm.loop !381
 
 ._crit_edge4804.us.us.us.i.i1373:                 ; preds = %6385
-  %6392 = getelementptr inbounds float, ptr %.129334805.us.us.us.i.i1372, i64 %6366
+  %6392 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us.i.i1372, i64 %6366
   %indvars.iv.next5394.i.i = add nuw nsw i64 %indvars.iv5393.i.i, 1
   %exitcond5397.not.i.i = icmp eq i64 %indvars.iv.next5394.i.i, %wide.trip.count5396.i.i
   br i1 %exitcond5397.not.i.i, label %._crit_edge4808.split.us.us.us.i.i1374, label %.lr.ph4803.us.us.us.i.i1371, !llvm.loop !382
@@ -15393,8 +15393,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6427:                                             ; preds = %6427, %.lr.ph4827.us.i.i1361
   %indvars.iv5404.i.i = phi i64 [ 0, %.lr.ph4827.us.i.i1361 ], [ %indvars.iv.next5405.i.i, %6427 ]
-  %6428 = getelementptr inbounds float, ptr %6426, i64 %indvars.iv5404.i.i
-  %6429 = getelementptr inbounds float, ptr %6419, i64 %indvars.iv5404.i.i
+  %6428 = getelementptr inbounds nuw float, ptr %6426, i64 %indvars.iv5404.i.i
+  %6429 = getelementptr inbounds nuw float, ptr %6419, i64 %indvars.iv5404.i.i
   %6430 = load float, ptr %6428, align 4
   %6431 = load float, ptr %6429, align 4
   %6432 = fadd fast float %6431, %6430
@@ -15432,7 +15432,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6440:                                             ; preds = %6437
   %6441 = load ptr, ptr %6438, align 8
-  %6442 = getelementptr inbounds i8, ptr %6441, i64 24
+  %6442 = getelementptr inbounds nuw i8, ptr %6441, i64 24
   %6443 = load ptr, ptr %6442, align 8
   invoke void %6443(ptr noundef nonnull align 8 dereferenceable(8) %6438, ptr noundef %6439)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %6445
@@ -15527,14 +15527,14 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 .preheader4607.us.us.us.i.i1387:                  ; preds = %._crit_edge4840.us.us.us.i.i1390, %.preheader4608.us.us.i.i1384
   %indvars.iv5427.i.i = phi i64 [ %indvars.iv.next5428.i.i, %._crit_edge4840.us.us.us.i.i1390 ], [ 0, %.preheader4608.us.us.i.i1384 ]
   %.129244841.us.us.us.i.i1388 = phi ptr [ %6492, %._crit_edge4840.us.us.us.i.i1390 ], [ %.029234845.us.us.i.i1386, %.preheader4608.us.us.i.i1384 ]
-  %6485 = getelementptr inbounds float, ptr %6484, i64 %indvars.iv5427.i.i
+  %6485 = getelementptr inbounds nuw float, ptr %6484, i64 %indvars.iv5427.i.i
   %.promoted.us.us.us4854.i.i1389 = load float, ptr %6485, align 4
   br label %6486
 
 6486:                                             ; preds = %6486, %.preheader4607.us.us.us.i.i1387
   %indvars.iv5422.i.i = phi i64 [ %indvars.iv.next5423.i.i, %6486 ], [ 0, %.preheader4607.us.us.us.i.i1387 ]
   %6487 = phi float [ %6491, %6486 ], [ %.promoted.us.us.us4854.i.i1389, %.preheader4607.us.us.us.i.i1387 ]
-  %6488 = getelementptr inbounds float, ptr %.129244841.us.us.us.i.i1388, i64 %indvars.iv5422.i.i
+  %6488 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us.i.i1388, i64 %indvars.iv5422.i.i
   %6489 = load float, ptr %6488, align 4
   %6490 = tail call fast float @llvm.exp.f32(float %6489)
   %6491 = fadd fast float %6490, %6487
@@ -15544,7 +15544,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5426.not.i.i, label %._crit_edge4840.us.us.us.i.i1390, label %6486, !llvm.loop !388
 
 ._crit_edge4840.us.us.us.i.i1390:                 ; preds = %6486
-  %6492 = getelementptr inbounds float, ptr %.129244841.us.us.us.i.i1388, i64 %6463
+  %6492 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us.i.i1388, i64 %6463
   %indvars.iv.next5428.i.i = add nuw nsw i64 %indvars.iv5427.i.i, 1
   %exitcond5431.not.i.i = icmp eq i64 %indvars.iv.next5428.i.i, %6464
   br i1 %exitcond5431.not.i.i, label %._crit_edge4843.split.us.us.us.i.i1391, label %.preheader4607.us.us.us.i.i1387, !llvm.loop !389
@@ -15669,8 +15669,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6546:                                             ; preds = %6546, %.preheader4605.us.us.us.i.i1421
   %indvars.iv5438.i.i1424 = phi i64 [ %indvars.iv.next5439.i.i1425, %6546 ], [ 0, %.preheader4605.us.us.us.i.i1421 ]
-  %6547 = getelementptr inbounds float, ptr %6545, i64 %indvars.iv5438.i.i1424
-  %6548 = getelementptr inbounds float, ptr %.129164865.us.us.us.i.i1423, i64 %indvars.iv5438.i.i1424
+  %6547 = getelementptr inbounds nuw float, ptr %6545, i64 %indvars.iv5438.i.i1424
+  %6548 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us.i.i1423, i64 %indvars.iv5438.i.i1424
   %6549 = load float, ptr %6547, align 4
   %6550 = load float, ptr %6548, align 4
   %6551 = call fast float @llvm.exp.f32(float %6550)
@@ -15681,7 +15681,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5442.not.i.i1426, label %._crit_edge4864.us.us.us.i.i1427, label %6546, !llvm.loop !392
 
 ._crit_edge4864.us.us.us.i.i1427:                 ; preds = %6546
-  %6553 = getelementptr inbounds float, ptr %.129164865.us.us.us.i.i1423, i64 %6527
+  %6553 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us.i.i1423, i64 %6527
   %6554 = add nuw nsw i32 %.029134866.us.us.us.i.i1422, 1
   %exitcond5443.not.i.i = icmp eq i32 %6554, %5778
   br i1 %exitcond5443.not.i.i, label %._crit_edge4867.split.us.us.us.i.i1428, label %.preheader4605.us.us.us.i.i1421, !llvm.loop !393
@@ -15757,8 +15757,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6588:                                             ; preds = %6588, %.lr.ph4889.us.i.i1407
   %indvars.iv5454.i.i = phi i64 [ 0, %.lr.ph4889.us.i.i1407 ], [ %indvars.iv.next5455.i.i, %6588 ]
-  %6589 = getelementptr inbounds float, ptr %6587, i64 %indvars.iv5454.i.i
-  %6590 = getelementptr inbounds float, ptr %6580, i64 %indvars.iv5454.i.i
+  %6589 = getelementptr inbounds nuw float, ptr %6587, i64 %indvars.iv5454.i.i
+  %6590 = getelementptr inbounds nuw float, ptr %6580, i64 %indvars.iv5454.i.i
   %6591 = load float, ptr %6589, align 4
   %6592 = load float, ptr %6590, align 4
   %6593 = fadd fast float %6592, %6591
@@ -15796,7 +15796,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6601:                                             ; preds = %6598
   %6602 = load ptr, ptr %6599, align 8
-  %6603 = getelementptr inbounds i8, ptr %6602, i64 24
+  %6603 = getelementptr inbounds nuw i8, ptr %6602, i64 24
   %6604 = load ptr, ptr %6603, align 8
   invoke void %6604(ptr noundef nonnull align 8 dereferenceable(8) %6599, ptr noundef %6600)
           to label %_ZN4ncnnL12reduction_opINS_20reduction_op_sumsexpIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit.i unwind label %6606
@@ -15894,8 +15894,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6646:                                             ; preds = %6646, %.preheader4600.us.us.us.i.i1437
   %indvars.iv5472.i.i1440 = phi i64 [ %indvars.iv.next5473.i.i1441, %6646 ], [ 0, %.preheader4600.us.us.us.i.i1437 ]
-  %6647 = getelementptr inbounds float, ptr %6645, i64 %indvars.iv5472.i.i1440
-  %6648 = getelementptr inbounds float, ptr %.129074903.us.us.us.i.i1439, i64 %indvars.iv5472.i.i1440
+  %6647 = getelementptr inbounds nuw float, ptr %6645, i64 %indvars.iv5472.i.i1440
+  %6648 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us.i.i1439, i64 %indvars.iv5472.i.i1440
   %6649 = load float, ptr %6647, align 4
   %6650 = load float, ptr %6648, align 4
   %6651 = tail call fast float @llvm.exp.f32(float %6650)
@@ -15906,7 +15906,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5476.not.i.i1442, label %._crit_edge4902.us.us.us.i.i1443, label %6646, !llvm.loop !399
 
 ._crit_edge4902.us.us.us.i.i1443:                 ; preds = %6646
-  %6653 = getelementptr inbounds float, ptr %.129074903.us.us.us.i.i1439, i64 %6624
+  %6653 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us.i.i1439, i64 %6624
   %6654 = add nuw nsw i32 %.029024904.us.us.us.i.i1438, 1
   %exitcond5477.not.i.i = icmp eq i32 %6654, %5778
   br i1 %exitcond5477.not.i.i, label %._crit_edge4905.split.us.us.us.i.i1444, label %.preheader4600.us.us.us.i.i1437, !llvm.loop !400
@@ -15991,7 +15991,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 6686:                                             ; preds = %6686, %.preheader4598.us.i.i1453
   %indvars.iv5487.i.i1456 = phi i64 [ 0, %.preheader4598.us.i.i1453 ], [ %indvars.iv.next5488.i.i1458, %6686 ]
   %.045564919.us.i.i1457 = phi float [ 0.000000e+00, %.preheader4598.us.i.i1453 ], [ %6690, %6686 ]
-  %6687 = getelementptr inbounds float, ptr %.028994924.us.i.i1455, i64 %indvars.iv5487.i.i1456
+  %6687 = getelementptr inbounds nuw float, ptr %.028994924.us.i.i1455, i64 %indvars.iv5487.i.i1456
   %6688 = load float, ptr %6687, align 4
   %6689 = tail call fast float @llvm.exp.f32(float %6688)
   %6690 = fadd fast float %6689, %.045564919.us.i.i1457
@@ -16000,9 +16000,9 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5491.not.i.i1459, label %._crit_edge4922.us.i.i1460, label %6686, !llvm.loop !403
 
 ._crit_edge4922.us.i.i1460:                       ; preds = %6686
-  %6691 = getelementptr inbounds float, ptr %6679, i64 %indvars.iv5492.i.i1454
+  %6691 = getelementptr inbounds nuw float, ptr %6679, i64 %indvars.iv5492.i.i1454
   store float %6690, ptr %6691, align 4
-  %6692 = getelementptr inbounds float, ptr %.028994924.us.i.i1455, i64 %6670
+  %6692 = getelementptr inbounds nuw float, ptr %.028994924.us.i.i1455, i64 %6670
   %indvars.iv.next5493.i.i1461 = add nuw nsw i64 %indvars.iv5492.i.i1454, 1
   %exitcond5496.not.i.i1462 = icmp eq i64 %indvars.iv.next5493.i.i1461, %6671
   br i1 %exitcond5496.not.i.i1462, label %._crit_edge4926.i.i1450, label %.preheader4598.us.i.i1453, !llvm.loop !404
@@ -16105,8 +16105,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6736:                                             ; preds = %6736, %.lr.ph4936.us.us.i.us.i.us
   %indvars.iv5502.i.us.i.us = phi i64 [ %indvars.iv.next5503.i.us.i.us, %6736 ], [ 0, %.lr.ph4936.us.us.i.us.i.us ]
-  %6737 = getelementptr inbounds float, ptr %6735, i64 %indvars.iv5502.i.us.i.us
-  %6738 = getelementptr inbounds float, ptr %.128954938.us.us.i.us.i.us, i64 %indvars.iv5502.i.us.i.us
+  %6737 = getelementptr inbounds nuw float, ptr %6735, i64 %indvars.iv5502.i.us.i.us
+  %6738 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us.i.us, i64 %indvars.iv5502.i.us.i.us
   %6739 = load float, ptr %6737, align 4
   %6740 = load float, ptr %6738, align 4
   %6741 = tail call fast float @llvm.exp.f32(float %6740)
@@ -16117,7 +16117,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5506.not.i.us.i.us, label %._crit_edge4937.us.us.i.us.i.us, label %6736, !llvm.loop !406
 
 ._crit_edge4937.us.us.i.us.i.us:                  ; preds = %6736
-  %6743 = getelementptr inbounds float, ptr %.128954938.us.us.i.us.i.us, i64 %6718
+  %6743 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us.i.us, i64 %6718
   %indvars.iv.next5508.i.us.i.us = add nuw nsw i64 %indvars.iv5507.i.us.i.us, 1
   %exitcond5511.not.i.us.i.us = icmp eq i64 %indvars.iv.next5508.i.us.i.us, %wide.trip.count5510.i.i
   br i1 %exitcond5511.not.i.us.i.us, label %._crit_edge4942.us.i.loopexit.us.i.us, label %.lr.ph4936.us.us.i.us.i.us, !llvm.loop !407
@@ -16152,8 +16152,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6757:                                             ; preds = %6757, %.lr.ph4936.us.us.i.us.i
   %indvars.iv5502.i.us.i = phi i64 [ %indvars.iv.next5503.i.us.i, %6757 ], [ 0, %.lr.ph4936.us.us.i.us.i ]
-  %6758 = getelementptr inbounds float, ptr %6756, i64 %indvars.iv5502.i.us.i
-  %6759 = getelementptr inbounds float, ptr %.128954938.us.us.i.us.i, i64 %indvars.iv5502.i.us.i
+  %6758 = getelementptr inbounds nuw float, ptr %6756, i64 %indvars.iv5502.i.us.i
+  %6759 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us.i, i64 %indvars.iv5502.i.us.i
   %6760 = load float, ptr %6758, align 4
   %6761 = load float, ptr %6759, align 4
   %6762 = tail call fast float @llvm.exp.f32(float %6761)
@@ -16164,7 +16164,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5506.not.i.us.i, label %._crit_edge4937.us.us.i.us.i, label %6757, !llvm.loop !406
 
 ._crit_edge4937.us.us.i.us.i:                     ; preds = %6757
-  %6764 = getelementptr inbounds float, ptr %.128954938.us.us.i.us.i, i64 %6718
+  %6764 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us.i, i64 %6718
   %indvars.iv.next5508.i.us.i = add nuw nsw i64 %indvars.iv5507.i.us.i, 1
   %exitcond5511.not.i.us.i = icmp eq i64 %indvars.iv.next5508.i.us.i, %wide.trip.count5510.i.i
   br i1 %exitcond5511.not.i.us.i, label %._crit_edge4942.us.i.loopexit.us.i, label %.lr.ph4936.us.us.i.us.i, !llvm.loop !407
@@ -16278,8 +16278,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6817:                                             ; preds = %6817, %.preheader4593.us.us.us.i.i1490
   %indvars.iv5524.i.i = phi i64 [ %indvars.iv.next5525.i.i, %6817 ], [ 0, %.preheader4593.us.us.us.i.i1490 ]
-  %6818 = getelementptr inbounds float, ptr %6816, i64 %indvars.iv5524.i.i
-  %6819 = getelementptr inbounds float, ptr %.128894964.us.us.us.i.i1492, i64 %indvars.iv5524.i.i
+  %6818 = getelementptr inbounds nuw float, ptr %6816, i64 %indvars.iv5524.i.i
+  %6819 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us.i.i1492, i64 %indvars.iv5524.i.i
   %6820 = load float, ptr %6818, align 4
   %6821 = load float, ptr %6819, align 4
   %6822 = tail call fast float @llvm.exp.f32(float %6821)
@@ -16290,7 +16290,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5528.not.i.i, label %._crit_edge4963.us.us.us.i.i1493, label %6817, !llvm.loop !410
 
 ._crit_edge4963.us.us.us.i.i1493:                 ; preds = %6817
-  %6824 = getelementptr inbounds float, ptr %.128894964.us.us.us.i.i1492, i64 %6783
+  %6824 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us.i.i1492, i64 %6783
   %6825 = add nuw nsw i32 %.028864965.us.us.us.i.i1491, 1
   %exitcond5529.not.i.i = icmp eq i32 %6825, %5778
   br i1 %exitcond5529.not.i.i, label %._crit_edge4966.split.us.us.us.i.i1494, label %.preheader4593.us.us.us.i.i1490, !llvm.loop !411
@@ -16404,8 +16404,8 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
 
 6878:                                             ; preds = %6878, %.lr.ph4988.us.us.us.i.i1506
   %indvars.iv5542.i.i = phi i64 [ %indvars.iv.next5543.i.i, %6878 ], [ 0, %.lr.ph4988.us.us.us.i.i1506 ]
-  %6879 = getelementptr inbounds float, ptr %6877, i64 %indvars.iv5542.i.i
-  %6880 = getelementptr inbounds float, ptr %.14990.us.us.us.i.i1508, i64 %indvars.iv5542.i.i
+  %6879 = getelementptr inbounds nuw float, ptr %6877, i64 %indvars.iv5542.i.i
+  %6880 = getelementptr inbounds nuw float, ptr %.14990.us.us.us.i.i1508, i64 %indvars.iv5542.i.i
   %6881 = load float, ptr %6879, align 4
   %6882 = load float, ptr %6880, align 4
   %6883 = tail call fast float @llvm.exp.f32(float %6882)
@@ -16416,7 +16416,7 @@ _ZN4ncnnL12reduction_opINS_16reduction_op_mulIfEES2_EEiRKNS_3MatERS3_fbbbbiRKNS_
   br i1 %exitcond5546.not.i.i, label %._crit_edge4989.us.us.us.i.i1509, label %6878, !llvm.loop !414
 
 ._crit_edge4989.us.us.us.i.i1509:                 ; preds = %6878
-  %6885 = getelementptr inbounds float, ptr %.14990.us.us.us.i.i1508, i64 %6844
+  %6885 = getelementptr inbounds nuw float, ptr %.14990.us.us.us.i.i1508, i64 %6844
   %indvars.iv.next5548.i.i1510 = add nuw nsw i64 %indvars.iv5547.i.i1507, 1
   %exitcond5551.not.i.i1511 = icmp eq i64 %indvars.iv.next5548.i.i1510, %wide.trip.count5550.i.i1498
   br i1 %exitcond5551.not.i.i1511, label %._crit_edge4993.split.us.us.us.i.i1512, label %.lr.ph4988.us.us.us.i.i1506, !llvm.loop !415
@@ -16531,7 +16531,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5145.i:                                     ; preds = %.lr.ph5145.i, %.lr.ph5145.preheader.i
   %indvars.iv5704.i = phi i64 [ 0, %.lr.ph5145.preheader.i ], [ %indvars.iv.next5705.i, %.lr.ph5145.i ]
   %.045705142.i = phi float [ 0.000000e+00, %.lr.ph5145.preheader.i ], [ %35, %.lr.ph5145.i ]
-  %32 = getelementptr inbounds float, ptr %30, i64 %indvars.iv5704.i
+  %32 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv5704.i
   %33 = load float, ptr %32, align 4
   %34 = tail call fast float @llvm.fabs.f32(float %33)
   %35 = fadd fast float %34, %.045705142.i
@@ -16620,7 +16620,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5113.i:                                     ; preds = %65, %.lr.ph5113.i
   %indvars.iv5669.i = phi i64 [ %indvars.iv.next5670.i, %.lr.ph5113.i ], [ 0, %65 ]
   %.045695110.i = phi float [ %76, %.lr.ph5113.i ], [ 0.000000e+00, %65 ]
-  %73 = getelementptr inbounds float, ptr %72, i64 %indvars.iv5669.i
+  %73 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv5669.i
   %74 = load float, ptr %73, align 4
   %75 = call fast float @llvm.fabs.f32(float %74)
   %76 = fadd fast float %75, %.045695110.i
@@ -16631,7 +16631,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 ._crit_edge5114.i:                                ; preds = %.lr.ph5113.i, %65
   %.04569.lcssa.i = phi float [ 0.000000e+00, %65 ], [ %76, %.lr.ph5113.i ]
   %77 = load ptr, ptr %10, align 8
-  %78 = getelementptr inbounds float, ptr %77, i64 %indvars.iv5674.i
+  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv5674.i
   store float %.04569.lcssa.i, ptr %78, align 4
   %indvars.iv.next5675.i = add nuw nsw i64 %indvars.iv5674.i, 1
   %exitcond5678.not.i = icmp eq i64 %indvars.iv.next5675.i, %wide.trip.count5677.i
@@ -16640,7 +16640,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 79:                                               ; preds = %79, %.preheader4572.i
   %indvars.iv5679.i = phi i64 [ 0, %.preheader4572.i ], [ %indvars.iv.next5680.i, %79 ]
   %.045685118.i = phi float [ 0.000000e+00, %.preheader4572.i ], [ %82, %79 ]
-  %80 = getelementptr inbounds float, ptr %64, i64 %indvars.iv5679.i
+  %80 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv5679.i
   %81 = load float, ptr %80, align 4
   %82 = fadd fast float %81, %.045685118.i
   %indvars.iv.next5680.i = add nuw nsw i64 %indvars.iv5679.i, 1
@@ -16672,7 +16672,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %89, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8
   invoke void %94(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef %90)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %96
@@ -16730,7 +16730,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5126.i:                                     ; preds = %108, %.lr.ph5126.i
   %indvars.iv5684.i = phi i64 [ %indvars.iv.next5685.i, %.lr.ph5126.i ], [ 0, %108 ]
   %.045675123.i = phi float [ %119, %.lr.ph5126.i ], [ 0.000000e+00, %108 ]
-  %116 = getelementptr inbounds float, ptr %115, i64 %indvars.iv5684.i
+  %116 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv5684.i
   %117 = load float, ptr %116, align 4
   %118 = tail call fast float @llvm.fabs.f32(float %117)
   %119 = fadd fast float %118, %.045675123.i
@@ -16741,7 +16741,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 ._crit_edge5127.i:                                ; preds = %.lr.ph5126.i, %108
   %.04567.lcssa.i = phi float [ 0.000000e+00, %108 ], [ %119, %.lr.ph5126.i ]
   %120 = load ptr, ptr %1, align 8
-  %121 = getelementptr inbounds float, ptr %120, i64 %indvars.iv5689.i
+  %121 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv5689.i
   store float %.04567.lcssa.i, ptr %121, align 4
   %indvars.iv.next5690.i = add nuw nsw i64 %indvars.iv5689.i, 1
   %exitcond5693.not.i = icmp eq i64 %indvars.iv.next5690.i, %wide.trip.count5692.i
@@ -16806,8 +16806,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5138.i:                                     ; preds = %141, %.lr.ph5138.i
   %indvars.iv5694.i = phi i64 [ %indvars.iv.next5695.i, %.lr.ph5138.i ], [ 0, %141 ]
   %149 = load ptr, ptr %1, align 8
-  %150 = getelementptr inbounds float, ptr %149, i64 %indvars.iv5694.i
-  %151 = getelementptr inbounds float, ptr %148, i64 %indvars.iv5694.i
+  %150 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv5694.i
+  %151 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv5694.i
   %152 = load float, ptr %150, align 4
   %153 = load float, ptr %151, align 4
   %154 = tail call fast float @llvm.fabs.f32(float %153)
@@ -16902,7 +16902,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5010.i:                                     ; preds = %188, %.lr.ph5010.i
   %indvars.iv5556.i = phi i64 [ %indvars.iv.next5557.i, %.lr.ph5010.i ], [ 0, %188 ]
   %.045665007.i = phi float [ %198, %.lr.ph5010.i ], [ 0.000000e+00, %188 ]
-  %195 = getelementptr inbounds float, ptr %194, i64 %indvars.iv5556.i
+  %195 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv5556.i
   %196 = load float, ptr %195, align 4
   %197 = call fast float @llvm.fabs.f32(float %196)
   %198 = fadd fast float %197, %.045665007.i
@@ -16913,7 +16913,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 ._crit_edge5011.i:                                ; preds = %.lr.ph5010.i, %188
   %.04566.lcssa.i = phi float [ 0.000000e+00, %188 ], [ %198, %.lr.ph5010.i ]
   %199 = load ptr, ptr %11, align 8
-  %200 = getelementptr inbounds float, ptr %199, i64 %indvars.iv5561.i
+  %200 = getelementptr inbounds nuw float, ptr %199, i64 %indvars.iv5561.i
   store float %.04566.lcssa.i, ptr %200, align 4
   %indvars.iv.next5562.i = add nuw nsw i64 %indvars.iv5561.i, 1
   %exitcond5565.not.i = icmp eq i64 %indvars.iv.next5562.i, %wide.trip.count5564.i
@@ -16922,7 +16922,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 201:                                              ; preds = %201, %.preheader4588.i
   %indvars.iv5566.i = phi i64 [ 0, %.preheader4588.i ], [ %indvars.iv.next5567.i, %201 ]
   %.045655015.i = phi float [ 0.000000e+00, %.preheader4588.i ], [ %204, %201 ]
-  %202 = getelementptr inbounds float, ptr %187, i64 %indvars.iv5566.i
+  %202 = getelementptr inbounds nuw float, ptr %187, i64 %indvars.iv5566.i
   %203 = load float, ptr %202, align 4
   %204 = fadd fast float %203, %.045655015.i
   %indvars.iv.next5567.i = add nuw nsw i64 %indvars.iv5566.i, 1
@@ -16954,7 +16954,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 213:                                              ; preds = %210
   %214 = load ptr, ptr %211, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = load ptr, ptr %215, align 8
   invoke void %216(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef %212)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %218
@@ -17014,7 +17014,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5023.i:                                     ; preds = %233, %.lr.ph5023.i
   %indvars.iv5571.i = phi i64 [ %indvars.iv.next5572.i, %.lr.ph5023.i ], [ 0, %233 ]
   %.045645020.i = phi float [ %243, %.lr.ph5023.i ], [ 0.000000e+00, %233 ]
-  %240 = getelementptr inbounds float, ptr %239, i64 %indvars.iv5571.i
+  %240 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv5571.i
   %241 = load float, ptr %240, align 4
   %242 = tail call fast float @llvm.fabs.f32(float %241)
   %243 = fadd fast float %242, %.045645020.i
@@ -17037,7 +17037,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br label %253
 
 251:                                              ; preds = %._crit_edge5024.i
-  %252 = getelementptr inbounds float, ptr %244, i64 %indvars.iv5576.i
+  %252 = getelementptr inbounds nuw float, ptr %244, i64 %indvars.iv5576.i
   store float %.04564.lcssa.i, ptr %252, align 4
   br label %253
 
@@ -17149,7 +17149,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 301:                                              ; preds = %301, %.preheader4585.us.i
   %indvars.iv5584.i = phi i64 [ 0, %.preheader4585.us.i ], [ %indvars.iv.next5585.i, %301 ]
   %.045635033.us.i = phi float [ 0.000000e+00, %.preheader4585.us.i ], [ %305, %301 ]
-  %302 = getelementptr inbounds float, ptr %.029995038.us.i, i64 %indvars.iv5584.i
+  %302 = getelementptr inbounds nuw float, ptr %.029995038.us.i, i64 %indvars.iv5584.i
   %303 = load float, ptr %302, align 4
   %304 = call fast float @llvm.fabs.f32(float %303)
   %305 = fadd fast float %304, %.045635033.us.i
@@ -17158,9 +17158,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5588.not.i, label %._crit_edge5036.us.i, label %301, !llvm.loop !431
 
 ._crit_edge5036.us.i:                             ; preds = %301
-  %306 = getelementptr inbounds float, ptr %294, i64 %indvars.iv5589.i
+  %306 = getelementptr inbounds nuw float, ptr %294, i64 %indvars.iv5589.i
   store float %305, ptr %306, align 4
-  %307 = getelementptr inbounds float, ptr %.029995038.us.i, i64 %285
+  %307 = getelementptr inbounds nuw float, ptr %.029995038.us.i, i64 %285
   %indvars.iv.next5590.i = add nuw nsw i64 %indvars.iv5589.i, 1
   %exitcond5593.not.i = icmp eq i64 %indvars.iv.next5590.i, %286
   br i1 %exitcond5593.not.i, label %._crit_edge5040.i, label %.preheader4585.us.i, !llvm.loop !432
@@ -17209,8 +17209,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5050.i:                                     ; preds = %319, %.lr.ph5050.i
   %indvars.iv5599.i = phi i64 [ %indvars.iv.next5600.i, %.lr.ph5050.i ], [ 0, %319 ]
   %326 = load ptr, ptr %1, align 8
-  %327 = getelementptr inbounds float, ptr %326, i64 %indvars.iv5599.i
-  %328 = getelementptr inbounds float, ptr %325, i64 %indvars.iv5599.i
+  %327 = getelementptr inbounds nuw float, ptr %326, i64 %indvars.iv5599.i
+  %328 = getelementptr inbounds nuw float, ptr %325, i64 %indvars.iv5599.i
   %329 = load float, ptr %327, align 4
   %330 = load float, ptr %328, align 4
   %331 = fadd fast float %330, %329
@@ -17243,7 +17243,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 339:                                              ; preds = %336
   %340 = load ptr, ptr %337, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 24
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %342 = load ptr, ptr %341, align 8
   invoke void %342(ptr noundef nonnull align 8 dereferenceable(8) %337, ptr noundef %338)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %344
@@ -17353,8 +17353,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 392:                                              ; preds = %392, %.preheader4582.us.i
   %indvars.iv5609.i = phi i64 [ 0, %.preheader4582.us.i ], [ %indvars.iv.next5610.i, %392 ]
-  %393 = getelementptr inbounds float, ptr %385, i64 %indvars.iv5609.i
-  %394 = getelementptr inbounds float, ptr %.029935061.us.i, i64 %indvars.iv5609.i
+  %393 = getelementptr inbounds nuw float, ptr %385, i64 %indvars.iv5609.i
+  %394 = getelementptr inbounds nuw float, ptr %.029935061.us.i, i64 %indvars.iv5609.i
   %395 = load float, ptr %393, align 4
   %396 = load float, ptr %394, align 4
   %397 = call fast float @llvm.fabs.f32(float %396)
@@ -17365,7 +17365,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5613.not.i, label %._crit_edge5060.us.i, label %392, !llvm.loop !436
 
 ._crit_edge5060.us.i:                             ; preds = %392
-  %399 = getelementptr inbounds float, ptr %.029935061.us.i, i64 %378
+  %399 = getelementptr inbounds nuw float, ptr %.029935061.us.i, i64 %378
   %400 = add nuw nsw i32 %.029925062.us.i, 1
   %exitcond5614.not.i = icmp eq i32 %400, %160
   br i1 %exitcond5614.not.i, label %._crit_edge5063.i, label %.preheader4582.us.i, !llvm.loop !437
@@ -17414,8 +17414,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5073.i:                                     ; preds = %412, %.lr.ph5073.i
   %indvars.iv5620.i = phi i64 [ %indvars.iv.next5621.i, %.lr.ph5073.i ], [ 0, %412 ]
   %419 = load ptr, ptr %1, align 8
-  %420 = getelementptr inbounds float, ptr %419, i64 %indvars.iv5620.i
-  %421 = getelementptr inbounds float, ptr %418, i64 %indvars.iv5620.i
+  %420 = getelementptr inbounds nuw float, ptr %419, i64 %indvars.iv5620.i
+  %421 = getelementptr inbounds nuw float, ptr %418, i64 %indvars.iv5620.i
   %422 = load float, ptr %420, align 4
   %423 = load float, ptr %421, align 4
   %424 = fadd fast float %423, %422
@@ -17448,7 +17448,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 432:                                              ; preds = %429
   %433 = load ptr, ptr %430, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 24
   %435 = load ptr, ptr %434, align 8
   invoke void %435(ptr noundef nonnull align 8 dereferenceable(8) %430, ptr noundef %431)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %437
@@ -17544,7 +17544,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 476:                                              ; preds = %476, %.preheader4579.us.i
   %indvars.iv5633.i = phi i64 [ 0, %.preheader4579.us.i ], [ %indvars.iv.next5634.i, %476 ]
   %.045625077.us.i = phi float [ 0.000000e+00, %.preheader4579.us.i ], [ %480, %476 ]
-  %477 = getelementptr inbounds float, ptr %.029875082.us.i, i64 %indvars.iv5633.i
+  %477 = getelementptr inbounds nuw float, ptr %.029875082.us.i, i64 %indvars.iv5633.i
   %478 = load float, ptr %477, align 4
   %479 = tail call fast float @llvm.fabs.f32(float %478)
   %480 = fadd fast float %479, %.045625077.us.i
@@ -17553,9 +17553,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5637.not.i, label %._crit_edge5080.us.i, label %476, !llvm.loop !441
 
 ._crit_edge5080.us.i:                             ; preds = %476
-  %481 = getelementptr inbounds float, ptr %475, i64 %indvars.iv5638.i
+  %481 = getelementptr inbounds nuw float, ptr %475, i64 %indvars.iv5638.i
   store float %480, ptr %481, align 4
-  %482 = getelementptr inbounds float, ptr %.029875082.us.i, i64 %454
+  %482 = getelementptr inbounds nuw float, ptr %.029875082.us.i, i64 %454
   %indvars.iv.next5639.i = add nuw nsw i64 %indvars.iv5638.i, 1
   %exitcond5642.not.i = icmp eq i64 %indvars.iv.next5639.i, %455
   br i1 %exitcond5642.not.i, label %._crit_edge5084.i, label %.preheader4579.us.i, !llvm.loop !442
@@ -17625,8 +17625,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph5094.i:                                     ; preds = %503, %.lr.ph5094.i
   %indvars.iv5648.i = phi i64 [ %indvars.iv.next5649.i, %.lr.ph5094.i ], [ 0, %503 ]
   %510 = load ptr, ptr %1, align 8
-  %511 = getelementptr inbounds float, ptr %510, i64 %indvars.iv5648.i
-  %512 = getelementptr inbounds float, ptr %509, i64 %indvars.iv5648.i
+  %511 = getelementptr inbounds nuw float, ptr %510, i64 %indvars.iv5648.i
+  %512 = getelementptr inbounds nuw float, ptr %509, i64 %indvars.iv5648.i
   %513 = load float, ptr %511, align 4
   %514 = load float, ptr %512, align 4
   %515 = tail call fast float @llvm.fabs.f32(float %514)
@@ -17728,8 +17728,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 560:                                              ; preds = %560, %.preheader4574.us.i
   %indvars.iv5658.i = phi i64 [ 0, %.preheader4574.us.i ], [ %indvars.iv.next5659.i, %560 ]
-  %561 = getelementptr inbounds float, ptr %559, i64 %indvars.iv5658.i
-  %562 = getelementptr inbounds float, ptr %.029805105.us.i, i64 %indvars.iv5658.i
+  %561 = getelementptr inbounds nuw float, ptr %559, i64 %indvars.iv5658.i
+  %562 = getelementptr inbounds nuw float, ptr %.029805105.us.i, i64 %indvars.iv5658.i
   %563 = load float, ptr %561, align 4
   %564 = load float, ptr %562, align 4
   %565 = tail call fast float @llvm.fabs.f32(float %564)
@@ -17740,7 +17740,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5662.not.i, label %._crit_edge5104.us.i, label %560, !llvm.loop !446
 
 ._crit_edge5104.us.i:                             ; preds = %560
-  %567 = getelementptr inbounds float, ptr %.029805105.us.i, i64 %540
+  %567 = getelementptr inbounds nuw float, ptr %.029805105.us.i, i64 %540
   %568 = add nuw nsw i32 %.029785106.us.i, 1
   %exitcond5663.not.i = icmp eq i32 %568, %160
   br i1 %exitcond5663.not.i, label %._crit_edge5107.i, label %.preheader4574.us.i, !llvm.loop !447
@@ -17835,7 +17835,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph.i:                                         ; preds = %604, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %604 ]
   %.045614633.i = phi float [ %614, %.lr.ph.i ], [ 0.000000e+00, %604 ]
-  %611 = getelementptr inbounds float, ptr %610, i64 %indvars.iv.i
+  %611 = getelementptr inbounds nuw float, ptr %610, i64 %indvars.iv.i
   %612 = load float, ptr %611, align 4
   %613 = call fast float @llvm.fabs.f32(float %612)
   %614 = fadd fast float %613, %.045614633.i
@@ -17846,7 +17846,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %604
   %.04561.lcssa.i = phi float [ 0.000000e+00, %604 ], [ %614, %.lr.ph.i ]
   %615 = load ptr, ptr %14, align 8
-  %616 = getelementptr inbounds float, ptr %615, i64 %indvars.iv5229.i
+  %616 = getelementptr inbounds nuw float, ptr %615, i64 %indvars.iv5229.i
   store float %.04561.lcssa.i, ptr %616, align 4
   %indvars.iv.next5230.i = add nuw nsw i64 %indvars.iv5229.i, 1
   %exitcond5233.not.i = icmp eq i64 %indvars.iv.next5230.i, %wide.trip.count5232.i
@@ -17855,7 +17855,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 617:                                              ; preds = %617, %.preheader4631.i
   %indvars.iv5234.i = phi i64 [ 0, %.preheader4631.i ], [ %indvars.iv.next5235.i, %617 ]
   %.045604637.i = phi float [ 0.000000e+00, %.preheader4631.i ], [ %620, %617 ]
-  %618 = getelementptr inbounds float, ptr %603, i64 %indvars.iv5234.i
+  %618 = getelementptr inbounds nuw float, ptr %603, i64 %indvars.iv5234.i
   %619 = load float, ptr %618, align 4
   %620 = fadd fast float %619, %.045604637.i
   %indvars.iv.next5235.i = add nuw nsw i64 %indvars.iv5234.i, 1
@@ -17887,7 +17887,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 629:                                              ; preds = %626
   %630 = load ptr, ptr %627, align 8
-  %631 = getelementptr inbounds i8, ptr %630, i64 24
+  %631 = getelementptr inbounds nuw i8, ptr %630, i64 24
   %632 = load ptr, ptr %631, align 8
   invoke void %632(ptr noundef nonnull align 8 dereferenceable(8) %627, ptr noundef %628)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %634
@@ -17947,7 +17947,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph4645.i:                                     ; preds = %649, %.lr.ph4645.i
   %indvars.iv5239.i = phi i64 [ %indvars.iv.next5240.i, %.lr.ph4645.i ], [ 0, %649 ]
   %.045594642.i = phi float [ %659, %.lr.ph4645.i ], [ 0.000000e+00, %649 ]
-  %656 = getelementptr inbounds float, ptr %655, i64 %indvars.iv5239.i
+  %656 = getelementptr inbounds nuw float, ptr %655, i64 %indvars.iv5239.i
   %657 = load float, ptr %656, align 4
   %658 = tail call fast float @llvm.fabs.f32(float %657)
   %659 = fadd fast float %658, %.045594642.i
@@ -17970,7 +17970,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br label %669
 
 667:                                              ; preds = %._crit_edge4646.i
-  %668 = getelementptr inbounds float, ptr %660, i64 %indvars.iv5244.i
+  %668 = getelementptr inbounds nuw float, ptr %660, i64 %indvars.iv5244.i
   store float %.04559.lcssa.i, ptr %668, align 4
   br label %669
 
@@ -18082,7 +18082,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 717:                                              ; preds = %717, %.preheader4628.us.i
   %indvars.iv5252.i = phi i64 [ 0, %.preheader4628.us.i ], [ %indvars.iv.next5253.i, %717 ]
   %.045584655.us.i = phi float [ 0.000000e+00, %.preheader4628.us.i ], [ %721, %717 ]
-  %718 = getelementptr inbounds float, ptr %.029704660.us.i, i64 %indvars.iv5252.i
+  %718 = getelementptr inbounds nuw float, ptr %.029704660.us.i, i64 %indvars.iv5252.i
   %719 = load float, ptr %718, align 4
   %720 = call fast float @llvm.fabs.f32(float %719)
   %721 = fadd fast float %720, %.045584655.us.i
@@ -18091,9 +18091,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5256.not.i, label %._crit_edge4658.us.i, label %717, !llvm.loop !454
 
 ._crit_edge4658.us.i:                             ; preds = %717
-  %722 = getelementptr inbounds float, ptr %710, i64 %indvars.iv5257.i
+  %722 = getelementptr inbounds nuw float, ptr %710, i64 %indvars.iv5257.i
   store float %721, ptr %722, align 4
-  %723 = getelementptr inbounds float, ptr %.029704660.us.i, i64 %701
+  %723 = getelementptr inbounds nuw float, ptr %.029704660.us.i, i64 %701
   %indvars.iv.next5258.i = add nuw nsw i64 %indvars.iv5257.i, 1
   %exitcond5261.not.i = icmp eq i64 %indvars.iv.next5258.i, %702
   br i1 %exitcond5261.not.i, label %._crit_edge4662.i, label %.preheader4628.us.i, !llvm.loop !455
@@ -18142,8 +18142,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph4672.i:                                     ; preds = %735, %.lr.ph4672.i
   %indvars.iv5267.i = phi i64 [ %indvars.iv.next5268.i, %.lr.ph4672.i ], [ 0, %735 ]
   %742 = load ptr, ptr %1, align 8
-  %743 = getelementptr inbounds float, ptr %742, i64 %indvars.iv5267.i
-  %744 = getelementptr inbounds float, ptr %741, i64 %indvars.iv5267.i
+  %743 = getelementptr inbounds nuw float, ptr %742, i64 %indvars.iv5267.i
+  %744 = getelementptr inbounds nuw float, ptr %741, i64 %indvars.iv5267.i
   %745 = load float, ptr %743, align 4
   %746 = load float, ptr %744, align 4
   %747 = fadd fast float %746, %745
@@ -18176,7 +18176,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 755:                                              ; preds = %752
   %756 = load ptr, ptr %753, align 8
-  %757 = getelementptr inbounds i8, ptr %756, i64 24
+  %757 = getelementptr inbounds nuw i8, ptr %756, i64 24
   %758 = load ptr, ptr %757, align 8
   invoke void %758(ptr noundef nonnull align 8 dereferenceable(8) %753, ptr noundef %754)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %760
@@ -18291,14 +18291,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .preheader4624.us.us.us.i:                        ; preds = %._crit_edge4682.us.us.us.i, %.preheader4625.us.us.i
   %indvars.iv5282.i = phi i64 [ %indvars.iv.next5283.i, %._crit_edge4682.us.us.us.i ], [ 0, %.preheader4625.us.us.i ]
   %.129644683.us.us.us.i = phi ptr [ %816, %._crit_edge4682.us.us.us.i ], [ %.029634687.us.us.i, %.preheader4625.us.us.i ]
-  %809 = getelementptr inbounds float, ptr %802, i64 %indvars.iv5282.i
+  %809 = getelementptr inbounds nuw float, ptr %802, i64 %indvars.iv5282.i
   %.promoted.us.us.us.i = load float, ptr %809, align 4
   br label %810
 
 810:                                              ; preds = %810, %.preheader4624.us.us.us.i
   %indvars.iv5277.i = phi i64 [ %indvars.iv.next5278.i, %810 ], [ 0, %.preheader4624.us.us.us.i ]
   %811 = phi float [ %815, %810 ], [ %.promoted.us.us.us.i, %.preheader4624.us.us.us.i ]
-  %812 = getelementptr inbounds float, ptr %.129644683.us.us.us.i, i64 %indvars.iv5277.i
+  %812 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us.i, i64 %indvars.iv5277.i
   %813 = load float, ptr %812, align 4
   %814 = call fast float @llvm.fabs.f32(float %813)
   %815 = fadd fast float %814, %811
@@ -18308,7 +18308,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5281.not.i, label %._crit_edge4682.us.us.us.i, label %810, !llvm.loop !459
 
 ._crit_edge4682.us.us.us.i:                       ; preds = %810
-  %816 = getelementptr inbounds float, ptr %.129644683.us.us.us.i, i64 %795
+  %816 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us.i, i64 %795
   %indvars.iv.next5283.i = add nuw nsw i64 %indvars.iv5282.i, 1
   %exitcond5286.not.i = icmp eq i64 %indvars.iv.next5283.i, %wide.trip.count5285.i
   br i1 %exitcond5286.not.i, label %._crit_edge4685.split.us.us.us.i, label %.preheader4624.us.us.us.i, !llvm.loop !460
@@ -18362,8 +18362,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph4705.i:                                     ; preds = %829, %.lr.ph4705.i
   %indvars.iv5293.i = phi i64 [ %indvars.iv.next5294.i, %.lr.ph4705.i ], [ 0, %829 ]
   %836 = load ptr, ptr %1, align 8
-  %837 = getelementptr inbounds float, ptr %836, i64 %indvars.iv5293.i
-  %838 = getelementptr inbounds float, ptr %835, i64 %indvars.iv5293.i
+  %837 = getelementptr inbounds nuw float, ptr %836, i64 %indvars.iv5293.i
+  %838 = getelementptr inbounds nuw float, ptr %835, i64 %indvars.iv5293.i
   %839 = load float, ptr %837, align 4
   %840 = load float, ptr %838, align 4
   %841 = fadd fast float %840, %839
@@ -18396,7 +18396,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 849:                                              ; preds = %846
   %850 = load ptr, ptr %847, align 8
-  %851 = getelementptr inbounds i8, ptr %850, i64 24
+  %851 = getelementptr inbounds nuw i8, ptr %850, i64 24
   %852 = load ptr, ptr %851, align 8
   invoke void %852(ptr noundef nonnull align 8 dereferenceable(8) %847, ptr noundef %848)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %854
@@ -18514,8 +18514,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 903:                                              ; preds = %903, %.preheader4620.us.us.us.i
   %indvars.iv5303.i = phi i64 [ %indvars.iv.next5304.i, %903 ], [ 0, %.preheader4620.us.us.us.i ]
-  %904 = getelementptr inbounds float, ptr %896, i64 %indvars.iv5303.i
-  %905 = getelementptr inbounds float, ptr %.129564716.us.us.us.i, i64 %indvars.iv5303.i
+  %904 = getelementptr inbounds nuw float, ptr %896, i64 %indvars.iv5303.i
+  %905 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us.i, i64 %indvars.iv5303.i
   %906 = load float, ptr %904, align 4
   %907 = load float, ptr %905, align 4
   %908 = call fast float @llvm.fabs.f32(float %907)
@@ -18526,7 +18526,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5307.not.i, label %._crit_edge4715.us.us.us.i, label %903, !llvm.loop !465
 
 ._crit_edge4715.us.us.us.i:                       ; preds = %903
-  %910 = getelementptr inbounds float, ptr %.129564716.us.us.us.i, i64 %889
+  %910 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us.i, i64 %889
   %911 = add nuw nsw i32 %.029534717.us.us.us.i, 1
   %exitcond5308.not.i = icmp eq i32 %911, %573
   br i1 %exitcond5308.not.i, label %._crit_edge4718.split.us.us.us.i, label %.preheader4620.us.us.us.i, !llvm.loop !466
@@ -18580,8 +18580,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .lr.ph4738.i:                                     ; preds = %924, %.lr.ph4738.i
   %indvars.iv5315.i = phi i64 [ %indvars.iv.next5316.i, %.lr.ph4738.i ], [ 0, %924 ]
   %931 = load ptr, ptr %1, align 8
-  %932 = getelementptr inbounds float, ptr %931, i64 %indvars.iv5315.i
-  %933 = getelementptr inbounds float, ptr %930, i64 %indvars.iv5315.i
+  %932 = getelementptr inbounds nuw float, ptr %931, i64 %indvars.iv5315.i
+  %933 = getelementptr inbounds nuw float, ptr %930, i64 %indvars.iv5315.i
   %934 = load float, ptr %932, align 4
   %935 = load float, ptr %933, align 4
   %936 = fadd fast float %935, %934
@@ -18614,7 +18614,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 944:                                              ; preds = %941
   %945 = load ptr, ptr %942, align 8
-  %946 = getelementptr inbounds i8, ptr %945, i64 24
+  %946 = getelementptr inbounds nuw i8, ptr %945, i64 24
   %947 = load ptr, ptr %946, align 8
   invoke void %947(ptr noundef nonnull align 8 dereferenceable(8) %942, ptr noundef %943)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %949
@@ -18710,7 +18710,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 988:                                              ; preds = %988, %.preheader4617.us.i
   %indvars.iv5328.i = phi i64 [ 0, %.preheader4617.us.i ], [ %indvars.iv.next5329.i, %988 ]
   %.045574742.us.i = phi float [ 0.000000e+00, %.preheader4617.us.i ], [ %992, %988 ]
-  %989 = getelementptr inbounds float, ptr %.029484747.us.i, i64 %indvars.iv5328.i
+  %989 = getelementptr inbounds nuw float, ptr %.029484747.us.i, i64 %indvars.iv5328.i
   %990 = load float, ptr %989, align 4
   %991 = tail call fast float @llvm.fabs.f32(float %990)
   %992 = fadd fast float %991, %.045574742.us.i
@@ -18719,9 +18719,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5332.not.i, label %._crit_edge4745.us.i, label %988, !llvm.loop !471
 
 ._crit_edge4745.us.i:                             ; preds = %988
-  %993 = getelementptr inbounds float, ptr %987, i64 %indvars.iv5333.i
+  %993 = getelementptr inbounds nuw float, ptr %987, i64 %indvars.iv5333.i
   store float %992, ptr %993, align 4
-  %994 = getelementptr inbounds float, ptr %.029484747.us.i, i64 %966
+  %994 = getelementptr inbounds nuw float, ptr %.029484747.us.i, i64 %966
   %indvars.iv.next5334.i = add nuw nsw i64 %indvars.iv5333.i, 1
   %exitcond5337.not.i = icmp eq i64 %indvars.iv.next5334.i, %967
   br i1 %exitcond5337.not.i, label %._crit_edge4749.i, label %.preheader4617.us.i, !llvm.loop !472
@@ -18838,14 +18838,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .preheader4615.us.us.us.i:                        ; preds = %._crit_edge4759.us.us.us.i, %.preheader4615.lr.ph.us.us.i
   %indvars.iv5348.i = phi i64 [ %indvars.iv.next5349.i, %._crit_edge4759.us.us.us.i ], [ 0, %.preheader4615.lr.ph.us.us.i ]
   %.129434760.us.us.us.i = phi ptr [ %1054, %._crit_edge4759.us.us.us.i ], [ %.029424764.us.us.i, %.preheader4615.lr.ph.us.us.i ]
-  %1047 = getelementptr inbounds float, ptr %1046, i64 %indvars.iv5348.i
+  %1047 = getelementptr inbounds nuw float, ptr %1046, i64 %indvars.iv5348.i
   %.promoted.us.us.us4775.i = load float, ptr %1047, align 4
   br label %1048
 
 1048:                                             ; preds = %1048, %.preheader4615.us.us.us.i
   %indvars.iv5343.i = phi i64 [ %indvars.iv.next5344.i, %1048 ], [ 0, %.preheader4615.us.us.us.i ]
   %1049 = phi float [ %1053, %1048 ], [ %.promoted.us.us.us4775.i, %.preheader4615.us.us.us.i ]
-  %1050 = getelementptr inbounds float, ptr %.129434760.us.us.us.i, i64 %indvars.iv5343.i
+  %1050 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us.i, i64 %indvars.iv5343.i
   %1051 = load float, ptr %1050, align 4
   %1052 = call fast float @llvm.fabs.f32(float %1051)
   %1053 = fadd fast float %1052, %1049
@@ -18855,7 +18855,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5347.not.i, label %._crit_edge4759.us.us.us.i, label %1048, !llvm.loop !474
 
 ._crit_edge4759.us.us.us.i:                       ; preds = %1048
-  %1054 = getelementptr inbounds float, ptr %.129434760.us.us.us.i, i64 %1028
+  %1054 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us.i, i64 %1028
   %indvars.iv.next5349.i = add nuw nsw i64 %indvars.iv5348.i, 1
   %exitcond5352.not.i = icmp eq i64 %indvars.iv.next5349.i, %wide.trip.count5351.i
   br i1 %exitcond5352.not.i, label %._crit_edge4762.split.us.us.us.i, label %.preheader4615.us.us.us.i, !llvm.loop !475
@@ -18935,8 +18935,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1089:                                             ; preds = %1089, %.lr.ph4785.us.us.i
   %indvars.iv5373.i = phi i64 [ 0, %.lr.ph4785.us.us.i ], [ %indvars.iv.next5374.i, %1089 ]
-  %1090 = getelementptr inbounds float, ptr %1088, i64 %indvars.iv5373.i
-  %1091 = getelementptr inbounds float, ptr %1081, i64 %indvars.iv5373.i
+  %1090 = getelementptr inbounds nuw float, ptr %1088, i64 %indvars.iv5373.i
+  %1091 = getelementptr inbounds nuw float, ptr %1081, i64 %indvars.iv5373.i
   %1092 = load float, ptr %1090, align 4
   %1093 = load float, ptr %1091, align 4
   %1094 = fadd fast float %1093, %1092
@@ -18971,8 +18971,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1107:                                             ; preds = %1107, %.lr.ph4785.us4793.i
   %indvars.iv5363.i = phi i64 [ 0, %.lr.ph4785.us4793.i ], [ %indvars.iv.next5364.i, %1107 ]
-  %1108 = getelementptr inbounds float, ptr %1106, i64 %indvars.iv5363.i
-  %1109 = getelementptr inbounds float, ptr %1096, i64 %indvars.iv5363.i
+  %1108 = getelementptr inbounds nuw float, ptr %1106, i64 %indvars.iv5363.i
+  %1109 = getelementptr inbounds nuw float, ptr %1096, i64 %indvars.iv5363.i
   %1110 = load float, ptr %1108, align 4
   %1111 = load float, ptr %1109, align 4
   %1112 = fadd fast float %1111, %1110
@@ -19010,7 +19010,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1120:                                             ; preds = %1117
   %1121 = load ptr, ptr %1118, align 8
-  %1122 = getelementptr inbounds i8, ptr %1121, i64 24
+  %1122 = getelementptr inbounds nuw i8, ptr %1121, i64 24
   %1123 = load ptr, ptr %1122, align 8
   invoke void %1123(ptr noundef nonnull align 8 dereferenceable(8) %1118, ptr noundef %1119)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %1125
@@ -19137,8 +19137,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1180:                                             ; preds = %1180, %.lr.ph4803.us.us.us.i
   %indvars.iv5388.i = phi i64 [ %indvars.iv.next5389.i, %1180 ], [ 0, %.lr.ph4803.us.us.us.i ]
-  %1181 = getelementptr inbounds float, ptr %1179, i64 %indvars.iv5388.i
-  %1182 = getelementptr inbounds float, ptr %.129334805.us.us.us.i, i64 %indvars.iv5388.i
+  %1181 = getelementptr inbounds nuw float, ptr %1179, i64 %indvars.iv5388.i
+  %1182 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us.i, i64 %indvars.iv5388.i
   %1183 = load float, ptr %1181, align 4
   %1184 = load float, ptr %1182, align 4
   %1185 = call fast float @llvm.fabs.f32(float %1184)
@@ -19149,7 +19149,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5392.not.i, label %._crit_edge4804.us.us.us.i, label %1180, !llvm.loop !481
 
 ._crit_edge4804.us.us.us.i:                       ; preds = %1180
-  %1187 = getelementptr inbounds float, ptr %.129334805.us.us.us.i, i64 %1161
+  %1187 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us.i, i64 %1161
   %indvars.iv.next5394.i = add nuw nsw i64 %indvars.iv5393.i, 1
   %exitcond5397.not.i = icmp eq i64 %indvars.iv.next5394.i, %wide.trip.count5396.i
   br i1 %exitcond5397.not.i, label %._crit_edge4808.split.us.us.us.i, label %.lr.ph4803.us.us.us.i, !llvm.loop !482
@@ -19225,8 +19225,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1222:                                             ; preds = %1222, %.lr.ph4827.us.i
   %indvars.iv5404.i = phi i64 [ 0, %.lr.ph4827.us.i ], [ %indvars.iv.next5405.i, %1222 ]
-  %1223 = getelementptr inbounds float, ptr %1221, i64 %indvars.iv5404.i
-  %1224 = getelementptr inbounds float, ptr %1214, i64 %indvars.iv5404.i
+  %1223 = getelementptr inbounds nuw float, ptr %1221, i64 %indvars.iv5404.i
+  %1224 = getelementptr inbounds nuw float, ptr %1214, i64 %indvars.iv5404.i
   %1225 = load float, ptr %1223, align 4
   %1226 = load float, ptr %1224, align 4
   %1227 = fadd fast float %1226, %1225
@@ -19264,7 +19264,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1235:                                             ; preds = %1232
   %1236 = load ptr, ptr %1233, align 8
-  %1237 = getelementptr inbounds i8, ptr %1236, i64 24
+  %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 24
   %1238 = load ptr, ptr %1237, align 8
   invoke void %1238(ptr noundef nonnull align 8 dereferenceable(8) %1233, ptr noundef %1234)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %1240
@@ -19359,14 +19359,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 .preheader4607.us.us.us.i:                        ; preds = %._crit_edge4840.us.us.us.i, %.preheader4608.us.us.i
   %indvars.iv5427.i = phi i64 [ %indvars.iv.next5428.i, %._crit_edge4840.us.us.us.i ], [ 0, %.preheader4608.us.us.i ]
   %.129244841.us.us.us.i = phi ptr [ %1287, %._crit_edge4840.us.us.us.i ], [ %.029234845.us.us.i, %.preheader4608.us.us.i ]
-  %1280 = getelementptr inbounds float, ptr %1279, i64 %indvars.iv5427.i
+  %1280 = getelementptr inbounds nuw float, ptr %1279, i64 %indvars.iv5427.i
   %.promoted.us.us.us4854.i = load float, ptr %1280, align 4
   br label %1281
 
 1281:                                             ; preds = %1281, %.preheader4607.us.us.us.i
   %indvars.iv5422.i = phi i64 [ %indvars.iv.next5423.i, %1281 ], [ 0, %.preheader4607.us.us.us.i ]
   %1282 = phi float [ %1286, %1281 ], [ %.promoted.us.us.us4854.i, %.preheader4607.us.us.us.i ]
-  %1283 = getelementptr inbounds float, ptr %.129244841.us.us.us.i, i64 %indvars.iv5422.i
+  %1283 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us.i, i64 %indvars.iv5422.i
   %1284 = load float, ptr %1283, align 4
   %1285 = tail call fast float @llvm.fabs.f32(float %1284)
   %1286 = fadd fast float %1285, %1282
@@ -19376,7 +19376,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5426.not.i, label %._crit_edge4840.us.us.us.i, label %1281, !llvm.loop !488
 
 ._crit_edge4840.us.us.us.i:                       ; preds = %1281
-  %1287 = getelementptr inbounds float, ptr %.129244841.us.us.us.i, i64 %1258
+  %1287 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us.i, i64 %1258
   %indvars.iv.next5428.i = add nuw nsw i64 %indvars.iv5427.i, 1
   %exitcond5431.not.i = icmp eq i64 %indvars.iv.next5428.i, %1259
   br i1 %exitcond5431.not.i, label %._crit_edge4843.split.us.us.us.i, label %.preheader4607.us.us.us.i, !llvm.loop !489
@@ -19501,8 +19501,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1341:                                             ; preds = %1341, %.preheader4605.us.us.us.i
   %indvars.iv5438.i = phi i64 [ %indvars.iv.next5439.i, %1341 ], [ 0, %.preheader4605.us.us.us.i ]
-  %1342 = getelementptr inbounds float, ptr %1340, i64 %indvars.iv5438.i
-  %1343 = getelementptr inbounds float, ptr %.129164865.us.us.us.i, i64 %indvars.iv5438.i
+  %1342 = getelementptr inbounds nuw float, ptr %1340, i64 %indvars.iv5438.i
+  %1343 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us.i, i64 %indvars.iv5438.i
   %1344 = load float, ptr %1342, align 4
   %1345 = load float, ptr %1343, align 4
   %1346 = call fast float @llvm.fabs.f32(float %1345)
@@ -19513,7 +19513,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5442.not.i, label %._crit_edge4864.us.us.us.i, label %1341, !llvm.loop !492
 
 ._crit_edge4864.us.us.us.i:                       ; preds = %1341
-  %1348 = getelementptr inbounds float, ptr %.129164865.us.us.us.i, i64 %1322
+  %1348 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us.i, i64 %1322
   %1349 = add nuw nsw i32 %.029134866.us.us.us.i, 1
   %exitcond5443.not.i = icmp eq i32 %1349, %573
   br i1 %exitcond5443.not.i, label %._crit_edge4867.split.us.us.us.i, label %.preheader4605.us.us.us.i, !llvm.loop !493
@@ -19589,8 +19589,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1383:                                             ; preds = %1383, %.lr.ph4889.us.i
   %indvars.iv5454.i = phi i64 [ 0, %.lr.ph4889.us.i ], [ %indvars.iv.next5455.i, %1383 ]
-  %1384 = getelementptr inbounds float, ptr %1382, i64 %indvars.iv5454.i
-  %1385 = getelementptr inbounds float, ptr %1375, i64 %indvars.iv5454.i
+  %1384 = getelementptr inbounds nuw float, ptr %1382, i64 %indvars.iv5454.i
+  %1385 = getelementptr inbounds nuw float, ptr %1375, i64 %indvars.iv5454.i
   %1386 = load float, ptr %1384, align 4
   %1387 = load float, ptr %1385, align 4
   %1388 = fadd fast float %1387, %1386
@@ -19628,7 +19628,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1396:                                             ; preds = %1393
   %1397 = load ptr, ptr %1394, align 8
-  %1398 = getelementptr inbounds i8, ptr %1397, i64 24
+  %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 24
   %1399 = load ptr, ptr %1398, align 8
   invoke void %1399(ptr noundef nonnull align 8 dereferenceable(8) %1394, ptr noundef %1395)
           to label %_ZN4ncnnL12reduction_opINS_17reduction_op_asumIfEENS_16reduction_op_addIfEEEEiRKNS_3MatERS5_fbbbbiRKNS_6OptionE.exit unwind label %1401
@@ -19726,8 +19726,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1441:                                             ; preds = %1441, %.preheader4600.us.us.us.i
   %indvars.iv5472.i = phi i64 [ %indvars.iv.next5473.i, %1441 ], [ 0, %.preheader4600.us.us.us.i ]
-  %1442 = getelementptr inbounds float, ptr %1440, i64 %indvars.iv5472.i
-  %1443 = getelementptr inbounds float, ptr %.129074903.us.us.us.i, i64 %indvars.iv5472.i
+  %1442 = getelementptr inbounds nuw float, ptr %1440, i64 %indvars.iv5472.i
+  %1443 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us.i, i64 %indvars.iv5472.i
   %1444 = load float, ptr %1442, align 4
   %1445 = load float, ptr %1443, align 4
   %1446 = tail call fast float @llvm.fabs.f32(float %1445)
@@ -19738,7 +19738,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5476.not.i, label %._crit_edge4902.us.us.us.i, label %1441, !llvm.loop !499
 
 ._crit_edge4902.us.us.us.i:                       ; preds = %1441
-  %1448 = getelementptr inbounds float, ptr %.129074903.us.us.us.i, i64 %1419
+  %1448 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us.i, i64 %1419
   %1449 = add nuw nsw i32 %.029024904.us.us.us.i, 1
   %exitcond5477.not.i = icmp eq i32 %1449, %573
   br i1 %exitcond5477.not.i, label %._crit_edge4905.split.us.us.us.i, label %.preheader4600.us.us.us.i, !llvm.loop !500
@@ -19823,7 +19823,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 1481:                                             ; preds = %1481, %.preheader4598.us.i
   %indvars.iv5487.i = phi i64 [ 0, %.preheader4598.us.i ], [ %indvars.iv.next5488.i, %1481 ]
   %.045564919.us.i = phi float [ 0.000000e+00, %.preheader4598.us.i ], [ %1485, %1481 ]
-  %1482 = getelementptr inbounds float, ptr %.028994924.us.i, i64 %indvars.iv5487.i
+  %1482 = getelementptr inbounds nuw float, ptr %.028994924.us.i, i64 %indvars.iv5487.i
   %1483 = load float, ptr %1482, align 4
   %1484 = tail call fast float @llvm.fabs.f32(float %1483)
   %1485 = fadd fast float %1484, %.045564919.us.i
@@ -19832,9 +19832,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5491.not.i, label %._crit_edge4922.us.i, label %1481, !llvm.loop !503
 
 ._crit_edge4922.us.i:                             ; preds = %1481
-  %1486 = getelementptr inbounds float, ptr %1474, i64 %indvars.iv5492.i
+  %1486 = getelementptr inbounds nuw float, ptr %1474, i64 %indvars.iv5492.i
   store float %1485, ptr %1486, align 4
-  %1487 = getelementptr inbounds float, ptr %.028994924.us.i, i64 %1465
+  %1487 = getelementptr inbounds nuw float, ptr %.028994924.us.i, i64 %1465
   %indvars.iv.next5493.i = add nuw nsw i64 %indvars.iv5492.i, 1
   %exitcond5496.not.i = icmp eq i64 %indvars.iv.next5493.i, %1466
   br i1 %exitcond5496.not.i, label %._crit_edge4926.i, label %.preheader4598.us.i, !llvm.loop !504
@@ -19958,8 +19958,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1542:                                             ; preds = %1542, %.lr.ph4936.us.us.i.us
   %indvars.iv5502.i.us = phi i64 [ %indvars.iv.next5503.i.us, %1542 ], [ 0, %.lr.ph4936.us.us.i.us ]
-  %1543 = getelementptr inbounds float, ptr %1541, i64 %indvars.iv5502.i.us
-  %1544 = getelementptr inbounds float, ptr %.128954938.us.us.i.us, i64 %indvars.iv5502.i.us
+  %1543 = getelementptr inbounds nuw float, ptr %1541, i64 %indvars.iv5502.i.us
+  %1544 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us, i64 %indvars.iv5502.i.us
   %1545 = load float, ptr %1543, align 4
   %1546 = load float, ptr %1544, align 4
   %1547 = tail call fast float @llvm.fabs.f32(float %1546)
@@ -19970,7 +19970,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5506.not.i.us, label %._crit_edge4937.us.us.i.us, label %1542, !llvm.loop !506
 
 ._crit_edge4937.us.us.i.us:                       ; preds = %1542
-  %1549 = getelementptr inbounds float, ptr %.128954938.us.us.i.us, i64 %1513
+  %1549 = getelementptr inbounds nuw float, ptr %.128954938.us.us.i.us, i64 %1513
   %indvars.iv.next5508.i.us = add nuw nsw i64 %indvars.iv5507.i.us, 1
   %exitcond5511.not.i.us = icmp eq i64 %indvars.iv.next5508.i.us, %wide.trip.count5510.i
   br i1 %exitcond5511.not.i.us, label %._crit_edge4942.us.i.loopexit.us, label %.lr.ph4936.us.us.i.us, !llvm.loop !507
@@ -20084,8 +20084,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1602:                                             ; preds = %1602, %.preheader4593.us.us.us.i
   %indvars.iv5524.i = phi i64 [ %indvars.iv.next5525.i, %1602 ], [ 0, %.preheader4593.us.us.us.i ]
-  %1603 = getelementptr inbounds float, ptr %1601, i64 %indvars.iv5524.i
-  %1604 = getelementptr inbounds float, ptr %.128894964.us.us.us.i, i64 %indvars.iv5524.i
+  %1603 = getelementptr inbounds nuw float, ptr %1601, i64 %indvars.iv5524.i
+  %1604 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us.i, i64 %indvars.iv5524.i
   %1605 = load float, ptr %1603, align 4
   %1606 = load float, ptr %1604, align 4
   %1607 = tail call fast float @llvm.fabs.f32(float %1606)
@@ -20096,7 +20096,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5528.not.i, label %._crit_edge4963.us.us.us.i, label %1602, !llvm.loop !510
 
 ._crit_edge4963.us.us.us.i:                       ; preds = %1602
-  %1609 = getelementptr inbounds float, ptr %.128894964.us.us.us.i, i64 %1568
+  %1609 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us.i, i64 %1568
   %1610 = add nuw nsw i32 %.028864965.us.us.us.i, 1
   %exitcond5529.not.i = icmp eq i32 %1610, %573
   br i1 %exitcond5529.not.i, label %._crit_edge4966.split.us.us.us.i, label %.preheader4593.us.us.us.i, !llvm.loop !511
@@ -20210,8 +20210,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
 
 1663:                                             ; preds = %1663, %.lr.ph4988.us.us.us.i
   %indvars.iv5542.i = phi i64 [ %indvars.iv.next5543.i, %1663 ], [ 0, %.lr.ph4988.us.us.us.i ]
-  %1664 = getelementptr inbounds float, ptr %1662, i64 %indvars.iv5542.i
-  %1665 = getelementptr inbounds float, ptr %.14990.us.us.us.i, i64 %indvars.iv5542.i
+  %1664 = getelementptr inbounds nuw float, ptr %1662, i64 %indvars.iv5542.i
+  %1665 = getelementptr inbounds nuw float, ptr %.14990.us.us.us.i, i64 %indvars.iv5542.i
   %1666 = load float, ptr %1664, align 4
   %1667 = load float, ptr %1665, align 4
   %1668 = tail call fast float @llvm.fabs.f32(float %1667)
@@ -20222,7 +20222,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL9reductionINS_17
   br i1 %exitcond5546.not.i, label %._crit_edge4989.us.us.us.i, label %1663, !llvm.loop !514
 
 ._crit_edge4989.us.us.us.i:                       ; preds = %1663
-  %1670 = getelementptr inbounds float, ptr %.14990.us.us.us.i, i64 %1629
+  %1670 = getelementptr inbounds nuw float, ptr %.14990.us.us.us.i, i64 %1629
   %indvars.iv.next5548.i = add nuw nsw i64 %indvars.iv5547.i, 1
   %exitcond5551.not.i = icmp eq i64 %indvars.iv.next5548.i, %wide.trip.count5550.i
   br i1 %exitcond5551.not.i, label %._crit_edge4993.split.us.us.us.i, label %.lr.ph4988.us.us.us.i, !llvm.loop !515
@@ -20311,7 +20311,7 @@ define linkonce_odr hidden void @_ZN4ncnn9ReductionD2Ev(ptr noundef nonnull alig
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %21
@@ -20364,7 +20364,7 @@ define linkonce_odr hidden void @_ZN4ncnn9ReductionD0Ev(ptr noundef nonnull alig
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn9ReductionD2Ev.exit unwind label %18
@@ -20466,7 +20466,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5145:                                       ; preds = %.lr.ph5145.preheader, %.lr.ph5145
   %indvars.iv5704 = phi i64 [ 0, %.lr.ph5145.preheader ], [ %indvars.iv.next5705, %.lr.ph5145 ]
   %.045705142 = phi float [ 0.000000e+00, %.lr.ph5145.preheader ], [ %33, %.lr.ph5145 ]
-  %31 = getelementptr inbounds float, ptr %29, i64 %indvars.iv5704
+  %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv5704
   %32 = load float, ptr %31, align 4
   %33 = fadd fast float %32, %.045705142
   %indvars.iv.next5705 = add nuw nsw i64 %indvars.iv5704, 1
@@ -20555,7 +20555,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5113:                                       ; preds = %63, %.lr.ph5113
   %indvars.iv5669 = phi i64 [ %indvars.iv.next5670, %.lr.ph5113 ], [ 0, %63 ]
   %.045695110 = phi float [ %73, %.lr.ph5113 ], [ 0.000000e+00, %63 ]
-  %71 = getelementptr inbounds float, ptr %70, i64 %indvars.iv5669
+  %71 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv5669
   %72 = load float, ptr %71, align 4
   %73 = fadd fast float %72, %.045695110
   %indvars.iv.next5670 = add nuw nsw i64 %indvars.iv5669, 1
@@ -20565,7 +20565,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge5114:                                  ; preds = %.lr.ph5113, %63
   %.04569.lcssa = phi float [ 0.000000e+00, %63 ], [ %73, %.lr.ph5113 ]
   %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds float, ptr %74, i64 %indvars.iv5674
+  %75 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv5674
   store float %.04569.lcssa, ptr %75, align 4
   %indvars.iv.next5675 = add nuw nsw i64 %indvars.iv5674, 1
   %exitcond5678.not = icmp eq i64 %indvars.iv.next5675, %wide.trip.count5677
@@ -20574,7 +20574,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 76:                                               ; preds = %.lr.ph5120, %76
   %indvars.iv5679 = phi i64 [ 0, %.lr.ph5120 ], [ %indvars.iv.next5680, %76 ]
   %.045685118 = phi float [ 0.000000e+00, %.lr.ph5120 ], [ %79, %76 ]
-  %77 = getelementptr inbounds float, ptr %62, i64 %indvars.iv5679
+  %77 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv5679
   %78 = load float, ptr %77, align 4
   %79 = fadd fast float %78, %.045685118
   %indvars.iv.next5680 = add nuw nsw i64 %indvars.iv5679, 1
@@ -20606,7 +20606,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %86, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
   invoke void %91(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef %87)
           to label %.loopexit unwind label %94
@@ -20668,7 +20668,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5126:                                       ; preds = %106, %.lr.ph5126
   %indvars.iv5684 = phi i64 [ %indvars.iv.next5685, %.lr.ph5126 ], [ 0, %106 ]
   %.045675123 = phi float [ %116, %.lr.ph5126 ], [ 0.000000e+00, %106 ]
-  %114 = getelementptr inbounds float, ptr %113, i64 %indvars.iv5684
+  %114 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv5684
   %115 = load float, ptr %114, align 4
   %116 = fadd fast float %115, %.045675123
   %indvars.iv.next5685 = add nuw nsw i64 %indvars.iv5684, 1
@@ -20678,7 +20678,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge5127:                                  ; preds = %.lr.ph5126, %106
   %.04567.lcssa = phi float [ 0.000000e+00, %106 ], [ %116, %.lr.ph5126 ]
   %117 = load ptr, ptr %1, align 8
-  %118 = getelementptr inbounds float, ptr %117, i64 %indvars.iv5689
+  %118 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv5689
   store float %.04567.lcssa, ptr %118, align 4
   %indvars.iv.next5690 = add nuw nsw i64 %indvars.iv5689, 1
   %exitcond5693.not = icmp eq i64 %indvars.iv.next5690, %wide.trip.count5692
@@ -20743,8 +20743,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5138:                                       ; preds = %138, %.lr.ph5138
   %indvars.iv5694 = phi i64 [ %indvars.iv.next5695, %.lr.ph5138 ], [ 0, %138 ]
   %146 = load ptr, ptr %1, align 8
-  %147 = getelementptr inbounds float, ptr %146, i64 %indvars.iv5694
-  %148 = getelementptr inbounds float, ptr %145, i64 %indvars.iv5694
+  %147 = getelementptr inbounds nuw float, ptr %146, i64 %indvars.iv5694
+  %148 = getelementptr inbounds nuw float, ptr %145, i64 %indvars.iv5694
   %149 = load float, ptr %147, align 4
   %150 = load float, ptr %148, align 4
   %151 = fadd fast float %150, %149
@@ -20839,7 +20839,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5010:                                       ; preds = %184, %.lr.ph5010
   %indvars.iv5556 = phi i64 [ %indvars.iv.next5557, %.lr.ph5010 ], [ 0, %184 ]
   %.045665007 = phi float [ %193, %.lr.ph5010 ], [ 0.000000e+00, %184 ]
-  %191 = getelementptr inbounds float, ptr %190, i64 %indvars.iv5556
+  %191 = getelementptr inbounds nuw float, ptr %190, i64 %indvars.iv5556
   %192 = load float, ptr %191, align 4
   %193 = fadd fast float %192, %.045665007
   %indvars.iv.next5557 = add nuw nsw i64 %indvars.iv5556, 1
@@ -20849,7 +20849,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge5011:                                  ; preds = %.lr.ph5010, %184
   %.04566.lcssa = phi float [ 0.000000e+00, %184 ], [ %193, %.lr.ph5010 ]
   %194 = load ptr, ptr %10, align 8
-  %195 = getelementptr inbounds float, ptr %194, i64 %indvars.iv5561
+  %195 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv5561
   store float %.04566.lcssa, ptr %195, align 4
   %indvars.iv.next5562 = add nuw nsw i64 %indvars.iv5561, 1
   %exitcond5565.not = icmp eq i64 %indvars.iv.next5562, %wide.trip.count5564
@@ -20858,7 +20858,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 196:                                              ; preds = %.lr.ph5017, %196
   %indvars.iv5566 = phi i64 [ 0, %.lr.ph5017 ], [ %indvars.iv.next5567, %196 ]
   %.045655015 = phi float [ 0.000000e+00, %.lr.ph5017 ], [ %199, %196 ]
-  %197 = getelementptr inbounds float, ptr %183, i64 %indvars.iv5566
+  %197 = getelementptr inbounds nuw float, ptr %183, i64 %indvars.iv5566
   %198 = load float, ptr %197, align 4
   %199 = fadd fast float %198, %.045655015
   %indvars.iv.next5567 = add nuw nsw i64 %indvars.iv5566, 1
@@ -20890,7 +20890,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 208:                                              ; preds = %205
   %209 = load ptr, ptr %206, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %211 = load ptr, ptr %210, align 8
   invoke void %211(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef %207)
           to label %.loopexit unwind label %214
@@ -20954,7 +20954,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5023:                                       ; preds = %229, %.lr.ph5023
   %indvars.iv5571 = phi i64 [ %indvars.iv.next5572, %.lr.ph5023 ], [ 0, %229 ]
   %.045645020 = phi float [ %238, %.lr.ph5023 ], [ 0.000000e+00, %229 ]
-  %236 = getelementptr inbounds float, ptr %235, i64 %indvars.iv5571
+  %236 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv5571
   %237 = load float, ptr %236, align 4
   %238 = fadd fast float %237, %.045645020
   %indvars.iv.next5572 = add nuw nsw i64 %indvars.iv5571, 1
@@ -20976,7 +20976,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br label %248
 
 246:                                              ; preds = %._crit_edge5024
-  %247 = getelementptr inbounds float, ptr %239, i64 %indvars.iv5576
+  %247 = getelementptr inbounds nuw float, ptr %239, i64 %indvars.iv5576
   store float %.04564.lcssa, ptr %247, align 4
   br label %248
 
@@ -21088,7 +21088,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 296:                                              ; preds = %.preheader4585.us, %296
   %indvars.iv5584 = phi i64 [ 0, %.preheader4585.us ], [ %indvars.iv.next5585, %296 ]
   %.045635033.us = phi float [ 0.000000e+00, %.preheader4585.us ], [ %299, %296 ]
-  %297 = getelementptr inbounds float, ptr %.029995038.us, i64 %indvars.iv5584
+  %297 = getelementptr inbounds nuw float, ptr %.029995038.us, i64 %indvars.iv5584
   %298 = load float, ptr %297, align 4
   %299 = fadd fast float %298, %.045635033.us
   %indvars.iv.next5585 = add nuw nsw i64 %indvars.iv5584, 1
@@ -21096,9 +21096,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5588.not, label %._crit_edge5036.us, label %296, !llvm.loop !531
 
 ._crit_edge5036.us:                               ; preds = %296
-  %300 = getelementptr inbounds float, ptr %289, i64 %indvars.iv5589
+  %300 = getelementptr inbounds nuw float, ptr %289, i64 %indvars.iv5589
   store float %299, ptr %300, align 4
-  %301 = getelementptr inbounds float, ptr %.029995038.us, i64 %280
+  %301 = getelementptr inbounds nuw float, ptr %.029995038.us, i64 %280
   %indvars.iv.next5590 = add nuw nsw i64 %indvars.iv5589, 1
   %exitcond5593.not = icmp eq i64 %indvars.iv.next5590, %281
   br i1 %exitcond5593.not, label %._crit_edge5040, label %.preheader4585.us, !llvm.loop !532
@@ -21147,8 +21147,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5050:                                       ; preds = %313, %.lr.ph5050
   %indvars.iv5599 = phi i64 [ %indvars.iv.next5600, %.lr.ph5050 ], [ 0, %313 ]
   %320 = load ptr, ptr %1, align 8
-  %321 = getelementptr inbounds float, ptr %320, i64 %indvars.iv5599
-  %322 = getelementptr inbounds float, ptr %319, i64 %indvars.iv5599
+  %321 = getelementptr inbounds nuw float, ptr %320, i64 %indvars.iv5599
+  %322 = getelementptr inbounds nuw float, ptr %319, i64 %indvars.iv5599
   %323 = load float, ptr %321, align 4
   %324 = load float, ptr %322, align 4
   %325 = fadd fast float %324, %323
@@ -21181,7 +21181,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 333:                                              ; preds = %330
   %334 = load ptr, ptr %331, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 24
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %336 = load ptr, ptr %335, align 8
   invoke void %336(ptr noundef nonnull align 8 dereferenceable(8) %331, ptr noundef %332)
           to label %.loopexit unwind label %339
@@ -21295,8 +21295,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 387:                                              ; preds = %.preheader4582.us, %387
   %indvars.iv5609 = phi i64 [ 0, %.preheader4582.us ], [ %indvars.iv.next5610, %387 ]
-  %388 = getelementptr inbounds float, ptr %380, i64 %indvars.iv5609
-  %389 = getelementptr inbounds float, ptr %.029935061.us, i64 %indvars.iv5609
+  %388 = getelementptr inbounds nuw float, ptr %380, i64 %indvars.iv5609
+  %389 = getelementptr inbounds nuw float, ptr %.029935061.us, i64 %indvars.iv5609
   %390 = load float, ptr %388, align 4
   %391 = load float, ptr %389, align 4
   %392 = fadd fast float %391, %390
@@ -21306,7 +21306,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5613.not, label %._crit_edge5060.us, label %387, !llvm.loop !536
 
 ._crit_edge5060.us:                               ; preds = %387
-  %393 = getelementptr inbounds float, ptr %.029935061.us, i64 %373
+  %393 = getelementptr inbounds nuw float, ptr %.029935061.us, i64 %373
   %394 = add nuw nsw i32 %.029925062.us, 1
   %exitcond5614.not = icmp eq i32 %394, %156
   br i1 %exitcond5614.not, label %._crit_edge5063, label %.preheader4582.us, !llvm.loop !537
@@ -21355,8 +21355,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5073:                                       ; preds = %406, %.lr.ph5073
   %indvars.iv5620 = phi i64 [ %indvars.iv.next5621, %.lr.ph5073 ], [ 0, %406 ]
   %413 = load ptr, ptr %1, align 8
-  %414 = getelementptr inbounds float, ptr %413, i64 %indvars.iv5620
-  %415 = getelementptr inbounds float, ptr %412, i64 %indvars.iv5620
+  %414 = getelementptr inbounds nuw float, ptr %413, i64 %indvars.iv5620
+  %415 = getelementptr inbounds nuw float, ptr %412, i64 %indvars.iv5620
   %416 = load float, ptr %414, align 4
   %417 = load float, ptr %415, align 4
   %418 = fadd fast float %417, %416
@@ -21389,7 +21389,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 426:                                              ; preds = %423
   %427 = load ptr, ptr %424, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 24
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 24
   %429 = load ptr, ptr %428, align 8
   invoke void %429(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef %425)
           to label %.loopexit unwind label %432
@@ -21489,7 +21489,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 471:                                              ; preds = %.preheader4579.us, %471
   %indvars.iv5633 = phi i64 [ 0, %.preheader4579.us ], [ %indvars.iv.next5634, %471 ]
   %.045625077.us = phi float [ 0.000000e+00, %.preheader4579.us ], [ %474, %471 ]
-  %472 = getelementptr inbounds float, ptr %.029875082.us, i64 %indvars.iv5633
+  %472 = getelementptr inbounds nuw float, ptr %.029875082.us, i64 %indvars.iv5633
   %473 = load float, ptr %472, align 4
   %474 = fadd fast float %473, %.045625077.us
   %indvars.iv.next5634 = add nuw nsw i64 %indvars.iv5633, 1
@@ -21497,9 +21497,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5637.not, label %._crit_edge5080.us, label %471, !llvm.loop !541
 
 ._crit_edge5080.us:                               ; preds = %471
-  %475 = getelementptr inbounds float, ptr %470, i64 %indvars.iv5638
+  %475 = getelementptr inbounds nuw float, ptr %470, i64 %indvars.iv5638
   store float %474, ptr %475, align 4
-  %476 = getelementptr inbounds float, ptr %.029875082.us, i64 %449
+  %476 = getelementptr inbounds nuw float, ptr %.029875082.us, i64 %449
   %indvars.iv.next5639 = add nuw nsw i64 %indvars.iv5638, 1
   %exitcond5642.not = icmp eq i64 %indvars.iv.next5639, %450
   br i1 %exitcond5642.not, label %._crit_edge5084, label %.preheader4579.us, !llvm.loop !542
@@ -21569,8 +21569,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5094:                                       ; preds = %497, %.lr.ph5094
   %indvars.iv5648 = phi i64 [ %indvars.iv.next5649, %.lr.ph5094 ], [ 0, %497 ]
   %504 = load ptr, ptr %1, align 8
-  %505 = getelementptr inbounds float, ptr %504, i64 %indvars.iv5648
-  %506 = getelementptr inbounds float, ptr %503, i64 %indvars.iv5648
+  %505 = getelementptr inbounds nuw float, ptr %504, i64 %indvars.iv5648
+  %506 = getelementptr inbounds nuw float, ptr %503, i64 %indvars.iv5648
   %507 = load float, ptr %505, align 4
   %508 = load float, ptr %506, align 4
   %509 = fadd fast float %508, %507
@@ -21671,8 +21671,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 553:                                              ; preds = %.preheader4574.us, %553
   %indvars.iv5658 = phi i64 [ 0, %.preheader4574.us ], [ %indvars.iv.next5659, %553 ]
-  %554 = getelementptr inbounds float, ptr %552, i64 %indvars.iv5658
-  %555 = getelementptr inbounds float, ptr %.029805105.us, i64 %indvars.iv5658
+  %554 = getelementptr inbounds nuw float, ptr %552, i64 %indvars.iv5658
+  %555 = getelementptr inbounds nuw float, ptr %.029805105.us, i64 %indvars.iv5658
   %556 = load float, ptr %554, align 4
   %557 = load float, ptr %555, align 4
   %558 = fadd fast float %557, %556
@@ -21682,7 +21682,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5662.not, label %._crit_edge5104.us, label %553, !llvm.loop !546
 
 ._crit_edge5104.us:                               ; preds = %553
-  %559 = getelementptr inbounds float, ptr %.029805105.us, i64 %533
+  %559 = getelementptr inbounds nuw float, ptr %.029805105.us, i64 %533
   %560 = add nuw nsw i32 %.029785106.us, 1
   %exitcond5663.not = icmp eq i32 %560, %156
   br i1 %exitcond5663.not, label %._crit_edge5107, label %.preheader4574.us, !llvm.loop !547
@@ -21778,7 +21778,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph:                                           ; preds = %596, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %596 ]
   %.045614633 = phi float [ %605, %.lr.ph ], [ 0.000000e+00, %596 ]
-  %603 = getelementptr inbounds float, ptr %602, i64 %indvars.iv
+  %603 = getelementptr inbounds nuw float, ptr %602, i64 %indvars.iv
   %604 = load float, ptr %603, align 4
   %605 = fadd fast float %604, %.045614633
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21788,7 +21788,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge:                                      ; preds = %.lr.ph, %596
   %.04561.lcssa = phi float [ 0.000000e+00, %596 ], [ %605, %.lr.ph ]
   %606 = load ptr, ptr %13, align 8
-  %607 = getelementptr inbounds float, ptr %606, i64 %indvars.iv5229
+  %607 = getelementptr inbounds nuw float, ptr %606, i64 %indvars.iv5229
   store float %.04561.lcssa, ptr %607, align 4
   %indvars.iv.next5230 = add nuw nsw i64 %indvars.iv5229, 1
   %exitcond5233.not = icmp eq i64 %indvars.iv.next5230, %wide.trip.count5232
@@ -21797,7 +21797,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 608:                                              ; preds = %.lr.ph4639, %608
   %indvars.iv5234 = phi i64 [ 0, %.lr.ph4639 ], [ %indvars.iv.next5235, %608 ]
   %.045604637 = phi float [ 0.000000e+00, %.lr.ph4639 ], [ %611, %608 ]
-  %609 = getelementptr inbounds float, ptr %595, i64 %indvars.iv5234
+  %609 = getelementptr inbounds nuw float, ptr %595, i64 %indvars.iv5234
   %610 = load float, ptr %609, align 4
   %611 = fadd fast float %610, %.045604637
   %indvars.iv.next5235 = add nuw nsw i64 %indvars.iv5234, 1
@@ -21829,7 +21829,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 620:                                              ; preds = %617
   %621 = load ptr, ptr %618, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 24
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 24
   %623 = load ptr, ptr %622, align 8
   invoke void %623(ptr noundef nonnull align 8 dereferenceable(8) %618, ptr noundef %619)
           to label %.loopexit unwind label %626
@@ -21893,7 +21893,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4645:                                       ; preds = %641, %.lr.ph4645
   %indvars.iv5239 = phi i64 [ %indvars.iv.next5240, %.lr.ph4645 ], [ 0, %641 ]
   %.045594642 = phi float [ %650, %.lr.ph4645 ], [ 0.000000e+00, %641 ]
-  %648 = getelementptr inbounds float, ptr %647, i64 %indvars.iv5239
+  %648 = getelementptr inbounds nuw float, ptr %647, i64 %indvars.iv5239
   %649 = load float, ptr %648, align 4
   %650 = fadd fast float %649, %.045594642
   %indvars.iv.next5240 = add nuw nsw i64 %indvars.iv5239, 1
@@ -21915,7 +21915,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br label %660
 
 658:                                              ; preds = %._crit_edge4646
-  %659 = getelementptr inbounds float, ptr %651, i64 %indvars.iv5244
+  %659 = getelementptr inbounds nuw float, ptr %651, i64 %indvars.iv5244
   store float %.04559.lcssa, ptr %659, align 4
   br label %660
 
@@ -22027,7 +22027,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 708:                                              ; preds = %.preheader4628.us, %708
   %indvars.iv5252 = phi i64 [ 0, %.preheader4628.us ], [ %indvars.iv.next5253, %708 ]
   %.045584655.us = phi float [ 0.000000e+00, %.preheader4628.us ], [ %711, %708 ]
-  %709 = getelementptr inbounds float, ptr %.029704660.us, i64 %indvars.iv5252
+  %709 = getelementptr inbounds nuw float, ptr %.029704660.us, i64 %indvars.iv5252
   %710 = load float, ptr %709, align 4
   %711 = fadd fast float %710, %.045584655.us
   %indvars.iv.next5253 = add nuw nsw i64 %indvars.iv5252, 1
@@ -22035,9 +22035,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5256.not, label %._crit_edge4658.us, label %708, !llvm.loop !554
 
 ._crit_edge4658.us:                               ; preds = %708
-  %712 = getelementptr inbounds float, ptr %701, i64 %indvars.iv5257
+  %712 = getelementptr inbounds nuw float, ptr %701, i64 %indvars.iv5257
   store float %711, ptr %712, align 4
-  %713 = getelementptr inbounds float, ptr %.029704660.us, i64 %692
+  %713 = getelementptr inbounds nuw float, ptr %.029704660.us, i64 %692
   %indvars.iv.next5258 = add nuw nsw i64 %indvars.iv5257, 1
   %exitcond5261.not = icmp eq i64 %indvars.iv.next5258, %693
   br i1 %exitcond5261.not, label %._crit_edge4662, label %.preheader4628.us, !llvm.loop !555
@@ -22086,8 +22086,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4672:                                       ; preds = %725, %.lr.ph4672
   %indvars.iv5267 = phi i64 [ %indvars.iv.next5268, %.lr.ph4672 ], [ 0, %725 ]
   %732 = load ptr, ptr %1, align 8
-  %733 = getelementptr inbounds float, ptr %732, i64 %indvars.iv5267
-  %734 = getelementptr inbounds float, ptr %731, i64 %indvars.iv5267
+  %733 = getelementptr inbounds nuw float, ptr %732, i64 %indvars.iv5267
+  %734 = getelementptr inbounds nuw float, ptr %731, i64 %indvars.iv5267
   %735 = load float, ptr %733, align 4
   %736 = load float, ptr %734, align 4
   %737 = fadd fast float %736, %735
@@ -22120,7 +22120,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 745:                                              ; preds = %742
   %746 = load ptr, ptr %743, align 8
-  %747 = getelementptr inbounds i8, ptr %746, i64 24
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 24
   %748 = load ptr, ptr %747, align 8
   invoke void %748(ptr noundef nonnull align 8 dereferenceable(8) %743, ptr noundef %744)
           to label %.loopexit unwind label %751
@@ -22239,14 +22239,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .preheader4624.us.us.us:                          ; preds = %._crit_edge4682.us.us.us, %.preheader4625.us.us
   %indvars.iv5282 = phi i64 [ %indvars.iv.next5283, %._crit_edge4682.us.us.us ], [ 0, %.preheader4625.us.us ]
   %.129644683.us.us.us = phi ptr [ %806, %._crit_edge4682.us.us.us ], [ %.029634687.us.us, %.preheader4625.us.us ]
-  %800 = getelementptr inbounds float, ptr %793, i64 %indvars.iv5282
+  %800 = getelementptr inbounds nuw float, ptr %793, i64 %indvars.iv5282
   %.promoted.us.us.us = load float, ptr %800, align 4
   br label %801
 
 801:                                              ; preds = %801, %.preheader4624.us.us.us
   %indvars.iv5277 = phi i64 [ %indvars.iv.next5278, %801 ], [ 0, %.preheader4624.us.us.us ]
   %802 = phi float [ %805, %801 ], [ %.promoted.us.us.us, %.preheader4624.us.us.us ]
-  %803 = getelementptr inbounds float, ptr %.129644683.us.us.us, i64 %indvars.iv5277
+  %803 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us, i64 %indvars.iv5277
   %804 = load float, ptr %803, align 4
   %805 = fadd fast float %804, %802
   store float %805, ptr %800, align 4
@@ -22255,7 +22255,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5281.not, label %._crit_edge4682.us.us.us, label %801, !llvm.loop !559
 
 ._crit_edge4682.us.us.us:                         ; preds = %801
-  %806 = getelementptr inbounds float, ptr %.129644683.us.us.us, i64 %786
+  %806 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us, i64 %786
   %indvars.iv.next5283 = add nuw nsw i64 %indvars.iv5282, 1
   %exitcond5286.not = icmp eq i64 %indvars.iv.next5283, %wide.trip.count5285
   br i1 %exitcond5286.not, label %._crit_edge4685.split.us.us.us, label %.preheader4624.us.us.us, !llvm.loop !560
@@ -22309,8 +22309,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4705:                                       ; preds = %819, %.lr.ph4705
   %indvars.iv5293 = phi i64 [ %indvars.iv.next5294, %.lr.ph4705 ], [ 0, %819 ]
   %826 = load ptr, ptr %1, align 8
-  %827 = getelementptr inbounds float, ptr %826, i64 %indvars.iv5293
-  %828 = getelementptr inbounds float, ptr %825, i64 %indvars.iv5293
+  %827 = getelementptr inbounds nuw float, ptr %826, i64 %indvars.iv5293
+  %828 = getelementptr inbounds nuw float, ptr %825, i64 %indvars.iv5293
   %829 = load float, ptr %827, align 4
   %830 = load float, ptr %828, align 4
   %831 = fadd fast float %830, %829
@@ -22343,7 +22343,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 839:                                              ; preds = %836
   %840 = load ptr, ptr %837, align 8
-  %841 = getelementptr inbounds i8, ptr %840, i64 24
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 24
   %842 = load ptr, ptr %841, align 8
   invoke void %842(ptr noundef nonnull align 8 dereferenceable(8) %837, ptr noundef %838)
           to label %.loopexit unwind label %845
@@ -22465,8 +22465,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 894:                                              ; preds = %894, %.preheader4620.us.us.us
   %indvars.iv5303 = phi i64 [ %indvars.iv.next5304, %894 ], [ 0, %.preheader4620.us.us.us ]
-  %895 = getelementptr inbounds float, ptr %887, i64 %indvars.iv5303
-  %896 = getelementptr inbounds float, ptr %.129564716.us.us.us, i64 %indvars.iv5303
+  %895 = getelementptr inbounds nuw float, ptr %887, i64 %indvars.iv5303
+  %896 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us, i64 %indvars.iv5303
   %897 = load float, ptr %895, align 4
   %898 = load float, ptr %896, align 4
   %899 = fadd fast float %898, %897
@@ -22476,7 +22476,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5307.not, label %._crit_edge4715.us.us.us, label %894, !llvm.loop !565
 
 ._crit_edge4715.us.us.us:                         ; preds = %894
-  %900 = getelementptr inbounds float, ptr %.129564716.us.us.us, i64 %880
+  %900 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us, i64 %880
   %901 = add nuw nsw i32 %.029534717.us.us.us, 1
   %exitcond5308.not = icmp eq i32 %901, %565
   br i1 %exitcond5308.not, label %._crit_edge4718.split.us.us.us, label %.preheader4620.us.us.us, !llvm.loop !566
@@ -22530,8 +22530,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4738:                                       ; preds = %914, %.lr.ph4738
   %indvars.iv5315 = phi i64 [ %indvars.iv.next5316, %.lr.ph4738 ], [ 0, %914 ]
   %921 = load ptr, ptr %1, align 8
-  %922 = getelementptr inbounds float, ptr %921, i64 %indvars.iv5315
-  %923 = getelementptr inbounds float, ptr %920, i64 %indvars.iv5315
+  %922 = getelementptr inbounds nuw float, ptr %921, i64 %indvars.iv5315
+  %923 = getelementptr inbounds nuw float, ptr %920, i64 %indvars.iv5315
   %924 = load float, ptr %922, align 4
   %925 = load float, ptr %923, align 4
   %926 = fadd fast float %925, %924
@@ -22564,7 +22564,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 934:                                              ; preds = %931
   %935 = load ptr, ptr %932, align 8
-  %936 = getelementptr inbounds i8, ptr %935, i64 24
+  %936 = getelementptr inbounds nuw i8, ptr %935, i64 24
   %937 = load ptr, ptr %936, align 8
   invoke void %937(ptr noundef nonnull align 8 dereferenceable(8) %932, ptr noundef %933)
           to label %.loopexit unwind label %940
@@ -22664,7 +22664,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 979:                                              ; preds = %.preheader4617.us, %979
   %indvars.iv5328 = phi i64 [ 0, %.preheader4617.us ], [ %indvars.iv.next5329, %979 ]
   %.045574742.us = phi float [ 0.000000e+00, %.preheader4617.us ], [ %982, %979 ]
-  %980 = getelementptr inbounds float, ptr %.029484747.us, i64 %indvars.iv5328
+  %980 = getelementptr inbounds nuw float, ptr %.029484747.us, i64 %indvars.iv5328
   %981 = load float, ptr %980, align 4
   %982 = fadd fast float %981, %.045574742.us
   %indvars.iv.next5329 = add nuw nsw i64 %indvars.iv5328, 1
@@ -22672,9 +22672,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5332.not, label %._crit_edge4745.us, label %979, !llvm.loop !571
 
 ._crit_edge4745.us:                               ; preds = %979
-  %983 = getelementptr inbounds float, ptr %978, i64 %indvars.iv5333
+  %983 = getelementptr inbounds nuw float, ptr %978, i64 %indvars.iv5333
   store float %982, ptr %983, align 4
-  %984 = getelementptr inbounds float, ptr %.029484747.us, i64 %957
+  %984 = getelementptr inbounds nuw float, ptr %.029484747.us, i64 %957
   %indvars.iv.next5334 = add nuw nsw i64 %indvars.iv5333, 1
   %exitcond5337.not = icmp eq i64 %indvars.iv.next5334, %958
   br i1 %exitcond5337.not, label %._crit_edge4749, label %.preheader4617.us, !llvm.loop !572
@@ -22791,14 +22791,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .preheader4615.us.us.us:                          ; preds = %._crit_edge4759.us.us.us, %.preheader4615.lr.ph.us.us
   %indvars.iv5348 = phi i64 [ %indvars.iv.next5349, %._crit_edge4759.us.us.us ], [ 0, %.preheader4615.lr.ph.us.us ]
   %.129434760.us.us.us = phi ptr [ %1043, %._crit_edge4759.us.us.us ], [ %.029424764.us.us, %.preheader4615.lr.ph.us.us ]
-  %1037 = getelementptr inbounds float, ptr %1036, i64 %indvars.iv5348
+  %1037 = getelementptr inbounds nuw float, ptr %1036, i64 %indvars.iv5348
   %.promoted.us.us.us4775 = load float, ptr %1037, align 4
   br label %1038
 
 1038:                                             ; preds = %1038, %.preheader4615.us.us.us
   %indvars.iv5343 = phi i64 [ %indvars.iv.next5344, %1038 ], [ 0, %.preheader4615.us.us.us ]
   %1039 = phi float [ %1042, %1038 ], [ %.promoted.us.us.us4775, %.preheader4615.us.us.us ]
-  %1040 = getelementptr inbounds float, ptr %.129434760.us.us.us, i64 %indvars.iv5343
+  %1040 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us, i64 %indvars.iv5343
   %1041 = load float, ptr %1040, align 4
   %1042 = fadd fast float %1041, %1039
   store float %1042, ptr %1037, align 4
@@ -22807,7 +22807,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5347.not, label %._crit_edge4759.us.us.us, label %1038, !llvm.loop !574
 
 ._crit_edge4759.us.us.us:                         ; preds = %1038
-  %1043 = getelementptr inbounds float, ptr %.129434760.us.us.us, i64 %1018
+  %1043 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us, i64 %1018
   %indvars.iv.next5349 = add nuw nsw i64 %indvars.iv5348, 1
   %exitcond5352.not = icmp eq i64 %indvars.iv.next5349, %wide.trip.count5351
   br i1 %exitcond5352.not, label %._crit_edge4762.split.us.us.us, label %.preheader4615.us.us.us, !llvm.loop !575
@@ -22889,8 +22889,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1078:                                             ; preds = %.lr.ph4785.us.us, %1078
   %indvars.iv5373 = phi i64 [ 0, %.lr.ph4785.us.us ], [ %indvars.iv.next5374, %1078 ]
-  %1079 = getelementptr inbounds float, ptr %1077, i64 %indvars.iv5373
-  %1080 = getelementptr inbounds float, ptr %1070, i64 %indvars.iv5373
+  %1079 = getelementptr inbounds nuw float, ptr %1077, i64 %indvars.iv5373
+  %1080 = getelementptr inbounds nuw float, ptr %1070, i64 %indvars.iv5373
   %1081 = load float, ptr %1079, align 4
   %1082 = load float, ptr %1080, align 4
   %1083 = fadd fast float %1082, %1081
@@ -22925,8 +22925,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1096:                                             ; preds = %.lr.ph4785.us4793, %1096
   %indvars.iv5363 = phi i64 [ 0, %.lr.ph4785.us4793 ], [ %indvars.iv.next5364, %1096 ]
-  %1097 = getelementptr inbounds float, ptr %1095, i64 %indvars.iv5363
-  %1098 = getelementptr inbounds float, ptr %1085, i64 %indvars.iv5363
+  %1097 = getelementptr inbounds nuw float, ptr %1095, i64 %indvars.iv5363
+  %1098 = getelementptr inbounds nuw float, ptr %1085, i64 %indvars.iv5363
   %1099 = load float, ptr %1097, align 4
   %1100 = load float, ptr %1098, align 4
   %1101 = fadd fast float %1100, %1099
@@ -22964,7 +22964,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1109:                                             ; preds = %1106
   %1110 = load ptr, ptr %1107, align 8
-  %1111 = getelementptr inbounds i8, ptr %1110, i64 24
+  %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 24
   %1112 = load ptr, ptr %1111, align 8
   invoke void %1112(ptr noundef nonnull align 8 dereferenceable(8) %1107, ptr noundef %1108)
           to label %.loopexit unwind label %1115
@@ -23095,8 +23095,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1170:                                             ; preds = %1170, %.lr.ph4803.us.us.us
   %indvars.iv5388 = phi i64 [ %indvars.iv.next5389, %1170 ], [ 0, %.lr.ph4803.us.us.us ]
-  %1171 = getelementptr inbounds float, ptr %1169, i64 %indvars.iv5388
-  %1172 = getelementptr inbounds float, ptr %.129334805.us.us.us, i64 %indvars.iv5388
+  %1171 = getelementptr inbounds nuw float, ptr %1169, i64 %indvars.iv5388
+  %1172 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us, i64 %indvars.iv5388
   %1173 = load float, ptr %1171, align 4
   %1174 = load float, ptr %1172, align 4
   %1175 = fadd fast float %1174, %1173
@@ -23106,7 +23106,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5392.not, label %._crit_edge4804.us.us.us, label %1170, !llvm.loop !581
 
 ._crit_edge4804.us.us.us:                         ; preds = %1170
-  %1176 = getelementptr inbounds float, ptr %.129334805.us.us.us, i64 %1151
+  %1176 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us, i64 %1151
   %indvars.iv.next5394 = add nuw nsw i64 %indvars.iv5393, 1
   %exitcond5397.not = icmp eq i64 %indvars.iv.next5394, %wide.trip.count5396
   br i1 %exitcond5397.not, label %._crit_edge4808.split.us.us.us, label %.lr.ph4803.us.us.us, !llvm.loop !582
@@ -23182,8 +23182,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1211:                                             ; preds = %.lr.ph4827.us, %1211
   %indvars.iv5404 = phi i64 [ 0, %.lr.ph4827.us ], [ %indvars.iv.next5405, %1211 ]
-  %1212 = getelementptr inbounds float, ptr %1210, i64 %indvars.iv5404
-  %1213 = getelementptr inbounds float, ptr %1203, i64 %indvars.iv5404
+  %1212 = getelementptr inbounds nuw float, ptr %1210, i64 %indvars.iv5404
+  %1213 = getelementptr inbounds nuw float, ptr %1203, i64 %indvars.iv5404
   %1214 = load float, ptr %1212, align 4
   %1215 = load float, ptr %1213, align 4
   %1216 = fadd fast float %1215, %1214
@@ -23221,7 +23221,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1224:                                             ; preds = %1221
   %1225 = load ptr, ptr %1222, align 8
-  %1226 = getelementptr inbounds i8, ptr %1225, i64 24
+  %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 24
   %1227 = load ptr, ptr %1226, align 8
   invoke void %1227(ptr noundef nonnull align 8 dereferenceable(8) %1222, ptr noundef %1223)
           to label %.loopexit unwind label %1230
@@ -23320,14 +23320,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .preheader4607.us.us.us:                          ; preds = %._crit_edge4840.us.us.us, %.preheader4608.us.us
   %indvars.iv5427 = phi i64 [ %indvars.iv.next5428, %._crit_edge4840.us.us.us ], [ 0, %.preheader4608.us.us ]
   %.129244841.us.us.us = phi ptr [ %1276, %._crit_edge4840.us.us.us ], [ %.029234845.us.us, %.preheader4608.us.us ]
-  %1270 = getelementptr inbounds float, ptr %1269, i64 %indvars.iv5427
+  %1270 = getelementptr inbounds nuw float, ptr %1269, i64 %indvars.iv5427
   %.promoted.us.us.us4854 = load float, ptr %1270, align 4
   br label %1271
 
 1271:                                             ; preds = %1271, %.preheader4607.us.us.us
   %indvars.iv5422 = phi i64 [ %indvars.iv.next5423, %1271 ], [ 0, %.preheader4607.us.us.us ]
   %1272 = phi float [ %1275, %1271 ], [ %.promoted.us.us.us4854, %.preheader4607.us.us.us ]
-  %1273 = getelementptr inbounds float, ptr %.129244841.us.us.us, i64 %indvars.iv5422
+  %1273 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us, i64 %indvars.iv5422
   %1274 = load float, ptr %1273, align 4
   %1275 = fadd fast float %1274, %1272
   store float %1275, ptr %1270, align 4
@@ -23336,7 +23336,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5426.not, label %._crit_edge4840.us.us.us, label %1271, !llvm.loop !588
 
 ._crit_edge4840.us.us.us:                         ; preds = %1271
-  %1276 = getelementptr inbounds float, ptr %.129244841.us.us.us, i64 %1248
+  %1276 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us, i64 %1248
   %indvars.iv.next5428 = add nuw nsw i64 %indvars.iv5427, 1
   %exitcond5431.not = icmp eq i64 %indvars.iv.next5428, %1249
   br i1 %exitcond5431.not, label %._crit_edge4843.split.us.us.us, label %.preheader4607.us.us.us, !llvm.loop !589
@@ -23461,8 +23461,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1330:                                             ; preds = %1330, %.preheader4605.us.us.us
   %indvars.iv5438 = phi i64 [ %indvars.iv.next5439, %1330 ], [ 0, %.preheader4605.us.us.us ]
-  %1331 = getelementptr inbounds float, ptr %1329, i64 %indvars.iv5438
-  %1332 = getelementptr inbounds float, ptr %.129164865.us.us.us, i64 %indvars.iv5438
+  %1331 = getelementptr inbounds nuw float, ptr %1329, i64 %indvars.iv5438
+  %1332 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us, i64 %indvars.iv5438
   %1333 = load float, ptr %1331, align 4
   %1334 = load float, ptr %1332, align 4
   %1335 = fadd fast float %1334, %1333
@@ -23472,7 +23472,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5442.not, label %._crit_edge4864.us.us.us, label %1330, !llvm.loop !592
 
 ._crit_edge4864.us.us.us:                         ; preds = %1330
-  %1336 = getelementptr inbounds float, ptr %.129164865.us.us.us, i64 %1311
+  %1336 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us, i64 %1311
   %1337 = add nuw nsw i32 %.029134866.us.us.us, 1
   %exitcond5443.not = icmp eq i32 %1337, %565
   br i1 %exitcond5443.not, label %._crit_edge4867.split.us.us.us, label %.preheader4605.us.us.us, !llvm.loop !593
@@ -23548,8 +23548,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1371:                                             ; preds = %.lr.ph4889.us, %1371
   %indvars.iv5454 = phi i64 [ 0, %.lr.ph4889.us ], [ %indvars.iv.next5455, %1371 ]
-  %1372 = getelementptr inbounds float, ptr %1370, i64 %indvars.iv5454
-  %1373 = getelementptr inbounds float, ptr %1363, i64 %indvars.iv5454
+  %1372 = getelementptr inbounds nuw float, ptr %1370, i64 %indvars.iv5454
+  %1373 = getelementptr inbounds nuw float, ptr %1363, i64 %indvars.iv5454
   %1374 = load float, ptr %1372, align 4
   %1375 = load float, ptr %1373, align 4
   %1376 = fadd fast float %1375, %1374
@@ -23587,7 +23587,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1384:                                             ; preds = %1381
   %1385 = load ptr, ptr %1382, align 8
-  %1386 = getelementptr inbounds i8, ptr %1385, i64 24
+  %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 24
   %1387 = load ptr, ptr %1386, align 8
   invoke void %1387(ptr noundef nonnull align 8 dereferenceable(8) %1382, ptr noundef %1383)
           to label %.loopexit unwind label %1390
@@ -23693,8 +23693,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1430:                                             ; preds = %1430, %.preheader4600.us.us.us
   %indvars.iv5472 = phi i64 [ %indvars.iv.next5473, %1430 ], [ 0, %.preheader4600.us.us.us ]
-  %1431 = getelementptr inbounds float, ptr %1429, i64 %indvars.iv5472
-  %1432 = getelementptr inbounds float, ptr %.129074903.us.us.us, i64 %indvars.iv5472
+  %1431 = getelementptr inbounds nuw float, ptr %1429, i64 %indvars.iv5472
+  %1432 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us, i64 %indvars.iv5472
   %1433 = load float, ptr %1431, align 4
   %1434 = load float, ptr %1432, align 4
   %1435 = fadd fast float %1434, %1433
@@ -23704,7 +23704,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5476.not, label %._crit_edge4902.us.us.us, label %1430, !llvm.loop !599
 
 ._crit_edge4902.us.us.us:                         ; preds = %1430
-  %1436 = getelementptr inbounds float, ptr %.129074903.us.us.us, i64 %1408
+  %1436 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us, i64 %1408
   %1437 = add nuw nsw i32 %.029024904.us.us.us, 1
   %exitcond5477.not = icmp eq i32 %1437, %565
   br i1 %exitcond5477.not, label %._crit_edge4905.split.us.us.us, label %.preheader4600.us.us.us, !llvm.loop !600
@@ -23789,7 +23789,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 1469:                                             ; preds = %.preheader4598.us, %1469
   %indvars.iv5487 = phi i64 [ 0, %.preheader4598.us ], [ %indvars.iv.next5488, %1469 ]
   %.045564919.us = phi float [ 0.000000e+00, %.preheader4598.us ], [ %1472, %1469 ]
-  %1470 = getelementptr inbounds float, ptr %.028994924.us, i64 %indvars.iv5487
+  %1470 = getelementptr inbounds nuw float, ptr %.028994924.us, i64 %indvars.iv5487
   %1471 = load float, ptr %1470, align 4
   %1472 = fadd fast float %1471, %.045564919.us
   %indvars.iv.next5488 = add nuw nsw i64 %indvars.iv5487, 1
@@ -23797,9 +23797,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5491.not, label %._crit_edge4922.us, label %1469, !llvm.loop !603
 
 ._crit_edge4922.us:                               ; preds = %1469
-  %1473 = getelementptr inbounds float, ptr %1462, i64 %indvars.iv5492
+  %1473 = getelementptr inbounds nuw float, ptr %1462, i64 %indvars.iv5492
   store float %1472, ptr %1473, align 4
-  %1474 = getelementptr inbounds float, ptr %.028994924.us, i64 %1453
+  %1474 = getelementptr inbounds nuw float, ptr %.028994924.us, i64 %1453
   %indvars.iv.next5493 = add nuw nsw i64 %indvars.iv5492, 1
   %exitcond5496.not = icmp eq i64 %indvars.iv.next5493, %1454
   br i1 %exitcond5496.not, label %._crit_edge4926, label %.preheader4598.us, !llvm.loop !604
@@ -23937,8 +23937,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1534:                                             ; preds = %1534, %.lr.ph4936.us.us
   %indvars.iv5502 = phi i64 [ %indvars.iv.next5503, %1534 ], [ 0, %.lr.ph4936.us.us ]
-  %1535 = getelementptr inbounds float, ptr %1533, i64 %indvars.iv5502
-  %1536 = getelementptr inbounds float, ptr %.128954938.us.us, i64 %indvars.iv5502
+  %1535 = getelementptr inbounds nuw float, ptr %1533, i64 %indvars.iv5502
+  %1536 = getelementptr inbounds nuw float, ptr %.128954938.us.us, i64 %indvars.iv5502
   %1537 = load float, ptr %1535, align 4
   %1538 = load float, ptr %1536, align 4
   %1539 = fadd fast float %1538, %1537
@@ -23948,7 +23948,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5506.not, label %._crit_edge4937.us.us, label %1534, !llvm.loop !607
 
 ._crit_edge4937.us.us:                            ; preds = %1534
-  %1540 = getelementptr inbounds float, ptr %.128954938.us.us, i64 %1500
+  %1540 = getelementptr inbounds nuw float, ptr %.128954938.us.us, i64 %1500
   %indvars.iv.next5508 = add nuw nsw i64 %indvars.iv5507, 1
   %exitcond5511.not = icmp eq i64 %indvars.iv.next5508, %wide.trip.count5510
   br i1 %exitcond5511.not, label %._crit_edge4942.us, label %.lr.ph4936.us.us, !llvm.loop !608
@@ -24060,8 +24060,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1595:                                             ; preds = %1595, %.preheader4593.us.us.us
   %indvars.iv5524 = phi i64 [ %indvars.iv.next5525, %1595 ], [ 0, %.preheader4593.us.us.us ]
-  %1596 = getelementptr inbounds float, ptr %1594, i64 %indvars.iv5524
-  %1597 = getelementptr inbounds float, ptr %.128894964.us.us.us, i64 %indvars.iv5524
+  %1596 = getelementptr inbounds nuw float, ptr %1594, i64 %indvars.iv5524
+  %1597 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us, i64 %indvars.iv5524
   %1598 = load float, ptr %1596, align 4
   %1599 = load float, ptr %1597, align 4
   %1600 = fadd fast float %1599, %1598
@@ -24071,7 +24071,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5528.not, label %._crit_edge4963.us.us.us, label %1595, !llvm.loop !610
 
 ._crit_edge4963.us.us.us:                         ; preds = %1595
-  %1601 = getelementptr inbounds float, ptr %.128894964.us.us.us, i64 %1559
+  %1601 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us, i64 %1559
   %1602 = add nuw nsw i32 %.028864965.us.us.us, 1
   %exitcond5529.not = icmp eq i32 %1602, %565
   br i1 %exitcond5529.not, label %._crit_edge4966.split.us.us.us, label %.preheader4593.us.us.us, !llvm.loop !611
@@ -24188,8 +24188,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1657:                                             ; preds = %1657, %.lr.ph4988.us.us.us
   %indvars.iv5542 = phi i64 [ %indvars.iv.next5543, %1657 ], [ 0, %.lr.ph4988.us.us.us ]
-  %1658 = getelementptr inbounds float, ptr %1656, i64 %indvars.iv5542
-  %1659 = getelementptr inbounds float, ptr %.14990.us.us.us, i64 %indvars.iv5542
+  %1658 = getelementptr inbounds nuw float, ptr %1656, i64 %indvars.iv5542
+  %1659 = getelementptr inbounds nuw float, ptr %.14990.us.us.us, i64 %indvars.iv5542
   %1660 = load float, ptr %1658, align 4
   %1661 = load float, ptr %1659, align 4
   %1662 = fadd fast float %1661, %1660
@@ -24199,7 +24199,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5546.not, label %._crit_edge4989.us.us.us, label %1657, !llvm.loop !614
 
 ._crit_edge4989.us.us.us:                         ; preds = %1657
-  %1663 = getelementptr inbounds float, ptr %.14990.us.us.us, i64 %1621
+  %1663 = getelementptr inbounds nuw float, ptr %.14990.us.us.us, i64 %1621
   %indvars.iv.next5548 = add nuw nsw i64 %indvars.iv5547, 1
   %exitcond5551.not = icmp eq i64 %indvars.iv.next5548, %wide.trip.count5550
   br i1 %exitcond5551.not, label %._crit_edge4993.split.us.us.us, label %.lr.ph4988.us.us.us, !llvm.loop !615
@@ -24244,7 +24244,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv19 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next20, %.lr.ph7 ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds float, ptr %9, i64 %indvars.iv19
+  %10 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv19
   %11 = load float, ptr %10, align 4
   %12 = fmul fast float %11, %1
   store float %12, ptr %10, align 4
@@ -24268,7 +24268,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %22 = load float, ptr %21, align 4
   %23 = fmul fast float %22, %1
   store float %23, ptr %21, align 4
@@ -24322,7 +24322,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process
 
 48:                                               ; preds = %.lr.ph9.us, %48
   %indvars.iv24 = phi i64 [ 0, %.lr.ph9.us ], [ %indvars.iv.next25, %48 ]
-  %49 = getelementptr inbounds float, ptr %47, i64 %indvars.iv24
+  %49 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv24
   %50 = load float, ptr %49, align 4
   %51 = fmul fast float %50, %1
   store float %51, ptr %49, align 4
@@ -24346,7 +24346,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_21post_process
 .lr.ph13:                                         ; preds = %.lr.ph13.preheader, %.lr.ph13
   %indvars.iv34 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next35, %.lr.ph13 ]
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds float, ptr %53, i64 %indvars.iv34
+  %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv34
   %55 = load float, ptr %54, align 4
   %56 = fmul fast float %55, %1
   store float %56, ptr %54, align 4
@@ -24407,7 +24407,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5145:                                       ; preds = %.lr.ph5145.preheader, %.lr.ph5145
   %indvars.iv5704 = phi i64 [ 0, %.lr.ph5145.preheader ], [ %indvars.iv.next5705, %.lr.ph5145 ]
   %.045705142 = phi float [ 0.000000e+00, %.lr.ph5145.preheader ], [ %34, %.lr.ph5145 ]
-  %31 = getelementptr inbounds float, ptr %29, i64 %indvars.iv5704
+  %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv5704
   %32 = load float, ptr %31, align 4
   %33 = fmul fast float %32, %32
   %34 = fadd fast float %33, %.045705142
@@ -24497,7 +24497,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5113:                                       ; preds = %64, %.lr.ph5113
   %indvars.iv5669 = phi i64 [ %indvars.iv.next5670, %.lr.ph5113 ], [ 0, %64 ]
   %.045695110 = phi float [ %75, %.lr.ph5113 ], [ 0.000000e+00, %64 ]
-  %72 = getelementptr inbounds float, ptr %71, i64 %indvars.iv5669
+  %72 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv5669
   %73 = load float, ptr %72, align 4
   %74 = fmul fast float %73, %73
   %75 = fadd fast float %74, %.045695110
@@ -24508,7 +24508,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge5114:                                  ; preds = %.lr.ph5113, %64
   %.04569.lcssa = phi float [ 0.000000e+00, %64 ], [ %75, %.lr.ph5113 ]
   %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds float, ptr %76, i64 %indvars.iv5674
+  %77 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv5674
   store float %.04569.lcssa, ptr %77, align 4
   %indvars.iv.next5675 = add nuw nsw i64 %indvars.iv5674, 1
   %exitcond5678.not = icmp eq i64 %indvars.iv.next5675, %wide.trip.count5677
@@ -24517,7 +24517,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 78:                                               ; preds = %.lr.ph5120, %78
   %indvars.iv5679 = phi i64 [ 0, %.lr.ph5120 ], [ %indvars.iv.next5680, %78 ]
   %.045685118 = phi float [ 0.000000e+00, %.lr.ph5120 ], [ %81, %78 ]
-  %79 = getelementptr inbounds float, ptr %63, i64 %indvars.iv5679
+  %79 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv5679
   %80 = load float, ptr %79, align 4
   %81 = fadd fast float %80, %.045685118
   %indvars.iv.next5680 = add nuw nsw i64 %indvars.iv5679, 1
@@ -24549,7 +24549,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 90:                                               ; preds = %87
   %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load ptr, ptr %92, align 8
   invoke void %93(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %89)
           to label %.loopexit unwind label %96
@@ -24611,7 +24611,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5126:                                       ; preds = %108, %.lr.ph5126
   %indvars.iv5684 = phi i64 [ %indvars.iv.next5685, %.lr.ph5126 ], [ 0, %108 ]
   %.045675123 = phi float [ %119, %.lr.ph5126 ], [ 0.000000e+00, %108 ]
-  %116 = getelementptr inbounds float, ptr %115, i64 %indvars.iv5684
+  %116 = getelementptr inbounds nuw float, ptr %115, i64 %indvars.iv5684
   %117 = load float, ptr %116, align 4
   %118 = fmul fast float %117, %117
   %119 = fadd fast float %118, %.045675123
@@ -24622,7 +24622,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge5127:                                  ; preds = %.lr.ph5126, %108
   %.04567.lcssa = phi float [ 0.000000e+00, %108 ], [ %119, %.lr.ph5126 ]
   %120 = load ptr, ptr %1, align 8
-  %121 = getelementptr inbounds float, ptr %120, i64 %indvars.iv5689
+  %121 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv5689
   store float %.04567.lcssa, ptr %121, align 4
   %indvars.iv.next5690 = add nuw nsw i64 %indvars.iv5689, 1
   %exitcond5693.not = icmp eq i64 %indvars.iv.next5690, %wide.trip.count5692
@@ -24687,8 +24687,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5138:                                       ; preds = %141, %.lr.ph5138
   %indvars.iv5694 = phi i64 [ %indvars.iv.next5695, %.lr.ph5138 ], [ 0, %141 ]
   %149 = load ptr, ptr %1, align 8
-  %150 = getelementptr inbounds float, ptr %149, i64 %indvars.iv5694
-  %151 = getelementptr inbounds float, ptr %148, i64 %indvars.iv5694
+  %150 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv5694
+  %151 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv5694
   %152 = load float, ptr %150, align 4
   %153 = load float, ptr %151, align 4
   %154 = fmul fast float %153, %153
@@ -24784,7 +24784,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5010:                                       ; preds = %188, %.lr.ph5010
   %indvars.iv5556 = phi i64 [ %indvars.iv.next5557, %.lr.ph5010 ], [ 0, %188 ]
   %.045665007 = phi float [ %198, %.lr.ph5010 ], [ 0.000000e+00, %188 ]
-  %195 = getelementptr inbounds float, ptr %194, i64 %indvars.iv5556
+  %195 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv5556
   %196 = load float, ptr %195, align 4
   %197 = fmul fast float %196, %196
   %198 = fadd fast float %197, %.045665007
@@ -24795,7 +24795,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge5011:                                  ; preds = %.lr.ph5010, %188
   %.04566.lcssa = phi float [ 0.000000e+00, %188 ], [ %198, %.lr.ph5010 ]
   %199 = load ptr, ptr %10, align 8
-  %200 = getelementptr inbounds float, ptr %199, i64 %indvars.iv5561
+  %200 = getelementptr inbounds nuw float, ptr %199, i64 %indvars.iv5561
   store float %.04566.lcssa, ptr %200, align 4
   %indvars.iv.next5562 = add nuw nsw i64 %indvars.iv5561, 1
   %exitcond5565.not = icmp eq i64 %indvars.iv.next5562, %wide.trip.count5564
@@ -24804,7 +24804,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 201:                                              ; preds = %.lr.ph5017, %201
   %indvars.iv5566 = phi i64 [ 0, %.lr.ph5017 ], [ %indvars.iv.next5567, %201 ]
   %.045655015 = phi float [ 0.000000e+00, %.lr.ph5017 ], [ %204, %201 ]
-  %202 = getelementptr inbounds float, ptr %187, i64 %indvars.iv5566
+  %202 = getelementptr inbounds nuw float, ptr %187, i64 %indvars.iv5566
   %203 = load float, ptr %202, align 4
   %204 = fadd fast float %203, %.045655015
   %indvars.iv.next5567 = add nuw nsw i64 %indvars.iv5566, 1
@@ -24836,7 +24836,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 213:                                              ; preds = %210
   %214 = load ptr, ptr %211, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = load ptr, ptr %215, align 8
   invoke void %216(ptr noundef nonnull align 8 dereferenceable(8) %211, ptr noundef %212)
           to label %.loopexit unwind label %219
@@ -24900,7 +24900,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5023:                                       ; preds = %234, %.lr.ph5023
   %indvars.iv5571 = phi i64 [ %indvars.iv.next5572, %.lr.ph5023 ], [ 0, %234 ]
   %.045645020 = phi float [ %244, %.lr.ph5023 ], [ 0.000000e+00, %234 ]
-  %241 = getelementptr inbounds float, ptr %240, i64 %indvars.iv5571
+  %241 = getelementptr inbounds nuw float, ptr %240, i64 %indvars.iv5571
   %242 = load float, ptr %241, align 4
   %243 = fmul fast float %242, %242
   %244 = fadd fast float %243, %.045645020
@@ -24923,7 +24923,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br label %254
 
 252:                                              ; preds = %._crit_edge5024
-  %253 = getelementptr inbounds float, ptr %245, i64 %indvars.iv5576
+  %253 = getelementptr inbounds nuw float, ptr %245, i64 %indvars.iv5576
   store float %.04564.lcssa, ptr %253, align 4
   br label %254
 
@@ -25035,7 +25035,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 302:                                              ; preds = %.preheader4585.us, %302
   %indvars.iv5584 = phi i64 [ 0, %.preheader4585.us ], [ %indvars.iv.next5585, %302 ]
   %.045635033.us = phi float [ 0.000000e+00, %.preheader4585.us ], [ %306, %302 ]
-  %303 = getelementptr inbounds float, ptr %.029995038.us, i64 %indvars.iv5584
+  %303 = getelementptr inbounds nuw float, ptr %.029995038.us, i64 %indvars.iv5584
   %304 = load float, ptr %303, align 4
   %305 = fmul fast float %304, %304
   %306 = fadd fast float %305, %.045635033.us
@@ -25044,9 +25044,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5588.not, label %._crit_edge5036.us, label %302, !llvm.loop !636
 
 ._crit_edge5036.us:                               ; preds = %302
-  %307 = getelementptr inbounds float, ptr %295, i64 %indvars.iv5589
+  %307 = getelementptr inbounds nuw float, ptr %295, i64 %indvars.iv5589
   store float %306, ptr %307, align 4
-  %308 = getelementptr inbounds float, ptr %.029995038.us, i64 %286
+  %308 = getelementptr inbounds nuw float, ptr %.029995038.us, i64 %286
   %indvars.iv.next5590 = add nuw nsw i64 %indvars.iv5589, 1
   %exitcond5593.not = icmp eq i64 %indvars.iv.next5590, %287
   br i1 %exitcond5593.not, label %._crit_edge5040, label %.preheader4585.us, !llvm.loop !637
@@ -25095,8 +25095,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5050:                                       ; preds = %320, %.lr.ph5050
   %indvars.iv5599 = phi i64 [ %indvars.iv.next5600, %.lr.ph5050 ], [ 0, %320 ]
   %327 = load ptr, ptr %1, align 8
-  %328 = getelementptr inbounds float, ptr %327, i64 %indvars.iv5599
-  %329 = getelementptr inbounds float, ptr %326, i64 %indvars.iv5599
+  %328 = getelementptr inbounds nuw float, ptr %327, i64 %indvars.iv5599
+  %329 = getelementptr inbounds nuw float, ptr %326, i64 %indvars.iv5599
   %330 = load float, ptr %328, align 4
   %331 = load float, ptr %329, align 4
   %332 = fadd fast float %331, %330
@@ -25129,7 +25129,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 340:                                              ; preds = %337
   %341 = load ptr, ptr %338, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 24
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 24
   %343 = load ptr, ptr %342, align 8
   invoke void %343(ptr noundef nonnull align 8 dereferenceable(8) %338, ptr noundef %339)
           to label %.loopexit unwind label %346
@@ -25243,8 +25243,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 394:                                              ; preds = %.preheader4582.us, %394
   %indvars.iv5609 = phi i64 [ 0, %.preheader4582.us ], [ %indvars.iv.next5610, %394 ]
-  %395 = getelementptr inbounds float, ptr %387, i64 %indvars.iv5609
-  %396 = getelementptr inbounds float, ptr %.029935061.us, i64 %indvars.iv5609
+  %395 = getelementptr inbounds nuw float, ptr %387, i64 %indvars.iv5609
+  %396 = getelementptr inbounds nuw float, ptr %.029935061.us, i64 %indvars.iv5609
   %397 = load float, ptr %395, align 4
   %398 = load float, ptr %396, align 4
   %399 = fmul fast float %398, %398
@@ -25255,7 +25255,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5613.not, label %._crit_edge5060.us, label %394, !llvm.loop !641
 
 ._crit_edge5060.us:                               ; preds = %394
-  %401 = getelementptr inbounds float, ptr %.029935061.us, i64 %380
+  %401 = getelementptr inbounds nuw float, ptr %.029935061.us, i64 %380
   %402 = add nuw nsw i32 %.029925062.us, 1
   %exitcond5614.not = icmp eq i32 %402, %160
   br i1 %exitcond5614.not, label %._crit_edge5063, label %.preheader4582.us, !llvm.loop !642
@@ -25304,8 +25304,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5073:                                       ; preds = %414, %.lr.ph5073
   %indvars.iv5620 = phi i64 [ %indvars.iv.next5621, %.lr.ph5073 ], [ 0, %414 ]
   %421 = load ptr, ptr %1, align 8
-  %422 = getelementptr inbounds float, ptr %421, i64 %indvars.iv5620
-  %423 = getelementptr inbounds float, ptr %420, i64 %indvars.iv5620
+  %422 = getelementptr inbounds nuw float, ptr %421, i64 %indvars.iv5620
+  %423 = getelementptr inbounds nuw float, ptr %420, i64 %indvars.iv5620
   %424 = load float, ptr %422, align 4
   %425 = load float, ptr %423, align 4
   %426 = fadd fast float %425, %424
@@ -25338,7 +25338,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 434:                                              ; preds = %431
   %435 = load ptr, ptr %432, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
   %437 = load ptr, ptr %436, align 8
   invoke void %437(ptr noundef nonnull align 8 dereferenceable(8) %432, ptr noundef %433)
           to label %.loopexit unwind label %440
@@ -25438,7 +25438,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 479:                                              ; preds = %.preheader4579.us, %479
   %indvars.iv5633 = phi i64 [ 0, %.preheader4579.us ], [ %indvars.iv.next5634, %479 ]
   %.045625077.us = phi float [ 0.000000e+00, %.preheader4579.us ], [ %483, %479 ]
-  %480 = getelementptr inbounds float, ptr %.029875082.us, i64 %indvars.iv5633
+  %480 = getelementptr inbounds nuw float, ptr %.029875082.us, i64 %indvars.iv5633
   %481 = load float, ptr %480, align 4
   %482 = fmul fast float %481, %481
   %483 = fadd fast float %482, %.045625077.us
@@ -25447,9 +25447,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5637.not, label %._crit_edge5080.us, label %479, !llvm.loop !646
 
 ._crit_edge5080.us:                               ; preds = %479
-  %484 = getelementptr inbounds float, ptr %478, i64 %indvars.iv5638
+  %484 = getelementptr inbounds nuw float, ptr %478, i64 %indvars.iv5638
   store float %483, ptr %484, align 4
-  %485 = getelementptr inbounds float, ptr %.029875082.us, i64 %457
+  %485 = getelementptr inbounds nuw float, ptr %.029875082.us, i64 %457
   %indvars.iv.next5639 = add nuw nsw i64 %indvars.iv5638, 1
   %exitcond5642.not = icmp eq i64 %indvars.iv.next5639, %458
   br i1 %exitcond5642.not, label %._crit_edge5084, label %.preheader4579.us, !llvm.loop !647
@@ -25519,8 +25519,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph5094:                                       ; preds = %506, %.lr.ph5094
   %indvars.iv5648 = phi i64 [ %indvars.iv.next5649, %.lr.ph5094 ], [ 0, %506 ]
   %513 = load ptr, ptr %1, align 8
-  %514 = getelementptr inbounds float, ptr %513, i64 %indvars.iv5648
-  %515 = getelementptr inbounds float, ptr %512, i64 %indvars.iv5648
+  %514 = getelementptr inbounds nuw float, ptr %513, i64 %indvars.iv5648
+  %515 = getelementptr inbounds nuw float, ptr %512, i64 %indvars.iv5648
   %516 = load float, ptr %514, align 4
   %517 = load float, ptr %515, align 4
   %518 = fmul fast float %517, %517
@@ -25622,8 +25622,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 563:                                              ; preds = %.preheader4574.us, %563
   %indvars.iv5658 = phi i64 [ 0, %.preheader4574.us ], [ %indvars.iv.next5659, %563 ]
-  %564 = getelementptr inbounds float, ptr %562, i64 %indvars.iv5658
-  %565 = getelementptr inbounds float, ptr %.029805105.us, i64 %indvars.iv5658
+  %564 = getelementptr inbounds nuw float, ptr %562, i64 %indvars.iv5658
+  %565 = getelementptr inbounds nuw float, ptr %.029805105.us, i64 %indvars.iv5658
   %566 = load float, ptr %564, align 4
   %567 = load float, ptr %565, align 4
   %568 = fmul fast float %567, %567
@@ -25634,7 +25634,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5662.not, label %._crit_edge5104.us, label %563, !llvm.loop !651
 
 ._crit_edge5104.us:                               ; preds = %563
-  %570 = getelementptr inbounds float, ptr %.029805105.us, i64 %543
+  %570 = getelementptr inbounds nuw float, ptr %.029805105.us, i64 %543
   %571 = add nuw nsw i32 %.029785106.us, 1
   %exitcond5663.not = icmp eq i32 %571, %160
   br i1 %exitcond5663.not, label %._crit_edge5107, label %.preheader4574.us, !llvm.loop !652
@@ -25730,7 +25730,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph:                                           ; preds = %607, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %607 ]
   %.045614633 = phi float [ %617, %.lr.ph ], [ 0.000000e+00, %607 ]
-  %614 = getelementptr inbounds float, ptr %613, i64 %indvars.iv
+  %614 = getelementptr inbounds nuw float, ptr %613, i64 %indvars.iv
   %615 = load float, ptr %614, align 4
   %616 = fmul fast float %615, %615
   %617 = fadd fast float %616, %.045614633
@@ -25741,7 +25741,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 ._crit_edge:                                      ; preds = %.lr.ph, %607
   %.04561.lcssa = phi float [ 0.000000e+00, %607 ], [ %617, %.lr.ph ]
   %618 = load ptr, ptr %13, align 8
-  %619 = getelementptr inbounds float, ptr %618, i64 %indvars.iv5229
+  %619 = getelementptr inbounds nuw float, ptr %618, i64 %indvars.iv5229
   store float %.04561.lcssa, ptr %619, align 4
   %indvars.iv.next5230 = add nuw nsw i64 %indvars.iv5229, 1
   %exitcond5233.not = icmp eq i64 %indvars.iv.next5230, %wide.trip.count5232
@@ -25750,7 +25750,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 620:                                              ; preds = %.lr.ph4639, %620
   %indvars.iv5234 = phi i64 [ 0, %.lr.ph4639 ], [ %indvars.iv.next5235, %620 ]
   %.045604637 = phi float [ 0.000000e+00, %.lr.ph4639 ], [ %623, %620 ]
-  %621 = getelementptr inbounds float, ptr %606, i64 %indvars.iv5234
+  %621 = getelementptr inbounds nuw float, ptr %606, i64 %indvars.iv5234
   %622 = load float, ptr %621, align 4
   %623 = fadd fast float %622, %.045604637
   %indvars.iv.next5235 = add nuw nsw i64 %indvars.iv5234, 1
@@ -25782,7 +25782,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 632:                                              ; preds = %629
   %633 = load ptr, ptr %630, align 8
-  %634 = getelementptr inbounds i8, ptr %633, i64 24
+  %634 = getelementptr inbounds nuw i8, ptr %633, i64 24
   %635 = load ptr, ptr %634, align 8
   invoke void %635(ptr noundef nonnull align 8 dereferenceable(8) %630, ptr noundef %631)
           to label %.loopexit unwind label %638
@@ -25846,7 +25846,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4645:                                       ; preds = %653, %.lr.ph4645
   %indvars.iv5239 = phi i64 [ %indvars.iv.next5240, %.lr.ph4645 ], [ 0, %653 ]
   %.045594642 = phi float [ %663, %.lr.ph4645 ], [ 0.000000e+00, %653 ]
-  %660 = getelementptr inbounds float, ptr %659, i64 %indvars.iv5239
+  %660 = getelementptr inbounds nuw float, ptr %659, i64 %indvars.iv5239
   %661 = load float, ptr %660, align 4
   %662 = fmul fast float %661, %661
   %663 = fadd fast float %662, %.045594642
@@ -25869,7 +25869,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br label %673
 
 671:                                              ; preds = %._crit_edge4646
-  %672 = getelementptr inbounds float, ptr %664, i64 %indvars.iv5244
+  %672 = getelementptr inbounds nuw float, ptr %664, i64 %indvars.iv5244
   store float %.04559.lcssa, ptr %672, align 4
   br label %673
 
@@ -25981,7 +25981,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 721:                                              ; preds = %.preheader4628.us, %721
   %indvars.iv5252 = phi i64 [ 0, %.preheader4628.us ], [ %indvars.iv.next5253, %721 ]
   %.045584655.us = phi float [ 0.000000e+00, %.preheader4628.us ], [ %725, %721 ]
-  %722 = getelementptr inbounds float, ptr %.029704660.us, i64 %indvars.iv5252
+  %722 = getelementptr inbounds nuw float, ptr %.029704660.us, i64 %indvars.iv5252
   %723 = load float, ptr %722, align 4
   %724 = fmul fast float %723, %723
   %725 = fadd fast float %724, %.045584655.us
@@ -25990,9 +25990,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5256.not, label %._crit_edge4658.us, label %721, !llvm.loop !659
 
 ._crit_edge4658.us:                               ; preds = %721
-  %726 = getelementptr inbounds float, ptr %714, i64 %indvars.iv5257
+  %726 = getelementptr inbounds nuw float, ptr %714, i64 %indvars.iv5257
   store float %725, ptr %726, align 4
-  %727 = getelementptr inbounds float, ptr %.029704660.us, i64 %705
+  %727 = getelementptr inbounds nuw float, ptr %.029704660.us, i64 %705
   %indvars.iv.next5258 = add nuw nsw i64 %indvars.iv5257, 1
   %exitcond5261.not = icmp eq i64 %indvars.iv.next5258, %706
   br i1 %exitcond5261.not, label %._crit_edge4662, label %.preheader4628.us, !llvm.loop !660
@@ -26041,8 +26041,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4672:                                       ; preds = %739, %.lr.ph4672
   %indvars.iv5267 = phi i64 [ %indvars.iv.next5268, %.lr.ph4672 ], [ 0, %739 ]
   %746 = load ptr, ptr %1, align 8
-  %747 = getelementptr inbounds float, ptr %746, i64 %indvars.iv5267
-  %748 = getelementptr inbounds float, ptr %745, i64 %indvars.iv5267
+  %747 = getelementptr inbounds nuw float, ptr %746, i64 %indvars.iv5267
+  %748 = getelementptr inbounds nuw float, ptr %745, i64 %indvars.iv5267
   %749 = load float, ptr %747, align 4
   %750 = load float, ptr %748, align 4
   %751 = fadd fast float %750, %749
@@ -26075,7 +26075,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 759:                                              ; preds = %756
   %760 = load ptr, ptr %757, align 8
-  %761 = getelementptr inbounds i8, ptr %760, i64 24
+  %761 = getelementptr inbounds nuw i8, ptr %760, i64 24
   %762 = load ptr, ptr %761, align 8
   invoke void %762(ptr noundef nonnull align 8 dereferenceable(8) %757, ptr noundef %758)
           to label %.loopexit unwind label %765
@@ -26194,14 +26194,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .preheader4624.us.us.us:                          ; preds = %._crit_edge4682.us.us.us, %.preheader4625.us.us
   %indvars.iv5282 = phi i64 [ %indvars.iv.next5283, %._crit_edge4682.us.us.us ], [ 0, %.preheader4625.us.us ]
   %.129644683.us.us.us = phi ptr [ %821, %._crit_edge4682.us.us.us ], [ %.029634687.us.us, %.preheader4625.us.us ]
-  %814 = getelementptr inbounds float, ptr %807, i64 %indvars.iv5282
+  %814 = getelementptr inbounds nuw float, ptr %807, i64 %indvars.iv5282
   %.promoted.us.us.us = load float, ptr %814, align 4
   br label %815
 
 815:                                              ; preds = %815, %.preheader4624.us.us.us
   %indvars.iv5277 = phi i64 [ %indvars.iv.next5278, %815 ], [ 0, %.preheader4624.us.us.us ]
   %816 = phi float [ %820, %815 ], [ %.promoted.us.us.us, %.preheader4624.us.us.us ]
-  %817 = getelementptr inbounds float, ptr %.129644683.us.us.us, i64 %indvars.iv5277
+  %817 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us, i64 %indvars.iv5277
   %818 = load float, ptr %817, align 4
   %819 = fmul fast float %818, %818
   %820 = fadd fast float %819, %816
@@ -26211,7 +26211,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5281.not, label %._crit_edge4682.us.us.us, label %815, !llvm.loop !664
 
 ._crit_edge4682.us.us.us:                         ; preds = %815
-  %821 = getelementptr inbounds float, ptr %.129644683.us.us.us, i64 %800
+  %821 = getelementptr inbounds nuw float, ptr %.129644683.us.us.us, i64 %800
   %indvars.iv.next5283 = add nuw nsw i64 %indvars.iv5282, 1
   %exitcond5286.not = icmp eq i64 %indvars.iv.next5283, %wide.trip.count5285
   br i1 %exitcond5286.not, label %._crit_edge4685.split.us.us.us, label %.preheader4624.us.us.us, !llvm.loop !665
@@ -26265,8 +26265,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4705:                                       ; preds = %834, %.lr.ph4705
   %indvars.iv5293 = phi i64 [ %indvars.iv.next5294, %.lr.ph4705 ], [ 0, %834 ]
   %841 = load ptr, ptr %1, align 8
-  %842 = getelementptr inbounds float, ptr %841, i64 %indvars.iv5293
-  %843 = getelementptr inbounds float, ptr %840, i64 %indvars.iv5293
+  %842 = getelementptr inbounds nuw float, ptr %841, i64 %indvars.iv5293
+  %843 = getelementptr inbounds nuw float, ptr %840, i64 %indvars.iv5293
   %844 = load float, ptr %842, align 4
   %845 = load float, ptr %843, align 4
   %846 = fadd fast float %845, %844
@@ -26299,7 +26299,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 854:                                              ; preds = %851
   %855 = load ptr, ptr %852, align 8
-  %856 = getelementptr inbounds i8, ptr %855, i64 24
+  %856 = getelementptr inbounds nuw i8, ptr %855, i64 24
   %857 = load ptr, ptr %856, align 8
   invoke void %857(ptr noundef nonnull align 8 dereferenceable(8) %852, ptr noundef %853)
           to label %.loopexit unwind label %860
@@ -26421,8 +26421,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 909:                                              ; preds = %909, %.preheader4620.us.us.us
   %indvars.iv5303 = phi i64 [ %indvars.iv.next5304, %909 ], [ 0, %.preheader4620.us.us.us ]
-  %910 = getelementptr inbounds float, ptr %902, i64 %indvars.iv5303
-  %911 = getelementptr inbounds float, ptr %.129564716.us.us.us, i64 %indvars.iv5303
+  %910 = getelementptr inbounds nuw float, ptr %902, i64 %indvars.iv5303
+  %911 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us, i64 %indvars.iv5303
   %912 = load float, ptr %910, align 4
   %913 = load float, ptr %911, align 4
   %914 = fmul fast float %913, %913
@@ -26433,7 +26433,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5307.not, label %._crit_edge4715.us.us.us, label %909, !llvm.loop !670
 
 ._crit_edge4715.us.us.us:                         ; preds = %909
-  %916 = getelementptr inbounds float, ptr %.129564716.us.us.us, i64 %895
+  %916 = getelementptr inbounds nuw float, ptr %.129564716.us.us.us, i64 %895
   %917 = add nuw nsw i32 %.029534717.us.us.us, 1
   %exitcond5308.not = icmp eq i32 %917, %576
   br i1 %exitcond5308.not, label %._crit_edge4718.split.us.us.us, label %.preheader4620.us.us.us, !llvm.loop !671
@@ -26487,8 +26487,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .lr.ph4738:                                       ; preds = %930, %.lr.ph4738
   %indvars.iv5315 = phi i64 [ %indvars.iv.next5316, %.lr.ph4738 ], [ 0, %930 ]
   %937 = load ptr, ptr %1, align 8
-  %938 = getelementptr inbounds float, ptr %937, i64 %indvars.iv5315
-  %939 = getelementptr inbounds float, ptr %936, i64 %indvars.iv5315
+  %938 = getelementptr inbounds nuw float, ptr %937, i64 %indvars.iv5315
+  %939 = getelementptr inbounds nuw float, ptr %936, i64 %indvars.iv5315
   %940 = load float, ptr %938, align 4
   %941 = load float, ptr %939, align 4
   %942 = fadd fast float %941, %940
@@ -26521,7 +26521,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 950:                                              ; preds = %947
   %951 = load ptr, ptr %948, align 8
-  %952 = getelementptr inbounds i8, ptr %951, i64 24
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 24
   %953 = load ptr, ptr %952, align 8
   invoke void %953(ptr noundef nonnull align 8 dereferenceable(8) %948, ptr noundef %949)
           to label %.loopexit unwind label %956
@@ -26621,7 +26621,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 995:                                              ; preds = %.preheader4617.us, %995
   %indvars.iv5328 = phi i64 [ 0, %.preheader4617.us ], [ %indvars.iv.next5329, %995 ]
   %.045574742.us = phi float [ 0.000000e+00, %.preheader4617.us ], [ %999, %995 ]
-  %996 = getelementptr inbounds float, ptr %.029484747.us, i64 %indvars.iv5328
+  %996 = getelementptr inbounds nuw float, ptr %.029484747.us, i64 %indvars.iv5328
   %997 = load float, ptr %996, align 4
   %998 = fmul fast float %997, %997
   %999 = fadd fast float %998, %.045574742.us
@@ -26630,9 +26630,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5332.not, label %._crit_edge4745.us, label %995, !llvm.loop !676
 
 ._crit_edge4745.us:                               ; preds = %995
-  %1000 = getelementptr inbounds float, ptr %994, i64 %indvars.iv5333
+  %1000 = getelementptr inbounds nuw float, ptr %994, i64 %indvars.iv5333
   store float %999, ptr %1000, align 4
-  %1001 = getelementptr inbounds float, ptr %.029484747.us, i64 %973
+  %1001 = getelementptr inbounds nuw float, ptr %.029484747.us, i64 %973
   %indvars.iv.next5334 = add nuw nsw i64 %indvars.iv5333, 1
   %exitcond5337.not = icmp eq i64 %indvars.iv.next5334, %974
   br i1 %exitcond5337.not, label %._crit_edge4749, label %.preheader4617.us, !llvm.loop !677
@@ -26749,14 +26749,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .preheader4615.us.us.us:                          ; preds = %._crit_edge4759.us.us.us, %.preheader4615.lr.ph.us.us
   %indvars.iv5348 = phi i64 [ %indvars.iv.next5349, %._crit_edge4759.us.us.us ], [ 0, %.preheader4615.lr.ph.us.us ]
   %.129434760.us.us.us = phi ptr [ %1061, %._crit_edge4759.us.us.us ], [ %.029424764.us.us, %.preheader4615.lr.ph.us.us ]
-  %1054 = getelementptr inbounds float, ptr %1053, i64 %indvars.iv5348
+  %1054 = getelementptr inbounds nuw float, ptr %1053, i64 %indvars.iv5348
   %.promoted.us.us.us4775 = load float, ptr %1054, align 4
   br label %1055
 
 1055:                                             ; preds = %1055, %.preheader4615.us.us.us
   %indvars.iv5343 = phi i64 [ %indvars.iv.next5344, %1055 ], [ 0, %.preheader4615.us.us.us ]
   %1056 = phi float [ %1060, %1055 ], [ %.promoted.us.us.us4775, %.preheader4615.us.us.us ]
-  %1057 = getelementptr inbounds float, ptr %.129434760.us.us.us, i64 %indvars.iv5343
+  %1057 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us, i64 %indvars.iv5343
   %1058 = load float, ptr %1057, align 4
   %1059 = fmul fast float %1058, %1058
   %1060 = fadd fast float %1059, %1056
@@ -26766,7 +26766,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5347.not, label %._crit_edge4759.us.us.us, label %1055, !llvm.loop !679
 
 ._crit_edge4759.us.us.us:                         ; preds = %1055
-  %1061 = getelementptr inbounds float, ptr %.129434760.us.us.us, i64 %1035
+  %1061 = getelementptr inbounds nuw float, ptr %.129434760.us.us.us, i64 %1035
   %indvars.iv.next5349 = add nuw nsw i64 %indvars.iv5348, 1
   %exitcond5352.not = icmp eq i64 %indvars.iv.next5349, %wide.trip.count5351
   br i1 %exitcond5352.not, label %._crit_edge4762.split.us.us.us, label %.preheader4615.us.us.us, !llvm.loop !680
@@ -26848,8 +26848,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1096:                                             ; preds = %.lr.ph4785.us.us, %1096
   %indvars.iv5373 = phi i64 [ 0, %.lr.ph4785.us.us ], [ %indvars.iv.next5374, %1096 ]
-  %1097 = getelementptr inbounds float, ptr %1095, i64 %indvars.iv5373
-  %1098 = getelementptr inbounds float, ptr %1088, i64 %indvars.iv5373
+  %1097 = getelementptr inbounds nuw float, ptr %1095, i64 %indvars.iv5373
+  %1098 = getelementptr inbounds nuw float, ptr %1088, i64 %indvars.iv5373
   %1099 = load float, ptr %1097, align 4
   %1100 = load float, ptr %1098, align 4
   %1101 = fadd fast float %1100, %1099
@@ -26884,8 +26884,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1114:                                             ; preds = %.lr.ph4785.us4793, %1114
   %indvars.iv5363 = phi i64 [ 0, %.lr.ph4785.us4793 ], [ %indvars.iv.next5364, %1114 ]
-  %1115 = getelementptr inbounds float, ptr %1113, i64 %indvars.iv5363
-  %1116 = getelementptr inbounds float, ptr %1103, i64 %indvars.iv5363
+  %1115 = getelementptr inbounds nuw float, ptr %1113, i64 %indvars.iv5363
+  %1116 = getelementptr inbounds nuw float, ptr %1103, i64 %indvars.iv5363
   %1117 = load float, ptr %1115, align 4
   %1118 = load float, ptr %1116, align 4
   %1119 = fadd fast float %1118, %1117
@@ -26923,7 +26923,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1127:                                             ; preds = %1124
   %1128 = load ptr, ptr %1125, align 8
-  %1129 = getelementptr inbounds i8, ptr %1128, i64 24
+  %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 24
   %1130 = load ptr, ptr %1129, align 8
   invoke void %1130(ptr noundef nonnull align 8 dereferenceable(8) %1125, ptr noundef %1126)
           to label %.loopexit unwind label %1133
@@ -27054,8 +27054,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1188:                                             ; preds = %1188, %.lr.ph4803.us.us.us
   %indvars.iv5388 = phi i64 [ %indvars.iv.next5389, %1188 ], [ 0, %.lr.ph4803.us.us.us ]
-  %1189 = getelementptr inbounds float, ptr %1187, i64 %indvars.iv5388
-  %1190 = getelementptr inbounds float, ptr %.129334805.us.us.us, i64 %indvars.iv5388
+  %1189 = getelementptr inbounds nuw float, ptr %1187, i64 %indvars.iv5388
+  %1190 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us, i64 %indvars.iv5388
   %1191 = load float, ptr %1189, align 4
   %1192 = load float, ptr %1190, align 4
   %1193 = fmul fast float %1192, %1192
@@ -27066,7 +27066,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5392.not, label %._crit_edge4804.us.us.us, label %1188, !llvm.loop !686
 
 ._crit_edge4804.us.us.us:                         ; preds = %1188
-  %1195 = getelementptr inbounds float, ptr %.129334805.us.us.us, i64 %1169
+  %1195 = getelementptr inbounds nuw float, ptr %.129334805.us.us.us, i64 %1169
   %indvars.iv.next5394 = add nuw nsw i64 %indvars.iv5393, 1
   %exitcond5397.not = icmp eq i64 %indvars.iv.next5394, %wide.trip.count5396
   br i1 %exitcond5397.not, label %._crit_edge4808.split.us.us.us, label %.lr.ph4803.us.us.us, !llvm.loop !687
@@ -27142,8 +27142,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1230:                                             ; preds = %.lr.ph4827.us, %1230
   %indvars.iv5404 = phi i64 [ 0, %.lr.ph4827.us ], [ %indvars.iv.next5405, %1230 ]
-  %1231 = getelementptr inbounds float, ptr %1229, i64 %indvars.iv5404
-  %1232 = getelementptr inbounds float, ptr %1222, i64 %indvars.iv5404
+  %1231 = getelementptr inbounds nuw float, ptr %1229, i64 %indvars.iv5404
+  %1232 = getelementptr inbounds nuw float, ptr %1222, i64 %indvars.iv5404
   %1233 = load float, ptr %1231, align 4
   %1234 = load float, ptr %1232, align 4
   %1235 = fadd fast float %1234, %1233
@@ -27181,7 +27181,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1243:                                             ; preds = %1240
   %1244 = load ptr, ptr %1241, align 8
-  %1245 = getelementptr inbounds i8, ptr %1244, i64 24
+  %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 24
   %1246 = load ptr, ptr %1245, align 8
   invoke void %1246(ptr noundef nonnull align 8 dereferenceable(8) %1241, ptr noundef %1242)
           to label %.loopexit unwind label %1249
@@ -27280,14 +27280,14 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 .preheader4607.us.us.us:                          ; preds = %._crit_edge4840.us.us.us, %.preheader4608.us.us
   %indvars.iv5427 = phi i64 [ %indvars.iv.next5428, %._crit_edge4840.us.us.us ], [ 0, %.preheader4608.us.us ]
   %.129244841.us.us.us = phi ptr [ %1296, %._crit_edge4840.us.us.us ], [ %.029234845.us.us, %.preheader4608.us.us ]
-  %1289 = getelementptr inbounds float, ptr %1288, i64 %indvars.iv5427
+  %1289 = getelementptr inbounds nuw float, ptr %1288, i64 %indvars.iv5427
   %.promoted.us.us.us4854 = load float, ptr %1289, align 4
   br label %1290
 
 1290:                                             ; preds = %1290, %.preheader4607.us.us.us
   %indvars.iv5422 = phi i64 [ %indvars.iv.next5423, %1290 ], [ 0, %.preheader4607.us.us.us ]
   %1291 = phi float [ %1295, %1290 ], [ %.promoted.us.us.us4854, %.preheader4607.us.us.us ]
-  %1292 = getelementptr inbounds float, ptr %.129244841.us.us.us, i64 %indvars.iv5422
+  %1292 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us, i64 %indvars.iv5422
   %1293 = load float, ptr %1292, align 4
   %1294 = fmul fast float %1293, %1293
   %1295 = fadd fast float %1294, %1291
@@ -27297,7 +27297,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5426.not, label %._crit_edge4840.us.us.us, label %1290, !llvm.loop !693
 
 ._crit_edge4840.us.us.us:                         ; preds = %1290
-  %1296 = getelementptr inbounds float, ptr %.129244841.us.us.us, i64 %1267
+  %1296 = getelementptr inbounds nuw float, ptr %.129244841.us.us.us, i64 %1267
   %indvars.iv.next5428 = add nuw nsw i64 %indvars.iv5427, 1
   %exitcond5431.not = icmp eq i64 %indvars.iv.next5428, %1268
   br i1 %exitcond5431.not, label %._crit_edge4843.split.us.us.us, label %.preheader4607.us.us.us, !llvm.loop !694
@@ -27422,8 +27422,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1350:                                             ; preds = %1350, %.preheader4605.us.us.us
   %indvars.iv5438 = phi i64 [ %indvars.iv.next5439, %1350 ], [ 0, %.preheader4605.us.us.us ]
-  %1351 = getelementptr inbounds float, ptr %1349, i64 %indvars.iv5438
-  %1352 = getelementptr inbounds float, ptr %.129164865.us.us.us, i64 %indvars.iv5438
+  %1351 = getelementptr inbounds nuw float, ptr %1349, i64 %indvars.iv5438
+  %1352 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us, i64 %indvars.iv5438
   %1353 = load float, ptr %1351, align 4
   %1354 = load float, ptr %1352, align 4
   %1355 = fmul fast float %1354, %1354
@@ -27434,7 +27434,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5442.not, label %._crit_edge4864.us.us.us, label %1350, !llvm.loop !697
 
 ._crit_edge4864.us.us.us:                         ; preds = %1350
-  %1357 = getelementptr inbounds float, ptr %.129164865.us.us.us, i64 %1331
+  %1357 = getelementptr inbounds nuw float, ptr %.129164865.us.us.us, i64 %1331
   %1358 = add nuw nsw i32 %.029134866.us.us.us, 1
   %exitcond5443.not = icmp eq i32 %1358, %576
   br i1 %exitcond5443.not, label %._crit_edge4867.split.us.us.us, label %.preheader4605.us.us.us, !llvm.loop !698
@@ -27510,8 +27510,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1392:                                             ; preds = %.lr.ph4889.us, %1392
   %indvars.iv5454 = phi i64 [ 0, %.lr.ph4889.us ], [ %indvars.iv.next5455, %1392 ]
-  %1393 = getelementptr inbounds float, ptr %1391, i64 %indvars.iv5454
-  %1394 = getelementptr inbounds float, ptr %1384, i64 %indvars.iv5454
+  %1393 = getelementptr inbounds nuw float, ptr %1391, i64 %indvars.iv5454
+  %1394 = getelementptr inbounds nuw float, ptr %1384, i64 %indvars.iv5454
   %1395 = load float, ptr %1393, align 4
   %1396 = load float, ptr %1394, align 4
   %1397 = fadd fast float %1396, %1395
@@ -27549,7 +27549,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1405:                                             ; preds = %1402
   %1406 = load ptr, ptr %1403, align 8
-  %1407 = getelementptr inbounds i8, ptr %1406, i64 24
+  %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 24
   %1408 = load ptr, ptr %1407, align 8
   invoke void %1408(ptr noundef nonnull align 8 dereferenceable(8) %1403, ptr noundef %1404)
           to label %.loopexit unwind label %1411
@@ -27655,8 +27655,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1451:                                             ; preds = %1451, %.preheader4600.us.us.us
   %indvars.iv5472 = phi i64 [ %indvars.iv.next5473, %1451 ], [ 0, %.preheader4600.us.us.us ]
-  %1452 = getelementptr inbounds float, ptr %1450, i64 %indvars.iv5472
-  %1453 = getelementptr inbounds float, ptr %.129074903.us.us.us, i64 %indvars.iv5472
+  %1452 = getelementptr inbounds nuw float, ptr %1450, i64 %indvars.iv5472
+  %1453 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us, i64 %indvars.iv5472
   %1454 = load float, ptr %1452, align 4
   %1455 = load float, ptr %1453, align 4
   %1456 = fmul fast float %1455, %1455
@@ -27667,7 +27667,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5476.not, label %._crit_edge4902.us.us.us, label %1451, !llvm.loop !704
 
 ._crit_edge4902.us.us.us:                         ; preds = %1451
-  %1458 = getelementptr inbounds float, ptr %.129074903.us.us.us, i64 %1429
+  %1458 = getelementptr inbounds nuw float, ptr %.129074903.us.us.us, i64 %1429
   %1459 = add nuw nsw i32 %.029024904.us.us.us, 1
   %exitcond5477.not = icmp eq i32 %1459, %576
   br i1 %exitcond5477.not, label %._crit_edge4905.split.us.us.us, label %.preheader4600.us.us.us, !llvm.loop !705
@@ -27752,7 +27752,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 1491:                                             ; preds = %.preheader4598.us, %1491
   %indvars.iv5487 = phi i64 [ 0, %.preheader4598.us ], [ %indvars.iv.next5488, %1491 ]
   %.045564919.us = phi float [ 0.000000e+00, %.preheader4598.us ], [ %1495, %1491 ]
-  %1492 = getelementptr inbounds float, ptr %.028994924.us, i64 %indvars.iv5487
+  %1492 = getelementptr inbounds nuw float, ptr %.028994924.us, i64 %indvars.iv5487
   %1493 = load float, ptr %1492, align 4
   %1494 = fmul fast float %1493, %1493
   %1495 = fadd fast float %1494, %.045564919.us
@@ -27761,9 +27761,9 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5491.not, label %._crit_edge4922.us, label %1491, !llvm.loop !708
 
 ._crit_edge4922.us:                               ; preds = %1491
-  %1496 = getelementptr inbounds float, ptr %1484, i64 %indvars.iv5492
+  %1496 = getelementptr inbounds nuw float, ptr %1484, i64 %indvars.iv5492
   store float %1495, ptr %1496, align 4
-  %1497 = getelementptr inbounds float, ptr %.028994924.us, i64 %1475
+  %1497 = getelementptr inbounds nuw float, ptr %.028994924.us, i64 %1475
   %indvars.iv.next5493 = add nuw nsw i64 %indvars.iv5492, 1
   %exitcond5496.not = icmp eq i64 %indvars.iv.next5493, %1476
   br i1 %exitcond5496.not, label %._crit_edge4926, label %.preheader4598.us, !llvm.loop !709
@@ -27901,8 +27901,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1557:                                             ; preds = %1557, %.lr.ph4936.us.us
   %indvars.iv5502 = phi i64 [ %indvars.iv.next5503, %1557 ], [ 0, %.lr.ph4936.us.us ]
-  %1558 = getelementptr inbounds float, ptr %1556, i64 %indvars.iv5502
-  %1559 = getelementptr inbounds float, ptr %.128954938.us.us, i64 %indvars.iv5502
+  %1558 = getelementptr inbounds nuw float, ptr %1556, i64 %indvars.iv5502
+  %1559 = getelementptr inbounds nuw float, ptr %.128954938.us.us, i64 %indvars.iv5502
   %1560 = load float, ptr %1558, align 4
   %1561 = load float, ptr %1559, align 4
   %1562 = fmul fast float %1561, %1561
@@ -27913,7 +27913,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5506.not, label %._crit_edge4937.us.us, label %1557, !llvm.loop !712
 
 ._crit_edge4937.us.us:                            ; preds = %1557
-  %1564 = getelementptr inbounds float, ptr %.128954938.us.us, i64 %1523
+  %1564 = getelementptr inbounds nuw float, ptr %.128954938.us.us, i64 %1523
   %indvars.iv.next5508 = add nuw nsw i64 %indvars.iv5507, 1
   %exitcond5511.not = icmp eq i64 %indvars.iv.next5508, %wide.trip.count5510
   br i1 %exitcond5511.not, label %._crit_edge4942.us, label %.lr.ph4936.us.us, !llvm.loop !713
@@ -28025,8 +28025,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1619:                                             ; preds = %1619, %.preheader4593.us.us.us
   %indvars.iv5524 = phi i64 [ %indvars.iv.next5525, %1619 ], [ 0, %.preheader4593.us.us.us ]
-  %1620 = getelementptr inbounds float, ptr %1618, i64 %indvars.iv5524
-  %1621 = getelementptr inbounds float, ptr %.128894964.us.us.us, i64 %indvars.iv5524
+  %1620 = getelementptr inbounds nuw float, ptr %1618, i64 %indvars.iv5524
+  %1621 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us, i64 %indvars.iv5524
   %1622 = load float, ptr %1620, align 4
   %1623 = load float, ptr %1621, align 4
   %1624 = fmul fast float %1623, %1623
@@ -28037,7 +28037,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5528.not, label %._crit_edge4963.us.us.us, label %1619, !llvm.loop !715
 
 ._crit_edge4963.us.us.us:                         ; preds = %1619
-  %1626 = getelementptr inbounds float, ptr %.128894964.us.us.us, i64 %1583
+  %1626 = getelementptr inbounds nuw float, ptr %.128894964.us.us.us, i64 %1583
   %1627 = add nuw nsw i32 %.028864965.us.us.us, 1
   %exitcond5529.not = icmp eq i32 %1627, %576
   br i1 %exitcond5529.not, label %._crit_edge4966.split.us.us.us, label %.preheader4593.us.us.us, !llvm.loop !716
@@ -28154,8 +28154,8 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
 
 1682:                                             ; preds = %1682, %.lr.ph4988.us.us.us
   %indvars.iv5542 = phi i64 [ %indvars.iv.next5543, %1682 ], [ 0, %.lr.ph4988.us.us.us ]
-  %1683 = getelementptr inbounds float, ptr %1681, i64 %indvars.iv5542
-  %1684 = getelementptr inbounds float, ptr %.14990.us.us.us, i64 %indvars.iv5542
+  %1683 = getelementptr inbounds nuw float, ptr %1681, i64 %indvars.iv5542
+  %1684 = getelementptr inbounds nuw float, ptr %.14990.us.us.us, i64 %indvars.iv5542
   %1685 = load float, ptr %1683, align 4
   %1686 = load float, ptr %1684, align 4
   %1687 = fmul fast float %1686, %1686
@@ -28166,7 +28166,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL12reduction_opIN
   br i1 %exitcond5546.not, label %._crit_edge4989.us.us.us, label %1682, !llvm.loop !719
 
 ._crit_edge4989.us.us.us:                         ; preds = %1682
-  %1689 = getelementptr inbounds float, ptr %.14990.us.us.us, i64 %1646
+  %1689 = getelementptr inbounds nuw float, ptr %.14990.us.us.us, i64 %1646
   %indvars.iv.next5548 = add nuw nsw i64 %indvars.iv5547, 1
   %exitcond5551.not = icmp eq i64 %indvars.iv.next5548, %wide.trip.count5550
   br i1 %exitcond5551.not, label %._crit_edge4993.split.us.us.us, label %.lr.ph4988.us.us.us, !llvm.loop !720
@@ -28211,7 +28211,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv19 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next20, %.lr.ph7 ]
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds float, ptr %8, i64 %indvars.iv19
+  %9 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv19
   %10 = load float, ptr %9, align 4
   %11 = tail call fast noundef float @llvm.log.f32(float %10)
   store float %11, ptr %9, align 4
@@ -28235,7 +28235,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds float, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
   %21 = load float, ptr %20, align 4
   %22 = tail call fast noundef float @llvm.log.f32(float %21)
   store float %22, ptr %20, align 4
@@ -28289,7 +28289,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process
 
 47:                                               ; preds = %.lr.ph9.us, %47
   %indvars.iv24 = phi i64 [ 0, %.lr.ph9.us ], [ %indvars.iv.next25, %47 ]
-  %48 = getelementptr inbounds float, ptr %46, i64 %indvars.iv24
+  %48 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv24
   %49 = load float, ptr %48, align 4
   %50 = tail call fast noundef float @llvm.log.f32(float %49)
   store float %50, ptr %48, align 4
@@ -28313,7 +28313,7 @@ define internal fastcc void @_ZN4ncnnL22reduction_post_processINS_16post_process
 .lr.ph13:                                         ; preds = %.lr.ph13.preheader, %.lr.ph13
   %indvars.iv34 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next35, %.lr.ph13 ]
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv34
+  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv34
   %54 = load float, ptr %53, align 4
   %55 = tail call fast noundef float @llvm.log.f32(float %54)
   store float %55, ptr %53, align 4

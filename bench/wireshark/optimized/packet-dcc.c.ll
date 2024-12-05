@@ -233,13 +233,13 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_dcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 284
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 6277
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %10 = load i32, ptr %9, align 8
   %.not243 = icmp eq i32 %10, 6277
   br i1 %.not243, label %11, label %193
@@ -250,7 +250,7 @@ define internal range(i32 0, 2) i32 @dissect_dcc(ptr noundef %0, ptr noundef %1,
   br i1 %13, label %193, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.76) #2
   %17 = load i32, ptr %6, align 4

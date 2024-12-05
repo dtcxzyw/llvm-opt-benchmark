@@ -358,7 +358,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %7 = load i8, ptr %4, align 1
   %8 = icmp eq i8 %7, 42
   %.idx.i.i.i.i = zext i1 %8 to i64
-  %9 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(50) @_ZTSN32pxrInternal_v0_24__pxrReserved__11SdfTimeCodeE, ptr noundef nonnull dereferenceable(1) %9) #12
   %11 = icmp eq i32 %10, 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_11SdfTimeCodeEvE9HoldsTypeERKS2_RKSt9type_info.exit
@@ -541,7 +541,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %10 = load i8, ptr %5, align 1
   %11 = icmp eq i8 %10, 42
   %.idx.i.i.i.i = zext i1 %11 to i64
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.idx.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i.i
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12) #12
   %14 = icmp eq i32 %13, 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperIdvE9HoldsTypeERKdRKSt9type_info.exit

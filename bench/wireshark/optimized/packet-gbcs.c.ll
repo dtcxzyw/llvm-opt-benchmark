@@ -765,7 +765,7 @@ define internal i32 @dissect_gbcs_gbz(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
   %8 = load i8, ptr %3, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.50) #5
   %11 = load i32, ptr @proto_gbcs_gbz, align 4
@@ -796,7 +796,7 @@ define internal i32 @dissect_gbcs_gbz(ptr noundef %0, ptr noundef %1, ptr nounde
   %29 = zext i32 %28 to i64
   %30 = add nuw nsw i64 %29, 946684800
   store i64 %30, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %31, align 8
   %32 = load i32, ptr @hf_gbcs_gbz_timestamp, align 4
   %33 = call ptr @proto_tree_add_time(ptr noundef %14, i32 noundef %32, ptr noundef %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %6) #5
@@ -898,7 +898,7 @@ define internal i32 @dissect_gbcs_tunnel(ptr noundef %0, ptr noundef %1, ptr nou
 
 6:                                                ; preds = %4
   %7 = zext nneg i8 %5 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.57) #5
   %10 = load i32, ptr @proto_gbcs_tunnel, align 4
@@ -921,7 +921,7 @@ define internal i32 @dissect_gbcs_tunnel(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_clear(ptr noundef %23, i32 noundef 25) #5
   br label %.thread
@@ -1009,7 +1009,7 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   store i32 0, ptr %12, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.147) #5
   %18 = load i32, ptr @proto_gbcs_message, align 4
@@ -1181,7 +1181,7 @@ define internal i32 @dissect_gbcs_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %159, label %134
 
 134:                                              ; preds = %71
-  %135 = getelementptr inbounds i8, ptr %1, i64 272
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %135, align 8
   %136 = trunc i64 %81 to i32
   %137 = shl i32 %136, 8
@@ -1315,7 +1315,7 @@ define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noun
   %41 = zext i32 %40 to i64
   %42 = add nuw nsw i64 %41, 946684800
   store i64 %42, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %43, align 8
   %44 = load i32, ptr @hf_gbcs_gbz_from_date_time, align 4
   %45 = load i32, ptr %3, align 4
@@ -1435,14 +1435,14 @@ define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noun
   br i1 %.not88, label %147, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr @col_get_text(ptr noundef %123, i32 noundef 25) #5
   %.not89 = icmp eq ptr %124, null
   br i1 %.not89, label %129, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %1, i64 408
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %127 = load ptr, ptr %126, align 8
   %128 = call noalias ptr @wmem_strbuf_new(ptr noundef %127, ptr noundef nonnull %124) #5
   br label %129
@@ -1451,7 +1451,7 @@ define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noun
   %.0 = phi ptr [ %128, %125 ], [ undef, %121 ]
   %130 = load i32, ptr %8, align 4
   %131 = trunc i32 %130 to i16
-  %132 = getelementptr inbounds i8, ptr %11, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i16 %131, ptr %132, align 8
   %133 = load i32, ptr %3, align 4
   %134 = add i32 %133, -3
@@ -1534,7 +1534,7 @@ define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0
   %19 = add i32 %17, 2
   %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #5
   store i8 %20, ptr %5, align 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = zext i8 %20 to i32
   %24 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @gbcs_message_cra_names, ptr noundef nonnull @.str.576) #5
@@ -1679,14 +1679,14 @@ define internal fastcc void @dissect_gbcs_message_payload(ptr noundef %0, ptr no
   br label %46
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @col_get_text(ptr noundef %32, i32 noundef 25) #5
   %.not31 = icmp eq ptr %33, null
   br i1 %.not31, label %38, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %36, ptr noundef nonnull %33) #5
   br label %38
@@ -1737,7 +1737,7 @@ define internal fastcc void @dissect_gbcs_message_element_transaction_id(ptr nou
 19:                                               ; preds = %17
   %20 = call ptr @wmem_packet_scope() #5
   %21 = call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef 241) #5
-  %22 = getelementptr inbounds i8, ptr %18, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %23 = load ptr, ptr %22, align 8
   call void @proto_item_fill_label(ptr noundef %23, ptr noundef %21) #5
   %24 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) @.str.569) #6
@@ -1757,7 +1757,7 @@ define internal fastcc void @dissect_gbcs_message_element_transaction_id(ptr nou
 31:                                               ; preds = %27
   %32 = call ptr @wmem_packet_scope() #5
   %33 = call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef 241) #5
-  %34 = getelementptr inbounds i8, ptr %30, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
   call void @proto_item_fill_label(ptr noundef %35, ptr noundef %33) #5
   %36 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.569) #6
@@ -1808,7 +1808,7 @@ define internal fastcc void @dissect_gbcs_message_element(ptr noundef %0, i32 no
 18:                                               ; preds = %16
   %19 = call ptr @wmem_packet_scope() #5
   %20 = call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 241) #5
-  %21 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
   call void @proto_item_fill_label(ptr noundef %22, ptr noundef %20) #5
   %23 = load ptr, ptr %5, align 8
@@ -1855,37 +1855,37 @@ define internal fastcc void @dissect_gbcs_message_element_date_time(ptr noundef 
 
 18:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %21, align 8
   %22 = call zeroext i16 @tvb_get_guint16(ptr noundef %2, i32 noundef %16, i32 noundef 0) #5
   %23 = zext i16 %22 to i32
   %24 = add nsw i32 %23, -1900
-  %25 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %24, ptr %25, align 4
   %26 = add i32 %15, 3
   %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %26) #5
   %28 = zext i8 %27 to i32
   %29 = add nsw i32 %28, -1
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %29, ptr %30, align 8
   %31 = add i32 %15, 4
   %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %31) #5
   %33 = zext i8 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %5, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %33, ptr %34, align 4
   %35 = add i32 %15, 6
   %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %35) #5
   %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %37, ptr %38, align 8
   %39 = add i32 %15, 7
   %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %39) #5
   %41 = zext i8 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %41, ptr %42, align 4
   %43 = add i32 %15, 8
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %43) #5
@@ -1893,7 +1893,7 @@ define internal fastcc void @dissect_gbcs_message_element_date_time(ptr noundef 
   store i32 %45, ptr %5, align 8
   %46 = call i64 @mktime_utc(ptr noundef nonnull %5) #5
   store i64 %46, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %47, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %48 = load i32, ptr %3, align 4
@@ -1904,7 +1904,7 @@ define internal fastcc void @dissect_gbcs_message_element_date_time(ptr noundef 
 50:                                               ; preds = %18
   %51 = call ptr @wmem_packet_scope() #5
   %52 = call noalias ptr @wmem_alloc(ptr noundef %51, i64 noundef 241) #5
-  %53 = getelementptr inbounds i8, ptr %49, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load ptr, ptr %53, align 8
   call void @proto_item_fill_label(ptr noundef %54, ptr noundef %52) #5
   %55 = load ptr, ptr %6, align 8

@@ -39,7 +39,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %0 = load i8, ptr %first, align 1
   %cmp1.i = icmp eq i8 %0, 45
   %spec.select37.idx.i = zext i1 %cmp1.i to i64
-  %spec.select37.i = getelementptr inbounds i8, ptr %first, i64 %spec.select37.idx.i
+  %spec.select37.i = getelementptr inbounds nuw i8, ptr %first, i64 %spec.select37.idx.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -60,7 +60,7 @@ land.lhs.true5.i:                                 ; preds = %if.end.i
   br i1 %cmp7.i, label %land.lhs.true8.i, label %if.else53.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %first.addr.0.i, i64 1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %first.addr.0.i, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
   switch i8 %2, label %if.else53.i [
     i8 120, label %if.then14.i
@@ -68,12 +68,12 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
   ]
 
 if.then14.i:                                      ; preds = %land.lhs.true8.i, %land.lhs.true8.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %first.addr.0.i, i64 2
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first.addr.0.i, i64 2
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr nonnull sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %hex_parse.i, ptr noundef nonnull %add.ptr.i, ptr noundef %last, i32 noundef %fmt)
-  %end.i = getelementptr inbounds i8, ptr %hex_parse.i, i64 40
+  %end.i = getelementptr inbounds nuw i8, ptr %hex_parse.i, i64 40
   %3 = load ptr, ptr %end.i, align 8
   %cmp15.i = icmp eq ptr %3, null
-  %type.i = getelementptr inbounds i8, ptr %hex_parse.i, i64 16
+  %type.i = getelementptr inbounds nuw i8, ptr %hex_parse.i, i64 16
   %4 = load i32, ptr %type.i, align 8
   %cmp17.i = icmp ne i32 %4, 0
   %or.cond.i = select i1 %cmp15.i, i1 true, i1 %cmp17.i
@@ -99,7 +99,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.end31.i:                                       ; preds = %if.end19.i.i
-  %6 = getelementptr inbounds i8, ptr %hex_parse.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %hex_parse.i, i64 8
   %hex_parse.val39.i = load i32, ptr %6, align 8
   %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %7 to i32
@@ -196,14 +196,14 @@ if.end34.i:                                       ; preds = %if.end.i
 
 if.then37.i:                                      ; preds = %if.end34.i
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr nonnull sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %hex_parse38.i, ptr noundef %first.addr.0.i, ptr noundef %last, i32 noundef %fmt)
-  %end39.i = getelementptr inbounds i8, ptr %hex_parse38.i, i64 40
+  %end39.i = getelementptr inbounds nuw i8, ptr %hex_parse38.i, i64 40
   %10 = load ptr, ptr %end39.i, align 8
   %cmp40.i = icmp eq ptr %10, null
   br i1 %cmp40.i, label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then37.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %n_char_sequence.i50.i)
-  %type.i51.i = getelementptr inbounds i8, ptr %hex_parse38.i, i64 16
+  %type.i51.i = getelementptr inbounds nuw i8, ptr %hex_parse38.i, i64 16
   %11 = load i32, ptr %type.i51.i, align 8
   switch i32 %11, label %if.end19.i75.i [
     i32 2, label %if.then.i57.i
@@ -211,7 +211,7 @@ if.end43.i:                                       ; preds = %if.then37.i
   ]
 
 if.then.i57.i:                                    ; preds = %if.end43.i
-  %subrange_begin.i58.i = getelementptr inbounds i8, ptr %hex_parse38.i, i64 24
+  %subrange_begin.i58.i = getelementptr inbounds nuw i8, ptr %hex_parse38.i, i64 24
   %12 = load ptr, ptr %subrange_begin.i58.i, align 8
   %cmp1.i59.i = icmp eq ptr %12, null
   br i1 %cmp1.i59.i, label %if.then2.i74.i, label %if.else.i60.i
@@ -221,7 +221,7 @@ if.then2.i74.i:                                   ; preds = %if.then.i57.i
   br label %if.end.i70.i
 
 if.else.i60.i:                                    ; preds = %if.then.i57.i
-  %subrange_end.i61.i = getelementptr inbounds i8, ptr %hex_parse38.i, i64 32
+  %subrange_end.i61.i = getelementptr inbounds nuw i8, ptr %hex_parse38.i, i64 32
   %13 = load ptr, ptr %subrange_end.i61.i, align 8
   %sub.ptr.lhs.cast.i62.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i63.i = ptrtoint ptr %12 to i64
@@ -266,7 +266,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
 
 if.end49.i:                                       ; preds = %if.end19.i75.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %n_char_sequence.i50.i)
-  %15 = getelementptr inbounds i8, ptr %hex_parse38.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %hex_parse38.i, i64 8
   %hex_parse38.val40.i = load i32, ptr %15, align 8
   %16 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
   %cast.i.i.i.i80.i = trunc nuw nsw i64 %16 to i32
@@ -360,14 +360,14 @@ if.end9.i131.i:                                   ; preds = %if.else.i127.i
 
 if.else53.i:                                      ; preds = %if.end34.i, %land.lhs.true8.i, %land.lhs.true5.i
   call void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr nonnull sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %decimal_parse.i, ptr noundef %first.addr.0.i, ptr noundef %last, i32 noundef %fmt)
-  %end54.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 40
+  %end54.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 40
   %19 = load ptr, ptr %end54.i, align 8
   %cmp55.i = icmp eq ptr %19, null
   br i1 %cmp55.i, label %_ZN4absl12_GLOBAL__N_113FromCharsImplIdEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit, label %if.end58.i
 
 if.end58.i:                                       ; preds = %if.else53.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %n_char_sequence.i148.i)
-  %type.i149.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 16
+  %type.i149.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 16
   %20 = load i32, ptr %type.i149.i, align 8
   switch i32 %20, label %if.end19.i173.i [
     i32 2, label %if.then.i155.i
@@ -375,7 +375,7 @@ if.end58.i:                                       ; preds = %if.else53.i
   ]
 
 if.then.i155.i:                                   ; preds = %if.end58.i
-  %subrange_begin.i156.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 24
+  %subrange_begin.i156.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 24
   %21 = load ptr, ptr %subrange_begin.i156.i, align 8
   %cmp1.i157.i = icmp eq ptr %21, null
   br i1 %cmp1.i157.i, label %if.then2.i172.i, label %if.else.i158.i
@@ -385,7 +385,7 @@ if.then2.i172.i:                                  ; preds = %if.then.i155.i
   br label %if.end.i168.i
 
 if.else.i158.i:                                   ; preds = %if.then.i155.i
-  %subrange_end.i159.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 32
+  %subrange_end.i159.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 32
   %22 = load ptr, ptr %subrange_end.i159.i, align 8
   %sub.ptr.lhs.cast.i160.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i161.i = ptrtoint ptr %21 to i64
@@ -430,10 +430,10 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
 
 if.end64.i:                                       ; preds = %if.end19.i173.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %n_char_sequence.i148.i)
-  %subrange_begin.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 24
+  %subrange_begin.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 24
   %24 = load ptr, ptr %subrange_begin.i, align 8
   %cmp65.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds i8, ptr %decimal_parse.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 8
   %decimal_parse.val44.i = load i32, ptr %25, align 8
   %cmp.i178.i = icmp slt i32 %decimal_parse.val44.i, -342
   br i1 %cmp65.i, label %land.lhs.true66.i, label %if.end71.i
@@ -466,7 +466,7 @@ if.end6.i.i:                                      ; preds = %if.else.i179.i
   %conv.i.i = sext i32 %sub.i.i to i64
   %sub10.i.i = add nsw i32 %decimal_parse.val44.i, 342
   %idxprom.i.i = zext nneg i32 %sub10.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
   %27 = load i64, ptr %arrayidx.i.i, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %shl.i.i to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %27 to i128
@@ -482,7 +482,7 @@ if.end6.i.i:                                      ; preds = %if.else.i179.i
   br i1 %or.cond25.i.i, label %if.then20.i.i, label %if.end48.i.i
 
 if.then20.i.i:                                    ; preds = %if.end6.i.i
-  %arrayidx25.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 0, i64 %idxprom.i.i
+  %arrayidx25.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 0, i64 %idxprom.i.i
   %28 = load i64, ptr %arrayidx25.i.i, align 8
   %coerce2.sroa.0.0.insert.ext.i38.i.i = zext i64 %28 to i128
   %mul.i40.i.i = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i38.i.i, %coerce.sroa.0.0.insert.ext.i.i.i
@@ -562,7 +562,7 @@ if.then12.i.i:                                    ; preds = %if.else.i188.i
   %.pre2 = zext nneg i32 %.pre to i64
   %.pre3 = mul nsw i32 %decimal_parse.val44.i, 217706
   %.pre4 = ashr i32 %.pre3, 16
-  %arrayidx.i.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre2
+  %arrayidx.i.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre2
   %31 = load i64, ptr %arrayidx.i.i.i, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i191.i = zext i64 %23 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i.i = zext i64 %31 to i128
@@ -597,7 +597,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %i
   br label %if.end24.i.i
 
 if.else14.i.i:                                    ; preds = %if.end69.i.i, %land.lhs.true60.i.i, %land.lhs.true40.i.i
-  %arrayidx.i.i.i7 = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
   %34 = load i64, ptr %arrayidx.i.i.i7, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i191.i8 = zext i64 %23 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i.i9 = zext i64 %34 to i128
@@ -809,7 +809,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %0 = load i8, ptr %first, align 1
   %cmp1.i = icmp eq i8 %0, 45
   %spec.select37.idx.i = zext i1 %cmp1.i to i64
-  %spec.select37.i = getelementptr inbounds i8, ptr %first, i64 %spec.select37.idx.i
+  %spec.select37.i = getelementptr inbounds nuw i8, ptr %first, i64 %spec.select37.idx.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
@@ -830,7 +830,7 @@ land.lhs.true5.i:                                 ; preds = %if.end.i
   br i1 %cmp7.i, label %land.lhs.true8.i, label %if.else54.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %first.addr.0.i, i64 1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %first.addr.0.i, i64 1
   %2 = load i8, ptr %arrayidx.i, align 1
   switch i8 %2, label %if.else54.i [
     i8 120, label %if.then14.i
@@ -838,12 +838,12 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
   ]
 
 if.then14.i:                                      ; preds = %land.lhs.true8.i, %land.lhs.true8.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %first.addr.0.i, i64 2
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first.addr.0.i, i64 2
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr nonnull sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %hex_parse.i, ptr noundef nonnull %add.ptr.i, ptr noundef %last, i32 noundef %fmt)
-  %end.i = getelementptr inbounds i8, ptr %hex_parse.i, i64 40
+  %end.i = getelementptr inbounds nuw i8, ptr %hex_parse.i, i64 40
   %3 = load ptr, ptr %end.i, align 8
   %cmp15.i = icmp eq ptr %3, null
-  %type.i = getelementptr inbounds i8, ptr %hex_parse.i, i64 16
+  %type.i = getelementptr inbounds nuw i8, ptr %hex_parse.i, i64 16
   %4 = load i32, ptr %type.i, align 8
   %cmp17.i = icmp ne i32 %4, 0
   %or.cond.i = select i1 %cmp15.i, i1 true, i1 %cmp17.i
@@ -869,7 +869,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   br label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit
 
 if.end32.i:                                       ; preds = %if.end19.i.i
-  %6 = getelementptr inbounds i8, ptr %hex_parse.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %hex_parse.i, i64 8
   %hex_parse.val39.i = load i32, ptr %6, align 8
   %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %5, i1 true)
   %cast.i.i.i.i.i = trunc nuw nsw i64 %7 to i32
@@ -966,14 +966,14 @@ if.end35.i:                                       ; preds = %if.end.i
 
 if.then38.i:                                      ; preds = %if.end35.i
   call void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr nonnull sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %hex_parse39.i, ptr noundef %first.addr.0.i, ptr noundef %last, i32 noundef %fmt)
-  %end40.i = getelementptr inbounds i8, ptr %hex_parse39.i, i64 40
+  %end40.i = getelementptr inbounds nuw i8, ptr %hex_parse39.i, i64 40
   %10 = load ptr, ptr %end40.i, align 8
   %cmp41.i = icmp eq ptr %10, null
   br i1 %cmp41.i, label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit, label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then38.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %n_char_sequence.i51.i)
-  %type.i52.i = getelementptr inbounds i8, ptr %hex_parse39.i, i64 16
+  %type.i52.i = getelementptr inbounds nuw i8, ptr %hex_parse39.i, i64 16
   %11 = load i32, ptr %type.i52.i, align 8
   switch i32 %11, label %if.end19.i76.i [
     i32 2, label %if.then.i58.i
@@ -981,7 +981,7 @@ if.end44.i:                                       ; preds = %if.then38.i
   ]
 
 if.then.i58.i:                                    ; preds = %if.end44.i
-  %subrange_begin.i59.i = getelementptr inbounds i8, ptr %hex_parse39.i, i64 24
+  %subrange_begin.i59.i = getelementptr inbounds nuw i8, ptr %hex_parse39.i, i64 24
   %12 = load ptr, ptr %subrange_begin.i59.i, align 8
   %cmp1.i60.i = icmp eq ptr %12, null
   br i1 %cmp1.i60.i, label %if.then2.i75.i, label %if.else.i61.i
@@ -991,7 +991,7 @@ if.then2.i75.i:                                   ; preds = %if.then.i58.i
   br label %if.end.i71.i
 
 if.else.i61.i:                                    ; preds = %if.then.i58.i
-  %subrange_end.i62.i = getelementptr inbounds i8, ptr %hex_parse39.i, i64 32
+  %subrange_end.i62.i = getelementptr inbounds nuw i8, ptr %hex_parse39.i, i64 32
   %13 = load ptr, ptr %subrange_end.i62.i, align 8
   %sub.ptr.lhs.cast.i63.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i64.i = ptrtoint ptr %12 to i64
@@ -1036,7 +1036,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
 
 if.end50.i:                                       ; preds = %if.end19.i76.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %n_char_sequence.i51.i)
-  %15 = getelementptr inbounds i8, ptr %hex_parse39.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %hex_parse39.i, i64 8
   %hex_parse39.val40.i = load i32, ptr %15, align 8
   %16 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
   %cast.i.i.i.i81.i = trunc nuw nsw i64 %16 to i32
@@ -1130,14 +1130,14 @@ if.end9.i132.i:                                   ; preds = %if.else.i128.i
 
 if.else54.i:                                      ; preds = %if.end35.i, %land.lhs.true8.i, %land.lhs.true5.i
   call void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr nonnull sret(%"struct.absl::strings_internal::ParsedFloat") align 8 %decimal_parse.i, ptr noundef %first.addr.0.i, ptr noundef %last, i32 noundef %fmt)
-  %end55.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 40
+  %end55.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 40
   %19 = load ptr, ptr %end55.i, align 8
   %cmp56.i = icmp eq ptr %19, null
   br i1 %cmp56.i, label %_ZN4absl12_GLOBAL__N_113FromCharsImplIfEENS_17from_chars_resultEPKcS4_RT_NS_12chars_formatE.exit, label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.else54.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %n_char_sequence.i149.i)
-  %type.i150.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 16
+  %type.i150.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 16
   %20 = load i32, ptr %type.i150.i, align 8
   switch i32 %20, label %if.end19.i174.i [
     i32 2, label %if.then.i156.i
@@ -1145,7 +1145,7 @@ if.end59.i:                                       ; preds = %if.else54.i
   ]
 
 if.then.i156.i:                                   ; preds = %if.end59.i
-  %subrange_begin.i157.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 24
+  %subrange_begin.i157.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 24
   %21 = load ptr, ptr %subrange_begin.i157.i, align 8
   %cmp1.i158.i = icmp eq ptr %21, null
   br i1 %cmp1.i158.i, label %if.then2.i173.i, label %if.else.i159.i
@@ -1155,7 +1155,7 @@ if.then2.i173.i:                                  ; preds = %if.then.i156.i
   br label %if.end.i169.i
 
 if.else.i159.i:                                   ; preds = %if.then.i156.i
-  %subrange_end.i160.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 32
+  %subrange_end.i160.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 32
   %22 = load ptr, ptr %subrange_end.i160.i, align 8
   %sub.ptr.lhs.cast.i161.i = ptrtoint ptr %22 to i64
   %sub.ptr.rhs.cast.i162.i = ptrtoint ptr %21 to i64
@@ -1200,10 +1200,10 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
 
 if.end65.i:                                       ; preds = %if.end19.i174.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %n_char_sequence.i149.i)
-  %subrange_begin.i = getelementptr inbounds i8, ptr %decimal_parse.i, i64 24
+  %subrange_begin.i = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 24
   %24 = load ptr, ptr %subrange_begin.i, align 8
   %cmp66.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds i8, ptr %decimal_parse.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %decimal_parse.i, i64 8
   %decimal_parse.val44.i = load i32, ptr %25, align 8
   br i1 %cmp66.i, label %land.lhs.true67.i, label %if.end72.i
 
@@ -1236,7 +1236,7 @@ if.end6.i.i:                                      ; preds = %if.else.i180.i
   %conv9.i.i = sext i32 %sub.i.i to i64
   %sub11.i.i = add nsw i32 %decimal_parse.val44.i, 342
   %idxprom.i.i = zext nneg i32 %sub11.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
   %27 = load i64, ptr %arrayidx.i.i, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %shl.i.i to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %27 to i128
@@ -1252,7 +1252,7 @@ if.end6.i.i:                                      ; preds = %if.else.i180.i
   br i1 %or.cond25.i.i, label %if.then21.i186.i, label %if.end49.i.i
 
 if.then21.i186.i:                                 ; preds = %if.end6.i.i
-  %arrayidx26.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 0, i64 %idxprom.i.i
+  %arrayidx26.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_124kPower10MantissaLowTableE, i64 0, i64 %idxprom.i.i
   %28 = load i64, ptr %arrayidx26.i.i, align 8
   %coerce2.sroa.0.0.insert.ext.i38.i.i = zext i64 %28 to i128
   %mul.i40.i.i = mul nuw i128 %coerce2.sroa.0.0.insert.ext.i38.i.i, %coerce.sroa.0.0.insert.ext.i.i.i
@@ -1335,7 +1335,7 @@ if.then12.i.i:                                    ; preds = %if.else.i191.i
   %.pre2 = zext nneg i32 %.pre to i64
   %.pre3 = mul nsw i32 %decimal_parse.val44.i, 217706
   %.pre4 = ashr i32 %.pre3, 16
-  %arrayidx.i.i.i = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre2
+  %arrayidx.i.i.i = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %.pre2
   %33 = load i64, ptr %arrayidx.i.i.i, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i194.i = zext i64 %23 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i.i = zext i64 %33 to i128
@@ -1370,7 +1370,7 @@ _ZN4absl12_GLOBAL__N_118TruncateToBitWidthEiPNS_7uint128E.exit.i.i: ; preds = %i
   br label %if.end24.i.i
 
 if.else14.i.i:                                    ; preds = %if.end70.i.i, %land.lhs.true61.i.i, %land.lhs.true41.i.i
-  %arrayidx.i.i.i7 = getelementptr inbounds [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_125kPower10MantissaHighTableE, i64 0, i64 %idxprom.i.i
   %36 = load i64, ptr %arrayidx.i.i.i7, align 8
   %coerce.sroa.0.0.insert.ext.i.i.i194.i8 = zext i64 %23 to i128
   %coerce2.sroa.0.0.insert.ext.i.i.i.i9 = zext i64 %36 to i128

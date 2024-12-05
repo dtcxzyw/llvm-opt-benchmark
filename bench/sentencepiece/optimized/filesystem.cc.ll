@@ -176,9 +176,9 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileC2ESt
   %7 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixReadableFileE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = icmp eq i64 %1, 0
   br i1 %11, label %16, label %12
 
@@ -206,7 +206,7 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileC2ESt
 
 24:                                               ; preds = %23
   store i32 5, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %_ZN13sentencepiece4util13StatusBuilderC2ENS0_10StatusCodeEi.exit unwind label %41
 
@@ -336,7 +336,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixReadableFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, @_ZSt3cin
   %4 = icmp eq ptr %3, null
@@ -345,13 +345,13 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileD2Ev(
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %9
 
 9:                                                ; preds = %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   ret void
 }
@@ -359,7 +359,7 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileD2Ev(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixReadableFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, @_ZSt3cin
   %4 = icmp eq ptr %3, null
@@ -368,13 +368,13 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixReadableFileD0Ev(
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZN13sentencepiece10filesystem17PosixReadableFileD2Ev.exit
 
 _ZN13sentencepiece10filesystem17PosixReadableFileD2Ev.exit: ; preds = %1, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #14
   ret void
@@ -382,14 +382,14 @@ _ZN13sentencepiece10filesystem17PosixReadableFileD2Ev.exit: ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK13sentencepiece10filesystem17PosixReadableFile6statusEv(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN13sentencepiece4util6StatusC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixReadableFile8ReadLineEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %6 = load ptr, ptr %5, align 8
@@ -404,7 +404,7 @@ define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixRea
 define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixReadableFile7ReadAllEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::istreambuf_iterator", align 8
   %4 = alloca %"class.sentencepiece::error::Die", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, @_ZSt3cin
   br i1 %7, label %34, label %8
@@ -484,7 +484,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit: ; preds = %34
   %44 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -1, ptr %.sroa.2.0..sroa_idx.i, align 8
   %45 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE19_M_replace_dispatchISt19istreambuf_iteratorIcS2_EEERS4_N9__gnu_cxx17__normal_iteratorIPKcS4_EESD_T_SE_St12__false_type(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %43, ptr %44, ptr %39, i32 -1, ptr noundef nonnull byval(%"class.std::istreambuf_iterator") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -574,7 +574,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind nonnull writable sret(%"class.std::allocator") align 1 %8, ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %9 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -585,7 +585,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
           to label %.noexc10 unwind label %24
 
 .noexc10:                                         ; preds = %.noexc
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %10, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructISt19istreambuf_iteratorIcS2_EEEvT_S8_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %3, i32 %4, ptr %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt19istreambuf_iteratorIcS2_EvEET_S8_RKS3_.exit unwind label %11
@@ -705,7 +705,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   %.0.i.i.us = phi i32 [ %19, %18 ], [ %.sroa.11.0.us, %17 ]
   %21 = trunc i32 %.0.i.i.us to i8
   %22 = add nuw nsw i64 %.0.us, 1
-  %23 = getelementptr inbounds i8, ptr %8, i64 %.0.us
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.us
   store i8 %21, ptr %23, align 1
   %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2.us)
   br label %.preheader.split.us, !llvm.loop !13
@@ -770,7 +770,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %41, %40
   %.0.i.i = phi i32 [ %42, %41 ], [ %.sroa.11.0, %40 ]
   %44 = trunc i32 %.0.i.i to i8
   %45 = add nuw nsw i64 %.0, 1
-  %46 = getelementptr inbounds i8, ptr %8, i64 %.0
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 %.0
   store i8 %44, ptr %46, align 1
   %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2)
   br label %.preheader.split, !llvm.loop !13
@@ -962,9 +962,9 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileC2ESt
   %7 = alloca %"class.sentencepiece::util::StatusBuilder", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixWritableFileE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13sentencepiece4util6StatusC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = icmp eq i64 %1, 0
   br i1 %11, label %16, label %12
 
@@ -992,7 +992,7 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileC2ESt
 
 24:                                               ; preds = %23
   store i32 7, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %25)
           to label %_ZN13sentencepiece4util13StatusBuilderC2ENS0_10StatusCodeEi.exit unwind label %41
 
@@ -1100,7 +1100,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixWritableFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, @_ZSt4cout
   %4 = icmp eq ptr %3, null
@@ -1109,13 +1109,13 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD2Ev(
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %9
 
 9:                                                ; preds = %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #16
   ret void
 }
@@ -1123,7 +1123,7 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD2Ev(
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece10filesystem17PosixWritableFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, @_ZSt4cout
   %4 = icmp eq ptr %3, null
@@ -1132,13 +1132,13 @@ define linkonce_odr void @_ZN13sentencepiece10filesystem17PosixWritableFileD0Ev(
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   br label %_ZN13sentencepiece10filesystem17PosixWritableFileD2Ev.exit
 
 _ZN13sentencepiece10filesystem17PosixWritableFileD2Ev.exit: ; preds = %1, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13sentencepiece4util6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #14
   ret void
@@ -1146,14 +1146,14 @@ _ZN13sentencepiece10filesystem17PosixWritableFileD2Ev.exit: ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK13sentencepiece10filesystem17PosixWritableFile6statusEv(ptr dead_on_unwind noalias writable sret(%"class.sentencepiece::util::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN13sentencepiece4util6StatusC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixWritableFile5WriteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, i64 noundef %1)
   %7 = load ptr, ptr %4, align 8
@@ -1168,14 +1168,14 @@ define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixWri
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN13sentencepiece10filesystem17PosixWritableFile9WriteLineESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, ptr %2)
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 1, ptr nonnull @.str.8)
   br label %13

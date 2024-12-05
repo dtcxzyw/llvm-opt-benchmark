@@ -12,10 +12,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @xidin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @uint32in_subr(ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %6) #6
   %8 = zext i32 %7 to i64
@@ -26,7 +26,7 @@ declare i32 @uint32in_subr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @xidout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc(i64 noundef 16) #6
   %5 = and i64 %3, 4294967295
@@ -41,7 +41,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @xidrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #6
@@ -54,7 +54,7 @@ declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xidsend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   call void @pq_begintypsend(ptr noundef nonnull %2) #6
@@ -62,7 +62,7 @@ define dso_local i64 @xidsend(ptr nocapture noundef readonly %0) local_unnamed_a
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
   %7 = load ptr, ptr %2, align 8, !alias.scope !5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8, !alias.scope !5
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -80,7 +80,7 @@ declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xideq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -93,7 +93,7 @@ define dso_local range(i64 0, 2) i64 @xideq(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xidneq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -106,7 +106,7 @@ define dso_local range(i64 0, 2) i64 @xidneq(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @xid_age(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @GetStableLatestTransactionId() #6
@@ -121,7 +121,7 @@ declare i32 @GetStableLatestTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @mxid_age(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @ReadNextMultiXactId() #6
@@ -163,7 +163,7 @@ declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 4294967296) i64 @xid8toxid(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   ret i64 %4
@@ -171,10 +171,10 @@ define dso_local range(i64 0, 4294967296) i64 @xid8toxid(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xid8in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @uint64in_subr(ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef %6) #6
   ret i64 %7
@@ -184,7 +184,7 @@ declare i64 @uint64in_subr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @xid8out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc(i64 noundef 21) #6
   %5 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %4, i64 noundef 21, ptr noundef nonnull @.str.1, i64 noundef %3) #6
@@ -194,7 +194,7 @@ define dso_local noundef i64 @xid8out(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xid8recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 @pq_getmsgint64(ptr noundef %4) #6
@@ -206,14 +206,14 @@ declare i64 @pq_getmsgint64(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xid8send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   call void @pq_begintypsend(ptr noundef nonnull %2) #6
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #6
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %5 = call i64 @llvm.bswap.i64(i64 %4)
   %6 = load ptr, ptr %2, align 8, !alias.scope !8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8, !alias.scope !8
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
@@ -227,7 +227,7 @@ define dso_local i64 @xid8send(ptr nocapture noundef readonly %0) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xid8eq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -238,7 +238,7 @@ define dso_local range(i64 0, 2) i64 @xid8eq(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xid8ne(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -249,7 +249,7 @@ define dso_local range(i64 0, 2) i64 @xid8ne(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xid8lt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -260,7 +260,7 @@ define dso_local range(i64 0, 2) i64 @xid8lt(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xid8gt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -271,7 +271,7 @@ define dso_local range(i64 0, 2) i64 @xid8gt(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xid8le(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -282,7 +282,7 @@ define dso_local range(i64 0, 2) i64 @xid8le(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @xid8ge(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -293,7 +293,7 @@ define dso_local range(i64 0, 2) i64 @xid8ge(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 -1, 2) i64 @xid8cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -303,7 +303,7 @@ define dso_local range(i64 -1, 2) i64 @xid8cmp(ptr nocapture noundef readonly %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @xid8_larger(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -313,7 +313,7 @@ define dso_local i64 @xid8_larger(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @xid8_smaller(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -323,10 +323,10 @@ define dso_local i64 @xid8_smaller(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @cidin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @uint32in_subr(ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %6) #6
   %8 = zext i32 %7 to i64
@@ -335,7 +335,7 @@ define dso_local range(i64 0, 4294967296) i64 @cidin(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @cidout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc(i64 noundef 16) #6
   %5 = and i64 %3, 4294967295
@@ -346,7 +346,7 @@ define dso_local noundef i64 @cidout(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @cidrecv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #6
@@ -357,7 +357,7 @@ define dso_local range(i64 0, 4294967296) i64 @cidrecv(ptr nocapture noundef rea
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @cidsend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   call void @pq_begintypsend(ptr noundef nonnull %2) #6
@@ -365,7 +365,7 @@ define dso_local i64 @cidsend(ptr nocapture noundef readonly %0) local_unnamed_a
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
   %7 = load ptr, ptr %2, align 8, !alias.scope !11
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8, !alias.scope !11
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -379,7 +379,7 @@ define dso_local i64 @cidsend(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @cideq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48

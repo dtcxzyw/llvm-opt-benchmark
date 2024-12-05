@@ -70,7 +70,7 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_18HdBufferArrayRangeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %0
@@ -210,7 +210,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 
 56:                                               ; preds = %._crit_edge, %26
   %57 = phi ptr [ %.pre, %._crit_edge ], [ %30, %26 ]
-  %58 = getelementptr inbounds %"class.std::shared_ptr", ptr %57, i64 %27
+  %58 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %57, i64 %27
   %59 = load ptr, ptr %2, align 8
   store ptr %59, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -261,7 +261,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 0, ptr %80, align 4
   %81 = load ptr, ptr %73, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   tail call void %83(ptr noundef nonnull align 8 dereferenceable(16) %73) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -287,7 +287,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %73, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   tail call void %95(ptr noundef nonnull align 8 dereferenceable(16) %73) #19
   %96 = getelementptr inbounds nuw i8, ptr %73, i64 12
@@ -312,7 +312,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %103, %79
   %105 = load ptr, ptr %73, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %107 = load ptr, ptr %106, align 8
   tail call void %107(ptr noundef nonnull align 8 dereferenceable(16) %73) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
@@ -389,7 +389,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrR
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 0, ptr %25, align 4
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
@@ -415,7 +415,7 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrR
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %18, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %18) #19
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -440,13 +440,13 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrR
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %48, %24
   %50 = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %18) #19
   br label %_ZSt8_DestroyISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, %48, %35, %.lr.ph.i.i.i.i
-  %53 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %53, %4
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
@@ -491,7 +491,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24_
   br label %22
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds %"class.std::shared_ptr", ptr %8, i64 %5
+  %21 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %8, i64 %5
   br label %22
 
 22:                                               ; preds = %13, %16, %18, %20
@@ -521,7 +521,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -547,7 +547,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__1
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -572,7 +572,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__1
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -803,8 +803,8 @@ _ZNKSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayR
   store ptr null, ptr %31, align 8, !alias.scope !12, !noalias !9
   store ptr %32, ptr %30, align 8, !alias.scope !9, !noalias !12
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !12, !noalias !9
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %33, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
@@ -823,7 +823,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBuffer
   store ptr %26, ptr %0, align 8
   %39 = getelementptr inbounds %"class.std::shared_ptr", ptr %27, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds %"class.std::shared_ptr", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %26, i64 %24
   store ptr %40, ptr %11, align 8
   br label %41
 

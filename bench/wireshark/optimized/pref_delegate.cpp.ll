@@ -59,10 +59,10 @@ declare void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 d
 define noundef ptr @_ZNK20AdvancedPrefDelegate11indexToPrefERK11QModelIndex(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = alloca %class.QVariant, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 256)
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -106,7 +106,7 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
   %5 = alloca %class.QVariant, align 8
   %6 = alloca %class.QVariant, align 8
   %7 = alloca %class.QVariant, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %_ZN7QStringD2Ev.exit [
     i32 0, label %10
@@ -116,13 +116,13 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
   ]
 
 10:                                               ; preds = %4, %4, %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %13, align 8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 2)
           to label %18 unwind label %19
@@ -139,10 +139,10 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
 .noexc:                                           ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 256)
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -175,7 +175,7 @@ define noundef ptr @_ZNK20AdvancedPrefDelegate12createEditorEP7QWidgetRK20QStyle
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %.not20 = icmp eq ptr %39, null
@@ -208,10 +208,10 @@ define void @_ZNK20AdvancedPrefDelegate13setEditorDataEP7QWidgetRK11QModelIndex(
   %5 = alloca %class.QVariant, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 256)
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -249,7 +249,7 @@ _ZNK20AdvancedPrefDelegate11indexToPrefERK11QModelIndex.exit: ; preds = %11
 
 20:                                               ; preds = %_ZNK20AdvancedPrefDelegate11indexToPrefERK11QModelIndex.exit
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %24
@@ -264,10 +264,10 @@ define void @_ZNK20AdvancedPrefDelegate12setModelDataEP7QWidgetP18QAbstractItemM
   %6 = alloca %class.QVariant, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 256)
   invoke void @_ZN8QVariantC1ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -305,7 +305,7 @@ _ZNK20AdvancedPrefDelegate11indexToPrefERK11QModelIndex.exit: ; preds = %12
 
 21:                                               ; preds = %_ZNK20AdvancedPrefDelegate11indexToPrefERK11QModelIndex.exit
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %25
@@ -376,7 +376,7 @@ define linkonce_odr noundef ptr @_Z13qvariant_castIPvET_RK8QVariant(ptr noundef 
   %2 = alloca %class.QMetaType, align 8
   %3 = alloca %class.QMetaType, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, -4
   %8 = inttoptr i64 %7 to ptr
@@ -402,7 +402,7 @@ _Zeq9QMetaTypeS_.exit.thread11:                   ; preds = %10
   br label %29
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %13 = load atomic i32, ptr %12 monotonic, align 4
   %.not5.i.i = icmp eq i32 %13, 0
   br i1 %.not5.i.i, label %14, label %_ZNK9QMetaType2idEi.exit.i
@@ -413,7 +413,7 @@ _Zeq9QMetaTypeS_.exit.thread11:                   ; preds = %10
 
 _ZNK9QMetaType2idEi.exit.i:                       ; preds = %14, %11
   %.0.i.i = phi i32 [ %15, %14 ], [ %13, %11 ]
-  %16 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
+  %16 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, i64 12) monotonic, align 4
   %.not5.i7.i = icmp eq i32 %16, 0
   br i1 %.not5.i7.i, label %17, label %_Zeq9QMetaTypeS_.exit
 
@@ -440,7 +440,7 @@ _Zeq9QMetaTypeS_.exit._crit_edge:                 ; preds = %_Zeq9QMetaTypeS_.ex
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr i8, ptr %24, i64 %27
@@ -456,7 +456,7 @@ _Zeq9QMetaTypeS_.exit._crit_edge:                 ; preds = %_Zeq9QMetaTypeS_.ex
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37

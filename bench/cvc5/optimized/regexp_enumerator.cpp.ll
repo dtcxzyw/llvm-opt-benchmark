@@ -149,7 +149,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i10
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i4, %if.then13.i.i10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i64 16), ptr %this, align 8
-  %d_senum = getelementptr inbounds i8, ptr %this, i64 16
+  %d_senum = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
           to label %invoke.cont4 unwind label %lpad3
 
@@ -251,7 +251,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.else.i.i, %if.then13.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 16), ptr %this, align 8
-  %d_type.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_type.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %0, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %bf.lshr.i.i.i = lshr i64 %bf.load.i.i.i, 40
@@ -365,7 +365,7 @@ define hidden void @_ZN4cvc58internal6theory7strings16RegExpEnumeratorC2ERKS3_(p
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %d_type.i = getelementptr inbounds i8, ptr %enumerator, i64 8
+  %d_type.i = getelementptr inbounds nuw i8, ptr %enumerator, i64 8
   %0 = load ptr, ptr %d_type.i, align 8, !noalias !4
   store ptr %0, ptr %agg.tmp, align 8, !alias.scope !4
   %bf.load.i.i.i = load i64, ptr %0, align 8, !noalias !4
@@ -426,8 +426,8 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i, %if.then13.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i64 16), ptr %this, align 8
-  %d_senum = getelementptr inbounds i8, ptr %this, i64 16
-  %d_senum2 = getelementptr inbounds i8, ptr %enumerator, i64 16
+  %d_senum = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %d_senum2 = getelementptr inbounds nuw i8, ptr %enumerator, i64 16
   invoke void @_ZN4cvc58internal6theory7strings16StringEnumeratorC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %d_senum, ptr noundef nonnull align 8 dereferenceable(56) %d_senum2)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -460,7 +460,7 @@ entry:
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.69", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
-  %d_senum = getelementptr inbounds i8, ptr %this, i64 16
+  %d_senum = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN4cvc58internal6theory7strings16StringEnumeratordeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %d_senum)
   %0 = load ptr, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i)
@@ -574,7 +574,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN4cvc58internal6theory7strings16RegExpEnumeratorppEv(ptr noundef nonnull returned align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %d_senum = getelementptr inbounds i8, ptr %this, i64 16
+  %d_senum = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal6theory7strings16StringEnumeratorppEv(ptr noundef nonnull align 8 dereferenceable(56) %d_senum)
   ret ptr %this
 }
@@ -584,7 +584,7 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal6theor
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings16RegExpEnumerator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %d_senum = getelementptr inbounds i8, ptr %this, i64 16
+  %d_senum = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal6theory7strings16StringEnumerator10isFinishedEv(ptr noundef nonnull align 8 dereferenceable(56) %d_senum)
   ret i1 %call
 }
@@ -595,12 +595,12 @@ declare noundef zeroext i1 @_ZN4cvc58internal6theory7strings16StringEnumerator10
 define linkonce_odr hidden void @_ZN4cvc58internal6theory7strings16RegExpEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings16RegExpEnumeratorE, i64 16), ptr %this, align 8
-  %d_senum = getelementptr inbounds i8, ptr %this, i64 16
+  %d_senum = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings16StringEnumeratorE, i64 16), ptr %d_senum, align 8
-  %d_wenum.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_wenum.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal6theory7strings8SEnumLenD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %d_wenum.i) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 16), ptr %d_senum, align 8
-  %d_type.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %d_type.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_type.i.i.i, align 8
   %bf.load.i.i.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i.i.i, 1152920405095219200
@@ -629,7 +629,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then13.i.i.i.i.i
 
 _ZN4cvc58internal6theory7strings16StringEnumeratorD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.then13.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 16), ptr %this, align 8
-  %d_type.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_type.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_type.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %4, align 8
   %5 = and i64 %bf.load.i.i.i.i, 1152920405095219200
@@ -705,7 +705,7 @@ declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef no
 define linkonce_odr hidden void @_ZN4cvc58internal6theory23TypeEnumeratorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 16), ptr %this, align 8
-  %d_type = getelementptr inbounds i8, ptr %this, i64 8
+  %d_type = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_type, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -761,7 +761,7 @@ declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 der
 define linkonce_odr hidden void @_ZN4cvc58internal6theory7strings8SEnumLenD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings8SEnumLenE, i64 16), ptr %this, align 8
-  %d_curr = getelementptr inbounds i8, ptr %this, i64 24
+  %d_curr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %d_curr, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -789,13 +789,13 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i, %if.then13.i.i
-  %d_witer = getelementptr inbounds i8, ptr %this, i64 16
+  %d_witer = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %d_witer, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal6theory7strings8WordIterESt14default_deleteIS4_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %d_data.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %d_data.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %d_data.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4cvc58internal6theory7strings8WordIterEEclEPS4_.exit.i, label %if.then.i.i.i.i.i.i
@@ -810,7 +810,7 @@ _ZNKSt14default_deleteIN4cvc58internal6theory7strings8WordIterEEclEPS4_.exit.i: 
 
 _ZNSt10unique_ptrIN4cvc58internal6theory7strings8WordIterESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory7strings8WordIterEEclEPS4_.exit.i
   store ptr null, ptr %d_witer, align 8
-  %d_type = getelementptr inbounds i8, ptr %this, i64 8
+  %d_type = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %d_type, align 8
   %bf.load.i.i1 = load i64, ptr %6, align 8
   %7 = and i64 %bf.load.i.i1, 1152920405095219200
@@ -855,7 +855,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 define linkonce_odr hidden void @_ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_7strings16RegExpEnumeratorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory23TypeEnumeratorInterfaceE, i64 16), ptr %this, align 8
-  %d_type.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_type.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i, 1152920405095219200

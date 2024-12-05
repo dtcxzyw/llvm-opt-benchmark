@@ -232,7 +232,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %132 = select i1 %131, double %128, double %130
   %133 = shl nuw nsw i32 %54, 1
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds double, ptr %17, i64 %134
+  %135 = getelementptr inbounds nuw double, ptr %17, i64 %134
   store double %132, ptr %135, align 8, !tbaa !7
   %136 = or i1 %25, %.ph
   br i1 %136, label %137, label %.loopexit6

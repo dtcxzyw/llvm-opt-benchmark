@@ -42,7 +42,7 @@ define void @_ZN5boost6fibers10wait_queue16suspend_and_waitERSt11unique_lockINS0
   %6 = atomicrmw add ptr %5, i64 1 seq_cst, align 8
   %7 = add i64 %6, 1
   store ptr %2, ptr %4, align 8, !tbaa !10
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %7, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -74,7 +74,7 @@ define noundef zeroext i1 @_ZN5boost6fibers10wait_queue22suspend_and_wait_untilE
   %8 = atomicrmw add ptr %7, i64 1 seq_cst, align 8
   %9 = add i64 %8, 1
   store ptr %2, ptr %5, align 8, !tbaa !10
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8

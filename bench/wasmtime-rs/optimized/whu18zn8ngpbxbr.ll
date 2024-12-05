@@ -37,7 +37,7 @@ define noundef range(i32 1, 5) i32 @_ZN23wasmtime_component_util16DiscriminantSi
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @"switch.table._ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E", i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @"switch.table._ZN23wasmtime_component_util102_$LT$impl$u20$core..convert..From$LT$wasmtime_component_util..DiscriminantSize$GT$$u20$for$u20$u32$GT$4from17hada47da6ba9180b0E", i64 0, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -94,13 +94,13 @@ define { i8, i8 } @_ZN23wasmtime_component_util9FlagsSize10from_count17hb80ff0c8
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr @anon.a3caf7bc85592610d8658d173c7f2693.2, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @anon.a3caf7bc85592610d8658d173c7f2693.3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %21, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a3caf7bc85592610d8658d173c7f2693.6) #5
   unreachable

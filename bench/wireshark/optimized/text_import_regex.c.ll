@@ -18,7 +18,7 @@ define hidden i32 @text_import_regex(ptr nocapture noundef readonly %0) local_un
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_mapped_file_ref(ptr noundef %7) #4
   store ptr null, ptr %2, align 8
@@ -38,7 +38,7 @@ define hidden i32 @text_import_regex(ptr nocapture noundef readonly %0) local_un
 
 17:                                               ; preds = %1
   store i8 0, ptr %11, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @g_regex_get_string_number(ptr noundef %19, ptr noundef nonnull @.str.1) #4
   %21 = icmp sgt i32 %20, -1
@@ -68,10 +68,10 @@ define hidden i32 @text_import_regex(ptr nocapture noundef readonly %0) local_un
   br i1 %.not384749, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
-  %41 = getelementptr inbounds i8, ptr %0, i64 72
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -184,7 +184,7 @@ define hidden i32 @text_import_regex(ptr nocapture noundef readonly %0) local_un
   br i1 %.not43, label %.outer, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load i32, ptr %107, align 4
   %.not44 = icmp eq i32 %108, 0
   br i1 %.not44, label %.outer, label %109

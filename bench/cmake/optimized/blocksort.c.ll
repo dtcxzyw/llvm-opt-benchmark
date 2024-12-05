@@ -25,27 +25,27 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %7 = alloca [256 x i32], align 16
   %8 = alloca [256 x i32], align 16
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 656
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %19 = load i32, ptr %18, align 8
   %20 = icmp slt i32 %17, 10000
   br i1 %20, label %.sink.split, label %21
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %17, 1
   %spec.select.v = add nuw nsw i32 %17, 34
   %spec.select = add nuw nsw i32 %spec.select.v, %24
   %25 = zext nneg i32 %spec.select to i64
-  %26 = getelementptr inbounds i8, ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 %25
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 100)
   %27 = trunc nuw nsw i32 %spec.store.select1 to i8
@@ -81,54 +81,54 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %37, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0278391.i = phi i32 [ %36, %.lr.ph.preheader.i ], [ %75, %.lr.ph.i ]
-  %39 = getelementptr inbounds i16, ptr %26, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv.i
   store i16 0, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 8
   %44 = or disjoint i32 %43, %.0278391.i
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %15, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %15, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
   %49 = add nsw i64 %indvars.iv.i, -1
-  %50 = getelementptr inbounds i16, ptr %26, i64 %49
+  %50 = getelementptr inbounds nuw i16, ptr %26, i64 %49
   store i16 0, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %13, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 %49
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = shl nuw nsw i32 %53, 8
   %55 = or disjoint i32 %54, %42
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %15, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %15, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
   %60 = add nsw i64 %indvars.iv.i, -2
-  %61 = getelementptr inbounds i16, ptr %26, i64 %60
+  %61 = getelementptr inbounds nuw i16, ptr %26, i64 %60
   store i16 0, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %13, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 %60
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = shl nuw nsw i32 %64, 8
   %66 = or disjoint i32 %65, %53
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %15, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %15, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
   %71 = add nsw i64 %indvars.iv.i, -3
-  %72 = getelementptr inbounds i16, ptr %26, i64 %71
+  %72 = getelementptr inbounds nuw i16, ptr %26, i64 %71
   store i16 0, ptr %72, align 2
-  %73 = getelementptr inbounds i8, ptr %13, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 %71
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 8
   %77 = or disjoint i32 %76, %64
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %15, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %15, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
@@ -143,16 +143,16 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 .lr.ph396.i:                                      ; preds = %.preheader326.i, %.lr.ph396.i
   %indvars.iv495.i = phi i64 [ %indvars.iv.next496.i, %.lr.ph396.i ], [ %indvars.iv.next.i, %.preheader326.i ]
   %.1279394.i = phi i32 [ %90, %.lr.ph396.i ], [ %77, %.preheader326.i ]
-  %84 = getelementptr inbounds i16, ptr %26, i64 %indvars.iv495.i
+  %84 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv495.i
   store i16 0, ptr %84, align 2
   %85 = lshr i32 %.1279394.i, 8
-  %86 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv495.i
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv495.i
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = shl nuw nsw i32 %88, 8
   %90 = or i32 %89, %85
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds i32, ptr %15, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %15, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 4
@@ -162,12 +162,12 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 
 95:                                               ; preds = %95, %.preheader325.i
   %indvars.iv498.i = phi i64 [ 0, %.preheader325.i ], [ %indvars.iv.next499.i, %95 ]
-  %96 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv498.i
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv498.i
   %97 = load i8, ptr %96, align 1
   %98 = add nuw nsw i64 %indvars.iv498.i, %83
-  %99 = getelementptr inbounds i8, ptr %13, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 %98
   store i8 %97, ptr %99, align 1
-  %100 = getelementptr inbounds i16, ptr %26, i64 %98
+  %100 = getelementptr inbounds nuw i16, ptr %26, i64 %98
   store i16 0, ptr %100, align 2
   %indvars.iv.next499.i = add nuw nsw i64 %indvars.iv498.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next499.i, 34
@@ -209,12 +209,12 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 .lr.ph401.i:                                      ; preds = %.lr.ph401.i, %.lr.ph401.preheader.i
   %indvars.iv505.i = phi i64 [ %37, %.lr.ph401.preheader.i ], [ %indvars.iv.next506.i, %.lr.ph401.i ]
   %.0295399.i = phi i16 [ %112, %.lr.ph401.preheader.i ], [ %153, %.lr.ph401.i ]
-  %114 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv505.i
+  %114 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv505.i
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i16
   %117 = tail call i16 @llvm.fshl.i16(i16 %116, i16 %.0295399.i, i16 8)
   %118 = zext i16 %117 to i64
-  %119 = getelementptr inbounds i32, ptr %15, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %15, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, -1
   store i32 %121, ptr %119, align 4
@@ -223,12 +223,12 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %124 = trunc nuw nsw i64 %indvars.iv505.i to i32
   store i32 %124, ptr %123, align 4
   %125 = add nsw i64 %indvars.iv505.i, -1
-  %126 = getelementptr inbounds i8, ptr %13, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %13, i64 %125
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i16
   %129 = tail call i16 @llvm.fshl.i16(i16 %128, i16 %117, i16 8)
   %130 = zext i16 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %15, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr %15, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, -1
   store i32 %133, ptr %131, align 4
@@ -237,12 +237,12 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %136 = trunc nuw nsw i64 %125 to i32
   store i32 %136, ptr %135, align 4
   %137 = add nsw i64 %indvars.iv505.i, -2
-  %138 = getelementptr inbounds i8, ptr %13, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %13, i64 %137
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i16
   %141 = tail call i16 @llvm.fshl.i16(i16 %140, i16 %129, i16 8)
   %142 = zext i16 %141 to i64
-  %143 = getelementptr inbounds i32, ptr %15, i64 %142
+  %143 = getelementptr inbounds nuw i32, ptr %15, i64 %142
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, -1
   store i32 %145, ptr %143, align 4
@@ -251,12 +251,12 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
   %148 = trunc nuw nsw i64 %137 to i32
   store i32 %148, ptr %147, align 4
   %149 = add nsw i64 %indvars.iv505.i, -3
-  %150 = getelementptr inbounds i8, ptr %13, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr %13, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i16
   %153 = tail call i16 @llvm.fshl.i16(i16 %152, i16 %141, i16 8)
   %154 = zext i16 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %15, i64 %154
+  %155 = getelementptr inbounds nuw i32, ptr %15, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = add i32 %156, -1
   store i32 %157, ptr %155, align 4
@@ -275,12 +275,12 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 .lr.ph406.i:                                      ; preds = %.preheader324.i, %.lr.ph406.i
   %indvars.iv507.i = phi i64 [ %indvars.iv.next508.i, %.lr.ph406.i ], [ %indvars.iv.next506.i, %.preheader324.i ]
   %.1296404.i = phi i16 [ %165, %.lr.ph406.i ], [ %153, %.preheader324.i ]
-  %162 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv507.i
+  %162 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv507.i
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i16
   %165 = tail call i16 @llvm.fshl.i16(i16 %164, i16 %.1296404.i, i16 8)
   %166 = zext i16 %165 to i64
-  %167 = getelementptr inbounds i32, ptr %15, i64 %166
+  %167 = getelementptr inbounds nuw i32, ptr %15, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = add i32 %168, -1
   store i32 %169, ptr %167, align 4
@@ -294,7 +294,7 @@ define dso_local void @BZ2_blockSort(ptr nocapture noundef %0) local_unnamed_add
 
 173:                                              ; preds = %173, %.preheader323.i
   %indvars.iv509.i = phi i64 [ 0, %.preheader323.i ], [ %indvars.iv.next510.i, %173 ]
-  %174 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %indvars.iv509.i
+  %174 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv509.i
   %175 = trunc nuw nsw i64 %indvars.iv509.i to i32
   store i32 %175, ptr %174, align 4
   %indvars.iv.next510.i = add nuw nsw i64 %indvars.iv509.i, 1
@@ -373,7 +373,7 @@ split.i:                                          ; preds = %208, %192
   %.pr.i189 = phi i32 [ %.pr.i190, %586 ], [ %29, %._crit_edge.i ]
   %indvars.iv536.i = phi i64 [ %indvars.iv.next537.i, %586 ], [ 0, %._crit_edge.i ]
   %.0291436.i = phi i32 [ %.3294.i, %586 ], [ 0, %._crit_edge.i ]
-  %212 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %indvars.iv536.i
+  %212 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv536.i
   %213 = load i32, ptr %212, align 4
   %214 = shl i32 %213, 8
   %215 = sext i32 %214 to i64
@@ -461,7 +461,7 @@ split.i:                                          ; preds = %208, %192
 
 .preheader120.i.i.i:                              ; preds = %251, %.preheader120.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader120.i.i.i ], [ 0, %251 ]
-  %253 = getelementptr inbounds [14 x i32], ptr @incs, i64 0, i64 %indvars.iv.i.i.i
+  %253 = getelementptr inbounds nuw [14 x i32], ptr @incs, i64 0, i64 %indvars.iv.i.i.i
   %254 = load i32, ptr %253, align 4
   %.not.i.i.i = icmp sgt i32 %254, %248
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -478,7 +478,7 @@ split.i:                                          ; preds = %208, %192
 .lr.ph.i.i.i:                                     ; preds = %312, %.lr.ph.preheader.i.i.i
   %indvars.iv129.i.i.i = phi i64 [ %indvars.iv.i.i.i, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next130.i.i.i, %312 ]
   %indvars.iv.next130.i.i.i = add nsw i64 %indvars.iv129.i.i.i, -1
-  %256 = getelementptr inbounds [14 x i32], ptr @incs, i64 0, i64 %indvars.iv.next130.i.i.i
+  %256 = getelementptr inbounds nuw [14 x i32], ptr @incs, i64 0, i64 %indvars.iv.next130.i.i.i
   %257 = load i32, ptr %256, align 4
   %258 = add i32 %257, %243
   %259 = sext i32 %258 to i64
@@ -620,14 +620,14 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %324 = load i32, ptr %323, align 4
   %325 = add i32 %324, %247
   %326 = zext i32 %325 to i64
-  %327 = getelementptr inbounds i8, ptr %13, i64 %326
+  %327 = getelementptr inbounds nuw i8, ptr %13, i64 %326
   %328 = load i8, ptr %327, align 1
   %329 = sext i32 %245 to i64
   %330 = getelementptr inbounds i32, ptr %11, i64 %329
   %331 = load i32, ptr %330, align 4
   %332 = add i32 %331, %247
   %333 = zext i32 %332 to i64
-  %334 = getelementptr inbounds i8, ptr %13, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr %13, i64 %333
   %335 = load i8, ptr %334, align 1
   %336 = add nsw i32 %245, %243
   %337 = ashr i32 %336, 1
@@ -636,7 +636,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %340 = load i32, ptr %339, align 4
   %341 = add i32 %340, %247
   %342 = zext i32 %341 to i64
-  %343 = getelementptr inbounds i8, ptr %13, i64 %342
+  %343 = getelementptr inbounds nuw i8, ptr %13, i64 %342
   %344 = load i8, ptr %343, align 1
   %spec.select.i.i.i = tail call i8 @llvm.umax.i8(i8 %328, i8 %335)
   %spec.select14.i.i.i = tail call i8 @llvm.umin.i8(i8 %328, i8 %335)
@@ -670,7 +670,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %353 = load i32, ptr %352, align 4
   %354 = add i32 %353, %247
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds i8, ptr %13, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %13, i64 %355
   %357 = load i8, ptr %356, align 1
   %358 = icmp eq i8 %357, %.1.i.i.i
   br i1 %358, label %.outer250.i.i, label %364
@@ -734,7 +734,7 @@ mainSimpleSort.exit.i.i:                          ; preds = %mainSimpleSort.exit
   %378 = load i32, ptr %377, align 4
   %379 = add i32 %378, %247
   %380 = zext i32 %379 to i64
-  %381 = getelementptr inbounds i8, ptr %13, i64 %380
+  %381 = getelementptr inbounds nuw i8, ptr %13, i64 %380
   %382 = load i8, ptr %381, align 1
   %383 = icmp eq i8 %382, %.1.i.i.i
   br i1 %383, label %.outer.i.i, label %389
@@ -982,13 +982,13 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
   %gep619.i = getelementptr i8, ptr %invariant.gep618.i, i64 %.idx.i
   %477 = load i32, ptr %gep619.i, align 4
   %478 = and i32 %477, -2097153
-  %479 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv522.i
+  %479 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv522.i
   store i32 %478, ptr %479, align 4
   %480 = getelementptr i8, ptr %gep619.i, i64 4
   %481 = load i32, ptr %480, align 4
   %482 = and i32 %481, -2097153
   %483 = add i32 %482, -1
-  %484 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %indvars.iv522.i
+  %484 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %indvars.iv522.i
   store i32 %483, ptr %484, align 4
   %indvars.iv.next523.i = add nuw nsw i64 %indvars.iv522.i, 1
   %exitcond525.not.i = icmp eq i64 %indvars.iv.next523.i, 256
@@ -1019,13 +1019,13 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
   %499 = getelementptr inbounds i8, ptr %13, i64 %498
   %500 = load i8, ptr %499, align 1
   %501 = zext i8 %500 to i64
-  %502 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %501
   %503 = load i8, ptr %502, align 1
   %.not315.i = icmp eq i8 %503, 0
   br i1 %.not315.i, label %504, label %510
 
 504:                                              ; preds = %.lr.ph422.i
-  %505 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %501
+  %505 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %501
   %506 = load i32, ptr %505, align 4
   %507 = add nsw i32 %506, 1
   store i32 %507, ptr %505, align 4
@@ -1072,13 +1072,13 @@ mainQSort3.exit._crit_edge.i:                     ; preds = %mainQSort3.exit.i
   %530 = getelementptr inbounds i8, ptr %13, i64 %529
   %531 = load i8, ptr %530, align 1
   %532 = zext i8 %531 to i64
-  %533 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %532
+  %533 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %532
   %534 = load i8, ptr %533, align 1
   %.not314.i = icmp eq i8 %534, 0
   br i1 %.not314.i, label %535, label %541
 
 535:                                              ; preds = %.lr.ph428.i
-  %536 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %532
+  %536 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %532
   %537 = load i32, ptr %536, align 4
   %538 = add nsw i32 %537, -1
   store i32 %538, ptr %536, align 4
@@ -1242,15 +1242,15 @@ mainSort.exit:                                    ; preds = %mainQSort3.exit.i, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %604, %606, %1
-  %609 = getelementptr inbounds i8, ptr %0, i64 24
+  %609 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %610 = load ptr, ptr %609, align 8
-  %611 = getelementptr inbounds i8, ptr %0, i64 32
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %612 = load ptr, ptr %611, align 8
   tail call fastcc void @fallbackSort(ptr noundef %610, ptr noundef %612, ptr noundef %15, i32 noundef %17, i32 noundef %19)
   br label %613
 
 613:                                              ; preds = %.sink.split, %601
-  %614 = getelementptr inbounds i8, ptr %0, i64 48
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 -1, ptr %614, align 8
   %615 = load i32, ptr %16, align 4
   %616 = icmp sgt i32 %615, 0
@@ -1262,7 +1262,7 @@ mainSort.exit:                                    ; preds = %mainQSort3.exit.i, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %621
   %indvars.iv184 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next185, %621 ]
-  %617 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv184
+  %617 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv184
   %618 = load i32, ptr %617, align 4
   %619 = icmp eq i32 %618, 0
   br i1 %619, label %.thread, label %621
@@ -1319,10 +1319,10 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -1340,7 +1340,7 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
 .preheader196:                                    ; preds = %.preheader197, %.preheader196
   %21 = phi i32 [ %.pre, %.preheader197 ], [ %24, %.preheader196 ]
   %indvars.iv318 = phi i64 [ 1, %.preheader197 ], [ %indvars.iv.next319, %.preheader196 ]
-  %22 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %indvars.iv318
+  %22 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %indvars.iv318
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %21
   store i32 %24, ptr %22, align 4
@@ -1350,10 +1350,10 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
 
 .lr.ph251:                                        ; preds = %.lr.ph251.preheader, %.lr.ph251
   %indvars.iv322 = phi i64 [ 0, %.lr.ph251.preheader ], [ %indvars.iv.next323, %.lr.ph251 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv322
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv322
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr %28, align 4
@@ -1383,7 +1383,7 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
 
 .preheader194:                                    ; preds = %.preheader194.preheader, %.preheader194
   %indvars.iv330 = phi i64 [ %indvars.iv.next331, %.preheader194 ], [ 0, %.preheader194.preheader ]
-  %39 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %indvars.iv330
+  %39 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %indvars.iv330
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 31
   %42 = shl nuw i32 1, %41
@@ -1446,14 +1446,14 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   %71 = trunc nuw nsw i64 %indvars.iv335 to i32
   %72 = lshr i64 %indvars.iv335, 5
   %73 = and i64 %72, 134217727
-  %74 = getelementptr inbounds i32, ptr %2, i64 %73
+  %74 = getelementptr inbounds nuw i32, ptr %2, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %71, 31
   %77 = shl nuw i32 1, %76
   %78 = and i32 %75, %77
   %.not180 = icmp eq i32 %78, 0
   %spec.select = select i1 %.not180, i32 %.0150257, i32 %71
-  %79 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv335
+  %79 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv335
   %80 = load i32, ptr %79, align 4
   %81 = sub i32 %80, %.0
   %82 = icmp slt i32 %81, 0
@@ -1603,9 +1603,9 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
 
 150:                                              ; preds = %149, %147
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %151 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i
+  %151 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv.next.i
+  %153 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %indvars.iv.next.i
   %154 = load i32, ptr %153, align 4
   %155 = sub nsw i32 %154, %152
   %156 = icmp slt i32 %155, 10
@@ -1647,7 +1647,7 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   %171 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv79.i.i
   %172 = load i32, ptr %171, align 4
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds i32, ptr %1, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr %1, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = icmp ugt i32 %169, %175
   br i1 %176, label %177, label %.critedge.i.i
@@ -1698,7 +1698,7 @@ define internal fastcc void @fallbackSort(ptr nocapture noundef %0, ptr nocaptur
   %192 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv88.i.i
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds i32, ptr %1, i64 %194
+  %195 = getelementptr inbounds nuw i32, ptr %1, i64 %194
   %196 = load i32, ptr %195, align 4
   %197 = icmp ugt i32 %190, %196
   br i1 %197, label %198, label %.critedge2.loopexit.split.loop.exit92.i.i
@@ -1728,8 +1728,8 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   br i1 %202, label %147, label %fallbackQSort3.exit, !llvm.loop !48
 
 203:                                              ; preds = %150
-  %204 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i
-  %205 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv.next.i
+  %204 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i
+  %205 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %indvars.iv.next.i
   %206 = trunc nuw nsw i64 %indvars.iv.i to i32
   %207 = trunc nsw i64 %indvars.iv.next.i to i32
   %208 = mul i16 %.0178.ph260.i, 7621
@@ -1755,7 +1755,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %218 = getelementptr inbounds i32, ptr %0, i64 %217
   %219 = load i32, ptr %218, align 4
   %220 = zext i32 %219 to i64
-  %221 = getelementptr inbounds i32, ptr %1, i64 %220
+  %221 = getelementptr inbounds nuw i32, ptr %1, i64 %220
   %.0179.i = load i32, ptr %221, align 4
   br label %222
 
@@ -1783,7 +1783,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %228 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv309.i
   %229 = load i32, ptr %228, align 4
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds i32, ptr %1, i64 %230
+  %231 = getelementptr inbounds nuw i32, ptr %1, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = icmp eq i32 %232, %.0179.i
   br i1 %233, label %.outer190.i, label %239
@@ -1846,7 +1846,7 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %252 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv315.i
   %253 = load i32, ptr %252, align 4
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds i32, ptr %1, i64 %254
+  %255 = getelementptr inbounds nuw i32, ptr %1, i64 %254
   %256 = load i32, ptr %255, align 4
   %257 = icmp eq i32 %256, %.0179.i
   br i1 %257, label %.outer.i, label %263
@@ -1974,8 +1974,8 @@ fallbackSimpleSort.exit.i:                        ; preds = %.critedge2.i.i, %.l
   %311 = sub nsw i32 %154, %309
   %312 = icmp sgt i32 %310, %311
   %313 = and i64 %indvars.iv.i, 4294967295
-  %314 = getelementptr inbounds [100 x i32], ptr %6, i64 0, i64 %313
-  %315 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw [100 x i32], ptr %6, i64 0, i64 %313
+  %315 = getelementptr inbounds nuw [100 x i32], ptr %7, i64 0, i64 %313
   br i1 %312, label %316, label %317
 
 316:                                              ; preds = %._crit_edge258.i
@@ -2013,7 +2013,7 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
   %320 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv341
   %321 = load i32, ptr %320, align 4
   %322 = zext i32 %321 to i64
-  %323 = getelementptr inbounds i32, ptr %1, i64 %322
+  %323 = getelementptr inbounds nuw i32, ptr %1, i64 %322
   %324 = load i32, ptr %323, align 4
   %.not179 = icmp eq i32 %.0154267, %324
   br i1 %.not179, label %334, label %325
@@ -2092,10 +2092,10 @@ fallbackQSort3.exit:                              ; preds = %.outer191.backedge.
   %355 = add nsw i32 %351, -1
   store i32 %355, ptr %354, align 4
   %356 = trunc i64 %indvars.iv345 to i8
-  %357 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv348
+  %357 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv348
   %358 = load i32, ptr %357, align 4
   %359 = zext i32 %358 to i64
-  %360 = getelementptr inbounds i8, ptr %1, i64 %359
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 %359
   store i8 %356, ptr %360, align 1
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
@@ -2121,10 +2121,10 @@ declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 10000, -2147483648) %4, ptr nocapture noundef nonnull %5) unnamed_addr #3 {
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds i8, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds i8, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %9, %12
   br i1 %.not, label %15, label %13
@@ -2137,10 +2137,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %16 = add i32 %0, 1
   %17 = add i32 %1, 1
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds i8, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i32 %17 to i64
-  %22 = getelementptr inbounds i8, ptr %2, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not343 = icmp eq i8 %20, %23
   br i1 %.not343, label %26, label %24
@@ -2153,10 +2153,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %27 = add i32 %0, 2
   %28 = add i32 %1, 2
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds i8, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i32 %28 to i64
-  %33 = getelementptr inbounds i8, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %32
   %34 = load i8, ptr %33, align 1
   %.not344 = icmp eq i8 %31, %34
   br i1 %.not344, label %37, label %35
@@ -2169,10 +2169,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %38 = add i32 %0, 3
   %39 = add i32 %1, 3
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds i8, ptr %2, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i32 %39 to i64
-  %44 = getelementptr inbounds i8, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 %43
   %45 = load i8, ptr %44, align 1
   %.not345 = icmp eq i8 %42, %45
   br i1 %.not345, label %48, label %46
@@ -2185,10 +2185,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %49 = add i32 %0, 4
   %50 = add i32 %1, 4
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds i8, ptr %2, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds i8, ptr %2, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 %54
   %56 = load i8, ptr %55, align 1
   %.not346 = icmp eq i8 %53, %56
   br i1 %.not346, label %59, label %57
@@ -2201,10 +2201,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %60 = add i32 %0, 5
   %61 = add i32 %1, 5
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds i8, ptr %2, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = zext i32 %61 to i64
-  %66 = getelementptr inbounds i8, ptr %2, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %65
   %67 = load i8, ptr %66, align 1
   %.not347 = icmp eq i8 %64, %67
   br i1 %.not347, label %70, label %68
@@ -2217,10 +2217,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %71 = add i32 %0, 6
   %72 = add i32 %1, 6
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds i8, ptr %2, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = zext i32 %72 to i64
-  %77 = getelementptr inbounds i8, ptr %2, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 %76
   %78 = load i8, ptr %77, align 1
   %.not348 = icmp eq i8 %75, %78
   br i1 %.not348, label %81, label %79
@@ -2233,10 +2233,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %82 = add i32 %0, 7
   %83 = add i32 %1, 7
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds i8, ptr %2, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = zext i32 %83 to i64
-  %88 = getelementptr inbounds i8, ptr %2, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 %87
   %89 = load i8, ptr %88, align 1
   %.not349 = icmp eq i8 %86, %89
   br i1 %.not349, label %92, label %90
@@ -2249,10 +2249,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %93 = add i32 %0, 8
   %94 = add i32 %1, 8
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds i8, ptr %2, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i32 %94 to i64
-  %99 = getelementptr inbounds i8, ptr %2, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 %98
   %100 = load i8, ptr %99, align 1
   %.not350 = icmp eq i8 %97, %100
   br i1 %.not350, label %103, label %101
@@ -2265,10 +2265,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %104 = add i32 %0, 9
   %105 = add i32 %1, 9
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds i8, ptr %2, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i32 %105 to i64
-  %110 = getelementptr inbounds i8, ptr %2, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 %109
   %111 = load i8, ptr %110, align 1
   %.not351 = icmp eq i8 %108, %111
   br i1 %.not351, label %114, label %112
@@ -2281,10 +2281,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %115 = add i32 %0, 10
   %116 = add i32 %1, 10
   %117 = zext i32 %115 to i64
-  %118 = getelementptr inbounds i8, ptr %2, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = zext i32 %116 to i64
-  %121 = getelementptr inbounds i8, ptr %2, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %120
   %122 = load i8, ptr %121, align 1
   %.not352 = icmp eq i8 %119, %122
   br i1 %.not352, label %125, label %123
@@ -2297,10 +2297,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %126 = add i32 %0, 11
   %127 = add i32 %1, 11
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds i8, ptr %2, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i32 %127 to i64
-  %132 = getelementptr inbounds i8, ptr %2, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 %131
   %133 = load i8, ptr %132, align 1
   %.not353 = icmp eq i8 %130, %133
   br i1 %.not353, label %136, label %134
@@ -2320,10 +2320,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %.0277 = phi i32 [ %137, %136 ], [ %spec.select, %282 ]
   %.0 = phi i32 [ %139, %136 ], [ %287, %282 ]
   %141 = zext i32 %.0277 to i64
-  %142 = getelementptr inbounds i8, ptr %2, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 %141
   %143 = load i8, ptr %142, align 1
   %144 = zext i32 %.0278 to i64
-  %145 = getelementptr inbounds i8, ptr %2, i64 %144
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 %144
   %146 = load i8, ptr %145, align 1
   %.not354 = icmp eq i8 %143, %146
   br i1 %.not354, label %149, label %147
@@ -2333,9 +2333,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 149:                                              ; preds = %140
-  %150 = getelementptr inbounds i16, ptr %3, i64 %141
+  %150 = getelementptr inbounds nuw i16, ptr %3, i64 %141
   %151 = load i16, ptr %150, align 2
-  %152 = getelementptr inbounds i16, ptr %3, i64 %144
+  %152 = getelementptr inbounds nuw i16, ptr %3, i64 %144
   %153 = load i16, ptr %152, align 2
   %.not355 = icmp eq i16 %151, %153
   br i1 %.not355, label %156, label %154
@@ -2348,10 +2348,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %157 = add i32 %.0277, 1
   %158 = add i32 %.0278, 1
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds i8, ptr %2, i64 %159
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i32 %158 to i64
-  %163 = getelementptr inbounds i8, ptr %2, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 %162
   %164 = load i8, ptr %163, align 1
   %.not356 = icmp eq i8 %161, %164
   br i1 %.not356, label %167, label %165
@@ -2361,9 +2361,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 167:                                              ; preds = %156
-  %168 = getelementptr inbounds i16, ptr %3, i64 %159
+  %168 = getelementptr inbounds nuw i16, ptr %3, i64 %159
   %169 = load i16, ptr %168, align 2
-  %170 = getelementptr inbounds i16, ptr %3, i64 %162
+  %170 = getelementptr inbounds nuw i16, ptr %3, i64 %162
   %171 = load i16, ptr %170, align 2
   %.not357 = icmp eq i16 %169, %171
   br i1 %.not357, label %174, label %172
@@ -2376,10 +2376,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %175 = add i32 %.0277, 2
   %176 = add i32 %.0278, 2
   %177 = zext i32 %175 to i64
-  %178 = getelementptr inbounds i8, ptr %2, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = zext i32 %176 to i64
-  %181 = getelementptr inbounds i8, ptr %2, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 %180
   %182 = load i8, ptr %181, align 1
   %.not358 = icmp eq i8 %179, %182
   br i1 %.not358, label %185, label %183
@@ -2389,9 +2389,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 185:                                              ; preds = %174
-  %186 = getelementptr inbounds i16, ptr %3, i64 %177
+  %186 = getelementptr inbounds nuw i16, ptr %3, i64 %177
   %187 = load i16, ptr %186, align 2
-  %188 = getelementptr inbounds i16, ptr %3, i64 %180
+  %188 = getelementptr inbounds nuw i16, ptr %3, i64 %180
   %189 = load i16, ptr %188, align 2
   %.not359 = icmp eq i16 %187, %189
   br i1 %.not359, label %192, label %190
@@ -2404,10 +2404,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %193 = add i32 %.0277, 3
   %194 = add i32 %.0278, 3
   %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds i8, ptr %2, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr %2, i64 %195
   %197 = load i8, ptr %196, align 1
   %198 = zext i32 %194 to i64
-  %199 = getelementptr inbounds i8, ptr %2, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 %198
   %200 = load i8, ptr %199, align 1
   %.not360 = icmp eq i8 %197, %200
   br i1 %.not360, label %203, label %201
@@ -2417,9 +2417,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 203:                                              ; preds = %192
-  %204 = getelementptr inbounds i16, ptr %3, i64 %195
+  %204 = getelementptr inbounds nuw i16, ptr %3, i64 %195
   %205 = load i16, ptr %204, align 2
-  %206 = getelementptr inbounds i16, ptr %3, i64 %198
+  %206 = getelementptr inbounds nuw i16, ptr %3, i64 %198
   %207 = load i16, ptr %206, align 2
   %.not361 = icmp eq i16 %205, %207
   br i1 %.not361, label %210, label %208
@@ -2432,10 +2432,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %211 = add i32 %.0277, 4
   %212 = add i32 %.0278, 4
   %213 = zext i32 %211 to i64
-  %214 = getelementptr inbounds i8, ptr %2, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 %213
   %215 = load i8, ptr %214, align 1
   %216 = zext i32 %212 to i64
-  %217 = getelementptr inbounds i8, ptr %2, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr %2, i64 %216
   %218 = load i8, ptr %217, align 1
   %.not362 = icmp eq i8 %215, %218
   br i1 %.not362, label %221, label %219
@@ -2445,9 +2445,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 221:                                              ; preds = %210
-  %222 = getelementptr inbounds i16, ptr %3, i64 %213
+  %222 = getelementptr inbounds nuw i16, ptr %3, i64 %213
   %223 = load i16, ptr %222, align 2
-  %224 = getelementptr inbounds i16, ptr %3, i64 %216
+  %224 = getelementptr inbounds nuw i16, ptr %3, i64 %216
   %225 = load i16, ptr %224, align 2
   %.not363 = icmp eq i16 %223, %225
   br i1 %.not363, label %228, label %226
@@ -2460,10 +2460,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %229 = add i32 %.0277, 5
   %230 = add i32 %.0278, 5
   %231 = zext i32 %229 to i64
-  %232 = getelementptr inbounds i8, ptr %2, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 %231
   %233 = load i8, ptr %232, align 1
   %234 = zext i32 %230 to i64
-  %235 = getelementptr inbounds i8, ptr %2, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr %2, i64 %234
   %236 = load i8, ptr %235, align 1
   %.not364 = icmp eq i8 %233, %236
   br i1 %.not364, label %239, label %237
@@ -2473,9 +2473,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 239:                                              ; preds = %228
-  %240 = getelementptr inbounds i16, ptr %3, i64 %231
+  %240 = getelementptr inbounds nuw i16, ptr %3, i64 %231
   %241 = load i16, ptr %240, align 2
-  %242 = getelementptr inbounds i16, ptr %3, i64 %234
+  %242 = getelementptr inbounds nuw i16, ptr %3, i64 %234
   %243 = load i16, ptr %242, align 2
   %.not365 = icmp eq i16 %241, %243
   br i1 %.not365, label %246, label %244
@@ -2488,10 +2488,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %247 = add i32 %.0277, 6
   %248 = add i32 %.0278, 6
   %249 = zext i32 %247 to i64
-  %250 = getelementptr inbounds i8, ptr %2, i64 %249
+  %250 = getelementptr inbounds nuw i8, ptr %2, i64 %249
   %251 = load i8, ptr %250, align 1
   %252 = zext i32 %248 to i64
-  %253 = getelementptr inbounds i8, ptr %2, i64 %252
+  %253 = getelementptr inbounds nuw i8, ptr %2, i64 %252
   %254 = load i8, ptr %253, align 1
   %.not366 = icmp eq i8 %251, %254
   br i1 %.not366, label %257, label %255
@@ -2501,9 +2501,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 257:                                              ; preds = %246
-  %258 = getelementptr inbounds i16, ptr %3, i64 %249
+  %258 = getelementptr inbounds nuw i16, ptr %3, i64 %249
   %259 = load i16, ptr %258, align 2
-  %260 = getelementptr inbounds i16, ptr %3, i64 %252
+  %260 = getelementptr inbounds nuw i16, ptr %3, i64 %252
   %261 = load i16, ptr %260, align 2
   %.not367 = icmp eq i16 %259, %261
   br i1 %.not367, label %264, label %262
@@ -2516,10 +2516,10 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   %265 = add i32 %.0277, 7
   %266 = add i32 %.0278, 7
   %267 = zext i32 %265 to i64
-  %268 = getelementptr inbounds i8, ptr %2, i64 %267
+  %268 = getelementptr inbounds nuw i8, ptr %2, i64 %267
   %269 = load i8, ptr %268, align 1
   %270 = zext i32 %266 to i64
-  %271 = getelementptr inbounds i8, ptr %2, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr %2, i64 %270
   %272 = load i8, ptr %271, align 1
   %.not368 = icmp eq i8 %269, %272
   br i1 %.not368, label %275, label %273
@@ -2529,9 +2529,9 @@ define internal fastcc zeroext range(i8 0, 2) i8 @mainGtU(i32 noundef %0, i32 no
   br label %.loopexit
 
 275:                                              ; preds = %264
-  %276 = getelementptr inbounds i16, ptr %3, i64 %267
+  %276 = getelementptr inbounds nuw i16, ptr %3, i64 %267
   %277 = load i16, ptr %276, align 2
-  %278 = getelementptr inbounds i16, ptr %3, i64 %270
+  %278 = getelementptr inbounds nuw i16, ptr %3, i64 %270
   %279 = load i16, ptr %278, align 2
   %.not369 = icmp eq i16 %277, %279
   br i1 %.not369, label %282, label %280

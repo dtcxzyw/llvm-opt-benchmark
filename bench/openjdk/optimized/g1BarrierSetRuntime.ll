@@ -40,7 +40,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN19G1BarrierSetRuntime29write_ref_array_pre_oop_entryEPP7oopDescm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2592) %3, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #3
   ret void
@@ -50,7 +50,7 @@ define hidden void @_ZN19G1BarrierSetRuntime29write_ref_array_pre_oop_entryEPP7o
 define hidden void @_ZN19G1BarrierSetRuntime36write_ref_array_pre_narrow_oop_entryEP9narrowOopm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(2592) %3, ptr noundef %0, i64 noundef %1, i1 noundef zeroext false) #3
   ret void
@@ -71,7 +71,7 @@ define hidden void @_ZN19G1BarrierSetRuntime26write_ref_array_post_entryEPP12Hea
   %12 = add i64 %reass.sub, 7
   %13 = lshr i64 %12, 3
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr %10, i64 %13) #3
   ret void
@@ -79,9 +79,9 @@ define hidden void @_ZN19G1BarrierSetRuntime26write_ref_array_post_entryEPP12Hea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19G1BarrierSetRuntime25write_ref_field_pre_entryEP7oopDescP10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1264
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1264
   tail call void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopDesc(ptr noundef nonnull align 8 dereferenceable(393) %5, ptr noundef nonnull align 8 dereferenceable(17) %3, ptr noundef %0) #3
   ret void
 }
@@ -90,9 +90,9 @@ declare void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueueP7oopD
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19G1BarrierSetRuntime26write_ref_field_post_entryEPVhP10JavaThread(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1664
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1664
   tail call void @_ZN19G1DirtyCardQueueSet7enqueueER16G1DirtyCardQueuePVh(ptr noundef nonnull align 8 dereferenceable(928) %5, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %0) #3
   ret void
 }

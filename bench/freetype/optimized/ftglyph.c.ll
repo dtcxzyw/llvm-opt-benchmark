@@ -20,34 +20,34 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal i32 @ft_bitmap_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 1651078259
   br i1 %.not, label %6, label %28
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 196
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not15 = icmp eq i32 %17, 0
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not15, label %25, label %19
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %1, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, -2
   store i32 %24, ptr %22, align 8
@@ -55,7 +55,7 @@ define internal i32 @ft_bitmap_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
 
 25:                                               ; preds = %6
   tail call void @FT_Bitmap_Init(ptr noundef nonnull %18) #6
-  %26 = getelementptr inbounds i8, ptr %1, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %27 = tail call i32 @FT_Bitmap_Copy(ptr noundef %3, ptr noundef nonnull %26, ptr noundef nonnull %18) #6
   br label %28
 
@@ -67,7 +67,7 @@ define internal i32 @ft_bitmap_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @ft_bitmap_glyph_done(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = tail call i32 @FT_Bitmap_Done(ptr noundef %2, ptr noundef nonnull %3) #6
   ret void
 }
@@ -75,62 +75,62 @@ define internal void @ft_bitmap_glyph_done(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @ft_bitmap_glyph_copy(ptr noundef %0, ptr noundef initializes((40, 48)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = tail call i32 @FT_Bitmap_Copy(ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   ret i32 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @ft_bitmap_glyph_bbox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = shl nsw i32 %4, 6
   %6 = sext i32 %5 to i64
   store i64 %6, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %9, 6
   %11 = zext i32 %10 to i64
   %12 = add nsw i64 %11, %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = shl nsw i32 %15, 6
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %17, ptr %18, align 8
   %19 = load i32, ptr %7, align 8
   %20 = shl i32 %19, 6
   %21 = zext i32 %20 to i64
   %22 = sub nsw i64 %17, %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %22, ptr %23, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @ft_outline_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 1869968492
   br i1 %.not, label %7, label %17
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 202
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 202
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = load i16, ptr %3, align 8
@@ -151,7 +151,7 @@ define internal i32 @ft_outline_glyph_init(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @ft_outline_glyph_done(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call i32 @FT_Outline_Done(ptr noundef %2, ptr noundef nonnull %3) #6
   ret void
 }
@@ -159,13 +159,13 @@ define internal void @ft_outline_glyph_done(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @ft_outline_glyph_copy(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 42
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   %8 = load i16, ptr %4, align 8
   %9 = zext i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = tail call i32 @FT_Outline_New(ptr noundef %3, i32 noundef %7, i32 noundef %9, ptr noundef nonnull %10) #6
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
@@ -184,7 +184,7 @@ define internal void @ft_outline_glyph_transform(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @FT_Outline_Transform(ptr noundef nonnull %5, ptr noundef nonnull %1) #6
   br label %6
 
@@ -193,9 +193,9 @@ define internal void @ft_outline_glyph_transform(ptr noundef %0, ptr noundef %1,
   br i1 %.not9, label %12, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   tail call void @FT_Outline_Translate(ptr noundef nonnull %8, i64 noundef %9, i64 noundef %11) #6
   br label %12
@@ -206,19 +206,19 @@ define internal void @ft_outline_glyph_transform(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @ft_outline_glyph_bbox(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @FT_Outline_Get_CBox(ptr noundef nonnull %3, ptr noundef %1) #6
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @ft_outline_glyph_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((144, 148), (200, 240)) %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 1869968492, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 200
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, -2
   store i32 %8, ptr %6, align 8
@@ -231,58 +231,58 @@ define internal i32 @ft_svg_glyph_init(ptr nocapture noundef %0, ptr nocapture n
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 1398163232
   br i1 %.not, label %8, label %41
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %41, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %41, label %16
 
 16:                                               ; preds = %12
   %17 = call ptr @ft_mem_qalloc(ptr noundef %5, i64 noundef %14, ptr noundef nonnull %3) #6
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %17, ptr %18, align 8
   %19 = load i32, ptr %3, align 4
   %.not29 = icmp eq i32 %19, 0
   br i1 %.not29, label %20, label %41
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %14, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %26, i64 56, i1 false)
-  %27 = getelementptr inbounds i8, ptr %10, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %28 = load i16, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i16 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 74
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 74
   %31 = load i16, ptr %30, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 122
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 122
   store i16 %31, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %10, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 76
   %34 = load i16, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 124
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i16 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
-  %37 = getelementptr inbounds i8, ptr %10, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false)
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
-  %39 = getelementptr inbounds i8, ptr %10, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   %40 = load ptr, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %40, i64 %14, i1 false)
@@ -298,7 +298,7 @@ define internal i32 @ft_svg_glyph_init(ptr nocapture noundef %0, ptr nocapture n
 define internal void @ft_svg_glyph_done(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void @ft_mem_free(ptr noundef %3, ptr noundef %5) #6
   store ptr null, ptr %4, align 8
@@ -311,55 +311,55 @@ define internal i32 @ft_svg_glyph_copy(ptr nocapture noundef readonly %0, ptr no
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 1398163232
   br i1 %.not, label %8, label %40
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %40, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %14, ptr %15, align 8
   %16 = load i64, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 64
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull align 8 dereferenceable(56) %19, i64 56, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load i16, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i16 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 122
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %24 = load i16, ptr %23, align 2
-  %25 = getelementptr inbounds i8, ptr %1, i64 122
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 122
   store i16 %24, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %0, i64 124
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %27 = load i16, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 124
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i16 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 128
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
-  %31 = getelementptr inbounds i8, ptr %1, i64 160
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   %33 = call ptr @ft_mem_qalloc(ptr noundef %5, i64 noundef %16, ptr noundef nonnull %3) #6
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %33, ptr %34, align 8
   %35 = load i32, ptr %3, align 4
   %.not27 = icmp eq i32 %35, 0
   br i1 %.not27, label %36, label %40
 
 36:                                               ; preds = %12
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr align 1 %38, i64 %39, i1 false)
@@ -379,16 +379,16 @@ define internal void @ft_svg_glyph_transform(ptr nocapture noundef %0, ptr nound
   %5 = alloca %struct.FT_Matrix_, align 8
   %6 = alloca %struct.FT_Matrix_, align 8
   %.not = icmp eq ptr %1, null
-  %.0.sroa.gep24 = getelementptr inbounds i8, ptr %1, i64 8
-  %.0.sroa.gep27 = getelementptr inbounds i8, ptr %1, i64 16
-  %.0.sroa.gep30 = getelementptr inbounds i8, ptr %1, i64 24
-  %.021.sroa.gep34 = getelementptr inbounds i8, ptr %2, i64 8
+  %.0.sroa.gep24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.0.sroa.gep27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.0.sroa.gep30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.021.sroa.gep34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %3
-  %.0.sroa.gep31 = getelementptr inbounds i8, ptr %4, i64 24
-  %.0.sroa.gep28 = getelementptr inbounds i8, ptr %4, i64 16
-  %.0.sroa.gep25 = getelementptr inbounds i8, ptr %4, i64 8
+  %.0.sroa.gep31 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.0.sroa.gep28 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.0.sroa.gep25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 65536, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.sroa.gep25, i8 0, i64 16, i1 false)
   store i64 65536, ptr %.0.sroa.gep31, align 8
@@ -410,12 +410,12 @@ define internal void @ft_svg_glyph_transform(ptr nocapture noundef %0, ptr nound
 10:                                               ; preds = %9, %8
   %.021.sroa.phi = phi ptr [ %2, %8 ], [ %.sroa.0, %9 ]
   %.021.sroa.phi33 = phi ptr [ %.021.sroa.gep34, %8 ], [ %.sroa.2, %9 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
   call void @FT_Matrix_Multiply(ptr noundef nonnull %6, ptr noundef nonnull %5) #6
   %12 = load i64, ptr %.0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %14 = load i64, ptr %13, align 8
   %sext = shl i64 %12, 32
   %15 = ashr exact i64 %sext, 32
@@ -428,7 +428,7 @@ define internal void @ft_svg_glyph_transform(ptr nocapture noundef %0, ptr nound
   %21 = shl i64 %20, 16
   %22 = ashr i64 %21, 32
   %23 = load i64, ptr %.0.sroa.phi23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %25 = load i64, ptr %24, align 8
   %sext41 = shl i64 %23, 32
   %26 = ashr exact i64 %sext41, 32
@@ -482,41 +482,41 @@ define internal i32 @ft_svg_glyph_prepare(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %8, label %34
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i16, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i16 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 122
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %20 = load i16, ptr %19, align 2
-  %21 = getelementptr inbounds i8, ptr %6, i64 74
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 74
   store i16 %20, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 124
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %23 = load i16, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i16 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 80
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
-  %27 = getelementptr inbounds i8, ptr %6, i64 112
-  %28 = getelementptr inbounds i8, ptr %0, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %1, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 1398163232, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store ptr %6, ptr %33, align 8
   br label %34
 
@@ -533,7 +533,7 @@ define i32 @FT_Glyph_Copy(ptr noundef %0, ptr noundef writeonly %1) local_unname
   br i1 %or.cond, label %6, label %37
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %37, label %9
@@ -560,20 +560,20 @@ ft_new_glyph.exit:                                ; preds = %11
 
 17:                                               ; preds = %11
   store ptr %12, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %10, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %21, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not26 = icmp eq ptr %27, null
   br i1 %.not26, label %.thread, label %28
@@ -587,7 +587,7 @@ ft_new_glyph.exit:                                ; preds = %11
   %31 = load ptr, ptr %15, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %18, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not9.i = icmp eq ptr %35, null
   br i1 %.not9.i, label %FT_Done_Glyph.exit, label %36
@@ -620,9 +620,9 @@ define void @FT_Done_Glyph(ptr noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %10, label %9
@@ -663,7 +663,7 @@ define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
 10:                                               ; preds = %7
   %11 = tail call ptr @FT_Lookup_Renderer(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null) #6
   %.not = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br i1 %.not, label %23, label %13
 
 13:                                               ; preds = %8, %9, %7, %10
@@ -679,11 +679,11 @@ define i32 @FT_New_Glyph(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
 
 18:                                               ; preds = %13
   store ptr %0, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.014.ph, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.014.ph, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.014.ph, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %21, ptr %22, align 8
   store ptr %16, ptr %2, align 8
   br label %ft_new_glyph.exit
@@ -711,7 +711,7 @@ define i32 @FT_Get_Glyph(ptr noundef %0, ptr noundef writeonly %1) local_unnamed
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %.not41 = icmp eq ptr %6, null
   br i1 %.not41, label %FT_New_Glyph.exit.thread, label %9
@@ -732,7 +732,7 @@ define i32 @FT_Get_Glyph(ptr noundef %0, ptr noundef writeonly %1) local_unnamed
 12:                                               ; preds = %9
   %13 = tail call ptr @FT_Lookup_Renderer(ptr noundef nonnull %6, i32 noundef %8, ptr noundef null) #6
   %.not.i = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   br i1 %.not.i, label %FT_New_Glyph.exit.thread, label %15
 
 15:                                               ; preds = %12, %11, %10, %9
@@ -751,21 +751,21 @@ FT_New_Glyph.exit:                                ; preds = %15
 
 21:                                               ; preds = %15
   store ptr %6, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %16, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %24, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, -2097152
   %or.cond = icmp ult i64 %28, -4194303
   br i1 %or.cond, label %.thread, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, -2097152
   %or.cond25 = icmp ult i64 %32, -4194303
@@ -773,13 +773,13 @@ FT_New_Glyph.exit:                                ; preds = %15
 
 33:                                               ; preds = %29
   %34 = shl nsw i64 %27, 10
-  %35 = getelementptr inbounds i8, ptr %19, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %34, ptr %35, align 8
   %36 = load i64, ptr %30, align 8
   %37 = shl nsw i64 %36, 10
-  %38 = getelementptr inbounds i8, ptr %19, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %16, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %40(ptr noundef nonnull %19, ptr noundef nonnull %0) #6
   %.not24 = icmp eq i32 %41, 0
@@ -795,7 +795,7 @@ FT_New_Glyph.exit:                                ; preds = %15
   %43 = phi ptr [ %.pre, %..thread_crit_edge ], [ %6, %21 ], [ %6, %29 ]
   %.140 = phi i32 [ %41, %..thread_crit_edge ], [ 6, %21 ], [ 6, %29 ]
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load ptr, ptr %45, align 8
   %.not9.i = icmp eq ptr %46, null
   br i1 %.not9.i, label %FT_Done_Glyph.exit, label %47
@@ -824,13 +824,13 @@ define range(i32 0, 19) i32 @FT_Glyph_Transform(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not15 = icmp eq ptr %6, null
   br i1 %.not15, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %13, label %10
@@ -841,7 +841,7 @@ define range(i32 0, 19) i32 @FT_Glyph_Transform(ptr noundef %0, ptr noundef %1, 
   br i1 %.not17, label %13, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @FT_Vector_Transform(ptr noundef nonnull %12, ptr noundef nonnull %1) #6
   br label %13
 
@@ -858,21 +858,21 @@ define void @FT_Glyph_Get_CBox(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %.not, label %38, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not33 = icmp eq ptr %0, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   br i1 %.not33, label %38, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not34 = icmp eq ptr %10, null
   br i1 %.not34, label %38, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not35 = icmp eq ptr %13, null
   br i1 %.not35, label %38, label %14
@@ -939,7 +939,7 @@ define i32 @FT_Glyph_To_Bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %.not57, label %.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
   %15 = icmp ne ptr %14, null
@@ -952,21 +952,21 @@ define i32 @FT_Glyph_To_Bitmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %13, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %21 = load ptr, ptr %20, align 8
   %.not58 = icmp eq ptr %21, null
   br i1 %.not58, label %.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %23, i8 0, i64 288, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  %24 = getelementptr inbounds i8, ptr %6, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store ptr %7, ptr %24, align 8
   store ptr %14, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 %26, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %28 = load ptr, ptr %14, align 8
@@ -981,9 +981,9 @@ ft_new_glyph.exit:                                ; preds = %22
 
 31:                                               ; preds = %22
   store ptr %14, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @ft_bitmap_glyph_class, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 1651078259, ptr %33, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %34 = icmp ne ptr %2, null
@@ -995,7 +995,7 @@ ft_new_glyph.exit:                                ; preds = %22
   br i1 %.not15.i, label %FT_Glyph_Transform.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %36, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %39 = load ptr, ptr %38, align 8
   %.not16.i = icmp eq ptr %39, null
   br i1 %.not16.i, label %FT_Glyph_Transform.exit, label %40
@@ -1022,7 +1022,7 @@ FT_Glyph_Transform.exit:                          ; preds = %40, %37, %35, %31
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %51 = load ptr, ptr %50, align 8
   call void @ft_mem_free(ptr noundef %49, ptr noundef %51) #6
   store ptr null, ptr %50, align 8
@@ -1037,17 +1037,17 @@ FT_Glyph_Transform.exit:                          ; preds = %40, %37, %35, %31
   %55 = load i64, ptr %2, align 8
   %56 = sub nsw i64 0, %55
   store i64 %56, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds i8, ptr %8, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %59, ptr %60, align 8
   %61 = load ptr, ptr %12, align 8
   %.not15.i66 = icmp eq ptr %61, null
   br i1 %.not15.i66, label %FT_Glyph_Transform.exit69, label %62
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %61, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %64 = load ptr, ptr %63, align 8
   %.not16.i67 = icmp eq ptr %64, null
   br i1 %.not16.i67, label %FT_Glyph_Transform.exit69, label %65
@@ -1066,8 +1066,8 @@ FT_Glyph_Transform.exit69:                        ; preds = %65, %62, %54, %52
   br i1 %.not62, label %68, label %73
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %29, i64 24
-  %70 = getelementptr inbounds i8, ptr %10, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
   br i1 %53, label %72, label %71
 
@@ -1084,7 +1084,7 @@ FT_Glyph_Transform.exit69:                        ; preds = %65, %62, %54, %52
   %74 = load ptr, ptr %29, align 8
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %32, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not9.i = icmp eq ptr %78, null
   br i1 %.not9.i, label %FT_Done_Glyph.exit, label %79

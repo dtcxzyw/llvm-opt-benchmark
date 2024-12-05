@@ -85,7 +85,7 @@ define hidden noundef nonnull ptr @avifPixelFormatToString(i32 noundef %0) local
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.avifPixelFormatToString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.avifPixelFormatToString, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -132,7 +132,7 @@ define hidden noundef nonnull ptr @avifResultToString(i32 noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [29 x ptr], ptr @switch.table.avifResultToString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [29 x ptr], ptr @switch.table.avifResultToString, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -148,7 +148,7 @@ define hidden noundef nonnull ptr @avifProgressiveStateToString(i32 noundef %0) 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.avifProgressiveStateToString, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.avifProgressiveStateToString, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -184,7 +184,7 @@ define hidden ptr @avifImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %10, i8 0, i64 184, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %11, align 8
@@ -217,7 +217,7 @@ define hidden ptr @avifImageCreateEmpty() local_unnamed_addr #3 {
   br i1 %.not.i, label %avifImageCreate.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %3, i8 0, i64 184, i1 false)
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -384,10 +384,10 @@ avifImagePlaneRowBytes.exit57.thread136:          ; preds = %24
 avifImagePlaneRowBytes.exit57:                    ; preds = %22, %avifGetPixelFormatInfo.exit.thread.i48, %29, %26
   %.0.i59.ph = phi i32 [ %32, %29 ], [ %32, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %27, %26 ], [ 0, %22 ]
   %.0.i46.ph = phi i32 [ 0, %29 ], [ %35, %avifGetPixelFormatInfo.exit.thread.i48 ], [ %28, %26 ], [ 0, %22 ]
-  %38 = getelementptr inbounds [3 x ptr], ptr %13, i64 0, i64 %indvars.iv
-  %39 = getelementptr inbounds [3 x ptr], ptr %14, i64 0, i64 %indvars.iv
-  %40 = getelementptr inbounds [3 x i32], ptr %15, i64 0, i64 %indvars.iv
-  %41 = getelementptr inbounds [3 x i32], ptr %16, i64 0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [3 x ptr], ptr %13, i64 0, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [3 x ptr], ptr %14, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %indvars.iv
   %.0.i498390112.pre = load ptr, ptr %38, align 8
   %.not43 = icmp eq ptr %.0.i498390112.pre, null
   br i1 %.not43, label %.loopexit, label %42
@@ -417,8 +417,8 @@ avifImagePlaneRowBytes.exit57:                    ; preds = %22, %avifGetPixelFo
   %.039117 = phi ptr [ %.0.i498390112146, %.lr.ph ], [ %48, %47 ]
   %.040116 = phi ptr [ %.0.i5198106, %.lr.ph ], [ %49, %47 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040116, ptr align 1 %.039117, i64 %44, i1 false)
-  %48 = getelementptr inbounds i8, ptr %.039117, i64 %45
-  %49 = getelementptr inbounds i8, ptr %.040116, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %.039117, i64 %45
+  %49 = getelementptr inbounds nuw i8, ptr %.040116, i64 %46
   %50 = add nuw i32 %.0118, 1
   %exitcond.not = icmp eq i32 %50, %.0.i46697994108148
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !4
@@ -553,7 +553,7 @@ define hidden ptr @avifImagePlane(ptr nocapture noundef readonly %0, i32 noundef
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [3 x ptr], ptr %4, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %13
 
@@ -579,7 +579,7 @@ define hidden i32 @avifImagePlaneRowBytes(ptr nocapture noundef readonly %0, i32
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [3 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   br label %13
 
@@ -614,10 +614,10 @@ define hidden i32 @avifImageCopy(ptr noundef initializes((0, 12), (16, 24), (72,
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void @avifFree(ptr noundef %11) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void @avifFree(ptr noundef %13) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   tail call void @avifFree(ptr noundef %15) #14
   br label %16
@@ -748,13 +748,13 @@ avifImageFreePlanes.exit:                         ; preds = %18, %21
   br i1 %.not43, label %102, label %96
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %1, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %98 = load ptr, ptr %97, align 8
   %.not44 = icmp eq ptr %98, null
   br i1 %.not44, label %avifImageCopySamples.exit, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %1, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %101 = load ptr, ptr %100, align 8
   %.not45 = icmp eq ptr %101, null
   br i1 %.not45, label %avifImageCopySamples.exit, label %102
@@ -857,10 +857,10 @@ avifImagePlaneRowBytes.exit57.thread136.i:        ; preds = %128
 avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatInfo.exit.thread.i48.i, %133, %130, %126
   %.0.i59.ph.i = phi i32 [ %136, %133 ], [ %136, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %131, %130 ], [ 0, %126 ]
   %.0.i46.ph.i = phi i32 [ 0, %133 ], [ %139, %avifGetPixelFormatInfo.exit.thread.i48.i ], [ %132, %130 ], [ 0, %126 ]
-  %142 = getelementptr inbounds [3 x ptr], ptr %117, i64 0, i64 %indvars.iv.i
-  %143 = getelementptr inbounds [3 x ptr], ptr %118, i64 0, i64 %indvars.iv.i
-  %144 = getelementptr inbounds [3 x i32], ptr %119, i64 0, i64 %indvars.iv.i
-  %145 = getelementptr inbounds [3 x i32], ptr %120, i64 0, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [3 x ptr], ptr %117, i64 0, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [3 x ptr], ptr %118, i64 0, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw [3 x i32], ptr %119, i64 0, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [3 x i32], ptr %120, i64 0, i64 %indvars.iv.i
   %.0.i498390112.pre.i = load ptr, ptr %142, align 8
   %.not43.i = icmp eq ptr %.0.i498390112.pre.i, null
   br i1 %.not43.i, label %.loopexit.i, label %146
@@ -890,8 +890,8 @@ avifImagePlaneRowBytes.exit57.i:                  ; preds = %avifGetPixelFormatI
   %.039117.i = phi ptr [ %.0.i498390112146.i, %.lr.ph.i ], [ %152, %151 ]
   %.040116.i = phi ptr [ %.0.i5198106.i, %.lr.ph.i ], [ %153, %151 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.040116.i, ptr align 1 %.039117.i, i64 %148, i1 false)
-  %152 = getelementptr inbounds i8, ptr %.039117.i, i64 %149
-  %153 = getelementptr inbounds i8, ptr %.040116.i, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %.039117.i, i64 %149
+  %153 = getelementptr inbounds nuw i8, ptr %.040116.i, i64 %150
   %154 = add nuw i32 %.0118.i, 1
   %exitcond.not.i = icmp eq i32 %154, %.0.i46697994108148.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %151, !llvm.loop !4
@@ -928,10 +928,10 @@ define hidden void @avifImageFreePlanes(ptr nocapture noundef %0, i32 noundef %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @avifFree(ptr noundef %12) #14
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @avifFree(ptr noundef %14) #14
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void @avifFree(ptr noundef %16) #14
   br label %17
@@ -1089,13 +1089,13 @@ avifGetPixelFormatInfo.exit:                      ; preds = %24, %.sink.split.i
 
 54:                                               ; preds = %35, %60
   %indvars.iv = phi i64 [ 1, %35 ], [ %indvars.iv.next, %60 ]
-  %55 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %.not57 = icmp eq ptr %56, null
   br i1 %.not57, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds [3 x i32], ptr %53, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [3 x i32], ptr %53, i64 0, i64 %indvars.iv
   store i32 %52, ptr %58, align 4
   %59 = tail call ptr @avifAlloc(i64 noundef %51) #14
   store ptr %59, ptr %55, align 8
@@ -1225,10 +1225,10 @@ avifGetPixelFormatInfo.exit:                      ; preds = %3, %.sink.split.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void @avifFree(ptr noundef %40) #14
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
   tail call void @avifFree(ptr noundef %42) #14
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   tail call void @avifFree(ptr noundef %44) #14
   br label %45
@@ -1333,7 +1333,7 @@ avifImageFreePlanes.exit:                         ; preds = %47, %50
 
 106:                                              ; preds = %.preheader, %132
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %132 ]
-  %107 = getelementptr inbounds [3 x i32], ptr %102, i64 0, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [3 x i32], ptr %102, i64 0, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %.not66 = icmp eq i32 %108, 0
   br i1 %.not66, label %132, label %109
@@ -1358,17 +1358,17 @@ avifImageFreePlanes.exit:                         ; preds = %47, %50
   %119 = phi i32 [ %113, %112 ], [ %117, %114 ]
   %120 = zext i32 %.in to i64
   %121 = zext i32 %119 to i64
-  %122 = getelementptr inbounds [3 x ptr], ptr %100, i64 0, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [3 x ptr], ptr %100, i64 0, i64 %indvars.iv
   %123 = load ptr, ptr %122, align 8
   %124 = zext i32 %108 to i64
   %125 = mul nuw i64 %121, %124
   %126 = getelementptr inbounds i8, ptr %123, i64 %125
   %127 = shl nuw nsw i64 %120, %103
-  %128 = getelementptr inbounds i8, ptr %126, i64 %127
-  %129 = getelementptr inbounds [3 x ptr], ptr %104, i64 0, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
+  %129 = getelementptr inbounds nuw [3 x ptr], ptr %104, i64 0, i64 %indvars.iv
   store ptr %128, ptr %129, align 8
   %130 = load i32, ptr %107, align 4
-  %131 = getelementptr inbounds [3 x i32], ptr %105, i64 0, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [3 x i32], ptr %105, i64 0, i64 %indvars.iv
   store i32 %130, ptr %131, align 4
   br label %132
 
@@ -1395,7 +1395,7 @@ avifImageFreePlanes.exit:                         ; preds = %47, %50
   %144 = zext i32 %143 to i64
   %145 = zext i1 %99 to i64
   %146 = shl nuw nsw i64 %144, %145
-  %147 = getelementptr inbounds i8, ptr %142, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 %146
   store ptr %147, ptr %53, align 8
   %148 = load i32, ptr %138, align 8
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1424,10 +1424,10 @@ define hidden void @avifImageDestroy(ptr noundef initializes((72, 76)) %0) local
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @avifFree(ptr noundef %9) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @avifFree(ptr noundef %11) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void @avifFree(ptr noundef %13) #14
   br label %14
@@ -1488,10 +1488,10 @@ define hidden void @avifImageStealPlanes(ptr nocapture noundef %0, ptr nocapture
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void @avifFree(ptr noundef %13) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void @avifFree(ptr noundef %15) #14
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   tail call void @avifFree(ptr noundef %17) #14
   br label %18
@@ -1535,21 +1535,21 @@ avifImageFreePlanes.exit:                         ; preds = %20, %28
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %31, i8 0, i64 36, i1 false)
@@ -1631,7 +1631,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr nocapture noundef reado
 
 14:                                               ; preds = %.preheader.us.us, %13
   %indvars.iv54 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next55, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.02538.us.us, i64 %indvars.iv54
+  %15 = getelementptr inbounds nuw i8, ptr %.02538.us.us, i64 %indvars.iv54
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %.not28.us.us = icmp eq i32 %17, %7
@@ -1640,7 +1640,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr nocapture noundef reado
 ..loopexit_crit_edge.us.us:                       ; preds = %13
   %18 = load i32, ptr %11, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %.02538.us.us, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %.02538.us.us, i64 %19
   %21 = add nuw i32 %.02440.us.us, 1
   %exitcond59.not = icmp eq i32 %21, %9
   br i1 %exitcond59.not, label %.loopexit30, label %.preheader.us.us, !llvm.loop !10
@@ -1664,7 +1664,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr nocapture noundef reado
 
 23:                                               ; preds = %.preheader31.us, %22
   %indvars.iv = phi i64 [ 0, %.preheader31.us ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr inbounds i16, ptr %.02538.us43, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i16, ptr %.02538.us43, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %.not29.us = icmp eq i32 %26, %7
@@ -1673,7 +1673,7 @@ define hidden range(i32 0, 2) i32 @avifImageIsOpaque(ptr nocapture noundef reado
 ..loopexit32_crit_edge.us:                        ; preds = %22
   %27 = load i32, ptr %11, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %.02538.us43, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %.02538.us43, i64 %28
   %30 = add nuw i32 %.02440.us42, 1
   %exitcond53.not = icmp eq i32 %30, %9
   br i1 %exitcond53.not, label %.loopexit30, label %.preheader31.us, !llvm.loop !10
@@ -1751,7 +1751,7 @@ define hidden range(i32 3, 5) i32 @avifRGBFormatChannelCount(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.avifRGBFormatChannelCount, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.avifRGBFormatChannelCount, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -2403,7 +2403,7 @@ define hidden void @avifCodecSpecificOptionsClear(ptr nocapture noundef %0) loca
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds %struct.avifCodecSpecificOption, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.avifCodecSpecificOption, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void @avifFree(ptr noundef %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2430,7 +2430,7 @@ define hidden void @avifCodecSpecificOptionsDestroy(ptr noundef %0) local_unname
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds %struct.avifCodecSpecificOption, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw %struct.avifCodecSpecificOption, ptr %4, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   tail call void @avifFree(ptr noundef %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2465,7 +2465,7 @@ define hidden range(i32 0, 27) i32 @avifCodecSpecificOptionsSet(ptr noundef %0, 
 
 7:                                                ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %8 = getelementptr inbounds %struct.avifCodecSpecificOption, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.avifCodecSpecificOption, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #15
   %.not39 = icmp eq i32 %10, 0
@@ -2508,10 +2508,10 @@ avifStrdup.exit:                                  ; preds = %13
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds %struct.avifCodecSpecificOption, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.avifCodecSpecificOption, ptr %25, i64 %indvars.iv
   %27 = add nuw i64 %indvars.iv, 1
   %28 = and i64 %27, 4294967295
-  %29 = getelementptr inbounds %struct.avifCodecSpecificOption, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw %struct.avifCodecSpecificOption, ptr %25, i64 %28
   %30 = sub i32 %23, %12
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2630,18 +2630,18 @@ define hidden void @avifCodecVersions(ptr nocapture noundef writeonly initialize
 .critedge:
   store i8 0, ptr %0, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.64, i64 3, i1 false)
-  %1 = getelementptr inbounds i8, ptr %0, i64 3
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 0, ptr %1, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 58, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 10
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 0, ptr %3, align 1
   %4 = tail call ptr @avifCodecVersionAOM() #14
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #15
   %spec.select.i13 = tail call i64 @llvm.umin.i64(i64 %5, i64 245)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr readonly align 1 %4, i64 %spec.select.i13, i1 false)
-  %6 = getelementptr inbounds i8, ptr %3, i64 %spec.select.i13
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select.i13
   store i8 0, ptr %6, align 1
   ret void
 }

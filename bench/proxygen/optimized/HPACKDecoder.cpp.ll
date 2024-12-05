@@ -58,24 +58,24 @@ define void @_ZN8proxygen12HPACKDecoder15decodeStreamingERN5folly2io6CursorEjPNS
 entry:
   %dbuf = alloca %"class.proxygen::HPACKDecodeBuffer", align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %maxUncompressed_ = getelementptr inbounds i8, ptr %this, i64 8
+  %maxUncompressed_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %maxUncompressed_, align 8
   %conv = trunc i64 %0 to i32
   store ptr %cursor, ptr %dbuf, align 8
-  %totalBytes_.i = getelementptr inbounds i8, ptr %dbuf, i64 8
+  %totalBytes_.i = getelementptr inbounds nuw i8, ptr %dbuf, i64 8
   store i32 %totalBytes, ptr %totalBytes_.i, align 8
-  %remainingBytes_.i = getelementptr inbounds i8, ptr %dbuf, i64 12
+  %remainingBytes_.i = getelementptr inbounds nuw i8, ptr %dbuf, i64 12
   store i32 %totalBytes, ptr %remainingBytes_.i, align 4
-  %maxLiteralSize_.i = getelementptr inbounds i8, ptr %dbuf, i64 16
+  %maxLiteralSize_.i = getelementptr inbounds nuw i8, ptr %dbuf, i64 16
   store i32 %conv, ptr %maxLiteralSize_.i, align 8
-  %endOfBufferIsError_.i = getelementptr inbounds i8, ptr %dbuf, i64 20
+  %endOfBufferIsError_.i = getelementptr inbounds nuw i8, ptr %dbuf, i64 20
   store i8 1, ptr %endOfBufferIsError_.i, align 4
   %1 = load i8, ptr %this, align 8
   %cmp.i.not13 = icmp eq i8 %1, 0
   br i1 %cmp.i.not13, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
@@ -178,7 +178,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.else
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, i1 noundef zeroext false)
   br label %return
 
@@ -225,10 +225,10 @@ entry:
   %and = and i32 %conv, 64
   %tobool.not = icmp eq i32 %and, 0
   store ptr null, ptr %header, align 8
-  %value.i = getelementptr inbounds i8, ptr %header, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %header, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 31
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %header, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i.i, align 1
   store i8 0, ptr %value.i, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #14
@@ -283,7 +283,7 @@ lpad12:                                           ; preds = %invoke.cont15, %inv
 if.end20:                                         ; preds = %invoke.cont
   %3 = load i64, ptr %index, align 8
   %conv21 = trunc i64 %3 to i32
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i11 = invoke noundef zeroext i1 @_ZNK8proxygen12HPACKContext8isStaticEj(ptr noundef nonnull align 8 dereferenceable(84) %add.ptr.i, i32 noundef %conv21)
           to label %call.i.noexc unwind label %lpad
 
@@ -292,7 +292,7 @@ call.i.noexc:                                     ; preds = %if.end20
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call.i.noexc
-  %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i12, i64 40
+  %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i12, i64 40
   %4 = load i32, ptr %size_.i.i.i, align 8
   %5 = select i1 %call.i11, ptr %call.i.i12, ptr %add.ptr.i
   %sub.i.i = select i1 %call.i11, i32 0, i32 %4
@@ -348,7 +348,7 @@ if.else:                                          ; preds = %entry
 invoke.cont42:                                    ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %headerName, i64 23
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %headerName, i64 23
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
   store i8 0, ptr %headerName, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
@@ -362,7 +362,7 @@ invoke.cont48:                                    ; preds = %invoke.cont42
   %12 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp ult i8 %12, 64
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr %headerName, ptr %11
-  %size_.i.i.i16 = getelementptr inbounds i8, ptr %headerName, i64 8
+  %size_.i.i.i16 = getelementptr inbounds nuw i8, ptr %headerName, i64 8
   %13 = load i64, ptr %size_.i.i.i16, align 8
   %conv.i.i.i = zext i8 %12 to i64
   %sub.i.i.i = sub nsw i64 23, %conv.i.i.i
@@ -555,7 +555,7 @@ invoke.cont94:                                    ; preds = %invoke.cont90
   %34 = load ptr, ptr %header, align 8
   %call.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #14
   %conv.i.i = and i64 %call.i.i.i, 4294967295
-  %size_.i.i.i.i = getelementptr inbounds i8, ptr %header, i64 16
+  %size_.i.i.i.i = getelementptr inbounds nuw i8, ptr %header, i64 16
   %35 = load i64, ptr %size_.i.i.i.i, align 8
   %36 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %36 to i64
@@ -567,11 +567,11 @@ invoke.cont94:                                    ; preds = %invoke.cont90
   %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
   %37 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %37, i32 31
-  %add.ptr96 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr96 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %38 = load ptr, ptr %header, align 8
   store ptr %38, ptr %agg.tmp97, align 8
   store ptr null, ptr %header, align 8
-  %value.i44 = getelementptr inbounds i8, ptr %agg.tmp97, i64 8
+  %value.i44 = getelementptr inbounds nuw i8, ptr %agg.tmp97, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i44, ptr noundef nonnull align 8 dereferenceable(24) %value.i, i64 24, i1 false)
   store i8 23, ptr %arrayidx.i.i.i.i.i.i, align 1
   store i8 0, ptr %value.i, align 8
@@ -579,7 +579,7 @@ invoke.cont94:                                    ; preds = %invoke.cont90
           to label %invoke.cont99 unwind label %lpad98
 
 invoke.cont99:                                    ; preds = %invoke.cont94
-  %arrayidx.i.i.i.i46 = getelementptr inbounds i8, ptr %agg.tmp97, i64 31
+  %arrayidx.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %agg.tmp97, i64 31
   %39 = load i8, ptr %arrayidx.i.i.i.i46, align 1
   %cmp.i.i.i47 = icmp ult i8 %39, 64
   br i1 %cmp.i.i.i47, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit.i, label %if.end.i.i.i
@@ -640,7 +640,7 @@ _ZN8proxygen11HPACKHeaderD2Ev.exit:               ; preds = %_ZN5folly14basic_fb
   br i1 %call100, label %cleanup126, label %while.cond
 
 while.cond:                                       ; preds = %_ZN8proxygen11HPACKHeaderD2Ev.exit
-  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %48 = load i32, ptr %capacity_.i, align 8
   %cmp.i = icmp ugt i32 %add.i, %48
   br i1 %cmp.i, label %invoke.cont113.thread, label %if.else.i50
@@ -783,7 +783,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygen5HPACKlsERSo
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8proxygen12HPACKDecoder7isValidEj(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef zeroext i1 @_ZNK8proxygen12HPACKContext8isStaticEj(ptr noundef nonnull align 8 dereferenceable(84) %add.ptr, i32 noundef %index)
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
   br i1 %call, label %if.then, label %if.else
@@ -793,7 +793,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %size_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load i32, ptr %size_.i.i, align 8
   %sub.i = sub i32 %index, %0
   %call10 = tail call noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, i32 noundef %sub.i)
@@ -889,13 +889,13 @@ declare noundef zeroext i1 @_ZN8proxygen11HeaderTable3addENS_11HPACKHeaderE(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i = icmp ult i8 %0, 64
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %this, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.i.i.i = icmp slt i8 %0, -64
   %1 = load ptr, ptr %value, align 8
   br i1 %cmp.i.i.i, label %if.end.sink.split.i.i.i, label %if.else.i.i.i
@@ -997,7 +997,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %conv = trunc i64 %2 to i32
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i = call noundef zeroext i1 @_ZNK8proxygen12HPACKContext8isStaticEj(ptr noundef nonnull align 8 dereferenceable(84) %add.ptr.i, i32 noundef %conv)
   %call.i.i = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen17StaticHeaderTable3getEv()
   br i1 %call.i, label %if.then.i, label %_ZN8proxygen12HPACKDecoder7isValidEj.exit
@@ -1007,7 +1007,7 @@ if.then.i:                                        ; preds = %lor.lhs.false
   br i1 %call6.i, label %if.end21, label %if.then11
 
 _ZN8proxygen12HPACKDecoder7isValidEj.exit:        ; preds = %lor.lhs.false
-  %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %size_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   %3 = load i32, ptr %size_.i.i.i, align 8
   %sub.i.i = sub i32 %conv, %3
   %call10.i = call noundef zeroext i1 @_ZNK8proxygen11HeaderTable7isValidEj(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr.i, i32 noundef %sub.i.i)
@@ -1095,7 +1095,7 @@ if.then:                                          ; preds = %entry
   %1 = extractvalue { i64, ptr } %call4.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #14
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call6, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1118,7 +1118,7 @@ lpad:                                             ; preds = %if.then
 if.else:                                          ; preds = %entry
   %call.i4 = tail call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
   %idx.ext.i = zext i8 %call3 to i64
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i4, i64 %idx.ext.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont

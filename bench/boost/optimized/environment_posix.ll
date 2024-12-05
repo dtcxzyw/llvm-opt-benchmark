@@ -101,7 +101,7 @@ define noundef ptr @_ZN5boost7process2v211environment6detail3getENS1_17basic_cst
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !11
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef 2) #18
   %13 = zext i1 %12 to i64
@@ -111,11 +111,11 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryEPKNS_15source_locati
   %.0.i.i.i = phi i64 [ %13, %8 ], [ 1, %5 ]
   %14 = or disjoint i64 %.0.i.i.i, ptrtoint (ptr @_ZZN5boost7process2v211environment6detail3getENS1_17basic_cstring_refIcSt11char_traitsIcEEERNS_6system10error_codeEE11loc__LINE__ to i64)
   store i32 2, ptr %1, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.53.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.53.0..sroa_idx.i, align 8, !tbaa !13
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %14, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !14
   br label %15
 
@@ -137,14 +137,14 @@ define void @_ZN5boost7process2v211environment6detail3setENS1_17basic_cstring_re
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
   call void @_ZN5boost7process2v26detail14get_last_errorEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::error_code") align 8 %4)
-  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0.copyload4.i = load i64, ptr %.sroa.5.0..sroa_idx3.i, align 8, !tbaa !14
   %switch.i.i = icmp ult i64 %.sroa.5.0.copyload4.i, 2
   %7 = and i64 %.sroa.5.0.copyload4.i, 1
   %8 = or disjoint i64 %7, ptrtoint (ptr @_ZZN5boost7process2v211environment6detail3setENS1_17basic_cstring_refIcSt11char_traitsIcEEES7_RNS_6system10error_codeEE11loc__LINE__ to i64)
   %.sroa.5.0.i = select i1 %switch.i.i, i64 %.sroa.5.0.copyload4.i, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #18
   br label %9
@@ -168,14 +168,14 @@ define void @_ZN5boost7process2v211environment6detail5unsetENS1_17basic_cstring_
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   call void @_ZN5boost7process2v26detail14get_last_errorEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::error_code") align 8 %3)
-  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.5.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.5.0.copyload4.i = load i64, ptr %.sroa.5.0..sroa_idx3.i, align 8, !tbaa !14
   %switch.i.i = icmp ult i64 %.sroa.5.0.copyload4.i, 2
   %6 = and i64 %.sroa.5.0.copyload4.i, 1
   %7 = or disjoint i64 %6, ptrtoint (ptr @_ZZN5boost7process2v211environment6detail5unsetENS1_17basic_cstring_refIcSt11char_traitsIcEEERNS_6system10error_codeEE11loc__LINE__ to i64)
   %.sroa.5.0.i = select i1 %switch.i.i, i64 %.sroa.5.0.copyload4.i, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 16, i1 false)
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sroa.5.0.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   br label %8
@@ -195,7 +195,7 @@ define noundef ptr @_ZN5boost7process2v211environment6detail18load_native_handle
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZN5boost7process2v211environment6detail4nextEPKPKc(ptr noundef readnone %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
@@ -251,7 +251,7 @@ declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_u
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !11
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #18
   %8 = extractvalue { i32, ptr } %7, 0

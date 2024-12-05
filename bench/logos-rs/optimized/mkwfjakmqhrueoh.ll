@@ -30,7 +30,7 @@ define hidden void @_ZN13logos_codegen9generator4rope18byte_slice_literal17h3d08
   %17 = alloca [16 x i8], align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h9f73cc6eb3573f2dE"(ptr nonnull align 8 %17)
   br i1 %20, label %38, label %21
@@ -40,7 +40,7 @@ define hidden void @_ZN13logos_codegen9generator4rope18byte_slice_literal17h3d08
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %22 = load i64, ptr %11, align 8
   %23 = icmp eq i64 %22, 0
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %23, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h953c17eddd8a5aadE.exit", label %25
 
 25:                                               ; preds = %21
@@ -50,29 +50,29 @@ define hidden void @_ZN13logos_codegen9generator4rope18byte_slice_literal17h3d08
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h953c17eddd8a5aadE.exit": ; preds = %21
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %28 = load i64, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store ptr %26, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %12, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %28, ptr %29, align 8
   store ptr %12, ptr %6, align 8
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h32f2b291462b5cbfE", ptr %.sroa.211.0..sroa_idx, align 8
   store ptr @anon.2e9013aee76437f8959de8243070a6d6.6, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %33, align 8
   call void @_ZN5alloc3fmt6format17h0016d02633801bf4E(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %37 = load i64, ptr %36, align 8
   invoke void @_ZN3syn5parse6Parser9parse_str17h6503c86c2a5328acE(ptr nonnull sret([32 x i8]) align 8 %10, ptr align 1 %35, i64 %37)
           to label %41 unwind label %39
@@ -99,7 +99,7 @@ define hidden void @_ZN13logos_codegen9generator4rope18byte_slice_literal17h3d08
   br i1 %.not.i, label %43, label %50
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %10, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr nonnull align 1 @anon.2e9013aee76437f8959de8243070a6d6.0, i64 43, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.2e9013aee76437f8959de8243070a6d6.2, ptr nonnull align 8 @anon.2e9013aee76437f8959de8243070a6d6.8) #6
           to label %47 unwind label %45
@@ -154,7 +154,7 @@ define hidden void @_ZN13logos_codegen9generator4rope18byte_slice_literal17h3d08
 
 59:                                               ; preds = %58
   store ptr %1, ptr %13, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %18, ptr %60, align 8
   br label %61
 

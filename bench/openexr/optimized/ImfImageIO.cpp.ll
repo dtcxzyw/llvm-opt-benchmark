@@ -144,7 +144,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_25Image10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(104) %img)
@@ -157,17 +157,17 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont1:                                     ; preds = %invoke.cont
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %call2, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %call, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %1 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   store i32 %1, ptr %y3.i.i, align 4
-  %max.i = getelementptr inbounds i8, ptr %call2, i64 8
-  %max3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %max3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i32, ptr %max3.i, align 4
   store i32 %2, ptr %max.i, align 4
-  %y.i2.i = getelementptr inbounds i8, ptr %call, i64 12
+  %y.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   %3 = load i32, ptr %y.i2.i, align 4
-  %y3.i3.i = getelementptr inbounds i8, ptr %call2, i64 12
+  %y3.i3.i = getelementptr inbounds nuw i8, ptr %call2, i64 12
   store i32 %3, ptr %y3.i3.i, align 4
   invoke void @_ZN7Imf_3_29saveImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6HeaderERKNS_5ImageENS_16DataWindowSourceE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef nonnull align 8 dereferenceable(104) %img, i32 noundef 0)
           to label %invoke.cont4 unwind label %lpad
@@ -208,7 +208,7 @@ entry:
 do.body:                                          ; preds = %entry
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.8)
           to label %invoke.cont unwind label %lpad
 
@@ -253,7 +253,7 @@ if.end:                                           ; preds = %entry
 do.body10:                                        ; preds = %if.end
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s11)
-  %add.ptr12 = getelementptr inbounds i8, ptr %_iex_throw_s11, i64 16
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %_iex_throw_s11, i64 16
   %call15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr12, ptr noundef nonnull @.str.8)
           to label %invoke.cont14 unwind label %lpad13
 
@@ -409,7 +409,7 @@ delete.notnull:                                   ; preds = %if.then52, %if.else
   %exn.slot.329 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.329) #13
   %vtable = load ptr, ptr %img.0.ph, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(104) %img.0.ph) #13
   br label %delete.end
@@ -532,7 +532,7 @@ entry:
   %hdr = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imath_3_2::Vec2.11", align 4
   store float 0.000000e+00, ptr %ref.tmp, align 4
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   call void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11CompressionE(ptr noundef nonnull align 8 dereferenceable(49) %hdr, i32 noundef 64, i32 noundef 64, float noundef 1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, float noundef 1.000000e+00, i32 noundef 0, i32 noundef 3)
   %call = invoke noundef ptr @_ZN7Imf_3_29loadImageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef nonnull align 8 dereferenceable(49) %hdr)

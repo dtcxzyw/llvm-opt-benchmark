@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @memrev16(ptr nocapture noundef %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
-  %arrayidx1 = getelementptr inbounds i8, ptr %p, i64 1
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %p, i64 1
   %1 = load i8, ptr %arrayidx1, align 1
   store i8 %1, ptr %p, align 1
   store i8 %0, ptr %arrayidx1, align 1
@@ -18,13 +18,13 @@ entry:
 define dso_local void @memrev32(ptr nocapture noundef %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
-  %arrayidx1 = getelementptr inbounds i8, ptr %p, i64 3
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %p, i64 3
   %1 = load i8, ptr %arrayidx1, align 1
   store i8 %1, ptr %p, align 1
   store i8 %0, ptr %arrayidx1, align 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %p, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %p, i64 1
   %2 = load i8, ptr %arrayidx4, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %p, i64 2
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %p, i64 2
   %3 = load i8, ptr %arrayidx5, align 1
   store i8 %3, ptr %arrayidx4, align 1
   store i8 %2, ptr %arrayidx5, align 1
@@ -35,25 +35,25 @@ entry:
 define dso_local void @memrev64(ptr nocapture noundef %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
-  %arrayidx1 = getelementptr inbounds i8, ptr %p, i64 7
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %p, i64 7
   %1 = load i8, ptr %arrayidx1, align 1
   store i8 %1, ptr %p, align 1
   store i8 %0, ptr %arrayidx1, align 1
-  %arrayidx4 = getelementptr inbounds i8, ptr %p, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %p, i64 1
   %2 = load i8, ptr %arrayidx4, align 1
-  %arrayidx5 = getelementptr inbounds i8, ptr %p, i64 6
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %p, i64 6
   %3 = load i8, ptr %arrayidx5, align 1
   store i8 %3, ptr %arrayidx4, align 1
   store i8 %2, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr inbounds i8, ptr %p, i64 2
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %p, i64 2
   %4 = load i8, ptr %arrayidx8, align 1
-  %arrayidx9 = getelementptr inbounds i8, ptr %p, i64 5
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %p, i64 5
   %5 = load i8, ptr %arrayidx9, align 1
   store i8 %5, ptr %arrayidx8, align 1
   store i8 %4, ptr %arrayidx9, align 1
-  %arrayidx12 = getelementptr inbounds i8, ptr %p, i64 3
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %p, i64 3
   %6 = load i8, ptr %arrayidx12, align 1
-  %arrayidx13 = getelementptr inbounds i8, ptr %p, i64 4
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %p, i64 4
   %7 = load i8, ptr %arrayidx13, align 1
   store i8 %7, ptr %arrayidx12, align 1
   store i8 %6, ptr %arrayidx13, align 1

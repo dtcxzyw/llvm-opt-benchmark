@@ -197,14 +197,14 @@ define internal i64 @memsize_of_all_m(i32 noundef %0, ptr noundef %1, i64 %2) #0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %8) #7
   br label %10
 
 10:                                               ; preds = %7, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @total_i, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %11, align 8
   call void @rb_objspace_each_objects(ptr noundef nonnull @heap_iter, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -234,7 +234,7 @@ define internal i64 @count_objects_size(i32 noundef %0, ptr noundef %1, i64 %2) 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @cos_i, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
   call void @rb_objspace_each_objects(ptr noundef nonnull @heap_iter, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -243,7 +243,7 @@ define internal i64 @count_objects_size(i32 noundef %0, ptr noundef %1, i64 %2) 
 8:                                                ; preds = %3, %23
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %23 ]
   %.024 = phi i64 [ 0, %3 ], [ %.1, %23 ]
-  %9 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %23, label %11
@@ -317,7 +317,7 @@ define internal i64 @count_symbols(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %7 = tail call i64 @rb_sym_immortal_count() #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @cs_i, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %8, align 8
   call void @rb_objspace_each_objects(ptr noundef nonnull @heap_iter, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -363,7 +363,7 @@ rb_ull2num_inline.exit:                           ; preds = %13, %16
 rbimpl_intern_const.exit21:                       ; preds = %.lr.ph.i19, %rb_ull2num_inline.exit
   %.lcssa.i18 = phi i64 [ %.pr.i16, %rb_ull2num_inline.exit ], [ %19, %.lr.ph.i19 ]
   %20 = call i64 @rb_id2sym(i64 noundef %.lcssa.i18) #7
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %22, 4611686018427387904
   br i1 %23, label %24, label %27
@@ -454,7 +454,7 @@ define internal i64 @count_tdata_objects(i32 noundef %0, ptr noundef %1, i64 %2)
   %6 = inttoptr i64 %5 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @cto_i, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   call void @rb_objspace_each_objects(ptr noundef nonnull @heap_iter, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -504,7 +504,7 @@ define internal i64 @count_imemo_objects(i32 noundef %0, ptr noundef %1, i64 %2)
   %24 = inttoptr i64 %5 to ptr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @count_imemo_objects_i, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %24, ptr %25, align 8
   call void @rb_objspace_each_objects(ptr noundef nonnull @heap_iter, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -525,7 +525,7 @@ define internal i64 @reachable_objects_from(i64 %0, i64 noundef %1) #0 {
 
 7:                                                ; preds = %5
   %8 = inttoptr i64 %1 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   br label %12
@@ -536,7 +536,7 @@ define internal i64 @reachable_objects_from(i64 %0, i64 noundef %1) #0 {
   %14 = tail call i64 @rb_obj_hide(i64 noundef %13) #7
   store i64 %14, ptr %3, align 8
   %15 = tail call i64 @rb_ary_new() #7
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %15, ptr %16, align 8
   call void @rb_objspace_reachable_objects_from(i64 noundef %.0, ptr noundef nonnull @reachable_object_from_i, ptr noundef nonnull %3) #7
   %17 = load i64, ptr %16, align 8
@@ -552,7 +552,7 @@ define internal i64 @reachable_objects_from_root(i64 %0) #0 {
   %2 = alloca %struct.rofr_data, align 8
   %3 = tail call i64 @rb_ident_hash_new() #7
   store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %4, align 8
   call void @rb_objspace_reachable_objects_from_root(ptr noundef nonnull @reachable_object_from_root_i, ptr noundef nonnull %2) #7
   call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @collect_values_of_values, i64 noundef %3) #7
@@ -567,7 +567,7 @@ define internal i64 @objspace_internal_class_of(i64 %0, i64 noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   br label %9
@@ -588,7 +588,7 @@ define internal i64 @objspace_internal_class_of(i64 %0, i64 noundef %1) #0 {
   br i1 %18, label %wrap_klass_iow.exit, label %.critedge
 
 .critedge:                                        ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %rb_class_of.exit
 
 20:                                               ; preds = %9
@@ -635,7 +635,7 @@ rb_class_of.exit:                                 ; preds = %.critedge, %20, %21
   br i1 %35, label %45, label %.critedge.i
 
 .critedge.i:                                      ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %rb_class_of.exit.i
 
 37:                                               ; preds = %29
@@ -687,7 +687,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
 
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   br label %9
@@ -712,7 +712,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
   ]
 
 19:                                               ; preds = %14, %14, %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, -5
   %.not.i = icmp eq i64 %22, 0
@@ -731,7 +731,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
   br i1 %29, label %39, label %.critedge.i
 
 .critedge.i:                                      ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %rb_class_of.exit.i
 
 31:                                               ; preds = %23
@@ -789,7 +789,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i64 @iow_type(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -801,7 +801,7 @@ define internal i64 @iow_type(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @iow_inspect(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -815,7 +815,7 @@ define internal i64 @iow_inspect(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @iow_internal_object_id(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = tail call i64 @rb_obj_id(i64 noundef %5) #7
@@ -842,7 +842,7 @@ define internal void @total_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
   br i1 %.not, label %4, label %14
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %10, label %8
@@ -873,7 +873,7 @@ define internal noundef i32 @heap_iter(ptr noundef %0, ptr noundef %1, i64 nound
 
 .lr.ph:                                           ; preds = %4
   %6 = ptrtoint ptr %0 to i64
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %14
@@ -952,7 +952,7 @@ define internal fastcc i64 @setup_hash(i32 noundef %0, ptr noundef %1) unnamed_a
 28:                                               ; preds = %21
   %29 = add i64 %.pre, 24
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   br label %RHASH_EMPTY_P.exit
 
@@ -977,7 +977,7 @@ define internal void @cos_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
   %4 = inttoptr i64 %0 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 31
-  %7 = getelementptr inbounds i64, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %3
   store i64 %9, ptr %7, align 8
@@ -1356,7 +1356,7 @@ define internal void @cs_i(i64 noundef %0, ptr nocapture noundef %1) #5 {
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, -15
   %11 = icmp eq i64 %10, 0
@@ -1369,7 +1369,7 @@ define internal void @cs_i(i64 noundef %0, ptr nocapture noundef %1) #5 {
   br label %19
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8
@@ -1389,7 +1389,7 @@ define internal void @cto_i(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %17
@@ -1443,7 +1443,7 @@ define internal void @count_imemo_objects_i(i64 noundef %0, ptr noundef %1) #0 {
 8:                                                ; preds = %2
   %9 = lshr i64 %5, 12
   %10 = and i64 %9, 15
-  %11 = getelementptr inbounds [16 x i64], ptr @imemo_type_ids, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i64], ptr @imemo_type_ids, i64 0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = tail call i64 @rb_id2sym(i64 noundef %12) #7
   %14 = tail call i64 @rb_hash_aref(i64 noundef %3, i64 noundef %13) #7
@@ -1506,7 +1506,7 @@ define internal void @reachable_object_from_i(i64 noundef %0, ptr nocapture noun
 
 16:                                               ; preds = %12, %8
   %.0 = phi i64 [ %15, %12 ], [ %0, %8 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @rb_ary_push(i64 noundef %18, i64 noundef %.0) #7
   br label %20
@@ -1541,23 +1541,23 @@ declare void @rb_objspace_reachable_objects_from_root(ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8
   br label %22
 
 10:                                               ; preds = %3
   store ptr %0, ptr %4, align 8
   %11 = tail call i64 @rb_str_new_cstr(ptr noundef %0) #7
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %11, ptr %12, align 8
   %13 = tail call i64 @rb_ident_hash_new() #7
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %13, ptr %14, align 8
   %15 = load i64, ptr %2, align 8
   %16 = tail call i64 @rb_hash_lookup(i64 noundef %15, i64 noundef %11) #7
@@ -1585,7 +1585,7 @@ define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %
   br i1 %.not27, label %37, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8
   %.not28 = icmp eq i64 %1, %28
   br i1 %.not28, label %37, label %29

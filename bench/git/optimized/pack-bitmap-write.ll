@@ -84,12 +84,12 @@ entry:
   store ptr %call2, ptr getelementptr inbounds (i8, ptr @writer, i64 16), align 8
   %call3 = tail call ptr @ewah_new() #18
   store ptr %call3, ptr getelementptr inbounds (i8, ptr @writer, i64 24), align 8
-  %nr_objects = getelementptr inbounds i8, ptr %to_pack, i64 16
+  %nr_objects = getelementptr inbounds nuw i8, ptr %to_pack, i64 16
   %0 = load i32, ptr %nr_objects, align 8
   %conv = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv, 2
   %call5 = tail call ptr @xmalloc(i64 noundef %mul.i) #18
-  %in_pack_pos = getelementptr inbounds i8, ptr %to_pack, i64 40
+  %in_pack_pos = getelementptr inbounds nuw i8, ptr %to_pack, i64 40
   store ptr %call5, ptr %in_pack_pos, align 8
   %cmp32.not = icmp eq i32 %index_nr, 0
   br i1 %cmp32.not, label %for.end, label %for.body.lr.ph
@@ -101,7 +101,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %switch.lookup
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %switch.lookup ]
-  %arrayidx = getelementptr inbounds ptr, ptr %index, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %index, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %to_pack.val = load ptr, ptr %1, align 8
   %to_pack.val17 = load ptr, ptr %in_pack_pos, align 8
@@ -150,7 +150,7 @@ sw.default19:                                     ; preds = %sw.epilog
 
 switch.lookup:                                    ; preds = %sw.epilog
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.bitmap_writer_build_type_index, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.bitmap_writer_build_type_index, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sink = load ptr, ptr %switch.load, align 8
   tail call void @ewah_set(ptr noundef %.sink, i64 noundef %indvars.iv) #18
@@ -217,22 +217,22 @@ if.end6:                                          ; preds = %if.end, %if.then4
   %.sink = phi ptr [ %call2, %if.then4 ], [ null, %if.end ]
   %mapping.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   call fastcc void @bitmap_builder_init(ptr noundef %bb, ptr noundef %.sink)
-  %commits_nr = getelementptr inbounds i8, ptr %bb, i64 32
+  %commits_nr = getelementptr inbounds nuw i8, ptr %bb, i64 32
   %4 = load i64, ptr %commits_nr, align 8
   %cmp.not.not125.not = icmp eq i64 %4, 0
   br i1 %cmp.not.not125.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end6
-  %commits = getelementptr inbounds i8, ptr %bb, i64 24
-  %slab_count.i.i = getelementptr inbounds i8, ptr %bb, i64 8
-  %slab.i.i = getelementptr inbounds i8, ptr %bb, i64 16
-  %stride.i.i = getelementptr inbounds i8, ptr %bb, i64 4
-  %nr.i = getelementptr inbounds i8, ptr %queue, i64 28
+  %commits = getelementptr inbounds nuw i8, ptr %bb, i64 24
+  %slab_count.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 8
+  %slab.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 16
+  %stride.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 4
+  %nr.i = getelementptr inbounds nuw i8, ptr %queue, i64 28
   %tobool4.i = icmp ne ptr %call2, null
   %tobool5.i = icmp ne ptr %mapping.0, null
   %or.cond.i = and i1 %tobool4.i, %tobool5.i
-  %nr40.i = getelementptr inbounds i8, ptr %tree_queue, i64 28
-  %algo.i.i.i.i = getelementptr inbounds i8, ptr %byval-temp.i.i, i64 32
+  %nr40.i = getelementptr inbounds nuw i8, ptr %tree_queue, i64 28
+  %algo.i.i.i.i = getelementptr inbounds nuw i8, ptr %byval-temp.i.i, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end40
@@ -263,7 +263,7 @@ if.end.i.i:                                       ; preds = %for.body
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.body.i.i
   %i.03.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ %10, %if.end.i.i ]
   %idxprom.i.i = zext i32 %i.03.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %call4.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %call4.i.i, i64 %idxprom.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
   %inc.i.i = add i32 %i.03.i.i, 1
   %cmp7.not.i.i = icmp ugt i32 %inc.i.i, %div.i.i
@@ -276,7 +276,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
 if.end12.i.i:                                     ; preds = %for.end.i.i, %for.body
   %11 = phi ptr [ %call4.i.i, %for.end.i.i ], [ %.pre, %for.body ]
   %idxprom14.i.i = zext i32 %div.i.i to i64
-  %arrayidx15.i.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom14.i.i
+  %arrayidx15.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %idxprom14.i.i
   %12 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %12, null
   %.pre145 = load i32, ptr %stride.i.i, align 4
@@ -294,8 +294,8 @@ bb_data_at.exit:                                  ; preds = %if.end12.i.i, %if.e
   %13 = phi ptr [ %12, %if.end12.i.i ], [ %call24.i.i, %if.end20.i.i ]
   %mul33.i.i = mul i32 %.pre145, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
-  %arrayidx35.i.i = getelementptr inbounds %struct.bb_commit, ptr %13, i64 %idxprom34.i.i
-  %bitmap.i = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 16
+  %arrayidx35.i.i = getelementptr inbounds nuw %struct.bb_commit, ptr %13, i64 %idxprom34.i.i
+  %bitmap.i = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i, i64 16
   %14 = load ptr, ptr %bitmap.i, align 8
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -348,7 +348,7 @@ if.end15.i:                                       ; preds = %land.lhs.true10.i, 
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end15.i, %while.body.i
-  %oid.i = getelementptr inbounds i8, ptr %call3.i, i64 4
+  %oid.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 4
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 40), align 8
   %call.i.i = call ptr @packlist_find(ptr noundef %19, ptr noundef nonnull %oid.i) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -372,7 +372,7 @@ if.end20.i:                                       ; preds = %if.end16.i
   %26 = load ptr, ptr @the_repository, align 8
   %call22.i = call ptr @repo_get_commit_tree(ptr noundef %26, ptr noundef %call3.i) #18
   call void @prio_queue_put(ptr noundef nonnull %tree_queue, ptr noundef %call22.i) #18
-  %parents.i = getelementptr inbounds i8, ptr %call3.i, i64 48
+  %parents.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 48
   %p.047.i = load ptr, ptr %parents.i, align 8
   %tobool23.not48.i = icmp eq ptr %p.047.i, null
   br i1 %tobool23.not48.i, label %while.cond.backedge.i, label %for.body.i, !llvm.loop !8
@@ -380,7 +380,7 @@ if.end20.i:                                       ; preds = %if.end16.i
 for.body.i:                                       ; preds = %if.end20.i, %for.inc.i
   %p.049.i = phi ptr [ %p.0.i, %for.inc.i ], [ %p.047.i, %if.end20.i ]
   %27 = load ptr, ptr %p.049.i, align 8
-  %oid25.i = getelementptr inbounds i8, ptr %27, i64 4
+  %oid25.i = getelementptr inbounds nuw i8, ptr %27, i64 4
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 40), align 8
   %call.i26.i = call ptr @packlist_find(ptr noundef %28, ptr noundef nonnull %oid25.i) #18
   %tobool.not.i27.i = icmp eq ptr %call.i26.i, null
@@ -412,7 +412,7 @@ if.then34.i:                                      ; preds = %if.end29.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then34.i, %if.end29.i
-  %next.i = getelementptr inbounds i8, ptr %p.049.i, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %p.049.i, i64 8
   %p.0.i = load ptr, ptr %next.i, align 8
   %tobool23.not.i = icmp eq ptr %p.0.i, null
   br i1 %tobool23.not.i, label %while.cond.backedge.i, label %for.body.i, !llvm.loop !9
@@ -436,7 +436,7 @@ return.sink.split.i:                              ; preds = %if.end16.i, %for.bo
   br label %for.end
 
 if.end13:                                         ; preds = %while.cond39.i
-  %selected = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 24
+  %selected = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i, i64 24
   %bf.load = load i8, ptr %selected, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool14.not = icmp eq i8 %bf.clear, 0
@@ -448,25 +448,25 @@ if.then15:                                        ; preds = %if.end13
   %call8.val26 = load i32, ptr %39, align 4
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %idxprom.i = zext i32 %call8.val26 to i64
-  %arrayidx.i = getelementptr inbounds %struct.bitmapped_commit, ptr %40, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %40, i64 %idxprom.i
   %call.i28 = call ptr @bitmap_to_ewah(ptr noundef %call8.val) #18
-  %bitmap1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %bitmap1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %call.i28, ptr %bitmap1.i, align 8
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 32), align 8
-  %oid.i29 = getelementptr inbounds i8, ptr %7, i64 4
+  %oid.i29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp4.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp4.i, ptr noundef nonnull align 4 dereferenceable(36) %oid.i29, i64 36, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %byval-temp.i.i)
-  %n_occupied.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %n_occupied.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %42 = load i32, ptr %n_occupied.i.i, align 8
-  %upper_bound.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %upper_bound.i.i = getelementptr inbounds nuw i8, ptr %41, i64 12
   %43 = load i32, ptr %upper_bound.i.i, align 4
   %cmp.not.i.i30 = icmp ult i32 %42, %43
   %.pre.i = load i32, ptr %41, align 8
   br i1 %cmp.not.i.i30, label %if.end5.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then15
-  %size.i.i = getelementptr inbounds i8, ptr %41, i64 4
+  %size.i.i = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = load i32, ptr %size.i.i, align 4
   %shl.i.i = shl i32 %44, 1
   %cmp1.i.i = icmp ugt i32 %.pre.i, %shl.i.i
@@ -507,12 +507,12 @@ st_mult.exit.i.i:                                 ; preds = %if.then.i.i
 
 if.end38.i.i:                                     ; preds = %st_mult.exit.i.i
   %conv29.i.i = zext i32 %spec.store.select.i.i to i64
-  %keys.i20.i = getelementptr inbounds i8, ptr %41, i64 24
+  %keys.i20.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   %50 = load ptr, ptr %keys.i20.i, align 8
   %mul.i87.i.i = mul nuw nsw i64 %conv29.i.i, 36
   %call31.i.i = call ptr @xrealloc(ptr noundef %50, i64 noundef %mul.i87.i.i) #18
   store ptr %call31.i.i, ptr %keys.i20.i, align 8
-  %vals.i.i = getelementptr inbounds i8, ptr %41, i64 32
+  %vals.i.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   %51 = load ptr, ptr %vals.i.i, align 8
   %mul.i92.i.i = shl nuw nsw i64 %conv29.i.i, 3
   %call35.i.i = call ptr @xrealloc(ptr noundef %51, i64 noundef %mul.i92.i.i) #18
@@ -523,10 +523,10 @@ if.end38.i.i:                                     ; preds = %st_mult.exit.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end38.i.i, %st_mult.exit.i.i
   %52 = phi i32 [ %.pre.i21.i, %if.end38.i.i ], [ %49, %st_mult.exit.i.i ]
-  %flags.i8.i = getelementptr inbounds i8, ptr %41, i64 16
-  %keys49.i.i = getelementptr inbounds i8, ptr %41, i64 24
+  %flags.i8.i = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %keys49.i.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   %sub.i9.i = add i32 %spec.store.select.i.i, -1
-  %vals52.i.i = getelementptr inbounds i8, ptr %41, i64 32
+  %vals52.i.i = getelementptr inbounds nuw i8, ptr %41, i64 32
   br label %for.body.i.i40
 
 for.body.i.i40:                                   ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -535,7 +535,7 @@ for.body.i.i40:                                   ; preds = %for.inc.i.i, %for.b
   %54 = load ptr, ptr %flags.i8.i, align 8
   %shr43.i.i = lshr i32 %j.1132.i.i, 4
   %idxprom.i10.i = zext nneg i32 %shr43.i.i to i64
-  %arrayidx.i11.i = getelementptr inbounds i32, ptr %54, i64 %idxprom.i10.i
+  %arrayidx.i11.i = getelementptr inbounds nuw i32, ptr %54, i64 %idxprom.i10.i
   %55 = load i32, ptr %arrayidx.i11.i, align 4
   %and.i12.i = shl i32 %j.1132.i.i, 1
   %shl.i13.i = and i32 %and.i12.i, 30
@@ -547,12 +547,12 @@ for.body.i.i40:                                   ; preds = %for.inc.i.i, %for.b
 if.then48.i.i:                                    ; preds = %for.body.i.i40
   %58 = load ptr, ptr %keys49.i.i, align 8
   %idxprom50.i.i = zext i32 %j.1132.i.i to i64
-  %arrayidx51.i.i = getelementptr inbounds %struct.object_id, ptr %58, i64 %idxprom50.i.i
+  %arrayidx51.i.i = getelementptr inbounds nuw %struct.object_id, ptr %58, i64 %idxprom50.i.i
   %key.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx51.i.i, align 4
-  %key.sroa.5.0.arrayidx51.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx51.i.i, i64 4
+  %key.sroa.5.0.arrayidx51.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx51.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %key.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(32) %key.sroa.5.0.arrayidx51.sroa_idx.i.i, i64 32, i1 false)
   %59 = load ptr, ptr %vals52.i.i, align 8
-  %arrayidx54.i.i = getelementptr inbounds ptr, ptr %59, i64 %idxprom50.i.i
+  %arrayidx54.i.i = getelementptr inbounds nuw ptr, ptr %59, i64 %idxprom50.i.i
   %60 = load ptr, ptr %arrayidx54.i.i, align 8
   %shl57.i.i = shl nuw nsw i32 1, %shl.i13.i
   %or63.i.i = or i32 %shl57.i.i, %55
@@ -565,7 +565,7 @@ while.body.i16.i:                                 ; preds = %if.then102.i.i, %if
   %i.0117.i.i = and i32 %key.sroa.0.0.i.i, %sub.i9.i
   %shr68118.i.i = lshr i32 %i.0117.i.i, 4
   %idxprom69119.i.i = zext nneg i32 %shr68118.i.i to i64
-  %arrayidx70120.i.i = getelementptr inbounds i32, ptr %call17.i.i, i64 %idxprom69119.i.i
+  %arrayidx70120.i.i = getelementptr inbounds nuw i32, ptr %call17.i.i, i64 %idxprom69119.i.i
   %61 = load i32, ptr %arrayidx70120.i.i, align 4
   %and71121.i.i = shl i32 %i.0117.i.i, 1
   %shl72122.i.i = and i32 %and71121.i.i, 30
@@ -582,7 +582,7 @@ while.body76.i.i:                                 ; preds = %while.body.i16.i, %
   %i.0.i19.i = and i32 %add.i.i42, %sub.i9.i
   %shr68.i.i = lshr i32 %i.0.i19.i, 4
   %idxprom69.i.i = zext nneg i32 %shr68.i.i to i64
-  %arrayidx70.i.i = getelementptr inbounds i32, ptr %call17.i.i, i64 %idxprom69.i.i
+  %arrayidx70.i.i = getelementptr inbounds nuw i32, ptr %call17.i.i, i64 %idxprom69.i.i
   %64 = load i32, ptr %arrayidx70.i.i, align 4
   %and71.i.i = shl i32 %i.0.i19.i, 1
   %shl72.i.i = and i32 %and71.i.i, 30
@@ -597,7 +597,7 @@ while.end.i17.i:                                  ; preds = %while.body76.i.i, %
   %.lcssa114.i.i = phi i32 [ %61, %while.body.i16.i ], [ %64, %while.body76.i.i ]
   %shl72.lcssa.i.i = phi i32 [ %shl72122.i.i, %while.body.i16.i ], [ %shl72.i.i, %while.body76.i.i ]
   %.lcssa.i.i = phi i32 [ %62, %while.body.i16.i ], [ %65, %while.body76.i.i ]
-  %arrayidx70.le.i.i = getelementptr inbounds i32, ptr %call17.i.i, i64 %idxprom69.lcssa116.i.i
+  %arrayidx70.le.i.i = getelementptr inbounds nuw i32, ptr %call17.i.i, i64 %idxprom69.lcssa116.i.i
   %not.i18.i = xor i32 %.lcssa.i.i, -1
   %and87.i.i = and i32 %.lcssa114.i.i, %not.i18.i
   store i32 %and87.i.i, ptr %arrayidx70.le.i.i, align 4
@@ -607,7 +607,7 @@ while.end.i17.i:                                  ; preds = %while.body76.i.i, %
 
 land.lhs.true.i.i:                                ; preds = %while.end.i17.i
   %68 = load ptr, ptr %flags.i8.i, align 8
-  %arrayidx95.i.i = getelementptr inbounds i32, ptr %68, i64 %idxprom69.lcssa116.i.i
+  %arrayidx95.i.i = getelementptr inbounds nuw i32, ptr %68, i64 %idxprom69.lcssa116.i.i
   %69 = load i32, ptr %arrayidx95.i.i, align 4
   %70 = shl nuw i32 3, %shl72.lcssa.i.i
   %71 = and i32 %69, %70
@@ -617,20 +617,20 @@ land.lhs.true.i.i:                                ; preds = %while.end.i17.i
 if.then102.i.i:                                   ; preds = %land.lhs.true.i.i
   %72 = load ptr, ptr %keys49.i.i, align 8
   %idxprom104.i.i = zext i32 %i.0.lcssa.i.i to i64
-  %arrayidx105.i.i = getelementptr inbounds %struct.object_id, ptr %72, i64 %idxprom104.i.i
+  %arrayidx105.i.i = getelementptr inbounds nuw %struct.object_id, ptr %72, i64 %idxprom104.i.i
   %tmp.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx105.i.i, align 4
-  %tmp.sroa.2.0.arrayidx105.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx105.i.i, i64 4
+  %tmp.sroa.2.0.arrayidx105.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx105.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %tmp.sroa.2.i.i, ptr noundef nonnull align 4 dereferenceable(32) %tmp.sroa.2.0.arrayidx105.sroa_idx.i.i, i64 32, i1 false)
   store i32 %key.sroa.0.0.i.i, ptr %arrayidx105.i.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %tmp.sroa.2.0.arrayidx105.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(32) %key.sroa.5.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %key.sroa.5.i.i, ptr noundef nonnull align 4 dereferenceable(32) %tmp.sroa.2.i.i, i64 32, i1 false)
   %73 = load ptr, ptr %vals52.i.i, align 8
-  %arrayidx112.i.i = getelementptr inbounds ptr, ptr %73, i64 %idxprom104.i.i
+  %arrayidx112.i.i = getelementptr inbounds nuw ptr, ptr %73, i64 %idxprom104.i.i
   %74 = load ptr, ptr %arrayidx112.i.i, align 8
   store ptr %val.0.i.i, ptr %arrayidx112.i.i, align 8
   %shl119.i.i = shl nuw nsw i32 1, %shl72.lcssa.i.i
   %75 = load ptr, ptr %flags.i8.i, align 8
-  %arrayidx123.i.i = getelementptr inbounds i32, ptr %75, i64 %idxprom69.lcssa116.i.i
+  %arrayidx123.i.i = getelementptr inbounds nuw i32, ptr %75, i64 %idxprom69.lcssa116.i.i
   %76 = load i32, ptr %arrayidx123.i.i, align 4
   %or125.i.i = or i32 %76, %shl119.i.i
   store i32 %or125.i.i, ptr %arrayidx123.i.i, align 4
@@ -639,12 +639,12 @@ if.then102.i.i:                                   ; preds = %land.lhs.true.i.i
 if.else127.i.i:                                   ; preds = %land.lhs.true.i.i, %while.end.i17.i
   %77 = load ptr, ptr %keys49.i.i, align 8
   %idxprom129.i.i = zext i32 %i.0.lcssa.i.i to i64
-  %arrayidx130.i.i = getelementptr inbounds %struct.object_id, ptr %77, i64 %idxprom129.i.i
+  %arrayidx130.i.i = getelementptr inbounds nuw %struct.object_id, ptr %77, i64 %idxprom129.i.i
   store i32 %key.sroa.0.0.i.i, ptr %arrayidx130.i.i, align 4
-  %key.sroa.5.0.arrayidx130.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx130.i.i, i64 4
+  %key.sroa.5.0.arrayidx130.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx130.i.i, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %key.sroa.5.0.arrayidx130.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(32) %key.sroa.5.i.i, i64 32, i1 false)
   %78 = load ptr, ptr %vals52.i.i, align 8
-  %arrayidx133.i.i = getelementptr inbounds ptr, ptr %78, i64 %idxprom129.i.i
+  %arrayidx133.i.i = getelementptr inbounds nuw ptr, ptr %78, i64 %idxprom129.i.i
   store ptr %val.0.i.i, ptr %arrayidx133.i.i, align 8
   %.pre139.i.i = load i32, ptr %41, align 8
   br label %for.inc.i.i
@@ -672,7 +672,7 @@ if.then141.i.i:                                   ; preds = %for.end.i.i41
   br label %if.end152.i.i
 
 if.end152.i.i:                                    ; preds = %if.then141.i.i, %for.end.i.i41, %if.end38.i.i
-  %flags153.i.i = getelementptr inbounds i8, ptr %41, i64 16
+  %flags153.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
   %82 = load ptr, ptr %flags153.i.i, align 8
   call void @free(ptr noundef %82) #18
   store ptr %call17.i.i, ptr %flags153.i.i, align 8
@@ -693,11 +693,11 @@ if.end5.i.i:                                      ; preds = %kh_resize_oid_map.e
   %sub7.i.i = add i32 %85, -1
   %key.val.i.i = load i32, ptr %byval-temp4.i, align 8
   %and.i.i = and i32 %key.val.i.i, %sub7.i.i
-  %flags.i.i = getelementptr inbounds i8, ptr %41, i64 16
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %41, i64 16
   %86 = load ptr, ptr %flags.i.i, align 8
   %shr.i.i = lshr i32 %and.i.i, 4
   %idxprom.i.i32 = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i33 = getelementptr inbounds i32, ptr %86, i64 %idxprom.i.i32
+  %arrayidx.i.i33 = getelementptr inbounds nuw i32, ptr %86, i64 %idxprom.i.i32
   %87 = load i32, ptr %arrayidx.i.i33, align 4
   %and9.i.i = shl i32 %and.i.i, 1
   %shl10.i.i = and i32 %and9.i.i, 30
@@ -707,9 +707,9 @@ if.end5.i.i:                                      ; preds = %kh_resize_oid_map.e
   br i1 %tobool.not.i.i34, label %while.cond.preheader.i.i, label %if.end71.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end5.i.i
-  %keys.i.i = getelementptr inbounds i8, ptr %41, i64 24
+  %keys.i.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   %90 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 256
+  %hash_algo.i.i.i.i = getelementptr inbounds nuw i8, ptr %90, i64 256
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %while.cond.preheader.i.i
@@ -718,7 +718,7 @@ while.cond.i.i:                                   ; preds = %while.body.i.i, %wh
   %step.0.i.i = phi i32 [ %inc.i.i38, %while.body.i.i ], [ 0, %while.cond.preheader.i.i ]
   %shr16.i.i = lshr i32 %i.0.i.i, 4
   %idxprom17.i.i = zext nneg i32 %shr16.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds i32, ptr %86, i64 %idxprom17.i.i
+  %arrayidx18.i.i = getelementptr inbounds nuw i32, ptr %86, i64 %idxprom17.i.i
   %91 = load i32, ptr %arrayidx18.i.i, align 4
   %and19.i.i = shl i32 %i.0.i.i, 1
   %shl20.i.i = and i32 %and19.i.i, 30
@@ -735,7 +735,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
   %92 = load ptr, ptr %keys.i.i, align 8
   %idxprom33.i.i = zext i32 %i.0.i.i to i64
-  %arrayidx34.i.i = getelementptr inbounds %struct.object_id, ptr %92, i64 %idxprom33.i.i
+  %arrayidx34.i.i = getelementptr inbounds nuw %struct.object_id, ptr %92, i64 %idxprom33.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %byval-temp.i.i, ptr noundef nonnull align 4 dereferenceable(36) %arrayidx34.i.i, i64 36, i1 false)
   %93 = load i32, ptr %algo.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %93, 0
@@ -794,7 +794,7 @@ if.end71.i.i:                                     ; preds = %if.then55.i.i, %whi
   %x.0.i.i = phi i32 [ %spec.select.i.i, %while.end.i.i ], [ %and.i.i, %if.end5.i.i ], [ %spec.select60.i.i, %if.then55.i.i ]
   %shr73.i.i = lshr i32 %x.0.i.i, 4
   %idxprom74.i.i = zext nneg i32 %shr73.i.i to i64
-  %arrayidx75.i.i = getelementptr inbounds i32, ptr %86, i64 %idxprom74.i.i
+  %arrayidx75.i.i = getelementptr inbounds nuw i32, ptr %86, i64 %idxprom74.i.i
   %99 = load i32, ptr %arrayidx75.i.i, align 4
   %and76.i.i = shl i32 %x.0.i.i, 1
   %shl77.i.i = and i32 %and76.i.i, 30
@@ -804,19 +804,19 @@ if.end71.i.i:                                     ; preds = %if.then55.i.i, %whi
   br i1 %tobool80.not.i.i, label %if.else98.i.i, label %if.then81.i.i
 
 if.then81.i.i:                                    ; preds = %if.end71.i.i
-  %keys82.i.i = getelementptr inbounds i8, ptr %41, i64 24
+  %keys82.i.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   %100 = load ptr, ptr %keys82.i.i, align 8
   %idxprom83.i.i = zext i32 %x.0.i.i to i64
-  %arrayidx84.i.i = getelementptr inbounds %struct.object_id, ptr %100, i64 %idxprom83.i.i
+  %arrayidx84.i.i = getelementptr inbounds nuw %struct.object_id, ptr %100, i64 %idxprom83.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp4.i, i64 36, i1 false)
   %shl87.i.i = shl nuw i32 3, %shl77.i.i
   %not.i.i = xor i32 %shl87.i.i, -1
   %101 = load ptr, ptr %flags.i.i, align 8
-  %arrayidx91.i.i = getelementptr inbounds i32, ptr %101, i64 %idxprom74.i.i
+  %arrayidx91.i.i = getelementptr inbounds nuw i32, ptr %101, i64 %idxprom74.i.i
   %102 = load i32, ptr %arrayidx91.i.i, align 4
   %and92.i.i = and i32 %102, %not.i.i
   store i32 %and92.i.i, ptr %arrayidx91.i.i, align 4
-  %size94.i.i = getelementptr inbounds i8, ptr %41, i64 4
+  %size94.i.i = getelementptr inbounds nuw i8, ptr %41, i64 4
   %103 = load i32, ptr %size94.i.i, align 4
   %inc95.i.i = add i32 %103, 1
   store i32 %inc95.i.i, ptr %size94.i.i, align 4
@@ -831,19 +831,19 @@ if.else98.i.i:                                    ; preds = %if.end71.i.i
   br i1 %tobool107.not.i.i, label %if.then.i36, label %if.then108.i.i
 
 if.then108.i.i:                                   ; preds = %if.else98.i.i
-  %keys109.i.i = getelementptr inbounds i8, ptr %41, i64 24
+  %keys109.i.i = getelementptr inbounds nuw i8, ptr %41, i64 24
   %105 = load ptr, ptr %keys109.i.i, align 8
   %idxprom110.i.i = zext i32 %x.0.i.i to i64
-  %arrayidx111.i.i = getelementptr inbounds %struct.object_id, ptr %105, i64 %idxprom110.i.i
+  %arrayidx111.i.i = getelementptr inbounds nuw %struct.object_id, ptr %105, i64 %idxprom110.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp4.i, i64 36, i1 false)
   %shl115.i.i = shl nuw i32 3, %shl77.i.i
   %not116.i.i = xor i32 %shl115.i.i, -1
   %106 = load ptr, ptr %flags.i.i, align 8
-  %arrayidx120.i.i = getelementptr inbounds i32, ptr %106, i64 %idxprom74.i.i
+  %arrayidx120.i.i = getelementptr inbounds nuw i32, ptr %106, i64 %idxprom74.i.i
   %107 = load i32, ptr %arrayidx120.i.i, align 4
   %and122.i.i = and i32 %107, %not116.i.i
   store i32 %and122.i.i, ptr %arrayidx120.i.i, align 4
-  %size124.i.i = getelementptr inbounds i8, ptr %41, i64 4
+  %size124.i.i = getelementptr inbounds nuw i8, ptr %41, i64 4
   %108 = load i32, ptr %size124.i.i, align 4
   %inc125.i.i = add i32 %108, 1
   store i32 %inc125.i.i, ptr %size124.i.i, align 4
@@ -861,9 +861,9 @@ store_selected.exit:                              ; preds = %if.then81.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp4.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %byval-temp.i.i)
   %109 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 32), align 8
-  %vals.i = getelementptr inbounds i8, ptr %109, i64 32
+  %vals.i = getelementptr inbounds nuw i8, ptr %109, i64 32
   %110 = load ptr, ptr %vals.i, align 8
-  %arrayidx7.i = getelementptr inbounds ptr, ptr %110, i64 %idxprom6.pre-phi.i
+  %arrayidx7.i = getelementptr inbounds nuw ptr, ptr %110, i64 %idxprom6.pre-phi.i
   store ptr %arrayidx.i, ptr %arrayidx7.i, align 8
   %inc = add nsw i32 %nr_stored.0126, 1
   %111 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 64), align 8
@@ -901,7 +901,7 @@ if.end.i.i46:                                     ; preds = %while.body
 for.body.i.i53:                                   ; preds = %if.end.i.i46, %for.body.i.i53
   %i.03.i.i54 = phi i32 [ %inc.i.i57, %for.body.i.i53 ], [ %114, %if.end.i.i46 ]
   %idxprom.i.i55 = zext i32 %i.03.i.i54 to i64
-  %arrayidx.i.i56 = getelementptr inbounds ptr, ptr %call4.i.i51, i64 %idxprom.i.i55
+  %arrayidx.i.i56 = getelementptr inbounds nuw ptr, ptr %call4.i.i51, i64 %idxprom.i.i55
   store ptr null, ptr %arrayidx.i.i56, align 8
   %inc.i.i57 = add i32 %i.03.i.i54, 1
   %cmp7.not.i.i58 = icmp ugt i32 %inc.i.i57, %div.i.i43
@@ -914,7 +914,7 @@ for.end.i.i59:                                    ; preds = %for.body.i.i53
 if.end12.i.i60:                                   ; preds = %for.end.i.i59, %while.body
   %115 = phi ptr [ %call4.i.i51, %for.end.i.i59 ], [ %.pre146, %while.body ]
   %idxprom14.i.i62 = zext i32 %div.i.i43 to i64
-  %arrayidx15.i.i63 = getelementptr inbounds ptr, ptr %115, i64 %idxprom14.i.i62
+  %arrayidx15.i.i63 = getelementptr inbounds nuw ptr, ptr %115, i64 %idxprom14.i.i62
   %116 = load ptr, ptr %arrayidx15.i.i63, align 8
   %tobool16.not.i.i64 = icmp eq ptr %116, null
   %.pre147 = load i32, ptr %stride.i.i, align 4
@@ -932,7 +932,7 @@ bb_data_at.exit80:                                ; preds = %if.end12.i.i60, %if
   %117 = phi ptr [ %116, %if.end12.i.i60 ], [ %call24.i.i75, %if.end20.i.i70 ]
   %mul33.i.i67 = mul i32 %.pre147, %rem.i.i65
   %idxprom34.i.i68 = zext i32 %mul33.i.i67 to i64
-  %bitmap = getelementptr inbounds %struct.bb_commit, ptr %117, i64 %idxprom34.i.i68, i32 2
+  %bitmap = getelementptr inbounds nuw %struct.bb_commit, ptr %117, i64 %idxprom34.i.i68, i32 2
   %118 = load ptr, ptr %bitmap, align 8
   %tobool22.not = icmp eq ptr %118, null
   br i1 %tobool22.not, label %if.else26, label %if.then23
@@ -981,10 +981,10 @@ for.end:                                          ; preds = %if.end40, %while.bo
   %cmp.not.not119 = phi i1 [ true, %return.sink.split.i ], [ false, %if.end6 ], [ true, %while.body42.i ], [ false, %if.end40 ]
   call void @clear_prio_queue(ptr noundef nonnull %queue) #18
   call void @clear_prio_queue(ptr noundef nonnull %tree_queue) #18
-  %slab_count.i.i81 = getelementptr inbounds i8, ptr %bb, i64 8
+  %slab_count.i.i81 = getelementptr inbounds nuw i8, ptr %bb, i64 8
   %123 = load i32, ptr %slab_count.i.i81, align 8
   %cmp3.not.i.i = icmp eq i32 %123, 0
-  %slab2.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %bb, i64 16
+  %slab2.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %bb, i64 16
   br i1 %cmp3.not.i.i, label %for.end.bitmap_builder_clear.exit_crit_edge, label %for.body.lr.ph.i.i82
 
 for.end.bitmap_builder_clear.exit_crit_edge:      ; preds = %for.end
@@ -992,7 +992,7 @@ for.end.bitmap_builder_clear.exit_crit_edge:      ; preds = %for.end
   br label %bitmap_builder_clear.exit
 
 for.body.lr.ph.i.i82:                             ; preds = %for.end
-  %stride.i.i84 = getelementptr inbounds i8, ptr %bb, i64 4
+  %stride.i.i84 = getelementptr inbounds nuw i8, ptr %bb, i64 4
   %124 = load ptr, ptr %slab2.i.i.i.phi.trans.insert, align 8
   %125 = load i32, ptr %bb, align 8
   %.fr = freeze i32 %125
@@ -1007,7 +1007,7 @@ for.body.i.i85.preheader:                         ; preds = %for.body.lr.ph.i.i8
 
 for.body.i.i85:                                   ; preds = %for.body.i.i85.preheader, %for.inc9.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc9.i.i ], [ 0, %for.body.i.i85.preheader ]
-  %arrayidx.i.i86 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv.i.i
+  %arrayidx.i.i86 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.i.i
   %128 = load ptr, ptr %arrayidx.i.i86, align 8
   %tobool.not.i.i87 = icmp eq ptr %128, null
   br i1 %tobool.not.i.i87, label %for.inc9.i.i, label %for.body3.i.i
@@ -1018,13 +1018,13 @@ for.body3.i.i:                                    ; preds = %for.body.i.i85, %fo
   %130 = trunc nuw i64 %indvars.iv to i32
   %mul.i.i88 = mul i32 %126, %130
   %idxprom7.i.i = zext i32 %mul.i.i88 to i64
-  %arrayidx8.i.i = getelementptr inbounds %struct.bb_commit, ptr %129, i64 %idxprom7.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw %struct.bb_commit, ptr %129, i64 %idxprom7.i.i
   %131 = load ptr, ptr %arrayidx8.i.i, align 8
   call void @free_commit_list(ptr noundef %131) #18
-  %commit_mask.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i, i64 8
+  %commit_mask.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i.i, i64 8
   %132 = load ptr, ptr %commit_mask.i.i.i, align 8
   call void @bitmap_free(ptr noundef %132) #18
-  %bitmap.i.i.i = getelementptr inbounds i8, ptr %arrayidx8.i.i, i64 16
+  %bitmap.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx8.i.i, i64 16
   %133 = load ptr, ptr %bitmap.i.i.i, align 8
   call void @bitmap_free(ptr noundef %133) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1041,7 +1041,7 @@ for.body.i.i.i.preheader:                         ; preds = %for.inc9.i.i, %for.
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader, %for.body.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.i.i.preheader ]
-  %arrayidx.i.i.i91 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i91 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.i.i.i
   %134 = load ptr, ptr %arrayidx.i.i.i91, align 8
   call void @free(ptr noundef %134) #18
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1051,10 +1051,10 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preh
 bitmap_builder_clear.exit:                        ; preds = %for.body.i.i.i, %for.end.bitmap_builder_clear.exit_crit_edge
   %135 = phi ptr [ %.pre148, %for.end.bitmap_builder_clear.exit_crit_edge ], [ %124, %for.body.i.i.i ]
   store i32 0, ptr %slab_count.i.i81, align 8
-  %slab2.i.i.i = getelementptr inbounds i8, ptr %bb, i64 16
+  %slab2.i.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 16
   call void @free(ptr noundef %135) #18
   store ptr null, ptr %slab2.i.i.i, align 8
-  %commits.i = getelementptr inbounds i8, ptr %bb, i64 24
+  %commits.i = getelementptr inbounds nuw i8, ptr %bb, i64 24
   %136 = load ptr, ptr %commits.i, align 8
   call void @free(ptr noundef %136) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %commits_nr, i8 0, i64 16, i1 false)
@@ -1086,8 +1086,8 @@ while.body.i93:                                   ; preds = %stop_progress.exit,
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %for.end.i ], [ 0, %stop_progress.exit ]
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %for.end.i ], [ 1, %stop_progress.exit ]
   %142 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
-  %arrayidx.i94 = getelementptr inbounds %struct.bitmapped_commit, ptr %142, i64 %indvars.iv30.i
-  %bitmap.i95 = getelementptr inbounds i8, ptr %arrayidx.i94, i64 8
+  %arrayidx.i94 = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %142, i64 %indvars.iv30.i
+  %bitmap.i95 = getelementptr inbounds nuw i8, ptr %arrayidx.i94, i64 8
   %143 = load ptr, ptr %bitmap.i95, align 8
   br label %for.body.i96
 
@@ -1102,13 +1102,13 @@ if.end.i97:                                       ; preds = %for.body.i96
   %144 = sub nsw i64 %indvars.iv30.i, %indvars.iv.i
   %call.i98 = call ptr @ewah_pool_new() #18
   %145 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
-  %bitmap5.i = getelementptr inbounds %struct.bitmapped_commit, ptr %145, i64 %144, i32 1
+  %bitmap5.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %145, i64 %144, i32 1
   %146 = load ptr, ptr %bitmap5.i, align 8
   %147 = load ptr, ptr %bitmap.i95, align 8
   call void @ewah_xor(ptr noundef %146, ptr noundef %147, ptr noundef %call.i98) #18
-  %buffer_size.i = getelementptr inbounds i8, ptr %call.i98, i64 8
+  %buffer_size.i = getelementptr inbounds nuw i8, ptr %call.i98, i64 8
   %148 = load i64, ptr %buffer_size.i, align 8
-  %buffer_size7.i = getelementptr inbounds i8, ptr %best_bitmap.019.i, i64 8
+  %buffer_size7.i = getelementptr inbounds nuw i8, ptr %best_bitmap.019.i, i64 8
   %149 = load i64, ptr %buffer_size7.i, align 8
   %cmp8.i = icmp ult i64 %148, %149
   br i1 %cmp8.i, label %if.then9.i, label %for.inc.sink.split.i
@@ -1136,9 +1136,9 @@ for.inc.i99:                                      ; preds = %for.inc.sink.split.
 for.end.i:                                        ; preds = %for.inc.i99, %for.body.i96
   %best_offset.0.lcssa.i = phi i32 [ %best_offset.018.i, %for.body.i96 ], [ %best_offset.1.i, %for.inc.i99 ]
   %best_bitmap.0.lcssa.i = phi ptr [ %best_bitmap.019.i, %for.body.i96 ], [ %best_bitmap.1.i, %for.inc.i99 ]
-  %xor_offset.i = getelementptr inbounds i8, ptr %arrayidx.i94, i64 28
+  %xor_offset.i = getelementptr inbounds nuw i8, ptr %arrayidx.i94, i64 28
   store i32 %best_offset.0.lcssa.i, ptr %xor_offset.i, align 4
-  %write_as.i = getelementptr inbounds i8, ptr %arrayidx.i94, i64 16
+  %write_as.i = getelementptr inbounds nuw i8, ptr %arrayidx.i94, i64 16
   store ptr %best_bitmap.0.lcssa.i, ptr %write_as.i, align 8
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %152 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
@@ -1174,19 +1174,19 @@ entry:
   %revs = alloca %struct.rev_info, align 8
   %reusable = alloca ptr, align 8
   store ptr null, ptr %reusable, align 8
-  %0 = getelementptr inbounds i8, ptr %bb, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %bb, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
-  %stride1.i.i = getelementptr inbounds i8, ptr %bb, i64 4
+  %stride1.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 4
   store i32 1, ptr %stride1.i.i, align 4
   store i32 16383, ptr %bb, align 8
-  %slab_count.i.i = getelementptr inbounds i8, ptr %bb, i64 8
-  %slab.i.i = getelementptr inbounds i8, ptr %bb, i64 16
+  %slab_count.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 8
+  %slab.i.i = getelementptr inbounds nuw i8, ptr %bb, i64 16
   store ptr null, ptr %slab.i.i, align 8
   tail call void @reset_revision_walk() #18
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 40), align 8
   %2 = load ptr, ptr %1, align 8
   call void @repo_init_revisions(ptr noundef %2, ptr noundef nonnull %revs, ptr noundef null) #18
-  %topo_order = getelementptr inbounds i8, ptr %revs, i64 280
+  %topo_order = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %topo_order, align 8
   %bf.set3 = or i64 %bf.load, 274877907456
   store i64 %bf.set3, ptr %topo_order, align 8
@@ -1197,7 +1197,7 @@ entry:
 for.body:                                         ; preds = %entry, %bb_data_at.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %bb_data_at.exit ], [ 0, %entry ]
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %6 = getelementptr i8, ptr %5, i64 64
   %.val = load i32, ptr %6, align 8
@@ -1223,7 +1223,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i, %for.bo
   %i.03.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ %9, %if.end.i.i ]
   %10 = load ptr, ptr %slab.i.i, align 8
   %idxprom.i.i = zext i32 %i.03.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %idxprom.i.i
   store ptr null, ptr %arrayidx.i.i, align 8
   %inc.i.i = add i32 %i.03.i.i, 1
   %cmp7.not.i.i = icmp ugt i32 %inc.i.i, %div.i.i
@@ -1241,7 +1241,7 @@ for.end.i.i:                                      ; preds = %for.end.i.i.loopexi
 if.end12.i.i:                                     ; preds = %for.end.i.i, %for.body
   %11 = phi ptr [ %.pre, %for.end.i.i ], [ %.pre19, %for.body ]
   %idxprom14.i.i = zext i32 %div.i.i to i64
-  %arrayidx15.i.i = getelementptr inbounds ptr, ptr %11, i64 %idxprom14.i.i
+  %arrayidx15.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %idxprom14.i.i
   %12 = load ptr, ptr %arrayidx15.i.i, align 8
   %tobool16.not.i.i = icmp eq ptr %12, null
   br i1 %tobool16.not.i.i, label %if.end20.i.i, label %bb_data_at.exit
@@ -1254,10 +1254,10 @@ if.end20.i.i:                                     ; preds = %if.end12.i.i
   %mul.i.i = shl nuw nsw i64 %conv23.i.i, 5
   %call24.i.i = call ptr @xcalloc(i64 noundef %conv22.i.i, i64 noundef %mul.i.i) #18
   %15 = load ptr, ptr %slab.i.i, align 8
-  %arrayidx27.i.i = getelementptr inbounds ptr, ptr %15, i64 %idxprom14.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw ptr, ptr %15, i64 %idxprom14.i.i
   store ptr %call24.i.i, ptr %arrayidx27.i.i, align 8
   %.pre.i.i = load ptr, ptr %slab.i.i, align 8
-  %arrayidx31.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i, i64 %idxprom14.i.i
+  %arrayidx31.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %idxprom14.i.i
   %.pre4.i.i = load ptr, ptr %arrayidx31.phi.trans.insert.i.i, align 8
   br label %bb_data_at.exit
 
@@ -1266,16 +1266,16 @@ bb_data_at.exit:                                  ; preds = %if.end12.i.i, %if.e
   %17 = load i32, ptr %stride1.i.i, align 4
   %mul33.i.i = mul i32 %17, %rem.i.i
   %idxprom34.i.i = zext i32 %mul33.i.i to i64
-  %arrayidx35.i.i = getelementptr inbounds %struct.bb_commit, ptr %16, i64 %idxprom34.i.i
-  %selected6 = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 24
+  %arrayidx35.i.i = getelementptr inbounds nuw %struct.bb_commit, ptr %16, i64 %idxprom34.i.i
+  %selected6 = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i, i64 24
   %bf.load7 = load i8, ptr %selected6, align 8
   %bf.set12 = or i8 %bf.load7, 3
   store i8 %bf.set12, ptr %selected6, align 8
-  %idx = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 28
+  %idx = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i, i64 28
   %18 = trunc nuw i64 %indvars.iv to i32
   store i32 %18, ptr %idx, align 4
   %call13 = call ptr @bitmap_new() #18
-  %commit_mask = getelementptr inbounds i8, ptr %arrayidx35.i.i, i64 8
+  %commit_mask = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i, i64 8
   store ptr %call13, ptr %commit_mask, align 8
   call void @bitmap_set(ptr noundef %call13, i64 noundef %indvars.iv) #18
   call void @add_pending_object(ptr noundef nonnull %revs, ptr noundef %5, ptr noundef nonnull @.str.12) #18
@@ -1292,9 +1292,9 @@ for.end:                                          ; preds = %bb_data_at.exit, %e
 
 while.cond.preheader:                             ; preds = %for.end
   %tobool24.not = icmp eq ptr %old_bitmap, null
-  %commits_nr = getelementptr inbounds i8, ptr %bb, i64 32
-  %commits_alloc = getelementptr inbounds i8, ptr %bb, i64 40
-  %commits = getelementptr inbounds i8, ptr %bb, i64 24
+  %commits_nr = getelementptr inbounds nuw i8, ptr %bb, i64 32
+  %commits_alloc = getelementptr inbounds nuw i8, ptr %bb, i64 40
+  %commits = getelementptr inbounds nuw i8, ptr %bb, i64 24
   br label %while.cond.outer
 
 if.then:                                          ; preds = %for.end
@@ -1312,7 +1312,7 @@ for.cond130.preheader:                            ; preds = %while.cond
   br i1 %tobool131.not14, label %for.end173, label %do.body133
 
 while.body:                                       ; preds = %while.cond
-  %parents = getelementptr inbounds i8, ptr %call16, i64 48
+  %parents = getelementptr inbounds nuw i8, ptr %call16, i64 48
   %21 = load ptr, ptr %parents, align 8
   call void @parse_commit_or_die(ptr noundef nonnull %call16) #18
   %22 = getelementptr i8, ptr %call16, i64 64
@@ -1339,7 +1339,7 @@ for.body.i.i95:                                   ; preds = %if.end.i.i88, %for.
   %i.03.i.i96 = phi i32 [ %inc.i.i99, %for.body.i.i95 ], [ %25, %if.end.i.i88 ]
   %26 = load ptr, ptr %slab.i.i, align 8
   %idxprom.i.i97 = zext i32 %i.03.i.i96 to i64
-  %arrayidx.i.i98 = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i.i97
+  %arrayidx.i.i98 = getelementptr inbounds nuw ptr, ptr %26, i64 %idxprom.i.i97
   store ptr null, ptr %arrayidx.i.i98, align 8
   %inc.i.i99 = add i32 %i.03.i.i96, 1
   %cmp7.not.i.i100 = icmp ugt i32 %inc.i.i99, %div.i.i85
@@ -1357,7 +1357,7 @@ for.end.i.i101:                                   ; preds = %for.end.i.i101.loop
 if.end12.i.i102:                                  ; preds = %for.end.i.i101, %while.body
   %27 = phi ptr [ %.pre20, %for.end.i.i101 ], [ %.pre21, %while.body ]
   %idxprom14.i.i104 = zext i32 %div.i.i85 to i64
-  %arrayidx15.i.i105 = getelementptr inbounds ptr, ptr %27, i64 %idxprom14.i.i104
+  %arrayidx15.i.i105 = getelementptr inbounds nuw ptr, ptr %27, i64 %idxprom14.i.i104
   %28 = load ptr, ptr %arrayidx15.i.i105, align 8
   %tobool16.not.i.i106 = icmp eq ptr %28, null
   br i1 %tobool16.not.i.i106, label %if.end20.i.i112, label %bb_data_at.exit122
@@ -1370,10 +1370,10 @@ if.end20.i.i112:                                  ; preds = %if.end12.i.i102
   %mul.i.i116 = shl nuw nsw i64 %conv23.i.i115, 5
   %call24.i.i117 = call ptr @xcalloc(i64 noundef %conv22.i.i113, i64 noundef %mul.i.i116) #18
   %31 = load ptr, ptr %slab.i.i, align 8
-  %arrayidx27.i.i118 = getelementptr inbounds ptr, ptr %31, i64 %idxprom14.i.i104
+  %arrayidx27.i.i118 = getelementptr inbounds nuw ptr, ptr %31, i64 %idxprom14.i.i104
   store ptr %call24.i.i117, ptr %arrayidx27.i.i118, align 8
   %.pre.i.i119 = load ptr, ptr %slab.i.i, align 8
-  %arrayidx31.phi.trans.insert.i.i120 = getelementptr inbounds ptr, ptr %.pre.i.i119, i64 %idxprom14.i.i104
+  %arrayidx31.phi.trans.insert.i.i120 = getelementptr inbounds nuw ptr, ptr %.pre.i.i119, i64 %idxprom14.i.i104
   %.pre4.i.i121 = load ptr, ptr %arrayidx31.phi.trans.insert.i.i120, align 8
   br label %bb_data_at.exit122
 
@@ -1382,14 +1382,14 @@ bb_data_at.exit122:                               ; preds = %if.end12.i.i102, %i
   %33 = load i32, ptr %stride1.i.i, align 4
   %mul33.i.i109 = mul i32 %33, %rem.i.i107
   %idxprom34.i.i110 = zext i32 %mul33.i.i109 to i64
-  %arrayidx35.i.i111 = getelementptr inbounds %struct.bb_commit, ptr %32, i64 %idxprom34.i.i110
-  %commit_mask20 = getelementptr inbounds i8, ptr %arrayidx35.i.i111, i64 8
+  %arrayidx35.i.i111 = getelementptr inbounds nuw %struct.bb_commit, ptr %32, i64 %idxprom34.i.i110
+  %commit_mask20 = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i111, i64 8
   %34 = load ptr, ptr %commit_mask20, align 8
   %tobool21.not = icmp eq ptr %34, null
   br i1 %tobool21.not, label %while.cond, label %if.end23, !llvm.loop !22
 
 if.end23:                                         ; preds = %bb_data_at.exit122
-  %commit_mask20.le = getelementptr inbounds i8, ptr %arrayidx35.i.i111, i64 8
+  %commit_mask20.le = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i111, i64 8
   br i1 %tobool24.not, label %if.end29, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end23
@@ -1398,7 +1398,7 @@ land.lhs.true:                                    ; preds = %if.end23
   br i1 %tobool26.not, label %if.end29, label %next127.sink.split
 
 if.end29:                                         ; preds = %land.lhs.true, %if.end23
-  %maximal30 = getelementptr inbounds i8, ptr %arrayidx35.i.i111, i64 24
+  %maximal30 = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i111, i64 24
   %bf.load31 = load i8, ptr %maximal30, align 8
   %35 = and i8 %bf.load31, 2
   %tobool33.not = icmp eq i8 %35, 0
@@ -1478,7 +1478,7 @@ for.body.i.i133:                                  ; preds = %if.end.i.i126, %for
   %i.03.i.i134 = phi i32 [ %inc.i.i137, %for.body.i.i133 ], [ %46, %if.end.i.i126 ]
   %47 = load ptr, ptr %slab.i.i, align 8
   %idxprom.i.i135 = zext i32 %i.03.i.i134 to i64
-  %arrayidx.i.i136 = getelementptr inbounds ptr, ptr %47, i64 %idxprom.i.i135
+  %arrayidx.i.i136 = getelementptr inbounds nuw ptr, ptr %47, i64 %idxprom.i.i135
   store ptr null, ptr %arrayidx.i.i136, align 8
   %inc.i.i137 = add i32 %i.03.i.i134, 1
   %cmp7.not.i.i138 = icmp ugt i32 %inc.i.i137, %div.i.i123
@@ -1496,7 +1496,7 @@ for.end.i.i139:                                   ; preds = %for.end.i.i139.loop
 if.end12.i.i140:                                  ; preds = %for.end.i.i139, %if.then66
   %48 = phi ptr [ %.pre24, %for.end.i.i139 ], [ %.pre25, %if.then66 ]
   %idxprom14.i.i142 = zext i32 %div.i.i123 to i64
-  %arrayidx15.i.i143 = getelementptr inbounds ptr, ptr %48, i64 %idxprom14.i.i142
+  %arrayidx15.i.i143 = getelementptr inbounds nuw ptr, ptr %48, i64 %idxprom14.i.i142
   %49 = load ptr, ptr %arrayidx15.i.i143, align 8
   %tobool16.not.i.i144 = icmp eq ptr %49, null
   %.pre27 = load i32, ptr %stride1.i.i, align 4
@@ -1509,10 +1509,10 @@ if.end20.i.i150:                                  ; preds = %if.end12.i.i140
   %mul.i.i154 = shl nuw nsw i64 %conv23.i.i153, 5
   %call24.i.i155 = call ptr @xcalloc(i64 noundef %conv22.i.i151, i64 noundef %mul.i.i154) #18
   %51 = load ptr, ptr %slab.i.i, align 8
-  %arrayidx27.i.i156 = getelementptr inbounds ptr, ptr %51, i64 %idxprom14.i.i142
+  %arrayidx27.i.i156 = getelementptr inbounds nuw ptr, ptr %51, i64 %idxprom14.i.i142
   store ptr %call24.i.i155, ptr %arrayidx27.i.i156, align 8
   %.pre.i.i157 = load ptr, ptr %slab.i.i, align 8
-  %arrayidx31.phi.trans.insert.i.i158 = getelementptr inbounds ptr, ptr %.pre.i.i157, i64 %idxprom14.i.i142
+  %arrayidx31.phi.trans.insert.i.i158 = getelementptr inbounds nuw ptr, ptr %.pre.i.i157, i64 %idxprom14.i.i142
   %.pre4.i.i159 = load ptr, ptr %arrayidx31.phi.trans.insert.i.i158, align 8
   %.pre26 = load i32, ptr %stride1.i.i, align 4
   br label %bb_data_at.exit160
@@ -1522,8 +1522,8 @@ bb_data_at.exit160:                               ; preds = %if.end12.i.i140, %i
   %53 = phi ptr [ %49, %if.end12.i.i140 ], [ %.pre4.i.i159, %if.end20.i.i150 ]
   %mul33.i.i147 = mul i32 %52, %rem.i.i145
   %idxprom34.i.i148 = zext i32 %mul33.i.i147 to i64
-  %arrayidx35.i.i149 = getelementptr inbounds %struct.bb_commit, ptr %53, i64 %idxprom34.i.i148
-  %commit_mask69 = getelementptr inbounds i8, ptr %arrayidx35.i.i149, i64 8
+  %arrayidx35.i.i149 = getelementptr inbounds nuw %struct.bb_commit, ptr %53, i64 %idxprom34.i.i148
+  %commit_mask69 = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i149, i64 8
   %54 = load ptr, ptr %commit_mask69, align 8
   %tobool70.not = icmp eq ptr %54, null
   br i1 %tobool70.not, label %if.end84.thread, label %if.end81
@@ -1556,14 +1556,14 @@ if.end84:                                         ; preds = %if.end81
   br i1 %60, label %if.else93, label %if.then88
 
 if.then88:                                        ; preds = %if.end84
-  %maximal89 = getelementptr inbounds i8, ptr %arrayidx35.i.i149, i64 24
+  %maximal89 = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i149, i64 24
   %bf.load90 = load i8, ptr %maximal89, align 8
   %bf.set92 = or i8 %bf.load90, 2
   store i8 %bf.set92, ptr %maximal89, align 8
   br label %if.end99
 
 if.else93:                                        ; preds = %if.end84.thread, %if.end84
-  %maximal94 = getelementptr inbounds i8, ptr %arrayidx35.i.i149, i64 24
+  %maximal94 = getelementptr inbounds nuw i8, ptr %arrayidx35.i.i149, i64 24
   %bf.load95 = load i8, ptr %maximal94, align 8
   %bf.clear96 = and i8 %bf.load95, -3
   store i8 %bf.clear96, ptr %maximal94, align 8
@@ -1597,7 +1597,7 @@ if.then118:                                       ; preds = %for.body113
   br label %for.inc123
 
 for.inc123:                                       ; preds = %for.body113, %if.then118
-  %next = getelementptr inbounds i8, ptr %cc.012, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %cc.012, i64 8
   %cc.0 = load ptr, ptr %next, align 8
   %tobool112.not = icmp eq ptr %cc.0, null
   br i1 %tobool112.not, label %next127, label %for.body113, !llvm.loop !23
@@ -1661,7 +1661,7 @@ do.end165:                                        ; preds = %do.body133.do.end16
   store i64 %inc169.pre-phi, ptr %commits_nr, align 8
   %arrayidx170 = getelementptr inbounds ptr, ptr %74, i64 %73
   store ptr %75, ptr %arrayidx170, align 8
-  %next172 = getelementptr inbounds i8, ptr %r.015, i64 8
+  %next172 = getelementptr inbounds nuw i8, ptr %r.015, i64 8
   %r.0 = load ptr, ptr %next172, align 8
   %tobool131.not = icmp eq ptr %r.0, null
   br i1 %tobool131.not, label %for.end173, label %do.body133, !llvm.loop !24
@@ -1725,7 +1725,7 @@ for.body.preheader:                               ; preds = %sane_qsort.exit, %f
 for.body:                                         ; preds = %for.body.preheader, %push_bitmapped_commit.exit
   %0 = phi i32 [ %.pre, %for.body.preheader ], [ %inc.i, %push_bitmapped_commit.exit ]
   %indvars.iv54 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next55, %push_bitmapped_commit.exit ]
-  %arrayidx = getelementptr inbounds ptr, ptr %indexed_commits, i64 %indvars.iv54
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %indexed_commits, i64 %indvars.iv54
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 60), align 4
   %cmp.not.i = icmp ult i32 %0, %2
@@ -1747,17 +1747,17 @@ push_bitmapped_commit.exit:                       ; preds = %for.body, %if.then.
   %3 = phi i32 [ %.pre2.i, %if.then.i29 ], [ %0, %for.body ]
   %4 = phi ptr [ %call1.i, %if.then.i29 ], [ %.pre.i, %for.body ]
   %idxprom.i = zext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds %struct.bitmapped_commit, ptr %4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %4, i64 %idxprom.i
   store ptr %1, ptr %arrayidx.i, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %idxprom3.i = zext i32 %6 to i64
-  %bitmap.i = getelementptr inbounds %struct.bitmapped_commit, ptr %5, i64 %idxprom3.i, i32 1
+  %bitmap.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %5, i64 %idxprom3.i, i32 1
   store ptr null, ptr %bitmap.i, align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %idxprom5.i = zext i32 %8 to i64
-  %flags.i = getelementptr inbounds %struct.bitmapped_commit, ptr %7, i64 %idxprom5.i, i32 3
+  %flags.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %7, i64 %idxprom5.i, i32 3
   store i32 0, ptr %flags.i, align 8
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %inc.i = add i32 %9, 1
@@ -1822,13 +1822,13 @@ if.end17:                                         ; preds = %if.end11
 
 if.then20:                                        ; preds = %if.end17
   %idxprom21 = zext i32 %i.1 to i64
-  %arrayidx22 = getelementptr inbounds ptr, ptr %indexed_commits, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw ptr, ptr %indexed_commits, i64 %idxprom21
   %12 = load ptr, ptr %arrayidx22, align 8
   br label %if.end47
 
 if.else:                                          ; preds = %if.end17
   %idxprom24 = zext i32 %add to i64
-  %arrayidx25 = getelementptr inbounds ptr, ptr %indexed_commits, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds nuw ptr, ptr %indexed_commits, i64 %idxprom24
   %13 = load ptr, ptr %arrayidx25, align 8
   %14 = add nuw nsw i32 %retval.0.i, 1
   br label %for.body29
@@ -1839,7 +1839,7 @@ for.body29:                                       ; preds = %if.else, %for.inc44
   %15 = trunc nuw i64 %indvars.iv to i32
   %add30 = add i32 %i.1, %15
   %idxprom31 = zext i32 %add30 to i64
-  %arrayidx32 = getelementptr inbounds ptr, ptr %indexed_commits, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw ptr, ptr %indexed_commits, i64 %idxprom31
   %16 = load ptr, ptr %arrayidx32, align 8
   %bf.load = load i32, ptr %16, align 8
   %17 = and i32 %bf.load, 67108864
@@ -1847,13 +1847,13 @@ for.body29:                                       ; preds = %if.else, %for.inc44
   br i1 %cmp33.not, label %if.end36, label %if.end47
 
 if.end36:                                         ; preds = %for.body29
-  %parents = getelementptr inbounds i8, ptr %16, i64 48
+  %parents = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %parents, align 8
   %tobool37.not = icmp eq ptr %18, null
   br i1 %tobool37.not, label %for.inc44, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.end36
-  %next40 = getelementptr inbounds i8, ptr %18, i64 8
+  %next40 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load ptr, ptr %next40, align 8
   %tobool41.not = icmp eq ptr %19, null
   %spec.select = select i1 %tobool41.not, ptr %chosen.150, ptr %16
@@ -1888,17 +1888,17 @@ push_bitmapped_commit.exit48:                     ; preds = %if.end47, %if.then.
   %21 = phi i32 [ %.pre2.i39, %if.then.i33 ], [ %11, %if.end47 ]
   %22 = phi ptr [ %call1.i38, %if.then.i33 ], [ %.pre.i32, %if.end47 ]
   %idxprom.i41 = zext i32 %21 to i64
-  %arrayidx.i42 = getelementptr inbounds %struct.bitmapped_commit, ptr %22, i64 %idxprom.i41
+  %arrayidx.i42 = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %22, i64 %idxprom.i41
   store ptr %chosen.0, ptr %arrayidx.i42, align 8
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %idxprom3.i43 = zext i32 %24 to i64
-  %bitmap.i44 = getelementptr inbounds %struct.bitmapped_commit, ptr %23, i64 %idxprom3.i43, i32 1
+  %bitmap.i44 = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %23, i64 %idxprom3.i43, i32 1
   store ptr null, ptr %bitmap.i44, align 8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %idxprom5.i45 = zext i32 %26 to i64
-  %flags.i46 = getelementptr inbounds %struct.bitmapped_commit, ptr %25, i64 %idxprom5.i45, i32 3
+  %flags.i46 = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %25, i64 %idxprom5.i45, i32 3
   store i32 0, ptr %flags.i46, align 8
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %inc.i47 = add i32 %27, 1
@@ -1933,9 +1933,9 @@ define internal i32 @date_compare(ptr nocapture noundef readonly %_a, ptr nocapt
 entry:
   %0 = load ptr, ptr %_a, align 8
   %1 = load ptr, ptr %_b, align 8
-  %date = getelementptr inbounds i8, ptr %1, i64 40
+  %date = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i64, ptr %date, align 8
-  %date1 = getelementptr inbounds i8, ptr %0, i64 40
+  %date1 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %date1, align 8
   %sub = sub nsw i64 %2, %3
   %conv = trunc i64 %sub to i32
@@ -1946,9 +1946,9 @@ entry:
 define dso_local void @bitmap_writer_set_checksum(ptr nocapture noundef readonly %sha1) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %0, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %0, i64 256
   %1 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds i8, ptr %1, i64 16
+  %rawsz.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %rawsz.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 getelementptr inbounds (i8, ptr @writer, i64 76), ptr readonly align 1 %sha1, i64 %2, i1 false)
   ret void
@@ -1968,31 +1968,31 @@ entry:
   %header = alloca %struct.bitmap_disk_header, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmp_file, ptr noundef nonnull align 8 dereferenceable(24) @__const.bitmap_writer_finish.tmp_file, i64 24, i1 false)
   %call = call i32 @odb_mkstemp(ptr noundef nonnull %tmp_file, ptr noundef nonnull @.str.7) #18
-  %buf = getelementptr inbounds i8, ptr %tmp_file, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %tmp_file, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call1 = call ptr @hashfd(i32 noundef %call, ptr noundef %0) #18
   store i32 1297369410, ptr %header, align 4
   %call2 = call zeroext i16 @htons(i16 noundef zeroext 1) #20
-  %version = getelementptr inbounds i8, ptr %header, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %header, i64 4
   store i16 %call2, ptr %version, align 4
   %conv3 = zext i16 %options to i32
   %or = or i16 %options, 1
   %call5 = call zeroext i16 @htons(i16 noundef zeroext %or) #20
-  %options6 = getelementptr inbounds i8, ptr %header, i64 6
+  %options6 = getelementptr inbounds nuw i8, ptr %header, i64 6
   store i16 %call5, ptr %options6, align 2
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
   %2 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %1) #21, !srcloc !27
-  %entry_count = getelementptr inbounds i8, ptr %header, i64 8
+  %entry_count = getelementptr inbounds nuw i8, ptr %header, i64 8
   store i32 %2, ptr %entry_count, align 4
-  %checksum = getelementptr inbounds i8, ptr %header, i64 12
+  %checksum = getelementptr inbounds nuw i8, ptr %header, i64 12
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %3, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz.i = getelementptr inbounds i8, ptr %4, i64 16
+  %rawsz.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load i64, ptr %rawsz.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %checksum, ptr nonnull readonly align 4 getelementptr inbounds (i8, ptr @writer, i64 76), i64 %5, i1 false)
   %6 = load ptr, ptr %hash_algo.i, align 8
-  %rawsz = getelementptr inbounds i8, ptr %6, i64 16
+  %rawsz = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load i64, ptr %rawsz, align 8
   %8 = trunc i64 %7 to i32
   %conv9 = add i32 %8, 12
@@ -2063,9 +2063,9 @@ for.body.lr.ph:                                   ; preds = %st_mult.exit
 for.body:                                         ; preds = %for.body.lr.ph, %if.end23
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end23 ]
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
-  %arrayidx = getelementptr inbounds %struct.bitmapped_commit, ptr %15, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
-  %oid = getelementptr inbounds i8, ptr %16, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %16, i64 4
   %call18 = call i32 @oid_pos(ptr noundef nonnull %oid, ptr noundef %index, i64 noundef %conv17, ptr noundef nonnull @oid_access) #18
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %if.then21, label %if.end23
@@ -2076,7 +2076,7 @@ if.then21:                                        ; preds = %for.body
   unreachable
 
 if.end23:                                         ; preds = %for.body
-  %arrayidx25 = getelementptr inbounds i32, ptr %call15, i64 %indvars.iv
+  %arrayidx25 = getelementptr inbounds nuw i32, ptr %call15, i64 %indvars.iv
   store i32 %call18, ptr %arrayidx25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @writer, i64 56), align 8
@@ -2104,7 +2104,7 @@ for.cond.i:                                       ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
-  %arrayidx.i = getelementptr inbounds %struct.bitmapped_commit, ptr %24, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %24, i64 %indvars.iv.i
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i39
 
 if.then.i39:                                      ; preds = %for.body.i
@@ -2112,33 +2112,33 @@ if.then.i39:                                      ; preds = %for.body.i
   %f.val12.i = load i64, ptr %21, align 8
   %conv.i.i = zext i32 %f.val.i to i64
   %add.i.i = add nsw i64 %f.val12.i, %conv.i.i
-  %arrayidx2.i = getelementptr inbounds i64, ptr %offsets.0, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr inbounds nuw i64, ptr %offsets.0, i64 %indvars.iv.i
   store i64 %add.i.i, ptr %arrayidx2.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i39, %for.body.i
-  %arrayidx4.i = getelementptr inbounds i32, ptr %call15, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw i32, ptr %call15, i64 %indvars.iv.i
   %25 = load i32, ptr %arrayidx4.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i.i)
   %26 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #21, !srcloc !27
   store i32 %26, ptr %data.addr.i.i, align 4
   call void @hashwrite(ptr noundef %call1, ptr noundef nonnull %data.addr.i.i, i32 noundef 4) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i.i)
-  %xor_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 28
+  %xor_offset.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %27 = load i32, ptr %xor_offset.i, align 4
   %conv.i = trunc i32 %27 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.addr.i13.i)
   store i8 %conv.i, ptr %data.addr.i13.i, align 1
   call void @hashwrite(ptr noundef %call1, ptr noundef nonnull %data.addr.i13.i, i32 noundef 1) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.addr.i13.i)
-  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %28 = load i32, ptr %flags.i, align 8
   %conv5.i = trunc i32 %28 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %data.addr.i14.i)
   store i8 %conv5.i, ptr %data.addr.i14.i, align 1
   call void @hashwrite(ptr noundef %call1, ptr noundef nonnull %data.addr.i14.i, i32 noundef 1) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %data.addr.i14.i)
-  %write_as.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %write_as.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %29 = load ptr, ptr %write_as.i, align 8
   %call.i.i = call i32 @ewah_serialize_to(ptr noundef %29, ptr noundef nonnull @hashwrite_ewah_helper, ptr noundef %call1) #18
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -2169,7 +2169,7 @@ if.then29:                                        ; preds = %write_selected_comm
 
 for.body.i43:                                     ; preds = %if.then29, %for.body.i43
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i46, %for.body.i43 ], [ 0, %if.then29 ]
-  %arrayidx.i45 = getelementptr inbounds i32, ptr %call1.i, i64 %indvars.iv.i44
+  %arrayidx.i45 = getelementptr inbounds nuw i32, ptr %call1.i, i64 %indvars.iv.i44
   %34 = trunc nuw i64 %indvars.iv.i44 to i32
   store i32 %34, ptr %arrayidx.i45, align 4
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i44, 1
@@ -2195,10 +2195,10 @@ if.then.i49:                                      ; preds = %do.body.i
 
 for.body11.i:                                     ; preds = %for.cond8.preheader.i, %for.body11.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %for.body11.i ], [ 0, %for.cond8.preheader.i ]
-  %arrayidx13.i = getelementptr inbounds i32, ptr %call1.i, i64 %indvars.iv53.i
+  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %call1.i, i64 %indvars.iv53.i
   %38 = load i32, ptr %arrayidx13.i, align 4
   %idxprom14.i = zext i32 %38 to i64
-  %arrayidx15.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw i32, ptr %call4.i, i64 %idxprom14.i
   %39 = trunc nuw i64 %indvars.iv53.i to i32
   store i32 %39, ptr %arrayidx15.i, align 4
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
@@ -2217,10 +2217,10 @@ for.end18.i:                                      ; preds = %for.body11.i, %for.
 for.body22.i:                                     ; preds = %for.end18.i, %if.end34.i
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %if.end34.i ], [ 0, %for.end18.i ]
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 48), align 8
-  %arrayidx24.i = getelementptr inbounds i32, ptr %call1.i, i64 %indvars.iv56.i
+  %arrayidx24.i = getelementptr inbounds nuw i32, ptr %call1.i, i64 %indvars.iv56.i
   %45 = load i32, ptr %arrayidx24.i, align 4
   %idxprom25.i = zext i32 %45 to i64
-  %xor_offset27.i = getelementptr inbounds %struct.bitmapped_commit, ptr %44, i64 %idxprom25.i, i32 4
+  %xor_offset27.i = getelementptr inbounds nuw %struct.bitmapped_commit, ptr %44, i64 %idxprom25.i, i32 4
   %46 = load i32, ptr %xor_offset27.i, align 4
   %tobool28.not.i = icmp eq i32 %46, 0
   br i1 %tobool28.not.i, label %if.end34.i, label %if.then29.i
@@ -2228,13 +2228,13 @@ for.body22.i:                                     ; preds = %for.end18.i, %if.en
 if.then29.i:                                      ; preds = %for.body22.i
   %sub.i = sub i32 %45, %46
   %idxprom32.i = zext i32 %sub.i to i64
-  %arrayidx33.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom32.i
+  %arrayidx33.i = getelementptr inbounds nuw i32, ptr %call4.i, i64 %idxprom32.i
   %47 = load i32, ptr %arrayidx33.i, align 4
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then29.i, %for.body22.i
   %xor_row.0.i = phi i32 [ %47, %if.then29.i ], [ -1, %for.body22.i ]
-  %arrayidx38.i = getelementptr inbounds i32, ptr %call15, i64 %idxprom25.i
+  %arrayidx38.i = getelementptr inbounds nuw i32, ptr %call15, i64 %idxprom25.i
   %48 = load i32, ptr %arrayidx38.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i.i41)
   %49 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %48) #21, !srcloc !27
@@ -2243,7 +2243,7 @@ if.end34.i:                                       ; preds = %if.then29.i, %for.b
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i.i41)
   %50 = load i32, ptr %arrayidx24.i, align 4
   %idxprom41.i = zext i32 %50 to i64
-  %arrayidx42.i = getelementptr inbounds i64, ptr %offsets.0, i64 %idxprom41.i
+  %arrayidx42.i = getelementptr inbounds nuw i64, ptr %offsets.0, i64 %idxprom41.i
   %51 = load i64, ptr %arrayidx42.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i33.i)
   %52 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %51) #21, !srcloc !32
@@ -2281,9 +2281,9 @@ for.body.preheader.i:                             ; preds = %if.end30
 
 for.body.i56:                                     ; preds = %for.body.i56, %for.body.preheader.i
   %indvars.iv.i57 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i62, %for.body.i56 ]
-  %arrayidx.i58 = getelementptr inbounds ptr, ptr %index, i64 %indvars.iv.i57
+  %arrayidx.i58 = getelementptr inbounds nuw ptr, ptr %index, i64 %indvars.iv.i57
   %57 = load ptr, ptr %arrayidx.i58, align 8
-  %hash.i = getelementptr inbounds i8, ptr %57, i64 64
+  %hash.i = getelementptr inbounds nuw i8, ptr %57, i64 64
   %58 = load i32, ptr %hash.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i.i55)
   %59 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %58) #21, !srcloc !27
@@ -2424,7 +2424,7 @@ define internal fastcc range(i32 -1, 1) i32 @fill_bitmap_tree(ptr noundef %bitma
 entry:
   %desc = alloca %struct.tree_desc, align 8
   %entry1 = alloca %struct.name_entry, align 8
-  %oid = getelementptr inbounds i8, ptr %tree, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %tree, i64 4
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @writer, i64 40), align 8
   %call.i = tail call ptr @packlist_find(ptr noundef %0, ptr noundef nonnull %oid) #18
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -2464,9 +2464,9 @@ if.then9:                                         ; preds = %if.end5
   unreachable
 
 if.end13:                                         ; preds = %if.end5
-  %buffer = getelementptr inbounds i8, ptr %tree, i64 40
+  %buffer = getelementptr inbounds nuw i8, ptr %tree, i64 40
   %6 = load ptr, ptr %buffer, align 8
-  %size = getelementptr inbounds i8, ptr %tree, i64 48
+  %size = getelementptr inbounds nuw i8, ptr %tree, i64 48
   %7 = load i64, ptr %size, align 8
   call void @init_tree_desc(ptr noundef nonnull %desc, ptr noundef %6, i64 noundef %7) #18
   %call1432 = call i32 @tree_entry(ptr noundef nonnull %desc, ptr noundef nonnull %entry1) #18
@@ -2474,7 +2474,7 @@ if.end13:                                         ; preds = %if.end5
   br i1 %tobool15.not33, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end13
-  %mode = getelementptr inbounds i8, ptr %entry1, i64 52
+  %mode = getelementptr inbounds nuw i8, ptr %entry1, i64 52
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -2587,11 +2587,11 @@ define internal range(i32 -1, 2) i32 @table_cmp(ptr nocapture noundef readonly %
 entry:
   %0 = load i32, ptr %_va, align 4
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %_data, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %_data, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %2 = load i32, ptr %_vb, align 4
   %idxprom1 = zext i32 %2 to i64
-  %arrayidx2 = getelementptr inbounds i32, ptr %_data, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds nuw i32, ptr %_data, i64 %idxprom1
   %3 = load i32, ptr %arrayidx2, align 4
   %retval.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %1, i32 %3)
   ret i32 %retval.0

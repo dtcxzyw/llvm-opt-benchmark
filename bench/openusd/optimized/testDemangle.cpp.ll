@@ -225,7 +225,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %122 = load i8, ptr %121, align 1
   %123 = icmp eq i8 %122, 42
   %.idx.i.i = zext i1 %123 to i64
-  %124 = getelementptr inbounds i8, ptr %121, i64 %.idx.i.i
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #12
   %125 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %82)
           to label %.noexc.i unwind label %140
@@ -251,7 +251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %130 = load i8, ptr %121, align 1
   %131 = icmp eq i8 %130, 42
   %.idx.i11.i = zext i1 %131 to i64
-  %132 = getelementptr inbounds i8, ptr %121, i64 %.idx.i11.i
+  %132 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i11.i
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #12
   %133 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %.noexc12.i unwind label %142
@@ -359,7 +359,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %171 = load i8, ptr %121, align 1, !noalias !5
   %172 = icmp eq i8 %171, 42
   %.idx.i.i.i = zext i1 %172 to i64
-  %173 = getelementptr inbounds i8, ptr %121, i64 %.idx.i.i.i
+  %173 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i.i
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %87, ptr noundef nonnull %173)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info.exit.i unwind label %144
 
@@ -390,7 +390,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %184 = load i8, ptr %121, align 1, !noalias !8
   %185 = icmp eq i8 %184, 42
   %.idx.i.i22.i = zext i1 %185 to i64
-  %186 = getelementptr inbounds i8, ptr %121, i64 %.idx.i.i22.i
+  %186 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i22.i
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %88, ptr noundef nonnull %186)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv.exit.i unwind label %144
 
@@ -2486,7 +2486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit354: ;
   %756 = load i8, ptr %755, align 1
   %757 = icmp eq i8 %756, 42
   %.idx.i.i355 = zext i1 %757 to i64
-  %758 = getelementptr inbounds i8, ptr %755, i64 %.idx.i.i355
+  %758 = getelementptr inbounds nuw i8, ptr %755, i64 %.idx.i.i355
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #12
   %759 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %.noexc.i359 unwind label %774
@@ -2512,7 +2512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i361:
   %764 = load i8, ptr %755, align 1
   %765 = icmp eq i8 %764, 42
   %.idx.i11.i362 = zext i1 %765 to i64
-  %766 = getelementptr inbounds i8, ptr %755, i64 %.idx.i11.i362
+  %766 = getelementptr inbounds nuw i8, ptr %755, i64 %.idx.i11.i362
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #12
   %767 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %.noexc12.i366 unwind label %776
@@ -2620,7 +2620,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %805 = load i8, ptr %755, align 1, !noalias !11
   %806 = icmp eq i8 %805, 42
   %.idx.i.i.i380 = zext i1 %806 to i64
-  %807 = getelementptr inbounds i8, ptr %755, i64 %.idx.i.i.i380
+  %807 = getelementptr inbounds nuw i8, ptr %755, i64 %.idx.i.i.i380
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, ptr noundef nonnull %807)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11ERKSt9type_info.exit.i381 unwind label %778
 
@@ -2651,7 +2651,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %818 = load i8, ptr %755, align 1, !noalias !14
   %819 = icmp eq i8 %818, 42
   %.idx.i.i22.i384 = zext i1 %819 to i64
-  %820 = getelementptr inbounds i8, ptr %755, i64 %.idx.i.i22.i384
+  %820 = getelementptr inbounds nuw i8, ptr %755, i64 %.idx.i.i22.i384
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, ptr noundef nonnull %820)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEv.exit.i unwind label %778
 

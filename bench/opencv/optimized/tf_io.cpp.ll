@@ -56,21 +56,21 @@ define hidden void @_ZN2cv3dnn34ReadTFNetParamsFromBinaryFileOrDieEPKcPN17opencv
   %4 = tail call noundef zeroext i1 @_ZN2cv3dnn23ReadProtoFromBinaryFileEPKcPN6google8protobuf7MessageE(ptr noundef %0, ptr noundef %1)
   %5 = zext i1 %4 to i8
   store ptr @.str, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._ZN2cv3dnn34ReadTFNetParamsFromBinaryFileOrDieEPKcPN17opencv_tensorflow8GraphDefE, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 42, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 %5, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 37
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
-  %13 = getelementptr inbounds i8, ptr %3, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %14
 
 14:                                               ; preds = %24, %2
@@ -115,15 +115,15 @@ define linkonce_odr hidden void @_ZN2cv3dnn11GLogWrapper5checkEv(ptr noundef non
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 37
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 37
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %47, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %47, label %15
@@ -144,7 +144,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn11GLogWrapper5checkEv(ptr noundef non
 
 20:                                               ; preds = %18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %19) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) %21)
           to label %22 unwind label %36
 
@@ -153,10 +153,10 @@ define linkonce_odr hidden void @_ZN2cv3dnn11GLogWrapper5checkEv(ptr noundef non
           to label %23 unwind label %38
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %25, ptr noundef %26, i32 noundef %28) #7
           to label %29 unwind label %40
@@ -230,21 +230,21 @@ define hidden void @_ZN2cv3dnn36ReadTFNetParamsFromBinaryBufferOrDieEPKcmPN17ope
   %5 = tail call noundef zeroext i1 @_ZN2cv3dnn25ReadProtoFromBinaryBufferEPKcmPN6google8protobuf7MessageE(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %6 = zext i1 %5 to i8
   store ptr @.str, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZN2cv3dnn36ReadTFNetParamsFromBinaryBufferOrDieEPKcmPN17opencv_tensorflow8GraphDefE, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @.str.4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 48, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 %6, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 37
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 37
   store i8 1, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %13)
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %15
 
 15:                                               ; preds = %23, %3
@@ -279,21 +279,21 @@ define hidden void @_ZN2cv3dnn32ReadTFNetParamsFromTextFileOrDieEPKcPN17opencv_t
   %4 = tail call noundef zeroext i1 @_ZN2cv3dnn21ReadProtoFromTextFileEPKcPN6google8protobuf7MessageE(ptr noundef %0, ptr noundef %1)
   %5 = zext i1 %4 to i8
   store ptr @.str, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._ZN2cv3dnn32ReadTFNetParamsFromTextFileOrDieEPKcPN17opencv_tensorflow8GraphDefE, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 54, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 %5, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 37
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
-  %13 = getelementptr inbounds i8, ptr %3, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %14
 
 14:                                               ; preds = %24, %2
@@ -332,21 +332,21 @@ define hidden void @_ZN2cv3dnn34ReadTFNetParamsFromTextBufferOrDieEPKcmPN17openc
   %5 = tail call noundef zeroext i1 @_ZN2cv3dnn23ReadProtoFromTextBufferEPKcmPN6google8protobuf7MessageE(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %6 = zext i1 %5 to i8
   store ptr @.str, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZN2cv3dnn34ReadTFNetParamsFromTextBufferOrDieEPKcmPN17opencv_tensorflow8GraphDefE, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @.str.7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 60, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 %6, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 37
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 37
   store i8 1, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %13)
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %15
 
 15:                                               ; preds = %23, %3

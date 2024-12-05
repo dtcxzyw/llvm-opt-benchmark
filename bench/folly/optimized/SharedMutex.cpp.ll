@@ -621,9 +621,9 @@ $_ZZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE21tls_
 define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5Ev) align 2 {
 entry:
   store ptr null, ptr %this, align 8, !tbaa !7
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   ret void
 }
@@ -634,9 +634,9 @@ entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
   store ptr %lock, ptr %this, align 8, !tbaa !7
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   %tobool.not = icmp eq ptr %lock, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -804,7 +804,7 @@ lor.lhs.false:                                    ; preds = %if.end
 if.then19:                                        ; preds = %lor.lhs.false, %if.end
   %mul.i = shl i32 %10, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %11 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp22.not = icmp eq i64 %11, 0
   br i1 %cmp22.not, label %if.end47, label %if.then23
@@ -827,13 +827,13 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.the
   %rem.i = and i32 %14, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i154 = zext nneg i32 %rem.i to i64
-  %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i154
+  %arrayidx3.i = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i154
   %15 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #19
   %conv27 = zext i8 %15 to i32
   %mul.i155 = shl nuw nsw i32 %conv27, 2
   %idxprom.i156 = zext nneg i32 %mul.i155 to i64
-  %arrayidx.i157 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156
+  %arrayidx.i157 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156
   %16 = load atomic i64, ptr %arrayidx.i157 monotonic, align 32
   %cmp31 = icmp eq i64 %16, 0
   br i1 %cmp31, label %if.then32, label %for.cond
@@ -842,7 +842,7 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %xor.1 = xor i32 %conv27, 1
   %mul.i155.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i156.1 = zext nneg i32 %mul.i155.1 to i64
-  %arrayidx.i157.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156.1
+  %arrayidx.i157.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156.1
   %17 = load atomic i64, ptr %arrayidx.i157.1 monotonic, align 32
   %cmp31.1 = icmp eq i64 %17, 0
   br i1 %cmp31.1, label %if.then32, label %for.cond.1
@@ -899,7 +899,7 @@ if.then53:                                        ; preds = %seqcst_fail50.i134
 if.end59:                                         ; preds = %if.then53, %seqcst_fail50.i134, %if.end47
   %mul.i158 = shl i32 %slot.2.ph, 2
   %idxprom.i159 = zext i32 %mul.i158 to i64
-  %arrayidx.i160 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i159
+  %arrayidx.i160 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i159
   br i1 %cmp61, label %seqcst_fail50.i146, label %seqcst_fail50.i146.thread
 
 seqcst_fail50.i146:                               ; preds = %if.end59
@@ -936,7 +936,7 @@ if.end75.thread:                                  ; preds = %seqcst_fail50.i146
 if.then80:                                        ; preds = %if.end75
   store i16 3, ptr %token, align 2, !tbaa !15
   %conv82 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   store i16 %conv82, ptr %slot_, align 2, !tbaa !16
   br label %cleanup102
 
@@ -949,7 +949,7 @@ do.body.i:                                        ; preds = %_ZN5folly19shared_m
   %xor.i = xor i32 %i.0.i, %34
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
   %35 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
   %cmp.i161 = icmp eq i64 %35, %or.i
   br i1 %cmp.i161, label %seqcst_fail50.i.i, label %do.cond.i
@@ -1094,7 +1094,7 @@ define weak_odr noundef ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24Share
 entry:
   %mul = shl i32 %slot, 2
   %idxprom = zext i32 %mul to i64
-  %arrayidx = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -1134,7 +1134,7 @@ do.body:                                          ; preds = %_ZN5folly19shared_m
   %xor = xor i32 %i.0, %1
   %mul.i = shl i32 %xor, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %3 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp = icmp eq i64 %3, %or.i
   br i1 %cmp, label %seqcst_fail50.i, label %do.cond
@@ -1199,7 +1199,7 @@ seqcst_fail50.i:
   %0 = ptrtoint ptr %this to i64
   %mul.i = shl i32 %slot, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %1 = cmpxchg ptr %arrayidx.i, i64 %0, i64 0 seq_cst seq_cst, align 8
   %2 = extractvalue { i64, i1 } %1, 1
   ret i1 %2
@@ -1344,7 +1344,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %usage) #19
   %call = call i32 @getrusage(i32 noundef 1, ptr noundef nonnull %usage) #19
   %tobool.not = icmp eq i32 %call, 0
-  %0 = getelementptr inbounds i8, ptr %usage, i64 136
+  %0 = getelementptr inbounds nuw i8, ptr %usage, i64 136
   %1 = load i64, ptr %0, align 8
   %retval.0 = select i1 %tobool.not, i64 %1, i64 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %usage) #19
@@ -1489,9 +1489,9 @@ entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<true>::WaitForever", align 1
   store ptr %lock, ptr %this, align 8, !tbaa !7
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #19
@@ -1531,8 +1531,8 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexP
 entry:
   %0 = load ptr, ptr %rhs, align 8, !tbaa !7
   store ptr %0, ptr %this, align 8, !tbaa !7
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
-  %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %token_3 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %1 = load i32, ptr %token_3, align 8, !tbaa.struct !40
   store i32 %1, ptr %token_, align 8, !tbaa.struct !40
   store ptr null, ptr %rhs, align 8, !tbaa !7
@@ -1548,9 +1548,9 @@ entry:
   %state.i.i = alloca i32, align 4
   %0 = load ptr, ptr %upgraded, align 8, !tbaa !43
   store ptr %0, ptr %this, align 8, !tbaa !7
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   store ptr null, ptr %upgraded, align 8, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #19
@@ -1619,9 +1619,9 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexP
 entry:
   %0 = load ptr, ptr %writer, align 8, !tbaa !45
   store ptr %0, ptr %this, align 8, !tbaa !7
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   store ptr null, ptr %writer, align 8, !tbaa !45
   %1 = load atomic i32, ptr %0 acquire, align 4
@@ -1735,8 +1735,8 @@ entry:
   %1 = load ptr, ptr %rhs, align 8, !tbaa !50
   store ptr %1, ptr %this, align 8, !tbaa !50
   store ptr %0, ptr %rhs, align 8, !tbaa !50
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
-  %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %token_3 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %2 = load i32, ptr %token_, align 8, !tbaa.struct !40
   %3 = load i32, ptr %token_3, align 8, !tbaa.struct !40
   store i32 %3, ptr %token_, align 8, !tbaa.struct !40
@@ -1752,7 +1752,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %token_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %token_.i)
           to label %.noexc unwind label %terminate.lpad
 
@@ -1779,7 +1779,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %token_)
   store ptr null, ptr %this, align 8, !tbaa !7
   br label %if.end
@@ -1817,7 +1817,7 @@ do.body.i.i:                                      ; preds = %_ZN5folly19shared_m
   %xor.i.i = xor i32 %i.0.i.i, %3
   %mul.i.i.i = shl i32 %xor.i.i, 2
   %idxprom.i.i.i = zext i32 %mul.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i.i
   %5 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 32
   %cmp.i.i = icmp eq i64 %5, %or.i.i.i
   br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %do.cond.i.i
@@ -1866,12 +1866,12 @@ _ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %if.end6
 
 lor.lhs.false:                                    ; preds = %entry
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   %11 = load i16, ptr %slot_, align 2, !tbaa !16
   %conv = zext i16 %11 to i64
   %12 = ptrtoint ptr %this to i64
   %mul.i.i = shl nuw nsw i64 %conv, 2
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i.i
   %13 = cmpxchg ptr %arrayidx.i.i, i64 %12, i64 0 seq_cst seq_cst, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   br i1 %14, label %if.end6, label %if.then4
@@ -1920,7 +1920,7 @@ do.body.i:                                        ; preds = %_ZN5folly19shared_m
   %xor.i = xor i32 %i.0.i, %2
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
   %4 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
   %cmp.i = icmp eq i64 %4, %or.i.i
   br i1 %cmp.i, label %seqcst_fail50.i.i, label %do.cond.i
@@ -2501,7 +2501,7 @@ while.cond2:                                      ; preds = %while.body6, %_ZN5f
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body6 ], [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ]
   %mul.i = shl i64 %indvars.iv, 2
   %idxprom.i = and i64 %mul.i, 4294967292
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -2522,7 +2522,7 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
   %slot.1.1 = phi i32 [ %3, %while.end ], [ %inc.1, %while.body6.1 ]
   %mul.i.1 = shl i32 %slot.1.1, 2
   %idxprom.i.1 = zext i32 %mul.i.1 to i64
-  %arrayidx.i.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
   %4 = load atomic i64, ptr %arrayidx.i.1 acquire, align 32
   %and.i.1 = and i64 %4, -2
   %cmp.i.1 = icmp eq i64 %and.i.1, %1
@@ -2573,7 +2573,7 @@ while.cond:                                       ; preds = %while.body, %if.end
   %slot.addr.2 = phi i32 [ %slot, %if.end ], [ %inc, %while.body ]
   %mul.i = shl i32 %slot.addr.2, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -2592,7 +2592,7 @@ while.cond.1:                                     ; preds = %while.body.1, %if.e
   %slot.addr.2.1 = phi i32 [ %slot.addr.2, %if.end.1 ], [ %inc.1, %while.body.1 ]
   %mul.i.1 = shl i32 %slot.addr.2.1, 2
   %idxprom.i.1 = zext i32 %mul.i.1 to i64
-  %arrayidx.i.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
   %3 = load atomic i64, ptr %arrayidx.i.1 acquire, align 32
   %and.i.1 = and i64 %3, -2
   %cmp.i.1 = icmp eq i64 %and.i.1, %1
@@ -2613,7 +2613,7 @@ while.cond.2:                                     ; preds = %while.body.2, %if.e
   %slot.addr.2.2 = phi i32 [ %slot.addr.2.1, %if.end.2 ], [ %inc.2, %while.body.2 ]
   %mul.i.2 = shl i32 %slot.addr.2.2, 2
   %idxprom.i.2 = zext i32 %mul.i.2 to i64
-  %arrayidx.i.2 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.2
+  %arrayidx.i.2 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.2
   %4 = load atomic i64, ptr %arrayidx.i.2 acquire, align 32
   %and.i.2 = and i64 %4, -2
   %cmp.i.2 = icmp eq i64 %and.i.2, %1
@@ -2647,7 +2647,7 @@ for.body29:                                       ; preds = %if.end37.1, %for.bo
   %niter = phi i64 [ 0, %for.body29.lr.ph.new ], [ %niter.next.1, %if.end37.1 ]
   %mul.i68 = shl i64 %indvars.iv, 2
   %idxprom.i69 = and i64 %mul.i68, 4294967292
-  %arrayidx.i70 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
   %9 = load atomic i64, ptr %arrayidx.i70 acquire, align 32
   %and.i71 = and i64 %9, -2
   %cmp.i72 = icmp eq i64 %and.i71, %1
@@ -2664,7 +2664,7 @@ if.end37:                                         ; preds = %seqcst_fail50.i, %f
   %movedSlotCount.1 = phi i32 [ %movedSlotCount.092, %for.body29 ], [ %spec.select, %seqcst_fail50.i ]
   %mul.i68.1 = add i64 %mul.i68, 4
   %idxprom.i69.1 = and i64 %mul.i68.1, 4294967292
-  %arrayidx.i70.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
+  %arrayidx.i70.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
   %12 = load atomic i64, ptr %arrayidx.i70.1 acquire, align 32
   %and.i71.1 = and i64 %12, -2
   %cmp.i72.1 = icmp eq i64 %and.i71.1, %1
@@ -2694,7 +2694,7 @@ for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.bo
 for.body29.epil:                                  ; preds = %for.end40.unr-lcssa
   %mul.i68.epil = shl i64 %indvars.iv.unr, 2
   %idxprom.i69.epil = and i64 %mul.i68.epil, 4294967292
-  %arrayidx.i70.epil = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
+  %arrayidx.i70.epil = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
   %15 = load atomic i64, ptr %arrayidx.i70.epil acquire, align 32
   %and.i71.epil = and i64 %15, -2
   %cmp.i72.epil = icmp eq i64 %and.i71.epil, %1
@@ -2993,7 +2993,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %i.018 = phi i32 [ 0, %for.body.lr.ph ], [ %i.018.be, %for.body.backedge ]
   %mul.i = shl i32 %i.018, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp5 = icmp eq i64 %2, %or.i
   br i1 %cmp5, label %if.then, label %if.end8
@@ -3266,7 +3266,7 @@ while.cond2:                                      ; preds = %while.body6, %_ZN5f
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body6 ], [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ]
   %mul.i = shl i64 %indvars.iv, 2
   %idxprom.i = and i64 %mul.i, 4294967292
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -3287,7 +3287,7 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
   %slot.1.1 = phi i32 [ %3, %while.end ], [ %inc.1, %while.body6.1 ]
   %mul.i.1 = shl i32 %slot.1.1, 2
   %idxprom.i.1 = zext i32 %mul.i.1 to i64
-  %arrayidx.i.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
   %4 = load atomic i64, ptr %arrayidx.i.1 acquire, align 32
   %and.i.1 = and i64 %4, -2
   %cmp.i.1 = icmp eq i64 %and.i.1, %1
@@ -3363,7 +3363,7 @@ while.cond:                                       ; preds = %while.body, %_ZN5fo
   %slot.addr.2 = phi i32 [ %slot, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %inc, %while.body ]
   %mul.i = shl i32 %slot.addr.2, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %7 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %7, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -3380,7 +3380,7 @@ for.body29:                                       ; preds = %if.end37.1, %for.bo
   %niter = phi i64 [ 0, %for.body29.lr.ph.new ], [ %niter.next.1, %if.end37.1 ]
   %mul.i68 = shl i64 %indvars.iv, 2
   %idxprom.i69 = and i64 %mul.i68, 4294967292
-  %arrayidx.i70 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
   %8 = load atomic i64, ptr %arrayidx.i70 acquire, align 32
   %and.i71 = and i64 %8, -2
   %cmp.i72 = icmp eq i64 %and.i71, %1
@@ -3397,7 +3397,7 @@ if.end37:                                         ; preds = %seqcst_fail50.i, %f
   %movedSlotCount.1 = phi i32 [ %movedSlotCount.089, %for.body29 ], [ %spec.select, %seqcst_fail50.i ]
   %mul.i68.1 = add i64 %mul.i68, 4
   %idxprom.i69.1 = and i64 %mul.i68.1, 4294967292
-  %arrayidx.i70.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
+  %arrayidx.i70.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
   %11 = load atomic i64, ptr %arrayidx.i70.1 acquire, align 32
   %and.i71.1 = and i64 %11, -2
   %cmp.i72.1 = icmp eq i64 %and.i71.1, %1
@@ -3427,7 +3427,7 @@ for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.bo
 for.body29.epil:                                  ; preds = %for.end40.unr-lcssa
   %mul.i68.epil = shl i64 %indvars.iv.unr, 2
   %idxprom.i69.epil = and i64 %mul.i68.epil, 4294967292
-  %arrayidx.i70.epil = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
+  %arrayidx.i70.epil = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
   %14 = load atomic i64, ptr %arrayidx.i70.epil acquire, align 32
   %and.i71.epil = and i64 %14, -2
   %cmp.i72.epil = icmp eq i64 %and.i71.epil, %1
@@ -3595,7 +3595,7 @@ lor.lhs.false:                                    ; preds = %if.end
 if.then19:                                        ; preds = %lor.lhs.false, %if.end
   %mul.i = shl i32 %9, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %10 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp22.not = icmp eq i64 %10, 0
   br i1 %cmp22.not, label %if.end47, label %if.then23
@@ -3618,13 +3618,13 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.the
   %rem.i = and i32 %13, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i154 = zext nneg i32 %rem.i to i64
-  %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i154
+  %arrayidx3.i = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i154
   %14 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #19
   %conv27 = zext i8 %14 to i32
   %mul.i155 = shl nuw nsw i32 %conv27, 2
   %idxprom.i156 = zext nneg i32 %mul.i155 to i64
-  %arrayidx.i157 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156
+  %arrayidx.i157 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156
   %15 = load atomic i64, ptr %arrayidx.i157 monotonic, align 32
   %cmp31 = icmp eq i64 %15, 0
   br i1 %cmp31, label %if.then32, label %for.cond
@@ -3633,7 +3633,7 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %xor.1 = xor i32 %conv27, 1
   %mul.i155.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i156.1 = zext nneg i32 %mul.i155.1 to i64
-  %arrayidx.i157.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156.1
+  %arrayidx.i157.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i156.1
   %16 = load atomic i64, ptr %arrayidx.i157.1 monotonic, align 32
   %cmp31.1 = icmp eq i64 %16, 0
   br i1 %cmp31.1, label %if.then32, label %for.cond.1
@@ -3690,7 +3690,7 @@ if.then53:                                        ; preds = %seqcst_fail50.i134
 if.end59:                                         ; preds = %if.then53, %seqcst_fail50.i134, %if.end47
   %mul.i158 = shl i32 %slot.2.ph, 2
   %idxprom.i159 = zext i32 %mul.i158 to i64
-  %arrayidx.i160 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i159
+  %arrayidx.i160 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i159
   br i1 %cmp61, label %seqcst_fail50.i146, label %seqcst_fail50.i146.thread
 
 seqcst_fail50.i146:                               ; preds = %if.end59
@@ -3727,7 +3727,7 @@ if.end75.thread:                                  ; preds = %seqcst_fail50.i146
 if.then80:                                        ; preds = %if.end75
   store i16 3, ptr %token, align 2, !tbaa !15
   %conv82 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   store i16 %conv82, ptr %slot_, align 2, !tbaa !16
   br label %cleanup102
 
@@ -3740,7 +3740,7 @@ do.body.i:                                        ; preds = %_ZN5folly19shared_m
   %xor.i = xor i32 %i.0.i, %33
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
   %34 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
   %cmp.i161 = icmp eq i64 %34, %or.i
   br i1 %cmp.i161, label %seqcst_fail50.i.i, label %do.cond.i
@@ -3867,12 +3867,12 @@ entry:
   br i1 %cmp.not, label %seqcst_fail50.i, label %return
 
 seqcst_fail50.i:                                  ; preds = %entry
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   %1 = load i16, ptr %slot_, align 2, !tbaa !16
   %2 = ptrtoint ptr %this to i64
   %conv = zext i16 %1 to i64
   %mul.i = shl nuw nsw i64 %conv, 2
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb1EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i
   %or.i = or disjoint i64 %2, 1
   %3 = cmpxchg ptr %arrayidx.i, i64 %2, i64 %or.i seq_cst seq_cst, align 8
   br label %return
@@ -3928,9 +3928,9 @@ entry:
 define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #0 comdat($_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE10ReadHolderC5Ev) align 2 {
 entry:
   store ptr null, ptr %this, align 8, !tbaa !80
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   ret void
 }
@@ -3941,9 +3941,9 @@ entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   store ptr %lock, ptr %this, align 8, !tbaa !80
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   %tobool.not = icmp eq ptr %lock, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -4098,7 +4098,7 @@ if.end:                                           ; preds = %_ZN5folly15SharedMu
 if.then16:                                        ; preds = %if.end
   %mul.i = shl i32 %10, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %12 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp19.not = icmp eq i64 %12, 0
   br i1 %cmp19.not, label %if.end44, label %if.then20
@@ -4121,13 +4121,13 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.the
   %rem.i = and i32 %15, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i150 = zext nneg i32 %rem.i to i64
-  %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i150
+  %arrayidx3.i = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i150
   %16 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #19
   %conv24 = zext i8 %16 to i32
   %mul.i151 = shl nuw nsw i32 %conv24, 2
   %idxprom.i152 = zext nneg i32 %mul.i151 to i64
-  %arrayidx.i153 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152
+  %arrayidx.i153 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152
   %17 = load atomic i64, ptr %arrayidx.i153 monotonic, align 32
   %cmp28 = icmp eq i64 %17, 0
   br i1 %cmp28, label %if.then29, label %for.cond
@@ -4136,7 +4136,7 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %xor.1 = xor i32 %conv24, 1
   %mul.i151.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i152.1 = zext nneg i32 %mul.i151.1 to i64
-  %arrayidx.i153.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152.1
+  %arrayidx.i153.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152.1
   %18 = load atomic i64, ptr %arrayidx.i153.1 monotonic, align 32
   %cmp28.1 = icmp eq i64 %18, 0
   br i1 %cmp28.1, label %if.then29, label %for.cond.1
@@ -4193,7 +4193,7 @@ if.then50:                                        ; preds = %seqcst_fail50.i130
 if.end56:                                         ; preds = %if.then50, %seqcst_fail50.i130, %if.end44
   %mul.i154 = shl i32 %slot.2.ph, 2
   %idxprom.i155 = zext i32 %mul.i154 to i64
-  %arrayidx.i156 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i155
+  %arrayidx.i156 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i155
   br i1 %cmp58, label %seqcst_fail50.i142, label %seqcst_fail50.i142.thread
 
 seqcst_fail50.i142:                               ; preds = %if.end56
@@ -4230,7 +4230,7 @@ if.end72.thread:                                  ; preds = %seqcst_fail50.i142
 if.then77:                                        ; preds = %if.end72
   store i16 3, ptr %token, align 2, !tbaa !15
   %conv79 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   store i16 %conv79, ptr %slot_, align 2, !tbaa !16
   br label %cleanup99
 
@@ -4243,7 +4243,7 @@ do.body.i:                                        ; preds = %_ZN5folly19shared_m
   %xor.i = xor i32 %i.0.i, %35
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
   %36 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
   %cmp.i157 = icmp eq i64 %36, %or.i
   br i1 %cmp.i157, label %seqcst_fail50.i.i, label %do.cond.i
@@ -4374,7 +4374,7 @@ define weak_odr noundef ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24Share
 entry:
   %mul = shl i32 %slot, 2
   %idxprom = zext i32 %mul to i64
-  %arrayidx = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -4414,7 +4414,7 @@ do.body:                                          ; preds = %_ZN5folly19shared_m
   %xor = xor i32 %i.0, %1
   %mul.i = shl i32 %xor, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %3 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp = icmp eq i64 %3, %or.i
   br i1 %cmp, label %seqcst_fail50.i, label %do.cond
@@ -4479,7 +4479,7 @@ seqcst_fail50.i:
   %0 = ptrtoint ptr %this to i64
   %mul.i = shl i32 %slot, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %1 = cmpxchg ptr %arrayidx.i, i64 %0, i64 0 seq_cst seq_cst, align 8
   %2 = extractvalue { i64, i1 } %1, 1
   ret i1 %2
@@ -4679,9 +4679,9 @@ entry:
   %state.i.i = alloca i32, align 4
   %ctx.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   store ptr %lock, ptr %this, align 8, !tbaa !80
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ctx.i) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #19
@@ -4721,8 +4721,8 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %0 = load ptr, ptr %rhs, align 8, !tbaa !80
   store ptr %0, ptr %this, align 8, !tbaa !80
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
-  %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %token_3 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %1 = load i32, ptr %token_3, align 8, !tbaa.struct !40
   store i32 %1, ptr %token_, align 8, !tbaa.struct !40
   store ptr null, ptr %rhs, align 8, !tbaa !80
@@ -4735,9 +4735,9 @@ entry:
   %state.i.i = alloca i32, align 4
   %0 = load ptr, ptr %upgraded, align 8, !tbaa !90
   store ptr %0, ptr %this, align 8, !tbaa !80
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   store ptr null, ptr %upgraded, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #19
@@ -4806,9 +4806,9 @@ define weak_odr void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexP
 entry:
   %0 = load ptr, ptr %writer, align 8, !tbaa !92
   store ptr %0, ptr %this, align 8, !tbaa !80
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 0, ptr %token_, align 8, !tbaa !15
-  %slot_.i = getelementptr inbounds i8, ptr %this, i64 10
+  %slot_.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   store i16 0, ptr %slot_.i, align 2, !tbaa !16
   store ptr null, ptr %writer, align 8, !tbaa !92
   %1 = load atomic i32, ptr %0 acquire, align 4
@@ -4922,8 +4922,8 @@ entry:
   %1 = load ptr, ptr %rhs, align 8, !tbaa !50
   store ptr %1, ptr %this, align 8, !tbaa !50
   store ptr %0, ptr %rhs, align 8, !tbaa !50
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
-  %token_3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %token_3 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %2 = load i32, ptr %token_, align 8, !tbaa.struct !40
   %3 = load i32, ptr %token_3, align 8, !tbaa.struct !40
   store i32 %3, ptr %token_, align 8, !tbaa.struct !40
@@ -4939,7 +4939,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %token_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %token_.i)
           to label %.noexc unwind label %terminate.lpad
 
@@ -4966,7 +4966,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %token_ = getelementptr inbounds i8, ptr %this, i64 8
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedERNS_16SharedMutexTokenE(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 2 dereferenceable(4) %token_)
   store ptr null, ptr %this, align 8, !tbaa !80
   br label %if.end
@@ -5004,7 +5004,7 @@ do.body.i.i:                                      ; preds = %_ZN5folly19shared_m
   %xor.i.i = xor i32 %i.0.i.i, %3
   %mul.i.i.i = shl i32 %xor.i.i, 2
   %idxprom.i.i.i = zext i32 %mul.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i.i
   %5 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 32
   %cmp.i.i = icmp eq i64 %5, %or.i.i.i
   br i1 %cmp.i.i, label %seqcst_fail50.i.i.i, label %do.cond.i.i
@@ -5053,12 +5053,12 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE18unlock
   br label %if.end6
 
 lor.lhs.false:                                    ; preds = %entry
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   %11 = load i16, ptr %slot_, align 2, !tbaa !16
   %conv = zext i16 %11 to i64
   %12 = ptrtoint ptr %this to i64
   %mul.i.i = shl nuw nsw i64 %conv, 2
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i.i
   %13 = cmpxchg ptr %arrayidx.i.i, i64 %12, i64 0 seq_cst seq_cst, align 8
   %14 = extractvalue { i64, i1 } %13, 1
   br i1 %14, label %if.end6, label %if.then4
@@ -5107,7 +5107,7 @@ do.body.i:                                        ; preds = %_ZN5folly19shared_m
   %xor.i = xor i32 %i.0.i, %2
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
   %4 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
   %cmp.i = icmp eq i64 %4, %or.i.i
   br i1 %cmp.i, label %seqcst_fail50.i.i, label %do.cond.i
@@ -5629,7 +5629,7 @@ while.cond2:                                      ; preds = %while.body6, %_ZN5f
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body6 ], [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ]
   %mul.i = shl i64 %indvars.iv, 2
   %idxprom.i = and i64 %mul.i, 4294967292
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -5650,7 +5650,7 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
   %slot.1.1 = phi i32 [ %3, %while.end ], [ %inc.1, %while.body6.1 ]
   %mul.i.1 = shl i32 %slot.1.1, 2
   %idxprom.i.1 = zext i32 %mul.i.1 to i64
-  %arrayidx.i.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
   %4 = load atomic i64, ptr %arrayidx.i.1 acquire, align 32
   %and.i.1 = and i64 %4, -2
   %cmp.i.1 = icmp eq i64 %and.i.1, %1
@@ -5701,7 +5701,7 @@ while.cond:                                       ; preds = %while.body, %if.end
   %slot.addr.2 = phi i32 [ %slot, %if.end ], [ %inc, %while.body ]
   %mul.i = shl i32 %slot.addr.2, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -5720,7 +5720,7 @@ while.cond.1:                                     ; preds = %while.body.1, %if.e
   %slot.addr.2.1 = phi i32 [ %slot.addr.2, %if.end.1 ], [ %inc.1, %while.body.1 ]
   %mul.i.1 = shl i32 %slot.addr.2.1, 2
   %idxprom.i.1 = zext i32 %mul.i.1 to i64
-  %arrayidx.i.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
   %3 = load atomic i64, ptr %arrayidx.i.1 acquire, align 32
   %and.i.1 = and i64 %3, -2
   %cmp.i.1 = icmp eq i64 %and.i.1, %1
@@ -5741,7 +5741,7 @@ while.cond.2:                                     ; preds = %while.body.2, %if.e
   %slot.addr.2.2 = phi i32 [ %slot.addr.2.1, %if.end.2 ], [ %inc.2, %while.body.2 ]
   %mul.i.2 = shl i32 %slot.addr.2.2, 2
   %idxprom.i.2 = zext i32 %mul.i.2 to i64
-  %arrayidx.i.2 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.2
+  %arrayidx.i.2 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.2
   %4 = load atomic i64, ptr %arrayidx.i.2 acquire, align 32
   %and.i.2 = and i64 %4, -2
   %cmp.i.2 = icmp eq i64 %and.i.2, %1
@@ -5775,7 +5775,7 @@ for.body29:                                       ; preds = %if.end37.1, %for.bo
   %niter = phi i64 [ 0, %for.body29.lr.ph.new ], [ %niter.next.1, %if.end37.1 ]
   %mul.i68 = shl i64 %indvars.iv, 2
   %idxprom.i69 = and i64 %mul.i68, 4294967292
-  %arrayidx.i70 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
   %9 = load atomic i64, ptr %arrayidx.i70 acquire, align 32
   %and.i71 = and i64 %9, -2
   %cmp.i72 = icmp eq i64 %and.i71, %1
@@ -5792,7 +5792,7 @@ if.end37:                                         ; preds = %seqcst_fail50.i, %f
   %movedSlotCount.1 = phi i32 [ %movedSlotCount.092, %for.body29 ], [ %spec.select, %seqcst_fail50.i ]
   %mul.i68.1 = add i64 %mul.i68, 4
   %idxprom.i69.1 = and i64 %mul.i68.1, 4294967292
-  %arrayidx.i70.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
+  %arrayidx.i70.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
   %12 = load atomic i64, ptr %arrayidx.i70.1 acquire, align 32
   %and.i71.1 = and i64 %12, -2
   %cmp.i72.1 = icmp eq i64 %and.i71.1, %1
@@ -5822,7 +5822,7 @@ for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.bo
 for.body29.epil:                                  ; preds = %for.end40.unr-lcssa
   %mul.i68.epil = shl i64 %indvars.iv.unr, 2
   %idxprom.i69.epil = and i64 %mul.i68.epil, 4294967292
-  %arrayidx.i70.epil = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
+  %arrayidx.i70.epil = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
   %15 = load atomic i64, ptr %arrayidx.i70.epil acquire, align 32
   %and.i71.epil = and i64 %15, -2
   %cmp.i72.epil = icmp eq i64 %and.i71.epil, %1
@@ -6121,7 +6121,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %i.018 = phi i32 [ 0, %for.body.lr.ph ], [ %i.018.be, %for.body.backedge ]
   %mul.i = shl i32 %i.018, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp5 = icmp eq i64 %2, %or.i
   br i1 %cmp5, label %if.then, label %if.end8
@@ -6358,7 +6358,7 @@ while.cond2:                                      ; preds = %while.body6, %_ZN5f
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body6 ], [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ]
   %mul.i = shl i64 %indvars.iv, 2
   %idxprom.i = and i64 %mul.i, 4294967292
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %2, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -6379,7 +6379,7 @@ while.cond2.1:                                    ; preds = %while.body6.1, %whi
   %slot.1.1 = phi i32 [ %3, %while.end ], [ %inc.1, %while.body6.1 ]
   %mul.i.1 = shl i32 %slot.1.1, 2
   %idxprom.i.1 = zext i32 %mul.i.1 to i64
-  %arrayidx.i.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.1
   %4 = load atomic i64, ptr %arrayidx.i.1 acquire, align 32
   %and.i.1 = and i64 %4, -2
   %cmp.i.1 = icmp eq i64 %and.i.1, %1
@@ -6455,7 +6455,7 @@ while.cond:                                       ; preds = %while.body, %_ZN5fo
   %slot.addr.2 = phi i32 [ %slot, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %inc, %while.body ]
   %mul.i = shl i32 %slot.addr.2, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %7 = load atomic i64, ptr %arrayidx.i acquire, align 32
   %and.i = and i64 %7, -2
   %cmp.i = icmp eq i64 %and.i, %1
@@ -6472,7 +6472,7 @@ for.body29:                                       ; preds = %if.end37.1, %for.bo
   %niter = phi i64 [ 0, %for.body29.lr.ph.new ], [ %niter.next.1, %if.end37.1 ]
   %mul.i68 = shl i64 %indvars.iv, 2
   %idxprom.i69 = and i64 %mul.i68, 4294967292
-  %arrayidx.i70 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69
   %8 = load atomic i64, ptr %arrayidx.i70 acquire, align 32
   %and.i71 = and i64 %8, -2
   %cmp.i72 = icmp eq i64 %and.i71, %1
@@ -6489,7 +6489,7 @@ if.end37:                                         ; preds = %seqcst_fail50.i, %f
   %movedSlotCount.1 = phi i32 [ %movedSlotCount.089, %for.body29 ], [ %spec.select, %seqcst_fail50.i ]
   %mul.i68.1 = add i64 %mul.i68, 4
   %idxprom.i69.1 = and i64 %mul.i68.1, 4294967292
-  %arrayidx.i70.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
+  %arrayidx.i70.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.1
   %11 = load atomic i64, ptr %arrayidx.i70.1 acquire, align 32
   %and.i71.1 = and i64 %11, -2
   %cmp.i72.1 = icmp eq i64 %and.i71.1, %1
@@ -6519,7 +6519,7 @@ for.end40.unr-lcssa:                              ; preds = %if.end37.1, %for.bo
 for.body29.epil:                                  ; preds = %for.end40.unr-lcssa
   %mul.i68.epil = shl i64 %indvars.iv.unr, 2
   %idxprom.i69.epil = and i64 %mul.i68.epil, 4294967292
-  %arrayidx.i70.epil = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
+  %arrayidx.i70.epil = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i69.epil
   %14 = load atomic i64, ptr %arrayidx.i70.epil acquire, align 32
   %and.i71.epil = and i64 %14, -2
   %cmp.i72.epil = icmp eq i64 %and.i71.epil, %1
@@ -6680,7 +6680,7 @@ if.end:                                           ; preds = %_ZN5folly15SharedMu
 if.then16:                                        ; preds = %if.end
   %mul.i = shl i32 %9, 2
   %idxprom.i = zext i32 %mul.i to i64
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i
   %11 = load atomic i64, ptr %arrayidx.i monotonic, align 32
   %cmp19.not = icmp eq i64 %11, 0
   br i1 %cmp19.not, label %if.end44, label %if.then20
@@ -6703,13 +6703,13 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %if.then.i, %if.the
   %rem.i = and i32 %14, 255
   store i32 %rem.i, ptr %cpu.i, align 4, !tbaa !17
   %idxprom.i150 = zext nneg i32 %rem.i to i64
-  %arrayidx3.i = getelementptr inbounds [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i150
+  %arrayidx3.i = getelementptr inbounds nuw [257 x [256 x i8]], ptr @_ZZN5folly14AccessSpreaderISt6atomicE5stateEvE5state, i64 0, i64 %.sroa.speculated.i, i64 %idxprom.i150
   %15 = load atomic i8, ptr %arrayidx3.i monotonic, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cpu.i) #19
   %conv24 = zext i8 %15 to i32
   %mul.i151 = shl nuw nsw i32 %conv24, 2
   %idxprom.i152 = zext nneg i32 %mul.i151 to i64
-  %arrayidx.i153 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152
+  %arrayidx.i153 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152
   %16 = load atomic i64, ptr %arrayidx.i153 monotonic, align 32
   %cmp28 = icmp eq i64 %16, 0
   br i1 %cmp28, label %if.then29, label %for.cond
@@ -6718,7 +6718,7 @@ for.cond:                                         ; preds = %_ZN5folly14AccessSp
   %xor.1 = xor i32 %conv24, 1
   %mul.i151.1 = shl nuw nsw i32 %xor.1, 2
   %idxprom.i152.1 = zext nneg i32 %mul.i151.1 to i64
-  %arrayidx.i153.1 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152.1
+  %arrayidx.i153.1 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i152.1
   %17 = load atomic i64, ptr %arrayidx.i153.1 monotonic, align 32
   %cmp28.1 = icmp eq i64 %17, 0
   br i1 %cmp28.1, label %if.then29, label %for.cond.1
@@ -6775,7 +6775,7 @@ if.then50:                                        ; preds = %seqcst_fail50.i130
 if.end56:                                         ; preds = %if.then50, %seqcst_fail50.i130, %if.end44
   %mul.i154 = shl i32 %slot.2.ph, 2
   %idxprom.i155 = zext i32 %mul.i154 to i64
-  %arrayidx.i156 = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i155
+  %arrayidx.i156 = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i155
   br i1 %cmp58, label %seqcst_fail50.i142, label %seqcst_fail50.i142.thread
 
 seqcst_fail50.i142:                               ; preds = %if.end56
@@ -6812,7 +6812,7 @@ if.end72.thread:                                  ; preds = %seqcst_fail50.i142
 if.then77:                                        ; preds = %if.end72
   store i16 3, ptr %token, align 2, !tbaa !15
   %conv79 = trunc i32 %slot.2.ph to i16
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   store i16 %conv79, ptr %slot_, align 2, !tbaa !16
   br label %cleanup99
 
@@ -6825,7 +6825,7 @@ do.body.i:                                        ; preds = %_ZN5folly19shared_m
   %xor.i = xor i32 %i.0.i, %34
   %mul.i.i = shl i32 %xor.i, 2
   %idxprom.i.i = zext i32 %mul.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %idxprom.i.i
   %35 = load atomic i64, ptr %arrayidx.i.i monotonic, align 32
   %cmp.i157 = icmp eq i64 %35, %or.i
   br i1 %cmp.i157, label %seqcst_fail50.i.i, label %do.cond.i
@@ -6952,12 +6952,12 @@ entry:
   br i1 %cmp.not, label %seqcst_fail50.i, label %return
 
 seqcst_fail50.i:                                  ; preds = %entry
-  %slot_ = getelementptr inbounds i8, ptr %token, i64 2
+  %slot_ = getelementptr inbounds nuw i8, ptr %token, i64 2
   %1 = load i16, ptr %slot_, align 2, !tbaa !16
   %2 = ptrtoint ptr %this to i64
   %conv = zext i16 %1 to i64
   %mul.i = shl nuw nsw i64 %conv, 2
-  %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw [2048 x %"struct.std::atomic"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 0, i64 %mul.i
   %or.i = or disjoint i64 %2, 1
   %3 = cmpxchg ptr %arrayidx.i, i64 %2, i64 %or.i seq_cst seq_cst, align 8
   br label %return
@@ -7013,7 +7013,7 @@ entry:
 define void @_ZN5folly19shared_mutex_detail15annotationGuardEPv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef readnone %ptr) local_unnamed_addr #11 {
 entry:
   store ptr null, ptr %agg.result, align 8, !tbaa !117
-  %_M_owns.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_owns.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %_M_owns.i, align 8, !tbaa !120
   ret void
 }
@@ -7078,7 +7078,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %vtable.i = load ptr, ptr %__ec.coerce1, align 8, !tbaa !121, !noalias !123
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %0 = load ptr, ptr %vfn.i, align 8, !noalias !123
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__ec.coerce1, i32 noundef %__ec.coerce0)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -7086,12 +7086,12 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !126
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !129
   %cmp3.i.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -7104,9 +7104,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !121
-  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa !17
-  %__ec.sroa.39.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %__ec.sroa.39.0._M_code.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %__ec.coerce1, ptr %__ec.sroa.39.0._M_code.sroa_idx, align 8, !tbaa !50
   ret void
 
@@ -7114,12 +7114,12 @@ lpad:                                             ; preds = %entry
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load ptr, ptr %ref.tmp, align 8, !tbaa !126
-  %6 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i3 = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %if.then.i.i4
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %lpad
-  %_M_string_length.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i6, align 8, !tbaa !129
   %cmp3.i.i.i7 = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i7)
@@ -7144,8 +7144,8 @@ define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %this, align 8, !tbaa !121
-  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
+  %_M_code = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_code2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !130
   ret void
 }

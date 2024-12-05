@@ -96,9 +96,9 @@ define i32 @PMPI_Pack_external(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 40:                                               ; preds = %38
   %41 = getelementptr i8, ptr %3, i64 24
   %.val57 = load i64, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %.val57, 0
   %47 = icmp ne i64 %45, %43
@@ -152,7 +152,7 @@ define i32 @PMPI_Pack_external(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 64:                                               ; preds = %62, %.lr.ph.i
   %65 = phi i8 [ %58, %.lr.ph.i ], [ %.pre.i.i, %62 ]
   %66 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   %69 = trunc i8 %65 to i1
   br i1 %69, label %70, label %opal_pointer_array_get_item.exit.i
@@ -164,13 +164,13 @@ define i32 @PMPI_Pack_external(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 opal_pointer_array_get_item.exit.i:               ; preds = %70, %64
   %72 = phi i8 [ %65, %64 ], [ %.pre.i, %70 ]
-  %73 = getelementptr inbounds i8, ptr %68, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, %49
   br i1 %75, label %76, label %54
 
 76:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %77 = getelementptr inbounds i8, ptr %68, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %78 = load i32, ptr %77, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

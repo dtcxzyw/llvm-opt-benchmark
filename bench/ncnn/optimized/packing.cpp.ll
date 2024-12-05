@@ -96,7 +96,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Packing7forwardERKNS_3Ma
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26)
   br label %33
@@ -218,7 +218,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Packing7forwardERKNS_3Ma
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %96, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef %97)
   br label %104
@@ -310,7 +310,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Packing7forwardERKNS_3Ma
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %145, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
   tail call void %150(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef %146)
   br label %153
@@ -407,7 +407,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Packing7forwardERKNS_3Ma
 
 198:                                              ; preds = %194
   %199 = load ptr, ptr %196, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %201 = load ptr, ptr %200, align 8
   tail call void %201(ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef %197)
   br label %204
@@ -509,7 +509,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Packing7forwardERKNS_3Ma
 
 245:                                              ; preds = %241
   %246 = load ptr, ptr %243, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 24
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %248 = load ptr, ptr %247, align 8
   tail call void %248(ptr noundef nonnull align 8 dereferenceable(8) %243, ptr noundef %244)
   br label %251

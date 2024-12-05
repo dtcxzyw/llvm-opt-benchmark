@@ -30,7 +30,7 @@ define dso_local noundef i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %4
   store ptr %0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %14, align 8
   %15 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %11) #4
   switch i32 %15, label %16 [
@@ -43,7 +43,7 @@ define dso_local noundef i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr nounde
   br label %46
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %11, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %24
@@ -57,7 +57,7 @@ define dso_local noundef i32 @acpi_ut_evaluate_object(ptr noundef %0, ptr nounde
   br label %46
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %19, i64 9
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 9
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %30 [
     i8 1, label %31
@@ -150,7 +150,7 @@ define dso_local noundef i32 @acpi_ut_evaluate_numeric_object(ptr noundef %0, pt
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %2, align 8
   tail call void @acpi_ut_remove_reference(ptr noundef %8) #4
@@ -178,7 +178,7 @@ define dso_local noundef range(i32 6, 5) i32 @acpi_ut_execute_STA(ptr noundef %0
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %1, align 4
@@ -214,7 +214,7 @@ define dso_local range(i32 0, 6) i32 @acpi_ut_execute_power_methods(ptr noundef 
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i8
   %21 = getelementptr i8, ptr %3, i64 %10

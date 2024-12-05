@@ -50,12 +50,12 @@ define void @_ZN14WarningHandler20setFileAndLineNumberERKNSt10filesystem7__cxx11
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt10filesystem7__cxx114pathaSERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %1)
   br label %8
 
 8:                                                ; preds = %5, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %9, align 4
   ret void
 }
@@ -67,10 +67,10 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK14WarningHandler11getFileNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZNSt10filesystem7__cxx114pathC2ERKS1_.exit unwind label %6
 
@@ -109,10 +109,10 @@ define void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_tr
   %spec.select = select i1 %15, i64 20, i64 %1
   %spec.select18 = select i1 %15, ptr @.str, ptr %2
   call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %8)
-  %16 = getelementptr inbounds i8, ptr %8, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2, ptr %16, align 4
   store i32 75, ptr %8, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2, ptr %17, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #11
@@ -122,7 +122,7 @@ define void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_tr
   %20 = extractvalue { i64, ptr } %18, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %19, ptr %20) #11
   %21 = load i64, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %21, ptr %23, ptr noundef nonnull align 1 dereferenceable(1) %12)
           to label %24 unwind label %48
@@ -135,19 +135,19 @@ define void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_tr
 25:                                               ; preds = %24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #11
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %26) #11
   br i1 %27, label %62, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %30, -1
   %31 = load ptr, ptr @stderr, align 8
   %32 = sext i32 %3 to i64
   %33 = getelementptr inbounds [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = getelementptr inbounds [3 x i32], ptr %35, i64 0, i64 %32
   %37 = load i32, ptr %36, align 4
   br i1 %.not, label %53, label %38
@@ -225,7 +225,7 @@ define void @_ZN14WarningHandler11addLowLevelESt17basic_string_viewIcSt11char_tr
   %64 = sext i32 %3 to i64
   %65 = getelementptr inbounds [3 x ptr], ptr @_ZZL17warningTypeString11WarningTypeE15warningTypeName, i64 0, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %68 = getelementptr inbounds [3 x i32], ptr %67, i64 0, i64 %64
   %69 = load i32, ptr %68, align 4
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #11
@@ -282,7 +282,7 @@ define void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_tra
   %5 = trunc i8 %4 to i1
   %. = select i1 %5, i64 8, i64 12
   %.10 = select i1 %5, i32 1, i32 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4
@@ -292,7 +292,7 @@ define void @_ZN14WarningHandler10addWarningESt17basic_string_viewIcSt11char_tra
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1, ptr %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -302,7 +302,7 @@ define void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traits
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 %1, ptr %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -312,7 +312,7 @@ define void @_ZN14WarningHandler7addNoteESt17basic_string_viewIcSt11char_traitsI
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z19check_warning_errorRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %9
@@ -329,7 +329,7 @@ define void @_Z19check_warning_errorRK14WarningHandleriRKNSt10filesystem7__cxx11
 define internal fastcc void @_ZL24check_warning_error_implRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %_ZL17printWarningCount11WarningTypei.exit
@@ -343,7 +343,7 @@ define internal fastcc void @_ZL24check_warning_error_implRK14WarningHandleriRKN
   br label %_ZL17printWarningCount11WarningTypei.exit
 
 _ZL17printWarningCount11WarningTypei.exit:        ; preds = %4, %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %25
@@ -360,7 +360,7 @@ _ZL17printWarningCount11WarningTypei.exit:        ; preds = %4, %10
   %26 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #11
   store ptr %26, ptr %6, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef zeroext 2)
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 1
   %30 = select i1 %29, ptr @.str.8, ptr @.str.9
@@ -374,7 +374,7 @@ _ZL17printWarningCount11WarningTypei.exit:        ; preds = %4, %10
 33:                                               ; preds = %25
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = getelementptr inbounds i8, ptr %5, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %37
@@ -405,7 +405,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #11
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %11, ptr %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %14 unwind label %18
@@ -413,7 +413,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
 14:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %16 unwind label %20
 
@@ -462,7 +462,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %22, %25
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -501,7 +501,7 @@ define void @_Z22warning_error_and_exitP14WarningHandlerRKNSt7__cxx1112basic_str
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z20warning_errors_existRK14WarningHandler(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   ret i1 %4
@@ -511,7 +511,7 @@ define noundef zeroext i1 @_Z20warning_errors_existRK14WarningHandler(ptr nocapt
 define void @_Z12done_warningRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %_Z19check_warning_errorRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi.exit
@@ -521,7 +521,7 @@ define void @_Z12done_warningRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi
   unreachable
 
 _Z19check_warning_errorRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi.exit: ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %_ZL17printWarningCount11WarningTypei.exit
@@ -535,7 +535,7 @@ _Z19check_warning_errorRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi.exit:
   br label %_ZL17printWarningCount11WarningTypei.exit
 
 _ZL17printWarningCount11WarningTypei.exit:        ; preds = %_Z19check_warning_errorRK14WarningHandleriRKNSt10filesystem7__cxx114pathEi.exit, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %_ZL17printWarningCount11WarningTypei.exit13
@@ -551,7 +551,7 @@ _ZL17printWarningCount11WarningTypei.exit:        ; preds = %_Z19check_warning_e
 
 _ZL17printWarningCount11WarningTypei.exit13:      ; preds = %_ZL17printWarningCount11WarningTypei.exit, %23
   %29 = phi i32 [ %21, %_ZL17printWarningCount11WarningTypei.exit ], [ %.pre, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %29, %31
   br i1 %32, label %33, label %39
@@ -614,7 +614,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %3
   %17 = trunc i8 %16 to i1
   %..i = select i1 %17, i64 8, i64 12
   %.10.i = select i1 %17, i32 1, i32 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 %..i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -685,7 +685,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %3
   %17 = trunc i8 %16 to i1
   %..i = select i1 %17, i64 8, i64 12
   %.10.i = select i1 %17, i32 1, i32 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 %..i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4

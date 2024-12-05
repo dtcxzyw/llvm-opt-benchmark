@@ -23,11 +23,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteSetRect(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, ptr nocapture readnone %7) #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = sub nsw i32 %4, %2
   %12 = sub i32 %3, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = sext i32 %2 to i64
@@ -57,15 +57,15 @@ define hidden void @Any3ByteSetRect(ptr nocapture noundef readonly %0, i32 nound
   %30 = trunc nuw i64 %indvars.iv to i32
   %31 = mul i32 %30, 3
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %.025, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.025, i64 %32
   store i8 %23, ptr %33, align 1
   %34 = add i32 %31, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %.025, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.025, i64 %35
   store i8 %25, ptr %36, align 1
   %37 = add i32 %31, 2
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %.025, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.025, i64 %38
   store i8 %27, ptr %39, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -84,25 +84,25 @@ define hidden void @Any3ByteSetRect(ptr nocapture noundef readonly %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define hidden void @Any3ByteSetSpans(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #1 {
   %7 = alloca [4 x i32], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %3 to i8
   %13 = lshr i32 %3, 8
   %14 = trunc i32 %13 to i8
   %15 = lshr i32 %3, 16
   %16 = trunc i32 %15 to i8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = call zeroext i8 %18(ptr noundef %2, ptr noundef nonnull %7) #6
   %.not34 = icmp eq i8 %19, 0
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %23 = ptrtoint ptr %9 to i64
   %24 = sext i32 %11 to i64
   br label %25
@@ -138,15 +138,15 @@ define hidden void @Any3ByteSetSpans(ptr nocapture noundef readonly %0, ptr noca
   %39 = trunc nuw i64 %indvars.iv to i32
   %40 = mul i32 %39, 3
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %.027.us, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.027.us, i64 %41
   store i8 %12, ptr %42, align 1
   %43 = add i32 %40, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %.027.us, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.027.us, i64 %44
   store i8 %14, ptr %45, align 1
   %46 = add i32 %40, 2
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %.027.us, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %.027.us, i64 %47
   store i8 %16, ptr %48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -170,7 +170,7 @@ define hidden void @Any3ByteSetSpans(ptr nocapture noundef readonly %0, ptr noca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteSetParallelogram(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i32 noundef %9, ptr nocapture readnone %10, ptr nocapture readnone %11) #0 {
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = trunc i32 %9 to i8
@@ -184,7 +184,7 @@ define hidden void @Any3ByteSetParallelogram(ptr nocapture noundef readonly %0, 
 .lr.ph52.preheader:                               ; preds = %12
   %22 = sext i32 %2 to i64
   %23 = mul nsw i64 %15, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = add nsw i64 %23, %26
@@ -239,9 +239,9 @@ define hidden void @Any3ByteSetParallelogram(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteSetLine(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture readnone %10, ptr nocapture readnone %11) #0 {
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = sext i32 %2 to i64
@@ -313,9 +313,9 @@ define hidden void @Any3ByteSetLine(ptr nocapture noundef readonly %0, i32 nound
   %.046 = phi ptr [ %59, %54 ], [ %25, %.preheader ]
   %.0 = phi i32 [ %60, %54 ], [ %4, %.preheader ]
   store i8 %46, ptr %.046, align 1
-  %55 = getelementptr inbounds i8, ptr %.046, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   store i8 %48, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %.046, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.046, i64 2
   store i8 %50, ptr %56, align 1
   %57 = ptrtoint ptr %.046 to i64
   %58 = add nsw i64 %57, %53
@@ -329,9 +329,9 @@ define hidden void @Any3ByteSetLine(ptr nocapture noundef readonly %0, i32 nound
   %.147 = phi ptr [ %.2, %62 ], [ %25, %.preheader57 ]
   %.1 = phi i32 [ %68, %62 ], [ %4, %.preheader57 ]
   store i8 %46, ptr %.147, align 1
-  %63 = getelementptr inbounds i8, ptr %.147, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.147, i64 1
   store i8 %48, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %.147, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.147, i64 2
   store i8 %50, ptr %64, align 1
   %65 = icmp slt i32 %.048, 0
   %66 = ptrtoint ptr %.147 to i64
@@ -352,15 +352,15 @@ define hidden void @Any3ByteSetLine(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteXorRect(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, ptr nocapture noundef readonly %7) #2 {
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 %4, %2
   %16 = sub i32 %3, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = sext i32 %2 to i64
@@ -393,19 +393,19 @@ define hidden void @Any3ByteXorRect(ptr nocapture noundef readonly %0, i32 nound
   %37 = trunc nuw i64 %indvars.iv to i32
   %38 = mul i32 %37, 3
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %.039, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %.039, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = xor i8 %41, %30
   store i8 %42, ptr %40, align 1
   %43 = add i32 %38, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %.039, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.039, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = xor i8 %46, %32
   store i8 %47, ptr %45, align 1
   %48 = add i32 %38, 2
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.039, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.039, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = xor i8 %51, %34
   store i8 %52, ptr %50, align 1
@@ -426,24 +426,24 @@ define hidden void @Any3ByteXorRect(ptr nocapture noundef readonly %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define hidden void @Any3ByteXorSpans(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture readnone %4, ptr nocapture noundef readonly %5) #1 {
   %7 = alloca [4 x i32], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = call zeroext i8 %17(ptr noundef %2, ptr noundef nonnull %7) #6
   %.not48 = icmp eq i8 %18, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %7, i64 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %22 = ptrtoint ptr %9 to i64
   %23 = sext i32 %15 to i64
   %24 = xor i32 %11, %3
@@ -487,19 +487,19 @@ define hidden void @Any3ByteXorSpans(ptr nocapture noundef readonly %0, ptr noca
   %46 = trunc nuw i64 %indvars.iv to i32
   %47 = mul i32 %46, 3
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %.041.us, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %.041.us, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %27
   store i8 %51, ptr %49, align 1
   %52 = add i32 %47, 1
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %.041.us, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %.041.us, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = xor i8 %55, %29
   store i8 %56, ptr %54, align 1
   %57 = add i32 %47, 2
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %.041.us, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %.041.us, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = xor i8 %60, %31
   store i8 %61, ptr %59, align 1
@@ -525,13 +525,13 @@ define hidden void @Any3ByteXorSpans(ptr nocapture noundef readonly %0, ptr noca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteXorLine(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr nocapture readnone %10, ptr nocapture noundef readonly %11) #2 {
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = sext i32 %2 to i64
@@ -614,11 +614,11 @@ define hidden void @Any3ByteXorLine(ptr nocapture noundef readonly %0, i32 nound
   %68 = load i8, ptr %.066, align 1
   %69 = xor i8 %68, %54
   store i8 %69, ptr %.066, align 1
-  %70 = getelementptr inbounds i8, ptr %.066, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = xor i8 %71, %59
   store i8 %72, ptr %70, align 1
-  %73 = getelementptr inbounds i8, ptr %.066, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %.066, i64 2
   %74 = load i8, ptr %73, align 1
   %75 = xor i8 %74, %64
   store i8 %75, ptr %73, align 1
@@ -636,11 +636,11 @@ define hidden void @Any3ByteXorLine(ptr nocapture noundef readonly %0, i32 nound
   %82 = load i8, ptr %.167, align 1
   %83 = xor i8 %82, %54
   store i8 %83, ptr %.167, align 1
-  %84 = getelementptr inbounds i8, ptr %.167, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.167, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = xor i8 %85, %59
   store i8 %86, ptr %84, align 1
-  %87 = getelementptr inbounds i8, ptr %.167, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.167, i64 2
   %88 = load i8, ptr %87, align 1
   %89 = xor i8 %88, %64
   store i8 %89, ptr %87, align 1
@@ -672,29 +672,29 @@ define hidden void @Any3ByteDrawGlyphList(ptr nocapture noundef readonly %0, ptr
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = sext i32 %19 to i64
   %wide.trip.count102 = zext nneg i32 %2 to i64
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv99 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next100, %.loopexit ]
-  %23 = getelementptr inbounds %struct.ImageRef, ptr %1, i64 %indvars.iv99
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %23 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv99
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.loopexit, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %23, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %23, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %23, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %32, %28
   %36 = add nsw i32 %34, %30
@@ -708,7 +708,7 @@ define hidden void @Any3ByteDrawGlyphList(ptr nocapture noundef readonly %0, ptr
   br i1 %or.cond, label %37, label %.loopexit
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %23, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = icmp slt i32 %30, %6
   %41 = icmp slt i32 %28, %5
@@ -745,18 +745,18 @@ define hidden void @Any3ByteDrawGlyphList(ptr nocapture noundef readonly %0, ptr
 
 57:                                               ; preds = %65, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %56 ]
-  %58 = getelementptr inbounds i8, ptr %.2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1
   %.not95 = icmp eq i8 %59, 0
   br i1 %.not95, label %65, label %60
 
 60:                                               ; preds = %57
   %61 = mul nuw nsw i64 %indvars.iv, 3
-  %62 = getelementptr inbounds i8, ptr %.079, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %.079, i64 %61
   store i8 %12, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store i8 %14, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %62, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 2
   store i8 %16, ptr %64, align 1
   br label %65
 
@@ -787,13 +787,13 @@ define hidden void @Any3ByteDrawGlyphListXor(ptr nocapture noundef readonly %0, 
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = sext i32 %18 to i64
   %21 = xor i32 %16, %3
   %22 = xor i32 %14, -1
@@ -808,20 +808,20 @@ define hidden void @Any3ByteDrawGlyphListXor(ptr nocapture noundef readonly %0, 
 
 29:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv113 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next114, %.loopexit ]
-  %30 = getelementptr inbounds %struct.ImageRef, ptr %1, i64 %indvars.iv113
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %30 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv113
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %.loopexit, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %30, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %30, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %39, %35
   %43 = add nsw i32 %41, %37
@@ -835,7 +835,7 @@ define hidden void @Any3ByteDrawGlyphListXor(ptr nocapture noundef readonly %0, 
   br i1 %or.cond, label %44, label %.loopexit
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %30, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = icmp slt i32 %37, %6
   %48 = icmp slt i32 %35, %5
@@ -872,22 +872,22 @@ define hidden void @Any3ByteDrawGlyphListXor(ptr nocapture noundef readonly %0, 
 
 64:                                               ; preds = %78, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %63 ]
-  %65 = getelementptr inbounds i8, ptr %.2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv
   %66 = load i8, ptr %65, align 1
   %.not109 = icmp eq i8 %66, 0
   br i1 %.not109, label %78, label %67
 
 67:                                               ; preds = %64
   %68 = mul nuw nsw i64 %indvars.iv, 3
-  %69 = getelementptr inbounds i8, ptr %.093, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %.093, i64 %68
   %70 = load i8, ptr %69, align 1
   %71 = xor i8 %70, %24
   store i8 %71, ptr %69, align 1
-  %72 = getelementptr inbounds i8, ptr %69, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = xor i8 %73, %26
   store i8 %74, ptr %72, align 1
-  %75 = getelementptr inbounds i8, ptr %69, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = xor i8 %76, %28
   store i8 %77, ptr %75, align 1
@@ -924,9 +924,9 @@ declare zeroext i8 @RegisterPrimitives(ptr noundef, ptr noundef, i32 noundef) lo
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteIsomorphicCopy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readnone %6, ptr nocapture noundef readnone %7) local_unnamed_addr #2 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = mul i32 %2, 3
   %14 = zext i32 %13 to i64
@@ -958,9 +958,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef readnone %11, ptr nocapture noundef readnone %12) local_unnamed_addr #2 {
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %.neg = mul i32 %2, -3
   %18 = add i32 %17, %.neg
@@ -992,11 +992,11 @@ define hidden void @Any3ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, 
   store i8 %33, ptr %.1, align 1
   %34 = getelementptr i8, ptr %32, i64 1
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.1, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %35, ptr %36, align 1
   %37 = getelementptr i8, ptr %32, i64 2
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.1, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %38, ptr %39, align 1
   %40 = ptrtoint ptr %.1 to i64
   %41 = add nsw i64 %40, 3
@@ -1020,13 +1020,13 @@ define hidden void @Any3ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @Any3ByteIsomorphicXorCopy(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readnone %6, ptr nocapture noundef readonly %7) local_unnamed_addr #2 {
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 8
   %12 = lshr i32 %10, 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = mul i32 %2, 3
   %18 = sub i32 %14, %17
@@ -1053,16 +1053,16 @@ define hidden void @Any3ByteIsomorphicXorCopy(ptr noundef %0, ptr noundef %1, i3
   %29 = xor i8 %27, %21
   %30 = xor i8 %29, %28
   store i8 %30, ptr %.1, align 1
-  %31 = getelementptr inbounds i8, ptr %.131, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.131, i64 1
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %.1, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = xor i8 %32, %22
   %36 = xor i8 %35, %34
   store i8 %36, ptr %33, align 1
-  %37 = getelementptr inbounds i8, ptr %.131, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.131, i64 2
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.1, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = xor i8 %38, %23
   %42 = xor i8 %41, %40

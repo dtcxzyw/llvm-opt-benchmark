@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ns_complex_repairs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   br label %7
 
@@ -40,7 +40,7 @@ define dso_local i32 @acpi_ns_complex_repairs(ptr noundef %0, ptr nocapture noun
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef %0, ptr noundef %3) #4
   br label %.thread
@@ -59,19 +59,19 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 4
   br i1 %6, label %7, label %.loopexit5
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit5, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -80,29 +80,29 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocaptur
   %16 = phi i32 [ 0, %11 ], [ %41, %39 ]
   %17 = phi ptr [ %13, %11 ], [ %40, %39 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 9
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 4
   br i1 %21, label %22, label %.loopexit5
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %18, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %24, 2
   br i1 %25, label %.loopexit5, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 9
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 1
   br i1 %33, label %34, label %.loopexit5
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %15, 4294967295
   %38 = icmp ult i64 %36, %37
@@ -134,19 +134,19 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocaptur
   %54 = zext i32 %53 to i64
   %55 = getelementptr ptr, ptr %13, i64 %54
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr ptr, ptr %13, i64 %51
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %60, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = icmp ugt i64 %68, %70
   br i1 %71, label %72, label %73
@@ -169,7 +169,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocaptur
   br i1 %80, label %.loopexit, label %48, !llvm.loop !10
 
 .loopexit:                                        ; preds = %78, %43
-  %81 = getelementptr inbounds i8, ptr %0, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %82 = load i32, ptr %81, align 8
   %83 = or i32 %82, 1
   store i32 %83, ptr %81, align 8
@@ -183,7 +183,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_ALR(ptr nocaptur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %.loopexit [
     i8 2, label %6
@@ -195,13 +195,13 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture no
   br label %.loopexit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -209,7 +209,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture no
   %16 = phi i32 [ %30, %28 ], [ 0, %12 ]
   %17 = phi ptr [ %29, %28 ], [ %14, %12 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 10
   %20 = load i16, ptr %19, align 2
   %21 = tail call i32 @acpi_ns_repair_HID(ptr noundef %0, ptr noundef %17), !range !11
   %22 = icmp eq i32 %21, 0
@@ -221,7 +221,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture no
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %24, i64 10
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 10
   store i16 %20, ptr %27, align 2
   br label %28
 
@@ -240,16 +240,16 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_CID(ptr nocapture no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit13, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = getelementptr inbounds i8, ptr %0, i64 82
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 82
   br label %12
 
 12:                                               ; preds = %59, %8
@@ -260,7 +260,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
   %17 = zext i32 %16 to i64
   %18 = getelementptr ptr, ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %26
@@ -272,11 +272,11 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
   br label %38
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 4294967295
   %34 = icmp eq i64 %33, 0
@@ -340,12 +340,12 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
 
 .loopexit13:                                      ; preds = %.loopexit13.loopexit, %2
   %64 = phi i64 [ 0, %2 ], [ %63, %.loopexit13.loopexit ]
-  %65 = getelementptr inbounds i8, ptr %3, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 %64, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 9
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 4
   br i1 %71, label %72, label %.loopexit11
@@ -366,29 +366,29 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
   %81 = phi i32 [ %106, %104 ], [ 0, %75 ]
   %82 = phi ptr [ %105, %104 ], [ %77, %75 ]
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 9
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 9
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 4
   br i1 %86, label %87, label %.loopexit11
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %83, i64 44
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 44
   %89 = load i32, ptr %88, align 4
   %90 = icmp ult i32 %89, 4
   br i1 %90, label %.loopexit11, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %83, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 9
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 9
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 1
   br i1 %98, label %99, label %.loopexit11
 
 99:                                               ; preds = %91
-  %100 = getelementptr inbounds i8, ptr %95, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %101 = load i64, ptr %100, align 8
   %102 = and i64 %80, 4294967295
   %103 = icmp ult i64 %101, %102
@@ -420,19 +420,19 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
   %119 = zext i32 %118 to i64
   %120 = getelementptr ptr, ptr %77, i64 %119
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr ptr, ptr %77, i64 %116
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %125, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %131, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %135 = load i64, ptr %134, align 8
   %136 = icmp ugt i64 %133, %135
   br i1 %136, label %137, label %138
@@ -455,7 +455,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
   br i1 %145, label %.loopexit, label %113, !llvm.loop !10
 
 .loopexit:                                        ; preds = %143, %108
-  %146 = getelementptr inbounds i8, ptr %0, i64 72
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %147 = load i32, ptr %146, align 8
   %148 = or i32 %147, 1
   store i32 %148, ptr %146, align 8
@@ -469,13 +469,13 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_CST(ptr nocaptur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 3
   br i1 %6, label %7, label %40
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp ugt i32 %9, 19
   br i1 %10, label %40, label %11
@@ -485,9 +485,9 @@ define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocaptur
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 82
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %17 = load i16, ptr %16, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 273, ptr noundef %15, i16 noundef zeroext %17, ptr noundef nonnull @.str.4, i32 noundef %9, i32 noundef 20) #4
   br label %40
@@ -498,9 +498,9 @@ define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocaptur
   br i1 %20, label %40, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -520,7 +520,7 @@ define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocaptur
 36:                                               ; preds = %26
   tail call void @acpi_ut_remove_reference(ptr noundef %3) #4
   store ptr %19, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load i32, ptr %37, align 8
   %39 = or i32 %38, 1
   store i32 %39, ptr %37, align 8
@@ -534,24 +534,24 @@ define internal noundef range(i32 0, 12292) i32 @acpi_ns_repair_FDE(ptr nocaptur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %7, label %55
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 82
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %15 = load i16, ptr %14, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 511, ptr noundef %13, i16 noundef zeroext %15, ptr noundef nonnull @.str.5) #4
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 8
@@ -564,7 +564,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture no
   br i1 %22, label %55, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 42
@@ -572,7 +572,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture no
 
 28:                                               ; preds = %23
   %29 = getelementptr i8, ptr %25, i64 1
-  %30 = getelementptr inbounds i8, ptr %21, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   store i32 %32, ptr %30, align 8
@@ -586,7 +586,7 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture no
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %21, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %39 = load ptr, ptr %38, align 8
   br label %40
 
@@ -621,26 +621,26 @@ define internal noundef range(i32 0, 5) i32 @acpi_ns_repair_HID(ptr nocapture no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_ns_repair_PRT(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 82
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 82
   br label %13
 
 13:                                               ; preds = %37, %7
   %14 = phi i32 [ 0, %7 ], [ %38, %37 ]
   %15 = phi ptr [ %9, %7 ], [ %39, %37 ]
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 4
   br i1 %21, label %37, label %22
@@ -652,7 +652,7 @@ define internal noundef i32 @acpi_ns_repair_PRT(ptr nocapture noundef %0, ptr no
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 9
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 1
   br i1 %29, label %37, label %30
@@ -683,19 +683,19 @@ define internal noundef i32 @acpi_ns_repair_PRT(ptr nocapture noundef %0, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 4
   br i1 %6, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -704,28 +704,28 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocaptur
   %16 = phi i32 [ 0, %11 ], [ %76, %74 ]
   %17 = phi ptr [ %13, %11 ], [ %75, %74 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 9
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 4
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %18, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = icmp ult i32 %24, 6
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 9
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 1
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %29, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %15, 4294967295
   %37 = icmp ugt i64 %35, %36
@@ -751,17 +751,17 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocaptur
   %49 = zext i32 %48 to i64
   %50 = getelementptr ptr, ptr %13, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr ptr, ptr %13, i64 %46
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %63 = load i64, ptr %62, align 8
   %64 = icmp ult i64 %61, %63
   br i1 %64, label %65, label %66
@@ -790,7 +790,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocaptur
   br i1 %77, label %.loopexit8.thread, label %14, !llvm.loop !8
 
 .loopexit8:                                       ; preds = %71, %38
-  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load i32, ptr %78, align 8
   %80 = or i32 %79, 1
   store i32 %80, ptr %78, align 8
@@ -801,8 +801,8 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocaptur
 .loopexit8.thread:                                ; preds = %74, %.loopexit8
   %82 = phi i32 [ %.pre, %.loopexit8 ], [ %9, %74 ]
   %83 = load ptr, ptr %12, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 40
-  %85 = getelementptr inbounds i8, ptr %0, i64 82
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 82
   br label %86
 
 86:                                               ; preds = %103, %.loopexit8.thread
@@ -810,11 +810,11 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_PSS(ptr nocaptur
   %88 = phi i32 [ -1, %.loopexit8.thread ], [ %.pre-phi, %103 ]
   %89 = phi ptr [ %83, %.loopexit8.thread ], [ %104, %103 ]
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load i64, ptr %95, align 8
   %97 = trunc i64 %96 to i32
   %98 = icmp ult i32 %88, %97
@@ -847,26 +847,26 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr nocaptur
   %4 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   store ptr null, ptr %3, align 8, !annotation !19
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @acpi_ns_get_node(ptr noundef %6, ptr noundef nonnull @.str.9, i32 noundef 0, ptr noundef nonnull %3) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit5, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 4
   br i1 %12, label %13, label %.loopexit5
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.loopexit5, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -875,29 +875,29 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr nocaptur
   %22 = phi i32 [ 0, %17 ], [ %88, %86 ]
   %23 = phi ptr [ %19, %17 ], [ %87, %86 ]
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 9
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 9
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 4
   br i1 %27, label %28, label %.loopexit5
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %24, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = icmp ult i32 %30, 5
   br i1 %31, label %.loopexit5, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 9
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 9
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 1
   br i1 %39, label %40, label %.loopexit5
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %21, 4294967295
   %44 = icmp ugt i64 %42, %43
@@ -923,19 +923,19 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr nocaptur
   %56 = zext i32 %55 to i64
   %57 = getelementptr ptr, ptr %19, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr ptr, ptr %19, i64 %53
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %62, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = icmp ult i64 %70, %72
   br i1 %73, label %74, label %75
@@ -958,7 +958,7 @@ define internal noundef range(i32 0, 12300) i32 @acpi_ns_repair_TSS(ptr nocaptur
   br i1 %82, label %.loopexit, label %50, !llvm.loop !10
 
 .loopexit:                                        ; preds = %80, %45
-  %83 = getelementptr inbounds i8, ptr %0, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %84 = load i32, ptr %83, align 8
   %85 = or i32 %84, 1
   store i32 %85, ptr %83, align 8

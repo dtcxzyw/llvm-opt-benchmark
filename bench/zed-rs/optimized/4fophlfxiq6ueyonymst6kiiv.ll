@@ -234,835 +234,835 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hdbecd31a917ad888E
 
 9:                                                ; preds = %1
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.220, ptr %7, align 8, !noalias !4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 2, ptr %10, align 8, !noalias !4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.15, ptr %11, align 8, !noalias !4
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %12, align 8, !noalias !4
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.16, ptr %13, align 8, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 2, ptr %14, align 8, !noalias !4
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.17, ptr %15, align 8, !noalias !4
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 2, ptr %16, align 8, !noalias !4
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.18, ptr %17, align 8, !noalias !4
-  %18 = getelementptr inbounds i8, ptr %7, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 2, ptr %18, align 8, !noalias !4
-  %19 = getelementptr inbounds i8, ptr %7, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.19, ptr %19, align 8, !noalias !4
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 2, ptr %20, align 8, !noalias !4
-  %21 = getelementptr inbounds i8, ptr %7, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.20, ptr %21, align 8, !noalias !4
-  %22 = getelementptr inbounds i8, ptr %7, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i64 2, ptr %22, align 8, !noalias !4
-  %23 = getelementptr inbounds i8, ptr %7, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.21, ptr %23, align 8, !noalias !4
-  %24 = getelementptr inbounds i8, ptr %7, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i64 2, ptr %24, align 8, !noalias !4
-  %25 = getelementptr inbounds i8, ptr %7, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.22, ptr %25, align 8, !noalias !4
-  %26 = getelementptr inbounds i8, ptr %7, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i64 2, ptr %26, align 8, !noalias !4
-  %27 = getelementptr inbounds i8, ptr %7, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.23, ptr %27, align 8, !noalias !4
-  %28 = getelementptr inbounds i8, ptr %7, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i64 2, ptr %28, align 8, !noalias !4
-  %29 = getelementptr inbounds i8, ptr %7, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.24, ptr %29, align 8, !noalias !4
-  %30 = getelementptr inbounds i8, ptr %7, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i64 2, ptr %30, align 8, !noalias !4
-  %31 = getelementptr inbounds i8, ptr %7, i64 176
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.25, ptr %31, align 8, !noalias !4
-  %32 = getelementptr inbounds i8, ptr %7, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 2, ptr %32, align 8, !noalias !4
-  %33 = getelementptr inbounds i8, ptr %7, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.26, ptr %33, align 8, !noalias !4
-  %34 = getelementptr inbounds i8, ptr %7, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i64 2, ptr %34, align 8, !noalias !4
-  %35 = getelementptr inbounds i8, ptr %7, i64 208
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.27, ptr %35, align 8, !noalias !4
-  %36 = getelementptr inbounds i8, ptr %7, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i64 2, ptr %36, align 8, !noalias !4
-  %37 = getelementptr inbounds i8, ptr %7, i64 224
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.28, ptr %37, align 8, !noalias !4
-  %38 = getelementptr inbounds i8, ptr %7, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store i64 2, ptr %38, align 8, !noalias !4
-  %39 = getelementptr inbounds i8, ptr %7, i64 240
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.29, ptr %39, align 8, !noalias !4
-  %40 = getelementptr inbounds i8, ptr %7, i64 248
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store i64 2, ptr %40, align 8, !noalias !4
-  %41 = getelementptr inbounds i8, ptr %7, i64 256
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.30, ptr %41, align 8, !noalias !4
-  %42 = getelementptr inbounds i8, ptr %7, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 264
   store i64 2, ptr %42, align 8, !noalias !4
-  %43 = getelementptr inbounds i8, ptr %7, i64 272
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.31, ptr %43, align 8, !noalias !4
-  %44 = getelementptr inbounds i8, ptr %7, i64 280
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store i64 2, ptr %44, align 8, !noalias !4
-  %45 = getelementptr inbounds i8, ptr %7, i64 288
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.32, ptr %45, align 8, !noalias !4
-  %46 = getelementptr inbounds i8, ptr %7, i64 296
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i64 2, ptr %46, align 8, !noalias !4
-  %47 = getelementptr inbounds i8, ptr %7, i64 304
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 304
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.33, ptr %47, align 8, !noalias !4
-  %48 = getelementptr inbounds i8, ptr %7, i64 312
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 312
   store i64 2, ptr %48, align 8, !noalias !4
-  %49 = getelementptr inbounds i8, ptr %7, i64 320
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 320
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.34, ptr %49, align 8, !noalias !4
-  %50 = getelementptr inbounds i8, ptr %7, i64 328
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 328
   store i64 2, ptr %50, align 8, !noalias !4
-  %51 = getelementptr inbounds i8, ptr %7, i64 336
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 336
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.35, ptr %51, align 8, !noalias !4
-  %52 = getelementptr inbounds i8, ptr %7, i64 344
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 344
   store i64 2, ptr %52, align 8, !noalias !4
-  %53 = getelementptr inbounds i8, ptr %7, i64 352
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 352
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.36, ptr %53, align 8, !noalias !4
-  %54 = getelementptr inbounds i8, ptr %7, i64 360
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store i64 2, ptr %54, align 8, !noalias !4
-  %55 = getelementptr inbounds i8, ptr %7, i64 368
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 368
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.37, ptr %55, align 8, !noalias !4
-  %56 = getelementptr inbounds i8, ptr %7, i64 376
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 376
   store i64 2, ptr %56, align 8, !noalias !4
-  %57 = getelementptr inbounds i8, ptr %7, i64 384
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 384
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.38, ptr %57, align 8, !noalias !4
-  %58 = getelementptr inbounds i8, ptr %7, i64 392
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 392
   store i64 2, ptr %58, align 8, !noalias !4
-  %59 = getelementptr inbounds i8, ptr %7, i64 400
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 400
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.39, ptr %59, align 8, !noalias !4
-  %60 = getelementptr inbounds i8, ptr %7, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 408
   store i64 2, ptr %60, align 8, !noalias !4
-  %61 = getelementptr inbounds i8, ptr %7, i64 416
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 416
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.40, ptr %61, align 8, !noalias !4
-  %62 = getelementptr inbounds i8, ptr %7, i64 424
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 424
   store i64 2, ptr %62, align 8, !noalias !4
-  %63 = getelementptr inbounds i8, ptr %7, i64 432
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 432
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.41, ptr %63, align 8, !noalias !4
-  %64 = getelementptr inbounds i8, ptr %7, i64 440
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 440
   store i64 2, ptr %64, align 8, !noalias !4
-  %65 = getelementptr inbounds i8, ptr %7, i64 448
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 448
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.42, ptr %65, align 8, !noalias !4
-  %66 = getelementptr inbounds i8, ptr %7, i64 456
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 456
   store i64 2, ptr %66, align 8, !noalias !4
-  %67 = getelementptr inbounds i8, ptr %7, i64 464
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 464
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.43, ptr %67, align 8, !noalias !4
-  %68 = getelementptr inbounds i8, ptr %7, i64 472
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 472
   store i64 2, ptr %68, align 8, !noalias !4
-  %69 = getelementptr inbounds i8, ptr %7, i64 480
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 480
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.44, ptr %69, align 8, !noalias !4
-  %70 = getelementptr inbounds i8, ptr %7, i64 488
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 488
   store i64 2, ptr %70, align 8, !noalias !4
-  %71 = getelementptr inbounds i8, ptr %7, i64 496
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 496
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.45, ptr %71, align 8, !noalias !4
-  %72 = getelementptr inbounds i8, ptr %7, i64 504
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 504
   store i64 2, ptr %72, align 8, !noalias !4
-  %73 = getelementptr inbounds i8, ptr %7, i64 512
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 512
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.46, ptr %73, align 8, !noalias !4
-  %74 = getelementptr inbounds i8, ptr %7, i64 520
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 520
   store i64 2, ptr %74, align 8, !noalias !4
-  %75 = getelementptr inbounds i8, ptr %7, i64 528
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 528
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.47, ptr %75, align 8, !noalias !4
-  %76 = getelementptr inbounds i8, ptr %7, i64 536
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 536
   store i64 2, ptr %76, align 8, !noalias !4
-  %77 = getelementptr inbounds i8, ptr %7, i64 544
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 544
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.48, ptr %77, align 8, !noalias !4
-  %78 = getelementptr inbounds i8, ptr %7, i64 552
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 552
   store i64 2, ptr %78, align 8, !noalias !4
-  %79 = getelementptr inbounds i8, ptr %7, i64 560
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 560
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.49, ptr %79, align 8, !noalias !4
-  %80 = getelementptr inbounds i8, ptr %7, i64 568
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 568
   store i64 2, ptr %80, align 8, !noalias !4
-  %81 = getelementptr inbounds i8, ptr %7, i64 576
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 576
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.50, ptr %81, align 8, !noalias !4
-  %82 = getelementptr inbounds i8, ptr %7, i64 584
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 584
   store i64 2, ptr %82, align 8, !noalias !4
-  %83 = getelementptr inbounds i8, ptr %7, i64 592
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 592
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.51, ptr %83, align 8, !noalias !4
-  %84 = getelementptr inbounds i8, ptr %7, i64 600
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 600
   store i64 2, ptr %84, align 8, !noalias !4
-  %85 = getelementptr inbounds i8, ptr %7, i64 608
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 608
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.52, ptr %85, align 8, !noalias !4
-  %86 = getelementptr inbounds i8, ptr %7, i64 616
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 616
   store i64 2, ptr %86, align 8, !noalias !4
-  %87 = getelementptr inbounds i8, ptr %7, i64 624
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 624
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.53, ptr %87, align 8, !noalias !4
-  %88 = getelementptr inbounds i8, ptr %7, i64 632
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 632
   store i64 2, ptr %88, align 8, !noalias !4
-  %89 = getelementptr inbounds i8, ptr %7, i64 640
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 640
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.54, ptr %89, align 8, !noalias !4
-  %90 = getelementptr inbounds i8, ptr %7, i64 648
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 648
   store i64 2, ptr %90, align 8, !noalias !4
-  %91 = getelementptr inbounds i8, ptr %7, i64 656
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 656
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.55, ptr %91, align 8, !noalias !4
-  %92 = getelementptr inbounds i8, ptr %7, i64 664
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 664
   store i64 2, ptr %92, align 8, !noalias !4
-  %93 = getelementptr inbounds i8, ptr %7, i64 672
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 672
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.56, ptr %93, align 8, !noalias !4
-  %94 = getelementptr inbounds i8, ptr %7, i64 680
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 680
   store i64 2, ptr %94, align 8, !noalias !4
-  %95 = getelementptr inbounds i8, ptr %7, i64 688
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 688
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.57, ptr %95, align 8, !noalias !4
-  %96 = getelementptr inbounds i8, ptr %7, i64 696
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 696
   store i64 2, ptr %96, align 8, !noalias !4
-  %97 = getelementptr inbounds i8, ptr %7, i64 704
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 704
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.58, ptr %97, align 8, !noalias !4
-  %98 = getelementptr inbounds i8, ptr %7, i64 712
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 712
   store i64 2, ptr %98, align 8, !noalias !4
-  %99 = getelementptr inbounds i8, ptr %7, i64 720
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 720
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.59, ptr %99, align 8, !noalias !4
-  %100 = getelementptr inbounds i8, ptr %7, i64 728
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 728
   store i64 2, ptr %100, align 8, !noalias !4
-  %101 = getelementptr inbounds i8, ptr %7, i64 736
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 736
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.60, ptr %101, align 8, !noalias !4
-  %102 = getelementptr inbounds i8, ptr %7, i64 744
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 744
   store i64 2, ptr %102, align 8, !noalias !4
-  %103 = getelementptr inbounds i8, ptr %7, i64 752
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 752
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.61, ptr %103, align 8, !noalias !4
-  %104 = getelementptr inbounds i8, ptr %7, i64 760
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 760
   store i64 2, ptr %104, align 8, !noalias !4
-  %105 = getelementptr inbounds i8, ptr %7, i64 768
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 768
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.62, ptr %105, align 8, !noalias !4
-  %106 = getelementptr inbounds i8, ptr %7, i64 776
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 776
   store i64 2, ptr %106, align 8, !noalias !4
-  %107 = getelementptr inbounds i8, ptr %7, i64 784
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 784
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.63, ptr %107, align 8, !noalias !4
-  %108 = getelementptr inbounds i8, ptr %7, i64 792
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 792
   store i64 2, ptr %108, align 8, !noalias !4
-  %109 = getelementptr inbounds i8, ptr %7, i64 800
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 800
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.64, ptr %109, align 8, !noalias !4
-  %110 = getelementptr inbounds i8, ptr %7, i64 808
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 808
   store i64 2, ptr %110, align 8, !noalias !4
-  %111 = getelementptr inbounds i8, ptr %7, i64 816
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 816
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.65, ptr %111, align 8, !noalias !4
-  %112 = getelementptr inbounds i8, ptr %7, i64 824
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 824
   store i64 2, ptr %112, align 8, !noalias !4
-  %113 = getelementptr inbounds i8, ptr %7, i64 832
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 832
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.66, ptr %113, align 8, !noalias !4
-  %114 = getelementptr inbounds i8, ptr %7, i64 840
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 840
   store i64 2, ptr %114, align 8, !noalias !4
-  %115 = getelementptr inbounds i8, ptr %7, i64 848
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 848
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.67, ptr %115, align 8, !noalias !4
-  %116 = getelementptr inbounds i8, ptr %7, i64 856
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 856
   store i64 2, ptr %116, align 8, !noalias !4
-  %117 = getelementptr inbounds i8, ptr %7, i64 864
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 864
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.68, ptr %117, align 8, !noalias !4
-  %118 = getelementptr inbounds i8, ptr %7, i64 872
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 872
   store i64 2, ptr %118, align 8, !noalias !4
-  %119 = getelementptr inbounds i8, ptr %7, i64 880
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 880
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.69, ptr %119, align 8, !noalias !4
-  %120 = getelementptr inbounds i8, ptr %7, i64 888
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 888
   store i64 2, ptr %120, align 8, !noalias !4
-  %121 = getelementptr inbounds i8, ptr %7, i64 896
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 896
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.70, ptr %121, align 8, !noalias !4
-  %122 = getelementptr inbounds i8, ptr %7, i64 904
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 904
   store i64 2, ptr %122, align 8, !noalias !4
-  %123 = getelementptr inbounds i8, ptr %7, i64 912
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 912
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.71, ptr %123, align 8, !noalias !4
-  %124 = getelementptr inbounds i8, ptr %7, i64 920
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 920
   store i64 2, ptr %124, align 8, !noalias !4
-  %125 = getelementptr inbounds i8, ptr %7, i64 928
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 928
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.72, ptr %125, align 8, !noalias !4
-  %126 = getelementptr inbounds i8, ptr %7, i64 936
+  %126 = getelementptr inbounds nuw i8, ptr %7, i64 936
   store i64 2, ptr %126, align 8, !noalias !4
-  %127 = getelementptr inbounds i8, ptr %7, i64 944
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 944
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.73, ptr %127, align 8, !noalias !4
-  %128 = getelementptr inbounds i8, ptr %7, i64 952
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 952
   store i64 2, ptr %128, align 8, !noalias !4
-  %129 = getelementptr inbounds i8, ptr %7, i64 960
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 960
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.74, ptr %129, align 8, !noalias !4
-  %130 = getelementptr inbounds i8, ptr %7, i64 968
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 968
   store i64 2, ptr %130, align 8, !noalias !4
-  %131 = getelementptr inbounds i8, ptr %7, i64 976
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 976
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.75, ptr %131, align 8, !noalias !4
-  %132 = getelementptr inbounds i8, ptr %7, i64 984
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 984
   store i64 2, ptr %132, align 8, !noalias !4
-  %133 = getelementptr inbounds i8, ptr %7, i64 992
+  %133 = getelementptr inbounds nuw i8, ptr %7, i64 992
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.76, ptr %133, align 8, !noalias !4
-  %134 = getelementptr inbounds i8, ptr %7, i64 1000
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 1000
   store i64 2, ptr %134, align 8, !noalias !4
-  %135 = getelementptr inbounds i8, ptr %7, i64 1008
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 1008
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.77, ptr %135, align 8, !noalias !4
-  %136 = getelementptr inbounds i8, ptr %7, i64 1016
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 1016
   store i64 2, ptr %136, align 8, !noalias !4
-  %137 = getelementptr inbounds i8, ptr %7, i64 1024
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.78, ptr %137, align 8, !noalias !4
-  %138 = getelementptr inbounds i8, ptr %7, i64 1032
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 1032
   store i64 2, ptr %138, align 8, !noalias !4
-  %139 = getelementptr inbounds i8, ptr %7, i64 1040
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.79, ptr %139, align 8, !noalias !4
-  %140 = getelementptr inbounds i8, ptr %7, i64 1048
+  %140 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   store i64 2, ptr %140, align 8, !noalias !4
-  %141 = getelementptr inbounds i8, ptr %7, i64 1056
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 1056
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.80, ptr %141, align 8, !noalias !4
-  %142 = getelementptr inbounds i8, ptr %7, i64 1064
+  %142 = getelementptr inbounds nuw i8, ptr %7, i64 1064
   store i64 2, ptr %142, align 8, !noalias !4
-  %143 = getelementptr inbounds i8, ptr %7, i64 1072
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 1072
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.81, ptr %143, align 8, !noalias !4
-  %144 = getelementptr inbounds i8, ptr %7, i64 1080
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 1080
   store i64 2, ptr %144, align 8, !noalias !4
-  %145 = getelementptr inbounds i8, ptr %7, i64 1088
+  %145 = getelementptr inbounds nuw i8, ptr %7, i64 1088
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.82, ptr %145, align 8, !noalias !4
-  %146 = getelementptr inbounds i8, ptr %7, i64 1096
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 1096
   store i64 2, ptr %146, align 8, !noalias !4
-  %147 = getelementptr inbounds i8, ptr %7, i64 1104
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 1104
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.83, ptr %147, align 8, !noalias !4
-  %148 = getelementptr inbounds i8, ptr %7, i64 1112
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 1112
   store i64 2, ptr %148, align 8, !noalias !4
-  %149 = getelementptr inbounds i8, ptr %7, i64 1120
+  %149 = getelementptr inbounds nuw i8, ptr %7, i64 1120
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.84, ptr %149, align 8, !noalias !4
-  %150 = getelementptr inbounds i8, ptr %7, i64 1128
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 1128
   store i64 2, ptr %150, align 8, !noalias !4
-  %151 = getelementptr inbounds i8, ptr %7, i64 1136
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 1136
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.85, ptr %151, align 8, !noalias !4
-  %152 = getelementptr inbounds i8, ptr %7, i64 1144
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 1144
   store i64 2, ptr %152, align 8, !noalias !4
-  %153 = getelementptr inbounds i8, ptr %7, i64 1152
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 1152
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.86, ptr %153, align 8, !noalias !4
-  %154 = getelementptr inbounds i8, ptr %7, i64 1160
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 1160
   store i64 2, ptr %154, align 8, !noalias !4
-  %155 = getelementptr inbounds i8, ptr %7, i64 1168
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 1168
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.87, ptr %155, align 8, !noalias !4
-  %156 = getelementptr inbounds i8, ptr %7, i64 1176
+  %156 = getelementptr inbounds nuw i8, ptr %7, i64 1176
   store i64 2, ptr %156, align 8, !noalias !4
-  %157 = getelementptr inbounds i8, ptr %7, i64 1184
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 1184
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.88, ptr %157, align 8, !noalias !4
-  %158 = getelementptr inbounds i8, ptr %7, i64 1192
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 1192
   store i64 2, ptr %158, align 8, !noalias !4
-  %159 = getelementptr inbounds i8, ptr %7, i64 1200
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 1200
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.89, ptr %159, align 8, !noalias !4
-  %160 = getelementptr inbounds i8, ptr %7, i64 1208
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 1208
   store i64 2, ptr %160, align 8, !noalias !4
-  %161 = getelementptr inbounds i8, ptr %7, i64 1216
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 1216
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.90, ptr %161, align 8, !noalias !4
-  %162 = getelementptr inbounds i8, ptr %7, i64 1224
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 1224
   store i64 2, ptr %162, align 8, !noalias !4
-  %163 = getelementptr inbounds i8, ptr %7, i64 1232
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 1232
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.91, ptr %163, align 8, !noalias !4
-  %164 = getelementptr inbounds i8, ptr %7, i64 1240
+  %164 = getelementptr inbounds nuw i8, ptr %7, i64 1240
   store i64 2, ptr %164, align 8, !noalias !4
-  %165 = getelementptr inbounds i8, ptr %7, i64 1248
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 1248
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.92, ptr %165, align 8, !noalias !4
-  %166 = getelementptr inbounds i8, ptr %7, i64 1256
+  %166 = getelementptr inbounds nuw i8, ptr %7, i64 1256
   store i64 2, ptr %166, align 8, !noalias !4
-  %167 = getelementptr inbounds i8, ptr %7, i64 1264
+  %167 = getelementptr inbounds nuw i8, ptr %7, i64 1264
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.93, ptr %167, align 8, !noalias !4
-  %168 = getelementptr inbounds i8, ptr %7, i64 1272
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 1272
   store i64 2, ptr %168, align 8, !noalias !4
-  %169 = getelementptr inbounds i8, ptr %7, i64 1280
+  %169 = getelementptr inbounds nuw i8, ptr %7, i64 1280
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.94, ptr %169, align 8, !noalias !4
-  %170 = getelementptr inbounds i8, ptr %7, i64 1288
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 1288
   store i64 2, ptr %170, align 8, !noalias !4
-  %171 = getelementptr inbounds i8, ptr %7, i64 1296
+  %171 = getelementptr inbounds nuw i8, ptr %7, i64 1296
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.95, ptr %171, align 8, !noalias !4
-  %172 = getelementptr inbounds i8, ptr %7, i64 1304
+  %172 = getelementptr inbounds nuw i8, ptr %7, i64 1304
   store i64 2, ptr %172, align 8, !noalias !4
-  %173 = getelementptr inbounds i8, ptr %7, i64 1312
+  %173 = getelementptr inbounds nuw i8, ptr %7, i64 1312
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.96, ptr %173, align 8, !noalias !4
-  %174 = getelementptr inbounds i8, ptr %7, i64 1320
+  %174 = getelementptr inbounds nuw i8, ptr %7, i64 1320
   store i64 2, ptr %174, align 8, !noalias !4
-  %175 = getelementptr inbounds i8, ptr %7, i64 1328
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 1328
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.97, ptr %175, align 8, !noalias !4
-  %176 = getelementptr inbounds i8, ptr %7, i64 1336
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 1336
   store i64 2, ptr %176, align 8, !noalias !4
-  %177 = getelementptr inbounds i8, ptr %7, i64 1344
+  %177 = getelementptr inbounds nuw i8, ptr %7, i64 1344
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.98, ptr %177, align 8, !noalias !4
-  %178 = getelementptr inbounds i8, ptr %7, i64 1352
+  %178 = getelementptr inbounds nuw i8, ptr %7, i64 1352
   store i64 2, ptr %178, align 8, !noalias !4
-  %179 = getelementptr inbounds i8, ptr %7, i64 1360
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 1360
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.99, ptr %179, align 8, !noalias !4
-  %180 = getelementptr inbounds i8, ptr %7, i64 1368
+  %180 = getelementptr inbounds nuw i8, ptr %7, i64 1368
   store i64 2, ptr %180, align 8, !noalias !4
-  %181 = getelementptr inbounds i8, ptr %7, i64 1376
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 1376
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.100, ptr %181, align 8, !noalias !4
-  %182 = getelementptr inbounds i8, ptr %7, i64 1384
+  %182 = getelementptr inbounds nuw i8, ptr %7, i64 1384
   store i64 2, ptr %182, align 8, !noalias !4
-  %183 = getelementptr inbounds i8, ptr %7, i64 1392
+  %183 = getelementptr inbounds nuw i8, ptr %7, i64 1392
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.101, ptr %183, align 8, !noalias !4
-  %184 = getelementptr inbounds i8, ptr %7, i64 1400
+  %184 = getelementptr inbounds nuw i8, ptr %7, i64 1400
   store i64 2, ptr %184, align 8, !noalias !4
-  %185 = getelementptr inbounds i8, ptr %7, i64 1408
+  %185 = getelementptr inbounds nuw i8, ptr %7, i64 1408
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.102, ptr %185, align 8, !noalias !4
-  %186 = getelementptr inbounds i8, ptr %7, i64 1416
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 1416
   store i64 2, ptr %186, align 8, !noalias !4
-  %187 = getelementptr inbounds i8, ptr %7, i64 1424
+  %187 = getelementptr inbounds nuw i8, ptr %7, i64 1424
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.103, ptr %187, align 8, !noalias !4
-  %188 = getelementptr inbounds i8, ptr %7, i64 1432
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 1432
   store i64 2, ptr %188, align 8, !noalias !4
-  %189 = getelementptr inbounds i8, ptr %7, i64 1440
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 1440
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.104, ptr %189, align 8, !noalias !4
-  %190 = getelementptr inbounds i8, ptr %7, i64 1448
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 1448
   store i64 2, ptr %190, align 8, !noalias !4
-  %191 = getelementptr inbounds i8, ptr %7, i64 1456
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 1456
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.105, ptr %191, align 8, !noalias !4
-  %192 = getelementptr inbounds i8, ptr %7, i64 1464
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 1464
   store i64 2, ptr %192, align 8, !noalias !4
-  %193 = getelementptr inbounds i8, ptr %7, i64 1472
+  %193 = getelementptr inbounds nuw i8, ptr %7, i64 1472
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.106, ptr %193, align 8, !noalias !4
-  %194 = getelementptr inbounds i8, ptr %7, i64 1480
+  %194 = getelementptr inbounds nuw i8, ptr %7, i64 1480
   store i64 2, ptr %194, align 8, !noalias !4
-  %195 = getelementptr inbounds i8, ptr %7, i64 1488
+  %195 = getelementptr inbounds nuw i8, ptr %7, i64 1488
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.107, ptr %195, align 8, !noalias !4
-  %196 = getelementptr inbounds i8, ptr %7, i64 1496
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 1496
   store i64 2, ptr %196, align 8, !noalias !4
-  %197 = getelementptr inbounds i8, ptr %7, i64 1504
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 1504
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.108, ptr %197, align 8, !noalias !4
-  %198 = getelementptr inbounds i8, ptr %7, i64 1512
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 1512
   store i64 2, ptr %198, align 8, !noalias !4
-  %199 = getelementptr inbounds i8, ptr %7, i64 1520
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 1520
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.109, ptr %199, align 8, !noalias !4
-  %200 = getelementptr inbounds i8, ptr %7, i64 1528
+  %200 = getelementptr inbounds nuw i8, ptr %7, i64 1528
   store i64 2, ptr %200, align 8, !noalias !4
-  %201 = getelementptr inbounds i8, ptr %7, i64 1536
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 1536
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.110, ptr %201, align 8, !noalias !4
-  %202 = getelementptr inbounds i8, ptr %7, i64 1544
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 1544
   store i64 2, ptr %202, align 8, !noalias !4
-  %203 = getelementptr inbounds i8, ptr %7, i64 1552
+  %203 = getelementptr inbounds nuw i8, ptr %7, i64 1552
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.111, ptr %203, align 8, !noalias !4
-  %204 = getelementptr inbounds i8, ptr %7, i64 1560
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 1560
   store i64 2, ptr %204, align 8, !noalias !4
-  %205 = getelementptr inbounds i8, ptr %7, i64 1568
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 1568
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.112, ptr %205, align 8, !noalias !4
-  %206 = getelementptr inbounds i8, ptr %7, i64 1576
+  %206 = getelementptr inbounds nuw i8, ptr %7, i64 1576
   store i64 2, ptr %206, align 8, !noalias !4
-  %207 = getelementptr inbounds i8, ptr %7, i64 1584
+  %207 = getelementptr inbounds nuw i8, ptr %7, i64 1584
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.113, ptr %207, align 8, !noalias !4
-  %208 = getelementptr inbounds i8, ptr %7, i64 1592
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 1592
   store i64 2, ptr %208, align 8, !noalias !4
-  %209 = getelementptr inbounds i8, ptr %7, i64 1600
+  %209 = getelementptr inbounds nuw i8, ptr %7, i64 1600
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.114, ptr %209, align 8, !noalias !4
-  %210 = getelementptr inbounds i8, ptr %7, i64 1608
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 1608
   store i64 2, ptr %210, align 8, !noalias !4
-  %211 = getelementptr inbounds i8, ptr %7, i64 1616
+  %211 = getelementptr inbounds nuw i8, ptr %7, i64 1616
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.115, ptr %211, align 8, !noalias !4
-  %212 = getelementptr inbounds i8, ptr %7, i64 1624
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 1624
   store i64 2, ptr %212, align 8, !noalias !4
-  %213 = getelementptr inbounds i8, ptr %7, i64 1632
+  %213 = getelementptr inbounds nuw i8, ptr %7, i64 1632
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.116, ptr %213, align 8, !noalias !4
-  %214 = getelementptr inbounds i8, ptr %7, i64 1640
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 1640
   store i64 2, ptr %214, align 8, !noalias !4
-  %215 = getelementptr inbounds i8, ptr %7, i64 1648
+  %215 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.117, ptr %215, align 8, !noalias !4
-  %216 = getelementptr inbounds i8, ptr %7, i64 1656
+  %216 = getelementptr inbounds nuw i8, ptr %7, i64 1656
   store i64 2, ptr %216, align 8, !noalias !4
-  %217 = getelementptr inbounds i8, ptr %7, i64 1664
+  %217 = getelementptr inbounds nuw i8, ptr %7, i64 1664
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.118, ptr %217, align 8, !noalias !4
-  %218 = getelementptr inbounds i8, ptr %7, i64 1672
+  %218 = getelementptr inbounds nuw i8, ptr %7, i64 1672
   store i64 2, ptr %218, align 8, !noalias !4
-  %219 = getelementptr inbounds i8, ptr %7, i64 1680
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 1680
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.119, ptr %219, align 8, !noalias !4
-  %220 = getelementptr inbounds i8, ptr %7, i64 1688
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 1688
   store i64 2, ptr %220, align 8, !noalias !4
-  %221 = getelementptr inbounds i8, ptr %7, i64 1696
+  %221 = getelementptr inbounds nuw i8, ptr %7, i64 1696
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.120, ptr %221, align 8, !noalias !4
-  %222 = getelementptr inbounds i8, ptr %7, i64 1704
+  %222 = getelementptr inbounds nuw i8, ptr %7, i64 1704
   store i64 2, ptr %222, align 8, !noalias !4
-  %223 = getelementptr inbounds i8, ptr %7, i64 1712
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 1712
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.121, ptr %223, align 8, !noalias !4
-  %224 = getelementptr inbounds i8, ptr %7, i64 1720
+  %224 = getelementptr inbounds nuw i8, ptr %7, i64 1720
   store i64 2, ptr %224, align 8, !noalias !4
-  %225 = getelementptr inbounds i8, ptr %7, i64 1728
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 1728
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.122, ptr %225, align 8, !noalias !4
-  %226 = getelementptr inbounds i8, ptr %7, i64 1736
+  %226 = getelementptr inbounds nuw i8, ptr %7, i64 1736
   store i64 2, ptr %226, align 8, !noalias !4
-  %227 = getelementptr inbounds i8, ptr %7, i64 1744
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 1744
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.123, ptr %227, align 8, !noalias !4
-  %228 = getelementptr inbounds i8, ptr %7, i64 1752
+  %228 = getelementptr inbounds nuw i8, ptr %7, i64 1752
   store i64 2, ptr %228, align 8, !noalias !4
-  %229 = getelementptr inbounds i8, ptr %7, i64 1760
+  %229 = getelementptr inbounds nuw i8, ptr %7, i64 1760
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.124, ptr %229, align 8, !noalias !4
-  %230 = getelementptr inbounds i8, ptr %7, i64 1768
+  %230 = getelementptr inbounds nuw i8, ptr %7, i64 1768
   store i64 2, ptr %230, align 8, !noalias !4
-  %231 = getelementptr inbounds i8, ptr %7, i64 1776
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.125, ptr %231, align 8, !noalias !4
-  %232 = getelementptr inbounds i8, ptr %7, i64 1784
+  %232 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   store i64 2, ptr %232, align 8, !noalias !4
-  %233 = getelementptr inbounds i8, ptr %7, i64 1792
+  %233 = getelementptr inbounds nuw i8, ptr %7, i64 1792
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.126, ptr %233, align 8, !noalias !4
-  %234 = getelementptr inbounds i8, ptr %7, i64 1800
+  %234 = getelementptr inbounds nuw i8, ptr %7, i64 1800
   store i64 2, ptr %234, align 8, !noalias !4
-  %235 = getelementptr inbounds i8, ptr %7, i64 1808
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 1808
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.127, ptr %235, align 8, !noalias !4
-  %236 = getelementptr inbounds i8, ptr %7, i64 1816
+  %236 = getelementptr inbounds nuw i8, ptr %7, i64 1816
   store i64 2, ptr %236, align 8, !noalias !4
-  %237 = getelementptr inbounds i8, ptr %7, i64 1824
+  %237 = getelementptr inbounds nuw i8, ptr %7, i64 1824
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.128, ptr %237, align 8, !noalias !4
-  %238 = getelementptr inbounds i8, ptr %7, i64 1832
+  %238 = getelementptr inbounds nuw i8, ptr %7, i64 1832
   store i64 2, ptr %238, align 8, !noalias !4
-  %239 = getelementptr inbounds i8, ptr %7, i64 1840
+  %239 = getelementptr inbounds nuw i8, ptr %7, i64 1840
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.129, ptr %239, align 8, !noalias !4
-  %240 = getelementptr inbounds i8, ptr %7, i64 1848
+  %240 = getelementptr inbounds nuw i8, ptr %7, i64 1848
   store i64 2, ptr %240, align 8, !noalias !4
-  %241 = getelementptr inbounds i8, ptr %7, i64 1856
+  %241 = getelementptr inbounds nuw i8, ptr %7, i64 1856
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.130, ptr %241, align 8, !noalias !4
-  %242 = getelementptr inbounds i8, ptr %7, i64 1864
+  %242 = getelementptr inbounds nuw i8, ptr %7, i64 1864
   store i64 2, ptr %242, align 8, !noalias !4
-  %243 = getelementptr inbounds i8, ptr %7, i64 1872
+  %243 = getelementptr inbounds nuw i8, ptr %7, i64 1872
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.131, ptr %243, align 8, !noalias !4
-  %244 = getelementptr inbounds i8, ptr %7, i64 1880
+  %244 = getelementptr inbounds nuw i8, ptr %7, i64 1880
   store i64 2, ptr %244, align 8, !noalias !4
-  %245 = getelementptr inbounds i8, ptr %7, i64 1888
+  %245 = getelementptr inbounds nuw i8, ptr %7, i64 1888
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.132, ptr %245, align 8, !noalias !4
-  %246 = getelementptr inbounds i8, ptr %7, i64 1896
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 1896
   store i64 2, ptr %246, align 8, !noalias !4
-  %247 = getelementptr inbounds i8, ptr %7, i64 1904
+  %247 = getelementptr inbounds nuw i8, ptr %7, i64 1904
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.133, ptr %247, align 8, !noalias !4
-  %248 = getelementptr inbounds i8, ptr %7, i64 1912
+  %248 = getelementptr inbounds nuw i8, ptr %7, i64 1912
   store i64 2, ptr %248, align 8, !noalias !4
-  %249 = getelementptr inbounds i8, ptr %7, i64 1920
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 1920
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.134, ptr %249, align 8, !noalias !4
-  %250 = getelementptr inbounds i8, ptr %7, i64 1928
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 1928
   store i64 2, ptr %250, align 8, !noalias !4
-  %251 = getelementptr inbounds i8, ptr %7, i64 1936
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 1936
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.135, ptr %251, align 8, !noalias !4
-  %252 = getelementptr inbounds i8, ptr %7, i64 1944
+  %252 = getelementptr inbounds nuw i8, ptr %7, i64 1944
   store i64 2, ptr %252, align 8, !noalias !4
-  %253 = getelementptr inbounds i8, ptr %7, i64 1952
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 1952
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.136, ptr %253, align 8, !noalias !4
-  %254 = getelementptr inbounds i8, ptr %7, i64 1960
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 1960
   store i64 2, ptr %254, align 8, !noalias !4
-  %255 = getelementptr inbounds i8, ptr %7, i64 1968
+  %255 = getelementptr inbounds nuw i8, ptr %7, i64 1968
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.137, ptr %255, align 8, !noalias !4
-  %256 = getelementptr inbounds i8, ptr %7, i64 1976
+  %256 = getelementptr inbounds nuw i8, ptr %7, i64 1976
   store i64 2, ptr %256, align 8, !noalias !4
-  %257 = getelementptr inbounds i8, ptr %7, i64 1984
+  %257 = getelementptr inbounds nuw i8, ptr %7, i64 1984
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.138, ptr %257, align 8, !noalias !4
-  %258 = getelementptr inbounds i8, ptr %7, i64 1992
+  %258 = getelementptr inbounds nuw i8, ptr %7, i64 1992
   store i64 2, ptr %258, align 8, !noalias !4
-  %259 = getelementptr inbounds i8, ptr %7, i64 2000
+  %259 = getelementptr inbounds nuw i8, ptr %7, i64 2000
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.139, ptr %259, align 8, !noalias !4
-  %260 = getelementptr inbounds i8, ptr %7, i64 2008
+  %260 = getelementptr inbounds nuw i8, ptr %7, i64 2008
   store i64 2, ptr %260, align 8, !noalias !4
-  %261 = getelementptr inbounds i8, ptr %7, i64 2016
+  %261 = getelementptr inbounds nuw i8, ptr %7, i64 2016
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.140, ptr %261, align 8, !noalias !4
-  %262 = getelementptr inbounds i8, ptr %7, i64 2024
+  %262 = getelementptr inbounds nuw i8, ptr %7, i64 2024
   store i64 2, ptr %262, align 8, !noalias !4
-  %263 = getelementptr inbounds i8, ptr %7, i64 2032
+  %263 = getelementptr inbounds nuw i8, ptr %7, i64 2032
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.141, ptr %263, align 8, !noalias !4
-  %264 = getelementptr inbounds i8, ptr %7, i64 2040
+  %264 = getelementptr inbounds nuw i8, ptr %7, i64 2040
   store i64 2, ptr %264, align 8, !noalias !4
-  %265 = getelementptr inbounds i8, ptr %7, i64 2048
+  %265 = getelementptr inbounds nuw i8, ptr %7, i64 2048
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.142, ptr %265, align 8, !noalias !4
-  %266 = getelementptr inbounds i8, ptr %7, i64 2056
+  %266 = getelementptr inbounds nuw i8, ptr %7, i64 2056
   store i64 2, ptr %266, align 8, !noalias !4
-  %267 = getelementptr inbounds i8, ptr %7, i64 2064
+  %267 = getelementptr inbounds nuw i8, ptr %7, i64 2064
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.143, ptr %267, align 8, !noalias !4
-  %268 = getelementptr inbounds i8, ptr %7, i64 2072
+  %268 = getelementptr inbounds nuw i8, ptr %7, i64 2072
   store i64 2, ptr %268, align 8, !noalias !4
-  %269 = getelementptr inbounds i8, ptr %7, i64 2080
+  %269 = getelementptr inbounds nuw i8, ptr %7, i64 2080
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.144, ptr %269, align 8, !noalias !4
-  %270 = getelementptr inbounds i8, ptr %7, i64 2088
+  %270 = getelementptr inbounds nuw i8, ptr %7, i64 2088
   store i64 2, ptr %270, align 8, !noalias !4
-  %271 = getelementptr inbounds i8, ptr %7, i64 2096
+  %271 = getelementptr inbounds nuw i8, ptr %7, i64 2096
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.145, ptr %271, align 8, !noalias !4
-  %272 = getelementptr inbounds i8, ptr %7, i64 2104
+  %272 = getelementptr inbounds nuw i8, ptr %7, i64 2104
   store i64 2, ptr %272, align 8, !noalias !4
-  %273 = getelementptr inbounds i8, ptr %7, i64 2112
+  %273 = getelementptr inbounds nuw i8, ptr %7, i64 2112
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.146, ptr %273, align 8, !noalias !4
-  %274 = getelementptr inbounds i8, ptr %7, i64 2120
+  %274 = getelementptr inbounds nuw i8, ptr %7, i64 2120
   store i64 2, ptr %274, align 8, !noalias !4
-  %275 = getelementptr inbounds i8, ptr %7, i64 2128
+  %275 = getelementptr inbounds nuw i8, ptr %7, i64 2128
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.147, ptr %275, align 8, !noalias !4
-  %276 = getelementptr inbounds i8, ptr %7, i64 2136
+  %276 = getelementptr inbounds nuw i8, ptr %7, i64 2136
   store i64 2, ptr %276, align 8, !noalias !4
-  %277 = getelementptr inbounds i8, ptr %7, i64 2144
+  %277 = getelementptr inbounds nuw i8, ptr %7, i64 2144
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.148, ptr %277, align 8, !noalias !4
-  %278 = getelementptr inbounds i8, ptr %7, i64 2152
+  %278 = getelementptr inbounds nuw i8, ptr %7, i64 2152
   store i64 2, ptr %278, align 8, !noalias !4
-  %279 = getelementptr inbounds i8, ptr %7, i64 2160
+  %279 = getelementptr inbounds nuw i8, ptr %7, i64 2160
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.149, ptr %279, align 8, !noalias !4
-  %280 = getelementptr inbounds i8, ptr %7, i64 2168
+  %280 = getelementptr inbounds nuw i8, ptr %7, i64 2168
   store i64 2, ptr %280, align 8, !noalias !4
-  %281 = getelementptr inbounds i8, ptr %7, i64 2176
+  %281 = getelementptr inbounds nuw i8, ptr %7, i64 2176
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.150, ptr %281, align 8, !noalias !4
-  %282 = getelementptr inbounds i8, ptr %7, i64 2184
+  %282 = getelementptr inbounds nuw i8, ptr %7, i64 2184
   store i64 2, ptr %282, align 8, !noalias !4
-  %283 = getelementptr inbounds i8, ptr %7, i64 2192
+  %283 = getelementptr inbounds nuw i8, ptr %7, i64 2192
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.151, ptr %283, align 8, !noalias !4
-  %284 = getelementptr inbounds i8, ptr %7, i64 2200
+  %284 = getelementptr inbounds nuw i8, ptr %7, i64 2200
   store i64 2, ptr %284, align 8, !noalias !4
-  %285 = getelementptr inbounds i8, ptr %7, i64 2208
+  %285 = getelementptr inbounds nuw i8, ptr %7, i64 2208
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.152, ptr %285, align 8, !noalias !4
-  %286 = getelementptr inbounds i8, ptr %7, i64 2216
+  %286 = getelementptr inbounds nuw i8, ptr %7, i64 2216
   store i64 2, ptr %286, align 8, !noalias !4
-  %287 = getelementptr inbounds i8, ptr %7, i64 2224
+  %287 = getelementptr inbounds nuw i8, ptr %7, i64 2224
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.153, ptr %287, align 8, !noalias !4
-  %288 = getelementptr inbounds i8, ptr %7, i64 2232
+  %288 = getelementptr inbounds nuw i8, ptr %7, i64 2232
   store i64 2, ptr %288, align 8, !noalias !4
-  %289 = getelementptr inbounds i8, ptr %7, i64 2240
+  %289 = getelementptr inbounds nuw i8, ptr %7, i64 2240
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.154, ptr %289, align 8, !noalias !4
-  %290 = getelementptr inbounds i8, ptr %7, i64 2248
+  %290 = getelementptr inbounds nuw i8, ptr %7, i64 2248
   store i64 2, ptr %290, align 8, !noalias !4
-  %291 = getelementptr inbounds i8, ptr %7, i64 2256
+  %291 = getelementptr inbounds nuw i8, ptr %7, i64 2256
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.155, ptr %291, align 8, !noalias !4
-  %292 = getelementptr inbounds i8, ptr %7, i64 2264
+  %292 = getelementptr inbounds nuw i8, ptr %7, i64 2264
   store i64 2, ptr %292, align 8, !noalias !4
-  %293 = getelementptr inbounds i8, ptr %7, i64 2272
+  %293 = getelementptr inbounds nuw i8, ptr %7, i64 2272
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.156, ptr %293, align 8, !noalias !4
-  %294 = getelementptr inbounds i8, ptr %7, i64 2280
+  %294 = getelementptr inbounds nuw i8, ptr %7, i64 2280
   store i64 2, ptr %294, align 8, !noalias !4
-  %295 = getelementptr inbounds i8, ptr %7, i64 2288
+  %295 = getelementptr inbounds nuw i8, ptr %7, i64 2288
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.157, ptr %295, align 8, !noalias !4
-  %296 = getelementptr inbounds i8, ptr %7, i64 2296
+  %296 = getelementptr inbounds nuw i8, ptr %7, i64 2296
   store i64 2, ptr %296, align 8, !noalias !4
-  %297 = getelementptr inbounds i8, ptr %7, i64 2304
+  %297 = getelementptr inbounds nuw i8, ptr %7, i64 2304
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.158, ptr %297, align 8, !noalias !4
-  %298 = getelementptr inbounds i8, ptr %7, i64 2312
+  %298 = getelementptr inbounds nuw i8, ptr %7, i64 2312
   store i64 2, ptr %298, align 8, !noalias !4
-  %299 = getelementptr inbounds i8, ptr %7, i64 2320
+  %299 = getelementptr inbounds nuw i8, ptr %7, i64 2320
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.159, ptr %299, align 8, !noalias !4
-  %300 = getelementptr inbounds i8, ptr %7, i64 2328
+  %300 = getelementptr inbounds nuw i8, ptr %7, i64 2328
   store i64 2, ptr %300, align 8, !noalias !4
-  %301 = getelementptr inbounds i8, ptr %7, i64 2336
+  %301 = getelementptr inbounds nuw i8, ptr %7, i64 2336
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.160, ptr %301, align 8, !noalias !4
-  %302 = getelementptr inbounds i8, ptr %7, i64 2344
+  %302 = getelementptr inbounds nuw i8, ptr %7, i64 2344
   store i64 2, ptr %302, align 8, !noalias !4
-  %303 = getelementptr inbounds i8, ptr %7, i64 2352
+  %303 = getelementptr inbounds nuw i8, ptr %7, i64 2352
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.161, ptr %303, align 8, !noalias !4
-  %304 = getelementptr inbounds i8, ptr %7, i64 2360
+  %304 = getelementptr inbounds nuw i8, ptr %7, i64 2360
   store i64 2, ptr %304, align 8, !noalias !4
-  %305 = getelementptr inbounds i8, ptr %7, i64 2368
+  %305 = getelementptr inbounds nuw i8, ptr %7, i64 2368
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.162, ptr %305, align 8, !noalias !4
-  %306 = getelementptr inbounds i8, ptr %7, i64 2376
+  %306 = getelementptr inbounds nuw i8, ptr %7, i64 2376
   store i64 2, ptr %306, align 8, !noalias !4
-  %307 = getelementptr inbounds i8, ptr %7, i64 2384
+  %307 = getelementptr inbounds nuw i8, ptr %7, i64 2384
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.163, ptr %307, align 8, !noalias !4
-  %308 = getelementptr inbounds i8, ptr %7, i64 2392
+  %308 = getelementptr inbounds nuw i8, ptr %7, i64 2392
   store i64 2, ptr %308, align 8, !noalias !4
-  %309 = getelementptr inbounds i8, ptr %7, i64 2400
+  %309 = getelementptr inbounds nuw i8, ptr %7, i64 2400
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.164, ptr %309, align 8, !noalias !4
-  %310 = getelementptr inbounds i8, ptr %7, i64 2408
+  %310 = getelementptr inbounds nuw i8, ptr %7, i64 2408
   store i64 2, ptr %310, align 8, !noalias !4
-  %311 = getelementptr inbounds i8, ptr %7, i64 2416
+  %311 = getelementptr inbounds nuw i8, ptr %7, i64 2416
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.165, ptr %311, align 8, !noalias !4
-  %312 = getelementptr inbounds i8, ptr %7, i64 2424
+  %312 = getelementptr inbounds nuw i8, ptr %7, i64 2424
   store i64 2, ptr %312, align 8, !noalias !4
-  %313 = getelementptr inbounds i8, ptr %7, i64 2432
+  %313 = getelementptr inbounds nuw i8, ptr %7, i64 2432
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.166, ptr %313, align 8, !noalias !4
-  %314 = getelementptr inbounds i8, ptr %7, i64 2440
+  %314 = getelementptr inbounds nuw i8, ptr %7, i64 2440
   store i64 2, ptr %314, align 8, !noalias !4
-  %315 = getelementptr inbounds i8, ptr %7, i64 2448
+  %315 = getelementptr inbounds nuw i8, ptr %7, i64 2448
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.167, ptr %315, align 8, !noalias !4
-  %316 = getelementptr inbounds i8, ptr %7, i64 2456
+  %316 = getelementptr inbounds nuw i8, ptr %7, i64 2456
   store i64 2, ptr %316, align 8, !noalias !4
-  %317 = getelementptr inbounds i8, ptr %7, i64 2464
+  %317 = getelementptr inbounds nuw i8, ptr %7, i64 2464
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.168, ptr %317, align 8, !noalias !4
-  %318 = getelementptr inbounds i8, ptr %7, i64 2472
+  %318 = getelementptr inbounds nuw i8, ptr %7, i64 2472
   store i64 2, ptr %318, align 8, !noalias !4
-  %319 = getelementptr inbounds i8, ptr %7, i64 2480
+  %319 = getelementptr inbounds nuw i8, ptr %7, i64 2480
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.169, ptr %319, align 8, !noalias !4
-  %320 = getelementptr inbounds i8, ptr %7, i64 2488
+  %320 = getelementptr inbounds nuw i8, ptr %7, i64 2488
   store i64 2, ptr %320, align 8, !noalias !4
-  %321 = getelementptr inbounds i8, ptr %7, i64 2496
+  %321 = getelementptr inbounds nuw i8, ptr %7, i64 2496
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.170, ptr %321, align 8, !noalias !4
-  %322 = getelementptr inbounds i8, ptr %7, i64 2504
+  %322 = getelementptr inbounds nuw i8, ptr %7, i64 2504
   store i64 2, ptr %322, align 8, !noalias !4
-  %323 = getelementptr inbounds i8, ptr %7, i64 2512
+  %323 = getelementptr inbounds nuw i8, ptr %7, i64 2512
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.171, ptr %323, align 8, !noalias !4
-  %324 = getelementptr inbounds i8, ptr %7, i64 2520
+  %324 = getelementptr inbounds nuw i8, ptr %7, i64 2520
   store i64 2, ptr %324, align 8, !noalias !4
-  %325 = getelementptr inbounds i8, ptr %7, i64 2528
+  %325 = getelementptr inbounds nuw i8, ptr %7, i64 2528
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.172, ptr %325, align 8, !noalias !4
-  %326 = getelementptr inbounds i8, ptr %7, i64 2536
+  %326 = getelementptr inbounds nuw i8, ptr %7, i64 2536
   store i64 2, ptr %326, align 8, !noalias !4
-  %327 = getelementptr inbounds i8, ptr %7, i64 2544
+  %327 = getelementptr inbounds nuw i8, ptr %7, i64 2544
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.173, ptr %327, align 8, !noalias !4
-  %328 = getelementptr inbounds i8, ptr %7, i64 2552
+  %328 = getelementptr inbounds nuw i8, ptr %7, i64 2552
   store i64 2, ptr %328, align 8, !noalias !4
-  %329 = getelementptr inbounds i8, ptr %7, i64 2560
+  %329 = getelementptr inbounds nuw i8, ptr %7, i64 2560
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.174, ptr %329, align 8, !noalias !4
-  %330 = getelementptr inbounds i8, ptr %7, i64 2568
+  %330 = getelementptr inbounds nuw i8, ptr %7, i64 2568
   store i64 2, ptr %330, align 8, !noalias !4
-  %331 = getelementptr inbounds i8, ptr %7, i64 2576
+  %331 = getelementptr inbounds nuw i8, ptr %7, i64 2576
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.175, ptr %331, align 8, !noalias !4
-  %332 = getelementptr inbounds i8, ptr %7, i64 2584
+  %332 = getelementptr inbounds nuw i8, ptr %7, i64 2584
   store i64 2, ptr %332, align 8, !noalias !4
-  %333 = getelementptr inbounds i8, ptr %7, i64 2592
+  %333 = getelementptr inbounds nuw i8, ptr %7, i64 2592
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.176, ptr %333, align 8, !noalias !4
-  %334 = getelementptr inbounds i8, ptr %7, i64 2600
+  %334 = getelementptr inbounds nuw i8, ptr %7, i64 2600
   store i64 2, ptr %334, align 8, !noalias !4
-  %335 = getelementptr inbounds i8, ptr %7, i64 2608
+  %335 = getelementptr inbounds nuw i8, ptr %7, i64 2608
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.177, ptr %335, align 8, !noalias !4
-  %336 = getelementptr inbounds i8, ptr %7, i64 2616
+  %336 = getelementptr inbounds nuw i8, ptr %7, i64 2616
   store i64 2, ptr %336, align 8, !noalias !4
-  %337 = getelementptr inbounds i8, ptr %7, i64 2624
+  %337 = getelementptr inbounds nuw i8, ptr %7, i64 2624
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.178, ptr %337, align 8, !noalias !4
-  %338 = getelementptr inbounds i8, ptr %7, i64 2632
+  %338 = getelementptr inbounds nuw i8, ptr %7, i64 2632
   store i64 2, ptr %338, align 8, !noalias !4
-  %339 = getelementptr inbounds i8, ptr %7, i64 2640
+  %339 = getelementptr inbounds nuw i8, ptr %7, i64 2640
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.179, ptr %339, align 8, !noalias !4
-  %340 = getelementptr inbounds i8, ptr %7, i64 2648
+  %340 = getelementptr inbounds nuw i8, ptr %7, i64 2648
   store i64 2, ptr %340, align 8, !noalias !4
-  %341 = getelementptr inbounds i8, ptr %7, i64 2656
+  %341 = getelementptr inbounds nuw i8, ptr %7, i64 2656
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.180, ptr %341, align 8, !noalias !4
-  %342 = getelementptr inbounds i8, ptr %7, i64 2664
+  %342 = getelementptr inbounds nuw i8, ptr %7, i64 2664
   store i64 2, ptr %342, align 8, !noalias !4
-  %343 = getelementptr inbounds i8, ptr %7, i64 2672
+  %343 = getelementptr inbounds nuw i8, ptr %7, i64 2672
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.181, ptr %343, align 8, !noalias !4
-  %344 = getelementptr inbounds i8, ptr %7, i64 2680
+  %344 = getelementptr inbounds nuw i8, ptr %7, i64 2680
   store i64 2, ptr %344, align 8, !noalias !4
-  %345 = getelementptr inbounds i8, ptr %7, i64 2688
+  %345 = getelementptr inbounds nuw i8, ptr %7, i64 2688
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.182, ptr %345, align 8, !noalias !4
-  %346 = getelementptr inbounds i8, ptr %7, i64 2696
+  %346 = getelementptr inbounds nuw i8, ptr %7, i64 2696
   store i64 2, ptr %346, align 8, !noalias !4
-  %347 = getelementptr inbounds i8, ptr %7, i64 2704
+  %347 = getelementptr inbounds nuw i8, ptr %7, i64 2704
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.183, ptr %347, align 8, !noalias !4
-  %348 = getelementptr inbounds i8, ptr %7, i64 2712
+  %348 = getelementptr inbounds nuw i8, ptr %7, i64 2712
   store i64 2, ptr %348, align 8, !noalias !4
-  %349 = getelementptr inbounds i8, ptr %7, i64 2720
+  %349 = getelementptr inbounds nuw i8, ptr %7, i64 2720
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.184, ptr %349, align 8, !noalias !4
-  %350 = getelementptr inbounds i8, ptr %7, i64 2728
+  %350 = getelementptr inbounds nuw i8, ptr %7, i64 2728
   store i64 2, ptr %350, align 8, !noalias !4
-  %351 = getelementptr inbounds i8, ptr %7, i64 2736
+  %351 = getelementptr inbounds nuw i8, ptr %7, i64 2736
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.185, ptr %351, align 8, !noalias !4
-  %352 = getelementptr inbounds i8, ptr %7, i64 2744
+  %352 = getelementptr inbounds nuw i8, ptr %7, i64 2744
   store i64 2, ptr %352, align 8, !noalias !4
-  %353 = getelementptr inbounds i8, ptr %7, i64 2752
+  %353 = getelementptr inbounds nuw i8, ptr %7, i64 2752
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.186, ptr %353, align 8, !noalias !4
-  %354 = getelementptr inbounds i8, ptr %7, i64 2760
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 2760
   store i64 2, ptr %354, align 8, !noalias !4
-  %355 = getelementptr inbounds i8, ptr %7, i64 2768
+  %355 = getelementptr inbounds nuw i8, ptr %7, i64 2768
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.187, ptr %355, align 8, !noalias !4
-  %356 = getelementptr inbounds i8, ptr %7, i64 2776
+  %356 = getelementptr inbounds nuw i8, ptr %7, i64 2776
   store i64 2, ptr %356, align 8, !noalias !4
-  %357 = getelementptr inbounds i8, ptr %7, i64 2784
+  %357 = getelementptr inbounds nuw i8, ptr %7, i64 2784
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.188, ptr %357, align 8, !noalias !4
-  %358 = getelementptr inbounds i8, ptr %7, i64 2792
+  %358 = getelementptr inbounds nuw i8, ptr %7, i64 2792
   store i64 2, ptr %358, align 8, !noalias !4
-  %359 = getelementptr inbounds i8, ptr %7, i64 2800
+  %359 = getelementptr inbounds nuw i8, ptr %7, i64 2800
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.189, ptr %359, align 8, !noalias !4
-  %360 = getelementptr inbounds i8, ptr %7, i64 2808
+  %360 = getelementptr inbounds nuw i8, ptr %7, i64 2808
   store i64 2, ptr %360, align 8, !noalias !4
-  %361 = getelementptr inbounds i8, ptr %7, i64 2816
+  %361 = getelementptr inbounds nuw i8, ptr %7, i64 2816
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.190, ptr %361, align 8, !noalias !4
-  %362 = getelementptr inbounds i8, ptr %7, i64 2824
+  %362 = getelementptr inbounds nuw i8, ptr %7, i64 2824
   store i64 2, ptr %362, align 8, !noalias !4
-  %363 = getelementptr inbounds i8, ptr %7, i64 2832
+  %363 = getelementptr inbounds nuw i8, ptr %7, i64 2832
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.191, ptr %363, align 8, !noalias !4
-  %364 = getelementptr inbounds i8, ptr %7, i64 2840
+  %364 = getelementptr inbounds nuw i8, ptr %7, i64 2840
   store i64 2, ptr %364, align 8, !noalias !4
-  %365 = getelementptr inbounds i8, ptr %7, i64 2848
+  %365 = getelementptr inbounds nuw i8, ptr %7, i64 2848
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.192, ptr %365, align 8, !noalias !4
-  %366 = getelementptr inbounds i8, ptr %7, i64 2856
+  %366 = getelementptr inbounds nuw i8, ptr %7, i64 2856
   store i64 2, ptr %366, align 8, !noalias !4
-  %367 = getelementptr inbounds i8, ptr %7, i64 2864
+  %367 = getelementptr inbounds nuw i8, ptr %7, i64 2864
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.193, ptr %367, align 8, !noalias !4
-  %368 = getelementptr inbounds i8, ptr %7, i64 2872
+  %368 = getelementptr inbounds nuw i8, ptr %7, i64 2872
   store i64 2, ptr %368, align 8, !noalias !4
-  %369 = getelementptr inbounds i8, ptr %7, i64 2880
+  %369 = getelementptr inbounds nuw i8, ptr %7, i64 2880
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.194, ptr %369, align 8, !noalias !4
-  %370 = getelementptr inbounds i8, ptr %7, i64 2888
+  %370 = getelementptr inbounds nuw i8, ptr %7, i64 2888
   store i64 2, ptr %370, align 8, !noalias !4
-  %371 = getelementptr inbounds i8, ptr %7, i64 2896
+  %371 = getelementptr inbounds nuw i8, ptr %7, i64 2896
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.195, ptr %371, align 8, !noalias !4
-  %372 = getelementptr inbounds i8, ptr %7, i64 2904
+  %372 = getelementptr inbounds nuw i8, ptr %7, i64 2904
   store i64 2, ptr %372, align 8, !noalias !4
-  %373 = getelementptr inbounds i8, ptr %7, i64 2912
+  %373 = getelementptr inbounds nuw i8, ptr %7, i64 2912
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.196, ptr %373, align 8, !noalias !4
-  %374 = getelementptr inbounds i8, ptr %7, i64 2920
+  %374 = getelementptr inbounds nuw i8, ptr %7, i64 2920
   store i64 2, ptr %374, align 8, !noalias !4
-  %375 = getelementptr inbounds i8, ptr %7, i64 2928
+  %375 = getelementptr inbounds nuw i8, ptr %7, i64 2928
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.197, ptr %375, align 8, !noalias !4
-  %376 = getelementptr inbounds i8, ptr %7, i64 2936
+  %376 = getelementptr inbounds nuw i8, ptr %7, i64 2936
   store i64 2, ptr %376, align 8, !noalias !4
-  %377 = getelementptr inbounds i8, ptr %7, i64 2944
+  %377 = getelementptr inbounds nuw i8, ptr %7, i64 2944
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.198, ptr %377, align 8, !noalias !4
-  %378 = getelementptr inbounds i8, ptr %7, i64 2952
+  %378 = getelementptr inbounds nuw i8, ptr %7, i64 2952
   store i64 2, ptr %378, align 8, !noalias !4
-  %379 = getelementptr inbounds i8, ptr %7, i64 2960
+  %379 = getelementptr inbounds nuw i8, ptr %7, i64 2960
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.199, ptr %379, align 8, !noalias !4
-  %380 = getelementptr inbounds i8, ptr %7, i64 2968
+  %380 = getelementptr inbounds nuw i8, ptr %7, i64 2968
   store i64 2, ptr %380, align 8, !noalias !4
-  %381 = getelementptr inbounds i8, ptr %7, i64 2976
+  %381 = getelementptr inbounds nuw i8, ptr %7, i64 2976
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.200, ptr %381, align 8, !noalias !4
-  %382 = getelementptr inbounds i8, ptr %7, i64 2984
+  %382 = getelementptr inbounds nuw i8, ptr %7, i64 2984
   store i64 2, ptr %382, align 8, !noalias !4
-  %383 = getelementptr inbounds i8, ptr %7, i64 2992
+  %383 = getelementptr inbounds nuw i8, ptr %7, i64 2992
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.201, ptr %383, align 8, !noalias !4
-  %384 = getelementptr inbounds i8, ptr %7, i64 3000
+  %384 = getelementptr inbounds nuw i8, ptr %7, i64 3000
   store i64 2, ptr %384, align 8, !noalias !4
-  %385 = getelementptr inbounds i8, ptr %7, i64 3008
+  %385 = getelementptr inbounds nuw i8, ptr %7, i64 3008
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.202, ptr %385, align 8, !noalias !4
-  %386 = getelementptr inbounds i8, ptr %7, i64 3016
+  %386 = getelementptr inbounds nuw i8, ptr %7, i64 3016
   store i64 2, ptr %386, align 8, !noalias !4
-  %387 = getelementptr inbounds i8, ptr %7, i64 3024
+  %387 = getelementptr inbounds nuw i8, ptr %7, i64 3024
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.203, ptr %387, align 8, !noalias !4
-  %388 = getelementptr inbounds i8, ptr %7, i64 3032
+  %388 = getelementptr inbounds nuw i8, ptr %7, i64 3032
   store i64 2, ptr %388, align 8, !noalias !4
-  %389 = getelementptr inbounds i8, ptr %7, i64 3040
+  %389 = getelementptr inbounds nuw i8, ptr %7, i64 3040
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.204, ptr %389, align 8, !noalias !4
-  %390 = getelementptr inbounds i8, ptr %7, i64 3048
+  %390 = getelementptr inbounds nuw i8, ptr %7, i64 3048
   store i64 2, ptr %390, align 8, !noalias !4
-  %391 = getelementptr inbounds i8, ptr %7, i64 3056
+  %391 = getelementptr inbounds nuw i8, ptr %7, i64 3056
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.205, ptr %391, align 8, !noalias !4
-  %392 = getelementptr inbounds i8, ptr %7, i64 3064
+  %392 = getelementptr inbounds nuw i8, ptr %7, i64 3064
   store i64 2, ptr %392, align 8, !noalias !4
-  %393 = getelementptr inbounds i8, ptr %7, i64 3072
+  %393 = getelementptr inbounds nuw i8, ptr %7, i64 3072
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.206, ptr %393, align 8, !noalias !4
-  %394 = getelementptr inbounds i8, ptr %7, i64 3080
+  %394 = getelementptr inbounds nuw i8, ptr %7, i64 3080
   store i64 2, ptr %394, align 8, !noalias !4
-  %395 = getelementptr inbounds i8, ptr %7, i64 3088
+  %395 = getelementptr inbounds nuw i8, ptr %7, i64 3088
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.207, ptr %395, align 8, !noalias !4
-  %396 = getelementptr inbounds i8, ptr %7, i64 3096
+  %396 = getelementptr inbounds nuw i8, ptr %7, i64 3096
   store i64 2, ptr %396, align 8, !noalias !4
-  %397 = getelementptr inbounds i8, ptr %7, i64 3104
+  %397 = getelementptr inbounds nuw i8, ptr %7, i64 3104
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.208, ptr %397, align 8, !noalias !4
-  %398 = getelementptr inbounds i8, ptr %7, i64 3112
+  %398 = getelementptr inbounds nuw i8, ptr %7, i64 3112
   store i64 2, ptr %398, align 8, !noalias !4
-  %399 = getelementptr inbounds i8, ptr %7, i64 3120
+  %399 = getelementptr inbounds nuw i8, ptr %7, i64 3120
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.209, ptr %399, align 8, !noalias !4
-  %400 = getelementptr inbounds i8, ptr %7, i64 3128
+  %400 = getelementptr inbounds nuw i8, ptr %7, i64 3128
   store i64 2, ptr %400, align 8, !noalias !4
-  %401 = getelementptr inbounds i8, ptr %7, i64 3136
+  %401 = getelementptr inbounds nuw i8, ptr %7, i64 3136
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.210, ptr %401, align 8, !noalias !4
-  %402 = getelementptr inbounds i8, ptr %7, i64 3144
+  %402 = getelementptr inbounds nuw i8, ptr %7, i64 3144
   store i64 2, ptr %402, align 8, !noalias !4
-  %403 = getelementptr inbounds i8, ptr %7, i64 3152
+  %403 = getelementptr inbounds nuw i8, ptr %7, i64 3152
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.211, ptr %403, align 8, !noalias !4
-  %404 = getelementptr inbounds i8, ptr %7, i64 3160
+  %404 = getelementptr inbounds nuw i8, ptr %7, i64 3160
   store i64 2, ptr %404, align 8, !noalias !4
-  %405 = getelementptr inbounds i8, ptr %7, i64 3168
+  %405 = getelementptr inbounds nuw i8, ptr %7, i64 3168
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.212, ptr %405, align 8, !noalias !4
-  %406 = getelementptr inbounds i8, ptr %7, i64 3176
+  %406 = getelementptr inbounds nuw i8, ptr %7, i64 3176
   store i64 2, ptr %406, align 8, !noalias !4
-  %407 = getelementptr inbounds i8, ptr %7, i64 3184
+  %407 = getelementptr inbounds nuw i8, ptr %7, i64 3184
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.213, ptr %407, align 8, !noalias !4
-  %408 = getelementptr inbounds i8, ptr %7, i64 3192
+  %408 = getelementptr inbounds nuw i8, ptr %7, i64 3192
   store i64 2, ptr %408, align 8, !noalias !4
-  %409 = getelementptr inbounds i8, ptr %7, i64 3200
+  %409 = getelementptr inbounds nuw i8, ptr %7, i64 3200
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.214, ptr %409, align 8, !noalias !4
-  %410 = getelementptr inbounds i8, ptr %7, i64 3208
+  %410 = getelementptr inbounds nuw i8, ptr %7, i64 3208
   store i64 2, ptr %410, align 8, !noalias !4
-  %411 = getelementptr inbounds i8, ptr %7, i64 3216
+  %411 = getelementptr inbounds nuw i8, ptr %7, i64 3216
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.215, ptr %411, align 8, !noalias !4
-  %412 = getelementptr inbounds i8, ptr %7, i64 3224
+  %412 = getelementptr inbounds nuw i8, ptr %7, i64 3224
   store i64 2, ptr %412, align 8, !noalias !4
-  %413 = getelementptr inbounds i8, ptr %7, i64 3232
+  %413 = getelementptr inbounds nuw i8, ptr %7, i64 3232
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.216, ptr %413, align 8, !noalias !4
-  %414 = getelementptr inbounds i8, ptr %7, i64 3240
+  %414 = getelementptr inbounds nuw i8, ptr %7, i64 3240
   store i64 2, ptr %414, align 8, !noalias !4
-  %415 = getelementptr inbounds i8, ptr %7, i64 3248
+  %415 = getelementptr inbounds nuw i8, ptr %7, i64 3248
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.217, ptr %415, align 8, !noalias !4
-  %416 = getelementptr inbounds i8, ptr %7, i64 3256
+  %416 = getelementptr inbounds nuw i8, ptr %7, i64 3256
   store i64 2, ptr %416, align 8, !noalias !4
-  %417 = getelementptr inbounds i8, ptr %7, i64 3264
+  %417 = getelementptr inbounds nuw i8, ptr %7, i64 3264
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.218, ptr %417, align 8, !noalias !4
-  %418 = getelementptr inbounds i8, ptr %7, i64 3272
+  %418 = getelementptr inbounds nuw i8, ptr %7, i64 3272
   store i64 2, ptr %418, align 8, !noalias !4
-  %419 = getelementptr inbounds i8, ptr %7, i64 3280
+  %419 = getelementptr inbounds nuw i8, ptr %7, i64 3280
   store ptr @anon.ea763f71dbec09b3b9507f12736e742b.219, ptr %419, align 8, !noalias !4
-  %420 = getelementptr inbounds i8, ptr %7, i64 3288
+  %420 = getelementptr inbounds nuw i8, ptr %7, i64 3288
   store i64 2, ptr %420, align 8, !noalias !4
-  %421 = getelementptr inbounds i8, ptr %7, i64 3296
+  %421 = getelementptr inbounds nuw i8, ptr %7, i64 3296
   store ptr %7, ptr %5, align 8, !alias.scope !7, !noalias !10
-  %422 = getelementptr inbounds i8, ptr %5, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 206, ptr %422, align 8, !alias.scope !7, !noalias !10
-  %423 = getelementptr inbounds i8, ptr %5, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %423, align 8, !alias.scope !7, !noalias !10
-  %424 = getelementptr inbounds i8, ptr %5, i64 24
+  %424 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %421, ptr %424, align 8, !alias.scope !7, !noalias !10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !12
   %425 = load i64, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", align 8, !range !16, !noalias !17, !noundef !29
@@ -1088,14 +1088,14 @@ _ZN4core3ops8function6FnOnce9call_once17h35da86a3558c228fE.exit.i.i.i: ; preds =
 429:                                              ; preds = %.noexc.i.i, %9
   %.sroa.0.0.i.i.i2.i.i.i = phi ptr [ %426, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE", i64 8), %9 ]
   %430 = load i64, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !31, !noundef !29
-  %431 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i2.i.i.i, i64 8
   %432 = load i64, ptr %431, align 8, !noalias !31, !noundef !29
   %433 = add i64 %430, 1
   store i64 %433, ptr %.sroa.0.0.i.i.i2.i.i.i, align 8, !noalias !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.ea763f71dbec09b3b9507f12736e742b.1, i64 32, i1 false), !noalias !12
-  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %430, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !12
-  %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.54.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %432, ptr %.sroa.54.0..sroa_idx.i.i, align 8, !noalias !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !noalias !36
@@ -1174,17 +1174,17 @@ _ZN3std4sync4once4Once9call_once17h2f00ca671dcc959cE.exit: ; preds = %2, %10
   %18 = xor i64 %14, 7816392313619706465
   %19 = xor i64 %15, 8387220255154660723
   store i64 %16, ptr %5, align 8, !alias.scope !43, !noalias !50
-  %.sroa.48.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.48.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %18, ptr %.sroa.48.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !50
-  %.sroa.59.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.59.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %17, ptr %.sroa.59.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !50
-  %.sroa.610.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.610.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %19, ptr %.sroa.610.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !50
-  %.sroa.711.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.711.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %14, ptr %.sroa.711.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !50
-  %.sroa.812.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.812.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %15, ptr %.sroa.812.0..sroa_idx.i.i.i, align 8, !alias.scope !43, !noalias !50
-  %.sroa.913.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.913.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.913.0..sroa_idx.i.i.i, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !50
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h6b2ba0e8ad652680E.llvm.3013657413416425907"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1), !noalias !51
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !56
@@ -1197,10 +1197,10 @@ _ZN3std4sync4once4Once9call_once17h2f00ca671dcc959cE.exit: ; preds = %2, %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, i64 32, i1 false), !noalias !41
   %20 = load i64, ptr %.sroa.913.0..sroa_idx.i.i.i, align 8, !alias.scope !75, !noalias !41, !noundef !29
   %21 = shl i64 %20, 56
-  %22 = getelementptr inbounds i8, ptr %5, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %23 = load i64, ptr %22, align 8, !alias.scope !75, !noalias !41, !noundef !29
   %24 = or i64 %21, %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load i64, ptr %25, align 8, !noalias !74, !noundef !29
   %27 = xor i64 %26, %24
   store i64 %27, ptr %25, align 8, !noalias !74
@@ -1208,13 +1208,13 @@ _ZN3std4sync4once4Once9call_once17h2f00ca671dcc959cE.exit: ; preds = %2, %10
   %28 = load i64, ptr %3, align 8, !noalias !74, !noundef !29
   %29 = xor i64 %28, %24
   store i64 %29, ptr %3, align 8, !noalias !74
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !74, !noundef !29
   %32 = xor i64 %31, 255
   store i64 %32, ptr %30, align 8, !noalias !74
   call void @"_ZN69_$LT$core..hash..sip..Sip13Rounds$u20$as$u20$core..hash..sip..Sip$GT$8d_rounds17haec77e94bdfdbd93E.llvm.3013657413416425907"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3), !noalias !74
   %33 = load i64, ptr %3, align 8, !noalias !74, !noundef !29
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load i64, ptr %34, align 8, !noalias !74, !noundef !29
   %36 = xor i64 %35, %33
   %37 = load i64, ptr %30, align 8, !noalias !74, !noundef !29

@@ -39,9 +39,9 @@ define hidden void @jCopySamples(ptr nocapture noundef readonly %0, i32 noundef 
   %.016 = phi i32 [ %17, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.01215 = phi ptr [ %13, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %.01314 = phi ptr [ %15, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.01215, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %14 = load ptr, ptr %.01215, align 8
-  %15 = getelementptr inbounds i8, ptr %.01314, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01314, i64 8
   %16 = load ptr, ptr %.01314, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %14, i64 %7, i1 false)
   %17 = add nsw i32 %.016, -1

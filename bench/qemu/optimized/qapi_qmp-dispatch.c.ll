@@ -171,13 +171,13 @@ sub_0.i.us:                                       ; preds = %lor.lhs.false.i.us
   br i1 %.not.i.us, label %sub_1.i.us, label %if.else24.i
 
 sub_1.i.us:                                       ; preds = %sub_0.i.us
-  %2 = getelementptr inbounds i8, ptr %call1.i.us, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %call1.i.us, i64 1
   %3 = load i8, ptr %2, align 1
   %.not38.i.us = icmp eq i8 %3, 100
   br i1 %.not38.i.us, label %if.else20.tail.i.us, label %if.else24.i
 
 if.else20.tail.i.us:                              ; preds = %sub_1.i.us
-  %4 = getelementptr inbounds i8, ptr %call1.i.us, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %call1.i.us, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %for.inc.i.us, label %if.else24.i
@@ -284,13 +284,13 @@ sub_0.i:                                          ; preds = %if.else.i46
   br i1 %.not.i, label %sub_1.i, label %if.else24.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %12 = getelementptr inbounds i8, ptr %call1.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %call1.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not38.i = icmp eq i8 %13, 100
   br i1 %.not38.i, label %if.else20.tail.i, label %if.else24.i
 
 if.else20.tail.i:                                 ; preds = %sub_1.i
-  %14 = getelementptr inbounds i8, ptr %call1.i, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %call1.i, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %for.inc.i, label %if.else24.i
@@ -342,19 +342,19 @@ if.then16:                                        ; preds = %if.end14
   br label %out
 
 if.end17:                                         ; preds = %if.end14
-  %special_features = getelementptr inbounds i8, ptr %call15, i64 20
+  %special_features = getelementptr inbounds nuw i8, ptr %call15, i64 20
   %18 = load i32, ptr %special_features, align 4
   %call18 = call zeroext i1 @compat_policy_input_ok(i32 noundef %18, ptr noundef nonnull @compat_policy, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef %command.0, ptr noundef nonnull %err) #5
   br i1 %call18, label %if.end20, label %out
 
 if.end20:                                         ; preds = %if.end17
-  %enabled = getelementptr inbounds i8, ptr %call15, i64 40
+  %enabled = getelementptr inbounds nuw i8, ptr %call15, i64 40
   %19 = load i8, ptr %enabled, align 8
   %tobool21 = trunc i8 %19 to i1
   br i1 %tobool21, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
-  %disable_reason = getelementptr inbounds i8, ptr %call15, i64 48
+  %disable_reason = getelementptr inbounds nuw i8, ptr %call15, i64 48
   %20 = load ptr, ptr %disable_reason, align 8
   %tobool23.not = icmp eq ptr %20, null
   %cond = select i1 %tobool23.not, ptr @.str.11, ptr @.str.10
@@ -366,7 +366,7 @@ if.end27:                                         ; preds = %if.end20
   br i1 %tobool8.not, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %if.end27
-  %options = getelementptr inbounds i8, ptr %call15, i64 16
+  %options = getelementptr inbounds nuw i8, ptr %call15, i64 16
   %21 = load i32, ptr %options, align 8
   %and = and i32 %21, 2
   %tobool29.not = icmp eq i32 %and, 0
@@ -395,7 +395,7 @@ if.else39:                                        ; preds = %if.end34
   br i1 %tobool41.not, label %if.end48, label %if.then.i53
 
 if.then.i53:                                      ; preds = %if.else39
-  %refcnt.i = getelementptr inbounds i8, ptr %call40, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call40, i64 8
   %22 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %22, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -423,7 +423,7 @@ if.else58:                                        ; preds = %if.end54
   unreachable
 
 if.end59:                                         ; preds = %if.end54
-  %options60 = getelementptr inbounds i8, ptr %call15, i64 16
+  %options60 = getelementptr inbounds nuw i8, ptr %call15, i64 16
   %23 = load i32, ptr %options60, align 8
   %call64 = call zeroext i1 @qemu_in_coroutine() #5
   %24 = and i32 %23, 8
@@ -434,7 +434,7 @@ if.end59:                                         ; preds = %if.end54
 if.then67:                                        ; preds = %if.end59
   %call68 = call ptr @qemu_coroutine_self() #5
   %call69 = call ptr @monitor_set_cur(ptr noundef %call68, ptr noundef %cur_mon) #5
-  %fn = getelementptr inbounds i8, ptr %call15, i64 8
+  %fn = getelementptr inbounds nuw i8, ptr %call15, i64 8
   %26 = load ptr, ptr %fn, align 8
   call void %26(ptr noundef %args.0, ptr noundef nonnull %ret, ptr noundef nonnull %err) #5
   %call70 = call ptr @qemu_coroutine_self() #5
@@ -460,15 +460,15 @@ if.else82:                                        ; preds = %land.lhs.true77, %l
 
 if.end83:                                         ; preds = %land.lhs.true77
   store ptr %call15, ptr %data, align 8
-  %cur_mon85 = getelementptr inbounds i8, ptr %data, i64 8
+  %cur_mon85 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store ptr %cur_mon, ptr %cur_mon85, align 8
-  %args86 = getelementptr inbounds i8, ptr %data, i64 16
+  %args86 = getelementptr inbounds nuw i8, ptr %data, i64 16
   store ptr %args.0, ptr %args86, align 8
-  %ret87 = getelementptr inbounds i8, ptr %data, i64 24
+  %ret87 = getelementptr inbounds nuw i8, ptr %data, i64 24
   store ptr %ret, ptr %ret87, align 8
-  %errp = getelementptr inbounds i8, ptr %data, i64 32
+  %errp = getelementptr inbounds nuw i8, ptr %data, i64 32
   store ptr %err, ptr %errp, align 8
-  %co = getelementptr inbounds i8, ptr %data, i64 40
+  %co = getelementptr inbounds nuw i8, ptr %data, i64 40
   %call88 = call ptr @qemu_coroutine_self() #5
   store ptr %call88, ptr %co, align 8
   %call89 = call ptr @qemu_get_aio_context() #5
@@ -481,7 +481,7 @@ if.end90:                                         ; preds = %if.end83, %if.then6
   br i1 %tobool92.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i56
 
 lor.lhs.false.i56:                                ; preds = %if.end90
-  %refcnt.i57 = getelementptr inbounds i8, ptr %args.0, i64 8
+  %refcnt.i57 = getelementptr inbounds nuw i8, ptr %args.0, i64 8
   %28 = load i64, ptr %refcnt.i57, align 8
   %tobool1.not.i = icmp eq i64 %28, 0
   br i1 %tobool1.not.i, label %if.else.i60, label %land.lhs.true.i58
@@ -576,7 +576,7 @@ if.end150:                                        ; preds = %if.end146
   br i1 %tobool151.not, label %return, label %qobject_ref_impl.exit70
 
 qobject_ref_impl.exit70:                          ; preds = %if.end150
-  %refcnt.i67 = getelementptr inbounds i8, ptr %id.0, i64 8
+  %refcnt.i67 = getelementptr inbounds nuw i8, ptr %id.0, i64 8
   %35 = load i64, ptr %refcnt.i67, align 8
   %inc.i68 = add i64 %35, 1
   store i64 %inc.i68, ptr %refcnt.i67, align 8
@@ -636,22 +636,22 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @qemu_coroutine_self() #5
-  %cur_mon = getelementptr inbounds i8, ptr %opaque, i64 8
+  %cur_mon = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %cur_mon, align 8
   %call2 = tail call ptr @monitor_set_cur(ptr noundef %call1, ptr noundef %0) #5
   %1 = load ptr, ptr %opaque, align 8
-  %fn = getelementptr inbounds i8, ptr %1, i64 8
+  %fn = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %fn, align 8
-  %args = getelementptr inbounds i8, ptr %opaque, i64 16
+  %args = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %3 = load ptr, ptr %args, align 8
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %4 = load ptr, ptr %ret, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 32
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %5 = load ptr, ptr %errp, align 8
   tail call void %2(ptr noundef %3, ptr noundef %4, ptr noundef %5) #5
   %call3 = tail call ptr @qemu_coroutine_self() #5
   %call4 = tail call ptr @monitor_set_cur(ptr noundef %call3, ptr noundef null) #5
-  %co = getelementptr inbounds i8, ptr %opaque, i64 40
+  %co = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %6 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %6) #5
   ret void
@@ -666,7 +666,7 @@ entry:
   br i1 %tobool.not, label %if.end6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %refcnt = getelementptr inbounds i8, ptr %obj, i64 8
+  %refcnt = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load i64, ptr %refcnt, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.else, label %land.lhs.true

@@ -249,7 +249,7 @@ define internal i32 @dissect_smrse(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 17:                                               ; preds = %12, %11
   %.042 = phi ptr [ %16, %12 ], [ null, %11 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.72) #2
   %20 = load ptr, ptr %18, align 8
@@ -387,7 +387,7 @@ define internal i32 @dissect_smrse_T_octet_format(i1 zeroext %0, ptr noundef %1,
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @dissect_ber_identifier(ptr noundef %14, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #2
   %16 = load ptr, ptr %13, align 8

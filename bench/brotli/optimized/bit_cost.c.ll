@@ -11,7 +11,7 @@ entry:
   %s = alloca [5 x i64], align 16
   %histo = alloca [4 x i32], align 16
   %depth_histo = alloca [18 x i32], align 16
-  %total_count_ = getelementptr inbounds i8, ptr %histogram, i64 1024
+  %total_count_ = getelementptr inbounds nuw i8, ptr %histogram, i64 1024
   %0 = load i64, ptr %total_count_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %for.body
@@ -19,7 +19,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.0106 = phi i64 [ %inc9, %for.inc ], [ 0, %entry ]
   %count.0105 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %i.0106
+  %arrayidx = getelementptr inbounds nuw [256 x i32], ptr %histogram, i64 0, i64 %i.0106
   %1 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %for.inc, label %if.then3
@@ -56,11 +56,11 @@ if.then19:                                        ; preds = %for.end
   %2 = load i64, ptr %s, align 16
   %arrayidx22 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx22, align 4
-  %arrayidx24 = getelementptr inbounds i8, ptr %s, i64 8
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %4 = load i64, ptr %arrayidx24, align 8
   %arrayidx25 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %4
   %5 = load i32, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds i8, ptr %s, i64 16
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %s, i64 16
   %6 = load i64, ptr %arrayidx27, align 16
   %arrayidx28 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %6
   %7 = load i32, ptr %arrayidx28, align 4
@@ -77,11 +77,11 @@ if.then19:                                        ; preds = %for.end
 
 for.body44:                                       ; preds = %for.end, %for.body44
   %i.1107 = phi i64 [ %inc50, %for.body44 ], [ 0, %for.end ]
-  %arrayidx46 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %i.1107
+  %arrayidx46 = getelementptr inbounds nuw [5 x i64], ptr %s, i64 0, i64 %i.1107
   %8 = load i64, ptr %arrayidx46, align 8
   %arrayidx47 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %8
   %9 = load i32, ptr %arrayidx47, align 4
-  %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.1107
+  %arrayidx48 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %i.1107
   store i32 %9, ptr %arrayidx48, align 4
   %inc50 = add nuw nsw i64 %i.1107, 1
   %exitcond131.not = icmp eq i64 %inc50, 4
@@ -98,14 +98,14 @@ for.body55:                                       ; preds = %for.body44, %for.co
   br i1 %cmp58108, label %for.body60.lr.ph, label %for.cond52.loopexit
 
 for.body60.lr.ph:                                 ; preds = %for.body55
-  %arrayidx62 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.2110
+  %arrayidx62 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %i.2110
   %.pre = load i32, ptr %arrayidx62, align 4
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc71
   %10 = phi i32 [ %.pre, %for.body60.lr.ph ], [ %12, %for.inc71 ]
   %j.0109 = phi i64 [ %add56, %for.body60.lr.ph ], [ %inc72, %for.inc71 ]
-  %arrayidx61 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %j.0109
+  %arrayidx61 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %j.0109
   %11 = load i32, ptr %arrayidx61, align 4
   %cmp63 = icmp ugt i32 %11, %10
   br i1 %cmp63, label %if.then65, label %for.inc71
@@ -122,9 +122,9 @@ for.inc71:                                        ; preds = %for.body60, %if.the
   br i1 %exitcond132.not, label %for.cond52.loopexit, label %for.body60, !llvm.loop !8
 
 for.end76:                                        ; preds = %for.cond52.loopexit
-  %arrayidx77 = getelementptr inbounds i8, ptr %histo, i64 8
+  %arrayidx77 = getelementptr inbounds nuw i8, ptr %histo, i64 8
   %13 = load i32, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds i8, ptr %histo, i64 12
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %histo, i64 12
   %14 = load i32, ptr %arrayidx78, align 4
   %add79 = add i32 %14, %13
   %15 = load i32, ptr %histo, align 16
@@ -132,7 +132,7 @@ for.end76:                                        ; preds = %for.cond52.loopexit
   %mul82 = mul i32 %add79, 3
   %conv83 = uitofp i32 %mul82 to double
   %add84 = fadd double %conv83, 3.700000e+01
-  %arrayidx86 = getelementptr inbounds i8, ptr %histo, i64 4
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %histo, i64 4
   %16 = load i32, ptr %arrayidx86, align 4
   %add87 = add i32 %16, %15
   %mul88 = shl i32 %add87, 1
@@ -148,7 +148,7 @@ if.end93:                                         ; preds = %for.end
   br i1 %cmp.i184, label %if.then.i188, label %if.end.i185
 
 if.then.i188:                                     ; preds = %if.end93
-  %arrayidx.i189 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %0
+  %arrayidx.i189 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %0
   %17 = load double, ptr %arrayidx.i189, align 8
   br label %FastLog2.exit190
 
@@ -159,7 +159,7 @@ if.end.i185:                                      ; preds = %if.end93
 
 FastLog2.exit190:                                 ; preds = %if.end.i185, %if.then.i188
   %retval.i182.0 = phi double [ %17, %if.then.i188 ], [ %call.i187, %if.end.i185 ]
-  %arrayidx155 = getelementptr inbounds i8, ptr %depth_histo, i64 68
+  %arrayidx155 = getelementptr inbounds nuw i8, ptr %depth_histo, i64 68
   br label %for.body99
 
 for.body99:                                       ; preds = %FastLog2.exit190, %if.end159
@@ -167,7 +167,7 @@ for.body99:                                       ; preds = %FastLog2.exit190, %
   %max_depth.0122 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
   %i.3121 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
   %bits.0120 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.1, %if.end159 ]
-  %arrayidx101 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %i.3121
+  %arrayidx101 = getelementptr inbounds nuw [256 x i32], ptr %histogram, i64 0, i64 %i.3121
   %18 = load i32, ptr %arrayidx101, align 4
   %cmp102.not = icmp eq i32 %18, 0
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
@@ -182,7 +182,7 @@ if.then104:                                       ; preds = %for.body99
 
 if.then.i:                                        ; preds = %if.then104
   %conv107 = zext nneg i32 %18 to i64
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv107
+  %arrayidx.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv107
   %19 = load double, ptr %arrayidx.i, align 8
   br label %FastLog2.exit
 
@@ -202,7 +202,7 @@ FastLog2.exit:                                    ; preds = %if.end.i, %if.then.
   %21 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0120)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %conv111, i64 15)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0122)
-  %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
+  %arrayidx124 = getelementptr inbounds nuw [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
   %22 = load i32, ptr %arrayidx124, align 4
   %inc125 = add i32 %22, 1
   store i32 %inc125, ptr %arrayidx124, align 4
@@ -213,7 +213,7 @@ land.rhs:                                         ; preds = %for.cond128.prehead
   %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3121, %for.cond128.preheader ]
   %reps.0113 = phi i32 [ %inc136, %for.body135 ], [ 1, %for.cond128.preheader ]
   %k.0114 = add nuw nsw i64 %k.0114.in, 1
-  %arrayidx132 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %k.0114
+  %arrayidx132 = getelementptr inbounds nuw [256 x i32], ptr %histogram, i64 0, i64 %k.0114
   %23 = load i32, ptr %arrayidx132, align 4
   %cmp133 = icmp eq i32 %23, 0
   br i1 %cmp133, label %for.body135, label %for.end139
@@ -276,9 +276,9 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   %population.addr.i196.1.idx130 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
   %sum.i198.1129 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
   %retval1.i199.1128 = phi double [ 0.000000e+00, %for.end160 ], [ %31, %FastLog2.exit22.i ]
-  %population.addr.i196.1.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.1.idx130
+  %population.addr.i196.1.ptr = getelementptr inbounds nuw i8, ptr %depth_histo, i64 %population.addr.i196.1.idx130
   %population.addr.i196.1.add = or disjoint i64 %population.addr.i196.1.idx130, 4
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.1.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %depth_histo, i64 %population.addr.i196.1.add
   %26 = load i32, ptr %population.addr.i196.1.ptr, align 8
   %conv.i202 = zext i32 %26 to i64
   %add.i = add i64 %sum.i198.1129, %conv.i202
@@ -287,7 +287,7 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
 
 if.then.i29.i:                                    ; preds = %while.body.i
-  %arrayidx.i30.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i202
+  %arrayidx.i30.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i202
   %27 = load double, ptr %arrayidx.i30.i, align 8
   br label %FastLog2.exit31.i
 
@@ -308,7 +308,7 @@ FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.t
   br i1 %cmp.i16.i, label %if.then.i20.i, label %if.end.i17.i
 
 if.then.i20.i:                                    ; preds = %FastLog2.exit31.i
-  %arrayidx.i21.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i
+  %arrayidx.i21.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i
   %30 = load double, ptr %arrayidx.i21.i, align 8
   br label %FastLog2.exit22.i
 
@@ -334,7 +334,7 @@ if.then10.i:                                      ; preds = %while.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i
   %32 = load double, ptr %arrayidx.i.i, align 8
   br label %FastLog2.exit.i
 
@@ -371,7 +371,7 @@ entry:
   %s = alloca [5 x i64], align 16
   %histo = alloca [4 x i32], align 16
   %depth_histo = alloca [18 x i32], align 16
-  %total_count_ = getelementptr inbounds i8, ptr %histogram, i64 2816
+  %total_count_ = getelementptr inbounds nuw i8, ptr %histogram, i64 2816
   %0 = load i64, ptr %total_count_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %for.body
@@ -379,7 +379,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.0106 = phi i64 [ %inc9, %for.inc ], [ 0, %entry ]
   %count.0105 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %i.0106
+  %arrayidx = getelementptr inbounds nuw [704 x i32], ptr %histogram, i64 0, i64 %i.0106
   %1 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %for.inc, label %if.then3
@@ -416,11 +416,11 @@ if.then19:                                        ; preds = %for.end
   %2 = load i64, ptr %s, align 16
   %arrayidx22 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx22, align 4
-  %arrayidx24 = getelementptr inbounds i8, ptr %s, i64 8
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %4 = load i64, ptr %arrayidx24, align 8
   %arrayidx25 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %4
   %5 = load i32, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds i8, ptr %s, i64 16
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %s, i64 16
   %6 = load i64, ptr %arrayidx27, align 16
   %arrayidx28 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %6
   %7 = load i32, ptr %arrayidx28, align 4
@@ -437,11 +437,11 @@ if.then19:                                        ; preds = %for.end
 
 for.body44:                                       ; preds = %for.end, %for.body44
   %i.1107 = phi i64 [ %inc50, %for.body44 ], [ 0, %for.end ]
-  %arrayidx46 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %i.1107
+  %arrayidx46 = getelementptr inbounds nuw [5 x i64], ptr %s, i64 0, i64 %i.1107
   %8 = load i64, ptr %arrayidx46, align 8
   %arrayidx47 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %8
   %9 = load i32, ptr %arrayidx47, align 4
-  %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.1107
+  %arrayidx48 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %i.1107
   store i32 %9, ptr %arrayidx48, align 4
   %inc50 = add nuw nsw i64 %i.1107, 1
   %exitcond131.not = icmp eq i64 %inc50, 4
@@ -458,14 +458,14 @@ for.body55:                                       ; preds = %for.body44, %for.co
   br i1 %cmp58108, label %for.body60.lr.ph, label %for.cond52.loopexit
 
 for.body60.lr.ph:                                 ; preds = %for.body55
-  %arrayidx62 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.2110
+  %arrayidx62 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %i.2110
   %.pre = load i32, ptr %arrayidx62, align 4
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc71
   %10 = phi i32 [ %.pre, %for.body60.lr.ph ], [ %12, %for.inc71 ]
   %j.0109 = phi i64 [ %add56, %for.body60.lr.ph ], [ %inc72, %for.inc71 ]
-  %arrayidx61 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %j.0109
+  %arrayidx61 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %j.0109
   %11 = load i32, ptr %arrayidx61, align 4
   %cmp63 = icmp ugt i32 %11, %10
   br i1 %cmp63, label %if.then65, label %for.inc71
@@ -482,9 +482,9 @@ for.inc71:                                        ; preds = %for.body60, %if.the
   br i1 %exitcond132.not, label %for.cond52.loopexit, label %for.body60, !llvm.loop !16
 
 for.end76:                                        ; preds = %for.cond52.loopexit
-  %arrayidx77 = getelementptr inbounds i8, ptr %histo, i64 8
+  %arrayidx77 = getelementptr inbounds nuw i8, ptr %histo, i64 8
   %13 = load i32, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds i8, ptr %histo, i64 12
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %histo, i64 12
   %14 = load i32, ptr %arrayidx78, align 4
   %add79 = add i32 %14, %13
   %15 = load i32, ptr %histo, align 16
@@ -492,7 +492,7 @@ for.end76:                                        ; preds = %for.cond52.loopexit
   %mul82 = mul i32 %add79, 3
   %conv83 = uitofp i32 %mul82 to double
   %add84 = fadd double %conv83, 3.700000e+01
-  %arrayidx86 = getelementptr inbounds i8, ptr %histo, i64 4
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %histo, i64 4
   %16 = load i32, ptr %arrayidx86, align 4
   %add87 = add i32 %16, %15
   %mul88 = shl i32 %add87, 1
@@ -508,7 +508,7 @@ if.end93:                                         ; preds = %for.end
   br i1 %cmp.i184, label %if.then.i188, label %if.end.i185
 
 if.then.i188:                                     ; preds = %if.end93
-  %arrayidx.i189 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %0
+  %arrayidx.i189 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %0
   %17 = load double, ptr %arrayidx.i189, align 8
   br label %FastLog2.exit190
 
@@ -519,7 +519,7 @@ if.end.i185:                                      ; preds = %if.end93
 
 FastLog2.exit190:                                 ; preds = %if.end.i185, %if.then.i188
   %retval.i182.0 = phi double [ %17, %if.then.i188 ], [ %call.i187, %if.end.i185 ]
-  %arrayidx155 = getelementptr inbounds i8, ptr %depth_histo, i64 68
+  %arrayidx155 = getelementptr inbounds nuw i8, ptr %depth_histo, i64 68
   br label %for.body99
 
 for.body99:                                       ; preds = %FastLog2.exit190, %if.end159
@@ -527,7 +527,7 @@ for.body99:                                       ; preds = %FastLog2.exit190, %
   %max_depth.0122 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
   %i.3121 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
   %bits.0120 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.1, %if.end159 ]
-  %arrayidx101 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %i.3121
+  %arrayidx101 = getelementptr inbounds nuw [704 x i32], ptr %histogram, i64 0, i64 %i.3121
   %18 = load i32, ptr %arrayidx101, align 4
   %cmp102.not = icmp eq i32 %18, 0
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
@@ -547,7 +547,7 @@ if.then104:                                       ; preds = %for.body99
 
 if.then.i:                                        ; preds = %if.then104
   %conv107 = zext nneg i32 %18 to i64
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv107
+  %arrayidx.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv107
   %21 = load double, ptr %arrayidx.i, align 8
   br label %FastLog2.exit
 
@@ -567,7 +567,7 @@ FastLog2.exit:                                    ; preds = %if.end.i, %if.then.
   %23 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0120)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %conv111, i64 15)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0122)
-  %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
+  %arrayidx124 = getelementptr inbounds nuw [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
   %24 = load i32, ptr %arrayidx124, align 4
   %inc125 = add i32 %24, 1
   store i32 %inc125, ptr %arrayidx124, align 4
@@ -578,7 +578,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3121, %land.rhs.preheader ]
   %reps.0113 = phi i32 [ %inc136, %for.body135 ], [ 1, %land.rhs.preheader ]
   %k.0114 = add nuw nsw i64 %k.0114.in, 1
-  %arrayidx132 = getelementptr inbounds [704 x i32], ptr %histogram, i64 0, i64 %k.0114
+  %arrayidx132 = getelementptr inbounds nuw [704 x i32], ptr %histogram, i64 0, i64 %k.0114
   %25 = load i32, ptr %arrayidx132, align 4
   %cmp133 = icmp eq i32 %25, 0
   br i1 %cmp133, label %for.body135, label %for.end139
@@ -648,9 +648,9 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   %population.addr.i196.1.idx130 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
   %sum.i198.1129 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
   %retval1.i199.1128 = phi double [ 0.000000e+00, %for.end160 ], [ %33, %FastLog2.exit22.i ]
-  %population.addr.i196.1.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.1.idx130
+  %population.addr.i196.1.ptr = getelementptr inbounds nuw i8, ptr %depth_histo, i64 %population.addr.i196.1.idx130
   %population.addr.i196.1.add = or disjoint i64 %population.addr.i196.1.idx130, 4
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.1.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %depth_histo, i64 %population.addr.i196.1.add
   %28 = load i32, ptr %population.addr.i196.1.ptr, align 8
   %conv.i202 = zext i32 %28 to i64
   %add.i = add i64 %sum.i198.1129, %conv.i202
@@ -659,7 +659,7 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
 
 if.then.i29.i:                                    ; preds = %while.body.i
-  %arrayidx.i30.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i202
+  %arrayidx.i30.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i202
   %29 = load double, ptr %arrayidx.i30.i, align 8
   br label %FastLog2.exit31.i
 
@@ -680,7 +680,7 @@ FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.t
   br i1 %cmp.i16.i, label %if.then.i20.i, label %if.end.i17.i
 
 if.then.i20.i:                                    ; preds = %FastLog2.exit31.i
-  %arrayidx.i21.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i
+  %arrayidx.i21.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i
   %32 = load double, ptr %arrayidx.i21.i, align 8
   br label %FastLog2.exit22.i
 
@@ -706,7 +706,7 @@ if.then10.i:                                      ; preds = %while.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i
   %34 = load double, ptr %arrayidx.i.i, align 8
   br label %FastLog2.exit.i
 
@@ -737,7 +737,7 @@ entry:
   %s = alloca [5 x i64], align 16
   %histo = alloca [4 x i32], align 16
   %depth_histo = alloca [18 x i32], align 16
-  %total_count_ = getelementptr inbounds i8, ptr %histogram, i64 2176
+  %total_count_ = getelementptr inbounds nuw i8, ptr %histogram, i64 2176
   %0 = load i64, ptr %total_count_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %for.body
@@ -745,7 +745,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %i.0106 = phi i64 [ %inc9, %for.inc ], [ 0, %entry ]
   %count.0105 = phi i32 [ %count.2, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %i.0106
+  %arrayidx = getelementptr inbounds nuw [544 x i32], ptr %histogram, i64 0, i64 %i.0106
   %1 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %for.inc, label %if.then3
@@ -782,11 +782,11 @@ if.then19:                                        ; preds = %for.end
   %2 = load i64, ptr %s, align 16
   %arrayidx22 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx22, align 4
-  %arrayidx24 = getelementptr inbounds i8, ptr %s, i64 8
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %4 = load i64, ptr %arrayidx24, align 8
   %arrayidx25 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %4
   %5 = load i32, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds i8, ptr %s, i64 16
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %s, i64 16
   %6 = load i64, ptr %arrayidx27, align 16
   %arrayidx28 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %6
   %7 = load i32, ptr %arrayidx28, align 4
@@ -803,11 +803,11 @@ if.then19:                                        ; preds = %for.end
 
 for.body44:                                       ; preds = %for.end, %for.body44
   %i.1107 = phi i64 [ %inc50, %for.body44 ], [ 0, %for.end ]
-  %arrayidx46 = getelementptr inbounds [5 x i64], ptr %s, i64 0, i64 %i.1107
+  %arrayidx46 = getelementptr inbounds nuw [5 x i64], ptr %s, i64 0, i64 %i.1107
   %8 = load i64, ptr %arrayidx46, align 8
   %arrayidx47 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %8
   %9 = load i32, ptr %arrayidx47, align 4
-  %arrayidx48 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.1107
+  %arrayidx48 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %i.1107
   store i32 %9, ptr %arrayidx48, align 4
   %inc50 = add nuw nsw i64 %i.1107, 1
   %exitcond131.not = icmp eq i64 %inc50, 4
@@ -824,14 +824,14 @@ for.body55:                                       ; preds = %for.body44, %for.co
   br i1 %cmp58108, label %for.body60.lr.ph, label %for.cond52.loopexit
 
 for.body60.lr.ph:                                 ; preds = %for.body55
-  %arrayidx62 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %i.2110
+  %arrayidx62 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %i.2110
   %.pre = load i32, ptr %arrayidx62, align 4
   br label %for.body60
 
 for.body60:                                       ; preds = %for.body60.lr.ph, %for.inc71
   %10 = phi i32 [ %.pre, %for.body60.lr.ph ], [ %12, %for.inc71 ]
   %j.0109 = phi i64 [ %add56, %for.body60.lr.ph ], [ %inc72, %for.inc71 ]
-  %arrayidx61 = getelementptr inbounds [4 x i32], ptr %histo, i64 0, i64 %j.0109
+  %arrayidx61 = getelementptr inbounds nuw [4 x i32], ptr %histo, i64 0, i64 %j.0109
   %11 = load i32, ptr %arrayidx61, align 4
   %cmp63 = icmp ugt i32 %11, %10
   br i1 %cmp63, label %if.then65, label %for.inc71
@@ -848,9 +848,9 @@ for.inc71:                                        ; preds = %for.body60, %if.the
   br i1 %exitcond132.not, label %for.cond52.loopexit, label %for.body60, !llvm.loop !23
 
 for.end76:                                        ; preds = %for.cond52.loopexit
-  %arrayidx77 = getelementptr inbounds i8, ptr %histo, i64 8
+  %arrayidx77 = getelementptr inbounds nuw i8, ptr %histo, i64 8
   %13 = load i32, ptr %arrayidx77, align 8
-  %arrayidx78 = getelementptr inbounds i8, ptr %histo, i64 12
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %histo, i64 12
   %14 = load i32, ptr %arrayidx78, align 4
   %add79 = add i32 %14, %13
   %15 = load i32, ptr %histo, align 16
@@ -858,7 +858,7 @@ for.end76:                                        ; preds = %for.cond52.loopexit
   %mul82 = mul i32 %add79, 3
   %conv83 = uitofp i32 %mul82 to double
   %add84 = fadd double %conv83, 3.700000e+01
-  %arrayidx86 = getelementptr inbounds i8, ptr %histo, i64 4
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %histo, i64 4
   %16 = load i32, ptr %arrayidx86, align 4
   %add87 = add i32 %16, %15
   %mul88 = shl i32 %add87, 1
@@ -874,7 +874,7 @@ if.end93:                                         ; preds = %for.end
   br i1 %cmp.i184, label %if.then.i188, label %if.end.i185
 
 if.then.i188:                                     ; preds = %if.end93
-  %arrayidx.i189 = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %0
+  %arrayidx.i189 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %0
   %17 = load double, ptr %arrayidx.i189, align 8
   br label %FastLog2.exit190
 
@@ -885,7 +885,7 @@ if.end.i185:                                      ; preds = %if.end93
 
 FastLog2.exit190:                                 ; preds = %if.end.i185, %if.then.i188
   %retval.i182.0 = phi double [ %17, %if.then.i188 ], [ %call.i187, %if.end.i185 ]
-  %arrayidx155 = getelementptr inbounds i8, ptr %depth_histo, i64 68
+  %arrayidx155 = getelementptr inbounds nuw i8, ptr %depth_histo, i64 68
   br label %for.body99
 
 for.body99:                                       ; preds = %FastLog2.exit190, %if.end159
@@ -893,7 +893,7 @@ for.body99:                                       ; preds = %FastLog2.exit190, %
   %max_depth.0122 = phi i64 [ 1, %FastLog2.exit190 ], [ %max_depth.2, %if.end159 ]
   %i.3121 = phi i64 [ 0, %FastLog2.exit190 ], [ %i.4, %if.end159 ]
   %bits.0120 = phi double [ 0.000000e+00, %FastLog2.exit190 ], [ %bits.1, %if.end159 ]
-  %arrayidx101 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %i.3121
+  %arrayidx101 = getelementptr inbounds nuw [544 x i32], ptr %histogram, i64 0, i64 %i.3121
   %18 = load i32, ptr %arrayidx101, align 4
   %cmp102.not = icmp eq i32 %18, 0
   br i1 %cmp102.not, label %for.cond128.preheader, label %if.then104
@@ -913,7 +913,7 @@ if.then104:                                       ; preds = %for.body99
 
 if.then.i:                                        ; preds = %if.then104
   %conv107 = zext nneg i32 %18 to i64
-  %arrayidx.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv107
+  %arrayidx.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv107
   %21 = load double, ptr %arrayidx.i, align 8
   br label %FastLog2.exit
 
@@ -933,7 +933,7 @@ FastLog2.exit:                                    ; preds = %if.end.i, %if.then.
   %23 = tail call double @llvm.fmuladd.f64(double %conv114, double %sub109, double %bits.0120)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %conv111, i64 15)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %max_depth.0122)
-  %arrayidx124 = getelementptr inbounds [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
+  %arrayidx124 = getelementptr inbounds nuw [18 x i32], ptr %depth_histo, i64 0, i64 %spec.store.select
   %24 = load i32, ptr %arrayidx124, align 4
   %inc125 = add i32 %24, 1
   store i32 %inc125, ptr %arrayidx124, align 4
@@ -944,7 +944,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %k.0114.in = phi i64 [ %k.0114, %for.body135 ], [ %i.3121, %land.rhs.preheader ]
   %reps.0113 = phi i32 [ %inc136, %for.body135 ], [ 1, %land.rhs.preheader ]
   %k.0114 = add nuw nsw i64 %k.0114.in, 1
-  %arrayidx132 = getelementptr inbounds [544 x i32], ptr %histogram, i64 0, i64 %k.0114
+  %arrayidx132 = getelementptr inbounds nuw [544 x i32], ptr %histogram, i64 0, i64 %k.0114
   %25 = load i32, ptr %arrayidx132, align 4
   %cmp133 = icmp eq i32 %25, 0
   br i1 %cmp133, label %for.body135, label %for.end139
@@ -1014,9 +1014,9 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   %population.addr.i196.1.idx130 = phi i64 [ 0, %for.end160 ], [ %incdec.ptr.i.add, %FastLog2.exit22.i ]
   %sum.i198.1129 = phi i64 [ 0, %for.end160 ], [ %add5.i, %FastLog2.exit22.i ]
   %retval1.i199.1128 = phi double [ 0.000000e+00, %for.end160 ], [ %33, %FastLog2.exit22.i ]
-  %population.addr.i196.1.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.1.idx130
+  %population.addr.i196.1.ptr = getelementptr inbounds nuw i8, ptr %depth_histo, i64 %population.addr.i196.1.idx130
   %population.addr.i196.1.add = or disjoint i64 %population.addr.i196.1.idx130, 4
-  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %depth_histo, i64 %population.addr.i196.1.add
+  %incdec.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %depth_histo, i64 %population.addr.i196.1.add
   %28 = load i32, ptr %population.addr.i196.1.ptr, align 8
   %conv.i202 = zext i32 %28 to i64
   %add.i = add i64 %sum.i198.1129, %conv.i202
@@ -1025,7 +1025,7 @@ while.body.i:                                     ; preds = %for.end160, %FastLo
   br i1 %cmp.i25.i, label %if.then.i29.i, label %if.end.i26.i
 
 if.then.i29.i:                                    ; preds = %while.body.i
-  %arrayidx.i30.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i202
+  %arrayidx.i30.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv.i202
   %29 = load double, ptr %arrayidx.i30.i, align 8
   br label %FastLog2.exit31.i
 
@@ -1046,7 +1046,7 @@ FastLog2.exit31.i:                                ; preds = %if.end.i26.i, %if.t
   br i1 %cmp.i16.i, label %if.then.i20.i, label %if.end.i17.i
 
 if.then.i20.i:                                    ; preds = %FastLog2.exit31.i
-  %arrayidx.i21.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i
+  %arrayidx.i21.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %conv4.i
   %32 = load double, ptr %arrayidx.i21.i, align 8
   br label %FastLog2.exit22.i
 
@@ -1072,7 +1072,7 @@ if.then10.i:                                      ; preds = %while.end.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %arrayidx.i.i = getelementptr inbounds [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %add5.i
   %34 = load double, ptr %arrayidx.i.i, align 8
   br label %FastLog2.exit.i
 

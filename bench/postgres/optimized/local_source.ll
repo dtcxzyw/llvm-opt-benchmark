@@ -17,19 +17,19 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @init_local_source(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pg_malloc0(i64 noundef 64) #7
   store ptr @local_traverse_files, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @local_fetch_file, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @local_queue_fetch_file, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @local_queue_fetch_range, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @local_finish_fetch, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @local_destroy, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %0, ptr %9, align 8
   ret ptr %2
 }
@@ -38,7 +38,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @local_traverse_files(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   tail call void @traverse_datadir(ptr noundef %4, ptr noundef %1) #7
   ret void
@@ -46,7 +46,7 @@ define internal void @local_traverse_files(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @local_fetch_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @slurpFile(ptr noundef %5, ptr noundef %1, ptr noundef %2) #7
   ret ptr %6
@@ -56,7 +56,7 @@ define internal ptr @local_fetch_file(ptr nocapture noundef readonly %0, ptr nou
 define internal void @local_queue_fetch_file(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %union.PGIOAlignedBlock, align 4096
   %5 = alloca [1024 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %7, ptr noundef %1) #7
   %9 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #7
@@ -121,7 +121,7 @@ define internal void @local_queue_fetch_file(ptr nocapture noundef readonly %0, 
 define internal void @local_queue_fetch_range(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %union.PGIOAlignedBlock, align 4096
   %6 = alloca [1024 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %3, %2
   %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %1) #7

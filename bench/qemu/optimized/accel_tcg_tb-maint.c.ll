@@ -37,7 +37,7 @@ declare void @qht_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal zeroext i1 @tb_cmp(ptr nocapture noundef readonly %ap, ptr nocapture noundef readonly %bp) #2 {
 entry:
-  %cflags.i = getelementptr inbounds i8, ptr %ap, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %ap, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
   %and = and i32 %0, 131072
   %tobool.not = icmp eq i32 %and, 0
@@ -50,24 +50,24 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %entry
-  %cs_base = getelementptr inbounds i8, ptr %ap, i64 8
+  %cs_base = getelementptr inbounds nuw i8, ptr %ap, i64 8
   %3 = load i64, ptr %cs_base, align 8
-  %cs_base2 = getelementptr inbounds i8, ptr %bp, i64 8
+  %cs_base2 = getelementptr inbounds nuw i8, ptr %bp, i64 8
   %4 = load i64, ptr %cs_base2, align 8
   %cmp3 = icmp eq i64 %3, %4
   br i1 %cmp3, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %flags = getelementptr inbounds i8, ptr %ap, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %5 = load i32, ptr %flags, align 8
-  %flags5 = getelementptr inbounds i8, ptr %bp, i64 16
+  %flags5 = getelementptr inbounds nuw i8, ptr %bp, i64 16
   %6 = load i32, ptr %flags5, align 8
   %cmp6 = icmp eq i32 %5, %6
   br i1 %cmp6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true4
   %7 = load atomic i32, ptr %cflags.i monotonic, align 4
-  %cflags.i17 = getelementptr inbounds i8, ptr %bp, i64 20
+  %cflags.i17 = getelementptr inbounds nuw i8, ptr %bp, i64 20
   %8 = load atomic i32, ptr %cflags.i17 monotonic, align 4
   %9 = xor i32 %8, %7
   %10 = and i32 %9, -16385
@@ -105,7 +105,7 @@ entry:
 
 while.end:                                        ; preds = %entry
   %1 = load atomic i32, ptr getelementptr inbounds (i8, ptr @tb_ctx, i64 72) monotonic, align 8
-  %tcg_cflags.i = getelementptr inbounds i8, ptr %cpu, i64 720
+  %tcg_cflags.i = getelementptr inbounds nuw i8, ptr %cpu, i64 720
   %2 = load i32, ptr %tcg_cflags.i, align 16
   %and.i = and i32 %2, 32768
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -153,7 +153,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %cpu.addr.0.in4 = phi i64 [ %2, %for.body ], [ %1, %if.end ]
   %cpu.addr.0 = inttoptr i64 %cpu.addr.0.in4 to ptr
   tail call void @tcg_flush_jmp_cache(ptr noundef nonnull %cpu.addr.0) #8
-  %node = getelementptr inbounds i8, ptr %cpu.addr.0, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.addr.0, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %tobool.not = icmp eq i64 %2, 0
@@ -183,9 +183,9 @@ declare void @async_safe_run_on_cpu(ptr noundef, ptr noundef, i64) local_unnamed
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tb_reset_jump(ptr noundef %tb, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %tc = getelementptr inbounds i8, ptr %tb, i64 32
+  %tc = getelementptr inbounds nuw i8, ptr %tb, i64 32
   %0 = load ptr, ptr %tc, align 8
-  %jmp_reset_offset = getelementptr inbounds i8, ptr %tb, i64 100
+  %jmp_reset_offset = getelementptr inbounds nuw i8, ptr %tb, i64 100
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr [2 x i16], ptr %jmp_reset_offset, i64 0, i64 %idxprom
   %1 = load i16, ptr %arrayidx, align 2
@@ -222,11 +222,11 @@ if.end:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @do_tb_phys_invalidate(ptr noundef %tb, i1 noundef zeroext %rm_from_page_list) unnamed_addr #0 {
 entry:
-  %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %tb, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
   %call1 = tail call zeroext i1 @have_mmap_lock() #8
   tail call void @llvm.assume(i1 %call1)
-  %jmp_lock = getelementptr inbounds i8, ptr %tb, i64 96
+  %jmp_lock = getelementptr inbounds nuw i8, ptr %tb, i64 96
   %1 = atomicrmw xchg ptr %jmp_lock, i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %1, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
@@ -264,9 +264,9 @@ cond.false:                                       ; preds = %qemu_spin_lock.exit
 
 cond.end:                                         ; preds = %qemu_spin_lock.exit, %cond.false
   %cond = phi i64 [ %7, %cond.false ], [ 0, %qemu_spin_lock.exit ]
-  %flags = getelementptr inbounds i8, ptr %tb, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %tb, i64 16
   %8 = load i32, ptr %flags, align 8
-  %cs_base = getelementptr inbounds i8, ptr %tb, i64 8
+  %cs_base = getelementptr inbounds nuw i8, ptr %tb, i64 8
   %9 = load i64, ptr %cs_base, align 8
   %conv.i.i = trunc i64 %tb.val to i32
   %shr.i.i = lshr i64 %tb.val, 32
@@ -334,7 +334,7 @@ if.end12:                                         ; preds = %cond.end
 if.then14:                                        ; preds = %if.end12
   %call.i = tail call zeroext i1 @have_mmap_lock() #8
   tail call void @llvm.assume(i1 %call.i)
-  %itree.i = getelementptr inbounds i8, ptr %tb, i64 48
+  %itree.i = getelementptr inbounds nuw i8, ptr %tb, i64 48
   tail call void @interval_tree_remove(ptr noundef nonnull %itree.i, ptr noundef nonnull @tb_root) #8
   br label %if.end15
 
@@ -354,7 +354,7 @@ for.body.i:                                       ; preds = %while.end.i, %for.b
   %cpu.0.in12.i = phi i64 [ %12, %for.body.i ], [ %11, %while.end.i ]
   %cpu.0.i = inttoptr i64 %cpu.0.in12.i to ptr
   tail call void @tcg_flush_jmp_cache(ptr noundef nonnull %cpu.0.i) #8
-  %node.i = getelementptr inbounds i8, ptr %cpu.0.i, i64 568
+  %node.i = getelementptr inbounds nuw i8, ptr %cpu.0.i, i64 568
   %12 = load atomic i64, ptr %node.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   %tobool1.not.i = icmp eq i64 %12, 0
@@ -373,9 +373,9 @@ if.else.i:                                        ; preds = %if.end15
 for.body17.i:                                     ; preds = %if.else.i, %while.end42.i
   %cpu.115.in.i = phi i64 [ %18, %while.end42.i ], [ %14, %if.else.i ]
   %cpu.115.i = inttoptr i64 %cpu.115.in.i to ptr
-  %tb_jmp_cache.i = getelementptr inbounds i8, ptr %cpu.115.i, i64 544
+  %tb_jmp_cache.i = getelementptr inbounds nuw i8, ptr %cpu.115.i, i64 544
   %15 = load ptr, ptr %tb_jmp_cache.i, align 16
-  %array.i = getelementptr inbounds i8, ptr %15, i64 16
+  %array.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %arrayidx.i = getelementptr [4096 x %struct.anon.6], ptr %array.i, i64 0, i64 %conv.i.i19
   %16 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -387,7 +387,7 @@ while.end31.i:                                    ; preds = %for.body17.i
   br label %while.end42.i
 
 while.end42.i:                                    ; preds = %while.end31.i, %for.body17.i
-  %node43.i = getelementptr inbounds i8, ptr %cpu.115.i, i64 568
+  %node43.i = getelementptr inbounds nuw i8, ptr %cpu.115.i, i64 568
   %18 = load atomic i64, ptr %node43.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   %tobool16.not.i = icmp eq i64 %18, 0
@@ -417,7 +417,7 @@ while.body16.i.i:                                 ; preds = %while.cond6.prehead
   br i1 %tobool15.not.i.i, label %while.cond.loopexit.i.i, label %while.body16.i.i, !llvm.loop !11
 
 qemu_spin_lock.exit.i:                            ; preds = %while.cond.loopexit.i.i, %tb_jmp_cache_inval_tb.exit
-  %jmp_list_head.i = getelementptr inbounds i8, ptr %tb, i64 128
+  %jmp_list_head.i = getelementptr inbounds nuw i8, ptr %tb, i64 128
   %tb.0.in.in12.i = load i64, ptr %jmp_list_head.i, align 8
   %tb.0.in13.i = and i64 %tb.0.in.in12.i, -2
   %tobool.not14.i = icmp eq i64 %tb.0.in13.i, 0
@@ -429,9 +429,9 @@ for.body.i20:                                     ; preds = %qemu_spin_lock.exit
   %n.0.in.i = trunc i64 %tb.0.in.in15.i to i32
   %n.0.i = and i32 %n.0.in.i, 1
   %tb.0.i = inttoptr i64 %tb.0.in16.i to ptr
-  %tc.i.i = getelementptr inbounds i8, ptr %tb.0.i, i64 32
+  %tc.i.i = getelementptr inbounds nuw i8, ptr %tb.0.i, i64 32
   %23 = load ptr, ptr %tc.i.i, align 8
-  %jmp_reset_offset.i.i = getelementptr inbounds i8, ptr %tb.0.i, i64 100
+  %jmp_reset_offset.i.i = getelementptr inbounds nuw i8, ptr %tb.0.i, i64 100
   %idxprom.i.i = and i64 %tb.0.in.in15.i, 1
   %arrayidx.i.i = getelementptr [2 x i16], ptr %jmp_reset_offset.i.i, i64 0, i64 %idxprom.i.i
   %24 = load i16, ptr %arrayidx.i.i, align 2
@@ -439,10 +439,10 @@ for.body.i20:                                     ; preds = %qemu_spin_lock.exit
   %add.ptr.i.i = getelementptr i8, ptr %23, i64 %idx.ext.i.i
   %25 = ptrtoint ptr %add.ptr.i.i to i64
   tail call void @tb_set_jmp_target(ptr noundef nonnull %tb.0.i, i32 noundef %n.0.i, i64 noundef %25) #8
-  %jmp_dest.i = getelementptr inbounds i8, ptr %tb.0.i, i64 152
+  %jmp_dest.i = getelementptr inbounds nuw i8, ptr %tb.0.i, i64 152
   %arrayidx.i21 = getelementptr [2 x i64], ptr %jmp_dest.i, i64 0, i64 %idxprom.i.i
   %26 = atomicrmw and ptr %arrayidx.i21, i64 1 seq_cst, align 8
-  %jmp_list_next.i = getelementptr inbounds i8, ptr %tb.0.i, i64 136
+  %jmp_list_next.i = getelementptr inbounds nuw i8, ptr %tb.0.i, i64 136
   %arrayidx4.i = getelementptr [2 x i64], ptr %jmp_list_next.i, i64 0, i64 %idxprom.i.i
   %tb.0.in.in.i = load i64, ptr %arrayidx4.i, align 8
   %tb.0.in.i = and i64 %tb.0.in.in.i, -2
@@ -468,21 +468,21 @@ entry:
   store ptr null, ptr %existing_tb, align 8
   %call = tail call zeroext i1 @have_mmap_lock() #8
   tail call void @llvm.assume(i1 %call)
-  %cflags = getelementptr inbounds i8, ptr %tb, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %tb, i64 20
   %0 = load i32, ptr %cflags, align 4
   %and = and i32 %0, 16384
   %tobool.not = icmp eq i32 %and, 0
   tail call void @llvm.assume(i1 %tobool.not)
   %call.i = tail call zeroext i1 @have_mmap_lock() #8
   tail call void @llvm.assume(i1 %call.i)
-  %start.i = getelementptr inbounds i8, ptr %tb, i64 72
+  %start.i = getelementptr inbounds nuw i8, ptr %tb, i64 72
   %1 = load i64, ptr %start.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %tb, i64 24
+  %size.i = getelementptr inbounds nuw i8, ptr %tb, i64 24
   %2 = load i16, ptr %size.i, align 8
   %conv.i = zext i16 %2 to i64
   %add.i = add i64 %1, -1
   %sub.i = add i64 %add.i, %conv.i
-  %last.i = getelementptr inbounds i8, ptr %tb, i64 80
+  %last.i = getelementptr inbounds nuw i8, ptr %tb, i64 80
   store i64 %sub.i, ptr %last.i, align 8
   %call3.i = tail call i32 @page_get_flags(i64 noundef %1) #8
   %and.i = and i32 %call3.i, 2
@@ -512,7 +512,7 @@ if.else13.i:                                      ; preds = %if.then8.i
   unreachable
 
 tb_record.exit:                                   ; preds = %if.end5.i, %if.then8.i
-  %itree.i = getelementptr inbounds i8, ptr %tb, i64 48
+  %itree.i = getelementptr inbounds nuw i8, ptr %tb, i64 48
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i, ptr noundef nonnull @tb_root) #8
   %tb.val = load i64, ptr %start.i, align 8
   %3 = load i32, ptr %cflags, align 4
@@ -526,9 +526,9 @@ cond.false:                                       ; preds = %tb_record.exit
 
 cond.end:                                         ; preds = %tb_record.exit, %cond.false
   %cond = phi i64 [ %4, %cond.false ], [ 0, %tb_record.exit ]
-  %flags = getelementptr inbounds i8, ptr %tb, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %tb, i64 16
   %5 = load i32, ptr %flags, align 8
-  %cs_base = getelementptr inbounds i8, ptr %tb, i64 8
+  %cs_base = getelementptr inbounds nuw i8, ptr %tb, i64 8
   %6 = load i64, ptr %cs_base, align 8
   %conv.i.i = trunc i64 %tb.val to i32
   %shr.i.i = lshr i64 %tb.val, 32
@@ -622,7 +622,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %tb.022 = phi ptr [ %n.023.be, %for.body ], [ %add.ptr.i, %entry ]
-  %itree.i14 = getelementptr inbounds i8, ptr %tb.022, i64 48
+  %itree.i14 = getelementptr inbounds nuw i8, ptr %tb.022, i64 48
   %call.i15 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %itree.i14, i64 noundef %start, i64 noundef %last) #8
   %tobool1.not.i16 = icmp eq ptr %call.i15, null
   %add.ptr.i17 = getelementptr i8, ptr %call.i15, i64 -48
@@ -651,7 +651,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %n.023.be.sink.i = phi ptr [ %add.ptr.i17.i, %for.body.i ], [ %add.ptr.i.i, %entry ]
-  %itree.i14.i = getelementptr inbounds i8, ptr %n.023.be.sink.i, i64 48
+  %itree.i14.i = getelementptr inbounds nuw i8, ptr %n.023.be.sink.i, i64 48
   %call.i15.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %itree.i14.i, i64 noundef %and, i64 noundef %or) #8
   %tobool1.not.i16.i = icmp eq ptr %call.i15.i, null
   %add.ptr.i17.i = getelementptr i8, ptr %call.i15.i, i64 -48
@@ -680,7 +680,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %n.023.be.sink.i.i = phi ptr [ %add.ptr.i17.i.i, %for.body.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %itree.i14.i.i = getelementptr inbounds i8, ptr %n.023.be.sink.i.i, i64 48
+  %itree.i14.i.i = getelementptr inbounds nuw i8, ptr %n.023.be.sink.i.i, i64 48
   %call.i15.i.i = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %itree.i14.i.i, i64 noundef %and.i, i64 noundef %or.i) #8
   %tobool1.not.i16.i.i = icmp eq ptr %call.i15.i.i, null
   %add.ptr.i17.i.i = getelementptr i8, ptr %call.i15.i.i, i64 -48
@@ -713,7 +713,7 @@ declare zeroext i1 @qht_remove(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @tb_remove_from_jmp_list(ptr noundef %orig, i32 noundef range(i32 0, 2) %n_orig) unnamed_addr #0 {
 entry:
-  %jmp_dest = getelementptr inbounds i8, ptr %orig, i64 152
+  %jmp_dest = getelementptr inbounds nuw i8, ptr %orig, i64 152
   %idxprom = zext nneg i32 %n_orig to i64
   %arrayidx = getelementptr [2 x i64], ptr %jmp_dest, i64 0, i64 %idxprom
   %0 = atomicrmw or ptr %arrayidx, i64 1 seq_cst, align 8
@@ -724,7 +724,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = or i64 %0, 1
-  %jmp_lock = getelementptr inbounds i8, ptr %1, i64 96
+  %jmp_lock = getelementptr inbounds nuw i8, ptr %1, i64 96
   %3 = atomicrmw xchg ptr %jmp_lock, i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %3, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
@@ -756,7 +756,7 @@ if.then6:                                         ; preds = %qemu_spin_lock.exit
   br i1 %cmp9, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then6
-  %cflags = getelementptr inbounds i8, ptr %1, i64 20
+  %cflags = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %cflags, align 4
   %and10 = and i32 %8, 16384
   %tobool.not = icmp eq i32 %and10, 0
@@ -767,7 +767,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   unreachable
 
 if.end14:                                         ; preds = %qemu_spin_lock.exit
-  %jmp_list_head = getelementptr inbounds i8, ptr %1, i64 128
+  %jmp_list_head = getelementptr inbounds nuw i8, ptr %1, i64 128
   %tb.0.in.in27 = load i64, ptr %jmp_list_head, align 8
   %tb.0.in28 = and i64 %tb.0.in.in27, -2
   %tobool19.not30 = icmp eq i64 %tb.0.in28, 0
@@ -799,7 +799,7 @@ if.then25:                                        ; preds = %if.then25.loopexit,
   %tb.0.in.in32.lcssa = phi i64 [ %tb.0.in.in27, %for.body.preheader ], [ %tb.0.in.in, %if.then25.loopexit ]
   %pprev.031.lcssa = phi ptr [ %jmp_list_head, %for.body.preheader ], [ %arrayidx32.le, %if.then25.loopexit ]
   %tb.033.lcssa = phi ptr [ %tb.03343, %for.body.preheader ], [ %tb.033, %if.then25.loopexit ]
-  %jmp_list_next = getelementptr inbounds i8, ptr %tb.033.lcssa, i64 136
+  %jmp_list_next = getelementptr inbounds nuw i8, ptr %tb.033.lcssa, i64 136
   %idxprom26 = and i64 %tb.0.in.in32.lcssa, 1
   %arrayidx27 = getelementptr [2 x i64], ptr %jmp_list_next, i64 0, i64 %idxprom26
   %9 = load i64, ptr %arrayidx27, align 8
@@ -810,7 +810,7 @@ if.then25:                                        ; preds = %if.then25.loopexit,
 if.end29:                                         ; preds = %for.body.preheader, %for.body
   %tb.03350 = phi ptr [ %tb.033, %for.body ], [ %tb.03343, %for.body.preheader ]
   %tb.0.in.in3249 = phi i64 [ %tb.0.in.in, %for.body ], [ %tb.0.in.in27, %for.body.preheader ]
-  %jmp_list_next30 = getelementptr inbounds i8, ptr %tb.03350, i64 136
+  %jmp_list_next30 = getelementptr inbounds nuw i8, ptr %tb.03350, i64 136
   %idxprom31 = and i64 %tb.0.in.in3249, 1
   %arrayidx32 = getelementptr [2 x i64], ptr %jmp_list_next30, i64 0, i64 %idxprom31
   %tb.0.in.in = load i64, ptr %arrayidx32, align 8

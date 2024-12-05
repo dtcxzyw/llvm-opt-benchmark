@@ -98,7 +98,7 @@ define dso_local ptr @rhash_info_by_id(i32 noundef %0) local_unnamed_addr #2 {
   %5 = load ptr, ptr @rhash_info_table, align 8
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds %struct.rhash_hash_info, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   br label %10
 

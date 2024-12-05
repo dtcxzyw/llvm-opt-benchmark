@@ -516,7 +516,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [4 x %struct.vec_t], align 16
   %6 = alloca [2 x i32], align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.190) #3
   %9 = load ptr, ptr %7, align 8
@@ -559,7 +559,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %43 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %26, i32 noundef %40, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.234, i32 noundef %41, ptr noundef nonnull %42) #3
   %44 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %45 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  %46 = getelementptr inbounds i8, ptr %1, i64 272
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %47 = load i32, ptr %46, align 8
   %.not133 = icmp ne i32 %47, 0
   %.not134 = icmp ult i32 %45, %44
@@ -567,21 +567,21 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond136, label %90, label %48
 
 48:                                               ; preds = %4
-  %49 = getelementptr inbounds i8, ptr %1, i64 208
-  %50 = getelementptr inbounds i8, ptr %1, i64 216
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %5, align 16
-  %52 = getelementptr inbounds i8, ptr %1, i64 212
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 240
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %56, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %1, i64 236
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %59, ptr %60, align 8
   %61 = load i32, ptr %49, align 8
   %62 = icmp eq i32 %61, 3
@@ -589,7 +589,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 
 63:                                               ; preds = %48
   %64 = tail call i32 @llvm.bswap.i32(i32 %44)
-  %65 = getelementptr inbounds i8, ptr %6, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1962934272, ptr %65, align 4
   br label %75
 
@@ -608,12 +608,12 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   %.sink154 = phi i32 [ %64, %63 ], [ %74, %66 ]
   %.sink = phi i32 [ 8, %63 ], [ 4, %66 ]
   store i32 %.sink154, ptr %6, align 4
-  %76 = getelementptr inbounds i8, ptr %5, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %6, ptr %76, align 16
-  %77 = getelementptr inbounds i8, ptr %5, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %.sink, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 48
-  %79 = getelementptr inbounds i8, ptr %5, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %44, ptr %79, align 8
   %80 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %44) #3
   store ptr %80, ptr %78, align 16

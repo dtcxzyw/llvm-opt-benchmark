@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -25,7 +25,7 @@ declare i32 @onigenc_is_mbc_newline_0x0a(ptr noundef, ptr noundef) #1
 define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
   %3 = load i8, ptr %0, align 1
   %4 = zext i8 %3 to i64
-  %5 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
@@ -48,7 +48,7 @@ define internal i32 @mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
   %.126 = phi i32 [ %.1, %.lr.ph ], [ %.122, %.lr.ph.preheader ]
   %.025 = phi i32 [ %20, %.lr.ph ], [ %15, %.lr.ph.preheader ]
   %.pn24 = phi ptr [ %.019, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.019 = getelementptr inbounds i8, ptr %.pn24, i64 1
+  %.019 = getelementptr inbounds nuw i8, ptr %.pn24, i64 1
   %16 = load i8, ptr %.019, align 1
   %17 = shl i32 %.025, 6
   %18 = and i8 %16, 63
@@ -104,7 +104,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
   %9 = lshr i32 %0, 6
   %10 = trunc nuw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %11, ptr %1, align 1
   br label %42
 
@@ -116,13 +116,13 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
   %16 = lshr i32 %0, 12
   %17 = trunc nuw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %18, ptr %1, align 1
   %20 = lshr i32 %0, 6
   %21 = trunc i32 %20 to i8
   %22 = and i8 %21, 63
   %23 = or disjoint i8 %22, -128
-  %24 = getelementptr inbounds i8, ptr %1, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %23, ptr %19, align 1
   br label %42
 
@@ -134,19 +134,19 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
   %28 = lshr i32 %0, 18
   %29 = trunc nuw i32 %28 to i8
   %30 = or disjoint i8 %29, -16
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %30, ptr %1, align 1
   %32 = lshr i32 %0, 12
   %33 = trunc i32 %32 to i8
   %34 = and i8 %33, 63
   %35 = or disjoint i8 %34, -128
-  %36 = getelementptr inbounds i8, ptr %1, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %35, ptr %31, align 1
   %37 = lshr i32 %0, 6
   %38 = trunc i32 %37 to i8
   %39 = and i8 %38, 63
   %40 = or disjoint i8 %39, -128
-  %41 = getelementptr inbounds i8, ptr %1, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %40, ptr %36, align 1
   br label %42
 
@@ -155,7 +155,7 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1) #4 {
   %43 = trunc i32 %0 to i8
   %44 = and i8 %43, 63
   %45 = or disjoint i8 %44, -128
-  %46 = getelementptr inbounds i8, ptr %.0, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %45, ptr %.0, align 1
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %1 to i64
@@ -177,11 +177,11 @@ define internal i32 @mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %
 
 8:                                                ; preds = %4
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr inbounds [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   store i8 %11, ptr %3, align 1
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   br label %16
 
@@ -246,14 +246,14 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %.not, label %.loopexit15, label %5
 
 5:                                                ; preds = %.lr.ph21
-  %6 = getelementptr inbounds i8, ptr %.01220, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.01220, i64 1
   %7 = add i8 %4, 64
   %or.cond = icmp ult i8 %7, 53
   br i1 %or.cond, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %5
   %8 = zext i8 %4 to i64
-  %9 = getelementptr inbounds [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_UTF8, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %10, i32 2)
   br label %.lr.ph
@@ -270,7 +270,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %14, label %15, label %.loopexit15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.218, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.218, i64 1
   %17 = add nuw nsw i32 %.01119, 1
   %exitcond.not = icmp eq i32 %17, %smax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7

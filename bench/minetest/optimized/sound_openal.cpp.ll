@@ -99,14 +99,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_Z27createSoundManagerSingletonv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call5.i.i.i16.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15, !noalias !4
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i16.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !7, !noalias !4
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i16.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !12, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound21SoundManagerSingletonESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i16.i.i.i.i, align 8, !tbaa !13, !noalias !4
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i16.i.i.i.i, i64 16
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i16.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
   store ptr %call5.i.i.i16.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !tbaa !15, !alias.scope !4
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8, !tbaa !18, !alias.scope !4
@@ -127,11 +127,11 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !7
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !12
   %vtable.i.i.i.i = load ptr, ptr %call5.i.i.i16.i.i.i.i, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i16.i.i.i.i) #16
   %vtable3.i.i.i.i = load ptr, ptr %call5.i.i.i16.i.i.i.i, align 8, !tbaa !13
-  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
+  %vfn4.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn4.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i16.i.i.i.i) #16
   br label %nrvo.skipdtor
@@ -192,7 +192,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 _ZNKSt14default_deleteI25SoundFallbackPathProviderEclEPS0_.exit.i.i: ; preds = %invoke.cont.i
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !13, !noalias !22
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !22
   call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #16, !noalias !22
   br label %_ZNSt10unique_ptrIN5sound17ProxySoundManagerESt14default_deleteIS1_EED2Ev.exit
@@ -206,7 +206,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZNKSt14default_deleteI25SoundFallbackPathProviderEclEPS0_.exit.i5.i: ; preds = %lpad.i
   %vtable.i.i6.i = load ptr, ptr %4, align 8, !tbaa !13, !noalias !22
-  %vfn.i.i7.i = getelementptr inbounds i8, ptr %vtable.i.i6.i, i64 8
+  %vfn.i.i7.i = getelementptr inbounds nuw i8, ptr %vtable.i.i6.i, i64 8
   %5 = load ptr, ptr %vfn.i.i7.i, align 8, !noalias !22
   call void %5(ptr noundef nonnull align 8 dereferenceable(64) %4) #16, !noalias !22
   br label %_ZNSt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS0_EED2Ev.exit8.i
@@ -232,10 +232,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
-  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
+  %_M_weak_count.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !19
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -257,7 +257,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
+  %vfn3.i = getelementptr inbounds nuw i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
@@ -285,7 +285,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5sound21SoundManagerSingletonESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN5sound21SoundManagerSingletonD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i) #16
   ret void
 }
@@ -300,12 +300,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound21SoundManagerSingl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5sound21SoundManagerSingletonESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #5 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %cleanup, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8, !tbaa !27
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -349,13 +349,13 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN5sound21SoundManagerSingletonELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !15
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_use_count.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i acquire, align 8
   %cmp.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -363,14 +363,14 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   store i32 0, ptr %_M_use_count.i.i, align 8, !tbaa !7
-  %_M_weak_count.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i, align 4, !tbaa !12
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   %vtable3.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable3.i.i, i64 24
+  %vfn4.i.i = getelementptr inbounds nuw i8, ptr %vtable3.i.i, i64 24
   %4 = load ptr, ptr %vfn4.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -406,23 +406,23 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 define linkonce_odr dso_local void @_ZN5sound17ProxySoundManagerC2EPNS_21SoundManagerSingletonESt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef %smg, ptr noundef %fallback_path_provider) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.18", align 8
-  %m_occupied_ids.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_occupied_ids.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %_M_single_bucket.i.i.i, ptr %m_occupied_ids.i, align 8, !tbaa !29
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 1, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !35
-  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_rehash_policy.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_rehash_policy.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i.i, align 8, !tbaa !36
-  %_M_next_resize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_next_resize.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i, i8 0, i64 16, i1 false)
-  %m_next_id.i = getelementptr inbounds i8, ptr %this, i64 64
+  %m_next_id.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 1, ptr %m_next_id.i, align 8, !tbaa !37
-  %m_removed_sounds.i = getelementptr inbounds i8, ptr %this, i64 72
+  %m_removed_sounds.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_removed_sounds.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5sound17ProxySoundManagerE, i64 16), ptr %this, align 8, !tbaa !13
-  %m_sound_manager = getelementptr inbounds i8, ptr %this, i64 96
+  %m_sound_manager = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i64, ptr %fallback_path_provider, align 8, !tbaa !18
   store i64 %0, ptr %agg.tmp, align 8, !tbaa !18
   store ptr null, ptr %fallback_path_provider, align 8, !tbaa !18
@@ -436,23 +436,23 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteI25SoundFallbackPathProviderEclEPS0_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #16
   br label %_ZNSt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteI25SoundFallbackPathProviderEclEPS0_.exit.i, %invoke.cont
   store ptr null, ptr %agg.tmp, align 8, !tbaa !18
-  %m_known_sound_names = getelementptr inbounds i8, ptr %this, i64 944
-  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 992
+  %m_known_sound_names = getelementptr inbounds nuw i8, ptr %this, i64 944
+  %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 992
   store ptr %_M_single_bucket.i.i, ptr %m_known_sound_names, align 8, !tbaa !44
-  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 952
+  %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 952
   store i64 1, ptr %_M_bucket_count.i.i, align 8, !tbaa !46
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 960
-  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 976
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 960
+  %_M_rehash_policy.i.i = getelementptr inbounds nuw i8, ptr %this, i64 976
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8, !tbaa !36
-  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 984
+  %_M_next_resize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 984
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %call = invoke noundef zeroext i1 @_ZN6Thread5startEv(ptr noundef nonnull align 8 dereferenceable(144) %m_sound_manager)
           to label %invoke.cont4 unwind label %lpad3
@@ -469,7 +469,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteI25SoundFallbackPathProviderEclEPS0_.exit.i8: ; preds = %lpad
   %vtable.i.i9 = load ptr, ptr %4, align 8, !tbaa !13
-  %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 8
+  %vfn.i.i10 = getelementptr inbounds nuw i8, ptr %vtable.i.i9, i64 8
   %5 = load ptr, ptr %vfn.i.i10, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(64) %4) #16
   br label %_ZNSt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS0_EED2Ev.exit11
@@ -498,7 +498,7 @@ declare noundef zeroext i1 @_ZN6Thread5startEv(ptr noundef nonnull align 8 deref
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i.i.i, align 8, !tbaa !47
   %tobool.not4.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not4.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i, label %while.body.i.i.i
@@ -506,14 +506,14 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEEE18_M_deallocate_nodeEPS8_.exit.i.i.i
   %__n.addr.05.i.i.i = phi ptr [ %1, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEEE18_M_deallocate_nodeEPS8_.exit.i.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__n.addr.05.i.i.i, align 8, !tbaa !48
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.05.i.i.i, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.05.i.i.i, i64 8
   %2 = load ptr, ptr %add.ptr.i.i.i.i, align 8, !tbaa !49
-  %3 = getelementptr inbounds i8, ptr %__n.addr.05.i.i.i, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %__n.addr.05.i.i.i, i64 24
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %while.body.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.addr.05.i.i.i, i64 16
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.addr.05.i.i.i, i64 16
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !52
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
@@ -530,13 +530,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeINSt7__cxx1112basic_stringIcS
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEEEE18_M_deallocate_nodeEPS8_.exit.i.i.i, %entry
   %5 = load ptr, ptr %this, align 8, !tbaa !44
-  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i.i, align 8, !tbaa !46
   %mul.i.i = shl i64 %6, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %mul.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %this, align 8, !tbaa !44
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %7
   br i1 %cmp.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev.exit, label %if.end.i.i.i
 
@@ -555,7 +555,7 @@ declare void @_ZN5sound18OpenALSoundManagerD1Ev(ptr noundef nonnull align 8 dere
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ISoundManager, i64 16), ptr %this, align 8, !tbaa !13
-  %m_removed_sounds = getelementptr inbounds i8, ptr %this, i64 72
+  %m_removed_sounds = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_removed_sounds, align 8, !tbaa !55
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
@@ -565,8 +565,8 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then.i.i.i, %entry
-  %m_occupied_ids = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_occupied_ids = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !56
   %tobool.not4.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not4.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -580,13 +580,13 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt10_HashtableIiSt4pairIKijESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %3 = load ptr, ptr %m_occupied_ids, align 8, !tbaa !29
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !35
   %mul.i.i.i = shl i64 %4, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %m_occupied_ids, align 8, !tbaa !29
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIijSt4hashIiESt8equal_toIiESaISt4pairIKijEEED2Ev.exit, label %if.end.i.i.i.i
 

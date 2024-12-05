@@ -18,9 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 10
   br i1 %9, label %13, label %10
@@ -32,7 +32,7 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   br label %.thread
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %6, i64 13
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 13
   %15 = load i8, ptr %14, align 1
   %16 = tail call zeroext i8 @acpi_is_valid_space_id(i8 noundef zeroext %15) #7
   %17 = icmp eq i8 %16, 0
@@ -44,7 +44,7 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   br label %.thread
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %6, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %22 = load i8, ptr %21, align 4
   %23 = and i8 %22, 4
   %24 = icmp eq i8 %23, 0
@@ -63,12 +63,12 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   ]
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %6, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 15
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = add i32 %34, %37
@@ -99,12 +99,12 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %56, label %57, label %67
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @acpi_ut_get_node_name(ptr noundef %59) #7
   %61 = load i8, ptr %35, align 1
   %62 = zext i8 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %6, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @acpi_ut_get_node_name(ptr noundef %64) #7
   %66 = load i32, ptr %30, align 8
@@ -112,13 +112,13 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   br label %67
 
 67:                                               ; preds = %57, %55
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @acpi_ut_get_node_name(ptr noundef %69) #7
   %71 = load i32, ptr %32, align 4
   %72 = load i8, ptr %35, align 1
   %73 = zext i8 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %6, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr @acpi_ut_get_node_name(ptr noundef %75) #7
   %77 = load i32, ptr %30, align 8
@@ -127,10 +127,10 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
 
 78:                                               ; preds = %28, %28, %28, %29, %43
   %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, %1
-  %83 = getelementptr inbounds i8, ptr %0, i64 15
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 3
@@ -141,7 +141,7 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   ]
 
 88:                                               ; preds = %78
-  %89 = getelementptr inbounds i8, ptr %79, i64 13
+  %89 = getelementptr inbounds nuw i8, ptr %79, i64 13
   %90 = load i8, ptr %89, align 1
   %91 = tail call ptr @acpi_ut_get_region_name(i8 noundef zeroext %90) #7
   %92 = load i8, ptr %89, align 1
@@ -150,7 +150,7 @@ define dso_local i32 @acpi_ex_access_region(ptr noundef %0, i32 noundef %1, ptr 
   br label %.thread
 
 94:                                               ; preds = %78
-  %95 = getelementptr inbounds i8, ptr %79, i64 13
+  %95 = getelementptr inbounds nuw i8, ptr %79, i64 13
   %96 = load i8, ptr %95, align 1
   %97 = tail call ptr @acpi_ut_get_region_name(i8 noundef zeroext %96) #7
   %98 = load i8, ptr %95, align 1
@@ -190,7 +190,7 @@ define dso_local i32 @acpi_ex_write_with_update_rule(ptr noundef %0, i64 noundef
   br i1 %7, label %37, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 96
   %12 = lshr exact i8 %11, 5
@@ -203,7 +203,7 @@ define dso_local i32 @acpi_ex_write_with_update_rule(ptr noundef %0, i64 noundef
 
 13:                                               ; preds = %8
   %14 = xor i64 %1, -1
-  %15 = getelementptr inbounds i8, ptr %0, i64 15
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
@@ -275,7 +275,7 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
 
 10:                                               ; preds = %8, %4
   %11 = phi ptr [ %spec.select, %8 ], [ %2, %4 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %82 [
     i8 14, label %14
@@ -285,7 +285,7 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
   ]
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 4
   %18 = icmp eq i8 %17, 0
@@ -297,17 +297,17 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
   br i1 %21, label %22, label %84
 
 22:                                               ; preds = %19, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
   %31 = zext i32 %1 to i64
   %32 = getelementptr i8, ptr %30, i64 %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 15
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   br i1 %7, label %36, label %37
@@ -321,12 +321,12 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
   br label %84
 
 38:                                               ; preds = %10
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %40, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = icmp ugt i32 %45, 63
   %47 = zext nneg i32 %45 to i64
@@ -340,7 +340,7 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
   br label %84
 
 52:                                               ; preds = %38
-  %53 = tail call i32 @acpi_ex_insert_into_field(ptr noundef %40, ptr noundef %41, i32 noundef 4)
+  %53 = tail call i32 @acpi_ex_insert_into_field(ptr noundef %40, ptr noundef nonnull %41, i32 noundef 4)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %84
 
@@ -349,12 +349,12 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
   br label %84
 
 57:                                               ; preds = %10
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load i32, ptr %60, align 8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %59, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %64 = load i32, ptr %63, align 8
   %65 = icmp ugt i32 %64, 63
   %66 = zext nneg i32 %64 to i64
@@ -375,7 +375,7 @@ define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load ptr, ptr %76, align 8
   br i1 %7, label %78, label %80
 
@@ -404,7 +404,7 @@ define dso_local i32 @acpi_ex_extract_from_field(ptr noundef %0, ptr noundef %1,
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 7
   %9 = lshr i32 %8, 3
@@ -419,11 +419,11 @@ define dso_local i32 @acpi_ex_extract_from_field(ptr noundef %0, ptr noundef %1,
   store i64 0, ptr %4, align 8, !annotation !5
   %13 = zext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %13, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 15
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 3
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %30
@@ -579,7 +579,7 @@ define dso_local i32 @acpi_ex_insert_into_field(ptr noundef %0, ptr nocapture no
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 7
   %9 = lshr i32 %8, 3
@@ -609,7 +609,7 @@ define dso_local i32 @acpi_ex_insert_into_field(ptr noundef %0, ptr nocapture no
   %22 = phi ptr [ %17, %19 ], [ %1, %3 ]
   %23 = phi i32 [ %9, %19 ], [ %2, %3 ]
   %24 = phi ptr [ %17, %19 ], [ null, %3 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 15
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %26 = load i8, ptr %25, align 1
   %.fr = freeze i8 %26
   %27 = icmp ugt i8 %.fr, 8
@@ -633,7 +633,7 @@ define dso_local i32 @acpi_ex_insert_into_field(ptr noundef %0, ptr nocapture no
   %36 = phi i32 [ 64, %.thread ], [ %30, %28 ]
   %37 = phi i32 [ 8, %.thread ], [ %29, %28 ]
   %38 = phi i64 [ -1, %.thread ], [ %spec.select, %28 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %40 = load i8, ptr %39, align 4
   %41 = zext i8 %40 to i32
   %42 = zext nneg i8 %40 to i64

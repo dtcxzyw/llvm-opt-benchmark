@@ -12,15 +12,15 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl10camel_case17hb369193350f44
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
   store i64 %8, ptr %6, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %.sroa.24.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 %2
   %11 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %11)
   store ptr %1, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %12, align 8
   br label %.backedge
 

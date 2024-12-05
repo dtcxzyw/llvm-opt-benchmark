@@ -69,14 +69,14 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_bridge_h
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_bridge_add(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @__mutex_init(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @drm_bridge_add.__key) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @__mutex_init(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull @drm_bridge_add.__key) #5
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
   store ptr %3, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
   store ptr @bridge_list, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %4, ptr %5, align 8
   store volatile ptr %3, ptr %4, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @bridge_lock) #5
@@ -94,14 +94,14 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @devm_drm_bridge_add(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 192
-  tail call void @__mutex_init(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @drm_bridge_add.__key) #5
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  tail call void @__mutex_init(ptr noundef nonnull %3, ptr noundef nonnull @.str, ptr noundef nonnull @drm_bridge_add.__key) #5
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
-  %4 = getelementptr inbounds i8, ptr %1, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
   store ptr %4, ptr getelementptr inbounds (i8, ptr @bridge_list, i64 8), align 8
   store ptr @bridge_list, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %5, ptr %6, align 8
   store volatile ptr %4, ptr %5, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @bridge_lock) #5
@@ -113,7 +113,7 @@ define dso_local i32 @devm_drm_bridge_add(ptr noundef %0, ptr noundef %1) #0 ali
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %12, align 8
   store volatile ptr %11, ptr %10, align 8
   store volatile ptr %4, ptr %4, align 8
@@ -128,11 +128,11 @@ define dso_local i32 @devm_drm_bridge_add(ptr noundef %0, ptr noundef %1) #0 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_remove_void(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store volatile ptr %2, ptr %2, align 8
@@ -144,11 +144,11 @@ define internal void @drm_bridge_remove_void(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_bridge_remove(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @bridge_lock) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store volatile ptr %2, ptr %2, align 8
@@ -169,19 +169,19 @@ define dso_local i32 @drm_bridge_attach(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %2, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %64, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %18, label %64
 
 18:                                               ; preds = %14, %8
-  %19 = getelementptr inbounds i8, ptr %1, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %64
@@ -189,20 +189,20 @@ define dso_local i32 @drm_bridge_attach(ptr noundef %0, ptr noundef %1, ptr noun
 22:                                               ; preds = %18
   %23 = load ptr, ptr %0, align 8
   store ptr %23, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 104
-  %26 = getelementptr inbounds i8, ptr %1, i64 112
-  %27 = getelementptr inbounds i8, ptr %0, i64 88
-  %28 = getelementptr inbounds i8, ptr %2, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %29 = select i1 %9, ptr %27, ptr %28
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %25, ptr %31, align 8
   store ptr %30, ptr %25, align 8
   store ptr %29, ptr %26, align 8
   store volatile ptr %25, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
@@ -219,7 +219,7 @@ define dso_local i32 @drm_bridge_attach(ptr noundef %0, ptr noundef %1, ptr noun
 
 39:                                               ; preds = %._crit_edge, %22
   %40 = phi ptr [ %.pre, %._crit_edge ], [ %33, %22 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 144
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 144
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %64, label %44
@@ -238,7 +238,7 @@ define dso_local i32 @drm_bridge_attach(ptr noundef %0, ptr noundef %1, ptr noun
   %50 = ptrtoint ptr %45 to i64
   %51 = trunc i64 %50 to i32
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %57, label %56
@@ -249,15 +249,15 @@ define dso_local i32 @drm_bridge_attach(ptr noundef %0, ptr noundef %1, ptr noun
 
 57:                                               ; preds = %56, %49, %36
   %58 = phi i32 [ %37, %36 ], [ %51, %56 ], [ %51, %49 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %59 = load ptr, ptr %26, align 8
   %60 = load ptr, ptr %25, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %59, ptr %61, align 8
   store volatile ptr %60, ptr %59, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %25, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %26, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load ptr, ptr %62, align 8
   tail call void (ptr, ...) @__drm_err(ptr noundef nonnull @.str.2, ptr noundef %63, i32 noundef %58) #5
   br label %64
@@ -291,7 +291,7 @@ define dso_local void @drm_bridge_detach(ptr noundef %0) local_unnamed_addr #0 a
   br label %28
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9, !prof !5
@@ -303,9 +303,9 @@ define dso_local void @drm_bridge_detach(ptr noundef %0) local_unnamed_addr #0 a
   br label %28
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -317,7 +317,7 @@ define dso_local void @drm_bridge_detach(ptr noundef %0) local_unnamed_addr #0 a
 
 16:                                               ; preds = %15, %9
   %17 = phi ptr [ %.pre, %15 ], [ %11, %9 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -327,11 +327,11 @@ define dso_local void @drm_bridge_detach(ptr noundef %0) local_unnamed_addr #0 a
   br label %22
 
 22:                                               ; preds = %21, %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %25, ptr %27, align 8
   store volatile ptr %26, ptr %25, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %23, align 8
@@ -352,19 +352,19 @@ define dso_local noundef zeroext i1 @drm_bridge_chain_mode_fixup(ptr noundef %0,
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %20
   %11 = phi ptr [ %21, %20 ], [ %9, %5 ]
   %12 = phi ptr [ %22, %20 ], [ %0, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -390,19 +390,19 @@ define dso_local i32 @drm_bridge_chain_mode_valid(ptr noundef %0, ptr noundef %1
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %.thread
   %11 = phi ptr [ %20, %.thread ], [ %9, %5 ]
   %12 = phi ptr [ %21, %.thread ], [ %0, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
@@ -429,19 +429,19 @@ define dso_local void @drm_bridge_chain_mode_set(ptr noundef %0, ptr noundef %1,
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %19
   %11 = phi ptr [ %20, %19 ], [ %9, %5 ]
   %12 = phi ptr [ %21, %19 ], [ %0, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %18
@@ -466,16 +466,16 @@ define dso_local void @drm_atomic_bridge_chain_disable(ptr noundef readonly %0, 
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
-  %8 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %7
   br i1 %10, label %.loopexit, label %.preheader
 
 11:                                               ; preds = %35
-  %12 = getelementptr inbounds i8, ptr %15, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %7
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !17
@@ -485,7 +485,7 @@ define dso_local void @drm_atomic_bridge_chain_disable(ptr noundef readonly %0, 
   %16 = getelementptr i8, ptr %15, i64 -104
   %17 = getelementptr i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %30, label %22
@@ -503,13 +503,13 @@ define dso_local void @drm_atomic_bridge_chain_disable(ptr noundef readonly %0, 
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef %16, ptr noundef nonnull %23) #5
   br label %35
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %18, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %35, label %34
@@ -535,10 +535,10 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
   br i1 %3, label %.loopexit15, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit15, label %10
 
@@ -563,13 +563,13 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 .preheader13:                                     ; preds = %17, %31
   %22 = phi ptr [ %32, %31 ], [ %15, %17 ]
   %23 = phi ptr [ %33, %31 ], [ %18, %17 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 177
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 177
   %25 = load i8, ptr %24, align 1, !range !21, !noundef !22
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %.preheader13
-  %28 = getelementptr inbounds i8, ptr %23, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 -104
   br label %.loopexit14
@@ -583,7 +583,7 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 .loopexit14:                                      ; preds = %31, %27
   %35 = phi ptr [ %30, %27 ], [ %18, %31 ]
   %36 = phi ptr [ %30, %27 ], [ %33, %31 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
   %38 = icmp eq ptr %37, %7
   %39 = icmp eq ptr %36, %14
   %40 = or i1 %39, %38
@@ -594,9 +594,9 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 
 .preheader.split.us:                              ; preds = %.preheader, %48
   %41 = phi ptr [ %51, %48 ], [ %36, %.preheader ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 152
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %48, label %47
@@ -606,7 +606,7 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
   br label %48
 
 48:                                               ; preds = %47, %.preheader.split.us
-  %49 = getelementptr inbounds i8, ptr %41, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 112
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 -104
   %52 = icmp eq ptr %50, %7
@@ -616,9 +616,9 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 
 .preheader.split:                                 ; preds = %.preheader, %74
   %55 = phi ptr [ %77, %74 ], [ %36, %.preheader ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 152
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 152
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %69, label %61
@@ -636,13 +636,13 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %56, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef %55, ptr noundef nonnull %62) #5
   br label %74
 
 69:                                               ; preds = %.preheader.split
-  %70 = getelementptr inbounds i8, ptr %57, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %74, label %73
@@ -652,7 +652,7 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
   br label %74
 
 74:                                               ; preds = %73, %69, %65, %64
-  %75 = getelementptr inbounds i8, ptr %55, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 112
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 -104
   %78 = icmp eq ptr %76, %7
@@ -662,12 +662,12 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 
 .loopexit:                                        ; preds = %74, %48, %.loopexit14, %17, %12
   %81 = phi ptr [ null, %12 ], [ null, %17 ], [ %35, %.loopexit14 ], [ %35, %48 ], [ %35, %74 ]
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %14, i64 152
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 152
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %11, label %.loopexit._crit_edge, label %82
 
 82:                                               ; preds = %.loopexit
-  %83 = getelementptr inbounds i8, ptr %.pre, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.loopexit._crit_edge, label %86
@@ -685,13 +685,13 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %.phi.trans.insert, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 96
   %93 = load ptr, ptr %92, align 8
   tail call void %93(ptr noundef %14, ptr noundef nonnull %87) #5
   br label %98
 
 .loopexit._crit_edge:                             ; preds = %.loopexit, %82
-  %94 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %98, label %97
@@ -703,7 +703,7 @@ define dso_local void @drm_atomic_bridge_chain_post_disable(ptr noundef %0, ptr 
 98:                                               ; preds = %97, %.loopexit._crit_edge, %90, %89
   %99 = icmp eq ptr %81, null
   %100 = select i1 %99, ptr %14, ptr %81
-  %101 = getelementptr inbounds i8, ptr %100, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 104
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr i8, ptr %102, i64 -104
   %104 = icmp eq ptr %102, %7
@@ -719,10 +719,10 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
-  %8 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %7
   br i1 %10, label %.loopexit, label %11
@@ -732,7 +732,7 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
   br label %17
 
 13:                                               ; preds = %103
-  %14 = getelementptr inbounds i8, ptr %106, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %106, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %7
   br i1 %16, label %.loopexit, label %17, !llvm.loop !29
@@ -754,10 +754,10 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
 
 .preheader15:                                     ; preds = %24, %35
   %28 = phi ptr [ %34, %35 ], [ %20, %24 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 177
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 177
   %30 = load i8, ptr %29, align 1, !range !21, !noundef !22
   %31 = icmp eq i8 %30, 0
-  %32 = getelementptr inbounds i8, ptr %28, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 -104
   br i1 %31, label %39, label %35
@@ -771,7 +771,7 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
 39:                                               ; preds = %35, %.preheader15
   %40 = phi ptr [ %34, %35 ], [ %28, %.preheader15 ]
   %41 = phi ptr [ %0, %35 ], [ %34, %.preheader15 ]
-  %42 = getelementptr inbounds i8, ptr %40, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %43 = icmp eq ptr %42, %7
   %44 = icmp eq ptr %40, %20
   %45 = or i1 %44, %43
@@ -783,9 +783,9 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
 .preheader.split.us:                              ; preds = %.preheader, %54
   %46 = phi ptr [ %55, %54 ], [ %42, %.preheader ]
   %47 = phi ptr [ %56, %54 ], [ %40, %.preheader ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -805,9 +805,9 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
 .preheader.split:                                 ; preds = %.preheader, %80
   %60 = phi ptr [ %81, %80 ], [ %42, %.preheader ]
   %61 = phi ptr [ %82, %80 ], [ %40, %.preheader ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 152
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %75, label %67
@@ -825,13 +825,13 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %62, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef %61, ptr noundef nonnull %68) #5
   br label %80
 
 75:                                               ; preds = %.preheader.split
-  %76 = getelementptr inbounds i8, ptr %63, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %80, label %79
@@ -855,7 +855,7 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
   br i1 %12, label %.thread._crit_edge, label %87
 
 87:                                               ; preds = %.thread
-  %88 = getelementptr inbounds i8, ptr %.pre, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.thread._crit_edge, label %91
@@ -873,13 +873,13 @@ define dso_local void @drm_atomic_bridge_chain_pre_enable(ptr noundef readonly %
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %.phi.trans.insert, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
   %98 = load ptr, ptr %97, align 8
   tail call void %98(ptr noundef %20, ptr noundef nonnull %92) #5
   br label %103
 
 .thread._crit_edge:                               ; preds = %.thread, %87
-  %99 = getelementptr inbounds i8, ptr %.pre, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %103, label %102
@@ -905,19 +905,19 @@ define dso_local void @drm_atomic_bridge_chain_enable(ptr noundef %0, ptr nounde
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4, %30
   %10 = phi ptr [ %31, %30 ], [ %8, %4 ]
   %11 = phi ptr [ %32, %30 ], [ %0, %4 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %25, label %17
@@ -935,13 +935,13 @@ define dso_local void @drm_atomic_bridge_chain_enable(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef %11, ptr noundef nonnull %18) #5
   br label %30
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %13, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
@@ -968,19 +968,19 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
   br i1 %6, label %.thread22, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   store i32 0, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 -104
-  %13 = getelementptr inbounds i8, ptr %1, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @drm_atomic_get_new_bridge_state(ptr noundef %14, ptr noundef %12) #5
   %16 = getelementptr i8, ptr %11, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %30, label %21
@@ -1012,13 +1012,13 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
   br i1 %33, label %.thread16, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %5, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %5, i64 224
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %44, label %42
@@ -1069,16 +1069,16 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 
 59:                                               ; preds = %57
   %.pre = load ptr, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %.pre27 = load ptr, ptr %.phi.trans.insert, align 8
-  %60 = getelementptr inbounds i8, ptr %.pre, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %.pre, i64 88
   %61 = icmp eq ptr %.pre27, %60
   br i1 %61, label %.thread22, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %5, i64 236
-  %64 = getelementptr inbounds i8, ptr %1, i64 144
-  %65 = getelementptr inbounds i8, ptr %1, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %66
 
 66:                                               ; preds = %117, %62
@@ -1092,7 +1092,7 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 72:                                               ; preds = %66
   %73 = getelementptr i8, ptr %67, i64 -8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
   %76 = load ptr, ptr %67, align 8
   %77 = icmp eq ptr %76, %75
   %78 = getelementptr i8, ptr %76, i64 -104
@@ -1106,7 +1106,7 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
   br i1 %83, label %89, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 28
   br label %86
 
 86:                                               ; preds = %84, %72
@@ -1116,16 +1116,16 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 
 89:                                               ; preds = %86, %81
   %90 = phi i32 [ 0, %81 ], [ %88, %86 ]
-  %91 = getelementptr inbounds i8, ptr %70, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %70, i64 36
   store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %70, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %70, i64 28
   store i32 %90, ptr %92, align 4
   br label %93
 
 93:                                               ; preds = %89, %66
   %94 = getelementptr i8, ptr %67, i64 48
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 136
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 136
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %109, label %99
@@ -1144,20 +1144,20 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %94, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 136
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 136
   %106 = load ptr, ptr %105, align 8
   %107 = call i32 %106(ptr noundef %68, ptr noundef nonnull %101, ptr noundef %1, ptr noundef %2) #5
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %115, label %.thread22
 
 109:                                              ; preds = %93
-  %110 = getelementptr inbounds i8, ptr %95, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %115, label %113
 
 113:                                              ; preds = %109
-  %114 = call zeroext i1 %111(ptr noundef %68, ptr noundef %64, ptr noundef %65) #5
+  %114 = call zeroext i1 %111(ptr noundef %68, ptr noundef nonnull %64, ptr noundef nonnull %65) #5
   br i1 %114, label %115, label %.thread22
 
 115:                                              ; preds = %103, %109, %113
@@ -1165,7 +1165,7 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
   br i1 %116, label %.thread22, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %67, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, %60
   br i1 %120, label %.thread22, label %66, !llvm.loop !46
@@ -1177,16 +1177,16 @@ define dso_local i32 @drm_atomic_bridge_chain_check(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_bridge_detect(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0) #5
   br label %12
@@ -1198,16 +1198,16 @@ define dso_local i32 @drm_bridge_detect(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_bridge_get_modes(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0, ptr noundef %1) #5
   br label %13
@@ -1219,16 +1219,16 @@ define dso_local i32 @drm_bridge_get_modes(ptr noundef %0, ptr noundef %1) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @drm_bridge_get_edid(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 2
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef %0, ptr noundef %1) #5
   br label %13
@@ -1240,16 +1240,16 @@ define dso_local ptr @drm_bridge_get_edid(ptr noundef %0, ptr noundef %1) #0 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_bridge_hpd_enable(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %23, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @mutex_lock(ptr noundef %9) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @mutex_lock(ptr noundef nonnull %9) #5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13, !prof !47
@@ -1265,11 +1265,11 @@ define dso_local void @drm_bridge_hpd_enable(ptr noundef %0, ptr noundef %1, ptr
 
 14:                                               ; preds = %8
   store ptr %1, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 184
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -1279,7 +1279,7 @@ define dso_local void @drm_bridge_hpd_enable(ptr noundef %0, ptr noundef %1, ptr
   br label %22
 
 22:                                               ; preds = %21, %14, %13
-  tail call void @mutex_unlock(ptr noundef %9) #5
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #5
   br label %23
 
 23:                                               ; preds = %22, %3
@@ -1291,18 +1291,18 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_bridge_hpd_disable(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @mutex_lock(ptr noundef %7) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @mutex_lock(ptr noundef nonnull %7) #5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -1312,9 +1312,9 @@ define dso_local void @drm_bridge_hpd_disable(ptr noundef %0) #0 align 16 {
   br label %14
 
 14:                                               ; preds = %13, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  tail call void @mutex_unlock(ptr noundef %7) #5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #5
   br label %16
 
 16:                                               ; preds = %14, %1
@@ -1323,21 +1323,21 @@ define dso_local void @drm_bridge_hpd_disable(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_bridge_hpd_notify(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @mutex_lock(ptr noundef %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @mutex_lock(ptr noundef nonnull %3) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %9 = load ptr, ptr %8, align 8
   tail call void %5(ptr noundef %9, i32 noundef %1) #5
   br label %10
 
 10:                                               ; preds = %7, %2
-  tail call void @mutex_unlock(ptr noundef %3) #5
+  tail call void @mutex_unlock(ptr noundef nonnull %3) #5
   ret void
 }
 
@@ -1346,9 +1346,9 @@ declare dso_local i32 @__devm_add_action(ptr noundef, ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @drm_bridge_atomic_duplicate_priv_state(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0) #5
   ret ptr %6
@@ -1356,9 +1356,9 @@ define internal ptr @drm_bridge_atomic_duplicate_priv_state(ptr noundef %0) #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_atomic_destroy_priv_state(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef %1) #5
   ret void
@@ -1372,20 +1372,20 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %9
   %13 = getelementptr i8, ptr %11, i64 -104
   %14 = select i1 %12, ptr null, ptr %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 328
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @drm_atomic_get_new_bridge_state(ptr noundef %16, ptr noundef %1) #5
-  %18 = getelementptr inbounds i8, ptr %1, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %33
@@ -1404,9 +1404,9 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
   br i1 %29, label %62, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %17, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %17, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %4, ptr %32, align 8
   br label %62
 
@@ -1436,9 +1436,9 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
 
 44:                                               ; preds = %42
   %45 = load i32, ptr %37, align 4
-  %46 = getelementptr inbounds i8, ptr %17, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %17, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %4, ptr %47, align 8
   call void @kfree(ptr noundef nonnull %37) #5
   br label %62
@@ -1463,9 +1463,9 @@ define internal fastcc range(i32 -524, 1) i32 @select_bus_fmt_recursive(ptr noun
 57:                                               ; preds = %.preheader
   %58 = getelementptr i32, ptr %37, i64 %48
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %17, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %17, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %4, ptr %61, align 8
   br label %.thread
 

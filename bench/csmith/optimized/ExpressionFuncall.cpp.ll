@@ -97,7 +97,7 @@ _ZL29ExpressionFunctionProbabilityRK9CGContext.exit: ; preds = %9, %11
   br i1 %.not34, label %17, label %21
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %22
@@ -109,7 +109,7 @@ _ZL29ExpressionFunctionProbabilityRK9CGContext.exit: ; preds = %9, %11
   %.030.shrunk = phi i1 [ false, %21 ], [ %.0.i, %17 ], [ %.0.i, %14 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   call void @_ZN6EffectC1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4), !noalias !5
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load ptr, ptr %23, align 8, !noalias !5
   %.not.i = icmp eq ptr %24, null
   %spec.select.i = select i1 %.not.i, ptr %4, ptr %24
@@ -119,7 +119,7 @@ _ZL29ExpressionFunctionProbabilityRK9CGContext.exit: ; preds = %9, %11
 common.resume:                                    ; preds = %55, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45, %25
   %.sink = phi ptr [ %4, %25 ], [ %5, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45 ], [ %5, %55 ]
   %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %.pn.pn, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45 ], [ %56, %55 ]
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %.sink) #15
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %22
@@ -128,9 +128,9 @@ common.resume:                                    ; preds = %55, %_ZNSt6vectorIP
   br label %common.resume
 
 _ZNK9CGContext16get_accum_effectEv.exit:          ; preds = %22
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #15
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke void @_ZN6EffectC1ERKS_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 8 dereferenceable(74) %27)
           to label %28 unwind label %55
 
@@ -139,8 +139,8 @@ _ZNK9CGContext16get_accum_effectEv.exit:          ; preds = %22
           to label %30 unwind label %57
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %29, i64 360
-  %32 = getelementptr inbounds i8, ptr %29, i64 368
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 360
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 368
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -151,9 +151,9 @@ _ZNK9CGContext16get_accum_effectEv.exit:          ; preds = %22
   br i1 %.not.i.i.i.i, label %.noexc39.thread, label %41
 
 .noexc39.thread:                                  ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %39 = getelementptr inbounds i8, ptr null, i64 %37
-  %40 = getelementptr inbounds i8, ptr %7, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %39, ptr %40, align 8
   br label %48
@@ -163,31 +163,31 @@ _ZNK9CGContext16get_accum_effectEv.exit:          ; preds = %22
   br i1 %42, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i
 
 .noexc.i.i:                                       ; preds = %41
-  invoke void @_ZSt28__throw_bad_array_new_lengthv() #16
+  invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i: ; preds = %41
-  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #17
+  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #18
           to label %44 unwind label %57
 
 44:                                               ; preds = %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i
   store ptr %43, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %43, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 %37
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %37
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %46, ptr %47, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %34, i64 %37, i1 false)
   br label %48
 
 48:                                               ; preds = %.noexc39.thread, %44
-  %49 = phi ptr [ %38, %.noexc39.thread ], [ %45, %44 ]
-  %50 = phi ptr [ null, %.noexc39.thread ], [ %43, %44 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 %37
-  store ptr %51, ptr %49, align 8
+  %49 = phi ptr [ %39, %.noexc39.thread ], [ %46, %44 ]
+  %50 = phi ptr [ %38, %.noexc39.thread ], [ %45, %44 ]
+  %51 = phi ptr [ null, %.noexc39.thread ], [ %43, %44 ]
+  store ptr %49, ptr %50, align 8
   %52 = invoke noundef ptr @_ZN18FunctionInvocation11make_randomEbR9CGContextPK4TypePK12CVQualifiers(i1 noundef zeroext %.030.shrunk, ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2)
           to label %53 unwind label %59
 
@@ -213,7 +213,7 @@ _ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i: ; preds = %41
   br label %85
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds i8, ptr %52, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %63 = load i8, ptr %62, align 8
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %76
@@ -241,14 +241,14 @@ _ZN9CGContext16reset_effect_stmERK6Effect.exit:   ; preds = %_ZN9CGContext18rese
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %52, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(56) %52) #15
+  call void %75(ptr noundef nonnull align 8 dereferenceable(56) %52) #16
   %.pre46 = load ptr, ptr %7, align 8
   br label %82
 
 76:                                               ; preds = %61
-  %77 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %77 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %78 unwind label %59
 
 78:                                               ; preds = %76
@@ -257,44 +257,44 @@ _ZN9CGContext16reset_effect_stmERK6Effect.exit:   ; preds = %_ZN9CGContext18rese
 
 _ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %78
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %52, ptr %79, align 8
   br label %82
 
 80:                                               ; preds = %78
   %81 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %77) #18
+  call void @_ZdlPv(ptr noundef nonnull %77) #19
   br label %85
 
 82:                                               ; preds = %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit, %72, %53
-  %83 = phi ptr [ %50, %53 ], [ %.pre46, %72 ], [ %50, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
+  %83 = phi ptr [ %51, %53 ], [ %.pre46, %72 ], [ %51, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
   %.1 = phi ptr [ null, %53 ], [ %71, %72 ], [ %77, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
   %.not.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %84
 
 84:                                               ; preds = %82
-  call void @_ZdlPv(ptr noundef nonnull %83) #18
+  call void @_ZdlPv(ptr noundef nonnull %83) #19
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %82, %84
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #15
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #15
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #16
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #16
   br label %88
 
 85:                                               ; preds = %80, %59
-  %86 = phi ptr [ %.pre, %59 ], [ %50, %80 ]
+  %86 = phi ptr [ %.pre, %59 ], [ %51, %80 ]
   %.pn = phi { ptr, i32 } [ %60, %59 ], [ %81, %80 ]
   %.not.i.i.i44 = icmp eq ptr %86, null
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45, label %87
 
 87:                                               ; preds = %85
-  call void @_ZdlPv(ptr noundef nonnull %86) #18
+  call void @_ZdlPv(ptr noundef nonnull %86) #19
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45:          ; preds = %87, %85, %57
   %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %.pn, %85 ], [ %.pn, %87 ]
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #15
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #16
   br label %common.resume
 
 88:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
@@ -325,26 +325,26 @@ declare void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74)) un
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK17ExpressionFuncall5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 2)
           to label %9 unwind label %11
 
 9:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %10, align 8
   ret ptr %8
 
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #19
   resume { ptr, i32 } %12
 }
 
@@ -352,7 +352,7 @@ define dso_local noundef nonnull ptr @_ZNK17ExpressionFuncall5cloneEv(ptr nocapt
 define dso_local void @_ZN17ExpressionFuncallC2ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 2)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -362,20 +362,20 @@ declare void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ExpressionFuncallD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %9
 
 9:                                                ; preds = %5, %1
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
   ret void
 }
 
@@ -385,30 +385,30 @@ declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ExpressionFuncallD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN17ExpressionFuncallD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
   br label %_ZN17ExpressionFuncallD2Ev.exit
 
 _ZN17ExpressionFuncallD2Ev.exit:                  ; preds = %1, %5
-  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK17ExpressionFuncall8get_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(136) ptr %6(ptr noundef nonnull align 8 dereferenceable(56) %3)
   ret ptr %7
@@ -416,10 +416,10 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK17Express
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK17ExpressionFuncall16get_called_funcsERSt6vectorIPK22FunctionInvocationUserSaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 1 %1)
   ret void
@@ -428,15 +428,15 @@ define dso_local void @_ZNK17ExpressionFuncall16get_called_funcsERSt6vectorIPK22
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK17ExpressionFuncall14get_complexityEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 2
   %spec.select = zext i1 %8 to i32
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %11, %12
@@ -449,7 +449,7 @@ define dso_local noundef i32 @_ZNK17ExpressionFuncall14get_complexityEv(ptr noun
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.011
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(24) %15)
   %20 = add i32 %19, %.110
@@ -470,10 +470,10 @@ define dso_local noundef i32 @_ZNK17ExpressionFuncall14get_complexityEv(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall11visit_factsERSt6vectorIPK4FactSaIS3_EER9CGContext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(216) %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(216) %2)
   ret i1 %9
@@ -483,18 +483,18 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall11visit_factsERSt6ve
 define dso_local void @_ZNK17ExpressionFuncall21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.67") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.67", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %8, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit
@@ -503,7 +503,7 @@ define dso_local void @_ZNK17ExpressionFuncall21get_dereferenced_ptrsEv(ptr dead
   %14 = getelementptr inbounds ptr, ptr %13, i64 %.017
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.67") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %19 unwind label %42
@@ -526,14 +526,14 @@ define dso_local void @_ZNK17ExpressionFuncall21get_dereferenced_ptrsEv(ptr dead
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit, label %30
 
 30:                                               ; preds = %28
-  call void @_ZdlPv(ptr noundef nonnull %29) #18
+  call void @_ZdlPv(ptr noundef nonnull %29) #19
   br label %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit: ; preds = %28, %30
   %31 = add nuw i64 %.017, 1
   %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
-  %34 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %37 = ptrtoint ptr %35 to i64
@@ -556,7 +556,7 @@ _ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit: ; preds = %28, %30
   br i1 %.not.i.i.i12, label %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit13, label %47
 
 47:                                               ; preds = %44
-  call void @_ZdlPv(ptr noundef nonnull %46) #18
+  call void @_ZdlPv(ptr noundef nonnull %46) #19
   br label %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit13
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit, %2
@@ -569,7 +569,7 @@ _ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit13: ; preds = %47, %44, %42
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit15, label %49
 
 49:                                               ; preds = %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit13
-  call void @_ZdlPv(ptr noundef nonnull %48) #18
+  call void @_ZdlPv(ptr noundef nonnull %48) #19
   br label %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit15
 
 _ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit15: ; preds = %_ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit13, %49
@@ -578,10 +578,10 @@ _ZNSt6vectorIPK18ExpressionVariableSaIS2_EED2Ev.exit15: ; preds = %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK17ExpressionFuncall19get_referenced_ptrsERSt6vectorIPK8VariableSaIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %7, %8
@@ -593,13 +593,13 @@ define dso_local void @_ZNK17ExpressionFuncall19get_referenced_ptrsERSt6vectorIP
   %10 = getelementptr inbounds ptr, ptr %9, i64 %.08
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %15 = add nuw i64 %.08, 1
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
@@ -611,16 +611,16 @@ define dso_local void @_ZNK17ExpressionFuncall19get_referenced_ptrsERSt6vectorIP
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.lcssa = phi ptr [ %4, %2 ], [ %16, %.lr.ph ]
-  %26 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 2
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %._crit_edge
-  %30 = tail call ptr @__dynamic_cast(ptr nonnull %.lcssa, ptr nonnull @_ZTI18FunctionInvocation, ptr nonnull @_ZTI22FunctionInvocationUser, i64 0) #15
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %30 = tail call ptr @__dynamic_cast(ptr nonnull %.lcssa, ptr nonnull @_ZTI18FunctionInvocation, ptr nonnull @_ZTI22FunctionInvocationUser, i64 0) #16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 400
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 400
   %34 = tail call noundef zeroext i1 @_Z20add_variables_to_setRSt6vectorIPK8VariableSaIS2_EERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %33)
   br label %35
 
@@ -635,7 +635,7 @@ declare noundef zeroext i1 @_Z20add_variables_to_setRSt6vectorIPK8VariableSaIS2_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall28has_uncertain_call_recursiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef zeroext i1 @_ZNK18FunctionInvocation28has_uncertain_call_recursiveEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
   ret i1 %4
@@ -645,7 +645,7 @@ declare noundef zeroext i1 @_ZNK18FunctionInvocation28has_uncertain_call_recursi
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK17ExpressionFuncall14get_qualifiersEv(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK18FunctionInvocation14get_qualifiersEv(ptr dead_on_unwind writable sret(%class.CVQualifiers) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %4)
   ret void
@@ -655,10 +655,10 @@ declare void @_ZNK18FunctionInvocation14get_qualifiersEv(ptr dead_on_unwind writ
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall7use_varEPK8Variable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %7, %8
@@ -667,8 +667,8 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall7use_varEPK8Variable
 9:                                                ; preds = %.lr.ph
   %10 = add nuw i64 %.06, 1
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -684,7 +684,7 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall7use_varEPK8Variable
   %22 = getelementptr inbounds ptr, ptr %21, i64 %.06
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %1)
   br i1 %27, label %._crit_edge, label %9
@@ -696,10 +696,10 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall7use_varEPK8Variable
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall10compatibleEPK8Variable(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %1)
   ret i1 %8
@@ -713,10 +713,10 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall10compatibleEPK10Exp
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK17ExpressionFuncall6OutputERSo(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   tail call void @_ZNK10Expression11output_castERSo(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -726,10 +726,10 @@ declare void @_ZNK10Expression11output_castERSo(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK17ExpressionFuncall15indented_outputERSoi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   ret void
@@ -737,9 +737,9 @@ define dso_local void @_ZNK17ExpressionFuncall15indented_outputERSoi(ptr nocaptu
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK17ExpressionFuncall19get_eval_to_subexpsERSt6vectorIPK10ExpressionSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %4, %6
   br i1 %.not.i.i, label %10, label %7
@@ -747,7 +747,7 @@ define linkonce_odr dso_local void @_ZNK17ExpressionFuncall19get_eval_to_subexps
 7:                                                ; preds = %2
   store ptr %0, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %3, align 8
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 
@@ -760,7 +760,7 @@ define linkonce_odr dso_local void @_ZNK17ExpressionFuncall19get_eval_to_subexps
   br i1 %15, label %16, label %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
 
 16:                                               ; preds = %10
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
   unreachable
 
 _ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %10
@@ -770,40 +770,33 @@ _ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %1
   %19 = icmp ult i64 %18, %17
   %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 1152921504606846975)
   %21 = select i1 %19, i64 1152921504606846975, i64 %20
-  %.not.i.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE11_M_allocateEm.exit.i.i.i, label %22
+  %.not.i.i.i.i = icmp ne i64 %21, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %22 = shl nuw nsw i64 %21, 3
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #18
+  %24 = getelementptr inbounds i8, ptr %23, i64 %14
+  store ptr %0, ptr %24, align 8
+  %25 = icmp sgt i64 %14, 0
+  br i1 %25, label %26, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
-22:                                               ; preds = %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %23 = shl nuw nsw i64 %21, 3
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #17
-  br label %_ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds = %22, %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
-  %25 = phi ptr [ %24, %22 ], [ null, %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %17
-  store ptr %0, ptr %26, align 8
-  %27 = icmp sgt i64 %14, 0
-  br i1 %27, label %28, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-
-28:                                               ; preds = %_ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %25, ptr align 8 %11, i64 %14, i1 false)
+26:                                               ; preds = %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %11, i64 %14, i1 false)
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
-_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %28, %_ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE11_M_allocateEm.exit.i.i.i
-  %29 = getelementptr inbounds i8, ptr %25, i64 %14
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %26, %_ZNKSt6vectorIPK10ExpressionSaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.not.i17.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %31
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %28
 
-31:                                               ; preds = %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #18
+28:                                               ; preds = %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #19
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  store ptr %25, ptr %1, align 8
-  store ptr %30, ptr %3, align 8
-  %32 = getelementptr inbounds ptr, ptr %25, i64 %21
-  store ptr %32, ptr %5, align 8
+_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
+  store ptr %23, ptr %1, align 8
+  store ptr %27, ptr %3, align 8
+  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit: ; preds = %7, %_ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
@@ -812,7 +805,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit: ; preds = %7, %_ZNSt6ve
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK17ExpressionFuncall10get_invokeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -829,10 +822,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK10Expression10not_equalsEi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall6equalsEi(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %1)
   ret i1 %8
@@ -840,10 +833,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall6equals
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall9is_0_or_1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(56) %3)
   ret i1 %7
@@ -878,9 +871,9 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPK18ExpressionVariableSaIS2_EE1
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %11 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -964,7 +957,7 @@ _ZSt22__uninitialized_move_aIPPK18ExpressionVariableS3_SaIS2_EET0_T_S6_S5_RT1_.e
   br i1 %48, label %49, label %_ZNKSt6vectorIPK18ExpressionVariableSaIS2_EE12_M_check_lenEmPKc.exit
 
 49:                                               ; preds = %42
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #17
   unreachable
 
 _ZNKSt6vectorIPK18ExpressionVariableSaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %42
@@ -978,7 +971,7 @@ _ZNKSt6vectorIPK18ExpressionVariableSaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
 
 54:                                               ; preds = %_ZNKSt6vectorIPK18ExpressionVariableSaIS2_EE12_M_check_lenEmPKc.exit
   %55 = shl nuw nsw i64 %53, 3
-  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #17
+  %56 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #18
   br label %_ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIPK18ExpressionVariableSaIS2_EE12_M_check_lenEmPKc.exit, %54
@@ -1010,13 +1003,13 @@ _ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE11_M_allocateEm.exit: ; preds 
   br i1 %.not.i61, label %_ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE13_M_deallocateEPS2_m.exit, label %68
 
 68:                                               ; preds = %66
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #19
   br label %_ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIPK18ExpressionVariableSaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8
   store ptr %67, ptr %12, align 8
-  %69 = getelementptr inbounds ptr, ptr %57, i64 %53
+  %69 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
   store ptr %69, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -1027,24 +1020,27 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPK18ExpressionVariableSt6vectorIS4_SaI
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ExpressionFuncall.cpp() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1058,13 +1054,14 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { builtin nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -51,11 +51,11 @@ define dso_local void @_ZN4llvm9MCSectionC2ENS0_14SectionVariantENS_9StringRefEb
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr noundef nonnull align 8 dereferenceable(30) %23, i8 noundef zeroext 14, i1 noundef zeroext false) #8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull %25, i64 noundef 1) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %2, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %27, align 8
@@ -206,14 +206,14 @@ define dso_local void @_ZN4llvm9MCSectionD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph21
-  %9 = getelementptr inbounds i8, ptr %.019, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %.not = icmp eq ptr %9, %5
   br i1 %.not, label %._crit_edge22, label %.lr.ph21
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %1
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZN4llvm11SmallVectorISt4pairIjNS_9MCSection8FragListEELj1EED2Ev.exit, label %14
 
@@ -317,7 +317,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9
   br i1 %spec.select.i.i.i.i, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %12, i64 noundef %4, i64 noundef 24) #8
   %.pre = load ptr, ptr %0, align 8
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE28reserveForParamAndGetAddressERKS4_m.exit
@@ -327,7 +327,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9
   %15 = ptrtoint ptr %1 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %4, i64 noundef 24) #8
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %17

@@ -64,7 +64,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 35:                                               ; preds = %.lr.ph331, %54
   %indvars.iv415 = phi i64 [ 1, %.lr.ph331 ], [ %indvars.iv.next416, %54 ]
-  %36 = getelementptr inbounds double, ptr %14, i64 %indvars.iv415
+  %36 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv415
   %37 = load double, ptr %36, align 8
   %38 = tail call noundef double @llvm.fabs.f64(double %37)
   %39 = fcmp ogt double %38, 0x10000000000000
@@ -83,7 +83,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv411 = phi i64 [ 1, %.lr.ph327 ], [ %indvars.iv.next412, %41 ]
   %gep495 = getelementptr double, ptr %invariant.gep494, i64 %indvars.iv411
   %42 = load double, ptr %gep495, align 8
-  %43 = getelementptr inbounds double, ptr %14, i64 %indvars.iv411
+  %43 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv411
   %44 = load double, ptr %43, align 8
   %45 = tail call double @llvm.fmuladd.f64(double %37, double %42, double %44)
   store double %45, ptr %43, align 8
@@ -184,7 +184,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 81:                                               ; preds = %.lr.ph346, %100
   %indvars.iv429 = phi i64 [ %79, %.lr.ph346 ], [ %indvars.iv.next430, %100 ]
-  %82 = getelementptr inbounds double, ptr %14, i64 %indvars.iv429
+  %82 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv429
   %83 = load double, ptr %82, align 8
   %84 = tail call noundef double @llvm.fabs.f64(double %83)
   %85 = fcmp ogt double %84, 0x10000000000000
@@ -203,7 +203,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv426 = phi i64 [ %79, %.lr.ph343 ], [ %indvars.iv.next427, %87 ]
   %gep499 = getelementptr double, ptr %invariant.gep498, i64 %indvars.iv426
   %88 = load double, ptr %gep499, align 8
-  %89 = getelementptr inbounds double, ptr %14, i64 %indvars.iv426
+  %89 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv426
   %90 = load double, ptr %89, align 8
   %91 = tail call double @llvm.fmuladd.f64(double %83, double %88, double %90)
   store double %91, ptr %89, align 8
@@ -324,7 +324,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 141:                                              ; preds = %._crit_edge361, %.lr.ph364
   %indvars.iv438 = phi i64 [ %139, %.lr.ph364 ], [ %indvars.iv.next439, %._crit_edge361 ]
-  %142 = getelementptr inbounds double, ptr %14, i64 %indvars.iv438
+  %142 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv438
   %143 = load double, ptr %142, align 8
   switch i8 %17, label %151 [
     i8 110, label %144
@@ -360,7 +360,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv.next441 = add nsw i64 %indvars.iv440, -1
   %gep503 = getelementptr double, ptr %invariant.gep502, i64 %indvars.iv.next441
   %155 = load double, ptr %gep503, align 8
-  %156 = getelementptr inbounds double, ptr %14, i64 %indvars.iv.next441
+  %156 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next441
   %157 = load double, ptr %156, align 8
   %158 = tail call double @llvm.fmuladd.f64(double %155, double %157, double %.1358)
   %159 = icmp samesign ugt i64 %indvars.iv440, 2
@@ -469,7 +469,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv469 = phi i64 [ 1, %.lr.ph386 ], [ %indvars.iv.next470, %._crit_edge382 ]
   %indvars.iv462 = phi i32 [ 2, %.lr.ph386 ], [ %indvars.iv.next463, %._crit_edge382 ]
   %201 = sext i32 %indvars.iv462 to i64
-  %202 = getelementptr inbounds double, ptr %14, i64 %indvars.iv469
+  %202 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv469
   %203 = load double, ptr %202, align 8
   switch i8 %17, label %211 [
     i8 110, label %204
@@ -501,7 +501,7 @@ define void @dtrmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %.5379 = phi double [ %.4, %.lr.ph381 ], [ %217, %213 ]
   %gep507 = getelementptr double, ptr %invariant.gep506, i64 %indvars.iv464
   %214 = load double, ptr %gep507, align 8
-  %215 = getelementptr inbounds double, ptr %14, i64 %indvars.iv464
+  %215 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv464
   %216 = load double, ptr %215, align 8
   %217 = tail call double @llvm.fmuladd.f64(double %214, double %216, double %.5379)
   %indvars.iv.next465 = add nsw i64 %indvars.iv464, 1

@@ -774,25 +774,25 @@ if.end6:                                          ; preds = %if.then2, %if.end
   %hi.addr.0 = phi i64 [ %call, %if.then2 ], [ %hi, %if.end ]
   %1 = getelementptr i8, ptr %list, i64 8
   %list.val = load ptr, ptr %1, align 8
-  %tp_as_sequence.i = getelementptr inbounds i8, ptr %list.val, i64 104
+  %tp_as_sequence.i = getelementptr inbounds nuw i8, ptr %list.val, i64 104
   %2 = load ptr, ptr %tp_as_sequence.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i58, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %sq_item.i = getelementptr inbounds i8, ptr %2, i64 24
+  %sq_item.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %sq_item.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %if.end.i58, label %if.end10
 
 if.end.i58:                                       ; preds = %land.lhs.true.i, %if.end6
-  %tp_as_mapping.i = getelementptr inbounds i8, ptr %list.val, i64 112
+  %tp_as_mapping.i = getelementptr inbounds nuw i8, ptr %list.val, i64 112
   %4 = load ptr, ptr %tp_as_mapping.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i58
-  %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
+  %mp_subscript.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
   br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
@@ -803,7 +803,7 @@ if.else.i:                                        ; preds = %land.lhs.true4.i, %
 get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
   %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %list.val, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull %msg.0.i, ptr noundef %7) #2
   br label %return
@@ -820,7 +820,7 @@ if.end13:                                         ; preds = %if.end10
   br i1 %cmp1595145167, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end13
-  %tp_richcompare = getelementptr inbounds i8, ptr %item.val, i64 200
+  %tp_richcompare = getelementptr inbounds nuw i8, ptr %item.val, i64 200
   %9 = load ptr, ptr %tp_richcompare, align 8
   %cmp20.not = icmp eq ptr %key, @_Py_NoneStruct
   %.fr = freeze ptr %9
@@ -1260,25 +1260,25 @@ if.end6:                                          ; preds = %if.then2, %if.end
   %hi.addr.0 = phi i64 [ %call, %if.then2 ], [ %hi, %if.end ]
   %1 = getelementptr i8, ptr %list, i64 8
   %list.val = load ptr, ptr %1, align 8
-  %tp_as_sequence.i = getelementptr inbounds i8, ptr %list.val, i64 104
+  %tp_as_sequence.i = getelementptr inbounds nuw i8, ptr %list.val, i64 104
   %2 = load ptr, ptr %tp_as_sequence.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i58, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %sq_item.i = getelementptr inbounds i8, ptr %2, i64 24
+  %sq_item.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %sq_item.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %if.end.i58, label %if.end10
 
 if.end.i58:                                       ; preds = %land.lhs.true.i, %if.end6
-  %tp_as_mapping.i = getelementptr inbounds i8, ptr %list.val, i64 112
+  %tp_as_mapping.i = getelementptr inbounds nuw i8, ptr %list.val, i64 112
   %4 = load ptr, ptr %tp_as_mapping.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i58
-  %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
+  %mp_subscript.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
   br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
@@ -1289,7 +1289,7 @@ if.else.i:                                        ; preds = %land.lhs.true4.i, %
 get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
   %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %list.val, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull %msg.0.i, ptr noundef %7) #2
   br label %return
@@ -1306,7 +1306,7 @@ if.end13:                                         ; preds = %if.end10
   br i1 %cmp1590136158, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end13
-  %tp_richcompare = getelementptr inbounds i8, ptr %item.val, i64 200
+  %tp_richcompare = getelementptr inbounds nuw i8, ptr %item.val, i64 200
   %9 = load ptr, ptr %tp_richcompare, align 8
   %cmp20.not = icmp eq ptr %key, @_Py_NoneStruct
   %.fr = freeze ptr %9

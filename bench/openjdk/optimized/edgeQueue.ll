@@ -40,11 +40,11 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN9EdgeQueueC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   ret void
 }
@@ -62,9 +62,9 @@ define hidden noundef zeroext i1 @_ZN9EdgeQueue10initializeEv(ptr nocapture noun
 4:                                                ; preds = %1
   tail call void @_ZN16JfrVirtualMemoryC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   store ptr %2, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN16JfrVirtualMemory10initializeEmmm(ptr noundef nonnull align 8 dereferenceable(56) %2, i64 noundef %6, i64 noundef %8, i64 noundef 16) #7
   %10 = icmp ne ptr %9, null
@@ -108,7 +108,7 @@ define hidden void @_ZN9EdgeQueue3addEPK4Edge13UnifiedOopRef(ptr nocapture nound
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef ptr @_ZN16JfrVirtualMemory9new_datumEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #7
   tail call void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %1, i64 %2) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8
@@ -121,23 +121,23 @@ declare void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK9EdgeQueue3topEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK9EdgeQueue6bottomEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK9EdgeQueue8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %3, %5
   ret i1 %6
@@ -155,7 +155,7 @@ declare noundef zeroext i1 @_ZNK16JfrVirtualMemory7is_fullEv(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK9EdgeQueue6removeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 8

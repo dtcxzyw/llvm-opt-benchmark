@@ -234,13 +234,13 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.not69, label %62, label %.loopexit
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %60, i64 65
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 65
   %64 = load i8, ptr %63, align 1
   %.not70 = icmp eq i8 %64, 0
   br i1 %.not70, label %69, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %60, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call fastcc i32 @list_config(ptr noundef %67)
   br label %.loopexit
@@ -278,13 +278,13 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
   %82 = load i8, ptr %81, align 8
   %.not72 = icmp eq i8 %82, 0
   br i1 %.not72, label %.loopexit, label %83
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 @g_strcmp0(ptr noundef %85, ptr noundef nonnull @.str.6) #6
   %.not73 = icmp eq i32 %86, 0
@@ -307,7 +307,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %4, align 2
   %98 = zext i16 %97 to i32
@@ -325,7 +325,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %.not75, label %.loopexit, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %80, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = load i16, ptr %4, align 2
   %110 = zext i16 %109 to i32
@@ -341,14 +341,14 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %114 = load i64, ptr %6, align 8
   call void @randpkt_loop(ptr noundef nonnull %.05699, i64 noundef 1, i64 noundef %114) #6
   %115 = call i32 @randpkt_parse_type(ptr noundef null) #6
-  %116 = getelementptr inbounds i8, ptr %.05699, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %.05699, i64 56
   %117 = load ptr, ptr %116, align 8
   %118 = call ptr @randpkt_find_example(i32 noundef %115) #6
   %.not77 = icmp eq ptr %118, null
   br i1 %.not77, label %.loopexit, label %119
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i8, ptr %118, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 56
   store ptr %117, ptr %120, align 8
   %121 = load i64, ptr %5, align 8
   %122 = add i64 %121, -1

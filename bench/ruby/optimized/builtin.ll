@@ -66,7 +66,7 @@ define hidden void @rb_load_with_builtin_functions(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i, label %bin4feature.exit.i, label %.lr.ph.i.preheader
 
 bin4feature.exit.i:                               ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not12.i = icmp eq ptr %10, null
   br i1 %.not12.i, label %.lr.ph.i.preheader, label %builtin_lookup.exit.thread
@@ -82,7 +82,7 @@ bin4feature.exit.i:                               ; preds = %2
   br i1 %.not.i10.i, label %13, label %bin4feature.exit11.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %bin4feature.exit11.i
 
@@ -106,7 +106,7 @@ builtin_lookup.exit.thread:                       ; preds = %bin4feature.exit.i,
   %.09.lcssa.i15 = phi ptr [ %16, %builtin_lookup.exit ], [ %10, %bin4feature.exit.i ]
   %.013.i.pn = phi ptr [ %.013.i, %builtin_lookup.exit ], [ %6, %bin4feature.exit.i ]
   %22 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1328
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1328
   %24 = load ptr, ptr %23, align 8
   %.not10 = icmp eq ptr %24, null
   br i1 %.not10, label %26, label %25
@@ -116,7 +116,7 @@ builtin_lookup.exit.thread:                       ; preds = %bin4feature.exit.i,
   unreachable
 
 26:                                               ; preds = %builtin_lookup.exit.thread
-  %.014.in = getelementptr inbounds i8, ptr %.013.i.pn, i64 16
+  %.014.in = getelementptr inbounds nuw i8, ptr %.013.i.pn, i64 16
   %.014 = load i64, ptr %.014.in, align 8
   store ptr %1, ptr %23, align 8
   %27 = tail call ptr @rb_iseq_ibf_load_bytes(ptr noundef nonnull %.09.lcssa.i15, i64 noundef %.014) #8

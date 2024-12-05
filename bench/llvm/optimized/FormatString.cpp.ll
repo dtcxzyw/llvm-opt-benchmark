@@ -176,7 +176,7 @@ define dso_local void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr
   %16 = phi i8 [ %14, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   %.0162337 = phi ptr [ %17, %.lr.ph ], [ %4, %.lr.ph.preheader ]
   %.02536 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.0162337, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0162337, i64 1
   %.not = icmp eq ptr %17, %2
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
@@ -227,7 +227,7 @@ define dso_local void @_ZN5clang21analyze_format_string22ParseNonPositionAmountE
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %9, ptr %1, align 8
   %10 = load i32, ptr %3, align 4
   %11 = add i32 %10, 1
@@ -276,7 +276,7 @@ define dso_local void @_ZN5clang21analyze_format_string22ParseNonPositionAmountE
   %31 = phi i8 [ %29, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
   %.01623.i11 = phi ptr [ %32, %.lr.ph.i ], [ %5, %.lr.ph.preheader.i ]
   %.025.i10 = phi i32 [ %28, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %32 = getelementptr inbounds i8, ptr %.01623.i11, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.01623.i11, i64 1
   %.not.i = icmp eq ptr %32, %2
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
@@ -325,7 +325,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   br i1 %9, label %10, label %83
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.not22.i = icmp eq ptr %11, %4
   br i1 %.not22.i, label %.loopexit, label %.lr.ph.preheader.i
 
@@ -353,7 +353,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   %23 = phi i8 [ %21, %.lr.ph.i ], [ %15, %.lr.ph.preheader.i ]
   %.01623.i63 = phi ptr [ %24, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
   %.025.i62 = phi i32 [ %20, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %24 = getelementptr inbounds i8, ptr %.01623.i63, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01623.i63, i64 1
   %.not.i = icmp eq ptr %24, %4
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
@@ -364,7 +364,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   %27 = sub i64 %25, %26
   %28 = trunc i64 %27 to i32
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef %28, i32 noundef %5) #14
   store ptr null, ptr %0, align 8
@@ -397,7 +397,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   %46 = trunc i64 %45 to i32
   %47 = add i32 %46, 1
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef %47) #14
   store ptr null, ptr %0, align 8
@@ -416,7 +416,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   br label %109
 
 58:                                               ; preds = %40
-  %59 = getelementptr inbounds i8, ptr %.01623.i63, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.01623.i63, i64 2
   store ptr %59, ptr %3, align 8
   %60 = add i32 %20, -1
   store ptr %7, ptr %0, align 8
@@ -440,7 +440,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   %71 = sub i64 %69, %70
   %72 = trunc i64 %71 to i32
   %73 = load ptr, ptr %1, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %7, i32 noundef %72, i32 noundef %5) #14
   store ptr null, ptr %0, align 8
@@ -486,7 +486,7 @@ define dso_local void @_ZN5clang21analyze_format_string19ParsePositionAmountERNS
   %94 = phi i8 [ %92, %.lr.ph.i30 ], [ %8, %.lr.ph.preheader.i28 ]
   %.01623.i3358 = phi ptr [ %95, %.lr.ph.i30 ], [ %7, %.lr.ph.preheader.i28 ]
   %.025.i3157 = phi i32 [ %91, %.lr.ph.i30 ], [ 0, %.lr.ph.preheader.i28 ]
-  %95 = getelementptr inbounds i8, ptr %.01623.i3358, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.01623.i3358, i64 1
   %.not.i38 = icmp eq ptr %95, %4
   br i1 %.not.i38, label %.loopexit.i35, label %.lr.ph.i30, !llvm.loop !4
 
@@ -540,7 +540,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15ParseFiel
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %13, ptr %3, align 8, !noalias !15
   %14 = load i32, ptr %5, align 4, !noalias !15
   %15 = add i32 %14, 1
@@ -575,7 +575,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15ParseFiel
   %28 = phi i8 [ %26, %.lr.ph.i.i ], [ %10, %.lr.ph.preheader.i.i ]
   %.01623.i11.i = phi ptr [ %29, %.lr.ph.i.i ], [ %9, %.lr.ph.preheader.i.i ]
   %.025.i10.i = phi i32 [ %25, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.01623.i11.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.01623.i11.i, i64 1
   %.not.i.i = icmp eq ptr %29, %4
   br i1 %.not.i.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -601,15 +601,15 @@ _ZN5clang21analyze_format_string22ParseNonPositionAmountERPKcS2_Rj.exit: ; preds
   %.sroa.8.1 = phi i32 [ %14, %12 ], [ %.sroa.8.0, %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.i ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %.sroa.0.1, ptr %33, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %.sroa.4.1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %.sroa.8.1, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 36
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 37
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 37
   store i8 0, ptr %.sroa.16.0..sroa_idx, align 1
   br label %40
 
@@ -660,7 +660,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgP
   %18 = phi i8 [ %16, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
   %.01623.i43 = phi ptr [ %19, %.lr.ph.i ], [ %6, %.lr.ph.preheader.i ]
   %.025.i42 = phi i32 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %19 = getelementptr inbounds i8, ptr %.01623.i43, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01623.i43, i64 1
   %.not.i = icmp eq ptr %19, %4
   br i1 %.not.i, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit, label %.lr.ph.i, !llvm.loop !4
 
@@ -675,13 +675,13 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit._crit_edge: ; preds =
   %22 = sub i64 %.pre, %21
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %23) #14
   br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
 _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds i8, ptr %.01623.i43, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.01623.i43, i64 2
   %28 = icmp eq i8 %16, 36
   br i1 %28, label %29, label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
 
@@ -691,7 +691,7 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.l
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %33) #14
   %37 = icmp eq i32 %15, 0
@@ -699,7 +699,7 @@ _ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread: ; preds = %.l
 
 38:                                               ; preds = %29
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, i32 noundef %33) #14
   br label %_ZN5clang21analyze_format_string11ParseAmountERPKcS2_.exit.thread52
@@ -733,7 +733,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   br i1 %12, label %13, label %47
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %14, ptr %2, align 8
   %15 = icmp eq ptr %14, %3
   br i1 %15, label %16, label %.lr.ph.preheader.i
@@ -744,7 +744,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10, i32 noundef %20) #14
   br label %47
@@ -773,7 +773,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   %35 = phi i8 [ %33, %.lr.ph.i ], [ %27, %.lr.ph.preheader.i ]
   %.01623.i34 = phi ptr [ %36, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
   %.025.i33 = phi i32 [ %32, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %36 = getelementptr inbounds i8, ptr %.01623.i34, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.01623.i34, i64 1
   %.not.i = icmp eq ptr %36, %3
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
@@ -784,7 +784,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   %38 = sub i64 %25, %37
   %39 = trunc i64 %38 to i32
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10, i32 noundef %39) #14
   br label %47
@@ -796,15 +796,15 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseVect
   store ptr %36, ptr %2, align 8, !noalias !24
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %14, ptr %46, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 80
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %45, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 84
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 88
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 %32, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 92
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 93
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 93
   store i8 0, ptr %.sroa.11.0..sroa_idx, align 1
   br label %47
 
@@ -832,7 +832,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %9, ptr %1, align 8
   %.not64 = icmp eq ptr %9, %2
   br i1 %.not64, label %.thread, label %10
@@ -845,7 +845,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %6, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %.thread.sink.split
 
 14:                                               ; preds = %10
@@ -856,11 +856,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   br i1 %.not66, label %.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %6, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %.thread.sink.split
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %6, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %21, ptr %1, align 8
   %.not63 = icmp eq ptr %21, %2
   br i1 %.not63, label %.thread, label %22
@@ -871,27 +871,27 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %6, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %.thread.sink.split
 
 27:                                               ; preds = %5
-  %28 = getelementptr inbounds i8, ptr %6, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 29:                                               ; preds = %5
-  %30 = getelementptr inbounds i8, ptr %6, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 31:                                               ; preds = %5
-  %32 = getelementptr inbounds i8, ptr %6, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 33:                                               ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %6, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 35:                                               ; preds = %5
-  %36 = getelementptr inbounds i8, ptr %6, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 37:                                               ; preds = %5
@@ -904,7 +904,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   br i1 %or.cond, label %41, label %70
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %6, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %42, ptr %1, align 8
   %.not62 = icmp eq ptr %42, %2
   br i1 %.not62, label %45, label %43
@@ -925,16 +925,16 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   br i1 %4, label %47, label %70
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %6, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 49:                                               ; preds = %5
-  %50 = getelementptr inbounds i8, ptr %6, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %.not = icmp eq ptr %50, %2
   br i1 %.not, label %.thread.sink.split, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %6, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %.not59 = icmp eq ptr %52, %2
   br i1 %.not59, label %.thread.sink.split, label %53
 
@@ -949,7 +949,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
   br i1 %58, label %59, label %.thread67
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %6, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %.thread.sink.split
 
 61:                                               ; preds = %53
@@ -965,13 +965,13 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
 64:                                               ; preds = %62
   %65 = load i8, ptr %52, align 1
   %66 = icmp eq i8 %65, 50
-  %67 = getelementptr inbounds i8, ptr %6, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %spec.select = select i1 %66, ptr %67, ptr %50
   %spec.select69 = select i1 %66, i32 10, i32 11
   br label %.thread.sink.split
 
 68:                                               ; preds = %5
-  %69 = getelementptr inbounds i8, ptr %6, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %64, %49, %51, %62, %.thread67, %27, %29, %31, %33, %35, %47, %59, %68, %18, %12, %25
@@ -983,7 +983,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLeng
 .thread:                                          ; preds = %.thread.sink.split, %10, %8, %43, %43, %43, %20, %22, %14
   %.050 = phi i32 [ 2, %14 ], [ 4, %22 ], [ 4, %20 ], [ 14, %43 ], [ 14, %43 ], [ 14, %43 ], [ 2, %8 ], [ 2, %10 ], [ %.050.ph, %.thread.sink.split ]
   store ptr %6, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.050, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %70
 
@@ -997,7 +997,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.not = icmp ult ptr %4, %1
   br i1 %.not, label %5, label %14
 
@@ -1006,7 +1006,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8
   %7 = tail call noundef i32 @_ZN4llvm18getNumBytesForUTF8Eh(i8 noundef zeroext %6) #14
   %8 = icmp eq i32 %7, 1
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds i8, ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %11 = icmp ugt ptr %10, %1
   %or.cond = select i1 %8, i1 true, i1 %11
   br i1 %or.cond, label %14, label %12
@@ -1131,7 +1131,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %_ZNK5clang4Type5get
 
 55:                                               ; preds = %44
   %56 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %51) #14
-  %57 = getelementptr inbounds i8, ptr %56, i64 74
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 74
   %58 = load i8, ptr %57, align 2
   %59 = and i8 %58, 1
   %60 = icmp ne i8 %59, 0
@@ -1216,7 +1216,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %_ZNK5clang4Type5get
 
 100:                                              ; preds = %89
   %101 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %96) #14
-  %102 = getelementptr inbounds i8, ptr %101, i64 74
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 74
   %103 = load i8, ptr %102, align 2
   %104 = and i8 %103, 1
   %105 = icmp ne i8 %104, 0
@@ -1896,7 +1896,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit322.thread:     ; preds = %438, %_ZNK5clang4Ty
 
 switch.lookup:                                    ; preds = %87
   %451 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table._ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE, i64 0, i64 %451
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE, i64 0, i64 %451
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge2
 
@@ -2318,7 +2318,7 @@ define dso_local noundef ptr @_ZNK5clang21analyze_format_string14LengthModifier8
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table._ZNK5clang21analyze_format_string14LengthModifier8toStringEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZNK5clang21analyze_format_string14LengthModifier8toStringEv, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -2337,7 +2337,7 @@ define dso_local noundef ptr @_ZNK5clang21analyze_format_string19ConversionSpeci
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [39 x ptr], ptr @switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [39 x ptr], ptr @switch.table._ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -2365,11 +2365,11 @@ define dso_local void @_ZNK5clang21analyze_format_string19ConversionSpecifier20g
 7:                                                ; preds = %2, %6, %5
   %.0 = phi i32 [ 7, %6 ], [ 9, %5 ], [ 2, %2 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.0, ptr %.sroa.2.0..sroa_idx1, align 8
-  %.sroa.3.0..sroa_idx3 = getelementptr inbounds i8, ptr %0, i64 28
+  %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx3, align 4
   br label %8
 
@@ -2410,7 +2410,7 @@ define dso_local void @_ZNK5clang21analyze_format_string14OptionalAmount8toStrin
 17:                                               ; preds = %9
   store i8 46, ptr %13, align 1
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %19, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -2435,7 +2435,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %15, %5
 31:                                               ; preds = %28
   store i8 42, ptr %26, align 1
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %33, ptr %25, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8
 
@@ -2460,7 +2460,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %29, %31
 46:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8
   store i8 36, ptr %42, align 1
   %47 = load ptr, ptr %41, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %48, ptr %41, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11
 
@@ -2474,7 +2474,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %29, %31
 52:                                               ; preds = %49
   store i8 42, ptr %26, align 1
   %53 = load ptr, ptr %25, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %54, ptr %25, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11
 
@@ -2499,7 +2499,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %29, %31
 67:                                               ; preds = %59
   store i8 46, ptr %63, align 1
   %68 = load ptr, ptr %62, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %62, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit17
 
@@ -2965,12 +2965,12 @@ define dso_local void @_ZNK5clang21analyze_format_string15FormatSpecifier26getCo
 
 10:                                               ; preds = %7, %7
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   store ptr %.sroa.0.0.copyload, ptr %0, align 8
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %.sroa.2.0..sroa_idx2, align 8
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx4, align 4
   br label %11
 
@@ -3003,7 +3003,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpe
   %.0.i.i = select i1 %13, ptr %15, ptr null
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %17, align 8
   %20 = and i64 %19, 4294967295
   %trunc = trunc i64 %19 to i32

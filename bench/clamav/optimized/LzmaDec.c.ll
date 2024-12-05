@@ -8,21 +8,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LzmaDec_InitDicAndState(ptr nocapture noundef writeonly initializes((92, 100), (108, 112)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 108
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %6, align 4
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %10, align 4
   br label %11
 
@@ -31,7 +31,7 @@ define void @LzmaDec_InitDicAndState(ptr nocapture noundef writeonly initializes
   br i1 %.not8, label %14, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 100
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %13, align 4
   br label %14
 
@@ -41,19 +41,19 @@ define void @LzmaDec_InitDicAndState(ptr nocapture noundef writeonly initializes
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @LzmaDec_Init(ptr nocapture noundef writeonly initializes((48, 56), (64, 72), (92, 104), (108, 112)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 108
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 100
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %8, align 4
   ret void
 }
@@ -62,40 +62,40 @@ define void @LzmaDec_Init(ptr nocapture noundef writeonly initializes((48, 56), 
 define range(i32 0, 2) i32 @LzmaDec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = load i64, ptr %3, align 8
   store i64 0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, -1
   %or.cond.i = icmp ult i32 %10, 273
   br i1 %or.cond.i, label %11, label %LzmaDec_WriteRem.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %19 = load i32, ptr %18, align 4
   %20 = sub i64 %1, %15
   %21 = zext nneg i32 %9 to i64
   %22 = icmp ult i64 %20, %21
   %23 = trunc nuw nsw i64 %20 to i32
   %spec.select.i = select i1 %22, i32 %23, i32 %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %._crit_edge41.i
 
 ._crit_edge41.i:                                  ; preds = %11
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %34
 
 27:                                               ; preds = %11
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 %29, %31
   %.not36.i = icmp ugt i32 %32, %spec.select.i
@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToDic(ptr noundef %0, i64 noundef %1, 
 
 34:                                               ; preds = %33, %27, %._crit_edge41.i
   %35 = phi i32 [ %.pre.i, %._crit_edge41.i ], [ %31, %33 ], [ %31, %27 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = add i32 %35, %spec.select.i
   store i32 %37, ptr %36, align 8
   %38 = sub i32 %9, %spec.select.i
@@ -147,26 +147,26 @@ LzmaDec_WriteRem.exit:                            ; preds = %6, %._crit_edge.i
   br i1 %.not174, label %._crit_edge178, label %.lr.ph177
 
 .lr.ph177:                                        ; preds = %LzmaDec_WriteRem.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 96
-  %52 = getelementptr inbounds i8, ptr %0, i64 108
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
-  %54 = getelementptr inbounds i8, ptr %0, i64 113
-  %55 = getelementptr inbounds i8, ptr %0, i64 114
-  %56 = getelementptr inbounds i8, ptr %0, i64 115
-  %57 = getelementptr inbounds i8, ptr %0, i64 116
-  %58 = getelementptr inbounds i8, ptr %0, i64 44
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 113
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 114
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 115
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = icmp eq i32 %4, 0
-  %62 = getelementptr inbounds i8, ptr %0, i64 100
-  %63 = getelementptr inbounds i8, ptr %0, i64 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  %65 = getelementptr inbounds i8, ptr %0, i64 76
-  %66 = getelementptr inbounds i8, ptr %0, i64 88
-  %67 = getelementptr inbounds i8, ptr %0, i64 84
-  %68 = getelementptr inbounds i8, ptr %0, i64 80
-  %69 = getelementptr inbounds i8, ptr %0, i64 72
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = ptrtoint ptr %53 to i64
   br label %72
 
@@ -189,12 +189,12 @@ LzmaDec_WriteRem.exit:                            ; preds = %6, %._crit_edge.i
   br i1 %75, label %76, label %.critedge.thread
 
 76:                                               ; preds = %.lr.ph
-  %77 = getelementptr inbounds i8, ptr %.2162, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.2162, i64 1
   %78 = load i8, ptr %.2162, align 1
   %79 = add nuw nsw i32 %74, 1
   store i32 %79, ptr %52, align 4
   %80 = zext nneg i32 %74 to i64
-  %81 = getelementptr inbounds [20 x i8], ptr %53, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [20 x i8], ptr %53, i64 0, i64 %80
   store i8 %78, ptr %81, align 1
   %82 = load i64, ptr %3, align 8
   %83 = add i64 %82, 1
@@ -293,7 +293,7 @@ LzmaDec_WriteRem.exit:                            ; preds = %6, %._crit_edge.i
 
 123:                                              ; preds = %123, %116
   %indvars.iv.i = phi i64 [ 0, %116 ], [ %indvars.iv.next.i, %123 ]
-  %124 = getelementptr inbounds i16, ptr %122, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv.i
   store i16 1024, ptr %124, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -378,10 +378,10 @@ LzmaDec_InitStateReal.exit:                       ; preds = %123
   %indvars.iv200 = phi i64 [ %131, %.lr.ph169.preheader ], [ %indvars.iv.next201, %.lr.ph169 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next, %.lr.ph169 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %156 = getelementptr inbounds i8, ptr %.1, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv
   %157 = load i8, ptr %156, align 1
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %158 = getelementptr inbounds [20 x i8], ptr %53, i64 0, i64 %indvars.iv200
+  %158 = getelementptr inbounds nuw [20 x i8], ptr %53, i64 0, i64 %indvars.iv200
   store i8 %157, ptr %158, align 1
   %159 = icmp samesign ult i64 %indvars.iv200, 19
   %160 = icmp ugt i64 %.1118, %indvars.iv.next
@@ -453,7 +453,7 @@ LzmaDec_InitStateReal.exit:                       ; preds = %123
   br i1 %.not, label %._crit_edge178, label %72
 
 ._crit_edge178:                                   ; preds = %183, %LzmaDec_WriteRem.exit
-  %185 = getelementptr inbounds i8, ptr %0, i64 44
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %.loopexit
@@ -472,27 +472,27 @@ LzmaDec_InitStateReal.exit:                       ; preds = %123
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %notmask = shl nsw i32 -1, %16
   %17 = xor i32 %notmask, -1
   %18 = and i32 %14, %17
   %19 = shl i32 %12, 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %10, i64 %20
   %22 = zext nneg i32 %18 to i64
-  %23 = getelementptr inbounds i16, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = icmp ult i32 %5, 16777216
@@ -505,7 +505,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 28:                                               ; preds = %27
   %29 = shl nuw i32 %5, 8
   %30 = shl i32 %7, 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %32 = load i8, ptr %1, align 1
   %33 = zext i8 %32 to i32
   %34 = or disjoint i32 %30, %33
@@ -521,30 +521,30 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %38, label %39, label %152
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %10, i64 3692
-  %41 = getelementptr inbounds i8, ptr %0, i64 68
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 3692
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, %14
   %or.cond490 = icmp eq i32 %43, 0
   br i1 %or.cond490, label %71, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4
   %notmask484 = shl nsw i32 -1, %46
   %47 = xor i32 %notmask484, -1
   %48 = and i32 %14, %47
   %49 = load i32, ptr %0, align 8
   %50 = shl i32 %48, %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %44
-  %57 = getelementptr inbounds i8, ptr %0, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %58 = load i64, ptr %57, align 8
   br label %59
 
@@ -559,7 +559,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %67 = add i32 %66, %50
   %68 = mul i32 %67, 768
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds i16, ptr %40, i64 %69
+  %70 = getelementptr inbounds nuw i16, ptr %40, i64 %69
   br label %71
 
 71:                                               ; preds = %39, %59
@@ -573,7 +573,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %.0360 = phi i32 [ %.1361, %97 ], [ 1, %71 ]
   %.1353 = phi ptr [ %.2354, %97 ], [ %.0352, %71 ]
   %73 = zext nneg i32 %.0360 to i64
-  %74 = getelementptr inbounds i16, ptr %.0388, i64 %73
+  %74 = getelementptr inbounds nuw i16, ptr %.0388, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
   %77 = icmp ult i32 %.1363, 16777216
@@ -586,7 +586,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 79:                                               ; preds = %78
   %80 = shl nuw i32 %.1363, 8
   %81 = shl i32 %.1395, 8
-  %82 = getelementptr inbounds i8, ptr %.1353, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.1353, i64 1
   %83 = load i8, ptr %.1353, align 1
   %84 = zext i8 %83 to i32
   %85 = or disjoint i32 %81, %84
@@ -620,11 +620,11 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %98, label %.preheader, label %.loopexit491
 
 99:                                               ; preds = %71
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 76
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
   %107 = sub i64 %103, %106
@@ -632,7 +632,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %99
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %111 = load i64, ptr %110, align 8
   br label %112
 
@@ -654,11 +654,11 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %119 = shl i32 %.0359, 1
   %120 = and i32 %119, %.0357
   %121 = zext nneg i32 %.0357 to i64
-  %122 = getelementptr inbounds i16, ptr %.0388, i64 %121
+  %122 = getelementptr inbounds nuw i16, ptr %.0388, i64 %121
   %123 = zext nneg i32 %120 to i64
-  %124 = getelementptr inbounds i16, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw i16, ptr %122, i64 %123
   %125 = zext nneg i32 %.0355 to i64
-  %126 = getelementptr inbounds i16, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw i16, ptr %124, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = zext i16 %127 to i32
   %129 = icmp ult i32 %.5367, 16777216
@@ -671,7 +671,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 131:                                              ; preds = %130
   %132 = shl nuw i32 %.5367, 8
   %133 = shl i32 %.5399, 8
-  %134 = getelementptr inbounds i8, ptr %.4, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %135 = load i8, ptr %.4, align 1
   %136 = zext i8 %135 to i32
   %137 = or disjoint i32 %133, %136
@@ -709,9 +709,9 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 152:                                              ; preds = %35
   %153 = sub i32 %.0362, %37
   %154 = sub nuw i32 %.0394, %37
-  %155 = getelementptr inbounds i8, ptr %10, i64 384
+  %155 = getelementptr inbounds nuw i8, ptr %10, i64 384
   %156 = zext i32 %12 to i64
-  %157 = getelementptr inbounds i16, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw i16, ptr %155, i64 %156
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
   %160 = icmp ult i32 %153, 16777216
@@ -724,7 +724,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 162:                                              ; preds = %161
   %163 = shl nuw i32 %153, 8
   %164 = shl i32 %154, 8
-  %165 = getelementptr inbounds i8, ptr %.0352, i64 1
+  %165 = getelementptr inbounds nuw i8, ptr %.0352, i64 1
   %166 = load i8, ptr %.0352, align 1
   %167 = zext i8 %166 to i32
   %168 = or disjoint i32 %164, %167
@@ -742,8 +742,8 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 173:                                              ; preds = %169
   %174 = sub i32 %.9371, %171
   %175 = sub nuw i32 %.9403, %171
-  %176 = getelementptr inbounds i8, ptr %10, i64 408
-  %177 = getelementptr inbounds i16, ptr %176, i64 %156
+  %176 = getelementptr inbounds nuw i8, ptr %10, i64 408
+  %177 = getelementptr inbounds nuw i16, ptr %176, i64 %156
   %178 = load i16, ptr %177, align 2
   %179 = zext i16 %178 to i32
   %180 = icmp ult i32 %174, 16777216
@@ -756,7 +756,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 182:                                              ; preds = %181
   %183 = shl nuw i32 %174, 8
   %184 = shl i32 %175, 8
-  %185 = getelementptr inbounds i8, ptr %.7, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %186 = load i8, ptr %.7, align 1
   %187 = zext i8 %186 to i32
   %188 = or disjoint i32 %184, %187
@@ -772,9 +772,9 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %192, label %193, label %217
 
 193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %10, i64 480
-  %195 = getelementptr inbounds i16, ptr %194, i64 %20
-  %196 = getelementptr inbounds i16, ptr %195, i64 %22
+  %194 = getelementptr inbounds nuw i8, ptr %10, i64 480
+  %195 = getelementptr inbounds nuw i16, ptr %194, i64 %20
+  %196 = getelementptr inbounds nuw i16, ptr %195, i64 %22
   %197 = load i16, ptr %196, align 2
   %198 = zext i16 %197 to i32
   %199 = icmp ult i32 %191, 16777216
@@ -787,7 +787,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 201:                                              ; preds = %200
   %202 = shl nuw i32 %191, 8
   %203 = shl i32 %.11405, 8
-  %204 = getelementptr inbounds i8, ptr %.9, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %205 = load i8, ptr %.9, align 1
   %206 = zext i8 %205 to i32
   %207 = or disjoint i32 %203, %206
@@ -817,8 +817,8 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 217:                                              ; preds = %189
   %218 = sub i32 %.11373, %191
   %219 = sub nuw i32 %.11405, %191
-  %220 = getelementptr inbounds i8, ptr %10, i64 432
-  %221 = getelementptr inbounds i16, ptr %220, i64 %156
+  %220 = getelementptr inbounds nuw i8, ptr %10, i64 432
+  %221 = getelementptr inbounds nuw i16, ptr %220, i64 %156
   %222 = load i16, ptr %221, align 2
   %223 = zext i16 %222 to i32
   %224 = icmp ult i32 %218, 16777216
@@ -831,7 +831,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 226:                                              ; preds = %225
   %227 = shl nuw i32 %218, 8
   %228 = shl i32 %219, 8
-  %229 = getelementptr inbounds i8, ptr %.9, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %230 = load i8, ptr %.9, align 1
   %231 = zext i8 %230 to i32
   %232 = or disjoint i32 %228, %231
@@ -849,8 +849,8 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 237:                                              ; preds = %233
   %238 = sub i32 %.14376, %235
   %239 = sub nuw i32 %.14408, %235
-  %240 = getelementptr inbounds i8, ptr %10, i64 456
-  %241 = getelementptr inbounds i16, ptr %240, i64 %156
+  %240 = getelementptr inbounds nuw i8, ptr %10, i64 456
+  %241 = getelementptr inbounds nuw i16, ptr %240, i64 %156
   %242 = load i16, ptr %241, align 2
   %243 = zext i16 %242 to i32
   %244 = icmp ult i32 %238, 16777216
@@ -863,7 +863,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 246:                                              ; preds = %245
   %247 = shl nuw i32 %238, 8
   %248 = shl i32 %239, 8
-  %249 = getelementptr inbounds i8, ptr %.12, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %.12, i64 1
   %250 = load i8, ptr %.12, align 1
   %251 = zext i8 %250 to i32
   %252 = or disjoint i32 %248, %251
@@ -889,7 +889,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %.1392 = phi i32 [ 2, %169 ], [ 3, %253 ], [ 3, %233 ], [ 3, %257 ], [ 3, %214 ]
   %.10372 = phi i32 [ %171, %169 ], [ %255, %253 ], [ %235, %233 ], [ %258, %257 ], [ %215, %214 ]
   %.8 = phi ptr [ %.7, %169 ], [ %.13, %253 ], [ %.12, %233 ], [ %.13, %257 ], [ %.10, %214 ]
-  %261 = getelementptr inbounds i8, ptr %10, i64 %.sink
+  %261 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
   %262 = load i16, ptr %261, align 2
   %263 = zext i16 %262 to i32
   %264 = icmp ult i32 %.10372, 16777216
@@ -902,7 +902,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 266:                                              ; preds = %265
   %267 = shl nuw i32 %.10372, 8
   %268 = shl i32 %.10404, 8
-  %269 = getelementptr inbounds i8, ptr %.8, i64 1
+  %269 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %270 = load i8, ptr %.8, align 1
   %271 = zext i8 %270 to i32
   %272 = or disjoint i32 %268, %271
@@ -918,16 +918,16 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %276, label %277, label %282
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds i8, ptr %261, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %261, i64 4
   %279 = shl i32 %18, 3
   %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds i16, ptr %278, i64 %280
+  %281 = getelementptr inbounds nuw i16, ptr %278, i64 %280
   br label %310
 
 282:                                              ; preds = %273
   %283 = sub i32 %.16378, %275
   %284 = sub nuw i32 %.16410, %275
-  %285 = getelementptr inbounds i8, ptr %261, i64 2
+  %285 = getelementptr inbounds nuw i8, ptr %261, i64 2
   %286 = load i16, ptr %285, align 2
   %287 = zext i16 %286 to i32
   %288 = icmp ult i32 %283, 16777216
@@ -940,7 +940,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 290:                                              ; preds = %289
   %291 = shl nuw i32 %283, 8
   %292 = shl i32 %284, 8
-  %293 = getelementptr inbounds i8, ptr %.14, i64 1
+  %293 = getelementptr inbounds nuw i8, ptr %.14, i64 1
   %294 = load i8, ptr %.14, align 1
   %295 = zext i8 %294 to i32
   %296 = or disjoint i32 %292, %295
@@ -956,16 +956,16 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %300, label %301, label %306
 
 301:                                              ; preds = %297
-  %302 = getelementptr inbounds i8, ptr %261, i64 260
+  %302 = getelementptr inbounds nuw i8, ptr %261, i64 260
   %303 = shl i32 %18, 3
   %304 = zext i32 %303 to i64
-  %305 = getelementptr inbounds i16, ptr %302, i64 %304
+  %305 = getelementptr inbounds nuw i16, ptr %302, i64 %304
   br label %310
 
 306:                                              ; preds = %297
   %307 = sub i32 %.18380, %299
   %308 = sub nuw i32 %.18412, %299
-  %309 = getelementptr inbounds i8, ptr %261, i64 516
+  %309 = getelementptr inbounds nuw i8, ptr %261, i64 516
   br label %310
 
 310:                                              ; preds = %301, %306, %277
@@ -983,7 +983,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %.17 = phi ptr [ %.15, %310 ], [ %.18, %336 ]
   %.0349 = phi i32 [ 1, %310 ], [ %.1350, %336 ]
   %312 = zext i32 %.0349 to i64
-  %313 = getelementptr inbounds i16, ptr %.0346, i64 %312
+  %313 = getelementptr inbounds nuw i16, ptr %.0346, i64 %312
   %314 = load i16, ptr %313, align 2
   %315 = zext i16 %314 to i32
   %316 = icmp ult i32 %.19381, 16777216
@@ -996,7 +996,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 318:                                              ; preds = %317
   %319 = shl nuw i32 %.19381, 8
   %320 = shl i32 %.19413, 8
-  %321 = getelementptr inbounds i8, ptr %.17, i64 1
+  %321 = getelementptr inbounds nuw i8, ptr %.17, i64 1
   %322 = load i8, ptr %.17, align 1
   %323 = zext i8 %322 to i32
   %324 = or disjoint i32 %320, %323
@@ -1035,11 +1035,11 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 339:                                              ; preds = %338
   %340 = sub nsw i32 %.0347, %.0348
   %341 = add i32 %340, %.1350
-  %342 = getelementptr inbounds i8, ptr %10, i64 864
+  %342 = getelementptr inbounds nuw i8, ptr %10, i64 864
   %343 = tail call i32 @llvm.umin.i32(i32 %341, i32 3)
   %344 = shl nuw nsw i32 %343, 6
   %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds i16, ptr %342, i64 %345
+  %346 = getelementptr inbounds nuw i16, ptr %342, i64 %345
   br label %347
 
 347:                                              ; preds = %372, %339
@@ -1048,7 +1048,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %.19 = phi ptr [ %.18, %339 ], [ %.20, %372 ]
   %.0344 = phi i32 [ 1, %339 ], [ %.1345, %372 ]
   %348 = zext nneg i32 %.0344 to i64
-  %349 = getelementptr inbounds i16, ptr %346, i64 %348
+  %349 = getelementptr inbounds nuw i16, ptr %346, i64 %348
   %350 = load i16, ptr %349, align 2
   %351 = zext i16 %350 to i32
   %352 = icmp ult i32 %.22384, 16777216
@@ -1061,7 +1061,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 354:                                              ; preds = %353
   %355 = shl nuw i32 %.22384, 8
   %356 = shl i32 %.22416, 8
-  %357 = getelementptr inbounds i8, ptr %.19, i64 1
+  %357 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   %358 = load i8, ptr %.19, align 1
   %359 = zext i8 %358 to i32
   %360 = or disjoint i32 %356, %359
@@ -1106,12 +1106,12 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 
 380:                                              ; preds = %377
   %381 = add nsw i32 %378, -1
-  %382 = getelementptr inbounds i8, ptr %10, i64 1376
+  %382 = getelementptr inbounds nuw i8, ptr %10, i64 1376
   %383 = and i32 %.1345, 1
   %384 = or disjoint i32 %383, 2
   %385 = shl i32 %384, %381
   %386 = zext i32 %385 to i64
-  %387 = getelementptr inbounds i16, ptr %382, i64 %386
+  %387 = getelementptr inbounds nuw i16, ptr %382, i64 %386
   %388 = zext nneg i32 %375 to i64
   %389 = sub nsw i64 0, %388
   %390 = getelementptr inbounds i16, ptr %387, i64 %389
@@ -1137,7 +1137,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 397:                                              ; preds = %396
   %398 = shl nuw i32 %.26, 8
   %399 = shl i32 %.26420, 8
-  %400 = getelementptr inbounds i8, ptr %.22, i64 1
+  %400 = getelementptr inbounds nuw i8, ptr %.22, i64 1
   %401 = load i8, ptr %.22, align 1
   %402 = zext i8 %401 to i32
   %403 = or disjoint i32 %399, %402
@@ -1157,7 +1157,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   br i1 %.not479, label %410, label %394
 
 410:                                              ; preds = %404
-  %411 = getelementptr inbounds i8, ptr %10, i64 1604
+  %411 = getelementptr inbounds nuw i8, ptr %10, i64 1604
   br label %412
 
 412:                                              ; preds = %410, %380
@@ -1175,7 +1175,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
   %.2 = phi i32 [ %.0342, %412 ], [ %439, %438 ]
   %.0 = phi i32 [ 1, %412 ], [ %.1, %438 ]
   %414 = zext i32 %.0 to i64
-  %415 = getelementptr inbounds i16, ptr %.2390, i64 %414
+  %415 = getelementptr inbounds nuw i16, ptr %.2390, i64 %414
   %416 = load i16, ptr %415, align 2
   %417 = zext i16 %416 to i32
   %418 = icmp ult i32 %.28, 16777216
@@ -1188,7 +1188,7 @@ define internal fastcc range(i32 0, 4) i32 @LzmaDec_TryDummy(ptr nocapture nound
 420:                                              ; preds = %419
   %421 = shl nuw i32 %.28, 8
   %422 = shl i32 %.28422, 8
-  %423 = getelementptr inbounds i8, ptr %.24, i64 1
+  %423 = getelementptr inbounds nuw i8, ptr %.24, i64 1
   %424 = load i8, ptr %.24, align 1
   %425 = zext i8 %424 to i32
   %426 = or disjoint i32 %422, %425
@@ -1242,24 +1242,24 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture noundef %0, i64 noundef %1, ptr noundef readnone %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
-  %21 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.pre.pre = load i64, ptr %15, align 8
   br label %22
 
@@ -1301,18 +1301,18 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %47 = load i32, ptr %18, align 8
   %48 = load i32, ptr %19, align 4
   %invariant.gep.i = getelementptr i8, ptr %44, i64 -1
-  %49 = getelementptr inbounds i8, ptr %33, i64 384
-  %50 = getelementptr inbounds i8, ptr %33, i64 408
-  %51 = getelementptr inbounds i8, ptr %33, i64 432
-  %52 = getelementptr inbounds i8, ptr %33, i64 456
-  %53 = getelementptr inbounds i8, ptr %33, i64 480
-  %54 = getelementptr inbounds i8, ptr %33, i64 2664
-  %55 = getelementptr inbounds i8, ptr %33, i64 1636
-  %56 = getelementptr inbounds i8, ptr %33, i64 864
-  %57 = getelementptr inbounds i8, ptr %33, i64 1604
-  %58 = getelementptr inbounds i8, ptr %33, i64 1606
-  %59 = getelementptr inbounds i8, ptr %33, i64 1376
-  %60 = getelementptr inbounds i8, ptr %33, i64 3692
+  %49 = getelementptr inbounds nuw i8, ptr %33, i64 384
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %33, i64 432
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 456
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 480
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 2664
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 1636
+  %56 = getelementptr inbounds nuw i8, ptr %33, i64 864
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 1604
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 1606
+  %59 = getelementptr inbounds nuw i8, ptr %33, i64 1376
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 3692
   %61 = sub i32 8, %43
   br label %62
 
@@ -1331,9 +1331,9 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %63 = and i32 %.0835.i, %40
   %64 = shl i32 %.0773.i, 4
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %33, i64 %65
+  %66 = getelementptr inbounds nuw i16, ptr %33, i64 %65
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw i16, ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i32
   %71 = icmp ult i32 %.0854.i, 16777216
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 72:                                               ; preds = %62
   %73 = shl nuw i32 %.0854.i, 8
   %74 = shl i32 %.0840.i, 8
-  %75 = getelementptr inbounds i8, ptr %.0908.i, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0908.i, i64 1
   %76 = load i8, ptr %.0908.i, align 1
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %74, %77
@@ -1379,7 +1379,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %97 = add i32 %96, %91
   %98 = mul i32 %97, 768
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i16, ptr %60, i64 %99
+  %100 = getelementptr inbounds nuw i16, ptr %60, i64 %99
   br label %101
 
 101:                                              ; preds = %89, %83
@@ -1393,7 +1393,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.2842.i = phi i32 [ %.4844.i, %131 ], [ %.1841.i, %101 ]
   %.0830.i = phi i32 [ %.1831.i, %131 ], [ 1, %101 ]
   %103 = zext nneg i32 %.0830.i to i64
-  %104 = getelementptr inbounds i16, ptr %.0838.i, i64 %103
+  %104 = getelementptr inbounds nuw i16, ptr %.0838.i, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
   %107 = icmp ult i32 %.2856.i, 16777216
@@ -1402,7 +1402,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 108:                                              ; preds = %.preheader
   %109 = shl nuw i32 %.2856.i, 8
   %110 = shl i32 %.2842.i, 8
-  %111 = getelementptr inbounds i8, ptr %.2910.i, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.2910.i, i64 1
   %112 = load i8, ptr %.2910.i, align 1
   %113 = zext i8 %112 to i32
   %114 = or disjoint i32 %110, %113
@@ -1465,11 +1465,11 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %145 = shl i32 %.0829.i, 1
   %146 = and i32 %145, %.0827.i
   %147 = zext nneg i32 %.0827.i to i64
-  %148 = getelementptr inbounds i16, ptr %.0838.i, i64 %147
+  %148 = getelementptr inbounds nuw i16, ptr %.0838.i, i64 %147
   %149 = zext nneg i32 %146 to i64
-  %150 = getelementptr inbounds i16, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw i16, ptr %148, i64 %149
   %151 = zext nneg i32 %.3833.i to i64
-  %152 = getelementptr inbounds i16, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw i16, ptr %150, i64 %151
   %153 = load i16, ptr %152, align 2
   %154 = zext i16 %153 to i32
   %155 = icmp ult i32 %.6860.i, 16777216
@@ -1478,7 +1478,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 156:                                              ; preds = %144
   %157 = shl nuw i32 %.6860.i, 8
   %158 = shl i32 %.6846.i, 8
-  %159 = getelementptr inbounds i8, ptr %.5913.i, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.5913.i, i64 1
   %160 = load i8, ptr %.5913.i, align 1
   %161 = zext i8 %160 to i32
   %162 = or disjoint i32 %158, %161
@@ -1549,7 +1549,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %192 = sub i16 %69, %191
   store i16 %192, ptr %68, align 2
   %193 = zext i32 %.0773.i to i64
-  %194 = getelementptr inbounds i16, ptr %49, i64 %193
+  %194 = getelementptr inbounds nuw i16, ptr %49, i64 %193
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i32
   %197 = icmp ult i32 %189, 16777216
@@ -1558,7 +1558,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 198:                                              ; preds = %188
   %199 = shl nuw i32 %189, 8
   %200 = shl i32 %190, 8
-  %201 = getelementptr inbounds i8, ptr %.1909.i, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.1909.i, i64 1
   %202 = load i8, ptr %.1909.i, align 1
   %203 = zext i8 %202 to i32
   %204 = or disjoint i32 %200, %203
@@ -1593,7 +1593,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   br i1 %or.cond3.i, label %LzmaDec_DecodeReal.exit.thread, label %221
 
 221:                                              ; preds = %215
-  %222 = getelementptr inbounds i16, ptr %50, i64 %193
+  %222 = getelementptr inbounds nuw i16, ptr %50, i64 %193
   %223 = load i16, ptr %222, align 2
   %224 = zext i16 %223 to i32
   %225 = icmp ult i32 %216, 16777216
@@ -1602,7 +1602,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 226:                                              ; preds = %221
   %227 = shl nuw i32 %216, 8
   %228 = shl i32 %217, 8
-  %229 = getelementptr inbounds i8, ptr %.8916.i, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.8916.i, i64 1
   %230 = load i8, ptr %.8916.i, align 1
   %231 = zext i8 %230 to i32
   %232 = or disjoint i32 %228, %231
@@ -1623,8 +1623,8 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %240 = trunc i32 %239 to i16
   %241 = add i16 %223, %240
   store i16 %241, ptr %222, align 2
-  %242 = getelementptr inbounds i16, ptr %53, i64 %65
-  %243 = getelementptr inbounds i16, ptr %242, i64 %67
+  %242 = getelementptr inbounds nuw i16, ptr %53, i64 %65
+  %243 = getelementptr inbounds nuw i16, ptr %242, i64 %67
   %244 = load i16, ptr %243, align 2
   %245 = zext i16 %244 to i32
   %246 = icmp ult i32 %235, 16777216
@@ -1633,7 +1633,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 247:                                              ; preds = %237
   %248 = shl nuw i32 %235, 8
   %249 = shl i32 %.12852.i, 8
-  %250 = getelementptr inbounds i8, ptr %.10918.i, i64 1
+  %250 = getelementptr inbounds nuw i8, ptr %.10918.i, i64 1
   %251 = load i8, ptr %.10918.i, align 1
   %252 = zext i8 %251 to i32
   %253 = or disjoint i32 %249, %252
@@ -1683,7 +1683,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %283 = lshr i16 %223, 5
   %284 = sub i16 %223, %283
   store i16 %284, ptr %222, align 2
-  %285 = getelementptr inbounds i16, ptr %51, i64 %193
+  %285 = getelementptr inbounds nuw i16, ptr %51, i64 %193
   %286 = load i16, ptr %285, align 2
   %287 = zext i16 %286 to i32
   %288 = icmp ult i32 %281, 16777216
@@ -1692,7 +1692,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 289:                                              ; preds = %280
   %290 = shl nuw i32 %281, 8
   %291 = shl i32 %282, 8
-  %292 = getelementptr inbounds i8, ptr %.10918.i, i64 1
+  %292 = getelementptr inbounds nuw i8, ptr %.10918.i, i64 1
   %293 = load i8, ptr %.10918.i, align 1
   %294 = zext i8 %293 to i32
   %295 = or disjoint i32 %291, %294
@@ -1721,7 +1721,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %308 = lshr i16 %286, 5
   %309 = sub i16 %286, %308
   store i16 %309, ptr %285, align 2
-  %310 = getelementptr inbounds i16, ptr %52, i64 %193
+  %310 = getelementptr inbounds nuw i16, ptr %52, i64 %193
   %311 = load i16, ptr %310, align 2
   %312 = zext i16 %311 to i32
   %313 = icmp ult i32 %306, 16777216
@@ -1730,7 +1730,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 314:                                              ; preds = %305
   %315 = shl nuw i32 %306, 8
   %316 = shl i32 %307, 8
-  %317 = getelementptr inbounds i8, ptr %.13921.i, i64 1
+  %317 = getelementptr inbounds nuw i8, ptr %.13921.i, i64 1
   %318 = load i8, ptr %.13921.i, align 1
   %319 = zext i8 %318 to i32
   %320 = or disjoint i32 %316, %319
@@ -1798,7 +1798,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 343:                                              ; preds = %339
   %344 = shl nuw i32 %.11865.i, 8
   %345 = shl i32 %.11851.i, 8
-  %346 = getelementptr inbounds i8, ptr %.9917.i, i64 1
+  %346 = getelementptr inbounds nuw i8, ptr %.9917.i, i64 1
   %347 = load i8, ptr %.9917.i, align 1
   %348 = zext i8 %347 to i32
   %349 = or disjoint i32 %345, %348
@@ -1819,10 +1819,10 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %357 = trunc i32 %356 to i16
   %358 = add i16 %340, %357
   store i16 %358, ptr %.1839.i, align 2
-  %359 = getelementptr inbounds i8, ptr %.1839.i, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %.1839.i, i64 4
   %360 = shl i32 %63, 3
   %361 = zext i32 %360 to i64
-  %362 = getelementptr inbounds i16, ptr %359, i64 %361
+  %362 = getelementptr inbounds nuw i16, ptr %359, i64 %361
   br label %398
 
 363:                                              ; preds = %350
@@ -1831,7 +1831,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %366 = lshr i16 %340, 5
   %367 = sub i16 %340, %366
   store i16 %367, ptr %.1839.i, align 2
-  %368 = getelementptr inbounds i8, ptr %.1839.i, i64 2
+  %368 = getelementptr inbounds nuw i8, ptr %.1839.i, i64 2
   %369 = load i16, ptr %368, align 2
   %370 = zext i16 %369 to i32
   %371 = icmp ult i32 %364, 16777216
@@ -1840,7 +1840,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 372:                                              ; preds = %363
   %373 = shl nuw i32 %364, 8
   %374 = shl i32 %365, 8
-  %375 = getelementptr inbounds i8, ptr %.16924.i, i64 1
+  %375 = getelementptr inbounds nuw i8, ptr %.16924.i, i64 1
   %376 = load i8, ptr %.16924.i, align 1
   %377 = zext i8 %376 to i32
   %378 = or disjoint i32 %374, %377
@@ -1861,10 +1861,10 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %386 = trunc i32 %385 to i16
   %387 = add i16 %369, %386
   store i16 %387, ptr %368, align 2
-  %388 = getelementptr inbounds i8, ptr %.1839.i, i64 260
+  %388 = getelementptr inbounds nuw i8, ptr %.1839.i, i64 260
   %389 = shl i32 %63, 3
   %390 = zext i32 %389 to i64
-  %391 = getelementptr inbounds i16, ptr %388, i64 %390
+  %391 = getelementptr inbounds nuw i16, ptr %388, i64 %390
   br label %398
 
 392:                                              ; preds = %379
@@ -1873,7 +1873,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %395 = lshr i16 %369, 5
   %396 = sub i16 %369, %395
   store i16 %396, ptr %368, align 2
-  %397 = getelementptr inbounds i8, ptr %.1839.i, i64 516
+  %397 = getelementptr inbounds nuw i8, ptr %.1839.i, i64 516
   br label %398
 
 398:                                              ; preds = %392, %383, %354
@@ -1891,7 +1891,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.22876.i = phi i32 [ %.20874.i, %398 ], [ %.24878.i, %428 ]
   %.22.i = phi i32 [ %.20.i, %398 ], [ %.24.i, %428 ]
   %400 = zext i32 %.2949.i to i64
-  %401 = getelementptr inbounds i16, ptr %.0810.i, i64 %400
+  %401 = getelementptr inbounds nuw i16, ptr %.0810.i, i64 %400
   %402 = load i16, ptr %401, align 2
   %403 = zext i16 %402 to i32
   %404 = icmp ult i32 %.22876.i, 16777216
@@ -1900,7 +1900,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 405:                                              ; preds = %399
   %406 = shl nuw i32 %.22876.i, 8
   %407 = shl i32 %.22.i, 8
-  %408 = getelementptr inbounds i8, ptr %.19927.i, i64 1
+  %408 = getelementptr inbounds nuw i8, ptr %.19927.i, i64 1
   %409 = load i8, ptr %.19927.i, align 1
   %410 = zext i8 %409 to i32
   %411 = or disjoint i32 %407, %410
@@ -1950,8 +1950,8 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %435 = tail call i32 @llvm.umin.i32(i32 %432, i32 3)
   %436 = shl nuw nsw i32 %435, 6
   %437 = zext nneg i32 %436 to i64
-  %438 = getelementptr inbounds i16, ptr %56, i64 %437
-  %439 = getelementptr inbounds i8, ptr %438, i64 2
+  %438 = getelementptr inbounds nuw i16, ptr %56, i64 %437
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 2
   %440 = load i16, ptr %439, align 2
   %441 = zext i16 %440 to i32
   %442 = icmp ult i32 %.24878.i, 16777216
@@ -1960,7 +1960,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 443:                                              ; preds = %434
   %444 = shl nuw i32 %.24878.i, 8
   %445 = shl i32 %.24.i, 8
-  %446 = getelementptr inbounds i8, ptr %.20928.i, i64 1
+  %446 = getelementptr inbounds nuw i8, ptr %.20928.i, i64 1
   %447 = load i8, ptr %.20928.i, align 1
   %448 = zext i8 %447 to i32
   %449 = or disjoint i32 %445, %448
@@ -1996,7 +1996,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.0803.i = phi i32 [ 3, %459 ], [ 2, %454 ]
   store i16 %storemerge1015.i, ptr %439, align 2
   %465 = zext nneg i32 %.0803.i to i64
-  %466 = getelementptr inbounds i16, ptr %438, i64 %465
+  %466 = getelementptr inbounds nuw i16, ptr %438, i64 %465
   %467 = load i16, ptr %466, align 2
   %468 = zext i16 %467 to i32
   %469 = icmp ult i32 %.27881.i, 16777216
@@ -2005,7 +2005,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 470:                                              ; preds = %464
   %471 = shl nuw i32 %.27881.i, 8
   %472 = shl i32 %.27.i, 8
-  %473 = getelementptr inbounds i8, ptr %.22930.i, i64 1
+  %473 = getelementptr inbounds nuw i8, ptr %.22930.i, i64 1
   %474 = load i8, ptr %.22930.i, align 1
   %475 = zext i8 %474 to i32
   %476 = or disjoint i32 %472, %475
@@ -2043,7 +2043,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.1804.i = phi i32 [ %481, %482 ], [ %492, %487 ]
   store i16 %.sink1049.i, ptr %466, align 2
   %494 = zext nneg i32 %.1804.i to i64
-  %495 = getelementptr inbounds i16, ptr %438, i64 %494
+  %495 = getelementptr inbounds nuw i16, ptr %438, i64 %494
   %496 = load i16, ptr %495, align 2
   %497 = zext i16 %496 to i32
   %498 = icmp ult i32 %.29883.i, 16777216
@@ -2052,7 +2052,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 499:                                              ; preds = %493
   %500 = shl nuw i32 %.29883.i, 8
   %501 = shl i32 %.29.i, 8
-  %502 = getelementptr inbounds i8, ptr %.23931.i, i64 1
+  %502 = getelementptr inbounds nuw i8, ptr %.23931.i, i64 1
   %503 = load i8, ptr %.23931.i, align 1
   %504 = zext i8 %503 to i32
   %505 = or disjoint i32 %501, %504
@@ -2090,7 +2090,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.2805.i = phi i32 [ %510, %511 ], [ %521, %516 ]
   store i16 %.sink1050.i, ptr %495, align 2
   %523 = zext nneg i32 %.2805.i to i64
-  %524 = getelementptr inbounds i16, ptr %438, i64 %523
+  %524 = getelementptr inbounds nuw i16, ptr %438, i64 %523
   %525 = load i16, ptr %524, align 2
   %526 = zext i16 %525 to i32
   %527 = icmp ult i32 %.31885.i, 16777216
@@ -2099,7 +2099,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 528:                                              ; preds = %522
   %529 = shl nuw i32 %.31885.i, 8
   %530 = shl i32 %.31.i, 8
-  %531 = getelementptr inbounds i8, ptr %.24932.i, i64 1
+  %531 = getelementptr inbounds nuw i8, ptr %.24932.i, i64 1
   %532 = load i8, ptr %.24932.i, align 1
   %533 = zext i8 %532 to i32
   %534 = or disjoint i32 %530, %533
@@ -2137,7 +2137,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.3806.i = phi i32 [ %539, %540 ], [ %550, %545 ]
   store i16 %.sink1051.i, ptr %524, align 2
   %552 = zext nneg i32 %.3806.i to i64
-  %553 = getelementptr inbounds i16, ptr %438, i64 %552
+  %553 = getelementptr inbounds nuw i16, ptr %438, i64 %552
   %554 = load i16, ptr %553, align 2
   %555 = zext i16 %554 to i32
   %556 = icmp ult i32 %.33887.i, 16777216
@@ -2146,7 +2146,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 557:                                              ; preds = %551
   %558 = shl nuw i32 %.33887.i, 8
   %559 = shl i32 %.33.i, 8
-  %560 = getelementptr inbounds i8, ptr %.25933.i, i64 1
+  %560 = getelementptr inbounds nuw i8, ptr %.25933.i, i64 1
   %561 = load i8, ptr %.25933.i, align 1
   %562 = zext i8 %561 to i32
   %563 = or disjoint i32 %559, %562
@@ -2184,7 +2184,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.4807.i = phi i32 [ %568, %569 ], [ %579, %574 ]
   store i16 %.sink1052.i, ptr %553, align 2
   %581 = zext nneg i32 %.4807.i to i64
-  %582 = getelementptr inbounds i16, ptr %438, i64 %581
+  %582 = getelementptr inbounds nuw i16, ptr %438, i64 %581
   %583 = load i16, ptr %582, align 2
   %584 = zext i16 %583 to i32
   %585 = icmp ult i32 %.35889.i, 16777216
@@ -2193,7 +2193,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 586:                                              ; preds = %580
   %587 = shl nuw i32 %.35889.i, 8
   %588 = shl i32 %.35.i, 8
-  %589 = getelementptr inbounds i8, ptr %.26934.i, i64 1
+  %589 = getelementptr inbounds nuw i8, ptr %.26934.i, i64 1
   %590 = load i8, ptr %.26934.i, align 1
   %591 = zext i8 %590 to i32
   %592 = or disjoint i32 %588, %591
@@ -2245,7 +2245,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %618 = add nsw i32 %613, -1
   %619 = shl nuw i32 %615, %618
   %620 = zext i32 %619 to i64
-  %621 = getelementptr inbounds i16, ptr %59, i64 %620
+  %621 = getelementptr inbounds nuw i16, ptr %59, i64 %620
   %622 = zext nneg i32 %610 to i64
   %623 = sub nsw i64 0, %622
   %624 = getelementptr inbounds i16, ptr %621, i64 %623
@@ -2261,7 +2261,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.0794.i = phi i32 [ 1, %617 ], [ %657, %656 ]
   %.0792.i = phi i32 [ 1, %617 ], [ %.1793.i, %656 ]
   %627 = zext i32 %.0792.i to i64
-  %628 = getelementptr inbounds i16, ptr %625, i64 %627
+  %628 = getelementptr inbounds nuw i16, ptr %625, i64 %627
   %629 = load i16, ptr %628, align 2
   %630 = zext i16 %629 to i32
   %631 = icmp ult i32 %.39893.i, 16777216
@@ -2270,7 +2270,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 632:                                              ; preds = %626
   %633 = shl nuw i32 %.39893.i, 8
   %634 = shl i32 %.39.i, 8
-  %635 = getelementptr inbounds i8, ptr %.29937.i, i64 1
+  %635 = getelementptr inbounds nuw i8, ptr %.29937.i, i64 1
   %636 = load i8, ptr %.29937.i, align 1
   %637 = zext i8 %636 to i32
   %638 = or disjoint i32 %634, %637
@@ -2330,7 +2330,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 663:                                              ; preds = %661
   %664 = shl nuw i32 %.42896.i, 8
   %665 = shl i32 %.42.i, 8
-  %666 = getelementptr inbounds i8, ptr %.31939.i, i64 1
+  %666 = getelementptr inbounds nuw i8, ptr %.31939.i, i64 1
   %667 = load i8, ptr %.31939.i, align 1
   %668 = zext i8 %667 to i32
   %669 = or disjoint i32 %665, %668
@@ -2362,7 +2362,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 684:                                              ; preds = %679
   %685 = shl nuw i32 %671, 8
   %686 = shl i32 %677, 8
-  %687 = getelementptr inbounds i8, ptr %.32940.i, i64 1
+  %687 = getelementptr inbounds nuw i8, ptr %.32940.i, i64 1
   %688 = load i8, ptr %.32940.i, align 1
   %689 = zext i8 %688 to i32
   %690 = or disjoint i32 %686, %689
@@ -2400,7 +2400,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.0783.i = phi i32 [ 2, %695 ], [ 3, %700 ]
   store i16 %.sink1055.i, ptr %58, align 2
   %707 = zext nneg i32 %.0783.i to i64
-  %708 = getelementptr inbounds i16, ptr %57, i64 %707
+  %708 = getelementptr inbounds nuw i16, ptr %57, i64 %707
   %709 = load i16, ptr %708, align 2
   %710 = zext i16 %709 to i32
   %711 = icmp ult i32 %.45899.i, 16777216
@@ -2409,7 +2409,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 712:                                              ; preds = %706
   %713 = shl nuw i32 %.45899.i, 8
   %714 = shl i32 %.45.i, 8
-  %715 = getelementptr inbounds i8, ptr %.33941.i, i64 1
+  %715 = getelementptr inbounds nuw i8, ptr %.33941.i, i64 1
   %716 = load i8, ptr %.33941.i, align 1
   %717 = zext i8 %716 to i32
   %718 = or disjoint i32 %714, %717
@@ -2449,7 +2449,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.1784.i = phi i32 [ %723, %724 ], [ %734, %729 ]
   store i16 %.sink1056.i, ptr %708, align 2
   %737 = zext nneg i32 %.1784.i to i64
-  %738 = getelementptr inbounds i16, ptr %57, i64 %737
+  %738 = getelementptr inbounds nuw i16, ptr %57, i64 %737
   %739 = load i16, ptr %738, align 2
   %740 = zext i16 %739 to i32
   %741 = icmp ult i32 %.47901.i, 16777216
@@ -2458,7 +2458,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 742:                                              ; preds = %736
   %743 = shl nuw i32 %.47901.i, 8
   %744 = shl i32 %.47.i, 8
-  %745 = getelementptr inbounds i8, ptr %.34942.i, i64 1
+  %745 = getelementptr inbounds nuw i8, ptr %.34942.i, i64 1
   %746 = load i8, ptr %.34942.i, align 1
   %747 = zext i8 %746 to i32
   %748 = or disjoint i32 %744, %747
@@ -2498,7 +2498,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %.2785.i = phi i32 [ %753, %754 ], [ %764, %759 ]
   store i16 %.sink1057.i, ptr %738, align 2
   %767 = zext nneg i32 %.2785.i to i64
-  %768 = getelementptr inbounds i16, ptr %57, i64 %767
+  %768 = getelementptr inbounds nuw i16, ptr %57, i64 %767
   %769 = load i16, ptr %768, align 2
   %770 = zext i16 %769 to i32
   %771 = icmp ult i32 %.49903.i, 16777216
@@ -2507,7 +2507,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 772:                                              ; preds = %766
   %773 = shl nuw i32 %.49903.i, 8
   %774 = shl i32 %.49.i, 8
-  %775 = getelementptr inbounds i8, ptr %.35943.i, i64 1
+  %775 = getelementptr inbounds nuw i8, ptr %.35943.i, i64 1
   %776 = load i8, ptr %.35943.i, align 1
   %777 = zext i8 %776 to i32
   %778 = or disjoint i32 %774, %777
@@ -2606,7 +2606,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 823:                                              ; preds = %807
   %824 = getelementptr inbounds i8, ptr %44, i64 %.0823.i
   %825 = sub nsw i64 %818, %.0823.i
-  %826 = getelementptr inbounds i8, ptr %824, i64 %821
+  %826 = getelementptr inbounds nuw i8, ptr %824, i64 %821
   br label %827
 
 827:                                              ; preds = %827, %823
@@ -2614,7 +2614,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
   %828 = getelementptr inbounds i8, ptr %.0774.i, i64 %825
   %829 = load i8, ptr %828, align 1
   store i8 %829, ptr %.0774.i, align 1
-  %830 = getelementptr inbounds i8, ptr %.0774.i, i64 1
+  %830 = getelementptr inbounds nuw i8, ptr %.0774.i, i64 1
   %.not1021.i = icmp eq ptr %830, %826
   br i1 %.not1021.i, label %.loopexit1024.loopexit1038.i, label %827
 
@@ -2673,7 +2673,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr nocapture no
 846:                                              ; preds = %.loopexit1028.i
   %847 = shl nuw i32 %.52906.i, 8
   %848 = shl i32 %.52.i, 8
-  %849 = getelementptr inbounds i8, ptr %.37945.i, i64 1
+  %849 = getelementptr inbounds nuw i8, ptr %.37945.i, i64 1
   %850 = load i8, ptr %.37945.i, align 1
   %851 = zext i8 %850 to i32
   %852 = or disjoint i32 %848, %851
@@ -2797,9 +2797,9 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr nocapture no
   %10 = load i64, ptr %4, align 8
   store i64 0, ptr %2, align 8
   store i64 0, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
 14:                                               ; preds = %34, %7
@@ -2857,9 +2857,9 @@ define range(i32 0, 2) i32 @LzmaDec_DecodeToBuf(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define void @LzmaDec_FreeProbs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef %1, ptr noundef %6) #7
   store ptr null, ptr %5, align 8
@@ -2868,14 +2868,14 @@ define void @LzmaDec_FreeProbs(ptr nocapture noundef %0, ptr noundef %1) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @LzmaDec_Free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %4(ptr noundef %1, ptr noundef %6) #7
   store ptr null, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef %1, ptr noundef %9) #7
   store ptr null, ptr %8, align 8
@@ -2888,10 +2888,10 @@ define range(i32 0, 5) i32 @LzmaProps_Decode(ptr nocapture noundef writeonly %0,
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i32, ptr %6, align 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %7, i32 4096)
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %spec.store.select, ptr %8, align 4
   %9 = load i8, ptr %1, align 1
   %10 = icmp ugt i8 %9, -32
@@ -2904,11 +2904,11 @@ define range(i32 0, 5) i32 @LzmaProps_Decode(ptr nocapture noundef writeonly %0,
   %14 = udiv i8 %9, 9
   %15 = udiv i8 %9, 45
   %.zext = zext nneg i8 %15 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.zext, ptr %16, align 4
   %17 = urem i8 %14, 5
   %.zext19 = zext nneg i8 %17 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.zext19, ptr %18, align 4
   br label %19
 
@@ -2923,7 +2923,7 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr 
   br i1 %5, label %LzmaDec_AllocateProbs2.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i32, ptr %7, align 1
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 4096)
   %9 = load i8, ptr %1, align 1
@@ -2941,19 +2941,19 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr 
   %17 = add nuw nsw i32 %.zext19.i, %13
   %18 = shl nuw nsw i32 768, %17
   %19 = add nuw nsw i32 %18, 1846
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %19, %25
   br i1 %.not.i, label %35, label %26
 
 26:                                               ; preds = %23, %11
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %3, ptr noundef %21) #7
   store ptr null, ptr %20, align 8
@@ -2962,18 +2962,18 @@ define range(i32 0, 5) i32 @LzmaDec_AllocateProbs(ptr nocapture noundef %0, ptr 
   %31 = zext nneg i32 %30 to i64
   %32 = tail call ptr %29(ptr noundef nonnull %3, i64 noundef %31) #7
   store ptr %32, ptr %20, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %19, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %LzmaDec_AllocateProbs2.exit, label %35
 
 35:                                               ; preds = %23, %26
   store i32 %13, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.zext19.i, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.zext.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %spec.store.select.i, ptr %.sroa.6.0..sroa_idx, align 4
   br label %LzmaDec_AllocateProbs2.exit
 
@@ -2988,7 +2988,7 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   br i1 %5, label %LzmaDec_AllocateProbs2.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i32, ptr %7, align 1
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 4096)
   %9 = load i8, ptr %1, align 1
@@ -3006,19 +3006,19 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   %17 = add nuw nsw i32 %.zext19.i, %13
   %18 = shl nuw nsw i32 768, %17
   %19 = add nuw nsw i32 %18, 1846
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %19, %25
   br i1 %.not.i, label %35, label %26
 
 26:                                               ; preds = %23, %11
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %3, ptr noundef %21) #7
   store ptr null, ptr %20, align 8
@@ -3027,26 +3027,26 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   %31 = zext nneg i32 %30 to i64
   %32 = tail call ptr %29(ptr noundef nonnull %3, i64 noundef %31) #7
   store ptr %32, ptr %20, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %19, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %LzmaDec_AllocateProbs2.exit, label %35
 
 35:                                               ; preds = %23, %26
   %36 = zext i32 %spec.store.select.i to i64
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i64, ptr %41, align 8
   %.not26 = icmp eq i64 %42, %36
   br i1 %.not26, label %52, label %43
 
 43:                                               ; preds = %40, %35
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef %3, ptr noundef %38) #7
   store ptr null, ptr %37, align 8
@@ -3064,14 +3064,14 @@ define range(i32 0, 5) i32 @LzmaDec_Allocate(ptr nocapture noundef %0, ptr nocap
   br label %LzmaDec_AllocateProbs2.exit
 
 52:                                               ; preds = %43, %40
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %36, ptr %53, align 8
   store i32 %13, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.zext19.i, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.zext.i, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %spec.store.select.i, ptr %.sroa.6.0..sroa_idx, align 4
   br label %LzmaDec_AllocateProbs2.exit
 
@@ -3091,13 +3091,13 @@ define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr nocapture noundef %1,
   br i1 %13, label %LzmaDec_AllocateProbs.exit.thread, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = icmp ult i32 %5, 5
   br i1 %17, label %LzmaDec_AllocateProbs.exit.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %4, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %20 = load i32, ptr %19, align 1
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %20, i32 4096)
   %21 = load i8, ptr %4, align 1
@@ -3113,7 +3113,7 @@ define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr nocapture noundef %1,
   %28 = add nuw nsw i32 %.zext19.i.i, %25
   %29 = shl nuw nsw i32 768, %28
   %30 = add nuw nsw i32 %29, 1846
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef %8, ptr noundef null) #7
   %33 = load ptr, ptr %8, align 8
@@ -3121,7 +3121,7 @@ define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr nocapture noundef %1,
   %35 = zext nneg i32 %34 to i64
   %36 = tail call ptr %33(ptr noundef nonnull %8, i64 noundef %35) #7
   store ptr %36, ptr %16, align 8
-  %37 = getelementptr inbounds i8, ptr %10, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i32 %30, ptr %37, align 8
   %38 = icmp eq ptr %36, null
   br i1 %38, label %LzmaDec_AllocateProbs.exit.thread, label %39
@@ -3130,28 +3130,28 @@ define range(i32 0, 7) i32 @LzmaDecode(ptr noundef %0, ptr nocapture noundef %1,
   %40 = udiv i8 %21, 45
   %.zext.i.i = zext nneg i8 %40 to i32
   store i32 %25, ptr %10, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %.zext19.i.i, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.zext.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 12
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %spec.store.select.i.i, ptr %.sroa.6.0..sroa_idx.i, align 4
   store ptr %0, ptr %15, align 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %12, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i32 1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %10, i64 92
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 92
   store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %10, i64 108
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 108
   store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %10, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 68
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 68
   store i32 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %10, i64 100
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 100
   store i32 1, ptr %48, align 4
   store i64 %11, ptr %3, align 8
   %49 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %10, i64 noundef %12, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6, ptr noundef %7)

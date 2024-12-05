@@ -672,11 +672,11 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
 
 .lr.ph120:                                        ; preds = %.preheader, %.lr.ph120
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph120 ], [ 0, %.preheader ]
-  %91 = getelementptr inbounds [1024 x %struct.PaDeviceInfo], ptr %31, i64 0, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [1024 x %struct.PaDeviceInfo], ptr %31, i64 0, i64 %indvars.iv
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
   store ptr %91, ptr %95, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = load i32, ptr %74, align 8

@@ -411,13 +411,13 @@ sub_0:                                            ; preds = %land.lhs.true145
   br i1 %.not, label %sub_1, label %if.end159.thread
 
 sub_1:                                            ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %keytype.0, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %keytype.0, i64 1
   %23 = load i8, ptr %22, align 1
   %.not98 = icmp eq i8 %23, 72
   br i1 %.not98, label %land.lhs.true150.tail, label %if.end159.thread
 
 land.lhs.true150.tail:                            ; preds = %sub_1
-  %24 = getelementptr inbounds i8, ptr %keytype.0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %keytype.0, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %if.end159, label %if.end159.thread

@@ -25,7 +25,7 @@ define hidden void @avifDiagnosticsPrintf(ptr noundef %0, ptr nocapture noundef 
 6:                                                ; preds = %4
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i32 @vsnprintf(ptr noundef nonnull %0, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 255
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 255
   store i8 0, ptr %8, align 1
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %9

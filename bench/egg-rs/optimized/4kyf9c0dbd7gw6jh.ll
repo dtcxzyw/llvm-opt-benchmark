@@ -22,11 +22,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, ptr } @"_ZN101_$LT$$RF$mut$u20$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h57c4bc3f0d72e219E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !alias.scope !4, !noalias !7, !noundef !9
   %3 = icmp ugt i64 %2, 3
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !4, !noalias !7, !nonnull !9
   %.sink11.i = select i1 %3, ptr %5, ptr %4
   %.sink10.idx.i = select i1 %3, i64 16, i64 0
-  %.sink10.i = getelementptr inbounds i8, ptr %0, i64 %.sink10.idx.i
+  %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
   %6 = load i64, ptr %.sink10.i, align 8, !noundef !9
   %7 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink11.i, i64 %6
   %8 = insertvalue { ptr, ptr } poison, ptr %.sink11.i, 0
@@ -119,7 +119,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$
 define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h87fcf6da0ec45b0eE"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !alias.scope !12, !noalias !15, !noundef !9
   %5 = icmp ugt i64 %4, 3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !12, !noalias !15
   %.sink13.i = select i1 %5, i64 %7, i64 %4
   %8 = icmp ult i64 %1, %.sink13.i
@@ -130,7 +130,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallv
   unreachable
 
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0e91ff9af32add60E.llvm.5520512306816613332.exit": ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !12, !noalias !15, !nonnull !9
   %.sink14.i = select i1 %5, ptr %11, ptr %10
   %12 = getelementptr inbounds [0 x { { { i32, [1 x i32] } }, i32 }], ptr %.sink14.i, i64 0, i64 %1
@@ -141,11 +141,11 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallv
 define hidden { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h171d366b39d30f8bE"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !alias.scope !20, !noalias !23, !noundef !9
   %4 = icmp ugt i64 %3, 3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !20, !noalias !23, !nonnull !9
   %.sink11.i = select i1 %4, ptr %6, ptr %5
   %.sink10.idx.i = select i1 %4, i64 16, i64 0
-  %.sink10.i = getelementptr inbounds i8, ptr %0, i64 %.sink10.idx.i
+  %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
   %7 = load i64, ptr %.sink10.i, align 8, !noundef !9
   %8 = insertvalue { ptr, i64 } poison, ptr %.sink11.i, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %7, 1
@@ -175,16 +175,16 @@ define hidden void @_ZN8smallvec10infallible17hcb2e1139e40344ddE(i64 noundef %0,
 define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17ha630ea9186ef0e9fE.llvm.5520512306816613332"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef align 8 dereferenceable(48) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !noundef !9
   %4 = icmp ugt i64 %3, 3
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !9
   %.sink11 = select i1 %4, ptr %6, ptr %5
   %.sink10.idx = select i1 %4, i64 16, i64 0
-  %.sink10 = getelementptr inbounds i8, ptr %1, i64 %.sink10.idx
+  %.sink10 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink10.idx
   %.sink = tail call i64 @llvm.umax.i64(i64 %3, i64 3)
   store ptr %.sink11, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink10, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %8, align 8
   ret void
 }
@@ -194,7 +194,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$17try_reserve_exact1
   %3 = load i64, ptr %0, align 8, !alias.scope !25, !noalias !28, !noundef !9
   %4 = icmp ugt i64 %3, 3
   %.sink10.idx.i = select i1 %4, i64 16, i64 0
-  %.sink10.i = getelementptr inbounds i8, ptr %0, i64 %.sink10.idx.i
+  %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %3, i64 3)
   %5 = load i64, ptr %.sink10.i, align 8, !noundef !9
   %6 = sub i64 %.sink.i, %5
@@ -225,7 +225,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$17try_reserve_exact1
 define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h2d359845b034ba5aE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !alias.scope !30, !noalias !33, !noundef !9
   %3 = icmp ugt i64 %2, 3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !30, !noalias !33
   %.sink13.i = select i1 %3, i64 %5, i64 %2
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink13.i, i64 1)
@@ -273,17 +273,17 @@ _ZN8smallvec10infallible17hcb2e1139e40344ddE.exit: ; preds = %17
 define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h3f7e1b662adfb680E.llvm.5520512306816613332"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !noundef !9
   %4 = icmp ugt i64 %3, 3
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !9
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %.sink14 = select i1 %4, ptr %6, ptr %5
   %.sink13 = select i1 %4, i64 %8, i64 %3
   %.sink = tail call i64 @llvm.umax.i64(i64 %3, i64 3)
   store ptr %.sink14, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink13, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %10, align 8
   ret void
 }
@@ -294,10 +294,10 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hb59f0f5d
   %4 = load i64, ptr %0, align 8, !noundef !9
   %5 = icmp ult i64 %4, 4
   %6 = icmp ugt i64 %4, 3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !35, !noalias !38, !nonnull !9
   %.sink10.idx.i = select i1 %6, i64 16, i64 0
-  %.sink10.i = getelementptr inbounds i8, ptr %0, i64 %.sink10.idx.i
+  %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 3)
   %9 = load i64, ptr %.sink10.i, align 8, !noundef !9
   %.not = icmp ult i64 %1, %9
@@ -355,7 +355,7 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17hb59f0f5d
 35:                                               ; preds = %32, %36
   %.sroa.048.0 = phi ptr [ %30, %36 ], [ %33, %32 ]
   store ptr %.sroa.048.0, ptr %7, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 %1, ptr %0, align 8
   br label %46

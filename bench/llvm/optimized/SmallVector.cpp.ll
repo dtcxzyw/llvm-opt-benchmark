@@ -905,16 +905,16 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %28 = shl nuw nsw i64 %27, 1
   %29 = udiv i64 %.020.i, 100
   %30 = or disjoint i64 %28, 1
-  %31 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i32 %.01819.i to i64
-  %34 = getelementptr inbounds i8, ptr %22, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   store i8 %32, ptr %34, align 1
-  %35 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %28
+  %35 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %28
   %36 = load i8, ptr %35, align 2
   %37 = add i32 %.01819.i, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %22, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 %38
   store i8 %36, ptr %39, align 1
   %40 = add i32 %.01819.i, -2
   %41 = icmp ugt i64 %.020.i, 9999
@@ -928,11 +928,11 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 43:                                               ; preds = %._crit_edge.i
   %44 = shl nuw nsw i64 %.0.lcssa.i, 1
   %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %22, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %44
+  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %44
   %50 = load i8, ptr %49, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

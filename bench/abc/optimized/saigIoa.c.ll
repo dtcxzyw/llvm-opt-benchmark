@@ -267,7 +267,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %28, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
@@ -275,7 +275,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   %31 = load ptr, ptr %29, align 8
   %32 = getelementptr i8, ptr %31, i64 8
   %.val126 = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val126, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %.val126, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @Saig_ObjName(ptr noundef nonnull %0, ptr noundef %34)
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.13, ptr noundef nonnull @Saig_ObjName.Buffer) #13
@@ -296,7 +296,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %41, label %.lr.ph148, label %.critedge2
 
 .lr.ph148:                                        ; preds = %.critedge
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %43
 
 43:                                               ; preds = %.lr.ph148, %43
@@ -304,7 +304,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   %44 = load ptr, ptr %42, align 8
   %45 = getelementptr i8, ptr %44, i64 8
   %.val127 = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds ptr, ptr %.val127, i64 %indvars.iv162
+  %46 = getelementptr inbounds nuw ptr, ptr %.val127, i64 %indvars.iv162
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @Saig_ObjName(ptr noundef nonnull %0, ptr noundef %47)
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.13, ptr noundef nonnull @Saig_ObjName.Buffer) #13
@@ -323,8 +323,8 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %53, label %.lr.ph153, label %.critedge4
 
 .lr.ph153:                                        ; preds = %.critedge2
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %56
 
 56:                                               ; preds = %.lr.ph153, %56
@@ -380,7 +380,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %87, label %.lr.ph156, label %.critedge6.preheader
 
 .critedge6.preheader:                             ; preds = %127, %84
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr i8, ptr %89, i64 4
   %.val110157 = load i32, ptr %90, align 4
@@ -392,7 +392,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %127 ], [ 0, %84 ]
   %93 = getelementptr i8, ptr %92, i64 8
   %.val128 = load ptr, ptr %93, align 8
-  %94 = getelementptr inbounds ptr, ptr %.val128, i64 %indvars.iv165
+  %94 = getelementptr inbounds nuw ptr, ptr %.val128, i64 %indvars.iv165
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %127, label %97
@@ -452,7 +452,7 @@ define void @Saig_ManDumpBlif(ptr noundef %0, ptr nocapture noundef readonly %1)
   %132 = phi ptr [ %150, %.critedge6 ], [ %89, %.critedge6.preheader ]
   %133 = getelementptr i8, ptr %132, i64 8
   %.val129 = load ptr, ptr %133, align 8
-  %134 = getelementptr inbounds ptr, ptr %.val129, i64 %indvars.iv168
+  %134 = getelementptr inbounds nuw ptr, ptr %.val129, i64 %indvars.iv168
   %135 = load ptr, ptr %134, align 8
   %136 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 6, i64 1, ptr %7)
   %137 = getelementptr i8, ptr %135, i64 8
@@ -522,7 +522,7 @@ define i32 @Saig_ManReadNumber(ptr nocapture noundef readnone %0, ptr nocapture 
 
 .sink.split:                                      ; preds = %2, %4
   %.sink7 = phi i64 [ 2, %4 ], [ 1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %1, i64 %.sink7
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink7
   %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #14
   br label %7
 
@@ -550,7 +550,7 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not.i, label %Aig_ManObj.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #14
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %1, i64 %10
@@ -559,13 +559,13 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %Aig_ManObj.exit.sink.split
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %16 = load i8, ptr %15, align 1
   %cond = icmp eq i8 %16, 105
   br i1 %cond, label %17, label %Aig_ManObj.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %2, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %19 = tail call i32 @atoi(ptr nocapture noundef nonnull %18) #14
   %20 = getelementptr i8, ptr %0, i64 16
   %.val23 = load ptr, ptr %20, align 8
@@ -573,13 +573,13 @@ define ptr @Saig_ManReadNode(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %Aig_ManObj.exit.sink.split
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %2, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %24 = load i8, ptr %23, align 1
   %cond22 = icmp eq i8 %24, 111
   br i1 %cond22, label %25, label %Aig_ManObj.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %2, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %27 = tail call i32 @atoi(ptr nocapture noundef nonnull %26) #14
   %28 = getelementptr i8, ptr %0, i64 16
   %.val24 = load ptr, ptr %28, align 8
@@ -655,7 +655,7 @@ Abc_UtilStrsav.exit:                              ; preds = %.critedge
 
 Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit, %16
   %21 = phi ptr [ %19, %16 ], [ null, %Abc_UtilStrsav.exit ]
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %21, ptr %22, align 8
   %23 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %2, ptr noundef nonnull @.str.23, ptr noundef nonnull @Saig_ManReadToken.Buffer) #13
   %.not233 = icmp eq i32 %23, 1
@@ -838,13 +838,13 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
   ]
 
 70:                                               ; preds = %65
-  %71 = select i1 %68, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), ptr inttoptr (i64 1 to ptr)
+  %71 = select i1 %68, ptr getelementptr inbounds nuw (i8, ptr @Saig_ManReadToken.Buffer, i64 1), ptr inttoptr (i64 1 to ptr)
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 111
   br i1 %73, label %78, label %.thread
 
 74:                                               ; preds = %65
-  %75 = select i1 %68, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), ptr inttoptr (i64 1 to ptr)
+  %75 = select i1 %68, ptr getelementptr inbounds nuw (i8, ptr @Saig_ManReadToken.Buffer, i64 1), ptr inttoptr (i64 1 to ptr)
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 105
   br i1 %77, label %78, label %.thread
@@ -906,7 +906,7 @@ Abc_UtilStrsav.exit213:                           ; preds = %Abc_UtilStrsav.exit
 
 .sink.split.i:                                    ; preds = %97, %.thread
   %.sink7.i = phi i64 [ 2, %97 ], [ 1, %.thread ]
-  %98 = getelementptr inbounds i8, ptr %Saig_ManReadToken.Buffer..i228, i64 %.sink7.i
+  %98 = getelementptr inbounds nuw i8, ptr %Saig_ManReadToken.Buffer..i228, i64 %.sink7.i
   %99 = tail call i32 @atoi(ptr nocapture noundef nonnull readonly %98) #14
   %100 = sext i32 %99 to i64
   br label %Saig_ManReadNumber.exit
@@ -944,7 +944,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   %117 = xor i64 %116, 1
   %118 = inttoptr i64 %117 to ptr
   %.1142 = select i1 %115, ptr %118, ptr %66
-  %119 = load i8, ptr getelementptr inbounds (i8, ptr @Saig_ManReadToken.Buffer, i64 1), align 1
+  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @Saig_ManReadToken.Buffer, i64 1), align 1
   %120 = icmp eq i8 %119, 48
   %121 = ptrtoint ptr %93 to i64
   %122 = xor i64 %121, 1
@@ -985,7 +985,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   br label %165
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds i8, ptr %130, i64 36
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 36
   %136 = load i32, ptr %135, align 4
   %137 = getelementptr inbounds i32, ptr %.2, i64 %.0.i
   store i32 %136, ptr %137, align 4
@@ -1017,7 +1017,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   br i1 %.not178, label %.preheader, label %149
 
 .preheader:                                       ; preds = %142
-  %145 = getelementptr inbounds i8, ptr %11, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr i8, ptr %146, i64 4
   %.val304 = load i32, ptr %147, align 4
@@ -1034,9 +1034,9 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   %150 = phi ptr [ %158, %.lr.ph306 ], [ %146, %.preheader ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val210 = load ptr, ptr %151, align 8
-  %152 = getelementptr inbounds ptr, ptr %.val210, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw ptr, ptr %.val210, i64 %indvars.iv
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 36
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 36
   %155 = load i32, ptr %154, align 4
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds i32, ptr %.0140.lcssa, i64 %156
@@ -1050,7 +1050,7 @@ Saig_ManReadNumber.exit:                          ; preds = %.thread, %.sink.spl
   br i1 %161, label %.lr.ph306, label %.critedge6, !llvm.loop !17
 
 .critedge6:                                       ; preds = %.lr.ph306, %.preheader
-  %162 = getelementptr inbounds i8, ptr %11, i64 296
+  %162 = getelementptr inbounds nuw i8, ptr %11, i64 296
   store ptr %.0140.lcssa, ptr %162, align 8
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %11, i32 noundef %.0143.lcssa) #13
   %163 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %11) #13

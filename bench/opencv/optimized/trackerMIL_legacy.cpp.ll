@@ -151,27 +151,27 @@ define void @_ZN2cv6legacy8tracking10TrackerMIL6Params4readERKNS_8FileNodeE(ptr 
   store float %10, ptr %0, align 4
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.1)
   %11 = call noundef float @_ZNK2cv8FileNodecvfEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %11, ptr %12, align 4
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.2)
   %13 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %13, ptr %14, align 4
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.3)
   %15 = call noundef float @_ZNK2cv8FileNodecvfEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %15, ptr %16, align 4
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.4)
   %17 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %17, ptr %18, align 4
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.5)
   %19 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %19, ptr %20, align 4
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.6)
   %21 = call noundef i32 @_ZNK2cv8FileNodecviEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %21, ptr %22, align 4
   ret void
 }
@@ -257,7 +257,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit9:             ; preds = %24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIfEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 4 dereferenceable(4) %30)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
@@ -285,7 +285,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit11:            ; preds = %32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  %38 = getelementptr inbounds i8, ptr %0, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %39 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef nonnull align 4 dereferenceable(4) %38)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -313,7 +313,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit13:            ; preds = %40
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIfEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %41, ptr noundef nonnull align 4 dereferenceable(4) %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -341,7 +341,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit15:            ; preds = %48
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 4 dereferenceable(4) %54)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -369,7 +369,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit17:            ; preds = %56
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %62 = getelementptr inbounds i8, ptr %0, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %63 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 4 dereferenceable(4) %62)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -397,7 +397,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit19:            ; preds = %64
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsIiEERNS_11FileStorageES2_RKT_(ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull align 4 dereferenceable(4) %70)
   ret void
 }
@@ -407,13 +407,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %21
@@ -447,7 +447,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load float, ptr %1, align 4
   tail call void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, float noundef %23)
   %24 = load i32, ptr %10, align 8
@@ -468,13 +468,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %21
@@ -508,7 +508,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %1, align 4
   tail call void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef %23)
   %24 = load i32, ptr %10, align 8
@@ -532,14 +532,14 @@ _ZN2cv3PtrINS_6legacy8tracking4impl14TrackerMILImplEED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !4
   store ptr null, ptr %3, align 8, !alias.scope !7, !noalias !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerMILImplESaIvEJRKNS6_10TrackerMIL6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(28) %1), !noalias !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !4
   %5 = load ptr, ptr %3, align 8, !noalias !4
   %6 = load ptr, ptr %4, align 8, !noalias !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   ret void
 }
@@ -555,14 +555,14 @@ define void @_ZN2cv6legacy8tracking10TrackerMIL6createEv(ptr dead_on_unwind noal
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !13
   store ptr null, ptr %3, align 8, !alias.scope !16, !noalias !13
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerMILImplESaIvEJRKNS6_10TrackerMIL6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(28) %4), !noalias !13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !13
   %6 = load ptr, ptr %3, align 8, !noalias !13
   %7 = load ptr, ptr %5, align 8, !noalias !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !10
   store ptr %6, ptr %0, align 8, !alias.scope !10
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8, !alias.scope !10
   ret void
 }
@@ -601,12 +601,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN2cv6legacy8tracking4impl14TrackerMILImplESaIvEJRKNS6_10TrackerMIL6ParamsEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, ptr noundef nonnull align 4 dereferenceable(28) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSC_.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %.noexc unwind label %16
 
@@ -616,7 +616,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4imp
 
 8:                                                ; preds = %.noexc
   store ptr getelementptr inbounds inrange(-80, 80) (i8, ptr @_ZTVN2cv6legacy8tracking4impl14TrackerMILImplE, i64 80), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   invoke void @_ZN2cv10TrackerMIL6createERKNS0_6ParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.24") align 8 %9, ptr noundef nonnull align 4 dereferenceable(28) %3)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %12
 
@@ -637,9 +637,9 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4imp
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %4, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 0, ptr %15, align 8
   store ptr %4, ptr %0, align 8
   store ptr %7, ptr %1, align 8
@@ -672,13 +672,13 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8trac
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6legacy8tracking4impl14TrackerMILImplEEEvRS0_PT_.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -686,10 +686,10 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8trac
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
@@ -715,10 +715,10 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8trac
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %31, label %28
@@ -740,14 +740,14 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8trac
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv6legacy8tracking4impl14TrackerMILImplEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv6legacy8tracking4impl14TrackerMILImplEEEvRS0_PT_.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %38, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerMILImplE, i64 16)) #18
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %38, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerMILImplE, i64 16)) #18
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %38) #18
   ret void
 }
@@ -761,12 +761,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6legacy8tracking4impl14TrackerMILImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
@@ -836,13 +836,13 @@ declare void @_ZN2cv6legacy8tracking7TrackerD0Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN2cv6legacy8tracking4impl14TrackerMILImplD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -850,10 +850,10 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -879,10 +879,10 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
@@ -904,26 +904,26 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN2cv6legacy8tracking4impl14TrackerMILImplD2Ev.exit
 
 _ZN2cv6legacy8tracking4impl14TrackerMILImplD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerMILImplE, i64 16)) #18
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerMILImplE, i64 16)) #18
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -931,10 +931,10 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD0Ev
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -960,10 +960,10 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD0Ev
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %31, label %28
@@ -985,13 +985,13 @@ define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImplD0Ev
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev.exit
 
 _ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev.exit: ; preds = %1, %20, %33, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
-  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerMILImplE, i64 16)) #18
+  tail call void @_ZN2cv6legacy8tracking7TrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv6legacy8tracking4impl14TrackerMILImplE, i64 16)) #18
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
@@ -999,7 +999,7 @@ _ZN2cv6legacy8tracking4impl14TrackerMILImplD1Ev.exit: ; preds = %1, %20, %33, %_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2cv6legacy8tracking4impl14TrackerMILImpl5writeERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZNK2cv6legacy8tracking10TrackerMIL6Params5writeERNS_11FileStorageE(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(64) %1)
   ret void
 }
@@ -1008,7 +1008,7 @@ define linkonce_odr hidden void @_ZNK2cv6legacy8tracking4impl14TrackerMILImpl5wr
 define linkonce_odr hidden void @_ZN2cv6legacy8tracking4impl14TrackerMILImpl4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN2cv6legacy8tracking10TrackerMIL6Params4readERKNS_8FileNodeE(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -1045,25 +1045,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv6legacy8tracking4impl14Trac
   %6 = load double, ptr %2, align 8
   %7 = insertelement <2 x double> poison, double %6, i64 0
   %8 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %7)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load double, ptr %9, align 8
   %11 = insertelement <2 x double> poison, double %10, i64 0
   %12 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load double, ptr %13, align 8
   %15 = fadd double %6, %14
   %16 = insertelement <2 x double> poison, double %15, i64 0
   %17 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %16)
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fadd double %10, %19
   %21 = insertelement <2 x double> poison, double %20, i64 0
   %22 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %21)
   %23 = sub nsw i32 %17, %8
   %24 = sub nsw i32 %22, %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %26, align 4
   %30 = icmp slt i32 %23, 1
@@ -1127,22 +1127,22 @@ _ZN2cvanIiEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %._crit_edge.i, %.si
   %.sroa.11.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.11.sroa.0.0.i to i64
   %.sroa.11.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.11.sroa.8.0.insert.shift.i, %.sroa.11.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.sroa.0.0.insert.insert.i, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.11.sroa.0.0.insert.insert.i, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %56, align 4
   store i32 16842752, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %57, align 8
   %58 = load ptr, ptr %54, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %61, align 8
   ret i1 true
 }
@@ -1152,36 +1152,36 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv6legacy8tracking4impl14Trac
   %4 = alloca %"class.cv::Rect_.28", align 4
   %5 = alloca %"class.cv::_InputArray", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %9, align 4
   store i32 16842752, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(16) %4)
   %15 = load i32, ptr %4, align 4, !noalias !19
   %16 = sitofp i32 %15 to double
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = load i32, ptr %17, align 4, !noalias !19
   %19 = sitofp i32 %18 to double
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 4, !noalias !19
   %22 = sitofp i32 %21 to double
-  %23 = getelementptr inbounds i8, ptr %4, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %24 = load i32, ptr %23, align 4, !noalias !19
   %25 = sitofp i32 %24 to double
   store double %16, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %19, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %22, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %25, ptr %.sroa.4.0..sroa_idx, align 8
   ret i1 %14
 }

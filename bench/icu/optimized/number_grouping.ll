@@ -26,10 +26,10 @@ sw.default:                                       ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %grouping to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %grouping to i64
-  %switch.gep18 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2, i64 0, i64 %2
+  %switch.gep18 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy.2, i64 0, i64 %2
   %switch.load19 = load i64, ptr %switch.gep18, align 8
   %retval.sroa.6.0.insert.shift = shl nuw nsw i64 %switch.load19, 16
   %retval.sroa.6.0.insert.insert = or disjoint i64 %retval.sroa.6.0.insert.shift, %switch.load
@@ -45,19 +45,19 @@ declare void @abort() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(757) %properties) local_unnamed_addr #2 align 2 {
 entry:
-  %groupingUsed = getelementptr inbounds i8, ptr %properties, i64 80
+  %groupingUsed = getelementptr inbounds nuw i8, ptr %properties, i64 80
   %0 = load i8, ptr %groupingUsed, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %groupingSize = getelementptr inbounds i8, ptr %properties, i64 76
+  %groupingSize = getelementptr inbounds nuw i8, ptr %properties, i64 76
   %1 = load i32, ptr %groupingSize, align 4
   %conv = trunc i32 %1 to i16
-  %secondaryGroupingSize = getelementptr inbounds i8, ptr %properties, i64 752
+  %secondaryGroupingSize = getelementptr inbounds nuw i8, ptr %properties, i64 752
   %2 = load i32, ptr %secondaryGroupingSize, align 8
   %conv1 = trunc i32 %2 to i16
-  %minimumGroupingDigits = getelementptr inbounds i8, ptr %properties, i64 108
+  %minimumGroupingDigits = getelementptr inbounds nuw i8, ptr %properties, i64 108
   %3 = load i32, ptr %minimumGroupingDigits, align 4
   %cmp = icmp sgt i16 %conv, 0
   %cmp5 = icmp sgt i16 %conv1, 0
@@ -84,7 +84,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_756number4impl7Grouper13setLocaleDataERKNS1_17ParsedPatternInfoERKNS_6LocaleE(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(433) %patternInfo, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale) local_unnamed_addr #3 align 2 {
 entry:
-  %fMinGrouping = getelementptr inbounds i8, ptr %this, i64 4
+  %fMinGrouping = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i16, ptr %fMinGrouping, align 4
   switch i16 %0, label %if.end13 [
     i16 -2, label %if.then
@@ -92,13 +92,13 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %locale, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %locale, i64 40
   %locale.val = load ptr, ptr %1, align 8
   %call = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.val)
   br label %if.end13.sink.split
 
 if.then6:                                         ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %locale, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %locale, i64 40
   %locale.val7 = load ptr, ptr %2, align 8
   %call7 = tail call fastcc noundef signext i16 @_ZN12_GLOBAL__N_123getMinGroupingForLocaleERKN6icu_756LocaleE(ptr %locale.val7)
   %conv8 = sext i16 %call7 to i32
@@ -114,14 +114,14 @@ if.end13.sink.split:                              ; preds = %if.then, %if.then6
 if.end13:                                         ; preds = %if.end13.sink.split, %entry
   %3 = load i16, ptr %this, align 4
   %cmp15.not = icmp eq i16 %3, -2
-  %fGrouping2 = getelementptr inbounds i8, ptr %this, i64 2
+  %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %4 = load i16, ptr %fGrouping2, align 2
   %cmp17.not = icmp eq i16 %4, -4
   %or.cond = select i1 %cmp15.not, i1 true, i1 %cmp17.not
   br i1 %or.cond, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end13
-  %positive = getelementptr inbounds i8, ptr %patternInfo, i64 72
+  %positive = getelementptr inbounds nuw i8, ptr %patternInfo, i64 72
   %5 = load i64, ptr %positive, align 8
   %conv20 = trunc i64 %5 to i16
   %shr = lshr i64 %5, 16
@@ -211,7 +211,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %fGrouping2 = getelementptr inbounds i8, ptr %this, i64 2
+  %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %1 = load i16, ptr %fGrouping2, align 2
   %conv8 = sext i16 %1 to i32
   %rem = srem i32 %sub, %conv8
@@ -224,7 +224,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %conv11 = sext i16 %2 to i32
   %sub12 = add i32 %call, 1
   %add = sub i32 %sub12, %conv11
-  %fMinGrouping = getelementptr inbounds i8, ptr %this, i64 4
+  %fMinGrouping = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = load i16, ptr %fMinGrouping, align 4
   %conv13 = sext i16 %3 to i32
   %cmp14 = icmp sge i32 %add, %conv13
@@ -247,7 +247,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext i16 @_ZNK6icu_756number4impl7Grouper12getSecondaryEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %fGrouping2 = getelementptr inbounds i8, ptr %this, i64 2
+  %fGrouping2 = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i16, ptr %fGrouping2, align 2
   ret i16 %0
 }

@@ -99,7 +99,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 48:                                               ; preds = %.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %76
 
 50:                                               ; preds = %.loopexit, %46
@@ -138,7 +138,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
   br i1 %73, label %48, label %50, !llvm.loop !12
 
 74:                                               ; preds = %76
-  %75 = getelementptr inbounds i8, ptr %3, i64 18
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 18
   br label %83
 
 76:                                               ; preds = %76, %48
@@ -151,7 +151,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 81:                                               ; preds = %83
   store i16 112, ptr %75, align 2
-  %82 = getelementptr inbounds i8, ptr %3, i64 14
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 14
   br label %89
 
 83:                                               ; preds = %83, %74
@@ -211,7 +211,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 115:                                              ; preds = %145, %101
   %116 = phi i64 [ 0, %101 ], [ %146, %145 ]
   %117 = getelementptr %struct.ct_data_s, ptr @static_ltree, i64 %116
-  %118 = getelementptr inbounds i8, ptr %117, i64 2
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   %119 = load i16, ptr %118, align 2
   %120 = icmp eq i16 %119, 0
   br i1 %120, label %145, label %121
@@ -256,7 +256,7 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 149:                                              ; preds = %149, %148
   %150 = phi i64 [ 0, %148 ], [ %157, %149 ]
   %151 = getelementptr [30 x %struct.ct_data_s], ptr @static_dtree, i64 0, i64 %150
-  %152 = getelementptr inbounds i8, ptr %151, i64 2
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 2
   store i16 5, ptr %152, align 2
   %153 = getelementptr [256 x i8], ptr @byte_rev_table, i64 0, i64 %150
   %154 = load i8, ptr %153, align 1
@@ -273,28 +273,28 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 
 160:                                              ; preds = %159, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
-  %161 = getelementptr inbounds i8, ptr %0, i64 5904
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   store i64 0, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 188
-  %163 = getelementptr inbounds i8, ptr %0, i64 2880
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 2880
   store ptr %162, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 2896
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   store ptr @static_l_desc, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 2480
-  %166 = getelementptr inbounds i8, ptr %0, i64 2904
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   store ptr %165, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 2920
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   store ptr @static_d_desc, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 2724
-  %169 = getelementptr inbounds i8, ptr %0, i64 2928
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 2724
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 2928
   store ptr %168, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 2944
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   store ptr @static_bl_desc, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 5920
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   store i16 0, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %0, i64 5924
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   store i32 0, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %0, i64 5916
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 5916
   store i32 8, ptr %173, align 4
   br label %174
 
@@ -325,22 +325,22 @@ define dso_local void @zlib_tr_init(ptr noundef %0) local_unnamed_addr #0 align 
 187:                                              ; preds = %.preheader
   %188 = getelementptr i8, ptr %0, i64 1212
   store i16 1, ptr %188, align 4
-  %189 = getelementptr inbounds i8, ptr %0, i64 5888
-  %190 = getelementptr inbounds i8, ptr %0, i64 5912
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 5888
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 5912
   store i32 0, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 5876
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 5876
   store i32 0, ptr %191, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @zlib_tr_stored_block(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 5924
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 13
   %8 = shl i32 %3, %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 5920
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %10 = load i16, ptr %9, align 8
   %11 = trunc i32 %8 to i16
   %12 = or i16 %10, %11
@@ -349,9 +349,9 @@ define dso_local void @zlib_tr_stored_block(ptr nocapture noundef %0, ptr nocapt
 
 13:                                               ; preds = %4
   %14 = trunc i16 %12 to i8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
@@ -384,7 +384,7 @@ define dso_local void @zlib_tr_stored_block(ptr nocapture noundef %0, ptr nocapt
 38:                                               ; preds = %36, %13
   %39 = phi i16 [ %12, %36 ], [ %34, %13 ]
   %40 = phi i32 [ %37, %36 ], [ %35, %13 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 5904
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, 10
   %44 = and i64 %43, -8
@@ -397,9 +397,9 @@ define dso_local void @zlib_tr_stored_block(ptr nocapture noundef %0, ptr nocapt
 
 49:                                               ; preds = %38
   %50 = trunc i16 %39 to i8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 8
@@ -415,8 +415,8 @@ define dso_local void @zlib_tr_stored_block(ptr nocapture noundef %0, ptr nocapt
   br i1 %61, label %62, label %75
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %65
 
 65:                                               ; preds = %62, %49
@@ -437,12 +437,12 @@ define dso_local void @zlib_tr_stored_block(ptr nocapture noundef %0, ptr nocapt
   %76 = trunc i64 %2 to i32
   store i16 0, ptr %9, align 8
   store i32 0, ptr %5, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 5916
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 5916
   store i32 8, ptr %77, align 4
   %78 = trunc i64 %2 to i8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load i32, ptr %81, align 8
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 8
@@ -496,18 +496,18 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @zlib_tr_stored_type_only(ptr nocapture noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5924
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 13
   br i1 %4, label %5, label %26
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 5920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %7 = load i16, ptr %6, align 8
   %8 = trunc i16 %7 to i8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
@@ -539,12 +539,12 @@ define dso_local void @zlib_tr_stored_type_only(ptr nocapture noundef %0) local_
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 5920
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %33 = load i16, ptr %32, align 8
   %34 = trunc i16 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 8
@@ -560,10 +560,10 @@ define dso_local void @zlib_tr_stored_type_only(ptr nocapture noundef %0) local_
   br i1 %45, label %46, label %61
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 5920
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %48 = load i16, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %51
 
 51:                                               ; preds = %46, %31
@@ -581,10 +581,10 @@ define dso_local void @zlib_tr_stored_type_only(ptr nocapture noundef %0) local_
   br label %61
 
 61:                                               ; preds = %51, %44
-  %62 = getelementptr inbounds i8, ptr %0, i64 5920
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   store i16 0, ptr %62, align 8
   store i32 0, ptr %2, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 5904
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, 3
   %66 = and i64 %65, -8
@@ -594,11 +594,11 @@ define dso_local void @zlib_tr_stored_type_only(ptr nocapture noundef %0) local_
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5924
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 13
   %5 = shl i32 2, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 5920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %7 = load i16, ptr %6, align 8
   %8 = trunc i32 %5 to i16
   %9 = or i16 %7, %8
@@ -607,9 +607,9 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
 
 10:                                               ; preds = %1
   %11 = trunc i16 %9 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
@@ -655,9 +655,9 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
 
 46:                                               ; preds = %34
   %47 = trunc i16 %45 to i8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
@@ -691,7 +691,7 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
   %72 = phi i16 [ %45, %69 ], [ %66, %46 ]
   %.pr = phi i32 [ %70, %69 ], [ %68, %46 ]
   store i32 %.pr, ptr %2, align 4
-  %73 = getelementptr inbounds i8, ptr %0, i64 5904
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, 10
   store i64 %75, ptr %73, align 8
@@ -700,9 +700,9 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
 
 77:                                               ; preds = %71
   %78 = trunc i16 %72 to i8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load i32, ptr %81, align 8
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 8
@@ -728,9 +728,9 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
 
 96:                                               ; preds = %94
   %97 = trunc i16 %72 to i8
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load i32, ptr %100, align 8
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 8
@@ -753,7 +753,7 @@ define dso_local void @zlib_tr_align(ptr nocapture noundef %0) local_unnamed_add
 thread-pre-split:                                 ; preds = %94, %109
   %112 = phi i16 [ %110, %109 ], [ %72, %94 ]
   %113 = phi i32 [ %111, %109 ], [ %.pr, %94 ]
-  %114 = getelementptr inbounds i8, ptr %0, i64 5916
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 5916
   %115 = load i32, ptr %114, align 4
   %reass.sub = sub i32 %115, %113
   %116 = add i32 %reass.sub, 11
@@ -770,9 +770,9 @@ thread-pre-split:                                 ; preds = %94, %109
 
 123:                                              ; preds = %118
   %124 = trunc i16 %122 to i8
-  %125 = getelementptr inbounds i8, ptr %0, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %128 = load i32, ptr %127, align 8
   %129 = add i32 %128, 1
   store i32 %129, ptr %127, align 8
@@ -818,9 +818,9 @@ thread-pre-split:                                 ; preds = %94, %109
 
 159:                                              ; preds = %147
   %160 = trunc i16 %158 to i8
-  %161 = getelementptr inbounds i8, ptr %0, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %164 = load i32, ptr %163, align 8
   %165 = add i32 %164, 1
   store i32 %165, ptr %163, align 8
@@ -862,9 +862,9 @@ thread-pre-split:                                 ; preds = %94, %109
 
 190:                                              ; preds = %184
   %191 = trunc i16 %185 to i8
-  %192 = getelementptr inbounds i8, ptr %0, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 40
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %195 = load i32, ptr %194, align 8
   %196 = add i32 %195, 1
   store i32 %196, ptr %194, align 8
@@ -890,9 +890,9 @@ thread-pre-split:                                 ; preds = %94, %109
 
 209:                                              ; preds = %207
   %210 = trunc i16 %185 to i8
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %214 = load i32, ptr %213, align 8
   %215 = add i32 %214, 1
   store i32 %215, ptr %213, align 8
@@ -918,19 +918,19 @@ thread-pre-split:                                 ; preds = %94, %109
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 172
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %223
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 2
   br i1 %11, label %12, label %43
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 188
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 188
   br label %14
 
 14:                                               ; preds = %14, %12
@@ -974,14 +974,14 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br label %43
 
 43:                                               ; preds = %39, %8
-  %44 = getelementptr inbounds i8, ptr %0, i64 2880
-  tail call fastcc void @build_tree(ptr noundef %0, ptr noundef %44)
-  %45 = getelementptr inbounds i8, ptr %0, i64 2904
-  tail call fastcc void @build_tree(ptr noundef %0, ptr noundef %45)
-  %46 = getelementptr inbounds i8, ptr %0, i64 188
-  %47 = getelementptr inbounds i8, ptr %0, i64 2888
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2880
+  tail call fastcc void @build_tree(ptr noundef %0, ptr noundef nonnull %44)
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  tail call fastcc void @build_tree(ptr noundef %0, ptr noundef nonnull %45)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 190
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 190
   %50 = load i16, ptr %49, align 2
   %51 = add i32 %48, 1
   %52 = sext i32 %51 to i64
@@ -997,7 +997,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %57 = select i1 %56, i32 3, i32 4
   %58 = select i1 %56, i32 138, i32 7
   %59 = zext i16 %50 to i32
-  %60 = getelementptr inbounds i8, ptr %0, i64 2724
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %61 = getelementptr i8, ptr %0, i64 2788
   %62 = getelementptr i8, ptr %0, i64 2796
   %63 = getelementptr i8, ptr %0, i64 2792
@@ -1093,10 +1093,10 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %119, label %.loopexit32, label %66, !llvm.loop !27
 
 .loopexit32:                                      ; preds = %114, %43
-  %120 = getelementptr inbounds i8, ptr %0, i64 2480
-  %121 = getelementptr inbounds i8, ptr %0, i64 2912
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %122 = load i32, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 2482
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 2482
   %124 = load i16, ptr %123, align 2
   %125 = add i32 %122, 1
   %126 = sext i32 %125 to i64
@@ -1112,7 +1112,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %131 = select i1 %130, i32 3, i32 4
   %132 = select i1 %130, i32 138, i32 7
   %133 = zext i16 %124 to i32
-  %134 = getelementptr inbounds i8, ptr %0, i64 2724
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %135 = getelementptr i8, ptr %0, i64 2788
   %136 = getelementptr i8, ptr %0, i64 2796
   %137 = getelementptr i8, ptr %0, i64 2792
@@ -1208,8 +1208,8 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %193, label %.loopexit31, label %140, !llvm.loop !27
 
 .loopexit31:                                      ; preds = %188, %.loopexit32
-  %194 = getelementptr inbounds i8, ptr %0, i64 2928
-  tail call fastcc void @build_tree(ptr noundef %0, ptr noundef %194)
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 2928
+  tail call fastcc void @build_tree(ptr noundef %0, ptr noundef nonnull %194)
   %195 = getelementptr i8, ptr %0, i64 2726
   br label %196
 
@@ -1235,13 +1235,13 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %210 = mul i32 %209, 3
   %211 = add i32 %210, 17
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds i8, ptr %0, i64 5888
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 5888
   %214 = load i64, ptr %213, align 8
   %215 = add i64 %214, %212
   store i64 %215, ptr %213, align 8
   %216 = add i64 %215, 10
   %217 = lshr i64 %216, 3
-  %218 = getelementptr inbounds i8, ptr %0, i64 5896
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 5896
   %219 = load i64, ptr %218, align 8
   %220 = add i64 %219, 10
   %221 = lshr i64 %220, 3
@@ -1268,10 +1268,10 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 234:                                              ; preds = %225
   %235 = icmp eq i64 %227, %228
-  %236 = getelementptr inbounds i8, ptr %0, i64 5924
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %237 = load i32, ptr %236, align 4
   %238 = icmp sgt i32 %237, 13
-  %239 = getelementptr inbounds i8, ptr %0, i64 5920
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %240 = load i16, ptr %239, align 8
   br i1 %235, label %241, label %279
 
@@ -1285,9 +1285,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 246:                                              ; preds = %241
   %247 = trunc i16 %245 to i8
-  %248 = getelementptr inbounds i8, ptr %0, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 40
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %251 = load i32, ptr %250, align 8
   %252 = add i32 %251, 1
   store i32 %252, ptr %250, align 8
@@ -1321,10 +1321,10 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %272 = phi i32 [ %270, %269 ], [ %268, %246 ]
   store i32 %272, ptr %236, align 4
   tail call fastcc void @compress_block(ptr noundef %0, ptr noundef nonnull @static_ltree, ptr noundef nonnull @static_dtree)
-  %273 = getelementptr inbounds i8, ptr %0, i64 5896
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 5896
   %274 = load i64, ptr %273, align 8
   %275 = add i64 %274, 3
-  %276 = getelementptr inbounds i8, ptr %0, i64 5904
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %275, %277
   store i64 %278, ptr %276, align 8
@@ -1340,9 +1340,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 284:                                              ; preds = %279
   %285 = trunc i16 %283 to i8
-  %286 = getelementptr inbounds i8, ptr %0, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %0, i64 40
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %289 = load i32, ptr %288, align 8
   %290 = add i32 %289, 1
   store i32 %290, ptr %288, align 8
@@ -1375,9 +1375,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %310 = phi i16 [ %283, %307 ], [ %305, %284 ]
   %311 = phi i32 [ %308, %307 ], [ %306, %284 ]
   store i32 %311, ptr %236, align 4
-  %312 = getelementptr inbounds i8, ptr %0, i64 2888
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %313 = load i32, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %0, i64 2912
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %315 = load i32, ptr %314, align 8
   %316 = add i32 %226, 1
   %317 = icmp sgt i32 %311, 11
@@ -1390,9 +1390,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %322 = or i16 %310, %321
   store i16 %322, ptr %239, align 8
   %323 = trunc i16 %322 to i8
-  %324 = getelementptr inbounds i8, ptr %0, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %325 = load ptr, ptr %324, align 8
-  %326 = getelementptr inbounds i8, ptr %0, i64 40
+  %326 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %327 = load i32, ptr %326, align 8
   %328 = add i32 %327, 1
   store i32 %328, ptr %326, align 8
@@ -1438,9 +1438,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 
 357:                                              ; preds = %351
   %358 = trunc i16 %356 to i8
-  %359 = getelementptr inbounds i8, ptr %0, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %0, i64 40
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %362 = load i32, ptr %361, align 8
   %363 = add i32 %362, 1
   store i32 %363, ptr %361, align 8
@@ -1483,9 +1483,9 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   %390 = or i16 %383, %389
   store i16 %390, ptr %239, align 8
   %391 = trunc i16 %390 to i8
-  %392 = getelementptr inbounds i8, ptr %0, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %0, i64 40
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %395 = load i32, ptr %394, align 8
   %396 = add i32 %395, 1
   store i32 %396, ptr %394, align 8
@@ -1527,8 +1527,8 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %420, label %421, label %.loopexit
 
 421:                                              ; preds = %419
-  %422 = getelementptr inbounds i8, ptr %0, i64 16
-  %423 = getelementptr inbounds i8, ptr %0, i64 40
+  %422 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %424 = zext nneg i32 %316 to i64
   %425 = getelementptr i8, ptr %0, i64 2726
   br label %426
@@ -1591,26 +1591,26 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %466, label %.loopexit, label %426, !llvm.loop !29
 
 .loopexit:                                        ; preds = %462, %419
-  %467 = getelementptr inbounds i8, ptr %0, i64 188
-  tail call fastcc void @send_tree(ptr noundef %0, ptr noundef %467, i32 noundef %313)
-  %468 = getelementptr inbounds i8, ptr %0, i64 2480
-  tail call fastcc void @send_tree(ptr noundef %0, ptr noundef %468, i32 noundef %315)
-  tail call fastcc void @compress_block(ptr noundef %0, ptr noundef %467, ptr noundef %468)
-  %469 = getelementptr inbounds i8, ptr %0, i64 5888
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  tail call fastcc void @send_tree(ptr noundef %0, ptr noundef nonnull %467, i32 noundef %313)
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 2480
+  tail call fastcc void @send_tree(ptr noundef %0, ptr noundef nonnull %468, i32 noundef %315)
+  tail call fastcc void @compress_block(ptr noundef %0, ptr noundef nonnull %467, ptr noundef nonnull %468)
+  %469 = getelementptr inbounds nuw i8, ptr %0, i64 5888
   %470 = load i64, ptr %469, align 8
   %471 = add i64 %470, 3
-  %472 = getelementptr inbounds i8, ptr %0, i64 5904
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %473 = load i64, ptr %472, align 8
   %474 = add i64 %471, %473
   store i64 %474, ptr %472, align 8
   br label %475
 
 475:                                              ; preds = %.loopexit, %271, %233
-  %476 = getelementptr inbounds i8, ptr %0, i64 188
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 188
   br label %479
 
 477:                                              ; preds = %479
-  %478 = getelementptr inbounds i8, ptr %0, i64 2480
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   br label %486
 
 479:                                              ; preds = %479, %475
@@ -1622,7 +1622,7 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %483, label %477, label %479, !llvm.loop !21
 
 484:                                              ; preds = %486
-  %485 = getelementptr inbounds i8, ptr %0, i64 2724
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   br label %491
 
 486:                                              ; preds = %486, %477
@@ -1644,33 +1644,33 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 496:                                              ; preds = %491
   %497 = getelementptr i8, ptr %0, i64 1212
   store i16 1, ptr %497, align 4
-  %498 = getelementptr inbounds i8, ptr %0, i64 5888
-  %499 = getelementptr inbounds i8, ptr %0, i64 5912
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 5888
+  %499 = getelementptr inbounds nuw i8, ptr %0, i64 5912
   store i32 0, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %0, i64 5876
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 5876
   store i32 0, ptr %500, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %498, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %498, i8 0, i64 16, i1 false)
   %501 = icmp eq i32 %3, 0
   br i1 %501, label %._crit_edge, label %502
 
 ._crit_edge:                                      ; preds = %496
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 5904
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %541
 
 502:                                              ; preds = %496
-  %503 = getelementptr inbounds i8, ptr %0, i64 5924
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %504 = load i32, ptr %503, align 4
   %505 = icmp sgt i32 %504, 8
   br i1 %505, label %506, label %519
 
 506:                                              ; preds = %502
-  %507 = getelementptr inbounds i8, ptr %0, i64 5920
+  %507 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %508 = load i16, ptr %507, align 8
   %509 = trunc i16 %508 to i8
-  %510 = getelementptr inbounds i8, ptr %0, i64 16
+  %510 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %511 = load ptr, ptr %510, align 8
-  %512 = getelementptr inbounds i8, ptr %0, i64 40
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %513 = load i32, ptr %512, align 8
   %514 = add i32 %513, 1
   store i32 %514, ptr %512, align 8
@@ -1686,10 +1686,10 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br i1 %520, label %521, label %536
 
 521:                                              ; preds = %519
-  %522 = getelementptr inbounds i8, ptr %0, i64 5920
+  %522 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %523 = load i16, ptr %522, align 8
-  %524 = getelementptr inbounds i8, ptr %0, i64 16
-  %525 = getelementptr inbounds i8, ptr %0, i64 40
+  %524 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %526
 
 526:                                              ; preds = %521, %506
@@ -1707,10 +1707,10 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
   br label %536
 
 536:                                              ; preds = %526, %519
-  %537 = getelementptr inbounds i8, ptr %0, i64 5920
+  %537 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   store i16 0, ptr %537, align 8
   store i32 0, ptr %503, align 4
-  %538 = getelementptr inbounds i8, ptr %0, i64 5904
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 5904
   %539 = load i64, ptr %538, align 8
   %540 = add i64 %539, 7
   store i64 %540, ptr %538, align 8
@@ -1726,21 +1726,21 @@ define dso_local range(i64 0, 2305843009213693952) i64 @zlib_tr_flush_block(ptr 
 define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
   %3 = alloca [16 x i16], align 16
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 5276
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5276
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 5280
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5280
   store i32 573, ptr %11, align 8
   %12 = icmp sgt i32 %9, 0
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 2984
-  %15 = getelementptr inbounds i8, ptr %0, i64 5284
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2984
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 5284
   %16 = zext nneg i32 %9 to i64
   br label %26
 
@@ -1752,11 +1752,11 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 .thread:                                          ; preds = %2, %17
   %19 = phi i32 [ %42, %17 ], [ -1, %2 ]
   %20 = phi i32 [ %.pr, %17 ], [ 0, %2 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 2984
-  %22 = getelementptr inbounds i8, ptr %0, i64 5284
-  %23 = getelementptr inbounds i8, ptr %0, i64 5888
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2984
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5284
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5888
   %24 = icmp eq ptr %7, null
-  %25 = getelementptr inbounds i8, ptr %0, i64 5896
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5896
   br label %45
 
 26:                                               ; preds = %41, %13
@@ -1780,7 +1780,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   br label %41
 
 39:                                               ; preds = %26
-  %40 = getelementptr inbounds i8, ptr %29, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store i16 0, ptr %40, align 2
   br label %41
 
@@ -1828,7 +1828,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 .loopexit57:                                      ; preds = %66, %17
   %69 = phi i32 [ %42, %17 ], [ %50, %66 ]
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %69, ptr %70, align 8
   %71 = load i32, ptr %10, align 4
   %72 = icmp sgt i32 %71, 1
@@ -1836,8 +1836,8 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 73:                                               ; preds = %.loopexit57
   %74 = lshr i32 %71, 1
-  %75 = getelementptr inbounds i8, ptr %0, i64 2984
-  %76 = getelementptr inbounds i8, ptr %0, i64 5284
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 2984
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 5284
   %77 = zext nneg i32 %74 to i64
   br label %81
 
@@ -1847,9 +1847,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 .loopexit56:                                      ; preds = %.loopexit56.loopexit, %.loopexit57
   %.pre = phi i32 [ %.pre.pre, %.loopexit56.loopexit ], [ %71, %.loopexit57 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 2984
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 2984
   %79 = getelementptr i8, ptr %0, i64 2988
-  %80 = getelementptr inbounds i8, ptr %0, i64 5284
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 5284
   br label %149
 
 81:                                               ; preds = %.loopexit54, %73
@@ -2087,9 +2087,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %240 = getelementptr [573 x i8], ptr %80, i64 0, i64 %232
   store i8 %239, ptr %240, align 1
   %241 = trunc i32 %151 to i16
-  %242 = getelementptr inbounds i8, ptr %229, i64 2
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 2
   store i16 %241, ptr %242, align 2
-  %243 = getelementptr inbounds i8, ptr %226, i64 2
+  %243 = getelementptr inbounds nuw i8, ptr %226, i64 2
   store i16 %241, ptr %243, align 2
   %244 = add i32 %151, 1
   store i32 %151, ptr %79, align 4
@@ -2197,14 +2197,14 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %309 = load i32, ptr %70, align 8
   %310 = load ptr, ptr %5, align 8
   %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %310, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %310, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %315 = load i32, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %310, i64 24
+  %316 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %317 = load i32, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %0, i64 2952
-  tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(32) %318, i8 0, i64 32, i1 false)
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 2952
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %318, i8 0, i64 32, i1 false)
   %319 = load i32, ptr %11, align 8
   %320 = sext i32 %319 to i64
   %321 = getelementptr [573 x i32], ptr %78, i64 0, i64 %320
@@ -2218,9 +2218,9 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   br i1 %327, label %328, label %.thread49
 
 328:                                              ; preds = %302
-  %329 = getelementptr inbounds i8, ptr %0, i64 5888
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 5888
   %330 = icmp eq ptr %311, null
-  %331 = getelementptr inbounds i8, ptr %0, i64 5896
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 5896
   %332 = sext i32 %326 to i64
   br label %333
 
@@ -2231,7 +2231,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
   %337 = load i32, ptr %336, align 4
   %338 = sext i32 %337 to i64
   %339 = getelementptr %struct.ct_data_s, ptr %308, i64 %338
-  %340 = getelementptr inbounds i8, ptr %339, i64 2
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 2
   %341 = load i16, ptr %340, align 2
   %342 = zext i16 %341 to i64
   %343 = getelementptr %struct.ct_data_s, ptr %308, i64 %342, i32 1
@@ -2366,7 +2366,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 432:                                              ; preds = %425
   %433 = sext i32 %430 to i64
   %434 = getelementptr %struct.ct_data_s, ptr %308, i64 %433
-  %435 = getelementptr inbounds i8, ptr %434, i64 2
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 2
   %436 = load i16, ptr %435, align 2
   %437 = zext i16 %436 to i32
   %438 = icmp eq i32 %413, %437
@@ -2430,7 +2430,7 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 473:                                              ; preds = %503, %456
   %474 = phi i64 [ 0, %456 ], [ %504, %503 ]
   %475 = getelementptr %struct.ct_data_s, ptr %4, i64 %474
-  %476 = getelementptr inbounds i8, ptr %475, i64 2
+  %476 = getelementptr inbounds nuw i8, ptr %475, i64 2
   %477 = load i16, ptr %476, align 2
   %478 = icmp eq i16 %477, 0
   br i1 %478, label %503, label %479
@@ -2475,25 +2475,25 @@ define internal fastcc void @build_tree(ptr noundef initializes((5276, 5284)) %0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 5876
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5876
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %..loopexit_crit_edge, label %7
 
 ..loopexit_crit_edge:                             ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 5924
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert12 = getelementptr inbounds i8, ptr %0, i64 5920
+  %.phi.trans.insert12 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %.pre13 = load i16, ptr %.phi.trans.insert12, align 8
   br label %.loopexit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 5880
-  %9 = getelementptr inbounds i8, ptr %0, i64 5864
-  %10 = getelementptr inbounds i8, ptr %0, i64 5924
-  %11 = getelementptr inbounds i8, ptr %0, i64 5920
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5880
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5864
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5924
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5920
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %14
 
 14:                                               ; preds = %232, %7
@@ -2513,7 +2513,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
 
 27:                                               ; preds = %14
   %28 = getelementptr %struct.ct_data_s, ptr %1, i64 %26
-  %29 = getelementptr inbounds i8, ptr %28, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = load i32, ptr %10, align 4
@@ -2686,7 +2686,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i64
   %159 = getelementptr %struct.ct_data_s, ptr %2, i64 %158
-  %160 = getelementptr inbounds i8, ptr %159, i64 2
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 2
   %161 = load i16, ptr %160, align 2
   %162 = zext i16 %161 to i32
   %163 = sub nsw i32 16, %162
@@ -2806,13 +2806,13 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   %241 = getelementptr i8, ptr %1, i64 1026
   %242 = load i16, ptr %241, align 2
   %243 = zext i16 %242 to i32
-  %244 = getelementptr inbounds i8, ptr %0, i64 5924
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 5924
   %245 = sub nsw i32 16, %243
   %246 = icmp sgt i32 %239, %245
   %247 = load i16, ptr %240, align 2
   %248 = zext i16 %247 to i32
   %249 = shl i32 %248, %239
-  %250 = getelementptr inbounds i8, ptr %0, i64 5920
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 5920
   %251 = trunc i32 %249 to i16
   %252 = or i16 %238, %251
   store i16 %252, ptr %250, align 8
@@ -2820,9 +2820,9 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
 
 253:                                              ; preds = %.loopexit
   %254 = trunc i16 %252 to i8
-  %255 = getelementptr inbounds i8, ptr %0, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %0, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %258 = load i32, ptr %257, align 8
   %259 = add i32 %258, 1
   store i32 %259, ptr %257, align 8
@@ -2857,7 +2857,7 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
   store i32 %279, ptr %244, align 4
   %280 = load i16, ptr %241, align 2
   %281 = zext i16 %280 to i32
-  %282 = getelementptr inbounds i8, ptr %0, i64 5916
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 5916
   store i32 %281, ptr %282, align 4
   ret void
 }
@@ -2865,15 +2865,15 @@ define internal fastcc void @compress_block(ptr nocapture noundef %0, ptr nocapt
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = trunc i32 %1 to i16
-  %5 = getelementptr inbounds i8, ptr %0, i64 5880
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5880
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 5876
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5876
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = getelementptr i16, ptr %6, i64 %9
   store i16 %4, ptr %10, align 2
   %11 = trunc i32 %2 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 5864
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 5864
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %7, align 4
   %15 = add i32 %14, 1
@@ -2885,18 +2885,18 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 188
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %21 = zext i32 %2 to i64
   %22 = getelementptr [573 x %struct.ct_data_s], ptr %20, i64 0, i64 %21
   br label %47
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 5912
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 5912
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8
   %27 = add i32 %1, -1
-  %28 = getelementptr inbounds i8, ptr %0, i64 188
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %29 = zext i32 %2 to i64
   %30 = getelementptr [256 x i8], ptr @length_code, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
@@ -2906,7 +2906,7 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
   %35 = load i16, ptr %34, align 4
   %36 = add i16 %35, 1
   store i16 %36, ptr %34, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 2480
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   %38 = icmp ult i32 %1, 257
   %39 = lshr i32 %27, 7
   %40 = add nuw nsw i32 %39, 256
@@ -2929,7 +2929,7 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
   br i1 %53, label %54, label %91
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %0, i64 172
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, 2
   br i1 %57, label %58, label %91
@@ -2937,11 +2937,11 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
 58:                                               ; preds = %54
   %59 = zext i32 %51 to i64
   %60 = shl nuw nsw i64 %59, 3
-  %61 = getelementptr inbounds i8, ptr %0, i64 148
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 2480
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2480
   br label %66
 
 66:                                               ; preds = %66, %58
@@ -2961,7 +2961,7 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
   br i1 %79, label %80, label %66, !llvm.loop !41
 
 80:                                               ; preds = %66
-  %81 = getelementptr inbounds i8, ptr %0, i64 5912
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 5912
   %82 = load i32, ptr %81, align 8
   %83 = lshr exact i32 %51, 1
   %84 = icmp ult i32 %82, %83
@@ -2976,7 +2976,7 @@ define dso_local range(i32 0, 2) i32 @zlib_tr_tally(ptr nocapture noundef %0, i3
   br i1 %90, label %97, label %91
 
 91:                                               ; preds = %85, %80, %54, %47
-  %92 = getelementptr inbounds i8, ptr %0, i64 5872
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 5872
   %93 = load i32, ptr %92, align 8
   %94 = add i32 %93, -1
   %95 = icmp eq i32 %51, %94
@@ -2997,17 +2997,17 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
   br i1 %4, label %.loopexit17, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 0
   %9 = select i1 %8, i32 138, i32 7
   %10 = select i1 %8, i32 3, i32 4
   %11 = zext i16 %7 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 2724
-  %13 = getelementptr inbounds i8, ptr %0, i64 5924
-  %14 = getelementptr inbounds i8, ptr %0, i64 5920
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2724
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 5924
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5920
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = getelementptr i8, ptr %0, i64 2788
   %18 = getelementptr i8, ptr %0, i64 2790
   %19 = getelementptr i8, ptr %0, i64 2796
@@ -3043,7 +3043,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
 43:                                               ; preds = %41
   %44 = zext nneg i32 %29 to i64
   %45 = getelementptr [39 x %struct.ct_data_s], ptr %12, i64 0, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %.pre25 = load i32, ptr %13, align 4
   br label %47
 
@@ -3115,7 +3115,7 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
 92:                                               ; preds = %90
   %93 = zext nneg i32 %29 to i64
   %94 = getelementptr [39 x %struct.ct_data_s], ptr %12, i64 0, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   %98 = sub nsw i32 16, %97

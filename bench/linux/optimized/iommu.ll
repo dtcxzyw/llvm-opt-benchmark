@@ -222,18 +222,18 @@ define internal fastcc i32 @init_one_iommu(i32 noundef %0) unnamed_addr #0 secti
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(304) %7, ptr noundef nonnull align 8 dereferenceable(304) @iommu_pmu, i64 304, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull align 8 dereferenceable(304) @iommu_pmu, i64 304, i1 false)
   %8 = tail call ptr @get_amd_iommu(i32 noundef %0) #12
-  %9 = getelementptr inbounds i8, ptr %3, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 320
   store ptr %8, ptr %9, align 8
   %10 = tail call zeroext i8 @amd_iommu_pc_get_max_banks(i32 noundef %0) #12
-  %11 = getelementptr inbounds i8, ptr %3, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store i8 %10, ptr %11, align 8
   %12 = tail call zeroext i8 @amd_iommu_pc_get_max_counters(i32 noundef %0) #12
-  %13 = getelementptr inbounds i8, ptr %3, i64 345
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 345
   store i8 %12, ptr %13, align 1
   %14 = icmp eq ptr %8, null
   br i1 %14, label %19, label %15
@@ -249,9 +249,9 @@ define internal fastcc i32 @init_one_iommu(i32 noundef %0) unnamed_addr #0 secti
   br label %35
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 328
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %21, i64 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %0) #12
-  %23 = tail call i32 @perf_pmu_register(ptr noundef %7, ptr noundef %21, i32 noundef -1) #12
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 328
+  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 16, ptr noundef nonnull @.str.50, i32 noundef %0) #12
+  %23 = tail call i32 @perf_pmu_register(ptr noundef nonnull %7, ptr noundef nonnull %21, i32 noundef -1) #12
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %33
 
@@ -264,7 +264,7 @@ define internal fastcc i32 @init_one_iommu(i32 noundef %0) unnamed_addr #0 secti
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @perf_amd_iommu_list, i64 8), align 8
   store ptr %3, ptr getelementptr inbounds (i8, ptr @perf_amd_iommu_list, i64 8), align 8
   store ptr @perf_amd_iommu_list, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %31, ptr %32, align 8
   store volatile ptr %3, ptr %31, align 8
   br label %35
@@ -287,7 +287,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @_iommu_event_show(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %5) #12
   %7 = sext i32 %6 to i64
@@ -326,42 +326,42 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef range(i32 -22, 1) i32 @perf_iommu_event_init(ptr nocapture noundef %0) #9 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %3, %7
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 172
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %29
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 652
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 368
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 376
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i64 %27, ptr %28, align 8
   br label %29
 
@@ -372,9 +372,9 @@ define internal noundef range(i32 -22, 1) i32 @perf_iommu_event_init(ptr nocaptu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -28, 1) i32 @perf_iommu_add(ptr noundef initializes((480, 484)) %0, i32 noundef %1) #10 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 329
   %7 = load i8, ptr %6, align 1
@@ -427,10 +427,10 @@ define internal noundef range(i32 -28, 1) i32 @perf_iommu_add(ptr noundef initia
   %34 = or i64 %25, %18
   store i64 %34, ptr %15, align 8
   %35 = trunc i64 %20 to i8
-  %36 = getelementptr inbounds i8, ptr %0, i64 360
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i8 %35, ptr %36, align 8
   %37 = trunc i64 %23 to i8
-  %38 = getelementptr inbounds i8, ptr %0, i64 361
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 361
   store i8 %37, ptr %38, align 1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %10, i64 noundef %11) #12
   %39 = and i32 %1, 1
@@ -448,12 +448,12 @@ define internal noundef range(i32 -28, 1) i32 @perf_iommu_add(ptr noundef initia
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @perf_iommu_del(ptr noundef %0, i32 %1) #10 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 360
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   tail call void @perf_iommu_stop(ptr noundef %0, i32 poison)
   %6 = load i8, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 361
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 361
   %8 = load i8, ptr %7, align 1
   %9 = getelementptr i8, ptr %5, i64 328
   %10 = load i8, ptr %9, align 8
@@ -493,8 +493,8 @@ define internal void @perf_iommu_del(ptr noundef %0, i32 %1) #10 align 16 {
 define internal void @perf_iommu_start(ptr noundef %0, i32 noundef %1) #10 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 360
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -519,20 +519,20 @@ define internal void @perf_iommu_start(ptr noundef %0, i32 noundef %1) #10 align
 
 15:                                               ; preds = %14, %11
   store i32 0, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 304
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 361
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 361
   %22 = load i8, ptr %21, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
-  %23 = getelementptr inbounds i8, ptr %0, i64 368
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 255
   store i64 %25, ptr %3, align 8
   %26 = call i32 @amd_iommu_pc_set_reg(ptr noundef %19, i8 noundef zeroext %20, i8 noundef zeroext %22, i8 noundef zeroext 8, ptr noundef nonnull %3) #12
-  %27 = getelementptr inbounds i8, ptr %0, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %23, align 8
   %30 = lshr i64 %29, 8
@@ -597,7 +597,7 @@ define internal void @perf_iommu_start(ptr noundef %0, i32 noundef %1) #10 align
 define internal void @perf_iommu_stop(ptr noundef %0, i32 %1) #10 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 480
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2
   %8 = icmp eq i32 %7, 0
@@ -606,13 +606,13 @@ define internal void @perf_iommu_stop(ptr noundef %0, i32 %1) #10 align 16 {
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store i64 0, ptr %4, align 8, !annotation !21
-  %10 = getelementptr inbounds i8, ptr %0, i64 360
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 304
   %14 = load ptr, ptr %13, align 8
   %15 = load i8, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 361
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 361
   %17 = load i8, ptr %16, align 1
   %18 = call i32 @amd_iommu_pc_get_reg(ptr noundef %14, i8 noundef zeroext %15, i8 noundef zeroext %17, i8 noundef zeroext 0, ptr noundef nonnull %4) #12
   %19 = icmp eq i32 %18, 0
@@ -622,8 +622,8 @@ define internal void @perf_iommu_stop(ptr noundef %0, i32 %1) #10 align 16 {
   %21 = load i64, ptr %4, align 8
   %22 = and i64 %21, 281474976710655
   store i64 %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
-  call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %22, ptr elementtype(i64) %23) #12, !srcloc !22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 %22, ptr nonnull elementtype(i64) %23) #12, !srcloc !22
   br label %24
 
 24:                                               ; preds = %20, %9
@@ -667,13 +667,13 @@ define internal void @perf_iommu_read(ptr noundef %0) #10 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store i64 0, ptr %2, align 8, !annotation !21
-  %3 = getelementptr inbounds i8, ptr %0, i64 360
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 304
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 361
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 361
   %10 = load i8, ptr %9, align 1
   %11 = call i32 @amd_iommu_pc_get_reg(ptr noundef %7, i8 noundef zeroext %8, i8 noundef zeroext %10, i8 noundef zeroext 0, ptr noundef nonnull %2) #12
   %12 = icmp eq i32 %11, 0
@@ -683,8 +683,8 @@ define internal void @perf_iommu_read(ptr noundef %0) #10 align 16 {
   %14 = load i64, ptr %2, align 8
   %15 = and i64 %14, 281474976710655
   store i64 %15, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 176
-  call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 %15, ptr elementtype(i64) %16) #12, !srcloc !22
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 %15, ptr nonnull elementtype(i64) %16) #12, !srcloc !22
   br label %17
 
 17:                                               ; preds = %13, %1

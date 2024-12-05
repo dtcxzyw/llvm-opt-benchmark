@@ -119,52 +119,52 @@ define void @_ZNK5ZXing4OneD12Code39Writer6encodeERKNSt7__cxx1112basic_stringIwS
   br i1 %41, label %.loopexit84, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = sext i8 %44 to i32
   %46 = icmp eq i32 %37, %45
   br i1 %46, label %.loopexit84.loopexit.split.loop.exit113, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = sext i8 %49 to i32
   %51 = icmp eq i32 %37, %50
   br i1 %51, label %.loopexit84.loopexit.split.loop.exit111, label %52
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   %56 = icmp eq i32 %37, %55
   br i1 %56, label %.loopexit84.loopexit.split.loop.exit, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %59 = add nsw i64 %.047.i.i.i.i.i, -1
   %60 = icmp ugt i64 %.047.i.i.i.i.i, 1
   br i1 %60, label %38, label %._crit_edge._crit_edge52.i.i.i.i.i, !llvm.loop !6
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %57
   %61 = icmp eq i32 %37, 0
-  %spec.select.i.i = select i1 %61, ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 44), ptr getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 45)
+  %spec.select.i.i = select i1 %61, ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 44), ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 45)
   br label %.loopexit84
 
 .loopexit84.loopexit.split.loop.exit:             ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   br label %.loopexit84
 
 .loopexit84.loopexit.split.loop.exit111:          ; preds = %47
-  %63 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %.loopexit84
 
 .loopexit84.loopexit.split.loop.exit113:          ; preds = %42
-  %64 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   br label %.loopexit84
 
 .loopexit84:                                      ; preds = %38, %.loopexit84.loopexit.split.loop.exit, %.loopexit84.loopexit.split.loop.exit111, %.loopexit84.loopexit.split.loop.exit113, %._crit_edge._crit_edge52.i.i.i.i.i
   %.028.i.i.i.i.i = phi ptr [ %spec.select.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %62, %.loopexit84.loopexit.split.loop.exit ], [ %63, %.loopexit84.loopexit.split.loop.exit111 ], [ %64, %.loopexit84.loopexit.split.loop.exit113 ], [ %.02946.i.i.i.i.i, %38 ]
-  %65 = icmp eq ptr %.028.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 45)
+  %65 = icmp eq ptr %.028.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 45)
   %66 = ptrtoint ptr %.028.i.i.i.i.i to i64
   %67 = trunc i64 %66 to i32
   %68 = sub i32 %67, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
@@ -515,13 +515,13 @@ _ZN5ZXing11TextEncoder11FromUnicodeERKNSt7__cxx1112basic_stringIwSt11char_traits
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %15, i8 0, i64 36, i1 false)
   %178 = mul nuw nsw i64 %.0, 13
   store ptr null, ptr %16, align 8
-  %179 = getelementptr inbounds i8, ptr %16, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %16, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %16, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 0, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %16, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr null, ptr %182, align 8
   %183 = add nuw nsw i64 %178, 88
   %184 = lshr i64 %183, 3
@@ -537,12 +537,12 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %177
 188:                                              ; preds = %177
   %189 = add nuw nsw i64 %178, 25
   %190 = lshr i64 %183, 6
-  %191 = getelementptr inbounds i64, ptr %186, i64 %190
+  %191 = getelementptr inbounds nuw i64, ptr %186, i64 %190
   store ptr %191, ptr %182, align 8
   store ptr %186, ptr %16, align 8
   store i32 0, ptr %179, align 8
   %192 = lshr i64 %189, 6
-  %193 = getelementptr inbounds i64, ptr %186, i64 %192
+  %193 = getelementptr inbounds nuw i64, ptr %186, i64 %192
   %194 = trunc nuw i64 %189 to i32
   %195 = and i32 %194, 63
   store ptr %193, ptr %180, align 8
@@ -559,7 +559,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %177
   %200 = and i32 %199, 148
   %201 = icmp eq i32 %200, 0
   %202 = select i1 %201, i32 1, i32 2
-  %203 = getelementptr inbounds [9 x i32], ptr %15, i64 0, i64 %indvars.iv.i
+  %203 = getelementptr inbounds nuw [9 x i32], ptr %15, i64 0, i64 %indvars.iv.i
   store i32 %202, ptr %203, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i, 9
@@ -611,7 +611,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEE
   %222 = and i32 %221, %217
   %223 = icmp eq i32 %222, 0
   %224 = select i1 %223, i32 1, i32 2
-  %225 = getelementptr inbounds [9 x i32], ptr %15, i64 0, i64 %indvars.iv.i61
+  %225 = getelementptr inbounds nuw [9 x i32], ptr %15, i64 0, i64 %indvars.iv.i61
   store i32 %224, ptr %225, align 4
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, 9
@@ -672,7 +672,7 @@ _ZN5ZXing4OneD12WriterHelper13AppendPatternISt5arrayIiLm1EEEEiRSt6vectorIbSaIbEE
   %245 = and i32 %244, 148
   %246 = icmp eq i32 %245, 0
   %247 = select i1 %246, i32 1, i32 2
-  %248 = getelementptr inbounds [9 x i32], ptr %15, i64 0, i64 %indvars.iv.i67
+  %248 = getelementptr inbounds nuw [9 x i32], ptr %15, i64 0, i64 %indvars.iv.i67
   store i32 %247, ptr %248, align 4
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, 9
@@ -840,16 +840,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %31 = shl nuw nsw i64 %30, 1
   %32 = udiv i64 %.020.i, 100
   %33 = or disjoint i64 %31, 1
-  %34 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i32 %.01819.i to i64
-  %37 = getelementptr inbounds i8, ptr %24, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 %36
   store i8 %35, ptr %37, align 1
-  %38 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
   %39 = load i8, ptr %38, align 2
   %40 = add i32 %.01819.i, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %24, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 %41
   store i8 %39, ptr %42, align 1
   %43 = add i32 %.01819.i, -2
   %44 = icmp ugt i64 %.020.i, 9999
@@ -863,11 +863,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 46:                                               ; preds = %._crit_edge.i
   %47 = shl nuw nsw i64 %.0.lcssa.i, 1
   %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %24, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
+  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
   %53 = load i8, ptr %52, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -980,7 +980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %9 = lshr i32 %1, 4
   %10 = and i32 %9, 15
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr @.str.9, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 2)
           to label %15 unwind label %24
@@ -989,7 +989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %13, ptr %14, align 1
   %16 = and i32 %1, 15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr @.str.9, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 3)
           to label %21 unwind label %24

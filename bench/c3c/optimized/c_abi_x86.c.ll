@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %2)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @type_void, align 8
   %8 = icmp eq ptr %6, %7
@@ -68,9 +68,9 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br i1 %26, label %27, label %44
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 65536
   %.not = icmp eq i64 %32, 0
@@ -91,7 +91,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br i1 %.not8.i, label %40, label %create_indirect_return_x86.exit
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %34, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %42 = load i8, ptr %41, align 1
   %43 = or i8 %42, 1
   store i8 %43, ptr %41, align 1
@@ -112,7 +112,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %47, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 8
   br label %55
@@ -165,7 +165,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br i1 %.not8.i61, label %79, label %create_indirect_return_x86.exit
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %73, i64 5
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 5
   %81 = load i8, ptr %80, align 1
   %82 = or i8 %81, 1
   store i8 %82, ptr %80, align 1
@@ -186,7 +186,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br i1 %89, label %90, label %.critedge
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %4, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, 255
   %94 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -231,7 +231,7 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br i1 %.not8.i64, label %114, label %create_indirect_return_x86.exit
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %108, i64 5
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 5
   %116 = load i8, ptr %115, align 1
   %117 = or i8 %116, 1
   store i8 %117, ptr %115, align 1
@@ -253,7 +253,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.026 = phi ptr [ %0, %1 ], [ %.026.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.026, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
@@ -283,25 +283,25 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   unreachable
 
 7:                                                ; preds = %.backedge
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %.backedge.backedge
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.backedge.backedge
 
@@ -311,21 +311,21 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 26:                                               ; preds = %.backedge, %.backedge, %.backedge
   %27 = load ptr, ptr @type_iptr, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
 30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.backedge.backedge
 
 37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
   %41 = icmp eq ptr %40, %39
@@ -336,7 +336,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
   %48 = icmp eq ptr %47, %46
@@ -356,13 +356,13 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #4
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #4
   br label %.loopexit
@@ -459,16 +459,16 @@ define internal fastcc zeroext i1 @x86_should_return_type_in_reg(ptr noundef %0)
   unreachable
 
 tailrecurse:                                      ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.tr35, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %.tr35, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @type_size(ptr noundef %14) #4
   %16 = icmp ugt i32 %15, 8
   br i1 %16, label %is_power_of_two.exit.thread, label %.lr.ph
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %.tr35, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.tr35, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %.not24 = icmp eq ptr %21, null
   br i1 %.not24, label %is_power_of_two.exit.thread, label %22
@@ -485,11 +485,11 @@ tailrecurse:                                      ; preds = %8
 
 .lr.ph76:                                         ; preds = %.lr.ph76, %.lr.ph76.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next, %.lr.ph76 ]
-  %25 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc zeroext i1 @x86_should_return_type_in_reg(ptr noundef %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -537,16 +537,16 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   unreachable
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %14, align 4
   store i32 3, ptr %2, align 8
   br label %15
 
 15:                                               ; preds = %13, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @x86_classify_return(i32 poison, ptr noundef nonnull %2, ptr noundef %17)
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %18, ptr %19, align 8
   %20 = load i16, ptr %0, align 8
   %21 = and i16 %20, 128
@@ -554,17 +554,17 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
   br i1 %.not14, label %29, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = tail call fastcc ptr @type_lowering(ptr noundef %24)
   %26 = tail call ptr @type_get_ptr(ptr noundef %25) #4
   %27 = call fastcc ptr @x86_classify_argument(ptr noundef %2, ptr noundef %26)
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %27, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %22, %15
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %x86_create_params.exit, label %32
@@ -583,10 +583,10 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
 
 39:                                               ; preds = %39, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8
   %42 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %41)
-  %43 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %36
@@ -594,9 +594,9 @@ define dso_local void @c_abi_func_create_x86(ptr nocapture noundef %0) local_unn
 
 x86_create_params.exit:                           ; preds = %39, %29, %32
   %.018.i = phi ptr [ null, %29 ], [ null, %32 ], [ %38, %39 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.018.i, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not.i15 = icmp eq ptr %46, null
   br i1 %.not.i15, label %x86_create_params.exit21, label %47
@@ -615,10 +615,10 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
 
 54:                                               ; preds = %54, %50
   %indvars.iv.i17 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i18, %54 ]
-  %55 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.i17
+  %55 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i17
   %56 = load ptr, ptr %55, align 8
   %57 = call fastcc ptr @x86_classify_argument(ptr noundef nonnull %2, ptr noundef %56)
-  %58 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i17
+  %58 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i17
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %51
@@ -626,7 +626,7 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
 
 x86_create_params.exit21:                         ; preds = %54, %x86_create_params.exit, %47
   %.018.i20 = phi ptr [ null, %47 ], [ null, %x86_create_params.exit ], [ %53, %54 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.018.i20, ptr %59, align 8
   ret void
 }
@@ -709,7 +709,7 @@ define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef nonnull 
   br i1 %.not17.i.i, label %16, label %x86_classify_primitives.exit
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %18 = load i8, ptr %17, align 1
   %19 = or i8 %18, 1
   store i8 %19, ptr %17, align 1
@@ -727,7 +727,7 @@ define internal fastcc ptr @x86_classify_argument(ptr nocapture noundef nonnull 
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 8
   br label %30
@@ -783,7 +783,7 @@ x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_fr
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %x86_try_put_primitive_in_reg.exit.i
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   br label %56
@@ -795,7 +795,7 @@ x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_fr
   br i1 %58, label %59, label %.critedge.i
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %3, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 255
   %63 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -811,7 +811,7 @@ x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_fr
   br label %x86_classify_primitives.exit
 
 68:                                               ; preds = %2
-  %69 = getelementptr inbounds i8, ptr %3, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @type_size(ptr noundef %70) #4
   %72 = icmp ugt i32 %71, 7
@@ -824,7 +824,7 @@ x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_fr
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %79, align 8
   br label %81
@@ -855,9 +855,9 @@ x86_is_mmxtype.exit.thread.i:                     ; preds = %x86_is_mmxtype.exit
   br i1 %92, label %93, label %116
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %3, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load i64, ptr %96, align 8
   %98 = and i64 %97, 65536
   %.not.i = icmp eq i64 %98, 0
@@ -917,7 +917,7 @@ x86_stack_alignment.exit.thread19.i.i:            ; preds = %x86_stack_alignment
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %3, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %125, align 8
   br label %127
@@ -984,7 +984,7 @@ x86_try_use_free_regs.exit.i:                     ; preds = %143
   br i1 %.not28.i, label %157, label %x86_classify_primitives.exit
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %.0.i14, i64 5
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 5
   %159 = load i8, ptr %158, align 1
   %160 = or i8 %159, 1
   store i8 %160, ptr %158, align 1
@@ -1011,7 +1011,7 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
   br i1 %169, label %170, label %174
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %3, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = load i32, ptr %172, align 8
   br label %174
@@ -1023,9 +1023,9 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
   br i1 %176, label %177, label %x86_can_expand_indirect_aggregate_arg.exit.thread.i
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %3, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 104
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 104
   %181 = load ptr, ptr %180, align 8
   %.not.i30.i = icmp eq ptr %181, null
   br i1 %.not.i30.i, label %x86_can_expand_indirect_aggregate_arg.exit.i, label %182
@@ -1042,9 +1042,9 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
 
 .lr.ph.i.i:                                       ; preds = %191, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %191 ]
-  %185 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv.i.i
+  %185 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv.i.i
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 72
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %188 = load ptr, ptr %187, align 8
   %189 = tail call fastcc ptr @type_lowering(ptr noundef %188)
   %190 = load i32, ptr %189, align 8
@@ -1150,7 +1150,7 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   br label %8
@@ -1162,9 +1162,9 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.loopexit, label %16
@@ -1186,9 +1186,9 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 8
   %.val = load ptr, ptr %24, align 8

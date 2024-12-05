@@ -182,9 +182,9 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtBGRtoHSVEPKhmPhmiiiibbb(ptr nou
 
 31:                                               ; preds = %30
   store i32 %7, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %21, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %28, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %26, ptr %33, align 8
   %34 = load atomic i8, ptr @_ZGVZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables acquire, align 8
   %35 = icmp eq i8 %34, 0
@@ -204,27 +204,27 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtBGRtoHSVEPKhmPhmiiiibbb(ptr nou
   %40 = load i32, ptr %33, align 8
   %41 = icmp eq i32 %40, 180
   %42 = select i1 %41, ptr getelementptr inbounds (i8, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 1024), ptr getelementptr inbounds (i8, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 2048)
-  %43 = getelementptr inbounds i8, ptr %21, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %21, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
   store i32 0, ptr %18, align 4
-  %45 = getelementptr inbounds i8, ptr %18, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %5, ptr %45, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_bEEE, i64 16), ptr %19, align 8
-  %46 = getelementptr inbounds i8, ptr %19, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %19, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %19, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %2, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %19, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i64 %3, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %19, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 %4, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %19, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %21, ptr %51, align 8
   %52 = mul nsw i32 %5, %4
   %53 = sitofp i32 %52 to double
@@ -253,27 +253,27 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
 57:                                               ; preds = %30
   %58 = uitofp nneg i32 %27 to float
   store i32 %7, ptr %22, align 4
-  %59 = getelementptr inbounds i8, ptr %22, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %28, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %22, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store float %58, ptr %60, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17)
   store i32 0, ptr %16, align 4
-  %61 = getelementptr inbounds i8, ptr %16, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %5, ptr %61, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_fEEE, i64 16), ptr %17, align 8
-  %62 = getelementptr inbounds i8, ptr %17, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %17, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %17, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %2, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %17, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %3, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %17, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 %4, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %17, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %22, ptr %67, align 8
   %68 = mul nsw i32 %5, %4
   %69 = sitofp i32 %68 to double
@@ -297,31 +297,31 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
 
 74:                                               ; preds = %73
   store i32 %7, ptr %23, align 4
-  %75 = getelementptr inbounds i8, ptr %23, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %76 = uitofp nneg i32 %26 to float
   store i32 3, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %23, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %28, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %23, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %79 = fdiv float %76, 3.600000e+02
   store float %79, ptr %78, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
   store i32 0, ptr %14, align 4
-  %80 = getelementptr inbounds i8, ptr %14, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %5, ptr %80, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_bEEE, i64 16), ptr %15, align 8
-  %81 = getelementptr inbounds i8, ptr %15, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %15, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %1, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %15, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %2, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %15, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 %3, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %15, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 %4, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %15, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %23, ptr %86, align 8
   %87 = mul nsw i32 %5, %4
   %88 = sitofp i32 %87 to double
@@ -343,28 +343,28 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
 92:                                               ; preds = %73
   %93 = uitofp nneg i32 %27 to float
   store i32 %7, ptr %24, align 4
-  %94 = getelementptr inbounds i8, ptr %24, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %28, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %24, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %96 = fdiv float %93, 3.600000e+02
   store float %96, ptr %95, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   store i32 0, ptr %12, align 4
-  %97 = getelementptr inbounds i8, ptr %12, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %97, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_fEEE, i64 16), ptr %13, align 8
-  %98 = getelementptr inbounds i8, ptr %13, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %13, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %1, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %13, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %2, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %13, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 %3, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %13, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %4, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %13, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %24, ptr %103, align 8
   %104 = mul nsw i32 %5, %4
   %105 = sitofp i32 %104 to double
@@ -384,7 +384,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2
   br label %109
 
 109:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_fEEEvPKhmPhmiiRKT_.exit, %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_bEEEvPKhmPhmiiRKT_.exit, %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_fEEEvPKhmPhmiiRKT_.exit, %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_bEEEvPKhmPhmiiRKT_.exit
-  %110 = getelementptr inbounds i8, ptr %20, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %111 = load i32, ptr %110, align 8
   %.not.i = icmp eq i32 %111, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %112
@@ -410,7 +410,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -458,29 +458,29 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtHSVtoBGREPKhmPhmiiiibbb(ptr nou
 
 31:                                               ; preds = %30
   store i32 %7, ptr %21, align 4
-  %32 = getelementptr inbounds i8, ptr %21, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %28, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %34 = uitofp nneg i32 %26 to float
   %35 = fdiv float 6.000000e+00, %34
   store float %35, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
   store i32 0, ptr %18, align 4
-  %36 = getelementptr inbounds i8, ptr %18, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %5, ptr %36, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_bEEE, i64 16), ptr %19, align 8
-  %37 = getelementptr inbounds i8, ptr %19, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %19, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %19, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i64 %3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %19, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 %4, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %19, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %21, ptr %42, align 8
   %43 = mul nsw i32 %5, %4
   %44 = sitofp i32 %43 to double
@@ -509,28 +509,28 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2
 48:                                               ; preds = %30
   %49 = uitofp nneg i32 %27 to float
   store i32 %7, ptr %22, align 4
-  %50 = getelementptr inbounds i8, ptr %22, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %28, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %22, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %52 = fdiv float 6.000000e+00, %49
   store float %52, ptr %51, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17)
   store i32 0, ptr %16, align 4
-  %53 = getelementptr inbounds i8, ptr %16, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %5, ptr %53, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_fEEE, i64 16), ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %17, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %17, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %17, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %2, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %17, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %3, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %17, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 %4, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %17, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %22, ptr %59, align 8
   %60 = mul nsw i32 %5, %4
   %61 = sitofp i32 %60 to double
@@ -554,31 +554,31 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2
 
 66:                                               ; preds = %65
   store i32 %7, ptr %23, align 4
-  %67 = getelementptr inbounds i8, ptr %23, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %68 = uitofp nneg i32 %26 to float
   store i32 3, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %23, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %28, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %23, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %71 = fdiv float 6.000000e+00, %68
   store float %71, ptr %70, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
   store i32 0, ptr %14, align 4
-  %72 = getelementptr inbounds i8, ptr %14, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %5, ptr %72, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_bEEE, i64 16), ptr %15, align 8
-  %73 = getelementptr inbounds i8, ptr %15, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %15, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %1, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %15, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %2, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %15, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i64 %3, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %15, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 %4, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %15, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %23, ptr %78, align 8
   %79 = mul nsw i32 %5, %4
   %80 = sitofp i32 %79 to double
@@ -600,28 +600,28 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2
 84:                                               ; preds = %65
   %85 = uitofp nneg i32 %27 to float
   store i32 %7, ptr %24, align 4
-  %86 = getelementptr inbounds i8, ptr %24, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %28, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %24, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %88 = fdiv float 6.000000e+00, %85
   store float %88, ptr %87, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   store i32 0, ptr %12, align 4
-  %89 = getelementptr inbounds i8, ptr %12, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %89, align 4
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fEEE, i64 16), ptr %13, align 8
-  %90 = getelementptr inbounds i8, ptr %13, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %13, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %1, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %13, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %2, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %13, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 %3, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %13, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %4, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %13, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %24, ptr %95, align 8
   %96 = mul nsw i32 %5, %4
   %97 = sitofp i32 %96 to double
@@ -641,7 +641,7 @@ _ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2
   br label %101
 
 101:                                              ; preds = %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fEEEvPKhmPhmiiRKT_.exit, %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_bEEEvPKhmPhmiiRKT_.exit, %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_fEEEvPKhmPhmiiRKT_.exit, %_ZN2cv4impl12_GLOBAL__N_112CvtColorLoopINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_bEEEvPKhmPhmiiRKT_.exit
-  %102 = getelementptr inbounds i8, ptr %20, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %103 = load i32, ptr %102, align 8
   %.not.i = icmp eq i32 %103, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %104
@@ -669,7 +669,7 @@ define void @_ZN2cv3hal11cvtBGRtoHSVEPKhmPhmiiiibbb(ptr noundef %0, i64 noundef 
           to label %13 unwind label %20
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %16
@@ -709,7 +709,7 @@ define void @_ZN2cv3hal11cvtHSVtoBGREPKhmPhmiiiibbb(ptr noundef %0, i64 noundef 
           to label %13 unwind label %20
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %16
@@ -740,21 +740,21 @@ define hidden void @_ZN2cv15cvtColorBGR2HLSERKNS_11_InputArrayERKNS_12_OutputArr
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"struct.cv::impl::(anonymous namespace)::CvtHelper", align 8
   call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 196
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 196
   %22 = load i32, ptr %21, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11cvtBGRtoHSVEPKhmPhmiiiibbbE24__cv_trace_location_fn63)
@@ -765,7 +765,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HLSERKNS_11_InputArrayERKNS_12_OutputArr
           to label %23 unwind label %30
 
 23:                                               ; preds = %.noexc
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %32, label %26
@@ -789,7 +789,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HLSERKNS_11_InputArrayERKNS_12_OutputArr
 
 32:                                               ; preds = %26, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %33 = getelementptr inbounds i8, ptr %6, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   ret void
@@ -801,7 +801,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HLSERKNS_11_InputArrayERKNS_12_OutputArr
 
 .body:                                            ; preds = %30, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   resume { ptr, i32 } %eh.lpad-body
@@ -815,11 +815,11 @@ define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #15
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 204
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i32 0, ptr %11, align 4
   %12 = invoke noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %13 unwind label %14
@@ -868,10 +868,10 @@ define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi
   %27 = lshr i32 %25, 3
   %28 = and i32 %27, 511
   %29 = add nuw nsw i32 %28, 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 196
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %29, ptr %30, align 4
   %31 = and i32 %25, 7
-  %32 = getelementptr inbounds i8, ptr %0, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %31, ptr %32, align 8
   %33 = and i32 %25, 4080
   %34 = icmp eq i32 %33, 16
@@ -898,16 +898,16 @@ define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi
   unreachable
 
 40:                                               ; preds = %37, %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %42, %44
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %48, align 8
   store i32 33619968, ptr %6, align 8
   store ptr %0, ptr %47, align 8
@@ -951,9 +951,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %54, %56
   br label %80
 
 61:                                               ; preds = %58, %46
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %63, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %66 to i64
@@ -1010,21 +1010,21 @@ define hidden void @_ZN2cv15cvtColorBGR2HSVERKNS_11_InputArrayERKNS_12_OutputArr
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   %6 = alloca %"struct.cv::impl::(anonymous namespace)::CvtHelper", align 8
   call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi4ELin1EEENS3_ILi3ELin1ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 196
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 196
   %22 = load i32, ptr %21, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11cvtBGRtoHSVEPKhmPhmiiiibbbE24__cv_trace_location_fn63)
@@ -1035,7 +1035,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HSVERKNS_11_InputArrayERKNS_12_OutputArr
           to label %23 unwind label %30
 
 23:                                               ; preds = %.noexc
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %32, label %26
@@ -1059,7 +1059,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HSVERKNS_11_InputArrayERKNS_12_OutputArr
 
 32:                                               ; preds = %26, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %33 = getelementptr inbounds i8, ptr %6, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   ret void
@@ -1071,7 +1071,7 @@ define hidden void @_ZN2cv15cvtColorBGR2HSVERKNS_11_InputArrayERKNS_12_OutputArr
 
 .body:                                            ; preds = %30, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #15
   resume { ptr, i32 } %eh.lpad-body
@@ -1084,19 +1084,19 @@ define hidden void @_ZN2cv15cvtColorHLS2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   %8 = icmp slt i32 %2, 1
   %spec.store.select = select i1 %8, i32 3, i32 %2
   call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELin1ELin1EEENS3_ILi3ELi4ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %spec.store.select)
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %22 = load i32, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11cvtHSVtoBGREPKhmPhmiiiibbbE25__cv_trace_location_fn136)
@@ -1107,7 +1107,7 @@ define hidden void @_ZN2cv15cvtColorHLS2BGRERKNS_11_InputArrayERKNS_12_OutputArr
           to label %23 unwind label %30
 
 23:                                               ; preds = %.noexc
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %32, label %26
@@ -1131,7 +1131,7 @@ define hidden void @_ZN2cv15cvtColorHLS2BGRERKNS_11_InputArrayERKNS_12_OutputArr
 
 32:                                               ; preds = %26, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %7, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   ret void
@@ -1143,7 +1143,7 @@ define hidden void @_ZN2cv15cvtColorHLS2BGRERKNS_11_InputArrayERKNS_12_OutputArr
 
 .body:                                            ; preds = %30, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
-  %36 = getelementptr inbounds i8, ptr %7, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   resume { ptr, i32 } %eh.lpad-body
@@ -1157,11 +1157,11 @@ define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #15
-  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i32 0, ptr %12, align 4
   %13 = invoke noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %14 unwind label %15
@@ -1210,10 +1210,10 @@ define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi
   %28 = lshr i32 %26, 3
   %29 = and i32 %28, 511
   %30 = add nuw nsw i32 %29, 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 196
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %30, ptr %31, align 4
   %32 = and i32 %26, 7
-  %33 = getelementptr inbounds i8, ptr %0, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %32, ptr %33, align 8
   %34 = icmp eq i32 %30, 3
   br i1 %34, label %35, label %.invoke
@@ -1246,16 +1246,16 @@ define internal fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELi
   unreachable
 
 43:                                               ; preds = %40, %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %45, %47
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %7, i64 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %51, align 8
   store i32 33619968, ptr %7, align 8
   store ptr %0, ptr %50, align 8
@@ -1299,9 +1299,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %57, %59
   br label %85
 
 64:                                               ; preds = %61, %49
-  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %66, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %69 to i64
@@ -1362,19 +1362,19 @@ define hidden void @_ZN2cv15cvtColorHSV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
   %8 = icmp slt i32 %2, 1
   %spec.store.select = select i1 %8, i32 3, i32 %2
   call fastcc void @_ZN2cv4impl12_GLOBAL__N_19CvtHelperINS1_3SetILi3ELin1ELin1EEENS3_ILi3ELi4ELin1EEENS3_ILi0ELi5ELin1EEELNS1_10SizePolicyE4EEC2ERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(208) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %spec.store.select)
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %22 = load i32, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11cvtHSVtoBGREPKhmPhmiiiibbbE25__cv_trace_location_fn136)
@@ -1385,7 +1385,7 @@ define hidden void @_ZN2cv15cvtColorHSV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
           to label %23 unwind label %30
 
 23:                                               ; preds = %.noexc
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i, label %32, label %26
@@ -1409,7 +1409,7 @@ define hidden void @_ZN2cv15cvtColorHSV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
 
 32:                                               ; preds = %26, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %33 = getelementptr inbounds i8, ptr %7, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %33) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   ret void
@@ -1421,7 +1421,7 @@ define hidden void @_ZN2cv15cvtColorHSV2BGRERKNS_11_InputArrayERKNS_12_OutputArr
 
 .body:                                            ; preds = %30, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %31, %30 ]
-  %36 = getelementptr inbounds i8, ptr %7, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %7) #15
   resume { ptr, i32 } %eh.lpad-body
@@ -1452,7 +1452,7 @@ define internal fastcc void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15T
   %4 = fdiv double 1.044480e+06, %3
   %5 = insertelement <2 x double> poison, double %4, i64 0
   %6 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %5)
-  %7 = getelementptr inbounds [256 x i32], ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [256 x i32], ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 0, i64 %indvars.iv
   store i32 %6, ptr %7, align 4
   %8 = trunc i64 %indvars.iv to i32
   %9 = mul i32 %8, 6
@@ -1460,12 +1460,12 @@ define internal fastcc void @_ZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15T
   %11 = fdiv double 7.372800e+05, %10
   %12 = insertelement <2 x double> poison, double %11, i64 0
   %13 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %12)
-  %14 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 1024), i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 1024), i64 0, i64 %indvars.iv
   store i32 %13, ptr %14, align 4
   %15 = fdiv double 0x4130000000000000, %10
   %16 = insertelement <2 x double> poison, double %15, i64 0
   %17 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %16)
-  %18 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 2048), i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [256 x i32], ptr getelementptr inbounds (i8, ptr @_ZZN2cv3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_b15TablesSingleton11getInstanceEvE8g_tables, i64 2048), i64 0, i64 %indvars.iv
   store i32 %17, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1519,28 +1519,28 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_bEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %5 = load i32, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %5, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %7, align 8
   %14 = sext i32 %5 to i64
   %15 = mul i64 %13, %14
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %6, align 8
   %20 = mul i64 %19, %14
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %128
@@ -1554,18 +1554,18 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
           to label %.noexc unwind label %136
 
 .noexc:                                           ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp sgt i32 %27, 0
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.noexc
   %35 = load i32, ptr %26, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = xor i32 %37, 2
@@ -1580,7 +1580,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %43 = getelementptr inbounds i8, ptr %.086.i, i64 %38
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %.086.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.086.i, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = getelementptr inbounds i8, ptr %.086.i, i64 %40
@@ -1589,7 +1589,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %52 = sub nsw i32 %48, %45
   %53 = add nsw i32 %52, 256
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add nuw nsw i32 %57, %45
@@ -1600,7 +1600,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 61:                                               ; preds = %42
   %62 = add nsw i32 %59, 256
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   br label %67
@@ -1611,7 +1611,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %70 = or disjoint i32 %45, 256
   %71 = sub nuw nsw i32 %70, %48
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = sub nsw i32 %45, %75
@@ -1622,7 +1622,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 79:                                               ; preds = %67
   %80 = add nsw i32 %77, 256
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [0 x i8], ptr @icvSaturate8u_cv, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   br label %85
@@ -1637,7 +1637,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.not80.i = icmp eq i32 %69, %51
   %.not.i = icmp eq i32 %69, %48
   %91 = zext nneg i32 %69 to i64
-  %92 = getelementptr inbounds i32, ptr %33, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %33, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = mul nsw i32 %89, %93
   %95 = add nsw i32 %94, 2048
@@ -1650,7 +1650,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %102 = add nsw i32 %100, %101
   %103 = select i1 %.not.i, i32 %99, i32 %102
   %104 = select i1 %.not80.i, i32 %52, i32 %103
-  %105 = getelementptr inbounds i32, ptr %31, i64 %90
+  %105 = getelementptr inbounds nuw i32, ptr %31, i64 %90
   %106 = load i32, ptr %105, align 4
   %107 = mul nsw i32 %104, %106
   %108 = add nsw i32 %107, 2048
@@ -1663,14 +1663,14 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %115 = trunc nuw i32 %114 to i8
   store i8 %115, ptr %.07485.i, align 1
   %116 = trunc i32 %96 to i8
-  %117 = getelementptr inbounds i8, ptr %.07485.i, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.07485.i, i64 1
   store i8 %116, ptr %117, align 1
   %118 = trunc i32 %69 to i8
-  %119 = getelementptr inbounds i8, ptr %.07485.i, i64 2
+  %119 = getelementptr inbounds nuw i8, ptr %.07485.i, i64 2
   store i8 %118, ptr %119, align 1
   %120 = add nuw nsw i32 %.07584.i, 1
   %121 = getelementptr inbounds i8, ptr %.086.i, i64 %41
-  %122 = getelementptr inbounds i8, ptr %.07485.i, i64 3
+  %122 = getelementptr inbounds nuw i8, ptr %.07485.i, i64 3
   %exitcond.not.i = icmp eq i32 %120, %27
   br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !19
 
@@ -1708,7 +1708,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %137
 
 ._crit_edge:                                      ; preds = %128, %2
-  %138 = getelementptr inbounds i8, ptr %4, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %139 = load i32, ptr %138, align 8
   %.not.i14 = icmp eq i32 %139, 0
   br i1 %.not.i14, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %140
@@ -1753,28 +1753,28 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HSV_fEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %5 = load i32, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %5, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %7, align 8
   %14 = sext i32 %5 to i64
   %15 = mul i64 %13, %14
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %6, align 8
   %20 = mul i64 %19, %14
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %84
@@ -1788,7 +1788,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
           to label %.noexc unwind label %92
 
 .noexc:                                           ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load float, ptr %28, align 4
   %30 = fmul float %29, 0x3F66C16C20000000
   %31 = icmp sgt i32 %27, 0
@@ -1797,7 +1797,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 .lr.ph.i:                                         ; preds = %.noexc
   %32 = mul nuw nsw i32 %27, 3
   %33 = load i32, ptr %26, align 4
-  %34 = getelementptr inbounds i8, ptr %26, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = xor i32 %35, 2
@@ -1811,7 +1811,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.05668.i = phi ptr [ %.016, %.lr.ph.i ], [ %77, %70 ]
   %42 = getelementptr inbounds float, ptr %.05668.i, i64 %36
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %.05668.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.05668.i, i64 4
   %45 = load float, ptr %44, align 4
   %46 = getelementptr inbounds float, ptr %.05668.i, i64 %38
   %47 = load float, ptr %46, align 4
@@ -1857,11 +1857,11 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %72 = fadd float %.057.i, 3.600000e+02
   %.158.i = select i1 %71, float %72, float %.057.i
   %73 = fmul float %30, %.158.i
-  %74 = getelementptr inbounds float, ptr %.01215, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw float, ptr %.01215, i64 %indvars.iv.i
   store float %73, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store float %55, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store float %.155.i, ptr %76, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %77 = getelementptr inbounds float, ptr %.05668.i, i64 %39
@@ -1902,7 +1902,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %93
 
 ._crit_edge:                                      ; preds = %84, %2
-  %94 = getelementptr inbounds i8, ptr %4, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %95 = load i32, ptr %94, align 8
   %.not.i = icmp eq i32 %95, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %96
@@ -1949,29 +1949,29 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %6 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_bEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %7 = load i32, ptr %1, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %7, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %9, align 8
   %16 = sext i32 %7 to i64
   %17 = mul i64 %15, %16
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %8, align 8
   %22 = mul i64 %21, %16
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %28
 
 28:                                               ; preds = %.lr.ph, %156
@@ -1992,9 +1992,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 .lr.ph51.i:                                       ; preds = %.noexc
   %32 = load i32, ptr %29, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %29, i64 4
-  %35 = getelementptr inbounds i8, ptr %29, i64 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 12
   br label %37
 
 37:                                               ; preds = %._crit_edge46.i, %.lr.ph51.i
@@ -2017,21 +2017,21 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %42 = load i8, ptr %.141.i, align 1
   %43 = uitofp i8 %42 to float
   %44 = fmul float %43, 0x3F70101020000000
-  %45 = getelementptr inbounds [768 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [768 x float], ptr %5, i64 0, i64 %indvars.iv.i
   store float %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %.141.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.141.i, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = uitofp i8 %47 to float
   %49 = fmul float %48, 0x3F70101020000000
   %50 = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = getelementptr inbounds [768 x float], ptr %5, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [768 x float], ptr %5, i64 0, i64 %50
   store float %49, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %.141.i, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.141.i, i64 2
   %53 = load i8, ptr %52, align 1
   %54 = uitofp i8 %53 to float
   %55 = fmul float %54, 0x3F70101020000000
   %56 = add nuw nsw i64 %indvars.iv.i, 2
-  %57 = getelementptr inbounds [768 x float], ptr %5, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [768 x float], ptr %5, i64 0, i64 %56
   store float %55, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %58 = getelementptr inbounds i8, ptr %.141.i, i64 %33
@@ -2069,7 +2069,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.06574.i = phi i32 [ 0, %.lr.ph.i16 ], [ %110, %106 ]
   %70 = getelementptr inbounds float, ptr %.06076.i, i64 %64
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.06076.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.06076.i, i64 4
   %73 = load float, ptr %72, align 4
   %74 = getelementptr inbounds float, ptr %.06076.i, i64 %66
   %75 = load float, ptr %74, align 4
@@ -2130,13 +2130,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.061.i = phi float [ %88, %104 ], [ %88, %102 ], [ 0.000000e+00, %69 ]
   %107 = fmul float %.062.i, %68
   store float %107, ptr %.06475.i, align 4
-  %108 = getelementptr inbounds i8, ptr %.06475.i, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %.06475.i, i64 4
   store float %82, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %.06475.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.06475.i, i64 8
   store float %.061.i, ptr %109, align 4
   %110 = add nuw nsw i32 %.06574.i, 1
   %111 = getelementptr inbounds float, ptr %.06076.i, i64 %67
-  %112 = getelementptr inbounds i8, ptr %.06475.i, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %.06475.i, i64 12
   %exitcond.not.i = icmp eq i32 %110, %.sroa.speculated.i
   br i1 %exitcond.not.i, label %._crit_edge.i14, label %69, !llvm.loop !24
 
@@ -2166,17 +2166,17 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 
 .lr.ph45.i:                                       ; preds = %.lr.ph45.i, %.lr.ph45.preheader.i
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph45.preheader.i ], [ %indvars.iv.next55.i, %.lr.ph45.i ]
-  %119 = getelementptr inbounds [768 x float], ptr %5, i64 0, i64 %indvars.iv54.i
+  %119 = getelementptr inbounds nuw [768 x float], ptr %5, i64 0, i64 %indvars.iv54.i
   %120 = load float, ptr %119, align 4
   %121 = insertelement <4 x float> poison, float %120, i64 0
   %122 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %121)
   %123 = call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = call i32 @llvm.umin.i32(i32 %123, i32 255)
   %125 = trunc nuw i32 %124 to i8
-  %126 = getelementptr inbounds i8, ptr %.03448.i, i64 %indvars.iv54.i
+  %126 = getelementptr inbounds nuw i8, ptr %.03448.i, i64 %indvars.iv54.i
   store i8 %125, ptr %126, align 1
   %127 = add nuw nsw i64 %indvars.iv54.i, 1
-  %128 = getelementptr inbounds [768 x float], ptr %5, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [768 x float], ptr %5, i64 0, i64 %127
   %129 = load float, ptr %128, align 4
   %130 = fmul float %129, 2.550000e+02
   %131 = insertelement <4 x float> poison, float %130, i64 0
@@ -2184,10 +2184,10 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %133 = call i32 @llvm.smax.i32(i32 %132, i32 0)
   %134 = call i32 @llvm.umin.i32(i32 %133, i32 255)
   %135 = trunc nuw i32 %134 to i8
-  %136 = getelementptr inbounds i8, ptr %.03448.i, i64 %127
+  %136 = getelementptr inbounds nuw i8, ptr %.03448.i, i64 %127
   store i8 %135, ptr %136, align 1
   %137 = add nuw nsw i64 %indvars.iv54.i, 2
-  %138 = getelementptr inbounds [768 x float], ptr %5, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw [768 x float], ptr %5, i64 0, i64 %137
   %139 = load float, ptr %138, align 4
   %140 = fmul float %139, 2.550000e+02
   %141 = insertelement <4 x float> poison, float %140, i64 0
@@ -2195,7 +2195,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %143 = call i32 @llvm.smax.i32(i32 %142, i32 0)
   %144 = call i32 @llvm.umin.i32(i32 %143, i32 255)
   %145 = trunc nuw i32 %144 to i8
-  %146 = getelementptr inbounds i8, ptr %.03448.i, i64 %137
+  %146 = getelementptr inbounds nuw i8, ptr %.03448.i, i64 %137
   store i8 %145, ptr %146, align 1
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 3
   %147 = icmp samesign ult i64 %indvars.iv.next55.i, %118
@@ -2203,7 +2203,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 
 ._crit_edge46.i:                                  ; preds = %.lr.ph45.i, %.preheader.i
   %148 = add nuw nsw i32 %.03547.i, 256
-  %149 = getelementptr inbounds i8, ptr %.03448.i, i64 768
+  %149 = getelementptr inbounds nuw i8, ptr %.03448.i, i64 768
   %150 = icmp slt i32 %148, %30
   br i1 %150, label %37, label %._crit_edge52.i, !llvm.loop !26
 
@@ -2246,7 +2246,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %eh.lpad-body
 
 ._crit_edge:                                      ; preds = %156, %2
-  %166 = getelementptr inbounds i8, ptr %6, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %167 = load i32, ptr %166, align 8
   %.not.i = icmp eq i32 %167, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %168
@@ -2288,28 +2288,28 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19RGB2HLS_fEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %5 = load i32, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %5, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %7, align 8
   %14 = sext i32 %5 to i64
   %15 = mul i64 %13, %14
   %16 = getelementptr inbounds i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %6, align 8
   %20 = mul i64 %19, %14
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %87
@@ -2328,12 +2328,12 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 
 .lr.ph.i:                                         ; preds = %.noexc
   %29 = load i32, ptr %26, align 4
-  %30 = getelementptr inbounds i8, ptr %26, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = xor i32 %31, 2
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %36 = sext i32 %29 to i64
   br label %37
 
@@ -2343,7 +2343,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.06574.i = phi i32 [ 0, %.lr.ph.i ], [ %79, %74 ]
   %38 = getelementptr inbounds float, ptr %.06076.i, i64 %32
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %.06076.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.06076.i, i64 4
   %41 = load float, ptr %40, align 4
   %42 = getelementptr inbounds float, ptr %.06076.i, i64 %34
   %43 = load float, ptr %42, align 4
@@ -2405,13 +2405,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %75 = load float, ptr %35, align 4
   %76 = fmul float %.062.i, %75
   store float %76, ptr %.06475.i, align 4
-  %77 = getelementptr inbounds i8, ptr %.06475.i, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.06475.i, i64 4
   store float %50, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %.06475.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.06475.i, i64 8
   store float %.061.i, ptr %78, align 4
   %79 = add nuw nsw i32 %.06574.i, 1
   %80 = getelementptr inbounds float, ptr %.06076.i, i64 %36
-  %81 = getelementptr inbounds i8, ptr %.06475.i, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %.06475.i, i64 12
   %exitcond.not.i = icmp eq i32 %79, %27
   br i1 %exitcond.not.i, label %._crit_edge.i, label %37, !llvm.loop !24
 
@@ -2449,7 +2449,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %96
 
 ._crit_edge:                                      ; preds = %87, %2
-  %97 = getelementptr inbounds i8, ptr %4, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %98 = load i32, ptr %97, align 8
   %.not.i = icmp eq i32 %98, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %99
@@ -2489,31 +2489,31 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_bEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %6, %10
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %8, align 8
   %15 = sext i32 %6 to i64
   %16 = mul i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %7, align 8
   %21 = mul i64 %20, %15
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 12
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %125
@@ -2533,8 +2533,8 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 .lr.ph.i:                                         ; preds = %.noexc
   %33 = mul nuw nsw i32 %31, 3
   %34 = load i32, ptr %30, align 4
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %37 = icmp eq i32 %34, 4
   %38 = sext i32 %34 to i64
   %39 = zext nneg i32 %33 to i64
@@ -2543,13 +2543,13 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 40:                                               ; preds = %117, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %117 ]
   %.029.i = phi ptr [ %.01215, %.lr.ph.i ], [ %118, %117 ]
-  %41 = getelementptr inbounds i8, ptr %.016, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %.016, i64 %indvars.iv.i
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %41, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = uitofp i8 %44 to float
   %46 = fmul float %45, 0x3F70101020000000
-  %47 = getelementptr inbounds i8, ptr %41, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %48 = load i8, ptr %47, align 1
   %49 = uitofp i8 %48 to float
   %50 = fmul float %49, 0x3F70101020000000
@@ -2620,7 +2620,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %101 = call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = call i32 @llvm.umin.i32(i32 %101, i32 255)
   %103 = trunc nuw i32 %102 to i8
-  %104 = getelementptr inbounds i8, ptr %.029.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
   store i8 %103, ptr %104, align 1
   %105 = fmul float %.025.i, 2.550000e+02
   %106 = insertelement <4 x float> poison, float %105, i64 0
@@ -2636,7 +2636,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   br i1 %37, label %115, label %117
 
 115:                                              ; preds = %88
-  %116 = getelementptr inbounds i8, ptr %.029.i, i64 3
+  %116 = getelementptr inbounds nuw i8, ptr %.029.i, i64 3
   store i8 -1, ptr %116, align 1
   br label %117
 
@@ -2680,7 +2680,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %134
 
 ._crit_edge:                                      ; preds = %125, %2
-  %135 = getelementptr inbounds i8, ptr %5, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %136 = load i32, ptr %135, align 8
   %.not.i = icmp eq i32 %136, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %137
@@ -2723,31 +2723,31 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HSV2RGB_fEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %6, %10
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %8, align 8
   %15 = sext i32 %6 to i64
   %16 = mul i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %7, align 8
   %21 = mul i64 %20, %15
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 12
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %101
@@ -2761,7 +2761,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
           to label %.noexc unwind label %109
 
 .noexc:                                           ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load float, ptr %32, align 4
   %34 = icmp sgt i32 %31, 0
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
@@ -2769,7 +2769,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 .lr.ph.i:                                         ; preds = %.noexc
   %35 = mul nuw nsw i32 %31, 3
   %36 = load i32, ptr %30, align 4
-  %37 = getelementptr inbounds i8, ptr %30, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = xor i32 %38, 2
@@ -2782,11 +2782,11 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 45:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
   %.033.i = phi ptr [ %.01215, %.lr.ph.i ], [ %94, %93 ]
-  %46 = getelementptr inbounds float, ptr %.016, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw float, ptr %.016, i64 %indvars.iv.i
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %46, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %51 = load float, ptr %50, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %52 = fcmp oeq float %49, 0.000000e+00
@@ -2839,14 +2839,14 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %88 = getelementptr inbounds float, ptr %.033.i, i64 %39
   store float %.031.i, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %.033.i, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.033.i, i64 4
   store float %.030.i, ptr %89, align 4
   %90 = getelementptr inbounds float, ptr %.033.i, i64 %41
   store float %.029.i, ptr %90, align 4
   br i1 %42, label %91, label %93
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %.033.i, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %.033.i, i64 12
   store float 1.000000e+00, ptr %92, align 4
   br label %93
 
@@ -2890,7 +2890,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %110
 
 ._crit_edge:                                      ; preds = %101, %2
-  %111 = getelementptr inbounds i8, ptr %5, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %112 = load i32, ptr %111, align 8
   %.not.i = icmp eq i32 %112, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %113
@@ -2932,32 +2932,32 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_bEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %8 = load i32, ptr %1, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %8, %12
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %10, align 8
   %17 = sext i32 %8 to i64
   %18 = mul i64 %16, %17
   %19 = getelementptr inbounds i8, ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %9, align 8
   %23 = mul i64 %22, %17
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 12
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %32
 
 32:                                               ; preds = %.lr.ph, %180
@@ -2977,11 +2977,11 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 
 .lr.ph54.i:                                       ; preds = %.noexc
   %36 = load i32, ptr %33, align 4
-  %37 = getelementptr inbounds i8, ptr %33, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %38 = icmp eq i32 %36, 4
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
-  %41 = getelementptr inbounds i8, ptr %33, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 12
   br label %42
 
 42:                                               ; preds = %._crit_edge48.i, %.lr.ph54.i
@@ -3000,24 +3000,24 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %47 = getelementptr inbounds i8, ptr %.03552.i, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 %indvars.iv.i
   %48 = load i8, ptr %47, align 1
   %49 = uitofp i8 %48 to float
-  %50 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [768 x float], ptr %6, i64 0, i64 %indvars.iv.i
   store float %49, ptr %50, align 4
   %51 = add nuw nsw i64 %indvars.iv.i, 1
-  %52 = getelementptr inbounds i8, ptr %.03552.i, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = uitofp i8 %53 to float
   %55 = fmul float %54, 0x3F70101020000000
-  %56 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %51
+  %56 = getelementptr inbounds nuw [768 x float], ptr %6, i64 0, i64 %51
   store float %55, ptr %56, align 4
   %57 = add nuw nsw i64 %indvars.iv.i, 2
-  %58 = getelementptr inbounds i8, ptr %.03552.i, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = uitofp i8 %59 to float
   %61 = fmul float %60, 0x3F70101020000000
-  %62 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %57
+  %62 = getelementptr inbounds nuw [768 x float], ptr %6, i64 0, i64 %57
   store float %61, ptr %62, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 3
   %63 = icmp samesign ult i64 %indvars.iv.next.i, %46
@@ -3047,9 +3047,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.04153.i = phi ptr [ %6, %.lr.ph.i16 ], [ %130, %127 ]
   %.04252.i = phi i32 [ 0, %.lr.ph.i16 ], [ %128, %127 ]
   %72 = load float, ptr %.054.i, align 4
-  %73 = getelementptr inbounds i8, ptr %.054.i, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.054.i, i64 4
   %74 = load float, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.054.i, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
   %76 = load float, ptr %75, align 4
   %77 = fcmp oeq float %76, 0.000000e+00
   br i1 %77, label %121, label %78
@@ -3097,12 +3097,12 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %108
   %110 = load float, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %106, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %113
   %115 = load float, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %106, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
   %119 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %118
@@ -3115,20 +3115,20 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.043.i = phi float [ %110, %87 ], [ %74, %71 ]
   %122 = getelementptr inbounds float, ptr %.04153.i, i64 %66
   store float %.043.i, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %.04153.i, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.04153.i, i64 4
   store float %.045.i, ptr %123, align 4
   %124 = getelementptr inbounds float, ptr %.04153.i, i64 %68
   store float %.044.i, ptr %124, align 4
   br i1 %69, label %125, label %127
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.04153.i, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %.04153.i, i64 12
   store float 1.000000e+00, ptr %126, align 4
   br label %127
 
 127:                                              ; preds = %125, %121
   %128 = add nuw nsw i32 %.04252.i, 1
-  %129 = getelementptr inbounds i8, ptr %.054.i, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %.054.i, i64 12
   %130 = getelementptr inbounds float, ptr %.04153.i, i64 %70
   %exitcond.not.i = icmp eq i32 %128, %.sroa.speculated.i
   br i1 %exitcond.not.i, label %._crit_edge.i14, label %71, !llvm.loop !34
@@ -3161,7 +3161,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 .lr.ph47.i:                                       ; preds = %169, %.lr.ph47.preheader.i
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph47.preheader.i ], [ %indvars.iv.next58.i, %169 ]
   %.145.i = phi ptr [ %.03651.i, %.lr.ph47.preheader.i ], [ %170, %169 ]
-  %137 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %indvars.iv57.i
+  %137 = getelementptr inbounds nuw [768 x float], ptr %6, i64 0, i64 %indvars.iv57.i
   %138 = load float, ptr %137, align 4
   %139 = fmul float %138, 2.550000e+02
   %140 = insertelement <4 x float> poison, float %139, i64 0
@@ -3171,7 +3171,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %144 = trunc nuw i32 %143 to i8
   store i8 %144, ptr %.145.i, align 1
   %145 = add nuw nsw i64 %indvars.iv57.i, 1
-  %146 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %145
+  %146 = getelementptr inbounds nuw [768 x float], ptr %6, i64 0, i64 %145
   %147 = load float, ptr %146, align 4
   %148 = fmul float %147, 2.550000e+02
   %149 = insertelement <4 x float> poison, float %148, i64 0
@@ -3179,10 +3179,10 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %151 = call i32 @llvm.smax.i32(i32 %150, i32 0)
   %152 = call i32 @llvm.umin.i32(i32 %151, i32 255)
   %153 = trunc nuw i32 %152 to i8
-  %154 = getelementptr inbounds i8, ptr %.145.i, i64 1
+  %154 = getelementptr inbounds nuw i8, ptr %.145.i, i64 1
   store i8 %153, ptr %154, align 1
   %155 = add nuw nsw i64 %indvars.iv57.i, 2
-  %156 = getelementptr inbounds [768 x float], ptr %6, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [768 x float], ptr %6, i64 0, i64 %155
   %157 = load float, ptr %156, align 4
   %158 = fmul float %157, 2.550000e+02
   %159 = insertelement <4 x float> poison, float %158, i64 0
@@ -3190,12 +3190,12 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %161 = call i32 @llvm.smax.i32(i32 %160, i32 0)
   %162 = call i32 @llvm.umin.i32(i32 %161, i32 255)
   %163 = trunc nuw i32 %162 to i8
-  %164 = getelementptr inbounds i8, ptr %.145.i, i64 2
+  %164 = getelementptr inbounds nuw i8, ptr %.145.i, i64 2
   store i8 %163, ptr %164, align 1
   br i1 %38, label %165, label %169
 
 165:                                              ; preds = %.lr.ph47.i
-  %166 = getelementptr inbounds i8, ptr %.145.i, i64 3
+  %166 = getelementptr inbounds nuw i8, ptr %.145.i, i64 3
   store i8 -1, ptr %166, align 1
   br label %169
 
@@ -3214,7 +3214,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 ._crit_edge48.i:                                  ; preds = %169, %.preheader.i
   %.1.lcssa.i = phi ptr [ %.03651.i, %.preheader.i ], [ %170, %169 ]
   %172 = add nuw nsw i32 %.03750.i, 256
-  %173 = getelementptr inbounds i8, ptr %.03552.i, i64 768
+  %173 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 768
   %174 = icmp slt i32 %172, %34
   br i1 %174, label %42, label %._crit_edge55.i, !llvm.loop !36
 
@@ -3257,7 +3257,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %eh.lpad-body
 
 ._crit_edge:                                      ; preds = %180, %2
-  %190 = getelementptr inbounds i8, ptr %7, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %191 = load i32, ptr %190, align 8
   %.not.i = icmp eq i32 %191, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %192
@@ -3297,31 +3297,31 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12cpu_baseline12_GLOBAL__N_19HLS2RGB_fEEclERKNS_5RangeEE25__cv_trace_location_fn146)
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %6, %10
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %8, align 8
   %15 = sext i32 %6 to i64
   %16 = mul i64 %14, %15
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %7, align 8
   %21 = mul i64 %20, %15
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph, %107
@@ -3341,9 +3341,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
 
 .lr.ph.i:                                         ; preds = %.noexc
   %33 = load i32, ptr %30, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = sext i32 %35 to i64
   %38 = xor i32 %35, 2
   %39 = sext i32 %38 to i64
@@ -3356,9 +3356,9 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.04153.i = phi ptr [ %.01215, %.lr.ph.i ], [ %101, %98 ]
   %.04252.i = phi i32 [ 0, %.lr.ph.i ], [ %99, %98 ]
   %43 = load float, ptr %.054.i, align 4
-  %44 = getelementptr inbounds i8, ptr %.054.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.054.i, i64 4
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.054.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
   %47 = load float, ptr %46, align 4
   %48 = fcmp oeq float %47, 0.000000e+00
   br i1 %48, label %92, label %49
@@ -3406,12 +3406,12 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %79
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %77, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %84
   %86 = load float, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %77, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %89
@@ -3424,20 +3424,20 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   %.043.i = phi float [ %81, %58 ], [ %45, %42 ]
   %93 = getelementptr inbounds float, ptr %.04153.i, i64 %37
   store float %.043.i, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %.04153.i, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.04153.i, i64 4
   store float %.045.i, ptr %94, align 4
   %95 = getelementptr inbounds float, ptr %.04153.i, i64 %39
   store float %.044.i, ptr %95, align 4
   br i1 %40, label %96, label %98
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %.04153.i, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %.04153.i, i64 12
   store float 1.000000e+00, ptr %97, align 4
   br label %98
 
 98:                                               ; preds = %96, %92
   %99 = add nuw nsw i32 %.04252.i, 1
-  %100 = getelementptr inbounds i8, ptr %.054.i, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %.054.i, i64 12
   %101 = getelementptr inbounds float, ptr %.04153.i, i64 %41
   %exitcond.not.i = icmp eq i32 %99, %31
   br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !34
@@ -3477,7 +3477,7 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   resume { ptr, i32 } %116
 
 ._crit_edge:                                      ; preds = %107, %2
-  %117 = getelementptr inbounds i8, ptr %5, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %118 = load i32, ptr %117, align 8
   %.not.i = icmp eq i32 %118, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %119

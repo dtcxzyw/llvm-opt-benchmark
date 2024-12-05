@@ -8,22 +8,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ObjCollectFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %Vec_PtrPush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_PtrPush.exit ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.critedge, label %12
@@ -103,17 +103,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ObjCollectFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %Vec_PtrPush.exit
@@ -201,20 +201,20 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
@@ -239,15 +239,15 @@ define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanin(ptr nocapture no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanout(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -281,21 +281,21 @@ define range(i32 -2147483648, 2147483647) i32 @Nwk_ObjFindFanout(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %10, label %27
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = shl i32 %7, 4
   %17 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %15, i32 noundef %16) #11
@@ -308,28 +308,28 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %22 = shl nsw i32 %21, 1
   store i32 %22, ptr %8, align 4
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
   br label %27
 
 27:                                               ; preds = %10, %2
-  %28 = getelementptr inbounds i8, ptr %1, i64 60
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = add nsw i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %34 = load i32, ptr %33, align 4
   %.not25 = icmp eq i32 %32, %34
   br i1 %.not25, label %35, label %52
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %1, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %40 = load ptr, ptr %39, align 8
   %41 = shl i32 %32, 4
   %42 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %40, i32 noundef %41) #11
@@ -342,7 +342,7 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %47 = shl nsw i32 %46, 1
   store i32 %47, ptr %33, align 4
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 108
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 108
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %49, align 4
@@ -360,7 +360,7 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %52
   %56 = add i32 %54, %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = sext i32 %56 to i64
   br label %59
 
@@ -380,13 +380,13 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 ._crit_edge:                                      ; preds = %59, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %65, %59 ]
   %.lcssa = phi i32 [ %53, %.._crit_edge_crit_edge ], [ %64, %59 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load ptr, ptr %67, align 8
   %69 = add nsw i32 %.lcssa, 1
   store i32 %69, ptr %3, align 4
   %70 = getelementptr inbounds ptr, ptr %68, i64 %.pre-phi
   store ptr %1, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %28, align 4
   %74 = load i32, ptr %30, align 8
@@ -396,9 +396,9 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds ptr, ptr %72, i64 %77
   store ptr %0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 44
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %1, i64 44
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr i8, ptr %0, i64 32
   %.val = load i32, ptr %83, align 8
@@ -413,16 +413,16 @@ define void @Nwk_ObjAddFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Nwk_ObjDeleteFanin(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, %4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
 
@@ -432,7 +432,7 @@ define void @Nwk_ObjDeleteFanin(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %.02838 = phi i32 [ 0, %.lr.ph ], [ %.129, %16 ]
   %.not35 = icmp eq i32 %.039, 0
   %.pre = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not36 = icmp eq ptr %12, %1
   %or.cond = select i1 %.not35, i1 %.not36, i1 false
@@ -460,16 +460,16 @@ define void @Nwk_ObjDeleteFanin(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %17 = phi i32 [ %.pre52, %._crit_edge.loopexit ], [ %4, %2 ]
   %18 = add nsw i32 %17, -1
   store i32 %18, ptr %3, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph44, label %._crit_edge45
 
 .lr.ph44:                                         ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %1, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %20, %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %26 = sext i32 %23 to i64
   %27 = sext i32 %24 to i64
   br label %28
@@ -513,20 +513,20 @@ define void @Nwk_ObjDeleteFanin(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %Nwk_ObjFindFanin.exit.thread
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %9
 
 9:                                                ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %Nwk_ObjFindFanin.exit.thread, label %12
@@ -541,10 +541,10 @@ define void @Nwk_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %exitcond.not.i, label %Nwk_ObjFindFanin.exit.thread, label %9, !llvm.loop !7
 
 Nwk_ObjFindFanin.exit.thread:                     ; preds = %14, %9, %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16)
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %19)
   br label %75
@@ -554,16 +554,16 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
   %21 = ashr exact i64 %sext, 29
   %22 = getelementptr inbounds i8, ptr %8, i64 %21
   store ptr %2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Nwk_ObjFindFanin.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 60
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %24, %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %30 = sext i32 %27 to i64
   %31 = sext i32 %28 to i64
   br label %32
@@ -598,21 +598,21 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
   %42 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %24, %Nwk_ObjFindFanin.exit ]
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr %23, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 60
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, %45
-  %49 = getelementptr inbounds i8, ptr %2, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %50 = load i32, ptr %49, align 4
   %.not = icmp eq i32 %48, %50
   br i1 %.not, label %51, label %68
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds i8, ptr %2, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
   %56 = load ptr, ptr %55, align 8
   %57 = shl i32 %48, 4
   %58 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %56, i32 noundef %57) #11
@@ -625,7 +625,7 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
   %63 = shl nsw i32 %62, 1
   store i32 %63, ptr %49, align 4
   %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 108
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 108
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %65, align 4
@@ -637,7 +637,7 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
 68:                                               ; preds = %51, %._crit_edge
   %.pre-phi = phi i32 [ %.pre39, %51 ], [ %48, %._crit_edge ]
   %69 = phi i32 [ %.pre38, %51 ], [ %47, %._crit_edge ]
-  %70 = getelementptr inbounds i8, ptr %2, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %71 = load ptr, ptr %70, align 8
   %72 = add nsw i32 %69, 1
   store i32 %72, ptr %46, align 8
@@ -656,7 +656,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void @Nwk_ObjCollectFanouts(ptr noundef nonnull %0, ptr noundef %5)
   %6 = getelementptr i8, ptr %5, i64 4
@@ -671,7 +671,7 @@ define void @Nwk_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.val12 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   tail call void @Nwk_ObjPatchFanin(ptr noundef %11, ptr noundef nonnull %0, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -687,7 +687,7 @@ define void @Nwk_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed
 ; Function Attrs: nounwind uwtable
 define void @Nwk_ObjReplace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void @Nwk_ObjCollectFanouts(ptr noundef nonnull %0, ptr noundef %5)
   %6 = getelementptr i8, ptr %5, i64 4
@@ -702,7 +702,7 @@ define void @Nwk_ObjReplace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 9:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
   %.val12.i = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val12.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr %.val12.i, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @Nwk_ObjPatchFanin(ptr noundef %11, ptr noundef nonnull %0, ptr noundef %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

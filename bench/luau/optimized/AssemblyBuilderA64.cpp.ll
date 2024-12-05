@@ -139,33 +139,33 @@ $_ZNSt6vectorIjSaIjEE17_M_default_appendEm = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C2Ebj(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 48)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %10, i8 0, i64 50, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 4096)
           to label %13 unwind label %41
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
   store i64 %19, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %5, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -191,7 +191,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C2Ebj(ptr noundef
   br i1 %.not, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %22, i64 4096
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 4096
   %.not.i.i = icmp eq ptr %21, %32
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %33
 
@@ -203,8 +203,8 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIjSaIj
   %.pre-phi = phi i64 [ %.pre9, %._ZNSt6vectorIjSaIjEE6resizeEm.exit_crit_edge ], [ %24, %33 ], [ %24, %31 ], [ %24, %30 ]
   %34 = phi ptr [ %.pre8, %._ZNSt6vectorIjSaIjEE6resizeEm.exit_crit_edge ], [ %32, %33 ], [ %21, %31 ], [ %21, %30 ]
   %35 = phi ptr [ %.pre, %._ZNSt6vectorIjSaIjEE6resizeEm.exit_crit_edge ], [ %22, %33 ], [ %22, %31 ], [ %22, %30 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 168
-  %37 = getelementptr inbounds i8, ptr %0, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %35, ptr %37, align 8
   %38 = ptrtoint ptr %34 to i64
   %39 = sub i64 %38, %.pre-phi
@@ -220,7 +220,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIjSaIj
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %43 to i64
@@ -234,7 +234,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %41, %44
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit, label %51
 
 51:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
@@ -249,7 +249,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit: ; p
   br i1 %.not.i.i.i5, label %_ZNSt6vectorIjSaIjEED2Ev.exit6, label %58
 
 58:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %57 to i64
@@ -263,7 +263,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIN4Luau
   br i1 %.not.i.i.i7, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %65
 
 65:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit6
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = ptrtoint ptr %67 to i64
   %69 = ptrtoint ptr %64 to i64
@@ -280,7 +280,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -291,7 +291,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -305,7 +305,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef no
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
@@ -333,14 +333,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #21
-  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %32, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i
 
@@ -365,7 +365,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   store ptr %30, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %30, i64 %1
   store ptr %39, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 %29
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %40, ptr %12, align 8
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -393,13 +393,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -408,13 +408,13 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D2Ev(ptr noundef 
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %1, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i1 = icmp eq ptr %11, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
@@ -423,15 +423,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #18
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i2 = icmp eq ptr %20, null
   br i1 %.not.i.i.i2, label %_ZNSt6vectorIjSaIjEED2Ev.exit3, label %21
 
 21:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EED2Ev.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %20 to i64
@@ -445,7 +445,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIN4Luau
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %28
 
 28:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit3
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
@@ -494,7 +494,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR1EPKcNS1_11RegisterA64ES5_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %13
@@ -502,7 +502,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR1EPKcNS1_1
 9:                                                ; preds = %5
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.84)
@@ -524,22 +524,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR1EPKcNS1_1
   %26 = shl i32 %4, 10
   %27 = or disjoint i32 %25, %26
   %28 = or i32 %27, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store ptr %31, ptr %29, align 8
   store i32 %28, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %29, align 8
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 36:                                               ; preds = %13
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %39
@@ -577,7 +577,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %53, %51, %4
   %57 = sub i64 %56, %39
   %58 = lshr exact i64 %57, 2
   %59 = and i64 %58, 4294967295
-  %60 = getelementptr inbounds i32, ptr %55, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %59
   store ptr %60, ptr %29, align 8
   %61 = ptrtoint ptr %54 to i64
   %62 = sub i64 %61, %.pre-phi.i.i
@@ -591,7 +591,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %13, %_ZN4Luau
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR2EPKcNS1_11RegisterA64ES5_hh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %14
@@ -599,7 +599,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR2EPKcNS1_
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.84)
@@ -622,22 +622,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR2EPKcNS1_
   %28 = select i1 %16, i32 -2147482656, i32 992
   %29 = or i32 %28, %27
   %30 = or i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store ptr %33, ptr %31, align 8
   store i32 %30, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %38, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 38:                                               ; preds = %14
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %41
@@ -675,7 +675,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %55, %53, %5
   %59 = sub i64 %58, %41
   %60 = lshr exact i64 %59, 2
   %61 = and i64 %60, 4294967295
-  %62 = getelementptr inbounds i32, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %57, i64 %61
   store ptr %62, ptr %31, align 8
   %63 = ptrtoint ptr %56 to i64
   %64 = sub i64 %63, %.pre-phi.i.i
@@ -736,7 +736,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644movnENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI16EPKcNS1_11RegisterA64Eihi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i32 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %16
@@ -744,7 +744,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI16EPKcNS1_
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.80)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.85, i32 noundef %3)
   %13 = icmp sgt i32 %5, 0
@@ -773,22 +773,22 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64Eii.exit: ; pre
   %28 = or i32 %19, %23
   %29 = or i32 %28, %27
   %30 = or i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store ptr %33, ptr %31, align 8
   store i32 %30, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %38, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 38:                                               ; preds = %16
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %41
@@ -826,7 +826,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %55, %53, %5
   %59 = sub i64 %58, %41
   %60 = lshr exact i64 %59, 2
   %61 = and i64 %60, 4294967295
-  %62 = getelementptr inbounds i32, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %57, i64 %61
   store ptr %62, ptr %31, align 8
   %63 = ptrtoint ptr %56 to i64
   %64 = sub i64 %63, %.pre-phi.i.i
@@ -861,7 +861,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeEREPKcNS1_11RegisterA64ES5_S5_hi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 %4, i8 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
@@ -890,22 +890,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeEREPKcNS1_1
   %29 = or disjoint i32 %28, %25
   %30 = or i32 %22, %27
   %31 = or i32 %30, %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store ptr %34, ptr %32, align 8
   store i32 %31, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %32, align 8
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %39, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 39:                                               ; preds = %12
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %42
@@ -943,7 +943,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %56, %54, %5
   %60 = sub i64 %59, %42
   %61 = lshr exact i64 %60, 2
   %62 = and i64 %61, 4294967295
-  %63 = getelementptr inbounds i32, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %58, i64 %62
   store ptr %63, ptr %32, align 8
   %64 = ptrtoint ptr %57 to i64
   %65 = sub i64 %64, %.pre-phi.i.i
@@ -957,7 +957,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %12, %_ZN4Luau
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR3EPKcNS1_11RegisterA64ES5_S5_hii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %13
@@ -992,22 +992,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeSR3EPKcNS1_
   %36 = or i32 %35, %29
   %37 = or i32 %36, %31
   %38 = or i32 %37, %25
-  %39 = getelementptr inbounds i8, ptr %0, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store ptr %41, ptr %39, align 8
   store i32 %38, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 168
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %39, align 8
   %45 = icmp eq ptr %43, %44
   br i1 %45, label %46, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 46:                                               ; preds = %13
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %52, %49
@@ -1045,7 +1045,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %63, %61, %5
   %67 = sub i64 %66, %49
   %68 = lshr exact i64 %67, 2
   %69 = and i64 %68, 4294967295
-  %70 = getelementptr inbounds i32, ptr %65, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %65, i64 %69
   store ptr %70, ptr %39, align 8
   %71 = ptrtoint ptr %64 to i64
   %72 = sub i64 %71, %.pre-phi.i.i
@@ -1066,7 +1066,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI12EPKcNS1_11RegisterA64ES5_ih(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i32 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
@@ -1091,22 +1091,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeI12EPKcNS1_
   %23 = shl nuw i32 %22, 24
   %24 = or i32 %23, %13
   %25 = or i32 %24, %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store ptr %28, ptr %26, align 8
   store i32 %25, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %26, align 8
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %33, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 33:                                               ; preds = %11
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %39, %36
@@ -1144,7 +1144,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %50, %48, %4
   %54 = sub i64 %53, %36
   %55 = lshr exact i64 %54, 2
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds i32, ptr %52, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %52, i64 %56
   store ptr %57, ptr %26, align 8
   %58 = ptrtoint ptr %51 to i64
   %59 = sub i64 %58, %.pre-phi.i.i
@@ -1217,7 +1217,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644cselENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_11RegisterA64ES5_S5_NS1_12ConditionA64Ehhi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %14
@@ -1254,22 +1254,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeCSEPKcNS1_1
   %39 = or disjoint i32 %38, %37
   %40 = or i32 %32, %26
   %41 = or i32 %40, %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store ptr %44, ptr %42, align 8
   store i32 %41, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %42, align 8
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %49, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 49:                                               ; preds = %14
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %55, %52
@@ -1307,7 +1307,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %66, %64, %6
   %70 = sub i64 %69, %52
   %71 = lshr exact i64 %70, 2
   %72 = and i64 %71, 4294967295
-  %73 = getelementptr inbounds i32, ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %68, i64 %72
   store ptr %73, ptr %42, align 8
   %74 = ptrtoint ptr %67 to i64
   %75 = sub i64 %74, %.pre-phi.i.i
@@ -1375,7 +1375,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644and_ENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBMEPKcNS1_11RegisterA64ES5_jh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i32 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %11
@@ -1407,22 +1407,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBMEPKcNS1_1
   %29 = or disjoint i32 %26, %14
   %30 = or disjoint i32 %29, %28
   %31 = or i32 %30, %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store ptr %34, ptr %32, align 8
   store i32 %31, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %32, align 8
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %39, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 39:                                               ; preds = %11
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %42
@@ -1460,7 +1460,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %56, %54, %5
   %60 = sub i64 %59, %42
   %61 = lshr exact i64 %60, 2
   %62 = and i64 %61, 4294967295
-  %63 = getelementptr inbounds i32, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %58, i64 %62
   store ptr %63, ptr %32, align 8
   %64 = ptrtoint ptr %57 to i64
   %65 = sub i64 %64, %.pre-phi.i.i
@@ -1501,7 +1501,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR3EPKcNS1_11RegisterA64ES5_S5_hh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 %4, i8 noundef zeroext %5, i8 noundef zeroext %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %12
@@ -1531,22 +1531,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeR3EPKcNS1_1
   %30 = shl nuw nsw i32 %29, 21
   %31 = or disjoint i32 %28, %30
   %32 = or disjoint i32 %31, %15
-  %33 = getelementptr inbounds i8, ptr %0, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store ptr %35, ptr %33, align 8
   store i32 %32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %33, align 8
   %39 = icmp eq ptr %37, %38
   br i1 %39, label %40, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 40:                                               ; preds = %12
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %46, %43
@@ -1584,7 +1584,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %57, %55, %5
   %61 = sub i64 %60, %43
   %62 = lshr exact i64 %61, 2
   %63 = and i64 %62, 4294967295
-  %64 = getelementptr inbounds i32, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw i32, ptr %59, i64 %63
   store ptr %64, ptr %33, align 8
   %65 = ptrtoint ptr %58 to i64
   %66 = sub i64 %65, %.pre-phi.i.i
@@ -1651,7 +1651,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643lslENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBFMEPKcNS1_11RegisterA64ES5_ihii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %13
@@ -1678,22 +1678,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBFMEPKcNS1_
   %28 = or i32 %27, %24
   %29 = or i32 %28, %26
   %30 = or i32 %29, %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store ptr %33, ptr %31, align 8
   store i32 %30, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %38, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 38:                                               ; preds = %13
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %41
@@ -1731,7 +1731,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %55, %53, %5
   %59 = sub i64 %58, %41
   %60 = lshr exact i64 %59, 2
   %61 = and i64 %60, 4294967295
-  %62 = getelementptr inbounds i32, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %57, i64 %61
   store ptr %62, ptr %31, align 8
   %63 = ptrtoint ptr %56 to i64
   %64 = sub i64 %63, %.pre-phi.i.i
@@ -1870,7 +1870,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeAEPKcNS1_11
   %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i8
   %.sroa.917.0.extract.shift = lshr i64 %3, 32
   %.sroa.917.0.extract.trunc = trunc nuw i64 %.sroa.917.0.extract.shift to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %14
@@ -1878,7 +1878,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeAEPKcNS1_11
 10:                                               ; preds = %6
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 %3)
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.84)
@@ -1990,26 +1990,26 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeAEPKcNS1_11
 
 .sink.split:                                      ; preds = %15, %65, %79, %52, %37
   %.sink = phi i32 [ %49, %37 ], [ %64, %52 ], [ %92, %79 ], [ %78, %65 ], [ %29, %15 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 160
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store ptr %95, ptr %93, align 8
   store i32 %.sink, ptr %94, align 4
   br label %96
 
 96:                                               ; preds = %.sink.split, %50, %14
-  %97 = getelementptr inbounds i8, ptr %0, i64 168
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 160
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %98, %100
   br i1 %101, label %102, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %0, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = ptrtoint ptr %104 to i64
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load ptr, ptr %106, align 8
   %108 = ptrtoint ptr %107 to i64
   %109 = sub i64 %108, %105
@@ -2047,7 +2047,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %119, %117, 
   %123 = sub i64 %122, %105
   %124 = lshr exact i64 %123, 2
   %125 = and i64 %124, 4294967295
-  %126 = getelementptr inbounds i32, ptr %121, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %121, i64 %125
   store ptr %126, ptr %99, align 8
   %127 = ptrtoint ptr %120 to i64
   %128 = sub i64 %127, %.pre-phi.i.i
@@ -2109,7 +2109,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldpENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placePEPKcNS1_11RegisterA64ES5_NS1_10AddressA64Ehhi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i64 %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %17
@@ -2117,7 +2117,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placePEPKcNS1_11
 12:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
   %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.80)
@@ -2148,22 +2148,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placePEPKcNS1_11
   %35 = zext i8 %6 to i32
   %36 = shl i32 %35, 30
   %37 = or disjoint i32 %34, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store ptr %40, ptr %38, align 8
   store i32 %37, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %38, align 8
   %44 = icmp eq ptr %42, %43
   br i1 %44, label %45, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 45:                                               ; preds = %17
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %51, %48
@@ -2201,7 +2201,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %62, %60, %5
   %66 = sub i64 %65, %48
   %67 = lshr exact i64 %66, 2
   %68 = and i64 %67, 4294967295
-  %69 = getelementptr inbounds i32, ptr %64, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %64, i64 %68
   store ptr %69, ptr %38, align 8
   %70 = ptrtoint ptr %63 to i64
   %71 = sub i64 %70, %.pre-phi.i.i
@@ -2272,22 +2272,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643stpENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %5, ptr %3, align 8
   store i32 335544320, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit.i
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %13
@@ -2325,7 +2325,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %27, %25, 
   %31 = sub i64 %30, %13
   %32 = lshr exact i64 %31, 2
   %33 = and i64 %32, 4294967295
-  %34 = getelementptr inbounds i32, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %33
   store ptr %34, ptr %3, align 8
   %35 = ptrtoint ptr %28 to i64
   %36 = sub i64 %35, %.pre-phi.i.i.i
@@ -2335,7 +2335,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %27, %25, 
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit.i: ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i, %2
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef 0)
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5LabelEh.exit
@@ -2354,22 +2354,22 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5LabelEh.exit: ; preds =
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5LabelEh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = zext i8 %3 to i32
   %6 = shl i32 %5, 26
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %9, ptr %7, align 8
   store i32 %6, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, %17
@@ -2407,7 +2407,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %31, %29, %2
   %35 = sub i64 %34, %17
   %36 = lshr exact i64 %35, 2
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds i32, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %37
   store ptr %38, ptr %7, align 8
   %39 = ptrtoint ptr %32 to i64
   %40 = sub i64 %39, %.pre-phi.i.i
@@ -2417,7 +2417,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %31, %29, %2
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %4, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 0)
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %46
@@ -2434,22 +2434,22 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %4, %_ZN4Luau7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642blERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %5, ptr %3, align 8
   store i32 -1811939328, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %10, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit.i
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %13
@@ -2487,7 +2487,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %27, %25, 
   %31 = sub i64 %30, %13
   %32 = lshr exact i64 %31, 2
   %33 = and i64 %32, 4294967295
-  %34 = getelementptr inbounds i32, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %33
   store ptr %34, ptr %3, align 8
   %35 = ptrtoint ptr %28 to i64
   %36 = sub i64 %35, %.pre-phi.i.i.i
@@ -2497,7 +2497,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %27, %25, 
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit.i: ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i, %2
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, i32 noundef 0)
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646placeBEPKcRNS0_5LabelEh.exit
@@ -2520,7 +2520,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA642brENS1_11Registe
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBREPKcNS1_11RegisterA64Ej(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
@@ -2528,7 +2528,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBREPKcNS1_1
 8:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.84)
   br label %11
 
@@ -2538,22 +2538,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBREPKcNS1_1
   %14 = shl nuw nsw i32 %13, 5
   %15 = shl i32 %3, 10
   %16 = or disjoint i32 %14, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store ptr %19, ptr %17, align 8
   store i32 %16, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %17, align 8
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %24, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %27
@@ -2591,7 +2591,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %41, %39, %3
   %45 = sub i64 %44, %27
   %46 = lshr exact i64 %45, 2
   %47 = and i64 %46, 4294967295
-  %48 = getelementptr inbounds i32, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %43, i64 %47
   store ptr %48, ptr %17, align 8
   %49 = ptrtoint ptr %42 to i64
   %50 = sub i64 %49, %.pre-phi.i.i
@@ -2611,7 +2611,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643blrENS1_11Regist
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643retEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %6
@@ -2621,22 +2621,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643retEv(ptr nounde
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %9, ptr %7, align 8
   store i32 -698416192, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj.exit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, %17
@@ -2674,7 +2674,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %31, %29, 
   %35 = sub i64 %34, %17
   %36 = lshr exact i64 %35, 2
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds i32, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %37
   store ptr %38, ptr %7, align 8
   %39 = ptrtoint ptr %32 to i64
   %40 = sub i64 %39, %.pre-phi.i.i.i
@@ -2688,7 +2688,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj.exit: ; preds = %6, %_ZN4Lu
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %8
@@ -2698,22 +2698,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj(ptr 
   br label %8
 
 8:                                                ; preds = %7, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store ptr %11, ptr %9, align 8
   store i32 %2, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %16, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %22, %19
@@ -2751,7 +2751,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %33, %31, %2
   %37 = sub i64 %36, %19
   %38 = lshr exact i64 %37, 2
   %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds i32, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
   store ptr %40, ptr %9, align 8
   %41 = ptrtoint ptr %34 to i64
   %42 = sub i64 %41, %.pre-phi.i.i
@@ -2772,22 +2772,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12Conditio
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = or disjoint i32 %9, 1409286144
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store ptr %13, ptr %11, align 8
   store i32 %10, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %11, align 8
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %18, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit.i
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %21
@@ -2825,7 +2825,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %35, %33, 
   %39 = sub i64 %38, %21
   %40 = lshr exact i64 %39, 2
   %41 = and i64 %40, 4294967295
-  %42 = getelementptr inbounds i32, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %41
   store ptr %42, ptr %11, align 8
   %43 = ptrtoint ptr %36 to i64
   %44 = sub i64 %43, %.pre-phi.i.i.i
@@ -2835,7 +2835,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %35, %33, 
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit.i: ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i, %3
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 1)
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBCEPKcRNS0_5LabelEhh.exit
@@ -2856,22 +2856,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeBCEPKcRNS0_
   %7 = zext i8 %3 to i32
   %8 = shl nuw i32 %7, 24
   %9 = or disjoint i32 %8, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store ptr %12, ptr %10, align 8
   store i32 %9, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %17, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %23, %20
@@ -2909,7 +2909,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %34, %32, %3
   %38 = sub i64 %37, %20
   %39 = lshr exact i64 %38, 2
   %40 = and i64 %39, 4294967295
-  %41 = getelementptr inbounds i32, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %36, i64 %40
   store ptr %41, ptr %10, align 8
   %42 = ptrtoint ptr %35 to i64
   %43 = sub i64 %42, %.pre-phi.i.i
@@ -2919,7 +2919,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %34, %32, %3
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %5, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 1)
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load i8, ptr %45, align 8
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %49
@@ -2951,22 +2951,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBCREPKcRNS0
   %12 = shl nuw i32 %11, 24
   %13 = or disjoint i32 %12, %10
   %14 = or i32 %13, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store ptr %17, ptr %15, align 8
   store i32 %14, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %15, align 8
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %22, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %28, %25
@@ -3004,7 +3004,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %39, %37, %3
   %43 = sub i64 %42, %25
   %44 = lshr exact i64 %43, 2
   %45 = and i64 %44, 4294967295
-  %46 = getelementptr inbounds i32, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %41, i64 %45
   store ptr %46, ptr %15, align 8
   %47 = ptrtoint ptr %40 to i64
   %48 = sub i64 %47, %.pre-phi.i.i
@@ -3014,7 +3014,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %39, %37, %3
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %5, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 1)
-  %50 = getelementptr inbounds i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %56
@@ -3023,7 +3023,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %5, %_ZN4Luau7
   %.sroa.0.0.copyload = load i64, ptr %2, align 4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %4)
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull @.str.80)
   %.sroa.03.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.88, i32 noundef %.sroa.03.0.extract.trunc.i)
@@ -3059,22 +3059,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeBTREPKcRNS0
   %16 = shl i32 %9, 26
   %17 = and i32 %16, -2147483648
   %18 = or i32 %15, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store ptr %21, ptr %19, align 8
   store i32 %18, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = icmp eq ptr %23, %24
   br i1 %25, label %26, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 26:                                               ; preds = %6
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %32, %29
@@ -3112,7 +3112,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %43, %41, %3
   %47 = sub i64 %46, %29
   %48 = lshr exact i64 %47, 2
   %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds i32, ptr %45, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %45, i64 %49
   store ptr %50, ptr %19, align 8
   %51 = ptrtoint ptr %44 to i64
   %52 = sub i64 %51, %.pre-phi.i.i
@@ -3122,7 +3122,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %43, %41, %3
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %6, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2)
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %60
@@ -3131,7 +3131,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %6, %_ZN4Luau7
   %.sroa.0.0.copyload = load i64, ptr %2, align 4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %4)
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull @.str.80)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.87, i32 noundef %9)
   %.sroa.03.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
@@ -3150,13 +3150,13 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644tbnzENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64EPKvm(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %6, %3
   br i1 %7, label %8, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -3178,9 +3178,9 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %4, %8
   %22 = sub i64 %21, %3
   %23 = and i64 %22, -4
   store i64 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %25 to i64
   %29 = ptrtoint ptr %27 to i64
@@ -3191,7 +3191,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %4, %8
   %34 = getelementptr inbounds i8, ptr %33, i64 %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %2, i64 %3, i1 false)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.47, i8 %1, i8 noundef zeroext 16)
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -3210,14 +3210,14 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %4, %8
   %47 = and i32 %.neg, 16777184
   %48 = and i64 %31, 4294967295
   %49 = load ptr, ptr %26, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %47
   store i32 %52, ptr %50, align 4
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
 53:                                               ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 145
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 145
   store i8 1, ptr %54, align 1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
@@ -3227,13 +3227,13 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, %1
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3261,9 +3261,9 @@ define dso_local noundef i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocate
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6418AssemblyBuilderA6411getCodeSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -3275,7 +3275,7 @@ define dso_local noundef i32 @_ZNK4Luau7CodeGen3A6418AssemblyBuilderA6411getCode
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
@@ -3283,7 +3283,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
 8:                                                ; preds = %4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.84)
   br label %11
 
@@ -3293,22 +3293,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   %14 = zext i8 %3 to i32
   %15 = shl nuw i32 %14, 24
   %16 = or disjoint i32 %15, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store ptr %19, ptr %17, align 8
   store i32 %16, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %17, align 8
   %23 = icmp eq ptr %21, %22
   br i1 %23, label %24, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %30, %27
@@ -3346,7 +3346,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %41, %39, %3
   %45 = sub i64 %44, %27
   %46 = lshr exact i64 %45, 2
   %47 = and i64 %46, 4294967295
-  %48 = getelementptr inbounds i32, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %43, i64 %47
   store ptr %48, ptr %17, align 8
   %49 = ptrtoint ptr %42 to i64
   %50 = sub i64 %49, %.pre-phi.i.i
@@ -3376,17 +3376,17 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiN
   %15 = add nsw i32 %8, -1
   %16 = and i32 %15, %2
   %17 = shl nuw nsw i32 %16, %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext i32 %1 to i64
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %19
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, %17
   store i32 %23, ptr %21, align 4
   br label %26
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 145
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 145
   store i8 1, ptr %25, align 1
   br label %26
 
@@ -3396,13 +3396,13 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiN
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64Em(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 8
   br i1 %6, label %7, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3424,9 +3424,9 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %3, %7
   %21 = and i64 %20, -8
   %22 = add i64 %21, -8
   store i64 %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %26 to i64
@@ -3437,7 +3437,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %3, %7
   %33 = getelementptr inbounds i8, ptr %32, i64 %22
   store i64 %2, ptr %33, align 1
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.47, i8 %1, i8 noundef zeroext 16)
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = ptrtoint ptr %35 to i64
@@ -3457,14 +3457,14 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %3, %7
   %47 = and i32 %.neg, 16777184
   %48 = and i64 %30, 4294967295
   %49 = load ptr, ptr %25, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %47
   store i32 %52, ptr %50, align 4
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
 53:                                               ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 145
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 145
   store i8 1, ptr %54, align 1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
@@ -3474,13 +3474,13 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643adrENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, double noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 8
   br i1 %6, label %7, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -3502,9 +3502,9 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %3, %7
   %21 = and i64 %20, -8
   %22 = add i64 %21, -8
   store i64 %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %26 to i64
@@ -3515,7 +3515,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %3, %7
   %33 = getelementptr inbounds i8, ptr %32, i64 %22
   store double %2, ptr %33, align 1
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_11RegisterA64Eh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.47, i8 %1, i8 noundef zeroext 16)
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %0, align 8
   %37 = ptrtoint ptr %35 to i64
@@ -3535,14 +3535,14 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit: ; preds = %3, %7
   %47 = and i32 %.neg, 16777184
   %48 = and i64 %30, 4294967295
   %49 = load ptr, ptr %25, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %48
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %47
   store i32 %52, ptr %50, align 4
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
 53:                                               ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6412allocateDataEmm.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 145
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 145
   store i8 1, ptr %54, align 1
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
@@ -3563,22 +3563,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648placeADREPKcNS1_
   %8 = zext i8 %3 to i32
   %9 = shl nuw i32 %8, 24
   %10 = or disjoint i32 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store ptr %13, ptr %11, align 8
   store i32 %10, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %11, align 8
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %18, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = sub i64 %24, %21
@@ -3616,7 +3616,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %35, %33, %3
   %39 = sub i64 %38, %21
   %40 = lshr exact i64 %39, 2
   %41 = and i64 %40, 4294967295
-  %42 = getelementptr inbounds i32, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %41
   store ptr %42, ptr %11, align 8
   %43 = ptrtoint ptr %36 to i64
   %44 = sub i64 %43, %.pre-phi.i.i
@@ -3626,7 +3626,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %35, %33, %3
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %5, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 1)
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %52
@@ -3635,7 +3635,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %5, %_ZN4Luau7
   %.sroa.0.0.copyload = load i64, ptr %4, align 4
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %50 = getelementptr inbounds i8, ptr %0, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.80)
   %.sroa.03.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.88, i32 noundef %.sroa.03.0.extract.trunc.i)
@@ -3726,7 +3726,7 @@ _ZN4Luau7CodeGen3A64L10getFmovImmEd.exit.thread:  ; preds = %6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1_11RegisterA64Edj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, double noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %13
@@ -3734,7 +3734,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1
 9:                                                ; preds = %5
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.80)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.86, double noundef %3)
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.84)
@@ -3745,22 +3745,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFMOVEPKcNS1
   %15 = zext nneg i8 %14 to i32
   %16 = shl i32 %4, 5
   %17 = or disjoint i32 %16, %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store ptr %20, ptr %18, align 8
   store i32 %17, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %18, align 8
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %25, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = sub i64 %31, %28
@@ -3798,7 +3798,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %42, %40, %3
   %46 = sub i64 %45, %28
   %47 = lshr exact i64 %46, 2
   %48 = and i64 %47, 4294967295
-  %49 = getelementptr inbounds i32, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %48
   store ptr %49, ptr %18, align 8
   %50 = ptrtoint ptr %43 to i64
   %51 = sub i64 %50, %.pre-phi.i.i
@@ -3842,7 +3842,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644faddENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeVREPKcNS1_11RegisterA64ES5_S5_th(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 %4, i16 noundef zeroext %5, i8 noundef zeroext %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   %11 = lshr i8 %2, 3
@@ -3869,22 +3869,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA647placeVREPKcNS1_1
   %26 = or disjoint i32 %23, %25
   %27 = or disjoint i32 %26, %12
   %28 = or i32 %27, 1073741824
-  %29 = getelementptr inbounds i8, ptr %0, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store ptr %31, ptr %29, align 8
   store i32 %28, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %29, align 8
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %39
@@ -3922,7 +3922,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %53, %51, %4
   %57 = sub i64 %56, %39
   %58 = lshr exact i64 %57, 2
   %59 = and i64 %58, 4294967295
-  %60 = getelementptr inbounds i32, ptr %55, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %59
   store ptr %60, ptr %29, align 8
   %61 = ptrtoint ptr %54 to i64
   %62 = sub i64 %61, %.pre-phi.i.i
@@ -4025,7 +4025,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fsubENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, i8 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   %8 = lshr i8 %1, 3
@@ -4053,22 +4053,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   %17 = or disjoint i32 %15, %16
   %18 = or disjoint i32 %17, %9
   %19 = or i32 %18, 1308892160
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store ptr %22, ptr %20, align 8
   store i32 %19, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %20, align 8
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 27:                                               ; preds = %14
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %33, %30
@@ -4106,7 +4106,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %44, %42, %4
   %48 = sub i64 %47, %30
   %49 = lshr exact i64 %48, 2
   %50 = and i64 %49, 4294967295
-  %51 = getelementptr inbounds i32, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %46, i64 %50
   store ptr %51, ptr %20, align 8
   %52 = ptrtoint ptr %45 to i64
   %53 = sub i64 %52, %.pre-phi.i.i
@@ -4125,16 +4125,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(p
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %4) #18
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645placeEj(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %5, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   ret void
@@ -4142,18 +4142,18 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645placeEj(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %7, label %35
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %10
@@ -4191,7 +4191,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit: ; preds = %18, %20, %22,
   %28 = sub i64 %27, %10
   %29 = lshr exact i64 %28, 2
   %30 = and i64 %29, 4294967295
-  %31 = getelementptr inbounds i32, ptr %26, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %30
   store ptr %31, ptr %4, align 8
   %32 = ptrtoint ptr %25 to i64
   %33 = sub i64 %32, %.pre-phi.i
@@ -4205,7 +4205,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit: ; preds = %18, %20, %22,
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11RegisterA64EhS3_h(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, i8 noundef zeroext %2, i8 %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   %9 = lshr i8 %1, 3
@@ -4236,22 +4236,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646ins_4sENS1_11Reg
   %21 = or i32 %19, %20
   %22 = or disjoint i32 %21, %10
   %23 = or i32 %22, 1845756928
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store ptr %26, ptr %24, align 8
   store i32 %23, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %24, align 8
   %30 = icmp eq ptr %28, %29
   br i1 %30, label %31, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 31:                                               ; preds = %16
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %37, %34
@@ -4289,7 +4289,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %48, %46, %4
   %52 = sub i64 %51, %34
   %53 = lshr exact i64 %52, 2
   %54 = and i64 %53, 4294967295
-  %55 = getelementptr inbounds i32, ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %50, i64 %54
   store ptr %55, ptr %24, align 8
   %56 = ptrtoint ptr %49 to i64
   %57 = sub i64 %56, %.pre-phi.i.i
@@ -4305,7 +4305,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit: ; preds = %16, %_ZN4Luau
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11RegisterA64ES3_h(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %1, i8 %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = and i8 %1, 7
   %6 = icmp eq i8 %5, 3
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = lshr i8 %1, 3
@@ -4327,23 +4327,23 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646dup_4sENS1_11Reg
   %17 = or disjoint i32 %15, %16
   %18 = or i32 %17, %.
   %19 = or disjoint i32 %18, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store ptr %22, ptr %20, align 8
   store i32 %19, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %24, %26
   br i1 %27, label %28, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 28:                                               ; preds = %._crit_edge14
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %34, %31
@@ -4381,7 +4381,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %45, %43, %4
   %49 = sub i64 %48, %31
   %50 = lshr exact i64 %49, 2
   %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds i32, ptr %47, i64 %51
+  %52 = getelementptr inbounds nuw i32, ptr %47, i64 %51
   store ptr %52, ptr %25, align 8
   %53 = ptrtoint ptr %46 to i64
   %54 = sub i64 %53, %.pre-phi.i.i
@@ -4473,7 +4473,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fcmpENS1_11Regis
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFCMPEPKcNS1_11RegisterA64ES5_hh(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i8 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %16
@@ -4482,7 +4482,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFCMPEPKcNS1
   %.not = icmp eq i8 %5, 0
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.80)
   br i1 %.not, label %14, label %13
 
@@ -4513,22 +4513,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649placeFCMPEPKcNS1
   %28 = shl nuw nsw i32 %27, 21
   %29 = or disjoint i32 %26, %28
   %30 = or disjoint i32 %29, 8192
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store ptr %33, ptr %31, align 8
   store i32 %30, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %38, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646commitEv.exit
 
 38:                                               ; preds = %16
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %41
@@ -4566,7 +4566,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i: ; preds = %55, %53, %5
   %59 = sub i64 %58, %41
   %60 = lshr exact i64 %59, 2
   %61 = and i64 %60, 4294967295
-  %62 = getelementptr inbounds i32, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %57, i64 %61
   store ptr %62, ptr %31, align 8
   %63 = ptrtoint ptr %56 to i64
   %64 = sub i64 %63, %.pre-phi.i.i
@@ -4593,7 +4593,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA645fcselENS1_11Regi
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %6
@@ -4603,22 +4603,22 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643udfEv(ptr nounde
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %9, ptr %7, align 8
   store i32 0, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %14, label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj.exit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %20, %17
@@ -4656,7 +4656,7 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv.exit.i.i: ; preds = %31, %29, 
   %35 = sub i64 %34, %17
   %36 = lshr exact i64 %35, 2
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds i32, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %37
   store ptr %38, ptr %7, align 8
   %39 = ptrtoint ptr %32 to i64
   %40 = sub i64 %39, %.pre-phi.i.i.i
@@ -4670,15 +4670,15 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA646place0EPKcj.exit: ; preds = %6, %_ZN4Lu
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648finalizeEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %12, %7
@@ -4703,28 +4703,28 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648fi
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8
   %.not1213 = icmp eq ptr %23, %25
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
-  %27 = getelementptr inbounds i8, ptr %0, i64 145
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 145
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
   %.sroa.09.014 = phi ptr [ %23, %.lr.ph ], [ %56, %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit ]
   %.sroa.0.0.copyload = load i32, ptr %.sroa.09.014, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.09.014, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %29 = lshr i32 %.sroa.0.0.copyload, 2
   %30 = add nsw i32 %29, -1
   %31 = zext i32 %30 to i64
   %32 = load ptr, ptr %26, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 %34, %.sroa.3.0.copyload
   %36 = and i32 %.sroa.0.0.copyload, 3
@@ -4746,7 +4746,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
   %49 = shl nuw nsw i32 %48, %46
   %50 = zext i32 %.sroa.3.0.copyload to i64
   %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %50
   %53 = load i32, ptr %52, align 4
   %54 = or i32 %53, %49
   store i32 %54, ptr %52, align 4
@@ -4757,18 +4757,18 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %16, %18, %20
   br label %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit
 
 _ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit: ; preds = %45, %55
-  %56 = getelementptr inbounds i8, ptr %.sroa.09.014, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
   %.not12 = icmp eq ptr %56, %25
   br i1 %.not12, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %_ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit, %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = ptrtoint ptr %58 to i64
   %61 = ptrtoint ptr %59 to i64
   %62 = sub i64 %60, %61
-  %63 = getelementptr inbounds i8, ptr %0, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %64 = load i64, ptr %63, align 8
   %65 = sub i64 %62, %64
   %.not = icmp eq i64 %62, %64
@@ -4781,9 +4781,9 @@ _ZN4Luau7CodeGen3A6418AssemblyBuilderA6411patchOffsetEjiNS2_5Patch4KindE.exit: ;
 
 68:                                               ; preds = %66, %._crit_edge
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %65)
-  %69 = getelementptr inbounds i8, ptr %0, i64 144
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 145
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 145
   %71 = load i8, ptr %70, align 1
   %72 = trunc i8 %71 to i1
   %73 = xor i1 %72, true
@@ -4795,18 +4795,18 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %17, label %14
@@ -4814,7 +4814,7 @@ define dso_local i64 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelEv(ptr no
 14:                                               ; preds = %1
   store i32 -1, ptr %11, align 4
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store ptr %16, ptr %10, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -4837,57 +4837,50 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %17
   %26 = icmp ult i64 %25, %24
   %27 = tail call i64 @llvm.umin.i64(i64 %25, i64 2305843009213693951)
   %28 = select i1 %26, i64 2305843009213693951, i64 %27
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i, label %29
+  %.not.i.i.i.i = icmp ne i64 %28, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %29 = shl nuw nsw i64 %28, 2
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #21
+  %31 = getelementptr inbounds i8, ptr %30, i64 %21
+  store i32 -1, ptr %31, align 4
+  %32 = icmp sgt i64 %21, 0
+  br i1 %32, label %33, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
 
-29:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %30 = shl nuw nsw i64 %28, 2
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #21
-  br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %29, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %32 = phi ptr [ %31, %29 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ]
-  %33 = getelementptr inbounds i32, ptr %32, i64 %24
-  store i32 -1, ptr %33, align 4
-  %34 = icmp sgt i64 %21, 0
-  br i1 %34, label %35, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-
-35:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %32, ptr align 4 %18, i64 %21, i1 false)
+33:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %30, ptr align 4 %18, i64 %21, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %36 = getelementptr inbounds i8, ptr %32, i64 %21
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %33, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %.not.i17.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %38
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %35
 
-38:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
+35:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %21) #19
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  store ptr %32, ptr %9, align 8
-  store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds i32, ptr %32, i64 %28
-  store ptr %39, ptr %12, align 8
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
+  store ptr %30, ptr %9, align 8
+  store ptr %34, ptr %10, align 8
+  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  store ptr %36, ptr %12, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %14, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
-  %41 = load i8, ptr %40, align 8
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %44
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %38 = load i8, ptr %37, align 8
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %41
 
-43:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+40:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.90, i32 noundef %3)
-  br label %44
+  br label %41
 
-44:                                               ; preds = %43, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %45 = ptrtoint ptr %6 to i64
-  %46 = ptrtoint ptr %8 to i64
-  %47 = sub i64 %45, %46
-  %.sroa.3.0.insert.ext = shl i64 %47, 30
+41:                                               ; preds = %40, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  %42 = ptrtoint ptr %6 to i64
+  %43 = ptrtoint ptr %8 to i64
+  %44 = sub i64 %42, %43
+  %.sroa.3.0.insert.ext = shl i64 %44, 30
   %.sroa.3.0.insert.shift = and i64 %.sroa.3.0.insert.ext, -4294967296
   %.sroa.01.0.insert.ext = zext i32 %3 to i64
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.01.0.insert.ext
@@ -4908,15 +4901,15 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5L
   br i1 %4, label %5, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 8
   store i32 %7, ptr %1, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %17, label %14
@@ -4924,7 +4917,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA648setLabelERNS0_5L
 14:                                               ; preds = %5
   store i32 -1, ptr %11, align 4
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store ptr %16, ptr %10, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -4947,73 +4940,66 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %17
   %26 = icmp ult i64 %25, %24
   %27 = tail call i64 @llvm.umin.i64(i64 %25, i64 2305843009213693951)
   %28 = select i1 %26, i64 2305843009213693951, i64 %27
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i, label %29
+  %.not.i.i.i.i = icmp ne i64 %28, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %29 = shl nuw nsw i64 %28, 2
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #21
+  %31 = getelementptr inbounds i8, ptr %30, i64 %21
+  store i32 -1, ptr %31, align 4
+  %32 = icmp sgt i64 %21, 0
+  br i1 %32, label %33, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
 
-29:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %30 = shl nuw nsw i64 %28, 2
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #21
-  br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %29, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %32 = phi ptr [ %31, %29 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ]
-  %33 = getelementptr inbounds i32, ptr %32, i64 %24
-  store i32 -1, ptr %33, align 4
-  %34 = icmp sgt i64 %21, 0
-  br i1 %34, label %35, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-
-35:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %32, ptr align 4 %18, i64 %21, i1 false)
+33:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %30, ptr align 4 %18, i64 %21, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %36 = getelementptr inbounds i8, ptr %32, i64 %21
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %33, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %.not.i17.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %38
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %35
 
-38:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
+35:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %21) #19
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  store ptr %32, ptr %9, align 8
-  store ptr %37, ptr %10, align 8
-  %39 = getelementptr inbounds i32, ptr %32, i64 %28
-  store ptr %39, ptr %12, align 8
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
+  store ptr %30, ptr %9, align 8
+  store ptr %34, ptr %10, align 8
+  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  store ptr %36, ptr %12, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %14, %2
-  %40 = getelementptr inbounds i8, ptr %0, i64 160
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = ptrtoint ptr %41 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = lshr exact i64 %46, 2
-  %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
-  %51 = load i32, ptr %1, align 4
-  %52 = add i32 %51, -1
-  %53 = zext i32 %52 to i64
-  %54 = load ptr, ptr %50, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %53
-  store i32 %48, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
-  %57 = load i8, ptr %56, align 8
-  %58 = trunc i8 %57 to i1
-  br i1 %58, label %59, label %60
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load ptr, ptr %39, align 8
+  %41 = ptrtoint ptr %38 to i64
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = lshr exact i64 %43, 2
+  %45 = trunc i64 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %48 = load i32, ptr %1, align 4
+  %49 = add i32 %48, -1
+  %50 = zext i32 %49 to i64
+  %51 = load ptr, ptr %47, align 8
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %50
+  store i32 %45, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %54 = load i8, ptr %53, align 8
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %57
 
-59:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+56:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %.sroa.0.0.copyload = load i64, ptr %1, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.90, i32 noundef %.sroa.0.0.extract.trunc.i)
-  br label %60
+  br label %57
 
-60:                                               ; preds = %59, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+57:                                               ; preds = %56, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   ret void
 }
 
@@ -5030,9 +5016,9 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 1073741824) i32 @_ZNK4Luau7CodeGen3A6418AssemblyBuilderA6419getInstructionCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %5 to i64
@@ -5108,13 +5094,13 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 
 7:                                                ; preds = %6
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.80)
   br label %10
 
 10:                                               ; preds = %6, %7
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %4)
   %13 = and i8 %3, 7
@@ -5154,7 +5140,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64ES5_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.84)
@@ -5170,13 +5156,13 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 
 6:                                                ; preds = %5
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.80)
   br label %9
 
 9:                                                ; preds = %5, %6
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.80)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.85, i32 noundef %4)
   %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.84)
@@ -5187,7 +5173,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64Eii(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.80)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.85, i32 noundef %3)
   %8 = icmp sgt i32 %4, 0
@@ -5206,7 +5192,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i64 %3) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i64 %3)
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.84)
@@ -5215,9 +5201,9 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0_5LabelENS2_5Patch4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -5225,10 +5211,10 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0
   %11 = lshr exact i64 %10, 2
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, -1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %90
+  br i1 %16, label %17, label %84
 
 17:                                               ; preds = %3
   %18 = load i32, ptr %1, align 4
@@ -5236,15 +5222,15 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0
   br i1 %19, label %20, label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
   store i32 %22, ptr %1, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i, label %32, label %29
@@ -5252,7 +5238,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6410patchLabelERNS0
 29:                                               ; preds = %20
   store i32 -1, ptr %26, align 4
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store ptr %31, ptr %25, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -5275,156 +5261,142 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %32
   %41 = icmp ult i64 %40, %39
   %42 = tail call i64 @llvm.umin.i64(i64 %40, i64 2305843009213693951)
   %43 = select i1 %41, i64 2305843009213693951, i64 %42
-  %.not.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i, label %44
+  %.not.i.i.i.i = icmp ne i64 %43, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %44 = shl nuw nsw i64 %43, 2
+  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #21
+  %46 = getelementptr inbounds i8, ptr %45, i64 %36
+  store i32 -1, ptr %46, align 4
+  %47 = icmp sgt i64 %36, 0
+  br i1 %47, label %48, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
 
-44:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %45 = shl nuw nsw i64 %43, 2
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #21
-  br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %44, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
-  %47 = phi ptr [ %46, %44 ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ]
-  %48 = getelementptr inbounds i32, ptr %47, i64 %39
-  store i32 -1, ptr %48, align 4
-  %49 = icmp sgt i64 %36, 0
-  br i1 %49, label %50, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-
-50:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr align 4 %33, i64 %36, i1 false)
+48:                                               ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %45, ptr align 4 %33, i64 %36, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %50, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  %51 = getelementptr inbounds i8, ptr %47, i64 %36
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %48, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %.not.i17.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %53
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %50
 
-53:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
+50:                                               ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %36) #19
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
-  store ptr %47, ptr %24, align 8
-  store ptr %52, ptr %25, align 8
-  %54 = getelementptr inbounds i32, ptr %47, i64 %43
-  store ptr %54, ptr %27, align 8
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %50, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
+  store ptr %45, ptr %24, align 8
+  store ptr %49, ptr %25, align 8
+  %51 = getelementptr inbounds nuw i32, ptr %45, i64 %43
+  store ptr %51, ptr %27, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %29, %17
-  %55 = getelementptr inbounds i8, ptr %0, i64 96
-  %56 = and i32 %2, 3
-  %57 = load i32, ptr %1, align 4
-  %58 = shl i32 %57, 2
-  %59 = or disjoint i32 %58, %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 112
-  %63 = load ptr, ptr %62, align 8
-  %.not.i.i11 = icmp eq ptr %61, %63
-  br i1 %.not.i.i11, label %67, label %64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %53 = and i32 %2, 3
+  %54 = load i32, ptr %1, align 4
+  %55 = shl i32 %54, 2
+  %56 = or disjoint i32 %55, %53
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %60 = load ptr, ptr %59, align 8
+  %.not.i.i11 = icmp eq ptr %58, %60
+  br i1 %.not.i.i11, label %64, label %61
 
-64:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+61:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %.sroa.5.0.insert.ext = zext i32 %13 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %59 to i64
+  %.sroa.0.0.insert.ext = zext i32 %56 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %61, align 4
-  %65 = load ptr, ptr %60, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  store ptr %66, ptr %60, align 8
+  store i64 %.sroa.0.0.insert.insert, ptr %58, align 4
+  %62 = load ptr, ptr %57, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %63, ptr %57, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
 
-67:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
-  %68 = load ptr, ptr %55, align 8
-  %69 = ptrtoint ptr %61 to i64
-  %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %69, %70
-  %72 = icmp eq i64 %71, 9223372036854775800
-  br i1 %72, label %73, label %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+64:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  %65 = load ptr, ptr %52, align 8
+  %66 = ptrtoint ptr %58 to i64
+  %67 = ptrtoint ptr %65 to i64
+  %68 = sub i64 %66, %67
+  %69 = icmp eq i64 %68, 9223372036854775800
+  br i1 %69, label %70, label %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
-73:                                               ; preds = %67
+70:                                               ; preds = %64
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.119) #20
   unreachable
 
-_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %67
-  %74 = ashr exact i64 %71, 3
-  %.sroa.speculated.i.i.i.i12 = tail call i64 @llvm.umax.i64(i64 %74, i64 1)
-  %75 = add nsw i64 %.sroa.speculated.i.i.i.i12, %74
-  %76 = icmp ult i64 %75, %74
-  %77 = tail call i64 @llvm.umin.i64(i64 %75, i64 1152921504606846975)
-  %78 = select i1 %76, i64 1152921504606846975, i64 %77
-  %.not.i.i.i.i13 = icmp eq i64 %78, 0
-  br i1 %.not.i.i.i.i13, label %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_M_allocateEm.exit.i.i.i, label %79
-
-79:                                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  %80 = shl nuw nsw i64 %78, 3
-  %81 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %80) #21
-  br label %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %79, %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  %82 = phi ptr [ %81, %79 ], [ null, %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %83 = getelementptr inbounds %"struct.Luau::CodeGen::A64::AssemblyBuilderA64::Patch", ptr %82, i64 %74
+_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %64
+  %71 = ashr exact i64 %68, 3
+  %.sroa.speculated.i.i.i.i12 = tail call i64 @llvm.umax.i64(i64 %71, i64 1)
+  %72 = add nsw i64 %.sroa.speculated.i.i.i.i12, %71
+  %73 = icmp ult i64 %72, %71
+  %74 = tail call i64 @llvm.umin.i64(i64 %72, i64 1152921504606846975)
+  %75 = select i1 %73, i64 1152921504606846975, i64 %74
+  %.not.i.i.i.i13 = icmp ne i64 %75, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i13)
+  %76 = shl nuw nsw i64 %75, 3
+  %77 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #21
+  %78 = getelementptr inbounds i8, ptr %77, i64 %68
   %.sroa.5.0.insert.ext21 = zext i32 %13 to i64
   %.sroa.5.0.insert.shift22 = shl nuw i64 %.sroa.5.0.insert.ext21, 32
-  %.sroa.0.0.insert.ext17 = zext i32 %59 to i64
+  %.sroa.0.0.insert.ext17 = zext i32 %56 to i64
   %.sroa.0.0.insert.insert19 = or disjoint i64 %.sroa.5.0.insert.shift22, %.sroa.0.0.insert.ext17
-  store i64 %.sroa.0.0.insert.insert19, ptr %83, align 4
-  %84 = icmp sgt i64 %71, 0
-  br i1 %84, label %85, label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
+  store i64 %.sroa.0.0.insert.insert19, ptr %78, align 4
+  %79 = icmp sgt i64 %68, 0
+  br i1 %79, label %80, label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
 
-85:                                               ; preds = %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %82, ptr align 4 %68, i64 %71, i1 false)
+80:                                               ; preds = %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %77, ptr align 4 %65, i64 %68, i1 false)
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
 
-_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i: ; preds = %85, %_ZNSt12_Vector_baseIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_M_allocateEm.exit.i.i.i
-  %86 = getelementptr inbounds i8, ptr %82, i64 %71
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
-  %.not.i17.i.i.i14 = icmp eq ptr %68, null
-  br i1 %.not.i17.i.i.i14, label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %88
+_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i: ; preds = %80, %_ZNKSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %.not.i17.i.i.i14 = icmp eq ptr %65, null
+  br i1 %.not.i17.i.i.i14, label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %82
 
-88:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %71) #19
+82:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef %68) #19
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
-  store ptr %82, ptr %55, align 8
-  store ptr %87, ptr %60, align 8
-  %89 = getelementptr inbounds %"struct.Luau::CodeGen::A64::AssemblyBuilderA64::Patch", ptr %82, i64 %78
-  store ptr %89, ptr %62, align 8
+_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %82, %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
+  store ptr %77, ptr %52, align 8
+  store ptr %81, ptr %57, align 8
+  %83 = getelementptr inbounds nuw %"struct.Luau::CodeGen::A64::AssemblyBuilderA64::Patch", ptr %77, i64 %75
+  store ptr %83, ptr %59, align 8
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
 
-90:                                               ; preds = %3
-  %91 = sub nsw i32 %15, %13
-  %92 = icmp eq i32 %2, 0
-  %93 = icmp eq i32 %2, 1
-  %94 = select i1 %92, i32 67108864, i32 16384
-  %95 = select i1 %93, i32 524288, i32 %94
-  %96 = lshr exact i32 %95, 1
-  %97 = sub nsw i32 0, %96
-  %98 = icmp sgt i32 %91, %97
-  %99 = icmp slt i32 %91, %96
-  %or.cond.i = and i1 %98, %99
-  br i1 %or.cond.i, label %100, label %109
+84:                                               ; preds = %3
+  %85 = sub nsw i32 %15, %13
+  %86 = icmp eq i32 %2, 0
+  %87 = icmp eq i32 %2, 1
+  %88 = select i1 %86, i32 67108864, i32 16384
+  %89 = select i1 %87, i32 524288, i32 %88
+  %90 = lshr exact i32 %89, 1
+  %91 = sub nsw i32 0, %90
+  %92 = icmp sgt i32 %85, %91
+  %93 = icmp slt i32 %85, %90
+  %or.cond.i = and i1 %92, %93
+  br i1 %or.cond.i, label %94, label %103
 
-100:                                              ; preds = %90
-  %101 = select i1 %92, i32 0, i32 5
-  %102 = add nsw i32 %95, -1
-  %103 = and i32 %91, %102
-  %104 = shl nuw nsw i32 %103, %101
-  %105 = zext i32 %13 to i64
-  %106 = getelementptr inbounds i32, ptr %7, i64 %105
-  %107 = load i32, ptr %106, align 4
-  %108 = or i32 %107, %104
-  store i32 %108, ptr %106, align 4
+94:                                               ; preds = %84
+  %95 = select i1 %86, i32 0, i32 5
+  %96 = add nsw i32 %89, -1
+  %97 = and i32 %85, %96
+  %98 = shl nuw nsw i32 %97, %95
+  %99 = zext i32 %13 to i64
+  %100 = getelementptr inbounds nuw i32, ptr %7, i64 %99
+  %101 = load i32, ptr %100, align 4
+  %102 = or i32 %101, %98
+  store i32 %102, ptr %100, align 4
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
 
-109:                                              ; preds = %90
-  %110 = getelementptr inbounds i8, ptr %0, i64 145
-  store i8 1, ptr %110, align 1
+103:                                              ; preds = %84
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 145
+  store i8 1, ptr %104, align 1
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit
 
-_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit: ; preds = %109, %100, %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %64
+_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE9push_backEOS4_.exit: ; preds = %103, %94, %_ZNSt6vectorIN4Luau7CodeGen3A6418AssemblyBuilderA645PatchESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %61
   ret void
 }
 
@@ -5439,7 +5411,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS0_5Labe
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64ENS0_5LabelEi(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.80)
   %8 = icmp sgt i32 %4, -1
   br i1 %8, label %9, label %10
@@ -5458,7 +5430,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.84)
   ret void
 }
@@ -5467,7 +5439,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64ES5_NS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, i8 %3, i64 %4) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.80)
@@ -5488,7 +5460,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
   br i1 %or.cond, label %11, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.80)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3)
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.80)
@@ -5496,12 +5468,12 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
   br label %11
 
 11:                                               ; preds = %6, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.80)
   %14 = sext i32 %5 to i64
   %15 = getelementptr inbounds [15 x ptr], ptr @_ZN4Luau7CodeGen3A64L16textForConditionE, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull %17)
   %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.84)
   ret void
@@ -5511,7 +5483,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i8 %2, double noundef %3) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.79, ptr noundef %1)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.80)
   tail call void (ptr, ptr, ...) @_ZN4Luau7CodeGen3A6418AssemblyBuilderA649logAppendEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.86, double noundef %3)
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.84)
@@ -5520,12 +5492,12 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logEPKcNS1_11Reg
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA646extendEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = sub i64 %9, %6
@@ -5563,12 +5535,12 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   %24 = sub i64 %23, %6
   %25 = lshr exact i64 %24, 2
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr inbounds i32, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %26
   store ptr %27, ptr %2, align 8
   %28 = ptrtoint ptr %21 to i64
   %29 = sub i64 %28, %.pre-phi
   %30 = getelementptr inbounds i8, ptr %22, i64 %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %30, ptr %31, align 8
   ret void
 }
@@ -5594,7 +5566,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11Regist
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.91)
   br label %34
 
@@ -5609,7 +5581,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11Regist
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.93)
   br label %34
 
@@ -5641,7 +5613,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11Regist
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.98)
   br label %34
 
@@ -5666,7 +5638,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_10Addres
 3:                                                ; preds = %2
   %.sroa.6.0.extract.shift = lshr i64 %1, 16
   %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.99)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %.sroa.2.0.extract.trunc)
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.80)
@@ -5675,7 +5647,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_10Addres
   br label %25
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.99)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %.sroa.2.0.extract.trunc)
   %.not13 = icmp ult i64 %1, 4294967296
@@ -5690,7 +5662,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_10Addres
   br label %25
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull @.str.99)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %.sroa.2.0.extract.trunc)
   %.not12 = icmp ult i64 %1, 4294967296
@@ -5705,7 +5677,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_10Addres
   br label %25
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.99)
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643logENS1_11RegisterA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %.sroa.2.0.extract.trunc)
   %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.102)
@@ -5741,14 +5713,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(pt
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -5826,7 +5798,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIj
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 

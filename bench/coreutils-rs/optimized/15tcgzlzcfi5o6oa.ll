@@ -25,11 +25,11 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %8, ptr %4, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.53.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %11, align 8
   %12 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4
   %13 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #13, !noalias !4
@@ -93,11 +93,11 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   tail call void @llvm.assume(i1 %8)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %7, ptr noundef nonnull align 1 dereferenceable(19) @anon.d029045419f6f281fdaa857d4c579344.6.llvm.4102373720893104329, i64 19, i1 false)
   store i64 %6, ptr %2, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 19, ptr %.sroa.53.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %9, align 8
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !7
   %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #13, !noalias !7
@@ -161,11 +161,11 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
   tail call void @llvm.assume(i1 %8)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %7, ptr noundef nonnull align 1 dereferenceable(19) @anon.d029045419f6f281fdaa857d4c579344.6.llvm.4102373720893104329, i64 19, i1 false)
   store i64 %6, ptr %2, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 19, ptr %.sroa.53.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %9, align 8
   %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !10
   %11 = tail call noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef 32, i64 noundef 8) #13, !noalias !10
@@ -215,9 +215,9 @@ define hidden noalias noundef nonnull align 8 ptr @"_ZN131_$LT$std..io..error..E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..error..Error$GT$11description17hf8ea983abca4d1c9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !13, !noundef !13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !13
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -235,9 +235,9 @@ define hidden noundef nonnull ptr @_ZN3std2io5error5Error3new17hb8e97e39cf06a857
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !14
   store i64 %6, ptr %4, align 8, !noalias !14
-  %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %.sroa.0.sroa.4.0..sroa_idx.i.i, align 8, !noalias !14
-  %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !14
   %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !19
   %10 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef 8) #13, !noalias !19
@@ -401,9 +401,9 @@ define hidden void @"_ZN7uu_fold4fold28_$u7b$$u7b$closure$u7d$$u7d$17h7adc43e668
   tail call void @llvm.assume(i1 %7)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %1, i64 %2, i1 false)
   store i64 %5, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
@@ -417,9 +417,9 @@ define hidden void @"_ZN7uu_fold18fold_file_bytewise28_$u7b$$u7b$closure$u7d$$u7
   tail call void @llvm.assume(i1 %5)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %4, ptr noundef nonnull align 1 dereferenceable(19) @anon.d029045419f6f281fdaa857d4c579344.6.llvm.4102373720893104329, i64 19, i1 false)
   store i64 %3, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 19, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
@@ -433,9 +433,9 @@ define hidden void @"_ZN7uu_fold9fold_file28_$u7b$$u7b$closure$u7d$$u7d$17h849d9
   tail call void @llvm.assume(i1 %5)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %4, ptr noundef nonnull align 1 dereferenceable(19) @anon.d029045419f6f281fdaa857d4c579344.6.llvm.4102373720893104329, i64 19, i1 false)
   store i64 %3, ptr %0, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %.sroa.42.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 19, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }

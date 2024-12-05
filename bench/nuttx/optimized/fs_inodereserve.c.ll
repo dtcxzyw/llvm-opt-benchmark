@@ -19,9 +19,9 @@ inode_namecpy.exit.i:                             ; preds = %inode_namelen.exit.
   %1 = load i16, ptr @g_ino, align 2
   %2 = add i16 %1, 1
   store i16 %2, ptr @g_ino, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %4, align 1
   br label %inode_alloc.exit
 
@@ -40,16 +40,16 @@ define range(i32 -22, 1) i32 @inode_reserve(ptr noundef %0, i32 noundef %1, ptr 
 
 7:                                                ; preds = %3
   store ptr %0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %8, i8 0, i64 41, i1 false)
   %10 = call i32 @inode_search(ptr noundef nonnull %4) #6
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %inode_alloc.exit.thread, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %14, align 8
   %17 = load ptr, ptr %13, align 8
@@ -80,7 +80,7 @@ define range(i32 -22, 1) i32 @inode_reserve(ptr noundef %0, i32 noundef %1, ptr 
   ]
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %21, !llvm.loop !6
 
 inode_namelen.exit.i:                             ; preds = %21, %21
@@ -98,9 +98,9 @@ inode_namelen.exit.i:                             ; preds = %21, %21
   %32 = load i16, ptr @g_ino, align 2
   %33 = add i16 %32, 1
   store i16 %33, ptr @g_ino, align 2
-  %34 = getelementptr inbounds i8, ptr %30, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i16 %32, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 56
   br label %36
 
 36:                                               ; preds = %38, %31
@@ -113,19 +113,19 @@ inode_namelen.exit.i:                             ; preds = %21, %21
   ]
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.0.i6.i, i64 1
-  %40 = getelementptr inbounds i8, ptr %.05.i.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i6.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 1
   store i8 %37, ptr %.05.i.i, align 1
   br label %36, !llvm.loop !8
 
 inode_alloc.exit:                                 ; preds = %36, %36
   store i8 0, ptr %.05.i.i, align 1
   %.not.i32 = icmp eq ptr %.02548, null
-  %41 = getelementptr inbounds i8, ptr %30, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br i1 %.not.i32, label %45, label %42
 
 42:                                               ; preds = %inode_alloc.exit
-  %43 = getelementptr inbounds i8, ptr %.02548, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.02548, i64 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %41, align 8
   store ptr %.02449, ptr %30, align 8
@@ -133,7 +133,7 @@ inode_alloc.exit:                                 ; preds = %36, %36
   br label %inode_insert.exit
 
 45:                                               ; preds = %inode_alloc.exit
-  %46 = getelementptr inbounds i8, ptr %.02449, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.02449, i64 16
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %41, align 8
   store ptr %.02449, ptr %30, align 8
@@ -155,7 +155,7 @@ inode_insert.exit:                                ; preds = %42, %45
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.0.i.i33, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i33, i64 1
   br label %50, !llvm.loop !6
 
 inode_namelen.exit.i34:                           ; preds = %50, %50
@@ -173,9 +173,9 @@ inode_namelen.exit.i34:                           ; preds = %50, %50
   %61 = load i16, ptr @g_ino, align 2
   %62 = add i16 %61, 1
   store i16 %62, ptr @g_ino, align 2
-  %63 = getelementptr inbounds i8, ptr %59, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store i16 %61, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %59, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 56
   br label %65
 
 65:                                               ; preds = %67, %60
@@ -188,19 +188,19 @@ inode_namelen.exit.i34:                           ; preds = %50, %50
   ]
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %.0.i6.i38, i64 1
-  %69 = getelementptr inbounds i8, ptr %.05.i.i37, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i6.i38, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.05.i.i37, i64 1
   store i8 %66, ptr %.05.i.i37, align 1
   br label %65, !llvm.loop !8
 
 inode_alloc.exit40:                               ; preds = %65, %65
   store i8 0, ptr %.05.i.i37, align 1
   %.not.i41 = icmp eq ptr %.025.lcssa, null
-  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
   br i1 %.not.i41, label %74, label %71
 
 71:                                               ; preds = %inode_alloc.exit40
-  %72 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 8
   %73 = load ptr, ptr %72, align 8
   store ptr %73, ptr %70, align 8
   store ptr %.024.lcssa, ptr %59, align 8
@@ -208,7 +208,7 @@ inode_alloc.exit40:                               ; preds = %65, %65
   br label %inode_insert.exit42
 
 74:                                               ; preds = %inode_alloc.exit40
-  %75 = getelementptr inbounds i8, ptr %.024.lcssa, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.024.lcssa, i64 16
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %70, align 8
   store ptr %.024.lcssa, ptr %59, align 8

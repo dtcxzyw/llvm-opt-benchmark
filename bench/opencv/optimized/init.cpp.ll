@@ -720,7 +720,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN2cv3dnn14dnn4_
 
 3:                                                ; preds = %0
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   store i32 1, ptr %5, align 8
   store ptr %4, ptr @_ZN2cv3dnn14dnn4_v20240521L22__initialization_mutexE, align 8
@@ -2681,7 +2681,7 @@ define hidden void @_ZN2cv3dnn14dnn4_v2024052122initializeLayerFactoryEv() local
 600:                                              ; preds = %599
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %296) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %297) #11
-  %601 = getelementptr inbounds i8, ptr %1, i64 8
+  %601 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %602 = load i32, ptr %601, align 8
   %.not.i = icmp eq i32 %602, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %603
@@ -4377,8 +4377,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110SliceLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110SliceLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.0") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4397,8 +4397,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110SplitLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110SplitLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.20") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4411,8 +4411,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111ConcatLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111ConcatLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.24") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4425,8 +4425,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112ReshapeLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112ReshapeLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.28") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4439,8 +4439,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112FlattenLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112FlattenLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.37") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4453,8 +4453,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111ResizeLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111ResizeLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.41") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4479,8 +4479,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120BaseConvolutionLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116ConvolutionLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.45") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4493,8 +4493,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120BaseConvolutionLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052118DeconvolutionLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.45") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4507,8 +4507,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112PoolingLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112PoolingLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.54") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4521,8 +4521,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111ReduceLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111ReduceLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.59") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4535,8 +4535,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218LRNLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218LRNLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.63") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4549,8 +4549,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117InnerProductLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052117InnerProductLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.67") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4563,8 +4563,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219GemmLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219GemmLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.71") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4577,8 +4577,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111MatMulLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111MatMulLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.75") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4591,8 +4591,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112SoftmaxLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112SoftmaxLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.79") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4605,8 +4605,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218MVNLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218MVNLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.83") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4619,8 +4619,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219ReLULayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219ReLULayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.87") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4633,8 +4633,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110ReLU6LayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110ReLU6Layer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.91") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4653,8 +4653,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112SigmoidLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112SigmoidLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.95") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4667,8 +4667,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219TanHLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219TanHLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.99") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4681,8 +4681,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110SwishLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110SwishLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.103") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4695,8 +4695,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219MishLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219MishLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.107") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4709,8 +4709,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218ELULayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218ELULayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.111") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4723,8 +4723,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219BNLLLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219BNLLLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.115") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4737,8 +4737,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218AbsLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218AbsLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.119") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4751,8 +4751,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110PowerLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110PowerLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.123") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4765,8 +4765,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218ExpLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218ExpLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.127") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4779,8 +4779,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219CeilLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219CeilLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.131") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4793,8 +4793,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110FloorLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110FloorLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.135") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4807,8 +4807,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218LogLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218LogLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.139") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4821,8 +4821,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110RoundLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110RoundLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.143") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4835,8 +4835,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219SqrtLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219SqrtLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.147") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4849,8 +4849,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218NotLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218NotLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.151") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4863,8 +4863,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219AcosLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219AcosLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.155") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4877,8 +4877,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110AcoshLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110AcoshLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.159") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4891,8 +4891,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219AsinLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219AsinLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.163") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4905,8 +4905,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110AsinhLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110AsinhLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.167") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4919,8 +4919,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219AtanLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219AtanLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.171") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4933,8 +4933,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110AtanhLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110AtanhLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.175") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4947,8 +4947,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218CosLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218CosLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.179") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4961,8 +4961,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219CoshLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219CoshLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.183") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4975,8 +4975,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218ErfLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218ErfLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.187") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -4989,8 +4989,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114HardSwishLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114HardSwishLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.191") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5003,8 +5003,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218SinLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218SinLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.195") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5017,8 +5017,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219SinhLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219SinhLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.199") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5031,8 +5031,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219SignLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219SignLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.203") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5045,8 +5045,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111ShrinkLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111ShrinkLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.207") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5059,8 +5059,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052113SoftplusLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052113SoftplusLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.211") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5073,8 +5073,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052113SoftsignLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052113SoftsignLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.215") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5087,8 +5087,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218TanLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218TanLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.219") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5101,8 +5101,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219CeluLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219CeluLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.223") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5115,8 +5115,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116HardSigmoidLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116HardSigmoidLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.227") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5129,8 +5129,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219SeluLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219SeluLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.231") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5143,8 +5143,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120ThresholdedReluLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052120ThresholdedReluLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.235") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5157,8 +5157,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219GeluLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219GeluLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.239") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5171,8 +5171,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052122GeluApproximationLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052122GeluApproximationLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.243") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5185,8 +5185,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114BatchNormLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114BatchNormLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.247") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5199,8 +5199,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114MaxUnpoolLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114MaxUnpoolLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.251") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5225,8 +5225,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218ArgLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218ArgLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.255") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5239,8 +5239,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115ReciprocalLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052115ReciprocalLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.259") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5253,8 +5253,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111GatherLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111GatherLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.263") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5267,8 +5267,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052119GatherElementsLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052119GatherElementsLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.267") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5281,8 +5281,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114LayerNormLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114LayerNormLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.271") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5295,8 +5295,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111ExpandLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111ExpandLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.275") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5309,8 +5309,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117InstanceNormLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052117InstanceNormLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.279") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5323,8 +5323,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114AttentionLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114AttentionLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.283") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5337,8 +5337,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114GroupNormLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114GroupNormLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.287") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5351,8 +5351,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117DepthToSpaceLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052117DepthToSpaceLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.291") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5365,8 +5365,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052117SpaceToDepthLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052117SpaceToDepthLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.295") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5385,8 +5385,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112EltwiseLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112EltwiseLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.299") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5399,8 +5399,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116NaryEltwiseLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116NaryEltwiseLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.303") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5413,8 +5413,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112PermuteLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112PermuteLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.307") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5433,8 +5433,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052113PriorBoxLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052113PriorBoxLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.311") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5447,8 +5447,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110ReorgLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110ReorgLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.315") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5461,8 +5461,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111RegionLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111RegionLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.319") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5475,8 +5475,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120DetectionOutputLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052120DetectionOutputLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.323") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5489,8 +5489,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118NormalizeBBoxLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052118NormalizeBBoxLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.327") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5509,8 +5509,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112PaddingLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112PaddingLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.331") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5523,8 +5523,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052113ProposalLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052113ProposalLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.335") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5537,8 +5537,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110ScaleLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110ScaleLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.339") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5557,8 +5557,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052121DataAugmentationLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052121DataAugmentationLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.343") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5571,8 +5571,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116CorrelationLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116CorrelationLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.347") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5585,8 +5585,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052110AccumLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052110AccumLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.351") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5599,8 +5599,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052113FlowWarpLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052113FlowWarpLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.355") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5613,8 +5613,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219LSTMLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219LSTMLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.359") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5627,8 +5627,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405218GRULayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405218GRULayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.363") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5641,8 +5641,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111CumSumLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111CumSumLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.367") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5655,8 +5655,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052111EinsumLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052111EinsumLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.371") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5669,8 +5669,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052112ScatterLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052112ScatterLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.375") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5683,8 +5683,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114ScatterNDLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114ScatterNDLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.379") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5697,8 +5697,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405219TileLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v202405219TileLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.383") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5711,8 +5711,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052113QuantizeLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052113QuantizeLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.387") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5725,8 +5725,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115DequantizeLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052115DequantizeLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.396") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5739,8 +5739,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052115RequantizeLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052115RequantizeLayer6createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.400") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5753,8 +5753,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052120BaseConvolutionLayerEED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052120ConvolutionLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.45") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5767,8 +5767,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052121InnerProductLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052121InnerProductLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.404") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5781,8 +5781,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116PoolingLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116PoolingLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.408") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5795,8 +5795,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116EltwiseLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116EltwiseLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.412") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5809,8 +5809,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052118BatchNormLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052118BatchNormLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.416") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5823,8 +5823,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052114ScaleLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052114ScaleLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.420") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5843,8 +5843,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052119ActivationLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052119ActivationLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.424") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5857,8 +5857,8 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116SoftmaxLayerInt8EED2Ev.exit:
   call void @_ZN2cv3dnn14dnn4_v2024052116SoftmaxLayerInt86createERKNS1_11LayerParamsE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.428") align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %1)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   ret void
@@ -5866,7 +5866,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v2024052116SoftmaxLayerInt8EED2Ev.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -6136,7 +6136,7 @@ define internal void @_GLOBAL__sub_I_init.cpp() #9 section ".text.startup" {
 
 4:                                                ; preds = %0
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i32 1, ptr %6, align 8
   store ptr %5, ptr @_ZN2cv3dnn14dnn4_v20240521L22__initialization_mutexE, align 8

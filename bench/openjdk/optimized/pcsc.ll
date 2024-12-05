@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @throwPCSCException(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %7 = icmp eq ptr %6, null
@@ -33,7 +33,7 @@ define hidden void @throwPCSCException(ptr noundef %0, i64 noundef %1) local_unn
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %13 = icmp eq ptr %12, null
@@ -41,7 +41,7 @@ define hidden void @throwPCSCException(ptr noundef %0, i64 noundef %1) local_unn
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %17 = load ptr, ptr %16, align 8
   %18 = trunc i64 %1 to i32
   %19 = tail call ptr (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i32 noundef %18) #7
@@ -50,7 +50,7 @@ define hidden void @throwPCSCException(ptr noundef %0, i64 noundef %1) local_unn
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19) #7
   br label %25
@@ -66,7 +66,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleRV(ptr noundef %0, i64 noundef %1
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %9 = icmp eq ptr %8, null
@@ -74,7 +74,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleRV(ptr noundef %0, i64 noundef %1
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %15 = icmp eq ptr %14, null
@@ -82,7 +82,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleRV(ptr noundef %0, i64 noundef %1
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
   %20 = trunc i64 %1 to i32
   %21 = tail call ptr (ptr, ptr, ptr, ...) %19(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %14, i32 noundef %20) #7
@@ -91,7 +91,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleRV(ptr noundef %0, i64 noundef %1
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %21) #7
   br label %throwPCSCException.exit
@@ -118,7 +118,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardEstablishContext(ptr noundef
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %14 = icmp eq ptr %13, null
@@ -126,7 +126,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardEstablishContext(ptr noundef
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %20 = icmp eq ptr %19, null
@@ -134,7 +134,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardEstablishContext(ptr noundef
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %7 to i32
   %26 = call ptr (ptr, ptr, ptr, ...) %24(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %19, i32 noundef %25) #7
@@ -143,7 +143,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardEstablishContext(ptr noundef
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %26) #7
   br label %handleRV.exit.thread
@@ -167,8 +167,8 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %.057 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
   %.04656 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04656) #8
-  %5 = add i64 %4, 1
-  %6 = getelementptr inbounds i8, ptr %.04656, i64 %5
+  %5 = getelementptr i8, ptr %.04656, i64 %4
+  %6 = getelementptr i8, ptr %5, i64 1
   %7 = add nuw nsw i32 %.057, 1
   %8 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %8, 0
@@ -188,7 +188,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 15:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i = icmp eq ptr %19, null
@@ -196,7 +196,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #7
   br label %throwOutOfMemoryError.exit
@@ -205,11 +205,11 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %._crit_edge ]
   %.14759 = phi ptr [ %28, %.lr.ph61 ], [ %1, %._crit_edge ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr %.14759, ptr %25, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.14759) #8
-  %27 = add i64 %26, 1
-  %28 = getelementptr inbounds i8, ptr %.14759, i64 %27
+  %27 = getelementptr i8, ptr %.14759, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1
   %.not50 = icmp eq i8 %29, 0
   br i1 %.not50, label %._crit_edge62.loopexit, label %.lr.ph61, !llvm.loop !8
@@ -222,7 +222,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %31 = phi ptr [ %11, %._crit_edge62.loopexit ], [ %13, %._crit_edge.thread ]
   %.1.lcssa = phi i32 [ %30, %._crit_edge62.loopexit ], [ 0, %._crit_edge.thread ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #7
   %36 = icmp eq ptr %35, null
@@ -234,7 +234,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 38:                                               ; preds = %._crit_edge62
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1376
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1376
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, i32 noundef %.1.lcssa, ptr noundef nonnull %35, ptr noundef null) #7
   %.not51 = icmp ne ptr %42, null
@@ -250,13 +250,13 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %indvars.iv68 = phi i64 [ %44, %.lr.ph64.preheader ], [ %indvars.iv.next69, %66 ]
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1336
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1336
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.next69
+  %48 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next69
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %49) #7
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1824
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #7
   %.not52 = icmp eq i8 %54, 0
@@ -268,12 +268,12 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 56:                                               ; preds = %.lr.ph64
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1392
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1392
   %59 = load ptr, ptr %58, align 8
   %60 = trunc nuw nsw i64 %indvars.iv.next69 to i32
   tail call void %59(ptr noundef nonnull %0, ptr noundef nonnull %42, i32 noundef %60, ptr noundef %50) #7
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1824
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1824
   %63 = load ptr, ptr %62, align 8
   %64 = tail call zeroext i8 %63(ptr noundef nonnull %0) #7
   %.not53 = icmp eq i8 %64, 0
@@ -285,7 +285,7 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
 
 66:                                               ; preds = %56
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 184
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 184
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef nonnull %0, ptr noundef %50) #7
   %70 = icmp samesign ugt i64 %indvars.iv68, 1
@@ -320,7 +320,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %13 = icmp eq ptr %12, null
@@ -328,7 +328,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %19 = icmp eq ptr %18, null
@@ -336,7 +336,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   %24 = trunc i64 %6 to i32
   %25 = call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %18, i32 noundef %24) #7
@@ -345,7 +345,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardListReaders(ptr noundef %0, 
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25) #7
   br label %throwOutOfMemoryError.exit
@@ -362,7 +362,7 @@ handleRV.exit:                                    ; preds = %3
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr %38(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i = icmp eq ptr %39, null
@@ -370,7 +370,7 @@ handleRV.exit:                                    ; preds = %3
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 112
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef null) #7
   br label %throwOutOfMemoryError.exit
@@ -383,7 +383,7 @@ handleRV.exit:                                    ; preds = %3
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr %52(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %54 = icmp eq ptr %53, null
@@ -391,7 +391,7 @@ handleRV.exit:                                    ; preds = %3
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 264
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 264
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %60 = icmp eq ptr %59, null
@@ -399,7 +399,7 @@ handleRV.exit:                                    ; preds = %3
 
 61:                                               ; preds = %55
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 224
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 224
   %64 = load ptr, ptr %63, align 8
   %65 = trunc i64 %47 to i32
   %66 = call ptr (ptr, ptr, ptr, ...) %64(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef nonnull %59, i32 noundef %65) #7
@@ -408,7 +408,7 @@ handleRV.exit:                                    ; preds = %3
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
   %70 = load ptr, ptr %69, align 8
   %71 = call i32 %70(ptr noundef nonnull %0, ptr noundef nonnull %66) #7
   br label %72
@@ -434,7 +434,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr 
   store i64 0, ptr %7, align 8
   store i64 0, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1352
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1352
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #7
   %13 = icmp eq ptr %12, null
@@ -446,7 +446,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr 
   %17 = sext i32 %5 to i64
   %18 = call i64 %15(i64 noundef %2, ptr noundef nonnull %12, i64 noundef %16, i64 noundef %17, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1360
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1360
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %12) #7
   %22 = icmp eq i64 %18, 0
@@ -454,7 +454,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr 
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %28 = icmp eq ptr %27, null
@@ -462,7 +462,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr 
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 264
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %34 = icmp eq ptr %33, null
@@ -470,7 +470,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr 
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 224
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 224
   %38 = load ptr, ptr %37, align 8
   %39 = trunc i64 %18 to i32
   %40 = call ptr (ptr, ptr, ptr, ...) %38(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %33, i32 noundef %39) #7
@@ -479,7 +479,7 @@ define i64 @Java_sun_security_smartcardio_PCSC_SCardConnect(ptr noundef %0, ptr 
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 %44(ptr noundef nonnull %0, ptr noundef nonnull %40) #7
   br label %handleRV.exit.thread
@@ -501,10 +501,10 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr
   store i64 8192, ptr %10, align 8
   %11 = sext i32 %3 to i64
   store i64 %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 16, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1472
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1472
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #7
   %17 = icmp eq ptr %16, null
@@ -517,7 +517,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr
   %22 = sext i32 %6 to i64
   %23 = call i64 %19(i64 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %21, i64 noundef %22, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1536
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1536
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %16, i32 noundef 2) #7
   %27 = icmp eq i64 %23, 0
@@ -525,7 +525,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr
   br i1 %27, label %handleRV.exit, label %29
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %28, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr %31(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %33 = icmp eq ptr %32, null
@@ -533,7 +533,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 264
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 264
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr %37(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %39 = icmp eq ptr %38, null
@@ -541,7 +541,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 224
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 224
   %43 = load ptr, ptr %42, align 8
   %44 = trunc i64 %23 to i32
   %45 = call ptr (ptr, ptr, ptr, ...) %43(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %38, i32 noundef %44) #7
@@ -550,13 +550,13 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardTransmit(ptr noundef %0, ptr
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 %49(ptr noundef nonnull %0, ptr noundef nonnull %45) #7
   br label %handleRV.exit.thread
 
 handleRV.exit:                                    ; preds = %18
-  %51 = getelementptr inbounds i8, ptr %28, i64 1408
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 1408
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %10, align 8
   %54 = trunc i64 %53 to i32
@@ -566,13 +566,13 @@ handleRV.exit:                                    ; preds = %18
 
 56:                                               ; preds = %handleRV.exit
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1664
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1664
   %59 = load ptr, ptr %58, align 8
   %60 = load i64, ptr %10, align 8
   %61 = trunc i64 %60 to i32
   call void %59(ptr noundef nonnull %0, ptr noundef nonnull %55, i32 noundef 0, i32 noundef %61, ptr noundef nonnull %9) #7
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1824
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
   %65 = call zeroext i8 %64(ptr noundef nonnull %0) #7
   %.not30 = icmp eq i8 %65, 0
@@ -606,7 +606,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardStatus(ptr noundef %0, ptr n
   br i1 %14, label %handleRV.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %20 = icmp eq ptr %19, null
@@ -614,7 +614,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardStatus(ptr noundef %0, ptr n
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 264
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %26 = icmp eq ptr %25, null
@@ -622,7 +622,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardStatus(ptr noundef %0, ptr n
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 224
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 224
   %30 = load ptr, ptr %29, align 8
   %31 = trunc i64 %13 to i32
   %32 = call ptr (ptr, ptr, ptr, ...) %30(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %25, i32 noundef %31) #7
@@ -631,13 +631,13 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardStatus(ptr noundef %0, ptr n
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 %36(ptr noundef nonnull %0, ptr noundef nonnull %32) #7
   br label %handleRV.exit.thread
 
 handleRV.exit:                                    ; preds = %4
-  %38 = getelementptr inbounds i8, ptr %15, i64 1408
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 1408
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr %8, align 8
   %41 = trunc i64 %40 to i32
@@ -647,13 +647,13 @@ handleRV.exit:                                    ; preds = %4
 
 44:                                               ; preds = %handleRV.exit
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1664
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1664
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %8, align 8
   %49 = trunc i64 %48 to i32
   call void %47(ptr noundef nonnull %0, ptr noundef nonnull %42, i32 noundef 0, i32 noundef %49, ptr noundef nonnull %7) #7
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1824
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1824
   %52 = load ptr, ptr %51, align 8
   %53 = call zeroext i8 %52(ptr noundef nonnull %0) #7
   %.not19 = icmp eq i8 %53, 0
@@ -665,14 +665,14 @@ handleRV.exit:                                    ; preds = %4
   store i8 %56, ptr %11, align 1
   %57 = load i64, ptr %10, align 8
   %58 = trunc i64 %57 to i8
-  %59 = getelementptr inbounds i8, ptr %11, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 %58, ptr %59, align 1
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1664
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1664
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %11) #7
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = call zeroext i8 %65(ptr noundef nonnull %0) #7
   %.not20 = icmp eq i8 %66, 0
@@ -694,7 +694,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardDisconnect(ptr noundef %0, 
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %14 = icmp eq ptr %13, null
@@ -702,7 +702,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardDisconnect(ptr noundef %0, 
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %20 = icmp eq ptr %19, null
@@ -710,7 +710,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardDisconnect(ptr noundef %0, 
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %7 to i32
   %26 = tail call ptr (ptr, ptr, ptr, ...) %24(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %19, i32 noundef %25) #7
@@ -719,7 +719,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardDisconnect(ptr noundef %0, 
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %26) #7
   br label %handleRV.exit
@@ -732,7 +732,7 @@ handleRV.exit:                                    ; preds = %4, %9, %15, %21, %2
 define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %5) #7
   %12 = sext i32 %11 to i64
@@ -744,7 +744,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
   br i1 %or.cond, label %17, label %26
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i = icmp eq ptr %20, null
@@ -752,13 +752,13 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef nonnull %20, ptr noundef null) #7
   br label %throwOutOfMemoryError.exit
 
 26:                                               ; preds = %6
-  %27 = getelementptr inbounds i8, ptr %16, i64 1496
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 1496
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #7
   %30 = icmp eq ptr %29, null
@@ -781,7 +781,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %32 = getelementptr inbounds %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv
   store ptr null, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -790,12 +790,12 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %65
   %indvars.iv116 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next117, %65 ]
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1384
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1384
   %35 = load ptr, ptr %34, align 8
   %36 = trunc nuw nsw i64 %indvars.iv116 to i32
   %37 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %5, i32 noundef %36) #7
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1824
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1824
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i8 %40(ptr noundef nonnull %0) #7
   %.not96 = icmp eq i8 %41, 0
@@ -803,7 +803,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 42:                                               ; preds = %.lr.ph106
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1352
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1352
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr %45(ptr noundef nonnull %0, ptr noundef %37, ptr noundef null) #7
   %47 = icmp eq ptr %46, null
@@ -811,10 +811,10 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 48:                                               ; preds = %42
   %49 = tail call noalias ptr @strdup(ptr noundef nonnull %46) #7
-  %50 = getelementptr inbounds %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv116
+  %50 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv116
   store ptr %49, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1360
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1360
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull %0, ptr noundef %37, ptr noundef nonnull %46) #7
   %54 = icmp eq ptr %49, null
@@ -822,7 +822,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 55:                                               ; preds = %48
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #7
   %.not.i97 = icmp eq ptr %59, null
@@ -830,21 +830,21 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %59, ptr noundef null) #7
   br label %throwOutOfMemoryError.exit98
 
 65:                                               ; preds = %48
-  %66 = getelementptr inbounds i8, ptr %50, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr null, ptr %66, align 8
-  %67 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv116
+  %67 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv116
   %68 = load i32, ptr %67, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %50, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 %69, ptr %70, align 8
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 184
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 184
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull %0, ptr noundef %37) #7
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -859,7 +859,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 77:                                               ; preds = %._crit_edge
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr %80(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %82 = icmp eq ptr %81, null
@@ -867,7 +867,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 264
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 264
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %88 = icmp eq ptr %87, null
@@ -875,7 +875,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 224
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 224
   %92 = load ptr, ptr %91, align 8
   %93 = trunc i64 %75 to i32
   %94 = tail call ptr (ptr, ptr, ptr, ...) %92(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %87, i32 noundef %93) #7
@@ -884,14 +884,14 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardGetStatusChange(ptr noundef 
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i32 %98(ptr noundef nonnull %0, ptr noundef nonnull %94) #7
   br label %throwOutOfMemoryError.exit98.thread
 
 handleRV.exit:                                    ; preds = %.preheader103, %._crit_edge
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1432
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1432
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr %102(ptr noundef nonnull %0, i32 noundef %11) #7
   %104 = icmp eq ptr %103, null
@@ -902,7 +902,7 @@ handleRV.exit:                                    ; preds = %.preheader103, %._c
 
 throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1560
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1560
   %107 = load ptr, ptr %106, align 8
   tail call void %107(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br label %._crit_edge113
@@ -918,17 +918,17 @@ throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
 
 .lr.ph108:                                        ; preds = %.lr.ph108.preheader, %108
   %indvars.iv121 = phi i64 [ 0, %.lr.ph108.preheader ], [ %indvars.iv.next122, %108 ]
-  %109 = getelementptr inbounds %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv121, i32 3
+  %109 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv121, i32 3
   %110 = load i64, ptr %109, align 8
   %111 = trunc i64 %110 to i32
   store i32 %111, ptr %7, align 4
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 1688
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1688
   %114 = load ptr, ptr %113, align 8
   %115 = trunc nuw nsw i64 %indvars.iv121 to i32
   call void %114(ptr noundef nonnull %0, ptr noundef nonnull %103, i32 noundef %115, i32 noundef 1, ptr noundef nonnull %7) #7
   %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 1824
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1824
   %118 = load ptr, ptr %117, align 8
   %119 = call zeroext i8 %118(ptr noundef nonnull %0) #7
   %.not95 = icmp eq i8 %119, 0
@@ -936,7 +936,7 @@ throwOutOfMemoryError.exit98.thread134:           ; preds = %.preheader
 
 throwOutOfMemoryError.exit98.thread:              ; preds = %95, %89, %83, %77
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 1560
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1560
   %122 = load ptr, ptr %121, align 8
   tail call void %122(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br label %.lr.ph112.preheader
@@ -944,7 +944,7 @@ throwOutOfMemoryError.exit98.thread:              ; preds = %95, %89, %83, %77
 throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %108, %.lr.ph108, %60, %55, %handleRV.exit
   %.089 = phi ptr [ null, %handleRV.exit ], [ null, %55 ], [ null, %60 ], [ %103, %108 ], [ null, %.lr.ph108 ], [ null, %.lr.ph106 ], [ null, %42 ]
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 1560
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1560
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %29, i32 noundef 2) #7
   br i1 %15, label %.lr.ph112.preheader, label %._crit_edge113
@@ -956,7 +956,7 @@ throwOutOfMemoryError.exit98:                     ; preds = %42, %.lr.ph106, %10
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv126 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next127, %.lr.ph112 ]
-  %126 = getelementptr inbounds %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv126
+  %126 = getelementptr inbounds nuw %struct.SCARD_READERSTATE, ptr %13, i64 %indvars.iv126
   %127 = load ptr, ptr %126, align 8
   call void @free(ptr noundef %127) #7
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
@@ -988,7 +988,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardBeginTransaction(ptr nounde
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %12 = icmp eq ptr %11, null
@@ -996,7 +996,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardBeginTransaction(ptr nounde
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 264
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 264
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %18 = icmp eq ptr %17, null
@@ -1004,7 +1004,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardBeginTransaction(ptr nounde
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 224
   %22 = load ptr, ptr %21, align 8
   %23 = trunc i64 %5 to i32
   %24 = tail call ptr (ptr, ptr, ptr, ...) %22(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %23) #7
@@ -1013,7 +1013,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardBeginTransaction(ptr nounde
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %24) #7
   br label %handleRV.exit
@@ -1032,7 +1032,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardEndTransaction(ptr noundef 
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %14 = icmp eq ptr %13, null
@@ -1040,7 +1040,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardEndTransaction(ptr noundef 
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %20 = icmp eq ptr %19, null
@@ -1048,7 +1048,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardEndTransaction(ptr noundef 
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %24 = load ptr, ptr %23, align 8
   %25 = trunc i64 %7 to i32
   %26 = tail call ptr (ptr, ptr, ptr, ...) %24(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %19, i32 noundef %25) #7
@@ -1057,7 +1057,7 @@ define void @Java_sun_security_smartcardio_PCSC_SCardEndTransaction(ptr noundef 
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %26) #7
   br label %handleRV.exit
@@ -1071,12 +1071,12 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr 
   %6 = alloca [8192 x i8], align 16
   %7 = alloca i64, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %4) #7
   store i64 0, ptr %7, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1472
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1472
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #7
   %16 = icmp eq ptr %15, null
@@ -1088,7 +1088,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr 
   %20 = sext i32 %11 to i64
   %21 = call i64 %18(i64 noundef %2, i64 noundef %19, ptr noundef nonnull %15, i64 noundef %20, ptr noundef nonnull %6, i64 noundef 8192, ptr noundef nonnull %7) #7
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1536
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1536
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %15, i32 noundef 2) #7
   %25 = icmp eq i64 %21, 0
@@ -1096,7 +1096,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr 
   br i1 %25, label %handleRV.exit, label %27
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %26, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %31 = icmp eq ptr %30, null
@@ -1104,7 +1104,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr 
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 264
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %37 = icmp eq ptr %36, null
@@ -1112,7 +1112,7 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr 
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 224
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 224
   %41 = load ptr, ptr %40, align 8
   %42 = trunc i64 %21 to i32
   %43 = call ptr (ptr, ptr, ptr, ...) %41(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %36, i32 noundef %42) #7
@@ -1121,13 +1121,13 @@ define ptr @Java_sun_security_smartcardio_PCSC_SCardControl(ptr noundef %0, ptr 
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 %47(ptr noundef nonnull %0, ptr noundef nonnull %43) #7
   br label %handleRV.exit.thread
 
 handleRV.exit:                                    ; preds = %17
-  %49 = getelementptr inbounds i8, ptr %26, i64 1408
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 1408
   %50 = load ptr, ptr %49, align 8
   %51 = load i64, ptr %7, align 8
   %52 = trunc i64 %51 to i32
@@ -1137,13 +1137,13 @@ handleRV.exit:                                    ; preds = %17
 
 55:                                               ; preds = %handleRV.exit
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1664
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1664
   %58 = load ptr, ptr %57, align 8
   %59 = load i64, ptr %7, align 8
   %60 = trunc i64 %59 to i32
   call void %58(ptr noundef nonnull %0, ptr noundef nonnull %53, i32 noundef 0, i32 noundef %60, ptr noundef nonnull %6) #7
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1824
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1824
   %63 = load ptr, ptr %62, align 8
   %64 = call zeroext i8 %63(ptr noundef nonnull %0) #7
   %.not30 = icmp eq i8 %64, 0

@@ -119,13 +119,13 @@ lastlevel.exit:                                   ; preds = %while.body2.i, %whi
   %0 = sub i32 %level, %le.1.lcssa.i
   %cmp = icmp slt i32 %0, -22
   %cond = select i1 %cmp, i32 10, i32 -1
-  %L1.i = getelementptr inbounds i8, ptr %b, i64 24
+  %L1.i = getelementptr inbounds nuw i8, ptr %b, i64 24
   store ptr %L, ptr %L1.i, align 8
-  %init.i = getelementptr inbounds i8, ptr %b, i64 32
+  %init.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   store ptr %init.i, ptr %b, align 8
-  %n.i = getelementptr inbounds i8, ptr %b, i64 16
+  %n.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   store i64 0, ptr %n.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %b, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   store i64 1024, ptr %size.i, align 8
   call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull %b) #19
   %tobool.not = icmp eq ptr %msg, null
@@ -179,13 +179,13 @@ if.then.i.i17:                                    ; preds = %lastlevel.exit, %lo
   br i1 %tobool8.not56, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then.i.i17
-  %currentline = getelementptr inbounds i8, ptr %ar, i64 48
-  %short_src21 = getelementptr inbounds i8, ptr %ar, i64 68
-  %namewhat.i = getelementptr inbounds i8, ptr %ar, i64 16
-  %name.i = getelementptr inbounds i8, ptr %ar, i64 8
-  %what.i = getelementptr inbounds i8, ptr %ar, i64 24
-  %linedefined.i = getelementptr inbounds i8, ptr %ar, i64 52
-  %istailcall = getelementptr inbounds i8, ptr %ar, i64 63
+  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 48
+  %short_src21 = getelementptr inbounds nuw i8, ptr %ar, i64 68
+  %namewhat.i = getelementptr inbounds nuw i8, ptr %ar, i64 16
+  %name.i = getelementptr inbounds nuw i8, ptr %ar, i64 8
+  %what.i = getelementptr inbounds nuw i8, ptr %ar, i64 24
+  %linedefined.i = getelementptr inbounds nuw i8, ptr %ar, i64 52
+  %istailcall = getelementptr inbounds nuw i8, ptr %ar, i64 63
   %sub12 = add i32 %le.1.lcssa.i, -11
   br label %while.body
 
@@ -341,13 +341,13 @@ luaL_pushresult.exit:                             ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaL_buffinit(ptr noundef %L, ptr noundef initializes((24, 32)) %B) local_unnamed_addr #0 {
 entry:
-  %L1 = getelementptr inbounds i8, ptr %B, i64 24
+  %L1 = getelementptr inbounds nuw i8, ptr %B, i64 24
   store ptr %L, ptr %L1, align 8
-  %init = getelementptr inbounds i8, ptr %B, i64 32
+  %init = getelementptr inbounds nuw i8, ptr %B, i64 32
   store ptr %init, ptr %B, align 8
-  %n = getelementptr inbounds i8, ptr %B, i64 16
+  %n = getelementptr inbounds nuw i8, ptr %B, i64 16
   store i64 0, ptr %n, align 8
-  %size = getelementptr inbounds i8, ptr %B, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %B, i64 8
   store i64 1024, ptr %size, align 8
   tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull %B) #19
   ret void
@@ -363,7 +363,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %call, i32 noundef -1)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr readonly align 1 %s, i64 %call, i1 false)
-  %n.i = getelementptr inbounds i8, ptr %B, i64 16
+  %n.i = getelementptr inbounds nuw i8, ptr %B, i64 16
   %0 = load i64, ptr %n.i, align 8
   %add.i = add i64 %0, %call
   store i64 %add.i, ptr %n.i, align 8
@@ -388,7 +388,7 @@ declare ptr @lua_pushfstring(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 define dso_local void @luaL_addvalue(ptr noundef %B) local_unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
-  %L1 = getelementptr inbounds i8, ptr %B, i64 24
+  %L1 = getelementptr inbounds nuw i8, ptr %B, i64 24
   %0 = load ptr, ptr %L1, align 8
   %call = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %len) #19
   %1 = load i64, ptr %len, align 8
@@ -396,7 +396,7 @@ entry:
   %2 = load i64, ptr %len, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2, ptr align 1 %call, i64 %2, i1 false)
   %3 = load i64, ptr %len, align 8
-  %n = getelementptr inbounds i8, ptr %B, i64 16
+  %n = getelementptr inbounds nuw i8, ptr %B, i64 16
   %4 = load i64, ptr %n, align 8
   %add = add i64 %4, %3
   store i64 %add, ptr %n, align 8
@@ -409,14 +409,14 @@ declare i32 @lua_getinfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaL_pushresult(ptr noundef readonly %B) local_unnamed_addr #0 {
 entry:
-  %L1 = getelementptr inbounds i8, ptr %B, i64 24
+  %L1 = getelementptr inbounds nuw i8, ptr %B, i64 24
   %0 = load ptr, ptr %L1, align 8
   %1 = load ptr, ptr %B, align 8
-  %n = getelementptr inbounds i8, ptr %B, i64 16
+  %n = getelementptr inbounds nuw i8, ptr %B, i64 16
   %2 = load i64, ptr %n, align 8
   %call = tail call ptr @lua_pushlstring(ptr noundef %0, ptr noundef %1, i64 noundef %2) #19
   %3 = load ptr, ptr %B, align 8
-  %init = getelementptr inbounds i8, ptr %B, i64 32
+  %init = getelementptr inbounds nuw i8, ptr %B, i64 32
   %cmp.not = icmp eq ptr %3, %init
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -444,7 +444,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = call i32 @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.7, ptr noundef nonnull %ar) #19
-  %namewhat = getelementptr inbounds i8, ptr %ar, i64 16
+  %namewhat = getelementptr inbounds nuw i8, ptr %ar, i64 16
   %0 = load ptr, ptr %namewhat, align 8
   %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.8) #20
   %cmp = icmp eq i32 %call3, 0
@@ -456,14 +456,14 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.then4
-  %name = getelementptr inbounds i8, ptr %ar, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %ar, i64 8
   %1 = load ptr, ptr %name, align 8
   %call7 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.9, ptr noundef %1, ptr noundef %extramsg)
   br label %return
 
 if.end9:                                          ; preds = %if.then4, %if.end
   %arg.addr.0 = phi i32 [ %dec, %if.then4 ], [ %arg, %if.end ]
-  %name10 = getelementptr inbounds i8, ptr %ar, i64 8
+  %name10 = getelementptr inbounds nuw i8, ptr %ar, i64 8
   %2 = load ptr, ptr %name10, align 8
   %cmp11 = icmp eq ptr %2, null
   br i1 %cmp11, label %if.then12, label %if.end17
@@ -505,13 +505,13 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = call i32 @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.15, ptr noundef nonnull %ar.i) #19
-  %currentline.i = getelementptr inbounds i8, ptr %ar.i, i64 48
+  %currentline.i = getelementptr inbounds nuw i8, ptr %ar.i, i64 48
   %0 = load i32, ptr %currentline.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %if.then2.i, label %if.end5.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %short_src.i = getelementptr inbounds i8, ptr %ar.i, i64 68
+  %short_src.i = getelementptr inbounds nuw i8, ptr %ar.i, i64 68
   %call4.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.16, ptr noundef nonnull %short_src.i, i32 noundef %0) #19
   br label %luaL_where.exit
 
@@ -549,19 +549,19 @@ if.then:                                          ; preds = %entry
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %if.then
-  %1 = getelementptr inbounds i8, ptr %call4, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call4, i64 1
   %2 = load i8, ptr %1, align 1
   %.not15 = icmp eq i8 %2, 71
   br i1 %.not15, label %if.then.tail, label %if.end
 
 if.then.tail:                                     ; preds = %sub_1
-  %3 = getelementptr inbounds i8, ptr %call4, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %call4, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 46
   br i1 %5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then.tail
-  %add.ptr = getelementptr inbounds i8, ptr %call4, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call4, i64 3
   %call7 = tail call ptr @lua_pushstring(ptr noundef %L, ptr noundef nonnull %add.ptr) #19
   tail call void @lua_rotate(ptr noundef %L, i32 noundef -2, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
@@ -666,13 +666,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call1 = call i32 @lua_getinfo(ptr noundef %L, ptr noundef nonnull @.str.15, ptr noundef nonnull %ar) #19
-  %currentline = getelementptr inbounds i8, ptr %ar, i64 48
+  %currentline = getelementptr inbounds nuw i8, ptr %ar, i64 48
   %0 = load i32, ptr %currentline, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.then
-  %short_src = getelementptr inbounds i8, ptr %ar, i64 68
+  %short_src = getelementptr inbounds nuw i8, ptr %ar, i64 68
   %call4 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.16, ptr noundef nonnull %short_src, i32 noundef %0) #19
   br label %return
 
@@ -911,7 +911,7 @@ for.body:                                         ; preds = %cond.end, %for.inc
 
 for.inc:                                          ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds ptr, ptr %lst, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %lst, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !9
@@ -1165,9 +1165,9 @@ define internal fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %sz, i32 no
 entry:
   %ud.i36 = alloca ptr, align 8
   %ud.i = alloca ptr, align 8
-  %size = getelementptr inbounds i8, ptr %B, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %B, i64 8
   %0 = load i64, ptr %size, align 8
-  %n = getelementptr inbounds i8, ptr %B, i64 16
+  %n = getelementptr inbounds nuw i8, ptr %B, i64 16
   %1 = load i64, ptr %n, align 8
   %sub = sub i64 %0, %1
   %cmp.not = icmp ult i64 %sub, %sz
@@ -1179,7 +1179,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %L2 = getelementptr inbounds i8, ptr %B, i64 24
+  %L2 = getelementptr inbounds nuw i8, ptr %B, i64 24
   %3 = load ptr, ptr %L2, align 8
   %sub.i = xor i64 %sz, -1
   %cmp.i = icmp ugt i64 %1, %sub.i
@@ -1200,7 +1200,7 @@ if.end.i:                                         ; preds = %if.else
 newbuffsize.exit:                                 ; preds = %if.then.i, %if.end.i
   %retval.0.i = phi i64 [ %conv4.i, %if.then.i ], [ %spec.select.i, %if.end.i ]
   %4 = load ptr, ptr %B, align 8
-  %init = getelementptr inbounds i8, ptr %B, i64 32
+  %init = getelementptr inbounds nuw i8, ptr %B, i64 32
   %cmp4.not = icmp eq ptr %4, %init
   br i1 %cmp4.not, label %if.else7, label %if.then5
 
@@ -1210,7 +1210,7 @@ if.then5:                                         ; preds = %newbuffsize.exit
   %call1.i = call ptr @lua_touserdata(ptr noundef %3, i32 noundef range(i32 -2, 2) %boxidx) #19
   %5 = load ptr, ptr %ud.i, align 8
   %6 = load ptr, ptr %call1.i, align 8
-  %bsize.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %bsize.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %7 = load i64, ptr %bsize.i, align 8
   %call3.i = call ptr %call.i28(ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %retval.0.i) #19
   %cmp.i29 = icmp eq ptr %call3.i, null
@@ -1251,7 +1251,7 @@ newbox.exit:                                      ; preds = %if.else7, %if.then.
   %call1.i38 = call ptr @lua_touserdata(ptr noundef %3, i32 noundef range(i32 -2, 2) %boxidx) #19
   %9 = load ptr, ptr %ud.i36, align 8
   %10 = load ptr, ptr %call1.i38, align 8
-  %bsize.i39 = getelementptr inbounds i8, ptr %call1.i38, i64 8
+  %bsize.i39 = getelementptr inbounds nuw i8, ptr %call1.i38, i64 8
   %11 = load i64, ptr %bsize.i39, align 8
   %call3.i40 = call ptr %call.i37(ptr noundef %9, ptr noundef %10, i64 noundef %11, i64 noundef %retval.0.i) #19
   %cmp.i41 = icmp eq ptr %call3.i40, null
@@ -1295,7 +1295,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %l, i32 noundef -1)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %s, i64 %l, i1 false)
-  %n = getelementptr inbounds i8, ptr %B, i64 16
+  %n = getelementptr inbounds nuw i8, ptr %B, i64 16
   %0 = load i64, ptr %n, align 8
   %add = add i64 %0, %l
   store i64 %add, ptr %n, align 8
@@ -1317,16 +1317,16 @@ declare void @lua_rotate(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @luaL_pushresultsize(ptr noundef %B, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds i8, ptr %B, i64 16
+  %n = getelementptr inbounds nuw i8, ptr %B, i64 16
   %0 = load i64, ptr %n, align 8
   %add = add i64 %0, %sz
   store i64 %add, ptr %n, align 8
-  %L1.i = getelementptr inbounds i8, ptr %B, i64 24
+  %L1.i = getelementptr inbounds nuw i8, ptr %B, i64 24
   %1 = load ptr, ptr %L1.i, align 8
   %2 = load ptr, ptr %B, align 8
   %call.i = tail call ptr @lua_pushlstring(ptr noundef %1, ptr noundef %2, i64 noundef %add) #19
   %3 = load ptr, ptr %B, align 8
-  %init.i = getelementptr inbounds i8, ptr %B, i64 32
+  %init.i = getelementptr inbounds nuw i8, ptr %B, i64 32
   %cmp.not.i = icmp eq ptr %3, %init.i
   br i1 %cmp.not.i, label %luaL_pushresult.exit, label %if.then.i
 
@@ -1345,13 +1345,13 @@ declare void @lua_pushlightuserdata(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @luaL_buffinitsize(ptr noundef %L, ptr noundef initializes((24, 32)) %B, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
-  %L1.i = getelementptr inbounds i8, ptr %B, i64 24
+  %L1.i = getelementptr inbounds nuw i8, ptr %B, i64 24
   store ptr %L, ptr %L1.i, align 8
-  %init.i = getelementptr inbounds i8, ptr %B, i64 32
+  %init.i = getelementptr inbounds nuw i8, ptr %B, i64 32
   store ptr %init.i, ptr %B, align 8
-  %n.i = getelementptr inbounds i8, ptr %B, i64 16
+  %n.i = getelementptr inbounds nuw i8, ptr %B, i64 16
   store i64 0, ptr %n.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %B, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %B, i64 8
   store i64 1024, ptr %size.i, align 8
   tail call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull %B) #19
   %call = tail call fastcc ptr @prepbuffsize(ptr noundef nonnull %B, i64 noundef %sz, i32 noundef -1)
@@ -1446,7 +1446,7 @@ entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #19
   %add = add nsw i32 %call, 1
   %cmp = icmp eq ptr %filename, null
-  %f = getelementptr inbounds i8, ptr %lf, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %lf, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1467,7 +1467,7 @@ if.then7:                                         ; preds = %if.else
   %1 = load i32, ptr %call.i, align 4
   %call1.i = tail call ptr @strerror(i32 noundef %1) #19
   %call2.i = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, ptr noundef null) #19
-  %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 1
   %call3.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.27, ptr noundef nonnull %add.ptr.i, ptr noundef %call1.i) #19
   tail call void @lua_rotate(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
@@ -1476,7 +1476,7 @@ if.then7:                                         ; preds = %if.else
 if.end9:                                          ; preds = %if.else, %if.then
   %2 = phi ptr [ %call3, %if.else ], [ %0, %if.then ]
   store i32 0, ptr %lf, align 8
-  %f10 = getelementptr inbounds i8, ptr %lf, i64 8
+  %f10 = getelementptr inbounds nuw i8, ptr %lf, i64 8
   %call.i.i = tail call i32 @getc(ptr noundef %2)
   %cmp.i.i = icmp eq i32 %call.i.i, 239
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %skipBOM.exit.i
@@ -1509,7 +1509,7 @@ do.body.i:                                        ; preds = %skipBOM.exit.i, %do
 
 if.then12:                                        ; preds = %do.body.i, %do.body.i
   %call4.i = tail call i32 @getc(ptr noundef %2)
-  %buff = getelementptr inbounds i8, ptr %lf, i64 16
+  %buff = getelementptr inbounds nuw i8, ptr %lf, i64 16
   store i32 1, ptr %lf, align 8
   store i8 10, ptr %buff, align 8
   br label %if.end14
@@ -1535,7 +1535,7 @@ if.then27:                                        ; preds = %if.then20
   %4 = load i32, ptr %call.i21, align 4
   %call1.i22 = tail call ptr @strerror(i32 noundef %4) #19
   %call2.i23 = tail call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, ptr noundef null) #19
-  %add.ptr.i24 = getelementptr inbounds i8, ptr %call2.i23, i64 1
+  %add.ptr.i24 = getelementptr inbounds nuw i8, ptr %call2.i23, i64 1
   %call3.i25 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.30, ptr noundef nonnull %add.ptr.i24, ptr noundef %call1.i22) #19
   tail call void @lua_rotate(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, i32 noundef -1) #19
   tail call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
@@ -1586,11 +1586,11 @@ if.then36:                                        ; preds = %land.lhs.true.i.i, 
   %6 = phi i32 [ %5, %if.end33 ], [ 0, %land.lhs.true.i.i39 ], [ 0, %land.lhs.true3.i.i42 ], [ 0, %if.then17 ], [ 0, %land.lhs.true3.i.i ], [ 0, %land.lhs.true.i.i ]
   %c.060 = phi i32 [ %c.0, %if.end33 ], [ 239, %land.lhs.true.i.i39 ], [ 239, %land.lhs.true3.i.i42 ], [ 27, %if.then17 ], [ 239, %land.lhs.true3.i.i ], [ 239, %land.lhs.true.i.i ]
   %conv37 = trunc i32 %c.060 to i8
-  %buff38 = getelementptr inbounds i8, ptr %lf, i64 16
+  %buff38 = getelementptr inbounds nuw i8, ptr %lf, i64 16
   %inc40 = add nuw nsw i32 %6, 1
   store i32 %inc40, ptr %lf, align 8
   %idxprom41 = zext nneg i32 %6 to i64
-  %arrayidx42 = getelementptr inbounds [8192 x i8], ptr %buff38, i64 0, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds nuw [8192 x i8], ptr %buff38, i64 0, i64 %idxprom41
   store i8 %conv37, ptr %arrayidx42, align 1
   br label %if.end43
 
@@ -1615,7 +1615,7 @@ if.then54:                                        ; preds = %if.end52
   %8 = load i32, ptr %call.i48, align 4
   %call1.i49 = call ptr @strerror(i32 noundef %8) #19
   %call2.i50 = call ptr @lua_tolstring(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, ptr noundef null) #19
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %call2.i50, i64 1
+  %add.ptr.i51 = getelementptr inbounds nuw i8, ptr %call2.i50, i64 1
   %call3.i52 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.31, ptr noundef nonnull %add.ptr.i51, ptr noundef %call1.i49) #19
   call void @lua_rotate(ptr noundef %L, i32 noundef range(i32 -2147483647, -2147483648) %add, i32 noundef -1) #19
   call void @lua_settop(ptr noundef %L, i32 noundef -2) #19
@@ -1654,21 +1654,21 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %f = getelementptr inbounds i8, ptr %ud, i64 8
+  %f = getelementptr inbounds nuw i8, ptr %ud, i64 8
   %1 = load ptr, ptr %f, align 8
   %call = tail call i32 @feof(ptr noundef %1) #19
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.else
-  %buff = getelementptr inbounds i8, ptr %ud, i64 16
+  %buff = getelementptr inbounds nuw i8, ptr %ud, i64 16
   %2 = load ptr, ptr %f, align 8
   %call5 = tail call i64 @fread(ptr noundef nonnull %buff, i64 noundef 1, i64 noundef 8192, ptr noundef %2)
   store i64 %call5, ptr %size, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.then
-  %buff7 = getelementptr inbounds i8, ptr %ud, i64 16
+  %buff7 = getelementptr inbounds nuw i8, ptr %ud, i64 16
   br label %return
 
 return:                                           ; preds = %if.else, %if.end6
@@ -1687,7 +1687,7 @@ define dso_local i32 @luaL_loadbufferx(ptr noundef %L, ptr noundef %buff, i64 no
 entry:
   %ls = alloca %struct.LoadS, align 8
   store ptr %buff, ptr %ls, align 8
-  %size1 = getelementptr inbounds i8, ptr %ls, i64 8
+  %size1 = getelementptr inbounds nuw i8, ptr %ls, i64 8
   store i64 %size, ptr %size1, align 8
   %call = call i32 @lua_load(ptr noundef %L, ptr noundef nonnull @getS, ptr noundef nonnull %ls, ptr noundef %name, ptr noundef %mode) #19
   ret i32 %call
@@ -1696,7 +1696,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal ptr @getS(ptr nocapture readnone %L, ptr nocapture noundef %ud, ptr nocapture noundef writeonly %size) #9 {
 entry:
-  %size1 = getelementptr inbounds i8, ptr %ud, i64 8
+  %size1 = getelementptr inbounds nuw i8, ptr %ud, i64 8
   %0 = load i64, ptr %size1, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1719,7 +1719,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ls.i)
   store ptr %s, ptr %ls.i, align 8
-  %size1.i = getelementptr inbounds i8, ptr %ls.i, i64 8
+  %size1.i = getelementptr inbounds nuw i8, ptr %ls.i, i64 8
   store i64 %call, ptr %size1.i, align 8
   %call.i = call i32 @lua_load(ptr noundef %L, ptr noundef nonnull @getS, ptr noundef nonnull %ls.i, ptr noundef %s, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ls.i)
@@ -1919,7 +1919,7 @@ for.body.lr.ph:                                   ; preds = %luaL_checkstack.exi
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end.us
   %l.addr.019.us = phi ptr [ %incdec.ptr.us, %if.end.us ], [ %l, %for.body.lr.ph ]
-  %func.us = getelementptr inbounds i8, ptr %l.addr.019.us, i64 8
+  %func.us = getelementptr inbounds nuw i8, ptr %l.addr.019.us, i64 8
   %1 = load ptr, ptr %func.us, align 8
   %cmp1.us = icmp eq ptr %1, null
   br i1 %cmp1.us, label %if.then.us, label %for.body4.us
@@ -1938,7 +1938,7 @@ if.then.us:                                       ; preds = %for.body.us
 if.end.us:                                        ; preds = %if.then.us, %for.cond2.for.end_crit_edge.us
   %2 = load ptr, ptr %l.addr.019.us, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef %sub6, ptr noundef %2) #19
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %l.addr.019.us, i64 16
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %l.addr.019.us, i64 16
   %3 = load ptr, ptr %incdec.ptr.us, align 8
   %cmp.not.us = icmp eq ptr %3, null
   br i1 %cmp.not.us, label %for.end9, label %for.body.us, !llvm.loop !11
@@ -1950,7 +1950,7 @@ for.cond2.for.end_crit_edge.us:                   ; preds = %for.body4.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %l.addr.019 = phi ptr [ %incdec.ptr, %if.end ], [ %l, %for.body.lr.ph ]
-  %func = getelementptr inbounds i8, ptr %l.addr.019, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %l.addr.019, i64 8
   %5 = load ptr, ptr %func, align 8
   %cmp1 = icmp eq ptr %5, null
   br i1 %cmp1, label %if.then, label %for.cond2.preheader
@@ -1966,7 +1966,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %for.cond2.preheader, %if.then
   %6 = load ptr, ptr %l.addr.019, align 8
   tail call void @lua_setfield(ptr noundef %L, i32 noundef %sub6, ptr noundef %6) #19
-  %incdec.ptr = getelementptr inbounds i8, ptr %l.addr.019, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %l.addr.019, i64 16
   %7 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %for.end9, label %for.body, !llvm.loop !11
@@ -2055,7 +2055,7 @@ entry:
   br i1 %cmp.not17, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %n.i = getelementptr inbounds i8, ptr %b, i64 16
+  %n.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %luaL_addstring.exit
@@ -2103,7 +2103,7 @@ while.end:                                        ; preds = %luaL_addstring.exit
 if.then.i.i11:                                    ; preds = %while.end
   %call.i.i12 = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %call.i9, i32 noundef -1)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i12, ptr readonly align 1 %s.addr.0.lcssa, i64 %call.i9, i1 false)
-  %n.i.i13 = getelementptr inbounds i8, ptr %b, i64 16
+  %n.i.i13 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %2 = load i64, ptr %n.i.i13, align 8
   %add.i.i14 = add i64 %2, %call.i9
   store i64 %add.i.i14, ptr %n.i.i13, align 8
@@ -2120,13 +2120,13 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 define dso_local ptr @luaL_gsub(ptr noundef %L, ptr noundef %s, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
-  %L1.i = getelementptr inbounds i8, ptr %b, i64 24
+  %L1.i = getelementptr inbounds nuw i8, ptr %b, i64 24
   store ptr %L, ptr %L1.i, align 8
-  %init.i = getelementptr inbounds i8, ptr %b, i64 32
+  %init.i = getelementptr inbounds nuw i8, ptr %b, i64 32
   store ptr %init.i, ptr %b, align 8
-  %n.i = getelementptr inbounds i8, ptr %b, i64 16
+  %n.i = getelementptr inbounds nuw i8, ptr %b, i64 16
   store i64 0, ptr %n.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %b, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   store i64 1024, ptr %size.i, align 8
   call void @lua_pushlightuserdata(ptr noundef %L, ptr noundef nonnull %b) #19
   call void @luaL_addgsub(ptr noundef nonnull %b, ptr noundef %s, ptr noundef %p, ptr noundef %r)
@@ -2210,7 +2210,7 @@ entry:
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %checkcontrol.exit
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %message, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %message, i64 1
   %0 = load i8, ptr %message, align 1
   %cmp.not.i = icmp eq i8 %0, 64
   br i1 %cmp.not.i, label %if.else.i, label %checkcontrol.exit
@@ -2226,13 +2226,13 @@ sub_0.i:                                          ; preds = %if.else.i
   br i1 %.not.i, label %sub_1.i, label %checkcontrol.exit
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %2 = getelementptr inbounds i8, ptr %message, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %message, i64 2
   %3 = load i8, ptr %2, align 1
   %.not6.i = icmp eq i8 %3, 110
   br i1 %.not6.i, label %if.else5.tail.i, label %checkcontrol.exit
 
 if.else5.tail.i:                                  ; preds = %sub_1.i
-  %4 = getelementptr inbounds i8, ptr %message, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %message, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %return.sink.split.i, label %checkcontrol.exit
@@ -2350,7 +2350,7 @@ entry:
   %call1.i = call ptr @lua_touserdata(ptr noundef %L, i32 noundef 1) #19
   %0 = load ptr, ptr %ud.i, align 8
   %1 = load ptr, ptr %call1.i, align 8
-  %bsize.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %bsize.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %2 = load i64, ptr %bsize.i, align 8
   %call3.i = call ptr %call.i(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef 0) #19
   store ptr %call3.i, ptr %call1.i, align 8
@@ -2387,7 +2387,7 @@ entry:
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %message, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %message, i64 1
   %0 = load i8, ptr %message, align 1
   %cmp.not.i = icmp eq i8 %0, 64
   br i1 %cmp.not.i, label %if.else.i, label %if.end
@@ -2403,13 +2403,13 @@ sub_0.i:                                          ; preds = %if.else.i
   br i1 %.not.i, label %sub_1.i, label %return
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %2 = getelementptr inbounds i8, ptr %message, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %message, i64 2
   %3 = load i8, ptr %2, align 1
   %.not6.i = icmp eq i8 %3, 110
   br i1 %.not6.i, label %if.else5.tail.i, label %return
 
 if.else5.tail.i:                                  ; preds = %sub_1.i
-  %4 = getelementptr inbounds i8, ptr %message, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %message, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %return.sink.split.i, label %return

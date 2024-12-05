@@ -66,7 +66,7 @@ define void @_ZN3std9panicking3try8do_catch17h37fb9b95f9093a31E(ptr nocapture wr
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }

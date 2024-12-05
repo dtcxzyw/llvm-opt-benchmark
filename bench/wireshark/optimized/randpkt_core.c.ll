@@ -101,7 +101,7 @@ define hidden ptr @randpkt_find_example(i32 noundef %0) local_unnamed_addr #1 {
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr [23 x %struct.randpkt_example], ptr @examples, i64 0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %.loopexit, label %2
@@ -126,34 +126,34 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   %6 = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 280) #12
   %7 = tail call noalias dereferenceable_or_null(65536) ptr @g_malloc0(i64 noundef 65536) #13
   store i32 0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 64
-  %12 = getelementptr inbounds i8, ptr %6, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %20, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 1 %15, i64 %19, i1 false)
   br label %20
 
 20:                                               ; preds = %16, %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not61 = icmp eq ptr %22, null
   br i1 %.not61, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %22, i64 %26, i1 false)
@@ -164,13 +164,13 @@ define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %.not76, label %._crit_edge75, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %27
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = getelementptr inbounds i8, ptr %6, i64 68
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not64 = icmp eq i64 %2, 0
   %35 = mul i64 %2, 1000
   br label %36
@@ -336,14 +336,14 @@ declare void @g_free(ptr noundef) local_unnamed_addr #7
 define hidden range(i32 0, 2) i32 @randpkt_example_close(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 @wtap_dump_close(ptr noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %12
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %2, align 4
   %11 = load ptr, ptr %3, align 8
@@ -386,19 +386,19 @@ define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr nocapture noundef in
   br label %sub_0
 
 sub_0:                                            ; preds = %10, %4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %12, i8 0, i64 72, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %15, align 4
   %16 = load i8, ptr %1, align 1
   %.not25 = icmp eq i8 %16, 45
   br i1 %.not25, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %.tail.thread
@@ -414,9 +414,9 @@ sub_0:                                            ; preds = %10, %4
 23:                                               ; preds = %.tail.thread, %20
   %.sink26 = phi ptr [ %21, %20 ], [ %22, %.tail.thread ]
   %.sink = phi ptr [ @.str.3, %20 ], [ %1, %.tail.thread ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink26, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %25, align 8
   %.not = icmp eq ptr %.sink26, null
   br i1 %.not, label %26, label %29
@@ -428,7 +428,7 @@ sub_0:                                            ; preds = %10, %4
   br label %40
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %.not24 = icmp sgt i32 %2, %31
   br i1 %.not24, label %37, label %32
@@ -442,7 +442,7 @@ sub_0:                                            ; preds = %10, %4
 
 37:                                               ; preds = %29
   %38 = sub i32 %2, %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %38, ptr %39, align 8
   br label %40
 
@@ -492,7 +492,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %12, label %13, label %8
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %16
 
 15:                                               ; preds = %8
@@ -528,7 +528,7 @@ define hidden void @randpkt_example_list(ptr nocapture noundef initializes((0, 8
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr ptr, ptr %9, i64 %indvars.iv
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #14
   %14 = load ptr, ptr %1, align 8

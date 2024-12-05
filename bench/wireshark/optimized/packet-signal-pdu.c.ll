@@ -520,7 +520,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @spdu_message_ident_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -529,7 +529,7 @@ define internal void @spdu_message_ident_name_set_cb(ptr nocapture noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_message_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -579,7 +579,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @spdu_signal_list_num_of_params_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -587,7 +587,7 @@ define internal void @spdu_signal_list_num_of_params_set_cb(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_num_of_params_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.231, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -601,7 +601,7 @@ define internal void @spdu_signal_list_num_of_params_tostr_cb(ptr nocapture noun
 define internal void @spdu_signal_list_pos_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -609,7 +609,7 @@ define internal void @spdu_signal_list_pos_set_cb(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_pos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.231, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -623,7 +623,7 @@ define internal void @spdu_signal_list_pos_tostr_cb(ptr nocapture noundef readon
 define internal void @spdu_signal_list_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -632,7 +632,7 @@ define internal void @spdu_signal_list_name_set_cb(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -660,7 +660,7 @@ define internal void @spdu_signal_list_name_tostr_cb(ptr nocapture noundef reado
 define internal void @spdu_signal_list_filter_string_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -669,7 +669,7 @@ define internal void @spdu_signal_list_filter_string_set_cb(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -697,7 +697,7 @@ define internal void @spdu_signal_list_filter_string_tostr_cb(ptr nocapture noun
 define internal void @spdu_signal_list_data_type_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -706,7 +706,7 @@ define internal void @spdu_signal_list_data_type_set_cb(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -739,7 +739,7 @@ define internal void @spdu_signal_list_big_endian_set_cb(ptr nocapture noundef w
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %spec.select, ptr %10, align 8
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -747,7 +747,7 @@ define internal void @spdu_signal_list_big_endian_set_cb(ptr nocapture noundef w
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_big_endian_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -763,7 +763,7 @@ define internal void @spdu_signal_list_big_endian_tostr_cb(ptr nocapture noundef
 define internal void @spdu_signal_list_bitlength_base_type_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -771,7 +771,7 @@ define internal void @spdu_signal_list_bitlength_base_type_set_cb(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_bitlength_base_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.231, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -785,7 +785,7 @@ define internal void @spdu_signal_list_bitlength_base_type_tostr_cb(ptr nocaptur
 define internal void @spdu_signal_list_bitlength_encoded_type_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -793,7 +793,7 @@ define internal void @spdu_signal_list_bitlength_encoded_type_set_cb(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_bitlength_encoded_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.231, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -807,7 +807,7 @@ define internal void @spdu_signal_list_bitlength_encoded_type_tostr_cb(ptr nocap
 define internal void @spdu_signal_list_scaler_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -816,7 +816,7 @@ define internal void @spdu_signal_list_scaler_set_cb(ptr nocapture noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_scaler_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -844,7 +844,7 @@ define internal void @spdu_signal_list_scaler_tostr_cb(ptr nocapture noundef rea
 define internal void @spdu_signal_list_offset_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -853,7 +853,7 @@ define internal void @spdu_signal_list_offset_set_cb(ptr nocapture noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_offset_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -884,7 +884,7 @@ define internal void @spdu_signal_list_multiplexer_set_cb(ptr nocapture noundef 
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %spec.select, ptr %10, align 8
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -892,7 +892,7 @@ define internal void @spdu_signal_list_multiplexer_set_cb(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_multiplexer_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -910,7 +910,7 @@ declare zeroext i1 @uat_fld_chk_num_signed_dec(ptr noundef, ptr noundef, i32 nou
 define internal void @spdu_signal_list_multiplex_value_only_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = tail call zeroext i1 @ws_strtoi32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -918,7 +918,7 @@ define internal void @spdu_signal_list_multiplex_value_only_set_cb(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_multiplex_value_only_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.234, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -935,7 +935,7 @@ define internal void @spdu_signal_list_hidden_set_cb(ptr nocapture noundef write
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %spec.select, ptr %10, align 8
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -943,7 +943,7 @@ define internal void @spdu_signal_list_hidden_set_cb(ptr nocapture noundef write
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_hidden_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -962,7 +962,7 @@ define internal void @spdu_signal_list_aggregate_sum_set_cb(ptr nocapture nounde
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %spec.select, ptr %10, align 4
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -970,7 +970,7 @@ define internal void @spdu_signal_list_aggregate_sum_set_cb(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_aggregate_sum_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -989,7 +989,7 @@ define internal void @spdu_signal_list_aggregate_avg_set_cb(ptr nocapture nounde
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %spec.select, ptr %10, align 8
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -997,7 +997,7 @@ define internal void @spdu_signal_list_aggregate_avg_set_cb(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_aggregate_avg_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -1016,7 +1016,7 @@ define internal void @spdu_signal_list_aggregate_int_set_cb(ptr nocapture nounde
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %spec.select, ptr %10, align 4
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1024,7 +1024,7 @@ define internal void @spdu_signal_list_aggregate_int_set_cb(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_list_aggregate_int_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -1060,7 +1060,7 @@ define internal void @spdu_signal_value_names_id_tostr_cb(ptr nocapture noundef 
 define internal void @spdu_signal_value_names_pos_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1068,7 +1068,7 @@ define internal void @spdu_signal_value_names_pos_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_value_names_pos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.231, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1082,7 +1082,7 @@ define internal void @spdu_signal_value_names_pos_tostr_cb(ptr nocapture noundef
 define internal void @spdu_signal_value_names_num_of_items_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1090,7 +1090,7 @@ define internal void @spdu_signal_value_names_num_of_items_set_cb(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_value_names_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.231, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1106,7 +1106,7 @@ declare zeroext i1 @uat_fld_chk_num_hex64(ptr noundef, ptr noundef, i32 noundef,
 define internal void @spdu_signal_value_names_value_start_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call zeroext i1 @ws_hexstrtou64(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1114,7 +1114,7 @@ define internal void @spdu_signal_value_names_value_start_set_cb(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_value_names_value_start_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.235, i64 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1128,7 +1128,7 @@ define internal void @spdu_signal_value_names_value_start_tostr_cb(ptr nocapture
 define internal void @spdu_signal_value_names_value_end_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call zeroext i1 @ws_hexstrtou64(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1136,7 +1136,7 @@ define internal void @spdu_signal_value_names_value_end_set_cb(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_value_names_value_end_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.235, i64 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1150,7 +1150,7 @@ define internal void @spdu_signal_value_names_value_end_tostr_cb(ptr nocapture n
 define internal void @spdu_signal_value_names_value_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   store ptr %7, ptr %8, align 8
@@ -1159,7 +1159,7 @@ define internal void @spdu_signal_value_names_value_name_set_cb(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_signal_value_names_value_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1207,7 +1207,7 @@ define internal void @spdu_someip_mapping_service_id_tostr_cb(ptr nocapture noun
 define internal void @spdu_someip_mapping_method_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1215,7 +1215,7 @@ define internal void @spdu_someip_mapping_method_id_set_cb(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_someip_mapping_method_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1229,7 +1229,7 @@ define internal void @spdu_someip_mapping_method_id_tostr_cb(ptr nocapture nound
 define internal void @spdu_someip_mapping_major_version_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1237,7 +1237,7 @@ define internal void @spdu_someip_mapping_major_version_set_cb(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_someip_mapping_major_version_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1251,7 +1251,7 @@ define internal void @spdu_someip_mapping_major_version_tostr_cb(ptr nocapture n
 define internal void @spdu_someip_mapping_message_type_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1259,7 +1259,7 @@ define internal void @spdu_someip_mapping_message_type_set_cb(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_someip_mapping_message_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1273,7 +1273,7 @@ define internal void @spdu_someip_mapping_message_type_tostr_cb(ptr nocapture no
 define internal void @spdu_someip_mapping_spdu_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1281,7 +1281,7 @@ define internal void @spdu_someip_mapping_spdu_message_id_set_cb(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_someip_mapping_spdu_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1315,7 +1315,7 @@ define internal void @spdu_can_mapping_can_id_tostr_cb(ptr nocapture noundef rea
 define internal void @spdu_can_mapping_bus_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1323,7 +1323,7 @@ define internal void @spdu_can_mapping_bus_id_set_cb(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_can_mapping_bus_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1337,7 +1337,7 @@ define internal void @spdu_can_mapping_bus_id_tostr_cb(ptr nocapture noundef rea
 define internal void @spdu_can_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1345,7 +1345,7 @@ define internal void @spdu_can_mapping_message_id_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_can_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1379,7 +1379,7 @@ define internal void @spdu_flexray_mapping_channel_tostr_cb(ptr nocapture nounde
 define internal void @spdu_flexray_mapping_cycle_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1387,7 +1387,7 @@ define internal void @spdu_flexray_mapping_cycle_set_cb(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_flexray_mapping_cycle_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1401,7 +1401,7 @@ define internal void @spdu_flexray_mapping_cycle_tostr_cb(ptr nocapture noundef 
 define internal void @spdu_flexray_mapping_flexray_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1409,7 +1409,7 @@ define internal void @spdu_flexray_mapping_flexray_id_set_cb(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_flexray_mapping_flexray_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1423,7 +1423,7 @@ define internal void @spdu_flexray_mapping_flexray_id_tostr_cb(ptr nocapture nou
 define internal void @spdu_flexray_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1431,7 +1431,7 @@ define internal void @spdu_flexray_mapping_message_id_set_cb(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_flexray_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1465,7 +1465,7 @@ define internal void @spdu_lin_mapping_frame_id_tostr_cb(ptr nocapture noundef r
 define internal void @spdu_lin_mapping_bus_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1473,7 +1473,7 @@ define internal void @spdu_lin_mapping_bus_id_set_cb(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_lin_mapping_bus_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1487,7 +1487,7 @@ define internal void @spdu_lin_mapping_bus_id_tostr_cb(ptr nocapture noundef rea
 define internal void @spdu_lin_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1495,7 +1495,7 @@ define internal void @spdu_lin_mapping_message_id_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_lin_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1529,7 +1529,7 @@ define internal void @spdu_pdu_transport_mapping_pdu_id_tostr_cb(ptr nocapture n
 define internal void @spdu_pdu_transport_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1537,7 +1537,7 @@ define internal void @spdu_pdu_transport_mapping_message_id_set_cb(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_pdu_transport_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1571,7 +1571,7 @@ define internal void @spdu_ipdum_mapping_pdu_id_tostr_cb(ptr nocapture noundef r
 define internal void @spdu_ipdum_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1579,7 +1579,7 @@ define internal void @spdu_ipdum_mapping_message_id_set_cb(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_ipdum_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1628,7 +1628,7 @@ define internal void @spdu_dlt_mapping_ecu_id_tostr_cb(ptr nocapture noundef rea
 define internal void @spdu_dlt_mapping_dlt_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1636,7 +1636,7 @@ define internal void @spdu_dlt_mapping_dlt_message_id_set_cb(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_dlt_mapping_dlt_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1650,7 +1650,7 @@ define internal void @spdu_dlt_mapping_dlt_message_id_tostr_cb(ptr nocapture nou
 define internal void @spdu_dlt_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1658,7 +1658,7 @@ define internal void @spdu_dlt_mapping_message_id_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_dlt_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1692,7 +1692,7 @@ define internal void @spdu_uds_mapping_uds_address_tostr_cb(ptr nocapture nounde
 define internal void @spdu_uds_mapping_service_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1700,7 +1700,7 @@ define internal void @spdu_uds_mapping_service_set_cb(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_uds_mapping_service_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1717,7 +1717,7 @@ define internal void @spdu_uds_mapping_reply_set_cb(ptr nocapture noundef writeo
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.232) #13
   %9 = icmp eq i32 %8, 0
   %spec.select = zext i1 %9 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select, ptr %10, align 4
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1725,7 +1725,7 @@ define internal void @spdu_uds_mapping_reply_set_cb(ptr nocapture noundef writeo
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_uds_mapping_reply_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = select i1 %.not, ptr @.str.157, ptr @.str.232
@@ -1741,7 +1741,7 @@ define internal void @spdu_uds_mapping_reply_tostr_cb(ptr nocapture noundef read
 define internal void @spdu_uds_mapping_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1749,7 +1749,7 @@ define internal void @spdu_uds_mapping_id_set_cb(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_uds_mapping_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1763,7 +1763,7 @@ define internal void @spdu_uds_mapping_id_tostr_cb(ptr nocapture noundef readonl
 define internal void @spdu_uds_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1771,7 +1771,7 @@ define internal void @spdu_uds_mapping_message_id_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_uds_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1805,7 +1805,7 @@ define internal void @spdu_isobus_mapping_pgn_tostr_cb(ptr nocapture noundef rea
 define internal void @spdu_isobus_mapping_bus_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1813,7 +1813,7 @@ define internal void @spdu_isobus_mapping_bus_id_set_cb(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_isobus_mapping_bus_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1827,7 +1827,7 @@ define internal void @spdu_isobus_mapping_bus_id_tostr_cb(ptr nocapture noundef 
 define internal void @spdu_isobus_mapping_message_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #13
   tail call void @g_free(ptr noundef %7) #13
   ret void
@@ -1835,7 +1835,7 @@ define internal void @spdu_isobus_mapping_message_id_set_cb(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @spdu_isobus_mapping_message_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.230, i32 noundef %7) #13
   store ptr %8, ptr %1, align 8
@@ -1905,7 +1905,7 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -1916,7 +1916,7 @@ define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned 
 
 9:                                                ; preds = %3, %7
   %.sink = phi ptr [ %8, %7 ], [ null, %3 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %10, align 8
   %11 = load i32, ptr %1, align 8
   store i32 %11, ptr %0, align 8
@@ -1925,7 +1925,7 @@ define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_generic_one_identifier_32bit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -1984,7 +1984,7 @@ define internal noundef zeroext i1 @update_generic_one_identifier_32bit(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_generic_one_id_string_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #13
   store ptr null, ptr %2, align 8
@@ -2021,7 +2021,7 @@ define internal void @post_update_spdu_message_cb() #0 {
   %9 = getelementptr %struct._generic_one_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #13
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #13
@@ -2043,23 +2043,23 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 define internal noundef ptr @copy_spdu_signal_value_name_cb(ptr noundef returned writeonly initializes((0, 12), (16, 40)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %21, label %19
@@ -2070,14 +2070,14 @@ define internal noundef ptr @copy_spdu_signal_value_name_cb(ptr noundef returned
 
 21:                                               ; preds = %3, %19
   %.sink = phi ptr [ %20, %19 ], [ null, %3 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sink, ptr %22, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_spdu_signal_value_name(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.sink.split, label %6
@@ -2088,15 +2088,15 @@ define internal noundef zeroext i1 @update_spdu_signal_value_name(ptr nocapture 
   br i1 %8, label %.sink.split, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %.sink.split, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp ugt i32 %17, 65534
   br i1 %18, label %.sink.split, label %20
@@ -2114,7 +2114,7 @@ define internal noundef zeroext i1 @update_spdu_signal_value_name(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_spdu_signal_value_name_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2167,19 +2167,19 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
   br i1 %15, label %16, label %40
 
 16:                                               ; preds = %.preheader96.i
-  %17 = getelementptr inbounds i8, ptr %12, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = tail call ptr @wmem_epan_scope() #13
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 32) #13
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %24 = load i32, ptr %12, align 8
   store i32 %24, ptr %19, align 8
   %25 = load i32, ptr %17, align 4
   store i32 %25, ptr %20, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %21, align 4
   %28 = tail call ptr @wmem_epan_scope() #13
@@ -2205,19 +2205,19 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
 
 42:                                               ; preds = %40, %16
   %.086.i = phi ptr [ %19, %16 ], [ %14, %40 ]
-  %43 = getelementptr inbounds i8, ptr %.086.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.086.i, i64 4
   %44 = load i32, ptr %43, align 4
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %.critedge5.i, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %12, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %44
   br i1 %48, label %.preheader.i, label %.critedge5.i
 
 .preheader.i:                                     ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %.086.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.086.i, i64 24
   %50 = load ptr, ptr %49, align 8
   %wide.trip.count.i = zext i32 %44 to i64
   br label %51
@@ -2237,16 +2237,16 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
 55:                                               ; preds = %51
   %56 = and i64 %indvars.iv.i, 4294967295
   %57 = getelementptr %struct._spdu_signal_value_name_item, ptr %50, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
-  %60 = getelementptr inbounds i8, ptr %12, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
   %61 = load i64, ptr %60, align 8
   store i64 %61, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %58, align 8
-  %64 = getelementptr inbounds i8, ptr %12, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = tail call noalias ptr @g_strdup(ptr noundef %65) #13
   store ptr %66, ptr %59, align 8
@@ -2259,7 +2259,7 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
   br i1 %.not102.i, label %.critedge5.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i
-  %68 = getelementptr inbounds i8, ptr %.086.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.086.i, i64 16
   %69 = load ptr, ptr %68, align 8
   %wide.trip.count109.i = zext i32 %67 to i64
   br label %70
@@ -2277,13 +2277,13 @@ define internal void @post_update_spdu_signal_value_names_cb() #0 {
   br i1 %exitcond110.not.i, label %.critedge5.i, label %70, !llvm.loop !7
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %12, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 4294967295
   %78 = and i64 %indvars.iv106.i, 4294967295
   %79 = getelementptr %struct._val64_string, ptr %69, i64 %78
   store i64 %77, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %12, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noalias ptr @g_strdup(ptr noundef %81) #13
   %83 = load ptr, ptr %68, align 8
@@ -2304,15 +2304,15 @@ post_update_spdu_signal_value_names_read_in_data.exit: ; preds = %.critedge5.i, 
 define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned writeonly initializes((0, 12), (16, 52), (56, 96)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
@@ -2323,9 +2323,9 @@ define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned write
 
 15:                                               ; preds = %3, %13
   %.sink = phi ptr [ %14, %13 ], [ null, %3 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not51 = icmp eq ptr %18, null
   br i1 %.not51, label %21, label %19
@@ -2336,9 +2336,9 @@ define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned write
 
 21:                                               ; preds = %15, %19
   %.sink55 = phi ptr [ %20, %19 ], [ null, %15 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink55, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not52 = icmp eq ptr %24, null
   br i1 %.not52, label %27, label %25
@@ -2349,21 +2349,21 @@ define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned write
 
 27:                                               ; preds = %21, %25
   %.sink56 = phi ptr [ %26, %25 ], [ null, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sink56, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %39 = load ptr, ptr %38, align 8
   %.not53 = icmp eq ptr %39, null
   br i1 %.not53, label %42, label %40
@@ -2374,9 +2374,9 @@ define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned write
 
 42:                                               ; preds = %27, %40
   %.sink57 = phi ptr [ %41, %40 ], [ null, %27 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink57, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %45 = load ptr, ptr %44, align 8
   %.not54 = icmp eq ptr %45, null
   br i1 %.not54, label %48, label %46
@@ -2387,31 +2387,31 @@ define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned write
 
 48:                                               ; preds = %42, %46
   %.sink58 = phi ptr [ %47, %46 ], [ null, %42 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink58, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 76
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 76
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %1, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 84
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 84
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 92
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 92
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %66, ptr %67, align 4
   ret ptr %0
 }
@@ -2419,7 +2419,7 @@ define internal noundef ptr @copy_spdu_signal_list_cb(ptr noundef returned write
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = call double @g_ascii_strtod(ptr noundef %5, ptr noundef nonnull %3) #13
   %7 = fcmp ord double %6, 0.000000e+00
@@ -2430,7 +2430,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = call double @g_ascii_strtod(ptr noundef %12, ptr noundef nonnull %3) #13
   %14 = fcmp ord double %13, 0.000000e+00
@@ -2441,7 +2441,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp ugt i32 %19, 65534
   br i1 %20, label %21, label %23
@@ -2451,7 +2451,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp ugt i32 %25, 65534
   br i1 %26, label %27, label %29
@@ -2470,7 +2470,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %40, label %37
@@ -2485,7 +2485,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %49, label %46
@@ -2533,7 +2533,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 70:                                               ; preds = %51
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @g_strcmp0(ptr noundef %72, ptr noundef nonnull @.str.252) #13
   %.not144 = icmp eq i32 %73, 0
@@ -2599,7 +2599,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %0, i64 44
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, -8
   %109 = call i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 29)
@@ -2622,9 +2622,9 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %116, label %117, label %131
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %0, i64 44
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %0, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %121 = load i32, ptr %120, align 8
   %.not157 = icmp eq i32 %119, %121
   br i1 %.not157, label %125, label %122
@@ -2656,9 +2656,9 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %134, label %135, label %160
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %0, i64 44
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %139 = load i32, ptr %138, align 8
   %.not162 = icmp eq i32 %137, %139
   br i1 %.not162, label %143, label %140
@@ -2691,7 +2691,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 153:                                              ; preds = %147
-  %154 = getelementptr inbounds i8, ptr %0, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %155 = load i32, ptr %154, align 8
   %156 = icmp eq i32 %155, 1
   br i1 %156, label %157, label %160
@@ -2749,7 +2749,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br label %.sink.split
 
 190:                                              ; preds = %184
-  %191 = getelementptr inbounds i8, ptr %0, i64 72
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %192 = load i32, ptr %191, align 8
   %193 = icmp eq i32 %192, 1
   br i1 %193, label %194, label %197
@@ -2778,7 +2778,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %208, label %209, label %215
 
 209:                                              ; preds = %205, %201, %197
-  %210 = getelementptr inbounds i8, ptr %0, i64 44
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %211 = load i32, ptr %210, align 4
   %.not165 = icmp eq i32 %211, 8
   br i1 %.not165, label %215, label %212
@@ -2807,7 +2807,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %226, label %227, label %233
 
 227:                                              ; preds = %223, %219, %215
-  %228 = getelementptr inbounds i8, ptr %0, i64 44
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %229 = load i32, ptr %228, align 4
   switch i32 %229, label %230 [
     i32 8, label %233
@@ -2832,7 +2832,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %240, label %241, label %247
 
 241:                                              ; preds = %237, %233
-  %242 = getelementptr inbounds i8, ptr %0, i64 48
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %243 = load i32, ptr %242, align 8
   %.not168 = icmp eq i32 %243, 0
   br i1 %.not168, label %247, label %244
@@ -2855,7 +2855,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %254, label %255, label %263
 
 255:                                              ; preds = %251, %247
-  %256 = getelementptr inbounds i8, ptr %0, i64 48
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %257 = load i32, ptr %256, align 8
   %258 = add i32 %257, -8
   %259 = call i32 @llvm.fshl.i32(i32 %258, i32 %258, i32 29)
@@ -2890,19 +2890,19 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
   br i1 %.not175, label %284, label %272
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %0, i64 84
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %274 = load i32, ptr %273, align 4
   %.not176 = icmp eq i32 %274, 0
   br i1 %.not176, label %275, label %281
 
 275:                                              ; preds = %272
-  %276 = getelementptr inbounds i8, ptr %0, i64 88
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %277 = load i32, ptr %276, align 8
   %.not177 = icmp eq i32 %277, 0
   br i1 %.not177, label %278, label %281
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %0, i64 92
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %280 = load i32, ptr %279, align 4
   %.not178 = icmp eq i32 %280, 0
   br i1 %.not178, label %284, label %281
@@ -2924,7 +2924,7 @@ define internal noundef zeroext i1 @update_spdu_signal_list(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_spdu_signal_list_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -2935,7 +2935,7 @@ define internal void @free_spdu_signal_list_cb(ptr nocapture noundef %0) #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not20 = icmp eq ptr %7, null
   br i1 %.not20, label %9, label %8
@@ -2946,7 +2946,7 @@ define internal void @free_spdu_signal_list_cb(ptr nocapture noundef %0) #0 {
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not21 = icmp eq ptr %11, null
   br i1 %.not21, label %13, label %12
@@ -2957,7 +2957,7 @@ define internal void @free_spdu_signal_list_cb(ptr nocapture noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %12, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %.not22 = icmp eq ptr %15, null
   br i1 %.not22, label %17, label %16
@@ -2968,7 +2968,7 @@ define internal void @free_spdu_signal_list_cb(ptr nocapture noundef %0) #0 {
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %21, label %20
@@ -3052,16 +3052,16 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %37 = call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 24) #13
   %38 = load i32, ptr %30, align 8
   store i32 %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %40, ptr %41, align 4
   %42 = call ptr @wmem_epan_scope() #13
   %43 = load i32, ptr %39, align 4
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 7
   %46 = call noalias ptr @wmem_alloc0(ptr noundef %42, i64 noundef %45) #13
-  %47 = getelementptr inbounds i8, ptr %37, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %46, ptr %47, align 8
   %48 = call i32 @g_hash_table_insert(ptr noundef nonnull %7, ptr noundef nonnull %29, ptr noundef nonnull %37) #13
   br label %50
@@ -3072,34 +3072,34 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
 
 50:                                               ; preds = %49, %36
   %.0191.i = phi ptr [ %37, %36 ], [ %33, %49 ]
-  %51 = getelementptr inbounds i8, ptr %30, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.0191.i, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.0191.i, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %52, %54
   br i1 %55, label %56, label %297
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %30, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp ult i32 %58, %52
   br i1 %59, label %60, label %297
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %.0191.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.0191.i, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = zext i32 %58 to i64
   %64 = getelementptr %struct._spdu_signal_item, ptr %62, i64 %63
-  %65 = getelementptr inbounds i8, ptr %30, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = call noalias ptr @g_strdup(ptr noundef %66) #13
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %67, ptr %68, align 8
   %69 = load i32, ptr %57, align 8
   store i32 %69, ptr %64, align 8
-  %70 = getelementptr inbounds i8, ptr %64, i64 68
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 68
   store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %30, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @g_strcmp0(ptr noundef nonnull @.str.258, ptr noundef %72) #13
   %74 = icmp eq i32 %73, 0
@@ -3118,7 +3118,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   br i1 %82, label %.sink.split.i, label %85
 
 .sink.split.i:                                    ; preds = %79, %75, %60
-  %83 = getelementptr inbounds i8, ptr %30, i64 44
+  %83 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %84 = load i32, ptr %83, align 4
   %switch.selectcmp.i = icmp eq i32 %84, 16
   %switch.select.i = select i1 %switch.selectcmp.i, i32 4, i32 0
@@ -3184,62 +3184,62 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
 
 121:                                              ; preds = %117, %113, %109, %105, %101, %97, %93, %89, %85
   %.sink223.i = phi i32 [ 1, %85 ], [ 2, %89 ], [ 3, %93 ], [ 4, %101 ], [ 4, %97 ], [ 5, %109 ], [ 5, %105 ], [ 6, %113 ], [ %spec.select.i, %117 ]
-  %122 = getelementptr inbounds i8, ptr %64, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 %.sink223.i, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %30, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %124 = load i32, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %64, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %64, i64 20
   store i32 %124, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %30, i64 44
+  %126 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %64, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %30, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %64, i64 28
+  %131 = getelementptr inbounds nuw i8, ptr %64, i64 28
   store i32 %130, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %30, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %133 = load ptr, ptr %132, align 8
   %134 = call double @g_ascii_strtod(ptr noundef %133, ptr noundef null) #13
-  %135 = getelementptr inbounds i8, ptr %64, i64 40
+  %135 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store double %134, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %30, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %137 = load ptr, ptr %136, align 8
   %138 = call double @g_ascii_strtod(ptr noundef %137, ptr noundef null) #13
-  %139 = getelementptr inbounds i8, ptr %64, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store double %138, ptr %139, align 8
   %140 = load double, ptr %135, align 8
   %141 = fcmp une double %140, 1.000000e+00
   %142 = fcmp une double %138, 0.000000e+00
   %narrow.i = select i1 %141, i1 true, i1 %142
   %143 = zext i1 %narrow.i to i32
-  %144 = getelementptr inbounds i8, ptr %64, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store i32 %143, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %30, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %64, i64 56
+  %147 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i32 %146, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %30, i64 76
+  %148 = getelementptr inbounds nuw i8, ptr %30, i64 76
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %64, i64 60
+  %150 = getelementptr inbounds nuw i8, ptr %64, i64 60
   store i32 %149, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %30, i64 80
+  %151 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %152 = load i32, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %64, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %64, i64 64
   store i32 %152, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %30, i64 84
+  %154 = getelementptr inbounds nuw i8, ptr %30, i64 84
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %64, i64 72
+  %156 = getelementptr inbounds nuw i8, ptr %64, i64 72
   store i32 %155, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %30, i64 88
+  %157 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %158 = load i32, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %64, i64 76
+  %159 = getelementptr inbounds nuw i8, ptr %64, i64 76
   store i32 %158, ptr %159, align 4
-  %160 = getelementptr inbounds i8, ptr %30, i64 92
+  %160 = getelementptr inbounds nuw i8, ptr %30, i64 92
   %161 = load i32, ptr %160, align 4
-  %162 = getelementptr inbounds i8, ptr %64, i64 80
+  %162 = getelementptr inbounds nuw i8, ptr %64, i64 80
   store i32 %161, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %.0191.i, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.0191.i, i64 8
   %164 = load i32, ptr %163, align 8
   %165 = or i32 %155, %164
   %166 = or i32 %165, %158
@@ -3251,12 +3251,12 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %171 = load i32, ptr %30, align 8
   %172 = load i32, ptr %57, align 8
   %173 = load ptr, ptr %65, align 8
-  %174 = getelementptr inbounds i8, ptr %30, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %175 = load ptr, ptr %174, align 8
   %176 = load i32, ptr %122, align 8
   %177 = load i32, ptr %144, align 8
   %178 = call fastcc ptr @create_hf_entry(ptr noundef %168, i32 noundef %170, i32 noundef %171, i32 noundef %172, ptr noundef %173, ptr noundef %175, i32 noundef %176, i32 noundef %177, i32 noundef 0)
-  %179 = getelementptr inbounds i8, ptr %64, i64 88
+  %179 = getelementptr inbounds nuw i8, ptr %64, i64 88
   store ptr %178, ptr %179, align 8
   %180 = load ptr, ptr @dynamic_hf_base_raw, align 8
   %181 = or disjoint i32 %170, 1
@@ -3267,7 +3267,7 @@ define internal void @post_update_spdu_signal_list_cb() #0 {
   %186 = load i32, ptr %122, align 8
   %187 = load i32, ptr %144, align 8
   %188 = call fastcc ptr @create_hf_entry(ptr noundef %180, i32 noundef %181, i32 noundef %182, i32 noundef %183, ptr noundef %184, ptr noundef %185, i32 noundef %186, i32 noundef %187, i32 noundef 1)
-  %189 = getelementptr inbounds i8, ptr %64, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %64, i64 96
   store ptr %188, ptr %189, align 8
   %190 = load i32, ptr %154, align 4
   %.not208.i = icmp eq i32 %190, 0
@@ -3305,32 +3305,32 @@ create_hf_entry.exit.i:                           ; preds = %get_signal_value_na
   %209 = zext i32 %193 to i64
   %210 = getelementptr %struct.hf_register_info, ptr %192, i64 %209
   store ptr %199, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 8
-  %212 = getelementptr inbounds i8, ptr %210, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 40
   store i64 0, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %210, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %214 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.278, ptr noundef %197) #13
   store ptr %214, ptr %211, align 8
   %215 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.279, ptr noundef nonnull @.str.131, ptr noundef %198) #13
   store ptr %215, ptr %213, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %212, i8 0, i64 16, i1 false)
-  %216 = getelementptr inbounds i8, ptr %210, i64 28
+  %216 = getelementptr inbounds nuw i8, ptr %210, i64 28
   store i32 0, ptr %216, align 4
-  %217 = getelementptr inbounds i8, ptr %210, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %210, i64 24
   store i32 23, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %210, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %210, i64 32
   store ptr null, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %210, i64 56
+  %219 = getelementptr inbounds nuw i8, ptr %210, i64 56
   store i32 -1, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %210, i64 60
+  %220 = getelementptr inbounds nuw i8, ptr %210, i64 60
   store i32 0, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %210, i64 64
+  %221 = getelementptr inbounds nuw i8, ptr %210, i64 64
   store i32 0, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %210, i64 68
+  %222 = getelementptr inbounds nuw i8, ptr %210, i64 68
   store i32 -1, ptr %222, align 4
-  %223 = getelementptr inbounds i8, ptr %210, i64 72
+  %223 = getelementptr inbounds nuw i8, ptr %210, i64 72
   store ptr null, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %64, i64 104
+  %224 = getelementptr inbounds nuw i8, ptr %64, i64 104
   store ptr %199, ptr %224, align 8
   br label %225
 
@@ -3371,32 +3371,32 @@ create_hf_entry.exit215.i:                        ; preds = %get_signal_value_na
   %245 = zext i32 %229 to i64
   %246 = getelementptr %struct.hf_register_info, ptr %228, i64 %245
   store ptr %235, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 8
-  %248 = getelementptr inbounds i8, ptr %246, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 40
   store i64 0, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %246, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %250 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.280, ptr noundef %233) #13
   store ptr %250, ptr %247, align 8
   %251 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.131, ptr noundef %234) #13
   store ptr %251, ptr %249, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %248, i8 0, i64 16, i1 false)
-  %252 = getelementptr inbounds i8, ptr %246, i64 28
+  %252 = getelementptr inbounds nuw i8, ptr %246, i64 28
   store i32 0, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %246, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %246, i64 24
   store i32 23, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %246, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %246, i64 32
   store ptr null, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %246, i64 56
+  %255 = getelementptr inbounds nuw i8, ptr %246, i64 56
   store i32 -1, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %246, i64 60
+  %256 = getelementptr inbounds nuw i8, ptr %246, i64 60
   store i32 0, ptr %256, align 4
-  %257 = getelementptr inbounds i8, ptr %246, i64 64
+  %257 = getelementptr inbounds nuw i8, ptr %246, i64 64
   store i32 0, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %246, i64 68
+  %258 = getelementptr inbounds nuw i8, ptr %246, i64 68
   store i32 -1, ptr %258, align 4
-  %259 = getelementptr inbounds i8, ptr %246, i64 72
+  %259 = getelementptr inbounds nuw i8, ptr %246, i64 72
   store ptr null, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %64, i64 112
+  %260 = getelementptr inbounds nuw i8, ptr %64, i64 112
   store ptr %235, ptr %260, align 8
   br label %261
 
@@ -3437,32 +3437,32 @@ create_hf_entry.exit220.i:                        ; preds = %get_signal_value_na
   %281 = zext i32 %265 to i64
   %282 = getelementptr %struct.hf_register_info, ptr %264, i64 %281
   store ptr %271, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 8
-  %284 = getelementptr inbounds i8, ptr %282, i64 40
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 40
   store i64 0, ptr %284, align 8
-  %285 = getelementptr inbounds i8, ptr %282, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %286 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.282, ptr noundef %269) #13
   store ptr %286, ptr %283, align 8
   %287 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.283, ptr noundef nonnull @.str.131, ptr noundef %270) #13
   store ptr %287, ptr %285, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %284, i8 0, i64 16, i1 false)
-  %288 = getelementptr inbounds i8, ptr %282, i64 28
+  %288 = getelementptr inbounds nuw i8, ptr %282, i64 28
   store i32 0, ptr %288, align 4
-  %289 = getelementptr inbounds i8, ptr %282, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %282, i64 24
   store i32 23, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %282, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %282, i64 32
   store ptr null, ptr %290, align 8
-  %291 = getelementptr inbounds i8, ptr %282, i64 56
+  %291 = getelementptr inbounds nuw i8, ptr %282, i64 56
   store i32 -1, ptr %291, align 8
-  %292 = getelementptr inbounds i8, ptr %282, i64 60
+  %292 = getelementptr inbounds nuw i8, ptr %282, i64 60
   store i32 0, ptr %292, align 4
-  %293 = getelementptr inbounds i8, ptr %282, i64 64
+  %293 = getelementptr inbounds nuw i8, ptr %282, i64 64
   store i32 0, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %282, i64 68
+  %294 = getelementptr inbounds nuw i8, ptr %282, i64 68
   store i32 -1, ptr %294, align 4
-  %295 = getelementptr inbounds i8, ptr %282, i64 72
+  %295 = getelementptr inbounds nuw i8, ptr %282, i64 72
   store ptr null, ptr %295, align 8
-  %296 = getelementptr inbounds i8, ptr %64, i64 120
+  %296 = getelementptr inbounds nuw i8, ptr %64, i64 120
   store ptr %271, ptr %296, align 8
   br label %297
 
@@ -3531,21 +3531,21 @@ declare void @uat_set_default_values(ptr noundef, ptr noundef) local_unnamed_add
 define internal noundef ptr @copy_spdu_someip_mapping_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %16, align 4
   ret ptr %0
 }
@@ -3554,14 +3554,14 @@ define internal noundef ptr @copy_spdu_someip_mapping_cb(ptr noundef returned wr
 define internal noundef zeroext i1 @update_spdu_someip_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ugt i32 %3, 65535
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   br i1 %4, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.287, i32 noundef %3, i32 noundef %6, i32 noundef %9, i32 noundef %11) #13
   br label %.sink.split
@@ -3571,28 +3571,28 @@ define internal noundef zeroext i1 @update_spdu_someip_mapping(ptr nocapture nou
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.288, i32 noundef %3, i32 noundef %6, i32 noundef %17, i32 noundef %19) #13
   br label %.sink.split
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp ugt i32 %23, 255
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.289, i32 noundef %3, i32 noundef %6, i32 noundef %27, i32 noundef %23) #13
   store ptr %28, ptr %1, align 8
   br label %29
 
 29:                                               ; preds = %25, %21
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = icmp ugt i32 %31, 255
   br i1 %32, label %33, label %38
@@ -3647,11 +3647,11 @@ define internal void @post_update_spdu_someip_mapping_cb() #0 {
   %12 = load ptr, ptr @spdu_someip_mapping, align 8
   %13 = getelementptr %struct._spdu_someip_mapping, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %13, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %16, 65535
   %22 = shl i32 %14, 16
@@ -3697,7 +3697,7 @@ define internal void @post_update_spdu_someip_mapping_cb() #0 {
   %46 = trunc i64 %45 to i32
   %47 = load ptr, ptr @signal_pdu_handle_someip, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.291, i32 noundef %46, ptr noundef %47) #13
-  %48 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not8.i = icmp eq ptr %49, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
@@ -3714,13 +3714,13 @@ register_signal_pdu_someip.exit:                  ; preds = %._crit_edge.i, %40,
 define internal noundef ptr @copy_spdu_can_mapping_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 4
   ret ptr %0
 }
@@ -3824,7 +3824,7 @@ define internal void @post_update_spdu_can_mapping_cb() #0 {
   %.str.294..str.295.i = select i1 %.not10.i, ptr @.str.294, ptr @.str.295
   %37 = and i32 %..i, %35
   tail call void @dissector_add_uint(ptr noundef nonnull %.str.294..str.295.i, i32 noundef %37, ptr noundef %36) #13
-  %38 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not9.i = icmp eq ptr %39, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
@@ -3841,27 +3841,27 @@ register_signal_pdu_can.exit:                     ; preds = %._crit_edge.i, %29,
 define internal noundef ptr @copy_spdu_flexray_mapping_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %12, ptr %13, align 4
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_spdu_flexray_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 255
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
   br i1 %5, label %.sink.split, label %8
 
@@ -3942,13 +3942,13 @@ define internal void @post_update_spdu_flexray_mapping_cb() #0 {
 define internal noundef ptr @copy_spdu_lin_mapping_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 4
   ret ptr %0
 }
@@ -3964,7 +3964,7 @@ define internal noundef zeroext i1 @update_spdu_lin_mapping(ptr nocapture nounde
   br label %.sink.split
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, 65535
   br i1 %10, label %11, label %13
@@ -4052,7 +4052,7 @@ define internal void @post_update_spdu_lin_mapping_cb() #0 {
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr @signal_pdu_handle_lin, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.300, i32 noundef %32, ptr noundef %33) #13
-  %34 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not8.i = icmp eq ptr %35, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
@@ -4069,9 +4069,9 @@ register_signal_pdu_lin.exit:                     ; preds = %._crit_edge.i, %27,
 define internal noundef ptr @copy_spdu_pdu_transport_mapping_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
   ret ptr %0
 }
@@ -4146,7 +4146,7 @@ define internal void @post_update_spdu_pdu_transport_mapping_cb() #0 {
   %29 = trunc i64 %28 to i32
   %30 = load ptr, ptr @signal_pdu_handle_pdu_transport, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.302, i32 noundef %29, ptr noundef %30) #13
-  %31 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not8.i = icmp eq ptr %32, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
@@ -4163,9 +4163,9 @@ register_signal_pdu_pdu_transport.exit:           ; preds = %._crit_edge.i, %23,
 define internal noundef ptr @copy_spdu_ipdum_mapping_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
   ret ptr %0
 }
@@ -4240,7 +4240,7 @@ define internal void @post_update_spdu_ipdum_mapping_cb() #0 {
   %29 = trunc i64 %28 to i32
   %30 = load ptr, ptr @signal_pdu_handle_ipdum, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.304, i32 noundef %29, ptr noundef %30) #13
-  %31 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not8.i = icmp eq ptr %32, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
@@ -4266,13 +4266,13 @@ define internal noundef ptr @copy_spdu_dlt_mapping_cb(ptr noundef returned write
 7:                                                ; preds = %3, %5
   %storemerge = phi ptr [ %6, %5 ], [ null, %3 ]
   store ptr %storemerge, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %12, ptr %13, align 4
   ret ptr %0
 }
@@ -4356,34 +4356,34 @@ define internal void @post_update_spdu_dlt_mapping_cb() #0 {
 define internal noundef ptr @copy_spdu_uds_mapping_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %16, align 4
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_spdu_uds_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 65535
   br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 255
   br i1 %9, label %.sink.split, label %11
@@ -4428,10 +4428,10 @@ define internal void @post_update_spdu_uds_mapping_cb() #0 {
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 8) #13
   %12 = load ptr, ptr @spdu_uds_mapping, align 8
   %13 = getelementptr %struct._spdu_uds_mapping, ptr %12, i64 %indvars.iv
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 4
   %.not23 = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 191
   %19 = or disjoint i32 %18, 64
@@ -4439,7 +4439,7 @@ define internal void @post_update_spdu_uds_mapping_cb() #0 {
   %.0 = select i1 %.not23, i32 %20, i32 %19
   %21 = load i32, ptr %13, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %13, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 65535
   %26 = zext nneg i32 %25 to i64
@@ -4479,13 +4479,13 @@ define internal void @post_update_spdu_uds_mapping_cb() #0 {
 define internal noundef ptr @copy_spdu_isobus_mapping_cb(ptr noundef returned writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 4
   ret ptr %0
 }
@@ -4577,7 +4577,7 @@ define internal void @post_update_spdu_isobus_mapping_cb() #0 {
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr @signal_pdu_handle_isobus, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.309, i32 noundef %35, ptr noundef %36) #13
-  %37 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not8.i = icmp eq ptr %38, null
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
@@ -4616,11 +4616,11 @@ define internal i32 @dissect_spdu_message_someip(ptr noundef %0, ptr noundef %1,
 
 7:                                                ; preds = %4
   %8 = load i16, ptr %3, align 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %10 = load i16, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %3, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i8, ptr %13, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %15 = load ptr, ptr @data_spdu_someip_mappings, align 8
@@ -4649,7 +4649,7 @@ get_someip_mapping.exit:                          ; preds = %7
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %get_someip_mapping.exit
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i32, ptr %30, align 4
   %32 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %31, i32 noundef 0)
   br label %33
@@ -4676,7 +4676,7 @@ define internal i32 @dissect_spdu_message_can(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not12, label %10, label %29
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %12 = load i16, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %13 = load ptr, ptr @data_spdu_can_mappings, align 8
@@ -4711,7 +4711,7 @@ get_can_mapping.exit:                             ; preds = %15
 
 25:                                               ; preds = %get_can_mapping.exit.thread14, %get_can_mapping.exit
   %.05.i16 = phi ptr [ %20, %get_can_mapping.exit.thread14 ], [ %23, %get_can_mapping.exit ]
-  %26 = getelementptr inbounds i8, ptr %.05.i16, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.05.i16, i64 8
   %27 = load i32, ptr %26, align 4
   %28 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27, i32 noundef 1)
   br label %29
@@ -4742,7 +4742,7 @@ define internal range(i32 0, 2) i32 @dissect_spdu_message_can_heur(ptr noundef %
   br i1 %.not12.i, label %10, label %dissect_spdu_message_can.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %12 = load i16, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %13 = load ptr, ptr @data_spdu_can_mappings, align 8
@@ -4777,7 +4777,7 @@ get_can_mapping.exit.i:                           ; preds = %15
 
 25:                                               ; preds = %get_can_mapping.exit.i, %get_can_mapping.exit.thread14.i
   %.05.i16.i = phi ptr [ %20, %get_can_mapping.exit.thread14.i ], [ %23, %get_can_mapping.exit.i ]
-  %26 = getelementptr inbounds i8, ptr %.05.i16.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.05.i16.i, i64 8
   %27 = load i32, ptr %26, align 4
   %28 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27, i32 noundef 1)
   %29 = icmp ne i32 %28, 0
@@ -4824,7 +4824,7 @@ get_flexray_mapping.exit:                         ; preds = %7
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %get_flexray_mapping.exit
-  %20 = getelementptr inbounds i8, ptr %17, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i32 noundef 1)
   br label %23
@@ -4864,7 +4864,7 @@ get_flexray_mapping.exit.i:                       ; preds = %7
   br i1 %13, label %dissect_spdu_message_flexray.exit, label %14
 
 14:                                               ; preds = %get_flexray_mapping.exit.i
-  %15 = getelementptr inbounds i8, ptr %12, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i32 noundef 1)
   %18 = icmp ne i32 %17, 0
@@ -4899,7 +4899,7 @@ get_lin_mapping.exit.thread:                      ; preds = %7
 10:                                               ; preds = %7
   %11 = load i32, ptr %3, align 4
   %12 = and i32 %11, 63
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i32
   %16 = shl nuw i32 %15, 16
@@ -4925,7 +4925,7 @@ get_lin_mapping.exit:                             ; preds = %10
 
 25:                                               ; preds = %get_lin_mapping.exit.thread11, %get_lin_mapping.exit
   %.06.i13 = phi ptr [ %18, %get_lin_mapping.exit.thread11 ], [ %23, %get_lin_mapping.exit ]
-  %26 = getelementptr inbounds i8, ptr %.06.i13, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.06.i13, i64 8
   %27 = load i32, ptr %26, align 4
   %28 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %27, i32 noundef 1)
   br label %29
@@ -4965,7 +4965,7 @@ get_pdu_transport_mapping.exit:                   ; preds = %7
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %get_pdu_transport_mapping.exit
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i32 noundef 0)
   br label %18
@@ -5005,7 +5005,7 @@ get_ipdum_mapping.exit:                           ; preds = %7
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %get_ipdum_mapping.exit
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16, i32 noundef 1)
   br label %18
@@ -5026,7 +5026,7 @@ define internal i32 @dissect_spdu_message_dlt_heur(ptr noundef %0, ptr noundef %
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -5052,7 +5052,7 @@ get_dlt_mapping.exit:                             ; preds = %7
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %get_dlt_mapping.exit
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %23, i32 noundef 1)
   br label %25
@@ -5079,14 +5079,14 @@ define internal range(i32 0, 2) i32 @dissect_spdu_message_uds_heur(ptr noundef %
 9:                                                ; preds = %6
   %10 = tail call ptr @wmem_epan_scope() #13
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 8) #13
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %15 = load i8, ptr %14, align 4
   %16 = or i8 %15, 64
   %.017.in.i = select i1 %.not.i, i8 %15, i8 %16
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = load i32, ptr %3, align 4
@@ -5123,7 +5123,7 @@ get_uds_mapping.exit:                             ; preds = %9, %31
   br i1 %41, label %get_uds_mapping.exit.thread, label %42
 
 42:                                               ; preds = %get_uds_mapping.exit
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %44 = load i32, ptr %43, align 4
   %45 = tail call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %44, i32 noundef 0)
   %46 = icmp ne i32 %45, 0
@@ -5146,9 +5146,9 @@ define internal i32 @dissect_spdu_message_isobus(ptr noundef %0, ptr noundef %1,
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i16, ptr %10, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %12 = load ptr, ptr @data_spdu_isobus_mappings, align 8
@@ -5183,7 +5183,7 @@ get_isobus_mapping.exit:                          ; preds = %14
 
 24:                                               ; preds = %get_isobus_mapping.exit.thread12, %get_isobus_mapping.exit
   %.05.i14 = phi ptr [ %19, %get_isobus_mapping.exit.thread12 ], [ %22, %get_isobus_mapping.exit ]
-  %25 = getelementptr inbounds i8, ptr %.05.i14, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.05.i14, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %26, i32 noundef 1)
   br label %28
@@ -5289,7 +5289,7 @@ define internal fastcc void @deregister_user_data() unnamed_addr #0 {
   %10 = phi ptr [ %.pre.i, %7 ], [ %4, %5 ]
   tail call void @g_free(ptr noundef %10) #13
   store ptr null, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %11, align 8
   br label %12
 
@@ -5340,7 +5340,7 @@ deregister_user_data_hfarray.exit:                ; preds = %0, %._crit_edge.i
   %22 = phi ptr [ %.pre.i10, %19 ], [ %16, %17 ]
   tail call void @g_free(ptr noundef %22) #13
   store ptr null, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %23, align 8
   br label %24
 
@@ -5391,7 +5391,7 @@ deregister_user_data_hfarray.exit14:              ; preds = %deregister_user_dat
   %34 = phi ptr [ %.pre.i24, %31 ], [ %28, %29 ]
   tail call void @g_free(ptr noundef %34) #13
   store ptr null, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %35, align 8
   br label %36
 
@@ -5442,7 +5442,7 @@ deregister_user_data_hfarray.exit28:              ; preds = %deregister_user_dat
   %46 = phi ptr [ %.pre.i38, %43 ], [ %40, %41 ]
   tail call void @g_free(ptr noundef %46) #13
   store ptr null, ptr %39, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %47, align 8
   br label %48
 
@@ -5497,7 +5497,7 @@ get_signal_value_name_config.exit:                ; preds = %9
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %get_signal_value_name_config.exit
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -5506,10 +5506,10 @@ get_signal_value_name_config.exit:                ; preds = %9
   %25 = zext i32 %1 to i64
   %26 = getelementptr %struct.hf_register_info, ptr %0, i64 %25
   store ptr %11, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   switch i32 %8, label %default.unreachable118 [
     i32 1, label %30
     i32 2, label %32
@@ -5565,19 +5565,19 @@ default.unreachable118:                           ; preds = %24
 
 switch.lookup:                                    ; preds = %47
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.create_hf_entry, i64 0, i64 %49
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.create_hf_entry, i64 0, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep125 = getelementptr inbounds [6 x i32], ptr @switch.table.create_hf_entry.1, i64 0, i64 %50
+  %switch.gep125 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.create_hf_entry.1, i64 0, i64 %50
   %switch.load126 = load i32, ptr %switch.gep125, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %40
   %.sink123 = phi i32 [ 0, %40 ], [ %switch.load, %switch.lookup ]
   %.sink121 = phi i32 [ 23, %40 ], [ %switch.load126, %switch.lookup ]
-  %51 = getelementptr inbounds i8, ptr %26, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store i32 %.sink123, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %26, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %.sink121, ptr %52, align 8
   br label %53
 
@@ -5588,7 +5588,7 @@ switch.lookup:                                    ; preds = %47
   br i1 %or.cond9, label %56, label %60
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %26, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 33792
   store i32 %59, ptr %57, align 4
@@ -5596,17 +5596,17 @@ switch.lookup:                                    ; preds = %47
 
 60:                                               ; preds = %53, %56
   %.sink = phi ptr [ %.0115, %56 ], [ null, %53 ]
-  %61 = getelementptr inbounds i8, ptr %26, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %.sink, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %26, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store i32 -1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %26, i64 60
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 60
   store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %26, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %26, i64 68
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 68
   store i32 -1, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %26, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store ptr null, ptr %66, align 8
   ret ptr %11
 }
@@ -5664,7 +5664,7 @@ get_message_name.exit:                            ; preds = %5
   br i1 %.not85, label %23, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.314, ptr noundef nonnull %17) #13
   %22 = load ptr, ptr %20, align 8
@@ -5678,13 +5678,13 @@ get_message_name.exit:                            ; preds = %5
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, 2
   store i32 %32, ptr %30, align 4
@@ -5693,7 +5693,7 @@ get_message_name.exit:                            ; preds = %5
   br i1 %.not5.i91, label %proto_item_set_hidden.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = or i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -5752,7 +5752,7 @@ get_parameter_config.exit:                        ; preds = %proto_item_set_hidd
   br i1 %.not87, label %60, label %65
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %.0.i92, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 8
   %62 = load i32, ptr %61, align 8
   %.not88 = icmp eq i32 %62, 0
   br i1 %.not88, label %63, label %65
@@ -5763,16 +5763,16 @@ get_parameter_config.exit:                        ; preds = %proto_item_set_hidd
 
 65:                                               ; preds = %60, %57, %55
   %66 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #13
-  %67 = getelementptr inbounds i8, ptr %.0.i92, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 4
   %68 = load i32, ptr %67, align 4
   %.not131 = icmp eq i32 %68, 0
   br i1 %.not131, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.0.i92, i64 16
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %73
 
 73:                                               ; preds = %.lr.ph, %418
@@ -5817,7 +5817,7 @@ get_signal_value_name_config.exit:                ; preds = %73, %81
   unreachable
 
 92:                                               ; preds = %get_signal_value_name_config.exit
-  %93 = getelementptr inbounds i8, ptr %90, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 88
   %94 = load ptr, ptr %93, align 8
   %.not282.i = icmp eq ptr %94, null
   br i1 %.not282.i, label %95, label %96
@@ -5829,7 +5829,7 @@ get_signal_value_name_config.exit:                ; preds = %73, %81
 96:                                               ; preds = %92
   %97 = shl nsw i32 %.076128, 3
   %98 = add i32 %97, %.077127
-  %99 = getelementptr inbounds i8, ptr %90, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, %98
   %102 = lshr i32 %101, 3
@@ -5839,7 +5839,7 @@ get_signal_value_name_config.exit:                ; preds = %73, %81
   %.not283.i = icmp ne i32 %103, 0
   %105 = zext i1 %.not283.i to i32
   %spec.select.i = add nsw i32 %104, %105
-  %106 = getelementptr inbounds i8, ptr %90, i64 60
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 60
   %107 = load i32, ptr %106, align 4
   %.not284.i = icmp eq i32 %107, -1
   %.not285.i = icmp eq i32 %107, %.096126
@@ -5871,7 +5871,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
   br i1 %.not286.i, label %116, label %121
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %90, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %118 = load i32, ptr %117, align 8
   %.not287.i = icmp eq i32 %118, 0
   br i1 %.not287.i, label %121, label %119
@@ -5897,7 +5897,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
 
 128:                                              ; preds = %125, %123
   %.0271.i = phi i32 [ %124, %123 ], [ -1, %125 ]
-  %129 = getelementptr inbounds i8, ptr %90, i64 96
+  %129 = getelementptr inbounds nuw i8, ptr %90, i64 96
   %130 = load ptr, ptr %129, align 8
   %.not289.i = icmp eq ptr %130, null
   br i1 %.not289.i, label %133, label %131
@@ -5914,7 +5914,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
 
 136:                                              ; preds = %133, %131
   %.0273.i = phi i32 [ %132, %131 ], [ -1, %133 ]
-  %137 = getelementptr inbounds i8, ptr %90, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %90, i64 20
   %138 = load i32, ptr %137, align 4
   %.not.i.i = icmp eq i32 %138, 0
   %.not6067.i.i = icmp slt i32 %102, %.076128
@@ -6029,7 +6029,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %108
 
 dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %180, %.lr.ph70.split.us.i.i, %.preheader.i.i, %.lr.ph.split.i.preheader.i, %.preheader62.i.i
   %.2.i.i = phi i64 [ 0, %.preheader.i.i ], [ 0, %.preheader62.i.i ], [ 0, %.lr.ph.split.i.preheader.i ], [ %168, %.lr.ph70.split.us.i.i ], [ %.155.i.i, %180 ], [ %152, %.lr.ph.split.us.i.i ], [ %187, %.lr.ph.split.i.i ]
-  %189 = getelementptr inbounds i8, ptr %90, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %190 = load i32, ptr %189, align 8
   switch i32 %190, label %proto_item_set_hidden.exit.i [
     i32 1, label %191
@@ -6042,7 +6042,7 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
 
 191:                                              ; preds = %dissect_shifted_and_shortened_uint.exit.i
   %192 = uitofp i64 %.2.i.i to double
-  %193 = getelementptr inbounds i8, ptr %90, i64 56
+  %193 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %194 = load i32, ptr %193, align 8
   %.not296.i = icmp eq i32 %194, 0
   %195 = trunc i64 %.2.i.i to i32
@@ -6051,13 +6051,13 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
   br i1 %.not297.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %.0.i93, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 4
   %197 = load i32, ptr %196, align 4
   %.not333.i = icmp eq i32 %197, 0
   br i1 %.not333.i, label %.loopexit.i, label %.lr.ph331.i
 
 .lr.ph331.i:                                      ; preds = %.preheader.i
-  %198 = getelementptr inbounds i8, ptr %.0.i93, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 24
   %199 = load ptr, ptr %198, align 8
   %wide.trip.count.i = zext i32 %197 to i64
   br label %200
@@ -6071,13 +6071,13 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
   br i1 %.not300.i, label %209, label %203
 
 203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %201, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %205 = load i64, ptr %204, align 8
   %.not301.i = icmp ugt i64 %.2.i.i, %205
   br i1 %.not301.i, label %209, label %206
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds i8, ptr %201, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %208 = load ptr, ptr %207, align 8
   br label %209
 
@@ -6089,15 +6089,15 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
 
 .loopexit.i:                                      ; preds = %209, %.preheader.i, %191
   %.0264.i = phi ptr [ null, %191 ], [ null, %.preheader.i ], [ %.2266.i, %209 ]
-  %210 = getelementptr inbounds i8, ptr %90, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %211 = load i32, ptr %210, align 8
   %.not298.i = icmp eq i32 %211, 0
   br i1 %.not298.i, label %219, label %212
 
 212:                                              ; preds = %.loopexit.i
-  %213 = getelementptr inbounds i8, ptr %90, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %214 = load double, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %90, i64 48
+  %215 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %216 = load double, ptr %215, align 8
   %217 = call double @llvm.fmuladd.f64(double %214, double %192, double %216)
   %218 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %217) #13
@@ -6149,20 +6149,20 @@ dissect_shifted_and_shortened_uint.exit.i:        ; preds = %.lr.ph.split.i.i, %
 ws_sign_ext64.exit.i:                             ; preds = %231, %228
   %.0.i313.i = phi i64 [ %.010.i.i, %231 ], [ %.2.i.i, %228 ]
   %239 = sitofp i64 %.0.i313.i to double
-  %240 = getelementptr inbounds i8, ptr %90, i64 56
+  %240 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %241 = load i32, ptr %240, align 8
   %.not294.i = icmp eq i32 %241, 0
   %242 = trunc i64 %.0.i313.i to i32
   %spec.select108 = select i1 %.not294.i, i32 %.096126, i32 %242
-  %243 = getelementptr inbounds i8, ptr %90, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %244 = load i32, ptr %243, align 8
   %.not295.i = icmp eq i32 %244, 0
   br i1 %.not295.i, label %252, label %245
 
 245:                                              ; preds = %ws_sign_ext64.exit.i
-  %246 = getelementptr inbounds i8, ptr %90, i64 40
+  %246 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %247 = load double, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %90, i64 48
+  %248 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %249 = load double, ptr %248, align 8
   %250 = call double @llvm.fmuladd.f64(double %247, double %239, double %249)
   %251 = call ptr @proto_tree_add_double(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %250) #13
@@ -6183,7 +6183,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br label %304
 
 258:                                              ; preds = %dissect_shifted_and_shortened_uint.exit.i
-  %259 = getelementptr inbounds i8, ptr %90, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %260 = load i32, ptr %259, align 8
   switch i32 %260, label %267 [
     i32 64, label %261
@@ -6221,7 +6221,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br label %276
 
 276:                                              ; preds = %273, %272
-  %277 = getelementptr inbounds i8, ptr %90, i64 68
+  %277 = getelementptr inbounds nuw i8, ptr %90, i64 68
   %278 = load i32, ptr %277, align 4
   %279 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, i32 noundef %278) #13
   br label %proto_item_set_hidden.exit.i
@@ -6237,7 +6237,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br label %284
 
 284:                                              ; preds = %281, %280
-  %285 = getelementptr inbounds i8, ptr %90, i64 68
+  %285 = getelementptr inbounds nuw i8, ptr %90, i64 68
   %286 = load i32, ptr %285, align 4
   %287 = call ptr @proto_tree_add_item_ret_length(ptr noundef %14, i32 noundef %.0271.i, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef -1, i32 noundef %286, ptr noundef nonnull %6) #13
   %288 = load i32, ptr %6, align 4
@@ -6258,7 +6258,7 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
 294:                                              ; preds = %291, %290
   %295 = load i32, ptr %137, align 4
   %.not291.i = icmp eq i32 %295, 0
-  %296 = getelementptr inbounds i8, ptr %90, i64 68
+  %296 = getelementptr inbounds nuw i8, ptr %90, i64 68
   %297 = load i32, ptr %296, align 4
   %298 = or i32 %297, -2147483648
   %.sink.i = select i1 %.not291.i, i32 %298, i32 %297
@@ -6282,13 +6282,13 @@ ws_sign_ext64.exit.i:                             ; preds = %231, %228
   br i1 %or.cond.i, label %proto_item_set_hidden.exit.i, label %306
 
 306:                                              ; preds = %304
-  %307 = getelementptr inbounds i8, ptr %.0261.i, i64 32
+  %307 = getelementptr inbounds nuw i8, ptr %.0261.i, i64 32
   %308 = load ptr, ptr %307, align 8
   %.not5.i.i = icmp eq ptr %308, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %309
 
 309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %308, i64 28
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 28
   %311 = load i32, ptr %310, align 4
   %312 = or i32 %311, 1
   store i32 %312, ptr %310, align 4
@@ -6298,19 +6298,19 @@ proto_item_set_hidden.exit.i:                     ; preds = %309, %306, %304, %2
   %.1 = phi i32 [ %.096126, %dissect_shifted_and_shortened_uint.exit.i ], [ %.096126, %294 ], [ %.096126, %284 ], [ %.096126, %276 ], [ %.2, %304 ], [ %.2, %306 ], [ %.2, %309 ]
   %.0263348.i = phi ptr [ null, %dissect_shifted_and_shortened_uint.exit.i ], [ null, %294 ], [ null, %284 ], [ null, %276 ], [ %.0263.i, %304 ], [ %.0263.i, %306 ], [ %.0263.i, %309 ]
   %.0268347.i = phi double [ 0.000000e+00, %dissect_shifted_and_shortened_uint.exit.i ], [ 0.000000e+00, %294 ], [ 0.000000e+00, %284 ], [ 0.000000e+00, %276 ], [ %.0268.i, %304 ], [ %.0268.i, %306 ], [ %.0268.i, %309 ]
-  %313 = getelementptr inbounds i8, ptr %90, i64 72
+  %313 = getelementptr inbounds nuw i8, ptr %90, i64 72
   %314 = load i32, ptr %313, align 8
   %.not303.i = icmp eq i32 %314, 0
   br i1 %.not303.i, label %315, label %321
 
 315:                                              ; preds = %proto_item_set_hidden.exit.i
-  %316 = getelementptr inbounds i8, ptr %90, i64 76
+  %316 = getelementptr inbounds nuw i8, ptr %90, i64 76
   %317 = load i32, ptr %316, align 4
   %.not304.i = icmp eq i32 %317, 0
   br i1 %.not304.i, label %318, label %321
 
 318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %90, i64 80
+  %319 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %320 = load i32, ptr %319, align 8
   %.not305.i = icmp eq i32 %320, 0
   br i1 %.not305.i, label %413, label %321
@@ -6345,13 +6345,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %309, %306, %304, %2
   %335 = call ptr @wmem_file_scope() #13
   %336 = call noalias ptr @wmem_alloc0(ptr noundef %335, i64 noundef 64) #13
   store double 0.000000e+00, ptr %336, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i32 0, ptr %337, align 8
-  %338 = getelementptr inbounds i8, ptr %336, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %336, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull readonly align 8 dereferenceable(16) %71, i64 16, i1 false)
-  %339 = getelementptr inbounds i8, ptr %336, i64 32
+  %339 = getelementptr inbounds nuw i8, ptr %336, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull readonly align 8 dereferenceable(16) %71, i64 16, i1 false)
-  %340 = getelementptr inbounds i8, ptr %336, i64 56
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 56
   store double 0.000000e+00, ptr %340, align 8
   %341 = load ptr, ptr @spdu_aggregation_data, align 8
   %342 = call ptr @wmem_map_insert(ptr noundef %341, ptr noundef nonnull %331, ptr noundef nonnull %336) #13
@@ -6363,7 +6363,7 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   %344 = load i32, ptr @proto_signal_pdu, align 4
   %345 = call ptr @p_get_proto_data(ptr noundef %343, ptr noundef %1, i32 noundef %344, i32 noundef %323) #13
   %346 = load ptr, ptr %72, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 50
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 50
   %348 = load i16, ptr %347, align 2
   %349 = and i16 %348, 8
   %.not306.i = icmp eq i16 %349, 0
@@ -6373,20 +6373,20 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   %351 = load double, ptr %.0.i316.i, align 8
   %352 = fadd double %.0268347.i, %351
   store double %352, ptr %.0.i316.i, align 8
-  %353 = getelementptr inbounds i8, ptr %.0.i316.i, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %.0.i316.i, i64 8
   %354 = load i32, ptr %353, align 8
   %355 = add i32 %354, 1
   store i32 %355, ptr %353, align 8
-  %356 = getelementptr inbounds i8, ptr %.0.i316.i, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %.0.i316.i, i64 32
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %71, ptr noundef nonnull %356) #13
   %357 = call double @nstime_to_sec(ptr noundef nonnull %7) #13
   %358 = fcmp ogt double %357, 0.000000e+00
   br i1 %358, label %359, label %365
 
 359:                                              ; preds = %350
-  %360 = getelementptr inbounds i8, ptr %.0.i316.i, i64 48
+  %360 = getelementptr inbounds nuw i8, ptr %.0.i316.i, i64 48
   %361 = load double, ptr %360, align 8
-  %362 = getelementptr inbounds i8, ptr %.0.i316.i, i64 56
+  %362 = getelementptr inbounds nuw i8, ptr %.0.i316.i, i64 56
   %363 = load double, ptr %362, align 8
   %364 = call double @llvm.fmuladd.f64(double %357, double %361, double %363)
   store double %364, ptr %362, align 8
@@ -6394,7 +6394,7 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   br label %365
 
 365:                                              ; preds = %359, %350
-  %366 = getelementptr inbounds i8, ptr %.0.i316.i, i64 48
+  %366 = getelementptr inbounds nuw i8, ptr %.0.i316.i, i64 48
   store double %.0268347.i, ptr %366, align 8
   %.not307.i = icmp eq ptr %345, null
   br i1 %.not307.i, label %367, label %.thread318.i
@@ -6412,16 +6412,16 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   %372 = load double, ptr %.0.i316.i, align 8
   store double %372, ptr %.1.i, align 8
   %373 = load i32, ptr %353, align 8
-  %374 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store i32 %373, ptr %374, align 8
   %375 = load double, ptr %.0.i316.i, align 8
   %376 = uitofp i32 %373 to double
   %377 = fdiv double %375, %376
-  %378 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %378 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   store double %377, ptr %378, align 8
-  %379 = getelementptr inbounds i8, ptr %.0.i316.i, i64 56
+  %379 = getelementptr inbounds nuw i8, ptr %.0.i316.i, i64 56
   %380 = load double, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %381 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   store double %380, ptr %381, align 8
   br label %383
 
@@ -6436,7 +6436,7 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   br i1 %.not309.i, label %391, label %385
 
 385:                                              ; preds = %383
-  %386 = getelementptr inbounds i8, ptr %90, i64 104
+  %386 = getelementptr inbounds nuw i8, ptr %90, i64 104
   %387 = load ptr, ptr %386, align 8
   %388 = load i32, ptr %387, align 4
   %389 = load double, ptr %.0260321.i, align 8
@@ -6444,34 +6444,34 @@ get_or_create_aggregation_data.exit.i:            ; preds = %334, %329
   br label %391
 
 391:                                              ; preds = %385, %383
-  %392 = getelementptr inbounds i8, ptr %90, i64 76
+  %392 = getelementptr inbounds nuw i8, ptr %90, i64 76
   %393 = load i32, ptr %392, align 4
   %.not310.i = icmp eq i32 %393, 0
   br i1 %.not310.i, label %401, label %394
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %90, i64 112
+  %395 = getelementptr inbounds nuw i8, ptr %90, i64 112
   %396 = load ptr, ptr %395, align 8
   %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds i8, ptr %.0260321.i, i64 16
+  %398 = getelementptr inbounds nuw i8, ptr %.0260321.i, i64 16
   %399 = load double, ptr %398, align 8
   %400 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %397, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %399) #13
   br label %401
 
 401:                                              ; preds = %394, %391
-  %402 = getelementptr inbounds i8, ptr %90, i64 80
+  %402 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %403 = load i32, ptr %402, align 8
   %.not311.i = icmp eq i32 %403, 0
   br i1 %.not311.i, label %413, label %404
 
 404:                                              ; preds = %401
-  %405 = getelementptr inbounds i8, ptr %.0260321.i, i64 24
+  %405 = getelementptr inbounds nuw i8, ptr %.0260321.i, i64 24
   %406 = load double, ptr %405, align 8
   %407 = fcmp ord double %406, 0.000000e+00
   br i1 %407, label %408, label %413
 
 408:                                              ; preds = %404
-  %409 = getelementptr inbounds i8, ptr %90, i64 120
+  %409 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %410 = load ptr, ptr %409, align 8
   %411 = load i32, ptr %410, align 4
   %412 = call ptr @proto_tree_add_double(ptr noundef %.0263348.i, i32 noundef %411, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.076128, i32 noundef %spec.select.i, double noundef %406) #13

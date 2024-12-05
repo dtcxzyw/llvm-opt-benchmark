@@ -51,7 +51,7 @@ define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeE(ptr
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %switch.load) #5
   br label %_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE.exit
@@ -73,7 +73,7 @@ define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %switch.load) #5
   br label %11
@@ -180,7 +180,7 @@ define linkonce_odr hidden void @_ZNK4llvm13ErrorInfoBase7messageB5cxx11Ev(ptr d
   store ptr %0, ptr %8, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i64 noundef 0, i32 noundef 0) #5
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %3) #5
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #5

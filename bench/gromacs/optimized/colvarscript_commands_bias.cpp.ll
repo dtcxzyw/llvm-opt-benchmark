@@ -78,7 +78,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_bin(ptr noundef %0, i32 noundef %1, p
   %4 = alloca i32, align 4
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %8)
   %10 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %8, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -87,7 +87,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_bin(ptr noundef %0, i32 noundef %1, p
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(312) %0)
   store i32 %15, ptr %4, align 4
@@ -613,7 +613,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_bincount(ptr noundef %0, i32 noundef 
   %10 = alloca i32, align 4
   %11 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %12 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 808
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 808
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %14)
   %16 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %14, ptr noundef nonnull @.str.8, i32 noundef %1, i32 noundef 0, i32 noundef 1)
@@ -622,7 +622,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_bincount(ptr noundef %0, i32 noundef 
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(312) %0)
   store i32 %21, ptr %4, align 4
@@ -630,7 +630,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_bincount(ptr noundef %0, i32 noundef 
   br i1 %22, label %23, label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load ptr, ptr %24, align 8
   br label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
@@ -761,7 +761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49: ; 
 58:                                               ; preds = %.thread, %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
   %59 = phi i32 [ %.pre, %.thread ], [ %21, %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit ]
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %59)
   store i32 %63, ptr %10, align 4
@@ -794,7 +794,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_binnum(ptr noundef %0, i32 noundef %1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %7 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %9)
   %11 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %9, ptr noundef nonnull @.str.10, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -803,7 +803,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_binnum(ptr noundef %0, i32 noundef %1
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i32 %15(ptr noundef nonnull align 8 dereferenceable(312) %0)
   store i32 %16, ptr %4, align 4
@@ -811,7 +811,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_binnum(ptr noundef %0, i32 noundef %1
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %19)
   invoke void @_ZN12colvarscript13add_error_msgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(304) %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %20 unwind label %24
@@ -885,7 +885,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 define range(i32 -1, 1) i32 @cvscript_bias_delete(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.12, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -898,7 +898,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_delete(ptr noundef %0, i32 noundef %1
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(312) %0) #10
   br label %16
@@ -913,7 +913,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_energy(ptr nocapture noundef readonly
   %4 = alloca double, align 8
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %8)
   %10 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %8, ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -921,7 +921,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_energy(ptr nocapture noundef readonly
   br i1 %.not, label %11, label %15
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load double, ptr %12, align 8
   store double %13, ptr %4, align 8
   %14 = call noundef i32 @_ZN12colvarscript15set_result_realERKdPh(ptr noundef nonnull align 8 dereferenceable(304) %8, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
@@ -938,7 +938,7 @@ declare noundef i32 @_ZN12colvarscript15set_result_realERKdPh(ptr noundef nonnul
 define noundef i32 @cvscript_bias_get(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef 1, i32 noundef 1)
@@ -972,7 +972,7 @@ declare noundef i32 @_ZN12colvarscript13proc_featuresEP10colvardepsiPKPh(ptr nou
 define range(i32 -1, 1) i32 @cvscript_bias_getconfig(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -984,7 +984,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_getconfig(ptr noundef %0, i32 noundef
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 288
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 288
   %16 = tail call noundef i32 @_ZN12colvarscript14set_result_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull align 8 dereferenceable(32) %15)
   br label %17
 
@@ -1003,7 +1003,7 @@ define i32 @cvscript_bias_help(ptr nocapture noundef readnone %0, i32 noundef %1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %9 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 808
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 808
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %11)
   %13 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %11, ptr noundef nonnull @.str.16, i32 noundef %1, i32 noundef 0, i32 noundef 1)
@@ -1015,7 +1015,7 @@ define i32 @cvscript_bias_help(ptr nocapture noundef readnone %0, i32 noundef %1
   br i1 %15, label %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit, label %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread
 
 _ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit: ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not29 = icmp eq ptr %17, null
   br i1 %.not29, label %_ZN12colvarscript18get_colvar_cmd_argEiiPKPh.exit.thread, label %18
@@ -1134,7 +1134,7 @@ define noundef i32 @cvscript_bias_load(ptr noundef %0, i32 noundef %1, ptr nocap
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %7 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %9)
   %11 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %9, ptr noundef nonnull @.str.17, i32 noundef %1, i32 noundef 1, i32 noundef 1)
@@ -1146,7 +1146,7 @@ define noundef i32 @cvscript_bias_load(ptr noundef %0, i32 noundef %1, ptr nocap
   br i1 %13, label %14, label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load ptr, ptr %15, align 8
   br label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
@@ -1220,7 +1220,7 @@ declare noundef i32 @_ZN10colvarbias17read_state_prefixERKNSt7__cxx1112basic_str
 define noundef i32 @cvscript_bias_loadfromstring(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef 1, i32 noundef 1)
@@ -1232,7 +1232,7 @@ define noundef i32 @cvscript_bias_loadfromstring(ptr noundef %0, i32 noundef %1,
   br i1 %11, label %12, label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8
   br label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
@@ -1254,7 +1254,7 @@ define noundef i32 @cvscript_bias_save(ptr noundef %0, i32 noundef %1, ptr nocap
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %8)
   %10 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %8, ptr noundef nonnull @.str.19, i32 noundef %1, i32 noundef 1, i32 noundef 1)
@@ -1266,7 +1266,7 @@ define noundef i32 @cvscript_bias_save(ptr noundef %0, i32 noundef %1, ptr nocap
   br i1 %12, label %13, label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load ptr, ptr %14, align 8
   br label %_ZN12colvarscript16get_bias_cmd_argEiiPKPh.exit
 
@@ -1300,7 +1300,7 @@ declare noundef i32 @_ZN10colvarbias18write_state_prefixERKNSt7__cxx1112basic_st
 define noundef i32 @cvscript_bias_savetostring(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.20, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -1308,7 +1308,7 @@ define noundef i32 @cvscript_bias_savetostring(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = tail call noundef i32 @_ZN10colvarbias18write_state_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(32) %11)
   br label %13
 
@@ -1323,7 +1323,7 @@ declare noundef i32 @_ZN10colvarbias18write_state_stringERNSt7__cxx1112basic_str
 define noundef i32 @cvscript_bias_set(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef 2, i32 noundef 2)
@@ -1356,7 +1356,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_share(ptr noundef %0, i32 noundef %1,
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %6 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %8)
   %10 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %8, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -1365,14 +1365,14 @@ define range(i32 -1, 1) i32 @cvscript_bias_share(ptr noundef %0, i32 noundef %1,
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(312) %0)
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %19, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(32) %17)
   invoke void @_ZN12colvarscript13add_error_msgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(304) %8, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %18 unwind label %20
@@ -1396,7 +1396,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_share(ptr noundef %0, i32 noundef %1,
 define range(i32 -1, 1) i32 @cvscript_bias_state(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.24, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -1422,7 +1422,7 @@ declare void @_ZN10colvardeps11print_stateEv(ptr noundef nonnull align 8 derefer
 define range(i32 -1, 1) i32 @cvscript_bias_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %5 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %7)
   %9 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull @.str.25, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -1430,7 +1430,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_type(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = tail call noundef i32 @_ZN12colvarscript14set_result_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(304) %7, ptr noundef nonnull align 8 dereferenceable(32) %11)
   br label %13
 
@@ -1445,7 +1445,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_update(ptr noundef %0, i32 noundef %1
   %5 = alloca double, align 8
   %6 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %7 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 @_ZN12colvarscript16clear_str_resultEv(ptr noundef nonnull align 8 dereferenceable(304) %9)
   %11 = tail call noundef i32 @_ZN12colvarscript15check_cmd_nargsILNS_11Object_typeE2EEEiPKciii(ptr noundef nonnull align 8 dereferenceable(304) %9, ptr noundef nonnull @.str.26, i32 noundef %1, i32 noundef 0, i32 noundef 0)
@@ -1456,7 +1456,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_update(ptr noundef %0, i32 noundef %1
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(312) %0)
-  %16 = getelementptr inbounds i8, ptr %0, i64 248
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %17 = load double, ptr %16, align 8
   store double %17, ptr %5, align 8
   call void @_ZN11colvarvalueC1ERKd(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -1464,7 +1464,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_update(ptr noundef %0, i32 noundef %1
           to label %19 unwind label %35
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %4, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %22
@@ -1474,7 +1474,7 @@ define range(i32 -1, 1) i32 @cvscript_bias_update(ptr noundef %0, i32 noundef %1
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %22, %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %24 = load ptr, ptr %23, align 8
   %.not.i.i.i1.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit2.i, label %25
@@ -1484,7 +1484,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %22, %19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit2.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit2.i:                 ; preds = %25, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %26 = getelementptr inbounds i8, ptr %4, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i3.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i3.i, label %_ZNSt6vectorIN11colvarvalue4TypeESaIS1_EED2Ev.exit.i, label %28
@@ -1494,9 +1494,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2.i:                 ; preds = %25, %_ZNSt6vectorIi
   br label %_ZNSt6vectorIN11colvarvalue4TypeESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN11colvarvalue4TypeESaIS1_EED2Ev.exit.i: ; preds = %28, %_ZNSt6vectorIiSaIiEED2Ev.exit2.i
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i4.i = icmp eq ptr %32, %30
   br i1 %.not.i.i.i4.i, label %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i, label %33
@@ -1530,7 +1530,7 @@ declare void @_ZN11colvarvalueC1ERKd(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %4
@@ -1540,7 +1540,7 @@ define linkonce_odr void @_ZN11colvarvalueD2Ev(ptr noundef nonnull align 8 deref
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1 = icmp eq ptr %6, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIiSaIiEED2Ev.exit2, label %7
@@ -1550,7 +1550,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit2
 
 _ZNSt6vectorIiSaIiEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i3 = icmp eq ptr %9, null
   br i1 %.not.i.i.i3, label %_ZNSt6vectorIN11colvarvalue4TypeESaIS1_EED2Ev.exit, label %10
@@ -1560,9 +1560,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIN11colvarvalue4TypeESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN11colvarvalue4TypeESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit2, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i4 = icmp eq ptr %14, %12
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIdSaIdEE5clearEv.exit.i, label %15

@@ -242,7 +242,7 @@ define internal noundef i32 @H5P__strcrt_char_encoding_enc(ptr nocapture noundef
 5:                                                ; preds = %3
   %6 = load i32, ptr %0, align 4
   %7 = trunc i32 %6 to i8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %8, ptr %1, align 8
   store i8 %7, ptr %4, align 1
   br label %9
@@ -257,7 +257,7 @@ define internal noundef i32 @H5P__strcrt_char_encoding_enc(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @H5P__strcrt_char_encoding_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i32

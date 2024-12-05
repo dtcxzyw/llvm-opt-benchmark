@@ -605,7 +605,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_homeplug(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.291) #4
   %7 = load ptr, ptr %5, align 8
@@ -614,7 +614,7 @@ define internal i32 @dissect_homeplug(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %10 = load i32, ptr @ett_homeplug, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0) #4
   %.not.i = icmp eq ptr %14, null
@@ -746,7 +746,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @homeplug_metype, align 1
   %6 = zext nneg i8 %5 to i32
@@ -1587,13 +1587,13 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %522
 
 522:                                              ; preds = %511
-  %523 = getelementptr inbounds i8, ptr %521, i64 32
+  %523 = getelementptr inbounds nuw i8, ptr %521, i64 32
   %524 = load ptr, ptr %523, align 8
   %.not5.i.i = icmp eq ptr %524, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %525
 
 525:                                              ; preds = %522
-  %526 = getelementptr inbounds i8, ptr %524, i64 28
+  %526 = getelementptr inbounds nuw i8, ptr %524, i64 28
   %527 = load i32, ptr %526, align 4
   %528 = or i32 %527, 2
   store i32 %528, ptr %526, align 4

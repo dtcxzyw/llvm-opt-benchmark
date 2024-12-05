@@ -41,8 +41,8 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (128, 156)) %this, ptr noundef %eventBase, i32 %fd.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EventHandlerE, i64 16), ptr %this, align 8, !tbaa !7
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %evb_.i, i8 0, i64 28, i1 false)
   invoke void @event_set(ptr noundef nonnull %event_, i32 noundef %fd.coerce, i16 noundef signext 0, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -66,7 +66,7 @@ if.else:                                          ; preds = %invoke.cont
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.else, %if.then
-  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 168
+  %eventBase_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_.i, align 8, !tbaa !10
   ret void
 }
@@ -74,9 +74,9 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12EventHandler16libeventCallbackEisPv(i32 %fd, i16 noundef signext %events, ptr noundef %arg) #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit37:
-  %eventBase_ = getelementptr inbounds i8, ptr %arg, i64 168
+  %eventBase_ = getelementptr inbounds nuw i8, ptr %arg, i64 168
   %0 = load ptr, ptr %eventBase_, align 8, !tbaa !10
-  %executionObserverList_.i = getelementptr inbounds i8, ptr %0, i64 448
+  %executionObserverList_.i = getelementptr inbounds nuw i8, ptr %0, i64 448
   %1 = load ptr, ptr %executionObserverList_.i, align 8, !tbaa !24
   %tobool.not.i = icmp eq ptr %1, null
   %cmp.i104 = icmp eq ptr %1, %executionObserverList_.i
@@ -91,7 +91,7 @@ for.body:                                         ; preds = %for.body, %for.cond
   %__begin2.sroa.0.0111 = phi ptr [ %1, %for.cond.preheader ], [ %5, %for.body ]
   %sub.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0111, i64 -8
   %vtable = load ptr, ptr %sub.ptr.i, align 8, !tbaa !7
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %sub.ptr.i, i64 noundef %3) #17
   %5 = load ptr, ptr %__begin2.sroa.0.0111, align 8, !tbaa !24
@@ -106,7 +106,7 @@ _ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16li
   %6 = phi ptr [ %.pre, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit.loopexit ], [ %0, %_ZNK5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE5emptyEv.exit37 ]
   tail call void @_ZN5folly9EventBase16bumpHandlingTimeEv(ptr noundef nonnull align 16 dereferenceable(584) %6)
   %vtable6 = load ptr, ptr %arg, align 8, !tbaa !7
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 16
   %7 = load ptr, ptr %vfn7, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(176) %arg, i16 noundef zeroext %events) #17
   %8 = load ptr, ptr %executionObserverList_.i, align 8, !tbaa !24
@@ -123,7 +123,7 @@ for.body16:                                       ; preds = %for.body16, %for.co
   %__begin211.sroa.0.0112 = phi ptr [ %8, %for.cond13.preheader ], [ %12, %for.body16 ]
   %sub.ptr.i100 = getelementptr inbounds i8, ptr %__begin211.sroa.0.0112, i64 -8
   %vtable19 = load ptr, ptr %sub.ptr.i100, align 8, !tbaa !7
-  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 24
+  %vfn20 = getelementptr inbounds nuw i8, ptr %vtable19, i64 24
   %11 = load ptr, ptr %vfn20, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(24) %sub.ptr.i100, i64 noundef %10) #17
   %12 = load ptr, ptr %__begin211.sroa.0.0112, align 8, !tbaa !24
@@ -139,9 +139,9 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12EventHandler12setEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
 entry:
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef %eventBase)
-  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 168
+  %eventBase_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !10
   ret void
 }
@@ -151,13 +151,13 @@ declare void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14EventBaseEventD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %userData_ = getelementptr inbounds i8, ptr %this, i64 128
+  %userData_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %userData_, align 8, !tbaa !26
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %freeFn_ = getelementptr inbounds i8, ptr %this, i64 136
+  %freeFn_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %1 = load ptr, ptr %freeFn_, align 8, !tbaa !27
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -195,25 +195,25 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 define void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EventHandlerE, i64 16), ptr %this, align 8, !tbaa !7
-  %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %evcb_flags.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i.i, align 8, !tbaa !28
   %1 = and i16 %0, 15
   %tobool.i.i.i.not.i = icmp eq i16 %1, 0
   br i1 %tobool.i.i.i.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %event_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %event_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2.i2 = invoke noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %event_.i)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i, %entry
-  %userData_.i = getelementptr inbounds i8, ptr %this, i64 136
+  %userData_.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %2 = load ptr, ptr %userData_.i, align 8, !tbaa !26
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont
-  %freeFn_.i = getelementptr inbounds i8, ptr %this, i64 144
+  %freeFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %3 = load ptr, ptr %freeFn_.i, align 8, !tbaa !27
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %_ZN5folly14EventBaseEventD2Ev.exit, label %if.then.i3
@@ -243,14 +243,14 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %evcb_flags.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !28
   %1 = and i16 %0, 15
   %tobool.i.i.i.not = icmp eq i16 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2 = tail call noundef i32 @_ZN5folly14EventBaseEvent12eb_event_delEv(ptr noundef nonnull align 8 dereferenceable(160) %event_)
   br label %if.end
 
@@ -266,16 +266,16 @@ define noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef 
 entry:
   %ref.tmp38 = alloca %"class.google::LogMessage", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
-  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %evcb_flags.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !28
   %1 = and i16 %0, 15
   %tobool.i.i.i.not = icmp eq i16 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end16, label %if.then
 
 if.then:                                          ; preds = %entry
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv = zext i16 %events to i32
-  %ev_events.i = getelementptr inbounds i8, ptr %this, i64 68
+  %ev_events.i = getelementptr inbounds nuw i8, ptr %this, i64 68
   %2 = load i16, ptr %ev_events.i, align 4, !tbaa !29
   %conv6 = sext i16 %2 to i32
   %cmp = icmp eq i32 %conv, %conv6
@@ -292,10 +292,10 @@ cleanup.thread:                                   ; preds = %land.lhs.true, %if.
   br label %if.end16
 
 if.end16:                                         ; preds = %cleanup.thread, %entry
-  %event_17 = getelementptr inbounds i8, ptr %this, i64 8
-  %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %event_17 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %5 = load ptr, ptr %evb_.i, align 8, !tbaa !30
-  %ev_fd.i = getelementptr inbounds i8, ptr %this, i64 64
+  %ev_fd.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load i32, ptr %ev_fd.i, align 8, !tbaa !31
   tail call void @event_set(ptr noundef nonnull %event_17, i32 noundef %6, i16 noundef signext %events, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
   %call23 = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_17, ptr noundef %5)
@@ -340,14 +340,14 @@ invoke.cont47:                                    ; preds = %invoke.cont45
 
 invoke.cont52:                                    ; preds = %invoke.cont47
   %11 = load ptr, ptr %ref.tmp49, align 8, !tbaa !33
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 8
   %12 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !36
   %call2.i74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call46, ptr noundef %11, i64 noundef %12)
           to label %invoke.cont54 unwind label %lpad53
 
 invoke.cont54:                                    ; preds = %invoke.cont52
   %13 = load ptr, ptr %ref.tmp49, align 8, !tbaa !33
-  %14 = getelementptr inbounds i8, ptr %ref.tmp49, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 16
   %cmp.i.i.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -382,7 +382,7 @@ lpad53:                                           ; preds = %invoke.cont52
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = load ptr, ptr %ref.tmp49, align 8, !tbaa !33
-  %20 = getelementptr inbounds i8, ptr %ref.tmp49, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 16
   %cmp.i.i.i75 = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i77, label %if.then.i.i76
 
@@ -449,9 +449,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly12EventHandler15attachEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
 entry:
-  %event_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %event_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_.i, ptr noundef %eventBase)
-  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 168
+  %eventBase_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_.i, align 8, !tbaa !10
   ret void
 }
@@ -460,7 +460,7 @@ entry:
 define void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler15detachEventBaseEv)
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef null)
   ret void
 }
@@ -469,7 +469,7 @@ entry:
 define void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef %fn) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %evcb_flags.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %evcb_flags.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i.i.i.i, align 8, !tbaa !28
   %1 = and i16 %0, 15
   %tobool.i.i.i.not = icmp eq i16 %1, 0
@@ -510,8 +510,8 @@ if.end:                                           ; preds = %entry
 define void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 %fd.coerce) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE)
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
-  %evb_.i = getelementptr inbounds i8, ptr %this, i64 128
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %evb_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %evb_.i, align 8, !tbaa !30
   tail call void @event_set(ptr noundef nonnull %event_, i32 noundef %fd.coerce, i16 noundef signext 0, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
   tail call void @_ZN5folly14EventBaseEvent10eb_ev_baseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef %0)
@@ -522,10 +522,10 @@ entry:
 define void @_ZN5folly12EventHandler11initHandlerEPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %fd.coerce) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN5folly12EventHandler19ensureNotRegisteredEPKc(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull @__func__._ZN5folly12EventHandler11initHandlerEPNS_9EventBaseENS_13NetworkSocketE)
-  %event_ = getelementptr inbounds i8, ptr %this, i64 8
+  %event_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @event_set(ptr noundef nonnull %event_, i32 noundef %fd.coerce, i16 noundef signext 0, ptr noundef nonnull @_ZN5folly12EventHandler16libeventCallbackEisPv, ptr noundef nonnull %this)
   %call.i = tail call noundef i32 @_ZN5folly14EventBaseEvent17eb_event_base_setEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(160) %event_, ptr noundef %eventBase)
-  %eventBase_.i = getelementptr inbounds i8, ptr %this, i64 168
+  %eventBase_.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %eventBase, ptr %eventBase_.i, align 8, !tbaa !10
   ret void
 }
@@ -538,14 +538,14 @@ declare void @_ZN5folly9EventBase16bumpHandlingTimeEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK5folly12EventHandler9isPendingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %evcb_flags.i = getelementptr inbounds i8, ptr %this, i64 24
+  %evcb_flags.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i16, ptr %evcb_flags.i, align 8, !tbaa !28
   %1 = and i16 %0, 8
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ev_res.i = getelementptr inbounds i8, ptr %this, i64 70
+  %ev_res.i = getelementptr inbounds nuw i8, ptr %this, i64 70
   %2 = load i16, ptr %ev_res.i, align 2, !tbaa !37
   %3 = and i16 %2, 2
   %tobool7.not = icmp eq i16 %3, 0

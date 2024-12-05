@@ -26,10 +26,10 @@ define dso_local void @_ZN2EA6Thread17BarrierParametersC2EibPKc(ptr noundef nonn
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i32 %height, ptr %this, align 4
-  %mbIntraProcess = getelementptr inbounds i8, ptr %this, i64 4
+  %mbIntraProcess = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 %frombool, ptr %mbIntraProcess, align 4
   %tobool3.not = icmp eq ptr %pName, null
-  %mName4 = getelementptr inbounds i8, ptr %this, i64 5
+  %mName4 = getelementptr inbounds nuw i8, ptr %this, i64 5
   br i1 %tobool3.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -55,15 +55,15 @@ entry:
   br i1 %tobool.not, label %land.lhs.true, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mbValid.i = getelementptr inbounds i8, ptr %this, i64 104
+  %mbValid.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %pBarrierParameters, align 4
-  %mnHeight.i = getelementptr inbounds i8, ptr %this, i64 88
+  %mnHeight.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 %0, ptr %mnHeight.i, align 8
-  %mnCurrent.i = getelementptr inbounds i8, ptr %this, i64 92
+  %mnCurrent.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   store i32 %0, ptr %mnCurrent.i, align 4
-  %mnCycle.i = getelementptr inbounds i8, ptr %this, i64 96
+  %mnCycle.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 0, ptr %mnCycle.i, align 8
-  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i, ptr noundef null) #10
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then10.i, label %if.end
@@ -85,9 +85,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %bDefaultParameters, label %if.then.i10, label %if.end
 
 if.then.i10:                                      ; preds = %land.lhs.true
-  %mbValid.i8 = getelementptr inbounds i8, ptr %this, i64 104
-  %mnHeight.i11 = getelementptr inbounds i8, ptr %this, i64 88
-  %mMutex.i14 = getelementptr inbounds i8, ptr %this, i64 48
+  %mbValid.i8 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %mnHeight.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %mMutex.i14 = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mnHeight.i11, i8 0, i64 17, i1 false)
   %call.i15 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i14, ptr noundef null) #10
   %cmp.i16 = icmp eq i32 %call.i15, 0
@@ -117,7 +117,7 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %mbValid = getelementptr inbounds i8, ptr %this, i64 104
+  %mbValid = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i8, ptr %mbValid, align 8
   %tobool2 = trunc i8 %0 to i1
   br i1 %tobool2, label %return, label %if.then
@@ -125,13 +125,13 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   store i8 0, ptr %mbValid, align 8
   %1 = load i32, ptr %pBarrierParameters, align 4
-  %mnHeight = getelementptr inbounds i8, ptr %this, i64 88
+  %mnHeight = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 %1, ptr %mnHeight, align 8
-  %mnCurrent = getelementptr inbounds i8, ptr %this, i64 92
+  %mnCurrent = getelementptr inbounds nuw i8, ptr %this, i64 92
   store i32 %1, ptr %mnCurrent, align 4
-  %mnCycle = getelementptr inbounds i8, ptr %this, i64 96
+  %mnCycle = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 0, ptr %mnCycle, align 8
-  %mMutex = getelementptr inbounds i8, ptr %this, i64 48
+  %mMutex = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex, ptr noundef null) #10
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then10, label %if.end20
@@ -162,13 +162,13 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread7BarrierC2Ei(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 105)) %this, i32 noundef %height) unnamed_addr #4 align 2 {
 if.then.i:
-  %mbValid.i = getelementptr inbounds i8, ptr %this, i64 104
-  %mnHeight.i = getelementptr inbounds i8, ptr %this, i64 88
+  %mbValid.i = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %mnHeight.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %this, i8 0, i64 105, i1 false)
   store i32 %height, ptr %mnHeight.i, align 8
-  %mnCurrent.i = getelementptr inbounds i8, ptr %this, i64 92
+  %mnCurrent.i = getelementptr inbounds nuw i8, ptr %this, i64 92
   store i32 %height, ptr %mnCurrent.i, align 4
-  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i, ptr noundef null) #10
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then10.i, label %_ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit
@@ -193,13 +193,13 @@ _ZN2EA6Thread7Barrier4InitEPKNS0_17BarrierParametersE.exit: ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread7BarrierD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 {
 entry:
-  %mbValid = getelementptr inbounds i8, ptr %this, i64 104
+  %mbValid = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i8, ptr %mbValid, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mMutex = getelementptr inbounds i8, ptr %this, i64 48
+  %mMutex = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex) #10
   %call4 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %this) #10
   br label %if.end
@@ -225,22 +225,22 @@ define dso_local noundef range(i32 -2, 2) i32 @_ZN2EA6Thread7Barrier4WaitERKNS0_
 entry:
   %cancel = alloca i32, align 4
   %cancelTemp = alloca i32, align 4
-  %mbValid = getelementptr inbounds i8, ptr %this, i64 104
+  %mbValid = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i8, ptr %mbValid, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %mMutex = getelementptr inbounds i8, ptr %this, i64 48
+  %mMutex = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mMutex) #10
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %mnCycle = getelementptr inbounds i8, ptr %this, i64 96
+  %mnCycle = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load i64, ptr %mnCycle, align 8
   %conv6 = and i64 %1, 4294967295
-  %mnCurrent = getelementptr inbounds i8, ptr %this, i64 92
+  %mnCurrent = getelementptr inbounds nuw i8, ptr %this, i64 92
   %2 = load i32, ptr %mnCurrent, align 4
   %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %mnCurrent, align 4
@@ -250,7 +250,7 @@ if.end4:                                          ; preds = %if.end
 if.then9:                                         ; preds = %if.end4
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mnCycle, align 8
-  %mnHeight = getelementptr inbounds i8, ptr %this, i64 88
+  %mnHeight = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load i32, ptr %mnHeight, align 8
   store i32 %3, ptr %mnCurrent, align 4
   %call16 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %this) #10
@@ -327,11 +327,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 112, ptr noundef null, i32 noundef 0)
-  %mbValid.i8.i = getelementptr inbounds i8, ptr %call1, i64 104
-  %mMutex.i14.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %mbValid.i8.i = getelementptr inbounds nuw i8, ptr %call1, i64 104
+  %mMutex.i14.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %call1, i8 0, i64 105, i1 false)
   %call.i15.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i14.i, ptr noundef null) #10
   %cmp.i16.i = icmp eq i32 %call.i15.i, 0
@@ -352,8 +352,8 @@ if.else.i23.i:                                    ; preds = %if.then10.i20.i
 
 if.else:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #11
-  %mbValid.i8.i2 = getelementptr inbounds i8, ptr %call2, i64 104
-  %mMutex.i14.i4 = getelementptr inbounds i8, ptr %call2, i64 48
+  %mbValid.i8.i2 = getelementptr inbounds nuw i8, ptr %call2, i64 104
+  %mMutex.i14.i4 = getelementptr inbounds nuw i8, ptr %call2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %call2, i8 0, i64 105, i1 false)
   %call.i15.i5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mMutex.i14.i4, ptr noundef null) #10
   %cmp.i16.i6 = icmp eq i32 %call.i15.i5, 0
@@ -395,20 +395,20 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mbValid.i = getelementptr inbounds i8, ptr %pBarrier, i64 104
+  %mbValid.i = getelementptr inbounds nuw i8, ptr %pBarrier, i64 104
   %0 = load i8, ptr %mbValid.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZN2EA6Thread7BarrierD2Ev.exit
 
 if.then.i:                                        ; preds = %if.then
-  %mMutex.i = getelementptr inbounds i8, ptr %pBarrier, i64 48
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %pBarrier, i64 48
   %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i) #10
   %call4.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull align 8 dereferenceable(112) %pBarrier) #10
   br label %_ZN2EA6Thread7BarrierD2Ev.exit
 
 _ZN2EA6Thread7BarrierD2Ev.exit:                   ; preds = %if.then, %if.then.i
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %pBarrier, i64 noundef 0)
   br label %if.end
@@ -418,13 +418,13 @@ if.else:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else
-  %mbValid.i4 = getelementptr inbounds i8, ptr %pBarrier, i64 104
+  %mbValid.i4 = getelementptr inbounds nuw i8, ptr %pBarrier, i64 104
   %2 = load i8, ptr %mbValid.i4, align 8
   %tobool.i5 = trunc i8 %2 to i1
   br i1 %tobool.i5, label %if.then.i6, label %_ZN2EA6Thread7BarrierD2Ev.exit10
 
 if.then.i6:                                       ; preds = %delete.notnull
-  %mMutex.i7 = getelementptr inbounds i8, ptr %pBarrier, i64 48
+  %mMutex.i7 = getelementptr inbounds nuw i8, ptr %pBarrier, i64 48
   %call.i8 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mMutex.i7) #10
   %call4.i9 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull align 8 dereferenceable(112) %pBarrier) #10
   br label %_ZN2EA6Thread7BarrierD2Ev.exit10

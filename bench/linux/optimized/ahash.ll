@@ -88,27 +88,27 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_hash_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %.fr = freeze i32 %12
   %13 = and i32 %.fr, 512
   %14 = icmp eq i32 %13, 0
   %15 = tail call i32 @llvm.umin.i32(i32 %10, i32 %4)
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 4095
   %19 = sub nuw nsw i32 4096, %18
@@ -170,7 +170,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
 
 65:                                               ; preds = %63
   %66 = tail call ptr @sg_next(ptr noundef %39) #9
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = load i64, ptr %66, align 8
   %70 = and i64 %69, -4
@@ -179,7 +179,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr %struct.page, ptr %71, i64 %73
   %75 = and i32 %68, 4095
-  %76 = getelementptr inbounds i8, ptr %66, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @llvm.umin.i32(i32 %77, i32 %40)
   %79 = sub i32 %40, %78
@@ -247,7 +247,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
 
 129:                                              ; preds = %127
   %130 = tail call ptr @sg_next(ptr noundef %102) #9
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i32, ptr %131, align 8
   %133 = load i64, ptr %130, align 8
   %134 = and i64 %133, -4
@@ -256,7 +256,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
   %137 = zext nneg i32 %136 to i64
   %138 = getelementptr %struct.page, ptr %135, i64 %137
   %139 = and i32 %132, 4095
-  %140 = getelementptr inbounds i8, ptr %130, i64 12
+  %140 = getelementptr inbounds nuw i8, ptr %130, i64 12
   %141 = load i32, ptr %140, align 4
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 %103)
   %143 = sub i32 %103, %142
@@ -292,30 +292,30 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((24, 32)) %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %4, ptr %5, align 4
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %8, align 8
   br label %44
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %17, ptr %18, align 8
   %19 = load i64, ptr %11, align 8
   %20 = and i64 %19, -4
@@ -323,13 +323,13 @@ define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr nocapture no
   %22 = lshr i32 %17, 12
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr %struct.page, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %24, ptr %25, align 8
   %26 = and i32 %17, 4095
   store i32 %26, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = tail call i32 @llvm.umin.i32(i32 %28, i32 %4)
   %31 = sub i32 %4, %30
   store i32 %31, ptr %5, align 4
@@ -359,14 +359,14 @@ declare dso_local i32 @crypto_shash_update(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = zext i32 %4 to i64
   %7 = sub nsw i64 0, %6
   %8 = getelementptr i8, ptr %5, i64 %7
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 512
   %12 = icmp eq i32 %11, 0
@@ -381,14 +381,14 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
   br i1 %16, label %17, label %72
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %17
   store i32 0, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 64
   store ptr %24, ptr %22, align 8
@@ -405,17 +405,17 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
   br label %69
 
 34:                                               ; preds = %17
-  %35 = getelementptr inbounds i8, ptr %0, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %72, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @sg_next(ptr noundef %40) #9
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   store i32 %43, ptr %3, align 8
   %44 = load i64, ptr %41, align 8
@@ -424,11 +424,11 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
   %47 = lshr i32 %43, 12
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr %struct.page, ptr %46, i64 %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %49, ptr %50, align 8
   %51 = and i32 %43, 4095
   store i32 %51, ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %41, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %35, align 4
   %55 = tail call i32 @llvm.umin.i32(i32 %53, i32 %54)
@@ -462,31 +462,31 @@ define dso_local i32 @crypto_hash_walk_done(ptr nocapture noundef %0, i32 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %7
 
 .thread:                                          ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %41
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %11, 512
   %15 = icmp eq i32 %14, 0
   %16 = icmp eq i32 %13, 0
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %16, label %41, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %7
   %18 = tail call i32 @llvm.umin.i32(i32 %13, i32 %4)
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 4095
   %22 = sub nuw nsw i32 4096, %21
@@ -575,7 +575,7 @@ define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr n
 
 83:                                               ; preds = %81
   %84 = tail call ptr @sg_next(ptr noundef %50) #9
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = load i64, ptr %84, align 8
   %88 = and i64 %87, -4
@@ -584,7 +584,7 @@ define dso_local i32 @shash_ahash_finup(ptr nocapture noundef readonly %0, ptr n
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr %struct.page, ptr %89, i64 %91
   %93 = and i32 %86, 4095
-  %94 = getelementptr inbounds i8, ptr %84, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %95 = load i32, ptr %94, align 4
   %96 = tail call i32 @llvm.umin.i32(i32 %95, i32 %49)
   %97 = sub i32 %49, %96
@@ -626,17 +626,17 @@ declare dso_local i32 @crypto_shash_finup(ptr noundef, ptr noundef, i32 noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @shash_ahash_digest(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %30, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 4096, %10
   %14 = tail call i32 @llvm.umin.i32(i32 %12, i32 %13)
@@ -654,21 +654,21 @@ define dso_local i32 @shash_ahash_digest(ptr nocapture noundef readonly %0, ptr 
   %24 = inttoptr i64 %23 to ptr
   %25 = zext i32 %10 to i64
   %26 = getelementptr i8, ptr %24, i64 %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @crypto_shash_digest(ptr noundef %1, ptr noundef %26, i32 noundef %4, ptr noundef %28) #9
   br label %.thread
 
 30:                                               ; preds = %6, %2
   %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %31, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 -104
   %40 = load ptr, ptr %39, align 8
@@ -698,24 +698,24 @@ define dso_local i32 @crypto_ahash_setkey(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %5, label %18, label %6, !prof !11
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @crypto_shash_setkey(ptr noundef %8, ptr noundef %1, i32 noundef %2) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %37, label %11, !prof !12
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, %14
   store i32 %17, ptr %15, align 4
   br label %41
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 -40
   %22 = load ptr, ptr %21, align 8
@@ -736,14 +736,14 @@ define dso_local i32 @crypto_ahash_setkey(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = or i32 %35, 1
   store i32 %36, ptr %34, align 4
   br label %41
 
 37:                                               ; preds = %18, %6
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, -2
   store i32 %40, ptr %38, align 4
@@ -759,7 +759,7 @@ declare dso_local i32 @crypto_shash_setkey(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_init(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
@@ -767,18 +767,18 @@ define dso_local i32 @crypto_ahash_init(ptr noundef %0) #0 align 16 {
   br i1 %6, label %17, label %7, !prof !11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr i8, ptr %3, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %32
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   br label %24
 
 17:                                               ; preds = %1
@@ -809,7 +809,7 @@ define dso_local i32 @crypto_ahash_init(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_update(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
@@ -817,8 +817,8 @@ define dso_local i32 @crypto_ahash_update(ptr noundef %0) #0 align 16 {
   br i1 %6, label %10, label %7, !prof !11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = tail call i32 @shash_ahash_update(ptr noundef %0, ptr noundef %8), !range !13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = tail call i32 @shash_ahash_update(ptr noundef %0, ptr noundef nonnull %8), !range !13
   br label %16
 
 10:                                               ; preds = %1
@@ -836,7 +836,7 @@ define dso_local i32 @crypto_ahash_update(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_final(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
@@ -844,10 +844,10 @@ define dso_local i32 @crypto_ahash_final(ptr noundef %0) #0 align 16 {
   br i1 %6, label %12, label %7, !prof !11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @crypto_shash_final(ptr noundef %8, ptr noundef %10) #9
+  %11 = tail call i32 @crypto_shash_final(ptr noundef nonnull %8, ptr noundef %10) #9
   br label %18
 
 12:                                               ; preds = %1
@@ -865,7 +865,7 @@ define dso_local i32 @crypto_ahash_final(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_finup(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
@@ -873,8 +873,8 @@ define dso_local i32 @crypto_ahash_finup(ptr noundef %0) #0 align 16 {
   br i1 %6, label %10, label %7, !prof !11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = tail call i32 @shash_ahash_finup(ptr noundef %0, ptr noundef %8)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = tail call i32 @shash_ahash_finup(ptr noundef %0, ptr noundef nonnull %8)
   br label %16
 
 10:                                               ; preds = %1
@@ -892,7 +892,7 @@ define dso_local i32 @crypto_ahash_finup(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -16
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
@@ -900,21 +900,21 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
   br i1 %6, label %52, label %7, !prof !11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = getelementptr i8, ptr %3, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %38, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = sub i32 4096, %18
   %22 = tail call i32 @llvm.umin.i32(i32 %20, i32 %21)
@@ -932,29 +932,29 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
   %32 = inttoptr i64 %31 to ptr
   %33 = zext i32 %18 to i64
   %34 = getelementptr i8, ptr %32, i64 %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @crypto_shash_digest(ptr noundef %8, ptr noundef %34, i32 noundef %12, ptr noundef %36) #9
+  %37 = tail call i32 @crypto_shash_digest(ptr noundef nonnull %8, ptr noundef %34, i32 noundef %12, ptr noundef %36) #9
   br label %.thread
 
 38:                                               ; preds = %14, %7
-  %39 = getelementptr inbounds i8, ptr %10, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %10, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 -104
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %47(ptr noundef %8) #9
+  %48 = tail call i32 %47(ptr noundef nonnull %8) #9
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %43
-  %51 = tail call i32 @shash_ahash_finup(ptr noundef %0, ptr noundef %8)
+  %51 = tail call i32 @shash_ahash_finup(ptr noundef %0, ptr noundef nonnull %8)
   br label %.thread
 
 52:                                               ; preds = %1
@@ -979,7 +979,7 @@ define dso_local i32 @crypto_ahash_digest(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_export(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -16
   %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
@@ -987,8 +987,8 @@ define dso_local i32 @crypto_ahash_export(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %7, label %11, label %8, !prof !11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = tail call i32 @crypto_shash_export(ptr noundef %9, ptr noundef %1) #9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = tail call i32 @crypto_shash_export(ptr noundef nonnull %9, ptr noundef %1) #9
   br label %17
 
 11:                                               ; preds = %2
@@ -1009,7 +1009,7 @@ declare dso_local i32 @crypto_shash_export(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_ahash_import(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -16
   %6 = load i8, ptr %5, align 8, !range !9, !noundef !10
@@ -1017,11 +1017,11 @@ define dso_local i32 @crypto_ahash_import(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %7, label %13, label %8, !prof !11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = getelementptr i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
-  %12 = tail call i32 @crypto_shash_import(ptr noundef %9, ptr noundef %1) #9
+  %12 = tail call i32 @crypto_shash_import(ptr noundef nonnull %9, ptr noundef %1) #9
   br label %24
 
 13:                                               ; preds = %2
@@ -1049,7 +1049,7 @@ declare dso_local i32 @crypto_shash_import(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_grab_ahash(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @crypto_ahash_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
   ret i32 %7
@@ -1075,9 +1075,9 @@ declare dso_local i32 @crypto_type_has_alg(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr i8, ptr %3, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @crypto_shash_type
@@ -1096,7 +1096,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %13, %21
   %16 = phi i32 [ %22, %21 ], [ %14, %13 ]
   %17 = add i32 %16, 1
-  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 %17, ptr elementtype(i32) %4, i32 %16) #9, !srcloc !14
+  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %17, ptr nonnull elementtype(i32) %4, i32 %16) #9, !srcloc !14
   %19 = extractvalue { i8, i32 } %18, 0
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
@@ -1116,7 +1116,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   br i1 %27, label %29, label %28, !prof !12
 
 28:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %4, i32 noundef 0) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %4, i32 noundef 0) #9
   br label %29
 
 29:                                               ; preds = %28, %.thread
@@ -1127,25 +1127,25 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   br label %68
 
 34:                                               ; preds = %1
-  %35 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_ahash_type, ptr noundef %4) #9
+  %35 = tail call ptr @crypto_clone_tfm(ptr noundef nonnull @crypto_ahash_type, ptr noundef nonnull %4) #9
   %36 = icmp ugt ptr %35, inttoptr (i64 -4096 to ptr)
   br i1 %36, label %68, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %35, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %42, ptr %43, align 4
   %44 = load i8, ptr %0, align 8, !range !9, !noundef !10
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %55, label %46, !prof !11
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @crypto_clone_shash(ptr noundef %48) #9
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
@@ -1157,7 +1157,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
   br label %63
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %35, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i8 1, ptr %35, align 8
   store ptr %49, ptr %54, align 8
   br label %68
@@ -1176,8 +1176,8 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
 
 63:                                               ; preds = %.thread8, %60, %55
   %64 = phi i32 [ %61, %60 ], [ -38, %55 ], [ %52, %.thread8 ]
-  %65 = getelementptr inbounds i8, ptr %35, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %35, ptr noundef %65) #9
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %35, ptr noundef nonnull %65) #9
   %66 = sext i32 %64 to i64
   %67 = inttoptr i64 %66 to ptr
   br label %68
@@ -1189,7 +1189,7 @@ define dso_local ptr @crypto_clone_ahash(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @crypto_hash_alg_has_setkey(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @crypto_shash_type
   %5 = select i1 %4, i64 -40, i64 -32
@@ -1208,25 +1208,25 @@ declare dso_local ptr @crypto_clone_shash(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_register_ahash(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 92
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %26, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = tail call i32 @hash_prepare_alg(ptr noundef %6) #9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = tail call i32 @hash_prepare_alg(ptr noundef nonnull %6) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr @crypto_ahash_type, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %12, 15
   store i32 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18
@@ -1236,7 +1236,7 @@ define dso_local i32 @crypto_register_ahash(ptr noundef %0) #0 align 16 {
   br label %18
 
 18:                                               ; preds = %17, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
@@ -1246,8 +1246,8 @@ define dso_local i32 @crypto_register_ahash(ptr noundef %0) #0 align 16 {
   br label %23
 
 23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
-  %25 = tail call i32 @crypto_register_alg(ptr noundef %24) #9
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %25 = tail call i32 @crypto_register_alg(ptr noundef nonnull %24) #9
   br label %26
 
 26:                                               ; preds = %1, %5, %23
@@ -1260,8 +1260,8 @@ declare dso_local i32 @crypto_register_alg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_unregister_ahash(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @crypto_unregister_alg(ptr noundef %2) #9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @crypto_unregister_alg(ptr noundef nonnull %2) #9
   ret void
 }
 
@@ -1281,25 +1281,25 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
   %indvars.iv = phi i32 [ %indvars.iv.next, %39 ], [ -1, %4 ]
   %7 = phi i64 [ %40, %39 ], [ 0, %4 ]
   %8 = getelementptr %struct.ahash_alg, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 92
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.thread7, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 88
-  %14 = tail call i32 @hash_prepare_alg(ptr noundef %13) #9
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %14 = tail call i32 @hash_prepare_alg(ptr noundef nonnull %13) #9
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread7
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 408
   store ptr @crypto_ahash_type, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %19 = load i32, ptr %18, align 8
   %20 = or i32 %19, 15
   store i32 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
@@ -1309,7 +1309,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
   br label %25
 
 25:                                               ; preds = %24, %16
-  %26 = getelementptr inbounds i8, ptr %8, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30
@@ -1319,8 +1319,8 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
   br label %30
 
 30:                                               ; preds = %25, %29
-  %31 = getelementptr inbounds i8, ptr %8, i64 96
-  %32 = tail call i32 @crypto_register_alg(ptr noundef %31) #9
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %32 = tail call i32 @crypto_register_alg(ptr noundef nonnull %31) #9
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %39, label %.thread7
 
@@ -1389,25 +1389,25 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
   br label %31
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 100
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %31, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 96
-  %12 = tail call i32 @hash_prepare_alg(ptr noundef %11) #9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %12 = tail call i32 @hash_prepare_alg(ptr noundef nonnull %11) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 416
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 416
   store ptr @crypto_ahash_type, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %17 = load i32, ptr %16, align 8
   %18 = or i32 %17, 15
   store i32 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
@@ -1417,7 +1417,7 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
   br label %23
 
 23:                                               ; preds = %22, %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -1427,8 +1427,8 @@ define dso_local i32 @ahash_register_instance(ptr noundef %0, ptr noundef %1) #0
   br label %28
 
 28:                                               ; preds = %27, %23
-  %29 = getelementptr inbounds i8, ptr %1, i64 104
-  %30 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef %29) #9
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %30 = tail call i32 @crypto_register_instance(ptr noundef %0, ptr noundef nonnull %29) #9
   br label %31
 
 31:                                               ; preds = %6, %10, %28, %5
@@ -1449,7 +1449,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_ahash_extsize(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @crypto_shash_type
   br i1 %4, label %7, label %5
@@ -1472,13 +1472,13 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef initializes((-12, -8)) %0
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr i8, ptr %0, i64 -12
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @crypto_shash_type
   br i1 %10, label %11, label %32
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = tail call ptr @crypto_mod_get(ptr noundef %4) #9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %57, label %15
@@ -1497,9 +1497,9 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef initializes((-12, -8)) %0
 21:                                               ; preds = %15
   store i8 1, ptr %2, align 8
   store ptr %16, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @crypto_exit_ahash_using_shash, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
   %26 = getelementptr i8, ptr %0, i64 4
@@ -1539,7 +1539,7 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef initializes((-12, -8)) %0
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @crypto_ahash_exit_tfm, ptr %50, align 8
   br label %51
 
@@ -1561,13 +1561,13 @@ define internal i32 @crypto_ahash_init_tfm(ptr noundef initializes((-12, -8)) %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_ahash_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2) #9
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 128
   %6 = icmp eq i32 %5, 0
   %7 = select i1 %6, ptr @.str.5, ptr @.str.4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #9
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i32, ptr %8, align 4
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %9) #9
   %10 = getelementptr i8, ptr %1, i64 -8
@@ -1606,10 +1606,10 @@ declare dso_local void @crypto_mod_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_exit_ahash_using_shash(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %4) #9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef nonnull %4) #9
   ret void
 }
 
@@ -1636,13 +1636,13 @@ declare dso_local i32 @hash_prepare_alg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 7
   %7 = and i32 %6, -8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 512
   %11 = icmp eq i32 %10, 0
@@ -1659,26 +1659,26 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   br i1 %21, label %.thread2, label %22
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %20, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %3, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @ahash_def_finup_done1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %20, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 %9, ptr %26, align 8
   %27 = getelementptr i8, ptr %20, i64 80
   %28 = zext i32 %7 to i64
   %29 = getelementptr i8, ptr %27, i64 %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %20, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 %33, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %20, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr %29, ptr %36, align 8
   %37 = getelementptr i8, ptr %3, i64 -12
   %38 = load i32, ptr %37, align 4
@@ -1699,8 +1699,8 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   br i1 %46, label %50, label %47, !prof !11
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
-  %49 = tail call i32 @crypto_shash_export(ptr noundef %48, ptr noundef nonnull %40) #9
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %49 = tail call i32 @crypto_shash_export(ptr noundef nonnull %48, ptr noundef nonnull %40) #9
   br label %56
 
 50:                                               ; preds = %42
@@ -1742,7 +1742,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
 
 76:                                               ; preds = %70, %65, %61
   tail call void @kfree_sensitive(ptr noundef nonnull %40) #9
-  %77 = getelementptr inbounds i8, ptr %0, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %20, ptr %77, align 8
   %78 = load ptr, ptr %13, align 8
   %79 = getelementptr i8, ptr %78, i64 -88
@@ -1760,7 +1760,7 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
 
 83:                                               ; preds = %76
   %84 = load ptr, ptr %77, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr @ahash_def_finup_done2, ptr %85, align 8
   %86 = load ptr, ptr %2, align 8
   %87 = getelementptr i8, ptr %86, i64 24
@@ -1779,9 +1779,9 @@ define internal noundef i32 @ahash_def_finup(ptr noundef %0) #0 align 16 {
   br i1 %94, label %95, label %106
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %0, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %93, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 64
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %2, align 8
   %101 = getelementptr i8, ptr %100, i64 24
@@ -1810,9 +1810,9 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
   br i1 %3, label %40, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1024
   store i32 %9, ptr %7, align 8
@@ -1821,9 +1821,9 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @ahash_def_finup_done2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
@@ -1842,11 +1842,11 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
@@ -1870,9 +1870,9 @@ define internal void @ahash_def_finup_done1(ptr nocapture noundef %0, i32 nounde
 
 40:                                               ; preds = %38, %2
   %41 = phi i32 [ -115, %2 ], [ %39, %38 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void %43(ptr noundef %45, i32 noundef %41) #9
   br label %46
@@ -1896,17 +1896,17 @@ define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 nounde
   br i1 %3, label %25, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -1919,9 +1919,9 @@ define internal void @ahash_def_finup_done2(ptr nocapture noundef %0, i32 nounde
 20:                                               ; preds = %8, %4
   store ptr null, ptr %5, align 8
   tail call void @kfree_sensitive(ptr noundef %6) #9
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void %22(ptr noundef %24, i32 noundef %1) #9
   br label %25

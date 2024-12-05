@@ -572,11 +572,11 @@ define i64 @H5T__bit_get_d(ptr nocapture noundef readonly %0, i64 noundef %1, i6
 
 .preheader:                                       ; preds = %3, %.preheader
   %.011 = phi i64 [ %8, %.preheader ], [ 0, %3 ]
-  %6 = getelementptr inbounds i8, ptr %4, i64 %.011
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.011
   %7 = load i8, ptr %6, align 1
   %8 = add nuw nsw i64 %.011, 1
   %9 = sub nuw nsw i64 7, %.011
-  %10 = getelementptr inbounds i8, ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
   %11 = load i8, ptr %10, align 1
   store i8 %11, ptr %6, align 1
   store i8 %7, ptr %10, align 1
@@ -598,11 +598,11 @@ define void @H5T__bit_set_d(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 
 .preheader:                                       ; preds = %4, %.preheader
   %.010 = phi i64 [ %9, %.preheader ], [ 0, %4 ]
-  %7 = getelementptr inbounds i8, ptr %5, i64 %.010
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %.010
   %8 = load i8, ptr %7, align 1
   %9 = add nuw nsw i64 %.010, 1
   %10 = sub nuw nsw i64 7, %.010
-  %11 = getelementptr inbounds i8, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %10
   %12 = load i8, ptr %11, align 1
   store i8 %12, ptr %7, align 1
   store i8 %8, ptr %11, align 1
@@ -632,7 +632,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   br i1 %.not149, label %._crit_edge138, label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.preheader113
-  %9 = getelementptr inbounds i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   br label %12
@@ -755,7 +755,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   br i1 %or.cond, label %89, label %.preheader117
 
 .preheader117:                                    ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %0, i64 %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %67
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = sub i64 %2, %71
@@ -881,7 +881,7 @@ define zeroext i1 @H5T__bit_inc(ptr nocapture noundef %0, i64 noundef %1, i64 no
   %.pn = select i1 %8, i32 %9, i32 %11
   %.0.in = shl nsw i32 -1, %.pn
   %.0 = xor i32 %.0.in, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, %10
@@ -973,7 +973,7 @@ define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 no
   %7 = add i64 %6, %2
   %8 = lshr i64 %7, 3
   %9 = icmp samesign ugt i64 %8, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 %4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   br i1 %9, label %13, label %41
@@ -996,7 +996,7 @@ define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 no
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.06273 = phi i64 [ %.062, %.lr.ph ], [ %.06271, %13 ]
   %.06172 = phi i64 [ %24, %.lr.ph ], [ %18, %13 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %.06273
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.06273
   %22 = load i8, ptr %21, align 1
   %.not69 = icmp eq i8 %22, 0
   %23 = add i8 %22, -1
@@ -1065,7 +1065,7 @@ define void @H5T__bit_neg(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
   %4 = alloca [1 x i8], align 1
   %5 = lshr i64 %1, 3
   %6 = and i64 %1, 7
-  %7 = getelementptr inbounds i8, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %8 = load i8, ptr %7, align 1
   %9 = xor i8 %8, -1
   store i8 %9, ptr %4, align 1
@@ -1086,7 +1086,7 @@ define void @H5T__bit_neg(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.03236 = phi i64 [ %.032, %.lr.ph ], [ %.03234, %14 ]
   %.035 = phi i64 [ %21, %.lr.ph ], [ %16, %14 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.03236
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.03236
   %19 = load i8, ptr %18, align 1
   %20 = xor i8 %19, -1
   store i8 %20, ptr %18, align 1

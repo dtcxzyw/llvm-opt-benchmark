@@ -74,7 +74,7 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %10 = load i32, ptr @ett_rfc7468, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.7) #3
   %14 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef 0) #3
@@ -159,7 +159,7 @@ line_is_eb.exit:                                  ; preds = %.loopexit148, %25, 
   %45 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.098164, i32 noundef %44) #3
   %46 = load i32, ptr @ett_rfc7468_preeb, align 4
   %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #3
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %.1128 to i64
   %51 = call noalias ptr @wmem_strndup(ptr noundef %49, ptr noundef %.1131, i64 noundef %50) #3

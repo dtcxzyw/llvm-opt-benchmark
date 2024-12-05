@@ -209,25 +209,25 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %8 = sub nsw i64 %5, %7
   %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.ping_nodes) #6
   store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 1008, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i16 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 10496, ptr %12, align 8
   %13 = tail call ptr @hostlist_create(ptr noundef null) #6
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %13, ptr %14, align 8
   %15 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef nonnull @__func__.ping_nodes) #6
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   store i32 1001, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i16 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i16 10496, ptr %18, align 8
   %19 = tail call ptr @hostlist_create(ptr noundef null) #6
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %19, ptr %20, align 8
   %21 = load i64, ptr @ping_nodes.last_ping_timeout, align 8
   %22 = icmp eq i64 %21, 0
@@ -276,7 +276,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %.0113 = phi i32 [ %47, %153 ], [ 0, %38 ]
   %.055112 = phi ptr [ %.1, %153 ], [ null, %38 ]
   %47 = add nuw nsw i32 %.0113, 1
-  %48 = getelementptr inbounds i8, ptr %46, i64 304
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 304
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 15
   %51 = icmp eq i32 %50, 6
@@ -303,7 +303,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %or.cond95, label %153, label %61
 
 61:                                               ; preds = %58, %55
-  %62 = getelementptr inbounds i8, ptr %46, i64 224
+  %62 = getelementptr inbounds nuw i8, ptr %46, i64 224
   %63 = load i64, ptr %62, align 8
   %.not74 = icmp eq i64 %63, 0
   %.not75 = icmp sgt i64 %63, %.054
@@ -316,7 +316,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 
 66:                                               ; preds = %64
   %.not76 = icmp eq ptr %.055112, null
-  %67 = getelementptr inbounds i8, ptr %46, i64 256
+  %67 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %68 = load ptr, ptr %67, align 8
   br i1 %.not76, label %71, label %69
 
@@ -330,7 +330,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %.not77, label %73, label %76
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %46, i64 256
+  %74 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %75 = load ptr, ptr %74, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, ptr noundef %75) #8
   unreachable
@@ -338,7 +338,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 76:                                               ; preds = %71, %69
   %.2 = phi ptr [ %.055112, %69 ], [ %72, %71 ]
   call void @set_node_down_ptr(ptr noundef nonnull %46, ptr noundef nonnull @.str.6) #6
-  %77 = getelementptr inbounds i8, ptr %46, i64 308
+  %77 = getelementptr inbounds nuw i8, ptr %46, i64 308
   store i8 0, ptr %77, align 4
   br label %153
 
@@ -347,7 +347,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %79, label %89, label %.thread
 
 .thread:                                          ; preds = %64, %78
-  %80 = getelementptr inbounds i8, ptr %46, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %81 = load i64, ptr %80, align 8
   %82 = icmp eq i64 %81, 0
   br i1 %82, label %89, label %83
@@ -365,9 +365,9 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 
 89:                                               ; preds = %85, %.thread, %78
   %90 = load ptr, ptr %4, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load i16, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %46, i64 352
+  %93 = getelementptr inbounds nuw i8, ptr %46, i64 352
   %94 = load i16, ptr %93, align 8
   %95 = icmp ugt i16 %92, %94
   br i1 %95, label %96, label %97
@@ -377,9 +377,9 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %97
 
 97:                                               ; preds = %96, %89
-  %98 = getelementptr inbounds i8, ptr %90, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %46, i64 256
+  %100 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 @hostlist_push_host(ptr noundef %99, ptr noundef %101) #6
   %103 = load i32, ptr %90, align 8
@@ -400,7 +400,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %or.cond98, label %153, label %112
 
 112:                                              ; preds = %108, %97
-  %113 = getelementptr inbounds i8, ptr %90, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %114 = load i16, ptr %113, align 8
   %115 = or i16 %114, 128
   store i16 %115, ptr %113, align 8
@@ -416,13 +416,13 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %.not80, label %.thread103, label %119
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds i8, ptr %46, i64 88
+  %120 = getelementptr inbounds nuw i8, ptr %46, i64 88
   %121 = load i64, ptr %120, align 8
   %.not81 = icmp slt i64 %121, %8
   br i1 %.not81, label %.thread103, label %122
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %46, i64 168
+  %123 = getelementptr inbounds nuw i8, ptr %46, i64 168
   %124 = load i64, ptr %123, align 8
   %.not82 = icmp slt i64 %124, %8
   br i1 %.not82, label %.thread103, label %153
@@ -433,9 +433,9 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 
 .thread103:                                       ; preds = %118, %119, %122, %125
   %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load i16, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %46, i64 352
+  %130 = getelementptr inbounds nuw i8, ptr %46, i64 352
   %131 = load i16, ptr %130, align 8
   %132 = icmp ugt i16 %129, %131
   br i1 %132, label %133, label %134
@@ -445,9 +445,9 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %134
 
 134:                                              ; preds = %133, %.thread103
-  %135 = getelementptr inbounds i8, ptr %127, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %46, i64 256
+  %137 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %138 = load ptr, ptr %137, align 8
   %139 = call i32 @hostlist_push_host(ptr noundef %136, ptr noundef %138) #6
   %140 = load i32, ptr %127, align 8
@@ -468,7 +468,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br i1 %or.cond102, label %153, label %149
 
 149:                                              ; preds = %145, %134
-  %150 = getelementptr inbounds i8, ptr %127, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %151 = load i16, ptr %150, align 8
   %152 = or i16 %151, 128
   store i16 %152, ptr %150, align 8
@@ -493,7 +493,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   store i1 true, ptr @ping_nodes.restart_flag, align 1
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0
-  %160 = getelementptr inbounds i8, ptr %157, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %161 = load ptr, ptr %160, align 8
   br i1 %159, label %162, label %163
 
@@ -527,7 +527,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   %172 = load ptr, ptr %4, align 8
   %173 = load i32, ptr %172, align 8
   %174 = icmp eq i32 %173, 0
-  %175 = getelementptr inbounds i8, ptr %172, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %176 = load ptr, ptr %175, align 8
   br i1 %174, label %177, label %178
 
@@ -609,14 +609,14 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 397, ptr noundef nonnull @__func__.run_health_check) #6
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 1011, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 10496, ptr %7, align 8
   %8 = tail call ptr @hostlist_create(ptr noundef null) #6
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %8, ptr %9, align 8
   %10 = tail call i32 @select_g_select_nodeinfo_set_all() #6
   %11 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 422), align 2
@@ -674,9 +674,9 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   %.not49 = icmp eq i32 %37, 0
   %38 = and i32 %13, 8
   %.not50 = icmp eq i32 %38, 0
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
-  %41 = getelementptr inbounds i8, ptr %4, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br i1 %.not46, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -684,7 +684,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %71
   %42 = phi ptr [ %74, %71 ], [ %34, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 304
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 304
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 15
   %46 = icmp ne i32 %45, 6
@@ -695,7 +695,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 48:                                               ; preds = %.lr.ph.split.us.split.us
   %49 = load i16, ptr %39, align 8
-  %50 = getelementptr inbounds i8, ptr %42, i64 352
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 352
   %51 = load i16, ptr %50, align 8
   %52 = icmp ugt i16 %49, %51
   br i1 %52, label %53, label %54
@@ -706,7 +706,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 54:                                               ; preds = %53, %48
   %55 = load ptr, ptr %40, align 8
-  %56 = getelementptr inbounds i8, ptr %42, i64 256
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 256
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @hostlist_push_host(ptr noundef %55, ptr noundef %57) #6
   %59 = load i32, ptr %4, align 8
@@ -748,7 +748,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.loopexit, label %77
 
 77:                                               ; preds = %.lr.ph.split.us.split
-  %78 = getelementptr inbounds i8, ptr %75, i64 304
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 304
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 15
   %81 = icmp ne i32 %80, 6
@@ -759,7 +759,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 83:                                               ; preds = %77
   %84 = load i16, ptr %39, align 8
-  %85 = getelementptr inbounds i8, ptr %75, i64 352
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 352
   %86 = load i16, ptr %85, align 8
   %87 = icmp ugt i16 %84, %86
   br i1 %87, label %88, label %89
@@ -770,7 +770,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 89:                                               ; preds = %88, %83
   %90 = load ptr, ptr %40, align 8
-  %91 = getelementptr inbounds i8, ptr %75, i64 256
+  %91 = getelementptr inbounds nuw i8, ptr %75, i64 256
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @hostlist_push_host(ptr noundef %90, ptr noundef %92) #6
   %94 = load i32, ptr %4, align 8
@@ -816,7 +816,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 113:                                              ; preds = %111, %.lr.ph.split
   %.1 = phi i32 [ %112, %111 ], [ %.062, %.lr.ph.split ]
-  %114 = getelementptr inbounds i8, ptr %110, i64 304
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 304
   %115 = load i32, ptr %114, align 8
   %116 = and i32 %115, 15
   %117 = icmp ne i32 %116, 6
@@ -827,15 +827,15 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 119:                                              ; preds = %113
   store i16 0, ptr %3, align 2
-  %120 = getelementptr inbounds i8, ptr %110, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load i16, ptr %122, align 8
   %124 = icmp eq i32 %116, 2
   br i1 %124, label %.thread, label %125
 
 125:                                              ; preds = %119
-  %126 = getelementptr inbounds i8, ptr %110, i64 432
+  %126 = getelementptr inbounds nuw i8, ptr %110, i64 432
   %127 = load ptr, ptr %126, align 8
   %128 = call i32 @select_g_select_nodeinfo_get(ptr noundef %127, i32 noundef 2, i32 noundef 3, ptr noundef nonnull %3) #6
   %.pre68 = load i16, ptr %3, align 2
@@ -876,7 +876,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 142:                                              ; preds = %134, %141, %140
   %143 = load i16, ptr %39, align 8
-  %144 = getelementptr inbounds i8, ptr %110, i64 352
+  %144 = getelementptr inbounds nuw i8, ptr %110, i64 352
   %145 = load i16, ptr %144, align 8
   %146 = icmp ugt i16 %143, %145
   br i1 %146, label %147, label %148
@@ -887,7 +887,7 @@ define dso_local void @run_health_check() local_unnamed_addr #0 {
 
 148:                                              ; preds = %147, %142
   %149 = load ptr, ptr %40, align 8
-  %150 = getelementptr inbounds i8, ptr %110, i64 256
+  %150 = getelementptr inbounds nuw i8, ptr %110, i64 256
   %151 = load ptr, ptr %150, align 8
   %152 = call i32 @hostlist_push_host(ptr noundef %149, ptr noundef %151) #6
   %153 = load i32, ptr %4, align 8
@@ -971,14 +971,14 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 535, ptr noundef nonnull @__func__.update_nodes_acct_gather_data) #6
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 1017, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 10496, ptr %7, align 8
   %8 = tail call ptr @hostlist_create(ptr noundef null) #6
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %8, ptr %9, align 8
   store i32 0, ptr %1, align 4
   %10 = call ptr @next_node(ptr noundef nonnull %1) #6
@@ -986,14 +986,14 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %14 = phi ptr [ %46, %43 ], [ %10, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 304
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 15
   %18 = icmp ne i32 %17, 6
@@ -1004,7 +1004,7 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
 
 20:                                               ; preds = %.lr.ph
   %21 = load i16, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 352
   %23 = load i16, ptr %22, align 8
   %24 = icmp ugt i16 %21, %23
   br i1 %24, label %25, label %26
@@ -1015,7 +1015,7 @@ define dso_local void @update_nodes_acct_gather_data() local_unnamed_addr #0 {
 
 26:                                               ; preds = %25, %20
   %27 = load ptr, ptr %12, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @hostlist_push_host(ptr noundef %27, ptr noundef %29) #6
   %31 = load i32, ptr %4, align 8

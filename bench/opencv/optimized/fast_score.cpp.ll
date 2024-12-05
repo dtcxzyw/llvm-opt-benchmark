@@ -78,13 +78,13 @@ define hidden void @_ZN2cv11makeOffsetsEPiii(ptr noundef %0, i32 noundef %1, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr inbounds [2 x i32], ptr %11, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 %indvars.iv
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = mul nsw i32 %29, %1
   %31 = add nsw i32 %30, %27
-  %32 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -95,7 +95,7 @@ define hidden void @_ZN2cv11makeOffsetsEPiii(ptr noundef %0, i32 noundef %1, i32
   %33 = sub nsw i64 %indvars.iv36, %25
   %34 = getelementptr inbounds i32, ptr %0, i64 %33
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv36
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv36
   store i32 %35, ptr %36, align 4
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 25
@@ -130,14 +130,14 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
-  %15 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
@@ -147,14 +147,14 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %55 ], [ 0, %7 ]
   %.0181192 = phi i32 [ %.1182, %55 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv201, 1
-  %17 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 2
-  %19 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv.next202
+  %19 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv.next202
   %20 = load i16, ptr %19, align 4
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %22 = add nuw nsw i64 %indvars.iv201, 3
-  %23 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = tail call i16 @llvm.smin.i16(i16 %24, i16 %21)
   %.sroa.speculated146 = sext i16 %25 to i32
@@ -163,32 +163,32 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 26:                                               ; preds = %.preheader
   %27 = add nuw nsw i64 %indvars.iv201, 4
-  %28 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %27
   %29 = load i16, ptr %28, align 4
   %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %25)
   %31 = add nuw nsw i64 %indvars.iv201, 5
-  %32 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
   %35 = add nuw nsw i64 %indvars.iv201, 6
-  %36 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %35
   %37 = load i16, ptr %36, align 4
   %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
   %39 = add nuw nsw i64 %indvars.iv201, 7
-  %40 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = tail call i16 @llvm.smin.i16(i16 %41, i16 %38)
   %43 = add nuw nsw i64 %indvars.iv201, 8
-  %44 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %43
   %45 = load i16, ptr %44, align 4
   %46 = tail call i16 @llvm.smin.i16(i16 %45, i16 %42)
-  %47 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv201
+  %47 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv201
   %48 = load i16, ptr %47, align 4
   %49 = tail call i16 @llvm.smin.i16(i16 %48, i16 %46)
   %50 = sext i16 %49 to i32
   %.sroa.speculated174 = tail call i32 @llvm.smax.i32(i32 %.0181192, i32 %50)
   %51 = add nuw nsw i64 %indvars.iv201, 9
-  %52 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %51
   %53 = load i16, ptr %52, align 2
   %.v = tail call i16 @llvm.smin.i16(i16 %53, i16 %46)
   %54 = sext i16 %.v to i32
@@ -202,9 +202,9 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 57:                                               ; preds = %55
   %58 = sub nsw i32 0, %.1182
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert207 = getelementptr inbounds i8, ptr %4, i64 6
+  %.phi.trans.insert207 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %.pre208 = load i16, ptr %.phi.trans.insert207, align 2
   br label %59
 
@@ -214,17 +214,17 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
   %indvars.iv204 = phi i64 [ 0, %57 ], [ %indvars.iv.next205, %96 ]
   %.0183197 = phi i32 [ %58, %57 ], [ %.1184, %96 ]
   %62 = or disjoint i64 %indvars.iv204, 1
-  %63 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %62
   %64 = load i16, ptr %63, align 2
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 2
   %65 = tail call i16 @llvm.smax.i16(i16 %64, i16 %61)
   %66 = tail call i16 @llvm.smax.i16(i16 %65, i16 %60)
   %67 = add nuw nsw i64 %indvars.iv204, 4
-  %68 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %67
   %69 = load i16, ptr %68, align 4
   %70 = tail call i16 @llvm.smax.i16(i16 %66, i16 %69)
   %71 = add nuw nsw i64 %indvars.iv204, 5
-  %72 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = tail call i16 @llvm.smax.i16(i16 %70, i16 %73)
   %.sroa.speculated70 = sext i16 %74 to i32
@@ -233,24 +233,24 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 75:                                               ; preds = %59
   %76 = add nuw nsw i64 %indvars.iv204, 6
-  %77 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %76
   %78 = load i16, ptr %77, align 4
   %79 = tail call i16 @llvm.smax.i16(i16 %74, i16 %78)
   %80 = add nuw nsw i64 %indvars.iv204, 7
-  %81 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = tail call i16 @llvm.smax.i16(i16 %79, i16 %82)
   %84 = add nuw nsw i64 %indvars.iv204, 8
-  %85 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %84
   %86 = load i16, ptr %85, align 4
   %87 = tail call i16 @llvm.smax.i16(i16 %83, i16 %86)
-  %88 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %indvars.iv204
+  %88 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %indvars.iv204
   %89 = load i16, ptr %88, align 4
   %90 = tail call i16 @llvm.smax.i16(i16 %87, i16 %89)
   %91 = sext i16 %90 to i32
   %.sroa.speculated105 = tail call i32 @llvm.smin.i32(i32 %.0183197, i32 %91)
   %92 = add nuw nsw i64 %indvars.iv204, 9
-  %93 = getelementptr inbounds [25 x i16], ptr %4, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [25 x i16], ptr %4, i64 0, i64 %92
   %94 = load i16, ptr %93, align 2
   %.v199 = tail call i16 @llvm.smax.i16(i16 %87, i16 %94)
   %95 = sext i16 %.v199 to i32
@@ -276,14 +276,14 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
-  %15 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
@@ -293,10 +293,10 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %47 ], [ 0, %7 ]
   %.0147158 = phi i32 [ %.1148, %47 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv167, 1
-  %17 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 2
-  %19 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv.next168
+  %19 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv.next168
   %20 = load i16, ptr %19, align 4
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated120 = sext i16 %21 to i32
@@ -305,28 +305,28 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 22:                                               ; preds = %.preheader
   %23 = add nuw nsw i64 %indvars.iv167, 3
-  %24 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
   %27 = add nuw nsw i64 %indvars.iv167, 4
-  %28 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %27
   %29 = load i16, ptr %28, align 4
   %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
   %31 = add nuw nsw i64 %indvars.iv167, 5
-  %32 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = tail call i16 @llvm.smin.i16(i16 %33, i16 %30)
   %35 = add nuw nsw i64 %indvars.iv167, 6
-  %36 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %35
   %37 = load i16, ptr %36, align 4
   %38 = tail call i16 @llvm.smin.i16(i16 %37, i16 %34)
-  %39 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv167
+  %39 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv167
   %40 = load i16, ptr %39, align 4
   %41 = tail call i16 @llvm.smin.i16(i16 %40, i16 %38)
   %42 = sext i16 %41 to i32
   %.sroa.speculated140 = tail call i32 @llvm.smax.i32(i32 %.0147158, i32 %42)
   %43 = add nuw nsw i64 %indvars.iv167, 7
-  %44 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %43
   %45 = load i16, ptr %44, align 2
   %.v = tail call i16 @llvm.smin.i16(i16 %45, i16 %38)
   %46 = sext i16 %.v to i32
@@ -340,7 +340,7 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 49:                                               ; preds = %47
   %50 = sub nsw i32 0, %.1148
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
   br label %51
 
@@ -349,16 +349,16 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
   %indvars.iv170 = phi i64 [ 0, %49 ], [ %indvars.iv.next171, %82 ]
   %.0149163 = phi i32 [ %50, %49 ], [ %.1150, %82 ]
   %53 = or disjoint i64 %indvars.iv170, 1
-  %54 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %53
   %55 = load i16, ptr %54, align 2
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 2
   %56 = tail call i16 @llvm.smax.i16(i16 %55, i16 %52)
   %57 = add nuw nsw i64 %indvars.iv170, 3
-  %58 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = tail call i16 @llvm.smax.i16(i16 %56, i16 %59)
   %61 = add nuw nsw i64 %indvars.iv170, 4
-  %62 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %61
   %63 = load i16, ptr %62, align 4
   %64 = tail call i16 @llvm.smax.i16(i16 %60, i16 %63)
   %.sroa.speculated57 = sext i16 %64 to i32
@@ -367,20 +367,20 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi1
 
 65:                                               ; preds = %51
   %66 = add nuw nsw i64 %indvars.iv170, 5
-  %67 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = tail call i16 @llvm.smax.i16(i16 %64, i16 %68)
   %70 = add nuw nsw i64 %indvars.iv170, 6
-  %71 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %70
   %72 = load i16, ptr %71, align 4
   %73 = tail call i16 @llvm.smax.i16(i16 %69, i16 %72)
-  %74 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %indvars.iv170
+  %74 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %indvars.iv170
   %75 = load i16, ptr %74, align 4
   %76 = tail call i16 @llvm.smax.i16(i16 %73, i16 %75)
   %77 = sext i16 %76 to i32
   %.sroa.speculated85 = tail call i32 @llvm.smin.i32(i32 %.0149163, i32 %77)
   %78 = add nuw nsw i64 %indvars.iv170, 7
-  %79 = getelementptr inbounds [23 x i16], ptr %4, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [23 x i16], ptr %4, i64 0, i64 %78
   %80 = load i16, ptr %79, align 2
   %.v165 = tail call i16 @llvm.smax.i16(i16 %73, i16 %80)
   %81 = sext i16 %.v165 to i32
@@ -406,14 +406,14 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = sub nsw i16 %6, %13
-  %15 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv
   store i16 %14, ptr %15, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
@@ -423,10 +423,10 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %39 ], [ 0, %7 ]
   %.0113124 = phi i32 [ %.1114, %39 ], [ %2, %7 ]
   %16 = or disjoint i64 %indvars.iv133, 1
-  %17 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 2
-  %19 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next134
+  %19 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next134
   %20 = load i16, ptr %19, align 4
   %21 = tail call i16 @llvm.smin.i16(i16 %20, i16 %18)
   %.sroa.speculated88 = sext i16 %21 to i32
@@ -435,20 +435,20 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
 
 22:                                               ; preds = %.preheader
   %23 = add nuw nsw i64 %indvars.iv133, 3
-  %24 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = tail call i16 @llvm.smin.i16(i16 %25, i16 %21)
   %27 = add nuw nsw i64 %indvars.iv133, 4
-  %28 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %27
   %29 = load i16, ptr %28, align 4
   %30 = tail call i16 @llvm.smin.i16(i16 %29, i16 %26)
-  %31 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %indvars.iv133
+  %31 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv133
   %32 = load i16, ptr %31, align 4
   %33 = tail call i16 @llvm.smin.i16(i16 %32, i16 %30)
   %34 = sext i16 %33 to i32
   %.sroa.speculated106 = tail call i32 @llvm.smax.i32(i32 %.0113124, i32 %34)
   %35 = add nuw nsw i64 %indvars.iv133, 5
-  %36 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %35
   %37 = load i16, ptr %36, align 2
   %.v = tail call i16 @llvm.smin.i16(i16 %37, i16 %30)
   %38 = sext i16 %.v to i32
@@ -468,14 +468,14 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
   %indvars.iv136 = phi i64 [ 0, %41 ], [ %indvars.iv.next137, %67 ]
   %.0115129 = phi i32 [ %42, %41 ], [ %.1116, %67 ]
   %44 = or disjoint i64 %indvars.iv136, 1
-  %45 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %44
   %46 = load i16, ptr %45, align 2
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 2
-  %47 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next137
+  %47 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv.next137
   %48 = load i16, ptr %47, align 4
   %49 = tail call i16 @llvm.smax.i16(i16 %46, i16 %48)
   %50 = add nuw nsw i64 %indvars.iv136, 3
-  %51 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = tail call i16 @llvm.smax.i16(i16 %49, i16 %52)
   %.sroa.speculated44 = sext i16 %53 to i32
@@ -484,16 +484,16 @@ define hidden noundef range(i32 -32768, 2147483647) i32 @_ZN2cv11cornerScoreILi8
 
 54:                                               ; preds = %43
   %55 = add nuw nsw i64 %indvars.iv136, 4
-  %56 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %55
   %57 = load i16, ptr %56, align 4
   %58 = tail call i16 @llvm.smax.i16(i16 %53, i16 %57)
-  %59 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %indvars.iv136
+  %59 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %indvars.iv136
   %60 = load i16, ptr %59, align 4
   %61 = tail call i16 @llvm.smax.i16(i16 %58, i16 %60)
   %62 = sext i16 %61 to i32
   %.sroa.speculated65 = tail call i32 @llvm.smin.i32(i32 %.0115129, i32 %62)
   %63 = add nuw nsw i64 %indvars.iv136, 5
-  %64 = getelementptr inbounds [13 x i16], ptr %4, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [13 x i16], ptr %4, i64 0, i64 %63
   %65 = load i16, ptr %64, align 2
   %.v131 = tail call i16 @llvm.smax.i16(i16 %58, i16 %65)
   %66 = sext i16 %.v131 to i32

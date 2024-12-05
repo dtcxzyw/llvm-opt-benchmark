@@ -77,7 +77,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool43.not, label %err, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %neg = getelementptr inbounds i8, ptr %p, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool46.not = icmp eq i32 %0, 0
   br i1 %tobool46.not, label %if.end50, label %land.lhs.true

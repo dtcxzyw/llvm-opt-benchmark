@@ -616,29 +616,29 @@ do_start.exit360:                                 ; preds = %253, %256
   store ptr %259, ptr @CurrentMemoryContext, align 8
   %260 = getelementptr i8, ptr %.2305, i64 -64
   %261 = load ptr, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %247, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store ptr %261, ptr %262, align 8
   %263 = getelementptr i8, ptr %.2305, i64 -40
   %264 = load ptr, ptr %263, align 8
   %265 = call ptr @makeRangeVar(ptr noundef null, ptr noundef %264, i32 noundef -1) #11
-  %266 = getelementptr inbounds i8, ptr %247, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %247, i64 16
   store ptr %265, ptr %266, align 8
   %267 = getelementptr i8, ptr %.2305, i64 -24
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %247, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store ptr %268, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %247, i64 32
+  %270 = getelementptr inbounds nuw i8, ptr %247, i64 32
   store ptr null, ptr %270, align 8
   %271 = getelementptr i8, ptr %.2305, i64 -8
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %247, i64 40
+  %273 = getelementptr inbounds nuw i8, ptr %247, i64 40
   store ptr %272, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %247, i64 48
-  %275 = getelementptr inbounds i8, ptr %247, i64 106
+  %274 = getelementptr inbounds nuw i8, ptr %247, i64 48
+  %275 = getelementptr inbounds nuw i8, ptr %247, i64 106
   store i8 0, ptr %275, align 2
-  %276 = getelementptr inbounds i8, ptr %247, i64 107
+  %276 = getelementptr inbounds nuw i8, ptr %247, i64 107
   store i8 0, ptr %276, align 1
-  %277 = getelementptr inbounds i8, ptr %247, i64 109
+  %277 = getelementptr inbounds nuw i8, ptr %247, i64 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %274, i8 0, i64 57, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %277, i8 0, i64 6, i1 false)
   %278 = call i32 @RangeVarGetRelidExtended(ptr noundef %265, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #11
@@ -697,32 +697,32 @@ do_start.exit364:                                 ; preds = %299, %302
   store ptr %305, ptr @CurrentMemoryContext, align 8
   %306 = getelementptr i8, ptr %.2305, i64 -64
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %293, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store ptr %307, ptr %308, align 8
   %309 = getelementptr i8, ptr %.2305, i64 -40
   %310 = load ptr, ptr %309, align 8
   %311 = call ptr @makeRangeVar(ptr noundef null, ptr noundef %310, i32 noundef -1) #11
-  %312 = getelementptr inbounds i8, ptr %293, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %293, i64 16
   store ptr %311, ptr %312, align 8
   %313 = getelementptr i8, ptr %.2305, i64 -24
   %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %293, i64 24
+  %315 = getelementptr inbounds nuw i8, ptr %293, i64 24
   store ptr %314, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %293, i64 32
+  %316 = getelementptr inbounds nuw i8, ptr %293, i64 32
   store ptr null, ptr %316, align 8
   %317 = getelementptr i8, ptr %.2305, i64 -8
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %293, i64 40
+  %319 = getelementptr inbounds nuw i8, ptr %293, i64 40
   store ptr %318, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %293, i64 48
-  %321 = getelementptr inbounds i8, ptr %293, i64 104
+  %320 = getelementptr inbounds nuw i8, ptr %293, i64 48
+  %321 = getelementptr inbounds nuw i8, ptr %293, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %320, i8 0, i64 56, i1 false)
   store i8 1, ptr %321, align 8
-  %322 = getelementptr inbounds i8, ptr %293, i64 106
+  %322 = getelementptr inbounds nuw i8, ptr %293, i64 106
   store i8 0, ptr %322, align 2
-  %323 = getelementptr inbounds i8, ptr %293, i64 107
+  %323 = getelementptr inbounds nuw i8, ptr %293, i64 107
   store i8 0, ptr %323, align 1
-  %324 = getelementptr inbounds i8, ptr %293, i64 109
+  %324 = getelementptr inbounds nuw i8, ptr %293, i64 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %324, i8 0, i64 6, i1 false)
   %325 = call i32 @RangeVarGetRelidExtended(ptr noundef %311, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #11
   %326 = getelementptr i8, ptr %.2305, i64 -56
@@ -859,18 +859,18 @@ do_start.exit372:                                 ; preds = %366, %369
   store i32 84, ptr %392, align 4
   %393 = getelementptr i8, ptr %.2305, i64 -8
   %394 = load ptr, ptr %393, align 8
-  %395 = getelementptr inbounds i8, ptr %392, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store ptr %394, ptr %395, align 8
-  %396 = getelementptr inbounds i8, ptr %392, i64 16
+  %396 = getelementptr inbounds nuw i8, ptr %392, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %396, i8 0, i64 24, i1 false)
   %397 = load ptr, ptr %.2305, align 8
   %398 = call ptr @makeString(ptr noundef %397) #11
   %399 = call ptr @list_make1_impl(i32 noundef 1, ptr %398) #11
-  %400 = getelementptr inbounds i8, ptr %392, i64 40
+  %400 = getelementptr inbounds nuw i8, ptr %392, i64 40
   store ptr %399, ptr %400, align 8
-  %401 = getelementptr inbounds i8, ptr %392, i64 56
+  %401 = getelementptr inbounds nuw i8, ptr %392, i64 56
   store i32 0, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %392, i64 60
+  %402 = getelementptr inbounds nuw i8, ptr %392, i64 60
   store i32 0, ptr %402, align 4
   br label %do_end.exit
 

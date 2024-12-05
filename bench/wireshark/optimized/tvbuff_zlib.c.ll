@@ -27,13 +27,13 @@ define noundef ptr @tvb_uncompress(ptr noundef %0, i32 noundef %1, i32 noundef %
   %15 = tail call i32 @llvm.umin.i32(i32 %14, i32 10485760)
   %16 = tail call noalias dereferenceable_or_null(112) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 112) #9
   store ptr %9, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %2, ptr %17, align 8
   %18 = zext nneg i32 %15 to i64
   %19 = tail call noalias ptr @g_malloc0(i64 noundef %18) #10
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 %15, ptr %21, align 8
   %22 = tail call i32 @inflateInit2_(ptr noundef nonnull %16, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 112) #8
   %.not = icmp eq i32 %22, 0

@@ -6,14 +6,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %116
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %122
 
@@ -26,35 +26,35 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   br i1 %14, label %116, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %.0126130, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0126130, i64 16
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 0
-  %19 = getelementptr inbounds i8, ptr %.0126130, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.0126130, i64 32
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
   %or.cond = select i1 %18, i1 %21, i1 false
   br i1 %or.cond, label %22, label %._crit_edge
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %.0126130, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0126130, i64 48
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %._crit_edge
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.0126130, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %.0126130, i64 80
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %28, 0
   br i1 %29, label %30, label %._crit_edge
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.0126130, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %.0126130, i64 96
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %34, label %._crit_edge
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.0126130, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %.0126130, i64 112
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %._crit_edge
@@ -66,9 +66,9 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   %42 = shl nsw i32 %40, 2
   %43 = mul i32 %42, %41
   store i32 %43, ptr %.0123132, align 4
-  %44 = getelementptr inbounds i8, ptr %.0123132, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.0123132, i64 32
   store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %.0123132, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %.0123132, i64 64
   store i32 %43, ptr %45, align 4
   br label %.sink.split
 
@@ -80,12 +80,12 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   %50 = shl nsw i32 %48, 14
   %51 = mul i32 %50, %49
   %52 = sext i16 %46 to i32
-  %53 = getelementptr inbounds i8, ptr %.0125131, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %.0125131, i64 64
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.0126130, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %.0126130, i64 96
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %.0125131, i64 192
+  %58 = getelementptr inbounds nuw i8, ptr %.0125131, i64 192
   %59 = load i32, ptr %58, align 4
   %60 = mul nsw i32 %52, 15137
   %61 = mul i32 %60, %54
@@ -94,26 +94,26 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   %64 = add nsw i32 %63, %61
   %65 = add nsw i32 %64, %51
   %66 = sub nsw i32 %51, %64
-  %67 = getelementptr inbounds i8, ptr %.0126130, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %.0126130, i64 112
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %.0125131, i64 224
+  %70 = getelementptr inbounds nuw i8, ptr %.0125131, i64 224
   %71 = load i32, ptr %70, align 4
   %72 = mul nsw i32 %71, %69
-  %73 = getelementptr inbounds i8, ptr %.0126130, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %.0126130, i64 80
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %.0125131, i64 160
+  %76 = getelementptr inbounds nuw i8, ptr %.0125131, i64 160
   %77 = load i32, ptr %76, align 4
   %78 = mul nsw i32 %77, %75
-  %79 = getelementptr inbounds i8, ptr %.0126130, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %.0126130, i64 48
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %.0125131, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %.0125131, i64 96
   %83 = load i32, ptr %82, align 4
   %84 = mul nsw i32 %83, %81
   %85 = sext i16 %17 to i32
-  %86 = getelementptr inbounds i8, ptr %.0125131, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.0125131, i64 32
   %87 = load i32, ptr %86, align 4
   %88 = mul nsw i32 %87, %85
   %89 = mul nsw i32 %72, -1730
@@ -136,12 +136,12 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   store i32 %105, ptr %.0123132, align 4
   %106 = sub i32 %103, %102
   %107 = ashr i32 %106, 12
-  %108 = getelementptr inbounds i8, ptr %.0123132, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %.0123132, i64 96
   store i32 %107, ptr %108, align 4
   %109 = add i32 %66, 2048
   %110 = add i32 %109, %95
   %111 = ashr i32 %110, 12
-  %112 = getelementptr inbounds i8, ptr %.0123132, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %.0123132, i64 32
   store i32 %111, ptr %112, align 4
   %113 = sub i32 %109, %95
   %114 = ashr i32 %113, 12
@@ -150,14 +150,14 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
 .sink.split:                                      ; preds = %38, %._crit_edge
   %.sink141 = phi i64 [ 64, %._crit_edge ], [ 96, %38 ]
   %.sink = phi i32 [ %114, %._crit_edge ], [ %43, %38 ]
-  %115 = getelementptr inbounds i8, ptr %.0123132, i64 %.sink141
+  %115 = getelementptr inbounds nuw i8, ptr %.0123132, i64 %.sink141
   store i32 %.sink, ptr %115, align 4
   br label %116
 
 116:                                              ; preds = %.sink.split, %13
-  %117 = getelementptr inbounds i8, ptr %.0126130, i64 2
-  %118 = getelementptr inbounds i8, ptr %.0125131, i64 4
-  %119 = getelementptr inbounds i8, ptr %.0123132, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %.0126130, i64 2
+  %118 = getelementptr inbounds nuw i8, ptr %.0125131, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.0123132, i64 4
   %120 = add nsw i32 %.0133, -1
   %121 = icmp ugt i32 %.0133, 1
   br i1 %121, label %13, label %.preheader, !llvm.loop !6
@@ -165,38 +165,38 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
 122:                                              ; preds = %.preheader, %216
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %216 ]
   %.1124134 = phi ptr [ %6, %.preheader ], [ %.2, %216 ]
-  %123 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 %12
-  %126 = getelementptr inbounds i8, ptr %.1124134, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %12
+  %126 = getelementptr inbounds nuw i8, ptr %.1124134, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 0
-  %129 = getelementptr inbounds i8, ptr %.1124134, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.1124134, i64 8
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, 0
   %or.cond142 = select i1 %128, i1 %131, i1 false
   br i1 %or.cond142, label %132, label %._crit_edge137
 
 132:                                              ; preds = %122
-  %133 = getelementptr inbounds i8, ptr %.1124134, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %.1124134, i64 12
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %._crit_edge137
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %.1124134, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %.1124134, i64 20
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %140, label %._crit_edge137
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %.1124134, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %.1124134, i64 24
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %._crit_edge137
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %.1124134, i64 28
+  %145 = getelementptr inbounds nuw i8, ptr %.1124134, i64 28
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %._crit_edge137
@@ -207,12 +207,12 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   %151 = lshr i32 %150, 5
   %152 = and i32 %151, 1023
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds i8, ptr %11, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %11, i64 %153
   %155 = load i8, ptr %154, align 1
   store i8 %155, ptr %125, align 1
-  %156 = getelementptr inbounds i8, ptr %125, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %125, i64 1
   store i8 %155, ptr %156, align 1
-  %157 = getelementptr inbounds i8, ptr %125, i64 2
+  %157 = getelementptr inbounds nuw i8, ptr %125, i64 2
   store i8 %155, ptr %157, align 1
   br label %216
 
@@ -221,17 +221,17 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   %159 = load i32, ptr %.1124134, align 4
   %160 = shl i32 %159, 14
   %161 = mul nsw i32 %158, 15137
-  %162 = getelementptr inbounds i8, ptr %.1124134, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %.1124134, i64 24
   %163 = load i32, ptr %162, align 4
   %164 = mul nsw i32 %163, -6270
   %165 = add nsw i32 %164, %161
   %166 = add nsw i32 %165, %160
   %167 = sub nsw i32 %160, %165
-  %168 = getelementptr inbounds i8, ptr %.1124134, i64 28
+  %168 = getelementptr inbounds nuw i8, ptr %.1124134, i64 28
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %.1124134, i64 20
+  %170 = getelementptr inbounds nuw i8, ptr %.1124134, i64 20
   %171 = load i32, ptr %170, align 4
-  %172 = getelementptr inbounds i8, ptr %.1124134, i64 12
+  %172 = getelementptr inbounds nuw i8, ptr %.1124134, i64 12
   %173 = load i32, ptr %172, align 4
   %174 = mul nsw i32 %169, -1730
   %175 = mul nsw i32 %171, 11893
@@ -252,40 +252,40 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
   %190 = lshr i32 %189, 19
   %191 = and i32 %190, 1023
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds i8, ptr %11, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr %11, i64 %192
   %194 = load i8, ptr %193, align 1
   store i8 %194, ptr %125, align 1
   %195 = sub i32 %188, %187
   %196 = lshr i32 %195, 19
   %197 = and i32 %196, 1023
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds i8, ptr %11, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr %11, i64 %198
   %200 = load i8, ptr %199, align 1
-  %201 = getelementptr inbounds i8, ptr %125, i64 3
+  %201 = getelementptr inbounds nuw i8, ptr %125, i64 3
   store i8 %200, ptr %201, align 1
   %202 = add i32 %167, 262144
   %203 = add i32 %202, %180
   %204 = lshr i32 %203, 19
   %205 = and i32 %204, 1023
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds i8, ptr %11, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 %206
   %208 = load i8, ptr %207, align 1
-  %209 = getelementptr inbounds i8, ptr %125, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %125, i64 1
   store i8 %208, ptr %209, align 1
   %210 = sub i32 %202, %180
   %211 = lshr i32 %210, 19
   %212 = and i32 %211, 1023
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds i8, ptr %11, i64 %213
+  %214 = getelementptr inbounds nuw i8, ptr %11, i64 %213
   %215 = load i8, ptr %214, align 1
   br label %216
 
 216:                                              ; preds = %._crit_edge137, %148
   %.sink145 = phi i64 [ 2, %._crit_edge137 ], [ 3, %148 ]
   %.sink143 = phi i8 [ %215, %._crit_edge137 ], [ %155, %148 ]
-  %217 = getelementptr inbounds i8, ptr %125, i64 %.sink145
+  %217 = getelementptr inbounds nuw i8, ptr %125, i64 %.sink145
   store i8 %.sink143, ptr %217, align 1
-  %.2 = getelementptr inbounds i8, ptr %.1124134, i64 32
+  %.2 = getelementptr inbounds nuw i8, ptr %.1124134, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %218, label %122, !llvm.loop !8
@@ -297,14 +297,14 @@ define hidden void @jRD4x4(ptr nocapture noundef readonly %0, ptr nocapture noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %76
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %82
 
@@ -320,23 +320,23 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
   br i1 %or.cond3, label %76, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.07784, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.07784, i64 16
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i16 %18, 0
-  %20 = getelementptr inbounds i8, ptr %.07784, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.07784, i64 48
   %21 = load i16, ptr %20, align 2
   %22 = icmp eq i16 %21, 0
   %or.cond92 = select i1 %19, i1 %22, i1 false
   br i1 %or.cond92, label %23, label %._crit_edge
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %.07784, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %.07784, i64 80
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %27, label %._crit_edge
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.07784, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %.07784, i64 112
   %29 = load i16, ptr %28, align 2
   %30 = icmp eq i16 %29, 0
   br i1 %30, label %31, label %._crit_edge
@@ -357,29 +357,29 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
   %40 = load i32, ptr %.07883, align 4
   %41 = shl nsw i32 %39, 15
   %42 = mul i32 %41, %40
-  %43 = getelementptr inbounds i8, ptr %.07784, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %.07784, i64 112
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %.07883, i64 224
+  %46 = getelementptr inbounds nuw i8, ptr %.07883, i64 224
   %47 = load i32, ptr %46, align 4
   %48 = mul nsw i32 %45, -5906
   %49 = mul i32 %48, %47
-  %50 = getelementptr inbounds i8, ptr %.07784, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %.07784, i64 80
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %.07883, i64 160
+  %53 = getelementptr inbounds nuw i8, ptr %.07883, i64 160
   %54 = load i32, ptr %53, align 4
   %55 = mul nsw i32 %52, 6967
   %56 = mul i32 %55, %54
   %57 = add nsw i32 %56, %49
   %58 = sext i16 %37 to i32
-  %59 = getelementptr inbounds i8, ptr %.07883, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %.07883, i64 96
   %60 = load i32, ptr %59, align 4
   %61 = mul nsw i32 %58, -10426
   %62 = mul i32 %61, %60
   %63 = add nsw i32 %57, %62
   %64 = sext i16 %18 to i32
-  %65 = getelementptr inbounds i8, ptr %.07883, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.07883, i64 32
   %66 = load i32, ptr %65, align 4
   %67 = mul nsw i32 %64, 29692
   %68 = mul i32 %67, %66
@@ -394,14 +394,14 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 .sink.split:                                      ; preds = %31, %._crit_edge
   %.sink = phi i32 [ %74, %._crit_edge ], [ %36, %31 ]
-  %75 = getelementptr inbounds i8, ptr %.07982, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.07982, i64 32
   store i32 %.sink, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %.sink.split, %13
-  %77 = getelementptr inbounds i8, ptr %.07784, i64 2
-  %78 = getelementptr inbounds i8, ptr %.07883, i64 4
-  %79 = getelementptr inbounds i8, ptr %.07982, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.07784, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %.07883, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.07982, i64 4
   %80 = add nsw i32 %.085, -1
   %81 = icmp ugt i32 %.085, 1
   br i1 %81, label %13, label %.preheader, !llvm.loop !9
@@ -410,26 +410,26 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
   %83 = phi i1 [ true, %.preheader ], [ false, %136 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %136 ]
   %.18086 = phi ptr [ %6, %.preheader ], [ %.2, %136 ]
-  %84 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %12
-  %87 = getelementptr inbounds i8, ptr %.18086, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %12
+  %87 = getelementptr inbounds nuw i8, ptr %.18086, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, 0
-  %90 = getelementptr inbounds i8, ptr %.18086, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %.18086, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
   %or.cond94 = select i1 %89, i1 %92, i1 false
   br i1 %or.cond94, label %93, label %._crit_edge89
 
 93:                                               ; preds = %82
-  %94 = getelementptr inbounds i8, ptr %.18086, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %.18086, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %._crit_edge89
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %.18086, i64 28
+  %98 = getelementptr inbounds nuw i8, ptr %.18086, i64 28
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %._crit_edge89
@@ -440,7 +440,7 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
   %104 = lshr i32 %103, 5
   %105 = and i32 %104, 1023
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %11, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %11, i64 %106
   %108 = load i8, ptr %107, align 1
   store i8 %108, ptr %86, align 1
   br label %136
@@ -449,10 +449,10 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
   %109 = phi i32 [ 0, %97 ], [ 0, %93 ], [ %91, %82 ]
   %110 = load i32, ptr %.18086, align 4
   %111 = shl i32 %110, 15
-  %112 = getelementptr inbounds i8, ptr %.18086, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %.18086, i64 28
   %113 = load i32, ptr %112, align 4
   %114 = mul nsw i32 %113, -5906
-  %115 = getelementptr inbounds i8, ptr %.18086, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %.18086, i64 20
   %116 = load i32, ptr %115, align 4
   %117 = mul nsw i32 %116, 6967
   %118 = mul nsw i32 %109, -10426
@@ -465,22 +465,22 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
   %125 = lshr i32 %124, 20
   %126 = and i32 %125, 1023
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds i8, ptr %11, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 %127
   %129 = load i8, ptr %128, align 1
   store i8 %129, ptr %86, align 1
   %130 = sub i32 %123, %122
   %131 = lshr i32 %130, 20
   %132 = and i32 %131, 1023
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %11, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 %133
   %135 = load i8, ptr %134, align 1
   br label %136
 
 136:                                              ; preds = %._crit_edge89, %101
   %.sink95 = phi i8 [ %135, %._crit_edge89 ], [ %108, %101 ]
-  %137 = getelementptr inbounds i8, ptr %86, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store i8 %.sink95, ptr %137, align 1
-  %.2 = getelementptr inbounds i8, ptr %.18086, i64 32
+  %.2 = getelementptr inbounds nuw i8, ptr %.18086, i64 32
   br i1 %83, label %82, label %138, !llvm.loop !10
 
 138:                                              ; preds = %136
@@ -489,10 +489,10 @@ define hidden void @jRD2x2(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @jRD1x1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 424
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %2, align 2
   %12 = zext i16 %11 to i32
@@ -502,11 +502,11 @@ define hidden void @jRD1x1(ptr nocapture noundef readonly %0, ptr nocapture noun
   %16 = lshr i32 %15, 3
   %17 = and i32 %16, 1023
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = load ptr, ptr %3, align 8
   %22 = zext i32 %4 to i64
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   store i8 %20, ptr %23, align 1
   ret void
 }

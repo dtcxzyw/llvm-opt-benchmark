@@ -45,10 +45,10 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
 .preheader.preheader.i:                           ; preds = %12, %9
   %13 = phi ptr [ %.pre, %12 ], [ %10, %9 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) @relfilenumber_skey, i8 0, i64 144, i1 false)
-  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 16), ptr noundef %13) #7
-  store i16 3, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 6), align 2
-  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 8), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 12), align 4
+  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 16), ptr noundef %13) #7
+  store i16 3, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 6), align 2
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 8), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 12), align 4
   %14 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 88), ptr noundef %14) #7
   store i16 3, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 78), align 2
@@ -56,12 +56,12 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   store i32 0, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 84), align 4
   store i16 9, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 4), align 4
   store i16 8, ptr getelementptr inbounds (i8, ptr @relfilenumber_skey, i64 76), align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 12, ptr %16, align 8
   %17 = load ptr, ptr @CacheMemoryContext, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %17, ptr %18, align 8
   %19 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef 64, ptr noundef nonnull %3, i32 noundef 1064) #7
   store ptr %19, ptr @RelfilenumberMapHash, align 8
@@ -74,7 +74,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %21 = icmp eq i32 %0, %20
   %spec.store.select = select i1 %21, i32 0, i32 %0
   store i32 %spec.store.select, ptr %4, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %22, align 4
   %23 = load ptr, ptr @RelfilenumberMapHash, align 8
   %24 = call ptr @hash_search(ptr noundef %23, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #7
@@ -83,7 +83,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %.loopexit
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i32, ptr %28, align 4
   br label %68
 
@@ -95,10 +95,10 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %33 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %6, ptr noundef nonnull align 16 dereferenceable(144) @relfilenumber_skey, i64 144, i1 false)
   %34 = zext i32 %spec.store.select to i64
-  %35 = getelementptr inbounds i8, ptr %6, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %34, ptr %35, align 16
   %36 = zext i32 %1 to i64
-  %37 = getelementptr inbounds i8, ptr %6, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i64 %36, ptr %37, align 8
   %38 = call ptr @systable_beginscan(ptr noundef %33, i32 noundef 3455, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #7
   store i8 0, ptr %5, align 1
@@ -120,9 +120,9 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   unreachable
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %40, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 22
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 22
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
   %52 = getelementptr i8, ptr %48, i64 %51
@@ -160,7 +160,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   unreachable
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %60, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %.038, ptr %67, align 4
   br label %68
 
@@ -231,7 +231,7 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %24
   %13 = phi ptr [ %25, %24 ], [ %5, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   %17 = icmp eq i32 %15, %1

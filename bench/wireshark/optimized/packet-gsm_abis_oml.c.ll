@@ -1242,7 +1242,7 @@ define internal i32 @dissect_abis_oml(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca i32, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.681) #5
   store ptr %2, ptr @top_tree, align 8
@@ -1436,7 +1436,7 @@ format_custom_msgtype.exit:                       ; preds = %21, %.thread.i
   %28 = zext i8 %13 to i32
   %29 = zext i8 %15 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %4, ptr noundef nonnull @.str.683, ptr noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %6) #5
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @oml_fom_objclass_vals, ptr noundef nonnull @.str.684) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.685, ptr noundef %32, i32 noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %6) #5
@@ -1470,7 +1470,7 @@ define internal fastcc i32 @dissect_oml_attrs(ptr noundef %0, i32 noundef %1, i3
   br i1 %6, label %.lr.ph376, label %.loopexit362
 
 .lr.ph376:                                        ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph376, %.backedge
@@ -1524,7 +1524,7 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   ]
 
 23:                                               ; preds = %find_tlv_tag.exit
-  %24 = getelementptr inbounds i8, ptr %.06.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
   br label %49

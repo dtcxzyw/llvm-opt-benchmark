@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @fnt_dif2(ptr nocapture noundef %a, i64 noundef %n, ptr nocapture noundef readonly %tparams) local_unnamed_addr #0 {
 entry:
-  %wtable1 = getelementptr inbounds i8, ptr %tparams, i64 24
+  %wtable1 = getelementptr inbounds nuw i8, ptr %tparams, i64 24
   %0 = load i32, ptr %tparams, align 8
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i

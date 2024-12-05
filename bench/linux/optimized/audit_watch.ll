@@ -76,7 +76,7 @@ define dso_local void @audit_put_watch(ptr noundef %0) local_unnamed_addr #0 ali
 
 7:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11, !prof !7
@@ -88,7 +88,7 @@ define dso_local void @audit_put_watch(ptr noundef %0) local_unnamed_addr #0 ali
   br label %12
 
 12:                                               ; preds = %11, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %17, label %16, !prof !7
@@ -100,7 +100,7 @@ define dso_local void @audit_put_watch(ptr noundef %0) local_unnamed_addr #0 ali
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @kfree(ptr noundef %19) #8
   tail call void @kfree(ptr noundef %0) #8
@@ -121,14 +121,14 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @audit_watch_path(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local range(i32 0, 2) i32 @audit_watch_compare(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ne i64 %5, -1
   %7 = icmp eq i64 %5, %1
@@ -136,7 +136,7 @@ define dso_local range(i32 0, 2) i32 @audit_watch_compare(ptr nocapture noundef 
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %2
   %13 = zext i1 %12 to i32
@@ -167,7 +167,7 @@ define dso_local noundef i32 @audit_to_watch(ptr nocapture noundef %0, ptr nound
   br i1 %15, label %45, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %24, label %20
@@ -183,19 +183,19 @@ define dso_local noundef i32 @audit_to_watch(ptr nocapture noundef %0, ptr nound
   br i1 %25, label %26, label %45
 
 26:                                               ; preds = %24, %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %45
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 320
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %45
@@ -227,16 +227,16 @@ define internal fastcc noundef ptr @audit_init_watch(ptr noundef %0) unnamed_add
   br i1 %4, label %11, label %5, !prof !6
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store volatile ptr %6, ptr %7, align 8
   store volatile i32 1, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 -1, ptr %10, align 8
   br label %11
 
@@ -248,7 +248,7 @@ define internal fastcc noundef ptr @audit_init_watch(ptr noundef %0) unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.path, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   %6 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5, i32 1, ptr elementtype(i32) %5) #8, !srcloc !5
@@ -269,7 +269,7 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
 14:                                               ; preds = %12, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !16
   tail call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @kern_path_locked(ptr noundef %16, ptr noundef nonnull %3) #8
   %18 = icmp ugt ptr %17, inttoptr (i64 -4096 to ptr)
@@ -282,27 +282,27 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 16
-  %28 = getelementptr inbounds i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %17, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %32, ptr %33, align 8
   br label %.thread
 
 .thread:                                          ; preds = %19, %23
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 160
-  call void @up_write(ptr noundef %38) #8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 160
+  call void @up_write(ptr noundef nonnull %38) #8
   call void @dput(ptr noundef %17) #8
   call void @mutex_lock(ptr noundef nonnull @audit_filter_mutex) #8
   br label %43
@@ -315,13 +315,13 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
   br i1 %42, label %43, label %157
 
 43:                                               ; preds = %.thread, %39
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 584
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 584
   %49 = load ptr, ptr @audit_watch_group, align 8
-  %50 = call ptr @fsnotify_find_mark(ptr noundef %48, ptr noundef %49) #8
+  %50 = call ptr @fsnotify_find_mark(ptr noundef nonnull %48, ptr noundef %49) #8
   %51 = icmp eq ptr %50, null
   %52 = getelementptr i8, ptr %50, i64 -16
   %53 = icmp eq ptr %52, null
@@ -330,7 +330,7 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
 
 55:                                               ; preds = %43
   %56 = load ptr, ptr %44, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %60 = call noalias align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %59, i32 noundef 3520, i64 noundef 88) #9
@@ -339,14 +339,14 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
 
 62:                                               ; preds = %55
   store volatile ptr %60, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store volatile ptr %60, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %65 = load ptr, ptr @audit_watch_group, align 8
-  call void @fsnotify_init_mark(ptr noundef %64, ptr noundef %65) #8
+  call void @fsnotify_init_mark(ptr noundef nonnull %64, ptr noundef %65) #8
   store i32 12224, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 584
-  %67 = call i32 @fsnotify_add_mark(ptr noundef %64, ptr noundef %66, i32 noundef 0, i32 noundef 0) #8
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 584
+  %67 = call i32 @fsnotify_add_mark(ptr noundef nonnull %64, ptr noundef nonnull %66, i32 noundef 0, i32 noundef 0) #8
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %76
 
@@ -385,7 +385,7 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
   br i1 %85, label %86, label %88, !prof !7
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   br label %89
 
 88:                                               ; preds = %82
@@ -423,7 +423,7 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
 
 106:                                              ; preds = %99
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %107 = getelementptr inbounds i8, ptr %84, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %111, label %110, !prof !7
@@ -435,7 +435,7 @@ define dso_local i32 @audit_add_watch(ptr noundef %0, ptr nocapture noundef writ
   br label %111
 
 111:                                              ; preds = %110, %106
-  %112 = getelementptr inbounds i8, ptr %84, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %113 = load volatile ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, %112
   br i1 %114, label %116, label %115, !prof !7
@@ -474,12 +474,12 @@ audit_put_watch.exit:                             ; preds = %103, %105, %116
   br i1 %127, label %.thread15, label %128, !prof !6
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %83, i64 16
-  call void @fsnotify_put_mark(ptr noundef %129) #8
+  %129 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  call void @fsnotify_put_mark(ptr noundef nonnull %129) #8
   br label %.thread15
 
 130:                                              ; preds = %89
-  %131 = getelementptr inbounds i8, ptr %84, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr %83, ptr %131, align 8
   %132 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %84, i32 1, ptr elementtype(i32) %84) #8, !srcloc !5
   %133 = icmp eq i32 %132, 0
@@ -497,28 +497,28 @@ audit_put_watch.exit:                             ; preds = %103, %105, %116
   br label %140
 
 140:                                              ; preds = %138, %134
-  %141 = getelementptr inbounds i8, ptr %84, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %142 = load ptr, ptr %83, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %141, ptr %143, align 8
   store ptr %142, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %84, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %84, i64 40
   store ptr %83, ptr %144, align 8
   store volatile ptr %141, ptr %83, align 8
   br label %.thread15
 
 .thread15:                                        ; preds = %126, %128, %140
   %145 = phi ptr [ %84, %140 ], [ %100, %128 ], [ %100, %126 ]
-  %146 = getelementptr inbounds i8, ptr %0, i64 336
-  %147 = getelementptr inbounds i8, ptr %145, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 48
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr %146, ptr %149, align 8
   store ptr %148, ptr %146, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 344
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %147, ptr %150, align 8
   store volatile ptr %146, ptr %147, align 8
-  %151 = getelementptr inbounds i8, ptr %5, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %152 = load i64, ptr %151, align 8
   %153 = and i64 %152, 31
   %154 = getelementptr [32 x %struct.list_head], ptr @audit_inode_hash, i64 0, i64 %153
@@ -546,7 +546,7 @@ audit_put_watch.exit:                             ; preds = %103, %105, %116
 
 164:                                              ; preds = %157
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %165 = getelementptr inbounds i8, ptr %5, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %169, label %168, !prof !7
@@ -558,7 +558,7 @@ audit_put_watch.exit:                             ; preds = %103, %105, %116
   br label %169
 
 169:                                              ; preds = %168, %164
-  %170 = getelementptr inbounds i8, ptr %5, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %171 = load volatile ptr, ptr %170, align 8
   %172 = icmp eq ptr %171, %170
   br i1 %172, label %174, label %173, !prof !7
@@ -594,20 +594,20 @@ declare dso_local void @path_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @audit_remove_watch_rule(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 336
-  %7 = getelementptr inbounds i8, ptr %0, i64 344
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %14, label %53
@@ -617,16 +617,16 @@ define dso_local void @audit_remove_watch_rule(ptr nocapture noundef %0) local_u
   br i1 %15, label %18, label %16, !prof !6
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
-  tail call void @fsnotify_get_mark(ptr noundef %17) #8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  tail call void @fsnotify_get_mark(ptr noundef nonnull %17) #8
   br label %18
 
 18:                                               ; preds = %16, %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 32
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %19, align 8
@@ -636,8 +636,8 @@ define dso_local void @audit_remove_watch_rule(ptr nocapture noundef %0) local_u
   br i1 %25, label %28, label %26, !prof !6
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
-  tail call void @fsnotify_put_mark(ptr noundef %27) #8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  tail call void @fsnotify_put_mark(ptr noundef nonnull %27) #8
   br label %28
 
 28:                                               ; preds = %26, %18
@@ -678,7 +678,7 @@ define dso_local void @audit_remove_watch_rule(ptr nocapture noundef %0) local_u
   br label %42
 
 42:                                               ; preds = %41, %38
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @kfree(ptr noundef %44) #8
   tail call void @kfree(ptr noundef %3) #8
@@ -690,17 +690,17 @@ audit_put_watch.exit:                             ; preds = %31, %33, %42
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %audit_put_watch.exit
-  %48 = getelementptr inbounds i8, ptr %5, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %49 = load ptr, ptr @audit_watch_group, align 8
-  tail call void @fsnotify_destroy_mark(ptr noundef %48, ptr noundef %49) #8
+  tail call void @fsnotify_destroy_mark(ptr noundef nonnull %48, ptr noundef %49) #8
   br label %50
 
 50:                                               ; preds = %47, %audit_put_watch.exit
   br i1 %15, label %53, label %51, !prof !6
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
-  tail call void @fsnotify_put_mark(ptr noundef %52) #8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  tail call void @fsnotify_put_mark(ptr noundef nonnull %52) #8
   br label %53
 
 53:                                               ; preds = %51, %50, %1
@@ -728,7 +728,7 @@ define internal noundef i32 @audit_watch_init() #5 section ".init.text" align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @audit_dupe_exe(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @audit_mark_path(ptr noundef %4) #8
   %6 = tail call noalias ptr @kstrdup(ptr noundef %5, i32 noundef 3264) #8
@@ -749,7 +749,7 @@ define dso_local i32 @audit_dupe_exe(ptr noundef %0, ptr nocapture noundef reado
   br label %18
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %11, ptr %17, align 8
   br label %18
 
@@ -778,7 +778,7 @@ define dso_local i32 @audit_exe_compare(ptr noundef readnone %0, ptr noundef %1)
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 1192
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %23, label %10
@@ -789,13 +789,13 @@ define dso_local i32 @audit_exe_compare(ptr noundef readnone %0, ptr noundef %1)
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 16
   tail call void @fput(ptr noundef nonnull %11) #8
   %22 = tail call i32 @audit_mark_compare(ptr noundef %1, i64 noundef %17, i32 noundef %21) #8
@@ -860,7 +860,7 @@ declare dso_local void @audit_panic(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture readnone %3, ptr noundef %4, i32 %5) #0 align 16 {
   %7 = getelementptr i8, ptr %0, i64 -16
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @audit_watch_group, align 8
   %11 = icmp eq ptr %9, %10
@@ -880,11 +880,11 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 16
-  %23 = getelementptr inbounds i8, ptr %2, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %24 = load i64, ptr %23, align 8
   tail call fastcc void @audit_update_watch(ptr noundef %7, ptr noundef %4, i32 noundef %22, i64 noundef %24, i32 noundef 0)
   br label %111
@@ -933,7 +933,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
 49:                                               ; preds = %43
   %50 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 1976
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1976
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @audit_log_start(ptr noundef %53, i32 noundef 3136, i32 noundef 1305) #8
   %55 = icmp eq ptr %54, null
@@ -964,10 +964,10 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   br label %67
 
 67:                                               ; preds = %66, %62
-  %68 = getelementptr inbounds i8, ptr %44, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %44, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %69, ptr %71, align 8
   store volatile ptr %70, ptr %69, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %44, align 8
@@ -976,7 +976,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   %73 = getelementptr i8, ptr %44, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %74, ptr %76, align 8
   store volatile ptr %75, ptr %74, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %72, align 8
@@ -984,7 +984,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   %77 = getelementptr i8, ptr %44, i64 -360
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %46, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8
   store volatile ptr %79, ptr %78, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %77, align 8
@@ -1001,7 +1001,7 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   %83 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %37, %.preheader ]
   %84 = getelementptr i8, ptr %35, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %85, ptr %86, align 8
   store volatile ptr %83, ptr %85, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %35, align 8
@@ -1012,8 +1012,8 @@ define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 nounde
   br i1 %89, label %92, label %90, !prof !6
 
 90:                                               ; preds = %.loopexit
-  %91 = getelementptr inbounds i8, ptr %88, i64 16
-  tail call void @fsnotify_put_mark(ptr noundef %91) #8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  tail call void @fsnotify_put_mark(ptr noundef nonnull %91) #8
   br label %92
 
 92:                                               ; preds = %90, %.loopexit
@@ -1120,7 +1120,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
 20:                                               ; preds = %16
   %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 1976
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1976
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
@@ -1147,16 +1147,16 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br i1 %37, label %.thread, label %38, !prof !6
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store volatile ptr %39, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store volatile ptr %39, ptr %40, align 8
   store volatile i32 1, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %32, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 -1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %36, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 -1, ptr %43, align 8
   %44 = icmp ugt ptr %36, inttoptr (i64 -4096 to ptr)
   br i1 %44, label %.thread, label %46
@@ -1179,14 +1179,14 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br i1 %53, label %56, label %54, !prof !6
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
-  tail call void @fsnotify_get_mark(ptr noundef %55) #8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  tail call void @fsnotify_get_mark(ptr noundef nonnull %55) #8
   %.pre = load ptr, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %54, %46
   %57 = phi ptr [ %.pre, %54 ], [ null, %46 ]
-  %58 = getelementptr inbounds i8, ptr %36, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %57, ptr %58, align 8
   br label %59
 
@@ -1201,9 +1201,9 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br label %174
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %60, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %2, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %60, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i64 %3, ptr %64, align 8
   %65 = getelementptr i8, ptr %8, i64 16
   %66 = load ptr, ptr %65, align 8
@@ -1212,7 +1212,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
 
 68:                                               ; preds = %62
   %69 = and i64 %3, 31
-  %70 = getelementptr inbounds i8, ptr %60, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %71 = getelementptr [32 x %struct.list_head], ptr @audit_inode_hash, i64 0, i64 %69
   br label %72
 
@@ -1221,9 +1221,9 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr i8, ptr %73, i64 -336
   %76 = getelementptr i8, ptr %73, i64 -368
-  %77 = getelementptr inbounds i8, ptr %73, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %74, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %78, ptr %79, align 8
   store volatile ptr %74, ptr %78, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %73, align 8
@@ -1231,7 +1231,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   %80 = getelementptr i8, ptr %73, i64 -360
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %76, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %81, ptr %83, align 8
   store volatile ptr %82, ptr %81, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %80, align 8
@@ -1244,7 +1244,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   %88 = getelementptr i8, ptr %73, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %89, ptr %91, align 8
   store volatile ptr %90, ptr %89, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %87, align 8
@@ -1253,7 +1253,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br label %136
 
 92:                                               ; preds = %72
-  %93 = getelementptr inbounds i8, ptr %84, i64 344
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 344
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %94, i32 -1, ptr elementtype(i32) %94) #8, !srcloc !8
   %96 = icmp eq i32 %95, 1
@@ -1269,7 +1269,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
 
 100:                                              ; preds = %92
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
-  %101 = getelementptr inbounds i8, ptr %94, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %105, label %104, !prof !7
@@ -1281,7 +1281,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br label %105
 
 105:                                              ; preds = %104, %100
-  %106 = getelementptr inbounds i8, ptr %94, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %107 = load volatile ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, %106
   br i1 %108, label %110, label %109, !prof !7
@@ -1293,7 +1293,7 @@ define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, 
   br label %110
 
 110:                                              ; preds = %109, %105
-  %111 = getelementptr inbounds i8, ptr %94, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %112 = load ptr, ptr %111, align 8
   tail call void @kfree(ptr noundef %112) #8
   tail call void @kfree(ptr noundef %94) #8
@@ -1317,31 +1317,31 @@ audit_put_watch.exit:                             ; preds = %97, %99, %110
 
 121:                                              ; preds = %119, %115
   store ptr %60, ptr %93, align 8
-  %122 = getelementptr inbounds i8, ptr %84, i64 368
+  %122 = getelementptr inbounds nuw i8, ptr %84, i64 368
   %123 = load ptr, ptr %70, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %122, ptr %124, align 8
   store ptr %123, ptr %122, align 8
-  %125 = getelementptr inbounds i8, ptr %84, i64 376
+  %125 = getelementptr inbounds nuw i8, ptr %84, i64 376
   store ptr %70, ptr %125, align 8
   store volatile ptr %122, ptr %70, align 8
   %126 = load ptr, ptr %71, align 16
   store ptr %126, ptr %84, align 8
-  %127 = getelementptr inbounds i8, ptr %84, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %71, ptr %127, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !32
   store volatile ptr %84, ptr %71, align 16
-  %128 = getelementptr inbounds i8, ptr %126, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %84, ptr %128, align 8
   %129 = getelementptr i8, ptr %73, i64 16
-  %130 = getelementptr inbounds i8, ptr %84, i64 384
+  %130 = getelementptr inbounds nuw i8, ptr %84, i64 384
   %131 = load ptr, ptr %129, align 8
   store ptr %131, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store ptr %130, ptr %132, align 8
   %133 = getelementptr i8, ptr %73, i64 24
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %84, i64 392
+  %135 = getelementptr inbounds nuw i8, ptr %84, i64 392
   store ptr %134, ptr %135, align 8
   store ptr %130, ptr %134, align 8
   br label %136
@@ -1366,7 +1366,7 @@ audit_put_watch.exit:                             ; preds = %97, %99, %110
   %144 = getelementptr i8, ptr %8, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store ptr %145, ptr %147, align 8
   store volatile ptr %146, ptr %145, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %8, align 8
@@ -1377,8 +1377,8 @@ audit_put_watch.exit:                             ; preds = %97, %99, %110
   br i1 %150, label %153, label %151, !prof !6
 
 151:                                              ; preds = %.loopexit
-  %152 = getelementptr inbounds i8, ptr %149, i64 16
-  tail call void @fsnotify_put_mark(ptr noundef %152) #8
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  tail call void @fsnotify_put_mark(ptr noundef nonnull %152) #8
   br label %153
 
 153:                                              ; preds = %151, %.loopexit
@@ -1425,12 +1425,12 @@ audit_put_watch.exit:                             ; preds = %97, %99, %110
   br label %audit_put_watch.exit15
 
 audit_put_watch.exit15:                           ; preds = %156, %158, %167
-  %169 = getelementptr inbounds i8, ptr %60, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %170 = load ptr, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr %169, ptr %171, align 8
   store ptr %170, ptr %169, align 8
-  %172 = getelementptr inbounds i8, ptr %60, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store ptr %0, ptr %172, align 8
   store volatile ptr %169, ptr %0, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #8

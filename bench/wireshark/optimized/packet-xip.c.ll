@@ -127,7 +127,7 @@ define internal i32 @dissect_xip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %6, label %86, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.31) #4
   %10 = load ptr, ptr %8, align 8
@@ -310,7 +310,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   %11 = zext i8 %6 to i32
   %12 = mul nuw nsw i32 %11, 28
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %10, i32 noundef %12, i32 noundef 0) #4
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %15, i64 noundef 749) #4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %3) #4
@@ -333,7 +333,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   %20 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19) #4
   store i32 %20, ptr %18, align 4
   %.153 = add i8 %.057, 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -349,7 +349,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %exitcond.not, label %26, label %22, !llvm.loop !4
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = zext i8 %.1 to i32
   %29 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %27, i32 noundef %28, i64 noundef 4) #4
   %30 = add i8 %.155, 8
@@ -528,7 +528,7 @@ xia_test_addr.exit.thread24.i:                    ; preds = %38, %.split.us.i.i.
   br label %add_type_to_buf.exit.us.i
 
 add_type_to_buf.exit.us.i:                        ; preds = %91, %90, %83
-  %92 = getelementptr inbounds i8, ptr %79, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr i8, ptr %79, i64 8
   %95 = load i32, ptr %94, align 4
@@ -539,7 +539,7 @@ add_type_to_buf.exit.us.i:                        ; preds = %91, %90, %83
   %100 = getelementptr i8, ptr %79, i64 20
   %101 = load i32, ptr %100, align 4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %16, ptr noundef nonnull @.str.58, i32 noundef %93, i32 noundef %95, i32 noundef %97, i32 noundef %99, i32 noundef %101) #4
-  %102 = getelementptr inbounds i8, ptr %79, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %79, i64 24
   call void @wmem_strbuf_append_c(ptr noundef %16, i8 noundef signext 45) #4
   br label %.split.us.i.us.i
 
@@ -621,7 +621,7 @@ xia_test_addr.exit.split.i:                       ; preds = %76, %add_edges_to_b
   br label %add_type_to_buf.exit.i
 
 add_type_to_buf.exit.i:                           ; preds = %127, %126, %119
-  %128 = getelementptr inbounds i8, ptr %115, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr i8, ptr %115, i64 8
   %131 = load i32, ptr %130, align 4
@@ -632,7 +632,7 @@ add_type_to_buf.exit.i:                           ; preds = %127, %126, %119
   %136 = getelementptr i8, ptr %115, i64 20
   %137 = load i32, ptr %136, align 4
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %16, ptr noundef nonnull @.str.58, i32 noundef %129, i32 noundef %131, i32 noundef %133, i32 noundef %135, i32 noundef %137) #4
-  %138 = getelementptr inbounds i8, ptr %115, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %115, i64 24
   call void @wmem_strbuf_append_c(ptr noundef %16, i8 noundef signext 45) #4
   br label %.split.i.i
 

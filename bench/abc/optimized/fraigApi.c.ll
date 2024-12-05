@@ -13,14 +13,14 @@ define ptr @Fraig_ManReadVecInputs(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadVecOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadVecNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -28,25 +28,25 @@ define ptr @Fraig_ManReadVecNodes(ptr nocapture noundef readonly %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fraig_ManReadInputs(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fraig_ManReadOutputs(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fraig_ManReadNodes(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -54,41 +54,41 @@ define ptr @Fraig_ManReadNodes(ptr nocapture noundef readonly %0) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Fraig_ManReadInputNum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Fraig_ManReadOutputNum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Fraig_ManReadNodeNum(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadConst1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fraig_ManReadIthNode(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
@@ -98,77 +98,77 @@ define ptr @Fraig_ManReadIthNode(ptr nocapture noundef readonly %0, i32 noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadInputNames(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadOutputNames(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadVarsInt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 264
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadSat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadFuncRed(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadFeedBack(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 92
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadDoSparse(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 100
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadChoicing(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadVerbose(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_ManReadModel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -2147483648, 2147483617) i32 @Fraig_ManReadPatternNumRandom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = shl nsw i32 %3, 5
   ret i32 %4
@@ -176,7 +176,7 @@ define range(i32 -2147483648, 2147483617) i32 @Fraig_ManReadPatternNumRandom(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -2147483648, 2147483617) i32 @Fraig_ManReadPatternNumDynamic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = shl nsw i32 %3, 5
   ret i32 %4
@@ -184,21 +184,21 @@ define range(i32 -2147483648, 2147483617) i32 @Fraig_ManReadPatternNumDynamic(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadPatternNumDynamicFiltered(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_ManReadSatFails(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @Fraig_ManReadConflicts(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -216,7 +216,7 @@ declare i32 @Msat_SolverReadBackTracks(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @Fraig_ManReadInspects(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -234,70 +234,70 @@ declare i32 @Msat_SolverReadInspects(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetFuncRed(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetFeedBack(ptr nocapture noundef writeonly initializes((92, 96)) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetDoSparse(ptr nocapture noundef writeonly initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetChoicing(ptr nocapture noundef writeonly initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetTryProve(ptr nocapture noundef writeonly initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetVerbose(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetOutputNames(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_ManSetInputNames(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadData0(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadData1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -310,42 +310,42 @@ define i32 @Fraig_NodeReadNum(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadOne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadTwo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadNextE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadRepr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Fraig_NodeReadNumRefs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 4) i32 @Fraig_NodeReadNumFanouts(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 10
   %5 = and i32 %4, 3
@@ -354,7 +354,7 @@ define range(i32 0, 4) i32 @Fraig_NodeReadNumFanouts(ptr nocapture noundef reado
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Fraig_NodeReadSimInv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
   ret i32 %4
@@ -362,7 +362,7 @@ define range(i32 0, 2) i32 @Fraig_NodeReadSimInv(ptr nocapture noundef readonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 1048576) i32 @Fraig_NodeReadNumOnes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 12
   ret i32 %4
@@ -370,28 +370,28 @@ define range(i32 0, 1048576) i32 @Fraig_NodeReadNumOnes(ptr nocapture noundef re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadPatternsRandom(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Fraig_NodeReadPatternsDynamic(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_NodeSetData0(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Fraig_NodeSetData1(ptr nocapture noundef writeonly initializes((128, 136)) %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -412,7 +412,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsVar(ptr noundef %0) local_unnamed_addr #
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -1
   %8 = zext i1 %7 to i32
@@ -424,7 +424,7 @@ define range(i32 0, 2) i32 @Fraig_NodeIsAnd(ptr noundef %0) local_unnamed_addr #
   %2 = ptrtoint ptr %0 to i64
   %3 = and i64 %2, -2
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
@@ -442,9 +442,9 @@ define range(i32 0, 2) i32 @Fraig_NodeIsAnd(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Fraig_NodeComparePhase(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = xor i32 %6, %4
   %8 = and i32 %7, 1
@@ -462,7 +462,7 @@ define ptr @Fraig_ManReadIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %1, %8
   br i1 %.not, label %.loopexit, label %.preheader
@@ -480,10 +480,10 @@ define ptr @Fraig_ManReadIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5
   %11 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %6, %5 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -499,11 +499,11 @@ define void @Fraig_ManSetPo(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = or i32 %7, 2
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @Fraig_NodeVecPush(ptr noundef %10, ptr noundef %1) #7
   ret void
@@ -579,12 +579,12 @@ define ptr @Fraig_NodeMux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Fraig_NodeSetChoice(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef initializes((80, 88)) %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %5, ptr %6, align 8
   store ptr %2, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %1, ptr %7, align 8
   ret void
 }

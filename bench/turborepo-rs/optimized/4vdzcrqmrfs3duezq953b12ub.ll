@@ -11,19 +11,19 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8, !range !4, !noundef !5
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %29, label %13
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8
   br label %45
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !5
   %17 = icmp eq i64 %9, %1
   tail call void @llvm.assume(i1 %17)
@@ -71,8 +71,8 @@ define void @_RINvNtCs68wO5nsWeTG_5alloc7raw_vec11finish_growNtNtB4_5alloc6Globa
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit": ; preds = %35, %31, %26, %23, %21
   %.sroa.06.0.i.i.pn = phi ptr [ %28, %26 ], [ %22, %21 ], [ %25, %23 ], [ %34, %31 ], [ %39, %35 ]
   %40 = icmp eq ptr %.sroa.06.0.i.i.pn, null
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %40, label %44, label %43
 
 43:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit"
@@ -116,7 +116,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   br i1 %10, label %12, label %21
 
 12:                                               ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !9, !noalias !12, !nonnull !5, !noundef !5
   %15 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %8
   tail call void @llvm.assume(i1 %15)
@@ -140,7 +140,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   unreachable
 
 22:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.06.0.i.i.pn.i.i, ptr %23, align 8, !alias.scope !6
   store i64 %.sroa.0.0.sroa.speculated.i17.i, ptr %0, align 8, !alias.scope !6
   ret void
@@ -153,16 +153,16 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memo
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
   store ptr %7, ptr %0, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
   br label %8
 
 8:                                                ; preds = %2, %5
   %.sink = phi i64 [ 1, %5 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %9, align 8
   ret void
 }
@@ -181,7 +181,7 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate
   br i1 %2, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h11bc396744ca58afE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit"
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %9, align 8
   br label %19
 
@@ -197,8 +197,8 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate
 13:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h11bc396744ca58afE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit"
   %.pn16 = phi ptr [ %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h11bc396744ca58afE.exit" ], [ %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17ha99d1879f26c35e4E.exit" ]
   %14 = icmp eq ptr %.pn16, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %14, label %18, label %17
 
 17:                                               ; preds = %13
@@ -217,9 +217,9 @@ define void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE15try_allocate
   ret void
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %22, align 8
   br label %19
 }
@@ -248,7 +248,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   br i1 %7, label %9, label %18
 
 9:                                                ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !21, !noalias !24, !nonnull !5, !noundef !5
   %12 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17.i, %2
   tail call void @llvm.assume(i1 %12)
@@ -272,7 +272,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   unreachable
 
 19:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i.i"
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.06.0.i.i.pn.i.i, ptr %20, align 8, !alias.scope !18
   store i64 %.sroa.0.0.sroa.speculated.i17.i, ptr %0, align 8, !alias.scope !18
   ret void
@@ -302,7 +302,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   br i1 %10, label %12, label %23
 
 12:                                               ; preds = %_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhnDi_7pidlock.exit.thread
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !30, !noalias !33, !nonnull !5, !noundef !5
   %15 = icmp uge i64 %.sroa.0.0.sroa.speculated.i17, %8
   tail call void @llvm.assume(i1 %15)
@@ -320,7 +320,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechE14current_memoryCslOtZNRIhn
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h88f400c446b72260E.exit.i"
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.06.0.i.i.pn.i, ptr %22, align 8
   store i64 %.sroa.0.0.sroa.speculated.i17, ptr %0, align 8
   br label %23

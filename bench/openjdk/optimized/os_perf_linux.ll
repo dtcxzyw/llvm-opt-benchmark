@@ -63,7 +63,7 @@ $_ZTV13SystemProcess = comdat any
 define hidden void @_ZN23CPUPerformanceInterface14CPUPerformanceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 4), (48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 @_ZN2os22active_processor_countEv() #18
   store i32 %2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -80,7 +80,7 @@ define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10
   %7 = sext i32 %6 to i64
   %8 = mul nsw i64 %7, 40
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i8 noundef zeroext 9, i32 noundef 0) #18
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %9, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 %8, i1 false)
   %11 = load ptr, ptr %10, align 8
@@ -95,7 +95,7 @@ define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds %"struct.os::Linux::CPUPerfTicks", ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %"struct.os::Linux::CPUPerfTicks", ptr %18, i64 %indvars.iv
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef %19, i32 noundef %20) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -105,7 +105,7 @@ define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %26 = load i32, ptr @_ZZL14get_systemtypevE15procEntriesType, align 4
@@ -144,7 +144,7 @@ _ZL14get_systemtypev.exit.i:                      ; preds = %32, %._crit_edge
   %38 = load i64, ptr %2, align 8
   store i64 %38, ptr %25, align 8
   %39 = load i64, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %39, ptr %40, align 8
   br label %_ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit
 
@@ -267,7 +267,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL24perf_context_switch_ra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23CPUPerformanceInterface14CPUPerformanceD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -285,16 +285,16 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq i32 %1, -1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %0, align 8
   %spec.select = select i1 %4, i32 %7, i32 %1
   %8 = sext i32 %spec.select to i64
   %9 = getelementptr inbounds %"struct.os::Linux::CPUPerfTicks", ptr %6, i64 %8
   %.sroa.0.0.copyload44.i = load i64, ptr %9, align 8
-  %.sroa.2.0..sroa_idx45.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2.0..sroa_idx45.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.2.0.copyload46.i = load i64, ptr %.sroa.2.0..sroa_idx45.i, align 8
-  %.sroa.4.0..sroa_idx47.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.4.0..sroa_idx47.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.4.0.copyload48.i = load i64, ptr %.sroa.4.0..sroa_idx47.i, align 8
   %10 = tail call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %9, i32 noundef %1) #18
   br i1 %10, label %11, label %_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget.exit
@@ -354,7 +354,7 @@ define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13C
 
 8:                                                ; preds = %4
   %9 = icmp eq i32 %0, -1
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   br i1 %9, label %12, label %29
 
@@ -363,11 +363,11 @@ define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13C
   br label %29
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %15, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -422,9 +422,9 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
   %30 = sext i32 %.sink63 to i64
   %31 = getelementptr inbounds %"struct.os::Linux::CPUPerfTicks", ptr %11, i64 %30
   %.sroa.0.0.copyload44 = load i64, ptr %31, align 8
-  %.sroa.2.0..sroa_idx45 = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.2.0..sroa_idx45 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.2.0.copyload46 = load i64, ptr %.sroa.2.0..sroa_idx45, align 8
-  %.sroa.4.0..sroa_idx47 = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa.4.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.sroa.4.0.copyload48 = load i64, ptr %.sroa.4.0..sroa_idx47, align 8
   %32 = tail call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %31, i32 noundef %0) #18
   br i1 %32, label %33, label %55
@@ -490,15 +490,15 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
   br i1 %7, label %45, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %0, align 8
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %"struct.os::Linux::CPUPerfTicks", ptr %10, i64 %12
   %.sroa.0.0.copyload44.i.i = load i64, ptr %13, align 8
-  %.sroa.2.0..sroa_idx45.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2.0..sroa_idx45.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.2.0.copyload46.i.i = load i64, ptr %.sroa.2.0..sroa_idx45.i.i, align 8
-  %.sroa.4.0..sroa_idx47.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.4.0..sroa_idx47.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.4.0.copyload48.i.i = load i64, ptr %.sroa.4.0..sroa_idx47.i.i, align 8
   %14 = tail call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %13, i32 noundef -1) #18
   br i1 %14, label %15, label %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit
@@ -579,7 +579,7 @@ define hidden noundef zeroext i1 @_ZN23CPUPerformanceInterface10initializeEv(ptr
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #18
   %3 = tail call noundef i32 @_ZN2os22active_processor_countEv() #18
   store i32 %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %4, align 8
   store ptr %2, ptr %0, align 8
   %5 = tail call noundef zeroext i1 @_ZN23CPUPerformanceInterface14CPUPerformance10initializeEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
@@ -593,7 +593,7 @@ define hidden void @_ZN23CPUPerformanceInterfaceD2Ev(ptr nocapture noundef nonnu
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN23CPUPerformanceInterface14CPUPerformanceD2Ev.exit, label %6
@@ -614,16 +614,16 @@ _ZN23CPUPerformanceInterface14CPUPerformanceD2Ev.exit: ; preds = %3, %6
 define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface8cpu_loadEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq i32 %1, -1
-  %6 = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %4, align 8
   %spec.select.i = select i1 %5, i32 %8, i32 %1
   %9 = sext i32 %spec.select.i to i64
   %10 = getelementptr inbounds %"struct.os::Linux::CPUPerfTicks", ptr %7, i64 %9
   %.sroa.0.0.copyload44.i.i = load i64, ptr %10, align 8
-  %.sroa.2.0..sroa_idx45.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx45.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload46.i.i = load i64, ptr %.sroa.2.0..sroa_idx45.i.i, align 8
-  %.sroa.4.0..sroa_idx47.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.4.0..sroa_idx47.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.4.0.copyload48.i.i = load i64, ptr %.sroa.4.0..sroa_idx47.i.i, align 8
   %11 = tail call noundef zeroext i1 @_ZN2os5Linux20get_tick_informationEPNS0_12CPUPerfTicksEi(ptr noundef nonnull %10, i32 noundef %1) #18
   br i1 %11, label %12, label %_ZN23CPUPerformanceInterface14CPUPerformance8cpu_loadEiPd.exit
@@ -707,7 +707,7 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
   %3 = alloca %struct.stat, align 8
   %4 = call i32 @stat64(ptr noundef %1, ptr noundef nonnull %3) #18
   %5 = icmp sgt i32 %4, -1
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 16384
@@ -727,7 +727,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK22SystemProcessInterface15System
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %2, align 8
   br label %10
@@ -742,19 +742,19 @@ define hidden noundef zeroext i1 @_ZNK22SystemProcessInterface15SystemProcesses1
   %3 = alloca %struct.stat, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca [4096 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 19
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %7 = tail call i32 @atoi(ptr nocapture noundef nonnull %6) #19
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %2
   %9 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %6) #18
-  %10 = getelementptr inbounds i8, ptr %5, i64 4095
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4095
   store i8 0, ptr %10, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %11 = call i32 @stat64(ptr noundef nonnull readonly %5, ptr noundef nonnull %4) #18
   %12 = icmp sgt i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 16384
@@ -784,11 +784,11 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12get_exe_nameEv(ptr nocapture noundef nonnull align 8 dereferenceable(8209) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [4096 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 19
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %6 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #18
-  %7 = getelementptr inbounds i8, ptr %2, i64 4095
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4095
   store i8 0, ptr %7, align 1
   %8 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #18
   %.not = icmp eq ptr %8, null
@@ -805,7 +805,7 @@ define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterato
   br i1 %.not15, label %25, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %.not16 = icmp eq i8 %15, 0
   br i1 %.not16, label %25, label %16
@@ -820,9 +820,9 @@ define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterato
   %20 = ptrtoint ptr %14 to i64
   %21 = sub i64 %19, %20
   %22 = call noundef i64 @llvm.umin.i64(i64 %21, i64 4095)
-  %23 = getelementptr inbounds i8, ptr %0, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %14, i64 %22, i1 false)
-  %24 = getelementptr inbounds [4096 x i8], ptr %23, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw [4096 x i8], ptr %23, i64 0, i64 %22
   store i8 0, ptr %24, align 1
   br label %25
 
@@ -855,11 +855,11 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 define hidden noundef ptr @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator11get_cmdlineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8209) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 19
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %7 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #18
-  %8 = getelementptr inbounds i8, ptr %2, i64 4095
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4095
   store i8 0, ptr %8, align 1
   %9 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #18
   %.not = icmp eq ptr %9, null
@@ -928,13 +928,13 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12get_exe_pathEv(ptr noundef nonnull align 8 dereferenceable(8209) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [4096 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 19
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %6 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %2, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #18
-  %7 = getelementptr inbounds i8, ptr %2, i64 4095
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4095
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 4113
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4113
   %9 = call noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef nonnull %2, ptr noundef nonnull %8, i64 noundef 4096) #18
   ret ptr %9
 }
@@ -960,30 +960,30 @@ declare noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef, i8 nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator7currentEP13SystemProcess(ptr noundef nonnull align 8 dereferenceable(8209) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [4096 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %29
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 19
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %11 = tail call i32 @atoi(ptr nocapture noundef nonnull %10) #19
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %11, ptr %12, align 8
   tail call void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12get_exe_nameEv(ptr noundef nonnull align 8 dereferenceable(8209) %0)
-  %13 = getelementptr inbounds i8, ptr %0, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %14 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %13, i8 noundef zeroext 9) #18
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %14, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3)
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 19
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 19
   %18 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %17) #18
-  %19 = getelementptr inbounds i8, ptr %3, i64 4095
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4095
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 4113
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4113
   %21 = call noundef ptr @_ZN2os5Posix8realpathEPKcPcm(ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef 4096) #18
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
   %.not = icmp eq ptr %21, null
@@ -991,7 +991,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
 
 22:                                               ; preds = %7
   %23 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %20, i8 noundef zeroext 9) #18
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %23, ptr %24, align 8
   br label %25
 
@@ -1002,7 +1002,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
 
 _ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator15allocate_stringEPKc.exit: ; preds = %25
   %27 = call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef nonnull %26, i8 noundef zeroext 9) #18
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %27, ptr %28, align 8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %26) #18
   br label %29
@@ -1017,7 +1017,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
   %2 = alloca %struct.stat, align 8
   %3 = alloca %struct.stat, align 8
   %4 = alloca [4096 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.preheader, label %32
@@ -1025,20 +1025,20 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN22SystemProcessInterface15SystemP
 .preheader:                                       ; preds = %1
   %8 = load ptr, ptr %0, align 8
   %9 = tail call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef %8) #18
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %4, i64 4095
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4095
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.backedge
   %15 = phi ptr [ %9, %.lr.ph ], [ %30, %.backedge ]
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
-  %16 = getelementptr inbounds i8, ptr %15, i64 19
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 19
   %17 = call i32 @atoi(ptr nocapture noundef nonnull %16) #19
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %_ZNK22SystemProcessInterface15SystemProcesses15ProcessIterator14is_valid_entryEP6dirent.exit, label %18
@@ -1100,10 +1100,10 @@ define hidden void @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterato
 define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8209) initializes((0, 17)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef nonnull @.str.8) #18
   store ptr %2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = icmp ne ptr %2, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i1 %4 to i8
   store i8 %6, ptr %5, align 8
   %7 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12next_processEv(ptr noundef nonnull align 8 dereferenceable(8209) %0)
@@ -1141,10 +1141,10 @@ define hidden noundef zeroext i1 @_ZN22SystemProcessInterface15SystemProcesses10
   store ptr %2, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef nonnull @.str.8) #18
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %4, align 8
   %5 = icmp ne ptr %3, null
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %6, align 8
   %8 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12next_processEv(ptr noundef nonnull align 8 dereferenceable(8209) %2)
@@ -1179,7 +1179,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system
   store i32 0, ptr %2, align 4
   store ptr null, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -1187,9 +1187,9 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system
 .lr.ph:                                           ; preds = %3, %16
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #18
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13SystemProcess, i64 16), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %11 = load ptr, ptr %0, align 8
   %12 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator7currentEP13SystemProcess(ptr noundef nonnull align 8 dereferenceable(8209) %11, ptr noundef nonnull %8)
@@ -1198,7 +1198,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %13, ptr %15, align 8
   br label %16
 
@@ -1210,7 +1210,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface15SystemProcesses16system
   %19 = load ptr, ptr %0, align 8
   %20 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12next_processEv(ptr noundef nonnull align 8 dereferenceable(8209) %19)
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -1225,7 +1225,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13Sy
   store i32 0, ptr %2, align 4
   store ptr null, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.lr.ph.i, label %_ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi.exit
@@ -1233,9 +1233,9 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13Sy
 .lr.ph.i:                                         ; preds = %3, %17
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #18
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13SystemProcess, i64 16), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %12 = load ptr, ptr %4, align 8
   %13 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator7currentEP13SystemProcess(ptr noundef nonnull align 8 dereferenceable(8209) %12, ptr noundef nonnull %9)
@@ -1244,7 +1244,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13Sy
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %9, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %14, ptr %16, align 8
   br label %17
 
@@ -1256,7 +1256,7 @@ define hidden noundef i32 @_ZNK22SystemProcessInterface16system_processesEPP13Sy
   %20 = load ptr, ptr %4, align 8
   %21 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12next_processEv(ptr noundef nonnull align 8 dereferenceable(8209) %20)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %.lr.ph.i, label %_ZNK22SystemProcessInterface15SystemProcesses16system_processesEPP13SystemProcessPi.exit, !llvm.loop !11
@@ -1281,10 +1281,10 @@ define hidden noundef zeroext i1 @_ZN22SystemProcessInterface10initializeEv(ptr 
   store ptr %3, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef nonnull @.str.8) #18
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   %6 = icmp ne ptr %4, null
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = zext i1 %6 to i8
   store i8 %8, ptr %7, align 8
   %9 = tail call noundef i32 @_ZN22SystemProcessInterface15SystemProcesses15ProcessIterator12next_processEv(ptr noundef nonnull align 8 dereferenceable(8209) %3)
@@ -1333,32 +1333,32 @@ define hidden void @_ZN23CPUInformationInterfaceC2Ev(ptr nocapture noundef nonnu
 define hidden noundef zeroext i1 @_ZN23CPUInformationInterface10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 9, i32 noundef 0) #18
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %2, ptr %0, align 8
   tail call void @_ZN10VM_Version26initialize_cpu_informationEv() #18
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef i32 @_ZN19Abstract_VM_Version17number_of_threadsEv() #18
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %7, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call noundef i32 @_ZN19Abstract_VM_Version15number_of_coresEv() #18
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %10, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
   %13 = tail call noundef i32 @_ZN19Abstract_VM_Version17number_of_socketsEv() #18
   store i32 %13, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = tail call noundef ptr @_ZN19Abstract_VM_Version8cpu_nameEv() #18
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %15, ptr %16, align 8
   %17 = load ptr, ptr %0, align 8
   %18 = tail call noundef ptr @_ZN19Abstract_VM_Version15cpu_descriptionEv() #18
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %18, ptr %19, align 8
   ret i1 true
 }
@@ -1382,7 +1382,7 @@ define hidden void @_ZN23CPUInformationInterfaceD2Ev(ptr nocapture noundef nonnu
   br i1 %.not, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
   br i1 %.not4, label %9, label %6
@@ -1390,14 +1390,14 @@ define hidden void @_ZN23CPUInformationInterfaceD2Ev(ptr nocapture noundef nonnu
 6:                                                ; preds = %3
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %5) #18
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %8, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %9
 
 9:                                                ; preds = %6, %3
   %10 = phi ptr [ %.pre, %6 ], [ %2, %3 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not5 = icmp eq ptr %12, null
   br i1 %.not5, label %.thread, label %13
@@ -1405,7 +1405,7 @@ define hidden void @_ZN23CPUInformationInterfaceD2Ev(ptr nocapture noundef nonnu
 13:                                               ; preds = %9
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %12) #18
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %15, align 8
   %.pr = load ptr, ptr %0, align 8
   %16 = icmp eq ptr %.pr, null
@@ -1466,7 +1466,7 @@ define hidden noundef i64 @_ZNK27NetworkPerformanceInterface18NetworkPerformance
   br i1 %or.cond3, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %9
+  %13 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %9
   store i8 0, ptr %13, align 1
   %14 = call i64 @strtoll(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #18
   br label %15
@@ -1506,7 +1506,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK27NetworkPerformanceInterface18N
 .lr.ph:                                           ; preds = %.preheader, %45
   %.01425 = phi ptr [ %.014, %45 ], [ %.01422, %.preheader ]
   %.01524 = phi ptr [ %.1, %45 ], [ null, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.01425, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.01425, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %45, label %10
@@ -1517,7 +1517,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK27NetworkPerformanceInterface18N
   br i1 %.not18, label %12, label %45
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.01425, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01425, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.9, ptr noundef %14, ptr noundef nonnull @.str.10) #18
@@ -1533,7 +1533,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK27NetworkPerformanceInterface18N
   br i1 %or.cond3.i, label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds [128 x i8], ptr %4, i64 0, i64 %19
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 0, i64 %19
   store i8 0, ptr %23, align 1
   %24 = call i64 @strtoll(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #18
   br label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit
@@ -1556,7 +1556,7 @@ _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit:
   br i1 %or.cond3.i19, label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit21, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %30
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %30
   store i8 0, ptr %34, align 1
   %35 = call i64 @strtoll(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #18
   br label %_ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit21
@@ -1567,11 +1567,11 @@ _ZNK27NetworkPerformanceInterface18NetworkPerformance12read_counterEPKcS2_.exit2
   %36 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #18
   %37 = load ptr, ptr %13, align 8
   store ptr null, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %.0.i, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %.0.i20, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %.01524, ptr %40, align 8
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #19
   %42 = add i64 %41, 1
@@ -1671,7 +1671,7 @@ define internal noundef i32 @_ZL13read_statdataPKcS0_z(ptr nocapture readnone %0
   br i1 %.not16.i, label %20, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %15 = getelementptr inbounds i8, ptr %3, i64 %8
   %16 = icmp ult ptr %14, %15
   br i1 %16, label %17, label %20
@@ -1759,13 +1759,13 @@ _ZL13open_statfilev.exit:                         ; preds = %1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13SystemProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13SystemProcess, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #18
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %5) #18
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %7) #18
   ret void
@@ -1774,13 +1774,13 @@ define linkonce_odr hidden void @_ZN13SystemProcessD2Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13SystemProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV13SystemProcess, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #18
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %5) #18
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %7) #18
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #18

@@ -455,7 +455,7 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
   %.us-phi.i = phi i64 [ %124, %.lr.ph.split.us.i ], [ %131, %130 ]
   %.us-phi22.i = phi i32 [ %125, %.lr.ph.split.us.i ], [ %132, %130 ]
   %137 = and i64 %.us-phi.i, 2147483647
-  %138 = getelementptr inbounds i8, ptr %.0.ph33.i, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %.0.ph33.i, i64 %137
   %139 = sub nsw i32 %.014.ph31.i, %.us-phi22.i
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %141, label %.sink.split.i
@@ -508,7 +508,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %.b61353, label %.lr.ph54, label %._crit_edge
 
 .lr.ph54:                                         ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %5, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %158
 
 158:                                              ; preds = %.lr.ph54, %_try_to_reconfig.exit
@@ -681,7 +681,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   %.us-phi56.i = phi i64 [ %192, %.lr.ph80.preheader.i.preheader ], [ %192, %.lr.ph96.i.preheader ], [ %212, %.lr.ph80.preheader.i ], [ %202, %.lr.ph96.i ]
   %.us-phi57.i = phi i32 [ %193, %.lr.ph80.preheader.i.preheader ], [ %193, %.lr.ph96.i.preheader ], [ %213, %.lr.ph80.preheader.i ], [ %203, %.lr.ph96.i ]
   %224 = and i64 %.us-phi56.i, 2147483647
-  %225 = getelementptr inbounds i8, ptr %.025.ph100.i, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr %.025.ph100.i, i64 %224
   %226 = sub nsw i32 %.026.ph98.i, %.us-phi57.i
   %227 = icmp sgt i32 %226, 0
   %228 = call i32 @get_log_level() #14
@@ -955,21 +955,21 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 148
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
   %8 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #14
-  %9 = getelementptr inbounds i8, ptr %1, i64 204
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %10 = load i16, ptr %9, align 4
   %11 = tail call ptr @rpc_num2string(i16 noundef zeroext %10) #14
   %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__._on_msg, ptr noundef %8, ptr noundef %11) #14
   br label %45
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %.not = icmp eq i32 %15, %16
@@ -977,7 +977,7 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
 
 17:                                               ; preds = %13
   %18 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #14
-  %19 = getelementptr inbounds i8, ptr %1, i64 204
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %20 = load i16, ptr %19, align 4
   %21 = tail call ptr @rpc_num2string(i16 noundef zeroext %20) #14
   %22 = load i32, ptr %14, align 4
@@ -986,7 +986,7 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
   br label %45
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %1, i64 204
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %27 = load i16, ptr %26, align 4
   %cond = icmp eq i16 %27, 1006
   br i1 %cond, label %28, label %39
@@ -1001,7 +1001,7 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
   br label %32
 
 32:                                               ; preds = %31, %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @write_configs_to_conf_cache(ptr noundef %34, ptr noundef nonnull @.str.27) #14
   %.not13 = icmp eq i32 %35, 0

@@ -50,10 +50,10 @@ define internal noundef i32 @accelerator_null_check_addr(ptr nocapture readnone 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @accelerator_null_create_stream(i32 %0, ptr nocapture noundef writeonly %1) #1 {
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_accelerator_stream_t_class, i64 56), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_stream_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #9
   %5 = load i32, ptr @opal_class_init_epoch, align 4
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @opal_accelerator_stream_t_class, i64 32), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_stream_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -67,9 +67,9 @@ define internal noundef i32 @accelerator_null_create_stream(i32 %0, ptr nocaptur
 
 9:                                                ; preds = %8
   store ptr @opal_accelerator_stream_t_class, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator_stream_t_class, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_stream_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i.i = icmp eq ptr %12, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -78,7 +78,7 @@ define internal noundef i32 @accelerator_null_create_stream(i32 %0, ptr nocaptur
   %13 = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %9 ]
   %.07.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %9 ]
   tail call void %13(ptr noundef nonnull %4) #10
-  %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -90,10 +90,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @accelerator_null_create_event(i32 %0, ptr nocapture noundef writeonly %1, i1 zeroext %2) #1 {
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @opal_accelerator_event_t_class, i64 56), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_event_t_class, i64 56), align 8
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #9
   %6 = load i32, ptr @opal_class_init_epoch, align 4
-  %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_accelerator_event_t_class, i64 32), align 8
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_event_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %6, %7
   br i1 %.not.i, label %9, label %8
 
@@ -107,9 +107,9 @@ define internal noundef i32 @accelerator_null_create_event(i32 %0, ptr nocapture
 
 10:                                               ; preds = %9
   store ptr @opal_accelerator_event_t_class, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile i32 1, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator_event_t_class, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_accelerator_event_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i.i = icmp eq ptr %13, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -118,7 +118,7 @@ define internal noundef i32 @accelerator_null_create_event(i32 %0, ptr nocapture
   %14 = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %10 ]
   %.07.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %12, %10 ]
   tail call void %14(ptr noundef nonnull %5) #10
-  %15 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4

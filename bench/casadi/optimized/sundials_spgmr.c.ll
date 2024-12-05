@@ -33,7 +33,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 16:                                               ; preds = %.lr.ph, %22
   %indvars.iv164 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next165, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %17 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %18 = tail call noalias ptr @malloc(i64 noundef %14) #7
   store ptr %18, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -49,7 +49,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv161 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next162, %.lr.ph133 ]
-  %20 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv161
+  %20 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv161
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #6
   store ptr null, ptr %20, align 8
@@ -83,7 +83,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv192 = phi i64 [ 0, %.lr.ph157.preheader ], [ %indvars.iv.next193, %.lr.ph157 ]
-  %29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv192
+  %29 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv192
   %30 = load ptr, ptr %29, align 8
   tail call void @free(ptr noundef %30) #6
   store ptr null, ptr %29, align 8
@@ -109,7 +109,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv186 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next187, %.lr.ph153 ]
-  %35 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv186
+  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv186
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36) #6
   store ptr null, ptr %35, align 8
@@ -136,7 +136,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
   %indvars.iv180 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next181, %.lr.ph148 ]
-  %41 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv180
+  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv180
   %42 = load ptr, ptr %41, align 8
   tail call void @free(ptr noundef %42) #6
   store ptr null, ptr %41, align 8
@@ -164,7 +164,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv174 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next175, %.lr.ph143 ]
-  %47 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv174
+  %47 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv174
   %48 = load ptr, ptr %47, align 8
   tail call void @free(ptr noundef %48) #6
   store ptr null, ptr %47, align 8
@@ -193,7 +193,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph138:                                        ; preds = %.lr.ph138.preheader, %.lr.ph138
   %indvars.iv169 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next170, %.lr.ph138 ]
-  %53 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv169
+  %53 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv169
   %54 = load ptr, ptr %53, align 8
   tail call void @free(ptr noundef %54) #6
   store ptr null, ptr %53, align 8
@@ -208,17 +208,17 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 55:                                               ; preds = %49
   store i32 %0, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %50, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %6, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %50, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %11, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %50, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %26, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %50, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %32, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %50, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store ptr %38, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %50, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store ptr %44, ptr %61, align 8
   br label %62
 
@@ -248,17 +248,17 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
   store i32 0, ptr %15, align 4
   store i32 0, ptr %14, align 4
@@ -356,13 +356,13 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 .preheader.us:                                    ; preds = %.preheader318, %._crit_edge.us
   %indvars.iv386 = phi i64 [ %indvars.iv.next387, %._crit_edge.us ], [ 0, %.preheader318 ]
-  %67 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv386
+  %67 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv386
   br label %68
 
 68:                                               ; preds = %.preheader.us, %68
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %68 ]
   %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds double, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv
   store double 0.000000e+00, ptr %70, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -393,7 +393,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   store i32 %76, ptr %14, align 4
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %indvars = trunc i64 %indvars.iv.next392 to i32
-  %77 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv391
+  %77 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv391
   %78 = load ptr, ptr %77, align 8
   br i1 %.not297, label %80, label %79
 
@@ -409,7 +409,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br i1 %.not, label %92, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next392
+  %83 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next392
   %84 = load ptr, ptr %83, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %31, ptr noundef %84) #6
   %85 = load ptr, ptr %83, align 8
@@ -426,7 +426,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br label %.loopexit
 
 92:                                               ; preds = %82, %81
-  %93 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next392
+  %93 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next392
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 %11(ptr noundef %1, ptr noundef %31, ptr noundef %94) #6
   %.not303 = icmp eq i32 %95, 0
@@ -471,9 +471,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br label %113
 
 113:                                              ; preds = %112, %111
-  %114 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.next392
+  %114 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next392
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds double, ptr %115, i64 %indvars.iv391
+  %116 = getelementptr inbounds nuw double, ptr %115, i64 %indvars.iv391
   br i1 %65, label %117, label %119
 
 117:                                              ; preds = %113
@@ -495,7 +495,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 124:                                              ; preds = %121
   %125 = shl nuw nsw i64 %indvars.iv391, 1
   %126 = or disjoint i64 %125, 1
-  %127 = getelementptr inbounds double, ptr %25, i64 %126
+  %127 = getelementptr inbounds nuw double, ptr %25, i64 %126
   %128 = load double, ptr %127, align 8
   %129 = fmul double %.0269333, %128
   %130 = fmul double %.0270366, %129
@@ -505,9 +505,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br i1 %132, label %._crit_edge, label %133
 
 133:                                              ; preds = %124
-  %134 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.next392
+  %134 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next392
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds double, ptr %135, i64 %indvars.iv391
+  %136 = getelementptr inbounds nuw double, ptr %135, i64 %indvars.iv391
   %137 = load double, ptr %136, align 8
   %138 = fdiv double 1.000000e+00, %137
   %139 = load ptr, ptr %93, align 8
@@ -544,9 +544,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 .lr.ph348:                                        ; preds = %.lr.ph348.preheader, %.lr.ph348
   %indvars.iv400 = phi i64 [ 0, %.lr.ph348.preheader ], [ %indvars.iv.next401, %.lr.ph348 ]
-  %144 = getelementptr inbounds double, ptr %29, i64 %indvars.iv400
+  %144 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv400
   %145 = load double, ptr %144, align 8
-  %146 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv400
+  %146 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv400
   %147 = load ptr, ptr %146, align 8
   tail call void @N_VLinearSum(double noundef %145, ptr noundef %147, double noundef 1.000000e+00, ptr noundef %27, ptr noundef %27) #6
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
@@ -606,7 +606,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   %164 = getelementptr i8, ptr %163, i64 -16
   %165 = load double, ptr %164, align 8
   %166 = fmul double %.0275350, %165
-  %167 = getelementptr inbounds double, ptr %29, i64 %indvars.iv406
+  %167 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv406
   store double %166, ptr %167, align 8
   %168 = getelementptr i8, ptr %163, i64 -8
   %169 = load double, ptr %168, align 8
@@ -629,7 +629,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 .lr.ph358:                                        ; preds = %.lr.ph358.preheader, %.lr.ph358
   %indvars.iv410 = phi i64 [ 0, %.lr.ph358.preheader ], [ %indvars.iv.next411, %.lr.ph358 ]
-  %174 = getelementptr inbounds double, ptr %29, i64 %indvars.iv410
+  %174 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv410
   %175 = load double, ptr %174, align 8
   %176 = fmul double %172, %175
   store double %176, ptr %174, align 8
@@ -651,9 +651,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 .lr.ph363:                                        ; preds = %.lr.ph363.preheader, %.lr.ph363
   %indvars.iv416 = phi i64 [ 1, %.lr.ph363.preheader ], [ %indvars.iv.next417, %.lr.ph363 ]
-  %181 = getelementptr inbounds double, ptr %29, i64 %indvars.iv416
+  %181 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv416
   %182 = load double, ptr %181, align 8
-  %183 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv416
+  %183 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv416
   %184 = load ptr, ptr %183, align 8
   %185 = load ptr, ptr %21, align 8
   tail call void @N_VLinearSum(double noundef %182, ptr noundef %184, double noundef 1.000000e+00, ptr noundef %185, ptr noundef %185) #6
@@ -744,7 +744,7 @@ define void @SpgmrFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = add nuw i32 %4, 1
   %wide.trip.count = zext i32 %6 to i64
   br label %7
@@ -752,7 +752,7 @@ define void @SpgmrFree(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -761,22 +761,22 @@ define void @SpgmrFree(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %7, %.._crit_edge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %6, %7 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @N_VDestroyVectorArray(ptr noundef %18, i32 noundef %.pre-phi) #6
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   tail call void @N_VDestroy(ptr noundef %20) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   tail call void @N_VDestroy(ptr noundef %22) #6
   tail call void @free(ptr noundef nonnull %0) #6

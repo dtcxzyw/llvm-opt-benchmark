@@ -221,22 +221,22 @@ define dso_local noundef i32 @_ZN9DepthSpec29dtStatementExpr_minimal_depthEi(i32
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4:
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
   %1 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #11
   store i32 4, ptr %1, align 4
   %2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #11
-          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit27
+          to label %.noexc11 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit25
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+.noexc11:                                         ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 5, ptr %3, align 4
   store i32 4, ptr %2, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %1) #12
   %4 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #11
-          to label %.lr.ph.preheader.i.i unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit27
+          to label %.lr.ph.preheader.i.i unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit25
 
-.lr.ph.preheader.i.i:                             ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+.lr.ph.preheader.i.i:                             ; preds = %.noexc11
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 4
   %6 = load i64, ptr %2, align 4
   store i64 %6, ptr %4, align 4
@@ -248,25 +248,25 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7: ; preds = %_ZNKSt6vector
   %8 = phi i32 [ %11, %.lr.ph.i.i ], [ %7, %.lr.ph.preheader.i.i ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 4, %.lr.ph.preheader.i.i ]
   %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %4, %.lr.ph.preheader.i.i ]
-  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %9 = load i32, ptr %.ptr, align 4
   %10 = icmp slt i32 %9, %8
   %11 = tail call i32 @llvm.smin.i32(i32 %9, i32 %8)
   %spec.select.i.i = select i1 %10, ptr %.ptr, ptr %.sroa.02.110.i.i
   %.add = add nuw nsw i64 %.idx, 4
-  %.not.i.i25 = icmp eq i64 %.add, 12
-  br i1 %.not.i.i25, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread, label %.lr.ph.i.i, !llvm.loop !5
+  %.not.i.i23 = icmp eq i64 %.add, 12
+  br i1 %.not.i.i23, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread, label %.lr.ph.i.i, !llvm.loop !5
 
 _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread: ; preds = %.lr.ph.i.i
   %12 = load i32, ptr %spec.select.i.i, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %4) #12
   ret i32 %12
 
-_ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4
-  %.sroa.033.0.ph = phi ptr [ %1, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4 ], [ %2, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i7 ]
+_ZNSt6vectorIiSaIiEED2Ev.exit25:                  ; preds = %.noexc11, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %.sroa.031.0.ph = phi ptr [ %1, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %2, %.noexc11 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.033.0.ph) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.031.0.ph) #12
   resume { ptr, i32 } %lpad.thr_comm
 }
 
@@ -297,7 +297,7 @@ define dso_local noundef range(i32 4, 8) i32 @_ZN9DepthSpec53dtFunctionInvocatio
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN9DepthSpec46dtFunctionInvocationRandomBinary_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4:
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
   ret i32 5
 }
 
@@ -319,7 +319,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec37dtExpressionRandomP
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN9DepthSpec41dtFunctionInvocationStdFunc_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i4:
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
   ret i32 5
 }
 

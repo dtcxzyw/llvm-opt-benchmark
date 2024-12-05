@@ -388,7 +388,7 @@ define internal i32 @dissect_llcgprs(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %374
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.124) #3
   %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #3

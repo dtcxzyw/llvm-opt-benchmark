@@ -25,11 +25,11 @@ define ptr @lv_ll_ins_head(ptr nocapture noundef %0) local_unnamed_addr #1 {
 node_set_next.exit:                               ; preds = %1
   %6 = load i32, ptr %0, align 8, !tbaa !3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
   store ptr null, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !10
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !9
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %13, label %node_set_prev.exit19
@@ -80,10 +80,10 @@ lv_ll_get_head.exit:                              ; preds = %2
 node_set_next.exit.i:                             ; preds = %12
   %13 = load i32, ptr %0, align 8, !tbaa !3
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
   store ptr null, ptr %15, align 8, !tbaa !9
   %16 = load ptr, ptr %5, align 8, !tbaa !10
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %17, align 8, !tbaa !9
   %.not18.i = icmp eq ptr %16, null
   br i1 %.not18.i, label %19, label %node_set_prev.exit19.i
@@ -116,16 +116,16 @@ node_set_prev.exit19.i:                           ; preds = %node_set_next.exit.
   br i1 %30, label %node_set_next.exit31, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %29, i64 %27
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %27
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %11, ptr %33, align 8, !tbaa !9
   br label %node_set_next.exit31
 
 node_set_next.exit31:                             ; preds = %25, %31
-  %34 = getelementptr inbounds i8, ptr %11, i64 %27
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 %27
   store ptr %29, ptr %34, align 8, !tbaa !9
   store ptr %11, ptr %28, align 8, !tbaa !9
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %1, ptr %35, align 8, !tbaa !9
   br label %lv_ll_ins_head.exit
 
@@ -170,8 +170,8 @@ define ptr @lv_ll_ins_tail(ptr nocapture noundef %0) local_unnamed_addr #1 {
 node_set_prev.exit:                               ; preds = %1
   %6 = load i32, ptr %0, align 8, !tbaa !3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %9, align 8, !tbaa !9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !11
@@ -180,8 +180,8 @@ node_set_prev.exit:                               ; preds = %1
   br i1 %.not18, label %14, label %node_set_next.exit19
 
 node_set_next.exit19:                             ; preds = %node_set_prev.exit
-  %12 = getelementptr inbounds i8, ptr %11, i64 %7
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %13, align 8, !tbaa !9
   br label %14
 
@@ -214,8 +214,8 @@ lv_ll_get_head.exit:                              ; preds = %2
 7:                                                ; preds = %lv_ll_get_head.exit
   %8 = load i32, ptr %0, align 8, !tbaa !3
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   store ptr %12, ptr %4, align 8, !tbaa !10
   %13 = icmp eq ptr %12, null
@@ -251,20 +251,20 @@ lv_ll_get_tail.exit:                              ; preds = %lv_ll_get_head.exit
   br label %node_set_prev.exit34
 
 node_set_next.exit:                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %23, i64 %21
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %21
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %28, align 8, !tbaa !9
   br label %node_set_prev.exit34
 
 29:                                               ; preds = %lv_ll_get_tail.exit
-  %30 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   %32 = icmp eq ptr %23, null
   br i1 %32, label %node_set_next.exit33, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %23, i64 %21
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %21
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %31, ptr %35, align 8, !tbaa !9
   br label %node_set_next.exit33
 
@@ -285,8 +285,8 @@ node_set_prev.exit34:                             ; preds = %37, %node_set_next.
 define ptr @lv_ll_get_next(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8, !tbaa !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   ret ptr %7
 }
@@ -327,8 +327,8 @@ lv_ll_get_head.exit.i.us:                         ; preds = %.lr.ph, %lv_ll_remo
   %.013.us = phi ptr [ %13, %lv_ll_remove.exit.us ], [ %5, %.lr.ph ]
   %9 = load i32, ptr %0, align 8, !tbaa !3
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %.013.us, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.013.us, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = load ptr, ptr %7, align 8, !tbaa !10
   %15 = icmp eq ptr %14, %.013.us
@@ -345,8 +345,8 @@ lv_ll_get_tail.exit.i.us:                         ; preds = %lv_ll_get_head.exit
   br i1 %20, label %node_set_next.exit33.i.us, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %18, i64 %10
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %10
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %13, ptr %23, align 8, !tbaa !9
   br label %node_set_next.exit33.i.us
 
@@ -365,8 +365,8 @@ node_set_next.exit33.i.us:                        ; preds = %21, %19
   br i1 %28, label %31, label %node_set_next.exit.i.us
 
 node_set_next.exit.i.us:                          ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %18, i64 %10
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %10
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr null, ptr %30, align 8, !tbaa !9
   br label %lv_ll_remove.exit.us
 
@@ -401,8 +401,8 @@ lv_ll_remove.exit.us:                             ; preds = %node_set_prev.exit.
   %.013 = phi ptr [ %40, %.lr.ph.split ], [ %5, %.lr.ph ]
   %36 = load i32, ptr %0, align 8, !tbaa !3
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.013, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.013, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !9
   tail call void %1(ptr noundef nonnull %.013) #8
   %.not = icmp eq ptr %40, null
@@ -428,8 +428,8 @@ lv_ll_get_head.exit.i:                            ; preds = %4
 9:                                                ; preds = %lv_ll_get_head.exit.i
   %10 = load i32, ptr %0, align 8, !tbaa !3
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %2, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   store ptr %14, ptr %6, align 8, !tbaa !10
   %15 = icmp eq ptr %14, null
@@ -465,20 +465,20 @@ lv_ll_get_tail.exit.i:                            ; preds = %lv_ll_get_head.exit
   br label %lv_ll_remove.exit
 
 node_set_next.exit.i:                             ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %25, i64 %23
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %23
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr null, ptr %30, align 8, !tbaa !9
   br label %lv_ll_remove.exit
 
 31:                                               ; preds = %lv_ll_get_tail.exit.i
-  %32 = getelementptr inbounds i8, ptr %24, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %34 = icmp eq ptr %25, null
   br i1 %34, label %node_set_next.exit33.i, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %25, i64 %23
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 %23
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %33, ptr %37, align 8, !tbaa !9
   br label %node_set_next.exit33.i
 
@@ -506,11 +506,11 @@ node_set_prev.exit.thread:                        ; preds = %41
 44:                                               ; preds = %41
   %45 = load i32, ptr %1, align 8, !tbaa !3
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %2, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %46
   store ptr null, ptr %47, align 8, !tbaa !9
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !10
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %49, ptr %50, align 8, !tbaa !9
   br label %node_set_next.exit
 
@@ -547,9 +547,9 @@ node_set_prev.exit32:                             ; preds = %node_set_next.exit
 65:                                               ; preds = %61
   %66 = load i32, ptr %1, align 8, !tbaa !3
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %2, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %67
   store ptr %63, ptr %68, align 8, !tbaa !9
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr null, ptr %69, align 8, !tbaa !9
   %.pr = load ptr, ptr %62, align 8, !tbaa !11
   br label %node_set_next.exit34
@@ -562,8 +562,8 @@ node_set_next.exit34:                             ; preds = %61, %65
 node_set_next.exit35:                             ; preds = %node_set_next.exit34
   %71 = load i32, ptr %1, align 8, !tbaa !3
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %70, i64 %72
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %2, ptr %74, align 8, !tbaa !9
   br label %75
 
@@ -602,8 +602,8 @@ lv_ll_get_head.exit:                              ; preds = %1
   %.08 = phi ptr [ %4, %.lr.ph ], [ %11, %7 ]
   %.057 = phi i32 [ 0, %.lr.ph ], [ %8, %7 ]
   %8 = add i32 %.057, 1
-  %9 = getelementptr inbounds i8, ptr %.08, i64 %6
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.08, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !14
@@ -652,8 +652,8 @@ lv_ll_get_tail.exit.thread:                       ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   store ptr null, ptr %18, align 8, !tbaa !9
   %19 = zext i32 %16 to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %2, ptr %21, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %22, align 8, !tbaa !11
@@ -668,8 +668,8 @@ lv_ll_get_head.exit.i:                            ; preds = %lv_ll_get_tail.exit
 26:                                               ; preds = %lv_ll_get_head.exit.i
   %27 = load i32, ptr %0, align 8, !tbaa !3
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %1, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   store ptr %31, ptr %23, align 8, !tbaa !10
   %32 = icmp eq ptr %31, null
@@ -705,20 +705,20 @@ lv_ll_get_tail.exit.i:                            ; preds = %lv_ll_get_head.exit
   br label %lv_ll_remove.exit
 
 node_set_next.exit.i:                             ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %42, i64 %40
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 %40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr null, ptr %47, align 8, !tbaa !9
   br label %lv_ll_remove.exit
 
 48:                                               ; preds = %lv_ll_get_tail.exit.i
-  %49 = getelementptr inbounds i8, ptr %41, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !9
   %51 = icmp eq ptr %42, null
   br i1 %51, label %node_set_next.exit33.i, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %42, i64 %40
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 %40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %50, ptr %54, align 8, !tbaa !9
   br label %node_set_next.exit33.i
 
@@ -738,8 +738,8 @@ lv_ll_remove.exit:                                ; preds = %33, %node_set_prev.
 59:                                               ; preds = %lv_ll_remove.exit
   %60 = load i32, ptr %0, align 8, !tbaa !3
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %.0, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %1, ptr %63, align 8, !tbaa !9
   br label %node_set_prev.exit
 
@@ -752,8 +752,8 @@ node_set_prev.exit:                               ; preds = %lv_ll_remove.exit, 
   br i1 %.not, label %68, label %72
 
 68:                                               ; preds = %node_set_prev.exit
-  %69 = getelementptr inbounds i8, ptr %1, i64 %67
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %67
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %2, ptr %70, align 8, !tbaa !9
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %71, align 8, !tbaa !11
@@ -764,8 +764,8 @@ node_set_prev.exit:                               ; preds = %lv_ll_remove.exit, 
   store ptr %1, ptr %73, align 8, !tbaa !9
   %74 = load i32, ptr %0, align 8, !tbaa !3
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %1, i64 %75
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %75
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %2, ptr %77, align 8, !tbaa !9
   br i1 %58, label %78, label %80
 
@@ -822,8 +822,8 @@ lv_ll_get_head.exit.i.us.i:                       ; preds = %lv_ll_remove.exit.u
   %.013.us.i = phi ptr [ %10, %lv_ll_remove.exit.us.i ], [ %4, %.lr.ph.i ]
   %6 = load i32, ptr %0, align 8, !tbaa !3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %.013.us.i, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.013.us.i, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = load ptr, ptr %3, align 8, !tbaa !10
   %12 = icmp eq ptr %11, %.013.us.i
@@ -840,8 +840,8 @@ lv_ll_get_tail.exit.i.us.i:                       ; preds = %lv_ll_get_head.exit
   br i1 %17, label %node_set_next.exit33.i.us.i, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %15, i64 %7
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %10, ptr %20, align 8, !tbaa !9
   br label %node_set_next.exit33.i.us.i
 
@@ -860,8 +860,8 @@ node_set_next.exit33.i.us.i:                      ; preds = %18, %16
   br i1 %25, label %28, label %node_set_next.exit.i.us.i
 
 node_set_next.exit.i.us.i:                        ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %15, i64 %7
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %7
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %27, align 8, !tbaa !9
   br label %lv_ll_remove.exit.us.i
 

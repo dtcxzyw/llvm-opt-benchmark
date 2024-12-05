@@ -30,11 +30,11 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %65
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -44,7 +44,7 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %65
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 1688
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %19, label %18
@@ -54,11 +54,11 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 1664
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store ptr @CVSpgmrInit, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 1672
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   store ptr @CVSpgmrSetup, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 1680
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store ptr @CVSpgmrSolve, ptr %22, align 8
   store ptr @CVSpgmrFree, ptr %16, align 8
   %23 = tail call noalias dereferenceable_or_null(216) ptr @malloc(i64 noundef 216) #7
@@ -71,29 +71,29 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
 
 26:                                               ; preds = %19
   store i32 1, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %1, ptr %27, align 4
   %28 = icmp slt i32 %2, 1
   %29 = select i1 %28, i32 5, i32 %2
-  %30 = getelementptr inbounds i8, ptr %23, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %23, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 184
   store i32 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 192
-  %33 = getelementptr inbounds i8, ptr %23, i64 152
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 176
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 176
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %23, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store double 5.000000e-02, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %23, i64 208
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 208
   store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 1780
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1780
   store i32 0, ptr %40, align 4
   %or.cond5 = icmp ugt i32 %1, 3
   br i1 %or.cond5, label %41, label %42
@@ -106,7 +106,7 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
 42:                                               ; preds = %26
   %43 = load ptr, ptr %7, align 8
   %44 = tail call ptr @N_VClone(ptr noundef %43) #6
-  %45 = getelementptr inbounds i8, ptr %23, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 112
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
   br i1 %46, label %47, label %48
@@ -119,7 +119,7 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
 48:                                               ; preds = %42
   %49 = load ptr, ptr %7, align 8
   %50 = tail call ptr @N_VClone(ptr noundef %49) #6
-  %51 = getelementptr inbounds i8, ptr %23, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store ptr %50, ptr %51, align 8
   %52 = icmp eq ptr %50, null
   br i1 %52, label %53, label %54
@@ -134,7 +134,7 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @N_VConst(double noundef 1.000000e+00, ptr noundef nonnull %44) #6
   %55 = tail call double @N_VDotProd(ptr noundef nonnull %44, ptr noundef nonnull %44) #6
   %56 = tail call double @SUNRsqrt(double noundef %55) #6
-  %57 = getelementptr inbounds i8, ptr %23, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store double %56, ptr %57, align 8
   %58 = load ptr, ptr %7, align 8
   %59 = tail call ptr @SpgmrMalloc(i32 noundef %29, ptr noundef %58) #6
@@ -149,9 +149,9 @@ define range(i32 -4, 1) i32 @CVSpgmr(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %65
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %23, i64 144
+  %63 = getelementptr inbounds nuw i8, ptr %23, i64 144
   store ptr %59, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 1696
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   store ptr %23, ptr %64, align 8
   br label %65
 
@@ -164,17 +164,17 @@ declare void @cvProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @CVSpgmrInit(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
@@ -184,7 +184,7 @@ define internal range(i32 -1, 1) i32 @CVSpgmrInit(ptr noundef %0) #0 {
   br label %28
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   %16 = zext i1 %15 to i32
@@ -192,55 +192,55 @@ define internal range(i32 -1, 1) i32 @CVSpgmrInit(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %1, %12
   %17 = phi i32 [ %16, %12 ], [ 0, %1 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 1780
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1780
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %20 = load i32, ptr %19, align 8
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %23, label %21
 
 21:                                               ; preds = %.thread
-  %22 = getelementptr inbounds i8, ptr %3, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr @CVSpilsDQJtimes, ptr %22, align 8
   br label %26
 
 23:                                               ; preds = %.thread
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   br label %26
 
 26:                                               ; preds = %23, %21
   %.sink = phi ptr [ %25, %23 ], [ %0, %21 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store ptr %.sink, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %26, %11
   %.sink24 = phi i64 [ 0, %26 ], [ -3, %11 ]
   %.0 = phi i32 [ 0, %26 ], [ -1, %11 ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 208
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store i64 %.sink24, ptr %29, align 8
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @CVSpgmrSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 1696
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1272
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1280
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %14 = load double, ptr %13, align 8
   %15 = fdiv double %12, %14
   %16 = fadd double %15, -1.000000e+00
   %17 = tail call double @SUNRabs(double noundef %16) #6
-  %18 = getelementptr inbounds i8, ptr %0, i64 1432
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %10, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, 50
   %25 = icmp sgt i64 %19, %24
@@ -260,12 +260,12 @@ define internal i32 @CVSpgmrSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store i32 %32, ptr %4, align 4
   %33 = xor i1 %31, true
   %34 = zext i1 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %10, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 984
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %38 = load double, ptr %37, align 8
   %39 = load double, ptr %11, align 8
-  %40 = getelementptr inbounds i8, ptr %10, i64 176
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 %36(double noundef %38, ptr noundef %2, ptr noundef %3, i32 noundef %34, ptr noundef nonnull %4, double noundef %39, ptr noundef %41, ptr noundef %5, ptr noundef %6, ptr noundef %7) #6
   %43 = icmp slt i32 %42, 0
@@ -281,7 +281,7 @@ define internal i32 @CVSpgmrSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 .sink.split:                                      ; preds = %44, %.thread
   %.sink = phi i64 [ -6, %.thread ], [ 6, %44 ]
-  %45 = getelementptr inbounds i8, ptr %10, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store i64 %.sink, ptr %45, align 8
   br label %46
 
@@ -298,17 +298,17 @@ define internal i32 @CVSpgmrSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %.not, label %54, label %48
 
 48:                                               ; preds = %.thread36, %47
-  %49 = getelementptr inbounds i8, ptr %10, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr %49, align 8
   %52 = load i64, ptr %18, align 8
-  %53 = getelementptr inbounds i8, ptr %10, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %52, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %48, %47
-  %55 = getelementptr inbounds i8, ptr %10, i64 208
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store i64 0, ptr %55, align 8
   ret i32 %42
 }
@@ -318,16 +318,16 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   %6 = alloca double, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1696
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %16 = load double, ptr %15, align 8
   %17 = fmul double %14, %16
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store double %17, ptr %18, align 8
   %19 = tail call double @N_VWrmsNorm(ptr noundef %1, ptr noundef %2) #6
   %20 = load double, ptr %18, align 8
@@ -335,7 +335,7 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 1352
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %69
@@ -345,22 +345,22 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   br label %69
 
 27:                                               ; preds = %5
-  %28 = getelementptr inbounds i8, ptr %10, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr %3, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 136
   store ptr %4, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %31 = load double, ptr %30, align 8
   %32 = fmul double %20, %31
-  %33 = getelementptr inbounds i8, ptr %10, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store double %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %35 = load ptr, ptr %34, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %35) #6
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %10, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = load double, ptr %33, align 8
   %42 = call i32 @SpgmrSolve(ptr noundef %12, ptr noundef nonnull %0, ptr noundef %36, ptr noundef %1, i32 noundef %38, i32 noundef %40, double noundef %41, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %2, ptr noundef nonnull @CVSpilsAtimes, ptr noundef nonnull @CVSpilsPSolve, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
@@ -368,13 +368,13 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %43, ptr noundef %1) #6
   %44 = load i32, ptr %7, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %10, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %47 = load i64, ptr %46, align 8
   %48 = add nsw i64 %47, %45
   store i64 %48, ptr %46, align 8
   %49 = load i32, ptr %8, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %10, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %52 = load i64, ptr %51, align 8
   %53 = add nsw i64 %52, %50
   store i64 %53, ptr %51, align 8
@@ -382,17 +382,17 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   br i1 %.not, label %.thread, label %55
 
 .thread:                                          ; preds = %27
-  %54 = getelementptr inbounds i8, ptr %10, i64 208
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store i64 0, ptr %54, align 8
   br label %68
 
 55:                                               ; preds = %27
-  %56 = getelementptr inbounds i8, ptr %10, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %57 = load i64, ptr %56, align 8
   %58 = add nsw i64 %57, 1
   store i64 %58, ptr %56, align 8
   %59 = sext i32 %42 to i64
-  %60 = getelementptr inbounds i8, ptr %10, i64 208
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store i64 %59, ptr %60, align 8
   switch i32 %42, label %68 [
     i32 -5, label %65
@@ -408,7 +408,7 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   ]
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %0, i64 1352
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %63 = load i32, ptr %62, align 8
   %64 = icmp ne i32 %63, 0
   %. = zext i1 %64 to i32
@@ -435,18 +435,18 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @CVSpgmrFree(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   tail call void @N_VDestroy(ptr noundef %5) #6
-  %6 = getelementptr inbounds i8, ptr %3, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %7 = load ptr, ptr %6, align 8
   tail call void @N_VDestroy(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %3, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %9 = load ptr, ptr %8, align 8
   tail call void @SpgmrFree(ptr noundef %9) #6
-  %10 = getelementptr inbounds i8, ptr %3, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -489,7 +489,7 @@ define range(i32 -101, 1) i32 @CVSpgmrB(ptr noundef %0, i32 noundef %1, i32 noun
   br label %36
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 2200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
@@ -499,9 +499,9 @@ define range(i32 -101, 1) i32 @CVSpgmrB(ptr noundef %0, i32 noundef %1, i32 noun
   br label %36
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 2192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
   %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
@@ -511,7 +511,7 @@ define range(i32 -101, 1) i32 @CVSpgmrB(ptr noundef %0, i32 noundef %1, i32 noun
   br label %36
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
@@ -519,11 +519,11 @@ define range(i32 -101, 1) i32 @CVSpgmrB(ptr noundef %0, i32 noundef %1, i32 noun
   %.029.sink = load ptr, ptr %.029.sink.in, align 8, !nonnull !4, !noundef !4
   %20 = load i32, ptr %.029.sink, align 8
   %21 = icmp eq i32 %1, %20
-  %22 = getelementptr inbounds i8, ptr %.029.sink, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %.029.sink, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.029.sink, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.029.sink, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #7
   %26 = icmp eq ptr %25, null
@@ -534,16 +534,16 @@ define range(i32 -101, 1) i32 @CVSpgmrB(ptr noundef %0, i32 noundef %1, i32 noun
   br label %36
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %25, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store ptr null, ptr %31, align 8
   store ptr null, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %.029.sink, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %.029.sink, i64 72
   store ptr %25, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.029.sink, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %.029.sink, i64 80
   store ptr @CVSpgmrFreeB, ptr %33, align 8
   %34 = tail call i32 @CVSpgmr(ptr noundef %24, i32 noundef %2, i32 noundef %3)
   %.not34 = icmp eq i32 %34, 0
@@ -560,7 +560,7 @@ define range(i32 -101, 1) i32 @CVSpgmrB(ptr noundef %0, i32 noundef %1, i32 noun
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @CVSpgmrFreeB(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #6
   ret void

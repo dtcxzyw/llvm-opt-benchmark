@@ -230,9 +230,9 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_2Ev() local_unn
 .lr.ph.i.i.i:                                     ; preds = %22, %.lr.ph.preheader.i.i.i
   %15 = phi ptr [ %11, %.lr.ph.preheader.i.i.i ], [ %23, %22 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %22 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i.i
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -254,7 +254,7 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_2Ev() local_unn
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %12
   %25 = phi ptr [ %23, %._crit_edge.i.i.i ], [ %11, %12 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 1
   %.not.i.i.i.i = icmp eq i64 %28, 0
@@ -280,7 +280,7 @@ _ZL21is_cds_dump_requestedv.exit:                 ; preds = %10, %30
 31:                                               ; preds = %8, %0
   %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 584
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 584
   %35 = tail call noundef i64 @_ZN14JfrThreadLocal16assign_thread_idEPK6ThreadPS_(ptr noundef nonnull %33, ptr noundef nonnull %34) #12
   %36 = tail call noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(ptr noundef nonnull %33) #12
   br i1 %36, label %37, label %103
@@ -307,9 +307,9 @@ _ZL21is_cds_dump_requestedv.exit:                 ; preds = %10, %30
 48:                                               ; preds = %44
   %49 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %45, i32 noundef 8, i8 noundef zeroext 16) #12
   store i32 0, ptr %46, align 4
-  %50 = getelementptr inbounds i8, ptr %46, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %45, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %49, ptr %51, align 8
   %52 = icmp sgt i32 %45, 0
   br i1 %52, label %.lr.ph.preheader.i.i.i8, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i
@@ -321,7 +321,7 @@ _ZL21is_cds_dump_requestedv.exit:                 ; preds = %10, %30
   br label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i
 
 _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i: ; preds = %.lr.ph.preheader.i.i.i8, %48
-  %55 = getelementptr inbounds i8, ptr %46, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 33, ptr %55, align 8
   br label %56
 
@@ -331,8 +331,8 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i: ; preds 
   br i1 %57, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %42, i64 8
-  %59 = getelementptr inbounds i8, ptr %33, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %wide.trip.count.i = zext nneg i32 %45 to i64
   br label %60
 
@@ -351,7 +351,7 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdEC2Ei8MEMFLAGS.exit.i: ; preds 
 65:                                               ; preds = %63, %60
   %66 = load ptr, ptr @_ZL21dcmd_recordings_array, align 8
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %67, %69
   br i1 %70, label %71, label %_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE6appendERKS1_.exit.i
@@ -374,19 +374,19 @@ _ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1
   %79 = phi i32 [ %.pre.i.i, %71 ], [ %67, %65 ]
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %66, align 8
-  %81 = getelementptr inbounds i8, ptr %66, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = sext i32 %79 to i64
   %84 = getelementptr inbounds ptr, ptr %82, i64 %83
   store ptr %61, ptr %84, align 8
   %85 = load ptr, ptr %58, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
   call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %87, i64 noundef %88, i1 noundef zeroext true) #12
   %89 = load ptr, ptr %61, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(37) %61, ptr noundef nonnull %2, i8 noundef signext 44, ptr noundef nonnull %33) #12
   %92 = load ptr, ptr %59, align 8
@@ -421,11 +421,11 @@ _ZL26validate_recording_optionsP10JavaThread.exit: ; preds = %_ZN26GrowableArray
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %1)
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #12
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %100) #12
-  %101 = getelementptr inbounds i8, ptr %1, i64 144
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 5, ptr %101, align 8
-  %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %1, i64 152
+  %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
   %102 = call noundef zeroext i1 @_ZN14JfrJavaSupport27is_jdk_jfr_module_availableEP12outputStreamP10JavaThread(ptr noundef nonnull %1, ptr noundef nonnull %33) #12
@@ -470,18 +470,18 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_3Ev() local_unn
   br i1 %12, label %._crit_edge.thread.i.i.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %14
 
 14:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
   %15 = load ptr, ptr @_ZL21dcmd_recordings_array, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %22, label %21
 
@@ -491,7 +491,7 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_3Ev() local_unn
 
 22:                                               ; preds = %21, %14
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(37) %19, i32 noundef 1, ptr noundef %8) #12
   %26 = load ptr, ptr %13, align 8
@@ -499,7 +499,7 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_3Ev() local_unn
   br i1 %.not5.i.i, label %30, label %27
 
 27:                                               ; preds = %22
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not7.i.i = icmp eq ptr %28, null
   br i1 %.not7.i.i, label %_ZL16launch_recordingP27JfrStartFlightRecordingDCmdP10JavaThread.exit.i, label %29
 
@@ -508,7 +508,7 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder14on_create_vm_3Ev() local_unn
   br label %_ZL16launch_recordingP27JfrStartFlightRecordingDCmdP10JavaThread.exit.i
 
 30:                                               ; preds = %22
-  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not6.i.i = icmp eq ptr %31, null
   br i1 %.not6.i.i, label %33, label %32
 
@@ -542,9 +542,9 @@ _ZL16launch_recordingP27JfrStartFlightRecordingDCmdP10JavaThread.exit.i: ; preds
 .lr.ph.i.i.i:                                     ; preds = %43, %.lr.ph.preheader.i.i.i
   %36 = phi ptr [ %.pr.pr.i, %.lr.ph.preheader.i.i.i ], [ %44, %43 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %43 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i.i.i
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %43, label %42
@@ -567,7 +567,7 @@ _ZL16launch_recordingP27JfrStartFlightRecordingDCmdP10JavaThread.exit.i: ; preds
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %34, %10
   %46 = phi i1 [ %.not5.i.i, %._crit_edge.i.i.i ], [ %.not5.i.i, %34 ], [ true, %10 ]
   %47 = phi ptr [ %44, %._crit_edge.i.i.i ], [ %.pr.pr.i, %34 ], [ %9, %10 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 1
   %.not.i.i.i.i = icmp eq i64 %50, 0
@@ -659,15 +659,15 @@ define hidden noundef zeroext i1 @_ZN11JfrRecorder17create_componentsEv() local_
   %1 = alloca %class.HandleMark, align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %3) #12
   %14 = call noundef zeroext i1 @_ZN18JfrJavaEventWriter10initializeEv() #12
@@ -1119,7 +1119,7 @@ declare void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11JfrRecorder23on_recorder_thread_exitEv() local_unnamed_addr #0 align 2 {
-  %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %1 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
@@ -1197,21 +1197,21 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 %4, ptr %2, align 4
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
@@ -1243,8 +1243,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlig
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1257,7 +1257,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlig
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
   %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %.not.i22 = icmp eq i64 %30, 0
@@ -1316,9 +1316,9 @@ define linkonce_odr hidden noundef ptr @_ZNK27JfrStartFlightRecordingDCmd9javaCl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP27JfrStartFlightRecordingDCmd13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -1350,7 +1350,7 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit: ; preds = %7
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -1369,9 +1369,9 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit: ; preds = %7
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1381,14 +1381,14 @@ _ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE8allocateEv.exit: ; preds = %7
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP27JfrStartFlightRecordingDCmdE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -1459,7 +1459,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #12
   ret void
 }

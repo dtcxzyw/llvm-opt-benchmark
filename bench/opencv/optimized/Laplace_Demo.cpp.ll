@@ -47,7 +47,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -127,15 +127,15 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %98
 
 49:                                               ; preds = %34
-  %50 = getelementptr inbounds i8, ptr %10, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %10, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %51, align 4
   store i32 16842752, ptr %10, align 8
-  %52 = getelementptr inbounds i8, ptr %10, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %11, i64 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %54, align 8
   store i32 33619968, ptr %11, align 8
   store ptr %3, ptr %53, align 8
@@ -143,15 +143,15 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %55 unwind label %81
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %12, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %12, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %12, align 8
-  %58 = getelementptr inbounds i8, ptr %12, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %3, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %13, i64 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %60, align 8
   store i32 33619968, ptr %13, align 8
   store ptr %4, ptr %59, align 8
@@ -160,15 +160,15 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
 
 61:                                               ; preds = %55
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #4
-  %62 = getelementptr inbounds i8, ptr %15, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %15, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %63, align 4
   store i32 16842752, ptr %15, align 8
-  %64 = getelementptr inbounds i8, ptr %15, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %4, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %16, i64 8
-  %66 = getelementptr inbounds i8, ptr %16, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %66, align 8
   store i32 33619968, ptr %16, align 8
   store ptr %5, ptr %65, align 8
@@ -176,15 +176,15 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %67 unwind label %87
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %17, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %17, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %69, align 4
   store i32 16842752, ptr %17, align 8
-  %70 = getelementptr inbounds i8, ptr %17, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %18, i64 8
-  %72 = getelementptr inbounds i8, ptr %18, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %72, align 8
   store i32 33619968, ptr %18, align 8
   store ptr %14, ptr %71, align 8
@@ -197,12 +197,12 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %74 unwind label %91
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %21, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %21, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 0, ptr %76, align 4
   store i32 16842752, ptr %21, align 8
-  %77 = getelementptr inbounds i8, ptr %21, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %14, ptr %77, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %78 unwind label %93

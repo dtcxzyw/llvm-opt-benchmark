@@ -23,15 +23,15 @@ define hidden noundef ptr @pj_aeqd(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL8des_aeqd, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -51,15 +51,15 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
   br label %98
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL10destructorP8PJconstsi, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = load double, ptr %10, align 8
   tail call void @geod_init(ptr noundef nonnull %9, double noundef 1.000000e+00, double noundef %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %13 = load double, ptr %12, align 8
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fadd double %14, 0xBFF921FB54442D18
@@ -70,7 +70,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
 18:                                               ; preds = %6
   %19 = fcmp olt double %13, 0.000000e+00
   %20 = zext i1 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %2, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %20, ptr %21, align 8
   %22 = select i1 %19, double -1.000000e+00, double 1.000000e+00
   store double %22, ptr %2, align 8
@@ -78,7 +78,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
 
 23:                                               ; preds = %6
   %24 = fcmp olt double %14, 1.000000e-10
-  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br i1 %24, label %26, label %27
 
 26:                                               ; preds = %23
@@ -96,25 +96,25 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
 
 31:                                               ; preds = %26, %27, %18
   %.sink = phi double [ 1.000000e+00, %26 ], [ %30, %27 ], [ 0.000000e+00, %18 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sink, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 216
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %34 = load double, ptr %33, align 8
   %35 = fcmp oeq double %34, 0.000000e+00
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14aeqd_s_forward5PJ_LPP8PJconsts, ptr %38, align 8
   br label %98
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %0, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %41 = load double, ptr %40, align 8
   %42 = tail call noundef ptr @_Z7pj_enfnd(double noundef %41)
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %42, ptr %43, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %44, label %46
@@ -125,7 +125,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %47, ptr noundef %49, ptr noundef nonnull @.str.1)
   %51 = and i64 %50, 4294967295
@@ -135,20 +135,20 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
 52:                                               ; preds = %46
   %53 = load double, ptr %12, align 8
   %54 = load double, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load double, ptr %55, align 8
   %57 = load ptr, ptr %43, align 8
   %58 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %53, double noundef %54, double noundef %56, ptr noundef %57)
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL10e_guam_inv5PJ_XYP8PJconsts, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL10e_guam_fwd5PJ_LPP8PJconsts, ptr %61, align 8
   br label %98
 
 62:                                               ; preds = %46
-  %63 = getelementptr inbounds i8, ptr %2, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %64 = load i32, ptr %63, align 8
   switch i32 %64, label %95 [
     i32 0, label %65
@@ -160,14 +160,14 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
 65:                                               ; preds = %62
   %66 = load ptr, ptr %43, align 8
   %67 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef 0x3FF921FB54442D18, double noundef 1.000000e+00, double noundef 0.000000e+00, ptr noundef %66)
-  %68 = getelementptr inbounds i8, ptr %2, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double %67, ptr %68, align 8
   br label %95
 
 69:                                               ; preds = %62
   %70 = load ptr, ptr %43, align 8
   %71 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef 0xBFF921FB54442D18, double noundef -1.000000e+00, double noundef 0.000000e+00, ptr noundef %70)
-  %72 = getelementptr inbounds i8, ptr %2, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double %71, ptr %72, align 8
   br label %95
 
@@ -179,29 +179,29 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_aeqdP8PJconsts(ptr n
   %78 = tail call double @llvm.fmuladd.f64(double %77, double %75, double 1.000000e+00)
   %79 = tail call double @sqrt(double noundef %78) #7
   %80 = fdiv double 1.000000e+00, %79
-  %81 = getelementptr inbounds i8, ptr %2, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 208
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %83 = load double, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 256
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %85 = load double, ptr %84, align 8
   %86 = tail call double @sqrt(double noundef %85) #7
   %87 = fdiv double %83, %86
-  %88 = getelementptr inbounds i8, ptr %2, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %89 = load double, ptr %2, align 8
   %90 = fmul double %87, %89
-  %91 = getelementptr inbounds i8, ptr %2, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store double %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fmul double %87, %93
   store double %94, ptr %88, align 8
   br label %95
 
 95:                                               ; preds = %73, %69, %65, %62
-  %96 = getelementptr inbounds i8, ptr %0, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL14aeqd_e_inverse5PJ_XYP8PJconsts, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL14aeqd_e_forward5PJ_LPP8PJconsts, ptr %97, align 8
   br label %98
 
@@ -223,13 +223,13 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #7
   br label %.sink.split
@@ -256,7 +256,7 @@ declare double @cos(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @hypot(double noundef %0, double noundef %1) #7
   %7 = fcmp ogt double %6, 0x400921FB54442D18
@@ -276,13 +276,13 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 448
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %17 = load double, ptr %16, align 8
   br label %57
 
 18:                                               ; preds = %8, %13
   %.0 = phi double [ %6, %13 ], [ 0x400921FB54442D18, %8 ]
-  %19 = getelementptr inbounds i8, ptr %5, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %54 [
     i32 3, label %21
@@ -307,7 +307,7 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
 31:                                               ; preds = %21
   %32 = load double, ptr %5, align 8
   %33 = fmul double %1, %22
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = load double, ptr %34, align 8
   %36 = fmul double %33, %35
   %37 = fdiv double %36, %.0
@@ -355,9 +355,9 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL14aeqd_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %68 [
     i32 2, label %8
@@ -406,7 +406,7 @@ define internal { double, double } @_ZL14aeqd_s_forward5PJ_LPP8PJconsts(double %
   %37 = tail call double @sin(double noundef %0) #7
   %38 = fmul double %34, %36
   %39 = load double, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load double, ptr %40, align 8
   %42 = fmul double %38, %41
   %43 = tail call double @llvm.fmuladd.f64(double %39, double %35, double %42)
@@ -484,15 +484,15 @@ declare noundef double @_Z7pj_mlfndddPKd(double noundef, double noundef, double 
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL10e_guam_inv5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = fmul double %0, 5.000000e-01
   %7 = fmul double %0, %6
-  %8 = getelementptr inbounds i8, ptr %2, i64 448
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 208
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %13
 
 13:                                               ; preds = %3, %13
@@ -527,11 +527,11 @@ define internal { double, double } @_ZL10e_guam_inv5PJ_XYP8PJconsts(double %0, d
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL10e_guam_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @cos(double noundef %1) #7
   %7 = tail call double @sin(double noundef %1) #7
-  %8 = getelementptr inbounds i8, ptr %2, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %9 = load double, ptr %8, align 8
   %10 = fneg double %7
   %11 = fmul double %9, %10
@@ -540,10 +540,10 @@ define internal { double, double } @_ZL10e_guam_fwd5PJ_LPP8PJconsts(double %0, d
   %14 = fdiv double 1.000000e+00, %13
   %15 = fmul double %0, %6
   %16 = fmul double %15, %14
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %1, double noundef %7, double noundef %6, ptr noundef %18)
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load double, ptr %20, align 8
   %22 = fsub double %19, %21
   %23 = fmul double %0, 5.000000e-01
@@ -567,19 +567,19 @@ define internal { double, double } @_ZL14aeqd_e_inverse5PJ_XYP8PJconsts(double %
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = tail call double @hypot(double noundef %0, double noundef %1) #7
   %10 = fcmp olt double %9, 1.000000e-10
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %13 = load double, ptr %12, align 8
   br label %46
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %8, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %32 [
     i32 3, label %17
@@ -588,12 +588,12 @@ define internal { double, double } @_ZL14aeqd_e_inverse5PJ_XYP8PJconsts(double %
   ]
 
 17:                                               ; preds = %14, %14
-  %18 = getelementptr inbounds i8, ptr %2, i64 448
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %19 = load double, ptr %18, align 8
   %20 = fdiv double %19, 0x3F91DF46A2529D39
   %21 = tail call double @atan2(double noundef %0, double noundef %1) #7
   %22 = fdiv double %21, 0x3F91DF46A2529D39
-  %23 = getelementptr inbounds i8, ptr %8, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @geod_direct(ptr noundef nonnull %23, double noundef %20, double noundef 0.000000e+00, double noundef %22, double noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %4)
   %24 = load double, ptr %5, align 8
   %25 = fmul double %24, 0x3F91DF46A2529D39
@@ -602,20 +602,20 @@ define internal { double, double } @_ZL14aeqd_e_inverse5PJ_XYP8PJconsts(double %
   br label %46
 
 28:                                               ; preds = %14
-  %29 = getelementptr inbounds i8, ptr %8, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %30 = load double, ptr %29, align 8
   %31 = fsub double %30, %9
   br label %36
 
 32:                                               ; preds = %14
-  %33 = getelementptr inbounds i8, ptr %8, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %34 = load double, ptr %33, align 8
   %35 = fadd double %9, %34
   br label %36
 
 36:                                               ; preds = %32, %28
   %37 = phi double [ %31, %28 ], [ %35, %32 ]
-  %38 = getelementptr inbounds i8, ptr %8, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef double @_Z11pj_inv_mlfndPKd(double noundef %37, ptr noundef %39)
   %41 = load i32, ptr %15, align 8
@@ -638,10 +638,10 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = tail call double @cos(double noundef %0) #7
-  %10 = getelementptr inbounds i8, ptr %8, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %49 [
     i32 0, label %12
@@ -658,9 +658,9 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
   %.0 = phi double [ %9, %3 ], [ %13, %12 ]
   %15 = tail call double @cos(double noundef %1) #7
   %16 = tail call double @sin(double noundef %1) #7
-  %17 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %1, double noundef %16, double noundef %15, ptr noundef %20)
   %22 = fsub double %18, %21
@@ -673,7 +673,7 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
 27:                                               ; preds = %3, %3
   %28 = tail call double @llvm.fabs.f64(double %0)
   %29 = fcmp olt double %28, 1.000000e-10
-  %30 = getelementptr inbounds i8, ptr %2, i64 448
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 448
   %31 = load double, ptr %30, align 8
   br i1 %29, label %32, label %._crit_edge
 
@@ -687,7 +687,7 @@ define internal { double, double } @_ZL14aeqd_e_forward5PJ_LPP8PJconsts(double %
   %36 = fdiv double %31, 0x3F91DF46A2529D39
   %37 = fdiv double %1, 0x3F91DF46A2529D39
   %38 = fdiv double %0, 0x3F91DF46A2529D39
-  %39 = getelementptr inbounds i8, ptr %8, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @geod_inverse(ptr noundef nonnull %39, double noundef %36, double noundef 0.000000e+00, double noundef %37, double noundef %38, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %40 = load double, ptr %4, align 8
   %41 = fmul double %40, 0x3F91DF46A2529D39

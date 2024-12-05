@@ -29,7 +29,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
   %13 = ptrtoint ptr %.val48 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   %19 = lshr i32 %18, 6
@@ -66,7 +66,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
 35:                                               ; preds = %34
   %36 = load float, ptr %5, align 4
   %37 = fpext float %36 to double
-  %38 = getelementptr inbounds i8, ptr %15, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds float, ptr %3, i64 %40
@@ -94,7 +94,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
   %55 = ptrtoint ptr %.val50 to i64
   %56 = and i64 %55, -2
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
   %61 = lshr i32 %60, 6
@@ -132,7 +132,7 @@ define i32 @Aig_NodeDeref_rec(ptr nocapture noundef readonly %0, i32 noundef %1,
 78:                                               ; preds = %77
   %79 = load float, ptr %6, align 4
   %80 = fpext float %79 to double
-  %81 = getelementptr inbounds i8, ptr %57, i64 36
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds float, ptr %3, i64 %83
@@ -174,7 +174,7 @@ define i32 @Aig_NodeRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %7 = ptrtoint ptr %.val29 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 64
   %13 = and i64 %12, 4294967232
@@ -214,7 +214,7 @@ define i32 @Aig_NodeRef_rec(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %29 = ptrtoint ptr %.val31 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 64
   %35 = and i64 %34, 4294967232
@@ -263,14 +263,14 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr nocapture noundef %1, i32 n
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %0, i64 312
   %.val36 = load i32, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %.val36, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 8
   %.val33 = load ptr, ptr %9, align 8
   %10 = ptrtoint ptr %.val33 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 64
   %16 = and i64 %15, 4294967232
@@ -310,7 +310,7 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr nocapture noundef %1, i32 n
   %32 = ptrtoint ptr %.val35 to i64
   %33 = and i64 %32, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 64
   %38 = and i64 %37, 4294967232
@@ -393,14 +393,14 @@ define void @Aig_NodeMffcSupp_rec(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %.not29, label %.loopexit, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %3, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %3, align 8
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %26, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %21
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -409,7 +409,7 @@ define void @Aig_NodeMffcSupp_rec(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not9.i.i = icmp eq ptr %30, null
   br i1 %.not9.i.i, label %33, label %31
@@ -430,7 +430,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %33, %31
 
 36:                                               ; preds = %26
   %37 = shl nuw nsw i32 %23, 1
-  %38 = getelementptr inbounds i8, ptr %3, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not9.i10.i = icmp eq ptr %39, null
   %40 = zext nneg i32 %37 to i64
@@ -489,7 +489,7 @@ define i32 @Aig_NodeMffcSupp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
   br label %8
 
@@ -509,14 +509,14 @@ define i32 @Aig_NodeMffcSupp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br i1 %or.cond, label %16, label %51
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %3, align 8
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %16
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -525,7 +525,7 @@ define i32 @Aig_NodeMffcSupp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not9.i.i = icmp eq ptr %25, null
   br i1 %.not9.i.i, label %28, label %26
@@ -546,7 +546,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %28, %26
 
 31:                                               ; preds = %21
   %32 = shl nuw nsw i32 %18, 1
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not9.i10.i = icmp eq ptr %34, null
   %35 = zext nneg i32 %32 to i64
@@ -594,13 +594,13 @@ declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -626,9 +626,9 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr nocapture noundef %1, ptr n
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val19 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %.val19, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 64
   %13 = and i64 %12, 4294967232
@@ -655,9 +655,9 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr nocapture noundef %1, ptr n
 22:                                               ; preds = %.lr.ph25, %22
   %indvars.iv27 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next28, %22 ]
   %.val20 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val20, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv27
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 4294967232
   %28 = and i64 %27, 4294967232
@@ -690,9 +690,9 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.03446 = phi i32 [ 0, %.lr.ph ], [ %16, %8 ]
-  %9 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 32
   %14 = trunc nuw i64 %13 to i32
@@ -722,9 +722,9 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
   %.050 = phi i32 [ 1000000000, %.lr.ph51 ], [ %.1, %34 ]
   %.03748 = phi ptr [ null, %.lr.ph51 ], [ %.138, %34 ]
   %.val43 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val43, i64 %indvars.iv54
+  %23 = getelementptr inbounds nuw ptr, ptr %.val43, i64 %indvars.iv54
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
@@ -753,7 +753,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
 .critedge2:                                       ; preds = %34, %18
   %.037.lcssa = phi ptr [ null, %18 ], [ %.138, %34 ]
   %37 = tail call i32 @Aig_NodeDeref_rec(ptr noundef %.037.lcssa, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %38, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #9
   tail call void @Aig_NodeMffcSupp_rec(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %3, i32 noundef 1, ptr noundef %.037.lcssa)

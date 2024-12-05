@@ -28,11 +28,11 @@ define noundef ptr @mca_mpool_basic_create(ptr noundef %0, i64 noundef %1, i32 n
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @opal_mutex_t_class, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store volatile i32 1, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -41,20 +41,20 @@ define noundef ptr @mca_mpool_basic_create(ptr noundef %0, i64 noundef %1, i32 n
   %15 = phi ptr [ %17, %.lr.ph.i ], [ %14, %10 ]
   %.07.i = phi ptr [ %16, %.lr.ph.i ], [ %13, %10 ]
   tail call void %15(ptr noundef nonnull %11) #10
-  %16 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   %18 = ptrtoint ptr %0 to i64
-  %19 = getelementptr inbounds i8, ptr %4, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i64 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i64 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i32 %2, ptr %22, align 8
   br label %23
 
@@ -72,7 +72,7 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @mca_mpool_base_basic_base(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   ret ptr %4
@@ -80,13 +80,13 @@ define internal ptr @mca_mpool_base_basic_base(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mca_mpool_base_basic_alloc(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %. = tail call i64 @llvm.umax.i64(i64 %2, i64 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, -1
   %13 = add i64 %12, %.
@@ -96,7 +96,7 @@ define internal ptr @mca_mpool_base_basic_alloc(ptr noundef %0, i64 noundef %1, 
   %17 = and i64 %16, -8
   %18 = add i64 %15, %17
   %19 = sub i64 %18, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %19, %21
   br i1 %22, label %26, label %23
@@ -121,9 +121,9 @@ define internal void @mca_mpool_base_basic_free(ptr nocapture readnone %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_mpool_base_basic_finalize(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
@@ -133,7 +133,7 @@ define internal void @mca_mpool_base_basic_finalize(ptr noundef %0) #0 {
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %1 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %1 ]
   tail call void %7(ptr noundef nonnull %2) #10
-  %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6

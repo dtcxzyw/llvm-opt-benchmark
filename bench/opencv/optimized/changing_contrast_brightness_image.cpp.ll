@@ -267,22 +267,22 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 100:                                              ; preds = %98
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #14
-  %101 = getelementptr inbounds i8, ptr %13, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %13, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %102, align 4
   store i32 16842752, ptr %13, align 8
-  %103 = getelementptr inbounds i8, ptr %13, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %14, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %14, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %105, align 4
   store i32 16842752, ptr %14, align 8
-  %106 = getelementptr inbounds i8, ptr %14, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %15, i64 8
-  %108 = getelementptr inbounds i8, ptr %15, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %108, align 8
   store i32 33619968, ptr %15, align 8
   store ptr @_ZN12_GLOBAL__N_113img_correctedE, ptr %107, align 8
@@ -290,22 +290,22 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %109 unwind label %163
 
 109:                                              ; preds = %100
-  %110 = getelementptr inbounds i8, ptr %16, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %16, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %111, align 4
   store i32 16842752, ptr %16, align 8
-  %112 = getelementptr inbounds i8, ptr %16, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %17, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %17, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %114, align 4
   store i32 16842752, ptr %17, align 8
-  %115 = getelementptr inbounds i8, ptr %17, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %18, i64 8
-  %117 = getelementptr inbounds i8, ptr %18, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %117, align 8
   store i32 33619968, ptr %18, align 8
   store ptr @_ZN12_GLOBAL__N_119img_gamma_correctedE, ptr %116, align 8
@@ -411,12 +411,12 @@ _ZN12_GLOBAL__N_134on_linear_transform_alpha_trackbarEiPv.exit: ; preds = %134
           to label %143 unwind label %201
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %37, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %37, i64 20
+  %145 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 0, ptr %145, align 4
   store i32 16842752, ptr %37, align 8
-  %146 = getelementptr inbounds i8, ptr %37, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr @_ZN12_GLOBAL__N_113img_correctedE, ptr %146, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
   %147 = invoke noundef zeroext i1 @_ZN2cv7imwriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -439,12 +439,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %148, %150
           to label %151 unwind label %208
 
 151:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %152 = getelementptr inbounds i8, ptr %41, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %41, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i32 0, ptr %153, align 4
   store i32 16842752, ptr %41, align 8
-  %154 = getelementptr inbounds i8, ptr %41, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @_ZN12_GLOBAL__N_119img_gamma_correctedE, ptr %154, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
   %155 = invoke noundef zeroext i1 @_ZN2cv7imwriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
@@ -787,7 +787,7 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
 
 28:                                               ; preds = %2
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 1, i32 noundef 256, i32 noundef 0)
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -803,7 +803,7 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
   %39 = call i32 @llvm.smax.i32(i32 %38, i32 0)
   %40 = call i32 @llvm.umin.i32(i32 %39, i32 255)
   %41 = trunc nuw i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv.i
   store i8 %41, ptr %42, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -819,22 +819,22 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
           to label %46 unwind label %43
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %48, align 4
   store i32 16842752, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %51, align 4
   store i32 16842752, ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %9, i64 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %54, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %6, ptr %53, align 8
@@ -842,22 +842,22 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
           to label %55 unwind label %69
 
 55:                                               ; preds = %46
-  %56 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %11, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %11, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %60, align 4
   store i32 16842752, ptr %11, align 8
-  %61 = getelementptr inbounds i8, ptr %11, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %6, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 8
-  %63 = getelementptr inbounds i8, ptr %12, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %63, align 8
   store i32 33619968, ptr %12, align 8
   store ptr @_ZN12_GLOBAL__N_119img_gamma_correctedE, ptr %62, align 8
@@ -870,12 +870,12 @@ define internal void @_ZN12_GLOBAL__N_128on_gamma_correction_trackbarEiPv(i32 %0
           to label %65 unwind label %73
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %15, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %15, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %67, align 4
   store i32 16842752, ptr %15, align 8
-  %68 = getelementptr inbounds i8, ptr %15, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @_ZN12_GLOBAL__N_119img_gamma_correctedE, ptr %68, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN12_GLOBAL__N_115gammaCorrectionERKN2cv3MatEd.exit unwind label %75
@@ -962,8 +962,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatE
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.cv::_InputArray", align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #14
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %12, align 8
   store i32 33619968, ptr %4, align 8
   store ptr %3, ptr %11, align 8
@@ -972,22 +972,22 @@ define internal fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatE
           to label %14 unwind label %29
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %16, align 4
   store i32 16842752, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN12_GLOBAL__N_112img_originalE, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %19, align 4
   store i32 16842752, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %22, align 8
   store i32 33619968, ptr %7, align 8
   store ptr @_ZN12_GLOBAL__N_113img_correctedE, ptr %21, align 8
@@ -1000,12 +1000,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_120basicLinearTransformERKN2cv3MatE
           to label %24 unwind label %33
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %26, align 4
   store i32 16842752, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN12_GLOBAL__N_113img_correctedE, ptr %27, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %28 unwind label %35

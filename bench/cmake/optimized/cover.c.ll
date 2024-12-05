@@ -55,7 +55,7 @@ define dso_local i64 @COVER_sum(ptr nocapture noundef readonly %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.067 = phi i64 [ 0, %.lr.ph.preheader ], [ %5, %.lr.ph ]
-  %3 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -132,13 +132,13 @@ define dso_local i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 no
 define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %5) local_unnamed_addr #4 {
   %7 = alloca %struct.COVER_ctx_t, align 8
   %8 = alloca %struct.COVER_map_s, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 1.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
-  %11 = getelementptr inbounds i8, ptr %5, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr @g_displayLevel, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   %16 = load i32, ptr %5, align 8
@@ -198,7 +198,7 @@ COVER_checkParameters.exit:                       ; preds = %6
   br i1 %49, label %50, label %COVER_ctx_destroy.exit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %7, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = load i32, ptr @g_displayLevel, align 4
   %54 = uitofp i64 %52 to double
@@ -224,13 +224,13 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   %68 = call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %69 = xor i32 %68, 31
   %70 = sub nuw nsw i32 33, %68
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %70, ptr %71, align 8
   %72 = shl nuw i32 4, %69
-  %73 = getelementptr inbounds i8, ptr %8, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %72, ptr %73, align 4
   %74 = add i32 %72, -1
-  %75 = getelementptr inbounds i8, ptr %8, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %74, ptr %75, align 8
   %76 = zext i32 %72 to i64
   %77 = shl nuw nsw i64 %76, 3
@@ -252,7 +252,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %87
 
 87:                                               ; preds = %82, %79
-  %88 = getelementptr inbounds i8, ptr %7, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %89 = load ptr, ptr %88, align 8
   %.not.i31 = icmp eq ptr %89, null
   br i1 %.not.i31, label %91, label %90
@@ -263,7 +263,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %91
 
 91:                                               ; preds = %90, %87
-  %92 = getelementptr inbounds i8, ptr %7, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %93 = load ptr, ptr %92, align 8
   %.not17.i = icmp eq ptr %93, null
   br i1 %.not17.i, label %95, label %94
@@ -274,7 +274,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %95
 
 95:                                               ; preds = %94, %91
-  %96 = getelementptr inbounds i8, ptr %7, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %97 = load ptr, ptr %96, align 8
   %.not18.i = icmp eq ptr %97, null
   br i1 %.not18.i, label %99, label %98
@@ -285,7 +285,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %99
 
 99:                                               ; preds = %98, %95
-  %100 = getelementptr inbounds i8, ptr %7, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %101 = load ptr, ptr %100, align 8
   %.not19.i = icmp eq ptr %101, null
   br i1 %.not19.i, label %COVER_ctx_destroy.exit, label %102
@@ -308,7 +308,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %111
 
 111:                                              ; preds = %106, %103
-  %112 = getelementptr inbounds i8, ptr %7, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %113 = load ptr, ptr %112, align 8
   %114 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %7, ptr noundef %113, ptr noundef %8, ptr noundef %0, i64 noundef %1, i32 %16, i32 %14)
   %115 = getelementptr inbounds i8, ptr %0, i64 %114
@@ -329,7 +329,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %127
 
 127:                                              ; preds = %121, %111
-  %128 = getelementptr inbounds i8, ptr %7, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %129 = load ptr, ptr %128, align 8
   %.not.i32 = icmp eq ptr %129, null
   br i1 %.not.i32, label %131, label %130
@@ -350,7 +350,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %134
 
 134:                                              ; preds = %133, %131
-  %135 = getelementptr inbounds i8, ptr %7, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %136 = load ptr, ptr %135, align 8
   %.not18.i34 = icmp eq ptr %136, null
   br i1 %.not18.i34, label %138, label %137
@@ -361,7 +361,7 @@ COVER_warnOnSmallCorpus.exit:                     ; preds = %50, %59
   br label %138
 
 138:                                              ; preds = %137, %134
-  %139 = getelementptr inbounds i8, ptr %7, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %140 = load ptr, ptr %139, align 8
   %.not19.i35 = icmp eq ptr %140, null
   br i1 %.not19.i35, label %COVER_map_destroy.exit, label %141
@@ -387,7 +387,7 @@ define internal fastcc range(i64 -72, 1) i64 @COVER_ctx_init(ptr noundef nonnull
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i64 [ 0, %6 ], [ %9, %.lr.ph.i ]
-  %7 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -415,7 +415,7 @@ COVER_sum.exit:                                   ; preds = %.lr.ph.i
 .lr.ph.i102:                                      ; preds = %.lr.ph.i102, %.lr.ph.preheader.i
   %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i105, %.lr.ph.i102 ]
   %.067.i104 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %20, %.lr.ph.i102 ]
-  %18 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i103
+  %18 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i103
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %.067.i104
   %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i103, 1
@@ -425,7 +425,7 @@ COVER_sum.exit:                                   ; preds = %.lr.ph.i
 COVER_sum.exit107.thread:                         ; preds = %.lr.ph.i102, %17
   %.pre-phi = phi i64 [ 0, %17 ], [ %wide.trip.count.i101, %.lr.ph.i102 ]
   %21 = phi i64 [ 0, %17 ], [ %20, %.lr.ph.i102 ]
-  %22 = getelementptr inbounds i64, ptr %2, i64 %.pre-phi
+  %22 = getelementptr inbounds nuw i64, ptr %2, i64 %.pre-phi
   %.not.i108 = icmp eq i32 %3, %14
   br i1 %.not.i108, label %COVER_sum.exit117, label %.lr.ph.preheader.i109
 
@@ -436,7 +436,7 @@ COVER_sum.exit107.thread:                         ; preds = %.lr.ph.i102, %17
 .lr.ph.i111:                                      ; preds = %.lr.ph.i111, %.lr.ph.preheader.i109
   %indvars.iv.i112 = phi i64 [ 0, %.lr.ph.preheader.i109 ], [ %indvars.iv.next.i114, %.lr.ph.i111 ]
   %.067.i113 = phi i64 [ 0, %.lr.ph.preheader.i109 ], [ %25, %.lr.ph.i111 ]
-  %23 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv.i112
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i112
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %.067.i113
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i112, 1
@@ -525,32 +525,32 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 
 .thread:                                          ; preds = %62, %72, %65
   store ptr %1, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %wide.trip.count.i, ptr %79, align 8
   %80 = zext i32 %15 to i64
-  %81 = getelementptr inbounds i8, ptr %0, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %80, ptr %81, align 8
   %82 = zext i32 %16 to i64
-  %83 = getelementptr inbounds i8, ptr %0, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %82, ptr %83, align 8
   %84 = sub i64 %26, %29
   %85 = add i64 %84, 1
-  %86 = getelementptr inbounds i8, ptr %0, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %85, ptr %86, align 8
   %87 = shl i64 %85, 2
   %88 = tail call noalias ptr @malloc(i64 noundef %87) #25
-  %89 = getelementptr inbounds i8, ptr %0, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %88, ptr %89, align 8
   %90 = tail call noalias ptr @malloc(i64 noundef %87) #25
-  %91 = getelementptr inbounds i8, ptr %0, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %90, ptr %91, align 8
   %92 = add i32 %3, 1
   %93 = zext i32 %92 to i64
   %94 = shl nuw nsw i64 %93, 3
   %95 = tail call noalias ptr @malloc(i64 noundef %94) #25
-  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %95, ptr %96, align 8
   %.not = icmp eq ptr %88, null
   br i1 %.not, label %98, label %97
@@ -585,7 +585,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   br label %109
 
 109:                                              ; preds = %108, %106
-  %110 = getelementptr inbounds i8, ptr %0, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %111 = load ptr, ptr %110, align 8
   %.not17.i = icmp eq ptr %111, null
   br i1 %.not17.i, label %113, label %112
@@ -616,9 +616,9 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   br label %COVER_ctx_destroy.exit
 
 119:                                              ; preds = %97
-  %120 = getelementptr inbounds i8, ptr %0, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 80
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %4, ptr %121, align 8
   store i64 0, ptr %95, align 8
   %umax = tail call i32 @llvm.umax.i32(i32 %92, i32 2)
@@ -629,12 +629,12 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %indvars.iv = phi i64 [ 1, %119 ], [ %indvars.iv.next, %122 ]
   %123 = load ptr, ptr %96, align 8
   %124 = add nsw i64 %indvars.iv, -1
-  %125 = getelementptr inbounds i64, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds i64, ptr %2, i64 %124
+  %127 = getelementptr inbounds nuw i64, ptr %2, i64 %124
   %128 = load i64, ptr %127, align 8
   %129 = add i64 %128, %126
-  %130 = getelementptr inbounds i64, ptr %123, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw i64, ptr %123, i64 %indvars.iv
   store i64 %129, ptr %130, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -661,7 +661,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %141 = phi i64 [ %145, %.lr.ph ], [ 0, %139 ]
   %.0126 = phi i32 [ %144, %.lr.ph ], [ 0, %139 ]
   %142 = load ptr, ptr %89, align 8
-  %143 = getelementptr inbounds i32, ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %141
   store i32 %.0126, ptr %143, align 4
   %144 = add i32 %.0126, 1
   %145 = zext i32 %144 to i64
@@ -708,7 +708,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 167:                                              ; preds = %168, %.preheader.i
   %.1.in.i = phi i64 [ %.1.i, %168 ], [ %.0192.i, %.preheader.i ]
   %.020.pn.i = phi ptr [ %.0.i, %168 ], [ %.0201.i, %.preheader.i ]
-  %.0.i = getelementptr inbounds i8, ptr %.020.pn.i, i64 4
+  %.0.i = getelementptr inbounds nuw i8, ptr %.020.pn.i, i64 4
   %exitcond.not.i120 = icmp eq i64 %.1.in.i, %166
   br i1 %exitcond.not.i120, label %.critedge.i, label %168
 
@@ -741,7 +741,7 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %183 = load ptr, ptr %91, align 8
   %184 = load i32, ptr %.038.i.i, align 4
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds i32, ptr %183, i64 %185
+  %186 = getelementptr inbounds nuw i32, ptr %183, i64 %185
   store i32 %176, ptr %186, align 4
   %187 = load i32, ptr %.038.i.i, align 4
   %188 = zext i32 %187 to i64
@@ -767,10 +767,10 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %.02935.i.i, %.lr.ph.preheader.i.i.i ]
   %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %195, %.lr.ph.preheader.i.i.i ]
   %196 = lshr i64 %.01316.i.i.i, 1
-  %197 = getelementptr inbounds i64, ptr %.017.i.i.i, i64 %196
+  %197 = getelementptr inbounds nuw i64, ptr %.017.i.i.i, i64 %196
   %198 = load i64, ptr %197, align 8
   %199 = icmp ult i64 %198, %188
-  %200 = getelementptr inbounds i8, ptr %197, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %.neg.i.i.i = xor i64 %196, -1
   %201 = add i64 %.01316.i.i.i, %.neg.i.i.i
   %.114.i.i.i = select i1 %199, i64 %201, i64 %196
@@ -781,21 +781,21 @@ COVER_sum.exit117:                                ; preds = %.lr.ph.i111, %COVER
 COVER_lower_bound.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %192
   %.0.lcssa.i.i.i = phi ptr [ %179, %192 ], [ %.1.i.i.i, %.lr.ph.i.i.i ]
   %202 = load i64, ptr %.0.lcssa.i.i.i, align 8
-  %203 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
   br label %204
 
 204:                                              ; preds = %COVER_lower_bound.exit.i.i, %190, %182
   %.130.i.i = phi ptr [ %.02935.i.i, %182 ], [ %203, %COVER_lower_bound.exit.i.i ], [ %.02935.i.i, %190 ]
   %.128.i.i = phi i32 [ %.02736.i.i, %182 ], [ %191, %COVER_lower_bound.exit.i.i ], [ %191, %190 ]
   %.1.i.i = phi i64 [ %.02637.i.i, %182 ], [ %202, %COVER_lower_bound.exit.i.i ], [ %.02637.i.i, %190 ]
-  %205 = getelementptr inbounds i8, ptr %.038.i.i, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %.038.i.i, i64 4
   %.not.i.i = icmp eq ptr %.038.i.i, %.020.pn.i
   br i1 %.not.i.i, label %COVER_group.exit.i, label %182, !llvm.loop !12
 
 COVER_group.exit.i:                               ; preds = %204
   %.pre.i.i = load ptr, ptr %89, align 8
   %206 = and i64 %175, 4294967295
-  %207 = getelementptr inbounds i32, ptr %.pre.i.i, i64 %206
+  %207 = getelementptr inbounds nuw i32, ptr %.pre.i.i, i64 %206
   store i32 %.128.i.i, ptr %207, align 4
   %208 = icmp ult i64 %.1.lcssa.i, %161
   br i1 %208, label %.preheader.i, label %COVER_groupBy.exit.loopexit, !llvm.loop !13
@@ -818,7 +818,7 @@ COVER_ctx_destroy.exit:                           ; preds = %118, %116, %54, %57
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @COVER_buildDictionary(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i32 %.0.val, i32 %.4.val) unnamed_addr #4 {
   %6 = trunc i64 %4 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   %10 = mul i32 %.0.val, 10
@@ -860,9 +860,9 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
 
 .lr.ph:                                           ; preds = %28
   %29 = getelementptr i8, ptr %2, i64 12
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = getelementptr i8, ptr %2, i64 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = add i32 %.0.val, 2
   %34 = sub i32 %33, %.4.val
   %35 = add i32 %.4.val, -1
@@ -905,7 +905,7 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
   %.sroa.12.08.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.12.2.i, %178 ]
   %.sroa.022.06.i = phi i32 [ %39, %.lr.ph.i ], [ %.sroa.022.1.i, %178 ]
   %47 = load ptr, ptr %30, align 8
-  %48 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = load ptr, ptr %2, align 8
   %.val.i.i.i = load i32, ptr %31, align 8
@@ -913,8 +913,8 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
   %52 = sub i32 32, %.val.i.i.i
   %53 = lshr i32 %51, %52
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %55 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %50, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, -1
   br i1 %58, label %COVER_map_at.exit.thread.i, label %.lr.ph.i.i.i
@@ -931,23 +931,23 @@ COVER_computeEpochs.exit:                         ; preds = %5, %14
   %63 = load i32, ptr %32, align 8
   %64 = and i32 %63, %62
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %65
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %66 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %50, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %COVER_map_at.exit.thread.i, label %.lr.ph.i.i.i
 
 COVER_map_at.exit.thread.i:                       ; preds = %61, %46
   %.pre-phi.ph.i.i = phi i64 [ %54, %46 ], [ %65, %61 ]
-  %70 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %.pre-phi.ph.i.i
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %70 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %50, i64 %.pre-phi.ph.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 %49, ptr %70, align 4
   store i32 0, ptr %71, align 4
   br label %74
 
 COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
   %.phi.trans.insert.phi.trans.insert.i.i = zext i32 %.01213.i.i.i to i64
-  %72 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %50, i64 %.phi.trans.insert.phi.trans.insert.i.i, i32 1
+  %72 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %50, i64 %.phi.trans.insert.phi.trans.insert.i.i, i32 1
   %.pr.i = load i32, ptr %72, align 4
   %73 = icmp eq i32 %.pr.i, 0
   br i1 %73, label %74, label %80
@@ -955,7 +955,7 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
 74:                                               ; preds = %COVER_map_at.exit.i, %COVER_map_at.exit.thread.i
   %75 = phi ptr [ %71, %COVER_map_at.exit.thread.i ], [ %72, %COVER_map_at.exit.i ]
   %76 = zext i32 %49 to i64
-  %77 = getelementptr inbounds i32, ptr %1, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %1, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, %.sroa.12.08.i
   br label %80
@@ -975,7 +975,7 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
 86:                                               ; preds = %80
   %87 = load ptr, ptr %30, align 8
   %88 = zext i32 %.sroa.022.06.i to i64
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = load ptr, ptr %2, align 8
   %.val.i.i72.i = load i32, ptr %31, align 8
@@ -983,8 +983,8 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
   %93 = sub i32 32, %.val.i.i72.i
   %94 = lshr i32 %92, %93
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %95
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %96 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %91, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, -1
   br i1 %99, label %COVER_map_at.exit80.thread.i, label %.lr.ph.i.i73.i
@@ -1001,16 +1001,16 @@ COVER_map_at.exit.i:                              ; preds = %.lr.ph.i.i.i
   %104 = load i32, ptr %32, align 8
   %105 = and i32 %104, %103
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %107 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %91, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = icmp eq i32 %109, -1
   br i1 %110, label %COVER_map_at.exit80.thread.i, label %.lr.ph.i.i73.i
 
 COVER_map_at.exit80.thread.i:                     ; preds = %102, %86
   %.pre-phi.ph.i77.i = phi i64 [ %95, %86 ], [ %106, %102 ]
-  %111 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %.pre-phi.ph.i77.i
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %111 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %91, i64 %.pre-phi.ph.i77.i
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 %90, ptr %111, align 4
   %113 = add i32 %.sroa.022.06.i, 1
   store i32 -1, ptr %112, align 4
@@ -1018,7 +1018,7 @@ COVER_map_at.exit80.thread.i:                     ; preds = %102, %86
 
 COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %.phi.trans.insert.phi.trans.insert.i79.i = zext i32 %.01213.i.i74.i to i64
-  %114 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %91, i64 %.phi.trans.insert.phi.trans.insert.i79.i, i32 1
+  %114 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %91, i64 %.phi.trans.insert.phi.trans.insert.i79.i, i32 1
   %.pre.i = load i32, ptr %114, align 4
   %115 = add i32 %.pre.i, -1
   %116 = add i32 %.sroa.022.06.i, 1
@@ -1032,8 +1032,8 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %120 = lshr i32 %92, %119
   %121 = load ptr, ptr %2, align 8
   %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %122
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %123 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %121, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, -1
   br i1 %126, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
@@ -1050,28 +1050,28 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %131 = load i32, ptr %32, align 8
   %132 = and i32 %131, %130
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %133
-  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %134 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %121, i64 %133
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %136, -1
   br i1 %137, label %COVER_map_remove.exit.i, label %.lr.ph.i.i82.i
 
 138:                                              ; preds = %.lr.ph.i.i82.i
   %.phi.trans.insert.phi.trans.insert.i84.i = zext i32 %.01213.i.i83.i to i64
-  %139 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %.phi.trans.insert.phi.trans.insert.i84.i
+  %139 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %121, i64 %.phi.trans.insert.phi.trans.insert.i84.i
   %140 = add i32 %.01213.i.i83.i, 1
   %141 = load i32, ptr %32, align 8
   %142 = and i32 %141, %140
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %121, i64 %143
-  %145 = getelementptr inbounds i8, ptr %144, i64 4
+  %144 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %121, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, -1
   br i1 %147, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %164, %138
   %.024.lcssa.i.i = phi ptr [ %139, %138 ], [ %.125.i.i, %164 ]
-  %148 = getelementptr inbounds i8, ptr %.024.lcssa.i.i, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %.024.lcssa.i.i, i64 4
   store i32 -1, ptr %148, align 4
   br label %COVER_map_remove.exit.i
 
@@ -1096,7 +1096,7 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
 159:                                              ; preds = %.lr.ph.i.i
   store i32 %153, ptr %.02426.i.i, align 4
   %160 = load i32, ptr %151, align 4
-  %161 = getelementptr inbounds i8, ptr %.02426.i.i, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %.02426.i.i, i64 4
   store i32 %160, ptr %161, align 4
   %.pre31.i.i = load i32, ptr %32, align 8
   %.pre32.i.i = load ptr, ptr %2, align 8
@@ -1114,15 +1114,15 @@ COVER_map_at.exit80.i:                            ; preds = %.lr.ph.i.i73.i
   %167 = add i32 %.028.i.i, 1
   %168 = and i32 %166, %167
   %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds %struct.COVER_map_pair_t_s, ptr %165, i64 %169
-  %171 = getelementptr inbounds i8, ptr %170, i64 4
+  %170 = getelementptr inbounds nuw %struct.COVER_map_pair_t_s, ptr %165, i64 %169
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %172, -1
   br i1 %173, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 COVER_map_remove.exit.i:                          ; preds = %129, %._crit_edge.i.i, %118
   %174 = zext i32 %90 to i64
-  %175 = getelementptr inbounds i32, ptr %1, i64 %174
+  %175 = getelementptr inbounds nuw i32, ptr %1, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = sub i32 %.sroa.12.1.i, %176
   br label %178
@@ -1146,10 +1146,10 @@ COVER_map_remove.exit.i:                          ; preds = %129, %._crit_edge.i
   %.06617.i = phi i32 [ %.sroa.048.sroa.0.1.i, %.lr.ph19.i ], [ %.1.i, %180 ]
   %.06716.i = phi i32 [ %.sroa.048.sroa.7.1.i, %.lr.ph19.i ], [ %.168.i, %180 ]
   %181 = zext i32 %.06518.i to i64
-  %182 = getelementptr inbounds i32, ptr %45, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %45, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds i32, ptr %1, i64 %184
+  %185 = getelementptr inbounds nuw i32, ptr %1, i64 %184
   %186 = load i32, ptr %185, align 4
   %.not70.i = icmp eq i32 %186, 0
   %187 = tail call i32 @llvm.umin.i32(i32 %.06716.i, i32 %.06518.i)
@@ -1163,10 +1163,10 @@ COVER_map_remove.exit.i:                          ; preds = %129, %._crit_edge.i
   %.023.i = phi i32 [ %195, %.lr.ph24.i ], [ %.168.i, %.preheader.i ]
   %189 = load ptr, ptr %30, align 8
   %190 = zext i32 %.023.i to i64
-  %191 = getelementptr inbounds i32, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw i32, ptr %189, i64 %190
   %192 = load i32, ptr %191, align 4
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds i32, ptr %1, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %1, i64 %193
   store i32 0, ptr %194, align 4
   %195 = add i32 %.023.i, 1
   %.not69.i = icmp eq i32 %195, %.1.i
@@ -1196,7 +1196,7 @@ COVER_selectSegment.exit.thread:                  ; preds = %37, %COVER_selectSe
   %204 = sub i64 %.017, %..0
   %205 = getelementptr inbounds i8, ptr %3, i64 %204
   %206 = load ptr, ptr %0, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 %.sroa.048.sroa.0.0.insert.ext.i
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 %.sroa.048.sroa.0.0.insert.ext.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %205, ptr align 1 %207, i64 %..0, i1 false)
   %208 = load i32, ptr @g_displayLevel, align 4
   %209 = icmp sgt i32 %208, 1
@@ -1254,7 +1254,7 @@ declare i64 @ZDICT_finalizeDictionary(ptr noundef, i64 noundef, ptr noundef, i64
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #4 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fcmp olt double %10, 1.000000e+00
   %12 = select i1 %11, i64 %4, i64 0
@@ -1276,7 +1276,7 @@ define dso_local i64 @COVER_checkTotalCompressedSize(ptr nocapture noundef reado
   %17 = tail call i64 @ZSTD_compressBound(i64 noundef %.042.lcssa) #26
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
   %19 = tail call ptr @ZSTD_createCCtx() #26
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = tail call ptr @ZSTD_createCDict(ptr noundef %6, i64 noundef %7, i32 noundef %21) #26
   %23 = icmp eq ptr %18, null
@@ -1344,11 +1344,11 @@ define dso_local void @COVER_best_init(ptr noundef writeonly %0) local_unnamed_a
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i64 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   br label %7
 
@@ -1365,7 +1365,7 @@ define dso_local void @COVER_best_wait(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not2 = icmp eq i64 %3, 0
   br i1 %.not2, label %.loopexit, label %.preheader.split, !llvm.loop !20
@@ -1383,7 +1383,7 @@ define dso_local void @COVER_best_destroy(ptr noundef readonly %0) local_unnamed
   br i1 %.not, label %7, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not2.i = icmp eq i64 %3, 0
   br i1 %.not2.i, label %COVER_best_wait.exit, label %.preheader.split.i, !llvm.loop !20
@@ -1392,7 +1392,7 @@ define dso_local void @COVER_best_destroy(ptr noundef readonly %0) local_unnamed
   br label %.preheader.split.i
 
 COVER_best_wait.exit:                             ; preds = %.preheader.i
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %7, label %6
@@ -1411,7 +1411,7 @@ define dso_local void @COVER_best_start(ptr noundef %0) local_unnamed_addr #10 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %3, align 8
@@ -1424,31 +1424,31 @@ define dso_local void @COVER_best_start(ptr noundef %0) local_unnamed_addr #10 {
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @COVER_best_finish(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 %1, ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %2) local_unnamed_addr #11 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, -1
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %6, %14
   br i1 %15, label %16, label %32
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %21, %8
   br i1 %22, label %23, label %27
@@ -1465,7 +1465,7 @@ define dso_local void @COVER_best_finish(ptr noundef %0, ptr nocapture noundef r
 
 25:                                               ; preds = %.thread
   store i64 -1, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %26, align 8
   br label %32
 
@@ -1476,9 +1476,9 @@ define dso_local void @COVER_best_finish(ptr noundef %0, ptr nocapture noundef r
 
 29:                                               ; preds = %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull align 1 %4, i64 %8, i1 false)
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %8, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   store i64 %6, ptr %13, align 8
   br label %32
@@ -1492,7 +1492,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @COVER_dictSelectionError(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.COVER_dictSelection) align 8 initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8, !alias.scope !21
   ret void
@@ -1500,7 +1500,7 @@ define dso_local void @COVER_dictSelectionError(ptr dead_on_unwind noalias nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @COVER_dictSelectionIsError(ptr nocapture noundef readonly byval(%struct.COVER_dictSelection) align 8 %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, -120
   %5 = load ptr, ptr %0, align 8
@@ -1522,7 +1522,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
   %13 = getelementptr inbounds i8, ptr %1, i64 %3
   %14 = tail call noalias ptr @malloc(i64 noundef %2) #25
   %15 = tail call noalias ptr @malloc(i64 noundef %2) #25
-  %16 = getelementptr inbounds i8, ptr %9, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = uitofp i32 %17 to double
   %19 = fdiv double %18, 1.000000e+02
@@ -1535,14 +1535,14 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 23:                                               ; preds = %12
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !24
   store i64 %3, ptr %24, align 8, !alias.scope !27
   br label %69
 
 25:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %1, i64 %3, i1 false)
-  %26 = getelementptr inbounds i8, ptr %9, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %27 = tail call i64 @ZDICT_finalizeDictionary(ptr noundef nonnull %14, i64 noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.ZDICT_params_t) align 8 %26) #26
   %28 = tail call i32 @ZDICT_isError(i64 noundef %27) #26
   %.not = icmp eq i32 %28, 0
@@ -1551,7 +1551,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 29:                                               ; preds = %25
   tail call void @free(ptr noundef nonnull %14) #26
   tail call void @free(ptr noundef nonnull %15) #26
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !30
   store i64 %27, ptr %30, align 8, !alias.scope !33
   br label %69
@@ -1564,13 +1564,13 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 34:                                               ; preds = %31
   tail call void @free(ptr noundef nonnull %14) #26
   tail call void @free(ptr noundef nonnull %15) #26
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !36
   store i64 %32, ptr %35, align 8, !alias.scope !39
   br label %69
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %9, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %43, label %.preheader
@@ -1587,9 +1587,9 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 43:                                               ; preds = %36
   tail call void @free(ptr noundef nonnull %15) #26
   store ptr %14, ptr %0, align 8, !alias.scope !42
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %44, align 8, !alias.scope !42
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %32, ptr %45, align 8, !alias.scope !42
   br label %69
 
@@ -1606,7 +1606,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 51:                                               ; preds = %46
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !45
   store i64 %49, ptr %52, align 8, !alias.scope !48
   br label %69
@@ -1619,7 +1619,7 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 56:                                               ; preds = %53
   tail call void @free(ptr noundef %14) #26
   tail call void @free(ptr noundef %15) #26
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !51
   store i64 %54, ptr %57, align 8, !alias.scope !54
   br label %69
@@ -1632,9 +1632,9 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 61:                                               ; preds = %58
   tail call void @free(ptr noundef %14) #26
   store ptr %15, ptr %0, align 8, !alias.scope !57
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %62, align 8, !alias.scope !57
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %54, ptr %63, align 8, !alias.scope !57
   br label %69
 
@@ -1646,9 +1646,9 @@ define dso_local void @COVER_selectDict(ptr dead_on_unwind noalias nocapture wri
 ._crit_edge:                                      ; preds = %64, %.preheader
   tail call void @free(ptr noundef %15) #26
   store ptr %14, ptr %0, align 8, !alias.scope !61
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %67, align 8, !alias.scope !61
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %32, ptr %68, align 8, !alias.scope !61
   br label %69
 
@@ -1662,13 +1662,13 @@ declare i32 @ZDICT_isError(i64 noundef) local_unnamed_addr #5
 define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.COVER_best_s, align 8
   %8 = alloca %struct.COVER_ctx_t, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load double, ptr %11, align 8
   %13 = fcmp ugt double %12, 0.000000e+00
   %14 = select i1 %13, double %12, double 1.000000e+00
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 6, i32 %16
@@ -1677,7 +1677,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, i32 50, i32 %20
   %23 = select i1 %21, i32 2000, i32 %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   %27 = select i1 %26, i32 40, i32 %25
@@ -1691,7 +1691,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   %32 = zext nneg i16 %narrow to i32
   %33 = zext i1 %17 to i32
   %34 = shl nuw nsw i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %5, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %36 = load i32, ptr %35, align 4
   %37 = fcmp ogt double %14, 1.000000e+00
   br i1 %37, label %38, label %45
@@ -1768,11 +1768,11 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 80:                                               ; preds = %77, %75
   %.0114 = phi ptr [ %79, %77 ], [ null, %75 ]
-  %81 = getelementptr inbounds i8, ptr %7, i64 8
-  %82 = getelementptr inbounds i8, ptr %7, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i64 -1, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %7, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %83, i8 0, i64 48, i1 false)
   %84 = tail call i32 @llvm.usub.sat.i32(i32 %36, i32 1)
   store i32 %84, ptr @g_displayLevel, align 4
@@ -1792,16 +1792,16 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
 
 .lr.ph180:                                        ; preds = %91
   %92 = icmp sgt i32 %36, 2
-  %93 = getelementptr inbounds i8, ptr %8, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %94 = uitofp i64 %1 to double
   %95 = icmp sgt i32 %36, 0
   %96 = trunc i64 %1 to i32
   %.not139 = icmp eq ptr %.0114, null
   %97 = icmp samesign ugt i32 %36, 3
-  %98 = getelementptr inbounds i8, ptr %8, i64 48
-  %99 = getelementptr inbounds i8, ptr %8, i64 64
-  %100 = getelementptr inbounds i8, ptr %8, i64 72
-  %101 = getelementptr inbounds i8, ptr %8, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %102
 
 102:                                              ; preds = %.lr.ph180, %COVER_ctx_destroy.exit151
@@ -1841,7 +1841,7 @@ define dso_local i64 @ZDICT_optimizeTrainFromBuffer_cover(ptr nocapture noundef 
   br label %.preheader.split.i.i
 
 COVER_best_wait.exit.i:                           ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %7, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %120 = load ptr, ptr %119, align 8
   %.not5.i = icmp eq ptr %120, null
   br i1 %.not5.i, label %COVER_best_destroy.exit, label %121
@@ -1913,7 +1913,7 @@ COVER_best_destroy.exit:                          ; preds = %COVER_best_wait.exi
   br label %.preheader.split.i.i141
 
 COVER_best_wait.exit.i142:                        ; preds = %148
-  %150 = getelementptr inbounds i8, ptr %7, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %151 = load ptr, ptr %150, align 8
   %.not5.i143 = icmp eq ptr %151, null
   br i1 %.not5.i143, label %COVER_best_destroy.exit144, label %152
@@ -1968,23 +1968,23 @@ COVER_ctx_destroy.exit:                           ; preds = %161, %163
 
 164:                                              ; preds = %141
   store ptr %8, ptr %135, align 8
-  %165 = getelementptr inbounds i8, ptr %135, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr %7, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %135, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 %1, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %135, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %135, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %167, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   store i32 %.0111173, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %135, i64 28
+  %168 = getelementptr inbounds nuw i8, ptr %135, i64 28
   store i32 %.0110177, ptr %168, align 4
-  %169 = getelementptr inbounds i8, ptr %135, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store double %14, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %135, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %135, i64 32
   store i32 %27, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %135, i64 48
+  %171 = getelementptr inbounds nuw i8, ptr %135, i64 48
   store i32 0, ptr %171, align 8
   %172 = load i32, ptr @g_displayLevel, align 4
-  %173 = getelementptr inbounds i8, ptr %135, i64 60
+  %173 = getelementptr inbounds nuw i8, ptr %135, i64 60
   store i32 %172, ptr %173, align 4
   %174 = zext i32 %.0111173 to i64
   %175 = icmp ult i64 %1, %174
@@ -2117,7 +2117,7 @@ COVER_ctx_destroy.exit151:                        ; preds = %215, %217
   br label %224
 
 224:                                              ; preds = %219, %._crit_edge181
-  %225 = getelementptr inbounds i8, ptr %7, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %226 = load i64, ptr %225, align 8
   %227 = load i64, ptr %82, align 8
   %228 = icmp ult i64 %227, -119
@@ -2132,7 +2132,7 @@ COVER_ctx_destroy.exit151:                        ; preds = %215, %217
   br label %.preheader.split.i.i154
 
 COVER_best_wait.exit.i155:                        ; preds = %229
-  %231 = getelementptr inbounds i8, ptr %7, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %232 = load ptr, ptr %231, align 8
   %.not5.i156 = icmp eq ptr %232, null
   br i1 %.not5.i156, label %COVER_best_destroy.exit157, label %233
@@ -2147,7 +2147,7 @@ COVER_best_destroy.exit157:                       ; preds = %COVER_best_wait.exi
 
 234:                                              ; preds = %224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %83, i64 48, i1 false)
-  %235 = getelementptr inbounds i8, ptr %7, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %236 = load ptr, ptr %235, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %236, i64 %226, i1 false)
   %237 = load i64, ptr %81, align 8
@@ -2187,30 +2187,30 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %4 = alloca %struct.COVER_map_s, align 8
   %5 = alloca %struct.COVER_dictSelection, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
-  %11 = getelementptr inbounds i8, ptr %6, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %12 = load i64, ptr %11, align 8
   %13 = shl i64 %12, 2
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
   %15 = load i32, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %15, 1
   %19 = sub i32 %18, %17
   %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 33, %20
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %22, ptr %23, align 8
   %24 = shl nuw i32 4, %21
-  %25 = getelementptr inbounds i8, ptr %4, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %24, ptr %25, align 4
   %26 = add i32 %24, -1
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %26, ptr %27, align 8
   %28 = zext i32 %24 to i64
   %29 = shl nuw nsw i64 %28, 3
@@ -2247,27 +2247,27 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   br label %.sink.split
 
 46:                                               ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %6, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %48 = load ptr, ptr %47, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %48, i64 %13, i1 false)
   %49 = call fastcc i64 @COVER_buildDictionary(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef %4, ptr noundef nonnull %10, i64 noundef %9, i32 %15, i32 %17)
   %50 = getelementptr inbounds i8, ptr %10, i64 %49
   %51 = sub i64 %9, %49
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %6, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %61 = load ptr, ptr %60, align 8
   call void @COVER_selectDict(ptr dead_on_unwind nonnull writable sret(%struct.COVER_dictSelection) align 8 %5, ptr noundef nonnull %50, i64 noundef %9, i64 noundef %51, ptr noundef %52, ptr noundef %54, i32 noundef %57, i64 noundef %56, i64 noundef %59, ptr noundef nonnull byval(%struct.ZDICT_cover_params_t) align 8 %3, ptr noundef %61, i64 poison)
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.544.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.544.0.copyload = load i64, ptr %.sroa.544.0..sroa_idx, align 8
   %62 = icmp ugt i64 %.sroa.544.0.copyload, -120
   %.not.i35 = icmp eq ptr %.sroa.0.0.copyload, null
@@ -2295,7 +2295,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   %.sroa.5.0 = phi i64 [ 0, %31 ], [ %.sroa.5.0.copyload, %46 ], [ 0, %40 ], [ %.sroa.5.0.ph, %.sink.split ]
   %.sroa.544.0 = phi i64 [ -1, %31 ], [ %.sroa.544.0.copyload, %46 ], [ -1, %40 ], [ %.sroa.544.0.ph, %.sink.split ]
   tail call void @free(ptr noundef %10) #26
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -2303,23 +2303,23 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
   br i1 %.not.i36, label %COVER_best_finish.exit, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, -1
   store i64 %77, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %73, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %79 = load i64, ptr %78, align 8
   %80 = icmp ult i64 %.sroa.544.0, %79
   br i1 %80, label %81, label %COVER_best_finish.exit
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %73, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not27.i = icmp eq ptr %83, null
   br i1 %.not27.i, label %.thread.i, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %73, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %86 = load i64, ptr %85, align 8
   %87 = icmp ult i64 %86, %.sroa.5.0
   br i1 %87, label %88, label %92
@@ -2336,7 +2336,7 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
 
 90:                                               ; preds = %.thread.i
   store i64 -1, ptr %78, align 8
-  %91 = getelementptr inbounds i8, ptr %73, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 0, ptr %91, align 8
   br label %COVER_best_finish.exit
 
@@ -2347,9 +2347,9 @@ define internal void @COVER_tryParameters(ptr nocapture noundef %0) #4 {
 
 94:                                               ; preds = %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr nonnull align 1 %.sroa.0.0, i64 %.sroa.5.0, i1 false)
-  %95 = getelementptr inbounds i8, ptr %73, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 %.sroa.5.0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %73, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %73, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %96, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i64 %.sroa.544.0, ptr %78, align 8
   br label %COVER_best_finish.exit
@@ -2378,7 +2378,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %0, ptr noundef readonly %1) #16 {
   %3 = load ptr, ptr @g_coverCtx, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 8
   %7 = shl i32 %5, 3
@@ -2389,12 +2389,12 @@ define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %0,
   %11 = load ptr, ptr %3, align 8
   %12 = load i32, ptr %0, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   %.val.i = load i64, ptr %14, align 1
   %15 = and i64 %10, %.val.i
   %16 = load i32, ptr %1, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %17
   %.val15.i = load i64, ptr %18, align 1
   %19 = and i64 %.val15.i, %10
   %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
@@ -2412,10 +2412,10 @@ define internal i32 @COVER_strict_cmp(ptr noundef readonly %0, ptr noundef reado
   %5 = load i32, ptr %1, align 4
   %6 = load ptr, ptr %3, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds i8, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #27
@@ -2428,7 +2428,7 @@ define internal i32 @COVER_strict_cmp(ptr noundef readonly %0, ptr noundef reado
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 8
   %7 = shl i32 %5, 3
@@ -2439,12 +2439,12 @@ define internal range(i32 -1, 2) i32 @COVER_cmp8(ptr nocapture noundef readonly 
   %11 = load ptr, ptr %0, align 8
   %12 = load i32, ptr %1, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   %.val = load i64, ptr %14, align 1
   %15 = and i64 %10, %.val
   %16 = load i32, ptr %2, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 %17
   %.val15 = load i64, ptr %18, align 1
   %19 = and i64 %.val15, %10
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
@@ -2457,10 +2457,10 @@ define internal i32 @COVER_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
   %5 = load i32, ptr %2, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds i8, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %7
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds i8, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #27

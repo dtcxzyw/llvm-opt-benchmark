@@ -10,16 +10,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_MakeZddTreeNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 140
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %1, %6
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -31,7 +31,7 @@ define ptr @Cudd_MakeZddTreeNode(ptr nocapture noundef %0, i32 noundef %1, i32 n
   br i1 %18, label %38, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 528
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %31
@@ -43,16 +43,16 @@ define ptr @Cudd_MakeZddTreeNode(ptr nocapture noundef %0, i32 noundef %1, i32 n
   br i1 %25, label %38, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %24, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 %29, ptr %30, align 4
   br label %31
 
 31:                                               ; preds = %26, %19
   %.029 = phi ptr [ %24, %26 ], [ %21, %19 ]
-  %32 = getelementptr inbounds i8, ptr %.029, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %33 = load i32, ptr %32, align 8
   %. = tail call i32 @llvm.umax.i32(i32 %16, i32 %33)
   store i32 %., ptr %32, align 8
@@ -61,7 +61,7 @@ define ptr @Cudd_MakeZddTreeNode(ptr nocapture noundef %0, i32 noundef %1, i32 n
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %34, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %1, ptr %37, align 4
   br label %38
 
@@ -76,38 +76,38 @@ declare ptr @Mtr_MakeGroup(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cuddZddTreeSifting(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 140
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %8) #9
   store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %12, ptr %13, align 4
   br label %14
 
 14:                                               ; preds = %6, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 140
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds %struct.DdSubtable, ptr %20, i64 %indvars.iv, i32 6
+  %21 = getelementptr inbounds nuw %struct.DdSubtable, ptr %20, i64 %indvars.iv, i32 6
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -134,7 +134,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
 
 .lr.ph:                                           ; preds = %3, %17
   %.01420 = phi ptr [ %19, %17 ], [ %1, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.01420, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.01420, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not16 = icmp eq ptr %5, null
   br i1 %.not16, label %11, label %6
@@ -150,7 +150,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
   br i1 %10, label %._crit_edge, label %17
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.01420, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp ugt i32 %13, 1
   br i1 %14, label %15, label %17
@@ -161,7 +161,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
   br i1 %.not17, label %._crit_edge, label %17
 
 17:                                               ; preds = %11, %15, %8
-  %18 = getelementptr inbounds i8, ptr %.01420, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.01420, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -176,22 +176,22 @@ declare void @Cudd_FreeZddTree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 140
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp slt i32 %6, %8
   br i1 %.not.i, label %9, label %zddMergeGroups.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %16, -1
   %20 = add i32 %19, %18
@@ -199,7 +199,7 @@ define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnu
   br i1 %.not35.i, label %zddFindNodeHiLo.exit, label %21
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %.preheader.i
@@ -211,12 +211,12 @@ define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnu
 .preheader.i:                                     ; preds = %21, %.preheader.i
   %.053 = phi i32 [ %spec.select, %.preheader.i ], [ -1, %21 ]
   %.038.i = phi ptr [ %38, %.preheader.i ], [ %23, %21 ]
-  %27 = getelementptr inbounds i8, ptr %.038.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.038.i, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %11, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %11, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %.038.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %31, -1
   %35 = add i32 %34, %33
@@ -224,7 +224,7 @@ define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnu
   %36 = icmp slt i32 %31, %8
   %or.cond.i = and i1 %36, %.not37.i
   %spec.select = select i1 %or.cond.i, i32 %34, i32 %.053
-  %37 = getelementptr inbounds i8, ptr %.038.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.038.i, i64 40
   %38 = load ptr, ptr %37, align 8
   %.not36.i = icmp eq ptr %38, null
   br i1 %.not36.i, label %zddFindNodeHiLo.exit, label %.preheader.i, !llvm.loop !7
@@ -253,12 +253,12 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   ]
 
 .preheader66:                                     ; preds = %43
-  %44 = getelementptr inbounds i8, ptr %0, i64 232
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pre = load i32, ptr %44, align 8
   br label %220
 
 .preheader:                                       ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pre73 = load i32, ptr %45, align 8
   br label %50
 
@@ -296,7 +296,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %64, label %.thread139.i, label %66
 
 .thread139.i:                                     ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 624
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %65, align 8
   br label %zddGroupSifting.exit
 
@@ -307,7 +307,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %68, label %.thread, label %70
 
 .thread:                                          ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 624
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %69, align 8
   tail call void @free(ptr noundef nonnull %63) #9
   br label %zddGroupSifting.exit
@@ -322,7 +322,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %73, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader113.i
-  %74 = getelementptr inbounds i8, ptr %0, i64 160
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %75 = load ptr, ptr %74, align 8
   %wide.trip.count.i = zext nneg i32 %8 to i64
   %76 = shl nuw nsw i64 %wide.trip.count.i, 2
@@ -330,26 +330,26 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br label %78
 
 .thread131.i:                                     ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %0, i64 624
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %77, align 8
   br label %215
 
 78:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
   %.080115.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %93 ]
-  %79 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds %struct.DdSubtable, ptr %75, i64 %81
-  %83 = getelementptr inbounds i8, ptr %82, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %84 = load i32, ptr %83, align 4
   %.not99.i = icmp ult i32 %80, %84
   br i1 %.not99.i, label %93, label %85
 
 85:                                               ; preds = %78
-  %86 = getelementptr inbounds i8, ptr %82, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv.i
   store i32 %87, ptr %88, align 4
   %89 = sext i32 %.080115.i to i64
   %90 = getelementptr inbounds i32, ptr %63, i64 %89
@@ -368,18 +368,18 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   %.080.lcssa.i = phi i32 [ 0, %.preheader113.i ], [ %.1.i, %93 ]
   %94 = sext i32 %.080.lcssa.i to i64
   tail call void @qsort(ptr noundef nonnull %63, i64 noundef %94, i64 noundef 4, ptr noundef nonnull @zddUniqueCompareGroup) #9
-  %95 = getelementptr inbounds i8, ptr %0, i64 456
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %96 = load i32, ptr %95, align 8
   %.080.116.i = tail call i32 @llvm.smin.i32(i32 %.080.lcssa.i, i32 %96)
   %97 = icmp sgt i32 %.080.116.i, 0
   br i1 %97, label %.lr.ph119.i, label %._crit_edge120.i
 
 .lr.ph119.i:                                      ; preds = %._crit_edge.i
-  %98 = getelementptr inbounds i8, ptr %0, i64 460
-  %99 = getelementptr inbounds i8, ptr %0, i64 232
-  %100 = getelementptr inbounds i8, ptr %0, i64 160
-  %101 = getelementptr inbounds i8, ptr %0, i64 400
-  %102 = getelementptr inbounds i8, ptr %0, i64 336
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %103 = icmp eq i32 %16, %.2
   br label %104
 
@@ -391,7 +391,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %.not.i29, label %107, label %._crit_edge120.i
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv123.i
+  %108 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv123.i
   %109 = load i32, ptr %108, align 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i32, ptr %71, i64 %110
@@ -466,7 +466,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %.not81.i.i, label %149, label %146
 
 146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %.pr90.pre104.i.i, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %.pr90.pre104.i.i, i64 4
   %148 = load i32, ptr %147, align 4
   br label %149
 
@@ -543,12 +543,12 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
 
 .lr.ph.i.i:                                       ; preds = %180, %.lr.ph.i.i
   %181 = phi ptr [ %183, %.lr.ph.i.i ], [ %.pr.i.i, %180 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %181, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 0, ptr %184, align 4
   %185 = load ptr, ptr %101, align 8
-  %186 = getelementptr inbounds i8, ptr %181, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %185, ptr %186, align 8
   store ptr %181, ptr %101, align 8
   %.not89.i.i = icmp eq ptr %183, null
@@ -561,12 +561,12 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
 
 .lr.ph97.i.i:                                     ; preds = %187, %.lr.ph97.i.i
   %188 = phi ptr [ %190, %.lr.ph97.i.i ], [ %.pr90.i.i, %187 ]
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %188, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 4
   store i32 0, ptr %191, align 4
   %192 = load ptr, ptr %101, align 8
-  %193 = getelementptr inbounds i8, ptr %188, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store ptr %192, ptr %193, align 8
   store ptr %188, ptr %101, align 8
   %.not88.i.i = icmp eq ptr %190, null
@@ -656,7 +656,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
 
 zddGroupSifting.exit:                             ; preds = %220, %50, %217, %216, %214, %._crit_edge120.i, %.thread139.i, %.thread, %40, %46, %48, %56, %58, %218
   %.0 = phi i32 [ %219, %218 ], [ %59, %58 ], [ %57, %56 ], [ %49, %48 ], [ %47, %46 ], [ 1, %40 ], [ 1, %._crit_edge120.i ], [ 1, %214 ], [ 0, %217 ], [ 0, %216 ], [ 0, %.thread139.i ], [ 0, %.thread ], [ %52, %50 ], [ %222, %220 ]
-  %226 = getelementptr inbounds i8, ptr %0, i64 528
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %227 = load ptr, ptr %226, align 8
   %.not.i32 = icmp eq ptr %1, %227
   br i1 %.not.i32, label %238, label %.preheader.i33
@@ -670,7 +670,7 @@ zddGroupSifting.exit:                             ; preds = %220, %50, %217, %21
   br label %._crit_edge.i34
 
 .lr.ph.i35:                                       ; preds = %.preheader.i33
-  %229 = getelementptr inbounds i8, ptr %0, i64 160
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %230 = sext i32 %16 to i64
   %wide.trip.count.i36 = sext i32 %.2 to i64
   br label %231
@@ -687,7 +687,7 @@ zddGroupSifting.exit:                             ; preds = %220, %50, %217, %21
 
 ._crit_edge.i34:                                  ; preds = %231, %.preheader.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.preheader.._crit_edge_crit_edge.i ], [ %wide.trip.count.i36, %231 ]
-  %235 = getelementptr inbounds i8, ptr %0, i64 160
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds %struct.DdSubtable, ptr %236, i64 %.pre-phi.i, i32 6
   store i32 %16, ptr %237, align 4
@@ -695,7 +695,7 @@ zddGroupSifting.exit:                             ; preds = %220, %50, %217, %21
 
 238:                                              ; preds = %._crit_edge.i34, %zddGroupSifting.exit
   %239 = load i32, ptr %12, align 4
-  %240 = getelementptr inbounds i8, ptr %0, i64 336
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %241 = load ptr, ptr %240, align 8
   %242 = sext i32 %16 to i64
   %243 = getelementptr inbounds i32, ptr %241, i64 %242
@@ -704,15 +704,15 @@ zddGroupSifting.exit:                             ; preds = %220, %50, %217, %21
 
 245:                                              ; preds = %250, %238
   %.021.i = phi ptr [ %1, %238 ], [ %248, %250 ]
-  %246 = getelementptr inbounds i8, ptr %.021.i, i64 12
+  %246 = getelementptr inbounds nuw i8, ptr %.021.i, i64 12
   store i32 %244, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %.021.i, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %.021.i, i64 16
   %248 = load ptr, ptr %247, align 8
   %249 = icmp eq ptr %248, null
   br i1 %249, label %zddMergeGroups.exit, label %250
 
 250:                                              ; preds = %245
-  %251 = getelementptr inbounds i8, ptr %248, i64 12
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 12
   %252 = load i32, ptr %251, align 4
   %.not24.i = icmp eq i32 %252, %239
   br i1 %.not24.i, label %245, label %zddMergeGroups.exit
@@ -758,15 +758,15 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @cuddZddNextHigh(ptr noundef %0, i32 noundef %1) #9
   %.not80 = icmp sgt i32 %7, %2
   br i1 %.not80, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
-  %9 = getelementptr inbounds i8, ptr %0, i64 464
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %10
 
 10:                                               ; preds = %.lr.ph, %54
@@ -808,14 +808,14 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, 
 
 31:                                               ; preds = %28
   store i32 %.07081, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %.06882, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 %26, ptr %34, align 4
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %35, ptr %36, align 8
   store ptr %29, ptr %3, align 8
   %37 = sitofp i32 %26 to double
@@ -859,18 +859,18 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, 
   br i1 %.not7786, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %56
-  %57 = getelementptr inbounds i8, ptr %0, i64 400
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %58
 
 58:                                               ; preds = %.lr.ph87, %58
   %59 = phi ptr [ %.pr, %.lr.ph87 ], [ %61, %58 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %62, align 4
   %63 = load ptr, ptr %57, align 8
   %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %63, ptr %65, align 8
   %66 = load ptr, ptr %3, align 8
   store ptr %66, ptr %57, align 8
@@ -889,23 +889,23 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingBackward(ptr noundef 
   br i1 %.not39, label %zddGroupMoveBackward.exit.thread, label %.lr.ph
 
 .lr.ph44:                                         ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %9
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.041 = phi ptr [ %8, %.lr.ph ], [ %1, %3 ]
   %.02540 = phi i32 [ %spec.select, %.lr.ph ], [ %2, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.041, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %.041, i64 12
   %6 = load i32, ptr %5, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %6, i32 %.02540)
-  %7 = getelementptr inbounds i8, ptr %.041, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.041, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.lr.ph44, label %.lr.ph, !llvm.loop !21
 
 9:                                                ; preds = %.lr.ph44, %76
   %.143 = phi ptr [ %1, %.lr.ph44 ], [ %78, %76 ]
-  %10 = getelementptr inbounds i8, ptr %.143, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.143, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %spec.select
   br i1 %12, label %zddGroupMoveBackward.exit.thread, label %13
@@ -914,16 +914,16 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingBackward(ptr noundef 
   %14 = load ptr, ptr %4, align 8
   %15 = load i32, ptr %.143, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.DdSubtable, ptr %14, i64 %16, i32 6
+  %17 = getelementptr inbounds nuw %struct.DdSubtable, ptr %14, i64 %16, i32 6
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %15
-  %20 = getelementptr inbounds i8, ptr %.143, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.143, i64 4
   %21 = load i32, ptr %20, align 4
   br i1 %19, label %22, label %._crit_edge
 
 22:                                               ; preds = %13
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.DdSubtable, ptr %14, i64 %23, i32 6
+  %24 = getelementptr inbounds nuw %struct.DdSubtable, ptr %14, i64 %23, i32 6
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %21
   br i1 %26, label %27, label %._crit_edge
@@ -1051,7 +1051,7 @@ zddGroupMoveBackward.exit:                        ; preds = %.lr.ph85.i, %._crit
   br label %76
 
 76:                                               ; preds = %zddGroupMoveBackward.exit, %27
-  %77 = getelementptr inbounds i8, ptr %.143, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.143, i64 16
   %78 = load ptr, ptr %77, align 8
   %.not31 = icmp eq ptr %78, null
   br i1 %.not31, label %zddGroupMoveBackward.exit.thread, label %9, !llvm.loop !27
@@ -1065,15 +1065,15 @@ declare i32 @cuddZddNextHigh(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %1) #9
   %.not69 = icmp slt i32 %7, %2
   br i1 %.not69, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
-  %9 = getelementptr inbounds i8, ptr %0, i64 464
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %10
 
 10:                                               ; preds = %.lr.ph, %47
@@ -1106,14 +1106,14 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i3
 
 27:                                               ; preds = %24
   store i32 %.06071, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %.06170, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %22, ptr %30, align 4
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %31, ptr %32, align 8
   store ptr %25, ptr %3, align 8
   %33 = sitofp i32 %22 to double
@@ -1149,18 +1149,18 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i3
   br i1 %.not6675, label %.loopexit, label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %49
-  %50 = getelementptr inbounds i8, ptr %0, i64 400
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %51
 
 51:                                               ; preds = %.lr.ph76, %51
   %52 = phi ptr [ %.pr, %.lr.ph76 ], [ %54, %51 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %55, align 4
   %56 = load ptr, ptr %50, align 8
   %57 = load ptr, ptr %3, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %56, ptr %58, align 8
   %59 = load ptr, ptr %3, align 8
   store ptr %59, ptr %50, align 8
@@ -1179,7 +1179,7 @@ declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds %struct.DdSubtable, ptr %6, i64 %7, i32 6
@@ -1307,16 +1307,16 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
 
 56:                                               ; preds = %._crit_edge130
   store i32 %.084.lcssa148, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %.0.lcssa149, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 232
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %54, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds i8, ptr %54, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %62, ptr %63, align 8
   store ptr %54, ptr %3, align 8
   %64 = load i32, ptr %59, align 8
@@ -1328,18 +1328,18 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not101132, label %.loopexit, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %.loopexit103
-  %65 = getelementptr inbounds i8, ptr %0, i64 400
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %66
 
 66:                                               ; preds = %.lr.ph134, %66
   %67 = phi ptr [ %.pr, %.lr.ph134 ], [ %69, %66 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 0, ptr %70, align 4
   %71 = load ptr, ptr %65, align 8
   %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %71, ptr %73, align 8
   %74 = load ptr, ptr %3, align 8
   store ptr %74, ptr %65, align 8

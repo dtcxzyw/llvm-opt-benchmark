@@ -24,7 +24,7 @@ define dso_local ptr @bms_copy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 3
@@ -52,16 +52,16 @@ define dso_local noundef zeroext i1 @bms_equal(ptr noundef readonly %0, ptr noun
   br i1 %brmerge, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %12
@@ -98,9 +98,9 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly %0, ptr 
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
   br i1 %.not, label %17, label %14
@@ -112,8 +112,8 @@ define dso_local range(i32 -1, 2) i32 @bms_compare(ptr noundef readonly %0, ptr 
 
 17:                                               ; preds = %9
   %18 = add i32 %11, -1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %21
 
 21:                                               ; preds = %30, %17
@@ -162,11 +162,11 @@ define dso_local noundef ptr @bms_make_singleton(i32 noundef %0) local_unnamed_a
   %11 = zext nneg i32 %narrow to i64
   %12 = tail call ptr @palloc0(i64 noundef %11) #11
   store i32 429, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %9, ptr %13, align 4
   %14 = zext nneg i32 %8 to i64
   %15 = shl nuw i64 1, %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = zext nneg i32 %7 to i64
   %18 = getelementptr [0 x i64], ptr %16, i64 0, i64 %17
   store i64 %15, ptr %18, align 8
@@ -207,17 +207,17 @@ define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %4, label %bms_copy.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   br label %bms_copy.exit.sink.split
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   br i1 %4, label %bms_copy.exit.sink.split, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %.not = icmp sgt i32 %11, %14
   %. = tail call i32 @llvm.smax.i32(i32 %11, i32 %14)
@@ -228,10 +228,10 @@ define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1
   %17 = add nsw i64 %16, 8
   %18 = tail call ptr @palloc(i64 noundef %17) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr nonnull readonly align 8 %.41, i64 %17, i1 false)
-  %19 = getelementptr inbounds i8, ptr %.42, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.42, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %.42, i64 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.42, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %23
@@ -271,9 +271,9 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
   br i1 %or.cond, label %30, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not = icmp sgt i32 %7, %9
   %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %9)
@@ -284,10 +284,10 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
   %12 = add nsw i64 %11, 8
   %13 = tail call ptr @palloc(i64 noundef %12) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull readonly align 8 %.39, i64 %12, i1 false)
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %.40, i64 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.40, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %18
@@ -333,7 +333,7 @@ define dso_local ptr @bms_difference(ptr noundef readonly %0, ptr noundef readon
 
 4:                                                ; preds = %2
   %5 = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   br i1 %5, label %bms_copy.exit, label %12
 
@@ -346,14 +346,14 @@ bms_copy.exit:                                    ; preds = %4
   br label %bms_nonempty_difference.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp sgt i32 %7, %14
   br i1 %15, label %bms_copy.exit33, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %smax.i = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %18
@@ -380,12 +380,12 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %28 = add nsw i64 %27, 8
   %29 = tail call ptr @palloc(i64 noundef %28) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr nonnull readonly align 8 %0, i64 %28, i1 false)
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %13, align 4
   %33 = icmp sgt i32 %31, %32
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br i1 %33, label %.preheader, label %.preheader35
 
 .preheader:                                       ; preds = %bms_copy.exit33, %.preheader
@@ -442,16 +442,16 @@ define dso_local noundef zeroext i1 @bms_nonempty_difference(ptr noundef readonl
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %8, %10
   br i1 %11, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %14
@@ -485,16 +485,16 @@ define dso_local noundef zeroext i1 @bms_is_subset(ptr noundef readonly %0, ptr 
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %8, %10
   br i1 %11, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %14
@@ -533,14 +533,14 @@ define dso_local range(i32 0, 4) i32 @bms_subset_compare(ptr noundef readonly %0
   br i1 %7, label %.thread42, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %10, %12
   %.36 = tail call i32 @llvm.smin.i32(i32 %10, i32 %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %.36, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %16
@@ -623,14 +623,14 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp slt i32 %10, %12
   br i1 %.not, label %13, label %22
 
 13:                                               ; preds = %9
   %14 = and i32 %0, 63
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = zext nneg i32 %10 to i64
   %17 = getelementptr [0 x i64], ptr %15, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8
@@ -663,14 +663,14 @@ define dso_local i32 @bms_member_index(ptr noundef readonly %0, i32 noundef %1) 
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 6
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %.not.i = icmp slt i32 %10, %12
   br i1 %.not.i, label %bms_is_member.exit, label %bms_is_member.exit.thread
 
 bms_is_member.exit:                               ; preds = %9
   %13 = and i32 %1, 63
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = zext nneg i32 %10 to i64
   %16 = getelementptr [0 x i64], ptr %14, i64 0, i64 %15
   %17 = load i64, ptr %16, align 8
@@ -732,13 +732,13 @@ define dso_local noundef zeroext i1 @bms_overlap(ptr noundef readonly %0, ptr no
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %., i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %12
@@ -769,16 +769,16 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly %0, p
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not25 = icmp sgt i32 %6, 0
   br i1 %.not25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
 
@@ -836,9 +836,9 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %10
@@ -889,9 +889,9 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %8
@@ -940,9 +940,9 @@ define dso_local i32 @bms_num_members(ptr noundef readonly %0) local_unnamed_add
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %7
@@ -978,9 +978,9 @@ define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly %0) lo
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %7
@@ -1036,18 +1036,18 @@ bms_make_singleton.exit:                          ; preds = %7
   %13 = zext nneg i32 %narrow.i to i64
   %14 = tail call ptr @palloc0(i64 noundef %13) #11
   store i32 429, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %11, ptr %15, align 4
   %16 = zext nneg i32 %10 to i64
   %17 = shl nuw i64 1, %16
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = zext nneg i32 %9 to i64
   %20 = getelementptr [0 x i64], ptr %18, i64 0, i64 %19
   store i64 %17, ptr %20, align 8
   br label %44
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   %.not = icmp slt i32 %9, %23
   br i1 %.not, label %.loopexit, label %24
@@ -1058,9 +1058,9 @@ bms_make_singleton.exit:                          ; preds = %7
   %narrow = add nuw nsw i32 %26, 8
   %27 = zext nneg i32 %narrow to i64
   %28 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %27) #11
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %25, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = sext i32 %23 to i64
   br label %32
 
@@ -1078,7 +1078,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %.022 = phi ptr [ %0, %21 ], [ %28, %32 ]
   %37 = zext nneg i32 %10 to i64
   %38 = shl nuw i64 1, %37
-  %39 = getelementptr inbounds i8, ptr %.022, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %40 = zext nneg i32 %9 to i64
   %41 = getelementptr [0 x i64], ptr %39, i64 0, i64 %40
   %42 = load i64, ptr %41, align 8
@@ -1111,7 +1111,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 6
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %.not = icmp slt i32 %10, %12
   br i1 %.not, label %13, label %35
@@ -1121,7 +1121,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw i64 1, %15
   %17 = xor i64 %16, -1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = zext nneg i32 %10 to i64
   %20 = getelementptr [0 x i64], ptr %18, i64 0, i64 %19
   %21 = load i64, ptr %20, align 8
@@ -1174,7 +1174,7 @@ define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly %1) l
   br i1 %4, label %bms_copy.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
@@ -1187,9 +1187,9 @@ define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly %1) l
   br i1 %4, label %bms_copy.exit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %16, %18
   br i1 %19, label %bms_copy.exit27, label %24
@@ -1207,8 +1207,8 @@ bms_copy.exit27:                                  ; preds = %14
   %25 = phi i32 [ %.pre, %bms_copy.exit27 ], [ %18, %14 ]
   %.023 = phi ptr [ %23, %bms_copy.exit27 ], [ %0, %14 ]
   %.022 = phi ptr [ %0, %bms_copy.exit27 ], [ %1, %14 ]
-  %26 = getelementptr inbounds i8, ptr %.022, i64 8
-  %27 = getelementptr inbounds i8, ptr %.023, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.022, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %28
@@ -1248,7 +1248,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
   br i1 %4, label %bms_copy.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
@@ -1265,9 +1265,9 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
   br label %bms_copy.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %17, %19
   br i1 %20, label %21, label %26
@@ -1281,8 +1281,8 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
 
 26:                                               ; preds = %21, %15
   %.018 = phi ptr [ %25, %21 ], [ %0, %15 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = getelementptr inbounds i8, ptr %.018, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   br label %29
 
 29:                                               ; preds = %29, %26
@@ -1298,7 +1298,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly %
   br i1 %35, label %29, label %36, !llvm.loop !25
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %.018, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.018, i64 4
   store i32 %33, ptr %37, align 4
   br label %bms_copy.exit
 
@@ -1310,7 +1310,7 @@ bms_copy.exit:                                    ; preds = %6, %5, %36, %14
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, %1
-  br i1 %4, label %73, label %5
+  br i1 %4, label %74, label %5
 
 5:                                                ; preds = %3
   %6 = icmp slt i32 %1, 0
@@ -1336,12 +1336,12 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %18 = add nsw i64 %17, 8
   %19 = tail call ptr @palloc0(i64 noundef %18) #11
   store i32 429, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %15, ptr %20, align 4
   br label %.loopexit
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   %.not = icmp slt i32 %11, %23
   br i1 %.not, label %.loopexit, label %24
@@ -1352,9 +1352,9 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %27 = shl nsw i64 %26, 3
   %28 = add nsw i64 %27, 8
   %29 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %28) #11
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %25, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = sext i32 %23 to i64
   br label %33
 
@@ -1382,16 +1382,16 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %44 = zext nneg i32 %40 to i64
   %45 = lshr i64 -1, %44
   %46 = and i64 %45, %notmask51
-  %47 = getelementptr inbounds i8, ptr %.044, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %48 = zext nneg i32 %11 to i64
   %49 = getelementptr [0 x i64], ptr %47, i64 0, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, %46
   store i64 %51, ptr %49, align 8
-  br label %73
+  br label %74
 
 52:                                               ; preds = %.loopexit
-  %53 = getelementptr inbounds i8, ptr %.044, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %54 = zext nneg i32 %38 to i64
   %55 = getelementptr [0 x i64], ptr %53, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8
@@ -1404,28 +1404,28 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
 .lr.ph.preheader:                                 ; preds = %52
   %59 = lshr i32 %1, 3
   %60 = and i32 %59, 268435448
-  %narrow = add nuw nsw i32 %60, 16
-  %61 = zext nneg i32 %narrow to i64
-  %scevgep = getelementptr i8, ptr %.044, i64 %61
-  %62 = add nsw i32 %11, -2
-  %63 = sub nsw i32 %62, %38
-  %64 = zext i32 %63 to i64
-  %65 = shl nuw nsw i64 %64, 3
-  %66 = add nuw nsw i64 %65, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %66, i1 false)
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr i8, ptr %.044, i64 %61
+  %scevgep = getelementptr i8, ptr %62, i64 16
+  %63 = add nsw i32 %11, -2
+  %64 = sub nsw i32 %63, %38
+  %65 = zext i32 %64 to i64
+  %66 = shl nuw nsw i64 %65, 3
+  %67 = add nuw nsw i64 %66, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 -1, i64 %67, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %52
-  %67 = zext nneg i32 %40 to i64
-  %68 = lshr i64 -1, %67
-  %69 = sext i32 %11 to i64
-  %70 = getelementptr [0 x i64], ptr %53, i64 0, i64 %69
-  %71 = load i64, ptr %70, align 8
-  %72 = or i64 %71, %68
-  store i64 %72, ptr %70, align 8
-  br label %73
+  %68 = zext nneg i32 %40 to i64
+  %69 = lshr i64 -1, %68
+  %70 = sext i32 %11 to i64
+  %71 = getelementptr [0 x i64], ptr %53, i64 0, i64 %70
+  %72 = load i64, ptr %71, align 8
+  %73 = or i64 %72, %69
+  store i64 %73, ptr %71, align 8
+  br label %74
 
-73:                                               ; preds = %43, %._crit_edge, %3
+74:                                               ; preds = %43, %._crit_edge, %3
   %.042 = phi ptr [ %0, %3 ], [ %.044, %._crit_edge ], [ %.044, %43 ]
   ret ptr %.042
 }
@@ -1444,13 +1444,13 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   br label %26
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %9, i32 %11)
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %., i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %14
@@ -1499,13 +1499,13 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %8, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %11, label %.preheader, label %.preheader31
 
 .preheader31:                                     ; preds = %6
@@ -1573,17 +1573,17 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %5, label %24, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %8, %10
   %. = select i1 %11, ptr %1, ptr %0
   %.26 = select i1 %11, ptr %0, ptr %1
-  %12 = getelementptr inbounds i8, ptr %.26, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.26, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.26, i64 8
-  %15 = getelementptr inbounds i8, ptr %., i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.26, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %., i64 8
   %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %16
@@ -1619,7 +1619,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %1, 1
   %8 = sdiv i32 %7, 64
@@ -1630,7 +1630,7 @@ define dso_local i32 @bms_next_member(ptr noundef readonly %0, i32 noundef %1) l
 .lr.ph:                                           ; preds = %4
   %11 = zext nneg i32 %9 to i64
   %12 = shl nsw i64 -1, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %24
@@ -1672,7 +1672,7 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %9, 6
   br label %11
@@ -1689,7 +1689,7 @@ define dso_local range(i32 -2, -2147483648) i32 @bms_prev_member(ptr noundef rea
   %15 = sub nsw i32 63, %14
   %16 = zext nneg i32 %15 to i64
   %17 = lshr i64 -1, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %30
@@ -1726,8 +1726,8 @@ define dso_local i32 @bms_hash_value(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = shl i32 %6, 3
   %8 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef %7) #11
@@ -1745,8 +1745,8 @@ define dso_local i32 @bitmap_hash(ptr nocapture noundef readonly %0, i64 noundef
   br i1 %4, label %bms_hash_value.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 3
   %10 = tail call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef %9) #11
@@ -1768,16 +1768,16 @@ define dso_local range(i32 0, 2) i32 @bitmap_match(ptr nocapture noundef readonl
   br i1 %brmerge.i, label %bms_equal.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %10, %12
   br i1 %.not.i, label %.preheader.i, label %bms_equal.exit
 
 .preheader.i:                                     ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %smax.i = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %15

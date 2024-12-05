@@ -48,24 +48,24 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
   %.01932 = phi ptr [ %.019.be, %.backedge ], [ %0, %2 ]
   %3 = icmp ne ptr %.033, null
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds i8, ptr %.01932, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.01932, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01932, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %.01932, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.033, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %.033, i64 96
   %11 = load ptr, ptr %10, align 8
   tail call void @dom_ns_compat_copy_attribute_list_mark(ptr noundef %9, ptr noundef %11) #4
-  %12 = getelementptr inbounds i8, ptr %.01932, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.01932, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %16, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %.033, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.033, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %14, %.loopexit28
@@ -75,7 +75,7 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
   br label %.lr.ph
 
 16:                                               ; preds = %7, %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.01932, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.01932, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not27 = icmp eq ptr %18, null
   br i1 %.not27, label %.preheader, label %.loopexit28
@@ -83,15 +83,15 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
 .preheader:                                       ; preds = %16, %22
   %.221 = phi ptr [ %20, %22 ], [ %.01932, %16 ]
   %.2 = phi ptr [ %24, %22 ], [ %.033, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.221, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.221, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %.2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.preheader, label %.loopexit28
@@ -99,7 +99,7 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
 .loopexit28:                                      ; preds = %22, %16
   %.120 = phi ptr [ %18, %16 ], [ %26, %22 ]
   %.0.pn = phi ptr [ %.033, %16 ], [ %24, %22 ]
-  %.1.in = getelementptr inbounds i8, ptr %.0.pn, i64 48
+  %.1.in = getelementptr inbounds nuw i8, ptr %.0.pn, i64 48
   br label %.backedge
 
 .loopexit:                                        ; preds = %.preheader, %2
@@ -120,7 +120,7 @@ define hidden void @zim_DOM_XMLDocument_createEmpty(ptr nocapture noundef readon
   store ptr null, ptr %3, align 8
   store i64 5, ptr %4, align 8
   store ptr @.str, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #4
   %10 = icmp eq i32 %9, -1
@@ -155,13 +155,13 @@ define hidden void @zim_DOM_XMLDocument_createEmpty(ptr nocapture noundef readon
 25:                                               ; preds = %17
   %26 = load ptr, ptr %5, align 8
   %27 = call ptr @xmlStrdup(ptr noundef %26) #4
-  %28 = getelementptr inbounds i8, ptr %20, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 112
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr @dom_xml_document_class_entry, align 8
   %30 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %29, ptr noundef nonnull %20, ptr noundef null) #4
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
   store i8 1, ptr %33, align 4
   br label %37
 
@@ -302,7 +302,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
 46:                                               ; preds = %33
-  %47 = getelementptr inbounds i8, ptr %37, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.sink.split, label %52
@@ -318,9 +318,9 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 52:                                               ; preds = %.sink.split, %46
   %53 = load ptr, ptr @dom_xml_document_class_entry, align 8
   %54 = call ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %53, ptr noundef nonnull %37, ptr noundef null) #4
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i8 1, ptr %57, align 4
   %58 = getelementptr i8, ptr %37, i64 24
   %.val = load ptr, ptr %58, align 8
@@ -329,22 +329,22 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i.backedge
   %.04.i = phi ptr [ %.04.i.be, %.lr.ph.i.backedge ], [ %.val, %52 ]
-  %59 = getelementptr inbounds i8, ptr %.04.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.04.i, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 1
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %.lr.ph.i
-  %63 = getelementptr inbounds i8, ptr %.04.i, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %.04.i, i64 96
   %64 = load ptr, ptr %63, align 8
   call void @dom_ns_compat_mark_attribute_list(ptr noundef %64) #4
-  %65 = getelementptr inbounds i8, ptr %.04.i, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.04.i, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not16.i = icmp eq ptr %66, null
   br i1 %.not16.i, label %67, label %.lr.ph.i.backedge
 
 67:                                               ; preds = %62, %.lr.ph.i
-  %68 = getelementptr inbounds i8, ptr %.04.i, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %.04.i, i64 48
   %69 = load ptr, ptr %68, align 8
   %.not17.i = icmp eq ptr %69, null
   br i1 %.not17.i, label %.preheader.i, label %.lr.ph.i.backedge
@@ -355,13 +355,13 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 .preheader.i:                                     ; preds = %67, %73
   %.2.i = phi ptr [ %71, %73 ], [ %.04.i, %67 ]
-  %70 = getelementptr inbounds i8, ptr %.2.i, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %.2.i, i64 40
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %dom_mark_namespaces_as_attributes_too.exit, label %73
 
 73:                                               ; preds = %.preheader.i
-  %74 = getelementptr inbounds i8, ptr %71, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.preheader.i, label %.lr.ph.i.backedge

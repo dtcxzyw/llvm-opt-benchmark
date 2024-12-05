@@ -31,20 +31,20 @@ define range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef r
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %23 ]
   %.05875 = phi ptr [ null, %.preheader.preheader ], [ %.1, %23 ]
   %.05974 = phi i64 [ 1104, %.preheader.preheader ], [ %26, %23 ]
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %13, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %17 = load i32, ptr %16, align 8
   %.not69 = icmp eq i32 %17, 1346589253
   br i1 %.not69, label %18, label %.loopexit
 
 18:                                               ; preds = %15
   %19 = icmp eq ptr %.05875, null
-  %20 = getelementptr inbounds i8, ptr %13, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %21 = load ptr, ptr %20, align 8
   br i1 %19, label %23, label %22
 
@@ -54,7 +54,7 @@ define range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef r
 
 23:                                               ; preds = %18, %22
   %.1 = phi ptr [ %.05875, %22 ], [ %21, %18 ]
-  %24 = getelementptr inbounds i8, ptr %13, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %.05974
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -64,7 +64,7 @@ define range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef r
 27:                                               ; preds = %23
   %28 = load ptr, ptr %6, align 8
   %29 = add i64 %26, 24
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %28(i64 noundef %29, ptr noundef %31) #6
   %33 = icmp eq ptr %32, null
@@ -72,25 +72,25 @@ define range(i32 -51, -2147483648) i32 @php_pcre2_serialize_encode(ptr noundef r
 
 .lr.ph.preheader:                                 ; preds = %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %34 = getelementptr inbounds i8, ptr %32, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 1347564115, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 28
   store i32 2818058, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %32, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i32 526337, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %32, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 36
   store i32 %1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %32, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1088) %38, ptr noundef nonnull align 1 dereferenceable(1088) %.1, i64 1088, i1 false)
-  %39 = getelementptr inbounds i8, ptr %32, i64 1128
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 1128
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv79 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next80, %.lr.ph ]
   %.06276 = phi ptr [ %39, %.lr.ph.preheader ], [ %45, %.lr.ph ]
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv79
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv79
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load i64, ptr %42, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.06276, ptr align 1 %41, i64 %43, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %.06276, i8 0, i64 40, i1 false)
@@ -130,7 +130,7 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %.loopexit, label %14
@@ -141,13 +141,13 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
   br i1 %.not72, label %16, label %.loopexit
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load i32, ptr %17, align 4
   %.not73 = icmp eq i32 %18, 2818058
   br i1 %.not73, label %19, label %.loopexit
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i32, ptr %20, align 4
   %.not74 = icmp eq i32 %21, 526337
   br i1 %.not74, label %22, label %.loopexit
@@ -155,26 +155,26 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
 22:                                               ; preds = %19
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %12)
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %23(i64 noundef 1096, ptr noundef %25) #6
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1088) %26, ptr noundef nonnull align 1 dereferenceable(1088) %28, i64 1088, i1 false)
   %29 = zext nneg i32 %spec.select to i64
-  %30 = getelementptr inbounds i8, ptr %26, i64 1088
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 1088
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 1104
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1104
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv95 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next96, %63 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
   %.06580 = phi ptr [ %31, %.lr.ph.preheader ], [ %69, %63 ]
-  %32 = getelementptr inbounds i8, ptr %.06580, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %.06580, i64 72
   %.0.copyload = load i64, ptr %32, align 1
   %33 = icmp ult i64 %.0.copyload, 137
   br i1 %33, label %.loopexit, label %34
@@ -185,7 +185,7 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %24, align 8
   tail call void %39(ptr noundef nonnull %26, ptr noundef %40) #6
@@ -199,7 +199,7 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv92 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next93, %.lr.ph85 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv92
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv92
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %24, align 8
   tail call void %41(ptr noundef %43, ptr noundef %44) #6
@@ -209,29 +209,29 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
   br i1 %exitcond100.not, label %.loopexit, label %.lr.ph85
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %35, i64 24
-  %47 = getelementptr inbounds i8, ptr %.06580, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.06580, i64 24
   %48 = add i64 %.0.copyload, -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %47, i64 %48, i1 false)
-  %49 = getelementptr inbounds i8, ptr %35, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %50 = load i32, ptr %49, align 8
   %.not75 = icmp eq i32 %50, 1346589253
   br i1 %.not75, label %51, label %59
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %35, i64 132
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 132
   %53 = load i16, ptr %52, align 4
   %54 = icmp ugt i16 %53, 35
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %35, i64 134
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 134
   %57 = load i16, ptr %56, align 2
   %58 = icmp ugt i16 %57, 10000
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %55, %51, %45
-  %60 = getelementptr inbounds i8, ptr %5, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %24, align 8
   tail call void %61(ptr noundef nonnull %35, ptr noundef %62) #6
@@ -239,13 +239,13 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
 
 63:                                               ; preds = %55
   store ptr %26, ptr %46, align 8
-  %64 = getelementptr inbounds i8, ptr %35, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %35, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %66 = load i32, ptr %65, align 8
   %67 = or i32 %66, 262144
   store i32 %67, ptr %65, align 8
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %35, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %.06580, i64 %.0.copyload
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -271,19 +271,19 @@ define i32 @php_pcre2_serialize_get_number_of_codes(ptr noundef readonly %0) loc
   br i1 %.not, label %5, label %14
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %.not7 = icmp eq i32 %7, 2818058
   br i1 %.not7, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   %.not8 = icmp eq i32 %10, 526337
   br i1 %.not8, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   br label %14
 

@@ -83,7 +83,7 @@ define hidden void @dissect_zbee_zdp_req_nwk_addr(ptr noundef %0, ptr noundef %1
   %14 = load i32, ptr %4, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %4, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @eui64_to_display(ptr noundef %17, i64 noundef %6) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %18) #2
@@ -302,7 +302,7 @@ define hidden void @dissect_zbee_zdp_req_discovery_cache(ptr noundef %0, ptr nou
   store i32 2, ptr %4, align 4
   %7 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
   %8 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef null) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @eui64_to_display(ptr noundef %10, i64 noundef %8) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef %11) #2
@@ -323,7 +323,7 @@ define hidden void @dissect_zbee_zdp_device_annce(ptr noundef %0, ptr noundef %1
   %10 = load i32, ptr @ett_zbee_zdp_cinfo, align 4
   %11 = call zeroext i8 @zdp_parse_cinfo(ptr noundef %2, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %4) #2
   %12 = load i32, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @eui64_to_display(ptr noundef %14, i64 noundef %9) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef %12, ptr noundef %15) #2
@@ -348,7 +348,7 @@ define hidden void @dissect_zbee_zdp_parent_annce(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %11
 
 11:                                               ; preds = %.lr.ph, %21
@@ -404,7 +404,7 @@ define hidden void @dissect_zbee_zdp_rsp_parent_annce(ptr noundef %0, ptr nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %16
 
 16:                                               ; preds = %.lr.ph, %26
@@ -463,7 +463,7 @@ define hidden void @dissect_zbee_zdp_req_set_user_desc(ptr noundef %0, ptr nound
   %16 = phi i32 [ %.pre, %11 ], [ 16, %14 ]
   %.0 = phi i32 [ 3, %11 ], [ 2, %14 ]
   %17 = load i32, ptr @hf_zbee_zdp_user, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %.0, i32 noundef %16, i32 noundef 0, ptr noundef %19, ptr noundef nonnull %7) #2
   %21 = load i32, ptr %6, align 4
@@ -545,7 +545,7 @@ define hidden void @dissect_zbee_zdp_req_store_discovery(ptr noundef %0, ptr nou
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @eui64_to_display(ptr noundef %40, i64 noundef %9) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef %41) #2
@@ -564,7 +564,7 @@ define hidden void @dissect_zbee_zdp_req_store_node_desc(ptr noundef %0, ptr nou
   %9 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %8, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8, ptr noundef null) #2
   %10 = load i32, ptr @ett_zbee_zdp_node, align 4
   call void @zdp_parse_node_desc(ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %5, i8 noundef zeroext %3) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @eui64_to_display(ptr noundef %12, i64 noundef %9) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %13) #2
@@ -585,7 +585,7 @@ define hidden void @dissect_zbee_zdp_req_store_power_desc(ptr noundef %0, ptr no
   %8 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef null) #2
   %9 = load i32, ptr @ett_zbee_zdp_power, align 4
   call void @zdp_parse_power_desc(ptr noundef %2, i32 noundef %9, ptr noundef %0, ptr noundef nonnull %4) #2
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @eui64_to_display(ptr noundef %11, i64 noundef %8) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %12) #2
@@ -636,7 +636,7 @@ define hidden void @dissect_zbee_zdp_req_store_active_ep(ptr noundef %0, ptr nou
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @eui64_to_display(ptr noundef %28, i64 noundef %9) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %29) #2
@@ -661,7 +661,7 @@ define hidden void @dissect_zbee_zdp_req_store_simple_desc(ptr noundef %0, ptr n
   store i32 %14, ptr %5, align 4
   %15 = load i32, ptr @ett_zbee_zdp_simple, align 4
   call void @zdp_parse_simple_desc(ptr noundef %2, i32 noundef %15, ptr noundef %0, ptr noundef nonnull %5, i8 noundef zeroext %3) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @eui64_to_display(ptr noundef %17, i64 noundef %9) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %18) #2
@@ -680,7 +680,7 @@ define hidden void @dissect_zbee_zdp_req_remove_node_cache(ptr noundef %0, ptr n
   store i32 2, ptr %4, align 4
   %7 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
   %8 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef null) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @eui64_to_display(ptr noundef %10, i64 noundef %8) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef %11) #2
@@ -697,7 +697,7 @@ define hidden void @dissect_zbee_zdp_req_find_node_cache(ptr noundef %0, ptr nou
   store i32 2, ptr %4, align 4
   %7 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
   %8 = call i64 @zbee_parse_eui64(ptr noundef %2, i32 noundef %7, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 8, ptr noundef null) #2
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @eui64_to_display(ptr noundef %10, i64 noundef %8) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %11) #2
@@ -811,7 +811,7 @@ define hidden void @dissect_zbee_zdp_rsp_nwk_addr(ptr noundef %0, ptr noundef %1
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %.loopexit
-  %47 = getelementptr inbounds i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @eui64_to_display(ptr noundef %48, i64 noundef %9) #2
   %50 = load i32, ptr %5, align 4
@@ -902,7 +902,7 @@ define hidden void @dissect_zbee_zdp_rsp_ext_addr(ptr noundef %0, ptr noundef %1
 
 46:                                               ; preds = %.loopexit
   %47 = load i32, ptr %5, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @eui64_to_display(ptr noundef %49, i64 noundef %9) #2
   call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %47, ptr noundef %50) #2
@@ -1264,7 +1264,7 @@ define hidden void @dissect_zbee_zdp_rsp_user_desc(ptr noundef %0, ptr noundef %
 29:                                               ; preds = %28, %22
   %30 = phi i32 [ 0, %28 ], [ %.pre30, %22 ]
   %31 = phi i32 [ %.pre, %28 ], [ %27, %22 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef %30, i32 noundef 0) #2
   %.not29 = icmp eq ptr %2, null

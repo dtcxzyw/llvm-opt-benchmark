@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN23PartialArrayTaskStepperC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %5 = xor i32 %4, 31
   %6 = icmp samesign ult i32 %5, 2

@@ -10,17 +10,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define void @_ZN6icu_7516CollationWeightsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 24), (156, 164)) %this) unnamed_addr #0 align 2 {
 entry:
-  %rangeIndex = getelementptr inbounds i8, ptr %this, i64 156
+  %rangeIndex = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 0, ptr %rangeIndex, align 4
-  %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
+  %rangeCount = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %rangeCount, align 4
-  %maxBytes = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [5 x i32], ptr %maxBytes, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr %maxBytes, i64 0, i64 %indvars.iv
   store i32 0, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -34,24 +34,24 @@ for.end:                                          ; preds = %for.body
 define void @_ZN6icu_7516CollationWeights14initForPrimaryEa(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this, i8 noundef signext %compressible) local_unnamed_addr #1 align 2 {
 entry:
   store i32 1, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 3, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 255, ptr %arrayidx2, align 4
   %tobool.not = icmp eq i8 %compressible, 0
   %spec.select = select i1 %tobool.not, i32 2, i32 4
   %spec.select2 = select i1 %tobool.not, i32 255, i32 254
-  %0 = getelementptr inbounds i8, ptr %this, i64 12
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %spec.select, ptr %0, align 4
-  %1 = getelementptr inbounds i8, ptr %this, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %spec.select2, ptr %1, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 2, ptr %arrayidx12, align 4
-  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 255, ptr %arrayidx14, align 4
-  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 2, ptr %arrayidx16, align 4
-  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 255, ptr %arrayidx18, align 4
   ret void
 }
@@ -60,21 +60,21 @@ entry:
 define void @_ZN6icu_7516CollationWeights16initForSecondaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i32 3, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 2, ptr %arrayidx8, align 4
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 255, ptr %arrayidx10, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 2, ptr %arrayidx12, align 4
-  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 255, ptr %arrayidx14, align 4
   ret void
 }
@@ -83,21 +83,21 @@ entry:
 define void @_ZN6icu_7516CollationWeights15initForTertiaryEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 4), (8, 24), (28, 44)) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i32 3, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %arrayidx, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 2, ptr %arrayidx8, align 4
-  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 63, ptr %arrayidx10, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 2, ptr %arrayidx12, align 4
-  %arrayidx14 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 63, ptr %arrayidx14, align 4
   ret void
 }
@@ -105,7 +105,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7516CollationWeights9incWeightEji(ptr nocapture noundef nonnull readonly align 4 dereferenceable(164) %this, i32 noundef %weight, i32 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
-  %maxBytes = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = shl i32 %length, 3
   %mul.i.i19 = sub i32 32, %0
   %shr.i.i20 = lshr i32 %weight, %mul.i.i19
@@ -117,7 +117,7 @@ entry:
   br i1 %cmp24, label %if.then, label %if.else.lr.ph
 
 if.else.lr.ph:                                    ; preds = %entry
-  %minBytes = getelementptr inbounds i8, ptr %this, i64 4
+  %minBytes = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %if.else
 
 if.then:                                          ; preds = %if.else, %entry
@@ -167,7 +167,7 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7516CollationWeights17incWeightByOffsetEjii(ptr nocapture noundef nonnull readonly align 4 dereferenceable(164) %this, i32 noundef %weight, i32 noundef %length, i32 noundef %offset) local_unnamed_addr #2 align 2 {
 entry:
-  %maxBytes = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = shl i32 %length, 3
   %mul.i.i34 = sub i32 32, %0
   %shr.i.i35 = lshr i32 %weight, %mul.i.i34
@@ -180,7 +180,7 @@ entry:
   br i1 %cmp.not40, label %if.else.lr.ph, label %if.then
 
 if.else.lr.ph:                                    ; preds = %entry
-  %minBytes = getelementptr inbounds i8, ptr %this, i64 4
+  %minBytes = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %if.else
 
 if.then:                                          ; preds = %if.else, %entry
@@ -238,11 +238,11 @@ if.else:                                          ; preds = %if.else.lr.ph, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK6icu_7516CollationWeights13lengthenRangeERNS0_11WeightRangeE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(164) %this, ptr nocapture noundef nonnull align 4 dereferenceable(16) %range) local_unnamed_addr #3 align 2 {
 entry:
-  %length2 = getelementptr inbounds i8, ptr %range, i64 8
+  %length2 = getelementptr inbounds nuw i8, ptr %range, i64 8
   %0 = load i32, ptr %length2, align 4
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %range, align 4
-  %minBytes = getelementptr inbounds i8, ptr %this, i64 4
+  %minBytes = getelementptr inbounds nuw i8, ptr %this, i64 4
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr inbounds [5 x i32], ptr %minBytes, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
@@ -253,9 +253,9 @@ entry:
   %shl1.i = shl i32 %2, %mul.i
   %or.i = or i32 %and.i, %shl1.i
   store i32 %or.i, ptr %range, align 4
-  %end = getelementptr inbounds i8, ptr %range, i64 4
+  %end = getelementptr inbounds nuw i8, ptr %range, i64 4
   %4 = load i32, ptr %end, align 4
-  %maxBytes = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %arrayidx5 = getelementptr inbounds [5 x i32], ptr %maxBytes, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx5, align 4
   %and.i14 = and i32 %shl.i, %4
@@ -266,7 +266,7 @@ entry:
   %7 = load i32, ptr %arrayidx, align 4
   %sub.i = add i32 %6, 1
   %add.i = sub i32 %sub.i, %7
-  %count = getelementptr inbounds i8, ptr %range, i64 12
+  %count = getelementptr inbounds nuw i8, ptr %range, i64 12
   %8 = load i32, ptr %count, align 4
   %mul = mul nsw i32 %8, %add.i
   store i32 %mul, ptr %count, align 4
@@ -336,7 +336,7 @@ if.end9:                                          ; preds = %if.then4, %if.end
   br i1 %cmp11160, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %maxBytes = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = zext nneg i32 %retval.0.i to i64
   %3 = sext i32 %1 to i64
   br label %for.body
@@ -365,12 +365,12 @@ if.then14:                                        ; preds = %for.body
   %and.i106 = and i32 %shl.i105, %weight.0161
   %shl1.i = shl i32 %6, %mul.i100
   %or.i = or i32 %shl1.i, %and.i106
-  %end = getelementptr inbounds i8, ptr %arrayidx17, i64 4
+  %end = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 4
   store i32 %or.i, ptr %end, align 4
-  %length26 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
+  %length26 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 8
   store i32 %4, ptr %length26, align 8
   %sub = sub nuw i32 %6, %and.i101
-  %count = getelementptr inbounds i8, ptr %arrayidx17, i64 12
+  %count = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 12
   store i32 %sub, ptr %count, align 4
   br label %if.end32
 
@@ -398,7 +398,7 @@ for.end:                                          ; preds = %if.end32, %if.end9
   br i1 %cmp45164, label %for.body46.lr.ph, label %for.end79
 
 for.body46.lr.ph:                                 ; preds = %for.end
-  %minBytes = getelementptr inbounds i8, ptr %this, i64 4
+  %minBytes = getelementptr inbounds nuw i8, ptr %this, i64 4
   %12 = zext nneg i32 %retval.0.i97 to i64
   %13 = sext i32 %1 to i64
   br label %for.body46
@@ -427,12 +427,12 @@ if.then52:                                        ; preds = %for.body46
   %shl.neg.i = shl nsw i64 -1, %sh_prom.i123
   %17 = trunc i64 %shl.neg.i to i32
   %conv2.i = add i32 %weight.1165, %17
-  %end63 = getelementptr inbounds i8, ptr %arrayidx58, i64 4
+  %end63 = getelementptr inbounds nuw i8, ptr %arrayidx58, i64 4
   store i32 %conv2.i, ptr %end63, align 4
-  %length66 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
+  %length66 = getelementptr inbounds nuw i8, ptr %arrayidx58, i64 8
   store i32 %14, ptr %length66, align 8
   %sub70 = sub nuw nsw i32 %and.i116, %16
-  %count73 = getelementptr inbounds i8, ptr %arrayidx58, i64 12
+  %count73 = getelementptr inbounds nuw i8, ptr %arrayidx58, i64 12
   store i32 %sub70, ptr %count73, align 4
   br label %if.end74
 
@@ -459,37 +459,37 @@ for.cond97.preheader:                             ; preds = %for.end79
   br i1 %cmp99177, label %for.body100.lr.ph, label %if.end178.thread
 
 for.body100.lr.ph:                                ; preds = %for.cond97.preheader
-  %maxBytes.i = getelementptr inbounds i8, ptr %this, i64 24
-  %minBytes.i = getelementptr inbounds i8, ptr %this, i64 4
+  %maxBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %minBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %21 = sext i32 %1 to i64
   br label %for.body100
 
 for.body100:                                      ; preds = %for.body100.lr.ph, %for.inc175
   %indvars.iv204 = phi i64 [ 4, %for.body100.lr.ph ], [ %indvars.iv.next205, %for.inc175 ]
   %arrayidx102 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %lower, i64 0, i64 %indvars.iv204
-  %count103 = getelementptr inbounds i8, ptr %arrayidx102, i64 12
+  %count103 = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 12
   %22 = load i32, ptr %count103, align 4
   %cmp104 = icmp sgt i32 %22, 0
   br i1 %cmp104, label %land.lhs.true, label %for.inc175
 
 land.lhs.true:                                    ; preds = %for.body100
   %arrayidx106 = getelementptr inbounds [5 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %upper, i64 0, i64 %indvars.iv204
-  %count107 = getelementptr inbounds i8, ptr %arrayidx106, i64 12
+  %count107 = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 12
   %23 = load i32, ptr %count107, align 4
   %cmp108 = icmp sgt i32 %23, 0
   br i1 %cmp108, label %if.then109, label %for.inc175
 
 if.then109:                                       ; preds = %land.lhs.true
-  %end112 = getelementptr inbounds i8, ptr %arrayidx102, i64 4
+  %end112 = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 4
   %24 = load i32, ptr %end112, align 4
   %25 = load i32, ptr %arrayidx106, align 16
   %cmp116 = icmp ugt i32 %24, %25
   br i1 %cmp116, label %if.then117, label %if.else137
 
 if.then117:                                       ; preds = %if.then109
-  %end112.le234 = getelementptr inbounds i8, ptr %arrayidx102, i64 4
+  %end112.le234 = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 4
   %26 = trunc nsw i64 %indvars.iv204 to i32
-  %end120 = getelementptr inbounds i8, ptr %arrayidx106, i64 4
+  %end120 = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 4
   %27 = load i32, ptr %end120, align 4
   store i32 %27, ptr %end112.le234, align 4
   %28 = shl i32 %26, 3
@@ -563,8 +563,8 @@ _ZNK6icu_7516CollationWeights9incWeightEji.exit:  ; preds = %if.else.i137, %if.e
   br i1 %cmp142, label %if.then143, label %for.inc175
 
 if.then143:                                       ; preds = %_ZNK6icu_7516CollationWeights9incWeightEji.exit
-  %end112.le = getelementptr inbounds i8, ptr %arrayidx102, i64 4
-  %end146 = getelementptr inbounds i8, ptr %arrayidx106, i64 4
+  %end112.le = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 4
+  %end146 = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 4
   %38 = load i32, ptr %end146, align 4
   store i32 %38, ptr %end112.le, align 4
   %add156 = add nuw nsw i32 %23, %22
@@ -573,8 +573,8 @@ if.then143:                                       ; preds = %_ZNK6icu_7516Collat
 if.then160.critedge:                              ; preds = %if.then143, %if.then117
   %length96.0178199 = phi i32 [ %30, %if.then143 ], [ %26, %if.then117 ]
   %storemerge = phi i32 [ %add156, %if.then143 ], [ %add133, %if.then117 ]
-  %count107219 = getelementptr inbounds i8, ptr %arrayidx106, i64 12
-  %count103228 = getelementptr inbounds i8, ptr %arrayidx102, i64 12
+  %count107219 = getelementptr inbounds nuw i8, ptr %arrayidx106, i64 12
+  %count103228 = getelementptr inbounds nuw i8, ptr %arrayidx102, i64 12
   store i32 %storemerge, ptr %count103228, align 4
   store i32 0, ptr %count107219, align 4
   %dec164179 = add nsw i32 %length96.0178199, -1
@@ -602,27 +602,27 @@ for.inc175:                                       ; preds = %_ZNK6icu_7516Collat
   br i1 %cmp99, label %for.body100, label %if.end178.thread, !llvm.loop !11
 
 if.end178.thread:                                 ; preds = %for.inc175, %while.body, %for.cond97.preheader, %if.then160.critedge
-  %rangeCount140 = getelementptr inbounds i8, ptr %this, i64 160
+  %rangeCount140 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %rangeCount140, align 4
   br label %if.end184
 
 if.end178:                                        ; preds = %for.end79
   %sub91 = sub nuw i32 %conv2.i130, %middle.sroa.0.0
   %shr = lshr i32 %sub91, %mul.i110
-  %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
+  %rangeCount = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 0, ptr %rangeCount, align 4
   %cmp180 = icmp sgt i32 %shr, -1
   br i1 %cmp180, label %do.body, label %if.end184
 
 do.body:                                          ; preds = %if.end178
   %add = add nuw nsw i32 %shr, 1
-  %ranges = getelementptr inbounds i8, ptr %this, i64 44
+  %ranges = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 %middle.sroa.0.0, ptr %ranges, align 4
-  %middle.sroa.6.0.arraydecay182.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
+  %middle.sroa.6.0.arraydecay182.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %conv2.i130, ptr %middle.sroa.6.0.arraydecay182.sroa_idx, align 4
-  %middle.sroa.9.0.arraydecay182.sroa_idx = getelementptr inbounds i8, ptr %this, i64 52
+  %middle.sroa.9.0.arraydecay182.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 %1, ptr %middle.sroa.9.0.arraydecay182.sroa_idx, align 4
-  %middle.sroa.10.0.arraydecay182.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
+  %middle.sroa.10.0.arraydecay182.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %add, ptr %middle.sroa.10.0.arraydecay182.sroa_idx, align 4
   store i32 1, ptr %rangeCount, align 4
   br label %if.end184
@@ -634,7 +634,7 @@ if.end184:                                        ; preds = %if.end178.thread, %
   br i1 %cmp189183, label %for.body190.lr.ph, label %for.end226
 
 for.body190.lr.ph:                                ; preds = %if.end184
-  %ranges197 = getelementptr inbounds i8, ptr %this, i64 44
+  %ranges197 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %42 = sext i32 %1 to i64
   br label %for.body190
 
@@ -700,13 +700,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #7 align 2 {
 entry:
   %errorCode = alloca i32, align 4
-  %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
+  %rangeCount = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load i32, ptr %rangeCount, align 4
   %cmp15 = icmp sgt i32 %0, 0
   br i1 %cmp15, label %land.rhs.lr.ph, label %return
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %ranges = getelementptr inbounds i8, ptr %this, i64 44
+  %ranges = getelementptr inbounds nuw i8, ptr %this, i64 44
   %add = add nsw i32 %minLength, 1
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %land.rhs
@@ -714,14 +714,14 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end25
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %if.end25 ]
   %n.addr.016 = phi i32 [ %n, %land.rhs.lr.ph ], [ %sub, %if.end25 ]
-  %arrayidx = getelementptr inbounds [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv
-  %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv
+  %length = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %length, align 4
   %cmp2.not = icmp sgt i32 %1, %add
   br i1 %cmp2.not, label %return, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %count = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %count = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %2 = load i32, ptr %count, align 4
   %cmp6.not = icmp sgt i32 %n.addr.016, %2
   br i1 %cmp6.not, label %if.end25, label %if.then
@@ -732,7 +732,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp11, label %if.then12, label %if.end
 
 if.then12:                                        ; preds = %if.then
-  %count.le = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %count.le = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   store i32 %n.addr.016, ptr %count.le, align 4
   br label %if.end
 
@@ -772,8 +772,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7516CollationWeights29allocWeightsInMinLengthRangesEii(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this, i32 noundef %n, i32 noundef %minLength) local_unnamed_addr #4 align 2 {
 entry:
-  %ranges = getelementptr inbounds i8, ptr %this, i64 44
-  %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
+  %ranges = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %rangeCount = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load i32, ptr %rangeCount, align 4
   %cmp100 = icmp sgt i32 %0, 0
   br i1 %cmp100, label %land.rhs.preheader, label %for.end
@@ -785,14 +785,14 @@ land.rhs.preheader:                               ; preds = %entry
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %for.body ]
   %count.0101 = phi i32 [ 0, %land.rhs.preheader ], [ %add, %for.body ]
-  %arrayidx = getelementptr inbounds [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv
-  %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv
+  %length = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %length, align 4
   %cmp2 = icmp eq i32 %1, %minLength
   br i1 %cmp2, label %for.body, label %for.end.loopexit.split.loop.exit124
 
 for.body:                                         ; preds = %land.rhs
-  %count6 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %count6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %2 = load i32, ptr %count6, align 4
   %add = add nsw i32 %2, %count.0101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -807,11 +807,11 @@ for.end:                                          ; preds = %for.body, %for.end.
   %count.0.lcssa = phi i32 [ 0, %entry ], [ %count.0101, %for.end.loopexit.split.loop.exit124 ], [ %add, %for.body ]
   %minLengthRangeCount.0.lcssa = phi i32 [ 0, %entry ], [ %3, %for.end.loopexit.split.loop.exit124 ], [ %0, %for.body ]
   %add7 = add nsw i32 %minLength, 1
-  %maxBytes.i = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %idxprom.i = sext i32 %add7 to i64
   %arrayidx.i = getelementptr inbounds [5 x i32], ptr %maxBytes.i, i64 0, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
-  %minBytes.i = getelementptr inbounds i8, ptr %this, i64 4
+  %minBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %arrayidx3.i = getelementptr inbounds [5 x i32], ptr %minBytes.i, i64 0, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx3.i, align 4
   %sub.i = add i32 %4, 1
@@ -822,7 +822,7 @@ for.end:                                          ; preds = %for.body, %for.end.
 
 if.end:                                           ; preds = %for.end
   %6 = load i32, ptr %ranges, align 4
-  %end14 = getelementptr inbounds i8, ptr %this, i64 48
+  %end14 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load i32, ptr %end14, align 4
   %cmp16106 = icmp samesign ugt i32 %minLengthRangeCount.0.lcssa, 1
   br i1 %cmp16106, label %for.body17.preheader, label %for.end42
@@ -835,10 +835,10 @@ for.body17:                                       ; preds = %for.body17.preheade
   %indvars.iv116 = phi i64 [ 1, %for.body17.preheader ], [ %indvars.iv.next117, %for.body17 ]
   %end.0108 = phi i32 [ %7, %for.body17.preheader ], [ %end.1, %for.body17 ]
   %start.0107 = phi i32 [ %6, %for.body17.preheader ], [ %spec.select, %for.body17 ]
-  %arrayidx20 = getelementptr inbounds [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv116
+  %arrayidx20 = getelementptr inbounds nuw [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv116
   %8 = load i32, ptr %arrayidx20, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %8, i32 %start.0107)
-  %end32 = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %end32 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 4
   %9 = load i32, ptr %end32, align 4
   %end.1 = tail call i32 @llvm.umax.i32(i32 %9, i32 %end.0108)
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -875,9 +875,9 @@ if.end51:                                         ; preds = %if.then49, %lor.lhs
 
 if.then56:                                        ; preds = %if.end51
   store i32 %end.0.lcssa, ptr %end14, align 4
-  %count62 = getelementptr inbounds i8, ptr %this, i64 56
+  %count62 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %count.0.lcssa, ptr %count62, align 4
-  %length2.i = getelementptr inbounds i8, ptr %this, i64 52
+  %length2.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %10 = load i32, ptr %length2.i, align 4
   %add.i35 = add nsw i32 %10, 1
   %idxprom.i37 = sext i32 %add.i35 to i64
@@ -968,7 +968,7 @@ _ZNK6icu_7516CollationWeights17incWeightByOffsetEjii.exit: ; preds = %if.else.i,
   %shl1.i.i44 = shl i32 %add.lcssa.i, %mul.i.i.lcssa.i
   %or2.i.i = or i32 %and.i.i43, %shl1.i.i44
   store i32 %or2.i.i, ptr %end14, align 4
-  %count73 = getelementptr inbounds i8, ptr %this, i64 56
+  %count73 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %count1.0, ptr %count73, align 4
   %shr.i.i20.i = lshr i32 %or2.i.i, %mul.i.i34.i
   %and.i.i21.i = and i32 %shr.i.i20.i, 255
@@ -1017,13 +1017,13 @@ _ZNK6icu_7516CollationWeights9incWeightEji.exit:  ; preds = %if.else.i53, %_ZNK6
   %and.i.i71 = and i32 %or.i.i70, %weight.addr.0.lcssa.i62
   %shl1.i.i72 = shl i32 %add.i65, %mul.i.i.lcssa.i64
   %or2.i.i73 = or i32 %shl1.i.i72, %and.i.i71
-  %arrayidx79 = getelementptr inbounds i8, ptr %this, i64 60
+  %arrayidx79 = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 %or2.i.i73, ptr %arrayidx79, align 4
-  %end83 = getelementptr inbounds i8, ptr %this, i64 64
+  %end83 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 %end.0.lcssa, ptr %end83, align 4
-  %length86 = getelementptr inbounds i8, ptr %this, i64 68
+  %length86 = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i32 %minLength, ptr %length86, align 4
-  %count89 = getelementptr inbounds i8, ptr %this, i64 72
+  %count89 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %count2.0, ptr %count89, align 4
   %30 = load i32, ptr %arrayidx3.i, align 4
   %31 = shl i32 %add7, 3
@@ -1066,13 +1066,13 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %ranges = getelementptr inbounds i8, ptr %this, i64 44
-  %length = getelementptr inbounds i8, ptr %this, i64 52
-  %rangeCount.i = getelementptr inbounds i8, ptr %this, i64 160
-  %minBytes.i = getelementptr inbounds i8, ptr %this, i64 4
-  %maxBytes.i = getelementptr inbounds i8, ptr %this, i64 24
+  %ranges = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %length = getelementptr inbounds nuw i8, ptr %this, i64 52
+  %rangeCount.i = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %minBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %maxBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %.pre = load i32, ptr %rangeCount.i, align 4
-  %length1642 = getelementptr inbounds i8, ptr %this, i64 52
+  %length1642 = getelementptr inbounds nuw i8, ptr %this, i64 52
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.end
@@ -1090,14 +1090,14 @@ land.rhs.lr.ph.i:                                 ; preds = %for.cond
 land.rhs.i:                                       ; preds = %if.end25.i, %land.rhs.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %if.end25.i ]
   %n.addr.016.i = phi i32 [ %n, %land.rhs.lr.ph.i ], [ %sub.i, %if.end25.i ]
-  %arrayidx.i = getelementptr inbounds [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv.i
-  %length.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv.i
+  %length.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %2 = load i32, ptr %length.i, align 4
   %cmp2.not.i = icmp sgt i32 %2, %add.i
   br i1 %cmp2.not.i, label %if.end5, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %count.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %count.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %3 = load i32, ptr %count.i, align 4
   %cmp6.not.i = icmp sgt i32 %n.addr.016.i, %3
   br i1 %cmp6.not.i, label %if.end25.i, label %if.then.i
@@ -1108,7 +1108,7 @@ if.then.i:                                        ; preds = %for.body.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end.i
 
 if.then12.i:                                      ; preds = %if.then.i
-  %count.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %count.i.le = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   store i32 %n.addr.016.i, ptr %count.i.le, align 4
   br label %if.end.i
 
@@ -1161,8 +1161,8 @@ land.rhs.preheader:                               ; preds = %for.cond12.preheade
   br i1 %cmp1743, label %for.body, label %for.end
 
 land.rhs:                                         ; preds = %for.body
-  %arrayidx15 = getelementptr inbounds [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv.next
-  %length16 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
+  %arrayidx15 = getelementptr inbounds nuw [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %indvars.iv.next
+  %length16 = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 8
   %8 = load i32, ptr %length16, align 4
   %cmp17 = icmp eq i32 %8, %1
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !16
@@ -1177,7 +1177,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %shl1.i.i = shl i32 %10, %mul.i.i
   %or.i.i = or i32 %shl1.i.i, %and.i.i
   store i32 %or.i.i, ptr %arrayidx1545, align 4
-  %end.i = getelementptr inbounds i8, ptr %arrayidx1545, i64 4
+  %end.i = getelementptr inbounds nuw i8, ptr %arrayidx1545, i64 4
   %11 = load i32, ptr %end.i, align 4
   %12 = load i32, ptr %arrayidx5.i, align 4
   %and.i14.i = and i32 %11, %shl.i.i
@@ -1188,7 +1188,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %14 = load i32, ptr %arrayidx.i9, align 4
   %sub.i.i = add i32 %13, 1
   %add.i.i = sub i32 %sub.i.i, %14
-  %count.i10 = getelementptr inbounds i8, ptr %arrayidx1545, i64 12
+  %count.i10 = getelementptr inbounds nuw i8, ptr %arrayidx1545, i64 12
   %15 = load i32, ptr %count.i10, align 4
   %mul.i = mul nsw i32 %15, %add.i.i
   store i32 %mul.i, ptr %count.i10, align 4
@@ -1204,7 +1204,7 @@ for.end:                                          ; preds = %for.body, %land.rhs
   br label %for.cond, !llvm.loop !17
 
 for.end21:                                        ; preds = %if.end7, %_ZN6icu_7516CollationWeights25allocWeightsInShortRangesEii.exit
-  %rangeIndex = getelementptr inbounds i8, ptr %this, i64 156
+  %rangeIndex = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 0, ptr %rangeIndex, align 4
   br label %return
 
@@ -1216,19 +1216,19 @@ return:                                           ; preds = %if.end5, %entry, %f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN6icu_7516CollationWeights10nextWeightEv(ptr nocapture noundef nonnull align 4 dereferenceable(164) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %rangeIndex = getelementptr inbounds i8, ptr %this, i64 156
+  %rangeIndex = getelementptr inbounds nuw i8, ptr %this, i64 156
   %0 = load i32, ptr %rangeIndex, align 4
-  %rangeCount = getelementptr inbounds i8, ptr %this, i64 160
+  %rangeCount = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load i32, ptr %rangeCount, align 4
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %ranges = getelementptr inbounds i8, ptr %this, i64 44
+  %ranges = getelementptr inbounds nuw i8, ptr %this, i64 44
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [7 x %"struct.icu_75::CollationWeights::WeightRange"], ptr %ranges, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
-  %count = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %count = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %3 = load i32, ptr %count, align 4
   %dec = add nsw i32 %3, -1
   store i32 %dec, ptr %count, align 4
@@ -1241,9 +1241,9 @@ if.then4:                                         ; preds = %if.else
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %length = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %length, align 4
-  %maxBytes.i = getelementptr inbounds i8, ptr %this, i64 24
+  %maxBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = shl i32 %4, 3
   %mul.i.i19.i = sub i32 32, %5
   %shr.i.i20.i = lshr i32 %2, %mul.i.i19.i
@@ -1255,7 +1255,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %cmp24.i, label %_ZNK6icu_7516CollationWeights9incWeightEji.exit, label %if.else.lr.ph.i
 
 if.else.lr.ph.i:                                  ; preds = %if.else6
-  %minBytes.i = getelementptr inbounds i8, ptr %this, i64 4
+  %minBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   br label %if.else.i
 
 if.else.i:                                        ; preds = %if.else.i, %if.else.lr.ph.i

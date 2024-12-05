@@ -43,10 +43,10 @@ if.then:                                          ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %call.i3 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0) #7
-  %0 = getelementptr inbounds i8, ptr %params.i, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %digest.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %digest.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   %call2.i = call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest.i, ptr noundef nonnull %params.i, ptr noundef %call.i3) #7
   %tobool.not.i4 = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i4, label %if.then.i, label %kdf_pbkdf2_init.exit
@@ -56,10 +56,10 @@ if.then.i:                                        ; preds = %if.then
   br label %kdf_pbkdf2_init.exit
 
 kdf_pbkdf2_init.exit:                             ; preds = %if.then, %if.then.i
-  %iter.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %iter.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   store i64 2048, ptr %iter.i, align 8
   %1 = load i32, ptr @ossl_kdf_pbkdf2_default_checks, align 4
-  %lower_bound_checks.i = getelementptr inbounds i8, ptr %call1.i, i64 72
+  %lower_bound_checks.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 72
   store i32 %1, ptr %lower_bound_checks.i, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
@@ -85,53 +85,53 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %0, ptr %call1.i, align 8
-  %salt = getelementptr inbounds i8, ptr %vctx, i64 24
+  %salt = getelementptr inbounds nuw i8, ptr %vctx, i64 24
   %1 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 32
+  %salt_len = getelementptr inbounds nuw i8, ptr %vctx, i64 32
   %2 = load i64, ptr %salt_len, align 8
-  %salt1 = getelementptr inbounds i8, ptr %call1.i, i64 24
-  %salt_len2 = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %salt1 = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
+  %salt_len2 = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   %call3 = tail call i32 @ossl_prov_memdup(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %salt1, ptr noundef nonnull %salt_len2) #7
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %kdf_pbkdf2_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %pass = getelementptr inbounds i8, ptr %vctx, i64 8
+  %pass = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %3 = load ptr, ptr %pass, align 8
-  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 16
+  %pass_len = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   %4 = load i64, ptr %pass_len, align 8
-  %pass4 = getelementptr inbounds i8, ptr %call1.i, i64 8
-  %pass_len5 = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %pass4 = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
+  %pass_len5 = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %call6 = tail call i32 @ossl_prov_memdup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %pass4, ptr noundef nonnull %pass_len5) #7
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %kdf_pbkdf2_free.exit, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %digest = getelementptr inbounds i8, ptr %call1.i, i64 48
-  %digest9 = getelementptr inbounds i8, ptr %vctx, i64 48
+  %digest = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
+  %digest9 = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   %call10 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest, ptr noundef nonnull %digest9) #7
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %kdf_pbkdf2_free.exit, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false8
-  %iter = getelementptr inbounds i8, ptr %vctx, i64 40
+  %iter = getelementptr inbounds nuw i8, ptr %vctx, i64 40
   %5 = load i64, ptr %iter, align 8
-  %iter13 = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %iter13 = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   store i64 %5, ptr %iter13, align 8
-  %lower_bound_checks = getelementptr inbounds i8, ptr %vctx, i64 72
+  %lower_bound_checks = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %6 = load i32, ptr %lower_bound_checks, align 8
-  %lower_bound_checks14 = getelementptr inbounds i8, ptr %call1.i, i64 72
+  %lower_bound_checks14 = getelementptr inbounds nuw i8, ptr %call1.i, i64 72
   store i32 %6, ptr %lower_bound_checks14, align 8
   br label %return
 
 kdf_pbkdf2_free.exit:                             ; preds = %if.then, %lor.lhs.false, %lor.lhs.false8
-  %digest.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %digest.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i.i) #7
   %7 = load ptr, ptr %salt1, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 93) #7
-  %pass.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %pass.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %8 = load ptr, ptr %pass.i.i, align 8
-  %pass_len.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %pass_len.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %9 = load i64, ptr %pass_len.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @.str, i32 noundef 94) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call1.i, i8 0, i64 80, i1 false)
@@ -150,14 +150,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 48
+  %digest.i = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #7
-  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 24
+  %salt.i = getelementptr inbounds nuw i8, ptr %vctx, i64 24
   %0 = load ptr, ptr %salt.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 93) #7
-  %pass.i = getelementptr inbounds i8, ptr %vctx, i64 8
+  %pass.i = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %1 = load ptr, ptr %pass.i, align 8
-  %pass_len.i = getelementptr inbounds i8, ptr %vctx, i64 16
+  %pass_len.i = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   %2 = load i64, ptr %pass_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 94) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vctx, i8 0, i64 80, i1 false)
@@ -174,24 +174,24 @@ entry:
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i = alloca %struct.ossl_param_st, align 8
   %0 = load ptr, ptr %vctx, align 8
-  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 48
+  %digest.i = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #7
-  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 24
+  %salt.i = getelementptr inbounds nuw i8, ptr %vctx, i64 24
   %1 = load ptr, ptr %salt.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 93) #7
-  %pass.i = getelementptr inbounds i8, ptr %vctx, i64 8
+  %pass.i = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %2 = load ptr, ptr %pass.i, align 8
-  %pass_len.i = getelementptr inbounds i8, ptr %vctx, i64 16
+  %pass_len.i = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   %3 = load i64, ptr %pass_len.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 94) #7
-  %4 = getelementptr inbounds i8, ptr %vctx, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 72, i1 false)
   store ptr %0, ptr %vctx, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #7
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i64 noundef 0) #7
-  %5 = getelementptr inbounds i8, ptr %params.i, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %params.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %call2.i = call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest.i, ptr noundef nonnull %params.i, ptr noundef %call.i) #7
@@ -203,10 +203,10 @@ if.then.i:                                        ; preds = %entry
   br label %kdf_pbkdf2_init.exit
 
 kdf_pbkdf2_init.exit:                             ; preds = %entry, %if.then.i
-  %iter.i = getelementptr inbounds i8, ptr %vctx, i64 40
+  %iter.i = getelementptr inbounds nuw i8, ptr %vctx, i64 40
   store i64 2048, ptr %iter.i, align 8
   %6 = load i32, ptr @ossl_kdf_pbkdf2_default_checks, align 4
-  %lower_bound_checks.i = getelementptr inbounds i8, ptr %vctx, i64 72
+  %lower_bound_checks.i = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   store i32 %6, ptr %lower_bound_checks.i, align 8
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
@@ -228,7 +228,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pass = getelementptr inbounds i8, ptr %vctx, i64 8
+  %pass = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %pass, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %if.end4
@@ -240,7 +240,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %salt = getelementptr inbounds i8, ptr %vctx, i64 24
+  %salt = getelementptr inbounds nuw i8, ptr %vctx, i64 24
   %1 = load ptr, ptr %salt, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then6, label %if.end7
@@ -252,18 +252,18 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %digest = getelementptr inbounds i8, ptr %vctx, i64 48
+  %digest = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   %call8 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %2 = load ptr, ptr %pass, align 8
-  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 16
+  %pass_len = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   %3 = load i64, ptr %pass_len, align 8
   %4 = load ptr, ptr %salt, align 8
-  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 32
+  %salt_len = getelementptr inbounds nuw i8, ptr %vctx, i64 32
   %5 = load i64, ptr %salt_len, align 8
   %conv = trunc i64 %5 to i32
-  %iter = getelementptr inbounds i8, ptr %vctx, i64 40
+  %iter = getelementptr inbounds nuw i8, ptr %vctx, i64 40
   %6 = load i64, ptr %iter, align 8
-  %lower_bound_checks = getelementptr inbounds i8, ptr %vctx, i64 72
+  %lower_bound_checks = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %7 = load i32, ptr %lower_bound_checks, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digtmp.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %itmp.i)
@@ -340,9 +340,9 @@ while.cond.preheader.i:                           ; preds = %if.end29.i
   br i1 %tobool35.not44.i, label %err.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %arrayidx44.i = getelementptr inbounds i8, ptr %itmp.i, i64 1
-  %arrayidx48.i = getelementptr inbounds i8, ptr %itmp.i, i64 2
-  %arrayidx51.i = getelementptr inbounds i8, ptr %itmp.i, i64 3
+  %arrayidx44.i = getelementptr inbounds nuw i8, ptr %itmp.i, i64 1
+  %arrayidx48.i = getelementptr inbounds nuw i8, ptr %itmp.i, i64 2
+  %arrayidx51.i = getelementptr inbounds nuw i8, ptr %itmp.i, i64 3
   %sext = shl i64 %5, 32
   %conv56.i = ashr exact i64 %sext, 32
   %cmp6942.i = icmp ugt i64 %6, 1
@@ -441,9 +441,9 @@ lor.lhs.false79.us.us.i:                          ; preds = %if.end74.us.us.i
 
 for.body88.us.us.i:                               ; preds = %lor.lhs.false79.us.us.i, %for.body88.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body88.us.us.i ], [ 0, %lor.lhs.false79.us.us.i ]
-  %arrayidx89.us.us.i = getelementptr inbounds [64 x i8], ptr %digtmp.i, i64 0, i64 %indvars.iv.i
+  %arrayidx89.us.us.i = getelementptr inbounds nuw [64 x i8], ptr %digtmp.i, i64 0, i64 %indvars.iv.i
   %8 = load i8, ptr %arrayidx89.us.us.i, align 1
-  %arrayidx92.us.us.i = getelementptr inbounds i8, ptr %p.045.us.i, i64 %indvars.iv.i
+  %arrayidx92.us.us.i = getelementptr inbounds nuw i8, ptr %p.045.us.i, i64 %indvars.iv.i
   %9 = load i8, ptr %arrayidx92.us.us.i, align 1
   %xor38.us.us.i = xor i8 %9, %8
   store i8 %xor38.us.us.i, ptr %arrayidx92.us.us.i, align 1
@@ -535,7 +535,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest = getelementptr inbounds i8, ptr %vctx, i64 48
+  %digest = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   %call2 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
@@ -554,7 +554,7 @@ if.end11:                                         ; preds = %if.then7
   %1 = load i32, ptr %pkcs5, align 4
   %cmp12 = icmp eq i32 %1, 0
   %conv = zext i1 %cmp12 to i32
-  %lower_bound_checks = getelementptr inbounds i8, ptr %vctx, i64 72
+  %lower_bound_checks = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   store i32 %conv, ptr %lower_bound_checks, align 8
   br label %if.end13
 
@@ -564,12 +564,12 @@ if.end13:                                         ; preds = %if.end11, %if.end4
   br i1 %cmp15.not, label %if.end22, label %if.then17
 
 if.then17:                                        ; preds = %if.end13
-  %pass = getelementptr inbounds i8, ptr %vctx, i64 8
-  %pass_len = getelementptr inbounds i8, ptr %vctx, i64 16
+  %pass = getelementptr inbounds nuw i8, ptr %vctx, i64 8
+  %pass_len = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   %2 = load ptr, ptr %pass, align 8
   %3 = load i64, ptr %pass_len, align 8
   call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 159) #7
-  %data_size.i = getelementptr inbounds i8, ptr %call14, i64 24
+  %data_size.i = getelementptr inbounds nuw i8, ptr %call14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pass, i8 0, i64 16, i1 false)
   %4 = load i64, ptr %data_size.i, align 8
   %cmp.i = icmp eq i64 %4, 0
@@ -582,7 +582,7 @@ if.then.i:                                        ; preds = %if.then17
   br i1 %cmp1.i, label %return, label %if.end22
 
 if.else.i:                                        ; preds = %if.then17
-  %data.i = getelementptr inbounds i8, ptr %call14, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %call14, i64 16
   %5 = load ptr, ptr %data.i, align 8
   %cmp3.not.i = icmp eq ptr %5, null
   br i1 %cmp3.not.i, label %if.end22, label %if.then4.i
@@ -598,13 +598,13 @@ if.end22:                                         ; preds = %if.then4.i, %if.els
   br i1 %cmp24.not, label %if.end38, label %if.then26
 
 if.then26:                                        ; preds = %if.end22
-  %lower_bound_checks27 = getelementptr inbounds i8, ptr %vctx, i64 72
+  %lower_bound_checks27 = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %6 = load i32, ptr %lower_bound_checks27, align 8
   %cmp28.not = icmp eq i32 %6, 0
   br i1 %cmp28.not, label %if.end33, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then26
-  %data_size = getelementptr inbounds i8, ptr %call23, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call23, i64 24
   %7 = load i64, ptr %data_size, align 8
   %cmp30 = icmp ult i64 %7, 16
   br i1 %cmp30, label %if.then32, label %if.end33
@@ -616,12 +616,12 @@ if.then32:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end33:                                         ; preds = %land.lhs.true, %if.then26
-  %salt = getelementptr inbounds i8, ptr %vctx, i64 24
-  %salt_len = getelementptr inbounds i8, ptr %vctx, i64 32
+  %salt = getelementptr inbounds nuw i8, ptr %vctx, i64 24
+  %salt_len = getelementptr inbounds nuw i8, ptr %vctx, i64 32
   %8 = load ptr, ptr %salt, align 8
   %9 = load i64, ptr %salt_len, align 8
   call void @CRYPTO_clear_free(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @.str, i32 noundef 159) #7
-  %data_size.i19 = getelementptr inbounds i8, ptr %call23, i64 24
+  %data_size.i19 = getelementptr inbounds nuw i8, ptr %call23, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %salt, i8 0, i64 16, i1 false)
   %10 = load i64, ptr %data_size.i19, align 8
   %cmp.i20 = icmp eq i64 %10, 0
@@ -634,7 +634,7 @@ if.then.i29:                                      ; preds = %if.end33
   br i1 %cmp1.i31, label %return, label %if.end38
 
 if.else.i21:                                      ; preds = %if.end33
-  %data.i22 = getelementptr inbounds i8, ptr %call23, i64 16
+  %data.i22 = getelementptr inbounds nuw i8, ptr %call23, i64 16
   %11 = load ptr, ptr %data.i22, align 8
   %cmp3.not.i23 = icmp eq ptr %11, null
   br i1 %cmp3.not.i23, label %if.end38, label %if.then4.i24
@@ -655,7 +655,7 @@ if.then42:                                        ; preds = %if.end38
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %if.then42
-  %lower_bound_checks47 = getelementptr inbounds i8, ptr %vctx, i64 72
+  %lower_bound_checks47 = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %12 = load i32, ptr %lower_bound_checks47, align 8
   %cmp48.not = icmp eq i32 %12, 0
   %cond = select i1 %cmp48.not, i64 1, i64 1000
@@ -670,7 +670,7 @@ if.then53:                                        ; preds = %if.end46
   br label %return
 
 if.end54:                                         ; preds = %if.end46
-  %iter55 = getelementptr inbounds i8, ptr %vctx, i64 40
+  %iter55 = getelementptr inbounds nuw i8, ptr %vctx, i64 40
   store i64 %13, ptr %iter55, align 8
   br label %return
 

@@ -8,18 +8,18 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define nonnull align 8 ptr @"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17hb1038a735fc44791E"(ptr nocapture readonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds i8, ptr %3, i64 -8
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = icmp ult i64 %5, %8
   br i1 %9, label %10, label %14, !prof !5
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
   %13 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64, { i64, i32, {}, [4 x i8] } }], ptr %12, i64 0, i64 %5
   ret ptr %13

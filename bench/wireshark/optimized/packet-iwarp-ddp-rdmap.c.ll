@@ -371,22 +371,22 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
   store i8 %8, ptr %5, align 8
   %.lobit = lshr i8 %6, 7
   %9 = zext nneg i8 %.lobit to i32
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %9, ptr %10, align 8
   %11 = lshr i8 %6, 6
   %.lobit157 = and i8 %11, 1
   %12 = zext nneg i8 %.lobit157 to i32
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.206) #3
   %.not.i = icmp eq i8 %.lobit157, 0
   %.str.208..str.207.i = select i1 %.not.i, ptr @.str.208, ptr @.str.207
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 284
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = zext nneg i8 %8 to i32
   %22 = tail call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @rdmap_messages, ptr noundef nonnull @.str.210) #3
@@ -463,7 +463,7 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
   br label %71
 
 71:                                               ; preds = %66, %68
-  %72 = getelementptr inbounds i8, ptr %5, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %.not, label %85, label %73
 
 73:                                               ; preds = %71
@@ -474,7 +474,7 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
   %78 = load i32, ptr @hf_iwarp_ddp_stag, align 4
   %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %72) #3
   %80 = load i32, ptr @hf_iwarp_ddp_to, align 4
-  %81 = getelementptr inbounds i8, ptr %5, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %82 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %77, i32 noundef %80, ptr noundef %0, i32 noundef 6, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %81) #3
   %83 = load i8, ptr %5, align 8
   %84 = and i8 %83, -3
@@ -489,10 +489,10 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
   %90 = load i32, ptr @hf_iwarp_ddp_qn, align 4
   %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %89, i32 noundef %90, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %72) #3
   %92 = load i32, ptr @hf_iwarp_ddp_msn, align 4
-  %93 = getelementptr inbounds i8, ptr %5, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %94 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %89, i32 noundef %92, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %93) #3
   %95 = load i32, ptr @hf_iwarp_ddp_mo, align 4
-  %96 = getelementptr inbounds i8, ptr %5, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %97 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %89, i32 noundef %95, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %96) #3
   %98 = load i8, ptr %5, align 8
   %99 = add i8 %98, -3
@@ -618,11 +618,11 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 50
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 50
   %11 = load i16, ptr %10, align 2
   %12 = load i8, ptr %3, align 8
   %13 = add i8 %12, -7
@@ -634,7 +634,7 @@ define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %4
   %16 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #3
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @wmem_file_scope() #3
   %20 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
@@ -646,11 +646,11 @@ define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %
   %.not41 = icmp eq i32 %18, 0
   %spec.select = zext i1 %.not41 to i32
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 50
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 50
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, -9
   store i16 %26, ptr %24, align 2
-  %27 = getelementptr inbounds i8, ptr %16, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %30 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %28, ptr noundef null, i32 noundef %29, i32 noundef %spec.select) #3
@@ -692,7 +692,7 @@ define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %
   %47 = and i16 %11, 8
   store i32 %7, ptr %6, align 8
   %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 50
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 50
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, -9
   %52 = or disjoint i16 %51, %47
@@ -707,10 +707,10 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
   br i1 %7, label %8, label %41
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 40) #3
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr @hf_iwarp_rdma_rr_header, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #3
@@ -722,22 +722,22 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
   %20 = add nuw nsw i32 %3, 4
   %21 = load i32, ptr @hf_iwarp_rdma_sinkto, align 4
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %23) #3
   %25 = add nuw nsw i32 %3, 12
   %26 = load i32, ptr @hf_iwarp_rdma_rdmardsz, align 4
   %27 = load ptr, ptr %12, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %28) #3
   %30 = add nuw nsw i32 %3, 16
   %31 = load i32, ptr @hf_iwarp_rdma_srcstag, align 4
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %33) #3
   %35 = add nuw nsw i32 %3, 20
   %36 = load i32, ptr @hf_iwarp_rdma_srcto, align 4
   %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %38) #3
   %40 = add nuw nsw i32 %3, 28
   br label %41

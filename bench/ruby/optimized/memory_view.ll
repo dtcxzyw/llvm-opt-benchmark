@@ -122,18 +122,18 @@ declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @rb_memory_view_is_row_major_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.015 = add i64 %3, -1
   %8 = icmp slt i64 %.015, 0
   br i1 %8, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph
 
@@ -160,17 +160,17 @@ define dso_local noundef zeroext i1 @rb_memory_view_is_row_major_contiguous(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @rb_memory_view_is_column_major_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp slt i64 %3, 1
   br i1 %8, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8
   br label %.lr.ph
 
@@ -240,21 +240,21 @@ define dso_local void @rb_memory_view_fill_contiguous_strides(i64 noundef %0, i6
 define dso_local noundef zeroext i1 @rb_memory_view_init_as_byte_array(ptr nocapture noundef writeonly initializes((0, 25), (32, 104)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = zext i1 %4 to i8
   store i64 %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   ret i1 true
 }
@@ -480,15 +480,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %92 = zext i1 %.055.us to i8
   %93 = load i64, ptr %15, align 8
   store i8 %72, ptr %89, align 8
-  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 1
+  %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %89, i64 1
   store i8 %91, ptr %.sroa.2.0..sroa_idx.us, align 1
-  %.sroa.3.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 2
+  %.sroa.3.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %89, i64 2
   store i8 %92, ptr %.sroa.3.0..sroa_idx.us, align 2
-  %.sroa.44.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 8
+  %.sroa.44.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 %82, ptr %.sroa.44.0..sroa_idx.us, align 8
-  %.sroa.5.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 16
+  %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %89, i64 16
   store i64 %74, ptr %.sroa.5.0..sroa_idx.us, align 8
-  %.sroa.6.0..sroa_idx.us = getelementptr inbounds i8, ptr %89, i64 24
+  %.sroa.6.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 %93, ptr %.sroa.6.0..sroa_idx.us, align 8
   br label %94
 
@@ -546,15 +546,15 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
   %112 = zext i1 %.055 to i8
   %113 = load i64, ptr %15, align 8
   store i8 %100, ptr %109, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 1
   store i8 %111, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 2
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 2
   store i8 %112, ptr %.sroa.3.0..sroa_idx, align 2
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 8
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 %.058114, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i64 %102, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i64 %113, ptr %.sroa.6.0..sroa_idx, align 8
   br label %114
 
@@ -791,18 +791,18 @@ define dso_local i64 @rb_memory_view_item_size_from_format(ptr noundef %0, ptr n
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %7, label %10, label %16
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.in = select i1 %.not, ptr %11, ptr %9
   %12 = load i64, ptr %.in, align 8
   %13 = load i64, ptr %1, align 8
@@ -818,14 +818,14 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   br i1 %18, label %.lr.ph70, label %.loopexit
 
 .lr.ph70:                                         ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   br label %25
 
 .lr.ph75:                                         ; preds = %25
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   br label %30
 
@@ -855,7 +855,7 @@ define dso_local ptr @rb_memory_view_get_item_pointer(ptr nocapture noundef read
   br i1 %exitcond83.not, label %.loopexit, label %30, !llvm.loop !18
 
 39:                                               ; preds = %16
-  %40 = getelementptr inbounds i8, ptr %0, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   %43 = icmp sgt i64 %6, 0
@@ -918,7 +918,7 @@ define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, p
   br i1 %or.cond, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %.not = icmp ult i64 %2, %8
   br i1 %.not, label %9, label %11
@@ -935,10 +935,10 @@ define hidden i64 @rb_memory_view_extract_item_member(ptr noundef readonly %0, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @extract_item_member(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %union.anon.14, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %2
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -963,7 +963,7 @@ define internal fastcc i64 @extract_item_member(ptr nocapture noundef nonnull re
   br label %rb_long2num_inline.exit
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %1, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %25 = load i8, ptr %24, align 2
   %26 = trunc i8 %25 to i1
   %.not.i23 = icmp eq i64 %9, 0
@@ -1063,7 +1063,7 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
   br label %rb_long2num_inline.exit
 
 61:                                               ; preds = %switch_endianness.exit
-  %62 = getelementptr inbounds i8, ptr %1, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %73
@@ -1091,7 +1091,7 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
   br label %rb_long2num_inline.exit
 
 78:                                               ; preds = %switch_endianness.exit, %switch_endianness.exit, %switch_endianness.exit
-  %79 = getelementptr inbounds i8, ptr %1, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
   br i1 %81, label %82, label %90
@@ -1124,7 +1124,7 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
   br label %rb_long2num_inline.exit
 
 99:                                               ; preds = %switch_endianness.exit
-  %100 = getelementptr inbounds i8, ptr %1, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = trunc i8 %101 to i1
   %103 = load i64, ptr %4, align 8
@@ -1157,7 +1157,7 @@ switch_endianness.exit:                           ; preds = %.lr.ph.i, %40, %39,
   br label %rb_long2num_inline.exit
 
 117:                                              ; preds = %switch_endianness.exit
-  %118 = getelementptr inbounds i8, ptr %1, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %119 = load i8, ptr %118, align 1
   %120 = trunc i8 %119 to i1
   %121 = load i64, ptr %4, align 8
@@ -1244,7 +1244,7 @@ define dso_local i64 @rb_memory_view_extract_item_members(ptr noundef readonly %
   ]
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 1
   br i1 %10, label %rb_memory_view_extract_item_member.exit, label %.preheader.preheader
@@ -1260,7 +1260,7 @@ rb_memory_view_extract_item_member.exit:          ; preds = %7
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %.02127 = phi i64 [ %21, %._crit_edge ], [ 0, %.preheader.preheader ]
   %13 = getelementptr %struct.rb_memory_view_item_component_t, ptr %1, i64 %.02127
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %.not28 = icmp eq i64 %15, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -1291,15 +1291,15 @@ declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_memory_view_prepare_item_desc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = call i64 @rb_memory_view_parse_item_format(ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %2)
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %19
@@ -1324,18 +1324,18 @@ declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %8, label %11, label %17
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.in.i = select i1 %.not.i, ptr %12, ptr %10
   %13 = load i64, ptr %.in.i, align 8
   %14 = load i64, ptr %1, align 8
@@ -1351,9 +1351,9 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   br i1 %19, label %.lr.ph70.i, label %rb_memory_view_get_item_pointer.exit
 
 .lr.ph70.i:                                       ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1383,7 +1383,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
   br i1 %exitcond83.not.i, label %rb_memory_view_get_item_pointer.exit, label %.preheader.i, !llvm.loop !18
 
 37:                                               ; preds = %17
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   %41 = icmp sgt i64 %7, 0
@@ -1435,7 +1435,7 @@ define dso_local i64 @rb_memory_view_get_item(ptr noundef %0, ptr nocapture noun
 
 rb_memory_view_get_item_pointer.exit:             ; preds = %61, %.lr.ph66.i, %.preheader.i, %11, %18, %.preheader60.i, %.preheader58.i
   %.051.i = phi ptr [ %16, %11 ], [ %5, %.preheader58.i ], [ %5, %.preheader60.i ], [ %5, %18 ], [ %35, %.preheader.i ], [ %47, %.lr.ph66.i ], [ %.4.i, %61 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %71
@@ -1448,14 +1448,14 @@ rb_memory_view_get_item_pointer.exit:             ; preds = %61, %.lr.ph66.i, %.
   br label %rb_memory_view_extract_item_members.exit
 
 71:                                               ; preds = %rb_memory_view_get_item_pointer.exit
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %86
 
 75:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = call i64 @rb_memory_view_parse_item_format(ptr noundef nonnull %64, ptr noundef nonnull %72, ptr noundef nonnull %76, ptr noundef nonnull %3)
   %78 = icmp slt i64 %77, 0
   br i1 %78, label %79, label %rb_memory_view_prepare_item_desc.exit
@@ -1477,7 +1477,7 @@ rb_memory_view_prepare_item_desc.exit:            ; preds = %75
 
 86:                                               ; preds = %rb_memory_view_prepare_item_desc.exit, %71
   %87 = phi ptr [ %.pre, %rb_memory_view_prepare_item_desc.exit ], [ %73, %71 ]
-  %88 = getelementptr inbounds i8, ptr %0, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq ptr %.051.i, null
   %91 = icmp eq ptr %87, null
@@ -1491,7 +1491,7 @@ rb_memory_view_prepare_item_desc.exit:            ; preds = %75
   ]
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %87, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %95 = load i64, ptr %94, align 8
   %96 = icmp eq i64 %95, 1
   br i1 %96, label %rb_memory_view_extract_item_member.exit.i, label %.preheader.preheader.i
@@ -1507,7 +1507,7 @@ rb_memory_view_extract_item_member.exit.i:        ; preds = %93
 .preheader.i9:                                    ; preds = %._crit_edge.i, %.preheader.preheader.i
   %.02127.i = phi i64 [ %107, %._crit_edge.i ], [ 0, %.preheader.preheader.i ]
   %99 = getelementptr %struct.rb_memory_view_item_component_t, ptr %87, i64 %.02127.i
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load i64, ptr %100, align 8
   %.not28.i = icmp eq i64 %101, 0
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i10
@@ -1541,7 +1541,7 @@ define dso_local zeroext i1 @rb_memory_view_available_p(i64 noundef %0) local_un
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %rb_class_of.exit
 
 9:                                                ; preds = %1
@@ -1600,13 +1600,13 @@ rb_class_of.exit:                                 ; preds = %6, %9, %10, %11, %1
 
 lookup_memory_view_entry.exit:                    ; preds = %._crit_edge.i
   %30 = inttoptr i64 %.0.lcssa.i to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %lookup_memory_view_entry.exit.thread, label %33
 
 33:                                               ; preds = %lookup_memory_view_entry.exit
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 %35(i64 noundef %0) #16
   br label %lookup_memory_view_entry.exit.thread
@@ -1627,7 +1627,7 @@ define dso_local noundef zeroext i1 @rb_memory_view_get(i64 noundef %0, ptr noun
 
 9:                                                ; preds = %3
   %10 = inttoptr i64 %0 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %rb_class_of.exit
 
 12:                                               ; preds = %3
@@ -1686,13 +1686,13 @@ rb_class_of.exit:                                 ; preds = %9, %12, %13, %14, %
 
 lookup_memory_view_entry.exit:                    ; preds = %._crit_edge.i
   %33 = inttoptr i64 %.0.lcssa.i to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %lookup_memory_view_entry.exit.thread, label %36
 
 36:                                               ; preds = %lookup_memory_view_entry.exit
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 %38(i64 noundef %0) #16
   br i1 %39, label %40, label %lookup_memory_view_entry.exit.thread
@@ -1703,7 +1703,7 @@ lookup_memory_view_entry.exit:                    ; preds = %._crit_edge.i
   br i1 %42, label %43, label %lookup_memory_view_entry.exit.thread
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %35, ptr %44, align 8
   %45 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -1738,13 +1738,13 @@ lookup_memory_view_entry.exit.thread:             ; preds = %.lr.ph.i, %._crit_e
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @rb_memory_view_release(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %.thread, label %8
@@ -1786,7 +1786,7 @@ rb_vm_lock_enter.exit.i:                          ; preds = %13, %.thread
 unregister_exported_object.exit:                  ; preds = %17, %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   store i64 4, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   call void @ruby_xfree(ptr noundef %21) #16
   br label %22

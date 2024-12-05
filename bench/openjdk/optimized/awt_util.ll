@@ -22,7 +22,7 @@ define hidden zeroext range(i8 0, 2) i8 @awtJNI_ThreadYield(ptr noundef %0) loca
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull @.str) #1
   %9 = icmp eq ptr %8, null
@@ -30,12 +30,12 @@ define hidden zeroext range(i8 0, 2) i8 @awtJNI_ThreadYield(ptr noundef %0) loca
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %8) #1
   store ptr %14, ptr @awtJNI_ThreadYield.threadClass, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef nonnull %8) #1
   %18 = load ptr, ptr @awtJNI_ThreadYield.threadClass, align 8
@@ -44,7 +44,7 @@ define hidden zeroext range(i8 0, 2) i8 @awtJNI_ThreadYield(ptr noundef %0) loca
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 904
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 904
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #1
   store ptr %23, ptr @awtJNI_ThreadYield.yieldMethodID, align 8
@@ -71,11 +71,11 @@ thread-pre-split:                                 ; preds = %10
   %27 = phi ptr [ %25, %..critedge_crit_edge ], [ %.pre23, %..critedge_crit_edge22 ]
   %28 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %2, %..critedge_crit_edge22 ]
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1128
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1128
   %31 = load ptr, ptr %30, align 8
   tail call void (ptr, ptr, ptr, ...) %31(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %27) #1
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1824
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1824
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i8 %34(ptr noundef nonnull %0) #1
   %.not21 = icmp eq i8 %35, 0

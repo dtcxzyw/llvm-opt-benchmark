@@ -79,7 +79,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef %1)
   ]
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %43, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -347,9 +347,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #8
-  %115 = getelementptr inbounds i8, ptr %19, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = load i32, ptr %116, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %119 to i64
@@ -364,15 +364,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 122:                                              ; preds = %113
   %123 = icmp eq i32 %114, 0
   %spec.store.select1 = select i1 %123, i32 16, i32 %114
-  %124 = getelementptr inbounds i8, ptr %27, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %27, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 0, ptr %125, align 4
   store i32 16842752, ptr %27, align 8
-  %126 = getelementptr inbounds i8, ptr %27, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %19, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %28, i64 8
-  %128 = getelementptr inbounds i8, ptr %28, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 0, ptr %128, align 8
   store i32 33619968, ptr %28, align 8
   store ptr %26, ptr %127, align 8
@@ -400,12 +400,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %134 unwind label %156
 
 134:                                              ; preds = %133
-  %135 = getelementptr inbounds i8, ptr %33, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 0, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %33, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i32 0, ptr %136, align 4
   store i32 16842752, ptr %33, align 8
-  %137 = getelementptr inbounds i8, ptr %33, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %19, ptr %137, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %138 unwind label %158
@@ -429,12 +429,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %141 unwind label %166
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %38, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %38, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i32 0, ptr %143, align 4
   store i32 16842752, ptr %38, align 8
-  %144 = getelementptr inbounds i8, ptr %38, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %26, ptr %144, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(24) %38)
           to label %145 unwind label %168
@@ -520,12 +520,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit90
 
 171:                                              ; preds = %129
-  %172 = getelementptr inbounds i8, ptr %39, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %39, i64 20
+  %173 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 0, ptr %173, align 4
   store i32 16842752, ptr %39, align 8
-  %174 = getelementptr inbounds i8, ptr %39, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %26, ptr %174, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   %175 = invoke noundef zeroext i1 @_ZN2cv7imwriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40)

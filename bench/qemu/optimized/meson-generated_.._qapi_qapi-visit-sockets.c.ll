@@ -56,7 +56,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %port = getelementptr inbounds i8, ptr %obj, i64 8
+  %port = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %port, ptr noundef %errp) #5
   br label %return
 
@@ -95,7 +95,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_InetSocketAddressBase_members.exit, label %out_obj.thread
 
 visit_type_InetSocketAddressBase_members.exit:    ; preds = %if.end5
-  %port.i = getelementptr inbounds i8, ptr %0, i64 8
+  %port.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %port.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -145,67 +145,67 @@ entry:
   br i1 %call.i, label %visit_type_InetSocketAddressBase_members.exit, label %return
 
 visit_type_InetSocketAddressBase_members.exit:    ; preds = %entry
-  %port.i = getelementptr inbounds i8, ptr %obj, i64 8
+  %port.i = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %port.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end, label %return
 
 if.end:                                           ; preds = %visit_type_InetSocketAddressBase_members.exit
-  %has_numeric = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_numeric = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_numeric) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %numeric = getelementptr inbounds i8, ptr %obj, i64 17
+  %numeric = getelementptr inbounds nuw i8, ptr %obj, i64 17
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %numeric, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_to = getelementptr inbounds i8, ptr %obj, i64 18
+  %has_to = getelementptr inbounds nuw i8, ptr %obj, i64 18
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_to) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %to = getelementptr inbounds i8, ptr %obj, i64 20
+  %to = getelementptr inbounds nuw i8, ptr %obj, i64 20
   %call9 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %to, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.then8, %if.end6
-  %has_ipv4 = getelementptr inbounds i8, ptr %obj, i64 22
+  %has_ipv4 = getelementptr inbounds nuw i8, ptr %obj, i64 22
   %call13 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_ipv4) #5
   br i1 %call13, label %if.then14, label %if.end18
 
 if.then14:                                        ; preds = %if.end12
-  %ipv4 = getelementptr inbounds i8, ptr %obj, i64 23
+  %ipv4 = getelementptr inbounds nuw i8, ptr %obj, i64 23
   %call15 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %ipv4, ptr noundef %errp) #5
   br i1 %call15, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_ipv6 = getelementptr inbounds i8, ptr %obj, i64 24
+  %has_ipv6 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call19 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_ipv6) #5
   br i1 %call19, label %if.then20, label %if.end24
 
 if.then20:                                        ; preds = %if.end18
-  %ipv6 = getelementptr inbounds i8, ptr %obj, i64 25
+  %ipv6 = getelementptr inbounds nuw i8, ptr %obj, i64 25
   %call21 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %ipv6, ptr noundef %errp) #5
   br i1 %call21, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_keep_alive = getelementptr inbounds i8, ptr %obj, i64 26
+  %has_keep_alive = getelementptr inbounds nuw i8, ptr %obj, i64 26
   %call25 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %has_keep_alive) #5
   br i1 %call25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.end24
-  %keep_alive = getelementptr inbounds i8, ptr %obj, i64 27
+  %keep_alive = getelementptr inbounds nuw i8, ptr %obj, i64 27
   %call27 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %keep_alive, ptr noundef %errp) #5
   br i1 %call27, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_mptcp = getelementptr inbounds i8, ptr %obj, i64 28
+  %has_mptcp = getelementptr inbounds nuw i8, ptr %obj, i64 28
   %call31 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %has_mptcp) #5
   br i1 %call31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.end30
-  %mptcp = getelementptr inbounds i8, ptr %obj, i64 29
+  %mptcp = getelementptr inbounds nuw i8, ptr %obj, i64 29
   %call33 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %mptcp, ptr noundef %errp) #5
   br i1 %call33, label %if.end36, label %return
 
@@ -283,22 +283,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_abstract = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_abstract = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_abstract) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %abstract = getelementptr inbounds i8, ptr %obj, i64 9
+  %abstract = getelementptr inbounds nuw i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %abstract, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_tight = getelementptr inbounds i8, ptr %obj, i64 10
+  %has_tight = getelementptr inbounds nuw i8, ptr %obj, i64 10
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_tight) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %tight = getelementptr inbounds i8, ptr %obj, i64 11
+  %tight = getelementptr inbounds nuw i8, ptr %obj, i64 11
   %call9 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %tight, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
@@ -338,22 +338,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_abstract.i = getelementptr inbounds i8, ptr %0, i64 8
+  %has_abstract.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_abstract.i) #5
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %abstract.i = getelementptr inbounds i8, ptr %0, i64 9
+  %abstract.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %abstract.i, ptr noundef %errp) #5
   br i1 %call3.i, label %if.end6.i, label %out_obj.thread16
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  %has_tight.i = getelementptr inbounds i8, ptr %0, i64 10
+  %has_tight.i = getelementptr inbounds nuw i8, ptr %0, i64 10
   %call7.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_tight.i) #5
   br i1 %call7.i, label %if.then8.i, label %out_obj
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %tight.i = getelementptr inbounds i8, ptr %0, i64 11
+  %tight.i = getelementptr inbounds nuw i8, ptr %0, i64 11
   %call9.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %tight.i, ptr noundef %errp) #5
   br i1 %call9.i, label %out_obj, label %out_obj.thread16
 
@@ -390,7 +390,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %port = getelementptr inbounds i8, ptr %obj, i64 8
+  %port = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %port, ptr noundef %errp) #5
   br label %return
 
@@ -427,7 +427,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_VsockSocketAddress_members.exit, label %out_obj.thread
 
 visit_type_VsockSocketAddress_members.exit:       ; preds = %if.end5
-  %port.i = getelementptr inbounds i8, ptr %0, i64 8
+  %port.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %port.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -747,22 +747,22 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i = call noundef zeroext i1 @visit_type_InetSocketAddress(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u3 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i14 = call noundef zeroext i1 @visit_type_UnixSocketAddress(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u6 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i15 = call noundef zeroext i1 @visit_type_VsockSocketAddress(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u9 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i16 = call zeroext i1 @visit_type_String(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u9, ptr noundef %errp) #5
   br label %return
 
@@ -867,32 +867,32 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_InetSocketAddress_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u3 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %u3, ptr noundef %errp) #5
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %sw.bb2
-  %has_abstract.i = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_abstract.i = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call1.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_abstract.i) #5
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %abstract.i = getelementptr inbounds i8, ptr %obj, i64 17
+  %abstract.i = getelementptr inbounds nuw i8, ptr %obj, i64 17
   %call3.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %abstract.i, ptr noundef %errp) #5
   br i1 %call3.i, label %if.end6.i, label %return
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  %has_tight.i = getelementptr inbounds i8, ptr %obj, i64 18
+  %has_tight.i = getelementptr inbounds nuw i8, ptr %obj, i64 18
   %call7.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_tight.i) #5
   br i1 %call7.i, label %if.then8.i, label %if.end12.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %tight.i = getelementptr inbounds i8, ptr %obj, i64 19
+  %tight.i = getelementptr inbounds nuw i8, ptr %obj, i64 19
   %call9.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %tight.i, ptr noundef %errp) #5
   br i1 %call9.i, label %if.end12.i, label %return
 
@@ -900,17 +900,17 @@ if.end12.i:                                       ; preds = %if.then8.i, %if.end
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u6 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i14 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %u6, ptr noundef %errp) #5
   br i1 %call.i14, label %if.end.i16, label %return
 
 if.end.i16:                                       ; preds = %sw.bb5
-  %port.i = getelementptr inbounds i8, ptr %obj, i64 16
+  %port.i = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call1.i17 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %port.i, ptr noundef %errp) #5
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u9 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call10 = call zeroext i1 @visit_type_String_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp) #5
   br label %return
 
@@ -991,7 +991,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1047,7 +1047,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_InetSocketAddressBase(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

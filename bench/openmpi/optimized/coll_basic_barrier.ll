@@ -20,7 +20,7 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   %.val.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 220
   %.val60 = load i32, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load i32, ptr %6, align 8
   %notmask.i = shl nsw i32 -1, %7
   %8 = xor i32 %notmask.i, -1
@@ -115,11 +115,11 @@ define i32 @mca_coll_basic_barrier_inter_lin(ptr noundef %0, ptr nocapture nound
   %5 = getelementptr i8, ptr %0, i64 220
   %.val = load i32, ptr %5, align 4
   store i32 %.val, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 %9(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull @ompi_mpi_int, ptr noundef nonnull @ompi_mpi_op_max, ptr noundef %0, ptr noundef %11) #2
   ret i32 %12

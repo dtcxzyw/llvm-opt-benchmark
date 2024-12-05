@@ -14,17 +14,17 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %3, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %4) local_unnamed_addr #0 {
   %6 = load double, ptr %4, align 8
   %7 = fcmp ugt double %6, %0
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fcmp ugt double %0, %9
   %or.cond = select i1 %7, i1 true, i1 %10
   br i1 %or.cond, label %.thread114, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load double, ptr %12, align 8
   %14 = fcmp ole double %13, %1
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load double, ptr %15, align 8
   %17 = fcmp ole double %1, %16
   %18 = select i1 %14, i1 %17, i1 false
@@ -40,10 +40,10 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   br i1 %or.cond76115, label %.thread, label %.thread114._crit_edge
 
 .thread114._crit_edge:                            ; preds = %.thread114
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fcmp ole double %24, %3
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = load double, ptr %26, align 8
   %28 = fcmp ole double %3, %27
   %29 = select i1 %25, i1 %28, i1 false
@@ -68,7 +68,7 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = load double, ptr %38, align 8
   %40 = fcmp oge double %1, %39
   %41 = fcmp ult double %3, %39
@@ -85,11 +85,11 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %45 = fcmp oge double %0, %6
   %46 = fcmp ult double %2, %6
   %.not84 = xor i1 %45, %46
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load double, ptr %47, align 8
   %49 = fcmp ugt double %48, %1
   %or.cond87 = select i1 %.not84, i1 true, i1 %49
-  %50 = getelementptr inbounds i8, ptr %4, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %51 = load double, ptr %50, align 8
   %52 = fcmp ugt double %1, %51
   %or.cond90 = select i1 %or.cond87, i1 true, i1 %52
@@ -106,11 +106,11 @@ define range(i32 -1, 2) i32 @lineToBox(double %0, double %1, double %2, double %
   %61 = fcmp ugt double %57, %6
   %62 = fcmp ugt double %6, %58
   %or.cond91 = select i1 %61, i1 true, i1 %62
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %64 = load double, ptr %63, align 8
   %65 = fcmp ugt double %64, %60
   %or.cond94 = select i1 %or.cond91, i1 true, i1 %65
-  %66 = getelementptr inbounds i8, ptr %4, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %67 = load double, ptr %66, align 8
   %68 = fcmp ugt double %60, %67
   %or.cond97 = select i1 %or.cond94, i1 true, i1 %68
@@ -175,19 +175,19 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @rect2poly(ptr nocapture noundef initializes((32, 64)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %10, ptr %11, align 8
   %12 = load double, ptr %0, align 8
   store double %12, ptr %2, align 8
@@ -270,16 +270,16 @@ define { double, double } @ccwrotatepf(double %0, double %1, i32 noundef %2) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @flip_rec_boxf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1, double %2, double %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load double, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load double, ptr %11, align 8
   %13 = load double, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = fadd double %2, %12
   store double %15, ptr %0, align 8
   %16 = fadd double %3, %13
@@ -334,7 +334,7 @@ define range(i32 0, 2) i32 @line_intersect(double %0, double %1, double %2, doub
   %28 = fsub double %0, %26
   %29 = fsub double %1, %27
   store double %28, ptr %8, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %29, ptr %.sroa.22.0..sroa_idx, align 8
   br label %30
 

@@ -31,18 +31,18 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i64 -22, 1) i64 @__x64_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 24
   br i1 %4, label %5, label %12, !prof !6
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 2296
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2296
   store ptr %8, ptr %11, align 8
   br label %12
 
@@ -53,20 +53,20 @@ define dso_local noundef range(i64 -22, 1) i64 @__x64_sys_set_robust_list(ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i64 -22, 1) i64 @__ia32_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = icmp eq i64 %4, 24
   br i1 %5, label %6, label %14, !prof !6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 2296
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2296
   store ptr %10, ptr %13, align 8
   br label %14
 
@@ -77,11 +77,11 @@ define dso_local noundef range(i64 -22, 1) i64 @__ia32_sys_set_robust_list(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
   %8 = tail call fastcc i64 @__se_sys_get_robust_list(i64 noundef %3, i64 noundef %5, i64 noundef %7), !range !8
   ret i64 %8
@@ -112,7 +112,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_robu
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 2296
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 2296
   %19 = load ptr, ptr %18, align 8
   tail call void @__rcu_read_unlock() #10
   %20 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -148,13 +148,13 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_get_robu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
   %11 = tail call fastcc i64 @__se_sys_get_robust_list(i64 noundef %4, i64 noundef %7, i64 noundef %10), !range !8
@@ -296,17 +296,17 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8
   %14 = tail call fastcc i64 @__se_sys_futex(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %13), !range !8
   ret i64 %14
@@ -347,7 +347,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex(i6
 21:                                               ; preds = %18
   %22 = load i64, ptr %8, align 8
   %23 = icmp sgt i64 %22, -1
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp ult i64 %25, 1000000000
   %27 = select i1 %23, i1 %26, i1 false
@@ -377,16 +377,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex(i6
 39:                                               ; preds = %36
   %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 1872
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1872
   %43 = load ptr, ptr %42, align 16
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, @init_time_ns
   br i1 %46, label %.thread.sink.split, label %47, !prof !6
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %45, i64 40
-  %49 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %32, ptr noundef %48) #10
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %49 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %32, ptr noundef nonnull %48) #10
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %39, %47, %33
@@ -409,22 +409,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex(i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 4294967295
   %20 = tail call fastcc i64 @__se_sys_futex(i64 noundef %4, i64 noundef %7, i64 noundef %10, i64 noundef %13, i64 noundef %16, i64 noundef %19), !range !8
@@ -440,25 +440,25 @@ define dso_local range(i32 -22, 1) i32 @futex_parse_waitv(ptr nocapture noundef 
 
 8:                                                ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !annotation !11
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 20
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = zext i32 %2 to i64
   br label %23
 
 13:                                               ; preds = %42
   %14 = getelementptr %struct.futex_vector, ptr %0, i64 %24
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %39, ptr %15, align 8
   store i64 %43, ptr %14, align 8
   %16 = load i64, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
-  %19 = getelementptr inbounds i8, ptr %14, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr %4, ptr %20, align 8
   %21 = add nuw nsw i64 %24, 1
   %22 = icmp eq i64 %21, %12
@@ -508,15 +508,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_waitv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = tail call fastcc i64 @__se_sys_futex_waitv(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11), !range !8
   ret i64 %12
@@ -566,7 +566,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_wa
 30:                                               ; preds = %27
   %31 = load i64, ptr %6, align 8
   %32 = icmp sgt i64 %31, -1
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp ult i64 %34, 1000000000
   %36 = select i1 %32, i1 %35, i1 false
@@ -583,16 +583,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_wa
 42:                                               ; preds = %37
   %43 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 1872
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1872
   %46 = load ptr, ptr %45, align 16
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, @init_time_ns
   br i1 %49, label %53, label %50, !prof !6
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds i8, ptr %48, i64 40
-  %52 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %41, ptr noundef %51) #10
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %52 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %41, ptr noundef nonnull %51) #10
   br label %53
 
 53:                                               ; preds = %50, %42
@@ -622,24 +622,24 @@ futex2_setup_timeout.exit:                        ; preds = %37, %53
 62:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !annotation !11
-  %63 = getelementptr inbounds i8, ptr %8, i64 16
-  %64 = getelementptr inbounds i8, ptr %8, i64 20
-  %65 = getelementptr inbounds i8, ptr %8, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %76
 
 66:                                               ; preds = %95
   %67 = getelementptr %struct.futex_vector, ptr %60, i64 %77
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i32 %92, ptr %68, align 8
   store i64 %96, ptr %67, align 8
   %69 = load i64, ptr %65, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %67, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(128) %71, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
-  %72 = getelementptr inbounds i8, ptr %67, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %71, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr @futex_wake_mark, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr null, ptr %73, align 8
   %74 = add nuw nsw i64 %77, 1
   %75 = icmp eq i64 %74, %58
@@ -708,19 +708,19 @@ futex2_setup_timeout.exit:                        ; preds = %37, %53
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_waitv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
   %17 = tail call fastcc i64 @__se_sys_futex_waitv(i64 noundef %4, i64 noundef %7, i64 noundef %10, i64 noundef %13, i64 noundef %16), !range !8
@@ -729,13 +729,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_waitv(
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wake(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %3 to ptr
   %11 = trunc i64 %7 to i32
@@ -767,14 +767,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wake(pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wake(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %4 to ptr
   %12 = trunc i64 %8 to i32
@@ -807,17 +807,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wait(pt
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.hrtimer_sleeper, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %6 to ptr
   %18 = trunc i64 %12 to i32
@@ -868,7 +868,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wait(pt
 45:                                               ; preds = %42
   %46 = load i64, ptr %2, align 8
   %47 = icmp sgt i64 %46, -1
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = icmp ult i64 %49, 1000000000
   %51 = select i1 %47, i1 %50, i1 false
@@ -884,16 +884,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_wait(pt
 
 57:                                               ; preds = %52
   %58 = inttoptr i64 %28 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 1872
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1872
   %60 = load ptr, ptr %59, align 16
-  %61 = getelementptr inbounds i8, ptr %60, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, @init_time_ns
   br i1 %63, label %67, label %64, !prof !6
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %62, i64 40
-  %66 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %56, ptr noundef %65) #10
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %66 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %56, ptr noundef nonnull %65) #10
   br label %67
 
 67:                                               ; preds = %64, %57
@@ -933,19 +933,19 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wait(p
   %2 = alloca %struct.timespec64, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.hrtimer_sleeper, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %7 to ptr
   %20 = trunc i64 %13 to i32
@@ -993,7 +993,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wait(p
 44:                                               ; preds = %41
   %45 = load i64, ptr %2, align 8
   %46 = icmp sgt i64 %45, -1
-  %47 = getelementptr inbounds i8, ptr %2, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = icmp ult i64 %48, 1000000000
   %50 = select i1 %46, i1 %49, i1 false
@@ -1009,16 +1009,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wait(p
 
 56:                                               ; preds = %51
   %57 = inttoptr i64 %30 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 1872
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1872
   %59 = load ptr, ptr %58, align 16
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, @init_time_ns
   br i1 %62, label %66, label %63, !prof !6
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %61, i64 40
-  %65 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %55, ptr noundef %64) #10
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %65 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %55, ptr noundef nonnull %64) #10
   br label %66
 
 66:                                               ; preds = %63, %56
@@ -1055,13 +1055,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_wait(p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_requeue(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
   %10 = tail call fastcc i64 @__se_sys_futex_requeue(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9), !range !8
   ret i64 %10
@@ -1081,16 +1081,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_re
   %12 = icmp ne i64 %11, 0
   %13 = icmp eq i64 %0, 0
   %14 = or i1 %13, %12
-  %.sroa.gep3 = getelementptr inbounds i8, ptr %6, i64 152
+  %.sroa.gep3 = getelementptr inbounds nuw i8, ptr %6, i64 152
   br i1 %14, label %64, label %15
 
 15:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %6, i8 0, i64 304, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !11
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 20
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %19
 
 19:                                               ; preds = %42, %15
@@ -1131,17 +1131,17 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_re
   br label %64
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %.sroa.phi, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 16
   store i32 %36, ptr %43, align 8
   store i64 %40, ptr %.sroa.phi, align 8
   %44 = load i64, ptr %18, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.phi, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 8
   store i64 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %.sroa.phi, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
-  %47 = getelementptr inbounds i8, ptr %.sroa.phi, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr noundef nonnull align 8 dereferenceable(128) @futex_q_init, i64 128, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 80
   store ptr @futex_wake_mark, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.phi, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 88
   store ptr null, ptr %48, align 8
   br i1 %20, label %49, label %19
 
@@ -1150,15 +1150,15 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_re
   %50 = load i64, ptr %6, align 16
   %51 = trunc i64 %50 to i32
   store i32 %51, ptr %7, align 4
-  %52 = getelementptr inbounds i8, ptr %6, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %6, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %56 = load i32, ptr %55, align 16
-  %57 = getelementptr inbounds i8, ptr %6, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %58 = load i64, ptr %57, align 16
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %6, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %61 = load i32, ptr %60, align 8
   %62 = call i32 @futex_requeue(ptr noundef %54, i32 noundef %56, ptr noundef %59, i32 noundef %61, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %7, i32 noundef 0) #10
   %63 = sext i32 %62 to i64
@@ -1173,16 +1173,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_requeue(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
   %14 = tail call fastcc i64 @__se_sys_futex_requeue(i64 noundef %4, i64 noundef %7, i64 noundef %10, i64 noundef %13), !range !8
@@ -1191,20 +1191,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_requeu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i64 -22, 1) i64 @__ia32_compat_sys_set_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %5 = icmp eq i64 %4, 12
   br i1 %5, label %6, label %14, !prof !6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 2304
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2304
   store ptr %10, ptr %13, align 64
   br label %14
 
@@ -1215,12 +1215,12 @@ define dso_local noundef range(i64 -22, 1) i64 @__ia32_compat_sys_set_robust_lis
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_get_robust_list(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 4294967295
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967295
   %10 = trunc i64 %3 to i32
@@ -1246,7 +1246,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_get_r
   br i1 %22, label %23, label %43
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 2304
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 2304
   %25 = load ptr, ptr %24, align 64
   tail call void @__rcu_read_unlock() #10
   %26 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -1284,17 +1284,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_get_r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_futex_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8
   %14 = tail call fastcc i64 @__se_sys_futex_time32(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %13), !range !8
   ret i64 %14
@@ -1335,7 +1335,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_ti
 21:                                               ; preds = %18
   %22 = load i64, ptr %8, align 8
   %23 = icmp sgt i64 %22, -1
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp ult i64 %25, 1000000000
   %27 = select i1 %23, i1 %26, i1 false
@@ -1365,16 +1365,16 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_ti
 39:                                               ; preds = %36
   %40 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !7
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 1872
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1872
   %43 = load ptr, ptr %42, align 16
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, @init_time_ns
   br i1 %46, label %.thread.sink.split, label %47, !prof !6
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %45, i64 40
-  %49 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %32, ptr noundef %48) #10
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
+  %49 = call i64 @do_timens_ktime_to_host(i32 noundef 1, i64 noundef %32, ptr noundef nonnull %48) #10
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %39, %47, %33
@@ -1397,22 +1397,22 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_ti
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_futex_time32(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 4294967295
   %20 = tail call fastcc i64 @__se_sys_futex_time32(i64 noundef %4, i64 noundef %7, i64 noundef %10, i64 noundef %13, i64 noundef %16, i64 noundef %19), !range !8

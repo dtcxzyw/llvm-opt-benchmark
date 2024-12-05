@@ -5,19 +5,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %php_pcre2_substring_copy_bynumber.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 134
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 134
   %12 = load i16, ptr %11, align 2
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i16, ptr %13, align 4
-  %.ptr53.i = getelementptr inbounds i8, ptr %10, i64 136
+  %.ptr53.i = getelementptr inbounds nuw i8, ptr %10, i64 136
   %.not58.i = icmp eq i16 %12, 0
   br i1 %.not58.i, label %php_pcre2_substring_copy_bynumber.exit, label %.lr.ph.i
 
@@ -35,8 +35,8 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapt
   %21 = mul nuw nsw i32 %20, %15
   %narrow.i = add nuw i32 %21, 136
   %.add.i = zext i32 %narrow.i to i64
-  %.ptr54.i = getelementptr inbounds i8, ptr %10, i64 %.add.i
-  %22 = getelementptr inbounds i8, ptr %.ptr54.i, i64 2
+  %.ptr54.i = getelementptr inbounds nuw i8, ptr %10, i64 %.add.i
+  %22 = getelementptr inbounds nuw i8, ptr %.ptr54.i, i64 2
   %23 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %22) #6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %44
@@ -74,8 +74,8 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapt
   br i1 %39, label %40, label %php_pcre2_substring_nametable_scan.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.044.i, i64 %32
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %42) #6
   %.not55.i = icmp eq i32 %43, 0
   br i1 %.not55.i, label %38, label %php_pcre2_substring_nametable_scan.exit
@@ -94,10 +94,10 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br i1 %.not40, label %php_pcre2_substring_copy_bynumber.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_pcre2_substring_nametable_scan.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 98
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %53
 
 53:                                               ; preds = %.lr.ph, %102
@@ -106,7 +106,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %54 = load i8, ptr %.01942, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.01942, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.01942, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -116,13 +116,13 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 62:                                               ; preds = %53
   %63 = shl nuw nsw i32 %60, 1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds [131072 x i64], ptr %52, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %.not24 = icmp eq i64 %66, -1
   br i1 %.not24, label %102, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %0, i64 100
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, -2
   br i1 %70, label %71, label %72
@@ -143,7 +143,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %9, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 128
   %79 = load i16, ptr %78, align 8
   %80 = zext i16 %79 to i32
   %81 = icmp samesign ugt i32 %60, %80
@@ -157,9 +157,9 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 ._crit_edge.i.i:                                  ; preds = %82, %76
   %84 = or disjoint i32 %63, 1
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds [131072 x i64], ptr %52, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %85
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %66, %89
   %91 = icmp ugt i64 %87, %89
@@ -174,7 +174,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br i1 %96, label %php_pcre2_substring_copy_bynumber.exit, label %97
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 %66
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %100, i64 %93, i1 false)
@@ -185,7 +185,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 
 102:                                              ; preds = %62, %53
   %.1 = phi i32 [ %.02041, %53 ], [ -55, %62 ]
-  %103 = getelementptr inbounds i8, ptr %.01942, i64 %32
+  %103 = getelementptr inbounds nuw i8, ptr %.01942, i64 %32
   %.not = icmp ugt ptr %103, %.044.i
   br i1 %.not, label %php_pcre2_substring_copy_bynumber.exit, label %53
 
@@ -196,11 +196,11 @@ php_pcre2_substring_copy_bynumber.exit:           ; preds = %44, %102, %php_pcre
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 134
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %6 = load i16, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %8 = load i16, ptr %7, align 4
-  %.ptr53 = getelementptr inbounds i8, ptr %0, i64 136
+  %.ptr53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.not58 = icmp eq i16 %6, 0
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
@@ -218,8 +218,8 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   %15 = mul nuw nsw i32 %14, %9
   %narrow = add nuw i32 %15, 136
   %.add = zext i32 %narrow to i64
-  %.ptr54 = getelementptr inbounds i8, ptr %0, i64 %.add
-  %16 = getelementptr inbounds i8, ptr %.ptr54, i64 2
+  %.ptr54 = getelementptr inbounds nuw i8, ptr %0, i64 %.add
+  %16 = getelementptr inbounds nuw i8, ptr %.ptr54, i64 2
   %17 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %16) #6
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %51
@@ -257,8 +257,8 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.044, i64 %26
-  %36 = getelementptr inbounds i8, ptr %35, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.044, i64 %26
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %36) #6
   %.not55 = icmp eq i32 %37, 0
   br i1 %.not55, label %32, label %38
@@ -275,7 +275,7 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   %43 = load i8, ptr %.ptr54, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 8
-  %46 = getelementptr inbounds i8, ptr %.ptr54, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.ptr54, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
@@ -302,7 +302,7 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -2
   br i1 %7, label %8, label %9
@@ -317,38 +317,38 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noca
 
 11:                                               ; preds = %9, %8
   %.0.i = phi i32 [ %6, %9 ], [ 0, %8 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i8, ptr %12, align 8
   %.not38.i = icmp eq i8 %13, 1
   br i1 %.not38.i, label %32, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
   %20 = icmp ugt i32 %1, %19
   br i1 %20, label %php_pcre2_substring_length_bynumber.exit.thread, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 98
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
   %.not42.i = icmp samesign ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = shl nuw nsw i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [131072 x i64], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [131072 x i64], ptr %26, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %php_pcre2_substring_length_bynumber.exit.thread, label %38
 
 32:                                               ; preds = %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 98
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %.not39.i = icmp ult i32 %1, %35
@@ -367,14 +367,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noca
 38:                                               ; preds = %._crit_edge.i, %25
   %.pre-phi46.i = phi i64 [ %.pre45.i, %._crit_edge.i ], [ %28, %25 ]
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
-  %40 = getelementptr inbounds [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
   %41 = load i64, ptr %40, align 8
   %42 = or disjoint i32 %.pre-phi.i, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds [131072 x i64], ptr %39, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %43
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load i64, ptr %46, align 8
   %48 = icmp ugt i64 %41, %47
   %49 = icmp ugt i64 %45, %47
@@ -389,11 +389,11 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_bynumber(ptr noca
   br i1 %54, label %php_pcre2_substring_length_bynumber.exit.thread, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = shl nuw nsw i32 %1, 1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds [131072 x i64], ptr %39, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %57, i64 %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %62, i64 %51, i1 false)
@@ -409,7 +409,7 @@ php_pcre2_substring_length_bynumber.exit.thread:  ; preds = %38, %36, %32, %25, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynumber(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 100
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, -2
   br i1 %6, label %7, label %8
@@ -424,38 +424,38 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynumber(ptr no
 
 10:                                               ; preds = %7, %8
   %.0 = phi i32 [ %5, %8 ], [ 0, %7 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i8, ptr %11, align 8
   %.not38 = icmp eq i8 %12, 1
   br i1 %.not38, label %31, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i32
   %19 = icmp ugt i32 %1, %18
   br i1 %19, label %52, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 98
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i32
   %.not42 = icmp samesign ult i32 %1, %23
   br i1 %.not42, label %24, label %52
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = shl nuw nsw i32 %1, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [131072 x i64], ptr %25, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [131072 x i64], ptr %25, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, -1
   br i1 %30, label %52, label %37
 
 31:                                               ; preds = %10
-  %32 = getelementptr inbounds i8, ptr %0, i64 98
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %.not39 = icmp ult i32 %1, %34
@@ -474,14 +474,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_length_bynumber(ptr no
 37:                                               ; preds = %._crit_edge, %24
   %.pre-phi46 = phi i64 [ %.pre45, %._crit_edge ], [ %27, %24 ]
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %26, %24 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
-  %39 = getelementptr inbounds [131072 x i64], ptr %38, i64 0, i64 %.pre-phi46
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw [131072 x i64], ptr %38, i64 0, i64 %.pre-phi46
   %40 = load i64, ptr %39, align 8
   %41 = or disjoint i32 %.pre-phi, 1
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds [131072 x i64], ptr %38, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [131072 x i64], ptr %38, i64 0, i64 %42
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i64, ptr %45, align 8
   %47 = icmp ugt i64 %40, %46
   %48 = icmp ugt i64 %44, %46
@@ -507,19 +507,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %php_pcre2_substring_get_bynumber.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 134
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 134
   %12 = load i16, ptr %11, align 2
-  %13 = getelementptr inbounds i8, ptr %10, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %14 = load i16, ptr %13, align 4
-  %.ptr53.i = getelementptr inbounds i8, ptr %10, i64 136
+  %.ptr53.i = getelementptr inbounds nuw i8, ptr %10, i64 136
   %.not58.i = icmp eq i16 %12, 0
   br i1 %.not58.i, label %php_pcre2_substring_get_bynumber.exit, label %.lr.ph.i
 
@@ -537,8 +537,8 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef
   %21 = mul nuw nsw i32 %20, %15
   %narrow.i = add nuw i32 %21, 136
   %.add.i = zext i32 %narrow.i to i64
-  %.ptr54.i = getelementptr inbounds i8, ptr %10, i64 %.add.i
-  %22 = getelementptr inbounds i8, ptr %.ptr54.i, i64 2
+  %.ptr54.i = getelementptr inbounds nuw i8, ptr %10, i64 %.add.i
+  %22 = getelementptr inbounds nuw i8, ptr %.ptr54.i, i64 2
   %23 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %22) #6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %44
@@ -576,8 +576,8 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef
   br i1 %39, label %40, label %php_pcre2_substring_nametable_scan.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.044.i, i64 %32
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %42) #6
   %.not55.i = icmp eq i32 %43, 0
   br i1 %.not55.i, label %38, label %php_pcre2_substring_nametable_scan.exit
@@ -596,10 +596,10 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br i1 %.not42, label %php_pcre2_substring_get_bynumber.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_pcre2_substring_nametable_scan.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 98
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %53
 
 53:                                               ; preds = %.lr.ph, %106
@@ -608,7 +608,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   %54 = load i8, ptr %.01944, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.01944, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.01944, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -618,14 +618,14 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 62:                                               ; preds = %53
   %63 = shl nuw nsw i32 %60, 1
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds [131072 x i64], ptr %52, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %64
   %66 = load i64, ptr %65, align 8
   %.not24 = icmp eq i64 %66, -1
   br i1 %.not24, label %106, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds [131072 x i64], ptr %52, i64 0, i64 %64
-  %69 = getelementptr inbounds i8, ptr %0, i64 100
+  %68 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, -2
   br i1 %71, label %72, label %73
@@ -646,7 +646,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 128
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 128
   %80 = load i16, ptr %79, align 8
   %81 = zext i16 %80 to i32
   %82 = icmp samesign ugt i32 %60, %81
@@ -660,9 +660,9 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 ._crit_edge.i.i:                                  ; preds = %83, %77
   %85 = or disjoint i32 %63, 1
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds [131072 x i64], ptr %52, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [131072 x i64], ptr %52, i64 0, i64 %86
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %90 = load i64, ptr %89, align 8
   %91 = icmp ugt i64 %66, %90
   %92 = icmp ugt i64 %88, %90
@@ -678,8 +678,8 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br i1 %98, label %php_pcre2_substring_get_bynumber.exit, label %99
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %97, i64 24
-  %101 = getelementptr inbounds i8, ptr %0, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load ptr, ptr %101, align 8
   %103 = load i64, ptr %68, align 8
   %104 = getelementptr inbounds i8, ptr %102, i64 %103
@@ -692,7 +692,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
 
 106:                                              ; preds = %62, %53
   %.1 = phi i32 [ %.02043, %53 ], [ -55, %62 ]
-  %107 = getelementptr inbounds i8, ptr %.01944, i64 %32
+  %107 = getelementptr inbounds nuw i8, ptr %.01944, i64 %32
   %.not = icmp ugt ptr %107, %.044.i
   br i1 %.not, label %php_pcre2_substring_get_bynumber.exit, label %53
 
@@ -703,7 +703,7 @@ php_pcre2_substring_get_bynumber.exit:            ; preds = %44, %106, %php_pcre
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -2
   br i1 %7, label %8, label %9
@@ -718,38 +718,38 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr nound
 
 11:                                               ; preds = %9, %8
   %.0.i = phi i32 [ %6, %9 ], [ 0, %8 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i8, ptr %12, align 8
   %.not38.i = icmp eq i8 %13, 1
   br i1 %.not38.i, label %32, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
   %20 = icmp ugt i32 %1, %19
   br i1 %20, label %php_pcre2_substring_length_bynumber.exit.thread, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 98
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
   %.not42.i = icmp samesign ult i32 %1, %24
   br i1 %.not42.i, label %25, label %php_pcre2_substring_length_bynumber.exit.thread
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = shl nuw nsw i32 %1, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [131072 x i64], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [131072 x i64], ptr %26, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %php_pcre2_substring_length_bynumber.exit.thread, label %38
 
 32:                                               ; preds = %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 98
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %.not39.i = icmp ult i32 %1, %35
@@ -768,14 +768,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr nound
 38:                                               ; preds = %._crit_edge.i, %25
   %.pre-phi46.i = phi i64 [ %.pre45.i, %._crit_edge.i ], [ %28, %25 ]
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %27, %25 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
-  %40 = getelementptr inbounds [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %.pre-phi46.i
   %41 = load i64, ptr %40, align 8
   %42 = or disjoint i32 %.pre-phi.i, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds [131072 x i64], ptr %39, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %43
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load i64, ptr %46, align 8
   %48 = icmp ugt i64 %41, %47
   %49 = icmp ugt i64 %45, %47
@@ -791,12 +791,12 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_bynumber(ptr nound
   br i1 %55, label %php_pcre2_substring_length_bynumber.exit.thread, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %54, i64 24
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = shl nuw nsw i32 %1, 1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds [131072 x i64], ptr %39, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [131072 x i64], ptr %39, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %59, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr align 1 %64, i64 %51, i1 false)
@@ -833,19 +833,19 @@ define void @php_pcre2_substring_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @php_pcre2_substring_length_byname(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 1
   br i1 %6, label %php_pcre2_substring_length_bynumber.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 134
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 134
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %9, i64 132
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %13 = load i16, ptr %12, align 4
-  %.ptr53.i = getelementptr inbounds i8, ptr %9, i64 136
+  %.ptr53.i = getelementptr inbounds nuw i8, ptr %9, i64 136
   %.not58.i = icmp eq i16 %11, 0
   br i1 %.not58.i, label %php_pcre2_substring_length_bynumber.exit, label %.lr.ph.i
 
@@ -863,8 +863,8 @@ define i32 @php_pcre2_substring_length_byname(ptr nocapture noundef readonly %0,
   %20 = mul nuw nsw i32 %19, %14
   %narrow.i = add nuw i32 %20, 136
   %.add.i = zext i32 %narrow.i to i64
-  %.ptr54.i = getelementptr inbounds i8, ptr %9, i64 %.add.i
-  %21 = getelementptr inbounds i8, ptr %.ptr54.i, i64 2
+  %.ptr54.i = getelementptr inbounds nuw i8, ptr %9, i64 %.add.i
+  %21 = getelementptr inbounds nuw i8, ptr %.ptr54.i, i64 2
   %22 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %21) #6
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %43
@@ -902,8 +902,8 @@ define i32 @php_pcre2_substring_length_byname(ptr nocapture noundef readonly %0,
   br i1 %38, label %39, label %php_pcre2_substring_nametable_scan.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.044.i, i64 %31
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %31
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   %42 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %41) #6
   %.not55.i = icmp eq i32 %42, 0
   br i1 %.not55.i, label %37, label %php_pcre2_substring_nametable_scan.exit
@@ -922,10 +922,10 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
   br i1 %.not39, label %php_pcre2_substring_length_bynumber.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_pcre2_substring_nametable_scan.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 98
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %0, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %52
 
 52:                                               ; preds = %.lr.ph, %94
@@ -934,7 +934,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
   %53 = load i8, ptr %.01841, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 8
-  %56 = getelementptr inbounds i8, ptr %.01841, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.01841, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
@@ -944,13 +944,13 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
 61:                                               ; preds = %52
   %62 = shl nuw nsw i32 %59, 1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds [131072 x i64], ptr %51, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %.not23 = icmp eq i64 %65, -1
   br i1 %.not23, label %94, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 100
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, -2
   br i1 %69, label %70, label %71
@@ -971,7 +971,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 128
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 128
   %78 = load i16, ptr %77, align 8
   %79 = zext i16 %78 to i32
   %80 = icmp samesign ugt i32 %59, %79
@@ -985,9 +985,9 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
 ._crit_edge.i:                                    ; preds = %81, %75
   %83 = or disjoint i32 %62, 1
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds [131072 x i64], ptr %51, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [131072 x i64], ptr %51, i64 0, i64 %84
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %88 = load i64, ptr %87, align 8
   %89 = icmp ugt i64 %65, %88
   %90 = icmp ugt i64 %86, %88
@@ -1005,7 +1005,7 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
 
 94:                                               ; preds = %61, %52
   %.1 = phi i32 [ %.01940, %52 ], [ -55, %61 ]
-  %95 = getelementptr inbounds i8, ptr %.01841, i64 %31
+  %95 = getelementptr inbounds nuw i8, ptr %.01841, i64 %31
   %.not = icmp ugt ptr %95, %.044.i
   br i1 %.not, label %php_pcre2_substring_length_bynumber.exit, label %52
 
@@ -1016,7 +1016,7 @@ php_pcre2_substring_length_bynumber.exit:         ; preds = %43, %94, %php_pcre2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 100
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %67, label %7
@@ -1026,7 +1026,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br i1 %8, label %13, label %.thread
 
 .thread:                                          ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.not100 = icmp eq ptr %2, null
   %10 = zext nneg i32 %5 to i64
   %11 = shl nuw nsw i64 %10, 3
@@ -1035,10 +1035,10 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br label %.lr.ph.preheader
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 98
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.not = icmp eq ptr %2, null
   %18 = zext i16 %15 to i64
   %19 = shl nuw nsw i64 %18, 3
@@ -1055,7 +1055,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %.070103 = phi i32 [ %5, %.thread ], [ %16, %13 ]
   %23 = shl nuw nsw i32 %.070103, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = getelementptr i8, ptr %0, i64 112
   br label %.lr.ph
 
@@ -1065,7 +1065,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %27 = add i64 %.16883, 9
   %28 = getelementptr i64, ptr %26, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i64, ptr %25, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @llvm.usub.sat.i64(i64 %29, i64 %31)
   %.269 = add i64 %27, %32
@@ -1093,14 +1093,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br i1 %42, label %67, label %43
 
 43:                                               ; preds = %._crit_edge
-  %44 = getelementptr inbounds i8, ptr %41, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %44, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 %.070104
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.070104
   br i1 %.not106, label %48, label %46
 
 46:                                               ; preds = %43
   store ptr %45, ptr %2, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 %38
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %38
   br label %48
 
 48:                                               ; preds = %43, %46
@@ -1109,7 +1109,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br i1 %.not93109, label %._crit_edge91, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %48
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %50
 
 50:                                               ; preds = %.lr.ph90, %63
@@ -1118,9 +1118,9 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %.06287 = phi ptr [ %44, %.lr.ph90 ], [ %60, %63 ]
   %.16685 = phi ptr [ %.065, %.lr.ph90 ], [ %.2, %63 ]
   %51 = or disjoint i64 %indvars.iv96, 1
-  %52 = getelementptr inbounds i64, ptr %39, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %39, i64 %51
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv96
+  %54 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv96
   %55 = load i64, ptr %54, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %53, i64 %55)
   %.not81.not = icmp ugt i64 %53, %55
@@ -1133,20 +1133,20 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br label %59
 
 59:                                               ; preds = %56, %50
-  %60 = getelementptr inbounds i8, ptr %.06287, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.06287, i64 8
   store ptr %.188, ptr %.06287, align 8
   %.not82 = icmp eq ptr %.16685, null
   br i1 %.not82, label %63, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %.16685, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.16685, i64 8
   store i64 %spec.select, ptr %.16685, align 8
   br label %63
 
 63:                                               ; preds = %61, %59
   %.2 = phi ptr [ %62, %61 ], [ null, %59 ]
   %64 = getelementptr inbounds i8, ptr %.188, i64 %spec.select
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i8 0, ptr %64, align 1
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 2
   %66 = icmp samesign ult i64 %indvars.iv.next97, %40

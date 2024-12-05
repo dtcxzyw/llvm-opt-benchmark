@@ -42,10 +42,10 @@ $_ZTIN3irr3gui13IGUIImageListE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3irr3gui13CGUIImageListC2EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -53,15 +53,15 @@ entry:
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
-  %Driver = getelementptr inbounds i8, ptr %this, i64 8
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
-  %Texture = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
   %tobool.not = icmp eq ptr %driver, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %Texture, i8 0, i64 25, i1 false)
   br i1 %tobool.not, label %if.end, label %if.then
@@ -71,7 +71,7 @@ if.then:                                          ; preds = %entry
   %vbase.offset.ptr7 = getelementptr i8, ptr %vtable6, i64 -24
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %driver, i64 %vbase.offset8
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr9, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr9, i64 16
   %7 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !14
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %ReferenceCounter.i, align 8, !tbaa !14
@@ -90,16 +90,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3irr3gui13CGUIImageListC1EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41), (48, 68)) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 48
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 56
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %DebugName.i, align 8, !tbaa !16
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 64
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %0, align 8, !tbaa !3
-  %Driver = getelementptr inbounds i8, ptr %this, i64 8
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %driver, ptr %Driver, align 8, !tbaa !6
-  %Texture = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
   %tobool.not = icmp eq ptr %driver, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %Texture, i8 0, i64 25, i1 false)
   br i1 %tobool.not, label %if.end, label %if.then
@@ -109,7 +109,7 @@ if.then:                                          ; preds = %entry
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %driver, i64 %vbase.offset
-  %ReferenceCounter.i6 = getelementptr inbounds i8, ptr %add.ptr5, i64 16
+  %ReferenceCounter.i6 = getelementptr inbounds nuw i8, ptr %add.ptr5, i64 16
   %1 = load i32, ptr %ReferenceCounter.i6, align 8, !tbaa !14
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %ReferenceCounter.i6, align 8, !tbaa !14
@@ -124,13 +124,13 @@ define void @_ZN3irr3gui13CGUIImageListD2Ev(ptr nocapture noundef nonnull align 
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
-  %Driver = getelementptr inbounds i8, ptr %this, i64 8
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %Driver, align 8, !tbaa !6
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -140,7 +140,7 @@ if.then:                                          ; preds = %entry
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %3, i64 %vbase.offset6
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr7, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 16
   %4 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !14
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !14
@@ -149,13 +149,13 @@ if.then:                                          ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %if.then
   %vtable.i = load ptr, ptr %add.ptr7, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7) #7
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull.i, %if.then, %entry
-  %Texture = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %Texture, align 8, !tbaa !17
   %tobool8.not = icmp eq ptr %6, null
   br i1 %tobool8.not, label %if.end16, label %if.then9
@@ -165,7 +165,7 @@ if.then9:                                         ; preds = %if.end
   %vbase.offset.ptr12 = getelementptr i8, ptr %vtable11, i64 -24
   %vbase.offset13 = load i64, ptr %vbase.offset.ptr12, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %6, i64 %vbase.offset13
-  %ReferenceCounter.i18 = getelementptr inbounds i8, ptr %add.ptr14, i64 16
+  %ReferenceCounter.i18 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 16
   %7 = load i32, ptr %ReferenceCounter.i18, align 8, !tbaa !14
   %dec.i19 = add nsw i32 %7, -1
   store i32 %dec.i19, ptr %ReferenceCounter.i18, align 8, !tbaa !14
@@ -174,7 +174,7 @@ if.then9:                                         ; preds = %if.end
 
 delete.notnull.i21:                               ; preds = %if.then9
   %vtable.i22 = load ptr, ptr %add.ptr14, align 8, !tbaa !3
-  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 8
+  %vfn.i23 = getelementptr inbounds nuw i8, ptr %vtable.i22, i64 8
   %8 = load ptr, ptr %vfn.i23, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr14) #7
   br label %if.end16
@@ -187,9 +187,9 @@ if.end16:                                         ; preds = %delete.notnull.i21,
 define void @_ZN3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i, align 8, !tbaa !3
-  %Driver.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Driver.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver.i, align 8, !tbaa !6
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -199,7 +199,7 @@ if.then.i:                                        ; preds = %entry
   %vbase.offset.ptr5.i = getelementptr i8, ptr %vtable4.i, i64 -24
   %vbase.offset6.i = load i64, ptr %vbase.offset.ptr5.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %0, i64 %vbase.offset6.i
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 16
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 16
   %1 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !14
   %dec.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !14
@@ -208,13 +208,13 @@ if.then.i:                                        ; preds = %entry
 
 delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %add.ptr7.i, align 8, !tbaa !3
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i) #7
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i.i, %if.then.i, %entry
-  %Texture.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %Texture.i, align 8, !tbaa !17
   %tobool8.not.i = icmp eq ptr %3, null
   br i1 %tobool8.not.i, label %_ZN3irr3gui13CGUIImageListD2Ev.exit, label %if.then9.i
@@ -224,7 +224,7 @@ if.then9.i:                                       ; preds = %if.end.i
   %vbase.offset.ptr12.i = getelementptr i8, ptr %vtable11.i, i64 -24
   %vbase.offset13.i = load i64, ptr %vbase.offset.ptr12.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %3, i64 %vbase.offset13.i
-  %ReferenceCounter.i18.i = getelementptr inbounds i8, ptr %add.ptr14.i, i64 16
+  %ReferenceCounter.i18.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i, i64 16
   %4 = load i32, ptr %ReferenceCounter.i18.i, align 8, !tbaa !14
   %dec.i19.i = add nsw i32 %4, -1
   store i32 %dec.i19.i, ptr %ReferenceCounter.i18.i, align 8, !tbaa !14
@@ -233,7 +233,7 @@ if.then9.i:                                       ; preds = %if.end.i
 
 delete.notnull.i21.i:                             ; preds = %if.then9.i
   %vtable.i22.i = load ptr, ptr %add.ptr14.i, align 8, !tbaa !3
-  %vfn.i23.i = getelementptr inbounds i8, ptr %vtable.i22.i, i64 8
+  %vfn.i23.i = getelementptr inbounds nuw i8, ptr %vtable.i22.i, i64 8
   %5 = load ptr, ptr %vfn.i23.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr14.i) #7
   br label %_ZN3irr3gui13CGUIImageListD2Ev.exit
@@ -250,9 +250,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %Driver.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Driver.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Driver.i.i, align 8, !tbaa !6
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -262,7 +262,7 @@ if.then.i.i:                                      ; preds = %entry
   %vbase.offset.ptr5.i.i = getelementptr i8, ptr %vtable4.i.i, i64 -24
   %vbase.offset6.i.i = load i64, ptr %vbase.offset.ptr5.i.i, align 8
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset6.i.i
-  %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 16
+  %ReferenceCounter.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i, i64 16
   %5 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
   %dec.i.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
@@ -271,13 +271,13 @@ if.then.i.i:                                      ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr7.i.i, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i.i) #7
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
-  %Texture.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %Texture.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %Texture.i.i, align 8, !tbaa !17
   %tobool8.not.i.i = icmp eq ptr %7, null
   br i1 %tobool8.not.i.i, label %_ZN3irr3gui13CGUIImageListD1Ev.exit, label %if.then9.i.i
@@ -287,7 +287,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
   %vbase.offset.ptr12.i.i = getelementptr i8, ptr %vtable11.i.i, i64 -24
   %vbase.offset13.i.i = load i64, ptr %vbase.offset.ptr12.i.i, align 8
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %7, i64 %vbase.offset13.i.i
-  %ReferenceCounter.i18.i.i = getelementptr inbounds i8, ptr %add.ptr14.i.i, i64 16
+  %ReferenceCounter.i18.i.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i.i, i64 16
   %8 = load i32, ptr %ReferenceCounter.i18.i.i, align 8, !tbaa !14
   %dec.i19.i.i = add nsw i32 %8, -1
   store i32 %dec.i19.i.i, ptr %ReferenceCounter.i18.i.i, align 8, !tbaa !14
@@ -296,7 +296,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
 
 delete.notnull.i21.i.i:                           ; preds = %if.then9.i.i
   %vtable.i22.i.i = load ptr, ptr %add.ptr14.i.i, align 8, !tbaa !3
-  %vfn.i23.i.i = getelementptr inbounds i8, ptr %vtable.i22.i.i, i64 8
+  %vfn.i23.i.i = getelementptr inbounds nuw i8, ptr %vtable.i22.i.i, i64 8
   %9 = load ptr, ptr %vfn.i23.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr14.i.i) #7
   br label %_ZN3irr3gui13CGUIImageListD1Ev.exit
@@ -309,9 +309,9 @@ _ZN3irr3gui13CGUIImageListD1Ev.exit:              ; preds = %delete.notnull.i21.
 define void @_ZN3irr3gui13CGUIImageListD0Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %Driver.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Driver.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver.i.i, align 8, !tbaa !6
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -321,7 +321,7 @@ if.then.i.i:                                      ; preds = %entry
   %vbase.offset.ptr5.i.i = getelementptr i8, ptr %vtable4.i.i, i64 -24
   %vbase.offset6.i.i = load i64, ptr %vbase.offset.ptr5.i.i, align 8
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %0, i64 %vbase.offset6.i.i
-  %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 16
+  %ReferenceCounter.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i, i64 16
   %1 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
   %dec.i.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !14
@@ -330,13 +330,13 @@ if.then.i.i:                                      ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr7.i.i, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i.i) #7
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i.i, %if.then.i.i, %entry
-  %Texture.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %Texture.i.i, align 8, !tbaa !17
   %tobool8.not.i.i = icmp eq ptr %3, null
   br i1 %tobool8.not.i.i, label %_ZN3irr3gui13CGUIImageListD1Ev.exit, label %if.then9.i.i
@@ -346,7 +346,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
   %vbase.offset.ptr12.i.i = getelementptr i8, ptr %vtable11.i.i, i64 -24
   %vbase.offset13.i.i = load i64, ptr %vbase.offset.ptr12.i.i, align 8
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %3, i64 %vbase.offset13.i.i
-  %ReferenceCounter.i18.i.i = getelementptr inbounds i8, ptr %add.ptr14.i.i, i64 16
+  %ReferenceCounter.i18.i.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i.i, i64 16
   %4 = load i32, ptr %ReferenceCounter.i18.i.i, align 8, !tbaa !14
   %dec.i19.i.i = add nsw i32 %4, -1
   store i32 %dec.i19.i.i, ptr %ReferenceCounter.i18.i.i, align 8, !tbaa !14
@@ -355,7 +355,7 @@ if.then9.i.i:                                     ; preds = %if.end.i.i
 
 delete.notnull.i21.i.i:                           ; preds = %if.then9.i.i
   %vtable.i22.i.i = load ptr, ptr %add.ptr14.i.i, align 8, !tbaa !3
-  %vfn.i23.i.i = getelementptr inbounds i8, ptr %vtable.i22.i.i, i64 8
+  %vfn.i23.i.i = getelementptr inbounds nuw i8, ptr %vtable.i22.i.i, i64 8
   %5 = load ptr, ptr %vfn.i23.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr14.i.i) #7
   br label %_ZN3irr3gui13CGUIImageListD1Ev.exit
@@ -376,9 +376,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 88), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  %Driver.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Driver.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %Driver.i.i.i, align 8, !tbaa !6
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -388,7 +388,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %vbase.offset.ptr5.i.i.i = getelementptr i8, ptr %vtable4.i.i.i, i64 -24
   %vbase.offset6.i.i.i = load i64, ptr %vbase.offset.ptr5.i.i.i, align 8
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset6.i.i.i
-  %ReferenceCounter.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i.i, i64 16
+  %ReferenceCounter.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i.i, i64 16
   %5 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
   %dec.i.i.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i.i.i, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !14
@@ -397,13 +397,13 @@ if.then.i.i.i:                                    ; preds = %entry
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %add.ptr7.i.i.i, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i.i.i) #7
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i.i, %if.then.i.i.i, %entry
-  %Texture.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %Texture.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %Texture.i.i.i, align 8, !tbaa !17
   %tobool8.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool8.not.i.i.i, label %_ZN3irr3gui13CGUIImageListD0Ev.exit, label %if.then9.i.i.i
@@ -413,7 +413,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
   %vbase.offset.ptr12.i.i.i = getelementptr i8, ptr %vtable11.i.i.i, i64 -24
   %vbase.offset13.i.i.i = load i64, ptr %vbase.offset.ptr12.i.i.i, align 8
   %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %7, i64 %vbase.offset13.i.i.i
-  %ReferenceCounter.i18.i.i.i = getelementptr inbounds i8, ptr %add.ptr14.i.i.i, i64 16
+  %ReferenceCounter.i18.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i.i.i, i64 16
   %8 = load i32, ptr %ReferenceCounter.i18.i.i.i, align 8, !tbaa !14
   %dec.i19.i.i.i = add nsw i32 %8, -1
   store i32 %dec.i19.i.i.i, ptr %ReferenceCounter.i18.i.i.i, align 8, !tbaa !14
@@ -422,7 +422,7 @@ if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
 
 delete.notnull.i21.i.i.i:                         ; preds = %if.then9.i.i.i
   %vtable.i22.i.i.i = load ptr, ptr %add.ptr14.i.i.i, align 8, !tbaa !3
-  %vfn.i23.i.i.i = getelementptr inbounds i8, ptr %vtable.i22.i.i.i, i64 8
+  %vfn.i23.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i22.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i23.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr14.i.i.i) #7
   br label %_ZN3irr3gui13CGUIImageListD0Ev.exit
@@ -440,33 +440,33 @@ entry:
 
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %useAlphaChannel to i8
-  %Texture = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %texture, ptr %Texture, align 8, !tbaa !17
   %vtable = load ptr, ptr %texture, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %texture, i64 %vbase.offset
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %0 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !14
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %ReferenceCounter.i, align 8, !tbaa !14
-  %ImageSize = getelementptr inbounds i8, ptr %this, i64 28
+  %ImageSize = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i64 %imageSize.coerce, ptr %ImageSize, align 4, !tbaa.struct !18
-  %Size.i = getelementptr inbounds i8, ptr %texture, i64 80
+  %Size.i = getelementptr inbounds nuw i8, ptr %texture, i64 80
   %1 = load i32, ptr %Size.i, align 4, !tbaa !20
   %2 = trunc i64 %imageSize.coerce to i32
   %div = udiv i32 %1, %2
-  %ImagesPerRow = getelementptr inbounds i8, ptr %this, i64 36
+  %ImagesPerRow = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %div, ptr %ImagesPerRow, align 4, !tbaa !22
-  %Height = getelementptr inbounds i8, ptr %texture, i64 84
+  %Height = getelementptr inbounds nuw i8, ptr %texture, i64 84
   %3 = load i32, ptr %Height, align 4, !tbaa !23
   %mul = mul i32 %3, %div
   %4 = lshr i64 %imageSize.coerce, 32
   %5 = trunc nuw i64 %4 to i32
   %div11 = udiv i32 %mul, %5
-  %ImageCount = getelementptr inbounds i8, ptr %this, i64 24
+  %ImageCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %div11, ptr %ImageCount, align 8, !tbaa !24
-  %UseAlphaChannel = getelementptr inbounds i8, ptr %this, i64 40
+  %UseAlphaChannel = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 %frombool, ptr %UseAlphaChannel, align 8, !tbaa !25
   br label %return
 
@@ -479,44 +479,44 @@ define void @_ZN3irr3gui13CGUIImageList4drawEiRKNS_4core8vector2dIiEEPKNS2_4rect
 entry:
   %sourceRect = alloca %"class.irr::core::rect", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sourceRect) #7
-  %Driver = getelementptr inbounds i8, ptr %this, i64 8
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Driver, align 8, !tbaa !6
   %tobool = icmp ne ptr %0, null
   %cmp = icmp sgt i32 %index, -1
   %or.cond.not26 = and i1 %cmp, %tobool
-  %ImageCount = getelementptr inbounds i8, ptr %this, i64 24
+  %ImageCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %ImageCount, align 8
   %cmp3.not = icmp sgt i32 %1, %index
   %or.cond25 = select i1 %or.cond.not26, i1 %cmp3.not, i1 false
   br i1 %or.cond25, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %entry
-  %ImagesPerRow = getelementptr inbounds i8, ptr %this, i64 36
+  %ImagesPerRow = getelementptr inbounds nuw i8, ptr %this, i64 36
   %2 = load i32, ptr %ImagesPerRow, align 4, !tbaa !22
   %rem = srem i32 %index, %2
-  %ImageSize = getelementptr inbounds i8, ptr %this, i64 28
+  %ImageSize = getelementptr inbounds nuw i8, ptr %this, i64 28
   %3 = load i32, ptr %ImageSize, align 4, !tbaa !26
   %mul = mul nsw i32 %3, %rem
   store i32 %mul, ptr %sourceRect, align 4, !tbaa !27
   %div = sdiv i32 %index, %2
-  %Height = getelementptr inbounds i8, ptr %this, i64 32
+  %Height = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load i32, ptr %Height, align 8, !tbaa !30
   %mul6 = mul nsw i32 %4, %div
-  %Y = getelementptr inbounds i8, ptr %sourceRect, i64 4
+  %Y = getelementptr inbounds nuw i8, ptr %sourceRect, i64 4
   store i32 %mul6, ptr %Y, align 4, !tbaa !31
   %add = add nsw i32 %mul, %3
-  %LowerRightCorner = getelementptr inbounds i8, ptr %sourceRect, i64 8
+  %LowerRightCorner = getelementptr inbounds nuw i8, ptr %sourceRect, i64 8
   store i32 %add, ptr %LowerRightCorner, align 4, !tbaa !32
   %add17 = add nsw i32 %mul6, %4
-  %Y19 = getelementptr inbounds i8, ptr %sourceRect, i64 12
+  %Y19 = getelementptr inbounds nuw i8, ptr %sourceRect, i64 12
   store i32 %add17, ptr %Y19, align 4, !tbaa !33
-  %Texture = getelementptr inbounds i8, ptr %this, i64 16
+  %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %Texture, align 8, !tbaa !17
-  %UseAlphaChannel = getelementptr inbounds i8, ptr %this, i64 40
+  %UseAlphaChannel = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i8, ptr %UseAlphaChannel, align 8, !tbaa !25, !range !34, !noundef !35
   %tobool21 = icmp ne i8 %6, 0
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 384
   %7 = load ptr, ptr %vfn, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(8) %destPos, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef %clip, i32 -1, i1 noundef zeroext %tobool21) #7
   br label %cleanup
@@ -559,7 +559,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK3irr3gui13CGUIImageList13getImageCountEv(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %ImageCount = getelementptr inbounds i8, ptr %this, i64 24
+  %ImageCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %ImageCount, align 8, !tbaa !24
   ret i32 %0
 }
@@ -567,7 +567,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr i64 @_ZNK3irr3gui13CGUIImageList12getImageSizeEv(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %ImageSize = getelementptr inbounds i8, ptr %this, i64 28
+  %ImageSize = getelementptr inbounds nuw i8, ptr %this, i64 28
   %retval.sroa.0.0.copyload = load i64, ptr %ImageSize, align 4, !tbaa.struct !18
   ret i64 %retval.sroa.0.0.copyload
 }

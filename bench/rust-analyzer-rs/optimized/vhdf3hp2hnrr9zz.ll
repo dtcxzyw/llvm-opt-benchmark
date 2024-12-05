@@ -5,13 +5,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17h6dadc3e95491b8cbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 %8
   %12 = icmp eq i64 %6, %8
@@ -20,7 +20,7 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8035733a1f01a897E.exit.lr.ph": ; preds = %2
   %13 = getelementptr inbounds i8, ptr %10, i64 %6
   %.promoted = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !5, !nonnull !4, !noundef !4
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8035733a1f01a897E.exit"
 
@@ -37,8 +37,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
   ret i1 %17
 
 18:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8035733a1f01a897E.exit"
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 1
-  %20 = getelementptr inbounds i8, ptr %16, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %20, ptr %1, align 8, !alias.scope !5
   %21 = load i8, ptr %16, align 1, !noalias !14, !noundef !4
   store i8 %21, ptr %.sroa.0.013, align 1
@@ -51,13 +51,13 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$4fill17he32ffb1e58894342E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %10, i64 %8
   %12 = icmp eq i64 %6, %8
@@ -65,9 +65,9 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8035733a1f01a897E.exit.lr.ph": ; preds = %2
   %13 = getelementptr inbounds i8, ptr %10, i64 %6
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8, !alias.scope !15, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load ptr, ptr %16, align 8, !alias.scope !15
   br label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8035733a1f01a897E.exit"
 
@@ -83,8 +83,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
   ret i1 %18
 
 19:                                               ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8035733a1f01a897E.exit"
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 1
-  %21 = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %16, align 8, !alias.scope !15
   %22 = load i8, ptr %17, align 1, !noalias !15, !noundef !4
   store i8 %22, ptr %.sroa.0.013, align 1
@@ -97,11 +97,11 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..ve
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drain$LT$T$C$A$GT$$GT$9move_tail17hb8583f5361959997E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = add i64 %8, %6
   %10 = load i64, ptr %4, align 8, !noundef !4
@@ -111,7 +111,7 @@ define hidden void @"_ZN5alloc3vec6splice55_$LT$impl$u20$alloc..vec..drain..Drai
 
 13:                                               ; preds = %19, %2
   %14 = add i64 %6, %1
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %17 = getelementptr inbounds i8, ptr %16, i64 %6
   %18 = getelementptr inbounds i8, ptr %16, i64 %14

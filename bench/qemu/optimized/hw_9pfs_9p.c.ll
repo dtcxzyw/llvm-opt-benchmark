@@ -299,7 +299,7 @@ if.end.i:                                         ; preds = %entry
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end.i ]
   %arrayidx.i = getelementptr [0 x %struct.V9fsPath], ptr %0, i64 0, i64 %i.07.i
-  %data.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %data.i.i, align 8
   tail call void @g_free(ptr noundef %2) #24
   store ptr null, ptr %data.i.i, align 8
@@ -318,7 +318,7 @@ p9array_auto_free_V9fsPath.exit:                  ; preds = %entry, %for.end.i
   %add = or disjoint i64 %mul, 8
   %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #25
   store i64 %len, ptr %call, align 8
-  %first = getelementptr inbounds i8, ptr %call, i64 8
+  %first = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %first, ptr %auto_var, align 8
   ret void
 }
@@ -339,7 +339,7 @@ if.end:                                           ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.body
   %i.07 = phi i64 [ %inc, %for.body ], [ 0, %if.end ]
   %arrayidx = getelementptr [0 x %struct.V9fsPath], ptr %0, i64 0, i64 %i.07
-  %data.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %2) #24
   store ptr null, ptr %data.i, align 8
@@ -363,7 +363,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_path_free(ptr nocapture noundef initializes((0, 2)) %path) local_unnamed_addr #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %path, i64 8
   %0 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %0) #24
   store ptr null, ptr %data, align 8
@@ -377,11 +377,11 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @cred_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %credp) local_unnamed_addr #3 {
 entry:
   store i32 -1, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid = getelementptr inbounds nuw i8, ptr %credp, i64 4
   store i32 -1, ptr %fc_gid, align 4
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   store i32 -1, ptr %fc_mode, align 8
-  %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
+  %fc_rdev = getelementptr inbounds nuw i8, ptr %credp, i64 16
   store i64 -1, ptr %fc_rdev, align 8
   ret void
 }
@@ -389,7 +389,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @v9fs_path_init(ptr nocapture noundef writeonly initializes((0, 2), (8, 16)) %path) local_unnamed_addr #3 {
 entry:
-  %data = getelementptr inbounds i8, ptr %path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %path, i64 8
   store ptr null, ptr %data, align 8
   store i16 0, ptr %path, align 8
   ret void
@@ -399,7 +399,7 @@ entry:
 define dso_local void @v9fs_path_sprintf(ptr noundef initializes((0, 2)) %path, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %data.i = getelementptr inbounds i8, ptr %path, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %path, i64 8
   %0 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %0) #24
   store ptr null, ptr %data.i, align 8
@@ -418,14 +418,14 @@ declare i32 @g_vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_path_copy(ptr nocapture noundef initializes((0, 2)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
-  %data.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %0 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %0) #24
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %dst, align 8
   %1 = load i16, ptr %src, align 8
   store i16 %1, ptr %dst, align 8
-  %data = getelementptr inbounds i8, ptr %src, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load ptr, ptr %data, align 8
   %conv = zext i16 %1 to i32
   %call = tail call ptr @g_memdup(ptr noundef %2, i32 noundef %conv) #26
@@ -439,11 +439,11 @@ declare ptr @g_memdup(ptr noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @v9fs_name_to_path(ptr noundef %s, ptr noundef %dirpath, ptr noundef %name, ptr noundef %path) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds i8, ptr %s, i64 24
+  %ops = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %ops, align 8
-  %name_to_path = getelementptr inbounds i8, ptr %0, i64 272
+  %name_to_path = getelementptr inbounds nuw i8, ptr %0, i64 272
   %1 = load ptr, ptr %name_to_path, align 8
-  %ctx = getelementptr inbounds i8, ptr %s, i64 32
+  %ctx = getelementptr inbounds nuw i8, ptr %s, i64 32
   %call = tail call i32 %1(ptr noundef nonnull %ctx, ptr noundef %dirpath, ptr noundef %name, ptr noundef %path) #24
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -468,9 +468,9 @@ entry:
   %f = alloca ptr, align 8
   %iter = alloca %struct._GHashTableIter, align 8
   %fid = alloca ptr, align 8
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %fids = getelementptr inbounds i8, ptr %0, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %fids, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #24
   br label %while.cond.outer
@@ -484,13 +484,13 @@ while.cond.outer:                                 ; preds = %if.end43, %entry
 
 while.body:                                       ; preds = %while.cond.outer, %while.cond.backedge
   %2 = load ptr, ptr %f, align 8
-  %ref = getelementptr inbounds i8, ptr %2, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %2, i64 260
   %3 = load i32, ptr %ref, align 4
   %tobool2.not = icmp eq i32 %3, 0
   br i1 %tobool2.not, label %lor.lhs.false, label %while.cond.backedge
 
 lor.lhs.false:                                    ; preds = %while.body
-  %flags = getelementptr inbounds i8, ptr %2, i64 248
+  %flags = getelementptr inbounds nuw i8, ptr %2, i64 248
   %4 = load i32, ptr %flags, align 8
   %and = and i32 %4, 2
   %tobool3.not = icmp eq i32 %and, 0
@@ -512,7 +512,7 @@ if.then7:                                         ; preds = %if.end
   br label %while.cond.backedge
 
 if.end10:                                         ; preds = %if.end
-  %ref.le = getelementptr inbounds i8, ptr %2, i64 260
+  %ref.le = getelementptr inbounds nuw i8, ptr %2, i64 260
   %5 = load i32, ptr %2, align 8
   switch i32 %5, label %if.end43 [
     i32 1, label %if.then11
@@ -520,32 +520,32 @@ if.end10:                                         ; preds = %if.end
   ]
 
 if.then11:                                        ; preds = %if.end10
-  %fs = getelementptr inbounds i8, ptr %2, i64 24
+  %fs = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %fs, align 8
   %cmp12.not = icmp eq i32 %6, -1
   br i1 %cmp12.not, label %if.end43, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
   store i32 1, ptr %ref.le, align 4
-  %reclaim_next = getelementptr inbounds i8, ptr %2, i64 280
+  %reclaim_next = getelementptr inbounds nuw i8, ptr %2, i64 280
   store ptr %reclaim_list.sroa.0.0.ph, ptr %reclaim_next, align 8
-  %fs_reclaim = getelementptr inbounds i8, ptr %2, i64 136
+  %fs_reclaim = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %6, ptr %fs_reclaim, align 8
   store i32 -1, ptr %fs, align 8
   %inc18 = add i32 %reclaim_count.0.ph, 1
   br label %if.end43
 
 if.then22:                                        ; preds = %if.end10
-  %fs23 = getelementptr inbounds i8, ptr %2, i64 24
+  %fs23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %fs23, align 8
   %cmp24.not = icmp eq ptr %7, null
   br i1 %cmp24.not, label %if.end43, label %if.then25
 
 if.then25:                                        ; preds = %if.then22
   store i32 1, ptr %ref.le, align 4
-  %reclaim_next30 = getelementptr inbounds i8, ptr %2, i64 280
+  %reclaim_next30 = getelementptr inbounds nuw i8, ptr %2, i64 280
   store ptr %reclaim_list.sroa.0.0.ph, ptr %reclaim_next30, align 8
-  %fs_reclaim36 = getelementptr inbounds i8, ptr %2, i64 136
+  %fs_reclaim36 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr %7, ptr %fs_reclaim36, align 8
   store ptr null, ptr %fs23, align 8
   %inc40 = add i32 %reclaim_count.0.ph, 1
@@ -566,7 +566,7 @@ while.end:                                        ; preds = %if.end43, %while.co
 while.body50:                                     ; preds = %while.end, %put_fid.exit
   %reclaim_list.sroa.0.326 = phi ptr [ %9, %put_fid.exit ], [ %reclaim_list.sroa.0.1, %while.end ]
   store ptr %reclaim_list.sroa.0.326, ptr %f, align 8
-  %reclaim_next58 = getelementptr inbounds i8, ptr %reclaim_list.sroa.0.326, i64 280
+  %reclaim_next58 = getelementptr inbounds nuw i8, ptr %reclaim_list.sroa.0.326, i64 280
   %9 = load ptr, ptr %reclaim_next58, align 8
   store ptr null, ptr %reclaim_next58, align 8
   %10 = load i32, ptr %reclaim_list.sroa.0.326, align 8
@@ -576,18 +576,18 @@ while.body50:                                     ; preds = %while.end, %put_fid
   ]
 
 if.then86:                                        ; preds = %while.body50
-  %fs_reclaim87 = getelementptr inbounds i8, ptr %reclaim_list.sroa.0.326, i64 136
+  %fs_reclaim87 = getelementptr inbounds nuw i8, ptr %reclaim_list.sroa.0.326, i64 136
   %call88 = call i32 @v9fs_co_close(ptr noundef %pdu, ptr noundef nonnull %fs_reclaim87) #24
   br label %if.end96
 
 if.then92:                                        ; preds = %while.body50
-  %fs_reclaim93 = getelementptr inbounds i8, ptr %reclaim_list.sroa.0.326, i64 136
+  %fs_reclaim93 = getelementptr inbounds nuw i8, ptr %reclaim_list.sroa.0.326, i64 136
   %call94 = call i32 @v9fs_co_closedir(ptr noundef %pdu, ptr noundef nonnull %fs_reclaim93) #24
   br label %if.end96
 
 if.end96:                                         ; preds = %while.body50, %if.then92, %if.then86
   %11 = load ptr, ptr %f, align 8
-  %ref.i = getelementptr inbounds i8, ptr %11, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %11, i64 260
   %12 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -603,22 +603,22 @@ if.end.i:                                         ; preds = %if.end96
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %put_fid.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %11, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %11, i64 264
   %13 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %13 to i1
   br i1 %tobool4.i, label %if.then5.i, label %put_fid.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %11, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %fid.i, align 4
   %15 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %15, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %15, i64 7360
   %16 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %14, %16
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %15, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %15, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -648,7 +648,7 @@ declare i32 @v9fs_co_closedir(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @put_fid(ptr noundef %pdu, ptr noundef %fidp) #0 {
 entry:
-  %ref = getelementptr inbounds i8, ptr %fidp, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %fidp, i64 260
   %0 = load i32, ptr %ref, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -664,23 +664,23 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %clunked = getelementptr inbounds i8, ptr %fidp, i64 264
+  %clunked = getelementptr inbounds nuw i8, ptr %fidp, i64 264
   %1 = load i8, ptr %clunked, align 8
   %tobool4 = trunc i8 %1 to i1
   br i1 %tobool4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %land.lhs.true
-  %fid = getelementptr inbounds i8, ptr %fidp, i64 4
+  %fid = getelementptr inbounds nuw i8, ptr %fidp, i64 4
   %2 = load i32, ptr %fid, align 4
-  %s = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %3 = load ptr, ptr %s, align 8
-  %root_fid = getelementptr inbounds i8, ptr %3, i64 7360
+  %root_fid = getelementptr inbounds nuw i8, ptr %3, i64 7360
   %4 = load i32, ptr %root_fid, align 8
   %cmp = icmp eq i32 %2, %4
   br i1 %cmp, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then5
-  %migration_blocker = getelementptr inbounds i8, ptr %3, i64 7368
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %3, i64 7368
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #24
   br label %if.end8
 
@@ -701,24 +701,24 @@ entry:
   br i1 %cmp, label %if.end38, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %0, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %next, align 8
   %cmp3.not = icmp eq ptr %1, null
-  %le_prev13.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %le_prev13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre18 = load ptr, ptr %le_prev13.phi.trans.insert, align 8
   br i1 %cmp3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %le_prev9 = getelementptr inbounds i8, ptr %1, i64 40
+  %le_prev9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %.pre18, ptr %le_prev9, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then4
   %2 = phi ptr [ %.pre, %if.then4 ], [ null, %if.then ]
-  %le_prev13 = getelementptr inbounds i8, ptr %0, i64 40
+  %le_prev13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %.pre18, align 8
-  %active_list = getelementptr inbounds i8, ptr %s, i64 8
+  %active_list = getelementptr inbounds nuw i8, ptr %s, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %active_list, align 8
   store ptr %3, ptr %next, align 8
@@ -726,7 +726,7 @@ if.end:                                           ; preds = %if.then, %if.then4
   br i1 %cmp22.not, label %if.end30, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %le_prev29 = getelementptr inbounds i8, ptr %3, i64 40
+  %le_prev29 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %next, ptr %le_prev29, align 8
   br label %if.end30
 
@@ -742,9 +742,9 @@ if.end38:                                         ; preds = %if.end30, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pdu_free(ptr noundef %pdu) local_unnamed_addr #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %cancelled = getelementptr inbounds i8, ptr %pdu, i64 7
+  %cancelled = getelementptr inbounds nuw i8, ptr %pdu, i64 7
   %1 = load i8, ptr %cancelled, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %do.body2, label %if.else
@@ -754,15 +754,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.body2:                                         ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %pdu, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %pdu, i64 32
   %2 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %2, null
-  %le_prev13.phi.trans.insert = getelementptr inbounds i8, ptr %pdu, i64 40
+  %le_prev13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %pdu, i64 40
   %.pre16 = load ptr, ptr %le_prev13.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %do.body2
-  %le_prev8 = getelementptr inbounds i8, ptr %2, i64 40
+  %le_prev8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.pre16, ptr %le_prev8, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %if.end9
@@ -777,12 +777,12 @@ if.end9:                                          ; preds = %do.body2, %if.then3
   br i1 %cmp22.not, label %if.end30, label %if.then23
 
 if.then23:                                        ; preds = %if.end9
-  %le_prev29 = getelementptr inbounds i8, ptr %4, i64 40
+  %le_prev29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %next, ptr %le_prev29, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then23, %if.end9
-  %le_prev13 = getelementptr inbounds i8, ptr %pdu, i64 40
+  %le_prev13 = getelementptr inbounds nuw i8, ptr %pdu, i64 40
   store ptr %pdu, ptr %0, align 8
   store ptr %0, ptr %le_prev13, align 8
   ret void
@@ -803,17 +803,17 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pdu_submit(ptr noundef initializes((0, 7)) %pdu, ptr nocapture noundef readonly %hdr) local_unnamed_addr #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %1 = load i32, ptr %hdr, align 1
   store i32 %1, ptr %pdu, align 8
-  %id = getelementptr inbounds i8, ptr %hdr, i64 4
+  %id = getelementptr inbounds nuw i8, ptr %hdr, i64 4
   %2 = load i8, ptr %id, align 1
-  %id2 = getelementptr inbounds i8, ptr %pdu, i64 6
+  %id2 = getelementptr inbounds nuw i8, ptr %pdu, i64 6
   store i8 %2, ptr %id2, align 2
-  %tag_le = getelementptr inbounds i8, ptr %hdr, i64 5
+  %tag_le = getelementptr inbounds nuw i8, ptr %hdr, i64 5
   %3 = load i16, ptr %tag_le, align 1
-  %tag = getelementptr inbounds i8, ptr %pdu, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %pdu, i64 4
   store i16 %3, ptr %tag, align 4
   %cmp = icmp ugt i8 %2, 126
   br i1 %cmp, label %if.end17, label %lor.lhs.false
@@ -859,7 +859,7 @@ is_read_only_op.exit.thread:                      ; preds = %land.lhs.true, %lan
 
 if.end17:                                         ; preds = %if.else, %is_read_only_op.exit.thread, %land.lhs.true, %entry, %lor.lhs.false
   %handler.0 = phi ptr [ @v9fs_op_not_supp, %lor.lhs.false ], [ @v9fs_op_not_supp, %entry ], [ @v9fs_fs_ro, %land.lhs.true ], [ %4, %is_read_only_op.exit.thread ], [ %4, %if.else ]
-  %complete = getelementptr inbounds i8, ptr %pdu, i64 8
+  %complete = getelementptr inbounds nuw i8, ptr %pdu, i64 8
   tail call void @qemu_co_queue_init(ptr noundef nonnull %complete) #24
   %call18 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull %handler.0, ptr noundef nonnull %pdu) #24
   tail call void @qemu_coroutine_enter(ptr noundef %call18) #24
@@ -893,13 +893,13 @@ entry:
   %stat = alloca %struct.stat, align 8
   %path = alloca %struct.V9fsPath, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %transport = getelementptr inbounds i8, ptr %s, i64 7280
+  %transport = getelementptr inbounds nuw i8, ptr %s, i64 7280
   %0 = load ptr, ptr %transport, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end5, label %if.else
@@ -910,8 +910,8 @@ if.else:                                          ; preds = %entry
 
 if.end5:                                          ; preds = %entry
   store ptr %t, ptr %transport, align 8
-  %pdus = getelementptr inbounds i8, ptr %s, i64 112
-  %1 = getelementptr inbounds i8, ptr %s, i64 8
+  %pdus = getelementptr inbounds nuw i8, ptr %s, i64 112
+  %1 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i64 0, ptr %1, align 8
   br label %do.body15
 
@@ -923,23 +923,23 @@ do.body15:                                        ; preds = %do.body15thread-pre
   %2 = phi ptr [ %.pr, %do.body15thread-pre-split ], [ null, %if.end5 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %do.body15thread-pre-split ], [ 0, %if.end5 ]
   %arrayidx = getelementptr [128 x %struct.V9fsPDU], ptr %pdus, i64 0, i64 %indvars.iv
-  %next = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   store ptr %2, ptr %next, align 8
   %cmp18.not = icmp eq ptr %2, null
   br i1 %cmp18.not, label %if.end28, label %if.then19
 
 if.then19:                                        ; preds = %do.body15
-  %le_prev = getelementptr inbounds i8, ptr %2, i64 40
+  %le_prev = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %next, ptr %le_prev, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then19, %do.body15
   store ptr %arrayidx, ptr %s, align 8
-  %le_prev40 = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %le_prev40 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   store ptr %s, ptr %le_prev40, align 8
-  %s46 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %s46 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   store ptr %s, ptr %s46, align 8
-  %idx = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %3, ptr %idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -947,11 +947,11 @@ if.end28:                                         ; preds = %if.then19, %do.body
   br i1 %exitcond.not, label %for.end, label %do.body15thread-pre-split, !llvm.loop !9
 
 for.end:                                          ; preds = %if.end28
-  %data.i = getelementptr inbounds i8, ptr %path, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %path, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %path, align 8
-  %fsconf = getelementptr inbounds i8, ptr %s, i64 7376
-  %fsdev_id = getelementptr inbounds i8, ptr %s, i64 7384
+  %fsconf = getelementptr inbounds nuw i8, ptr %s, i64 7376
+  %fsdev_id = getelementptr inbounds nuw i8, ptr %s, i64 7384
   %4 = load ptr, ptr %fsdev_id, align 8
   %call = tail call ptr @get_fsdev_fsentry(ptr noundef %4) #24
   %tobool50.not = icmp eq ptr %call, null
@@ -975,17 +975,17 @@ if.then60:                                        ; preds = %if.end57
   br label %if.then125
 
 if.end63:                                         ; preds = %if.end57
-  %export_flags = getelementptr inbounds i8, ptr %call, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %call, i64 16
   %8 = load i32, ptr %export_flags, align 8
-  %ctx = getelementptr inbounds i8, ptr %s, i64 32
-  %export_flags64 = getelementptr inbounds i8, ptr %s, i64 48
+  %ctx = getelementptr inbounds nuw i8, ptr %s, i64 32
+  %export_flags64 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i32 %8, ptr %export_flags64, align 8
-  %path65 = getelementptr inbounds i8, ptr %call, i64 8
+  %path65 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %9 = load ptr, ptr %path65, align 8
   %call66 = tail call noalias ptr @g_strdup(ptr noundef %9) #24
-  %fs_root = getelementptr inbounds i8, ptr %s, i64 40
+  %fs_root = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %call66, ptr %fs_root, align 8
-  %exops = getelementptr inbounds i8, ptr %s, i64 64
+  %exops = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr null, ptr %exops, align 8
   %10 = load ptr, ptr %fsconf, align 8
   %call71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #29
@@ -999,28 +999,28 @@ if.then74:                                        ; preds = %if.end63
 
 if.end77:                                         ; preds = %if.end63
   %call80 = tail call noalias ptr @g_strdup(ptr noundef %10) #24
-  %tag81 = getelementptr inbounds i8, ptr %s, i64 96
+  %tag81 = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr %call80, ptr %tag81, align 8
   store i32 -1, ptr %ctx, align 8
-  %ops = getelementptr inbounds i8, ptr %call, i64 24
+  %ops = getelementptr inbounds nuw i8, ptr %call, i64 24
   %11 = load ptr, ptr %ops, align 8
-  %ops83 = getelementptr inbounds i8, ptr %s, i64 24
+  %ops83 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %11, ptr %ops83, align 8
-  %fmode = getelementptr inbounds i8, ptr %call, i64 616
+  %fmode = getelementptr inbounds nuw i8, ptr %call, i64 616
   %12 = load i32, ptr %fmode, align 8
-  %fmode85 = getelementptr inbounds i8, ptr %s, i64 88
+  %fmode85 = getelementptr inbounds nuw i8, ptr %s, i64 88
   store i32 %12, ptr %fmode85, align 8
-  %dmode = getelementptr inbounds i8, ptr %call, i64 620
+  %dmode = getelementptr inbounds nuw i8, ptr %call, i64 620
   %13 = load i32, ptr %dmode, align 4
-  %dmode87 = getelementptr inbounds i8, ptr %s, i64 92
+  %dmode87 = getelementptr inbounds nuw i8, ptr %s, i64 92
   store i32 %13, ptr %dmode87, align 4
   %call88 = tail call ptr @g_hash_table_new(ptr noundef null, ptr noundef null) #24
-  %fids = getelementptr inbounds i8, ptr %s, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %call88, ptr %fids, align 8
-  %rename_lock = getelementptr inbounds i8, ptr %s, i64 7288
+  %rename_lock = getelementptr inbounds nuw i8, ptr %s, i64 7288
   tail call void @qemu_co_rwlock_init(ptr noundef nonnull %rename_lock) #24
   %14 = load ptr, ptr %ops83, align 8
-  %init = getelementptr inbounds i8, ptr %14, i64 8
+  %init = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %init, align 8
   %call91 = call i32 %15(ptr noundef nonnull %ctx, ptr noundef %spec.select) #24
   %cmp92 = icmp slt i32 %call91, 0
@@ -1033,7 +1033,7 @@ if.then94:                                        ; preds = %if.end77
 
 if.end97:                                         ; preds = %if.end77
   %17 = load ptr, ptr %ops83, align 8
-  %name_to_path = getelementptr inbounds i8, ptr %17, i64 272
+  %name_to_path = getelementptr inbounds nuw i8, ptr %17, i64 272
   %18 = load ptr, ptr %name_to_path, align 8
   %call100 = call i32 %18(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull %path) #24
   %cmp101 = icmp slt i32 %call100, 0
@@ -1048,7 +1048,7 @@ if.then103:                                       ; preds = %if.end97
 
 if.end106:                                        ; preds = %if.end97
   %20 = load ptr, ptr %ops83, align 8
-  %lstat = getelementptr inbounds i8, ptr %20, i64 24
+  %lstat = getelementptr inbounds nuw i8, ptr %20, i64 24
   %21 = load ptr, ptr %lstat, align 8
   %call109 = call i32 %21(ptr noundef nonnull %ctx, ptr noundef nonnull %path, ptr noundef nonnull %stat) #24
   %tobool110.not = icmp eq i32 %call109, 0
@@ -1060,7 +1060,7 @@ if.then111:                                       ; preds = %if.end106
   br label %if.then125
 
 if.else113:                                       ; preds = %if.end106
-  %st_mode = getelementptr inbounds i8, ptr %stat, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stat, i64 24
   %23 = load i32, ptr %st_mode, align 8
   %and = and i32 %23, 61440
   %cmp114 = icmp eq i32 %and, 16384
@@ -1073,22 +1073,22 @@ if.then116:                                       ; preds = %if.else113
 
 out:                                              ; preds = %if.else113
   %25 = load i64, ptr %stat, align 8
-  %dev_id = getelementptr inbounds i8, ptr %s, i64 7536
+  %dev_id = getelementptr inbounds nuw i8, ptr %s, i64 7536
   store i64 %25, ptr %dev_id, align 8
-  %qpd_table = getelementptr inbounds i8, ptr %s, i64 7544
+  %qpd_table = getelementptr inbounds nuw i8, ptr %s, i64 7544
   call void @qht_init(ptr noundef nonnull %qpd_table, ptr noundef nonnull @qpd_cmp_func, i64 noundef 1, i32 noundef 1) #24
-  %qpf_table = getelementptr inbounds i8, ptr %s, i64 7688
+  %qpf_table = getelementptr inbounds nuw i8, ptr %s, i64 7688
   call void @qht_init(ptr noundef nonnull %qpf_table, ptr noundef nonnull @qpf_cmp_func, i64 noundef 65536, i32 noundef 1) #24
-  %qpp_table = getelementptr inbounds i8, ptr %s, i64 7616
+  %qpp_table = getelementptr inbounds nuw i8, ptr %s, i64 7616
   call void @qht_init(ptr noundef nonnull %qpp_table, ptr noundef nonnull @qpp_cmp_func, i64 noundef 1, i32 noundef 1) #24
-  %qp_ndevices = getelementptr inbounds i8, ptr %s, i64 7760
+  %qp_ndevices = getelementptr inbounds nuw i8, ptr %s, i64 7760
   store i64 0, ptr %qp_ndevices, align 8
-  %qp_affix_next = getelementptr inbounds i8, ptr %s, i64 7768
+  %qp_affix_next = getelementptr inbounds nuw i8, ptr %s, i64 7768
   store i16 1, ptr %qp_affix_next, align 8
-  %qp_fullpath_next = getelementptr inbounds i8, ptr %s, i64 7776
+  %qp_fullpath_next = getelementptr inbounds nuw i8, ptr %s, i64 7776
   store i64 1, ptr %qp_fullpath_next, align 8
-  %fst = getelementptr inbounds i8, ptr %call, i64 32
-  %fst121 = getelementptr inbounds i8, ptr %s, i64 72
+  %fst = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %fst121 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store ptr %fst, ptr %fst121, align 8
   call void @fsdev_throttle_init(ptr noundef nonnull %fst) #24
   br label %if.end126
@@ -1135,24 +1135,24 @@ declare void @fsdev_throttle_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @v9fs_device_unrealize_common(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds i8, ptr %s, i64 24
+  %ops = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %cleanup = getelementptr inbounds i8, ptr %0, i64 16
+  %cleanup = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %cleanup, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ctx = getelementptr inbounds i8, ptr %s, i64 32
+  %ctx = getelementptr inbounds nuw i8, ptr %s, i64 32
   tail call void %1(ptr noundef nonnull %ctx) #24
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %fst = getelementptr inbounds i8, ptr %s, i64 72
+  %fst = getelementptr inbounds nuw i8, ptr %s, i64 72
   %2 = load ptr, ptr %fst, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -1162,7 +1162,7 @@ if.then7:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.end
-  %fids = getelementptr inbounds i8, ptr %s, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %s, i64 16
   %3 = load ptr, ptr %fids, align 8
   %tobool11.not = icmp eq ptr %3, null
   br i1 %tobool11.not, label %if.end15, label %if.then12
@@ -1173,10 +1173,10 @@ if.then12:                                        ; preds = %if.end10
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.end10
-  %tag = getelementptr inbounds i8, ptr %s, i64 96
+  %tag = getelementptr inbounds nuw i8, ptr %s, i64 96
   %4 = load ptr, ptr %tag, align 8
   tail call void @g_free(ptr noundef %4) #24
-  %qpd_table = getelementptr inbounds i8, ptr %s, i64 7544
+  %qpd_table = getelementptr inbounds nuw i8, ptr %s, i64 7544
   %5 = load ptr, ptr %qpd_table, align 8
   %tobool1.not.i = icmp eq ptr %5, null
   br i1 %tobool1.not.i, label %qp_table_destroy.exit, label %if.end.i
@@ -1187,7 +1187,7 @@ if.end.i:                                         ; preds = %if.end15
   br label %qp_table_destroy.exit
 
 qp_table_destroy.exit:                            ; preds = %if.end15, %if.end.i
-  %qpp_table = getelementptr inbounds i8, ptr %s, i64 7616
+  %qpp_table = getelementptr inbounds nuw i8, ptr %s, i64 7616
   %6 = load ptr, ptr %qpp_table, align 8
   %tobool1.not.i17 = icmp eq ptr %6, null
   br i1 %tobool1.not.i17, label %qp_table_destroy.exit19, label %if.end.i18
@@ -1198,7 +1198,7 @@ if.end.i18:                                       ; preds = %qp_table_destroy.ex
   br label %qp_table_destroy.exit19
 
 qp_table_destroy.exit19:                          ; preds = %qp_table_destroy.exit, %if.end.i18
-  %qpf_table = getelementptr inbounds i8, ptr %s, i64 7688
+  %qpf_table = getelementptr inbounds nuw i8, ptr %s, i64 7688
   %7 = load ptr, ptr %qpf_table, align 8
   %tobool1.not.i20 = icmp eq ptr %7, null
   br i1 %tobool1.not.i20, label %qp_table_destroy.exit22, label %if.end.i21
@@ -1209,7 +1209,7 @@ if.end.i21:                                       ; preds = %qp_table_destroy.ex
   br label %qp_table_destroy.exit22
 
 qp_table_destroy.exit22:                          ; preds = %qp_table_destroy.exit19, %if.end.i21
-  %fs_root = getelementptr inbounds i8, ptr %s, i64 40
+  %fs_root = getelementptr inbounds nuw i8, ptr %s, i64 40
   %8 = load ptr, ptr %fs_root, align 8
   tail call void @g_free(ptr noundef %8) #24
   ret void
@@ -1224,9 +1224,9 @@ define dso_local void @v9fs_reset(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.VirtfsCoResetData, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data, i8 0, i64 64, i1 false)
-  %s1 = getelementptr inbounds i8, ptr %data, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %data, i64 24
   store ptr %s, ptr %s1, align 8
-  %active_list = getelementptr inbounds i8, ptr %s, i64 8
+  %active_list = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load ptr, ptr %active_list, align 8
   %cmp.not2 = icmp eq ptr %0, null
   br i1 %cmp.not2, label %while.end, label %while.body
@@ -1241,7 +1241,7 @@ while.body:                                       ; preds = %entry, %while.body
 while.end:                                        ; preds = %while.body, %entry
   %call3 = call ptr @qemu_coroutine_create(ptr noundef nonnull @virtfs_co_reset, ptr noundef nonnull %data) #24
   call void @qemu_coroutine_enter(ptr noundef %call3) #24
-  %done = getelementptr inbounds i8, ptr %data, i64 56
+  %done = getelementptr inbounds nuw i8, ptr %data, i64 56
   %2 = load i8, ptr %done, align 8
   %tobool3 = trunc i8 %2 to i1
   br i1 %tobool3, label %while.end9, label %while.body6
@@ -1265,7 +1265,7 @@ declare ptr @qemu_get_aio_context() local_unnamed_addr #2
 define internal void @virtfs_co_reset(ptr noundef %opaque) #0 {
 entry:
   tail call void @virtfs_reset(ptr noundef %opaque)
-  %done = getelementptr inbounds i8, ptr %opaque, i64 56
+  %done = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   store i8 1, ptr %done, align 8
   ret void
 }
@@ -1317,7 +1317,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %fs = getelementptr inbounds i8, ptr %fidp, i64 24
+  %fs = getelementptr inbounds nuw i8, ptr %fidp, i64 24
   %1 = load i32, ptr %fs, align 8
   %cmp2.not = icmp eq i32 %1, -1
   br i1 %cmp2.not, label %if.end21, label %if.then3
@@ -1327,7 +1327,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end21
 
 if.then7:                                         ; preds = %entry
-  %fs8 = getelementptr inbounds i8, ptr %fidp, i64 24
+  %fs8 = getelementptr inbounds nuw i8, ptr %fidp, i64 24
   %2 = load ptr, ptr %fs8, align 8
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end21, label %if.then10
@@ -1337,14 +1337,14 @@ if.then10:                                        ; preds = %if.then7
   br label %if.end21
 
 if.then17:                                        ; preds = %entry
-  %xattrwalk_fid.i = getelementptr inbounds i8, ptr %fidp, i64 68
+  %xattrwalk_fid.i = getelementptr inbounds nuw i8, ptr %fidp, i64 68
   %3 = load i8, ptr %xattrwalk_fid.i, align 4
   %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %v9fs_xattr_fid_clunk.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then17
-  %fs.i = getelementptr inbounds i8, ptr %fidp, i64 24
-  %len.i = getelementptr inbounds i8, ptr %fidp, i64 32
+  %fs.i = getelementptr inbounds nuw i8, ptr %fidp, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %fidp, i64 32
   %4 = load i64, ptr %len.i, align 8
   %5 = load i64, ptr %fs.i, align 8
   %cmp.not.i = icmp eq i64 %4, %5
@@ -1352,14 +1352,14 @@ if.end.i:                                         ; preds = %if.then17
 
 if.end5.i:                                        ; preds = %if.end.i
   %tobool8.not.i = icmp eq i64 %4, 0
-  %path15.i = getelementptr inbounds i8, ptr %fidp, i64 8
-  %name17.i = getelementptr inbounds i8, ptr %fidp, i64 48
+  %path15.i = getelementptr inbounds nuw i8, ptr %fidp, i64 8
+  %name17.i = getelementptr inbounds nuw i8, ptr %fidp, i64 48
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end5.i
-  %value.i = getelementptr inbounds i8, ptr %fidp, i64 40
+  %value.i = getelementptr inbounds nuw i8, ptr %fidp, i64 40
   %6 = load ptr, ptr %value.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %fidp, i64 64
+  %flags.i = getelementptr inbounds nuw i8, ptr %fidp, i64 64
   %7 = load i32, ptr %flags.i, align 8
   %call.i = tail call i32 @v9fs_co_lsetxattr(ptr noundef %pdu, ptr noundef nonnull %path15.i, ptr noundef nonnull %name17.i, ptr noundef %6, i64 noundef %4, i32 noundef %7) #24
   br label %free_out.i
@@ -1370,21 +1370,21 @@ if.else.i:                                        ; preds = %if.end5.i
 
 free_out.i:                                       ; preds = %if.else.i, %if.then9.i, %if.end.i
   %retval1.1.i = phi i32 [ %call.i, %if.then9.i ], [ %call18.i, %if.else.i ], [ -22, %if.end.i ]
-  %name21.i = getelementptr inbounds i8, ptr %fidp, i64 48
+  %name21.i = getelementptr inbounds nuw i8, ptr %fidp, i64 48
   tail call void @v9fs_string_free(ptr noundef nonnull %name21.i) #24
   br label %v9fs_xattr_fid_clunk.exit
 
 v9fs_xattr_fid_clunk.exit:                        ; preds = %if.then17, %free_out.i
   %retval1.0.i = phi i32 [ 0, %if.then17 ], [ %retval1.1.i, %free_out.i ]
-  %value23.i = getelementptr inbounds i8, ptr %fidp, i64 40
+  %value23.i = getelementptr inbounds nuw i8, ptr %fidp, i64 40
   %8 = load ptr, ptr %value23.i, align 8
   tail call void @g_free(ptr noundef %8) #24
   br label %if.end21
 
 if.end21:                                         ; preds = %entry, %if.then10, %if.then7, %v9fs_xattr_fid_clunk.exit, %if.then, %if.then3
   %retval1.0 = phi i32 [ %call, %if.then3 ], [ 0, %if.then ], [ %call12, %if.then10 ], [ 0, %if.then7 ], [ %retval1.0.i, %v9fs_xattr_fid_clunk.exit ], [ 0, %entry ]
-  %path = getelementptr inbounds i8, ptr %fidp, i64 8
-  %data.i = getelementptr inbounds i8, ptr %fidp, i64 16
+  %path = getelementptr inbounds nuw i8, ptr %fidp, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %fidp, i64 16
   %9 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %9) #24
   store ptr null, ptr %data.i, align 8
@@ -1396,14 +1396,14 @@ if.end21:                                         ; preds = %entry, %if.then10, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @v9fs_xattr_fid_clunk(ptr noundef %pdu, ptr noundef %fidp) #0 {
 entry:
-  %xattrwalk_fid = getelementptr inbounds i8, ptr %fidp, i64 68
+  %xattrwalk_fid = getelementptr inbounds nuw i8, ptr %fidp, i64 68
   %0 = load i8, ptr %xattrwalk_fid, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %free_value, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fs = getelementptr inbounds i8, ptr %fidp, i64 24
-  %len = getelementptr inbounds i8, ptr %fidp, i64 32
+  %fs = getelementptr inbounds nuw i8, ptr %fidp, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %fidp, i64 32
   %1 = load i64, ptr %len, align 8
   %2 = load i64, ptr %fs, align 8
   %cmp.not = icmp eq i64 %1, %2
@@ -1411,14 +1411,14 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %tobool8.not = icmp eq i64 %1, 0
-  %path15 = getelementptr inbounds i8, ptr %fidp, i64 8
-  %name17 = getelementptr inbounds i8, ptr %fidp, i64 48
+  %path15 = getelementptr inbounds nuw i8, ptr %fidp, i64 8
+  %name17 = getelementptr inbounds nuw i8, ptr %fidp, i64 48
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end5
-  %value = getelementptr inbounds i8, ptr %fidp, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %fidp, i64 40
   %3 = load ptr, ptr %value, align 8
-  %flags = getelementptr inbounds i8, ptr %fidp, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %fidp, i64 64
   %4 = load i32, ptr %flags, align 8
   %call = tail call i32 @v9fs_co_lsetxattr(ptr noundef %pdu, ptr noundef nonnull %path15, ptr noundef nonnull %name17, ptr noundef %3, i64 noundef %1, i32 noundef %4) #24
   br label %free_out
@@ -1429,13 +1429,13 @@ if.else:                                          ; preds = %if.end5
 
 free_out:                                         ; preds = %if.end, %if.then9, %if.else
   %retval1.1 = phi i32 [ %call, %if.then9 ], [ %call18, %if.else ], [ -22, %if.end ]
-  %name21 = getelementptr inbounds i8, ptr %fidp, i64 48
+  %name21 = getelementptr inbounds nuw i8, ptr %fidp, i64 48
   tail call void @v9fs_string_free(ptr noundef nonnull %name21) #24
   br label %free_value
 
 free_value:                                       ; preds = %entry, %free_out
   %retval1.0 = phi i32 [ 0, %entry ], [ %retval1.1, %free_out ]
-  %value23 = getelementptr inbounds i8, ptr %fidp, i64 40
+  %value23 = getelementptr inbounds nuw i8, ptr %fidp, i64 40
   %5 = load ptr, ptr %value23, align 8
   tail call void @g_free(ptr noundef %5) #24
   ret i32 %retval1.0
@@ -1452,7 +1452,7 @@ define internal void @v9fs_statfs(ptr noundef %opaque) #0 {
 entry:
   %fid = alloca i32, align 4
   %stbuf = alloca %struct.statfs, align 8
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.14, ptr noundef nonnull %fid)
   %cmp = icmp slt i64 %call, 0
@@ -1465,7 +1465,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %out_nofid, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %path = getelementptr inbounds i8, ptr %call2, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %call6 = call i32 @v9fs_co_statfs(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef nonnull %stbuf) #24
   %conv = sext i32 %call6 to i64
   %cmp7 = icmp slt i32 %call6, 0
@@ -1476,7 +1476,7 @@ if.end10:                                         ; preds = %if.end5
   %.val = load i32, ptr %2, align 4
   %sub.i = add i32 %.val, -24
   %conv.i = sext i32 %sub.i to i64
-  %f_bsize1.i = getelementptr inbounds i8, ptr %stbuf, i64 8
+  %f_bsize1.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
   %3 = load i64, ptr %f_bsize1.i, align 8
   %div.i = sdiv i64 %conv.i, %3
   %conv2.i = trunc i64 %div.i to i32
@@ -1485,29 +1485,29 @@ if.end10:                                         ; preds = %if.end5
   %conv4.i = trunc i64 %4 to i32
   %conv6.i = trunc i64 %3 to i32
   %mul.i = mul i32 %spec.store.select.i, %conv6.i
-  %f_blocks7.i = getelementptr inbounds i8, ptr %stbuf, i64 16
+  %f_blocks7.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 16
   %5 = load i64, ptr %f_blocks7.i, align 8
   %conv8.i = sext i32 %spec.store.select.i to i64
   %div9.i = udiv i64 %5, %conv8.i
-  %f_bfree10.i = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %f_bfree10.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %6 = load i64, ptr %f_bfree10.i, align 8
   %div12.i = udiv i64 %6, %conv8.i
-  %f_bavail13.i = getelementptr inbounds i8, ptr %stbuf, i64 32
+  %f_bavail13.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 32
   %7 = load i64, ptr %f_bavail13.i, align 8
   %div15.i = udiv i64 %7, %conv8.i
-  %f_files16.i = getelementptr inbounds i8, ptr %stbuf, i64 40
+  %f_files16.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 40
   %8 = load i64, ptr %f_files16.i, align 8
-  %f_ffree17.i = getelementptr inbounds i8, ptr %stbuf, i64 48
+  %f_ffree17.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 48
   %9 = load i64, ptr %f_ffree17.i, align 8
-  %f_fsid.i = getelementptr inbounds i8, ptr %stbuf, i64 56
+  %f_fsid.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 56
   %10 = load i32, ptr %f_fsid.i, align 8
   %conv18.i = zext i32 %10 to i64
-  %arrayidx21.i = getelementptr inbounds i8, ptr %stbuf, i64 60
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 60
   %11 = load i32, ptr %arrayidx21.i, align 4
   %conv22.i = sext i32 %11 to i64
   %shl.i = shl nsw i64 %conv22.i, 32
   %or.i = or disjoint i64 %shl.i, %conv18.i
-  %f_namelen23.i = getelementptr inbounds i8, ptr %stbuf, i64 64
+  %f_namelen23.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 64
   %12 = load i64, ptr %f_namelen23.i, align 8
   %conv24.i = trunc i64 %12 to i32
   %call.i = call i64 (ptr, i64, ptr, ...) @pdu_marshal(ptr noundef nonnull %opaque, i64 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %conv4.i, i32 noundef %mul.i, i64 noundef %div9.i, i64 noundef %div12.i, i64 noundef %div15.i, i64 noundef %8, i64 noundef %9, i64 noundef %or.i, i32 noundef %conv24.i)
@@ -1521,7 +1521,7 @@ if.end10:                                         ; preds = %if.end5
 
 out:                                              ; preds = %if.end10, %if.end5
   %retval.1 = phi i64 [ %conv, %if.end5 ], [ %spec.select, %if.end10 ]
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %14 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -1537,22 +1537,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %15 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %15 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %16 = load i32, ptr %fid.i, align 4
   %17 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %17, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %17, i64 7360
   %18 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %16, %18
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %17, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %17, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -1575,9 +1575,9 @@ entry:
   %qid = alloca %struct.V9fsQID, align 8
   %stbuf = alloca %struct.stat, align 8
   %modebyte = alloca i8, align 1
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %proto_version = getelementptr inbounds i8, ptr %0, i64 104
+  %proto_version = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load i32, ptr %proto_version, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %if.then, label %if.else
@@ -1599,9 +1599,9 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp3, label %out_nofid, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %3 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %4 = load i8, ptr %id, align 2
   %5 = load i32, ptr %fid, align 4
   %6 = load i32, ptr %mode, align 4
@@ -1628,7 +1628,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %3 to i32
   %conv12.i.i = zext i8 %4 to i32
@@ -1654,7 +1654,7 @@ if.end11:                                         ; preds = %trace_v9fs_open.exi
   br i1 %cmp12.not, label %if.end15, label %out
 
 if.end15:                                         ; preds = %if.end11
-  %path = getelementptr inbounds i8, ptr %call7, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %call16 = call i32 @v9fs_co_lstat(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef nonnull %stbuf) #24
   %conv17 = sext i32 %call16 to i64
   %cmp18 = icmp slt i32 %call16, 0
@@ -1667,7 +1667,7 @@ if.end21:                                         ; preds = %if.end15
   br i1 %cmp24, label %out, label %if.end27
 
 if.end27:                                         ; preds = %if.end21
-  %st_mode = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %15 = load i32, ptr %st_mode, align 8
   %and = and i32 %15, 61440
   %cmp28 = icmp eq i32 %and, 16384
@@ -1705,7 +1705,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.th
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %for.body.i.i
-  %open_flag.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %open_flag.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %19 = load i32, ptr %open_flag.i.i, align 4
   %or.i.i = or i32 %19, %oflags.07.i.i
   br label %for.inc.i.i
@@ -1744,14 +1744,14 @@ if.end66:                                         ; preds = %if.end52
 
 if.end72:                                         ; preds = %if.end66
   store i32 1, ptr %call7, align 8
-  %open_flags = getelementptr inbounds i8, ptr %call7, i64 252
+  %open_flags = getelementptr inbounds nuw i8, ptr %call7, i64 252
   store i32 %flags.0, ptr %open_flags, align 4
   %and74 = and i32 %flags.0, 128
   %tobool75.not = icmp eq i32 %and74, 0
   br i1 %tobool75.not, label %if.end78, label %if.then76
 
 if.then76:                                        ; preds = %if.end72
-  %flags77 = getelementptr inbounds i8, ptr %call7, i64 248
+  %flags77 = getelementptr inbounds nuw i8, ptr %call7, i64 248
   %22 = load i32, ptr %flags77, align 8
   %or = or i32 %22, 2
   store i32 %or, ptr %flags77, align 8
@@ -1770,16 +1770,16 @@ if.end87:                                         ; preds = %if.end78, %if.end36
   %23 = load i16, ptr %tag, align 4
   %24 = load i8, ptr %id, align 2
   %25 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %26 = load i32, ptr %version, align 4
-  %path90 = getelementptr inbounds i8, ptr %qid, i64 8
+  %path90 = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %27 = load i64, ptr %path90, align 8
   call fastcc void @trace_v9fs_open_return(i16 noundef zeroext %23, i8 noundef zeroext %24, i8 noundef zeroext %25, i32 noundef %26, i64 noundef %27, i32 noundef %iounit.0)
   br label %out
 
 out:                                              ; preds = %if.end52, %if.end11, %if.end78, %if.end66, %if.end36, %if.then30, %if.end21, %if.end15, %if.end87
   %err.2 = phi i64 [ %conv17, %if.end15 ], [ %conv23, %if.end21 ], [ %conv32, %if.then30 ], [ %call38, %if.end36 ], [ %err.3, %if.end87 ], [ %conv68, %if.end66 ], [ %call81, %if.end78 ], [ -22, %if.end11 ], [ -30, %if.end52 ]
-  %ref.i = getelementptr inbounds i8, ptr %call7, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call7, i64 260
   %28 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %28, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -1795,22 +1795,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call7, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call7, i64 264
   %29 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %29 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call7, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call7, i64 4
   %30 = load i32, ptr %fid.i, align 4
   %31 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %31, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %31, i64 7360
   %32 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %30, %32
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %31, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %31, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -1835,7 +1835,7 @@ entry:
   %name = alloca %struct.V9fsString, align 8
   %stbuf = alloca %struct.stat, align 8
   %qid = alloca %struct.V9fsQID, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.35, ptr noundef nonnull %dfid, ptr noundef nonnull %name, ptr noundef nonnull %flags, ptr noundef nonnull %mode, ptr noundef nonnull %gid)
@@ -1843,9 +1843,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %dfid, align 4
   %3 = load i32, ptr %flags, align 4
@@ -1874,7 +1874,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -1904,7 +1904,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end3.tail, label %if.end3.tail.thread
 
 if.end3.tail:                                     ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %tobool.not = icmp eq i8 %15, 0
   br i1 %tobool.not, label %out_nofid, label %sub_133
@@ -1915,7 +1915,7 @@ if.end3.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_133:                                          ; preds = %if.end3.tail
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 46, %20
@@ -1923,7 +1923,7 @@ sub_133:                                          ; preds = %if.end3.tail
   br i1 %.not36, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_133
-  %22 = getelementptr inbounds i8, ptr %12, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 0, %24
@@ -1960,7 +1960,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %for.body.i.i
-  %open_flag.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %open_flag.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 4
   %31 = load i32, ptr %open_flag.i.i, align 4
   %or.i.i = or i32 %31, %oflags.07.i.i
   br label %for.inc.i.i
@@ -1985,21 +1985,21 @@ get_dotl_openflags.exit:                          ; preds = %for.inc.i.i
 if.end23:                                         ; preds = %get_dotl_openflags.exit
   store i32 1, ptr %call11, align 8
   %34 = load i32, ptr %flags, align 4
-  %open_flags = getelementptr inbounds i8, ptr %call11, i64 252
+  %open_flags = getelementptr inbounds nuw i8, ptr %call11, i64 252
   store i32 %34, ptr %open_flags, align 4
   %and = and i32 %34, 128
   %tobool25.not = icmp eq i32 %and, 0
   br i1 %tobool25.not, label %if.end29, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %flags27 = getelementptr inbounds i8, ptr %call11, i64 248
+  %flags27 = getelementptr inbounds nuw i8, ptr %call11, i64 248
   %35 = load i32, ptr %flags27, align 8
   %or28 = or i32 %35, 2
   store i32 %or28, ptr %flags27, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then26, %if.end23
-  %path = getelementptr inbounds i8, ptr %call11, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call11, i64 8
   %call30 = call i32 @get_iounit(ptr noundef %opaque, ptr noundef nonnull %path)
   %call31 = call fastcc i32 @stat_to_qid(ptr noundef %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid)
   %conv32 = sext i32 %call31 to i64
@@ -2016,16 +2016,16 @@ if.end41:                                         ; preds = %if.end36
   %36 = load i16, ptr %tag, align 4
   %37 = load i8, ptr %id, align 2
   %38 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %39 = load i32, ptr %version, align 4
-  %path44 = getelementptr inbounds i8, ptr %qid, i64 8
+  %path44 = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %40 = load i64, ptr %path44, align 8
   call fastcc void @trace_v9fs_lcreate_return(i16 noundef zeroext %36, i8 noundef zeroext %37, i8 noundef zeroext %38, i32 noundef %39, i64 noundef %40, i32 noundef %call30)
   br label %out
 
 out:                                              ; preds = %if.end14, %if.end36, %if.end29, %get_dotl_openflags.exit, %if.end41
   %err.1 = phi i64 [ %conv, %get_dotl_openflags.exit ], [ %conv32, %if.end29 ], [ %call37, %if.end36 ], [ %add, %if.end41 ], [ -22, %if.end14 ]
-  %ref.i = getelementptr inbounds i8, ptr %call11, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call11, i64 260
   %41 = load i32, ptr %ref.i, align 4
   %tobool.not.i29 = icmp eq i32 %41, 0
   br i1 %tobool.not.i29, label %if.else.i, label %if.end.i
@@ -2041,23 +2041,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call11, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call11, i64 264
   %42 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %42 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call11, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call11, i64 4
   %43 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %44 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %44, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %44, i64 7360
   %45 = load i32, ptr %root_fid.i, align 8
   %cmp.i30 = icmp eq i32 %43, %45
   br i1 %cmp.i30, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %44, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %44, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -2082,10 +2082,10 @@ entry:
   %stbuf = alloca %struct.stat, align 8
   %dfid = alloca i32, align 4
   %gid = alloca i32, align 4
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
-  %data.i20 = getelementptr inbounds i8, ptr %symname, i64 8
+  %data.i20 = getelementptr inbounds nuw i8, ptr %symname, i64 8
   store ptr null, ptr %data.i20, align 8
   store i16 0, ptr %symname, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.42, ptr noundef nonnull %dfid, ptr noundef nonnull %name, ptr noundef nonnull %symname, ptr noundef nonnull %gid)
@@ -2094,9 +2094,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %dfid, align 4
   %3 = load ptr, ptr %data.i, align 8
@@ -2125,7 +2125,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -2155,7 +2155,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end6.tail, label %if.end6.tail.thread
 
 if.end6.tail:                                     ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %tobool.not = icmp eq i8 %15, 0
   br i1 %tobool.not, label %out_nofid, label %sub_125
@@ -2166,7 +2166,7 @@ if.end6.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_125:                                          ; preds = %if.end6.tail
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 46, %20
@@ -2174,7 +2174,7 @@ sub_125:                                          ; preds = %if.end6.tail
   br i1 %.not28, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_125
-  %22 = getelementptr inbounds i8, ptr %12, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 0, %24
@@ -2214,16 +2214,16 @@ if.end35:                                         ; preds = %if.end29
   %30 = load i16, ptr %tag, align 4
   %31 = load i8, ptr %id, align 2
   %32 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %33 = load i32, ptr %version, align 4
-  %path = getelementptr inbounds i8, ptr %qid, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %34 = load i64, ptr %path, align 8
   call fastcc void @trace_v9fs_symlink_return(i16 noundef zeroext %30, i8 noundef zeroext %31, i8 noundef zeroext %32, i32 noundef %33, i64 noundef %34)
   br label %out
 
 out:                                              ; preds = %if.end29, %if.end24, %if.end18, %if.end35
   %err.1 = phi i32 [ %call20, %if.end18 ], [ %call25, %if.end24 ], [ %conv31, %if.end29 ], [ %conv37, %if.end35 ]
-  %ref.i = getelementptr inbounds i8, ptr %call14, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call14, i64 260
   %35 = load i32, ptr %ref.i, align 4
   %tobool.not.i21 = icmp eq i32 %35, 0
   br i1 %tobool.not.i21, label %if.else.i, label %if.end.i
@@ -2239,23 +2239,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call14, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call14, i64 264
   %36 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %36 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call14, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call14, i64 4
   %37 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %38 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %38, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %38, i64 7360
   %39 = load i32, ptr %root_fid.i, align 8
   %cmp.i22 = icmp eq i32 %37, %39
   br i1 %cmp.i22, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %38, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %38, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -2284,7 +2284,7 @@ entry:
   %minor = alloca i32, align 4
   %name = alloca %struct.V9fsString, align 8
   %stbuf = alloca %struct.stat, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.48, ptr noundef nonnull %fid, ptr noundef nonnull %name, ptr noundef nonnull %mode, ptr noundef nonnull %major, ptr noundef nonnull %minor, ptr noundef nonnull %gid)
@@ -2293,9 +2293,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load i32, ptr %mode, align 4
@@ -2324,7 +2324,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -2354,7 +2354,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end4.tail, label %if.end4.tail.thread
 
 if.end4.tail:                                     ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %tobool.not = icmp eq i8 %15, 0
   br i1 %tobool.not, label %out_nofid, label %sub_125
@@ -2365,7 +2365,7 @@ if.end4.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_125:                                          ; preds = %if.end4.tail
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 46, %20
@@ -2373,7 +2373,7 @@ sub_125:                                          ; preds = %if.end4.tail
   br i1 %.not28, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_125
-  %22 = getelementptr inbounds i8, ptr %12, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 0, %24
@@ -2391,7 +2391,7 @@ if.end11:                                         ; preds = %lor.lhs.false.tail
   br i1 %cmp13, label %out_nofid, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %uid = getelementptr inbounds i8, ptr %call12, i64 256
+  %uid = getelementptr inbounds nuw i8, ptr %call12, i64 256
   %28 = load i32, ptr %uid, align 8
   %29 = load i32, ptr %gid, align 4
   %30 = load i32, ptr %major, align 4
@@ -2418,16 +2418,16 @@ if.end33:                                         ; preds = %if.end27
   %33 = load i16, ptr %tag, align 4
   %34 = load i8, ptr %id, align 2
   %35 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %36 = load i32, ptr %version, align 4
-  %path = getelementptr inbounds i8, ptr %qid, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %37 = load i64, ptr %path, align 8
   call fastcc void @trace_v9fs_mknod_return(i16 noundef zeroext %33, i8 noundef zeroext %34, i8 noundef zeroext %35, i32 noundef %36, i64 noundef %37)
   br label %out
 
 out:                                              ; preds = %if.end27, %if.end22, %if.end16, %if.end33
   %err.1 = phi i32 [ %call18, %if.end16 ], [ %call23, %if.end22 ], [ %conv29, %if.end27 ], [ %conv35, %if.end33 ]
-  %ref.i = getelementptr inbounds i8, ptr %call12, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call12, i64 260
   %38 = load i32, ptr %ref.i, align 4
   %tobool.not.i21 = icmp eq i32 %38, 0
   br i1 %tobool.not.i21, label %if.else.i, label %if.end.i
@@ -2443,23 +2443,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call12, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call12, i64 264
   %39 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %39 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call12, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call12, i64 4
   %40 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %41 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %41, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %41, i64 7360
   %42 = load i32, ptr %root_fid.i, align 8
   %cmp.i22 = icmp eq i32 %40, %42
   br i1 %cmp.i22, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %41, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %41, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -2481,9 +2481,9 @@ entry:
   %fid = alloca i32, align 4
   %name = alloca %struct.V9fsString, align 8
   %newdirfid = alloca i32, align 4
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.53, ptr noundef nonnull %fid, ptr noundef nonnull %newdirfid, ptr noundef nonnull %name)
@@ -2506,7 +2506,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end4.tail, label %if.end4.tail.thread
 
 if.end4.tail:                                     ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %out_nofid, label %sub_124
@@ -2517,7 +2517,7 @@ if.end4.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_124:                                          ; preds = %if.end4.tail
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = sub nsw i32 46, %9
@@ -2525,7 +2525,7 @@ sub_124:                                          ; preds = %if.end4.tail
   br i1 %.not27, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_124
-  %11 = getelementptr inbounds i8, ptr %1, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = sub nsw i32 0, %13
@@ -2549,21 +2549,21 @@ if.end15:                                         ; preds = %if.end11
 
 if.end18:                                         ; preds = %if.end15
   %18 = load ptr, ptr %s1, align 8
-  %export_flags = getelementptr inbounds i8, ptr %18, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %18, i64 48
   %19 = load i32, ptr %export_flags, align 8
   %and = and i32 %19, 2
   %tobool20.not = icmp eq i32 %and, 0
   br i1 %tobool20.not, label %out, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %20, 2
   %tobool.not.i14 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i14, label %v9fs_path_write_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end22
-  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i) #24
   br label %v9fs_path_write_lock.exit
 
@@ -2576,7 +2576,7 @@ v9fs_path_write_lock.exit:                        ; preds = %if.end22, %if.then.
   br i1 %tobool.not.i17, label %v9fs_path_unlock.exit, label %if.then.i18
 
 if.then.i18:                                      ; preds = %v9fs_path_write_lock.exit
-  %rename_lock.i19 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i19 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i19) #24
   br label %v9fs_path_unlock.exit
 
@@ -2588,7 +2588,7 @@ v9fs_path_unlock.exit:                            ; preds = %v9fs_path_write_loc
 
 out:                                              ; preds = %v9fs_path_unlock.exit, %if.end18, %if.end15
   %err.1 = phi i64 [ -22, %if.end15 ], [ -95, %if.end18 ], [ %spec.select, %v9fs_path_unlock.exit ]
-  %ref.i = getelementptr inbounds i8, ptr %call12, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call12, i64 260
   %23 = load i32, ptr %ref.i, align 4
   %tobool.not.i20 = icmp eq i32 %23, 0
   br i1 %tobool.not.i20, label %if.else.i, label %if.end.i
@@ -2604,22 +2604,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call12, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call12, i64 264
   %24 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %24 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call12, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call12, i64 4
   %25 = load i32, ptr %fid.i, align 4
   %26 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %26, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %26, i64 7360
   %27 = load i32, ptr %root_fid.i, align 8
   %cmp.i21 = icmp eq i32 %25, %27
   br i1 %cmp.i21, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %26, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %26, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -2647,9 +2647,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2675,7 +2675,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -2696,10 +2696,10 @@ trace_v9fs_readlink.exit:                         ; preds = %if.end, %land.lhs.t
   br i1 %cmp3, label %out_nofid, label %if.end6
 
 if.end6:                                          ; preds = %trace_v9fs_readlink.exit
-  %data.i = getelementptr inbounds i8, ptr %target, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %target, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %target, align 8
-  %path = getelementptr inbounds i8, ptr %call2, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %call7 = call i32 @v9fs_co_readlink(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef nonnull %target) #24
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %out, label %if.end11
@@ -2738,7 +2738,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i25
   %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #24
   %call10.i.i32 = call i32 @qemu_get_thread_id() #24
   %17 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %tv_usec.i.i33 = getelementptr inbounds nuw i8, ptr %_now.i.i18, i64 8
   %18 = load i64, ptr %tv_usec.i.i33, align 8
   %conv11.i.i34 = zext i16 %10 to i32
   %conv12.i.i35 = zext i8 %11 to i32
@@ -2762,7 +2762,7 @@ out.sink.split:                                   ; preds = %if.end11, %trace_v9
 
 out:                                              ; preds = %out.sink.split, %if.end6
   %err.1 = phi i32 [ %call7, %if.end6 ], [ %err.1.ph, %out.sink.split ]
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %19 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %19, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -2778,23 +2778,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %20 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %20 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %21 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %22 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %22, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %22, i64 7360
   %23 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %21, %23
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %22, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %22, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -2823,9 +2823,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load i64, ptr %request_mask, align 8
@@ -2852,7 +2852,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -2873,42 +2873,42 @@ trace_v9fs_getattr.exit:                          ; preds = %if.end, %land.lhs.t
   br i1 %cmp2, label %out_nofid, label %if.end4
 
 if.end4:                                          ; preds = %trace_v9fs_getattr.exit
-  %path = getelementptr inbounds i8, ptr %call1, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %call5 = call i32 @v9fs_co_lstat(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef nonnull %stbuf) #24
   %conv = sext i32 %call5 to i64
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %out, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %11 = getelementptr inbounds i8, ptr %v9stat_dotl, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %11, i8 0, i64 152, i1 false)
-  %st_mode.i = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %12 = load i32, ptr %st_mode.i, align 8
-  %st_mode1.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 24
+  %st_mode1.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 24
   store i32 %12, ptr %st_mode1.i, align 8
-  %st_nlink.i = getelementptr inbounds i8, ptr %stbuf, i64 16
+  %st_nlink.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 16
   %13 = load i64, ptr %st_nlink.i, align 8
-  %st_nlink2.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 40
+  %st_nlink2.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 40
   store i64 %13, ptr %st_nlink2.i, align 8
-  %st_uid.i = getelementptr inbounds i8, ptr %stbuf, i64 28
+  %st_uid.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 28
   %14 = load i32, ptr %st_uid.i, align 4
-  %st_uid3.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 28
+  %st_uid3.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 28
   store i32 %14, ptr %st_uid3.i, align 4
-  %st_gid.i = getelementptr inbounds i8, ptr %stbuf, i64 32
+  %st_gid.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 32
   %15 = load i32, ptr %st_gid.i, align 8
-  %st_gid4.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 32
+  %st_gid4.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 32
   store i32 %15, ptr %st_gid4.i, align 8
-  %st_rdev.i = getelementptr inbounds i8, ptr %stbuf, i64 40
+  %st_rdev.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 40
   %16 = load i64, ptr %st_rdev.i, align 8
-  %st_rdev5.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 48
+  %st_rdev5.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 48
   store i64 %16, ptr %st_rdev5.i, align 8
-  %st_size.i = getelementptr inbounds i8, ptr %stbuf, i64 48
+  %st_size.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 48
   %17 = load i64, ptr %st_size.i, align 8
-  %st_size6.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 56
+  %st_size6.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 56
   store i64 %17, ptr %st_size6.i, align 8
   %18 = getelementptr i8, ptr %opaque, i64 24
   %pdu.val.i = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %stbuf, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %stbuf, i64 56
   %stbuf.val.i = load i64, ptr %19, align 8
   %20 = getelementptr i8, ptr %pdu.val.i, i64 108
   %pdu.val.val.i = load i32, ptr %20, align 4
@@ -2928,38 +2928,38 @@ if.end.i.i.i:                                     ; preds = %if.end9
 stat_to_v9stat_dotl.exit:                         ; preds = %if.end9, %if.end.i.i.i
   %iounit.1.i.i.i = phi i32 [ %.pre.i.i, %if.end9 ], [ %spec.select.i.i, %if.end.i.i.i ]
   %conv.i = sext i32 %iounit.1.i.i.i to i64
-  %st_blksize.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 64
+  %st_blksize.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 64
   store i64 %conv.i, ptr %st_blksize.i, align 8
-  %st_blocks.i = getelementptr inbounds i8, ptr %stbuf, i64 64
+  %st_blocks.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 64
   %22 = load i64, ptr %st_blocks.i, align 8
-  %st_blocks8.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 72
+  %st_blocks8.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 72
   store i64 %22, ptr %st_blocks8.i, align 8
-  %st_atim.i = getelementptr inbounds i8, ptr %stbuf, i64 72
+  %st_atim.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 72
   %23 = load i64, ptr %st_atim.i, align 8
-  %st_atime_sec.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 80
+  %st_atime_sec.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 80
   store i64 %23, ptr %st_atime_sec.i, align 8
-  %st_mtim.i = getelementptr inbounds i8, ptr %stbuf, i64 88
+  %st_mtim.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 88
   %24 = load i64, ptr %st_mtim.i, align 8
-  %st_mtime_sec.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 96
+  %st_mtime_sec.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 96
   store i64 %24, ptr %st_mtime_sec.i, align 8
-  %st_ctim.i = getelementptr inbounds i8, ptr %stbuf, i64 104
+  %st_ctim.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 104
   %25 = load i64, ptr %st_ctim.i, align 8
-  %st_ctime_sec.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 112
+  %st_ctime_sec.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 112
   store i64 %25, ptr %st_ctime_sec.i, align 8
-  %tv_nsec.i = getelementptr inbounds i8, ptr %stbuf, i64 80
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 80
   %26 = load i64, ptr %tv_nsec.i, align 8
-  %st_atime_nsec.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 88
+  %st_atime_nsec.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 88
   store i64 %26, ptr %st_atime_nsec.i, align 8
-  %tv_nsec13.i = getelementptr inbounds i8, ptr %stbuf, i64 96
+  %tv_nsec13.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 96
   %27 = load i64, ptr %tv_nsec13.i, align 8
-  %st_mtime_nsec.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 104
+  %st_mtime_nsec.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 104
   store i64 %27, ptr %st_mtime_nsec.i, align 8
-  %tv_nsec15.i = getelementptr inbounds i8, ptr %stbuf, i64 112
+  %tv_nsec15.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 112
   %28 = load i64, ptr %tv_nsec15.i, align 8
-  %st_ctime_nsec.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 120
+  %st_ctime_nsec.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 120
   store i64 %28, ptr %st_ctime_nsec.i, align 8
   store i64 2047, ptr %v9stat_dotl, align 8
-  %qid.i = getelementptr inbounds i8, ptr %v9stat_dotl, i64 8
+  %qid.i = getelementptr inbounds nuw i8, ptr %v9stat_dotl, i64 8
   %call16.i = call fastcc range(i32 -23, 1) i32 @stat_to_qid(ptr noundef nonnull readonly %opaque, ptr noundef nonnull readonly %stbuf, ptr noundef nonnull %qid.i)
   %conv11 = sext i32 %call16.i to i64
   %cmp12 = icmp slt i32 %call16.i, 0
@@ -3021,7 +3021,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i30
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #24
   %call10.i.i37 = call i32 @qemu_get_thread_id() #24
   %42 = load i64, ptr %_now.i.i23, align 8
-  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
+  %tv_usec.i.i38 = getelementptr inbounds nuw i8, ptr %_now.i.i23, i64 8
   %43 = load i64, ptr %tv_usec.i.i38, align 8
   %conv11.i.i39 = zext i16 %32 to i32
   %conv12.i.i40 = zext i8 %33 to i32
@@ -3040,7 +3040,7 @@ trace_v9fs_getattr_return.exit:                   ; preds = %if.end26, %land.lhs
 
 out:                                              ; preds = %if.end21, %if.then16, %stat_to_v9stat_dotl.exit, %if.end4, %trace_v9fs_getattr_return.exit
   %retval.1 = phi i64 [ %conv, %if.end4 ], [ %conv11, %stat_to_v9stat_dotl.exit ], [ %call22, %if.end21 ], [ %add, %trace_v9fs_getattr_return.exit ], [ -4, %if.then16 ]
-  %ref.i = getelementptr inbounds i8, ptr %call1, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call1, i64 260
   %44 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %44, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -3056,23 +3056,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call1, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call1, i64 264
   %45 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %45 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call1, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call1, i64 4
   %46 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %47 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %47, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %47, i64 7360
   %48 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %46, %48
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %47, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %47, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -3100,23 +3100,23 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load i32, ptr %v9iattr, align 8
-  %mode = getelementptr inbounds i8, ptr %v9iattr, i64 4
+  %mode = getelementptr inbounds nuw i8, ptr %v9iattr, i64 4
   %4 = load i32, ptr %mode, align 4
-  %uid = getelementptr inbounds i8, ptr %v9iattr, i64 8
+  %uid = getelementptr inbounds nuw i8, ptr %v9iattr, i64 8
   %5 = load i32, ptr %uid, align 8
-  %gid = getelementptr inbounds i8, ptr %v9iattr, i64 12
+  %gid = getelementptr inbounds nuw i8, ptr %v9iattr, i64 12
   %6 = load i32, ptr %gid, align 4
-  %size = getelementptr inbounds i8, ptr %v9iattr, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %v9iattr, i64 16
   %7 = load i64, ptr %size, align 8
-  %atime_sec = getelementptr inbounds i8, ptr %v9iattr, i64 24
+  %atime_sec = getelementptr inbounds nuw i8, ptr %v9iattr, i64 24
   %8 = load i64, ptr %atime_sec, align 8
-  %mtime_sec = getelementptr inbounds i8, ptr %v9iattr, i64 40
+  %mtime_sec = getelementptr inbounds nuw i8, ptr %v9iattr, i64 40
   %9 = load i64, ptr %mtime_sec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3141,7 +3141,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -3168,7 +3168,7 @@ if.end6:                                          ; preds = %trace_v9fs_setattr.
   br i1 %tobool.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %path = getelementptr inbounds i8, ptr %call2, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %18 = load i32, ptr %mode, align 4
   %call10 = call i32 @v9fs_co_chmod(ptr noundef nonnull %opaque, ptr noundef nonnull %path, i32 noundef %18) #24
   %cmp11 = icmp slt i32 %call10, 0
@@ -3197,13 +3197,13 @@ if.then23:                                        ; preds = %if.then19
 if.then27:                                        ; preds = %if.then23
   %20 = load i64, ptr %atime_sec, align 8
   store i64 %20, ptr %times, align 16
-  %atime_nsec = getelementptr inbounds i8, ptr %v9iattr, i64 32
+  %atime_nsec = getelementptr inbounds nuw i8, ptr %v9iattr, i64 32
   %21 = load i64, ptr %atime_nsec, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then19, %if.then23, %if.then27
   %.sink = phi i64 [ %21, %if.then27 ], [ 1073741823, %if.then23 ], [ 1073741822, %if.then19 ]
-  %tv_nsec = getelementptr inbounds i8, ptr %times, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %times, i64 8
   store i64 %.sink, ptr %tv_nsec, align 8
   %and38 = and i32 %19, 32
   %tobool39.not = icmp eq i32 %and38, 0
@@ -3216,17 +3216,17 @@ if.then40:                                        ; preds = %if.end36
 
 if.then44:                                        ; preds = %if.then40
   %22 = load i64, ptr %mtime_sec, align 8
-  %arrayidx46 = getelementptr inbounds i8, ptr %times, i64 16
+  %arrayidx46 = getelementptr inbounds nuw i8, ptr %times, i64 16
   store i64 %22, ptr %arrayidx46, align 16
-  %mtime_nsec = getelementptr inbounds i8, ptr %v9iattr, i64 48
+  %mtime_nsec = getelementptr inbounds nuw i8, ptr %v9iattr, i64 48
   %23 = load i64, ptr %mtime_nsec, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end36, %if.then40, %if.then44
   %.sink45 = phi i64 [ %23, %if.then44 ], [ 1073741823, %if.then40 ], [ 1073741822, %if.end36 ]
-  %tv_nsec49 = getelementptr inbounds i8, ptr %times, i64 24
+  %tv_nsec49 = getelementptr inbounds nuw i8, ptr %times, i64 24
   store i64 %.sink45, ptr %tv_nsec49, align 8
-  %path58 = getelementptr inbounds i8, ptr %call2, i64 8
+  %path58 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %call59 = call i32 @v9fs_co_utimensat(ptr noundef nonnull %opaque, ptr noundef nonnull %path58, ptr noundef nonnull %times) #24
   %cmp60 = icmp slt i32 %call59, 0
   br i1 %cmp60, label %out, label %if.end57.if.end64_crit_edge
@@ -3268,7 +3268,7 @@ if.then85:                                        ; preds = %if.end81
 
 if.end87:                                         ; preds = %if.end81.if.end87_crit_edge, %if.then85
   %26 = phi i32 [ %.pre43, %if.end81.if.end87_crit_edge ], [ -1, %if.then85 ]
-  %path88 = getelementptr inbounds i8, ptr %call2, i64 8
+  %path88 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %27 = load i32, ptr %uid, align 8
   %call91 = call i32 @v9fs_co_chown(ptr noundef nonnull %opaque, ptr noundef nonnull %path88, i32 noundef %27, i32 noundef %26) #24
   %cmp92 = icmp slt i32 %call91, 0
@@ -3285,7 +3285,7 @@ if.end96:                                         ; preds = %if.end87.if.end96_c
   br i1 %tobool99.not, label %if.end108, label %if.then100
 
 if.then100:                                       ; preds = %if.end96
-  %path101 = getelementptr inbounds i8, ptr %call2, i64 8
+  %path101 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %29 = load i64, ptr %size, align 8
   %call103 = call i32 @v9fs_co_truncate(ptr noundef nonnull %opaque, ptr noundef nonnull %path101, i64 noundef %29) #24
   %cmp104 = icmp slt i32 %call103, 0
@@ -3317,7 +3317,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i30
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #24
   %call10.i.i37 = call i32 @qemu_get_thread_id() #24
   %36 = load i64, ptr %_now.i.i23, align 8
-  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
+  %tv_usec.i.i38 = getelementptr inbounds nuw i8, ptr %_now.i.i23, i64 8
   %37 = load i64, ptr %tv_usec.i.i38, align 8
   %conv11.i.i39 = zext i16 %30 to i32
   %conv12.i.i40 = zext i8 %31 to i32
@@ -3336,7 +3336,7 @@ trace_v9fs_setattr_return.exit:                   ; preds = %if.end108, %land.lh
 
 out:                                              ; preds = %if.then100, %if.end87, %if.end57, %if.then8, %trace_v9fs_setattr_return.exit
   %err.1 = phi i32 [ %call10, %if.then8 ], [ %call59, %if.end57 ], [ %call91, %if.end87 ], [ %call103, %if.then100 ], [ 7, %trace_v9fs_setattr_return.exit ]
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %38 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %38, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -3352,23 +3352,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %39 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %39 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %40 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %41 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %41, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %41, i64 7360
   %42 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %40, %42
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %41, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %41, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -3391,9 +3391,9 @@ entry:
   %name = alloca %struct.V9fsString, align 8
   %fid = alloca i32, align 4
   %newfid = alloca i32, align 4
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.53, ptr noundef nonnull %fid, ptr noundef nonnull %newfid, ptr noundef nonnull %name)
@@ -3401,9 +3401,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
   %4 = load i32, ptr %newfid, align 4
@@ -3431,7 +3431,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -3458,16 +3458,16 @@ if.end5:                                          ; preds = %trace_v9fs_xattrwal
   br i1 %cmp7, label %out, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %path = getelementptr inbounds i8, ptr %call6, i64 8
-  %path10 = getelementptr inbounds i8, ptr %call2, i64 8
-  %data.i.i = getelementptr inbounds i8, ptr %call6, i64 16
+  %path = getelementptr inbounds nuw i8, ptr %call6, i64 8
+  %path10 = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %14 = load ptr, ptr %data.i.i, align 8
   call void @g_free(ptr noundef %14) #24
   store ptr null, ptr %data.i.i, align 8
   store i16 0, ptr %path, align 8
   %15 = load i16, ptr %path10, align 8
   store i16 %15, ptr %path, align 8
-  %data.i73 = getelementptr inbounds i8, ptr %call2, i64 16
+  %data.i73 = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %16 = load ptr, ptr %data.i73, align 8
   %conv.i = zext i16 %15 to i32
   %call.i = call ptr @g_memdup(ptr noundef %16, i32 noundef %conv.i) #26
@@ -3483,9 +3483,9 @@ if.then12:                                        ; preds = %if.end9
   br i1 %cmp15, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.then12
-  %fid18 = getelementptr inbounds i8, ptr %call6, i64 4
+  %fid18 = getelementptr inbounds nuw i8, ptr %call6, i64 4
   %17 = load i32, ptr %fid18, align 4
-  %fids.i = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %fids.i, align 8
   %conv.i75 = sext i32 %17 to i64
   %19 = inttoptr i64 %conv.i75 to ptr
@@ -3496,18 +3496,18 @@ if.then17:                                        ; preds = %if.then12
 if.then.i:                                        ; preds = %if.then17
   %20 = load ptr, ptr %fids.i, align 8
   %call3.i = call i32 @g_hash_table_remove(ptr noundef %20, ptr noundef %19) #24
-  %clunked.i = getelementptr inbounds i8, ptr %call.i76, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call.i76, i64 264
   store i8 1, ptr %clunked.i, align 8
   br label %out
 
 if.end20:                                         ; preds = %if.then12
-  %len = getelementptr inbounds i8, ptr %call6, i64 32
+  %len = getelementptr inbounds nuw i8, ptr %call6, i64 32
   store i64 %conv, ptr %len, align 8
   store i32 3, ptr %call6, align 8
-  %xattrwalk_fid = getelementptr inbounds i8, ptr %call6, i64 68
+  %xattrwalk_fid = getelementptr inbounds nuw i8, ptr %call6, i64 68
   store i8 1, ptr %xattrwalk_fid, align 4
   %call22 = call noalias ptr @g_malloc0(i64 noundef %conv) #25
-  %value = getelementptr inbounds i8, ptr %call6, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 40
   store ptr %call22, ptr %value, align 8
   %tobool24.not = icmp eq i32 %call14, 0
   br i1 %tobool24.not, label %if.end39, label %if.then25
@@ -3520,7 +3520,7 @@ if.then25:                                        ; preds = %if.end20
 
 if.then35:                                        ; preds = %if.then25
   %conv32 = sext i32 %call31 to i64
-  %fid36 = getelementptr inbounds i8, ptr %call6, i64 4
+  %fid36 = getelementptr inbounds nuw i8, ptr %call6, i64 4
   %22 = load i32, ptr %fid36, align 4
   call fastcc void @clunk_fid(ptr noundef %0, i32 noundef %22)
   br label %out
@@ -3538,9 +3538,9 @@ if.else:                                          ; preds = %if.end9
   br i1 %cmp48, label %if.then50, label %if.end53
 
 if.then50:                                        ; preds = %if.else
-  %fid51 = getelementptr inbounds i8, ptr %call6, i64 4
+  %fid51 = getelementptr inbounds nuw i8, ptr %call6, i64 4
   %23 = load i32, ptr %fid51, align 4
-  %fids.i77 = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %fids.i77, align 8
   %conv.i78 = sext i32 %23 to i64
   %25 = inttoptr i64 %conv.i78 to ptr
@@ -3551,18 +3551,18 @@ if.then50:                                        ; preds = %if.else
 if.then.i81:                                      ; preds = %if.then50
   %26 = load ptr, ptr %fids.i77, align 8
   %call3.i82 = call i32 @g_hash_table_remove(ptr noundef %26, ptr noundef %25) #24
-  %clunked.i83 = getelementptr inbounds i8, ptr %call.i79, i64 264
+  %clunked.i83 = getelementptr inbounds nuw i8, ptr %call.i79, i64 264
   store i8 1, ptr %clunked.i83, align 8
   br label %out
 
 if.end53:                                         ; preds = %if.else
-  %len55 = getelementptr inbounds i8, ptr %call6, i64 32
+  %len55 = getelementptr inbounds nuw i8, ptr %call6, i64 32
   store i64 %conv47, ptr %len55, align 8
   store i32 3, ptr %call6, align 8
-  %xattrwalk_fid58 = getelementptr inbounds i8, ptr %call6, i64 68
+  %xattrwalk_fid58 = getelementptr inbounds nuw i8, ptr %call6, i64 68
   store i8 1, ptr %xattrwalk_fid58, align 4
   %call59 = call noalias ptr @g_malloc0(i64 noundef %conv47) #25
-  %value61 = getelementptr inbounds i8, ptr %call6, i64 40
+  %value61 = getelementptr inbounds nuw i8, ptr %call6, i64 40
   store ptr %call59, ptr %value61, align 8
   %tobool62.not = icmp eq i32 %call46, 0
   br i1 %tobool62.not, label %if.end77, label %if.then63
@@ -3575,9 +3575,9 @@ if.then63:                                        ; preds = %if.end53
 
 if.then73:                                        ; preds = %if.then63
   %conv70 = sext i32 %call69 to i64
-  %fid74 = getelementptr inbounds i8, ptr %call6, i64 4
+  %fid74 = getelementptr inbounds nuw i8, ptr %call6, i64 4
   %28 = load i32, ptr %fid74, align 4
-  %fids.i85 = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %fids.i85, align 8
   %conv.i86 = sext i32 %28 to i64
   %30 = inttoptr i64 %conv.i86 to ptr
@@ -3588,7 +3588,7 @@ if.then73:                                        ; preds = %if.then63
 if.then.i89:                                      ; preds = %if.then73
   %31 = load ptr, ptr %fids.i85, align 8
   %call3.i90 = call i32 @g_hash_table_remove(ptr noundef %31, ptr noundef %30) #24
-  %clunked.i91 = getelementptr inbounds i8, ptr %call.i87, i64 264
+  %clunked.i91 = getelementptr inbounds nuw i8, ptr %call.i87, i64 264
   store i8 1, ptr %clunked.i91, align 8
   br label %out
 
@@ -3627,7 +3627,7 @@ if.then8.i.i105:                                  ; preds = %if.then.i.i100
   %call9.i.i106 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93, ptr noundef null) #24
   %call10.i.i107 = call i32 @qemu_get_thread_id() #24
   %38 = load i64, ptr %_now.i.i93, align 8
-  %tv_usec.i.i108 = getelementptr inbounds i8, ptr %_now.i.i93, i64 8
+  %tv_usec.i.i108 = getelementptr inbounds nuw i8, ptr %_now.i.i93, i64 8
   %39 = load i64, ptr %tv_usec.i.i108, align 8
   %conv11.i.i109 = zext i16 %32 to i32
   %conv12.i.i110 = zext i8 %33 to i32
@@ -3646,7 +3646,7 @@ trace_v9fs_xattrwalk_return.exit:                 ; preds = %if.end84, %land.lhs
 
 out:                                              ; preds = %if.then.i89, %if.then73, %if.then.i81, %if.then50, %if.then.i, %if.then17, %if.end5, %if.end77, %if.end39, %trace_v9fs_xattrwalk_return.exit, %if.then35
   %err.1 = phi i64 [ %call7871, %if.end77 ], [ %err.2, %trace_v9fs_xattrwalk_return.exit ], [ %conv32, %if.then35 ], [ %call4069, %if.end39 ], [ -22, %if.end5 ], [ %conv, %if.then17 ], [ %conv, %if.then.i ], [ %conv47, %if.then50 ], [ %conv47, %if.then.i81 ], [ %conv70, %if.then73 ], [ %conv70, %if.then.i89 ]
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %40 = load i32, ptr %ref.i, align 4
   %tobool.not.i111 = icmp eq i32 %40, 0
   br i1 %tobool.not.i111, label %if.else.i, label %if.end.i
@@ -3662,22 +3662,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %put_fid.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i112 = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i112 = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %41 = load i8, ptr %clunked.i112, align 8
   %tobool4.i = trunc i8 %41 to i1
   br i1 %tobool4.i, label %if.then5.i, label %put_fid.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %42 = load i32, ptr %fid.i, align 4
   %43 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %43, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %43, i64 7360
   %44 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %42, %44
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %43, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %43, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -3689,7 +3689,7 @@ put_fid.exit:                                     ; preds = %if.end.i, %land.lhs
   br i1 %cmp7, label %out_nofid, label %if.then89
 
 if.then89:                                        ; preds = %put_fid.exit
-  %ref.i114 = getelementptr inbounds i8, ptr %call6, i64 260
+  %ref.i114 = getelementptr inbounds nuw i8, ptr %call6, i64 260
   %45 = load i32, ptr %ref.i114, align 4
   %tobool.not.i115 = icmp eq i32 %45, 0
   br i1 %tobool.not.i115, label %if.else.i132, label %if.end.i116
@@ -3705,22 +3705,22 @@ if.end.i116:                                      ; preds = %if.then89
   br i1 %tobool3.not.i118, label %land.lhs.true.i120, label %out_nofid
 
 land.lhs.true.i120:                               ; preds = %if.end.i116
-  %clunked.i121 = getelementptr inbounds i8, ptr %call6, i64 264
+  %clunked.i121 = getelementptr inbounds nuw i8, ptr %call6, i64 264
   %46 = load i8, ptr %clunked.i121, align 8
   %tobool4.i122 = trunc i8 %46 to i1
   br i1 %tobool4.i122, label %if.then5.i123, label %out_nofid
 
 if.then5.i123:                                    ; preds = %land.lhs.true.i120
-  %fid.i124 = getelementptr inbounds i8, ptr %call6, i64 4
+  %fid.i124 = getelementptr inbounds nuw i8, ptr %call6, i64 4
   %47 = load i32, ptr %fid.i124, align 4
   %48 = load ptr, ptr %s1, align 8
-  %root_fid.i126 = getelementptr inbounds i8, ptr %48, i64 7360
+  %root_fid.i126 = getelementptr inbounds nuw i8, ptr %48, i64 7360
   %49 = load i32, ptr %root_fid.i126, align 8
   %cmp.i127 = icmp eq i32 %47, %49
   br i1 %cmp.i127, label %if.then6.i130, label %if.end8.i128
 
 if.then6.i130:                                    ; preds = %if.then5.i123
-  %migration_blocker.i131 = getelementptr inbounds i8, ptr %48, i64 7368
+  %migration_blocker.i131 = getelementptr inbounds nuw i8, ptr %48, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i131) #24
   br label %if.end8.i128
 
@@ -3743,7 +3743,7 @@ entry:
   %fid = alloca i32, align 4
   %size = alloca i64, align 8
   %name = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.76, ptr noundef nonnull %fid, ptr noundef nonnull %name, ptr noundef nonnull %size, ptr noundef nonnull %flags)
@@ -3751,9 +3751,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load ptr, ptr %data.i, align 8
@@ -3782,7 +3782,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -3823,29 +3823,29 @@ if.end18:                                         ; preds = %if.end14
 
 if.end21:                                         ; preds = %if.end18
   store i32 3, ptr %call15, align 8
-  %fs = getelementptr inbounds i8, ptr %call15, i64 24
+  %fs = getelementptr inbounds nuw i8, ptr %call15, i64 24
   store i64 0, ptr %fs, align 8
-  %xattrwalk_fid = getelementptr inbounds i8, ptr %call15, i64 68
+  %xattrwalk_fid = getelementptr inbounds nuw i8, ptr %call15, i64 68
   store i8 0, ptr %xattrwalk_fid, align 4
   %16 = load i64, ptr %size, align 8
-  %len = getelementptr inbounds i8, ptr %call15, i64 32
+  %len = getelementptr inbounds nuw i8, ptr %call15, i64 32
   store i64 %16, ptr %len, align 8
-  %flags26 = getelementptr inbounds i8, ptr %call15, i64 64
+  %flags26 = getelementptr inbounds nuw i8, ptr %call15, i64 64
   store i32 %rflags.1, ptr %flags26, align 8
-  %name28 = getelementptr inbounds i8, ptr %call15, i64 48
-  %data.i20 = getelementptr inbounds i8, ptr %call15, i64 56
+  %name28 = getelementptr inbounds nuw i8, ptr %call15, i64 48
+  %data.i20 = getelementptr inbounds nuw i8, ptr %call15, i64 56
   store ptr null, ptr %data.i20, align 8
   store i16 0, ptr %name28, align 8
   call void @v9fs_string_copy(ptr noundef nonnull %name28, ptr noundef nonnull %name) #24
   %17 = load i64, ptr %size, align 8
   %call31 = call noalias ptr @g_malloc0(i64 noundef %17) #25
-  %value = getelementptr inbounds i8, ptr %call15, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %call15, i64 40
   store ptr %call31, ptr %value, align 8
   br label %out_put_fid
 
 out_put_fid:                                      ; preds = %if.end18, %if.end21
   %err.1 = phi i64 [ 7, %if.end21 ], [ -22, %if.end18 ]
-  %ref.i = getelementptr inbounds i8, ptr %call15, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call15, i64 260
   %18 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %18, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -3861,23 +3861,23 @@ if.end.i:                                         ; preds = %out_put_fid
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call15, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call15, i64 264
   %19 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %19 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call15, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call15, i64 4
   %20 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %21 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %21, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %21, i64 7360
   %22 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %20, %22
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %21, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %21, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -3900,16 +3900,16 @@ entry:
   %fid = alloca i32, align 4
   %initial_offset = alloca i64, align 8
   %max_count = alloca i32, align 4
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.79, ptr noundef nonnull %fid, ptr noundef nonnull %initial_offset, ptr noundef nonnull %max_count)
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
   %4 = load i64, ptr %initial_offset, align 8
@@ -3937,7 +3937,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -3953,7 +3953,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_v9fs_readdir.exit:                          ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load i32, ptr %max_count, align 4
-  %msize = getelementptr inbounds i8, ptr %0, i64 108
+  %msize = getelementptr inbounds nuw i8, ptr %0, i64 108
   %13 = load i32, ptr %msize, align 4
   %sub = add i32 %13, -11
   %cmp2 = icmp ugt i32 %12, %sub
@@ -3971,13 +3971,13 @@ if.end7:                                          ; preds = %if.then3, %trace_v9
   br i1 %cmp9, label %out_nofid, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %fs = getelementptr inbounds i8, ptr %call8, i64 24
+  %fs = getelementptr inbounds nuw i8, ptr %call8, i64 24
   %15 = load ptr, ptr %fs, align 8
   %tobool12.not = icmp eq ptr %15, null
   br i1 %tobool12.not, label %out, label %if.end14
 
 if.end14:                                         ; preds = %if.end11
-  %proto_version = getelementptr inbounds i8, ptr %0, i64 104
+  %proto_version = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load i32, ptr %proto_version, align 8
   %cmp15.not = icmp eq i32 %16, 2
   br i1 %cmp15.not, label %if.end21, label %if.then16
@@ -4031,7 +4031,7 @@ if.then8.i.i38:                                   ; preds = %if.then.i.i33
   %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i26, ptr noundef null) #24
   %call10.i.i40 = call i32 @qemu_get_thread_id() #24
   %25 = load i64, ptr %_now.i.i26, align 8
-  %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i26, i64 8
+  %tv_usec.i.i41 = getelementptr inbounds nuw i8, ptr %_now.i.i26, i64 8
   %26 = load i64, ptr %tv_usec.i.i41, align 8
   %conv11.i.i42 = zext i16 %19 to i32
   %conv12.i.i43 = zext i8 %20 to i32
@@ -4050,7 +4050,7 @@ trace_v9fs_readdir_return.exit:                   ; preds = %if.end30, %land.lhs
 
 out:                                              ; preds = %if.end11, %if.end25, %trace_v9fs_readdir_return.exit, %if.then24, %if.then16
   %retval.1 = phi i64 [ -95, %if.then16 ], [ %conv, %if.then24 ], [ %call26, %if.end25 ], [ %add32, %trace_v9fs_readdir_return.exit ], [ -22, %if.end11 ]
-  %ref.i = getelementptr inbounds i8, ptr %call8, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call8, i64 260
   %27 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %27, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -4066,22 +4066,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call8, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call8, i64 264
   %28 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %28 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call8, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call8, i64 4
   %29 = load i32, ptr %fid.i, align 4
   %30 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %30, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %30, i64 7360
   %31 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %29, %31
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %30, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %30, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -4107,9 +4107,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load i32, ptr %datasync, align 4
@@ -4136,7 +4136,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -4161,7 +4161,7 @@ if.end6:                                          ; preds = %trace_v9fs_fsync.ex
   %call7 = call i32 @v9fs_co_fsync(ptr noundef nonnull %opaque, ptr noundef nonnull %call2, i32 noundef %11) #24
   %tobool.not = icmp eq i32 %call7, 0
   %spec.select = select i1 %tobool.not, i32 7, i32 %call7
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %12 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -4177,23 +4177,23 @@ if.end.i:                                         ; preds = %if.end6
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %13 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %13 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %14 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %15 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %15, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %15, i64 7360
   %16 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %14, %16
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %15, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %15, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -4216,23 +4216,23 @@ entry:
   %flock = alloca %struct.V9fsFlock, align 8
   %stbuf = alloca %struct.stat, align 8
   %fid = alloca i32, align 4
-  %client_id = getelementptr inbounds i8, ptr %flock, i64 32
-  %data.i = getelementptr inbounds i8, ptr %flock, i64 40
+  %client_id = getelementptr inbounds nuw i8, ptr %flock, i64 32
+  %data.i = getelementptr inbounds nuw i8, ptr %flock, i64 40
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %client_id, align 8
-  %flags = getelementptr inbounds i8, ptr %flock, i64 4
-  %start = getelementptr inbounds i8, ptr %flock, i64 8
-  %length = getelementptr inbounds i8, ptr %flock, i64 16
-  %proc_id = getelementptr inbounds i8, ptr %flock, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %flock, i64 4
+  %start = getelementptr inbounds nuw i8, ptr %flock, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %flock, i64 16
+  %proc_id = getelementptr inbounds nuw i8, ptr %flock, i64 24
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.90, ptr noundef nonnull %fid, ptr noundef nonnull %flock, ptr noundef nonnull %flags, ptr noundef nonnull %start, ptr noundef nonnull %length, ptr noundef nonnull %proc_id, ptr noundef nonnull %client_id)
   %conv = trunc i64 %call to i32
   %cmp = icmp slt i32 %conv, 0
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load i8, ptr %flock, align 8
@@ -4261,7 +4261,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -4326,7 +4326,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i25
   %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #24
   %call10.i.i32 = call i32 @qemu_get_thread_id() #24
   %20 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %tv_usec.i.i33 = getelementptr inbounds nuw i8, ptr %_now.i.i18, i64 8
   %21 = load i64, ptr %tv_usec.i.i33, align 8
   %conv11.i.i34 = zext i16 %14 to i32
   %conv12.i.i35 = zext i8 %15 to i32
@@ -4345,7 +4345,7 @@ trace_v9fs_lock_return.exit:                      ; preds = %if.end24, %land.lhs
 
 out:                                              ; preds = %if.end18, %if.end13, %trace_v9fs_lock_return.exit
   %err.1 = phi i32 [ %call14, %if.end13 ], [ %conv20, %if.end18 ], [ %conv26, %trace_v9fs_lock_return.exit ]
-  %ref.i = getelementptr inbounds i8, ptr %call9, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call9, i64 260
   %22 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -4361,23 +4361,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call9, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call9, i64 264
   %23 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %23 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call9, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call9, i64 4
   %24 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %25 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %25, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %25, i64 7360
   %26 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %24, %26
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %25, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %25, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -4401,22 +4401,22 @@ entry:
   %stbuf = alloca %struct.stat, align 8
   %glock = alloca %struct.V9fsGetlock, align 8
   %fid = alloca i32, align 4
-  %client_id = getelementptr inbounds i8, ptr %glock, i64 32
-  %data.i = getelementptr inbounds i8, ptr %glock, i64 40
+  %client_id = getelementptr inbounds nuw i8, ptr %glock, i64 32
+  %data.i = getelementptr inbounds nuw i8, ptr %glock, i64 40
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %client_id, align 8
-  %start = getelementptr inbounds i8, ptr %glock, i64 8
-  %length = getelementptr inbounds i8, ptr %glock, i64 16
-  %proc_id = getelementptr inbounds i8, ptr %glock, i64 24
+  %start = getelementptr inbounds nuw i8, ptr %glock, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %glock, i64 16
+  %proc_id = getelementptr inbounds nuw i8, ptr %glock, i64 24
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.96, ptr noundef nonnull %fid, ptr noundef nonnull %glock, ptr noundef nonnull %start, ptr noundef nonnull %length, ptr noundef nonnull %proc_id, ptr noundef nonnull %client_id)
   %conv = trunc i64 %call to i32
   %cmp = icmp slt i32 %conv, 0
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load i8, ptr %glock, align 8
@@ -4445,7 +4445,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -4513,7 +4513,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i25
   %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #24
   %call10.i.i33 = call i32 @qemu_get_thread_id() #24
   %26 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %tv_usec.i.i34 = getelementptr inbounds nuw i8, ptr %_now.i.i18, i64 8
   %27 = load i64, ptr %tv_usec.i.i34, align 8
   %conv11.i.i35 = zext i16 %16 to i32
   %conv12.i.i36 = zext i8 %17 to i32
@@ -4534,7 +4534,7 @@ trace_v9fs_getlock_return.exit:                   ; preds = %if.end28, %land.lhs
 
 out:                                              ; preds = %if.end15, %if.end10, %trace_v9fs_getlock_return.exit
   %err.1 = phi i32 [ %call11, %if.end10 ], [ %conv24, %if.end15 ], [ %conv30, %trace_v9fs_getlock_return.exit ]
-  %ref.i = getelementptr inbounds i8, ptr %call6, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call6, i64 260
   %28 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %28, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -4550,23 +4550,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call6, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call6, i64 264
   %29 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %29 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call6, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call6, i64 4
   %30 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %31 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %31, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %31, i64 7360
   %32 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %30, %32
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %31, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %31, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -4589,7 +4589,7 @@ entry:
   %dfid = alloca i32, align 4
   %oldfid = alloca i32, align 4
   %name = alloca %struct.V9fsString, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.53, ptr noundef nonnull %dfid, ptr noundef nonnull %oldfid, ptr noundef nonnull %name)
@@ -4598,9 +4598,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %dfid, align 4
   %3 = load i32, ptr %oldfid, align 4
@@ -4628,7 +4628,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -4658,7 +4658,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end5.tail, label %if.end5.tail.thread
 
 if.end5.tail:                                     ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %11, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %14 = load i8, ptr %13, align 1
   %tobool.not = icmp eq i8 %14, 0
   br i1 %tobool.not, label %out_nofid, label %sub_140
@@ -4669,7 +4669,7 @@ if.end5.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_140:                                          ; preds = %if.end5.tail
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 46, %19
@@ -4677,7 +4677,7 @@ sub_140:                                          ; preds = %if.end5.tail
   br i1 %.not43, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_140
-  %21 = getelementptr inbounds i8, ptr %11, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 0, %23
@@ -4704,7 +4704,7 @@ if.end22:                                         ; preds = %if.end17
   %call23 = call i32 @v9fs_co_link(ptr noundef nonnull %opaque, ptr noundef nonnull %call18, ptr noundef nonnull %call13, ptr noundef nonnull %name) #24
   %tobool24.not = icmp eq i32 %call23, 0
   %spec.select = select i1 %tobool24.not, i32 7, i32 %call23
-  %ref.i = getelementptr inbounds i8, ptr %call18, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call18, i64 260
   %28 = load i32, ptr %ref.i, align 4
   %tobool.not.i16 = icmp eq i32 %28, 0
   br i1 %tobool.not.i16, label %if.else.i, label %if.end.i
@@ -4720,23 +4720,23 @@ if.end.i:                                         ; preds = %if.end22
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call18, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call18, i64 264
   %29 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %29 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call18, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call18, i64 4
   %30 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %31 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %31, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %31, i64 7360
   %32 = load i32, ptr %root_fid.i, align 8
   %cmp.i17 = icmp eq i32 %30, %32
   br i1 %cmp.i17, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %31, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %31, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -4746,7 +4746,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
 
 out:                                              ; preds = %if.end8.i, %land.lhs.true.i, %if.end.i, %if.end17
   %err.1 = phi i32 [ -2, %if.end17 ], [ %spec.select, %if.end.i ], [ %spec.select, %land.lhs.true.i ], [ %spec.select, %if.end8.i ]
-  %ref.i19 = getelementptr inbounds i8, ptr %call13, i64 260
+  %ref.i19 = getelementptr inbounds nuw i8, ptr %call13, i64 260
   %33 = load i32, ptr %ref.i19, align 4
   %tobool.not.i20 = icmp eq i32 %33, 0
   br i1 %tobool.not.i20, label %if.else.i37, label %if.end.i21
@@ -4762,23 +4762,23 @@ if.end.i21:                                       ; preds = %out
   br i1 %tobool3.not.i23, label %land.lhs.true.i25, label %out_nofid
 
 land.lhs.true.i25:                                ; preds = %if.end.i21
-  %clunked.i26 = getelementptr inbounds i8, ptr %call13, i64 264
+  %clunked.i26 = getelementptr inbounds nuw i8, ptr %call13, i64 264
   %34 = load i8, ptr %clunked.i26, align 8
   %tobool4.i27 = trunc i8 %34 to i1
   br i1 %tobool4.i27, label %if.then5.i28, label %out_nofid
 
 if.then5.i28:                                     ; preds = %land.lhs.true.i25
-  %fid.i29 = getelementptr inbounds i8, ptr %call13, i64 4
+  %fid.i29 = getelementptr inbounds nuw i8, ptr %call13, i64 4
   %35 = load i32, ptr %fid.i29, align 4
-  %s.i30 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i30 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %36 = load ptr, ptr %s.i30, align 8
-  %root_fid.i31 = getelementptr inbounds i8, ptr %36, i64 7360
+  %root_fid.i31 = getelementptr inbounds nuw i8, ptr %36, i64 7360
   %37 = load i32, ptr %root_fid.i31, align 8
   %cmp.i32 = icmp eq i32 %35, %37
   br i1 %cmp.i32, label %if.then6.i35, label %if.end8.i33
 
 if.then6.i35:                                     ; preds = %if.then5.i28
-  %migration_blocker.i36 = getelementptr inbounds i8, ptr %36, i64 7368
+  %migration_blocker.i36 = getelementptr inbounds nuw i8, ptr %36, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i36) #24
   br label %if.end8.i33
 
@@ -4804,7 +4804,7 @@ entry:
   %name = alloca %struct.V9fsString, align 8
   %gid = alloca i32, align 4
   %mode = alloca i32, align 4
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.104, ptr noundef nonnull %fid, ptr noundef nonnull %name, ptr noundef nonnull %mode, ptr noundef nonnull %gid)
@@ -4813,9 +4813,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   %3 = load ptr, ptr %data.i, align 8
@@ -4844,7 +4844,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -4874,7 +4874,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end5.tail, label %if.end5.tail.thread
 
 if.end5.tail:                                     ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %tobool.not = icmp eq i8 %15, 0
   br i1 %tobool.not, label %out_nofid, label %sub_126
@@ -4885,7 +4885,7 @@ if.end5.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_126:                                          ; preds = %if.end5.tail
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 46, %20
@@ -4893,7 +4893,7 @@ sub_126:                                          ; preds = %if.end5.tail
   br i1 %.not29, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_126
-  %22 = getelementptr inbounds i8, ptr %12, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 0, %24
@@ -4912,7 +4912,7 @@ if.end12:                                         ; preds = %lor.lhs.false.tail
 
 if.end17:                                         ; preds = %if.end12
   %28 = load i32, ptr %mode, align 4
-  %uid = getelementptr inbounds i8, ptr %call13, i64 256
+  %uid = getelementptr inbounds nuw i8, ptr %call13, i64 256
   %29 = load i32, ptr %uid, align 8
   %30 = load i32, ptr %gid, align 4
   %call18 = call i32 @v9fs_co_mkdir(ptr noundef nonnull %opaque, ptr noundef nonnull %call13, ptr noundef nonnull %name, i32 noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %stbuf) #24
@@ -4935,16 +4935,16 @@ if.end33:                                         ; preds = %if.end27
   %31 = load i16, ptr %tag, align 4
   %32 = load i8, ptr %id, align 2
   %33 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %34 = load i32, ptr %version, align 4
-  %path = getelementptr inbounds i8, ptr %qid, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %35 = load i64, ptr %path, align 8
   call fastcc void @trace_v9fs_mkdir_return(i16 noundef zeroext %31, i8 noundef zeroext %32, i8 noundef zeroext %33, i32 noundef %34, i64 noundef %35, i32 noundef %conv35)
   br label %out
 
 out:                                              ; preds = %if.end27, %if.end22, %if.end17, %if.end33
   %err.1 = phi i32 [ %call18, %if.end17 ], [ %call23, %if.end22 ], [ %conv29, %if.end27 ], [ %conv35, %if.end33 ]
-  %ref.i = getelementptr inbounds i8, ptr %call13, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call13, i64 260
   %36 = load i32, ptr %ref.i, align 4
   %tobool.not.i22 = icmp eq i32 %36, 0
   br i1 %tobool.not.i22, label %if.else.i, label %if.end.i
@@ -4960,23 +4960,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call13, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call13, i64 264
   %37 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %37 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call13, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call13, i64 4
   %38 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %39 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %39, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %39, i64 7360
   %40 = load i32, ptr %root_fid.i, align 8
   %cmp.i23 = icmp eq i32 %38, %40
   br i1 %cmp.i23, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %39, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %39, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -4999,12 +4999,12 @@ entry:
   %newdirfid = alloca i32, align 4
   %old_name = alloca %struct.V9fsString, align 8
   %new_name = alloca %struct.V9fsString, align 8
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %old_name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %old_name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %old_name, align 8
-  %data.i8 = getelementptr inbounds i8, ptr %new_name, i64 8
+  %data.i8 = getelementptr inbounds nuw i8, ptr %new_name, i64 8
   store ptr null, ptr %data.i8, align 8
   store i16 0, ptr %new_name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.109, ptr noundef nonnull %olddirfid, ptr noundef nonnull %old_name, ptr noundef nonnull %newdirfid, ptr noundef nonnull %new_name)
@@ -5038,7 +5038,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end6.tail, label %if.end6.tail.thread
 
 if.end6.tail:                                     ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %6 = load i8, ptr %5, align 1
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %out_err, label %sub_121
@@ -5049,7 +5049,7 @@ if.end6.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false9.tail
 
 sub_121:                                          ; preds = %if.end6.tail
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = sub nsw i32 46, %11
@@ -5057,7 +5057,7 @@ sub_121:                                          ; preds = %if.end6.tail
   br i1 %.not31, label %sub_2, label %lor.lhs.false9.tail
 
 sub_2:                                            ; preds = %sub_121
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = sub nsw i32 0, %15
@@ -5073,7 +5073,7 @@ sub_023:                                          ; preds = %lor.lhs.false9.tail
   br i1 %.not32, label %lor.lhs.false13.tail, label %lor.lhs.false13.tail.thread
 
 lor.lhs.false13.tail:                             ; preds = %sub_023
-  %18 = getelementptr inbounds i8, ptr %3, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %19 = load i8, ptr %18, align 1
   %tobool16.not = icmp eq i8 %19, 0
   br i1 %tobool16.not, label %out_err, label %sub_127
@@ -5084,7 +5084,7 @@ lor.lhs.false13.tail.thread:                      ; preds = %sub_023
   br label %lor.lhs.false17.tail
 
 sub_127:                                          ; preds = %lor.lhs.false13.tail
-  %22 = getelementptr inbounds i8, ptr %3, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 46, %24
@@ -5092,7 +5092,7 @@ sub_127:                                          ; preds = %lor.lhs.false13.tai
   br i1 %.not34, label %sub_228, label %lor.lhs.false17.tail
 
 sub_228:                                          ; preds = %sub_127
-  %26 = getelementptr inbounds i8, ptr %3, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = sub nsw i32 0, %28
@@ -5104,14 +5104,14 @@ lor.lhs.false17.tail:                             ; preds = %lor.lhs.false13.tai
   br i1 %tobool20.not, label %out_err, label %if.end22
 
 if.end22:                                         ; preds = %lor.lhs.false17.tail
-  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %31, 2
   %tobool.not.i14 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i14, label %v9fs_path_write_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end22
-  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i) #24
   br label %v9fs_path_write_lock.exit
 
@@ -5125,7 +5125,7 @@ v9fs_path_write_lock.exit:                        ; preds = %if.end22, %if.then.
   br i1 %tobool.not.i17, label %v9fs_path_unlock.exit, label %if.then.i18
 
 if.then.i18:                                      ; preds = %v9fs_path_write_lock.exit
-  %rename_lock.i19 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i19 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i19) #24
   br label %v9fs_path_unlock.exit
 
@@ -5150,7 +5150,7 @@ entry:
   %dfid = alloca i32, align 4
   %flags = alloca i32, align 4
   %path = alloca %struct.V9fsPath, align 8
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.110, ptr noundef nonnull %dfid, ptr noundef nonnull %name, ptr noundef nonnull %flags)
@@ -5174,7 +5174,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end4.tail, label %if.end4.tail.thread
 
 if.end4.tail:                                     ; preds = %sub_0
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %out_nofid, label %sub_123
@@ -5185,7 +5185,7 @@ if.end4.tail.thread:                              ; preds = %sub_0
   br label %if.end8.tail
 
 sub_123:                                          ; preds = %if.end4.tail
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = sub nsw i32 46, %8
@@ -5193,7 +5193,7 @@ sub_123:                                          ; preds = %if.end4.tail
   br i1 %.not26, label %sub_2, label %if.end8.tail
 
 sub_2:                                            ; preds = %sub_123
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 0, %12
@@ -5219,10 +5219,10 @@ if.end16:                                         ; preds = %if.end13
   br i1 %cmp22, label %out_nofid, label %if.end25
 
 if.end25:                                         ; preds = %if.end16
-  %data.i17 = getelementptr inbounds i8, ptr %path, i64 8
+  %data.i17 = getelementptr inbounds nuw i8, ptr %path, i64 8
   store ptr null, ptr %data.i17, align 8
   store i16 0, ptr %path, align 8
-  %path26 = getelementptr inbounds i8, ptr %call21, i64 8
+  %path26 = getelementptr inbounds nuw i8, ptr %call21, i64 8
   %17 = load ptr, ptr %data.i, align 8
   %call28 = call i32 @v9fs_co_name_to_path(ptr noundef %opaque, ptr noundef nonnull %path26, ptr noundef %17, ptr noundef nonnull %path) #24
   %cmp29 = icmp slt i32 %call28, 0
@@ -5241,7 +5241,7 @@ if.end37:                                         ; preds = %if.end32
 
 out_err:                                          ; preds = %if.end37, %if.end32, %if.end25
   %err.1 = phi i32 [ %call28, %if.end25 ], [ %call33, %if.end32 ], [ %spec.select16, %if.end37 ]
-  %ref.i = getelementptr inbounds i8, ptr %call21, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call21, i64 260
   %18 = load i32, ptr %ref.i, align 4
   %tobool.not.i18 = icmp eq i32 %18, 0
   br i1 %tobool.not.i18, label %if.else.i, label %if.end.i
@@ -5257,23 +5257,23 @@ if.end.i:                                         ; preds = %out_err
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %put_fid.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call21, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call21, i64 264
   %19 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %19 to i1
   br i1 %tobool4.i, label %if.then5.i, label %put_fid.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call21, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call21, i64 4
   %20 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %21 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %21, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %21, i64 7360
   %22 = load i32, ptr %root_fid.i, align 8
   %cmp.i19 = icmp eq i32 %20, %22
   br i1 %cmp.i19, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %21, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %21, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -5302,20 +5302,20 @@ entry:
   %_now.i.i22 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %version = alloca %struct.V9fsString, align 8
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %version, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %version, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %version, align 8
-  %msize = getelementptr inbounds i8, ptr %0, i64 108
+  %msize = getelementptr inbounds nuw i8, ptr %0, i64 108
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.111, ptr noundef nonnull %msize, ptr noundef nonnull %version)
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %out, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %msize, align 4
   %4 = load ptr, ptr %data.i, align 8
@@ -5342,7 +5342,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -5374,7 +5374,7 @@ if.else11:                                        ; preds = %if.else
 
 if.end13:                                         ; preds = %if.else, %trace_v9fs_version.exit
   %.sink = phi i32 [ 1, %trace_v9fs_version.exit ], [ 2, %if.else ]
-  %proto_version10 = getelementptr inbounds i8, ptr %0, i64 104
+  %proto_version10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sink, ptr %proto_version10, align 8
   %12 = load i32, ptr %msize, align 4
   %cmp15 = icmp slt i32 %12, 4096
@@ -5389,7 +5389,7 @@ if.end17:                                         ; preds = %if.end13
   br i1 %cmp19, label %land.lhs.true, label %marshal
 
 land.lhs.true:                                    ; preds = %if.end17
-  %export_flags = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %export_flags, align 8
   %and = and i32 %13, 2048
   %tobool20.not = icmp eq i32 %and, 0
@@ -5434,7 +5434,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i29
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22, ptr noundef null) #24
   %call10.i.i36 = call i32 @qemu_get_thread_id() #24
   %23 = load i64, ptr %_now.i.i22, align 8
-  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i22, i64 8
+  %tv_usec.i.i37 = getelementptr inbounds nuw i8, ptr %_now.i.i22, i64 8
   %24 = load i64, ptr %tv_usec.i.i37, align 8
   %conv11.i.i38 = zext i16 %15 to i32
   %conv12.i.i39 = zext i8 %16 to i32
@@ -5470,12 +5470,12 @@ entry:
   %aname = alloca %struct.V9fsString, align 8
   %qid = alloca %struct.V9fsQID, align 8
   %stbuf = alloca %struct.stat, align 8
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %uname, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %uname, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %uname, align 8
-  %data.i38 = getelementptr inbounds i8, ptr %aname, i64 8
+  %data.i38 = getelementptr inbounds nuw i8, ptr %aname, i64 8
   store ptr null, ptr %data.i38, align 8
   store i16 0, ptr %aname, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.121, ptr noundef nonnull %fid, ptr noundef nonnull %afid, ptr noundef nonnull %uname, ptr noundef nonnull %aname, ptr noundef nonnull %n_uname)
@@ -5483,9 +5483,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
   %4 = load i32, ptr %afid, align 4
@@ -5514,7 +5514,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -5536,16 +5536,16 @@ trace_v9fs_attach.exit:                           ; preds = %if.end, %land.lhs.t
 
 if.end6:                                          ; preds = %trace_v9fs_attach.exit
   %14 = load i32, ptr %n_uname, align 4
-  %uid = getelementptr inbounds i8, ptr %call3, i64 256
+  %uid = getelementptr inbounds nuw i8, ptr %call3, i64 256
   store i32 %14, ptr %uid, align 8
-  %path = getelementptr inbounds i8, ptr %call3, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %call7 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull %path) #24
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then10, label %if.end12
 
 if.then10:                                        ; preds = %if.end6
   %15 = load i32, ptr %fid, align 4
-  %fids.i = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %fids.i, align 8
   %conv.i = sext i32 %15 to i64
   %17 = inttoptr i64 %conv.i to ptr
@@ -5556,7 +5556,7 @@ if.then10:                                        ; preds = %if.end6
 if.then.i:                                        ; preds = %if.then10
   %18 = load ptr, ptr %fids.i, align 8
   %call3.i = call i32 @g_hash_table_remove(ptr noundef %18, ptr noundef %17) #24
-  %clunked.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store i8 1, ptr %clunked.i, align 8
   br label %out
 
@@ -5567,7 +5567,7 @@ if.end12:                                         ; preds = %if.end6
 
 if.then18:                                        ; preds = %if.end12
   %19 = load i32, ptr %fid, align 4
-  %fids.i39 = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %fids.i39, align 8
   %conv.i40 = sext i32 %19 to i64
   %21 = inttoptr i64 %conv.i40 to ptr
@@ -5578,7 +5578,7 @@ if.then18:                                        ; preds = %if.end12
 if.then.i43:                                      ; preds = %if.then18
   %22 = load ptr, ptr %fids.i39, align 8
   %call3.i44 = call i32 @g_hash_table_remove(ptr noundef %22, ptr noundef %21) #24
-  %clunked.i45 = getelementptr inbounds i8, ptr %call.i41, i64 264
+  %clunked.i45 = getelementptr inbounds nuw i8, ptr %call.i41, i64 264
   store i8 1, ptr %clunked.i45, align 8
   br label %out
 
@@ -5589,7 +5589,7 @@ if.end20:                                         ; preds = %if.end12
 
 if.then25:                                        ; preds = %if.end20
   %23 = load i32, ptr %fid, align 4
-  %fids.i47 = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %fids.i47, align 8
   %conv.i48 = sext i32 %23 to i64
   %25 = inttoptr i64 %conv.i48 to ptr
@@ -5600,22 +5600,22 @@ if.then25:                                        ; preds = %if.end20
 if.then.i51:                                      ; preds = %if.then25
   %26 = load ptr, ptr %fids.i47, align 8
   %call3.i52 = call i32 @g_hash_table_remove(ptr noundef %26, ptr noundef %25) #24
-  %clunked.i53 = getelementptr inbounds i8, ptr %call.i49, i64 264
+  %clunked.i53 = getelementptr inbounds nuw i8, ptr %call.i49, i64 264
   store i8 1, ptr %clunked.i53, align 8
   br label %out
 
 if.end27:                                         ; preds = %if.end20
-  %migration_blocker = getelementptr inbounds i8, ptr %0, i64 7368
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %27 = load ptr, ptr %migration_blocker, align 8
   %tobool.not = icmp eq ptr %27, null
   br i1 %tobool.not, label %if.then28, label %if.end42
 
 if.then28:                                        ; preds = %if.end27
-  %fs_root = getelementptr inbounds i8, ptr %0, i64 40
+  %fs_root = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %fs_root, align 8
   %tobool30.not = icmp eq ptr %28, null
   %spec.select = select i1 %tobool30.not, ptr @.str.4, ptr %28
-  %tag33 = getelementptr inbounds i8, ptr %0, i64 96
+  %tag33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load ptr, ptr %tag33, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str, i32 noundef 1503, ptr noundef nonnull @__func__.v9fs_attach, ptr noundef nonnull @.str.122, ptr noundef nonnull %spec.select, ptr noundef %29) #24
   %call35 = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker, ptr noundef null) #24
@@ -5630,7 +5630,7 @@ if.then39:                                        ; preds = %if.then28
 
 if.end41:                                         ; preds = %if.then28
   %31 = load i32, ptr %fid, align 4
-  %root_fid = getelementptr inbounds i8, ptr %0, i64 7360
+  %root_fid = getelementptr inbounds nuw i8, ptr %0, i64 7360
   store i32 %31, ptr %root_fid, align 8
   br label %if.end42
 
@@ -5641,7 +5641,7 @@ if.end42:                                         ; preds = %if.end41, %if.end27
 
 if.then46:                                        ; preds = %if.end42
   %32 = load i32, ptr %fid, align 4
-  %fids.i55 = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %fids.i55, align 8
   %conv.i56 = sext i32 %32 to i64
   %34 = inttoptr i64 %conv.i56 to ptr
@@ -5652,20 +5652,20 @@ if.then46:                                        ; preds = %if.end42
 if.then.i59:                                      ; preds = %if.then46
   %35 = load ptr, ptr %fids.i55, align 8
   %call3.i60 = call i32 @g_hash_table_remove(ptr noundef %35, ptr noundef %34) #24
-  %clunked.i61 = getelementptr inbounds i8, ptr %call.i57, i64 264
+  %clunked.i61 = getelementptr inbounds nuw i8, ptr %call.i57, i64 264
   store i8 1, ptr %clunked.i61, align 8
   br label %out
 
 if.end48:                                         ; preds = %if.end42
   %add = add nuw i64 %call43, 7
-  %root_st = getelementptr inbounds i8, ptr %0, i64 7392
+  %root_st = getelementptr inbounds nuw i8, ptr %0, i64 7392
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %root_st, ptr noundef nonnull align 8 dereferenceable(144) %stbuf, i64 144, i1 false)
   %36 = load i16, ptr %tag, align 4
   %37 = load i8, ptr %id, align 2
   %38 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %39 = load i32, ptr %version, align 4
-  %path51 = getelementptr inbounds i8, ptr %qid, i64 8
+  %path51 = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %40 = load i64, ptr %path51, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i63)
   %41 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5690,7 +5690,7 @@ if.then8.i.i74:                                   ; preds = %if.then.i.i70
   %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #24
   %call10.i.i76 = call i32 @qemu_get_thread_id() #24
   %45 = load i64, ptr %_now.i.i63, align 8
-  %tv_usec.i.i77 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
+  %tv_usec.i.i77 = getelementptr inbounds nuw i8, ptr %_now.i.i63, i64 8
   %46 = load i64, ptr %tv_usec.i.i77, align 8
   %conv11.i.i78 = zext i16 %36 to i32
   %conv12.i.i79 = zext i8 %37 to i32
@@ -5711,7 +5711,7 @@ trace_v9fs_attach_return.exit:                    ; preds = %if.end48, %land.lhs
 
 out:                                              ; preds = %if.then.i59, %if.then46, %if.then.i51, %if.then25, %if.then.i43, %if.then18, %if.then.i, %if.then10, %trace_v9fs_attach_return.exit, %if.then39
   %err.1 = phi i64 [ %add, %trace_v9fs_attach_return.exit ], [ %conv36, %if.then39 ], [ -22, %if.then10 ], [ -22, %if.then.i ], [ -22, %if.then18 ], [ -22, %if.then.i43 ], [ -22, %if.then25 ], [ -22, %if.then.i51 ], [ %call43, %if.then46 ], [ %call43, %if.then.i59 ]
-  %ref.i = getelementptr inbounds i8, ptr %call3, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call3, i64 260
   %47 = load i32, ptr %ref.i, align 4
   %tobool.not.i81 = icmp eq i32 %47, 0
   br i1 %tobool.not.i81, label %if.else.i, label %if.end.i
@@ -5727,22 +5727,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i82 = getelementptr inbounds i8, ptr %call3, i64 264
+  %clunked.i82 = getelementptr inbounds nuw i8, ptr %call3, i64 264
   %48 = load i8, ptr %clunked.i82, align 8
   %tobool4.i = trunc i8 %48 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call3, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call3, i64 4
   %49 = load i32, ptr %fid.i, align 4
   %50 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %50, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %50, i64 7360
   %51 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %49, %51
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %50, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %50, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -5763,16 +5763,16 @@ define internal void @v9fs_flush(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %tag = alloca i16, align 2
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.127, ptr noundef nonnull %tag)
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag2 = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag2 = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag2, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i16, ptr %tag, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -5798,7 +5798,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -5827,46 +5827,46 @@ if.then7:                                         ; preds = %trace_v9fs_flush.ex
   br label %return
 
 if.else:                                          ; preds = %trace_v9fs_flush.exit
-  %active_list = getelementptr inbounds i8, ptr %0, i64 8
+  %active_list = getelementptr inbounds nuw i8, ptr %0, i64 8
   %cancel_pdu.119 = load ptr, ptr %active_list, align 8
   %tobool.not20 = icmp eq ptr %cancel_pdu.119, null
   br i1 %tobool.not20, label %return, label %for.body
 
 for.body:                                         ; preds = %if.else, %for.inc
   %cancel_pdu.121 = phi ptr [ %cancel_pdu.1, %for.inc ], [ %cancel_pdu.119, %if.else ]
-  %tag8 = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 4
+  %tag8 = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 4
   %12 = load i16, ptr %tag8, align 4
   %conv9 = zext i16 %12 to i32
   %cmp11 = icmp eq i32 %conv9, %conv4
   br i1 %cmp11, label %if.then17, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 32
+  %next = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 32
   %cancel_pdu.1 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %cancel_pdu.1, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !13
 
 if.then17:                                        ; preds = %for.body
-  %cancelled = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 7
+  %cancelled = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 7
   store i8 1, ptr %cancelled, align 1
-  %complete = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 8
+  %complete = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 8
   call void @qemu_co_queue_wait_impl(ptr noundef nonnull %complete, ptr noundef null, i32 noundef 0) #24
   %call20 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %complete) #24
   br i1 %call20, label %return, label %do.body2.i
 
 do.body2.i:                                       ; preds = %if.then17
   store i8 0, ptr %cancelled, align 1
-  %s1.i = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 24
+  %s1.i = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 24
   %13 = load ptr, ptr %s1.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 32
   %14 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
-  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %cancel_pdu.121, i64 40
+  %le_prev13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %cancel_pdu.121, i64 40
   %.pre16.i = load ptr, ptr %le_prev13.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end9.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body2.i
-  %le_prev8.i = getelementptr inbounds i8, ptr %14, i64 40
+  %le_prev8.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %.pre16.i, ptr %le_prev8.i, align 8
   %.pre.i = load ptr, ptr %next.i, align 8
   br label %if.end9.i
@@ -5881,7 +5881,7 @@ if.end9.i:                                        ; preds = %if.then3.i, %do.bod
   br i1 %cmp22.not.i, label %pdu_free.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end9.i
-  %le_prev29.i = getelementptr inbounds i8, ptr %16, i64 40
+  %le_prev29.i = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %next.i, ptr %le_prev29.i, align 8
   br label %pdu_free.exit
 
@@ -5910,7 +5910,7 @@ entry:
   %wnames = alloca ptr, align 8
   %qid = alloca %struct.V9fsQID, align 8
   store ptr null, ptr %wnames, align 8
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.132, ptr noundef nonnull %fid, ptr noundef nonnull %newfid, ptr noundef nonnull %nwnames)
   %1 = and i64 %call, 2147483648
@@ -5925,9 +5925,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %conv4 = and i64 %call, 2147483647
   %add = add nuw nsw i64 %conv4, 7
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %2 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %3 = load i8, ptr %id, align 2
   %4 = load i32, ptr %fid, align 4
   %5 = load i32, ptr %newfid, align 4
@@ -5955,7 +5955,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %2 to i32
   %conv12.i.i = zext i8 %3 to i32
@@ -5995,7 +5995,7 @@ p9array_new_V9fsPath.exit:                        ; preds = %if.end9
   %add.i = or disjoint i64 %mul.i, 8
   %call.i = call noalias ptr @g_malloc0(i64 noundef %add.i) #25
   store i64 %conv16, ptr %call.i, align 8
-  %first.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %first.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %17 = load i16, ptr %nwnames, align 2
   %cmp18177.not = icmp eq i16 %17, 0
   br i1 %cmp18177.not, label %if.end33, label %for.body.preheader
@@ -6046,16 +6046,16 @@ if.end33:                                         ; preds = %if.end30, %p9array_
   br i1 %cmp35, label %out_nofid, label %if.end38
 
 if.end38:                                         ; preds = %if.end33
-  %data.i = getelementptr inbounds i8, ptr %dpath, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %dpath, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %dpath, align 8
-  %data.i94 = getelementptr inbounds i8, ptr %path, i64 8
-  %path39 = getelementptr inbounds i8, ptr %call34, i64 8
+  %data.i94 = getelementptr inbounds nuw i8, ptr %path, i64 8
+  %path39 = getelementptr inbounds nuw i8, ptr %call34, i64 8
   call void @g_free(ptr noundef null) #24
   store ptr null, ptr %data.i, align 8
   %25 = load i16, ptr %path39, align 8
   store i16 %25, ptr %dpath, align 8
-  %data.i95 = getelementptr inbounds i8, ptr %call34, i64 16
+  %data.i95 = getelementptr inbounds nuw i8, ptr %call34, i64 16
   %26 = load ptr, ptr %data.i95, align 8
   %conv.i = zext i16 %25 to i32
   %call.i96 = call ptr @g_memdup(ptr noundef %26, i32 noundef %conv.i) #26
@@ -6078,11 +6078,11 @@ if.end38:                                         ; preds = %if.end33
   br i1 %tobool45.not, label %if.end47, label %do.end
 
 if.end47:                                         ; preds = %if.end38
-  %ops = getelementptr inbounds i8, ptr %0, i64 24
+  %ops = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %ops, align 8
-  %lstat = getelementptr inbounds i8, ptr %30, i64 24
+  %lstat = getelementptr inbounds nuw i8, ptr %30, i64 24
   %31 = load ptr, ptr %lstat, align 8
-  %ctx = getelementptr inbounds i8, ptr %0, i64 32
+  %ctx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %call48 = call i32 %31(ptr noundef nonnull %ctx, ptr noundef nonnull %dpath, ptr noundef nonnull %fidst) #24
   %cmp49 = icmp slt i32 %call48, 0
   br i1 %cmp49, label %if.then51, label %if.end54
@@ -6100,7 +6100,7 @@ if.end54:                                         ; preds = %if.end47
   br i1 %cmp57181.not, label %do.end, label %for.body59.lr.ph
 
 for.body59.lr.ph:                                 ; preds = %if.end54
-  %34 = getelementptr inbounds i8, ptr %stbuf, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
   br label %for.body59
 
 for.body59:                                       ; preds = %for.body59.lr.ph, %for.inc111
@@ -6113,7 +6113,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
 
 if.end64:                                         ; preds = %for.body59
   %36 = load ptr, ptr %s1, align 8
-  %root_st = getelementptr inbounds i8, ptr %36, i64 7392
+  %root_st = getelementptr inbounds nuw i8, ptr %36, i64 7392
   %stbuf.val = load i64, ptr %stbuf, align 8
   %37 = load i64, ptr %root_st, align 8
   %cmp.i101 = icmp eq i64 %37, %stbuf.val
@@ -6125,7 +6125,7 @@ if.end64.if.then72_crit_edge:                     ; preds = %if.end64
 
 same_stat_id.exit:                                ; preds = %if.end64
   %stbuf.val90 = load i64, ptr %34, align 8
-  %st_ino.i = getelementptr inbounds i8, ptr %36, i64 7400
+  %st_ino.i = getelementptr inbounds nuw i8, ptr %36, i64 7400
   %38 = load i64, ptr %st_ino.i, align 8
   %cmp3.i = icmp eq i64 %38, %stbuf.val90
   %.pre219 = load ptr, ptr %wnames, align 8
@@ -6141,7 +6141,7 @@ lor.lhs.false:                                    ; preds = %same_stat_id.exit
   br i1 %.not, label %sub_1, label %lor.lhs.false.tail
 
 sub_1:                                            ; preds = %lor.lhs.false
-  %43 = getelementptr inbounds i8, ptr %39, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = sub nsw i32 46, %45
@@ -6149,7 +6149,7 @@ sub_1:                                            ; preds = %lor.lhs.false
   br i1 %.not207, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_1
-  %47 = getelementptr inbounds i8, ptr %39, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = sub nsw i32 0, %49
@@ -6163,7 +6163,7 @@ lor.lhs.false.tail:                               ; preds = %lor.lhs.false, %sub
 if.then72:                                        ; preds = %if.end64.if.then72_crit_edge, %lor.lhs.false.tail, %same_stat_id.exit
   %52 = phi ptr [ %.pre218, %if.end64.if.then72_crit_edge ], [ %.pre219, %lor.lhs.false.tail ], [ %.pre219, %same_stat_id.exit ]
   %53 = load ptr, ptr %ops, align 8
-  %name_to_path = getelementptr inbounds i8, ptr %53, i64 272
+  %name_to_path = getelementptr inbounds nuw i8, ptr %53, i64 272
   %54 = load ptr, ptr %name_to_path, align 8
   %data77 = getelementptr %struct.V9fsString, ptr %52, i64 %indvars.iv213, i32 1
   %55 = load ptr, ptr %data77, align 8
@@ -6186,7 +6186,7 @@ if.end87:                                         ; preds = %if.then72
 
 if.end92:                                         ; preds = %if.end87
   %58 = load ptr, ptr %ops, align 8
-  %lstat94 = getelementptr inbounds i8, ptr %58, i64 24
+  %lstat94 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %59 = load ptr, ptr %lstat94, align 8
   %call98 = call i32 %59(ptr noundef nonnull %ctx, ptr noundef %arrayidx79, ptr noundef nonnull %stbuf) #24
   %cmp99 = icmp slt i32 %call98, 0
@@ -6207,7 +6207,7 @@ if.end105:                                        ; preds = %if.end92
   store ptr null, ptr %data.i, align 8
   %63 = load i16, ptr %arrayidx79, align 8
   store i16 %63, ptr %dpath, align 8
-  %data.i103 = getelementptr inbounds i8, ptr %arrayidx79, i64 8
+  %data.i103 = getelementptr inbounds nuw i8, ptr %arrayidx79, i64 8
   %64 = load ptr, ptr %data.i103, align 8
   %conv.i104 = zext i16 %63 to i32
   %call.i105 = call ptr @g_memdup(ptr noundef %64, i32 noundef %conv.i104) #26
@@ -6272,7 +6272,7 @@ if.end131:                                        ; preds = %if.end123
   br i1 %cmp135193, label %for.body137.lr.ph, label %for.end163.thread
 
 for.body137.lr.ph:                                ; preds = %if.end131
-  %73 = getelementptr inbounds i8, ptr %stbuf, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
   %wide.trip.count = zext nneg i32 %nwalked.0 to i64
   br label %for.body137
 
@@ -6283,7 +6283,7 @@ for.body137:                                      ; preds = %for.body137.lr.ph, 
   %74 = phi ptr [ %call.i113, %for.body137.lr.ph ], [ %97, %if.end158 ]
   %75 = phi i16 [ %71, %for.body137.lr.ph ], [ %96, %if.end158 ]
   %76 = load ptr, ptr %s1, align 8
-  %root_st139 = getelementptr inbounds i8, ptr %76, i64 7392
+  %root_st139 = getelementptr inbounds nuw i8, ptr %76, i64 7392
   %stbuf.val91 = load i64, ptr %stbuf, align 8
   %77 = load i64, ptr %root_st139, align 8
   %cmp.i114 = icmp eq i64 %77, %stbuf.val91
@@ -6291,7 +6291,7 @@ for.body137:                                      ; preds = %for.body137.lr.ph, 
 
 same_stat_id.exit118:                             ; preds = %for.body137
   %stbuf.val92 = load i64, ptr %73, align 8
-  %st_ino.i116 = getelementptr inbounds i8, ptr %76, i64 7400
+  %st_ino.i116 = getelementptr inbounds nuw i8, ptr %76, i64 7400
   %78 = load i64, ptr %st_ino.i116, align 8
   %cmp3.i117 = icmp eq i64 %78, %stbuf.val92
   br i1 %cmp3.i117, label %lor.lhs.false141, label %if.then147
@@ -6307,7 +6307,7 @@ lor.lhs.false141:                                 ; preds = %same_stat_id.exit11
   br i1 %.not208, label %sub_1171, label %lor.lhs.false141.tail
 
 sub_1171:                                         ; preds = %lor.lhs.false141
-  %84 = getelementptr inbounds i8, ptr %80, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
   %87 = sub nsw i32 46, %86
@@ -6315,7 +6315,7 @@ sub_1171:                                         ; preds = %lor.lhs.false141
   br i1 %.not209, label %sub_2172, label %lor.lhs.false141.tail
 
 sub_2172:                                         ; preds = %sub_1171
-  %88 = getelementptr inbounds i8, ptr %80, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = sub nsw i32 0, %90
@@ -6338,7 +6338,7 @@ if.end155:                                        ; preds = %if.then147
   %arrayidx157 = getelementptr %struct.V9fsPath, ptr %pathes.2, i64 %indvars.iv216
   call void @g_free(ptr noundef %74) #24
   %93 = load i16, ptr %arrayidx157, align 8
-  %data.i120 = getelementptr inbounds i8, ptr %arrayidx157, i64 8
+  %data.i120 = getelementptr inbounds nuw i8, ptr %arrayidx157, i64 8
   %94 = load ptr, ptr %data.i120, align 8
   %conv.i121 = zext i16 %93 to i32
   %call.i122 = call ptr @g_memdup(ptr noundef %94, i32 noundef %conv.i121) #26
@@ -6402,14 +6402,14 @@ if.then172:                                       ; preds = %if.end169
   br i1 %cmp173.not, label %if.end176, label %out
 
 if.end176:                                        ; preds = %if.then172
-  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %103 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %103, 2
   %tobool.not.i127 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i127, label %v9fs_path_write_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end176
-  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i) #24
   br label %v9fs_path_write_lock.exit
 
@@ -6421,7 +6421,7 @@ v9fs_path_write_lock.exit:                        ; preds = %if.end176, %if.then
   br i1 %tobool.not.i130, label %send_qids, label %if.then.i131
 
 if.then.i131:                                     ; preds = %v9fs_path_write_lock.exit
-  %rename_lock.i132 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i132 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i132) #24
   br label %send_qids
 
@@ -6431,11 +6431,11 @@ if.else178:                                       ; preds = %if.end169
   br i1 %cmp180, label %out, label %if.end183
 
 if.end183:                                        ; preds = %if.else178
-  %uid = getelementptr inbounds i8, ptr %call34, i64 256
+  %uid = getelementptr inbounds nuw i8, ptr %call34, i64 256
   %105 = load i32, ptr %uid, align 8
-  %uid184 = getelementptr inbounds i8, ptr %call179, i64 256
+  %uid184 = getelementptr inbounds nuw i8, ptr %call179, i64 256
   store i32 %105, ptr %uid184, align 8
-  %path185 = getelementptr inbounds i8, ptr %call179, i64 8
+  %path185 = getelementptr inbounds nuw i8, ptr %call179, i64 8
   call void @v9fs_path_copy(ptr noundef nonnull %path185, ptr noundef nonnull %path)
   br label %send_qids
 
@@ -6452,7 +6452,7 @@ send_qids:                                        ; preds = %if.then.i131, %v9fs
 out:                                              ; preds = %for.end163.thread, %if.else178, %if.then172, %if.then166, %if.end123, %do.end, %send_qids
   %err.4 = phi i32 [ %err.1, %do.end ], [ %call188, %send_qids ], [ %err.6, %if.then166 ], [ %call124, %if.end123 ], [ -22, %if.then172 ], [ -22, %if.else178 ], [ %call124, %for.end163.thread ]
   %newfidp.0 = phi ptr [ null, %do.end ], [ %newfidp.1, %send_qids ], [ null, %if.then166 ], [ null, %if.end123 ], [ null, %if.then172 ], [ null, %if.else178 ], [ null, %for.end163.thread ]
-  %ref.i = getelementptr inbounds i8, ptr %call34, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call34, i64 260
   %108 = load i32, ptr %ref.i, align 4
   %tobool.not.i133 = icmp eq i32 %108, 0
   br i1 %tobool.not.i133, label %if.else.i, label %if.end.i
@@ -6468,22 +6468,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %put_fid.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call34, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call34, i64 264
   %109 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %109 to i1
   br i1 %tobool4.i, label %if.then5.i, label %put_fid.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call34, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call34, i64 4
   %110 = load i32, ptr %fid.i, align 4
   %111 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %111, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %111, i64 7360
   %112 = load i32, ptr %root_fid.i, align 8
   %cmp.i134 = icmp eq i32 %110, %112
   br i1 %cmp.i134, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %111, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %111, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -6496,7 +6496,7 @@ put_fid.exit:                                     ; preds = %if.end.i, %land.lhs
   br i1 %tobool193.not, label %if.end196, label %if.then194
 
 if.then194:                                       ; preds = %put_fid.exit
-  %ref.i136 = getelementptr inbounds i8, ptr %newfidp.0, i64 260
+  %ref.i136 = getelementptr inbounds nuw i8, ptr %newfidp.0, i64 260
   %113 = load i32, ptr %ref.i136, align 4
   %tobool.not.i137 = icmp eq i32 %113, 0
   br i1 %tobool.not.i137, label %if.else.i154, label %if.end.i138
@@ -6512,22 +6512,22 @@ if.end.i138:                                      ; preds = %if.then194
   br i1 %tobool3.not.i140, label %land.lhs.true.i142, label %if.end196
 
 land.lhs.true.i142:                               ; preds = %if.end.i138
-  %clunked.i143 = getelementptr inbounds i8, ptr %newfidp.0, i64 264
+  %clunked.i143 = getelementptr inbounds nuw i8, ptr %newfidp.0, i64 264
   %114 = load i8, ptr %clunked.i143, align 8
   %tobool4.i144 = trunc i8 %114 to i1
   br i1 %tobool4.i144, label %if.then5.i145, label %if.end196
 
 if.then5.i145:                                    ; preds = %land.lhs.true.i142
-  %fid.i146 = getelementptr inbounds i8, ptr %newfidp.0, i64 4
+  %fid.i146 = getelementptr inbounds nuw i8, ptr %newfidp.0, i64 4
   %115 = load i32, ptr %fid.i146, align 4
   %116 = load ptr, ptr %s1, align 8
-  %root_fid.i148 = getelementptr inbounds i8, ptr %116, i64 7360
+  %root_fid.i148 = getelementptr inbounds nuw i8, ptr %116, i64 7360
   %117 = load i32, ptr %root_fid.i148, align 8
   %cmp.i149 = icmp eq i32 %115, %117
   br i1 %cmp.i149, label %if.then6.i152, label %if.end8.i150
 
 if.then6.i152:                                    ; preds = %if.then5.i145
-  %migration_blocker.i153 = getelementptr inbounds i8, ptr %116, i64 7368
+  %migration_blocker.i153 = getelementptr inbounds nuw i8, ptr %116, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i153) #24
   br label %if.end8.i150
 
@@ -6574,7 +6574,7 @@ if.end.i159:                                      ; preds = %cleanup
 for.body.i:                                       ; preds = %if.end.i159, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end.i159 ]
   %arrayidx.i = getelementptr [0 x %struct.V9fsPath], ptr %pathes.0, i64 0, i64 %i.07.i
-  %data.i.i160 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %data.i.i160 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %121 = load ptr, ptr %data.i.i160, align 8
   call void @g_free(ptr noundef %121) #24
   store ptr null, ptr %data.i.i160, align 8
@@ -6608,15 +6608,15 @@ entry:
   %ctype = alloca i8, align 1
   %major = alloca i32, align 4
   %minor = alloca i32, align 4
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %path, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %path, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %path, align 8
-  %data.i100 = getelementptr inbounds i8, ptr %name, i64 8
+  %data.i100 = getelementptr inbounds nuw i8, ptr %name, i64 8
   store ptr null, ptr %data.i100, align 8
   store i16 0, ptr %name, align 8
-  %data.i101 = getelementptr inbounds i8, ptr %extension, i64 8
+  %data.i101 = getelementptr inbounds nuw i8, ptr %extension, i64 8
   store ptr null, ptr %data.i101, align 8
   store i16 0, ptr %extension, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.138, ptr noundef nonnull %fid, ptr noundef nonnull %name, ptr noundef nonnull %perm, ptr noundef nonnull %mode, ptr noundef nonnull %extension)
@@ -6625,9 +6625,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
   %4 = load ptr, ptr %data.i100, align 8
@@ -6656,7 +6656,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -6688,7 +6688,7 @@ sub_0:                                            ; preds = %name_is_illegal.exi
   br i1 %.not, label %if.end6.tail, label %if.end6.tail.thread
 
 if.end6.tail:                                     ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %tobool.not = icmp eq i8 %16, 0
   br i1 %tobool.not, label %out_nofid, label %sub_1173
@@ -6699,7 +6699,7 @@ if.end6.tail.thread:                              ; preds = %sub_0
   br label %lor.lhs.false.tail
 
 sub_1173:                                         ; preds = %if.end6.tail
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 46, %21
@@ -6707,7 +6707,7 @@ sub_1173:                                         ; preds = %if.end6.tail
   br i1 %.not176, label %sub_2, label %lor.lhs.false.tail
 
 sub_2:                                            ; preds = %sub_1173
-  %23 = getelementptr inbounds i8, ptr %13, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = sub nsw i32 0, %25
@@ -6736,28 +6736,28 @@ if.end22:                                         ; preds = %if.end18
 
 if.then24:                                        ; preds = %if.end22
   %and25 = and i32 %30, 511
-  %uid = getelementptr inbounds i8, ptr %call14, i64 256
+  %uid = getelementptr inbounds nuw i8, ptr %call14, i64 256
   %31 = load i32, ptr %uid, align 8
   %call26 = call i32 @v9fs_co_mkdir(ptr noundef nonnull %opaque, ptr noundef nonnull %call14, ptr noundef nonnull %name, i32 noundef %and25, i32 noundef %31, i32 noundef -1, ptr noundef nonnull %stbuf) #24
   %cmp27 = icmp slt i32 %call26, 0
   br i1 %cmp27, label %out, label %if.end30
 
 if.end30:                                         ; preds = %if.then24
-  %path31 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path31 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %32 = load ptr, ptr %data.i100, align 8
   %call33 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef nonnull %path31, ptr noundef %32, ptr noundef nonnull %path) #24
   %cmp34 = icmp slt i32 %call33, 0
   br i1 %cmp34, label %out, label %if.end37
 
 if.end37:                                         ; preds = %if.end30
-  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %export_flags.i, align 8
   %and.i = and i32 %33, 2
   %tobool.not.i102 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i102, label %v9fs_path_write_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end37
-  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i) #24
   br label %v9fs_path_write_lock.exit
 
@@ -6769,7 +6769,7 @@ v9fs_path_write_lock.exit:                        ; preds = %if.end37, %if.then.
   br i1 %tobool.not.i105, label %v9fs_path_unlock.exit, label %if.then.i106
 
 if.then.i106:                                     ; preds = %v9fs_path_write_lock.exit
-  %rename_lock.i107 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i107 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i107) #24
   br label %v9fs_path_unlock.exit
 
@@ -6794,21 +6794,21 @@ if.then47:                                        ; preds = %if.else
   br i1 %cmp50, label %out, label %if.end53
 
 if.end53:                                         ; preds = %if.then47
-  %path54 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path54 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %36 = load ptr, ptr %data.i100, align 8
   %call56 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef nonnull %path54, ptr noundef %36, ptr noundef nonnull %path) #24
   %cmp57 = icmp slt i32 %call56, 0
   br i1 %cmp57, label %out, label %if.end60
 
 if.end60:                                         ; preds = %if.end53
-  %export_flags.i108 = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i32, ptr %export_flags.i108, align 8
   %and.i109 = and i32 %37, 2
   %tobool.not.i110 = icmp eq i32 %and.i109, 0
   br i1 %tobool.not.i110, label %v9fs_path_write_lock.exit113, label %if.then.i111
 
 if.then.i111:                                     ; preds = %if.end60
-  %rename_lock.i112 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i112 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i112) #24
   br label %v9fs_path_write_lock.exit113
 
@@ -6820,7 +6820,7 @@ v9fs_path_write_lock.exit113:                     ; preds = %if.end60, %if.then.
   br i1 %tobool.not.i116, label %if.end185, label %if.then.i117
 
 if.then.i117:                                     ; preds = %v9fs_path_write_lock.exit113
-  %rename_lock.i118 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i118 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i118) #24
   br label %if.end185
 
@@ -6843,7 +6843,7 @@ if.end72:                                         ; preds = %if.then65
   br i1 %cmp75, label %out, label %if.end78
 
 if.end78:                                         ; preds = %if.end72
-  %path79 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path79 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %40 = load ptr, ptr %data.i100, align 8
   %call81 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef nonnull %path79, ptr noundef %40, ptr noundef nonnull %path) #24
   %cmp82 = icmp slt i32 %call81, 0
@@ -6854,14 +6854,14 @@ if.then84:                                        ; preds = %if.end78
   br label %out
 
 if.end86:                                         ; preds = %if.end78
-  %export_flags.i120 = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i120 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i32, ptr %export_flags.i120, align 8
   %and.i121 = and i32 %41, 2
   %tobool.not.i122 = icmp eq i32 %and.i121, 0
   br i1 %tobool.not.i122, label %v9fs_path_write_lock.exit125, label %if.then.i123
 
 if.then.i123:                                     ; preds = %if.end86
-  %rename_lock.i124 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i124 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i124) #24
   br label %v9fs_path_write_lock.exit125
 
@@ -6873,7 +6873,7 @@ v9fs_path_write_lock.exit125:                     ; preds = %if.end86, %if.then.
   br i1 %tobool.not.i128, label %v9fs_path_unlock.exit131, label %if.then.i129
 
 if.then.i129:                                     ; preds = %v9fs_path_write_lock.exit125
-  %rename_lock.i130 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i130 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i130) #24
   br label %v9fs_path_unlock.exit131
 
@@ -6918,7 +6918,7 @@ sw.epilog:                                        ; preds = %if.end105, %sw.bb10
   %46 = load i32, ptr %perm, align 4
   %and108 = and i32 %46, 511
   %or = or disjoint i32 %and108, %nmode.0
-  %uid109 = getelementptr inbounds i8, ptr %call14, i64 256
+  %uid109 = getelementptr inbounds nuw i8, ptr %call14, i64 256
   %47 = load i32, ptr %uid109, align 8
   %48 = load i32, ptr %major, align 4
   %49 = load i32, ptr %minor, align 4
@@ -6928,21 +6928,21 @@ sw.epilog:                                        ; preds = %if.end105, %sw.bb10
   br i1 %cmp112, label %out, label %if.end115
 
 if.end115:                                        ; preds = %sw.epilog
-  %path116 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path116 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %50 = load ptr, ptr %data.i100, align 8
   %call118 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef nonnull %path116, ptr noundef %50, ptr noundef nonnull %path) #24
   %cmp119 = icmp slt i32 %call118, 0
   br i1 %cmp119, label %out, label %if.end122
 
 if.end122:                                        ; preds = %if.end115
-  %export_flags.i132 = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load i32, ptr %export_flags.i132, align 8
   %and.i133 = and i32 %51, 2
   %tobool.not.i134 = icmp eq i32 %and.i133, 0
   br i1 %tobool.not.i134, label %v9fs_path_write_lock.exit137, label %if.then.i135
 
 if.then.i135:                                     ; preds = %if.end122
-  %rename_lock.i136 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i136 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i136) #24
   br label %v9fs_path_write_lock.exit137
 
@@ -6954,7 +6954,7 @@ v9fs_path_write_lock.exit137:                     ; preds = %if.end122, %if.then
   br i1 %tobool.not.i140, label %if.end185, label %if.then.i141
 
 if.then.i141:                                     ; preds = %v9fs_path_write_lock.exit137
-  %rename_lock.i142 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i142 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i142) #24
   br label %if.end185
 
@@ -6964,7 +6964,7 @@ if.else124:                                       ; preds = %if.else95
   br i1 %tobool126.not, label %if.else144, label %if.then127
 
 if.then127:                                       ; preds = %if.else124
-  %uid128 = getelementptr inbounds i8, ptr %call14, i64 256
+  %uid128 = getelementptr inbounds nuw i8, ptr %call14, i64 256
   %53 = load i32, ptr %uid128, align 8
   %and129 = and i32 %30, 511
   %or130 = or disjoint i32 %and129, 4096
@@ -6973,21 +6973,21 @@ if.then127:                                       ; preds = %if.else124
   br i1 %cmp132, label %out, label %if.end135
 
 if.end135:                                        ; preds = %if.then127
-  %path136 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path136 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %54 = load ptr, ptr %data.i100, align 8
   %call138 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef nonnull %path136, ptr noundef %54, ptr noundef nonnull %path) #24
   %cmp139 = icmp slt i32 %call138, 0
   br i1 %cmp139, label %out, label %if.end142
 
 if.end142:                                        ; preds = %if.end135
-  %export_flags.i144 = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i144 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i32, ptr %export_flags.i144, align 8
   %and.i145 = and i32 %55, 2
   %tobool.not.i146 = icmp eq i32 %and.i145, 0
   br i1 %tobool.not.i146, label %v9fs_path_write_lock.exit149, label %if.then.i147
 
 if.then.i147:                                     ; preds = %if.end142
-  %rename_lock.i148 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i148 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i148) #24
   br label %v9fs_path_write_lock.exit149
 
@@ -6999,7 +6999,7 @@ v9fs_path_write_lock.exit149:                     ; preds = %if.end142, %if.then
   br i1 %tobool.not.i152, label %if.end185, label %if.then.i153
 
 if.then.i153:                                     ; preds = %v9fs_path_write_lock.exit149
-  %rename_lock.i154 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i154 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i154) #24
   br label %if.end185
 
@@ -7009,7 +7009,7 @@ if.else144:                                       ; preds = %if.else124
   br i1 %tobool146.not, label %if.else164, label %if.then147
 
 if.then147:                                       ; preds = %if.else144
-  %uid148 = getelementptr inbounds i8, ptr %call14, i64 256
+  %uid148 = getelementptr inbounds nuw i8, ptr %call14, i64 256
   %57 = load i32, ptr %uid148, align 8
   %and149 = and i32 %30, 511
   %or150 = or disjoint i32 %and149, 49152
@@ -7018,21 +7018,21 @@ if.then147:                                       ; preds = %if.else144
   br i1 %cmp152, label %out, label %if.end155
 
 if.end155:                                        ; preds = %if.then147
-  %path156 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path156 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %58 = load ptr, ptr %data.i100, align 8
   %call158 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %opaque, ptr noundef nonnull %path156, ptr noundef %58, ptr noundef nonnull %path) #24
   %cmp159 = icmp slt i32 %call158, 0
   br i1 %cmp159, label %out, label %if.end162
 
 if.end162:                                        ; preds = %if.end155
-  %export_flags.i156 = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i156 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load i32, ptr %export_flags.i156, align 8
   %and.i157 = and i32 %59, 2
   %tobool.not.i158 = icmp eq i32 %and.i157, 0
   br i1 %tobool.not.i158, label %v9fs_path_write_lock.exit161, label %if.then.i159
 
 if.then.i159:                                     ; preds = %if.end162
-  %rename_lock.i160 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i160 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i160) #24
   br label %v9fs_path_write_lock.exit161
 
@@ -7044,7 +7044,7 @@ v9fs_path_write_lock.exit161:                     ; preds = %if.end162, %if.then
   br i1 %tobool.not.i164, label %if.end185, label %if.then.i165
 
 if.then.i165:                                     ; preds = %v9fs_path_write_lock.exit161
-  %rename_lock.i166 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i166 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i166) #24
   br label %if.end185
 
@@ -7060,21 +7060,21 @@ if.end171:                                        ; preds = %if.else164
   store i32 1, ptr %call14, align 8
   %62 = load i8, ptr %mode, align 1
   %call173 = call fastcc i32 @omode_to_uflags(i8 noundef signext %62)
-  %open_flags = getelementptr inbounds i8, ptr %call14, i64 252
+  %open_flags = getelementptr inbounds nuw i8, ptr %call14, i64 252
   store i32 %call173, ptr %open_flags, align 4
   %and175 = and i32 %call173, 128
   %tobool176.not = icmp eq i32 %and175, 0
   br i1 %tobool176.not, label %if.end185, label %if.then177
 
 if.then177:                                       ; preds = %if.end171
-  %flags = getelementptr inbounds i8, ptr %call14, i64 248
+  %flags = getelementptr inbounds nuw i8, ptr %call14, i64 248
   %63 = load i32, ptr %flags, align 8
   %or178 = or i32 %63, 2
   store i32 %or178, ptr %flags, align 8
   br label %if.end185
 
 if.end185:                                        ; preds = %if.then.i165, %v9fs_path_write_lock.exit161, %if.then.i153, %v9fs_path_write_lock.exit149, %if.then.i141, %v9fs_path_write_lock.exit137, %if.then.i117, %v9fs_path_write_lock.exit113, %if.then177, %if.end171, %v9fs_path_unlock.exit131, %if.end43
-  %path186 = getelementptr inbounds i8, ptr %call14, i64 8
+  %path186 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %call187 = call i32 @get_iounit(ptr noundef nonnull %opaque, ptr noundef nonnull %path186)
   %call188 = call fastcc i32 @stat_to_qid(ptr noundef nonnull %opaque, ptr noundef nonnull %stbuf, ptr noundef nonnull %qid)
   %cmp189 = icmp slt i32 %call188, 0
@@ -7091,16 +7091,16 @@ if.end198:                                        ; preds = %if.end192
   %64 = load i16, ptr %tag, align 4
   %65 = load i8, ptr %id, align 2
   %66 = load i8, ptr %qid, align 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
   %67 = load i32, ptr %version, align 4
-  %path203 = getelementptr inbounds i8, ptr %qid, i64 8
+  %path203 = getelementptr inbounds nuw i8, ptr %qid, i64 8
   %68 = load i64, ptr %path203, align 8
   call fastcc void @trace_v9fs_create_return(i16 noundef zeroext %64, i8 noundef zeroext %65, i8 noundef zeroext %66, i32 noundef %67, i64 noundef %68, i32 noundef %call187)
   br label %out
 
 out:                                              ; preds = %if.end105, %if.then65, %if.end18, %if.end192, %if.end185, %if.else164, %if.end155, %if.then147, %if.end135, %if.then127, %if.end115, %sw.epilog, %if.end72, %if.end53, %if.then47, %v9fs_path_unlock.exit, %if.end30, %if.then24, %if.end198, %if.then103, %if.then92, %if.then84
   %err.1 = phi i32 [ %call26, %if.then24 ], [ %call33, %if.end30 ], [ %call39, %v9fs_path_unlock.exit ], [ %call188, %if.end185 ], [ %conv194, %if.end192 ], [ %conv200, %if.end198 ], [ %call49, %if.then47 ], [ %call56, %if.end53 ], [ %call73, %if.end72 ], [ %call81, %if.then84 ], [ %call89, %if.then92 ], [ %sub, %if.then103 ], [ %call111, %sw.epilog ], [ %call118, %if.end115 ], [ %call131, %if.then127 ], [ %call138, %if.end135 ], [ %call151, %if.then147 ], [ %call158, %if.end155 ], [ %call167, %if.else164 ], [ -22, %if.end18 ], [ -22, %if.then65 ], [ -5, %if.end105 ]
-  %ref.i = getelementptr inbounds i8, ptr %call14, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call14, i64 260
   %69 = load i32, ptr %ref.i, align 4
   %tobool.not.i168 = icmp eq i32 %69, 0
   br i1 %tobool.not.i168, label %if.else.i, label %if.end.i
@@ -7116,22 +7116,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call14, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call14, i64 264
   %70 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %70 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call14, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call14, i64 4
   %71 = load i32, ptr %fid.i, align 4
   %72 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %72, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %72, i64 7360
   %73 = load i32, ptr %root_fid.i, align 8
   %cmp.i169 = icmp eq i32 %71, %73
   br i1 %cmp.i169, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %72, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %72, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -7167,16 +7167,16 @@ entry:
   %max_count = alloca i32, align 4
   %qiov_full = alloca %struct.QEMUIOVector, align 8
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.79, ptr noundef nonnull %fid, ptr noundef nonnull %off, ptr noundef nonnull %max_count)
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
   %4 = load i64, ptr %off, align 8
@@ -7204,7 +7204,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -7233,7 +7233,7 @@ if.end5:                                          ; preds = %trace_v9fs_read.exi
   ]
 
 if.then7:                                         ; preds = %if.end5
-  %proto_version = getelementptr inbounds i8, ptr %0, i64 104
+  %proto_version = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load i32, ptr %proto_version, align 8
   %cmp8.not = icmp eq i32 %14, 1
   br i1 %cmp8.not, label %if.end11, label %if.then9
@@ -7279,10 +7279,10 @@ if.then29:                                        ; preds = %if.end5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %niov.i)
   %18 = load ptr, ptr %s1, align 8
-  %transport.i = getelementptr inbounds i8, ptr %18, i64 7280
+  %transport.i = getelementptr inbounds nuw i8, ptr %18, i64 7280
   %19 = load ptr, ptr %transport.i, align 8
   %add.i = add nuw nsw i64 %conv31, 11
-  %init_in_iov_from_pdu.i = getelementptr inbounds i8, ptr %19, i64 16
+  %init_in_iov_from_pdu.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %20 = load ptr, ptr %init_in_iov_from_pdu.i, align 8
   call void %20(ptr noundef nonnull %opaque, ptr noundef nonnull %iov.i, ptr noundef nonnull %niov.i, i64 noundef %add.i) #24
   %21 = load ptr, ptr %iov.i, align 8
@@ -7294,12 +7294,12 @@ if.then29:                                        ; preds = %if.end5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elem.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %niov.i)
-  %niov = getelementptr inbounds i8, ptr %qiov_full, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov_full, i64 8
   %24 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %qiov, i32 noundef %24) #24
-  %size = getelementptr inbounds i8, ptr %qiov_full, i64 32
-  %niov35 = getelementptr inbounds i8, ptr %qiov, i64 8
-  %cancelled = getelementptr inbounds i8, ptr %opaque, i64 7
+  %size = getelementptr inbounds nuw i8, ptr %qiov_full, i64 32
+  %niov35 = getelementptr inbounds nuw i8, ptr %qiov, i64 8
+  %cancelled = getelementptr inbounds nuw i8, ptr %opaque, i64 7
   br label %do.body
 
 do.body:                                          ; preds = %do.cond52, %if.then29
@@ -7366,7 +7366,7 @@ if.then72:                                        ; preds = %if.end5
   %33 = load i64, ptr %off, align 8
   %34 = load i32, ptr %max_count, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov_full.i)
-  %len.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %len.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   %35 = load i64, ptr %len.i, align 8
   %read_count.0.i = call i64 @llvm.usub.sat.i64(i64 %35, i64 %33)
   %conv.i = zext i32 %34 to i64
@@ -7381,10 +7381,10 @@ if.end12.i:                                       ; preds = %if.then72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iov.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %niov.i.i)
   %36 = load ptr, ptr %s1, align 8
-  %transport.i.i = getelementptr inbounds i8, ptr %36, i64 7280
+  %transport.i.i = getelementptr inbounds nuw i8, ptr %36, i64 7280
   %37 = load ptr, ptr %transport.i.i, align 8
   %add.i.i = add nuw i64 %read_count.1.i, %add.i53
-  %init_in_iov_from_pdu.i.i = getelementptr inbounds i8, ptr %37, i64 16
+  %init_in_iov_from_pdu.i.i = getelementptr inbounds nuw i8, ptr %37, i64 16
   %38 = load ptr, ptr %init_in_iov_from_pdu.i.i, align 8
   call void %38(ptr noundef nonnull %opaque, ptr noundef nonnull %iov.i.i, ptr noundef nonnull %niov.i.i, i64 noundef %add.i.i) #24
   %39 = load ptr, ptr %iov.i.i, align 8
@@ -7397,9 +7397,9 @@ if.end12.i:                                       ; preds = %if.then72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %niov.i.i)
   %42 = load ptr, ptr %qiov_full.i, align 8
-  %niov.i54 = getelementptr inbounds i8, ptr %qiov_full.i, i64 8
+  %niov.i54 = getelementptr inbounds nuw i8, ptr %qiov_full.i, i64 8
   %43 = load i32, ptr %niov.i54, align 8
-  %value.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %value.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   %44 = load ptr, ptr %value.i, align 8
   %add.ptr.i = getelementptr i8, ptr %44, i64 %33
   %call14.i = call i64 @v9fs_pack(ptr noundef %42, i32 noundef %43, i64 noundef 0, ptr noundef %add.ptr.i, i64 noundef %read_count.1.i) #24
@@ -7444,7 +7444,7 @@ if.then8.i.i67:                                   ; preds = %if.then.i.i62
   %call9.i.i68 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i55, ptr noundef null) #24
   %call10.i.i69 = call i32 @qemu_get_thread_id() #24
   %51 = load i64, ptr %_now.i.i55, align 8
-  %tv_usec.i.i70 = getelementptr inbounds i8, ptr %_now.i.i55, i64 8
+  %tv_usec.i.i70 = getelementptr inbounds nuw i8, ptr %_now.i.i55, i64 8
   %52 = load i64, ptr %tv_usec.i.i70, align 8
   %conv11.i.i71 = zext i16 %45 to i32
   %conv12.i.i72 = zext i8 %46 to i32
@@ -7463,7 +7463,7 @@ trace_v9fs_read_return.exit:                      ; preds = %if.end78, %land.lhs
 
 out:                                              ; preds = %if.end18, %trace_v9fs_read_return.exit, %if.then17, %if.then9
   %err.1 = phi i64 [ -95, %if.then9 ], [ %conv, %if.then17 ], [ %call19, %if.end18 ], [ %err.2, %trace_v9fs_read_return.exit ]
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %53 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %53, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -7479,22 +7479,22 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %54 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %54 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %55 = load i32, ptr %fid.i, align 4
   %56 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %56, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %56, i64 7360
   %57 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %55, %57
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %56, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %56, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -7532,12 +7532,12 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %elem.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %niov.i)
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %s.i, align 8
-  %transport.i = getelementptr inbounds i8, ptr %1, i64 7280
+  %transport.i = getelementptr inbounds nuw i8, ptr %1, i64 7280
   %2 = load ptr, ptr %transport.i, align 8
   %add.i = add nuw i64 %add, %conv
-  %init_in_iov_from_pdu.i = getelementptr inbounds i8, ptr %2, i64 24
+  %init_in_iov_from_pdu.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %init_in_iov_from_pdu.i, align 8
   call void %3(ptr noundef %opaque, ptr noundef nonnull %iov.i, ptr noundef nonnull %niov.i, i64 noundef %add.i) #24
   %4 = load ptr, ptr %iov.i, align 8
@@ -7549,14 +7549,14 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %elem.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %niov.i)
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %7 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %8 = load i8, ptr %id, align 2
   %9 = load i32, ptr %fid, align 4
   %10 = load i64, ptr %off, align 8
   %11 = load i32, ptr %count, align 4
-  %niov = getelementptr inbounds i8, ptr %qiov_full, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov_full, i64 8
   %12 = load i32, ptr %niov, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7581,7 +7581,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %7 to i32
   %conv12.i.i = zext i8 %8 to i32
@@ -7609,7 +7609,7 @@ if.end6:                                          ; preds = %trace_v9fs_write.ex
   ]
 
 if.then9:                                         ; preds = %if.end6
-  %fs = getelementptr inbounds i8, ptr %call2, i64 24
+  %fs = getelementptr inbounds nuw i8, ptr %call2, i64 24
   %21 = load i32, ptr %fs, align 8
   %cmp10 = icmp eq i32 %21, -1
   br i1 %cmp10, label %out, label %if.end22
@@ -7618,8 +7618,8 @@ if.then17:                                        ; preds = %if.end6
   %22 = load i64, ptr %off, align 8
   %23 = load ptr, ptr %qiov_full, align 8
   %24 = load i32, ptr %niov, align 8
-  %fs.i = getelementptr inbounds i8, ptr %call2, i64 24
-  %len.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %fs.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   %25 = load i64, ptr %len.i, align 8
   %cmp.i = icmp ult i64 %25, %22
   br i1 %cmp.i, label %v9fs_xattr_write.exit, label %if.end.i
@@ -7641,7 +7641,7 @@ if.end12.i:                                       ; preds = %if.end.i
   br i1 %cmp151.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end12.i
-  %value.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %value.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   %wide.trip.count.i = zext nneg i32 %24 to i64
   br label %for.body.i
 
@@ -7650,7 +7650,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %write_count.14.i = phi i64 [ %spec.select.i, %for.body.lr.ph.i ], [ %sub33.i, %for.body.i ]
   %off.addr.02.i = phi i64 [ %22, %for.body.lr.ph.i ], [ %add31.i, %for.body.i ]
   %arrayidx.i = getelementptr %struct.iovec, ptr %23, i64 %indvars.iv.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %28 = load i64, ptr %iov_len.i, align 8
   %.write_count.1.i = call i64 @llvm.umin.i64(i64 %write_count.14.i, i64 %28)
   %29 = load ptr, ptr %value.i, align 8
@@ -7678,9 +7678,9 @@ v9fs_xattr_write.exit:                            ; preds = %if.end.i, %if.then1
 if.end22:                                         ; preds = %if.then9
   %31 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %qiov, i32 noundef %31) #24
-  %size = getelementptr inbounds i8, ptr %qiov_full, i64 32
-  %niov28 = getelementptr inbounds i8, ptr %qiov, i64 8
-  %cancelled = getelementptr inbounds i8, ptr %opaque, i64 7
+  %size = getelementptr inbounds nuw i8, ptr %qiov_full, i64 32
+  %niov28 = getelementptr inbounds nuw i8, ptr %qiov, i64 8
+  %cancelled = getelementptr inbounds nuw i8, ptr %opaque, i64 7
   br label %do.body
 
 do.body:                                          ; preds = %do.cond44, %if.end22
@@ -7757,7 +7757,7 @@ if.then8.i.i54:                                   ; preds = %if.then.i.i49
   %call9.i.i55 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i42, ptr noundef null) #24
   %call10.i.i56 = call i32 @qemu_get_thread_id() #24
   %46 = load i64, ptr %_now.i.i42, align 8
-  %tv_usec.i.i57 = getelementptr inbounds i8, ptr %_now.i.i42, i64 8
+  %tv_usec.i.i57 = getelementptr inbounds nuw i8, ptr %_now.i.i42, i64 8
   %47 = load i64, ptr %tv_usec.i.i57, align 8
   %conv11.i.i58 = zext i16 %40 to i32
   %conv12.i.i59 = zext i8 %41 to i32
@@ -7781,7 +7781,7 @@ out_qiov:                                         ; preds = %do.end51, %trace_v9
 
 out:                                              ; preds = %if.end6, %if.then9, %out_qiov, %v9fs_xattr_write.exit
   %err.1 = phi i64 [ %err.2, %out_qiov ], [ %conv20, %v9fs_xattr_write.exit ], [ -22, %if.then9 ], [ -22, %if.end6 ]
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %48 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %48, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i60
@@ -7797,22 +7797,22 @@ if.end.i60:                                       ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i60
-  %clunked.i = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %49 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %49 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %50 = load i32, ptr %fid.i, align 4
   %51 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %51, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %51, i64 7360
   %52 = load i32, ptr %root_fid.i, align 8
   %cmp.i63 = icmp eq i32 %50, %52
   br i1 %cmp.i63, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %51, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %51, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -7836,7 +7836,7 @@ define internal void @v9fs_clunk(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %fid = alloca i32, align 4
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.14, ptr noundef nonnull %fid)
   %conv = trunc i64 %call to i32
@@ -7844,9 +7844,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7872,7 +7872,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -7888,7 +7888,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_v9fs_clunk.exit:                            ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %10 = load i32, ptr %fid, align 4
-  %fids.i = getelementptr inbounds i8, ptr %0, i64 16
+  %fids.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %fids.i, align 8
   %conv.i = sext i32 %10 to i64
   %12 = inttoptr i64 %conv.i to ptr
@@ -7899,9 +7899,9 @@ trace_v9fs_clunk.exit:                            ; preds = %if.end, %land.lhs.t
 if.end7:                                          ; preds = %trace_v9fs_clunk.exit
   %13 = load ptr, ptr %fids.i, align 8
   %call3.i = call i32 @g_hash_table_remove(ptr noundef %13, ptr noundef %12) #24
-  %clunked.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store i8 1, ptr %clunked.i, align 8
-  %ref = getelementptr inbounds i8, ptr %call.i, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %call.i, i64 260
   %14 = load i32, ptr %ref, align 4
   %inc = add i32 %14, 1
   store i32 %inc, ptr %ref, align 4
@@ -7918,16 +7918,16 @@ if.end.i:                                         ; preds = %if.end7
   br i1 %tobool3.not.i, label %if.then5.i, label %put_fid.exit.thread
 
 if.then5.i:                                       ; preds = %if.end.i
-  %fid.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %15 = load i32, ptr %fid.i, align 4
   %16 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %16, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %16, i64 7360
   %17 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %15, %17
   br i1 %cmp.i, label %if.then6.i, label %put_fid.exit
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %16, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %16, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %put_fid.exit
 
@@ -7958,9 +7958,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -7986,7 +7986,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -8007,16 +8007,16 @@ trace_v9fs_remove.exit:                           ; preds = %if.end, %land.lhs.t
   br i1 %cmp3, label %out_nofid, label %if.end6
 
 if.end6:                                          ; preds = %trace_v9fs_remove.exit
-  %s = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %10 = load ptr, ptr %s, align 8
-  %export_flags = getelementptr inbounds i8, ptr %10, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %10, i64 48
   %11 = load i32, ptr %export_flags, align 8
   %and = and i32 %11, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %out_err, label %if.end8
 
 if.end8:                                          ; preds = %if.end6
-  %path = getelementptr inbounds i8, ptr %call2, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %call9 = call i32 @v9fs_mark_fids_unreclaim(ptr noundef nonnull %opaque, ptr noundef nonnull %path)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %out_err, label %if.end13
@@ -8030,9 +8030,9 @@ if.end13:                                         ; preds = %if.end8
 out_err:                                          ; preds = %if.end13, %if.end6, %if.end8
   %err.1 = phi i32 [ %call9, %if.end8 ], [ -95, %if.end6 ], [ %spec.select, %if.end13 ]
   %12 = load ptr, ptr %s, align 8
-  %fid21 = getelementptr inbounds i8, ptr %call2, i64 4
+  %fid21 = getelementptr inbounds nuw i8, ptr %call2, i64 4
   %13 = load i32, ptr %fid21, align 4
-  %fids.i = getelementptr inbounds i8, ptr %12, i64 16
+  %fids.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %fids.i, align 8
   %conv.i = sext i32 %13 to i64
   %15 = inttoptr i64 %conv.i to ptr
@@ -8043,12 +8043,12 @@ out_err:                                          ; preds = %if.end13, %if.end6,
 if.then.i:                                        ; preds = %out_err
   %16 = load ptr, ptr %fids.i, align 8
   %call3.i = call i32 @g_hash_table_remove(ptr noundef %16, ptr noundef %15) #24
-  %clunked.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store i8 1, ptr %clunked.i, align 8
   br label %clunk_fid.exit
 
 clunk_fid.exit:                                   ; preds = %out_err, %if.then.i
-  %ref.i = getelementptr inbounds i8, ptr %call2, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 260
   %17 = load i32, ptr %ref.i, align 4
   %tobool.not.i18 = icmp eq i32 %17, 0
   br i1 %tobool.not.i18, label %if.else.i, label %if.end.i
@@ -8064,7 +8064,7 @@ if.end.i:                                         ; preds = %clunk_fid.exit
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i19 = getelementptr inbounds i8, ptr %call2, i64 264
+  %clunked.i19 = getelementptr inbounds nuw i8, ptr %call2, i64 264
   %18 = load i8, ptr %clunked.i19, align 8
   %tobool4.i = trunc i8 %18 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
@@ -8072,13 +8072,13 @@ land.lhs.true.i:                                  ; preds = %if.end.i
 if.then5.i:                                       ; preds = %land.lhs.true.i
   %19 = load i32, ptr %fid21, align 4
   %20 = load ptr, ptr %s, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %20, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %20, i64 7360
   %21 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %19, %21
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %20, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %20, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -8106,9 +8106,9 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %0 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %1 = load i8, ptr %id, align 2
   %2 = load i32, ptr %fid, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -8134,7 +8134,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %0 to i32
   %conv12.i.i = zext i8 %1 to i32
@@ -8155,14 +8155,14 @@ trace_v9fs_stat.exit:                             ; preds = %if.end, %land.lhs.t
   br i1 %cmp2, label %out_nofid, label %if.end4
 
 if.end4:                                          ; preds = %trace_v9fs_stat.exit
-  %path = getelementptr inbounds i8, ptr %call1, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %call5 = call i32 @v9fs_co_lstat(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef nonnull %stbuf) #24
   %conv = sext i32 %call5 to i64
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %out, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %data = getelementptr inbounds i8, ptr %call1, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %10 = load ptr, ptr %data, align 8
   %call11 = call noalias ptr @g_path_get_basename(ptr noundef %10) #24
   %call13 = call i32 @stat_to_v9stat(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef %call11, ptr noundef nonnull %stbuf, ptr noundef nonnull %v9stat)
@@ -8179,13 +8179,13 @@ if.end18:                                         ; preds = %if.end9
 if.end23:                                         ; preds = %if.end18
   %11 = load i16, ptr %tag, align 4
   %12 = load i8, ptr %id, align 2
-  %mode = getelementptr inbounds i8, ptr %v9stat, i64 24
+  %mode = getelementptr inbounds nuw i8, ptr %v9stat, i64 24
   %13 = load i32, ptr %mode, align 8
-  %atime = getelementptr inbounds i8, ptr %v9stat, i64 28
+  %atime = getelementptr inbounds nuw i8, ptr %v9stat, i64 28
   %14 = load i32, ptr %atime, align 4
-  %mtime = getelementptr inbounds i8, ptr %v9stat, i64 32
+  %mtime = getelementptr inbounds nuw i8, ptr %v9stat, i64 32
   %15 = load i32, ptr %mtime, align 8
-  %length = getelementptr inbounds i8, ptr %v9stat, i64 40
+  %length = getelementptr inbounds nuw i8, ptr %v9stat, i64 40
   %16 = load i64, ptr %length, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i23)
   %17 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8210,7 +8210,7 @@ if.then8.i.i35:                                   ; preds = %if.then.i.i30
   %call9.i.i36 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #24
   %call10.i.i37 = call i32 @qemu_get_thread_id() #24
   %21 = load i64, ptr %_now.i.i23, align 8
-  %tv_usec.i.i38 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
+  %tv_usec.i.i38 = getelementptr inbounds nuw i8, ptr %_now.i.i23, i64 8
   %22 = load i64, ptr %tv_usec.i.i38, align 8
   %conv11.i.i39 = zext i16 %11 to i32
   %conv12.i.i40 = zext i8 %12 to i32
@@ -8230,21 +8230,21 @@ trace_v9fs_stat_return.exit:                      ; preds = %if.end23, %land.lhs
 
 out.sink.split:                                   ; preds = %if.end18, %trace_v9fs_stat_return.exit
   %err.1.ph = phi i64 [ %add, %trace_v9fs_stat_return.exit ], [ %call19, %if.end18 ]
-  %name.i41 = getelementptr inbounds i8, ptr %v9stat, i64 48
+  %name.i41 = getelementptr inbounds nuw i8, ptr %v9stat, i64 48
   call void @v9fs_string_free(ptr noundef nonnull %name.i41) #24
-  %uid.i42 = getelementptr inbounds i8, ptr %v9stat, i64 64
+  %uid.i42 = getelementptr inbounds nuw i8, ptr %v9stat, i64 64
   call void @v9fs_string_free(ptr noundef nonnull %uid.i42) #24
-  %gid.i43 = getelementptr inbounds i8, ptr %v9stat, i64 80
+  %gid.i43 = getelementptr inbounds nuw i8, ptr %v9stat, i64 80
   call void @v9fs_string_free(ptr noundef nonnull %gid.i43) #24
-  %muid.i44 = getelementptr inbounds i8, ptr %v9stat, i64 96
+  %muid.i44 = getelementptr inbounds nuw i8, ptr %v9stat, i64 96
   call void @v9fs_string_free(ptr noundef nonnull %muid.i44) #24
-  %extension.i45 = getelementptr inbounds i8, ptr %v9stat, i64 112
+  %extension.i45 = getelementptr inbounds nuw i8, ptr %v9stat, i64 112
   call void @v9fs_string_free(ptr noundef nonnull %extension.i45) #24
   br label %out
 
 out:                                              ; preds = %out.sink.split, %if.end9, %if.end4
   %err.1 = phi i64 [ %conv, %if.end4 ], [ %conv14, %if.end9 ], [ %err.1.ph, %out.sink.split ]
-  %ref.i = getelementptr inbounds i8, ptr %call1, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call1, i64 260
   %23 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %23, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -8260,23 +8260,23 @@ if.end.i:                                         ; preds = %out
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %out_nofid
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call1, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call1, i64 264
   %24 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %24 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call1, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call1, i64 4
   %25 = load i32, ptr %fid.i, align 4
-  %s.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s.i = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %26 = load ptr, ptr %s.i, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %26, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %26, i64 7360
   %27 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %25, %27
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %26, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %26, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -8299,26 +8299,26 @@ entry:
   %v9stat = alloca %struct.V9fsStat, align 8
   %stbuf = alloca %struct.stat, align 8
   %times = alloca [2 x %struct.timespec], align 16
-  %s1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %name.i = getelementptr inbounds i8, ptr %v9stat, i64 48
-  %data.i.i = getelementptr inbounds i8, ptr %v9stat, i64 56
+  %name.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 48
+  %data.i.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 56
   store ptr null, ptr %data.i.i, align 8
   store i16 0, ptr %name.i, align 8
-  %uid.i = getelementptr inbounds i8, ptr %v9stat, i64 64
-  %data.i5.i = getelementptr inbounds i8, ptr %v9stat, i64 72
+  %uid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 64
+  %data.i5.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 72
   store ptr null, ptr %data.i5.i, align 8
   store i16 0, ptr %uid.i, align 8
-  %gid.i = getelementptr inbounds i8, ptr %v9stat, i64 80
-  %data.i6.i = getelementptr inbounds i8, ptr %v9stat, i64 88
+  %gid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 80
+  %data.i6.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 88
   store ptr null, ptr %data.i6.i, align 8
   store i16 0, ptr %gid.i, align 8
-  %muid.i = getelementptr inbounds i8, ptr %v9stat, i64 96
-  %data.i7.i = getelementptr inbounds i8, ptr %v9stat, i64 104
+  %muid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 96
+  %data.i7.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 104
   store ptr null, ptr %data.i7.i, align 8
   store i16 0, ptr %muid.i, align 8
-  %extension.i = getelementptr inbounds i8, ptr %v9stat, i64 112
-  %data.i8.i = getelementptr inbounds i8, ptr %v9stat, i64 120
+  %extension.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 112
+  %data.i8.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 120
   store ptr null, ptr %data.i8.i, align 8
   store i16 0, ptr %extension.i, align 8
   %call = call i64 (ptr, i64, ptr, ...) @pdu_unmarshal(ptr noundef %opaque, i64 noundef 7, ptr noundef nonnull @.str.166, ptr noundef nonnull %fid, ptr noundef nonnull %unused, ptr noundef nonnull %v9stat)
@@ -8327,16 +8327,16 @@ entry:
   br i1 %cmp, label %out_nofid, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %opaque, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %opaque, i64 4
   %1 = load i16, ptr %tag, align 4
-  %id = getelementptr inbounds i8, ptr %opaque, i64 6
+  %id = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %2 = load i8, ptr %id, align 2
   %3 = load i32, ptr %fid, align 4
-  %mode = getelementptr inbounds i8, ptr %v9stat, i64 24
+  %mode = getelementptr inbounds nuw i8, ptr %v9stat, i64 24
   %4 = load i32, ptr %mode, align 8
-  %atime = getelementptr inbounds i8, ptr %v9stat, i64 28
+  %atime = getelementptr inbounds nuw i8, ptr %v9stat, i64 28
   %5 = load i32, ptr %atime, align 4
-  %mtime = getelementptr inbounds i8, ptr %v9stat, i64 32
+  %mtime = getelementptr inbounds nuw i8, ptr %v9stat, i64 32
   %6 = load i32, ptr %mtime, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8361,7 +8361,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = call i32 @qemu_get_thread_id() #24
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %1 to i32
   %conv12.i.i = zext i8 %2 to i32
@@ -8382,22 +8382,22 @@ trace_v9fs_wstat.exit:                            ; preds = %if.end, %land.lhs.t
   br i1 %cmp4, label %out_nofid, label %if.end7
 
 if.end7:                                          ; preds = %trace_v9fs_wstat.exit
-  %type.i = getelementptr inbounds i8, ptr %v9stat, i64 2
+  %type.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 2
   %14 = load i16, ptr %type.i, align 2
   %cmp.i = icmp eq i16 %14, -1
-  %dev.i = getelementptr inbounds i8, ptr %v9stat, i64 4
+  %dev.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 4
   %15 = load i32, ptr %dev.i, align 4
   %cmp2.i = icmp eq i32 %15, -1
   %or.cond78 = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %qid.i = getelementptr inbounds i8, ptr %v9stat, i64 8
+  %qid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 8
   %16 = load i8, ptr %qid.i, align 8
   %cmp7.i = icmp eq i8 %16, -1
   %or.cond79 = select i1 %or.cond78, i1 %cmp7.i, i1 false
-  %version.i = getelementptr inbounds i8, ptr %v9stat, i64 12
+  %version.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 12
   %17 = load i32, ptr %version.i, align 4
   %cmp11.i = icmp eq i32 %17, -1
   %or.cond80 = select i1 %or.cond79, i1 %cmp11.i, i1 false
-  %path.i = getelementptr inbounds i8, ptr %v9stat, i64 16
+  %path.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 16
   %18 = load i64, ptr %path.i, align 8
   %cmp15.i = icmp eq i64 %18, -1
   %or.cond81 = select i1 %or.cond80, i1 %cmp15.i, i1 false
@@ -8416,7 +8416,7 @@ land.lhs.true20.i:                                ; preds = %land.lhs.true17.i
 
 land.lhs.true23.i:                                ; preds = %land.lhs.true20.i
   %cmp24.i = icmp eq i32 %20, -1
-  %length.i = getelementptr inbounds i8, ptr %v9stat, i64 40
+  %length.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 40
   %21 = load i64, ptr %length.i, align 8
   %cmp27.i = icmp eq i64 %21, -1
   %or.cond82 = select i1 %cmp24.i, i1 %cmp27.i, i1 false
@@ -8432,15 +8432,15 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true20.i
   %25 = load i16, ptr %muid.i, align 8
   %tobool38.not.i = icmp eq i16 %25, 0
   %or.cond86 = select i1 %or.cond85, i1 %tobool38.not.i, i1 false
-  %n_uid.i = getelementptr inbounds i8, ptr %v9stat, i64 128
+  %n_uid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 128
   %26 = load i32, ptr %n_uid.i, align 8
   %cmp40.i = icmp eq i32 %26, -1
   %or.cond87 = select i1 %or.cond86, i1 %cmp40.i, i1 false
-  %n_gid.i = getelementptr inbounds i8, ptr %v9stat, i64 132
+  %n_gid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 132
   %27 = load i32, ptr %n_gid.i, align 4
   %cmp43.i = icmp eq i32 %27, -1
   %or.cond88 = select i1 %or.cond87, i1 %cmp43.i, i1 false
-  %n_muid.i = getelementptr inbounds i8, ptr %v9stat, i64 136
+  %n_muid.i = getelementptr inbounds nuw i8, ptr %v9stat, i64 136
   %28 = load i32, ptr %n_muid.i, align 8
   %cmp46.i = icmp eq i32 %28, -1
   %or.cond89 = select i1 %or.cond88, i1 %cmp46.i, i1 false
@@ -8454,13 +8454,13 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp18.i, label %if.end36, label %if.then15
 
 if.then15:                                        ; preds = %land.lhs.true17.i, %if.end11
-  %path = getelementptr inbounds i8, ptr %call3, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %call16 = call i32 @v9fs_co_lstat(ptr noundef nonnull %opaque, ptr noundef nonnull %path, ptr noundef nonnull %stbuf) #24
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %out, label %if.end20
 
 if.end20:                                         ; preds = %if.then15
-  %29 = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %stbuf.val = load i32, ptr %29, align 8
   %and2.i = and i32 %stbuf.val, 61440
   %cmp.i39 = icmp eq i32 %and2.i, 16384
@@ -8566,38 +8566,38 @@ if.then47:                                        ; preds = %land.lhs.true20.i, 
 if.end53:                                         ; preds = %if.then43, %if.then47
   %.sink91 = phi i64 [ 0, %if.then47 ], [ 1073741822, %if.then43 ]
   %41 = phi i32 [ %40, %if.then47 ], [ %38, %if.then43 ]
-  %tv_nsec52 = getelementptr inbounds i8, ptr %times, i64 8
+  %tv_nsec52 = getelementptr inbounds nuw i8, ptr %times, i64 8
   store i64 %.sink91, ptr %tv_nsec52, align 8
   %cmp55.not = icmp eq i32 %41, -1
   br i1 %cmp55.not, label %if.end67, label %if.then57
 
 if.then57:                                        ; preds = %if.end53
   %conv59 = sext i32 %41 to i64
-  %arrayidx60 = getelementptr inbounds i8, ptr %times, i64 16
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %times, i64 16
   store i64 %conv59, ptr %arrayidx60, align 16
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end53, %if.then57
   %.sink = phi i64 [ 0, %if.then57 ], [ 1073741822, %if.end53 ]
-  %42 = getelementptr inbounds i8, ptr %times, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %times, i64 24
   store i64 %.sink, ptr %42, align 8
-  %path68 = getelementptr inbounds i8, ptr %call3, i64 8
+  %path68 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %call69 = call i32 @v9fs_co_utimensat(ptr noundef nonnull %opaque, ptr noundef nonnull %path68, ptr noundef nonnull %times) #24
   %cmp70 = icmp slt i32 %call69, 0
   br i1 %cmp70, label %out, label %if.end74
 
 if.end74:                                         ; preds = %if.end67, %if.end36
-  %n_gid = getelementptr inbounds i8, ptr %v9stat, i64 132
+  %n_gid = getelementptr inbounds nuw i8, ptr %v9stat, i64 132
   %43 = load i32, ptr %n_gid, align 4
   %cmp75 = icmp ne i32 %43, -1
-  %n_uid = getelementptr inbounds i8, ptr %v9stat, i64 128
+  %n_uid = getelementptr inbounds nuw i8, ptr %v9stat, i64 128
   %44 = load i32, ptr %n_uid, align 8
   %cmp78 = icmp ne i32 %44, -1
   %or.cond1 = select i1 %cmp75, i1 true, i1 %cmp78
   br i1 %or.cond1, label %if.then80, label %if.end89
 
 if.then80:                                        ; preds = %if.end74
-  %path81 = getelementptr inbounds i8, ptr %call3, i64 8
+  %path81 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %call84 = call i32 @v9fs_co_chown(ptr noundef nonnull %opaque, ptr noundef nonnull %path81, i32 noundef %44, i32 noundef %43) #24
   %cmp85 = icmp slt i32 %call84, 0
   br i1 %cmp85, label %out, label %if.end89
@@ -8608,14 +8608,14 @@ if.end89:                                         ; preds = %if.then80, %if.end7
   br i1 %cmp91.not, label %if.end100, label %if.then93
 
 if.then93:                                        ; preds = %if.end89
-  %export_flags.i = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load i32, ptr %export_flags.i, align 8
   %and.i46 = and i32 %46, 2
   %tobool.not.i47 = icmp eq i32 %and.i46, 0
   br i1 %tobool.not.i47, label %v9fs_path_write_lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then93
-  %rename_lock.i = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock.i) #24
   br label %v9fs_path_write_lock.exit
 
@@ -8627,7 +8627,7 @@ v9fs_path_write_lock.exit:                        ; preds = %if.then93, %if.then
   br i1 %tobool.not.i51, label %v9fs_path_unlock.exit, label %if.then.i52
 
 if.then.i52:                                      ; preds = %v9fs_path_write_lock.exit
-  %rename_lock.i53 = getelementptr inbounds i8, ptr %0, i64 7288
+  %rename_lock.i53 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock.i53) #24
   br label %v9fs_path_unlock.exit
 
@@ -8636,13 +8636,13 @@ v9fs_path_unlock.exit:                            ; preds = %v9fs_path_write_loc
   br i1 %cmp96, label %out, label %if.end100
 
 if.end100:                                        ; preds = %v9fs_path_unlock.exit, %if.end89
-  %length = getelementptr inbounds i8, ptr %v9stat, i64 40
+  %length = getelementptr inbounds nuw i8, ptr %v9stat, i64 40
   %48 = load i64, ptr %length, align 8
   %cmp101.not = icmp eq i64 %48, -1
   br i1 %cmp101.not, label %if.end111, label %if.then103
 
 if.then103:                                       ; preds = %if.end100
-  %path104 = getelementptr inbounds i8, ptr %call3, i64 8
+  %path104 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %call106 = call i32 @v9fs_co_truncate(ptr noundef nonnull %opaque, ptr noundef nonnull %path104, i64 noundef %48) #24
   %cmp107 = icmp slt i32 %call106, 0
   br i1 %cmp107, label %out, label %if.end111
@@ -8652,7 +8652,7 @@ if.end111:                                        ; preds = %if.then103, %if.end
 
 out:                                              ; preds = %stat_to_v9mode.exit, %if.then103, %v9fs_path_unlock.exit, %if.then80, %if.end67, %v9mode_to_mode.exit, %if.then15, %if.end111, %if.then9
   %err.1 = phi i32 [ %call10, %if.then9 ], [ %call16, %if.then15 ], [ %call31, %v9mode_to_mode.exit ], [ %call69, %if.end67 ], [ %call84, %if.then80 ], [ %call95, %v9fs_path_unlock.exit ], [ %call106, %if.then103 ], [ 7, %if.end111 ], [ -5, %stat_to_v9mode.exit ]
-  %ref.i = getelementptr inbounds i8, ptr %call3, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call3, i64 260
   %49 = load i32, ptr %ref.i, align 4
   %tobool.not.i55 = icmp eq i32 %49, 0
   br i1 %tobool.not.i55, label %if.else.i61, label %if.end.i56
@@ -8668,22 +8668,22 @@ if.end.i56:                                       ; preds = %out
   br i1 %tobool3.not.i57, label %land.lhs.true.i59, label %out_nofid
 
 land.lhs.true.i59:                                ; preds = %if.end.i56
-  %clunked.i = getelementptr inbounds i8, ptr %call3, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call3, i64 264
   %50 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %50 to i1
   br i1 %tobool4.i, label %if.then5.i, label %out_nofid
 
 if.then5.i:                                       ; preds = %land.lhs.true.i59
-  %fid.i = getelementptr inbounds i8, ptr %call3, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call3, i64 4
   %51 = load i32, ptr %fid.i, align 4
   %52 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %52, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %52, i64 7360
   %53 = load i32, ptr %root_fid.i, align 8
   %cmp.i60 = icmp eq i32 %51, %53
   br i1 %cmp.i60, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %52, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %52, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -8708,11 +8708,11 @@ define internal i64 @pdu_unmarshal(ptr noundef %pdu, i64 noundef %offset, ptr no
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %s = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s, align 8
-  %transport = getelementptr inbounds i8, ptr %0, i64 7280
+  %transport = getelementptr inbounds nuw i8, ptr %0, i64 7280
   %1 = load ptr, ptr %transport, align 8
-  %pdu_vunmarshal = getelementptr inbounds i8, ptr %1, i64 8
+  %pdu_vunmarshal = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %pdu_vunmarshal, align 8
   %call = call i64 %2(ptr noundef %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef nonnull %ap) #24
   call void @llvm.va_end.p0(ptr nonnull %ap)
@@ -8722,9 +8722,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @get_fid(ptr noundef %pdu, i32 noundef %fid) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %fids = getelementptr inbounds i8, ptr %0, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %fids, align 8
   %conv = sext i32 %fid to i64
   %2 = inttoptr i64 %conv to ptr
@@ -8733,7 +8733,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %clunked = getelementptr inbounds i8, ptr %call, i64 264
+  %clunked = getelementptr inbounds nuw i8, ptr %call, i64 264
   %3 = load i8, ptr %clunked, align 8
   %tobool2 = trunc i8 %3 to i1
   br i1 %tobool2, label %if.else, label %if.end
@@ -8743,7 +8743,7 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %ref = getelementptr inbounds i8, ptr %call, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %call, i64 260
   %4 = load i32, ptr %ref, align 4
   %inc = add i32 %4, 1
   store i32 %inc, ptr %ref, align 4
@@ -8754,14 +8754,14 @@ if.end:                                           ; preds = %if.then
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %fs.i = getelementptr inbounds i8, ptr %call, i64 24
+  %fs.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %6 = load i32, ptr %fs.i, align 8
   %cmp1.i = icmp eq i32 %6, -1
   br i1 %cmp1.i, label %do.body.preheader.i, label %if.end8
 
 do.body.preheader.i:                              ; preds = %if.then.i
-  %cancelled.i = getelementptr inbounds i8, ptr %pdu, i64 7
-  %open_flags.i = getelementptr inbounds i8, ptr %call, i64 252
+  %cancelled.i = getelementptr inbounds nuw i8, ptr %pdu, i64 7
+  %open_flags.i = getelementptr inbounds nuw i8, ptr %call, i64 252
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
@@ -8776,13 +8776,13 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %tobool.not.i, label %do.body.i, label %if.then6, !llvm.loop !22
 
 if.then6.i:                                       ; preds = %if.end
-  %fs7.i = getelementptr inbounds i8, ptr %call, i64 24
+  %fs7.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %9 = load ptr, ptr %fs7.i, align 8
   %cmp8.i = icmp eq ptr %9, null
   br i1 %cmp8.i, label %do.body10.preheader.i, label %if.end8
 
 do.body10.preheader.i:                            ; preds = %if.then6.i
-  %cancelled15.i = getelementptr inbounds i8, ptr %pdu, i64 7
+  %cancelled15.i = getelementptr inbounds nuw i8, ptr %pdu, i64 7
   br label %do.body10.i
 
 do.body10.i:                                      ; preds = %land.rhs14.i, %do.body10.preheader.i
@@ -8807,7 +8807,7 @@ if.then6:                                         ; preds = %land.rhs14.i, %land
   br label %return
 
 if.end8:                                          ; preds = %if.end, %if.then6.i, %if.then.i, %v9fs_reopen_fid.exit
-  %flags = getelementptr inbounds i8, ptr %call, i64 248
+  %flags = getelementptr inbounds nuw i8, ptr %call, i64 248
   %12 = load i32, ptr %flags, align 8
   %or = or i32 %12, 1
   store i32 %or, ptr %flags, align 8
@@ -8826,12 +8826,12 @@ entry:
   %_now.i.i34 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %str = alloca %struct.V9fsString, align 8
-  %id1 = getelementptr inbounds i8, ptr %pdu, i64 6
+  %id1 = getelementptr inbounds nuw i8, ptr %pdu, i64 6
   %0 = load i8, ptr %id1, align 2
   %add = add i8 %0, 1
-  %s3 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s3 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %1 = load ptr, ptr %s3, align 8
-  %cancelled = getelementptr inbounds i8, ptr %pdu, i64 7
+  %cancelled = getelementptr inbounds nuw i8, ptr %pdu, i64 7
   %2 = load i8, ptr %cancelled, align 1
   %tobool = icmp ne i8 %2, 0
   %cmp = icmp eq i64 %len, -4
@@ -8839,7 +8839,7 @@ entry:
   br i1 %3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %tag = getelementptr inbounds i8, ptr %pdu, i64 4
+  %tag = getelementptr inbounds nuw i8, ptr %pdu, i64 4
   %4 = load i16, ptr %tag, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8864,7 +8864,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #24
   %call10.i.i = tail call i32 @qemu_get_thread_id() #24
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %4 to i32
   %conv12.i.i = zext i8 %0 to i32
@@ -8889,14 +8889,14 @@ if.end:                                           ; preds = %entry
 if.then10:                                        ; preds = %if.end
   %11 = trunc i64 %len to i32
   %conv11 = sub i32 0, %11
-  %proto_version = getelementptr inbounds i8, ptr %1, i64 104
+  %proto_version = getelementptr inbounds nuw i8, ptr %1, i64 104
   %12 = load i32, ptr %proto_version, align 8
   %cmp12.not = icmp eq i32 %12, 2
   br i1 %cmp12.not, label %if.end28, label %if.then14
 
 if.then14:                                        ; preds = %if.then10
   %call = tail call ptr @strerror(i32 noundef %conv11) #24
-  %data = getelementptr inbounds i8, ptr %str, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %str, i64 8
   store ptr %call, ptr %data, align 8
   %call16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #29
   %conv17 = trunc i64 %call16 to i16
@@ -8925,7 +8925,7 @@ if.end34:                                         ; preds = %if.end28
   %15 = load i32, ptr %proto_version, align 8
   %cmp38 = icmp eq i32 %15, 2
   %spec.select = select i1 %cmp38, i8 7, i8 %id.1
-  %tag42 = getelementptr inbounds i8, ptr %pdu, i64 4
+  %tag42 = getelementptr inbounds nuw i8, ptr %pdu, i64 4
   %16 = load i16, ptr %tag42, align 4
   %17 = load i8, ptr %id1, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i34)
@@ -8951,7 +8951,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i41
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #24
   %call10.i.i48 = call i32 @qemu_get_thread_id() #24
   %22 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
+  %tv_usec.i.i49 = getelementptr inbounds nuw i8, ptr %_now.i.i34, i64 8
   %23 = load i64, ptr %tv_usec.i.i49, align 8
   %conv11.i.i50 = zext i16 %16 to i32
   %conv12.i.i51 = zext i8 %17 to i32
@@ -8973,7 +8973,7 @@ if.end44:                                         ; preds = %trace_v9fs_rerror.e
   %len.addr.0 = phi i64 [ %add36, %trace_v9fs_rerror.exit ], [ %len, %if.end ]
   %conv45 = trunc i64 %len.addr.0 to i32
   %conv46 = sext i8 %id.0 to i32
-  %tag47 = getelementptr inbounds i8, ptr %pdu, i64 4
+  %tag47 = getelementptr inbounds nuw i8, ptr %pdu, i64 4
   %24 = load i16, ptr %tag47, align 4
   %conv48 = zext i16 %24 to i32
   %call49 = call i64 (ptr, i64, ptr, ...) @pdu_marshal(ptr noundef nonnull %pdu, i64 noundef 0, ptr noundef nonnull @.str.18, i32 noundef %conv45, i32 noundef %conv46, i32 noundef %conv48)
@@ -8987,12 +8987,12 @@ if.end53:                                         ; preds = %if.end44
 
 out_notify:                                       ; preds = %if.end44, %if.end28, %if.then14, %if.end53, %trace_v9fs_rcancel.exit
   %25 = load ptr, ptr %s3, align 8
-  %transport = getelementptr inbounds i8, ptr %25, i64 7280
+  %transport = getelementptr inbounds nuw i8, ptr %25, i64 7280
   %26 = load ptr, ptr %transport, align 8
-  %push_and_notify = getelementptr inbounds i8, ptr %26, i64 32
+  %push_and_notify = getelementptr inbounds nuw i8, ptr %26, i64 32
   %27 = load ptr, ptr %push_and_notify, align 8
   call void %27(ptr noundef nonnull %pdu) #24
-  %complete = getelementptr inbounds i8, ptr %pdu, i64 8
+  %complete = getelementptr inbounds nuw i8, ptr %pdu, i64 8
   %call58 = call zeroext i1 @qemu_co_queue_next(ptr noundef nonnull %complete) #24
   br i1 %call58, label %if.end60, label %if.then59
 
@@ -9007,15 +9007,15 @@ if.else.i:                                        ; preds = %if.then59
   unreachable
 
 do.body2.i:                                       ; preds = %if.then59
-  %next.i = getelementptr inbounds i8, ptr %pdu, i64 32
+  %next.i = getelementptr inbounds nuw i8, ptr %pdu, i64 32
   %30 = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %30, null
-  %le_prev13.phi.trans.insert.i = getelementptr inbounds i8, ptr %pdu, i64 40
+  %le_prev13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %pdu, i64 40
   %.pre16.i = load ptr, ptr %le_prev13.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end9.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body2.i
-  %le_prev8.i = getelementptr inbounds i8, ptr %30, i64 40
+  %le_prev8.i = getelementptr inbounds nuw i8, ptr %30, i64 40
   store ptr %.pre16.i, ptr %le_prev8.i, align 8
   %.pre.i = load ptr, ptr %next.i, align 8
   br label %if.end9.i
@@ -9030,7 +9030,7 @@ if.end9.i:                                        ; preds = %if.then3.i, %do.bod
   br i1 %cmp22.not.i, label %pdu_free.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end9.i
-  %le_prev29.i = getelementptr inbounds i8, ptr %32, i64 40
+  %le_prev29.i = getelementptr inbounds nuw i8, ptr %32, i64 40
   store ptr %next.i, ptr %le_prev29.i, align 8
   br label %pdu_free.exit
 
@@ -9055,14 +9055,14 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %fs = getelementptr inbounds i8, ptr %f, i64 24
+  %fs = getelementptr inbounds nuw i8, ptr %f, i64 24
   %1 = load i32, ptr %fs, align 8
   %cmp1 = icmp eq i32 %1, -1
   br i1 %cmp1, label %do.body.preheader, label %if.end22
 
 do.body.preheader:                                ; preds = %if.then
-  %cancelled = getelementptr inbounds i8, ptr %pdu, i64 7
-  %open_flags = getelementptr inbounds i8, ptr %f, i64 252
+  %cancelled = getelementptr inbounds nuw i8, ptr %pdu, i64 7
+  %open_flags = getelementptr inbounds nuw i8, ptr %f, i64 252
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -9077,13 +9077,13 @@ land.rhs:                                         ; preds = %do.body
   br i1 %tobool.not, label %do.body, label %if.end22, !llvm.loop !22
 
 if.then6:                                         ; preds = %entry
-  %fs7 = getelementptr inbounds i8, ptr %f, i64 24
+  %fs7 = getelementptr inbounds nuw i8, ptr %f, i64 24
   %4 = load ptr, ptr %fs7, align 8
   %cmp8 = icmp eq ptr %4, null
   br i1 %cmp8, label %do.body10.preheader, label %if.end22
 
 do.body10.preheader:                              ; preds = %if.then6
-  %cancelled15 = getelementptr inbounds i8, ptr %pdu, i64 7
+  %cancelled15 = getelementptr inbounds nuw i8, ptr %pdu, i64 7
   br label %do.body10
 
 do.body10:                                        ; preds = %do.body10.preheader, %land.rhs14
@@ -9110,9 +9110,9 @@ define internal i64 @pdu_marshal(ptr noundef %pdu, i64 noundef %offset, ptr noun
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %s = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s, align 8
-  %transport = getelementptr inbounds i8, ptr %0, i64 7280
+  %transport = getelementptr inbounds nuw i8, ptr %0, i64 7280
   %1 = load ptr, ptr %transport, align 8
   %2 = load ptr, ptr %1, align 8
   %call = call i64 %2(ptr noundef %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef nonnull %ap) #24
@@ -9137,24 +9137,24 @@ entry:
   %lookup.i24 = alloca %struct.QpfEntry, align 8
   %lookup.i.i = alloca %struct.QpdEntry, align 8
   %lookup.i = alloca %struct.QppEntry, align 8
-  %s = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s, align 8
-  %export_flags = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %export_flags, align 8
   %and = and i32 %1, 512
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %path = getelementptr inbounds i8, ptr %qidp, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %qidp, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %lookup.i)
   %2 = load i64, ptr %stbuf, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %lookup.i.i)
   store i64 %2, ptr %lookup.i.i, align 8
-  %prefix_bits.i.i = getelementptr inbounds i8, ptr %lookup.i.i, i64 8
+  %prefix_bits.i.i = getelementptr inbounds nuw i8, ptr %lookup.i.i, i64 8
   store i32 0, ptr %prefix_bits.i.i, align 8
   %conv.i.i = trunc i64 %2 to i32
-  %qpd_table.i.i = getelementptr inbounds i8, ptr %0, i64 7544
+  %qpd_table.i.i = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %call.i.i = call ptr @qht_lookup(ptr noundef nonnull %qpd_table.i.i, ptr noundef nonnull %lookup.i.i, i32 noundef %conv.i.i) #24
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %qid_inode_prefix_hash_bits.exit.i
@@ -9163,7 +9163,7 @@ if.then.i.i:                                      ; preds = %if.then
   %call2.i.i = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %lookup.i.i, i64 16, i1 false)
   %3 = load ptr, ptr %s, align 8
-  %qp_affix_next.i.i = getelementptr inbounds i8, ptr %3, i64 7768
+  %qp_affix_next.i.i = getelementptr inbounds nuw i8, ptr %3, i64 7768
   %4 = load i16, ptr %qp_affix_next.i.i, align 8
   %conv1.i.i.i.i = uitofp i16 %4 to double
   %call.i.i.i.i = call double @log2(double noundef %conv1.i.i.i.i) #24, !noalias !24
@@ -9171,13 +9171,13 @@ if.then.i.i:                                      ; preds = %if.then
   %add3.i.i.i.i = add i32 %conv2.i.i.i.i, 1
   %cond.i.i.i.i = call i32 @llvm.smax.i32(i32 %conv2.i.i.i.i, i32 0)
   %add9.i.i.i.i = add i32 %add3.i.i.i.i, %cond.i.i.i.i
-  %prefix_bits5.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
+  %prefix_bits5.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
   store i32 %add9.i.i.i.i, ptr %prefix_bits5.i.i, align 8
   %5 = load ptr, ptr %s, align 8
-  %qpd_table7.i.i = getelementptr inbounds i8, ptr %5, i64 7544
+  %qpd_table7.i.i = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %call8.i.i = call zeroext i1 @qht_insert(ptr noundef nonnull %qpd_table7.i.i, ptr noundef %call2.i.i, i32 noundef %conv.i.i, ptr noundef null) #24
   %6 = load ptr, ptr %s, align 8
-  %qp_ndevices.i.i = getelementptr inbounds i8, ptr %6, i64 7760
+  %qp_ndevices.i.i = getelementptr inbounds nuw i8, ptr %6, i64 7760
   %7 = load i64, ptr %qp_ndevices.i.i, align 8
   %inc.i.i = add i64 %7, 1
   store i64 %inc.i.i, ptr %qp_ndevices.i.i, align 8
@@ -9185,14 +9185,14 @@ if.then.i.i:                                      ; preds = %if.then
 
 qid_inode_prefix_hash_bits.exit.i:                ; preds = %if.then.i.i, %if.then
   %val.0.i.i = phi ptr [ %call.i.i, %if.then ], [ %call2.i.i, %if.then.i.i ]
-  %prefix_bits10.i.i = getelementptr inbounds i8, ptr %val.0.i.i, i64 8
+  %prefix_bits10.i.i = getelementptr inbounds nuw i8, ptr %val.0.i.i, i64 8
   %8 = load i32, ptr %prefix_bits10.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lookup.i.i)
-  %9 = getelementptr inbounds i8, ptr %lookup.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %lookup.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 32, i1 false)
   %10 = load i64, ptr %stbuf, align 8
   store i64 %10, ptr %lookup.i, align 8
-  %st_ino.i = getelementptr inbounds i8, ptr %stbuf, i64 8
+  %st_ino.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
   %11 = load i64, ptr %st_ino.i, align 8
   %sub.i = sub i32 64, %8
   %sh_prom.i = zext nneg i32 %sub.i to i64
@@ -9239,14 +9239,14 @@ qid_inode_prefix_hash_bits.exit.i:                ; preds = %if.then.i.i, %if.th
   %shr50.i.i.i.i = lshr i32 %mul49.i.i.i.i, 16
   %xor51.i.i.i.i = xor i32 %shr50.i.i.i.i, %mul49.i.i.i.i
   %13 = load ptr, ptr %s, align 8
-  %qpp_table.i = getelementptr inbounds i8, ptr %13, i64 7616
+  %qpp_table.i = getelementptr inbounds nuw i8, ptr %13, i64 7616
   %call3.i = call ptr @qht_lookup(ptr noundef nonnull %qpp_table.i, ptr noundef nonnull %lookup.i, i32 noundef %xor51.i.i.i.i) #24
   %tobool.not.i = icmp eq ptr %call3.i, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.thread
 
 if.then.i:                                        ; preds = %qid_inode_prefix_hash_bits.exit.i
   %14 = load ptr, ptr %s, align 8
-  %qp_affix_next.i = getelementptr inbounds i8, ptr %14, i64 7768
+  %qp_affix_next.i = getelementptr inbounds nuw i8, ptr %14, i64 7768
   %15 = load i16, ptr %qp_affix_next.i, align 8
   %cmp.i = icmp eq i16 %15, 0
   br i1 %cmp.i, label %if.then1, label %if.end.i
@@ -9255,14 +9255,14 @@ if.end.i:                                         ; preds = %if.then.i
   %call10.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call10.i, ptr noundef nonnull align 8 dereferenceable(40) %lookup.i, i64 40, i1 false)
   %16 = load ptr, ptr %s, align 8
-  %qp_affix_next12.i = getelementptr inbounds i8, ptr %16, i64 7768
+  %qp_affix_next12.i = getelementptr inbounds nuw i8, ptr %16, i64 7768
   %17 = load i16, ptr %qp_affix_next12.i, align 8
   %inc.i = add i16 %17, 1
   store i16 %inc.i, ptr %qp_affix_next12.i, align 8
   %conv13.i = zext i16 %17 to i32
-  %qp_affix_index.i = getelementptr inbounds i8, ptr %call10.i, i64 12
+  %qp_affix_index.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 12
   store i32 %conv13.i, ptr %qp_affix_index.i, align 4
-  %qp_affix.i = getelementptr inbounds i8, ptr %call10.i, i64 16
+  %qp_affix.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 16
   %conv16.i = zext i16 %17 to i64
   %conv1.i.i.i = uitofp i16 %17 to double
   %call.i.i.i = call double @log2(double noundef %conv1.i.i.i) #24, !noalias !29
@@ -9286,23 +9286,23 @@ if.end.i:                                         ; preds = %if.then.i
   %sub.i.i.i = sub nsw i64 64, %conv.i.i.i
   %shr.i.i.i = lshr i64 %or.i.i.i.i, %sub.i.i.i
   store i32 1, ptr %qp_affix.i, align 8
-  %tmp14.sroa.219.0.qp_affix.sroa_idx.i = getelementptr inbounds i8, ptr %call10.i, i64 24
+  %tmp14.sroa.219.0.qp_affix.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 24
   store i64 %shr.i.i.i, ptr %tmp14.sroa.219.0.qp_affix.sroa_idx.i, align 8
-  %tmp14.sroa.3.0.qp_affix.sroa_idx.i = getelementptr inbounds i8, ptr %call10.i, i64 32
+  %tmp14.sroa.3.0.qp_affix.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 32
   store i32 %add9.i.i.i, ptr %tmp14.sroa.3.0.qp_affix.sroa_idx.i, align 8
   %18 = load ptr, ptr %s, align 8
-  %qpp_table18.i = getelementptr inbounds i8, ptr %18, i64 7616
+  %qpp_table18.i = getelementptr inbounds nuw i8, ptr %18, i64 7616
   %call19.i = call zeroext i1 @qht_insert(ptr noundef nonnull %qpp_table18.i, ptr noundef %call10.i, i32 noundef %xor51.i.i.i.i, ptr noundef null) #24
   br label %if.end.thread
 
 if.end.thread:                                    ; preds = %if.end.i, %qid_inode_prefix_hash_bits.exit.i
   %val.0.i = phi ptr [ %call3.i, %qid_inode_prefix_hash_bits.exit.i ], [ %call10.i, %if.end.i ]
   %19 = load i64, ptr %st_ino.i, align 8
-  %bits.i = getelementptr inbounds i8, ptr %val.0.i, i64 32
+  %bits.i = getelementptr inbounds nuw i8, ptr %val.0.i, i64 32
   %20 = load i32, ptr %bits.i, align 8
   %sh_prom23.i = zext nneg i32 %20 to i64
   %shl.i = shl i64 %19, %sh_prom23.i
-  %value.i = getelementptr inbounds i8, ptr %val.0.i, i64 24
+  %value.i = getelementptr inbounds nuw i8, ptr %val.0.i, i64 24
   %21 = load i64, ptr %value.i, align 8
   %or.i = or i64 %shl.i, %21
   store i64 %or.i, ptr %path, align 8
@@ -9316,9 +9316,9 @@ if.then1:                                         ; preds = %if.then.i
   %stbuf.val23 = load i64, ptr %st_ino.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %lookup.i24)
   store i64 %stbuf.val, ptr %lookup.i24, align 8
-  %ino.i = getelementptr inbounds i8, ptr %lookup.i24, i64 8
+  %ino.i = getelementptr inbounds nuw i8, ptr %lookup.i24, i64 8
   store i64 %stbuf.val23, ptr %ino.i, align 8
-  %path1.i = getelementptr inbounds i8, ptr %lookup.i24, i64 16
+  %path1.i = getelementptr inbounds nuw i8, ptr %lookup.i24, i64 16
   store i64 0, ptr %path1.i, align 8
   %conv.i.i.i.i25 = trunc i64 %stbuf.val23 to i32
   %shr.i.i.i.i26 = lshr i64 %stbuf.val23, 32
@@ -9367,14 +9367,14 @@ if.then1:                                         ; preds = %if.then.i
   %shr50.i.i.i.i63 = lshr i32 %mul49.i.i.i.i62, 16
   %xor51.i.i.i.i64 = xor i32 %shr50.i.i.i.i63, %mul49.i.i.i.i62
   %22 = load ptr, ptr %s, align 8
-  %qpf_table.i = getelementptr inbounds i8, ptr %22, i64 7688
+  %qpf_table.i = getelementptr inbounds nuw i8, ptr %22, i64 7688
   %call2.i = call ptr @qht_lookup(ptr noundef nonnull %qpf_table.i, ptr noundef nonnull %lookup.i24, i32 noundef %xor51.i.i.i.i64) #24
   %tobool.not.i65 = icmp eq ptr %call2.i, null
   br i1 %tobool.not.i65, label %if.then.i68, label %if.end.thread78
 
 if.then.i68:                                      ; preds = %if.then1
   %23 = load ptr, ptr %s, align 8
-  %qp_fullpath_next.i = getelementptr inbounds i8, ptr %23, i64 7776
+  %qp_fullpath_next.i = getelementptr inbounds nuw i8, ptr %23, i64 7776
   %24 = load i64, ptr %qp_fullpath_next.i, align 8
   %cmp.i69 = icmp eq i64 %24, 0
   br i1 %cmp.i69, label %if.end, label %if.end.i70
@@ -9383,27 +9383,27 @@ if.end.i70:                                       ; preds = %if.then.i68
   %call7.i = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call7.i, ptr noundef nonnull align 8 dereferenceable(24) %lookup.i24, i64 16, i1 false)
   %25 = load ptr, ptr %s, align 8
-  %qp_fullpath_next10.i = getelementptr inbounds i8, ptr %25, i64 7776
+  %qp_fullpath_next10.i = getelementptr inbounds nuw i8, ptr %25, i64 7776
   %26 = load i64, ptr %qp_fullpath_next10.i, align 8
   %inc.i71 = add i64 %26, 1
   store i64 %inc.i71, ptr %qp_fullpath_next10.i, align 8
   %shl.i72 = shl i64 %26, 33
   %or.i73 = or disjoint i64 %shl.i72, 65536
-  %path11.i = getelementptr inbounds i8, ptr %call7.i, i64 16
+  %path11.i = getelementptr inbounds nuw i8, ptr %call7.i, i64 16
   store i64 %or.i73, ptr %path11.i, align 8
   %27 = load ptr, ptr %s, align 8
-  %qp_fullpath_next17.i = getelementptr inbounds i8, ptr %27, i64 7776
+  %qp_fullpath_next17.i = getelementptr inbounds nuw i8, ptr %27, i64 7776
   %28 = load i64, ptr %qp_fullpath_next17.i, align 8
   %and.i = and i64 %28, 2147483647
   store i64 %and.i, ptr %qp_fullpath_next17.i, align 8
   %29 = load ptr, ptr %s, align 8
-  %qpf_table19.i = getelementptr inbounds i8, ptr %29, i64 7688
+  %qpf_table19.i = getelementptr inbounds nuw i8, ptr %29, i64 7688
   %call20.i = call zeroext i1 @qht_insert(ptr noundef nonnull %qpf_table19.i, ptr noundef %call7.i, i32 noundef %xor51.i.i.i.i64, ptr noundef null) #24
   br label %if.end.thread78
 
 if.end.thread78:                                  ; preds = %if.then1, %if.end.i70
   %val.0.i66 = phi ptr [ %call2.i, %if.then1 ], [ %call7.i, %if.end.i70 ]
-  %path22.i = getelementptr inbounds i8, ptr %val.0.i66, i64 16
+  %path22.i = getelementptr inbounds nuw i8, ptr %val.0.i66, i64 16
   %30 = load i64, ptr %path22.i, align 8
   store i64 %30, ptr %path, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %lookup.i24)
@@ -9415,7 +9415,7 @@ if.end:                                           ; preds = %if.then.i68
   br label %return
 
 if.else:                                          ; preds = %entry
-  %dev_id = getelementptr inbounds i8, ptr %0, i64 7536
+  %dev_id = getelementptr inbounds nuw i8, ptr %0, i64 7536
   %31 = load i64, ptr %dev_id, align 8
   %32 = load i64, ptr %stbuf, align 8
   %cmp8.not = icmp eq i64 %31, %32
@@ -9435,25 +9435,25 @@ if.else18:                                        ; preds = %if.then9
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else18, %if.else
-  %path25 = getelementptr inbounds i8, ptr %qidp, i64 8
+  %path25 = getelementptr inbounds nuw i8, ptr %qidp, i64 8
   store i64 0, ptr %path25, align 8
-  %st_ino = getelementptr inbounds i8, ptr %stbuf, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
   %33 = load i64, ptr %st_ino, align 8
   store i64 %33, ptr %path25, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end.thread78, %if.end.thread, %if.end24
-  %st_mtim = getelementptr inbounds i8, ptr %stbuf, i64 88
+  %st_mtim = getelementptr inbounds nuw i8, ptr %stbuf, i64 88
   %34 = load i64, ptr %st_mtim, align 8
-  %st_size = getelementptr inbounds i8, ptr %stbuf, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %stbuf, i64 48
   %35 = load i64, ptr %st_size, align 8
   %shl = shl i64 %35, 8
   %xor = xor i64 %shl, %34
   %conv = trunc i64 %xor to i32
-  %version = getelementptr inbounds i8, ptr %qidp, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %qidp, i64 4
   store i32 %conv, ptr %version, align 4
   store i8 0, ptr %qidp, align 8
-  %st_mode = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %36 = load i32, ptr %st_mode, align 8
   %and30 = and i32 %36, 61440
   %cmp31 = icmp eq i32 %and30, 16384
@@ -9479,7 +9479,7 @@ define internal fastcc range(i32 0, 2048) i32 @omode_to_uflags(i8 noundef signex
 entry:
   %0 = and i8 %mode, 3
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.omode_to_uflags, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.omode_to_uflags, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %2 = and i8 %mode, 16
   %3 = zext nneg i8 %2 to i32
@@ -9500,7 +9500,7 @@ define internal i32 @get_iounit(ptr noundef %pdu, ptr noundef %path) #0 {
 entry:
   %stbuf = alloca %struct.statfs, align 8
   %call = call i32 @v9fs_co_statfs(ptr noundef %pdu, ptr noundef %path, ptr noundef nonnull %stbuf) #24
-  %f_bsize = getelementptr inbounds i8, ptr %stbuf, i64 8
+  %f_bsize = getelementptr inbounds nuw i8, ptr %stbuf, i64 8
   %0 = load i64, ptr %f_bsize, align 8
   %1 = trunc i64 %0 to i32
   %cmp.inv = icmp slt i32 %call, 0
@@ -9508,7 +9508,7 @@ entry:
   %pdu.val = load ptr, ptr %2, align 8
   %tobool.not.i2 = icmp eq i32 %1, 0
   %tobool.not.i = select i1 %cmp.inv, i1 true, i1 %tobool.not.i2
-  %msize4.phi.trans.insert.i = getelementptr inbounds i8, ptr %pdu.val, i64 108
+  %msize4.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %pdu.val, i64 108
   %.pre.i = load i32, ptr %msize4.phi.trans.insert.i, align 4
   %.fr.i = freeze i32 %.pre.i
   %.pre = add i32 %.fr.i, -24
@@ -9553,7 +9553,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -9622,7 +9622,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -9674,7 +9674,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -9726,7 +9726,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -9749,14 +9749,14 @@ _nocheck__trace_v9fs_mknod_return.exit:           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_path_write_lock(ptr noundef %s) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %s, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %s, i64 48
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %rename_lock = getelementptr inbounds i8, ptr %s, i64 7288
+  %rename_lock = getelementptr inbounds nuw i8, ptr %s, i64 7288
   tail call void @qemu_co_rwlock_wrlock(ptr noundef nonnull %rename_lock) #24
   br label %if.end
 
@@ -9772,9 +9772,9 @@ entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %fid = alloca ptr, align 8
   %dir_path = alloca %struct.V9fsPath, align 8
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %new_path, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %new_path, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %new_path, align 8
   %cmp.not = icmp eq i32 %newdirfid, -1
@@ -9791,23 +9791,23 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp4.not, label %if.end6, label %if.then37
 
 if.end6:                                          ; preds = %if.end
-  %path = getelementptr inbounds i8, ptr %call, i64 8
-  %data = getelementptr inbounds i8, ptr %name, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %name, i64 8
   %2 = load ptr, ptr %data, align 8
   %call7 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %pdu, ptr noundef nonnull %path, ptr noundef %2, ptr noundef nonnull %new_path) #24
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %if.then37, label %if.end19
 
 if.else:                                          ; preds = %entry
-  %data12 = getelementptr inbounds i8, ptr %fidp, i64 16
+  %data12 = getelementptr inbounds nuw i8, ptr %fidp, i64 16
   %3 = load ptr, ptr %data12, align 8
   %call13 = tail call noalias ptr @g_path_get_dirname(ptr noundef %3) #24
-  %data.i20 = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data.i20 = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   store ptr null, ptr %data.i20, align 8
   store i16 0, ptr %dir_path, align 8
   call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef nonnull %dir_path, ptr noundef nonnull @.str.54, ptr noundef %call13)
   call void @g_free(ptr noundef %call13) #24
-  %data14 = getelementptr inbounds i8, ptr %name, i64 8
+  %data14 = getelementptr inbounds nuw i8, ptr %name, i64 8
   %4 = load ptr, ptr %data14, align 8
   %call15 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %pdu, ptr noundef nonnull %dir_path, ptr noundef %4, ptr noundef nonnull %new_path) #24
   %5 = load ptr, ptr %data.i20, align 8
@@ -9819,13 +9819,13 @@ if.else:                                          ; preds = %entry
 
 if.end19:                                         ; preds = %if.else, %if.end6
   %dirfidp.1 = phi ptr [ %call, %if.end6 ], [ null, %if.else ]
-  %path20 = getelementptr inbounds i8, ptr %fidp, i64 8
+  %path20 = getelementptr inbounds nuw i8, ptr %fidp, i64 8
   %call21 = call i32 @v9fs_co_rename(ptr noundef nonnull %pdu, ptr noundef nonnull %path20, ptr noundef nonnull %new_path) #24
   %cmp22 = icmp slt i32 %call21, 0
   br i1 %cmp22, label %out, label %if.end24
 
 if.end24:                                         ; preds = %if.end19
-  %fids = getelementptr inbounds i8, ptr %0, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %fids, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %6) #24
   %call2539 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef nonnull %fid, ptr noundef nonnull %tfidp) #24
@@ -9838,7 +9838,7 @@ while.body.lr.ph:                                 ; preds = %if.end24
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end35
   %8 = load ptr, ptr %tfidp, align 8
-  %path27 = getelementptr inbounds i8, ptr %8, i64 8
+  %path27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %path20.val = load i16, ptr %path20, align 8
   %path20.val19 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 16
@@ -9884,7 +9884,7 @@ out:                                              ; preds = %if.end35, %if.end24
 if.then37:                                        ; preds = %if.end, %if.end6, %out
   %dirfidp.034 = phi ptr [ %dirfidp.1, %out ], [ %call, %if.end6 ], [ %call, %if.end ]
   %err.032 = phi i32 [ %call21, %out ], [ %call7, %if.end6 ], [ -22, %if.end ]
-  %ref.i = getelementptr inbounds i8, ptr %dirfidp.034, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %dirfidp.034, i64 260
   %14 = load i32, ptr %ref.i, align 4
   %tobool.not.i23 = icmp eq i32 %14, 0
   br i1 %tobool.not.i23, label %if.else.i, label %if.end.i
@@ -9900,22 +9900,22 @@ if.end.i:                                         ; preds = %if.then37
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %if.end39
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %dirfidp.034, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %dirfidp.034, i64 264
   %15 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %15 to i1
   br i1 %tobool4.i, label %if.then5.i, label %if.end39
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %dirfidp.034, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %dirfidp.034, i64 4
   %16 = load i32, ptr %fid.i, align 4
   %17 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %17, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %17, i64 7360
   %18 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %16, %18
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %17, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %17, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -9937,14 +9937,14 @@ return:                                           ; preds = %if.then, %if.end39
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_path_unlock(ptr noundef %s) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %s, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %s, i64 48
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %rename_lock = getelementptr inbounds i8, ptr %s, i64 7288
+  %rename_lock = getelementptr inbounds nuw i8, ptr %s, i64 7288
   tail call void @qemu_co_rwlock_unlock(ptr noundef nonnull %rename_lock) #24
   br label %if.end
 
@@ -9980,7 +9980,7 @@ declare i32 @v9fs_co_truncate(ptr noundef, ptr noundef, i64 noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef ptr @alloc_fid(ptr nocapture noundef readonly %s, i32 noundef %fid) unnamed_addr #0 {
 entry:
-  %fids = getelementptr inbounds i8, ptr %s, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load ptr, ptr %fids, align 8
   %conv = sext i32 %fid to i64
   %1 = inttoptr i64 %conv to ptr
@@ -9989,7 +9989,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %clunked = getelementptr inbounds i8, ptr %call, i64 264
+  %clunked = getelementptr inbounds nuw i8, ptr %call, i64 264
   %2 = load i8, ptr %clunked, align 8
   %tobool1 = trunc i8 %2 to i1
   br i1 %tobool1, label %if.else, label %return
@@ -10000,48 +10000,48 @@ if.else:                                          ; preds = %if.then
 
 if.end3:                                          ; preds = %entry
   %call4 = tail call noalias dereferenceable_or_null(288) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 288) #31
-  %fid5 = getelementptr inbounds i8, ptr %call4, i64 4
+  %fid5 = getelementptr inbounds nuw i8, ptr %call4, i64 4
   store i32 %fid, ptr %fid5, align 4
   store i32 0, ptr %call4, align 8
-  %ref = getelementptr inbounds i8, ptr %call4, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %call4, i64 260
   store i32 1, ptr %ref, align 4
-  %flags = getelementptr inbounds i8, ptr %call4, i64 248
+  %flags = getelementptr inbounds nuw i8, ptr %call4, i64 248
   %3 = load i32, ptr %flags, align 8
   %or = or i32 %3, 1
   store i32 %or, ptr %flags, align 8
   %4 = load ptr, ptr %fids, align 8
   %call8 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef %1, ptr noundef nonnull %call4) #24
-  %proto_version = getelementptr inbounds i8, ptr %s, i64 104
+  %proto_version = getelementptr inbounds nuw i8, ptr %s, i64 104
   %5 = load i32, ptr %proto_version, align 8
-  %proto_version1.i = getelementptr inbounds i8, ptr %call4, i64 32
+  %proto_version1.i = getelementptr inbounds nuw i8, ptr %call4, i64 32
   store i32 %5, ptr %proto_version1.i, align 8
   %cmp.i = icmp eq i32 %5, 1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end3
-  %readdir_mutex_u.i = getelementptr inbounds i8, ptr %call4, i64 40
+  %readdir_mutex_u.i = getelementptr inbounds nuw i8, ptr %call4, i64 40
   tail call void @qemu_co_mutex_init(ptr noundef nonnull %readdir_mutex_u.i) #24
   br label %v9fs_readdir_init.exit
 
 if.else.i:                                        ; preds = %if.end3
-  %readdir_mutex_L.i = getelementptr inbounds i8, ptr %call4, i64 88
+  %readdir_mutex_L.i = getelementptr inbounds nuw i8, ptr %call4, i64 88
   tail call void @qemu_mutex_init(ptr noundef nonnull %readdir_mutex_L.i) #24
   br label %v9fs_readdir_init.exit
 
 v9fs_readdir_init.exit:                           ; preds = %if.then.i, %if.else.i
   %6 = load i32, ptr %proto_version, align 8
-  %proto_version1.i15 = getelementptr inbounds i8, ptr %call4, i64 144
+  %proto_version1.i15 = getelementptr inbounds nuw i8, ptr %call4, i64 144
   store i32 %6, ptr %proto_version1.i15, align 8
   %cmp.i16 = icmp eq i32 %6, 1
   br i1 %cmp.i16, label %if.then.i19, label %if.else.i17
 
 if.then.i19:                                      ; preds = %v9fs_readdir_init.exit
-  %readdir_mutex_u.i20 = getelementptr inbounds i8, ptr %call4, i64 152
+  %readdir_mutex_u.i20 = getelementptr inbounds nuw i8, ptr %call4, i64 152
   tail call void @qemu_co_mutex_init(ptr noundef nonnull %readdir_mutex_u.i20) #24
   br label %return
 
 if.else.i17:                                      ; preds = %v9fs_readdir_init.exit
-  %readdir_mutex_L.i18 = getelementptr inbounds i8, ptr %call4, i64 200
+  %readdir_mutex_L.i18 = getelementptr inbounds nuw i8, ptr %call4, i64 200
   tail call void @qemu_mutex_init(ptr noundef nonnull %readdir_mutex_L.i18) #24
   br label %return
 
@@ -10055,7 +10055,7 @@ declare i32 @v9fs_co_llistxattr(ptr noundef, ptr noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @clunk_fid(ptr nocapture noundef readonly %s, i32 noundef %fid) unnamed_addr #0 {
 entry:
-  %fids = getelementptr inbounds i8, ptr %s, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load ptr, ptr %fids, align 8
   %conv = sext i32 %fid to i64
   %1 = inttoptr i64 %conv to ptr
@@ -10066,7 +10066,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %fids, align 8
   %call3 = tail call i32 @g_hash_table_remove(ptr noundef %2, ptr noundef %1) #24
-  %clunked = getelementptr inbounds i8, ptr %call, i64 264
+  %clunked = getelementptr inbounds nuw i8, ptr %call, i64 264
   store i8 1, ptr %clunked, align 8
   br label %return
 
@@ -10093,9 +10093,9 @@ entry:
   %name = alloca %struct.V9fsString, align 8
   %entries = alloca ptr, align 8
   store ptr null, ptr %entries, align 8
-  %s = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s, align 8
-  %export_flags = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %export_flags, align 8
   %and = and i32 %1, 512
   %tobool = icmp ne i32 %and, 0
@@ -10109,9 +10109,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool2.not23, label %v9fs_free_dirents.exit.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %path = getelementptr inbounds i8, ptr %qid, i64 8
-  %version = getelementptr inbounds i8, ptr %qid, i64 4
-  %data.i = getelementptr inbounds i8, ptr %name, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %qid, i64 8
+  %version = getelementptr inbounds nuw i8, ptr %qid, i64 4
+  %data.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end27
@@ -10119,14 +10119,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %count.124 = phi i32 [ 0, %for.body.lr.ph ], [ %add28, %if.end27 ]
   %2 = load ptr, ptr %e.025, align 8
   %3 = load ptr, ptr %s, align 8
-  %export_flags6 = getelementptr inbounds i8, ptr %3, i64 48
+  %export_flags6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load i32, ptr %export_flags6, align 8
   %and7 = and i32 %4, 512
   %tobool8.not = icmp eq i32 %and7, 0
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %st10 = getelementptr inbounds i8, ptr %e.025, i64 8
+  %st10 = getelementptr inbounds nuw i8, ptr %e.025, i64 8
   %5 = load ptr, ptr %st10, align 8
   %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %out.loopexit, label %if.end13
@@ -10148,11 +10148,11 @@ if.end19:                                         ; preds = %if.end13, %if.else
   %.val = load i64, ptr %7, align 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %name, align 8
-  %d_name = getelementptr inbounds i8, ptr %2, i64 19
+  %d_name = getelementptr inbounds nuw i8, ptr %2, i64 19
   call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %name, ptr noundef nonnull @.str.54, ptr noundef nonnull %d_name) #24
   %add = add i32 %count.124, 11
   %conv = sext i32 %add to i64
-  %d_type = getelementptr inbounds i8, ptr %2, i64 18
+  %d_type = getelementptr inbounds nuw i8, ptr %2, i64 18
   %8 = load i8, ptr %d_type, align 2
   %conv21 = zext i8 %8 to i32
   %call22 = call i64 (ptr, i64, ptr, ...) @pdu_marshal(ptr noundef nonnull %pdu, i64 noundef %conv, ptr noundef nonnull @.str.85, ptr noundef nonnull %qid, i64 noundef %.val, i32 noundef %conv21, ptr noundef nonnull %name)
@@ -10163,7 +10163,7 @@ if.end19:                                         ; preds = %if.end13, %if.else
 
 if.end27:                                         ; preds = %if.end19
   %add28 = add i32 %count.124, %conv23
-  %next = getelementptr inbounds i8, ptr %e.025, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %e.025, i64 16
   %e.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %e.0, null
   br i1 %tobool2.not, label %out.loopexit, label %for.body, !llvm.loop !35
@@ -10184,11 +10184,11 @@ out:                                              ; preds = %out.loopexit, %entr
 
 for.body.i:                                       ; preds = %out, %for.body.i
   %e.addr.06.i = phi ptr [ %10, %for.body.i ], [ %9, %out ]
-  %next1.i = getelementptr inbounds i8, ptr %e.addr.06.i, i64 16
+  %next1.i = getelementptr inbounds nuw i8, ptr %e.addr.06.i, i64 16
   %10 = load ptr, ptr %next1.i, align 8
   %11 = load ptr, ptr %e.addr.06.i, align 8
   call void @g_free(ptr noundef %11) #24
-  %st.i = getelementptr inbounds i8, ptr %e.addr.06.i, i64 8
+  %st.i = getelementptr inbounds nuw i8, ptr %e.addr.06.i, i64 8
   %12 = load ptr, ptr %st.i, align 8
   call void @g_free(ptr noundef %12) #24
   call void @g_free(ptr noundef nonnull %e.addr.06.i) #24
@@ -10244,7 +10244,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -10267,7 +10267,7 @@ _nocheck__trace_v9fs_mkdir_return.exit:           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @v9fs_complete_renameat(ptr noundef %pdu, i32 noundef %olddirfid, ptr noundef %old_name, i32 noundef %newdirfid, ptr noundef %new_name) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = tail call ptr @get_fid(ptr noundef %pdu, i32 noundef %olddirfid)
   %cmp = icmp eq ptr %call, null
@@ -10288,14 +10288,14 @@ if.else:                                          ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then3, %if.else
   %newdirfidp.1 = phi ptr [ %call4, %if.then3 ], [ %call8, %if.else ]
-  %path = getelementptr inbounds i8, ptr %call, i64 8
-  %path10 = getelementptr inbounds i8, ptr %newdirfidp.1, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %path10 = getelementptr inbounds nuw i8, ptr %newdirfidp.1, i64 8
   %call11 = tail call i32 @v9fs_co_renameat(ptr noundef nonnull %pdu, ptr noundef nonnull %path, ptr noundef %old_name, ptr noundef nonnull %path10, ptr noundef %new_name) #24
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %if.then21, label %if.end14
 
 if.end14:                                         ; preds = %if.end9
-  %export_flags = getelementptr inbounds i8, ptr %0, i64 48
+  %export_flags = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %export_flags, align 8
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -10308,7 +10308,7 @@ if.then15:                                        ; preds = %if.end14
 if.then21:                                        ; preds = %if.then3, %if.end14, %if.then15, %if.end9
   %err.0.ph = phi i32 [ -2, %if.then3 ], [ %call11, %if.end14 ], [ %call18, %if.then15 ], [ %call11, %if.end9 ]
   %newdirfidp.0.ph = phi ptr [ null, %if.then3 ], [ %newdirfidp.1, %if.end14 ], [ %newdirfidp.1, %if.then15 ], [ %newdirfidp.1, %if.end9 ]
-  %ref.i = getelementptr inbounds i8, ptr %call, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %call, i64 260
   %2 = load i32, ptr %ref.i, align 4
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -10324,22 +10324,22 @@ if.end.i:                                         ; preds = %if.then21
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %if.end23
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %call, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %call, i64 264
   %3 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %3 to i1
   br i1 %tobool4.i, label %if.then5.i, label %if.end23
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %call, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %4 = load i32, ptr %fid.i, align 4
   %5 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %5, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %5, i64 7360
   %6 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %4, %6
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %5, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %5, i64 7368
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -10352,7 +10352,7 @@ if.end23:                                         ; preds = %if.end8.i, %land.lh
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %ref.i21 = getelementptr inbounds i8, ptr %newdirfidp.0.ph, i64 260
+  %ref.i21 = getelementptr inbounds nuw i8, ptr %newdirfidp.0.ph, i64 260
   %7 = load i32, ptr %ref.i21, align 4
   %tobool.not.i22 = icmp eq i32 %7, 0
   br i1 %tobool.not.i22, label %if.else.i39, label %if.end.i23
@@ -10368,22 +10368,22 @@ if.end.i23:                                       ; preds = %if.then25
   br i1 %tobool3.not.i25, label %land.lhs.true.i27, label %if.end27
 
 land.lhs.true.i27:                                ; preds = %if.end.i23
-  %clunked.i28 = getelementptr inbounds i8, ptr %newdirfidp.0.ph, i64 264
+  %clunked.i28 = getelementptr inbounds nuw i8, ptr %newdirfidp.0.ph, i64 264
   %8 = load i8, ptr %clunked.i28, align 8
   %tobool4.i29 = trunc i8 %8 to i1
   br i1 %tobool4.i29, label %if.then5.i30, label %if.end27
 
 if.then5.i30:                                     ; preds = %land.lhs.true.i27
-  %fid.i31 = getelementptr inbounds i8, ptr %newdirfidp.0.ph, i64 4
+  %fid.i31 = getelementptr inbounds nuw i8, ptr %newdirfidp.0.ph, i64 4
   %9 = load i32, ptr %fid.i31, align 4
   %10 = load ptr, ptr %s1, align 8
-  %root_fid.i33 = getelementptr inbounds i8, ptr %10, i64 7360
+  %root_fid.i33 = getelementptr inbounds nuw i8, ptr %10, i64 7360
   %11 = load i32, ptr %root_fid.i33, align 8
   %cmp.i34 = icmp eq i32 %9, %11
   br i1 %cmp.i34, label %if.then6.i37, label %if.end8.i35
 
 if.then6.i37:                                     ; preds = %if.then5.i30
-  %migration_blocker.i38 = getelementptr inbounds i8, ptr %10, i64 7368
+  %migration_blocker.i38 = getelementptr inbounds nuw i8, ptr %10, i64 7368
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i38) #24
   br label %if.end8.i35
 
@@ -10406,29 +10406,29 @@ entry:
   %newpath = alloca %struct.V9fsPath, align 8
   %iter = alloca %struct._GHashTableIter, align 8
   %fid = alloca ptr, align 8
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %data.i = getelementptr inbounds i8, ptr %oldpath, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %oldpath, i64 8
   store ptr null, ptr %data.i, align 8
   store i16 0, ptr %oldpath, align 8
-  %data.i6 = getelementptr inbounds i8, ptr %newpath, i64 8
+  %data.i6 = getelementptr inbounds nuw i8, ptr %newpath, i64 8
   store ptr null, ptr %data.i6, align 8
   store i16 0, ptr %newpath, align 8
-  %data = getelementptr inbounds i8, ptr %old_name, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %old_name, i64 8
   %1 = load ptr, ptr %data, align 8
   %call = call i32 @v9fs_co_name_to_path(ptr noundef %pdu, ptr noundef %olddir, ptr noundef %1, ptr noundef nonnull %oldpath) #24
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %out, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data2 = getelementptr inbounds i8, ptr %new_name, i64 8
+  %data2 = getelementptr inbounds nuw i8, ptr %new_name, i64 8
   %2 = load ptr, ptr %data2, align 8
   %call3 = call i32 @v9fs_co_name_to_path(ptr noundef nonnull %pdu, ptr noundef %newdir, ptr noundef %2, ptr noundef nonnull %newpath) #24
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %out, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %fids = getelementptr inbounds i8, ptr %0, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %fids, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %3) #24
   %call712 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef nonnull %fid, ptr noundef nonnull %tfidp) #24
@@ -10437,7 +10437,7 @@ if.end6:                                          ; preds = %if.end
 
 while.body:                                       ; preds = %if.end6, %if.end14
   %4 = load ptr, ptr %tfidp, align 8
-  %path = getelementptr inbounds i8, ptr %4, i64 8
+  %path = getelementptr inbounds nuw i8, ptr %4, i64 8
   %oldpath.val = load i16, ptr %oldpath, align 8
   %oldpath.val5 = load ptr, ptr %data.i, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -10493,10 +10493,10 @@ entry:
   %fidp = alloca ptr, align 8
   %fid = alloca ptr, align 8
   %iter = alloca %struct._GHashTableIter, align 8
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %call = tail call ptr @g_array_sized_new(i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1) #24
-  %fids = getelementptr inbounds i8, ptr %0, i64 16
+  %fids = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %fids, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #24
   %call231 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef nonnull %fid, ptr noundef nonnull %fidp) #24
@@ -10504,29 +10504,29 @@ entry:
   br i1 %tobool.not32, label %for.cond.preheader, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %data8 = getelementptr inbounds i8, ptr %path, i64 8
+  %data8 = getelementptr inbounds nuw i8, ptr %path, i64 8
   br label %while.body
 
 for.cond.preheader:                               ; preds = %if.end, %entry
-  %len = getelementptr inbounds i8, ptr %call, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i32, ptr %len, align 8
   %cmp1435.not = icmp eq i32 %2, 0
   br i1 %cmp1435.not, label %glib_autoptr_cleanup_GArray.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cancelled15.i = getelementptr inbounds i8, ptr %pdu, i64 7
+  %cancelled15.i = getelementptr inbounds nuw i8, ptr %pdu, i64 7
   br label %for.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %3 = load ptr, ptr %fidp, align 8
-  %path3 = getelementptr inbounds i8, ptr %3, i64 8
+  %path3 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i16, ptr %path3, align 8
   %5 = load i16, ptr %path, align 8
   %cmp = icmp eq i16 %4, %5
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
-  %data = getelementptr inbounds i8, ptr %3, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %data, align 8
   %7 = load ptr, ptr %data8, align 8
   %conv10 = zext i16 %4 to i64
@@ -10535,11 +10535,11 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %tobool12.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %ref = getelementptr inbounds i8, ptr %3, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %3, i64 260
   %8 = load i32, ptr %ref, align 4
   %inc = add i32 %8, 1
   store i32 %inc, ptr %ref, align 4
-  %flags = getelementptr inbounds i8, ptr %3, i64 248
+  %flags = getelementptr inbounds nuw i8, ptr %3, i64 248
   %9 = load i32, ptr %flags, align 8
   %or = or i32 %9, 2
   store i32 %or, ptr %flags, align 8
@@ -10566,13 +10566,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 if.then.i:                                        ; preds = %for.body
-  %fs.i = getelementptr inbounds i8, ptr %12, i64 24
+  %fs.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %fs.i, align 8
   %cmp1.i = icmp eq i32 %14, -1
   br i1 %cmp1.i, label %do.body.preheader.i, label %for.inc
 
 do.body.preheader.i:                              ; preds = %if.then.i
-  %open_flags.i = getelementptr inbounds i8, ptr %12, i64 252
+  %open_flags.i = getelementptr inbounds nuw i8, ptr %12, i64 252
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %do.body.preheader.i
@@ -10587,7 +10587,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %tobool.not.i, label %do.body.i, label %for.end, !llvm.loop !22
 
 if.then6.i:                                       ; preds = %for.body
-  %fs7.i = getelementptr inbounds i8, ptr %12, i64 24
+  %fs7.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load ptr, ptr %fs7.i, align 8
   %cmp8.i = icmp eq ptr %17, null
   br i1 %cmp8.i, label %do.body10.i, label %for.inc
@@ -10630,7 +10630,7 @@ for.body27:                                       ; preds = %for.end, %put_fid.e
   %idxprom29 = sext i32 %i.139 to i64
   %arrayidx30 = getelementptr ptr, ptr %20, i64 %idxprom29
   %21 = load ptr, ptr %arrayidx30, align 8
-  %ref.i = getelementptr inbounds i8, ptr %21, i64 260
+  %ref.i = getelementptr inbounds nuw i8, ptr %21, i64 260
   %22 = load i32, ptr %ref.i, align 4
   %tobool.not.i11 = icmp eq i32 %22, 0
   br i1 %tobool.not.i11, label %if.else.i, label %if.end.i
@@ -10646,22 +10646,22 @@ if.end.i:                                         ; preds = %for.body27
   br i1 %tobool3.not.i, label %land.lhs.true.i, label %put_fid.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %clunked.i = getelementptr inbounds i8, ptr %21, i64 264
+  %clunked.i = getelementptr inbounds nuw i8, ptr %21, i64 264
   %23 = load i8, ptr %clunked.i, align 8
   %tobool4.i = trunc i8 %23 to i1
   br i1 %tobool4.i, label %if.then5.i, label %put_fid.exit
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %fid.i = getelementptr inbounds i8, ptr %21, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %fid.i, align 4
   %25 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %25, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %25, i64 7360
   %26 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %24, %26
   br i1 %cmp.i, label %if.then6.i13, label %if.end8.i
 
 if.then6.i13:                                     ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %25, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %25, i64 7368
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -10692,9 +10692,9 @@ declare void @g_array_unref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtfs_reset(ptr noundef %pdu) #0 {
 entry:
-  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
+  %s1 = getelementptr inbounds nuw i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
-  %fids2 = getelementptr inbounds i8, ptr %0, i64 16
+  %fids2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %fids2, align 8
   %call = tail call ptr @g_hash_table_get_values(ptr noundef %1) #24
   %2 = load ptr, ptr %fids2, align 8
@@ -10705,11 +10705,11 @@ entry:
 for.body:                                         ; preds = %entry, %put_fid.exit
   %freeing.0.in.sroa.speculated8 = phi ptr [ %freeing.0.in.sroa.speculate.load.put_fid.exit, %put_fid.exit ], [ %call, %entry ]
   %3 = load ptr, ptr %freeing.0.in.sroa.speculated8, align 8
-  %ref = getelementptr inbounds i8, ptr %3, i64 260
+  %ref = getelementptr inbounds nuw i8, ptr %3, i64 260
   %4 = load i32, ptr %ref, align 4
   %inc = add i32 %4, 1
   store i32 %inc, ptr %ref, align 4
-  %clunked = getelementptr inbounds i8, ptr %3, i64 264
+  %clunked = getelementptr inbounds nuw i8, ptr %3, i64 264
   store i8 1, ptr %clunked, align 8
   %tobool.not.i = icmp eq i32 %inc, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -10724,16 +10724,16 @@ if.end.i:                                         ; preds = %for.body
   br i1 %tobool3.not.i, label %if.then5.i, label %put_fid.exit
 
 if.then5.i:                                       ; preds = %if.end.i
-  %fid.i = getelementptr inbounds i8, ptr %3, i64 4
+  %fid.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %fid.i, align 4
   %6 = load ptr, ptr %s1, align 8
-  %root_fid.i = getelementptr inbounds i8, ptr %6, i64 7360
+  %root_fid.i = getelementptr inbounds nuw i8, ptr %6, i64 7360
   %7 = load i32, ptr %root_fid.i, align 8
   %cmp.i = icmp eq i32 %5, %7
   br i1 %cmp.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.then5.i
-  %migration_blocker.i = getelementptr inbounds i8, ptr %6, i64 7368
+  %migration_blocker.i = getelementptr inbounds nuw i8, ptr %6, i64 7368
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker.i) #24
   br label %if.end8.i
 
@@ -10742,7 +10742,7 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.the
   br label %put_fid.exit
 
 put_fid.exit:                                     ; preds = %if.end.i, %if.end8.i
-  %next = getelementptr inbounds i8, ptr %freeing.0.in.sroa.speculated8, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %freeing.0.in.sroa.speculated8, i64 8
   %freeing.0.in.sroa.speculate.load.put_fid.exit = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %freeing.0.in.sroa.speculate.load.put_fid.exit, null
   br i1 %tobool.not, label %if.then.i.i, label %for.body, !llvm.loop !41
@@ -10847,7 +10847,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -10900,7 +10900,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #24
   %call10.i = tail call i32 @qemu_get_thread_id() #24
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %tag to i32
   %conv12.i = zext i8 %id to i32
@@ -10934,16 +10934,16 @@ entry:
   br i1 %cmp, label %if.then, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %data.i = getelementptr inbounds i8, ptr %path, i64 8
-  %proto_version.i = getelementptr inbounds i8, ptr %fidp, i64 32
-  %readdir_mutex_L.i = getelementptr inbounds i8, ptr %fidp, i64 88
-  %readdir_mutex_u.i = getelementptr inbounds i8, ptr %fidp, i64 40
-  %path5 = getelementptr inbounds i8, ptr %fidp, i64 8
-  %name.i49 = getelementptr inbounds i8, ptr %v9stat, i64 48
-  %uid.i50 = getelementptr inbounds i8, ptr %v9stat, i64 64
-  %gid.i51 = getelementptr inbounds i8, ptr %v9stat, i64 80
-  %muid.i52 = getelementptr inbounds i8, ptr %v9stat, i64 96
-  %extension.i53 = getelementptr inbounds i8, ptr %v9stat, i64 112
+  %data.i = getelementptr inbounds nuw i8, ptr %path, i64 8
+  %proto_version.i = getelementptr inbounds nuw i8, ptr %fidp, i64 32
+  %readdir_mutex_L.i = getelementptr inbounds nuw i8, ptr %fidp, i64 88
+  %readdir_mutex_u.i = getelementptr inbounds nuw i8, ptr %fidp, i64 40
+  %path5 = getelementptr inbounds nuw i8, ptr %fidp, i64 8
+  %name.i49 = getelementptr inbounds nuw i8, ptr %v9stat, i64 48
+  %uid.i50 = getelementptr inbounds nuw i8, ptr %v9stat, i64 64
+  %gid.i51 = getelementptr inbounds nuw i8, ptr %v9stat, i64 80
+  %muid.i52 = getelementptr inbounds nuw i8, ptr %v9stat, i64 96
+  %extension.i53 = getelementptr inbounds nuw i8, ptr %v9stat, i64 112
   br label %while.body
 
 if.then:                                          ; preds = %entry
@@ -10978,7 +10978,7 @@ v9fs_readdir_lock.exit:                           ; preds = %if.then.i, %while.e
   br i1 %or.cond, label %if.end4, label %while.end
 
 if.end4:                                          ; preds = %v9fs_readdir_lock.exit
-  %d_name = getelementptr inbounds i8, ptr %3, i64 19
+  %d_name = getelementptr inbounds nuw i8, ptr %3, i64 19
   %call6 = call i32 @v9fs_co_name_to_path(ptr noundef %pdu, ptr noundef nonnull %path5, ptr noundef nonnull %d_name, ptr noundef nonnull %path) #24
   %cmp7 = icmp slt i32 %call6, 0
   br i1 %cmp7, label %while.end, label %if.end10
@@ -10990,7 +10990,7 @@ if.end10:                                         ; preds = %if.end4
 
 if.end15:                                         ; preds = %if.end10
   %4 = load ptr, ptr %dent, align 8
-  %d_name16 = getelementptr inbounds i8, ptr %4, i64 19
+  %d_name16 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %call18 = call i32 @stat_to_v9stat(ptr noundef %pdu, ptr noundef nonnull %path, ptr noundef nonnull %d_name16, ptr noundef nonnull %stbuf, ptr noundef nonnull %v9stat)
   %cmp19 = icmp slt i32 %call18, 0
   br i1 %cmp19, label %while.end, label %if.end22
@@ -11116,20 +11116,20 @@ declare i64 @v9fs_co_telldir(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_readdir_lock(ptr noundef %dir) #0 {
 entry:
-  %proto_version = getelementptr inbounds i8, ptr %dir, i64 8
+  %proto_version = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %0 = load i32, ptr %proto_version, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %while.end
 
 if.then:                                          ; preds = %entry
-  %readdir_mutex_u = getelementptr inbounds i8, ptr %dir, i64 16
+  %readdir_mutex_u = getelementptr inbounds nuw i8, ptr %dir, i64 16
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %readdir_mutex_u) #24
   br label %if.end
 
 while.end:                                        ; preds = %entry
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
-  %readdir_mutex_L = getelementptr inbounds i8, ptr %dir, i64 64
+  %readdir_mutex_L = getelementptr inbounds nuw i8, ptr %dir, i64 64
   tail call void %2(ptr noundef nonnull %readdir_mutex_L, ptr noundef nonnull @.str.148, i32 noundef 211) #24
   br label %if.end
 
@@ -11143,7 +11143,7 @@ declare i32 @v9fs_co_readdir(ptr noundef, ptr noundef, ptr noundef) #2
 define internal range(i32 -2147483648, 1) i32 @stat_to_v9stat(ptr noundef %pdu, ptr noundef %path, ptr noundef %basename, ptr nocapture noundef readonly %stbuf, ptr noundef initializes((0, 144)) %v9stat) #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %v9stat, i8 0, i64 144, i1 false)
-  %qid = getelementptr inbounds i8, ptr %v9stat, i64 8
+  %qid = getelementptr inbounds nuw i8, ptr %v9stat, i64 8
   %call = tail call fastcc i32 @stat_to_qid(ptr noundef %pdu, ptr noundef %stbuf, ptr noundef nonnull %qid)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
@@ -11183,39 +11183,39 @@ stat_to_v9mode.exit:                              ; preds = %if.end, %if.then27.
   %spec.select18.i = and i32 %and31.i, 786432
   %mode.6.i = or disjoint i32 %spec.select18.i, %1
   %mode.7.i = or i32 %mode.6.i, %mode.4.i
-  %mode = getelementptr inbounds i8, ptr %v9stat, i64 24
+  %mode = getelementptr inbounds nuw i8, ptr %v9stat, i64 24
   store i32 %mode.7.i, ptr %mode, align 8
-  %st_atim = getelementptr inbounds i8, ptr %stbuf, i64 72
+  %st_atim = getelementptr inbounds nuw i8, ptr %stbuf, i64 72
   %2 = load i64, ptr %st_atim, align 8
   %conv = trunc i64 %2 to i32
-  %atime = getelementptr inbounds i8, ptr %v9stat, i64 28
+  %atime = getelementptr inbounds nuw i8, ptr %v9stat, i64 28
   store i32 %conv, ptr %atime, align 4
-  %st_mtim = getelementptr inbounds i8, ptr %stbuf, i64 88
+  %st_mtim = getelementptr inbounds nuw i8, ptr %stbuf, i64 88
   %3 = load i64, ptr %st_mtim, align 8
   %conv3 = trunc i64 %3 to i32
-  %mtime = getelementptr inbounds i8, ptr %v9stat, i64 32
+  %mtime = getelementptr inbounds nuw i8, ptr %v9stat, i64 32
   store i32 %conv3, ptr %mtime, align 8
-  %st_size = getelementptr inbounds i8, ptr %stbuf, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %stbuf, i64 48
   %4 = load i64, ptr %st_size, align 8
-  %length = getelementptr inbounds i8, ptr %v9stat, i64 40
+  %length = getelementptr inbounds nuw i8, ptr %v9stat, i64 40
   store i64 %4, ptr %length, align 8
-  %uid = getelementptr inbounds i8, ptr %v9stat, i64 64
+  %uid = getelementptr inbounds nuw i8, ptr %v9stat, i64 64
   tail call void @v9fs_string_free(ptr noundef nonnull %uid) #24
-  %gid = getelementptr inbounds i8, ptr %v9stat, i64 80
+  %gid = getelementptr inbounds nuw i8, ptr %v9stat, i64 80
   tail call void @v9fs_string_free(ptr noundef nonnull %gid) #24
-  %muid = getelementptr inbounds i8, ptr %v9stat, i64 96
+  %muid = getelementptr inbounds nuw i8, ptr %v9stat, i64 96
   tail call void @v9fs_string_free(ptr noundef nonnull %muid) #24
-  %st_uid = getelementptr inbounds i8, ptr %stbuf, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %stbuf, i64 28
   %5 = load i32, ptr %st_uid, align 4
-  %n_uid = getelementptr inbounds i8, ptr %v9stat, i64 128
+  %n_uid = getelementptr inbounds nuw i8, ptr %v9stat, i64 128
   store i32 %5, ptr %n_uid, align 8
-  %st_gid = getelementptr inbounds i8, ptr %stbuf, i64 32
+  %st_gid = getelementptr inbounds nuw i8, ptr %stbuf, i64 32
   %6 = load i32, ptr %st_gid, align 8
-  %n_gid = getelementptr inbounds i8, ptr %v9stat, i64 132
+  %n_gid = getelementptr inbounds nuw i8, ptr %v9stat, i64 132
   store i32 %6, ptr %n_gid, align 4
-  %n_muid = getelementptr inbounds i8, ptr %v9stat, i64 136
+  %n_muid = getelementptr inbounds nuw i8, ptr %v9stat, i64 136
   store i32 0, ptr %n_muid, align 8
-  %extension = getelementptr inbounds i8, ptr %v9stat, i64 112
+  %extension = getelementptr inbounds nuw i8, ptr %v9stat, i64 112
   tail call void @v9fs_string_free(ptr noundef nonnull %extension) #24
   %7 = load i32, ptr %mode, align 8
   %and = and i32 %7, 33554432
@@ -11237,7 +11237,7 @@ if.then15:                                        ; preds = %if.else
   %and17 = and i32 %8, 61440
   %cmp18 = icmp eq i32 %and17, 8192
   %cond = select i1 %cmp18, i32 99, i32 98
-  %st_rdev = getelementptr inbounds i8, ptr %stbuf, i64 40
+  %st_rdev = getelementptr inbounds nuw i8, ptr %stbuf, i64 40
   %9 = load i64, ptr %st_rdev, align 8
   %call20 = tail call i32 @gnu_dev_major(i64 noundef %9) #27
   %call22 = tail call i32 @gnu_dev_minor(i64 noundef %9) #27
@@ -11253,13 +11253,13 @@ if.else23:                                        ; preds = %if.else
   ]
 
 if.then32:                                        ; preds = %if.else23, %if.else23
-  %st_nlink = getelementptr inbounds i8, ptr %stbuf, i64 16
+  %st_nlink = getelementptr inbounds nuw i8, ptr %stbuf, i64 16
   %11 = load i64, ptr %st_nlink, align 8
   tail call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %extension, ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, i64 noundef %11) #24
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else23, %if.then15, %if.then32, %if.then5
-  %name = getelementptr inbounds i8, ptr %v9stat, i64 48
+  %name = getelementptr inbounds nuw i8, ptr %v9stat, i64 48
   tail call void (ptr, ptr, ...) @v9fs_string_sprintf(ptr noundef nonnull %name, ptr noundef nonnull @.str.54, ptr noundef %basename) #24
   %name.val = load i16, ptr %name, align 8
   %add = add i16 %name.val, 61
@@ -11282,18 +11282,18 @@ return:                                           ; preds = %if.then5, %entry, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @v9fs_readdir_unlock(ptr noundef %dir) #0 {
 entry:
-  %proto_version = getelementptr inbounds i8, ptr %dir, i64 8
+  %proto_version = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %0 = load i32, ptr %proto_version, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %readdir_mutex_u = getelementptr inbounds i8, ptr %dir, i64 16
+  %readdir_mutex_u = getelementptr inbounds nuw i8, ptr %dir, i64 16
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %readdir_mutex_u) #24
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %readdir_mutex_L = getelementptr inbounds i8, ptr %dir, i64 64
+  %readdir_mutex_L = getelementptr inbounds nuw i8, ptr %dir, i64 64
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %readdir_mutex_L, ptr noundef nonnull @.str.148, i32 noundef 220) #24
   br label %if.end
 
@@ -11347,9 +11347,9 @@ entry:
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %ino = getelementptr inbounds i8, ptr %obj, i64 8
+  %ino = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %2 = load i64, ptr %ino, align 8
-  %ino2 = getelementptr inbounds i8, ptr %userp, i64 8
+  %ino2 = getelementptr inbounds nuw i8, ptr %userp, i64 8
   %3 = load i64, ptr %ino2, align 8
   %cmp3 = icmp eq i64 %2, %3
   br label %land.end
@@ -11368,9 +11368,9 @@ entry:
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %ino_prefix = getelementptr inbounds i8, ptr %obj, i64 8
+  %ino_prefix = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %2 = load i16, ptr %ino_prefix, align 8
-  %ino_prefix2 = getelementptr inbounds i8, ptr %userp, i64 8
+  %ino_prefix2 = getelementptr inbounds nuw i8, ptr %userp, i64 8
   %3 = load i16, ptr %ino_prefix2, align 8
   %cmp4 = icmp eq i16 %2, %3
   br label %land.end

@@ -725,7 +725,7 @@ define internal i32 @dissect_tipc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.284) #7
   %11 = load ptr, ptr %9, align 8
@@ -816,11 +816,11 @@ tipc_v1_set_col_msgtype.exit:                     ; preds = %37, %37, %37, %37
   %51 = icmp samesign ugt i32 %50, 10485760
   %52 = icmp samesign ult i32 %35, 4
   %or.cond = select i1 %51, i1 %52, i1 false
-  %53 = getelementptr inbounds i8, ptr %1, i64 208
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %54 = load i32, ptr @tipc_address_type, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 212
-  %56 = getelementptr inbounds i8, ptr %1, i64 216
-  %57 = getelementptr inbounds i8, ptr %1, i64 224
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 224
   br i1 %or.cond, label %58, label %66
 
 58:                                               ; preds = %tipc_v1_set_col_msgtype.exit
@@ -829,15 +829,15 @@ tipc_v1_set_col_msgtype.exit:                     ; preds = %37, %37, %37, %37
   store i32 4, ptr %55, align 4
   store ptr %59, ptr %56, align 8
   store ptr null, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %61 = load i32, ptr @tipc_address_type, align 4
   %62 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 28, i32 noundef 4) #7
   store i32 %61, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 236
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 4, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 248
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %65, align 8
   br label %198
 
@@ -858,15 +858,15 @@ tipc_v1_set_col_msgtype.exit.thread.critedge:     ; preds = %37, %42, %43, %44, 
   br label %tipc_v1_set_col_msgtype.exit.thread
 
 tipc_v1_set_col_msgtype.exit.thread:              ; preds = %tipc_v1_set_col_msgtype.exit.thread.critedge, %37
-  %71 = getelementptr inbounds i8, ptr %1, i64 208
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %72 = load i32, ptr @tipc_address_type, align 4
   %73 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 8, i32 noundef 4) #7
   store i32 %72, ptr %71, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 212
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 4, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %1, i64 216
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %73, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 224
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %76, align 8
   br label %198
 
@@ -1030,11 +1030,11 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
 154:                                              ; preds = %tipc_v2_set_info_col.exit
   %155 = and i32 %12, 31457280
   %156 = icmp samesign ugt i32 %155, 12582912
-  %157 = getelementptr inbounds i8, ptr %1, i64 208
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %158 = load i32, ptr @tipc_address_type, align 4
-  %159 = getelementptr inbounds i8, ptr %1, i64 212
-  %160 = getelementptr inbounds i8, ptr %1, i64 216
-  %161 = getelementptr inbounds i8, ptr %1, i64 224
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 224
   br i1 %156, label %162, label %170
 
 162:                                              ; preds = %154
@@ -1043,15 +1043,15 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   store i32 4, ptr %159, align 4
   store ptr %163, ptr %160, align 8
   store ptr null, ptr %161, align 8
-  %164 = getelementptr inbounds i8, ptr %1, i64 232
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %165 = load i32, ptr @tipc_address_type, align 4
   %166 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 28, i32 noundef 4) #7
   store i32 %165, ptr %164, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 236
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 4, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %1, i64 240
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %166, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %1, i64 248
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %169, align 8
   br label %198
 
@@ -1069,46 +1069,46 @@ tipc_v2_set_info_col.exit:                        ; preds = %77, %92, %94, %97, 
   br i1 %.not269, label %186, label %174
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %1, i64 208
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %176 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 24, i32 noundef 4) #7
   store i32 %173, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %1, i64 212
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 4, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %1, i64 216
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %176, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %1, i64 224
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %1, i64 232
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %181 = load i32, ptr @tipc_address_type, align 4
   %182 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 28, i32 noundef 4) #7
   store i32 %181, ptr %180, align 8
-  %183 = getelementptr inbounds i8, ptr %1, i64 236
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 4, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %1, i64 240
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %182, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %1, i64 248
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %185, align 8
   br label %198
 
 186:                                              ; preds = %172
-  %187 = getelementptr inbounds i8, ptr %1, i64 232
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %188 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 8, i32 noundef 4) #7
   store i32 %173, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %1, i64 236
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 4, ptr %189, align 4
-  %190 = getelementptr inbounds i8, ptr %1, i64 240
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %188, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %1, i64 248
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %1, i64 208
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %193 = load i32, ptr @tipc_address_type, align 4
   %194 = tail call ptr @tvb_get_ptr(ptr noundef %.0262, i32 noundef 12, i32 noundef 4) #7
   store i32 %193, ptr %192, align 8
-  %195 = getelementptr inbounds i8, ptr %1, i64 212
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 4, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %1, i64 216
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %194, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %1, i64 224
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %197, align 8
   br label %198
 
@@ -1450,7 +1450,7 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
   br label %dissect_tipc_int_prot_msg.exit
 
 405:                                              ; preds = %389
-  %406 = getelementptr inbounds i8, ptr %1, i64 272
+  %406 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %407 = load i32, ptr %406, align 8
   %408 = load i32, ptr @tipc_defragment, align 4
   %.not215.i = icmp eq i32 %408, 0
@@ -1480,13 +1480,13 @@ dissect_tipc_v2.exit:                             ; preds = %.critedge.i, %311
   br i1 %.not.i277, label %proto_item_set_generated.exit, label %424
 
 424:                                              ; preds = %413
-  %425 = getelementptr inbounds i8, ptr %423, i64 32
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 32
   %426 = load ptr, ptr %425, align 8
   %.not5.i = icmp eq ptr %426, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %427
 
 427:                                              ; preds = %424
-  %428 = getelementptr inbounds i8, ptr %426, i64 28
+  %428 = getelementptr inbounds nuw i8, ptr %426, i64 28
   %429 = load i32, ptr %428, align 4
   %430 = or i32 %429, 2
   store i32 %430, ptr %428, align 4
@@ -1585,8 +1585,8 @@ dissect_tipc_int_prot_msg.exit:                   ; preds = %455, %444, %.thread
 
 474:                                              ; preds = %471, %468
   %475 = phi i32 [ %.pre, %471 ], [ 0, %468 ]
-  %476 = getelementptr inbounds i8, ptr %1, i64 208
-  %477 = getelementptr inbounds i8, ptr %1, i64 232
+  %476 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %477 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %478 = load i32, ptr %6, align 4
   call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %476, ptr noundef nonnull %477, i32 noundef 11, i32 noundef %478, i32 noundef %475) #7
   %479 = icmp samesign ult i32 %324, 7
@@ -1728,7 +1728,7 @@ declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @tipc_addr_to_str_buf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -2153,7 +2153,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %127
   %134 = zext i16 %132 to i32
-  %135 = getelementptr inbounds i8, ptr %2, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %136
 
 136:                                              ; preds = %.lr.ph, %136
@@ -2775,7 +2775,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   br i1 %.not831, label %663, label %639
 
 639:                                              ; preds = %629
-  %640 = getelementptr inbounds i8, ptr %2, i64 272
+  %640 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %641 = load i32, ptr %640, align 8
   store i32 1, ptr %640, align 8
   %642 = add nsw i32 %595, -1
@@ -2784,7 +2784,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %645 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @tipc_msg_reassembly_table, ptr noundef %0, i32 noundef 40, ptr noundef %2, i32 noundef %598, ptr noundef null, i32 noundef %642, i32 noundef %636, i32 noundef %644) #7
   %646 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 40, ptr noundef %2, ptr noundef nonnull @.str.458, ptr noundef %645, ptr noundef nonnull @tipc_msg_frag_items, ptr noundef null, ptr noundef %1) #7
   %.not832 = icmp eq ptr %645, null
-  %647 = getelementptr inbounds i8, ptr %2, i64 8
+  %647 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %648 = load ptr, ptr %647, align 8
   br i1 %.not832, label %650, label %649
 
@@ -2801,7 +2801,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   br i1 %.not833, label %658, label %652
 
 652:                                              ; preds = %651
-  %653 = getelementptr inbounds i8, ptr %2, i64 8
+  %653 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %654 = load ptr, ptr %653, align 8
   tail call void @col_append_str(ptr noundef %654, i32 noundef 25, ptr noundef nonnull @.str.455) #7
   %655 = load ptr, ptr %653, align 8

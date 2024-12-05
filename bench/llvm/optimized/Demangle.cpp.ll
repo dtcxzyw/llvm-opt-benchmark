@@ -28,7 +28,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit
   %9 = add i64 %1, -1
-  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %11 = tail call noundef zeroext i1 @_ZN4llvm20nonMicrosoftDemangleESt17basic_string_viewIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS2_SaIcEEEbb(i64 %9, ptr nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext false, i1 noundef zeroext true)
   br i1 %11, label %17, label %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEEc.exit.thread
 
@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20nonMicrosoftDemangleESt17basic_st
   br i1 %9, label %10, label %.lr.ph.i.i.preheader
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = add i64 %0, -1
   %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str) #5
   br label %14

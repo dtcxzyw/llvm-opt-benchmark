@@ -283,7 +283,7 @@ define internal fastcc range(i32 8, 1) i32 @dissect_corosync_totemsrp0(ptr nound
   br i1 %38, label %39, label %49
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.90) #4
   %42 = load ptr, ptr %40, align 8
@@ -327,7 +327,7 @@ define internal fastcc range(i32 8, 1) i32 @dissect_corosync_totemsrp0(ptr nound
 
 corosync_totemsrp_get_guint32.exit:               ; preds = %62, %64
   %.0.i = phi i32 [ %63, %62 ], [ %65, %64 ]
-  %66 = getelementptr inbounds i8, ptr %25, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %.0.i, ptr %66, align 4
   switch i8 %29, label %default.unreachable [
     i8 0, label %67

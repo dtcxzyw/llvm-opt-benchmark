@@ -31,7 +31,7 @@ define dso_local void @_ZN2EA6EAMain4ExitEi(i32 noundef %exitcode) local_unnamed
 entry:
   %.exitcode = tail call i32 @llvm.umin.i32(i32 %exitcode, i32 8)
   %idxprom = zext nneg i32 %.exitcode to i64
-  %arrayidx = getelementptr inbounds [9 x ptr], ptr @_ZN2EA6EAMain14gExitCodeNamesE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [9 x ptr], ptr @_ZN2EA6EAMain14gExitCodeNamesE, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef nonnull @.str.9, i32 noundef %.exitcode, ptr noundef %0)
   %call = tail call noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef %.exitcode)
@@ -55,7 +55,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -73,14 +73,14 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table._ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN2EA6EAMain12HandleSignalEiP9siginfo_tPv, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN2EA6EAMain16SignalToExitCodeEi.exit
 
 _ZN2EA6EAMain16SignalToExitCodeEi.exit:           ; preds = %entry, %switch.lookup
   %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 8, %entry ]
   %idxprom.i = zext nneg i32 %retval.0.i to i64
-  %arrayidx.i = getelementptr inbounds [9 x ptr], ptr @_ZN2EA6EAMain14gExitCodeNamesE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x ptr], ptr @_ZN2EA6EAMain14gExitCodeNamesE, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   tail call void (ptr, ...) @_ZN2EA6EAMain6ReportEPKcz(ptr noundef nonnull @.str.9, i32 noundef %retval.0.i, ptr noundef %2)
   %call.i = tail call noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef %retval.0.i)

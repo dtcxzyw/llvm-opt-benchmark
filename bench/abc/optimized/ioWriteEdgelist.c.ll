@@ -92,7 +92,7 @@ define void @Io_WriteEdgelist(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 
 12:                                               ; preds = %6
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.2, ptr noundef %1) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr (...) @Extra_TimeStamp() #11
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %15, ptr noundef %16) #11
@@ -109,9 +109,9 @@ define void @Io_WriteEdgelist(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %20, %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 4
   %.val32 = load i32, ptr %28, align 4
@@ -124,7 +124,7 @@ define void @Io_WriteEdgelist(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %31 = phi ptr [ %41, %38 ], [ %27, %23 ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val29 = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds ptr, ptr %.val29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %0
   br i1 %35, label %38, label %36
@@ -138,7 +138,7 @@ define void @Io_WriteEdgelist(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 38:                                               ; preds = %.lr.ph, %36
   %39 = phi ptr [ %30, %.lr.ph ], [ %.pre, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %.val = load i32, ptr %42, align 4
@@ -250,7 +250,7 @@ define internal fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef 
   %.val63.i = phi ptr [ %.val.i, %.lr.ph.i ], [ %.val58.i, %.preheader56.i ]
   %13 = getelementptr i8, ptr %.val63.i, i64 8
   %.val45.val.i = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val45.val.i, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %.val45.val.i, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %.val46.i = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %15, i64 48
@@ -282,7 +282,7 @@ define internal fastcc void @Io_NtkEdgelistWriteOne(ptr noundef %0, ptr noundef 
   %.val5469.i = phi ptr [ %.val54.i, %.lr.ph70.i ], [ %.val5464.i, %.preheader.i ]
   %29 = getelementptr i8, ptr %.val5469.i, i64 8
   %.val55.val.i = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds ptr, ptr %.val55.val.i, i64 %indvars.iv73.i
+  %30 = getelementptr inbounds nuw ptr, ptr %.val55.val.i, i64 %indvars.iv73.i
   %31 = load ptr, ptr %30, align 8
   %.val48.i = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %31, i64 48
@@ -359,7 +359,7 @@ Io_NtkEdgelistWritePis.exit.thread:               ; preds = %.preheader56.i
   br i1 %.not132, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %1, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 4
   %.val83140 = load i32, ptr %58, align 4
@@ -375,7 +375,7 @@ Io_NtkEdgelistWritePis.exit.thread:               ; preds = %.preheader56.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
   %62 = getelementptr i8, ptr %61, i64 8
   %.val86.val = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds ptr, ptr %.val86.val, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %.val86.val, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr i8, ptr %64, i64 20
   %.val89 = load i32, ptr %65, align 4
@@ -475,7 +475,7 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
 
 115:                                              ; preds = %112, %.critedge
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %116 = getelementptr inbounds i8, ptr %1, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 4
   %.val82142 = load i32, ptr %118, align 4
@@ -487,7 +487,7 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %127 ], [ 0, %115 ]
   %121 = getelementptr i8, ptr %120, i64 8
   %.val87.val = load ptr, ptr %121, align 8
-  %122 = getelementptr inbounds ptr, ptr %.val87.val, i64 %indvars.iv154
+  %122 = getelementptr inbounds nuw ptr, ptr %.val87.val, i64 %indvars.iv154
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr i8, ptr %123, i64 20
   %.val92 = load i32, ptr %124, align 4
@@ -522,7 +522,7 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %142 ], [ 0, %.critedge2 ]
   %136 = getelementptr i8, ptr %135, i64 8
   %.val88.val = load ptr, ptr %136, align 8
-  %137 = getelementptr inbounds ptr, ptr %.val88.val, i64 %indvars.iv157
+  %137 = getelementptr inbounds nuw ptr, ptr %.val88.val, i64 %indvars.iv157
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr i8, ptr %138, i64 20
   %.val93 = load i32, ptr %139, align 4
@@ -554,7 +554,7 @@ Io_NtkEdgelistWriteLatch.exit:                    ; preds = %91, %95
   br i1 %.not134, label %148, label %152
 
 148:                                              ; preds = %147
-  %149 = getelementptr inbounds i8, ptr %1, i64 256
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %150 = load ptr, ptr %149, align 8
   %151 = tail call i32 @Mio_LibraryReadGateNameMax(ptr noundef %150) #11
   br label %152
@@ -627,7 +627,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %171, %174
   br i1 %181, label %Abc_ObjIsBarBuf.exit.i, label %Io_NtkEdgelistWriteNode.exit
 
 Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %165, i64 56
+  %182 = getelementptr inbounds nuw i8, ptr %165, i64 56
   %183 = load ptr, ptr %182, align 8
   %.not15.i = icmp eq ptr %183, null
   br i1 %.not15.i, label %184, label %Io_NtkEdgelistWriteNode.exit
@@ -658,7 +658,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
   %.val96.val.i.i = load ptr, ptr %192, align 8
   %193 = getelementptr i8, ptr %.val96.val.i.i, i64 8
   %.val96.val.val.i.i = load ptr, ptr %193, align 8
-  %194 = getelementptr inbounds i32, ptr %.val97.i.i, i64 %indvars.iv.i.i
+  %194 = getelementptr inbounds nuw i32, ptr %.val97.i.i, i64 %indvars.iv.i.i
   %195 = load i32, ptr %194, align 4
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %.val96.val.val.i.i, i64 %196
@@ -740,7 +740,7 @@ Abc_UtilStrsav.exit.i.i:                          ; preds = %229, %223, %214
 238:                                              ; preds = %Abc_UtilStrsav.exit.i.i
   %239 = add i64 %235, 4294967295
   %240 = and i64 %239, 4294967295
-  %241 = getelementptr inbounds i8, ptr %233, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %233, i64 %240
   store i8 0, ptr %241, align 1
   %242 = shl i64 %235, 32
   %sext.i.i = add nsw i64 %242, -8589934592
@@ -915,7 +915,7 @@ Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %185, %184, %I
   %.val4863.i = phi ptr [ %.val48.i114, %.lr.ph.i106 ], [ %.val4858.i, %.preheader56.i105 ]
   %313 = getelementptr i8, ptr %.val4863.i, i64 8
   %.val49.val.i108 = load ptr, ptr %313, align 8
-  %314 = getelementptr inbounds ptr, ptr %.val49.val.i108, i64 %indvars.iv.i107
+  %314 = getelementptr inbounds nuw ptr, ptr %.val49.val.i108, i64 %indvars.iv.i107
   %315 = load ptr, ptr %314, align 8
   %.val52.i109 = load ptr, ptr %315, align 8
   %316 = getelementptr i8, ptr %315, i64 32
@@ -947,7 +947,7 @@ Io_NtkEdgelistWriteNode.exit.thread:              ; preds = %297, %185, %184, %I
   %.val5469.i121 = phi ptr [ %.val54.i127, %.lr.ph70.i119 ], [ %.val5464.i117, %.preheader.i116 ]
   %329 = getelementptr i8, ptr %.val5469.i121, i64 8
   %.val55.val.i122 = load ptr, ptr %329, align 8
-  %330 = getelementptr inbounds ptr, ptr %.val55.val.i122, i64 %indvars.iv73.i120
+  %330 = getelementptr inbounds nuw ptr, ptr %.val55.val.i122, i64 %indvars.iv73.i120
   %331 = load ptr, ptr %330, align 8
   %.val50.i123 = load ptr, ptr %331, align 8
   %332 = getelementptr i8, ptr %331, i64 32
@@ -1014,7 +1014,7 @@ define void @Io_NtkEdgelistWriteConvertedBox(ptr nocapture noundef %0, ptr nocap
   %.val2541 = phi ptr [ %.val2538, %.lr.ph43 ], [ %.val25, %65 ]
   %15 = getelementptr i8, ptr %.val2541, i64 8
   %.val26.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val26.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val26.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.val58.i = load ptr, ptr %13, align 8
   %18 = getelementptr i8, ptr %.val58.i, i64 4
@@ -1027,7 +1027,7 @@ define void @Io_NtkEdgelistWriteConvertedBox(ptr nocapture noundef %0, ptr nocap
   %.val63.i = phi ptr [ %.val.i, %.lr.ph.i ], [ %.val58.i, %14 ]
   %20 = getelementptr i8, ptr %.val63.i, i64 8
   %.val45.val.i = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val45.val.i, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw ptr, ptr %.val45.val.i, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %.val46.i = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %22, i64 48
@@ -1205,7 +1205,7 @@ define void @Io_NtkEdgelistWriteSubcktFanins(ptr nocapture noundef %0, ptr nocap
   %.val36.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val36.val, i64 8
   %.val36.val.val = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds i32, ptr %.val37, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %.val36.val.val, i64 %20
@@ -1282,7 +1282,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @Mio_GateReadPins(ptr noundef %6) #11
   %.not47 = icmp eq ptr %7, null
@@ -1302,7 +1302,7 @@ define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0
   %.val43.val.us = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %.val43.val.us, i64 8
   %.val43.val.val.us = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds i32, ptr %.val44.us, i64 %indvars.iv52
+  %11 = getelementptr inbounds nuw i32, ptr %.val44.us, i64 %indvars.iv52
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %.val43.val.val.us, i64 %13
@@ -1324,7 +1324,7 @@ define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0
   %.val45.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %.val45.val, i64 8
   %.val45.val.val = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds i32, ptr %.val46, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %.val46, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %23
@@ -1449,9 +1449,9 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %11 = getelementptr i8, ptr %1, i64 28
   %.val152 = load i32, ptr %11, align 4
   %12 = icmp sgt i32 %.val152, 7
-  %indvars.iv204.sroa.gep216 = getelementptr inbounds i8, ptr %9, i64 4
-  %indvars.iv204.sroa.gep219 = getelementptr inbounds i8, ptr %8, i64 16
-  %indvars.iv204.sroa.gep222 = getelementptr inbounds i8, ptr %7, i64 8
+  %indvars.iv204.sroa.gep216 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %indvars.iv204.sroa.gep219 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %indvars.iv204.sroa.gep222 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %3
@@ -1481,7 +1481,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   br i1 %24, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.preheader174
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %wide.trip.count = zext nneg i32 %.val151184 to i64
   br label %49
 
@@ -1500,7 +1500,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %.val148.val = load ptr, ptr %28, align 8
   %29 = getelementptr i8, ptr %.val148.val, i64 8
   %.val148.val.val = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds i32, ptr %.val149, i64 %indvars.iv207
+  %30 = getelementptr inbounds nuw i32, ptr %.val149, i64 %indvars.iv207
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds ptr, ptr %.val148.val.val, i64 %32
@@ -1534,10 +1534,10 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds [10 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [10 x i32], ptr %25, i64 0, i64 %indvars.iv
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %51, ptr %50, align 4
-  %52 = getelementptr inbounds [10 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv
   store i32 %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1551,7 +1551,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
 
 55:                                               ; preds = %.critedge2
   call void @Abc_SopToTruth7(ptr noundef %.val138, i32 noundef 7, ptr noundef nonnull %6) #11
-  %56 = getelementptr inbounds i8, ptr %8, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %57 = call i32 @If_Dec7PickBestMux(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %56) #11
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %62, label %146
@@ -1564,8 +1564,8 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
 
 62:                                               ; preds = %55
   call void @If_Dec7MinimumBase(ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 7, ptr noundef nonnull %9) #11
-  %63 = getelementptr inbounds i8, ptr %10, i64 40
-  %64 = getelementptr inbounds i8, ptr %9, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @If_Dec7MinimumBase(ptr noundef nonnull %56, ptr noundef nonnull %63, i32 noundef 7, ptr noundef nonnull %64) #11
   br label %72
 
@@ -1573,10 +1573,10 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %65 = load i64, ptr %7, align 16
   %66 = call i64 @If_Dec6MinimumBase(i64 noundef %65, ptr noundef nonnull %10, i32 noundef %.val152, ptr noundef nonnull %9) #11
   store i64 %66, ptr %7, align 16
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %10, i64 40
-  %70 = getelementptr inbounds i8, ptr %9, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %71 = call i64 @If_Dec6MinimumBase(i64 noundef %68, ptr noundef nonnull %69, i32 noundef %.val152, ptr noundef nonnull %70) #11
   store i64 %71, ptr %67, align 8
   br label %72
@@ -1591,7 +1591,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %75 = getelementptr i8, ptr %.val144.val, i64 8
   %.val144.val.val = load ptr, ptr %75, align 8
   %76 = zext nneg i32 %.0164167 to i64
-  %77 = getelementptr inbounds i32, ptr %.val145, i64 %76
+  %77 = getelementptr inbounds nuw i32, ptr %.val145, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds ptr, ptr %.val144.val.val, i64 %79
@@ -1647,7 +1647,7 @@ define void @Io_NtkEdgelistWriteNodeInt(ptr nocapture noundef %0, ptr nocapture 
   %indvars.iv204.sroa.phi220 = phi ptr [ %7, %72 ], [ %indvars.iv204.sroa.gep222, %._crit_edge182 ]
   %indvars.iv204 = phi i64 [ 0, %72 ], [ 1, %._crit_edge182 ]
   %.val153 = load ptr, ptr %1, align 8
-  %111 = getelementptr inbounds i8, ptr %.val153, i64 256
+  %111 = getelementptr inbounds nuw i8, ptr %.val153, i64 256
   %112 = load ptr, ptr %111, align 8
   %.in = select i1 %53, ptr %indvars.iv204.sroa.phi217, ptr %indvars.iv204.sroa.phi220
   %113 = load i64, ptr %.in, align 8
@@ -1685,7 +1685,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
 
 .lr.ph181:                                        ; preds = %Io_NtkWriteEdgelistDeriveSop.exit, %.lr.ph181
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.lr.ph181 ], [ 0, %Io_NtkWriteEdgelistDeriveSop.exit ]
-  %123 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv204, i64 %indvars.iv201
+  %123 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv204, i64 %indvars.iv201
   %124 = load i32, ptr %123, align 4
   %.val142 = load ptr, ptr %1, align 8
   %.val143 = load ptr, ptr %73, align 8
@@ -1766,7 +1766,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %.not = icmp eq i64 %indvars.iv197, 0
   %166 = select i1 %.not, i64 %.0114, i64 %151
   %167 = and i64 %166, 65535
-  %168 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 %indvars.iv197
+  %168 = getelementptr inbounds nuw [2 x i64], ptr %6, i64 0, i64 %indvars.iv197
   %169 = mul nuw i64 %167, 281479271743489
   store i64 %169, ptr %168, align 8
   %170 = shl nuw nsw i64 %indvars.iv197, 5
@@ -1780,17 +1780,17 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %175 = lshr i64 %.0114, %174
   %176 = trunc i64 %175 to i32
   %177 = and i32 %176, 7
-  %178 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197, i64 %indvars.iv189
+  %178 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197, i64 %indvars.iv189
   store i32 %177, ptr %178, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, 4
   br i1 %exitcond193.not, label %179, label %172, !llvm.loop !24
 
 179:                                              ; preds = %172
-  %180 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197
-  %181 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %indvars.iv197
+  %180 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197
+  %181 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %indvars.iv197
   %182 = call i64 @If_Dec6MinimumBase(i64 noundef %169, ptr noundef nonnull %180, i32 noundef 4, ptr noundef nonnull %181) #11
-  %183 = getelementptr inbounds [2 x i64], ptr %7, i64 0, i64 %indvars.iv197
+  %183 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %indvars.iv197
   store i64 %182, ptr %183, align 8
   %184 = load i32, ptr %181, align 4
   %185 = icmp sgt i32 %184, 0
@@ -1798,7 +1798,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
 
 .lr.ph178:                                        ; preds = %179, %194
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %194 ], [ 0, %179 ]
-  %186 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197, i64 %indvars.iv194
+  %186 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv197, i64 %indvars.iv194
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %187, 7
   %.val121 = load ptr, ptr %1, align 8
@@ -1848,7 +1848,7 @@ Io_NtkWriteEdgelistDeriveSop.exit:                ; preds = %109, %116, %118, %1
   %209 = select i1 %.not, ptr @.str.38, ptr @.str.37
   %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef %208, ptr noundef nonnull %209) #11
   %.val154 = load ptr, ptr %1, align 8
-  %211 = getelementptr inbounds i8, ptr %.val154, i64 256
+  %211 = getelementptr inbounds nuw i8, ptr %.val154, i64 256
   %212 = load ptr, ptr %211, align 8
   %213 = load i64, ptr %183, align 8
   %214 = load i32, ptr %181, align 4
@@ -1937,7 +1937,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -55
   %or.cond155 = icmp ult i8 %22, -4
@@ -1957,7 +1957,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = add nsw i32 %34, -48
@@ -1967,7 +1967,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   %37 = phi i32 [ %35, %31 ], [ 0, %._crit_edge ]
   %38 = add i64 %14, 4294967295
   %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds i8, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i32
   %43 = add nsw i32 %42, -48
@@ -2006,7 +2006,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   %.val183.val = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.val183.val, i64 8
   %.val183.val.val = load ptr, ptr %58, align 8
-  %59 = getelementptr inbounds i32, ptr %.val184, i64 %indvars.iv236
+  %59 = getelementptr inbounds nuw i32, ptr %.val184, i64 %indvars.iv236
   %60 = load i32, ptr %59, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %.val183.val.val, i64 %61
@@ -2046,8 +2046,8 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 .preheader210:                                    ; preds = %78, %.preheader210
   %indvars.iv239 = phi i64 [ %indvars.iv.next240, %.preheader210 ], [ 0, %78 ]
-  %81 = getelementptr inbounds [16 x [1024 x i64]], ptr @Io_NtkEdgelistWriteNodeIntStruct.TruthStore, i64 0, i64 %indvars.iv239
-  %82 = getelementptr inbounds [16 x ptr], ptr @Io_NtkEdgelistWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv239
+  %81 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr @Io_NtkEdgelistWriteNodeIntStruct.TruthStore, i64 0, i64 %indvars.iv239
+  %82 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkEdgelistWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv239
   store ptr %81, ptr %82, align 8
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next240, 16
@@ -2055,15 +2055,15 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
 
 .preheader208:                                    ; preds = %.preheader210, %89
   %indvars.iv247 = phi i64 [ %indvars.iv.next248, %89 ], [ 0, %.preheader210 ]
-  %83 = getelementptr inbounds [6 x i64], ptr @Io_NtkEdgelistWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv247
+  %83 = getelementptr inbounds nuw [6 x i64], ptr @Io_NtkEdgelistWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv247
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds [16 x ptr], ptr @Io_NtkEdgelistWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv247
+  %85 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkEdgelistWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv247
   br label %86
 
 86:                                               ; preds = %.preheader208, %86
   %indvars.iv243 = phi i64 [ 0, %.preheader208 ], [ %indvars.iv.next244, %86 ]
   %87 = load ptr, ptr %85, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %indvars.iv243
+  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %indvars.iv243
   store i64 %84, ptr %88, align 8
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next244, 1024
@@ -2079,7 +2079,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   %90 = trunc i64 %indvars.iv255 to i32
   %91 = add i32 %90, -6
   %92 = shl nuw i32 1, %91
-  %93 = getelementptr inbounds [16 x ptr], ptr @Io_NtkEdgelistWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv255
+  %93 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkEdgelistWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv255
   br label %94
 
 94:                                               ; preds = %.preheader206, %94
@@ -2089,7 +2089,7 @@ define void @Io_NtkEdgelistWriteNodeIntStruct(ptr nocapture noundef %0, ptr noca
   %.not154 = icmp ne i32 %96, 0
   %97 = sext i1 %.not154 to i64
   %98 = load ptr, ptr %93, align 8
-  %99 = getelementptr inbounds i64, ptr %98, i64 %indvars.iv251
+  %99 = getelementptr inbounds nuw i64, ptr %98, i64 %indvars.iv251
   store i64 %97, ptr %99, align 8
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next252, 1024
@@ -2119,7 +2119,7 @@ select.unfold.i:                                  ; preds = %108, %.loopexit
 
 108:                                              ; preds = %select.unfold.i
   %109 = add nsw i64 %indvars.iv.i, -1
-  %110 = getelementptr inbounds i32, ptr %6, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %6, i64 %109
   %111 = load i32, ptr %110, align 4
   %.not.i = icmp eq i32 %111, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i191, !llvm.loop !34
@@ -2132,7 +2132,7 @@ select.unfold.i191:                               ; preds = %108, %114
 
 114:                                              ; preds = %select.unfold.i191
   %115 = add nsw i64 %indvars.iv.i192, -1
-  %116 = getelementptr inbounds i32, ptr %6, i64 %115
+  %116 = getelementptr inbounds nuw i32, ptr %6, i64 %115
   %117 = load i32, ptr %116, align 4
   %.not.i194 = icmp eq i32 %117, -1
   br i1 %.not.i194, label %select.unfold.i191, label %132, !llvm.loop !35
@@ -2160,7 +2160,7 @@ select.unfold.i196:                               ; preds = %127, %Kit_TruthIsCo
 
 127:                                              ; preds = %select.unfold.i196
   %128 = add nsw i64 %indvars.iv.i197, -1
-  %129 = getelementptr inbounds i32, ptr %6, i64 %128
+  %129 = getelementptr inbounds nuw i32, ptr %6, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not.i199 = icmp eq i32 %130, -1
   br i1 %.not.i199, label %select.unfold.i196, label %Kit_TruthIsConst1.exit200, !llvm.loop !35
@@ -2238,7 +2238,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
 164:                                              ; preds = %.lr.ph224, %164
   %indvars.iv259 = phi i64 [ 0, %.lr.ph224 ], [ %indvars.iv.next260, %164 ]
   %165 = add nuw nsw i64 %indvars.iv259, 2
-  %166 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %165
   %167 = load i8, ptr %166, align 1
   %.val181 = load ptr, ptr %1, align 8
   %.val182 = load ptr, ptr %163, align 8
@@ -2275,7 +2275,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
   %187 = call ptr @Abc_ObjName(ptr noundef %186) #11
   %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef %187) #11
   %.val189 = load ptr, ptr %1, align 8
-  %189 = getelementptr inbounds i8, ptr %.val189, i64 256
+  %189 = getelementptr inbounds nuw i8, ptr %.val189, i64 256
   %190 = load ptr, ptr %189, align 8
   %191 = load i64, ptr %8, align 8
   %192 = load i8, ptr %11, align 16
@@ -2294,7 +2294,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
 198:                                              ; preds = %.lr.ph227, %209
   %indvars.iv262 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next263, %209 ]
   %199 = add nuw nsw i64 %indvars.iv262, 2
-  %200 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1
   %202 = sext i8 %201 to i32
   %203 = icmp eq i32 %.val186, %202
@@ -2344,7 +2344,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
   %223 = call ptr @Abc_ObjName(ptr noundef %222) #11
   %224 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef %223) #11
   %.val188 = load ptr, ptr %1, align 8
-  %225 = getelementptr inbounds i8, ptr %.val188, i64 256
+  %225 = getelementptr inbounds nuw i8, ptr %.val188, i64 256
   %226 = load ptr, ptr %225, align 8
   %227 = load i64, ptr %9, align 8
   %228 = load i8, ptr %12, align 16
@@ -2366,7 +2366,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
 236:                                              ; preds = %.lr.ph231, %253
   %indvars.iv265 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next266, %253 ]
   %237 = add nuw nsw i64 %indvars.iv265, 2
-  %238 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %237
+  %238 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %237
   %239 = load i8, ptr %238, align 1
   %240 = sext i8 %239 to i32
   %241 = icmp eq i32 %.val186, %240
@@ -2429,7 +2429,7 @@ Kit_TruthIsConst1.exit200:                        ; preds = %select.unfold.i196,
   %267 = call ptr @Abc_ObjName(ptr noundef %266) #11
   %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %267) #11
   %.val187 = load ptr, ptr %1, align 8
-  %269 = getelementptr inbounds i8, ptr %.val187, i64 256
+  %269 = getelementptr inbounds nuw i8, ptr %.val187, i64 256
   %270 = load ptr, ptr %269, align 8
   %271 = load i64, ptr %7, align 8
   %272 = load i8, ptr %10, align 16
@@ -2488,7 +2488,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -55
   %or.cond145 = icmp ult i8 %22, -4
@@ -2508,7 +2508,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = add nsw i32 %34, -48
@@ -2518,7 +2518,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   %37 = phi i32 [ %35, %31 ], [ 0, %._crit_edge ]
   %38 = add i64 %14, 4294967295
   %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds i8, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i32
   %43 = add nsw i32 %42, -48
@@ -2567,8 +2567,8 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
 
 .preheader178:                                    ; preds = %61, %.preheader178
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.preheader178 ], [ 0, %61 ]
-  %64 = getelementptr inbounds [16 x [1024 x i64]], ptr @Io_NtkEdgelistWriteModelIntStruct.TruthStore, i64 0, i64 %indvars.iv204
-  %65 = getelementptr inbounds [16 x ptr], ptr @Io_NtkEdgelistWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv204
+  %64 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr @Io_NtkEdgelistWriteModelIntStruct.TruthStore, i64 0, i64 %indvars.iv204
+  %65 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkEdgelistWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv204
   store ptr %64, ptr %65, align 8
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next205, 16
@@ -2576,15 +2576,15 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
 
 .preheader176:                                    ; preds = %.preheader178, %72
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %72 ], [ 0, %.preheader178 ]
-  %66 = getelementptr inbounds [6 x i64], ptr @Io_NtkEdgelistWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv212
+  %66 = getelementptr inbounds nuw [6 x i64], ptr @Io_NtkEdgelistWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv212
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds [16 x ptr], ptr @Io_NtkEdgelistWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv212
+  %68 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkEdgelistWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv212
   br label %69
 
 69:                                               ; preds = %.preheader176, %69
   %indvars.iv208 = phi i64 [ 0, %.preheader176 ], [ %indvars.iv.next209, %69 ]
   %70 = load ptr, ptr %68, align 8
-  %71 = getelementptr inbounds i64, ptr %70, i64 %indvars.iv208
+  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv208
   store i64 %67, ptr %71, align 8
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next209, 1024
@@ -2600,7 +2600,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   %73 = trunc i64 %indvars.iv220 to i32
   %74 = add i32 %73, -6
   %75 = shl nuw i32 1, %74
-  %76 = getelementptr inbounds [16 x ptr], ptr @Io_NtkEdgelistWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv220
+  %76 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkEdgelistWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv220
   br label %77
 
 77:                                               ; preds = %.preheader174, %77
@@ -2610,7 +2610,7 @@ define void @Io_NtkEdgelistWriteModelIntStruct(ptr nocapture noundef %0, ptr noc
   %.not144 = icmp ne i32 %79, 0
   %80 = sext i1 %.not144 to i64
   %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds i64, ptr %81, i64 %indvars.iv216
+  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv216
   store i64 %80, ptr %82, align 8
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next217, 1024
@@ -2640,7 +2640,7 @@ select.unfold.i:                                  ; preds = %91, %.loopexit
 
 91:                                               ; preds = %select.unfold.i
   %92 = add nsw i64 %indvars.iv.i, -1
-  %93 = getelementptr inbounds i32, ptr %6, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %6, i64 %92
   %94 = load i32, ptr %93, align 4
   %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i159, !llvm.loop !34
@@ -2656,7 +2656,7 @@ select.unfold.i164.preheader:                     ; preds = %select.unfold.i, %s
 
 97:                                               ; preds = %select.unfold.i159
   %98 = add nsw i64 %indvars.iv.i160, -1
-  %99 = getelementptr inbounds i32, ptr %6, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %6, i64 %98
   %100 = load i32, ptr %99, align 4
   %.not.i162 = icmp eq i32 %100, -1
   br i1 %.not.i162, label %select.unfold.i159, label %109, !llvm.loop !35
@@ -2669,7 +2669,7 @@ select.unfold.i164:                               ; preds = %select.unfold.i164.
 
 103:                                              ; preds = %select.unfold.i164
   %104 = add nsw i64 %indvars.iv.i165, -1
-  %105 = getelementptr inbounds i32, ptr %6, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %6, i64 %104
   %106 = load i32, ptr %105, align 4
   %.not.i167 = icmp eq i32 %106, -1
   br i1 %.not.i167, label %select.unfold.i164, label %Kit_TruthIsConst1.exit168, !llvm.loop !35
@@ -2744,7 +2744,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
 .lr.ph192:                                        ; preds = %137, %.lr.ph192
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph192 ], [ 0, %137 ]
   %140 = add nuw nsw i64 %indvars.iv224, 2
-  %141 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %140
   %142 = load i8, ptr %141, align 1
   %143 = sext i8 %142 to i32
   %144 = add nsw i32 %143, 97
@@ -2758,7 +2758,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
 ._crit_edge193:                                   ; preds = %.lr.ph192, %137
   %149 = call i64 @fwrite(ptr nonnull @.str.54, i64 6, i64 1, ptr %0)
   %.val157 = load ptr, ptr %1, align 8
-  %150 = getelementptr inbounds i8, ptr %.val157, i64 256
+  %150 = getelementptr inbounds nuw i8, ptr %.val157, i64 256
   %151 = load ptr, ptr %150, align 8
   %152 = load i64, ptr %8, align 8
   %153 = load i8, ptr %11, align 16
@@ -2773,7 +2773,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
 .lr.ph195:                                        ; preds = %._crit_edge193, %168
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %168 ], [ 0, %._crit_edge193 ]
   %158 = add nuw nsw i64 %indvars.iv227, 2
-  %159 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = sext i8 %160 to i32
   %162 = icmp eq i32 %.val154, %161
@@ -2798,7 +2798,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
 ._crit_edge196:                                   ; preds = %168
   %172 = call i64 @fwrite(ptr nonnull @.str.56, i64 6, i64 1, ptr %0)
   %.val156 = load ptr, ptr %1, align 8
-  %173 = getelementptr inbounds i8, ptr %.val156, i64 256
+  %173 = getelementptr inbounds nuw i8, ptr %.val156, i64 256
   %174 = load ptr, ptr %173, align 8
   %175 = load i64, ptr %9, align 8
   %176 = load i8, ptr %12, align 16
@@ -2819,7 +2819,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
 183:                                              ; preds = %.lr.ph199, %198
   %indvars.iv230 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next231, %198 ]
   %184 = add nuw nsw i64 %indvars.iv230, 2
-  %185 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %184
   %186 = load i8, ptr %185, align 1
   %187 = sext i8 %186 to i32
   %188 = icmp eq i32 %.val154, %187
@@ -2852,7 +2852,7 @@ Kit_TruthIsConst1.exit168:                        ; preds = %select.unfold.i164,
 ._crit_edge200:                                   ; preds = %198, %179
   %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.50) #11
   %.val155 = load ptr, ptr %1, align 8
-  %203 = getelementptr inbounds i8, ptr %.val155, i64 256
+  %203 = getelementptr inbounds nuw i8, ptr %.val155, i64 256
   %204 = load ptr, ptr %203, align 8
   %205 = load i64, ptr %7, align 8
   %206 = load i8, ptr %10, align 16
@@ -2874,7 +2874,7 @@ declare void @Io_WriteTimingInfo(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val38 = load ptr, ptr %5, align 8
@@ -2907,7 +2907,7 @@ define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0,
   %.val46 = phi ptr [ %.val43, %.lr.ph ], [ %.val, %15 ]
   %16 = getelementptr i8, ptr %.val46, i64 8
   %.val27.val = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val27.val, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %.val27.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.val30 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %18, i64 48
@@ -2928,7 +2928,7 @@ define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0,
   %.val39.val = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %.val39.val, i64 8
   %.val39.val.val = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i32, ptr %.val40, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %31
@@ -2959,7 +2959,7 @@ define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0,
   %.val3250 = phi ptr [ %.val3247, %.lr.ph51 ], [ %.val32, %.critedge ]
   %45 = getelementptr i8, ptr %.val3250, i64 8
   %.val33.val = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds ptr, ptr %.val33.val, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw ptr, ptr %.val33.val, i64 %indvars.iv53
   %47 = load ptr, ptr %46, align 8
   %.val34 = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %47, i64 32
@@ -2980,7 +2980,7 @@ define internal fastcc void @Io_NtkEdgelistWriteSubckt(ptr nocapture noundef %0,
   %.val41.val = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.val41.val, i64 8
   %.val41.val.val = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv53
+  %58 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv53
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %.val41.val.val, i64 %60

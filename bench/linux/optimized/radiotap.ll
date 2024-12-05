@@ -26,7 +26,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init
   br i1 %8, label %9, label %.loopexit1
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %11 = load i16, ptr %10, align 1
   %12 = zext i16 %11 to i32
   %13 = icmp slt i32 %2, %12
@@ -36,26 +36,26 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init
   store ptr %1, ptr %0, align 8
   %15 = load i16, ptr %10, align 1
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %22, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @radiotap_ns, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %28, align 8
   %29 = icmp sgt i32 %20, -1
   br i1 %29, label %.loopexit, label %30
@@ -86,7 +86,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init
 
 .loopexit:                                        ; preds = %35, %14
   %44 = phi ptr [ %22, %14 ], [ %39, %35 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %44, ptr %45, align 8
   br label %.loopexit1
 
@@ -97,20 +97,20 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre.pre.pre = load i32, ptr %4, align 4
   br label %.outer
 
@@ -146,7 +146,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr noc
   br i1 %27, label %.thread7, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp slt i32 %16, %30
   br i1 %31, label %34, label %32
@@ -234,7 +234,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr noc
   br i1 %87, label %.thread10, label %88
 
 88:                                               ; preds = %71
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %92, label %.thread10
@@ -248,13 +248,13 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr noc
   %96 = phi i64 [ 0, %92 ], [ %106, %105 ]
   %97 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %93, i64 %96
   %.fr = freeze ptr %97
-  %98 = getelementptr inbounds i8, ptr %.fr, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %.fr, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, %83
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %.fr, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.fr, i64 16
   %103 = load i8, ptr %102, align 8
   %104 = icmp eq i8 %103, %85
   br i1 %104, label %.loopexit, label %105

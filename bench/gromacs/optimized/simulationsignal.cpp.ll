@@ -11,17 +11,17 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN3gmx19SimulationSignallerC2EPSt5arrayINS_16SimulationSignalELm3EEPK9t_commrecPK14gmx_multisim_tbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 26), (28, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   store ptr %1, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %12 = or i1 %4, %5
   %13 = zext i1 %12 to i8
   store i8 %13, ptr %11, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   ret void
 }
@@ -31,30 +31,30 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define { ptr, ptr } @_ZN3gmx19SimulationSignaller22getCommunicationBufferEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 25
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %.010.i = phi ptr [ %9, %.lr.ph.i ], [ %7, %5 ]
   %.079.i.idx = phi i64 [ %.079.i.add, %.lr.ph.i ], [ 0, %5 ]
-  %.079.i.ptr = getelementptr inbounds i8, ptr %6, i64 %.079.i.idx
+  %.079.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.079.i.idx
   %.07.val.i = load i8, ptr %.079.i.ptr, align 1
   %8 = sitofp i8 %.07.val.i to float
   store float %8, ptr %.010.i, align 4
   %.079.i.add = add nuw nsw i64 %.079.i.idx, 3
-  %9 = getelementptr inbounds i8, ptr %.010.i, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.010.i, i64 4
   %.not.i = icmp eq i64 %.079.i.add, 9
   br i1 %.not.i, label %"_ZSt9transformIPN3gmx16SimulationSignalEPfZNS0_19SimulationSignaller22getCommunicationBufferEvE3$_0ET0_T_S7_S6_T1_.exit", label %.lr.ph.i, !llvm.loop !5
 
 "_ZSt9transformIPN3gmx16SimulationSignalEPfZNS0_19SimulationSignaller22getCommunicationBufferEvE3$_0ET0_T_S7_S6_T1_.exit": ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %11
 
 11:                                               ; preds = %1, %"_ZSt9transformIPN3gmx16SimulationSignalEPfZNS0_19SimulationSignaller22getCommunicationBufferEvE3$_0ET0_T_S7_S6_T1_.exit"
@@ -67,28 +67,28 @@ define { ptr, ptr } @_ZN3gmx19SimulationSignaller22getCommunicationBufferEv(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19SimulationSignaller14signalInterSimEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %26
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void @_Z12gmx_sumf_simiPfPK14gmx_multisim_t(i32 noundef 3, ptr noundef nonnull %16, ptr noundef %18)
   %.pre = load ptr, ptr %6, align 8
@@ -102,8 +102,8 @@ define void @_ZN3gmx19SimulationSignaller14signalInterSimEv(ptr noundef nonnull 
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef 12, ptr noundef nonnull %23, ptr noundef %25)
   br label %26
@@ -118,15 +118,15 @@ declare void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 25
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %9
 
 9:                                                ; preds = %5, %24
@@ -136,25 +136,25 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr nocapture noundef no
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 2
+  %13 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 2
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12, %9
-  %17 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %.012
+  %17 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %.012
   %18 = load float, ptr %17, align 4
   %19 = fptosi float %18 to i8
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 1
+  %21 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012, i32 1
   store i8 %19, ptr %21, align 1
   br label %22
 
 22:                                               ; preds = %20, %16
-  %23 = getelementptr inbounds [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012
+  %23 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %6, i64 0, i64 %.012
   store i8 0, ptr %23, align 1
   br label %24
 
@@ -169,28 +169,28 @@ define void @_ZN3gmx19SimulationSignaller10setSignalsEv(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx19SimulationSignaller15finalizeSignalsEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11, %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void @_Z12gmx_sumf_simiPfPK14gmx_multisim_t(i32 noundef 3, ptr noundef nonnull %16, ptr noundef %18)
   %.pre.i = load ptr, ptr %6, align 8
@@ -204,21 +204,21 @@ define void @_ZN3gmx19SimulationSignaller15finalizeSignalsEv(ptr noundef nonnull
   br i1 %.not.i, label %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call void @_Z9gmx_bcastmPvP10tmpi_comm_(i64 noundef 12, ptr noundef nonnull %23, ptr noundef %25)
   br label %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit
 
 _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %27 = load i8, ptr %26, align 1
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %_ZN3gmx19SimulationSignaller10setSignalsEv.exit
 
 29:                                               ; preds = %_ZN3gmx19SimulationSignaller14signalInterSimEv.exit
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %32
 
 32:                                               ; preds = %47, %29
@@ -228,25 +228,25 @@ _ZN3gmx19SimulationSignaller14signalInterSimEv.exit: ; preds = %1, %19, %22
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 2
+  %36 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 2
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %35, %32
-  %40 = getelementptr inbounds [3 x float], ptr %31, i64 0, i64 %.012.i
+  %40 = getelementptr inbounds nuw [3 x float], ptr %31, i64 0, i64 %.012.i
   %41 = load float, ptr %40, align 4
   %42 = fptosi float %41 to i8
   %.not.i1 = icmp eq i8 %42, 0
   br i1 %.not.i1, label %45, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 1
+  %44 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i, i32 1
   store i8 %42, ptr %44, align 1
   br label %45
 
 45:                                               ; preds = %43, %39
-  %46 = getelementptr inbounds [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i
+  %46 = getelementptr inbounds nuw [3 x %"class.gmx::SimulationSignal"], ptr %30, i64 0, i64 %.012.i
   store i8 0, ptr %46, align 1
   br label %47
 

@@ -83,7 +83,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %index)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -161,7 +161,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal23CodatatypeBoundVariableD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @__gmpz_clear(ptr noundef nonnull align 8 dereferenceable(16) %d_index)
           to label %_ZN4cvc58internal7IntegerD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -247,8 +247,8 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont3:                                     ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   store ptr %call, ptr %this, align 8
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index.i = getelementptr inbounds i8, ptr %other, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index.i)
           to label %invoke.cont7 unwind label %lpad4
 
@@ -282,7 +282,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal23CodatatypeBoundVariable8getIndexEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %d_index
 }
 
@@ -297,8 +297,8 @@ entry:
   br i1 %cmp.i, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index4 = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index4 = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call5 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index4)
   br label %land.end
 
@@ -320,8 +320,8 @@ entry:
   br i1 %cmp.i.i, label %land.rhs.i, label %_ZNK4cvc58internal23CodatatypeBoundVariableeqERKS1_.exit
 
 land.rhs.i:                                       ; preds = %entry
-  %d_index.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index4.i = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index4.i = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call5.i = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index.i, ptr noundef nonnull align 8 dereferenceable(16) %d_index4.i)
   %4 = xor i1 %call5.i, true
   br label %_ZNK4cvc58internal23CodatatypeBoundVariableeqERKS1_.exit
@@ -350,8 +350,8 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i3, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index7 = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index7 = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call8 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index7)
   br label %lor.end
 
@@ -381,8 +381,8 @@ lor.rhs:                                          ; preds = %entry
   br i1 %cmp.i3, label %land.rhs, label %lor.end
 
 land.rhs:                                         ; preds = %lor.rhs
-  %d_index = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index7 = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index7 = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call8 = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index, ptr noundef nonnull align 8 dereferenceable(16) %d_index7)
   br label %lor.end
 
@@ -412,8 +412,8 @@ lor.rhs.i:                                        ; preds = %entry
   br i1 %cmp.i3.i, label %land.rhs.i, label %_ZNK4cvc58internal23CodatatypeBoundVariableleERKS1_.exit
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %d_index.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index7.i = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index7.i = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call8.i = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerleERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index.i, ptr noundef nonnull align 8 dereferenceable(16) %d_index7.i)
   %4 = xor i1 %call8.i, true
   br label %_ZNK4cvc58internal23CodatatypeBoundVariableleERKS1_.exit
@@ -442,8 +442,8 @@ lor.rhs.i:                                        ; preds = %entry
   br i1 %cmp.i3.i, label %land.rhs.i, label %_ZNK4cvc58internal23CodatatypeBoundVariableltERKS1_.exit
 
 land.rhs.i:                                       ; preds = %lor.rhs.i
-  %d_index.i = getelementptr inbounds i8, ptr %this, i64 8
-  %d_index7.i = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_index7.i = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call8.i = tail call noundef zeroext i1 @_ZNK4cvc58internal7IntegerltERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %d_index.i, ptr noundef nonnull align 8 dereferenceable(16) %d_index7.i)
   %4 = xor i1 %call8.i, true
   br label %_ZNK4cvc58internal23CodatatypeBoundVariableltERKS1_.exit
@@ -463,7 +463,7 @@ entry:
   %q = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %0 = load ptr, ptr %cbv, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %scope.i.i)
   %vtable.i.i = load ptr, ptr %add.ptr, align 8
@@ -574,7 +574,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
           to label %invoke.cont14 unwind label %lpad6.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %d_index.i = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index.i = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZNK4cvc58internal7Integer8toStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %d_index.i, i32 noundef 10)
           to label %.noexc8 unwind label %lpad6.loopexit.split-lp
@@ -640,7 +640,7 @@ entry:
   %ref.tmp = alloca %"struct.std::hash", align 1
   %0 = load ptr, ptr %cbv, align 8
   %call2 = call noundef i64 @_ZNKSt4hashIN4cvc58internal8TypeNodeEEclERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %d_index.i = getelementptr inbounds i8, ptr %cbv, i64 8
+  %d_index.i = getelementptr inbounds nuw i8, ptr %cbv, i64 8
   %call.i = call noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull align 8 dereferenceable(16) %d_index.i)
   %mul = mul i64 %call.i, %call2
   ret i64 %mul

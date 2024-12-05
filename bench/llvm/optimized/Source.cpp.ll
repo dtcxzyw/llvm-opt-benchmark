@@ -38,7 +38,7 @@ _ZNK5clang6interp10SourceInfo6asExprEv.exit:      ; preds = %4
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %.pre, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 %14(ptr noundef nonnull align 8 dereferenceable(33) %.pre) #4
   %.sroa.0.0.extract.trunc.i = trunc i64 %15 to i32
@@ -101,7 +101,7 @@ define dso_local i64 @_ZNK5clang6interp10SourceInfo8getRangeEv(ptr nocapture nou
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %.pre, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(33) %.pre) #4
   %.sroa.6.0.extract.shift19 = and i64 %11, -4294967296
@@ -121,7 +121,7 @@ declare i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK5clang6interp12SourceMapper7getExprEPKNS0_8FunctionENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr %2) #5
   %8 = and i64 %7, 4
@@ -147,7 +147,7 @@ _ZNK5clang6interp10SourceInfo6asExprEv.exit:      ; preds = %3, %10
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i32 @_ZNK5clang6interp12SourceMapper11getLocationEPKNS0_8FunctionENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr %2) #5
   %8 = and i64 %7, 4
@@ -179,7 +179,7 @@ _ZNK5clang6interp10SourceInfo6asExprEv.exit.i:    ; preds = %10
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %.pre.i, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 %20(ptr noundef nonnull align 8 dereferenceable(33) %.pre.i) #4
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %21 to i32
@@ -193,7 +193,7 @@ _ZNK5clang6interp10SourceInfo6getLocEv.exit:      ; preds = %_ZNK5clang6interp10
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local i64 @_ZNK5clang6interp12SourceMapper8getRangeEPKNS0_8FunctionENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr %2) #5
   %8 = and i64 %7, 4
@@ -216,7 +216,7 @@ define dso_local i64 @_ZNK5clang6interp12SourceMapper8getRangeEPKNS0_8FunctionEN
 
 13:                                               ; preds = %12
   %14 = load ptr, ptr %.pre.i, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 %16(ptr noundef nonnull align 8 dereferenceable(33) %.pre.i) #4
   %.sroa.6.0.extract.shift19.i = and i64 %17, -4294967296

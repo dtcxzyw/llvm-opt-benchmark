@@ -114,33 +114,33 @@ define void @_Z7ps_openRKNSt10filesystem7__cxx114pathEffff(ptr dead_on_unwind no
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %9 = tail call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @.str.12)
   store ptr %9, ptr %0, align 8
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.13) #16
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14) #16
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.13) #17
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.14) #17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16, !noalias !5
-  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #16, !noalias !8
-  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #16, !noalias !8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17, !noalias !5
+  %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #17, !noalias !8
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #17, !noalias !8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %12, i64 noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %15 unwind label %_ZN8t_psdataD2Ev.exit
 
 _ZN8t_psdataD2Ev.exit:                            ; preds = %6
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %6
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.15, ptr noundef %16) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
+  %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
+  %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.15, ptr noundef %16) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   %18 = fpext float %2 to double
   %19 = fpext float %3 to double
   %20 = fpext float %4 to double
   %21 = fpext float %5 to double
-  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.16, double noundef %18, double noundef %19, double noundef %20, double noundef %21) #16
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17) #16
+  %22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.16, double noundef %18, double noundef %19, double noundef %20, double noundef %21) #17
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.17) #17
   %24 = call i64 @fwrite(ptr nonnull @.str.18, i64 21, i64 1, ptr %9)
   %25 = call i64 @fwrite(ptr nonnull @.str.19, i64 21, i64 1, ptr %9)
   %26 = call i64 @fwrite(ptr nonnull @.str.20, i64 23, i64 1, ptr %9)
@@ -180,7 +180,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z12ps_linewidthP8t_psdatai(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.24, i32 noundef %1) #16
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.24, i32 noundef %1) #17
   ret void
 }
 
@@ -189,17 +189,17 @@ define void @_Z8ps_colorP8t_psdatafff(ptr nocapture noundef %0, float noundef %1
   %5 = alloca [12 x i8], align 1
   %6 = tail call fastcc noundef i64 @_ZL10search_colP8t_psdatafff(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3)
   %7 = trunc i64 %6 to i32
-  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %7) #16
+  %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %7) #17
   %.val = load ptr, ptr %0, align 8
-  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #16
+  %9 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val, ptr noundef nonnull @.str.29, ptr noundef nonnull %5) #17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef range(i64 -9223372036854775808, 384307168202282325) i64 @_ZL10search_colP8t_psdatafff(ptr nocapture noundef %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [12 x i8], align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -218,19 +218,19 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
 
 18:                                               ; preds = %.lr.ph, %30
   %.02639 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %19 = getelementptr inbounds %struct.t_rgb, ptr %9, i64 %.02639
+  %19 = getelementptr inbounds nuw %struct.t_rgb, ptr %9, i64 %.02639
   %20 = load double, ptr %19, align 8
   %21 = fcmp oeq double %20, %15
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fcmp oeq double %24, %16
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %19, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %28 = load double, ptr %27, align 8
   %29 = fcmp oeq double %28, %17
   br i1 %29, label %.loopexit, label %30
@@ -242,9 +242,9 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
 
 ._crit_edge:                                      ; preds = %30, %4
   %32 = trunc i64 %13 to i32
-  %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %32) #16
+  %33 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %32) #17
   %.val = load ptr, ptr %0, align 8
-  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val, ptr noundef nonnull @.str.27, ptr noundef nonnull %5, double noundef %15, double noundef %16, double noundef %17) #16
+  %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val, ptr noundef nonnull @.str.27, ptr noundef nonnull %5, double noundef %15, double noundef %16, double noundef %17) #17
   %35 = load ptr, ptr %0, align 8
   %36 = load ptr, ptr %7, align 8
   %37 = load ptr, ptr %6, align 8
@@ -252,21 +252,21 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = sdiv exact i64 %40, 24
-  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.26, i64 noundef %41, ptr noundef nonnull %5) #16
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.26, i64 noundef %41, ptr noundef nonnull %5) #17
   %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %43, %45
   br i1 %.not.i, label %49, label %46
 
 46:                                               ; preds = %._crit_edge
   store double %15, ptr %43, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double %16, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
   store double %17, ptr %.sroa.4.0..sroa_idx, align 8
   %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %48, ptr %7, align 8
   br label %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
 
@@ -279,7 +279,7 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
   br i1 %54, label %55, label %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i
 
 55:                                               ; preds = %49
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #17
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #18
   unreachable
 
 _ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %49
@@ -289,58 +289,52 @@ _ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %49
   %58 = icmp ult i64 %57, %56
   %59 = call i64 @llvm.umin.i64(i64 %57, i64 384307168202282325)
   %60 = select i1 %58, i64 384307168202282325, i64 %59
-  %.not.i.i.i = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i, label %61
-
-61:                                               ; preds = %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %62 = mul nuw nsw i64 %60, 24
-  %63 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %62) #18
-  br label %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %61, %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i
-  %64 = phi ptr [ %63, %61 ], [ null, %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
-  %65 = getelementptr inbounds %struct.t_rgb, ptr %64, i64 %56
-  store double %15, ptr %65, align 8
-  %.sroa.3.0..sroa_idx28 = getelementptr inbounds i8, ptr %65, i64 8
+  %.not.i.i.i = icmp ne i64 %60, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %61 = mul nuw nsw i64 %60, 24
+  %62 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %61) #19
+  %63 = getelementptr inbounds i8, ptr %62, i64 %53
+  store double %15, ptr %63, align 8
+  %.sroa.3.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store double %16, ptr %.sroa.3.0..sroa_idx28, align 8
-  %.sroa.4.0..sroa_idx30 = getelementptr inbounds i8, ptr %65, i64 16
+  %.sroa.4.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store double %17, ptr %.sroa.4.0..sroa_idx30, align 8
   %.not10.i.i.i.i.i = icmp eq ptr %50, %43
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %67, %.lr.ph.i.i.i.i.i ], [ %64, %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i ]
-  %.0911.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i ], [ %50, %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
+  %.012.i.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i.i ], [ %62, %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.0911.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %50, %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i, i64 24, i1 false), !alias.scope !13
-  %66 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 24
-  %67 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %66, %43
+  %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %64, %43
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
-_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %64, %_ZNSt12_Vector_baseI5t_rgbSaIS0_EE11_M_allocateEm.exit.i.i ], [ %67, %.lr.ph.i.i.i.i.i ]
-  %68 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
+_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %62, %_ZNKSt6vectorI5t_rgbSaIS0_EE12_M_check_lenEmPKc.exit.i.i ], [ %65, %.lr.ph.i.i.i.i.i ]
+  %66 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 24
   %.not.i23.i.i = icmp eq ptr %50, null
-  br i1 %.not.i23.i.i, label %_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %69
+  br i1 %.not.i23.i.i, label %_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %67
 
-69:                                               ; preds = %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
-  call void @_ZdlPv(ptr noundef nonnull %50) #19
+67:                                               ; preds = %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
+  call void @_ZdlPv(ptr noundef nonnull %50) #20
   br label %_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
-_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %69, %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
-  store ptr %64, ptr %6, align 8
-  store ptr %68, ptr %7, align 8
-  %70 = getelementptr inbounds %struct.t_rgb, ptr %64, i64 %60
-  store ptr %70, ptr %44, align 8
+_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %67, %_ZNSt6vectorI5t_rgbSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
+  store ptr %62, ptr %6, align 8
+  store ptr %66, ptr %7, align 8
+  %68 = getelementptr inbounds nuw %struct.t_rgb, ptr %62, i64 %60
+  store ptr %68, ptr %44, align 8
   br label %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
 
 _ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit: ; preds = %46, %_ZNSt6vectorI5t_rgbSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
   %sext = shl i64 %13, 32
-  %71 = ashr exact i64 %sext, 32
+  %69 = ashr exact i64 %sext, 32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
-  %.0 = phi i64 [ %71, %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit ], [ %.02639, %26 ]
+  %.0 = phi i64 [ %69, %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit ], [ %.02639, %26 ]
   ret i64 %.0
 }
 
@@ -358,31 +352,31 @@ define void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr nocapture noundef %0, ptr nocapture
   %3 = alloca [12 x i8], align 1
   %4 = load double, ptr %1, align 8
   %5 = fptrunc double %4 to float
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fptrunc double %7 to float
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fptrunc double %10 to float
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   %12 = tail call fastcc noundef i64 @_ZL10search_colP8t_psdatafff(ptr noundef %0, float noundef %5, float noundef %8, float noundef %11)
   %13 = trunc i64 %12 to i32
-  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %13) #16
+  %14 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %13) #17
   %.val.i = load ptr, ptr %0, align 8
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val.i, ptr noundef nonnull @.str.29, ptr noundef nonnull %3) #16
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val.i, ptr noundef nonnull @.str.29, ptr noundef nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z16ps_init_rgb_nboxP8t_psdataff(ptr nocapture noundef initializes((32, 36)) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = fpext float %1 to double
   %7 = fneg float %1
   %8 = fpext float %7 to double
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef 0.000000e+00, double noundef %6, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %8, double noundef 0.000000e+00) #16
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.30, double noundef 0.000000e+00, double noundef %6, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %8, double noundef 0.000000e+00) #17
   ret void
 }
 
@@ -397,32 +391,32 @@ define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr nocapture noundef %0, ptr noc
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %28
 
 9:                                                ; preds = %3
   %10 = load double, ptr %1, align 8
   %11 = fptrunc double %10 to float
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load double, ptr %12, align 8
   %14 = fptrunc double %13 to float
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load double, ptr %15, align 8
   %17 = fptrunc double %16 to float
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   %18 = tail call fastcc noundef i64 @_ZL10search_colP8t_psdatafff(ptr noundef %0, float noundef %11, float noundef %14, float noundef %17)
   %19 = trunc i64 %18 to i32
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %19) #16
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %19) #17
   %.val.i.i = load ptr, ptr %0, align 8
-  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val.i.i, ptr noundef nonnull @.str.29, ptr noundef nonnull %4) #16
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.val.i.i, ptr noundef nonnull @.str.29, ptr noundef nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load float, ptr %23, align 8
   %25 = fmul float %2, %24
   %26 = fpext float %25 to double
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.31, double noundef %26) #16
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.31, double noundef %26) #17
   br label %.loopexit
 
 28:                                               ; preds = %.lr.ph, %28
@@ -435,7 +429,7 @@ define void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr nocapture noundef %0, ptr noc
   %34 = load double, ptr %8, align 8
   %35 = fptrunc double %34 to float
   %36 = tail call fastcc noundef i64 @_ZL10search_colP8t_psdatafff(ptr noundef nonnull %0, float noundef %31, float noundef %33, float noundef %35)
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.33, i64 noundef %36) #16
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.33, i64 noundef %36) #17
   %38 = add nuw nsw i32 %.011, 1
   %39 = uitofp nneg i32 %38 to float
   %40 = fcmp ogt float %2, %39
@@ -450,14 +444,14 @@ define void @_Z10ps_rgb_boxP8t_psdataP5t_rgb(ptr nocapture noundef %0, ptr nocap
   %3 = load ptr, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fptrunc double %4 to float
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fptrunc double %7 to float
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fptrunc double %10 to float
   %12 = tail call fastcc noundef i64 @_ZL10search_colP8t_psdatafff(ptr noundef nonnull %0, float noundef %5, float noundef %8, float noundef %11)
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, i64 noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, i64 noundef %12) #17
   ret void
 }
 
@@ -470,7 +464,7 @@ define void @_Z15ps_init_rgb_boxP8t_psdataff(ptr nocapture noundef readonly %0, 
   %8 = fpext float %7 to double
   %9 = fneg float %1
   %10 = fpext float %9 to double
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.32, double noundef 0.000000e+00, double noundef %5, double noundef %6, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %8, double noundef %10, double noundef 0.000000e+00, double noundef %5) #16
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.32, double noundef 0.000000e+00, double noundef %5, double noundef %6, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %8, double noundef %10, double noundef 0.000000e+00, double noundef %5) #17
   ret void
 }
 
@@ -479,7 +473,7 @@ define void @_Z9ps_linetoP8t_psdataff(ptr nocapture noundef readonly %0, float n
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.34, double noundef %5, double noundef %6) #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.34, double noundef %5, double noundef %6) #17
   ret void
 }
 
@@ -488,7 +482,7 @@ define void @_Z10ps_linerelP8t_psdataff(ptr nocapture noundef readonly %0, float
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.35, double noundef %5, double noundef %6) #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.35, double noundef %5, double noundef %6) #17
   ret void
 }
 
@@ -497,7 +491,7 @@ define void @_Z9ps_movetoP8t_psdataff(ptr nocapture noundef readonly %0, float n
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.36, double noundef %5, double noundef %6) #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.36, double noundef %5, double noundef %6) #17
   ret void
 }
 
@@ -506,7 +500,7 @@ define void @_Z10ps_moverelP8t_psdataff(ptr nocapture noundef readonly %0, float
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.37, double noundef %5, double noundef %6) #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.37, double noundef %5, double noundef %6) #17
   ret void
 }
 
@@ -515,11 +509,11 @@ define void @_Z7ps_lineP8t_psdataffff(ptr nocapture noundef readonly %0, float n
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %1 to double
   %8 = fpext float %2 to double
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, double noundef %7, double noundef %8) #16
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, double noundef %7, double noundef %8) #17
   %10 = load ptr, ptr %0, align 8
   %11 = fpext float %3 to double
   %12 = fpext float %4 to double
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.34, double noundef %11, double noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.34, double noundef %11, double noundef %12) #17
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 2, i64 1, ptr %14)
   ret void
@@ -530,23 +524,23 @@ define void @_Z6ps_boxP8t_psdataffff(ptr nocapture noundef readonly %0, float no
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %1 to double
   %8 = fpext float %2 to double
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, double noundef %7, double noundef %8) #16
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, double noundef %7, double noundef %8) #17
   %10 = fsub float %4, %2
   %11 = load ptr, ptr %0, align 8
   %12 = fpext float %10 to double
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %12) #17
   %14 = fsub float %3, %1
   %15 = load ptr, ptr %0, align 8
   %16 = fpext float %14 to double
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.35, double noundef %16, double noundef 0.000000e+00) #16
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.35, double noundef %16, double noundef 0.000000e+00) #17
   %18 = fsub float %2, %4
   %19 = load ptr, ptr %0, align 8
   %20 = fpext float %18 to double
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %20) #16
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %20) #17
   %22 = fsub float %1, %3
   %23 = load ptr, ptr %0, align 8
   %24 = fpext float %22 to double
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.35, double noundef %24, double noundef 0.000000e+00) #16
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.35, double noundef %24, double noundef 0.000000e+00) #17
   %26 = load ptr, ptr %0, align 8
   %27 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 2, i64 1, ptr %26)
   ret void
@@ -557,23 +551,23 @@ define void @_Z10ps_fillboxP8t_psdataffff(ptr nocapture noundef readonly %0, flo
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %1 to double
   %8 = fpext float %2 to double
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, double noundef %7, double noundef %8) #16
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.36, double noundef %7, double noundef %8) #17
   %10 = fsub float %4, %2
   %11 = load ptr, ptr %0, align 8
   %12 = fpext float %10 to double
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %12) #17
   %14 = fsub float %3, %1
   %15 = load ptr, ptr %0, align 8
   %16 = fpext float %14 to double
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.35, double noundef %16, double noundef 0.000000e+00) #16
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.35, double noundef %16, double noundef 0.000000e+00) #17
   %18 = fsub float %2, %4
   %19 = load ptr, ptr %0, align 8
   %20 = fpext float %18 to double
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %20) #16
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.35, double noundef 0.000000e+00, double noundef %20) #17
   %22 = fsub float %1, %3
   %23 = load ptr, ptr %0, align 8
   %24 = fpext float %22 to double
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.35, double noundef %24, double noundef 0.000000e+00) #16
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.35, double noundef %24, double noundef 0.000000e+00) #17
   %26 = load ptr, ptr %0, align 8
   %27 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 2, i64 1, ptr %26)
   ret void
@@ -587,7 +581,7 @@ define void @_Z6ps_arcP8t_psdatafffff(ptr nocapture noundef readonly %0, float n
   %10 = fpext float %3 to double
   %11 = fpext float %4 to double
   %12 = fpext float %5 to double
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.40, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.40, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12) #17
   ret void
 }
 
@@ -599,7 +593,7 @@ define void @_Z10ps_fillarcP8t_psdatafffff(ptr nocapture noundef readonly %0, fl
   %10 = fpext float %3 to double
   %11 = fpext float %4 to double
   %12 = fpext float %5 to double
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.41, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.41, double noundef %8, double noundef %9, double noundef %10, double noundef %11, double noundef %12) #17
   ret void
 }
 
@@ -612,7 +606,7 @@ define void @_Z11ps_arcsliceP8t_psdataffffff(ptr nocapture noundef readonly %0, 
   %12 = fpext float %5 to double
   %13 = fpext float %6 to double
   %14 = fpext float %4 to double
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.42, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %9, double noundef %10, double noundef %14, double noundef %13, double noundef %12) #16
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.42, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %9, double noundef %10, double noundef %14, double noundef %13, double noundef %12) #17
   ret void
 }
 
@@ -625,7 +619,7 @@ define void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr nocapture noundef readonly 
   %12 = fpext float %5 to double
   %13 = fpext float %6 to double
   %14 = fpext float %4 to double
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.43, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %9, double noundef %10, double noundef %14, double noundef %13, double noundef %12) #16
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.43, double noundef %9, double noundef %10, double noundef %11, double noundef %12, double noundef %13, double noundef %9, double noundef %10, double noundef %14, double noundef %13, double noundef %12) #17
   ret void
 }
 
@@ -635,7 +629,7 @@ define void @_Z9ps_circleP8t_psdatafff(ptr nocapture noundef readonly %0, float 
   %6 = fpext float %1 to double
   %7 = fpext float %2 to double
   %8 = fpext float %3 to double
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40, double noundef %6, double noundef %7, double noundef %8, double noundef 0.000000e+00, double noundef 3.600000e+02) #16
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.40, double noundef %6, double noundef %7, double noundef %8, double noundef 0.000000e+00, double noundef 3.600000e+02) #17
   ret void
 }
 
@@ -646,7 +640,7 @@ define void @_Z7ps_fontP8t_psdata5Fontsf(ptr nocapture noundef readonly %0, i32 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.44, i32 noundef 12, ptr noundef nonnull @.str) #20
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.44, i32 noundef 12, ptr noundef nonnull @.str) #21
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -655,20 +649,20 @@ define void @_Z7ps_fontP8t_psdata5Fontsf(ptr nocapture noundef readonly %0, i32 
   %10 = sext i32 %.0 to i64
   %11 = getelementptr inbounds [12 x ptr], ptr @__const._Z17enumValueToString5Fonts.fontNames, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.45, ptr noundef %12) #16
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.45, ptr noundef %12) #17
   %14 = load ptr, ptr %0, align 8
   %15 = fpext float %2 to double
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.46, double noundef %15) #16
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.46, double noundef %15) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z10ps_strfontP8t_psdataPcf(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.45, ptr noundef %1) #16
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.45, ptr noundef %1) #17
   %6 = load ptr, ptr %0, align 8
   %7 = fpext float %2 to double
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.46, double noundef %7) #16
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.46, double noundef %7) #17
   ret void
 }
 
@@ -677,10 +671,10 @@ define void @_Z7ps_textP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %5 = load ptr, ptr %0, align 8
   %6 = fpext float %1 to double
   %7 = fpext float %2 to double
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.36, double noundef %6, double noundef %7) #16
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.36, double noundef %6, double noundef %7) #17
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.47, ptr noundef %10) #16
+  %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.47, ptr noundef %10) #17
   ret void
 }
 
@@ -705,7 +699,7 @@ define void @_Z7ps_flipP8t_psdatab(ptr nocapture noundef readonly %0, i1 noundef
 define void @_Z9ps_rotateP8t_psdataf(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = fpext float %1 to double
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, double noundef %4) #16
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.50, double noundef %4) #17
   ret void
 }
 
@@ -716,17 +710,17 @@ define void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traits
   %8 = load ptr, ptr %0, align 8
   %9 = fpext float %1 to double
   %10 = fpext float %2 to double
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.36, double noundef %9, double noundef %10) #16
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.36, double noundef %9, double noundef %10) #17
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
+  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br i1 %7, label %14, label %16
 
 14:                                               ; preds = %5
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.47, ptr noundef %13) #16
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.47, ptr noundef %13) #17
   br label %32
 
 16:                                               ; preds = %5
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.51, ptr noundef %13) #16
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.51, ptr noundef %13) #17
   switch i32 %4, label %24 [
     i32 2, label %21
     i32 0, label %18
@@ -744,7 +738,7 @@ define void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traits
 
 24:                                               ; preds = %16
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(124) @.str.55, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 310, ptr noundef nonnull @.str.56, i32 noundef %4) #17
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 310, ptr noundef nonnull @.str.56, i32 noundef %4) #18
           to label %25 unwind label %26
 
 25:                                               ; preds = %24
@@ -753,13 +747,13 @@ define void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traits
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #17
   resume { ptr, i32 } %27
 
 28:                                               ; preds = %21, %18
   %29 = load ptr, ptr %0, align 8
-  %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.57, ptr noundef %30) #16
+  %30 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.57, ptr noundef %30) #17
   br label %32
 
 32:                                               ; preds = %28, %14
@@ -773,23 +767,23 @@ declare void @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef, ptr
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 dereferenceable(124) %1, i8 noundef zeroext %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.std::allocator.0", align 1
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(124) %1) #16
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(124) %1) #17
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #16
+  %7 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %6, ptr nonnull %1) #17
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #17
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -803,7 +797,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6f
 17:                                               ; preds = %3
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
   br label %26
 
 19:                                               ; preds = %13
@@ -819,7 +813,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6f
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %24
 
 24:                                               ; preds = %21
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #16
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %23) #17
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
@@ -828,7 +822,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 25:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %19
   %.pn = phi { ptr, i32 } [ %22, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %20, %19 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %26
 
 26:                                               ; preds = %25, %17
@@ -838,18 +832,18 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #16
+  tail call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #17
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
   store ptr null, ptr %2, align 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   ret void
 }
 
@@ -876,7 +870,7 @@ define void @_Z12ps_translateP8t_psdataff(ptr nocapture noundef readonly %0, flo
   %4 = load ptr, ptr %0, align 8
   %5 = fpext float %1 to double
   %6 = fpext float %2 to double
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.58, double noundef %5, double noundef %6) #16
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.58, double noundef %5, double noundef %6) #17
   ret void
 }
 
@@ -884,7 +878,7 @@ define void @_Z12ps_translateP8t_psdataff(ptr nocapture noundef readonly %0, flo
 define void @_Z12ps_setoriginP8t_psdata(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 55, i64 1, ptr %2)
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -894,14 +888,14 @@ define void @_Z12ps_setoriginP8t_psdata(ptr nocapture noundef %0) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define void @_Z14ps_unsetoriginP8t_psdata(ptr nocapture noundef %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 1 dereferenceable(124) @.str.55, i8 noundef zeroext 2)
-  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 330, ptr noundef nonnull @.str.60) #17
+  invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 330, ptr noundef nonnull @.str.60) #18
           to label %7 unwind label %8
 
 7:                                                ; preds = %6
@@ -910,7 +904,7 @@ define void @_Z14ps_unsetoriginP8t_psdata(ptr nocapture noundef %0) local_unname
 8:                                                ; preds = %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #16
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #17
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %1
@@ -925,9 +919,9 @@ define void @_Z14ps_unsetoriginP8t_psdata(ptr nocapture noundef %0) local_unname
 ; Function Attrs: mustprogress uwtable
 define void @_Z8ps_closeP8t_psdata(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62) #16
+  %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.62) #17
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.63) #16
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.63) #17
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef %6)
   ret void
@@ -938,7 +932,7 @@ declare noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef) local_unnamed_add
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z10ps_commentP8t_psdataPKc(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.64, ptr noundef %1) #16
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.64, ptr noundef %1) #17
   ret void
 }
 
@@ -960,6 +954,9 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
 
@@ -979,11 +976,12 @@ attributes #12 = { nofree nounwind }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { builtin nounwind }
-attributes #20 = { cold nounwind }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

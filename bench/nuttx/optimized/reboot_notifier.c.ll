@@ -20,7 +20,7 @@ define void @register_reboot_notifier(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not20, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph, %14
@@ -31,13 +31,13 @@ define void @register_reboot_notifier(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %6
   %10 = load i32, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %10, %12
   br i1 %13, label %.critedge, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %6, !llvm.loop !8
@@ -45,7 +45,7 @@ define void @register_reboot_notifier(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %9, %14, %1
   %.015.lcssa = phi ptr [ @g_reboot_notifier_list, %1 ], [ %15, %14 ], [ %.01521, %9 ]
   %.lcssa = phi ptr [ null, %1 ], [ null, %14 ], [ %7, %9 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.lcssa, ptr %17, align 8
   store ptr %0, ptr %.015.lcssa, align 8
   br label %.loopexit
@@ -81,7 +81,7 @@ define void @unregister_reboot_notifier(ptr noundef readonly %0) local_unnamed_a
 
 .lr.ph16:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %6 = phi ptr [ %8, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
@@ -91,12 +91,12 @@ define void @unregister_reboot_notifier(ptr noundef readonly %0) local_unnamed_a
   br i1 %9, label %.lr.ph._crit_edge.loopexit, label %.lr.ph16, !llvm.loop !11
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
   %.012.lcssa = phi ptr [ @g_reboot_notifier_list, %.lr.ph.preheader ], [ %10, %.lr.ph._crit_edge.loopexit ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %.012.lcssa, align 8
   br label %.loopexit
@@ -128,7 +128,7 @@ define void @reboot_notifier_call_chain(i64 noundef %0, ptr noundef %1) local_un
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.014 = phi ptr [ %7, %.lr.ph ], [ %5, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.014, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %.014, align 8
   %9 = call i32 %8(ptr noundef nonnull %.014, i64 noundef %0, ptr noundef %1) #2

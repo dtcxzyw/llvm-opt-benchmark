@@ -40,7 +40,7 @@ define dso_local void @_ZN4llvm19formatv_object_base17parseFormatStringENS_9Stri
   %.sroa.12.i = alloca [3 x i8], align 1
   %16 = alloca %"struct.llvm::ReplacementItem", align 8
   %.sroa.38 = alloca [3 x i8], align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %17, i64 noundef 2) #9
   %18 = icmp eq i64 %2, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
@@ -58,12 +58,12 @@ define dso_local void @_ZN4llvm19formatv_object_base17parseFormatStringENS_9Stri
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.7.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 4
-  %.sroa.14.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
-  %.sroa.20.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
-  %.sroa.25.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
-  %.sroa.38.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 45
-  %.sroa.45.0..sroa.2.8..sroa_idx = getelementptr inbounds i8, ptr %16, i64 56
+  %.sroa.7.0..sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %.sroa.14.0..sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.sroa.20.0..sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.25.0..sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %.sroa.38.0..sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 45
+  %.sroa.45.0..sroa.2.8..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 56
   br label %31
 
 31:                                               ; preds = %.lr.ph, %158
@@ -92,7 +92,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %31
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
 .lr.ph.i.i.ithread-pre-split.i:                   ; preds = %.lr.ph.i.i.i.preheader.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i169.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i169.i, i64 1
   %.pr.i = load i8, ptr %40, align 1, !noalias !4
   %41 = icmp eq i8 %.pr.i, 123
   br i1 %41, label %.lr.ph.i.i.i.preheader.i, label %42
@@ -141,7 +141,7 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit37.i:   ; preds = %_ZNSt11char_traitsI
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i40.i: ; preds = %57
   %58 = add i64 %.sroa.3.026, -1
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 1
   %60 = call ptr @memchr(ptr noundef nonnull %59, i32 noundef 123, i64 noundef %58) #9, !noalias !4
   %.not.i.i.i41.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i41.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i, label %_ZNK4llvm9StringRef13find_first_ofEcm.exit42.i
@@ -162,7 +162,7 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit42.thread.i: ; preds = %_ZNK4llvm9Stri
   %67 = icmp ugt i64 %55, %.sroa.3.026
   %..i.i.val.i.i = call i64 @llvm.umax.i64(i64 %55, i64 1)
   %68 = select i1 %67, i64 %.sroa.3.026, i64 %..i.i.val.i.i
-  %69 = getelementptr inbounds i8, ptr %.sroa.0.027, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 1
   %70 = add i64 %68, -1
   %71 = add nuw i64 %55, 1
   %.sroa.speculated5.i54.i = call i64 @llvm.umin.i64(i64 %.sroa.3.026, i64 %71)
@@ -253,7 +253,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %96
   br i1 %108, label %109, label %_ZL18consumeFieldLayoutRN4llvm9StringRefERNS_10AlignStyleERmRc.exit.i.i
 
 109:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
-  %110 = getelementptr inbounds i8, ptr %107, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 1
   %111 = add i64 %.sroa.speculated.i.i.i.i20.i.i, -1
   store ptr %110, ptr %15, align 8, !noalias !9
   store i64 %111, ptr %25, align 8, !noalias !9
@@ -263,7 +263,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %96
   ]
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %107, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %114 = load i8, ptr %113, align 1, !noalias !12
   switch i8 %114, label %_ZL16translateLocCharc.exit.i.i.i [
     i8 45, label %117
@@ -280,7 +280,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i:  ; preds = %96
 117:                                              ; preds = %116, %115, %112
   %.sroa.0.0.i.ph.i.i.i = phi i32 [ 0, %112 ], [ 1, %115 ], [ 2, %116 ]
   %118 = load i8, ptr %110, align 1, !noalias !12
-  %119 = getelementptr inbounds i8, ptr %107, i64 3
+  %119 = getelementptr inbounds nuw i8, ptr %107, i64 3
   br label %_ZL16translateLocCharc.exit23.sink.split.i.i.i
 
 _ZL16translateLocCharc.exit.i.i.i:                ; preds = %112
@@ -350,7 +350,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i: ; preds = %_ZL18consumeFieldL
   br i1 %136, label %137, label %_ZN4llvm9StringRef13consume_frontES0_.exit34.thread.i.i
 
 137:                                              ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i31.i.i
-  %138 = getelementptr inbounds i8, ptr %135, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %139 = add i64 %.sroa.speculated.i.i.i.i26.i.i, -1
   store ptr %138, ptr %15, align 8, !noalias !9
   store i64 %139, ptr %25, align 8, !noalias !9
@@ -468,7 +468,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_15Replacem
   br i1 %spec.select.i.i.i.i, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %12, i64 noundef %4, i64 noundef 64) #9
   %.pre = load ptr, ptr %0, align 8
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE28reserveForParamAndGetAddressERKS1_m.exit
@@ -478,7 +478,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_15Replacem
   %15 = ptrtoint ptr %1 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %4, i64 noundef 64) #9
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %17

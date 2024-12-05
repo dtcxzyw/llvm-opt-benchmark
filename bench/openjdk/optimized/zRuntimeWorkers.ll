@@ -33,15 +33,15 @@ define hidden void @_ZN15ZRuntimeWorkersC2Ev(ptr noundef nonnull align 8 derefer
   %3 = load i32, ptr @ParallelGCThreads, align 4
   tail call void @_ZN13WorkerThreadsC1EPKcj(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull @.str, i32 noundef %3) #5
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.4, i32 noundef %5)
   call void @_ZN13WorkerThreads18initialize_workersEv(ptr noundef nonnull align 8 dereferenceable(120) %0) #5
   %6 = load i32, ptr %4, align 8
   %7 = call noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %9, %10
@@ -62,7 +62,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.va_end.p0(ptr nonnull %3)

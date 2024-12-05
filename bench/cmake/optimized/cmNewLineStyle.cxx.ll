@@ -45,7 +45,7 @@ define dso_local noundef zeroext i1 @_ZNK14cmNewLineStyle7IsValidEv(ptr nocaptur
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN14cmNewLineStyle17ReadFromArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERS6_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 align 2 {
   store i32 0, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, %6

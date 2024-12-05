@@ -23,11 +23,11 @@ define internal void @opal_lifo_construct(ptr noundef initializes((32, 40)) %0) 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @opal_list_item_t_class, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_item_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_item_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -36,17 +36,17 @@ define internal void @opal_lifo_construct(ptr noundef initializes((32, 40)) %0) 
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
   %.07.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %5 ]
   tail call void %10(ptr noundef nonnull %6) #2
-  %11 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile ptr %6, ptr %13, align 16
   %14 = ptrtoint ptr %6 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i64 %14, ptr %16, align 8
   store volatile i64 0, ptr %15, align 16
   ret void

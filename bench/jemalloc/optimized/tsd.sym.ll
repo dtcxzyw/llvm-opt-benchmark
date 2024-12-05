@@ -78,14 +78,14 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
 
 do.end.i:                                         ; preds = %malloc_mutex_lock.exit.i, %do.end.i
   %remote_tsd.010.i = phi ptr [ %5, %do.end.i ], [ %4, %malloc_mutex_lock.exit.i ]
-  %state.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 824
+  %state.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 824
   store atomic i8 2, ptr %state.i monotonic, align 1
   fence seq_cst
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 840
   store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 856
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 856
   store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 200
   %5 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i, align 8
   %6 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp1.not.i = icmp eq ptr %5, %6
@@ -135,14 +135,14 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
 
 do.end.i:                                         ; preds = %malloc_mutex_lock.exit.i, %do.end.i
   %remote_tsd.010.i = phi ptr [ %5, %do.end.i ], [ %4, %malloc_mutex_lock.exit.i ]
-  %state.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 824
+  %state.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 824
   store atomic i8 2, ptr %state.i monotonic, align 1
   fence seq_cst
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 840
   store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 856
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 856
   store i64 0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds i8, ptr %remote_tsd.010.i, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds nuw i8, ptr %remote_tsd.010.i, i64 200
   %5 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i, align 8
   %6 = load ptr, ptr @tsd_nominal_tsds.0, align 8
   %cmp1.not.i = icmp eq ptr %5, %6
@@ -168,7 +168,7 @@ entry:
 define hidden void @tsd_slow_update(ptr noundef %tsd) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %tsd, i64 824
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   br label %do.body
 
 do.body:                                          ; preds = %tsd_state_compute.exit, %entry
@@ -213,7 +213,7 @@ declare void @te_recompute_fast_threshold(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @tsd_state_set(ptr noundef %tsd, i8 noundef zeroext %new_state) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds i8, ptr %tsd, i64 824
+  %state = getelementptr inbounds nuw i8, ptr %tsd, i64 824
   %0 = load atomic i8, ptr %state monotonic, align 1
   %cmp = icmp ugt i8 %0, 2
   br i1 %cmp, label %monotonic.i30, label %do.end10
@@ -224,9 +224,9 @@ monotonic.i30:                                    ; preds = %entry
   br i1 %cmp6, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %monotonic.i30
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds i8, ptr %tsd, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds nuw i8, ptr %tsd, i64 200
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i, align 8
-  %qre_prev.i = getelementptr inbounds i8, ptr %tsd, i64 208
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %tsd, i64 208
   store ptr %tsd, ptr %qre_prev.i, align 8
   %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
@@ -258,21 +258,21 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i, label %tsd_add_nominal.exit, label %do.body7.i
 
 do.body7.i:                                       ; preds = %malloc_mutex_lock.exit.i
-  %qre_prev9.i = getelementptr inbounds i8, ptr %4, i64 208
+  %qre_prev9.i = getelementptr inbounds nuw i8, ptr %4, i64 208
   %5 = load ptr, ptr %qre_prev9.i, align 8
   %6 = load ptr, ptr %qre_prev.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i = getelementptr inbounds i8, ptr %6, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %5, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i, align 8
   %7 = load ptr, ptr %qre_prev.i, align 8
   store ptr %7, ptr %qre_prev9.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link20.i = getelementptr inbounds i8, ptr %7, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link20.i = getelementptr inbounds nuw i8, ptr %7, i64 200
   %8 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link20.i, align 8
   store ptr %8, ptr %qre_prev.i, align 8
   %9 = load ptr, ptr %qre_prev9.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link26.i = getelementptr inbounds i8, ptr %9, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link26.i = getelementptr inbounds nuw i8, ptr %9, i64 200
   store ptr %4, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link26.i, align 8
   %10 = load ptr, ptr %qre_prev.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i = getelementptr inbounds i8, ptr %10, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i = getelementptr inbounds nuw i8, ptr %10, i64 200
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i, align 8
   br label %tsd_add_nominal.exit
 
@@ -318,7 +318,7 @@ malloc_mutex_lock.exit.i22:                       ; preds = %if.then.i.i.i20, %i
   br i1 %cmp.i23, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %malloc_mutex_lock.exit.i22
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27 = getelementptr inbounds i8, ptr %15, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %16 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i27, align 8
   store ptr %16, ptr @tsd_nominal_tsds.0, align 8
   br label %if.end.i
@@ -329,28 +329,28 @@ if.end.i:                                         ; preds = %if.then.i, %malloc_
   br i1 %cmp4.not.i, label %do.body39.i, label %do.body6.i
 
 do.body6.i:                                       ; preds = %if.end.i
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link7.i = getelementptr inbounds i8, ptr %tsd, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link7.i = getelementptr inbounds nuw i8, ptr %tsd, i64 200
   %18 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link7.i, align 8
-  %qre_prev.i24 = getelementptr inbounds i8, ptr %18, i64 208
+  %qre_prev.i24 = getelementptr inbounds nuw i8, ptr %18, i64 208
   %19 = load ptr, ptr %qre_prev.i24, align 8
-  %qre_prev11.i = getelementptr inbounds i8, ptr %tsd, i64 208
+  %qre_prev11.i = getelementptr inbounds nuw i8, ptr %tsd, i64 208
   %20 = load ptr, ptr %qre_prev11.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i25 = getelementptr inbounds i8, ptr %20, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i25 = getelementptr inbounds nuw i8, ptr %20, i64 200
   store ptr %19, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i25, align 8
   %21 = load ptr, ptr %qre_prev11.i, align 8
   %22 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link7.i, align 8
-  %qre_prev19.i = getelementptr inbounds i8, ptr %22, i64 208
+  %qre_prev19.i = getelementptr inbounds nuw i8, ptr %22, i64 208
   store ptr %21, ptr %qre_prev19.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link22.i = getelementptr inbounds i8, ptr %21, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link22.i = getelementptr inbounds nuw i8, ptr %21, i64 200
   %23 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link22.i, align 8
   store ptr %23, ptr %qre_prev11.i, align 8
   %24 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link7.i, align 8
-  %qre_prev31.i = getelementptr inbounds i8, ptr %24, i64 208
+  %qre_prev31.i = getelementptr inbounds nuw i8, ptr %24, i64 208
   %25 = load ptr, ptr %qre_prev31.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link32.i = getelementptr inbounds i8, ptr %25, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link32.i = getelementptr inbounds nuw i8, ptr %25, i64 200
   store ptr %24, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link32.i, align 8
   %26 = load ptr, ptr %qre_prev11.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link36.i = getelementptr inbounds i8, ptr %26, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link36.i = getelementptr inbounds nuw i8, ptr %26, i64 200
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link36.i, align 8
   br label %tsd_remove_nominal.exit
 
@@ -365,7 +365,7 @@ tsd_remove_nominal.exit:                          ; preds = %do.body6.i, %do.bod
   br label %if.end18
 
 if.else16:                                        ; preds = %do.end10
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   br label %do.body.i
 
 do.body.i:                                        ; preds = %tsd_state_compute.exit.i, %if.else16
@@ -412,7 +412,7 @@ if.end18:                                         ; preds = %tsd_slow_update.exi
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @tsd_fetch_slow(ptr noundef returned %tsd, i1 noundef zeroext %minimal) local_unnamed_addr #0 {
 entry:
-  %state.i63 = getelementptr inbounds i8, ptr %tsd, i64 824
+  %state.i63 = getelementptr inbounds nuw i8, ptr %tsd, i64 824
   %0 = load i8, ptr %state.i63, align 8
   switch i8 %0, label %if.end55 [
     i8 4, label %if.then46
@@ -422,7 +422,7 @@ entry:
   ]
 
 if.then6:                                         ; preds = %entry
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   br label %do.body.i
 
 do.body.ithread-pre-split:                        ; preds = %tsd_state_compute.exit.i
@@ -475,7 +475,7 @@ if.then13:                                        ; preds = %if.then12
 
 if.then15:                                        ; preds = %if.then13
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 0)
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i34 = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   br label %do.body.i35
 
 do.body.i35:                                      ; preds = %tsd_state_compute.exit.i38, %if.then15
@@ -537,10 +537,10 @@ if.then6.i89:                                     ; preds = %if.then4.i86
   unreachable
 
 tsd_set.exit91:                                   ; preds = %if.then4.i86, %if.end.i83
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsd, i64 440
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 440
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i) #7
   %15 = ptrtoint ptr %tsd to i64
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 112
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 112
   store i64 %15, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i, align 8
   tail call void @tsd_te_init(ptr noundef %tsd) #7
   tail call void @tsd_san_init(ptr noundef %tsd) #7
@@ -574,22 +574,22 @@ if.then6.i75:                                     ; preds = %if.then4.i72
   unreachable
 
 tsd_set.exit77:                                   ; preds = %if.then4.i72, %if.end.i69
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i51 = getelementptr inbounds i8, ptr %tsd, i64 440
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i51 = getelementptr inbounds nuw i8, ptr %tsd, i64 440
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i51) #7
   store i8 0, ptr %tsd, align 1
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i, align 1
   %19 = ptrtoint ptr %tsd to i64
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i52 = getelementptr inbounds i8, ptr %tsd, i64 112
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i52 = getelementptr inbounds nuw i8, ptr %tsd, i64 112
   store i64 %19, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i52, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i = getelementptr inbounds i8, ptr %tsd, i64 2
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i = getelementptr inbounds nuw i8, ptr %tsd, i64 2
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i, align 1
   br label %if.end55
 
 if.then26:                                        ; preds = %entry
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106 = getelementptr inbounds i8, ptr %tsd, i64 2
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106 = getelementptr inbounds nuw i8, ptr %tsd, i64 2
   %20 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106, align 1
   %inc = add i8 %20, 1
   store i8 %inc, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_min_init_state_nfetched.i106, align 1
@@ -599,7 +599,7 @@ if.then26:                                        ; preds = %entry
 
 if.then34:                                        ; preds = %if.then26
   tail call void @tsd_state_set(ptr noundef nonnull %tsd, i8 noundef zeroext 0)
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   %21 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
   %dec = add i8 %21, -1
   store i8 %dec, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i, align 1
@@ -639,10 +639,10 @@ tsd_state_compute.exit.i57:                       ; preds = %lor.lhs.false3.i.i6
 
 tsd_slow_update.exit69:                           ; preds = %tsd_state_compute.exit.i57
   tail call void @te_recompute_fast_threshold(ptr noundef nonnull %tsd) #7
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70 = getelementptr inbounds i8, ptr %tsd, i64 440
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70 = getelementptr inbounds nuw i8, ptr %tsd, i64 440
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70) #7
   %27 = ptrtoint ptr %tsd to i64
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i71 = getelementptr inbounds i8, ptr %tsd, i64 112
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i71 = getelementptr inbounds nuw i8, ptr %tsd, i64 112
   store i64 %27, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i71, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
@@ -676,13 +676,13 @@ if.then6.i:                                       ; preds = %if.then4.i
   unreachable
 
 tsd_set.exit:                                     ; preds = %if.then4.i, %if.end.i
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i73 = getelementptr inbounds i8, ptr %tsd, i64 440
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i73 = getelementptr inbounds nuw i8, ptr %tsd, i64 440
   tail call void @rtree_ctx_data_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i73) #7
   store i8 0, ptr %tsd, align 1
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i74 = getelementptr inbounds i8, ptr %tsd, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i74 = getelementptr inbounds nuw i8, ptr %tsd, i64 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i74, align 1
   %31 = ptrtoint ptr %tsd to i64
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i75 = getelementptr inbounds i8, ptr %tsd, i64 112
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i75 = getelementptr inbounds nuw i8, ptr %tsd, i64 112
   store i64 %31, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i.i75, align 8
   tail call void @tsd_te_init(ptr noundef nonnull %tsd) #7
   tail call void @tsd_san_init(ptr noundef nonnull %tsd) #7
@@ -715,7 +715,7 @@ declare void @a0dalloc(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @tsd_cleanup(ptr noundef %arg) #0 {
 entry:
-  %state.i = getelementptr inbounds i8, ptr %arg, i64 824
+  %state.i = getelementptr inbounds nuw i8, ptr %arg, i64 824
   %0 = load i8, ptr %state.i, align 8
   switch i8 %0, label %do.body [
     i8 6, label %sw.epilog
@@ -731,9 +731,9 @@ sw.bb2:                                           ; preds = %entry, %entry, %ent
   tail call void @iarena_cleanup(ptr noundef nonnull %arg) #7
   tail call void @arena_cleanup(ptr noundef nonnull %arg) #7
   tail call void @tcache_cleanup(ptr noundef nonnull %arg) #7
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i.i = getelementptr inbounds i8, ptr %arg, i64 2624
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 2624
   tail call void @witnesses_cleanup(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i.i) #7
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds i8, ptr %arg, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 1
   store i8 1, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i, align 1
   tail call void @tsd_state_set(ptr noundef nonnull %arg, i8 noundef zeroext 4)
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
@@ -781,7 +781,7 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   store i8 1, ptr @tsd_booted, align 1
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i.i = getelementptr inbounds i8, ptr %0, i64 824
+  %state.i.i = getelementptr inbounds nuw i8, ptr %0, i64 824
   %1 = load i8, ptr %state.i.i, align 8
   %cmp6.i.not = icmp eq i8 %1, 0
   br i1 %cmp6.i.not, label %return, label %if.then11.i
@@ -811,7 +811,7 @@ if.then11.i:                                      ; preds = %entry
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %do.body.i
 
 do.body.i:                                        ; preds = %tsd_state_compute.exit.i, %tsd_fetch_impl.exit
@@ -872,15 +872,15 @@ define hidden void @tsd_postfork_child(ptr noundef %tsd) local_unnamed_addr #0 {
 entry:
   tail call void @malloc_mutex_postfork_child(ptr noundef %tsd, ptr noundef nonnull @tsd_nominal_tsds_lock) #7
   store ptr null, ptr @tsd_nominal_tsds.0, align 8
-  %state.i = getelementptr inbounds i8, ptr %tsd, i64 824
+  %state.i = getelementptr inbounds nuw i8, ptr %tsd, i64 824
   %0 = load i8, ptr %state.i, align 8
   %cmp = icmp ult i8 %0, 3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds i8, ptr %tsd, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i = getelementptr inbounds nuw i8, ptr %tsd, i64 200
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link.i, align 8
-  %qre_prev.i = getelementptr inbounds i8, ptr %tsd, i64 208
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %tsd, i64 208
   store ptr %tsd, ptr %qre_prev.i, align 8
   %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tsd_nominal_tsds_lock, i64 72)) #7
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
@@ -912,21 +912,21 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i, label %tsd_add_nominal.exit, label %do.body7.i
 
 do.body7.i:                                       ; preds = %malloc_mutex_lock.exit.i
-  %qre_prev9.i = getelementptr inbounds i8, ptr %4, i64 208
+  %qre_prev9.i = getelementptr inbounds nuw i8, ptr %4, i64 208
   %5 = load ptr, ptr %qre_prev9.i, align 8
   %6 = load ptr, ptr %qre_prev.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i = getelementptr inbounds i8, ptr %6, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %5, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link12.i, align 8
   %7 = load ptr, ptr %qre_prev.i, align 8
   store ptr %7, ptr %qre_prev9.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link20.i = getelementptr inbounds i8, ptr %7, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link20.i = getelementptr inbounds nuw i8, ptr %7, i64 200
   %8 = load ptr, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link20.i, align 8
   store ptr %8, ptr %qre_prev.i, align 8
   %9 = load ptr, ptr %qre_prev9.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link26.i = getelementptr inbounds i8, ptr %9, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link26.i = getelementptr inbounds nuw i8, ptr %9, i64 200
   store ptr %4, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link26.i, align 8
   %10 = load ptr, ptr %qre_prev.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i = getelementptr inbounds i8, ptr %10, i64 200
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i = getelementptr inbounds nuw i8, ptr %10, i64 200
   store ptr %tsd, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tsd_link30.i, align 8
   br label %tsd_add_nominal.exit
 

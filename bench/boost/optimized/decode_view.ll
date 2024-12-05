@@ -35,7 +35,7 @@ define noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr nocaptu
   br i1 %.not, label %9, label %32
 
 9:                                                ; preds = %._crit_edge
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !12
   switch i8 %11, label %_ZN5boost4urls7grammar12hexdig_valueEc.exit [
     i8 48, label %12
@@ -107,7 +107,7 @@ define noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr nocaptu
 
 _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %9, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26
   %.0.i = phi i8 [ -32, %26 ], [ -48, %25 ], [ -64, %24 ], [ -80, %23 ], [ -96, %22 ], [ -112, %21 ], [ -128, %20 ], [ 112, %19 ], [ 96, %18 ], [ 80, %17 ], [ 64, %16 ], [ 48, %15 ], [ 32, %14 ], [ 16, %13 ], [ 0, %12 ], [ -16, %9 ]
-  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !12
   %switch.tableidx = add i8 %28, -48
   %29 = icmp ult i8 %switch.tableidx, 55
@@ -115,7 +115,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit:      ; preds = %9, %12, %13, %14, %
 
 switch.lookup:                                    ; preds = %_ZN5boost4urls7grammar12hexdig_valueEc.exit
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i8], ptr @switch.table._ZNK5boost4urls11decode_view8iteratordeEv, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [55 x i8], ptr @switch.table._ZNK5boost4urls11decode_view8iteratordeEv, i64 0, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN5boost4urls7grammar12hexdig_valueEc.exit4
 
@@ -147,13 +147,13 @@ define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_1
 define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %.sroa.04.0.copyload = load ptr, ptr %0, align 8, !tbaa !19
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !20
-  %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.45.0.copyload = load i8, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !21
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %.sroa.3.0.copyload)
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %5
 
 5:                                                ; preds = %6, %3
@@ -172,7 +172,7 @@ define noundef i32 @_ZNK5boost4urls11decode_view7compareENS_4core17basic_string_
   %8 = load i8, ptr %.sroa.4.0.i, align 1, !tbaa !12, !noalias !22
   %.not.i.i.i = icmp eq i8 %8, 37
   %storemerge.v.i.i.i = select i1 %.not.i.i.i, i64 3, i64 1
-  %storemerge.i.i.i = getelementptr inbounds i8, ptr %.sroa.4.0.i, i64 %storemerge.v.i.i.i
+  %storemerge.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i, i64 %storemerge.v.i.i.i
   %9 = call noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   %10 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
@@ -206,20 +206,20 @@ define noundef i32 @_ZNK5boost4urls11decode_view7compareES1_(ptr nocapture nound
   %3 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %4 = alloca %"class.boost::urls::decode_view::iterator", align 8
   %.sroa.02.0.copyload = load ptr, ptr %0, align 8, !tbaa !19
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !20
-  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 8, !tbaa !21
   %.sroa.010.0.copyload = load ptr, ptr %1, align 8, !tbaa !19
-  %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.312.0.copyload = load i64, ptr %.sroa.312.0..sroa_idx, align 8, !tbaa !20
-  %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.413.0.copyload = load i8, ptr %.sroa.413.0..sroa_idx, align 8, !tbaa !21
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.sroa.312.0.copyload, i64 %.sroa.3.0.copyload)
-  %.sroa.414.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.715.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.715.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %5
 
 5:                                                ; preds = %6, %2
@@ -238,7 +238,7 @@ define noundef i32 @_ZNK5boost4urls11decode_view7compareES1_(ptr nocapture nound
   %8 = load i8, ptr %.sroa.414.0.i, align 1, !tbaa !12, !noalias !25
   %.not.i.i.i = icmp eq i8 %8, 37
   %storemerge.v.i.i.i = select i1 %.not.i.i.i, i64 3, i64 1
-  %storemerge.i.i.i = getelementptr inbounds i8, ptr %.sroa.414.0.i, i64 %storemerge.v.i.i.i
+  %storemerge.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.414.0.i, i64 %storemerge.v.i.i.i
   %9 = call noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
@@ -248,7 +248,7 @@ define noundef i32 @_ZNK5boost4urls11decode_view7compareES1_(ptr nocapture nound
   %10 = load i8, ptr %.sroa.4.0.i, align 1, !tbaa !12, !noalias !28
   %.not.i.i10.i = icmp eq i8 %10, 37
   %storemerge.v.i.i11.i = select i1 %.not.i.i10.i, i64 3, i64 1
-  %storemerge.i.i12.i = getelementptr inbounds i8, ptr %.sroa.4.0.i, i64 %storemerge.v.i.i11.i
+  %storemerge.i.i12.i = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i, i64 %storemerge.v.i.i11.i
   %11 = call noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   %12 = icmp eq i8 %9, %11
@@ -285,8 +285,8 @@ define void @_ZNK5boost4urls11decode_view5writeERSo(ptr nocapture noundef nonnul
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
@@ -298,7 +298,7 @@ define void @_ZNK5boost4urls11decode_view5writeERSo(ptr nocapture noundef nonnul
   %11 = load i8, ptr %.sroa.4.05, align 1, !tbaa !12, !noalias !37
   %.not.i.i = icmp eq i8 %11, 37
   %storemerge.v.i.i = select i1 %.not.i.i, i64 3, i64 1
-  %storemerge.i.i = getelementptr inbounds i8, ptr %.sroa.4.05, i64 %storemerge.v.i.i
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.sroa.4.05, i64 %storemerge.v.i.i
   %12 = call noundef signext i8 @_ZNK5boost4urls11decode_view8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(17) %3) #12
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %12)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
@@ -323,7 +323,7 @@ define void @_ZN5boost4urls11decode_view13remove_prefixEm(ptr nocapture noundef 
   %4 = load i8, ptr %.sroa.35.010, align 1, !tbaa !12
   %.not.i = icmp eq i8 %4, 37
   %storemerge.v.i = select i1 %.not.i, i64 3, i64 1
-  %storemerge.i = getelementptr inbounds i8, ptr %.sroa.35.010, i64 %storemerge.v.i
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.sroa.35.010, i64 %storemerge.v.i
   %5 = add i64 %.011, -1
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
@@ -431,7 +431,7 @@ define noundef zeroext i1 @_ZNK5boost4urls11decode_view11starts_withENS_4core17b
   %18 = load i8, ptr %14, align 1, !tbaa !12
   %.not.i = icmp eq i8 %18, 37
   %storemerge.v.i = select i1 %.not.i, i64 3, i64 1
-  %storemerge.i = getelementptr inbounds i8, ptr %14, i64 %storemerge.v.i
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %14, i64 %storemerge.v.i
   store ptr %storemerge.i, ptr %12, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %.0510, i64 1
   %20 = add i64 %.011, -1
@@ -642,7 +642,7 @@ define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias noca
   %15 = load i8, ptr %storemerge.i13, align 1, !tbaa !12
   %.not.i = icmp eq i8 %15, 37
   %storemerge.v.i = select i1 %.not.i, i64 3, i64 1
-  %storemerge.i = getelementptr inbounds i8, ptr %storemerge.i13, i64 %storemerge.v.i
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge.i13, i64 %storemerge.v.i
   store ptr %storemerge.i, ptr %7, align 8, !tbaa !11
   %.not = icmp eq ptr %storemerge.i, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71

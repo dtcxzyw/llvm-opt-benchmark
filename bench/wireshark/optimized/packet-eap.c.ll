@@ -831,7 +831,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.332) #6
   %20 = load ptr, ptr %18, align 8
@@ -842,27 +842,27 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %24 = zext i8 %21 to i32
   %25 = tail call ptr @val_to_str(i32 noundef %24, ptr noundef nonnull @eap_code_vals, ptr noundef nonnull @.str.499) #6
   tail call void @col_add_str(ptr noundef %23, i32 noundef 25, ptr noundef %25) #6
-  %26 = getelementptr inbounds i8, ptr %1, i64 377
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 377
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 16
-  %30 = getelementptr inbounds i8, ptr %1, i64 284
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 288
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %4
   %38 = icmp eq i8 %21, 1
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %38, label %45, label %46
 
 45:                                               ; preds = %37
@@ -888,29 +888,29 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %64
 
 47:                                               ; preds = %4
-  %48 = getelementptr inbounds i8, ptr %1, i64 212
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 216
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %51 = load ptr, ptr %50, align 8
   store i32 %35, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %49, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 232
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 236
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 240
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %60 = load ptr, ptr %59, align 8
   store i32 %56, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %58, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %6, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %60, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %63, align 8
   br label %64
 
@@ -922,13 +922,13 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.1477 = select i1 %65, i32 %66, i32 %.0476
   %67 = select i1 %65, i32 0, i32 %29
   %.1466 = or i32 %.0465, %67
-  %68 = getelementptr inbounds i8, ptr %1, i64 280
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %69 = load i32, ptr %68, align 8
   %70 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %69) #6
   call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %70, i32 noundef %.1466, i32 noundef %.1477) #6
-  %71 = getelementptr inbounds i8, ptr %1, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 50
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 50
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 8
   %76 = icmp eq i16 %75, 0
@@ -945,7 +945,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %88
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %1, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %84 = load i32, ptr %83, align 4
   %85 = load i32, ptr %68, align 8
   %86 = call i32 @conversation_pt_to_conversation_type(i32 noundef %85) #6
@@ -963,9 +963,9 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %93 = call ptr @wmem_file_scope() #6
   %94 = call noalias ptr @wmem_alloc(ptr noundef %93, i64 noundef 16) #6
   store i32 -1, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i64 -1, ptr %96, align 4
   %97 = load i32, ptr @proto_eap, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %.1, i32 noundef %97, ptr noundef nonnull %94) #6
@@ -977,7 +977,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %.0462, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0462, i64 8
   store i32 -1, ptr %101, align 4
   br label %102
 
@@ -1015,7 +1015,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %71, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 50
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 50
   %128 = load i16, ptr %127, align 2
   %129 = and i16 %128, 8
   %.not = icmp eq i16 %129, 0
@@ -1024,7 +1024,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 130:                                              ; preds = %125
   %or.cond14 = or i1 %65, %122
   %.v = select i1 %or.cond14, i64 12, i64 14
-  %131 = getelementptr inbounds i8, ptr %.0462, i64 %.v
+  %131 = getelementptr inbounds nuw i8, ptr %.0462, i64 %.v
   %132 = load i16, ptr %131, align 2
   %133 = sext i16 %132 to i32
   %134 = zext i8 %22 to i32
@@ -1105,14 +1105,14 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 159:                                              ; preds = %153, %158
   %160 = load ptr, ptr %71, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 50
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 50
   %162 = load i16, ptr %161, align 2
   %163 = and i16 %162, 8
   %.not518 = icmp eq i16 %163, 0
   br i1 %.not518, label %164, label %dissect_eap_aka.exit
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds i8, ptr %.0462, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.0462, i64 8
   store i32 0, ptr %165, align 4
   store i32 -1, ptr %.0462, align 4
   br label %dissect_eap_aka.exit
@@ -1280,7 +1280,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 259:                                              ; preds = %253
   %260 = load ptr, ptr %71, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 50
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 50
   %262 = load i16, ptr %261, align 2
   %263 = and i16 %262, 8
   %.not510 = icmp eq i16 %263, 0
@@ -1294,7 +1294,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 266:                                              ; preds = %264
   %267 = add nuw i32 %265, 1
   store i32 %267, ptr %.0462, align 4
-  %268 = getelementptr inbounds i8, ptr %.0462, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %.0462, i64 4
   %269 = load i32, ptr %268, align 4
   br label %279
 
@@ -1307,9 +1307,9 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond21, label %275, label %317
 
 275:                                              ; preds = %270
-  %276 = getelementptr inbounds i8, ptr %1, i64 20
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %277 = load i32, ptr %276, align 4
-  %278 = getelementptr inbounds i8, ptr %.0462, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %.0462, i64 4
   store i32 %277, ptr %278, align 4
   store i32 0, ptr %.0462, align 4
   br label %279
@@ -1332,7 +1332,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 286:                                              ; preds = %284, %279
   %.1475 = phi i32 [ %.0474.ph, %279 ], [ 0, %284 ]
   %.1473 = phi i32 [ %.0472.ph, %279 ], [ %285, %284 ]
-  %287 = getelementptr inbounds i8, ptr %1, i64 272
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %288 = load i32, ptr %287, align 8
   store i32 1, ptr %287, align 8
   %289 = load i32, ptr %7, align 4
@@ -1341,21 +1341,21 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not514, label %proto_item_set_generated.exit, label %291
 
 291:                                              ; preds = %286
-  %292 = getelementptr inbounds i8, ptr %290, i64 40
+  %292 = getelementptr inbounds nuw i8, ptr %290, i64 40
   %293 = load i32, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %1, i64 20
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %295 = load i32, ptr %294, align 4
   %296 = icmp eq i32 %293, %295
   br i1 %296, label %297, label %307
 
 297:                                              ; preds = %291
-  %298 = getelementptr inbounds i8, ptr %290, i64 56
+  %298 = getelementptr inbounds nuw i8, ptr %290, i64 56
   %299 = load ptr, ptr %298, align 8
   %300 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %299) #6
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %300, ptr noundef nonnull @.str.502) #6
   %301 = call i32 @show_fragment_seq_tree(ptr noundef nonnull %290, ptr noundef nonnull @eap_tls_frag_items, ptr noundef %108, ptr noundef nonnull %1, ptr noundef %300, ptr noundef nonnull %14) #6
   %302 = load ptr, ptr %71, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 50
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 50
   %304 = load i16, ptr %303, align 2
   %305 = and i16 %304, 8
   %.not515 = icmp eq i16 %305, 0
@@ -1372,13 +1372,13 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %310
 
 310:                                              ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %309, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %309, i64 32
   %312 = load ptr, ptr %311, align 8
   %.not5.i = icmp eq ptr %312, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %312, i64 28
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 28
   %315 = load i32, ptr %314, align 4
   %316 = or i32 %315, 2
   store i32 %316, ptr %314, align 4
@@ -1406,7 +1406,7 @@ proto_item_set_generated.exit:                    ; preds = %313, %310, %307, %3
   ]
 
 321:                                              ; preds = %320
-  %322 = getelementptr inbounds i8, ptr %1, i64 408
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %323 = load ptr, ptr %322, align 8
   %324 = load i32, ptr @proto_eap, align 4
   %325 = or disjoint i32 %29, 2
@@ -1465,7 +1465,7 @@ proto_item_set_generated.exit:                    ; preds = %313, %310, %307, %3
   br i1 %358, label %359, label %368
 
 359:                                              ; preds = %345
-  %360 = getelementptr inbounds i8, ptr %.0462, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %.0462, i64 8
   %361 = load i32, ptr %360, align 4
   %362 = icmp ult i32 %361, 4
   %363 = icmp eq i32 %361, 4
@@ -1491,7 +1491,7 @@ proto_item_set_generated.exit:                    ; preds = %313, %310, %307, %3
 
 switch.lookup545:                                 ; preds = %368
   %372 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_eap, i64 0, i64 %372
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_eap, i64 0, i64 %372
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %373
 
@@ -1796,7 +1796,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %dissect_eap_identity_wlan.exit
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @tvb_get_string_enc(ptr noundef %20, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef 0) #6
   %22 = tail call ptr @g_strsplit_set(ptr noundef %21, ptr noundef nonnull @.str.503, i32 noundef -1) #6
@@ -1814,7 +1814,7 @@ define internal fastcc void @dissect_eap_identity(ptr noundef %0, ptr noundef %1
   br label %dissect_eap_identity_wlan.exit
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, i32 noundef 0) #6
   %34 = tail call ptr @g_strsplit_set(ptr noundef %33, ptr noundef nonnull @.str.504, i32 noundef -1) #6
@@ -2506,19 +2506,19 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 define internal fastcc void @dissect_exteap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef 12) #6
   %11 = load i32, ptr @hf_eap_ext_vendor_id, align 4
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef 5, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %6) #6
   %13 = load i32, ptr @hf_eap_ext_vendor_type, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef 8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #6
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %3, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 9
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 %4, ptr %16, align 1
   %17 = load i32, ptr %6, align 4
-  %18 = getelementptr inbounds i8, ptr %10, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %17, ptr %18, align 4
   %19 = load i32, ptr %7, align 4
   store i32 %19, ptr %10, align 4
@@ -2544,7 +2544,7 @@ define internal fastcc void @dissect_eap_pax(ptr noundef %0, ptr noundef %1, ptr
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_eap_pax_opcode, align 4
   %9 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %5, align 4
   %13 = call ptr @val_to_str(i32 noundef %12, ptr noundef nonnull @eap_pax_opcode_vals, ptr noundef nonnull @.str.533) #6
@@ -2701,7 +2701,7 @@ define internal fastcc void @dissect_eap_psk(ptr noundef %0, ptr noundef %1, ptr
   %9 = load i64, ptr %5, align 8
   %10 = lshr i64 %9, 6
   %11 = and i64 %10, 3
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   switch i64 %11, label %default.unreachable [
     i64 0, label %14
@@ -2837,7 +2837,7 @@ define internal fastcc void @dissect_eap_gpsk(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_eap_gpsk_opcode, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %5, align 4
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @eap_gpsk_opcode_vals, ptr noundef nonnull @.str.533) #6

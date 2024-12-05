@@ -380,7 +380,7 @@ wait_for_flushing.exit.i:                         ; preds = %.preheader.i.i, %12
   %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 32), align 8, !tbaa !20
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 648
   %165 = call ptr @lv_ll_ins_prev(ptr noundef nonnull %164, ptr noundef nonnull %.02736.i) #9
-  %166 = getelementptr inbounds [4 x %struct.lv_area_t], ptr %5, i64 0, i64 %indvars.iv.i22
+  %166 = getelementptr inbounds nuw [4 x %struct.lv_area_t], ptr %5, i64 0, i64 %indvars.iv.i22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %165, ptr noundef nonnull align 16 dereferenceable(16) %166, i64 16, i1 false), !tbaa.struct !53
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i23, %wide.trip.count.i
@@ -463,7 +463,7 @@ refr_sync_areas.exit:                             ; preds = %lv_refr_join_area.e
 
 198:                                              ; preds = %195
   %199 = and i64 %indvars.iv.next.i26, 2147483647
-  %200 = getelementptr inbounds [32 x i8], ptr %193, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [32 x i8], ptr %193, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !39
   %202 = icmp eq i8 %201, 0
   br i1 %202, label %203, label %195, !llvm.loop !59
@@ -505,7 +505,7 @@ refr_sync_areas.exit:                             ; preds = %lv_refr_join_area.e
   %228 = phi ptr [ %205, %.lr.ph42.i ], [ %300, %299 ]
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph42.i ], [ %indvars.iv.next50.i, %299 ]
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 608
-  %230 = getelementptr inbounds [32 x i8], ptr %229, i64 0, i64 %indvars.iv49.i
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %229, i64 0, i64 %indvars.iv49.i
   %231 = load i8, ptr %230, align 1, !tbaa !39
   %.not.i27 = icmp eq i8 %231, 0
   br i1 %.not.i27, label %232, label %299
@@ -528,7 +528,7 @@ refr_sync_areas.exit:                             ; preds = %lv_refr_join_area.e
   store volatile i8 %241, ptr %239, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   %242 = getelementptr inbounds nuw i8, ptr %228, i64 96
-  %243 = getelementptr inbounds [32 x %struct.lv_area_t], ptr %242, i64 0, i64 %indvars.iv49.i
+  %243 = getelementptr inbounds nuw [32 x %struct.lv_area_t], ptr %242, i64 0, i64 %indvars.iv49.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %243, i64 16, i1 false), !tbaa.struct !53
   %244 = getelementptr inbounds nuw i8, ptr %228, i64 84
   %245 = load i32, ptr %244, align 4, !tbaa !46
@@ -2211,7 +2211,7 @@ define internal fastcc ptr @lv_refr_get_top_obj(ptr noundef %0, ptr noundef %1) 
   %23 = add nsw i64 %indvars.iv, -1
   %24 = load ptr, ptr %17, align 8, !tbaa !65
   %25 = load ptr, ptr %24, align 8, !tbaa !68
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %23
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
   %27 = load ptr, ptr %26, align 8, !tbaa !71
   %28 = call fastcc ptr @lv_refr_get_top_obj(ptr noundef %0, ptr noundef %27)
   %.not25 = icmp eq ptr %28, null

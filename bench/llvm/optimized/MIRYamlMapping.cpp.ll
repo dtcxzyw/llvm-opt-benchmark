@@ -101,11 +101,11 @@ define dso_local void @_ZNK4llvm4yaml10FrameIndex5getFIERKNS_16MachineFrameInfoE
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr @.str, ptr %10, align 8, !alias.scope !4
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 29, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %21, ptr %22, align 8, !alias.scope !4
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !alias.scope !4
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 1, ptr %23, align 8, !alias.scope !4
@@ -185,11 +185,11 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %35, %20
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr @.str.1, ptr %12, align 8, !alias.scope !21
-  %.sroa.22.0..sroa_idx.i.i.i.i6 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 23, ptr %.sroa.22.0..sroa_idx.i.i.i.i6, align 8, !alias.scope !21
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %59, ptr %60, align 8, !alias.scope !21
-  %.sroa.2.0..sroa_idx.i.i.i.i7 = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i7, align 8, !alias.scope !21
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 1, ptr %61, align 8, !alias.scope !21
@@ -347,7 +347,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i18:    ; preds = %_ZNK4llvm9StringRef
 _ZN4llvm9StringRef13consume_frontES0_.exit21.sink.split: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i18, %_ZNK4llvm9StringRef11starts_withES0_.exit.i12, %_ZNK4llvm9StringRef11starts_withES0_.exit.i6, %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %.pre.i17.sink = phi ptr [ %.pre.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ %.pre.i5, %_ZNK4llvm9StringRef11starts_withES0_.exit.i6 ], [ %.pre.i11, %_ZNK4llvm9StringRef11starts_withES0_.exit.i12 ], [ %.pre.i17, %_ZNK4llvm9StringRef11starts_withES0_.exit.i18 ]
   %.0.ph = phi i32 [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ], [ 1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i6 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i12 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i18 ]
-  %24 = getelementptr inbounds i8, ptr %.pre.i17.sink, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.pre.i17.sink, i64 1
   %25 = add i64 %19, -1
   store ptr %24, ptr %7, align 8
   store i64 %25, ptr %8, align 8
@@ -386,7 +386,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %3
   br i1 %6, label %7, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i9
 
 7:                                                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %8 = getelementptr inbounds i8, ptr %.pre.i, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 2
   %9 = add i64 %5, -2
   store ptr %8, ptr %0, align 8
   store i64 %9, ptr %4, align 8
@@ -399,7 +399,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i9:     ; preds = %_ZNK4llvm9StringRef
   br i1 %10, label %11, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i15
 
 11:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i9
-  %12 = getelementptr inbounds i8, ptr %.pre.i8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.pre.i8, i64 2
   %13 = add i64 %5, -2
   store ptr %12, ptr %0, align 8
   store i64 %13, ptr %4, align 8
@@ -412,7 +412,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i15:    ; preds = %_ZNK4llvm9StringRef
   br i1 %14, label %_ZN4llvm9StringRef13consume_frontES0_.exit18, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i21.thread
 
 _ZN4llvm9StringRef13consume_frontES0_.exit18:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i15
-  %15 = getelementptr inbounds i8, ptr %.pre.i14, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.pre.i14, i64 2
   %16 = add i64 %5, -2
   store ptr %15, ptr %0, align 8
   store i64 %16, ptr %4, align 8
@@ -436,7 +436,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i21.thread: ; preds = %_ZNK4llvm9Strin
 
 _ZN4llvm9StringRef13consume_frontES0_.exit24:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i21.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.i21
   %.pre.i2053 = phi ptr [ %.pre.i2051, %_ZNK4llvm9StringRef11starts_withES0_.exit.i21.thread ], [ %.pre.i20, %_ZNK4llvm9StringRef11starts_withES0_.exit.i21 ]
-  %20 = getelementptr inbounds i8, ptr %.pre.i2053, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.pre.i2053, i64 1
   %21 = add i64 %5, -1
   store ptr %20, ptr %0, align 8
   store i64 %21, ptr %4, align 8
@@ -449,7 +449,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i27:    ; preds = %_ZNK4llvm9StringRef
   br i1 %22, label %_ZN4llvm9StringRef13consume_frontES0_.exit30, label %.thread50
 
 _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i27
-  %23 = getelementptr inbounds i8, ptr %.pre.i26, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.pre.i26, i64 2
   %24 = add i64 %5, -2
   store ptr %23, ptr %0, align 8
   store i64 %24, ptr %4, align 8

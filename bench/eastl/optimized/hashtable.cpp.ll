@@ -15,10 +15,10 @@ while.body.i:                                     ; preds = %while.body.i, %entr
   %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
   %len.09.i = phi i64 [ 256, %entry ], [ %len.1.i, %while.body.i ]
   %shr.i = lshr i64 %len.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %first.addr.010.i, i64 %shr.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %nBucketCountHint, %0
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
   %sub.i = add nsw i64 %len.09.i, %add.neg.i
   %len.1.i = select i1 %cmp1.i, i64 %shr.i, i64 %sub.i
@@ -41,10 +41,10 @@ while.body.i:                                     ; preds = %while.body.i, %entr
   %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
   %len.09.i = phi i64 [ 256, %entry ], [ %len.1.i, %while.body.i ]
   %shr.i = lshr i64 %len.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %first.addr.010.i, i64 %shr.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %nBucketCountHint, %0
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
   %sub.i = add nsw i64 %len.09.i, %add.neg.i
   %len.1.i = select i1 %cmp1.i, i64 %shr.i, i64 %sub.i
@@ -60,7 +60,7 @@ _ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
   %mul = fmul float %2, %conv
   %3 = tail call float @llvm.ceil.f32(float %mul)
   %conv2 = fptoui float %3 to i32
-  %mnNextResize = getelementptr inbounds i8, ptr %this, i64 8
+  %mnNextResize = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %conv2, ptr %mnNextResize, align 4
   ret i32 %1
 }
@@ -77,10 +77,10 @@ while.body.i:                                     ; preds = %while.body.i, %entr
   %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
   %d.09.i = phi i64 [ 256, %entry ], [ %d.1.i, %while.body.i ]
   %shr.i = lshr i64 %d.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %first.addr.010.i, i64 %shr.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %0, %nBucketCountHint
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
   %sub.i = add nsw i64 %d.09.i, %add.neg.i
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
@@ -95,7 +95,7 @@ _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
   %mul = fmul float %2, %conv
   %3 = tail call float @llvm.ceil.f32(float %mul)
   %conv2 = fptoui float %3 to i32
-  %mnNextResize = getelementptr inbounds i8, ptr %this, i64 8
+  %mnNextResize = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %conv2, ptr %mnNextResize, align 4
   ret i32 %1
 }
@@ -113,10 +113,10 @@ while.body.i:                                     ; preds = %while.body.i, %entr
   %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
   %d.09.i = phi i64 [ 256, %entry ], [ %d.1.i, %while.body.i ]
   %shr.i = lshr i64 %d.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %first.addr.010.i, i64 %shr.i
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %1, %conv2
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
   %sub.i = add nsw i64 %d.09.i, %add.neg.i
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
@@ -130,7 +130,7 @@ _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
   %mul = fmul float %0, %conv3
   %3 = tail call float @llvm.ceil.f32(float %mul)
   %conv5 = fptoui float %3 to i32
-  %mnNextResize = getelementptr inbounds i8, ptr %this, i64 8
+  %mnNextResize = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %conv5, ptr %mnNextResize, align 4
   ret i32 %2
 }
@@ -139,7 +139,7 @@ _ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit:  ; preds = %while.body.i
 define dso_local i64 @_ZNK5eastl19prime_rehash_policy17GetRehashRequiredEjjj(ptr nocapture noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %nBucketCount, i32 noundef %nElementCount, i32 noundef %nElementAdd) local_unnamed_addr #1 align 2 {
 entry:
   %add = add i32 %nElementAdd, %nElementCount
-  %mnNextResize = getelementptr inbounds i8, ptr %this, i64 8
+  %mnNextResize = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %mnNextResize, align 4
   %cmp = icmp ugt i32 %add, %0
   br i1 %cmp, label %if.then, label %return
@@ -155,7 +155,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.then
-  %mfGrowthFactor = getelementptr inbounds i8, ptr %this, i64 4
+  %mfGrowthFactor = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load float, ptr %mfGrowthFactor, align 4
   %mul = fmul float %2, %conv5
   %cmp.i = fcmp olt float %div, %mul
@@ -167,10 +167,10 @@ while.body.i:                                     ; preds = %while.body.i, %if.t
   %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %if.then7 ], [ %first.addr.1.i, %while.body.i ]
   %d.09.i = phi i64 [ 256, %if.then7 ], [ %d.1.i, %while.body.i ]
   %shr.i = lshr i64 %d.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %first.addr.010.i, i64 %shr.i
   %3 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %3, %conv9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
   %sub.i = add nsw i64 %d.09.i, %add.neg.i
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i

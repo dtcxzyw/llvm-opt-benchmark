@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES1_j(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallPtrSet", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %5, align 8
   %6 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %7 = inttoptr i64 %6 to ptr
@@ -28,7 +28,7 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   br label %_ZN4llvm11SmallPtrSetIPNS_12MachineInstrELj8EED2Ev.exit
 
@@ -68,11 +68,11 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
   %34 = and i32 %2, 2147483647
   %35 = zext nneg i32 %34 to i64
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds %"struct.std::pair", ptr %36, i64 %35, i32 1
+  %37 = getelementptr inbounds nuw %"struct.std::pair", ptr %36, i64 %35, i32 1
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 304
   %39 = zext nneg i32 %2 to i64
   %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
   %.0.in.i.i.i = select i1 %32, ptr %37, ptr %41
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
@@ -122,7 +122,7 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
 
 62:                                               ; preds = %60
   %63 = zext i32 %52 to i64
-  %64 = getelementptr inbounds ptr, ptr %53, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %53, i64 %63
   %.not24.i.i = icmp eq i32 %52, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -133,7 +133,7 @@ define dso_local ptr @_ZN4llvm22findPHICopyInsertPointEPNS_17MachineBasicBlockES
   br i1 %66, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, label %67
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %68, %64
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
@@ -198,7 +198,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb0ELb1ELb0ELb0ELb1ELb
 ._crit_edge:                                      ; preds = %48, %45, %22, %._crit_edge.loopexit
   %.pre-phi87 = phi ptr [ %.pre86, %._crit_edge.loopexit ], [ %7, %22 ], [ %7, %45 ], [ %7, %48 ]
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %6, %22 ], [ %6, %45 ], [ %6, %48 ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %95 = load ptr, ptr %94, align 8
   %.not.i.i.i.i.i26 = icmp ne i64 %.pre-phi, 0
   call void @llvm.assume(i1 %.not.i.i.i.i.i26)
@@ -240,7 +240,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
 108:                                              ; preds = %.lr.ph72
   %109 = load i32, ptr %26, align 4
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %106, i64 %110
+  %111 = getelementptr inbounds nuw ptr, ptr %106, i64 %110
   %.not1317.i.i = icmp eq i32 %109, 0
   br i1 %.not1317.i.i, label %._crit_edge.i.i32, label %.lr.ph.i.i31
 
@@ -251,12 +251,12 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   br i1 %113, label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit, label %114
 
 114:                                              ; preds = %.lr.ph.i.i31
-  %115 = getelementptr inbounds i8, ptr %.01118.i.i, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 8
   %.not13.i.i = icmp eq ptr %115, %111
   br i1 %.not13.i.i, label %._crit_edge.i.i32, label %.lr.ph.i.i31, !llvm.loop !11
 
 ._crit_edge.i.i32:                                ; preds = %114, %108
-  %116 = getelementptr inbounds ptr, ptr %105, i64 %110
+  %116 = getelementptr inbounds nuw ptr, ptr %105, i64 %110
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit
 
 117:                                              ; preds = %.lr.ph72
@@ -276,7 +276,7 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %122 = load i32, ptr %25, align 8
   %.v.v.i14.i.i = select i1 %120, i32 %121, i32 %122
   %.v.i15.i.i = zext i32 %.v.v.i14.i.i to i64
-  %123 = getelementptr inbounds ptr, ptr %.pre.i29, i64 %.v.i15.i.i
+  %123 = getelementptr inbounds nuw ptr, ptr %.pre.i29, i64 %.v.i15.i.i
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit: ; preds = %.lr.ph.i.i31, %._crit_edge.i.i32, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i, %119
@@ -288,7 +288,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE8containsEPKS1_.exit: ; preds = %
   %128 = load i32, ptr %25, align 8
   %.v.v.i.i = select i1 %127, i32 %124, i32 %128
   %.v.i.i = zext i32 %.v.v.i.i to i64
-  %129 = getelementptr inbounds ptr, ptr %126, i64 %.v.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %126, i64 %.v.i.i
   %.not59 = icmp eq ptr %.0.i.i, %129
   br i1 %.not59, label %141, label %.preheader.i.i.i.preheader
 

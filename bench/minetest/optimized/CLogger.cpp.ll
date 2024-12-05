@@ -53,10 +53,10 @@ $_ZTIN3irr7ILoggerE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3irr7CLoggerC2EPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %r) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -64,15 +64,15 @@ entry:
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
-  %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
+  %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 1, ptr %LogLevel, align 8, !tbaa !6
-  %Receiver = getelementptr inbounds i8, ptr %this, i64 16
+  %Receiver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %r, ptr %Receiver, align 8, !tbaa !12
   ret void
 }
@@ -80,16 +80,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3irr7CLoggerC1EPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 44)) %this, ptr noundef %r) unnamed_addr #1 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %DebugName.i, align 8, !tbaa !13
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 40
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr7CLoggerE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr7CLoggerE, i64 96), ptr %0, align 8, !tbaa !3
-  %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
+  %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 1, ptr %LogLevel, align 8, !tbaa !6
-  %Receiver = getelementptr inbounds i8, ptr %this, i64 16
+  %Receiver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %r, ptr %Receiver, align 8, !tbaa !12
   ret void
 }
@@ -97,7 +97,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3irr7CLogger11getLogLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
-  %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
+  %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %LogLevel, align 8, !tbaa !6
   ret i32 %0
 }
@@ -105,7 +105,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3irr7CLogger11setLogLevelENS_10ELOG_LEVELE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 12)) %this, i32 noundef %ll) unnamed_addr #1 align 2 {
 entry:
-  %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
+  %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %ll, ptr %LogLevel, align 8, !tbaa !6
   ret void
 }
@@ -114,13 +114,13 @@ entry:
 define void @_ZN3irr7CLogger3logEPKcNS_10ELOG_LEVELE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %text, i32 noundef %ll) unnamed_addr #3 align 2 {
 entry:
   %event = alloca %"struct.irr::SEvent", align 8
-  %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
+  %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %LogLevel, align 8, !tbaa !6
   %cmp = icmp sgt i32 %0, %ll
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Receiver = getelementptr inbounds i8, ptr %this, i64 16
+  %Receiver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %Receiver, align 8, !tbaa !12
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end6, label %if.then2
@@ -128,12 +128,12 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %event) #15
   store i32 9, ptr %event, align 8, !tbaa !17
-  %2 = getelementptr inbounds i8, ptr %event, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %event, i64 8
   store ptr %text, ptr %2, align 8, !tbaa !20
-  %Level = getelementptr inbounds i8, ptr %event, i64 16
+  %Level = getelementptr inbounds nuw i8, ptr %event, i64 16
   store i32 %ll, ptr %Level, align 8, !tbaa !20
   %vtable = load ptr, ptr %1, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %event) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %event) #15
@@ -160,16 +160,16 @@ define void @_ZN3irr7CLogger3logEPKcS2_NS_10ELOG_LEVELE(ptr noundef nonnull alig
 entry:
   %empty.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %s = alloca %"class.irr::core::string", align 8
-  %LogLevel = getelementptr inbounds i8, ptr %this, i64 8
+  %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %LogLevel, align 8, !tbaa !6
   %cmp = icmp sgt i32 %0, %ll
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s) #15
-  %1 = getelementptr inbounds i8, ptr %s, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %1, ptr %s, align 8, !tbaa !21
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !23
   store i8 0, ptr %1, align 8, !tbaa !20
   %tobool.not.i.i = icmp eq ptr %text, null
@@ -177,9 +177,9 @@ if.end:                                           ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %empty.i.i.i) #15
-  %2 = getelementptr inbounds i8, ptr %empty.i.i.i, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %empty.i.i.i, i64 16
   store ptr %2, ptr %empty.i.i.i, align 8, !tbaa !21
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty.i.i.i, i64 8
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %empty.i.i.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !23
   store i8 0, ptr %2, align 8, !tbaa !20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %empty.i.i.i) #15
@@ -219,28 +219,28 @@ for.body.i.i.preheader.new:                       ; preds = %for.body.i.i.prehea
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.i.preheader.new
   %indvars.iv.i.i = phi i64 [ 0, %for.body.i.i.preheader.new ], [ %indvars.iv.next.i.i.3, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %text, i64 %indvars.iv.i.i
   %6 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !20
   %7 = load ptr, ptr %s, align 8, !tbaa !26
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   store i8 %6, ptr %arrayidx.i.i.i, align 1, !tbaa !20
   %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.1 = getelementptr inbounds nuw i8, ptr %text, i64 %indvars.iv.next.i.i
   %8 = load i8, ptr %arrayidx.i.i.1, align 1, !tbaa !20
   %9 = load ptr, ptr %s, align 8, !tbaa !26
-  %arrayidx.i.i.i.1 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i.i.1 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.next.i.i
   store i8 %8, ptr %arrayidx.i.i.i.1, align 1, !tbaa !20
   %indvars.iv.next.i.i.1 = or disjoint i64 %indvars.iv.i.i, 2
-  %arrayidx.i.i.2 = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.next.i.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds nuw i8, ptr %text, i64 %indvars.iv.next.i.i.1
   %10 = load i8, ptr %arrayidx.i.i.2, align 1, !tbaa !20
   %11 = load ptr, ptr %s, align 8, !tbaa !26
-  %arrayidx.i.i.i.2 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.next.i.i.1
+  %arrayidx.i.i.i.2 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next.i.i.1
   store i8 %10, ptr %arrayidx.i.i.i.2, align 1, !tbaa !20
   %indvars.iv.next.i.i.2 = or disjoint i64 %indvars.iv.i.i, 3
-  %arrayidx.i.i.3 = getelementptr inbounds i8, ptr %text, i64 %indvars.iv.next.i.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds nuw i8, ptr %text, i64 %indvars.iv.next.i.i.2
   %12 = load i8, ptr %arrayidx.i.i.3, align 1, !tbaa !20
   %13 = load ptr, ptr %s, align 8, !tbaa !26
-  %arrayidx.i.i.i.3 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.next.i.i.2
+  %arrayidx.i.i.i.3 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.next.i.i.2
   store i8 %12, ptr %arrayidx.i.i.i.3, align 1, !tbaa !20
   %indvars.iv.next.i.i.3 = add nuw i64 %indvars.iv.i.i, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.i.i.3, %unroll_iter
@@ -298,7 +298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i: ; pr
 _ZN3irr4core6stringIcEpLEPKc.exit17:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i, %_ZN3irr4core6stringIcEpLEPKc.exit
   %19 = load ptr, ptr %s, align 8, !tbaa !26
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %20 = load ptr, ptr %vfn, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %19, i32 noundef %ll) #15
   %21 = load ptr, ptr %s, align 8, !tbaa !26
@@ -326,7 +326,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3irr7CLogger11setReceiverEPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, ptr noundef %r) local_unnamed_addr #1 align 2 {
 entry:
-  %Receiver = getelementptr inbounds i8, ptr %this, i64 16
+  %Receiver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %r, ptr %Receiver, align 8, !tbaa !12
   ret void
 }

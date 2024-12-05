@@ -11,41 +11,41 @@ define i32 @Mvc_CoverReadWordNum(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Mvc_CoverReadBitNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Mvc_CoverReadCubeNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Mvc_CoverReadCubeHead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Mvc_CoverReadCubeTail(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @Mvc_CoverReadCubeList(ptr noundef readnone %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Mvc_ListReadCubeNum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -58,35 +58,35 @@ define ptr @Mvc_ListReadCubeHead(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Mvc_ListReadCubeTail(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Mvc_CoverSetCubeNum(ptr nocapture noundef writeonly initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Mvc_CoverSetCubeHead(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Mvc_CoverSetCubeTail(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @Mvc_CoverSetCubeList(ptr nocapture noundef writeonly initializes((16, 40)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -96,7 +96,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Mvc_CoverIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -105,16 +105,16 @@ define range(i32 0, 2) i32 @Mvc_CoverIsEmpty(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Mvc_CoverIsTautology(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %.critedge
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %.critedge
@@ -128,7 +128,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsTautology(ptr nocapture noundef readonly 
   %.0910 = phi i32 [ %12, %11 ], [ 0, %4 ]
   %13 = lshr i32 %.0910, 5
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds [1 x i32], ptr %7, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [1 x i32], ptr %7, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %.0910, 31
   %18 = shl nuw i32 1, %17
@@ -143,21 +143,21 @@ define range(i32 0, 2) i32 @Mvc_CoverIsTautology(ptr nocapture noundef readonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Mvc_CoverIsBinaryBuffer(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %4, label %13
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.not5 = icmp eq i32 %6, 1
   br i1 %.not5, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 3
   %or.cond.not = icmp eq i32 %12, 2
@@ -171,7 +171,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsBinaryBuffer(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define void @Mvc_CoverMakeEmpty(ptr noundef %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -192,7 +192,7 @@ declare void @Mvc_CubeFree(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @Mvc_CoverMakeTautology(ptr noundef %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %Mvc_CoverMakeEmpty.exit, label %.lr.ph.i
@@ -207,7 +207,7 @@ define void @Mvc_CoverMakeTautology(ptr noundef %0) local_unnamed_addr #7 {
 Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %5 = tail call ptr @Mvc_CubeAlloc(ptr noundef %0) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 16777215
   switch i32 %8, label %.lr.ph.preheader [
@@ -219,17 +219,17 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   %10 = lshr exact i32 %7, 24
   %11 = and i32 %10, 63
   %12 = lshr i32 -1, %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %12, ptr %13, align 8
   br label %.loopexit
 
 14:                                               ; preds = %Mvc_CoverMakeEmpty.exit
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 -1, ptr %15, align 8
   %16 = lshr i32 %7, 24
   %17 = and i32 %16, 63
   %18 = lshr i32 -1, %17
-  %19 = getelementptr inbounds i8, ptr %5, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %18, ptr %19, align 4
   br label %.loopexit
 
@@ -237,9 +237,9 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   %20 = lshr i32 %7, 24
   %21 = and i32 %20, 63
   %22 = lshr i32 -1, %21
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = zext nneg i32 %8 to i64
-  %25 = getelementptr inbounds [1 x i32], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [1 x i32], ptr %23, i64 0, i64 %24
   store i32 %22, ptr %25, align 4
   %26 = shl i32 %7, 2
   %27 = and i32 %26, 67108860
@@ -257,16 +257,16 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   br label %35
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   store ptr %5, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %32, %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %36, align 8
   store ptr null, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8
@@ -277,9 +277,9 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define ptr @Mvc_CoverCreateEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @Mvc_CoverAlloc(ptr noundef %3, i32 noundef %5) #10
   ret ptr %6
@@ -289,13 +289,13 @@ declare ptr @Mvc_CoverAlloc(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Mvc_CoverCreateTautology(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @Mvc_CoverAlloc(ptr noundef %3, i32 noundef %5) #10
   %7 = tail call ptr @Mvc_CubeAlloc(ptr noundef %6) #10
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 16777215
   switch i32 %10, label %.lr.ph.preheader [
@@ -307,17 +307,17 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr nocapture noundef readonly %0) 
   %12 = lshr exact i32 %9, 24
   %13 = and i32 %12, 63
   %14 = lshr i32 -1, %13
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %14, ptr %15, align 8
   br label %.loopexit
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 -1, ptr %17, align 8
   %18 = lshr i32 %9, 24
   %19 = and i32 %18, 63
   %20 = lshr i32 -1, %19
-  %21 = getelementptr inbounds i8, ptr %7, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %20, ptr %21, align 4
   br label %.loopexit
 
@@ -325,9 +325,9 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr nocapture noundef readonly %0) 
   %22 = lshr i32 %9, 24
   %23 = and i32 %22, 63
   %24 = lshr i32 -1, %23
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = zext nneg i32 %10 to i64
-  %27 = getelementptr inbounds [1 x i32], ptr %25, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [1 x i32], ptr %25, i64 0, i64 %26
   store i32 %24, ptr %27, align 4
   %28 = shl i32 %9, 2
   %29 = and i32 %28, 67108860
@@ -336,7 +336,7 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr nocapture noundef readonly %0) 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %16, %11
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -346,16 +346,16 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr nocapture noundef readonly %0) 
   br label %38
 
 35:                                               ; preds = %.loopexit
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %37 = load ptr, ptr %36, align 8
   store ptr %7, ptr %37, align 8
   br label %38
 
 38:                                               ; preds = %35, %34
-  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %7, ptr %39, align 8
   store ptr null, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 8

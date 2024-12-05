@@ -22,7 +22,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2Ev(ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 512, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC1EPNS_10TraceEventEm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %6, i64 noundef 15)
   %7 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %7, null
@@ -58,7 +58,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8Allocate
   %6 = and i64 %4, -32
   %7 = add i64 %6, 32
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC1EPNS_10TraceEventEm(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %9, i64 noundef %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -136,7 +136,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2EOS0_(p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   store i64 512, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC1EPNS_10TraceEventEm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %7, i64 noundef 15)
   %8 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %8, null
@@ -220,7 +220,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer6AppendEO
 _ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit: ; preds = %2, %.split.i.i
   %.sroa.3.0.i.i = phi ptr [ %8, %.split.i.i ], [ null, %2 ]
   %.not.i.i = icmp eq ptr %5, null
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %9
   %10 = icmp eq ptr %spec.select.i.i, %.sroa.3.0.i.i
   br i1 %10, label %64, label %11
@@ -240,7 +240,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit: ; pred
 _ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17: ; preds = %11, %.split.i.i13
   %.sroa.3.0.i.i14 = phi ptr [ %16, %.split.i.i13 ], [ null, %11 ]
   %.not.i.i15 = icmp eq ptr %13, null
-  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %spec.select.i.i16 = select i1 %.not.i.i15, ptr null, ptr %17
   %18 = icmp eq ptr %spec.select.i.i16, %.sroa.3.0.i.i14
   br i1 %18, label %19, label %28
@@ -267,7 +267,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17: ; pr
   br label %64
 
 28:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5emptyEv.exit17
-  %29 = getelementptr inbounds i8, ptr %15, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %30 = load ptr, ptr %15, align 8
   %31 = icmp eq ptr %29, %30
   br i1 %31, label %32, label %_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node11DestroyListEPS1_.exit
@@ -333,7 +333,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node11DestroyListEPS
   %52 = and i64 %50, -32
   %53 = add i64 %52, 32
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #8
-  %55 = getelementptr inbounds i8, ptr %54, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC1EPNS_10TraceEventEm(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull %55, i64 noundef %51)
   %56 = load ptr, ptr %4, align 8
   %.not.i20 = icmp eq ptr %56, null
@@ -377,7 +377,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_
   %2 = shl i64 %0, 5
   %3 = add i64 %2, 32
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC1EPNS_10TraceEventEm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %5, i64 noundef %0)
   ret ptr %4
 }

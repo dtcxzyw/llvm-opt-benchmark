@@ -51,22 +51,22 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @crypto_sha3_init(ptr nocapture noundef initializes((8, 220)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 1
   %9 = sub i32 200, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 %9, ptr %10, align 8
   %11 = lshr i32 %9, 3
-  %12 = getelementptr inbounds i8, ptr %0, i64 212
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %13, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(200) %2, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, i8 0, i64 200, i1 false)
   ret i32 0
 }
 
@@ -75,11 +75,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, -1
   %11 = icmp ugt i32 %7, %10
@@ -91,7 +91,7 @@ define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr n
 
 14:                                               ; preds = %12
   %15 = sub i32 0, %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 220
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %17 = zext i32 %6 to i64
   %18 = getelementptr i8, ptr %16, i64 %17
   %19 = sub i32 %9, %6
@@ -102,7 +102,7 @@ define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr n
 21:                                               ; preds = %14, %12
   %22 = phi i32 [ %15, %14 ], [ 0, %12 ]
   %23 = phi ptr [ %16, %14 ], [ %1, %12 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 212
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 212
   br label %25
 
 25:                                               ; preds = %.loopexit, %21
@@ -129,7 +129,7 @@ define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr n
   br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %25
-  tail call fastcc void @keccakf(ptr noundef %4)
+  tail call fastcc void @keccakf(ptr noundef nonnull %4)
   %42 = load i32, ptr %8, align 8
   %43 = add i32 %42, %26
   %44 = zext i32 %43 to i64
@@ -147,7 +147,7 @@ define dso_local noundef i32 @crypto_sha3_update(ptr nocapture noundef %0, ptr n
   %51 = phi i32 [ 0, %49 ], [ %6, %3 ]
   %52 = phi i32 [ %43, %49 ], [ 0, %3 ]
   %53 = phi ptr [ %45, %49 ], [ %1, %3 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 220
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %55 = zext i32 %51 to i64
   %56 = getelementptr i8, ptr %54, i64 %55
   %57 = sub i32 %2, %52
@@ -435,21 +435,21 @@ define internal fastcc void @keccakf(ptr nocapture noundef %0) unnamed_addr #4 a
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef i32 @crypto_sha3_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 220
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %12 = add i32 %5, 1
   %13 = zext i32 %5 to i64
   %14 = getelementptr [144 x i8], ptr %11, i64 0, i64 %13
   store i8 6, ptr %14, align 1
   %15 = zext i32 %12 to i64
   %16 = getelementptr i8, ptr %11, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %18, %12
   %20 = zext i32 %19 to i64
@@ -461,7 +461,7 @@ define dso_local noundef i32 @crypto_sha3_final(ptr nocapture noundef %0, ptr no
   %25 = load i8, ptr %24, align 1
   %26 = or i8 %25, -128
   store i8 %26, ptr %24, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 212
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.loopexit, label %.preheader

@@ -189,7 +189,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm11EED2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -278,7 +278,7 @@ define dso_local void @_ZNK4llvm10TensorSpec6toJSONERNS_4json7OStreamE(ptr nound
   store i64 %24, ptr %22, align 8
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(40) %3) #19
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  %25 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %25, %21
   br i1 %.not.i.i.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZNKS_10TensorSpec6toJSONERNS_4json7OStreamEE3$_0EEvl.exit", label %23
 
@@ -308,71 +308,70 @@ define dso_local void @_ZN4llvm10TensorSpecC2ERKNSt7__cxx1112basic_stringIcSt11c
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = ashr exact i64 %15, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i, label %17
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i, label %16
 
-17:                                               ; preds = %6
-  %18 = icmp ugt i64 %16, 1152921504606846975
-  br i1 %18, label %19, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
+16:                                               ; preds = %6
+  %17 = icmp ugt i64 %15, 9223372036854775800
+  br i1 %17, label %18, label %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #21
+_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i: ; preds = %16
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #21
   br label %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i:      ; preds = %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i, %6
-  %21 = phi ptr [ %20, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ], [ null, %6 ]
-  store ptr %21, ptr %9, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i64, ptr %21, i64 %16
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %23, ptr %24, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %25 to i64
-  %29 = sub i64 %27, %28
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, %25
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, label %30
+  %20 = phi ptr [ %19, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ], [ null, %6 ]
+  store ptr %20, ptr %9, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %20, i64 %15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %22, ptr %23, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = ptrtoint ptr %24 to i64
+  %28 = sub i64 %26, %27
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %24
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, label %29
 
-30:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %21, ptr align 8 %25, i64 %29, i1 false)
+29:                                               ; preds = %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %20, ptr align 8 %24, i64 %28, i1 false)
   br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i, %30
-  %31 = getelementptr inbounds i8, ptr %21, i64 %29
-  store ptr %31, ptr %22, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = load ptr, ptr %10, align 8
-  %.not5.i = icmp eq ptr %32, %33
+_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %_ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.i, %29
+  %30 = getelementptr inbounds i8, ptr %20, i64 %28
+  store ptr %30, ptr %21, align 8
+  %31 = load ptr, ptr %5, align 8
+  %32 = load ptr, ptr %10, align 8
+  %.not5.i = icmp eq ptr %31, %32
   br i1 %.not5.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit, %.lr.ph.i
-  %.07.i = phi i32 [ %36, %.lr.ph.i ], [ 1, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit ]
-  %.sroa.02.06.i = phi ptr [ %37, %.lr.ph.i ], [ %32, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit ]
-  %34 = load i64, ptr %.sroa.02.06.i, align 8
-  %35 = trunc i64 %34 to i32
-  %36 = mul i32 %.07.i, %35
-  %37 = getelementptr inbounds i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %37, %33
+  %.07.i = phi i32 [ %35, %.lr.ph.i ], [ 1, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit ]
+  %.sroa.02.06.i = phi ptr [ %36, %.lr.ph.i ], [ %31, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit ]
+  %33 = load i64, ptr %.sroa.02.06.i, align 8
+  %34 = trunc i64 %33 to i32
+  %35 = mul i32 %.07.i, %34
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %36, %32
   br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit.loopexit: ; preds = %.lr.ph.i
-  %38 = sext i32 %36 to i64
+  %37 = sext i32 %35 to i64
   br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit.loopexit, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
-  %.0.lcssa.i = phi i64 [ 1, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit ], [ %38, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit.loopexit ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %.0.lcssa.i, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %4, ptr %40, align 8
+  %.0.lcssa.i = phi i64 [ 1, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit ], [ %37, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiSt10multipliesIlEET0_T_SB_SA_T1_.exit.loopexit ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %.0.lcssa.i, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %4, ptr %39, align 8
   ret void
 }
 
@@ -409,7 +408,7 @@ define dso_local void @_ZN4llvm21getTensorSpecFromJSONERNS_11LLVMContextERKNS_4j
   %30 = alloca %"class.llvm::TensorSpec", align 8
   %31 = alloca %"class.llvm::TensorSpec", align 8
   store ptr @.str.11, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 11, ptr %.sroa.2.0..sroa_idx.i, align 8
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.22, ptr %32, align 8
@@ -418,7 +417,7 @@ define dso_local void @_ZN4llvm21getTensorSpecFromJSONERNS_11LLVMContextERKNS_4j
   %34 = ptrtoint ptr %11 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %34, ptr %.sroa.229.0..sroa_idx, align 8
   %35 = load i16, ptr %2, align 8
   %.not.i = icmp eq i16 %35, 7
@@ -465,7 +464,7 @@ _ZN4llvm4json12ObjectMapper3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %37, ptr %9, align 8, !alias.scope !6
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 ptrtoint (ptr @.str.13 to i64), ptr %45, align 8, !alias.scope !6
-  %.sroa.2.0..sroa_idx.i.i13.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i13.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 4, ptr %.sroa.2.0..sroa_idx.i.i13.i, align 8, !alias.scope !6
   call void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr nonnull @.str.27, i64 13) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -476,7 +475,7 @@ _ZN4llvm4json12ObjectMapper3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %37, ptr %8, align 8, !alias.scope !9
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 ptrtoint (ptr @.str.13 to i64), ptr %46, align 8, !alias.scope !9
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 4, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !9
   %47 = call noundef zeroext i1 @_ZN4llvm4json8fromJSONERKNS0_5ValueERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathE(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull byval(%"class.llvm::json::Path") align 8 %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -504,7 +503,7 @@ _ZN4llvm4json12ObjectMapper3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %37, ptr %7, align 8, !alias.scope !12
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 ptrtoint (ptr @.str.15 to i64), ptr %54, align 8, !alias.scope !12
-  %.sroa.2.0..sroa_idx.i.i13.i16 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx.i.i13.i16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %.sroa.2.0..sroa_idx.i.i13.i16, align 8, !alias.scope !12
   call void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull @.str.27, i64 13) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -515,7 +514,7 @@ _ZN4llvm4json12ObjectMapper3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   store ptr %37, ptr %6, align 8, !alias.scope !15
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 ptrtoint (ptr @.str.15 to i64), ptr %55, align 8, !alias.scope !15
-  %.sroa.2.0..sroa_idx.i.i.i14 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 4, ptr %.sroa.2.0..sroa_idx.i.i.i14, align 8, !alias.scope !15
   %56 = call noundef zeroext i1 @_ZN4llvm4json8fromJSONERKNS0_5ValueERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_4PathE(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull byval(%"class.llvm::json::Path") align 8 %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -556,7 +555,7 @@ _ZN4llvm4json12ObjectMapper3mapISt6vectorIlSaIlEEEEbNS_13StringLiteralERT_.exit.
   store ptr %37, ptr %5, align 8, !alias.scope !18
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 ptrtoint (ptr @.str.19 to i64), ptr %68, align 8, !alias.scope !18
-  %.sroa.2.0..sroa_idx.i.i13.i21 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.2.0..sroa_idx.i.i13.i21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 5, ptr %.sroa.2.0..sroa_idx.i.i13.i21, align 8, !alias.scope !18
   call void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nonnull @.str.27, i64 13) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -567,7 +566,7 @@ _ZN4llvm4json12ObjectMapper3mapISt6vectorIlSaIlEEEEbNS_13StringLiteralERT_.exit:
   store ptr %37, ptr %4, align 8, !alias.scope !21
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 ptrtoint (ptr @.str.19 to i64), ptr %69, align 8, !alias.scope !21
-  %.sroa.2.0..sroa_idx.i.i.i19 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 5, ptr %.sroa.2.0..sroa_idx.i.i.i19, align 8, !alias.scope !21
   %70 = call noundef zeroext i1 @_ZN4llvm4json8fromJSONIlEEbRKNS0_5ValueERSt6vectorIT_SaIS6_EENS0_4PathE(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull byval(%"class.llvm::json::Path") align 8 %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -772,7 +771,7 @@ define internal fastcc void @"_ZZN4llvm21getTensorSpecFromJSONERNS_11LLVMContext
   call void @_ZN4llvm4json7OStream5valueERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(40) %.0.val) #19
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(176) %3) #19
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %19, label %18
 
@@ -800,7 +799,7 @@ define internal fastcc void @"_ZZN4llvm21getTensorSpecFromJSONERNS_11LLVMContext
   %24 = load i8, ptr %23, align 1, !noalias !30
   %25 = icmp eq i8 %24, 1
   %.sroa.04.0.copyload.i.i = load ptr, ptr %1, align 8, !noalias !30
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !30
   %.0.i.i = select i1 %25, i8 %21, i8 2
   %.sroa.04.0.i.i = select i1 %25, ptr %.sroa.04.0.copyload.i.i, ptr %1
@@ -808,7 +807,7 @@ define internal fastcc void @"_ZZN4llvm21getTensorSpecFromJSONERNS_11LLVMContext
   store ptr @.str.24, ptr %8, align 8, !alias.scope !30
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sroa.04.0.i.i, ptr %26, align 8, !alias.scope !30
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.sroa.3.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !30
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16.thread25
 
@@ -827,9 +826,9 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.thread25:       ; preds = %22, %.thread20
   %.0.i.i.sink = phi i8 [ %.0.i.i, %22 ], [ 1, %.thread20 ]
   %.str.24.sink = phi ptr [ %8, %22 ], [ @.str.24, %.thread20 ]
   %.sink = phi i8 [ 2, %22 ], [ 3, %.thread20 ]
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 33
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 %.0.i.i.sink, ptr %33, align 1
   store ptr %.str.24.sink, ptr %7, align 8, !alias.scope !31
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -877,9 +876,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm4json12ObjectMapper3mapIi
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %10, ptr %6, align 8
-  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %11, ptr %.sroa.215.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %12, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %14 = load i16, ptr %9, align 8
@@ -941,7 +940,7 @@ _ZN4llvm4json8fromJSONERKNS0_5ValueERiNS0_4PathE.exit: ; preds = %28, %30
   store ptr %10, ptr %7, align 8, !alias.scope !41
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %11, ptr %32, align 8, !alias.scope !41
-  %.sroa.2.0..sroa_idx.i.i13 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx.i.i13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %12, ptr %.sroa.2.0..sroa_idx.i.i13, align 8, !alias.scope !41
   call void @_ZN4llvm4json4Path6reportENS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr nonnull @.str.27, i64 13) #19
   br label %33
@@ -1077,7 +1076,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
   %48 = add i64 %47, %.068.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #19
-  %49 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %49, %40
   br i1 %.not.i.i.i, label %50, label %44, !llvm.loop !52
 
@@ -1093,7 +1092,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKfZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
@@ -1104,7 +1103,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %33, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.32, double noundef %57)
   %58 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %33) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #19
-  %59 = getelementptr inbounds i8, ptr %55, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %.not6.i.i.i = icmp eq ptr %59, %40
   br i1 %.not6.i.i.i, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKfZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i, !llvm.loop !53
 
@@ -1139,7 +1138,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %69 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
   %70 = add i64 %69, %.068.i.i.i66
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #19
-  %71 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i67, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i67, i64 8
   %.not.i.i.i69 = icmp eq ptr %71, %63
   br i1 %.not.i.i.i69, label %72, label %67, !llvm.loop !62
 
@@ -1154,7 +1153,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i71, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKdZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_1NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i72.preheader
 
 .lr.ph.i.i.i72.preheader:                         ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i.i72
 
 .lr.ph.i.i.i72:                                   ; preds = %.lr.ph.i.i.i72.preheader, %.lr.ph.i.i.i72
@@ -1164,7 +1163,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.32, double noundef %.val14.val.i.i.i73)
   %78 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %30) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #19
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.not6.i.i.i74 = icmp eq ptr %79, %63
   br i1 %.not6.i.i.i74, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKdZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_1NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i72, !llvm.loop !63
 
@@ -1202,7 +1201,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %93 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #19
   %94 = add i64 %93, %.068.i.i.i81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #19
-  %95 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i82, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i82, i64 1
   %.not.i.i.i84 = icmp eq ptr %95, %83
   br i1 %.not.i.i.i84, label %96, label %90, !llvm.loop !72
 
@@ -1218,7 +1217,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i86, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKaZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i87.preheader
 
 .lr.ph.i.i.i87.preheader:                         ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %1, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %.lr.ph.i.i.i87
 
 .lr.ph.i.i.i87:                                   ; preds = %.lr.ph.i.i.i87.preheader, %.lr.ph.i.i.i87
@@ -1229,7 +1228,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, i32 noundef %103) #19
   %104 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %27) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #19
-  %105 = getelementptr inbounds i8, ptr %101, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 1
   %.not6.i.i.i89 = icmp eq ptr %105, %83
   br i1 %.not6.i.i.i89, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKaZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i87, !llvm.loop !73
 
@@ -1267,7 +1266,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %119 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
   %120 = add i64 %119, %.068.i.i.i96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
-  %121 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i97, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i97, i64 1
   %.not.i.i.i99 = icmp eq ptr %121, %109
   br i1 %.not.i.i.i99, label %122, label %116, !llvm.loop !82
 
@@ -1283,7 +1282,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i101, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKhZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i102.preheader
 
 .lr.ph.i.i.i102.preheader:                        ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %1, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %.lr.ph.i.i.i102
 
 .lr.ph.i.i.i102:                                  ; preds = %.lr.ph.i.i.i102.preheader, %.lr.ph.i.i.i102
@@ -1294,7 +1293,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %24, i32 noundef %129) #19
   %130 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %24) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
-  %131 = getelementptr inbounds i8, ptr %127, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %.not6.i.i.i104 = icmp eq ptr %131, %109
   br i1 %.not6.i.i.i104, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKhZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_3NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i102, !llvm.loop !83
 
@@ -1330,7 +1329,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %142 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
   %143 = add i64 %142, %.068.i.i.i111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
-  %144 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i112, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i112, i64 2
   %.not.i.i.i114 = icmp eq ptr %144, %135
   br i1 %.not.i.i.i114, label %145, label %139, !llvm.loop !92
 
@@ -1346,7 +1345,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i116, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i117.preheader
 
 .lr.ph.i.i.i117.preheader:                        ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %1, i64 2
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %.lr.ph.i.i.i117
 
 .lr.ph.i.i.i117:                                  ; preds = %.lr.ph.i.i.i117.preheader, %.lr.ph.i.i.i117
@@ -1357,7 +1356,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %21, i32 noundef %152) #19
   %153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %154 = getelementptr inbounds i8, ptr %150, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 2
   %.not6.i.i.i119 = icmp eq ptr %154, %135
   br i1 %.not6.i.i.i119, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i117, !llvm.loop !93
 
@@ -1393,7 +1392,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %165 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   %166 = add i64 %165, %.068.i.i.i126
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
-  %167 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i127, i64 2
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i127, i64 2
   %.not.i.i.i129 = icmp eq ptr %167, %158
   br i1 %.not.i.i.i129, label %168, label %162, !llvm.loop !102
 
@@ -1409,7 +1408,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i131, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i132.preheader
 
 .lr.ph.i.i.i132.preheader:                        ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %1, i64 2
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %.lr.ph.i.i.i132
 
 .lr.ph.i.i.i132:                                  ; preds = %.lr.ph.i.i.i132.preheader, %.lr.ph.i.i.i132
@@ -1420,7 +1419,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %18, i32 noundef %175) #19
   %176 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %18) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #19
-  %177 = getelementptr inbounds i8, ptr %173, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 2
   %.not6.i.i.i134 = icmp eq ptr %177, %158
   br i1 %.not6.i.i.i134, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i132, !llvm.loop !103
 
@@ -1455,7 +1454,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %187 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   %188 = add i64 %187, %.068.i.i.i141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
-  %189 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i142, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i142, i64 4
   %.not.i.i.i144 = icmp eq ptr %189, %181
   br i1 %.not.i.i.i144, label %190, label %185, !llvm.loop !112
 
@@ -1470,7 +1469,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i146, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i147.preheader
 
 .lr.ph.i.i.i147.preheader:                        ; preds = %190
-  %193 = getelementptr inbounds i8, ptr %1, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.i.i.i147
 
 .lr.ph.i.i.i147:                                  ; preds = %.lr.ph.i.i.i147.preheader, %.lr.ph.i.i.i147
@@ -1480,7 +1479,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, i32 noundef %.val14.val.i.i.i148) #19
   %196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
-  %197 = getelementptr inbounds i8, ptr %194, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %.not6.i.i.i149 = icmp eq ptr %197, %181
   br i1 %.not6.i.i.i149, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i147, !llvm.loop !113
 
@@ -1515,7 +1514,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %207 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   %208 = add i64 %207, %.068.i.i.i156
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
-  %209 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i157, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i157, i64 4
   %.not.i.i.i159 = icmp eq ptr %209, %201
   br i1 %.not.i.i.i159, label %210, label %205, !llvm.loop !122
 
@@ -1530,7 +1529,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i161, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i162.preheader
 
 .lr.ph.i.i.i162.preheader:                        ; preds = %210
-  %213 = getelementptr inbounds i8, ptr %1, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.i.i.i162
 
 .lr.ph.i.i.i162:                                  ; preds = %.lr.ph.i.i.i162.preheader, %.lr.ph.i.i.i162
@@ -1540,7 +1539,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, i32 noundef %.val14.val.i.i.i163) #19
   %216 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
-  %217 = getelementptr inbounds i8, ptr %214, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %.not6.i.i.i164 = icmp eq ptr %217, %201
   br i1 %.not6.i.i.i164, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i162, !llvm.loop !123
 
@@ -1575,7 +1574,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %227 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   %228 = add i64 %227, %.068.i.i.i171
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  %229 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i172, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i172, i64 8
   %.not.i.i.i174 = icmp eq ptr %229, %221
   br i1 %.not.i.i.i174, label %230, label %225, !llvm.loop !132
 
@@ -1590,7 +1589,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i176, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i177.preheader
 
 .lr.ph.i.i.i177.preheader:                        ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %1, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i.i177
 
 .lr.ph.i.i.i177:                                  ; preds = %.lr.ph.i.i.i177.preheader, %.lr.ph.i.i.i177
@@ -1600,7 +1599,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i64 noundef %.val14.val.i.i.i178)
   %236 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
-  %237 = getelementptr inbounds i8, ptr %234, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %.not6.i.i.i179 = icmp eq ptr %237, %221
   br i1 %.not6.i.i.i179, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i177, !llvm.loop !133
 
@@ -1635,7 +1634,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   %247 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   %248 = add i64 %247, %.068.i.i.i186
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
-  %249 = getelementptr inbounds i8, ptr %.sroa.01.07.i.i.i187, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i187, i64 8
   %.not.i.i.i189 = icmp eq ptr %249, %241
   br i1 %.not.i.i.i189, label %250, label %245, !llvm.loop !142
 
@@ -1650,7 +1649,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   br i1 %.not69.i.i.i191, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i192.preheader
 
 .lr.ph.i.i.i192.preheader:                        ; preds = %250
-  %253 = getelementptr inbounds i8, ptr %1, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i.i.i192
 
 .lr.ph.i.i.i192:                                  ; preds = %.lr.ph.i.i.i192.preheader, %.lr.ph.i.i.i192
@@ -1660,7 +1659,7 @@ define dso_local void @_ZN4llvm19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpec
   call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i64 noundef %.val14.val.i.i.i193)
   %256 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
-  %257 = getelementptr inbounds i8, ptr %254, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %.not6.i.i.i194 = icmp eq ptr %257, %241
   br i1 %.not6.i.i.i194, label %"_ZN4llvm4joinINS_14iterator_rangeINS_15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEESG_OT_NS_9StringRefE.exit", label %.lr.ph.i.i.i192, !llvm.loop !143
 
@@ -1703,7 +1702,7 @@ declare void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm4json7OStreamC2ERNS_11raw_ostreamEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %4, i64 noundef 16) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -1754,7 +1753,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(5) ptr @_ZN4l
   br i1 %.not.i.i.i, label %5, label %_ZN4llvm23SmallVectorTemplateBaseINS_4json7OStream5StateELb1EE9push_backES3_.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef %3, i64 noundef 8) #19
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_4json7OStream5StateELb1EE9push_backES3_.exit
 
@@ -1868,7 +1867,7 @@ define linkonce_odr hidden void @_ZN4llvm4json5ValueC2ENS_9StringRefE(ptr nounde
   store i16 5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
   %7 = tail call noundef zeroext i1 @_ZN4llvm4json6isUTF8ENS_9StringRefEPm(ptr %1, i64 %2, ptr noundef null) #19
   br i1 %7, label %9, label %8
@@ -1936,7 +1935,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm4json8fromJSONERKNS0_5Val
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.03.0.copyload = load ptr, ptr %13, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %14
 
@@ -2023,8 +2022,8 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIlSaIlE
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIlSaIlEE6resizeEm.exit
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %23
 
 23:                                               ; preds = %.lr.ph, %43
@@ -2198,7 +2197,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit: ; preds = %_ZNSt6vectorIlSa
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i64, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i64, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i64, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -2348,17 +2347,17 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %30 = udiv i32 %.020.i, 100
   %31 = or disjoint i32 %29, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i32 %.01819.i to i64
-  %36 = getelementptr inbounds i8, ptr %25, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 %35
   store i8 %34, ptr %36, align 1
   %37 = zext nneg i32 %29 to i64
-  %38 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %37
   %39 = load i8, ptr %38, align 2
   %40 = add i32 %.01819.i, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %25, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %41
   store i8 %39, ptr %42, align 1
   %43 = add i32 %.01819.i, -2
   %44 = icmp ugt i32 %.020.i, 9999
@@ -2373,12 +2372,12 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %47 = shl nuw nsw i32 %.0.lcssa.i, 1
   %48 = or disjoint i32 %47, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %25, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %51, ptr %52, align 1
   %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %53
   %55 = load i8, ptr %54, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2461,17 +2460,17 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %29 = udiv i32 %.020.i, 100
   %30 = or disjoint i32 %28, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
-  %35 = getelementptr inbounds i8, ptr %22, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 %34
   store i8 %33, ptr %35, align 1
   %36 = zext nneg i32 %28 to i64
-  %37 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %36
   %38 = load i8, ptr %37, align 2
   %39 = add i32 %.01819.i, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 %40
   store i8 %38, ptr %41, align 1
   %42 = add i32 %.01819.i, -2
   %43 = icmp ugt i32 %.020.i, 9999
@@ -2486,12 +2485,12 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %46 = shl nuw nsw i32 %.0.lcssa.i, 1
   %47 = or disjoint i32 %46, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %22, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %50, ptr %51, align 1
   %52 = zext nneg i32 %46 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2574,16 +2573,16 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   %29 = shl nuw nsw i64 %28, 1
   %30 = udiv i64 %.020.i, 100
   %31 = or disjoint i64 %29, 1
-  %32 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = zext i32 %.01819.i to i64
-  %35 = getelementptr inbounds i8, ptr %25, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 %34
   store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %29
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %29
   %37 = load i8, ptr %36, align 2
   %38 = add i32 %.01819.i, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %25, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
   store i8 %37, ptr %40, align 1
   %41 = add i32 %.01819.i, -2
   %42 = icmp ugt i64 %.020.i, 9999
@@ -2597,11 +2596,11 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
 44:                                               ; preds = %._crit_edge.i
   %45 = shl nuw nsw i64 %.0.lcssa.i, 1
   %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %25, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
+  %50 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
   %51 = load i8, ptr %50, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -2679,16 +2678,16 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   %28 = shl nuw nsw i64 %27, 1
   %29 = udiv i64 %.020.i, 100
   %30 = or disjoint i64 %28, 1
-  %31 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i32 %.01819.i to i64
-  %34 = getelementptr inbounds i8, ptr %22, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 %33
   store i8 %32, ptr %34, align 1
-  %35 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %28
+  %35 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %28
   %36 = load i8, ptr %35, align 2
   %37 = add i32 %.01819.i, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %22, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 %38
   store i8 %36, ptr %39, align 1
   %40 = add i32 %.01819.i, -2
   %41 = icmp ugt i64 %.020.i, 9999
@@ -2702,11 +2701,11 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 43:                                               ; preds = %._crit_edge.i
   %44 = shl nuw nsw i64 %.0.lcssa.i, 1
   %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %22, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %44
+  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %44
   %50 = load i8, ptr %49, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

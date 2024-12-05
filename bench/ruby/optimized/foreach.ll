@@ -58,12 +58,12 @@ define internal noundef i64 @unp_fec(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.checker, align 8
   %4 = tail call ptr @rb_st_init_numtable() #4
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %6, align 8
   tail call void @rb_st_add_direct(ptr noundef %4, i64 noundef 0, i64 noundef 0) #4
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -128,12 +128,12 @@ define internal noundef i64 @unp_fe(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.checker, align 8
   %4 = tail call ptr @rb_st_init_numtable() #4
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %6, align 8
   tail call void @rb_st_add_direct(ptr noundef %4, i64 noundef 0, i64 noundef 0) #4
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -211,7 +211,7 @@ define internal range(i32 1, 4) i32 @unp_fec_i(i64 noundef %0, i64 noundef %1, i
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8
   %.pr.i = load i64, ptr @unp_fec_i.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -235,7 +235,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %8
 
 15:                                               ; preds = %4
   tail call fastcc void @force_unpack_check(ptr noundef %7, i64 noundef %0, i64 noundef %1)
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load i64, ptr %16, align 8
   %.pr.i20 = load i64, ptr @unp_fec_i.rbimpl_id.9, align 8
   %.not4.i21 = icmp eq i64 %.pr.i20, 0
@@ -272,7 +272,7 @@ rbimpl_intern_const.exit31:                       ; preds = %.lr.ph.i29, %21
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %rbimpl_intern_const.exit31
-  %27 = getelementptr inbounds i8, ptr %7, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 1
   %. = select i1 %29, i32 2, i32 3
@@ -297,7 +297,7 @@ rbimpl_intern_const.exit37:                       ; preds = %.lr.ph.i35, %30
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %rbimpl_intern_const.exit37
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 1
   br i1 %38, label %39, label %49
@@ -339,14 +339,14 @@ declare void @rb_st_free_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @force_unpack_check(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.preheader, label %11
@@ -365,7 +365,7 @@ define internal fastcc void @force_unpack_check(ptr nocapture noundef %0, i64 no
 
 14:                                               ; preds = %.preheader
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._crit_edge
@@ -416,7 +416,7 @@ define internal noundef i32 @unp_fe_i(i64 noundef %0, i64 noundef %1, i64 nounde
   %5 = alloca i64, align 8
   %6 = inttoptr i64 %2 to ptr
   tail call fastcc void @force_unpack_check(ptr noundef %6, i64 noundef %0, i64 noundef %1)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %.pr.i = load i64, ptr @unp_fe_i.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -453,7 +453,7 @@ rbimpl_intern_const.exit17:                       ; preds = %.lr.ph.i15, %12
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %rbimpl_intern_const.exit17
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %21, label %28

@@ -74,46 +74,46 @@ $_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4ListIJEEEvE4implEiPNS_15Q
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline15mousePressEventEP11QMouseEvent(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((48, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = extractvalue { double, double } %5, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %6, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %.sroa.0.0.copyload.i = load i32, ptr %3, align 4
   %4 = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %4, label %56, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = extractvalue { double, double } %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load double, ptr %10, align 8
   %12 = fsub double %9, %11
   %13 = load ptr, ptr %6, align 8
   %14 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %15 = extractvalue { double, double } %14, 0
   store double %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 840
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %17, %19
   %21 = uitofp i64 %20 to double
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
-  %25 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %24, align 4
   %28 = add i32 %26, 1
@@ -129,9 +129,9 @@ define void @_ZN16WirelessTimeline14mouseMoveEventEP11QMouseEvent(ptr noundef no
   %37 = fsub double %36, %32
   %38 = fptoui double %37 to i64
   store i64 %38, ptr %16, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 864
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = icmp sgt i64 %42, %35
   br i1 %43, label %44, label %._crit_edge.i
@@ -146,9 +146,9 @@ define void @_ZN16WirelessTimeline14mouseMoveEventEP11QMouseEvent(ptr noundef no
 ._crit_edge.i:                                    ; preds = %5, %44
   %47 = phi i64 [ %42, %44 ], [ %35, %5 ]
   %48 = phi i64 [ %46, %44 ], [ %38, %5 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 872
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i64, ptr %51, align 8
   %53 = icmp ugt i64 %48, %52
   br i1 %53, label %54, label %_ZN16WirelessTimeline8clip_tsfEv.exit
@@ -170,24 +170,24 @@ _ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %54
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN16WirelessTimeline8clip_tsfEv(ptr nocapture noundef nonnull align 8 dereferenceable(896) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 840
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp slt i64 %3, %7
   br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 848
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 848
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %14
 
 9:                                                ; preds = %1
   %10 = sub i64 %7, %3
   store i64 %7, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 848
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %10, %12
   store i64 %13, ptr %11, align 8
@@ -196,15 +196,15 @@ define void @_ZN16WirelessTimeline8clip_tsfEv(ptr nocapture noundef nonnull alig
 14:                                               ; preds = %._crit_edge, %9
   %15 = phi i64 [ %3, %._crit_edge ], [ %7, %9 ]
   %16 = phi i64 [ %.pre, %._crit_edge ], [ %13, %9 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 872
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %16, %20
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 848
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %.neg = sub i64 %20, %16
   %24 = add i64 %.neg, %15
   store i64 %24, ptr %2, align 8
@@ -219,11 +219,11 @@ declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = extractvalue { double, double } %5, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load double, ptr %7, align 8
   %9 = fsub double %6, %8
   %10 = tail call noundef double @llvm.fabs.f64(double %9)
@@ -238,14 +238,14 @@ define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr nocaptu
 15:                                               ; preds = %12
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %17 = tail call ptr @frame_data_sequence_find(ptr noundef %16, i32 noundef %13)
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 1
   %.not = icmp eq i16 %20, 0
   br i1 %.not, label %21, label %24
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %17, i64 92
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 92
   %23 = load i32, ptr %22, align 4
   %.not10 = icmp eq i32 %23, 0
   %spec.select = select i1 %.not10, i32 %13, i32 %23
@@ -262,20 +262,20 @@ define void @_ZN16WirelessTimeline17mouseReleaseEventEP11QMouseEvent(ptr nocaptu
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, double noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 840
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
-  %9 = getelementptr inbounds i8, ptr %7, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr %8, align 4
   %12 = add i32 %10, 1
   %13 = sub i32 %12, %11
   %14 = sitofp i32 %13 to double
   %15 = fdiv double %1, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 848
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %17, %4
   %19 = uitofp i64 %18 to double
@@ -287,16 +287,16 @@ define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr nocapture noundef n
 
 23:                                               ; preds = %2
   %24 = add i32 %22, -1
-  %25 = getelementptr inbounds i8, ptr %0, i64 888
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %26, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr %25, align 8
   %31 = zext i32 %24 to i64
   %32 = inttoptr i64 %31 to ptr
   %33 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %30, ptr noundef %32)
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i64, ptr %34, align 8
   %.not39.i = icmp ugt i64 %35, %21
   br i1 %.not39.i, label %.lr.ph.i, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
@@ -328,7 +328,7 @@ define noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr nocapture noundef n
   %46 = zext nneg i32 %40 to i64
   %47 = inttoptr i64 %46 to ptr
   %48 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %45, ptr noundef %47)
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8
   %.not34.i = icmp ugt i64 %50, %21
   %..026.i = select i1 %.not34.i, i32 %40, i32 %.02640.i
@@ -349,9 +349,9 @@ declare i32 @cf_goto_frame(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture readnone %1) #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 65536
   %.not39 = icmp eq i32 %7, 0
@@ -364,15 +364,15 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
 
 10:                                               ; preds = %8
   %11 = load i32, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
   %15 = inttoptr i64 %14 to ptr
   %16 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %13, ptr noundef %15)
-  %17 = getelementptr inbounds i8, ptr %0, i64 840
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %18 = load i64, ptr %17, align 8
   %19 = uitofp i64 %18 to double
-  %20 = getelementptr inbounds i8, ptr %0, i64 848
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %21 = load i64, ptr %20, align 8
   %22 = uitofp i64 %21 to double
   %23 = fmul double %22, 9.000000e-01
@@ -387,7 +387,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   %29 = fmul double %22, 1.000000e-01
   %30 = tail call double @llvm.fmuladd.f64(double %19, double 9.000000e-01, double %29)
   %31 = fptoui double %30 to i32
-  %32 = getelementptr inbounds i8, ptr %16, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = zext i32 %31 to i64
   %35 = icmp ult i64 %33, %34
@@ -405,7 +405,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   br label %.sink.split
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %16, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %33
   %46 = lshr i64 %45, 1
@@ -415,7 +415,7 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
   br label %.sink.split
 
 49:                                               ; preds = %28
-  %50 = getelementptr inbounds i8, ptr %16, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %51 = load i64, ptr %50, align 8
   %52 = zext i32 %25 to i64
   %53 = icmp ugt i64 %51, %52
@@ -449,9 +449,9 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
 65:                                               ; preds = %.sink.split, %49
   %66 = phi i64 [ %21, %49 ], [ %.sink, %.sink.split ]
   %67 = phi i64 [ %18, %49 ], [ %.ph41, %.sink.split ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 864
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = icmp slt i64 %67, %71
   br i1 %72, label %73, label %._crit_edge.i
@@ -466,9 +466,9 @@ define void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef n
 ._crit_edge.i:                                    ; preds = %65, %73
   %76 = phi i64 [ %71, %73 ], [ %67, %65 ]
   %77 = phi i64 [ %75, %73 ], [ %66, %65 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 872
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = icmp ugt i64 %77, %81
   br i1 %82, label %83, label %_ZN16WirelessTimeline8clip_tsfEv.exit
@@ -490,7 +490,7 @@ _ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %83
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN16WirelessTimeline14get_wlan_radioEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(896) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 888
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
   %6 = inttoptr i64 %5 to ptr
@@ -509,16 +509,16 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
 
 4:                                                ; preds = %2
   %5 = add i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 888
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = zext i32 %5 to i64
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %11, ptr noundef %13)
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %.not39 = icmp ult i64 %1, %16
   br i1 %.not39, label %.lr.ph, label %.loopexit
@@ -550,7 +550,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
   %27 = zext nneg i32 %21 to i64
   %28 = inttoptr i64 %27 to ptr
   %29 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %26, ptr noundef %28)
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
   %.not34 = icmp ult i64 %1, %31
   %..026 = select i1 %.not34, i32 %21, i32 %.02640
@@ -567,7 +567,7 @@ define noundef i32 @_ZN16WirelessTimeline15find_packet_tsfEm(ptr nocapture nound
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline22captureFileReadStartedEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(896) initializes((880, 888)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 880
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store ptr %1, ptr %3, align 8
   tail call void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   ret void
@@ -588,7 +588,7 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
   br i1 %9, label %_ZN7QStringD2Ev.exit20, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 888
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @g_hash_table_size(ptr noundef %12)
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
@@ -611,13 +611,13 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef nonnul
   %20 = load ptr, ptr %11, align 8
   %21 = inttoptr i64 %indvars.iv to ptr
   %22 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef nonnull %21)
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %22, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %57
@@ -718,7 +718,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30:    ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not.i.i31, label %_ZN7QStringD2Ev.exit24.sink.split, label %_ZN7QStringD2Ev.exit24
 
 57:                                               ; preds = %26
-  %58 = getelementptr inbounds i8, ptr %22, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = icmp slt i64 %59, -40000
   br i1 %60, label %61, label %16
@@ -821,25 +821,25 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i55:    ; preds = %_ZN7QStringD2Ev.exi
 ._crit_edge:                                      ; preds = %16, %.preheader
   %88 = load ptr, ptr %11, align 8
   %89 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %88, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  %90 = getelementptr inbounds i8, ptr %0, i64 864
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %89, ptr %90, align 8
   %91 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %92 = load ptr, ptr %11, align 8
   %93 = zext i32 %91 to i64
   %94 = inttoptr i64 %93 to ptr
   %95 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %92, ptr noundef %94)
-  %96 = getelementptr inbounds i8, ptr %0, i64 872
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %95, ptr %96, align 8
   %97 = load ptr, ptr %90, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 840
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store i64 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %95, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 848
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %104, align 8
   tail call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   tail call void @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nonnull poison)
@@ -883,18 +883,18 @@ define void @_ZN16WirelessTimeline14appInitializedEv(ptr noundef nonnull align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 ptrtoint (ptr @_ZN10MainWindow14framesSelectedE5QListIiE to i64), ptr %2, align 8, !noalias !7
-  %.fca.1.gep14.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !7
   store i64 ptrtoint (ptr @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE to i64), ptr %3, align 8, !noalias !7
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !7
   %8 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !7
   store i32 1, ptr %8, align 4, !noalias !7
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFv5QListIiEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %9, align 8, !noalias !7
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 ptrtoint (ptr @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE to i64), ptr %10, align 8, !noalias !7
-  %.repack7.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %.repack7.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !7
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN10MainWindow16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -925,7 +925,7 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline18tap_timeline_resetEPv(ptr noundef %0) #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -943,9 +943,9 @@ define void @_ZN16WirelessTimeline18tap_timeline_resetEPv(ptr noundef %0) #0 ali
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN16WirelessTimeline19tap_timeline_packetEPvP12_packet_infoP12epan_dissectPKvj(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 888
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -969,14 +969,14 @@ define noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr nocapture noundef nonn
 
 4:                                                ; preds = %3
   %5 = uitofp i64 %1 to double
-  %6 = getelementptr inbounds i8, ptr %0, i64 840
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %7 = load i64, ptr %6, align 8
   %8 = uitofp i64 %7 to double
   %9 = fsub double %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %12, align 4
   %16 = add i32 %14, 1
@@ -985,7 +985,7 @@ define noundef i32 @_ZN16WirelessTimeline8positionEmf(ptr nocapture noundef nonn
   %19 = fmul double %9, %18
   %20 = fpext float %2 to double
   %21 = fmul double %19, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 848
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %23 = load i64, ptr %22, align 8
   %24 = sub i64 %23, %7
   %25 = uitofp i64 %24 to double
@@ -1005,27 +1005,27 @@ define void @_ZN16WirelessTimelineC2EP7QWidget(ptr noundef nonnull align 8 deref
   %5 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %6, align 8
   invoke void @_ZN7QWidget9setHiddenEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
           to label %7 unwind label %22
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 1.000000e+00, ptr %8, align 8
   invoke void @_ZN7QWidget14setFixedHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 64)
           to label %9 unwind label %22
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 856
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i32 1, ptr %10, align 8
   invoke void @_ZN7QWidget12setAttributeEN2Qt15WidgetAttributeEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i1 noundef zeroext true)
           to label %_ZN7QWidget16setMouseTrackingEb.exit unwind label %22
 
 _ZN7QWidget16setMouseTrackingEb.exit:             ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 840
-  %13 = getelementptr inbounds i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 864
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
@@ -1033,27 +1033,27 @@ _ZN7QWidget16setMouseTrackingEb.exit:             ; preds = %9
           to label %15 unwind label %22
 
 15:                                               ; preds = %_ZN7QWidget16setMouseTrackingEb.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 888
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store ptr %14, ptr %16, align 8
   %17 = load ptr, ptr @mainApp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 ptrtoint (ptr @_ZN15MainApplication14appInitializedEv to i64), ptr %3, align 8, !noalias !10
-  %.fca.1.gep12.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !10
   store i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), ptr %4, align 8, !noalias !10
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !10
   %18 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %15
   store i32 1, ptr %18, align 4, !noalias !10
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %19, align 8, !noalias !10
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), ptr %20, align 8, !noalias !10
-  %.repack7.i.i = getelementptr inbounds i8, ptr %18, i64 24
+  %.repack7.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !10
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %18, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15MainApplication16staticMetaObjectE)
           to label %21 unwind label %22
@@ -1093,9 +1093,9 @@ declare void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN16WirelessTimelineD2Ev(ptr noundef nonnull align 8 dereferenceable(896) initializes((0, 8), (16, 24)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16WirelessTimeline, i64 448), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 888
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -1157,7 +1157,7 @@ define void @_ZThn16_N16WirelessTimelineD0Ev(ptr noundef %0) unnamed_addr #12 al
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN16WirelessTimeline13setPacketListEP10PacketList(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -1179,28 +1179,28 @@ define void @_ZN16WirelessTimeline9doToolTipEP10wlan_radio6QPointi(ptr nocapture
   %13 = alloca %class.QString, align 8
   %14 = alloca %class.QRect, align 4
   store i64 %2, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8
   %.not.i = icmp eq i64 %16, -1
   br i1 %.not.i, label %_ZN16WirelessTimeline8positionEmf.exit, label %17
 
 17:                                               ; preds = %4
   %18 = uitofp i64 %16 to double
-  %19 = getelementptr inbounds i8, ptr %0, i64 840
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %20 = load i64, ptr %19, align 8
   %21 = uitofp i64 %20 to double
   %22 = fsub double %18, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = add i32 %27, 1
   %30 = sub i32 %29, %28
   %31 = sitofp i32 %30 to double
   %32 = fmul double %22, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 848
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %34 = load i64, ptr %33, align 8
   %35 = sub i64 %34, %20
   %36 = uitofp i64 %35 to double
@@ -1218,27 +1218,27 @@ _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %4, %17
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i64 24, ptr nonnull @.str.4)
   %41 = load ptr, ptr %6, align 8
   store ptr %41, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 16
-  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %48 = getelementptr inbounds i8, ptr %1, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load i64, ptr %48, align 8
   invoke void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %49, i32 noundef 0, i32 noundef 10, i16 32)
           to label %_ZNK7QString3argElii5QChar.exit unwind label %60
 
 _ZNK7QString3argElii5QChar.exit:                  ; preds = %40
   store i32 0, ptr %10, align 4
-  %50 = getelementptr inbounds i8, ptr %10, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %10, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 -1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %10, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 -1, ptr %52, align 4
   invoke void @_ZN8QToolTip8showTextERK6QPointRK7QStringP7QWidgetRK5QRecti(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %10, i32 noundef -1)
           to label %53 unwind label %62
@@ -1306,16 +1306,16 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i26:    ; preds = %_ZN7QStringD2Ev.exi
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 32, ptr nonnull @.str.5)
   %71 = load ptr, ptr %5, align 8
   store ptr %71, ptr %13, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 8
-  %73 = getelementptr inbounds i8, ptr %5, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %72, align 8
-  %75 = getelementptr inbounds i8, ptr %13, i64 16
-  %76 = getelementptr inbounds i8, ptr %5, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %77 = load i64, ptr %76, align 8
   store i64 %77, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %78 = getelementptr inbounds i8, ptr %1, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load i64, ptr %78, align 8
   %80 = load i64, ptr %15, align 8
   %81 = sub i64 %79, %80
@@ -1323,7 +1323,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i26:    ; preds = %_ZN7QStringD2Ev.exi
           to label %_ZNK7QString3argEmii5QChar.exit unwind label %99
 
 _ZNK7QString3argEmii5QChar.exit:                  ; preds = %70
-  %82 = getelementptr inbounds i8, ptr %1, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %83 = load i16, ptr %82, align 8
   %84 = zext i16 %83 to i64
   invoke void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %84, i32 noundef 0, i32 noundef 10, i16 32)
@@ -1331,11 +1331,11 @@ _ZNK7QString3argEmii5QChar.exit:                  ; preds = %70
 
 _ZNK7QString3argEtii5QChar.exit:                  ; preds = %_ZNK7QString3argEmii5QChar.exit
   store i32 0, ptr %14, align 4
-  %85 = getelementptr inbounds i8, ptr %14, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 -1, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %14, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 -1, ptr %87, align 4
   invoke void @_ZN8QToolTip8showTextERK6QPointRK7QStringP7QWidgetRK5QRecti(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %14, i32 noundef -1)
           to label %88 unwind label %103
@@ -1462,13 +1462,13 @@ define noundef zeroext i1 @_ZN16WirelessTimeline5eventEP6QEvent(ptr noundef nonn
   %3 = alloca %class.QPoint, align 4
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QRect, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i16, ptr %6, align 8
   %8 = icmp eq i16 %7, 110
   br i1 %8, label %9, label %39
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 4
   %12 = sitofp i32 %11 to double
   %13 = tail call noundef i32 @_ZN16WirelessTimeline11find_packetEd(ptr noundef nonnull align 8 dereferenceable(896) %0, double noundef %12)
@@ -1476,12 +1476,12 @@ define noundef zeroext i1 @_ZN16WirelessTimeline5eventEP6QEvent(ptr noundef nonn
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 888
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %13 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %16, ptr noundef nonnull %18)
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload = load i64, ptr %20, align 4
   %21 = load i32, ptr %10, align 4
   tail call void @_ZN16WirelessTimeline9doToolTipEP10wlan_radio6QPointi(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr noundef %19, i64 %.sroa.0.0.copyload, i32 noundef %21)
@@ -1492,15 +1492,15 @@ define noundef zeroext i1 @_ZN16WirelessTimeline5eventEP6QEvent(ptr noundef nonn
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 0, ptr %3, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %23, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 -1, ptr %26, align 4
   invoke void @_ZN8QToolTip8showTextERK6QPointRK7QStringP7QWidgetRK5QRecti(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef -1)
           to label %27 unwind label %32
@@ -1544,7 +1544,7 @@ _ZN8QToolTip8hideTextEv.exit:                     ; preds = %27, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %38 = getelementptr inbounds i8, ptr %1, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 0, ptr %38, align 4
   br label %41
 
@@ -1561,7 +1561,7 @@ declare noundef zeroext i1 @_ZN7QWidget5eventEP6QEvent(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(896) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.1.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
@@ -1571,7 +1571,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnul
   br i1 %6, label %7, label %74
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load double, ptr %8, align 8
   %10 = fadd double %5, %9
   %11 = fcmp olt double %10, 0.000000e+00
@@ -1579,33 +1579,33 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnul
   %12 = fcmp ogt double %storemerge, 2.500000e+01
   %storemerge5 = select i1 %12, double 2.500000e+01, double %storemerge
   store double %storemerge5, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %16 = extractvalue { double, double } %15, 0
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 20
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %19, align 4
   %23 = add i32 %21, 1
   %24 = sub i32 %23, %22
   %25 = sitofp i32 %24 to double
   %26 = fdiv double %16, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 872
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 864
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = sub i64 %30, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 840
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %37 = load i64, ptr %36, align 8
   %38 = uitofp i64 %37 to double
-  %39 = getelementptr inbounds i8, ptr %0, i64 848
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %40 = load i64, ptr %39, align 8
   %41 = sub i64 %40, %37
   %42 = uitofp i64 %41 to double
@@ -1628,7 +1628,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnul
   %58 = fptoui double %57 to i64
   store i64 %58, ptr %39, align 8
   %59 = load ptr, ptr %31, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = icmp sgt i64 %61, %55
   br i1 %62, label %63, label %._crit_edge.i.i
@@ -1644,7 +1644,7 @@ define void @_ZN16WirelessTimeline10wheelEventEP11QWheelEvent(ptr noundef nonnul
   %66 = phi i64 [ %61, %63 ], [ %55, %7 ]
   %67 = phi i64 [ %65, %63 ], [ %58, %7 ]
   %68 = load ptr, ptr %27, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i64, ptr %69, align 8
   %71 = icmp ugt i64 %67, %70
   br i1 %71, label %72, label %_ZN16WirelessTimeline4zoomEd.exit
@@ -1666,26 +1666,26 @@ _ZN16WirelessTimeline4zoomEd.exit:                ; preds = %._crit_edge.i.i, %7
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline4zoomEd(ptr noundef nonnull align 8 dereferenceable(896) %0, double noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 864
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %6, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 840
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %13 = load i64, ptr %12, align 8
   %14 = uitofp i64 %13 to double
-  %15 = getelementptr inbounds i8, ptr %0, i64 848
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %16, %13
   %18 = uitofp i64 %17 to double
   %19 = tail call double @llvm.fmuladd.f64(double %1, double %18, double %14)
   %20 = fptoui double %19 to i64
   %21 = uitofp i64 %11 to double
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load double, ptr %22, align 8
   %24 = fdiv double %23, 2.500000e+01
   %25 = fsub double 1.000000e+00, %24
@@ -1702,7 +1702,7 @@ define void @_ZN16WirelessTimeline4zoomEd(ptr noundef nonnull align 8 dereferenc
   %35 = fptoui double %34 to i64
   store i64 %35, ptr %15, align 8
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = icmp sgt i64 %38, %32
   br i1 %39, label %40, label %._crit_edge.i
@@ -1718,7 +1718,7 @@ define void @_ZN16WirelessTimeline4zoomEd(ptr noundef nonnull align 8 dereferenc
   %43 = phi i64 [ %38, %40 ], [ %32, %2 ]
   %44 = phi i64 [ %42, %40 ], [ %35, %2 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = icmp ugt i64 %44, %47
   br i1 %48, label %49, label %_ZN16WirelessTimeline8clip_tsfEv.exit
@@ -1738,16 +1738,16 @@ _ZN16WirelessTimeline8clip_tsfEv.exit:            ; preds = %._crit_edge.i, %49
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16WirelessTimeline22bgColorizationProgressEii(ptr noundef nonnull align 8 dereferenceable(896) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.QRect, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 65536
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %73
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 888
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %1 to i64
   %14 = inttoptr i64 %13 to ptr
@@ -1757,7 +1757,7 @@ define void @_ZN16WirelessTimeline22bgColorizationProgressEii(ptr noundef nonnul
   %18 = zext i32 %16 to i64
   %19 = inttoptr i64 %18 to ptr
   %20 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef %19)
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load i64, ptr %21, align 8
   %.not.i = icmp eq i64 %22, -1
   %.pre.pre = load ptr, ptr %5, align 8
@@ -1765,19 +1765,19 @@ define void @_ZN16WirelessTimeline22bgColorizationProgressEii(ptr noundef nonnul
 
 23:                                               ; preds = %10
   %24 = uitofp i64 %22 to double
-  %25 = getelementptr inbounds i8, ptr %0, i64 840
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %26 = load i64, ptr %25, align 8
   %27 = uitofp i64 %26 to double
   %28 = fsub double %24, %27
-  %29 = getelementptr inbounds i8, ptr %.pre.pre, i64 20
-  %30 = getelementptr inbounds i8, ptr %.pre.pre, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %29, align 4
   %33 = add i32 %31, 1
   %34 = sub i32 %33, %32
   %35 = sitofp i32 %34 to double
   %36 = fmul double %28, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 848
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %38, %26
   %40 = uitofp i64 %39 to double
@@ -1787,26 +1787,26 @@ define void @_ZN16WirelessTimeline22bgColorizationProgressEii(ptr noundef nonnul
 
 _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %10, %23
   %.0.i = phi i32 [ %42, %23 ], [ -100, %10 ]
-  %43 = getelementptr inbounds i8, ptr %20, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %44 = load i64, ptr %43, align 8
   %.not.i7 = icmp eq i64 %44, -1
   br i1 %.not.i7, label %_ZN16WirelessTimeline8positionEmf.exit9, label %45
 
 45:                                               ; preds = %_ZN16WirelessTimeline8positionEmf.exit
   %46 = uitofp i64 %44 to double
-  %47 = getelementptr inbounds i8, ptr %0, i64 840
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %48 = load i64, ptr %47, align 8
   %49 = uitofp i64 %48 to double
   %50 = fsub double %46, %49
-  %51 = getelementptr inbounds i8, ptr %.pre.pre, i64 20
-  %52 = getelementptr inbounds i8, ptr %.pre.pre, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %51, align 4
   %55 = add i32 %53, 1
   %56 = sub i32 %55, %54
   %57 = sitofp i32 %56 to double
   %58 = fmul double %50, %57
-  %59 = getelementptr inbounds i8, ptr %0, i64 848
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %60 = load i64, ptr %59, align 8
   %61 = sub i64 %60, %48
   %62 = uitofp i64 %61 to double
@@ -1816,17 +1816,17 @@ _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %10, %23
 
 _ZN16WirelessTimeline8positionEmf.exit9:          ; preds = %_ZN16WirelessTimeline8positionEmf.exit, %45
   %.0.i8 = phi i32 [ %64, %45 ], [ -100, %_ZN16WirelessTimeline8positionEmf.exit ]
-  %65 = getelementptr inbounds i8, ptr %.pre.pre, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 32
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %.pre.pre, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 24
   %68 = load i32, ptr %67, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 %.0.i, ptr %4, align 4
-  %69 = getelementptr inbounds i8, ptr %4, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.0.i8, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %4, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %72 = sub i32 %66, %68
   store i32 %72, ptr %71, align 4
   call void @_ZN7QWidget6updateERK5QRect(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(16) %4)
@@ -1862,14 +1862,14 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnul
   %20 = alloca %class.pcolor, align 4
   %21 = alloca %class.QRectF, align 8
   %22 = alloca %class.QRectF, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %23)
   %24 = invoke noundef ptr @_ZNK8QPainter6deviceEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %25 unwind label %109
 
 25:                                               ; preds = %2
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = invoke noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(10) %24, i32 noundef 12)
           to label %30 unwind label %109
@@ -1878,11 +1878,11 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnul
   %31 = sitofp i32 %29 to double
   %32 = fmul double %31, 0x3EF0000000000000
   %33 = fptrunc double %32 to float
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 4
   %36 = sitofp i32 %35 to float
   %37 = fmul float %33, %36
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load i32, ptr %38, align 4
   %40 = sitofp i32 %39 to float
   %41 = fmul float %33, %40
@@ -1903,18 +1903,18 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef nonnul
 _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
   %46 = fptosi float %37 to i32
   %47 = fptosi float %41 to i32
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 20
-  %51 = getelementptr inbounds i8, ptr %49, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %50, align 4
   %54 = add i32 %52, 1
   %55 = sub i32 %54, %53
   %56 = sitofp i32 %55 to double
-  %57 = getelementptr inbounds i8, ptr %0, i64 848
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 840
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %60 = load i64, ptr %59, align 8
   %61 = sub i64 %58, %60
   %62 = uitofp i64 %61 to double
@@ -1922,37 +1922,37 @@ _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
   %64 = fpext float %33 to double
   %65 = fmul double %63, %64
   store i32 1, ptr %10, align 4
-  %66 = getelementptr inbounds i8, ptr %10, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i16 -1, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %10, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 6
   store i16 -3856, ptr %67, align 2
-  %68 = getelementptr inbounds i8, ptr %10, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 -3856, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %10, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i16 -3856, ptr %69, align 2
-  %70 = getelementptr inbounds i8, ptr %10, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i16 0, ptr %70, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %71 = getelementptr inbounds i8, ptr %7, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %7, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = add i32 %55, -1
   store i32 %73, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %7, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 63, ptr %74, align 4
   invoke void @_ZN8QPainter8fillRectERK5QRectRK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(14) %10)
           to label %75 unwind label %109
 
 75:                                               ; preds = %_ZL9reset_rgbPA3_f.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %76 = getelementptr inbounds i8, ptr %0, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %77 = load ptr, ptr %76, align 8
   store i32 0, ptr %12, align 4
-  %78 = getelementptr inbounds i8, ptr %12, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %78, align 4
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 496
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 496
   %81 = load ptr, ptr %80, align 8
   invoke void %81(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 4 dereferenceable(8) %12)
           to label %82 unwind label %109
@@ -1964,19 +1964,19 @@ _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
           to label %86 unwind label %109
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %85, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %88, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %90, 1
   %94 = sub i32 %93, %92
   store i32 0, ptr %14, align 4
-  %95 = getelementptr inbounds i8, ptr %14, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %84, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 496
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 496
   %98 = load ptr, ptr %97, align 8
   invoke void %98(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 4 dereferenceable(8) %14)
           to label %99 unwind label %109
@@ -2009,7 +2009,7 @@ _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
 
 113:                                              ; preds = %111
   %114 = load i32, ptr %102, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 888
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %116 = load ptr, ptr %115, align 8
   %117 = zext i32 %114 to i64
   %118 = inttoptr i64 %117 to ptr
@@ -2017,7 +2017,7 @@ _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
           to label %_ZN16WirelessTimeline14get_wlan_radioEj.exit unwind label %109
 
 _ZN16WirelessTimeline14get_wlan_radioEj.exit:     ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8
   %.not.i = icmp eq i64 %121, -1
   br i1 %.not.i, label %_ZN16WirelessTimeline8positionEmf.exit, label %122
@@ -2028,8 +2028,8 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit:     ; preds = %113
   %125 = uitofp i64 %124 to double
   %126 = fsub double %123, %125
   %127 = load ptr, ptr %48, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 20
-  %129 = getelementptr inbounds i8, ptr %127, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 20
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %130 = load i32, ptr %129, align 4
   %131 = load i32, ptr %128, align 4
   %132 = add i32 %130, 1
@@ -2051,8 +2051,8 @@ _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %122, %_ZN16Wireless
 
 144:                                              ; preds = %_ZN16WirelessTimeline8positionEmf.exit
   %145 = load ptr, ptr %48, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 20
-  %147 = getelementptr inbounds i8, ptr %145, i64 28
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 20
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %148 = load i32, ptr %147, align 4
   %149 = load i32, ptr %146, align 4
   %150 = add i32 %148, 1
@@ -2061,7 +2061,7 @@ _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %122, %_ZN16Wireless
 
 152:                                              ; preds = %_ZN16WirelessTimeline8positionEmf.exit
   %153 = load i32, ptr %105, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 888
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %155 = load ptr, ptr %154, align 8
   %156 = zext i32 %153 to i64
   %157 = inttoptr i64 %156 to ptr
@@ -2069,7 +2069,7 @@ _ZN16WirelessTimeline8positionEmf.exit:           ; preds = %122, %_ZN16Wireless
           to label %_ZN16WirelessTimeline14get_wlan_radioEj.exit168 unwind label %109
 
 _ZN16WirelessTimeline14get_wlan_radioEj.exit168:  ; preds = %152
-  %159 = getelementptr inbounds i8, ptr %158, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load i64, ptr %159, align 8
   %.not.i169 = icmp eq i64 %160, -1
   br i1 %.not.i169, label %_ZN16WirelessTimeline8positionEmf.exit171, label %161
@@ -2080,8 +2080,8 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit168:  ; preds = %152
   %164 = uitofp i64 %163 to double
   %165 = fsub double %162, %164
   %166 = load ptr, ptr %48, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 20
-  %168 = getelementptr inbounds i8, ptr %166, i64 28
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 20
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 28
   %169 = load i32, ptr %168, align 4
   %170 = load i32, ptr %167, align 4
   %171 = add i32 %169, 1
@@ -2107,11 +2107,11 @@ _ZN16WirelessTimeline8positionEmf.exit171:        ; preds = %161, %_ZN16Wireless
   %187 = fdiv float %186, %33
   %188 = fpext float %187 to double
   store double %184, ptr %15, align 8
-  %189 = getelementptr inbounds i8, ptr %15, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double 0.000000e+00, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %15, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double %188, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %15, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double 6.400000e+01, ptr %191, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %6, i32 noundef 3) #19
@@ -2126,7 +2126,7 @@ _ZN16WirelessTimeline8positionEmf.exit171:        ; preds = %161, %_ZN16Wireless
 
 194:                                              ; preds = %192
   %195 = load i32, ptr %193, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 888
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %197 = load ptr, ptr %196, align 8
   %198 = zext i32 %195 to i64
   %199 = inttoptr i64 %198 to ptr
@@ -2138,7 +2138,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit172:  ; preds = %194
   br i1 %.not160, label %256, label %201
 
 201:                                              ; preds = %_ZN16WirelessTimeline14get_wlan_radioEj.exit172
-  %202 = getelementptr inbounds i8, ptr %200, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = load i64, ptr %202, align 8
   %.not.i173 = icmp eq i64 %203, -1
   br i1 %.not.i173, label %_ZN16WirelessTimeline8positionEmf.exit175, label %204
@@ -2149,8 +2149,8 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit172:  ; preds = %194
   %207 = uitofp i64 %206 to double
   %208 = fsub double %205, %207
   %209 = load ptr, ptr %48, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 20
-  %211 = getelementptr inbounds i8, ptr %209, i64 28
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 20
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 28
   %212 = load i32, ptr %211, align 4
   %213 = load i32, ptr %210, align 4
   %214 = add i32 %212, 1
@@ -2167,7 +2167,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit172:  ; preds = %194
 
 _ZN16WirelessTimeline8positionEmf.exit175:        ; preds = %204, %201
   %.0.i174 = phi i32 [ %223, %204 ], [ -100, %201 ]
-  %224 = getelementptr inbounds i8, ptr %200, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %225 = load i64, ptr %224, align 8
   %.not.i176 = icmp eq i64 %225, -1
   br i1 %.not.i176, label %_ZN16WirelessTimeline8positionEmf.exit178, label %226
@@ -2178,8 +2178,8 @@ _ZN16WirelessTimeline8positionEmf.exit175:        ; preds = %204, %201
   %229 = uitofp i64 %228 to double
   %230 = fsub double %227, %229
   %231 = load ptr, ptr %48, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 20
-  %233 = getelementptr inbounds i8, ptr %231, i64 28
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 20
+  %233 = getelementptr inbounds nuw i8, ptr %231, i64 28
   %234 = load i32, ptr %233, align 4
   %235 = load i32, ptr %232, align 4
   %236 = add i32 %234, 1
@@ -2205,11 +2205,11 @@ _ZN16WirelessTimeline8positionEmf.exit178:        ; preds = %226, %_ZN16Wireless
   %251 = fdiv float %250, %33
   %252 = fpext float %251 to double
   store double %248, ptr %16, align 8
-  %253 = getelementptr inbounds i8, ptr %16, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store double 0.000000e+00, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %16, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store double %252, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %16, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store double 6.400000e+01, ptr %255, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %5, i32 noundef 9) #19
@@ -2240,13 +2240,13 @@ _ZN8QPainter8fillRectERK6QRectFN2Qt11GlobalColorE.exit179: ; preds = %_ZN16Wirel
 
 266:                                              ; preds = %257
   %267 = add i32 %265, -1
-  %268 = getelementptr inbounds i8, ptr %0, i64 888
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %269 = load ptr, ptr %268, align 8
   %270 = invoke noundef ptr @g_hash_table_lookup(ptr noundef %269, ptr noundef nonnull inttoptr (i64 1 to ptr))
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %266
-  %271 = getelementptr inbounds i8, ptr %270, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %272 = load i64, ptr %271, align 8
   %273 = load ptr, ptr %268, align 8
   %274 = zext i32 %267 to i64
@@ -2255,7 +2255,7 @@ _ZN8QPainter8fillRectERK6QRectFN2Qt11GlobalColorE.exit179: ; preds = %_ZN16Wirel
           to label %.noexc182 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .noexc182:                                        ; preds = %.noexc
-  %277 = getelementptr inbounds i8, ptr %276, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %278 = load i64, ptr %277, align 8
   %.not39.i = icmp ugt i64 %278, %264
   br i1 %.not39.i, label %.lr.ph.i, label %_ZN16WirelessTimeline15find_packet_tsfEm.exit
@@ -2290,7 +2290,7 @@ _ZN8QPainter8fillRectERK6QRectFN2Qt11GlobalColorE.exit179: ; preds = %_ZN16Wirel
           to label %.noexc183 unwind label %.loopexit.split-lp.loopexit
 
 .noexc183:                                        ; preds = %287
-  %292 = getelementptr inbounds i8, ptr %291, i64 24
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %293 = load i64, ptr %292, align 8
   %.not34.i = icmp ugt i64 %293, %264
   %..026.i = select i1 %.not34.i, i32 %283, i32 %.02640.i
@@ -2308,27 +2308,27 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %257, %.n
 
 .lr.ph:                                           ; preds = %257, %_ZN16WirelessTimeline15find_packet_tsfEm.exit
   %.0.i180253 = phi i32 [ %.0.i180, %_ZN16WirelessTimeline15find_packet_tsfEm.exit ], [ %265, %257 ]
-  %295 = getelementptr inbounds i8, ptr %0, i64 888
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %296 = sitofp i32 %47 to float
   %297 = sitofp i32 %46 to float
-  %298 = getelementptr inbounds i8, ptr %0, i64 856
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %299 = fcmp ult double %65, 1.000000e-02
-  %300 = getelementptr inbounds i8, ptr %18, i64 8
-  %301 = getelementptr inbounds i8, ptr %18, i64 16
-  %302 = getelementptr inbounds i8, ptr %18, i64 24
-  %303 = getelementptr inbounds i8, ptr %20, i64 4
-  %304 = getelementptr inbounds i8, ptr %20, i64 6
-  %305 = getelementptr inbounds i8, ptr %20, i64 8
-  %306 = getelementptr inbounds i8, ptr %20, i64 10
-  %307 = getelementptr inbounds i8, ptr %20, i64 12
-  %308 = getelementptr inbounds i8, ptr %3, i64 8
-  %309 = getelementptr inbounds i8, ptr %3, i64 16
-  %310 = getelementptr inbounds i8, ptr %3, i64 24
-  %311 = getelementptr inbounds i8, ptr %4, i64 4
-  %312 = getelementptr inbounds i8, ptr %4, i64 6
-  %313 = getelementptr inbounds i8, ptr %4, i64 8
-  %314 = getelementptr inbounds i8, ptr %4, i64 10
-  %315 = getelementptr inbounds i8, ptr %4, i64 12
+  %300 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %20, i64 6
+  %305 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %20, i64 10
+  %307 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %308 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %311 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %312 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %313 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %315 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %316
 
 316:                                              ; preds = %.lr.ph, %_ZL14accumulate_rgbPA3_fiiffff.exit
@@ -2368,8 +2368,8 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
 326:                                              ; preds = %_ZN16WirelessTimeline14get_wlan_radioEj.exit185
   %327 = load ptr, ptr %324, align 8
   %.not162 = icmp eq ptr %327, null
-  %328 = getelementptr inbounds i8, ptr %327, i64 20
-  %329 = getelementptr inbounds i8, ptr %324, i64 42
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 20
+  %329 = getelementptr inbounds nuw i8, ptr %324, i64 42
   %.in = select i1 %.not162, ptr %329, ptr %328
   %330 = load i8, ptr %.in, align 2
   %331 = sext i8 %330 to i16
@@ -2378,13 +2378,13 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   %333 = call i16 @llvm.umin.i16(i16 %332, i16 26)
   %334 = call i16 @llvm.umax.i16(i16 %333, i16 2)
   %spec.store.select4 = zext nneg i16 %334 to i32
-  %335 = getelementptr inbounds i8, ptr %324, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %336 = load i64, ptr %335, align 8
   %337 = icmp eq i64 %336, 0
   br i1 %337, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %338
 
 338:                                              ; preds = %326
-  %339 = getelementptr inbounds i8, ptr %324, i64 24
+  %339 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %340 = load i64, ptr %339, align 8
   %341 = icmp eq i64 %340, 0
   br i1 %341, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %342
@@ -2435,23 +2435,23 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   br label %368
 
 368:                                              ; preds = %367, %364
-  %369 = getelementptr inbounds i8, ptr %318, i64 40
+  %369 = getelementptr inbounds nuw i8, ptr %318, i64 40
   %370 = load ptr, ptr %369, align 8
   %.not164 = icmp eq ptr %370, null
   br i1 %.not164, label %387, label %371
 
 371:                                              ; preds = %368
-  %372 = getelementptr inbounds i8, ptr %370, i64 22
+  %372 = getelementptr inbounds nuw i8, ptr %370, i64 22
   %373 = load i16, ptr %372, align 2
   %374 = uitofp i16 %373 to double
   %375 = fdiv double %374, 6.553500e+04
   %376 = fptrunc double %375 to float
-  %377 = getelementptr inbounds i8, ptr %370, i64 24
+  %377 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %378 = load i16, ptr %377, align 2
   %379 = uitofp i16 %378 to double
   %380 = fdiv double %379, 6.553500e+04
   %381 = fptrunc double %380 to float
-  %382 = getelementptr inbounds i8, ptr %370, i64 26
+  %382 = getelementptr inbounds nuw i8, ptr %370, i64 26
   %383 = load i16, ptr %382, align 2
   %384 = uitofp i16 %383 to double
   %385 = fdiv double %384, 6.553500e+04
@@ -2463,7 +2463,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   %.0142 = phi float [ %381, %371 ], [ 0.000000e+00, %368 ]
   %.0141 = phi float [ %386, %371 ], [ 0.000000e+00, %368 ]
   %388 = fpext float %362 to double
-  %389 = getelementptr inbounds i8, ptr %324, i64 40
+  %389 = getelementptr inbounds nuw i8, ptr %324, i64 40
   %390 = load i16, ptr %389, align 8
   %391 = uitofp i16 %390 to double
   %392 = call double @llvm.fmuladd.f64(double %391, double %65, double %388)
@@ -2541,7 +2541,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   br i1 %435, label %.lr.ph.preheader.i, label %.lr.ph.preheader.i192
 
 .lr.ph.preheader.i:                               ; preds = %433
-  %436 = getelementptr inbounds i8, ptr %318, i64 50
+  %436 = getelementptr inbounds nuw i8, ptr %318, i64 50
   %437 = load i16, ptr %436, align 2
   %438 = and i16 %437, 1
   %.not.i186 = icmp eq i16 %438, 0
@@ -2577,7 +2577,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %319
   %454 = add i32 %349, 1
   %455 = sitofp i32 %454 to float
   %456 = fsub float %455, %347
-  %457 = getelementptr inbounds i8, ptr %318, i64 50
+  %457 = getelementptr inbounds nuw i8, ptr %318, i64 50
   %458 = load i16, ptr %457, align 2
   %459 = and i16 %458, 1
   %.not.i191 = icmp eq i16 %459, 0
@@ -2724,29 +2724,29 @@ _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.lr.ph.i203, %.lr.p
 
 ._crit_edge:                                      ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit, %351, %_ZN16WirelessTimeline15find_packet_tsfEm.exit
   %539 = load ptr, ptr %48, align 8
-  %540 = getelementptr inbounds i8, ptr %539, i64 20
-  %541 = getelementptr inbounds i8, ptr %539, i64 28
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 20
+  %541 = getelementptr inbounds nuw i8, ptr %539, i64 28
   %542 = load i32, ptr %541, align 4
   %543 = load i32, ptr %540, align 4
-  %544 = getelementptr inbounds i8, ptr %539, i64 32
+  %544 = getelementptr inbounds nuw i8, ptr %539, i64 32
   %545 = load i32, ptr %544, align 4
-  %546 = getelementptr inbounds i8, ptr %539, i64 24
+  %546 = getelementptr inbounds nuw i8, ptr %539, i64 24
   %547 = load i32, ptr %546, align 4
-  %548 = getelementptr inbounds i8, ptr %21, i64 16
+  %548 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %549 = add i32 %542, 1
   %550 = sub i32 %549, %543
   %551 = sitofp i32 %550 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store double %551, ptr %548, align 8
-  %552 = getelementptr inbounds i8, ptr %21, i64 24
+  %552 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %553 = add i32 %545, 1
   %554 = sub i32 %553, %547
   %555 = sitofp i32 %554 to double
   store double %555, ptr %552, align 8
-  %556 = getelementptr inbounds i8, ptr %22, i64 16
+  %556 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store double %551, ptr %556, align 8
-  %557 = getelementptr inbounds i8, ptr %22, i64 24
+  %557 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store double %555, ptr %557, align 8
   invoke void @_ZN14QGraphicsScene6renderEP8QPainterRK6QRectFS4_N2Qt15AspectRatioModeE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 1)
           to label %558 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -2789,14 +2789,14 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef no
   %9 = fpext float %8 to double
   %10 = fdiv float 1.000000e+00, %3
   %11 = fpext float %10 to double
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 6
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 10
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %20
 
 20:                                               ; preds = %4, %73
@@ -2981,9 +2981,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFv5QList
   br label %53
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %11, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %12 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
@@ -3008,12 +3008,12 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFv5QList
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
-  %30 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %25, null
@@ -3068,11 +3068,11 @@ _ZN9QtPrivate15FunctionPointerIM16WirelessTimelineFv5QListIiEEE4callINS_4ListIJS
 
 45:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %46, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %47 = icmp eq i64 %.unpack, %.unpack9
   %48 = icmp eq i64 %.unpack, 0
@@ -3104,9 +3104,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4
   br label %29
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %10, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
   %12 = and i64 %.unpack12, 1
@@ -3131,11 +3131,11 @@ _ZN9QtPrivate15FunctionPointerIM16WirelessTimelineFvvEE4callINS_4ListIJEEEvEEvS3
 
 21:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %22, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %23 = icmp eq i64 %.unpack, %.unpack9
   %24 = icmp eq i64 %.unpack, 0

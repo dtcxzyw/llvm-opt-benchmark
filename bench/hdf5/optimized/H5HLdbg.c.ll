@@ -38,13 +38,13 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
 
 9:                                                ; preds = %5
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, i32 noundef %3, ptr noundef nonnull @.str.3) #6
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.5, i64 noundef %12) #6
-  %14 = getelementptr inbounds i8, ptr %7, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %15 = load i64, ptr %14, align 8
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.7, i64 noundef %15) #6
-  %17 = getelementptr inbounds i8, ptr %7, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %18 = load i64, ptr %17, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.8, i64 noundef %18) #6
   %20 = load i64, ptr %17, align 8
@@ -60,7 +60,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
 
 27:                                               ; preds = %9
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.3) #6
-  %29 = getelementptr inbounds i8, ptr %7, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.074100 = load ptr, ptr %29, align 8
   %.not101 = icmp eq ptr %.074100, null
   br i1 %.not101, label %._crit_edge107, label %.lr.ph106
@@ -77,7 +77,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %.075102 = phi i32 [ 0, %.lr.ph106 ], [ %60, %58 ]
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.11, i32 noundef %.075102) #6
   %35 = load i64, ptr %.074104, align 8
-  %36 = getelementptr inbounds i8, ptr %.074104, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.074104, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %30, ptr noundef nonnull @.str.3, i32 noundef %32, ptr noundef nonnull %6, i64 noundef %35, i64 noundef %37) #6
   %39 = load i64, ptr %.074104, align 8
@@ -126,7 +126,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
 
 58:                                               ; preds = %44, %._crit_edge.thread, %55
   %.172 = phi i64 [ %.071103, %44 ], [ %.071103, %55 ], [ %57, %._crit_edge.thread ]
-  %59 = getelementptr inbounds i8, ptr %.074104, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.074104, i64 24
   %60 = add nuw nsw i32 %.075102, 1
   %.074 = load ptr, ptr %59, align 8
   %.not = icmp eq ptr %.074, null
@@ -150,7 +150,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
 
 69:                                               ; preds = %62, %._crit_edge107
   %70 = phi i64 [ %.pre, %62 ], [ 0, %._crit_edge107 ]
-  %71 = getelementptr inbounds i8, ptr %7, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @H5_buffer_dump(ptr noundef %2, i32 noundef %3, ptr noundef %72, ptr noundef nonnull %21, i64 noundef 0, i64 noundef %70) #6
   br label %77

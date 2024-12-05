@@ -176,7 +176,7 @@ define noundef nonnull ptr @pg_finfo_interpt_pp() local_unnamed_addr #0 {
 define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.LSEG, align 8
   %3 = alloca %struct.LSEG, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #18
@@ -184,22 +184,22 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #18
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %.critedge, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
-  %20 = getelementptr inbounds i8, ptr %11, i64 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = ptrtoint ptr %2 to i64
   %26 = ptrtoint ptr %3 to i64
   %.pre = load i32, ptr %20, align 4
@@ -230,12 +230,12 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %37 = getelementptr [0 x %struct.Point], ptr %16, i64 0, i64 %indvars.iv.next33
   %38 = load double, ptr %36, align 8
   store double %38, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load double, ptr %39, align 8
   store double %40, ptr %17, align 8
   %41 = load double, ptr %37, align 8
   store double %41, ptr %18, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %43 = load double, ptr %42, align 8
   store double %43, ptr %19, align 8
   %44 = add i32 %35, -1
@@ -252,12 +252,12 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %48 = getelementptr [0 x %struct.Point], ptr %21, i64 0, i64 %indvars.iv.next
   %49 = load double, ptr %47, align 8
   store double %49, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load double, ptr %50, align 8
   store double %51, ptr %22, align 8
   %52 = load double, ptr %48, align 8
   store double %52, ptr %23, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load double, ptr %53, align 8
   store double %54, ptr %24, align 8
   %55 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
@@ -275,7 +275,7 @@ define i64 @interpt_pp(ptr nocapture noundef %0) local_unnamed_addr #1 {
   br i1 %32, label %62, label %.critedge
 
 .critedge:                                        ; preds = %1, %._crit_edge
-  %61 = getelementptr inbounds i8, ptr %0, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %61, align 4
   br label %64
 
@@ -302,7 +302,7 @@ define noundef nonnull ptr @pg_finfo_overpaid() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 2) i64 @overpaid(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #18
@@ -312,7 +312,7 @@ define range(i64 0, 2) i64 @overpaid(ptr nocapture noundef %0) local_unnamed_add
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %16
 
@@ -344,7 +344,7 @@ define noundef nonnull ptr @pg_finfo_widget_out() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define noundef i64 @widget_in(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca [3 x ptr], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   br label %switch.early.test
@@ -392,15 +392,15 @@ switch.early.test:                                ; preds = %1, %15
   %23 = load ptr, ptr %2, align 16
   %24 = tail call double @atof(ptr noundef %23) #20
   store double %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call double @atof(ptr noundef %26) #20
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store double %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load ptr, ptr %29, align 16
   %31 = tail call double @atof(ptr noundef %30) #20
-  %32 = getelementptr inbounds i8, ptr %22, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store double %31, ptr %32, align 8
   %33 = ptrtoint ptr %22 to i64
   ret i64 %33
@@ -422,13 +422,13 @@ declare double @atof(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i64 @widget_out(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load double, ptr %8, align 8
   %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, double noundef %5, double noundef %7, double noundef %9) #18
   %11 = ptrtoint ptr %10 to i64
@@ -444,14 +444,14 @@ define noundef nonnull ptr @pg_finfo_pt_in_widget() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 2) i64 @pt_in_widget(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %3, i64 noundef %5) #18
   %8 = bitcast i64 %7 to double
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fcmp ogt double %10, %8
   %12 = zext i1 %11 to i64
@@ -467,7 +467,7 @@ define noundef nonnull ptr @pg_finfo_reverse_name() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @reverse_name(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @palloc0(i64 noundef 64) #18
@@ -532,7 +532,7 @@ define noundef nonnull ptr @pg_finfo_trigger_return_old() local_unnamed_addr #0 
 
 ; Function Attrs: nounwind uwtable
 define i64 @trigger_return_old(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -550,7 +550,7 @@ define i64 @trigger_return_old(ptr nocapture noundef readonly %0) local_unnamed_
   unreachable
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   ret i64 %13
@@ -568,10 +568,10 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca [2 x i32], align 4
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %indvars.iv.sroa.gep171 = getelementptr inbounds i8, ptr %2, i64 4
+  %indvars.iv.sroa.gep171 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
@@ -587,7 +587,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 4
   %.not132 = icmp eq i32 %16, 0
@@ -627,15 +627,15 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = load ptr, ptr %32, align 8
   br label %34
 
 34:                                               ; preds = %26, %31
   %.0121 = phi ptr [ %33, %31 ], [ null, %26 ]
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @SPI_getrelname(ptr noundef %38) #18
   %.b133 = load i1, ptr @ttoff, align 1
@@ -649,9 +649,9 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %209
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %6, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 42
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 42
   %47 = load i16, ptr %46, align 2
   %.not134 = icmp eq i16 %47, 2
   br i1 %.not134, label %53, label %48
@@ -666,9 +666,9 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %45, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %38, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %57, align 8
   br label %60
@@ -726,7 +726,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 87:                                               ; preds = %78
-  %88 = getelementptr inbounds i8, ptr %2, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
   %91 = load i8, ptr %4, align 1
@@ -1009,7 +1009,7 @@ define noundef nonnull ptr @pg_finfo_set_ttdummy() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @set_ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %.b3 = load i1, ptr @ttoff, align 1
   %4 = and i64 %3, 4294967295
@@ -1040,7 +1040,7 @@ define noundef nonnull ptr @pg_finfo_int44in() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @int44in(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @palloc(i64 noundef 16) #18
@@ -1077,7 +1077,7 @@ define noundef nonnull ptr @pg_finfo_int44out() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @int44out(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @palloc(i64 noundef 64) #18
@@ -1102,7 +1102,7 @@ define noundef nonnull ptr @pg_finfo_test_canonicalize_path() local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define i64 @test_canonicalize_path(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #18
@@ -1127,28 +1127,28 @@ define noundef nonnull ptr @pg_finfo_make_tuple_indirect() local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.HeapTupleData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #18
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %8, i32 noundef %10) #18
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr %6, align 4
   %14 = lshr i32 %13, 2
   store i32 %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 -1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 -1, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %19, align 8
   %20 = sext i32 %12 to i64
   %21 = shl nsw i64 %20, 3
@@ -1162,14 +1162,14 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %27 = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %28
 
 28:                                               ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %29 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %27, i64 0, i64 %indvars.iv
-  %30 = getelementptr inbounds i8, ptr %29, i64 95
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 95
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %98, label %33
@@ -1181,7 +1181,7 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %36, label %98, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %29, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %39 = load i16, ptr %38, align 8
   %.not = icmp eq i16 %39, -1
   br i1 %.not, label %40, label %98
@@ -1195,7 +1195,7 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %43, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %51 [
     i8 1, label %98
@@ -1241,7 +1241,7 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %71, label %72, label %81
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %43, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, 1
   %76 = and i8 %74, -2
@@ -1280,9 +1280,9 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   %.061 = phi ptr [ %50, %49 ], [ %68, %91 ]
   %94 = call ptr @palloc0(i64 noundef 10) #18
   store i8 1, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %94, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
   store i8 1, ptr %95, align 1
-  %96 = getelementptr inbounds i8, ptr %94, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 2
   store ptr %.061, ptr %96, align 1
   %97 = ptrtoint ptr %94 to i64
   store i64 %97, ptr %41, align 8
@@ -1297,7 +1297,7 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   %99 = call ptr @heap_form_tuple(ptr noundef nonnull %11, ptr noundef %22, ptr noundef %23) #18
   call void @pfree(ptr noundef %22) #18
   call void @pfree(ptr noundef %23) #18
-  %100 = getelementptr inbounds i8, ptr %11, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %101 = load i32, ptr %100, align 4
   %102 = icmp sgt i32 %101, -1
   br i1 %102, label %103, label %104
@@ -1308,7 +1308,7 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
 
 104:                                              ; preds = %._crit_edge, %103
   store ptr %25, ptr @CurrentMemoryContext, align 8
-  %105 = getelementptr inbounds i8, ptr %99, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = ptrtoint ptr %106 to i64
   ret i64 %107
@@ -1334,7 +1334,7 @@ define noundef nonnull ptr @pg_finfo_regress_setenv() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @regress_setenv(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #18
@@ -1382,7 +1382,7 @@ define noundef nonnull ptr @pg_finfo_wait_pid() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @wait_pid(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call zeroext i1 @superuser() #18
@@ -2162,10 +2162,10 @@ test_atomic_uint64.exit:                          ; preds = %303
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5)
   store i32 1684234849, ptr %5, align 4
-  %308 = getelementptr inbounds i8, ptr %5, i64 5
+  %308 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i32 842098277, ptr %308, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !23
-  %309 = getelementptr inbounds i8, ptr %5, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 0, ptr %309, align 4
   %310 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %309, i8 1, ptr nonnull elementtype(i8) %309) #18, !srcloc !24
   %.not.i5 = icmp eq i8 %310, 0
@@ -2408,7 +2408,7 @@ define noundef nonnull ptr @pg_finfo_test_support_func() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i32, ptr %4, align 4
@@ -2416,34 +2416,34 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
   br i1 %6, label %7, label %29
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %16 = load i32, ptr %15, align 8
   br i1 %10, label %17, label %23
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %4, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call double @join_selectivity(ptr noundef %12, i32 noundef 96, ptr noundef %14, i32 noundef %16, i32 noundef %19, ptr noundef %21) #18
   br label %27
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = tail call double @restriction_selectivity(ptr noundef %12, i32 noundef 96, ptr noundef %14, i32 noundef %16, i32 noundef %25) #18
   br label %27
 
 27:                                               ; preds = %23, %17
   %.038 = phi double [ %22, %17 ], [ %26, %23 ]
-  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %.038, ptr %28, align 8
   %.pr = load i32, ptr %4, align 4
   br label %29
@@ -2457,14 +2457,14 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
   ]
 
 .thread:                                          ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double 0.000000e+00, ptr %31, align 8
   %32 = load double, ptr @cpu_operator_cost, align 8
   %33 = fmul double %32, 2.000000e+00
   br label %.sink.split
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %70, label %37
@@ -2475,7 +2475,7 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
   br i1 %39, label %40, label %70
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %36, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 16
   %.val = load ptr, ptr %43, align 8
@@ -2487,7 +2487,7 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
   br i1 %48, label %49, label %70
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %44, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %70, label %53
@@ -2498,16 +2498,16 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
   br i1 %55, label %56, label %70
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %46, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %58 = load i8, ptr %57, align 8
   %59 = trunc i8 %58 to i1
   br i1 %59, label %70, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %44, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %46, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = trunc i64 %65 to i32
   %reass.sub = sub i32 %66, %63
@@ -2518,7 +2518,7 @@ define noundef i64 @test_support_func(ptr nocapture noundef readonly %0) local_u
 .sink.split:                                      ; preds = %60, %.thread
   %.sink43 = phi i64 [ 40, %.thread ], [ 32, %60 ]
   %.sink = phi double [ %33, %.thread ], [ %68, %60 ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 %.sink43
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink43
   store double %.sink, ptr %69, align 8
   br label %70
 
@@ -2539,7 +2539,7 @@ define noundef nonnull ptr @pg_finfo_test_opclass_options_func() local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i64 @test_opclass_options_func(ptr nocapture noundef writeonly initializes((28, 29)) %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %2, align 4
   ret i64 0
 }
@@ -2554,7 +2554,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca [2 x i64], align 16
   %4 = alloca [2 x i8], align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #18
@@ -2615,7 +2615,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %8, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 1
   %46 = and i8 %44, -2
@@ -2649,7 +2649,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %64 = and i8 %39, 1
   %.not79 = icmp eq i8 %64, 0
   %.v = select i1 %.not79, i64 4, i64 1
-  %65 = getelementptr inbounds i8, ptr %8, i64 %.v
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 %.v
   %66 = icmp eq i32 %12, %16
   br i1 %66, label %67, label %82
 
@@ -2675,7 +2675,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %79 = call ptr @palloc(i64 noundef %78) #18
   %80 = shl i32 %77, 2
   store i32 %80, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %79, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %81, ptr nonnull align 1 %65, i64 %70, i1 false)
   br label %113
 
@@ -2722,7 +2722,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %109 = call ptr @palloc(i64 noundef %108) #18
   %110 = shl i32 %107, 2
   store i32 %110, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %109, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %sext = shl i64 %105, 32
   %112 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr align 1 %102, i64 %112, i1 false)
@@ -2735,7 +2735,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %.0 = phi ptr [ %8, %67 ], [ %79, %76 ], [ %109, %98 ]
   store i64 %.pre-phi, ptr %3, align 16
   %114 = ptrtoint ptr %.0 to i64
-  %115 = getelementptr inbounds i8, ptr %3, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %114, ptr %115, align 8
   %116 = load ptr, ptr %2, align 8
   %117 = call ptr @heap_form_tuple(ptr noundef %116, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
@@ -2776,7 +2776,7 @@ define noundef nonnull ptr @pg_finfo_binary_coercible() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i64 0, 2) i64 @binary_coercible(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48

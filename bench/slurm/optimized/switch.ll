@@ -78,7 +78,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %9
   store ptr @.str, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %12, align 8
   br i1 %0, label %13, label %17
 
@@ -139,7 +139,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %36 = trunc nuw i64 %indvars.iv.next55 to i32
   %37 = icmp sgt i32 %30, %36
-  %38 = getelementptr inbounds %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv54
+  %38 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv54
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
   br i1 %37, label %.lr.ph, label %._crit_edge
@@ -152,7 +152,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %35, %41
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %41 ], [ %indvars.iv, %35 ]
-  %42 = getelementptr inbounds %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv51
+  %42 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv51
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %.not38 = icmp eq i32 %40, %44
@@ -160,13 +160,13 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr @switch_context, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv54
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv54
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv51
+  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv51
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.4, i32 noundef %40, ptr noundef %50, ptr noundef %54) #10
   unreachable
@@ -178,9 +178,9 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 56:                                               ; preds = %._crit_edge
   %57 = load ptr, ptr @switch_context, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv54
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv54
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.5, i32 noundef %40, ptr noundef %61) #10
   unreachable
@@ -257,7 +257,7 @@ define internal noundef i32 @_load_plugins(ptr noundef %0, ptr nocapture noundef
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %18) #8
   %.not6 = icmp eq i32 %19, 0
@@ -308,7 +308,7 @@ define i32 @switch_fini() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.015 = phi i32 [ %12, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr @switch_context, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @plugin_context_destroy(ptr noundef %10) #8
   %12 = or i32 %11, %.015
@@ -414,13 +414,13 @@ define i32 @switch_g_alloc_jobinfo(ptr nocapture noundef writeonly %0, i32 nound
 5:                                                ; preds = %3
   %6 = load i32, ptr @switch_context_default, align 4
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @__func__._create_dynamic_plugin_data) #8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   store ptr %7, ptr %0, align 8
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr %8, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.slurm_switch_ops, ptr %9, i64 %11, i32 3
+  %12 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %11, i32 3
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %7, i32 noundef %1, i32 noundef %2) #8
   br label %15
@@ -442,7 +442,7 @@ define i32 @switch_g_build_jobinfo(ptr noundef readonly %0, ptr noundef %1, ptr 
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %5, %6
@@ -451,7 +451,7 @@ define i32 @switch_g_build_jobinfo(ptr noundef readonly %0, ptr noundef %1, ptr 
   %.0 = load i32, ptr %.0.in, align 4
   %10 = load ptr, ptr @ops, align 8
   %11 = zext i32 %.0 to i64
-  %12 = getelementptr inbounds %struct.slurm_switch_ops, ptr %10, i64 %11, i32 4
+  %12 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %10, i64 %11, i32 4
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %.07, ptr noundef %1, ptr noundef %2) #8
   br label %15
@@ -468,15 +468,15 @@ define i32 @switch_g_duplicate_jobinfo(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @__func__._create_dynamic_plugin_data) #8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %6, ptr %8, align 8
   store ptr %7, ptr %1, align 8
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds %struct.slurm_switch_ops, ptr %9, i64 %10, i32 5
+  %11 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %10, i32 5
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = tail call i32 %12(ptr noundef %13, ptr noundef %7) #8
@@ -504,10 +504,10 @@ define void @switch_g_free_jobinfo(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @ops, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.slurm_switch_ops, ptr %9, i64 %12, i32 6
+  %13 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %12, i32 6
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %7) #8
   br label %15
@@ -532,7 +532,7 @@ define i32 @switch_g_pack_jobinfo(ptr noundef readonly %0, ptr noundef %1, i16 n
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %5, %6
@@ -545,12 +545,12 @@ define i32 @switch_g_pack_jobinfo(ptr noundef readonly %0, ptr noundef %1, i16 n
   %.0 = load i32, ptr %.0.in, align 4
   %12 = load ptr, ptr @ops, align 8
   %13 = zext i32 %.0 to i64
-  %14 = getelementptr inbounds %struct.slurm_switch_ops, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   tail call void @pack32(i32 noundef %16, ptr noundef %1) #8
   %17 = load ptr, ptr @ops, align 8
-  %18 = getelementptr inbounds %struct.slurm_switch_ops, ptr %17, i64 %13, i32 7
+  %18 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %17, i64 %13, i32 7
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef %.011, ptr noundef %1, i16 noundef zeroext %2) #8
   br label %24
@@ -601,7 +601,7 @@ define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr nocapture noundef write
 
 15:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %16 = getelementptr inbounds %struct.slurm_switch_ops, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %.pre
@@ -618,10 +618,10 @@ define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr nocapture noundef write
 
 22:                                               ; preds = %15
   %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %23, ptr %24, align 8
   %25 = and i64 %indvars.iv, 4294967295
-  %26 = getelementptr inbounds %struct.slurm_switch_ops, ptr %14, i64 %25, i32 8
+  %26 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %14, i64 %25, i32 8
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 %27(ptr noundef %8, ptr noundef %1, i16 noundef zeroext %2) #8
   %.not22 = icmp eq i32 %28, 0
@@ -641,7 +641,7 @@ define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr nocapture noundef write
   call void @switch_g_free_jobinfo(ptr noundef nonnull %8)
   %35 = load i32, ptr @switch_context_default, align 4
   %36 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @__func__._create_dynamic_plugin_data) #8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %35, ptr %37, align 8
   store ptr %36, ptr %0, align 8
   br label %53
@@ -662,10 +662,10 @@ define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr nocapture noundef write
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @ops, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.slurm_switch_ops, ptr %45, i64 %48, i32 6
+  %49 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %45, i64 %48, i32 6
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull %43) #8
   br label %51
@@ -741,7 +741,7 @@ define i32 @switch_g_job_fini(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %3, %4
@@ -750,7 +750,7 @@ define i32 @switch_g_job_fini(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.0 = load i32, ptr %.0.in, align 4
   %8 = load ptr, ptr @ops, align 8
   %9 = zext i32 %.0 to i64
-  %10 = getelementptr inbounds %struct.slurm_switch_ops, ptr %8, i64 %9, i32 11
+  %10 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %8, i64 %9, i32 11
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %.05) #8
   br label %13
@@ -792,7 +792,7 @@ define i32 @switch_g_job_attach(ptr noundef readonly %0, ptr noundef %1, i32 nou
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
 13:                                               ; preds = %9, %10
@@ -801,7 +801,7 @@ define i32 @switch_g_job_attach(ptr noundef readonly %0, ptr noundef %1, i32 nou
   %.0 = load i32, ptr %.0.in, align 4
   %14 = load ptr, ptr @ops, align 8
   %15 = zext i32 %.0 to i64
-  %16 = getelementptr inbounds %struct.slurm_switch_ops, ptr %14, i64 %15, i32 13
+  %16 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %14, i64 %15, i32 13
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %.011, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #8
   br label %19
@@ -823,7 +823,7 @@ define i32 @switch_g_job_step_complete(ptr noundef readonly %0, ptr noundef %1) 
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %4, %5
@@ -832,7 +832,7 @@ define i32 @switch_g_job_step_complete(ptr noundef readonly %0, ptr noundef %1) 
   %.0 = load i32, ptr %.0.in, align 4
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %.0 to i64
-  %11 = getelementptr inbounds %struct.slurm_switch_ops, ptr %9, i64 %10, i32 14
+  %11 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %10, i32 14
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %.06, ptr noundef %1) #8
   br label %14
@@ -854,7 +854,7 @@ define i32 @switch_g_job_step_allocated(ptr noundef readonly %0, ptr noundef %1)
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %4, %5
@@ -863,7 +863,7 @@ define i32 @switch_g_job_step_allocated(ptr noundef readonly %0, ptr noundef %1)
   %.0 = load i32, ptr %.0.in, align 4
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %.0 to i64
-  %11 = getelementptr inbounds %struct.slurm_switch_ops, ptr %9, i64 %10, i32 15
+  %11 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %10, i32 15
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %.06, ptr noundef %1) #8
   br label %14

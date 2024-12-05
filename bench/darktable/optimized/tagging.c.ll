@@ -231,9 +231,9 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1280
   %8 = load i32, ptr %7, align 8, !tbaa !13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
@@ -247,13 +247,13 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %13 = phi ptr [ %11, %10 ], [ %6, %1 ]
   store i32 0, ptr %7, align 8, !tbaa !13
   %14 = tail call i32 @dt_act_on_get_images_nb(i32 noundef 0, i32 noundef 0) #16
-  %15 = getelementptr inbounds i8, ptr %13, i64 1048
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = tail call i64 @gtk_tree_view_get_type() #17
   %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #16
   %19 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %18) #16
   %20 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %19) #16
-  %21 = getelementptr inbounds i8, ptr %13, i64 1040
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 1040
   %22 = load ptr, ptr %21, align 8, !tbaa !17
   %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %17) #16
   %24 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %23) #16
@@ -292,7 +292,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
 42:                                               ; preds = %39, %12
   %43 = phi i1 [ %40, %39 ], [ false, %12 ]
   %44 = icmp sgt i32 %14, 0
-  %45 = getelementptr inbounds i8, ptr %13, i64 1056
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 1056
   %46 = load ptr, ptr %45, align 8, !tbaa !19
   %47 = tail call i64 @gtk_widget_get_type() #17
   %48 = call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %47) #16
@@ -300,7 +300,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %50 = select i1 %44, i1 %49, i1 false
   %51 = zext i1 %50 to i32
   call void @gtk_widget_set_sensitive(ptr noundef %48, i32 noundef %51) #16
-  %52 = getelementptr inbounds i8, ptr %13, i64 1064
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 1064
   %53 = load ptr, ptr %52, align 8, !tbaa !20
   %54 = call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef %47) #16
   %55 = select i1 %44, i1 %43, i1 false
@@ -323,7 +323,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %7 = alloca %struct._GtkTreeIter, align 8
   %8 = alloca %struct._GtkTreeIter, align 8
   %9 = alloca %struct._GtkTreeIter, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %11 = load ptr, ptr %10, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store ptr null, ptr %6, align 8, !tbaa !18
@@ -344,12 +344,12 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 
 20:                                               ; preds = %16, %13
   %21 = phi i1 [ false, %13 ], [ %19, %16 ]
-  %22 = getelementptr inbounds i8, ptr %11, i64 1208
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 1208
   %23 = load i32, ptr %22, align 8, !tbaa !21
   %24 = icmp eq i32 %23, 0
   %25 = zext i1 %24 to i32
   %26 = call i32 @dt_tag_get_attached(i32 noundef %14, ptr noundef nonnull %6, i32 noundef %25) #16
-  %27 = getelementptr inbounds i8, ptr %11, i64 1040
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 1040
   %28 = load ptr, ptr %27, align 8, !tbaa !17
   %29 = tail call i64 @gtk_tree_view_get_type() #17
   %30 = call ptr @g_type_check_instance_cast(ptr noundef %28, i64 noundef %29) #16
@@ -357,13 +357,13 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br label %62
 
 32:                                               ; preds = %2
-  %33 = getelementptr inbounds i8, ptr %11, i64 1192
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 1192
   %34 = load i32, ptr %33, align 8, !tbaa !22
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %11, i64 1196
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 1196
   %38 = load i32, ptr %37, align 4, !tbaa !23
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %42, label %40
@@ -378,7 +378,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 
 44:                                               ; preds = %42, %40
   %45 = phi i32 [ %43, %42 ], [ %41, %40 ]
-  %46 = getelementptr inbounds i8, ptr %11, i64 1048
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 1048
   %47 = load ptr, ptr %46, align 8, !tbaa !16
   %48 = tail call i64 @gtk_tree_view_get_type() #17
   %49 = call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef %48) #16
@@ -389,13 +389,13 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br i1 %52, label %58, label %54
 
 54:                                               ; preds = %44
-  %55 = getelementptr inbounds i8, ptr %11, i64 1152
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 1152
   %56 = load ptr, ptr %55, align 8, !tbaa !24
   %57 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %53) #16
   br label %62
 
 58:                                               ; preds = %44
-  %59 = getelementptr inbounds i8, ptr %11, i64 1144
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 1144
   %60 = load ptr, ptr %59, align 8, !tbaa !25
   %61 = call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %53) #16
   br label %62
@@ -416,7 +416,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br i1 %12, label %211, label %73
 
 73:                                               ; preds = %62
-  %74 = getelementptr inbounds i8, ptr %11, i64 1192
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 1192
   %75 = load i32, ptr %74, align 8, !tbaa !22
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %211, label %77
@@ -446,7 +446,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %87 = phi ptr [ %206, %204 ], [ null, %77 ]
   %88 = phi i32 [ %205, %204 ], [ 0, %77 ]
   %89 = load ptr, ptr %86, align 8, !tbaa !27
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !29
   %92 = icmp eq ptr %91, null
   br i1 %92, label %204, label %93
@@ -471,7 +471,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 .preheader26:                                     ; preds = %99, %110
   %102 = phi i64 [ %111, %110 ], [ 0, %99 ]
   %103 = phi ptr [ %113, %110 ], [ %100, %99 ]
-  %104 = getelementptr inbounds ptr, ptr %87, i64 %102
+  %104 = getelementptr inbounds nuw ptr, ptr %87, i64 %102
   %105 = load ptr, ptr %104, align 8, !tbaa !18
   %106 = icmp eq ptr %105, null
   br i1 %106, label %115, label %107
@@ -483,7 +483,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 
 110:                                              ; preds = %107
   %111 = add nuw nsw i64 %102, 1
-  %112 = getelementptr inbounds ptr, ptr %94, i64 %111
+  %112 = getelementptr inbounds nuw ptr, ptr %94, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !18
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %.preheader26
@@ -523,7 +523,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %132 = phi i32 [ 0, %96 ], [ 0, %.loopexit25 ], [ %119, %142 ]
   %133 = phi i64 [ 0, %96 ], [ 0, %.loopexit25 ], [ %131, %142 ]
   %134 = phi ptr [ null, %96 ], [ null, %.loopexit25 ], [ %147, %142 ]
-  %135 = getelementptr inbounds ptr, ptr %94, i64 %133
+  %135 = getelementptr inbounds nuw ptr, ptr %94, i64 %133
   %136 = load ptr, ptr %135, align 8, !tbaa !18
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.loopexit23, label %138
@@ -537,7 +537,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 142:                                              ; preds = %142, %130
   %143 = phi i64 [ 0, %130 ], [ %148, %142 ]
   %144 = phi ptr [ null, %130 ], [ %147, %142 ]
-  %145 = getelementptr inbounds ptr, ptr %94, i64 %143
+  %145 = getelementptr inbounds nuw ptr, ptr %94, i64 %143
   %146 = load ptr, ptr %145, align 8, !tbaa !18
   %147 = call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %144, ptr noundef nonnull @.str.65, ptr noundef %146) #16
   %148 = add nuw nsw i64 %143, 1
@@ -572,22 +572,22 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 
 168:                                              ; preds = %151
   %169 = load i32, ptr %167, align 8, !tbaa !33
-  %170 = getelementptr inbounds i8, ptr %167, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %171 = load i32, ptr %170, align 8, !tbaa !34
   br label %172
 
 172:                                              ; preds = %168, %151
   %173 = phi i32 [ %169, %168 ], [ 0, %151 ]
   %174 = phi i32 [ %171, %168 ], [ 0, %151 ]
-  %175 = getelementptr inbounds i8, ptr %167, i64 36
+  %175 = getelementptr inbounds nuw i8, ptr %167, i64 36
   %176 = load i32, ptr %175, align 4, !tbaa !35
-  %177 = getelementptr inbounds i8, ptr %167, i64 40
+  %177 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %178 = load i32, ptr %177, align 8, !tbaa !36
-  %179 = getelementptr inbounds i8, ptr %167, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %180 = load ptr, ptr %179, align 8, !tbaa !37
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %164, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %165, i32 noundef 1, i32 noundef %173, i32 noundef 2, ptr noundef nonnull %157, i32 noundef 4, i32 noundef %174, i32 noundef 5, i32 noundef %176, i32 noundef 6, i32 noundef %178, i32 noundef 3, ptr noundef %180, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
   %181 = load ptr, ptr %86, align 8, !tbaa !27
-  %182 = getelementptr inbounds i8, ptr %181, i64 36
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 36
   %183 = load i32, ptr %182, align 4, !tbaa !35
   %184 = icmp eq i32 %183, 0
   br i1 %184, label %197, label %185
@@ -630,7 +630,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %198 = add nuw nsw i32 %155, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !31
   call void @g_free(ptr noundef %157) #16
-  %199 = getelementptr inbounds i8, ptr %153, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !18
   %201 = icmp eq ptr %200, null
   br i1 %201, label %.loopexit23, label %151
@@ -647,7 +647,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 204:                                              ; preds = %203, %93, %.preheader27
   %205 = phi i32 [ %88, %.preheader27 ], [ %97, %203 ], [ %88, %93 ]
   %206 = phi ptr [ %87, %.preheader27 ], [ %94, %203 ], [ %87, %93 ]
-  %207 = getelementptr inbounds i8, ptr %86, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %208 = load ptr, ptr %207, align 8, !tbaa !38
   %209 = icmp eq ptr %208, null
   br i1 %209, label %.loopexit28, label %.preheader27
@@ -673,7 +673,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 .preheader:                                       ; preds = %218, %236
   %219 = phi ptr [ %250, %236 ], [ %215, %218 ]
   %220 = load ptr, ptr %219, align 8, !tbaa !27
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load ptr, ptr %221, align 8, !tbaa !29
   %223 = call ptr @g_strrstr(ptr noundef %222, ptr noundef nonnull @.str.64) #16
   %224 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %212) #16
@@ -683,15 +683,15 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br i1 %226, label %232, label %227
 
 227:                                              ; preds = %.preheader
-  %228 = getelementptr inbounds i8, ptr %223, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %223, i64 1
   %229 = load ptr, ptr %219, align 8, !tbaa !27
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %231 = load ptr, ptr %230, align 8, !tbaa !29
   br label %236
 
 232:                                              ; preds = %.preheader
   %233 = load ptr, ptr %219, align 8, !tbaa !27
-  %234 = getelementptr inbounds i8, ptr %233, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %235 = load ptr, ptr %234, align 8, !tbaa !29
   br label %236
 
@@ -700,16 +700,16 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %238 = phi ptr [ %233, %232 ], [ %229, %227 ]
   %239 = phi ptr [ %235, %232 ], [ %228, %227 ]
   %240 = load i32, ptr %238, align 8, !tbaa !33
-  %241 = getelementptr inbounds i8, ptr %238, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %242 = load i32, ptr %241, align 8, !tbaa !34
-  %243 = getelementptr inbounds i8, ptr %238, i64 36
+  %243 = getelementptr inbounds nuw i8, ptr %238, i64 36
   %244 = load i32, ptr %243, align 4, !tbaa !35
-  %245 = getelementptr inbounds i8, ptr %238, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 40
   %246 = load i32, ptr %245, align 8, !tbaa !36
-  %247 = getelementptr inbounds i8, ptr %238, i64 24
+  %247 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %248 = load ptr, ptr %247, align 8, !tbaa !37
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %225, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %239, i32 noundef 1, i32 noundef %240, i32 noundef 2, ptr noundef %237, i32 noundef 4, i32 noundef %242, i32 noundef 5, i32 noundef %244, i32 noundef 6, i32 noundef %246, i32 noundef 3, ptr noundef %248, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
-  %249 = getelementptr inbounds i8, ptr %219, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %250 = load ptr, ptr %249, align 8, !tbaa !38
   %251 = icmp eq ptr %250, null
   br i1 %251, label %.loopexit, label %.preheader
@@ -717,7 +717,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 .preheader19:                                     ; preds = %218, %269
   %252 = phi ptr [ %281, %269 ], [ %215, %218 ]
   %253 = load ptr, ptr %252, align 8, !tbaa !27
-  %254 = getelementptr inbounds i8, ptr %253, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load ptr, ptr %254, align 8, !tbaa !29
   %256 = call ptr @g_strrstr(ptr noundef %255, ptr noundef nonnull @.str.64) #16
   %257 = call ptr @g_type_check_instance_cast(ptr noundef %66, i64 noundef %212) #16
@@ -728,14 +728,14 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 
 260:                                              ; preds = %.preheader19
   %261 = load ptr, ptr %252, align 8, !tbaa !27
-  %262 = getelementptr inbounds i8, ptr %261, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !29
   br label %269
 
 264:                                              ; preds = %.preheader19
-  %265 = getelementptr inbounds i8, ptr %256, i64 1
+  %265 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %266 = load ptr, ptr %252, align 8, !tbaa !27
-  %267 = getelementptr inbounds i8, ptr %266, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %268 = load ptr, ptr %267, align 8, !tbaa !29
   br label %269
 
@@ -744,14 +744,14 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   %271 = phi ptr [ %261, %260 ], [ %266, %264 ]
   %272 = phi ptr [ %263, %260 ], [ %265, %264 ]
   %273 = load i32, ptr %271, align 8, !tbaa !33
-  %274 = getelementptr inbounds i8, ptr %271, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 32
   %275 = load i32, ptr %274, align 8, !tbaa !34
-  %276 = getelementptr inbounds i8, ptr %271, i64 40
+  %276 = getelementptr inbounds nuw i8, ptr %271, i64 40
   %277 = load i32, ptr %276, align 8, !tbaa !36
-  %278 = getelementptr inbounds i8, ptr %271, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %271, i64 24
   %279 = load ptr, ptr %278, align 8, !tbaa !37
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %258, ptr noundef nonnull %7, i32 noundef 0, ptr noundef %272, i32 noundef 1, i32 noundef %273, i32 noundef 2, ptr noundef %270, i32 noundef 4, i32 noundef %275, i32 noundef 5, i32 noundef 0, i32 noundef 6, i32 noundef %277, i32 noundef 3, ptr noundef %279, i32 noundef 7, i32 noundef 1, i32 noundef -1) #16
-  %280 = getelementptr inbounds i8, ptr %252, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !38
   %282 = icmp eq ptr %281, null
   br i1 %282, label %.loopexit, label %.preheader19
@@ -776,26 +776,26 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
   br i1 %12, label %298, label %290
 
 290:                                              ; preds = %287
-  %291 = getelementptr inbounds i8, ptr %289, i64 1192
+  %291 = getelementptr inbounds nuw i8, ptr %289, i64 1192
   %292 = load i32, ptr %291, align 8, !tbaa !22
   %293 = icmp eq i32 %292, 0
   br i1 %293, label %294, label %308
 
 294:                                              ; preds = %290
-  %295 = getelementptr inbounds i8, ptr %289, i64 1200
+  %295 = getelementptr inbounds nuw i8, ptr %289, i64 1200
   %296 = load i32, ptr %295, align 8, !tbaa !39
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %302, label %308
 
 298:                                              ; preds = %287
-  %299 = getelementptr inbounds i8, ptr %289, i64 1200
+  %299 = getelementptr inbounds nuw i8, ptr %289, i64 1200
   %300 = load i32, ptr %299, align 8, !tbaa !39
   %301 = icmp eq i32 %300, 0
   br i1 %301, label %302, label %308
 
 302:                                              ; preds = %298, %294
   %303 = phi i64 [ 1144, %294 ], [ 1136, %298 ]
-  %304 = getelementptr inbounds i8, ptr %289, i64 1204
+  %304 = getelementptr inbounds nuw i8, ptr %289, i64 1204
   %305 = load i32, ptr %304, align 4, !tbaa !40
   %306 = icmp ne i32 %305, 0
   %307 = zext i1 %306 to i32
@@ -852,7 +852,7 @@ define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef 
   %14 = load ptr, ptr %12, align 8, !tbaa !27
   %15 = load i32, ptr %14, align 8, !tbaa !33
   %16 = call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %13, ptr noundef nonnull @.str.2, i32 noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %10, label %.preheader
@@ -891,7 +891,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
   br i1 %6, label %7, label %47
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = load i8, ptr %1, align 1, !tbaa !26
   %11 = icmp eq i8 %10, 0
@@ -915,7 +915,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
   %22 = and i64 %21, 4294967295
   %23 = inttoptr i64 %22 to ptr
   %24 = tail call ptr @g_list_prepend(ptr noundef %19, ptr noundef %23) #16
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !18
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %.preheader
@@ -930,8 +930,8 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
   br i1 %31, label %46, label %32
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %9, i64 1048
-  %34 = getelementptr inbounds i8, ptr %9, i64 1192
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 1048
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 1192
   br label %35
 
 35:                                               ; preds = %35, %32
@@ -942,7 +942,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
   %40 = load ptr, ptr %33, align 8, !tbaa !16
   %41 = load i32, ptr %34, align 8, !tbaa !22
   tail call fastcc void @_update_attached_count(i32 noundef %39, ptr noundef %40, i32 noundef %41)
-  %42 = getelementptr inbounds i8, ptr %36, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !38
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %35
@@ -1021,9 +1021,9 @@ define internal fastcc void @_update_attached_count(i32 noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_raise_signal_tag_changed(ptr noundef %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 1216
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1216
   %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = load i8, ptr %5, align 1, !tbaa !26
   %7 = icmp eq i8 %6, 0
@@ -1069,13 +1069,13 @@ declare void @dt_image_synch_xmp(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 1024
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   tail call void @gtk_entry_set_text(ptr noundef %5, ptr noundef nonnull @.str.4) #16
   %6 = load ptr, ptr %2, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1024
   %8 = load ptr, ptr %7, align 8, !tbaa !54
   %9 = tail call ptr @gtk_entry_get_text(ptr noundef %8) #16
   %10 = tail call ptr @g_strrstr(ptr noundef %9, ptr noundef nonnull @.str.3) #16
@@ -1091,11 +1091,11 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
   %16 = load i8, ptr %10, align 1, !tbaa !26
   %17 = icmp eq i8 %16, 44
   %18 = zext i1 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !26
   %21 = icmp eq i8 %20, 32
   %22 = zext i1 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
   br label %24
 
 24:                                               ; preds = %15, %12
@@ -1119,10 +1119,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = alloca [2 x ptr], align 8
   %3 = tail call noalias dereferenceable_or_null(1288) ptr @calloc(i64 noundef 1288, i64 noundef 1) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %3, ptr %4, align 8, !tbaa !6
   %5 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %5, ptr %6, align 8, !tbaa !55
   %7 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #16
   %8 = tail call i64 @gtk_box_get_type() #17
@@ -1138,7 +1138,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %12) #16
   %18 = tail call ptr @dt_ui_resize_wrap(ptr noundef %17, i32 noundef 200, ptr noundef nonnull @.str.5) #16
   tail call void @gtk_box_pack_start(ptr noundef %9, ptr noundef %18, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
-  %19 = getelementptr inbounds i8, ptr %3, i64 1040
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1040
   store ptr %16, ptr %19, align 8, !tbaa !17
   tail call void @gtk_tree_view_set_enable_search(ptr noundef %16, i32 noundef 0) #16
   tail call void @gtk_tree_view_set_headers_visible(ptr noundef %16, i32 noundef 0) #16
@@ -1150,7 +1150,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   tail call void @gtk_tree_sortable_set_sort_func(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @_sort_tree_tag_func, ptr noundef %0, ptr noundef null) #16
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #16
   tail call void @gtk_tree_sortable_set_sort_func(ptr noundef %24, i32 noundef 2, ptr noundef nonnull @_sort_tree_count_func, ptr noundef %0, ptr noundef null) #16
-  %25 = getelementptr inbounds i8, ptr %3, i64 1136
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 1136
   store ptr %20, ptr %25, align 8, !tbaa !56
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef 80) #16
   tail call void (ptr, ptr, ...) @g_object_set(ptr noundef %26, ptr noundef nonnull @.str.6, i32 noundef 1, ptr noundef null) #16
@@ -1187,22 +1187,22 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %8) #16
   %48 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #16
   %49 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @_attach_button_clicked, ptr noundef %0, ptr noundef %48, i32 noundef 0, i32 noundef 0) #16
-  %50 = getelementptr inbounds i8, ptr %3, i64 1056
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 1056
   store ptr %49, ptr %50, align 8, !tbaa !19
   tail call void @gtk_box_pack_start(ptr noundef %47, ptr noundef %49, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   %51 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #16
   %52 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull @_detach_button_clicked, ptr noundef %0, ptr noundef %51, i32 noundef 0, i32 noundef 0) #16
-  %53 = getelementptr inbounds i8, ptr %3, i64 1064
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 1064
   store ptr %52, ptr %53, align 8, !tbaa !20
   tail call void @gtk_box_pack_start(ptr noundef %47, ptr noundef %52, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr @.str.18, ptr %2, align 8, !tbaa !18
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %54, align 8, !tbaa !18
   %55 = call ptr @dt_action_locate(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 1) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %56 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_minus_simple, i32 noundef 0, ptr noundef null) #16
-  %57 = getelementptr inbounds i8, ptr %3, i64 1120
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 1120
   store ptr %56, ptr %57, align 8, !tbaa !57
   %58 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %56, ptr noundef %58) #16
@@ -1211,7 +1211,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %60 = call i64 @g_signal_connect_data(ptr noundef %59, ptr noundef nonnull @.str.20, ptr noundef nonnull @_toggle_hide_button_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %61 = call ptr @dt_action_define(ptr noundef %55, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef %56, ptr noundef nonnull @dt_action_def_toggle) #16
   %62 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_sorting, i32 noundef 0, ptr noundef null) #16
-  %63 = getelementptr inbounds i8, ptr %3, i64 1112
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 1112
   store ptr %62, ptr %63, align 8, !tbaa !58
   %64 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %62, ptr noundef %64) #16
@@ -1220,7 +1220,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %66 = call i64 @g_signal_connect_data(ptr noundef %65, ptr noundef nonnull @.str.20, ptr noundef nonnull @_toggle_sort_button_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %67 = call ptr @dt_action_define(ptr noundef %55, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef %62, ptr noundef nonnull @dt_action_def_toggle) #16
   %68 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_check_mark, i32 noundef 0, ptr noundef null) #16
-  %69 = getelementptr inbounds i8, ptr %3, i64 1128
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 1128
   store ptr %68, ptr %69, align 8, !tbaa !59
   %70 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %68, ptr noundef %70) #16
@@ -1228,7 +1228,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %71 = call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef 80) #16
   %72 = call i64 @g_signal_connect_data(ptr noundef %71, ptr noundef nonnull @.str.20, ptr noundef nonnull @_toggle_dttags_button_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %73 = call ptr @dt_action_define(ptr noundef %55, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef %68, ptr noundef nonnull @dt_action_def_toggle) #16
-  %74 = getelementptr inbounds i8, ptr %3, i64 1208
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 1208
   store i32 0, ptr %74, align 8, !tbaa !21
   %75 = load ptr, ptr %69, align 8, !tbaa !59
   %76 = tail call i64 @gtk_toggle_button_get_type() #17
@@ -1260,7 +1260,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %94 = call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef 80) #16
   %95 = call i64 @g_signal_connect_data(ptr noundef %94, ptr noundef nonnull @.str.12, ptr noundef nonnull @_enter_key_pressed, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %96 = call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %87) #16
-  %97 = getelementptr inbounds i8, ptr %3, i64 1024
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   store ptr %96, ptr %97, align 8, !tbaa !54
   %98 = call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_multiply_small, i32 noundef 0, ptr noundef null) #16
   %99 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #16
@@ -1272,7 +1272,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   call void @gtk_box_pack_start(ptr noundef %80, ptr noundef %102, i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
   %103 = call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef %12) #16
   call void @dt_gui_add_class(ptr noundef %103, ptr noundef nonnull @.str.28) #16
-  %104 = getelementptr inbounds i8, ptr %3, i64 1032
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   store ptr %98, ptr %104, align 8, !tbaa !60
   %105 = call ptr @dt_action_define(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %98, ptr noundef nonnull @dt_action_def_button) #16
   %106 = call ptr @gtk_tree_view_new() #16
@@ -1280,7 +1280,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %108 = call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef %12) #16
   %109 = call ptr @dt_ui_resize_wrap(ptr noundef %108, i32 noundef 200, ptr noundef nonnull @.str.29) #16
   call void @gtk_box_pack_start(ptr noundef %80, ptr noundef %109, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
-  %110 = getelementptr inbounds i8, ptr %3, i64 1048
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 1048
   store ptr %107, ptr %110, align 8, !tbaa !16
   call void @gtk_tree_view_set_enable_search(ptr noundef %107, i32 noundef 0) #16
   call void @gtk_tree_view_set_headers_visible(ptr noundef %107, i32 noundef 0) #16
@@ -1291,7 +1291,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   call void @gtk_tree_sortable_set_sort_func(ptr noundef %113, i32 noundef 1, ptr noundef nonnull @_sort_tree_tag_func, ptr noundef %0, ptr noundef null) #16
   %114 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %21) #16
   call void @gtk_tree_sortable_set_sort_func(ptr noundef %114, i32 noundef 2, ptr noundef nonnull @_sort_tree_count_func, ptr noundef %0, ptr noundef null) #16
-  %115 = getelementptr inbounds i8, ptr %3, i64 1144
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 1144
   store ptr %111, ptr %115, align 8, !tbaa !25
   %116 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %36) #16
   %117 = call ptr @gtk_tree_model_filter_new(ptr noundef %116, ptr noundef null) #16
@@ -1299,19 +1299,19 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %119 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %118) #16
   call void @gtk_tree_model_filter_set_visible_column(ptr noundef %119, i32 noundef 7) #16
   %120 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %118) #16
-  %121 = getelementptr inbounds i8, ptr %3, i64 1160
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   store ptr %120, ptr %121, align 8, !tbaa !61
   %122 = call ptr (i32, ...) @gtk_tree_store_new(i32 noundef 8, i64 noundef 64, i64 noundef 28, i64 noundef 64, i64 noundef 64, i64 noundef 28, i64 noundef 28, i64 noundef 28, i64 noundef 20) #16
   %123 = call ptr @g_type_check_instance_cast(ptr noundef %122, i64 noundef %21) #16
   call void @gtk_tree_sortable_set_sort_func(ptr noundef %123, i32 noundef 0, ptr noundef nonnull @_sort_tree_path_func, ptr noundef %0, ptr noundef null) #16
-  %124 = getelementptr inbounds i8, ptr %3, i64 1152
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 1152
   store ptr %122, ptr %124, align 8, !tbaa !24
   %125 = call ptr @g_type_check_instance_cast(ptr noundef %122, i64 noundef %36) #16
   %126 = call ptr @gtk_tree_model_filter_new(ptr noundef %125, ptr noundef null) #16
   %127 = call ptr @g_type_check_instance_cast(ptr noundef %126, i64 noundef %118) #16
   call void @gtk_tree_model_filter_set_visible_column(ptr noundef %127, i32 noundef 7) #16
   %128 = call ptr @g_type_check_instance_cast(ptr noundef %126, i64 noundef %118) #16
-  %129 = getelementptr inbounds i8, ptr %3, i64 1168
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 1168
   store ptr %128, ptr %129, align 8, !tbaa !62
   %130 = call ptr @gtk_tree_view_column_new() #16
   %131 = call i32 @gtk_tree_view_append_column(ptr noundef %107, ptr noundef %130) #16
@@ -1349,14 +1349,14 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %150 = call i64 @g_signal_connect_data(ptr noundef %149, ptr noundef nonnull @.str.7, ptr noundef nonnull @_row_tooltip_setup, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %151 = call ptr @gtk_tree_view_get_selection(ptr noundef %107) #16
   %152 = call i64 @g_signal_connect_data(ptr noundef %151, ptr noundef nonnull @.str.13, ptr noundef nonnull @_tree_selection_changed, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %153 = getelementptr inbounds i8, ptr %3, i64 1232
-  %154 = getelementptr inbounds i8, ptr %3, i64 1260
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 1232
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 1260
   store i32 0, ptr %154, align 4, !tbaa !63
-  %155 = getelementptr inbounds i8, ptr %3, i64 1256
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 1256
   store i32 0, ptr %155, align 8, !tbaa !64
-  %156 = getelementptr inbounds i8, ptr %3, i64 1268
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 1268
   store i32 0, ptr %156, align 4, !tbaa !65
-  %157 = getelementptr inbounds i8, ptr %3, i64 1272
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 1272
   store i32 0, ptr %157, align 8, !tbaa !66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %153, i8 0, i64 16, i1 false)
   %158 = load ptr, ptr %110, align 8, !tbaa !16
@@ -1376,21 +1376,21 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %171 = call ptr @g_type_check_instance_cast(ptr noundef %170, i64 noundef %8) #16
   %172 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #16
   %173 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull @_new_button_clicked, ptr noundef %0, ptr noundef %172, i32 noundef 0, i32 noundef 0) #16
-  %174 = getelementptr inbounds i8, ptr %3, i64 1072
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 1072
   store ptr %173, ptr %174, align 8, !tbaa !67
   call void @gtk_box_pack_start(ptr noundef %171, ptr noundef %173, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   %175 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #16
   %176 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef nonnull @_import_button_clicked, ptr noundef %0, ptr noundef %175, i32 noundef 0, i32 noundef 0) #16
-  %177 = getelementptr inbounds i8, ptr %3, i64 1080
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 1080
   store ptr %176, ptr %177, align 8, !tbaa !68
   call void @gtk_box_pack_start(ptr noundef %171, ptr noundef %176, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   %178 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #16
   %179 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef nonnull @_export_button_clicked, ptr noundef %0, ptr noundef %178, i32 noundef 0, i32 noundef 0) #16
-  %180 = getelementptr inbounds i8, ptr %3, i64 1088
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 1088
   store ptr %179, ptr %180, align 8, !tbaa !69
   call void @gtk_box_pack_start(ptr noundef %171, ptr noundef %179, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
   %181 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_treelist, i32 noundef 0, ptr noundef null) #16
-  %182 = getelementptr inbounds i8, ptr %3, i64 1096
+  %182 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   store ptr %181, ptr %182, align 8, !tbaa !70
   %183 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.42, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %181, ptr noundef %183) #16
@@ -1399,7 +1399,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %185 = call i64 @g_signal_connect_data(ptr noundef %184, ptr noundef nonnull @.str.20, ptr noundef nonnull @_toggle_tree_button_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
   %186 = call ptr @dt_action_define(ptr noundef %55, ptr noundef null, ptr noundef nonnull @.str.43, ptr noundef %181, ptr noundef nonnull @dt_action_def_toggle) #16
   %187 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_plus_simple, i32 noundef 0, ptr noundef null) #16
-  %188 = getelementptr inbounds i8, ptr %3, i64 1104
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 1104
   store ptr %187, ptr %188, align 8, !tbaa !71
   %189 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #16
   call void @gtk_widget_set_tooltip_text(ptr noundef %187, ptr noundef %189) #16
@@ -1494,13 +1494,13 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %245 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !42
   call void @dt_control_signal_connect(ptr noundef %245, i32 noundef 7, ptr noundef nonnull @_collection_updated_callback, ptr noundef nonnull %0) #16
   %246 = call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #20
-  %247 = getelementptr inbounds i8, ptr %3, i64 1216
+  %247 = getelementptr inbounds nuw i8, ptr %3, i64 1216
   store ptr %246, ptr %247, align 8, !tbaa !41
   %248 = load ptr, ptr %4, align 8, !tbaa !6
   call fastcc void @_update_layout(ptr %248)
   call fastcc void @_init_treeview(ptr noundef nonnull %0, i32 noundef 0)
   %249 = load ptr, ptr %4, align 8, !tbaa !6
-  %250 = getelementptr inbounds i8, ptr %249, i64 1024
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 1024
   %251 = load ptr, ptr %250, align 8, !tbaa !54
   %252 = call ptr @gtk_entry_get_text(ptr noundef %251) #16
   %253 = call ptr @g_strrstr(ptr noundef %252, ptr noundef nonnull @.str.3) #16
@@ -1516,11 +1516,11 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %259 = load i8, ptr %253, align 1, !tbaa !26
   %260 = icmp eq i8 %259, 44
   %261 = zext i1 %260 to i64
-  %262 = getelementptr inbounds i8, ptr %253, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr %253, i64 %261
   %263 = load i8, ptr %262, align 1, !tbaa !26
   %264 = icmp eq i8 %263, 32
   %265 = zext i1 %264 to i64
-  %266 = getelementptr inbounds i8, ptr %262, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr %262, i64 %265
   br label %267
 
 267:                                              ; preds = %258, %255
@@ -1592,7 +1592,7 @@ define internal i32 @_sort_tree_path_func(ptr noundef %0, ptr noundef %1, ptr no
   br label %12
 
 12:                                               ; preds = %11, %.preheader2
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %.preheader2
 
 14:                                               ; preds = %4
@@ -1618,7 +1618,7 @@ define internal i32 @_sort_tree_path_func(ptr noundef %0, ptr noundef %1, ptr no
   br label %21
 
 21:                                               ; preds = %20, %.preheader
-  %22 = getelementptr inbounds i8, ptr %18, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %.preheader
 
 23:                                               ; preds = %.loopexit
@@ -1906,9 +1906,9 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct._GtkTreeIter, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %11 = load ptr, ptr %10, align 8, !tbaa !6
-  %12 = getelementptr inbounds i8, ptr %11, i64 1048
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1048
   %13 = load ptr, ptr %12, align 8, !tbaa !16
   %14 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %13) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %14) #16
@@ -1919,7 +1919,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   ]
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %18 = load i32, ptr %17, align 4, !tbaa !74
   switch i32 %18, label %111 [
     i32 3, label %23
@@ -1927,7 +1927,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   ]
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %1, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !74
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %23, label %111
@@ -1939,10 +1939,10 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !18
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %24) #16
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load double, ptr %28, align 8, !tbaa !75
   %30 = fptosi double %29 to i32
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load double, ptr %31, align 8, !tbaa !76
   %33 = fptosi double %32 to i32
   %34 = call i32 @gtk_tree_view_get_path_at_pos(ptr noundef %27, i32 noundef %30, i32 noundef %33, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null) #16
@@ -1950,7 +1950,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   br i1 %35, label %107, label %36
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds i8, ptr %11, i64 1040
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 1040
   %38 = load ptr, ptr %37, align 8, !tbaa !17
   %39 = call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %24) #16
   %40 = call ptr @gtk_tree_view_get_model(ptr noundef %39) #16
@@ -1993,7 +1993,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   ]
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %1, i64 52
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %59 = load i32, ptr %58, align 4, !tbaa !74
   %60 = icmp eq i32 %59, 3
   br i1 %60, label %61, label %106
@@ -2003,7 +2003,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   %63 = call ptr @gtk_menu_new() #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %64 = getelementptr inbounds i8, ptr %62, i64 1040
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 1040
   %65 = load ptr, ptr %64, align 8, !tbaa !17
   %66 = call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef %24) #16
   %67 = call ptr @gtk_tree_view_get_model(ptr noundef %66) #16
@@ -2062,7 +2062,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
   br label %109
 
 100:                                              ; preds = %54
-  %101 = getelementptr inbounds i8, ptr %1, i64 52
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %102 = load i32, ptr %101, align 4, !tbaa !74
   %103 = icmp eq i32 %102, 1
   br i1 %103, label %104, label %106
@@ -2101,15 +2101,15 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_attached(ptr noundef
 define internal noundef range(i32 0, 2) i32 @_attached_key_pressed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %7, i64 1048
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %9) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %10) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %11 = getelementptr inbounds i8, ptr %7, i64 1040
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = tail call i64 @gtk_tree_view_get_type() #17
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #16
@@ -2124,7 +2124,7 @@ define internal noundef range(i32 0, 2) i32 @_attached_key_pressed(ptr noundef %
 20:                                               ; preds = %3
   %21 = load ptr, ptr %5, align 8, !tbaa !18
   %22 = call ptr @gtk_tree_model_get_path(ptr noundef %21, ptr noundef nonnull %4) #16
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !77
   switch i32 %24, label %27 [
     i32 65535, label %25
@@ -2142,7 +2142,7 @@ define internal noundef range(i32 0, 2) i32 @_attached_key_pressed(ptr noundef %
   br label %28
 
 28:                                               ; preds = %27, %3
-  %29 = getelementptr inbounds i8, ptr %1, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !77
   switch i32 %30, label %37 [
     i32 65289, label %31
@@ -2151,7 +2151,7 @@ define internal noundef range(i32 0, 2) i32 @_attached_key_pressed(ptr noundef %
 
 31:                                               ; preds = %28
   call void @gtk_tree_selection_unselect_all(ptr noundef %17) #16
-  %32 = getelementptr inbounds i8, ptr %7, i64 1024
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   %33 = load ptr, ptr %32, align 8, !tbaa !54
   %34 = tail call i64 @gtk_widget_get_type() #17
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %34) #16
@@ -2179,7 +2179,7 @@ declare ptr @dt_action_button_new(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @_attach_button_clicked(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   tail call fastcc void @_attach_selected_tag(ptr noundef %1, ptr noundef %4)
   ret void
@@ -2187,9 +2187,9 @@ define internal void @_attach_button_clicked(ptr nocapture readnone %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @_detach_button_clicked(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1040
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1040
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   tail call fastcc void @_detach_selected_tag(ptr noundef %6, ptr noundef %1)
   ret void
@@ -2204,7 +2204,7 @@ declare void @gtk_box_pack_end(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !81
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %63
@@ -2218,7 +2218,7 @@ define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, pt
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   tail call fastcc void @_update_layout(ptr %12)
   %13 = load ptr, ptr %11, align 8, !tbaa !6
-  %14 = getelementptr inbounds i8, ptr %13, i64 1200
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1200
   %15 = load i32, ptr %14, align 8, !tbaa !39
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
@@ -2228,7 +2228,7 @@ define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, pt
   br label %26
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %13, i64 1136
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 1136
   %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = tail call i64 @gtk_tree_sortable_get_type() #17
   %23 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %22) #16
@@ -2239,7 +2239,7 @@ define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, pt
 
 26:                                               ; preds = %19, %17
   %27 = phi i64 [ %18, %17 ], [ %22, %19 ]
-  %28 = getelementptr inbounds i8, ptr %13, i64 1204
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 1204
   %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
@@ -2248,24 +2248,24 @@ define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, pt
 32:                                               ; preds = %26, %19
   %33 = phi i64 [ %22, %19 ], [ %27, %26 ]
   %34 = phi i32 [ 2, %19 ], [ %31, %26 ]
-  %35 = getelementptr inbounds i8, ptr %13, i64 1136
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 1136
   %36 = load ptr, ptr %35, align 8, !tbaa !56
   %37 = tail call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %33) #16
   tail call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %37, i32 noundef %34, i32 noundef 0) #16
   %38 = load ptr, ptr %11, align 8, !tbaa !6
-  %39 = getelementptr inbounds i8, ptr %38, i64 1192
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1192
   %40 = load i32, ptr %39, align 8, !tbaa !22
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %57
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %38, i64 1200
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 1200
   %44 = load i32, ptr %43, align 8, !tbaa !39
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %38, i64 1144
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 1144
   %48 = load ptr, ptr %47, align 8, !tbaa !25
   %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %33) #16
   tail call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %49, i32 noundef 1, i32 noundef 0) #16
@@ -2274,7 +2274,7 @@ define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, pt
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %46, %42
-  %53 = getelementptr inbounds i8, ptr %38, i64 1204
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 1204
   %54 = load i32, ptr %53, align 4, !tbaa !40
   %55 = icmp ne i32 %54, 0
   %56 = zext i1 %55 to i32
@@ -2283,7 +2283,7 @@ define internal void @_toggle_hide_button_callback(ptr nocapture readnone %0, pt
 57:                                               ; preds = %52, %46, %32
   %58 = phi i64 [ 1144, %46 ], [ 1144, %52 ], [ 1152, %32 ]
   %59 = phi i32 [ 2, %46 ], [ %56, %52 ], [ 0, %32 ]
-  %60 = getelementptr inbounds i8, ptr %38, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %38, i64 %58
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %33) #16
   tail call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %62, i32 noundef %59, i32 noundef 0) #16
@@ -2300,7 +2300,7 @@ declare void @dtgtk_cairo_paint_sorting(ptr noundef, i32 noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_sort_button_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !81
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %47
@@ -2314,13 +2314,13 @@ define internal void @_toggle_sort_button_callback(ptr nocapture readnone %0, pt
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   tail call fastcc void @_update_layout(ptr %12)
   %13 = load ptr, ptr %11, align 8, !tbaa !6
-  %14 = getelementptr inbounds i8, ptr %13, i64 1200
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1200
   %15 = load i32, ptr %14, align 8, !tbaa !39
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %13, i64 1204
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 1204
   %19 = load i32, ptr %18, align 4, !tbaa !40
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
@@ -2328,25 +2328,25 @@ define internal void @_toggle_sort_button_callback(ptr nocapture readnone %0, pt
 
 22:                                               ; preds = %17, %7
   %23 = phi i32 [ %21, %17 ], [ 2, %7 ]
-  %24 = getelementptr inbounds i8, ptr %13, i64 1136
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 1136
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = tail call i64 @gtk_tree_sortable_get_type() #17
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %26) #16
   tail call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %27, i32 noundef %23, i32 noundef 0) #16
   %28 = load ptr, ptr %11, align 8, !tbaa !6
-  %29 = getelementptr inbounds i8, ptr %28, i64 1192
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1192
   %30 = load i32, ptr %29, align 8, !tbaa !22
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %28, i64 1200
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1200
   %34 = load i32, ptr %33, align 8, !tbaa !39
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %28, i64 1204
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 1204
   %38 = load i32, ptr %37, align 4, !tbaa !40
   %39 = icmp ne i32 %38, 0
   %40 = zext i1 %39 to i32
@@ -2355,7 +2355,7 @@ define internal void @_toggle_sort_button_callback(ptr nocapture readnone %0, pt
 41:                                               ; preds = %36, %32, %22
   %42 = phi i64 [ 1144, %32 ], [ 1144, %36 ], [ 1152, %22 ]
   %43 = phi i32 [ 2, %32 ], [ %40, %36 ], [ 0, %22 ]
-  %44 = getelementptr inbounds i8, ptr %28, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %28, i64 %42
   %45 = load ptr, ptr %44, align 8, !tbaa !18
   %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %26) #16
   tail call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %46, i32 noundef %43, i32 noundef 0) #16
@@ -2370,7 +2370,7 @@ declare void @dtgtk_cairo_paint_check_mark(ptr noundef, i32 noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_dttags_button_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !81
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %19
@@ -2380,14 +2380,14 @@ define internal void @_toggle_dttags_button_callback(ptr nocapture readnone %0, 
   %9 = icmp eq i32 %8, 0
   %10 = zext i1 %9 to i32
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.90, i32 noundef %10) #16
-  %11 = getelementptr inbounds i8, ptr %1, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %12 = load ptr, ptr %11, align 8, !tbaa !6
-  %13 = getelementptr inbounds i8, ptr %12, i64 1128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
   %14 = load ptr, ptr %13, align 8, !tbaa !59
   %15 = tail call i64 @gtk_toggle_button_get_type() #17
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #16
   %17 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %16) #16
-  %18 = getelementptr inbounds i8, ptr %12, i64 1208
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1208
   store i32 %17, ptr %18, align 8, !tbaa !21
   tail call fastcc void @_init_treeview(ptr noundef %1, i32 noundef 0)
   br label %19
@@ -2412,9 +2412,9 @@ declare void @gtk_widget_add_events(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1024
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = tail call ptr @gtk_entry_get_text(ptr noundef %6) #16
   %8 = tail call ptr @g_strrstr(ptr noundef %7, ptr noundef nonnull @.str.3) #16
@@ -2430,24 +2430,24 @@ define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef %
   %14 = load i8, ptr %8, align 1, !tbaa !26
   %15 = icmp eq i8 %14, 44
   %16 = zext i1 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !26
   %19 = icmp eq i8 %18, 32
   %20 = zext i1 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %20
   br label %22
 
 22:                                               ; preds = %13, %10
   %23 = phi ptr [ %12, %10 ], [ %21, %13 ]
   %24 = tail call i64 @g_strlcpy(ptr noundef nonnull %4, ptr noundef %23, i64 noundef 1024) #16
-  %25 = getelementptr inbounds i8, ptr %4, i64 1048
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1048
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = tail call ptr @gtk_tree_view_get_model(ptr noundef %26) #16
   %28 = tail call i64 @gtk_tree_model_filter_get_type() #17
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #16
   %30 = tail call ptr @gtk_tree_model_filter_get_model(ptr noundef %29) #16
   tail call void @gtk_tree_model_foreach(ptr noundef %30, ptr noundef nonnull @_set_matching_tag_visibility, ptr noundef nonnull %1) #16
-  %31 = getelementptr inbounds i8, ptr %4, i64 1192
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %32 = load i32, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %40, label %34
@@ -2471,9 +2471,9 @@ define internal void @_tag_name_changed(ptr nocapture readnone %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_enter_key_pressed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !77
   switch i32 %7, label %44 [
     i32 65293, label %8
@@ -2501,7 +2501,7 @@ define internal noundef range(i32 0, 2) i32 @_enter_key_pressed(ptr noundef %0, 
   br label %44
 
 15:                                               ; preds = %3, %3, %3
-  %16 = getelementptr inbounds i8, ptr %5, i64 1040
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1040
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %17) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %18) #16
@@ -2510,7 +2510,7 @@ define internal noundef range(i32 0, 2) i32 @_enter_key_pressed(ptr noundef %0, 
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %5, i64 1048
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1048
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = tail call noalias ptr @g_utf8_strdown(ptr noundef nonnull %5, i64 noundef -1) #16
   tail call fastcc void @_show_tag_on_view(ptr noundef %23, ptr noundef %24, i32 noundef 1, i32 noundef 1)
@@ -2518,7 +2518,7 @@ define internal noundef range(i32 0, 2) i32 @_enter_key_pressed(ptr noundef %0, 
   br label %25
 
 25:                                               ; preds = %21, %15
-  %26 = getelementptr inbounds i8, ptr %5, i64 1048
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 1048
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %28 = tail call i64 @gtk_widget_get_type() #17
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %27, i64 noundef %28) #16
@@ -2526,11 +2526,11 @@ define internal noundef range(i32 0, 2) i32 @_enter_key_pressed(ptr noundef %0, 
   br label %45
 
 30:                                               ; preds = %3
-  %31 = getelementptr inbounds i8, ptr %5, i64 1048
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 1048
   %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %32) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %33) #16
-  %34 = getelementptr inbounds i8, ptr %5, i64 1040
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 1040
   %35 = load ptr, ptr %34, align 8, !tbaa !17
   %36 = tail call fastcc i32 @_select_next_user_attached_tag(i32 noundef 0, ptr noundef %35), !range !86
   %37 = icmp eq i32 %36, 0
@@ -2560,9 +2560,9 @@ declare void @dtgtk_cairo_paint_multiply_small(ptr noundef, i32 noundef, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @_clear_entry_button_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1024
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   tail call void @gtk_entry_set_text(ptr noundef %6, ptr noundef nonnull @.str.4) #16
   ret void
@@ -2604,9 +2604,9 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   %9 = alloca ptr, align 8
   %10 = alloca %struct._GtkTreeIter, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %13 = load ptr, ptr %12, align 8, !tbaa !6
-  %14 = getelementptr inbounds i8, ptr %13, i64 1040
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1040
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %15) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %16) #16
@@ -2615,13 +2615,13 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %1, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load i32, ptr %20, align 4, !tbaa !74
   br label %22
 
 22:                                               ; preds = %19, %3
   %23 = phi i32 [ %21, %19 ], [ 0, %3 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !87
   %26 = tail call i32 @gtk_accelerator_get_default_mod_mask() #16
   %27 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !32
@@ -2632,7 +2632,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br i1 %31, label %45, label %32
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %13, i64 1192
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 1192
   %34 = load i32, ptr %33, align 8, !tbaa !22
   %35 = icmp ne i32 %34, 0
   %36 = icmp eq i32 %23, 1
@@ -2645,7 +2645,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br i1 %40, label %41, label %254
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %43 = load i32, ptr %42, align 4, !tbaa !74
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %254
@@ -2657,10 +2657,10 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
   store ptr null, ptr %9, align 8, !tbaa !18
   %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %46) #16
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load double, ptr %50, align 8, !tbaa !75
   %52 = fptosi double %51 to i32
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load double, ptr %53, align 8, !tbaa !76
   %55 = fptosi double %54 to i32
   %56 = call i32 @gtk_tree_view_get_path_at_pos(ptr noundef %49, i32 noundef %52, i32 noundef %55, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null) #16
@@ -2668,7 +2668,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br i1 %57, label %252, label %58
 
 58:                                               ; preds = %45
-  %59 = getelementptr inbounds i8, ptr %13, i64 1192
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 1192
   %60 = load i32, ptr %59, align 8, !tbaa !22
   %61 = icmp ne i32 %60, 0
   %62 = icmp eq i32 %23, 1
@@ -2678,7 +2678,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br i1 %65, label %89, label %66
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %13, i64 1048
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %68 = load ptr, ptr %67, align 8, !tbaa !16
   %69 = call ptr @gtk_tree_view_get_model(ptr noundef %68) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #16
@@ -2686,7 +2686,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   %71 = call i32 @gtk_tree_model_get_iter(ptr noundef %69, ptr noundef nonnull %10, ptr noundef %70) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %69, ptr noundef nonnull %10, i32 noundef 2, ptr noundef nonnull %11, i32 noundef -1) #16
-  %72 = getelementptr inbounds i8, ptr %13, i64 1232
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 1232
   %73 = load ptr, ptr %72, align 8, !tbaa !88
   %74 = icmp eq ptr %73, null
   br i1 %74, label %76, label %75
@@ -2698,7 +2698,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
 76:                                               ; preds = %75, %66
   %77 = load ptr, ptr %11, align 8, !tbaa !18
   store ptr %77, ptr %72, align 8, !tbaa !88
-  %78 = getelementptr inbounds i8, ptr %13, i64 1240
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 1240
   %79 = load ptr, ptr %78, align 8, !tbaa !89
   %80 = icmp eq ptr %79, null
   br i1 %80, label %82, label %81
@@ -2710,7 +2710,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
 82:                                               ; preds = %81, %76
   %83 = load ptr, ptr %9, align 8, !tbaa !18
   store ptr %83, ptr %78, align 8, !tbaa !89
-  %84 = getelementptr inbounds i8, ptr %13, i64 1248
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 1248
   %85 = load ptr, ptr %84, align 8, !tbaa !90
   %86 = icmp eq ptr %85, null
   br i1 %86, label %88, label %87
@@ -2736,7 +2736,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  %93 = getelementptr inbounds i8, ptr %92, i64 1048
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1048
   %94 = load ptr, ptr %93, align 8, !tbaa !16
   %95 = call ptr @g_type_check_instance_cast(ptr noundef %94, i64 noundef %46) #16
   %96 = call ptr @gtk_tree_view_get_model(ptr noundef %95) #16
@@ -2776,13 +2776,13 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br label %119
 
 119:                                              ; preds = %107, %102
-  %120 = getelementptr inbounds i8, ptr %92, i64 1192
+  %120 = getelementptr inbounds nuw i8, ptr %92, i64 1192
   %121 = load i32, ptr %120, align 8, !tbaa !22
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %92, i64 1196
+  %124 = getelementptr inbounds nuw i8, ptr %92, i64 1196
   %125 = load i32, ptr %124, align 4, !tbaa !23
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %173
@@ -2855,7 +2855,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br label %173
 
 173:                                              ; preds = %166, %156, %149, %123
-  %174 = getelementptr inbounds i8, ptr %92, i64 1196
+  %174 = getelementptr inbounds nuw i8, ptr %92, i64 1196
   %175 = load i32, ptr %174, align 4, !tbaa !23
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %181
@@ -2874,7 +2874,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   %185 = tail call i64 @gtk_menu_shell_get_type() #17
   %186 = call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %185) #16
   call void @gtk_menu_shell_append(ptr noundef %186, ptr noundef %183) #16
-  %187 = getelementptr inbounds i8, ptr %92, i64 1216
+  %187 = getelementptr inbounds nuw i8, ptr %92, i64 1216
   %188 = load ptr, ptr %187, align 8, !tbaa !41
   %189 = load i8, ptr %188, align 1, !tbaa !26
   %190 = icmp eq i8 %189, 0
@@ -2978,7 +2978,7 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
   br i1 %245, label %246, label %252
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %1, i64 52
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %248 = load i32, ptr %247, align 4, !tbaa !74
   %249 = icmp eq i32 %248, 1
   br i1 %249, label %250, label %252
@@ -3008,15 +3008,15 @@ define internal noundef range(i32 0, 2) i32 @_click_on_view_dictionary(ptr nound
 define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %7, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %9) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %10) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %11 = getelementptr inbounds i8, ptr %7, i64 1048
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = tail call i64 @gtk_tree_view_get_type() #17
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #16
@@ -3031,7 +3031,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
 20:                                               ; preds = %3
   %21 = load ptr, ptr %5, align 8, !tbaa !18
   %22 = call ptr @gtk_tree_model_get_path(ptr noundef %21, ptr noundef nonnull %4) #16
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %24 = load i32, ptr %23, align 4, !tbaa !77
   switch i32 %24, label %68 [
     i32 65293, label %25
@@ -3042,7 +3042,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
 
 25:                                               ; preds = %20, %20
   call fastcc void @_attach_selected_tag(ptr noundef nonnull %2, ptr noundef nonnull %7)
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8, !tbaa !91
   %28 = call i32 @gtk_accelerator_get_default_mod_mask() #16
   %29 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !32
@@ -3053,7 +3053,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
 
 33:                                               ; preds = %25
   call void @gtk_tree_selection_unselect_all(ptr noundef %17) #16
-  %34 = getelementptr inbounds i8, ptr %7, i64 1024
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   %35 = load ptr, ptr %34, align 8, !tbaa !54
   %36 = tail call i64 @gtk_entry_get_type() #17
   %37 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %36) #16
@@ -3069,7 +3069,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
   br i1 %42, label %68, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !91
   %46 = call i32 @gtk_accelerator_get_default_mod_mask() #16
   %47 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !32
@@ -3093,7 +3093,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
 
 57:                                               ; preds = %55
   %58 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %13) #16
-  %59 = getelementptr inbounds i8, ptr %1, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !91
   %61 = call i32 @gtk_accelerator_get_default_mod_mask() #16
   %62 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !32
@@ -3111,7 +3111,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
 
 70:                                               ; preds = %68, %3
   %71 = phi i32 [ %69, %68 ], [ 0, %3 ]
-  %72 = getelementptr inbounds i8, ptr %1, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %73 = load i32, ptr %72, align 4, !tbaa !77
   switch i32 %73, label %80 [
     i32 65289, label %74
@@ -3124,7 +3124,7 @@ define internal noundef range(i32 0, 2) i32 @_dictionary_key_pressed(ptr noundef
 
 75:                                               ; preds = %70
   call void @gtk_tree_selection_unselect_all(ptr noundef %17) #16
-  %76 = getelementptr inbounds i8, ptr %7, i64 1024
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   %77 = load ptr, ptr %76, align 8, !tbaa !54
   %78 = tail call i64 @gtk_widget_get_type() #17
   %79 = call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef %78) #16
@@ -3162,7 +3162,7 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
   %12 = alloca ptr, align 8
   %13 = alloca %struct._GtkTreeIter, align 8
   %14 = alloca i32, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %16 = load ptr, ptr %15, align 8, !tbaa !6
   %17 = tail call i64 @gtk_tree_view_get_type() #17
   %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %17) #16
@@ -3198,11 +3198,11 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
 
 34:                                               ; preds = %30, %23
   %35 = phi ptr [ @.str.64, %23 ], [ %33, %30 ]
-  %36 = getelementptr inbounds i8, ptr %16, i64 1232
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 1232
   %37 = load ptr, ptr %36, align 8, !tbaa !88
   %38 = call ptr @g_strrstr(ptr noundef %37, ptr noundef nonnull @.str.64) #16
   %39 = icmp eq ptr %38, null
-  %40 = getelementptr inbounds i8, ptr %38, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %41 = load ptr, ptr %10, align 8, !tbaa !18
   br i1 %39, label %42, label %44
 
@@ -3275,7 +3275,7 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
 75:                                               ; preds = %75, %67
   %76 = phi i64 [ 0, %67 ], [ %83, %75 ]
   %77 = phi ptr [ null, %67 ], [ %82, %75 ]
-  %78 = getelementptr inbounds i32, ptr %65, i64 %76
+  %78 = getelementptr inbounds nuw i32, ptr %65, i64 %76
   %79 = load i32, ptr %78, align 4, !tbaa !32
   %80 = sext i32 %79 to i64
   %81 = inttoptr i64 %80 to ptr
@@ -3291,9 +3291,9 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
 87:                                               ; preds = %85, %.loopexit
   call void @g_list_free(ptr noundef %69) #16
   %88 = load i32, ptr %14, align 4, !tbaa !32
-  %89 = getelementptr inbounds i8, ptr %16, i64 1048
+  %89 = getelementptr inbounds nuw i8, ptr %16, i64 1048
   %90 = load ptr, ptr %89, align 8, !tbaa !16
-  %91 = getelementptr inbounds i8, ptr %16, i64 1192
+  %91 = getelementptr inbounds nuw i8, ptr %16, i64 1192
   %92 = load i32, ptr %91, align 8, !tbaa !22
   call fastcc void @_update_attached_count(i32 noundef %88, ptr noundef %90, i32 noundef %92)
   call fastcc void @_init_treeview(ptr noundef %7, i32 noundef 0)
@@ -3318,11 +3318,11 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal void @_event_dnd_begin(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call i64 @gtk_tree_view_get_type() #17
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %6) #16
-  %8 = getelementptr inbounds i8, ptr %5, i64 1240
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1240
   %9 = load ptr, ptr %8, align 8, !tbaa !89
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
@@ -3334,7 +3334,7 @@ define internal void @_event_dnd_begin(ptr noundef %0, ptr noundef %1, ptr nocap
   %13 = load ptr, ptr %8, align 8, !tbaa !89
   tail call void @gtk_tree_path_free(ptr noundef %13) #16
   store ptr null, ptr %8, align 8, !tbaa !89
-  %14 = getelementptr inbounds i8, ptr %5, i64 1272
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 1272
   store i32 1, ptr %14, align 8, !tbaa !66
   br label %15
 
@@ -3344,13 +3344,13 @@ define internal void @_event_dnd_begin(ptr noundef %0, ptr noundef %1, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @_event_dnd_end(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 1048
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1048
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   %8 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %7) #16
   tail call void @gtk_tree_selection_unselect_all(ptr noundef %8) #16
-  %9 = getelementptr inbounds i8, ptr %5, i64 1260
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1260
   %10 = load i32, ptr %9, align 4, !tbaa !63
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12
@@ -3361,7 +3361,7 @@ define internal void @_event_dnd_end(ptr nocapture readnone %0, ptr nocapture re
 
 14:                                               ; preds = %12, %3
   store i32 0, ptr %9, align 4, !tbaa !63
-  %15 = getelementptr inbounds i8, ptr %5, i64 1272
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1272
   store i32 0, ptr %15, align 8, !tbaa !66
   %16 = load ptr, ptr %4, align 8, !tbaa !6
   tail call fastcc void @_dnd_clear_root(ptr %16)
@@ -3371,7 +3371,7 @@ define internal void @_event_dnd_end(ptr nocapture readnone %0, ptr nocapture re
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_event_dnd_motion(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, i32 %4, ptr noundef %5) #1 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = tail call i64 @gtk_tree_view_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %10) #16
@@ -3382,7 +3382,7 @@ define internal noundef i32 @_event_dnd_motion(ptr noundef %0, ptr nocapture rea
   br i1 %13, label %46, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %9, i64 1248
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1248
   %16 = load ptr, ptr %15, align 8, !tbaa !90
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -3394,7 +3394,7 @@ define internal noundef i32 @_event_dnd_motion(ptr noundef %0, ptr nocapture rea
   br i1 %21, label %35, label %22
 
 22:                                               ; preds = %18, %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1048
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1048
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = call ptr @gtk_tree_view_get_column(ptr noundef %24, i32 noundef 0) #16
   %26 = call i32 @gtk_tree_view_column_get_width(ptr noundef %25) #16
@@ -3409,19 +3409,19 @@ define internal noundef i32 @_event_dnd_motion(ptr noundef %0, ptr nocapture rea
 
 32:                                               ; preds = %28
   %33 = call i32 @g_timeout_add(i32 noundef 200, ptr noundef nonnull @_dnd_expand_timeout, ptr noundef nonnull %5) #16
-  %34 = getelementptr inbounds i8, ptr %9, i64 1256
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 1256
   store i32 %33, ptr %34, align 8, !tbaa !64
   br label %35
 
 35:                                               ; preds = %32, %28, %22, %18
-  %36 = getelementptr inbounds i8, ptr %9, i64 1048
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 1048
   %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = call ptr @gtk_tree_view_get_selection(ptr noundef %37) #16
   %39 = load ptr, ptr %7, align 8, !tbaa !18
   call void @gtk_tree_selection_select_path(ptr noundef %38, ptr noundef %39) #16
-  %40 = getelementptr inbounds i8, ptr %9, i64 1264
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 1264
   store i32 %3, ptr %40, align 8, !tbaa !92
-  %41 = getelementptr inbounds i8, ptr %9, i64 1260
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 1260
   %42 = load i32, ptr %41, align 4, !tbaa !63
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %46
@@ -3432,7 +3432,7 @@ define internal noundef i32 @_event_dnd_motion(ptr noundef %0, ptr nocapture rea
   br label %46
 
 46:                                               ; preds = %44, %35, %6
-  %47 = getelementptr inbounds i8, ptr %9, i64 1248
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 1248
   %48 = load ptr, ptr %47, align 8, !tbaa !90
   %49 = icmp eq ptr %48, null
   br i1 %49, label %51, label %50
@@ -3450,9 +3450,9 @@ define internal noundef i32 @_event_dnd_motion(ptr noundef %0, ptr nocapture rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @_new_button_clicked(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1024
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = tail call ptr @gtk_entry_get_text(ptr noundef %6) #16
   %8 = icmp eq ptr %7, null
@@ -3469,7 +3469,7 @@ define internal void @_new_button_clicked(ptr nocapture readnone %0, ptr noundef
   br i1 %14, label %37, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !38
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %37
@@ -3481,7 +3481,7 @@ define internal void @_new_button_clicked(ptr nocapture readnone %0, ptr noundef
   br i1 %22, label %36, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !38
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %35
@@ -3521,7 +3521,7 @@ define internal void @_new_button_clicked(ptr nocapture readnone %0, ptr noundef
   tail call void @gtk_entry_set_text(ptr noundef %42, ptr noundef nonnull @.str.4) #16
   tail call fastcc void @_init_treeview(ptr noundef nonnull %1, i32 noundef 0)
   tail call fastcc void @_init_treeview(ptr noundef nonnull %1, i32 noundef 1)
-  %43 = getelementptr inbounds i8, ptr %4, i64 1224
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 1224
   %44 = load ptr, ptr %43, align 8, !tbaa !94
   %45 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %44, i32 noundef 44) #18
   br i1 %39, label %47, label %46
@@ -3531,7 +3531,7 @@ define internal void @_new_button_clicked(ptr nocapture readnone %0, ptr noundef
   br label %47
 
 47:                                               ; preds = %46, %41
-  %48 = getelementptr inbounds i8, ptr %4, i64 1048
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1048
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = tail call i64 @gtk_tree_view_get_type() #17
   %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %49, i64 noundef %50) #16
@@ -3539,7 +3539,7 @@ define internal void @_new_button_clicked(ptr nocapture readnone %0, ptr noundef
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %45, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 1
   br label %57
 
 55:                                               ; preds = %47
@@ -3699,7 +3699,7 @@ declare void @dtgtk_cairo_paint_treelist(ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_tree_button_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !81
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
@@ -3724,7 +3724,7 @@ declare void @dtgtk_cairo_paint_plus_simple(ptr noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal void @_toggle_suggestion_button_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load i32, ptr %4, align 8, !tbaa !81
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
@@ -3750,9 +3750,9 @@ declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_tagging_redraw_callback(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1280
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1280
   store i32 1, ptr %5, align 8, !tbaa !13
   tail call void @dt_lib_gui_queue_update(ptr noundef %1) #16
   ret void
@@ -3770,15 +3770,15 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca %struct._GtkTreeIter, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds i8, ptr %7, i64 1192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1192
   %9 = load i32, ptr %8, align 8, !tbaa !22
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 1196
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1196
   %13 = load i32, ptr %12, align 4, !tbaa !23
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %16, label %15
@@ -3789,7 +3789,7 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
 
 16:                                               ; preds = %11, %2
   %17 = phi i64 [ 1152, %2 ], [ 1144, %11 ]
-  %18 = getelementptr inbounds i8, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %20 = tail call i64 @gtk_tree_model_get_type() #17
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #16
@@ -3825,14 +3825,14 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
   %36 = tail call i64 @gtk_list_store_get_type() #17
   %37 = call ptr @g_type_check_instance_cast(ptr noundef null, i64 noundef %36) #16
   %38 = load ptr, ptr %30, align 8, !tbaa !27
-  %39 = getelementptr inbounds i8, ptr %38, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 36
   %40 = load i32, ptr %39, align 4, !tbaa !35
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %37, ptr noundef nonnull %5, i32 noundef 5, i32 noundef %40, i32 noundef -1) #16
   br label %41
 
 41:                                               ; preds = %35, %.preheader
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !18
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.loopexit, label %.preheader
@@ -3866,7 +3866,7 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
 60:                                               ; preds = %57, %54
   %61 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %21, i64 noundef %51) #16
   %62 = load ptr, ptr %45, align 8, !tbaa !27
-  %63 = getelementptr inbounds i8, ptr %62, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 36
   %64 = load i32, ptr %63, align 4, !tbaa !35
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %61, ptr noundef nonnull %5, i32 noundef 5, i32 noundef %64, i32 noundef -1) #16
   call fastcc void @_propagate_sel_to_parents(ptr noundef nonnull %21, ptr noundef nonnull %5)
@@ -3876,14 +3876,14 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
   %66 = tail call i64 @gtk_list_store_get_type() #17
   %67 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %21, i64 noundef %66) #16
   %68 = load ptr, ptr %45, align 8, !tbaa !27
-  %69 = getelementptr inbounds i8, ptr %68, i64 36
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 36
   %70 = load i32, ptr %69, align 4, !tbaa !35
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %67, ptr noundef nonnull %5, i32 noundef 5, i32 noundef %70, i32 noundef -1) #16
   br label %71
 
 71:                                               ; preds = %65, %60, %.preheader4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
-  %72 = getelementptr inbounds i8, ptr %45, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !18
   %74 = icmp eq ptr %73, null
   br i1 %74, label %.loopexit, label %.preheader4
@@ -3903,7 +3903,7 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
   br label %79
 
 79:                                               ; preds = %78, %15
-  %80 = getelementptr inbounds i8, ptr %7, i64 1280
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 1280
   store i32 1, ptr %80, align 8, !tbaa !13
   call void @dt_lib_gui_queue_update(ptr noundef %1) #16
   ret void
@@ -3911,9 +3911,9 @@ define internal void @_lib_selection_changed_callback(ptr nocapture readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @_collection_updated_callback(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, i32 %4, ptr noundef %5) #1 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
-  %9 = getelementptr inbounds i8, ptr %8, i64 1216
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1216
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   store i8 0, ptr %10, align 1, !tbaa !26
   tail call void @dt_lib_gui_queue_update(ptr noundef %5) #16
@@ -3925,29 +3925,29 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_update_layout(ptr nocapture initializes((1192, 1200)) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1048
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = tail call i64 @gtk_tree_view_get_type() #17
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %4) #16
   %6 = tail call ptr @gtk_tree_view_get_model(ptr noundef %5) #16
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load i32, ptr %8, align 8, !tbaa !81
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 8, !tbaa !81
   %11 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.152) #16
-  %12 = getelementptr inbounds i8, ptr %0, i64 1196
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 %11, ptr %12, align 4, !tbaa !23
-  %13 = getelementptr inbounds i8, ptr %0, i64 1104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %14 = load ptr, ptr %13, align 8, !tbaa !71
   %15 = tail call i64 @gtk_toggle_button_get_type() #17
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #16
   %17 = load i32, ptr %12, align 4, !tbaa !23
   tail call void @gtk_toggle_button_set_active(ptr noundef %16, i32 noundef %17) #16
   %18 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.151) #16
-  %19 = getelementptr inbounds i8, ptr %0, i64 1192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store i32 %18, ptr %19, align 8, !tbaa !22
-  %20 = getelementptr inbounds i8, ptr %0, i64 1096
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %21 = load ptr, ptr %20, align 8, !tbaa !70
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %15) #16
   %23 = load i32, ptr %19, align 8, !tbaa !22
@@ -3958,7 +3958,7 @@ define internal fastcc void @_update_layout(ptr nocapture initializes((1192, 120
   br i1 %25, label %41, label %27
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 1160
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %29 = load ptr, ptr %28, align 8, !tbaa !61
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %26) #16
   %31 = icmp eq ptr %6, %30
@@ -3978,7 +3978,7 @@ define internal fastcc void @_update_layout(ptr nocapture initializes((1192, 120
   br label %55
 
 41:                                               ; preds = %1
-  %42 = getelementptr inbounds i8, ptr %0, i64 1168
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %43 = load ptr, ptr %42, align 8, !tbaa !62
   %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %43, i64 noundef %26) #16
   %45 = icmp eq ptr %6, %44
@@ -4002,7 +4002,7 @@ define internal fastcc void @_update_layout(ptr nocapture initializes((1192, 120
   %57 = phi i32 [ 0, %32 ], [ 1, %46 ]
   %58 = load ptr, ptr %2, align 8, !tbaa !16
   %59 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %4) #16
-  %60 = getelementptr inbounds i8, ptr %0, i64 %56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %56
   %61 = load ptr, ptr %60, align 8, !tbaa !18
   %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %26) #16
   tail call void @gtk_tree_view_set_model(ptr noundef %59, ptr noundef %62) #16
@@ -4032,31 +4032,31 @@ define internal fastcc void @_update_layout(ptr nocapture initializes((1192, 120
 
 75:                                               ; preds = %74, %73
   %76 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.89) #16
-  %77 = getelementptr inbounds i8, ptr %0, i64 1200
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   store i32 %76, ptr %77, align 8, !tbaa !39
-  %78 = getelementptr inbounds i8, ptr %0, i64 1112
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %79 = load ptr, ptr %78, align 8, !tbaa !58
   %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %15) #16
   %81 = load i32, ptr %77, align 8, !tbaa !39
   tail call void @gtk_toggle_button_set_active(ptr noundef %80, i32 noundef %81) #16
   %82 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.88) #16
-  %83 = getelementptr inbounds i8, ptr %0, i64 1204
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   store i32 %82, ptr %83, align 4, !tbaa !40
-  %84 = getelementptr inbounds i8, ptr %0, i64 1120
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %85 = load ptr, ptr %84, align 8, !tbaa !57
   %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %15) #16
   %87 = load i32, ptr %83, align 4, !tbaa !40
   tail call void @gtk_toggle_button_set_active(ptr noundef %86, i32 noundef %87) #16
   %88 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.90) #16
-  %89 = getelementptr inbounds i8, ptr %0, i64 1208
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store i32 %88, ptr %89, align 8, !tbaa !21
-  %90 = getelementptr inbounds i8, ptr %0, i64 1128
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %91 = load ptr, ptr %90, align 8, !tbaa !59
   %92 = tail call ptr @g_type_check_instance_cast(ptr noundef %91, i64 noundef %15) #16
   %93 = load i32, ptr %89, align 8, !tbaa !21
   tail call void @gtk_toggle_button_set_active(ptr noundef %92, i32 noundef %93) #16
   %94 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %95 = getelementptr inbounds i8, ptr %94, i64 120
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 120
   %96 = load i32, ptr %95, align 8, !tbaa !81
   %97 = add nsw i32 %96, -1
   store i32 %97, ptr %95, align 8, !tbaa !81
@@ -4079,16 +4079,16 @@ define internal void @_lib_tagging_tag_show(ptr noundef %0) #1 {
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !100
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %8, %.preheader, %1
   %12 = phi ptr [ null, %1 ], [ null, %8 ], [ %5, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 1192
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1192
   %16 = load i32, ptr %15, align 8, !tbaa !22
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %18
@@ -4100,7 +4100,7 @@ define internal void @_lib_tagging_tag_show(ptr noundef %0) #1 {
 
 20:                                               ; preds = %.loopexit
   %21 = tail call ptr @dt_act_on_get_images(i32 noundef 0, i32 noundef 1, i32 noundef 0) #16
-  %22 = getelementptr inbounds i8, ptr %14, i64 1184
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 1184
   store ptr %21, ptr %22, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
@@ -4120,7 +4120,7 @@ define internal void @_lib_tagging_tag_show(ptr noundef %0) #1 {
   %36 = sitofp i32 %35 to double
   %37 = sitofp i32 %32 to double
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %39 = getelementptr inbounds i8, ptr %38, i64 1448
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1448
   %40 = load double, ptr %39, align 8, !tbaa !102
   %41 = fmul reassoc nsz arcp contract afn double %40, 1.500000e+02
   %42 = fsub reassoc nsz arcp contract afn double %37, %41
@@ -4131,7 +4131,7 @@ define internal void @_lib_tagging_tag_show(ptr noundef %0) #1 {
   %47 = add i32 %34, -50
   %48 = add i32 %47, %46
   %49 = call ptr @gtk_window_new(i32 noundef 0) #16
-  %50 = getelementptr inbounds i8, ptr %14, i64 1176
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 1176
   store ptr %49, ptr %50, align 8, !tbaa !103
   call void @gtk_widget_set_can_focus(ptr noundef %49, i32 noundef 1) #16
   %51 = load ptr, ptr %50, align 8, !tbaa !103
@@ -4152,14 +4152,14 @@ define internal void @_lib_tagging_tag_show(ptr noundef %0) #1 {
   call void @gtk_window_move(ptr noundef %61, i32 noundef %45, i32 noundef %48) #16
   %62 = call ptr @gtk_entry_new() #16
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
-  %64 = getelementptr inbounds i8, ptr %63, i64 1448
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1448
   %65 = load double, ptr %64, align 8, !tbaa !102
   %66 = fmul reassoc nsz arcp contract afn double %65, 1.500000e+02
   %67 = fptosi double %66 to i32
   call void @gtk_widget_set_size_request(ptr noundef %62, i32 noundef %67, i32 noundef -1) #16
   call void @gtk_widget_add_events(ptr noundef %62, i32 noundef 16384) #16
   %68 = call ptr @gtk_entry_completion_new() #16
-  %69 = getelementptr inbounds i8, ptr %14, i64 1048
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 1048
   %70 = load ptr, ptr %69, align 8, !tbaa !16
   %71 = tail call i64 @gtk_tree_view_get_type() #17
   %72 = call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef %71) #16
@@ -4210,16 +4210,16 @@ define internal void @_lib_tagging_tag_redo(ptr noundef %0) #1 {
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !100
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %6, %.preheader, %1
   %10 = phi ptr [ null, %1 ], [ null, %6 ], [ %3, %.preheader ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %12 = load ptr, ptr %11, align 8, !tbaa !6
-  %13 = getelementptr inbounds i8, ptr %12, i64 1224
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1224
   %14 = load ptr, ptr %13, align 8, !tbaa !94
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
@@ -4251,7 +4251,7 @@ define internal void @_lib_tagging_tag_redo(ptr noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !52
   %5 = and i32 %4, 4
@@ -4325,10 +4325,10 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 42:                                               ; preds = %41, %37, %32
   %43 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !42
   tail call void @dt_control_signal_disconnect(ptr noundef %43, ptr noundef nonnull @_collection_updated_callback, ptr noundef nonnull %0) #16
-  %44 = getelementptr inbounds i8, ptr %3, i64 1216
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 1216
   %45 = load ptr, ptr %44, align 8, !tbaa !41
   tail call void @g_free(ptr noundef %45) #16
-  %46 = getelementptr inbounds i8, ptr %3, i64 1232
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 1232
   %47 = load ptr, ptr %46, align 8, !tbaa !88
   %48 = icmp eq ptr %47, null
   br i1 %48, label %50, label %49
@@ -4338,7 +4338,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   br label %50
 
 50:                                               ; preds = %49, %42
-  %51 = getelementptr inbounds i8, ptr %3, i64 1240
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 1240
   %52 = load ptr, ptr %51, align 8, !tbaa !89
   %53 = icmp eq ptr %52, null
   br i1 %53, label %55, label %54
@@ -4383,16 +4383,16 @@ define hidden void @_menuitem_preferences(ptr nocapture readnone %0, ptr noundef
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %13) #16
   %17 = tail call i32 @gtk_dialog_run(ptr noundef %16) #16
   tail call void @gtk_widget_destroy(ptr noundef %11) #16
-  %18 = getelementptr inbounds i8, ptr %1, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %19 = load ptr, ptr %18, align 8, !tbaa !6
   tail call fastcc void @_size_recent_tags_list()
-  %20 = getelementptr inbounds i8, ptr %19, i64 1192
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1192
   %21 = load i32, ptr %20, align 8, !tbaa !22
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %19, i64 1196
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 1196
   %25 = load i32, ptr %24, align 4, !tbaa !23
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %28, label %27
@@ -4530,7 +4530,7 @@ declare void @gtk_tree_model_foreach(ptr noundef, ptr noundef, ptr noundef) loca
 define internal noundef i32 @_set_matching_tag_visibility(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8, !tbaa !18
@@ -4574,7 +4574,7 @@ define internal noundef i32 @_set_matching_tag_visibility(ptr noundef %0, ptr no
 
 29:                                               ; preds = %22, %4
   %30 = phi i32 [ %28, %22 ], [ 1, %4 ]
-  %31 = getelementptr inbounds i8, ptr %8, i64 1192
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 1192
   %32 = load i32, ptr %31, align 8, !tbaa !22
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %37, label %34
@@ -4949,13 +4949,13 @@ define internal fastcc void @_tree_tagname_show(ptr noundef %0, ptr noundef %1, 
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 1192
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1192
   %14 = load i32, ptr %13, align 8, !tbaa !22
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12, %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 1204
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 1204
   %18 = load i32, ptr %17, align 4, !tbaa !40
   %.fr = freeze i32 %18
   %19 = icmp eq i32 %.fr, 0
@@ -5013,7 +5013,7 @@ define internal fastcc void @_detach_selected_tag(ptr noundef %0, ptr noundef %1
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -5056,7 +5056,7 @@ define internal fastcc void @_detach_selected_tag(ptr noundef %0, ptr noundef %1
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %7, i64 1024
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   %33 = load ptr, ptr %32, align 8, !tbaa !54
   %34 = tail call i64 @gtk_widget_get_type() #17
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %34) #16
@@ -5064,13 +5064,13 @@ define internal fastcc void @_detach_selected_tag(ptr noundef %0, ptr noundef %1
   br label %36
 
 36:                                               ; preds = %31, %22
-  %37 = getelementptr inbounds i8, ptr %7, i64 1192
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 1192
   %38 = load i32, ptr %37, align 8, !tbaa !22
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %7, i64 1196
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 1196
   %42 = load i32, ptr %41, align 4, !tbaa !23
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %70
@@ -5078,7 +5078,7 @@ define internal fastcc void @_detach_selected_tag(ptr noundef %0, ptr noundef %1
 44:                                               ; preds = %40, %36
   %45 = load i32, ptr %5, align 4, !tbaa !32
   %46 = call i32 @dt_tag_images_count(i32 noundef %45) #16
-  %47 = getelementptr inbounds i8, ptr %7, i64 1048
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   %49 = call ptr @gtk_tree_view_get_model(ptr noundef %48) #16
   store ptr %49, ptr %4, align 8, !tbaa !18
@@ -5156,11 +5156,11 @@ define internal void @_pop_menu_attached_attach_to_all(ptr nocapture readnone %0
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct._GtkTreeIter, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  %9 = getelementptr inbounds i8, ptr %8, i64 1040
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1040
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = tail call i64 @gtk_tree_view_get_type() #17
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #16
@@ -5189,7 +5189,7 @@ define internal void @_pop_menu_attached_attach_to_all(ptr nocapture readnone %0
   call fastcc void @_init_treeview(ptr noundef nonnull %1, i32 noundef 0)
   %27 = load i32, ptr %5, align 4, !tbaa !32
   %28 = call i32 @dt_tag_images_count(i32 noundef %27) #16
-  %29 = getelementptr inbounds i8, ptr %8, i64 1048
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 1048
   %30 = load ptr, ptr %29, align 8, !tbaa !16
   %31 = call ptr @g_type_check_instance_cast(ptr noundef %30, i64 noundef %11) #16
   %32 = call ptr @gtk_tree_view_get_model(ptr noundef %31) #16
@@ -5214,7 +5214,7 @@ define internal void @_pop_menu_attached_attach_to_all(ptr nocapture readnone %0
   %45 = load ptr, ptr %4, align 8, !tbaa !18
   %46 = call ptr @g_type_check_instance_cast(ptr noundef %45, i64 noundef %42) #16
   call void @gtk_tree_model_filter_convert_iter_to_child_iter(ptr noundef %46, ptr noundef nonnull %6, ptr noundef nonnull %3) #16
-  %47 = getelementptr inbounds i8, ptr %8, i64 1192
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 1192
   %48 = load i32, ptr %47, align 8, !tbaa !22
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %53, label %50
@@ -5258,9 +5258,9 @@ declare ptr @gtk_separator_menu_item_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pop_menu_attached_detach(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1040
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1040
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   tail call fastcc void @_detach_selected_tag(ptr noundef %6, ptr noundef %1)
   ret void
@@ -5271,13 +5271,13 @@ define internal void @_pop_menu_attached_find(ptr nocapture readnone %0, ptr noc
   %3 = alloca ptr, align 8
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8, !tbaa !18
-  %8 = getelementptr inbounds i8, ptr %7, i64 1040
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %9) #16
   %11 = call i32 @gtk_tree_selection_get_selected(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
@@ -5287,7 +5287,7 @@ define internal void @_pop_menu_attached_find(ptr nocapture readnone %0, ptr noc
 13:                                               ; preds = %2
   %14 = load ptr, ptr %5, align 8, !tbaa !18
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %3, i32 noundef -1) #16
-  %15 = getelementptr inbounds i8, ptr %7, i64 1024
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = load ptr, ptr %3, align 8, !tbaa !18
   call void @gtk_entry_set_text(ptr noundef %16, ptr noundef %17) #16
@@ -5309,7 +5309,7 @@ declare i32 @dt_tag_attach(i32 noundef, i32 noundef, i32 noundef, i32 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_save_last_tag_used(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1224
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %4 = load ptr, ptr %3, align 8, !tbaa !94
   tail call void @g_free(ptr noundef %4) #16
   %5 = tail call noalias ptr @g_strdup(ptr noundef %0) #16
@@ -5360,7 +5360,7 @@ define internal fastcc void @_save_last_tag_used(ptr noundef %0, ptr nocapture n
   %32 = tail call noalias ptr @g_strdup(ptr noundef %24) #16
   %33 = tail call ptr @g_list_prepend(ptr noundef %31, ptr noundef %32) #16
   tail call void @sqlite3_free(ptr noundef %24) #16
-  %34 = getelementptr inbounds i8, ptr %22, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !38
   %36 = icmp eq ptr %35, null
   br i1 %36, label %16, label %20
@@ -5573,7 +5573,7 @@ define internal fastcc void @_attach_selected_tag(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8, !tbaa !18
-  %7 = getelementptr inbounds i8, ptr %1, i64 1048
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %8) #16
   %10 = call i32 @gtk_tree_selection_get_selected(ptr noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %3) #16
@@ -5604,13 +5604,13 @@ define internal fastcc void @_attach_selected_tag(ptr noundef %0, ptr nocapture 
   %25 = call ptr @dt_tag_get_name(i32 noundef %24) #16
   call fastcc void @_save_last_tag_used(ptr noundef %25, ptr noundef nonnull %1)
   call fastcc void @_init_treeview(ptr noundef %0, i32 noundef 0)
-  %26 = getelementptr inbounds i8, ptr %1, i64 1192
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1192
   %27 = load i32, ptr %26, align 8, !tbaa !22
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %1, i64 1196
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1196
   %31 = load i32, ptr %30, align 4, !tbaa !23
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %53
@@ -5822,7 +5822,7 @@ declare i32 @gtk_accelerator_get_default_mod_mask() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pop_menu_dictionary_attach_tag(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   tail call fastcc void @_attach_selected_tag(ptr noundef %1, ptr noundef %4)
   ret void
@@ -5830,9 +5830,9 @@ define internal void @_pop_menu_dictionary_attach_tag(ptr nocapture readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pop_menu_dictionary_detach_tag(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1048
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1048
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   tail call fastcc void @_detach_selected_tag(ptr noundef %6, ptr noundef %1)
   ret void
@@ -5848,7 +5848,7 @@ define internal void @_pop_menu_dictionary_create_tag(ptr nocapture readnone %0,
   %8 = alloca i32, align 4
   %9 = alloca %struct._GtkTextIter, align 8
   %10 = alloca %struct._GtkTextIter, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -5856,7 +5856,7 @@ define internal void @_pop_menu_dictionary_create_tag(ptr nocapture readnone %0,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store ptr null, ptr %7, align 8, !tbaa !18
-  %13 = getelementptr inbounds i8, ptr %12, i64 1048
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1048
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = tail call i64 @gtk_tree_view_get_type() #17
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #16
@@ -6093,14 +6093,14 @@ define internal void @_pop_menu_dictionary_delete_tag(ptr nocapture readnone %0,
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca %struct._GtkTreeIter, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   store ptr null, ptr %10, align 8, !tbaa !18
-  %15 = getelementptr inbounds i8, ptr %14, i64 1048
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1048
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = tail call i64 @gtk_tree_view_get_type() #17
   %18 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #16
@@ -6262,7 +6262,7 @@ define internal void @_pop_menu_dictionary_delete_tag(ptr nocapture readnone %0,
   call void @gtk_tree_model_filter_convert_iter_to_child_iter(ptr noundef %125, ptr noundef nonnull %12, ptr noundef nonnull %9) #16
   %126 = tail call i64 @gtk_tree_model_get_type() #17
   %127 = call ptr @g_type_check_instance_cast(ptr noundef %123, i64 noundef %126) #16
-  %128 = getelementptr inbounds i8, ptr %14, i64 1192
+  %128 = getelementptr inbounds nuw i8, ptr %14, i64 1192
   %129 = load i32, ptr %128, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   store i32 0, ptr %4, align 4, !tbaa !32
@@ -6334,14 +6334,14 @@ define internal void @_pop_menu_dictionary_delete_node(ptr nocapture readnone %0
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct._GtkTreeIter, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store ptr null, ptr %6, align 8, !tbaa !18
-  %14 = getelementptr inbounds i8, ptr %13, i64 1048
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = tail call i64 @gtk_tree_view_get_type() #17
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #16
@@ -6459,7 +6459,7 @@ define internal void @_pop_menu_dictionary_delete_node(ptr nocapture readnone %0
   call void @gtk_tree_model_filter_convert_iter_to_child_iter(ptr noundef %88, ptr noundef nonnull %11, ptr noundef nonnull %5) #16
   %89 = tail call i64 @gtk_tree_model_get_type() #17
   %90 = call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %89) #16
-  %91 = getelementptr inbounds i8, ptr %13, i64 1192
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 1192
   %92 = load i32, ptr %91, align 8, !tbaa !22
   call fastcc void @_delete_tree_path(ptr noundef %90, ptr noundef nonnull %11, i32 noundef 1, i32 noundef %92)
   call fastcc void @_init_treeview(ptr noundef nonnull %1, i32 noundef 0)
@@ -6505,7 +6505,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
   %14 = alloca %struct._GtkTextIter, align 8
   %15 = alloca %struct._GtkTextIter, align 8
   %16 = alloca %struct._GtkTreeIter, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %18 = load ptr, ptr %17, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
@@ -6513,7 +6513,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store ptr null, ptr %7, align 8, !tbaa !18
-  %19 = getelementptr inbounds i8, ptr %18, i64 1048
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1048
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %21 = tail call i64 @gtk_tree_view_get_type() #17
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #16
@@ -6528,7 +6528,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
   %28 = load ptr, ptr %3, align 8, !tbaa !18
   %29 = call ptr @g_strrstr(ptr noundef %28, ptr noundef nonnull @.str.64) #16
   %30 = icmp eq ptr %29, null
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
   %32 = load ptr, ptr %3, align 8, !tbaa !18
@@ -6767,7 +6767,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
 187:                                              ; preds = %203, %181
   %188 = phi ptr [ %179, %181 ], [ %205, %203 ]
   %189 = load ptr, ptr %188, align 8, !tbaa !27
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8, !tbaa !29
   %192 = getelementptr inbounds i8, ptr %191, i64 %183
   %193 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %178, ptr noundef %192, ptr noundef null) #16
@@ -6791,7 +6791,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
 
 203:                                              ; preds = %187
   call void @g_free(ptr noundef %193) #16
-  %204 = getelementptr inbounds i8, ptr %188, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %205 = load ptr, ptr %204, align 8, !tbaa !18
   %206 = icmp eq ptr %205, null
   br i1 %206, label %184, label %187
@@ -6802,14 +6802,14 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
   %209 = call ptr @g_type_check_instance_cast(ptr noundef %207, i64 noundef %208) #16
   %210 = call ptr @gtk_tree_model_filter_get_model(ptr noundef %209) #16
   %211 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #20
-  %212 = getelementptr inbounds i8, ptr %18, i64 1192
+  %212 = getelementptr inbounds nuw i8, ptr %18, i64 1192
   %213 = load i32, ptr %212, align 8, !tbaa !22
-  %214 = getelementptr inbounds i8, ptr %211, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 24
   store i32 %213, ptr %214, align 8, !tbaa !105
   %215 = load ptr, ptr %3, align 8, !tbaa !18
-  %216 = getelementptr inbounds i8, ptr %211, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %211, i64 16
   store ptr %215, ptr %216, align 8, !tbaa !107
-  %217 = getelementptr inbounds i8, ptr %211, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store ptr %178, ptr %217, align 8, !tbaa !108
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #16
@@ -6829,7 +6829,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
 .preheader:                                       ; preds = %184, %.preheader
   %225 = phi ptr [ %234, %.preheader ], [ %185, %184 ]
   %226 = load ptr, ptr %225, align 8, !tbaa !27
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8, !tbaa !29
   %229 = getelementptr inbounds i8, ptr %228, i64 %183
   %230 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %178, ptr noundef %229, ptr noundef null) #16
@@ -6837,7 +6837,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
   %232 = load i32, ptr %231, align 8, !tbaa !33
   call void @dt_tag_rename(i32 noundef %232, ptr noundef %230) #16
   call void @g_free(ptr noundef %230) #16
-  %233 = getelementptr inbounds i8, ptr %225, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %234 = load ptr, ptr %233, align 8, !tbaa !18
   %235 = icmp eq ptr %234, null
   br i1 %235, label %.loopexit, label %.preheader
@@ -6898,7 +6898,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
   %266 = or disjoint i32 %253, %265
   %267 = load i32, ptr %5, align 4, !tbaa !32
   call void @dt_tag_set_flags(i32 noundef %267, i32 noundef %266) #16
-  %268 = getelementptr inbounds i8, ptr %18, i64 1192
+  %268 = getelementptr inbounds nuw i8, ptr %18, i64 1192
   %269 = load i32, ptr %268, align 8, !tbaa !22
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %271, label %274
@@ -6928,7 +6928,7 @@ define internal void @_pop_menu_dictionary_edit_tag(ptr nocapture readnone %0, p
 283:                                              ; preds = %279
   %284 = load i32, ptr %5, align 4, !tbaa !32
   call void @dt_tag_set_synonyms(i32 noundef %284, ptr noundef nonnull %254) #16
-  %285 = getelementptr inbounds i8, ptr %18, i64 1192
+  %285 = getelementptr inbounds nuw i8, ptr %18, i64 1192
   %286 = load i32, ptr %285, align 8, !tbaa !22
   %287 = icmp eq i32 %286, 0
   br i1 %287, label %288, label %291
@@ -6991,14 +6991,14 @@ define internal void @_pop_menu_dictionary_change_path(ptr nocapture readnone %0
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store ptr null, ptr %6, align 8, !tbaa !18
-  %11 = getelementptr inbounds i8, ptr %10, i64 1048
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1048
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = tail call i64 @gtk_tree_view_get_type() #17
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef %13) #16
@@ -7174,14 +7174,14 @@ define internal void @_pop_menu_dictionary_set_as_tag(ptr nocapture readnone %0,
   %4 = alloca i32, align 4
   %5 = alloca %struct._GtkTreeIter, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   store ptr null, ptr %6, align 8, !tbaa !18
-  %9 = getelementptr inbounds i8, ptr %8, i64 1048
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1048
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call i64 @gtk_tree_view_get_type() #17
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #16
@@ -7219,11 +7219,11 @@ define internal void @_pop_menu_dictionary_copy_tag(ptr nocapture readnone %0, p
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  %8 = getelementptr inbounds i8, ptr %7, i64 1048
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = tail call i64 @gtk_tree_view_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #16
@@ -7240,7 +7240,7 @@ define internal void @_pop_menu_dictionary_copy_tag(ptr nocapture readnone %0, p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   %19 = load ptr, ptr %4, align 8, !tbaa !18
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %19, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
-  %20 = getelementptr inbounds i8, ptr %7, i64 1024
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 1024
   %21 = load ptr, ptr %20, align 8, !tbaa !54
   %22 = load ptr, ptr %5, align 8, !tbaa !18
   call void @gtk_entry_set_text(ptr noundef %21, ptr noundef %22) #16
@@ -7265,11 +7265,11 @@ define internal void @_pop_menu_dictionary_goto_tag_collection(ptr nocapture rea
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  %9 = getelementptr inbounds i8, ptr %8, i64 1048
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1048
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call i64 @gtk_tree_view_get_type() #17
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #16
@@ -7292,7 +7292,7 @@ define internal void @_pop_menu_dictionary_goto_tag_collection(ptr nocapture rea
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %8, i64 1216
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 1216
   %25 = load ptr, ptr %24, align 8, !tbaa !41
   %26 = load i8, ptr %25, align 1, !tbaa !26
   %27 = icmp eq i8 %26, 0
@@ -7328,9 +7328,9 @@ define internal void @_pop_menu_dictionary_goto_tag_collection(ptr nocapture rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @_pop_menu_dictionary_goto_collection_back(ptr nocapture readnone %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 1216
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1216
   %6 = load ptr, ptr %5, align 8, !tbaa !41
   %7 = load i8, ptr %6, align 1, !tbaa !26
   %8 = icmp eq i8 %7, 0
@@ -7568,7 +7568,7 @@ define internal fastcc void @_delete_tree_path(ptr noundef %0, ptr noundef nonnu
   br i1 %50, label %65, label %51
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %48, i64 %45
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %45
   %53 = load i8, ptr %52, align 1, !tbaa !26
   store i8 0, ptr %52, align 1, !tbaa !26
   %54 = load ptr, ptr %11, align 8, !tbaa !18
@@ -7579,7 +7579,7 @@ define internal fastcc void @_delete_tree_path(ptr noundef %0, ptr noundef nonnu
   br i1 %57, label %59, label %65
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds i8, ptr %58, i64 %45
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 %45
   store i8 %53, ptr %60, align 1, !tbaa !26
   %61 = tail call i64 @gtk_list_store_get_type() #17
   %62 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %61) #16
@@ -7623,9 +7623,9 @@ declare i32 @gtk_tree_sortable_get_sort_column_id(ptr noundef, ptr noundef, ptr 
 define internal noundef i32 @_update_tag_name_per_name(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !108
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !107
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull %5, i32 noundef -1) #16
   %10 = load ptr, ptr %5, align 8, !tbaa !18
@@ -7641,7 +7641,7 @@ define internal noundef i32 @_update_tag_name_per_name(ptr noundef %0, ptr nocap
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !105
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %30, label %22
@@ -7650,7 +7650,7 @@ define internal noundef i32 @_update_tag_name_per_name(ptr noundef %0, ptr nocap
   %23 = load ptr, ptr %6, align 8, !tbaa !108
   %24 = call ptr @g_strrstr(ptr noundef %23, ptr noundef nonnull @.str.64) #16
   %25 = icmp eq ptr %24, null
-  %26 = getelementptr inbounds i8, ptr %24, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %27 = select i1 %25, ptr %7, ptr %26
   %28 = tail call i64 @gtk_tree_store_get_type() #17
   %29 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %28) #16
@@ -7675,7 +7675,7 @@ define internal noundef i32 @_update_tag_name_per_name(ptr noundef %0, ptr nocap
 
 39:                                               ; preds = %35
   %40 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %7, ptr noundef nonnull %36, ptr noundef null) #16
-  %41 = getelementptr inbounds i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %42 = load i32, ptr %41, align 8, !tbaa !105
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %47, label %44
@@ -7710,7 +7710,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
 define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8, !tbaa !18
@@ -7731,7 +7731,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
 .preheader4:                                      ; preds = %11, %35
   %16 = phi ptr [ %37, %35 ], [ %9, %11 ]
   %17 = load ptr, ptr %16, align 8, !tbaa !27
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
   %21 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %2, ptr noundef %20, ptr noundef null) #16
@@ -7755,7 +7755,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
 
 35:                                               ; preds = %24, %.preheader4
   call void @g_free(ptr noundef %21) #16
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !18
   %38 = icmp ne ptr %37, null
   %39 = and i1 %23, %38
@@ -7773,7 +7773,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
 .preheader6:                                      ; preds = %11, %60
   %44 = phi ptr [ %62, %60 ], [ %9, %11 ]
   %45 = load ptr, ptr %44, align 8, !tbaa !27
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !29
   %48 = getelementptr inbounds i8, ptr %47, i64 %14
   %49 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %2, ptr noundef %48, ptr noundef null) #16
@@ -7794,7 +7794,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
 
 60:                                               ; preds = %52, %.preheader6
   call void @g_free(ptr noundef %49) #16
-  %61 = getelementptr inbounds i8, ptr %44, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !18
   %63 = icmp ne ptr %62, null
   %64 = and i1 %51, %63
@@ -7806,7 +7806,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
   %65 = load ptr, ptr %6, align 8, !tbaa !18
   call void @dt_image_synch_xmps(ptr noundef %65) #16
   call fastcc void @_raise_signal_tag_changed(ptr noundef %3)
-  %66 = getelementptr inbounds i8, ptr %8, i64 1048
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 1048
   %67 = load ptr, ptr %66, align 8, !tbaa !16
   call fastcc void @_show_tag_on_view(ptr noundef %67, ptr noundef %2, i32 noundef 0, i32 noundef 1)
   br label %79
@@ -7814,7 +7814,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
 .preheader:                                       ; preds = %41, %.preheader
   %68 = phi ptr [ %77, %.preheader ], [ %42, %41 ]
   %69 = load ptr, ptr %68, align 8, !tbaa !27
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !29
   %72 = getelementptr inbounds i8, ptr %71, i64 %14
   %73 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %2, ptr noundef %72, ptr noundef null) #16
@@ -7822,7 +7822,7 @@ define internal fastcc void @_apply_rename_path(ptr noundef %0, ptr noundef %1, 
   %75 = load i32, ptr %74, align 8, !tbaa !33
   call void @dt_tag_rename(i32 noundef %75, ptr noundef %73) #16
   call void @g_free(ptr noundef %73) #16
-  %76 = getelementptr inbounds i8, ptr %68, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.loopexit, label %.preheader
@@ -7854,13 +7854,13 @@ declare void @g_signal_stop_emission_by_name(ptr noundef, ptr noundef) local_unn
 define internal fastcc void @_dnd_clear_root(ptr nocapture %0) unnamed_addr #1 {
   %2 = alloca %struct._GtkTreeIter, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1268
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %5 = load i32, ptr %4, align 4, !tbaa !65
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %24, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = tail call i64 @gtk_tree_model_get_type() #17
   %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %10) #16
@@ -7923,15 +7923,15 @@ declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_dnd_expand_timeout(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 1248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1248
   %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 1048
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1048
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = tail call i32 @gtk_tree_view_expand_row(ptr noundef %9, ptr noundef nonnull %5, i32 noundef 0) #16
   br label %11
@@ -7945,25 +7945,25 @@ define internal noundef range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr nocapture n
   %2 = alloca %struct._cairo_rectangle_int, align 4
   %3 = alloca i32, align 4
   %4 = alloca %struct._GtkTreeIter, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 1260
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1260
   %8 = load i32, ptr %7, align 4, !tbaa !63
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %59, label %10
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
-  %11 = getelementptr inbounds i8, ptr %6, i64 1048
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   call void @gtk_tree_view_get_visible_rect(ptr noundef %12, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   %13 = load ptr, ptr %11, align 8, !tbaa !16
   call void @gtk_tree_view_convert_bin_window_to_tree_coords(ptr noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3) #16
-  %14 = getelementptr inbounds i8, ptr %6, i64 1272
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1272
   %15 = load i32, ptr %14, align 8, !tbaa !66
   %16 = icmp eq i32 %15, 0
-  %17 = getelementptr inbounds i8, ptr %6, i64 1268
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1268
   %18 = load i32, ptr %17, align 4, !tbaa !65
   %19 = icmp eq i32 %18, 0
   br i1 %16, label %33, label %20
@@ -7972,7 +7972,7 @@ define internal noundef range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr nocapture n
   br i1 %19, label %21, label %34
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %6, i64 1264
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 1264
   %23 = load i32, ptr %22, align 8, !tbaa !92
   %24 = icmp slt i32 %23, 5
   %25 = load i32, ptr %3, align 4
@@ -7982,7 +7982,7 @@ define internal noundef range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr nocapture n
 
 28:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  %29 = getelementptr inbounds i8, ptr %6, i64 1152
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 1152
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   call void @gtk_tree_store_prepend(ptr noundef %30, ptr noundef nonnull %4, ptr noundef null) #16
   %31 = load ptr, ptr %29, align 8, !tbaa !24
@@ -7996,7 +7996,7 @@ define internal noundef range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr nocapture n
   br i1 %19, label %40, label %34
 
 34:                                               ; preds = %33, %20
-  %35 = getelementptr inbounds i8, ptr %6, i64 1264
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 1264
   %36 = load i32, ptr %35, align 8, !tbaa !92
   %37 = icmp sgt i32 %36, 19
   br i1 %37, label %38, label %40
@@ -8007,7 +8007,7 @@ define internal noundef range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr nocapture n
   br label %40
 
 40:                                               ; preds = %38, %34, %33, %28, %21
-  %41 = getelementptr inbounds i8, ptr %6, i64 1264
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 1264
   %42 = load i32, ptr %41, align 8, !tbaa !92
   %43 = icmp slt i32 %42, 5
   br i1 %43, label %44, label %49
@@ -8021,7 +8021,7 @@ define internal noundef range(i32 0, 2) i32 @_dnd_scroll_timeout(ptr nocapture n
   br label %58
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %2, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !109
   %52 = add nsw i32 %51, -5
   %53 = icmp sgt i32 %42, %52
@@ -8312,7 +8312,7 @@ define internal range(i32 0, 2) i32 @_completion_match_func(ptr noundef %0, ptr 
 29:                                               ; preds = %24
   %30 = tail call ptr @g_strrstr(ptr noundef %1, ptr noundef nonnull @.str.3) #16
   %31 = icmp eq ptr %30, null
-  %32 = getelementptr inbounds i8, ptr %30, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %33 = select i1 %31, ptr %1, ptr %32
   %34 = load i8, ptr %33, align 1, !tbaa !26
   %35 = icmp eq i8 %34, 0
@@ -8386,9 +8386,9 @@ define internal noundef i32 @_lib_tagging_tag_destroy(ptr nocapture readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_lib_tagging_tag_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !77
   switch i32 %7, label %38 [
     i32 65307, label %8
@@ -8398,10 +8398,10 @@ define internal noundef range(i32 0, 2) i32 @_lib_tagging_tag_key_press(ptr noun
   ]
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 1184
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1184
   %10 = load ptr, ptr %9, align 8, !tbaa !101
   tail call void @g_list_free(ptr noundef %10) #16
-  %11 = getelementptr inbounds i8, ptr %5, i64 1176
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1176
   %12 = load ptr, ptr %11, align 8, !tbaa !103
   tail call void @gtk_widget_destroy(ptr noundef %12) #16
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
@@ -8416,7 +8416,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_tagging_tag_key_press(ptr noun
   %19 = tail call i64 @gtk_entry_get_type() #17
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %19) #16
   %21 = tail call ptr @gtk_entry_get_text(ptr noundef %20) #16
-  %22 = getelementptr inbounds i8, ptr %5, i64 1184
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1184
   %23 = load ptr, ptr %22, align 8, !tbaa !101
   %24 = tail call i32 @dt_tag_attach_string_list(ptr noundef %21, ptr noundef %23, i32 noundef 1) #16
   %25 = icmp eq i32 %24, 0
@@ -8433,7 +8433,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_tagging_tag_key_press(ptr noun
   tail call fastcc void @_save_last_tag_used(ptr noundef %21, ptr noundef nonnull %5)
   tail call fastcc void @_init_treeview(ptr noundef nonnull %2, i32 noundef 0)
   tail call fastcc void @_init_treeview(ptr noundef nonnull %2, i32 noundef 1)
-  %30 = getelementptr inbounds i8, ptr %5, i64 1176
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 1176
   %31 = load ptr, ptr %30, align 8, !tbaa !103
   tail call void @gtk_widget_destroy(ptr noundef %31) #16
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !80
@@ -8517,7 +8517,7 @@ define internal fastcc void @_size_recent_tags_list() unnamed_addr #1 {
 
 16:                                               ; preds = %14, %.preheader4
   %17 = phi i32 [ %15, %14 ], [ %12, %.preheader4 ]
-  %18 = getelementptr inbounds i8, ptr %11, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %.preheader4
 
 19:                                               ; preds = %.preheader4

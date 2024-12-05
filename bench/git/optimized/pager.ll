@@ -109,11 +109,11 @@ define dso_local void @prepare_pager_args(ptr noundef %pager_process, ptr nounde
 entry:
   %argv.i = alloca ptr, align 8
   %call = tail call ptr @strvec_push(ptr noundef %pager_process, ptr noundef %pager) #12
-  %use_shell = getelementptr inbounds i8, ptr %pager_process, i64 104
+  %use_shell = getelementptr inbounds nuw i8, ptr %pager_process, i64 104
   %bf.load = load i16, ptr %use_shell, align 8
   %bf.set = or i16 %bf.load, 32
   store i16 %bf.set, ptr %use_shell, align 8
-  %env = getelementptr inbounds i8, ptr %pager_process, i64 24
+  %env = getelementptr inbounds nuw i8, ptr %pager_process, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %argv.i)
   %call.i = tail call ptr @xstrdup(ptr noundef nonnull @.str.13) #12
   %call1.i = call i32 @split_cmdline(ptr noundef %call.i, ptr noundef nonnull %argv.i) #12
@@ -136,7 +136,7 @@ if.then.i:                                        ; preds = %entry
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %0 = load ptr, ptr %argv.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call4.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 61) #13
   %tobool.not.i = icmp eq ptr %call4.i, null
@@ -149,7 +149,7 @@ if.then5.i:                                       ; preds = %for.body.i
 if.end6.i:                                        ; preds = %for.body.i
   store i8 0, ptr %call4.i, align 1
   %2 = load ptr, ptr %argv.i, align 8
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx8.i, align 8
   %call9.i = call ptr @getenv(ptr noundef %3) #12
   %tobool10.not.i = icmp eq ptr %call9.i, null
@@ -158,7 +158,7 @@ if.end6.i:                                        ; preds = %for.body.i
 if.then11.i:                                      ; preds = %if.end6.i
   store i8 61, ptr %call4.i, align 1
   %4 = load ptr, ptr %argv.i, align 8
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx13.i, align 8
   %call14.i = call ptr @strvec_push(ptr noundef nonnull %env, ptr noundef %5) #12
   br label %for.inc.i
@@ -173,7 +173,7 @@ setup_pager_env.exit:                             ; preds = %for.inc.i, %for.con
   %6 = load ptr, ptr %argv.i, align 8
   call void @free(ptr noundef %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i)
-  %trace2_child_class = getelementptr inbounds i8, ptr %pager_process, i64 64
+  %trace2_child_class = getelementptr inbounds nuw i8, ptr %pager_process, i64 64
   store ptr @.str.4, ptr %trace2_child_class, align 8
   ret void
 }
@@ -248,7 +248,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i4
   %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #12
   %tobool5.i = icmp eq i32 %call4.i, 0
-  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
+  %ws_col.i = getelementptr inbounds nuw i8, ptr %ws.i, i64 2
   %3 = load i16, ptr %ws_col.i, align 2
   %tobool7.i = icmp ne i16 %3, 0
   %or.cond.i = select i1 %tobool5.i, i1 %tobool7.i, i1 false
@@ -341,7 +341,7 @@ if.then3:                                         ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true, %if.end
   %call4 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws) #12
   %tobool5 = icmp eq i32 %call4, 0
-  %ws_col = getelementptr inbounds i8, ptr %ws, i64 2
+  %ws_col = getelementptr inbounds nuw i8, ptr %ws, i64 2
   %1 = load i16, ptr %ws_col, align 2
   %tobool7 = icmp ne i16 %1, 0
   %or.cond = select i1 %tobool5, i1 %tobool7, i1 false
@@ -453,7 +453,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
   %call4.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #12
   %tobool5.i = icmp eq i32 %call4.i, 0
-  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
+  %ws_col.i = getelementptr inbounds nuw i8, ptr %ws.i, i64 2
   %2 = load i16, ptr %ws_col.i, align 2
   %tobool7.i = icmp ne i16 %2, 0
   %or.cond.i = select i1 %tobool5.i, i1 %tobool7.i, i1 false
@@ -512,9 +512,9 @@ define dso_local i32 @check_pager_config(ptr noundef %cmd) local_unnamed_addr #0
 entry:
   %data = alloca %struct.pager_command_config_data, align 8
   store ptr %cmd, ptr %data, align 8
-  %want = getelementptr inbounds i8, ptr %data, i64 8
+  %want = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i32 -1, ptr %want, align 8
-  %value = getelementptr inbounds i8, ptr %data, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %data, i64 16
   store ptr null, ptr %value, align 8
   call void @read_early_config(ptr noundef nonnull @pager_command_config, ptr noundef nonnull %data) #12
   %0 = load ptr, ptr %value, align 8
@@ -539,13 +539,13 @@ entry:
 do.body.i:                                        ; preds = %do.cond.i, %entry
   %str.addr.0.i = phi ptr [ %var, %entry ], [ %incdec.ptr.i, %do.cond.i ]
   %prefix.addr.0.idx.i = phi i64 [ 0, %entry ], [ %prefix.addr.0.add.i, %do.cond.i ]
-  %prefix.addr.0.ptr.i = getelementptr inbounds i8, ptr @.str.16, i64 %prefix.addr.0.idx.i
+  %prefix.addr.0.ptr.i = getelementptr inbounds nuw i8, ptr @.str.16, i64 %prefix.addr.0.idx.i
   %0 = load i8, ptr %prefix.addr.0.ptr.i, align 1
   %exitcond.i = icmp eq i64 %prefix.addr.0.idx.i, 6
   br i1 %exitcond.i, label %skip_prefix.exit, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.add.i = add nuw nsw i64 %prefix.addr.0.idx.i, 1
   %cmp.i = icmp eq i8 %1, %0
@@ -564,7 +564,7 @@ land.lhs.true:                                    ; preds = %skip_prefix.exit
 if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call i32 @git_parse_maybe_bool(ptr noundef %value) #12
   %cmp = icmp sgt i32 %call3, -1
-  %want = getelementptr inbounds i8, ptr %vdata, i64 8
+  %want = getelementptr inbounds nuw i8, ptr %vdata, i64 8
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
@@ -574,7 +574,7 @@ if.then4:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   store i32 1, ptr %want, align 8
   %call6 = tail call ptr @xstrdup(ptr noundef %value) #12
-  %value7 = getelementptr inbounds i8, ptr %vdata, i64 16
+  %value7 = getelementptr inbounds nuw i8, ptr %vdata, i64 16
   store ptr %call6, ptr %value7, align 8
   br label %if.end8
 

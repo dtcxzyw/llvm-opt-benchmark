@@ -41,7 +41,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %26, label %27, label %.loopexit29.us
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds double, ptr %22, i64 %21
+  %28 = getelementptr inbounds nuw double, ptr %22, i64 %21
   %29 = getelementptr inbounds double, ptr %28, i64 %18
   store double 1.000000e+00, ptr %29, align 8, !tbaa !3
   %30 = icmp eq i64 %25, 15
@@ -60,77 +60,77 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 37:                                               ; preds = %19
   %38 = load double, ptr %20, align 8, !tbaa !3
   store double %38, ptr %22, align 8, !tbaa !3
-  %39 = getelementptr inbounds i8, ptr %20, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %40 = load double, ptr %39, align 8, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %22, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store double %40, ptr %41, align 8, !tbaa !3
-  %42 = getelementptr inbounds i8, ptr %20, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %43 = load double, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds i8, ptr %22, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store double %43, ptr %44, align 8, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %20, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %46 = load double, ptr %45, align 8, !tbaa !3
-  %47 = getelementptr inbounds i8, ptr %22, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store double %46, ptr %47, align 8, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %20, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %49 = load double, ptr %48, align 8, !tbaa !3
-  %50 = getelementptr inbounds i8, ptr %22, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store double %49, ptr %50, align 8, !tbaa !3
-  %51 = getelementptr inbounds i8, ptr %20, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %52 = load double, ptr %51, align 8, !tbaa !3
-  %53 = getelementptr inbounds i8, ptr %22, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store double %52, ptr %53, align 8, !tbaa !3
-  %54 = getelementptr inbounds i8, ptr %20, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %55 = load double, ptr %54, align 8, !tbaa !3
-  %56 = getelementptr inbounds i8, ptr %22, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store double %55, ptr %56, align 8, !tbaa !3
-  %57 = getelementptr inbounds i8, ptr %20, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %58 = load double, ptr %57, align 8, !tbaa !3
-  %59 = getelementptr inbounds i8, ptr %22, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store double %58, ptr %59, align 8, !tbaa !3
-  %60 = getelementptr inbounds i8, ptr %20, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %61 = load double, ptr %60, align 8, !tbaa !3
-  %62 = getelementptr inbounds i8, ptr %22, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store double %61, ptr %62, align 8, !tbaa !3
-  %63 = getelementptr inbounds i8, ptr %20, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %64 = load double, ptr %63, align 8, !tbaa !3
-  %65 = getelementptr inbounds i8, ptr %22, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store double %64, ptr %65, align 8, !tbaa !3
-  %66 = getelementptr inbounds i8, ptr %20, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %67 = load double, ptr %66, align 8, !tbaa !3
-  %68 = getelementptr inbounds i8, ptr %22, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store double %67, ptr %68, align 8, !tbaa !3
-  %69 = getelementptr inbounds i8, ptr %20, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %70 = load double, ptr %69, align 8, !tbaa !3
-  %71 = getelementptr inbounds i8, ptr %22, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store double %70, ptr %71, align 8, !tbaa !3
-  %72 = getelementptr inbounds i8, ptr %20, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %73 = load double, ptr %72, align 8, !tbaa !3
-  %74 = getelementptr inbounds i8, ptr %22, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store double %73, ptr %74, align 8, !tbaa !3
-  %75 = getelementptr inbounds i8, ptr %20, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %76 = load double, ptr %75, align 8, !tbaa !3
-  %77 = getelementptr inbounds i8, ptr %22, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store double %76, ptr %77, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %20, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %79 = load double, ptr %78, align 8, !tbaa !3
-  %80 = getelementptr inbounds i8, ptr %22, i64 112
+  %80 = getelementptr inbounds nuw i8, ptr %22, i64 112
   store double %79, ptr %80, align 8, !tbaa !3
-  %81 = getelementptr inbounds i8, ptr %20, i64 120
+  %81 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %82 = load double, ptr %81, align 8, !tbaa !3
-  %83 = getelementptr inbounds i8, ptr %22, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %22, i64 120
   store double %82, ptr %83, align 8, !tbaa !3
   br label %.loopexit29.us
 
 .loopexit29.us:                                   ; preds = %.preheader28.us, %37, %27, %24
-  %84 = getelementptr inbounds i8, ptr %22, i64 128
+  %84 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %85 = getelementptr inbounds double, ptr %20, i64 %3
   %86 = add nuw nsw i64 %21, 1
   %87 = icmp eq i64 %86, %0
   br i1 %87, label %.loopexit30.us, label %19, !llvm.loop !10
 
 .loopexit30.us:                                   ; preds = %.loopexit29.us
-  %88 = getelementptr inbounds i8, ptr %17, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %89 = add nsw i64 %14, 16
   %90 = add nsw i64 %15, -1
   %91 = icmp sgt i64 %15, 1
@@ -145,7 +145,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %96, label %149, label %97
 
 97:                                               ; preds = %.loopexit31
-  %98 = getelementptr inbounds i8, ptr %92, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %99 = icmp sgt i64 %0, 0
   br i1 %99, label %100, label %.loopexit27
 
@@ -166,7 +166,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %109, label %110, label %.loopexit26
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds double, ptr %105, i64 %104
+  %111 = getelementptr inbounds nuw double, ptr %105, i64 %104
   %112 = getelementptr inbounds double, ptr %111, i64 %101
   store double 1.000000e+00, ptr %112, align 8, !tbaa !3
   %113 = icmp eq i64 %108, 7
@@ -185,38 +185,38 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 120:                                              ; preds = %102
   %121 = load double, ptr %103, align 8, !tbaa !3
   store double %121, ptr %105, align 8, !tbaa !3
-  %122 = getelementptr inbounds i8, ptr %103, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %123 = load double, ptr %122, align 8, !tbaa !3
-  %124 = getelementptr inbounds i8, ptr %105, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store double %123, ptr %124, align 8, !tbaa !3
-  %125 = getelementptr inbounds i8, ptr %103, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %126 = load double, ptr %125, align 8, !tbaa !3
-  %127 = getelementptr inbounds i8, ptr %105, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store double %126, ptr %127, align 8, !tbaa !3
-  %128 = getelementptr inbounds i8, ptr %103, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %129 = load double, ptr %128, align 8, !tbaa !3
-  %130 = getelementptr inbounds i8, ptr %105, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store double %129, ptr %130, align 8, !tbaa !3
-  %131 = getelementptr inbounds i8, ptr %103, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %132 = load double, ptr %131, align 8, !tbaa !3
-  %133 = getelementptr inbounds i8, ptr %105, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store double %132, ptr %133, align 8, !tbaa !3
-  %134 = getelementptr inbounds i8, ptr %103, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %103, i64 40
   %135 = load double, ptr %134, align 8, !tbaa !3
-  %136 = getelementptr inbounds i8, ptr %105, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %105, i64 40
   store double %135, ptr %136, align 8, !tbaa !3
-  %137 = getelementptr inbounds i8, ptr %103, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %138 = load double, ptr %137, align 8, !tbaa !3
-  %139 = getelementptr inbounds i8, ptr %105, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %105, i64 48
   store double %138, ptr %139, align 8, !tbaa !3
-  %140 = getelementptr inbounds i8, ptr %103, i64 56
+  %140 = getelementptr inbounds nuw i8, ptr %103, i64 56
   %141 = load double, ptr %140, align 8, !tbaa !3
-  %142 = getelementptr inbounds i8, ptr %105, i64 56
+  %142 = getelementptr inbounds nuw i8, ptr %105, i64 56
   store double %141, ptr %142, align 8, !tbaa !3
   br label %.loopexit26
 
 .loopexit26:                                      ; preds = %.preheader25, %107, %110, %120
-  %143 = getelementptr inbounds i8, ptr %105, i64 64
+  %143 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %144 = getelementptr inbounds double, ptr %103, i64 %3
   %145 = add nuw nsw i64 %104, 1
   %146 = icmp eq i64 %145, %0
@@ -236,7 +236,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %154, label %195, label %155
 
 155:                                              ; preds = %149
-  %156 = getelementptr inbounds i8, ptr %150, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %157 = icmp sgt i64 %0, 0
   br i1 %157, label %158, label %.loopexit24
 
@@ -257,7 +257,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %167, label %168, label %.loopexit23
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds double, ptr %163, i64 %162
+  %169 = getelementptr inbounds nuw double, ptr %163, i64 %162
   %170 = getelementptr inbounds double, ptr %169, i64 %159
   store double 1.000000e+00, ptr %170, align 8, !tbaa !3
   %171 = icmp eq i64 %166, 3
@@ -276,22 +276,22 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 178:                                              ; preds = %160
   %179 = load double, ptr %161, align 8, !tbaa !3
   store double %179, ptr %163, align 8, !tbaa !3
-  %180 = getelementptr inbounds i8, ptr %161, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %181 = load double, ptr %180, align 8, !tbaa !3
-  %182 = getelementptr inbounds i8, ptr %163, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store double %181, ptr %182, align 8, !tbaa !3
-  %183 = getelementptr inbounds i8, ptr %161, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %184 = load double, ptr %183, align 8, !tbaa !3
-  %185 = getelementptr inbounds i8, ptr %163, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store double %184, ptr %185, align 8, !tbaa !3
-  %186 = getelementptr inbounds i8, ptr %161, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %187 = load double, ptr %186, align 8, !tbaa !3
-  %188 = getelementptr inbounds i8, ptr %163, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %163, i64 24
   store double %187, ptr %188, align 8, !tbaa !3
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %.preheader22, %165, %168, %178
-  %189 = getelementptr inbounds i8, ptr %163, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %190 = getelementptr inbounds double, ptr %161, i64 %3
   %191 = add nuw nsw i64 %162, 1
   %192 = icmp eq i64 %191, %0
@@ -311,7 +311,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %200, label %235, label %201
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds i8, ptr %196, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %203 = icmp sgt i64 %0, 0
   br i1 %203, label %204, label %.loopexit21
 
@@ -332,7 +332,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br i1 %213, label %214, label %.loopexit20
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds double, ptr %209, i64 %208
+  %215 = getelementptr inbounds nuw double, ptr %209, i64 %208
   %216 = getelementptr inbounds double, ptr %215, i64 %205
   store double 1.000000e+00, ptr %216, align 8, !tbaa !3
   %217 = icmp eq i64 %212, 1
@@ -351,14 +351,14 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
 224:                                              ; preds = %206
   %225 = load double, ptr %207, align 8, !tbaa !3
   store double %225, ptr %209, align 8, !tbaa !3
-  %226 = getelementptr inbounds i8, ptr %207, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %227 = load double, ptr %226, align 8, !tbaa !3
-  %228 = getelementptr inbounds i8, ptr %209, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %209, i64 8
   store double %227, ptr %228, align 8, !tbaa !3
   br label %.loopexit20
 
 .loopexit20:                                      ; preds = %.preheader, %211, %214, %224
-  %229 = getelementptr inbounds i8, ptr %209, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %230 = getelementptr inbounds double, ptr %207, i64 %3
   %231 = add nuw nsw i64 %208, 1
   %232 = icmp eq i64 %231, %0
@@ -400,7 +400,7 @@ define noundef i32 @dtrsm_iltucopy(i64 noundef %0, i64 noundef %1, ptr nocapture
   br label %252
 
 252:                                              ; preds = %250, %249
-  %253 = getelementptr inbounds i8, ptr %245, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %254 = getelementptr inbounds double, ptr %243, i64 %3
   %255 = add nuw nsw i64 %244, 1
   %256 = icmp eq i64 %255, %0

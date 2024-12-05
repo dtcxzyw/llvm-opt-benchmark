@@ -1156,30 +1156,30 @@ declare void @_ZN14RecursiveMutexC1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15MutexLockerImpl15post_initializeEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.LogStream, align 8
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE172ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE172ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %3
 
 3:                                                ; preds = %0
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 800
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %1, i1 noundef zeroext false) #6
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %16) #6
-  %17 = getelementptr inbounds i8, ptr %1, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 3, ptr %17, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE172ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %1, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.101) #6
@@ -1229,13 +1229,13 @@ define hidden void @_ZN13GCMutexLockerC2EP5Mutex(ptr nocapture noundef nonnull w
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %6, align 8
   br label %9
 
 7:                                                ; preds = %2
   store ptr %1, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %8, align 8
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #6
   br label %9
@@ -1257,7 +1257,7 @@ define hidden void @_Z26print_owned_locks_on_errorP12outputStream(ptr noundef no
   %4 = phi i32 [ %14, %13 ], [ %2, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %1 ]
   %.01011 = phi i8 [ %.2, %13 ], [ 1, %1 ]
-  %5 = getelementptr inbounds [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [128 x ptr], ptr @_ZL12_mutex_array, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1372,7 +1372,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   ret void
 }

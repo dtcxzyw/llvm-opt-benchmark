@@ -74,9 +74,9 @@ define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChrome
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @"_ZN113_$LT$html_to_markdown..markdown..WebpageChromeRemover$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h5681ced820d1076eE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(56) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   switch i64 %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit12" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -129,13 +129,13 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   br i1 %9, label %15, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %48, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68d72E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6", %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !20
   %.not.i = icmp eq i64 %11, 1
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread"
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !20, !noundef !20
   %lhsc = load i8, ptr %13, align 1
   %14 = icmp eq i8 %lhsc, 112
@@ -145,35 +145,35 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.12, ptr %8, align 8, !noalias !40
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %16, align 8, !noalias !40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !47
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i64, ptr %17, align 8, !alias.scope !48, !noalias !49, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %18), !noalias !42
   %19 = load i64, ptr %6, align 8, !noalias !47, !noundef !20
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i64, ptr %20, align 8, !noalias !47, !noundef !20
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load i64, ptr %22, align 8, !noalias !47, !noundef !20
-  %24 = getelementptr inbounds i8, ptr %6, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %25 = load i64, ptr %24, align 8, !noalias !47, !noundef !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !47
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !48, !noalias !49, !nonnull !20, !noundef !20
   %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %19
   %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %23
   %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %21
   %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %25
   store ptr %28, ptr %7, align 8, !alias.scope !42, !noalias !50
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %30, ptr %32, align 8, !alias.scope !42, !noalias !50
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %29, ptr %33, align 8, !alias.scope !42, !noalias !50
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %31, ptr %34, align 8, !alias.scope !42, !noalias !50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !40
   store ptr %8, ptr %5, align 8, !noalias !51
@@ -202,11 +202,11 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   %38 = load i64, ptr %17, align 8, !alias.scope !55, !noalias !60, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, i64 noundef %38), !noalias !60
   %39 = load i64, ptr %4, align 8, !noalias !58, !noundef !20
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load i64, ptr %40, align 8, !noalias !58, !noundef !20
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = load i64, ptr %42, align 8, !noalias !58, !noundef !20
-  %44 = getelementptr inbounds i8, ptr %4, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = load i64, ptr %44, align 8, !noalias !58, !noundef !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !58
   %46 = load ptr, ptr %26, align 8, !alias.scope !55, !noalias !60, !nonnull !20, !noundef !20
@@ -225,9 +225,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   br i1 %50, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread", label %51
 
 51:                                               ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6"
-  %52 = getelementptr inbounds i8, ptr %2, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %53 = load ptr, ptr %52, align 8, !nonnull !20, !noundef !20
-  %54 = getelementptr inbounds i8, ptr %2, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %55 = load i64, ptr %54, align 8, !noundef !20
   %.not.i7 = icmp eq i64 %55, 0
   br i1 %.not.i7, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit12.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit"
@@ -242,7 +242,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   ]
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit12.thread": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hbcf6ce06aea93da9E.exit", %51
-  %58 = getelementptr inbounds i8, ptr %2, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %59 = load i64, ptr %58, align 8, !alias.scope !61, !noalias !66, !noundef !20
   %60 = icmp eq i64 %59, %55
   br i1 %60, label %61, label %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit
@@ -267,8 +267,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   ret i1 false
 
 67:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %68 = getelementptr inbounds i8, ptr %2, i64 32
-  %69 = getelementptr inbounds i8, ptr %2, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %70 = load i64, ptr %69, align 8, !alias.scope !68, !noalias !75, !noundef !20
   %71 = load i64, ptr %68, align 8, !alias.scope !68, !noalias !75, !noundef !20
   %72 = sub i64 %71, %70
@@ -282,7 +282,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf48689dfbc0418E.exit: ; preds = %67, %74
   %75 = phi i64 [ %.pre.i.i.i, %74 ], [ %70, %67 ]
-  %76 = getelementptr inbounds i8, ptr %2, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %77 = load ptr, ptr %76, align 8, !alias.scope !68, !noalias !75, !nonnull !20, !noundef !20
   %78 = getelementptr inbounds i8, ptr %77, i64 %75
   store i16 2570, ptr %78, align 1
@@ -334,9 +334,9 @@ define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandle
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17hf9a09ace7915d8edE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   %.not.i = icmp eq i64 %7, 2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit26.thread"
@@ -352,8 +352,8 @@ define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandle
   br i1 %9, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !109, !noalias !114, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !109, !noalias !114, !noundef !20
   %15 = sub i64 %14, %13
@@ -367,7 +367,7 @@ define noundef zeroext i1 @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandle
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %10, %17
   %18 = phi i64 [ %.pre.i.i, %17 ], [ %13, %10 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !109, !noalias !114, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   store i32 539167242, ptr %21, align 1
@@ -382,8 +382,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   br i1 %24, label %40, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit14"
 
 25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %28 = load i64, ptr %27, align 8, !alias.scope !120, !noalias !125, !noundef !20
   %29 = load i64, ptr %26, align 8, !alias.scope !120, !noalias !125, !noundef !20
   %30 = sub i64 %29, %28
@@ -397,7 +397,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit10: ; preds = %25, %32
   %33 = phi i64 [ %.pre.i.i9, %32 ], [ %28, %25 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %35 = load ptr, ptr %34, align 8, !alias.scope !120, !noalias !125, !nonnull !20, !noundef !20
   %36 = getelementptr inbounds i8, ptr %35, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %36, ptr noundef nonnull align 1 dereferenceable(5) @anon.d2fc072d53151fb9c7f263cf679341ba.25, i64 5, i1 false)
@@ -412,8 +412,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   br i1 %39, label %55, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit20"
 
 40:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
-  %41 = getelementptr inbounds i8, ptr %2, i64 32
-  %42 = getelementptr inbounds i8, ptr %2, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %43 = load i64, ptr %42, align 8, !alias.scope !131, !noalias !136, !noundef !20
   %44 = load i64, ptr %41, align 8, !alias.scope !131, !noalias !136, !noundef !20
   %45 = sub i64 %44, %43
@@ -427,7 +427,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit16: ; preds = %40, %47
   %48 = phi i64 [ %.pre.i.i15, %47 ], [ %43, %40 ]
-  %49 = getelementptr inbounds i8, ptr %2, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %50 = load ptr, ptr %49, align 8, !alias.scope !131, !noalias !136, !nonnull !20, !noundef !20
   %51 = getelementptr inbounds i8, ptr %50, i64 %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %51, ptr noundef nonnull align 1 dereferenceable(6) @anon.d2fc072d53151fb9c7f263cf679341ba.24, i64 6, i1 false)
@@ -442,8 +442,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   br i1 %54, label %70, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit26"
 
 55:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit14"
-  %56 = getelementptr inbounds i8, ptr %2, i64 32
-  %57 = getelementptr inbounds i8, ptr %2, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %58 = load i64, ptr %57, align 8, !alias.scope !142, !noalias !147, !noundef !20
   %59 = load i64, ptr %56, align 8, !alias.scope !142, !noalias !147, !noundef !20
   %60 = sub i64 %59, %58
@@ -457,7 +457,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit22: ; preds = %55, %62
   %63 = phi i64 [ %.pre.i.i21, %62 ], [ %58, %55 ]
-  %64 = getelementptr inbounds i8, ptr %2, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %65 = load ptr, ptr %64, align 8, !alias.scope !142, !noalias !147, !nonnull !20, !noundef !20
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %66, ptr noundef nonnull align 1 dereferenceable(7) @anon.d2fc072d53151fb9c7f263cf679341ba.23, i64 7, i1 false)
@@ -472,8 +472,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   br i1 %69, label %84, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit26.thread"
 
 70:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit20"
-  %71 = getelementptr inbounds i8, ptr %2, i64 32
-  %72 = getelementptr inbounds i8, ptr %2, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %73 = load i64, ptr %72, align 8, !alias.scope !153, !noalias !158, !noundef !20
   %74 = load i64, ptr %71, align 8, !alias.scope !153, !noalias !158, !noundef !20
   %75 = sub i64 %74, %73
@@ -487,7 +487,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit28: ; preds = %70, %77
   %78 = phi i64 [ %.pre.i.i27, %77 ], [ %73, %70 ]
-  %79 = getelementptr inbounds i8, ptr %2, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %80 = load ptr, ptr %79, align 8, !alias.scope !153, !noalias !158, !nonnull !20, !noundef !20
   %81 = getelementptr inbounds i8, ptr %80, i64 %78
   store i64 2315733267218893322, ptr %81, align 1
@@ -506,9 +506,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hb1a2f82f9f8a5db7E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   %.not.i = icmp eq i64 %7, 2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit20.thread"
@@ -524,8 +524,8 @@ define void @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$h
   br i1 %9, label %10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit20", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit16", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit12", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !168, !noalias !175, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !168, !noalias !175, !noundef !20
   %15 = sub i64 %14, %13
@@ -539,7 +539,7 @@ define void @"_ZN107_$LT$html_to_markdown..markdown..HeadingHandler$u20$as$u20$h
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf48689dfbc0418E.exit: ; preds = %10, %17
   %18 = phi i64 [ %.pre.i.i.i, %17 ], [ %13, %10 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !168, !noalias !175, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   store i16 2570, ptr %21, align 1
@@ -599,9 +599,9 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h698283586f1cad29E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   %.not.i = icmp eq i64 %7, 2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8.thread"
@@ -617,8 +617,8 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u
   br i1 %9, label %10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !213, !noalias !220, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !213, !noalias !220, !noundef !20
   %15 = icmp eq i64 %14, %13
@@ -631,7 +631,7 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f9364a22E.exit: ; preds = %10, %16
   %17 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %10 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8, !alias.scope !213, !noalias !220, !nonnull !20, !noundef !20
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
   store i8 10, ptr %20, align 1
@@ -649,8 +649,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
   ret i1 false
 
 24:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = load i64, ptr %26, align 8, !alias.scope !226, !noalias !231, !noundef !20
   %28 = load i64, ptr %25, align 8, !alias.scope !226, !noalias !231, !noundef !20
   %29 = sub i64 %28, %27
@@ -664,7 +664,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %24, %31
   %32 = phi i64 [ %.pre.i.i, %31 ], [ %27, %24 ]
-  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8, !alias.scope !226, !noalias !231, !nonnull !20, !noundef !20
   %35 = getelementptr inbounds i8, ptr %34, i64 %32
   store i16 8237, ptr %35, align 1
@@ -676,9 +676,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hb38909521f01753cE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   %.not.i = icmp eq i64 %7, 2
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8.thread"
@@ -694,8 +694,8 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html
   br i1 %9, label %10, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !241, !noalias !248, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !241, !noalias !248, !noundef !20
   %15 = icmp eq i64 %14, %13
@@ -708,7 +708,7 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..ListHandler$u20$as$u20$html
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f9364a22E.exit: ; preds = %10, %16
   %17 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %10 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8, !alias.scope !241, !noalias !248, !nonnull !20, !noundef !20
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
   store i8 10, ptr %20, align 1
@@ -726,8 +726,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
   ret void
 
 24:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = load i64, ptr %26, align 8, !alias.scope !254, !noalias !261, !noundef !20
   %28 = load i64, ptr %25, align 8, !alias.scope !254, !noalias !261, !noundef !20
   %29 = icmp eq i64 %28, %27
@@ -740,7 +740,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f9364a22E.exit10: ; preds = %24, %30
   %31 = phi i64 [ %.pre.i.i.i9, %30 ], [ %27, %24 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %33 = load ptr, ptr %32, align 8, !alias.scope !254, !noalias !261, !nonnull !20, !noundef !20
   %34 = getelementptr inbounds i8, ptr %33, i64 %31
   store i8 10, ptr %34, align 1
@@ -753,9 +753,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 1, ptr %3, align 1
   ret void
 }
@@ -763,9 +763,9 @@ define void @_ZN16html_to_markdown8markdown12TableHandler3new17h6fe360117bb99065
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN83_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$core..default..Default$GT$7default17ha06059bb710c7aaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 8 dereferenceable(16) initializes((0, 10)) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8, !alias.scope !263
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8, !alias.scope !263
-  %3 = getelementptr inbounds i8, ptr %0, i64 9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 1, ptr %3, align 1, !alias.scope !263
   ret void
 }
@@ -817,9 +817,9 @@ define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17h1f6ae8e6d4889099E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   switch i64 %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13.thread" [
     i64 5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -837,8 +837,8 @@ define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$
   br i1 %9, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit8"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !298, !noalias !305, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !298, !noalias !305, !noundef !20
   %15 = sub i64 %14, %13
@@ -852,7 +852,7 @@ define noundef zeroext i1 @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf48689dfbc0418E.exit: ; preds = %10, %17
   %18 = phi i64 [ %.pre.i.i.i, %17 ], [ %13, %10 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !298, !noalias !305, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   store i16 2570, ptr %21, align 1
@@ -867,8 +867,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf486
   br i1 %24, label %39, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13"
 
 25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %28 = load i64, ptr %27, align 8, !alias.scope !311, !noalias !318, !noundef !20
   %29 = load i64, ptr %26, align 8, !alias.scope !311, !noalias !318, !noundef !20
   %30 = icmp eq i64 %29, %28
@@ -881,7 +881,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf486
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f9364a22E.exit: ; preds = %25, %31
   %32 = phi i64 [ %.pre.i.i.i9, %31 ], [ %28, %25 ]
-  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8, !alias.scope !311, !noalias !318, !nonnull !20, !noundef !20
   %35 = getelementptr inbounds i8, ptr %34, i64 %32
   store i8 10, ptr %35, align 1
@@ -899,24 +899,24 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
   %40 = load i64, ptr %0, align 8, !noundef !20
   %41 = add i64 %40, 1
   store i64 %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i8, ptr %42, align 8, !range !324, !noundef !20
   %44 = trunc nuw i8 %43 to i1
-  %.phi.trans.insert38 = getelementptr inbounds i8, ptr %2, i64 48
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br i1 %44, label %88, label %76
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13.thread": ; preds = %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit19, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13", %_ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f9364a22E.exit, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter15push_blank_line17h2cf48689dfbc0418E.exit
   ret i1 false
 
 45:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13"
-  %46 = getelementptr inbounds i8, ptr %0, i64 9
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %47 = load i8, ptr %46, align 1, !range !324, !noundef !20
   %48 = trunc nuw i8 %47 to i1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 48
   br i1 %48, label %61, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %51 = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !325, !noalias !330, !noundef !20
   %52 = load i64, ptr %50, align 8, !alias.scope !325, !noalias !330, !noundef !20
   %53 = icmp eq i64 %52, %51
@@ -929,7 +929,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %49, %54
   %55 = phi i64 [ %.pre.i.i, %54 ], [ %51, %49 ]
-  %56 = getelementptr inbounds i8, ptr %2, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %57 = load ptr, ptr %56, align 8, !alias.scope !325, !noalias !330, !nonnull !20, !noundef !20
   %58 = getelementptr inbounds i8, ptr %57, i64 %55
   store i8 32, ptr %58, align 1
@@ -945,8 +945,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 62:                                               ; preds = %61, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit
   %63 = phi i64 [ %.pre, %61 ], [ %60, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit ]
-  %64 = getelementptr inbounds i8, ptr %2, i64 32
-  %65 = getelementptr inbounds i8, ptr %2, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %66 = load i64, ptr %64, align 8, !alias.scope !332, !noalias !337, !noundef !20
   %67 = sub i64 %66, %63
   %68 = icmp ult i64 %67, 2
@@ -959,7 +959,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit15: ; preds = %62, %69
   %70 = phi i64 [ %.pre.i.i14, %69 ], [ %63, %62 ]
-  %71 = getelementptr inbounds i8, ptr %2, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %72 = load ptr, ptr %71, align 8, !alias.scope !332, !noalias !337, !nonnull !20, !noundef !20
   %73 = getelementptr inbounds i8, ptr %72, i64 %70
   store i16 8316, ptr %73, align 1
@@ -969,7 +969,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit13.thread"
 
 76:                                               ; preds = %39
-  %77 = getelementptr inbounds i8, ptr %2, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %78 = load i64, ptr %.phi.trans.insert38, align 8, !alias.scope !339, !noalias !344, !noundef !20
   %79 = load i64, ptr %77, align 8, !alias.scope !339, !noalias !344, !noundef !20
   %80 = icmp eq i64 %79, %78
@@ -982,7 +982,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit17: ; preds = %76, %81
   %82 = phi i64 [ %.pre.i.i16, %81 ], [ %78, %76 ]
-  %83 = getelementptr inbounds i8, ptr %2, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %84 = load ptr, ptr %83, align 8, !alias.scope !339, !noalias !344, !nonnull !20, !noundef !20
   %85 = getelementptr inbounds i8, ptr %84, i64 %82
   store i8 32, ptr %85, align 1
@@ -998,8 +998,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 89:                                               ; preds = %88, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit17
   %90 = phi i64 [ %.pre39, %88 ], [ %87, %_ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit17 ]
-  %91 = getelementptr inbounds i8, ptr %2, i64 32
-  %92 = getelementptr inbounds i8, ptr %2, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %93 = load i64, ptr %91, align 8, !alias.scope !346, !noalias !351, !noundef !20
   %94 = sub i64 %93, %90
   %95 = icmp ult i64 %94, 2
@@ -1012,7 +1012,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit19: ; preds = %89, %96
   %97 = phi i64 [ %.pre.i.i18, %96 ], [ %90, %89 ]
-  %98 = getelementptr inbounds i8, ptr %2, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %99 = load ptr, ptr %98, align 8, !alias.scope !346, !noalias !351, !nonnull !20, !noundef !20
   %100 = getelementptr inbounds i8, ptr %99, i64 %97
   store i16 8316, ptr %100, align 1
@@ -1024,9 +1024,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17h1a16f2240cb2badcE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   switch i64 %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit10.thread" [
     i64 5, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -1044,8 +1044,8 @@ define void @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$htm
   br i1 %9, label %25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit10.thread"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !361, !noalias !368, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !361, !noalias !368, !noundef !20
   %15 = icmp eq i64 %14, %13
@@ -1058,7 +1058,7 @@ define void @"_ZN105_$LT$html_to_markdown..markdown..TableHandler$u20$as$u20$htm
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f9364a22E.exit: ; preds = %10, %16
   %17 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %10 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8, !alias.scope !361, !noalias !368, !nonnull !20, !noundef !20
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
   store i8 10, ptr %20, align 1
@@ -1075,8 +1075,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
   br i1 %24, label %40, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit10.thread"
 
 25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit6"
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %28 = load i64, ptr %27, align 8, !alias.scope !374, !noalias !379, !noundef !20
   %29 = load i64, ptr %26, align 8, !alias.scope !374, !noalias !379, !noundef !20
   %30 = sub i64 %29, %28
@@ -1090,14 +1090,14 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter12push_newline17hed595747f
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %25, %32
   %33 = phi i64 [ %.pre.i.i, %32 ], [ %28, %25 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %35 = load ptr, ptr %34, align 8, !alias.scope !374, !noalias !379, !nonnull !20, !noundef !20
   %36 = getelementptr inbounds i8, ptr %35, i64 %33
   store i16 31776, ptr %36, align 1
   %37 = load i64, ptr %27, align 8, !alias.scope !374, !noalias !379, !noundef !20
   %38 = add i64 %37, 2
   store i64 %38, ptr %27, align 8, !alias.scope !374, !noalias !379
-  %39 = getelementptr inbounds i8, ptr %0, i64 9
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 1, ptr %39, align 1
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit10.thread"
 
@@ -1128,7 +1128,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   %49 = load i64, ptr %12, align 8, !alias.scope !381, !noalias !386, !noundef !20
   %50 = add i64 %49, 2
   store i64 %50, ptr %12, align 8, !alias.scope !381, !noalias !386
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %51, align 8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit10.thread"
 
@@ -1207,9 +1207,9 @@ define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHan
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$16handle_tag_start17ha2bb6fef81a9fa8aE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   switch i64 %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread" [
     i64 6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -1227,8 +1227,8 @@ define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHan
   br i1 %9, label %24, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !418, !noalias !423, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !418, !noalias !423, !noundef !20
   %15 = sub i64 %14, %13
@@ -1242,7 +1242,7 @@ define noundef zeroext i1 @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHan
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %10, %17
   %18 = phi i64 [ %.pre.i.i, %17 ], [ %13, %10 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !418, !noalias !423, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   store i16 10794, ptr %21, align 1
@@ -1255,8 +1255,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   ret i1 false
 
 24:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = load i64, ptr %26, align 8, !alias.scope !425, !noalias !430, !noundef !20
   %28 = load i64, ptr %25, align 8, !alias.scope !425, !noalias !430, !noundef !20
   %29 = icmp eq i64 %28, %27
@@ -1269,7 +1269,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6: ; preds = %24, %30
   %31 = phi i64 [ %.pre.i.i5, %30 ], [ %27, %24 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %33 = load ptr, ptr %32, align 8, !alias.scope !425, !noalias !430, !nonnull !20, !noundef !20
   %34 = getelementptr inbounds i8, ptr %33, i64 %31
   store i8 95, ptr %34, align 1
@@ -1281,9 +1281,9 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u20$html_to_markdown..markdown_writer..HandleTag$GT$14handle_tag_end17hcd9629e53ca91ec5E"(ptr noalias nocapture noundef nonnull readnone align 1 %0, ptr nocapture noundef nonnull readonly align 8 %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !20, !noundef !20
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !20
   switch i64 %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread" [
     i64 6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -1301,8 +1301,8 @@ define void @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u2
   br i1 %9, label %24, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread"
 
 10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load i64, ptr %12, align 8, !alias.scope !440, !noalias !445, !noundef !20
   %14 = load i64, ptr %11, align 8, !alias.scope !440, !noalias !445, !noundef !20
   %15 = sub i64 %14, %13
@@ -1316,7 +1316,7 @@ define void @"_ZN110_$LT$html_to_markdown..markdown..StyledTextHandler$u20$as$u2
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %10, %17
   %18 = phi i64 [ %.pre.i.i, %17 ], [ %13, %10 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %20 = load ptr, ptr %19, align 8, !alias.scope !440, !noalias !445, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   store i16 10794, ptr %21, align 1
@@ -1329,8 +1329,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
   ret void
 
 24:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = load i64, ptr %26, align 8, !alias.scope !447, !noalias !452, !noundef !20
   %28 = load i64, ptr %25, align 8, !alias.scope !447, !noalias !452, !noundef !20
   %29 = icmp eq i64 %28, %27
@@ -1343,7 +1343,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6: ; preds = %24, %30
   %31 = phi i64 [ %.pre.i.i5, %30 ], [ %27, %24 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %33 = load ptr, ptr %32, align 8, !alias.scope !447, !noalias !452, !nonnull !20, !noundef !20
   %34 = getelementptr inbounds i8, ptr %33, i64 %31
   store i8 95, ptr %34, align 1
@@ -1381,9 +1381,9 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [16 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !20, !noundef !20
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !20
   switch i64 %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -1404,35 +1404,35 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !470)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.44, ptr %7, align 8, !noalias !473
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 3, ptr %15, align 8, !noalias !473
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !473
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !480
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !481, !noalias !482, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !475
   %18 = load i64, ptr %5, align 8, !noalias !480, !noundef !20
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !480, !noundef !20
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i64, ptr %21, align 8, !noalias !480, !noundef !20
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i64, ptr %23, align 8, !noalias !480, !noundef !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !480
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !481, !noalias !482, !nonnull !20, !noundef !20
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
   %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %22
   %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %20
   %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %24
   store ptr %27, ptr %6, align 8, !alias.scope !475, !noalias !483
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8, !alias.scope !475, !noalias !483
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %28, ptr %32, align 8, !alias.scope !475, !noalias !483
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %33, align 8, !alias.scope !475, !noalias !483
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !473
   store ptr %7, ptr %4, align 8, !noalias !484
@@ -1457,8 +1457,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   ret i1 false
 
 36:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
-  %38 = getelementptr inbounds i8, ptr %2, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %39 = load i64, ptr %38, align 8, !alias.scope !488, !noalias !493, !noundef !20
   %40 = load i64, ptr %37, align 8, !alias.scope !488, !noalias !493, !noundef !20
   %41 = sub i64 %40, %39
@@ -1472,7 +1472,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %36, %43
   %44 = phi i64 [ %.pre.i.i, %43 ], [ %39, %36 ]
-  %45 = getelementptr inbounds i8, ptr %2, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %46 = load ptr, ptr %45, align 8, !alias.scope !488, !noalias !493, !nonnull !20, !noundef !20
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %47, ptr noundef nonnull align 1 dereferenceable(6) @anon.d2fc072d53151fb9c7f263cf679341ba.46, i64 6, i1 false)
@@ -1484,8 +1484,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 50:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !473
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
-  %52 = getelementptr inbounds i8, ptr %2, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %53 = load i64, ptr %52, align 8, !alias.scope !495, !noalias !500, !noundef !20
   %54 = load i64, ptr %51, align 8, !alias.scope !495, !noalias !500, !noundef !20
   %55 = icmp eq i64 %54, %53
@@ -1498,7 +1498,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6: ; preds = %50, %56
   %57 = phi i64 [ %.pre.i.i5, %56 ], [ %53, %50 ]
-  %58 = getelementptr inbounds i8, ptr %2, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %59 = load ptr, ptr %58, align 8, !alias.scope !495, !noalias !500, !nonnull !20, !noundef !20
   %60 = getelementptr inbounds i8, ptr %59, i64 %57
   store i8 96, ptr %60, align 1
@@ -1514,9 +1514,9 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [16 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !20, !noundef !20
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !20
   switch i64 %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4.thread" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit"
@@ -1537,35 +1537,35 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.44, ptr %7, align 8, !noalias !513
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 3, ptr %15, align 8, !noalias !513
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !513
   tail call void @llvm.experimental.noalias.scope.decl(metadata !515)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !518)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !520
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8, !alias.scope !521, !noalias !522, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %2, i64 noundef %17), !noalias !515
   %18 = load i64, ptr %5, align 8, !noalias !520, !noundef !20
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !520, !noundef !20
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i64, ptr %21, align 8, !noalias !520, !noundef !20
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i64, ptr %23, align 8, !noalias !520, !noundef !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !520
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !521, !noalias !522, !nonnull !20, !noundef !20
   %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
   %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %22
   %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %20
   %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %24
   store ptr %27, ptr %6, align 8, !alias.scope !515, !noalias !523
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8, !alias.scope !515, !noalias !523
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %28, ptr %32, align 8, !alias.scope !515, !noalias !523
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %33, align 8, !alias.scope !515, !noalias !523
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !513
   store ptr %7, ptr %4, align 8, !noalias !524
@@ -1590,8 +1590,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
   ret void
 
 36:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit4"
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
-  %38 = getelementptr inbounds i8, ptr %2, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %39 = load i64, ptr %38, align 8, !alias.scope !528, !noalias !533, !noundef !20
   %40 = load i64, ptr %37, align 8, !alias.scope !528, !noalias !533, !noundef !20
   %41 = sub i64 %40, %39
@@ -1605,7 +1605,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %36, %43
   %44 = phi i64 [ %.pre.i.i, %43 ], [ %39, %36 ]
-  %45 = getelementptr inbounds i8, ptr %2, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %46 = load ptr, ptr %45, align 8, !alias.scope !528, !noalias !533, !nonnull !20, !noundef !20
   %47 = getelementptr inbounds i8, ptr %46, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %47, ptr noundef nonnull align 1 dereferenceable(5) @anon.d2fc072d53151fb9c7f263cf679341ba.48, i64 5, i1 false)
@@ -1617,8 +1617,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 50:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !513
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %51 = getelementptr inbounds i8, ptr %2, i64 32
-  %52 = getelementptr inbounds i8, ptr %2, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %53 = load i64, ptr %52, align 8, !alias.scope !535, !noalias !540, !noundef !20
   %54 = load i64, ptr %51, align 8, !alias.scope !535, !noalias !540, !noundef !20
   %55 = icmp eq i64 %54, %53
@@ -1631,7 +1631,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit6: ; preds = %50, %56
   %57 = phi i64 [ %.pre.i.i5, %56 ], [ %53, %50 ]
-  %58 = getelementptr inbounds i8, ptr %2, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %59 = load ptr, ptr %58, align 8, !alias.scope !535, !noalias !540, !nonnull !20, !noundef !20
   %60 = getelementptr inbounds i8, ptr %59, i64 %57
   store i8 96, ptr %60, align 1
@@ -1650,35 +1650,35 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr @anon.d2fc072d53151fb9c7f263cf679341ba.44, ptr %8, align 8, !noalias !545
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 3, ptr %9, align 8, !noalias !545
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !545
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !552
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i64, ptr %10, align 8, !alias.scope !553, !noalias !554, !noundef !20
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h50db894b9b345bcbE"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, i64 noundef %11), !noalias !547
   %12 = load i64, ptr %6, align 8, !noalias !552, !noundef !20
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !552, !noundef !20
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = load i64, ptr %15, align 8, !noalias !552, !noundef !20
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %18 = load i64, ptr %17, align 8, !noalias !552, !noundef !20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !552
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !553, !noalias !554, !nonnull !20, !noundef !20
   %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %12
   %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %16
   %23 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %14
   %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %18
   store ptr %21, ptr %7, align 8, !alias.scope !547, !noalias !555
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %25, align 8, !alias.scope !547, !noalias !555
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %22, ptr %26, align 8, !alias.scope !547, !noalias !555
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %24, ptr %27, align 8, !alias.scope !547, !noalias !555
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !545
   store ptr %8, ptr %5, align 8, !noalias !556
@@ -1702,8 +1702,8 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 30:                                               ; preds = %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.thread.i", %"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h097cec9022da6c71E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !545
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %31 = getelementptr inbounds i8, ptr %3, i64 32
-  %32 = getelementptr inbounds i8, ptr %3, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %33 = load i64, ptr %32, align 8, !alias.scope !560, !noalias !565, !noundef !20
   %34 = load i64, ptr %31, align 8, !alias.scope !560, !noalias !565, !noundef !20
   %35 = sub i64 %34, %33
@@ -1717,7 +1717,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 _ZN16html_to_markdown15markdown_writer14MarkdownWriter8push_str17h0ecbddcdaf390a26E.exit: ; preds = %30, %37
   %38 = phi i64 [ %.pre.i.i, %37 ], [ %33, %30 ]
-  %39 = getelementptr inbounds i8, ptr %3, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %40 = load ptr, ptr %39, align 8, !alias.scope !560, !noalias !565, !nonnull !20, !noundef !20
   %41 = getelementptr inbounds i8, ptr %40, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %1, i64 %2, i1 false)

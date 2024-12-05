@@ -257,9 +257,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 define dso_local void @_ZN16DirectionalLight19createSplitMatricesEPK6Camera(ptr nocapture noundef nonnull align 4 dereferenceable(429) initializes((260, 426)) %this, ptr nocapture noundef readonly %cam) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp116 = alloca %"class.irr::core::vector3d", align 8
-  %m_camera_direction.i = getelementptr inbounds i8, ptr %cam, i64 72
+  %m_camera_direction.i = getelementptr inbounds nuw i8, ptr %cam, i64 72
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_camera_direction.i, align 8, !tbaa.struct !12
-  %retval.sroa.2.0.m_camera_direction.sroa_idx.i = getelementptr inbounds i8, ptr %cam, i64 80
+  %retval.sroa.2.0.m_camera_direction.sroa_idx.i = getelementptr inbounds nuw i8, ptr %cam, i64 80
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_camera_direction.sroa_idx.i, align 8, !tbaa !13
   %0 = fmul nsz <2 x float> %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.copyload.i
   %mul4.i = extractelement <2 x float> %0, i64 1
@@ -288,14 +288,14 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit:        ; preds = %if.end.i, %entry
   %.pre-phi = phi float [ %.pre, %if.end.i ], [ %1, %entry ]
   %ref.tmp.sroa.8.0 = phi float [ %conv18.i, %if.end.i ], [ %retval.sroa.2.0.copyload.i, %entry ]
   %10 = phi <2 x float> [ %9, %if.end.i ], [ %retval.sroa.0.0.copyload.i, %entry ]
-  %last_look = getelementptr inbounds i8, ptr %this, i64 64
+  %last_look = getelementptr inbounds nuw i8, ptr %this, i64 64
   %11 = load float, ptr %last_look, align 4, !tbaa !15
-  %Y3.i = getelementptr inbounds i8, ptr %this, i64 68
+  %Y3.i = getelementptr inbounds nuw i8, ptr %this, i64 68
   %12 = load float, ptr %Y3.i, align 4, !tbaa !17
   %13 = extractelement <2 x float> %10, i64 1
   %mul4.i149 = fmul nsz float %13, %12
   %14 = tail call nsz float @llvm.fmuladd.f32(float %.pre-phi, float %11, float %mul4.i149)
-  %Z5.i = getelementptr inbounds i8, ptr %this, i64 72
+  %Z5.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %15 = load float, ptr %Z5.i, align 4, !tbaa !13
   %16 = tail call nsz noundef float @llvm.fmuladd.f32(float %ref.tmp.sroa.8.0, float %15, float %14)
   %cmp = fcmp nsz ult float %16, 0x3FEEE8DDA0000000
@@ -313,29 +313,29 @@ if.else:                                          ; preds = %_ZN3irr4core8vector
 if.end:                                           ; preds = %if.else, %if.then
   %look.sroa.0.0 = phi <2 x float> [ %10, %if.else ], [ %look.sroa.0.0.copyload, %if.then ]
   %look.sroa.19.0 = phi float [ %ref.tmp.sroa.8.0, %if.else ], [ %15, %if.then ]
-  %m_fov_y.i = getelementptr inbounds i8, ptr %cam, i64 164
+  %m_fov_y.i = getelementptr inbounds nuw i8, ptr %cam, i64 164
   %17 = load float, ptr %m_fov_y.i, align 4, !tbaa !18
-  %m_fov_x.i = getelementptr inbounds i8, ptr %cam, i64 160
+  %m_fov_x.i = getelementptr inbounds nuw i8, ptr %cam, i64 160
   %18 = load float, ptr %m_fov_x.i, align 8, !tbaa !49
-  %future_frustum = getelementptr inbounds i8, ptr %this, i64 252
+  %future_frustum = getelementptr inbounds nuw i8, ptr %this, i64 252
   %19 = load float, ptr %future_frustum, align 4, !tbaa !50
-  %zFar = getelementptr inbounds i8, ptr %this, i64 256
+  %zFar = getelementptr inbounds nuw i8, ptr %this, i64 256
   %20 = load float, ptr %zFar, align 4, !tbaa !55
   %conv = fptosi float %20 to i16
   %call13 = tail call noundef signext i16 @_Z10adjustDistsf(i16 noundef signext %conv, float noundef %17)
-  %m_camera_position.i = getelementptr inbounds i8, ptr %cam, i64 60
+  %m_camera_position.i = getelementptr inbounds nuw i8, ptr %cam, i64 60
   %retval.sroa.0.0.copyload.i152 = load <2 x float>, ptr %m_camera_position.i, align 4, !tbaa.struct !12
-  %retval.sroa.2.0.m_camera_position.sroa_idx.i = getelementptr inbounds i8, ptr %cam, i64 68
+  %retval.sroa.2.0.m_camera_position.sroa_idx.i = getelementptr inbounds nuw i8, ptr %cam, i64 68
   %retval.sroa.2.0.copyload.i153 = load float, ptr %retval.sroa.2.0.m_camera_position.sroa_idx.i, align 4, !tbaa !13
-  %last_cam_pos_world = getelementptr inbounds i8, ptr %this, i64 52
+  %last_cam_pos_world = getelementptr inbounds nuw i8, ptr %this, i64 52
   %21 = load float, ptr %last_cam_pos_world, align 4, !tbaa !15
   %22 = extractelement <2 x float> %retval.sroa.0.0.copyload.i152, i64 0
   %sub.i = fsub nsz float %22, %21
-  %Y3.i157 = getelementptr inbounds i8, ptr %this, i64 56
+  %Y3.i157 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %23 = load float, ptr %Y3.i157, align 4, !tbaa !17
   %24 = extractelement <2 x float> %retval.sroa.0.0.copyload.i152, i64 1
   %sub4.i = fsub nsz float %24, %23
-  %Z5.i159 = getelementptr inbounds i8, ptr %this, i64 60
+  %Z5.i159 = getelementptr inbounds nuw i8, ptr %this, i64 60
   %25 = load float, ptr %Z5.i159, align 4, !tbaa !13
   %sub6.i = fsub nsz float %retval.sroa.2.0.copyload.i153, %25
   %mul4.i.i = fmul nsz float %sub4.i, %sub4.i
@@ -361,7 +361,7 @@ if.end23:                                         ; preds = %if.else21, %if.then
   %call10 = tail call nsz float @tanf(float noundef %mul9) #23
   %mul = fmul nsz float %17, 5.000000e-01
   %call7 = tail call nsz float @tanf(float noundef %mul) #23
-  %m_camera_offset.i = getelementptr inbounds i8, ptr %cam, i64 84
+  %m_camera_offset.i = getelementptr inbounds nuw i8, ptr %cam, i64 84
   %retval.sroa.0.0.copyload.i160 = load i48, ptr %m_camera_offset.i, align 4
   %ref.tmp24.sroa.0.0.extract.trunc = trunc i48 %retval.sroa.0.0.copyload.i160 to i32
   %sext = shl i32 %ref.tmp24.sroa.0.0.extract.trunc, 16
@@ -392,13 +392,13 @@ if.end23:                                         ; preds = %if.else21, %if.then
   %43 = fmul nsz <2 x float> %40, %42
   %44 = fadd nsz <2 x float> %43, %39
   %add6.i216 = fadd nsz float %mul3.i205, %add6.i
-  %m_cameranode.i = getelementptr inbounds i8, ptr %cam, i64 16
+  %m_cameranode.i = getelementptr inbounds nuw i8, ptr %cam, i64 16
   %45 = load ptr, ptr %m_cameranode.i, align 8, !tbaa !56
   %vtable = load ptr, ptr %45, align 8, !tbaa !57
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 360
   %46 = load ptr, ptr %vfn, align 8
   %call73 = tail call noundef nonnull align 4 dereferenceable(12) ptr %46(ptr noundef nonnull align 8 dereferenceable(233) %45)
-  %Z.i251 = getelementptr inbounds i8, ptr %call73, i64 8
+  %Z.i251 = getelementptr inbounds nuw i8, ptr %call73, i64 8
   %47 = load float, ptr %Z.i251, align 4, !tbaa !59
   %48 = extractelement <2 x float> %look.sroa.0.0, i64 1
   %49 = fneg nsz float %48
@@ -478,9 +478,9 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit313:     ; preds = %if.end.i301, %if.en
   %88 = tail call nsz float @llvm.fmuladd.f32(float %sub6.i340, float %sub6.i340, float %87)
   %89 = tail call nsz noundef float @llvm.sqrt.f32(float %88)
   %mul98 = fmul nsz float %89, 3.000000e+00
-  %direction = getelementptr inbounds i8, ptr %this, i64 40
+  %direction = getelementptr inbounds nuw i8, ptr %this, i64 40
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %direction, align 4, !tbaa.struct !12
-  %agg.tmp.sroa.2.0.direction.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
+  %agg.tmp.sroa.2.0.direction.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.direction.sroa_idx, align 4, !tbaa !13
   %direction.sroa.0.0.vec.extract.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload, i64 0
   %call.i.i = tail call nsz noundef float @atan2f(float noundef %agg.tmp.sroa.2.0.copyload, float noundef %direction.sroa.0.0.vec.extract.i) #23
@@ -508,25 +508,25 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit313:     ; preds = %if.end.i301, %if.en
   %106 = fmul nsz <2 x float> %103, %105
   %107 = fsub nsz <2 x float> %44, %106
   %sub6.i369 = fsub nsz float %add6.i216, %mul3.i358
-  %player = getelementptr inbounds i8, ptr %this, i64 408
+  %player = getelementptr inbounds nuw i8, ptr %this, i64 408
   store <2 x float> %39, ptr %player, align 4, !tbaa !13
-  %cam_pos_scene.sroa.13.0.player.sroa_idx = getelementptr inbounds i8, ptr %this, i64 416
+  %cam_pos_scene.sroa.13.0.player.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 416
   store float %add6.i, ptr %cam_pos_scene.sroa.13.0.player.sroa_idx, align 4, !tbaa !13
   %108 = fadd nsz <2 x float> %38, %28
   %109 = fadd nsz <2 x float> %43, %108
   %110 = fsub nsz <2 x float> %109, %106
   %sub6.i380 = fsub nsz float %add6.i245, %mul3.i358
-  %position = getelementptr inbounds i8, ptr %this, i64 396
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 396
   store <2 x float> %110, ptr %position, align 4, !tbaa.struct !12
-  %ref.tmp107.sroa.4.0.position.sroa_idx = getelementptr inbounds i8, ptr %this, i64 404
+  %ref.tmp107.sroa.4.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 404
   store float %sub6.i380, ptr %ref.tmp107.sroa.4.0.position.sroa_idx, align 4, !tbaa !13
-  %length112 = getelementptr inbounds i8, ptr %this, i64 260
+  %length112 = getelementptr inbounds nuw i8, ptr %this, i64 260
   store float %mul98, ptr %length112, align 4, !tbaa !60
-  %radius114 = getelementptr inbounds i8, ptr %this, i64 264
+  %radius114 = getelementptr inbounds nuw i8, ptr %this, i64 264
   store float %89, ptr %radius114, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp116)
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp116, align 8, !tbaa !13
-  %ref.tmp116.8.ref.tmp116.8.ref.tmp116.8.Z.i386.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp116, i64 8
+  %ref.tmp116.8.ref.tmp116.8.ref.tmp116.8.Z.i386.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp116, i64 8
   store float 0.000000e+00, ptr %ref.tmp116.8.ref.tmp116.8.ref.tmp116.8.Z.i386.sroa_idx, align 8, !tbaa !59
   %111 = fsub nsz <2 x float> %44, %107
   %sub6.i.i = fsub nsz float %add6.i216, %sub6.i369
@@ -558,7 +558,7 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit.i:      ; preds = %if.end.i.i, %_ZN3ir
   %zaxis.sroa.0.0.i = phi <2 x float> [ %121, %if.end.i.i ], [ %111, %_ZN3irr4core8vector3dIfE9normalizeEv.exit313 ]
   %zaxis.sroa.15.0.i = phi float [ %conv18.i.i, %if.end.i.i ], [ %sub6.i.i, %_ZN3irr4core8vector3dIfE9normalizeEv.exit313 ]
   %zaxis.sroa.0.4.vec.extract139.i = extractelement <2 x float> %zaxis.sroa.0.0.i, i64 1
-  %ref.tmp116.4.ref.tmp116.4.ref.tmp116.4.Y.i54.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp116, i64 4
+  %ref.tmp116.4.ref.tmp116.4.ref.tmp116.4.Y.i54.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp116, i64 4
   %ref.tmp116.4.ref.tmp116.4.ref.tmp116.4. = load <2 x float>, ptr %ref.tmp116.4.ref.tmp116.4.ref.tmp116.4.Y.i54.i.sroa_idx, align 4, !tbaa !13
   %122 = shufflevector <2 x float> %ref.tmp116.4.ref.tmp116.4.ref.tmp116.4., <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %123 = insertelement <2 x float> %122, float 0.000000e+00, i64 1
@@ -599,7 +599,7 @@ _ZN3irr4core8CMatrix4IfE25buildCameraLookAtMatrixLHERKNS0_8vector3dIfEES6_S6_.ex
   %xaxis.sroa.0.0.vec.extract113.pre-phi.i = phi float [ %.pre2.i, %if.end.i65.i ], [ %134, %_ZN3irr4core8vector3dIfE9normalizeEv.exit.i ]
   %xaxis.sroa.13.0.i = phi float [ %conv18.i76.i, %if.end.i65.i ], [ %132, %_ZN3irr4core8vector3dIfE9normalizeEv.exit.i ]
   %xaxis.sroa.0.0.i = phi <2 x float> [ %142, %if.end.i65.i ], [ %129, %_ZN3irr4core8vector3dIfE9normalizeEv.exit.i ]
-  %ViewMat = getelementptr inbounds i8, ptr %this, i64 332
+  %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 332
   %xaxis.sroa.0.4.vec.extract120.i = extractelement <2 x float> %xaxis.sroa.0.0.i, i64 1
   %143 = fneg nsz float %zaxis.sroa.15.0.i
   %neg.i82.i = fmul nsz float %xaxis.sroa.0.4.vec.extract120.i, %143
@@ -611,27 +611,27 @@ _ZN3irr4core8CMatrix4IfE25buildCameraLookAtMatrixLHERKNS0_8vector3dIfEES6_S6_.ex
   %neg15.i84.i = fmul nsz float %xaxis.sroa.0.0.vec.extract113.pre-phi.i, %147
   %148 = tail call nsz float @llvm.fmuladd.f32(float %zaxis.sroa.0.0.vec.extract130.pre-phi.i, float %xaxis.sroa.0.4.vec.extract120.i, float %neg15.i84.i)
   store float %xaxis.sroa.0.0.vec.extract113.pre-phi.i, ptr %ViewMat, align 4, !tbaa !13
-  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 336
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %this, i64 336
   store float %144, ptr %arrayidx10.i, align 4, !tbaa !13
-  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 340
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %this, i64 340
   store float %zaxis.sroa.0.0.vec.extract130.pre-phi.i, ptr %arrayidx13.i, align 4, !tbaa !13
-  %arrayidx15.i = getelementptr inbounds i8, ptr %this, i64 344
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   store float 0.000000e+00, ptr %arrayidx15.i, align 4, !tbaa !13
-  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 348
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %this, i64 348
   store float %xaxis.sroa.0.4.vec.extract120.i, ptr %arrayidx17.i, align 4, !tbaa !13
-  %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 352
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   store float %146, ptr %arrayidx20.i, align 4, !tbaa !13
-  %arrayidx23.i = getelementptr inbounds i8, ptr %this, i64 356
+  %arrayidx23.i = getelementptr inbounds nuw i8, ptr %this, i64 356
   store float %zaxis.sroa.0.4.vec.extract139.i, ptr %arrayidx23.i, align 4, !tbaa !13
-  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 360
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %this, i64 360
   store float 0.000000e+00, ptr %arrayidx25.i, align 4, !tbaa !13
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 364
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 364
   store float %xaxis.sroa.13.0.i, ptr %arrayidx27.i, align 4, !tbaa !13
-  %arrayidx30.i = getelementptr inbounds i8, ptr %this, i64 368
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   store float %148, ptr %arrayidx30.i, align 4, !tbaa !13
-  %arrayidx33.i = getelementptr inbounds i8, ptr %this, i64 372
+  %arrayidx33.i = getelementptr inbounds nuw i8, ptr %this, i64 372
   store float %zaxis.sroa.15.0.i, ptr %arrayidx33.i, align 4, !tbaa !13
-  %arrayidx35.i = getelementptr inbounds i8, ptr %this, i64 376
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   store float 0.000000e+00, ptr %arrayidx35.i, align 4, !tbaa !13
   %eye.sroa.0.0.vec.extract = extractelement <2 x float> %107, i64 0
   %eye.sroa.0.4.vec.extract = extractelement <2 x float> %107, i64 1
@@ -639,47 +639,47 @@ _ZN3irr4core8CMatrix4IfE25buildCameraLookAtMatrixLHERKNS0_8vector3dIfEES6_S6_.ex
   %149 = tail call nsz float @llvm.fmuladd.f32(float %xaxis.sroa.0.0.vec.extract113.pre-phi.i, float %eye.sroa.0.0.vec.extract, float %mul4.i91.i)
   %150 = tail call nsz noundef float @llvm.fmuladd.f32(float %xaxis.sroa.13.0.i, float %sub6.i369, float %149)
   %fneg.i3 = fneg nsz float %150
-  %arrayidx38.i = getelementptr inbounds i8, ptr %this, i64 380
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %this, i64 380
   store float %fneg.i3, ptr %arrayidx38.i, align 4, !tbaa !13
   %mul4.i96.i = fmul nsz float %eye.sroa.0.4.vec.extract, %146
   %151 = tail call nsz float @llvm.fmuladd.f32(float %144, float %eye.sroa.0.0.vec.extract, float %mul4.i96.i)
   %152 = tail call nsz noundef float @llvm.fmuladd.f32(float %148, float %sub6.i369, float %151)
   %fneg40.i = fneg nsz float %152
-  %arrayidx42.i = getelementptr inbounds i8, ptr %this, i64 384
+  %arrayidx42.i = getelementptr inbounds nuw i8, ptr %this, i64 384
   store float %fneg40.i, ptr %arrayidx42.i, align 4, !tbaa !13
   %mul4.i101.i = fmul nsz float %eye.sroa.0.4.vec.extract, %zaxis.sroa.0.4.vec.extract139.i
   %153 = tail call nsz float @llvm.fmuladd.f32(float %zaxis.sroa.0.0.vec.extract130.pre-phi.i, float %eye.sroa.0.0.vec.extract, float %mul4.i101.i)
   %154 = tail call nsz noundef float @llvm.fmuladd.f32(float %zaxis.sroa.15.0.i, float %sub6.i369, float %153)
   %fneg44.i = fneg nsz float %154
-  %arrayidx46.i = getelementptr inbounds i8, ptr %this, i64 388
+  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %this, i64 388
   store float %fneg44.i, ptr %arrayidx46.i, align 4, !tbaa !13
-  %arrayidx48.i = getelementptr inbounds i8, ptr %this, i64 392
+  %arrayidx48.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   store float 1.000000e+00, ptr %arrayidx48.i, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %ref.tmp116)
-  %ProjOrthMat = getelementptr inbounds i8, ptr %this, i64 268
+  %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 268
   %div.i387 = fdiv nsz float 2.000000e+00, %89
   store float %div.i387, ptr %ProjOrthMat, align 4, !tbaa !13
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 272
-  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 288
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 272
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i, i8 0, i64 16, i1 false)
   store float %div.i387, ptr %arrayidx12.i, align 4, !tbaa !13
-  %arrayidx14.i = getelementptr inbounds i8, ptr %this, i64 292
-  %arrayidx22.i = getelementptr inbounds i8, ptr %this, i64 312
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %this, i64 292
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   store <2 x float> zeroinitializer, ptr %arrayidx22.i, align 4, !tbaa !13
-  %arrayidx26.i = getelementptr inbounds i8, ptr %this, i64 320
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store float 0.000000e+00, ptr %arrayidx26.i, align 4, !tbaa !13
-  %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 328
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx14.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx28.i, align 4, !tbaa !13
   %fneg.i = fneg nsz float %mul98
   %div41.i = fdiv nsz float %fneg.i, %mul98
   %div37.sink.i = fdiv nsz float 2.000000e+00, %mul98
-  %155 = getelementptr inbounds i8, ptr %this, i64 308
+  %155 = getelementptr inbounds nuw i8, ptr %this, i64 308
   store float %div37.sink.i, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %this, i64 324
+  %156 = getelementptr inbounds nuw i8, ptr %this, i64 324
   store float %div41.i, ptr %156, align 4
   %retval.sroa.0.0.copyload.i390 = load i48, ptr %m_camera_offset.i, align 4, !tbaa.struct !62
-  %camera_offset = getelementptr inbounds i8, ptr %this, i64 420
+  %camera_offset = getelementptr inbounds nuw i8, ptr %this, i64 420
   store i48 %retval.sroa.0.0.copyload.i390, ptr %camera_offset, align 4, !tbaa.struct !62
   ret void
 }
@@ -699,65 +699,65 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 define dso_local void @_ZN16DirectionalLightC2EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) initializes((0, 1), (4, 250), (252, 426), (428, 429)) %this, i32 noundef %shadowMapResolution, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, <2 x float> %lightColor.coerce0, <2 x float> %lightColor.coerce1, float noundef %farValue) unnamed_addr #9 align 2 {
 entry:
   store i8 1, ptr %this, align 4, !tbaa !64
-  %diffuseColor = getelementptr inbounds i8, ptr %this, i64 4
+  %diffuseColor = getelementptr inbounds nuw i8, ptr %this, i64 4
   store <2 x float> %lightColor.coerce0, ptr %diffuseColor, align 4, !tbaa.struct !65
-  %lightColor.sroa.2.0.diffuseColor.sroa_idx = getelementptr inbounds i8, ptr %this, i64 12
+  %lightColor.sroa.2.0.diffuseColor.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 12
   store <2 x float> %lightColor.coerce1, ptr %lightColor.sroa.2.0.diffuseColor.sroa_idx, align 4, !tbaa.struct !66
-  %farPlane = getelementptr inbounds i8, ptr %this, i64 20
+  %farPlane = getelementptr inbounds nuw i8, ptr %this, i64 20
   store float %farValue, ptr %farPlane, align 4, !tbaa !67
-  %mapRes = getelementptr inbounds i8, ptr %this, i64 24
+  %mapRes = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %shadowMapResolution, ptr %mapRes, align 4, !tbaa !68
-  %pos = getelementptr inbounds i8, ptr %this, i64 28
+  %pos = getelementptr inbounds nuw i8, ptr %this, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %pos, ptr noundef nonnull align 4 dereferenceable(12) %position, i64 12, i1 false), !tbaa.struct !12
-  %direction = getelementptr inbounds i8, ptr %this, i64 40
-  %Y.i4 = getelementptr inbounds i8, ptr %this, i64 68
+  %direction = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %Y.i4 = getelementptr inbounds nuw i8, ptr %this, i64 68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %direction, i8 0, i64 28, i1 false)
   store float 1.000000e+00, ptr %Y.i4, align 4, !tbaa !17
-  %Z.i5 = getelementptr inbounds i8, ptr %this, i64 72
-  %ProjOrthMat.i = getelementptr inbounds i8, ptr %this, i64 92
-  %0 = getelementptr inbounds i8, ptr %this, i64 96
+  %Z.i5 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %ProjOrthMat.i = getelementptr inbounds nuw i8, ptr %this, i64 92
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, i8 0, i64 56, i1 false)
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %Z.i5, i8 0, i64 20, i1 false)
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %this, i64 132
+  %arrayidx4.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 4, !tbaa !13
-  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %arrayidx6.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store float 1.000000e+00, ptr %arrayidx6.i.i.i, align 4, !tbaa !13
   store float 1.000000e+00, ptr %ProjOrthMat.i, align 4, !tbaa !13
-  %1 = getelementptr inbounds i8, ptr %this, i64 160
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, i8 0, i64 56, i1 false)
-  %arrayidx.i.i2.i = getelementptr inbounds i8, ptr %this, i64 216
+  %arrayidx.i.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   store float 1.000000e+00, ptr %arrayidx.i.i2.i, align 4, !tbaa !13
-  %arrayidx4.i.i3.i = getelementptr inbounds i8, ptr %this, i64 196
+  %arrayidx4.i.i3.i = getelementptr inbounds nuw i8, ptr %this, i64 196
   store float 1.000000e+00, ptr %arrayidx4.i.i3.i, align 4, !tbaa !13
-  %arrayidx6.i.i4.i = getelementptr inbounds i8, ptr %this, i64 176
+  %arrayidx6.i.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   store float 1.000000e+00, ptr %arrayidx6.i.i4.i, align 4, !tbaa !13
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i, align 4, !tbaa !13
-  %position.i = getelementptr inbounds i8, ptr %this, i64 220
+  %position.i = getelementptr inbounds nuw i8, ptr %this, i64 220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %position.i, i8 0, i64 30, i1 false)
-  %future_frustum = getelementptr inbounds i8, ptr %this, i64 252
-  %ProjOrthMat.i6 = getelementptr inbounds i8, ptr %this, i64 268
-  %2 = getelementptr inbounds i8, ptr %this, i64 272
+  %future_frustum = getelementptr inbounds nuw i8, ptr %this, i64 252
+  %ProjOrthMat.i6 = getelementptr inbounds nuw i8, ptr %this, i64 268
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, i8 0, i64 56, i1 false)
-  %arrayidx.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 328
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %future_frustum, i8 0, i64 16, i1 false)
-  %arrayidx4.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 308
+  %arrayidx4.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 308
   store float 1.000000e+00, ptr %arrayidx4.i.i.i8, align 4, !tbaa !13
-  %arrayidx6.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 288
+  %arrayidx6.i.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 288
   store float 1.000000e+00, ptr %arrayidx6.i.i.i9, align 4, !tbaa !13
   store float 1.000000e+00, ptr %ProjOrthMat.i6, align 4, !tbaa !13
-  %3 = getelementptr inbounds i8, ptr %this, i64 336
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
-  %arrayidx.i.i2.i11 = getelementptr inbounds i8, ptr %this, i64 392
+  %arrayidx.i.i2.i11 = getelementptr inbounds nuw i8, ptr %this, i64 392
   store float 1.000000e+00, ptr %arrayidx.i.i2.i11, align 4, !tbaa !13
-  %arrayidx4.i.i3.i12 = getelementptr inbounds i8, ptr %this, i64 372
+  %arrayidx4.i.i3.i12 = getelementptr inbounds nuw i8, ptr %this, i64 372
   store float 1.000000e+00, ptr %arrayidx4.i.i3.i12, align 4, !tbaa !13
-  %arrayidx6.i.i4.i13 = getelementptr inbounds i8, ptr %this, i64 352
+  %arrayidx6.i.i4.i13 = getelementptr inbounds nuw i8, ptr %this, i64 352
   store float 1.000000e+00, ptr %arrayidx6.i.i4.i13, align 4, !tbaa !13
   store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i7, align 4, !tbaa !13
-  %position.i14 = getelementptr inbounds i8, ptr %this, i64 396
+  %position.i14 = getelementptr inbounds nuw i8, ptr %this, i64 396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %position.i14, i8 0, i64 30, i1 false)
-  %dirty = getelementptr inbounds i8, ptr %this, i64 428
+  %dirty = getelementptr inbounds nuw i8, ptr %this, i64 428
   store i8 0, ptr %dirty, align 4, !tbaa !69
   ret void
 }
@@ -765,34 +765,34 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16DirectionalLight14update_frustumEPK6CameraP6Clientb(ptr nocapture noundef nonnull align 4 dereferenceable(429) %this, ptr nocapture noundef readonly %cam, ptr noundef %client, i1 noundef zeroext %force) local_unnamed_addr #5 align 2 {
 entry:
-  %dirty = getelementptr inbounds i8, ptr %this, i64 428
+  %dirty = getelementptr inbounds nuw i8, ptr %this, i64 428
   %0 = load i8, ptr %dirty, align 4, !tbaa !69, !range !70, !noundef !71
   %tobool.not = icmp eq i8 %0, 0
   %brmerge = or i1 %force, %tobool.not
   br i1 %brmerge, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_cameranode.i = getelementptr inbounds i8, ptr %cam, i64 16
+  %m_cameranode.i = getelementptr inbounds nuw i8, ptr %cam, i64 16
   %1 = load ptr, ptr %m_cameranode.i, align 8, !tbaa !56
   %vtable = load ptr, ptr %1, align 8, !tbaa !57
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 368
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call nsz noundef float %2(ptr noundef nonnull align 8 dereferenceable(233) %1)
-  %farPlane.i = getelementptr inbounds i8, ptr %this, i64 20
+  %farPlane.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %farPlane.i, align 4, !tbaa !67
   %mul.i = fmul nsz float %3, 1.000000e+01
-  %m_env.i = getelementptr inbounds i8, ptr %client, i64 112
+  %m_env.i = getelementptr inbounds nuw i8, ptr %client, i64 112
   %call6 = tail call noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment12getClientMapEv(ptr noundef nonnull align 8 dereferenceable(464) %m_env.i)
-  %m_control.i = getelementptr inbounds i8, ptr %call6, i64 408
+  %m_control.i = getelementptr inbounds nuw i8, ptr %call6, i64 408
   %4 = load ptr, ptr %m_control.i, align 8, !tbaa !72
-  %range_all = getelementptr inbounds i8, ptr %4, i64 4
+  %range_all = getelementptr inbounds nuw i8, ptr %4, i64 4
   %5 = load i8, ptr %range_all, align 4, !tbaa !119, !range !70, !noundef !71
   %tobool8.not = icmp eq i8 %5, 0
   br i1 %tobool8.not, label %if.then9, label %if.end18
 
 if.then9:                                         ; preds = %if.end
   %call11 = tail call noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment12getClientMapEv(ptr noundef nonnull align 8 dereferenceable(464) %m_env.i)
-  %m_control.i79 = getelementptr inbounds i8, ptr %call11, i64 408
+  %m_control.i79 = getelementptr inbounds nuw i8, ptr %call11, i64 408
   %6 = load ptr, ptr %m_control.i79, align 8, !tbaa !72
   %7 = load float, ptr %6, align 4, !tbaa !121
   %mul = fmul nsz float %7, 1.000000e+01
@@ -801,7 +801,7 @@ if.then9:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then9
   %call14 = tail call noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment12getClientMapEv(ptr noundef nonnull align 8 dereferenceable(464) %m_env.i)
-  %m_control.i81 = getelementptr inbounds i8, ptr %call14, i64 408
+  %m_control.i81 = getelementptr inbounds nuw i8, ptr %call14, i64 408
   %8 = load ptr, ptr %m_control.i81, align 8, !tbaa !72
   %9 = load float, ptr %8, align 4, !tbaa !121
   %mul17 = fmul nsz float %9, 1.000000e+01
@@ -809,50 +809,50 @@ cond.false:                                       ; preds = %if.then9
 
 if.end18:                                         ; preds = %cond.false, %if.then9, %if.end
   %zFar.0 = phi float [ %mul.i, %if.end ], [ %mul17, %cond.false ], [ %mul.i, %if.then9 ]
-  %future_frustum = getelementptr inbounds i8, ptr %this, i64 252
+  %future_frustum = getelementptr inbounds nuw i8, ptr %this, i64 252
   store float %call3, ptr %future_frustum, align 4, !tbaa !50
-  %zFar21 = getelementptr inbounds i8, ptr %this, i64 256
+  %zFar21 = getelementptr inbounds nuw i8, ptr %this, i64 256
   store float %zFar.0, ptr %zFar21, align 4, !tbaa !55
   tail call void @_ZN16DirectionalLight19createSplitMatricesEPK6Camera(ptr noundef nonnull align 4 dereferenceable(429) %this, ptr noundef nonnull %cam)
   %call23 = tail call noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment12getClientMapEv(ptr noundef nonnull align 8 dereferenceable(464) %m_env.i)
-  %position.i = getelementptr inbounds i8, ptr %this, i64 220
+  %position.i = getelementptr inbounds nuw i8, ptr %this, i64 220
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %position.i, align 4, !tbaa.struct !12
-  %retval.sroa.2.0.position.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 228
+  %retval.sroa.2.0.position.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 228
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.position.sroa_idx.i, align 4, !tbaa !13
-  %direction.i = getelementptr inbounds i8, ptr %this, i64 40
+  %direction.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %retval.sroa.0.0.copyload.i83 = load <2 x float>, ptr %direction.i, align 4, !tbaa.struct !12
-  %retval.sroa.2.0.direction.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 48
+  %retval.sroa.2.0.direction.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %retval.sroa.2.0.copyload.i84 = load float, ptr %retval.sroa.2.0.direction.sroa_idx.i, align 4, !tbaa !13
-  %radius = getelementptr inbounds i8, ptr %this, i64 264
+  %radius = getelementptr inbounds nuw i8, ptr %this, i64 264
   %10 = load float, ptr %radius, align 4, !tbaa !61
-  %length = getelementptr inbounds i8, ptr %this, i64 260
+  %length = getelementptr inbounds nuw i8, ptr %this, i64 260
   %11 = load float, ptr %length, align 4, !tbaa !60
   tail call void @_ZN9ClientMap20updateDrawListShadowEN3irr4core8vector3dIfEES3_ff(ptr noundef nonnull align 8 dereferenceable(648) %call23, <2 x float> %retval.sroa.0.0.copyload.i, float %retval.sroa.2.0.copyload.i, <2 x float> %retval.sroa.0.0.copyload.i83, float %retval.sroa.2.0.copyload.i84, float noundef %10, float noundef %11)
   store i8 1, ptr %this, align 4, !tbaa !64
   store i8 1, ptr %dirty, align 4, !tbaa !69
-  %m_camera_offset.i = getelementptr inbounds i8, ptr %cam, i64 84
+  %m_camera_offset.i = getelementptr inbounds nuw i8, ptr %cam, i64 84
   %retval.sroa.0.0.copyload.i87 = load i48, ptr %m_camera_offset.i, align 4, !tbaa.struct !62
   %cam_offset.sroa.0.0.extract.trunc = trunc i48 %retval.sroa.0.0.copyload.i87 to i16
   %cam_offset.sroa.6.0.extract.shift = lshr i48 %retval.sroa.0.0.copyload.i87, 16
   %cam_offset.sroa.6.0.extract.trunc = trunc i48 %cam_offset.sroa.6.0.extract.shift to i16
   %cam_offset.sroa.8.0.extract.shift = lshr i48 %retval.sroa.0.0.copyload.i87, 32
   %cam_offset.sroa.8.0.extract.trunc = trunc nuw i48 %cam_offset.sroa.8.0.extract.shift to i16
-  %camera_offset = getelementptr inbounds i8, ptr %this, i64 244
+  %camera_offset = getelementptr inbounds nuw i8, ptr %this, i64 244
   %12 = load <2 x i16>, ptr %camera_offset, align 4
   %13 = extractelement <2 x i16> %12, i64 0
   %cmp.i.i = icmp ne i16 %13, %cam_offset.sroa.0.0.extract.trunc
   %14 = extractelement <2 x i16> %12, i64 1
   %cmp7.i.i = icmp ne i16 %14, %cam_offset.sroa.6.0.extract.trunc
   %or.cond.not156 = select i1 %cmp.i.i, i1 true, i1 %cmp7.i.i
-  %Z9.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %Z9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %15 = load i16, ptr %Z9.i.i, align 4
   %cmp11.i.i = icmp ne i16 %15, %cam_offset.sroa.8.0.extract.trunc
   %or.cond155 = select i1 %or.cond.not156, i1 true, i1 %cmp11.i.i
   br i1 %or.cond155, label %if.then34, label %return
 
 if.then34:                                        ; preds = %if.end18
-  %Y5.i.i = getelementptr inbounds i8, ptr %this, i64 246
-  %ViewMat = getelementptr inbounds i8, ptr %this, i64 156
+  %Y5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 246
+  %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 156
   %sub.i = sub i16 %cam_offset.sroa.0.0.extract.trunc, %13
   %sub8.i = sub i16 %cam_offset.sroa.6.0.extract.trunc, %14
   %sub13.i = sub i16 %cam_offset.sroa.8.0.extract.trunc, %15
@@ -862,18 +862,18 @@ if.then34:                                        ; preds = %if.end18
   %mul2.i = fmul nsz float %conv1.i, 1.000000e+01
   %conv3.i = sitofp i16 %sub13.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 172
-  %arrayidx6.i = getelementptr inbounds i8, ptr %this, i64 188
-  %arrayidx21.i = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 172
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %this, i64 188
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   %16 = load float, ptr %arrayidx21.i, align 4, !tbaa !13
-  %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 180
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %this, i64 180
   %17 = load float, ptr %arrayidx24.i, align 4, !tbaa !13
   %mul25.i = fmul nsz float %mul2.i, %17
   %18 = tail call nsz float @llvm.fmuladd.f32(float %mul.i90, float %16, float %mul25.i)
-  %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 196
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %this, i64 196
   %19 = load float, ptr %arrayidx28.i, align 4, !tbaa !13
   %20 = tail call nsz float @llvm.fmuladd.f32(float %mul4.i, float %19, float %18)
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 204
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 204
   %21 = load <4 x float>, ptr %arrayidx.i, align 4
   %22 = extractelement <4 x float> %21, i64 2
   %add6.i = fadd nsz float %22, %20
@@ -892,7 +892,7 @@ if.then34:                                        ; preds = %if.end18
   %35 = shufflevector <4 x float> %21, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %36 = fadd nsz <2 x float> %35, %34
   store <2 x float> %36, ptr %arrayidx.i, align 4, !tbaa !13
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 212
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 212
   store float %add6.i, ptr %arrayidx5.i, align 4, !tbaa !13
   %retval.sroa.0.0.copyload.i110 = load i48, ptr %m_camera_offset.i, align 4, !tbaa.struct !62
   %ref.tmp58.sroa.4.0.extract.shift = lshr i48 %retval.sroa.0.0.copyload.i110, 16
@@ -901,7 +901,7 @@ if.then34:                                        ; preds = %if.end18
   %sub13.i117 = sub i16 %15, %ref.tmp58.sroa.5.0.extract.trunc
   %conv3.i134 = sitofp i16 %sub13.i117 to float
   %mul4.i135 = fmul nsz float %conv3.i134, 1.000000e+01
-  %player = getelementptr inbounds i8, ptr %this, i64 232
+  %player = getelementptr inbounds nuw i8, ptr %this, i64 232
   %37 = insertelement <2 x i48> poison, i48 %retval.sroa.0.0.copyload.i110, i64 0
   %38 = insertelement <2 x i48> %37, i48 %ref.tmp58.sroa.4.0.extract.shift, i64 1
   %39 = trunc <2 x i48> %38 to <2 x i16>
@@ -911,7 +911,7 @@ if.then34:                                        ; preds = %if.end18
   %43 = load <2 x float>, ptr %player, align 4, !tbaa !13
   %44 = fadd nsz <2 x float> %43, %42
   store <2 x float> %44, ptr %player, align 4, !tbaa !13
-  %Z5.i145 = getelementptr inbounds i8, ptr %this, i64 240
+  %Z5.i145 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %45 = load float, ptr %Z5.i145, align 4, !tbaa !59
   %add6.i146 = fadd nsz float %45, %mul4.i135
   store float %add6.i146, ptr %Z5.i145, align 4, !tbaa !59
@@ -931,9 +931,9 @@ declare void @_ZN9ClientMap20updateDrawListShadowEN3irr4core8vector3dIfEES3_ff(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { <2 x float>, float } @_ZNK16DirectionalLight11getPositionEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %position = getelementptr inbounds i8, ptr %this, i64 220
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 220
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %position, align 4, !tbaa.struct !12
-  %retval.sroa.2.0.position.sroa_idx = getelementptr inbounds i8, ptr %this, i64 228
+  %retval.sroa.2.0.position.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 228
   %retval.sroa.2.0.copyload = load float, ptr %retval.sroa.2.0.position.sroa_idx, align 4, !tbaa !13
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.2.0.copyload, 1
@@ -943,14 +943,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN16DirectionalLight13commitFrustumEv(ptr nocapture noundef nonnull align 4 dereferenceable(429) %this) local_unnamed_addr #11 align 2 {
 entry:
-  %dirty = getelementptr inbounds i8, ptr %this, i64 428
+  %dirty = getelementptr inbounds nuw i8, ptr %this, i64 428
   %0 = load i8, ptr %dirty, align 4, !tbaa !69, !range !70, !noundef !71
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %future_frustum = getelementptr inbounds i8, ptr %this, i64 252
-  %shadow_frustum = getelementptr inbounds i8, ptr %this, i64 76
+  %future_frustum = getelementptr inbounds nuw i8, ptr %this, i64 252
+  %shadow_frustum = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(174) %shadow_frustum, ptr noundef nonnull align 4 dereferenceable(174) %future_frustum, i64 174, i1 false), !tbaa.struct !122
   store i8 0, ptr %dirty, align 4, !tbaa !69
   br label %return
@@ -965,9 +965,9 @@ entry:
   %0 = extractelement <2 x float> %dir.coerce0, i64 0
   %1 = fneg nsz <2 x float> %dir.coerce0
   %fneg3.i = fneg nsz float %dir.coerce1
-  %direction = getelementptr inbounds i8, ptr %this, i64 40
+  %direction = getelementptr inbounds nuw i8, ptr %this, i64 40
   store <2 x float> %1, ptr %direction, align 4, !tbaa.struct !12
-  %ref.tmp.sroa.4.0.direction.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
+  %ref.tmp.sroa.4.0.direction.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float %fneg3.i, ptr %ref.tmp.sroa.4.0.direction.sroa_idx, align 4, !tbaa !13
   %2 = fmul nsz <2 x float> %dir.coerce0, %dir.coerce0
   %mul4.i = extractelement <2 x float> %2, i64 1
@@ -999,9 +999,9 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit:        ; preds = %if.end.i, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { <2 x float>, float } @_ZNK16DirectionalLight12getPlayerPosEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %player = getelementptr inbounds i8, ptr %this, i64 232
+  %player = getelementptr inbounds nuw i8, ptr %this, i64 232
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %player, align 4, !tbaa.struct !12
-  %retval.sroa.2.0.player.sroa_idx = getelementptr inbounds i8, ptr %this, i64 240
+  %retval.sroa.2.0.player.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 240
   %retval.sroa.2.0.copyload = load float, ptr %retval.sroa.2.0.player.sroa_idx, align 4, !tbaa !13
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.2.0.copyload, 1
@@ -1011,9 +1011,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %player = getelementptr inbounds i8, ptr %this, i64 408
+  %player = getelementptr inbounds nuw i8, ptr %this, i64 408
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %player, align 4, !tbaa.struct !12
-  %retval.sroa.2.0.player.sroa_idx = getelementptr inbounds i8, ptr %this, i64 416
+  %retval.sroa.2.0.player.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 416
   %retval.sroa.2.0.copyload = load float, ptr %retval.sroa.2.0.player.sroa_idx, align 4, !tbaa !13
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.2.0.copyload, 1
@@ -1023,46 +1023,46 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight13getViewMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %ViewMat = getelementptr inbounds i8, ptr %this, i64 156
+  %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 156
   ret ptr %ViewMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getProjectionMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %ProjOrthMat = getelementptr inbounds i8, ptr %this, i64 92
+  %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 92
   ret ptr %ProjOrthMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight19getFutureViewMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %ViewMat = getelementptr inbounds i8, ptr %this, i64 332
+  %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 332
   ret ptr %ViewMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(64) ptr @_ZNK16DirectionalLight25getFutureProjectionMatrixEv(ptr noundef nonnull readnone align 4 dereferenceable(429) %this) local_unnamed_addr #13 align 2 {
 entry:
-  %ProjOrthMat = getelementptr inbounds i8, ptr %this, i64 268
+  %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 268
   ret ptr %ProjOrthMat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN16DirectionalLight17getViewProjMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::CMatrix4") align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %ProjOrthMat = getelementptr inbounds i8, ptr %this, i64 92
-  %ViewMat = getelementptr inbounds i8, ptr %this, i64 156
+  %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 92
+  %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 156
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %0 = load <4 x float>, ptr %ViewMat, align 4, !noalias !124
-  %arrayidx2.i = getelementptr inbounds i8, ptr %this, i64 108
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %this, i64 108
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load <4 x float>, ptr %arrayidx.i.i, align 4, !noalias !124
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 124
-  %arrayidx.i286.i = getelementptr inbounds i8, ptr %this, i64 164
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 124
+  %arrayidx.i286.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   %2 = load <4 x float>, ptr %arrayidx.i286.i, align 4, !noalias !124
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 140
-  %arrayidx.i287.i = getelementptr inbounds i8, ptr %this, i64 168
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 140
+  %arrayidx.i287.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %3 = load <4 x float>, ptr %arrayidx.i287.i, align 4, !noalias !124
   %4 = load <4 x float>, ptr %ProjOrthMat, align 4, !tbaa !13, !noalias !124
   %5 = load <4 x float>, ptr %arrayidx2.i, align 4, !tbaa !13, !noalias !124
@@ -1077,15 +1077,15 @@ entry:
   %14 = shufflevector <4 x float> %3, <4 x float> poison, <4 x i32> zeroinitializer
   %15 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %13, <4 x float> %14, <4 x float> %12)
   store <4 x float> %15, ptr %agg.result, align 4, !tbaa !13, !alias.scope !124
-  %arrayidx.i300.i = getelementptr inbounds i8, ptr %this, i64 172
+  %arrayidx.i300.i = getelementptr inbounds nuw i8, ptr %this, i64 172
   %16 = load <4 x float>, ptr %arrayidx.i300.i, align 4, !noalias !124
-  %arrayidx.i301.i = getelementptr inbounds i8, ptr %this, i64 176
+  %arrayidx.i301.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %17 = load <4 x float>, ptr %arrayidx.i301.i, align 4, !noalias !124
-  %arrayidx.i302.i = getelementptr inbounds i8, ptr %this, i64 180
+  %arrayidx.i302.i = getelementptr inbounds nuw i8, ptr %this, i64 180
   %18 = load <4 x float>, ptr %arrayidx.i302.i, align 4, !noalias !124
-  %arrayidx.i303.i = getelementptr inbounds i8, ptr %this, i64 184
+  %arrayidx.i303.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %19 = load <4 x float>, ptr %arrayidx.i303.i, align 4, !noalias !124
-  %arrayidx.i304.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %arrayidx.i304.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %20 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %21 = fmul nsz <4 x float> %5, %20
   %22 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1095,15 +1095,15 @@ entry:
   %26 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> zeroinitializer
   %27 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %13, <4 x float> %26, <4 x float> %25)
   store <4 x float> %27, ptr %arrayidx.i304.i, align 4, !tbaa !13, !alias.scope !124
-  %arrayidx.i320.i = getelementptr inbounds i8, ptr %this, i64 188
+  %arrayidx.i320.i = getelementptr inbounds nuw i8, ptr %this, i64 188
   %28 = load <4 x float>, ptr %arrayidx.i320.i, align 4, !noalias !124
-  %arrayidx.i321.i = getelementptr inbounds i8, ptr %this, i64 192
+  %arrayidx.i321.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %29 = load <4 x float>, ptr %arrayidx.i321.i, align 4, !noalias !124
-  %arrayidx.i322.i = getelementptr inbounds i8, ptr %this, i64 196
+  %arrayidx.i322.i = getelementptr inbounds nuw i8, ptr %this, i64 196
   %30 = load <4 x float>, ptr %arrayidx.i322.i, align 4, !noalias !124
-  %arrayidx.i323.i = getelementptr inbounds i8, ptr %this, i64 200
+  %arrayidx.i323.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %31 = load <4 x float>, ptr %arrayidx.i323.i, align 4, !noalias !124
-  %arrayidx.i324.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %arrayidx.i324.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %32 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
   %33 = fmul nsz <4 x float> %5, %32
   %34 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1113,9 +1113,9 @@ entry:
   %38 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> zeroinitializer
   %39 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %13, <4 x float> %38, <4 x float> %37)
   store <4 x float> %39, ptr %arrayidx.i324.i, align 4, !tbaa !13, !alias.scope !124
-  %arrayidx.i340.i = getelementptr inbounds i8, ptr %this, i64 204
+  %arrayidx.i340.i = getelementptr inbounds nuw i8, ptr %this, i64 204
   %40 = load <4 x float>, ptr %arrayidx.i340.i, align 4, !noalias !124
-  %arrayidx.i344.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %arrayidx.i344.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   %41 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %42 = fmul nsz <4 x float> %5, %41
   %43 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> zeroinitializer
@@ -1153,7 +1153,7 @@ entry:
 
 _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !57
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #24
   br label %if.end

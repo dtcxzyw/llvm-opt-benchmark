@@ -79,7 +79,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %7, i8 0, i64 288, i1 false)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 511, ptr noundef nonnull @.str.1, ptr noundef %0) #10
-  %11 = getelementptr inbounds i8, ptr %8, i64 511
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 511
   store i8 0, ptr %11, align 1
   %12 = call ptr @opendir(ptr noundef nonnull %8)
   %.not = icmp eq ptr %12, null
@@ -91,11 +91,11 @@ define hidden range(i32 -1, 1) i32 @hwloc_dump_hwdata_knl_smbios(ptr noundef %0,
   br i1 %.not3043, label %._crit_edge.thread, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %.preheader42
-  %14 = getelementptr inbounds i8, ptr %5, i64 511
-  %15 = getelementptr inbounds i8, ptr %6, i64 1
-  %16 = getelementptr inbounds i8, ptr %6, i64 5
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
-  %18 = getelementptr inbounds i8, ptr %7, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 511
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 28
   br label %sub_0
 
 19:                                               ; preds = %2
@@ -106,7 +106,7 @@ sub_0.lr.ph:                                      ; preds = %.preheader42
 sub_0:                                            ; preds = %sub_0.lr.ph, %87
   %22 = phi i32 [ 0, %sub_0.lr.ph ], [ %88, %87 ]
   %23 = phi ptr [ %13, %sub_0.lr.ph ], [ %89, %87 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 19
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 19
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 49, %26
@@ -114,7 +114,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %87
   br i1 %.not51, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %28 = getelementptr inbounds i8, ptr %23, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sub nsw i32 52, %30
@@ -122,7 +122,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not52, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %32 = getelementptr inbounds i8, ptr %23, i64 21
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 21
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = sub nsw i32 45, %34
@@ -161,11 +161,11 @@ sub_2:                                            ; preds = %sub_1
 
 .preheader.i.i:                                   ; preds = %44, %67
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %67 ], [ 0, %44 ]
-  %51 = getelementptr inbounds [3 x ptr], ptr @allowed_group_strings, i64 0, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [3 x ptr], ptr @allowed_group_strings, i64 0, i64 %indvars.iv.i.i
   %52 = load ptr, ptr %51, align 8
   %53 = load i8, ptr %15, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %6, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 %54
   br label %56
 
 56:                                               ; preds = %64, %.preheader.i.i
@@ -212,7 +212,7 @@ is_phi_group.exit.i:                              ; preds = %60
 73:                                               ; preds = %is_phi_group.exit.i
   %74 = load i8, ptr %15, align 1
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %6, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 %75
   %77 = icmp ugt i8 %74, 5
   br i1 %77, label %.lr.ph.i, label %process_smbios_group.exit
 
@@ -221,11 +221,11 @@ is_phi_group.exit.i:                              ; preds = %60
   %.02129.i = phi ptr [ %82, %.lr.ph.i ], [ %16, %73 ]
   %78 = load i8, ptr %.02129.i, align 2
   %79 = zext i8 %78 to i32
-  %80 = getelementptr inbounds [64 x i32], ptr %17, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [64 x i32], ptr %17, i64 0, i64 %indvars.iv.i
   store i32 %79, ptr %80, align 4
   %81 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %79)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %82 = getelementptr inbounds i8, ptr %.02129.i, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 3
   %83 = icmp ult ptr %82, %76
   br i1 %83, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
@@ -261,19 +261,19 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
   br i1 %90, label %.lr.ph49, label %._crit_edge50
 
 .lr.ph49:                                         ; preds = %.preheader
-  %91 = getelementptr inbounds i8, ptr %7, i64 32
-  %92 = getelementptr inbounds i8, ptr %3, i64 511
-  %93 = getelementptr inbounds i8, ptr %4, i64 4
-  %94 = getelementptr inbounds i8, ptr %4, i64 8
-  %95 = getelementptr inbounds i8, ptr %7, i64 16
-  %96 = getelementptr inbounds i8, ptr %4, i64 10
-  %97 = getelementptr inbounds i8, ptr %7, i64 20
-  %98 = getelementptr inbounds i8, ptr %4, i64 11
-  %99 = getelementptr inbounds i8, ptr %7, i64 24
-  %100 = getelementptr inbounds i8, ptr %4, i64 7
-  %101 = getelementptr inbounds i8, ptr %4, i64 16
-  %102 = getelementptr inbounds i8, ptr %4, i64 14
-  %103 = getelementptr inbounds i8, ptr %4, i64 15
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 511
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %wide.trip.count = zext nneg i32 %88 to i64
   br label %107
 
@@ -286,7 +286,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 107:                                              ; preds = %.lr.ph49, %._crit_edge47
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %._crit_edge47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %108 = getelementptr inbounds [64 x i32], ptr %91, i64 0, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [64 x i32], ptr %91, i64 0, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
   %110 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 15, ptr noundef nonnull @.str.5, i32 noundef %109) #10
   %putchar = call i32 @putchar(i32 10)
@@ -302,7 +302,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 114:                                              ; preds = %.lr.ph, %194
   %115 = phi ptr [ %112, %.lr.ph ], [ %195, %194 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 19
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 19
   %117 = call i32 @strncmp(ptr noundef nonnull %116, ptr noundef nonnull %9, i64 noundef %113) #13
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %194
@@ -396,7 +396,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
   br label %192
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds i8, ptr %.03953.i, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.03953.i, i64 4
   %160 = load i8, ptr %159, align 4
   %161 = zext i8 %160 to i32
   %162 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %161)
@@ -410,7 +410,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
   br label %174
 
 166:                                              ; preds = %158
-  %167 = getelementptr inbounds i8, ptr %.03953.i, i64 6
+  %167 = getelementptr inbounds nuw i8, ptr %.03953.i, i64 6
   %168 = load i16, ptr %167, align 2
   %169 = zext i16 %168 to i64
   %170 = add i64 %154, %169
@@ -421,7 +421,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
 
 174:                                              ; preds = %166, %165
   %175 = phi i64 [ %170, %166 ], [ %154, %165 ]
-  %176 = getelementptr inbounds i8, ptr %.03953.i, i64 %152
+  %176 = getelementptr inbounds nuw i8, ptr %.03953.i, i64 %152
   %177 = add nuw nsw i32 %.054.i, 1
   %178 = load i8, ptr %103, align 1
   %179 = zext i8 %178 to i32
@@ -475,7 +475,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
 
 ._crit_edge50:                                    ; preds = %._crit_edge47, %.preheader
   %196 = call i32 @closedir(ptr noundef nonnull %12)
-  %197 = getelementptr inbounds i8, ptr %7, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %198 = load i32, ptr %197, align 8
   switch i32 %198, label %201 [
     i32 1, label %204
@@ -498,7 +498,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
 
 204:                                              ; preds = %200, %199, %._crit_edge50, %._crit_edge50, %._crit_edge50
   %.052.i = phi i64 [ 4, %200 ], [ 2, %199 ], [ 1, %._crit_edge50 ], [ 1, %._crit_edge50 ], [ 1, %._crit_edge50 ]
-  %205 = getelementptr inbounds i8, ptr %7, i64 20
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %206 = load i32, ptr %205, align 4
   switch i32 %206, label %226 [
     i32 1, label %207
@@ -511,7 +511,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
   br label %.sink.split
 
 209:                                              ; preds = %204
-  %210 = getelementptr inbounds i8, ptr %7, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %211 = load i32, ptr %210, align 8
   switch i32 %211, label %220 [
     i32 1, label %212
@@ -582,7 +582,7 @@ process_knl_entry.exit.thread:                    ; preds = %189, %._crit_edge.i
 
 get_cluster_mode_str.exit.i:                      ; preds = %235, %234, %233, %232, %231, %229
   %.0.i.i = phi ptr [ @.str.57, %235 ], [ @.str.56, %234 ], [ @.str.55, %233 ], [ @.str.54, %232 ], [ @.str.53, %231 ], [ @.str.52, %229 ]
-  %236 = getelementptr inbounds i8, ptr %7, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %7, i64 24
   switch i32 %206, label %240 [
     i32 1, label %get_memory_mode_str.exit.i
     i32 2, label %237

@@ -29,9 +29,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN25JSONStringValueSerializerC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %json_string) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV25JSONStringValueSerializer, i64 16), ptr %this, align 8
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %json_string, ptr %json_string_, align 8
-  %pretty_print_ = getelementptr inbounds i8, ptr %this, i64 16
+  %pretty_print_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %pretty_print_, align 8
   ret void
 }
@@ -60,13 +60,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer9SerializeERKN4base5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root) unnamed_addr #4 align 2 {
 entry:
-  %json_string_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %pretty_print_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %pretty_print_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %pretty_print_.i, align 8
   %tobool5.i = trunc i8 %1 to i1
   %options.1.i = select i1 %tobool5.i, i32 4, i32 0
@@ -81,14 +81,14 @@ _ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit: ; preds
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root, i1 noundef zeroext %omit_binary_values) local_unnamed_addr #4 align 2 {
 entry:
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %spec.select = zext i1 %omit_binary_values to i32
-  %pretty_print_ = getelementptr inbounds i8, ptr %this, i64 16
+  %pretty_print_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %pretty_print_, align 8
   %tobool5 = trunc i8 %1 to i1
   %or7 = or disjoint i32 %spec.select, 4
@@ -104,13 +104,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN25JSONStringValueSerializer28SerializeAndOmitBinaryValuesERKN4base5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(12) %root) local_unnamed_addr #4 align 2 {
 entry:
-  %json_string_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_string_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %pretty_print_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %pretty_print_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %pretty_print_.i, align 8
   %tobool5.i = trunc i8 %1 to i1
   %options.1.i = select i1 %tobool5.i, i32 5, i32 1
@@ -128,9 +128,9 @@ declare noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEi
 define dso_local void @_ZN27JSONStringValueDeserializerC2ERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %json_string) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV27JSONStringValueDeserializer, i64 16), ptr %this, align 8
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %json_string_, ptr noundef nonnull align 8 dereferenceable(16) %json_string, i64 16, i1 false)
-  %allow_trailing_comma_ = getelementptr inbounds i8, ptr %this, i64 24
+  %allow_trailing_comma_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 0, ptr %allow_trailing_comma_, align 8
   ret void
 }
@@ -159,8 +159,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN27JSONStringValueDeserializer11DeserializeEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef %error_code, ptr noundef %error_str) unnamed_addr #4 align 2 {
 entry:
-  %json_string_ = getelementptr inbounds i8, ptr %this, i64 8
-  %allow_trailing_comma_ = getelementptr inbounds i8, ptr %this, i64 24
+  %json_string_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %allow_trailing_comma_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %allow_trailing_comma_, align 8
   %1 = and i8 %0, 1
   %cond = zext nneg i8 %1 to i32

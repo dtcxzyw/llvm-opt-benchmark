@@ -12,15 +12,15 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @makeA_Expr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 63, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %4, ptr %11, align 8
   ret ptr %6
 }
@@ -29,17 +29,17 @@ define dso_local noundef ptr @makeA_Expr(i32 noundef %0, ptr noundef %1, ptr nou
 define dso_local noundef ptr @makeSimpleA_Expr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 63, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %0, ptr %7, align 4
   %8 = tail call ptr @makeString(ptr noundef %1) #6
   %9 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %8) #6
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %4, ptr %13, align 8
   ret ptr %6
 }
@@ -52,34 +52,34 @@ declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @makeVar(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i16 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 -1, ptr %17, align 4
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeVarFromTargetEntry(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i16, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @exprType(ptr noundef %6) #6
   %8 = load ptr, ptr %5, align 8
@@ -88,25 +88,25 @@ define dso_local noundef ptr @makeVarFromTargetEntry(i32 noundef %0, ptr nocaptu
   %11 = tail call i32 @exprCollation(ptr noundef %10) #6
   %12 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 6, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i16 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %7, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %9, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %11, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i32 %0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %12, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i16 %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 -1, ptr %22, align 4
   ret ptr %12
 }
@@ -119,7 +119,7 @@ declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeWholeRowVar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %list_length.exit.thread [
     i32 0, label %7
@@ -127,7 +127,7 @@ define dso_local noundef ptr @makeWholeRowVar(ptr nocapture noundef readonly %0,
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @get_rel_type_id(i32 noundef %9) #6
   %.not27 = icmp eq i32 %10, 0
@@ -144,19 +144,19 @@ define dso_local noundef ptr @makeWholeRowVar(ptr nocapture noundef readonly %0,
   unreachable
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %list_length.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, 1
   br i1 %.not, label %26, label %list_length.exit.thread
@@ -165,7 +165,7 @@ list_length.exit:                                 ; preds = %21
   %27 = getelementptr i8, ptr %23, i64 16
   %.val = load ptr, ptr %27, align 8
   %28 = load ptr, ptr %.val, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @exprType(ptr noundef %30) #6
   %32 = tail call zeroext i1 @type_is_rowtype(i32 noundef %31) #6
@@ -184,25 +184,25 @@ list_length.exit.thread:                          ; preds = %26, %4, %17, %list_
   %.sink38 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 6, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i16 %.sink46, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 %.sink43, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 -1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i32 %.sink38, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %35, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 36
   store i32 %1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %35, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i16 %.sink46, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 44
   store i32 -1, ptr %45, align 4
   ret ptr %35
 }
@@ -227,19 +227,19 @@ define dso_local noundef ptr @makeTargetEntry(ptr noundef %0, i16 noundef signex
   %5 = zext i1 %3 to i8
   %6 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 54, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i16 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 42
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 42
   store i8 %5, ptr %13, align 2
   ret ptr %6
 }
@@ -259,9 +259,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef ptr @makeFromExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 57, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %5, align 8
   ret ptr %3
 }
@@ -284,21 +284,21 @@ define dso_local noundef ptr @makeConst(i32 noundef %0, i32 noundef %1, i32 noun
   %.0 = phi i64 [ %13, %10 ], [ %4, %7 ]
   %15 = zext i1 %6 to i8
   %16 = zext i1 %5 to i8
-  %17 = getelementptr inbounds i8, ptr %8, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %2, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %.0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %16, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 33
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 33
   store i8 %15, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %8, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 -1, ptr %24, align 4
   ret ptr %8
 }
@@ -316,21 +316,21 @@ define dso_local noundef ptr @makeNullConst(i32 noundef %0, i32 noundef %1, i32 
   %9 = call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %9, align 4
   %10 = and i8 %8, 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %2, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i8 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 33
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 %10, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %9, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 -1, ptr %18, align 4
   ret ptr %9
 }
@@ -343,21 +343,21 @@ define dso_local noundef ptr @makeBoolConst(i1 noundef zeroext %0, i1 noundef ze
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %4, align 4
   %5 = zext i1 %1 to i8
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 33
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 -1, ptr %13, align 4
   ret ptr %4
 }
@@ -366,11 +366,11 @@ define dso_local noundef ptr @makeBoolConst(i1 noundef zeroext %0, i1 noundef ze
 define dso_local noundef ptr @makeBoolExpr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 19, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %7, align 8
   ret ptr %4
 }
@@ -380,9 +380,9 @@ define dso_local noundef ptr @makeAlias(ptr noundef %0, ptr noundef %1) local_un
   %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 2, ptr %3, align 4
   %4 = tail call ptr @pstrdup(ptr noundef %0) #6
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %6, align 8
   ret ptr %3
 }
@@ -393,17 +393,17 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @makeRelabelType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 25, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %12, align 8
   ret ptr %6
 }
@@ -412,19 +412,19 @@ define dso_local noundef ptr @makeRelabelType(ptr noundef %0, i32 noundef %1, i3
 define dso_local noundef ptr @makeRangeVar(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 3, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 33
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 112, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %2, ptr %11, align 8
   ret ptr %4
 }
@@ -435,13 +435,13 @@ define dso_local noundef ptr @makeTypeName(ptr noundef %0) local_unnamed_addr #0
   %3 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %2) #6
   %4 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 60, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 -1, ptr %8, align 8
   ret ptr %4
 }
@@ -450,13 +450,13 @@ define dso_local noundef ptr @makeTypeName(ptr noundef %0) local_unnamed_addr #0
 define dso_local noundef ptr @makeTypeNameFromNameList(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 60, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 -1, ptr %6, align 8
   ret ptr %2
 }
@@ -465,11 +465,11 @@ define dso_local noundef ptr @makeTypeNameFromNameList(ptr noundef %0) local_unn
 define dso_local noundef ptr @makeTypeNameFromOid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 60, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %6, align 8
   ret ptr %3
 }
@@ -479,36 +479,36 @@ define dso_local noundef ptr @makeColumnDef(ptr noundef %0, i32 noundef %1, i32 
   %5 = tail call noundef ptr @palloc0(i64 noundef 128) #6
   store i32 82, ptr %5, align 4
   %6 = tail call ptr @pstrdup(ptr noundef %0) #6
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
   %8 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 60, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 37
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 37
   store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 38
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i8 0, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %5, i64 39
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 39
   store i8 0, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %5, i64 48
-  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store i32 %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 104
-  %22 = getelementptr inbounds i8, ptr %5, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i32 -1, ptr %22, align 8
   ret ptr %5
@@ -518,23 +518,23 @@ define dso_local noundef ptr @makeColumnDef(ptr noundef %0, i32 noundef %1, i32 
 define dso_local noundef ptr @makeFuncExpr(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 13, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 13
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 13
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %3, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 -1, ptr %16, align 8
   ret ptr %7
 }
@@ -543,15 +543,15 @@ define dso_local noundef ptr @makeFuncExpr(i32 noundef %0, i32 noundef %1, ptr n
 define dso_local noundef ptr @makeDefElem(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 85, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %2, ptr %9, align 4
   ret ptr %4
 }
@@ -560,15 +560,15 @@ define dso_local noundef ptr @makeDefElem(ptr noundef %0, ptr noundef %1, i32 no
 define dso_local noundef ptr @makeDefElemExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 85, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %4, ptr %11, align 4
   ret ptr %6
 }
@@ -577,15 +577,15 @@ define dso_local noundef ptr @makeDefElemExtended(ptr noundef %0, ptr noundef %1
 define dso_local noundef ptr @makeFuncCall(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef ptr @palloc0(i64 noundef 64) #6
   store i32 68, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, i8 0, i64 28, i1 false)
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %3, ptr %10, align 8
   ret ptr %5
 }
@@ -595,17 +595,17 @@ define dso_local noundef ptr @make_opclause(i32 noundef %0, i32 noundef %1, i1 n
   %8 = zext i1 %2 to i8
   %9 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 15, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i8 %8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %5, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %6, ptr %15, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %16
@@ -620,9 +620,9 @@ define dso_local noundef ptr @make_opclause(i32 noundef %0, i32 noundef %1, i1 n
 
 20:                                               ; preds = %18, %16
   %.sink = phi ptr [ %19, %18 ], [ %17, %16 ]
-  %21 = getelementptr inbounds i8, ptr %9, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %.sink, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 -1, ptr %22, align 8
   ret ptr %9
 }
@@ -633,11 +633,11 @@ declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 define dso_local noundef ptr @make_andclause(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 19, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %5, align 8
   ret ptr %2
 }
@@ -646,11 +646,11 @@ define dso_local noundef ptr @make_andclause(ptr noundef %0) local_unnamed_addr 
 define dso_local noundef ptr @make_orclause(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 19, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %5, align 8
   ret ptr %2
 }
@@ -659,12 +659,12 @@ define dso_local noundef ptr @make_orclause(ptr noundef %0) local_unnamed_addr #
 define dso_local noundef ptr @make_notclause(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 19, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2, ptr %3, align 4
   %4 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #6
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %6, align 8
   ret ptr %2
 }
@@ -682,11 +682,11 @@ define dso_local noundef ptr @make_and_qual(ptr noundef %0, ptr noundef %1) loca
   %7 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr nonnull %1) #6
   %8 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 19, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 -1, ptr %11, align 8
   br label %12
 
@@ -703,26 +703,26 @@ define dso_local ptr @make_ands_explicit(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 33
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %4, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 -1, ptr %12, align 4
   br label %24
 
 list_length.exit:                                 ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %19
@@ -736,11 +736,11 @@ list_length.exit:                                 ; preds = %1
 19:                                               ; preds = %list_length.exit
   %20 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 -1, ptr %23, align 8
   br label %24
 
@@ -762,24 +762,24 @@ define dso_local ptr @make_ands_implicit(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 is_andclause.exit:                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %is_andclause.exit
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   br label %19
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %.thread, label %19
@@ -802,42 +802,42 @@ define dso_local noundef ptr @makeIndexInfo(i32 noundef %0, i32 noundef %1, i32 
   %15 = zext i1 %9 to i8
   %16 = tail call noundef ptr @palloc0(i64 noundef 192) #6
   store i32 365, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 160
   store i8 %11, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 161
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 161
   store i8 %12, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %16, i64 162
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 162
   store i8 %13, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %16, i64 163
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 163
   store i8 0, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %16, i64 164
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 164
   store i8 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %16, i64 165
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 165
   store i8 %14, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %16, i64 167
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 167
   store i8 %15, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %16, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store ptr %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %16, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %16, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %4, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 104
-  %30 = getelementptr inbounds i8, ptr %16, i64 166
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 166
   store i8 0, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %16, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 168
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 172
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %29, i8 0, i64 56, i1 false)
   store i32 %2, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %16, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 176
   store ptr null, ptr %33, align 8
   %34 = load ptr, ptr @CurrentMemoryContext, align 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 184
   store ptr %34, ptr %35, align 8
   ret ptr %16
 }
@@ -846,11 +846,11 @@ define dso_local noundef ptr @makeIndexInfo(i32 noundef %0, i32 noundef %1, i32 
 define dso_local noundef ptr @makeGroupingSet(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 99, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %7, align 8
   ret ptr %4
 }
@@ -859,11 +859,11 @@ define dso_local noundef ptr @makeGroupingSet(i32 noundef %0, ptr noundef %1, i3
 define dso_local noundef ptr @makeVacuumRelation(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 224, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %7, align 8
   ret ptr %4
 }
@@ -872,11 +872,11 @@ define dso_local noundef ptr @makeVacuumRelation(ptr noundef %0, i32 noundef %1,
 define dso_local noundef ptr @makeJsonFormat(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 16) #6
   store i32 40, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %2, ptr %7, align 4
   ret ptr %4
 }
@@ -885,11 +885,11 @@ define dso_local noundef ptr @makeJsonFormat(i32 noundef %0, i32 noundef %1, i32
 define dso_local noundef ptr @makeJsonValueExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 42, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %7, align 8
   ret ptr %4
 }
@@ -898,9 +898,9 @@ define dso_local noundef ptr @makeJsonValueExpr(ptr noundef %0, ptr noundef %1, 
 define dso_local noundef ptr @makeJsonKeyValue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 111, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %5, align 8
   ret ptr %3
 }
@@ -910,15 +910,15 @@ define dso_local noundef ptr @makeJsonIsPredicate(ptr noundef %0, ptr noundef %1
   %6 = zext i1 %3 to i8
   %7 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 44, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i8 %6, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %4, ptr %12, align 8
   ret ptr %7
 }

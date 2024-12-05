@@ -30,9 +30,9 @@ define void @Java_sun_java2d_loops_FillSpans_FillSpans(ptr noundef %0, ptr nound
   br i1 %16, label %72, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %23, label %22
@@ -49,60 +49,60 @@ define void @Java_sun_java2d_loops_FillSpans_FillSpans(ptr noundef %0, ptr nound
 26:                                               ; preds = %23
   %27 = load ptr, ptr %11, align 8
   %28 = call ptr %27(ptr noundef %0, ptr noundef %6) #2
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %9) #2
   %31 = load i32, ptr %9, align 16
   store i32 %31, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %8, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %9, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %9, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %8, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %39, ptr %40, align 4
   %41 = load ptr, ptr %24, align 8
-  %42 = getelementptr inbounds i8, ptr %15, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = call i32 %41(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %8, i32 noundef %43) #2
   %.not51 = icmp eq i32 %44, 0
   br i1 %.not51, label %48, label %45
 
 45:                                               ; preds = %26
-  %46 = getelementptr inbounds i8, ptr %11, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef %0, ptr noundef %28) #2
   br label %72
 
 48:                                               ; preds = %26
-  %49 = getelementptr inbounds i8, ptr %11, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %8, align 8
   %52 = load i32, ptr %34, align 4
   %53 = load i32, ptr %37, align 8
   %54 = load i32, ptr %40, align 4
   call void %50(ptr noundef %0, ptr noundef %28, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54) #2
-  %55 = getelementptr inbounds i8, ptr %24, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %8) #2
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %58 = load ptr, ptr %57, align 8
   %.not52 = icmp eq ptr %58, null
   br i1 %.not52, label %62, label %59
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds i8, ptr %15, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef %28, i32 noundef %4, ptr noundef nonnull %15, ptr noundef nonnull %10) #2
   br label %62
 
 62:                                               ; preds = %48, %59
-  %63 = getelementptr inbounds i8, ptr %24, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not53 = icmp eq ptr %64, null
   br i1 %.not53, label %66, label %65
@@ -112,10 +112,10 @@ define void @Java_sun_java2d_loops_FillSpans_FillSpans(ptr noundef %0, ptr nound
   br label %66
 
 66:                                               ; preds = %62, %65
-  %67 = getelementptr inbounds i8, ptr %11, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef %0, ptr noundef %28) #2
-  %69 = getelementptr inbounds i8, ptr %24, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not54 = icmp eq ptr %70, null
   br i1 %.not54, label %72, label %71

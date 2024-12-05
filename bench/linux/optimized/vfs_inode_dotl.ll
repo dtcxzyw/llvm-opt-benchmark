@@ -36,30 +36,30 @@ define dso_local ptr @v9fs_inode_from_fid_dotl(ptr nocapture readnone %0, ptr no
   br i1 %6, label %44, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 872
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 872
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq i32 %3, 0
   %12 = select i1 %11, ptr @v9fs_test_inode_dotl, ptr @v9fs_test_new_inode_dotl
-  %13 = tail call i64 @v9fs_qid2ino(ptr noundef %8) #12
+  %13 = tail call i64 @v9fs_qid2ino(ptr noundef nonnull %8) #12
   %14 = tail call ptr @iget5_locked(ptr noundef %2, i64 noundef %13, ptr noundef nonnull %12, ptr noundef nonnull @v9fs_set_inode_dotl, ptr noundef %5) #12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %42, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %14, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %42, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %14, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i64 %13, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = trunc i32 %24 to i16
-  %26 = getelementptr inbounds i8, ptr %5, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   %29 = and i32 %28, 255
@@ -121,7 +121,7 @@ define dso_local i32 @v9fs_open_to_dotl_flags(i32 noundef %0) local_unnamed_addr
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, %4
   br label %13
@@ -141,13 +141,13 @@ define dso_local i32 @v9fs_open_to_dotl_flags(i32 noundef %0) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.p9_iattr_dotl, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %8, align 4
   %9 = tail call i32 @setattr_prepare(ptr noundef nonnull @nop_mnt_idmap, ptr noundef %1, ptr noundef %2) #12
   %10 = icmp eq i32 %9, 0
@@ -167,7 +167,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %16, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, %15
   br label %24
@@ -185,10 +185,10 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %2, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %34, ptr %35, align 4
   br label %36
 
@@ -198,7 +198,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %7, align 8
   br label %42
@@ -209,7 +209,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %2, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %8, align 4
   br label %48
@@ -220,9 +220,9 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %53, ptr %54, align 8
   br label %55
 
@@ -232,13 +232,13 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %57, label %65, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %4, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %63, ptr %64, align 8
   br label %65
 
@@ -248,13 +248,13 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %67, label %75, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %2, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %73, ptr %74, align 8
   br label %75
 
@@ -264,9 +264,9 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %77, label %85, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %2, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 200
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 200
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %87, !prof !9
@@ -298,7 +298,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %6, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i32 @filemap_fdatawrite(ptr noundef %99) #12
   br label %101
@@ -322,8 +322,8 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br label %109
 
 109:                                              ; preds = %108, %107
-  %110 = getelementptr inbounds i8, ptr %89, i64 12
-  %111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %110, i32 -1, ptr elementtype(i32) %110) #12, !srcloc !14
+  %110 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  %111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %110, i32 -1, ptr nonnull elementtype(i32) %110) #12, !srcloc !14
   %112 = icmp eq i32 %111, 1
   br i1 %112, label %116, label %113
 
@@ -332,7 +332,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %114, label %.thread12, label %115, !prof !15
 
 115:                                              ; preds = %113
-  call void @refcount_warn_saturate(ptr noundef %110, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %110, i32 noundef 3) #12
   br label %.thread12
 
 116:                                              ; preds = %109
@@ -347,9 +347,9 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %121, label %135, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %2, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %6, i64 80
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %126 = load i64, ptr %125, align 8
   %127 = icmp eq i64 %124, %126
   br i1 %127, label %135, label %128
@@ -357,9 +357,9 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
 128:                                              ; preds = %122
   call void @truncate_setsize(ptr noundef %6, i64 noundef %124) #12
   %129 = load i64, ptr %123, align 8
-  %130 = getelementptr inbounds i8, ptr %6, i64 608
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 608
   store i64 %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %6, i64 616
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 616
   %132 = load i64, ptr %131, align 8
   %133 = icmp sgt i64 %132, %129
   br i1 %133, label %134, label %135
@@ -369,7 +369,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br label %135
 
 135:                                              ; preds = %134, %128, %122, %118
-  %136 = getelementptr inbounds i8, ptr %6, i64 648
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 648
   %137 = load i32, ptr %136, align 8
   %138 = or i32 %137, 1
   store i32 %138, ptr %136, align 8
@@ -388,8 +388,8 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br label %143
 
 143:                                              ; preds = %142, %141
-  %144 = getelementptr inbounds i8, ptr %89, i64 12
-  %145 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %144, i32 -1, ptr elementtype(i32) %144) #12, !srcloc !14
+  %144 = getelementptr inbounds nuw i8, ptr %89, i64 12
+  %145 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %144, i32 -1, ptr nonnull elementtype(i32) %144) #12, !srcloc !14
   %146 = icmp eq i32 %145, 1
   br i1 %146, label %150, label %147
 
@@ -398,7 +398,7 @@ define dso_local i32 @v9fs_vfs_setattr_dotl(ptr nocapture readnone %0, ptr nound
   br i1 %148, label %.thread12, label %149, !prof !15
 
 149:                                              ; preds = %147
-  call void @refcount_warn_saturate(ptr noundef %144, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %144, i32 noundef 3) #12
   br label %.thread12
 
 150:                                              ; preds = %143
@@ -444,43 +444,43 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %6, label %7, label %49
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i64 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i64 %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %15, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i64 %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %21, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %26, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   tail call void @set_nlink(ptr noundef %1, i32 noundef %34) #12
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = load i16, ptr %1, align 8
   %38 = and i16 %37, -4096
@@ -488,16 +488,16 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   %40 = and i16 %39, 4095
   %41 = or disjoint i16 %40, %38
   store i16 %41, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 608
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 608
   store i64 %43, ptr %44, align 8
   %45 = and i32 %2, 1
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %131
 
 47:                                               ; preds = %7
-  %48 = getelementptr inbounds i8, ptr %1, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %43, ptr %48, align 8
   br label %131
 
@@ -507,13 +507,13 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i64 %54, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i64 %56, ptr %58, align 8
   %.pre = load i64, ptr %0, align 8
   br label %59
@@ -525,13 +525,13 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %62, label %70, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %65, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i64 %67, ptr %69, align 8
   %.pre1 = load i64, ptr %0, align 8
   br label %70
@@ -543,13 +543,13 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %73, label %81, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 120
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %76, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 128
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 %78, ptr %80, align 8
   %.pre2 = load i64, ptr %0, align 8
   br label %81
@@ -561,8 +561,8 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %1, i64 4
-  %87 = getelementptr inbounds i8, ptr %0, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %88 = load i32, ptr %87, align 4
   store i32 %88, ptr %86, align 4
   %.pre3 = load i64, ptr %0, align 8
@@ -575,8 +575,8 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %92, label %97, label %93
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load i32, ptr %95, align 8
   store i32 %96, ptr %94, align 8
   %.pre4 = load i64, ptr %0, align 8
@@ -589,7 +589,7 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %100, label %105, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load i64, ptr %102, align 8
   %104 = trunc i64 %103 to i32
   tail call void @set_nlink(ptr noundef %1, i32 noundef %104) #12
@@ -603,7 +603,7 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %108, label %117, label %109
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %0, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load i32, ptr %110, align 8
   %112 = load i16, ptr %1, align 8
   %113 = and i16 %112, -4096
@@ -624,11 +624,11 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %or.cond, label %127, label %122
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %0, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 608
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 608
   store i64 %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 80
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %124, ptr %126, align 8
   %.pre6 = load i64, ptr %0, align 8
   br label %127
@@ -640,9 +640,9 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %130, label %135, label %131
 
 131:                                              ; preds = %127, %47, %7
-  %132 = getelementptr inbounds i8, ptr %0, i64 72
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 144
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i64 %133, ptr %134, align 8
   %.pre8 = load i64, ptr %0, align 8
   br label %135
@@ -654,15 +654,15 @@ define dso_local void @v9fs_stat2inode_dotl(ptr nocapture noundef readonly %0, p
   br i1 %138, label %144, label %139
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds i8, ptr %0, i64 144
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %141 = load i64, ptr %140, align 8
   %142 = trunc i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %1, i64 576
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 576
   store i32 %142, ptr %143, align 8
   br label %144
 
 144:                                              ; preds = %139, %135
-  %145 = getelementptr inbounds i8, ptr %1, i64 648
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %146 = load i32, ptr %145, align 8
   %147 = and i32 %146, -2
   store i32 %147, ptr %145, align 8
@@ -674,9 +674,9 @@ declare dso_local void @set_nlink(ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @v9fs_refresh_inode_dotl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @p9_client_getattr_dotl(ptr noundef %0, i64 noundef 16383) #12
   %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
@@ -688,7 +688,7 @@ define dso_local i32 @v9fs_refresh_inode_dotl(ptr noundef %0, ptr noundef %1) lo
   br label %25
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = trunc i32 %14 to i16
   %16 = load i16, ptr %1, align 8
@@ -697,7 +697,7 @@ define dso_local i32 @v9fs_refresh_inode_dotl(ptr noundef %0, ptr noundef %1) lo
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %21, 3
   %23 = and i32 %22, 1
@@ -724,11 +724,11 @@ define internal i32 @v9fs_vfs_create_dotl(ptr nocapture readnone %0, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @v9fs_fid_lookup(ptr noundef %9) #12
   %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
@@ -757,8 +757,8 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br label %22
 
 22:                                               ; preds = %21, %20
-  %23 = getelementptr inbounds i8, ptr %10, i64 12
-  %24 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 -1, ptr elementtype(i32) %23) #12, !srcloc !14
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %24 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 -1, ptr nonnull elementtype(i32) %23) #12, !srcloc !14
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %29, label %26
 
@@ -767,7 +767,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %27, label %.thread, label %28, !prof !15
 
 28:                                               ; preds = %26
-  tail call void @refcount_warn_saturate(ptr noundef %23, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %23, i32 noundef 3) #12
   br label %.thread
 
 29:                                               ; preds = %22
@@ -781,7 +781,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br label %114
 
 33:                                               ; preds = %15
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @p9_client_link(ptr noundef %10, ptr noundef %16, ptr noundef %35) #12
   %37 = icmp eq ptr %10, null
@@ -796,8 +796,8 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br label %40
 
 40:                                               ; preds = %39, %38
-  %41 = getelementptr inbounds i8, ptr %10, i64 12
-  %42 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41, i32 -1, ptr elementtype(i32) %41) #12, !srcloc !14
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %42 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, i32 -1, ptr nonnull elementtype(i32) %41) #12, !srcloc !14
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %47, label %44
 
@@ -806,7 +806,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %45, label %.thread13, label %46, !prof !15
 
 46:                                               ; preds = %44
-  tail call void @refcount_warn_saturate(ptr noundef %41, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %41, i32 noundef 3) #12
   br label %.thread13
 
 47:                                               ; preds = %40
@@ -827,8 +827,8 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br label %52
 
 52:                                               ; preds = %51, %50
-  %53 = getelementptr inbounds i8, ptr %16, i64 12
-  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 -1, ptr elementtype(i32) %53) #12, !srcloc !14
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 -1, ptr nonnull elementtype(i32) %53) #12, !srcloc !14
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %59, label %56
 
@@ -837,7 +837,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %57, label %.thread15, label %58, !prof !15
 
 58:                                               ; preds = %56
-  tail call void @refcount_warn_saturate(ptr noundef %53, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %53, i32 noundef 3) #12
   br label %.thread15
 
 59:                                               ; preds = %52
@@ -850,11 +850,11 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %61, label %114, label %62
 
 62:                                               ; preds = %.thread15
-  %63 = getelementptr inbounds i8, ptr %1, i64 648
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %64 = load i32, ptr %63, align 8
   %65 = or i32 %64, 1
   store i32 %65, ptr %63, align 8
-  %66 = getelementptr inbounds i8, ptr %7, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 10
   %69 = icmp eq i32 %68, 0
@@ -866,18 +866,18 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %72, label %108, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 872
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 872
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr @p9_client_getattr_dotl(ptr noundef %71, i64 noundef 16383) #12
   %81 = icmp ugt ptr %80, inttoptr (i64 -4096 to ptr)
   br i1 %81, label %95, label %82
 
 82:                                               ; preds = %73
-  %83 = getelementptr inbounds i8, ptr %80, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = trunc i32 %84 to i16
   %86 = load i16, ptr %75, align 8
@@ -886,7 +886,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %88, label %94, label %89
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %79, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = lshr i32 %91, 3
   %93 = and i32 %92, 1
@@ -910,8 +910,8 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br label %99
 
 99:                                               ; preds = %98, %97
-  %100 = getelementptr inbounds i8, ptr %71, i64 12
-  %101 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %100, i32 -1, ptr elementtype(i32) %100) #12, !srcloc !14
+  %100 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  %101 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %100, i32 -1, ptr nonnull elementtype(i32) %100) #12, !srcloc !14
   %102 = icmp eq i32 %101, 1
   br i1 %102, label %106, label %103
 
@@ -920,7 +920,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br i1 %104, label %.thread19, label %105, !prof !15
 
 105:                                              ; preds = %103
-  tail call void @refcount_warn_saturate(ptr noundef %100, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %100, i32 noundef 3) #12
   br label %.thread19
 
 106:                                              ; preds = %99
@@ -934,7 +934,7 @@ define internal i32 @v9fs_vfs_link_dotl(ptr noundef %0, ptr nocapture noundef %1
   br label %114
 
 .thread19:                                        ; preds = %103, %105, %95, %106, %62
-  %111 = getelementptr inbounds i8, ptr %0, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %112 = load ptr, ptr %111, align 8
   tail call void @ihold(ptr noundef %112) #12
   %113 = load ptr, ptr %111, align 8
@@ -958,14 +958,14 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 872
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @v9fs_fid_lookup(ptr noundef %15) #12
   %17 = icmp ugt ptr %16, inttoptr (i64 -4096 to ptr)
@@ -992,15 +992,15 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %36
 
 30:                                               ; preds = %24
   %31 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !19
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 1784
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1784
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 36
   br label %36
 
 36:                                               ; preds = %30, %28
@@ -1012,11 +1012,11 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %1, i64 648
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %43 = load i32, ptr %42, align 8
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %13, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 10
   %48 = icmp eq i32 %47, 0
@@ -1096,8 +1096,8 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   br label %87
 
 87:                                               ; preds = %86, %85
-  %88 = getelementptr inbounds i8, ptr %80, i64 12
-  %89 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, i32 -1, ptr elementtype(i32) %88) #12, !srcloc !14
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 12
+  %89 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %88, i32 -1, ptr nonnull elementtype(i32) %88) #12, !srcloc !14
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %94, label %91
 
@@ -1106,7 +1106,7 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   br i1 %92, label %.thread, label %93, !prof !15
 
 93:                                               ; preds = %91
-  call void @refcount_warn_saturate(ptr noundef %88, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %88, i32 noundef 3) #12
   br label %.thread
 
 94:                                               ; preds = %87
@@ -1128,8 +1128,8 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   br label %100
 
 100:                                              ; preds = %99, %98
-  %101 = getelementptr inbounds i8, ptr %16, i64 12
-  %102 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %101, i32 -1, ptr elementtype(i32) %101) #12, !srcloc !14
+  %101 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %102 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %101, i32 -1, ptr nonnull elementtype(i32) %101) #12, !srcloc !14
   %103 = icmp eq i32 %102, 1
   br i1 %103, label %107, label %104
 
@@ -1138,7 +1138,7 @@ define internal i32 @v9fs_vfs_symlink_dotl(ptr nocapture readnone %0, ptr nounde
   br i1 %105, label %.thread14, label %106, !prof !15
 
 106:                                              ; preds = %104
-  call void @refcount_warn_saturate(ptr noundef %101, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %101, i32 noundef 3) #12
   br label %.thread14
 
 107:                                              ; preds = %100
@@ -1163,15 +1163,15 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 872
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
   %12 = load i16, ptr %1, align 8
   %13 = and i16 %12, 1024
   %14 = or i16 %3, %13
   %15 = or i16 %14, 16384
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @v9fs_fid_lookup(ptr noundef %17) #12
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
@@ -1198,22 +1198,22 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %37
 
 31:                                               ; preds = %25
   %32 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !19
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 1784
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1784
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   br label %37
 
 37:                                               ; preds = %31, %29
   %38 = phi ptr [ %30, %29 ], [ %36, %31 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !20
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %6, align 8
   %42 = zext i16 %15 to i32
@@ -1233,7 +1233,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   br label %84
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %11, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 10
   %55 = icmp eq i32 %54, 0
@@ -1283,7 +1283,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   %80 = phi i32 [ 0, %71 ], [ %43, %72 ]
   call void @d_instantiate(ptr noundef %2, ptr noundef %79) #12
   call void @inc_nlink(ptr noundef nonnull %1) #12
-  %81 = getelementptr inbounds i8, ptr %1, i64 648
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %82 = load i32, ptr %81, align 8
   %83 = or i32 %82, 1
   store i32 %83, ptr %81, align 8
@@ -1307,8 +1307,8 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   br label %92
 
 92:                                               ; preds = %91, %90
-  %93 = getelementptr inbounds i8, ptr %85, i64 12
-  %94 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93, i32 -1, ptr elementtype(i32) %93) #12, !srcloc !14
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 12
+  %94 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %93, i32 -1, ptr nonnull elementtype(i32) %93) #12, !srcloc !14
   %95 = icmp eq i32 %94, 1
   br i1 %95, label %99, label %96
 
@@ -1317,7 +1317,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %97, label %.thread, label %98, !prof !15
 
 98:                                               ; preds = %96
-  call void @refcount_warn_saturate(ptr noundef %93, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %93, i32 noundef 3) #12
   br label %.thread
 
 99:                                               ; preds = %92
@@ -1339,8 +1339,8 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   br label %105
 
 105:                                              ; preds = %104, %103
-  %106 = getelementptr inbounds i8, ptr %18, i64 12
-  %107 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %106, i32 -1, ptr elementtype(i32) %106) #12, !srcloc !14
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %107 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %106, i32 -1, ptr nonnull elementtype(i32) %106) #12, !srcloc !14
   %108 = icmp eq i32 %107, 1
   br i1 %108, label %112, label %109
 
@@ -1349,7 +1349,7 @@ define internal i32 @v9fs_vfs_mkdir_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %110, label %.thread14, label %111, !prof !15
 
 111:                                              ; preds = %109
-  call void @refcount_warn_saturate(ptr noundef %106, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %106, i32 noundef 3) #12
   br label %.thread14
 
 112:                                              ; preds = %105
@@ -1377,11 +1377,11 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 872
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @v9fs_fid_lookup(ptr noundef %14) #12
   %16 = icmp ugt ptr %15, inttoptr (i64 -4096 to ptr)
@@ -1408,22 +1408,22 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %34
 
 28:                                               ; preds = %22
   %29 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !19
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 1784
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1784
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
   br label %34
 
 34:                                               ; preds = %28, %26
   %35 = phi ptr [ %27, %26 ], [ %33, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !20
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %6, align 8
   %39 = zext i16 %3 to i32
@@ -1432,7 +1432,7 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %1, i64 648
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %44 = load i32, ptr %43, align 8
   %45 = or i32 %44, 1
   store i32 %45, ptr %43, align 8
@@ -1447,7 +1447,7 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br label %79
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %12, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 10
   %55 = icmp eq i32 %54, 0
@@ -1515,8 +1515,8 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br label %87
 
 87:                                               ; preds = %86, %85
-  %88 = getelementptr inbounds i8, ptr %80, i64 12
-  %89 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %88, i32 -1, ptr elementtype(i32) %88) #12, !srcloc !14
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 12
+  %89 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %88, i32 -1, ptr nonnull elementtype(i32) %88) #12, !srcloc !14
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %94, label %91
 
@@ -1525,7 +1525,7 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %92, label %.thread, label %93, !prof !15
 
 93:                                               ; preds = %91
-  call void @refcount_warn_saturate(ptr noundef %88, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %88, i32 noundef 3) #12
   br label %.thread
 
 94:                                               ; preds = %87
@@ -1547,8 +1547,8 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br label %100
 
 100:                                              ; preds = %99, %98
-  %101 = getelementptr inbounds i8, ptr %15, i64 12
-  %102 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %101, i32 -1, ptr elementtype(i32) %101) #12, !srcloc !14
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %102 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %101, i32 -1, ptr nonnull elementtype(i32) %101) #12, !srcloc !14
   %103 = icmp eq i32 %102, 1
   br i1 %103, label %107, label %104
 
@@ -1557,7 +1557,7 @@ define internal i32 @v9fs_vfs_mknod_dotl(ptr nocapture readnone %0, ptr noundef 
   br i1 %105, label %.thread14, label %106, !prof !15
 
 106:                                              ; preds = %104
-  call void @refcount_warn_saturate(ptr noundef %101, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %101, i32 noundef 3) #12
   br label %.thread14
 
 107:                                              ; preds = %100
@@ -1578,15 +1578,15 @@ declare dso_local i32 @v9fs_vfs_rename(ptr noundef, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @v9fs_vfs_getattr_dotl(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 872
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 10
   %17 = icmp eq i32 %16, 0
@@ -1606,7 +1606,7 @@ define internal i32 @v9fs_vfs_getattr_dotl(ptr nocapture readnone %0, ptr nocapt
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %9, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @filemap_fdatawrite(ptr noundef %26) #12
   br label %28
@@ -1635,8 +1635,8 @@ define internal i32 @v9fs_vfs_getattr_dotl(ptr nocapture readnone %0, ptr nocapt
   br label %39
 
 39:                                               ; preds = %38, %37
-  %40 = getelementptr inbounds i8, ptr %29, i64 12
-  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40, i32 -1, ptr elementtype(i32) %40) #12, !srcloc !14
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %40, i32 -1, ptr nonnull elementtype(i32) %40) #12, !srcloc !14
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %46, label %43
 
@@ -1645,7 +1645,7 @@ define internal i32 @v9fs_vfs_getattr_dotl(ptr nocapture readnone %0, ptr nocapt
   br i1 %44, label %.thread, label %45, !prof !15
 
 45:                                               ; preds = %43
-  tail call void @refcount_warn_saturate(ptr noundef %40, i32 noundef 3) #12
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %40, i32 noundef 3) #12
   br label %.thread
 
 46:                                               ; preds = %39
@@ -1667,10 +1667,10 @@ define internal i32 @v9fs_vfs_getattr_dotl(ptr nocapture readnone %0, ptr nocapt
   tail call void @v9fs_stat2inode_dotl(ptr noundef %35, ptr noundef %53, i32 noundef 0)
   %54 = load ptr, ptr %8, align 8
   tail call void @generic_fillattr(ptr noundef nonnull @nop_mnt_idmap, i32 noundef %3, ptr noundef %54, ptr noundef %2) #12
-  %55 = getelementptr inbounds i8, ptr %35, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %2, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %57, ptr %58, align 4
   tail call void @kfree(ptr noundef %35) #12
   br label %59
@@ -1701,7 +1701,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %13, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, %12
   br label %21
@@ -1750,7 +1750,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %42, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %51, label %49
@@ -1760,14 +1760,14 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br label %172
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 872
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 872
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %42, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %57 = load ptr, ptr %56, align 8
   store ptr %57, ptr %6, align 8
-  %58 = getelementptr inbounds i8, ptr %42, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @v9fs_fid_lookup(ptr noundef %59) #12
   %61 = icmp ugt ptr %60, inttoptr (i64 -4096 to ptr)
@@ -1805,21 +1805,21 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %76, label %79, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %85
 
 79:                                               ; preds = %73
   %80 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !19
   %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 1784
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1784
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 36
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
   br label %85
 
 85:                                               ; preds = %79, %77
   %86 = phi ptr [ %78, %77 ], [ %84, %79 ]
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %55, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 4
   %91 = icmp eq i32 %90, 0
@@ -1835,7 +1835,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %100, label %127, label %101
 
 101:                                              ; preds = %85
-  %102 = getelementptr inbounds i8, ptr %0, i64 648
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %103 = load i32, ptr %102, align 8
   %104 = or i32 %103, 1
   store i32 %104, ptr %102, align 8
@@ -1868,13 +1868,13 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %119, label %120, label %127
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %2, i64 200
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr %65, ptr %121, align 8
   %122 = load i32, ptr %55, align 8
   %123 = load i32, ptr %88, align 4
   call fastcc void @v9fs_fid_add_modes(ptr noundef %65, i32 noundef %122, i32 noundef %123, i32 noundef %3)
   call void @v9fs_open_fid_add(ptr noundef %112, ptr noundef nonnull %9) #12
-  %124 = getelementptr inbounds i8, ptr %2, i64 20
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, 1048576
   store i32 %126, ptr %124, align 4
@@ -1894,8 +1894,8 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br label %132
 
 132:                                              ; preds = %131, %130
-  %133 = getelementptr inbounds i8, ptr %60, i64 12
-  %134 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %133, i32 -1, ptr elementtype(i32) %133) #12, !srcloc !14
+  %133 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %134 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %133, i32 -1, ptr nonnull elementtype(i32) %133) #12, !srcloc !14
   %135 = icmp eq i32 %134, 1
   br i1 %135, label %139, label %136
 
@@ -1904,7 +1904,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %137, label %.thread18, label %138, !prof !15
 
 138:                                              ; preds = %136
-  call void @refcount_warn_saturate(ptr noundef %133, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %133, i32 noundef 3) #12
   br label %.thread18
 
 139:                                              ; preds = %132
@@ -1929,8 +1929,8 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br label %148
 
 148:                                              ; preds = %147, %146
-  %149 = getelementptr inbounds i8, ptr %142, i64 12
-  %150 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %149, i32 -1, ptr elementtype(i32) %149) #12, !srcloc !14
+  %149 = getelementptr inbounds nuw i8, ptr %142, i64 12
+  %150 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 -1, ptr nonnull elementtype(i32) %149) #12, !srcloc !14
   %151 = icmp eq i32 %150, 1
   br i1 %151, label %155, label %152
 
@@ -1939,7 +1939,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %153, label %.thread20, label %154, !prof !15
 
 154:                                              ; preds = %152
-  call void @refcount_warn_saturate(ptr noundef %149, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %149, i32 noundef 3) #12
   br label %.thread20
 
 155:                                              ; preds = %148
@@ -1963,8 +1963,8 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br label %163
 
 163:                                              ; preds = %162, %161
-  %164 = getelementptr inbounds i8, ptr %157, i64 12
-  %165 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %164, i32 -1, ptr elementtype(i32) %164) #12, !srcloc !14
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 12
+  %165 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %164, i32 -1, ptr nonnull elementtype(i32) %164) #12, !srcloc !14
   %166 = icmp eq i32 %165, 1
   br i1 %166, label %170, label %167
 
@@ -1973,7 +1973,7 @@ define internal i32 @v9fs_vfs_atomic_open_dotl(ptr noundef %0, ptr noundef %1, p
   br i1 %168, label %.thread22, label %169, !prof !15
 
 169:                                              ; preds = %167
-  call void @refcount_warn_saturate(ptr noundef %164, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %164, i32 noundef 3) #12
   br label %.thread22
 
 170:                                              ; preds = %163
@@ -2021,8 +2021,8 @@ define internal ptr @v9fs_vfs_get_link_dotl(ptr noundef %0, ptr nocapture readno
   br label %14
 
 14:                                               ; preds = %13, %12
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
-  %16 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 -1, ptr elementtype(i32) %15) #12, !srcloc !14
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %16 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #12, !srcloc !14
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %21, label %18
 
@@ -2031,7 +2031,7 @@ define internal ptr @v9fs_vfs_get_link_dotl(ptr noundef %0, ptr nocapture readno
   br i1 %19, label %.thread, label %20, !prof !15
 
 20:                                               ; preds = %18
-  call void @refcount_warn_saturate(ptr noundef %15, i32 noundef 3) #12
+  call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef 3) #12
   br label %.thread
 
 21:                                               ; preds = %14
@@ -2051,7 +2051,7 @@ define internal ptr @v9fs_vfs_get_link_dotl(ptr noundef %0, ptr nocapture readno
 27:                                               ; preds = %.thread
   %28 = load ptr, ptr %4, align 8
   store ptr @kfree_link, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %28, ptr %29, align 8
   br label %30
 
@@ -2068,7 +2068,7 @@ define internal noundef i32 @v9fs_test_new_inode_dotl(ptr nocapture readnone %0,
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 0, 2) i32 @v9fs_test_inode_dotl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = trunc i32 %4 to i16
   %6 = load i16, ptr %0, align 8
@@ -2077,33 +2077,33 @@ define internal range(i32 0, 2) i32 @v9fs_test_inode_dotl(ptr nocapture noundef 
   br i1 %8, label %34, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 576
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %12
   br i1 %15, label %16, label %34
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 636
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
-  %19 = tail call i32 @bcmp(ptr noundef dereferenceable(4) %17, ptr noundef dereferenceable(4) %18, i64 4)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %17, ptr noundef nonnull dereferenceable(4) %18, i64 4)
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %34
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 632
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %24 = load i8, ptr %23, align 8
   %25 = load i8, ptr %22, align 8
   %26 = icmp eq i8 %24, %25
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 640
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %29, %31
   %33 = zext i1 %32 to i32
@@ -2122,13 +2122,13 @@ declare dso_local ptr @iget5_locked(ptr noundef, i64 noundef, ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @v9fs_set_inode_dotl(ptr nocapture noundef writeonly initializes((576, 580), (632, 648)) %0, ptr nocapture noundef readonly %1) #8 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 632
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 576
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store i32 %7, ptr %8, align 8
   ret i32 0
 }
@@ -2227,7 +2227,7 @@ declare dso_local i32 @generic_file_open(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal fastcc void @v9fs_fid_add_modes(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #10 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %34
@@ -2237,7 +2237,7 @@ define internal fastcc void @v9fs_fid_add_modes(ptr nocapture noundef %0, i32 no
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %1, 128
   %14 = or i32 %12, %13
@@ -2261,7 +2261,7 @@ define internal fastcc void @v9fs_fid_add_modes(ptr nocapture noundef %0, i32 no
 
 29:                                               ; preds = %21, %10, %8
   %30 = phi i32 [ 8192, %10 ], [ 8192, %8 ], [ 16384, %21 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = or i32 %32, %30
   store i32 %33, ptr %31, align 8

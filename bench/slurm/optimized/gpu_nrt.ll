@@ -88,7 +88,7 @@ define void @gpu_p_get_device_count(ptr nocapture noundef initializes((0, 4)) %0
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %12
   %5 = phi ptr [ %13, %12 ], [ %4, %.preheader.i ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 19
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %12
@@ -157,7 +157,7 @@ define ptr @gpu_p_get_system_gpu_list(ptr nocapture noundef readonly %0) local_u
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.020.i = phi i32 [ %spec.select.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %18 = phi ptr [ %23, %.lr.ph.i.i ], [ %17, %.preheader.i.i ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 19
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 19
   %20 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %19, ptr noundef nonnull @.str.5, ptr noundef nonnull %8) #8
   %21 = icmp eq i32 %20, 1
   %22 = zext i1 %21 to i32
@@ -183,19 +183,19 @@ _get_system_gpu_list_neuron.exit.thread7:         ; preds = %_count_devices.exit
   br label %.sink.split
 
 .lr.ph.i:                                         ; preds = %_count_devices.exit.i
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 16
-  %29 = getelementptr inbounds i8, ptr %13, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %.not34.i.i = icmp eq i32 %.3.i, 0
-  %30 = getelementptr inbounds i8, ptr %13, i64 64
-  %31 = getelementptr inbounds i8, ptr %13, i64 48
-  %32 = getelementptr inbounds i8, ptr %13, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 40
   br label %33
 
 33:                                               ; preds = %125, %.lr.ph.i
   %34 = phi ptr [ %25, %.lr.ph.i ], [ %126, %125 ]
   %.0925.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %125 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 19
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 19
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #8
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %125
@@ -344,7 +344,7 @@ _get_device_name.exit.i:                          ; preds = %56, %48
   %.02030.i.i = phi ptr [ %85, %.lr.ph.i17.i ], [ %74, %73 ]
   %83 = call i32 @atoi(ptr nocapture noundef nonnull %.02030.i.i) #9
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %84 = getelementptr inbounds [100 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %84 = getelementptr inbounds nuw [100 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
   store i32 %83, ptr %84, align 4
   %85 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #8
   %.not23.i.i = icmp eq ptr %85, null
@@ -361,7 +361,7 @@ _get_device_name.exit.i:                          ; preds = %56, %48
 
 .lr.ph.i.i.i:                                     ; preds = %86, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %86 ]
-  %87 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i.i.i
+  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %88, %.032.i.i
   br i1 %89, label %_is_link.exit.i.i, label %86

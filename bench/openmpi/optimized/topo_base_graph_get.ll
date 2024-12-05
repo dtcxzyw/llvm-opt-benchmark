@@ -9,11 +9,11 @@ define noundef i32 @mca_topo_base_graph_get(ptr nocapture noundef readonly %0, i
   %.val = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %.val.val, i32 %1)
   %14 = icmp sgt i32 %invariant.smin, 0
@@ -24,18 +24,18 @@ define noundef i32 @mca_topo_base_graph_get(ptr nocapture noundef readonly %0, i
   %.01924 = phi ptr [ %18, %.lr.ph ], [ %13, %5 ]
   %.02023 = phi i32 [ %17, %.lr.ph ], [ 0, %5 ]
   %15 = load i32, ptr %.01924, align 4
-  %16 = getelementptr inbounds i8, ptr %.025, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.025, i64 4
   store i32 %15, ptr %.025, align 4
   %17 = add nuw nsw i32 %.02023, 1
-  %18 = getelementptr inbounds i8, ptr %.01924, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.01924, i64 4
   %exitcond.not = icmp eq i32 %17, %invariant.smin
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %.pre32 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert33 = getelementptr inbounds i8, ptr %.pre32, i64 24
+  %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %.pre32, i64 24
   %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8
   br label %._crit_edge
 
@@ -52,7 +52,7 @@ define noundef i32 @mca_topo_base_graph_get(ptr nocapture noundef readonly %0, i
   br i1 %27, label %.lr.ph30.preheader, label %._crit_edge31
 
 .lr.ph30.preheader:                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %20, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %29 = load ptr, ptr %28, align 8
   br label %.lr.ph30
 
@@ -61,14 +61,14 @@ define noundef i32 @mca_topo_base_graph_get(ptr nocapture noundef readonly %0, i
   %.12127 = phi i32 [ %32, %.lr.ph30 ], [ 0, %.lr.ph30.preheader ]
   %.02226 = phi ptr [ %31, %.lr.ph30 ], [ %4, %.lr.ph30.preheader ]
   %30 = load i32, ptr %.128, align 4
-  %31 = getelementptr inbounds i8, ptr %.02226, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.02226, i64 4
   store i32 %30, ptr %.02226, align 4
   %32 = add nuw nsw i32 %.12127, 1
-  %33 = getelementptr inbounds i8, ptr %.128, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.128, i64 4
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i32, ptr %38, i64 %21
   %40 = getelementptr i8, ptr %39, i64 -4

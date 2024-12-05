@@ -307,7 +307,7 @@ define internal i32 @dissect_cmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_clear(ptr noundef %16, i32 noundef 25) #3
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 12, ptr noundef nonnull @get_cmpp_pdu_len, ptr noundef nonnull @dissect_cmpp_tcp_pdu, ptr noundef %3) #3
@@ -363,7 +363,7 @@ define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr nocapture noundef 
   br i1 %14, label %41, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.132) #3
   %18 = load ptr, ptr %16, align 8

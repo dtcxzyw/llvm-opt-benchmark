@@ -20,7 +20,7 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
   %1 = alloca [4 x %struct.PyType_Slot], align 16
   %2 = alloca %struct.PyType_Spec, align 8
   %3 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %26
@@ -28,28 +28,28 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
 6:                                                ; preds = %0
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @PyProperty_Type, i64 240), align 8
   store i32 48, ptr %1, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @PyProperty_Type, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 54, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @_ZN8nanobind6detailL28nb_static_property_descr_getEP7_objectS2_S2_, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 72, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %7, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %14, align 8
   store ptr @.str, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %1, ptr %18, align 8
   %19 = invoke ptr @PyType_FromSpec(ptr noundef nonnull %2)
           to label %20 unwind label %27
@@ -64,9 +64,9 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %19, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr @_ZN8nanobind6detailL28nb_static_property_descr_setEP7_objectS2_S2_, ptr %25, align 8
   br label %26
 
@@ -85,7 +85,7 @@ define hidden noundef ptr @_ZN8nanobind6detail21nb_static_property_tpEv() local_
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN8nanobind6detailL28nb_static_property_descr_getEP7_objectS2_S2_(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #1 {
   %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11

@@ -270,7 +270,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   store i32 6, ptr %3, align 4, !tbaa !8
-  %88 = getelementptr inbounds i8, ptr %3, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 18, ptr %88, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %4, ptr noundef nonnull align 4 dereferenceable(80) @constinit.1, i64 80, i1 false), !tbaa.struct !4
@@ -280,7 +280,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 89:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i32 6, ptr %5, align 4, !tbaa !8
-  %90 = getelementptr inbounds i8, ptr %5, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 22, ptr %90, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %6, ptr noundef nonnull align 4 dereferenceable(80) @constinit.2, i64 80, i1 false), !tbaa.struct !4
@@ -290,7 +290,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 91:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   store i32 6, ptr %7, align 4, !tbaa !8
-  %92 = getelementptr inbounds i8, ptr %7, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 26, ptr %92, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) @constinit.3, i64 80, i1 false), !tbaa.struct !4
@@ -300,7 +300,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
   store i32 6, ptr %9, align 4, !tbaa !8
-  %94 = getelementptr inbounds i8, ptr %9, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 30, ptr %94, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %10, ptr noundef nonnull align 4 dereferenceable(80) @constinit.4, i64 80, i1 false), !tbaa.struct !4
@@ -310,7 +310,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
   store i32 6, ptr %11, align 4, !tbaa !8
-  %96 = getelementptr inbounds i8, ptr %11, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 34, ptr %96, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %12, ptr noundef nonnull align 4 dereferenceable(80) @constinit.5, i64 80, i1 false), !tbaa.struct !4
@@ -320,9 +320,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 97:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #14
   store i32 6, ptr %13, align 4, !tbaa !8
-  %98 = getelementptr inbounds i8, ptr %13, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %98, align 4, !tbaa !8
-  %99 = getelementptr inbounds i8, ptr %13, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 38, ptr %99, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %14, ptr noundef nonnull align 4 dereferenceable(80) @constinit.6, i64 80, i1 false), !tbaa.struct !4
@@ -332,9 +332,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 100:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #14
   store i32 6, ptr %15, align 4, !tbaa !8
-  %101 = getelementptr inbounds i8, ptr %15, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 24, ptr %101, align 4, !tbaa !8
-  %102 = getelementptr inbounds i8, ptr %15, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 42, ptr %102, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %16) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %16, ptr noundef nonnull align 4 dereferenceable(80) @constinit.7, i64 80, i1 false), !tbaa.struct !4
@@ -344,9 +344,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 103:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17) #14
   store i32 6, ptr %17, align 4, !tbaa !8
-  %104 = getelementptr inbounds i8, ptr %17, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 26, ptr %104, align 4, !tbaa !8
-  %105 = getelementptr inbounds i8, ptr %17, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 46, ptr %105, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %18) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %18, ptr noundef nonnull align 4 dereferenceable(80) @constinit.8, i64 80, i1 false), !tbaa.struct !4
@@ -356,9 +356,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 106:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #14
   store i32 6, ptr %19, align 4, !tbaa !8
-  %107 = getelementptr inbounds i8, ptr %19, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 28, ptr %107, align 4, !tbaa !8
-  %108 = getelementptr inbounds i8, ptr %19, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 50, ptr %108, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %20) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %20, ptr noundef nonnull align 4 dereferenceable(80) @constinit.9, i64 80, i1 false), !tbaa.struct !4
@@ -368,9 +368,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 109:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21) #14
   store i32 6, ptr %21, align 4, !tbaa !8
-  %110 = getelementptr inbounds i8, ptr %21, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 30, ptr %110, align 4, !tbaa !8
-  %111 = getelementptr inbounds i8, ptr %21, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 54, ptr %111, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %22) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %22, ptr noundef nonnull align 4 dereferenceable(80) @constinit.10, i64 80, i1 false), !tbaa.struct !4
@@ -380,9 +380,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 112:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %23) #14
   store i32 6, ptr %23, align 4, !tbaa !8
-  %113 = getelementptr inbounds i8, ptr %23, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 32, ptr %113, align 4, !tbaa !8
-  %114 = getelementptr inbounds i8, ptr %23, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 58, ptr %114, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %24) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %24, ptr noundef nonnull align 4 dereferenceable(80) @constinit.11, i64 80, i1 false), !tbaa.struct !4
@@ -392,9 +392,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
 115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %25) #14
   store i32 6, ptr %25, align 4, !tbaa !8
-  %116 = getelementptr inbounds i8, ptr %25, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 34, ptr %116, align 4, !tbaa !8
-  %117 = getelementptr inbounds i8, ptr %25, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 62, ptr %117, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.12, i64 80, i1 false), !tbaa.struct !4
@@ -705,7 +705,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   %148 = add i32 %0, -41
   %149 = icmp ult i32 %148, -40
   %150 = zext nneg i32 %0 to i64
-  %151 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 %150
+  %151 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -120
   %153 = select i1 %149, ptr null, ptr %152
   ret ptr %153
@@ -2258,7 +2258,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version5MicroEi(i32 noundef %0) local_unnam
   %18 = add i32 %0, -5
   %19 = icmp ult i32 %18, -4
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 %20
+  %21 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -120
   %23 = select i1 %19, ptr null, ptr %22
   ret ptr %23
@@ -2431,7 +2431,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 70:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i32 19, ptr %4, align 4, !tbaa !8
-  %71 = getelementptr inbounds i8, ptr %4, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 39, ptr %71, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) @constinit.81, i64 80, i1 false), !tbaa.struct !4
@@ -2441,7 +2441,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 72:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   store i32 25, ptr %6, align 4, !tbaa !8
-  %73 = getelementptr inbounds i8, ptr %6, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 51, ptr %73, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, ptr noundef nonnull align 4 dereferenceable(80) @constinit.67, i64 80, i1 false), !tbaa.struct !4
@@ -2451,9 +2451,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #14
   store i32 23, ptr %8, align 4, !tbaa !8
-  %75 = getelementptr inbounds i8, ptr %8, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 49, ptr %75, align 4, !tbaa !8
-  %76 = getelementptr inbounds i8, ptr %8, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 75, ptr %76, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %9, ptr noundef nonnull align 4 dereferenceable(80) @constinit.68, i64 80, i1 false), !tbaa.struct !4
@@ -2479,7 +2479,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 79:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
   store i32 19, ptr %14, align 4, !tbaa !8
-  %80 = getelementptr inbounds i8, ptr %14, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 39, ptr %80, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %15, ptr noundef nonnull align 4 dereferenceable(80) @constinit.71, i64 80, i1 false), !tbaa.struct !4
@@ -2489,7 +2489,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 81:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
   store i32 25, ptr %16, align 4, !tbaa !8
-  %82 = getelementptr inbounds i8, ptr %16, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 51, ptr %82, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %17) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %17, ptr noundef nonnull align 4 dereferenceable(80) @constinit.72, i64 80, i1 false), !tbaa.struct !4
@@ -2499,9 +2499,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 83:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18) #14
   store i32 23, ptr %18, align 4, !tbaa !8
-  %84 = getelementptr inbounds i8, ptr %18, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 49, ptr %84, align 4, !tbaa !8
-  %85 = getelementptr inbounds i8, ptr %18, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 75, ptr %85, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %19, ptr noundef nonnull align 4 dereferenceable(80) @constinit.73, i64 80, i1 false), !tbaa.struct !4
@@ -2533,7 +2533,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 89:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #14
   store i32 19, ptr %25, align 4, !tbaa !8
-  %90 = getelementptr inbounds i8, ptr %25, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 39, ptr %90, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %26) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %26, ptr noundef nonnull align 4 dereferenceable(80) @constinit.77, i64 80, i1 false), !tbaa.struct !4
@@ -2543,7 +2543,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 91:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #14
   store i32 25, ptr %27, align 4, !tbaa !8
-  %92 = getelementptr inbounds i8, ptr %27, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 51, ptr %92, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %28) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %28, ptr noundef nonnull align 4 dereferenceable(80) @constinit.78, i64 80, i1 false), !tbaa.struct !4
@@ -2553,9 +2553,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %29) #14
   store i32 23, ptr %29, align 4, !tbaa !8
-  %94 = getelementptr inbounds i8, ptr %29, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 49, ptr %94, align 4, !tbaa !8
-  %95 = getelementptr inbounds i8, ptr %29, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 75, ptr %95, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %30) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %30, ptr noundef nonnull align 4 dereferenceable(80) @constinit.79, i64 80, i1 false), !tbaa.struct !4
@@ -2587,7 +2587,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 99:                                               ; preds = %98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
   store i32 19, ptr %36, align 4, !tbaa !8
-  %100 = getelementptr inbounds i8, ptr %36, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 39, ptr %100, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %37) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %37, ptr noundef nonnull align 4 dereferenceable(80) @constinit.83, i64 80, i1 false), !tbaa.struct !4
@@ -2597,7 +2597,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #14
   store i32 25, ptr %38, align 4, !tbaa !8
-  %102 = getelementptr inbounds i8, ptr %38, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 51, ptr %102, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %39) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %39, ptr noundef nonnull align 4 dereferenceable(80) @constinit.84, i64 80, i1 false), !tbaa.struct !4
@@ -2607,9 +2607,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %40) #14
   store i32 23, ptr %40, align 4, !tbaa !8
-  %104 = getelementptr inbounds i8, ptr %40, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 49, ptr %104, align 4, !tbaa !8
-  %105 = getelementptr inbounds i8, ptr %40, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 75, ptr %105, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %41) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %41, ptr noundef nonnull align 4 dereferenceable(80) @constinit.85, i64 80, i1 false), !tbaa.struct !4
@@ -2635,7 +2635,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 108:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
   store i32 19, ptr %46, align 4, !tbaa !8
-  %109 = getelementptr inbounds i8, ptr %46, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 39, ptr %109, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %47) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %47, ptr noundef nonnull align 4 dereferenceable(80) @constinit.88, i64 80, i1 false), !tbaa.struct !4
@@ -2645,7 +2645,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
   store i32 25, ptr %48, align 4, !tbaa !8
-  %111 = getelementptr inbounds i8, ptr %48, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 51, ptr %111, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %49) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %49, ptr noundef nonnull align 4 dereferenceable(80) @constinit.89, i64 80, i1 false), !tbaa.struct !4
@@ -2655,9 +2655,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 112:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %50) #14
   store i32 23, ptr %50, align 4, !tbaa !8
-  %113 = getelementptr inbounds i8, ptr %50, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 49, ptr %113, align 4, !tbaa !8
-  %114 = getelementptr inbounds i8, ptr %50, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 75, ptr %114, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %51) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %51, ptr noundef nonnull align 4 dereferenceable(80) @constinit.90, i64 80, i1 false), !tbaa.struct !4
@@ -2683,7 +2683,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 117:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #14
   store i32 19, ptr %56, align 4, !tbaa !8
-  %118 = getelementptr inbounds i8, ptr %56, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 39, ptr %118, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %57) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %57, ptr noundef nonnull align 4 dereferenceable(80) @constinit.93, i64 80, i1 false), !tbaa.struct !4
@@ -2693,7 +2693,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 119:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
   store i32 25, ptr %58, align 4, !tbaa !8
-  %120 = getelementptr inbounds i8, ptr %58, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 51, ptr %120, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %59) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %59, ptr noundef nonnull align 4 dereferenceable(80) @constinit.94, i64 80, i1 false), !tbaa.struct !4
@@ -2703,9 +2703,9 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
 121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %60) #14
   store i32 23, ptr %60, align 4, !tbaa !8
-  %122 = getelementptr inbounds i8, ptr %60, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 49, ptr %122, align 4, !tbaa !8
-  %123 = getelementptr inbounds i8, ptr %60, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 75, ptr %123, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %61) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %61, ptr noundef nonnull align 4 dereferenceable(80) @constinit.95, i64 80, i1 false), !tbaa.struct !4
@@ -2791,7 +2791,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   %128 = add i32 %0, -33
   %129 = icmp ult i32 %128, -32
   %130 = zext nneg i32 %0 to i64
-  %131 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 %130
+  %131 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 %130
   %132 = getelementptr inbounds i8, ptr %131, i64 -120
   %133 = select i1 %129, ptr null, ptr %132
   ret ptr %133
@@ -3845,7 +3845,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   %38 = add i32 %0, -15
   %39 = icmp ult i32 %38, -14
   %40 = zext nneg i32 %0 to i64
-  %41 = getelementptr inbounds %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 %40
+  %41 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -120
   %43 = select i1 %39, ptr null, ptr %42
   ret ptr %43
@@ -4038,33 +4038,33 @@ define internal void @__cxx_global_array_dtor.112(ptr nocapture readnone %0) #4 
 define void @_ZN5ZXing6QRCode7VersionC2EiSt16initializer_listIiERKSt5arrayINS0_8ECBlocksELm4EE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 4)) %0, i32 noundef %1, ptr %2, i64 %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(80) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator", align 1
   store i32 %1, ptr %0, align 8, !tbaa !16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   call void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 4 dereferenceable(80) %4, i64 80, i1 false), !tbaa.struct !4
-  %9 = getelementptr inbounds i8, ptr %0, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %10 = load i32, ptr %4, align 4, !tbaa !23
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 3, i32 1
   store i32 %12, ptr %9, align 4, !tbaa !26
-  %13 = getelementptr inbounds i8, ptr %4, i64 20
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = load i32, ptr %14, align 4, !tbaa !27
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !29
   %18 = load i32, ptr %13, align 4, !tbaa !23
   %19 = add nsw i32 %18, %17
   %20 = mul nsw i32 %19, %15
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %22 = load i32, ptr %21, align 4, !tbaa !27
-  %23 = getelementptr inbounds i8, ptr %4, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !29
   %25 = add nsw i32 %24, %18
   %26 = mul nsw i32 %25, %22
   %27 = add nsw i32 %26, %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %27, ptr %28, align 8, !tbaa !30
   ret void
 }
@@ -4097,31 +4097,31 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5ZXing6QRCode7VersionC2EiRKSt5arrayINS0_8ECBlocksELm4EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 4), (8, 120)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(80) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8, !tbaa !16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 4 dereferenceable(80) %2, i64 80, i1 false), !tbaa.struct !4
   %6 = load i32, ptr %2, align 4, !tbaa !23
   %7 = icmp slt i32 %6, 7
   %8 = icmp eq i32 %6, 8
   %9 = or i1 %7, %8
   %10 = select i1 %9, i32 2, i32 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %10, ptr %11, align 4, !tbaa !26
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !27
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 4, !tbaa !29
   %16 = add nsw i32 %15, %6
   %17 = mul nsw i32 %16, %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !27
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i32, ptr %20, align 4, !tbaa !29
   %22 = add nsw i32 %21, %6
   %23 = mul nsw i32 %22, %19
   %24 = add nsw i32 %23, %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %24, ptr %25, align 8, !tbaa !30
   ret void
 }
@@ -4280,7 +4280,7 @@ define linkonce_odr noundef i32 @_ZN5ZXing6QRCode7Version6NumberENS_6PointTIiEE(
 ; Function Attrs: mustprogress optsize uwtable
 define noundef ptr @_ZN5ZXing6QRCode7Version24DecodeVersionInformationEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [2 x i32], align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %5
 
 5:                                                ; preds = %28, %2
@@ -4288,7 +4288,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version24DecodeVersionInformationEii(i32 no
   %7 = phi i32 [ 0, %2 ], [ %24, %28 ]
   %8 = phi i32 [ 0, %2 ], [ %29, %28 ]
   %9 = phi i64 [ 0, %2 ], [ %30, %28 ]
-  %10 = getelementptr inbounds i8, ptr @_ZN5ZXing6QRCodeL19VERSION_DECODE_INFOE, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing6QRCodeL19VERSION_DECODE_INFOE, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   store i32 %0, ptr %3, align 4, !tbaa !8
@@ -4305,7 +4305,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version24DecodeVersionInformationEii(i32 no
   %16 = phi i32 [ %6, %5 ], [ %25, %15 ]
   %17 = phi i32 [ %7, %5 ], [ %24, %15 ]
   %18 = phi i64 [ 0, %5 ], [ %26, %15 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = xor i32 %20, %11
   %22 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21), !range !31
@@ -4337,7 +4337,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version24DecodeVersionInformationEii(i32 no
 
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwind noalias writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 116
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %4 = load i32, ptr %3, align 4, !tbaa !26
   %5 = icmp eq i32 %4, 3
   %6 = load i32, ptr %1, align 8, !tbaa !16
@@ -4350,7 +4350,7 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr inbounds [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %11
   %13 = load i64, ptr %12, align 4, !tbaa.struct !32
   %14 = lshr i64 %13, 32
   %15 = trunc nuw i64 %14 to i32
@@ -4380,8 +4380,8 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
           to label %26 unwind label %42
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = load ptr, ptr %27, align 8, !tbaa !13
   %31 = icmp eq ptr %29, %30
@@ -4463,9 +4463,9 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
   %67 = add nsw i32 %18, -2
   %68 = load i32, ptr %0, align 8, !tbaa !36
   %69 = add nsw i32 %67, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !42
   %74 = load ptr, ptr %70, align 8, !tbaa !43
   %75 = ptrtoint ptr %73 to i64
@@ -4514,7 +4514,7 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
 
 101:                                              ; preds = %99, %55, %42
   %102 = phi { ptr, i32 } [ %43, %42 ], [ %56, %55 ], [ %100, %99 ]
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !43
   %105 = icmp eq ptr %104, null
   br i1 %105, label %183, label %180
@@ -4543,8 +4543,8 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
           to label %117 unwind label %131
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %1, i64 8
-  %119 = getelementptr inbounds i8, ptr %1, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !33
   %121 = load ptr, ptr %118, align 8, !tbaa !13
   %122 = icmp eq ptr %120, %121
@@ -4650,7 +4650,7 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
 
 174:                                              ; preds = %169, %160, %131
   %175 = phi { ptr, i32 } [ %132, %131 ], [ %161, %160 ], [ %170, %169 ]
-  %176 = getelementptr inbounds i8, ptr %0, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !43
   %178 = icmp eq ptr %177, null
   br i1 %178, label %183, label %180
@@ -4715,7 +4715,7 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
 
 24:                                               ; preds = %21
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [32 x %"struct.ZXing::PointT"], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 0, i64 %25
   %27 = load i64, ptr %26, align 4, !tbaa.struct !32
   %28 = trunc i64 %27 to i32
   %29 = lshr i64 %27, 32
@@ -4736,9 +4736,9 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.3", align 1
   store i32 %1, ptr %0, align 8, !tbaa !36
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4, !tbaa !46
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = mul nsw i32 %2, %1
   %8 = sext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
@@ -4748,7 +4748,7 @@ define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 d
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = load ptr, ptr %6, align 8, !tbaa !43
   %14 = ptrtoint ptr %12 to i64
@@ -4813,7 +4813,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %2, align 4, !tbaa !47
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i64 %6, -32
   %14 = getelementptr i8, ptr %0, i64 %13
@@ -4824,44 +4824,44 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
   %17 = phi ptr [ %0, %9 ], [ %49, %48 ]
   %18 = load i32, ptr %17, align 4, !tbaa !47
   %19 = icmp eq i32 %18, %10
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %12
   %23 = select i1 %19, i1 %22, i1 false
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load i32, ptr %25, align 4, !tbaa !47
   %27 = icmp eq i32 %26, %10
-  %28 = getelementptr inbounds i8, ptr %17, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %12
   %31 = select i1 %27, i1 %30, i1 false
   br i1 %31, label %.loopexit.loopexit.split.loop.exit, label %32
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %17, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %34 = load i32, ptr %33, align 4, !tbaa !47
   %35 = icmp eq i32 %34, %10
-  %36 = getelementptr inbounds i8, ptr %17, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %12
   %39 = select i1 %35, i1 %38, i1 false
   br i1 %39, label %.loopexit.loopexit.split.loop.exit13, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %17, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %42 = load i32, ptr %41, align 4, !tbaa !47
   %43 = icmp eq i32 %42, %10
-  %44 = getelementptr inbounds i8, ptr %17, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %12
   %47 = select i1 %43, i1 %46, i1 false
   br i1 %47, label %.loopexit.loopexit.split.loop.exit15, label %48
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %17, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %50 = add nsw i64 %16, -1
   %51 = icmp sgt i64 %16, 1
   br i1 %51, label %15, label %52, !llvm.loop !49
@@ -4883,13 +4883,13 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %2, align 4, !tbaa !47
-  %61 = getelementptr inbounds i8, ptr %2, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %62 = load i32, ptr %61, align 4
   br label %91
 
 63:                                               ; preds = %55
   %64 = load i32, ptr %2, align 4, !tbaa !47
-  %65 = getelementptr inbounds i8, ptr %2, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %66 = load i32, ptr %65, align 4
   br label %79
 
@@ -4897,16 +4897,16 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
   %68 = load i32, ptr %57, align 4, !tbaa !47
   %69 = load i32, ptr %2, align 4, !tbaa !47
   %70 = icmp eq i32 %68, %69
-  %71 = getelementptr inbounds i8, ptr %57, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %2, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %72, %74
   %76 = select i1 %70, i1 %75, i1 false
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %57, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 8
   br label %79
 
 79:                                               ; preds = %77, %63
@@ -4915,14 +4915,14 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
   %82 = phi ptr [ %57, %63 ], [ %78, %77 ]
   %83 = load i32, ptr %82, align 4, !tbaa !47
   %84 = icmp eq i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, %80
   %88 = select i1 %84, i1 %87, i1 false
   br i1 %88, label %.loopexit, label %89
 
 89:                                               ; preds = %79
-  %90 = getelementptr inbounds i8, ptr %82, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 8
   br label %91
 
 91:                                               ; preds = %89, %59
@@ -4931,7 +4931,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
   %94 = phi ptr [ %57, %59 ], [ %90, %89 ]
   %95 = load i32, ptr %94, align 4, !tbaa !47
   %96 = icmp eq i32 %95, %93
-  %97 = getelementptr inbounds i8, ptr %94, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, %92
   %100 = select i1 %96, i1 %99, i1 false
@@ -4941,15 +4941,15 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKN5ZXing6PointTIiEEN9__gnu_cxx5
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %24
-  %102 = getelementptr inbounds i8, ptr %17, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit13:             ; preds = %32
-  %103 = getelementptr inbounds i8, ptr %17, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit15:             ; preds = %40
-  %104 = getelementptr inbounds i8, ptr %17, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit13, %.loopexit.loopexit.split.loop.exit15, %101, %91, %79, %67
@@ -4977,14 +4977,14 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_(ptr noundef nonnull a
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 %1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %1
   %12 = load i8, ptr %2, align 1, !tbaa !5
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 %12, i64 %1, i1 false)
   br label %13
 
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %8, %7 ], [ %11, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !42
   ret void
 }
@@ -5025,10 +5025,10 @@ define linkonce_odr void @_ZNSt12_Vector_baseIhSaIhEE17_M_create_storageEm(ptr n
 9:                                                ; preds = %7, %2
   %10 = phi ptr [ %8, %7 ], [ null, %2 ]
   store ptr %10, ptr %0, align 8, !tbaa !43
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !42
   %12 = getelementptr inbounds i8, ptr %10, i64 %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !51
   ret void
 }
@@ -5068,7 +5068,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPKiEEvT_S5_S
 12:                                               ; preds = %10
   store ptr null, ptr %0, align 8, !tbaa !13
   %13 = getelementptr inbounds i8, ptr null, i64 %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8, !tbaa !52
   br label %19
 
@@ -5076,7 +5076,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPKiEEvT_S5_S
   %16 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %7, ptr noundef null) #15
   store ptr %16, ptr %0, align 8, !tbaa !13
   %17 = getelementptr inbounds i8, ptr %16, i64 %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8, !tbaa !52
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %16, ptr align 4 %1, i64 %6, i1 false)
   br label %19
@@ -5084,7 +5084,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPKiEEvT_S5_S
 19:                                               ; preds = %15, %12
   %20 = phi ptr [ null, %12 ], [ %16, %15 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !33
   ret void
 }

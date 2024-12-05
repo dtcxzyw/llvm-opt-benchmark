@@ -61,7 +61,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %group_init = getelementptr inbounds i8, ptr %meth, i64 8
+  %group_init = getelementptr inbounds nuw i8, ptr %meth, i64 8
   %0 = load ptr, ptr %group_init, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -78,14 +78,14 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %libctx7 = getelementptr inbounds i8, ptr %call, i64 168
+  %libctx7 = getelementptr inbounds nuw i8, ptr %call, i64 168
   store ptr %libctx, ptr %libctx7, align 8
   %cmp8.not = icmp eq ptr %propq, null
   br i1 %cmp8.not, label %if.end16, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
   %call10 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 49) #9
-  %propq11 = getelementptr inbounds i8, ptr %call, i64 176
+  %propq11 = getelementptr inbounds nuw i8, ptr %call, i64 176
   store ptr %call10, ptr %propq11, align 8
   %cmp13 = icmp eq ptr %call10, null
   br i1 %cmp13, label %err, label %if.end16
@@ -99,22 +99,22 @@ if.end16:                                         ; preds = %if.then9, %if.end6
 
 if.then20:                                        ; preds = %if.end16
   %call21 = tail call ptr @BN_new() #9
-  %order = getelementptr inbounds i8, ptr %call, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call21, ptr %order, align 8
   %cmp23 = icmp eq ptr %call21, null
   br i1 %cmp23, label %err, label %if.end25
 
 if.end25:                                         ; preds = %if.then20
   %call26 = tail call ptr @BN_new() #9
-  %cofactor = getelementptr inbounds i8, ptr %call, i64 24
+  %cofactor = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call26, ptr %cofactor, align 8
   %cmp28 = icmp eq ptr %call26, null
   br i1 %cmp28, label %err, label %if.end31
 
 if.end31:                                         ; preds = %if.end25, %if.end16
-  %asn1_flag = getelementptr inbounds i8, ptr %call, i64 36
+  %asn1_flag = getelementptr inbounds nuw i8, ptr %call, i64 36
   store i32 0, ptr %asn1_flag, align 4
-  %asn1_form = getelementptr inbounds i8, ptr %call, i64 44
+  %asn1_form = getelementptr inbounds nuw i8, ptr %call, i64 44
   store i32 4, ptr %asn1_form, align 4
   %2 = load ptr, ptr %group_init, align 8
   %call33 = tail call i32 %2(ptr noundef nonnull %call) #9
@@ -122,13 +122,13 @@ if.end31:                                         ; preds = %if.end25, %if.end16
   br i1 %tobool.not, label %err, label %return
 
 err:                                              ; preds = %if.end31, %if.end25, %if.then20, %if.then9
-  %order36 = getelementptr inbounds i8, ptr %call, i64 16
+  %order36 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %3 = load ptr, ptr %order36, align 8
   tail call void @BN_free(ptr noundef %3) #9
-  %cofactor37 = getelementptr inbounds i8, ptr %call, i64 24
+  %cofactor37 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %4 = load ptr, ptr %cofactor37, align 8
   tail call void @BN_free(ptr noundef %4) #9
-  %propq38 = getelementptr inbounds i8, ptr %call, i64 176
+  %propq38 = getelementptr inbounds nuw i8, ptr %call, i64 176
   %5 = load ptr, ptr %propq38, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 71) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 72) #9
@@ -165,7 +165,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @EC_pre_comp_free(ptr nocapture noundef %group) local_unnamed_addr #0 {
 entry:
-  %pre_comp_type = getelementptr inbounds i8, ptr %group, i64 152
+  %pre_comp_type = getelementptr inbounds nuw i8, ptr %group, i64 152
   %0 = load i32, ptr %pre_comp_type, align 8
   switch i32 %0, label %sw.epilog [
     i32 6, label %sw.bb3
@@ -173,19 +173,19 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %pre_comp = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp = getelementptr inbounds nuw i8, ptr %group, i64 160
   %1 = load ptr, ptr %pre_comp, align 8
   tail call void @EC_nistz256_pre_comp_free(ptr noundef %1) #9
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %pre_comp4 = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp4 = getelementptr inbounds nuw i8, ptr %group, i64 160
   %2 = load ptr, ptr %pre_comp4, align 8
   tail call void @EC_ec_pre_comp_free(ptr noundef %2) #9
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb1, %entry
-  %pre_comp5 = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp5 = getelementptr inbounds nuw i8, ptr %group, i64 160
   store ptr null, ptr %pre_comp5, align 8
   ret void
 }
@@ -202,7 +202,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %group_finish = getelementptr inbounds i8, ptr %0, i64 16
+  %group_finish = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %group_finish, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end4, label %if.then1
@@ -212,7 +212,7 @@ if.then1:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %if.end
-  %pre_comp_type.i = getelementptr inbounds i8, ptr %group, i64 152
+  %pre_comp_type.i = getelementptr inbounds nuw i8, ptr %group, i64 152
   %2 = load i32, ptr %pre_comp_type.i, align 8
   switch i32 %2, label %EC_pre_comp_free.exit [
     i32 6, label %sw.bb3.i
@@ -220,31 +220,31 @@ if.end4:                                          ; preds = %if.then1, %if.end
   ]
 
 sw.bb1.i:                                         ; preds = %if.end4
-  %pre_comp.i = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp.i = getelementptr inbounds nuw i8, ptr %group, i64 160
   %3 = load ptr, ptr %pre_comp.i, align 8
   tail call void @EC_nistz256_pre_comp_free(ptr noundef %3) #9
   br label %EC_pre_comp_free.exit
 
 sw.bb3.i:                                         ; preds = %if.end4
-  %pre_comp4.i = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp4.i = getelementptr inbounds nuw i8, ptr %group, i64 160
   %4 = load ptr, ptr %pre_comp4.i, align 8
   tail call void @EC_ec_pre_comp_free(ptr noundef %4) #9
   br label %EC_pre_comp_free.exit
 
 EC_pre_comp_free.exit:                            ; preds = %if.end4, %sw.bb1.i, %sw.bb3.i
-  %pre_comp5.i = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp5.i = getelementptr inbounds nuw i8, ptr %group, i64 160
   store ptr null, ptr %pre_comp5.i, align 8
-  %mont_data = getelementptr inbounds i8, ptr %group, i64 144
+  %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 144
   %5 = load ptr, ptr %mont_data, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %5) #9
-  %generator = getelementptr inbounds i8, ptr %group, i64 8
+  %generator = getelementptr inbounds nuw i8, ptr %group, i64 8
   %6 = load ptr, ptr %generator, align 8
   %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %EC_POINT_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %EC_pre_comp_free.exit
   %7 = load ptr, ptr %6, align 8
-  %point_finish.i = getelementptr inbounds i8, ptr %7, i64 88
+  %point_finish.i = getelementptr inbounds nuw i8, ptr %7, i64 88
   %8 = load ptr, ptr %point_finish.i, align 8
   %cmp1.not.i = icmp eq ptr %8, null
   br i1 %cmp1.not.i, label %if.end5.i, label %if.then2.i
@@ -258,16 +258,16 @@ if.end5.i:                                        ; preds = %if.then2.i, %if.end
   br label %EC_POINT_free.exit
 
 EC_POINT_free.exit:                               ; preds = %EC_pre_comp_free.exit, %if.end5.i
-  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
   %9 = load ptr, ptr %order, align 8
   tail call void @BN_free(ptr noundef %9) #9
-  %cofactor = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor = getelementptr inbounds nuw i8, ptr %group, i64 24
   %10 = load ptr, ptr %cofactor, align 8
   tail call void @BN_free(ptr noundef %10) #9
-  %seed = getelementptr inbounds i8, ptr %group, i64 48
+  %seed = getelementptr inbounds nuw i8, ptr %group, i64 48
   %11 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 135) #9
-  %propq = getelementptr inbounds i8, ptr %group, i64 176
+  %propq = getelementptr inbounds nuw i8, ptr %group, i64 176
   %12 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 136) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %group, ptr noundef nonnull @.str, i32 noundef 137) #9
@@ -287,7 +287,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %point, align 8
-  %point_finish = getelementptr inbounds i8, ptr %0, i64 88
+  %point_finish = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %point_finish, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
@@ -312,13 +312,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %group_clear_finish = getelementptr inbounds i8, ptr %0, i64 24
+  %group_clear_finish = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %group_clear_finish, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end10.sink.split
 
 if.else:                                          ; preds = %if.end
-  %group_finish = getelementptr inbounds i8, ptr %0, i64 16
+  %group_finish = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %group_finish, align 8
   %cmp5.not = icmp eq ptr %2, null
   br i1 %cmp5.not, label %if.end10, label %if.end10.sink.split
@@ -329,7 +329,7 @@ if.end10.sink.split:                              ; preds = %if.else, %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10.sink.split, %if.else
-  %pre_comp_type.i = getelementptr inbounds i8, ptr %group, i64 152
+  %pre_comp_type.i = getelementptr inbounds nuw i8, ptr %group, i64 152
   %3 = load i32, ptr %pre_comp_type.i, align 8
   switch i32 %3, label %EC_pre_comp_free.exit [
     i32 6, label %sw.bb3.i
@@ -337,37 +337,37 @@ if.end10:                                         ; preds = %if.end10.sink.split
   ]
 
 sw.bb1.i:                                         ; preds = %if.end10
-  %pre_comp.i = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp.i = getelementptr inbounds nuw i8, ptr %group, i64 160
   %4 = load ptr, ptr %pre_comp.i, align 8
   tail call void @EC_nistz256_pre_comp_free(ptr noundef %4) #9
   br label %EC_pre_comp_free.exit
 
 sw.bb3.i:                                         ; preds = %if.end10
-  %pre_comp4.i = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp4.i = getelementptr inbounds nuw i8, ptr %group, i64 160
   %5 = load ptr, ptr %pre_comp4.i, align 8
   tail call void @EC_ec_pre_comp_free(ptr noundef %5) #9
   br label %EC_pre_comp_free.exit
 
 EC_pre_comp_free.exit:                            ; preds = %if.end10, %sw.bb1.i, %sw.bb3.i
-  %pre_comp5.i = getelementptr inbounds i8, ptr %group, i64 160
+  %pre_comp5.i = getelementptr inbounds nuw i8, ptr %group, i64 160
   store ptr null, ptr %pre_comp5.i, align 8
-  %mont_data = getelementptr inbounds i8, ptr %group, i64 144
+  %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 144
   %6 = load ptr, ptr %mont_data, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %6) #9
-  %generator = getelementptr inbounds i8, ptr %group, i64 8
+  %generator = getelementptr inbounds nuw i8, ptr %group, i64 8
   %7 = load ptr, ptr %generator, align 8
   %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %EC_POINT_clear_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %EC_pre_comp_free.exit
   %8 = load ptr, ptr %7, align 8
-  %point_clear_finish.i = getelementptr inbounds i8, ptr %8, i64 96
+  %point_clear_finish.i = getelementptr inbounds nuw i8, ptr %8, i64 96
   %9 = load ptr, ptr %point_clear_finish.i, align 8
   %cmp1.not.i = icmp eq ptr %9, null
   br i1 %cmp1.not.i, label %if.else.i, label %if.end11.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %point_finish.i = getelementptr inbounds i8, ptr %8, i64 88
+  %point_finish.i = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %point_finish.i, align 8
   %cmp6.not.i = icmp eq ptr %10, null
   br i1 %cmp6.not.i, label %if.end11.i, label %if.end11.sink.split.i
@@ -382,15 +382,15 @@ if.end11.i:                                       ; preds = %if.end11.sink.split
   br label %EC_POINT_clear_free.exit
 
 EC_POINT_clear_free.exit:                         ; preds = %EC_pre_comp_free.exit, %if.end11.i
-  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
   %11 = load ptr, ptr %order, align 8
   tail call void @BN_clear_free(ptr noundef %11) #9
-  %cofactor = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor = getelementptr inbounds nuw i8, ptr %group, i64 24
   %12 = load ptr, ptr %cofactor, align 8
   tail call void @BN_clear_free(ptr noundef %12) #9
-  %seed = getelementptr inbounds i8, ptr %group, i64 48
+  %seed = getelementptr inbounds nuw i8, ptr %group, i64 48
   %13 = load ptr, ptr %seed, align 8
-  %seed_len = getelementptr inbounds i8, ptr %group, i64 56
+  %seed_len = getelementptr inbounds nuw i8, ptr %group, i64 56
   %14 = load i64, ptr %seed_len, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %13, i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 156) #9
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %group, i64 noundef 184, ptr noundef nonnull @.str, i32 noundef 157) #9
@@ -408,13 +408,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %point, align 8
-  %point_clear_finish = getelementptr inbounds i8, ptr %0, i64 96
+  %point_clear_finish = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load ptr, ptr %point_clear_finish, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.else, label %if.end11.sink.split
 
 if.else:                                          ; preds = %if.end
-  %point_finish = getelementptr inbounds i8, ptr %0, i64 88
+  %point_finish = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %point_finish, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end11, label %if.end11.sink.split
@@ -440,7 +440,7 @@ declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 nound
 define i32 @EC_GROUP_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dest, align 8
-  %group_copy = getelementptr inbounds i8, ptr %0, i64 32
+  %group_copy = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %group_copy, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -467,17 +467,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %libctx = getelementptr inbounds i8, ptr %src, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %src, i64 168
   %3 = load ptr, ptr %libctx, align 8
-  %libctx9 = getelementptr inbounds i8, ptr %dest, i64 168
+  %libctx9 = getelementptr inbounds nuw i8, ptr %dest, i64 168
   store ptr %3, ptr %libctx9, align 8
-  %curve_name = getelementptr inbounds i8, ptr %src, i64 32
+  %curve_name = getelementptr inbounds nuw i8, ptr %src, i64 32
   %4 = load i32, ptr %curve_name, align 8
-  %curve_name10 = getelementptr inbounds i8, ptr %dest, i64 32
+  %curve_name10 = getelementptr inbounds nuw i8, ptr %dest, i64 32
   store i32 %4, ptr %curve_name10, align 8
-  %pre_comp_type = getelementptr inbounds i8, ptr %src, i64 152
+  %pre_comp_type = getelementptr inbounds nuw i8, ptr %src, i64 152
   %5 = load i32, ptr %pre_comp_type, align 8
-  %pre_comp_type11 = getelementptr inbounds i8, ptr %dest, i64 152
+  %pre_comp_type11 = getelementptr inbounds nuw i8, ptr %dest, i64 152
   store i32 %5, ptr %pre_comp_type11, align 8
   switch i32 %5, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -486,28 +486,28 @@ if.end8:                                          ; preds = %if.end5
   ]
 
 sw.bb13:                                          ; preds = %if.end8
-  %pre_comp14 = getelementptr inbounds i8, ptr %src, i64 160
+  %pre_comp14 = getelementptr inbounds nuw i8, ptr %src, i64 160
   %6 = load ptr, ptr %pre_comp14, align 8
   %call = tail call ptr @EC_nistz256_pre_comp_dup(ptr noundef %6) #9
   br label %sw.epilog.sink.split
 
 sw.bb17:                                          ; preds = %if.end8
-  %pre_comp18 = getelementptr inbounds i8, ptr %src, i64 160
+  %pre_comp18 = getelementptr inbounds nuw i8, ptr %src, i64 160
   %7 = load ptr, ptr %pre_comp18, align 8
   %call19 = tail call ptr @EC_ec_pre_comp_dup(ptr noundef %7) #9
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %if.end8, %sw.bb13, %sw.bb17
   %call19.sink = phi ptr [ %call19, %sw.bb17 ], [ %call, %sw.bb13 ], [ null, %if.end8 ]
-  %pre_comp20 = getelementptr inbounds i8, ptr %dest, i64 160
+  %pre_comp20 = getelementptr inbounds nuw i8, ptr %dest, i64 160
   store ptr %call19.sink, ptr %pre_comp20, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end8
-  %mont_data = getelementptr inbounds i8, ptr %src, i64 144
+  %mont_data = getelementptr inbounds nuw i8, ptr %src, i64 144
   %8 = load ptr, ptr %mont_data, align 8
   %cmp21.not = icmp eq ptr %8, null
-  %mont_data38 = getelementptr inbounds i8, ptr %dest, i64 144
+  %mont_data38 = getelementptr inbounds nuw i8, ptr %dest, i64 144
   %9 = load ptr, ptr %mont_data38, align 8
   br i1 %cmp21.not, label %if.else, label %if.then22
 
@@ -538,10 +538,10 @@ if.else:                                          ; preds = %sw.epilog
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end32, %if.else
-  %generator = getelementptr inbounds i8, ptr %src, i64 8
+  %generator = getelementptr inbounds nuw i8, ptr %src, i64 8
   %12 = load ptr, ptr %generator, align 8
   %cmp41.not = icmp eq ptr %12, null
-  %generator60 = getelementptr inbounds i8, ptr %dest, i64 8
+  %generator60 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   %13 = load ptr, ptr %generator60, align 8
   %cmp.i = icmp eq ptr %13, null
   br i1 %cmp41.not, label %if.else59, label %if.then42
@@ -571,13 +571,13 @@ if.else59:                                        ; preds = %if.end40
 
 if.end.i:                                         ; preds = %if.else59
   %16 = load ptr, ptr %13, align 8
-  %point_clear_finish.i = getelementptr inbounds i8, ptr %16, i64 96
+  %point_clear_finish.i = getelementptr inbounds nuw i8, ptr %16, i64 96
   %17 = load ptr, ptr %point_clear_finish.i, align 8
   %cmp1.not.i = icmp eq ptr %17, null
   br i1 %cmp1.not.i, label %if.else.i, label %if.end11.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %point_finish.i = getelementptr inbounds i8, ptr %16, i64 88
+  %point_finish.i = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %point_finish.i, align 8
   %cmp6.not.i = icmp eq ptr %18, null
   br i1 %cmp6.not.i, label %if.end11.i, label %if.end11.sink.split.i
@@ -603,46 +603,46 @@ if.end62:                                         ; preds = %if.end52, %EC_POINT
   br i1 %cmp64, label %if.then65, label %if.end76
 
 if.then65:                                        ; preds = %if.end62
-  %order = getelementptr inbounds i8, ptr %dest, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %dest, i64 16
   %21 = load ptr, ptr %order, align 8
-  %order66 = getelementptr inbounds i8, ptr %src, i64 16
+  %order66 = getelementptr inbounds nuw i8, ptr %src, i64 16
   %22 = load ptr, ptr %order66, align 8
   %call67 = tail call ptr @BN_copy(ptr noundef %21, ptr noundef %22) #9
   %tobool68.not = icmp eq ptr %call67, null
   br i1 %tobool68.not, label %return, label %if.end70
 
 if.end70:                                         ; preds = %if.then65
-  %cofactor = getelementptr inbounds i8, ptr %dest, i64 24
+  %cofactor = getelementptr inbounds nuw i8, ptr %dest, i64 24
   %23 = load ptr, ptr %cofactor, align 8
-  %cofactor71 = getelementptr inbounds i8, ptr %src, i64 24
+  %cofactor71 = getelementptr inbounds nuw i8, ptr %src, i64 24
   %24 = load ptr, ptr %cofactor71, align 8
   %call72 = tail call ptr @BN_copy(ptr noundef %23, ptr noundef %24) #9
   %tobool73.not = icmp eq ptr %call72, null
   br i1 %tobool73.not, label %return, label %if.end76
 
 if.end76:                                         ; preds = %if.end70, %if.end62
-  %asn1_flag = getelementptr inbounds i8, ptr %src, i64 36
+  %asn1_flag = getelementptr inbounds nuw i8, ptr %src, i64 36
   %25 = load i32, ptr %asn1_flag, align 4
-  %asn1_flag77 = getelementptr inbounds i8, ptr %dest, i64 36
+  %asn1_flag77 = getelementptr inbounds nuw i8, ptr %dest, i64 36
   store i32 %25, ptr %asn1_flag77, align 4
-  %asn1_form = getelementptr inbounds i8, ptr %src, i64 44
+  %asn1_form = getelementptr inbounds nuw i8, ptr %src, i64 44
   %26 = load i32, ptr %asn1_form, align 4
-  %asn1_form78 = getelementptr inbounds i8, ptr %dest, i64 44
+  %asn1_form78 = getelementptr inbounds nuw i8, ptr %dest, i64 44
   store i32 %26, ptr %asn1_form78, align 4
-  %decoded_from_explicit_params = getelementptr inbounds i8, ptr %src, i64 40
+  %decoded_from_explicit_params = getelementptr inbounds nuw i8, ptr %src, i64 40
   %27 = load i32, ptr %decoded_from_explicit_params, align 8
-  %decoded_from_explicit_params79 = getelementptr inbounds i8, ptr %dest, i64 40
+  %decoded_from_explicit_params79 = getelementptr inbounds nuw i8, ptr %dest, i64 40
   store i32 %27, ptr %decoded_from_explicit_params79, align 8
-  %seed = getelementptr inbounds i8, ptr %src, i64 48
+  %seed = getelementptr inbounds nuw i8, ptr %src, i64 48
   %28 = load ptr, ptr %seed, align 8
   %tobool80.not = icmp eq ptr %28, null
-  %seed97 = getelementptr inbounds i8, ptr %dest, i64 48
+  %seed97 = getelementptr inbounds nuw i8, ptr %dest, i64 48
   %29 = load ptr, ptr %seed97, align 8
   br i1 %tobool80.not, label %if.else96, label %if.then81
 
 if.then81:                                        ; preds = %if.end76
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 253) #9
-  %seed_len = getelementptr inbounds i8, ptr %src, i64 56
+  %seed_len = getelementptr inbounds nuw i8, ptr %src, i64 56
   %30 = load i64, ptr %seed_len, align 8
   %call83 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 254) #9
   store ptr %call83, ptr %seed97, align 8
@@ -653,7 +653,7 @@ if.end87:                                         ; preds = %if.then81
   %31 = load ptr, ptr %seed, align 8
   %32 = load i64, ptr %seed_len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call83, ptr align 1 %31, i64 %32, i1 false)
-  %seed_len95 = getelementptr inbounds i8, ptr %dest, i64 56
+  %seed_len95 = getelementptr inbounds nuw i8, ptr %dest, i64 56
   store i64 %32, ptr %seed_len95, align 8
   br label %if.end100
 
@@ -664,7 +664,7 @@ if.else96:                                        ; preds = %if.end76
 
 if.end100:                                        ; preds = %if.else96, %if.end87
   %33 = load ptr, ptr %dest, align 8
-  %group_copy102 = getelementptr inbounds i8, ptr %33, i64 32
+  %group_copy102 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %34 = load ptr, ptr %group_copy102, align 8
   %call103 = tail call i32 %34(ptr noundef nonnull %dest, ptr noundef nonnull %src) #9
   br label %return
@@ -696,7 +696,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %point_init = getelementptr inbounds i8, ptr %0, i64 80
+  %point_init = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load ptr, ptr %point_init, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -715,11 +715,11 @@ if.end3:                                          ; preds = %if.end
 if.end6:                                          ; preds = %if.end3
   %2 = load ptr, ptr %group, align 8
   store ptr %2, ptr %call, align 8
-  %curve_name = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name, align 8
-  %curve_name9 = getelementptr inbounds i8, ptr %call, i64 8
+  %curve_name9 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %3, ptr %curve_name9, align 8
-  %point_init11 = getelementptr inbounds i8, ptr %2, i64 80
+  %point_init11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4 = load ptr, ptr %point_init11, align 8
   %call12 = tail call i32 %4(ptr noundef nonnull %call) #9
   %tobool.not = icmp eq i32 %call12, 0
@@ -738,7 +738,7 @@ return:                                           ; preds = %if.end6, %if.end3, 
 define i32 @EC_POINT_copy(ptr noundef %dest, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dest, align 8
-  %point_copy = getelementptr inbounds i8, ptr %0, i64 104
+  %point_copy = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %point_copy, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -755,9 +755,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then11
 
 lor.lhs.false:                                    ; preds = %if.end
-  %curve_name = getelementptr inbounds i8, ptr %dest, i64 8
+  %curve_name = getelementptr inbounds nuw i8, ptr %dest, i64 8
   %3 = load i32, ptr %curve_name, align 8
-  %curve_name4 = getelementptr inbounds i8, ptr %src, i64 8
+  %curve_name4 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %4 = load i32, ptr %curve_name4, align 8
   %cmp5.not = icmp eq i32 %3, %4
   %cmp7.not = icmp eq i32 %3, 0
@@ -799,9 +799,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %libctx = getelementptr inbounds i8, ptr %a, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %a, i64 168
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds i8, ptr %a, i64 176
+  %propq = getelementptr inbounds nuw i8, ptr %a, i64 176
   %1 = load ptr, ptr %propq, align 8
   %2 = load ptr, ptr %a, align 8
   %call = tail call ptr @ossl_ec_group_new_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -832,7 +832,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EC_METHOD_get_field_type(ptr nocapture noundef readonly %meth) local_unnamed_addr #3 {
 entry:
-  %field_type = getelementptr inbounds i8, ptr %meth, i64 4
+  %field_type = getelementptr inbounds nuw i8, ptr %meth, i64 4
   %0 = load i32, ptr %field_type, align 4
   ret i32 %0
 }
@@ -850,7 +850,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %field = getelementptr inbounds i8, ptr %group, i64 64
+  %field = getelementptr inbounds nuw i8, ptr %group, i64 64
   %0 = load ptr, ptr %field, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then7, label %lor.lhs.false
@@ -916,7 +916,7 @@ if.then26:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end27:                                         ; preds = %land.lhs.true, %if.end22
-  %generator28 = getelementptr inbounds i8, ptr %group, i64 8
+  %generator28 = getelementptr inbounds nuw i8, ptr %group, i64 8
   %3 = load ptr, ptr %generator28, align 8
   %cmp29 = icmp eq ptr %3, null
   br i1 %cmp29, label %if.then30, label %if.end37
@@ -934,7 +934,7 @@ if.end37:                                         ; preds = %if.then30, %if.end2
   br i1 %tobool40.not, label %return, label %if.end42
 
 if.end42:                                         ; preds = %if.end37
-  %order43 = getelementptr inbounds i8, ptr %group, i64 16
+  %order43 = getelementptr inbounds nuw i8, ptr %group, i64 16
   %5 = load ptr, ptr %order43, align 8
   %call44 = tail call ptr @BN_copy(ptr noundef %5, ptr noundef nonnull %order) #9
   %tobool45.not = icmp eq ptr %call44, null
@@ -949,7 +949,7 @@ land.lhs.true49:                                  ; preds = %if.end47
   br i1 %tobool51.not, label %if.then52, label %if.else
 
 if.then52:                                        ; preds = %land.lhs.true49
-  %cofactor53 = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor53 = getelementptr inbounds nuw i8, ptr %group, i64 24
   %6 = load ptr, ptr %cofactor53, align 8
   %call54 = tail call ptr @BN_copy(ptr noundef %6, ptr noundef nonnull %cofactor) #9
   %tobool55.not = icmp eq ptr %call54, null
@@ -961,7 +961,7 @@ if.else:                                          ; preds = %land.lhs.true49, %i
   br i1 %tobool59.not, label %if.then60, label %if.end63
 
 if.then60:                                        ; preds = %if.else
-  %cofactor61 = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor61 = getelementptr inbounds nuw i8, ptr %group, i64 24
   %7 = load ptr, ptr %cofactor61, align 8
   tail call void @BN_zero_ex(ptr noundef %7) #9
   br label %return
@@ -977,7 +977,7 @@ if.then67:                                        ; preds = %if.end63
   br label %return
 
 if.end69:                                         ; preds = %if.end63
-  %mont_data = getelementptr inbounds i8, ptr %group, i64 144
+  %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 144
   %9 = load ptr, ptr %mont_data, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %9) #9
   store ptr null, ptr %mont_data, align 8
@@ -997,10 +997,10 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ec_guess_cofactor(ptr nocapture noundef readonly %group) unnamed_addr #0 {
 entry:
-  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
   %0 = load ptr, ptr %order, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %0) #9
-  %field = getelementptr inbounds i8, ptr %group, i64 64
+  %field = getelementptr inbounds nuw i8, ptr %group, i64 64
   %1 = load ptr, ptr %field, align 8
   %call1 = tail call i32 @BN_num_bits(ptr noundef %1) #9
   %add = add nsw i32 %call1, 1
@@ -1010,13 +1010,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cofactor = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor = getelementptr inbounds nuw i8, ptr %group, i64 24
   %2 = load ptr, ptr %cofactor, align 8
   tail call void @BN_zero_ex(ptr noundef %2) #9
   br label %return
 
 if.end:                                           ; preds = %entry
-  %libctx = getelementptr inbounds i8, ptr %group, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %group, i64 168
   %3 = load ptr, ptr %libctx, align 8
   %call3 = tail call ptr @BN_CTX_new_ex(ptr noundef %3) #9
   %cmp4 = icmp eq ptr %call3, null
@@ -1030,7 +1030,7 @@ if.end6:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end6
   %4 = load ptr, ptr %group, align 8
-  %field_type = getelementptr inbounds i8, ptr %4, i64 4
+  %field_type = getelementptr inbounds nuw i8, ptr %4, i64 4
   %5 = load i32, ptr %field_type, align 4
   %cmp11 = icmp eq i32 %5, 407
   br i1 %cmp11, label %if.then12, label %if.else
@@ -1051,7 +1051,7 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool20.not, label %err, label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.then12
-  %cofactor24 = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor24 = getelementptr inbounds nuw i8, ptr %group, i64 24
   %8 = load ptr, ptr %cofactor24, align 8
   %9 = load ptr, ptr %order, align 8
   %call26 = tail call i32 @BN_rshift1(ptr noundef %8, ptr noundef %9) #9
@@ -1097,10 +1097,10 @@ declare i32 @BN_is_odd(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ec_precompute_mont_data(ptr nocapture noundef %group) unnamed_addr #0 {
 entry:
-  %libctx = getelementptr inbounds i8, ptr %group, i64 168
+  %libctx = getelementptr inbounds nuw i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #9
-  %mont_data = getelementptr inbounds i8, ptr %group, i64 144
+  %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 144
   %1 = load ptr, ptr %mont_data, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %1) #9
   store ptr null, ptr %mont_data, align 8
@@ -1114,7 +1114,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
   %2 = load ptr, ptr %order, align 8
   %call9 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %call2, ptr noundef %2, ptr noundef nonnull %call) #9
   %tobool.not = icmp eq i32 %call9, 0
@@ -1135,7 +1135,7 @@ err:                                              ; preds = %if.end7, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EC_GROUP_get0_generator(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %generator = getelementptr inbounds i8, ptr %group, i64 8
+  %generator = getelementptr inbounds nuw i8, ptr %group, i64 8
   %0 = load ptr, ptr %generator, align 8
   ret ptr %0
 }
@@ -1143,7 +1143,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EC_GROUP_get_mont_data(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %mont_data = getelementptr inbounds i8, ptr %group, i64 144
+  %mont_data = getelementptr inbounds nuw i8, ptr %group, i64 144
   %0 = load ptr, ptr %mont_data, align 8
   ret ptr %0
 }
@@ -1151,7 +1151,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @EC_GROUP_get_order(ptr nocapture noundef readonly %group, ptr noundef %order, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
-  %order1 = getelementptr inbounds i8, ptr %group, i64 16
+  %order1 = getelementptr inbounds nuw i8, ptr %group, i64 16
   %0 = load ptr, ptr %order1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1175,7 +1175,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EC_GROUP_get0_order(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
   %0 = load ptr, ptr %order, align 8
   ret ptr %0
 }
@@ -1184,7 +1184,7 @@ entry:
 define i32 @EC_GROUP_order_bits(ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_order_bits = getelementptr inbounds i8, ptr %0, i64 64
+  %group_order_bits = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %group_order_bits, align 8
   %call = tail call i32 %1(ptr noundef nonnull %group) #9
   ret i32 %call
@@ -1193,7 +1193,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @EC_GROUP_get_cofactor(ptr nocapture noundef readonly %group, ptr noundef %cofactor, ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
 entry:
-  %cofactor1 = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor1 = getelementptr inbounds nuw i8, ptr %group, i64 24
   %0 = load ptr, ptr %cofactor1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1218,7 +1218,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EC_GROUP_get0_cofactor(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %cofactor = getelementptr inbounds i8, ptr %group, i64 24
+  %cofactor = getelementptr inbounds nuw i8, ptr %group, i64 24
   %0 = load ptr, ptr %cofactor, align 8
   ret ptr %0
 }
@@ -1226,11 +1226,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EC_GROUP_set_curve_name(ptr nocapture noundef writeonly initializes((32, 40)) %group, i32 noundef %nid) local_unnamed_addr #4 {
 entry:
-  %curve_name = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name = getelementptr inbounds nuw i8, ptr %group, i64 32
   store i32 %nid, ptr %curve_name, align 8
   %cmp.not = icmp ne i32 %nid, 0
   %cond = zext i1 %cmp.not to i32
-  %asn1_flag = getelementptr inbounds i8, ptr %group, i64 36
+  %asn1_flag = getelementptr inbounds nuw i8, ptr %group, i64 36
   store i32 %cond, ptr %asn1_flag, align 4
   ret void
 }
@@ -1238,7 +1238,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EC_GROUP_get_curve_name(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %curve_name = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name = getelementptr inbounds nuw i8, ptr %group, i64 32
   %0 = load i32, ptr %curve_name, align 8
   ret i32 %0
 }
@@ -1246,7 +1246,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EC_GROUP_get0_field(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %field = getelementptr inbounds i8, ptr %group, i64 64
+  %field = getelementptr inbounds nuw i8, ptr %group, i64 64
   %0 = load ptr, ptr %field, align 8
   ret ptr %0
 }
@@ -1255,7 +1255,7 @@ entry:
 define i32 @EC_GROUP_get_field_type(ptr nocapture noundef readonly %group) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %field_type = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type, align 4
   ret i32 %1
 }
@@ -1263,7 +1263,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EC_GROUP_set_asn1_flag(ptr nocapture noundef writeonly initializes((36, 40)) %group, i32 noundef %flag) local_unnamed_addr #4 {
 entry:
-  %asn1_flag = getelementptr inbounds i8, ptr %group, i64 36
+  %asn1_flag = getelementptr inbounds nuw i8, ptr %group, i64 36
   store i32 %flag, ptr %asn1_flag, align 4
   ret void
 }
@@ -1271,7 +1271,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EC_GROUP_get_asn1_flag(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %asn1_flag = getelementptr inbounds i8, ptr %group, i64 36
+  %asn1_flag = getelementptr inbounds nuw i8, ptr %group, i64 36
   %0 = load i32, ptr %asn1_flag, align 4
   ret i32 %0
 }
@@ -1279,7 +1279,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EC_GROUP_set_point_conversion_form(ptr nocapture noundef writeonly initializes((44, 48)) %group, i32 noundef %form) local_unnamed_addr #4 {
 entry:
-  %asn1_form = getelementptr inbounds i8, ptr %group, i64 44
+  %asn1_form = getelementptr inbounds nuw i8, ptr %group, i64 44
   store i32 %form, ptr %asn1_form, align 4
   ret void
 }
@@ -1287,7 +1287,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EC_GROUP_get_point_conversion_form(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %asn1_form = getelementptr inbounds i8, ptr %group, i64 44
+  %asn1_form = getelementptr inbounds nuw i8, ptr %group, i64 44
   %0 = load i32, ptr %asn1_form, align 4
   ret i32 %0
 }
@@ -1295,10 +1295,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define noundef i64 @EC_GROUP_set_seed(ptr nocapture noundef initializes((56, 64)) %group, ptr noundef readonly %p, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %seed = getelementptr inbounds i8, ptr %group, i64 48
+  %seed = getelementptr inbounds nuw i8, ptr %group, i64 48
   %0 = load ptr, ptr %seed, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 531) #9
-  %seed_len = getelementptr inbounds i8, ptr %group, i64 56
+  %seed_len = getelementptr inbounds nuw i8, ptr %group, i64 56
   %tobool = icmp ne i64 %len, 0
   %tobool2 = icmp ne ptr %p, null
   %or.cond = and i1 %tobool2, %tobool
@@ -1324,7 +1324,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EC_GROUP_get0_seed(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %seed = getelementptr inbounds i8, ptr %group, i64 48
+  %seed = getelementptr inbounds nuw i8, ptr %group, i64 48
   %0 = load ptr, ptr %seed, align 8
   ret ptr %0
 }
@@ -1332,7 +1332,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @EC_GROUP_get_seed_len(ptr nocapture noundef readonly %group) local_unnamed_addr #3 {
 entry:
-  %seed_len = getelementptr inbounds i8, ptr %group, i64 56
+  %seed_len = getelementptr inbounds nuw i8, ptr %group, i64 56
   %0 = load i64, ptr %seed_len, align 8
   ret i64 %0
 }
@@ -1341,7 +1341,7 @@ entry:
 define i32 @EC_GROUP_set_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_set_curve = getelementptr inbounds i8, ptr %0, i64 40
+  %group_set_curve = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %group_set_curve, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1365,7 +1365,7 @@ return:                                           ; preds = %if.end, %if.then
 define i32 @EC_GROUP_get_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_get_curve = getelementptr inbounds i8, ptr %0, i64 48
+  %group_get_curve = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %group_get_curve, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1389,7 +1389,7 @@ return:                                           ; preds = %if.end, %if.then
 define i32 @EC_GROUP_set_curve_GFp(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_set_curve.i = getelementptr inbounds i8, ptr %0, i64 40
+  %group_set_curve.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %group_set_curve.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1413,7 +1413,7 @@ EC_GROUP_set_curve.exit:                          ; preds = %if.then.i, %if.end.
 define i32 @EC_GROUP_get_curve_GFp(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_get_curve.i = getelementptr inbounds i8, ptr %0, i64 48
+  %group_get_curve.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %group_get_curve.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1437,7 +1437,7 @@ EC_GROUP_get_curve.exit:                          ; preds = %if.then.i, %if.end.
 define i32 @EC_GROUP_set_curve_GF2m(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_set_curve.i = getelementptr inbounds i8, ptr %0, i64 40
+  %group_set_curve.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %group_set_curve.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1461,7 +1461,7 @@ EC_GROUP_set_curve.exit:                          ; preds = %if.then.i, %if.end.
 define i32 @EC_GROUP_get_curve_GF2m(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_get_curve.i = getelementptr inbounds i8, ptr %0, i64 48
+  %group_get_curve.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %group_get_curve.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1485,7 +1485,7 @@ EC_GROUP_get_curve.exit:                          ; preds = %if.then.i, %if.end.
 define i32 @EC_GROUP_get_degree(ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_get_degree = getelementptr inbounds i8, ptr %0, i64 56
+  %group_get_degree = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %group_get_degree, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1509,7 +1509,7 @@ return:                                           ; preds = %if.end, %if.then
 define i32 @EC_GROUP_check_discriminant(ptr noundef %group, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %group_check_discriminant = getelementptr inbounds i8, ptr %0, i64 72
+  %group_check_discriminant = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %group_check_discriminant, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1533,22 +1533,22 @@ return:                                           ; preds = %if.end, %if.then
 define range(i32 -1, 2) i32 @EC_GROUP_cmp(ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %field_type.i = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type.i, align 4
   %2 = load ptr, ptr %b, align 8
-  %field_type.i45 = getelementptr inbounds i8, ptr %2, i64 4
+  %field_type.i45 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %field_type.i45, align 4
   %cmp.not = icmp eq i32 %1, %3
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %curve_name.i = getelementptr inbounds i8, ptr %a, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %4 = load i32, ptr %curve_name.i, align 8
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %curve_name.i46 = getelementptr inbounds i8, ptr %b, i64 32
+  %curve_name.i46 = getelementptr inbounds nuw i8, ptr %b, i64 32
   %5 = load i32, ptr %curve_name.i46, align 8
   %tobool4.not = icmp eq i32 %5, 0
   %cmp8.not = icmp eq i32 %4, %5
@@ -1585,7 +1585,7 @@ if.end20:                                         ; preds = %if.end13, %if.end17
 
 if.end29:                                         ; preds = %if.end20
   %7 = load ptr, ptr %a, align 8
-  %group_get_curve = getelementptr inbounds i8, ptr %7, i64 48
+  %group_get_curve = getelementptr inbounds nuw i8, ptr %7, i64 48
   %8 = load ptr, ptr %group_get_curve, align 8
   %call31 = tail call i32 %8(ptr noundef nonnull %a, ptr noundef %call21, ptr noundef %call22, ptr noundef %call23, ptr noundef nonnull %ctx.addr.056) #9
   %tobool32.not = icmp eq i32 %call31, 0
@@ -1593,7 +1593,7 @@ if.end29:                                         ; preds = %if.end20
 
 lor.lhs.false:                                    ; preds = %if.end29
   %9 = load ptr, ptr %b, align 8
-  %group_get_curve34 = getelementptr inbounds i8, ptr %9, i64 48
+  %group_get_curve34 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %10 = load ptr, ptr %group_get_curve34, align 8
   %call35 = tail call i32 %10(ptr noundef nonnull %b, ptr noundef %call24, ptr noundef %call25, ptr noundef nonnull %call26, ptr noundef nonnull %ctx.addr.056) #9
   %tobool36.not = icmp eq i32 %call35, 0
@@ -1615,18 +1615,18 @@ lor.lhs.false46:                                  ; preds = %lor.lhs.false43
   br i1 %cmp48.not, label %lor.lhs.false52, label %return.sink.split
 
 lor.lhs.false52:                                  ; preds = %lor.lhs.false46
-  %generator.i = getelementptr inbounds i8, ptr %a, i64 8
+  %generator.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %11 = load ptr, ptr %generator.i, align 8
-  %generator.i49 = getelementptr inbounds i8, ptr %b, i64 8
+  %generator.i49 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %12 = load ptr, ptr %generator.i49, align 8
   %call55 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %a, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %ctx.addr.056)
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.then60, label %return.sink.split
 
 if.then60:                                        ; preds = %lor.lhs.false52
-  %order.i = getelementptr inbounds i8, ptr %a, i64 16
+  %order.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %13 = load ptr, ptr %order.i, align 8
-  %order.i50 = getelementptr inbounds i8, ptr %b, i64 16
+  %order.i50 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %14 = load ptr, ptr %order.i50, align 8
   %cmp63 = icmp eq ptr %13, null
   %cmp65 = icmp eq ptr %14, null
@@ -1639,9 +1639,9 @@ if.end67:                                         ; preds = %if.then60
   br i1 %cmp69.not, label %if.end71, label %return.sink.split
 
 if.end71:                                         ; preds = %if.end67
-  %cofactor.i = getelementptr inbounds i8, ptr %a, i64 24
+  %cofactor.i = getelementptr inbounds nuw i8, ptr %a, i64 24
   %15 = load ptr, ptr %cofactor.i, align 8
-  %cofactor.i51 = getelementptr inbounds i8, ptr %b, i64 24
+  %cofactor.i51 = getelementptr inbounds nuw i8, ptr %b, i64 24
   %16 = load ptr, ptr %cofactor.i51, align 8
   %call74 = tail call i32 @BN_is_zero(ptr noundef %15) #9
   %tobool75.not = icmp eq i32 %call74, 0
@@ -1685,7 +1685,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 define i32 @EC_POINT_cmp(ptr noundef %group, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_cmp = getelementptr inbounds i8, ptr %0, i64 200
+  %point_cmp = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1 = load ptr, ptr %point_cmp, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1702,13 +1702,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then3
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %lor.lhs.false, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %a, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -1726,7 +1726,7 @@ lor.lhs.false.thread:                             ; preds = %lor.lhs.false.i
   br i1 %cmp.i729, label %lor.lhs.false.i12, label %if.then3
 
 lor.lhs.false.i12:                                ; preds = %lor.lhs.false.thread
-  %curve_name3.i13 = getelementptr inbounds i8, ptr %b, i64 8
+  %curve_name3.i13 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %7 = load i32, ptr %curve_name3.i13, align 8
   %cmp4.i14 = icmp eq i32 %7, 0
   %cmp7.i16.not = icmp eq i32 %3, %7
@@ -1766,7 +1766,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end3
   %0 = load ptr, ptr %call, align 8
-  %point_finish.i = getelementptr inbounds i8, ptr %0, i64 88
+  %point_finish.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %point_finish.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
   br i1 %cmp1.not.i, label %EC_POINT_free.exit, label %if.then2.i
@@ -1795,7 +1795,7 @@ entry:
 define i32 @EC_POINT_set_to_infinity(ptr noundef %group, ptr noundef %point) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_set_to_infinity = getelementptr inbounds i8, ptr %0, i64 112
+  %point_set_to_infinity = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load ptr, ptr %point_set_to_infinity, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -1830,7 +1830,7 @@ return:                                           ; preds = %if.end5, %if.then4,
 define i32 @EC_POINT_set_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %field_type = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type, align 4
   %cmp.not = icmp eq i32 %1, 406
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1847,13 +1847,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -1881,7 +1881,7 @@ declare i32 @ossl_ec_GFp_simple_set_Jprojective_coordinates_GFp(ptr noundef, ptr
 define i32 @EC_POINT_get_Jprojective_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %z, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %field_type = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type, align 4
   %cmp.not = icmp eq i32 %1, 406
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1898,13 +1898,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -1932,7 +1932,7 @@ declare i32 @ossl_ec_GFp_simple_get_Jprojective_coordinates_GFp(ptr noundef, ptr
 define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_set_affine_coordinates = getelementptr inbounds i8, ptr %0, i64 120
+  %point_set_affine_coordinates = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load ptr, ptr %point_set_affine_coordinates, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -1943,13 +1943,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %return.sink.split
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -1983,7 +1983,7 @@ return:                                           ; preds = %return.sink.split, 
 define i32 @EC_POINT_is_on_curve(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %is_on_curve = getelementptr inbounds i8, ptr %0, i64 192
+  %is_on_curve = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1 = load ptr, ptr %is_on_curve, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2000,13 +2000,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2032,7 +2032,7 @@ return:                                           ; preds = %if.end2, %if.then1,
 define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GFp(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_set_affine_coordinates.i = getelementptr inbounds i8, ptr %0, i64 120
+  %point_set_affine_coordinates.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load ptr, ptr %point_set_affine_coordinates.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
@@ -2043,13 +2043,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %land.rhs.i.i, label %return.sink.split.i
 
 land.rhs.i.i:                                     ; preds = %if.end.i
-  %curve_name.i.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i.i, align 8
   %cmp2.i.i = icmp eq i32 %3, 0
   br i1 %cmp2.i.i, label %if.end2.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.rhs.i.i
-  %curve_name3.i.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i.i, align 8
   %cmp4.i.i = icmp eq i32 %4, 0
   %cmp7.i.not.i = icmp eq i32 %3, %4
@@ -2083,7 +2083,7 @@ EC_POINT_set_affine_coordinates.exit:             ; preds = %if.end2.i, %if.end8
 define range(i32 0, 2) i32 @EC_POINT_set_affine_coordinates_GF2m(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_set_affine_coordinates.i = getelementptr inbounds i8, ptr %0, i64 120
+  %point_set_affine_coordinates.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load ptr, ptr %point_set_affine_coordinates.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
@@ -2094,13 +2094,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %land.rhs.i.i, label %return.sink.split.i
 
 land.rhs.i.i:                                     ; preds = %if.end.i
-  %curve_name.i.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i.i, align 8
   %cmp2.i.i = icmp eq i32 %3, 0
   br i1 %cmp2.i.i, label %if.end2.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.rhs.i.i
-  %curve_name3.i.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i.i, align 8
   %cmp4.i.i = icmp eq i32 %4, 0
   %cmp7.i.not.i = icmp eq i32 %3, %4
@@ -2134,7 +2134,7 @@ EC_POINT_set_affine_coordinates.exit:             ; preds = %if.end2.i, %if.end8
 define i32 @EC_POINT_get_affine_coordinates(ptr noundef %group, ptr noundef %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %point_get_affine_coordinates = getelementptr inbounds i8, ptr %0, i64 128
+  %point_get_affine_coordinates = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %point_get_affine_coordinates, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2151,13 +2151,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2183,7 +2183,7 @@ if.then5:                                         ; preds = %if.end2
 
 if.end6:                                          ; preds = %if.end2
   %5 = load ptr, ptr %group, align 8
-  %point_get_affine_coordinates8 = getelementptr inbounds i8, ptr %5, i64 128
+  %point_get_affine_coordinates8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %6 = load ptr, ptr %point_get_affine_coordinates8, align 8
   %call9 = tail call i32 %6(ptr noundef nonnull %group, ptr noundef nonnull %point, ptr noundef %x, ptr noundef %y, ptr noundef %ctx) #9
   br label %return
@@ -2197,7 +2197,7 @@ return:                                           ; preds = %if.end6, %if.then5,
 define i32 @EC_POINT_is_at_infinity(ptr noundef %group, ptr noundef %point) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %is_at_infinity = getelementptr inbounds i8, ptr %0, i64 184
+  %is_at_infinity = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1 = load ptr, ptr %is_at_infinity, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2214,13 +2214,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2260,7 +2260,7 @@ entry:
 define i32 @EC_POINT_add(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %add = getelementptr inbounds i8, ptr %0, i64 160
+  %add = getelementptr inbounds nuw i8, ptr %0, i64 160
   %1 = load ptr, ptr %add, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2277,13 +2277,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then6
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %lor.lhs.false, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %r, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2301,7 +2301,7 @@ lor.lhs.false.thread:                             ; preds = %lor.lhs.false.i
   br i1 %cmp.i948, label %lor.lhs.false.i14, label %if.then6
 
 lor.lhs.false.i14:                                ; preds = %lor.lhs.false.thread
-  %curve_name3.i15 = getelementptr inbounds i8, ptr %a, i64 8
+  %curve_name3.i15 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %7 = load i32, ptr %curve_name3.i15, align 8
   %cmp4.i16 = icmp eq i32 %7, 0
   %cmp7.i18.not = icmp eq i32 %3, %7
@@ -2319,7 +2319,7 @@ lor.lhs.false3.thread:                            ; preds = %lor.lhs.false.i14
   br i1 %cmp.i2049, label %lor.lhs.false.i25, label %if.then6
 
 lor.lhs.false.i25:                                ; preds = %lor.lhs.false3.thread
-  %curve_name3.i26 = getelementptr inbounds i8, ptr %b, i64 8
+  %curve_name3.i26 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %10 = load i32, ptr %curve_name3.i26, align 8
   %cmp4.i27 = icmp eq i32 %10, 0
   %cmp7.i29.not = icmp eq i32 %3, %10
@@ -2345,7 +2345,7 @@ return:                                           ; preds = %if.end7, %if.then6,
 define i32 @EC_POINT_dbl(ptr noundef %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %dbl = getelementptr inbounds i8, ptr %0, i64 168
+  %dbl = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1 = load ptr, ptr %dbl, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2362,13 +2362,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then3
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %lor.lhs.false, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %r, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2386,7 +2386,7 @@ lor.lhs.false.thread:                             ; preds = %lor.lhs.false.i
   br i1 %cmp.i729, label %lor.lhs.false.i12, label %if.then3
 
 lor.lhs.false.i12:                                ; preds = %lor.lhs.false.thread
-  %curve_name3.i13 = getelementptr inbounds i8, ptr %a, i64 8
+  %curve_name3.i13 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %7 = load i32, ptr %curve_name3.i13, align 8
   %cmp4.i14 = icmp eq i32 %7, 0
   %cmp7.i16.not = icmp eq i32 %3, %7
@@ -2412,7 +2412,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 define i32 @EC_POINT_invert(ptr noundef %group, ptr noundef %a, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %invert = getelementptr inbounds i8, ptr %0, i64 176
+  %invert = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1 = load ptr, ptr %invert, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2429,13 +2429,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %a, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2461,7 +2461,7 @@ return:                                           ; preds = %if.end2, %if.then1,
 define i32 @EC_POINT_make_affine(ptr noundef %group, ptr noundef %point, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %make_affine = getelementptr inbounds i8, ptr %0, i64 208
+  %make_affine = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1 = load ptr, ptr %make_affine, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2478,13 +2478,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %land.rhs.i, label %if.then1
 
 land.rhs.i:                                       ; preds = %if.end
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %3 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %3, 0
   br i1 %cmp2.i, label %if.end2, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %point, i64 8
   %4 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %4, 0
   %cmp7.i.not = icmp eq i32 %3, %4
@@ -2510,7 +2510,7 @@ return:                                           ; preds = %if.end2, %if.then1,
 define i32 @EC_POINTs_make_affine(ptr noundef %group, i64 noundef %num, ptr noundef %points, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %points_make_affine = getelementptr inbounds i8, ptr %0, i64 216
+  %points_make_affine = getelementptr inbounds nuw i8, ptr %0, i64 216
   %1 = load ptr, ptr %points_make_affine, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -2520,7 +2520,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp113.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -2543,7 +2543,7 @@ land.rhs.i:                                       ; preds = %for.body
   br i1 %cmp2.i, label %for.inc, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %2, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %5, 0
   %cmp7.i.not = icmp eq i32 %4, %5
@@ -2579,13 +2579,13 @@ entry:
   br i1 %cmp.i, label %land.rhs.i, label %if.then
 
 land.rhs.i:                                       ; preds = %entry
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %2 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %2, 0
   br i1 %cmp2.i, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %r, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %3 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %3, 0
   %cmp7.i.not = icmp eq i32 %2, %3
@@ -2623,7 +2623,7 @@ land.rhs.i25:                                     ; preds = %for.body
   br i1 %cmp2.i, label %for.inc, label %lor.lhs.false.i28
 
 lor.lhs.false.i28:                                ; preds = %land.rhs.i25
-  %curve_name3.i29 = getelementptr inbounds i8, ptr %4, i64 8
+  %curve_name3.i29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %curve_name3.i29, align 8
   %cmp4.i30 = icmp eq i32 %6, 0
   %cmp7.i32.not = icmp eq i32 %2, %6
@@ -2664,7 +2664,7 @@ if.end16:                                         ; preds = %if.end13.if.end16_c
   %7 = phi ptr [ %.pre, %if.end13.if.end16_crit_edge ], [ %0, %for.end ]
   %new_ctx.048 = phi ptr [ %call12, %if.end13.if.end16_crit_edge ], [ null, %for.end ]
   %ctx.addr.047 = phi ptr [ %call12, %if.end13.if.end16_crit_edge ], [ %ctx, %for.end ]
-  %mul = getelementptr inbounds i8, ptr %7, i64 224
+  %mul = getelementptr inbounds nuw i8, ptr %7, i64 224
   %8 = load ptr, ptr %mul, align 8
   %cmp17.not = icmp eq ptr %8, null
   br i1 %cmp17.not, label %if.else, label %if.then18
@@ -2704,13 +2704,13 @@ entry:
   br i1 %cmp.i, label %land.rhs.i, label %if.then
 
 land.rhs.i:                                       ; preds = %entry
-  %curve_name.i = getelementptr inbounds i8, ptr %group, i64 32
+  %curve_name.i = getelementptr inbounds nuw i8, ptr %group, i64 32
   %2 = load i32, ptr %curve_name.i, align 8
   %cmp2.i = icmp eq i32 %2, 0
   br i1 %cmp2.i, label %lor.lhs.false, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
-  %curve_name3.i = getelementptr inbounds i8, ptr %r, i64 8
+  %curve_name3.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %3 = load i32, ptr %curve_name3.i, align 8
   %cmp4.i = icmp eq i32 %3, 0
   %cmp7.i.not = icmp eq i32 %2, %3
@@ -2730,7 +2730,7 @@ land.rhs.i19:                                     ; preds = %land.lhs.true
   br i1 %cmp2.i, label %if.end, label %lor.lhs.false.i22
 
 lor.lhs.false.i22:                                ; preds = %land.rhs.i19
-  %curve_name3.i23 = getelementptr inbounds i8, ptr %point, i64 8
+  %curve_name3.i23 = getelementptr inbounds nuw i8, ptr %point, i64 8
   %5 = load i32, ptr %curve_name3.i23, align 8
   %cmp4.i24 = icmp eq i32 %5, 0
   %cmp7.i26.not = icmp eq i32 %2, %5
@@ -2780,7 +2780,7 @@ if.end15:                                         ; preds = %if.end12.if.end15_c
   %cmp17 = icmp ne ptr %p_scalar, null
   %7 = and i1 %cmp16, %cmp17
   %conv = zext i1 %7 to i64
-  %mul = getelementptr inbounds i8, ptr %6, i64 224
+  %mul = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %mul, align 8
   %cmp18.not = icmp eq ptr %8, null
   br i1 %cmp18.not, label %if.else, label %if.then20
@@ -2807,7 +2807,7 @@ return:                                           ; preds = %if.end25, %if.then1
 define i32 @EC_GROUP_precompute_mult(ptr noundef %group, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %mul = getelementptr inbounds i8, ptr %0, i64 224
+  %mul = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %mul, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2817,7 +2817,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %precompute_mult = getelementptr inbounds i8, ptr %0, i64 232
+  %precompute_mult = getelementptr inbounds nuw i8, ptr %0, i64 232
   %2 = load ptr, ptr %precompute_mult, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %return, label %if.then3
@@ -2837,7 +2837,7 @@ declare i32 @ossl_ec_wNAF_precompute_mult(ptr noundef, ptr noundef) local_unname
 define i32 @EC_GROUP_have_precompute_mult(ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %mul = getelementptr inbounds i8, ptr %0, i64 224
+  %mul = getelementptr inbounds nuw i8, ptr %0, i64 224
   %1 = load ptr, ptr %mul, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -2847,7 +2847,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %have_precompute_mult = getelementptr inbounds i8, ptr %0, i64 240
+  %have_precompute_mult = getelementptr inbounds nuw i8, ptr %0, i64 240
   %2 = load ptr, ptr %have_precompute_mult, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %return, label %if.then3
@@ -2866,7 +2866,7 @@ declare i32 @ossl_ec_wNAF_have_precompute_mult(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define i32 @EC_KEY_set_ex_data(ptr noundef %key, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds i8, ptr %key, i64 64
+  %ex_data = getelementptr inbounds nuw i8, ptr %key, i64 64
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #9
   ret i32 %call
 }
@@ -2876,7 +2876,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @EC_KEY_get_ex_data(ptr noundef %key, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds i8, ptr %key, i64 64
+  %ex_data = getelementptr inbounds nuw i8, ptr %key, i64 64
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #9
   ret ptr %call
 }
@@ -2886,7 +2886,7 @@ declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_group_simple_order_bits(ptr nocapture noundef readonly %group) local_unnamed_addr #0 {
 entry:
-  %order = getelementptr inbounds i8, ptr %group, i64 16
+  %order = getelementptr inbounds nuw i8, ptr %group, i64 16
   %0 = load ptr, ptr %order, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -2904,7 +2904,7 @@ return:                                           ; preds = %entry, %if.end
 define i32 @ossl_ec_group_do_inverse_ord(ptr noundef %group, ptr noundef %res, ptr noundef %x, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %field_inverse_mod_ord = getelementptr inbounds i8, ptr %0, i64 400
+  %field_inverse_mod_ord = getelementptr inbounds nuw i8, ptr %0, i64 400
   %1 = load ptr, ptr %field_inverse_mod_ord, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2914,7 +2914,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %mont_data.i = getelementptr inbounds i8, ptr %group, i64 144
+  %mont_data.i = getelementptr inbounds nuw i8, ptr %group, i64 144
   %2 = load ptr, ptr %mont_data.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -2942,7 +2942,7 @@ if.end10.i:                                       ; preds = %if.end6.i
   br i1 %tobool.not.i, label %err.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end10.i
-  %order.i = getelementptr inbounds i8, ptr %group, i64 16
+  %order.i = getelementptr inbounds nuw i8, ptr %group, i64 16
   %3 = load ptr, ptr %order.i, align 8
   %call14.i = tail call i32 @BN_sub(ptr noundef nonnull %call7.i, ptr noundef %3, ptr noundef nonnull %call7.i) #9
   %tobool15.not.i = icmp eq i32 %call14.i, 0
@@ -2971,7 +2971,7 @@ return:                                           ; preds = %err.i, %if.end3.i, 
 define i32 @ossl_ec_point_blind_coordinates(ptr noundef %group, ptr noundef %p, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %blind_coordinates = getelementptr inbounds i8, ptr %0, i64 408
+  %blind_coordinates = getelementptr inbounds nuw i8, ptr %0, i64 408
   %1 = load ptr, ptr %blind_coordinates, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -2989,18 +2989,18 @@ return:                                           ; preds = %entry, %if.end
 define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr nocapture noundef readonly %group) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %group, align 8
-  %field_type.i = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type.i, align 4
   %cmp.not = icmp eq i32 %1, 407
   br i1 %cmp.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
-  %poly = getelementptr inbounds i8, ptr %group, i64 72
+  %poly = getelementptr inbounds nuw i8, ptr %group, i64 72
   br label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr %poly, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr %poly, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %2, 0
   br i1 %cmp2.not, label %for.end, label %for.inc
@@ -3030,25 +3030,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %field_type.i = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type.i, align 4
   %cmp1.not = icmp eq i32 %1, 407
   br i1 %cmp1.not, label %lor.lhs.false, label %if.then10
 
 lor.lhs.false:                                    ; preds = %if.end
-  %poly = getelementptr inbounds i8, ptr %group, i64 72
+  %poly = getelementptr inbounds nuw i8, ptr %group, i64 72
   %2 = load i32, ptr %poly, align 8
   %cmp2.not = icmp eq i32 %2, 0
   br i1 %cmp2.not, label %if.then10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %arrayidx4 = getelementptr inbounds i8, ptr %group, i64 76
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %group, i64 76
   %3 = load i32, ptr %arrayidx4, align 4
   %cmp5.not = icmp eq i32 %3, 0
   br i1 %cmp5.not, label %if.then10, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %arrayidx8 = getelementptr inbounds i8, ptr %group, i64 80
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %group, i64 80
   %4 = load i32, ptr %arrayidx8, align 8
   %cmp9 = icmp eq i32 %4, 0
   br i1 %cmp9, label %if.end11, label %if.then10
@@ -3080,37 +3080,37 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %group, align 8
-  %field_type.i = getelementptr inbounds i8, ptr %0, i64 4
+  %field_type.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %field_type.i, align 4
   %cmp1.not = icmp eq i32 %1, 407
   br i1 %cmp1.not, label %lor.lhs.false, label %if.then18
 
 lor.lhs.false:                                    ; preds = %if.end
-  %poly = getelementptr inbounds i8, ptr %group, i64 72
+  %poly = getelementptr inbounds nuw i8, ptr %group, i64 72
   %2 = load i32, ptr %poly, align 8
   %cmp2.not = icmp eq i32 %2, 0
   br i1 %cmp2.not, label %if.then18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %arrayidx4 = getelementptr inbounds i8, ptr %group, i64 76
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %group, i64 76
   %3 = load i32, ptr %arrayidx4, align 4
   %cmp5.not = icmp eq i32 %3, 0
   br i1 %cmp5.not, label %if.then18, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %arrayidx8 = getelementptr inbounds i8, ptr %group, i64 80
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %group, i64 80
   %4 = load i32, ptr %arrayidx8, align 8
   %cmp9.not = icmp eq i32 %4, 0
   br i1 %cmp9.not, label %if.then18, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
-  %arrayidx12 = getelementptr inbounds i8, ptr %group, i64 84
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %group, i64 84
   %5 = load i32, ptr %arrayidx12, align 4
   %cmp13.not = icmp eq i32 %5, 0
   br i1 %cmp13.not, label %if.then18, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true10
-  %arrayidx16 = getelementptr inbounds i8, ptr %group, i64 88
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %group, i64 88
   %6 = load i32, ptr %arrayidx16, align 8
   %cmp17 = icmp eq i32 %6, 0
   br i1 %cmp17, label %if.end19, label %if.then18
@@ -3176,7 +3176,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %0 = load i32, ptr %format, align 4
-  %asn1_form.i = getelementptr inbounds i8, ptr %group, i64 44
+  %asn1_form.i = getelementptr inbounds nuw i8, ptr %group, i64 44
   store i32 %0, ptr %asn1_form.i, align 4
   br label %if.end3
 
@@ -3198,7 +3198,7 @@ if.then9:                                         ; preds = %if.then6
 
 if.end10:                                         ; preds = %if.then6
   %1 = load i32, ptr %encoding_flag, align 4
-  %asn1_flag.i = getelementptr inbounds i8, ptr %group, i64 36
+  %asn1_flag.i = getelementptr inbounds nuw i8, ptr %group, i64 36
   store i32 %1, ptr %asn1_flag.i, align 4
   br label %if.end11
 
@@ -3208,20 +3208,20 @@ if.end11:                                         ; preds = %if.end10, %if.end3
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
-  %data_type = getelementptr inbounds i8, ptr %call12, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call12, i64 8
   %2 = load i32, ptr %data_type, align 8
   %cmp15.not = icmp eq i32 %2, 5
   br i1 %cmp15.not, label %lor.lhs.false, label %if.then18
 
 lor.lhs.false:                                    ; preds = %if.then14
-  %data = getelementptr inbounds i8, ptr %call12, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call12, i64 16
   %3 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds i8, ptr %call12, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call12, i64 24
   %4 = load i64, ptr %data_size, align 8
-  %seed.i = getelementptr inbounds i8, ptr %group, i64 48
+  %seed.i = getelementptr inbounds nuw i8, ptr %group, i64 48
   %5 = load ptr, ptr %seed.i, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 531) #9
-  %seed_len.i = getelementptr inbounds i8, ptr %group, i64 56
+  %seed_len.i = getelementptr inbounds nuw i8, ptr %group, i64 56
   %tobool.i = icmp ne i64 %4, 0
   %tobool2.i = icmp ne ptr %3, null
   %or.cond.i = and i1 %tobool2.i, %tobool.i
@@ -3280,7 +3280,7 @@ if.then:                                          ; preds = %entry
   store i32 0, ptr %decoded, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curve_name.i)
   store ptr null, ptr %curve_name.i, align 8
-  %data_type.i = getelementptr inbounds i8, ptr %call, i64 8
+  %data_type.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   switch i32 %0, label %group_new_from_name.exit.thread [
     i32 4, label %sw.bb.i
@@ -3288,7 +3288,7 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.then
-  %data.i = getelementptr inbounds i8, ptr %call, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load ptr, ptr %data.i, align 8
   store ptr %1, ptr %curve_name.i, align 8
   %cmp.i = icmp ne ptr %1, null
@@ -3360,7 +3360,7 @@ if.then11:                                        ; preds = %land.lhs.true
 
 if.end12:                                         ; preds = %land.lhs.true.if.end12_crit_edge, %if.end6
   %cmp13 = phi i32 [ %4, %land.lhs.true.if.end12_crit_edge ], [ 0, %if.end6 ]
-  %decoded_from_explicit_params = getelementptr inbounds i8, ptr %call6.i, i64 40
+  %decoded_from_explicit_params = getelementptr inbounds nuw i8, ptr %call6.i, i64 40
   store i32 %cmp13, ptr %decoded_from_explicit_params, align 8
   br label %return
 
@@ -3400,7 +3400,7 @@ if.end27:                                         ; preds = %if.end19
   br i1 %cmp29, label %if.then33, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end27
-  %data_type = getelementptr inbounds i8, ptr %call28, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call28, i64 8
   %5 = load i32, ptr %data_type, align 8
   %cmp31.not = icmp eq i32 %5, 4
   br i1 %cmp31.not, label %if.end34, label %if.then33
@@ -3412,7 +3412,7 @@ if.then33:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end186.thread97
 
 if.end34:                                         ; preds = %lor.lhs.false
-  %data = getelementptr inbounds i8, ptr %call28, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call28, i64 16
   %6 = load ptr, ptr %data, align 8
   %call35 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %6, ptr noundef nonnull @.str.7) #9
   %cmp36.not = icmp eq i32 %call35, 0
@@ -3539,7 +3539,7 @@ if.end92:                                         ; preds = %if.then81, %if.end8
   br i1 %cmp94.not, label %if.end107, label %if.then96
 
 if.then96:                                        ; preds = %if.end92
-  %data_type97 = getelementptr inbounds i8, ptr %call93, i64 8
+  %data_type97 = getelementptr inbounds nuw i8, ptr %call93, i64 8
   %16 = load i32, ptr %data_type97, align 8
   %cmp98.not = icmp eq i32 %16, 5
   br i1 %cmp98.not, label %if.end101, label %if.then100
@@ -3551,9 +3551,9 @@ if.then100:                                       ; preds = %if.then96
   br label %if.end186.thread97
 
 if.end101:                                        ; preds = %if.then96
-  %data102 = getelementptr inbounds i8, ptr %call93, i64 16
+  %data102 = getelementptr inbounds nuw i8, ptr %call93, i64 16
   %17 = load ptr, ptr %data102, align 8
-  %data_size = getelementptr inbounds i8, ptr %call93, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call93, i64 24
   %18 = load i64, ptr %data_size, align 8
   %call103 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %group.183, ptr noundef %17, i64 noundef %18)
   %tobool104.not = icmp eq i64 %call103, 0
@@ -3565,7 +3565,7 @@ if.end107:                                        ; preds = %if.end101, %if.end9
   br i1 %cmp109, label %if.then115, label %lor.lhs.false111
 
 lor.lhs.false111:                                 ; preds = %if.end107
-  %data_type112 = getelementptr inbounds i8, ptr %call108, i64 8
+  %data_type112 = getelementptr inbounds nuw i8, ptr %call108, i64 8
   %19 = load i32, ptr %data_type112, align 8
   %cmp113.not = icmp eq i32 %19, 5
   br i1 %cmp113.not, label %if.end116, label %if.then115
@@ -3577,7 +3577,7 @@ if.then115:                                       ; preds = %lor.lhs.false111, %
   br label %if.end186.thread97
 
 if.end116:                                        ; preds = %lor.lhs.false111
-  %data117 = getelementptr inbounds i8, ptr %call108, i64 16
+  %data117 = getelementptr inbounds nuw i8, ptr %call108, i64 16
   %20 = load ptr, ptr %data117, align 8
   %call118 = call ptr @EC_POINT_new(ptr noundef nonnull %group.183)
   %cmp119 = icmp eq ptr %call118, null
@@ -3587,9 +3587,9 @@ if.end122:                                        ; preds = %if.end116
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, -2
   %and = zext i8 %22 to i32
-  %asn1_form.i = getelementptr inbounds i8, ptr %group.183, i64 44
+  %asn1_form.i = getelementptr inbounds nuw i8, ptr %group.183, i64 44
   store i32 %and, ptr %asn1_form.i, align 4
-  %data_size124 = getelementptr inbounds i8, ptr %call108, i64 24
+  %data_size124 = getelementptr inbounds nuw i8, ptr %call108, i64 24
   %23 = load i64, ptr %data_size124, align 8
   %call125 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %group.183, ptr noundef nonnull %call118, ptr noundef nonnull %20, i64 noundef %23, ptr noundef nonnull %call15) #9
   %tobool126.not = icmp eq i32 %call125, 0
@@ -3672,7 +3672,7 @@ if.end176:                                        ; preds = %land.lhs.true172
   br i1 %29, label %if.end186, label %if.end180
 
 if.end180:                                        ; preds = %if.then168, %if.end176
-  %asn1_flag.i = getelementptr inbounds i8, ptr %group.183, i64 36
+  %asn1_flag.i = getelementptr inbounds nuw i8, ptr %group.183, i64 36
   store i32 0, ptr %asn1_flag.i, align 4
   br label %if.end186.thread
 
@@ -3682,7 +3682,7 @@ if.else181:                                       ; preds = %if.end165
 
 if.end186.thread:                                 ; preds = %if.else181, %if.end180
   %group.2 = phi ptr [ %group.183, %if.end180 ], [ %call161, %if.else181 ]
-  %decoded_from_explicit_params183 = getelementptr inbounds i8, ptr %group.2, i64 40
+  %decoded_from_explicit_params183 = getelementptr inbounds nuw i8, ptr %group.2, i64 40
   store i32 1, ptr %decoded_from_explicit_params183, align 8
   br label %if.end.i
 
@@ -3703,7 +3703,7 @@ if.end186:                                        ; preds = %if.end176, %land.lh
 if.end.i:                                         ; preds = %if.end186, %if.end186.thread
   %group.395 = phi ptr [ %group.2, %if.end186.thread ], [ null, %if.end186 ]
   %30 = load ptr, ptr %call118, align 8
-  %point_finish.i = getelementptr inbounds i8, ptr %30, i64 88
+  %point_finish.i = getelementptr inbounds nuw i8, ptr %30, i64 88
   %31 = load ptr, ptr %point_finish.i, align 8
   %cmp1.not.i = icmp eq ptr %31, null
   br i1 %cmp1.not.i, label %if.end5.i, label %if.then2.i
@@ -3744,16 +3744,16 @@ declare i32 @EC_POINT_oct2point(ptr noundef, ptr noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ec_group_explicit_to_named(ptr noundef nonnull %group, ptr noundef %libctx, ptr noundef %propq, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
-  %generator.i = getelementptr inbounds i8, ptr %group, i64 8
+  %generator.i = getelementptr inbounds nuw i8, ptr %group, i64 8
   %0 = load ptr, ptr %generator.i, align 8
-  %order.i = getelementptr inbounds i8, ptr %group, i64 16
+  %order.i = getelementptr inbounds nuw i8, ptr %group, i64 16
   %1 = load ptr, ptr %order.i, align 8
-  %seed.i = getelementptr inbounds i8, ptr %group, i64 48
+  %seed.i = getelementptr inbounds nuw i8, ptr %group, i64 48
   %2 = load ptr, ptr %seed.i, align 8
   %cmp = icmp eq ptr %2, null
-  %libctx.i = getelementptr inbounds i8, ptr %group, i64 168
+  %libctx.i = getelementptr inbounds nuw i8, ptr %group, i64 168
   %3 = load ptr, ptr %libctx.i, align 8
-  %propq.i = getelementptr inbounds i8, ptr %group, i64 176
+  %propq.i = getelementptr inbounds nuw i8, ptr %group, i64 176
   %4 = load ptr, ptr %propq.i, align 8
   %5 = load ptr, ptr %group, align 8
   %call.i = tail call ptr @ossl_ec_group_new_ex(ptr noundef %3, ptr noundef %4, ptr noundef %5)
@@ -3770,7 +3770,7 @@ if.then8.i:                                       ; preds = %if.end3.i
   br label %err
 
 lor.lhs.false9:                                   ; preds = %if.end3.i
-  %seed.i13 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %seed.i13 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %6 = load ptr, ptr %seed.i13, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 531) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seed.i13, i8 0, i64 16, i1 false)
@@ -3789,12 +3789,12 @@ if.then14:                                        ; preds = %if.end
   br i1 %cmp16, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.then14
-  %asn1_flag.i = getelementptr inbounds i8, ptr %call15, i64 36
+  %asn1_flag.i = getelementptr inbounds nuw i8, ptr %call15, i64 36
   store i32 0, ptr %asn1_flag.i, align 4
   br i1 %cmp, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.end19
-  %seed.i15 = getelementptr inbounds i8, ptr %call15, i64 48
+  %seed.i15 = getelementptr inbounds nuw i8, ptr %call15, i64 48
   %7 = load ptr, ptr %seed.i15, align 8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 531) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %seed.i15, i8 0, i64 16, i1 false)

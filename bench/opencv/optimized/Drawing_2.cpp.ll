@@ -63,7 +63,7 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #10
   %15 = load ptr, ptr %3, align 8, !noalias !5
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(352) %3, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef -1)
           to label %_ZNK2cv7MatExprcvNS_3MatEEv.exit unwind label %.body
@@ -76,23 +76,23 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   br label %88
 
 _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %0
-  %20 = getelementptr inbounds i8, ptr %3, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #10
-  %21 = getelementptr inbounds i8, ptr %3, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #10
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #10
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %23 unwind label %33
 
 23:                                               ; preds = %_ZNK2cv7MatExprcvNS_3MatEEv.exit
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %25, align 4
   store i32 16842752, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %26, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %27 unwind label %35
@@ -303,11 +303,11 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #10
   ret void
 }
@@ -334,14 +334,14 @@ define hidden noundef range(i32 -1, 1) i32 @_Z20Drawing_Random_LinesN2cv3MatEPcN
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.cv::_InputArray", align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 20
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %19
 
 17:                                               ; preds = %88
@@ -516,16 +516,16 @@ define hidden noundef range(i32 -1, 1) i32 @_Z25Drawing_Random_RectanglesN2cv3Ma
   %12 = add nuw i64 %10, %11
   %13 = trunc i64 %12 to i32
   %14 = urem i32 %13, 13
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = tail call i32 @llvm.umax.i32(i32 %14, i32 2)
   %21 = add nsw i32 %20, -3
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 20
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %27
 
 25:                                               ; preds = %89
@@ -682,14 +682,14 @@ define hidden noundef range(i32 -1, 1) i32 @_Z23Drawing_Random_EllipsesN2cv3MatE
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.cv::_InputArray", align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 20
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %19
 
 17:                                               ; preds = %91
@@ -847,26 +847,26 @@ define hidden noundef range(i32 -1, 1) i32 @_Z24Drawing_Random_PolylinesN2cv3Mat
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.cv::_InputArray", align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  %20 = getelementptr inbounds i8, ptr %4, i64 36
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = getelementptr inbounds i8, ptr %4, i64 44
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
-  %28 = getelementptr inbounds i8, ptr %8, i64 24
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
-  %30 = getelementptr inbounds i8, ptr %11, i64 20
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %.preheader
 
 32:                                               ; preds = %182
@@ -1168,26 +1168,26 @@ define hidden noundef range(i32 -1, 1) i32 @_Z30Drawing_Random_Filled_PolygonsN2
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.cv::_InputArray", align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  %20 = getelementptr inbounds i8, ptr %4, i64 36
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = getelementptr inbounds i8, ptr %4, i64 44
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
-  %28 = getelementptr inbounds i8, ptr %8, i64 24
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
-  %30 = getelementptr inbounds i8, ptr %11, i64 20
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %.preheader
 
 32:                                               ; preds = %175
@@ -1479,14 +1479,14 @@ define hidden noundef range(i32 -1, 1) i32 @_Z22Drawing_Random_CirclesN2cv3MatEP
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.cv::_InputArray", align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 20
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %19
 
 17:                                               ; preds = %74
@@ -1622,14 +1622,14 @@ define hidden noundef range(i32 -1, 1) i32 @_Z22Displaying_Random_TextN2cv3MatEP
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.cv::_InputArray", align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
-  %17 = getelementptr inbounds i8, ptr %10, i64 20
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %21
 
 19:                                               ; preds = %85
@@ -1819,24 +1819,24 @@ define hidden noundef range(i32 -1, 1) i32 @_Z18Displaying_Big_EndN2cv3MatEPcNS_
   %21 = sub nsw i32 600, %.sroa.2.0.extract.trunc
   %22 = sdiv i32 %21, 2
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #10
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
-  %25 = getelementptr inbounds i8, ptr %8, i64 24
-  %26 = getelementptr inbounds i8, ptr %7, i64 208
-  %27 = getelementptr inbounds i8, ptr %7, i64 112
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
-  %29 = getelementptr inbounds i8, ptr %9, i64 8
-  %30 = getelementptr inbounds i8, ptr %9, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.insert.ext = zext i32 %22 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %20 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
-  %31 = getelementptr inbounds i8, ptr %12, i64 8
-  %32 = getelementptr inbounds i8, ptr %12, i64 16
-  %33 = getelementptr inbounds i8, ptr %12, i64 24
-  %34 = getelementptr inbounds i8, ptr %15, i64 16
-  %35 = getelementptr inbounds i8, ptr %15, i64 20
-  %36 = getelementptr inbounds i8, ptr %15, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %40
 
 37:                                               ; preds = %53
@@ -1857,7 +1857,7 @@ define hidden noundef range(i32 -1, 1) i32 @_Z18Displaying_Big_EndN2cv3MatEPcNS_
 42:                                               ; preds = %40
   %43 = load ptr, ptr %7, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(352) %7, ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef -1)
           to label %47 unwind label %62

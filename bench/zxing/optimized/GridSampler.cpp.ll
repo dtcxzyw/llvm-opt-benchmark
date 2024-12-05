@@ -29,19 +29,19 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKNS_20PerspectiveTransform
   %6 = alloca %"class.std::vector.0", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #9
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %9, align 8
   store i32 0, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %3, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %10, align 8
   invoke void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EE(ptr dead_on_unwind writable sret(%"class.ZXing::DetectorResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZNSt6vectorIN5ZXing3ROIESaIS1_EED2Ev.exit unwind label %_ZNSt6vectorIN5ZXing3ROIESaIS1_EED2Ev.exit12
@@ -71,31 +71,31 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not106 = icmp eq ptr %11, %13
   br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %17
 
 15:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit75"
-  %16 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.096.0107, i64 88
   %.not = icmp eq ptr %16, %13
   br i1 %.not, label %._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph, %15
   %.sroa.096.0107 = phi ptr [ %11, %.lr.ph ], [ %16, %15 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 16
-  %19 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.096.0107, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.096.0107, i64 80
   %20 = load double, ptr %19, align 8
   %21 = fcmp ord double %20, 0.000000e+00
   br i1 %21, label %22, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
 
 22:                                               ; preds = %17
   %23 = load i32, ptr %.sroa.096.0107, align 8
-  %24 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.096.0107, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = sitofp i32 %23 to double
   %27 = fadd double %26, 5.000000e-01
@@ -122,7 +122,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   br i1 %41, label %42, label %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit.thread"
 
 42:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit"
-  %43 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.096.0107, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, -1
   %46 = load i32, ptr %24, align 8
@@ -153,7 +153,7 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
 63:                                               ; preds = %"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_EEENK3$_0clEii.exit71"
   %64 = load i32, ptr %43, align 4
   %65 = add nsw i32 %64, -1
-  %66 = getelementptr inbounds i8, ptr %.sroa.096.0107, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.096.0107, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, -1
   %69 = sitofp i32 %65 to double
@@ -220,25 +220,25 @@ define void @_ZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vectorINS_3ROIESaIS4_E
   br i1 %.not99116, label %._crit_edge120, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %._crit_edge
-  %107 = getelementptr inbounds i8, ptr %1, i64 4
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 16
-  %110 = getelementptr inbounds i8, ptr %6, i64 8
-  %111 = getelementptr inbounds i8, ptr %6, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %112
 
 112:                                              ; preds = %.lr.ph119, %._crit_edge115
   %.sroa.091.0117 = phi ptr [ %105, %.lr.ph119 ], [ %184, %._crit_edge115 ]
-  %113 = getelementptr inbounds i8, ptr %.sroa.091.0117, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.091.0117, i64 8
   %114 = load i32, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %.sroa.091.0117, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.091.0117, i64 12
   %116 = load i32, ptr %115, align 4
   %117 = icmp slt i32 %114, %116
   br i1 %117, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %.sroa.091.0117, i64 4
-  %119 = getelementptr inbounds i8, ptr %.sroa.091.0117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.091.0117, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.091.0117, i64 16
   %120 = load i32, ptr %.sroa.091.0117, align 8
   %121 = load i32, ptr %118, align 4
   %122 = icmp slt i32 %120, %121
@@ -296,7 +296,7 @@ _ZNK5ZXing9BitMatrix4isInIdEEbNS_6PointTIT_EEi.exit: ; preds = %137
 
 145:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %146 = getelementptr inbounds i8, ptr %6, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not.i.i.i.i = icmp eq ptr %147, null
   br i1 %.not.i.i.i.i, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %148
@@ -373,7 +373,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
   br i1 %183, label %.lr.ph114.split, label %._crit_edge115, !llvm.loop !6
 
 ._crit_edge115:                                   ; preds = %._crit_edge111, %.lr.ph114, %112
-  %184 = getelementptr inbounds i8, ptr %.sroa.091.0117, i64 88
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.091.0117, i64 88
   %.not99 = icmp eq ptr %184, %106
   br i1 %.not99, label %._crit_edge120.loopexit, label %112
 
@@ -413,25 +413,25 @@ _ZN5ZXing9BitMatrix3setEiib.exit:                 ; preds = %165
 .thread:                                          ; preds = %190
   %192 = load i64, ptr %6, align 8
   store i64 %192, ptr %0, align 8
-  %193 = getelementptr inbounds i8, ptr %0, i64 8
-  %194 = getelementptr inbounds i8, ptr %6, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %195 = load ptr, ptr %194, align 8
   store ptr %195, ptr %193, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 16
-  %197 = getelementptr inbounds i8, ptr %6, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %198 = load ptr, ptr %197, align 8
   store ptr %198, ptr %196, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 24
-  %200 = getelementptr inbounds i8, ptr %6, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %201 = load ptr, ptr %200, align 8
   store ptr %201, ptr %199, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %185, ptr %202, align 8
-  %.sroa.286.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %187, ptr %.sroa.286.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %189, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %191, ptr %.sroa.4.0..sroa_idx, align 8
   br label %_ZN5ZXing9BitMatrixD2Ev.exit78
 
@@ -460,9 +460,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul nsw i32 %2, %1
   %7 = sext i32 %6 to i64
   %8 = icmp slt i32 %6, 0
@@ -478,16 +478,16 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc15
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15
 
 .noexc15:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #9
   store ptr %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %7, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -566,25 +566,25 @@ define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vecto
   br i1 %.not, label %27, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 4
   %5 = load i32, ptr %4, align 4
   %.not9 = icmp slt i32 %5, %.sroa.011.0.extract.trunc
   br i1 %.not9, label %27, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 8
   %8 = load i32, ptr %7, align 8
   %.not10 = icmp sgt i32 %8, %.sroa.3.0.extract.trunc
   br i1 %.not10, label %27, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 12
   %11 = load i32, ptr %10, align 4
   %.not11 = icmp slt i32 %11, %.sroa.3.0.extract.trunc
   br i1 %.not11, label %27, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 16
   %14 = sitofp i32 %.sroa.011.0.extract.trunc to double
   %15 = sitofp i32 %.sroa.3.0.extract.trunc to double
   %16 = tail call { double, double } @_ZNK5ZXing20PerspectiveTransformclENS_6PointTIdEE(ptr noundef nonnull align 8 dereferenceable(72) %13, double %14, double %15)
@@ -601,7 +601,7 @@ define internal fastcc i64 @"_ZZN5ZXing10SampleGridERKNS_9BitMatrixEiiRKSt6vecto
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph, %3, %6, %9
-  %28 = getelementptr inbounds i8, ptr %.sroa.08.018, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.08.018, i64 88
   %.not15 = icmp eq ptr %28, %.0.val.8.val
   br i1 %.not15, label %.loopexit, label %.lr.ph
 

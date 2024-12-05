@@ -61,14 +61,14 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
 
 9:                                                ; preds = %8
   %10 = lshr i64 %4, 56
-  %11 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %13, 56
   br label %H5VM_limit_enc_size.exit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %7
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %7
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, 48
@@ -80,14 +80,14 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
 
 21:                                               ; preds = %20
   %22 = lshr i64 %4, 40
-  %23 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %25, 40
   br label %H5VM_limit_enc_size.exit
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %5
+  %28 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %5
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = add nuw nsw i32 %30, 32
@@ -104,14 +104,14 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
 
 35:                                               ; preds = %34
   %36 = lshr i64 %4, 24
-  %37 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 24
   br label %H5VM_limit_enc_size.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %33
+  %42 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %33
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = add nuw nsw i32 %44, 16
@@ -123,14 +123,14 @@ define noundef i32 @H5P__encode_size_t(ptr nocapture noundef readonly %0, ptr no
 
 47:                                               ; preds = %46
   %48 = lshr i64 %4, 8
-  %49 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %51, 8
   br label %H5VM_limit_enc_size.exit
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %4
+  %54 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %4
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   br label %H5VM_limit_enc_size.exit
@@ -145,7 +145,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %9, %15, %21, %27, %
 59:                                               ; preds = %H5VM_limit_enc_size.exit
   %60 = add nuw nsw i32 %57, 1
   %61 = trunc nuw nsw i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %58, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %62, ptr %1, align 8
   store i8 %61, ptr %58, align 1
   %63 = load ptr, ptr %1, align 8
@@ -157,7 +157,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %9, %15, %21, %27, %
   %.01823 = phi i64 [ 0, %59 ], [ %68, %65 ]
   %.01922 = phi i64 [ %4, %59 ], [ %69, %65 ]
   %66 = trunc i64 %.01922 to i8
-  %67 = getelementptr inbounds i8, ptr %.024, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   store i8 %66, ptr %.024, align 1
   %68 = add nuw nsw i64 %.01823, 1
   %69 = lshr i64 %.01922, 8
@@ -166,7 +166,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %9, %15, %21, %27, %
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 %64
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %64
   store ptr %72, ptr %1, align 8
   br label %73
 
@@ -197,14 +197,14 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
 
 9:                                                ; preds = %8
   %10 = lshr i64 %4, 56
-  %11 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %13, 56
   br label %H5VM_limit_enc_size.exit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %7
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %7
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, 48
@@ -216,14 +216,14 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
 
 21:                                               ; preds = %20
   %22 = lshr i64 %4, 40
-  %23 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %25, 40
   br label %H5VM_limit_enc_size.exit
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %5
+  %28 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %5
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = add nuw nsw i32 %30, 32
@@ -240,14 +240,14 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
 
 35:                                               ; preds = %34
   %36 = lshr i64 %4, 24
-  %37 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 24
   br label %H5VM_limit_enc_size.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %33
+  %42 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %33
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = add nuw nsw i32 %44, 16
@@ -259,14 +259,14 @@ define noundef i32 @H5P__encode_hsize_t(ptr nocapture noundef readonly %0, ptr n
 
 47:                                               ; preds = %46
   %48 = lshr i64 %4, 8
-  %49 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = add nuw nsw i32 %51, 8
   br label %H5VM_limit_enc_size.exit
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %4
+  %54 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %4
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   br label %H5VM_limit_enc_size.exit
@@ -281,7 +281,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %9, %15, %21, %27, %
 59:                                               ; preds = %H5VM_limit_enc_size.exit
   %60 = add nuw nsw i32 %57, 1
   %61 = trunc nuw nsw i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %58, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %62, ptr %1, align 8
   store i8 %61, ptr %58, align 1
   %63 = load ptr, ptr %1, align 8
@@ -293,7 +293,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %9, %15, %21, %27, %
   %.01823 = phi i64 [ 0, %59 ], [ %68, %65 ]
   %.01922 = phi i64 [ %4, %59 ], [ %69, %65 ]
   %66 = trunc i64 %.01922 to i8
-  %67 = getelementptr inbounds i8, ptr %.024, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   store i8 %66, ptr %.024, align 1
   %68 = add nuw nsw i64 %.01823, 1
   %69 = lshr i64 %.01922, 8
@@ -302,7 +302,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %9, %15, %21, %27, %
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 %64
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %64
   store ptr %72, ptr %1, align 8
   br label %73
 
@@ -322,7 +322,7 @@ define noundef i32 @H5P__encode_unsigned(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not, label %27, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %1, align 8
   store i8 4, ptr %4, align 1
   %7 = load i32, ptr %0, align 4
@@ -330,28 +330,28 @@ define noundef i32 @H5P__encode_unsigned(ptr nocapture noundef readonly %0, ptr 
   %9 = load ptr, ptr %1, align 8
   store i8 %8, ptr %9, align 1
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %1, align 8
   %12 = load i32, ptr %0, align 4
   %13 = lshr i32 %12, 8
   %14 = trunc i32 %13 to i8
   store i8 %14, ptr %11, align 1
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %1, align 8
   %17 = load i32, ptr %0, align 4
   %18 = lshr i32 %17, 16
   %19 = trunc i32 %18 to i8
   store i8 %19, ptr %16, align 1
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %1, align 8
   %22 = load i32, ptr %0, align 4
   %23 = lshr i32 %22, 24
   %24 = trunc nuw i32 %23 to i8
   store i8 %24, ptr %21, align 1
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %1, align 8
   br label %27
 
@@ -370,7 +370,7 @@ define noundef i32 @H5P__encode_uint8_t(ptr nocapture noundef readonly %0, ptr n
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %7, ptr %1, align 8
   store i8 %6, ptr %4, align 1
   br label %8
@@ -391,7 +391,7 @@ define noundef i32 @H5P__encode_bool(ptr nocapture noundef readonly %0, ptr noca
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %8, ptr %1, align 8
   store i8 %7, ptr %4, align 1
   br label %9
@@ -410,7 +410,7 @@ define noundef i32 @H5P__encode_double(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %1, align 8
   store i8 8, ptr %4, align 1
   %7 = load ptr, ptr %1, align 8
@@ -422,7 +422,7 @@ define noundef i32 @H5P__encode_double(ptr nocapture noundef readonly %0, ptr no
   %.01216 = phi i64 [ 0, %5 ], [ %11, %8 ]
   %.01315 = phi i64 [ %.0.copyload, %5 ], [ %12, %8 ]
   %9 = trunc i64 %.01315 to i8
-  %10 = getelementptr inbounds i8, ptr %.017, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   store i8 %9, ptr %.017, align 1
   %11 = add nuw nsw i64 %.01216, 1
   %12 = lshr i64 %.01315, 8
@@ -431,7 +431,7 @@ define noundef i32 @H5P__encode_double(ptr nocapture noundef readonly %0, ptr no
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %1, align 8
   br label %16
 
@@ -449,7 +449,7 @@ define noundef i32 @H5P__encode_uint64_t(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %1, align 8
   store i8 8, ptr %4, align 1
   %7 = load i32, ptr %0, align 4
@@ -461,7 +461,7 @@ define noundef i32 @H5P__encode_uint64_t(ptr nocapture noundef readonly %0, ptr 
   %.01520 = phi i64 [ 0, %5 ], [ %12, %9 ]
   %.01719 = phi i32 [ %7, %5 ], [ %13, %9 ]
   %10 = trunc i32 %.01719 to i8
-  %11 = getelementptr inbounds i8, ptr %.021, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   store i8 %10, ptr %.021, align 1
   %12 = add nuw nsw i64 %.01520, 1
   %13 = lshr i32 %.01719, 8
@@ -470,7 +470,7 @@ define noundef i32 @H5P__encode_uint64_t(ptr nocapture noundef readonly %0, ptr 
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %1, align 8
   br label %17
 
@@ -502,13 +502,13 @@ define range(i32 -1, 1) i32 @H5P__encode(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %2, align 1
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %2, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store ptr %22, ptr %6, align 8
   store i8 %21, ptr %17, align 1
   br label %23
@@ -517,9 +517,9 @@ define range(i32 -1, 1) i32 @H5P__encode(ptr noundef %0, i1 noundef zeroext %1, 
   store i64 2, ptr %8, align 8
   %24 = zext i1 %15 to i8
   store i8 %24, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %26, align 8
   store i32 0, ptr %7, align 4
   %27 = call i32 @H5P__iterate_plist(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %7, ptr noundef nonnull @H5P__encode_cb, ptr noundef nonnull %5) #8
@@ -558,7 +558,7 @@ declare i32 @H5P__iterate_plist(ptr noundef, i1 noundef zeroext, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5P__encode_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %41, label %6
@@ -572,7 +572,7 @@ define internal range(i32 -1, 1) i32 @H5P__encode_cb(ptr nocapture noundef reado
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %7) #8
@@ -583,16 +583,16 @@ define internal range(i32 -1, 1) i32 @H5P__encode_cb(ptr nocapture noundef reado
   br label %20
 
 20:                                               ; preds = %12, %6
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %9
   store i64 %24, ptr %22, align 8
   store i64 0, ptr %3, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 %25(ptr noundef %27, ptr noundef %29, ptr noundef nonnull %3) #8
   %31 = icmp slt i32 %30, 0
@@ -620,11 +620,11 @@ define internal range(i32 -1, 1) i32 @H5P__encode_cb(ptr nocapture noundef reado
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5P__decode_size_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -645,7 +645,7 @@ define noundef i32 @H5P__decode_size_t(ptr nocapture noundef %0, ptr nocapture n
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %15 = phi ptr [ %7, %2 ], [ %10, %.lr.ph ]
   %.013.lcssa = phi i64 [ 0, %2 ], [ %13, %.lr.ph ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %6
   store ptr %16, ptr %0, align 8
   store i64 %.013.lcssa, ptr %1, align 8
   ret i32 0
@@ -654,11 +654,11 @@ define noundef i32 @H5P__decode_size_t(ptr nocapture noundef %0, ptr nocapture n
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5P__decode_hsize_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -679,7 +679,7 @@ define noundef i32 @H5P__decode_hsize_t(ptr nocapture noundef %0, ptr nocapture 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %15 = phi ptr [ %7, %2 ], [ %10, %.lr.ph ]
   %.013.lcssa = phi i64 [ 0, %2 ], [ %13, %.lr.ph ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %6
   store ptr %16, ptr %0, align 8
   store i64 %.013.lcssa, ptr %1, align 8
   ret i32 0
@@ -688,7 +688,7 @@ define noundef i32 @H5P__decode_hsize_t(ptr nocapture noundef %0, ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 4
@@ -705,7 +705,7 @@ define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr 
   %12 = zext i8 %11 to i32
   store i32 %12, ptr %1, align 4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %14, ptr %0, align 8
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
@@ -714,7 +714,7 @@ define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr 
   %19 = or i32 %17, %18
   store i32 %19, ptr %1, align 4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %0, align 8
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
@@ -723,7 +723,7 @@ define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr 
   %26 = or i32 %24, %25
   store i32 %26, ptr %1, align 4
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %0, align 8
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
@@ -732,7 +732,7 @@ define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr 
   %33 = or i32 %31, %32
   store i32 %33, ptr %1, align 4
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %35, ptr %0, align 8
   br label %36
 
@@ -744,7 +744,7 @@ define range(i32 -1, 1) i32 @H5P__decode_unsigned(ptr nocapture noundef %0, ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5P__decode_uint8_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   store i8 %5, ptr %1, align 1
@@ -754,7 +754,7 @@ define noundef i32 @H5P__decode_uint8_t(ptr nocapture noundef %0, ptr nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5P__decode_bool(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = icmp ne i8 %5, 0
@@ -766,7 +766,7 @@ define noundef i32 @H5P__decode_bool(ptr nocapture noundef %0, ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5P__decode_double(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 8
@@ -779,7 +779,7 @@ define range(i32 -1, 1) i32 @H5P__decode_double(ptr nocapture noundef %0, ptr no
   br label %23
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 9
   br label %12
 
 12:                                               ; preds = %10, %12
@@ -799,7 +799,7 @@ define range(i32 -1, 1) i32 @H5P__decode_double(ptr nocapture noundef %0, ptr no
 20:                                               ; preds = %12
   store i64 %18, ptr %1, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %22, ptr %0, align 8
   br label %23
 
@@ -811,7 +811,7 @@ define range(i32 -1, 1) i32 @H5P__decode_double(ptr nocapture noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5P__decode_uint64_t(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 8
@@ -826,7 +826,7 @@ define range(i32 -1, 1) i32 @H5P__decode_uint64_t(ptr nocapture noundef %0, ptr 
 10:                                               ; preds = %2
   store i64 0, ptr %1, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %12, ptr %0, align 8
   %.pre = load i64, ptr %1, align 8
   br label %13
@@ -848,7 +848,7 @@ define range(i32 -1, 1) i32 @H5P__decode_uint64_t(ptr nocapture noundef %0, ptr 
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %24, ptr %0, align 8
   br label %25
 
@@ -882,8 +882,8 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
   br label %.thread.thread
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store ptr %17, ptr %2, align 8
   %18 = load i8, ptr %16, align 1
   %19 = zext i8 %18 to i32
@@ -947,7 +947,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
   br label %.loopexit
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %47, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = icmp ugt i64 %55, %.050
   br i1 %56, label %57, label %66
@@ -970,7 +970,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5P__decode(ptr noundef %0) loca
 66:                                               ; preds = %64, %53
   %.151 = phi i64 [ %65, %64 ], [ %.050, %53 ]
   %.2 = phi ptr [ %58, %64 ], [ %.1, %53 ]
-  %67 = getelementptr inbounds i8, ptr %47, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %68 = load ptr, ptr %67, align 8
   %.not64 = icmp eq ptr %68, null
   br i1 %.not64, label %76, label %69

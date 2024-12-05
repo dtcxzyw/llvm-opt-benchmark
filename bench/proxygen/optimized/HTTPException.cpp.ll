@@ -64,7 +64,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i8 %err to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -82,19 +82,19 @@ define void @_ZN8proxygen13HTTPExceptionC2ENS0_9DirectionERKNSt7__cxx1112basic_s
 entry:
   tail call void @_ZN8proxygen9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %dir_ = getelementptr inbounds i8, ptr %this, i64 48
+  %dir_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %dir, ptr %dir_, align 8
-  %httpStatusCode_ = getelementptr inbounds i8, ptr %this, i64 52
+  %httpStatusCode_ = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 0, ptr %httpStatusCode_, align 4
-  %http3ErrorCode_ = getelementptr inbounds i8, ptr %this, i64 56
+  %http3ErrorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 0, ptr %http3ErrorCode_, align 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 0, ptr %hasValue.i.i, align 8
-  %codecStatusCode_ = getelementptr inbounds i8, ptr %this, i64 72
+  %codecStatusCode_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %codecStatusCode_, align 8
-  %hasValue.i.i1 = getelementptr inbounds i8, ptr %this, i64 73
+  %hasValue.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 73
   store i8 0, ptr %hasValue.i.i1, align 1
-  %errno_ = getelementptr inbounds i8, ptr %this, i64 76
+  %errno_ = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %errno_, i8 0, i64 20, i1 false)
   ret void
 }
@@ -106,19 +106,19 @@ define void @_ZN8proxygen13HTTPExceptionC2ENS0_9DirectionEPKc(ptr noundef nonnul
 entry:
   tail call void @_ZN8proxygen9ExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %msg)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %dir_ = getelementptr inbounds i8, ptr %this, i64 48
+  %dir_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %dir, ptr %dir_, align 8
-  %httpStatusCode_ = getelementptr inbounds i8, ptr %this, i64 52
+  %httpStatusCode_ = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 0, ptr %httpStatusCode_, align 4
-  %http3ErrorCode_ = getelementptr inbounds i8, ptr %this, i64 56
+  %http3ErrorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 0, ptr %http3ErrorCode_, align 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 0, ptr %hasValue.i.i, align 8
-  %codecStatusCode_ = getelementptr inbounds i8, ptr %this, i64 72
+  %codecStatusCode_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %codecStatusCode_, align 8
-  %hasValue.i.i1 = getelementptr inbounds i8, ptr %this, i64 73
+  %hasValue.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 73
   store i8 0, ptr %hasValue.i.i1, align 1
-  %errno_ = getelementptr inbounds i8, ptr %this, i64 76
+  %errno_ = getelementptr inbounds nuw i8, ptr %this, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %errno_, i8 0, i64 20, i1 false)
   ret void
 }
@@ -131,55 +131,55 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   tail call void @_ZN8proxygen9ExceptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %ex)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %dir_ = getelementptr inbounds i8, ptr %this, i64 48
-  %dir_2 = getelementptr inbounds i8, ptr %ex, i64 48
+  %dir_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %dir_2 = getelementptr inbounds nuw i8, ptr %ex, i64 48
   %0 = load i32, ptr %dir_2, align 8
   store i32 %0, ptr %dir_, align 8
-  %httpStatusCode_ = getelementptr inbounds i8, ptr %this, i64 52
-  %httpStatusCode_3 = getelementptr inbounds i8, ptr %ex, i64 52
+  %httpStatusCode_ = getelementptr inbounds nuw i8, ptr %this, i64 52
+  %httpStatusCode_3 = getelementptr inbounds nuw i8, ptr %ex, i64 52
   %1 = load i32, ptr %httpStatusCode_3, align 4
   store i32 %1, ptr %httpStatusCode_, align 4
-  %http3ErrorCode_ = getelementptr inbounds i8, ptr %this, i64 56
+  %http3ErrorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i8 0, ptr %http3ErrorCode_, align 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %ex, i64 64
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 64
   %2 = load i8, ptr %hasValue.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i, label %invoke.cont2.i, label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
 
 invoke.cont2.i:                                   ; preds = %entry
-  %http3ErrorCode_4 = getelementptr inbounds i8, ptr %ex, i64 56
+  %http3ErrorCode_4 = getelementptr inbounds nuw i8, ptr %ex, i64 56
   %3 = load i64, ptr %http3ErrorCode_4, align 8
   store i64 %3, ptr %http3ErrorCode_, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   br label %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
 
 _ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit: ; preds = %entry, %invoke.cont2.i
-  %codecStatusCode_ = getelementptr inbounds i8, ptr %this, i64 72
+  %codecStatusCode_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %codecStatusCode_, align 8
-  %hasValue.i.i10 = getelementptr inbounds i8, ptr %this, i64 73
+  %hasValue.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 73
   store i8 0, ptr %hasValue.i.i10, align 1
-  %hasValue.i.i.i11 = getelementptr inbounds i8, ptr %ex, i64 73
+  %hasValue.i.i.i11 = getelementptr inbounds nuw i8, ptr %ex, i64 73
   %4 = load i8, ptr %hasValue.i.i.i11, align 1
   %tobool.i.i.i12 = trunc i8 %4 to i1
   br i1 %tobool.i.i.i12, label %invoke.cont2.i13, label %_ZN5folly8OptionalIN8proxygen9ErrorCodeEEC2ERKS3_.exit
 
 invoke.cont2.i13:                                 ; preds = %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit
-  %codecStatusCode_5 = getelementptr inbounds i8, ptr %ex, i64 72
+  %codecStatusCode_5 = getelementptr inbounds nuw i8, ptr %ex, i64 72
   %5 = load i8, ptr %codecStatusCode_5, align 8
   store i8 %5, ptr %codecStatusCode_, align 8
   store i8 1, ptr %hasValue.i.i10, align 1
   br label %_ZN5folly8OptionalIN8proxygen9ErrorCodeEEC2ERKS3_.exit
 
 _ZN5folly8OptionalIN8proxygen9ErrorCodeEEC2ERKS3_.exit: ; preds = %_ZN5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEC2ERKS4_.exit, %invoke.cont2.i13
-  %errno_ = getelementptr inbounds i8, ptr %this, i64 76
-  %errno_6 = getelementptr inbounds i8, ptr %ex, i64 76
+  %errno_ = getelementptr inbounds nuw i8, ptr %this, i64 76
+  %errno_6 = getelementptr inbounds nuw i8, ptr %ex, i64 76
   %6 = load i32, ptr %errno_6, align 4
   store i32 %6, ptr %errno_, align 4
-  %currentIngressBuf_ = getelementptr inbounds i8, ptr %this, i64 80
-  %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
-  %currentIngressBuf_7 = getelementptr inbounds i8, ptr %ex, i64 80
+  %currentIngressBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %partialMsg_ = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %currentIngressBuf_7 = getelementptr inbounds nuw i8, ptr %ex, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %currentIngressBuf_, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %currentIngressBuf_7, align 8
   %cmp.i.not = icmp eq ptr %7, null
@@ -223,13 +223,13 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_) #9
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currentIngressBuf_) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #9
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #9
   resume { ptr, i32 } %eh.lpad-body
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %_ZN5folly8OptionalIN8proxygen9ErrorCodeEEC2ERKS3_.exit
-  %partialMsg_12 = getelementptr inbounds i8, ptr %ex, i64 88
+  %partialMsg_12 = getelementptr inbounds nuw i8, ptr %ex, i64 88
   %11 = load ptr, ptr %partialMsg_12, align 8
   %cmp.i14.not = icmp eq ptr %11, null
   br i1 %cmp.i14.not, label %if.end21, label %if.then14
@@ -304,26 +304,26 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i64 256, 513) i64 @_ZNK8proxygen13HTTPException19inferHTTP3ErrorCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %httpStatusCode_.i = getelementptr inbounds i8, ptr %this, i64 52
+  %httpStatusCode_.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %0 = load i32, ptr %httpStatusCode_.i, align 4
   %cmp.i.not = icmp eq i32 %0, 0
   br i1 %cmp.i.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 73
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 73
   %1 = load i8, ptr %hasValue.i.i, align 1
   %tobool.i.i = trunc i8 %1 to i1
   br i1 %tobool.i.i, label %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit, label %return
 
 _ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit: ; preds = %if.else
-  %codecStatusCode_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %codecStatusCode_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load i8, ptr %codecStatusCode_.i, align 8
   %3 = icmp ult i8 %2, 12
   br i1 %3, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -335,37 +335,37 @@ return:                                           ; preds = %_ZNK8proxygen13HTTP
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %hasValue.i.i, align 8
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit, label %if.end
 
 _ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit: ; preds = %entry
-  %http3ErrorCode_ = getelementptr inbounds i8, ptr %this, i64 56
+  %http3ErrorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load i64, ptr %http3ErrorCode_, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %httpStatusCode_.i.i = getelementptr inbounds i8, ptr %this, i64 52
+  %httpStatusCode_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 52
   %2 = load i32, ptr %httpStatusCode_.i.i, align 4
   %cmp.i.not.i = icmp eq i32 %2, 0
   br i1 %cmp.i.not.i, label %if.else.i, label %return
 
 if.else.i:                                        ; preds = %if.end
-  %hasValue.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 73
+  %hasValue.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 73
   %3 = load i8, ptr %hasValue.i.i.i1, align 1
   %tobool.i.i.i2 = trunc i8 %3 to i1
   br i1 %tobool.i.i.i2, label %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i, label %return
 
 _ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i: ; preds = %if.else.i
-  %codecStatusCode_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %codecStatusCode_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load i8, ptr %codecStatusCode_.i.i, align 8
   %5 = icmp ult i8 %4, 12
   br i1 %5, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %return
 
@@ -379,7 +379,7 @@ define void @_ZNK8proxygen13HTTPException8describeB5cxx11Ev(ptr noalias sret(%"c
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(96) %this)
           to label %invoke.cont unwind label %lpad
 
@@ -406,27 +406,27 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.3)
   %vtable = load ptr, ptr %ex, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(48) %ex) #9
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call1)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.4)
-  %dir_.i = getelementptr inbounds i8, ptr %ex, i64 48
+  %dir_.i = getelementptr inbounds nuw i8, ptr %ex, i64 48
   %1 = load i32, ptr %dir_.i, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call3, i32 noundef %1)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull @.str.5)
-  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
+  %proxygenError_.i = getelementptr inbounds nuw i8, ptr %ex, i64 44
   %2 = load i32, ptr %proxygenError_.i, align 4
   %call8 = tail call noundef ptr @_ZN8proxygen14getErrorStringENS_13ProxygenErrorE(i32 noundef %2)
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef %call8)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.6)
-  %hasValue.i.i = getelementptr inbounds i8, ptr %ex, i64 73
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 73
   %3 = load i8, ptr %hasValue.i.i, align 1
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit, label %cond.end
 
 _ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit: ; preds = %entry
-  %codecStatusCode_.i = getelementptr inbounds i8, ptr %ex, i64 72
+  %codecStatusCode_.i = getelementptr inbounds nuw i8, ptr %ex, i64 72
   %4 = load i8, ptr %codecStatusCode_.i, align 8
   %call13 = tail call noundef ptr @_ZN8proxygen18getErrorCodeStringENS_9ErrorCodeE(i8 noundef zeroext %4)
   br label %cond.end
@@ -435,10 +435,10 @@ cond.end:                                         ; preds = %entry, %_ZNK8proxyg
   %cond = phi ptr [ %call13, %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit ], [ @.str.7, %entry ]
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef %cond)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull @.str.8)
-  %httpStatusCode_.i = getelementptr inbounds i8, ptr %ex, i64 52
+  %httpStatusCode_.i = getelementptr inbounds nuw i8, ptr %ex, i64 52
   %5 = load i32, ptr %httpStatusCode_.i, align 4
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %5)
-  %hasValue.i.i10 = getelementptr inbounds i8, ptr %ex, i64 64
+  %hasValue.i.i10 = getelementptr inbounds nuw i8, ptr %ex, i64 64
   %6 = load i8, ptr %hasValue.i.i10, align 8
   %tobool.i.i11 = trunc i8 %6 to i1
   br i1 %tobool.i.i11, label %if.then, label %if.end
@@ -450,7 +450,7 @@ if.then:                                          ; preds = %cond.end
   br i1 %tobool.i.i.i13, label %_ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i, label %if.end.i
 
 _ZNKR5folly8OptionalIN8proxygen5HTTP39ErrorCodeEEdeEv.exit.i: ; preds = %if.then
-  %http3ErrorCode_.i = getelementptr inbounds i8, ptr %ex, i64 56
+  %http3ErrorCode_.i = getelementptr inbounds nuw i8, ptr %ex, i64 56
   %8 = load i64, ptr %http3ErrorCode_.i, align 8
   br label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
@@ -465,14 +465,14 @@ if.else.i.i:                                      ; preds = %if.end.i
   br i1 %tobool.i.i.i2.i, label %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i, label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
 _ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i: ; preds = %if.else.i.i
-  %codecStatusCode_.i.i.i = getelementptr inbounds i8, ptr %ex, i64 72
+  %codecStatusCode_.i.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 72
   %11 = load i8, ptr %codecStatusCode_.i.i.i, align 8
   %12 = icmp ult i8 %11, 12
   br i1 %12, label %switch.lookup, label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
 switch.lookup:                                    ; preds = %_ZNK8proxygen13HTTPException18getCodecStatusCodeEv.exit.i.i
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN8proxygenlsERSoRKNS_13HTTPExceptionE, i64 0, i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK8proxygen13HTTPException17getHttp3ErrorCodeEv.exit
 
@@ -520,7 +520,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
+  %partialMsg_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
@@ -532,7 +532,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   store ptr null, ptr %partialMsg_, align 8
-  %currentIngressBuf_ = getelementptr inbounds i8, ptr %this, i64 80
+  %currentIngressBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -545,7 +545,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_p
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %currentIngressBuf_, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #9
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #9
   ret void
@@ -555,7 +555,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %partialMsg_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %partialMsg_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -567,7 +567,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %ent
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %currentIngressBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -580,7 +580,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #9
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11

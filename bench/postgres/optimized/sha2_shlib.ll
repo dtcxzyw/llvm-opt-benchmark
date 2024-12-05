@@ -17,7 +17,7 @@ define void @pg_sha256_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @sha256_initial_hash_value, i64 32, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   br label %5
 
@@ -37,7 +37,7 @@ define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 3
   %9 = and i64 %8, 63
@@ -47,7 +47,7 @@ define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef re
 10:                                               ; preds = %5
   %11 = sub nuw nsw i64 64, %9
   %.not40 = icmp ult i64 %2, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr [64 x i8], ptr %12, i64 0, i64 %9
   br i1 %.not40, label %20, label %14
 
@@ -91,7 +91,7 @@ define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %.not41, label %33, label %28
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %.136.lcssa, i64 %.1.lcssa, i1 false)
   br label %.sink.split
 
@@ -109,7 +109,7 @@ define void @pg_sha256_update(ptr nocapture noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -292,7 +292,7 @@ define void @pg_sha256_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   br i1 %.not, label %35, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = lshr i32 %6, 3
@@ -300,7 +300,7 @@ define void @pg_sha256_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %9 = tail call i64 @llvm.bswap.i64(i64 %5)
   store i64 %9, ptr %4, align 8
   %.not.i = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not.i, label %28, label %11
 
 11:                                               ; preds = %3
@@ -374,7 +374,7 @@ define void @pg_sha512_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) @sha512_initial_hash_value, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
   br label %5
 
@@ -388,7 +388,7 @@ define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %4, label %54, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 3
   %9 = and i64 %8, 127
@@ -398,7 +398,7 @@ define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef re
 10:                                               ; preds = %5
   %11 = sub nuw nsw i64 128, %9
   %.not51 = icmp ult i64 %2, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = getelementptr [128 x i8], ptr %12, i64 0, i64 %9
   br i1 %.not51, label %26, label %14
 
@@ -472,7 +472,7 @@ define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %.not52, label %54, label %45
 
 45:                                               ; preds = %._crit_edge
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 1 %.147.lcssa, i64 %.1.lcssa, i1 false)
   %47 = shl nuw nsw i64 %.1.lcssa, 3
   %48 = load i64, ptr %6, align 8
@@ -494,7 +494,7 @@ define void @pg_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -697,7 +697,7 @@ define void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = lshr i32 %6, 3
@@ -709,7 +709,7 @@ define void @pg_sha512_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %12 = tail call i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %10, align 8
   %.not.i = icmp eq i32 %8, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %.not.i, label %31, label %14
 
 14:                                               ; preds = %3
@@ -786,7 +786,7 @@ define void @pg_sha384_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 16 dereferenceable(64) @sha384_initial_hash_value, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, i8 0, i64 144, i1 false)
   br label %5
 
@@ -806,7 +806,7 @@ define void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = lshr i32 %6, 3
@@ -818,7 +818,7 @@ define void @pg_sha384_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %12 = tail call i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %10, align 8
   %.not.i = icmp eq i32 %8, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %.not.i, label %31, label %14
 
 14:                                               ; preds = %3
@@ -895,7 +895,7 @@ define void @pg_sha224_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @sha224_initial_hash_value, i64 32, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   br label %5
 
@@ -909,7 +909,7 @@ define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %4, label %pg_sha256_update.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 3
   %9 = and i64 %8, 63
@@ -919,7 +919,7 @@ define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef re
 10:                                               ; preds = %5
   %11 = sub nuw nsw i64 64, %9
   %.not40.i = icmp ult i64 %2, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = getelementptr [64 x i8], ptr %12, i64 0, i64 %9
   br i1 %.not40.i, label %20, label %14
 
@@ -963,7 +963,7 @@ define void @pg_sha224_update(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %.not41.i, label %pg_sha256_update.exit, label %28
 
 28:                                               ; preds = %._crit_edge.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr align 1 %.136.lcssa.i, i64 %.1.lcssa.i, i1 false)
   br label %.sink.split.i
 
@@ -985,7 +985,7 @@ define void @pg_sha224_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   br i1 %.not, label %35, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = lshr i32 %6, 3
@@ -993,7 +993,7 @@ define void @pg_sha224_final(ptr nocapture noundef %0, ptr noundef writeonly %1)
   %9 = tail call i64 @llvm.bswap.i64(i64 %5)
   store i64 %9, ptr %4, align 8
   %.not.i = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %.not.i, label %28, label %11
 
 11:                                               ; preds = %3

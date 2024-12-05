@@ -76,7 +76,7 @@ define hidden void @zif_header(ptr noundef %0, ptr nocapture noundef readnone %1
   %5 = alloca %struct.sapi_header_line, align 8
   store i8 1, ptr %4, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -4
   %or.cond = icmp ult i32 %8, -3
@@ -87,8 +87,8 @@ define hidden void @zif_header(ptr noundef %0, ptr nocapture noundef readnone %1
   br label %.thread183
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.thread, label %16
@@ -108,14 +108,14 @@ define hidden void @zif_header(ptr noundef %0, ptr nocapture noundef readnone %1
 
 18:                                               ; preds = %._crit_edge, %.thread
   %19 = phi ptr [ %.pre, %._crit_edge ], [ %15, %.thread ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = icmp eq i32 %7, 1
   br i1 %23, label %.thread195, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i8, ptr %25, align 8
   switch i8 %26, label %28 [
     i8 3, label %.critedge
@@ -126,7 +126,7 @@ define hidden void @zif_header(ptr noundef %0, ptr nocapture noundef readnone %1
   br label %.critedge
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %29, ptr noundef nonnull %4, i32 noundef 2) #9
   br i1 %30, label %31, label %.thread183
 
@@ -140,9 +140,9 @@ define hidden void @zif_header(ptr noundef %0, ptr nocapture noundef readnone %1
   br i1 %.not, label %32, label %.thread195
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 4
   br i1 %37, label %.thread168, label %39
@@ -168,7 +168,7 @@ define hidden void @zif_header(ptr noundef %0, ptr nocapture noundef readnone %1
 .thread195:                                       ; preds = %39, %.thread168, %31, %18
   store ptr %22, ptr %5, align 8
   %41 = and i64 %21, 4294967295
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %41, ptr %42, align 8
   %43 = load i8, ptr %4, align 1
   %44 = and i8 %43, 1
@@ -198,7 +198,7 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
   %3 = alloca ptr, align 8
   %4 = alloca %struct.sapi_header_line, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, 1
   br i1 %7, label %.thread83, label %8
@@ -212,8 +212,8 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   switch i8 %13, label %16 [
     i8 6, label %14
@@ -242,8 +242,8 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
   br i1 %or.cond.not, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8
   br label %25
 
@@ -265,7 +265,7 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
   %.06681 = phi i64 [ %.167, %25 ], [ 0, %8 ]
   store ptr %.06582, ptr %4, align 8
   %27 = and i64 %.06681, 4294967295
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %27, ptr %28, align 8
   %29 = icmp eq ptr %.06582, null
   %30 = select i1 %29, i32 3, i32 2
@@ -297,7 +297,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %12 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %.not729 = icmp eq i64 %14, 0
   br i1 %.not729, label %15, label %16
@@ -307,7 +307,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br label %423
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = tail call ptr @strpbrk(ptr noundef nonnull %17, ptr noundef nonnull @.str.1) #10
   %.not730 = icmp eq ptr %18, null
   br i1 %.not730, label %20, label %19
@@ -322,7 +322,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %or.cond.not, label %26, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = tail call ptr @strpbrk(ptr noundef nonnull %23, ptr noundef nonnull @.str.3) #10
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
@@ -336,7 +336,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not732, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %29 = tail call ptr @strpbrk(ptr noundef nonnull %28, ptr noundef nonnull @.str.3) #10
   %.not733 = icmp eq ptr %29, null
   br i1 %.not733, label %32, label %30
@@ -351,7 +351,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not734, label %38, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %35 = tail call ptr @strpbrk(ptr noundef nonnull %34, ptr noundef nonnull @.str.3) #10
   %.not735 = icmp eq ptr %35, null
   br i1 %.not735, label %38, label %36
@@ -374,7 +374,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %21, label %47, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %106
@@ -383,17 +383,17 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %48 = tail call ptr @php_format_date(ptr noundef nonnull @.str.8, i64 noundef 21, i64 noundef 1, i1 noundef zeroext false) #9
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef 12) #9
   %.pre817 = load ptr, ptr %12, align 8
-  %49 = getelementptr inbounds i8, ptr %.pre817, i64 24
-  %50 = getelementptr inbounds i8, ptr %.pre817, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.pre817, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.pre817, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %49, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %52, ptr noundef nonnull align 1 dereferenceable(12) @.str.9, i64 12, i1 false)
   %53 = load ptr, ptr %12, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 12, ptr %54, align 8
   %55 = load i64, ptr %13, align 8
   %56 = add i64 %55, 12
-  %57 = getelementptr inbounds i8, ptr %12, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %58 = load i64, ptr %57, align 8
   %.not762 = icmp ult i64 %56, %58
   br i1 %.not762, label %60, label %59
@@ -401,18 +401,18 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 59:                                               ; preds = %47
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %56) #9
   %.pre818 = load ptr, ptr %12, align 8
-  %.phi.trans.insert819 = getelementptr inbounds i8, ptr %.pre818, i64 16
+  %.phi.trans.insert819 = getelementptr inbounds nuw i8, ptr %.pre818, i64 16
   %.pre820 = load i64, ptr %.phi.trans.insert819, align 8
   br label %60
 
 60:                                               ; preds = %47, %59
   %61 = phi i64 [ 12, %47 ], [ %.pre820, %59 ]
   %62 = phi ptr [ %53, %47 ], [ %.pre818, %59 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = getelementptr inbounds i8, ptr %63, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull align 1 %17, i64 %55, i1 false)
   %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i64 %56, ptr %66, align 8
   %67 = add i64 %55, 30
   %68 = load i64, ptr %57, align 8
@@ -422,7 +422,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 69:                                               ; preds = %60
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %67) #9
   %.pre821 = load ptr, ptr %12, align 8
-  %.phi.trans.insert822 = getelementptr inbounds i8, ptr %.pre821, i64 16
+  %.phi.trans.insert822 = getelementptr inbounds nuw i8, ptr %.pre821, i64 16
   %.pre823 = load i64, ptr %.phi.trans.insert822, align 8
   %.pre824 = load i64, ptr %57, align 8
   br label %70
@@ -431,13 +431,13 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %71 = phi i64 [ %68, %60 ], [ %.pre824, %69 ]
   %72 = phi i64 [ %56, %60 ], [ %.pre823, %69 ]
   %73 = phi ptr [ %65, %60 ], [ %.pre821, %69 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
-  %75 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = getelementptr inbounds i8, ptr %74, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %76, ptr noundef nonnull align 1 dereferenceable(18) @.str.10, i64 18, i1 false)
   store i64 %67, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %48, i64 24
-  %78 = getelementptr inbounds i8, ptr %48, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %67
   %.not766 = icmp ult i64 %80, %71
@@ -446,18 +446,18 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 81:                                               ; preds = %70
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %80) #9
   %.pre825 = load ptr, ptr %12, align 8
-  %.phi.trans.insert826 = getelementptr inbounds i8, ptr %.pre825, i64 16
+  %.phi.trans.insert826 = getelementptr inbounds nuw i8, ptr %.pre825, i64 16
   %.pre827 = load i64, ptr %.phi.trans.insert826, align 8
   br label %82
 
 82:                                               ; preds = %70, %81
   %83 = phi i64 [ %67, %70 ], [ %.pre827, %81 ]
   %84 = phi ptr [ %73, %70 ], [ %.pre825, %81 ]
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = getelementptr inbounds i8, ptr %85, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull align 1 %77, i64 %79, i1 false)
   %87 = load ptr, ptr %12, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i64 %80, ptr %88, align 8
   %89 = add i64 %80, 11
   %90 = load i64, ptr %57, align 8
@@ -467,20 +467,20 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 91:                                               ; preds = %82
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %89) #9
   %.pre828 = load ptr, ptr %12, align 8
-  %.phi.trans.insert829 = getelementptr inbounds i8, ptr %.pre828, i64 16
+  %.phi.trans.insert829 = getelementptr inbounds nuw i8, ptr %.pre828, i64 16
   %.pre830 = load i64, ptr %.phi.trans.insert829, align 8
   br label %92
 
 92:                                               ; preds = %91, %82
   %93 = phi i64 [ %.pre830, %91 ], [ %80, %82 ]
   %94 = phi ptr [ %.pre828, %91 ], [ %87, %82 ]
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = getelementptr inbounds i8, ptr %95, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %96, ptr noundef nonnull align 1 dereferenceable(11) @.str.11, i64 11, i1 false)
   %97 = load ptr, ptr %12, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store i64 %89, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %48, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 64
   %.not769 = icmp eq i32 %101, 0
@@ -502,17 +502,17 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 106:                                              ; preds = %43
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef 12) #9
   %.pre = load ptr, ptr %12, align 8
-  %107 = getelementptr inbounds i8, ptr %.pre, i64 24
-  %108 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %109 = load i64, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %107, i64 %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %110, ptr noundef nonnull align 1 dereferenceable(12) @.str.9, i64 12, i1 false)
   %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i64 12, ptr %112, align 8
   %113 = load i64, ptr %13, align 8
   %114 = add i64 %113, 12
-  %115 = getelementptr inbounds i8, ptr %12, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %116 = load i64, ptr %115, align 8
   %.not739 = icmp ult i64 %114, %116
   br i1 %.not739, label %118, label %117
@@ -520,18 +520,18 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 117:                                              ; preds = %106
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %114) #9
   %.pre794 = load ptr, ptr %12, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre794, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre794, i64 16
   %.pre795 = load i64, ptr %.phi.trans.insert, align 8
   br label %118
 
 118:                                              ; preds = %106, %117
   %119 = phi i64 [ 12, %106 ], [ %.pre795, %117 ]
   %120 = phi ptr [ %111, %106 ], [ %.pre794, %117 ]
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = getelementptr inbounds i8, ptr %121, i64 %119
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr nonnull align 1 %17, i64 %113, i1 false)
   %123 = load ptr, ptr %12, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 %114, ptr %124, align 8
   %125 = add i64 %113, 13
   %126 = load i64, ptr %115, align 8
@@ -545,27 +545,27 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 
 128:                                              ; preds = %127, %118
   %129 = phi ptr [ %.pre796, %127 ], [ %123, %118 ]
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = getelementptr inbounds [1 x i8], ptr %130, i64 0, i64 %114
   store i8 61, ptr %131, align 1
   %132 = load ptr, ptr %12, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store i64 %125, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %135 = load i64, ptr %44, align 8
   br i1 %8, label %136, label %164
 
 136:                                              ; preds = %128
   %137 = call ptr @php_raw_url_encode(ptr noundef nonnull %134, i64 noundef %135) #9
-  %138 = getelementptr inbounds i8, ptr %137, i64 24
-  %139 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %140 = load i64, ptr %139, align 8
   %141 = load ptr, ptr %12, align 8
   %.not744 = icmp eq ptr %141, null
   br i1 %.not744, label %147, label %142
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %141, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = add i64 %144, %140
   %146 = load i64, ptr %115, align 8
@@ -576,7 +576,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0644 = phi i64 [ %140, %136 ], [ %145, %142 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0644) #9
   %.pre800 = load ptr, ptr %12, align 8
-  %.phi.trans.insert801 = getelementptr inbounds i8, ptr %.pre800, i64 16
+  %.phi.trans.insert801 = getelementptr inbounds nuw i8, ptr %.pre800, i64 16
   %.pre802 = load i64, ptr %.phi.trans.insert801, align 8
   br label %148
 
@@ -584,13 +584,13 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %149 = phi i64 [ %.pre802, %147 ], [ %144, %142 ]
   %150 = phi ptr [ %.pre800, %147 ], [ %141, %142 ]
   %.1645 = phi i64 [ %.0644, %147 ], [ %145, %142 ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = getelementptr inbounds i8, ptr %151, i64 %149
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %138, i64 %140, i1 false)
   %153 = load ptr, ptr %12, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i64 %.1645, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %137, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %156 = load i32, ptr %155, align 4
   %157 = and i32 %156, 64
   %.not746 = icmp eq i32 %157, 0
@@ -618,18 +618,18 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 167:                                              ; preds = %164
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %165) #9
   %.pre797 = load ptr, ptr %12, align 8
-  %.phi.trans.insert798 = getelementptr inbounds i8, ptr %.pre797, i64 16
+  %.phi.trans.insert798 = getelementptr inbounds nuw i8, ptr %.pre797, i64 16
   %.pre799 = load i64, ptr %.phi.trans.insert798, align 8
   br label %168
 
 168:                                              ; preds = %167, %164
   %169 = phi i64 [ %.pre799, %167 ], [ %125, %164 ]
   %170 = phi ptr [ %.pre797, %167 ], [ %132, %164 ]
-  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = getelementptr inbounds i8, ptr %171, i64 %169
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %172, ptr nonnull align 1 %134, i64 %135, i1 false)
   %173 = load ptr, ptr %12, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store i64 %165, ptr %174, align 8
   br label %175
 
@@ -643,7 +643,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not747, label %184, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds i8, ptr %178, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, 10
   %183 = load i64, ptr %115, align 8
@@ -654,7 +654,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0660 = phi i64 [ 10, %177 ], [ %182, %179 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0660) #9
   %.pre803 = load ptr, ptr %12, align 8
-  %.phi.trans.insert804 = getelementptr inbounds i8, ptr %.pre803, i64 16
+  %.phi.trans.insert804 = getelementptr inbounds nuw i8, ptr %.pre803, i64 16
   %.pre805 = load i64, ptr %.phi.trans.insert804, align 8
   br label %185
 
@@ -662,22 +662,22 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %186 = phi i64 [ %.pre805, %184 ], [ %181, %179 ]
   %187 = phi ptr [ %.pre803, %184 ], [ %178, %179 ]
   %.1661 = phi i64 [ %.0660, %184 ], [ %182, %179 ]
-  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = getelementptr inbounds i8, ptr %188, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %189, ptr noundef nonnull align 1 dereferenceable(10) @.str.12, i64 10, i1 false)
   %190 = load ptr, ptr %12, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store i64 %.1661, ptr %191, align 8
   %192 = call ptr @php_format_date(ptr noundef nonnull @.str.8, i64 noundef 21, i64 noundef %2, i1 noundef zeroext false) #9
-  %193 = getelementptr inbounds i8, ptr %192, i64 24
-  %194 = getelementptr inbounds i8, ptr %192, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %195 = load i64, ptr %194, align 8
   %196 = load ptr, ptr %12, align 8
   %.not749 = icmp eq ptr %196, null
   br i1 %.not749, label %202, label %197
 
 197:                                              ; preds = %185
-  %198 = getelementptr inbounds i8, ptr %196, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %199 = load i64, ptr %198, align 8
   %200 = add i64 %199, %195
   %201 = load i64, ptr %115, align 8
@@ -688,7 +688,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0639 = phi i64 [ %195, %185 ], [ %200, %197 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0639) #9
   %.pre806 = load ptr, ptr %12, align 8
-  %.phi.trans.insert807 = getelementptr inbounds i8, ptr %.pre806, i64 16
+  %.phi.trans.insert807 = getelementptr inbounds nuw i8, ptr %.pre806, i64 16
   %.pre808 = load i64, ptr %.phi.trans.insert807, align 8
   br label %203
 
@@ -696,13 +696,13 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %204 = phi i64 [ %.pre808, %202 ], [ %199, %197 ]
   %205 = phi ptr [ %.pre806, %202 ], [ %196, %197 ]
   %.1640 = phi i64 [ %.0639, %202 ], [ %200, %197 ]
-  %206 = getelementptr inbounds i8, ptr %205, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %207 = getelementptr inbounds i8, ptr %206, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %207, ptr nonnull align 1 %193, i64 %195, i1 false)
   %208 = load ptr, ptr %12, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store i64 %.1640, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %192, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %211 = load i32, ptr %210, align 4
   %212 = and i32 %211, 64
   %.not751 = icmp eq i32 %212, 0
@@ -731,7 +731,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not753, label %227, label %222
 
 222:                                              ; preds = %217
-  %223 = getelementptr inbounds i8, ptr %221, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %224 = load i64, ptr %223, align 8
   %225 = add i64 %224, 10
   %226 = load i64, ptr %115, align 8
@@ -742,7 +742,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0662 = phi i64 [ 10, %217 ], [ %225, %222 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0662) #9
   %.pre809 = load ptr, ptr %12, align 8
-  %.phi.trans.insert810 = getelementptr inbounds i8, ptr %.pre809, i64 16
+  %.phi.trans.insert810 = getelementptr inbounds nuw i8, ptr %.pre809, i64 16
   %.pre811 = load i64, ptr %.phi.trans.insert810, align 8
   br label %228
 
@@ -750,14 +750,14 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %229 = phi i64 [ %.pre811, %227 ], [ %224, %222 ]
   %230 = phi ptr [ %.pre809, %227 ], [ %221, %222 ]
   %.1663 = phi i64 [ %.0662, %227 ], [ %225, %222 ]
-  %231 = getelementptr inbounds i8, ptr %230, i64 24
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %232 = getelementptr inbounds i8, ptr %231, i64 %229
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %232, ptr noundef nonnull align 1 dereferenceable(10) @.str.13, i64 10, i1 false)
   %233 = load ptr, ptr %12, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store i64 %.1663, ptr %234, align 8
   %235 = fptosi double %.0 to i64
-  %236 = getelementptr inbounds i8, ptr %10, i64 31
+  %236 = getelementptr inbounds nuw i8, ptr %10, i64 31
   %237 = icmp slt i64 %235, 0
   br i1 %237, label %238, label %248
 
@@ -818,7 +818,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0630 = phi i64 [ %257, %.loopexit ], [ %260, %258 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0630) #9
   %.pre812 = load ptr, ptr %12, align 8
-  %.phi.trans.insert813 = getelementptr inbounds i8, ptr %.pre812, i64 16
+  %.phi.trans.insert813 = getelementptr inbounds nuw i8, ptr %.pre812, i64 16
   %.pre814 = load i64, ptr %.phi.trans.insert813, align 8
   br label %263
 
@@ -826,11 +826,11 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %264 = phi i64 [ %.pre814, %262 ], [ %259, %258 ]
   %265 = phi ptr [ %.pre812, %262 ], [ %233, %258 ]
   %.1 = phi i64 [ %.0630, %262 ], [ %260, %258 ]
-  %266 = getelementptr inbounds i8, ptr %265, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %267 = getelementptr inbounds i8, ptr %266, i64 %264
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %267, ptr nonnull align 1 %.0629, i64 %257, i1 false)
   %268 = load ptr, ptr %12, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 16
   store i64 %.1, ptr %269, align 8
   br label %270
 
@@ -838,7 +838,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not732, label %303, label %271
 
 271:                                              ; preds = %270
-  %272 = getelementptr inbounds i8, ptr %3, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %273 = load i64, ptr %272, align 8
   %.not771 = icmp eq i64 %273, 0
   br i1 %.not771, label %303, label %274
@@ -849,10 +849,10 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not772, label %282, label %276
 
 276:                                              ; preds = %274
-  %277 = getelementptr inbounds i8, ptr %275, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %278 = load i64, ptr %277, align 8
   %279 = add i64 %278, 7
-  %280 = getelementptr inbounds i8, ptr %12, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %281 = load i64, ptr %280, align 8
   %.not773 = icmp ult i64 %279, %281
   br i1 %.not773, label %283, label %282
@@ -861,7 +861,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0664 = phi i64 [ 7, %274 ], [ %279, %276 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0664) #9
   %.pre831 = load ptr, ptr %12, align 8
-  %.phi.trans.insert832 = getelementptr inbounds i8, ptr %.pre831, i64 16
+  %.phi.trans.insert832 = getelementptr inbounds nuw i8, ptr %.pre831, i64 16
   %.pre833 = load i64, ptr %.phi.trans.insert832, align 8
   br label %283
 
@@ -869,16 +869,16 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %284 = phi i64 [ %.pre833, %282 ], [ %278, %276 ]
   %285 = phi ptr [ %.pre831, %282 ], [ %275, %276 ]
   %.1665 = phi i64 [ %.0664, %282 ], [ %279, %276 ]
-  %286 = getelementptr inbounds i8, ptr %285, i64 24
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
   %287 = getelementptr inbounds i8, ptr %286, i64 %284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %287, ptr noundef nonnull align 1 dereferenceable(7) @.str.14, i64 7, i1 false)
   %288 = load ptr, ptr %12, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store i64 %.1665, ptr %289, align 8
-  %290 = getelementptr inbounds i8, ptr %3, i64 24
+  %290 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %291 = load i64, ptr %272, align 8
   %292 = add i64 %291, %.1665
-  %293 = getelementptr inbounds i8, ptr %12, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %294 = load i64, ptr %293, align 8
   %.not775 = icmp ult i64 %292, %294
   br i1 %.not775, label %296, label %295
@@ -886,18 +886,18 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 295:                                              ; preds = %283
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %292) #9
   %.pre834 = load ptr, ptr %12, align 8
-  %.phi.trans.insert835 = getelementptr inbounds i8, ptr %.pre834, i64 16
+  %.phi.trans.insert835 = getelementptr inbounds nuw i8, ptr %.pre834, i64 16
   %.pre836 = load i64, ptr %.phi.trans.insert835, align 8
   br label %296
 
 296:                                              ; preds = %295, %283
   %297 = phi i64 [ %.pre836, %295 ], [ %.1665, %283 ]
   %298 = phi ptr [ %.pre834, %295 ], [ %288, %283 ]
-  %299 = getelementptr inbounds i8, ptr %298, i64 24
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 24
   %300 = getelementptr inbounds i8, ptr %299, i64 %297
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %300, ptr nonnull align 1 %290, i64 %291, i1 false)
   %301 = load ptr, ptr %12, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 16
   store i64 %292, ptr %302, align 8
   br label %303
 
@@ -905,7 +905,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not734, label %336, label %304
 
 304:                                              ; preds = %303
-  %305 = getelementptr inbounds i8, ptr %4, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %306 = load i64, ptr %305, align 8
   %.not776 = icmp eq i64 %306, 0
   br i1 %.not776, label %336, label %307
@@ -916,10 +916,10 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not777, label %315, label %309
 
 309:                                              ; preds = %307
-  %310 = getelementptr inbounds i8, ptr %308, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %311 = load i64, ptr %310, align 8
   %312 = add i64 %311, 9
-  %313 = getelementptr inbounds i8, ptr %12, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %314 = load i64, ptr %313, align 8
   %.not778 = icmp ult i64 %312, %314
   br i1 %.not778, label %316, label %315
@@ -928,7 +928,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0666 = phi i64 [ 9, %307 ], [ %312, %309 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0666) #9
   %.pre837 = load ptr, ptr %12, align 8
-  %.phi.trans.insert838 = getelementptr inbounds i8, ptr %.pre837, i64 16
+  %.phi.trans.insert838 = getelementptr inbounds nuw i8, ptr %.pre837, i64 16
   %.pre839 = load i64, ptr %.phi.trans.insert838, align 8
   br label %316
 
@@ -936,16 +936,16 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %317 = phi i64 [ %.pre839, %315 ], [ %311, %309 ]
   %318 = phi ptr [ %.pre837, %315 ], [ %308, %309 ]
   %.1667 = phi i64 [ %.0666, %315 ], [ %312, %309 ]
-  %319 = getelementptr inbounds i8, ptr %318, i64 24
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %320 = getelementptr inbounds i8, ptr %319, i64 %317
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %320, ptr noundef nonnull align 1 dereferenceable(9) @.str.15, i64 9, i1 false)
   %321 = load ptr, ptr %12, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
   store i64 %.1667, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %4, i64 24
+  %323 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %324 = load i64, ptr %305, align 8
   %325 = add i64 %324, %.1667
-  %326 = getelementptr inbounds i8, ptr %12, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %327 = load i64, ptr %326, align 8
   %.not780 = icmp ult i64 %325, %327
   br i1 %.not780, label %329, label %328
@@ -953,18 +953,18 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 328:                                              ; preds = %316
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %325) #9
   %.pre840 = load ptr, ptr %12, align 8
-  %.phi.trans.insert841 = getelementptr inbounds i8, ptr %.pre840, i64 16
+  %.phi.trans.insert841 = getelementptr inbounds nuw i8, ptr %.pre840, i64 16
   %.pre842 = load i64, ptr %.phi.trans.insert841, align 8
   br label %329
 
 329:                                              ; preds = %328, %316
   %330 = phi i64 [ %.pre842, %328 ], [ %.1667, %316 ]
   %331 = phi ptr [ %.pre840, %328 ], [ %321, %316 ]
-  %332 = getelementptr inbounds i8, ptr %331, i64 24
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %333 = getelementptr inbounds i8, ptr %332, i64 %330
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %333, ptr nonnull align 1 %323, i64 %324, i1 false)
   %334 = load ptr, ptr %12, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 16
   store i64 %325, ptr %335, align 8
   br label %336
 
@@ -977,10 +977,10 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not781, label %345, label %339
 
 339:                                              ; preds = %337
-  %340 = getelementptr inbounds i8, ptr %338, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %341 = load i64, ptr %340, align 8
   %342 = add i64 %341, 8
-  %343 = getelementptr inbounds i8, ptr %12, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %344 = load i64, ptr %343, align 8
   %.not782 = icmp ult i64 %342, %344
   br i1 %.not782, label %346, label %345
@@ -989,7 +989,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0668 = phi i64 [ 8, %337 ], [ %342, %339 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0668) #9
   %.pre843 = load ptr, ptr %12, align 8
-  %.phi.trans.insert844 = getelementptr inbounds i8, ptr %.pre843, i64 16
+  %.phi.trans.insert844 = getelementptr inbounds nuw i8, ptr %.pre843, i64 16
   %.pre845 = load i64, ptr %.phi.trans.insert844, align 8
   br label %346
 
@@ -997,11 +997,11 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %347 = phi i64 [ %.pre845, %345 ], [ %341, %339 ]
   %348 = phi ptr [ %.pre843, %345 ], [ %338, %339 ]
   %.1669 = phi i64 [ %.0668, %345 ], [ %342, %339 ]
-  %349 = getelementptr inbounds i8, ptr %348, i64 24
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 24
   %350 = getelementptr inbounds i8, ptr %349, i64 %347
   store i64 7310034214939992123, ptr %350, align 1
   %351 = load ptr, ptr %12, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
   store i64 %.1669, ptr %352, align 8
   br label %353
 
@@ -1014,10 +1014,10 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not783, label %362, label %356
 
 356:                                              ; preds = %354
-  %357 = getelementptr inbounds i8, ptr %355, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 16
   %358 = load i64, ptr %357, align 8
   %359 = add i64 %358, 10
-  %360 = getelementptr inbounds i8, ptr %12, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %361 = load i64, ptr %360, align 8
   %.not784 = icmp ult i64 %359, %361
   br i1 %.not784, label %363, label %362
@@ -1026,7 +1026,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0670 = phi i64 [ 10, %354 ], [ %359, %356 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0670) #9
   %.pre846 = load ptr, ptr %12, align 8
-  %.phi.trans.insert847 = getelementptr inbounds i8, ptr %.pre846, i64 16
+  %.phi.trans.insert847 = getelementptr inbounds nuw i8, ptr %.pre846, i64 16
   %.pre848 = load i64, ptr %.phi.trans.insert847, align 8
   br label %363
 
@@ -1034,11 +1034,11 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %364 = phi i64 [ %.pre848, %362 ], [ %358, %356 ]
   %365 = phi ptr [ %.pre846, %362 ], [ %355, %356 ]
   %.1671 = phi i64 [ %.0670, %362 ], [ %359, %356 ]
-  %366 = getelementptr inbounds i8, ptr %365, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = getelementptr inbounds i8, ptr %366, i64 %364
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %367, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 10, i1 false)
   %368 = load ptr, ptr %12, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   store i64 %.1671, ptr %369, align 8
   br label %370
 
@@ -1051,7 +1051,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br label %402
 
 371:                                              ; preds = %370
-  %372 = getelementptr inbounds i8, ptr %7, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %373 = load i64, ptr %372, align 8
   %.not786 = icmp eq i64 %373, 0
   %.pre857 = load ptr, ptr %12, align 8
@@ -1062,10 +1062,10 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not787, label %381, label %375
 
 375:                                              ; preds = %374
-  %376 = getelementptr inbounds i8, ptr %.pre857, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %.pre857, i64 16
   %377 = load i64, ptr %376, align 8
   %378 = add i64 %377, 11
-  %379 = getelementptr inbounds i8, ptr %12, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %380 = load i64, ptr %379, align 8
   %.not788 = icmp ult i64 %378, %380
   br i1 %.not788, label %382, label %381
@@ -1074,7 +1074,7 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %.0672 = phi i64 [ 11, %374 ], [ %378, %375 ]
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0672) #9
   %.pre849 = load ptr, ptr %12, align 8
-  %.phi.trans.insert850 = getelementptr inbounds i8, ptr %.pre849, i64 16
+  %.phi.trans.insert850 = getelementptr inbounds nuw i8, ptr %.pre849, i64 16
   %.pre851 = load i64, ptr %.phi.trans.insert850, align 8
   br label %382
 
@@ -1082,16 +1082,16 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   %383 = phi i64 [ %.pre851, %381 ], [ %377, %375 ]
   %384 = phi ptr [ %.pre849, %381 ], [ %.pre857, %375 ]
   %.1673 = phi i64 [ %.0672, %381 ], [ %378, %375 ]
-  %385 = getelementptr inbounds i8, ptr %384, i64 24
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 24
   %386 = getelementptr inbounds i8, ptr %385, i64 %383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %386, ptr noundef nonnull align 1 dereferenceable(11) @.str.18, i64 11, i1 false)
   %387 = load ptr, ptr %12, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store i64 %.1673, ptr %388, align 8
-  %389 = getelementptr inbounds i8, ptr %7, i64 24
+  %389 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %390 = load i64, ptr %372, align 8
   %391 = add i64 %390, %.1673
-  %392 = getelementptr inbounds i8, ptr %12, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %393 = load i64, ptr %392, align 8
   %.not790 = icmp ult i64 %391, %393
   br i1 %.not790, label %395, label %394
@@ -1099,33 +1099,33 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 394:                                              ; preds = %382
   call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %391) #9
   %.pre852 = load ptr, ptr %12, align 8
-  %.phi.trans.insert853 = getelementptr inbounds i8, ptr %.pre852, i64 16
+  %.phi.trans.insert853 = getelementptr inbounds nuw i8, ptr %.pre852, i64 16
   %.pre854 = load i64, ptr %.phi.trans.insert853, align 8
   br label %395
 
 395:                                              ; preds = %394, %382
   %396 = phi i64 [ %.pre854, %394 ], [ %.1673, %382 ]
   %397 = phi ptr [ %.pre852, %394 ], [ %387, %382 ]
-  %398 = getelementptr inbounds i8, ptr %397, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %399 = getelementptr inbounds i8, ptr %398, i64 %396
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %399, ptr nonnull align 1 %389, i64 %390, i1 false)
   %400 = load ptr, ptr %12, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 16
+  %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   store i64 %391, ptr %401, align 8
   br label %402
 
 402:                                              ; preds = %._crit_edge855, %395, %371
   %403 = phi ptr [ %.pre856, %._crit_edge855 ], [ %400, %395 ], [ %.pre857, %371 ]
-  %404 = getelementptr inbounds i8, ptr %403, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
   store ptr %404, ptr %11, align 8
-  %405 = getelementptr inbounds i8, ptr %403, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %403, i64 16
   %406 = load i64, ptr %405, align 8
   %407 = and i64 %406, 4294967295
-  %408 = getelementptr inbounds i8, ptr %11, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %407, ptr %408, align 8
   %409 = call i32 @sapi_header_op(i32 noundef 1, ptr noundef nonnull %11) #9
   %410 = load ptr, ptr %12, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 4
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 4
   %412 = load i32, ptr %411, align 4
   %413 = and i32 %412, 64
   %.not791 = icmp eq i32 %413, 0
@@ -1197,7 +1197,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   store ptr null, ptr %8, align 8
   store i8 0, ptr %9, align 1
   store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, -8
   %or.cond = icmp ult i32 %13, -7
@@ -1208,8 +1208,8 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %.thread377
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 6
   br i1 %19, label %.critedge, label %21
@@ -1228,8 +1228,8 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %24, label %php_head_parse_cookie_options_array.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load i8, ptr %27, align 8
   %29 = icmp eq i8 %28, 6
   br i1 %29, label %.critedge335, label %31
@@ -1248,8 +1248,8 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %34, label %php_head_parse_cookie_options_array.exit, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %38 = load i8, ptr %37, align 8
   switch i8 %38, label %43 [
     i8 7, label %39
@@ -1275,8 +1275,8 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %45, label %.thread367, label %46
 
 46:                                               ; preds = %.thread
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load i8, ptr %48, align 8
   %50 = icmp eq i8 %49, 6
   br i1 %50, label %.critedge337, label %52
@@ -1295,8 +1295,8 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %55, label %.thread367, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
-  %58 = getelementptr inbounds i8, ptr %0, i64 152
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %59 = load i8, ptr %58, align 8
   %60 = icmp eq i8 %59, 6
   br i1 %60, label %.critedge339, label %62
@@ -1315,7 +1315,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %65, label %.thread367, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 168
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %68 = load i8, ptr %67, align 8
   switch i8 %68, label %70 [
     i8 3, label %.critedge341
@@ -1326,7 +1326,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %.critedge341
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %0, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %72 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %71, ptr noundef nonnull %9, i32 noundef 6) #9
   br i1 %72, label %73, label %.thread377
 
@@ -1340,7 +1340,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %.not, label %74, label %.thread367
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %0, i64 184
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %76 = load i8, ptr %75, align 8
   switch i8 %76, label %78 [
     i8 3, label %.thread362
@@ -1356,7 +1356,7 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %.thread367
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 176
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %80 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %79, ptr noundef nonnull %10, i32 noundef 7) #9
   %.fr = freeze i1 %80
   br i1 %.fr, label %.thread367, label %.thread377
@@ -1387,14 +1387,14 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %261
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %.2349, i64 8
-  %90 = getelementptr inbounds i8, ptr %.2349, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.2349, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.2349, i64 24
   %91 = load i32, ptr %90, align 8
   %.not113.i = icmp eq i32 %91, 0
   br i1 %.not113.i, label %php_head_parse_cookie_options_array.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %.2349, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.2349, i64 16
   %93 = load ptr, ptr %92, align 8
   br label %.lr.ph.i
 
@@ -1409,19 +1409,19 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %.not97.i, label %98, label %96
 
 96:                                               ; preds = %.lr.ph.i
-  %97 = getelementptr inbounds i8, ptr %.086116.i, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %.086116.i, i64 16
   br label %102
 
 98:                                               ; preds = %.lr.ph.i
-  %99 = getelementptr inbounds i8, ptr %.086116.i, i64 32
-  %100 = getelementptr inbounds i8, ptr %.086116.i, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %.086116.i, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %.086116.i, i64 24
   %101 = load ptr, ptr %100, align 8
   br label %102
 
 102:                                              ; preds = %98, %96
   %.188.i = phi ptr [ %.087115.i, %96 ], [ %101, %98 ]
   %.1.i = phi ptr [ %97, %96 ], [ %99, %98 ]
-  %103 = getelementptr inbounds i8, ptr %.086116.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.086116.i, i64 8
   %104 = load i8, ptr %103, align 8
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %203, label %106
@@ -1436,13 +1436,13 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %php_head_parse_cookie_options_array.exit.thread
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %.188.i, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.188.i, i64 16
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 7
   br i1 %112, label %113, label %125
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.188.i, i64 24
   %115 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %114, i64 noundef 7, ptr noundef nonnull @.str.24, i64 noundef 7) #9
   %.not99.i = icmp eq i32 %115, 0
   br i1 %.not99.i, label %116, label %thread-pre-split.i
@@ -1475,7 +1475,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %127, label %128, label %146
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %.188.i, i64 24
   %130 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %129, i64 noundef 4, ptr noundef nonnull @.str.25, i64 noundef 4) #9
   %.not100.i = icmp eq i32 %130, 0
   br i1 %.not100.i, label %131, label %._crit_edge.i
@@ -1491,7 +1491,7 @@ thread-pre-split.i:                               ; preds = %113
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr %.086116.i, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 64
   %.not101.i = icmp eq i32 %138, 0
@@ -1518,7 +1518,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %148, label %149, label %.thread.i
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %.188.i, i64 24
   %151 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %150, i64 noundef 6, ptr noundef nonnull @.str.26, i64 noundef 6) #9
   %.not102.i = icmp eq i32 %151, 0
   br i1 %.not102.i, label %152, label %167
@@ -1530,7 +1530,7 @@ thread-pre-split.i:                               ; preds = %113
 
 155:                                              ; preds = %152
   %156 = load ptr, ptr %.086116.i, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %158 = load i32, ptr %157, align 4
   %159 = and i32 %158, 64
   %.not103.i = icmp eq i32 %159, 0
@@ -1578,7 +1578,7 @@ thread-pre-split110.i:                            ; preds = %169
   br i1 %176, label %177, label %.thread122.i
 
 177:                                              ; preds = %.thread.i
-  %178 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %.188.i, i64 24
   %179 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %178, i64 noundef 8, ptr noundef nonnull @.str.28, i64 noundef 8) #9
   %.not105.i = icmp eq i32 %179, 0
   br i1 %.not105.i, label %180, label %184
@@ -1607,7 +1607,7 @@ thread-pre-split110.i:                            ; preds = %169
 
 191:                                              ; preds = %188
   %192 = load ptr, ptr %.086116.i, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, 64
   %.not107.i = icmp eq i32 %195, 0
@@ -1625,7 +1625,7 @@ thread-pre-split110.i:                            ; preds = %169
 
 .thread122.i:                                     ; preds = %186, %184, %.thread.i
   %201 = call ptr @get_active_function_name() #9
-  %202 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %.188.i, i64 24
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.30, ptr noundef %201, ptr noundef nonnull %202) #9
   br label %php_head_parse_cookie_options_array.exit.thread
 
@@ -1651,7 +1651,7 @@ php_head_parse_cookie_options_array.exit:         ; preds = %203, %23, %33, %88,
   %215 = call i32 @php_setcookie(ptr noundef %205, ptr noundef %206, i64 noundef %207, ptr noundef %208, ptr noundef %209, i1 noundef zeroext %211, i1 noundef zeroext %213, ptr noundef %.0345, i1 noundef zeroext %214)
   %216 = icmp eq i32 %215, 0
   %spec.select = select i1 %216, i32 3, i32 2
-  %217 = getelementptr inbounds i8, ptr %1, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %spec.select, ptr %217, align 8
   br i1 %.not324393, label %261, label %php_head_parse_cookie_options_array.exit.thread
 
@@ -1662,7 +1662,7 @@ php_head_parse_cookie_options_array.exit.thread:  ; preds = %107, %.thread122.i,
   br i1 %.not325, label %232, label %219
 
 219:                                              ; preds = %php_head_parse_cookie_options_array.exit.thread
-  %220 = getelementptr inbounds i8, ptr %218, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %221 = load i32, ptr %220, align 4
   %222 = and i32 %221, 64
   %.not326 = icmp eq i32 %222, 0
@@ -1696,7 +1696,7 @@ php_head_parse_cookie_options_array.exit.thread:  ; preds = %107, %.thread122.i,
   br i1 %.not328, label %247, label %234
 
 234:                                              ; preds = %232
-  %235 = getelementptr inbounds i8, ptr %233, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %236 = load i32, ptr %235, align 4
   %237 = and i32 %236, 64
   %.not329 = icmp eq i32 %237, 0
@@ -1729,7 +1729,7 @@ php_head_parse_cookie_options_array.exit.thread:  ; preds = %107, %.thread122.i,
   br i1 %.not331, label %261, label %248
 
 248:                                              ; preds = %247
-  %249 = getelementptr inbounds i8, ptr %.1, i64 4
+  %249 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %250 = load i32, ptr %249, align 4
   %251 = and i32 %250, 64
   %.not332 = icmp eq i32 %251, 0
@@ -1769,14 +1769,14 @@ define hidden void @zif_setrawcookie(ptr noundef %0, ptr nocapture noundef write
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 3
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not153 = icmp eq i8 %9, 0
   br i1 %.not153, label %15, label %11
@@ -1804,7 +1804,7 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not154 = icmp eq ptr %20, null
   br i1 %.not154, label %23, label %21
@@ -1814,17 +1814,17 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   br label %26
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %18, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %24) #9
   store i64 %.0142, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 4, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %23, %21, %15
   %.not155 = icmp eq ptr %.0, null
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not156 = icmp eq ptr %29, null
   br i1 %.not155, label %45, label %30
@@ -1837,25 +1837,25 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   br label %52
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %34) #9
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #10
   %36 = and i64 %35, -8
   %37 = add i64 %36, 32
   %38 = tail call noalias ptr @_emalloc(i64 noundef %37) #12
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 22, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 %35, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %.0, i64 %35, i1 false)
   %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 %35
   store i8 0, ptr %43, align 1
   store ptr %38, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %27, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 262, ptr %44, align 8
   br label %52
 
@@ -1867,18 +1867,18 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   br label %52
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %27, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %49) #9
   %50 = load ptr, ptr @zend_empty_string, align 8
   store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %27, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 6, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %31, %33, %46, %48, %15
   %53 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 249), align 1
   %.not158 = icmp eq i8 %53, 0
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %.not158, label %56, label %55
 
 55:                                               ; preds = %52
@@ -1910,7 +1910,7 @@ declare i32 @zend_try_assign_typed_ref_empty_string(ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_headers_list(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1922,7 +1922,7 @@ define hidden void @zif_headers_list(ptr nocapture noundef readonly %0, ptr noun
 6:                                                ; preds = %2
   %7 = tail call ptr @_zend_new_array_0() #9
   store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
   tail call void @zend_llist_apply_with_argument(ptr noundef nonnull getelementptr inbounds (i8, ptr @sapi_globals, i64 160), ptr noundef nonnull @php_head_apply_header_list_to_hash, ptr noundef nonnull %1) #9
   br label %9
@@ -1957,7 +1957,7 @@ define internal void @php_head_apply_header_list_to_hash(ptr noundef readonly %0
 define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, 1
   br i1 %6, label %.thread97, label %7
@@ -1967,8 +1967,8 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br i1 %8, label %.thread105.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 4
   br i1 %13, label %.thread87, label %15
@@ -2028,7 +2028,7 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br label %29
 
 29:                                               ; preds = %28, %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %30, align 8
   br label %45
 
@@ -2042,12 +2042,12 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
 34:                                               ; preds = %31
   %35 = sext i32 %32 to i64
   store i64 %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %36, align 8
   br label %45
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %38, align 8
   br label %45
 
@@ -2057,14 +2057,14 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br i1 %.not78, label %40, label %42
 
 40:                                               ; preds = %.thread105.thread
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %41, align 8
   br label %45
 
 42:                                               ; preds = %.thread105.thread
   %43 = sext i32 %39 to i64
   store i64 %43, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %44, align 8
   br label %45
 

@@ -107,7 +107,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
 
 19:                                               ; preds = %7
   %20 = load i32, ptr %2, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph240.i, label %._crit_edge241.i
@@ -124,7 +124,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %26 = load i8, ptr %.1182235.i, align 1
   %27 = zext i8 %26 to i32
   %28 = add nsw i32 %.0172237.i, %27
-  %29 = getelementptr inbounds i8, ptr %.1182235.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %.0171238.i, %31
@@ -143,9 +143,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
 
 35:                                               ; preds = %7
   %36 = load i32, ptr %2, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %.lr.ph229.i, label %._crit_edge230.i
@@ -163,11 +163,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %44 = load i8, ptr %.2183223.i, align 1
   %45 = zext i8 %44 to i32
   %46 = add nsw i32 %.0170225.i, %45
-  %47 = getelementptr inbounds i8, ptr %.2183223.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = add nsw i32 %.0169226.i, %49
-  %51 = getelementptr inbounds i8, ptr %.2183223.i, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = add nsw i32 %.0168227.i, %53
@@ -227,15 +227,15 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %75 = load i8, ptr %.3184253.i, align 1
   %76 = zext i8 %75 to i32
   %77 = add nsw i32 %.0167255.i, %76
-  %78 = getelementptr inbounds i8, ptr %.3184253.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = add nsw i32 %.0166256.i, %80
-  %82 = getelementptr inbounds i8, ptr %.3184253.i, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 2
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = add nsw i32 %.0165257.i, %84
-  %86 = getelementptr inbounds i8, ptr %.3184253.i, i64 3
+  %86 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 3
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = add nsw i32 %.0164258.i, %88
@@ -282,17 +282,17 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %105 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %105 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %106, %105 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %98 = load i8, ptr %97, align 1
   %.not193.us.i = icmp eq i8 %98, 0
   br i1 %.not193.us.i, label %105, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %99 = getelementptr inbounds i8, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %99 = getelementptr inbounds nuw i8, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
-  %102 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv297.i
+  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv297.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %101
   store i32 %104, ptr %102, align 4
@@ -303,7 +303,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
 105:                                              ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %107, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %106 = getelementptr inbounds i8, ptr %.5186218.us.i, i64 %96
+  %106 = getelementptr inbounds nuw i8, ptr %.5186218.us.i, i64 %96
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_IhiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !11
 
@@ -324,13 +324,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %119 ]
   %.0157209.i = phi i32 [ %109, %.lr.ph211.preheader.i ], [ %.1158.i, %119 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %119 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %112 = load i8, ptr %111, align 1
   %.not195.i = icmp eq i8 %112, 0
   br i1 %.not195.i, label %119, label %113
 
 113:                                              ; preds = %.lr.ph211.i
-  %114 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv287.i
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv287.i
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = add nsw i32 %.0157209.i, %116
@@ -352,9 +352,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
 
 120:                                              ; preds = %93
   %121 = load i32, ptr %2, align 4
-  %122 = getelementptr inbounds i8, ptr %2, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %2, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %3, 0
   br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -370,7 +370,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %.0155201.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %.1156.i, %142 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %142 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %143, %142 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %128 = load i8, ptr %127, align 1
   %.not194.i = icmp eq i8 %128, 0
   br i1 %.not194.i, label %142, label %129
@@ -379,11 +379,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %130 = load i8, ptr %.4185198.i, align 1
   %131 = zext i8 %130 to i32
   %132 = add nsw i32 %.0155201.i, %131
-  %133 = getelementptr inbounds i8, ptr %.4185198.i, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 1
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = add nsw i32 %.0153202.i, %135
-  %137 = getelementptr inbounds i8, ptr %.4185198.i, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 2
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = add nsw i32 %.0152203.i, %139
@@ -396,7 +396,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
   %.1154.i = phi i32 [ %136, %129 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %140, %129 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %143 = getelementptr inbounds i8, ptr %.4185198.i, i64 3
+  %143 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 3
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
@@ -413,7 +413,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %145 = load i8, ptr %144, align 1
   %.not193.i = icmp ne i8 %145, 0
   %146 = zext i1 %.not193.i to i32
@@ -424,7 +424,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8uEPKhS2_Piii(ptr nocaptur
 
 _ZN2cv12cpu_baselineL4sum_IhiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8
   %.not.i6 = icmp eq i32 %148, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %149
@@ -488,7 +488,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
 
 19:                                               ; preds = %7
   %20 = load i32, ptr %2, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph240.i, label %._crit_edge241.i
@@ -505,7 +505,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %26 = load i8, ptr %.1182235.i, align 1
   %27 = sext i8 %26 to i32
   %28 = add nsw i32 %.0172237.i, %27
-  %29 = getelementptr inbounds i8, ptr %.1182235.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = sext i8 %30 to i32
   %32 = add nsw i32 %.0171238.i, %31
@@ -524,9 +524,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
 
 35:                                               ; preds = %7
   %36 = load i32, ptr %2, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %.lr.ph229.i, label %._crit_edge230.i
@@ -544,11 +544,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %44 = load i8, ptr %.2183223.i, align 1
   %45 = sext i8 %44 to i32
   %46 = add nsw i32 %.0170225.i, %45
-  %47 = getelementptr inbounds i8, ptr %.2183223.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = sext i8 %48 to i32
   %50 = add nsw i32 %.0169226.i, %49
-  %51 = getelementptr inbounds i8, ptr %.2183223.i, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i32
   %54 = add nsw i32 %.0168227.i, %53
@@ -608,15 +608,15 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %75 = load i8, ptr %.3184253.i, align 1
   %76 = sext i8 %75 to i32
   %77 = add nsw i32 %.0167255.i, %76
-  %78 = getelementptr inbounds i8, ptr %.3184253.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
   %81 = add nsw i32 %.0166256.i, %80
-  %82 = getelementptr inbounds i8, ptr %.3184253.i, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 2
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i32
   %85 = add nsw i32 %.0165257.i, %84
-  %86 = getelementptr inbounds i8, ptr %.3184253.i, i64 3
+  %86 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 3
   %87 = load i8, ptr %86, align 1
   %88 = sext i8 %87 to i32
   %89 = add nsw i32 %.0164258.i, %88
@@ -663,17 +663,17 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %105 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %105 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %106, %105 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %98 = load i8, ptr %97, align 1
   %.not193.us.i = icmp eq i8 %98, 0
   br i1 %.not193.us.i, label %105, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %99 = getelementptr inbounds i8, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %99 = getelementptr inbounds nuw i8, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %100 = load i8, ptr %99, align 1
   %101 = sext i8 %100 to i32
-  %102 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv297.i
+  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv297.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %101
   store i32 %104, ptr %102, align 4
@@ -684,7 +684,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
 105:                                              ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %107, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %106 = getelementptr inbounds i8, ptr %.5186218.us.i, i64 %96
+  %106 = getelementptr inbounds nuw i8, ptr %.5186218.us.i, i64 %96
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_IaiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !20
 
@@ -705,13 +705,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %119 ]
   %.0157209.i = phi i32 [ %109, %.lr.ph211.preheader.i ], [ %.1158.i, %119 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %119 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %112 = load i8, ptr %111, align 1
   %.not195.i = icmp eq i8 %112, 0
   br i1 %.not195.i, label %119, label %113
 
 113:                                              ; preds = %.lr.ph211.i
-  %114 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv287.i
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv287.i
   %115 = load i8, ptr %114, align 1
   %116 = sext i8 %115 to i32
   %117 = add nsw i32 %.0157209.i, %116
@@ -733,9 +733,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
 
 120:                                              ; preds = %93
   %121 = load i32, ptr %2, align 4
-  %122 = getelementptr inbounds i8, ptr %2, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %2, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %3, 0
   br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -751,7 +751,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %.0155201.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %.1156.i, %142 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %142 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %143, %142 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %128 = load i8, ptr %127, align 1
   %.not194.i = icmp eq i8 %128, 0
   br i1 %.not194.i, label %142, label %129
@@ -760,11 +760,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %130 = load i8, ptr %.4185198.i, align 1
   %131 = sext i8 %130 to i32
   %132 = add nsw i32 %.0155201.i, %131
-  %133 = getelementptr inbounds i8, ptr %.4185198.i, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 1
   %134 = load i8, ptr %133, align 1
   %135 = sext i8 %134 to i32
   %136 = add nsw i32 %.0153202.i, %135
-  %137 = getelementptr inbounds i8, ptr %.4185198.i, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 2
   %138 = load i8, ptr %137, align 1
   %139 = sext i8 %138 to i32
   %140 = add nsw i32 %.0152203.i, %139
@@ -777,7 +777,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
   %.1154.i = phi i32 [ %136, %129 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %140, %129 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %143 = getelementptr inbounds i8, ptr %.4185198.i, i64 3
+  %143 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 3
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !22
 
@@ -794,7 +794,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %145 = load i8, ptr %144, align 1
   %.not193.i = icmp ne i8 %145, 0
   %146 = zext i1 %.not193.i to i32
@@ -805,7 +805,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL5sum8sEPKaPKhPiii(ptr nocaptur
 
 _ZN2cv12cpu_baselineL4sum_IaiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8
   %.not.i6 = icmp eq i32 %148, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %149
@@ -869,7 +869,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
 
 19:                                               ; preds = %7
   %20 = load i32, ptr %2, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph240.i, label %._crit_edge241.i
@@ -886,7 +886,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %26 = load i16, ptr %.1182235.i, align 2
   %27 = zext i16 %26 to i32
   %28 = add nsw i32 %.0172237.i, %27
-  %29 = getelementptr inbounds i8, ptr %.1182235.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = add nsw i32 %.0171238.i, %31
@@ -905,9 +905,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
 
 35:                                               ; preds = %7
   %36 = load i32, ptr %2, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %.lr.ph229.i, label %._crit_edge230.i
@@ -925,11 +925,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %44 = load i16, ptr %.2183223.i, align 2
   %45 = zext i16 %44 to i32
   %46 = add nsw i32 %.0170225.i, %45
-  %47 = getelementptr inbounds i8, ptr %.2183223.i, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = add nsw i32 %.0169226.i, %49
-  %51 = getelementptr inbounds i8, ptr %.2183223.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 4
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
   %54 = add nsw i32 %.0168227.i, %53
@@ -989,15 +989,15 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %75 = load i16, ptr %.3184253.i, align 2
   %76 = zext i16 %75 to i32
   %77 = add nsw i32 %.0167255.i, %76
-  %78 = getelementptr inbounds i8, ptr %.3184253.i, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 2
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
   %81 = add nsw i32 %.0166256.i, %80
-  %82 = getelementptr inbounds i8, ptr %.3184253.i, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 4
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
   %85 = add nsw i32 %.0165257.i, %84
-  %86 = getelementptr inbounds i8, ptr %.3184253.i, i64 6
+  %86 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 6
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = add nsw i32 %.0164258.i, %88
@@ -1044,17 +1044,17 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %105 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %105 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %106, %105 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %98 = load i8, ptr %97, align 1
   %.not193.us.i = icmp eq i8 %98, 0
   br i1 %.not193.us.i, label %105, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %99 = getelementptr inbounds i16, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %99 = getelementptr inbounds nuw i16, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i32
-  %102 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv297.i
+  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv297.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %101
   store i32 %104, ptr %102, align 4
@@ -1065,7 +1065,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
 105:                                              ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %107, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %106 = getelementptr inbounds i16, ptr %.5186218.us.i, i64 %96
+  %106 = getelementptr inbounds nuw i16, ptr %.5186218.us.i, i64 %96
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_ItiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !29
 
@@ -1086,13 +1086,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %119 ]
   %.0157209.i = phi i32 [ %109, %.lr.ph211.preheader.i ], [ %.1158.i, %119 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %119 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %112 = load i8, ptr %111, align 1
   %.not195.i = icmp eq i8 %112, 0
   br i1 %.not195.i, label %119, label %113
 
 113:                                              ; preds = %.lr.ph211.i
-  %114 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv287.i
+  %114 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv287.i
   %115 = load i16, ptr %114, align 2
   %116 = zext i16 %115 to i32
   %117 = add nsw i32 %.0157209.i, %116
@@ -1114,9 +1114,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
 
 120:                                              ; preds = %93
   %121 = load i32, ptr %2, align 4
-  %122 = getelementptr inbounds i8, ptr %2, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %2, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %3, 0
   br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1132,7 +1132,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %.0155201.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %.1156.i, %142 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %142 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %143, %142 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %128 = load i8, ptr %127, align 1
   %.not194.i = icmp eq i8 %128, 0
   br i1 %.not194.i, label %142, label %129
@@ -1141,11 +1141,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %130 = load i16, ptr %.4185198.i, align 2
   %131 = zext i16 %130 to i32
   %132 = add nsw i32 %.0155201.i, %131
-  %133 = getelementptr inbounds i8, ptr %.4185198.i, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 2
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
   %136 = add nsw i32 %.0153202.i, %135
-  %137 = getelementptr inbounds i8, ptr %.4185198.i, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 4
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
   %140 = add nsw i32 %.0152203.i, %139
@@ -1158,7 +1158,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
   %.1154.i = phi i32 [ %136, %129 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %140, %129 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %143 = getelementptr inbounds i8, ptr %.4185198.i, i64 6
+  %143 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 6
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
@@ -1175,7 +1175,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %145 = load i8, ptr %144, align 1
   %.not193.i = icmp ne i8 %145, 0
   %146 = zext i1 %.not193.i to i32
@@ -1186,7 +1186,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16uEPKtPKhPiii(ptr nocaptu
 
 _ZN2cv12cpu_baselineL4sum_ItiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8
   %.not.i6 = icmp eq i32 %148, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %149
@@ -1250,7 +1250,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
 
 19:                                               ; preds = %7
   %20 = load i32, ptr %2, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph240.i, label %._crit_edge241.i
@@ -1267,7 +1267,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %26 = load i16, ptr %.1182235.i, align 2
   %27 = sext i16 %26 to i32
   %28 = add nsw i32 %.0172237.i, %27
-  %29 = getelementptr inbounds i8, ptr %.1182235.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
   %32 = add nsw i32 %.0171238.i, %31
@@ -1286,9 +1286,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
 
 35:                                               ; preds = %7
   %36 = load i32, ptr %2, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %.lr.ph229.i, label %._crit_edge230.i
@@ -1306,11 +1306,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %44 = load i16, ptr %.2183223.i, align 2
   %45 = sext i16 %44 to i32
   %46 = add nsw i32 %.0170225.i, %45
-  %47 = getelementptr inbounds i8, ptr %.2183223.i, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 2
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %.0169226.i, %49
-  %51 = getelementptr inbounds i8, ptr %.2183223.i, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 4
   %52 = load i16, ptr %51, align 2
   %53 = sext i16 %52 to i32
   %54 = add nsw i32 %.0168227.i, %53
@@ -1370,15 +1370,15 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %75 = load i16, ptr %.3184253.i, align 2
   %76 = sext i16 %75 to i32
   %77 = add nsw i32 %.0167255.i, %76
-  %78 = getelementptr inbounds i8, ptr %.3184253.i, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 2
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %79 to i32
   %81 = add nsw i32 %.0166256.i, %80
-  %82 = getelementptr inbounds i8, ptr %.3184253.i, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 4
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   %85 = add nsw i32 %.0165257.i, %84
-  %86 = getelementptr inbounds i8, ptr %.3184253.i, i64 6
+  %86 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 6
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i32
   %89 = add nsw i32 %.0164258.i, %88
@@ -1425,17 +1425,17 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %105 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %105 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %106, %105 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %98 = load i8, ptr %97, align 1
   %.not193.us.i = icmp eq i8 %98, 0
   br i1 %.not193.us.i, label %105, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %99 = getelementptr inbounds i16, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %99 = getelementptr inbounds nuw i16, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %100 = load i16, ptr %99, align 2
   %101 = sext i16 %100 to i32
-  %102 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv297.i
+  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv297.i
   %103 = load i32, ptr %102, align 4
   %104 = add nsw i32 %103, %101
   store i32 %104, ptr %102, align 4
@@ -1446,7 +1446,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
 105:                                              ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %107, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %106 = getelementptr inbounds i16, ptr %.5186218.us.i, i64 %96
+  %106 = getelementptr inbounds nuw i16, ptr %.5186218.us.i, i64 %96
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_IsiEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !38
 
@@ -1467,13 +1467,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %119 ]
   %.0157209.i = phi i32 [ %109, %.lr.ph211.preheader.i ], [ %.1158.i, %119 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %119 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %112 = load i8, ptr %111, align 1
   %.not195.i = icmp eq i8 %112, 0
   br i1 %.not195.i, label %119, label %113
 
 113:                                              ; preds = %.lr.ph211.i
-  %114 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv287.i
+  %114 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv287.i
   %115 = load i16, ptr %114, align 2
   %116 = sext i16 %115 to i32
   %117 = add nsw i32 %.0157209.i, %116
@@ -1495,9 +1495,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
 
 120:                                              ; preds = %93
   %121 = load i32, ptr %2, align 4
-  %122 = getelementptr inbounds i8, ptr %2, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %2, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %3, 0
   br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1513,7 +1513,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %.0155201.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %.1156.i, %142 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %142 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %143, %142 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %128 = load i8, ptr %127, align 1
   %.not194.i = icmp eq i8 %128, 0
   br i1 %.not194.i, label %142, label %129
@@ -1522,11 +1522,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %130 = load i16, ptr %.4185198.i, align 2
   %131 = sext i16 %130 to i32
   %132 = add nsw i32 %.0155201.i, %131
-  %133 = getelementptr inbounds i8, ptr %.4185198.i, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 2
   %134 = load i16, ptr %133, align 2
   %135 = sext i16 %134 to i32
   %136 = add nsw i32 %.0153202.i, %135
-  %137 = getelementptr inbounds i8, ptr %.4185198.i, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 4
   %138 = load i16, ptr %137, align 2
   %139 = sext i16 %138 to i32
   %140 = add nsw i32 %.0152203.i, %139
@@ -1539,7 +1539,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
   %.1154.i = phi i32 [ %136, %129 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi i32 [ %140, %129 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %143 = getelementptr inbounds i8, ptr %.4185198.i, i64 6
+  %143 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 6
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
@@ -1556,7 +1556,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %145 = load i8, ptr %144, align 1
   %.not193.i = icmp ne i8 %145, 0
   %146 = zext i1 %.not193.i to i32
@@ -1567,7 +1567,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum16sEPKsPKhPiii(ptr nocaptu
 
 _ZN2cv12cpu_baselineL4sum_IsiEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8
   %.not.i6 = icmp eq i32 %148, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %149
@@ -1631,7 +1631,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
 
 19:                                               ; preds = %7
   %20 = load double, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load double, ptr %21, align 8
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph240.i, label %._crit_edge241.i
@@ -1648,7 +1648,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %26 = load i32, ptr %.1182235.i, align 4
   %27 = sitofp i32 %26 to double
   %28 = fadd double %.0172237.i, %27
-  %29 = getelementptr inbounds i8, ptr %.1182235.i, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sitofp i32 %30 to double
   %32 = fadd double %.0171238.i, %31
@@ -1667,9 +1667,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
 
 35:                                               ; preds = %7
   %36 = load double, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load double, ptr %39, align 8
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %.lr.ph229.i, label %._crit_edge230.i
@@ -1687,11 +1687,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %44 = load i32, ptr %.2183223.i, align 4
   %45 = sitofp i32 %44 to double
   %46 = fadd double %.0170225.i, %45
-  %47 = getelementptr inbounds i8, ptr %.2183223.i, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = sitofp i32 %48 to double
   %50 = fadd double %.0169226.i, %49
-  %51 = getelementptr inbounds i8, ptr %.2183223.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = sitofp i32 %52 to double
   %54 = fadd double %.0168227.i, %53
@@ -1751,15 +1751,15 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %75 = load i32, ptr %.3184253.i, align 4
   %76 = sitofp i32 %75 to double
   %77 = fadd double %.0167255.i, %76
-  %78 = getelementptr inbounds i8, ptr %.3184253.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = sitofp i32 %79 to double
   %81 = fadd double %.0166256.i, %80
-  %82 = getelementptr inbounds i8, ptr %.3184253.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 8
   %83 = load i32, ptr %82, align 4
   %84 = sitofp i32 %83 to double
   %85 = fadd double %.0165257.i, %84
-  %86 = getelementptr inbounds i8, ptr %.3184253.i, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = sitofp i32 %87 to double
   %89 = fadd double %.0164258.i, %88
@@ -1806,17 +1806,17 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %105 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %105 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %106, %105 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %98 = load i8, ptr %97, align 1
   %.not193.us.i = icmp eq i8 %98, 0
   br i1 %.not193.us.i, label %105, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %99 = getelementptr inbounds i32, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %99 = getelementptr inbounds nuw i32, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %100 = load i32, ptr %99, align 4
   %101 = sitofp i32 %100 to double
-  %102 = getelementptr inbounds double, ptr %2, i64 %indvars.iv297.i
+  %102 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv297.i
   %103 = load double, ptr %102, align 8
   %104 = fadd double %103, %101
   store double %104, ptr %102, align 8
@@ -1827,7 +1827,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
 105:                                              ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %107, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %106 = getelementptr inbounds i32, ptr %.5186218.us.i, i64 %96
+  %106 = getelementptr inbounds nuw i32, ptr %.5186218.us.i, i64 %96
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_IidEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !47
 
@@ -1848,13 +1848,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %119 ]
   %.0157209.i = phi double [ %109, %.lr.ph211.preheader.i ], [ %.1158.i, %119 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %119 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %112 = load i8, ptr %111, align 1
   %.not195.i = icmp eq i8 %112, 0
   br i1 %.not195.i, label %119, label %113
 
 113:                                              ; preds = %.lr.ph211.i
-  %114 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv287.i
+  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv287.i
   %115 = load i32, ptr %114, align 4
   %116 = sitofp i32 %115 to double
   %117 = fadd double %.0157209.i, %116
@@ -1876,9 +1876,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
 
 120:                                              ; preds = %93
   %121 = load double, ptr %2, align 8
-  %122 = getelementptr inbounds i8, ptr %2, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %123 = load double, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %2, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %125 = load double, ptr %124, align 8
   %126 = icmp sgt i32 %3, 0
   br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1894,7 +1894,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %.0155201.i = phi double [ %121, %.lr.ph.preheader.i ], [ %.1156.i, %142 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %142 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %143, %142 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %128 = load i8, ptr %127, align 1
   %.not194.i = icmp eq i8 %128, 0
   br i1 %.not194.i, label %142, label %129
@@ -1903,11 +1903,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %130 = load i32, ptr %.4185198.i, align 4
   %131 = sitofp i32 %130 to double
   %132 = fadd double %.0155201.i, %131
-  %133 = getelementptr inbounds i8, ptr %.4185198.i, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = sitofp i32 %134 to double
   %136 = fadd double %.0153202.i, %135
-  %137 = getelementptr inbounds i8, ptr %.4185198.i, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 8
   %138 = load i32, ptr %137, align 4
   %139 = sitofp i32 %138 to double
   %140 = fadd double %.0152203.i, %139
@@ -1920,7 +1920,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
   %.1154.i = phi double [ %136, %129 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi double [ %140, %129 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %143 = getelementptr inbounds i8, ptr %.4185198.i, i64 12
+  %143 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 12
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
 
@@ -1937,7 +1937,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %145 = load i8, ptr %144, align 1
   %.not193.i = icmp ne i8 %145, 0
   %146 = zext i1 %.not193.i to i32
@@ -1948,7 +1948,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32sEPKiPKhPdii(ptr nocaptu
 
 _ZN2cv12cpu_baselineL4sum_IidEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8
   %.not.i6 = icmp eq i32 %148, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %149
@@ -2012,7 +2012,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
 
 19:                                               ; preds = %7
   %20 = load double, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load double, ptr %21, align 8
   %23 = icmp sgt i32 %3, 0
   br i1 %23, label %.lr.ph240.i, label %._crit_edge241.i
@@ -2029,7 +2029,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %26 = load float, ptr %.1182235.i, align 4
   %27 = fpext float %26 to double
   %28 = fadd double %.0172237.i, %27
-  %29 = getelementptr inbounds i8, ptr %.1182235.i, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 4
   %30 = load float, ptr %29, align 4
   %31 = fpext float %30 to double
   %32 = fadd double %.0171238.i, %31
@@ -2048,9 +2048,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
 
 35:                                               ; preds = %7
   %36 = load double, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load double, ptr %39, align 8
   %41 = icmp sgt i32 %3, 0
   br i1 %41, label %.lr.ph229.i, label %._crit_edge230.i
@@ -2068,11 +2068,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %44 = load float, ptr %.2183223.i, align 4
   %45 = fpext float %44 to double
   %46 = fadd double %.0170225.i, %45
-  %47 = getelementptr inbounds i8, ptr %.2183223.i, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 4
   %48 = load float, ptr %47, align 4
   %49 = fpext float %48 to double
   %50 = fadd double %.0169226.i, %49
-  %51 = getelementptr inbounds i8, ptr %.2183223.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 8
   %52 = load float, ptr %51, align 4
   %53 = fpext float %52 to double
   %54 = fadd double %.0168227.i, %53
@@ -2132,15 +2132,15 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %75 = load float, ptr %.3184253.i, align 4
   %76 = fpext float %75 to double
   %77 = fadd double %.0167255.i, %76
-  %78 = getelementptr inbounds i8, ptr %.3184253.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 4
   %79 = load float, ptr %78, align 4
   %80 = fpext float %79 to double
   %81 = fadd double %.0166256.i, %80
-  %82 = getelementptr inbounds i8, ptr %.3184253.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 8
   %83 = load float, ptr %82, align 4
   %84 = fpext float %83 to double
   %85 = fadd double %.0165257.i, %84
-  %86 = getelementptr inbounds i8, ptr %.3184253.i, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 12
   %87 = load float, ptr %86, align 4
   %88 = fpext float %87 to double
   %89 = fadd double %.0164258.i, %88
@@ -2187,17 +2187,17 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %105 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %105 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %106, %105 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %98 = load i8, ptr %97, align 1
   %.not193.us.i = icmp eq i8 %98, 0
   br i1 %.not193.us.i, label %105, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %99 = getelementptr inbounds float, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %99 = getelementptr inbounds nuw float, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %100 = load float, ptr %99, align 4
   %101 = fpext float %100 to double
-  %102 = getelementptr inbounds double, ptr %2, i64 %indvars.iv297.i
+  %102 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv297.i
   %103 = load double, ptr %102, align 8
   %104 = fadd double %103, %101
   store double %104, ptr %102, align 8
@@ -2208,7 +2208,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
 105:                                              ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %107, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %106 = getelementptr inbounds float, ptr %.5186218.us.i, i64 %96
+  %106 = getelementptr inbounds nuw float, ptr %.5186218.us.i, i64 %96
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_IfdEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !56
 
@@ -2229,13 +2229,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %119 ]
   %.0157209.i = phi double [ %109, %.lr.ph211.preheader.i ], [ %.1158.i, %119 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %119 ]
-  %111 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %112 = load i8, ptr %111, align 1
   %.not195.i = icmp eq i8 %112, 0
   br i1 %.not195.i, label %119, label %113
 
 113:                                              ; preds = %.lr.ph211.i
-  %114 = getelementptr inbounds float, ptr %0, i64 %indvars.iv287.i
+  %114 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv287.i
   %115 = load float, ptr %114, align 4
   %116 = fpext float %115 to double
   %117 = fadd double %.0157209.i, %116
@@ -2257,9 +2257,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
 
 120:                                              ; preds = %93
   %121 = load double, ptr %2, align 8
-  %122 = getelementptr inbounds i8, ptr %2, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %123 = load double, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %2, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %125 = load double, ptr %124, align 8
   %126 = icmp sgt i32 %3, 0
   br i1 %126, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -2275,7 +2275,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %.0155201.i = phi double [ %121, %.lr.ph.preheader.i ], [ %.1156.i, %142 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %142 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %143, %142 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %128 = load i8, ptr %127, align 1
   %.not194.i = icmp eq i8 %128, 0
   br i1 %.not194.i, label %142, label %129
@@ -2284,11 +2284,11 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %130 = load float, ptr %.4185198.i, align 4
   %131 = fpext float %130 to double
   %132 = fadd double %.0155201.i, %131
-  %133 = getelementptr inbounds i8, ptr %.4185198.i, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 4
   %134 = load float, ptr %133, align 4
   %135 = fpext float %134 to double
   %136 = fadd double %.0153202.i, %135
-  %137 = getelementptr inbounds i8, ptr %.4185198.i, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 8
   %138 = load float, ptr %137, align 4
   %139 = fpext float %138 to double
   %140 = fadd double %.0152203.i, %139
@@ -2301,7 +2301,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
   %.1154.i = phi double [ %136, %129 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi double [ %140, %129 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %143 = getelementptr inbounds i8, ptr %.4185198.i, i64 12
+  %143 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 12
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !58
 
@@ -2318,7 +2318,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %145 = load i8, ptr %144, align 1
   %.not193.i = icmp ne i8 %145, 0
   %146 = zext i1 %.not193.i to i32
@@ -2329,7 +2329,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum32fEPKfPKhPdii(ptr nocaptu
 
 _ZN2cv12cpu_baselineL4sum_IfdEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %105, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %57
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %57 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %105 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %148 = load i32, ptr %147, align 8
   %.not.i6 = icmp eq i32 %148, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %149
@@ -2392,7 +2392,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 
 18:                                               ; preds = %7
   %19 = load double, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load double, ptr %20, align 8
   %22 = icmp sgt i32 %3, 0
   br i1 %22, label %.lr.ph240.i, label %._crit_edge241.i
@@ -2408,7 +2408,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %.1182235.i = phi ptr [ %0, %.lr.ph240.i ], [ %31, %24 ]
   %25 = load double, ptr %.1182235.i, align 8
   %26 = fadd double %.0172237.i, %25
-  %27 = getelementptr inbounds i8, ptr %.1182235.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.1182235.i, i64 8
   %28 = load double, ptr %27, align 8
   %29 = fadd double %.0171238.i, %28
   %30 = add nuw nsw i32 %.2177236.i, 1
@@ -2426,9 +2426,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 
 32:                                               ; preds = %7
   %33 = load double, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load double, ptr %36, align 8
   %38 = icmp sgt i32 %3, 0
   br i1 %38, label %.lr.ph229.i, label %._crit_edge230.i
@@ -2445,10 +2445,10 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %.2183223.i = phi ptr [ %0, %.lr.ph229.i ], [ %50, %40 ]
   %41 = load double, ptr %.2183223.i, align 8
   %42 = fadd double %.0170225.i, %41
-  %43 = getelementptr inbounds i8, ptr %.2183223.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 8
   %44 = load double, ptr %43, align 8
   %45 = fadd double %.0169226.i, %44
-  %46 = getelementptr inbounds i8, ptr %.2183223.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.2183223.i, i64 16
   %47 = load double, ptr %46, align 8
   %48 = fadd double %.0168227.i, %47
   %49 = add nuw nsw i32 %.3178224.i, 1
@@ -2506,13 +2506,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %.3184253.i = phi ptr [ %81, %.lr.ph260.i ], [ %68, %.lr.ph260.preheader.i ]
   %69 = load double, ptr %.3184253.i, align 8
   %70 = fadd double %.0167255.i, %69
-  %71 = getelementptr inbounds i8, ptr %.3184253.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 8
   %72 = load double, ptr %71, align 8
   %73 = fadd double %.0166256.i, %72
-  %74 = getelementptr inbounds i8, ptr %.3184253.i, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 16
   %75 = load double, ptr %74, align 8
   %76 = fadd double %.0165257.i, %75
-  %77 = getelementptr inbounds i8, ptr %.3184253.i, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.3184253.i, i64 24
   %78 = load double, ptr %77, align 8
   %79 = fadd double %.0164258.i, %78
   %80 = add nsw i32 %.5180254.i, 1
@@ -2558,16 +2558,16 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %indvars.iv302.i = phi i64 [ 0, %.lr.ph221.split.us.preheader.i ], [ %indvars.iv.next303.i, %94 ]
   %.5220.us.i = phi i32 [ 0, %.lr.ph221.split.us.preheader.i ], [ %.6.us.i, %94 ]
   %.5186218.us.i = phi ptr [ %0, %.lr.ph221.split.us.preheader.i ], [ %95, %94 ]
-  %87 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv302.i
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv302.i
   %88 = load i8, ptr %87, align 1
   %.not193.us.i = icmp eq i8 %88, 0
   br i1 %.not193.us.i, label %94, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph221.split.us.i, %.preheader.us.i
   %indvars.iv297.i = phi i64 [ %indvars.iv.next298.i, %.preheader.us.i ], [ 0, %.lr.ph221.split.us.i ]
-  %89 = getelementptr inbounds double, ptr %.5186218.us.i, i64 %indvars.iv297.i
+  %89 = getelementptr inbounds nuw double, ptr %.5186218.us.i, i64 %indvars.iv297.i
   %90 = load double, ptr %89, align 8
-  %91 = getelementptr inbounds double, ptr %2, i64 %indvars.iv297.i
+  %91 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv297.i
   %92 = load double, ptr %91, align 8
   %93 = fadd double %90, %92
   store double %93, ptr %91, align 8
@@ -2578,7 +2578,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 94:                                               ; preds = %._crit_edge217.us.i, %.lr.ph221.split.us.i
   %.6.us.i = phi i32 [ %96, %._crit_edge217.us.i ], [ %.5220.us.i, %.lr.ph221.split.us.i ]
   %indvars.iv.next303.i = add nuw nsw i64 %indvars.iv302.i, 1
-  %95 = getelementptr inbounds double, ptr %.5186218.us.i, i64 %86
+  %95 = getelementptr inbounds nuw double, ptr %.5186218.us.i, i64 %86
   %exitcond306.not.i = icmp eq i64 %indvars.iv.next303.i, %wide.trip.count305.i
   br i1 %exitcond306.not.i, label %_ZN2cv12cpu_baselineL4sum_IddEEiPKT_PKhPT0_ii.exit, label %.lr.ph221.split.us.i, !llvm.loop !65
 
@@ -2599,13 +2599,13 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %indvars.iv287.i = phi i64 [ 0, %.lr.ph211.preheader.i ], [ %indvars.iv.next288.i, %107 ]
   %.0157209.i = phi double [ %98, %.lr.ph211.preheader.i ], [ %.1158.i, %107 ]
   %.0159208.i = phi i32 [ 0, %.lr.ph211.preheader.i ], [ %.1160.i, %107 ]
-  %100 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv287.i
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv287.i
   %101 = load i8, ptr %100, align 1
   %.not195.i = icmp eq i8 %101, 0
   br i1 %.not195.i, label %107, label %102
 
 102:                                              ; preds = %.lr.ph211.i
-  %103 = getelementptr inbounds double, ptr %0, i64 %indvars.iv287.i
+  %103 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv287.i
   %104 = load double, ptr %103, align 8
   %105 = fadd double %.0157209.i, %104
   %106 = add nsw i32 %.0159208.i, 1
@@ -2626,9 +2626,9 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 
 108:                                              ; preds = %83
   %109 = load double, ptr %2, align 8
-  %110 = getelementptr inbounds i8, ptr %2, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %111 = load double, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %2, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %113 = load double, ptr %112, align 8
   %114 = icmp sgt i32 %3, 0
   br i1 %114, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -2644,7 +2644,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %.0155201.i = phi double [ %109, %.lr.ph.preheader.i ], [ %.1156.i, %127 ]
   %.3200.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.4.i, %127 ]
   %.4185198.i = phi ptr [ %0, %.lr.ph.preheader.i ], [ %128, %127 ]
-  %115 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %116 = load i8, ptr %115, align 1
   %.not194.i = icmp eq i8 %116, 0
   br i1 %.not194.i, label %127, label %117
@@ -2652,10 +2652,10 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 117:                                              ; preds = %.lr.ph.i
   %118 = load double, ptr %.4185198.i, align 8
   %119 = fadd double %.0155201.i, %118
-  %120 = getelementptr inbounds i8, ptr %.4185198.i, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 8
   %121 = load double, ptr %120, align 8
   %122 = fadd double %.0153202.i, %121
-  %123 = getelementptr inbounds i8, ptr %.4185198.i, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 16
   %124 = load double, ptr %123, align 8
   %125 = fadd double %.0152203.i, %124
   %126 = add nsw i32 %.3200.i, 1
@@ -2667,7 +2667,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
   %.1154.i = phi double [ %122, %117 ], [ %.0153202.i, %.lr.ph.i ]
   %.1.i = phi double [ %125, %117 ], [ %.0152203.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %128 = getelementptr inbounds i8, ptr %.4185198.i, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %.4185198.i, i64 24
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !67
 
@@ -2684,7 +2684,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 .lr.ph221.split.i:                                ; preds = %.lr.ph221.i, %.lr.ph221.split.i
   %indvars.iv292.i = phi i64 [ %indvars.iv.next293.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
   %.5220.i = phi i32 [ %spec.select.i, %.lr.ph221.split.i ], [ 0, %.lr.ph221.i ]
-  %129 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv292.i
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv292.i
   %130 = load i8, ptr %129, align 1
   %.not193.i = icmp ne i8 %130, 0
   %131 = zext i1 %.not193.i to i32
@@ -2695,7 +2695,7 @@ define internal noundef i32 @_ZN2cv12cpu_baselineL6sum64fEPKdPKhPdii(ptr nocaptu
 
 _ZN2cv12cpu_baselineL4sum_IddEEiPKT_PKhPT0_ii.exit: ; preds = %.lr.ph221.split.i, %94, %._crit_edge261.i, %._crit_edge.i, %._crit_edge212.i, %.preheader196.i, %51
   %.0187.i = phi i32 [ %.0159.lcssa.i, %._crit_edge212.i ], [ %.3.lcssa.i, %._crit_edge.i ], [ %3, %51 ], [ 0, %.preheader196.i ], [ %3, %._crit_edge261.i ], [ %.6.us.i, %94 ], [ %spec.select.i, %.lr.ph221.split.i ]
-  %132 = getelementptr inbounds i8, ptr %6, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %133 = load i32, ptr %132, align 8
   %.not.i6 = icmp eq i32 %133, 0
   br i1 %.not.i6, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %134
@@ -2722,7 +2722,7 @@ define hidden noundef ptr @_ZN2cv10getSumFuncEi(i32 noundef %0) local_unnamed_ad
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %8
@@ -2746,7 +2746,7 @@ declare void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -2786,7 +2786,7 @@ define void @_ZN2cv3sumERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable 
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.noexc
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !noalias !68
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %16)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %35
@@ -2807,9 +2807,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 
 .noexc70:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv12cpu_baseline10getSumFuncEiE6sumTab, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load i32, ptr %26, align 8
   %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %32, label %28
@@ -2872,7 +2872,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 
 47:                                               ; preds = %32
   store ptr %5, ptr %8, align 16
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %48, align 8
   store i64 0, ptr %9, align 8
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef -1)
@@ -2880,13 +2880,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %14, %17
 
 49:                                               ; preds = %47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %50 = getelementptr inbounds i8, ptr %10, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %51 = load i64, ptr %50, align 8
   %.fr = freeze i64 %51
   %52 = trunc i64 %.fr to i32
-  %53 = getelementptr inbounds i8, ptr %11, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %53, ptr %11, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 264, ptr %54, align 8
   %55 = icmp samesign ult i32 %22, 4
   br i1 %55, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit, label %_ZNK2cv3Mat8elemSizeEv.exit.thread
@@ -2902,7 +2902,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %49
   %61 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, i8 0, i64 %61, i1 false)
   %62 = call i32 @llvm.umin.i32(i32 %57, i32 %52)
-  %63 = getelementptr inbounds i8, ptr %5, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %71, label %_ZNK2cv3Mat8elemSizeEv.exit
@@ -2932,7 +2932,7 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %49
   br label %_ZN2cv10AutoBufferIiLm264EED2Ev.exit
 
 71:                                               ; preds = %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit
-  %72 = getelementptr inbounds i8, ptr %5, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i32 %64 to i64
   %75 = getelementptr i64, ptr %73, i64 %74
@@ -2942,12 +2942,12 @@ _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %49
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %71, %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit
   %.049 = phi i64 [ 0, %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit ], [ %77, %71 ]
-  %78 = getelementptr inbounds i8, ptr %10, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %79 = icmp sgt i32 %52, 0
   br i1 %79, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us.preheader, label %_ZNK2cv3Mat8elemSizeEv.exit.split.preheader
 
 _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %49
-  %80 = getelementptr inbounds i8, ptr %10, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %81 = icmp sgt i32 %52, 0
   br i1 %81, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.preheader
 
@@ -2999,10 +2999,10 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us:    ; preds = %_ZNK2cv3Mat8elemSiz
 
 95:                                               ; preds = %.preheader140, %95
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %.preheader140 ]
-  %96 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
   %97 = load i32, ptr %96, align 4
   %98 = sitofp i32 %97 to double
-  %99 = getelementptr inbounds [4 x double], ptr %0, i64 0, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x double], ptr %0, i64 0, i64 %indvars.iv
   %100 = load double, ptr %99, align 8
   %101 = fadd double %100, %98
   store double %101, ptr %99, align 8
@@ -3093,7 +3093,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
 
 _ZN2cv10AutoBufferIiLm264EED2Ev.exit78:           ; preds = %.split.us, %123
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #13
-  %124 = getelementptr inbounds i8, ptr %4, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %125 = load i32, ptr %124, align 8
   %.not.i79 = icmp eq i32 %125, 0
   br i1 %.not.i79, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %126

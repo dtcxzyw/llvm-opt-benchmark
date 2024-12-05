@@ -203,7 +203,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 336
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 336
   %26 = load ptr, ptr %25, align 8
   invoke void %26(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.250") align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %15)
           to label %27 unwind label %21
@@ -289,7 +289,7 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture
           to label %64 unwind label %.loopexit32.i
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.sroa.028.034.i, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.028.034.i, i64 64
   %.not31.i = icmp eq ptr %65, %58
   br i1 %.not31.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -346,7 +346,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %85, %81
 
 89:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i
   %90 = load ptr, ptr %15, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 344
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 344
   %92 = load ptr, ptr %91, align 8
   %93 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %94 unwind label %120
@@ -370,7 +370,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22.i: ; preds = %98, %94
   br i1 %.not.i.i23.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i, label %103
 
 103:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22.i
-  %104 = getelementptr inbounds i8, ptr %102, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %105 = load ptr, ptr %104, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %102, ptr noundef %105)
           to label %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i.i.i unwind label %106
@@ -440,7 +440,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.i: ; preds = %125, %120
 .lr.ph.i.i.i.i.i:                                 ; preds = %129, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i.i.i ], [ %130, %129 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdCommandDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i.i) #19
-  %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 64
+  %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i = icmp eq ptr %132, %131
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdCommandDescriptorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
@@ -699,7 +699,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDic
   br i1 %.not.i, label %_ZNSt10unique_ptrISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEESt14default_deleteISF_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N32pxrInternal_v0_24__pxrReserved__7VtValueEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %5)
           to label %_ZNKSt14default_deleteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__7VtValueESt4lessIvESaISt4pairIKS6_S8_EEEEclEPSF_.exit.i unwind label %6
@@ -731,7 +731,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdCommandDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i) #19
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 64
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__19HdCommandDescriptorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !5
 
@@ -1100,7 +1100,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrRes
   %7 = load i8, ptr %4, align 1
   %8 = icmp eq i8 %7, 42
   %.idx.i.i.i.i = zext i1 %8 to i64
-  %9 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(53) @_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr noundef nonnull dereferenceable(1) %9) #19
   %11 = icmp eq i32 %10, 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE9HoldsTypeERKS7_RKSt9type_info.exit
@@ -1281,7 +1281,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i: ; preds = %1
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22HdCommandArgDescriptorEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__22HdCommandArgDescriptorEEvPT_.exit.i.i.i.i: ; preds = %23, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.i.i.i.i.i.i
-  %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %27, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__22HdCommandArgDescriptorES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !14
 

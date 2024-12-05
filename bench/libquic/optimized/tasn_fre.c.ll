@@ -19,7 +19,7 @@ define internal fastcc void @asn1_item_combine_free(ptr noundef %pval, ptr nound
 entry:
   %vtmp.i73 = alloca ptr, align 8
   %vtmp.i = alloca ptr, align 8
-  %funcs = getelementptr inbounds i8, ptr %it, i64 32
+  %funcs = getelementptr inbounds nuw i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool.not = icmp eq ptr %pval, null
   br i1 %tobool.not, label %sw.epilog, label %if.end
@@ -39,7 +39,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool5.not, label %if.else, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %if.end4
-  %asn1_cb7 = getelementptr inbounds i8, ptr %0, i64 16
+  %asn1_cb7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %asn1_cb7, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.else, label %if.end11
@@ -60,7 +60,7 @@ if.end11:                                         ; preds = %land.lhs.true6, %if
   ]
 
 sw.bb:                                            ; preds = %if.end11
-  %templates = getelementptr inbounds i8, ptr %it, i64 16
+  %templates = getelementptr inbounds nuw i8, ptr %it, i64 16
   %4 = load ptr, ptr %templates, align 8
   %tobool14.not = icmp eq ptr %4, null
   br i1 %tobool14.not, label %if.else17, label %if.then15
@@ -79,7 +79,7 @@ if.then.i:                                        ; preds = %if.then15
   br i1 %cmp.i98.not, label %for.end.i, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %if.then.i
-  %item.i = getelementptr inbounds i8, ptr %4, i64 32
+  %item.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -99,7 +99,7 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   br label %ASN1_template_free.exit
 
 if.else.i:                                        ; preds = %if.then15
-  %item2.i = getelementptr inbounds i8, ptr %4, i64 32
+  %item2.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load ptr, ptr %item2.i, align 8
   %9 = trunc i64 %5 to i32
   %conv.i = and i32 %9, 1024
@@ -134,15 +134,15 @@ if.end27:                                         ; preds = %if.then22, %sw.bb20
 
 land.lhs.true31:                                  ; preds = %if.end27
   %conv32 = zext nneg i32 %call28 to i64
-  %tcount = getelementptr inbounds i8, ptr %it, i64 24
+  %tcount = getelementptr inbounds nuw i8, ptr %it, i64 24
   %10 = load i64, ptr %tcount, align 8
   %cmp33 = icmp sgt i64 %10, %conv32
   br i1 %cmp33, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %land.lhs.true31
-  %templates36 = getelementptr inbounds i8, ptr %it, i64 16
+  %templates36 = getelementptr inbounds nuw i8, ptr %it, i64 16
   %11 = load ptr, ptr %templates36, align 8
-  %add.ptr = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %11, i64 %conv32
+  %add.ptr = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %11, i64 %conv32
   %call37 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %pval, ptr noundef %add.ptr) #4
   tail call void @ASN1_template_free(ptr noundef %call37, ptr noundef %add.ptr)
   br label %if.end38
@@ -168,7 +168,7 @@ sw.bb46:                                          ; preds = %if.end11
   br i1 %tobool5.not, label %sw.epilog, label %land.lhs.true49
 
 land.lhs.true49:                                  ; preds = %sw.bb46
-  %asn1_free = getelementptr inbounds i8, ptr %0, i64 8
+  %asn1_free = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %asn1_free, align 8
   %tobool50.not = icmp eq ptr %13, null
   br i1 %tobool50.not, label %sw.epilog, label %if.then51
@@ -182,7 +182,7 @@ sw.bb54:                                          ; preds = %if.end11
   br i1 %tobool5.not, label %sw.epilog, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %sw.bb54
-  %asn1_ex_free = getelementptr inbounds i8, ptr %0, i64 16
+  %asn1_ex_free = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %asn1_ex_free, align 8
   %tobool58.not = icmp eq ptr %15, null
   br i1 %tobool58.not, label %sw.epilog, label %if.then59
@@ -207,15 +207,15 @@ if.then68:                                        ; preds = %if.end66
 
 if.end74:                                         ; preds = %if.then68, %if.end66
   tail call void @asn1_enc_free(ptr noundef nonnull %pval, ptr noundef nonnull %it) #4
-  %tcount76 = getelementptr inbounds i8, ptr %it, i64 24
+  %tcount76 = getelementptr inbounds nuw i8, ptr %it, i64 24
   %16 = load i64, ptr %tcount76, align 8
   %cmp8194 = icmp sgt i64 %16, 0
   br i1 %cmp8194, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end74
-  %templates75 = getelementptr inbounds i8, ptr %it, i64 16
+  %templates75 = getelementptr inbounds nuw i8, ptr %it, i64 16
   %17 = load ptr, ptr %templates75, align 8
-  %add.ptr77 = getelementptr inbounds %struct.ASN1_TEMPLATE_st, ptr %17, i64 %16
+  %add.ptr77 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %17, i64 %16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -241,7 +241,7 @@ if.then.i76:                                      ; preds = %if.end86
   br i1 %cmp.i8091.not, label %for.end.i81, label %for.body.i82.lr.ph
 
 for.body.i82.lr.ph:                               ; preds = %if.then.i76
-  %item.i84 = getelementptr inbounds i8, ptr %call83, i64 32
+  %item.i84 = getelementptr inbounds nuw i8, ptr %call83, i64 32
   br label %for.body.i82
 
 for.body.i82:                                     ; preds = %for.body.i82.lr.ph, %for.body.i82
@@ -261,7 +261,7 @@ for.end.i81:                                      ; preds = %for.body.i82, %if.t
   br label %ASN1_template_free.exit89
 
 if.else.i86:                                      ; preds = %if.end86
-  %item2.i87 = getelementptr inbounds i8, ptr %call83, i64 32
+  %item2.i87 = getelementptr inbounds nuw i8, ptr %call83, i64 32
   %21 = load ptr, ptr %item2.i87, align 8
   %22 = trunc i64 %18 to i32
   %conv.i88 = and i32 %22, 1024
@@ -322,7 +322,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %item = getelementptr inbounds i8, ptr %tt, i64 32
+  %item = getelementptr inbounds nuw i8, ptr %tt, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -342,7 +342,7 @@ for.end:                                          ; preds = %for.body, %if.then
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %item2 = getelementptr inbounds i8, ptr %tt, i64 32
+  %item2 = getelementptr inbounds nuw i8, ptr %tt, i64 32
   %3 = load ptr, ptr %item2, align 8
   %4 = trunc i64 %0 to i32
   %conv = and i32 %4, 1024
@@ -366,13 +366,13 @@ entry:
   br i1 %tobool.not, label %if.then7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %funcs = getelementptr inbounds i8, ptr %it, i64 32
+  %funcs = getelementptr inbounds nuw i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %prim_free = getelementptr inbounds i8, ptr %0, i64 24
+  %prim_free = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %prim_free, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -384,7 +384,7 @@ if.then3:                                         ; preds = %land.lhs.true
 if.then7:                                         ; preds = %entry
   %2 = load ptr, ptr %pval, align 8
   %3 = load i32, ptr %2, align 8
-  %value = getelementptr inbounds i8, ptr %2, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %value, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %return, label %if.end26
@@ -400,7 +400,7 @@ if.then12:                                        ; preds = %if.else
   br i1 %tobool13.not, label %return, label %sw.default
 
 if.else16:                                        ; preds = %if.else
-  %utype17 = getelementptr inbounds i8, ptr %it, i64 8
+  %utype17 = getelementptr inbounds nuw i8, ptr %it, i64 8
   %7 = load i64, ptr %utype17, align 8
   %conv18 = trunc i64 %7 to i32
   %cmp19.not = icmp eq i32 %conv18, 1
@@ -431,7 +431,7 @@ sw.bb27:                                          ; preds = %if.end26
 
 if.then29:                                        ; preds = %if.else16, %sw.bb27
   %pval.addr.03234 = phi ptr [ %pval.addr.0, %sw.bb27 ], [ %pval, %if.else16 ]
-  %size = getelementptr inbounds i8, ptr %it, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %it, i64 40
   %10 = load i64, ptr %size, align 8
   %conv30 = trunc i64 %10 to i32
   store i32 %conv30, ptr %pval.addr.03234, align 4

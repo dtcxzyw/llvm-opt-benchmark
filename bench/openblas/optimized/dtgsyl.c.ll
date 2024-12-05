@@ -768,7 +768,7 @@ define void @dtgsyl_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 .split55:                                         ; preds = %.split55.preheader, %.loopexit36
   %485 = phi i64 [ %483, %.loopexit36 ], [ 1, %.split55.preheader ]
-  %486 = getelementptr inbounds i32, ptr %59, i64 %485
+  %486 = getelementptr inbounds nuw i32, ptr %59, i64 %485
   %487 = load i32, ptr %486, align 4, !tbaa !3
   %488 = getelementptr i32, ptr %20, i64 %485
   %489 = load i32, ptr %488, align 4, !tbaa !3

@@ -18,11 +18,11 @@ define hidden range(i32 0, 2) i32 @av1_alloc_internal_frame_buffers(ptr nocaptur
 5:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %6, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %6, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   tail call void @aom_free(ptr noundef %8) #5
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %9, i64 %indvars.iv.i
   store ptr null, ptr %10, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = load i32, ptr %0, align 8
@@ -63,11 +63,11 @@ define hidden void @av1_free_internal_frame_buffers(ptr nocapture noundef %0) lo
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @aom_free(ptr noundef %8) #5
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %9, i64 %indvars.iv
   store ptr null, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %0, align 8
@@ -102,7 +102,7 @@ define hidden void @av1_zero_unused_internal_frame_buffers(ptr nocapture noundef
   %6 = phi i32 [ %2, %.lr.ph ], [ %17, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %16, label %10
@@ -152,7 +152,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0
 
 9:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %10 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %8, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %8, i64 %indvars.iv, i32 2
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge.loopexit, label %12
@@ -175,7 +175,7 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %.035.lcssa to i64
-  %19 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %21, %1
@@ -186,10 +186,10 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0
   tail call void @aom_free(ptr noundef %24) #5
   %25 = tail call ptr @aom_calloc(i64 noundef 1, i64 noundef %1) #5
   %26 = load ptr, ptr %16, align 8
-  %27 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %26, i64 %18
+  %27 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %26, i64 %18
   store ptr %25, ptr %27, align 8
   %28 = load ptr, ptr %16, align 8
-  %29 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %28, i64 %18
+  %29 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %28, i64 %18
   %30 = load ptr, ptr %29, align 8
   %.not38 = icmp eq ptr %30, null
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -206,19 +206,19 @@ define hidden range(i32 -1, 1) i32 @av1_get_frame_buffer(ptr noundef readonly %0
 
 34:                                               ; preds = %33, %15
   %35 = phi ptr [ %.pre, %33 ], [ %17, %15 ]
-  %36 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %35, i64 %18
+  %36 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %35, i64 %18
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %2, align 8
   %38 = load ptr, ptr %16, align 8
-  %39 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %38, i64 %18, i32 1
+  %39 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %38, i64 %18, i32 1
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %40, ptr %41, align 8
   %42 = load ptr, ptr %16, align 8
-  %43 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %42, i64 %18, i32 2
+  %43 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %42, i64 %18, i32 2
   store i32 1, ptr %43, align 8
   %44 = load ptr, ptr %16, align 8
-  %45 = getelementptr inbounds %struct.InternalFrameBuffer, ptr %44, i64 %18
+  %45 = getelementptr inbounds nuw %struct.InternalFrameBuffer, ptr %44, i64 %18
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %45, ptr %46, align 8
   br label %._crit_edge.thread

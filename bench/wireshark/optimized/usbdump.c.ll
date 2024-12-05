@@ -104,22 +104,22 @@ define internal range(i32 -1, 2) i32 @usbdump_open(ptr nocapture noundef %0, ptr
   %rev = call i16 @llvm.bswap.i16(i16 %37)
   store i16 %rev, ptr %36, align 4
   %38 = load i32, ptr %6, align 4
-  %39 = getelementptr inbounds i8, ptr %36, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %36, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @usbdump_read, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @usbdump_seek_read, ptr %43, align 8
   %44 = load i32, ptr @usbdump_file_type_subtype, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 92, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 148
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %47, align 4
   br label %48
 
@@ -144,7 +144,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @usbdump_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i64 @file_tell(ptr noundef %9) #5
@@ -156,7 +156,7 @@ define internal range(i32 0, 2) i32 @usbdump_read(ptr nocapture noundef readonly
   br i1 %.not, label %25, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i32, ptr %14, align 4
   %.not17 = icmp eq i32 %15, 0
   br i1 %.not17, label %18, label %16
@@ -168,7 +168,7 @@ define internal range(i32 0, 2) i32 @usbdump_read(ptr nocapture noundef readonly
   br label %25
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %8, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %25
@@ -185,7 +185,7 @@ define internal range(i32 0, 2) i32 @usbdump_read(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @usbdump_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %10 = icmp eq i64 %9, -1
@@ -223,9 +223,9 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br i1 %.not, label %82, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i8, ptr %9, align 16
-  %11 = getelementptr inbounds i8, ptr %6, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %10 to i32
   %14 = icmp ugt i8 %10, 18
@@ -238,13 +238,13 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br i1 %.not52, label %82, label %18
 
 18:                                               ; preds = %15, %8
-  %19 = getelementptr inbounds i8, ptr %.96.val, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.96.val, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, %13
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.96.val, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   store i32 1, ptr %23, align 4
   br label %26
 
@@ -256,37 +256,37 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
 26:                                               ; preds = %24, %22
   store i32 0, ptr %1, align 8
   %27 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %28 = getelementptr inbounds i8, ptr %1, i64 232
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %29, align 4
   %30 = load i32, ptr %6, align 16
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = mul i32 %34, 1000
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 10
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
   %40 = shl nuw i32 %39, 16
-  %41 = getelementptr inbounds i8, ptr %6, i64 9
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 8
   %45 = or disjoint i32 %44, %40
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
-  %50 = getelementptr inbounds i8, ptr %1, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 68
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %52, ptr %53, align 4
   %54 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %49, ptr noundef %3, ptr noundef %4) #5
   %.not53 = icmp eq i32 %54, 0
@@ -299,7 +299,7 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %.96.val, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   store i32 1, ptr %60, align 4
   br label %63
 
@@ -331,7 +331,7 @@ define internal fastcc range(i32 0, 2) i32 @usbdump_read_packet(ptr nocapture %.
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %.96.val, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   store i32 1, ptr %79, align 4
   br label %82
 

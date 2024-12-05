@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Java_sun_font_FreetypeFontScaler_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #19
   store ptr %8, ptr @invalidateScalerMID, align 8
@@ -53,12 +53,12 @@ define noundef i64 @Java_sun_font_FreetypeFontScaler_initNativeScaler(ptr nounde
 
 12:                                               ; preds = %7
   store ptr %0, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 60
-  %15 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 %6, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = tail call i32 @FT_Init_FreeType(ptr noundef nonnull %16) #19
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %19, label %18
@@ -112,9 +112,9 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
 37:                                               ; preds = %setInterpreterVersion.exit
   %38 = sext i32 %6 to i64
   %39 = call noalias ptr @malloc(i64 noundef %38) #22
-  %40 = getelementptr inbounds i8, ptr %10, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr null, ptr %41, align 8
   store i32 %6, ptr %14, align 4
   %.not89 = icmp eq ptr %39, null
@@ -122,7 +122,7 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1832
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1832
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %6 to i64
   %47 = call ptr %45(ptr noundef nonnull %0, ptr noundef nonnull %39, i64 noundef %46) #19
@@ -131,7 +131,7 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 488
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 488
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 224), align 8
   call void (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %52, ptr noundef nonnull %47) #19
@@ -140,13 +140,13 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
   %55 = load i32, ptr %14, align 4
   %56 = zext i32 %55 to i64
   %57 = sext i32 %4 to i64
-  %58 = getelementptr inbounds i8, ptr %10, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %59 = call i32 @FT_New_Memory_Face(ptr noundef %53, ptr noundef %54, i64 noundef %56, i64 noundef %57, ptr noundef nonnull %58) #19
   br label %89
 
 60:                                               ; preds = %setInterpreterVersion.exit
   %61 = call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #22
-  %62 = getelementptr inbounds i8, ptr %10, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %61, ptr %62, align 8
   %.not84 = icmp eq ptr %61, null
   br i1 %.not84, label %.thread98, label %63
@@ -158,40 +158,40 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1832
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1832
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr %68(ptr noundef nonnull %0, ptr noundef nonnull %61, i64 noundef 1024) #19
-  %70 = getelementptr inbounds i8, ptr %10, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %69, ptr %70, align 8
   %.not86 = icmp eq ptr %69, null
   br i1 %.not86, label %.thread, label %71
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 168
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %69) #19
   store ptr %75, ptr %70, align 8
   %76 = sext i32 %6 to i64
-  %77 = getelementptr inbounds i8, ptr %64, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %64, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store ptr @ReadTTFontFileFunc, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %64, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr %10, ptr %79, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   store i32 2, ptr %9, align 8
-  %80 = getelementptr inbounds i8, ptr %9, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %64, ptr %80, align 8
   %81 = load ptr, ptr %16, align 8
   %82 = sext i32 %4 to i64
-  %83 = getelementptr inbounds i8, ptr %10, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %84 = call i32 @FT_Open_Face(ptr noundef %81, ptr noundef nonnull %9, i64 noundef %82, ptr noundef nonnull %83) #19
   %.not87 = icmp eq i32 %84, 0
   br i1 %.not87, label %85, label %.thread
 
 85:                                               ; preds = %71
-  %86 = getelementptr inbounds i8, ptr %10, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %64, ptr %86, align 8
   %87 = load ptr, ptr %70, align 8
   %88 = icmp eq ptr %87, null
@@ -210,20 +210,20 @@ setInterpreterVersion.exit:                       ; preds = %22, %27, %34
 .thread98:                                        ; preds = %60, %63, %37, %42, %89
   %90 = load ptr, ptr %16, align 8
   %91 = call i32 @FT_Done_FreeType(ptr noundef %90) #19
-  %92 = getelementptr inbounds i8, ptr %10, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %93 = load ptr, ptr %92, align 8
   %.not92 = icmp eq ptr %93, null
   br i1 %.not92, label %98, label %94
 
 94:                                               ; preds = %.thread98
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 176
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 176
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull %0, ptr noundef nonnull %93) #19
   br label %98
 
 98:                                               ; preds = %94, %.thread98
-  %99 = getelementptr inbounds i8, ptr %10, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %100 = load ptr, ptr %99, align 8
   %.not93 = icmp eq ptr %100, null
   br i1 %.not93, label %102, label %101
@@ -260,14 +260,14 @@ declare i32 @FT_New_Memory_Face(ptr noundef, ptr noundef, i64 noundef, i64 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq i64 %3, 0
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %1, %12
@@ -280,7 +280,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   br i1 %16, label %119, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %6, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %.not = icmp ult i64 %1, %20
@@ -295,22 +295,22 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1832
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1832
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %7, ptr noundef %2, i64 noundef %spec.select) #19
   %.not117 = icmp eq ptr %29, null
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %32 = load ptr, ptr %31, align 8
   br i1 %.not117, label %47, label %33
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %30, i64 392
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 392
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 208), align 8
   %37 = tail call i32 (ptr, ptr, ptr, ...) %35(ptr noundef nonnull %7, ptr noundef %32, ptr noundef %36, ptr noundef nonnull %29, i64 noundef %1, i64 noundef %spec.select) #19
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1824
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1824
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i8 %40(ptr noundef nonnull %7) #19
   %.not120 = icmp eq i8 %41, 0
@@ -321,7 +321,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %.not121 = icmp eq i8 %42, 0
   %43 = load ptr, ptr %7, align 8
   %.134 = select i1 %.not121, i64 136, i64 128
-  %44 = getelementptr inbounds i8, ptr %43, i64 %.134
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.134
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %7) #19
   br label %46
@@ -332,12 +332,12 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   br label %119
 
 47:                                               ; preds = %25
-  %48 = getelementptr inbounds i8, ptr %30, i64 272
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 272
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 216), align 8
   %51 = tail call ptr (ptr, ptr, ptr, ...) %49(ptr noundef nonnull %7, ptr noundef %32, ptr noundef %50, i64 noundef %1, i64 noundef %spec.select) #19
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1824
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1824
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %7) #19
   %.not118 = icmp eq i8 %55, 0
@@ -348,7 +348,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %.not119 = icmp eq i8 %56, 0
   %57 = load ptr, ptr %7, align 8
   %.135 = select i1 %.not119, i64 136, i64 128
-  %58 = getelementptr inbounds i8, ptr %57, i64 %.135
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.135
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %7) #19
   br label %60
@@ -359,27 +359,27 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1368
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1368
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i32 %65(ptr noundef nonnull %7, ptr noundef nonnull %51) #19
   %67 = sext i32 %66 to i64
   %spec.select122 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %67)
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1600
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1600
   %70 = load ptr, ptr %69, align 8
   %71 = trunc i64 %spec.select122 to i32
   tail call void %70(ptr noundef nonnull %7, ptr noundef nonnull %51, i32 noundef 0, i32 noundef %71, ptr noundef %2) #19
   br label %119
 
 72:                                               ; preds = %21
-  %73 = getelementptr inbounds i8, ptr %6, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
   %.not113 = icmp samesign ult i64 %1, %75
   br i1 %.not113, label %89, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %6, i64 60
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, %74
   %80 = zext i32 %79 to i64
@@ -390,10 +390,10 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 82:                                               ; preds = %76
   %83 = trunc i64 %1 to i32
   %84 = sub i32 %83, %74
-  %85 = getelementptr inbounds i8, ptr %6, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %86 = load ptr, ptr %85, align 8
   %87 = zext i32 %84 to i64
-  %88 = getelementptr inbounds i8, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %88, i64 %spec.select, i1 false)
   br label %119
 
@@ -404,19 +404,19 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %92 = icmp samesign ugt i64 %91, %20
   %93 = sub i32 %19, %90
   %94 = select i1 %92, i32 %93, i32 1024
-  %95 = getelementptr inbounds i8, ptr %6, i64 60
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %94, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %6, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 392
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 392
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %6, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 208), align 8
   %104 = tail call i32 (ptr, ptr, ptr, ...) %100(ptr noundef nonnull %7, ptr noundef %102, ptr noundef %103, ptr noundef %97, i64 noundef %1, i32 noundef %94) #19
   %105 = load ptr, ptr %7, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1824
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1824
   %107 = load ptr, ptr %106, align 8
   %108 = tail call zeroext i8 %107(ptr noundef nonnull %7) #19
   %.not115 = icmp eq i8 %108, 0
@@ -427,7 +427,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
   %.not116 = icmp eq i8 %109, 0
   %110 = load ptr, ptr %7, align 8
   %.136 = select i1 %.not116, i64 136, i64 128
-  %111 = getelementptr inbounds i8, ptr %110, i64 %.136
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %.136
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull %7) #19
   br label %113
@@ -439,7 +439,7 @@ define internal i64 @ReadTTFontFileFunc(ptr nocapture noundef readonly %0, i64 n
 115:                                              ; preds = %113
   %116 = zext nneg i32 %104 to i64
   %spec.select123 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %116)
-  %117 = getelementptr inbounds i8, ptr %6, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %118 = load ptr, ptr %117, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %118, i64 %spec.select123, i1 false)
   br label %119
@@ -465,19 +465,19 @@ define noundef i64 @Java_sun_font_FreetypeFontScaler_createScalerContextNative(p
   br i1 %11, label %13, label %17
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %12, i64 488
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 488
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @invalidateScalerMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %16) #19
   br label %99
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %12, i64 1648
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1648
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %9) #19
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load double, ptr %20, align 16
-  %22 = getelementptr inbounds i8, ptr %9, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %23 = load double, ptr %22, align 8
   %24 = fcmp olt double %21, 0.000000e+00
   %25 = fneg double %21
@@ -507,7 +507,7 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
   %.046 = select i1 %35, i32 2, i32 %5
   %36 = fmul double %.1, 6.400000e+01
   %37 = fptosi double %36 to i32
-  %38 = getelementptr inbounds i8, ptr %10, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 %37, ptr %38, align 8
   %39 = load double, ptr %9, align 16
   %40 = fdiv double %39, %.1
@@ -517,7 +517,7 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
   br i1 %43, label %61, label %44
 
 44:                                               ; preds = %euclidianDistance.exit
-  %45 = getelementptr inbounds i8, ptr %9, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %46 = load double, ptr %45, align 8
   %47 = fdiv double %46, %.1
   %48 = fptosi double %47 to i32
@@ -552,30 +552,30 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
   %67 = fmul float %66, 6.553600e+04
   %68 = fptosi float %67 to i64
   %69 = sub nsw i64 0, %68
-  %70 = getelementptr inbounds i8, ptr %10, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %69, ptr %70, align 8
   %71 = fptrunc double %52 to float
   %72 = fmul float %71, 6.553600e+04
   %73 = fptosi float %72 to i64
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds i8, ptr %10, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %74, ptr %75, align 8
   %76 = fptrunc double %57 to float
   %77 = fmul float %76, 6.553600e+04
   %78 = fptosi float %77 to i64
-  %79 = getelementptr inbounds i8, ptr %10, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %10, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 36
   store i32 %4, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %10, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %.046, ptr %81, align 8
   %82 = fcmp une float %6, 1.000000e+00
   %83 = zext i1 %82 to i8
-  %84 = getelementptr inbounds i8, ptr %10, i64 44
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i8 %83, ptr %84, align 4
   %85 = fcmp une float %7, 0.000000e+00
   %86 = zext i1 %85 to i8
-  %87 = getelementptr inbounds i8, ptr %10, i64 45
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 45
   store i8 %86, ptr %87, align 1
   %88 = icmp ne i32 %4, 2
   %89 = icmp ne i32 %.046, 2
@@ -596,7 +596,7 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
   br i1 %or.cond58, label %95, label %97
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %10, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 1, ptr %96, align 8
   br label %97
 
@@ -615,26 +615,26 @@ define internal fastcc void @invalidateJavaScaler(ptr noundef %0, ptr noundef %1
   br i1 %4, label %freeNativeResources.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @FT_Done_Face(ptr noundef %7) #19
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @FT_Done_FreeType(ptr noundef %10) #19
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %18, label %14
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef nonnull %13) #19
   br label %18
 
 18:                                               ; preds = %14, %5
-  %19 = getelementptr inbounds i8, ptr %2, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %20 = load ptr, ptr %19, align 8
   %.not15.i = icmp eq ptr %20, null
   br i1 %.not15.i, label %22, label %21
@@ -644,7 +644,7 @@ define internal fastcc void @invalidateJavaScaler(ptr noundef %0, ptr noundef %1
   br label %22
 
 22:                                               ; preds = %21, %18
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not16.i = icmp eq ptr %24, null
   br i1 %.not16.i, label %26, label %25
@@ -659,7 +659,7 @@ define internal fastcc void @invalidateJavaScaler(ptr noundef %0, ptr noundef %1
 
 freeNativeResources.exit:                         ; preds = %3, %26
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 488
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 488
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @invalidateScalerMID, align 8
   tail call void (ptr, ptr, ptr, ...) %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30) #19
@@ -681,7 +681,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 224
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
@@ -695,7 +695,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
@@ -704,14 +704,14 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   br label %134
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 138
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 138
   %31 = load i16, ptr %30, align 2
   %32 = sitofp i16 %31 to float
-  %33 = getelementptr inbounds i8, ptr %29, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i64, ptr %35, align 8
   %37 = sitofp i64 %36 to float
   %38 = fmul float %32, %37
@@ -720,7 +720,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %41 = fmul double %40, 1.562500e-02
   %42 = fptrunc double %41 to float
   %43 = fneg float %42
-  %44 = getelementptr inbounds i8, ptr %29, i64 140
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 140
   %45 = load i16, ptr %44, align 4
   %46 = sitofp i16 %45 to float
   %47 = fmul float %37, %46
@@ -729,7 +729,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %50 = fmul double %49, 1.562500e-02
   %51 = fptrunc double %50 to float
   %52 = fneg float %51
-  %53 = getelementptr inbounds i8, ptr %29, i64 142
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 142
   %54 = load i16, ptr %53, align 2
   %55 = sitofp i16 %54 to float
   %56 = fmul float %37, %55
@@ -739,15 +739,15 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %60 = fptrunc double %59 to float
   %61 = fsub float %60, %42
   %62 = fadd float %61, %51
-  %63 = getelementptr inbounds i8, ptr %34, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 45
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 45
   %66 = load i8, ptr %65, align 1
   %.not90 = icmp eq i8 %66, 0
   br i1 %.not90, label %72, label %67
 
 67:                                               ; preds = %27
-  %68 = getelementptr inbounds i8, ptr %34, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %69 = load i64, ptr %68, align 8
   %70 = mul nsw i64 %69, 13930
   %71 = sdiv i64 %70, 65536
@@ -756,13 +756,13 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
 72:                                               ; preds = %27, %67
   %73 = phi i64 [ %71, %67 ], [ 0, %27 ]
   %74 = add nsw i64 %73, %64
-  %75 = getelementptr inbounds i8, ptr %6, i64 44
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %76 = load i8, ptr %75, align 4
   %.not91 = icmp eq i8 %76, 0
   br i1 %.not91, label %83, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %29, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %79 = load i16, ptr %78, align 8
   %80 = zext i16 %79 to i64
   %81 = tail call i64 @FT_MulFix(i64 noundef %80, i64 noundef %36) #19
@@ -775,25 +775,25 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %86 = sitofp i64 %85 to float
   %87 = fmul float %86, 1.562500e-02
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 224
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
   %92 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8
   %93 = load i64, ptr %6, align 8
   %94 = sitofp i64 %93 to float
   %95 = fmul float %94, 0x3EF0000000000000
-  %96 = getelementptr inbounds i8, ptr %6, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = sitofp i64 %97 to float
   %99 = fmul float %98, 0x3EF0000000000000
   %100 = fmul float %99, %42
   %101 = tail call float @llvm.fmuladd.f32(float %95, float 0.000000e+00, float %100)
   %102 = fpext float %101 to double
-  %103 = getelementptr inbounds i8, ptr %6, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %104 = load i64, ptr %103, align 8
   %105 = sitofp i64 %104 to float
   %106 = fmul float %105, 0xBEF0000000000000
-  %107 = getelementptr inbounds i8, ptr %6, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = sitofp i64 %108 to float
   %110 = fmul float %109, 0x3EF0000000000000
@@ -833,24 +833,24 @@ declare i32 @isNullScalerContext(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (32, 40)) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.FT_Matrix_, align 8
   store ptr %0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %1, ptr %6, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 45
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 45
   %9 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %14, label %10
 
 10:                                               ; preds = %7
   store i64 65536, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 13930, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 65536, ptr %13, align 8
   call void @FT_Matrix_Multiply(ptr noundef nonnull %3, ptr noundef nonnull %5) #19
   br label %setupTransform.exit
@@ -858,26 +858,26 @@ define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr n
 14:                                               ; preds = %7
   %15 = load i64, ptr %3, align 8
   store i64 %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %23, ptr %24, align 8
   br label %setupTransform.exit
 
 setupTransform.exit:                              ; preds = %10, %14
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8
   call void @FT_Set_Transform(ptr noundef %26, ptr noundef nonnull %5, ptr noundef null) #19
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = call i32 @FT_Set_Char_Size(ptr noundef %27, i64 noundef 0, i64 noundef %30, i32 noundef 72, i32 noundef 72) #19
@@ -886,14 +886,14 @@ setupTransform.exit:                              ; preds = %10, %14
 
 33:                                               ; preds = %setupTransform.exit
   %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 160
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 160
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @FT_Activate_Size(ptr noundef %36) #19
   br label %38
 
 38:                                               ; preds = %33, %setupTransform.exit
   %.1 = phi i32 [ %37, %33 ], [ %31, %setupTransform.exit ]
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @FT_Library_SetLcdFilter(ptr noundef %40, i32 noundef 1) #19
   br label %42
@@ -951,17 +951,17 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %CopyFTSubpixelToSubpixel.exit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %9, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 2
   br i1 %23, label %.thread, label %30
 
 .thread:                                          ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %9, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 2
   %spec.select = select i1 %26, i32 2, i32 0
-  %27 = getelementptr inbounds i8, ptr %9, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %28 = load i8, ptr %27, align 8
   %.not157168 = icmp eq i8 %28, 0
   %29 = or disjoint i32 %spec.select, 8
@@ -969,7 +969,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %35
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %9, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %32 = load i8, ptr %31, align 8
   %.not157 = icmp eq i8 %32, 0
   %spec.select165 = select i1 %.not157, i32 8, i32 0
@@ -989,7 +989,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %spec.select165171 = phi i32 [ %spec.select165, %33 ], [ %spec.select165, %34 ], [ %spec.select165, %30 ], [ %spec.select165169, %.thread ]
   %.0148 = phi i32 [ 196608, %33 ], [ 262144, %34 ], [ 131072, %30 ], [ 0, %.thread ]
   %36 = or i32 %.0148, %spec.select165171
-  %37 = getelementptr inbounds i8, ptr %10, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @FT_Load_Glyph(ptr noundef %38, i32 noundef %5, i32 noundef %36) #19
   %.not158 = icmp eq i32 %39, 0
@@ -1001,9 +1001,9 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %37, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %9, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %47 = load i8, ptr %46, align 4
   %.not159 = icmp eq i8 %47, 0
   br i1 %.not159, label %50, label %48
@@ -1020,25 +1020,25 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br i1 %.not160, label %98, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %45, i64 144
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 144
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 1869968492
   br i1 %54, label %55, label %81
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %45, i64 200
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 200
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %56, ptr noundef nonnull %8) #19
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %58 = load i64, ptr %57, align 8
   %59 = lshr i64 %58, 6
   %60 = load i64, ptr %8, align 8
   %61 = lshr i64 %60, 6
   %62 = sub nsw i64 %59, %61
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %8, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = lshr i64 %65, 6
-  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = lshr i64 %68, 6
   %70 = sub nsw i64 %66, %69
@@ -1063,11 +1063,11 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %CopyFTSubpixelToSubpixel.exit
 
 81:                                               ; preds = %76, %51
-  %82 = getelementptr inbounds i8, ptr %45, i64 152
-  %83 = getelementptr inbounds i8, ptr %45, i64 156
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %45, i64 156
   %84 = load i32, ptr %83, align 4
   %85 = trunc i32 %84 to i16
-  %86 = getelementptr inbounds i8, ptr %45, i64 178
+  %86 = getelementptr inbounds nuw i8, ptr %45, i64 178
   %87 = load i8, ptr %86, align 2
   %88 = icmp eq i8 %87, 5
   %89 = add i16 %85, 6
@@ -1103,31 +1103,31 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %CopyFTSubpixelToSubpixel.exit
 
 108:                                              ; preds = %98
-  %109 = getelementptr inbounds i8, ptr %104, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store ptr null, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %104, i64 14
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 14
   store i8 0, ptr %110, align 2
-  %111 = getelementptr inbounds i8, ptr %104, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i16 %.1, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %104, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i16 %.0144, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %104, i64 10
+  %113 = getelementptr inbounds nuw i8, ptr %104, i64 10
   store i16 %.0145, ptr %113, align 2
   br i1 %.not160, label %135, label %114
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %45, i64 192
+  %115 = getelementptr inbounds nuw i8, ptr %45, i64 192
   %116 = load i32, ptr %115, align 8
   %117 = sitofp i32 %116 to float
-  %118 = getelementptr inbounds i8, ptr %104, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store float %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %45, i64 196
+  %119 = getelementptr inbounds nuw i8, ptr %45, i64 196
   %120 = load i32, ptr %119, align 4
   %121 = sub nsw i32 0, %120
   %122 = sitofp i32 %121 to float
-  %123 = getelementptr inbounds i8, ptr %104, i64 20
+  %123 = getelementptr inbounds nuw i8, ptr %104, i64 20
   store float %122, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %45, i64 178
+  %124 = getelementptr inbounds nuw i8, ptr %45, i64 178
   %125 = load i8, ptr %124, align 2
   %126 = icmp eq i8 %125, 5
   %127 = icmp ne i16 %.0144, 0
@@ -1152,13 +1152,13 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %135
 
 135:                                              ; preds = %128, %133, %131, %108
-  %136 = getelementptr inbounds i8, ptr %9, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %137 = load i32, ptr %136, align 8
   %138 = icmp eq i32 %137, 2
   br i1 %138, label %139, label %153
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds i8, ptr %45, i64 112
+  %140 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %141 = load i64, ptr %140, align 8
   %142 = sitofp i64 %141 to float
   %143 = fmul float %142, 0x3EF0000000000000
@@ -1167,7 +1167,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %146 = fmul float %145, 0x3EF0000000000000
   %147 = fmul float %143, %146
   store float %147, ptr %104, align 8
-  %148 = getelementptr inbounds i8, ptr %9, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %149 = load i64, ptr %148, align 8
   %150 = sitofp i64 %149 to float
   %151 = fmul float %150, 0xBEF0000000000000
@@ -1175,8 +1175,8 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br label %174
 
 153:                                              ; preds = %135
-  %154 = getelementptr inbounds i8, ptr %45, i64 128
-  %155 = getelementptr inbounds i8, ptr %45, i64 136
+  %154 = getelementptr inbounds nuw i8, ptr %45, i64 128
+  %155 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %156 = load i64, ptr %155, align 8
   %.not163 = icmp eq i64 %156, 0
   %157 = load i64, ptr %154, align 8
@@ -1212,21 +1212,21 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
 
 174:                                              ; preds = %158, %167, %162, %139
   %.sink = phi float [ 0.000000e+00, %158 ], [ %173, %167 ], [ %166, %162 ], [ %152, %139 ]
-  %175 = getelementptr inbounds i8, ptr %104, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store float %.sink, ptr %175, align 4
   %176 = icmp eq i32 %101, 0
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %104, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr null, ptr %178, align 8
   br label %CopyFTSubpixelToSubpixel.exit
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %104, i64 40
-  %181 = getelementptr inbounds i8, ptr %104, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %181 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr %180, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %45, i64 178
+  %182 = getelementptr inbounds nuw i8, ptr %45, i64 178
   %183 = load i8, ptr %182, align 2
   switch i8 %183, label %221 [
     i8 1, label %184
@@ -1237,24 +1237,24 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   ]
 
 184:                                              ; preds = %179
-  %185 = getelementptr inbounds i8, ptr %45, i64 168
+  %185 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %45, i64 160
+  %187 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %188 = load i32, ptr %187, align 8
   %189 = zext i16 %.0144 to i32
   call fastcc void @CopyBW2Grey8(ptr noundef %186, i32 noundef %188, ptr noundef %180, i32 noundef %189, i32 noundef %189, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
 190:                                              ; preds = %179
-  %191 = getelementptr inbounds i8, ptr %45, i64 168
+  %191 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %192 = load ptr, ptr %191, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %180, ptr align 1 %192, i64 %102, i1 false)
   br label %CopyFTSubpixelToSubpixel.exit
 
 193:                                              ; preds = %179
-  %194 = getelementptr inbounds i8, ptr %45, i64 168
+  %194 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %45, i64 160
+  %196 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %197 = load i32, ptr %196, align 8
   %198 = zext i16 %.0144 to i32
   call fastcc void @CopyGrey4ToGrey8(ptr noundef %195, i32 noundef %197, ptr noundef %180, i32 noundef %198, i32 noundef %198, i32 noundef %100)
@@ -1265,10 +1265,10 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   br i1 %.not11.i, label %CopyFTSubpixelToSubpixel.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %199
-  %200 = getelementptr inbounds i8, ptr %104, i64 43
-  %201 = getelementptr inbounds i8, ptr %45, i64 160
+  %200 = getelementptr inbounds nuw i8, ptr %104, i64 43
+  %201 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %202 = load i32, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %45, i64 168
+  %203 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %204 = load ptr, ptr %203, align 8
   %205 = zext i16 %.0144 to i64
   %206 = sext i32 %202 to i64
@@ -1282,14 +1282,14 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %209 = add nsw i32 %.01012.i, -1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.014.i, ptr align 1 %.0913.i, i64 %205, i1 false)
   %210 = getelementptr inbounds i8, ptr %.0913.i, i64 %206
-  %211 = getelementptr inbounds i8, ptr %.014.i, i64 %207
+  %211 = getelementptr inbounds nuw i8, ptr %.014.i, i64 %207
   %.not.i = icmp eq i32 %209, 0
   br i1 %.not.i, label %CopyFTSubpixelToSubpixel.exit, label %208, !llvm.loop !6
 
 212:                                              ; preds = %179
-  %213 = getelementptr inbounds i8, ptr %45, i64 168
+  %213 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %45, i64 160
+  %215 = getelementptr inbounds nuw i8, ptr %45, i64 160
   %216 = load i32, ptr %215, align 8
   %217 = zext i16 %.0144 to i32
   %218 = mul nuw nsw i32 %217, 3
@@ -1319,16 +1319,16 @@ define void @Java_sun_font_FreetypeFontScaler_getGlyphMetricsNative(ptr noundef 
 9:                                                ; preds = %7
   %10 = inttoptr i64 %8 to ptr
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 888
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 888
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
   %15 = load float, ptr %10, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %14, float noundef %15) #19
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 888
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 888
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %21 = load float, ptr %20, align 4
   tail call void %18(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %19, float noundef %21) #19
   tail call void @free(ptr noundef %10) #19
@@ -1336,12 +1336,12 @@ define void @Java_sun_font_FreetypeFontScaler_getGlyphMetricsNative(ptr noundef 
 
 22:                                               ; preds = %7
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 888
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 888
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
   tail call void %25(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %26, float noundef 0.000000e+00) #19
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 888
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 888
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %30, float noundef 0.000000e+00) #19
@@ -1361,28 +1361,28 @@ define noundef i64 @Java_sun_font_FreetypeFontScaler_getGlyphImageNative(ptr nou
 define void @Java_sun_font_FreetypeFontScaler_disposeNativeScaler(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %3 to ptr
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @FT_Done_Face(ptr noundef %8) #19
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @FT_Done_FreeType(ptr noundef %11) #19
-  %13 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %19, label %15
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #19
   br label %19
 
 19:                                               ; preds = %15, %4
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not15.i = icmp eq ptr %21, null
   br i1 %.not15.i, label %23, label %22
@@ -1392,7 +1392,7 @@ define void @Java_sun_font_FreetypeFontScaler_disposeNativeScaler(ptr noundef %0
   br label %23
 
 23:                                               ; preds = %22, %19
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not16.i = icmp eq ptr %25, null
   br i1 %.not16.i, label %27, label %26
@@ -1414,37 +1414,37 @@ define i32 @Java_sun_font_FreetypeFontScaler_getNumGlyphsNative(ptr noundef %0, 
 
 .split:                                           ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @invalidateScalerMID, align 8
   tail call void (ptr, ptr, ptr, ...) %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %9) #19
   br label %40
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.split7, label %36
 
 .split7:                                          ; preds = %10
   %14 = tail call i32 @FT_Done_Face(ptr noundef null) #19
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @FT_Done_FreeType(ptr noundef %16) #19
-  %18 = getelementptr inbounds i8, ptr %4, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %24, label %20
 
 20:                                               ; preds = %.split7
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %19) #19
   br label %24
 
 24:                                               ; preds = %20, %.split7
-  %25 = getelementptr inbounds i8, ptr %4, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %26 = load ptr, ptr %25, align 8
   %.not15.i.i = icmp eq ptr %26, null
   br i1 %.not15.i.i, label %28, label %27
@@ -1454,7 +1454,7 @@ define i32 @Java_sun_font_FreetypeFontScaler_getNumGlyphsNative(ptr noundef %0, 
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds i8, ptr %4, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not16.i.i = icmp eq ptr %30, null
   br i1 %.not16.i.i, label %invalidateJavaScaler.exit, label %31
@@ -1466,14 +1466,14 @@ define i32 @Java_sun_font_FreetypeFontScaler_getNumGlyphsNative(ptr noundef %0, 
 invalidateJavaScaler.exit:                        ; preds = %28, %31
   tail call void @free(ptr noundef nonnull %4) #19
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 488
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 488
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @invalidateScalerMID, align 8
   tail call void (ptr, ptr, ptr, ...) %34(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %35) #19
   br label %40
 
 36:                                               ; preds = %10
-  %37 = getelementptr inbounds i8, ptr %12, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %38 to i32
   br label %40
@@ -1499,7 +1499,7 @@ define i32 @Java_sun_font_FreetypeFontScaler_getGlyphCodeNative(ptr noundef %0, 
   br label %16
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.split12, label %12
@@ -1510,7 +1510,7 @@ define i32 @Java_sun_font_FreetypeFontScaler_getGlyphCodeNative(ptr noundef %0, 
 
 12:                                               ; preds = %8
   store ptr %0, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %2, ptr %13, align 8
   %14 = zext i16 %4 to i64
   %15 = tail call i32 @FT_Get_Char_Index(ptr noundef nonnull %10, i64 noundef %14) #19
@@ -1534,14 +1534,14 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %
   br i1 %13, label %getGlyphGeneralPath.exit.thread, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %12, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %getGlyphGeneralPath.exit.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %9, i64 24
-  %20 = getelementptr inbounds i8, ptr %9, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %21 = sext i16 %16 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %22 = load i16, ptr %12, align 8
@@ -1552,7 +1552,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %
 
 25:                                               ; preds = %18
   %26 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %12, ptr noundef nonnull @addToGP.outline_funcs, ptr noundef nonnull %9) #19
-  %27 = getelementptr inbounds i8, ptr %9, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %28 = load i32, ptr %27, align 4
   %.not.i.i = icmp eq i32 %28, 0
   br i1 %.not.i.i, label %35, label %29
@@ -1568,25 +1568,25 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %
   br label %35
 
 35:                                               ; preds = %29, %25
-  %36 = getelementptr inbounds i8, ptr %12, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 2
   %.not6.i.i = icmp eq i32 %38, 0
   br i1 %.not6.i.i, label %addToGP.exit.i, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %9, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %40, align 8
   br label %addToGP.exit.i
 
 addToGP.exit.i:                                   ; preds = %39, %35
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1408
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1408
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %9, align 8
   %45 = call ptr %43(ptr noundef nonnull %0, i32 noundef %44) #19
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1448
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1448
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %27, align 4
   %50 = call ptr %48(ptr noundef nonnull %0, i32 noundef %49) #19
@@ -1597,23 +1597,23 @@ addToGP.exit.i:                                   ; preds = %39, %35
 
 53:                                               ; preds = %addToGP.exit.i
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1664
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1664
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %9, align 8
   %58 = load ptr, ptr %19, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef nonnull %45, i32 noundef 0, i32 noundef %57, ptr noundef %58) #19
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1704
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1704
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %27, align 4
   %63 = load ptr, ptr %20, align 8
   call void %61(ptr noundef nonnull %0, ptr noundef nonnull %50, i32 noundef 0, i32 noundef %62, ptr noundef %63) #19
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 224
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 176), align 8
-  %69 = getelementptr inbounds i8, ptr %9, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = load i32, ptr %9, align 8
   %72 = load i32, ptr %27, align 4
@@ -1630,7 +1630,7 @@ addToGP.exit.i:                                   ; preds = %39, %35
   call void @free(ptr noundef nonnull %75) #19
   store ptr null, ptr %20, align 8
   store i32 0, ptr %27, align 4
-  %77 = getelementptr inbounds i8, ptr %9, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %77, align 4
   br label %78
 
@@ -1654,7 +1654,7 @@ getGlyphGeneralPath.exit:                         ; preds = %78, %80
 
 82:                                               ; preds = %getGlyphGeneralPath.exit.thread, %getGlyphGeneralPath.exit
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 224
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 224
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
   %87 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
@@ -1687,7 +1687,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr nou
   br i1 %.not.i, label %17, label %getFTOutline.exit.thread
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @FT_Load_Glyph(ptr noundef %19, i32 noundef %5, i32 noundef 10) #19
   %.not23.i = icmp eq i32 %20, 0
@@ -1695,9 +1695,9 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr nou
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %26 = load i8, ptr %25, align 4
   %.not24.i = icmp eq i8 %26, 0
   br i1 %.not24.i, label %29, label %27
@@ -1710,16 +1710,16 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineBoundsNative(ptr nou
   br label %29
 
 29:                                               ; preds = %27, %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 200
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 200
   tail call void @FT_Outline_Translate(ptr noundef nonnull %30, i64 noundef 0, i64 noundef 0) #19
-  %31 = getelementptr inbounds i8, ptr %24, i64 202
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 202
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %getFTOutline.exit.thread, label %40
 
 getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %29
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 88), align 8
@@ -1733,22 +1733,22 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %
 
 42:                                               ; preds = %40
   %43 = load i64, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %45 = load i64, ptr %44, align 8
   %.not25 = icmp slt i64 %43, %45
   br i1 %.not25, label %46, label %51
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %50 = load i64, ptr %49, align 8
   %.not26 = icmp slt i64 %48, %50
   br i1 %.not26, label %58, label %51
 
 51:                                               ; preds = %46, %42, %40
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 224
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 88), align 8
@@ -1757,7 +1757,7 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %
 
 58:                                               ; preds = %46
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 224
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 80), align 8
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 96), align 8
@@ -1802,7 +1802,7 @@ define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %15, label %35
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @FT_Load_Glyph(ptr noundef %17, i32 noundef %4, i32 noundef 10) #19
   %.not23 = icmp eq i32 %18, 0
@@ -1810,9 +1810,9 @@ define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %24 = load i8, ptr %23, align 4
   %.not24 = icmp eq i8 %24, 0
   br i1 %.not24, label %27, label %25
@@ -1825,7 +1825,7 @@ define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1,
   br label %27
 
 27:                                               ; preds = %25, %19
-  %28 = getelementptr inbounds i8, ptr %22, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %29 = fmul float %5, 6.400000e+01
   %30 = fptoui float %29 to i32
   %31 = zext i32 %30 to i64
@@ -1860,7 +1860,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
 
 .thread:                                          ; preds = %9, %14
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
@@ -1869,19 +1869,19 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
 
 .lr.ph:                                           ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1624
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1624
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef %5, i32 noundef 0, i32 noundef %6, ptr noundef nonnull %17) #19
-  %28 = getelementptr inbounds i8, ptr %10, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 24
-  %30 = getelementptr inbounds i8, ptr %10, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %31
 
 31:                                               ; preds = %.lr.ph, %addToGP.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %addToGP.exit ]
-  %32 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 65533
   br i1 %34, label %addToGP.exit, label %35
@@ -1892,7 +1892,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
   br i1 %37, label %addToGP.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %40 = load i16, ptr %39, align 2
   %41 = icmp eq i16 %40, 0
   br i1 %41, label %addToGP.exit, label %42
@@ -1924,7 +1924,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
   br label %57
 
 57:                                               ; preds = %51, %48
-  %58 = getelementptr inbounds i8, ptr %36, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 2
   %.not6.i = icmp eq i32 %60, 0
@@ -1947,12 +1947,12 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
 
 63:                                               ; preds = %._crit_edge
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1408
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1408
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %10, align 8
   %68 = call ptr %66(ptr noundef nonnull %0, i32 noundef %67) #19
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1448
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1448
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %28, align 4
   %73 = call ptr %71(ptr noundef nonnull %0, i32 noundef %72) #19
@@ -1963,24 +1963,24 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
 
 76:                                               ; preds = %63
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1664
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1664
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %10, align 8
   %81 = load ptr, ptr %29, align 8
   call void %79(ptr noundef nonnull %0, ptr noundef nonnull %68, i32 noundef 0, i32 noundef %80, ptr noundef %81) #19
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 1704
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1704
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %28, align 4
-  %86 = getelementptr inbounds i8, ptr %10, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %87 = load ptr, ptr %86, align 8
   call void %84(ptr noundef nonnull %0, ptr noundef nonnull %73, i32 noundef 0, i32 noundef %85, ptr noundef %87) #19
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 224
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
   %92 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 176), align 8
-  %93 = getelementptr inbounds i8, ptr %10, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %94 = load i32, ptr %93, align 8
   %95 = load i32, ptr %10, align 8
   %96 = load i32, ptr %28, align 4
@@ -1989,7 +1989,7 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
 
 98:                                               ; preds = %63, %._crit_edge
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 224
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 224
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 168), align 8
   %103 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 184), align 8
@@ -2008,21 +2008,21 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture nou
   %6 = shl nsw i32 %2, 3
   %7 = shl nsw i32 %1, 2
   %8 = add nsw i32 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %12, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %8, ptr %18, align 4
   %19 = sext i32 %5 to i64
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #22
@@ -2030,17 +2030,17 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture nou
   %21 = sext i32 %8 to i64
   %22 = shl nsw i64 %21, 2
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #22
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %23, ptr %24, align 8
   store i32 0, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %26, align 8
   br label %51
 
 27:                                               ; preds = %12
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = load i32, ptr %0, align 8
   %31 = sub nsw i32 %29, %30
@@ -2057,9 +2057,9 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture nou
 
 37:                                               ; preds = %33, %27
   %38 = phi ptr [ %36, %33 ], [ %10, %27 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = sub nsw i32 %40, %42
   %44 = icmp slt i32 %43, %8
@@ -2082,7 +2082,7 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture nou
   br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %62
@@ -2093,7 +2093,7 @@ define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture nou
   br label %.thread
 
 .thread:                                          ; preds = %51, %58
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not45 = icmp eq ptr %60, null
   br i1 %.not45, label %62, label %61
@@ -2115,9 +2115,9 @@ define range(i64 0, 65536) i64 @Java_sun_font_FreetypeFontScaler_getUnitsPerEMNa
 
 4:                                                ; preds = %3
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i64
   br label %11
@@ -2147,7 +2147,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   br i1 %.not.i, label %17, label %getFTOutline.exit.thread
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @FT_Load_Glyph(ptr noundef %19, i32 noundef %5, i32 noundef 10) #19
   %.not23.i = icmp eq i32 %20, 0
@@ -2155,9 +2155,9 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %26 = load i8, ptr %25, align 4
   %.not24.i = icmp eq i8 %26, 0
   br i1 %.not24.i, label %29, label %27
@@ -2170,23 +2170,23 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   br label %29
 
 29:                                               ; preds = %27, %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 200
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 200
   tail call void @FT_Outline_Translate(ptr noundef nonnull %30, i64 noundef 0, i64 noundef 0) #19
-  %31 = getelementptr inbounds i8, ptr %24, i64 202
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 202
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i32
   %34 = icmp slt i32 %6, %33
   br i1 %34, label %35, label %getFTOutline.exit.thread
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %24, i64 208
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 208
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %6 to i64
   %39 = getelementptr inbounds %struct.FT_Vector_, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = sitofp i64 %40 to float
   %42 = fmul float %41, 1.562500e-02
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = sitofp i64 %44 to float
   %46 = fmul float %45, -1.562500e-02
@@ -2198,7 +2198,7 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %7, %11, %
   %.017 = phi double [ %48, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %17 ]
   %.0 = phi double [ %47, %35 ], [ 0.000000e+00, %29 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %15 ], [ 0.000000e+00, %17 ]
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 224
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 136), align 8
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 144), align 8
@@ -2245,36 +2245,36 @@ define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64
   br i1 %.not, label %61, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %.not26 = icmp eq i32 %4, 1869968492
   br i1 %.not26, label %5, label %61
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %61, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %61, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %17 = load i16, ptr %16, align 8
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %15, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = tail call i64 @FT_MulFix(i64 noundef %18, i64 noundef %22) #19
   %24 = sdiv i64 %23, 32
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = tail call i32 @FT_Outline_Embolden(ptr noundef nonnull %25, i64 noundef %24) #19
   %27 = load i64, ptr %6, align 8
   %28 = add nsw i64 %27, %24
@@ -2282,13 +2282,13 @@ define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64
   %29 = load i64, ptr %10, align 8
   %30 = add nsw i64 %29, %24
   store i64 %30, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %61, label %34
 
 34:                                               ; preds = %13
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %36 = load i64, ptr %35, align 8
   %.not27 = icmp eq i64 %36, 0
   br i1 %.not27, label %41, label %37
@@ -2301,7 +2301,7 @@ define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64
   br label %41
 
 41:                                               ; preds = %37, %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %43 = load i64, ptr %42, align 8
   %.not28 = icmp eq i64 %43, 0
   br i1 %.not28, label %48, label %44
@@ -2318,15 +2318,15 @@ define internal fastcc void @GlyphSlot_Embolden(ptr noundef %0, i64 %.0.val, i64
   %50 = load i64, ptr %31, align 8
   %51 = add nsw i64 %50, %49
   store i64 %51, ptr %31, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %53 = load i64, ptr %52, align 8
   %54 = add nsw i64 %53, %24
   store i64 %54, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %56 = load i64, ptr %55, align 8
   %57 = add nsw i64 %56, %24
   store i64 %57, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i64, ptr %58, align 8
   %60 = add nsw i64 %59, %24
   store i64 %60, ptr %58, align 8
@@ -2374,7 +2374,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   br label %20
 
 17:                                               ; preds = %20
-  %18 = getelementptr inbounds i8, ptr %.02945.us.us, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.02945.us.us, i64 1
   %19 = add nuw nsw i32 %.03244.us.us, 1
   %exitcond69.not = icmp eq i32 %19, %7
   br i1 %exitcond69.not, label %._crit_edge.us.us, label %14, !llvm.loop !9
@@ -2386,7 +2386,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   %21 = shl i32 %.043.us.us, 24
   %sext40.us.us = ashr i32 %21, 31
   %22 = trunc nsw i32 %sext40.us.us to i8
-  %23 = getelementptr inbounds i8, ptr %.12842.us.us, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.12842.us.us, i64 1
   store i8 %22, ptr %.12842.us.us, align 1
   %24 = shl i32 %.043.us.us, 1
   %25 = add nuw nsw i32 %.03041.us.us, 1
@@ -2394,7 +2394,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   br i1 %exitcond68.not, label %17, label %20, !llvm.loop !10
 
 ._crit_edge.us.us:                                ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.03552.us.us, i64 %11
+  %26 = getelementptr inbounds nuw i8, ptr %.03552.us.us, i64 %11
   %27 = add nsw i32 %12, -1
   %.not.us.us = icmp eq i32 %12, 0
   br i1 %.not.us.us, label %._crit_edge56, label %.lr.ph.us.us, !llvm.loop !11
@@ -2413,7 +2413,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   %31 = shl i32 %.150.us, 24
   %sext.us = ashr i32 %31, 31
   %32 = trunc nsw i32 %sext.us to i8
-  %33 = getelementptr inbounds i8, ptr %.249.us, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.249.us, i64 1
   store i8 %32, ptr %.249.us, align 1
   %34 = shl i32 %.150.us, 1
   %35 = add nuw nsw i32 %.13148.us, 1
@@ -2429,7 +2429,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   br label %42
 
 39:                                               ; preds = %42
-  %40 = getelementptr inbounds i8, ptr %.02945.us, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.02945.us, i64 1
   %41 = add nuw nsw i32 %.03244.us, 1
   %exitcond66.not = icmp eq i32 %41, %7
   br i1 %exitcond66.not, label %._crit_edge.us, label %36, !llvm.loop !9
@@ -2441,7 +2441,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   %43 = shl i32 %.043.us, 24
   %sext40.us = ashr i32 %43, 31
   %44 = trunc nsw i32 %sext40.us to i8
-  %45 = getelementptr inbounds i8, ptr %.12842.us, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.12842.us, i64 1
   store i8 %44, ptr %.12842.us, align 1
   %46 = shl i32 %.043.us, 1
   %47 = add nuw nsw i32 %.03041.us, 1
@@ -2449,7 +2449,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   br i1 %exitcond.not, label %39, label %42, !llvm.loop !10
 
 .loopexit.us:                                     ; preds = %30
-  %48 = getelementptr inbounds i8, ptr %.03552.us, i64 %11
+  %48 = getelementptr inbounds nuw i8, ptr %.03552.us, i64 %11
   %49 = add nsw i32 %28, -1
   %.not.us = icmp eq i32 %28, 0
   br i1 %.not.us, label %._crit_edge56, label %.lr.ph.us, !llvm.loop !11
@@ -2478,7 +2478,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   %57 = shl i32 %.150, 24
   %sext = ashr i32 %57, 31
   %58 = trunc nsw i32 %sext to i8
-  %59 = getelementptr inbounds i8, ptr %.249, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.249, i64 1
   store i8 %58, ptr %.249, align 1
   %60 = shl i32 %.150, 1
   %61 = add nuw nsw i32 %.13148, 1
@@ -2486,7 +2486,7 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
   br i1 %exitcond70.not, label %.loopexit, label %56, !llvm.loop !12
 
 .loopexit:                                        ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %.03552, i64 %11
+  %62 = getelementptr inbounds nuw i8, ptr %.03552, i64 %11
   %63 = add nsw i32 %52, -1
   %.not = icmp eq i32 %52, 0
   br i1 %.not, label %._crit_edge56, label %.lr.ph55.split.split, !llvm.loop !11
@@ -2518,25 +2518,25 @@ define internal fastcc void @CopyGrey4ToGrey8(ptr nocapture noundef readonly %0,
   %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %22, %11 ]
   %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %12, %11 ]
   %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %23, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.01924.us, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 1
   %13 = load i8, ptr %.01924.us, align 1
   %14 = shl i8 %13, 4
   %15 = lshr i8 %13, 3
   %16 = and i8 %15, 1
   %17 = or disjoint i8 %16, %14
-  %18 = getelementptr inbounds i8, ptr %.01825.us, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 1
   store i8 %17, ptr %.01825.us, align 1
   %19 = lshr i8 %13, 7
   %20 = and i8 %13, -16
   %21 = or disjoint i8 %20, %19
-  %22 = getelementptr inbounds i8, ptr %.01825.us, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 2
   store i8 %21, ptr %18, align 1
   %23 = add nuw nsw i32 %.02023.us, 1
   %exitcond.not = icmp eq i32 %23, %4
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %11, !llvm.loop !13
 
 ..loopexit_crit_edge.us:                          ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %.02128.us, i64 %8
+  %24 = getelementptr inbounds nuw i8, ptr %.02128.us, i64 %8
   %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !14
 
@@ -2570,24 +2570,24 @@ define internal fastcc void @CopyFTSubpixelVToSubpixel(ptr nocapture noundef rea
   %.02127.us = phi ptr [ %.02231.us, %.preheader.us ], [ %21, %13 ]
   %.02326.us = phi ptr [ %.02430.us, %.preheader.us ], [ %22, %13 ]
   %14 = load i8, ptr %.02326.us, align 1
-  %15 = getelementptr inbounds i8, ptr %.02127.us, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.02127.us, i64 1
   store i8 %14, ptr %.02127.us, align 1
   %16 = getelementptr inbounds i8, ptr %.02326.us, i64 %7
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %.02127.us, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.02127.us, i64 2
   store i8 %17, ptr %15, align 1
   %19 = getelementptr inbounds i8, ptr %.02326.us, i64 %9
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %.02127.us, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.02127.us, i64 3
   store i8 %20, ptr %18, align 1
-  %22 = getelementptr inbounds i8, ptr %.02326.us, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02326.us, i64 1
   %23 = add nuw nsw i32 %.028.us, 1
   %exitcond.not = icmp eq i32 %23, %4
   br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %13
   %24 = getelementptr inbounds i8, ptr %.02430.us, i64 %11
-  %25 = getelementptr inbounds i8, ptr %.02231.us, i64 %12
+  %25 = getelementptr inbounds nuw i8, ptr %.02231.us, i64 %12
   %26 = add nsw i32 %.02529.us, -3
   %27 = icmp sgt i32 %.02529.us, 3
   br i1 %27, label %.preheader.us, label %._crit_edge32, !llvm.loop !16
@@ -2607,13 +2607,13 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @moveTo(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
   %9 = add nsw i32 %8, 1
@@ -2629,14 +2629,14 @@ define internal noundef i32 @moveTo(ptr nocapture noundef readonly %0, ptr nocap
   %14 = load i64, ptr %0, align 8
   %15 = sitofp i64 %14 to float
   %16 = fmul float %15, 1.562500e-02
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = add nsw i32 %13, 1
   store i32 %19, ptr %3, align 4
   %20 = sext i32 %13 to i64
   %21 = getelementptr inbounds float, ptr %18, i64 %20
   store float %16, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sitofp i64 %23 to float
   %25 = fmul float %24, -1.562500e-02
@@ -2647,7 +2647,7 @@ define internal noundef i32 @moveTo(ptr nocapture noundef readonly %0, ptr nocap
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds float, ptr %26, i64 %29
   store float %25, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %1, align 8
   %34 = add nsw i32 %33, 1
@@ -2663,16 +2663,16 @@ define internal noundef i32 @lineTo(ptr nocapture noundef readonly %0, ptr nocap
   %3 = load i64, ptr %0, align 8
   %4 = sitofp i64 %3 to float
   %5 = fmul float %4, 1.562500e-02
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 4
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds float, ptr %7, i64 %11
   store float %5, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = sitofp i64 %14 to float
   %16 = fmul float %15, -1.562500e-02
@@ -2683,7 +2683,7 @@ define internal noundef i32 @lineTo(ptr nocapture noundef readonly %0, ptr nocap
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds float, ptr %17, i64 %20
   store float %16, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %1, align 8
   %25 = add nsw i32 %24, 1
@@ -2699,16 +2699,16 @@ define internal noundef i32 @conicTo(ptr nocapture noundef readonly %0, ptr noca
   %4 = load i64, ptr %0, align 8
   %5 = sitofp i64 %4 to float
   %6 = fmul float %5, 1.562500e-02
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %9, align 4
   %12 = sext i32 %10 to i64
   %13 = getelementptr inbounds float, ptr %8, i64 %12
   store float %6, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sitofp i64 %15 to float
   %17 = fmul float %16, -1.562500e-02
@@ -2729,7 +2729,7 @@ define internal noundef i32 @conicTo(ptr nocapture noundef readonly %0, ptr noca
   %29 = sext i32 %27 to i64
   %30 = getelementptr inbounds float, ptr %26, i64 %29
   store float %25, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = sitofp i64 %32 to float
   %34 = fmul float %33, -1.562500e-02
@@ -2740,7 +2740,7 @@ define internal noundef i32 @conicTo(ptr nocapture noundef readonly %0, ptr noca
   %38 = sext i32 %36 to i64
   %39 = getelementptr inbounds float, ptr %35, i64 %38
   store float %34, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %2, align 8
   %43 = add nsw i32 %42, 1
@@ -2756,16 +2756,16 @@ define internal noundef i32 @cubicTo(ptr nocapture noundef readonly %0, ptr noca
   %5 = load i64, ptr %0, align 8
   %6 = sitofp i64 %5 to float
   %7 = fmul float %6, 1.562500e-02
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds float, ptr %9, i64 %13
   store float %7, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = sitofp i64 %16 to float
   %18 = fmul float %17, -1.562500e-02
@@ -2786,7 +2786,7 @@ define internal noundef i32 @cubicTo(ptr nocapture noundef readonly %0, ptr noca
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds float, ptr %27, i64 %30
   store float %26, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sitofp i64 %33 to float
   %35 = fmul float %34, -1.562500e-02
@@ -2807,7 +2807,7 @@ define internal noundef i32 @cubicTo(ptr nocapture noundef readonly %0, ptr noca
   %47 = sext i32 %45 to i64
   %48 = getelementptr inbounds float, ptr %44, i64 %47
   store float %43, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = sitofp i64 %50 to float
   %52 = fmul float %51, -1.562500e-02
@@ -2818,7 +2818,7 @@ define internal noundef i32 @cubicTo(ptr nocapture noundef readonly %0, ptr noca
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds float, ptr %53, i64 %56
   store float %52, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %3, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %3, align 8
   %61 = add nsw i32 %60, 1

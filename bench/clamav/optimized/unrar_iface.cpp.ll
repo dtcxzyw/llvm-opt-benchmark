@@ -101,12 +101,12 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, pt
 
 18:                                               ; preds = %13
   store ptr %0, ptr %14, align 1
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 1, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %14, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i32 1, ptr %20, align 1
   %21 = tail call noalias dereferenceable_or_null(65536) ptr @calloc(i64 noundef 1, i64 noundef 65536) #13
-  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %21, ptr %22, align 1
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %26
@@ -120,7 +120,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, pt
   br label %.thread133
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %14, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 65536, ptr %27, align 1
   %28 = tail call ptr @RAROpenArchiveEx(ptr noundef nonnull %14)
   %29 = icmp eq ptr %28, null
@@ -136,13 +136,13 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, pt
   br label %33
 
 33:                                               ; preds = %30, %32
-  %34 = getelementptr inbounds i8, ptr %14, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %35 = load i32, ptr %34, align 1
   %36 = tail call fastcc noundef i32 @_ZL13unrar_retcodei(i32 noundef %35)
   br label %.thread133
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %14, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %39 = load i32, ptr %38, align 1
   %40 = load i8, ptr @unrar_debug, align 1
   %.not65 = icmp eq i8 %40, 0
@@ -197,7 +197,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, pt
   br label %53
 
 53:                                               ; preds = %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41
-  %54 = getelementptr inbounds i8, ptr %14, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %55 = load i32, ptr %54, align 1
   %.not66 = icmp eq i32 %55, 0
   br i1 %.not66, label %72, label %56
@@ -217,7 +217,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_open(ptr noundef %0, pt
 
 .lr.ph.i.i:                                       ; preds = %60, %63
   %.05.i.i = phi i64 [ %64, %63 ], [ 0, %60 ]
-  %61 = getelementptr inbounds i8, ptr %58, i64 %.05.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.05.i.i
   %62 = load i8, ptr %61, align 1
   %.not.i.i = icmp eq i8 %62, 0
   br i1 %.not.i.i, label %_ZL13unrar_strnlenPKcm.exit.i, label %63
@@ -236,7 +236,7 @@ _ZL13unrar_strnlenPKcm.exit.i:                    ; preds = %63, %.lr.ph.i.i, %6
 
 _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenPKcm.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr nonnull readonly align 1 %58, i64 %.0.lcssa.i.i, i1 false)
-  %67 = getelementptr inbounds i8, ptr %66, i64 %.0.lcssa.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0.lcssa.i.i
   store i8 0, ptr %67, align 1
   store ptr %66, ptr %2, align 8
   br label %72
@@ -261,7 +261,7 @@ _ZL13unrar_strndupPKcm.exit:                      ; preds = %_ZL13unrar_strnlenP
   br i1 %.not68, label %108, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %14, i64 44
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %76 = load i32, ptr %75, align 1
   %77 = and i32 %76, 1
   %.not69 = icmp eq i32 %77, 0
@@ -561,11 +561,11 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
 
 10:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1064) %1, i8 0, i64 1064, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 10292
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 10292
   store i32 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 10356
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 10356
   store i32 2048, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 10348
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 10348
   store ptr %4, ptr %13, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
   %14 = call i32 @RARReadHeaderEx(ptr noundef nonnull %0, ptr noundef nonnull %3)
@@ -577,34 +577,34 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
   br label %.thread49.thread
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %3, i64 10252
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 10252
   %19 = load i64, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 10244
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 10244
   %22 = load i64, ptr %21, align 1
   store i64 %22, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
-  %24 = getelementptr inbounds i8, ptr %3, i64 5120
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 5120
   %25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 1024) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 10264
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 10264
   %27 = load i32, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 1044
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1044
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 10240
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 10240
   %30 = load i32, ptr %29, align 1
   %31 = lshr i32 %30, 2
   %.lobit = and i32 %31, 1
-  %32 = getelementptr inbounds i8, ptr %1, i64 1048
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   store i32 %.lobit, ptr %32, align 8
   %33 = lshr i32 %30, 5
   %.lobit24 = and i32 %33, 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 1056
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   store i32 %.lobit24, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 10276
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 10276
   %36 = load i32, ptr %35, align 1
   %37 = trunc i32 %36 to i8
-  %38 = getelementptr inbounds i8, ptr %1, i64 1052
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1052
   store i8 %37, ptr %38, align 4
   %39 = load i8, ptr @unrar_debug, align 1
   %.not25 = icmp eq i8 %39, 0
@@ -624,7 +624,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
   br i1 %.not27, label %.thread49.thread, label %.thread38
 
 .thread38:                                        ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %3, i64 10360
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 10360
   %44 = load i32, ptr %43, align 1
   call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.26, i32 noundef %44)
   %.pr40.pr = load i8, ptr @unrar_debug, align 1
@@ -632,7 +632,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
   br i1 %.not28, label %.thread49.thread, label %45
 
 45:                                               ; preds = %.thread38
-  %46 = getelementptr inbounds i8, ptr %3, i64 10272
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 10272
   %47 = load i32, ptr %46, align 1
   call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.27, i32 noundef %47)
   %.pr43 = load i8, ptr @unrar_debug, align 1
@@ -651,7 +651,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
   call void (ptr, ...) @_ZL21unrar_dbgmsg_internalPKcz(ptr noundef nonnull @.str.29, i64 noundef %49)
   %.pre = load i8, ptr @unrar_debug, align 1
   %50 = icmp eq i8 %.pre, 0
-  %51 = getelementptr inbounds i8, ptr %3, i64 10344
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 10344
   %52 = load i32, ptr %51, align 1
   %.not31 = icmp eq i32 %52, 0
   %or.cond35 = select i1 %.not31, i1 true, i1 %50
@@ -664,7 +664,7 @@ define range(i32 0, 6) i32 @libclamunrar_iface_LTX_unrar_peek_file_header(ptr no
 
 .thread49.thread:                                 ; preds = %.thread45, %45, %41, %.thread38, %40, %17, %.thread49, %53, %9, %7, %15
   %.0 = phi i32 [ 4, %9 ], [ 4, %7 ], [ %16, %15 ], [ 0, %53 ], [ 0, %.thread49 ], [ 0, %17 ], [ 0, %40 ], [ 0, %.thread38 ], [ 0, %41 ], [ 0, %45 ], [ 0, %.thread45 ]
-  %55 = getelementptr inbounds i8, ptr %3, i64 10284
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 10284
   %56 = load ptr, ptr %55, align 1
   %.not34 = icmp eq ptr %56, null
   br i1 %.not34, label %58, label %57

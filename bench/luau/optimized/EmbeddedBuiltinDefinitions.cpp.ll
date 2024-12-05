@@ -1330,10 +1330,10 @@ define internal void @_GLOBAL__sub_I_EmbeddedBuiltinDefinitions.cpp() #8 section
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::allocator", align 1
   store i8 0, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, i64 1), align 1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, i64 1), align 1
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, i64 8), align 8
   %3 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, i64 16), align 8
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, i64 16), align 8
   store ptr @_ZN5FFlag31LuauCheckedEmbeddedDefinitions2E, ptr @_ZN4Luau6FValueIbE4listE, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #10

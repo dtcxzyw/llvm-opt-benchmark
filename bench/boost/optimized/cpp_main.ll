@@ -140,9 +140,9 @@ _ZN5boost9unit_test9ut_detail20bcs_char_traits_implIKcE6lengthEPS3_.exit.i: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %24, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.681.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %.sroa.681.0..sroa_idx, align 8
   %25 = or disjoint i64 ptrtoint (ptr @_ZZN5boost10function_nIiJEE9assign_toIN12_GLOBAL__N_115cpp_main_callerEEEvT_E13stored_vtable to i64), 1
   %26 = inttoptr i64 %25 to ptr
@@ -245,7 +245,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %48
 
 .noexc60:                                         ; preds = %61
   %62 = load ptr, ptr %54, align 8, !tbaa !18
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = invoke noundef signext i8 %64(ptr noundef nonnull align 8 dereferenceable(570) %54, i8 noundef signext 10)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i unwind label %41
@@ -284,7 +284,7 @@ _ZN5boost12scoped_arrayIcED2Ev.exit.i:            ; preds = %71, %_ZNSolsEPFRSoS
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %73, align 8, !tbaa !18
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(16) %73)
           to label %.noexc.i.i.i unwind label %89
@@ -297,7 +297,7 @@ _ZN5boost12scoped_arrayIcED2Ev.exit.i:            ; preds = %71, %_ZNSolsEPFRSoS
 
 85:                                               ; preds = %.noexc.i.i.i
   %86 = load ptr, ptr %73, align 8, !tbaa !18
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
   invoke void %88(ptr noundef nonnull align 8 dereferenceable(16) %73)
           to label %112 unwind label %89
@@ -396,7 +396,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65: ; preds = %.thread
 126:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
   call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %119)
   %127 = load ptr, ptr %119, align 8, !tbaa !18
-  %128 = getelementptr inbounds i8, ptr %127, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef signext i8 %129(ptr noundef nonnull align 8 dereferenceable(570) %119, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit69
@@ -537,7 +537,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i71: ; preds = %.loopexit
 189:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i71
   call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %182)
   %190 = load ptr, ptr %182, align 8, !tbaa !18
-  %191 = getelementptr inbounds i8, ptr %190, i64 48
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 48
   %192 = load ptr, ptr %191, align 8
   %193 = call noundef signext i8 %192(ptr noundef nonnull align 8 dereferenceable(570) %182, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit75
@@ -654,7 +654,7 @@ _ZN5boost12scoped_arrayIcED2Ev.exit:              ; preds = %1, %5
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %7, align 8, !tbaa !18
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %.noexc.i.i unwind label %23
@@ -667,7 +667,7 @@ _ZN5boost12scoped_arrayIcED2Ev.exit:              ; preds = %1, %5
 
 19:                                               ; preds = %.noexc.i.i
   %20 = load ptr, ptr %7, align 8, !tbaa !18
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN5boost10shared_ptrINS_6detail22translator_holder_baseEED2Ev.exit unwind label %23

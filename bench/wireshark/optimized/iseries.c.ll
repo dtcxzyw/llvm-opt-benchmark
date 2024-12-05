@@ -98,18 +98,18 @@ define hidden range(i32 -1, 2) i32 @iseries_open(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1, ptr %22, align 8
   %23 = load i32, ptr @iseries_unicode_file_type_subtype, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @iseries_read, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @iseries_seek_read, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 148
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %28, align 4
   %29 = load ptr, ptr %0, align 8
   %30 = call i64 @file_seek(ptr noundef %29, i64 noundef 0, i32 noundef 0, ptr noundef %1) #14
@@ -150,18 +150,18 @@ define hidden range(i32 -1, 2) i32 @iseries_open(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1, ptr %46, align 8
   %47 = load i32, ptr @iseries_file_type_subtype, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @iseries_read, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @iseries_seek_read, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 148
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %52, align 4
   %53 = load ptr, ptr %0, align 8
   %54 = call i64 @file_seek(ptr noundef %53, i64 noundef 0, i32 noundef 0, ptr noundef %1) #14
@@ -187,11 +187,11 @@ define internal fastcc range(i32 0, 2) i32 @iseries_check_file_type(ptr nocaptur
   %6 = alloca [9 x i8], align 1
   %7 = tail call noalias dereferenceable_or_null(20) ptr @g_malloc_n(i64 noundef 1, i64 noundef 20) #15
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %12
 
 12:                                               ; preds = %4, %39
@@ -281,7 +281,7 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %25, %.thread.i
   br i1 %.not, label %43, label %41
 
 41:                                               ; preds = %.loopexit
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %7, ptr %42, align 8
   br label %44
 
@@ -299,10 +299,10 @@ define internal range(i32 0, 2) i32 @iseries_read(ptr nocapture noundef readonly
   %8 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 270, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8)
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
-  %12 = getelementptr inbounds i8, ptr %7, i64 78
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 78
   br label %13
 
 13:                                               ; preds = %48, %6
@@ -427,7 +427,7 @@ iseries_seek_next_packet.exit:                    ; preds = %44
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @iseries_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
   %10 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %9, i32 noundef 0, ptr noundef %4) #14
@@ -496,7 +496,7 @@ define internal fastcc range(i32 0, 2) i32 @iseries_parse_packet(ptr nocapture r
   %15 = alloca i32, align 4
   %16 = alloca [540 x i8], align 16
   %17 = alloca %struct.tm, align 8
-  %18 = getelementptr inbounds i8, ptr %.96.val, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.96.val, i64 16
   br label %21
 
 19:                                               ; preds = %34
@@ -696,9 +696,9 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   store i32 %94, ptr %6, align 4
   store i32 0, ptr %1, align 8
   %95 = call ptr @wtap_block_create(i32 noundef 5) #14
-  %96 = getelementptr inbounds i8, ptr %1, i64 232
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 2, ptr %97, align 4
   %98 = load i32, ptr %.96.val, align 4
   %.not128 = icmp eq i32 %98, 0
@@ -706,48 +706,48 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
 
 99:                                               ; preds = %93
   store i32 3, ptr %97, align 4
-  %100 = getelementptr inbounds i8, ptr %.96.val, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.96.val, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 100
-  %103 = getelementptr inbounds i8, ptr %17, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %.96.val, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, -1
-  %107 = getelementptr inbounds i8, ptr %17, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %.96.val, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %.96.val, i64 12
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %17, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %109, ptr %110, align 4
   %111 = load i32, ptr %8, align 4
-  %112 = getelementptr inbounds i8, ptr %17, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %111, ptr %112, align 8
   %113 = load i32, ptr %9, align 4
-  %114 = getelementptr inbounds i8, ptr %17, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %113, ptr %114, align 4
   %115 = load i32, ptr %10, align 4
   store i32 %115, ptr %17, align 8
-  %116 = getelementptr inbounds i8, ptr %17, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 -1, ptr %116, align 8
   %117 = call i64 @mktime(ptr noundef nonnull %17) #14
-  %118 = getelementptr inbounds i8, ptr %1, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %117, ptr %118, align 8
   %119 = load i32, ptr %15, align 4
   %120 = call fastcc i32 @csec_multiplier(i32 noundef %119)
   %121 = mul i32 %120, %119
-  %122 = getelementptr inbounds i8, ptr %1, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %121, ptr %122, align 8
   br label %123
 
 123:                                              ; preds = %99, %93
   %124 = load i32, ptr %6, align 4
-  %125 = getelementptr inbounds i8, ptr %1, i64 64
-  %126 = getelementptr inbounds i8, ptr %1, i64 68
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %124, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %1, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 1, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %1, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 -1, ptr %128, align 8
   %129 = shl i32 %124, 1
   %130 = sext i32 %129 to i64
@@ -759,11 +759,11 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %31, %.thread.i
   %134 = load i32, ptr %14, align 4
   store i32 %134, ptr %133, align 1
   %135 = load ptr, ptr @g_ascii_table, align 8
-  %136 = getelementptr inbounds i8, ptr %16, i64 9
-  %137 = getelementptr inbounds i8, ptr %16, i64 22
-  %138 = getelementptr inbounds i8, ptr %16, i64 78
-  %139 = getelementptr inbounds i8, ptr %16, i64 27
-  %140 = getelementptr inbounds i8, ptr %16, i64 36
+  %136 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  %137 = getelementptr inbounds nuw i8, ptr %16, i64 22
+  %138 = getelementptr inbounds nuw i8, ptr %16, i64 78
+  %139 = getelementptr inbounds nuw i8, ptr %16, i64 27
+  %140 = getelementptr inbounds nuw i8, ptr %16, i64 36
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %123
@@ -951,7 +951,7 @@ iseries_UNICODE_to_ASCII.exit149:                 ; preds = %153, %.thread.i141
   %219 = zext nneg i32 %218 to i64
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %219) #14
   %220 = load ptr, ptr %2, align 8
-  %221 = getelementptr inbounds i8, ptr %2, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %222 = load i64, ptr %221, align 8
   %223 = getelementptr i8, ptr %220, i64 %222
   %224 = sext i32 %.0.ph to i64

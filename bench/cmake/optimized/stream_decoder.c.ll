@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, ptrtoint (ptr @lzma_stream_decoder_init to i64)
   br i1 %.not, label %8, label %7
@@ -28,7 +28,7 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
   br i1 %11, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 344
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 344
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %22
 
@@ -39,21 +39,21 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
 
 15:                                               ; preds = %12
   store ptr %13, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @stream_decode, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @stream_decoder_end, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @stream_decoder_get_check, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @stream_decoder_memconfig, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 -1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, i8 0, i64 56, i1 false)
-  %21 = getelementptr inbounds i8, ptr %13, i64 344
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 344
   store ptr null, ptr %21, align 8
   br label %22
 
@@ -61,33 +61,33 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
   %23 = phi ptr [ null, %15 ], [ %.pre, %._crit_edge ]
   %.034 = phi ptr [ %13, %15 ], [ %10, %._crit_edge ]
   %24 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
-  %25 = getelementptr inbounds i8, ptr %.034, i64 352
+  %25 = getelementptr inbounds nuw i8, ptr %.034, i64 352
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.034, i64 360
+  %26 = getelementptr inbounds nuw i8, ptr %.034, i64 360
   store i64 32768, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.034, i64 368
+  %27 = getelementptr inbounds nuw i8, ptr %.034, i64 368
   %28 = trunc nuw i32 %3 to i8
   %29 = and i8 %28, 1
   store i8 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %.034, i64 369
+  %30 = getelementptr inbounds nuw i8, ptr %.034, i64 369
   %31 = lshr i8 %28, 1
   %32 = and i8 %31, 1
   store i8 %32, ptr %30, align 1
-  %33 = getelementptr inbounds i8, ptr %.034, i64 370
+  %33 = getelementptr inbounds nuw i8, ptr %.034, i64 370
   %34 = lshr i8 %28, 2
   %35 = and i8 %34, 1
   store i8 %35, ptr %33, align 2
   %36 = icmp samesign ugt i32 %3, 15
-  %37 = getelementptr inbounds i8, ptr %.034, i64 371
+  %37 = getelementptr inbounds nuw i8, ptr %.034, i64 371
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %.034, i64 372
+  %39 = getelementptr inbounds nuw i8, ptr %.034, i64 372
   %40 = lshr i8 %28, 3
   %41 = and i8 %40, 1
   store i8 %41, ptr %39, align 4
-  %42 = getelementptr inbounds i8, ptr %.034, i64 373
+  %42 = getelementptr inbounds nuw i8, ptr %.034, i64 373
   store i8 1, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %.034, i64 344
+  %43 = getelementptr inbounds nuw i8, ptr %.034, i64 344
   %44 = tail call ptr @lzma_index_hash_init(ptr noundef %23, ptr noundef %1) #9
   store ptr %44, ptr %43, align 8
   %45 = icmp eq ptr %44, null
@@ -95,7 +95,7 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
 
 46:                                               ; preds = %22
   store i32 0, ptr %.034, align 8
-  %47 = getelementptr inbounds i8, ptr %.034, i64 376
+  %47 = getelementptr inbounds nuw i8, ptr %.034, i64 376
   store i64 0, ptr %47, align 8
   br label %stream_decoder_reset.exit
 
@@ -112,28 +112,28 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef %5, ptr noalias noundef %6, i64 noundef %7, i32 noundef %8) #0 {
   %10 = alloca [5 x %struct.lzma_filter], align 16
   %11 = alloca %struct.lzma_stream_flags, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 344
-  %13 = getelementptr inbounds i8, ptr %0, i64 384
-  %14 = getelementptr inbounds i8, ptr %0, i64 376
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
-  %17 = getelementptr inbounds i8, ptr %0, i64 372
-  %18 = getelementptr inbounds i8, ptr %0, i64 373
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %21 = getelementptr inbounds i8, ptr %0, i64 368
-  %22 = getelementptr inbounds i8, ptr %0, i64 369
-  %23 = getelementptr inbounds i8, ptr %0, i64 370
-  %24 = getelementptr inbounds i8, ptr %0, i64 84
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
-  %27 = getelementptr inbounds i8, ptr %0, i64 371
-  %28 = getelementptr inbounds i8, ptr %0, i64 280
-  %29 = getelementptr inbounds i8, ptr %0, i64 360
-  %30 = getelementptr inbounds i8, ptr %0, i64 352
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 373
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 369
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 370
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 371
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre = load i32, ptr %0, align 8
   br label %34
 
@@ -267,7 +267,7 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
 
 93:                                               ; preds = %92, %93
   %.0127164 = phi i64 [ 0, %92 ], [ %96, %93 ]
-  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127164, i32 1
+  %94 = getelementptr inbounds nuw [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127164, i32 1
   %95 = load ptr, ptr %94, align 8
   call void @lzma_free(ptr noundef %95, ptr noundef %1) #9
   %96 = add nuw nsw i64 %.0127164, 1
@@ -420,9 +420,9 @@ stream_decoder_reset.exit:                        ; preds = %45, %151, %34, %130
 
 ; Function Attrs: nounwind uwtable
 define internal void @stream_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @lzma_next_end(ptr noundef nonnull %3, ptr noundef %1) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load ptr, ptr %4, align 8
   tail call void @lzma_index_hash_end(ptr noundef %5, ptr noundef %1) #9
   tail call void @lzma_free(ptr noundef %0, ptr noundef %1) #9
@@ -431,17 +431,17 @@ define internal void @stream_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @stream_decoder_get_check(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i64 noundef %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 360
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 352
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -471,9 +471,9 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
   br i1 %.not, label %5, label %17
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @lzma_stream_decoder_init(ptr noundef %7, ptr noundef %9, i64 noundef %1, i32 noundef %2)
   %.not14 = icmp eq i32 %10, 0
@@ -485,10 +485,10 @@ define dso_local i32 @lzma_stream_decoder(ptr noundef %0, i64 noundef %1, i32 no
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store i8 1, ptr %14, align 8
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 91
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 91
   store i8 1, ptr %16, align 1
   br label %17
 

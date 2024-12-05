@@ -202,15 +202,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.051, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.049, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.047, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.045, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %56, align 8
   call void @setup_cancel_handler(ptr noundef null) #8
   %.not67 = icmp eq ptr %.2, null
@@ -303,7 +303,7 @@ cluster_all_databases.exit:                       ; preds = %.lr.ph.split.i, %.l
 
 .preheader:                                       ; preds = %87, %.preheader
   %.080 = phi ptr [ %92, %.preheader ], [ %88, %87 ]
-  %91 = getelementptr inbounds i8, ptr %.080, i64 9
+  %91 = getelementptr inbounds nuw i8, ptr %.080, i64 9
   call fastcc void @cluster_one_database(ptr noundef %4, ptr noundef nonnull %91, ptr noundef %8, i1 noundef zeroext %89, i1 noundef zeroext %90)
   %92 = load ptr, ptr %.080, align 8
   %.not66 = icmp eq ptr %92, null

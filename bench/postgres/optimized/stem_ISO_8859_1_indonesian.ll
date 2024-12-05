@@ -48,11 +48,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @out_grouping(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 117, i32 noundef 1) #4
   %8 = icmp slt i32 %7, 0
@@ -83,12 +83,12 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 22:                                               ; preds = %._crit_edge
   store i32 0, ptr %18, align 4
   %23 = load i32, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %26, ptr %27, align 8
   %28 = add i32 %26, -2
   %.not.i = icmp sgt i32 %28, %23
@@ -112,7 +112,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 
 37:                                               ; preds = %35
   %38 = load i32, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %38, ptr %39, align 4
   %40 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %41 = icmp slt i32 %40, 0
@@ -159,7 +159,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %64, ptr %65, align 4
   %66 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %67 = icmp slt i32 %66, 0
@@ -184,7 +184,7 @@ define hidden range(i32 -2147483648, 2) i32 @indonesian_ISO_8859_1_stem(ptr noun
   br i1 %79, label %80, label %r_remove_particle.exit
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %0, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %75, ptr %81, align 4
   %82 = add i32 %75, 1
   %.not.i101 = icmp slt i32 %82, %74
@@ -371,11 +371,11 @@ declare i32 @out_grouping(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_suffix(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not = icmp sgt i32 %3, %6
   br i1 %.not, label %7, label %26
@@ -398,14 +398,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_suffix(ptr nounde
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %16, ptr %17, align 4
   %18 = tail call i32 @slice_del(ptr noundef nonnull %0) #4
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
@@ -420,12 +420,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_suffix(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_prefix(ptr noundef initializes((20, 24)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %3, ptr %4, align 4
   %5 = add i32 %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %5, %7
   br i1 %.not, label %8, label %44
@@ -445,7 +445,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %16, ptr %17, align 8
   switch i32 %14, label %44 [
     i32 1, label %18
@@ -460,7 +460,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br i1 %20, label %44, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 2, ptr %23, align 4
   br label %.sink.split
@@ -471,7 +471,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br i1 %26, label %44, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.sink.split
 
 29:                                               ; preds = %15
@@ -480,7 +480,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br i1 %31, label %44, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
   store i32 4, ptr %34, align 4
   br label %.sink.split
@@ -491,7 +491,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   store i32 4, ptr %40, align 4
   br label %.sink.split
@@ -546,16 +546,16 @@ define internal range(i32 0, 2) i32 @r_VOWEL(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 3
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not = icmp sgt i32 %8, %10
   br i1 %.not, label %11, label %18
@@ -580,7 +580,7 @@ define internal range(i32 0, 2) i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %.not = icmp ne i32 %4, 1
@@ -590,7 +590,7 @@ define internal range(i32 0, 2) i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @r_SUFFIX_KAN_OK(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -2

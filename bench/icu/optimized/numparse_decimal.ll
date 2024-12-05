@@ -47,30 +47,30 @@ define void @_ZN6icu_758numparse4impl14DecimalMatcherC2ERKNS_20DecimalFormatSymb
 invoke.cont9:
   %agg.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 16), ptr %this, align 8
-  %groupingSeparator = getelementptr inbounds i8, ptr %this, i64 16
+  %groupingSeparator = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %groupingSeparator, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
-  %decimalSeparator = getelementptr inbounds i8, ptr %this, i64 80
+  %decimalSeparator = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %decimalSeparator, align 8
-  %fUnion2.i36 = getelementptr inbounds i8, ptr %this, i64 88
+  %fUnion2.i36 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i36, align 8
-  %fLocalDecimalUniSet = getelementptr inbounds i8, ptr %this, i64 176
-  %fLocalSeparatorSet = getelementptr inbounds i8, ptr %this, i64 184
-  %fLocalDigitStrings = getelementptr inbounds i8, ptr %this, i64 192
+  %fLocalDecimalUniSet = getelementptr inbounds nuw i8, ptr %this, i64 176
+  %fLocalSeparatorSet = getelementptr inbounds nuw i8, ptr %this, i64 184
+  %fLocalDigitStrings = getelementptr inbounds nuw i8, ptr %this, i64 192
   %and = and i32 %parseFlags, 2
   %cmp.not = icmp eq i32 %and, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fLocalDecimalUniSet, i8 0, i64 24, i1 false)
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont9
-  %arrayidx.i = getelementptr inbounds i8, ptr %symbols, i64 1096
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %symbols, i64 1096
   %call14 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %groupingSeparator, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont13.invoke unwind label %lpad10.loopexit.split-lp
 
 invoke.cont13.invoke:                             ; preds = %if.then, %if.else
   %.sink56 = phi i64 [ 8, %if.else ], [ 648, %if.then ]
-  %fSymbols.i40 = getelementptr inbounds i8, ptr %symbols, i64 %.sink56
+  %fSymbols.i40 = getelementptr inbounds nuw i8, ptr %symbols, i64 %.sink56
   %0 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %decimalSeparator, ptr noundef nonnull align 8 dereferenceable(64) %fSymbols.i40)
           to label %if.end unwind label %lpad10.loopexit.split-lp
 
@@ -85,7 +85,7 @@ lpad10.loopexit.split-lp:                         ; preds = %invoke.cont13.invok
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont9
-  %arrayidx.i41 = getelementptr inbounds i8, ptr %symbols, i64 72
+  %arrayidx.i41 = getelementptr inbounds nuw i8, ptr %symbols, i64 72
   %call24 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %groupingSeparator, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i41)
           to label %invoke.cont13.invoke unwind label %lpad10.loopexit.split-lp
 
@@ -97,7 +97,7 @@ if.end:                                           ; preds = %invoke.cont13.invok
           to label %invoke.cont32 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont32:                                    ; preds = %if.end
-  %groupingUniSet = getelementptr inbounds i8, ptr %this, i64 144
+  %groupingUniSet = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %call33, ptr %groupingUniSet, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(64) %decimalSeparator)
           to label %invoke.cont35 unwind label %lpad10.loopexit.split-lp
@@ -150,7 +150,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %invoke.cont61 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %decimalUniSet63 = getelementptr inbounds i8, ptr %this, i64 152
+  %decimalUniSet63 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call53, ptr %decimalUniSet63, align 8
   %3 = load ptr, ptr %fLocalDecimalUniSet, align 8
   %isnull.i = icmp eq ptr %3, null
@@ -176,15 +176,15 @@ if.else66:                                        ; preds = %if.else47
           to label %invoke.cont67 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont67:                                    ; preds = %if.else66
-  %decimalUniSet69 = getelementptr inbounds i8, ptr %this, i64 152
+  %decimalUniSet69 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call68, ptr %decimalUniSet69, align 8
   br label %if.else80
 
 if.then74:                                        ; preds = %if.then44
-  %decimalUniSet = getelementptr inbounds i8, ptr %this, i64 152
+  %decimalUniSet = getelementptr inbounds nuw i8, ptr %this, i64 152
   store ptr %call46, ptr %decimalUniSet, align 8
   %5 = load ptr, ptr %groupingUniSet, align 8
-  %separatorSet = getelementptr inbounds i8, ptr %this, i64 160
+  %separatorSet = getelementptr inbounds nuw i8, ptr %this, i64 160
   store ptr %5, ptr %separatorSet, align 8
   %cond77 = select i1 %cmp31.not, i32 23, i32 22
   %call79 = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef %cond77)
@@ -203,7 +203,7 @@ new.cont92:                                       ; preds = %if.else80
           to label %invoke.cont94 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont94:                                    ; preds = %new.cont92
-  %decimalUniSet96 = getelementptr inbounds i8, ptr %this, i64 152
+  %decimalUniSet96 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %7 = load ptr, ptr %decimalUniSet96, align 8
   %call98 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call82, ptr noundef nonnull align 8 dereferenceable(200) %7)
           to label %invoke.cont97 unwind label %lpad10.loopexit.split-lp
@@ -213,7 +213,7 @@ invoke.cont97:                                    ; preds = %invoke.cont94
           to label %invoke.cont99 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont99:                                    ; preds = %invoke.cont97
-  %separatorSet101 = getelementptr inbounds i8, ptr %this, i64 160
+  %separatorSet101 = getelementptr inbounds nuw i8, ptr %this, i64 160
   store ptr %call82, ptr %separatorSet101, align 8
   %8 = load ptr, ptr %fLocalSeparatorSet, align 8
   %isnull.i46 = icmp eq ptr %8, null
@@ -236,9 +236,9 @@ lpad87:                                           ; preds = %if.else80
 
 if.end105:                                        ; preds = %if.then74, %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48
   %.sink = phi ptr [ null, %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEE12adoptInsteadEPS2_.exit48 ], [ %call79, %if.then74 ]
-  %leadSet104 = getelementptr inbounds i8, ptr %this, i64 168
+  %leadSet104 = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %.sink, ptr %leadSet104, align 8
-  %fCodePointZero.i = getelementptr inbounds i8, ptr %symbols, i64 1928
+  %fCodePointZero.i = getelementptr inbounds nuw i8, ptr %symbols, i64 1928
   %10 = load i32, ptr %fCodePointZero.i, align 8
   %cmp108 = icmp eq i32 %10, -1
   br i1 %cmp108, label %if.then116, label %lor.lhs.false
@@ -270,16 +270,16 @@ new.notnull119:                                   ; preds = %if.then116
 
 invoke.cont125:                                   ; preds = %new.notnull119, %invoke.cont125
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull119 ], [ %arrayctor.cur.add, %invoke.cont125 ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call117, i64 %arrayctor.cur.idx
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call117, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i49 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
+  %fUnion2.i49 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i49, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 648
   br i1 %arrayctor.done, label %new.cont133.loopexit, label %invoke.cont125
 
 new.cont133.loopexit:                             ; preds = %invoke.cont125
-  %.ptr = getelementptr inbounds i8, ptr %call117, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call117, i64 8
   br label %new.cont133
 
 new.cont133:                                      ; preds = %new.cont133.loopexit, %if.then116
@@ -311,17 +311,17 @@ arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i
 
 _ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = %new.cont133, %arraydestroy.done2.i
   store ptr %11, ptr %fLocalDigitStrings, align 8
-  %arrayidx.i52 = getelementptr inbounds i8, ptr %symbols, i64 264
-  %fSymbols6.i = getelementptr inbounds i8, ptr %symbols, i64 8
+  %arrayidx.i52 = getelementptr inbounds nuw i8, ptr %symbols, i64 264
+  %fSymbols6.i = getelementptr inbounds nuw i8, ptr %symbols, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, %for.inc
   %indvars.iv = phi i64 [ 0, %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit ], [ %indvars.iv.next, %for.inc ]
   %cmp3.i = icmp eq i64 %indvars.iv, 0
   %15 = add nuw nsw i64 %indvars.iv, 17
-  %arrayidx7.i = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols6.i, i64 0, i64 %15
+  %arrayidx7.i = getelementptr inbounds nuw [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols6.i, i64 0, i64 %15
   %retval.0.i = select i1 %cmp3.i, ptr %arrayidx.i52, ptr %arrayidx7.i
-  %arrayidx = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %11, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %11, i64 %indvars.iv
   %call140 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i)
           to label %for.inc unwind label %lpad10.loopexit
 
@@ -331,16 +331,16 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.end141, label %for.body, !llvm.loop !4
 
 if.end141:                                        ; preds = %for.inc, %invoke.cont113
-  %requireGroupingMatch = getelementptr inbounds i8, ptr %this, i64 8
+  %requireGroupingMatch = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = trunc i32 %parseFlags to i8
   %17 = lshr i8 %16, 3
   %frombool144 = and i8 %17, 1
   store i8 %frombool144, ptr %requireGroupingMatch, align 8
-  %groupingDisabled = getelementptr inbounds i8, ptr %this, i64 9
+  %groupingDisabled = getelementptr inbounds nuw i8, ptr %this, i64 9
   %18 = lshr i8 %16, 5
   %frombool147 = and i8 %18, 1
   store i8 %frombool147, ptr %groupingDisabled, align 1
-  %integerOnly = getelementptr inbounds i8, ptr %this, i64 10
+  %integerOnly = getelementptr inbounds nuw i8, ptr %this, i64 10
   %19 = lshr i8 %16, 4
   %frombool150 = and i8 %19, 1
   store i8 %frombool150, ptr %integerOnly, align 2
@@ -348,13 +348,13 @@ if.end141:                                        ; preds = %for.inc, %invoke.co
           to label %invoke.cont151 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont151:                                   ; preds = %if.end141
-  %grouping1 = getelementptr inbounds i8, ptr %this, i64 12
+  %grouping1 = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i16 %call152, ptr %grouping1, align 4
   %call154 = invoke noundef signext i16 @_ZNK6icu_756number4impl7Grouper12getSecondaryEv(ptr noundef nonnull align 4 dereferenceable(12) %grouper)
           to label %invoke.cont153 unwind label %lpad10.loopexit.split-lp
 
 invoke.cont153:                                   ; preds = %invoke.cont151
-  %grouping2 = getelementptr inbounds i8, ptr %this, i64 14
+  %grouping2 = getelementptr inbounds nuw i8, ptr %this, i64 14
   store i16 %call154, ptr %grouping2, align 2
   ret void
 
@@ -487,13 +487,13 @@ entry:
 invoke.cont8:                                     ; preds = %entry
   %call6 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   call void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %digitsConsumed)
-  %bogus = getelementptr inbounds i8, ptr %digitsConsumed, i64 8
+  %bogus = getelementptr inbounds nuw i8, ptr %digitsConsumed, i64 8
   store i8 1, ptr %bogus, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %actualGroupingString, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %actualGroupingString, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %actualGroupingString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %actualDecimalString, align 8
-  %fUnion2.i113 = getelementptr inbounds i8, ptr %actualDecimalString, i64 8
+  %fUnion2.i113 = getelementptr inbounds nuw i8, ptr %actualDecimalString, i64 8
   store i16 2, ptr %fUnion2.i113, align 8
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %actualGroupingString)
           to label %invoke.cont10 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
@@ -503,22 +503,22 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %while.cond.preheader unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %invoke.cont10
-  %fLocalDigitStrings = getelementptr inbounds i8, ptr %this, i64 192
-  %decimalSeparator = getelementptr inbounds i8, ptr %this, i64 80
-  %fUnion.i119 = getelementptr inbounds i8, ptr %this, i64 88
-  %fLength.i125 = getelementptr inbounds i8, ptr %this, i64 92
-  %fLength.i132 = getelementptr inbounds i8, ptr %actualGroupingString, i64 12
-  %groupingDisabled = getelementptr inbounds i8, ptr %this, i64 9
-  %groupingSeparator = getelementptr inbounds i8, ptr %this, i64 16
-  %fUnion.i138 = getelementptr inbounds i8, ptr %this, i64 24
-  %fLength.i144 = getelementptr inbounds i8, ptr %this, i64 28
-  %decimalUniSet = getelementptr inbounds i8, ptr %this, i64 152
-  %groupingUniSet = getelementptr inbounds i8, ptr %this, i64 144
-  %integerOnly = getelementptr inbounds i8, ptr %this, i64 10
-  %requireGroupingMatch.i = getelementptr inbounds i8, ptr %this, i64 8
-  %grouping2.i = getelementptr inbounds i8, ptr %this, i64 14
-  %grouping1.i = getelementptr inbounds i8, ptr %this, i64 12
-  %fLength.i172 = getelementptr inbounds i8, ptr %actualDecimalString, i64 12
+  %fLocalDigitStrings = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %decimalSeparator = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %fUnion.i119 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %fLength.i125 = getelementptr inbounds nuw i8, ptr %this, i64 92
+  %fLength.i132 = getelementptr inbounds nuw i8, ptr %actualGroupingString, i64 12
+  %groupingDisabled = getelementptr inbounds nuw i8, ptr %this, i64 9
+  %groupingSeparator = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %fUnion.i138 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %fLength.i144 = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %decimalUniSet = getelementptr inbounds nuw i8, ptr %this, i64 152
+  %groupingUniSet = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %integerOnly = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %requireGroupingMatch.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %grouping2.i = getelementptr inbounds nuw i8, ptr %this, i64 14
+  %grouping1.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %fLength.i172 = getelementptr inbounds nuw i8, ptr %actualDecimalString, i64 12
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %invoke.cont255.invoke, %while.cond.preheader
@@ -605,8 +605,8 @@ for.body:                                         ; preds = %land.lhs.true28, %f
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.lhs.true28 ]
   %maybeMore.3343 = phi i8 [ %maybeMore.4, %for.inc ], [ 0, %land.lhs.true28 ]
   %2 = load ptr, ptr %fLocalDigitStrings, align 8
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %2, i64 %indvars.iv
-  %fUnion.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %2, i64 %indvars.iv
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load i16, ptr %fUnion.i, align 8
   %cmp.i114 = icmp ugt i16 %3, 31
   br i1 %cmp.i114, label %if.end42, label %for.inc
@@ -620,7 +620,7 @@ invoke.cont45:                                    ; preds = %if.end42
   %cmp.i.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i = sext i16 %5 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %6 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %cmp47 = icmp eq i32 %call44, %cond.i
@@ -1197,9 +1197,9 @@ if.then354:                                       ; preds = %if.then351
           to label %if.end366 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
 
 if.else357:                                       ; preds = %if.then351
-  %bogus359 = getelementptr inbounds i8, ptr %result, i64 8
+  %bogus359 = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i8 1, ptr %bogus359, align 8
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %58 = load i32, ptr %flags, align 4
   %or = or i32 %58, 128
   store i32 %or, ptr %flags, align 4
@@ -1216,7 +1216,7 @@ if.end366:                                        ; preds = %if.else362, %invoke
   br i1 %tobool369.not, label %if.then370, label %if.end373
 
 if.then370:                                       ; preds = %if.end366
-  %flags371 = getelementptr inbounds i8, ptr %result, i64 76
+  %flags371 = getelementptr inbounds nuw i8, ptr %result, i64 76
   %60 = load i32, ptr %flags371, align 4
   %or372 = or i32 %60, 32
   store i32 %or372, ptr %flags371, align 4
@@ -1278,7 +1278,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl14DecimalMatcher13validateGroupEiib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %sepType, i32 noundef %count, i1 noundef zeroext %isPrimary) local_unnamed_addr #4 align 2 {
 entry:
-  %requireGroupingMatch = getelementptr inbounds i8, ptr %this, i64 8
+  %requireGroupingMatch = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %requireGroupingMatch, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else22
@@ -1294,7 +1294,7 @@ if.then4:                                         ; preds = %if.then
 
 if.else7:                                         ; preds = %if.then4
   %cmp8.not = icmp ne i32 %count, 0
-  %grouping2 = getelementptr inbounds i8, ptr %this, i64 14
+  %grouping2 = getelementptr inbounds nuw i8, ptr %this, i64 14
   %1 = load i16, ptr %grouping2, align 2
   %conv = sext i16 %1 to i32
   %cmp9 = icmp sle i32 %count, %conv
@@ -1305,14 +1305,14 @@ if.then12:                                        ; preds = %if.then
   br i1 %isPrimary, label %if.then14, label %if.else17
 
 if.then14:                                        ; preds = %if.then12
-  %grouping1 = getelementptr inbounds i8, ptr %this, i64 12
+  %grouping1 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %3 = load i16, ptr %grouping1, align 4
   %conv15 = sext i16 %3 to i32
   %cmp16 = icmp eq i32 %count, %conv15
   br label %return
 
 if.else17:                                        ; preds = %if.then12
-  %grouping218 = getelementptr inbounds i8, ptr %this, i64 14
+  %grouping218 = getelementptr inbounds nuw i8, ptr %this, i64 14
   %4 = load i16, ptr %grouping218, align 2
   %conv19 = sext i16 %4 to i32
   %cmp20 = icmp eq i32 %count, %conv19
@@ -1349,13 +1349,13 @@ declare void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl14DecimalMatcher9smokeTestERKNS_13StringSegmentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) unnamed_addr #0 align 2 {
 entry:
-  %fLocalDigitStrings = getelementptr inbounds i8, ptr %this, i64 192
+  %fLocalDigitStrings = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %fLocalDigitStrings, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %leadSet = getelementptr inbounds i8, ptr %this, i64 168
+  %leadSet = getelementptr inbounds nuw i8, ptr %this, i64 168
   %1 = load ptr, ptr %leadSet, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1365,7 +1365,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %separatorSet = getelementptr inbounds i8, ptr %this, i64 160
+  %separatorSet = getelementptr inbounds nuw i8, ptr %this, i64 160
   %2 = load ptr, ptr %separatorSet, align 8
   %call4 = tail call noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithERKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(200) %2)
   br i1 %call4, label %return, label %lor.lhs.false
@@ -1384,7 +1384,7 @@ if.end9:                                          ; preds = %lor.lhs.false
 for.body:                                         ; preds = %if.end9, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end9 ]
   %4 = load ptr, ptr %fLocalDigitStrings, align 8
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %4, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %4, i64 %indvars.iv
   %call18 = tail call noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -1413,7 +1413,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 deref
 define linkonce_odr void @_ZN6icu_758numparse4impl14DecimalMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl14DecimalMatcherE, i64 16), ptr %this, align 8
-  %fLocalDigitStrings = getelementptr inbounds i8, ptr %this, i64 192
+  %fLocalDigitStrings = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %fLocalDigitStrings, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEED2Ev.exit, label %delete.notnull.i
@@ -1440,7 +1440,7 @@ arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i
   br label %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEED2Ev.exit
 
 _ZN6icu_7510LocalArrayIKNS_13UnicodeStringEED2Ev.exit: ; preds = %entry, %arraydestroy.done2.i
-  %fLocalSeparatorSet = getelementptr inbounds i8, ptr %this, i64 184
+  %fLocalSeparatorSet = getelementptr inbounds nuw i8, ptr %this, i64 184
   %3 = load ptr, ptr %fLocalSeparatorSet, align 8
   %isnull.i1 = icmp eq ptr %3, null
   br i1 %isnull.i1, label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit, label %delete.notnull.i2
@@ -1451,7 +1451,7 @@ delete.notnull.i2:                                ; preds = %_ZN6icu_7510LocalAr
   br label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit
 
 _ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit: ; preds = %_ZN6icu_7510LocalArrayIKNS_13UnicodeStringEED2Ev.exit, %delete.notnull.i2
-  %fLocalDecimalUniSet = getelementptr inbounds i8, ptr %this, i64 176
+  %fLocalDecimalUniSet = getelementptr inbounds nuw i8, ptr %this, i64 176
   %4 = load ptr, ptr %fLocalDecimalUniSet, align 8
   %isnull.i4 = icmp eq ptr %4, null
   br i1 %isnull.i4, label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit7, label %delete.notnull.i5
@@ -1462,9 +1462,9 @@ delete.notnull.i5:                                ; preds = %_ZN6icu_7512LocalPo
   br label %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit7
 
 _ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit7: ; preds = %_ZN6icu_7512LocalPointerIKNS_10UnicodeSetEED2Ev.exit, %delete.notnull.i5
-  %decimalSeparator = getelementptr inbounds i8, ptr %this, i64 80
+  %decimalSeparator = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %decimalSeparator) #7
-  %groupingSeparator = getelementptr inbounds i8, ptr %this, i64 16
+  %groupingSeparator = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %groupingSeparator) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   ret void

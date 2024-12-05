@@ -46,7 +46,7 @@ define hidden void @PrintWebPError(ptr noundef %0, i32 noundef %1) local_unnamed
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds [8 x ptr], ptr @kStatusMessages, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x ptr], ptr @kStatusMessages, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef %11) #6
   br label %13
@@ -167,14 +167,14 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %6 = alloca %struct.WebPData, align 8
   %7 = alloca %struct.WebPChunkIterator, align 8
   %8 = alloca %struct.WebPDecoderConfig, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = icmp eq ptr %0, null
   %11 = icmp eq i64 %1, 0
   %or.cond = or i1 %10, %11
   %12 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %12
-  %.sink151.sroa.gep = getelementptr inbounds i8, ptr %8, i64 128
-  %.sink151.sroa.gep153 = getelementptr inbounds i8, ptr %8, i64 72
+  %.sink151.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %.sink151.sroa.gep153 = getelementptr inbounds nuw i8, ptr %8, i64 72
   br i1 %or.cond3, label %173, label %13
 
 13:                                               ; preds = %5
@@ -198,16 +198,16 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
 
 21:                                               ; preds = %18
   %22 = icmp ne i32 %3, 0
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, 0
   %26 = select i1 %22, i1 %25, i1 false
   %27 = load i32, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %30, ptr %31, align 4
   %32 = load i32, ptr %2, align 8
   %.not118 = icmp eq i32 %32, 0
@@ -223,7 +223,7 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %38 = mul nsw i64 %37, %33
   %39 = lshr i64 %38, 1
   %40 = select i1 %26, i32 4, i32 0
-  %41 = getelementptr inbounds i8, ptr %2, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %40, ptr %41, align 4
   br label %42
 
@@ -242,16 +242,16 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
 47:                                               ; preds = %45
   %48 = load i32, ptr %2, align 8
   %.not121 = icmp eq i32 %48, 0
-  %49 = getelementptr inbounds i8, ptr %8, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br i1 %.not121, label %59, label %50
 
 50:                                               ; preds = %47
   store i32 3, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %55 = load i32, ptr %54, align 8
   %56 = shl i32 %55, 2
   store i32 %56, ptr %49, align 8
@@ -262,28 +262,28 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
 59:                                               ; preds = %47
   %60 = select i1 %26, i32 12, i32 11
   store i32 %60, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %49, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %8, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %67, ptr %68, align 8
   br i1 %26, label %70, label %69
 
 69:                                               ; preds = %59
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %75
 
 70:                                               ; preds = %59
-  %71 = getelementptr inbounds i8, ptr %2, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %74 = load i32, ptr %73, align 8
   br label %75
 
@@ -291,32 +291,32 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %76 = phi i32 [ %74, %70 ], [ %.pre, %69 ]
   %.sink148 = phi ptr [ %72, %70 ], [ null, %69 ]
   %77 = phi i32 [ %74, %70 ], [ 0, %69 ]
-  %.sink146.in = getelementptr inbounds i8, ptr %2, i64 44
+  %.sink146.in = getelementptr inbounds nuw i8, ptr %2, i64 44
   %.sink146 = load i32, ptr %.sink146.in, align 4
-  %.sink147.in = getelementptr inbounds i8, ptr %2, i64 40
+  %.sink147.in = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sink147 = load i32, ptr %.sink147.in, align 8
-  %78 = getelementptr inbounds i8, ptr %8, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %.sink148, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %8, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 %.sink147, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 92
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 92
   store i32 %.sink146, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %8, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %.sink146, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %8, i64 100
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 100
   store i32 %77, ptr %82, align 4
   %83 = load i32, ptr %31, align 4
   %84 = mul nsw i32 %83, %.sink147
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %8, i64 104
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i64 %85, ptr %86, align 8
   %87 = add nsw i32 %83, 1
   %88 = sdiv i32 %87, 2
   %89 = mul nsw i32 %88, %.sink146
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr %8, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i64 %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %8, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i64 %90, ptr %92, align 8
   %93 = mul nsw i32 %76, %83
   br label %94
@@ -326,9 +326,9 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %.sink151.sroa.phi = phi ptr [ %.sink151.sroa.gep, %75 ], [ %.sink151.sroa.gep153, %50 ]
   %95 = sext i32 %.sink152 to i64
   store i64 %95, ptr %.sink151.sroa.phi, align 8
-  %96 = getelementptr inbounds i8, ptr %8, i64 52
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 1, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %8, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.val.i = load i32, ptr %97, align 4
   %.not.i.i = icmp eq i32 %.val.i, 0
   br i1 %.not.i.i, label %DecodeWebP.exit, label %98
@@ -357,13 +357,13 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br i1 %109, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %2, i64 80
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %111 = load i32, ptr %28, align 8
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %113 = getelementptr inbounds i8, ptr %2, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %114 = load ptr, ptr %113, align 8
   br label %.preheader
 
@@ -377,7 +377,7 @@ DecodeWebP.exit:                                  ; preds = %94, %98
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %118 = getelementptr inbounds i32, ptr %.0143, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr %.0143, i64 %indvars.iv
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %119, -16777216
   store i32 %120, ptr %118, align 4
@@ -422,7 +422,7 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   store ptr %0, ptr %6, align 8
-  %135 = getelementptr inbounds i8, ptr %6, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %135, align 8
   %136 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
   %137 = icmp eq ptr %136, null
@@ -440,11 +440,11 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br i1 %.not15.i, label %150, label %143
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %7, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %7, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %4, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %149 = call i32 @MetadataCopy(ptr noundef %145, i64 noundef %147, ptr noundef nonnull %148) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
   br label %150
@@ -460,9 +460,9 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br i1 %.not17.i, label %160, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %7, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %7, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %158 = load i64, ptr %157, align 8
   %159 = call i32 @MetadataCopy(ptr noundef %156, i64 noundef %158, ptr noundef nonnull %4) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
@@ -479,11 +479,11 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br i1 %.not19.i, label %.thread138, label %164
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %7, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %7, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %168 = load i64, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %4, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %170 = call i32 @MetadataCopy(ptr noundef %166, i64 noundef %168, ptr noundef nonnull %169) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
   br label %.thread138

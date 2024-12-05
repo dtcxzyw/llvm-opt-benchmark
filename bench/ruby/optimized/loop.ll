@@ -34,11 +34,11 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 define internal i64 @loop_alloc(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 24, ptr noundef nonnull @random_loop_type) #10
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %.not.i, label %8, label %RTYPEDDATA_GET_DATA.exit
 
 8:                                                ; preds = %1
@@ -59,7 +59,7 @@ declare void @rb_random_mark(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 2
@@ -70,12 +70,12 @@ define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal void @loop_init(ptr nocapture noundef initializes((8, 12)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2, i64 1024)
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %5, i64 noundef %spec.store.select, i64 noundef 4) #11
   store ptr %6, ptr %4, align 8
   %7 = trunc nuw nsw i64 %spec.store.select to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %9
@@ -91,11 +91,11 @@ ruby_nonempty_memcpy.exit:                        ; preds = %3, %9
 
 ; Function Attrs: nounwind uwtable
 define internal void @loop_init_int32(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call nonnull dereferenceable(4) ptr @ruby_xrealloc2(ptr noundef %4, i64 noundef 1, i64 noundef 4) #11
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %6, align 8
   store i32 %1, ptr %5, align 1
   ret void
@@ -103,20 +103,20 @@ define internal void @loop_init_int32(ptr nocapture noundef initializes((8, 12))
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @loop_get_int32(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %3, %5
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = add nuw i32 %3, 1
   store i32 %10, ptr %2, align 4
   %11 = zext i32 %3 to i64
-  %12 = getelementptr inbounds i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4
   %.not14 = icmp ult i32 %10, %5
   %spec.store.select = select i1 %.not14, i32 %10, i32 0
@@ -128,7 +128,7 @@ define internal i32 @loop_get_int32(ptr nocapture noundef %0) #3 {
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   store i32 0, ptr %2, align 4
   %18 = load i32, ptr %17, align 4
@@ -145,9 +145,9 @@ define internal void @loop_get_bytes(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %loop_get_int32.exit._crit_edge
@@ -163,7 +163,7 @@ define internal void @loop_get_bytes(ptr nocapture noundef %0, ptr nocapture nou
   %13 = add nuw i32 %8, 1
   store i32 %13, ptr %4, align 4
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not14.i = icmp ult i32 %13, %9
   %spec.store.select.i = select i1 %.not14.i, i32 %13, i32 0
@@ -192,7 +192,7 @@ loop_get_int32.exit:                              ; preds = %11, %17, %18
   ]
 
 23:                                               ; preds = %loop_get_int32.exit
-  %24 = getelementptr inbounds i8, ptr %.01520, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01520, i64 1
   store i8 %22, ptr %.01520, align 1
   %25 = add i64 %.021, -1
   br label %loop_get_int32.exit._crit_edge23
@@ -200,7 +200,7 @@ loop_get_int32.exit:                              ; preds = %11, %17, %18
 loop_get_int32.exit._crit_edge23:                 ; preds = %loop_get_int32.exit, %23
   %.116 = phi ptr [ %24, %23 ], [ %.01520, %loop_get_int32.exit ]
   %.1 = phi i64 [ %25, %23 ], [ %.021, %loop_get_int32.exit ]
-  %26 = getelementptr inbounds i8, ptr %.116, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.116, i64 1
   store i8 %22, ptr %.116, align 1
   %27 = add i64 %.1, -1
   br label %loop_get_int32.exit._crit_edge22
@@ -208,7 +208,7 @@ loop_get_int32.exit._crit_edge23:                 ; preds = %loop_get_int32.exit
 loop_get_int32.exit._crit_edge22:                 ; preds = %loop_get_int32.exit, %loop_get_int32.exit._crit_edge23
   %.217 = phi ptr [ %26, %loop_get_int32.exit._crit_edge23 ], [ %.01520, %loop_get_int32.exit ]
   %.2 = phi i64 [ %27, %loop_get_int32.exit._crit_edge23 ], [ %.021, %loop_get_int32.exit ]
-  %28 = getelementptr inbounds i8, ptr %.217, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.217, i64 1
   store i8 %22, ptr %.217, align 1
   %29 = add i64 %.2, -1
   br label %loop_get_int32.exit._crit_edge
@@ -216,7 +216,7 @@ loop_get_int32.exit._crit_edge22:                 ; preds = %loop_get_int32.exit
 loop_get_int32.exit._crit_edge:                   ; preds = %loop_get_int32.exit, %loop_get_int32.exit._crit_edge22
   %.318 = phi ptr [ %28, %loop_get_int32.exit._crit_edge22 ], [ %.01520, %loop_get_int32.exit ]
   %.3 = phi i64 [ %29, %loop_get_int32.exit._crit_edge22 ], [ %.021, %loop_get_int32.exit ]
-  %30 = getelementptr inbounds i8, ptr %.318, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.318, i64 1
   store i8 %22, ptr %.318, align 1
   %31 = add i64 %.3, -1
   %.not = icmp eq i64 %31, 0
@@ -231,20 +231,20 @@ default.unreachable28:                            ; preds = %loop_get_int32.exit
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal double @loop_get_real(ptr nocapture noundef %0, i32 %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %4, %6
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = add nuw i32 %4, 1
   store i32 %11, ptr %3, align 4
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not14.i = icmp ult i32 %11, %6
   %spec.store.select.i = select i1 %.not14.i, i32 %11, i32 0
@@ -256,7 +256,7 @@ define internal double @loop_get_real(ptr nocapture noundef %0, i32 %1) #5 {
   br i1 %.not.i, label %loop_get_int32.exit, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   store i32 0, ptr %3, align 4
   %19 = load i32, ptr %18, align 4

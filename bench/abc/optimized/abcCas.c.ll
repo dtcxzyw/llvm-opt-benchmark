@@ -26,7 +26,7 @@ define ptr @Abc_NtkCascade(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 9:                                                ; preds = %4
   %10 = load i64, ptr %6, align 8
   %.neg53 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
   %.neg54 = add i64 %.neg, %.neg53
@@ -65,7 +65,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
 27:                                               ; preds = %16
   %28 = load i64, ptr %5, align 8
   %29 = mul nsw i64 %28, 1000000
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = sdiv i64 %31, 1000
   %33 = add nsw i64 %32, %29
@@ -104,7 +104,7 @@ Abc_Clock.exit52:                                 ; preds = %16, %27
   %.val4558 = phi ptr [ %.val45, %Abc_ObjGlobalBdd.exit ], [ %.val44, %37 ]
   %48 = getelementptr i8, ptr %.val4558, i64 8
   %.val47.val = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds ptr, ptr %.val47.val, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %.val47.val, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %.val48 = load ptr, ptr %50, align 8
   %51 = getelementptr i8, ptr %50, i64 16
@@ -128,7 +128,7 @@ Abc_Clock.exit52:                                 ; preds = %16, %27
   br i1 %.not.i.i.i, label %61, label %Vec_AttGrow.exit.i.i
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %.val48.val.val.val, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.val48.val.val.val, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not13.i.i.i = icmp eq ptr %63, null
   %64 = sext i32 %60 to i64
@@ -158,7 +158,7 @@ Abc_Clock.exit52:                                 ; preds = %16, %27
   br label %Vec_AttGrow.exit.i.i
 
 Vec_AttGrow.exit.i.i:                             ; preds = %70, %56, %.lr.ph
-  %78 = getelementptr inbounds i8, ptr %.val48.val.val.val, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.val48.val.val.val, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = sext i32 %.val49 to i64
   %81 = getelementptr inbounds ptr, ptr %79, i64 %80
@@ -167,13 +167,13 @@ Vec_AttGrow.exit.i.i:                             ; preds = %70, %56, %.lr.ph
   br i1 %83, label %84, label %Abc_ObjGlobalBdd.exit
 
 84:                                               ; preds = %Vec_AttGrow.exit.i.i
-  %85 = getelementptr inbounds i8, ptr %.val48.val.val.val, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.val48.val.val.val, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not18.i.i = icmp eq ptr %86, null
   br i1 %.not18.i.i, label %Abc_ObjGlobalBdd.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %.val48.val.val.val, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.val48.val.val.val, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr %86(ptr noundef %89) #12
   %91 = load ptr, ptr %78, align 8
@@ -186,7 +186,7 @@ Vec_AttGrow.exit.i.i:                             ; preds = %70, %56, %.lr.ph
 
 Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.i, %84, %87
   %93 = phi ptr [ %.pre19.i.i, %87 ], [ null, %84 ], [ %82, %Vec_AttGrow.exit.i.i ]
-  %94 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   store ptr %93, ptr %94, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val45 = load ptr, ptr %42, align 8
@@ -197,7 +197,7 @@ Abc_ObjGlobalBdd.exit:                            ; preds = %Vec_AttGrow.exit.i.
   br i1 %97, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %Abc_ObjGlobalBdd.exit, %37
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @Extra_FileNameGeneric(ptr noundef %99) #12
   %101 = getelementptr i8, ptr %0, i64 56

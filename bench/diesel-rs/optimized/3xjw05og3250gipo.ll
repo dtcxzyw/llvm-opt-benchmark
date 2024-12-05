@@ -18,7 +18,7 @@ define void @_ZN5serde2de7Visitor10visit_bool17he841f77766d476d1E(ptr nocapture 
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %7 = zext i1 %1 to i8
   store i8 %7, ptr %6, align 1
   store i8 0, ptr %4, align 8
@@ -43,16 +43,16 @@ define void @_ZN5serde2de7Visitor12visit_string17hc59581150a8e9f19E(ptr nocaptur
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %9, ptr %11, align 8
   store i8 5, ptr %4, align 8
   invoke void @_ZN5serde2de5Error12invalid_type17h4ec736087724375fE(ptr nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %5, ptr nonnull align 8 %4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.d1a174d3a1607914d9c22c4b77ffe78d.0)
@@ -89,7 +89,7 @@ define void @_ZN5serde2de7Visitor18visit_borrowed_str17h6196db6536501b5eE(ptr no
   %5 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
   %not..i = xor i1 %5, true
   %spec.select.i = zext i1 %not..i to i8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %spec.select.i, ptr %6, align 8
   store i64 2, ptr %0, align 8
   ret void
@@ -100,7 +100,7 @@ define void @_ZN5serde2de7Visitor9visit_f6417h7d3b6b376c10cae7E(ptr nocapture wr
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %1, ptr %6, align 8
   store i8 3, ptr %4, align 8
   call void @_ZN5serde2de5Error12invalid_type17h4ec736087724375fE(ptr nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %5, ptr nonnull align 8 %4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.d1a174d3a1607914d9c22c4b77ffe78d.0)
@@ -113,7 +113,7 @@ define void @_ZN5serde2de7Visitor9visit_i6417hcd9ea70b4edcc088E(ptr nocapture wr
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %6, align 8
   store i8 2, ptr %4, align 8
   call void @_ZN5serde2de5Error12invalid_type17h4ec736087724375fE(ptr nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %5, ptr nonnull align 8 %4, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.d1a174d3a1607914d9c22c4b77ffe78d.0)
@@ -126,9 +126,9 @@ define void @_ZN5serde2de7Visitor9visit_str17h2248c92de052d07dE(ptr nocapture wr
   %4 = alloca { {}, {} }, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %8, align 8
   store i8 5, ptr %5, align 8
   call void @_ZN5serde2de5Error12invalid_type17h4ec736087724375fE(ptr nonnull sret({ { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }) align 8 %6, ptr nonnull align 8 %5, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.d1a174d3a1607914d9c22c4b77ffe78d.0)
@@ -139,13 +139,13 @@ define void @_ZN5serde2de7Visitor9visit_str17h2248c92de052d07dE(ptr nocapture wr
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN20migrations_internals29valid_sql_migration_directory28_$u7b$$u7b$closure$u7d$$u7d$17hb67f5acf2eea067bE"(ptr align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, ptr }, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = getelementptr inbounds { { { { i64, ptr }, i64 } } }, ptr %4, i64 %6
   store ptr %4, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
   %9 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hcf3245e77450a681E"(ptr nonnull align 8 %2)
           to label %12 unwind label %10
@@ -195,10 +195,10 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
           to label %20 unwind label %17
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %.sroa.2.0..sroa_idx, align 8
   br label %48
 
@@ -217,9 +217,9 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
   br label %15
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !3
   invoke void @_ZN3std3sys4unix6os_str5Slice15to_string_lossy17haa60bcab43d2d9d6E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %8, ptr nonnull align 1 %22, i64 %24)
           to label %28 unwind label %26
@@ -326,7 +326,7 @@ define void @"_ZN179_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %5 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf2bd1603ea2287f5E"(ptr nonnull align 1 %1, i64 %2, ptr nonnull align 1 @anon.d1a174d3a1607914d9c22c4b77ffe78d.3, i64 18)
   %not. = xor i1 %5, true
   %spec.select = zext i1 %not. to i8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %spec.select, ptr %6, align 8
   store i64 2, ptr %0, align 8
   ret void
@@ -359,23 +359,23 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
 6:                                                ; preds = %2
   %7 = load i64, ptr %3, align 8, !range !4, !noundef !3
   %8 = icmp eq i64 %7, 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i8, ptr %9, align 8
   br i1 %8, label %11, label %14
 
 11:                                               ; preds = %6
   %12 = and i8 %10, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %12, ptr %13, align 8
   store i64 2, ptr %0, align 8
   br label %15
 
 14:                                               ; preds = %6
-  %.sroa.09.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 9
+  %.sroa.09.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i64 %7, ptr %0, align 8
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %10, ptr %.sroa.214.0..sroa_idx, align 8
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.315.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.09.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %15
 
@@ -399,8 +399,8 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %4 = alloca { i64, [11 x i64] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %24, %2
@@ -444,17 +444,17 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   ]
 
 15:                                               ; preds = %10
-  %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 9
+  %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i64 %11, ptr %0, align 8
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %13, ptr %.sroa.235.0..sroa_idx, align 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.336.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.030.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %33
 
 16:                                               ; preds = %14
   %17 = and i8 %.0.ph, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %17, ptr %18, align 8
   store i64 2, ptr %0, align 8
   br label %33
@@ -486,11 +486,11 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   br i1 %26, label %.outer, label %28
 
 28:                                               ; preds = %24
-  %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 9
+  %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i64 %25, ptr %0, align 8
-  %.sroa.242.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %27, ptr %.sroa.242.0..sroa_idx, align 8
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.343.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.037.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %33
 
@@ -500,9 +500,9 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   br i1 %31, label %9, label %32
 
 32:                                               ; preds = %29
-  %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %30, ptr %0, align 8
-  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.248.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.044.sroa.2.0..sroa_idx, i64 88, i1 false)
   br label %33
 
@@ -526,8 +526,8 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %4 = alloca { i64, [11 x i64] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %24, %2
@@ -571,17 +571,17 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   ]
 
 15:                                               ; preds = %10
-  %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 9
+  %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i64 %11, ptr %0, align 8
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %13, ptr %.sroa.235.0..sroa_idx, align 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.336.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.030.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %33
 
 16:                                               ; preds = %14
   %17 = and i8 %.0.ph, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %17, ptr %18, align 8
   store i64 2, ptr %0, align 8
   br label %33
@@ -613,11 +613,11 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   br i1 %26, label %.outer, label %28
 
 28:                                               ; preds = %24
-  %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 9
+  %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i64 %25, ptr %0, align 8
-  %.sroa.242.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %27, ptr %.sroa.242.0..sroa_idx, align 8
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.343.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.037.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %33
 
@@ -627,9 +627,9 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   br i1 %31, label %9, label %32
 
 32:                                               ; preds = %29
-  %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %30, ptr %0, align 8
-  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.248.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.044.sroa.2.0..sroa_idx, i64 88, i1 false)
   br label %33
 
@@ -653,8 +653,8 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   %4 = alloca { i64, [11 x i64] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr }, i64 } }, { { i64, ptr }, i64 }, { i64, [2 x i64] } } }, align 8
   %6 = alloca { i64, [11 x i64] }, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %23, %2
@@ -675,17 +675,17 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   ]
 
 14:                                               ; preds = %9
-  %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 9
+  %.sroa.030.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i64 %10, ptr %0, align 8
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %12, ptr %.sroa.235.0..sroa_idx, align 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.336.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.030.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %29
 
 15:                                               ; preds = %13
   %16 = and i8 %.0.ph, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %16, ptr %17, align 8
   store i64 2, ptr %0, align 8
   br label %29
@@ -713,18 +713,18 @@ define void @"_ZN174_$LT$migrations_internals.._..$LT$impl$u20$serde..de..Deseri
   br i1 %25, label %.outer, label %27
 
 27:                                               ; preds = %23
-  %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 9
+  %.sroa.037.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i64 %24, ptr %0, align 8
-  %.sroa.242.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %26, ptr %.sroa.242.0..sroa_idx, align 8
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(87) %.sroa.343.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(87) %.sroa.037.sroa.3.0..sroa_idx, i64 87, i1 false)
   br label %29
 
 28:                                               ; preds = %19
-  %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.044.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %20, ptr %0, align 8
-  %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.248.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.044.sroa.2.0..sroa_idx, i64 88, i1 false)
   br label %29
 

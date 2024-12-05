@@ -35,7 +35,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %ASN1_d2i_bio.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64
@@ -79,7 +79,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %.pre, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %conv = zext nneg i32 %call to i64
@@ -113,7 +113,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i32 @ERR_set_mark() #4
-  %data = getelementptr inbounds i8, ptr %call, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 8
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %if.end
@@ -344,7 +344,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %err, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %.pre, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %conv = zext nneg i32 %call to i64
@@ -381,7 +381,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %err.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64
@@ -427,7 +427,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %ASN1_item_d2i_bio_ex.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64

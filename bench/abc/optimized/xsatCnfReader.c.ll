@@ -73,8 +73,8 @@ skipLine.exit.i.outer:                            ; preds = %Vec_IntAlloc.exit.i
   %.013.i.ph = phi ptr [ %56, %Vec_IntAlloc.exit.i ], [ null, %2 ]
   %.012.i.ph = phi ptr [ %55, %Vec_IntAlloc.exit.i ], [ null, %2 ]
   %15 = icmp eq ptr %.012.i.ph, null
-  %16 = getelementptr inbounds i8, ptr %.013.i.ph, i64 4
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.013.i.ph, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.013.i.ph, i64 4
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.ph, i64 8
   br label %skipLine.exit.i
 
 skipLine.exit.i:                                  ; preds = %skipLine.exit.i.backedge, %skipLine.exit.i.outer
@@ -90,7 +90,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8192
   %.not.i = icmp eq i16 %23, 0
-  %24 = getelementptr inbounds i8, ptr %.promoted53.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.promoted53.i, i64 1
   br i1 %.not.i, label %25, label %18, !llvm.loop !4
 
 25:                                               ; preds = %18
@@ -110,18 +110,18 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   ]
 
 28:                                               ; preds = %.preheader.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %29, ptr %3, align 8
   br label %skipLine.exit.i.backedge
 
 30:                                               ; preds = %.preheader.i
-  %31 = getelementptr inbounds i8, ptr %27, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.pre.i = load i8, ptr %31, align 1
   br label %.preheader.i
 
 .preheader26.i:                                   ; preds = %25, %.preheader26.i
   %.pn.i = phi ptr [ %storemerge.i, %.preheader26.i ], [ %.promoted53.i, %25 ]
-  %storemerge.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %32 = load i8, ptr %storemerge.i, align 1
   %33 = sext i8 %32 to i64
   %34 = getelementptr inbounds i16, ptr %17, i64 %33
@@ -142,7 +142,7 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 8192
   %.not18.i = icmp eq i16 %43, 0
-  %44 = getelementptr inbounds i8, ptr %38, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 1
   br i1 %.not18.i, label %37, label %45, !llvm.loop !7
 
 45:                                               ; preds = %37
@@ -161,11 +161,11 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
   ]
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   br label %skipLine.exit20.i
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %49, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 1
   br label %48
 
 skipLine.exit20.i:                                ; preds = %48, %51
@@ -176,7 +176,7 @@ skipLine.exit20.i:                                ; preds = %48, %51
   %57 = add i32 %46, -1
   %or.cond.i.i = icmp ult i32 %57, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %46
-  %58 = getelementptr inbounds i8, ptr %56, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 0, ptr %58, align 4
   store i32 %spec.store.select.i.i, ptr %56, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
@@ -190,7 +190,7 @@ skipLine.exit20.i:                                ; preds = %48, %51
 
 Vec_IntAlloc.exit.i:                              ; preds = %59, %skipLine.exit20.i
   %63 = phi ptr [ %62, %59 ], [ null, %skipLine.exit20.i ]
-  %64 = getelementptr inbounds i8, ptr %56, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %63, ptr %64, align 8
   br label %skipLine.exit.i.outer
 
@@ -290,7 +290,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %98, %Vec_IntGrow.ex
 
 .lr.ph.i23.i:                                     ; preds = %Vec_IntPush.exit.i.i, %.lr.ph.i23.i
   %112 = phi ptr [ %113, %.lr.ph.i23.i ], [ %106, %Vec_IntPush.exit.i.i ]
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %114 = load i8, ptr %113, align 1
   %115 = sext i8 %114 to i64
   %116 = getelementptr inbounds i16, ptr %105, i64 %115
@@ -308,7 +308,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %98, %Vec_IntGrow.ex
   ]
 
 .sink.split.i.i:                                  ; preds = %._crit_edge.i.i, %._crit_edge.i.i
-  %119 = getelementptr inbounds i8, ptr %.lcssa20.i.i, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %.lcssa20.i.i, i64 1
   store ptr %119, ptr %3, align 8
   %.pre79.i = load i8, ptr %119, align 1
   br label %120
@@ -338,7 +338,7 @@ Vec_IntPush.exit.i.i:                             ; preds = %98, %Vec_IntGrow.ex
   %134 = mul nsw i32 %.01426.i.i, 10
   %135 = add nsw i32 %133, -48
   %136 = add i32 %135, %134
-  %137 = getelementptr inbounds i8, ptr %132, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store ptr %137, ptr %3, align 8
   %138 = load i8, ptr %137, align 1
   %139 = sext i8 %138 to i64
@@ -378,7 +378,7 @@ xSAT_ReadClause.exit.skipLine.exit_crit_edge.i:   ; preds = %xSAT_ReadClause.exi
 151:                                              ; preds = %151, %.lr.ph.i21.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i21.i ], [ %indvars.iv.next.i.i, %151 ]
   %.val7.i.i = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i32, ptr %.val7.i.i, i64 %indvars.iv.i.i
+  %152 = getelementptr inbounds nuw i32, ptr %.val7.i.i, i64 %indvars.iv.i.i
   %153 = load i32, ptr %152, align 4
   %154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %153)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -400,7 +400,7 @@ skipLine.exit.i.backedge:                         ; preds = %skipLine.exit.loope
   br label %skipLine.exit.i
 
 157:                                              ; preds = %25
-  %158 = getelementptr inbounds i8, ptr %.013.i.ph, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.013.i.ph, i64 8
   %159 = load ptr, ptr %158, align 8
   %.not.i22.i = icmp eq ptr %159, null
   br i1 %.not.i22.i, label %Vec_IntFree.exit.i, label %160
@@ -450,7 +450,7 @@ define internal fastcc i32 @xSAT_ReadInt(ptr nocapture noundef nonnull %0) unnam
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %10 = phi ptr [ %11, %.lr.ph ], [ %4, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %0, align 8
   %12 = load ptr, ptr %2, align 8
   %13 = load i8, ptr %11, align 1
@@ -470,7 +470,7 @@ define internal fastcc i32 @xSAT_ReadInt(ptr nocapture noundef nonnull %0) unnam
   ]
 
 .sink.split:                                      ; preds = %._crit_edge, %._crit_edge
-  %18 = getelementptr inbounds i8, ptr %.lcssa20, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.lcssa20, i64 1
   store ptr %18, ptr %0, align 8
   br label %19
 
@@ -500,7 +500,7 @@ define internal fastcc i32 @xSAT_ReadInt(ptr nocapture noundef nonnull %0) unnam
   %34 = mul nsw i32 %.01426, 10
   %35 = add i32 %34, -48
   %36 = add i32 %35, %33
-  %37 = getelementptr inbounds i8, ptr %32, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %37, ptr %0, align 8
   %38 = load ptr, ptr %2, align 8
   %39 = load i8, ptr %37, align 1

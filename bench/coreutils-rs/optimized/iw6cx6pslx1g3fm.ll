@@ -16,9 +16,9 @@ define hidden void @_ZN3std2fs11OpenOptions4open17h84ab283c99688114E(ptr noalias
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std2fs11OpenOptions4open17hd879b237ee0e7aeaE(ptr noalias nocapture noundef sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !4, !nonnull !7, !noundef !7
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !4, !noundef !7
   invoke void @_ZN3std2fs11OpenOptions5_open17h39a0a458f2fc0f07E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7)
           to label %10 unwind label %8
@@ -45,9 +45,9 @@ define hidden void @_ZN3std2fs11OpenOptions4open17hd879b237ee0e7aeaE(ptr noalias
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @_ZN3std2fs11remove_file17ha99668c739af834cE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !8, !nonnull !7, !noundef !7
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !8, !noundef !7
   %6 = invoke noundef ptr @_ZN3std3sys3pal4unix2fs6unlink17hc869ed501c051e4cE(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5)
           to label %9 unwind label %7
@@ -80,13 +80,13 @@ define hidden noundef ptr @_ZN3std2fs15set_permissions17h1de7492984b0a7dfE(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef ptr @_ZN3std2fs6rename17h06159e3e2393029eE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !11, !noalias !14, !nonnull !7, !noundef !7
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !11, !noalias !14, !noundef !7
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !17, !noalias !20, !nonnull !7, !noundef !7
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !17, !noalias !20, !noundef !7
   %11 = tail call noundef ptr @_ZN3std3sys3pal4unix2fs6rename17hbfc47acdfb4d1555E(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
   ret ptr %11
@@ -114,9 +114,9 @@ define hidden void @_ZN3std2fs8metadata17h4dd0c2964370af41E(ptr noalias nocaptur
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h231ec8a40bf14ad1E.llvm.14538687030770137661.exit"
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !26, !noalias !23, !nonnull !7, !noundef !7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8, !alias.scope !23, !noalias !26
   store i64 2, ptr %0, align 8, !alias.scope !23, !noalias !26
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h231ec8a40bf14ad1E.llvm.14538687030770137661.exit"
@@ -137,7 +137,7 @@ define hidden noundef ptr @_ZN3std2io4Seek6rewind17h3a711fb1762994a8E(ptr noalia
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %4 = load i64, ptr %3, align 8, !range !30, !noundef !7
   %trunc = trunc nuw i64 %4 to i1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %spec.select = select i1 %trunc, ptr %6, ptr null
@@ -152,8 +152,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h61b394fbd9374547E(ptr no
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %43
@@ -195,7 +195,7 @@ default.unreachable:                              ; preds = %15
   br i1 %19, label %.thread, label %32
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %.val, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %22 = load i8, ptr %21, align 8, !range !31, !noundef !7
   %23 = icmp eq i8 %22, 35
   br i1 %23, label %.thread, label %32
@@ -298,9 +298,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h231ec8a40bf14ad1
   br label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !7, !noundef !7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   store i64 2, ptr %0, align 8
   br label %10
@@ -312,9 +312,9 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h231ec8a40bf14ad1
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h010c08ebee4ebb0aE.llvm.14538687030770137661"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !47, !noundef !7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !48, !nonnull !7, !noundef !7
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !48, !noundef !7
   %7 = insertvalue { ptr, i64 } poison, ptr %4, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %6, 1
@@ -324,7 +324,7 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h43ef6e75213bebf4E.llvm.14538687030770137661"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !51, !noundef !7
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !7
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1
@@ -340,9 +340,9 @@ define hidden { ptr, i64 } @"_ZN79_$LT$std..path..Path$u20$as$u20$core..convert.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN82_$LT$std..path..PathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h2ab48c304285b57aE.llvm.14538687030770137661"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1

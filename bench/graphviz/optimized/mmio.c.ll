@@ -22,12 +22,12 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, 
   %6 = alloca [64 x i8], align 16
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 32, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 32, ptr %10, align 1
   store i8 32, ptr %1, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 71, ptr %11, align 1
   %12 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 100025, ptr noundef %0)
   %13 = icmp eq ptr %12, null
@@ -55,7 +55,7 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, 
   %20 = call i32 @tolower(i32 noundef %19) #7
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %.064, align 1
-  %22 = getelementptr inbounds i8, ptr %.064, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.064, i64 1
   %23 = load i8, ptr %22, align 1
   %.not37 = icmp eq i8 %23, 0
   br i1 %.not37, label %.preheader61, label %.lr.ph
@@ -72,7 +72,7 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, 
   %27 = call i32 @tolower(i32 noundef %26) #7
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %.166, align 1
-  %29 = getelementptr inbounds i8, ptr %.166, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.166, i64 1
   %30 = load i8, ptr %29, align 1
   %.not38 = icmp eq i8 %30, 0
   br i1 %.not38, label %.preheader60, label %.lr.ph67
@@ -89,7 +89,7 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, 
   %34 = call i32 @tolower(i32 noundef %33) #7
   %35 = trunc i32 %34 to i8
   store i8 %35, ptr %.269, align 1
-  %36 = getelementptr inbounds i8, ptr %.269, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.269, i64 1
   %37 = load i8, ptr %36, align 1
   %.not39 = icmp eq i8 %37, 0
   br i1 %.not39, label %.preheader, label %.lr.ph70
@@ -101,7 +101,7 @@ define dso_local range(i32 0, 16) i32 @mm_read_banner(ptr nocapture noundef %0, 
   %40 = call i32 @tolower(i32 noundef %39) #7
   %41 = trunc i32 %40 to i8
   store i8 %41, ptr %.372, align 1
-  %42 = getelementptr inbounds i8, ptr %.372, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.372, i64 1
   %43 = load i8, ptr %42, align 1
   %.not40 = icmp eq i8 %43, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph73

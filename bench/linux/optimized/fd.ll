@@ -60,9 +60,9 @@ define dso_local i32 @proc_fd_permission(ptr nocapture readnone %0, ptr noundef 
 11:                                               ; preds = %6
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %9, i64 1880
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 1880
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 1880
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1880
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %15, %17
   %19 = select i1 %18, i32 0, i32 %4
@@ -103,9 +103,9 @@ declare dso_local i32 @proc_setattr(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #1 align 16 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   tail call void @generic_fillattr(ptr noundef nonnull @nop_mnt_idmap, i32 noundef %3, ptr noundef %9, ptr noundef %2) #7
   %10 = load i16, ptr %9, align 8
@@ -114,7 +114,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture read
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %15 = getelementptr i8, ptr %9, i64 -72
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @get_pid_task(ptr noundef %16, i32 noundef 0) #7
@@ -122,9 +122,9 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture read
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %17, i64 2056
-  tail call void @_raw_spin_lock(ptr noundef %20) #7
-  %21 = getelementptr inbounds i8, ptr %17, i64 1856
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 2056
+  tail call void @_raw_spin_lock(ptr noundef nonnull %20) #7
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1856
   %22 = load ptr, ptr %21, align 64
   %23 = icmp eq ptr %22, null
   br i1 %23, label %33, label %24
@@ -132,10 +132,10 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture read
 24:                                               ; preds = %19
   tail call void @__rcu_read_lock() #7
   %25 = load ptr, ptr %21, align 64
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load volatile ptr, ptr %26, align 32
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @__bitmap_weight(ptr noundef %30, i32 noundef %28) #7
   %32 = zext i32 %31 to i64
@@ -144,9 +144,9 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture read
   br label %33
 
 33:                                               ; preds = %24, %19
-  tail call void @_raw_spin_unlock(ptr noundef %20) #7
-  %34 = getelementptr inbounds i8, ptr %17, i64 40
-  %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 -1, ptr elementtype(i32) %34) #7, !srcloc !6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %20) #7
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %34, i32 -1, ptr nonnull elementtype(i32) %34) #7, !srcloc !6
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %40, label %37
 
@@ -155,7 +155,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_getattr(ptr nocapture read
   br i1 %38, label %.thread, label %39, !prof !7
 
 39:                                               ; preds = %37
-  tail call void @refcount_warn_saturate(ptr noundef %34, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %34, i32 noundef 3) #7
   br label %.thread
 
 40:                                               ; preds = %33
@@ -192,8 +192,8 @@ define internal range(i32 -13, 1) i32 @proc_open_fdinfo(ptr nocapture noundef re
 
 7:                                                ; preds = %2
   %8 = tail call zeroext i1 @ptrace_may_access(ptr noundef nonnull %5, i32 noundef 9) #7
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 -1, ptr elementtype(i32) %9) #7, !srcloc !6
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #7, !srcloc !6
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %15, label %12
 
@@ -202,7 +202,7 @@ define internal range(i32 -13, 1) i32 @proc_open_fdinfo(ptr nocapture noundef re
   br i1 %13, label %.thread, label %14, !prof !7
 
 14:                                               ; preds = %12
-  tail call void @refcount_warn_saturate(ptr noundef %9, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #7
   br label %.thread
 
 15:                                               ; preds = %7
@@ -224,7 +224,7 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
   %4 = alloca i32, align 4
   %5 = alloca %struct.fd_data, align 8
   %6 = alloca [11 x i8], align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 -72
   %10 = load ptr, ptr %9, align 8
@@ -235,7 +235,7 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
 
 13:                                               ; preds = %3
   store i32 0, ptr %4, align 4, !annotation !9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   switch i64 %15, label %38 [
     i64 0, label %16
@@ -244,11 +244,11 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = tail call zeroext i1 %17(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef 1, i64 noundef 0, i64 noundef %23, i32 noundef 4) #7
   br i1 %24, label %.thread, label %64
@@ -259,17 +259,17 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
 
 25:                                               ; preds = %13, %.thread
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 96
-  tail call void @_raw_spin_lock(ptr noundef %29) #7
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %29) #7
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i64, ptr %34, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %29) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #7
   %36 = tail call zeroext i1 %26(ptr noundef %1, ptr noundef nonnull @.str.3, i32 noundef 2, i64 noundef 1, i64 noundef %35, i32 noundef 4) #7
   br i1 %36, label %37, label %64
 
@@ -282,7 +282,7 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
   %39 = load i64, ptr %14, align 8
   %40 = trunc i64 %39 to i32
   %41 = add i32 %40, -2
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %41, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store i64 0, ptr %5, align 8, !annotation !9
@@ -298,7 +298,7 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
 
 .lr.ph:                                           ; preds = %38, %55
   %48 = phi ptr [ %59, %55 ], [ %43, %38 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %50 = load i32, ptr %49, align 4
   store i32 %50, ptr %5, align 8
   call void @__rcu_read_unlock() #7
@@ -341,8 +341,8 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
   br label %64
 
 64:                                               ; preds = %54, %._crit_edge, %25, %16
-  %65 = getelementptr inbounds i8, ptr %11, i64 40
-  %66 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %65, i32 -1, ptr elementtype(i32) %65) #7, !srcloc !6
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %66 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %65, i32 -1, ptr nonnull elementtype(i32) %65) #7, !srcloc !6
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %71, label %68
 
@@ -351,7 +351,7 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
   br i1 %69, label %.thread7, label %70, !prof !7
 
 70:                                               ; preds = %68
-  call void @refcount_warn_saturate(ptr noundef %65, i32 noundef 3) #7
+  call void @refcount_warn_saturate(ptr noundef nonnull %65, i32 noundef 3) #7
   br label %.thread7
 
 71:                                               ; preds = %64
@@ -367,27 +367,27 @@ define internal fastcc range(i32 -2, 1) i32 @proc_readfd_common(ptr noundef %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @proc_fd_instantiate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @proc_pid_make_inode(ptr noundef %5, ptr noundef %1, i16 noundef zeroext -24576) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %31, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %6, i64 -64
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @proc_pid_link_inode_operations, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 64, ptr %13, align 8
   %14 = getelementptr i8, ptr %6, i64 -56
   store ptr @proc_fd_link, ptr %14, align 8
   %15 = load i32, ptr %2, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef %16, ptr noundef %17) #7
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef nonnull %16, ptr noundef nonnull %17) #7
   %18 = load i16, ptr %6, align 8
   %19 = and i16 %18, -4096
   %20 = icmp eq i16 %19, -24576
@@ -453,7 +453,7 @@ declare dso_local ptr @proc_pid_make_inode(ptr noundef, ptr noundef, i16 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2, 1) i32 @proc_fd_link(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
   %6 = load ptr, ptr %5, align 8
@@ -470,16 +470,16 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_link(ptr nocapture noundef
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %13, i64 152
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %16, i64 16, i1 false)
-  tail call void @path_get(ptr noundef %16) #7
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  tail call void @path_get(ptr noundef nonnull %16) #7
   tail call void @fput(ptr noundef nonnull %13) #7
   br label %17
 
 17:                                               ; preds = %15, %9
   %18 = phi i32 [ 0, %15 ], [ -2, %9 ]
-  %19 = getelementptr inbounds i8, ptr %7, i64 40
-  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 -1, ptr elementtype(i32) %19) #7, !srcloc !6
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 -1, ptr nonnull elementtype(i32) %19) #7, !srcloc !6
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %25, label %22
 
@@ -488,7 +488,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_fd_link(ptr nocapture noundef
   br i1 %23, label %.thread, label %24, !prof !7
 
 24:                                               ; preds = %22
-  tail call void @refcount_warn_saturate(ptr noundef %19, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef 3) #7
   br label %.thread
 
 25:                                               ; preds = %17
@@ -529,7 +529,7 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr nocapture n
   br i1 %4, label %5, label %.thread8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -72
   %9 = load ptr, ptr %8, align 8
@@ -547,12 +547,12 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr nocapture n
   br i1 %16, label %40, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %19 = load i32, ptr %18, align 4
   tail call void @fput(ptr noundef nonnull %15) #7
-  %20 = getelementptr inbounds i8, ptr %7, i64 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  tail call void @task_dump_owner(ptr noundef nonnull %10, i16 noundef zeroext 0, ptr noundef %20, ptr noundef %21) #7
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  tail call void @task_dump_owner(ptr noundef nonnull %10, i16 noundef zeroext 0, ptr noundef nonnull %20, ptr noundef nonnull %21) #7
   %22 = load i16, ptr %7, align 8
   %23 = and i16 %22, -4096
   %24 = icmp eq i16 %23, -24576
@@ -571,8 +571,8 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr nocapture n
 
 33:                                               ; preds = %25, %17
   tail call void @security_task_to_inode(ptr noundef nonnull %10, ptr noundef %7) #7
-  %34 = getelementptr inbounds i8, ptr %10, i64 40
-  %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, i32 -1, ptr elementtype(i32) %34) #7, !srcloc !6
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %35 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %34, i32 -1, ptr nonnull elementtype(i32) %34) #7, !srcloc !6
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %47, label %37
 
@@ -581,12 +581,12 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr nocapture n
   br i1 %38, label %.thread8, label %39, !prof !7
 
 39:                                               ; preds = %37
-  tail call void @refcount_warn_saturate(ptr noundef %34, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %34, i32 noundef 3) #7
   br label %.thread8
 
 40:                                               ; preds = %12
-  %41 = getelementptr inbounds i8, ptr %10, i64 40
-  %42 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41, i32 -1, ptr elementtype(i32) %41) #7, !srcloc !6
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %42 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, i32 -1, ptr nonnull elementtype(i32) %41) #7, !srcloc !6
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %.thread9, label %44
 
@@ -595,7 +595,7 @@ define internal noundef range(i32 -10, 2) i32 @tid_fd_revalidate(ptr nocapture n
   br i1 %45, label %.thread8, label %46, !prof !7
 
 46:                                               ; preds = %44
-  tail call void @refcount_warn_saturate(ptr noundef %41, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %41, i32 noundef 3) #7
   br label %.thread8
 
 .thread9:                                         ; preds = %40
@@ -631,9 +631,9 @@ define internal fastcc ptr @proc_lookupfd_common(ptr %.-72.val, ptr noundef %0, 
   %4 = tail call ptr @get_pid_task(ptr noundef %.-72.val, i32 noundef 0) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store i64 0, ptr %3, align 8, !annotation !9
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = tail call i32 @name_to_int(ptr noundef %6) #7
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = tail call i32 @name_to_int(ptr noundef nonnull %6) #7
   store i32 %7, ptr %5, align 4
   %8 = icmp eq ptr %4, null
   br i1 %8, label %.thread, label %9
@@ -650,7 +650,7 @@ define internal fastcc ptr @proc_lookupfd_common(ptr %.-72.val, ptr noundef %0, 
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %3, align 8
   tail call void @fput(ptr noundef nonnull %12) #7
@@ -659,8 +659,8 @@ define internal fastcc ptr @proc_lookupfd_common(ptr %.-72.val, ptr noundef %0, 
 
 18:                                               ; preds = %14, %11, %9
   %19 = phi ptr [ inttoptr (i64 -2 to ptr), %9 ], [ %17, %14 ], [ inttoptr (i64 -2 to ptr), %11 ]
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
-  %21 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 -1, ptr elementtype(i32) %20) #7, !srcloc !6
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %21 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 -1, ptr nonnull elementtype(i32) %20) #7, !srcloc !6
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %26, label %23
 
@@ -669,7 +669,7 @@ define internal fastcc ptr @proc_lookupfd_common(ptr %.-72.val, ptr noundef %0, 
   br i1 %24, label %.thread, label %25, !prof !7
 
 25:                                               ; preds = %23
-  call void @refcount_warn_saturate(ptr noundef %20, i32 noundef 3) #7
+  call void @refcount_warn_saturate(ptr noundef nonnull %20, i32 noundef 3) #7
   br label %.thread
 
 26:                                               ; preds = %18
@@ -694,22 +694,22 @@ declare dso_local i32 @__bitmap_weight(ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @proc_fdinfo_instantiate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @proc_pid_make_inode(ptr noundef %5, ptr noundef %1, i16 noundef zeroext -32476) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %6, i64 -64
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 344
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 344
   store ptr @proc_fdinfo_file_operations, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef %13, ptr noundef %14) #7
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @task_dump_owner(ptr noundef %1, i16 noundef zeroext 0, ptr noundef nonnull %13, ptr noundef nonnull %14) #7
   %15 = load i16, ptr %6, align 8
   %16 = and i16 %15, -4096
   %17 = icmp eq i16 %16, -24576
@@ -746,8 +746,8 @@ define internal i32 @seq_fdinfo_open(ptr noundef %0, ptr noundef %1) #1 align 16
 
 7:                                                ; preds = %2
   %8 = tail call zeroext i1 @ptrace_may_access(ptr noundef nonnull %5, i32 noundef 9) #7
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 -1, ptr elementtype(i32) %9) #7, !srcloc !6
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #7, !srcloc !6
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %15, label %12
 
@@ -756,7 +756,7 @@ define internal i32 @seq_fdinfo_open(ptr noundef %0, ptr noundef %1) #1 align 16
   br i1 %13, label %.thread, label %14, !prof !7
 
 14:                                               ; preds = %12
-  tail call void @refcount_warn_saturate(ptr noundef %9, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #7
   br label %.thread
 
 15:                                               ; preds = %7
@@ -784,7 +784,7 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
   %6 = load ptr, ptr %5, align 8
@@ -793,9 +793,9 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocap
   br i1 %8, label %85, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 2056
-  tail call void @_raw_spin_lock(ptr noundef %10) #7
-  %11 = getelementptr inbounds i8, ptr %7, i64 1856
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 2056
+  tail call void @_raw_spin_lock(ptr noundef nonnull %10) #7
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1856
   %12 = load ptr, ptr %11, align 64
   %13 = icmp eq ptr %12, null
   br i1 %13, label %49, label %14
@@ -804,15 +804,15 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocap
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr i8, ptr %15, i64 -64
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 128
-  tail call void @_raw_spin_lock(ptr noundef %18) #7
-  %19 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  tail call void @_raw_spin_lock(ptr noundef nonnull %18) #7
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %20 = load volatile ptr, ptr %19, align 32
   %21 = zext i32 %17 to i64
   %22 = load i32, ptr %20, align 8
   %23 = zext i32 %22 to i64
   %24 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %23, i64 %21) #7, !srcloc !13
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = and i64 %24, %21
   %28 = getelementptr ptr, ptr %26, i64 %27
@@ -825,9 +825,9 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocap
 
 34:                                               ; preds = %14
   %35 = load volatile ptr, ptr %19, align 32
-  %36 = getelementptr inbounds i8, ptr %32, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %39, i64 %21) #7, !srcloc !14
   %41 = icmp ult i8 %40, 2
@@ -835,23 +835,23 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocap
   %42 = icmp eq i8 %40, 0
   %43 = or i32 %37, 524288
   %44 = select i1 %42, i32 %37, i32 %43
-  %45 = getelementptr inbounds i8, ptr %32, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %45, ptr elementtype(i64) %45) #7, !srcloc !15
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, ptr nonnull elementtype(i64) %45) #7, !srcloc !15
   br label %46
 
 46:                                               ; preds = %34, %14
   %47 = phi i32 [ 0, %34 ], [ -2, %14 ]
   %48 = phi i32 [ %44, %34 ], [ 0, %14 ]
-  tail call void @_raw_spin_unlock(ptr noundef %18) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %18) #7
   br label %49
 
 49:                                               ; preds = %46, %9
   %50 = phi ptr [ %32, %46 ], [ null, %9 ]
   %51 = phi i32 [ %47, %46 ], [ -2, %9 ]
   %52 = phi i32 [ %48, %46 ], [ 0, %9 ]
-  tail call void @_raw_spin_unlock(ptr noundef %10) #7
-  %53 = getelementptr inbounds i8, ptr %7, i64 40
-  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 -1, ptr elementtype(i32) %53) #7, !srcloc !6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %10) #7
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 -1, ptr nonnull elementtype(i32) %53) #7, !srcloc !6
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %59, label %56
 
@@ -860,7 +860,7 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocap
   br i1 %57, label %.thread, label %58, !prof !7
 
 58:                                               ; preds = %56
-  tail call void @refcount_warn_saturate(ptr noundef %53, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %53, i32 noundef 3) #7
   br label %.thread
 
 59:                                               ; preds = %49
@@ -873,29 +873,29 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr nocap
   br i1 %60, label %61, label %85
 
 61:                                               ; preds = %.thread
-  %62 = getelementptr inbounds i8, ptr %50, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %50, i64 152
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 268
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %50, i64 168
+  %68 = getelementptr inbounds nuw i8, ptr %50, i64 168
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = load i64, ptr %70, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %63, i32 noundef %52, i32 noundef %67, i64 noundef %71) #7
   tail call void @show_fd_locks(ptr noundef %0, ptr noundef %50, ptr noundef %12) #7
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %73, %75
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %61
-  %78 = getelementptr inbounds i8, ptr %50, i64 176
+  %78 = getelementptr inbounds nuw i8, ptr %50, i64 176
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 216
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 216
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %84, label %83

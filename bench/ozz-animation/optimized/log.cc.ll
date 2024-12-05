@@ -59,7 +59,7 @@ define dso_local void @_ZN3ozz3log4LogVC2Ev(ptr nocapture noundef nonnull writeo
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 376, i64 noundef 8)
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
@@ -68,7 +68,7 @@ define dso_local void @_ZN3ozz3log4LogVC2Ev(ptr nocapture noundef nonnull writeo
 _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
   %9 = phi ptr [ %8, %3 ], [ @_ZSt4clog, %1 ]
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = icmp ne ptr %9, @_ZSt4clog
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %10, align 8
@@ -84,7 +84,7 @@ define dso_local void @_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE(ptr nocapture noundef
 5:                                                ; preds = %3
   %6 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 376, i64 noundef 8)
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10)
@@ -93,7 +93,7 @@ define dso_local void @_ZN3ozz3log6LoggerC2ERSoNS0_5LevelE(ptr nocapture noundef
 11:                                               ; preds = %3, %5
   %12 = phi ptr [ %10, %5 ], [ %1, %3 ]
   store ptr %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = icmp ne ptr %12, %1
   %15 = zext i1 %14 to i8
   store i8 %15, ptr %13, align 8
@@ -109,7 +109,7 @@ define dso_local void @_ZN3ozz3log3LogC2Ev(ptr nocapture noundef nonnull writeon
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 376, i64 noundef 8)
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
@@ -118,7 +118,7 @@ define dso_local void @_ZN3ozz3log3LogC2Ev(ptr nocapture noundef nonnull writeon
 _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
   %9 = phi ptr [ %8, %3 ], [ @_ZSt4clog, %1 ]
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = icmp ne ptr %9, @_ZSt4clog
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %10, align 8
@@ -134,7 +134,7 @@ define dso_local void @_ZN3ozz3log3OutC2Ev(ptr nocapture noundef nonnull writeon
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 376, i64 noundef 8)
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
@@ -143,7 +143,7 @@ define dso_local void @_ZN3ozz3log3OutC2Ev(ptr nocapture noundef nonnull writeon
 _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
   %9 = phi ptr [ %8, %3 ], [ @_ZSt4cout, %1 ]
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = icmp ne ptr %9, @_ZSt4cout
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %10, align 8
@@ -159,7 +159,7 @@ define dso_local void @_ZN3ozz3log3ErrC2Ev(ptr nocapture noundef nonnull writeon
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZN3ozz6memory17default_allocatorEv()
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 376, i64 noundef 8)
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %8)
@@ -168,7 +168,7 @@ define dso_local void @_ZN3ozz3log3ErrC2Ev(ptr nocapture noundef nonnull writeon
 _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
   %9 = phi ptr [ %8, %3 ], [ @_ZSt4cerr, %1 ]
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = icmp ne ptr %9, @_ZSt4cerr
   %12 = zext i1 %11 to i8
   store i8 %12, ptr %10, align 8
@@ -177,7 +177,7 @@ _ZN3ozz3log6LoggerC2ERSoNS0_5LevelE.exit:         ; preds = %1, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3ozz3log6LoggerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN3ozz6DeleteISoEEvPT_.exit
@@ -196,7 +196,7 @@ define dso_local void @_ZN3ozz3log6LoggerD2Ev(ptr nocapture noundef nonnull read
 
 .noexc:                                           ; preds = %7
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %6)
           to label %_ZN3ozz6DeleteISoEEvPT_.exit unwind label %14
@@ -234,23 +234,23 @@ define dso_local void @_ZN3ozz3log14FloatPrecisionC2ERKNS0_6LoggerEi(ptr nocaptu
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i64, ptr %10, align 8
   store i64 %9, ptr %10, align 8
   store i64 %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %1, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, -261
   %21 = or disjoint i32 %20, 4
   store i32 %21, ptr %18, align 4
   store i32 %19, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %22, align 8
   ret void
@@ -258,23 +258,23 @@ define dso_local void @_ZN3ozz3log14FloatPrecisionC2ERKNS0_6LoggerEi(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3ozz3log14FloatPrecisionD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
   %8 = load i64, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %8, ptr %9, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, -261
   %20 = and i32 %16, 260

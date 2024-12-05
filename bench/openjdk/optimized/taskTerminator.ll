@@ -18,26 +18,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = load i64, ptr @WorkStealingHardSpins, align 8
   %4 = load i64, ptr @WorkStealingSpinToYieldRatio, align 8
   %5 = lshr i64 %3, %4
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN14TaskTerminator12DelayContext27reset_hard_spin_informationEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((4, 12)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = load i64, ptr @WorkStealingHardSpins, align 8
   %4 = load i64, ptr @WorkStealingSpinToYieldRatio, align 8
   %5 = lshr i64 %3, %4
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 4
   ret void
 }
@@ -56,7 +56,7 @@ define hidden void @_ZN14TaskTerminator12DelayContext7do_stepEv(ptr nocapture no
   %2 = load i32, ptr %0, align 4
   %3 = add i32 %2, 1
   store i32 %3, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = load i64, ptr @WorkStealingSpinToYieldRatio, align 8
@@ -64,7 +64,7 @@ define hidden void @_ZN14TaskTerminator12DelayContext7do_stepEv(ptr nocapture no
   br i1 %8, label %11, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -76,7 +76,7 @@ define hidden void @_ZN14TaskTerminator12DelayContext7do_stepEv(ptr nocapture no
   %13 = load i64, ptr @WorkStealingSpinToYieldRatio, align 8
   %14 = lshr i64 %12, %13
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %15, ptr %16, align 4
   br label %27
 
@@ -115,29 +115,29 @@ declare i32 @SpinPause() local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14TaskTerminatorC2EjP17TaskQueueSetSuper(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store volatile i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %6, i32 noundef 21, ptr noundef nonnull @.str, i1 noundef zeroext true) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 376
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr null, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14TaskTerminatorD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load volatile i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN14TaskTerminator15reset_for_reuseEv(ptr noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load volatile i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -152,7 +152,7 @@ define hidden void @_ZN14TaskTerminator15reset_for_reuseEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN14TaskTerminator15reset_for_reuseEj(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load volatile i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN14TaskTerminator15reset_for_reuseEv.exit, label %5
@@ -188,7 +188,7 @@ define hidden noundef zeroext i1 @_ZN14TaskTerminator16exit_terminationEmP20Term
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i64 0, 4294967296) i64 @_ZNK14TaskTerminator18tasks_in_queue_setEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -199,7 +199,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK14TaskTerminator18tasks_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 376
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1
   br i1 %6, label %7, label %8
@@ -209,7 +209,7 @@ define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr nounde
   br label %8
 
 8:                                                ; preds = %7, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load volatile i32, ptr %9, align 8
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
@@ -221,11 +221,11 @@ define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr nounde
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %17
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %16) #8
   br label %.loopexit
 
@@ -251,27 +251,27 @@ define hidden noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20Term
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store volatile i32 1, ptr %6, align 8
   br label %151
 
 7:                                                ; preds = %2
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = load volatile i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store volatile i32 %13, ptr %11, align 8
   %14 = load volatile i32, ptr %11, align 8
   %15 = load i32, ptr %0, align 8
   %16 = icmp eq i32 %14, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 376
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 376
   br i1 %16, label %64, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.preheader
 
 _ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.preheader: ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not2.i = icmp eq ptr %1, null
   br i1 %.not2.i, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.us, label %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30
 

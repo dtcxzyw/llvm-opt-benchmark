@@ -80,7 +80,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -102,7 +102,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not1 = icmp eq ptr %16, null
   br i1 %.not1, label %18, label %17
 
@@ -124,7 +124,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %25, null
   br i1 %.not2, label %27, label %26
 
@@ -146,7 +146,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %30
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not3 = icmp eq ptr %34, null
   br i1 %.not3, label %36, label %35
 
@@ -168,7 +168,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not4 = icmp eq ptr %43, null
   br i1 %.not4, label %45, label %44
 
@@ -190,7 +190,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %48
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not5 = icmp eq ptr %52, null
   br i1 %.not5, label %54, label %53
 
@@ -212,7 +212,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
-  %61 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %61 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not6 = icmp eq ptr %61, null
   br i1 %.not6, label %63, label %62
 
@@ -234,7 +234,7 @@ define hidden void @_ZNK21ShenandoahPassiveMode16initialize_flagsEv(ptr nocaptur
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %66
-  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7 = icmp eq ptr %70, null
   br i1 %.not7, label %72, label %71
 
@@ -275,7 +275,7 @@ define hidden noundef ptr @_ZNK21ShenandoahPassiveMode21initialize_heuristicsEv(
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 200, i8 noundef zeroext 5, i32 noundef 0) #4
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %8 = icmp eq ptr %7, null
-  %9 = getelementptr inbounds i8, ptr %7, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %spec.select = select i1 %8, ptr null, ptr %9
   tail call void @_ZN27ShenandoahPassiveHeuristicsC1EP19ShenandoahSpaceInfo(ptr noundef nonnull align 8 dereferenceable(193) %6, ptr noundef %spec.select) #4
   ret ptr %6

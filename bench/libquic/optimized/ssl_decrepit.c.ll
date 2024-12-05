@@ -52,7 +52,7 @@ if.then13.i:                                      ; preds = %if.end9.i
 if.end17.i:                                       ; preds = %if.end9.i, %if.end.if.end17_crit_edge.i
   %d.1 = phi ptr [ %calloc.i, %if.end9.i ], [ %d.0, %if.end.if.end17_crit_edge.i ]
   %1 = phi ptr [ %call10.i, %if.end9.i ], [ %.pre.i, %if.end.if.end17_crit_edge.i ]
-  %dirent19.i = getelementptr inbounds i8, ptr %d.1, i64 8
+  %dirent19.i = getelementptr inbounds nuw i8, ptr %d.1, i64 8
   %call20.i = call i32 @readdir_r(ptr noundef %1, ptr noundef nonnull %dirent19.i, ptr noundef nonnull %dirent.i) #9
   %cmp21.i = icmp ne i32 %call20.i, 0
   %2 = load ptr, ptr %dirent.i, align 8
@@ -61,7 +61,7 @@ if.end17.i:                                       ; preds = %if.end9.i, %if.end.
   br i1 %or.cond1.i, label %while.end.loopexit, label %while.body
 
 while.body:                                       ; preds = %if.end17.i
-  %d_name.i = getelementptr inbounds i8, ptr %d.1, i64 27
+  %d_name.i = getelementptr inbounds nuw i8, ptr %d.1, i64 27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dirent.i)
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #10
   %call2 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name.i) #10

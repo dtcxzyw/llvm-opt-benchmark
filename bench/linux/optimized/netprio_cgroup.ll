@@ -99,9 +99,9 @@ define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 65535
   br i1 %6, label %38, label %7
@@ -117,7 +117,7 @@ define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr nocapture nou
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   br label %17
 
 14:                                               ; preds = %33
@@ -135,13 +135,13 @@ define internal noundef range(i32 -28, 1) i32 @cgrp_css_online(ptr nocapture nou
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp ult i32 %22, %26
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %21, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = sext i32 %22 to i64
   %31 = getelementptr [0 x i32], ptr %29, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
@@ -182,16 +182,16 @@ define internal void @net_prio_attach(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %1, %.preheader
   %5 = phi ptr [ %15, %.preheader ], [ %3, %1 ]
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %5, i64 2056
-  call void @_raw_spin_lock(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %5, i64 1856
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2056
+  call void @_raw_spin_lock(ptr noundef nonnull %11) #11
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1856
   %13 = load ptr, ptr %12, align 64
   %14 = call i32 @iterate_fd(ptr noundef %13, i32 noundef 0, ptr noundef nonnull @update_netprio, ptr noundef %10) #11
-  call void @_raw_spin_unlock(ptr noundef %11) #11
+  call void @_raw_spin_unlock(ptr noundef nonnull %11) #11
   %15 = call ptr @cgroup_taskset_next(ptr noundef %0, ptr noundef nonnull %2) #11
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !6
@@ -224,7 +224,7 @@ declare dso_local void @rtnl_lock() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
   %6 = icmp eq ptr %4, null
@@ -234,7 +234,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   br i1 %6, label %48, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, %.80.val
   br i1 %11, label %.thread, label %48
@@ -243,7 +243,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   br i1 %6, label %15, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread
 
@@ -284,15 +284,15 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
   br i1 %16, label %40, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %28, i64 20
-  %33 = getelementptr inbounds i8, ptr %4, i64 20
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 4 %33, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 4 %33, i64 %37, i1 false)
   %38 = trunc i64 %21 to i32
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %38, ptr %39, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   store volatile ptr %28, ptr %3, align 8
@@ -302,7 +302,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
 
 40:                                               ; preds = %30
   %41 = trunc i64 %21 to i32
-  %42 = getelementptr inbounds i8, ptr %28, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %41, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   store volatile ptr %28, ptr %3, align 8
@@ -310,7 +310,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @netprio_set_prio(i32 %.80.
 
 43:                                               ; preds = %.thread, %40, %31
   %44 = phi ptr [ %4, %.thread ], [ %28, %40 ], [ %.pre8, %31 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = sext i32 %.80.val to i64
   %47 = getelementptr [0 x i32], ptr %45, i64 0, i64 %46
   store i32 %1, ptr %47, align 4
@@ -346,11 +346,11 @@ define internal noundef i32 @update_netprio(ptr noundef %0, ptr noundef %1, i32 
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %0 to i64
   %10 = trunc i64 %9 to i16
-  %11 = getelementptr inbounds i8, ptr %8, i64 660
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 660
   store volatile i16 %10, ptr %11, align 4
   br label %12
 
@@ -372,7 +372,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #5 sect
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i64 -2147483648, 2147483648) i64 @read_prioidx(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -386,7 +386,7 @@ define internal noundef i32 @read_priomap(ptr noundef %0, ptr nocapture readnone
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %7
 
 7:                                                ; preds = %26, %5
@@ -396,19 +396,19 @@ define internal noundef i32 @read_priomap(ptr noundef %0, ptr nocapture readnone
   %11 = tail call ptr @of_css(ptr noundef %10) #11
   %12 = getelementptr i8, ptr %8, i64 1776
   %13 = load volatile ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq ptr %13, null
   br i1 %16, label %26, label %17
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp ult i32 %15, %19
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %23 = sext i32 %15 to i64
   %24 = getelementptr [0 x i32], ptr %22, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
@@ -451,7 +451,7 @@ define internal noundef i64 @write_priomap(ptr noundef %0, ptr nocapture noundef
   %.val = load i32, ptr %15, align 8
   %16 = call fastcc i32 @netprio_set_prio(i32 %.val, ptr noundef nonnull %10, i32 noundef %14)
   call void @rtnl_unlock() #11
-  %17 = getelementptr inbounds i8, ptr %10, i64 1280
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 1280
   %18 = load ptr, ptr %17, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #11, !srcloc !16
   %19 = icmp eq i32 %16, 0
@@ -497,7 +497,7 @@ define internal noundef i32 @netprio_device_event(ptr nocapture readnone %0, i64
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2136
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2136
   %8 = load ptr, ptr %7, align 8
   store volatile ptr null, ptr %7, align 8
   %9 = icmp eq ptr %8, null

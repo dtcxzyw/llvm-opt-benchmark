@@ -323,9 +323,9 @@ entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN10LuaMinimap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !14
   %1 = load ptr, ptr %0, align 8, !tbaa !12
-  %data.i = getelementptr inbounds i8, ptr %1, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %data.i, align 8, !tbaa !15
-  %pos.i = getelementptr inbounds i8, ptr %2, i64 88
+  %pos.i = getelementptr inbounds nuw i8, ptr %2, i64 88
   %retval.sroa.0.0.copyload.i = load i48, ptr %pos.i, align 8, !tbaa.struct !34
   tail call void @_Z10push_v3s16P9lua_StateN3irr4core8vector3dIsEE(ptr noundef %L, i48 %retval.sroa.0.0.copyload.i)
   ret i32 1
@@ -364,7 +364,7 @@ entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN10LuaMinimap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !14
   %1 = load ptr, ptr %0, align 8, !tbaa !12
-  %m_angle.i = getelementptr inbounds i8, ptr %1, i64 108
+  %m_angle.i = getelementptr inbounds nuw i8, ptr %1, i64 108
   %2 = load float, ptr %m_angle.i, align 4, !tbaa !36
   %conv = fptosi float %2 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv)
@@ -395,7 +395,7 @@ entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN10LuaMinimap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !14
   %1 = load ptr, ptr %0, align 8, !tbaa !12
-  %m_current_mode_index.i = getelementptr inbounds i8, ptr %1, i64 96
+  %m_current_mode_index.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2 = load i64, ptr %m_current_mode_index.i, align 8, !tbaa !37
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %2)
   ret i32 1
@@ -409,8 +409,8 @@ entry:
   %1 = load ptr, ptr %0, align 8, !tbaa !12
   %call2 = tail call i64 @lua_tointeger(ptr noundef %L, i32 noundef 2)
   %conv3 = and i64 %call2, 4294967295
-  %m_modes.i = getelementptr inbounds i8, ptr %1, i64 72
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %1, i64 80
+  %m_modes.i = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !38
   %3 = load ptr, ptr %m_modes.i, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
@@ -480,12 +480,12 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr @g_settings, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #17
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1, ptr noundef nonnull align 1 dereferenceable(14) @.str.17, i64 14, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 14, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 30
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 30
   store i8 0, ptr %arrayidx.i.i.i, align 2, !tbaa !41
   %call = invoke noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
@@ -534,14 +534,14 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
   %call.i = call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN10LuaMinimap9classNameE)
   %7 = load ptr, ptr %call.i, align 8, !tbaa !14
   %8 = load ptr, ptr %7, align 8, !tbaa !12
-  %m_current_mode_index.i = getelementptr inbounds i8, ptr %8, i64 96
+  %m_current_mode_index.i = getelementptr inbounds nuw i8, ptr %8, i64 96
   %9 = load i64, ptr %m_current_mode_index.i, align 8, !tbaa !37
   %cmp = icmp eq i64 %9, 0
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_modes.i = getelementptr inbounds i8, ptr %8, i64 72
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %8, i64 80
+  %m_modes.i = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !38
   %11 = load ptr, ptr %m_modes.i, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
@@ -566,7 +566,7 @@ entry:
   %call.i = tail call ptr @luaL_checkudata(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @_ZN10LuaMinimap9classNameE)
   %0 = load ptr, ptr %call.i, align 8, !tbaa !14
   %1 = load ptr, ptr %0, align 8, !tbaa !12
-  %m_current_mode_index.i = getelementptr inbounds i8, ptr %1, i64 96
+  %m_current_mode_index.i = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2 = load i64, ptr %m_current_mode_index.i, align 8, !tbaa !37
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -631,7 +631,7 @@ entry:
 
 _ZNKSt14default_deleteI18ClientActiveObjectEclEPS0_.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !42
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %if.end

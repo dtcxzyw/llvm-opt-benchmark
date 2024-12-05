@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZN7codecvtC2E16codecvt_Encoding(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 %1) unnamed_addr #0 align 2 {
   tail call void @_ZNSt7codecvtIcc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV7codecvt, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %3, align 8
   ret void
 }
@@ -44,7 +44,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK7codecvt16do_always_noconvEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -60,7 +60,7 @@ define dso_local noundef i32 @_ZNK7codecvt6do_outER11__mbstate_tPKcS3_RS3_PcS5_R
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef range(i32 0, 4) i32 @_ZNK7codecvt10do_unshiftER11__mbstate_tPcS2_RS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, ptr nocapture nonnull readnone align 4 %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #7 align 2 {
   store ptr %2, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   %. = select i1 %8, i32 3, i32 0

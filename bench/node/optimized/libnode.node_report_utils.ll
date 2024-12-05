@@ -182,11 +182,11 @@ entry:
   %ref.tmp77 = alloca i8, align 1
   %ref.tmp85 = alloca i64, align 8
   %ref.tmp87 = alloca i64, align 8
-  %type1 = getelementptr inbounds i8, ptr %h, i64 16
+  %type1 = getelementptr inbounds nuw i8, ptr %h, i64 16
   %0 = load i32, ptr %type1, align 8
   %call = tail call ptr @uv_handle_type_name(i32 noundef %0) #12
   store ptr %call, ptr %type, align 8
-  %state_.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %state_.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %1 = load i32, ptr %state_.i, align 8
   %cmp.i = icmp eq i32 %1, 1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -197,7 +197,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %compact_.i.i = getelementptr inbounds i8, ptr %arg, i64 8
+  %compact_.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %3 = load i8, ptr %compact_.i.i, align 8
   %tobool.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit.i, label %if.end.i.i
@@ -214,7 +214,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit.i:    ; preds = %if.end.i.i, %if.end
   br i1 %tobool.i2.i, label %_ZN4node10JSONWriter10json_startEv.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit.i
-  %indent_.i.i = getelementptr inbounds i8, ptr %arg, i64 12
+  %indent_.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 12
   %6 = load i32, ptr %indent_.i.i, align 4
   %cmp2.i.i = icmp sgt i32 %6, 0
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter10json_startEv.exit
@@ -231,7 +231,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4node10JSONWriter14write_new_lineEv.exit.i, %for.cond.preheader.i.i
   %9 = load ptr, ptr %arg, align 8
   %call3.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext 123) #12
-  %indent_.i4.i = getelementptr inbounds i8, ptr %arg, i64 12
+  %indent_.i4.i = getelementptr inbounds nuw i8, ptr %arg, i64 12
   %10 = load i32, ptr %indent_.i4.i, align 4
   %add.i.i = add nsw i32 %10, 2
   store i32 %add.i.i, ptr %indent_.i4.i, align 4
@@ -250,7 +250,7 @@ _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4
   %11 = ptrtoint ptr %h to i64
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %hex.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %hex.i) #12, !noalias !7
-  %add.ptr.i = getelementptr inbounds i8, ptr %hex.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %hex.i, i64 16
   %call.i66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull @.str.43) #12, !noalias !7
   %call3.i67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %call.i66, i8 48) #12, !noalias !7
   %call8.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call3.i67, i32 16) #12, !noalias !7
@@ -279,10 +279,10 @@ sw.bb:                                            ; preds = %_ZN4node10JSONWrite
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store i64 0, ptr %buffer.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 8
-  %buf_st_.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 24
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 8
+  %buf_st_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 24
   store i64 1024, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 16
+  %buf_.i.i = getelementptr inbounds nuw i8, ptr %buffer.i, i64 16
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i8 0, ptr %buf_st_.i.i, align 8
   store i64 1024, ptr %size.i, align 8
@@ -343,7 +343,7 @@ _ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit.i: ; preds = %if.then17.i
   store i64 %17, ptr %buffer.i, align 8
   %19 = load ptr, ptr %buf_.i.i, align 8
   store i64 %17, ptr %ref.tmp.i, align 8
-  %20 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr %19, ptr %20, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA9_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(9) @.str.23, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   br label %if.end19.i
@@ -370,7 +370,7 @@ _ZN4node6reportL10ReportPathEP11uv_handle_sPNS_10JSONWriterE.exit: ; preds = %if
   br label %sw.epilogthread-pre-split
 
 sw.bb9:                                           ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  %pid = getelementptr inbounds i8, ptr %h, i64 104
+  %pid = getelementptr inbounds nuw i8, ptr %h, i64 104
   call void @_ZN4node10JSONWriter13json_keyvalueIA4_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(4) @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %pid)
   br label %sw.epilogthread-pre-split
 
@@ -431,10 +431,10 @@ sw.bb11:                                          ; preds = %_ZN4node10JSONWrite
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i82)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp22.i)
   store i64 0, ptr %buffer.i81, align 8
-  %capacity_.i.i83 = getelementptr inbounds i8, ptr %buffer.i81, i64 8
-  %buf_st_.i.i84 = getelementptr inbounds i8, ptr %buffer.i81, i64 24
+  %capacity_.i.i83 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 8
+  %buf_st_.i.i84 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 24
   store i64 1024, ptr %capacity_.i.i83, align 8
-  %buf_.i.i85 = getelementptr inbounds i8, ptr %buffer.i81, i64 16
+  %buf_.i.i85 = getelementptr inbounds nuw i8, ptr %buffer.i81, i64 16
   store ptr %buf_st_.i.i84, ptr %buf_.i.i85, align 8
   store i8 0, ptr %buf_st_.i.i84, align 8
   store i64 1024, ptr %buffer_size.i, align 8
@@ -471,7 +471,7 @@ _ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit.i98: ; preds = %if.then7.i
   store i64 %27, ptr %buffer.i81, align 8
   %29 = load ptr, ptr %buf_.i.i85, align 8
   store i64 %27, ptr %ref.tmp.i82, align 8
-  %30 = getelementptr inbounds i8, ptr %ref.tmp.i82, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %ref.tmp.i82, i64 8
   store ptr %29, ptr %30, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA14_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(14) @.str.37, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i82)
   br label %if.end9.i
@@ -517,7 +517,7 @@ _ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit21.i: ; preds = %if.then21.
   store i64 %35, ptr %buffer.i81, align 8
   %37 = load ptr, ptr %buf_.i.i85, align 8
   store i64 %35, ptr %ref.tmp22.i, align 8
-  %38 = getelementptr inbounds i8, ptr %ref.tmp22.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %ref.tmp22.i, i64 8
   store ptr %37, ptr %38, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA15_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(15) @.str.38, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22.i)
   br label %if.end25.i
@@ -545,9 +545,9 @@ _ZN4node6reportL19ReportPipeEndpointsEP11uv_handle_sPNS_10JSONWriterE.exit: ; pr
   br label %sw.epilogthread-pre-split
 
 sw.bb12:                                          ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  %timeout = getelementptr inbounds i8, ptr %h, i64 128
+  %timeout = getelementptr inbounds nuw i8, ptr %h, i64 128
   %41 = load i64, ptr %timeout, align 8
-  %loop = getelementptr inbounds i8, ptr %h, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %h, i64 8
   %42 = load ptr, ptr %loop, align 8
   %call13 = call i64 @uv_now(ptr noundef %42) #12
   %call15 = call i64 @uv_timer_get_repeat(ptr noundef nonnull %h) #12
@@ -573,7 +573,7 @@ if.then:                                          ; preds = %sw.bb19
   br label %sw.epilogthread-pre-split
 
 sw.bb22:                                          ; preds = %_ZN4node10JSONWriter10json_startEv.exit
-  %signum = getelementptr inbounds i8, ptr %h, i64 104
+  %signum = getelementptr inbounds nuw i8, ptr %h, i64 104
   call void @_ZN4node10JSONWriter13json_keyvalueIA7_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(7) @.str.10, ptr noundef nonnull align 4 dereferenceable(4) %signum)
   %43 = load i32, ptr %signum, align 8
   %call25 = call noundef ptr @_ZN4node12signo_stringEi(i32 noundef %43) #12
@@ -654,7 +654,7 @@ if.end63:                                         ; preds = %if.end63thread-pre-
   ]
 
 if.then72:                                        ; preds = %if.end63, %if.end63, %if.end63
-  %write_queue_size = getelementptr inbounds i8, ptr %h, i64 96
+  %write_queue_size = getelementptr inbounds nuw i8, ptr %h, i64 96
   call void @_ZN4node10JSONWriter13json_keyvalueIA15_cmEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(15) @.str.19, ptr noundef nonnull align 8 dereferenceable(8) %write_queue_size)
   %call74 = call i32 @uv_is_readable(ptr noundef nonnull %h) #12
   %tobool75 = icmp ne i32 %call74, 0
@@ -725,7 +725,7 @@ declare ptr @uv_handle_type_name(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA5_cPKcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(5) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -736,7 +736,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -753,7 +753,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -792,7 +792,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA10_cbEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(10) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -803,7 +803,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -820,7 +820,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -863,7 +863,7 @@ declare i32 @uv_is_active(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA14_cbEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(14) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -874,7 +874,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -891,7 +891,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -934,7 +934,7 @@ declare i32 @uv_has_ref(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA8_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(8) %key, ptr noundef nonnull align 8 dereferenceable(32) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -945,7 +945,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -962,7 +962,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1005,7 +1005,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA4_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(4) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1016,7 +1016,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1033,7 +1033,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1074,7 +1074,7 @@ declare i64 @uv_now(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA7_cmEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(7) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1085,7 +1085,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1102,7 +1102,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1143,7 +1143,7 @@ declare i64 @uv_timer_get_repeat(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA17_clEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(17) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1154,7 +1154,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1171,7 +1171,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1210,7 +1210,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA8_cbEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(8) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1221,7 +1221,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1238,7 +1238,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1281,7 +1281,7 @@ declare i32 @uv_tty_get_winsize(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA6_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(6) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1292,7 +1292,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1309,7 +1309,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1348,7 +1348,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA7_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(7) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1359,7 +1359,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1376,7 +1376,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1415,7 +1415,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA7_cPKcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(7) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1426,7 +1426,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1443,7 +1443,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1488,7 +1488,7 @@ declare i32 @uv_recv_buffer_size(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA15_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(15) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1499,7 +1499,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1516,7 +1516,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1557,7 +1557,7 @@ declare i32 @uv_fileno(ptr noundef, ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA3_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(3) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1568,7 +1568,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1585,7 +1585,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1624,7 +1624,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA6_cS2_EEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(6) %key, ptr noundef nonnull align 1 dereferenceable(6) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1635,7 +1635,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1652,7 +1652,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1690,7 +1690,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA6_cA7_cEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(6) %key, ptr noundef nonnull align 1 dereferenceable(7) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1701,7 +1701,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1718,7 +1718,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1756,7 +1756,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA15_cmEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(15) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1767,7 +1767,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1784,7 +1784,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1823,7 +1823,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA9_cbEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(9) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1834,7 +1834,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1851,7 +1851,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1898,7 +1898,7 @@ declare i64 @uv_udp_get_send_queue_size(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA16_cmEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1909,7 +1909,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -1926,7 +1926,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -1973,7 +1973,7 @@ declare i32 @uv_fs_poll_getpath(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm(ptr noundef nonnull align 8 dereferenceable(1048) %this, i64 noundef %storage) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %buf_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %buf_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %buf_.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %do.body5, label %do.end6
@@ -1984,13 +1984,13 @@ do.body5:                                         ; preds = %entry
   unreachable
 
 do.end6:                                          ; preds = %entry
-  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp = icmp ugt i64 %storage, %1
   br i1 %cmp, label %if.end.i.i, label %if.end18
 
 if.end.i.i:                                       ; preds = %do.end6
-  %buf_st_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %buf_st_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i5.not = icmp eq ptr %0, %buf_st_.i
   %cond = select i1 %cmp.i5.not, ptr null, ptr %0
   %call1.i.i = tail call ptr @realloc(ptr noundef %cond, i64 noundef %storage) #14
@@ -2031,7 +2031,7 @@ if.end18:                                         ; preds = %_ZN4node7ReallocIcE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA9_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(9) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2042,7 +2042,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2059,7 +2059,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2089,7 +2089,7 @@ if.end.i6:                                        ; preds = %_ZN4node10JSONWrite
 
 _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWriter7advanceEv.exit, %if.end.i6
   %agg.tmp4.sroa.0.0.copyload = load i64, ptr %value, align 8
-  %agg.tmp4.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
+  %agg.tmp4.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %value, i64 8
   %agg.tmp4.sroa.2.0.copyload = load ptr, ptr %agg.tmp4.sroa.2.0..sroa_idx, align 8
   tail call void @_ZN4node10JSONWriter12write_stringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(20) %this, i64 %agg.tmp4.sroa.0.0.copyload, ptr %agg.tmp4.sroa.2.0.copyload)
   store i32 1, ptr %state_, align 8
@@ -2099,7 +2099,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA9_cNS0_4NullEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(9) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2110,7 +2110,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2127,7 +2127,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2202,7 +2202,7 @@ switch.early.test.i:                              ; preds = %for.body.i
   ]
 
 for.inc.i:                                        ; preds = %switch.early.test.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.010.i, i64 1
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.not.i, label %if.else, label %for.body.i
 
@@ -2258,26 +2258,26 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store ptr null, ptr %host, align 8
   %0 = load i16, ptr %addr, align 2
-  %cond.in = getelementptr inbounds i8, ptr %addr, i64 2
+  %cond.in = getelementptr inbounds nuw i8, ptr %addr, i64 2
   %cond = load i16, ptr %cond.in, align 2
   %call = tail call zeroext i16 @ntohs(i16 noundef zeroext %cond) #15
   %conv2 = zext i16 %call to i32
   store i32 %conv2, ptr %port, align 4
-  %loop = getelementptr inbounds i8, ptr %h, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %h, i64 8
   %1 = load ptr, ptr %loop, align 8
   %call3 = call i32 @uv_getnameinfo(ptr noundef %1, ptr noundef nonnull %endpoint, ptr noundef null, ptr noundef nonnull %addr, i32 noundef 2) #12
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %host6 = getelementptr inbounds i8, ptr %endpoint, i64 252
+  %host6 = getelementptr inbounds nuw i8, ptr %endpoint, i64 252
   br label %if.then20
 
 if.else:                                          ; preds = %if.end
   %cmp1 = icmp eq i16 %0, 2
   %conv = zext i16 %0 to i32
   %cond11.v = select i1 %cmp1, i64 4, i64 8
-  %cond11 = getelementptr inbounds i8, ptr %addr, i64 %cond11.v
+  %cond11 = getelementptr inbounds nuw i8, ptr %addr, i64 %cond11.v
   %call13 = call i32 @uv_inet_ntop(i32 noundef %conv, ptr noundef nonnull %cond11, ptr noundef nonnull %hostbuf, i64 noundef 46) #12
   %cmp14 = icmp eq i32 %call13, 0
   br i1 %cmp14, label %if.then20, label %if.end18
@@ -2295,7 +2295,7 @@ if.then20:                                        ; preds = %if.else, %if.then5
 
 if.end21:                                         ; preds = %if.end18, %if.then20
   call void @_ZN4node10JSONWriter13json_keyvalueIA5_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %writer, ptr noundef nonnull align 1 dereferenceable(5) @.str.40, ptr noundef nonnull align 4 dereferenceable(4) %port)
-  %compact_.i.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %compact_.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %2 = load i8, ptr %compact_.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit.i, label %if.end.i.i
@@ -2308,7 +2308,7 @@ if.end.i.i:                                       ; preds = %if.end21
 
 _ZN4node10JSONWriter14write_new_lineEv.exit.i:    ; preds = %if.end.i.i, %if.end21
   %4 = phi i8 [ %2, %if.end21 ], [ %.pre.i, %if.end.i.i ]
-  %indent_.i.i = getelementptr inbounds i8, ptr %writer, i64 12
+  %indent_.i.i = getelementptr inbounds nuw i8, ptr %writer, i64 12
   %5 = load i32, ptr %indent_.i.i, align 4
   %sub.i.i = add nsw i32 %5, -2
   store i32 %sub.i.i, ptr %indent_.i.i, align 4
@@ -2339,7 +2339,7 @@ if.then.i:                                        ; preds = %_ZN4node10JSONWrite
   br label %_ZN4node10JSONWriter14json_objectendEv.exit
 
 _ZN4node10JSONWriter14json_objectendEv.exit:      ; preds = %_ZN4node10JSONWriter7advanceEv.exit.i, %if.then.i
-  %state_.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %state_.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   store i32 1, ptr %state_.i, align 8
   br label %return
 
@@ -2354,7 +2354,7 @@ declare i32 @uv_tcp_getpeername(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIPKcNS0_4NullEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2365,7 +2365,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2382,7 +2382,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2428,7 +2428,7 @@ declare i32 @uv_inet_ntop(i32 noundef, ptr noundef, ptr noundef, i64 noundef) lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter16json_objectstartIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %key) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2439,7 +2439,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2456,7 +2456,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2487,7 +2487,7 @@ if.end.i6:                                        ; preds = %_ZN4node10JSONWrite
 _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWriter7advanceEv.exit, %if.end.i6
   %11 = load ptr, ptr %this, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %11, i8 noundef signext 123) #12
-  %indent_.i8 = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i8 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %indent_.i8, align 4
   %add.i = add nsw i32 %12, 2
   store i32 %add.i, ptr %indent_.i8, align 4
@@ -2498,7 +2498,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA5_cPcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(5) %key, ptr noundef nonnull align 8 dereferenceable(8) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2509,7 +2509,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2526,7 +2526,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2565,7 +2565,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA5_ciEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(5) %key, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2576,7 +2576,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2593,7 +2593,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2636,7 +2636,7 @@ declare i32 @uv_pipe_getsockname(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA14_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(14) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2647,7 +2647,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2664,7 +2664,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2694,7 +2694,7 @@ if.end.i6:                                        ; preds = %_ZN4node10JSONWrite
 
 _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWriter7advanceEv.exit, %if.end.i6
   %agg.tmp4.sroa.0.0.copyload = load i64, ptr %value, align 8
-  %agg.tmp4.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
+  %agg.tmp4.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %value, i64 8
   %agg.tmp4.sroa.2.0.copyload = load ptr, ptr %agg.tmp4.sroa.2.0..sroa_idx, align 8
   tail call void @_ZN4node10JSONWriter12write_stringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(20) %this, i64 %agg.tmp4.sroa.0.0.copyload, ptr %agg.tmp4.sroa.2.0.copyload)
   store i32 1, ptr %state_, align 8
@@ -2704,7 +2704,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA14_cNS0_4NullEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(14) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2715,7 +2715,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2732,7 +2732,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2772,7 +2772,7 @@ declare i32 @uv_pipe_getpeername(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA15_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(15) %key, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2783,7 +2783,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2800,7 +2800,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2830,7 +2830,7 @@ if.end.i6:                                        ; preds = %_ZN4node10JSONWrite
 
 _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWriter7advanceEv.exit, %if.end.i6
   %agg.tmp4.sroa.0.0.copyload = load i64, ptr %value, align 8
-  %agg.tmp4.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %value, i64 8
+  %agg.tmp4.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %value, i64 8
   %agg.tmp4.sroa.2.0.copyload = load ptr, ptr %agg.tmp4.sroa.2.0..sroa_idx, align 8
   tail call void @_ZN4node10JSONWriter12write_stringESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(20) %this, i64 %agg.tmp4.sroa.0.0.copyload, ptr %agg.tmp4.sroa.2.0.copyload)
   store i32 1, ptr %state_, align 8
@@ -2840,7 +2840,7 @@ _ZN4node10JSONWriter15write_one_spaceEv.exit:     ; preds = %_ZN4node10JSONWrite
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10JSONWriter13json_keyvalueIA15_cNS0_4NullEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 1 dereferenceable(15) %key, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %state_ = getelementptr inbounds i8, ptr %this, i64 16
+  %state_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %state_, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -2851,7 +2851,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %compact_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %compact_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %compact_.i, align 8
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %_ZN4node10JSONWriter14write_new_lineEv.exit, label %if.end.i
@@ -2868,7 +2868,7 @@ _ZN4node10JSONWriter14write_new_lineEv.exit:      ; preds = %if.end, %if.end.i
   br i1 %tobool.i2, label %_ZN4node10JSONWriter7advanceEv.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %_ZN4node10JSONWriter14write_new_lineEv.exit
-  %indent_.i = getelementptr inbounds i8, ptr %this, i64 12
+  %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %indent_.i, align 4
   %cmp2.i = icmp sgt i32 %5, 0
   br i1 %cmp2.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit
@@ -2914,7 +2914,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8

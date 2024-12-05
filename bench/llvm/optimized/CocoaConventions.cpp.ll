@@ -49,14 +49,14 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento5cocoa9isRefTypeENS_8QualType
   %.0.i.i.us = select i1 %17, ptr %19, ptr null
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.us, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %21, align 8
   %24 = and i64 %23, 4294967295
   %.not.i14.old.us = icmp samesign ult i64 %24, 3
   br i1 %.not.i14.old.us, label %_ZNK4llvm9StringRef11starts_withES0_.exit18.thread45.us, label %_ZNK4llvm9StringRef9ends_withES0_.exit.us
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.us:        ; preds = %.lr.ph.split.us
-  %25 = getelementptr inbounds i8, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -3
   %bcmp.i15.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %26, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %27 = icmp eq i32 %bcmp.i15.us, 0
@@ -100,7 +100,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit18.thread45.us: ; preds = %.lr.ph.split
   %.0.i.i = select i1 %43, ptr %45, ptr null
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %47, align 8
   %50 = and i64 %49, 4294967295
   %.not.i = icmp ult i64 %50, %.fr55
@@ -114,7 +114,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %.lr.ph.split
   br i1 %or.cond50, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread43, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %52 = getelementptr inbounds i8, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %50
   %53 = getelementptr inbounds i8, ptr %52, i64 -3
   %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %53, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %54 = icmp eq i32 %bcmp.i15, 0
@@ -486,7 +486,7 @@ _ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit.thread: ; pre
   br i1 %.not.i41, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread49
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.preheader
-  %133 = getelementptr inbounds i8, ptr %130, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %133, ptr noundef nonnull dereferenceable(8) @.str.5, i64 8)
   %134 = icmp eq i32 %bcmp.i, 0
   br i1 %134, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread49
@@ -580,9 +580,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang17ObjCInterfaceDecl13ha
   br i1 %.not, label %3, label %_ZNK5clang12RedeclarableINS_17ObjCInterfaceDeclEE17getMostRecentDeclEv.exit
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 1
   %8 = icmp eq i64 %7, 0
@@ -651,16 +651,16 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
   %8 = inttoptr i64 %6 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %.ptr49 = getelementptr inbounds i8, ptr %10, i64 16
+  %.ptr49 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 4294967295
-  %13 = getelementptr inbounds i8, ptr %.ptr49, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr49, i64 %12
   %14 = add nuw nsw i64 %12, 16
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit35
 
 _ZNK4llvm9StringRef11starts_withES0_.exit35:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit35.backedge, %7
   %.026.idx = phi i64 [ 16, %7 ], [ %.026.idx.be, %_ZNK4llvm9StringRef11starts_withES0_.exit35.backedge ]
-  %.1.ptr57 = getelementptr inbounds i8, ptr %10, i64 %.026.idx
+  %.1.ptr57 = getelementptr inbounds nuw i8, ptr %10, i64 %.026.idx
   %.not2958 = icmp eq ptr %.1.ptr57, %13
   br i1 %.not2958, label %.loopexit, label %.lr.ph
 
@@ -681,32 +681,32 @@ _ZNK4llvm9StringRef11starts_withES0_.exit35:      ; preds = %_ZNK4llvm9StringRef
   %18 = getelementptr inbounds i8, ptr %.1.ptr60, i64 -1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 96
   %.not53 = icmp eq i16 %23, 0
   br i1 %.not53, label %24, label %25
 
 24:                                               ; preds = %.lr.ph, %17, %16
-  %.1.add48 = add nsw i64 %.1.idx59, 1
+  %.1.add48 = add nuw nsw i64 %.1.idx59, 1
   br label %.loopexit
 
 25:                                               ; preds = %.lr.ph, %17
-  %.1.add = add nsw i64 %.1.idx59, 1
-  %.1.ptr = getelementptr inbounds i8, ptr %10, i64 %.1.add
+  %.1.add = add nuw nsw i64 %.1.idx59, 1
+  %.1.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.1.add
   %.not29 = icmp eq ptr %.1.ptr, %13
   br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %25, %_ZNK4llvm9StringRef11starts_withES0_.exit35, %24
   %.2.idx = phi i64 [ %.1.add48, %24 ], [ %.026.idx, %_ZNK4llvm9StringRef11starts_withES0_.exit35 ], [ %14, %25 ]
-  %.2.ptr = getelementptr inbounds i8, ptr %10, i64 %.2.idx
+  %.2.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.2.idx
   %.not64.not = icmp ne ptr %.2.ptr, %13
   br i1 %.not64.not, label %26, label %.loopexit55
 
 26:                                               ; preds = %.loopexit
   %gepdiff = add nsw i64 %.2.idx, -16
   %.sroa.speculated5.i = tail call i64 @llvm.umin.i64(i64 %12, i64 %gepdiff)
-  %27 = getelementptr inbounds i8, ptr %.ptr49, i64 %.sroa.speculated5.i
+  %27 = getelementptr inbounds nuw i8, ptr %.ptr49, i64 %.sroa.speculated5.i
   %28 = sub nsw i64 %12, %.sroa.speculated5.i
   %.not.i = icmp ult i64 %28, 5
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45, label %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -727,15 +727,15 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread45.thread: ; preds = %_ZNK4llvm9
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit
   %.sink = phi i64 [ 5, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 3, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread45.thread ]
-  %.2.add = add nsw i64 %.2.idx, %.sink
-  %.3.ptr = getelementptr inbounds i8, ptr %10, i64 %.2.add
+  %.2.add = add nuw nsw i64 %.2.idx, %.sink
+  %.3.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.2.add
   %31 = icmp eq ptr %.3.ptr, %13
   br i1 %31, label %.loopexit55, label %32
 
 32:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   %33 = load i8, ptr %.3.ptr, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 64
   %.not54 = icmp eq i16 %37, 0

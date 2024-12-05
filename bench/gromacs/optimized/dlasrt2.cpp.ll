@@ -42,10 +42,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 16:                                               ; preds = %.preheader, %22
   %indvars.iv274 = phi i64 [ %indvars.iv272, %.preheader ], [ %indvars.iv.next275, %22 ]
-  %17 = getelementptr inbounds double, ptr %7, i64 %indvars.iv274
+  %17 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv274
   %18 = load double, ptr %17, align 8
   %indvars.iv.next275 = add nsw i64 %indvars.iv274, -1
-  %19 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next275
+  %19 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next275
   %20 = load double, ptr %19, align 8
   %21 = fcmp ogt double %18, %20
   br i1 %21, label %22, label %27
@@ -53,9 +53,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 22:                                               ; preds = %16
   store double %20, ptr %17, align 8
   store double %18, ptr %19, align 8
-  %23 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv274
+  %23 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv274
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next275
+  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next275
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %23, align 4
   store i32 %24, ptr %25, align 4
@@ -73,10 +73,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 28:                                               ; preds = %.preheader258, %34
   %indvars.iv268 = phi i64 [ %indvars.iv, %.preheader258 ], [ %indvars.iv.next269, %34 ]
-  %29 = getelementptr inbounds double, ptr %7, i64 %indvars.iv268
+  %29 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv268
   %30 = load double, ptr %29, align 8
   %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
-  %31 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next269
+  %31 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.next269
   %32 = load double, ptr %31, align 8
   %33 = fcmp olt double %30, %32
   br i1 %33, label %34, label %39
@@ -84,9 +84,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 34:                                               ; preds = %28
   store double %32, ptr %29, align 8
   store double %30, ptr %31, align 8
-  %35 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv268
+  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv268
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next269
+  %37 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next269
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %35, align 4
   store i32 %36, ptr %37, align 4

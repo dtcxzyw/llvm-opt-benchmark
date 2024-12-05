@@ -18,7 +18,7 @@ define void @Ptngc_comp_conv_to_rle(ptr nocapture noundef readonly %0, i32 nound
   %.02146 = phi i32 [ 0, %.lr.ph.preheader ], [ %.122, %28 ]
   %.03744 = phi i32 [ 0, %.lr.ph.preheader ], [ %.138, %28 ]
   %.not24 = icmp eq i32 %.02146, 0
-  %7 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv57
+  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv57
   %8 = load i32, ptr %7, align 4
   br i1 %.not24, label %28, label %9
 

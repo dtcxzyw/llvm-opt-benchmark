@@ -360,7 +360,7 @@ define internal i32 @dissect_mmse_standalone(ptr noundef %0, ptr noundef %1, ptr
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_message_type, ptr noundef nonnull @.str.205) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.125) #5
   %10 = load ptr, ptr %8, align 8
@@ -375,7 +375,7 @@ define internal i32 @dissect_mmse_encapsulated(ptr noundef %0, ptr noundef %1, p
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %6 = zext i8 %5 to i32
   %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @vals_message_type, ptr noundef nonnull @.str.205) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.246, ptr noundef nonnull @.str.247, ptr noundef %7) #5
   tail call fastcc void @dissect_mmse(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %5, ptr noundef %7)
@@ -423,7 +423,7 @@ define internal range(i32 0, 2) i32 @dissect_mmse_heur(ptr noundef %0, ptr nound
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
   %17 = zext i8 %16 to i32
   %18 = tail call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @vals_message_type, ptr noundef nonnull @.str.205) #5
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.125) #5
   %21 = load ptr, ptr %19, align 8
@@ -497,13 +497,13 @@ switch.early.test:                                ; preds = %5
   br i1 %35, label %.lr.ph, label %.critedge.thread596
 
 .lr.ph:                                           ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %23, i64 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 408
-  %38 = getelementptr inbounds i8, ptr %22, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %39 = icmp eq i8 %3, -110
-  %40 = getelementptr inbounds i8, ptr %19, i64 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 8
-  %42 = getelementptr inbounds i8, ptr %17, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %46
 
 43:                                               ; preds = %733
@@ -1882,7 +1882,7 @@ get_integer_value.exit:                           ; preds = %34, %47
   %.pre-phi = phi i32 [ %10, %34 ], [ %.pre, %47 ]
   %storemerge.i31 = phi i32 [ 1, %34 ], [ %48, %47 ]
   %.0.i32 = phi i32 [ %35, %34 ], [ %.019.i, %47 ]
-  %49 = getelementptr inbounds i8, ptr %3, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %6, align 4
   %52 = add i32 %.pre-phi, %51
@@ -1892,7 +1892,7 @@ get_integer_value.exit:                           ; preds = %34, %47
   br label %62
 
 56:                                               ; preds = %20
-  %57 = getelementptr inbounds i8, ptr %3, i64 408
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %6, align 4
   %60 = add i32 %59, %1
@@ -1907,7 +1907,7 @@ get_integer_value.exit:                           ; preds = %34, %47
   br label %78
 
 65:                                               ; preds = %4
-  %66 = getelementptr inbounds i8, ptr %3, i64 408
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5

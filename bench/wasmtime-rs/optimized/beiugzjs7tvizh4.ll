@@ -168,9 +168,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   br label %108
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %100, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %114 = load ptr, ptr %113, align 8, !nonnull !3, !noundef !3
-  %115 = getelementptr inbounds i8, ptr %100, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %116 = load i64, ptr %115, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %101, ptr nonnull align 1 %114, i64 %116, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.3, i64 12)
           to label %119 unwind label %117
@@ -201,9 +201,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %124 unwind label %121
 
 124:                                              ; preds = %123
-  %125 = getelementptr inbounds i8, ptr %98, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %126 = load ptr, ptr %125, align 8, !nonnull !3, !noundef !3
-  %127 = getelementptr inbounds i8, ptr %98, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %128 = load i64, ptr %127, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %99, ptr nonnull align 1 %126, i64 %128, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.4, i64 16)
           to label %131 unwind label %129
@@ -236,9 +236,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %137 unwind label %134
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %96, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %139 = load ptr, ptr %138, align 8, !nonnull !3, !noundef !3
-  %140 = getelementptr inbounds i8, ptr %96, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %141 = load i64, ptr %140, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %97, ptr nonnull align 1 %139, i64 %141, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.5, i64 18)
           to label %144 unwind label %142
@@ -271,9 +271,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %149 unwind label %146
 
 149:                                              ; preds = %148
-  %150 = getelementptr inbounds i8, ptr %94, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %151 = load ptr, ptr %150, align 8, !nonnull !3, !noundef !3
-  %152 = getelementptr inbounds i8, ptr %94, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %153 = load i64, ptr %152, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %95, ptr nonnull align 1 %151, i64 %153, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.6, i64 4)
           to label %156 unwind label %154
@@ -306,9 +306,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %161 unwind label %158
 
 161:                                              ; preds = %160
-  %162 = getelementptr inbounds i8, ptr %91, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %163 = load ptr, ptr %162, align 8, !nonnull !3, !noundef !3
-  %164 = getelementptr inbounds i8, ptr %91, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %165 = load i64, ptr %164, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %92, ptr nonnull align 1 %163, i64 %165, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.7, i64 3)
           to label %169 unwind label %167
@@ -324,9 +324,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   br label %166
 
 169:                                              ; preds = %161
-  %170 = getelementptr inbounds i8, ptr %92, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %171 = load ptr, ptr %170, align 8, !nonnull !3, !noundef !3
-  %172 = getelementptr inbounds i8, ptr %92, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %173 = load i64, ptr %172, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %93, ptr nonnull align 1 %171, i64 %173, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.8, i64 3)
           to label %176 unwind label %174
@@ -369,9 +369,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %184 unwind label %181
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %88, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %186 = load ptr, ptr %185, align 8, !nonnull !3, !noundef !3
-  %187 = getelementptr inbounds i8, ptr %88, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %188 = load i64, ptr %187, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %89, ptr nonnull align 1 %186, i64 %188, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.7, i64 3)
           to label %192 unwind label %190
@@ -387,9 +387,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   br label %189
 
 192:                                              ; preds = %184
-  %193 = getelementptr inbounds i8, ptr %89, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %194 = load ptr, ptr %193, align 8, !nonnull !3, !noundef !3
-  %195 = getelementptr inbounds i8, ptr %89, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %196 = load i64, ptr %195, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %90, ptr nonnull align 1 %194, i64 %196, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.9, i64 7)
           to label %199 unwind label %197
@@ -432,9 +432,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %207 unwind label %204
 
 207:                                              ; preds = %206
-  %208 = getelementptr inbounds i8, ptr %85, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %209 = load ptr, ptr %208, align 8, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds i8, ptr %85, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %211 = load i64, ptr %210, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %86, ptr nonnull align 1 %209, i64 %211, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.7, i64 3)
           to label %215 unwind label %213
@@ -450,9 +450,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   br label %212
 
 215:                                              ; preds = %207
-  %216 = getelementptr inbounds i8, ptr %86, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %217 = load ptr, ptr %216, align 8, !nonnull !3, !noundef !3
-  %218 = getelementptr inbounds i8, ptr %86, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %219 = load i64, ptr %218, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %87, ptr nonnull align 1 %217, i64 %219, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.10, i64 5)
           to label %222 unwind label %220
@@ -495,9 +495,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
           to label %230 unwind label %227
 
 230:                                              ; preds = %229
-  %231 = getelementptr inbounds i8, ptr %82, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %232 = load ptr, ptr %231, align 8, !nonnull !3, !noundef !3
-  %233 = getelementptr inbounds i8, ptr %82, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %234 = load i64, ptr %233, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %83, ptr nonnull align 1 %232, i64 %234, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.7, i64 3)
           to label %238 unwind label %236
@@ -513,9 +513,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
   br label %235
 
 238:                                              ; preds = %230
-  %239 = getelementptr inbounds i8, ptr %83, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %240 = load ptr, ptr %239, align 8, !nonnull !3, !noundef !3
-  %241 = getelementptr inbounds i8, ptr %83, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %242 = load i64, ptr %241, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %84, ptr nonnull align 1 %240, i64 %242, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.11, i64 7)
           to label %245 unwind label %243
@@ -610,9 +610,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 267:                                              ; preds = %263
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
-  %268 = getelementptr inbounds i8, ptr %95, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %269 = load ptr, ptr %268, align 8, !nonnull !3, !noundef !3
-  %270 = getelementptr inbounds i8, ptr %95, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %271 = load i64, ptr %270, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %73, ptr nonnull align 1 %269, i64 %271, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.13, i64 15)
           to label %275 unwind label %273
@@ -785,29 +785,29 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 334:                                              ; preds = %329
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %259, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
-  %335 = getelementptr inbounds i8, ptr %259, i64 24
+  %335 = getelementptr inbounds nuw i8, ptr %259, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %335, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
-  %336 = getelementptr inbounds i8, ptr %259, i64 48
+  %336 = getelementptr inbounds nuw i8, ptr %259, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false)
-  %337 = getelementptr inbounds i8, ptr %259, i64 72
+  %337 = getelementptr inbounds nuw i8, ptr %259, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
-  %338 = getelementptr inbounds i8, ptr %259, i64 96
+  %338 = getelementptr inbounds nuw i8, ptr %259, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %338, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false)
-  %339 = getelementptr inbounds i8, ptr %259, i64 120
+  %339 = getelementptr inbounds nuw i8, ptr %259, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %339, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false)
-  %340 = getelementptr inbounds i8, ptr %259, i64 144
+  %340 = getelementptr inbounds nuw i8, ptr %259, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %340, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
-  %341 = getelementptr inbounds i8, ptr %259, i64 168
+  %341 = getelementptr inbounds nuw i8, ptr %259, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %341, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
-  %342 = getelementptr inbounds i8, ptr %259, i64 192
+  %342 = getelementptr inbounds nuw i8, ptr %259, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %342, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false)
-  %343 = getelementptr inbounds i8, ptr %259, i64 216
+  %343 = getelementptr inbounds nuw i8, ptr %259, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %343, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
-  %344 = getelementptr inbounds i8, ptr %259, i64 240
+  %344 = getelementptr inbounds nuw i8, ptr %259, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %344, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
-  %345 = getelementptr inbounds i8, ptr %259, i64 264
+  %345 = getelementptr inbounds nuw i8, ptr %259, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %345, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false)
-  %346 = getelementptr inbounds i8, ptr %259, i64 288
+  %346 = getelementptr inbounds nuw i8, ptr %259, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h72ad2b5fd8992f79E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %77, ptr nonnull align 8 %259, i64 13)
           to label %347 unwind label %261
@@ -830,9 +830,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 352:                                              ; preds = %351
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
-  %353 = getelementptr inbounds i8, ptr %79, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %79, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %353, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
-  %354 = getelementptr inbounds i8, ptr %79, i64 48
+  %354 = getelementptr inbounds nuw i8, ptr %79, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %354, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %60, ptr align 1 %3, i64 %4, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.24, i64 11)
           to label %358 unwind label %356
@@ -893,9 +893,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 371:                                              ; preds = %367
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  %372 = getelementptr inbounds i8, ptr %93, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %373 = load ptr, ptr %372, align 8, !nonnull !3, !noundef !3
-  %374 = getelementptr inbounds i8, ptr %93, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %375 = load i64, ptr %374, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %55, ptr nonnull align 1 %373, i64 %375, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.25, i64 9)
           to label %379 unwind label %377
@@ -924,11 +924,11 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 384:                                              ; preds = %379
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %359, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
-  %385 = getelementptr inbounds i8, ptr %359, i64 24
+  %385 = getelementptr inbounds nuw i8, ptr %359, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %385, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
-  %386 = getelementptr inbounds i8, ptr %359, i64 48
+  %386 = getelementptr inbounds nuw i8, ptr %359, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %386, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
-  %387 = getelementptr inbounds i8, ptr %359, i64 72
+  %387 = getelementptr inbounds nuw i8, ptr %359, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %387, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h72ad2b5fd8992f79E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %59, ptr nonnull align 8 %359, i64 4)
           to label %388 unwind label %361
@@ -965,9 +965,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 397:                                              ; preds = %396
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
-  %398 = getelementptr inbounds i8, ptr %61, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %398, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
-  %399 = getelementptr inbounds i8, ptr %61, i64 48
+  %399 = getelementptr inbounds nuw i8, ptr %61, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %399, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %50, ptr align 1 %3, i64 %4, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.27, i64 15)
           to label %403 unwind label %401
@@ -1028,9 +1028,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 416:                                              ; preds = %412
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %417 = getelementptr inbounds i8, ptr %90, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %418 = load ptr, ptr %417, align 8, !nonnull !3, !noundef !3
-  %419 = getelementptr inbounds i8, ptr %90, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %420 = load i64, ptr %419, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %45, ptr nonnull align 1 %418, i64 %420, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.25, i64 9)
           to label %424 unwind label %422
@@ -1091,15 +1091,15 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 441:                                              ; preds = %436
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %404, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
-  %442 = getelementptr inbounds i8, ptr %404, i64 24
+  %442 = getelementptr inbounds nuw i8, ptr %404, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %442, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
-  %443 = getelementptr inbounds i8, ptr %404, i64 48
+  %443 = getelementptr inbounds nuw i8, ptr %404, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %443, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
-  %444 = getelementptr inbounds i8, ptr %404, i64 72
+  %444 = getelementptr inbounds nuw i8, ptr %404, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %444, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
-  %445 = getelementptr inbounds i8, ptr %404, i64 96
+  %445 = getelementptr inbounds nuw i8, ptr %404, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %445, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
-  %446 = getelementptr inbounds i8, ptr %404, i64 120
+  %446 = getelementptr inbounds nuw i8, ptr %404, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %446, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h72ad2b5fd8992f79E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %49, ptr nonnull align 8 %404, i64 6)
           to label %447 unwind label %406
@@ -1136,9 +1136,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 456:                                              ; preds = %455
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
-  %457 = getelementptr inbounds i8, ptr %51, i64 24
+  %457 = getelementptr inbounds nuw i8, ptr %51, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %457, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
-  %458 = getelementptr inbounds i8, ptr %51, i64 48
+  %458 = getelementptr inbounds nuw i8, ptr %51, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %458, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %38, ptr align 1 %3, i64 %4, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.30, i64 13)
           to label %462 unwind label %460
@@ -1199,9 +1199,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 475:                                              ; preds = %471
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %476 = getelementptr inbounds i8, ptr %87, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %477 = load ptr, ptr %476, align 8, !nonnull !3, !noundef !3
-  %478 = getelementptr inbounds i8, ptr %87, i64 16
+  %478 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %479 = load i64, ptr %478, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %33, ptr nonnull align 1 %477, i64 %479, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.25, i64 9)
           to label %483 unwind label %481
@@ -1230,11 +1230,11 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 488:                                              ; preds = %483
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %463, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %489 = getelementptr inbounds i8, ptr %463, i64 24
+  %489 = getelementptr inbounds nuw i8, ptr %463, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %489, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
-  %490 = getelementptr inbounds i8, ptr %463, i64 48
+  %490 = getelementptr inbounds nuw i8, ptr %463, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %490, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
-  %491 = getelementptr inbounds i8, ptr %463, i64 72
+  %491 = getelementptr inbounds nuw i8, ptr %463, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %491, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h72ad2b5fd8992f79E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %37, ptr nonnull align 8 %463, i64 4)
           to label %492 unwind label %465
@@ -1271,9 +1271,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 501:                                              ; preds = %500
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
-  %502 = getelementptr inbounds i8, ptr %39, i64 24
+  %502 = getelementptr inbounds nuw i8, ptr %39, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
-  %503 = getelementptr inbounds i8, ptr %39, i64 48
+  %503 = getelementptr inbounds nuw i8, ptr %39, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %503, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %28, ptr align 1 %3, i64 %4, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.31, i64 15)
           to label %507 unwind label %505
@@ -1334,9 +1334,9 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 520:                                              ; preds = %516
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %521 = getelementptr inbounds i8, ptr %84, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %522 = load ptr, ptr %521, align 8, !nonnull !3, !noundef !3
-  %523 = getelementptr inbounds i8, ptr %84, i64 16
+  %523 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %524 = load i64, ptr %523, align 8, !noundef !3
   invoke void @_ZN3std4path4Path4join17hc4c85a443e712a54E(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 %23, ptr nonnull align 1 %522, i64 %524, ptr nonnull align 1 @anon.94e49fc6c7d27121c5def1fb7edb4405.25, i64 9)
           to label %528 unwind label %526
@@ -1381,13 +1381,13 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 539:                                              ; preds = %534
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %508, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %540 = getelementptr inbounds i8, ptr %508, i64 24
+  %540 = getelementptr inbounds nuw i8, ptr %508, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %540, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  %541 = getelementptr inbounds i8, ptr %508, i64 48
+  %541 = getelementptr inbounds nuw i8, ptr %508, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %541, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %542 = getelementptr inbounds i8, ptr %508, i64 72
+  %542 = getelementptr inbounds nuw i8, ptr %508, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %542, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
-  %543 = getelementptr inbounds i8, ptr %508, i64 96
+  %543 = getelementptr inbounds nuw i8, ptr %508, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %543, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h72ad2b5fd8992f79E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %27, ptr nonnull align 8 %508, i64 5)
           to label %544 unwind label %510
@@ -1424,18 +1424,18 @@ define void @_ZN22cranelift_codegen_meta4isle21get_isle_compilations17hcb05070d6
 
 553:                                              ; preds = %552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
-  %554 = getelementptr inbounds i8, ptr %29, i64 24
+  %554 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %554, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  %555 = getelementptr inbounds i8, ptr %29, i64 48
+  %555 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %555, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(72) %79, i64 72, i1 false)
-  %556 = getelementptr inbounds i8, ptr %253, i64 72
+  %556 = getelementptr inbounds nuw i8, ptr %253, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %556, ptr noundef nonnull align 8 dereferenceable(72) %61, i64 72, i1 false)
-  %557 = getelementptr inbounds i8, ptr %253, i64 144
+  %557 = getelementptr inbounds nuw i8, ptr %253, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %557, ptr noundef nonnull align 8 dereferenceable(72) %51, i64 72, i1 false)
-  %558 = getelementptr inbounds i8, ptr %253, i64 216
+  %558 = getelementptr inbounds nuw i8, ptr %253, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %558, ptr noundef nonnull align 8 dereferenceable(72) %39, i64 72, i1 false)
-  %559 = getelementptr inbounds i8, ptr %253, i64 288
+  %559 = getelementptr inbounds nuw i8, ptr %253, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %559, ptr noundef nonnull align 8 dereferenceable(72) %29, i64 72, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h166de69d8d502187E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %81, ptr nonnull align 8 %253, i64 5)
           to label %560 unwind label %250

@@ -132,7 +132,7 @@ define internal range(i32 5, 1) i32 @dissect_ixiatrailer(ptr noundef %0, ptr nou
   %25 = add nsw i32 %spec.store.select.mux, -2
   %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25) #3
   %27 = add nsw i32 %spec.store.select.mux, -2
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %27, ptr %28, align 8
   %29 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %27) #3
   store ptr %29, ptr %5, align 8

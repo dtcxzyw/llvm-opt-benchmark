@@ -591,7 +591,7 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond3, label %151, label %157
 
 151:                                              ; preds = %.lr.ph
-  %152 = getelementptr inbounds i8, ptr %5, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %153 = load ptr, ptr %152, align 8
   call void @col_append_sep_str(ptr noundef %153, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #2
   %154 = load i32, ptr @hf_reg_invalid_tlv, align 4
@@ -894,7 +894,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   br i1 %or.cond3, label %17, label %23
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #2
   %20 = load i32, ptr @hf_reg_invalid_tlv, align 4

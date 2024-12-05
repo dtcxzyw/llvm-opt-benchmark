@@ -297,7 +297,7 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not18 = icmp eq ptr %6, null
   br i1 %.not18, label %.loopexit, label %7
@@ -310,25 +310,25 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   %9 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.2, i32 noundef 10, i32 noundef 0, ptr noundef null) #4
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %9) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %2, i8 0, i64 240, i1 false)
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
-  %17 = getelementptr inbounds i8, ptr %2, i64 96
-  %18 = getelementptr inbounds i8, ptr %2, i64 104
-  %19 = getelementptr inbounds i8, ptr %2, i64 120
-  %20 = getelementptr inbounds i8, ptr %2, i64 128
-  %21 = getelementptr inbounds i8, ptr %2, i64 144
-  %22 = getelementptr inbounds i8, ptr %2, i64 152
-  %23 = getelementptr inbounds i8, ptr %2, i64 168
-  %24 = getelementptr inbounds i8, ptr %2, i64 176
-  %25 = getelementptr inbounds i8, ptr %2, i64 192
-  %26 = getelementptr inbounds i8, ptr %2, i64 200
-  %27 = getelementptr inbounds i8, ptr %2, i64 216
-  %28 = getelementptr inbounds i8, ptr %2, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 224
   br label %29
 
 29:                                               ; preds = %8, %29
@@ -367,7 +367,7 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @str_to_val_idx(ptr noundef %7, ptr noundef nonnull @message_type_values) #4
   %9 = icmp slt i32 %8, 0
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -383,12 +383,12 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
   %17 = add i64 %16, 1
   store i64 %17, ptr @npm_total_msgs, align 8
   %18 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 1) #4
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 1, ptr noundef %18) #4
-  %22 = getelementptr inbounds i8, ptr %3, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i64
   %25 = load i64, ptr @npm_total_bytes, align 8
@@ -397,7 +397,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
   %27 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 3) #4
   %28 = load i16, ptr %22, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %29
   store i32 %32, ptr %30, align 8
@@ -407,10 +407,10 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
 33:                                               ; preds = %10, %33
   %.0104109 = phi i32 [ 0, %10 ], [ %54, %33 ]
   %34 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 1) #4
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 3) #4
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 2) #4
   store i32 4, ptr %40, align 8
@@ -419,7 +419,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
   %43 = load i64, ptr @npm_total_msgs, align 8
   %44 = uitofp i64 %43 to double
   %45 = fdiv double %42, %44
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store double %45, ptr %46, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 2, ptr noundef nonnull %40) #4
   %47 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 4) #4
@@ -429,7 +429,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
   %50 = load i64, ptr @npm_total_bytes, align 8
   %51 = uitofp i64 %50 to double
   %52 = fdiv double %49, %51
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store double %52, ptr %53, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 4, ptr noundef nonnull %47) #4
   %54 = add nuw nsw i32 %.0104109, 1
@@ -437,7 +437,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
   br i1 %.not, label %55, label %33, !llvm.loop !6
 
 55:                                               ; preds = %33
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 1
   %.not107 = icmp eq i32 %58, 0
@@ -446,9 +446,9 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
 59:                                               ; preds = %55
   %60 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 5) #4
   store i32 4, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load double, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = tail call double @nstime_to_sec(ptr noundef nonnull %63) #4
   %65 = fcmp olt double %62, %64
   br i1 %65, label %66, label %68
@@ -473,9 +473,9 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
 73:                                               ; preds = %70
   %74 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 6) #4
   store i32 4, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %78 = tail call double @nstime_to_sec(ptr noundef nonnull %77) #4
   %79 = fcmp ogt double %76, %78
   br i1 %79, label %80, label %82
@@ -504,21 +504,21 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
 88:                                               ; preds = %.thread
   %89 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 7) #4
   store i32 4, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store double %86, ptr %90, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 7, ptr noundef nonnull %89) #4
   %91 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 8) #4
   store i32 4, ptr %91, align 8
   %92 = uitofp i32 %21 to double
   %93 = fdiv double %92, %86
-  %94 = getelementptr inbounds i8, ptr %91, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store double %93, ptr %94, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 8, ptr noundef nonnull %91) #4
   %95 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 9) #4
   store i32 4, ptr %95, align 8
   %96 = uitofp i32 %32 to double
   %97 = fdiv double %96, %86
-  %98 = getelementptr inbounds i8, ptr %95, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store double %97, ptr %98, align 8
   tail call void @stat_tap_set_field_data(ptr noundef %15, i32 noundef %8, i32 noundef 9, ptr noundef nonnull %95) #4
   br label %99
@@ -530,7 +530,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal void @npm_stat_reset(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -538,46 +538,46 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.063 = phi i32 [ %22, %.lr.ph ], [ 0, %1 ]
   %4 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 1) #4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 1, ptr noundef %4) #4
   %6 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 2) #4
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double -1.000000e+00, ptr %7, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 2, ptr noundef nonnull %6) #4
   %8 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 3) #4
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 3, ptr noundef %8) #4
   %10 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 4) #4
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double -1.000000e+00, ptr %11, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 4, ptr noundef nonnull %10) #4
   %12 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 5) #4
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %13, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 5, ptr noundef nonnull %12) #4
   %14 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 6) #4
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store double 0x10000000000000, ptr %15, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 6, ptr noundef nonnull %14) #4
   %16 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 7) #4
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store double -1.000000e+00, ptr %17, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 7, ptr noundef nonnull %16) #4
   %18 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 8) #4
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double -1.000000e+00, ptr %19, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 8, ptr noundef nonnull %18) #4
   %20 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 9) #4
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double -1.000000e+00, ptr %21, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.063, i32 noundef 9, ptr noundef nonnull %20) #4
   %22 = add nuw i32 %.063, 1
@@ -606,7 +606,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %7, i32 noundef 34, ptr noundef null, ptr noundef nonnull @.str.6) #4
   %.not = icmp eq ptr %2, null
@@ -621,17 +621,17 @@ define internal noundef i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr nou
 
 13:                                               ; preds = %4, %8
   %.0 = phi ptr [ %12, %8 ], [ null, %4 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 16) #4
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   store i8 %17, ptr %16, align 8
   %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %19 = getelementptr inbounds i8, ptr %16, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store i16 %18, ptr %19, align 2
   %20 = zext i8 %17 to i32
   %21 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @message_type_values, ptr noundef nonnull @.str.164) #4
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %21, ptr %22, align 8
   %23 = load i32, ptr @tap_npm, align 4
   tail call void @tap_queue_packet(i32 noundef %23, ptr noundef nonnull %1, ptr noundef nonnull %16) #4
@@ -828,7 +828,7 @@ define internal noundef i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr nou
   %182 = add i64 %.neg.i.i, %180
   %183 = trunc i64 %182 to i32
   %184 = mul i32 %183, 1000
-  %185 = getelementptr inbounds i8, ptr %5, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %184, ptr %185, align 8
   %186 = load i32, ptr @hf_data_timestamp, align 4
   %187 = call ptr @proto_tree_add_time(ptr noundef %.0, i32 noundef %186, ptr noundef %0, i32 noundef 40, i32 noundef 8, ptr noundef nonnull %5) #4

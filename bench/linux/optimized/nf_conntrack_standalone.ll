@@ -135,7 +135,7 @@ module asm ".previous\09\09\09\09\09"
 define dso_local i32 @nf_conntrack_count(ptr noundef %0) #0 align 16 {
   %2 = load i32, ptr @nf_conntrack_net_id, align 4
   tail call void @__rcu_read_lock() #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 2536
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
   %6 = getelementptr [0 x ptr], ptr %4, i64 0, i64 %5
@@ -214,11 +214,11 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noundef initializes((2436, 2437)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2436
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2436
   store i8 1, ptr %2, align 4
   %3 = load i32, ptr @nf_conntrack_net_id, align 4
   tail call void @__rcu_read_lock() #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 2536
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
   %7 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %6
@@ -229,24 +229,24 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noun
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 2520
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   %13 = getelementptr i8, ptr %9, i64 72
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 2432
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %15 = getelementptr i8, ptr %9, i64 200
   store ptr %2, ptr %15, align 8
   %16 = getelementptr i8, ptr %9, i64 264
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 2434
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2434
   %18 = getelementptr i8, ptr %9, i64 392
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 2456
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2456
   %20 = getelementptr i8, ptr %9, i64 456
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 2528
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %22 = getelementptr i8, ptr %9, i64 1544
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 2532
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2532
   %24 = getelementptr i8, ptr %9, i64 1608
   store ptr %23, ptr %24, align 8
   %25 = getelementptr i8, ptr %9, i64 1416
@@ -284,23 +284,23 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noun
   %46 = getelementptr i8, ptr %0, i64 2512
   %47 = getelementptr i8, ptr %9, i64 1096
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 2516
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2516
   %49 = getelementptr i8, ptr %9, i64 1160
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 2517
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2517
   %51 = getelementptr i8, ptr %9, i64 1224
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 2518
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 2518
   %53 = getelementptr i8, ptr %9, i64 1352
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 2519
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2519
   %55 = getelementptr i8, ptr %9, i64 1288
   store ptr %54, ptr %55, align 8
   %56 = icmp eq ptr %0, @init_net
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %11
-  %58 = getelementptr inbounds i8, ptr %9, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 292, ptr %58, align 4
   %59 = getelementptr i8, ptr %9, i64 340
   store i16 292, ptr %59, align 4
@@ -310,7 +310,7 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noun
 
 61:                                               ; preds = %57, %11
   %62 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %9, i64 noundef 27) #5
-  %63 = getelementptr inbounds i8, ptr %8, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
   br i1 %64, label %.thread.sink.split, label %65
@@ -343,9 +343,9 @@ define internal range(i32 -2147483648, 1) i32 @nf_conntrack_pernet_init(ptr noun
   %80 = getelementptr [0 x ptr], ptr %78, i64 0, i64 %79
   %81 = load ptr, ptr %80, align 8
   tail call void @__rcu_read_unlock() #5
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load ptr, ptr %84, align 8
   tail call void @unregister_net_sysctl_table(ptr noundef %83) #5
   br label %.thread.sink.split
@@ -387,9 +387,9 @@ define internal void @nf_conntrack_pernet_exit(ptr noundef %0) #0 align 16 {
   %14 = getelementptr [0 x ptr], ptr %12, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   tail call void @__rcu_read_unlock() #5
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void @unregister_net_sysctl_table(ptr noundef %17) #5
   tail call void @kfree(ptr noundef %19) #5

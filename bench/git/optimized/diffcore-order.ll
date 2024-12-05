@@ -43,7 +43,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %call4.i = call ptr @strbuf_detach(ptr noundef nonnull %sb.i, ptr noundef null) #11
-  %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 %call.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 %call.i
   %cmp630.not.i = icmp eq i64 %call.i, 0
   br i1 %cmp630.not.i, label %for.inc47.i, label %while.cond.preheader.us.i
 
@@ -70,7 +70,7 @@ land.rhs.us40.i:                                  ; preds = %for.inc.us42.i
 
 for.inc.us42.i:                                   ; preds = %for.cond7.preheader.us54.i, %land.rhs.us40.i
   %ep.028.us62.i = phi ptr [ %incdec.ptr.us43.i, %land.rhs.us40.i ], [ %cp.031.us56.i, %for.cond7.preheader.us54.i ]
-  %incdec.ptr.us43.i = getelementptr inbounds i8, ptr %ep.028.us62.i, i64 1
+  %incdec.ptr.us43.i = getelementptr inbounds nuw i8, ptr %ep.028.us62.i, i64 1
   %cmp8.us44.i = icmp ult ptr %incdec.ptr.us43.i, %add.ptr.i
   br i1 %cmp8.us44.i, label %land.rhs.us40.i, label %for.end.us45.i, !llvm.loop !7
 
@@ -110,7 +110,7 @@ if.end34.us49.i:                                  ; preds = %for.cond7.preheader
   %cmp8.lcssa.us4772.i = phi i64 [ %cmp8.lcssa.us47.i, %for.end.us45.i ], [ %cmp8.lcssa.us47.i, %if.end31.us.i ], [ %cmp8.lcssa.us47.i, %for.end.us45.i ], [ 1, %for.cond7.preheader.us54.i ]
   %ep.0.lcssa.us4671.i = phi ptr [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %incdec.ptr.us43.i, %if.end31.us.i ], [ %incdec.ptr.us43.i, %for.end.us45.i ], [ %cp.031.us56.i, %for.cond7.preheader.us54.i ]
   %cnt.1.us50.i = phi i32 [ %cnt.032.us55.i, %for.end.us45.i ], [ %inc32.us.i, %if.end31.us.i ], [ %cnt.032.us55.i, %for.end.us45.i ], [ %cnt.032.us55.i, %for.cond7.preheader.us54.i ]
-  %spec.select.us52.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us4671.i, i64 %cmp8.lcssa.us4772.i
+  %spec.select.us52.i = getelementptr inbounds nuw i8, ptr %ep.0.lcssa.us4671.i, i64 %cmp8.lcssa.us4772.i
   %cmp6.us53.i = icmp ult ptr %spec.select.us52.i, %add.ptr.i
   br i1 %cmp6.us53.i, label %for.cond7.preheader.us54.i, label %while.cond.while.end_crit_edge.us.i, !llvm.loop !8
 
@@ -139,7 +139,7 @@ land.rhs.us.us.i:                                 ; preds = %for.inc.us.us.i
 
 for.inc.us.us.i:                                  ; preds = %for.cond7.preheader.us.us.i, %land.rhs.us.us.i
   %ep.028.us34.us.i = phi ptr [ %incdec.ptr.us.us.i, %land.rhs.us.us.i ], [ %cp.031.us.us.i, %for.cond7.preheader.us.us.i ]
-  %incdec.ptr.us.us.i = getelementptr inbounds i8, ptr %ep.028.us34.us.i, i64 1
+  %incdec.ptr.us.us.i = getelementptr inbounds nuw i8, ptr %ep.028.us34.us.i, i64 1
   %cmp8.us.us.i = icmp ult ptr %incdec.ptr.us.us.i, %add.ptr.i
   br i1 %cmp8.us.us.i, label %land.rhs.us.us.i, label %for.end.us.us.i, !llvm.loop !7
 
@@ -158,7 +158,7 @@ if.end34.us.us.i:                                 ; preds = %if.else.us.us.i, %f
   %cmp8.lcssa.us.us76.i = phi i64 [ %cmp8.lcssa.us.us.i, %for.end.us.us.i ], [ %cmp8.lcssa.us.us.i, %if.else.us.us.i ], [ %cmp8.lcssa.us.us.i, %for.end.us.us.i ], [ 1, %for.cond7.preheader.us.us.i ]
   %ep.0.lcssa.us.us75.i = phi ptr [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %incdec.ptr.us.us.i, %if.else.us.us.i ], [ %incdec.ptr.us.us.i, %for.end.us.us.i ], [ %cp.031.us.us.i, %for.cond7.preheader.us.us.i ]
   %cnt.1.us.us.i = phi i32 [ %cnt.032.us.us.i, %for.end.us.us.i ], [ %inc.us.us.i, %if.else.us.us.i ], [ %cnt.032.us.us.i, %for.end.us.us.i ], [ %cnt.032.us.us.i, %for.cond7.preheader.us.us.i ]
-  %spec.select.us.us.i = getelementptr inbounds i8, ptr %ep.0.lcssa.us.us75.i, i64 %cmp8.lcssa.us.us76.i
+  %spec.select.us.us.i = getelementptr inbounds nuw i8, ptr %ep.0.lcssa.us.us75.i, i64 %cmp8.lcssa.us.us76.i
   %cmp6.us.us.i = icmp ult ptr %spec.select.us.us.i, %add.ptr.i
   br i1 %cmp6.us.us.i, label %for.cond7.preheader.us.us.i, label %while.cond.while.end_crit_edge.us.i, !llvm.loop !8
 
@@ -183,8 +183,8 @@ for.body.preheader:                               ; preds = %prepare_order.exit
 
 for.body:                                         ; preds = %for.body.preheader, %match_order.exit
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %match_order.exit ]
-  %arrayidx = getelementptr inbounds %struct.obj_order, ptr %objs, i64 %indvars.iv
-  %orig_order = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.obj_order, ptr %objs, i64 %indvars.iv
+  %orig_order = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %7, ptr %orig_order, align 8
   %8 = load ptr, ptr %arrayidx, align 8
@@ -219,7 +219,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %for.
 while.body.i:                                     ; preds = %strbuf_setlen.exit.i, %if.end6.i
   %13 = phi ptr [ %17, %if.end6.i ], [ %11, %strbuf_setlen.exit.i ]
   %14 = load ptr, ptr @order, align 8
-  %arrayidx1.i = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.i
+  %arrayidx1.i = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
   %15 = load ptr, ptr %arrayidx1.i, align 8
   %call.i11 = call i32 @wildmatch(ptr noundef %15, ptr noundef nonnull %13, i32 noundef 0) #11
   %tobool2.not.i = icmp eq i32 %call.i11, 0
@@ -252,7 +252,7 @@ return.loopexit.i:                                ; preds = %while.body.i
 
 match_order.exit:                                 ; preds = %for.inc.i, %for.body, %return.loopexit.i
   %retval.0.i = phi i32 [ %9, %for.body ], [ %22, %return.loopexit.i ], [ %20, %for.inc.i ]
-  %order = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %order = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   store i32 %retval.0.i, ptr %order, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -274,9 +274,9 @@ return:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_objs_order(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #1 {
 entry:
-  %order = getelementptr inbounds i8, ptr %a_, i64 12
+  %order = getelementptr inbounds nuw i8, ptr %a_, i64 12
   %0 = load i32, ptr %order, align 4
-  %order1 = getelementptr inbounds i8, ptr %b_, i64 12
+  %order1 = getelementptr inbounds nuw i8, ptr %b_, i64 12
   %1 = load i32, ptr %order1, align 4
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -286,9 +286,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %orig_order = getelementptr inbounds i8, ptr %a_, i64 8
+  %orig_order = getelementptr inbounds nuw i8, ptr %a_, i64 8
   %2 = load i32, ptr %orig_order, align 8
-  %orig_order4 = getelementptr inbounds i8, ptr %b_, i64 8
+  %orig_order4 = getelementptr inbounds nuw i8, ptr %b_, i64 8
   %3 = load i32, ptr %orig_order4, align 8
   %sub5 = sub nsw i32 %2, %3
   br label %return
@@ -324,9 +324,9 @@ st_mult.exit:                                     ; preds = %if.end
 for.body:                                         ; preds = %st_mult.exit, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %st_mult.exit ]
   %2 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %arrayidx6 = getelementptr inbounds %struct.obj_order, ptr %call2, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw %struct.obj_order, ptr %call2, i64 %indvars.iv
   store ptr %3, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
@@ -343,10 +343,10 @@ for.end:                                          ; preds = %for.body, %st_mult.
 
 for.body12:                                       ; preds = %for.end, %for.body12
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %for.body12 ], [ 0, %for.end ]
-  %arrayidx14 = getelementptr inbounds %struct.obj_order, ptr %call2, i64 %indvars.iv24
+  %arrayidx14 = getelementptr inbounds nuw %struct.obj_order, ptr %call2, i64 %indvars.iv24
   %7 = load ptr, ptr %arrayidx14, align 8
   %8 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv24
+  %arrayidx18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv24
   store ptr %7, ptr %arrayidx18, align 8
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @diff_queued_diff, i64 12), align 4
@@ -367,9 +367,9 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal ptr @pair_pathtwo(ptr nocapture noundef readonly %obj) #3 {
 entry:
-  %two = getelementptr inbounds i8, ptr %obj, i64 8
+  %two = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %two, align 8
-  %path = getelementptr inbounds i8, ptr %0, i64 40
+  %path = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %path, align 8
   ret ptr %1
 }

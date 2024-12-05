@@ -13,14 +13,14 @@ $_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Comm
 define weak_odr dso_local { i64, i64 } @_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %common, align 8, !noalias !5
-  %capacity_.i.i = getelementptr inbounds i8, ptr %common, i64 16
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8, !noalias !5
   %shr.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i = lshr i64 %2, 12
   %xor.i.i.i = xor i64 %shr.i.i.i.i, %shr.i.i.i
   %and.i.i.i = and i64 %xor.i.i.i, %1
-  %add.ptr12 = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %0, i64 %and.i.i.i
   %3 = load <16 x i8>, ptr %add.ptr12, align 1
   %cmp.i.i.i13 = icmp slt <16 x i8> %3, splat (i8 -1)
   %4 = bitcast <16 x i1> %cmp.i.i.i13 to i16
@@ -155,12 +155,12 @@ for.body:                                         ; preds = %entry, %for.body
   %not.i.i = and <2 x i64> %1, splat (i64 9114861777597660798)
   %or.i.i = xor <2 x i64> %not.i.i, splat (i64 -72340172838076674)
   store <2 x i64> %or.i.i, ptr %pos.011, align 1
-  %add.ptr1 = getelementptr inbounds i8, ptr %pos.011, i64 16
+  %add.ptr1 = getelementptr inbounds nuw i8, ptr %pos.011, i64 16
   %cmp = icmp ult ptr %add.ptr1, %add.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %add.ptr3, ptr noundef nonnull align 1 dereferenceable(15) %ctrl, i64 15, i1 false)
   store i8 -1, ptr %add.ptr, align 1
   ret void
@@ -173,14 +173,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, i64 noundef %hash) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %common, align 8, !noalias !11
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %common, i64 16
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i.i.i, align 8, !noalias !11
   %shr.i.i.i.i = lshr i64 %hash, 7
   %2 = ptrtoint ptr %0 to i64
   %shr.i.i.i.i.i = lshr i64 %2, 12
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i.i, %shr.i.i.i.i
   %and.i.i.i.i = and i64 %xor.i.i.i.i, %1
-  %add.ptr12.i = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i.i
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %0, i64 %and.i.i.i.i
   %3 = load <16 x i8>, ptr %add.ptr12.i, align 1
   %cmp.i.i.i13.i = icmp slt <16 x i8> %3, splat (i8 -1)
   %4 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
@@ -216,9 +216,9 @@ _ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12Commo
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18container_internal24DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32) %common, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy, ptr noundef %tmp_space) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %slots_.i = getelementptr inbounds i8, ptr %common, i64 8
+  %slots_.i = getelementptr inbounds nuw i8, ptr %common, i64 8
   %0 = load ptr, ptr %slots_.i, align 8
-  %capacity_.i = getelementptr inbounds i8, ptr %common, i64 16
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
   %2 = load ptr, ptr %common, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %1
@@ -233,17 +233,17 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %not.i.i.i = and <2 x i64> %4, splat (i64 9114861777597660798)
   %or.i.i.i = xor <2 x i64> %not.i.i.i, splat (i64 -72340172838076674)
   store <2 x i64> %or.i.i.i, ptr %pos.011.i, align 1
-  %add.ptr1.i = getelementptr inbounds i8, ptr %pos.011.i, i64 16
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %pos.011.i, i64 16
   %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.i, label %for.body.i, label %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit, !llvm.loop !10
 
 _ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit: ; preds = %for.body.i, %entry
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %add.ptr3.i, ptr noundef nonnull align 1 dereferenceable(15) %2, i64 15, i1 false)
   store i8 -1, ptr %add.ptr.i, align 1
-  %hash_slot = getelementptr inbounds i8, ptr %policy, i64 8
+  %hash_slot = getelementptr inbounds nuw i8, ptr %policy, i64 8
   %5 = load ptr, ptr %hash_slot, align 8
-  %transfer3 = getelementptr inbounds i8, ptr %policy, i64 16
+  %transfer3 = getelementptr inbounds nuw i8, ptr %policy, i64 16
   %6 = load ptr, ptr %transfer3, align 8
   %7 = load i64, ptr %policy, align 8
   %cmp.not94 = icmp eq i64 %1, 0
@@ -266,7 +266,7 @@ if.end:                                           ; preds = %for.body
   %shr.i.i.i.i.i = lshr i64 %11, 12
   %xor.i.i.i.i = xor i64 %shr.i.i.i.i.i, %shr.i.i.i.i
   %and.i.i.i.i = and i64 %xor.i.i.i.i, %10
-  %add.ptr12.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i.i.i
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %9, i64 %and.i.i.i.i
   %12 = load <16 x i8>, ptr %add.ptr12.i, align 1
   %cmp.i.i.i13.i = icmp slt <16 x i8> %12, splat (i8 -1)
   %13 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
@@ -368,7 +368,7 @@ for.inc:                                          ; preds = %if.then19, %if.else
 for.end:                                          ; preds = %for.inc, %_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm.exit
   %29 = load i64, ptr %capacity_.i, align 8
   %div2.i.i = lshr i64 %29, 3
-  %size_.i.i = getelementptr inbounds i8, ptr %common, i64 24
+  %size_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 24
   %30 = load i64, ptr %size_.i.i, align 8
   %shr.i.i = lshr i64 %30, 1
   %31 = add nuw i64 %div2.i.i, %shr.i.i
@@ -382,7 +382,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4absl1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %c, ptr noundef %it, i64 noundef %slot_size) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
-  %size_.i = getelementptr inbounds i8, ptr %c, i64 24
+  %size_.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
   %sub.i = add i64 %0, -2
   store i64 %sub.i, ptr %size_.i, align 8
@@ -391,7 +391,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub = add i64 %sub.ptr.sub, -16
-  %capacity_.i = getelementptr inbounds i8, ptr %c, i64 16
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   %and = and i64 %sub, %2
   %3 = load <16 x i8>, ptr %it, align 1
@@ -438,14 +438,14 @@ land.end.thread:                                  ; preds = %land.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEb(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy, i1 noundef zeroext %reuse) local_unnamed_addr #8 {
 entry:
-  %size_.i = getelementptr inbounds i8, ptr %c, i64 24
+  %size_.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %0 = load i64, ptr %size_.i, align 8
   %and.i = and i64 %0, 1
   store i64 %and.i, ptr %size_.i, align 8
   br i1 %reuse, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %capacity_.i.i = getelementptr inbounds i8, ptr %c, i64 16
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %1 = load i64, ptr %capacity_.i.i, align 8
   %2 = load ptr, ptr %c, align 8
   %add3.i = add i64 %1, 16
@@ -464,11 +464,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %dealloc = getelementptr inbounds i8, ptr %policy, i64 24
+  %dealloc = getelementptr inbounds nuw i8, ptr %policy, i64 24
   %7 = load ptr, ptr %dealloc, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %c, ptr noundef nonnull align 8 dereferenceable(32) %policy)
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %c, align 8
-  %slots_.i = getelementptr inbounds i8, ptr %c, i64 8
+  %slots_.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %slots_.i, i8 0, i64 16, i1 false)
   br label %if.end
 
@@ -479,27 +479,27 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef initializes((0, 16)) %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #9 align 2 {
 entry:
-  %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
+  %old_capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
   %div12 = lshr i64 %0, 1
   %1 = load ptr, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %div12
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %div12
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %2 = load i64, ptr %add.ptr2, align 1
   store i64 %2, ptr %new_ctrl, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %new_ctrl, i64 %div12
+  %arrayidx = getelementptr inbounds nuw i8, ptr %new_ctrl, i64 %div12
   store i8 -128, ptr %arrayidx, align 1
   %3 = load i64, ptr %old_capacity_, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %new_ctrl, i64 %3
-  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr4, i64 1
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 1
   store i64 -9187201950435737472, ptr %add.ptr5, align 1
-  %add.ptr6 = getelementptr inbounds i8, ptr %new_ctrl, i64 8
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %new_ctrl, i64 8
   store i64 -9187201950435737472, ptr %add.ptr6, align 1
   %add.ptr7 = getelementptr inbounds i8, ptr %new_ctrl, i64 %new_capacity
-  %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr7, i64 8
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 8
   store i64 -9187201950435737472, ptr %add.ptr8, align 1
   %g.sroa.0.0.copyload = load i64, ptr %new_ctrl, align 1
-  %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr7, i64 1
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 1
   store i64 %g.sroa.0.0.copyload, ptr %add.ptr10, align 1
   store i8 -1, ptr %add.ptr7, align 1
   ret void
@@ -511,7 +511,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper43GrowIntoSingleGroupShuffleTransferableSlotsEPvS2_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef readonly %old_slots, ptr nocapture noundef writeonly %new_slots, i64 noundef %slot_size) local_unnamed_addr #11 align 2 {
 entry:
-  %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
+  %old_capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8
   %div11 = lshr i64 %0, 1
   %add = add nuw i64 %div11, 1
@@ -528,32 +528,32 @@ entry:
 define dso_local void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef readonly %old_slots, i64 noundef %slot_size) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %c, align 8
-  %capacity_.i = getelementptr inbounds i8, ptr %c, i64 16
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %c, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
-  %old_capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %old_capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %old_capacity_.i, align 8
   %div12.i = lshr i64 %2, 1
   %3 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %div12.i
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %div12.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %4 = load i64, ptr %add.ptr2.i, align 1
   store i64 %4, ptr %0, align 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 %div12.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 %div12.i
   store i8 -128, ptr %arrayidx.i, align 1
   %5 = load i64, ptr %old_capacity_.i, align 8
   %add.ptr4.i = getelementptr inbounds i8, ptr %0, i64 %5
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr4.i, i64 1
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %add.ptr4.i, i64 1
   store i64 -9187201950435737472, ptr %add.ptr5.i, align 1
-  %add.ptr6.i = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9187201950435737472, ptr %add.ptr6.i, align 1
   %add.ptr7.i = getelementptr inbounds i8, ptr %0, i64 %1
-  %add.ptr8.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 8
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 8
   store i64 -9187201950435737472, ptr %add.ptr8.i, align 1
   %g.sroa.0.0.copyload.i = load i64, ptr %0, align 1
-  %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 1
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 1
   store i64 %g.sroa.0.0.copyload.i, ptr %add.ptr10.i, align 1
   store i8 -1, ptr %add.ptr7.i, align 1
-  %slots_.i = getelementptr inbounds i8, ptr %c, i64 8
+  %slots_.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   %6 = load ptr, ptr %slots_.i, align 8
   %7 = load i64, ptr %old_capacity_.i, align 8
   %div11.i = lshr i64 %7, 1

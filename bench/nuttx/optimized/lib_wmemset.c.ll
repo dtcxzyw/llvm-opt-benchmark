@@ -12,7 +12,7 @@ define noundef ptr @wmemset(ptr noundef returned writeonly %0, i32 noundef %1, i
   %.09 = phi i64 [ %5, %.lr.ph ], [ 0, %3 ]
   %.078 = phi ptr [ %4, %.lr.ph ], [ %0, %3 ]
   store i32 %1, ptr %.078, align 4
-  %4 = getelementptr inbounds i8, ptr %.078, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %5 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %5, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

@@ -92,7 +92,7 @@ define internal i32 @dissector_wimax_harq_map_decoder(ptr noundef %0, ptr nounde
   br i1 %.not88, label %9, label %65
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.21) #3
   %.not89 = icmp eq ptr %2, null

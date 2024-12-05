@@ -131,8 +131,8 @@ if.end14:                                         ; preds = %if.end9
   br i1 %cmp1839.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end14
-  %timers = getelementptr inbounds i8, ptr %call1, i64 832
-  %timecmp = getelementptr inbounds i8, ptr %call1, i64 824
+  %timers = getelementptr inbounds nuw i8, ptr %call1, i64 832
+  %timecmp = getelementptr inbounds nuw i8, ptr %call1, i64 824
   %wide.trip.count = zext nneg i32 %num_harts to i64
   br label %for.body
 
@@ -170,7 +170,7 @@ if.then30:                                        ; preds = %if.end28
 
 if.end31:                                         ; preds = %if.then30, %if.end28
   store ptr %call1, ptr %call25, align 8
-  %num = getelementptr inbounds i8, ptr %call25, i64 8
+  %num = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store i32 %0, ptr %num, align 8
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_aclint_mtimer_cb, ptr noundef nonnull %call25) #6
@@ -219,7 +219,7 @@ declare void @riscv_cpu_set_rdtime_fn(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @cpu_riscv_read_rtc(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %timebase_freq = getelementptr inbounds i8, ptr %opaque, i64 1140
+  %timebase_freq = getelementptr inbounds nuw i8, ptr %opaque, i64 1140
   %0 = load i32, ptr %timebase_freq, align 4
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i = zext i64 %call.i to i128
@@ -227,7 +227,7 @@ entry:
   %mul.i.i = mul nuw nsw i128 %conv.i.i, %conv1.i.i
   %div.i.i = udiv i128 %mul.i.i, 1000000000
   %conv3.i.i = trunc i128 %div.i.i to i64
-  %time_delta = getelementptr inbounds i8, ptr %opaque, i64 816
+  %time_delta = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %1 = load i64, ptr %time_delta, align 16
   %add = add i64 %1, %conv3.i.i
   ret i64 %add
@@ -237,9 +237,9 @@ entry:
 define internal void @riscv_aclint_mtimer_cb(ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %timer_irqs = getelementptr inbounds i8, ptr %0, i64 1144
+  %timer_irqs = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %1 = load ptr, ptr %timer_irqs, align 8
-  %num = getelementptr inbounds i8, ptr %opaque, i64 8
+  %num = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %2 = load i32, ptr %num, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %1, i64 %idxprom
@@ -336,13 +336,13 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @riscv_aclint_mtimer_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @riscv_aclint_mtimer_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aclint_mtimer_properties) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #6
-  %phases = getelementptr inbounds i8, ptr %call.i4, i64 112
+  %phases = getelementptr inbounds nuw i8, ptr %call.i4, i64 112
   store ptr @riscv_aclint_mtimer_reset_enter, ptr %phases, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_riscv_mtimer, ptr %vmsd, align 8
   ret void
 }
@@ -351,37 +351,37 @@ entry:
 define internal void @riscv_aclint_mtimer_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.riscv_aclint_mtimer_realize) #6
-  %mmio = getelementptr inbounds i8, ptr %call, i64 848
-  %aperture_size = getelementptr inbounds i8, ptr %call, i64 1136
+  %mmio = getelementptr inbounds nuw i8, ptr %call, i64 848
+  %aperture_size = getelementptr inbounds nuw i8, ptr %call, i64 1136
   %0 = load i32, ptr %aperture_size, align 16
   %conv = zext i32 %0 to i64
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_aclint_mtimer_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef %conv) #6
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #6
-  %num_harts = getelementptr inbounds i8, ptr %call, i64 1124
+  %num_harts = getelementptr inbounds nuw i8, ptr %call, i64 1124
   %1 = load i32, ptr %num_harts, align 4
   %conv3 = zext i32 %1 to i64
   %call4 = tail call noalias ptr @g_malloc_n(i64 noundef %conv3, i64 noundef 8) #8
-  %timer_irqs = getelementptr inbounds i8, ptr %call, i64 1144
+  %timer_irqs = getelementptr inbounds nuw i8, ptr %call, i64 1144
   store ptr %call4, ptr %timer_irqs, align 8
   %2 = load i32, ptr %num_harts, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call4, i32 noundef %2) #6
   %3 = load i32, ptr %num_harts, align 4
   %conv8 = zext i32 %3 to i64
   %call9 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv8, i64 noundef 8) #8
-  %timers = getelementptr inbounds i8, ptr %call, i64 832
+  %timers = getelementptr inbounds nuw i8, ptr %call, i64 832
   store ptr %call9, ptr %timers, align 16
   %4 = load i32, ptr %num_harts, align 4
   %conv11 = zext i32 %4 to i64
   %call12 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv11, i64 noundef 8) #8
-  %timecmp = getelementptr inbounds i8, ptr %call, i64 824
+  %timecmp = getelementptr inbounds nuw i8, ptr %call, i64 824
   store ptr %call12, ptr %timecmp, align 8
   %5 = load i32, ptr %num_harts, align 4
   %cmp20.not = icmp eq i32 %5, 0
   br i1 %cmp20.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %hartid_base = getelementptr inbounds i8, ptr %call, i64 1120
+  %hartid_base = getelementptr inbounds nuw i8, ptr %call, i64 1120
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -416,7 +416,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @riscv_aclint_mtimer_reset_enter(ptr noundef %obj, i32 %type) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__.riscv_aclint_mtimer_reset_enter) #6
-  %time_base = getelementptr inbounds i8, ptr %call, i64 1132
+  %time_base = getelementptr inbounds nuw i8, ptr %call, i64 1132
   %0 = load i32, ptr %time_base, align 4
   %conv = zext i32 %0 to i64
   tail call void @riscv_aclint_mtimer_write(ptr noundef %call, i64 noundef %conv, i64 noundef 0, i32 noundef 8)
@@ -444,14 +444,14 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @riscv_aclint_mtimer_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
-  %timecmp_base = getelementptr inbounds i8, ptr %opaque, i64 1128
+  %timecmp_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1128
   %0 = load i32, ptr %timecmp_base, align 8
   %conv = zext i32 %0 to i64
   %cmp.not = icmp ult i64 %addr, %conv
   br i1 %cmp.not, label %if.else53, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %num_harts = getelementptr inbounds i8, ptr %opaque, i64 1124
+  %num_harts = getelementptr inbounds nuw i8, ptr %opaque, i64 1124
   %1 = load i32, ptr %num_harts, align 4
   %shl = shl i32 %1, 3
   %add = add i32 %shl, %0
@@ -460,7 +460,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp4, label %if.then, label %if.else53
 
 if.then:                                          ; preds = %land.lhs.true
-  %hartid_base = getelementptr inbounds i8, ptr %opaque, i64 1120
+  %hartid_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1120
   %2 = load i32, ptr %hartid_base, align 16
   %conv6 = zext i32 %2 to i64
   %sub = sub nsw i64 %addr, %conv
@@ -491,7 +491,7 @@ if.else:                                          ; preds = %if.then
   ]
 
 if.then20:                                        ; preds = %if.else
-  %timecmp21 = getelementptr inbounds i8, ptr %opaque, i64 824
+  %timecmp21 = getelementptr inbounds nuw i8, ptr %opaque, i64 824
   %5 = load ptr, ptr %timecmp21, align 8
   %arrayidx = getelementptr i64, ptr %5, i64 %add9
   %6 = load i64, ptr %arrayidx, align 8
@@ -501,7 +501,7 @@ if.then20:                                        ; preds = %if.else
   br label %return
 
 if.then33:                                        ; preds = %if.else
-  %timecmp35 = getelementptr inbounds i8, ptr %opaque, i64 824
+  %timecmp35 = getelementptr inbounds nuw i8, ptr %opaque, i64 824
   %7 = load ptr, ptr %timecmp35, align 8
   %arrayidx36 = getelementptr i64, ptr %7, i64 %add9
   %8 = load i64, ptr %arrayidx36, align 8
@@ -520,14 +520,14 @@ if.then48:                                        ; preds = %do.body40
   br label %return
 
 if.else53:                                        ; preds = %land.lhs.true, %entry
-  %time_base = getelementptr inbounds i8, ptr %opaque, i64 1132
+  %time_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1132
   %10 = load i32, ptr %time_base, align 4
   %conv54 = zext i32 %10 to i64
   %cmp55 = icmp eq i64 %addr, %conv54
   br i1 %cmp55, label %if.then57, label %if.else66
 
 if.then57:                                        ; preds = %if.else53
-  %timebase_freq.i = getelementptr inbounds i8, ptr %opaque, i64 1140
+  %timebase_freq.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1140
   %11 = load i32, ptr %timebase_freq.i, align 4
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i = zext i64 %call.i.i to i128
@@ -535,7 +535,7 @@ if.then57:                                        ; preds = %if.else53
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, %conv1.i.i.i
   %div.i.i.i = udiv i128 %mul.i.i.i, 1000000000
   %conv3.i.i.i = trunc i128 %div.i.i.i to i64
-  %time_delta.i = getelementptr inbounds i8, ptr %opaque, i64 816
+  %time_delta.i = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %12 = load i64, ptr %time_delta.i, align 16
   %add.i = add i64 %12, %conv3.i.i.i
   %cmp59 = icmp eq i32 %size, 4
@@ -550,7 +550,7 @@ if.else66:                                        ; preds = %if.else53
   br i1 %cmp70, label %if.then72, label %do.body79
 
 if.then72:                                        ; preds = %if.else66
-  %timebase_freq.i28 = getelementptr inbounds i8, ptr %opaque, i64 1140
+  %timebase_freq.i28 = getelementptr inbounds nuw i8, ptr %opaque, i64 1140
   %13 = load i32, ptr %timebase_freq.i28, align 4
   %call.i.i29 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i30 = zext i64 %call.i.i29 to i128
@@ -558,7 +558,7 @@ if.then72:                                        ; preds = %if.else66
   %mul.i.i.i32 = mul nuw nsw i128 %conv.i.i.i30, %conv1.i.i.i31
   %div.i.i.i33 = udiv i128 %mul.i.i.i32, 1000000000
   %conv3.i.i.i34 = trunc i128 %div.i.i.i33 to i64
-  %time_delta.i35 = getelementptr inbounds i8, ptr %opaque, i64 816
+  %time_delta.i35 = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %14 = load i64, ptr %time_delta.i35, align 16
   %add.i36 = add i64 %14, %conv3.i.i.i34
   %shr74 = lshr i64 %add.i36, 32
@@ -583,14 +583,14 @@ return:                                           ; preds = %if.then87, %do.body
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_mtimer_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %value, i32 noundef %size) #0 {
 entry:
-  %timecmp_base = getelementptr inbounds i8, ptr %opaque, i64 1128
+  %timecmp_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1128
   %0 = load i32, ptr %timecmp_base, align 8
   %conv = zext i32 %0 to i64
   %cmp.not = icmp ult i64 %addr, %conv
   br i1 %cmp.not, label %if.else78, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %num_harts = getelementptr inbounds i8, ptr %opaque, i64 1124
+  %num_harts = getelementptr inbounds nuw i8, ptr %opaque, i64 1124
   %1 = load i32, ptr %num_harts, align 4
   %shl = shl i32 %1, 3
   %add = add i32 %shl, %0
@@ -599,7 +599,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp4, label %if.then, label %if.else78
 
 if.then:                                          ; preds = %land.lhs.true
-  %hartid_base = getelementptr inbounds i8, ptr %opaque, i64 1120
+  %hartid_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1120
   %2 = load i32, ptr %hartid_base, align 16
   %conv6 = zext i32 %2 to i64
   %sub = sub nsw i64 %addr, %conv
@@ -634,7 +634,7 @@ if.then20:                                        ; preds = %if.else
   br i1 %cmp21, label %if.then23, label %if.else29
 
 if.then23:                                        ; preds = %if.then20
-  %timecmp = getelementptr inbounds i8, ptr %opaque, i64 824
+  %timecmp = getelementptr inbounds nuw i8, ptr %opaque, i64 824
   %5 = load ptr, ptr %timecmp, align 8
   %arrayidx = getelementptr i64, ptr %5, i64 %add9
   %6 = load i64, ptr %arrayidx, align 8
@@ -657,7 +657,7 @@ if.then37:                                        ; preds = %if.else
   br i1 %cmp38, label %if.then40, label %do.body49
 
 if.then40:                                        ; preds = %if.then37
-  %timecmp41 = getelementptr inbounds i8, ptr %opaque, i64 824
+  %timecmp41 = getelementptr inbounds nuw i8, ptr %opaque, i64 824
   %7 = load ptr, ptr %timecmp41, align 8
   %arrayidx42 = getelementptr i64, ptr %7, i64 %add9
   %8 = load i64, ptr %arrayidx42, align 8
@@ -692,7 +692,7 @@ if.then71:                                        ; preds = %do.body63
   br label %do.end165
 
 if.else78:                                        ; preds = %land.lhs.true, %entry
-  %time_base = getelementptr inbounds i8, ptr %opaque, i64 1132
+  %time_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1132
   %11 = load i32, ptr %time_base, align 4
   %conv79 = zext i32 %11 to i64
   %cmp80 = icmp eq i64 %addr, %conv79
@@ -703,7 +703,7 @@ if.else78:                                        ; preds = %land.lhs.true, %ent
   br i1 %or.cond, label %if.then87, label %do.body154
 
 if.then87:                                        ; preds = %if.else78
-  %timebase_freq = getelementptr inbounds i8, ptr %opaque, i64 1140
+  %timebase_freq = getelementptr inbounds nuw i8, ptr %opaque, i64 1140
   %12 = load i32, ptr %timebase_freq, align 4
   %call.i67 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i = zext i64 %call.i67 to i128
@@ -718,7 +718,7 @@ if.then87:                                        ; preds = %if.else78
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, %conv1.i.i.i
   %div.i.i.i = udiv i128 %mul.i.i.i, 1000000000
   %conv3.i.i.i = trunc i128 %div.i.i.i to i64
-  %time_delta.i = getelementptr inbounds i8, ptr %opaque, i64 816
+  %time_delta.i = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %14 = load i64, ptr %time_delta.i, align 16
   %add.i = add i64 %14, %conv3.i.i.i
   %15 = load i32, ptr %time_base, align 4
@@ -764,14 +764,14 @@ if.then123:                                       ; preds = %do.body115
 if.end128:                                        ; preds = %if.then97, %if.else101, %if.then108
   %sub100.sink = phi i64 [ %sub100, %if.then97 ], [ %sub102, %if.else101 ], [ %sub112, %if.then108 ]
   store i64 %sub100.sink, ptr %time_delta.i, align 16
-  %num_harts129 = getelementptr inbounds i8, ptr %opaque, i64 1124
+  %num_harts129 = getelementptr inbounds nuw i8, ptr %opaque, i64 1124
   %17 = load i32, ptr %num_harts129, align 4
   %cmp13076.not = icmp eq i32 %17, 0
   br i1 %cmp13076.not, label %do.end165, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end128
-  %hartid_base133 = getelementptr inbounds i8, ptr %opaque, i64 1120
-  %timecmp150 = getelementptr inbounds i8, ptr %opaque, i64 824
+  %hartid_base133 = getelementptr inbounds nuw i8, ptr %opaque, i64 1120
+  %timecmp150 = getelementptr inbounds nuw i8, ptr %opaque, i64 824
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -823,7 +823,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_aclint_mtimer_write_timecmp(ptr nocapture noundef readonly %mtimer, i32 noundef %hartid, i64 noundef %value) unnamed_addr #0 {
 entry:
-  %timebase_freq1 = getelementptr inbounds i8, ptr %mtimer, i64 1140
+  %timebase_freq1 = getelementptr inbounds nuw i8, ptr %mtimer, i64 1140
   %0 = load i32, ptr %timebase_freq1, align 4
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %conv.i.i.i = zext i64 %call.i.i to i128
@@ -831,13 +831,13 @@ entry:
   %mul.i.i.i = mul nuw nsw i128 %conv.i.i.i, %conv1.i.i.i
   %div.i.i.i = udiv i128 %mul.i.i.i, 1000000000
   %conv3.i.i.i = trunc i128 %div.i.i.i to i64
-  %time_delta.i = getelementptr inbounds i8, ptr %mtimer, i64 816
+  %time_delta.i = getelementptr inbounds nuw i8, ptr %mtimer, i64 816
   %1 = load i64, ptr %time_delta.i, align 16
   %add.i = add i64 %1, %conv3.i.i.i
-  %hartid_base = getelementptr inbounds i8, ptr %mtimer, i64 1120
+  %hartid_base = getelementptr inbounds nuw i8, ptr %mtimer, i64 1120
   %2 = load i32, ptr %hartid_base, align 16
   %sub = sub i32 %hartid, %2
-  %timecmp = getelementptr inbounds i8, ptr %mtimer, i64 824
+  %timecmp = getelementptr inbounds nuw i8, ptr %mtimer, i64 824
   %3 = load ptr, ptr %timecmp, align 8
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr i64, ptr %3, i64 %idxprom
@@ -846,7 +846,7 @@ entry:
   %arrayidx4 = getelementptr i64, ptr %4, i64 %idxprom
   %5 = load i64, ptr %arrayidx4, align 8
   %cmp.not = icmp ugt i64 %5, %add.i
-  %timer_irqs7 = getelementptr inbounds i8, ptr %mtimer, i64 1144
+  %timer_irqs7 = getelementptr inbounds nuw i8, ptr %mtimer, i64 1144
   %6 = load ptr, ptr %timer_irqs7, align 8
   %arrayidx9 = getelementptr ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx9, align 8
@@ -887,7 +887,7 @@ if.else:                                          ; preds = %land.lhs.true, %lor
 
 if.end25:                                         ; preds = %land.lhs.true, %lor.lhs.false, %if.else
   %next.0 = phi i64 [ %cond, %if.else ], [ 9223372036854775807, %lor.lhs.false ], [ 9223372036854775807, %land.lhs.true ]
-  %timers = getelementptr inbounds i8, ptr %mtimer, i64 832
+  %timers = getelementptr inbounds nuw i8, ptr %mtimer, i64 832
   %10 = load ptr, ptr %timers, align 16
   %arrayidx27 = getelementptr ptr, ptr %10, i64 %idxprom
   %11 = load ptr, ptr %arrayidx27, align 8
@@ -904,11 +904,11 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal void @riscv_aclint_swi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @riscv_aclint_swi_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @riscv_aclint_swi_properties) #6
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef 22, ptr noundef nonnull @__func__.RESETTABLE_CLASS) #6
-  %phases = getelementptr inbounds i8, ptr %call.i3, i64 112
+  %phases = getelementptr inbounds nuw i8, ptr %call.i3, i64 112
   store ptr @riscv_aclint_swi_reset_enter, ptr %phases, align 8
   ret void
 }
@@ -917,15 +917,15 @@ entry:
 define internal void @riscv_aclint_swi_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 474, ptr noundef nonnull @__func__.riscv_aclint_swi_realize) #6
-  %mmio = getelementptr inbounds i8, ptr %call, i64 816
+  %mmio = getelementptr inbounds nuw i8, ptr %call, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @riscv_aclint_swi_ops, ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 16384) #6
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %mmio) #6
-  %num_harts = getelementptr inbounds i8, ptr %call, i64 1092
+  %num_harts = getelementptr inbounds nuw i8, ptr %call, i64 1092
   %0 = load i32, ptr %num_harts, align 4
   %conv = zext i32 %0 to i64
   %call3 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 8) #8
-  %soft_irqs = getelementptr inbounds i8, ptr %call, i64 1104
+  %soft_irqs = getelementptr inbounds nuw i8, ptr %call, i64 1104
   store ptr %call3, ptr %soft_irqs, align 16
   %1 = load i32, ptr %num_harts, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %dev, ptr noundef %call3, i32 noundef %1) #6
@@ -934,8 +934,8 @@ entry:
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %hartid_base = getelementptr inbounds i8, ptr %call, i64 1088
-  %sswi = getelementptr inbounds i8, ptr %call, i64 1096
+  %hartid_base = getelementptr inbounds nuw i8, ptr %call, i64 1088
+  %sswi = getelementptr inbounds nuw i8, ptr %call, i64 1096
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -970,19 +970,19 @@ for.end:                                          ; preds = %for.cond, %entry
 define internal void @riscv_aclint_swi_reset_enter(ptr noundef %obj, i32 %type) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.riscv_aclint_swi_reset_enter) #6
-  %sswi = getelementptr inbounds i8, ptr %call, i64 1096
+  %sswi = getelementptr inbounds nuw i8, ptr %call, i64 1096
   %0 = load i32, ptr %sswi, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %for.cond.preheader, label %if.end
 
 for.cond.preheader:                               ; preds = %entry
-  %num_harts = getelementptr inbounds i8, ptr %call, i64 1092
+  %num_harts = getelementptr inbounds nuw i8, ptr %call, i64 1092
   %1 = load i32, ptr %num_harts, align 4
   %cmp5.not = icmp eq i32 %1, 0
   br i1 %cmp5.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %soft_irqs = getelementptr inbounds i8, ptr %call, i64 1104
+  %soft_irqs = getelementptr inbounds nuw i8, ptr %call, i64 1104
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1006,7 +1006,7 @@ declare ptr @qemu_get_cpu(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 2) i64 @riscv_aclint_swi_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %num_harts = getelementptr inbounds i8, ptr %opaque, i64 1092
+  %num_harts = getelementptr inbounds nuw i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %num_harts, align 4
   %shl = shl i32 %0, 2
   %conv = zext i32 %shl to i64
@@ -1014,7 +1014,7 @@ entry:
   br i1 %cmp, label %if.then, label %do.body26
 
 if.then:                                          ; preds = %entry
-  %hartid_base = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %hartid_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1088
   %1 = load i32, ptr %hartid_base, align 16
   %conv2 = zext i32 %1 to i64
   %shr = lshr i64 %addr, 2
@@ -1042,7 +1042,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp11, label %if.then13, label %do.body26
 
 if.then13:                                        ; preds = %if.else
-  %sswi = getelementptr inbounds i8, ptr %opaque, i64 1096
+  %sswi = getelementptr inbounds nuw i8, ptr %opaque, i64 1096
   %3 = load i32, ptr %sswi, align 8
   %tobool14.not = icmp eq i32 %3, 0
   br i1 %tobool14.not, label %cond.false16, label %return
@@ -1073,7 +1073,7 @@ return:                                           ; preds = %if.then34, %do.body
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_aclint_swi_write(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i64 noundef %value, i32 %size) #0 {
 entry:
-  %num_harts = getelementptr inbounds i8, ptr %opaque, i64 1092
+  %num_harts = getelementptr inbounds nuw i8, ptr %opaque, i64 1092
   %0 = load i32, ptr %num_harts, align 4
   %shl = shl i32 %0, 2
   %conv = zext i32 %shl to i64
@@ -1081,7 +1081,7 @@ entry:
   br i1 %cmp, label %if.then, label %do.body32
 
 if.then:                                          ; preds = %entry
-  %hartid_base = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %hartid_base = getelementptr inbounds nuw i8, ptr %opaque, i64 1088
   %1 = load i32, ptr %hartid_base, align 16
   %conv2 = zext i32 %1 to i64
   %shr = lshr i64 %addr, 2
@@ -1114,7 +1114,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %tobool15.not, label %if.else19, label %if.then16
 
 if.then16:                                        ; preds = %if.then13
-  %soft_irqs = getelementptr inbounds i8, ptr %opaque, i64 1104
+  %soft_irqs = getelementptr inbounds nuw i8, ptr %opaque, i64 1104
   %4 = load ptr, ptr %soft_irqs, align 16
   %5 = load i32, ptr %hartid_base, align 16
   %conv18 = zext i32 %5 to i64
@@ -1125,13 +1125,13 @@ if.then16:                                        ; preds = %if.then13
   br label %do.end43
 
 if.else19:                                        ; preds = %if.then13
-  %sswi = getelementptr inbounds i8, ptr %opaque, i64 1096
+  %sswi = getelementptr inbounds nuw i8, ptr %opaque, i64 1096
   %7 = load i32, ptr %sswi, align 8
   %tobool20.not = icmp eq i32 %7, 0
   br i1 %tobool20.not, label %if.then21, label %do.end43
 
 if.then21:                                        ; preds = %if.else19
-  %soft_irqs22 = getelementptr inbounds i8, ptr %opaque, i64 1104
+  %soft_irqs22 = getelementptr inbounds nuw i8, ptr %opaque, i64 1104
   %8 = load ptr, ptr %soft_irqs22, align 16
   %9 = load i32, ptr %hartid_base, align 16
   %conv24 = zext i32 %9 to i64

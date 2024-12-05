@@ -213,7 +213,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str) #2
   %8 = load ptr, ptr %6, align 8
@@ -253,7 +253,7 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not159, label %32, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %3, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %29, ptr %31, align 4
   br label %32
 
@@ -289,7 +289,7 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not159, label %50, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %3, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i8 %47, ptr %49, align 4
   br label %50
 
@@ -321,7 +321,7 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not159, label %70, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %3, i64 52
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i8 %67, ptr %69, align 4
   br label %70
 
@@ -530,9 +530,9 @@ define hidden void @dissect_nmas_reply(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %5, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %11 = load i8, ptr %10, align 4
   %12 = zext i8 %11 to i32
   br label %13
@@ -540,7 +540,7 @@ define hidden void @dissect_nmas_reply(ptr noundef %0, ptr noundef %1, ptr nound
 13:                                               ; preds = %7, %6
   %.0146 = phi i32 [ %9, %7 ], [ 0, %6 ]
   %.0 = phi i32 [ %12, %7 ], [ 0, %6 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str) #2
   %16 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #2

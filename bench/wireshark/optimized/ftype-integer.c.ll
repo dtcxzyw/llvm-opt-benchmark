@@ -153,14 +153,14 @@ define hidden void @ftype_register_integers() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @int_fvalue_new(ptr nocapture noundef writeonly initializes((8, 40)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @uint64_from_charconst(ptr nocapture noundef writeonly initializes((8, 16)) %0, i64 noundef %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   ret i1 true
 }
@@ -180,7 +180,7 @@ define internal noundef zeroext i1 @uint8_from_uinteger64(ptr nocapture noundef 
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -216,7 +216,7 @@ define internal noundef zeroext i1 @uint8_from_sinteger64(ptr nocapture noundef 
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -231,7 +231,7 @@ define internal noundef ptr @char_to_repr(ptr noundef %0, ptr nocapture noundef 
   %6 = getelementptr i8, ptr %5, i64 1
   store i8 39, ptr %5, align 1
   %7 = load ptr, ptr @g_ascii_table, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 255
   %11 = getelementptr i16, ptr %7, i64 %10
@@ -352,7 +352,7 @@ define internal noundef ptr @char_to_repr(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @uint64_val_to_uinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
   ret i32 0
@@ -360,7 +360,7 @@ define internal noundef i32 @uint64_val_to_uinteger64(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @uint64_val_to_sinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %7, label %6
@@ -377,14 +377,14 @@ define internal range(i32 0, 2) i32 @uint64_val_to_sinteger64(ptr nocapture noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @set_uinteger(ptr nocapture noundef writeonly initializes((8, 16)) %0, i32 noundef %1) #1 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @get_uinteger(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -418,7 +418,7 @@ define internal i32 @uint64_cmp_order(ptr noundef %0, ptr noundef %1, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal i32 @uint64_hash(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %2, align 8
   %5 = call i32 @g_int64_hash(ptr noundef nonnull %2) #9
@@ -427,7 +427,7 @@ define internal i32 @uint64_hash(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @uint64_is_zero(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   ret i1 %4
@@ -440,19 +440,19 @@ define internal noundef zeroext i1 @uint64_is_negative(ptr nocapture readnone %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @uint64_bitwise_and(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @uint64_unary_minus(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %7, label %10
@@ -471,7 +471,7 @@ define internal range(i32 0, 4) i32 @uint64_unary_minus(ptr nocapture noundef wr
   store ptr %11, ptr %0, align 8
   %12 = load i64, ptr %4, align 8
   %13 = sub i64 0, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %13, ptr %14, align 8
   br label %15
 
@@ -482,10 +482,10 @@ define internal range(i32 0, 4) i32 @uint64_unary_minus(ptr nocapture noundef wr
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @uint64_add(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 %9)
   %11 = extractvalue { i64, i1 } %10, 1
@@ -505,9 +505,9 @@ define internal range(i32 0, 4) i32 @uint64_add(ptr nocapture noundef writeonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @uint64_subtract(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %24
@@ -525,7 +525,7 @@ define internal range(i32 0, 4) i32 @uint64_subtract(ptr nocapture noundef write
 14:                                               ; preds = %10
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @type_list, i64 152), align 8
   store ptr %15, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %7, align 8
   %18 = load i64, ptr %5, align 8
   %19 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %17, i64 %18)
@@ -540,7 +540,7 @@ define internal range(i32 0, 4) i32 @uint64_subtract(ptr nocapture noundef write
   br label %_sint64_subtract.exit
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = sub nuw i64 %8, %6
   store i64 %26, ptr %25, align 8
   br label %_sint64_subtract.exit
@@ -552,10 +552,10 @@ _sint64_subtract.exit:                            ; preds = %24, %22, %14, %12
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @uint64_multiply(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %7, i64 %9)
   %11 = extractvalue { i64, i1 } %10, 1
@@ -575,7 +575,7 @@ define internal range(i32 0, 4) i32 @uint64_multiply(ptr nocapture noundef write
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @uint64_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -586,8 +586,8 @@ define internal range(i32 0, 4) i32 @uint64_divide(ptr nocapture noundef writeon
   br label %15
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = udiv i64 %13, %6
   store i64 %14, ptr %11, align 8
@@ -600,7 +600,7 @@ define internal range(i32 0, 4) i32 @uint64_divide(ptr nocapture noundef writeon
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @uint64_modulo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -611,8 +611,8 @@ define internal range(i32 0, 4) i32 @uint64_modulo(ptr nocapture noundef writeon
   br label %15
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %13, %6
   store i64 %14, ptr %11, align 8
@@ -639,7 +639,7 @@ define internal ptr @uinteger64_to_repr(ptr noundef %0, ptr nocapture noundef re
   store i8 120, ptr %7, align 1
   %9 = load ptr, ptr %1, align 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   switch i32 %10, label %29 [
     i32 4, label %13
@@ -682,7 +682,7 @@ define internal ptr @uinteger64_to_repr(ptr noundef %0, ptr nocapture noundef re
   br label %35
 
 32:                                               ; preds = %4
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load i64, ptr %33, align 8
   tail call void @guint64_to_str_buf(i64 noundef %34, ptr noundef %5, i64 noundef 21) #9
   br label %35
@@ -706,7 +706,7 @@ define internal noundef zeroext i1 @uint16_from_uinteger64(ptr nocapture noundef
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -742,7 +742,7 @@ define internal noundef zeroext i1 @uint16_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -766,7 +766,7 @@ define internal noundef zeroext i1 @uint24_from_uinteger64(ptr nocapture noundef
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -802,7 +802,7 @@ define internal noundef zeroext i1 @uint24_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -826,7 +826,7 @@ define internal noundef zeroext i1 @uint32_from_uinteger64(ptr nocapture noundef
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -862,7 +862,7 @@ define internal noundef zeroext i1 @uint32_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -873,7 +873,7 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @int64_fvalue_new(ptr nocapture noundef writeonly initializes((8, 16)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
@@ -893,7 +893,7 @@ define internal noundef zeroext i1 @uint40_from_uinteger64(ptr nocapture noundef
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -929,7 +929,7 @@ define internal noundef zeroext i1 @uint40_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -940,14 +940,14 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @set_uinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, i64 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @get_uinteger64(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -967,7 +967,7 @@ define internal noundef zeroext i1 @uint48_from_uinteger64(ptr nocapture noundef
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -1003,7 +1003,7 @@ define internal noundef zeroext i1 @uint48_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -1027,7 +1027,7 @@ define internal noundef zeroext i1 @uint56_from_uinteger64(ptr nocapture noundef
   br label %_uint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_uinteger64.exit
 
@@ -1063,7 +1063,7 @@ define internal noundef zeroext i1 @uint56_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -1074,7 +1074,7 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @uint64_from_uinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
   ret i1 true
 }
@@ -1094,7 +1094,7 @@ define internal noundef zeroext i1 @uint64_from_sinteger64(ptr nocapture noundef
   br label %_uint64_from_sinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_uint64_from_sinteger64.exit
 
@@ -1104,7 +1104,7 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @sint64_from_charconst(ptr nocapture noundef writeonly initializes((8, 16)) %0, i64 noundef %1, ptr nocapture readnone %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   ret i1 true
 }
@@ -1137,7 +1137,7 @@ define internal noundef zeroext i1 @sint8_from_uinteger64(ptr nocapture noundef 
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1174,7 +1174,7 @@ define internal noundef zeroext i1 @sint8_from_sinteger64(ptr nocapture noundef 
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1186,7 +1186,7 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 ; Function Attrs: nounwind uwtable
 define internal ptr @sinteger64_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 21) #9
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %9, label %12
@@ -1206,7 +1206,7 @@ define internal ptr @sinteger64_to_repr(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @sint64_val_to_uinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %7, label %6
@@ -1222,7 +1222,7 @@ define internal range(i32 0, 2) i32 @sint64_val_to_uinteger64(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @sint64_val_to_sinteger64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
   ret i32 0
@@ -1231,14 +1231,14 @@ define internal noundef i32 @sint64_val_to_sinteger64(ptr nocapture noundef read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @set_sinteger(ptr nocapture noundef writeonly initializes((8, 16)) %0, i32 noundef %1) #1 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @get_sinteger(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -1272,7 +1272,7 @@ define internal i32 @sint64_cmp_order(ptr noundef %0, ptr noundef %1, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal i32 @sint64_hash(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %2, align 8
   %5 = call i32 @g_int64_hash(ptr noundef nonnull %2) #9
@@ -1281,7 +1281,7 @@ define internal i32 @sint64_hash(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sint64_is_zero(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   ret i1 %4
@@ -1289,7 +1289,7 @@ define internal zeroext i1 @sint64_is_zero(ptr nocapture noundef readonly %0) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @sint64_is_negative(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp slt i64 %3, 0
   ret i1 %4
@@ -1297,32 +1297,32 @@ define internal zeroext i1 @sint64_is_negative(ptr nocapture noundef readonly %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @sint64_bitwise_and(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @sint64_unary_minus(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 0, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @sint64_add(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %7, i64 %9)
   %11 = extractvalue { i64, i1 } %10, 1
@@ -1342,10 +1342,10 @@ define internal range(i32 0, 4) i32 @sint64_add(ptr nocapture noundef writeonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @sint64_subtract(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call { i64, i1 } @llvm.ssub.with.overflow.i64(i64 %7, i64 %9)
   %11 = extractvalue { i64, i1 } %10, 1
@@ -1365,10 +1365,10 @@ _sint64_subtract.exit:                            ; preds = %4, %13
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @sint64_multiply(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %7, i64 %9)
   %11 = extractvalue { i64, i1 } %10, 1
@@ -1388,7 +1388,7 @@ define internal range(i32 0, 4) i32 @sint64_multiply(ptr nocapture noundef write
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @sint64_divide(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -1399,8 +1399,8 @@ define internal range(i32 0, 4) i32 @sint64_divide(ptr nocapture noundef writeon
   br label %19
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ne i64 %13, -9223372036854775808
   %15 = icmp ne i64 %6, -1
@@ -1425,7 +1425,7 @@ psnip_safe_int64_div.exit.thread:                 ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 4) i32 @sint64_modulo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -1436,8 +1436,8 @@ define internal range(i32 0, 4) i32 @sint64_modulo(ptr nocapture noundef writeon
   br label %19
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ne i64 %13, -9223372036854775808
   %15 = icmp ne i64 %6, -1
@@ -1488,7 +1488,7 @@ define internal noundef zeroext i1 @sint16_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1525,7 +1525,7 @@ define internal noundef zeroext i1 @sint16_from_sinteger64(ptr nocapture noundef
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1562,7 +1562,7 @@ define internal noundef zeroext i1 @sint24_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1599,7 +1599,7 @@ define internal noundef zeroext i1 @sint24_from_sinteger64(ptr nocapture noundef
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1636,7 +1636,7 @@ define internal noundef zeroext i1 @sint32_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1673,7 +1673,7 @@ define internal noundef zeroext i1 @sint32_from_sinteger64(ptr nocapture noundef
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1710,7 +1710,7 @@ define internal noundef zeroext i1 @sint40_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1747,7 +1747,7 @@ define internal noundef zeroext i1 @sint40_from_sinteger64(ptr nocapture noundef
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1758,14 +1758,14 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @set_sinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, i64 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @get_sinteger64(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -1798,7 +1798,7 @@ define internal noundef zeroext i1 @sint48_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1835,7 +1835,7 @@ define internal noundef zeroext i1 @sint48_from_sinteger64(ptr nocapture noundef
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1872,7 +1872,7 @@ define internal noundef zeroext i1 @sint56_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1909,7 +1909,7 @@ define internal noundef zeroext i1 @sint56_from_sinteger64(ptr nocapture noundef
   br label %_sint64_from_sinteger64.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %15, align 8
   br label %_sint64_from_sinteger64.exit
 
@@ -1933,7 +1933,7 @@ define internal noundef zeroext i1 @sint64_from_uinteger64(ptr nocapture noundef
   br label %_sint64_from_uinteger64.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8
   br label %_sint64_from_uinteger64.exit
 
@@ -1943,7 +1943,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @sint64_from_sinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
   ret i1 true
 }
@@ -1955,7 +1955,7 @@ define internal noundef zeroext i1 @boolean_from_literal(ptr nocapture noundef w
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %8, align 8
   br label %17
 
@@ -1965,7 +1965,7 @@ define internal noundef zeroext i1 @boolean_from_literal(ptr nocapture noundef w
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %13, align 8
   br label %17
 
@@ -1990,7 +1990,7 @@ define internal noundef zeroext i1 @boolean_from_string(ptr nocapture noundef wr
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %8, align 8
   br label %17
 
@@ -2000,7 +2000,7 @@ define internal noundef zeroext i1 @boolean_from_string(ptr nocapture noundef wr
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %13, align 8
   br label %17
 
@@ -2022,7 +2022,7 @@ define internal noundef zeroext i1 @boolean_from_string(ptr nocapture noundef wr
 define internal noundef zeroext i1 @boolean_from_uinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
   %5 = icmp ne i64 %2, 0
   %6 = zext i1 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   ret i1 true
 }
@@ -2031,14 +2031,14 @@ define internal noundef zeroext i1 @boolean_from_uinteger64(ptr nocapture nounde
 define internal noundef zeroext i1 @boolean_from_sinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
   %5 = icmp ne i64 %2, 0
   %6 = zext i1 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @boolean_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
   switch i32 %2, label %11 [
@@ -2064,7 +2064,7 @@ define internal noalias ptr @boolean_to_repr(ptr noundef %0, ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @boolean_cmp_order(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = call i32 @fvalue_to_uinteger64(ptr noundef %1, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %7, 0
@@ -2088,7 +2088,7 @@ define internal i32 @boolean_cmp_order(ptr nocapture noundef readonly %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @boolean_hash(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp ne i64 %4, 0
   %. = zext i1 %.not to i32
@@ -2103,7 +2103,7 @@ define internal noundef zeroext i1 @ipxnet_from_uinteger64(ptr nocapture noundef
   br i1 %5, label %uint32_from_uinteger64.exit.thread, label %uint32_from_uinteger64.exit
 
 uint32_from_uinteger64.exit.thread:               ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
   br label %9
 
@@ -2134,7 +2134,7 @@ define internal noundef zeroext i1 @eui64_from_literal(ptr nocapture noundef wri
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   %.not19 = icmp eq i32 %9, 8
   br i1 %.not19, label %15, label %10
@@ -2157,7 +2157,7 @@ define internal noundef zeroext i1 @eui64_from_literal(ptr nocapture noundef wri
   %.sroa.0.0.copyload = load i64, ptr %16, align 1
   %17 = tail call ptr @g_byte_array_free(ptr noundef nonnull %5, i32 noundef 1) #9
   %18 = tail call i64 @llvm.bswap.i64(i64 %.sroa.0.0.copyload)
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %18, ptr %19, align 8
   br label %20
 
@@ -2168,14 +2168,14 @@ define internal noundef zeroext i1 @eui64_from_literal(ptr nocapture noundef wri
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef zeroext i1 @eui64_from_uinteger64(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @eui64_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @llvm.bswap.i64(i64 %6)
   %.sroa.0.0.extract.trunc = trunc i64 %7 to i32

@@ -79,7 +79,7 @@ define noundef i32 @H5PL__close_plugin_cache(ptr nocapture noundef writeonly %0)
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %4 = load ptr, ptr @H5PL_cache_g, align 8
-  %5 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %4, i64 %indvars.iv, i32 2
+  %5 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %4, i64 %indvars.iv, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @H5PL__close(ptr noundef %6) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @H5PL__add_plugin(i32 noundef %0, ptr nocapture noun
 H5PL__expand_cache.exit:                          ; preds = %6
   %12 = load i32, ptr @H5PL_num_plugins_g, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %10, i64 %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %14, i8 0, i64 512, i1 false)
   br label %24
 
@@ -153,11 +153,11 @@ H5PL__expand_cache.exit:                          ; preds = %6
   %.pre-phi = phi i64 [ %.pre5, %._crit_edge ], [ %13, %H5PL__expand_cache.exit ]
   %25 = phi i32 [ %4, %._crit_edge ], [ %12, %H5PL__expand_cache.exit ]
   %26 = phi ptr [ %.pre, %._crit_edge ], [ %10, %H5PL__expand_cache.exit ]
-  %27 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %26, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %26, i64 %.pre-phi
   store i32 %0, ptr %27, align 8
-  %28 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %26, i64 %.pre-phi, i32 1
+  %28 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %26, i64 %.pre-phi, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %29 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %26, i64 %.pre-phi, i32 2
+  %29 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %26, i64 %.pre-phi, i32 2
   store ptr %2, ptr %29, align 8
   %30 = add i32 %25, 1
   store i32 %30, ptr @H5PL_num_plugins_g, align 4
@@ -183,7 +183,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   %5 = load i32, ptr %0, align 8
   %.fr = freeze i32 %5
   %6 = load ptr, ptr @H5PL_cache_g, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count91 = zext i32 %4 to i64
   switch i32 %.fr, label %.lr.ph.split [
     i32 0, label %.lr.ph.split.us
@@ -193,7 +193,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %16
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %16 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv83
+  %8 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv83
   %9 = load i32, ptr %8, align 8
   %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %10, label %16
@@ -201,7 +201,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 10:                                               ; preds = %.lr.ph.split.us
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %.split.us, label %16
@@ -213,7 +213,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 
 .lr.ph.split.us52:                                ; preds = %.lr.ph, %39
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %39 ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv78
+  %17 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv78
   %18 = load i32, ptr %17, align 8
   %.not.us54 = icmp eq i32 %18, 1
   br i1 %.not.us54, label %19, label %39
@@ -222,7 +222,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load i32, ptr %23, align 8
   br i1 %22, label %32, label %25
 
@@ -231,9 +231,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   br i1 %.not40.us, label %26, label %39
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %28, %30
   br i1 %31, label %.split.us, label %39
@@ -243,9 +243,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   br i1 %.not41.us, label %33, label %39
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %20, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %37) #9
   %.not42.us = icmp eq i32 %38, 0
@@ -258,7 +258,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 
 .lr.ph.split.us59:                                ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.lr.ph ]
-  %40 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv
   %41 = load i32, ptr %40, align 8
   %.not.us61 = icmp eq i32 %41, 2
   br i1 %.not.us61, label %42, label %62
@@ -267,7 +267,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   %43 = load ptr, ptr %7, align 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load i32, ptr %46, align 8
   br i1 %45, label %55, label %48
 
@@ -276,9 +276,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   br i1 %.not37.us, label %49, label %62
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %43, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %40, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %51, %53
   br i1 %54, label %.split.us, label %62
@@ -288,9 +288,9 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
   br i1 %.not38.us, label %56, label %62
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %43, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %40, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %60) #9
   %.not39.us = icmp eq i32 %61, 0
@@ -303,7 +303,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %85
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %85 ], [ 0, %.lr.ph ]
-  %63 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv88
+  %63 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %6, i64 %indvars.iv88
   %64 = load i32, ptr %63, align 8
   %.not = icmp eq i32 %.fr, %64
   br i1 %.not, label %65, label %85
@@ -316,7 +316,7 @@ define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef re
 
 .split.us:                                        ; preds = %49, %56, %33, %26, %10
   %.us-phi51 = phi i64 [ %indvars.iv83, %10 ], [ %indvars.iv78, %26 ], [ %indvars.iv78, %33 ], [ %indvars.iv, %56 ], [ %indvars.iv, %49 ]
-  %69 = getelementptr inbounds %struct.H5PL_plugin_t, ptr %6, i64 %.us-phi51, i32 2
+  %69 = getelementptr inbounds nuw %struct.H5PL_plugin_t, ptr %6, i64 %.us-phi51, i32 2
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @dlsym(ptr noundef %70, ptr noundef nonnull @.str.4) #8
   %72 = icmp eq ptr %71, null

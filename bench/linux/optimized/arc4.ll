@@ -14,9 +14,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_arc4_crypt: 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define dso_local noundef i32 @arc4_setkey(ptr nocapture noundef initializes((1024, 1032)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1024
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 1028
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   store i32 0, ptr %5, align 4
   br label %6
 
@@ -64,9 +64,9 @@ define dso_local void @arc4_crypt(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %5, label %55, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1028
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %8 to i64
   %12 = getelementptr i32, ptr %0, i64 %11

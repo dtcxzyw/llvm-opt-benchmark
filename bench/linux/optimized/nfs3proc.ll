@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -527, -528) i32 @nfs3_proc_get_root(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @do_proc_get_root(ptr noundef %5, ptr noundef %1, ptr noundef %2)
   %7 = icmp eq i32 %6, 0
@@ -53,7 +53,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_get_root(ptr nocapture noun
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
   %13 = icmp eq ptr %11, %12
@@ -79,17 +79,17 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture nound
   %5 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 48), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %8, align 8
   %9 = icmp eq ptr %3, null
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = lshr i32 %12, 11
   %14 = and i32 %13, 4096
@@ -98,7 +98,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture nound
 15:                                               ; preds = %10, %4
   %16 = phi i32 [ 0, %4 ], [ %14, %10 ]
   tail call void @nfs_fattr_init(ptr noundef %2) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @rpc_call_sync(ptr noundef %18, ptr noundef nonnull %5, i32 noundef %16) #10
   %20 = icmp eq i32 %19, -528
@@ -107,8 +107,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture nound
 .lr.ph:                                           ; preds = %15
   %21 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
-  %24 = getelementptr inbounds i8, ptr %22, i64 1936
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1936
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -140,23 +140,23 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_getattr(ptr nocapture nound
 define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nfs3_sattrargs, align 8
   %5 = alloca %struct.rpc_message, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #10
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = getelementptr i8, ptr %7, i64 -424
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 96), ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %14, align 8
   %15 = load i32, ptr %2, align 8
   %16 = and i32 %15, 8192
@@ -164,19 +164,19 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %2, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 200
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %28 = load ptr, ptr %27, align 8
   br label %.thread
 
@@ -188,11 +188,11 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
 30:                                               ; preds = %.thread, %3
   store i64 0, ptr %8, align 8, !annotation !9
   call void @nfs_fattr_init(ptr noundef %1) #10
-  %31 = getelementptr inbounds i8, ptr %7, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 872
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 872
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   br label %.critedge
 
@@ -206,7 +206,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
 38:                                               ; preds = %.critedge
   %39 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store volatile i32 8450, ptr %41, align 8
   %42 = call i64 @schedule_timeout(i64 noundef 5000) #10
   %43 = load volatile i64, ptr %40, align 8
@@ -215,7 +215,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
   br i1 %45, label %.critedge.backedge, label %46
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %40, i64 1936
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 1936
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 256
   %50 = icmp eq i64 %49, 0
@@ -245,11 +245,11 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -527, -528) i32 @nfs3_proc_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 872
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 84
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8388608
   %12 = icmp eq i32 %11, 0
@@ -262,7 +262,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_lookup(ptr noundef %0, ptr 
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 -424
   %21 = load i16, ptr %20, align 2
@@ -272,9 +272,9 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_lookup(ptr noundef %0, ptr 
 
 24:                                               ; preds = %17, %13, %4
   %25 = phi i16 [ 0, %4 ], [ 0, %13 ], [ %23, %17 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = tail call fastcc i32 @__nfs3_proc_lookup(ptr noundef %0, ptr noundef %27, i64 noundef %30, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %25), !range !10
@@ -286,15 +286,15 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_lookupp(ptr noundef %0, ptr
   %4 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #10
   store i8 46, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 46, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %4, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = lshr i32 %12, 11
   %14 = trunc i32 %13 to i16
@@ -310,23 +310,23 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
   %5 = alloca %struct.nfs3_accessres, align 8
   %6 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %7, align 8, !annotation !9
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 192), ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %14, align 8
   %15 = call ptr @nfs_alloc_fattr() #10
   store ptr %15, ptr %5, align 8
@@ -334,11 +334,11 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
   br i1 %16, label %52, label %17
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 872
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 872
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @rpc_call_sync(ptr noundef %23, ptr noundef nonnull %6, i32 noundef 0) #10
   %25 = icmp eq i32 %24, -528
@@ -347,8 +347,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %17
   %26 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %27, i64 1936
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1936
   br label %30
 
 30:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -383,7 +383,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %.critedge._crit_edge
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load i32, ptr %47, align 8
   call void @nfs_access_set_mask(ptr noundef %1, i32 noundef %48) #10
   br label %49
@@ -411,30 +411,30 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readlink(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #10
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 240), ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %13, align 8
   %14 = call ptr @nfs_alloc_fattr() #10
   %15 = icmp eq ptr %14, null
   br i1 %15, label %43, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %14, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 872
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 872
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @rpc_call_sync(ptr noundef %23, ptr noundef nonnull %7, i32 noundef 0) #10
   %25 = icmp eq i32 %24, -528
@@ -443,8 +443,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readlink(ptr noundef %0, pt
 .lr.ph:                                           ; preds = %16
   %26 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %27, i64 1936
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 1936
   br label %30
 
 30:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -493,37 +493,37 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %9, label %.thread8, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 80
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 104
-  %16 = getelementptr inbounds i8, ptr %8, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 240
-  %18 = getelementptr inbounds i8, ptr %8, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 464
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 464
   store ptr %19, ptr %13, align 8
-  tail call void @nfs_fattr_init(ptr noundef %17) #10
+  tail call void @nfs_fattr_init(ptr noundef nonnull %17) #10
   %20 = load ptr, ptr %13, align 8
   tail call void @nfs_fattr_init(ptr noundef %20) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 384), ptr %8, align 8
   %21 = getelementptr i8, ptr %0, i64 -424
   store ptr %21, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %29, align 8
   %30 = and i32 %3, 128
   %31 = icmp eq i32 %30, 0
@@ -534,11 +534,11 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %33 = load volatile i64, ptr @jiffies, align 64
   %34 = trunc i64 %33 to i32
   %35 = tail call i32 @llvm.bswap.i32(i32 %34)
-  %36 = getelementptr inbounds i8, ptr %8, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 68
   store i32 %35, ptr %36, align 4
   %37 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 1320
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1320
   %40 = load i32, ptr %39, align 8
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   %42 = getelementptr i8, ptr %8, i64 72
@@ -546,8 +546,8 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %43
 
 43:                                               ; preds = %32, %10
-  %44 = getelementptr inbounds i8, ptr %2, i64 4
-  %45 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef %44, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %45 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef nonnull %44, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.preheader, label %.thread8
 
@@ -612,7 +612,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
 74:                                               ; preds = %65, %72
   %75 = load ptr, ptr %18, align 8
   %76 = call i32 @nfs3_proc_setattr(ptr noundef %62, ptr noundef %75, ptr noundef %2), !range !10
-  %77 = getelementptr inbounds i8, ptr %62, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %18, align 8
   %80 = call i32 @nfs_post_op_update_inode(ptr noundef %78, ptr noundef %79) #10
@@ -620,7 +620,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %74, %60
-  %83 = getelementptr inbounds i8, ptr %62, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %6, align 8
   %86 = load ptr, ptr %5, align 8
@@ -653,8 +653,8 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
 
 99:                                               ; preds = %93
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %100 = getelementptr inbounds i8, ptr %91, i64 8
-  call void @kvfree_call_rcu(ptr noundef %100, ptr noundef nonnull %91) #10
+  %100 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %100, ptr noundef nonnull %91) #10
   br label %.thread
 
 .thread:                                          ; preds = %96, %98, %99, %.loopexit
@@ -677,8 +677,8 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
 
 109:                                              ; preds = %103
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %110 = getelementptr inbounds i8, ptr %101, i64 8
-  call void @kvfree_call_rcu(ptr noundef %110, ptr noundef nonnull %101) #10
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %110, ptr noundef nonnull %101) #10
   br label %.thread8
 
 .thread8:                                         ; preds = %106, %108, %109, %.thread, %43, %4
@@ -695,35 +695,35 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
   %4 = alloca %struct.nfs_removeres, align 8
   %5 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = getelementptr i8, ptr %0, i64 -424
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %8, ptr noundef align 8 dereferenceable(16) %9, i64 16, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 576), ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %12, align 8
   %13 = call ptr @nfs_alloc_fattr() #10
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %13, ptr %14, align 8
   %15 = icmp eq ptr %13, null
   br i1 %15, label %44, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 872
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 872
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @rpc_call_sync(ptr noundef %22, ptr noundef nonnull %5, i32 noundef 0) #10
   %24 = icmp eq i32 %23, -528
@@ -732,8 +732,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %16
   %25 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = getelementptr inbounds i8, ptr %26, i64 1936
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1936
   br label %29
 
 29:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -785,17 +785,17 @@ define internal void @nfs3_proc_unlink_rpc_prepare(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -528
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 256
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, ptr elementtype(i64) %13) #10, !srcloc !15
@@ -805,9 +805,9 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %
   br label %21
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @nfs_post_op_update_inode(ptr noundef %1, ptr noundef %19) #10
   br label %21
@@ -831,17 +831,17 @@ define internal void @nfs3_proc_rename_rpc_prepare(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @nfs3_proc_rename_done(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, -528
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 872
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 256
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, ptr elementtype(i64) %14) #10, !srcloc !15
@@ -851,12 +851,12 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_rename_done(ptr noundef %
   br label %25
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @nfs_post_op_update_inode(ptr noundef %1, ptr noundef %20) #10
-  %22 = getelementptr inbounds i8, ptr %18, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @nfs_post_op_update_inode(ptr noundef %2, ptr noundef %23) #10
   br label %25
@@ -872,33 +872,33 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
   %5 = alloca %struct.nfs3_linkres, align 8
   %6 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8, !annotation !9
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr i8, ptr %1, i64 -424
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 720), ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %19, align 8
   %20 = call ptr @nfs_alloc_fattr() #10
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %21, align 8
   %22 = call ptr @nfs_alloc_fattr() #10
   store ptr %22, ptr %5, align 8
@@ -909,11 +909,11 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
   br i1 %26, label %56, label %27
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 872
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 872
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = call i32 @rpc_call_sync(ptr noundef %33, ptr noundef nonnull %6, i32 noundef 0) #10
   %35 = icmp eq i32 %34, -528
@@ -922,8 +922,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %27
   %36 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
-  %39 = getelementptr inbounds i8, ptr %37, i64 1936
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 1936
   br label %40
 
 40:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -981,39 +981,39 @@ define internal i32 @nfs3_proc_symlink(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %11, label %41, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 80
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 104
-  %18 = getelementptr inbounds i8, ptr %10, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 240
-  %20 = getelementptr inbounds i8, ptr %10, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 464
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 464
   store ptr %21, ptr %15, align 8
-  tail call void @nfs_fattr_init(ptr noundef %19) #10
+  tail call void @nfs_fattr_init(ptr noundef nonnull %19) #10
   %22 = load ptr, ptr %15, align 8
   tail call void @nfs_fattr_init(ptr noundef %22) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 480), ptr %10, align 8
   %23 = getelementptr i8, ptr %0, i64 -424
   store ptr %23, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %6, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %4, ptr %32, align 8
   %33 = call fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10)
   %34 = icmp ugt ptr %33, inttoptr (i64 -4096 to ptr)
@@ -1051,25 +1051,25 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %8, label %.thread8, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 80
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 104
-  %15 = getelementptr inbounds i8, ptr %7, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 240
-  %17 = getelementptr inbounds i8, ptr %7, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 240
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 464
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 464
   store ptr %18, ptr %12, align 8
-  tail call void @nfs_fattr_init(ptr noundef %16) #10
+  tail call void @nfs_fattr_init(ptr noundef nonnull %16) #10
   %19 = load ptr, ptr %12, align 8
   tail call void @nfs_fattr_init(ptr noundef %19) #10
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
-  %21 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef %20, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %21 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef nonnull %20, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %.thread8
 
@@ -1077,15 +1077,15 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 432), ptr %7, align 8
   %24 = getelementptr i8, ptr %0, i64 -424
   store ptr %24, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %7, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %2, ptr %31, align 8
   %32 = call fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7)
   %33 = icmp ule ptr %32, inttoptr (i64 -4096 to ptr)
@@ -1098,7 +1098,7 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
 38:                                               ; preds = %23
   %39 = icmp eq ptr %32, null
   %40 = select i1 %39, ptr %1, ptr %32
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %5, align 8
   %44 = load ptr, ptr %4, align 8
@@ -1127,8 +1127,8 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
 
 56:                                               ; preds = %50
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %57 = getelementptr inbounds i8, ptr %48, i64 8
-  call void @kvfree_call_rcu(ptr noundef %57, ptr noundef nonnull %48) #10
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %57, ptr noundef nonnull %48) #10
   br label %.thread
 
 .thread:                                          ; preds = %53, %55, %56, %46
@@ -1151,8 +1151,8 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
 
 66:                                               ; preds = %60
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %67 = getelementptr inbounds i8, ptr %58, i64 8
-  call void @kvfree_call_rcu(ptr noundef %67, ptr noundef nonnull %58) #10
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %67, ptr noundef nonnull %58) #10
   br label %.thread8
 
 .thread8:                                         ; preds = %63, %65, %66, %.thread, %9, %3
@@ -1168,36 +1168,36 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr n
   %3 = alloca %struct.nfs3_diropargs, align 8
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %5, align 8, !annotation !9
   %6 = getelementptr i8, ptr %0, i64 -424
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 624), ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %14, align 8
   %15 = call ptr @nfs_alloc_fattr() #10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %44, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 872
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 872
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @rpc_call_sync(ptr noundef %24, ptr noundef nonnull %4, i32 noundef 0) #10
   %26 = icmp eq i32 %25, -528
@@ -1206,8 +1206,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr n
 .lr.ph:                                           ; preds = %17
   %27 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = getelementptr inbounds i8, ptr %28, i64 1936
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 1936
   br label %31
 
 31:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -1248,46 +1248,46 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture nound
   %4 = alloca %struct.nfs3_readdirres, align 8
   %5 = alloca %struct.rpc_message, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8, !annotation !9
   %10 = getelementptr i8, ptr %8, i64 -424
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i8, ptr %16, align 4, !range !16, !noundef !17
   store i8 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 28
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %1, align 8
   store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %17, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 768), ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
   %32 = icmp eq i8 %17, 0
@@ -1302,7 +1302,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture nound
   br i1 %35, label %40, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr %38, align 4
   store i64 %39, ptr %14, align 8
@@ -1315,11 +1315,11 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture nound
   br i1 %42, label %71, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %8, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 872
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 872
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 @rpc_call_sync(ptr noundef %49, ptr noundef nonnull %5, i32 noundef 0) #10
   %51 = icmp eq i32 %50, -528
@@ -1328,8 +1328,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr nocapture nound
 .lr.ph:                                           ; preds = %43
   %52 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
-  %55 = getelementptr inbounds i8, ptr %53, i64 1936
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 1936
   br label %56
 
 56:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -1382,25 +1382,25 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %9, label %.thread8, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 80
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 104
-  %16 = getelementptr inbounds i8, ptr %8, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 240
-  %18 = getelementptr inbounds i8, ptr %8, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 464
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 464
   store ptr %19, ptr %13, align 8
-  tail call void @nfs_fattr_init(ptr noundef %17) #10
+  tail call void @nfs_fattr_init(ptr noundef nonnull %17) #10
   %20 = load ptr, ptr %13, align 8
   tail call void @nfs_fattr_init(ptr noundef %20) #10
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
-  %22 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %22 = call i32 @posix_acl_create(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.thread8
 
@@ -1408,17 +1408,17 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 528), ptr %8, align 8
   %25 = getelementptr i8, ptr %0, i64 -424
   store ptr %25, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %8, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %3, ptr %33, align 8
   %34 = load i16, ptr %21, align 4
   %35 = and i16 %34, -4096
@@ -1440,7 +1440,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 
 39:                                               ; preds = %38, %37, %36, %24
   %40 = phi i32 [ 6, %38 ], [ 7, %37 ], [ 4, %36 ], [ 3, %24 ]
-  %41 = getelementptr inbounds i8, ptr %8, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 %40, ptr %41, align 4
   %42 = call fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8)
   %43 = icmp ule ptr %42, inttoptr (i64 -4096 to ptr)
@@ -1453,7 +1453,7 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 48:                                               ; preds = %39
   %49 = icmp eq ptr %42, null
   %50 = select i1 %49, ptr %1, ptr %42
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %6, align 8
   %54 = load ptr, ptr %5, align 8
@@ -1482,8 +1482,8 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 
 66:                                               ; preds = %60
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %67 = getelementptr inbounds i8, ptr %58, i64 8
-  call void @kvfree_call_rcu(ptr noundef %67, ptr noundef nonnull %58) #10
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %67, ptr noundef nonnull %58) #10
   br label %.thread
 
 .thread:                                          ; preds = %63, %65, %66, %56
@@ -1506,8 +1506,8 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
 
 76:                                               ; preds = %70
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %77 = getelementptr inbounds i8, ptr %68, i64 8
-  call void @kvfree_call_rcu(ptr noundef %77, ptr noundef nonnull %68) #10
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %77, ptr noundef nonnull %68) #10
   br label %.thread8
 
 .thread8:                                         ; preds = %73, %75, %76, %.thread, %10, %4
@@ -1523,15 +1523,15 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture nounde
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 864), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
   tail call void @nfs_fattr_init(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @rpc_call_sync(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 0) #10
   %12 = icmp eq i32 %11, -528
@@ -1540,8 +1540,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture nounde
 .lr.ph:                                           ; preds = %3
   %13 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = getelementptr inbounds i8, ptr %14, i64 1936
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 1936
   br label %17
 
 17:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -1573,15 +1573,15 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr nocapture nounde
 define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_message, align 8
   %5 = alloca %struct.rpc_message, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 912), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr %2, align 8
   tail call void @nfs_fattr_init(ptr noundef %11) #10
@@ -1592,8 +1592,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 .lr.ph:                                           ; preds = %3
   %14 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
-  %17 = getelementptr inbounds i8, ptr %15, i64 1936
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1936
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -1628,7 +1628,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 30:                                               ; preds = %.thread, %.critedge._crit_edge
   %31 = phi i32 [ -512, %.thread ], [ %.lcssa, %.critedge._crit_edge ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 216
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 216
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %6, align 8
   %36 = icmp eq ptr %34, %35
@@ -1637,11 +1637,11 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 37:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 912), ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %2, align 8
   call void @nfs_fattr_init(ptr noundef %41) #10
@@ -1652,8 +1652,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr nocapture nounde
 .lr.ph7:                                          ; preds = %37
   %44 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
-  %47 = getelementptr inbounds i8, ptr %45, i64 1936
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 1936
   br label %48
 
 48:                                               ; preds = %.lr.ph7, %.critedge5.backedge
@@ -1690,15 +1690,15 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr nocapture noun
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 960), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
   tail call void @nfs_fattr_init(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @rpc_call_sync(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 0) #10
   %12 = icmp eq i32 %11, -528
@@ -1707,8 +1707,8 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr nocapture noun
 .lr.ph:                                           ; preds = %3
   %13 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
-  %16 = getelementptr inbounds i8, ptr %14, i64 1936
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 1936
   br label %17
 
 17:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -1749,13 +1749,13 @@ define internal noundef i32 @nfs3_proc_pgio_rpc_prepare(ptr noundef %0, ptr noca
 define internal void @nfs3_proc_read_setup(ptr nocapture noundef initializes((680, 684)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 align 16 {
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 288), ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1048
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 680
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i32 %9, ptr %10, align 8
   ret void
 }
@@ -1763,11 +1763,11 @@ define internal void @nfs3_proc_read_setup(ptr nocapture noundef initializes((68
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 784
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
@@ -1777,13 +1777,13 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
   br label %35
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, -528
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 256
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, ptr elementtype(i64) %20) #10, !srcloc !15
@@ -1797,21 +1797,21 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %7, i64 1048
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 1048
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 760
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %30 = load i32, ptr %29, align 8
-  %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 %30, i32 0, ptr elementtype(i32) %25) #10, !srcloc !18
+  %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %30, i32 0, ptr nonnull elementtype(i32) %25) #10, !srcloc !18
   br label %32
 
 32:                                               ; preds = %28, %24, %22
   tail call void @nfs_invalidate_atime(ptr noundef %3) #10
-  %33 = getelementptr inbounds i8, ptr %1, i64 368
-  %34 = tail call i32 @nfs_refresh_inode(ptr noundef %3, ptr noundef %33) #10
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %34 = tail call i32 @nfs_refresh_inode(ptr noundef %3, ptr noundef nonnull %33) #10
   br label %35
 
 35:                                               ; preds = %32, %17, %11
@@ -1827,7 +1827,7 @@ define internal void @nfs3_proc_write_setup(ptr nocapture readnone %0, ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs3_write_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 784
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -1837,18 +1837,18 @@ define internal i32 @nfs3_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
   br label %25
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, -528
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 872
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 872
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 256
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, ptr elementtype(i64) %20) #10, !srcloc !15
@@ -1884,7 +1884,7 @@ define internal void @nfs3_proc_commit_rpc_prepare(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs3_commit_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 688
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 688
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -1894,19 +1894,19 @@ define internal i32 @nfs3_commit_done(ptr noundef %0, ptr noundef %1) #0 align 1
   br label %27
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 224
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, -528
   %13 = load ptr, ptr %9, align 8
   br i1 %12, label %14, label %23
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 872
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 872
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 256
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, ptr elementtype(i64) %21) #10, !srcloc !15
@@ -1916,7 +1916,7 @@ define internal i32 @nfs3_commit_done(ptr noundef %0, ptr noundef %1) #0 align 1
   br label %27
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %1, i64 608
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @nfs_refresh_inode(ptr noundef %13, ptr noundef %25) #10
   br label %27
@@ -1928,11 +1928,11 @@ define internal i32 @nfs3_commit_done(ptr noundef %0, ptr noundef %1) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs3_proc_lock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 64
   %11 = icmp eq i32 %10, 0
@@ -1944,17 +1944,17 @@ define internal i32 @nfs3_proc_lock(ptr nocapture noundef readonly %0, i32 nound
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 112
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %16, i32 8, ptr elementtype(i8) %16) #10, !srcloc !19
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i32 8, ptr nonnull elementtype(i8) %16) #10, !srcloc !19
   br label %17
 
 17:                                               ; preds = %15, %12, %3
   %18 = phi ptr [ %13, %15 ], [ null, %3 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %5, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 872
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 872
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @nlmclnt_proc(ptr noundef %24, i32 noundef %1, ptr noundef %2, ptr noundef %18) #10
   %26 = icmp eq ptr %18, null
@@ -2045,9 +2045,9 @@ define internal void @nfs3_nlm_alloc_call(ptr noundef readonly %0) #0 align 16 {
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 8
   %9 = icmp eq i64 %8, 0
@@ -2069,9 +2069,9 @@ define internal zeroext i1 @nfs3_nlm_unlock_prepare(ptr noundef %0, ptr noundef 
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 8
   %10 = icmp eq i64 %9, 0
@@ -2092,9 +2092,9 @@ define internal void @nfs3_nlm_release_call(ptr noundef %0) #0 align 16 {
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 8
   %9 = icmp eq i64 %8, 0
@@ -2135,11 +2135,11 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 912), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
   tail call void @nfs_fattr_init(ptr noundef %8) #10
@@ -2155,7 +2155,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
 10:                                               ; preds = %.critedge
   %11 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store volatile i32 8450, ptr %13, align 8
   %14 = call i64 @schedule_timeout(i64 noundef 5000) #10
   %15 = load volatile i64, ptr %12, align 8
@@ -2164,7 +2164,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
   br i1 %17, label %.critedge.backedge, label %18
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %12, i64 1936
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 1936
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 256
   %22 = icmp eq i64 %21, 0
@@ -2190,8 +2190,8 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
 .lr.ph:                                           ; preds = %28
   %31 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
-  %34 = getelementptr inbounds i8, ptr %32, i64 1936
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 1936
   br label %35
 
 35:                                               ; preds = %.lr.ph, %.critedge4.backedge
@@ -2243,28 +2243,28 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
   %8 = alloca %struct.nfs3_diropres, align 8
   %9 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8, !annotation !9
   %11 = getelementptr i8, ptr %0, i64 -424
   store ptr %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = trunc nuw i64 %2 to i32
   store i32 %14, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %8, align 8
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %4, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 144), ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %19, align 8
   %20 = call ptr @nfs_alloc_fattr() #10
   store ptr %20, ptr %8, align 8
@@ -2273,11 +2273,11 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
 
 22:                                               ; preds = %6
   call void @nfs_fattr_init(ptr noundef %4) #10
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 872
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 872
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i16 %5 to i32
   %30 = call i32 @rpc_call_sync(ptr noundef %28, ptr noundef nonnull %9, i32 noundef %29) #10
@@ -2287,8 +2287,8 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
 .lr.ph:                                           ; preds = %22
   %32 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = getelementptr inbounds i8, ptr %33, i64 1936
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 1936
   br label %36
 
 36:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -2333,9 +2333,9 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
   store ptr %3, ptr %17, align 8
   store ptr %4, ptr %18, align 8
   %57 = load ptr, ptr %23, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 872
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 872
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 @rpc_call_sync(ptr noundef %61, ptr noundef nonnull %9, i32 noundef %29) #10
   %63 = icmp eq i32 %62, -528
@@ -2344,8 +2344,8 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
 .lr.ph6:                                          ; preds = %56
   %64 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
-  %67 = getelementptr inbounds i8, ptr %65, i64 1936
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1936
   br label %68
 
 68:                                               ; preds = %.lr.ph6, %.critedge4.backedge
@@ -2401,11 +2401,11 @@ declare dso_local i32 @posix_acl_create(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @rpc_call_sync(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 0) #10
   %11 = icmp eq i32 %10, -528
@@ -2414,8 +2414,8 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
 .lr.ph:                                           ; preds = %3
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %15 = getelementptr inbounds i8, ptr %13, i64 1936
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1936
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.critedge.backedge
@@ -2438,14 +2438,14 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %26, label %16, label %.critedge._crit_edge, !llvm.loop !6
 
 .thread:                                          ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %2, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @nfs_post_op_update_inode(ptr noundef %0, ptr noundef %28) #10
   br label %34
 
 .critedge._crit_edge:                             ; preds = %.critedge.backedge, %3
   %.lcssa = phi i32 [ %10, %3 ], [ %25, %.critedge.backedge ]
-  %30 = getelementptr inbounds i8, ptr %2, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @nfs_post_op_update_inode(ptr noundef %0, ptr noundef %31) #10
   %33 = icmp eq i32 %.lcssa, 0
@@ -2458,9 +2458,9 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
   br label %44
 
 38:                                               ; preds = %.critedge._crit_edge
-  %39 = getelementptr inbounds i8, ptr %2, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @nfs_add_or_obtain(ptr noundef %1, ptr noundef %40, ptr noundef %42) #10
   br label %44

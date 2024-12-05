@@ -47,7 +47,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %params6 = getelementptr inbounds i8, ptr %vctx, i64 128
+  %params6 = getelementptr inbounds nuw i8, ptr %vctx, i64 128
   %0 = load i8, ptr %params6, align 8
   %conv = zext i8 %0 to i32
   %call7 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call, i32 noundef %conv) #4
@@ -115,7 +115,7 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %params14 = getelementptr inbounds i8, ptr %vctx, i64 128
+  %params14 = getelementptr inbounds nuw i8, ptr %vctx, i64 128
   %conv = trunc nuw nsw i64 %0 to i8
   call void @ossl_blake2s_param_set_digest_length(ptr noundef nonnull %params14, i8 noundef zeroext %conv) #4
   br label %return
@@ -157,7 +157,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %outlen = getelementptr inbounds i8, ptr %ctx, i64 120
+  %outlen = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load i64, ptr %outlen, align 8
   store i64 %0, ptr %outl, align 8
   %cmp = icmp eq i64 %outsz, 0
@@ -232,7 +232,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %params.i = getelementptr inbounds i8, ptr %ctx, i64 128
+  %params.i = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load i8, ptr %params.i, align 8
   tail call void @ossl_blake2s_param_init(ptr noundef nonnull %params.i) #4
   %cmp.not.i = icmp eq i8 %0, 0
@@ -281,7 +281,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %params6 = getelementptr inbounds i8, ptr %vctx, i64 240
+  %params6 = getelementptr inbounds nuw i8, ptr %vctx, i64 240
   %0 = load i8, ptr %params6, align 8
   %conv = zext i8 %0 to i32
   %call7 = tail call i32 @OSSL_PARAM_set_uint(ptr noundef nonnull %call, i32 noundef %conv) #4
@@ -339,7 +339,7 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end9
-  %params14 = getelementptr inbounds i8, ptr %vctx, i64 240
+  %params14 = getelementptr inbounds nuw i8, ptr %vctx, i64 240
   %conv = trunc nuw nsw i64 %0 to i8
   call void @ossl_blake2b_param_set_digest_length(ptr noundef nonnull %params14, i8 noundef zeroext %conv) #4
   br label %return
@@ -377,7 +377,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %outlen = getelementptr inbounds i8, ptr %ctx, i64 232
+  %outlen = getelementptr inbounds nuw i8, ptr %ctx, i64 232
   %0 = load i64, ptr %outlen, align 8
   store i64 %0, ptr %outl, align 8
   %cmp = icmp eq i64 %outsz, 0
@@ -450,7 +450,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %params.i = getelementptr inbounds i8, ptr %ctx, i64 240
+  %params.i = getelementptr inbounds nuw i8, ptr %ctx, i64 240
   %0 = load i8, ptr %params.i, align 8
   tail call void @ossl_blake2b_param_init(ptr noundef nonnull %params.i) #4
   %cmp.not.i = icmp eq i8 %0, 0

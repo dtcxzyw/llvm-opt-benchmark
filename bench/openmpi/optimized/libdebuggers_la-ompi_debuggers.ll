@@ -60,7 +60,7 @@ define void @ompi_debugger_setup_dlls() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %10, %check.exit14
   %indvars.iv = phi i64 [ %indvars.iv.next, %check.exit14 ], [ 0, %10 ]
   %13 = phi ptr [ %31, %check.exit14 ], [ %12, %10 ]
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
@@ -103,7 +103,7 @@ check.exit14:                                     ; preds = %check.exit, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8
   %.not13 = icmp eq ptr %31, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !6

@@ -13,10 +13,10 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
   %5 = alloca %struct.i915_gem_engines_iter, align 8
   %6 = load volatile i64, ptr @jiffies, align 64
   %7 = add i64 %6, -20
-  %8 = getelementptr inbounds i8, ptr %2, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 9304
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @intel_gt_terminally_wedged(ptr noundef %11) #6
   %13 = icmp eq i32 %12, 0
@@ -25,13 +25,13 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 14:                                               ; preds = %3
   tail call void @__rcu_read_lock() #6
   store i64 0, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 72
-  %16 = call ptr @xa_find(ptr noundef %15, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #6
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %16 = call ptr @xa_find(ptr noundef nonnull %15, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #6
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit23, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %20
 
 20:                                               ; preds = %122, %18
@@ -39,7 +39,7 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
   %22 = phi i64 [ 0, %18 ], [ %123, %122 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !5
-  %23 = getelementptr inbounds i8, ptr %21, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %24 = load volatile i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.thread, label %.preheader21
@@ -47,7 +47,7 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 .preheader21:                                     ; preds = %20, %31
   %26 = phi i32 [ %32, %31 ], [ %24, %20 ]
   %27 = add i32 %26, 1
-  %28 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 %27, ptr elementtype(i32) %23, i32 %26) #6, !srcloc !6
+  %28 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 %27, ptr nonnull elementtype(i32) %23, i32 %26) #6, !srcloc !6
   %29 = extractvalue { i8, i32 } %28, 0
   %30 = icmp ult i8 %29, 2
   call void @llvm.assume(i1 %30)
@@ -67,7 +67,7 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
   br i1 %37, label %39, label %38, !prof !11
 
 38:                                               ; preds = %.thread
-  call void @refcount_warn_saturate(ptr noundef %23, i32 noundef 0) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %23, i32 noundef 0) #6
   br label %39
 
 39:                                               ; preds = %38, %.thread
@@ -76,9 +76,9 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 
 41:                                               ; preds = %39
   call void @__rcu_read_unlock() #6
-  %42 = getelementptr inbounds i8, ptr %21, i64 24
-  call void @mutex_lock(ptr noundef %42) #6
-  %43 = getelementptr inbounds i8, ptr %21, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  call void @mutex_lock(ptr noundef nonnull %42) #6
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %19, align 8
   store i32 0, ptr %5, align 8
@@ -92,18 +92,18 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %.outer, %112
   %47 = phi ptr [ %113, %112 ], [ %45, %.outer ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %112, label %51, !llvm.loop !12
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
-  call void @mutex_lock(ptr noundef %52) #6
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  call void @mutex_lock(ptr noundef nonnull %52) #6
   %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 88
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %.thread15, label %.preheader
 
@@ -159,10 +159,10 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
   br i1 %91, label %101, label %.sink.split, !prof !11
 
 92:                                               ; preds = %76
-  %93 = getelementptr inbounds i8, ptr %58, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %48, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %97 = icmp eq ptr %94, %96
   br i1 %97, label %.thread15, label %.preheader, !llvm.loop !14
 
@@ -172,8 +172,8 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 
 .thread15:                                        ; preds = %.preheader, %67, %92, %81, %98, %51
   %99 = load ptr, ptr %48, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
-  call void @mutex_unlock(ptr noundef %100) #6
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  call void @mutex_unlock(ptr noundef nonnull %100) #6
   br label %112
 
 .sink.split:                                      ; preds = %88, %84
@@ -183,10 +183,10 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 
 101:                                              ; preds = %.sink.split, %88
   %102 = load ptr, ptr %48, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
-  call void @mutex_unlock(ptr noundef %103) #6
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  call void @mutex_unlock(ptr noundef nonnull %103) #6
   %104 = call i64 @i915_request_wait(ptr noundef nonnull %82, i32 noundef 1, i64 noundef 9223372036854775807) #6
-  %105 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %85, i32 -1, ptr elementtype(i32) %85) #6, !srcloc !15
+  %105 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %85, i32 -1, ptr nonnull elementtype(i32) %85) #6, !srcloc !15
   %106 = icmp eq i32 %105, 1
   br i1 %106, label %110, label %107
 
@@ -195,12 +195,12 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
   br i1 %108, label %.thread17, label %109, !prof !11
 
 109:                                              ; preds = %107
-  call void @refcount_warn_saturate(ptr noundef %85, i32 noundef 3) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %85, i32 noundef 3) #6
   br label %.thread17
 
 110:                                              ; preds = %101
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !16
-  call void @dma_fence_release(ptr noundef %85) #6, !callees !17
+  call void @dma_fence_release(ptr noundef nonnull %85) #6, !callees !17
   br label %.thread17
 
 .thread17:                                        ; preds = %107, %109, %110
@@ -214,8 +214,8 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 
 .loopexit:                                        ; preds = %.thread17, %.outer, %112
   %115 = phi i64 [ %.ph, %112 ], [ %.ph, %.outer ], [ %104, %.thread17 ]
-  call void @mutex_unlock(ptr noundef %42) #6
-  %116 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 -1, ptr elementtype(i32) %23) #6, !srcloc !15
+  call void @mutex_unlock(ptr noundef nonnull %42) #6
+  %116 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 -1, ptr nonnull elementtype(i32) %23) #6, !srcloc !15
   %117 = icmp eq i32 %116, 1
   br i1 %117, label %121, label %118
 
@@ -224,12 +224,12 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
   br i1 %119, label %.thread19, label %120, !prof !11
 
 120:                                              ; preds = %118
-  call void @refcount_warn_saturate(ptr noundef %23, i32 noundef 3) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %23, i32 noundef 3) #6
   br label %.thread19
 
 121:                                              ; preds = %.loopexit
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !16
-  call void @i915_gem_context_release(ptr noundef %23) #6, !callees !17
+  call void @i915_gem_context_release(ptr noundef nonnull %23) #6, !callees !17
   br label %.thread19
 
 .thread19:                                        ; preds = %118, %120, %121
@@ -239,7 +239,7 @@ define dso_local i32 @i915_gem_throttle_ioctl(ptr nocapture noundef readonly %0,
 122:                                              ; preds = %.thread19, %39
   %123 = phi i64 [ %115, %.thread19 ], [ %22, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
-  %124 = call ptr @xa_find_after(ptr noundef %15, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #6
+  %124 = call ptr @xa_find_after(ptr noundef nonnull %15, ptr noundef nonnull %4, i64 noundef -1, i32 noundef 8) #6
   %125 = icmp eq ptr %124, null
   br i1 %125, label %.loopexit23, label %20, !llvm.loop !18
 

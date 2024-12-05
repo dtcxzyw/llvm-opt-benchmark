@@ -75,11 +75,11 @@ define dso_local void @_ZN4llvm14MCAsmInfoXCOFFC2Ev(ptr noundef nonnull align 8 
   store i8 1, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @.str, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 3, ptr %.sroa.22.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @.str, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 3, ptr %.sroa.2.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 0, ptr %9, align 1

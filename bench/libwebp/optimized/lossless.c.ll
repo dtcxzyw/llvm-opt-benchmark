@@ -45,7 +45,7 @@ define hidden i32 @VP8LPredictor2_C(ptr nocapture readnone %0, ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @VP8LPredictor3_C(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -61,7 +61,7 @@ define hidden i32 @VP8LPredictor4_C(ptr nocapture readnone %0, ptr nocapture nou
 define hidden i32 @VP8LPredictor5_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = xor i32 %6, %3
   %8 = lshr i32 %7, 1
@@ -117,7 +117,7 @@ define hidden i32 @VP8LPredictor8_C(ptr nocapture readnone %0, ptr nocapture nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @VP8LPredictor9_C(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = xor i32 %5, %3
   %7 = lshr i32 %6, 1
@@ -133,7 +133,7 @@ define hidden i32 @VP8LPredictor10_C(ptr nocapture noundef readonly %0, ptr noca
   %4 = getelementptr inbounds i8, ptr %1, i64 -4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = xor i32 %5, %3
   %10 = lshr i32 %9, 1
@@ -341,7 +341,7 @@ define hidden void @VP8LAddGreenToBlueAndRed_C(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 8
   %8 = and i32 %7, 255
@@ -352,7 +352,7 @@ define hidden void @VP8LAddGreenToBlueAndRed_C(ptr nocapture noundef readonly %0
   %13 = and i32 %12, 16711935
   %14 = and i32 %6, -16711936
   %15 = or disjoint i32 %13, %14
-  %16 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -368,14 +368,14 @@ define hidden void @VP8LTransformColorInverse_C(ptr nocapture noundef readonly %
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 16
   %12 = load i8, ptr %0, align 1
@@ -403,7 +403,7 @@ define hidden void @VP8LTransformColorInverse_C(ptr nocapture noundef readonly %
   %33 = and i32 %32, 16711680
   %34 = or disjoint i32 %33, %31
   %35 = or disjoint i32 %34, %30
-  %36 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -415,12 +415,12 @@ define hidden void @VP8LTransformColorInverse_C(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LColorIndexInverseTransformAlpha(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 8, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %36, label %13
@@ -451,7 +451,7 @@ define hidden void @VP8LColorIndexInverseTransformAlpha(ptr nocapture noundef re
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.13037.us, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.13037.us, i64 1
   %23 = load i8, ptr %.13037.us, align 1
   %24 = zext i8 %23 to i32
   br label %25
@@ -461,11 +461,11 @@ define hidden void @VP8LColorIndexInverseTransformAlpha(ptr nocapture noundef re
   %.1.us = phi i32 [ %24, %21 ], [ %.02838.us, %18 ]
   %26 = and i32 %.1.us, %15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %12, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = lshr i32 %29, 8
   %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %.13236.us, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.13236.us, i64 1
   store i8 %31, ptr %.13236.us, align 1
   %33 = lshr i32 %.1.us, %8
   %34 = add nuw nsw i32 %.039.us, 1
@@ -489,7 +489,7 @@ define hidden void @VP8LColorIndexInverseTransformAlpha(ptr nocapture noundef re
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LInverseTransform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.VP8LMultipliers, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %0, align 8
   switch i32 %9, label %ColorIndexInverseTransform_C.exit [
@@ -517,8 +517,8 @@ define hidden void @VP8LInverseTransform(ptr nocapture noundef readonly %0, i32 
   %19 = and i32 %16, 16711935
   %20 = or disjoint i32 %18, %19
   store i32 %20, ptr %4, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %23 = icmp sgt i32 %8, 1
   br i1 %23, label %.lr.ph.preheader.i.i, label %PredictorAdd1_C.exit.i
 
@@ -530,7 +530,7 @@ define hidden void @VP8LInverseTransform(ptr nocapture noundef readonly %0, i32 
 .lr.ph.i69.i:                                     ; preds = %.lr.ph.i69.i, %.lr.ph.preheader.i.i
   %indvars.iv.i70.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i71.i, %.lr.ph.i69.i ]
   %.010.i.i = phi i32 [ %20, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i69.i ]
-  %25 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv.i70.i
+  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i70.i
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, -16711936
   %28 = and i32 %.010.i.i, -16711936
@@ -541,7 +541,7 @@ define hidden void @VP8LInverseTransform(ptr nocapture noundef readonly %0, i32 
   %33 = and i32 %29, -16711936
   %34 = and i32 %32, 16711935
   %35 = or disjoint i32 %33, %34
-  %36 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.i70.i
+  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i70.i
   store i32 %35, ptr %36, align 4
   %indvars.iv.next.i71.i = add nuw nsw i64 %indvars.iv.i70.i, 1
   %exitcond.not.i72.i = icmp eq i64 %indvars.iv.next.i71.i, %wide.trip.count.i.i
@@ -557,7 +557,7 @@ PredictorAdd1_C.exit.i:                           ; preds = %.lr.ph.i69.i, %.lr.
   %.062.i = phi ptr [ %39, %PredictorAdd1_C.exit.i ], [ %4, %14 ]
   %.060.i = phi ptr [ %38, %PredictorAdd1_C.exit.i ], [ %3, %14 ]
   %.056.i = phi i32 [ 1, %PredictorAdd1_C.exit.i ], [ %1, %14 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = shl nuw i32 1, %42
   %44 = add nsw i32 %43, -1
@@ -575,7 +575,7 @@ PredictorAdd1_C.exit.i:                           ; preds = %.lr.ph.i69.i, %.lr.
   br i1 %51, label %.lr.ph84.split.us.preheader.i, label %.lr.ph84.split.i
 
 .lr.ph84.split.us.preheader.i:                    ; preds = %.lr.ph84.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = ashr i32 %.056.i, %42
   %56 = mul nsw i32 %47, %55
@@ -606,12 +606,12 @@ PredictorAdd1_C.exit.i:                           ; preds = %.lr.ph.i69.i, %.lr.
 PredictorAdd2_C.exit.us.i:                        ; preds = %PredictorAdd2_C.exit.us.i, %.lr.ph84.split.us.i
   %.05779.us.i = phi i32 [ %spec.select.us.i, %PredictorAdd2_C.exit.us.i ], [ 1, %.lr.ph84.split.us.i ]
   %.05878.us.i = phi ptr [ %71, %PredictorAdd2_C.exit.us.i ], [ %.05983.us.i, %.lr.ph84.split.us.i ]
-  %71 = getelementptr inbounds i8, ptr %.05878.us.i, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.05878.us.i, i64 4
   %72 = load i32, ptr %.05878.us.i, align 4
   %73 = lshr i32 %72, 8
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [16 x ptr], ptr @VP8LPredictorsAdd, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [16 x ptr], ptr @VP8LPredictorsAdd, i64 0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = and i32 %.05779.us.i, %52
   %79 = add nsw i32 %78, %43
@@ -626,8 +626,8 @@ PredictorAdd2_C.exit.us.i:                        ; preds = %PredictorAdd2_C.exi
   br i1 %85, label %PredictorAdd2_C.exit.us.i, label %PredictorAdd2_C.exit._crit_edge.us.i, !llvm.loop !10
 
 PredictorAdd2_C.exit._crit_edge.us.i:             ; preds = %PredictorAdd2_C.exit.us.i
-  %86 = getelementptr inbounds i32, ptr %.16182.us.i, i64 %49
-  %87 = getelementptr inbounds i32, ptr %.16381.us.i, i64 %49
+  %86 = getelementptr inbounds nuw i32, ptr %.16182.us.i, i64 %49
+  %87 = getelementptr inbounds nuw i32, ptr %.16381.us.i, i64 %49
   %88 = add i32 %.06480.us.i, 1
   %89 = and i32 %88, %44
   %90 = icmp eq i32 %89, 0
@@ -661,7 +661,7 @@ PredictorAdd2_C.exit._crit_edge.us.i:             ; preds = %PredictorAdd2_C.exi
   br i1 %exitcond.not.i, label %PredictorInverseTransform_C.exit, label %.lr.ph84.split.i, !llvm.loop !11
 
 PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %PredictorAdd2_C.exit._crit_edge.us.i, %40
-  %106 = getelementptr inbounds i8, ptr %0, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %107 = load i32, ptr %106, align 4
   %.not = icmp eq i32 %2, %107
   br i1 %.not, label %ColorIndexInverseTransform_C.exit, label %108
@@ -681,7 +681,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
 
 118:                                              ; preds = %5
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
-  %119 = getelementptr inbounds i8, ptr %0, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = shl nuw i32 1, %120
   %122 = add i32 %121, -1
@@ -694,7 +694,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   br i1 %128, label %.lr.ph62.i, label %ColorSpaceInverseTransform_C.exit
 
 .lr.ph62.i:                                       ; preds = %118
-  %129 = getelementptr inbounds i8, ptr %0, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load ptr, ptr %129, align 8
   %131 = ashr i32 %1, %120
   %132 = mul nsw i32 %127, %131
@@ -702,8 +702,8 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %134 = getelementptr inbounds i32, ptr %130, i64 %133
   %135 = sext i32 %124 to i64
   %136 = sext i32 %8 to i64
-  %137 = getelementptr inbounds i8, ptr %6, i64 1
-  %138 = getelementptr inbounds i8, ptr %6, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %139 = sext i32 %121 to i64
   %140 = sext i32 %125 to i64
   %141 = icmp sgt i32 %124, 0
@@ -723,7 +723,7 @@ PredictorInverseTransform_C.exit:                 ; preds = %.lr.ph84.split.i, %
   %.154.i = phi ptr [ %153, %.lr.ph.i ], [ %.060.i53, %142 ]
   %.14653.i = phi ptr [ %154, %.lr.ph.i ], [ %.04559.i, %142 ]
   %.04852.i = phi ptr [ %145, %.lr.ph.i ], [ %.04958.i, %142 ]
-  %145 = getelementptr inbounds i8, ptr %.04852.i, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.04852.i, i64 4
   %146 = load i32, ptr %.04852.i, align 4
   %147 = trunc i32 %146 to i8
   store i8 %147, ptr %6, align 1
@@ -781,7 +781,7 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
 
 171:                                              ; preds = %5
   %172 = icmp eq ptr %3, %4
-  %173 = getelementptr inbounds i8, ptr %0, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %174 = load i32, ptr %173, align 4
   %175 = icmp sgt i32 %174, 0
   %or.cond = select i1 %172, i1 %175, i1 false
@@ -805,7 +805,7 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
   %190 = load i32, ptr %173, align 4
   %191 = lshr i32 8, %190
   %192 = load i32, ptr %7, align 8
-  %193 = getelementptr inbounds i8, ptr %0, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %194 = load ptr, ptr %193, align 8
   %.not.i = icmp eq i32 %190, 0
   br i1 %.not.i, label %217, label %195
@@ -836,7 +836,7 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
   br i1 %202, label %203, label %208
 
 203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %.13037.us.i, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %.13037.us.i, i64 4
   %205 = load i32, ptr %.13037.us.i, align 4
   %206 = lshr i32 %205, 8
   %207 = and i32 %206, 255
@@ -847,9 +847,9 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
   %.1.us.i55 = phi i32 [ %207, %203 ], [ %.02838.us.i, %200 ]
   %209 = and i32 %.1.us.i55, %197
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds i32, ptr %194, i64 %210
+  %211 = getelementptr inbounds nuw i32, ptr %194, i64 %210
   %212 = load i32, ptr %211, align 4
-  %213 = getelementptr inbounds i8, ptr %.13236.us.i, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %.13236.us.i, i64 4
   store i32 %212, ptr %.13236.us.i, align 4
   %214 = lshr i32 %.1.us.i55, %191
   %215 = add nuw nsw i32 %.039.us.i, 1
@@ -868,7 +868,7 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
 
 ._crit_edge:                                      ; preds = %171
   %219 = lshr i32 8, %174
-  %220 = getelementptr inbounds i8, ptr %0, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %221 = load ptr, ptr %220, align 8
   %.not.i57 = icmp eq i32 %174, 0
   br i1 %.not.i57, label %244, label %222
@@ -899,7 +899,7 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
   br i1 %229, label %230, label %235
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %.13037.us.i67, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %.13037.us.i67, i64 4
   %232 = load i32, ptr %.13037.us.i67, align 4
   %233 = lshr i32 %232, 8
   %234 = and i32 %233, 255
@@ -910,9 +910,9 @@ ColorSpaceInverseTransform_C.exit:                ; preds = %167, %118
   %.1.us.i70 = phi i32 [ %234, %230 ], [ %.02838.us.i66, %227 ]
   %236 = and i32 %.1.us.i70, %224
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr inbounds i32, ptr %221, i64 %237
+  %238 = getelementptr inbounds nuw i32, ptr %221, i64 %237
   %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds i8, ptr %.13236.us.i68, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %.13236.us.i68, i64 4
   store i32 %239, ptr %.13236.us.i68, align 4
   %241 = lshr i32 %.1.us.i70, %219
   %242 = add nuw nsw i32 %.039.us.i65, 1
@@ -949,18 +949,18 @@ define hidden void @VP8LConvertBGRAToRGB_C(ptr noundef readonly %0, i32 noundef 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
   %.01011 = phi ptr [ %16, %.lr.ph ], [ %2, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.012, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.012, i64 4
   %8 = load i32, ptr %.012, align 4
   %9 = lshr i32 %8, 16
   %10 = trunc i32 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   store i8 %10, ptr %.01011, align 1
   %12 = lshr i32 %8, 8
   %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %.01011, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01011, i64 2
   store i8 %13, ptr %11, align 1
   %15 = trunc i32 %8 to i8
-  %16 = getelementptr inbounds i8, ptr %.01011, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %.01011, i64 3
   store i8 %15, ptr %14, align 1
   %17 = icmp ult ptr %7, %5
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
@@ -979,22 +979,22 @@ define hidden void @VP8LConvertBGRAToRGBA_C(ptr noundef readonly %0, i32 noundef
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.014 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
   %.01213 = phi ptr [ %19, %.lr.ph ], [ %2, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.014, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %8 = load i32, ptr %.014, align 4
   %9 = lshr i32 %8, 16
   %10 = trunc i32 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %.01213, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01213, i64 1
   store i8 %10, ptr %.01213, align 1
   %12 = lshr i32 %8, 8
   %13 = trunc i32 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %.01213, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01213, i64 2
   store i8 %13, ptr %11, align 1
   %15 = trunc i32 %8 to i8
-  %16 = getelementptr inbounds i8, ptr %.01213, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %.01213, i64 3
   store i8 %15, ptr %14, align 1
   %17 = lshr i32 %8, 24
   %18 = trunc nuw i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %.01213, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.01213, i64 4
   store i8 %18, ptr %16, align 1
   %20 = icmp ult ptr %7, %5
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -1013,7 +1013,7 @@ define hidden void @VP8LConvertBGRAToRGBA4444_C(ptr noundef readonly %0, i32 nou
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.014 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
   %.01213 = phi ptr [ %20, %.lr.ph ], [ %2, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.014, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %8 = load i32, ptr %.014, align 4
   %9 = lshr i32 %8, 16
   %10 = and i32 %9, 240
@@ -1025,9 +1025,9 @@ define hidden void @VP8LConvertBGRAToRGBA4444_C(ptr noundef readonly %0, i32 nou
   %16 = lshr i32 %8, 28
   %17 = or disjoint i32 %15, %16
   %18 = trunc nuw i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %.01213, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01213, i64 1
   store i8 %14, ptr %.01213, align 1
-  %20 = getelementptr inbounds i8, ptr %.01213, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.01213, i64 2
   store i8 %18, ptr %19, align 1
   %21 = icmp ult ptr %7, %5
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !18
@@ -1046,7 +1046,7 @@ define hidden void @VP8LConvertBGRAToRGB565_C(ptr noundef readonly %0, i32 nound
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.014 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
   %.01213 = phi ptr [ %22, %.lr.ph ], [ %2, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.014, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %8 = load i32, ptr %.014, align 4
   %9 = lshr i32 %8, 16
   %10 = and i32 %9, 248
@@ -1060,9 +1060,9 @@ define hidden void @VP8LConvertBGRAToRGB565_C(ptr noundef readonly %0, i32 nound
   %18 = and i32 %17, 31
   %19 = or disjoint i32 %16, %18
   %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %.01213, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.01213, i64 1
   store i8 %14, ptr %.01213, align 1
-  %22 = getelementptr inbounds i8, ptr %.01213, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.01213, i64 2
   store i8 %20, ptr %21, align 1
   %23 = icmp ult ptr %7, %5
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !19
@@ -1081,18 +1081,18 @@ define hidden void @VP8LConvertBGRAToBGR_C(ptr noundef readonly %0, i32 noundef 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi ptr [ %7, %.lr.ph ], [ %0, %3 ]
   %.01011 = phi ptr [ %16, %.lr.ph ], [ %2, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.012, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.012, i64 4
   %8 = load i32, ptr %.012, align 4
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   store i8 %9, ptr %.01011, align 1
   %11 = lshr i32 %8, 8
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %.01011, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01011, i64 2
   store i8 %12, ptr %10, align 1
   %14 = lshr i32 %8, 16
   %15 = trunc i32 %14 to i8
-  %16 = getelementptr inbounds i8, ptr %.01011, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %.01011, i64 3
   store i8 %15, ptr %13, align 1
   %17 = icmp ult ptr %7, %5
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !20
@@ -1162,11 +1162,11 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %.013.i = phi ptr [ %25, %.lr.ph.i ], [ %0, %21 ]
   %.01112.i = phi ptr [ %28, %.lr.ph.i ], [ %3, %21 ]
-  %25 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %26 = load i32, ptr %.013.i, align 4
   %27 = tail call noundef i32 @llvm.bswap.i32(i32 %26)
   store i32 %27, ptr %.01112.i, align 1
-  %28 = getelementptr inbounds i8, ptr %.01112.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 4
   %29 = icmp ult ptr %25, %23
   br i1 %29, label %.lr.ph.i, label %CopyOrSwap.exit, !llvm.loop !21
 
@@ -1179,11 +1179,11 @@ define hidden void @VP8LConvertFromBGRA(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph.i41:                                       ; preds = %30, %.lr.ph.i41
   %.013.i42 = phi ptr [ %34, %.lr.ph.i41 ], [ %0, %30 ]
   %.01112.i43 = phi ptr [ %37, %.lr.ph.i41 ], [ %3, %30 ]
-  %34 = getelementptr inbounds i8, ptr %.013.i42, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.013.i42, i64 4
   %35 = load i32, ptr %.013.i42, align 4
   %36 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
   store i32 %36, ptr %.01112.i43, align 1
-  %37 = getelementptr inbounds i8, ptr %.01112.i43, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.01112.i43, i64 4
   %38 = icmp ult ptr %34, %32
   br i1 %38, label %.lr.ph.i41, label %CopyOrSwap.exit44, !llvm.loop !21
 
@@ -1332,13 +1332,13 @@ define internal void @PredictorAdd0_C(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -16711936
   %9 = add i32 %8, -16777216
   %10 = and i32 %7, 16711935
   %11 = or disjoint i32 %9, %10
-  %12 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1362,7 +1362,7 @@ define internal void @PredictorAdd1_C(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i32 [ %7, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %8 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -16711936
   %11 = and i32 %.010, -16711936
@@ -1373,7 +1373,7 @@ define internal void @PredictorAdd1_C(ptr nocapture noundef readonly %0, ptr noc
   %16 = and i32 %12, -16711936
   %17 = and i32 %15, 16711935
   %18 = or disjoint i32 %16, %17
-  %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1395,9 +1395,9 @@ define internal void @PredictorAdd2_C(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, -16711936
   %12 = and i32 %8, -16711936
@@ -1425,7 +1425,7 @@ declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @PredictorAdd3_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #2 {
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1436,9 +1436,9 @@ define internal void @PredictorAdd3_C(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %7 = load i32, ptr %gep, align 4
-  %8 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -16711936
   %11 = and i32 %7, -16711936
@@ -1473,7 +1473,7 @@ define internal void @PredictorAdd4_C(ptr nocapture noundef readonly %0, ptr noc
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %7 = load i32, ptr %gep, align 4
-  %8 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -16711936
   %11 = and i32 %7, -16711936
@@ -1508,9 +1508,9 @@ define internal void @PredictorAdd5_C(ptr nocapture noundef readonly %0, ptr noc
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %31, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, %store_forwarded
   %12 = lshr i32 %11, 1
@@ -1522,7 +1522,7 @@ define internal void @PredictorAdd5_C(ptr nocapture noundef readonly %0, ptr noc
   %18 = and i32 %17, 2139062143
   %19 = and i32 %15, %8
   %20 = add i32 %18, %19
-  %21 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, -16711936
   %24 = and i32 %20, -16711936
@@ -1565,7 +1565,7 @@ define internal void @PredictorAdd6_C(ptr nocapture noundef readonly %0, ptr noc
   %10 = and i32 %9, 2139062143
   %11 = and i32 %7, %store_forwarded
   %12 = add i32 %10, %11
-  %13 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, -16711936
   %16 = and i32 %12, -16711936
@@ -1600,14 +1600,14 @@ define internal void @PredictorAdd7_C(ptr nocapture noundef readonly %0, ptr noc
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %24, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = xor i32 %8, %store_forwarded
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 2139062143
   %12 = and i32 %8, %store_forwarded
   %13 = add i32 %11, %12
-  %14 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, -16711936
   %17 = and i32 %13, -16711936
@@ -1639,7 +1639,7 @@ define internal void @PredictorAdd8_C(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %7, align 4
@@ -1648,7 +1648,7 @@ define internal void @PredictorAdd8_C(ptr nocapture noundef readonly %0, ptr noc
   %13 = and i32 %12, 2139062143
   %14 = and i32 %10, %9
   %15 = add i32 %13, %14
-  %16 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, -16711936
   %19 = and i32 %15, -16711936
@@ -1680,16 +1680,16 @@ define internal void @PredictorAdd9_C(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, %8
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 2139062143
   %14 = and i32 %10, %8
   %15 = add i32 %13, %14
-  %16 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, -16711936
   %19 = and i32 %15, -16711936
@@ -1724,11 +1724,11 @@ define internal void @PredictorAdd10_C(ptr nocapture noundef readonly %0, ptr no
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %38, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %7, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = xor i32 %9, %store_forwarded
   %14 = lshr i32 %13, 1
@@ -1745,7 +1745,7 @@ define internal void @PredictorAdd10_C(ptr nocapture noundef readonly %0, ptr no
   %25 = and i32 %24, 2139062143
   %26 = and i32 %22, %17
   %27 = add i32 %25, %26
-  %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, -16711936
   %31 = and i32 %27, -16711936
@@ -1780,7 +1780,7 @@ define internal void @PredictorAdd11_C(ptr nocapture noundef readonly %0, ptr no
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %63, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %7, i64 -4
   %10 = load i32, ptr %9, align 4
@@ -1827,7 +1827,7 @@ define internal void @PredictorAdd11_C(ptr nocapture noundef readonly %0, ptr no
   %50 = add nsw i32 %49, %26
   %51 = icmp slt i32 %50, 1
   %52 = select i1 %51, i32 %8, i32 %store_forwarded
-  %53 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, -16711936
   %56 = and i32 %52, -16711936
@@ -1862,7 +1862,7 @@ define internal void @PredictorAdd12_C(ptr nocapture noundef readonly %0, ptr no
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %65, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %7, i64 -4
   %10 = load i32, ptr %9, align 4
@@ -1914,7 +1914,7 @@ define internal void @PredictorAdd12_C(ptr nocapture noundef readonly %0, ptr no
   %52 = add nuw nsw i32 %49, %.0.i.i18.i.i
   %53 = add nuw nsw i32 %52, %50
   %54 = add nuw nsw i32 %53, %51
-  %55 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, -16711936
   %58 = and i32 %54, -16711936
@@ -1949,7 +1949,7 @@ define internal void @PredictorAdd13_C(ptr nocapture noundef readonly %0, ptr no
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %68, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %3, i64 %indvars.iv
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %7, i64 -4
   %10 = load i32, ptr %9, align 4
@@ -2012,7 +2012,7 @@ define internal void @PredictorAdd13_C(ptr nocapture noundef readonly %0, ptr no
   %55 = add nuw nsw i32 %52, %.0.i.i22.i.i
   %56 = add nuw nsw i32 %55, %53
   %57 = add nuw nsw i32 %56, %54
-  %58 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, -16711936
   %61 = and i32 %57, -16711936
@@ -2049,14 +2049,14 @@ define internal void @MapARGB_C(ptr nocapture noundef readonly %0, ptr nocapture
   %.015.us = phi i32 [ 0, %.preheader.us ], [ %18, %9 ]
   %.114.us = phi ptr [ %.01018.us, %.preheader.us ], [ %10, %9 ]
   %.11213.us = phi ptr [ %.01117.us, %.preheader.us ], [ %17, %9 ]
-  %10 = getelementptr inbounds i8, ptr %.114.us, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.114.us, i64 4
   %11 = load i32, ptr %.114.us, align 4
   %12 = lshr i32 %11, 8
   %13 = and i32 %12, 255
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %.11213.us, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.11213.us, i64 4
   store i32 %16, ptr %.11213.us, align 4
   %18 = add nuw nsw i32 %.015.us, 1
   %exitcond.not = icmp eq i32 %18, %5
@@ -2088,14 +2088,14 @@ define internal void @MapAlpha_C(ptr nocapture noundef readonly %0, ptr nocaptur
   %.015.us = phi i32 [ 0, %.preheader.us ], [ %18, %9 ]
   %.114.us = phi ptr [ %.01018.us, %.preheader.us ], [ %10, %9 ]
   %.11213.us = phi ptr [ %.01117.us, %.preheader.us ], [ %17, %9 ]
-  %10 = getelementptr inbounds i8, ptr %.114.us, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.114.us, i64 1
   %11 = load i8, ptr %.114.us, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 8
   %16 = trunc i32 %15 to i8
-  %17 = getelementptr inbounds i8, ptr %.11213.us, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.11213.us, i64 1
   store i8 %16, ptr %.11213.us, align 1
   %18 = add nuw nsw i32 %.015.us, 1
   %exitcond.not = icmp eq i32 %18, %5

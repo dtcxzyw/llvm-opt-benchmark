@@ -101,7 +101,7 @@ define void @dsytri_rook_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 
 58:                                               ; preds = %70, %55
   %59 = phi i64 [ 1, %55 ], [ %71, %70 ]
-  %60 = getelementptr inbounds i32, ptr %13, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %13, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %70
@@ -425,7 +425,7 @@ define void @dsytri_rook_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 261:                                              ; preds = %472, %259
   %262 = phi i32 [ %257, %259 ], [ %474, %472 ]
   %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr inbounds i32, ptr %13, i64 %263
+  %264 = getelementptr inbounds nuw i32, ptr %13, i64 %263
   %265 = load i32, ptr %264, align 4, !tbaa !3
   %266 = icmp sgt i32 %265, 0
   br i1 %266, label %267, label %287
@@ -678,7 +678,7 @@ define void @dsytri_rook_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 434:                                              ; preds = %._crit_edge48, %405
   %.pre-phi51 = phi i32 [ %.pre50, %._crit_edge48 ], [ %424, %405 ]
   %435 = zext nneg i32 %.pre-phi51 to i64
-  %436 = getelementptr inbounds i32, ptr %13, i64 %435
+  %436 = getelementptr inbounds nuw i32, ptr %13, i64 %435
   %437 = load i32, ptr %436, align 4, !tbaa !3
   %438 = sub nsw i32 0, %437
   %439 = icmp eq i32 %.pre-phi51, %438

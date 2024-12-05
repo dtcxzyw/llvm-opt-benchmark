@@ -162,7 +162,7 @@ opal_init_psm.exit:                               ; preds = %24, %27
 36:                                               ; preds = %35, %32
   store ptr @opal_finalize_domain_t_class, ptr @opal_init_domain, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @opal_init_domain, i64 8), align 8
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
   %38 = load ptr, ptr %37, align 8
   %.not1.i = icmp eq ptr %38, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -171,7 +171,7 @@ opal_init_psm.exit:                               ; preds = %24, %27
   %39 = phi ptr [ %41, %.lr.ph.i ], [ %38, %36 ]
   %.02.i = phi ptr [ %40, %.lr.ph.i ], [ %37, %36 ]
   tail call void %39(ptr noundef nonnull @opal_init_domain) #4
-  %40 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4

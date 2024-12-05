@@ -216,11 +216,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %15 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #11
   store ptr %15, ptr %3, align 8
   call void @jpeg_CreateDecompress(ptr noundef nonnull %3, i32 noundef 62, i64 noundef 632) #11
-  %16 = getelementptr inbounds i8, ptr %4, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr @cdjpeg_message_table, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i32 1000, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 164
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 164
   store i32 1048, ptr %18, align 4
   call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 254, ptr noundef nonnull @print_text_marker) #11
   call void @jpeg_set_marker_processor(ptr noundef nonnull %3, i32 noundef 236, ptr noundef nonnull @print_text_marker) #11
@@ -229,7 +229,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %.b, label %20, label %22
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @my_emit_message, ptr %21, align 8
   br label %22
 
@@ -304,10 +304,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   call void @start_progress_monitor(ptr noundef nonnull %3, ptr noundef nonnull %5) #11
   %.b147 = load i1, ptr @report, align 4
   %60 = zext i1 %.b147 to i32
-  %61 = getelementptr inbounds i8, ptr %5, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %60, ptr %61, align 4
   %62 = load i32, ptr @max_scans, align 4
-  %63 = getelementptr inbounds i8, ptr %5, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %62, ptr %63, align 8
   br label %64
 
@@ -400,7 +400,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br label %130
 
 104:                                              ; preds = %96
-  %105 = getelementptr inbounds i8, ptr %3, i64 296
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %106 = load i32, ptr %105, align 8
   switch i32 %106, label %115 [
     i32 16, label %107
@@ -409,10 +409,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   store i32 15, ptr %109, align 8
   %110 = load i32, ptr %105, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 44
   store i32 %110, ptr %111, align 4
   %112 = load ptr, ptr %108, align 8
   call void %112(ptr noundef nonnull %3) #11
@@ -431,7 +431,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br label %130
 
 119:                                              ; preds = %96
-  %120 = getelementptr inbounds i8, ptr %3, i64 296
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %121 = load i32, ptr %120, align 8
   switch i32 %121, label %126 [
     i32 16, label %122
@@ -459,7 +459,7 @@ default.unreachable:                              ; preds = %96
 
 130:                                              ; preds = %122, %126, %124, %107, %115, %113, %128, %117, %102, %100
   %.0 = phi ptr [ %129, %128 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %118, %117 ], [ null, %107 ], [ %114, %113 ], [ %116, %115 ], [ %103, %102 ], [ %101, %100 ]
-  %131 = getelementptr inbounds i8, ptr %.0, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %.0112, ptr %131, align 8
   %132 = call i32 @jpeg_start_decompress(ptr noundef nonnull %3) #11
   %.b151 = load i1, ptr @skip, align 4
@@ -467,7 +467,7 @@ default.unreachable:                              ; preds = %96
 
 133:                                              ; preds = %130
   %134 = load i32, ptr @skip_end, align 4
-  %135 = getelementptr inbounds i8, ptr %3, i64 140
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %136 = load i32, ptr %135, align 4
   %137 = add i32 %136, -1
   %138 = icmp ugt i32 %134, %137
@@ -489,7 +489,7 @@ default.unreachable:                              ; preds = %96
   %147 = load ptr, ptr %.0, align 8
   call void %147(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
   store i32 %136, ptr %135, align 4
-  %148 = getelementptr inbounds i8, ptr %3, i64 296
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %149 = load i32, ptr %148, align 8
   switch i32 %149, label %.preheader175 [
     i32 16, label %.loopexit.sink.split
@@ -497,29 +497,29 @@ default.unreachable:                              ; preds = %96
   ]
 
 .preheader178:                                    ; preds = %143
-  %150 = getelementptr inbounds i8, ptr %3, i64 168
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %151 = load i32, ptr %150, align 8
   %152 = load i32, ptr @skip_start, align 4
   %153 = icmp ult i32 %151, %152
   br i1 %153, label %.lr.ph208, label %._crit_edge209
 
 .lr.ph208:                                        ; preds = %.preheader178
-  %154 = getelementptr inbounds i8, ptr %.0, i64 48
-  %155 = getelementptr inbounds i8, ptr %.0, i64 64
-  %156 = getelementptr inbounds i8, ptr %.0, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %156 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %164
 
 .preheader175:                                    ; preds = %143
-  %157 = getelementptr inbounds i8, ptr %3, i64 168
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %158 = load i32, ptr %157, align 8
   %159 = load i32, ptr @skip_start, align 4
   %160 = icmp ult i32 %158, %159
   br i1 %160, label %.lr.ph212, label %._crit_edge213
 
 .lr.ph212:                                        ; preds = %.preheader175
-  %161 = getelementptr inbounds i8, ptr %.0, i64 40
-  %162 = getelementptr inbounds i8, ptr %.0, i64 64
-  %163 = getelementptr inbounds i8, ptr %.0, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %163 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %197
 
 164:                                              ; preds = %.lr.ph208, %164
@@ -553,9 +553,9 @@ default.unreachable:                              ; preds = %96
   br i1 %181, label %.lr.ph211, label %.loopexit
 
 .lr.ph211:                                        ; preds = %.preheader176
-  %182 = getelementptr inbounds i8, ptr %.0, i64 48
-  %183 = getelementptr inbounds i8, ptr %.0, i64 64
-  %184 = getelementptr inbounds i8, ptr %.0, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %183 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %184 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %189
 
 185:                                              ; preds = %._crit_edge209
@@ -607,9 +607,9 @@ default.unreachable:                              ; preds = %96
   br i1 %214, label %.lr.ph215, label %.loopexit
 
 .lr.ph215:                                        ; preds = %.preheader
-  %215 = getelementptr inbounds i8, ptr %.0, i64 40
-  %216 = getelementptr inbounds i8, ptr %.0, i64 64
-  %217 = getelementptr inbounds i8, ptr %.0, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %216 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %222
 
 218:                                              ; preds = %._crit_edge213
@@ -638,13 +638,13 @@ default.unreachable:                              ; preds = %96
   %232 = load i32, ptr @crop_x, align 4
   %233 = load i32, ptr @crop_width, align 4
   %234 = add i32 %233, %232
-  %235 = getelementptr inbounds i8, ptr %3, i64 136
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %236 = load i32, ptr %235, align 8
   %237 = icmp ugt i32 %234, %236
   br i1 %237, label %._crit_edge233, label %238
 
 ._crit_edge233:                                   ; preds = %231
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 140
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 140
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %245
 
@@ -652,7 +652,7 @@ default.unreachable:                              ; preds = %96
   %239 = load i32, ptr @crop_y, align 4
   %240 = load i32, ptr @crop_height, align 4
   %241 = add i32 %240, %239
-  %242 = getelementptr inbounds i8, ptr %3, i64 140
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %243 = load i32, ptr %242, align 4
   %244 = icmp ugt i32 %241, %243
   br i1 %244, label %245, label %250
@@ -666,7 +666,7 @@ default.unreachable:                              ; preds = %96
   unreachable
 
 250:                                              ; preds = %238
-  %251 = getelementptr inbounds i8, ptr %3, i64 296
+  %251 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %252 = load i32, ptr %251, align 8
   switch i32 %252, label %258 [
     i32 16, label %253
@@ -675,7 +675,7 @@ default.unreachable:                              ; preds = %96
 
 253:                                              ; preds = %250
   %254 = load ptr, ptr %3, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 40
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 40
   store i32 47, ptr %255, align 8
   %256 = load ptr, ptr %254, align 8
   call void %256(ptr noundef nonnull %3) #11
@@ -690,7 +690,7 @@ default.unreachable:                              ; preds = %96
   br label %259
 
 259:                                              ; preds = %257, %258, %253
-  %260 = getelementptr inbounds i8, ptr %.0, i64 24
+  %260 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %261 = load ptr, ptr %260, align 8
   %.not154 = icmp eq ptr %261, null
   br i1 %.not154, label %263, label %262
@@ -701,7 +701,7 @@ default.unreachable:                              ; preds = %96
 
 263:                                              ; preds = %259
   %264 = load ptr, ptr %3, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 40
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 40
   store i32 1047, ptr %265, align 8
   %266 = load ptr, ptr %264, align 8
   call void %266(ptr noundef nonnull %3) #11
@@ -728,7 +728,7 @@ default.unreachable:                              ; preds = %96
   br i1 %.not157, label %.preheader180, label %284
 
 .preheader180:                                    ; preds = %272
-  %276 = getelementptr inbounds i8, ptr %3, i64 168
+  %276 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %277 = load i32, ptr %276, align 8
   %278 = load i32, ptr @crop_height, align 4
   %279 = add i32 %278, %274
@@ -736,9 +736,9 @@ default.unreachable:                              ; preds = %96
   br i1 %280, label %.lr.ph204, label %._crit_edge
 
 .lr.ph204:                                        ; preds = %.preheader180
-  %281 = getelementptr inbounds i8, ptr %.0, i64 48
-  %282 = getelementptr inbounds i8, ptr %.0, i64 64
-  %283 = getelementptr inbounds i8, ptr %.0, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %282 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %283 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %288
 
 284:                                              ; preds = %272
@@ -789,7 +789,7 @@ default.unreachable:                              ; preds = %96
   br i1 %.not155, label %.preheader179, label %322
 
 .preheader179:                                    ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %3, i64 168
+  %314 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %315 = load i32, ptr %314, align 8
   %316 = load i32, ptr @crop_height, align 4
   %317 = add i32 %316, %312
@@ -797,9 +797,9 @@ default.unreachable:                              ; preds = %96
   br i1 %318, label %.lr.ph205, label %._crit_edge206
 
 .lr.ph205:                                        ; preds = %.preheader179
-  %319 = getelementptr inbounds i8, ptr %.0, i64 40
-  %320 = getelementptr inbounds i8, ptr %.0, i64 64
-  %321 = getelementptr inbounds i8, ptr %.0, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %320 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %321 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %326
 
 322:                                              ; preds = %310
@@ -845,10 +845,10 @@ default.unreachable:                              ; preds = %96
 348:                                              ; preds = %230
   %349 = load ptr, ptr %.0, align 8
   call void %349(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
-  %350 = getelementptr inbounds i8, ptr %3, i64 296
+  %350 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %351 = load i32, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %3, i64 168
-  %353 = getelementptr inbounds i8, ptr %3, i64 140
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %354 = load i32, ptr %352, align 8
   %355 = load i32, ptr %353, align 4
   %356 = icmp ult i32 %354, %355
@@ -861,27 +861,27 @@ default.unreachable:                              ; preds = %96
   br i1 %356, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader185
-  %357 = getelementptr inbounds i8, ptr %.0, i64 48
-  %358 = getelementptr inbounds i8, ptr %.0, i64 64
-  %359 = getelementptr inbounds i8, ptr %.0, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %358 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %359 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %374
 
 .preheader183:                                    ; preds = %348
   br i1 %356, label %.lr.ph202, label %.loopexit
 
 .lr.ph202:                                        ; preds = %.preheader183
-  %360 = getelementptr inbounds i8, ptr %.0, i64 56
-  %361 = getelementptr inbounds i8, ptr %.0, i64 64
-  %362 = getelementptr inbounds i8, ptr %.0, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  %361 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %362 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %366
 
 .preheader181:                                    ; preds = %348
   br i1 %356, label %.lr.ph203, label %.loopexit
 
 .lr.ph203:                                        ; preds = %.preheader181
-  %363 = getelementptr inbounds i8, ptr %.0, i64 40
-  %364 = getelementptr inbounds i8, ptr %.0, i64 64
-  %365 = getelementptr inbounds i8, ptr %.0, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %364 = getelementptr inbounds nuw i8, ptr %.0, i64 64
+  %365 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %382
 
 366:                                              ; preds = %.lr.ph202, %366
@@ -919,7 +919,7 @@ default.unreachable:                              ; preds = %96
 
 .loopexit.sink.split:                             ; preds = %267, %143
   %390 = load ptr, ptr %3, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 40
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 40
   store i32 47, ptr %391, align 8
   %392 = load ptr, ptr %390, align 8
   call void %392(ptr noundef nonnull %3) #11
@@ -933,9 +933,9 @@ default.unreachable:                              ; preds = %96
   br i1 %or.cond3, label %395, label %399
 
 395:                                              ; preds = %.loopexit
-  %396 = getelementptr inbounds i8, ptr %5, i64 28
+  %396 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %397 = load i32, ptr %396, align 4
-  %398 = getelementptr inbounds i8, ptr %5, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %397, ptr %398, align 8
   br label %399
 
@@ -989,7 +989,7 @@ default.unreachable:                              ; preds = %96
 
 427:                                              ; preds = %409
   %428 = load ptr, ptr %3, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 40
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 40
   %430 = load i32, ptr %429, align 8
   %.not163 = icmp eq i32 %430, 127
   br i1 %.not163, label %435, label %431
@@ -1001,7 +1001,7 @@ default.unreachable:                              ; preds = %96
   br label %435
 
 435:                                              ; preds = %424, %431, %427, %399
-  %436 = getelementptr inbounds i8, ptr %.0, i64 16
+  %436 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %437 = load ptr, ptr %436, align 8
   call void %437(ptr noundef nonnull %3, ptr noundef nonnull %.0) #11
   %438 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %3) #11
@@ -1043,7 +1043,7 @@ default.unreachable:                              ; preds = %96
   br label %452
 
 452:                                              ; preds = %451, %450
-  %453 = getelementptr inbounds i8, ptr %4, i64 128
+  %453 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %454 = load i64, ptr %453, align 8
   %.not166 = icmp eq i64 %454, 0
   %455 = select i1 %.not166, i32 0, i32 2
@@ -1060,18 +1060,18 @@ declare void @jpeg_set_marker_processor(ptr noundef, i32 noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @print_text_marker(ptr noundef %0) #2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %jpeg_getc.exit
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0) #11
   %.not.i = icmp eq i32 %14, 0
@@ -1079,7 +1079,7 @@ define internal noundef i32 @print_text_marker(ptr noundef %0) #2 {
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 24, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
@@ -1091,19 +1091,19 @@ jpeg_getc.exit:                                   ; preds = %1, %11, %15
   %21 = add i64 %20, -1
   store i64 %21, ptr %8, align 8
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %7, align 8
   %24 = load i8, ptr %22, align 1
   %25 = zext i8 %24 to i64
   %26 = shl nuw nsw i64 %25, 8
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %jpeg_getc.exit29
 
 31:                                               ; preds = %jpeg_getc.exit
-  %32 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0) #11
   %.not.i28 = icmp eq i32 %34, 0
@@ -1111,7 +1111,7 @@ jpeg_getc.exit:                                   ; preds = %1, %11, %15
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 24, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = load ptr, ptr %38, align 8
@@ -1123,7 +1123,7 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
   %41 = add i64 %40, -1
   store i64 %41, ptr %28, align 8
   %42 = load ptr, ptr %27, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %43, ptr %27, align 8
   %44 = load i8, ptr %42, align 1
   %45 = zext i8 %44 to i64
@@ -1132,7 +1132,7 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
   br i1 %5, label %48, label %.thread
 
 48:                                               ; preds = %jpeg_getc.exit29
-  %49 = getelementptr inbounds i8, ptr %0, i64 540
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 254
   %52 = load ptr, ptr @stderr, align 8
@@ -1167,13 +1167,13 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
   %63 = phi i64 [ %104, %103 ], [ %61, %.lr.ph ]
   %.032.us = phi i32 [ %82, %103 ], [ 0, %.lr.ph ]
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %68, label %jpeg_getc.exit31.us
 
 68:                                               ; preds = %.lr.ph.split.us
-  %69 = getelementptr inbounds i8, ptr %64, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %70(ptr noundef nonnull %0) #11
   %.not.i30.us = icmp eq i32 %71, 0
@@ -1181,7 +1181,7 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %31
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i32 24, ptr %74, align 8
   %75 = load ptr, ptr %0, align 8
   %76 = load ptr, ptr %75, align 8
@@ -1193,7 +1193,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
   %78 = add i64 %77, -1
   store i64 %78, ptr %65, align 8
   %79 = load ptr, ptr %64, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
   store ptr %80, ptr %64, align 8
   %81 = load i8, ptr %79, align 1
   %82 = zext i8 %81 to i32
@@ -1226,7 +1226,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
   %92 = tail call ptr @__ctype_b_loc() #17
   %93 = load ptr, ptr %92, align 8
   %94 = zext i8 %81 to i64
-  %95 = getelementptr inbounds i16, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw i16, ptr %93, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = and i16 %96, 16384
   %.not.us = icmp eq i16 %97, 0
@@ -1249,13 +1249,13 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %jpeg_getc.exit31
   %106 = phi i64 [ %124, %jpeg_getc.exit31 ], [ %62, %.lr.ph.split.preheader ]
   %107 = load ptr, ptr %6, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %111, label %jpeg_getc.exit31
 
 111:                                              ; preds = %.lr.ph.split
-  %112 = getelementptr inbounds i8, ptr %107, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 %113(ptr noundef nonnull %0) #11
   %.not.i30 = icmp eq i32 %114, 0
@@ -1263,7 +1263,7 @@ jpeg_getc.exit31.us:                              ; preds = %72, %68, %.lr.ph.sp
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store i32 24, ptr %117, align 8
   %118 = load ptr, ptr %0, align 8
   %119 = load ptr, ptr %118, align 8
@@ -1275,7 +1275,7 @@ jpeg_getc.exit31:                                 ; preds = %.lr.ph.split, %111,
   %121 = add i64 %120, -1
   store i64 %121, ptr %108, align 8
   %122 = load ptr, ptr %107, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   store ptr %123, ptr %107, align 8
   %124 = add nsw i64 %106, -1
   %125 = icmp sgt i64 %106, 0
@@ -1309,24 +1309,24 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   store i1 false, ptr @crop, align 4
   store i1 false, ptr @strict, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 124
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 124
   store i32 0, ptr %10, align 4
   %11 = icmp sgt i32 %1, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
-  %13 = getelementptr inbounds i8, ptr %0, i64 108
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
-  %16 = getelementptr inbounds i8, ptr %0, i64 116
-  %17 = getelementptr inbounds i8, ptr %0, i64 100
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.not186 = icmp eq i32 %3, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 296
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 68
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %23
 
 23:                                               ; preds = %.lr.ph, %290
@@ -1347,7 +1347,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br label %290
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %33 = call i32 @keymatch(ptr noundef nonnull %32, ptr noundef nonnull @.str.67, i32 noundef 1) #11
   %.not141 = icmp eq i32 %33, 0
   br i1 %.not141, label %35, label %34
@@ -1531,7 +1531,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 
 108:                                              ; preds = %99, %98
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 124
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 124
   %111 = load i32, ptr %110, align 4
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %110, align 4
@@ -1736,7 +1736,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %193 = phi i64 [ %.pre, %187 ], [ %191, %190 ]
   %194 = mul nsw i64 %193, 1000
   %195 = load ptr, ptr %20, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 88
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 88
   store i64 %194, ptr %196, align 8
   br label %290
 
@@ -1990,13 +1990,13 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #2 {
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 124
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 124
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %7, %1
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %8

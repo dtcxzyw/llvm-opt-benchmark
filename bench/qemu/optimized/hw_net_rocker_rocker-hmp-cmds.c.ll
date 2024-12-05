@@ -90,10 +90,10 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %call1, align 8
   %call4 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.1, ptr noundef %1) #4
-  %id = getelementptr inbounds i8, ptr %call1, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %2 = load i64, ptr %id, align 8
   %call5 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, i64 noundef %2) #4
-  %ports = getelementptr inbounds i8, ptr %call1, i64 16
+  %ports = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %3 = load i32, ptr %ports, align 8
   %call6 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, i32 noundef %3) #4
   call void @qapi_free_RockerSwitch(ptr noundef nonnull %call1) #4
@@ -132,16 +132,16 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %cond.end
   %port.013 = phi ptr [ %8, %cond.end ], [ %call1, %if.end ]
-  %value = getelementptr inbounds i8, ptr %port.013, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %port.013, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
-  %enabled = getelementptr inbounds i8, ptr %1, i64 8
+  %enabled = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i8, ptr %enabled, align 8
   %tobool7 = trunc i8 %3 to i1
   br i1 %tobool7, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
-  %link_up = getelementptr inbounds i8, ptr %1, i64 9
+  %link_up = getelementptr inbounds nuw i8, ptr %1, i64 9
   %4 = load i8, ptr %link_up, align 1
   %tobool9 = trunc i8 %4 to i1
   %cond = select i1 %tobool9, ptr @.str.7, ptr @.str.8
@@ -149,15 +149,15 @@ cond.true:                                        ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond10 = phi ptr [ %cond, %cond.true ], [ @.str.9, %for.body ]
-  %speed = getelementptr inbounds i8, ptr %1, i64 12
+  %speed = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %speed, align 4
   %cmp = icmp eq i32 %5, 10000
   %cond12 = select i1 %cmp, ptr @.str.10, ptr @.str.11
-  %duplex = getelementptr inbounds i8, ptr %1, i64 16
+  %duplex = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %duplex, align 8
   %tobool14.not = icmp eq i32 %6, 0
   %cond15 = select i1 %tobool14.not, ptr @.str.13, ptr @.str.12
-  %autoneg = getelementptr inbounds i8, ptr %1, i64 20
+  %autoneg = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %autoneg, align 4
   %tobool17.not = icmp eq i32 %7, 0
   %cond18 = select i1 %tobool17.not, ptr @.str.15, ptr @.str.14
@@ -199,19 +199,19 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %if.end206
   %info.0108 = phi ptr [ %49, %if.end206 ], [ %call3, %if.end ]
-  %value = getelementptr inbounds i8, ptr %info.0108, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %info.0108, i64 8
   %1 = load ptr, ptr %value, align 8
-  %key6 = getelementptr inbounds i8, ptr %1, i64 16
+  %key6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %key6, align 8
-  %mask7 = getelementptr inbounds i8, ptr %1, i64 24
+  %mask7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load ptr, ptr %mask7, align 8
-  %action8 = getelementptr inbounds i8, ptr %1, i64 32
+  %action8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %action8, align 8
-  %hits = getelementptr inbounds i8, ptr %1, i64 8
+  %hits = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %hits, align 8
   %tobool9.not = icmp eq i64 %5, 0
   %6 = load i32, ptr %2, align 8
-  %tbl_id15 = getelementptr inbounds i8, ptr %2, i64 4
+  %tbl_id15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %tbl_id15, align 4
   br i1 %tobool9.not, label %if.else, label %if.then10
 
@@ -224,13 +224,13 @@ if.else:                                          ; preds = %for.body
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else, %if.then10
-  %has_in_pport = getelementptr inbounds i8, ptr %2, i64 8
+  %has_in_pport = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i8, ptr %has_in_pport, align 8
   %tobool18 = trunc i8 %8 to i1
   br i1 %tobool18, label %if.then19, label %if.end27
 
 if.then19:                                        ; preds = %if.end17
-  %in_pport = getelementptr inbounds i8, ptr %2, i64 12
+  %in_pport = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %in_pport, align 4
   %call20 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.20, i32 noundef %9) #4
   %10 = load i8, ptr %3, align 8
@@ -238,64 +238,64 @@ if.then19:                                        ; preds = %if.end17
   br i1 %tobool22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.then19
-  %in_pport24 = getelementptr inbounds i8, ptr %3, i64 4
+  %in_pport24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %in_pport24, align 4
   %call25 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i32 noundef %11) #4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then19, %if.then23, %if.end17
-  %has_vlan_id = getelementptr inbounds i8, ptr %2, i64 24
+  %has_vlan_id = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i8, ptr %has_vlan_id, align 8
   %tobool28 = trunc i8 %12 to i1
   br i1 %tobool28, label %if.then29, label %if.end39
 
 if.then29:                                        ; preds = %if.end27
-  %vlan_id = getelementptr inbounds i8, ptr %2, i64 26
+  %vlan_id = getelementptr inbounds nuw i8, ptr %2, i64 26
   %13 = load i16, ptr %vlan_id, align 2
   %14 = and i16 %13, 4095
   %and = zext nneg i16 %14 to i32
   %call31 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22, i32 noundef %and) #4
-  %has_vlan_id32 = getelementptr inbounds i8, ptr %3, i64 16
+  %has_vlan_id32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i8, ptr %has_vlan_id32, align 8
   %tobool33 = trunc i8 %15 to i1
   br i1 %tobool33, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.then29
-  %vlan_id35 = getelementptr inbounds i8, ptr %3, i64 18
+  %vlan_id35 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %16 = load i16, ptr %vlan_id35, align 2
   %conv36 = zext i16 %16 to i32
   %call37 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i32 noundef %conv36) #4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then29, %if.then34, %if.end27
-  %has_tunnel_id = getelementptr inbounds i8, ptr %2, i64 16
+  %has_tunnel_id = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i8, ptr %has_tunnel_id, align 8
   %tobool40 = trunc i8 %17 to i1
   br i1 %tobool40, label %if.then41, label %if.end49
 
 if.then41:                                        ; preds = %if.end39
-  %tunnel_id = getelementptr inbounds i8, ptr %2, i64 20
+  %tunnel_id = getelementptr inbounds nuw i8, ptr %2, i64 20
   %18 = load i32, ptr %tunnel_id, align 4
   %call42 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.23, i32 noundef %18) #4
-  %has_tunnel_id43 = getelementptr inbounds i8, ptr %3, i64 8
+  %has_tunnel_id43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i8, ptr %has_tunnel_id43, align 8
   %tobool44 = trunc i8 %19 to i1
   br i1 %tobool44, label %if.then45, label %if.end49
 
 if.then45:                                        ; preds = %if.then41
-  %tunnel_id46 = getelementptr inbounds i8, ptr %3, i64 12
+  %tunnel_id46 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %20 = load i32, ptr %tunnel_id46, align 4
   %call47 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i32 noundef %20) #4
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then41, %if.then45, %if.end39
-  %has_eth_type = getelementptr inbounds i8, ptr %2, i64 28
+  %has_eth_type = getelementptr inbounds nuw i8, ptr %2, i64 28
   %21 = load i8, ptr %has_eth_type, align 4
   %tobool50 = trunc i8 %21 to i1
   br i1 %tobool50, label %if.then51, label %if.end65
 
 if.then51:                                        ; preds = %if.end49
-  %eth_type = getelementptr inbounds i8, ptr %2, i64 30
+  %eth_type = getelementptr inbounds nuw i8, ptr %2, i64 30
   %22 = load i16, ptr %eth_type, align 2
   switch i16 %22, label %sw.default [
     i16 2054, label %sw.bb
@@ -331,7 +331,7 @@ sw.default:                                       ; preds = %if.then51
   br label %if.end65
 
 if.end65:                                         ; preds = %sw.bb, %sw.bb54, %sw.bb56, %sw.bb58, %sw.bb60, %sw.default, %if.end49
-  %eth_src = getelementptr inbounds i8, ptr %2, i64 32
+  %eth_src = getelementptr inbounds nuw i8, ptr %2, i64 32
   %23 = load ptr, ptr %eth_src, align 8
   %tobool66.not = icmp eq ptr %23, null
   br i1 %tobool66.not, label %if.end107, label %if.then67
@@ -342,7 +342,7 @@ if.then67:                                        ; preds = %if.end65
   br i1 %cmp70, label %land.lhs.true, label %if.else81
 
 land.lhs.true:                                    ; preds = %if.then67
-  %eth_src72 = getelementptr inbounds i8, ptr %3, i64 24
+  %eth_src72 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %eth_src72, align 8
   %tobool73.not = icmp eq ptr %24, null
   br i1 %tobool73.not, label %if.else81, label %land.lhs.true74
@@ -362,7 +362,7 @@ if.else81:                                        ; preds = %land.lhs.true74, %l
   br i1 %cmp84, label %land.lhs.true86, label %if.else96
 
 land.lhs.true86:                                  ; preds = %if.else81
-  %eth_src87 = getelementptr inbounds i8, ptr %3, i64 24
+  %eth_src87 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %eth_src87, align 8
   %tobool88.not = icmp eq ptr %25, null
   br i1 %tobool88.not, label %if.else96, label %land.lhs.true89
@@ -378,7 +378,7 @@ if.then94:                                        ; preds = %land.lhs.true89
 
 if.else96:                                        ; preds = %land.lhs.true89, %land.lhs.true86, %if.else81
   %call98 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, ptr noundef nonnull %23) #4
-  %eth_src99 = getelementptr inbounds i8, ptr %3, i64 24
+  %eth_src99 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %eth_src99, align 8
   %tobool100.not = icmp eq ptr %26, null
   br i1 %tobool100.not, label %if.end107, label %if.then101
@@ -388,7 +388,7 @@ if.then101:                                       ; preds = %if.else96
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then79, %if.else96, %if.then101, %if.then94, %if.end65
-  %eth_dst = getelementptr inbounds i8, ptr %2, i64 40
+  %eth_dst = getelementptr inbounds nuw i8, ptr %2, i64 40
   %27 = load ptr, ptr %eth_dst, align 8
   %tobool108.not = icmp eq ptr %27, null
   br i1 %tobool108.not, label %if.end150, label %if.then109
@@ -399,7 +399,7 @@ if.then109:                                       ; preds = %if.end107
   br i1 %cmp112, label %land.lhs.true114, label %if.else124
 
 land.lhs.true114:                                 ; preds = %if.then109
-  %eth_dst115 = getelementptr inbounds i8, ptr %3, i64 32
+  %eth_dst115 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %eth_dst115, align 8
   %tobool116.not = icmp eq ptr %28, null
   br i1 %tobool116.not, label %if.else124, label %land.lhs.true117
@@ -419,7 +419,7 @@ if.else124:                                       ; preds = %land.lhs.true117, %
   br i1 %cmp127, label %land.lhs.true129, label %if.else139
 
 land.lhs.true129:                                 ; preds = %if.else124
-  %eth_dst130 = getelementptr inbounds i8, ptr %3, i64 32
+  %eth_dst130 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %29 = load ptr, ptr %eth_dst130, align 8
   %tobool131.not = icmp eq ptr %29, null
   br i1 %tobool131.not, label %if.else139, label %land.lhs.true132
@@ -435,7 +435,7 @@ if.then137:                                       ; preds = %land.lhs.true132
 
 if.else139:                                       ; preds = %land.lhs.true132, %land.lhs.true129, %if.else124
   %call141 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef nonnull %27) #4
-  %eth_dst142 = getelementptr inbounds i8, ptr %3, i64 32
+  %eth_dst142 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %30 = load ptr, ptr %eth_dst142, align 8
   %tobool143.not = icmp eq ptr %30, null
   br i1 %tobool143.not, label %if.end150, label %if.then144
@@ -445,53 +445,53 @@ if.then144:                                       ; preds = %if.else139
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then122, %if.else139, %if.then144, %if.then137, %if.end107
-  %has_ip_proto = getelementptr inbounds i8, ptr %2, i64 48
+  %has_ip_proto = getelementptr inbounds nuw i8, ptr %2, i64 48
   %31 = load i8, ptr %has_ip_proto, align 8
   %tobool151 = trunc i8 %31 to i1
   br i1 %tobool151, label %if.then152, label %if.end162
 
 if.then152:                                       ; preds = %if.end150
-  %ip_proto = getelementptr inbounds i8, ptr %2, i64 49
+  %ip_proto = getelementptr inbounds nuw i8, ptr %2, i64 49
   %32 = load i8, ptr %ip_proto, align 1
   %conv153 = zext i8 %32 to i32
   %call154 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.39, i32 noundef %conv153) #4
-  %has_ip_proto155 = getelementptr inbounds i8, ptr %3, i64 40
+  %has_ip_proto155 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %33 = load i8, ptr %has_ip_proto155, align 8
   %tobool156 = trunc i8 %33 to i1
   br i1 %tobool156, label %if.then157, label %if.end162
 
 if.then157:                                       ; preds = %if.then152
-  %ip_proto158 = getelementptr inbounds i8, ptr %3, i64 41
+  %ip_proto158 = getelementptr inbounds nuw i8, ptr %3, i64 41
   %34 = load i8, ptr %ip_proto158, align 1
   %conv159 = zext i8 %34 to i32
   %call160 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i32 noundef %conv159) #4
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then152, %if.then157, %if.end150
-  %has_ip_tos = getelementptr inbounds i8, ptr %2, i64 50
+  %has_ip_tos = getelementptr inbounds nuw i8, ptr %2, i64 50
   %35 = load i8, ptr %has_ip_tos, align 2
   %tobool163 = trunc i8 %35 to i1
   br i1 %tobool163, label %if.then164, label %if.end174
 
 if.then164:                                       ; preds = %if.end162
-  %ip_tos = getelementptr inbounds i8, ptr %2, i64 51
+  %ip_tos = getelementptr inbounds nuw i8, ptr %2, i64 51
   %36 = load i8, ptr %ip_tos, align 1
   %conv165 = zext i8 %36 to i32
   %call166 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.40, i32 noundef %conv165) #4
-  %has_ip_tos167 = getelementptr inbounds i8, ptr %3, i64 42
+  %has_ip_tos167 = getelementptr inbounds nuw i8, ptr %3, i64 42
   %37 = load i8, ptr %has_ip_tos167, align 2
   %tobool168 = trunc i8 %37 to i1
   br i1 %tobool168, label %if.then169, label %if.end174
 
 if.then169:                                       ; preds = %if.then164
-  %ip_tos170 = getelementptr inbounds i8, ptr %3, i64 43
+  %ip_tos170 = getelementptr inbounds nuw i8, ptr %3, i64 43
   %38 = load i8, ptr %ip_tos170, align 1
   %conv171 = zext i8 %38 to i32
   %call172 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, i32 noundef %conv171) #4
   br label %if.end174
 
 if.end174:                                        ; preds = %if.then164, %if.then169, %if.end162
-  %ip_dst = getelementptr inbounds i8, ptr %2, i64 56
+  %ip_dst = getelementptr inbounds nuw i8, ptr %2, i64 56
   %39 = load ptr, ptr %ip_dst, align 8
   %tobool175.not = icmp eq ptr %39, null
   br i1 %tobool175.not, label %if.end179, label %if.then176
@@ -506,20 +506,20 @@ if.end179:                                        ; preds = %if.then176, %if.end
   br i1 %tobool180, label %if.then187, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end179
-  %has_group_id = getelementptr inbounds i8, ptr %4, i64 8
+  %has_group_id = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load i8, ptr %has_group_id, align 4
   %tobool182 = trunc i8 %41 to i1
   br i1 %tobool182, label %if.then187, label %lor.lhs.false184
 
 lor.lhs.false184:                                 ; preds = %lor.lhs.false
-  %has_new_vlan_id = getelementptr inbounds i8, ptr %4, i64 28
+  %has_new_vlan_id = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i8, ptr %has_new_vlan_id, align 4
   %tobool185 = trunc i8 %42 to i1
   br i1 %tobool185, label %if.then187, label %if.end189
 
 if.then187:                                       ; preds = %lor.lhs.false184, %lor.lhs.false, %if.end179
   %call188 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.41) #4
-  %has_new_vlan_id190.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 28
+  %has_new_vlan_id190.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 28
   %.pre = load i8, ptr %has_new_vlan_id190.phi.trans.insert, align 4
   br label %if.end189
 
@@ -529,7 +529,7 @@ if.end189:                                        ; preds = %if.then187, %lor.lh
   br i1 %tobool191, label %if.then192, label %if.end196
 
 if.then192:                                       ; preds = %if.end189
-  %new_vlan_id = getelementptr inbounds i8, ptr %4, i64 30
+  %new_vlan_id = getelementptr inbounds nuw i8, ptr %4, i64 30
   %44 = load i16, ptr %new_vlan_id, align 2
   %call193 = call zeroext i16 @ntohs(i16 noundef zeroext %44) #6
   %conv194 = zext i16 %call193 to i32
@@ -537,13 +537,13 @@ if.then192:                                       ; preds = %if.end189
   br label %if.end196
 
 if.end196:                                        ; preds = %if.then192, %if.end189
-  %has_group_id197 = getelementptr inbounds i8, ptr %4, i64 8
+  %has_group_id197 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %45 = load i8, ptr %has_group_id197, align 4
   %tobool198 = trunc i8 %45 to i1
   br i1 %tobool198, label %if.then199, label %if.end201
 
 if.then199:                                       ; preds = %if.end196
-  %group_id = getelementptr inbounds i8, ptr %4, i64 12
+  %group_id = getelementptr inbounds nuw i8, ptr %4, i64 12
   %46 = load i32, ptr %group_id, align 4
   %call200 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.43, i32 noundef %46) #4
   br label %if.end201
@@ -554,7 +554,7 @@ if.end201:                                        ; preds = %if.then199, %if.end
   br i1 %tobool203, label %if.then204, label %if.end206
 
 if.then204:                                       ; preds = %if.end201
-  %goto_tbl = getelementptr inbounds i8, ptr %4, i64 4
+  %goto_tbl = getelementptr inbounds nuw i8, ptr %4, i64 4
   %48 = load i32, ptr %goto_tbl, align 4
   %call205 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, i32 noundef %48) #4
   br label %if.end206
@@ -607,11 +607,11 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %if.end158
   %g.075 = phi ptr [ %30, %if.end158 ], [ %call4, %if.end ]
-  %value = getelementptr inbounds i8, ptr %g.075, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %g.075, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load i32, ptr %1, align 8
   %call7 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.48, i32 noundef %2) #4
-  %type8 = getelementptr inbounds i8, ptr %1, i64 4
+  %type8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i8, ptr %type8, align 4
   %4 = icmp ult i8 %3, 8
   br i1 %4, label %switch.lookup, label %cond.false53
@@ -623,58 +623,58 @@ cond.false53:                                     ; preds = %for.body
 
 switch.lookup:                                    ; preds = %for.body
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.hmp_rocker_of_dpa_groups, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.hmp_rocker_of_dpa_groups, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %cond.end71
 
 cond.end71:                                       ; preds = %switch.lookup, %cond.false53
   %cond72 = phi ptr [ %cond, %cond.false53 ], [ %switch.load, %switch.lookup ]
   %call73 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.49, ptr noundef nonnull %cond72) #4
-  %has_vlan_id = getelementptr inbounds i8, ptr %1, i64 5
+  %has_vlan_id = getelementptr inbounds nuw i8, ptr %1, i64 5
   %6 = load i8, ptr %has_vlan_id, align 1
   %tobool74 = trunc i8 %6 to i1
   br i1 %tobool74, label %if.then75, label %if.end78
 
 if.then75:                                        ; preds = %cond.end71
-  %vlan_id = getelementptr inbounds i8, ptr %1, i64 6
+  %vlan_id = getelementptr inbounds nuw i8, ptr %1, i64 6
   %7 = load i16, ptr %vlan_id, align 2
   %conv76 = zext i16 %7 to i32
   %call77 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22, i32 noundef %conv76) #4
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then75, %cond.end71
-  %has_pport = getelementptr inbounds i8, ptr %1, i64 8
+  %has_pport = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i8, ptr %has_pport, align 8
   %tobool79 = trunc i8 %8 to i1
   br i1 %tobool79, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %if.end78
-  %pport = getelementptr inbounds i8, ptr %1, i64 12
+  %pport = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %pport, align 4
   %call81 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.20, i32 noundef %9) #4
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then80, %if.end78
-  %has_index = getelementptr inbounds i8, ptr %1, i64 16
+  %has_index = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i8, ptr %has_index, align 8
   %tobool83 = trunc i8 %10 to i1
   br i1 %tobool83, label %if.then84, label %if.end86
 
 if.then84:                                        ; preds = %if.end82
-  %index = getelementptr inbounds i8, ptr %1, i64 20
+  %index = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %index, align 4
   %call85 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.60, i32 noundef %11) #4
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then84, %if.end82
   %call87 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.61) #4
-  %has_set_vlan_id = getelementptr inbounds i8, ptr %1, i64 40
+  %has_set_vlan_id = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i8, ptr %has_set_vlan_id, align 8
   %tobool88 = trunc i8 %12 to i1
   br i1 %tobool88, label %land.lhs.true, label %if.end96
 
 land.lhs.true:                                    ; preds = %if.end86
-  %set_vlan_id = getelementptr inbounds i8, ptr %1, i64 42
+  %set_vlan_id = getelementptr inbounds nuw i8, ptr %1, i64 42
   %13 = load i16, ptr %set_vlan_id, align 2
   %tobool91.not = icmp eq i16 %13, 0
   br i1 %tobool91.not, label %if.end96, label %if.then92
@@ -687,7 +687,7 @@ if.then92:                                        ; preds = %land.lhs.true
 
 if.end96:                                         ; preds = %if.then92, %land.lhs.true, %if.end86
   %set.0 = phi i8 [ 1, %if.then92 ], [ 0, %land.lhs.true ], [ 0, %if.end86 ]
-  %set_eth_src = getelementptr inbounds i8, ptr %1, i64 56
+  %set_eth_src = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %set_eth_src, align 8
   %tobool97.not = icmp eq ptr %15, null
   br i1 %tobool97.not, label %if.end105, label %if.then98
@@ -709,7 +709,7 @@ if.end102:                                        ; preds = %if.then100, %if.the
 
 if.end105:                                        ; preds = %if.end102, %if.end96
   %set.1 = phi i8 [ %set.2, %if.end102 ], [ %set.0, %if.end96 ]
-  %set_eth_dst = getelementptr inbounds i8, ptr %1, i64 64
+  %set_eth_dst = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load ptr, ptr %set_eth_dst, align 8
   %tobool106.not = icmp eq ptr %17, null
   br i1 %tobool106.not, label %if.end114, label %if.then107
@@ -729,13 +729,13 @@ if.end111:                                        ; preds = %if.then109, %if.the
   br label %if.end114
 
 if.end114:                                        ; preds = %if.end111, %if.end105
-  %has_ttl_check = getelementptr inbounds i8, ptr %1, i64 72
+  %has_ttl_check = getelementptr inbounds nuw i8, ptr %1, i64 72
   %19 = load i8, ptr %has_ttl_check, align 8
   %tobool115 = trunc i8 %19 to i1
   br i1 %tobool115, label %land.lhs.true117, label %if.end122
 
 land.lhs.true117:                                 ; preds = %if.end114
-  %ttl_check = getelementptr inbounds i8, ptr %1, i64 73
+  %ttl_check = getelementptr inbounds nuw i8, ptr %1, i64 73
   %20 = load i8, ptr %ttl_check, align 1
   %tobool119.not = icmp eq i8 %20, 0
   br i1 %tobool119.not, label %if.end122, label %if.then120
@@ -745,13 +745,13 @@ if.then120:                                       ; preds = %land.lhs.true117
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then120, %land.lhs.true117, %if.end114
-  %has_group_id = getelementptr inbounds i8, ptr %1, i64 32
+  %has_group_id = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load i8, ptr %has_group_id, align 8
   %tobool123 = trunc i8 %21 to i1
   br i1 %tobool123, label %land.lhs.true125, label %if.end130
 
 land.lhs.true125:                                 ; preds = %if.end122
-  %group_id = getelementptr inbounds i8, ptr %1, i64 36
+  %group_id = getelementptr inbounds nuw i8, ptr %1, i64 36
   %22 = load i32, ptr %group_id, align 4
   %tobool126.not = icmp eq i32 %22, 0
   br i1 %tobool126.not, label %if.end130, label %if.then127
@@ -761,13 +761,13 @@ if.then127:                                       ; preds = %land.lhs.true125
   br label %if.end130
 
 if.end130:                                        ; preds = %if.then127, %land.lhs.true125, %if.end122
-  %has_pop_vlan = getelementptr inbounds i8, ptr %1, i64 44
+  %has_pop_vlan = getelementptr inbounds nuw i8, ptr %1, i64 44
   %23 = load i8, ptr %has_pop_vlan, align 4
   %tobool131 = trunc i8 %23 to i1
   br i1 %tobool131, label %land.lhs.true133, label %if.end138
 
 land.lhs.true133:                                 ; preds = %if.end130
-  %pop_vlan = getelementptr inbounds i8, ptr %1, i64 45
+  %pop_vlan = getelementptr inbounds nuw i8, ptr %1, i64 45
   %24 = load i8, ptr %pop_vlan, align 1
   %tobool135.not = icmp eq i8 %24, 0
   br i1 %tobool135.not, label %if.end138, label %if.then136
@@ -777,33 +777,33 @@ if.then136:                                       ; preds = %land.lhs.true133
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then136, %land.lhs.true133, %if.end130
-  %has_out_pport = getelementptr inbounds i8, ptr %1, i64 24
+  %has_out_pport = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i8, ptr %has_out_pport, align 8
   %tobool139 = trunc i8 %25 to i1
   br i1 %tobool139, label %if.then140, label %if.end142
 
 if.then140:                                       ; preds = %if.end138
-  %out_pport = getelementptr inbounds i8, ptr %1, i64 28
+  %out_pport = getelementptr inbounds nuw i8, ptr %1, i64 28
   %26 = load i32, ptr %out_pport, align 4
   %call141 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.67, i32 noundef %26) #4
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then140, %if.end138
-  %has_group_ids = getelementptr inbounds i8, ptr %1, i64 46
+  %has_group_ids = getelementptr inbounds nuw i8, ptr %1, i64 46
   %27 = load i8, ptr %has_group_ids, align 2
   %tobool143 = trunc i8 %27 to i1
   br i1 %tobool143, label %if.then144, label %if.end158
 
 if.then144:                                       ; preds = %if.end142
   %call146 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.68) #4
-  %group_ids = getelementptr inbounds i8, ptr %1, i64 48
+  %group_ids = getelementptr inbounds nuw i8, ptr %1, i64 48
   %id145.071 = load ptr, ptr %group_ids, align 8
   %tobool148.not72 = icmp eq ptr %id145.071, null
   br i1 %tobool148.not72, label %for.end, label %for.body149
 
 for.body149:                                      ; preds = %if.then144, %for.inc
   %id145.073 = phi ptr [ %id145.0.pre, %for.inc ], [ %id145.071, %if.then144 ]
-  %value150 = getelementptr inbounds i8, ptr %id145.073, i64 8
+  %value150 = getelementptr inbounds nuw i8, ptr %id145.073, i64 8
   %28 = load i32, ptr %value150, align 8
   %call151 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.48, i32 noundef %28) #4
   %29 = load ptr, ptr %id145.073, align 8

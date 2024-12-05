@@ -50,7 +50,7 @@ if.end9:                                          ; preds = %entry
 
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread16: ; preds = %if.end9
   %idxprom17 = zext nneg i32 %month to i64
-  %arrayidx1219 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom17
+  %arrayidx1219 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom17
   br label %3
 
 land.rhs.i:                                       ; preds = %if.end9
@@ -60,15 +60,15 @@ land.rhs.i:                                       ; preds = %if.end9
 
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread: ; preds = %land.rhs.i
   %idxprom11 = zext nneg i32 %month to i64
-  %arrayidx13 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom11
+  %arrayidx13 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom11
   br label %3
 
 _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
   %rem3.i = srem i32 %year, 400
   %cmp4.i = icmp eq i32 %rem3.i, 0
   %idxprom = zext nneg i32 %month to i64
-  %arrayidx = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom
-  %arrayidx12 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom
   %spec.select = select i1 %cmp4.i, ptr %arrayidx, ptr %arrayidx12
   br label %3
 
@@ -119,10 +119,10 @@ return:                                           ; preds = %_ZN8facebook5velox4
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef range(i64 -1575147300684, 1575146278002) i64 @_ZN8facebook5velox4util32lastDayOfMonthSinceEpochFromDateERK2tm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %dateTime) local_unnamed_addr #1 {
 entry:
-  %tm_year = getelementptr inbounds i8, ptr %dateTime, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %dateTime, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %0, 1900
-  %tm_mon = getelementptr inbounds i8, ptr %dateTime, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %dateTime, i64 16
   %1 = load i32, ptr %tm_mon, align 8
   %add1 = add nsw i32 %1, 1
   %2 = and i32 %0, 3
@@ -216,7 +216,7 @@ if.end9.i:                                        ; preds = %entry
 
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread16.i: ; preds = %if.end9.i
   %idxprom17.i = zext nneg i32 %month to i64
-  %arrayidx1219.i = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom17.i
+  %arrayidx1219.i = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom17.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit
 
 land.rhs.i.i:                                     ; preds = %if.end9.i
@@ -226,15 +226,15 @@ land.rhs.i.i:                                     ; preds = %if.end9.i
 
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread.i: ; preds = %land.rhs.i.i
   %idxprom11.i = zext nneg i32 %month to i64
-  %arrayidx13.i = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom11.i
+  %arrayidx13.i = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom11.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit
 
 _ZN8facebook5velox4util10isLeapYearEi.exit.i:     ; preds = %land.rhs.i.i
   %rem3.i.i = srem i32 %year, 400
   %cmp4.i.i = icmp eq i32 %rem3.i.i, 0
   %idxprom.i = zext nneg i32 %month to i64
-  %arrayidx.i = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom.i
-  %arrayidx12.i = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 0, i64 %idxprom.i
+  %arrayidx12.i = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 0, i64 %idxprom.i
   %spec.select.i = select i1 %cmp4.i.i, ptr %arrayidx.i, ptr %arrayidx12.i
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit
 
@@ -292,7 +292,7 @@ while.end6:                                       ; preds = %while.body3.prehead
   %daysSinceEpoch.1.lcssa = phi i64 [ %daysSinceEpoch.0.lcssa, %while.cond1.preheader ], [ %23, %while.body3.preheader ]
   %sub7 = add nsw i32 %year.addr.1.lcssa, -1970
   %idxprom = zext nneg i32 %sub7 to i64
-  %arrayidx = getelementptr inbounds [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom
   %24 = load i32, ptr %arrayidx, align 4
   %25 = and i32 %year.addr.1.lcssa, 3
   %cmp.i = icmp eq i32 %25, 0
@@ -301,7 +301,7 @@ while.end6:                                       ; preds = %while.body3.prehead
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread22: ; preds = %while.end6
   %sub1023 = add nsw i32 %month, -1
   %idxprom1124 = zext nneg i32 %sub1023 to i64
-  %arrayidx1526 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 0, i64 %idxprom1124
+  %arrayidx1526 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 0, i64 %idxprom1124
   br label %26
 
 land.rhs.i:                                       ; preds = %while.end6
@@ -313,7 +313,7 @@ land.rhs.i:                                       ; preds = %while.end6
 _ZN8facebook5velox4util10isLeapYearEi.exit.thread: ; preds = %land.rhs.i
   %sub1016 = add nsw i32 %month, -1
   %idxprom1117 = zext nneg i32 %sub1016 to i64
-  %arrayidx1218 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 0, i64 %idxprom1117
+  %arrayidx1218 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 0, i64 %idxprom1117
   br label %26
 
 _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
@@ -321,8 +321,8 @@ _ZN8facebook5velox4util10isLeapYearEi.exit:       ; preds = %land.rhs.i
   %cmp4.i = icmp eq i16 %rem3.i3031, 0
   %sub10 = add nsw i32 %month, -1
   %idxprom11 = zext nneg i32 %sub10 to i64
-  %arrayidx12 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 0, i64 %idxprom11
-  %arrayidx15 = getelementptr inbounds [13 x i32], ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeLeapDaysE, i64 0, i64 %idxprom11
+  %arrayidx15 = getelementptr inbounds nuw [13 x i32], ptr @_ZN8facebook5velox4utilL15kCumulativeDaysE, i64 0, i64 %idxprom11
   %spec.select = select i1 %cmp4.i, ptr %arrayidx12, ptr %arrayidx15
   br label %26
 
@@ -372,11 +372,11 @@ land.rhs.i.i.i:                                   ; preds = %if.end9.i.i
 _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   %rem3.i.i.i = srem i32 %weekYear, 400
   %cmp4.i.i.i = icmp eq i32 %rem3.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4)
+  %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4)
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %land.rhs.i.i.i, %if.end9.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %4 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
+  %4 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
   %.pn.i.i = load i32, ptr %4, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 4
   br i1 %cond.i.not.i, label %if.then.i, label %while.cond.preheader.i
@@ -428,7 +428,7 @@ while.end6.i:                                     ; preds = %while.body3.prehead
   %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %22, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64
-  %arrayidx.i = getelementptr inbounds [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
   %23 = load i32, ptr %arrayidx.i, align 4
   %24 = and i32 %year.addr.1.lcssa.i, 3
   %cmp.i.i = icmp eq i32 %24, 0
@@ -546,11 +546,11 @@ land.rhs.i.i.i:                                   ; preds = %_ZN8facebook5velox4
 _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   %rem3.i.i.i = srem i32 %year, 400
   %cmp4.i.i.i = icmp eq i32 %rem3.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4)
+  %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4)
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread, %land.rhs.i.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %2 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread ]
+  %2 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %_ZN8facebook5velox4util16isValidDayOfYearEii.exit.thread ]
   %.pn.i.i = load i32, ptr %2, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 1
   br i1 %cond.i.not.i, label %if.then.i, label %while.cond.preheader.i
@@ -602,7 +602,7 @@ while.end6.i:                                     ; preds = %while.body3.prehead
   %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %20, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64
-  %arrayidx.i = getelementptr inbounds [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i, align 4
   %22 = and i32 %year.addr.1.lcssa.i, 3
   %cmp.i.i3 = icmp eq i32 %22, 0
@@ -803,11 +803,11 @@ land.rhs.i.i.i:                                   ; preds = %if.end9.i.i
 _ZN8facebook5velox4util10isLeapYearEi.exit.i.i:   ; preds = %land.rhs.i.i.i
   %rem3.i.i.i = srem i32 %year.2, 400
   %cmp4.i.i.i = icmp eq i32 %rem3.i.i.i, 0
-  %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), ptr getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4)
+  %spec.select.i.i = select i1 %cmp4.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), ptr getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4)
   br label %_ZN8facebook5velox4util11isValidDateEiii.exit.i
 
 _ZN8facebook5velox4util11isValidDateEiii.exit.i:  ; preds = %land.rhs.i.i.i, %if.end9.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i
-  %17 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
+  %17 = phi ptr [ %spec.select.i.i, %_ZN8facebook5velox4util10isLeapYearEi.exit.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL11kNormalDaysE, i64 4), %if.end9.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN8facebook5velox4utilL9kLeapDaysE, i64 4), %land.rhs.i.i.i ]
   %.pn.i.i = load i32, ptr %17, align 4
   %cond.i.not.i = icmp slt i32 %.pn.i.i, 1
   br i1 %cond.i.not.i, label %if.then.i114, label %while.cond.preheader.i
@@ -859,7 +859,7 @@ while.end6.i:                                     ; preds = %while.body3.prehead
   %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %35, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64
-  %arrayidx.i = getelementptr inbounds [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [401 x i32], ptr @_ZN8facebook5velox4utilL19kCumulativeYearDaysE, i64 0, i64 %idxprom.i
   %36 = load i32, ptr %arrayidx.i, align 4
   %37 = and i32 %year.addr.1.lcssa.i, 3
   %cmp.i.i = icmp eq i32 %37, 0

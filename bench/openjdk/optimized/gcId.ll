@@ -59,7 +59,7 @@ define hidden noundef i32 @_ZN4GCId4peekEv() local_unnamed_addr #4 align 2 {
 define hidden noundef i32 @_ZN4GCId7currentEv() local_unnamed_addr #5 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 912
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
@@ -69,14 +69,14 @@ define hidden noundef i32 @_ZN4GCId20current_or_undefinedEv() local_unnamed_addr
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(888) %2) #8
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %0
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 912
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 912
   %10 = load i32, ptr %9, align 8
   br label %11
 
@@ -94,14 +94,14 @@ define hidden noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 nounde
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %4) #8
   br i1 %9, label %_ZN4GCId20current_or_undefinedEv.exit, label %_ZN4GCId20current_or_undefinedEv.exit.thread
 
 _ZN4GCId20current_or_undefinedEv.exit:            ; preds = %5
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 912
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 912
   %12 = load i32, ptr %11, align 8
   %.not6 = icmp eq i32 %12, -1
   br i1 %.not6, label %_ZN4GCId20current_or_undefinedEv.exit.thread, label %13
@@ -109,7 +109,7 @@ _ZN4GCId20current_or_undefinedEv.exit:            ; preds = %5
 13:                                               ; preds = %_ZN4GCId20current_or_undefinedEv.exit
   %14 = load ptr, ptr @_ZN4GCId8_printerE, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %12, ptr noundef %0, i64 noundef %1) #8
   br label %_ZN4GCId20current_or_undefinedEv.exit.thread
@@ -123,14 +123,14 @@ _ZN4GCId20current_or_undefinedEv.exit.thread:     ; preds = %5, %2, %_ZN4GCId20c
 define hidden void @_ZN8GCIdMarkC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #6 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 912
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 912
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %0, align 4
   %6 = load ptr, ptr %2, align 8
   %7 = load i32, ptr @_ZN4GCId8_next_idE, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr @_ZN4GCId8_next_idE, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 912
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 912
   store i32 %7, ptr %9, align 8
   ret void
 }
@@ -139,11 +139,11 @@ define hidden void @_ZN8GCIdMarkC2Ev(ptr nocapture noundef nonnull writeonly ali
 define hidden void @_ZN8GCIdMarkC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 912
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 912
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %0, align 4
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 912
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 912
   store i32 %1, ptr %8, align 8
   ret void
 }
@@ -153,7 +153,7 @@ define hidden void @_ZN8GCIdMarkD2Ev(ptr nocapture noundef nonnull readonly alig
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 912
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 912
   store i32 %4, ptr %5, align 8
   ret void
 }

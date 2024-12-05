@@ -55,14 +55,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage14_InternalParseEPKcPNS1_12ParseContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef %ptr, ptr noundef %ctx) unnamed_addr #3 align 2 {
 entry:
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
-  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %buffer_end_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ptr to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %limit_.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 28
   %2 = load i32, ptr %limit_.i.i, align 4
   %conv.i.i = sext i32 %2 to i64
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i, %conv.i.i
@@ -75,7 +75,7 @@ while.cond.preheader.i.i:                         ; preds = %entry
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %if.end10.i.i
   %ptr.addr.013.i.i = phi ptr [ %add.ptr11.i.i, %if.end10.i.i ], [ %ptr, %while.cond.preheader.i.i ]
   %3 = load ptr, ptr %buffer_end_.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %sub.ptr.lhs.cast5.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast6.i.i = ptrtoint ptr %ptr.addr.013.i.i to i64
   %sub.ptr.sub7.i.i = sub i64 %sub.ptr.lhs.cast5.i.i, %sub.ptr.rhs.cast6.i.i
@@ -89,7 +89,7 @@ if.then9.i.i:                                     ; preds = %while.body.i.i
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream12AppendStringEPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end10.i.i:                                     ; preds = %while.body.i.i
-  %add.ptr11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   %.pr.i.i = load i32, ptr %limit_.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %.pr.i.i, 16
   br i1 %cmp3.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !4
@@ -126,7 +126,7 @@ entry:
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %this, align 8
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -144,7 +144,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %this, align 8
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev.exit, label %delete.notnull.i
@@ -167,14 +167,14 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %arena, i64 noundef 32)
-  %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 8
+  %_internal_metadata_.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   br label %_ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit
 
 cond.false.i:                                     ; preds = %entry
   %call1.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-  %_internal_metadata_.i.i3.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %_internal_metadata_.i.i3.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   store i64 0, ptr %_internal_metadata_.i.i3.i, align 8
   br label %_ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit
 
@@ -182,10 +182,10 @@ _ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEE
   %call1.sink9.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %call1.sink9.i, align 8
   %call.i4.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
-  %data_.i5.i = getelementptr inbounds i8, ptr %call1.sink9.i, i64 16
+  %data_.i5.i = getelementptr inbounds nuw i8, ptr %call1.sink9.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i4.i) #10
   store ptr %call.i4.i, ptr %data_.i5.i, align 8
-  %cached_size_.i6.i = getelementptr inbounds i8, ptr %call1.sink9.i, i64 24
+  %cached_size_.i6.i = getelementptr inbounds nuw i8, ptr %call1.sink9.i, i64 24
   store i32 0, ptr %cached_size_.i6.i, align 4
   ret ptr %call1.sink9.i
 }
@@ -193,7 +193,7 @@ _ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessage5ClearEv(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #10
   ret void
@@ -208,13 +208,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessage21CheckTypeAndMergeFromERKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(16) %other) unnamed_addr #3 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds i8, ptr %other, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %other, i64 16
   %0 = load ptr, ptr %data_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data_2 = getelementptr inbounds i8, ptr %this, i64 16
+  %data_2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %data_2, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %if.end
@@ -226,7 +226,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal19ImplicitWeakMessage12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -237,7 +237,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i64 [ %call, %cond.false ], [ 0, %entry ]
-  %cached_size_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %conv.i = trunc i64 %cond to i32
   store atomic i32 %conv.i, ptr %cached_size_ monotonic, align 8
   ret i64 %cond
@@ -252,7 +252,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

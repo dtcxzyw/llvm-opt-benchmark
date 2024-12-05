@@ -34,30 +34,30 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 
 .preheader11:                                     ; preds = %19, %.preheader11
   %27 = phi i64 [ %51, %.preheader11 ], [ 0, %19 ]
-  %28 = getelementptr inbounds float, ptr %6, i64 %27
+  %28 = getelementptr inbounds nuw float, ptr %6, i64 %27
   %29 = load <16 x float>, ptr %28, align 1, !tbaa !3
-  %30 = getelementptr inbounds float, ptr %4, i64 %27
+  %30 = getelementptr inbounds nuw float, ptr %4, i64 %27
   %31 = load <16 x float>, ptr %30, align 1, !tbaa !3
   %32 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %22, <16 x float> %31, <16 x float> %29)
   store <16 x float> %32, ptr %28, align 1, !tbaa !3
   %33 = or disjoint i64 %27, 16
-  %34 = getelementptr inbounds float, ptr %6, i64 %33
+  %34 = getelementptr inbounds nuw float, ptr %6, i64 %33
   %35 = load <16 x float>, ptr %34, align 1, !tbaa !3
-  %36 = getelementptr inbounds float, ptr %4, i64 %33
+  %36 = getelementptr inbounds nuw float, ptr %4, i64 %33
   %37 = load <16 x float>, ptr %36, align 1, !tbaa !3
   %38 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %22, <16 x float> %37, <16 x float> %35)
   store <16 x float> %38, ptr %34, align 1, !tbaa !3
   %39 = or disjoint i64 %27, 32
-  %40 = getelementptr inbounds float, ptr %6, i64 %39
+  %40 = getelementptr inbounds nuw float, ptr %6, i64 %39
   %41 = load <16 x float>, ptr %40, align 1, !tbaa !3
-  %42 = getelementptr inbounds float, ptr %4, i64 %39
+  %42 = getelementptr inbounds nuw float, ptr %4, i64 %39
   %43 = load <16 x float>, ptr %42, align 1, !tbaa !3
   %44 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %22, <16 x float> %43, <16 x float> %41)
   store <16 x float> %44, ptr %40, align 1, !tbaa !3
   %45 = or disjoint i64 %27, 48
-  %46 = getelementptr inbounds float, ptr %6, i64 %45
+  %46 = getelementptr inbounds nuw float, ptr %6, i64 %45
   %47 = load <16 x float>, ptr %46, align 1, !tbaa !3
-  %48 = getelementptr inbounds float, ptr %4, i64 %45
+  %48 = getelementptr inbounds nuw float, ptr %4, i64 %45
   %49 = load <16 x float>, ptr %48, align 1, !tbaa !3
   %50 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %22, <16 x float> %49, <16 x float> %47)
   store <16 x float> %50, ptr %46, align 1, !tbaa !3
@@ -104,9 +104,9 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 
 .preheader:                                       ; preds = %.loopexit10, %.preheader
   %80 = phi i64 [ %86, %.preheader ], [ %17, %.loopexit10 ]
-  %81 = getelementptr inbounds float, ptr %4, i64 %80
+  %81 = getelementptr inbounds nuw float, ptr %4, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !10
-  %83 = getelementptr inbounds float, ptr %6, i64 %80
+  %83 = getelementptr inbounds nuw float, ptr %6, i64 %80
   %84 = load float, ptr %83, align 4, !tbaa !10
   %85 = tail call float @llvm.fmuladd.f32(float %3, float %82, float %84)
   store float %85, ptr %83, align 4, !tbaa !10

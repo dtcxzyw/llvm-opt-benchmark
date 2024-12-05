@@ -105,7 +105,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 780
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %5 = load i16, ptr %4, align 4
   %6 = and i16 %5, 512
   %.not = icmp eq i16 %6, 0
@@ -144,7 +144,7 @@ define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_add
   %16 = phi i32 [ %.pre, %._crit_edge ], [ %.01421, %12 ]
   %17 = load ptr, ptr @prte_plm_globals, align 8
   %18 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef %17, i32 noundef %16) #8
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load ptr, ptr %3, align 8
   call void @PMIx_Load_nspace(ptr noundef nonnull %19, ptr noundef %20) #8
   %21 = load ptr, ptr %3, align 8

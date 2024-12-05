@@ -104,7 +104,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOutC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelOutE, i64 16), ptr %this, align 8
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %out, ptr %d_out, align 8
   ret void
 }
@@ -113,7 +113,7 @@ entry:
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut9printNodeENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %n) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %1 = load ptr, ptr %d_out, align 8
@@ -200,7 +200,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr1 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr1 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %0 = load ptr, ptr %n, align 8
   invoke void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr1)
           to label %invoke.cont2 unwind label %lpad
@@ -278,7 +278,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut13printTypeNodeENS0_8TypeNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %tn) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %1 = load ptr, ptr %d_out, align 8
@@ -364,7 +364,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %add.ptr1 = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr1 = getelementptr inbounds nuw i8, ptr %ss, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %scope.i)
   %vtable.i = load ptr, ptr %add.ptr1, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
@@ -464,7 +464,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut9printHoleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1)
   ret void
@@ -474,7 +474,7 @@ entry:
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut10printTrustENS0_12NodeTemplateILb0EEENS_9ProofRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %res, i32 noundef %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.2)
@@ -559,7 +559,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoNS_9ProofR
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut13printOpenRuleEPKNS0_9ProofNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %pn) unnamed_addr #4 align 2 {
 entry:
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.4)
@@ -696,7 +696,7 @@ if.end24:                                         ; preds = %if.else
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoNS_9ProofRuleE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %call27)
           to label %invoke.cont28 unwind label %lpad25
 
@@ -719,8 +719,8 @@ for.body.i:                                       ; preds = %invoke.cont30, %for
   %call.i.i = call noundef i32 @tolower(i32 noundef %conv.i.i) #19
   %conv.i = trunc i32 %call.i.i to i8
   store i8 %conv.i, ptr %__result.sroa.0.07.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i, i64 1
-  %incdec.ptr.i1.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i, i64 1
+  %incdec.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.07.i, i64 1
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %call34
   br i1 %cmp.i.not.i, label %invoke.cont44, label %for.body.i, !llvm.loop !4
 
@@ -760,7 +760,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut17printOpenLfscRuleENS1_8LfscRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %lr) unnamed_addr #4 align 2 {
 entry:
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.4)
@@ -777,7 +777,7 @@ entry:
   br i1 %cmp2.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -795,7 +795,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut7printIdEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %prefix) unnamed_addr #4 align 2 {
 entry:
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str)
   %1 = load ptr, ptr %d_out, align 8
@@ -815,7 +815,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelOut12printEndLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
-  %d_out = getelementptr inbounds i8, ptr %this, i64 8
+  %d_out = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_out, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret void
@@ -908,18 +908,18 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPreC2ERNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(472) %lbind) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i64 16), ptr %this, align 8
-  %d_lbind = getelementptr inbounds i8, ptr %this, i64 8
+  %d_lbind = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %lbind, ptr %d_lbind, align 8
-  %d_dprs = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %d_dprs = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %_M_single_bucket.i.i, ptr %d_dprs, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_M_rehash_policy.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_next_resize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   ret void
 }
@@ -928,7 +928,7 @@ entry:
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPre9printNodeENS0_12NodeTemplateILb0EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %n) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
-  %d_lbind = getelementptr inbounds i8, ptr %this, i64 8
+  %d_lbind = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_lbind, align 8
   %1 = load ptr, ptr %n, align 8
   store ptr %1, ptr %agg.tmp, align 8
@@ -1004,7 +1004,7 @@ declare void @_ZN4cvc58internal10LetBinding7processENS0_12NodeTemplateILb1EEE(pt
 define hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPre10printTrustENS0_12NodeTemplateILb0EEENS_9ProofRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %res, i32 %src) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
-  %d_lbind = getelementptr inbounds i8, ptr %this, i64 8
+  %d_lbind = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_lbind, align 8
   %1 = load ptr, ptr %res, align 8
   store ptr %1, ptr %agg.tmp, align 8
@@ -1125,7 +1125,7 @@ invoke.cont5:                                     ; preds = %_ZN4cvc58internal12
   br i1 %call6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %invoke.cont5
-  %d_dprs = getelementptr inbounds i8, ptr %this, i64 16
+  %d_dprs = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %d_dprs, ptr %__node_gen.i.i, align 8
   %call3.i.i.i3 = invoke { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %d_dprs, ptr noundef nonnull align 4 dereferenceable(4) %di, ptr noundef nonnull align 4 dereferenceable(4) %di, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
@@ -1202,7 +1202,7 @@ if.end16:                                         ; preds = %if.then13.i.i11, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal5proof19LfscPrintChannelPre14getDslRewritesEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_dprs = getelementptr inbounds i8, ptr %this, i64 16
+  %d_dprs = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %d_dprs
 }
 
@@ -1223,8 +1223,8 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPreD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i64 16), ptr %this, align 8
-  %d_dprs = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_dprs = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -1238,13 +1238,13 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %entry
   %2 = load ptr, ptr %d_dprs, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %d_dprs, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %cmp.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIN4cvc58internal8rewriter12DslProofRuleESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, label %if.end.i.i.i.i
 
@@ -1260,8 +1260,8 @@ _ZNSt13unordered_setIN4cvc58internal8rewriter12DslProofRuleESt4hashIS3_ESt8equal
 define linkonce_odr hidden void @_ZN4cvc58internal5proof19LfscPrintChannelPreD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i64 16), ptr %this, align 8
-  %d_dprs.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %d_dprs.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -1275,13 +1275,13 @@ while.body.i.i.i.i.i:                             ; preds = %entry, %while.body.
 
 _ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %entry
   %2 = load ptr, ptr %d_dprs.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %d_dprs.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %cmp.i.i.i.i.i.i = icmp eq ptr %4, %_M_single_bucket.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZN4cvc58internal5proof19LfscPrintChannelPreD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -1367,7 +1367,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %__k, ptr noundef nonnull align 4 dereferenceable(4) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end13.thread
@@ -1375,17 +1375,17 @@ entry:
 if.end13.thread:                                  ; preds = %entry
   %1 = load i32, ptr %__k, align 4
   %conv.i.i.i22 = zext i32 %1 to i64
-  %_M_bucket_count.i23 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i23 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_bucket_count.i23, align 8
   %rem.i.i.i24 = urem i64 %conv.i.i.i22, %2
   %3 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i24
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %rem.i.i.i24
   %4 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i32, ptr %__k, align 4
   br label %for.cond
 
@@ -1396,21 +1396,21 @@ for.cond:                                         ; preds = %for.body, %if.then
   br i1 %cmp.i.not, label %if.end13, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %add.ptr = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %__it.sroa.0.0, i64 8
   %6 = load i32, ptr %add.ptr, align 4
   %cmp.i.i = icmp eq i32 %5, %6
   br i1 %cmp.i.i, label %return, label %for.cond, !llvm.loop !10
 
 if.end13:                                         ; preds = %for.cond
   %conv.i.i.i = zext i32 %5 to i64
-  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %conv.i.i.i, %7
   br label %if.end25
 
 if.end.i.i:                                       ; preds = %if.end13.thread
   %8 = load ptr, ptr %4, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i32, ptr %add.ptr8.i.i, align 4
   %cmp.i.i.i9.i.i = icmp eq i32 %1, %9
   br i1 %cmp.i.i.i9.i.i, label %return, label %if.end3.i.i
@@ -1426,7 +1426,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i, %for.co
   br i1 %tobool5.not.i.i, label %if.end25, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %add.ptr7.i.i, align 4
   %conv.i.i.i.i.i.i.i = zext i32 %11 to i64
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i.i, %2
@@ -1439,7 +1439,7 @@ if.end25:                                         ; preds = %if.end3.i.i, %lor.l
   %12 = phi i32 [ %5, %if.end13 ], [ %1, %if.end13.thread ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.end3.i.i ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store ptr null, ptr %call5.i.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
   store i32 %12, ptr %add.ptr.i.i.i, align 4
   %call28 = invoke ptr @_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i27, i64 noundef %conv.i.i.i25, ptr noundef nonnull %call5.i.i.i.i.i, i64 noundef 1)
           to label %return unwind label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17
@@ -1461,12 +1461,12 @@ return:                                           ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS5_10_Hash_nodeIS3_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
-  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_rehash_policy = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -1529,7 +1529,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %17 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %17, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -1539,12 +1539,12 @@ if.else.i:                                        ; preds = %if.end
 
 if.then14.i:                                      ; preds = %if.else.i
   %19 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %_M_bucket_count, align 8
   %21 = load i32, ptr %add.ptr.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %21 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds nuw ptr, ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
@@ -1583,7 +1583,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1611,7 +1611,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal8rewriter12Ds
 
 _ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal8rewriter12DslProofRuleELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4cvc58internal8rewriter12DslProofRuleELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -1621,11 +1621,11 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %__p.022 = phi ptr [ %1, %if.end22 ], [ %0, %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %__p.022, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
   %2 = load i32, ptr %add.ptr, align 4
   %conv.i.i.i.i = zext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -1658,7 +1658,7 @@ if.end22:                                         ; preds = %if.then, %if.then15
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %8, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -1667,7 +1667,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIN4cvc58internal8rewriter12DslProofRuleES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void

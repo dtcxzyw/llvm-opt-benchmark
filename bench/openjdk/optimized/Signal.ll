@@ -16,7 +16,7 @@ define i32 @Java_jdk_internal_misc_Signal_findSignal0(ptr noundef %0, ptr nocapt
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1352
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1352
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #2
   %11 = icmp eq ptr %10, null
@@ -25,7 +25,7 @@ define i32 @Java_jdk_internal_misc_Signal_findSignal0(ptr noundef %0, ptr nocapt
 12:                                               ; preds = %6
   %13 = tail call i32 @JVM_FindSignal(ptr noundef nonnull %10) #2
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1360
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1360
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %10) #2
   br label %17

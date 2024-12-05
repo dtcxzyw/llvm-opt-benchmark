@@ -72,7 +72,7 @@ define dso_local noundef zeroext i1 @_Z14cmBuildCommandRKSt6vectorINSt7__cxx1112
   %26 = alloca %"class.std::allocator.0", align 1
   %27 = alloca %"class.std::__cxx11::basic_string", align 8
   %28 = alloca %"class.std::allocator.0", align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -399,7 +399,7 @@ common.resume:                                    ; preds = %.body.i9, %205, %96
   br label %.body.i9
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i11: ; preds = %.noexc56.i
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %104 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i12 unwind label %107
 
@@ -442,7 +442,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %117 = phi i64 [ %154, %152 ], [ 1, %109 ]
   %.04476.i = phi i32 [ %153, %152 ], [ 1, %109 ]
   %.04575.i = phi i32 [ %.146.i, %152 ], [ 0, %109 ]
-  %118 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %116, i64 %117
+  %118 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %116, i64 %117
   %119 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull @.str.7) #10
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %152, label %121
@@ -459,21 +459,21 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 121:                                              ; preds = %.lr.ph.i
   %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %122, i64 %117
+  %123 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %122, i64 %117
   %124 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull @.str.8) #10
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %152, label %126
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %117
+  %128 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %127, i64 %117
   %129 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.9) #10
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %152, label %131
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %132, i64 %117
+  %133 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %132, i64 %117
   %134 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull @.str.10) #10
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %152, label %136
@@ -492,7 +492,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 .invoke.i:                                        ; preds = %143, %142, %137, %136
   %138 = phi ptr [ %9, %137 ], [ %11, %142 ], [ %12, %143 ], [ %10, %136 ]
   %139 = load ptr, ptr %0, align 8
-  %140 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %139, i64 %117
+  %140 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %139, i64 %117
   %141 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull align 8 dereferenceable(32) %140)
           to label %152 unwind label %.loopexit.i
 
@@ -504,12 +504,12 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 144:                                              ; preds = %136
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %145, i64 %117
+  %146 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %145, i64 %117
   invoke void @_Z8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S0_EES8_OT_OT0_DpOT1_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 1 dereferenceable(19) @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 1 dereferenceable(2) @.str.12)
           to label %147 unwind label %.loopexit.split-lp.i
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %1, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %149 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit59.i unwind label %150
 
@@ -867,25 +867,25 @@ _ZZ8cmStrCatIRA19_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA2_S
   %4 = alloca [3 x %"struct.std::pair"], align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   store i64 %5, ptr %4, align 8, !alias.scope !7
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !7
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %6, align 8, !alias.scope !7
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   store i64 %9, ptr %7, align 8, !alias.scope !10
-  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %10, ptr %.sroa.2.0..sroa_idx.i6, align 8, !alias.scope !10
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %11, align 8, !alias.scope !10
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #10
   store i64 %13, ptr %12, align 8, !alias.scope !13
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 56
+  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %3, ptr %.sroa.2.0..sroa_idx.i14, align 8, !alias.scope !13
-  %14 = getelementptr inbounds i8, ptr %4, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr null, ptr %14, align 8, !alias.scope !13
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
   ret void

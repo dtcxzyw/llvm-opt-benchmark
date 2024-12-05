@@ -157,7 +157,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %34 = sext i32 %31 to i64
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 46, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %37 = add nsw i32 %2, -1
   %38 = load i32, ptr %8, align 8
   %39 = load ptr, ptr %4, align 8
@@ -192,7 +192,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   %58 = getelementptr inbounds i8, ptr %56, i64 %57
   store i8 45, ptr %58, align 1
   %59 = sub nsw i32 0, %3
-  %60 = getelementptr inbounds i8, ptr %6, i64 5
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 0, ptr %60, align 1
   br label %.lr.ph.preheader
 
@@ -217,13 +217,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doub
   br label %70
 
 70:                                               ; preds = %61, %64
-  %71 = getelementptr inbounds i8, ptr %6, i64 5
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 0, ptr %71, align 1
   %72 = icmp eq i32 %3, 0
   br i1 %72, label %73, label %.lr.ph.preheader
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %6, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 48, ptr %74, align 1
   br label %.loopexit
 
@@ -436,7 +436,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   %82 = sext i32 %79 to i64
   %83 = getelementptr inbounds i8, ptr %81, i64 %82
   store i8 46, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %1, i64 %77
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 %77
   %85 = sub nsw i32 %2, %3
   %86 = load i32, ptr %46, align 8
   %87 = load ptr, ptr %5, align 8
@@ -641,7 +641,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23Doubl
 
 15:                                               ; preds = %13
   store i8 48, ptr %3, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %16, align 1
   store i32 1, ptr %6, align 4
   store i32 1, ptr %7, align 4
@@ -762,7 +762,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 
 47:                                               ; preds = %45
   store i8 48, ptr %6, align 16
-  %48 = getelementptr inbounds i8, ptr %6, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %48, align 1
   store i32 1, ptr %7, align 4
   store i32 1, ptr %5, align 4
@@ -890,7 +890,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 
 48:                                               ; preds = %46
   store i8 48, ptr %6, align 16
-  %49 = getelementptr inbounds i8, ptr %6, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %49, align 1
   store i32 1, ptr %7, align 4
   store i32 1, ptr %5, align 4
@@ -916,7 +916,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL20DtoaToBignumDtoaM
 
 58:                                               ; preds = %55
   store i8 48, ptr %6, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %59, align 1
   store i32 1, ptr %5, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS1_8DtoaModeEiPciPbPiS5_.exit31
@@ -1062,7 +1062,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_co
 
 46:                                               ; preds = %44
   store i8 48, ptr %6, align 16
-  %47 = getelementptr inbounds i8, ptr %6, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %47, align 1
   store i32 1, ptr %7, align 4
   store i32 1, ptr %5, align 4

@@ -66,14 +66,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx12AnalysisDataD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #12
+  tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3gmx12AnalysisData10frameCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK3gmx19AnalysisDataStorage10frameCountEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret i32 %4
@@ -81,7 +81,7 @@ define noundef i32 @_ZNK3gmx12AnalysisData10frameCountEv(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx12AnalysisData23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZNK3gmx19AnalysisDataStorage15tryGetDataFrameEi(ptr dead_on_unwind writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2)
   ret void
@@ -89,7 +89,7 @@ define void @_ZNK3gmx12AnalysisData23tryGetDataFrameInternalEi(ptr dead_on_unwin
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3gmx12AnalysisData22requestStorageInternalEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN3gmx19AnalysisDataStorage14requestStorageEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %1)
   ret i1 %5
@@ -99,7 +99,7 @@ define noundef zeroext i1 @_ZN3gmx12AnalysisData22requestStorageInternalEi(ptr n
 define void @_ZN3gmx12AnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12AnalysisDataE, i64 16), ptr %0, align 8
-  %2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
+  %2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
@@ -107,9 +107,9 @@ define void @_ZN3gmx12AnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceab
           to label %4 unwind label %9
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %6, align 8
   ret void
 
@@ -121,12 +121,12 @@ define void @_ZN3gmx12AnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceab
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #13
   br label %11
 
 11:                                               ; preds = %9, %7
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
-  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   resume { ptr, i32 } %.pn
 }
 
@@ -148,15 +148,15 @@ declare void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx12AnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12AnalysisDataE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx12AnalysisData4ImplESt14default_deleteIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %6, %8
   br i1 %.not4.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
@@ -168,12 +168,12 @@ define void @_ZN3gmx12AnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceab
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %9) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #13
   br label %_ZSt8_DestroyISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i.i.i.i, align 8
-  %10 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !5
 
@@ -187,17 +187,17 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx12AnalysisData4ImplEEclEPS2_.exit.i, label %12
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #13
   br label %_ZNKSt14default_deleteIN3gmx12AnalysisData4ImplEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3gmx12AnalysisData4ImplEEclEPS2_.exit.i: ; preds = %12, %_ZSt8_DestroyIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i.i
-  tail call void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #12
+  tail call void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
   br label %_ZNSt10unique_ptrIN3gmx12AnalysisData4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx12AnalysisData4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx12AnalysisData4ImplEEclEPS2_.exit.i
   store ptr null, ptr %2, align 8
-  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
+  tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   ret void
 }
 
@@ -206,17 +206,17 @@ declare void @_ZN3gmx19AnalysisDataStorageD1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AnalysisData15setDataSetCountEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData15setDataSetCountEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 123) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData15setDataSetCountEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 123) #15
   unreachable
 
 11:                                               ; preds = %2
@@ -231,17 +231,17 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %3
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData14setColumnCountEiiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 131) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData14setColumnCountEiiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 131) #15
   unreachable
 
 12:                                               ; preds = %3
@@ -253,17 +253,17 @@ declare void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AnalysisData13setMultipointEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData13setMultipointEbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 138) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData13setMultipointEbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 138) #15
   unreachable
 
 11:                                               ; preds = %2
@@ -278,10 +278,10 @@ declare noundef i32 @_ZNK3gmx19AnalysisDataStorage10frameCountEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::AnalysisDataHandle", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -294,7 +294,7 @@ define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 152) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 152) #15
   unreachable
 
 18:                                               ; preds = %2
@@ -309,14 +309,14 @@ define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(
 
 22:                                               ; preds = %20, %18
   %23 = phi ptr [ %.pre, %20 ], [ %5, %18 ]
-  %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
+  %24 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
   store ptr %0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %28, %30
   br i1 %.not.i.i, label %35, label %31
@@ -325,7 +325,7 @@ define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(
   %32 = ptrtoint ptr %24 to i64
   store i64 %32, ptr %28, align 8
   %33 = load ptr, ptr %27, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %34, ptr %27, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
@@ -335,82 +335,79 @@ define ptr @_ZN3gmx12AnalysisData9startDataERKNS_27AnalysisDataParallelOptionsE(
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
   %40 = icmp eq i64 %39, 9223372036854775800
-  br i1 %40, label %41, label %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
+  br i1 %40, label %41, label %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
 
 41:                                               ; preds = %35
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #14
-          to label %.noexc8 unwind label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i5
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #15
+          to label %.noexc unwind label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i6
 
-.noexc8:                                          ; preds = %41
+.noexc:                                           ; preds = %41
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i: ; preds = %35
+_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %35
   %42 = ashr exact i64 %39, 3
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %42, i64 1)
-  %43 = add nsw i64 %.sroa.speculated.i.i, %42
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %42, i64 1)
+  %43 = add nsw i64 %.sroa.speculated.i.i.i.i, %42
   %44 = icmp ult i64 %43, %42
   %45 = tail call i64 @llvm.umin.i64(i64 %43, i64 1152921504606846975)
   %46 = select i1 %44, i64 1152921504606846975, i64 %45
-  %.not.i.i7 = icmp eq i64 %46, 0
-  br i1 %.not.i.i7, label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, label %47
+  %.not.i.i.i.i = icmp ne i64 %46, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %47 = shl nuw nsw i64 %46, 3
+  %48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #14
+          to label %.noexc4 unwind label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i6
 
-47:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %48 = shl nuw nsw i64 %46, 3
-  %49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #13
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i unwind label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i5
+.noexc4:                                          ; preds = %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
+  %49 = getelementptr inbounds i8, ptr %48, i64 %39
+  %50 = ptrtoint ptr %24 to i64
+  store i64 %50, ptr %49, align 8
+  %.not10.i.i.i.i.i.i = icmp eq ptr %36, %28
+  br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i: ; preds = %47, %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
-  %50 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i ], [ %49, %47 ]
-  %51 = getelementptr inbounds %"class.std::unique_ptr.21", ptr %50, i64 %42
-  %52 = ptrtoint ptr %24 to i64
-  store i64 %52, ptr %51, align 8
-  %.not10.i.i.i.i = icmp eq ptr %36, %28
-  br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %50, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
-  %.0911.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %36, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc4, %.lr.ph.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i ], [ %48, %.noexc4 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i ], [ %36, %.noexc4 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %53 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  store i64 %53, ptr %.012.i.i.i.i, align 8, !alias.scope !7, !noalias !10
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !10, !noalias !7
-  %54 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %55 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %54, %28
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  %51 = load i64, ptr %.0911.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store i64 %51, ptr %.012.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
+  store ptr null, ptr %.0911.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %52, %28
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
-_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
-  %.0.lcssa.i.i.i.i = phi ptr [ %50, %_ZNSt12_Vector_baseISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %55, %.lr.ph.i.i.i.i ]
-  %56 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %36, null
-  br i1 %.not.i23.i, label %.noexc, label %57
+_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc4
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %48, %.noexc4 ], [ %53, %.lr.ph.i.i.i.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %.not.i23.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, label %55
 
-57:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
-  tail call void @_ZdlPv(ptr noundef nonnull %36) #12
-  br label %.noexc
+55:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %36) #13
+  br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i
 
-.noexc:                                           ; preds = %57, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
-  store ptr %50, ptr %26, align 8
-  store ptr %56, ptr %27, align 8
-  %58 = getelementptr inbounds %"class.std::unique_ptr.21", ptr %50, i64 %46
-  store ptr %58, ptr %29, align 8
+_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
+  store ptr %48, ptr %26, align 8
+  store ptr %54, ptr %27, align 8
+  %56 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %48, i64 %46
+  store ptr %56, ptr %29, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
-_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %.noexc, %31
-  %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, %31
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 -8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  %63 = load ptr, ptr %62, align 8
-  call void @_ZN3gmx18AnalysisDataHandleC1EPNS_8internal22AnalysisDataHandleImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %63)
-  %64 = load ptr, ptr %3, align 8
-  ret ptr %64
+  call void @_ZN3gmx18AnalysisDataHandleC1EPNS_8internal22AnalysisDataHandleImplE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %61)
+  %62 = load ptr, ptr %3, align 8
+  ret ptr %62
 
-_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i5: ; preds = %41, %47
+_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i6: ; preds = %41, %_ZNKSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %24) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %24) #13
   resume { ptr, i32 } %lpad.thr_comm
 }
 
@@ -423,7 +420,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AnalysisData17finishFrameSerialEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN3gmx19AnalysisDataStorage17finishFrameSerialEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %1)
   ret void
@@ -433,11 +430,11 @@ declare void @_ZN3gmx19AnalysisDataStorage17finishFrameSerialEi(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr readnone %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %6, %8
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -449,12 +446,12 @@ define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noca
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.sroa.05.015, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.015, i64 8
   %.not = icmp eq ptr %12, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %11, %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 181) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 181) #15
   unreachable
 
 .thread:                                          ; preds = %.lr.ph
@@ -462,7 +459,7 @@ define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noca
   %14 = ptrtoint ptr %6 to i64
   %15 = sub i64 %13, %14
   %16 = getelementptr inbounds i8, ptr %6, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.not.i.i = icmp eq ptr %17, %8
   br i1 %.not.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, label %18
 
@@ -486,12 +483,12 @@ define void @_ZN3gmx12AnalysisData10finishDataENS_18AnalysisDataHandleE(ptr noca
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %25) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %25) #13
   br label %_ZNSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
 
 _ZNSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
-  %27 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %28 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %29 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !14
@@ -509,15 +506,15 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22Analysi
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit, label %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %32) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %32) #13
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit
 
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS3_EESaIS6_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS6_S8_EE.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx8internal22AnalysisDataHandleImplESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.i.i, %_ZNKSt14default_deleteIN3gmx8internal22AnalysisDataHandleImplEEclEPS2_.exit.i.i.i.i.i
   store ptr null, ptr %31, align 8
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %35, %37
   br i1 %38, label %39, label %40
@@ -555,26 +552,26 @@ define void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr nocapture noundef n
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle10startFrameEiffENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 216) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle10startFrameEiffENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 216) #15
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %7
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle10startFrameEiffENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 218) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle10startFrameEiffENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 218) #15
   unreachable
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameEiff(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %1, float noundef %2, float noundef %3)
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %16, ptr %18, align 8
   ret void
 }
@@ -588,17 +585,17 @@ define void @_ZN3gmx18AnalysisDataHandle13selectDataSetEi(ptr nocapture noundef 
   br i1 %.not, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 225) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 225) #15
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1 = icmp eq ptr %7, null
   br i1 %.not1, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 227) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle13selectDataSetEiENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 227) #15
   unreachable
 
 9:                                                ; preds = %5
@@ -615,36 +612,36 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr nocapture noundef nonn
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEifbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 234) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEifbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 234) #15
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not3 = icmp eq ptr %9, null
   br i1 %.not3, label %10, label %11
 
 10:                                               ; preds = %7
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEifbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 236) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEifbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 236) #15
   unreachable
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %1
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %12, align 8
   %18 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %17, i64 %16
   store float %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, -6
   %22 = or disjoint i64 %21, 1
   %23 = or i64 %20, 5
   %storemerge.i.i.i = select i1 %3, i64 %23, i64 %22
   store i64 %storemerge.i.i.i, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i8 1, ptr %24, align 4
   ret void
 }
@@ -656,38 +653,38 @@ define void @_ZN3gmx18AnalysisDataHandle8setPointEiffb(ptr nocapture noundef non
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEiffbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 243) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEiffbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 243) #15
   unreachable
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %11, label %12
 
 11:                                               ; preds = %8
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEiffbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 245) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle8setPointEiffbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 245) #15
   unreachable
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, %1
   %17 = sext i32 %16 to i64
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds %"class.gmx::AnalysisDataValue", ptr %18, i64 %17
   store float %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float %3, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, -8
   %24 = or disjoint i64 %23, 3
   %25 = or i64 %22, 7
   %storemerge.i.i.i = select i1 %4, i64 %25, i64 %24
   store i64 %storemerge.i.i.i, ptr %21, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i8 1, ptr %26, align 4
   ret void
 }
@@ -699,11 +696,11 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr nocapture noundef 
   br i1 %.not, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle9setPointsEiiPKfbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 252) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle9setPointsEiiPKfbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 252) #15
   unreachable
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %30, label %.preheader
@@ -720,12 +717,12 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr nocapture noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv12 = phi i64 [ %indvars.iv.next13, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds float, ptr %3, i64 %indvars.iv12
+  %16 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv12
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %18, align 8
@@ -733,29 +730,29 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr nocapture noundef 
   %24 = getelementptr %"class.gmx::AnalysisDataValue", ptr %23, i64 %12
   %25 = getelementptr %"class.gmx::AnalysisDataValue", ptr %24, i64 %21
   store float %17, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %27, 5
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 44
   store i8 1, ptr %29, align 4
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
   br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 30:                                               ; preds = %8
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle9setPointsEiiPKfbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 254) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle9setPointsEiiPKfbENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 254) #15
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 36
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %36, align 8
@@ -763,12 +760,12 @@ define void @_ZN3gmx18AnalysisDataHandle9setPointsEiiPKfb(ptr nocapture noundef 
   %42 = getelementptr %"class.gmx::AnalysisDataValue", ptr %41, i64 %12
   %43 = getelementptr %"class.gmx::AnalysisDataValue", ptr %42, i64 %39
   store float %35, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, -6
   %47 = or disjoint i64 %46, 1
   store i64 %47, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %33, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 44
   store i8 1, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count15
@@ -785,7 +782,7 @@ define void @_ZN3gmx18AnalysisDataHandle14finishPointSetEv(ptr nocapture noundef
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 264) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 264) #15
   unreachable
 
 4:                                                ; preds = %1
@@ -794,18 +791,18 @@ define void @_ZN3gmx18AnalysisDataHandle14finishPointSetEv(ptr nocapture noundef
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 266) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 266) #15
   unreachable
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not1 = icmp eq ptr %11, null
   br i1 %.not1, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.19, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 268) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.19, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle14finishPointSetEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 268) #15
   unreachable
 
 13:                                               ; preds = %8
@@ -824,17 +821,17 @@ define void @_ZN3gmx18AnalysisDataHandle11finishFrameEv(ptr nocapture noundef no
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle11finishFrameEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 275) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle11finishFrameEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 275) #15
   unreachable
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not2 = icmp eq ptr %6, null
   br i1 %.not2, label %7, label %8
 
 7:                                                ; preds = %4
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.20, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle11finishFrameEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 277) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.20, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle11finishFrameEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 277) #15
   unreachable
 
 8:                                                ; preds = %4
@@ -852,7 +849,7 @@ define void @_ZN3gmx18AnalysisDataHandle10finishDataEv(ptr nocapture noundef non
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle10finishDataEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 286) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx18AnalysisDataHandle10finishDataEvENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 286) #15
   unreachable
 
 4:                                                ; preds = %1
@@ -874,6 +871,9 @@ declare i64 @llvm.umin.i64(i64, i64) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -885,10 +885,11 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { noreturn }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

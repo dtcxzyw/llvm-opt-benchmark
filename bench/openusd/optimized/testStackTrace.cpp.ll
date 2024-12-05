@@ -277,7 +277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
   %76 = phi i64 [ %82, %.lr.ph ], [ 0, %.preheader ]
   %.041 = phi i32 [ %81, %.lr.ph ], [ 0, %.preheader ]
   %.01240 = phi i1 [ %80, %.lr.ph ], [ false, %.preheader ]
-  %77 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %75, i64 %76
   %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull @__func__.main, i64 noundef 0) #13
   %79 = icmp ne i64 %78, -1
   %80 = or i1 %.01240, %79
@@ -315,7 +315,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
 .lr.ph.i.i.i.i:                                   ; preds = %93, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %94, %.lr.ph.i.i.i.i ], [ %84, %93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #13
-  %94 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %94, %83
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
@@ -411,7 +411,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #13
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !7
 

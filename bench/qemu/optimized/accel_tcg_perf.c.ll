@@ -163,9 +163,9 @@ if.then13:                                        ; preds = %if.end8
 
 if.end18:                                         ; preds = %if.end8
   store i32 1248416836, ptr %header, align 8
-  %version = getelementptr inbounds i8, ptr %header, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %header, i64 4
   store i32 1, ptr %version, align 4
-  %total_size = getelementptr inbounds i8, ptr %header, i64 8
+  %total_size = getelementptr inbounds nuw i8, ptr %header, i64 8
   store i32 40, ptr %total_size, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %elf_header.i)
   %call.i2 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
@@ -179,7 +179,7 @@ if.end.i4:                                        ; preds = %if.end18
   br i1 %cmp3.not.i, label %if.end5.i, label %get_e_machine.exit
 
 if.end5.i:                                        ; preds = %if.end.i4
-  %e_machine.i = getelementptr inbounds i8, ptr %elf_header.i, i64 18
+  %e_machine.i = getelementptr inbounds nuw i8, ptr %elf_header.i, i64 18
   %5 = load i16, ptr %e_machine.i, align 2
   %conv.i8 = zext i16 %5 to i32
   br label %get_e_machine.exit
@@ -187,12 +187,12 @@ if.end5.i:                                        ; preds = %if.end.i4
 get_e_machine.exit:                               ; preds = %if.end18, %if.end.i4, %if.end5.i
   %retval.0.i7 = phi i32 [ %conv.i8, %if.end5.i ], [ 0, %if.end18 ], [ 0, %if.end.i4 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %elf_header.i)
-  %elf_mach = getelementptr inbounds i8, ptr %header, i64 12
+  %elf_mach = getelementptr inbounds nuw i8, ptr %header, i64 12
   store i32 %retval.0.i7, ptr %elf_mach, align 4
-  %pad1 = getelementptr inbounds i8, ptr %header, i64 16
+  %pad1 = getelementptr inbounds nuw i8, ptr %header, i64 16
   store i32 0, ptr %pad1, align 8
   %call20 = tail call i32 @getpid() #13
-  %pid = getelementptr inbounds i8, ptr %header, i64 20
+  %pid = getelementptr inbounds nuw i8, ptr %header, i64 20
   store i32 %call20, ptr %pid, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %6 = load i32, ptr @use_rt_clock, align 4
@@ -203,7 +203,7 @@ if.then.i:                                        ; preds = %get_e_machine.exit
   %call.i9 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #13
   %7 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %7, 1000000000
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %8 = load i64, ptr %tv_nsec.i, align 8
   %add.i = add i64 %mul.i, %8
   br label %get_clock.exit
@@ -213,7 +213,7 @@ if.else.i:                                        ; preds = %get_e_machine.exit
   %call.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #13
   %9 = load i64, ptr %tv.i.i, align 8
   %mul.i.i = mul i64 %9, 1000000000
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %mul1.i.i = mul i64 %10, 1000
   %add.i.i = add i64 %mul1.i.i, %mul.i.i
@@ -223,9 +223,9 @@ if.else.i:                                        ; preds = %get_e_machine.exit
 get_clock.exit:                                   ; preds = %if.then.i, %if.else.i
   %retval.0.i10 = phi i64 [ %add.i, %if.then.i ], [ %add.i.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  %timestamp = getelementptr inbounds i8, ptr %header, i64 24
+  %timestamp = getelementptr inbounds nuw i8, ptr %header, i64 24
   store i64 %retval.0.i10, ptr %timestamp, align 8
-  %flags = getelementptr inbounds i8, ptr %header, i64 32
+  %flags = getelementptr inbounds nuw i8, ptr %header, i64 32
   store i64 0, ptr %flags, align 8
   %11 = load ptr, ptr @jitdump, align 8
   %call22 = call i64 @fwrite(ptr noundef nonnull %header, i64 noundef 40, i64 noundef 1, ptr noundef %11)
@@ -284,7 +284,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %icount = getelementptr inbounds i8, ptr %tb, i64 26
+  %icount = getelementptr inbounds nuw i8, ptr %tb, i64 26
   %2 = load i16, ptr %icount, align 2
   %conv = zext i16 %2 to i64
   %call = tail call noalias ptr @g_try_malloc0_n(i64 noundef %conv, i64 noundef 48) #15
@@ -294,9 +294,9 @@ if.end:                                           ; preds = %entry
 if.end4:                                          ; preds = %if.end
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %4 = load ptr, ptr %3, align 8
-  %gen_insn_data5 = getelementptr inbounds i8, ptr %4, i64 30664
+  %gen_insn_data5 = getelementptr inbounds nuw i8, ptr %4, i64 30664
   %5 = load ptr, ptr %gen_insn_data5, align 8
-  %insn_start_words = getelementptr inbounds i8, ptr %4, i64 70
+  %insn_start_words = getelementptr inbounds nuw i8, ptr %4, i64 70
   %6 = load i8, ptr %insn_start_words, align 2
   %conv6 = zext i8 %6 to i64
   %7 = load i16, ptr %icount, align 2
@@ -305,7 +305,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp70.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
+  %cflags.i = getelementptr inbounds nuw i8, ptr %tb, i64 20
   %and14 = and i64 %guest_pc, -4096
   %8 = load ptr, ptr @jitdump, align 8
   %tobool18.not = icmp eq ptr %8, null
@@ -330,7 +330,7 @@ if.then13:                                        ; preds = %for.body
   br label %if.end17
 
 if.end17:                                         ; preds = %for.body, %if.then13
-  %flags = getelementptr inbounds i8, ptr %arrayidx10, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 8
   store i32 %conv20, ptr %flags, align 8
   %inc = add nuw nsw i64 %insn.071, 1
   %exitcond.not = icmp eq i64 %inc, %conv8
@@ -360,7 +360,7 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   br i1 %tobool.not.i.i, label %get_host_pc_size.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %for.body31
-  %gen_insn_end_off.i.i = getelementptr inbounds i8, ptr %.pre, i64 29640
+  %gen_insn_end_off.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 29640
   %sub.i.i = add nsw i64 %insn.174, -1
   %arrayidx.i.i = getelementptr [512 x i16], ptr %gen_insn_end_off.i.i, i64 0, i64 %sub.i.i
   %15 = load i16, ptr %arrayidx.i.i, align 2
@@ -368,11 +368,11 @@ cond.true.i.i:                                    ; preds = %for.body31
 
 get_host_pc_size.exit.i:                          ; preds = %cond.true.i.i, %for.body31
   %cond.i.i = phi i16 [ %15, %cond.true.i.i ], [ 0, %for.body31 ]
-  %gen_insn_end_off6.i.i = getelementptr inbounds i8, ptr %.pre, i64 29640
+  %gen_insn_end_off6.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 29640
   %arrayidx7.i.i = getelementptr [512 x i16], ptr %gen_insn_end_off6.i.i, i64 0, i64 %insn.174
   %16 = load i16, ptr %arrayidx7.i.i, align 2
   %17 = load ptr, ptr @perfmap, align 8
-  %symbol.i.i = getelementptr inbounds i8, ptr %arrayidx32, i64 16
+  %symbol.i.i = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 16
   %18 = load ptr, ptr %symbol.i.i, align 8
   %tobool.not.i1.i = icmp eq ptr %18, null
   br i1 %tobool.not.i1.i, label %if.then.i.i, label %if.end6.i.i
@@ -383,7 +383,7 @@ if.then.i.i:                                      ; preds = %get_host_pc_size.ex
   br label %write_perfmap_entry.exit
 
 if.end6.i.i:                                      ; preds = %get_host_pc_size.exit.i
-  %offset.i.i = getelementptr inbounds i8, ptr %arrayidx32, i64 24
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 24
   %20 = load i64, ptr %offset.i.i, align 8
   %tobool7.not.i.i = icmp eq i64 %20, 0
   br i1 %tobool7.not.i.i, label %write_perfmap_entry.exit, label %if.end16.i.i
@@ -422,7 +422,7 @@ if.then38:                                        ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rec.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ent.i)
   store i32 2, ptr %rec.i, align 8
-  %total_size.i = getelementptr inbounds i8, ptr %rec.i, i64 4
+  %total_size.i = getelementptr inbounds nuw i8, ptr %rec.i, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
   %25 = load i32, ptr @use_rt_clock, align 4
   %tobool.not.i.i27 = icmp eq i32 %25, 0
@@ -432,7 +432,7 @@ if.then.i.i28:                                    ; preds = %if.then38
   %call.i.i29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i) #13
   %26 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul i64 %26, 1000000000
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
   %27 = load i64, ptr %tv_nsec.i.i, align 8
   %add.i.i30 = add i64 %mul.i.i, %27
   br label %get_clock.exit.i
@@ -442,7 +442,7 @@ if.else.i.i:                                      ; preds = %if.then38
   %call.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i, ptr noundef null) #13
   %28 = load i64, ptr %tv.i.i.i, align 8
   %mul.i.i.i = mul i64 %28, 1000000000
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %tv.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i, align 8
   %mul1.i.i.i = mul i64 %29, 1000
   %add.i.i.i = add i64 %mul1.i.i.i, %mul.i.i.i
@@ -452,12 +452,12 @@ if.else.i.i:                                      ; preds = %if.then38
 get_clock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i28
   %retval.0.i.i31 = phi i64 [ %add.i.i30, %if.then.i.i28 ], [ %add.i.i.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i)
-  %timestamp.i = getelementptr inbounds i8, ptr %rec.i, i64 8
+  %timestamp.i = getelementptr inbounds nuw i8, ptr %rec.i, i64 8
   store i64 %retval.0.i.i31, ptr %timestamp.i, align 8
   %30 = ptrtoint ptr %start to i64
-  %code_addr.i = getelementptr inbounds i8, ptr %rec.i, i64 16
+  %code_addr.i = getelementptr inbounds nuw i8, ptr %rec.i, i64 16
   store i64 %30, ptr %code_addr.i, align 8
-  %nr_entry.i = getelementptr inbounds i8, ptr %rec.i, i64 24
+  %nr_entry.i = getelementptr inbounds nuw i8, ptr %rec.i, i64 24
   %cmp27.not.i = icmp eq i16 %24, 0
   br i1 %cmp27.not.i, label %write_jr_code_debug_info.exit.critedge, label %for.body.i
 
@@ -492,15 +492,15 @@ for.end.i:                                        ; preds = %for.inc.i
   store i64 %inc25.i, ptr %nr_entry.i, align 8
   %34 = load ptr, ptr @jitdump, align 8
   %call16.i = call i64 @fwrite(ptr noundef nonnull %rec.i, i64 noundef 32, i64 noundef 1, ptr noundef %34)
-  %lineno.i = getelementptr inbounds i8, ptr %ent.i, i64 8
-  %discrim.i = getelementptr inbounds i8, ptr %ent.i, i64 12
+  %lineno.i = getelementptr inbounds nuw i8, ptr %ent.i, i64 8
+  %discrim.i = getelementptr inbounds nuw i8, ptr %ent.i, i64 12
   br label %for.body21.i
 
 for.body21.i:                                     ; preds = %for.inc41.i, %for.end.i
   %conv1835.i = phi i64 [ 0, %for.end.i ], [ %conv18.i, %for.inc41.i ]
   %insn.134.i = phi i32 [ 0, %for.end.i ], [ %inc42.i, %for.inc41.i ]
   %arrayidx23.i = getelementptr %struct.debuginfo_query, ptr %call, i64 %conv1835.i
-  %file24.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 32
+  %file24.i = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 32
   %35 = load ptr, ptr %file24.i, align 8
   %tobool25.not.i = icmp eq ptr %35, null
   br i1 %tobool25.not.i, label %for.inc41.i, label %if.then26.i
@@ -511,7 +511,7 @@ if.then26.i:                                      ; preds = %for.body21.i
 
 cond.true.i.i34:                                  ; preds = %if.then26.i
   %36 = load ptr, ptr %3, align 8
-  %gen_insn_end_off.i.i35 = getelementptr inbounds i8, ptr %36, i64 29640
+  %gen_insn_end_off.i.i35 = getelementptr inbounds nuw i8, ptr %36, i64 29640
   %sub.i.i36 = add nsw i64 %conv1835.i, -1
   %arrayidx.i.i37 = getelementptr [512 x i16], ptr %gen_insn_end_off.i.i35, i64 0, i64 %sub.i.i36
   %37 = load i16, ptr %arrayidx.i.i37, align 2
@@ -522,7 +522,7 @@ get_host_pc_size.exit.i38:                        ; preds = %cond.true.i.i34, %i
   %cond.i.i39 = phi i64 [ %38, %cond.true.i.i34 ], [ 0, %if.then26.i ]
   %add.i22.i = add i64 %cond.i.i39, %30
   store i64 %add.i22.i, ptr %ent.i, align 8
-  %line.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 40
+  %line.i = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 40
   %39 = load i32, ptr %line.i, align 8
   store i32 %39, ptr %lineno.i, align 8
   store i32 0, ptr %discrim.i, align 4
@@ -549,16 +549,16 @@ write_jr_code_debug_info.exit.critedge:           ; preds = %get_clock.exit.i
 
 write_jr_code_debug_info.exit:                    ; preds = %for.inc41.i, %write_jr_code_debug_info.exit.critedge
   %43 = load ptr, ptr %3, align 8
-  %gen_insn_end_off.i = getelementptr inbounds i8, ptr %43, i64 29640
+  %gen_insn_end_off.i = getelementptr inbounds nuw i8, ptr %43, i64 29640
   %sub.i = add nsw i64 %conv40, -1
   %arrayidx44.i = getelementptr [512 x i16], ptr %gen_insn_end_off.i, i64 0, i64 %sub.i
   %44 = load i16, ptr %arrayidx44.i, align 2
   %conv45.i = zext i16 %44 to i64
   %add46.i = add i64 %conv45.i, %30
   store i64 %add46.i, ptr %ent.i, align 8
-  %lineno48.i = getelementptr inbounds i8, ptr %ent.i, i64 8
+  %lineno48.i = getelementptr inbounds nuw i8, ptr %ent.i, i64 8
   store i32 0, ptr %lineno48.i, align 8
-  %discrim49.i = getelementptr inbounds i8, ptr %ent.i, i64 12
+  %discrim49.i = getelementptr inbounds nuw i8, ptr %ent.i, i64 12
   store i32 0, ptr %discrim49.i, align 4
   %45 = load ptr, ptr @jitdump, align 8
   %call50.i = call i64 @fwrite(ptr noundef nonnull %ent.i, i64 noundef 16, i64 noundef 1, ptr noundef %45)
@@ -567,14 +567,14 @@ write_jr_code_debug_info.exit:                    ; preds = %for.inc41.i, %write
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rec.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ent.i)
   %47 = load ptr, ptr %3, align 8
-  %gen_insn_end_off = getelementptr inbounds i8, ptr %47, i64 29640
+  %gen_insn_end_off = getelementptr inbounds nuw i8, ptr %47, i64 29640
   %48 = load i16, ptr %icount, align 2
   %conv42 = zext i16 %48 to i64
   %sub = add nsw i64 %conv42, -1
   %arrayidx43 = getelementptr [512 x i16], ptr %gen_insn_end_off, i64 0, i64 %sub
   %49 = load i16, ptr %arrayidx43, align 2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %rec.i42)
-  %symbol.i.i43 = getelementptr inbounds i8, ptr %call, i64 16
+  %symbol.i.i43 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %50 = load ptr, ptr %symbol.i.i43, align 8
   %tobool.not.i.i44 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i44, label %if.then.i.i66, label %if.end6.i.i45
@@ -589,7 +589,7 @@ if.then.i.i66:                                    ; preds = %write_jr_code_debug
   br label %pretty_symbol.exit.i
 
 if.end6.i.i45:                                    ; preds = %write_jr_code_debug_info.exit
-  %offset.i.i46 = getelementptr inbounds i8, ptr %call, i64 24
+  %offset.i.i46 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %54 = load i64, ptr %offset.i.i46, align 8
   %tobool7.not.i.i47 = icmp eq i64 %54, 0
   br i1 %tobool7.not.i.i47, label %if.then8.i.i, label %if.end16.i.i48
@@ -615,7 +615,7 @@ pretty_symbol.exit.i:                             ; preds = %if.end16.i.i48, %if
   %add.i = add nuw nsw i64 %conv.i51, 56
   %add1.i = add i64 %add.i, %symbol_size.0.i
   %conv2.i = trunc i64 %add1.i to i32
-  %total_size.i52 = getelementptr inbounds i8, ptr %rec.i42, i64 4
+  %total_size.i52 = getelementptr inbounds nuw i8, ptr %rec.i42, i64 4
   store i32 %conv2.i, ptr %total_size.i52, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i41)
   %57 = load i32, ptr @use_rt_clock, align 4
@@ -626,7 +626,7 @@ if.then.i6.i:                                     ; preds = %pretty_symbol.exit.
   %call.i7.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i.i41) #13
   %58 = load i64, ptr %ts.i.i41, align 8
   %mul.i.i53 = mul i64 %58, 1000000000
-  %tv_nsec.i.i54 = getelementptr inbounds i8, ptr %ts.i.i41, i64 8
+  %tv_nsec.i.i54 = getelementptr inbounds nuw i8, ptr %ts.i.i41, i64 8
   %59 = load i64, ptr %tv_nsec.i.i54, align 8
   %add.i8.i = add i64 %mul.i.i53, %59
   br label %write_jr_code_load.exit
@@ -636,7 +636,7 @@ if.else.i.i60:                                    ; preds = %pretty_symbol.exit.
   %call.i.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i40, ptr noundef null) #13
   %60 = load i64, ptr %tv.i.i.i40, align 8
   %mul.i.i.i62 = mul i64 %60, 1000000000
-  %tv_usec.i.i.i63 = getelementptr inbounds i8, ptr %tv.i.i.i40, i64 8
+  %tv_usec.i.i.i63 = getelementptr inbounds nuw i8, ptr %tv.i.i.i40, i64 8
   %61 = load i64, ptr %tv_usec.i.i.i63, align 8
   %mul1.i.i.i64 = mul i64 %61, 1000
   %add.i.i.i65 = add i64 %mul1.i.i.i64, %mul.i.i.i62
@@ -646,24 +646,24 @@ if.else.i.i60:                                    ; preds = %pretty_symbol.exit.
 write_jr_code_load.exit:                          ; preds = %if.then.i6.i, %if.else.i.i60
   %retval.0.i9.i = phi i64 [ %add.i8.i, %if.then.i6.i ], [ %add.i.i.i65, %if.else.i.i60 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i.i41)
-  %timestamp.i56 = getelementptr inbounds i8, ptr %rec.i42, i64 8
+  %timestamp.i56 = getelementptr inbounds nuw i8, ptr %rec.i42, i64 8
   store i64 %retval.0.i9.i, ptr %timestamp.i56, align 8
   %call6.i = call i32 @getpid() #13
-  %pid.i = getelementptr inbounds i8, ptr %rec.i42, i64 16
+  %pid.i = getelementptr inbounds nuw i8, ptr %rec.i42, i64 16
   store i32 %call6.i, ptr %pid.i, align 8
   %call7.i57 = call i32 @qemu_get_thread_id() #13
-  %tid.i = getelementptr inbounds i8, ptr %rec.i42, i64 20
+  %tid.i = getelementptr inbounds nuw i8, ptr %rec.i42, i64 20
   store i32 %call7.i57, ptr %tid.i, align 4
-  %vma.i = getelementptr inbounds i8, ptr %rec.i42, i64 24
+  %vma.i = getelementptr inbounds nuw i8, ptr %rec.i42, i64 24
   store i64 %30, ptr %vma.i, align 8
-  %code_addr.i58 = getelementptr inbounds i8, ptr %rec.i42, i64 32
+  %code_addr.i58 = getelementptr inbounds nuw i8, ptr %rec.i42, i64 32
   store i64 %30, ptr %code_addr.i58, align 8
-  %code_size.i = getelementptr inbounds i8, ptr %rec.i42, i64 40
+  %code_size.i = getelementptr inbounds nuw i8, ptr %rec.i42, i64 40
   store i64 %conv.i51, ptr %code_size.i, align 8
   %62 = load i64, ptr @write_jr_code_load.code_index, align 8
   %inc.i59 = add i64 %62, 1
   store i64 %inc.i59, ptr @write_jr_code_load.code_index, align 8
-  %code_index.i = getelementptr inbounds i8, ptr %rec.i42, i64 48
+  %code_index.i = getelementptr inbounds nuw i8, ptr %rec.i42, i64 48
   store i64 %62, ptr %code_index.i, align 8
   %63 = load ptr, ptr @jitdump, align 8
   %call9.i = call i64 @fwrite(ptr noundef nonnull %rec.i42, i64 noundef 56, i64 noundef 1, ptr noundef %63)

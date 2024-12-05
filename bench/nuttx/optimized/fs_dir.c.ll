@@ -17,28 +17,28 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @dir_allocate(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 26
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 15
   %10 = icmp eq i16 %9, 3
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %open_mountpoint.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %open_mountpoint.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %open_mountpoint.exit.thread, label %23
@@ -61,9 +61,9 @@ open_mountpoint.exit:                             ; preds = %23
 open_pseudodir.exit:                              ; preds = %27
   store ptr %28, ptr %3, align 8
   store ptr %6, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %31, ptr %32, align 8
   %33 = tail call i32 @inode_addref(ptr noundef %31) #7
   br label %34
@@ -71,21 +71,21 @@ open_pseudodir.exit:                              ; preds = %27
 34:                                               ; preds = %open_pseudodir.exit, %open_mountpoint.exit
   %35 = call i32 @inode_getpath(ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef 256) #7
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %37, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef %1) #7
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr null, ptr %42, align 8
   br label %open_mountpoint.exit.thread
 
 43:                                               ; preds = %34
   store ptr @g_dir_inode, ptr %5, align 8
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %44, ptr %45, align 8
   %46 = call i32 @inode_addref(ptr noundef nonnull @g_dir_inode) #7
   br label %open_mountpoint.exit.thread
@@ -106,9 +106,9 @@ declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dir_open(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @dir_allocate(ptr noundef %0, ptr noundef %5)
   ret i32 %6
@@ -116,21 +116,21 @@ define internal i32 @dir_open(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dir_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 26
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 15
   %10 = icmp eq i16 %9, 3
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %.not16 = icmp eq ptr %15, null
   br i1 %.not16, label %23, label %16
@@ -140,7 +140,7 @@ define internal i32 @dir_close(ptr nocapture noundef readonly %0) #0 {
   br label %23
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %21
@@ -162,7 +162,7 @@ define internal i32 @dir_close(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, 35) i64 @dir_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %1, null
@@ -171,31 +171,31 @@ define internal range(i64 -2147483648, 35) i64 @dir_read(ptr nocapture noundef %
   br i1 %or.cond, label %64, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 26
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 15
   %13 = icmp eq i16 %12, 3
   br i1 %13, label %read_pseudodir.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
-  %20 = getelementptr inbounds i8, ptr %16, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20, i64 noundef 33) #7
   store i8 0, ptr %1, align 1
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %31, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %22, i64 26
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 26
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 15
   %switch.tableidx = add nsw i16 %28, -1
@@ -209,7 +209,7 @@ switch.hole_check:                                ; preds = %25
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table.dir_read, i64 0, i64 %30
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table.dir_read, i64 0, i64 %30
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr %1, align 1
   %.pre = load ptr, ptr %15, align 8
@@ -217,13 +217,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 31:                                               ; preds = %switch.hole_check, %25, %switch.lookup, %18
   %32 = phi ptr [ %.pre, %switch.lookup ], [ %22, %25 ], [ %22, %18 ], [ %22, %switch.hole_check ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not36.i = icmp eq ptr %34, null
   br i1 %.not36.i, label %35, label %39
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %32, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
@@ -235,14 +235,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 40:                                               ; preds = %39, %35
   %41 = tail call i32 @inode_lock() #7
   %42 = load ptr, ptr %15, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %15, align 8
   %.not37.i = icmp eq ptr %44, null
   br i1 %.not37.i, label %read_pseudodir.exit.thread20, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %47 = load i16, ptr %46, align 8
   %48 = add i16 %47, 1
   store i16 %48, ptr %46, align 8
@@ -254,9 +254,9 @@ read_pseudodir.exit.thread20:                     ; preds = %40, %45
   br label %60
 
 read_pseudodir.exit:                              ; preds = %9
-  %49 = getelementptr inbounds i8, ptr %6, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 120
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %1) #7
   %.fr = freeze i32 %53
@@ -276,7 +276,7 @@ read_pseudodir.exit:                              ; preds = %9
   br label %64
 
 60:                                               ; preds = %read_pseudodir.exit.thread20, %read_pseudodir.exit
-  %61 = getelementptr inbounds i8, ptr %0, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -296,10 +296,10 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 26
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 26
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 15
   %12 = icmp eq i16 %11, 3
@@ -313,9 +313,9 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %seek_mountptdir.exit, label %21
@@ -326,14 +326,14 @@ define internal i32 @dir_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 23:                                               ; preds = %21, %14
   %.018.i = phi i32 [ 0, %21 ], [ %.val, %14 ]
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %25 = icmp slt i32 %.018.i, %1
   br i1 %25, label %.lr.ph.i, label %seek_mountptdir.exit
 
 .lr.ph.i:                                         ; preds = %23, %31
   %.11.i = phi i32 [ %32, %31 ], [ %.018.i, %23 ]
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 %28(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %4) #7
   %30 = icmp slt i32 %29, 0
@@ -353,7 +353,7 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   %34 = icmp slt i32 %1, %.val
   %spec.select = select i1 %34, ptr %8, ptr %7
   %spec.select22 = select i1 %34, i32 0, i32 %.val
-  %.018.in.i = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %.018.in.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %.018.i19 = load ptr, ptr %.018.in.i, align 8
   %35 = tail call i32 @inode_lock() #7
   %36 = icmp ne ptr %.018.i19, null
@@ -365,7 +365,7 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   %.12.i = phi i32 [ %39, %.lr.ph.i21 ], [ %spec.select22, %33 ]
   %.1191.i = phi ptr [ %41, %.lr.ph.i21 ], [ %.018.i19, %33 ]
   %39 = add nsw i32 %.12.i, 1
-  %40 = getelementptr inbounds i8, ptr %.1191.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.1191.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp ne ptr %41, null
   %43 = icmp ne i32 %39, %1
@@ -376,13 +376,13 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   %.119.lcssa.i = phi ptr [ %.018.i19, %33 ], [ %41, %.lr.ph.i21 ]
   %.1.lcssa.i = phi i32 [ %spec.select22, %33 ], [ %39, %.lr.ph.i21 ]
   %.lcssa.i = phi i1 [ %36, %33 ], [ %42, %.lr.ph.i21 ]
-  %45 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %46 = load ptr, ptr %45, align 8
   store ptr %.119.lcssa.i, ptr %45, align 8
   br i1 %.lcssa.i, label %47, label %51
 
 47:                                               ; preds = %._crit_edge.i
-  %48 = getelementptr inbounds i8, ptr %.119.lcssa.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.119.lcssa.i, i64 24
   %49 = load i16, ptr %48, align 8
   %50 = add i16 %49, 1
   store i16 %50, ptr %48, align 8
@@ -398,7 +398,7 @@ seek_mountptdir.exit:                             ; preds = %.lr.ph.i, %31, %16,
   br label %seek_pseudodir.exit
 
 53:                                               ; preds = %3
-  %54 = getelementptr inbounds i8, ptr %0, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %55 = load i32, ptr %54, align 4
   br label %59
 
@@ -408,7 +408,7 @@ seek_pseudodir.exit:                              ; preds = %52, %51, %seek_moun
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %seek_pseudodir.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.013, ptr %58, align 4
   br label %59
 
@@ -425,10 +425,10 @@ define internal range(i32 -25, 1) i32 @dir_ioctl(ptr nocapture noundef readonly 
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 256) #7
   br label %12

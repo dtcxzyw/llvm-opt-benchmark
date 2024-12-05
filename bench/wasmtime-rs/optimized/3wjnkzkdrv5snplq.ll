@@ -3193,7 +3193,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %369)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %370)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %371)
-  %2480 = getelementptr inbounds i8, ptr %1, i64 120
+  %2480 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %369, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.1, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.0, i64 194, ptr nonnull align 8 %2480)
   %2481 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64 136, i64 8)
           to label %2482 unwind label %.thread146.i
@@ -3215,12 +3215,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %.thread.i unwind label %2847
 
 2485:                                             ; preds = %2482
-  %2486 = getelementptr inbounds i8, ptr %365, i64 104
+  %2486 = getelementptr inbounds nuw i8, ptr %365, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.2, ptr %2486, align 8
-  %2487 = getelementptr inbounds i8, ptr %365, i64 112
+  %2487 = getelementptr inbounds nuw i8, ptr %365, i64 112
   store i64 10, ptr %2487, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %365, ptr noundef nonnull align 8 dereferenceable(104) %229, i64 104, i1 false)
-  %2488 = getelementptr inbounds i8, ptr %365, i64 120
+  %2488 = getelementptr inbounds nuw i8, ptr %365, i64 120
   store ptr null, ptr %2488, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %366, ptr nonnull align 8 %365, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.4, i64 52)
           to label %2489 unwind label %2483
@@ -3239,7 +3239,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   call void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5build17hc2d8f0f0b7bff993E(ptr nonnull sret({ { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %363, ptr nonnull align 2 %362)
   %2491 = call ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hd1a30d2d0e30831bE(ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.5, i64 12, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.6, i64 20, ptr nonnull align 8 %363)
   store ptr %2491, ptr %364, align 8
-  %2492 = getelementptr inbounds i8, ptr %1, i64 48
+  %2492 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %358, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.8, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.7, i64 145, ptr nonnull align 8 %2492)
           to label %2496 unwind label %2494
 
@@ -3283,18 +3283,18 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2500
 
 2503:                                             ; preds = %2499
-  %2504 = getelementptr inbounds i8, ptr %354, i64 104
+  %2504 = getelementptr inbounds nuw i8, ptr %354, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %2504, align 8
-  %2505 = getelementptr inbounds i8, ptr %354, i64 112
+  %2505 = getelementptr inbounds nuw i8, ptr %354, i64 112
   store i64 1, ptr %2505, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %354, ptr noundef nonnull align 8 dereferenceable(104) %228, i64 104, i1 false)
-  %2506 = getelementptr inbounds i8, ptr %354, i64 120
+  %2506 = getelementptr inbounds nuw i8, ptr %354, i64 120
   store ptr null, ptr %2506, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %355, ptr nonnull align 8 %354, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %2507 unwind label %2501
 
 2507:                                             ; preds = %2503
-  %2508 = getelementptr inbounds i8, ptr %3, i64 104
+  %2508 = getelementptr inbounds nuw i8, ptr %3, i64 104
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %227, ptr nonnull align 8 %2508)
           to label %2512 unwind label %2510
 
@@ -3309,18 +3309,18 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2509
 
 2512:                                             ; preds = %2507
-  %2513 = getelementptr inbounds i8, ptr %352, i64 104
+  %2513 = getelementptr inbounds nuw i8, ptr %352, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.11, ptr %2513, align 8
-  %2514 = getelementptr inbounds i8, ptr %352, i64 112
+  %2514 = getelementptr inbounds nuw i8, ptr %352, i64 112
   store i64 10, ptr %2514, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %352, ptr noundef nonnull align 8 dereferenceable(104) %227, i64 104, i1 false)
-  %2515 = getelementptr inbounds i8, ptr %352, i64 120
+  %2515 = getelementptr inbounds nuw i8, ptr %352, i64 120
   store ptr null, ptr %2515, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %353, ptr nonnull align 8 %352, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.12, i64 10)
           to label %2516 unwind label %2510
 
 2516:                                             ; preds = %2512
-  %2517 = getelementptr inbounds i8, ptr %3, i64 208
+  %2517 = getelementptr inbounds nuw i8, ptr %3, i64 208
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %226, ptr nonnull align 8 %2517)
           to label %2520 unwind label %2518
 
@@ -3331,21 +3331,21 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2509 unwind label %2847
 
 2520:                                             ; preds = %2516
-  %2521 = getelementptr inbounds i8, ptr %350, i64 104
+  %2521 = getelementptr inbounds nuw i8, ptr %350, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.13, ptr %2521, align 8
-  %2522 = getelementptr inbounds i8, ptr %350, i64 112
+  %2522 = getelementptr inbounds nuw i8, ptr %350, i64 112
   store i64 10, ptr %2522, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %350, ptr noundef nonnull align 8 dereferenceable(104) %226, i64 104, i1 false)
-  %2523 = getelementptr inbounds i8, ptr %350, i64 120
+  %2523 = getelementptr inbounds nuw i8, ptr %350, i64 120
   store ptr null, ptr %2523, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %351, ptr nonnull align 8 %350, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.14, i64 10)
           to label %2524 unwind label %2518
 
 2524:                                             ; preds = %2520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2497, ptr noundef nonnull align 8 dereferenceable(136) %355, i64 136, i1 false)
-  %2525 = getelementptr inbounds i8, ptr %2497, i64 136
+  %2525 = getelementptr inbounds nuw i8, ptr %2497, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2525, ptr noundef nonnull align 8 dereferenceable(136) %353, i64 136, i1 false)
-  %2526 = getelementptr inbounds i8, ptr %2497, i64 272
+  %2526 = getelementptr inbounds nuw i8, ptr %2497, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2526, ptr noundef nonnull align 8 dereferenceable(136) %351, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %357, ptr nonnull align 8 %2497, i64 3)
           to label %2527 unwind label %.thread157.i
@@ -3380,7 +3380,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2535:                                             ; preds = %2533
   store ptr %2534, ptr %349, align 8
-  %2536 = getelementptr inbounds i8, ptr %1, i64 40
+  %2536 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %343, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.18, i64 8, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.17, i64 776, ptr nonnull align 8 %2536)
           to label %2540 unwind label %2538
 
@@ -3424,18 +3424,18 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2544
 
 2547:                                             ; preds = %2543
-  %2548 = getelementptr inbounds i8, ptr %339, i64 104
+  %2548 = getelementptr inbounds nuw i8, ptr %339, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %2548, align 8
-  %2549 = getelementptr inbounds i8, ptr %339, i64 112
+  %2549 = getelementptr inbounds nuw i8, ptr %339, i64 112
   store i64 1, ptr %2549, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %339, ptr noundef nonnull align 8 dereferenceable(104) %225, i64 104, i1 false)
-  %2550 = getelementptr inbounds i8, ptr %339, i64 120
+  %2550 = getelementptr inbounds nuw i8, ptr %339, i64 120
   store ptr null, ptr %2550, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %340, ptr nonnull align 8 %339, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.20, i64 25)
           to label %2551 unwind label %2545
 
 2551:                                             ; preds = %2547
-  %2552 = getelementptr inbounds i8, ptr %3, i64 832
+  %2552 = getelementptr inbounds nuw i8, ptr %3, i64 832
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %224, ptr nonnull align 8 %2552)
           to label %2555 unwind label %2553
 
@@ -3447,13 +3447,13 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2555:                                             ; preds = %2551
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2541, ptr noundef nonnull align 8 dereferenceable(136) %340, i64 136, i1 false)
-  %2556 = getelementptr inbounds i8, ptr %2541, i64 136
+  %2556 = getelementptr inbounds nuw i8, ptr %2541, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2556, ptr noundef nonnull align 8 dereferenceable(104) %224, i64 104, i1 false)
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %2541, i64 240
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2541, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.21, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2541, i64 248
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2541, i64 248
   store i64 2, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2541, i64 256
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2541, i64 256
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %342, ptr nonnull align 8 %2541, i64 2)
           to label %2557 unwind label %.thread168.i
@@ -3496,7 +3496,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2567:                                             ; preds = %2565
   store ptr %2566, ptr %338, align 8
-  %2568 = getelementptr inbounds i8, ptr %1, i64 152
+  %2568 = getelementptr inbounds nuw i8, ptr %1, i64 152
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %330, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.25, i64 9, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.24, i64 49, ptr nonnull align 8 %2568)
           to label %2572 unwind label %2570
 
@@ -3527,7 +3527,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2576 unwind label %2570
 
 2576:                                             ; preds = %2575
-  %2577 = getelementptr inbounds i8, ptr %1, i64 232
+  %2577 = getelementptr inbounds nuw i8, ptr %1, i64 232
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %326, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.27, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.26, i64 54, ptr nonnull align 8 %2577)
           to label %2578 unwind label %2570
 
@@ -3547,7 +3547,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2581:                                             ; preds = %2578
   store ptr %2579, ptr %324, align 8
-  %2582 = getelementptr inbounds i8, ptr %2, i64 1040
+  %2582 = getelementptr inbounds nuw i8, ptr %2, i64 1040
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %223, ptr nonnull align 8 %2582)
           to label %2585 unwind label %2583
 
@@ -3559,11 +3559,11 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2585:                                             ; preds = %2581
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2579, ptr noundef nonnull align 8 dereferenceable(104) %223, i64 104, i1 false)
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %2579, i64 104
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2579, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.28, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %.sroa.35.0..sroa_idx.i = getelementptr inbounds i8, ptr %2579, i64 112
+  %.sroa.35.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2579, i64 112
   store i64 4, ptr %.sroa.35.0..sroa_idx.i, align 8
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %2579, i64 120
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2579, i64 120
   store ptr null, ptr %.sroa.46.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %325, ptr nonnull align 8 %2579, i64 1)
           to label %2586 unwind label %.thread179.i
@@ -3585,7 +3585,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2590 unwind label %2570
 
 2590:                                             ; preds = %2589
-  %2591 = getelementptr inbounds i8, ptr %1, i64 72
+  %2591 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %321, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.30, i64 5, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.29, i64 114, ptr nonnull align 8 %2591)
           to label %2592 unwind label %2570
 
@@ -3619,12 +3619,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2596
 
 2599:                                             ; preds = %2595
-  %2600 = getelementptr inbounds i8, ptr %317, i64 104
+  %2600 = getelementptr inbounds nuw i8, ptr %317, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %2600, align 8
-  %2601 = getelementptr inbounds i8, ptr %317, i64 112
+  %2601 = getelementptr inbounds nuw i8, ptr %317, i64 112
   store i64 1, ptr %2601, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %317, ptr noundef nonnull align 8 dereferenceable(104) %222, i64 104, i1 false)
-  %2602 = getelementptr inbounds i8, ptr %317, i64 120
+  %2602 = getelementptr inbounds nuw i8, ptr %317, i64 120
   store ptr null, ptr %2602, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %318, ptr nonnull align 8 %317, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %2603 unwind label %2597
@@ -3641,13 +3641,13 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2606:                                             ; preds = %2603
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2593, ptr noundef nonnull align 8 dereferenceable(136) %318, i64 136, i1 false)
-  %2607 = getelementptr inbounds i8, ptr %2593, i64 136
+  %2607 = getelementptr inbounds nuw i8, ptr %2593, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2607, ptr noundef nonnull align 8 dereferenceable(104) %221, i64 104, i1 false)
-  %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %2593, i64 240
+  %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2593, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.28, ptr %.sroa.29.0..sroa_idx.i, align 8
-  %.sroa.310.0..sroa_idx.i = getelementptr inbounds i8, ptr %2593, i64 248
+  %.sroa.310.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2593, i64 248
   store i64 4, ptr %.sroa.310.0..sroa_idx.i, align 8
-  %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %2593, i64 256
+  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2593, i64 256
   store ptr null, ptr %.sroa.411.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %320, ptr nonnull align 8 %2593, i64 2)
           to label %2608 unwind label %.thread190.i
@@ -3695,11 +3695,11 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2618:                                             ; preds = %2615
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2613, ptr noundef nonnull align 8 dereferenceable(104) %220, i64 104, i1 false)
-  %.sroa.214.0..sroa_idx.i = getelementptr inbounds i8, ptr %2613, i64 104
+  %.sroa.214.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2613, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.28, ptr %.sroa.214.0..sroa_idx.i, align 8
-  %.sroa.315.0..sroa_idx.i = getelementptr inbounds i8, ptr %2613, i64 112
+  %.sroa.315.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2613, i64 112
   store i64 4, ptr %.sroa.315.0..sroa_idx.i, align 8
-  %.sroa.416.0..sroa_idx.i = getelementptr inbounds i8, ptr %2613, i64 120
+  %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2613, i64 120
   store ptr null, ptr %.sroa.416.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %313, ptr nonnull align 8 %2613, i64 1)
           to label %2619 unwind label %.thread201.i
@@ -3750,12 +3750,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2627
 
 2630:                                             ; preds = %2626
-  %2631 = getelementptr inbounds i8, ptr %305, i64 104
+  %2631 = getelementptr inbounds nuw i8, ptr %305, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %2631, align 8
-  %2632 = getelementptr inbounds i8, ptr %305, i64 112
+  %2632 = getelementptr inbounds nuw i8, ptr %305, i64 112
   store i64 1, ptr %2632, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %305, ptr noundef nonnull align 8 dereferenceable(104) %219, i64 104, i1 false)
-  %2633 = getelementptr inbounds i8, ptr %305, i64 120
+  %2633 = getelementptr inbounds nuw i8, ptr %305, i64 120
   store ptr null, ptr %2633, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %306, ptr nonnull align 8 %305, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %2634 unwind label %2628
@@ -3772,13 +3772,13 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2637:                                             ; preds = %2634
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2624, ptr noundef nonnull align 8 dereferenceable(136) %306, i64 136, i1 false)
-  %2638 = getelementptr inbounds i8, ptr %2624, i64 136
+  %2638 = getelementptr inbounds nuw i8, ptr %2624, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2638, ptr noundef nonnull align 8 dereferenceable(104) %218, i64 104, i1 false)
-  %.sroa.219.0..sroa_idx.i = getelementptr inbounds i8, ptr %2624, i64 240
+  %.sroa.219.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2624, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.28, ptr %.sroa.219.0..sroa_idx.i, align 8
-  %.sroa.320.0..sroa_idx.i = getelementptr inbounds i8, ptr %2624, i64 248
+  %.sroa.320.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2624, i64 248
   store i64 4, ptr %.sroa.320.0..sroa_idx.i, align 8
-  %.sroa.421.0..sroa_idx.i = getelementptr inbounds i8, ptr %2624, i64 256
+  %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2624, i64 256
   store ptr null, ptr %.sroa.421.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %308, ptr nonnull align 8 %2624, i64 2)
           to label %2639 unwind label %.thread212.i
@@ -3829,12 +3829,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2647
 
 2650:                                             ; preds = %2646
-  %2651 = getelementptr inbounds i8, ptr %298, i64 104
+  %2651 = getelementptr inbounds nuw i8, ptr %298, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %2651, align 8
-  %2652 = getelementptr inbounds i8, ptr %298, i64 112
+  %2652 = getelementptr inbounds nuw i8, ptr %298, i64 112
   store i64 1, ptr %2652, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %298, ptr noundef nonnull align 8 dereferenceable(104) %217, i64 104, i1 false)
-  %2653 = getelementptr inbounds i8, ptr %298, i64 120
+  %2653 = getelementptr inbounds nuw i8, ptr %298, i64 120
   store ptr null, ptr %2653, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %299, ptr nonnull align 8 %298, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %2654 unwind label %2648
@@ -3851,13 +3851,13 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2657:                                             ; preds = %2654
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2644, ptr noundef nonnull align 8 dereferenceable(136) %299, i64 136, i1 false)
-  %2658 = getelementptr inbounds i8, ptr %2644, i64 136
+  %2658 = getelementptr inbounds nuw i8, ptr %2644, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2658, ptr noundef nonnull align 8 dereferenceable(104) %216, i64 104, i1 false)
-  %.sroa.224.0..sroa_idx.i = getelementptr inbounds i8, ptr %2644, i64 240
+  %.sroa.224.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2644, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.28, ptr %.sroa.224.0..sroa_idx.i, align 8
-  %.sroa.325.0..sroa_idx.i = getelementptr inbounds i8, ptr %2644, i64 248
+  %.sroa.325.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2644, i64 248
   store i64 4, ptr %.sroa.325.0..sroa_idx.i, align 8
-  %.sroa.426.0..sroa_idx.i = getelementptr inbounds i8, ptr %2644, i64 256
+  %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2644, i64 256
   store ptr null, ptr %.sroa.426.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %301, ptr nonnull align 8 %2644, i64 2)
           to label %2659 unwind label %.thread223.i
@@ -3875,7 +3875,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2662 unwind label %2570
 
 2662:                                             ; preds = %2661
-  %2663 = getelementptr inbounds i8, ptr %1, i64 144
+  %2663 = getelementptr inbounds nuw i8, ptr %1, i64 144
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %295, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.38, i64 6, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.37, i64 238, ptr nonnull align 8 %2663)
           to label %2664 unwind label %2570
 
@@ -3895,7 +3895,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2667:                                             ; preds = %2664
   store ptr %2665, ptr %293, align 8
-  %2668 = getelementptr inbounds i8, ptr %3, i64 936
+  %2668 = getelementptr inbounds nuw i8, ptr %3, i64 936
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %215, ptr nonnull align 8 %2668)
           to label %2671 unwind label %2669
 
@@ -3906,12 +3906,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %.thread226.i unwind label %2847
 
 2671:                                             ; preds = %2667
-  %2672 = getelementptr inbounds i8, ptr %291, i64 104
+  %2672 = getelementptr inbounds nuw i8, ptr %291, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.39, ptr %2672, align 8
-  %2673 = getelementptr inbounds i8, ptr %291, i64 112
+  %2673 = getelementptr inbounds nuw i8, ptr %291, i64 112
   store i64 5, ptr %2673, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %291, ptr noundef nonnull align 8 dereferenceable(104) %215, i64 104, i1 false)
-  %2674 = getelementptr inbounds i8, ptr %291, i64 120
+  %2674 = getelementptr inbounds nuw i8, ptr %291, i64 120
   store ptr null, ptr %2674, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %292, ptr nonnull align 8 %291, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.40, i64 13)
           to label %2675 unwind label %2669
@@ -3934,7 +3934,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2679 unwind label %2570
 
 2679:                                             ; preds = %2678
-  %2680 = getelementptr inbounds i8, ptr %1, i64 56
+  %2680 = getelementptr inbounds nuw i8, ptr %1, i64 56
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %287, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.42, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.41, i64 169, ptr nonnull align 8 %2680)
           to label %2681 unwind label %2570
 
@@ -3954,7 +3954,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2684:                                             ; preds = %2681
   store ptr %2682, ptr %285, align 8
-  %2685 = getelementptr inbounds i8, ptr %3, i64 728
+  %2685 = getelementptr inbounds nuw i8, ptr %3, i64 728
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %214, ptr nonnull align 8 %2685)
           to label %2689 unwind label %2687
 
@@ -3969,12 +3969,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2686
 
 2689:                                             ; preds = %2684
-  %2690 = getelementptr inbounds i8, ptr %283, i64 104
+  %2690 = getelementptr inbounds nuw i8, ptr %283, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.43, ptr %2690, align 8
-  %2691 = getelementptr inbounds i8, ptr %283, i64 112
+  %2691 = getelementptr inbounds nuw i8, ptr %283, i64 112
   store i64 2, ptr %2691, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %283, ptr noundef nonnull align 8 dereferenceable(104) %214, i64 104, i1 false)
-  %2692 = getelementptr inbounds i8, ptr %283, i64 120
+  %2692 = getelementptr inbounds nuw i8, ptr %283, i64 120
   store ptr null, ptr %2692, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %284, ptr nonnull align 8 %283, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.44, i64 40)
           to label %2693 unwind label %2687
@@ -3990,19 +3990,19 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2686 unwind label %2847
 
 2696:                                             ; preds = %2693
-  %2697 = getelementptr inbounds i8, ptr %281, i64 104
+  %2697 = getelementptr inbounds nuw i8, ptr %281, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.45, ptr %2697, align 8
-  %2698 = getelementptr inbounds i8, ptr %281, i64 112
+  %2698 = getelementptr inbounds nuw i8, ptr %281, i64 112
   store i64 4, ptr %2698, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %281, ptr noundef nonnull align 8 dereferenceable(104) %213, i64 104, i1 false)
-  %2699 = getelementptr inbounds i8, ptr %281, i64 120
+  %2699 = getelementptr inbounds nuw i8, ptr %281, i64 120
   store ptr null, ptr %2699, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %282, ptr nonnull align 8 %281, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.46, i64 14)
           to label %2700 unwind label %2694
 
 2700:                                             ; preds = %2696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2682, ptr noundef nonnull align 8 dereferenceable(136) %284, i64 136, i1 false)
-  %2701 = getelementptr inbounds i8, ptr %2682, i64 136
+  %2701 = getelementptr inbounds nuw i8, ptr %2682, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2701, ptr noundef nonnull align 8 dereferenceable(136) %282, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %286, ptr nonnull align 8 %2682, i64 2)
           to label %2702 unwind label %.thread245.i
@@ -4037,12 +4037,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %.thread248.i unwind label %2847
 
 2709:                                             ; preds = %2706
-  %2710 = getelementptr inbounds i8, ptr %277, i64 104
+  %2710 = getelementptr inbounds nuw i8, ptr %277, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.39, ptr %2710, align 8
-  %2711 = getelementptr inbounds i8, ptr %277, i64 112
+  %2711 = getelementptr inbounds nuw i8, ptr %277, i64 112
   store i64 5, ptr %2711, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %277, ptr noundef nonnull align 8 dereferenceable(104) %212, i64 104, i1 false)
-  %2712 = getelementptr inbounds i8, ptr %277, i64 120
+  %2712 = getelementptr inbounds nuw i8, ptr %277, i64 120
   store ptr null, ptr %2712, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %278, ptr nonnull align 8 %277, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.40, i64 13)
           to label %2713 unwind label %2707
@@ -4065,7 +4065,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2717 unwind label %2570
 
 2717:                                             ; preds = %2716
-  %2718 = getelementptr inbounds i8, ptr %1, i64 64
+  %2718 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %273, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.48, i64 13, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.47, i64 430, ptr nonnull align 8 %2718)
           to label %2719 unwind label %2570
 
@@ -4085,7 +4085,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2722:                                             ; preds = %2719
   store ptr %2720, ptr %271, align 8
-  %2723 = getelementptr inbounds i8, ptr %3, i64 624
+  %2723 = getelementptr inbounds nuw i8, ptr %3, i64 624
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %211, ptr nonnull align 8 %2723)
           to label %2727 unwind label %2725
 
@@ -4100,12 +4100,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2724
 
 2727:                                             ; preds = %2722
-  %2728 = getelementptr inbounds i8, ptr %269, i64 104
+  %2728 = getelementptr inbounds nuw i8, ptr %269, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.49, ptr %2728, align 8
-  %2729 = getelementptr inbounds i8, ptr %269, i64 112
+  %2729 = getelementptr inbounds nuw i8, ptr %269, i64 112
   store i64 3, ptr %2729, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %269, ptr noundef nonnull align 8 dereferenceable(104) %211, i64 104, i1 false)
-  %2730 = getelementptr inbounds i8, ptr %269, i64 120
+  %2730 = getelementptr inbounds nuw i8, ptr %269, i64 120
   store ptr null, ptr %2730, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %270, ptr nonnull align 8 %269, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.50, i64 18)
           to label %2731 unwind label %2725
@@ -4125,12 +4125,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2732
 
 2735:                                             ; preds = %2731
-  %2736 = getelementptr inbounds i8, ptr %267, i64 104
+  %2736 = getelementptr inbounds nuw i8, ptr %267, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.51, ptr %2736, align 8
-  %2737 = getelementptr inbounds i8, ptr %267, i64 112
+  %2737 = getelementptr inbounds nuw i8, ptr %267, i64 112
   store i64 6, ptr %2737, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %267, ptr noundef nonnull align 8 dereferenceable(104) %210, i64 104, i1 false)
-  %2738 = getelementptr inbounds i8, ptr %267, i64 120
+  %2738 = getelementptr inbounds nuw i8, ptr %267, i64 120
   store ptr null, ptr %2738, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %268, ptr nonnull align 8 %267, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.52, i64 27)
           to label %2739 unwind label %2733
@@ -4146,21 +4146,21 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2732 unwind label %2847
 
 2742:                                             ; preds = %2739
-  %2743 = getelementptr inbounds i8, ptr %265, i64 104
+  %2743 = getelementptr inbounds nuw i8, ptr %265, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.45, ptr %2743, align 8
-  %2744 = getelementptr inbounds i8, ptr %265, i64 112
+  %2744 = getelementptr inbounds nuw i8, ptr %265, i64 112
   store i64 4, ptr %2744, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %265, ptr noundef nonnull align 8 dereferenceable(104) %209, i64 104, i1 false)
-  %2745 = getelementptr inbounds i8, ptr %265, i64 120
+  %2745 = getelementptr inbounds nuw i8, ptr %265, i64 120
   store ptr null, ptr %2745, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %266, ptr nonnull align 8 %265, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.46, i64 14)
           to label %2746 unwind label %2740
 
 2746:                                             ; preds = %2742
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2720, ptr noundef nonnull align 8 dereferenceable(136) %270, i64 136, i1 false)
-  %2747 = getelementptr inbounds i8, ptr %2720, i64 136
+  %2747 = getelementptr inbounds nuw i8, ptr %2720, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2747, ptr noundef nonnull align 8 dereferenceable(136) %268, i64 136, i1 false)
-  %2748 = getelementptr inbounds i8, ptr %2720, i64 272
+  %2748 = getelementptr inbounds nuw i8, ptr %2720, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2748, ptr noundef nonnull align 8 dereferenceable(136) %266, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %272, ptr nonnull align 8 %2720, i64 3)
           to label %2749 unwind label %.thread267.i
@@ -4195,12 +4195,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %.thread270.i unwind label %2847
 
 2756:                                             ; preds = %2753
-  %2757 = getelementptr inbounds i8, ptr %261, i64 104
+  %2757 = getelementptr inbounds nuw i8, ptr %261, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.39, ptr %2757, align 8
-  %2758 = getelementptr inbounds i8, ptr %261, i64 112
+  %2758 = getelementptr inbounds nuw i8, ptr %261, i64 112
   store i64 5, ptr %2758, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %261, ptr noundef nonnull align 8 dereferenceable(104) %208, i64 104, i1 false)
-  %2759 = getelementptr inbounds i8, ptr %261, i64 120
+  %2759 = getelementptr inbounds nuw i8, ptr %261, i64 120
   store ptr null, ptr %2759, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %262, ptr nonnull align 8 %261, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.40, i64 13)
           to label %2760 unwind label %2754
@@ -4256,12 +4256,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2769
 
 2772:                                             ; preds = %2768
-  %2773 = getelementptr inbounds i8, ptr %253, i64 104
+  %2773 = getelementptr inbounds nuw i8, ptr %253, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.43, ptr %2773, align 8
-  %2774 = getelementptr inbounds i8, ptr %253, i64 112
+  %2774 = getelementptr inbounds nuw i8, ptr %253, i64 112
   store i64 2, ptr %2774, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %253, ptr noundef nonnull align 8 dereferenceable(104) %207, i64 104, i1 false)
-  %2775 = getelementptr inbounds i8, ptr %253, i64 120
+  %2775 = getelementptr inbounds nuw i8, ptr %253, i64 120
   store ptr null, ptr %2775, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %254, ptr nonnull align 8 %253, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.44, i64 40)
           to label %2776 unwind label %2770
@@ -4277,19 +4277,19 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2769 unwind label %2847
 
 2779:                                             ; preds = %2776
-  %2780 = getelementptr inbounds i8, ptr %251, i64 104
+  %2780 = getelementptr inbounds nuw i8, ptr %251, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.45, ptr %2780, align 8
-  %2781 = getelementptr inbounds i8, ptr %251, i64 112
+  %2781 = getelementptr inbounds nuw i8, ptr %251, i64 112
   store i64 4, ptr %2781, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %251, ptr noundef nonnull align 8 dereferenceable(104) %206, i64 104, i1 false)
-  %2782 = getelementptr inbounds i8, ptr %251, i64 120
+  %2782 = getelementptr inbounds nuw i8, ptr %251, i64 120
   store ptr null, ptr %2782, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %252, ptr nonnull align 8 %251, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.46, i64 14)
           to label %2783 unwind label %2777
 
 2783:                                             ; preds = %2779
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2766, ptr noundef nonnull align 8 dereferenceable(136) %254, i64 136, i1 false)
-  %2784 = getelementptr inbounds i8, ptr %2766, i64 136
+  %2784 = getelementptr inbounds nuw i8, ptr %2766, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2784, ptr noundef nonnull align 8 dereferenceable(136) %252, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %256, ptr nonnull align 8 %2766, i64 2)
           to label %2785 unwind label %.thread289.i
@@ -4344,12 +4344,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2794
 
 2797:                                             ; preds = %2793
-  %2798 = getelementptr inbounds i8, ptr %243, i64 104
+  %2798 = getelementptr inbounds nuw i8, ptr %243, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.49, ptr %2798, align 8
-  %2799 = getelementptr inbounds i8, ptr %243, i64 112
+  %2799 = getelementptr inbounds nuw i8, ptr %243, i64 112
   store i64 3, ptr %2799, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %243, ptr noundef nonnull align 8 dereferenceable(104) %205, i64 104, i1 false)
-  %2800 = getelementptr inbounds i8, ptr %243, i64 120
+  %2800 = getelementptr inbounds nuw i8, ptr %243, i64 120
   store ptr null, ptr %2800, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %244, ptr nonnull align 8 %243, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.50, i64 18)
           to label %2801 unwind label %2795
@@ -4369,12 +4369,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
   br label %2802
 
 2805:                                             ; preds = %2801
-  %2806 = getelementptr inbounds i8, ptr %241, i64 104
+  %2806 = getelementptr inbounds nuw i8, ptr %241, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.51, ptr %2806, align 8
-  %2807 = getelementptr inbounds i8, ptr %241, i64 112
+  %2807 = getelementptr inbounds nuw i8, ptr %241, i64 112
   store i64 6, ptr %2807, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %241, ptr noundef nonnull align 8 dereferenceable(104) %204, i64 104, i1 false)
-  %2808 = getelementptr inbounds i8, ptr %241, i64 120
+  %2808 = getelementptr inbounds nuw i8, ptr %241, i64 120
   store ptr null, ptr %2808, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %242, ptr nonnull align 8 %241, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.52, i64 27)
           to label %2809 unwind label %2803
@@ -4390,21 +4390,21 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2802 unwind label %2847
 
 2812:                                             ; preds = %2809
-  %2813 = getelementptr inbounds i8, ptr %239, i64 104
+  %2813 = getelementptr inbounds nuw i8, ptr %239, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.45, ptr %2813, align 8
-  %2814 = getelementptr inbounds i8, ptr %239, i64 112
+  %2814 = getelementptr inbounds nuw i8, ptr %239, i64 112
   store i64 4, ptr %2814, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %239, ptr noundef nonnull align 8 dereferenceable(104) %203, i64 104, i1 false)
-  %2815 = getelementptr inbounds i8, ptr %239, i64 120
+  %2815 = getelementptr inbounds nuw i8, ptr %239, i64 120
   store ptr null, ptr %2815, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %240, ptr nonnull align 8 %239, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.46, i64 14)
           to label %2816 unwind label %2810
 
 2816:                                             ; preds = %2812
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2791, ptr noundef nonnull align 8 dereferenceable(136) %244, i64 136, i1 false)
-  %2817 = getelementptr inbounds i8, ptr %2791, i64 136
+  %2817 = getelementptr inbounds nuw i8, ptr %2791, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2817, ptr noundef nonnull align 8 dereferenceable(136) %242, i64 136, i1 false)
-  %2818 = getelementptr inbounds i8, ptr %2791, i64 272
+  %2818 = getelementptr inbounds nuw i8, ptr %2791, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2818, ptr noundef nonnull align 8 dereferenceable(136) %240, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %246, ptr nonnull align 8 %2791, i64 3)
           to label %2819 unwind label %.thread300.i
@@ -4426,7 +4426,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %2823 unwind label %2570
 
 2823:                                             ; preds = %2822
-  %2824 = getelementptr inbounds i8, ptr %1, i64 88
+  %2824 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %236, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.58, i64 9, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.57, i64 352, ptr nonnull align 8 %2824)
           to label %2825 unwind label %2570
 
@@ -4456,12 +4456,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
           to label %.thread303.i unwind label %2847
 
 2831:                                             ; preds = %2828
-  %2832 = getelementptr inbounds i8, ptr %232, i64 104
+  %2832 = getelementptr inbounds nuw i8, ptr %232, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.43, ptr %2832, align 8
-  %2833 = getelementptr inbounds i8, ptr %232, i64 112
+  %2833 = getelementptr inbounds nuw i8, ptr %232, i64 112
   store i64 2, ptr %2833, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %232, ptr noundef nonnull align 8 dereferenceable(104) %202, i64 104, i1 false)
-  %2834 = getelementptr inbounds i8, ptr %232, i64 120
+  %2834 = getelementptr inbounds nuw i8, ptr %232, i64 120
   store ptr null, ptr %2834, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %233, ptr nonnull align 8 %232, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.44, i64 40)
           to label %2835 unwind label %2829
@@ -4502,11 +4502,11 @@ define hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h42
 
 2843:                                             ; preds = %2840
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2838, ptr noundef nonnull align 8 dereferenceable(104) %201, i64 104, i1 false)
-  %.sroa.229.0..sroa_idx.i = getelementptr inbounds i8, ptr %2838, i64 104
+  %.sroa.229.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2838, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.229.0..sroa_idx.i, align 8
-  %.sroa.330.0..sroa_idx.i = getelementptr inbounds i8, ptr %2838, i64 112
+  %.sroa.330.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2838, i64 112
   store i64 4, ptr %.sroa.330.0..sroa_idx.i, align 8
-  %.sroa.431.0..sroa_idx.i = getelementptr inbounds i8, ptr %2838, i64 120
+  %.sroa.431.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2838, i64 120
   store ptr null, ptr %.sroa.431.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %231, ptr nonnull align 8 %2838, i64 1)
           to label %2844 unwind label %.thread322.i
@@ -4886,7 +4886,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   call void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5build17hc2d8f0f0b7bff993E(ptr nonnull sret({ { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }) align 8 %199, ptr nonnull align 2 %198)
   %2849 = call ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new17hd1a30d2d0e30831bE(ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.60, i64 3, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.61, i64 18, ptr nonnull align 8 %199)
   store ptr %2849, ptr %200, align 8
-  %2850 = getelementptr inbounds i8, ptr %1, i64 240
+  %2850 = getelementptr inbounds nuw i8, ptr %1, i64 240
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %190, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.63, i64 5, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.62, i64 83, ptr nonnull align 8 %2850)
           to label %2854 unwind label %2852
 
@@ -4937,12 +4937,12 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %.thread.i3080 unwind label %3064
 
 2866:                                             ; preds = %2863
-  %2867 = getelementptr inbounds i8, ptr %186, i64 104
+  %2867 = getelementptr inbounds nuw i8, ptr %186, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %2867, align 8
-  %2868 = getelementptr inbounds i8, ptr %186, i64 112
+  %2868 = getelementptr inbounds nuw i8, ptr %186, i64 112
   store i64 1, ptr %2868, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %186, ptr noundef nonnull align 8 dereferenceable(104) %129, i64 104, i1 false)
-  %2869 = getelementptr inbounds i8, ptr %186, i64 120
+  %2869 = getelementptr inbounds nuw i8, ptr %186, i64 120
   store ptr null, ptr %2869, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %187, ptr nonnull align 8 %186, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.64, i64 27)
           to label %2870 unwind label %2864
@@ -4994,11 +4994,11 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 
 2882:                                             ; preds = %2879
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2877, ptr noundef nonnull align 8 dereferenceable(104) %128, i64 104, i1 false)
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2877, i64 104
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2877, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i3082 = getelementptr inbounds i8, ptr %2877, i64 112
+  %.sroa.3.0..sroa_idx.i3082 = getelementptr inbounds nuw i8, ptr %2877, i64 112
   store i64 1, ptr %.sroa.3.0..sroa_idx.i3082, align 8
-  %.sroa.4.0..sroa_idx.i3083 = getelementptr inbounds i8, ptr %2877, i64 120
+  %.sroa.4.0..sroa_idx.i3083 = getelementptr inbounds nuw i8, ptr %2877, i64 120
   store ptr null, ptr %.sroa.4.0..sroa_idx.i3083, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %184, ptr nonnull align 8 %2877, i64 1)
           to label %2883 unwind label %.thread10.i
@@ -5051,7 +5051,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 
 2896:                                             ; preds = %2894
   store ptr %2895, ptr %182, align 8
-  %2897 = getelementptr inbounds i8, ptr %1, i64 16
+  %2897 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %174, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.69, i64 7, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.68, i64 389, ptr nonnull align 8 %2897)
           to label %2901 unwind label %2899
 
@@ -5095,12 +5095,12 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   br label %2905
 
 2908:                                             ; preds = %2904
-  %2909 = getelementptr inbounds i8, ptr %170, i64 104
+  %2909 = getelementptr inbounds nuw i8, ptr %170, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %2909, align 8
-  %2910 = getelementptr inbounds i8, ptr %170, i64 112
+  %2910 = getelementptr inbounds nuw i8, ptr %170, i64 112
   store i64 1, ptr %2910, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %170, ptr noundef nonnull align 8 dereferenceable(104) %127, i64 104, i1 false)
-  %2911 = getelementptr inbounds i8, ptr %170, i64 120
+  %2911 = getelementptr inbounds nuw i8, ptr %170, i64 120
   store ptr null, ptr %2911, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %171, ptr nonnull align 8 %170, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.70, i64 38)
           to label %2912 unwind label %2906
@@ -5116,19 +5116,19 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %2905 unwind label %3064
 
 2915:                                             ; preds = %2912
-  %2916 = getelementptr inbounds i8, ptr %168, i64 104
+  %2916 = getelementptr inbounds nuw i8, ptr %168, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %2916, align 8
-  %2917 = getelementptr inbounds i8, ptr %168, i64 112
+  %2917 = getelementptr inbounds nuw i8, ptr %168, i64 112
   store i64 1, ptr %2917, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %168, ptr noundef nonnull align 8 dereferenceable(104) %126, i64 104, i1 false)
-  %2918 = getelementptr inbounds i8, ptr %168, i64 120
+  %2918 = getelementptr inbounds nuw i8, ptr %168, i64 120
   store ptr null, ptr %2918, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %169, ptr nonnull align 8 %168, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.72, i64 27)
           to label %2919 unwind label %2913
 
 2919:                                             ; preds = %2915
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2902, ptr noundef nonnull align 8 dereferenceable(136) %171, i64 136, i1 false)
-  %2920 = getelementptr inbounds i8, ptr %2902, i64 136
+  %2920 = getelementptr inbounds nuw i8, ptr %2902, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2920, ptr noundef nonnull align 8 dereferenceable(136) %169, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %173, ptr nonnull align 8 %2902, i64 2)
           to label %2921 unwind label %.thread21.i
@@ -5164,11 +5164,11 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 
 2928:                                             ; preds = %2925
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2923, ptr noundef nonnull align 8 dereferenceable(104) %125, i64 104, i1 false)
-  %.sroa.210.0..sroa_idx.i = getelementptr inbounds i8, ptr %2923, i64 104
+  %.sroa.210.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2923, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.210.0..sroa_idx.i, align 8
-  %.sroa.311.0..sroa_idx.i = getelementptr inbounds i8, ptr %2923, i64 112
+  %.sroa.311.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2923, i64 112
   store i64 1, ptr %.sroa.311.0..sroa_idx.i, align 8
-  %.sroa.412.0..sroa_idx.i = getelementptr inbounds i8, ptr %2923, i64 120
+  %.sroa.412.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2923, i64 120
   store ptr null, ptr %.sroa.412.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %167, ptr nonnull align 8 %2923, i64 1)
           to label %2929 unwind label %.thread32.i
@@ -5215,12 +5215,12 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   br label %2936
 
 2939:                                             ; preds = %2935
-  %2940 = getelementptr inbounds i8, ptr %159, i64 104
+  %2940 = getelementptr inbounds nuw i8, ptr %159, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %2940, align 8
-  %2941 = getelementptr inbounds i8, ptr %159, i64 112
+  %2941 = getelementptr inbounds nuw i8, ptr %159, i64 112
   store i64 1, ptr %2941, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %159, ptr noundef nonnull align 8 dereferenceable(104) %124, i64 104, i1 false)
-  %2942 = getelementptr inbounds i8, ptr %159, i64 120
+  %2942 = getelementptr inbounds nuw i8, ptr %159, i64 120
   store ptr null, ptr %2942, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %160, ptr nonnull align 8 %159, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.70, i64 38)
           to label %2943 unwind label %2937
@@ -5236,19 +5236,19 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %2936 unwind label %3064
 
 2946:                                             ; preds = %2943
-  %2947 = getelementptr inbounds i8, ptr %157, i64 104
+  %2947 = getelementptr inbounds nuw i8, ptr %157, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %2947, align 8
-  %2948 = getelementptr inbounds i8, ptr %157, i64 112
+  %2948 = getelementptr inbounds nuw i8, ptr %157, i64 112
   store i64 1, ptr %2948, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %157, ptr noundef nonnull align 8 dereferenceable(104) %123, i64 104, i1 false)
-  %2949 = getelementptr inbounds i8, ptr %157, i64 120
+  %2949 = getelementptr inbounds nuw i8, ptr %157, i64 120
   store ptr null, ptr %2949, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %158, ptr nonnull align 8 %157, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.72, i64 27)
           to label %2950 unwind label %2944
 
 2950:                                             ; preds = %2946
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2933, ptr noundef nonnull align 8 dereferenceable(136) %160, i64 136, i1 false)
-  %2951 = getelementptr inbounds i8, ptr %2933, i64 136
+  %2951 = getelementptr inbounds nuw i8, ptr %2933, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2951, ptr noundef nonnull align 8 dereferenceable(136) %158, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %162, ptr nonnull align 8 %2933, i64 2)
           to label %2952 unwind label %.thread43.i
@@ -5284,11 +5284,11 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 
 2959:                                             ; preds = %2956
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2954, ptr noundef nonnull align 8 dereferenceable(104) %122, i64 104, i1 false)
-  %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %2954, i64 104
+  %.sroa.215.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2954, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.215.0..sroa_idx.i, align 8
-  %.sroa.316.0..sroa_idx.i = getelementptr inbounds i8, ptr %2954, i64 112
+  %.sroa.316.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2954, i64 112
   store i64 1, ptr %.sroa.316.0..sroa_idx.i, align 8
-  %.sroa.417.0..sroa_idx.i = getelementptr inbounds i8, ptr %2954, i64 120
+  %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2954, i64 120
   store ptr null, ptr %.sroa.417.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %156, ptr nonnull align 8 %2954, i64 1)
           to label %2960 unwind label %.thread54.i
@@ -5302,7 +5302,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %2962 unwind label %2899
 
 2962:                                             ; preds = %2961
-  %2963 = getelementptr inbounds i8, ptr %1, i64 224
+  %2963 = getelementptr inbounds nuw i8, ptr %1, i64 224
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %152, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.76, i64 10, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.75, i64 194, ptr nonnull align 8 %2963)
           to label %2964 unwind label %2899
 
@@ -5336,12 +5336,12 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   br label %2970
 
 2973:                                             ; preds = %2969
-  %2974 = getelementptr inbounds i8, ptr %148, i64 104
+  %2974 = getelementptr inbounds nuw i8, ptr %148, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %2974, align 8
-  %2975 = getelementptr inbounds i8, ptr %148, i64 112
+  %2975 = getelementptr inbounds nuw i8, ptr %148, i64 112
   store i64 1, ptr %2975, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %148, ptr noundef nonnull align 8 dereferenceable(104) %121, i64 104, i1 false)
-  %2976 = getelementptr inbounds i8, ptr %148, i64 120
+  %2976 = getelementptr inbounds nuw i8, ptr %148, i64 120
   store ptr null, ptr %2976, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %149, ptr nonnull align 8 %148, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.77, i64 20)
           to label %2977 unwind label %2971
@@ -5372,18 +5372,18 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   br label %2982
 
 2985:                                             ; preds = %2981
-  %2986 = getelementptr inbounds i8, ptr %146, i64 104
+  %2986 = getelementptr inbounds nuw i8, ptr %146, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %2986, align 8
-  %2987 = getelementptr inbounds i8, ptr %146, i64 112
+  %2987 = getelementptr inbounds nuw i8, ptr %146, i64 112
   store i64 1, ptr %2987, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %146, ptr noundef nonnull align 8 dereferenceable(104) %120, i64 104, i1 false)
-  %2988 = getelementptr inbounds i8, ptr %146, i64 120
+  %2988 = getelementptr inbounds nuw i8, ptr %146, i64 120
   store ptr null, ptr %2988, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %147, ptr nonnull align 8 %146, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.78, i64 14)
           to label %2989 unwind label %2983
 
 2989:                                             ; preds = %2985
-  %2990 = getelementptr inbounds i8, ptr %2, i64 104
+  %2990 = getelementptr inbounds nuw i8, ptr %2, i64 104
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %119, ptr nonnull align 8 %2990)
           to label %2993 unwind label %2991
 
@@ -5394,12 +5394,12 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %2982 unwind label %3064
 
 2993:                                             ; preds = %2989
-  %2994 = getelementptr inbounds i8, ptr %143, i64 104
+  %2994 = getelementptr inbounds nuw i8, ptr %143, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.79, ptr %2994, align 8
-  %2995 = getelementptr inbounds i8, ptr %143, i64 112
+  %2995 = getelementptr inbounds nuw i8, ptr %143, i64 112
   store i64 3, ptr %2995, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %143, ptr noundef nonnull align 8 dereferenceable(104) %119, i64 104, i1 false)
-  %2996 = getelementptr inbounds i8, ptr %143, i64 120
+  %2996 = getelementptr inbounds nuw i8, ptr %143, i64 120
   store ptr null, ptr %2996, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %144, ptr nonnull align 8 %143, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.80, i64 10)
           to label %2997 unwind label %2991
@@ -5407,9 +5407,9 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 2997:                                             ; preds = %2993
   %2998 = load ptr, ptr %150, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2998, ptr noundef nonnull align 8 dereferenceable(136) %149, i64 136, i1 false)
-  %2999 = getelementptr inbounds i8, ptr %2998, i64 136
+  %2999 = getelementptr inbounds nuw i8, ptr %2998, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2999, ptr noundef nonnull align 8 dereferenceable(136) %147, i64 136, i1 false)
-  %3000 = getelementptr inbounds i8, ptr %2998, i64 272
+  %3000 = getelementptr inbounds nuw i8, ptr %2998, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3000, ptr noundef nonnull align 8 dereferenceable(136) %144, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %151, ptr nonnull align 8 %2998, i64 3)
           to label %3004 unwind label %.thread61.i
@@ -5455,11 +5455,11 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 
 3011:                                             ; preds = %3008
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3006, ptr noundef nonnull align 8 dereferenceable(104) %118, i64 104, i1 false)
-  %.sroa.220.0..sroa_idx.i = getelementptr inbounds i8, ptr %3006, i64 104
+  %.sroa.220.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3006, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.220.0..sroa_idx.i, align 8
-  %.sroa.321.0..sroa_idx.i = getelementptr inbounds i8, ptr %3006, i64 112
+  %.sroa.321.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3006, i64 112
   store i64 1, ptr %.sroa.321.0..sroa_idx.i, align 8
-  %.sroa.422.0..sroa_idx.i = getelementptr inbounds i8, ptr %3006, i64 120
+  %.sroa.422.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3006, i64 120
   store ptr null, ptr %.sroa.422.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %142, ptr nonnull align 8 %3006, i64 1)
           to label %3012 unwind label %.thread71.i
@@ -5487,7 +5487,7 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %3018 unwind label %2899
 
 3018:                                             ; preds = %3017
-  %3019 = getelementptr inbounds i8, ptr %1, i64 24
+  %3019 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %138, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.82, i64 11, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.81, i64 379, ptr nonnull align 8 %3019)
           to label %3020 unwind label %2899
 
@@ -5521,12 +5521,12 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
   br label %3024
 
 3027:                                             ; preds = %3023
-  %3028 = getelementptr inbounds i8, ptr %135, i64 104
+  %3028 = getelementptr inbounds nuw i8, ptr %135, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3028, align 8
-  %3029 = getelementptr inbounds i8, ptr %135, i64 112
+  %3029 = getelementptr inbounds nuw i8, ptr %135, i64 112
   store i64 1, ptr %3029, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %135, ptr noundef nonnull align 8 dereferenceable(104) %117, i64 104, i1 false)
-  %3030 = getelementptr inbounds i8, ptr %135, i64 120
+  %3030 = getelementptr inbounds nuw i8, ptr %135, i64 120
   store ptr null, ptr %3030, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %116, ptr nonnull align 8 %2990)
           to label %3033 unwind label %3031
@@ -5538,19 +5538,19 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
           to label %3024 unwind label %3064
 
 3033:                                             ; preds = %3027
-  %3034 = getelementptr inbounds i8, ptr %133, i64 104
+  %3034 = getelementptr inbounds nuw i8, ptr %133, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.79, ptr %3034, align 8
-  %3035 = getelementptr inbounds i8, ptr %133, i64 112
+  %3035 = getelementptr inbounds nuw i8, ptr %133, i64 112
   store i64 3, ptr %3035, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %133, ptr noundef nonnull align 8 dereferenceable(104) %116, i64 104, i1 false)
-  %3036 = getelementptr inbounds i8, ptr %133, i64 120
+  %3036 = getelementptr inbounds nuw i8, ptr %133, i64 120
   store ptr null, ptr %3036, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %134, ptr nonnull align 8 %133, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.80, i64 10)
           to label %3037 unwind label %3031
 
 3037:                                             ; preds = %3033
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3021, ptr noundef nonnull align 8 dereferenceable(136) %135, i64 136, i1 false)
-  %3038 = getelementptr inbounds i8, ptr %3021, i64 136
+  %3038 = getelementptr inbounds nuw i8, ptr %3021, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3038, ptr noundef nonnull align 8 dereferenceable(136) %134, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %137, ptr nonnull align 8 %3021, i64 2)
           to label %3039 unwind label %.thread82.i
@@ -5598,11 +5598,11 @@ _ZN22cranelift_codegen_meta6shared12instructions19define_control_flow17habd090a8
 3052:                                             ; preds = %3049
   %3053 = load ptr, ptr %131, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3053, ptr noundef nonnull align 8 dereferenceable(104) %115, i64 104, i1 false)
-  %.sroa.225.0..sroa_idx.i = getelementptr inbounds i8, ptr %3053, i64 104
+  %.sroa.225.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3053, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.225.0..sroa_idx.i, align 8
-  %.sroa.326.0..sroa_idx.i = getelementptr inbounds i8, ptr %3053, i64 112
+  %.sroa.326.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3053, i64 112
   store i64 1, ptr %.sroa.326.0..sroa_idx.i, align 8
-  %.sroa.427.0..sroa_idx.i = getelementptr inbounds i8, ptr %3053, i64 120
+  %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3053, i64 120
   store ptr null, ptr %.sroa.427.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %132, ptr nonnull align 8 %3053, i64 1)
           to label %3057 unwind label %.thread89.i
@@ -5950,12 +5950,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3075
 
 3078:                                             ; preds = %3074
-  %3079 = getelementptr inbounds i8, ptr %104, i64 104
+  %3079 = getelementptr inbounds nuw i8, ptr %104, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3079, align 8
-  %3080 = getelementptr inbounds i8, ptr %104, i64 112
+  %3080 = getelementptr inbounds nuw i8, ptr %104, i64 112
   store i64 1, ptr %3080, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %104, ptr noundef nonnull align 8 dereferenceable(104) %31, i64 104, i1 false)
-  %3081 = getelementptr inbounds i8, ptr %104, i64 120
+  %3081 = getelementptr inbounds nuw i8, ptr %104, i64 120
   store ptr null, ptr %3081, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %30, ptr nonnull align 8 %114)
           to label %3084 unwind label %3082
@@ -5968,13 +5968,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3084:                                             ; preds = %3078
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3072, ptr noundef nonnull align 8 dereferenceable(136) %104, i64 136, i1 false)
-  %3085 = getelementptr inbounds i8, ptr %3072, i64 136
+  %3085 = getelementptr inbounds nuw i8, ptr %3072, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3085, ptr noundef nonnull align 8 dereferenceable(104) %30, i64 104, i1 false)
-  %.sroa.2.0..sroa_idx.i3088 = getelementptr inbounds i8, ptr %3072, i64 240
+  %.sroa.2.0..sroa_idx.i3088 = getelementptr inbounds nuw i8, ptr %3072, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2.0..sroa_idx.i3088, align 8
-  %.sroa.3.0..sroa_idx.i3089 = getelementptr inbounds i8, ptr %3072, i64 248
+  %.sroa.3.0..sroa_idx.i3089 = getelementptr inbounds nuw i8, ptr %3072, i64 248
   store i64 1, ptr %.sroa.3.0..sroa_idx.i3089, align 8
-  %.sroa.4.0..sroa_idx.i3090 = getelementptr inbounds i8, ptr %3072, i64 256
+  %.sroa.4.0..sroa_idx.i3090 = getelementptr inbounds nuw i8, ptr %3072, i64 256
   store ptr null, ptr %.sroa.4.0..sroa_idx.i3090, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %106, ptr nonnull align 8 %3072, i64 2)
           to label %3086 unwind label %.thread4.i3084
@@ -6010,11 +6010,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3093:                                             ; preds = %3090
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3088, ptr noundef nonnull align 8 dereferenceable(104) %29, i64 104, i1 false)
-  %.sroa.210.0..sroa_idx.i3092 = getelementptr inbounds i8, ptr %3088, i64 104
+  %.sroa.210.0..sroa_idx.i3092 = getelementptr inbounds nuw i8, ptr %3088, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.210.0..sroa_idx.i3092, align 8
-  %.sroa.311.0..sroa_idx.i3093 = getelementptr inbounds i8, ptr %3088, i64 112
+  %.sroa.311.0..sroa_idx.i3093 = getelementptr inbounds nuw i8, ptr %3088, i64 112
   store i64 1, ptr %.sroa.311.0..sroa_idx.i3093, align 8
-  %.sroa.412.0..sroa_idx.i3094 = getelementptr inbounds i8, ptr %3088, i64 120
+  %.sroa.412.0..sroa_idx.i3094 = getelementptr inbounds nuw i8, ptr %3088, i64 120
   store ptr null, ptr %.sroa.412.0..sroa_idx.i3094, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %103, ptr nonnull align 8 %3088, i64 1)
           to label %3094 unwind label %.thread15.i
@@ -6061,12 +6061,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3101
 
 3104:                                             ; preds = %3100
-  %3105 = getelementptr inbounds i8, ptr %96, i64 104
+  %3105 = getelementptr inbounds nuw i8, ptr %96, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3105, align 8
-  %3106 = getelementptr inbounds i8, ptr %96, i64 112
+  %3106 = getelementptr inbounds nuw i8, ptr %96, i64 112
   store i64 1, ptr %3106, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %96, ptr noundef nonnull align 8 dereferenceable(104) %28, i64 104, i1 false)
-  %3107 = getelementptr inbounds i8, ptr %96, i64 120
+  %3107 = getelementptr inbounds nuw i8, ptr %96, i64 120
   store ptr null, ptr %3107, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %27, ptr nonnull align 8 %114)
           to label %3110 unwind label %3108
@@ -6079,13 +6079,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3110:                                             ; preds = %3104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3098, ptr noundef nonnull align 8 dereferenceable(136) %96, i64 136, i1 false)
-  %3111 = getelementptr inbounds i8, ptr %3098, i64 136
+  %3111 = getelementptr inbounds nuw i8, ptr %3098, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3111, ptr noundef nonnull align 8 dereferenceable(104) %27, i64 104, i1 false)
-  %.sroa.215.0..sroa_idx.i3095 = getelementptr inbounds i8, ptr %3098, i64 240
+  %.sroa.215.0..sroa_idx.i3095 = getelementptr inbounds nuw i8, ptr %3098, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.215.0..sroa_idx.i3095, align 8
-  %.sroa.316.0..sroa_idx.i3096 = getelementptr inbounds i8, ptr %3098, i64 248
+  %.sroa.316.0..sroa_idx.i3096 = getelementptr inbounds nuw i8, ptr %3098, i64 248
   store i64 1, ptr %.sroa.316.0..sroa_idx.i3096, align 8
-  %.sroa.417.0..sroa_idx.i3097 = getelementptr inbounds i8, ptr %3098, i64 256
+  %.sroa.417.0..sroa_idx.i3097 = getelementptr inbounds nuw i8, ptr %3098, i64 256
   store ptr null, ptr %.sroa.417.0..sroa_idx.i3097, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %98, ptr nonnull align 8 %3098, i64 2)
           to label %3112 unwind label %.thread26.i
@@ -6121,11 +6121,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3119:                                             ; preds = %3116
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3114, ptr noundef nonnull align 8 dereferenceable(104) %26, i64 104, i1 false)
-  %.sroa.220.0..sroa_idx.i3098 = getelementptr inbounds i8, ptr %3114, i64 104
+  %.sroa.220.0..sroa_idx.i3098 = getelementptr inbounds nuw i8, ptr %3114, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.220.0..sroa_idx.i3098, align 8
-  %.sroa.321.0..sroa_idx.i3099 = getelementptr inbounds i8, ptr %3114, i64 112
+  %.sroa.321.0..sroa_idx.i3099 = getelementptr inbounds nuw i8, ptr %3114, i64 112
   store i64 1, ptr %.sroa.321.0..sroa_idx.i3099, align 8
-  %.sroa.422.0..sroa_idx.i3100 = getelementptr inbounds i8, ptr %3114, i64 120
+  %.sroa.422.0..sroa_idx.i3100 = getelementptr inbounds nuw i8, ptr %3114, i64 120
   store ptr null, ptr %.sroa.422.0..sroa_idx.i3100, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %95, ptr nonnull align 8 %3114, i64 1)
           to label %3120 unwind label %.thread37.i
@@ -6172,12 +6172,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3127
 
 3130:                                             ; preds = %3126
-  %3131 = getelementptr inbounds i8, ptr %88, i64 104
+  %3131 = getelementptr inbounds nuw i8, ptr %88, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3131, align 8
-  %3132 = getelementptr inbounds i8, ptr %88, i64 112
+  %3132 = getelementptr inbounds nuw i8, ptr %88, i64 112
   store i64 1, ptr %3132, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %88, ptr noundef nonnull align 8 dereferenceable(104) %25, i64 104, i1 false)
-  %3133 = getelementptr inbounds i8, ptr %88, i64 120
+  %3133 = getelementptr inbounds nuw i8, ptr %88, i64 120
   store ptr null, ptr %3133, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %24, ptr nonnull align 8 %114)
           to label %3136 unwind label %3134
@@ -6190,13 +6190,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3136:                                             ; preds = %3130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3124, ptr noundef nonnull align 8 dereferenceable(136) %88, i64 136, i1 false)
-  %3137 = getelementptr inbounds i8, ptr %3124, i64 136
+  %3137 = getelementptr inbounds nuw i8, ptr %3124, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3137, ptr noundef nonnull align 8 dereferenceable(104) %24, i64 104, i1 false)
-  %.sroa.225.0..sroa_idx.i3101 = getelementptr inbounds i8, ptr %3124, i64 240
+  %.sroa.225.0..sroa_idx.i3101 = getelementptr inbounds nuw i8, ptr %3124, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.225.0..sroa_idx.i3101, align 8
-  %.sroa.326.0..sroa_idx.i3102 = getelementptr inbounds i8, ptr %3124, i64 248
+  %.sroa.326.0..sroa_idx.i3102 = getelementptr inbounds nuw i8, ptr %3124, i64 248
   store i64 1, ptr %.sroa.326.0..sroa_idx.i3102, align 8
-  %.sroa.427.0..sroa_idx.i3103 = getelementptr inbounds i8, ptr %3124, i64 256
+  %.sroa.427.0..sroa_idx.i3103 = getelementptr inbounds nuw i8, ptr %3124, i64 256
   store ptr null, ptr %.sroa.427.0..sroa_idx.i3103, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %90, ptr nonnull align 8 %3124, i64 2)
           to label %3138 unwind label %.thread48.i
@@ -6232,11 +6232,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3145:                                             ; preds = %3142
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3140, ptr noundef nonnull align 8 dereferenceable(104) %23, i64 104, i1 false)
-  %.sroa.230.0..sroa_idx.i = getelementptr inbounds i8, ptr %3140, i64 104
+  %.sroa.230.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3140, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.230.0..sroa_idx.i, align 8
-  %.sroa.331.0..sroa_idx.i = getelementptr inbounds i8, ptr %3140, i64 112
+  %.sroa.331.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3140, i64 112
   store i64 1, ptr %.sroa.331.0..sroa_idx.i, align 8
-  %.sroa.432.0..sroa_idx.i = getelementptr inbounds i8, ptr %3140, i64 120
+  %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3140, i64 120
   store ptr null, ptr %.sroa.432.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %87, ptr nonnull align 8 %3140, i64 1)
           to label %3146 unwind label %.thread59.i
@@ -6283,12 +6283,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3153
 
 3156:                                             ; preds = %3152
-  %3157 = getelementptr inbounds i8, ptr %80, i64 104
+  %3157 = getelementptr inbounds nuw i8, ptr %80, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3157, align 8
-  %3158 = getelementptr inbounds i8, ptr %80, i64 112
+  %3158 = getelementptr inbounds nuw i8, ptr %80, i64 112
   store i64 1, ptr %3158, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %80, ptr noundef nonnull align 8 dereferenceable(104) %22, i64 104, i1 false)
-  %3159 = getelementptr inbounds i8, ptr %80, i64 120
+  %3159 = getelementptr inbounds nuw i8, ptr %80, i64 120
   store ptr null, ptr %3159, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %21, ptr nonnull align 8 %114)
           to label %3162 unwind label %3160
@@ -6301,13 +6301,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3162:                                             ; preds = %3156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3150, ptr noundef nonnull align 8 dereferenceable(136) %80, i64 136, i1 false)
-  %3163 = getelementptr inbounds i8, ptr %3150, i64 136
+  %3163 = getelementptr inbounds nuw i8, ptr %3150, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3163, ptr noundef nonnull align 8 dereferenceable(104) %21, i64 104, i1 false)
-  %.sroa.235.0..sroa_idx.i = getelementptr inbounds i8, ptr %3150, i64 240
+  %.sroa.235.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3150, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.235.0..sroa_idx.i, align 8
-  %.sroa.336.0..sroa_idx.i = getelementptr inbounds i8, ptr %3150, i64 248
+  %.sroa.336.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3150, i64 248
   store i64 1, ptr %.sroa.336.0..sroa_idx.i, align 8
-  %.sroa.437.0..sroa_idx.i = getelementptr inbounds i8, ptr %3150, i64 256
+  %.sroa.437.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3150, i64 256
   store ptr null, ptr %.sroa.437.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %82, ptr nonnull align 8 %3150, i64 2)
           to label %3164 unwind label %.thread70.i
@@ -6343,11 +6343,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3171:                                             ; preds = %3168
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3166, ptr noundef nonnull align 8 dereferenceable(104) %20, i64 104, i1 false)
-  %.sroa.240.0..sroa_idx.i = getelementptr inbounds i8, ptr %3166, i64 104
+  %.sroa.240.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3166, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.240.0..sroa_idx.i, align 8
-  %.sroa.341.0..sroa_idx.i = getelementptr inbounds i8, ptr %3166, i64 112
+  %.sroa.341.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3166, i64 112
   store i64 1, ptr %.sroa.341.0..sroa_idx.i, align 8
-  %.sroa.442.0..sroa_idx.i = getelementptr inbounds i8, ptr %3166, i64 120
+  %.sroa.442.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3166, i64 120
   store ptr null, ptr %.sroa.442.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %79, ptr nonnull align 8 %3166, i64 1)
           to label %3172 unwind label %.thread81.i
@@ -6429,12 +6429,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3189
 
 3192:                                             ; preds = %3188
-  %3193 = getelementptr inbounds i8, ptr %66, i64 104
+  %3193 = getelementptr inbounds nuw i8, ptr %66, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3193, align 8
-  %3194 = getelementptr inbounds i8, ptr %66, i64 112
+  %3194 = getelementptr inbounds nuw i8, ptr %66, i64 112
   store i64 1, ptr %3194, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %66, ptr noundef nonnull align 8 dereferenceable(104) %19, i64 104, i1 false)
-  %3195 = getelementptr inbounds i8, ptr %66, i64 120
+  %3195 = getelementptr inbounds nuw i8, ptr %66, i64 120
   store ptr null, ptr %3195, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %18, ptr nonnull align 8 %77)
           to label %3198 unwind label %3196
@@ -6447,13 +6447,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3198:                                             ; preds = %3192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3186, ptr noundef nonnull align 8 dereferenceable(136) %66, i64 136, i1 false)
-  %3199 = getelementptr inbounds i8, ptr %3186, i64 136
+  %3199 = getelementptr inbounds nuw i8, ptr %3186, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3199, ptr noundef nonnull align 8 dereferenceable(104) %18, i64 104, i1 false)
-  %.sroa.245.0..sroa_idx.i = getelementptr inbounds i8, ptr %3186, i64 240
+  %.sroa.245.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3186, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.245.0..sroa_idx.i, align 8
-  %.sroa.346.0..sroa_idx.i = getelementptr inbounds i8, ptr %3186, i64 248
+  %.sroa.346.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3186, i64 248
   store i64 1, ptr %.sroa.346.0..sroa_idx.i, align 8
-  %.sroa.447.0..sroa_idx.i = getelementptr inbounds i8, ptr %3186, i64 256
+  %.sroa.447.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3186, i64 256
   store ptr null, ptr %.sroa.447.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %68, ptr nonnull align 8 %3186, i64 2)
           to label %3200 unwind label %.thread92.i
@@ -6489,11 +6489,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3207:                                             ; preds = %3204
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3202, ptr noundef nonnull align 8 dereferenceable(104) %17, i64 104, i1 false)
-  %.sroa.250.0..sroa_idx.i = getelementptr inbounds i8, ptr %3202, i64 104
+  %.sroa.250.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3202, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.250.0..sroa_idx.i, align 8
-  %.sroa.351.0..sroa_idx.i = getelementptr inbounds i8, ptr %3202, i64 112
+  %.sroa.351.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3202, i64 112
   store i64 1, ptr %.sroa.351.0..sroa_idx.i, align 8
-  %.sroa.452.0..sroa_idx.i = getelementptr inbounds i8, ptr %3202, i64 120
+  %.sroa.452.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3202, i64 120
   store ptr null, ptr %.sroa.452.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %65, ptr nonnull align 8 %3202, i64 1)
           to label %3208 unwind label %.thread103.i
@@ -6540,12 +6540,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3215
 
 3218:                                             ; preds = %3214
-  %3219 = getelementptr inbounds i8, ptr %58, i64 104
+  %3219 = getelementptr inbounds nuw i8, ptr %58, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3219, align 8
-  %3220 = getelementptr inbounds i8, ptr %58, i64 112
+  %3220 = getelementptr inbounds nuw i8, ptr %58, i64 112
   store i64 1, ptr %3220, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %58, ptr noundef nonnull align 8 dereferenceable(104) %16, i64 104, i1 false)
-  %3221 = getelementptr inbounds i8, ptr %58, i64 120
+  %3221 = getelementptr inbounds nuw i8, ptr %58, i64 120
   store ptr null, ptr %3221, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %15, ptr nonnull align 8 %77)
           to label %3224 unwind label %3222
@@ -6558,13 +6558,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3224:                                             ; preds = %3218
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3212, ptr noundef nonnull align 8 dereferenceable(136) %58, i64 136, i1 false)
-  %3225 = getelementptr inbounds i8, ptr %3212, i64 136
+  %3225 = getelementptr inbounds nuw i8, ptr %3212, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3225, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
-  %.sroa.255.0..sroa_idx.i = getelementptr inbounds i8, ptr %3212, i64 240
+  %.sroa.255.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3212, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.255.0..sroa_idx.i, align 8
-  %.sroa.356.0..sroa_idx.i = getelementptr inbounds i8, ptr %3212, i64 248
+  %.sroa.356.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3212, i64 248
   store i64 1, ptr %.sroa.356.0..sroa_idx.i, align 8
-  %.sroa.457.0..sroa_idx.i = getelementptr inbounds i8, ptr %3212, i64 256
+  %.sroa.457.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3212, i64 256
   store ptr null, ptr %.sroa.457.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %60, ptr nonnull align 8 %3212, i64 2)
           to label %3226 unwind label %.thread114.i
@@ -6600,11 +6600,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3233:                                             ; preds = %3230
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3228, ptr noundef nonnull align 8 dereferenceable(104) %14, i64 104, i1 false)
-  %.sroa.260.0..sroa_idx.i = getelementptr inbounds i8, ptr %3228, i64 104
+  %.sroa.260.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3228, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.260.0..sroa_idx.i, align 8
-  %.sroa.361.0..sroa_idx.i = getelementptr inbounds i8, ptr %3228, i64 112
+  %.sroa.361.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3228, i64 112
   store i64 1, ptr %.sroa.361.0..sroa_idx.i, align 8
-  %.sroa.462.0..sroa_idx.i = getelementptr inbounds i8, ptr %3228, i64 120
+  %.sroa.462.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3228, i64 120
   store ptr null, ptr %.sroa.462.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %57, ptr nonnull align 8 %3228, i64 1)
           to label %3234 unwind label %.thread125.i
@@ -6651,12 +6651,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3241
 
 3244:                                             ; preds = %3240
-  %3245 = getelementptr inbounds i8, ptr %50, i64 104
+  %3245 = getelementptr inbounds nuw i8, ptr %50, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3245, align 8
-  %3246 = getelementptr inbounds i8, ptr %50, i64 112
+  %3246 = getelementptr inbounds nuw i8, ptr %50, i64 112
   store i64 1, ptr %3246, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %50, ptr noundef nonnull align 8 dereferenceable(104) %13, i64 104, i1 false)
-  %3247 = getelementptr inbounds i8, ptr %50, i64 120
+  %3247 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store ptr null, ptr %3247, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %12, ptr nonnull align 8 %77)
           to label %3250 unwind label %3248
@@ -6669,13 +6669,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3250:                                             ; preds = %3244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3238, ptr noundef nonnull align 8 dereferenceable(136) %50, i64 136, i1 false)
-  %3251 = getelementptr inbounds i8, ptr %3238, i64 136
+  %3251 = getelementptr inbounds nuw i8, ptr %3238, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3251, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false)
-  %.sroa.265.0..sroa_idx.i = getelementptr inbounds i8, ptr %3238, i64 240
+  %.sroa.265.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3238, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.265.0..sroa_idx.i, align 8
-  %.sroa.366.0..sroa_idx.i = getelementptr inbounds i8, ptr %3238, i64 248
+  %.sroa.366.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3238, i64 248
   store i64 1, ptr %.sroa.366.0..sroa_idx.i, align 8
-  %.sroa.467.0..sroa_idx.i = getelementptr inbounds i8, ptr %3238, i64 256
+  %.sroa.467.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3238, i64 256
   store ptr null, ptr %.sroa.467.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %52, ptr nonnull align 8 %3238, i64 2)
           to label %3252 unwind label %.thread136.i
@@ -6711,11 +6711,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3259:                                             ; preds = %3256
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3254, ptr noundef nonnull align 8 dereferenceable(104) %11, i64 104, i1 false)
-  %.sroa.270.0..sroa_idx.i = getelementptr inbounds i8, ptr %3254, i64 104
+  %.sroa.270.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3254, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.270.0..sroa_idx.i, align 8
-  %.sroa.371.0..sroa_idx.i = getelementptr inbounds i8, ptr %3254, i64 112
+  %.sroa.371.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3254, i64 112
   store i64 1, ptr %.sroa.371.0..sroa_idx.i, align 8
-  %.sroa.472.0..sroa_idx.i = getelementptr inbounds i8, ptr %3254, i64 120
+  %.sroa.472.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3254, i64 120
   store ptr null, ptr %.sroa.472.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %49, ptr nonnull align 8 %3254, i64 1)
           to label %3260 unwind label %.thread147.i
@@ -6762,12 +6762,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3267
 
 3270:                                             ; preds = %3266
-  %3271 = getelementptr inbounds i8, ptr %42, i64 104
+  %3271 = getelementptr inbounds nuw i8, ptr %42, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3271, align 8
-  %3272 = getelementptr inbounds i8, ptr %42, i64 112
+  %3272 = getelementptr inbounds nuw i8, ptr %42, i64 112
   store i64 1, ptr %3272, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %42, ptr noundef nonnull align 8 dereferenceable(104) %10, i64 104, i1 false)
-  %3273 = getelementptr inbounds i8, ptr %42, i64 120
+  %3273 = getelementptr inbounds nuw i8, ptr %42, i64 120
   store ptr null, ptr %3273, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 %77)
           to label %3276 unwind label %3274
@@ -6780,13 +6780,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3276:                                             ; preds = %3270
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3264, ptr noundef nonnull align 8 dereferenceable(136) %42, i64 136, i1 false)
-  %3277 = getelementptr inbounds i8, ptr %3264, i64 136
+  %3277 = getelementptr inbounds nuw i8, ptr %3264, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3277, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false)
-  %.sroa.275.0..sroa_idx.i = getelementptr inbounds i8, ptr %3264, i64 240
+  %.sroa.275.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3264, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.275.0..sroa_idx.i, align 8
-  %.sroa.376.0..sroa_idx.i = getelementptr inbounds i8, ptr %3264, i64 248
+  %.sroa.376.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3264, i64 248
   store i64 1, ptr %.sroa.376.0..sroa_idx.i, align 8
-  %.sroa.477.0..sroa_idx.i = getelementptr inbounds i8, ptr %3264, i64 256
+  %.sroa.477.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3264, i64 256
   store ptr null, ptr %.sroa.477.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %44, ptr nonnull align 8 %3264, i64 2)
           to label %3278 unwind label %.thread158.i
@@ -6822,11 +6822,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3285:                                             ; preds = %3282
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3280, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false)
-  %.sroa.280.0..sroa_idx.i = getelementptr inbounds i8, ptr %3280, i64 104
+  %.sroa.280.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3280, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.280.0..sroa_idx.i, align 8
-  %.sroa.381.0..sroa_idx.i = getelementptr inbounds i8, ptr %3280, i64 112
+  %.sroa.381.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3280, i64 112
   store i64 1, ptr %.sroa.381.0..sroa_idx.i, align 8
-  %.sroa.482.0..sroa_idx.i = getelementptr inbounds i8, ptr %3280, i64 120
+  %.sroa.482.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3280, i64 120
   store ptr null, ptr %.sroa.482.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %41, ptr nonnull align 8 %3280, i64 1)
           to label %3286 unwind label %.thread169.i
@@ -6873,12 +6873,12 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
   br label %3293
 
 3296:                                             ; preds = %3292
-  %3297 = getelementptr inbounds i8, ptr %34, i64 104
+  %3297 = getelementptr inbounds nuw i8, ptr %34, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3297, align 8
-  %3298 = getelementptr inbounds i8, ptr %34, i64 112
+  %3298 = getelementptr inbounds nuw i8, ptr %34, i64 112
   store i64 1, ptr %3298, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %34, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
-  %3299 = getelementptr inbounds i8, ptr %34, i64 120
+  %3299 = getelementptr inbounds nuw i8, ptr %34, i64 120
   store ptr null, ptr %3299, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 %77)
           to label %3302 unwind label %3300
@@ -6891,13 +6891,13 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3302:                                             ; preds = %3296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3290, ptr noundef nonnull align 8 dereferenceable(136) %34, i64 136, i1 false)
-  %3303 = getelementptr inbounds i8, ptr %3290, i64 136
+  %3303 = getelementptr inbounds nuw i8, ptr %3290, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3303, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false)
-  %.sroa.285.0..sroa_idx.i = getelementptr inbounds i8, ptr %3290, i64 240
+  %.sroa.285.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3290, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.285.0..sroa_idx.i, align 8
-  %.sroa.386.0..sroa_idx.i = getelementptr inbounds i8, ptr %3290, i64 248
+  %.sroa.386.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3290, i64 248
   store i64 1, ptr %.sroa.386.0..sroa_idx.i, align 8
-  %.sroa.487.0..sroa_idx.i = getelementptr inbounds i8, ptr %3290, i64 256
+  %.sroa.487.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3290, i64 256
   store ptr null, ptr %.sroa.487.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %36, ptr nonnull align 8 %3290, i64 2)
           to label %3304 unwind label %.thread180.i
@@ -6933,11 +6933,11 @@ _ZN22cranelift_codegen_meta6shared12instructions23define_simd_lane_access17h100a
 
 3311:                                             ; preds = %3308
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3306, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false)
-  %.sroa.290.0..sroa_idx.i = getelementptr inbounds i8, ptr %3306, i64 104
+  %.sroa.290.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3306, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.290.0..sroa_idx.i, align 8
-  %.sroa.391.0..sroa_idx.i = getelementptr inbounds i8, ptr %3306, i64 112
+  %.sroa.391.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3306, i64 112
   store i64 1, ptr %.sroa.391.0..sroa_idx.i, align 8
-  %.sroa.492.0..sroa_idx.i = getelementptr inbounds i8, ptr %3306, i64 120
+  %.sroa.492.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3306, i64 120
   store ptr null, ptr %.sroa.492.0..sroa_idx.i, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %33, ptr nonnull align 8 %3306, i64 1)
           to label %3312 unwind label %.thread191.i
@@ -7564,16 +7564,16 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   call void @llvm.assume(i1 %3442)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3441, ptr noundef nonnull align 1 dereferenceable(5) @anon.d1d4bea1a3108f383c23b2c9c4b960e6.117, i64 5, i1 false)
   store i64 %3440, ptr %2416, align 8
-  %.sroa.21413.0..sroa_idx = getelementptr inbounds i8, ptr %2416, i64 8
+  %.sroa.21413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2416, i64 8
   store ptr %3441, ptr %.sroa.21413.0..sroa_idx, align 8
-  %.sroa.31414.0..sroa_idx = getelementptr inbounds i8, ptr %2416, i64 16
+  %.sroa.31414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2416, i64 16
   store i64 5, ptr %.sroa.31414.0..sroa_idx, align 8
   %3443 = invoke ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9copy_from17h5f63e01cf9ea7f28E(ptr nonnull align 8 %2425, ptr nonnull align 8 %2416)
           to label %3444 unwind label %3437
 
 3444:                                             ; preds = %3439
   store ptr %3443, ptr %2417, align 8
-  %3445 = getelementptr inbounds i8, ptr %1, i64 128
+  %3445 = getelementptr inbounds nuw i8, ptr %1, i64 128
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2412, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.119, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.118, i64 168, ptr nonnull align 8 %3445)
           to label %3449 unwind label %3447
 
@@ -7603,7 +7603,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3452:                                             ; preds = %3449
   store ptr %3450, ptr %2410, align 8
-  %3453 = getelementptr inbounds i8, ptr %2, i64 936
+  %3453 = getelementptr inbounds nuw i8, ptr %2, i64 936
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %808, ptr nonnull align 8 %3453)
           to label %3457 unwind label %3455
 
@@ -7618,12 +7618,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3454
 
 3457:                                             ; preds = %3452
-  %3458 = getelementptr inbounds i8, ptr %2409, i64 104
+  %3458 = getelementptr inbounds nuw i8, ptr %2409, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3458, align 8
-  %3459 = getelementptr inbounds i8, ptr %2409, i64 112
+  %3459 = getelementptr inbounds nuw i8, ptr %2409, i64 112
   store i64 8, ptr %3459, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2409, ptr noundef nonnull align 8 dereferenceable(104) %808, i64 104, i1 false)
-  %3460 = getelementptr inbounds i8, ptr %2409, i64 120
+  %3460 = getelementptr inbounds nuw i8, ptr %2409, i64 120
   store ptr null, ptr %3460, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %807, ptr nonnull align 8 %2449)
           to label %3464 unwind label %3462
@@ -7639,14 +7639,14 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3461
 
 3464:                                             ; preds = %3457
-  %3465 = getelementptr inbounds i8, ptr %2408, i64 104
+  %3465 = getelementptr inbounds nuw i8, ptr %2408, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3465, align 8
-  %3466 = getelementptr inbounds i8, ptr %2408, i64 112
+  %3466 = getelementptr inbounds nuw i8, ptr %2408, i64 112
   store i64 1, ptr %3466, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2408, ptr noundef nonnull align 8 dereferenceable(104) %807, i64 104, i1 false)
-  %3467 = getelementptr inbounds i8, ptr %2408, i64 120
+  %3467 = getelementptr inbounds nuw i8, ptr %2408, i64 120
   store ptr null, ptr %3467, align 8
-  %3468 = getelementptr inbounds i8, ptr %2, i64 416
+  %3468 = getelementptr inbounds nuw i8, ptr %2, i64 416
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %806, ptr nonnull align 8 %3468)
           to label %3471 unwind label %3469
 
@@ -7657,21 +7657,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3461 unwind label %8361
 
 3471:                                             ; preds = %3464
-  %3472 = getelementptr inbounds i8, ptr %2406, i64 104
+  %3472 = getelementptr inbounds nuw i8, ptr %2406, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3472, align 8
-  %3473 = getelementptr inbounds i8, ptr %2406, i64 112
+  %3473 = getelementptr inbounds nuw i8, ptr %2406, i64 112
   store i64 6, ptr %3473, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2406, ptr noundef nonnull align 8 dereferenceable(104) %806, i64 104, i1 false)
-  %3474 = getelementptr inbounds i8, ptr %2406, i64 120
+  %3474 = getelementptr inbounds nuw i8, ptr %2406, i64 120
   store ptr null, ptr %3474, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2407, ptr nonnull align 8 %2406, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3475 unwind label %3469
 
 3475:                                             ; preds = %3471
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3450, ptr noundef nonnull align 8 dereferenceable(136) %2409, i64 136, i1 false)
-  %3476 = getelementptr inbounds i8, ptr %3450, i64 136
+  %3476 = getelementptr inbounds nuw i8, ptr %3450, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3476, ptr noundef nonnull align 8 dereferenceable(136) %2408, i64 136, i1 false)
-  %3477 = getelementptr inbounds i8, ptr %3450, i64 272
+  %3477 = getelementptr inbounds nuw i8, ptr %3450, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3477, ptr noundef nonnull align 8 dereferenceable(136) %2407, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2411, ptr nonnull align 8 %3450, i64 3)
           to label %3478 unwind label %.thread3107
@@ -7706,12 +7706,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3110 unwind label %8361
 
 3485:                                             ; preds = %3482
-  %3486 = getelementptr inbounds i8, ptr %2402, i64 104
+  %3486 = getelementptr inbounds nuw i8, ptr %2402, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %3486, align 8
-  %3487 = getelementptr inbounds i8, ptr %2402, i64 112
+  %3487 = getelementptr inbounds nuw i8, ptr %2402, i64 112
   store i64 1, ptr %3487, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2402, ptr noundef nonnull align 8 dereferenceable(104) %805, i64 104, i1 false)
-  %3488 = getelementptr inbounds i8, ptr %2402, i64 120
+  %3488 = getelementptr inbounds nuw i8, ptr %2402, i64 120
   store ptr null, ptr %3488, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2403, ptr nonnull align 8 %2402, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %3489 unwind label %3483
@@ -7734,7 +7734,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3493 unwind label %3447
 
 3493:                                             ; preds = %3492
-  %3494 = getelementptr inbounds i8, ptr %1, i64 200
+  %3494 = getelementptr inbounds nuw i8, ptr %1, i64 200
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2399, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.126, i64 5, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.125, i64 169, ptr nonnull align 8 %3494)
           to label %3495 unwind label %3447
 
@@ -7768,12 +7768,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3499
 
 3502:                                             ; preds = %3498
-  %3503 = getelementptr inbounds i8, ptr %2396, i64 104
+  %3503 = getelementptr inbounds nuw i8, ptr %2396, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3503, align 8
-  %3504 = getelementptr inbounds i8, ptr %2396, i64 112
+  %3504 = getelementptr inbounds nuw i8, ptr %2396, i64 112
   store i64 8, ptr %3504, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2396, ptr noundef nonnull align 8 dereferenceable(104) %804, i64 104, i1 false)
-  %3505 = getelementptr inbounds i8, ptr %2396, i64 120
+  %3505 = getelementptr inbounds nuw i8, ptr %2396, i64 120
   store ptr null, ptr %3505, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %803, ptr nonnull align 8 %2425)
           to label %3509 unwind label %3507
@@ -7789,12 +7789,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3506
 
 3509:                                             ; preds = %3502
-  %3510 = getelementptr inbounds i8, ptr %2394, i64 104
+  %3510 = getelementptr inbounds nuw i8, ptr %2394, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3510, align 8
-  %3511 = getelementptr inbounds i8, ptr %2394, i64 112
+  %3511 = getelementptr inbounds nuw i8, ptr %2394, i64 112
   store i64 1, ptr %3511, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2394, ptr noundef nonnull align 8 dereferenceable(104) %803, i64 104, i1 false)
-  %3512 = getelementptr inbounds i8, ptr %2394, i64 120
+  %3512 = getelementptr inbounds nuw i8, ptr %2394, i64 120
   store ptr null, ptr %3512, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2395, ptr nonnull align 8 %2394, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.127, i64 18)
           to label %3513 unwind label %3507
@@ -7814,12 +7814,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3514
 
 3517:                                             ; preds = %3513
-  %3518 = getelementptr inbounds i8, ptr %2393, i64 104
+  %3518 = getelementptr inbounds nuw i8, ptr %2393, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3518, align 8
-  %3519 = getelementptr inbounds i8, ptr %2393, i64 112
+  %3519 = getelementptr inbounds nuw i8, ptr %2393, i64 112
   store i64 1, ptr %3519, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2393, ptr noundef nonnull align 8 dereferenceable(104) %802, i64 104, i1 false)
-  %3520 = getelementptr inbounds i8, ptr %2393, i64 120
+  %3520 = getelementptr inbounds nuw i8, ptr %2393, i64 120
   store ptr null, ptr %3520, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %801, ptr nonnull align 8 %3468)
           to label %3523 unwind label %3521
@@ -7831,23 +7831,23 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3514 unwind label %8361
 
 3523:                                             ; preds = %3517
-  %3524 = getelementptr inbounds i8, ptr %2391, i64 104
+  %3524 = getelementptr inbounds nuw i8, ptr %2391, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3524, align 8
-  %3525 = getelementptr inbounds i8, ptr %2391, i64 112
+  %3525 = getelementptr inbounds nuw i8, ptr %2391, i64 112
   store i64 6, ptr %3525, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2391, ptr noundef nonnull align 8 dereferenceable(104) %801, i64 104, i1 false)
-  %3526 = getelementptr inbounds i8, ptr %2391, i64 120
+  %3526 = getelementptr inbounds nuw i8, ptr %2391, i64 120
   store ptr null, ptr %3526, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2392, ptr nonnull align 8 %2391, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3527 unwind label %3521
 
 3527:                                             ; preds = %3523
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3496, ptr noundef nonnull align 8 dereferenceable(136) %2396, i64 136, i1 false)
-  %3528 = getelementptr inbounds i8, ptr %3496, i64 136
+  %3528 = getelementptr inbounds nuw i8, ptr %3496, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3528, ptr noundef nonnull align 8 dereferenceable(136) %2395, i64 136, i1 false)
-  %3529 = getelementptr inbounds i8, ptr %3496, i64 272
+  %3529 = getelementptr inbounds nuw i8, ptr %3496, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3529, ptr noundef nonnull align 8 dereferenceable(136) %2393, i64 136, i1 false)
-  %3530 = getelementptr inbounds i8, ptr %3496, i64 408
+  %3530 = getelementptr inbounds nuw i8, ptr %3496, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3530, ptr noundef nonnull align 8 dereferenceable(136) %2392, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2398, ptr nonnull align 8 %3496, i64 4)
           to label %3531 unwind label %.thread3129
@@ -7925,12 +7925,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3547
 
 3550:                                             ; preds = %3546
-  %3551 = getelementptr inbounds i8, ptr %2380, i64 104
+  %3551 = getelementptr inbounds nuw i8, ptr %2380, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3551, align 8
-  %3552 = getelementptr inbounds i8, ptr %2380, i64 112
+  %3552 = getelementptr inbounds nuw i8, ptr %2380, i64 112
   store i64 8, ptr %3552, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2380, ptr noundef nonnull align 8 dereferenceable(104) %800, i64 104, i1 false)
-  %3553 = getelementptr inbounds i8, ptr %2380, i64 120
+  %3553 = getelementptr inbounds nuw i8, ptr %2380, i64 120
   store ptr null, ptr %3553, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %799, ptr nonnull align 8 %2449)
           to label %3557 unwind label %3555
@@ -7946,12 +7946,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3554
 
 3557:                                             ; preds = %3550
-  %3558 = getelementptr inbounds i8, ptr %2379, i64 104
+  %3558 = getelementptr inbounds nuw i8, ptr %2379, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3558, align 8
-  %3559 = getelementptr inbounds i8, ptr %2379, i64 112
+  %3559 = getelementptr inbounds nuw i8, ptr %2379, i64 112
   store i64 1, ptr %3559, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2379, ptr noundef nonnull align 8 dereferenceable(104) %799, i64 104, i1 false)
-  %3560 = getelementptr inbounds i8, ptr %2379, i64 120
+  %3560 = getelementptr inbounds nuw i8, ptr %2379, i64 120
   store ptr null, ptr %3560, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %798, ptr nonnull align 8 %3468)
           to label %3563 unwind label %3561
@@ -7963,21 +7963,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3554 unwind label %8361
 
 3563:                                             ; preds = %3557
-  %3564 = getelementptr inbounds i8, ptr %2377, i64 104
+  %3564 = getelementptr inbounds nuw i8, ptr %2377, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3564, align 8
-  %3565 = getelementptr inbounds i8, ptr %2377, i64 112
+  %3565 = getelementptr inbounds nuw i8, ptr %2377, i64 112
   store i64 6, ptr %3565, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2377, ptr noundef nonnull align 8 dereferenceable(104) %798, i64 104, i1 false)
-  %3566 = getelementptr inbounds i8, ptr %2377, i64 120
+  %3566 = getelementptr inbounds nuw i8, ptr %2377, i64 120
   store ptr null, ptr %3566, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2378, ptr nonnull align 8 %2377, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3567 unwind label %3561
 
 3567:                                             ; preds = %3563
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3544, ptr noundef nonnull align 8 dereferenceable(136) %2380, i64 136, i1 false)
-  %3568 = getelementptr inbounds i8, ptr %3544, i64 136
+  %3568 = getelementptr inbounds nuw i8, ptr %3544, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3568, ptr noundef nonnull align 8 dereferenceable(136) %2379, i64 136, i1 false)
-  %3569 = getelementptr inbounds i8, ptr %3544, i64 272
+  %3569 = getelementptr inbounds nuw i8, ptr %3544, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3569, ptr noundef nonnull align 8 dereferenceable(136) %2378, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2382, ptr nonnull align 8 %3544, i64 3)
           to label %3570 unwind label %.thread3140
@@ -8013,11 +8013,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3577:                                             ; preds = %3574
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3572, ptr noundef nonnull align 8 dereferenceable(104) %797, i64 104, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3572, i64 104
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3572, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3572, i64 112
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3572, i64 112
   store i64 1, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3572, i64 120
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3572, i64 120
   store ptr null, ptr %.sroa.4.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2376, ptr nonnull align 8 %3572, i64 1)
           to label %3578 unwind label %.thread3151
@@ -8068,12 +8068,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3586
 
 3589:                                             ; preds = %3585
-  %3590 = getelementptr inbounds i8, ptr %2368, i64 104
+  %3590 = getelementptr inbounds nuw i8, ptr %2368, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3590, align 8
-  %3591 = getelementptr inbounds i8, ptr %2368, i64 112
+  %3591 = getelementptr inbounds nuw i8, ptr %2368, i64 112
   store i64 8, ptr %3591, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2368, ptr noundef nonnull align 8 dereferenceable(104) %796, i64 104, i1 false)
-  %3592 = getelementptr inbounds i8, ptr %2368, i64 120
+  %3592 = getelementptr inbounds nuw i8, ptr %2368, i64 120
   store ptr null, ptr %3592, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %795, ptr nonnull align 8 %2449)
           to label %3596 unwind label %3594
@@ -8089,12 +8089,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3593
 
 3596:                                             ; preds = %3589
-  %3597 = getelementptr inbounds i8, ptr %2367, i64 104
+  %3597 = getelementptr inbounds nuw i8, ptr %2367, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3597, align 8
-  %3598 = getelementptr inbounds i8, ptr %2367, i64 112
+  %3598 = getelementptr inbounds nuw i8, ptr %2367, i64 112
   store i64 1, ptr %3598, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2367, ptr noundef nonnull align 8 dereferenceable(104) %795, i64 104, i1 false)
-  %3599 = getelementptr inbounds i8, ptr %2367, i64 120
+  %3599 = getelementptr inbounds nuw i8, ptr %2367, i64 120
   store ptr null, ptr %3599, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %794, ptr nonnull align 8 %3468)
           to label %3602 unwind label %3600
@@ -8106,21 +8106,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3593 unwind label %8361
 
 3602:                                             ; preds = %3596
-  %3603 = getelementptr inbounds i8, ptr %2365, i64 104
+  %3603 = getelementptr inbounds nuw i8, ptr %2365, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3603, align 8
-  %3604 = getelementptr inbounds i8, ptr %2365, i64 112
+  %3604 = getelementptr inbounds nuw i8, ptr %2365, i64 112
   store i64 6, ptr %3604, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2365, ptr noundef nonnull align 8 dereferenceable(104) %794, i64 104, i1 false)
-  %3605 = getelementptr inbounds i8, ptr %2365, i64 120
+  %3605 = getelementptr inbounds nuw i8, ptr %2365, i64 120
   store ptr null, ptr %3605, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2366, ptr nonnull align 8 %2365, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3606 unwind label %3600
 
 3606:                                             ; preds = %3602
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3583, ptr noundef nonnull align 8 dereferenceable(136) %2368, i64 136, i1 false)
-  %3607 = getelementptr inbounds i8, ptr %3583, i64 136
+  %3607 = getelementptr inbounds nuw i8, ptr %3583, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3607, ptr noundef nonnull align 8 dereferenceable(136) %2367, i64 136, i1 false)
-  %3608 = getelementptr inbounds i8, ptr %3583, i64 272
+  %3608 = getelementptr inbounds nuw i8, ptr %3583, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3608, ptr noundef nonnull align 8 dereferenceable(136) %2366, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2370, ptr nonnull align 8 %3583, i64 3)
           to label %3609 unwind label %.thread3162
@@ -8156,11 +8156,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3616:                                             ; preds = %3613
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3611, ptr noundef nonnull align 8 dereferenceable(104) %793, i64 104, i1 false)
-  %.sroa.2111.0..sroa_idx = getelementptr inbounds i8, ptr %3611, i64 104
+  %.sroa.2111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3611, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2111.0..sroa_idx, align 8
-  %.sroa.3112.0..sroa_idx = getelementptr inbounds i8, ptr %3611, i64 112
+  %.sroa.3112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3611, i64 112
   store i64 1, ptr %.sroa.3112.0..sroa_idx, align 8
-  %.sroa.4113.0..sroa_idx = getelementptr inbounds i8, ptr %3611, i64 120
+  %.sroa.4113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3611, i64 120
   store ptr null, ptr %.sroa.4113.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2364, ptr nonnull align 8 %3611, i64 1)
           to label %3617 unwind label %.thread3173
@@ -8211,12 +8211,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3625
 
 3628:                                             ; preds = %3624
-  %3629 = getelementptr inbounds i8, ptr %2357, i64 104
+  %3629 = getelementptr inbounds nuw i8, ptr %2357, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3629, align 8
-  %3630 = getelementptr inbounds i8, ptr %2357, i64 112
+  %3630 = getelementptr inbounds nuw i8, ptr %2357, i64 112
   store i64 8, ptr %3630, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2357, ptr noundef nonnull align 8 dereferenceable(104) %792, i64 104, i1 false)
-  %3631 = getelementptr inbounds i8, ptr %2357, i64 120
+  %3631 = getelementptr inbounds nuw i8, ptr %2357, i64 120
   store ptr null, ptr %3631, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %791, ptr nonnull align 8 %2390)
           to label %3635 unwind label %3633
@@ -8232,12 +8232,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3632
 
 3635:                                             ; preds = %3628
-  %3636 = getelementptr inbounds i8, ptr %2356, i64 104
+  %3636 = getelementptr inbounds nuw i8, ptr %2356, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3636, align 8
-  %3637 = getelementptr inbounds i8, ptr %2356, i64 112
+  %3637 = getelementptr inbounds nuw i8, ptr %2356, i64 112
   store i64 1, ptr %3637, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2356, ptr noundef nonnull align 8 dereferenceable(104) %791, i64 104, i1 false)
-  %3638 = getelementptr inbounds i8, ptr %2356, i64 120
+  %3638 = getelementptr inbounds nuw i8, ptr %2356, i64 120
   store ptr null, ptr %3638, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %790, ptr nonnull align 8 %2449)
           to label %3642 unwind label %3640
@@ -8253,12 +8253,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3639
 
 3642:                                             ; preds = %3635
-  %3643 = getelementptr inbounds i8, ptr %2355, i64 104
+  %3643 = getelementptr inbounds nuw i8, ptr %2355, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3643, align 8
-  %3644 = getelementptr inbounds i8, ptr %2355, i64 112
+  %3644 = getelementptr inbounds nuw i8, ptr %2355, i64 112
   store i64 1, ptr %3644, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2355, ptr noundef nonnull align 8 dereferenceable(104) %790, i64 104, i1 false)
-  %3645 = getelementptr inbounds i8, ptr %2355, i64 120
+  %3645 = getelementptr inbounds nuw i8, ptr %2355, i64 120
   store ptr null, ptr %3645, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %789, ptr nonnull align 8 %3468)
           to label %3648 unwind label %3646
@@ -8270,23 +8270,23 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3639 unwind label %8361
 
 3648:                                             ; preds = %3642
-  %3649 = getelementptr inbounds i8, ptr %2353, i64 104
+  %3649 = getelementptr inbounds nuw i8, ptr %2353, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3649, align 8
-  %3650 = getelementptr inbounds i8, ptr %2353, i64 112
+  %3650 = getelementptr inbounds nuw i8, ptr %2353, i64 112
   store i64 6, ptr %3650, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2353, ptr noundef nonnull align 8 dereferenceable(104) %789, i64 104, i1 false)
-  %3651 = getelementptr inbounds i8, ptr %2353, i64 120
+  %3651 = getelementptr inbounds nuw i8, ptr %2353, i64 120
   store ptr null, ptr %3651, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2354, ptr nonnull align 8 %2353, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3652 unwind label %3646
 
 3652:                                             ; preds = %3648
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3622, ptr noundef nonnull align 8 dereferenceable(136) %2357, i64 136, i1 false)
-  %3653 = getelementptr inbounds i8, ptr %3622, i64 136
+  %3653 = getelementptr inbounds nuw i8, ptr %3622, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3653, ptr noundef nonnull align 8 dereferenceable(136) %2356, i64 136, i1 false)
-  %3654 = getelementptr inbounds i8, ptr %3622, i64 272
+  %3654 = getelementptr inbounds nuw i8, ptr %3622, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3654, ptr noundef nonnull align 8 dereferenceable(136) %2355, i64 136, i1 false)
-  %3655 = getelementptr inbounds i8, ptr %3622, i64 408
+  %3655 = getelementptr inbounds nuw i8, ptr %3622, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3655, ptr noundef nonnull align 8 dereferenceable(136) %2354, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2359, ptr nonnull align 8 %3622, i64 4)
           to label %3656 unwind label %.thread3184
@@ -8364,12 +8364,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3672
 
 3675:                                             ; preds = %3671
-  %3676 = getelementptr inbounds i8, ptr %2342, i64 104
+  %3676 = getelementptr inbounds nuw i8, ptr %2342, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3676, align 8
-  %3677 = getelementptr inbounds i8, ptr %2342, i64 112
+  %3677 = getelementptr inbounds nuw i8, ptr %2342, i64 112
   store i64 8, ptr %3677, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2342, ptr noundef nonnull align 8 dereferenceable(104) %788, i64 104, i1 false)
-  %3678 = getelementptr inbounds i8, ptr %2342, i64 120
+  %3678 = getelementptr inbounds nuw i8, ptr %2342, i64 120
   store ptr null, ptr %3678, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %787, ptr nonnull align 8 %2449)
           to label %3682 unwind label %3680
@@ -8385,12 +8385,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3679
 
 3682:                                             ; preds = %3675
-  %3683 = getelementptr inbounds i8, ptr %2341, i64 104
+  %3683 = getelementptr inbounds nuw i8, ptr %2341, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3683, align 8
-  %3684 = getelementptr inbounds i8, ptr %2341, i64 112
+  %3684 = getelementptr inbounds nuw i8, ptr %2341, i64 112
   store i64 1, ptr %3684, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2341, ptr noundef nonnull align 8 dereferenceable(104) %787, i64 104, i1 false)
-  %3685 = getelementptr inbounds i8, ptr %2341, i64 120
+  %3685 = getelementptr inbounds nuw i8, ptr %2341, i64 120
   store ptr null, ptr %3685, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %786, ptr nonnull align 8 %3468)
           to label %3688 unwind label %3686
@@ -8402,21 +8402,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3679 unwind label %8361
 
 3688:                                             ; preds = %3682
-  %3689 = getelementptr inbounds i8, ptr %2339, i64 104
+  %3689 = getelementptr inbounds nuw i8, ptr %2339, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3689, align 8
-  %3690 = getelementptr inbounds i8, ptr %2339, i64 112
+  %3690 = getelementptr inbounds nuw i8, ptr %2339, i64 112
   store i64 6, ptr %3690, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2339, ptr noundef nonnull align 8 dereferenceable(104) %786, i64 104, i1 false)
-  %3691 = getelementptr inbounds i8, ptr %2339, i64 120
+  %3691 = getelementptr inbounds nuw i8, ptr %2339, i64 120
   store ptr null, ptr %3691, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2340, ptr nonnull align 8 %2339, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3692 unwind label %3686
 
 3692:                                             ; preds = %3688
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3669, ptr noundef nonnull align 8 dereferenceable(136) %2342, i64 136, i1 false)
-  %3693 = getelementptr inbounds i8, ptr %3669, i64 136
+  %3693 = getelementptr inbounds nuw i8, ptr %3669, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3693, ptr noundef nonnull align 8 dereferenceable(136) %2341, i64 136, i1 false)
-  %3694 = getelementptr inbounds i8, ptr %3669, i64 272
+  %3694 = getelementptr inbounds nuw i8, ptr %3669, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3694, ptr noundef nonnull align 8 dereferenceable(136) %2340, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2344, ptr nonnull align 8 %3669, i64 3)
           to label %3695 unwind label %.thread3195
@@ -8452,11 +8452,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3702:                                             ; preds = %3699
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3697, ptr noundef nonnull align 8 dereferenceable(104) %785, i64 104, i1 false)
-  %.sroa.2116.0..sroa_idx = getelementptr inbounds i8, ptr %3697, i64 104
+  %.sroa.2116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3697, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2116.0..sroa_idx, align 8
-  %.sroa.3117.0..sroa_idx = getelementptr inbounds i8, ptr %3697, i64 112
+  %.sroa.3117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3697, i64 112
   store i64 1, ptr %.sroa.3117.0..sroa_idx, align 8
-  %.sroa.4118.0..sroa_idx = getelementptr inbounds i8, ptr %3697, i64 120
+  %.sroa.4118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3697, i64 120
   store ptr null, ptr %.sroa.4118.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2338, ptr nonnull align 8 %3697, i64 1)
           to label %3703 unwind label %.thread3206
@@ -8507,12 +8507,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3711
 
 3714:                                             ; preds = %3710
-  %3715 = getelementptr inbounds i8, ptr %2330, i64 104
+  %3715 = getelementptr inbounds nuw i8, ptr %2330, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3715, align 8
-  %3716 = getelementptr inbounds i8, ptr %2330, i64 112
+  %3716 = getelementptr inbounds nuw i8, ptr %2330, i64 112
   store i64 8, ptr %3716, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2330, ptr noundef nonnull align 8 dereferenceable(104) %784, i64 104, i1 false)
-  %3717 = getelementptr inbounds i8, ptr %2330, i64 120
+  %3717 = getelementptr inbounds nuw i8, ptr %2330, i64 120
   store ptr null, ptr %3717, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %783, ptr nonnull align 8 %2449)
           to label %3721 unwind label %3719
@@ -8528,12 +8528,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3718
 
 3721:                                             ; preds = %3714
-  %3722 = getelementptr inbounds i8, ptr %2329, i64 104
+  %3722 = getelementptr inbounds nuw i8, ptr %2329, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3722, align 8
-  %3723 = getelementptr inbounds i8, ptr %2329, i64 112
+  %3723 = getelementptr inbounds nuw i8, ptr %2329, i64 112
   store i64 1, ptr %3723, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2329, ptr noundef nonnull align 8 dereferenceable(104) %783, i64 104, i1 false)
-  %3724 = getelementptr inbounds i8, ptr %2329, i64 120
+  %3724 = getelementptr inbounds nuw i8, ptr %2329, i64 120
   store ptr null, ptr %3724, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %782, ptr nonnull align 8 %3468)
           to label %3727 unwind label %3725
@@ -8545,21 +8545,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3718 unwind label %8361
 
 3727:                                             ; preds = %3721
-  %3728 = getelementptr inbounds i8, ptr %2327, i64 104
+  %3728 = getelementptr inbounds nuw i8, ptr %2327, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3728, align 8
-  %3729 = getelementptr inbounds i8, ptr %2327, i64 112
+  %3729 = getelementptr inbounds nuw i8, ptr %2327, i64 112
   store i64 6, ptr %3729, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2327, ptr noundef nonnull align 8 dereferenceable(104) %782, i64 104, i1 false)
-  %3730 = getelementptr inbounds i8, ptr %2327, i64 120
+  %3730 = getelementptr inbounds nuw i8, ptr %2327, i64 120
   store ptr null, ptr %3730, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2328, ptr nonnull align 8 %2327, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3731 unwind label %3725
 
 3731:                                             ; preds = %3727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3708, ptr noundef nonnull align 8 dereferenceable(136) %2330, i64 136, i1 false)
-  %3732 = getelementptr inbounds i8, ptr %3708, i64 136
+  %3732 = getelementptr inbounds nuw i8, ptr %3708, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3732, ptr noundef nonnull align 8 dereferenceable(136) %2329, i64 136, i1 false)
-  %3733 = getelementptr inbounds i8, ptr %3708, i64 272
+  %3733 = getelementptr inbounds nuw i8, ptr %3708, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3733, ptr noundef nonnull align 8 dereferenceable(136) %2328, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2332, ptr nonnull align 8 %3708, i64 3)
           to label %3734 unwind label %.thread3217
@@ -8595,11 +8595,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3741:                                             ; preds = %3738
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3736, ptr noundef nonnull align 8 dereferenceable(104) %781, i64 104, i1 false)
-  %.sroa.2121.0..sroa_idx = getelementptr inbounds i8, ptr %3736, i64 104
+  %.sroa.2121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3736, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2121.0..sroa_idx, align 8
-  %.sroa.3122.0..sroa_idx = getelementptr inbounds i8, ptr %3736, i64 112
+  %.sroa.3122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3736, i64 112
   store i64 1, ptr %.sroa.3122.0..sroa_idx, align 8
-  %.sroa.4123.0..sroa_idx = getelementptr inbounds i8, ptr %3736, i64 120
+  %.sroa.4123.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3736, i64 120
   store ptr null, ptr %.sroa.4123.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2326, ptr nonnull align 8 %3736, i64 1)
           to label %3742 unwind label %.thread3228
@@ -8650,12 +8650,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3750
 
 3753:                                             ; preds = %3749
-  %3754 = getelementptr inbounds i8, ptr %2319, i64 104
+  %3754 = getelementptr inbounds nuw i8, ptr %2319, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3754, align 8
-  %3755 = getelementptr inbounds i8, ptr %2319, i64 112
+  %3755 = getelementptr inbounds nuw i8, ptr %2319, i64 112
   store i64 8, ptr %3755, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2319, ptr noundef nonnull align 8 dereferenceable(104) %780, i64 104, i1 false)
-  %3756 = getelementptr inbounds i8, ptr %2319, i64 120
+  %3756 = getelementptr inbounds nuw i8, ptr %2319, i64 120
   store ptr null, ptr %3756, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %779, ptr nonnull align 8 %2352)
           to label %3760 unwind label %3758
@@ -8671,12 +8671,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3757
 
 3760:                                             ; preds = %3753
-  %3761 = getelementptr inbounds i8, ptr %2318, i64 104
+  %3761 = getelementptr inbounds nuw i8, ptr %2318, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3761, align 8
-  %3762 = getelementptr inbounds i8, ptr %2318, i64 112
+  %3762 = getelementptr inbounds nuw i8, ptr %2318, i64 112
   store i64 1, ptr %3762, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2318, ptr noundef nonnull align 8 dereferenceable(104) %779, i64 104, i1 false)
-  %3763 = getelementptr inbounds i8, ptr %2318, i64 120
+  %3763 = getelementptr inbounds nuw i8, ptr %2318, i64 120
   store ptr null, ptr %3763, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %778, ptr nonnull align 8 %2449)
           to label %3767 unwind label %3765
@@ -8692,12 +8692,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3764
 
 3767:                                             ; preds = %3760
-  %3768 = getelementptr inbounds i8, ptr %2317, i64 104
+  %3768 = getelementptr inbounds nuw i8, ptr %2317, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3768, align 8
-  %3769 = getelementptr inbounds i8, ptr %2317, i64 112
+  %3769 = getelementptr inbounds nuw i8, ptr %2317, i64 112
   store i64 1, ptr %3769, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2317, ptr noundef nonnull align 8 dereferenceable(104) %778, i64 104, i1 false)
-  %3770 = getelementptr inbounds i8, ptr %2317, i64 120
+  %3770 = getelementptr inbounds nuw i8, ptr %2317, i64 120
   store ptr null, ptr %3770, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %777, ptr nonnull align 8 %3468)
           to label %3773 unwind label %3771
@@ -8709,23 +8709,23 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3764 unwind label %8361
 
 3773:                                             ; preds = %3767
-  %3774 = getelementptr inbounds i8, ptr %2315, i64 104
+  %3774 = getelementptr inbounds nuw i8, ptr %2315, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3774, align 8
-  %3775 = getelementptr inbounds i8, ptr %2315, i64 112
+  %3775 = getelementptr inbounds nuw i8, ptr %2315, i64 112
   store i64 6, ptr %3775, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2315, ptr noundef nonnull align 8 dereferenceable(104) %777, i64 104, i1 false)
-  %3776 = getelementptr inbounds i8, ptr %2315, i64 120
+  %3776 = getelementptr inbounds nuw i8, ptr %2315, i64 120
   store ptr null, ptr %3776, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2316, ptr nonnull align 8 %2315, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3777 unwind label %3771
 
 3777:                                             ; preds = %3773
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3747, ptr noundef nonnull align 8 dereferenceable(136) %2319, i64 136, i1 false)
-  %3778 = getelementptr inbounds i8, ptr %3747, i64 136
+  %3778 = getelementptr inbounds nuw i8, ptr %3747, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3778, ptr noundef nonnull align 8 dereferenceable(136) %2318, i64 136, i1 false)
-  %3779 = getelementptr inbounds i8, ptr %3747, i64 272
+  %3779 = getelementptr inbounds nuw i8, ptr %3747, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3779, ptr noundef nonnull align 8 dereferenceable(136) %2317, i64 136, i1 false)
-  %3780 = getelementptr inbounds i8, ptr %3747, i64 408
+  %3780 = getelementptr inbounds nuw i8, ptr %3747, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3780, ptr noundef nonnull align 8 dereferenceable(136) %2316, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2321, ptr nonnull align 8 %3747, i64 4)
           to label %3781 unwind label %.thread3239
@@ -8803,12 +8803,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3797
 
 3800:                                             ; preds = %3796
-  %3801 = getelementptr inbounds i8, ptr %2304, i64 104
+  %3801 = getelementptr inbounds nuw i8, ptr %2304, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3801, align 8
-  %3802 = getelementptr inbounds i8, ptr %2304, i64 112
+  %3802 = getelementptr inbounds nuw i8, ptr %2304, i64 112
   store i64 8, ptr %3802, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2304, ptr noundef nonnull align 8 dereferenceable(104) %776, i64 104, i1 false)
-  %3803 = getelementptr inbounds i8, ptr %2304, i64 120
+  %3803 = getelementptr inbounds nuw i8, ptr %2304, i64 120
   store ptr null, ptr %3803, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %775, ptr nonnull align 8 %2449)
           to label %3807 unwind label %3805
@@ -8824,12 +8824,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3804
 
 3807:                                             ; preds = %3800
-  %3808 = getelementptr inbounds i8, ptr %2303, i64 104
+  %3808 = getelementptr inbounds nuw i8, ptr %2303, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3808, align 8
-  %3809 = getelementptr inbounds i8, ptr %2303, i64 112
+  %3809 = getelementptr inbounds nuw i8, ptr %2303, i64 112
   store i64 1, ptr %3809, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2303, ptr noundef nonnull align 8 dereferenceable(104) %775, i64 104, i1 false)
-  %3810 = getelementptr inbounds i8, ptr %2303, i64 120
+  %3810 = getelementptr inbounds nuw i8, ptr %2303, i64 120
   store ptr null, ptr %3810, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %774, ptr nonnull align 8 %3468)
           to label %3813 unwind label %3811
@@ -8841,21 +8841,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3804 unwind label %8361
 
 3813:                                             ; preds = %3807
-  %3814 = getelementptr inbounds i8, ptr %2301, i64 104
+  %3814 = getelementptr inbounds nuw i8, ptr %2301, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3814, align 8
-  %3815 = getelementptr inbounds i8, ptr %2301, i64 112
+  %3815 = getelementptr inbounds nuw i8, ptr %2301, i64 112
   store i64 6, ptr %3815, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2301, ptr noundef nonnull align 8 dereferenceable(104) %774, i64 104, i1 false)
-  %3816 = getelementptr inbounds i8, ptr %2301, i64 120
+  %3816 = getelementptr inbounds nuw i8, ptr %2301, i64 120
   store ptr null, ptr %3816, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2302, ptr nonnull align 8 %2301, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3817 unwind label %3811
 
 3817:                                             ; preds = %3813
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3794, ptr noundef nonnull align 8 dereferenceable(136) %2304, i64 136, i1 false)
-  %3818 = getelementptr inbounds i8, ptr %3794, i64 136
+  %3818 = getelementptr inbounds nuw i8, ptr %3794, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3818, ptr noundef nonnull align 8 dereferenceable(136) %2303, i64 136, i1 false)
-  %3819 = getelementptr inbounds i8, ptr %3794, i64 272
+  %3819 = getelementptr inbounds nuw i8, ptr %3794, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3819, ptr noundef nonnull align 8 dereferenceable(136) %2302, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2306, ptr nonnull align 8 %3794, i64 3)
           to label %3820 unwind label %.thread3250
@@ -8891,11 +8891,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3827:                                             ; preds = %3824
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3822, ptr noundef nonnull align 8 dereferenceable(104) %773, i64 104, i1 false)
-  %.sroa.2126.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 104
+  %.sroa.2126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3822, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2126.0..sroa_idx, align 8
-  %.sroa.3127.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 112
+  %.sroa.3127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3822, i64 112
   store i64 1, ptr %.sroa.3127.0..sroa_idx, align 8
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %3822, i64 120
+  %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3822, i64 120
   store ptr null, ptr %.sroa.4128.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2300, ptr nonnull align 8 %3822, i64 1)
           to label %3828 unwind label %.thread3261
@@ -8946,12 +8946,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3836
 
 3839:                                             ; preds = %3835
-  %3840 = getelementptr inbounds i8, ptr %2292, i64 104
+  %3840 = getelementptr inbounds nuw i8, ptr %2292, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3840, align 8
-  %3841 = getelementptr inbounds i8, ptr %2292, i64 112
+  %3841 = getelementptr inbounds nuw i8, ptr %2292, i64 112
   store i64 8, ptr %3841, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2292, ptr noundef nonnull align 8 dereferenceable(104) %772, i64 104, i1 false)
-  %3842 = getelementptr inbounds i8, ptr %2292, i64 120
+  %3842 = getelementptr inbounds nuw i8, ptr %2292, i64 120
   store ptr null, ptr %3842, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %771, ptr nonnull align 8 %2449)
           to label %3846 unwind label %3844
@@ -8967,12 +8967,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3843
 
 3846:                                             ; preds = %3839
-  %3847 = getelementptr inbounds i8, ptr %2291, i64 104
+  %3847 = getelementptr inbounds nuw i8, ptr %2291, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3847, align 8
-  %3848 = getelementptr inbounds i8, ptr %2291, i64 112
+  %3848 = getelementptr inbounds nuw i8, ptr %2291, i64 112
   store i64 1, ptr %3848, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2291, ptr noundef nonnull align 8 dereferenceable(104) %771, i64 104, i1 false)
-  %3849 = getelementptr inbounds i8, ptr %2291, i64 120
+  %3849 = getelementptr inbounds nuw i8, ptr %2291, i64 120
   store ptr null, ptr %3849, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %770, ptr nonnull align 8 %3468)
           to label %3852 unwind label %3850
@@ -8984,21 +8984,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3843 unwind label %8361
 
 3852:                                             ; preds = %3846
-  %3853 = getelementptr inbounds i8, ptr %2289, i64 104
+  %3853 = getelementptr inbounds nuw i8, ptr %2289, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3853, align 8
-  %3854 = getelementptr inbounds i8, ptr %2289, i64 112
+  %3854 = getelementptr inbounds nuw i8, ptr %2289, i64 112
   store i64 6, ptr %3854, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2289, ptr noundef nonnull align 8 dereferenceable(104) %770, i64 104, i1 false)
-  %3855 = getelementptr inbounds i8, ptr %2289, i64 120
+  %3855 = getelementptr inbounds nuw i8, ptr %2289, i64 120
   store ptr null, ptr %3855, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2290, ptr nonnull align 8 %2289, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3856 unwind label %3850
 
 3856:                                             ; preds = %3852
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3833, ptr noundef nonnull align 8 dereferenceable(136) %2292, i64 136, i1 false)
-  %3857 = getelementptr inbounds i8, ptr %3833, i64 136
+  %3857 = getelementptr inbounds nuw i8, ptr %3833, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3857, ptr noundef nonnull align 8 dereferenceable(136) %2291, i64 136, i1 false)
-  %3858 = getelementptr inbounds i8, ptr %3833, i64 272
+  %3858 = getelementptr inbounds nuw i8, ptr %3833, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3858, ptr noundef nonnull align 8 dereferenceable(136) %2290, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2294, ptr nonnull align 8 %3833, i64 3)
           to label %3859 unwind label %.thread3272
@@ -9034,11 +9034,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 3866:                                             ; preds = %3863
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3861, ptr noundef nonnull align 8 dereferenceable(104) %769, i64 104, i1 false)
-  %.sroa.2131.0..sroa_idx = getelementptr inbounds i8, ptr %3861, i64 104
+  %.sroa.2131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3861, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2131.0..sroa_idx, align 8
-  %.sroa.3132.0..sroa_idx = getelementptr inbounds i8, ptr %3861, i64 112
+  %.sroa.3132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3861, i64 112
   store i64 1, ptr %.sroa.3132.0..sroa_idx, align 8
-  %.sroa.4133.0..sroa_idx = getelementptr inbounds i8, ptr %3861, i64 120
+  %.sroa.4133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3861, i64 120
   store ptr null, ptr %.sroa.4133.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2288, ptr nonnull align 8 %3861, i64 1)
           to label %3867 unwind label %.thread3283
@@ -9089,12 +9089,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3875
 
 3878:                                             ; preds = %3874
-  %3879 = getelementptr inbounds i8, ptr %2281, i64 104
+  %3879 = getelementptr inbounds nuw i8, ptr %2281, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3879, align 8
-  %3880 = getelementptr inbounds i8, ptr %2281, i64 112
+  %3880 = getelementptr inbounds nuw i8, ptr %2281, i64 112
   store i64 8, ptr %3880, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2281, ptr noundef nonnull align 8 dereferenceable(104) %768, i64 104, i1 false)
-  %3881 = getelementptr inbounds i8, ptr %2281, i64 120
+  %3881 = getelementptr inbounds nuw i8, ptr %2281, i64 120
   store ptr null, ptr %3881, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %767, ptr nonnull align 8 %2314)
           to label %3885 unwind label %3883
@@ -9110,12 +9110,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3882
 
 3885:                                             ; preds = %3878
-  %3886 = getelementptr inbounds i8, ptr %2280, i64 104
+  %3886 = getelementptr inbounds nuw i8, ptr %2280, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %3886, align 8
-  %3887 = getelementptr inbounds i8, ptr %2280, i64 112
+  %3887 = getelementptr inbounds nuw i8, ptr %2280, i64 112
   store i64 1, ptr %3887, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2280, ptr noundef nonnull align 8 dereferenceable(104) %767, i64 104, i1 false)
-  %3888 = getelementptr inbounds i8, ptr %2280, i64 120
+  %3888 = getelementptr inbounds nuw i8, ptr %2280, i64 120
   store ptr null, ptr %3888, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %766, ptr nonnull align 8 %2449)
           to label %3892 unwind label %3890
@@ -9131,12 +9131,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3889
 
 3892:                                             ; preds = %3885
-  %3893 = getelementptr inbounds i8, ptr %2279, i64 104
+  %3893 = getelementptr inbounds nuw i8, ptr %2279, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3893, align 8
-  %3894 = getelementptr inbounds i8, ptr %2279, i64 112
+  %3894 = getelementptr inbounds nuw i8, ptr %2279, i64 112
   store i64 1, ptr %3894, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2279, ptr noundef nonnull align 8 dereferenceable(104) %766, i64 104, i1 false)
-  %3895 = getelementptr inbounds i8, ptr %2279, i64 120
+  %3895 = getelementptr inbounds nuw i8, ptr %2279, i64 120
   store ptr null, ptr %3895, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %765, ptr nonnull align 8 %3468)
           to label %3898 unwind label %3896
@@ -9148,23 +9148,23 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3889 unwind label %8361
 
 3898:                                             ; preds = %3892
-  %3899 = getelementptr inbounds i8, ptr %2277, i64 104
+  %3899 = getelementptr inbounds nuw i8, ptr %2277, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3899, align 8
-  %3900 = getelementptr inbounds i8, ptr %2277, i64 112
+  %3900 = getelementptr inbounds nuw i8, ptr %2277, i64 112
   store i64 6, ptr %3900, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2277, ptr noundef nonnull align 8 dereferenceable(104) %765, i64 104, i1 false)
-  %3901 = getelementptr inbounds i8, ptr %2277, i64 120
+  %3901 = getelementptr inbounds nuw i8, ptr %2277, i64 120
   store ptr null, ptr %3901, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2278, ptr nonnull align 8 %2277, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3902 unwind label %3896
 
 3902:                                             ; preds = %3898
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3872, ptr noundef nonnull align 8 dereferenceable(136) %2281, i64 136, i1 false)
-  %3903 = getelementptr inbounds i8, ptr %3872, i64 136
+  %3903 = getelementptr inbounds nuw i8, ptr %3872, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3903, ptr noundef nonnull align 8 dereferenceable(136) %2280, i64 136, i1 false)
-  %3904 = getelementptr inbounds i8, ptr %3872, i64 272
+  %3904 = getelementptr inbounds nuw i8, ptr %3872, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3904, ptr noundef nonnull align 8 dereferenceable(136) %2279, i64 136, i1 false)
-  %3905 = getelementptr inbounds i8, ptr %3872, i64 408
+  %3905 = getelementptr inbounds nuw i8, ptr %3872, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3905, ptr noundef nonnull align 8 dereferenceable(136) %2278, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2283, ptr nonnull align 8 %3872, i64 4)
           to label %3906 unwind label %.thread3294
@@ -9250,12 +9250,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3924
 
 3927:                                             ; preds = %3923
-  %3928 = getelementptr inbounds i8, ptr %2264, i64 104
+  %3928 = getelementptr inbounds nuw i8, ptr %2264, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3928, align 8
-  %3929 = getelementptr inbounds i8, ptr %2264, i64 112
+  %3929 = getelementptr inbounds nuw i8, ptr %2264, i64 112
   store i64 8, ptr %3929, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2264, ptr noundef nonnull align 8 dereferenceable(104) %764, i64 104, i1 false)
-  %3930 = getelementptr inbounds i8, ptr %2264, i64 120
+  %3930 = getelementptr inbounds nuw i8, ptr %2264, i64 120
   store ptr null, ptr %3930, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %763, ptr nonnull align 8 %2449)
           to label %3934 unwind label %3932
@@ -9271,12 +9271,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3931
 
 3934:                                             ; preds = %3927
-  %3935 = getelementptr inbounds i8, ptr %2263, i64 104
+  %3935 = getelementptr inbounds nuw i8, ptr %2263, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3935, align 8
-  %3936 = getelementptr inbounds i8, ptr %2263, i64 112
+  %3936 = getelementptr inbounds nuw i8, ptr %2263, i64 112
   store i64 1, ptr %3936, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2263, ptr noundef nonnull align 8 dereferenceable(104) %763, i64 104, i1 false)
-  %3937 = getelementptr inbounds i8, ptr %2263, i64 120
+  %3937 = getelementptr inbounds nuw i8, ptr %2263, i64 120
   store ptr null, ptr %3937, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %762, ptr nonnull align 8 %3468)
           to label %3940 unwind label %3938
@@ -9288,21 +9288,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3931 unwind label %8361
 
 3940:                                             ; preds = %3934
-  %3941 = getelementptr inbounds i8, ptr %2261, i64 104
+  %3941 = getelementptr inbounds nuw i8, ptr %2261, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3941, align 8
-  %3942 = getelementptr inbounds i8, ptr %2261, i64 112
+  %3942 = getelementptr inbounds nuw i8, ptr %2261, i64 112
   store i64 6, ptr %3942, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2261, ptr noundef nonnull align 8 dereferenceable(104) %762, i64 104, i1 false)
-  %3943 = getelementptr inbounds i8, ptr %2261, i64 120
+  %3943 = getelementptr inbounds nuw i8, ptr %2261, i64 120
   store ptr null, ptr %3943, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2262, ptr nonnull align 8 %2261, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3944 unwind label %3938
 
 3944:                                             ; preds = %3940
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3921, ptr noundef nonnull align 8 dereferenceable(136) %2264, i64 136, i1 false)
-  %3945 = getelementptr inbounds i8, ptr %3921, i64 136
+  %3945 = getelementptr inbounds nuw i8, ptr %3921, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3945, ptr noundef nonnull align 8 dereferenceable(136) %2263, i64 136, i1 false)
-  %3946 = getelementptr inbounds i8, ptr %3921, i64 272
+  %3946 = getelementptr inbounds nuw i8, ptr %3921, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3946, ptr noundef nonnull align 8 dereferenceable(136) %2262, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2266, ptr nonnull align 8 %3921, i64 3)
           to label %3947 unwind label %.thread3305
@@ -9337,12 +9337,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3308 unwind label %8361
 
 3954:                                             ; preds = %3951
-  %3955 = getelementptr inbounds i8, ptr %2257, i64 104
+  %3955 = getelementptr inbounds nuw i8, ptr %2257, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %3955, align 8
-  %3956 = getelementptr inbounds i8, ptr %2257, i64 112
+  %3956 = getelementptr inbounds nuw i8, ptr %2257, i64 112
   store i64 1, ptr %3956, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2257, ptr noundef nonnull align 8 dereferenceable(104) %761, i64 104, i1 false)
-  %3957 = getelementptr inbounds i8, ptr %2257, i64 120
+  %3957 = getelementptr inbounds nuw i8, ptr %2257, i64 120
   store ptr null, ptr %3957, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2258, ptr nonnull align 8 %2257, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %3958 unwind label %3952
@@ -9398,12 +9398,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3967
 
 3970:                                             ; preds = %3966
-  %3971 = getelementptr inbounds i8, ptr %2250, i64 104
+  %3971 = getelementptr inbounds nuw i8, ptr %2250, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %3971, align 8
-  %3972 = getelementptr inbounds i8, ptr %2250, i64 112
+  %3972 = getelementptr inbounds nuw i8, ptr %2250, i64 112
   store i64 8, ptr %3972, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2250, ptr noundef nonnull align 8 dereferenceable(104) %760, i64 104, i1 false)
-  %3973 = getelementptr inbounds i8, ptr %2250, i64 120
+  %3973 = getelementptr inbounds nuw i8, ptr %2250, i64 120
   store ptr null, ptr %3973, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %759, ptr nonnull align 8 %2449)
           to label %3977 unwind label %3975
@@ -9419,12 +9419,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %3974
 
 3977:                                             ; preds = %3970
-  %3978 = getelementptr inbounds i8, ptr %2249, i64 104
+  %3978 = getelementptr inbounds nuw i8, ptr %2249, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %3978, align 8
-  %3979 = getelementptr inbounds i8, ptr %2249, i64 112
+  %3979 = getelementptr inbounds nuw i8, ptr %2249, i64 112
   store i64 1, ptr %3979, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2249, ptr noundef nonnull align 8 dereferenceable(104) %759, i64 104, i1 false)
-  %3980 = getelementptr inbounds i8, ptr %2249, i64 120
+  %3980 = getelementptr inbounds nuw i8, ptr %2249, i64 120
   store ptr null, ptr %3980, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %758, ptr nonnull align 8 %3468)
           to label %3983 unwind label %3981
@@ -9436,21 +9436,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %3974 unwind label %8361
 
 3983:                                             ; preds = %3977
-  %3984 = getelementptr inbounds i8, ptr %2247, i64 104
+  %3984 = getelementptr inbounds nuw i8, ptr %2247, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %3984, align 8
-  %3985 = getelementptr inbounds i8, ptr %2247, i64 112
+  %3985 = getelementptr inbounds nuw i8, ptr %2247, i64 112
   store i64 6, ptr %3985, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2247, ptr noundef nonnull align 8 dereferenceable(104) %758, i64 104, i1 false)
-  %3986 = getelementptr inbounds i8, ptr %2247, i64 120
+  %3986 = getelementptr inbounds nuw i8, ptr %2247, i64 120
   store ptr null, ptr %3986, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2248, ptr nonnull align 8 %2247, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %3987 unwind label %3981
 
 3987:                                             ; preds = %3983
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3964, ptr noundef nonnull align 8 dereferenceable(136) %2250, i64 136, i1 false)
-  %3988 = getelementptr inbounds i8, ptr %3964, i64 136
+  %3988 = getelementptr inbounds nuw i8, ptr %3964, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3988, ptr noundef nonnull align 8 dereferenceable(136) %2249, i64 136, i1 false)
-  %3989 = getelementptr inbounds i8, ptr %3964, i64 272
+  %3989 = getelementptr inbounds nuw i8, ptr %3964, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3989, ptr noundef nonnull align 8 dereferenceable(136) %2248, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2252, ptr nonnull align 8 %3964, i64 3)
           to label %3990 unwind label %.thread3327
@@ -9485,12 +9485,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3330 unwind label %8361
 
 3997:                                             ; preds = %3994
-  %3998 = getelementptr inbounds i8, ptr %2243, i64 104
+  %3998 = getelementptr inbounds nuw i8, ptr %2243, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %3998, align 8
-  %3999 = getelementptr inbounds i8, ptr %2243, i64 112
+  %3999 = getelementptr inbounds nuw i8, ptr %2243, i64 112
   store i64 1, ptr %3999, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2243, ptr noundef nonnull align 8 dereferenceable(104) %757, i64 104, i1 false)
-  %4000 = getelementptr inbounds i8, ptr %2243, i64 120
+  %4000 = getelementptr inbounds nuw i8, ptr %2243, i64 120
   store ptr null, ptr %4000, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2244, ptr nonnull align 8 %2243, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4001 unwind label %3995
@@ -9581,12 +9581,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4020
 
 4023:                                             ; preds = %4019
-  %4024 = getelementptr inbounds i8, ptr %2230, i64 104
+  %4024 = getelementptr inbounds nuw i8, ptr %2230, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %4024, align 8
-  %4025 = getelementptr inbounds i8, ptr %2230, i64 112
+  %4025 = getelementptr inbounds nuw i8, ptr %2230, i64 112
   store i64 8, ptr %4025, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2230, ptr noundef nonnull align 8 dereferenceable(104) %756, i64 104, i1 false)
-  %4026 = getelementptr inbounds i8, ptr %2230, i64 120
+  %4026 = getelementptr inbounds nuw i8, ptr %2230, i64 120
   store ptr null, ptr %4026, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %755, ptr nonnull align 8 %2449)
           to label %4030 unwind label %4028
@@ -9602,12 +9602,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4027
 
 4030:                                             ; preds = %4023
-  %4031 = getelementptr inbounds i8, ptr %2229, i64 104
+  %4031 = getelementptr inbounds nuw i8, ptr %2229, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %4031, align 8
-  %4032 = getelementptr inbounds i8, ptr %2229, i64 112
+  %4032 = getelementptr inbounds nuw i8, ptr %2229, i64 112
   store i64 1, ptr %4032, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2229, ptr noundef nonnull align 8 dereferenceable(104) %755, i64 104, i1 false)
-  %4033 = getelementptr inbounds i8, ptr %2229, i64 120
+  %4033 = getelementptr inbounds nuw i8, ptr %2229, i64 120
   store ptr null, ptr %4033, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %754, ptr nonnull align 8 %3468)
           to label %4036 unwind label %4034
@@ -9619,21 +9619,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4027 unwind label %8361
 
 4036:                                             ; preds = %4030
-  %4037 = getelementptr inbounds i8, ptr %2227, i64 104
+  %4037 = getelementptr inbounds nuw i8, ptr %2227, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4037, align 8
-  %4038 = getelementptr inbounds i8, ptr %2227, i64 112
+  %4038 = getelementptr inbounds nuw i8, ptr %2227, i64 112
   store i64 6, ptr %4038, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2227, ptr noundef nonnull align 8 dereferenceable(104) %754, i64 104, i1 false)
-  %4039 = getelementptr inbounds i8, ptr %2227, i64 120
+  %4039 = getelementptr inbounds nuw i8, ptr %2227, i64 120
   store ptr null, ptr %4039, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2228, ptr nonnull align 8 %2227, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %4040 unwind label %4034
 
 4040:                                             ; preds = %4036
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4017, ptr noundef nonnull align 8 dereferenceable(136) %2230, i64 136, i1 false)
-  %4041 = getelementptr inbounds i8, ptr %4017, i64 136
+  %4041 = getelementptr inbounds nuw i8, ptr %4017, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4041, ptr noundef nonnull align 8 dereferenceable(136) %2229, i64 136, i1 false)
-  %4042 = getelementptr inbounds i8, ptr %4017, i64 272
+  %4042 = getelementptr inbounds nuw i8, ptr %4017, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4042, ptr noundef nonnull align 8 dereferenceable(136) %2228, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2232, ptr nonnull align 8 %4017, i64 3)
           to label %4043 unwind label %.thread3349
@@ -9668,12 +9668,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3352 unwind label %8361
 
 4050:                                             ; preds = %4047
-  %4051 = getelementptr inbounds i8, ptr %2223, i64 104
+  %4051 = getelementptr inbounds nuw i8, ptr %2223, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4051, align 8
-  %4052 = getelementptr inbounds i8, ptr %2223, i64 112
+  %4052 = getelementptr inbounds nuw i8, ptr %2223, i64 112
   store i64 1, ptr %4052, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2223, ptr noundef nonnull align 8 dereferenceable(104) %753, i64 104, i1 false)
-  %4053 = getelementptr inbounds i8, ptr %2223, i64 120
+  %4053 = getelementptr inbounds nuw i8, ptr %2223, i64 120
   store ptr null, ptr %4053, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2224, ptr nonnull align 8 %2223, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4054 unwind label %4048
@@ -9729,12 +9729,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4063
 
 4066:                                             ; preds = %4062
-  %4067 = getelementptr inbounds i8, ptr %2216, i64 104
+  %4067 = getelementptr inbounds nuw i8, ptr %2216, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %4067, align 8
-  %4068 = getelementptr inbounds i8, ptr %2216, i64 112
+  %4068 = getelementptr inbounds nuw i8, ptr %2216, i64 112
   store i64 8, ptr %4068, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2216, ptr noundef nonnull align 8 dereferenceable(104) %752, i64 104, i1 false)
-  %4069 = getelementptr inbounds i8, ptr %2216, i64 120
+  %4069 = getelementptr inbounds nuw i8, ptr %2216, i64 120
   store ptr null, ptr %4069, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %751, ptr nonnull align 8 %2449)
           to label %4073 unwind label %4071
@@ -9750,12 +9750,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4070
 
 4073:                                             ; preds = %4066
-  %4074 = getelementptr inbounds i8, ptr %2215, i64 104
+  %4074 = getelementptr inbounds nuw i8, ptr %2215, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %4074, align 8
-  %4075 = getelementptr inbounds i8, ptr %2215, i64 112
+  %4075 = getelementptr inbounds nuw i8, ptr %2215, i64 112
   store i64 1, ptr %4075, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2215, ptr noundef nonnull align 8 dereferenceable(104) %751, i64 104, i1 false)
-  %4076 = getelementptr inbounds i8, ptr %2215, i64 120
+  %4076 = getelementptr inbounds nuw i8, ptr %2215, i64 120
   store ptr null, ptr %4076, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %750, ptr nonnull align 8 %3468)
           to label %4079 unwind label %4077
@@ -9767,21 +9767,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4070 unwind label %8361
 
 4079:                                             ; preds = %4073
-  %4080 = getelementptr inbounds i8, ptr %2213, i64 104
+  %4080 = getelementptr inbounds nuw i8, ptr %2213, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4080, align 8
-  %4081 = getelementptr inbounds i8, ptr %2213, i64 112
+  %4081 = getelementptr inbounds nuw i8, ptr %2213, i64 112
   store i64 6, ptr %4081, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2213, ptr noundef nonnull align 8 dereferenceable(104) %750, i64 104, i1 false)
-  %4082 = getelementptr inbounds i8, ptr %2213, i64 120
+  %4082 = getelementptr inbounds nuw i8, ptr %2213, i64 120
   store ptr null, ptr %4082, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2214, ptr nonnull align 8 %2213, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %4083 unwind label %4077
 
 4083:                                             ; preds = %4079
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4060, ptr noundef nonnull align 8 dereferenceable(136) %2216, i64 136, i1 false)
-  %4084 = getelementptr inbounds i8, ptr %4060, i64 136
+  %4084 = getelementptr inbounds nuw i8, ptr %4060, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4084, ptr noundef nonnull align 8 dereferenceable(136) %2215, i64 136, i1 false)
-  %4085 = getelementptr inbounds i8, ptr %4060, i64 272
+  %4085 = getelementptr inbounds nuw i8, ptr %4060, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4085, ptr noundef nonnull align 8 dereferenceable(136) %2214, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2218, ptr nonnull align 8 %4060, i64 3)
           to label %4086 unwind label %.thread3371
@@ -9816,12 +9816,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3374 unwind label %8361
 
 4093:                                             ; preds = %4090
-  %4094 = getelementptr inbounds i8, ptr %2209, i64 104
+  %4094 = getelementptr inbounds nuw i8, ptr %2209, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4094, align 8
-  %4095 = getelementptr inbounds i8, ptr %2209, i64 112
+  %4095 = getelementptr inbounds nuw i8, ptr %2209, i64 112
   store i64 1, ptr %4095, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2209, ptr noundef nonnull align 8 dereferenceable(104) %749, i64 104, i1 false)
-  %4096 = getelementptr inbounds i8, ptr %2209, i64 120
+  %4096 = getelementptr inbounds nuw i8, ptr %2209, i64 120
   store ptr null, ptr %4096, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2210, ptr nonnull align 8 %2209, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4097 unwind label %4091
@@ -9912,12 +9912,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4116
 
 4119:                                             ; preds = %4115
-  %4120 = getelementptr inbounds i8, ptr %2196, i64 104
+  %4120 = getelementptr inbounds nuw i8, ptr %2196, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %4120, align 8
-  %4121 = getelementptr inbounds i8, ptr %2196, i64 112
+  %4121 = getelementptr inbounds nuw i8, ptr %2196, i64 112
   store i64 8, ptr %4121, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2196, ptr noundef nonnull align 8 dereferenceable(104) %748, i64 104, i1 false)
-  %4122 = getelementptr inbounds i8, ptr %2196, i64 120
+  %4122 = getelementptr inbounds nuw i8, ptr %2196, i64 120
   store ptr null, ptr %4122, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %747, ptr nonnull align 8 %2449)
           to label %4126 unwind label %4124
@@ -9933,12 +9933,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4123
 
 4126:                                             ; preds = %4119
-  %4127 = getelementptr inbounds i8, ptr %2195, i64 104
+  %4127 = getelementptr inbounds nuw i8, ptr %2195, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %4127, align 8
-  %4128 = getelementptr inbounds i8, ptr %2195, i64 112
+  %4128 = getelementptr inbounds nuw i8, ptr %2195, i64 112
   store i64 1, ptr %4128, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2195, ptr noundef nonnull align 8 dereferenceable(104) %747, i64 104, i1 false)
-  %4129 = getelementptr inbounds i8, ptr %2195, i64 120
+  %4129 = getelementptr inbounds nuw i8, ptr %2195, i64 120
   store ptr null, ptr %4129, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %746, ptr nonnull align 8 %3468)
           to label %4132 unwind label %4130
@@ -9950,21 +9950,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4123 unwind label %8361
 
 4132:                                             ; preds = %4126
-  %4133 = getelementptr inbounds i8, ptr %2193, i64 104
+  %4133 = getelementptr inbounds nuw i8, ptr %2193, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4133, align 8
-  %4134 = getelementptr inbounds i8, ptr %2193, i64 112
+  %4134 = getelementptr inbounds nuw i8, ptr %2193, i64 112
   store i64 6, ptr %4134, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2193, ptr noundef nonnull align 8 dereferenceable(104) %746, i64 104, i1 false)
-  %4135 = getelementptr inbounds i8, ptr %2193, i64 120
+  %4135 = getelementptr inbounds nuw i8, ptr %2193, i64 120
   store ptr null, ptr %4135, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2194, ptr nonnull align 8 %2193, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %4136 unwind label %4130
 
 4136:                                             ; preds = %4132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4113, ptr noundef nonnull align 8 dereferenceable(136) %2196, i64 136, i1 false)
-  %4137 = getelementptr inbounds i8, ptr %4113, i64 136
+  %4137 = getelementptr inbounds nuw i8, ptr %4113, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4137, ptr noundef nonnull align 8 dereferenceable(136) %2195, i64 136, i1 false)
-  %4138 = getelementptr inbounds i8, ptr %4113, i64 272
+  %4138 = getelementptr inbounds nuw i8, ptr %4113, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4138, ptr noundef nonnull align 8 dereferenceable(136) %2194, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2198, ptr nonnull align 8 %4113, i64 3)
           to label %4139 unwind label %.thread3393
@@ -9999,12 +9999,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3396 unwind label %8361
 
 4146:                                             ; preds = %4143
-  %4147 = getelementptr inbounds i8, ptr %2189, i64 104
+  %4147 = getelementptr inbounds nuw i8, ptr %2189, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4147, align 8
-  %4148 = getelementptr inbounds i8, ptr %2189, i64 112
+  %4148 = getelementptr inbounds nuw i8, ptr %2189, i64 112
   store i64 1, ptr %4148, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2189, ptr noundef nonnull align 8 dereferenceable(104) %745, i64 104, i1 false)
-  %4149 = getelementptr inbounds i8, ptr %2189, i64 120
+  %4149 = getelementptr inbounds nuw i8, ptr %2189, i64 120
   store ptr null, ptr %4149, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2190, ptr nonnull align 8 %2189, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4150 unwind label %4144
@@ -10060,12 +10060,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4159
 
 4162:                                             ; preds = %4158
-  %4163 = getelementptr inbounds i8, ptr %2182, i64 104
+  %4163 = getelementptr inbounds nuw i8, ptr %2182, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %4163, align 8
-  %4164 = getelementptr inbounds i8, ptr %2182, i64 112
+  %4164 = getelementptr inbounds nuw i8, ptr %2182, i64 112
   store i64 8, ptr %4164, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2182, ptr noundef nonnull align 8 dereferenceable(104) %744, i64 104, i1 false)
-  %4165 = getelementptr inbounds i8, ptr %2182, i64 120
+  %4165 = getelementptr inbounds nuw i8, ptr %2182, i64 120
   store ptr null, ptr %4165, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %743, ptr nonnull align 8 %2449)
           to label %4169 unwind label %4167
@@ -10081,12 +10081,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4166
 
 4169:                                             ; preds = %4162
-  %4170 = getelementptr inbounds i8, ptr %2181, i64 104
+  %4170 = getelementptr inbounds nuw i8, ptr %2181, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %4170, align 8
-  %4171 = getelementptr inbounds i8, ptr %2181, i64 112
+  %4171 = getelementptr inbounds nuw i8, ptr %2181, i64 112
   store i64 1, ptr %4171, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2181, ptr noundef nonnull align 8 dereferenceable(104) %743, i64 104, i1 false)
-  %4172 = getelementptr inbounds i8, ptr %2181, i64 120
+  %4172 = getelementptr inbounds nuw i8, ptr %2181, i64 120
   store ptr null, ptr %4172, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %742, ptr nonnull align 8 %3468)
           to label %4175 unwind label %4173
@@ -10098,21 +10098,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4166 unwind label %8361
 
 4175:                                             ; preds = %4169
-  %4176 = getelementptr inbounds i8, ptr %2179, i64 104
+  %4176 = getelementptr inbounds nuw i8, ptr %2179, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4176, align 8
-  %4177 = getelementptr inbounds i8, ptr %2179, i64 112
+  %4177 = getelementptr inbounds nuw i8, ptr %2179, i64 112
   store i64 6, ptr %4177, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2179, ptr noundef nonnull align 8 dereferenceable(104) %742, i64 104, i1 false)
-  %4178 = getelementptr inbounds i8, ptr %2179, i64 120
+  %4178 = getelementptr inbounds nuw i8, ptr %2179, i64 120
   store ptr null, ptr %4178, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2180, ptr nonnull align 8 %2179, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.123, i64 29)
           to label %4179 unwind label %4173
 
 4179:                                             ; preds = %4175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4156, ptr noundef nonnull align 8 dereferenceable(136) %2182, i64 136, i1 false)
-  %4180 = getelementptr inbounds i8, ptr %4156, i64 136
+  %4180 = getelementptr inbounds nuw i8, ptr %4156, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4180, ptr noundef nonnull align 8 dereferenceable(136) %2181, i64 136, i1 false)
-  %4181 = getelementptr inbounds i8, ptr %4156, i64 272
+  %4181 = getelementptr inbounds nuw i8, ptr %4156, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4181, ptr noundef nonnull align 8 dereferenceable(136) %2180, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2184, ptr nonnull align 8 %4156, i64 3)
           to label %4182 unwind label %.thread3415
@@ -10147,12 +10147,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3418 unwind label %8361
 
 4189:                                             ; preds = %4186
-  %4190 = getelementptr inbounds i8, ptr %2175, i64 104
+  %4190 = getelementptr inbounds nuw i8, ptr %2175, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4190, align 8
-  %4191 = getelementptr inbounds i8, ptr %2175, i64 112
+  %4191 = getelementptr inbounds nuw i8, ptr %2175, i64 112
   store i64 1, ptr %4191, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2175, ptr noundef nonnull align 8 dereferenceable(104) %741, i64 104, i1 false)
-  %4192 = getelementptr inbounds i8, ptr %2175, i64 120
+  %4192 = getelementptr inbounds nuw i8, ptr %2175, i64 120
   store ptr null, ptr %4192, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2176, ptr nonnull align 8 %2175, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4193 unwind label %4187
@@ -10175,7 +10175,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4197 unwind label %4110
 
 4197:                                             ; preds = %4196
-  %4198 = getelementptr inbounds i8, ptr %1, i64 168
+  %4198 = getelementptr inbounds nuw i8, ptr %1, i64 168
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2171, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.171, i64 10, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.170, i64 351, ptr nonnull align 8 %4198)
           to label %4199 unwind label %4110
 
@@ -10195,7 +10195,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4202:                                             ; preds = %4199
   store ptr %4200, ptr %2169, align 8
-  %4203 = getelementptr inbounds i8, ptr %3, i64 312
+  %4203 = getelementptr inbounds nuw i8, ptr %3, i64 312
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %740, ptr nonnull align 8 %4203)
           to label %4207 unwind label %4205
 
@@ -10210,12 +10210,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4204
 
 4207:                                             ; preds = %4202
-  %4208 = getelementptr inbounds i8, ptr %2168, i64 104
+  %4208 = getelementptr inbounds nuw i8, ptr %2168, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.172, ptr %4208, align 8
-  %4209 = getelementptr inbounds i8, ptr %2168, i64 112
+  %4209 = getelementptr inbounds nuw i8, ptr %2168, i64 112
   store i64 2, ptr %4209, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2168, ptr noundef nonnull align 8 dereferenceable(104) %740, i64 104, i1 false)
-  %4210 = getelementptr inbounds i8, ptr %2168, i64 120
+  %4210 = getelementptr inbounds nuw i8, ptr %2168, i64 120
   store ptr null, ptr %4210, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %739, ptr nonnull align 8 %3468)
           to label %4213 unwind label %4211
@@ -10227,19 +10227,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4204 unwind label %8361
 
 4213:                                             ; preds = %4207
-  %4214 = getelementptr inbounds i8, ptr %2166, i64 104
+  %4214 = getelementptr inbounds nuw i8, ptr %2166, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4214, align 8
-  %4215 = getelementptr inbounds i8, ptr %2166, i64 112
+  %4215 = getelementptr inbounds nuw i8, ptr %2166, i64 112
   store i64 6, ptr %4215, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2166, ptr noundef nonnull align 8 dereferenceable(104) %739, i64 104, i1 false)
-  %4216 = getelementptr inbounds i8, ptr %2166, i64 120
+  %4216 = getelementptr inbounds nuw i8, ptr %2166, i64 120
   store ptr null, ptr %4216, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2167, ptr nonnull align 8 %2166, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.173, i64 32)
           to label %4217 unwind label %4211
 
 4217:                                             ; preds = %4213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4200, ptr noundef nonnull align 8 dereferenceable(136) %2168, i64 136, i1 false)
-  %4218 = getelementptr inbounds i8, ptr %4200, i64 136
+  %4218 = getelementptr inbounds nuw i8, ptr %4200, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4218, ptr noundef nonnull align 8 dereferenceable(136) %2167, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2170, ptr nonnull align 8 %4200, i64 2)
           to label %4219 unwind label %.thread3437
@@ -10274,12 +10274,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3440 unwind label %8361
 
 4226:                                             ; preds = %4223
-  %4227 = getelementptr inbounds i8, ptr %2162, i64 104
+  %4227 = getelementptr inbounds nuw i8, ptr %2162, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4227, align 8
-  %4228 = getelementptr inbounds i8, ptr %2162, i64 112
+  %4228 = getelementptr inbounds nuw i8, ptr %2162, i64 112
   store i64 1, ptr %4228, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2162, ptr noundef nonnull align 8 dereferenceable(104) %738, i64 104, i1 false)
-  %4229 = getelementptr inbounds i8, ptr %2162, i64 120
+  %4229 = getelementptr inbounds nuw i8, ptr %2162, i64 120
   store ptr null, ptr %4229, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2163, ptr nonnull align 8 %2162, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4230 unwind label %4224
@@ -10302,7 +10302,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4234 unwind label %4110
 
 4234:                                             ; preds = %4233
-  %4235 = getelementptr inbounds i8, ptr %1, i64 176
+  %4235 = getelementptr inbounds nuw i8, ptr %1, i64 176
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2159, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.175, i64 11, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.174, i64 344, ptr nonnull align 8 %4235)
           to label %4236 unwind label %4110
 
@@ -10336,12 +10336,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4240
 
 4243:                                             ; preds = %4239
-  %4244 = getelementptr inbounds i8, ptr %2155, i64 104
+  %4244 = getelementptr inbounds nuw i8, ptr %2155, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4244, align 8
-  %4245 = getelementptr inbounds i8, ptr %2155, i64 112
+  %4245 = getelementptr inbounds nuw i8, ptr %2155, i64 112
   store i64 1, ptr %4245, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2155, ptr noundef nonnull align 8 dereferenceable(104) %737, i64 104, i1 false)
-  %4246 = getelementptr inbounds i8, ptr %2155, i64 120
+  %4246 = getelementptr inbounds nuw i8, ptr %2155, i64 120
   store ptr null, ptr %4246, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2156, ptr nonnull align 8 %2155, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.127, i64 18)
           to label %4247 unwind label %4241
@@ -10361,12 +10361,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4248
 
 4251:                                             ; preds = %4247
-  %4252 = getelementptr inbounds i8, ptr %2154, i64 104
+  %4252 = getelementptr inbounds nuw i8, ptr %2154, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.172, ptr %4252, align 8
-  %4253 = getelementptr inbounds i8, ptr %2154, i64 112
+  %4253 = getelementptr inbounds nuw i8, ptr %2154, i64 112
   store i64 2, ptr %4253, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2154, ptr noundef nonnull align 8 dereferenceable(104) %736, i64 104, i1 false)
-  %4254 = getelementptr inbounds i8, ptr %2154, i64 120
+  %4254 = getelementptr inbounds nuw i8, ptr %2154, i64 120
   store ptr null, ptr %4254, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %735, ptr nonnull align 8 %3468)
           to label %4257 unwind label %4255
@@ -10378,21 +10378,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4248 unwind label %8361
 
 4257:                                             ; preds = %4251
-  %4258 = getelementptr inbounds i8, ptr %2152, i64 104
+  %4258 = getelementptr inbounds nuw i8, ptr %2152, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4258, align 8
-  %4259 = getelementptr inbounds i8, ptr %2152, i64 112
+  %4259 = getelementptr inbounds nuw i8, ptr %2152, i64 112
   store i64 6, ptr %4259, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2152, ptr noundef nonnull align 8 dereferenceable(104) %735, i64 104, i1 false)
-  %4260 = getelementptr inbounds i8, ptr %2152, i64 120
+  %4260 = getelementptr inbounds nuw i8, ptr %2152, i64 120
   store ptr null, ptr %4260, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2153, ptr nonnull align 8 %2152, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.173, i64 32)
           to label %4261 unwind label %4255
 
 4261:                                             ; preds = %4257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4237, ptr noundef nonnull align 8 dereferenceable(136) %2156, i64 136, i1 false)
-  %4262 = getelementptr inbounds i8, ptr %4237, i64 136
+  %4262 = getelementptr inbounds nuw i8, ptr %4237, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4262, ptr noundef nonnull align 8 dereferenceable(136) %2154, i64 136, i1 false)
-  %4263 = getelementptr inbounds i8, ptr %4237, i64 272
+  %4263 = getelementptr inbounds nuw i8, ptr %4237, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4263, ptr noundef nonnull align 8 dereferenceable(136) %2153, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2158, ptr nonnull align 8 %4237, i64 3)
           to label %4264 unwind label %.thread3459
@@ -10443,12 +10443,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4272
 
 4275:                                             ; preds = %4271
-  %4276 = getelementptr inbounds i8, ptr %2146, i64 104
+  %4276 = getelementptr inbounds nuw i8, ptr %2146, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.172, ptr %4276, align 8
-  %4277 = getelementptr inbounds i8, ptr %2146, i64 112
+  %4277 = getelementptr inbounds nuw i8, ptr %2146, i64 112
   store i64 2, ptr %4277, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2146, ptr noundef nonnull align 8 dereferenceable(104) %734, i64 104, i1 false)
-  %4278 = getelementptr inbounds i8, ptr %2146, i64 120
+  %4278 = getelementptr inbounds nuw i8, ptr %2146, i64 120
   store ptr null, ptr %4278, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %733, ptr nonnull align 8 %3468)
           to label %4281 unwind label %4279
@@ -10460,19 +10460,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4272 unwind label %8361
 
 4281:                                             ; preds = %4275
-  %4282 = getelementptr inbounds i8, ptr %2144, i64 104
+  %4282 = getelementptr inbounds nuw i8, ptr %2144, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.122, ptr %4282, align 8
-  %4283 = getelementptr inbounds i8, ptr %2144, i64 112
+  %4283 = getelementptr inbounds nuw i8, ptr %2144, i64 112
   store i64 6, ptr %4283, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2144, ptr noundef nonnull align 8 dereferenceable(104) %733, i64 104, i1 false)
-  %4284 = getelementptr inbounds i8, ptr %2144, i64 120
+  %4284 = getelementptr inbounds nuw i8, ptr %2144, i64 120
   store ptr null, ptr %4284, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2145, ptr nonnull align 8 %2144, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.173, i64 32)
           to label %4285 unwind label %4279
 
 4285:                                             ; preds = %4281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4269, ptr noundef nonnull align 8 dereferenceable(136) %2146, i64 136, i1 false)
-  %4286 = getelementptr inbounds i8, ptr %4269, i64 136
+  %4286 = getelementptr inbounds nuw i8, ptr %4269, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4286, ptr noundef nonnull align 8 dereferenceable(136) %2145, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2148, ptr nonnull align 8 %4269, i64 2)
           to label %4287 unwind label %.thread3470
@@ -10508,11 +10508,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4294:                                             ; preds = %4291
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4289, ptr noundef nonnull align 8 dereferenceable(104) %732, i64 104, i1 false)
-  %.sroa.2136.0..sroa_idx = getelementptr inbounds i8, ptr %4289, i64 104
+  %.sroa.2136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4289, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2136.0..sroa_idx, align 8
-  %.sroa.3137.0..sroa_idx = getelementptr inbounds i8, ptr %4289, i64 112
+  %.sroa.3137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4289, i64 112
   store i64 4, ptr %.sroa.3137.0..sroa_idx, align 8
-  %.sroa.4138.0..sroa_idx = getelementptr inbounds i8, ptr %4289, i64 120
+  %.sroa.4138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4289, i64 120
   store ptr null, ptr %.sroa.4138.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2143, ptr nonnull align 8 %4289, i64 1)
           to label %4295 unwind label %.thread3481
@@ -10526,7 +10526,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4297 unwind label %4110
 
 4297:                                             ; preds = %4296
-  %4298 = getelementptr inbounds i8, ptr %1, i64 184
+  %4298 = getelementptr inbounds nuw i8, ptr %1, i64 184
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2138, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.179, i64 18, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.178, i64 172, ptr nonnull align 8 %4298)
           to label %4299 unwind label %4110
 
@@ -10546,7 +10546,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4302:                                             ; preds = %4299
   store ptr %4300, ptr %2136, align 8
-  %4303 = getelementptr inbounds i8, ptr %3, i64 416
+  %4303 = getelementptr inbounds nuw i8, ptr %3, i64 416
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %731, ptr nonnull align 8 %4303)
           to label %4306 unwind label %4304
 
@@ -10558,11 +10558,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4306:                                             ; preds = %4302
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4300, ptr noundef nonnull align 8 dereferenceable(104) %731, i64 104, i1 false)
-  %.sroa.2141.0..sroa_idx = getelementptr inbounds i8, ptr %4300, i64 104
+  %.sroa.2141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4300, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.180, ptr %.sroa.2141.0..sroa_idx, align 8
-  %.sroa.3142.0..sroa_idx = getelementptr inbounds i8, ptr %4300, i64 112
+  %.sroa.3142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4300, i64 112
   store i64 3, ptr %.sroa.3142.0..sroa_idx, align 8
-  %.sroa.4143.0..sroa_idx = getelementptr inbounds i8, ptr %4300, i64 120
+  %.sroa.4143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4300, i64 120
   store ptr null, ptr %.sroa.4143.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2137, ptr nonnull align 8 %4300, i64 1)
           to label %4307 unwind label %.thread3492
@@ -10597,12 +10597,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3495 unwind label %8361
 
 4314:                                             ; preds = %4311
-  %4315 = getelementptr inbounds i8, ptr %2132, i64 104
+  %4315 = getelementptr inbounds nuw i8, ptr %2132, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4315, align 8
-  %4316 = getelementptr inbounds i8, ptr %2132, i64 112
+  %4316 = getelementptr inbounds nuw i8, ptr %2132, i64 112
   store i64 1, ptr %4316, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2132, ptr noundef nonnull align 8 dereferenceable(104) %730, i64 104, i1 false)
-  %4317 = getelementptr inbounds i8, ptr %2132, i64 120
+  %4317 = getelementptr inbounds nuw i8, ptr %2132, i64 120
   store ptr null, ptr %4317, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2133, ptr nonnull align 8 %2132, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4318 unwind label %4312
@@ -10625,7 +10625,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4322 unwind label %4110
 
 4322:                                             ; preds = %4321
-  %4323 = getelementptr inbounds i8, ptr %1, i64 192
+  %4323 = getelementptr inbounds nuw i8, ptr %1, i64 192
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2129, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.182, i64 19, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.181, i64 175, ptr nonnull align 8 %4323)
           to label %4324 unwind label %4110
 
@@ -10659,12 +10659,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4328
 
 4331:                                             ; preds = %4327
-  %4332 = getelementptr inbounds i8, ptr %2125, i64 104
+  %4332 = getelementptr inbounds nuw i8, ptr %2125, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4332, align 8
-  %4333 = getelementptr inbounds i8, ptr %2125, i64 112
+  %4333 = getelementptr inbounds nuw i8, ptr %2125, i64 112
   store i64 1, ptr %4333, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2125, ptr noundef nonnull align 8 dereferenceable(104) %729, i64 104, i1 false)
-  %4334 = getelementptr inbounds i8, ptr %2125, i64 120
+  %4334 = getelementptr inbounds nuw i8, ptr %2125, i64 120
   store ptr null, ptr %4334, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2126, ptr nonnull align 8 %2125, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.127, i64 18)
           to label %4335 unwind label %4329
@@ -10681,13 +10681,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4338:                                             ; preds = %4335
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4325, ptr noundef nonnull align 8 dereferenceable(136) %2126, i64 136, i1 false)
-  %4339 = getelementptr inbounds i8, ptr %4325, i64 136
+  %4339 = getelementptr inbounds nuw i8, ptr %4325, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4339, ptr noundef nonnull align 8 dereferenceable(104) %728, i64 104, i1 false)
-  %.sroa.2146.0..sroa_idx = getelementptr inbounds i8, ptr %4325, i64 240
+  %.sroa.2146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4325, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.180, ptr %.sroa.2146.0..sroa_idx, align 8
-  %.sroa.3147.0..sroa_idx = getelementptr inbounds i8, ptr %4325, i64 248
+  %.sroa.3147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4325, i64 248
   store i64 3, ptr %.sroa.3147.0..sroa_idx, align 8
-  %.sroa.4148.0..sroa_idx = getelementptr inbounds i8, ptr %4325, i64 256
+  %.sroa.4148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4325, i64 256
   store ptr null, ptr %.sroa.4148.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2128, ptr nonnull align 8 %4325, i64 2)
           to label %4340 unwind label %.thread3514
@@ -10735,11 +10735,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4350:                                             ; preds = %4347
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4345, ptr noundef nonnull align 8 dereferenceable(104) %727, i64 104, i1 false)
-  %.sroa.2151.0..sroa_idx = getelementptr inbounds i8, ptr %4345, i64 104
+  %.sroa.2151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4345, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.180, ptr %.sroa.2151.0..sroa_idx, align 8
-  %.sroa.3152.0..sroa_idx = getelementptr inbounds i8, ptr %4345, i64 112
+  %.sroa.3152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4345, i64 112
   store i64 3, ptr %.sroa.3152.0..sroa_idx, align 8
-  %.sroa.4153.0..sroa_idx = getelementptr inbounds i8, ptr %4345, i64 120
+  %.sroa.4153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4345, i64 120
   store ptr null, ptr %.sroa.4153.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2121, ptr nonnull align 8 %4345, i64 1)
           to label %4351 unwind label %.thread3525
@@ -10775,11 +10775,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4358:                                             ; preds = %4355
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4353, ptr noundef nonnull align 8 dereferenceable(104) %726, i64 104, i1 false)
-  %.sroa.2156.0..sroa_idx = getelementptr inbounds i8, ptr %4353, i64 104
+  %.sroa.2156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4353, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2156.0..sroa_idx, align 8
-  %.sroa.3157.0..sroa_idx = getelementptr inbounds i8, ptr %4353, i64 112
+  %.sroa.3157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4353, i64 112
   store i64 4, ptr %.sroa.3157.0..sroa_idx, align 8
-  %.sroa.4158.0..sroa_idx = getelementptr inbounds i8, ptr %4353, i64 120
+  %.sroa.4158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4353, i64 120
   store ptr null, ptr %.sroa.4158.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2119, ptr nonnull align 8 %4353, i64 1)
           to label %4359 unwind label %.thread3536
@@ -10793,7 +10793,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4361 unwind label %4110
 
 4361:                                             ; preds = %4360
-  %4362 = getelementptr inbounds i8, ptr %1, i64 256
+  %4362 = getelementptr inbounds nuw i8, ptr %1, i64 256
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2115, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.186, i64 12, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.185, i64 49, ptr nonnull align 8 %4362)
           to label %4363 unwind label %4110
 
@@ -10813,7 +10813,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4366:                                             ; preds = %4363
   store ptr %4364, ptr %2113, align 8
-  %4367 = getelementptr inbounds i8, ptr %3, i64 520
+  %4367 = getelementptr inbounds nuw i8, ptr %3, i64 520
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %725, ptr nonnull align 8 %4367)
           to label %4370 unwind label %4368
 
@@ -10825,11 +10825,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4370:                                             ; preds = %4366
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4364, ptr noundef nonnull align 8 dereferenceable(104) %725, i64 104, i1 false)
-  %.sroa.2161.0..sroa_idx = getelementptr inbounds i8, ptr %4364, i64 104
+  %.sroa.2161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4364, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.187, ptr %.sroa.2161.0..sroa_idx, align 8
-  %.sroa.3162.0..sroa_idx = getelementptr inbounds i8, ptr %4364, i64 112
+  %.sroa.3162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4364, i64 112
   store i64 2, ptr %.sroa.3162.0..sroa_idx, align 8
-  %.sroa.4163.0..sroa_idx = getelementptr inbounds i8, ptr %4364, i64 120
+  %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4364, i64 120
   store ptr null, ptr %.sroa.4163.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2114, ptr nonnull align 8 %4364, i64 1)
           to label %4371 unwind label %.thread3547
@@ -10864,12 +10864,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3550 unwind label %8361
 
 4378:                                             ; preds = %4375
-  %4379 = getelementptr inbounds i8, ptr %2109, i64 104
+  %4379 = getelementptr inbounds nuw i8, ptr %2109, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4379, align 8
-  %4380 = getelementptr inbounds i8, ptr %2109, i64 112
+  %4380 = getelementptr inbounds nuw i8, ptr %2109, i64 112
   store i64 1, ptr %4380, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2109, ptr noundef nonnull align 8 dereferenceable(104) %724, i64 104, i1 false)
-  %4381 = getelementptr inbounds i8, ptr %2109, i64 120
+  %4381 = getelementptr inbounds nuw i8, ptr %2109, i64 120
   store ptr null, ptr %4381, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2110, ptr nonnull align 8 %2109, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4382 unwind label %4376
@@ -10918,11 +10918,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4392:                                             ; preds = %4389
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4387, ptr noundef nonnull align 8 dereferenceable(104) %723, i64 104, i1 false)
-  %.sroa.2166.0..sroa_idx = getelementptr inbounds i8, ptr %4387, i64 104
+  %.sroa.2166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4387, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.187, ptr %.sroa.2166.0..sroa_idx, align 8
-  %.sroa.3167.0..sroa_idx = getelementptr inbounds i8, ptr %4387, i64 112
+  %.sroa.3167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4387, i64 112
   store i64 2, ptr %.sroa.3167.0..sroa_idx, align 8
-  %.sroa.4168.0..sroa_idx = getelementptr inbounds i8, ptr %4387, i64 120
+  %.sroa.4168.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4387, i64 120
   store ptr null, ptr %.sroa.4168.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2105, ptr nonnull align 8 %4387, i64 1)
           to label %4393 unwind label %.thread3569
@@ -10957,12 +10957,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3572 unwind label %8361
 
 4400:                                             ; preds = %4397
-  %4401 = getelementptr inbounds i8, ptr %2100, i64 104
+  %4401 = getelementptr inbounds nuw i8, ptr %2100, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4401, align 8
-  %4402 = getelementptr inbounds i8, ptr %2100, i64 112
+  %4402 = getelementptr inbounds nuw i8, ptr %2100, i64 112
   store i64 1, ptr %4402, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2100, ptr noundef nonnull align 8 dereferenceable(104) %722, i64 104, i1 false)
-  %4403 = getelementptr inbounds i8, ptr %2100, i64 120
+  %4403 = getelementptr inbounds nuw i8, ptr %2100, i64 120
   store ptr null, ptr %4403, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2101, ptr nonnull align 8 %2100, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4404 unwind label %4398
@@ -11011,11 +11011,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4414:                                             ; preds = %4411
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4409, ptr noundef nonnull align 8 dereferenceable(104) %721, i64 104, i1 false)
-  %.sroa.2171.0..sroa_idx = getelementptr inbounds i8, ptr %4409, i64 104
+  %.sroa.2171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4409, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.187, ptr %.sroa.2171.0..sroa_idx, align 8
-  %.sroa.3172.0..sroa_idx = getelementptr inbounds i8, ptr %4409, i64 112
+  %.sroa.3172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4409, i64 112
   store i64 2, ptr %.sroa.3172.0..sroa_idx, align 8
-  %.sroa.4173.0..sroa_idx = getelementptr inbounds i8, ptr %4409, i64 120
+  %.sroa.4173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4409, i64 120
   store ptr null, ptr %.sroa.4173.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2096, ptr nonnull align 8 %4409, i64 1)
           to label %4415 unwind label %.thread3591
@@ -11050,12 +11050,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3594 unwind label %8361
 
 4422:                                             ; preds = %4419
-  %4423 = getelementptr inbounds i8, ptr %2091, i64 104
+  %4423 = getelementptr inbounds nuw i8, ptr %2091, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4423, align 8
-  %4424 = getelementptr inbounds i8, ptr %2091, i64 112
+  %4424 = getelementptr inbounds nuw i8, ptr %2091, i64 112
   store i64 1, ptr %4424, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2091, ptr noundef nonnull align 8 dereferenceable(104) %720, i64 104, i1 false)
-  %4425 = getelementptr inbounds i8, ptr %2091, i64 120
+  %4425 = getelementptr inbounds nuw i8, ptr %2091, i64 120
   store ptr null, ptr %4425, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2092, ptr nonnull align 8 %2091, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.124, i64 12)
           to label %4426 unwind label %4420
@@ -11104,11 +11104,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4436:                                             ; preds = %4433
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4431, ptr noundef nonnull align 8 dereferenceable(104) %719, i64 104, i1 false)
-  %.sroa.2176.0..sroa_idx = getelementptr inbounds i8, ptr %4431, i64 104
+  %.sroa.2176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4431, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2176.0..sroa_idx, align 8
-  %.sroa.3177.0..sroa_idx = getelementptr inbounds i8, ptr %4431, i64 112
+  %.sroa.3177.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4431, i64 112
   store i64 4, ptr %.sroa.3177.0..sroa_idx, align 8
-  %.sroa.4178.0..sroa_idx = getelementptr inbounds i8, ptr %4431, i64 120
+  %.sroa.4178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4431, i64 120
   store ptr null, ptr %.sroa.4178.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2087, ptr nonnull align 8 %4431, i64 1)
           to label %4437 unwind label %.thread3613
@@ -11156,11 +11156,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4447:                                             ; preds = %4444
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4442, ptr noundef nonnull align 8 dereferenceable(104) %718, i64 104, i1 false)
-  %.sroa.2181.0..sroa_idx = getelementptr inbounds i8, ptr %4442, i64 104
+  %.sroa.2181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4442, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2181.0..sroa_idx, align 8
-  %.sroa.3182.0..sroa_idx = getelementptr inbounds i8, ptr %4442, i64 112
+  %.sroa.3182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4442, i64 112
   store i64 4, ptr %.sroa.3182.0..sroa_idx, align 8
-  %.sroa.4183.0..sroa_idx = getelementptr inbounds i8, ptr %4442, i64 120
+  %.sroa.4183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4442, i64 120
   store ptr null, ptr %.sroa.4183.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2082, ptr nonnull align 8 %4442, i64 1)
           to label %4448 unwind label %.thread3624
@@ -11208,11 +11208,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4458:                                             ; preds = %4455
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4453, ptr noundef nonnull align 8 dereferenceable(104) %717, i64 104, i1 false)
-  %.sroa.2186.0..sroa_idx = getelementptr inbounds i8, ptr %4453, i64 104
+  %.sroa.2186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4453, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2186.0..sroa_idx, align 8
-  %.sroa.3187.0..sroa_idx = getelementptr inbounds i8, ptr %4453, i64 112
+  %.sroa.3187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4453, i64 112
   store i64 4, ptr %.sroa.3187.0..sroa_idx, align 8
-  %.sroa.4188.0..sroa_idx = getelementptr inbounds i8, ptr %4453, i64 120
+  %.sroa.4188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4453, i64 120
   store ptr null, ptr %.sroa.4188.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2078, ptr nonnull align 8 %4453, i64 1)
           to label %4459 unwind label %.thread3635
@@ -11256,11 +11256,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4468:                                             ; preds = %4465
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4463, ptr noundef nonnull align 8 dereferenceable(104) %716, i64 104, i1 false)
-  %.sroa.2191.0..sroa_idx = getelementptr inbounds i8, ptr %4463, i64 104
+  %.sroa.2191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4463, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2191.0..sroa_idx, align 8
-  %.sroa.3192.0..sroa_idx = getelementptr inbounds i8, ptr %4463, i64 112
+  %.sroa.3192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4463, i64 112
   store i64 4, ptr %.sroa.3192.0..sroa_idx, align 8
-  %.sroa.4193.0..sroa_idx = getelementptr inbounds i8, ptr %4463, i64 120
+  %.sroa.4193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4463, i64 120
   store ptr null, ptr %.sroa.4193.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2074, ptr nonnull align 8 %4463, i64 1)
           to label %4469 unwind label %.thread3646
@@ -11304,11 +11304,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4478:                                             ; preds = %4475
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4473, ptr noundef nonnull align 8 dereferenceable(104) %715, i64 104, i1 false)
-  %.sroa.2196.0..sroa_idx = getelementptr inbounds i8, ptr %4473, i64 104
+  %.sroa.2196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4473, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.59, ptr %.sroa.2196.0..sroa_idx, align 8
-  %.sroa.3197.0..sroa_idx = getelementptr inbounds i8, ptr %4473, i64 112
+  %.sroa.3197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4473, i64 112
   store i64 4, ptr %.sroa.3197.0..sroa_idx, align 8
-  %.sroa.4198.0..sroa_idx = getelementptr inbounds i8, ptr %4473, i64 120
+  %.sroa.4198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4473, i64 120
   store ptr null, ptr %.sroa.4198.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2070, ptr nonnull align 8 %4473, i64 1)
           to label %4479 unwind label %.thread3657
@@ -11322,7 +11322,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4481 unwind label %4110
 
 4481:                                             ; preds = %4480
-  %4482 = getelementptr inbounds i8, ptr %1, i64 280
+  %4482 = getelementptr inbounds nuw i8, ptr %1, i64 280
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2066, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.203, i64 6, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.202, i64 182, ptr nonnull align 8 %4482)
           to label %4483 unwind label %4110
 
@@ -11353,11 +11353,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4489:                                             ; preds = %4486
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4484, ptr noundef nonnull align 8 dereferenceable(104) %714, i64 104, i1 false)
-  %.sroa.2201.0..sroa_idx = getelementptr inbounds i8, ptr %4484, i64 104
+  %.sroa.2201.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4484, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.204, ptr %.sroa.2201.0..sroa_idx, align 8
-  %.sroa.3202.0..sroa_idx = getelementptr inbounds i8, ptr %4484, i64 112
+  %.sroa.3202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4484, i64 112
   store i64 1, ptr %.sroa.3202.0..sroa_idx, align 8
-  %.sroa.4203.0..sroa_idx = getelementptr inbounds i8, ptr %4484, i64 120
+  %.sroa.4203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4484, i64 120
   store ptr null, ptr %.sroa.4203.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2065, ptr nonnull align 8 %4484, i64 1)
           to label %4490 unwind label %.thread3668
@@ -11392,12 +11392,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3671 unwind label %8361
 
 4497:                                             ; preds = %4494
-  %4498 = getelementptr inbounds i8, ptr %2060, i64 104
+  %4498 = getelementptr inbounds nuw i8, ptr %2060, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4498, align 8
-  %4499 = getelementptr inbounds i8, ptr %2060, i64 112
+  %4499 = getelementptr inbounds nuw i8, ptr %2060, i64 112
   store i64 1, ptr %4499, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2060, ptr noundef nonnull align 8 dereferenceable(104) %713, i64 104, i1 false)
-  %4500 = getelementptr inbounds i8, ptr %2060, i64 120
+  %4500 = getelementptr inbounds nuw i8, ptr %2060, i64 120
   store ptr null, ptr %4500, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2061, ptr nonnull align 8 %2060, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.205, i64 41)
           to label %4501 unwind label %4495
@@ -11416,7 +11416,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4504 unwind label %4110
 
 4504:                                             ; preds = %4503
-  %4505 = getelementptr inbounds i8, ptr %1, i64 264
+  %4505 = getelementptr inbounds nuw i8, ptr %1, i64 264
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2057, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.207, i64 8, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.206, i64 110, ptr nonnull align 8 %4505)
           to label %4506 unwind label %4110
 
@@ -11436,7 +11436,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4509:                                             ; preds = %4506
   store ptr %4507, ptr %2055, align 8
-  %4510 = getelementptr inbounds i8, ptr %2, i64 520
+  %4510 = getelementptr inbounds nuw i8, ptr %2, i64 520
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %712, ptr nonnull align 8 %4510)
           to label %4513 unwind label %4511
 
@@ -11448,11 +11448,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4513:                                             ; preds = %4509
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4507, ptr noundef nonnull align 8 dereferenceable(104) %712, i64 104, i1 false)
-  %.sroa.2206.0..sroa_idx = getelementptr inbounds i8, ptr %4507, i64 104
+  %.sroa.2206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4507, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.204, ptr %.sroa.2206.0..sroa_idx, align 8
-  %.sroa.3207.0..sroa_idx = getelementptr inbounds i8, ptr %4507, i64 112
+  %.sroa.3207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4507, i64 112
   store i64 1, ptr %.sroa.3207.0..sroa_idx, align 8
-  %.sroa.4208.0..sroa_idx = getelementptr inbounds i8, ptr %4507, i64 120
+  %.sroa.4208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4507, i64 120
   store ptr null, ptr %.sroa.4208.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2056, ptr nonnull align 8 %4507, i64 1)
           to label %4514 unwind label %.thread3690
@@ -11487,12 +11487,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3693 unwind label %8361
 
 4521:                                             ; preds = %4518
-  %4522 = getelementptr inbounds i8, ptr %2051, i64 104
+  %4522 = getelementptr inbounds nuw i8, ptr %2051, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4522, align 8
-  %4523 = getelementptr inbounds i8, ptr %2051, i64 112
+  %4523 = getelementptr inbounds nuw i8, ptr %2051, i64 112
   store i64 1, ptr %4523, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2051, ptr noundef nonnull align 8 dereferenceable(104) %711, i64 104, i1 false)
-  %4524 = getelementptr inbounds i8, ptr %2051, i64 120
+  %4524 = getelementptr inbounds nuw i8, ptr %2051, i64 120
   store ptr null, ptr %4524, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2052, ptr nonnull align 8 %2051, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.208, i64 27)
           to label %4525 unwind label %4519
@@ -11511,7 +11511,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4528 unwind label %4110
 
 4528:                                             ; preds = %4527
-  %4529 = getelementptr inbounds i8, ptr %1, i64 272
+  %4529 = getelementptr inbounds nuw i8, ptr %1, i64 272
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2048, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.210, i64 8, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.209, i64 110, ptr nonnull align 8 %4529)
           to label %4530 unwind label %4110
 
@@ -11531,7 +11531,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4533:                                             ; preds = %4530
   store ptr %4531, ptr %2046, align 8
-  %4534 = getelementptr inbounds i8, ptr %2, i64 624
+  %4534 = getelementptr inbounds nuw i8, ptr %2, i64 624
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %710, ptr nonnull align 8 %4534)
           to label %4537 unwind label %4535
 
@@ -11543,11 +11543,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4537:                                             ; preds = %4533
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4531, ptr noundef nonnull align 8 dereferenceable(104) %710, i64 104, i1 false)
-  %.sroa.2211.0..sroa_idx = getelementptr inbounds i8, ptr %4531, i64 104
+  %.sroa.2211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4531, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.204, ptr %.sroa.2211.0..sroa_idx, align 8
-  %.sroa.3212.0..sroa_idx = getelementptr inbounds i8, ptr %4531, i64 112
+  %.sroa.3212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4531, i64 112
   store i64 1, ptr %.sroa.3212.0..sroa_idx, align 8
-  %.sroa.4213.0..sroa_idx = getelementptr inbounds i8, ptr %4531, i64 120
+  %.sroa.4213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4531, i64 120
   store ptr null, ptr %.sroa.4213.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2047, ptr nonnull align 8 %4531, i64 1)
           to label %4538 unwind label %.thread3712
@@ -11582,12 +11582,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3715 unwind label %8361
 
 4545:                                             ; preds = %4542
-  %4546 = getelementptr inbounds i8, ptr %2042, i64 104
+  %4546 = getelementptr inbounds nuw i8, ptr %2042, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4546, align 8
-  %4547 = getelementptr inbounds i8, ptr %2042, i64 112
+  %4547 = getelementptr inbounds nuw i8, ptr %2042, i64 112
   store i64 1, ptr %4547, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2042, ptr noundef nonnull align 8 dereferenceable(104) %709, i64 104, i1 false)
-  %4548 = getelementptr inbounds i8, ptr %2042, i64 120
+  %4548 = getelementptr inbounds nuw i8, ptr %2042, i64 120
   store ptr null, ptr %4548, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2043, ptr nonnull align 8 %2042, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.211, i64 27)
           to label %4549 unwind label %4543
@@ -11606,7 +11606,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4552 unwind label %4110
 
 4552:                                             ; preds = %4551
-  %4553 = getelementptr inbounds i8, ptr %1, i64 248
+  %4553 = getelementptr inbounds nuw i8, ptr %1, i64 248
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2039, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.213, i64 6, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.212, i64 99, ptr nonnull align 8 %4553)
           to label %4554 unwind label %4110
 
@@ -11626,7 +11626,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4557:                                             ; preds = %4554
   store ptr %4555, ptr %2037, align 8
-  %4558 = getelementptr inbounds i8, ptr %2, i64 312
+  %4558 = getelementptr inbounds nuw i8, ptr %2, i64 312
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %708, ptr nonnull align 8 %4558)
           to label %4561 unwind label %4559
 
@@ -11637,12 +11637,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3726 unwind label %8361
 
 4561:                                             ; preds = %4557
-  %4562 = getelementptr inbounds i8, ptr %2035, i64 104
+  %4562 = getelementptr inbounds nuw i8, ptr %2035, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.204, ptr %4562, align 8
-  %4563 = getelementptr inbounds i8, ptr %2035, i64 112
+  %4563 = getelementptr inbounds nuw i8, ptr %2035, i64 112
   store i64 1, ptr %4563, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2035, ptr noundef nonnull align 8 dereferenceable(104) %708, i64 104, i1 false)
-  %4564 = getelementptr inbounds i8, ptr %2035, i64 120
+  %4564 = getelementptr inbounds nuw i8, ptr %2035, i64 120
   store ptr null, ptr %4564, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2036, ptr nonnull align 8 %2035, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.214, i64 42)
           to label %4565 unwind label %4559
@@ -11682,12 +11682,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3737 unwind label %8361
 
 4573:                                             ; preds = %4570
-  %4574 = getelementptr inbounds i8, ptr %2031, i64 104
+  %4574 = getelementptr inbounds nuw i8, ptr %2031, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4574, align 8
-  %4575 = getelementptr inbounds i8, ptr %2031, i64 112
+  %4575 = getelementptr inbounds nuw i8, ptr %2031, i64 112
   store i64 1, ptr %4575, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2031, ptr noundef nonnull align 8 dereferenceable(104) %707, i64 104, i1 false)
-  %4576 = getelementptr inbounds i8, ptr %2031, i64 120
+  %4576 = getelementptr inbounds nuw i8, ptr %2031, i64 120
   store ptr null, ptr %4576, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2032, ptr nonnull align 8 %2031, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.215, i64 23)
           to label %4577 unwind label %4571
@@ -11731,7 +11731,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4587:                                             ; preds = %4585
   store ptr %4586, ptr %2030, align 8
-  %4588 = getelementptr inbounds i8, ptr %1, i64 160
+  %4588 = getelementptr inbounds nuw i8, ptr %1, i64 160
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2022, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.219, i64 7, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.218, i64 362, ptr nonnull align 8 %4588)
           to label %4592 unwind label %4590
 
@@ -11775,12 +11775,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4596
 
 4599:                                             ; preds = %4595
-  %4600 = getelementptr inbounds i8, ptr %2018, i64 104
+  %4600 = getelementptr inbounds nuw i8, ptr %2018, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4600, align 8
-  %4601 = getelementptr inbounds i8, ptr %2018, i64 112
+  %4601 = getelementptr inbounds nuw i8, ptr %2018, i64 112
   store i64 1, ptr %4601, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2018, ptr noundef nonnull align 8 dereferenceable(104) %706, i64 104, i1 false)
-  %4602 = getelementptr inbounds i8, ptr %2018, i64 120
+  %4602 = getelementptr inbounds nuw i8, ptr %2018, i64 120
   store ptr null, ptr %4602, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2019, ptr nonnull align 8 %2018, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.220, i64 14)
           to label %4603 unwind label %4597
@@ -11800,18 +11800,18 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4604
 
 4607:                                             ; preds = %4603
-  %4608 = getelementptr inbounds i8, ptr %2016, i64 104
+  %4608 = getelementptr inbounds nuw i8, ptr %2016, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.221, ptr %4608, align 8
-  %4609 = getelementptr inbounds i8, ptr %2016, i64 112
+  %4609 = getelementptr inbounds nuw i8, ptr %2016, i64 112
   store i64 1, ptr %4609, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2016, ptr noundef nonnull align 8 dereferenceable(104) %705, i64 104, i1 false)
-  %4610 = getelementptr inbounds i8, ptr %2016, i64 120
+  %4610 = getelementptr inbounds nuw i8, ptr %2016, i64 120
   store ptr null, ptr %4610, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2017, ptr nonnull align 8 %2016, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.220, i64 14)
           to label %4611 unwind label %4605
 
 4611:                                             ; preds = %4607
-  %4612 = getelementptr inbounds i8, ptr %2, i64 208
+  %4612 = getelementptr inbounds nuw i8, ptr %2, i64 208
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %704, ptr nonnull align 8 %4612)
           to label %4615 unwind label %4613
 
@@ -11822,21 +11822,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4604 unwind label %8361
 
 4615:                                             ; preds = %4611
-  %4616 = getelementptr inbounds i8, ptr %2014, i64 104
+  %4616 = getelementptr inbounds nuw i8, ptr %2014, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.222, ptr %4616, align 8
-  %4617 = getelementptr inbounds i8, ptr %2014, i64 112
+  %4617 = getelementptr inbounds nuw i8, ptr %2014, i64 112
   store i64 4, ptr %4617, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2014, ptr noundef nonnull align 8 dereferenceable(104) %704, i64 104, i1 false)
-  %4618 = getelementptr inbounds i8, ptr %2014, i64 120
+  %4618 = getelementptr inbounds nuw i8, ptr %2014, i64 120
   store ptr null, ptr %4618, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2015, ptr nonnull align 8 %2014, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.223, i64 65)
           to label %4619 unwind label %4613
 
 4619:                                             ; preds = %4615
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4593, ptr noundef nonnull align 8 dereferenceable(136) %2019, i64 136, i1 false)
-  %4620 = getelementptr inbounds i8, ptr %4593, i64 136
+  %4620 = getelementptr inbounds nuw i8, ptr %4593, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4620, ptr noundef nonnull align 8 dereferenceable(136) %2017, i64 136, i1 false)
-  %4621 = getelementptr inbounds i8, ptr %4593, i64 272
+  %4621 = getelementptr inbounds nuw i8, ptr %4593, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4621, ptr noundef nonnull align 8 dereferenceable(136) %2015, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %2021, ptr nonnull align 8 %4593, i64 3)
           to label %4622 unwind label %.thread3756
@@ -11871,12 +11871,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3759 unwind label %8361
 
 4629:                                             ; preds = %4626
-  %4630 = getelementptr inbounds i8, ptr %2010, i64 104
+  %4630 = getelementptr inbounds nuw i8, ptr %2010, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4630, align 8
-  %4631 = getelementptr inbounds i8, ptr %2010, i64 112
+  %4631 = getelementptr inbounds nuw i8, ptr %2010, i64 112
   store i64 1, ptr %4631, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2010, ptr noundef nonnull align 8 dereferenceable(104) %703, i64 104, i1 false)
-  %4632 = getelementptr inbounds i8, ptr %2010, i64 120
+  %4632 = getelementptr inbounds nuw i8, ptr %2010, i64 120
   store ptr null, ptr %4632, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2011, ptr nonnull align 8 %2010, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.220, i64 14)
           to label %4633 unwind label %4627
@@ -11924,12 +11924,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread3770 unwind label %8361
 
 4643:                                             ; preds = %4640
-  %4644 = getelementptr inbounds i8, ptr %2004, i64 104
+  %4644 = getelementptr inbounds nuw i8, ptr %2004, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %4644, align 8
-  %4645 = getelementptr inbounds i8, ptr %2004, i64 112
+  %4645 = getelementptr inbounds nuw i8, ptr %2004, i64 112
   store i64 1, ptr %4645, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2004, ptr noundef nonnull align 8 dereferenceable(104) %702, i64 104, i1 false)
-  %4646 = getelementptr inbounds i8, ptr %2004, i64 120
+  %4646 = getelementptr inbounds nuw i8, ptr %2004, i64 120
   store ptr null, ptr %4646, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %2005, ptr nonnull align 8 %2004, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.226, i64 31)
           to label %4647 unwind label %4641
@@ -11956,7 +11956,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4652 unwind label %4590
 
 4652:                                             ; preds = %4651
-  %4653 = getelementptr inbounds i8, ptr %1, i64 216
+  %4653 = getelementptr inbounds nuw i8, ptr %1, i64 216
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %2000, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.230, i64 6, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.229, i64 149, ptr nonnull align 8 %4653)
           to label %4654 unwind label %4590
 
@@ -11990,12 +11990,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4658
 
 4661:                                             ; preds = %4657
-  %4662 = getelementptr inbounds i8, ptr %1996, i64 104
+  %4662 = getelementptr inbounds nuw i8, ptr %1996, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %4662, align 8
-  %4663 = getelementptr inbounds i8, ptr %1996, i64 112
+  %4663 = getelementptr inbounds nuw i8, ptr %1996, i64 112
   store i64 1, ptr %4663, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1996, ptr noundef nonnull align 8 dereferenceable(104) %701, i64 104, i1 false)
-  %4664 = getelementptr inbounds i8, ptr %1996, i64 120
+  %4664 = getelementptr inbounds nuw i8, ptr %1996, i64 120
   store ptr null, ptr %4664, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1997, ptr nonnull align 8 %1996, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %4665 unwind label %4659
@@ -12015,12 +12015,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4666
 
 4669:                                             ; preds = %4665
-  %4670 = getelementptr inbounds i8, ptr %1994, i64 104
+  %4670 = getelementptr inbounds nuw i8, ptr %1994, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4670, align 8
-  %4671 = getelementptr inbounds i8, ptr %1994, i64 112
+  %4671 = getelementptr inbounds nuw i8, ptr %1994, i64 112
   store i64 1, ptr %4671, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1994, ptr noundef nonnull align 8 dereferenceable(104) %700, i64 104, i1 false)
-  %4672 = getelementptr inbounds i8, ptr %1994, i64 120
+  %4672 = getelementptr inbounds nuw i8, ptr %1994, i64 120
   store ptr null, ptr %4672, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1995, ptr nonnull align 8 %1994, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.231, i64 29)
           to label %4673 unwind label %4667
@@ -12036,21 +12036,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4666 unwind label %8361
 
 4676:                                             ; preds = %4673
-  %4677 = getelementptr inbounds i8, ptr %1992, i64 104
+  %4677 = getelementptr inbounds nuw i8, ptr %1992, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %4677, align 8
-  %4678 = getelementptr inbounds i8, ptr %1992, i64 112
+  %4678 = getelementptr inbounds nuw i8, ptr %1992, i64 112
   store i64 1, ptr %4678, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1992, ptr noundef nonnull align 8 dereferenceable(104) %699, i64 104, i1 false)
-  %4679 = getelementptr inbounds i8, ptr %1992, i64 120
+  %4679 = getelementptr inbounds nuw i8, ptr %1992, i64 120
   store ptr null, ptr %4679, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1993, ptr nonnull align 8 %1992, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.232, i64 30)
           to label %4680 unwind label %4674
 
 4680:                                             ; preds = %4676
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4655, ptr noundef nonnull align 8 dereferenceable(136) %1997, i64 136, i1 false)
-  %4681 = getelementptr inbounds i8, ptr %4655, i64 136
+  %4681 = getelementptr inbounds nuw i8, ptr %4655, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4681, ptr noundef nonnull align 8 dereferenceable(136) %1995, i64 136, i1 false)
-  %4682 = getelementptr inbounds i8, ptr %4655, i64 272
+  %4682 = getelementptr inbounds nuw i8, ptr %4655, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4682, ptr noundef nonnull align 8 dereferenceable(136) %1993, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1999, ptr nonnull align 8 %4655, i64 3)
           to label %4683 unwind label %.thread3789
@@ -12086,11 +12086,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4690:                                             ; preds = %4687
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4685, ptr noundef nonnull align 8 dereferenceable(104) %698, i64 104, i1 false)
-  %.sroa.2216.0..sroa_idx = getelementptr inbounds i8, ptr %4685, i64 104
+  %.sroa.2216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4685, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2216.0..sroa_idx, align 8
-  %.sroa.3217.0..sroa_idx = getelementptr inbounds i8, ptr %4685, i64 112
+  %.sroa.3217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4685, i64 112
   store i64 1, ptr %.sroa.3217.0..sroa_idx, align 8
-  %.sroa.4218.0..sroa_idx = getelementptr inbounds i8, ptr %4685, i64 120
+  %.sroa.4218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4685, i64 120
   store ptr null, ptr %.sroa.4218.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1991, ptr nonnull align 8 %4685, i64 1)
           to label %4691 unwind label %.thread3800
@@ -12137,12 +12137,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4698
 
 4701:                                             ; preds = %4697
-  %4702 = getelementptr inbounds i8, ptr %1983, i64 104
+  %4702 = getelementptr inbounds nuw i8, ptr %1983, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %4702, align 8
-  %4703 = getelementptr inbounds i8, ptr %1983, i64 112
+  %4703 = getelementptr inbounds nuw i8, ptr %1983, i64 112
   store i64 1, ptr %4703, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1983, ptr noundef nonnull align 8 dereferenceable(104) %697, i64 104, i1 false)
-  %4704 = getelementptr inbounds i8, ptr %1983, i64 120
+  %4704 = getelementptr inbounds nuw i8, ptr %1983, i64 120
   store ptr null, ptr %4704, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1984, ptr nonnull align 8 %1983, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %4705 unwind label %4699
@@ -12162,12 +12162,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4706
 
 4709:                                             ; preds = %4705
-  %4710 = getelementptr inbounds i8, ptr %1981, i64 104
+  %4710 = getelementptr inbounds nuw i8, ptr %1981, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4710, align 8
-  %4711 = getelementptr inbounds i8, ptr %1981, i64 112
+  %4711 = getelementptr inbounds nuw i8, ptr %1981, i64 112
   store i64 1, ptr %4711, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1981, ptr noundef nonnull align 8 dereferenceable(104) %696, i64 104, i1 false)
-  %4712 = getelementptr inbounds i8, ptr %1981, i64 120
+  %4712 = getelementptr inbounds nuw i8, ptr %1981, i64 120
   store ptr null, ptr %4712, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1982, ptr nonnull align 8 %1981, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.231, i64 29)
           to label %4713 unwind label %4707
@@ -12183,21 +12183,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4706 unwind label %8361
 
 4716:                                             ; preds = %4713
-  %4717 = getelementptr inbounds i8, ptr %1979, i64 104
+  %4717 = getelementptr inbounds nuw i8, ptr %1979, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %4717, align 8
-  %4718 = getelementptr inbounds i8, ptr %1979, i64 112
+  %4718 = getelementptr inbounds nuw i8, ptr %1979, i64 112
   store i64 1, ptr %4718, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1979, ptr noundef nonnull align 8 dereferenceable(104) %695, i64 104, i1 false)
-  %4719 = getelementptr inbounds i8, ptr %1979, i64 120
+  %4719 = getelementptr inbounds nuw i8, ptr %1979, i64 120
   store ptr null, ptr %4719, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1980, ptr nonnull align 8 %1979, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.232, i64 30)
           to label %4720 unwind label %4714
 
 4720:                                             ; preds = %4716
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4695, ptr noundef nonnull align 8 dereferenceable(136) %1984, i64 136, i1 false)
-  %4721 = getelementptr inbounds i8, ptr %4695, i64 136
+  %4721 = getelementptr inbounds nuw i8, ptr %4695, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4721, ptr noundef nonnull align 8 dereferenceable(136) %1982, i64 136, i1 false)
-  %4722 = getelementptr inbounds i8, ptr %4695, i64 272
+  %4722 = getelementptr inbounds nuw i8, ptr %4695, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4722, ptr noundef nonnull align 8 dereferenceable(136) %1980, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1986, ptr nonnull align 8 %4695, i64 3)
           to label %4723 unwind label %.thread3811
@@ -12233,11 +12233,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4730:                                             ; preds = %4727
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4725, ptr noundef nonnull align 8 dereferenceable(104) %694, i64 104, i1 false)
-  %.sroa.2221.0..sroa_idx = getelementptr inbounds i8, ptr %4725, i64 104
+  %.sroa.2221.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4725, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2221.0..sroa_idx, align 8
-  %.sroa.3222.0..sroa_idx = getelementptr inbounds i8, ptr %4725, i64 112
+  %.sroa.3222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4725, i64 112
   store i64 1, ptr %.sroa.3222.0..sroa_idx, align 8
-  %.sroa.4223.0..sroa_idx = getelementptr inbounds i8, ptr %4725, i64 120
+  %.sroa.4223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4725, i64 120
   store ptr null, ptr %.sroa.4223.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1978, ptr nonnull align 8 %4725, i64 1)
           to label %4731 unwind label %.thread3822
@@ -12284,12 +12284,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4738
 
 4741:                                             ; preds = %4737
-  %4742 = getelementptr inbounds i8, ptr %1970, i64 104
+  %4742 = getelementptr inbounds nuw i8, ptr %1970, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %4742, align 8
-  %4743 = getelementptr inbounds i8, ptr %1970, i64 112
+  %4743 = getelementptr inbounds nuw i8, ptr %1970, i64 112
   store i64 1, ptr %4743, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1970, ptr noundef nonnull align 8 dereferenceable(104) %693, i64 104, i1 false)
-  %4744 = getelementptr inbounds i8, ptr %1970, i64 120
+  %4744 = getelementptr inbounds nuw i8, ptr %1970, i64 120
   store ptr null, ptr %4744, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1971, ptr nonnull align 8 %1970, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %4745 unwind label %4739
@@ -12309,12 +12309,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4746
 
 4749:                                             ; preds = %4745
-  %4750 = getelementptr inbounds i8, ptr %1968, i64 104
+  %4750 = getelementptr inbounds nuw i8, ptr %1968, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4750, align 8
-  %4751 = getelementptr inbounds i8, ptr %1968, i64 112
+  %4751 = getelementptr inbounds nuw i8, ptr %1968, i64 112
   store i64 1, ptr %4751, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1968, ptr noundef nonnull align 8 dereferenceable(104) %692, i64 104, i1 false)
-  %4752 = getelementptr inbounds i8, ptr %1968, i64 120
+  %4752 = getelementptr inbounds nuw i8, ptr %1968, i64 120
   store ptr null, ptr %4752, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1969, ptr nonnull align 8 %1968, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.231, i64 29)
           to label %4753 unwind label %4747
@@ -12330,21 +12330,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4746 unwind label %8361
 
 4756:                                             ; preds = %4753
-  %4757 = getelementptr inbounds i8, ptr %1966, i64 104
+  %4757 = getelementptr inbounds nuw i8, ptr %1966, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %4757, align 8
-  %4758 = getelementptr inbounds i8, ptr %1966, i64 112
+  %4758 = getelementptr inbounds nuw i8, ptr %1966, i64 112
   store i64 1, ptr %4758, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1966, ptr noundef nonnull align 8 dereferenceable(104) %691, i64 104, i1 false)
-  %4759 = getelementptr inbounds i8, ptr %1966, i64 120
+  %4759 = getelementptr inbounds nuw i8, ptr %1966, i64 120
   store ptr null, ptr %4759, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1967, ptr nonnull align 8 %1966, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.232, i64 30)
           to label %4760 unwind label %4754
 
 4760:                                             ; preds = %4756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4735, ptr noundef nonnull align 8 dereferenceable(136) %1971, i64 136, i1 false)
-  %4761 = getelementptr inbounds i8, ptr %4735, i64 136
+  %4761 = getelementptr inbounds nuw i8, ptr %4735, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4761, ptr noundef nonnull align 8 dereferenceable(136) %1969, i64 136, i1 false)
-  %4762 = getelementptr inbounds i8, ptr %4735, i64 272
+  %4762 = getelementptr inbounds nuw i8, ptr %4735, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4762, ptr noundef nonnull align 8 dereferenceable(136) %1967, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1973, ptr nonnull align 8 %4735, i64 3)
           to label %4763 unwind label %.thread3833
@@ -12380,11 +12380,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4770:                                             ; preds = %4767
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4765, ptr noundef nonnull align 8 dereferenceable(104) %690, i64 104, i1 false)
-  %.sroa.2226.0..sroa_idx = getelementptr inbounds i8, ptr %4765, i64 104
+  %.sroa.2226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4765, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2226.0..sroa_idx, align 8
-  %.sroa.3227.0..sroa_idx = getelementptr inbounds i8, ptr %4765, i64 112
+  %.sroa.3227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4765, i64 112
   store i64 1, ptr %.sroa.3227.0..sroa_idx, align 8
-  %.sroa.4228.0..sroa_idx = getelementptr inbounds i8, ptr %4765, i64 120
+  %.sroa.4228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4765, i64 120
   store ptr null, ptr %.sroa.4228.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1965, ptr nonnull align 8 %4765, i64 1)
           to label %4771 unwind label %.thread3844
@@ -12431,12 +12431,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4778
 
 4781:                                             ; preds = %4777
-  %4782 = getelementptr inbounds i8, ptr %1957, i64 104
+  %4782 = getelementptr inbounds nuw i8, ptr %1957, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.9, ptr %4782, align 8
-  %4783 = getelementptr inbounds i8, ptr %1957, i64 112
+  %4783 = getelementptr inbounds nuw i8, ptr %1957, i64 112
   store i64 1, ptr %4783, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1957, ptr noundef nonnull align 8 dereferenceable(104) %689, i64 104, i1 false)
-  %4784 = getelementptr inbounds i8, ptr %1957, i64 120
+  %4784 = getelementptr inbounds nuw i8, ptr %1957, i64 120
   store ptr null, ptr %4784, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1958, ptr nonnull align 8 %1957, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.10, i64 25)
           to label %4785 unwind label %4779
@@ -12456,12 +12456,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4786
 
 4789:                                             ; preds = %4785
-  %4790 = getelementptr inbounds i8, ptr %1955, i64 104
+  %4790 = getelementptr inbounds nuw i8, ptr %1955, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4790, align 8
-  %4791 = getelementptr inbounds i8, ptr %1955, i64 112
+  %4791 = getelementptr inbounds nuw i8, ptr %1955, i64 112
   store i64 1, ptr %4791, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1955, ptr noundef nonnull align 8 dereferenceable(104) %688, i64 104, i1 false)
-  %4792 = getelementptr inbounds i8, ptr %1955, i64 120
+  %4792 = getelementptr inbounds nuw i8, ptr %1955, i64 120
   store ptr null, ptr %4792, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1956, ptr nonnull align 8 %1955, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.231, i64 29)
           to label %4793 unwind label %4787
@@ -12477,21 +12477,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4786 unwind label %8361
 
 4796:                                             ; preds = %4793
-  %4797 = getelementptr inbounds i8, ptr %1953, i64 104
+  %4797 = getelementptr inbounds nuw i8, ptr %1953, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %4797, align 8
-  %4798 = getelementptr inbounds i8, ptr %1953, i64 112
+  %4798 = getelementptr inbounds nuw i8, ptr %1953, i64 112
   store i64 1, ptr %4798, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1953, ptr noundef nonnull align 8 dereferenceable(104) %687, i64 104, i1 false)
-  %4799 = getelementptr inbounds i8, ptr %1953, i64 120
+  %4799 = getelementptr inbounds nuw i8, ptr %1953, i64 120
   store ptr null, ptr %4799, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1954, ptr nonnull align 8 %1953, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.232, i64 30)
           to label %4800 unwind label %4794
 
 4800:                                             ; preds = %4796
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4775, ptr noundef nonnull align 8 dereferenceable(136) %1958, i64 136, i1 false)
-  %4801 = getelementptr inbounds i8, ptr %4775, i64 136
+  %4801 = getelementptr inbounds nuw i8, ptr %4775, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4801, ptr noundef nonnull align 8 dereferenceable(136) %1956, i64 136, i1 false)
-  %4802 = getelementptr inbounds i8, ptr %4775, i64 272
+  %4802 = getelementptr inbounds nuw i8, ptr %4775, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4802, ptr noundef nonnull align 8 dereferenceable(136) %1954, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1960, ptr nonnull align 8 %4775, i64 3)
           to label %4803 unwind label %.thread3855
@@ -12527,11 +12527,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4810:                                             ; preds = %4807
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4805, ptr noundef nonnull align 8 dereferenceable(104) %686, i64 104, i1 false)
-  %.sroa.2231.0..sroa_idx = getelementptr inbounds i8, ptr %4805, i64 104
+  %.sroa.2231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4805, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2231.0..sroa_idx, align 8
-  %.sroa.3232.0..sroa_idx = getelementptr inbounds i8, ptr %4805, i64 112
+  %.sroa.3232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4805, i64 112
   store i64 1, ptr %.sroa.3232.0..sroa_idx, align 8
-  %.sroa.4233.0..sroa_idx = getelementptr inbounds i8, ptr %4805, i64 120
+  %.sroa.4233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4805, i64 120
   store ptr null, ptr %.sroa.4233.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1952, ptr nonnull align 8 %4805, i64 1)
           to label %4811 unwind label %.thread3866
@@ -12575,11 +12575,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4820:                                             ; preds = %4817
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4815, ptr noundef nonnull align 8 dereferenceable(104) %685, i64 104, i1 false)
-  %.sroa.2236.0..sroa_idx = getelementptr inbounds i8, ptr %4815, i64 104
+  %.sroa.2236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4815, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2236.0..sroa_idx, align 8
-  %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %4815, i64 112
+  %.sroa.3237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4815, i64 112
   store i64 1, ptr %.sroa.3237.0..sroa_idx, align 8
-  %.sroa.4238.0..sroa_idx = getelementptr inbounds i8, ptr %4815, i64 120
+  %.sroa.4238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4815, i64 120
   store ptr null, ptr %.sroa.4238.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1947, ptr nonnull align 8 %4815, i64 1)
           to label %4821 unwind label %.thread3877
@@ -12615,11 +12615,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4828:                                             ; preds = %4825
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4823, ptr noundef nonnull align 8 dereferenceable(104) %684, i64 104, i1 false)
-  %.sroa.2241.0..sroa_idx = getelementptr inbounds i8, ptr %4823, i64 104
+  %.sroa.2241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4823, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.241, ptr %.sroa.2241.0..sroa_idx, align 8
-  %.sroa.3242.0..sroa_idx = getelementptr inbounds i8, ptr %4823, i64 112
+  %.sroa.3242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4823, i64 112
   store i64 1, ptr %.sroa.3242.0..sroa_idx, align 8
-  %.sroa.4243.0..sroa_idx = getelementptr inbounds i8, ptr %4823, i64 120
+  %.sroa.4243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4823, i64 120
   store ptr null, ptr %.sroa.4243.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1945, ptr nonnull align 8 %4823, i64 1)
           to label %4829 unwind label %.thread3888
@@ -12663,11 +12663,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4838:                                             ; preds = %4835
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4833, ptr noundef nonnull align 8 dereferenceable(104) %683, i64 104, i1 false)
-  %.sroa.2246.0..sroa_idx = getelementptr inbounds i8, ptr %4833, i64 104
+  %.sroa.2246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4833, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2246.0..sroa_idx, align 8
-  %.sroa.3247.0..sroa_idx = getelementptr inbounds i8, ptr %4833, i64 112
+  %.sroa.3247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4833, i64 112
   store i64 1, ptr %.sroa.3247.0..sroa_idx, align 8
-  %.sroa.4248.0..sroa_idx = getelementptr inbounds i8, ptr %4833, i64 120
+  %.sroa.4248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4833, i64 120
   store ptr null, ptr %.sroa.4248.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1940, ptr nonnull align 8 %4833, i64 1)
           to label %4839 unwind label %.thread3899
@@ -12703,11 +12703,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4846:                                             ; preds = %4843
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4841, ptr noundef nonnull align 8 dereferenceable(104) %682, i64 104, i1 false)
-  %.sroa.2251.0..sroa_idx = getelementptr inbounds i8, ptr %4841, i64 104
+  %.sroa.2251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4841, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.241, ptr %.sroa.2251.0..sroa_idx, align 8
-  %.sroa.3252.0..sroa_idx = getelementptr inbounds i8, ptr %4841, i64 112
+  %.sroa.3252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4841, i64 112
   store i64 1, ptr %.sroa.3252.0..sroa_idx, align 8
-  %.sroa.4253.0..sroa_idx = getelementptr inbounds i8, ptr %4841, i64 120
+  %.sroa.4253.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4841, i64 120
   store ptr null, ptr %.sroa.4253.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1938, ptr nonnull align 8 %4841, i64 1)
           to label %4847 unwind label %.thread3910
@@ -12751,11 +12751,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4856:                                             ; preds = %4853
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4851, ptr noundef nonnull align 8 dereferenceable(104) %681, i64 104, i1 false)
-  %.sroa.2256.0..sroa_idx = getelementptr inbounds i8, ptr %4851, i64 104
+  %.sroa.2256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4851, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2256.0..sroa_idx, align 8
-  %.sroa.3257.0..sroa_idx = getelementptr inbounds i8, ptr %4851, i64 112
+  %.sroa.3257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4851, i64 112
   store i64 1, ptr %.sroa.3257.0..sroa_idx, align 8
-  %.sroa.4258.0..sroa_idx = getelementptr inbounds i8, ptr %4851, i64 120
+  %.sroa.4258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4851, i64 120
   store ptr null, ptr %.sroa.4258.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1933, ptr nonnull align 8 %4851, i64 1)
           to label %4857 unwind label %.thread3921
@@ -12791,11 +12791,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4864:                                             ; preds = %4861
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4859, ptr noundef nonnull align 8 dereferenceable(104) %680, i64 104, i1 false)
-  %.sroa.2261.0..sroa_idx = getelementptr inbounds i8, ptr %4859, i64 104
+  %.sroa.2261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4859, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2261.0..sroa_idx, align 8
-  %.sroa.3262.0..sroa_idx = getelementptr inbounds i8, ptr %4859, i64 112
+  %.sroa.3262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4859, i64 112
   store i64 1, ptr %.sroa.3262.0..sroa_idx, align 8
-  %.sroa.4263.0..sroa_idx = getelementptr inbounds i8, ptr %4859, i64 120
+  %.sroa.4263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4859, i64 120
   store ptr null, ptr %.sroa.4263.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1931, ptr nonnull align 8 %4859, i64 1)
           to label %4865 unwind label %.thread3932
@@ -12809,7 +12809,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4867 unwind label %4590
 
 4867:                                             ; preds = %4866
-  %4868 = getelementptr inbounds i8, ptr %1, i64 96
+  %4868 = getelementptr inbounds nuw i8, ptr %1, i64 96
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %1927, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.247, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.246, i64 1021, ptr nonnull align 8 %4868)
           to label %4869 unwind label %4590
 
@@ -12829,7 +12829,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4872:                                             ; preds = %4869
   store ptr %4870, ptr %1925, align 8
-  %4873 = getelementptr inbounds i8, ptr %2, i64 728
+  %4873 = getelementptr inbounds nuw i8, ptr %2, i64 728
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %679, ptr nonnull align 8 %4873)
           to label %4877 unwind label %4875
 
@@ -12844,12 +12844,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4874
 
 4877:                                             ; preds = %4872
-  %4878 = getelementptr inbounds i8, ptr %1924, i64 104
+  %4878 = getelementptr inbounds nuw i8, ptr %1924, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.248, ptr %4878, align 8
-  %4879 = getelementptr inbounds i8, ptr %1924, i64 112
+  %4879 = getelementptr inbounds nuw i8, ptr %1924, i64 112
   store i64 4, ptr %4879, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1924, ptr noundef nonnull align 8 dereferenceable(104) %679, i64 104, i1 false)
-  %4880 = getelementptr inbounds i8, ptr %1924, i64 120
+  %4880 = getelementptr inbounds nuw i8, ptr %1924, i64 120
   store ptr null, ptr %4880, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %678, ptr nonnull align 8 %2471)
           to label %4884 unwind label %4882
@@ -12865,12 +12865,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4881
 
 4884:                                             ; preds = %4877
-  %4885 = getelementptr inbounds i8, ptr %1923, i64 104
+  %4885 = getelementptr inbounds nuw i8, ptr %1923, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4885, align 8
-  %4886 = getelementptr inbounds i8, ptr %1923, i64 112
+  %4886 = getelementptr inbounds nuw i8, ptr %1923, i64 112
   store i64 1, ptr %4886, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1923, ptr noundef nonnull align 8 dereferenceable(104) %678, i64 104, i1 false)
-  %4887 = getelementptr inbounds i8, ptr %1923, i64 120
+  %4887 = getelementptr inbounds nuw i8, ptr %1923, i64 120
   store ptr null, ptr %4887, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %677, ptr nonnull align 8 %2471)
           to label %4890 unwind label %4888
@@ -12883,15 +12883,15 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4890:                                             ; preds = %4884
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4870, ptr noundef nonnull align 8 dereferenceable(136) %1924, i64 136, i1 false)
-  %4891 = getelementptr inbounds i8, ptr %4870, i64 136
+  %4891 = getelementptr inbounds nuw i8, ptr %4870, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4891, ptr noundef nonnull align 8 dereferenceable(136) %1923, i64 136, i1 false)
-  %4892 = getelementptr inbounds i8, ptr %4870, i64 272
+  %4892 = getelementptr inbounds nuw i8, ptr %4870, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4892, ptr noundef nonnull align 8 dereferenceable(104) %677, i64 104, i1 false)
-  %.sroa.2266.0..sroa_idx = getelementptr inbounds i8, ptr %4870, i64 376
+  %.sroa.2266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4870, i64 376
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2266.0..sroa_idx, align 8
-  %.sroa.3267.0..sroa_idx = getelementptr inbounds i8, ptr %4870, i64 384
+  %.sroa.3267.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4870, i64 384
   store i64 1, ptr %.sroa.3267.0..sroa_idx, align 8
-  %.sroa.4268.0..sroa_idx = getelementptr inbounds i8, ptr %4870, i64 392
+  %.sroa.4268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4870, i64 392
   store ptr null, ptr %.sroa.4268.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1926, ptr nonnull align 8 %4870, i64 3)
           to label %4893 unwind label %.thread3943
@@ -12939,11 +12939,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 4906:                                             ; preds = %4903
   %4907 = load ptr, ptr %1921, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4907, ptr noundef nonnull align 8 dereferenceable(104) %676, i64 104, i1 false)
-  %.sroa.2271.0..sroa_idx = getelementptr inbounds i8, ptr %4907, i64 104
+  %.sroa.2271.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4907, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2271.0..sroa_idx, align 8
-  %.sroa.3272.0..sroa_idx = getelementptr inbounds i8, ptr %4907, i64 112
+  %.sroa.3272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4907, i64 112
   store i64 1, ptr %.sroa.3272.0..sroa_idx, align 8
-  %.sroa.4273.0..sroa_idx = getelementptr inbounds i8, ptr %4907, i64 120
+  %.sroa.4273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4907, i64 120
   store ptr null, ptr %.sroa.4273.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1922, ptr nonnull align 8 %4907, i64 1)
           to label %4911 unwind label %.thread3950
@@ -12981,7 +12981,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %4917 unwind label %4590
 
 4917:                                             ; preds = %4916
-  %4918 = getelementptr inbounds i8, ptr %1, i64 104
+  %4918 = getelementptr inbounds nuw i8, ptr %1, i64 104
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %1917, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.250, i64 8, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.249, i64 286, ptr nonnull align 8 %4918)
           to label %4919 unwind label %4590
 
@@ -13015,12 +13015,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4923
 
 4926:                                             ; preds = %4922
-  %4927 = getelementptr inbounds i8, ptr %1914, i64 104
+  %4927 = getelementptr inbounds nuw i8, ptr %1914, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.248, ptr %4927, align 8
-  %4928 = getelementptr inbounds i8, ptr %1914, i64 112
+  %4928 = getelementptr inbounds nuw i8, ptr %1914, i64 112
   store i64 4, ptr %4928, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1914, ptr noundef nonnull align 8 dereferenceable(104) %675, i64 104, i1 false)
-  %4929 = getelementptr inbounds i8, ptr %1914, i64 120
+  %4929 = getelementptr inbounds nuw i8, ptr %1914, i64 120
   store ptr null, ptr %4929, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %674, ptr nonnull align 8 %2457)
           to label %4933 unwind label %4931
@@ -13036,12 +13036,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4930
 
 4933:                                             ; preds = %4926
-  %4934 = getelementptr inbounds i8, ptr %1913, i64 104
+  %4934 = getelementptr inbounds nuw i8, ptr %1913, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4934, align 8
-  %4935 = getelementptr inbounds i8, ptr %1913, i64 112
+  %4935 = getelementptr inbounds nuw i8, ptr %1913, i64 112
   store i64 1, ptr %4935, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1913, ptr noundef nonnull align 8 dereferenceable(104) %674, i64 104, i1 false)
-  %4936 = getelementptr inbounds i8, ptr %1913, i64 120
+  %4936 = getelementptr inbounds nuw i8, ptr %1913, i64 120
   store ptr null, ptr %4936, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %673, ptr align 8 %2)
           to label %4939 unwind label %4937
@@ -13054,15 +13054,15 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4939:                                             ; preds = %4933
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4920, ptr noundef nonnull align 8 dereferenceable(136) %1914, i64 136, i1 false)
-  %4940 = getelementptr inbounds i8, ptr %4920, i64 136
+  %4940 = getelementptr inbounds nuw i8, ptr %4920, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4940, ptr noundef nonnull align 8 dereferenceable(136) %1913, i64 136, i1 false)
-  %4941 = getelementptr inbounds i8, ptr %4920, i64 272
+  %4941 = getelementptr inbounds nuw i8, ptr %4920, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4941, ptr noundef nonnull align 8 dereferenceable(104) %673, i64 104, i1 false)
-  %.sroa.2276.0..sroa_idx = getelementptr inbounds i8, ptr %4920, i64 376
+  %.sroa.2276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4920, i64 376
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2276.0..sroa_idx, align 8
-  %.sroa.3277.0..sroa_idx = getelementptr inbounds i8, ptr %4920, i64 384
+  %.sroa.3277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4920, i64 384
   store i64 1, ptr %.sroa.3277.0..sroa_idx, align 8
-  %.sroa.4278.0..sroa_idx = getelementptr inbounds i8, ptr %4920, i64 392
+  %.sroa.4278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4920, i64 392
   store ptr null, ptr %.sroa.4278.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1916, ptr nonnull align 8 %4920, i64 3)
           to label %4942 unwind label %.thread3960
@@ -13098,11 +13098,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4949:                                             ; preds = %4946
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4944, ptr noundef nonnull align 8 dereferenceable(104) %672, i64 104, i1 false)
-  %.sroa.2281.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 104
+  %.sroa.2281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4944, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2281.0..sroa_idx, align 8
-  %.sroa.3282.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 112
+  %.sroa.3282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4944, i64 112
   store i64 1, ptr %.sroa.3282.0..sroa_idx, align 8
-  %.sroa.4283.0..sroa_idx = getelementptr inbounds i8, ptr %4944, i64 120
+  %.sroa.4283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4944, i64 120
   store ptr null, ptr %.sroa.4283.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1912, ptr nonnull align 8 %4944, i64 1)
           to label %4950 unwind label %.thread3971
@@ -13149,12 +13149,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4957
 
 4960:                                             ; preds = %4956
-  %4961 = getelementptr inbounds i8, ptr %1905, i64 104
+  %4961 = getelementptr inbounds nuw i8, ptr %1905, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4961, align 8
-  %4962 = getelementptr inbounds i8, ptr %1905, i64 112
+  %4962 = getelementptr inbounds nuw i8, ptr %1905, i64 112
   store i64 1, ptr %4962, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1905, ptr noundef nonnull align 8 dereferenceable(104) %671, i64 104, i1 false)
-  %4963 = getelementptr inbounds i8, ptr %1905, i64 120
+  %4963 = getelementptr inbounds nuw i8, ptr %1905, i64 120
   store ptr null, ptr %4963, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %670, ptr nonnull align 8 %2471)
           to label %4966 unwind label %4964
@@ -13167,13 +13167,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4966:                                             ; preds = %4960
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4954, ptr noundef nonnull align 8 dereferenceable(136) %1905, i64 136, i1 false)
-  %4967 = getelementptr inbounds i8, ptr %4954, i64 136
+  %4967 = getelementptr inbounds nuw i8, ptr %4954, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4967, ptr noundef nonnull align 8 dereferenceable(104) %670, i64 104, i1 false)
-  %.sroa.2286.0..sroa_idx = getelementptr inbounds i8, ptr %4954, i64 240
+  %.sroa.2286.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4954, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2286.0..sroa_idx, align 8
-  %.sroa.3287.0..sroa_idx = getelementptr inbounds i8, ptr %4954, i64 248
+  %.sroa.3287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4954, i64 248
   store i64 1, ptr %.sroa.3287.0..sroa_idx, align 8
-  %.sroa.4288.0..sroa_idx = getelementptr inbounds i8, ptr %4954, i64 256
+  %.sroa.4288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4954, i64 256
   store ptr null, ptr %.sroa.4288.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1907, ptr nonnull align 8 %4954, i64 2)
           to label %4968 unwind label %.thread3982
@@ -13209,11 +13209,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4975:                                             ; preds = %4972
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4970, ptr noundef nonnull align 8 dereferenceable(104) %669, i64 104, i1 false)
-  %.sroa.2291.0..sroa_idx = getelementptr inbounds i8, ptr %4970, i64 104
+  %.sroa.2291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4970, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2291.0..sroa_idx, align 8
-  %.sroa.3292.0..sroa_idx = getelementptr inbounds i8, ptr %4970, i64 112
+  %.sroa.3292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4970, i64 112
   store i64 1, ptr %.sroa.3292.0..sroa_idx, align 8
-  %.sroa.4293.0..sroa_idx = getelementptr inbounds i8, ptr %4970, i64 120
+  %.sroa.4293.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4970, i64 120
   store ptr null, ptr %.sroa.4293.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1904, ptr nonnull align 8 %4970, i64 1)
           to label %4976 unwind label %.thread3993
@@ -13260,12 +13260,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %4983
 
 4986:                                             ; preds = %4982
-  %4987 = getelementptr inbounds i8, ptr %1897, i64 104
+  %4987 = getelementptr inbounds nuw i8, ptr %1897, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %4987, align 8
-  %4988 = getelementptr inbounds i8, ptr %1897, i64 112
+  %4988 = getelementptr inbounds nuw i8, ptr %1897, i64 112
   store i64 1, ptr %4988, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1897, ptr noundef nonnull align 8 dereferenceable(104) %668, i64 104, i1 false)
-  %4989 = getelementptr inbounds i8, ptr %1897, i64 120
+  %4989 = getelementptr inbounds nuw i8, ptr %1897, i64 120
   store ptr null, ptr %4989, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %667, ptr nonnull align 8 %2471)
           to label %4992 unwind label %4990
@@ -13278,13 +13278,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 4992:                                             ; preds = %4986
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4980, ptr noundef nonnull align 8 dereferenceable(136) %1897, i64 136, i1 false)
-  %4993 = getelementptr inbounds i8, ptr %4980, i64 136
+  %4993 = getelementptr inbounds nuw i8, ptr %4980, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4993, ptr noundef nonnull align 8 dereferenceable(104) %667, i64 104, i1 false)
-  %.sroa.2296.0..sroa_idx = getelementptr inbounds i8, ptr %4980, i64 240
+  %.sroa.2296.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4980, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2296.0..sroa_idx, align 8
-  %.sroa.3297.0..sroa_idx = getelementptr inbounds i8, ptr %4980, i64 248
+  %.sroa.3297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4980, i64 248
   store i64 1, ptr %.sroa.3297.0..sroa_idx, align 8
-  %.sroa.4298.0..sroa_idx = getelementptr inbounds i8, ptr %4980, i64 256
+  %.sroa.4298.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4980, i64 256
   store ptr null, ptr %.sroa.4298.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1899, ptr nonnull align 8 %4980, i64 2)
           to label %4994 unwind label %.thread4004
@@ -13320,11 +13320,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5001:                                             ; preds = %4998
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4996, ptr noundef nonnull align 8 dereferenceable(104) %666, i64 104, i1 false)
-  %.sroa.2301.0..sroa_idx = getelementptr inbounds i8, ptr %4996, i64 104
+  %.sroa.2301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4996, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2301.0..sroa_idx, align 8
-  %.sroa.3302.0..sroa_idx = getelementptr inbounds i8, ptr %4996, i64 112
+  %.sroa.3302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4996, i64 112
   store i64 1, ptr %.sroa.3302.0..sroa_idx, align 8
-  %.sroa.4303.0..sroa_idx = getelementptr inbounds i8, ptr %4996, i64 120
+  %.sroa.4303.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4996, i64 120
   store ptr null, ptr %.sroa.4303.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1896, ptr nonnull align 8 %4996, i64 1)
           to label %5002 unwind label %.thread4015
@@ -13368,11 +13368,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5011:                                             ; preds = %5008
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5006, ptr noundef nonnull align 8 dereferenceable(104) %665, i64 104, i1 false)
-  %.sroa.2306.0..sroa_idx = getelementptr inbounds i8, ptr %5006, i64 104
+  %.sroa.2306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5006, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2306.0..sroa_idx, align 8
-  %.sroa.3307.0..sroa_idx = getelementptr inbounds i8, ptr %5006, i64 112
+  %.sroa.3307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5006, i64 112
   store i64 1, ptr %.sroa.3307.0..sroa_idx, align 8
-  %.sroa.4308.0..sroa_idx = getelementptr inbounds i8, ptr %5006, i64 120
+  %.sroa.4308.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5006, i64 120
   store ptr null, ptr %.sroa.4308.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1891, ptr nonnull align 8 %5006, i64 1)
           to label %5012 unwind label %.thread4026
@@ -13408,11 +13408,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5019:                                             ; preds = %5016
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5014, ptr noundef nonnull align 8 dereferenceable(104) %664, i64 104, i1 false)
-  %.sroa.2311.0..sroa_idx = getelementptr inbounds i8, ptr %5014, i64 104
+  %.sroa.2311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5014, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2311.0..sroa_idx, align 8
-  %.sroa.3312.0..sroa_idx = getelementptr inbounds i8, ptr %5014, i64 112
+  %.sroa.3312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5014, i64 112
   store i64 1, ptr %.sroa.3312.0..sroa_idx, align 8
-  %.sroa.4313.0..sroa_idx = getelementptr inbounds i8, ptr %5014, i64 120
+  %.sroa.4313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5014, i64 120
   store ptr null, ptr %.sroa.4313.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1889, ptr nonnull align 8 %5014, i64 1)
           to label %5020 unwind label %.thread4037
@@ -13456,11 +13456,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5029:                                             ; preds = %5026
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5024, ptr noundef nonnull align 8 dereferenceable(104) %663, i64 104, i1 false)
-  %.sroa.2316.0..sroa_idx = getelementptr inbounds i8, ptr %5024, i64 104
+  %.sroa.2316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5024, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2316.0..sroa_idx, align 8
-  %.sroa.3317.0..sroa_idx = getelementptr inbounds i8, ptr %5024, i64 112
+  %.sroa.3317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5024, i64 112
   store i64 1, ptr %.sroa.3317.0..sroa_idx, align 8
-  %.sroa.4318.0..sroa_idx = getelementptr inbounds i8, ptr %5024, i64 120
+  %.sroa.4318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5024, i64 120
   store ptr null, ptr %.sroa.4318.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1884, ptr nonnull align 8 %5024, i64 1)
           to label %5030 unwind label %.thread4048
@@ -13496,11 +13496,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5037:                                             ; preds = %5034
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5032, ptr noundef nonnull align 8 dereferenceable(104) %662, i64 104, i1 false)
-  %.sroa.2321.0..sroa_idx = getelementptr inbounds i8, ptr %5032, i64 104
+  %.sroa.2321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5032, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2321.0..sroa_idx, align 8
-  %.sroa.3322.0..sroa_idx = getelementptr inbounds i8, ptr %5032, i64 112
+  %.sroa.3322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5032, i64 112
   store i64 1, ptr %.sroa.3322.0..sroa_idx, align 8
-  %.sroa.4323.0..sroa_idx = getelementptr inbounds i8, ptr %5032, i64 120
+  %.sroa.4323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5032, i64 120
   store ptr null, ptr %.sroa.4323.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1882, ptr nonnull align 8 %5032, i64 1)
           to label %5038 unwind label %.thread4059
@@ -13547,12 +13547,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5045
 
 5048:                                             ; preds = %5044
-  %5049 = getelementptr inbounds i8, ptr %1875, i64 104
+  %5049 = getelementptr inbounds nuw i8, ptr %1875, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5049, align 8
-  %5050 = getelementptr inbounds i8, ptr %1875, i64 112
+  %5050 = getelementptr inbounds nuw i8, ptr %1875, i64 112
   store i64 1, ptr %5050, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1875, ptr noundef nonnull align 8 dereferenceable(104) %661, i64 104, i1 false)
-  %5051 = getelementptr inbounds i8, ptr %1875, i64 120
+  %5051 = getelementptr inbounds nuw i8, ptr %1875, i64 120
   store ptr null, ptr %5051, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %660, ptr nonnull align 8 %2471)
           to label %5054 unwind label %5052
@@ -13565,13 +13565,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5054:                                             ; preds = %5048
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5042, ptr noundef nonnull align 8 dereferenceable(136) %1875, i64 136, i1 false)
-  %5055 = getelementptr inbounds i8, ptr %5042, i64 136
+  %5055 = getelementptr inbounds nuw i8, ptr %5042, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5055, ptr noundef nonnull align 8 dereferenceable(104) %660, i64 104, i1 false)
-  %.sroa.2326.0..sroa_idx = getelementptr inbounds i8, ptr %5042, i64 240
+  %.sroa.2326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5042, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2326.0..sroa_idx, align 8
-  %.sroa.3327.0..sroa_idx = getelementptr inbounds i8, ptr %5042, i64 248
+  %.sroa.3327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5042, i64 248
   store i64 1, ptr %.sroa.3327.0..sroa_idx, align 8
-  %.sroa.4328.0..sroa_idx = getelementptr inbounds i8, ptr %5042, i64 256
+  %.sroa.4328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5042, i64 256
   store ptr null, ptr %.sroa.4328.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1877, ptr nonnull align 8 %5042, i64 2)
           to label %5056 unwind label %.thread4070
@@ -13607,11 +13607,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5063:                                             ; preds = %5060
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5058, ptr noundef nonnull align 8 dereferenceable(104) %659, i64 104, i1 false)
-  %.sroa.2331.0..sroa_idx = getelementptr inbounds i8, ptr %5058, i64 104
+  %.sroa.2331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5058, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2331.0..sroa_idx, align 8
-  %.sroa.3332.0..sroa_idx = getelementptr inbounds i8, ptr %5058, i64 112
+  %.sroa.3332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5058, i64 112
   store i64 1, ptr %.sroa.3332.0..sroa_idx, align 8
-  %.sroa.4333.0..sroa_idx = getelementptr inbounds i8, ptr %5058, i64 120
+  %.sroa.4333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5058, i64 120
   store ptr null, ptr %.sroa.4333.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1874, ptr nonnull align 8 %5058, i64 1)
           to label %5064 unwind label %.thread4081
@@ -13658,12 +13658,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5071
 
 5074:                                             ; preds = %5070
-  %5075 = getelementptr inbounds i8, ptr %1867, i64 104
+  %5075 = getelementptr inbounds nuw i8, ptr %1867, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5075, align 8
-  %5076 = getelementptr inbounds i8, ptr %1867, i64 112
+  %5076 = getelementptr inbounds nuw i8, ptr %1867, i64 112
   store i64 1, ptr %5076, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1867, ptr noundef nonnull align 8 dereferenceable(104) %658, i64 104, i1 false)
-  %5077 = getelementptr inbounds i8, ptr %1867, i64 120
+  %5077 = getelementptr inbounds nuw i8, ptr %1867, i64 120
   store ptr null, ptr %5077, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %657, ptr nonnull align 8 %2471)
           to label %5080 unwind label %5078
@@ -13676,13 +13676,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5080:                                             ; preds = %5074
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5068, ptr noundef nonnull align 8 dereferenceable(136) %1867, i64 136, i1 false)
-  %5081 = getelementptr inbounds i8, ptr %5068, i64 136
+  %5081 = getelementptr inbounds nuw i8, ptr %5068, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5081, ptr noundef nonnull align 8 dereferenceable(104) %657, i64 104, i1 false)
-  %.sroa.2336.0..sroa_idx = getelementptr inbounds i8, ptr %5068, i64 240
+  %.sroa.2336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5068, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2336.0..sroa_idx, align 8
-  %.sroa.3337.0..sroa_idx = getelementptr inbounds i8, ptr %5068, i64 248
+  %.sroa.3337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5068, i64 248
   store i64 1, ptr %.sroa.3337.0..sroa_idx, align 8
-  %.sroa.4338.0..sroa_idx = getelementptr inbounds i8, ptr %5068, i64 256
+  %.sroa.4338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5068, i64 256
   store ptr null, ptr %.sroa.4338.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1869, ptr nonnull align 8 %5068, i64 2)
           to label %5082 unwind label %.thread4092
@@ -13718,11 +13718,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5089:                                             ; preds = %5086
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5084, ptr noundef nonnull align 8 dereferenceable(104) %656, i64 104, i1 false)
-  %.sroa.2341.0..sroa_idx = getelementptr inbounds i8, ptr %5084, i64 104
+  %.sroa.2341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5084, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2341.0..sroa_idx, align 8
-  %.sroa.3342.0..sroa_idx = getelementptr inbounds i8, ptr %5084, i64 112
+  %.sroa.3342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5084, i64 112
   store i64 1, ptr %.sroa.3342.0..sroa_idx, align 8
-  %.sroa.4343.0..sroa_idx = getelementptr inbounds i8, ptr %5084, i64 120
+  %.sroa.4343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5084, i64 120
   store ptr null, ptr %.sroa.4343.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1866, ptr nonnull align 8 %5084, i64 1)
           to label %5090 unwind label %.thread4103
@@ -13769,12 +13769,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5097
 
 5100:                                             ; preds = %5096
-  %5101 = getelementptr inbounds i8, ptr %1859, i64 104
+  %5101 = getelementptr inbounds nuw i8, ptr %1859, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5101, align 8
-  %5102 = getelementptr inbounds i8, ptr %1859, i64 112
+  %5102 = getelementptr inbounds nuw i8, ptr %1859, i64 112
   store i64 1, ptr %5102, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1859, ptr noundef nonnull align 8 dereferenceable(104) %655, i64 104, i1 false)
-  %5103 = getelementptr inbounds i8, ptr %1859, i64 120
+  %5103 = getelementptr inbounds nuw i8, ptr %1859, i64 120
   store ptr null, ptr %5103, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %654, ptr nonnull align 8 %2471)
           to label %5106 unwind label %5104
@@ -13787,13 +13787,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5106:                                             ; preds = %5100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5094, ptr noundef nonnull align 8 dereferenceable(136) %1859, i64 136, i1 false)
-  %5107 = getelementptr inbounds i8, ptr %5094, i64 136
+  %5107 = getelementptr inbounds nuw i8, ptr %5094, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5107, ptr noundef nonnull align 8 dereferenceable(104) %654, i64 104, i1 false)
-  %.sroa.2346.0..sroa_idx = getelementptr inbounds i8, ptr %5094, i64 240
+  %.sroa.2346.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5094, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2346.0..sroa_idx, align 8
-  %.sroa.3347.0..sroa_idx = getelementptr inbounds i8, ptr %5094, i64 248
+  %.sroa.3347.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5094, i64 248
   store i64 1, ptr %.sroa.3347.0..sroa_idx, align 8
-  %.sroa.4348.0..sroa_idx = getelementptr inbounds i8, ptr %5094, i64 256
+  %.sroa.4348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5094, i64 256
   store ptr null, ptr %.sroa.4348.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1861, ptr nonnull align 8 %5094, i64 2)
           to label %5108 unwind label %.thread4114
@@ -13829,11 +13829,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5115:                                             ; preds = %5112
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5110, ptr noundef nonnull align 8 dereferenceable(104) %653, i64 104, i1 false)
-  %.sroa.2351.0..sroa_idx = getelementptr inbounds i8, ptr %5110, i64 104
+  %.sroa.2351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5110, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2351.0..sroa_idx, align 8
-  %.sroa.3352.0..sroa_idx = getelementptr inbounds i8, ptr %5110, i64 112
+  %.sroa.3352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5110, i64 112
   store i64 1, ptr %.sroa.3352.0..sroa_idx, align 8
-  %.sroa.4353.0..sroa_idx = getelementptr inbounds i8, ptr %5110, i64 120
+  %.sroa.4353.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5110, i64 120
   store ptr null, ptr %.sroa.4353.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1858, ptr nonnull align 8 %5110, i64 1)
           to label %5116 unwind label %.thread4125
@@ -13911,12 +13911,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5132
 
 5135:                                             ; preds = %5131
-  %5136 = getelementptr inbounds i8, ptr %1846, i64 104
+  %5136 = getelementptr inbounds nuw i8, ptr %1846, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5136, align 8
-  %5137 = getelementptr inbounds i8, ptr %1846, i64 112
+  %5137 = getelementptr inbounds nuw i8, ptr %1846, i64 112
   store i64 1, ptr %5137, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1846, ptr noundef nonnull align 8 dereferenceable(104) %652, i64 104, i1 false)
-  %5138 = getelementptr inbounds i8, ptr %1846, i64 120
+  %5138 = getelementptr inbounds nuw i8, ptr %1846, i64 120
   store ptr null, ptr %5138, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %651, ptr nonnull align 8 %1856)
           to label %5141 unwind label %5139
@@ -13929,13 +13929,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5141:                                             ; preds = %5135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5129, ptr noundef nonnull align 8 dereferenceable(136) %1846, i64 136, i1 false)
-  %5142 = getelementptr inbounds i8, ptr %5129, i64 136
+  %5142 = getelementptr inbounds nuw i8, ptr %5129, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5142, ptr noundef nonnull align 8 dereferenceable(104) %651, i64 104, i1 false)
-  %.sroa.2356.0..sroa_idx = getelementptr inbounds i8, ptr %5129, i64 240
+  %.sroa.2356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5129, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2356.0..sroa_idx, align 8
-  %.sroa.3357.0..sroa_idx = getelementptr inbounds i8, ptr %5129, i64 248
+  %.sroa.3357.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5129, i64 248
   store i64 1, ptr %.sroa.3357.0..sroa_idx, align 8
-  %.sroa.4358.0..sroa_idx = getelementptr inbounds i8, ptr %5129, i64 256
+  %.sroa.4358.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5129, i64 256
   store ptr null, ptr %.sroa.4358.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1848, ptr nonnull align 8 %5129, i64 2)
           to label %5143 unwind label %.thread4136
@@ -13971,11 +13971,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5150:                                             ; preds = %5147
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5145, ptr noundef nonnull align 8 dereferenceable(104) %650, i64 104, i1 false)
-  %.sroa.2361.0..sroa_idx = getelementptr inbounds i8, ptr %5145, i64 104
+  %.sroa.2361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5145, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2361.0..sroa_idx, align 8
-  %.sroa.3362.0..sroa_idx = getelementptr inbounds i8, ptr %5145, i64 112
+  %.sroa.3362.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5145, i64 112
   store i64 1, ptr %.sroa.3362.0..sroa_idx, align 8
-  %.sroa.4363.0..sroa_idx = getelementptr inbounds i8, ptr %5145, i64 120
+  %.sroa.4363.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5145, i64 120
   store ptr null, ptr %.sroa.4363.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1845, ptr nonnull align 8 %5145, i64 1)
           to label %5151 unwind label %.thread4147
@@ -14022,12 +14022,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5158
 
 5161:                                             ; preds = %5157
-  %5162 = getelementptr inbounds i8, ptr %1838, i64 104
+  %5162 = getelementptr inbounds nuw i8, ptr %1838, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5162, align 8
-  %5163 = getelementptr inbounds i8, ptr %1838, i64 112
+  %5163 = getelementptr inbounds nuw i8, ptr %1838, i64 112
   store i64 1, ptr %5163, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1838, ptr noundef nonnull align 8 dereferenceable(104) %649, i64 104, i1 false)
-  %5164 = getelementptr inbounds i8, ptr %1838, i64 120
+  %5164 = getelementptr inbounds nuw i8, ptr %1838, i64 120
   store ptr null, ptr %5164, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %648, ptr nonnull align 8 %1856)
           to label %5167 unwind label %5165
@@ -14040,13 +14040,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5167:                                             ; preds = %5161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5155, ptr noundef nonnull align 8 dereferenceable(136) %1838, i64 136, i1 false)
-  %5168 = getelementptr inbounds i8, ptr %5155, i64 136
+  %5168 = getelementptr inbounds nuw i8, ptr %5155, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5168, ptr noundef nonnull align 8 dereferenceable(104) %648, i64 104, i1 false)
-  %.sroa.2366.0..sroa_idx = getelementptr inbounds i8, ptr %5155, i64 240
+  %.sroa.2366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5155, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2366.0..sroa_idx, align 8
-  %.sroa.3367.0..sroa_idx = getelementptr inbounds i8, ptr %5155, i64 248
+  %.sroa.3367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5155, i64 248
   store i64 1, ptr %.sroa.3367.0..sroa_idx, align 8
-  %.sroa.4368.0..sroa_idx = getelementptr inbounds i8, ptr %5155, i64 256
+  %.sroa.4368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5155, i64 256
   store ptr null, ptr %.sroa.4368.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1840, ptr nonnull align 8 %5155, i64 2)
           to label %5169 unwind label %.thread4158
@@ -14082,11 +14082,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5176:                                             ; preds = %5173
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5171, ptr noundef nonnull align 8 dereferenceable(104) %647, i64 104, i1 false)
-  %.sroa.2371.0..sroa_idx = getelementptr inbounds i8, ptr %5171, i64 104
+  %.sroa.2371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5171, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2371.0..sroa_idx, align 8
-  %.sroa.3372.0..sroa_idx = getelementptr inbounds i8, ptr %5171, i64 112
+  %.sroa.3372.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5171, i64 112
   store i64 1, ptr %.sroa.3372.0..sroa_idx, align 8
-  %.sroa.4373.0..sroa_idx = getelementptr inbounds i8, ptr %5171, i64 120
+  %.sroa.4373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5171, i64 120
   store ptr null, ptr %.sroa.4373.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1837, ptr nonnull align 8 %5171, i64 1)
           to label %5177 unwind label %.thread4169
@@ -14133,12 +14133,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5184
 
 5187:                                             ; preds = %5183
-  %5188 = getelementptr inbounds i8, ptr %1828, i64 104
+  %5188 = getelementptr inbounds nuw i8, ptr %1828, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5188, align 8
-  %5189 = getelementptr inbounds i8, ptr %1828, i64 112
+  %5189 = getelementptr inbounds nuw i8, ptr %1828, i64 112
   store i64 1, ptr %5189, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1828, ptr noundef nonnull align 8 dereferenceable(104) %646, i64 104, i1 false)
-  %5190 = getelementptr inbounds i8, ptr %1828, i64 120
+  %5190 = getelementptr inbounds nuw i8, ptr %1828, i64 120
   store ptr null, ptr %5190, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %645, ptr nonnull align 8 %2457)
           to label %5193 unwind label %5191
@@ -14151,13 +14151,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5193:                                             ; preds = %5187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5181, ptr noundef nonnull align 8 dereferenceable(136) %1828, i64 136, i1 false)
-  %5194 = getelementptr inbounds i8, ptr %5181, i64 136
+  %5194 = getelementptr inbounds nuw i8, ptr %5181, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5194, ptr noundef nonnull align 8 dereferenceable(104) %645, i64 104, i1 false)
-  %.sroa.2376.0..sroa_idx = getelementptr inbounds i8, ptr %5181, i64 240
+  %.sroa.2376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5181, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2376.0..sroa_idx, align 8
-  %.sroa.3377.0..sroa_idx = getelementptr inbounds i8, ptr %5181, i64 248
+  %.sroa.3377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5181, i64 248
   store i64 1, ptr %.sroa.3377.0..sroa_idx, align 8
-  %.sroa.4378.0..sroa_idx = getelementptr inbounds i8, ptr %5181, i64 256
+  %.sroa.4378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5181, i64 256
   store ptr null, ptr %.sroa.4378.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1830, ptr nonnull align 8 %5181, i64 2)
           to label %5195 unwind label %.thread4180
@@ -14193,11 +14193,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5202:                                             ; preds = %5199
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5197, ptr noundef nonnull align 8 dereferenceable(104) %644, i64 104, i1 false)
-  %.sroa.2381.0..sroa_idx = getelementptr inbounds i8, ptr %5197, i64 104
+  %.sroa.2381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5197, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2381.0..sroa_idx, align 8
-  %.sroa.3382.0..sroa_idx = getelementptr inbounds i8, ptr %5197, i64 112
+  %.sroa.3382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5197, i64 112
   store i64 1, ptr %.sroa.3382.0..sroa_idx, align 8
-  %.sroa.4383.0..sroa_idx = getelementptr inbounds i8, ptr %5197, i64 120
+  %.sroa.4383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5197, i64 120
   store ptr null, ptr %.sroa.4383.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1827, ptr nonnull align 8 %5197, i64 1)
           to label %5203 unwind label %.thread4191
@@ -14252,12 +14252,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5212
 
 5215:                                             ; preds = %5211
-  %5216 = getelementptr inbounds i8, ptr %1818, i64 104
+  %5216 = getelementptr inbounds nuw i8, ptr %1818, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5216, align 8
-  %5217 = getelementptr inbounds i8, ptr %1818, i64 112
+  %5217 = getelementptr inbounds nuw i8, ptr %1818, i64 112
   store i64 1, ptr %5217, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1818, ptr noundef nonnull align 8 dereferenceable(104) %643, i64 104, i1 false)
-  %5218 = getelementptr inbounds i8, ptr %1818, i64 120
+  %5218 = getelementptr inbounds nuw i8, ptr %1818, i64 120
   store ptr null, ptr %5218, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %642, ptr nonnull align 8 %2457)
           to label %5221 unwind label %5219
@@ -14270,13 +14270,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5221:                                             ; preds = %5215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5209, ptr noundef nonnull align 8 dereferenceable(136) %1818, i64 136, i1 false)
-  %5222 = getelementptr inbounds i8, ptr %5209, i64 136
+  %5222 = getelementptr inbounds nuw i8, ptr %5209, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5222, ptr noundef nonnull align 8 dereferenceable(104) %642, i64 104, i1 false)
-  %.sroa.2386.0..sroa_idx = getelementptr inbounds i8, ptr %5209, i64 240
+  %.sroa.2386.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5209, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2386.0..sroa_idx, align 8
-  %.sroa.3387.0..sroa_idx = getelementptr inbounds i8, ptr %5209, i64 248
+  %.sroa.3387.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5209, i64 248
   store i64 1, ptr %.sroa.3387.0..sroa_idx, align 8
-  %.sroa.4388.0..sroa_idx = getelementptr inbounds i8, ptr %5209, i64 256
+  %.sroa.4388.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5209, i64 256
   store ptr null, ptr %.sroa.4388.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1820, ptr nonnull align 8 %5209, i64 2)
           to label %5223 unwind label %.thread4202
@@ -14312,11 +14312,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5230:                                             ; preds = %5227
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5225, ptr noundef nonnull align 8 dereferenceable(104) %641, i64 104, i1 false)
-  %.sroa.2391.0..sroa_idx = getelementptr inbounds i8, ptr %5225, i64 104
+  %.sroa.2391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5225, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2391.0..sroa_idx, align 8
-  %.sroa.3392.0..sroa_idx = getelementptr inbounds i8, ptr %5225, i64 112
+  %.sroa.3392.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5225, i64 112
   store i64 1, ptr %.sroa.3392.0..sroa_idx, align 8
-  %.sroa.4393.0..sroa_idx = getelementptr inbounds i8, ptr %5225, i64 120
+  %.sroa.4393.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5225, i64 120
   store ptr null, ptr %.sroa.4393.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1817, ptr nonnull align 8 %5225, i64 1)
           to label %5231 unwind label %.thread4213
@@ -14371,12 +14371,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5240
 
 5243:                                             ; preds = %5239
-  %5244 = getelementptr inbounds i8, ptr %1808, i64 104
+  %5244 = getelementptr inbounds nuw i8, ptr %1808, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5244, align 8
-  %5245 = getelementptr inbounds i8, ptr %1808, i64 112
+  %5245 = getelementptr inbounds nuw i8, ptr %1808, i64 112
   store i64 1, ptr %5245, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1808, ptr noundef nonnull align 8 dereferenceable(104) %640, i64 104, i1 false)
-  %5246 = getelementptr inbounds i8, ptr %1808, i64 120
+  %5246 = getelementptr inbounds nuw i8, ptr %1808, i64 120
   store ptr null, ptr %5246, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %639, ptr nonnull align 8 %2457)
           to label %5249 unwind label %5247
@@ -14389,13 +14389,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5249:                                             ; preds = %5243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5237, ptr noundef nonnull align 8 dereferenceable(136) %1808, i64 136, i1 false)
-  %5250 = getelementptr inbounds i8, ptr %5237, i64 136
+  %5250 = getelementptr inbounds nuw i8, ptr %5237, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5250, ptr noundef nonnull align 8 dereferenceable(104) %639, i64 104, i1 false)
-  %.sroa.2396.0..sroa_idx = getelementptr inbounds i8, ptr %5237, i64 240
+  %.sroa.2396.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5237, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2396.0..sroa_idx, align 8
-  %.sroa.3397.0..sroa_idx = getelementptr inbounds i8, ptr %5237, i64 248
+  %.sroa.3397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5237, i64 248
   store i64 1, ptr %.sroa.3397.0..sroa_idx, align 8
-  %.sroa.4398.0..sroa_idx = getelementptr inbounds i8, ptr %5237, i64 256
+  %.sroa.4398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5237, i64 256
   store ptr null, ptr %.sroa.4398.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1810, ptr nonnull align 8 %5237, i64 2)
           to label %5251 unwind label %.thread4224
@@ -14431,11 +14431,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5258:                                             ; preds = %5255
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5253, ptr noundef nonnull align 8 dereferenceable(104) %638, i64 104, i1 false)
-  %.sroa.2401.0..sroa_idx = getelementptr inbounds i8, ptr %5253, i64 104
+  %.sroa.2401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5253, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2401.0..sroa_idx, align 8
-  %.sroa.3402.0..sroa_idx = getelementptr inbounds i8, ptr %5253, i64 112
+  %.sroa.3402.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5253, i64 112
   store i64 1, ptr %.sroa.3402.0..sroa_idx, align 8
-  %.sroa.4403.0..sroa_idx = getelementptr inbounds i8, ptr %5253, i64 120
+  %.sroa.4403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5253, i64 120
   store ptr null, ptr %.sroa.4403.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1807, ptr nonnull align 8 %5253, i64 1)
           to label %5259 unwind label %.thread4235
@@ -14490,12 +14490,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5268
 
 5271:                                             ; preds = %5267
-  %5272 = getelementptr inbounds i8, ptr %1798, i64 104
+  %5272 = getelementptr inbounds nuw i8, ptr %1798, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5272, align 8
-  %5273 = getelementptr inbounds i8, ptr %1798, i64 112
+  %5273 = getelementptr inbounds nuw i8, ptr %1798, i64 112
   store i64 1, ptr %5273, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1798, ptr noundef nonnull align 8 dereferenceable(104) %637, i64 104, i1 false)
-  %5274 = getelementptr inbounds i8, ptr %1798, i64 120
+  %5274 = getelementptr inbounds nuw i8, ptr %1798, i64 120
   store ptr null, ptr %5274, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %636, ptr nonnull align 8 %2457)
           to label %5277 unwind label %5275
@@ -14508,13 +14508,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5277:                                             ; preds = %5271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5265, ptr noundef nonnull align 8 dereferenceable(136) %1798, i64 136, i1 false)
-  %5278 = getelementptr inbounds i8, ptr %5265, i64 136
+  %5278 = getelementptr inbounds nuw i8, ptr %5265, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5278, ptr noundef nonnull align 8 dereferenceable(104) %636, i64 104, i1 false)
-  %.sroa.2406.0..sroa_idx = getelementptr inbounds i8, ptr %5265, i64 240
+  %.sroa.2406.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5265, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2406.0..sroa_idx, align 8
-  %.sroa.3407.0..sroa_idx = getelementptr inbounds i8, ptr %5265, i64 248
+  %.sroa.3407.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5265, i64 248
   store i64 1, ptr %.sroa.3407.0..sroa_idx, align 8
-  %.sroa.4408.0..sroa_idx = getelementptr inbounds i8, ptr %5265, i64 256
+  %.sroa.4408.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5265, i64 256
   store ptr null, ptr %.sroa.4408.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1800, ptr nonnull align 8 %5265, i64 2)
           to label %5279 unwind label %.thread4246
@@ -14550,11 +14550,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5286:                                             ; preds = %5283
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5281, ptr noundef nonnull align 8 dereferenceable(104) %635, i64 104, i1 false)
-  %.sroa.2411.0..sroa_idx = getelementptr inbounds i8, ptr %5281, i64 104
+  %.sroa.2411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5281, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2411.0..sroa_idx, align 8
-  %.sroa.3412.0..sroa_idx = getelementptr inbounds i8, ptr %5281, i64 112
+  %.sroa.3412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5281, i64 112
   store i64 1, ptr %.sroa.3412.0..sroa_idx, align 8
-  %.sroa.4413.0..sroa_idx = getelementptr inbounds i8, ptr %5281, i64 120
+  %.sroa.4413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5281, i64 120
   store ptr null, ptr %.sroa.4413.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1797, ptr nonnull align 8 %5281, i64 1)
           to label %5287 unwind label %.thread4257
@@ -14576,7 +14576,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5291 unwind label %5126
 
 5291:                                             ; preds = %5290
-  %5292 = getelementptr inbounds i8, ptr %1, i64 32
+  %5292 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %1793, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.281, i64 8, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.280, i64 222, ptr nonnull align 8 %5292)
           to label %5293 unwind label %5126
 
@@ -14610,12 +14610,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5297
 
 5300:                                             ; preds = %5296
-  %5301 = getelementptr inbounds i8, ptr %1790, i64 104
+  %5301 = getelementptr inbounds nuw i8, ptr %1790, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5301, align 8
-  %5302 = getelementptr inbounds i8, ptr %1790, i64 112
+  %5302 = getelementptr inbounds nuw i8, ptr %1790, i64 112
   store i64 1, ptr %5302, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1790, ptr noundef nonnull align 8 dereferenceable(104) %634, i64 104, i1 false)
-  %5303 = getelementptr inbounds i8, ptr %1790, i64 120
+  %5303 = getelementptr inbounds nuw i8, ptr %1790, i64 120
   store ptr null, ptr %5303, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %633, ptr align 8 %2)
           to label %5306 unwind label %5304
@@ -14628,13 +14628,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5306:                                             ; preds = %5300
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5294, ptr noundef nonnull align 8 dereferenceable(136) %1790, i64 136, i1 false)
-  %5307 = getelementptr inbounds i8, ptr %5294, i64 136
+  %5307 = getelementptr inbounds nuw i8, ptr %5294, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5307, ptr noundef nonnull align 8 dereferenceable(104) %633, i64 104, i1 false)
-  %.sroa.2416.0..sroa_idx = getelementptr inbounds i8, ptr %5294, i64 240
+  %.sroa.2416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5294, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2416.0..sroa_idx, align 8
-  %.sroa.3417.0..sroa_idx = getelementptr inbounds i8, ptr %5294, i64 248
+  %.sroa.3417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5294, i64 248
   store i64 1, ptr %.sroa.3417.0..sroa_idx, align 8
-  %.sroa.4418.0..sroa_idx = getelementptr inbounds i8, ptr %5294, i64 256
+  %.sroa.4418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5294, i64 256
   store ptr null, ptr %.sroa.4418.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1792, ptr nonnull align 8 %5294, i64 2)
           to label %5308 unwind label %.thread4268
@@ -14670,11 +14670,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5315:                                             ; preds = %5312
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5310, ptr noundef nonnull align 8 dereferenceable(104) %632, i64 104, i1 false)
-  %.sroa.2421.0..sroa_idx = getelementptr inbounds i8, ptr %5310, i64 104
+  %.sroa.2421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5310, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2421.0..sroa_idx, align 8
-  %.sroa.3422.0..sroa_idx = getelementptr inbounds i8, ptr %5310, i64 112
+  %.sroa.3422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5310, i64 112
   store i64 1, ptr %.sroa.3422.0..sroa_idx, align 8
-  %.sroa.4423.0..sroa_idx = getelementptr inbounds i8, ptr %5310, i64 120
+  %.sroa.4423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5310, i64 120
   store ptr null, ptr %.sroa.4423.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1789, ptr nonnull align 8 %5310, i64 1)
           to label %5316 unwind label %.thread4279
@@ -14721,12 +14721,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5323
 
 5326:                                             ; preds = %5322
-  %5327 = getelementptr inbounds i8, ptr %1782, i64 104
+  %5327 = getelementptr inbounds nuw i8, ptr %1782, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5327, align 8
-  %5328 = getelementptr inbounds i8, ptr %1782, i64 112
+  %5328 = getelementptr inbounds nuw i8, ptr %1782, i64 112
   store i64 1, ptr %5328, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1782, ptr noundef nonnull align 8 dereferenceable(104) %631, i64 104, i1 false)
-  %5329 = getelementptr inbounds i8, ptr %1782, i64 120
+  %5329 = getelementptr inbounds nuw i8, ptr %1782, i64 120
   store ptr null, ptr %5329, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %630, ptr align 8 %2)
           to label %5332 unwind label %5330
@@ -14739,13 +14739,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5332:                                             ; preds = %5326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5320, ptr noundef nonnull align 8 dereferenceable(136) %1782, i64 136, i1 false)
-  %5333 = getelementptr inbounds i8, ptr %5320, i64 136
+  %5333 = getelementptr inbounds nuw i8, ptr %5320, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5333, ptr noundef nonnull align 8 dereferenceable(104) %630, i64 104, i1 false)
-  %.sroa.2426.0..sroa_idx = getelementptr inbounds i8, ptr %5320, i64 240
+  %.sroa.2426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5320, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2426.0..sroa_idx, align 8
-  %.sroa.3427.0..sroa_idx = getelementptr inbounds i8, ptr %5320, i64 248
+  %.sroa.3427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5320, i64 248
   store i64 1, ptr %.sroa.3427.0..sroa_idx, align 8
-  %.sroa.4428.0..sroa_idx = getelementptr inbounds i8, ptr %5320, i64 256
+  %.sroa.4428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5320, i64 256
   store ptr null, ptr %.sroa.4428.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1784, ptr nonnull align 8 %5320, i64 2)
           to label %5334 unwind label %.thread4290
@@ -14781,11 +14781,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5341:                                             ; preds = %5338
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5336, ptr noundef nonnull align 8 dereferenceable(104) %629, i64 104, i1 false)
-  %.sroa.2431.0..sroa_idx = getelementptr inbounds i8, ptr %5336, i64 104
+  %.sroa.2431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5336, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2431.0..sroa_idx, align 8
-  %.sroa.3432.0..sroa_idx = getelementptr inbounds i8, ptr %5336, i64 112
+  %.sroa.3432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5336, i64 112
   store i64 1, ptr %.sroa.3432.0..sroa_idx, align 8
-  %.sroa.4433.0..sroa_idx = getelementptr inbounds i8, ptr %5336, i64 120
+  %.sroa.4433.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5336, i64 120
   store ptr null, ptr %.sroa.4433.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1781, ptr nonnull align 8 %5336, i64 1)
           to label %5342 unwind label %.thread4301
@@ -14832,12 +14832,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5349
 
 5352:                                             ; preds = %5348
-  %5353 = getelementptr inbounds i8, ptr %1774, i64 104
+  %5353 = getelementptr inbounds nuw i8, ptr %1774, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5353, align 8
-  %5354 = getelementptr inbounds i8, ptr %1774, i64 112
+  %5354 = getelementptr inbounds nuw i8, ptr %1774, i64 112
   store i64 1, ptr %5354, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1774, ptr noundef nonnull align 8 dereferenceable(104) %628, i64 104, i1 false)
-  %5355 = getelementptr inbounds i8, ptr %1774, i64 120
+  %5355 = getelementptr inbounds nuw i8, ptr %1774, i64 120
   store ptr null, ptr %5355, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %627, ptr align 8 %2)
           to label %5358 unwind label %5356
@@ -14850,13 +14850,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5358:                                             ; preds = %5352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5346, ptr noundef nonnull align 8 dereferenceable(136) %1774, i64 136, i1 false)
-  %5359 = getelementptr inbounds i8, ptr %5346, i64 136
+  %5359 = getelementptr inbounds nuw i8, ptr %5346, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5359, ptr noundef nonnull align 8 dereferenceable(104) %627, i64 104, i1 false)
-  %.sroa.2436.0..sroa_idx = getelementptr inbounds i8, ptr %5346, i64 240
+  %.sroa.2436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5346, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2436.0..sroa_idx, align 8
-  %.sroa.3437.0..sroa_idx = getelementptr inbounds i8, ptr %5346, i64 248
+  %.sroa.3437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5346, i64 248
   store i64 1, ptr %.sroa.3437.0..sroa_idx, align 8
-  %.sroa.4438.0..sroa_idx = getelementptr inbounds i8, ptr %5346, i64 256
+  %.sroa.4438.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5346, i64 256
   store ptr null, ptr %.sroa.4438.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1776, ptr nonnull align 8 %5346, i64 2)
           to label %5360 unwind label %.thread4312
@@ -14892,11 +14892,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5367:                                             ; preds = %5364
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5362, ptr noundef nonnull align 8 dereferenceable(104) %626, i64 104, i1 false)
-  %.sroa.2441.0..sroa_idx = getelementptr inbounds i8, ptr %5362, i64 104
+  %.sroa.2441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5362, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2441.0..sroa_idx, align 8
-  %.sroa.3442.0..sroa_idx = getelementptr inbounds i8, ptr %5362, i64 112
+  %.sroa.3442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5362, i64 112
   store i64 1, ptr %.sroa.3442.0..sroa_idx, align 8
-  %.sroa.4443.0..sroa_idx = getelementptr inbounds i8, ptr %5362, i64 120
+  %.sroa.4443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5362, i64 120
   store ptr null, ptr %.sroa.4443.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1773, ptr nonnull align 8 %5362, i64 1)
           to label %5368 unwind label %.thread4323
@@ -14943,12 +14943,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5375
 
 5378:                                             ; preds = %5374
-  %5379 = getelementptr inbounds i8, ptr %1766, i64 104
+  %5379 = getelementptr inbounds nuw i8, ptr %1766, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5379, align 8
-  %5380 = getelementptr inbounds i8, ptr %1766, i64 112
+  %5380 = getelementptr inbounds nuw i8, ptr %1766, i64 112
   store i64 1, ptr %5380, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1766, ptr noundef nonnull align 8 dereferenceable(104) %625, i64 104, i1 false)
-  %5381 = getelementptr inbounds i8, ptr %1766, i64 120
+  %5381 = getelementptr inbounds nuw i8, ptr %1766, i64 120
   store ptr null, ptr %5381, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %624, ptr align 8 %2)
           to label %5384 unwind label %5382
@@ -14961,13 +14961,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5384:                                             ; preds = %5378
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5372, ptr noundef nonnull align 8 dereferenceable(136) %1766, i64 136, i1 false)
-  %5385 = getelementptr inbounds i8, ptr %5372, i64 136
+  %5385 = getelementptr inbounds nuw i8, ptr %5372, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5385, ptr noundef nonnull align 8 dereferenceable(104) %624, i64 104, i1 false)
-  %.sroa.2446.0..sroa_idx = getelementptr inbounds i8, ptr %5372, i64 240
+  %.sroa.2446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5372, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2446.0..sroa_idx, align 8
-  %.sroa.3447.0..sroa_idx = getelementptr inbounds i8, ptr %5372, i64 248
+  %.sroa.3447.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5372, i64 248
   store i64 1, ptr %.sroa.3447.0..sroa_idx, align 8
-  %.sroa.4448.0..sroa_idx = getelementptr inbounds i8, ptr %5372, i64 256
+  %.sroa.4448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5372, i64 256
   store ptr null, ptr %.sroa.4448.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1768, ptr nonnull align 8 %5372, i64 2)
           to label %5386 unwind label %.thread4334
@@ -15003,11 +15003,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5393:                                             ; preds = %5390
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5388, ptr noundef nonnull align 8 dereferenceable(104) %623, i64 104, i1 false)
-  %.sroa.2451.0..sroa_idx = getelementptr inbounds i8, ptr %5388, i64 104
+  %.sroa.2451.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5388, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2451.0..sroa_idx, align 8
-  %.sroa.3452.0..sroa_idx = getelementptr inbounds i8, ptr %5388, i64 112
+  %.sroa.3452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5388, i64 112
   store i64 1, ptr %.sroa.3452.0..sroa_idx, align 8
-  %.sroa.4453.0..sroa_idx = getelementptr inbounds i8, ptr %5388, i64 120
+  %.sroa.4453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5388, i64 120
   store ptr null, ptr %.sroa.4453.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1765, ptr nonnull align 8 %5388, i64 1)
           to label %5394 unwind label %.thread4345
@@ -15054,12 +15054,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5401
 
 5404:                                             ; preds = %5400
-  %5405 = getelementptr inbounds i8, ptr %1758, i64 104
+  %5405 = getelementptr inbounds nuw i8, ptr %1758, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5405, align 8
-  %5406 = getelementptr inbounds i8, ptr %1758, i64 112
+  %5406 = getelementptr inbounds nuw i8, ptr %1758, i64 112
   store i64 1, ptr %5406, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1758, ptr noundef nonnull align 8 dereferenceable(104) %622, i64 104, i1 false)
-  %5407 = getelementptr inbounds i8, ptr %1758, i64 120
+  %5407 = getelementptr inbounds nuw i8, ptr %1758, i64 120
   store ptr null, ptr %5407, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %621, ptr align 8 %2)
           to label %5410 unwind label %5408
@@ -15072,13 +15072,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5410:                                             ; preds = %5404
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5398, ptr noundef nonnull align 8 dereferenceable(136) %1758, i64 136, i1 false)
-  %5411 = getelementptr inbounds i8, ptr %5398, i64 136
+  %5411 = getelementptr inbounds nuw i8, ptr %5398, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5411, ptr noundef nonnull align 8 dereferenceable(104) %621, i64 104, i1 false)
-  %.sroa.2456.0..sroa_idx = getelementptr inbounds i8, ptr %5398, i64 240
+  %.sroa.2456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5398, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2456.0..sroa_idx, align 8
-  %.sroa.3457.0..sroa_idx = getelementptr inbounds i8, ptr %5398, i64 248
+  %.sroa.3457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5398, i64 248
   store i64 1, ptr %.sroa.3457.0..sroa_idx, align 8
-  %.sroa.4458.0..sroa_idx = getelementptr inbounds i8, ptr %5398, i64 256
+  %.sroa.4458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5398, i64 256
   store ptr null, ptr %.sroa.4458.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1760, ptr nonnull align 8 %5398, i64 2)
           to label %5412 unwind label %.thread4356
@@ -15114,11 +15114,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5419:                                             ; preds = %5416
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5414, ptr noundef nonnull align 8 dereferenceable(104) %620, i64 104, i1 false)
-  %.sroa.2461.0..sroa_idx = getelementptr inbounds i8, ptr %5414, i64 104
+  %.sroa.2461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5414, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2461.0..sroa_idx, align 8
-  %.sroa.3462.0..sroa_idx = getelementptr inbounds i8, ptr %5414, i64 112
+  %.sroa.3462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5414, i64 112
   store i64 1, ptr %.sroa.3462.0..sroa_idx, align 8
-  %.sroa.4463.0..sroa_idx = getelementptr inbounds i8, ptr %5414, i64 120
+  %.sroa.4463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5414, i64 120
   store ptr null, ptr %.sroa.4463.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1757, ptr nonnull align 8 %5414, i64 1)
           to label %5420 unwind label %.thread4367
@@ -15165,12 +15165,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5427
 
 5430:                                             ; preds = %5426
-  %5431 = getelementptr inbounds i8, ptr %1750, i64 104
+  %5431 = getelementptr inbounds nuw i8, ptr %1750, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5431, align 8
-  %5432 = getelementptr inbounds i8, ptr %1750, i64 112
+  %5432 = getelementptr inbounds nuw i8, ptr %1750, i64 112
   store i64 1, ptr %5432, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1750, ptr noundef nonnull align 8 dereferenceable(104) %619, i64 104, i1 false)
-  %5433 = getelementptr inbounds i8, ptr %1750, i64 120
+  %5433 = getelementptr inbounds nuw i8, ptr %1750, i64 120
   store ptr null, ptr %5433, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %618, ptr align 8 %2)
           to label %5436 unwind label %5434
@@ -15183,13 +15183,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5436:                                             ; preds = %5430
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5424, ptr noundef nonnull align 8 dereferenceable(136) %1750, i64 136, i1 false)
-  %5437 = getelementptr inbounds i8, ptr %5424, i64 136
+  %5437 = getelementptr inbounds nuw i8, ptr %5424, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5437, ptr noundef nonnull align 8 dereferenceable(104) %618, i64 104, i1 false)
-  %.sroa.2466.0..sroa_idx = getelementptr inbounds i8, ptr %5424, i64 240
+  %.sroa.2466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5424, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2466.0..sroa_idx, align 8
-  %.sroa.3467.0..sroa_idx = getelementptr inbounds i8, ptr %5424, i64 248
+  %.sroa.3467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5424, i64 248
   store i64 1, ptr %.sroa.3467.0..sroa_idx, align 8
-  %.sroa.4468.0..sroa_idx = getelementptr inbounds i8, ptr %5424, i64 256
+  %.sroa.4468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5424, i64 256
   store ptr null, ptr %.sroa.4468.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1752, ptr nonnull align 8 %5424, i64 2)
           to label %5438 unwind label %.thread4378
@@ -15225,11 +15225,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5445:                                             ; preds = %5442
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5440, ptr noundef nonnull align 8 dereferenceable(104) %617, i64 104, i1 false)
-  %.sroa.2471.0..sroa_idx = getelementptr inbounds i8, ptr %5440, i64 104
+  %.sroa.2471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5440, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2471.0..sroa_idx, align 8
-  %.sroa.3472.0..sroa_idx = getelementptr inbounds i8, ptr %5440, i64 112
+  %.sroa.3472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5440, i64 112
   store i64 1, ptr %.sroa.3472.0..sroa_idx, align 8
-  %.sroa.4473.0..sroa_idx = getelementptr inbounds i8, ptr %5440, i64 120
+  %.sroa.4473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5440, i64 120
   store ptr null, ptr %.sroa.4473.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1749, ptr nonnull align 8 %5440, i64 1)
           to label %5446 unwind label %.thread4389
@@ -15276,12 +15276,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5453
 
 5456:                                             ; preds = %5452
-  %5457 = getelementptr inbounds i8, ptr %1742, i64 104
+  %5457 = getelementptr inbounds nuw i8, ptr %1742, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5457, align 8
-  %5458 = getelementptr inbounds i8, ptr %1742, i64 112
+  %5458 = getelementptr inbounds nuw i8, ptr %1742, i64 112
   store i64 1, ptr %5458, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1742, ptr noundef nonnull align 8 dereferenceable(104) %616, i64 104, i1 false)
-  %5459 = getelementptr inbounds i8, ptr %1742, i64 120
+  %5459 = getelementptr inbounds nuw i8, ptr %1742, i64 120
   store ptr null, ptr %5459, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %615, ptr align 8 %2)
           to label %5462 unwind label %5460
@@ -15294,13 +15294,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5462:                                             ; preds = %5456
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5450, ptr noundef nonnull align 8 dereferenceable(136) %1742, i64 136, i1 false)
-  %5463 = getelementptr inbounds i8, ptr %5450, i64 136
+  %5463 = getelementptr inbounds nuw i8, ptr %5450, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5463, ptr noundef nonnull align 8 dereferenceable(104) %615, i64 104, i1 false)
-  %.sroa.2476.0..sroa_idx = getelementptr inbounds i8, ptr %5450, i64 240
+  %.sroa.2476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5450, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2476.0..sroa_idx, align 8
-  %.sroa.3477.0..sroa_idx = getelementptr inbounds i8, ptr %5450, i64 248
+  %.sroa.3477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5450, i64 248
   store i64 1, ptr %.sroa.3477.0..sroa_idx, align 8
-  %.sroa.4478.0..sroa_idx = getelementptr inbounds i8, ptr %5450, i64 256
+  %.sroa.4478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5450, i64 256
   store ptr null, ptr %.sroa.4478.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1744, ptr nonnull align 8 %5450, i64 2)
           to label %5464 unwind label %.thread4400
@@ -15336,11 +15336,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5471:                                             ; preds = %5468
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5466, ptr noundef nonnull align 8 dereferenceable(104) %614, i64 104, i1 false)
-  %.sroa.2481.0..sroa_idx = getelementptr inbounds i8, ptr %5466, i64 104
+  %.sroa.2481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5466, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2481.0..sroa_idx, align 8
-  %.sroa.3482.0..sroa_idx = getelementptr inbounds i8, ptr %5466, i64 112
+  %.sroa.3482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5466, i64 112
   store i64 1, ptr %.sroa.3482.0..sroa_idx, align 8
-  %.sroa.4483.0..sroa_idx = getelementptr inbounds i8, ptr %5466, i64 120
+  %.sroa.4483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5466, i64 120
   store ptr null, ptr %.sroa.4483.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1741, ptr nonnull align 8 %5466, i64 1)
           to label %5472 unwind label %.thread4411
@@ -15387,12 +15387,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5479
 
 5482:                                             ; preds = %5478
-  %5483 = getelementptr inbounds i8, ptr %1734, i64 104
+  %5483 = getelementptr inbounds nuw i8, ptr %1734, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5483, align 8
-  %5484 = getelementptr inbounds i8, ptr %1734, i64 112
+  %5484 = getelementptr inbounds nuw i8, ptr %1734, i64 112
   store i64 1, ptr %5484, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1734, ptr noundef nonnull align 8 dereferenceable(104) %613, i64 104, i1 false)
-  %5485 = getelementptr inbounds i8, ptr %1734, i64 120
+  %5485 = getelementptr inbounds nuw i8, ptr %1734, i64 120
   store ptr null, ptr %5485, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %612, ptr nonnull align 8 %2457)
           to label %5489 unwind label %5487
@@ -15408,12 +15408,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5486
 
 5489:                                             ; preds = %5482
-  %5490 = getelementptr inbounds i8, ptr %1733, i64 104
+  %5490 = getelementptr inbounds nuw i8, ptr %1733, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %5490, align 8
-  %5491 = getelementptr inbounds i8, ptr %1733, i64 112
+  %5491 = getelementptr inbounds nuw i8, ptr %1733, i64 112
   store i64 1, ptr %5491, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1733, ptr noundef nonnull align 8 dereferenceable(104) %612, i64 104, i1 false)
-  %5492 = getelementptr inbounds i8, ptr %1733, i64 120
+  %5492 = getelementptr inbounds nuw i8, ptr %1733, i64 120
   store ptr null, ptr %5492, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %611, ptr nonnull align 8 %2477)
           to label %5495 unwind label %5493
@@ -15425,21 +15425,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5486 unwind label %8361
 
 5495:                                             ; preds = %5489
-  %5496 = getelementptr inbounds i8, ptr %1731, i64 104
+  %5496 = getelementptr inbounds nuw i8, ptr %1731, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.296, ptr %5496, align 8
-  %5497 = getelementptr inbounds i8, ptr %1731, i64 112
+  %5497 = getelementptr inbounds nuw i8, ptr %1731, i64 112
   store i64 4, ptr %5497, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1731, ptr noundef nonnull align 8 dereferenceable(104) %611, i64 104, i1 false)
-  %5498 = getelementptr inbounds i8, ptr %1731, i64 120
+  %5498 = getelementptr inbounds nuw i8, ptr %1731, i64 120
   store ptr null, ptr %5498, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1732, ptr nonnull align 8 %1731, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.297, i64 16)
           to label %5499 unwind label %5493
 
 5499:                                             ; preds = %5495
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5476, ptr noundef nonnull align 8 dereferenceable(136) %1734, i64 136, i1 false)
-  %5500 = getelementptr inbounds i8, ptr %5476, i64 136
+  %5500 = getelementptr inbounds nuw i8, ptr %5476, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5500, ptr noundef nonnull align 8 dereferenceable(136) %1733, i64 136, i1 false)
-  %5501 = getelementptr inbounds i8, ptr %5476, i64 272
+  %5501 = getelementptr inbounds nuw i8, ptr %5476, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5501, ptr noundef nonnull align 8 dereferenceable(136) %1732, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1736, ptr nonnull align 8 %5476, i64 3)
           to label %5502 unwind label %.thread4422
@@ -15475,11 +15475,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5509:                                             ; preds = %5506
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5504, ptr noundef nonnull align 8 dereferenceable(104) %610, i64 104, i1 false)
-  %.sroa.2486.0..sroa_idx = getelementptr inbounds i8, ptr %5504, i64 104
+  %.sroa.2486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5504, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2486.0..sroa_idx, align 8
-  %.sroa.3487.0..sroa_idx = getelementptr inbounds i8, ptr %5504, i64 112
+  %.sroa.3487.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5504, i64 112
   store i64 1, ptr %.sroa.3487.0..sroa_idx, align 8
-  %.sroa.4488.0..sroa_idx = getelementptr inbounds i8, ptr %5504, i64 120
+  %.sroa.4488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5504, i64 120
   store ptr null, ptr %.sroa.4488.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1730, ptr nonnull align 8 %5504, i64 1)
           to label %5510 unwind label %.thread4433
@@ -15526,12 +15526,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5517
 
 5520:                                             ; preds = %5516
-  %5521 = getelementptr inbounds i8, ptr %1723, i64 104
+  %5521 = getelementptr inbounds nuw i8, ptr %1723, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5521, align 8
-  %5522 = getelementptr inbounds i8, ptr %1723, i64 112
+  %5522 = getelementptr inbounds nuw i8, ptr %1723, i64 112
   store i64 1, ptr %5522, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1723, ptr noundef nonnull align 8 dereferenceable(104) %609, i64 104, i1 false)
-  %5523 = getelementptr inbounds i8, ptr %1723, i64 120
+  %5523 = getelementptr inbounds nuw i8, ptr %1723, i64 120
   store ptr null, ptr %5523, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %608, ptr nonnull align 8 %2457)
           to label %5527 unwind label %5525
@@ -15547,12 +15547,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5524
 
 5527:                                             ; preds = %5520
-  %5528 = getelementptr inbounds i8, ptr %1722, i64 104
+  %5528 = getelementptr inbounds nuw i8, ptr %1722, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %5528, align 8
-  %5529 = getelementptr inbounds i8, ptr %1722, i64 112
+  %5529 = getelementptr inbounds nuw i8, ptr %1722, i64 112
   store i64 1, ptr %5529, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1722, ptr noundef nonnull align 8 dereferenceable(104) %608, i64 104, i1 false)
-  %5530 = getelementptr inbounds i8, ptr %1722, i64 120
+  %5530 = getelementptr inbounds nuw i8, ptr %1722, i64 120
   store ptr null, ptr %5530, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %607, ptr nonnull align 8 %2477)
           to label %5533 unwind label %5531
@@ -15564,21 +15564,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5524 unwind label %8361
 
 5533:                                             ; preds = %5527
-  %5534 = getelementptr inbounds i8, ptr %1720, i64 104
+  %5534 = getelementptr inbounds nuw i8, ptr %1720, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.296, ptr %5534, align 8
-  %5535 = getelementptr inbounds i8, ptr %1720, i64 112
+  %5535 = getelementptr inbounds nuw i8, ptr %1720, i64 112
   store i64 4, ptr %5535, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1720, ptr noundef nonnull align 8 dereferenceable(104) %607, i64 104, i1 false)
-  %5536 = getelementptr inbounds i8, ptr %1720, i64 120
+  %5536 = getelementptr inbounds nuw i8, ptr %1720, i64 120
   store ptr null, ptr %5536, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1721, ptr nonnull align 8 %1720, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.297, i64 16)
           to label %5537 unwind label %5531
 
 5537:                                             ; preds = %5533
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5514, ptr noundef nonnull align 8 dereferenceable(136) %1723, i64 136, i1 false)
-  %5538 = getelementptr inbounds i8, ptr %5514, i64 136
+  %5538 = getelementptr inbounds nuw i8, ptr %5514, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5538, ptr noundef nonnull align 8 dereferenceable(136) %1722, i64 136, i1 false)
-  %5539 = getelementptr inbounds i8, ptr %5514, i64 272
+  %5539 = getelementptr inbounds nuw i8, ptr %5514, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5539, ptr noundef nonnull align 8 dereferenceable(136) %1721, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1725, ptr nonnull align 8 %5514, i64 3)
           to label %5540 unwind label %.thread4444
@@ -15617,12 +15617,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5545
 
 5548:                                             ; preds = %5544
-  %5549 = getelementptr inbounds i8, ptr %1717, i64 104
+  %5549 = getelementptr inbounds nuw i8, ptr %1717, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5549, align 8
-  %5550 = getelementptr inbounds i8, ptr %1717, i64 112
+  %5550 = getelementptr inbounds nuw i8, ptr %1717, i64 112
   store i64 1, ptr %5550, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1717, ptr noundef nonnull align 8 dereferenceable(104) %606, i64 104, i1 false)
-  %5551 = getelementptr inbounds i8, ptr %1717, i64 120
+  %5551 = getelementptr inbounds nuw i8, ptr %1717, i64 120
   store ptr null, ptr %5551, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %605, ptr nonnull align 8 %2477)
           to label %5554 unwind label %5552
@@ -15634,19 +15634,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5545 unwind label %8361
 
 5554:                                             ; preds = %5548
-  %5555 = getelementptr inbounds i8, ptr %1715, i64 104
+  %5555 = getelementptr inbounds nuw i8, ptr %1715, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.300, ptr %5555, align 8
-  %5556 = getelementptr inbounds i8, ptr %1715, i64 112
+  %5556 = getelementptr inbounds nuw i8, ptr %1715, i64 112
   store i64 5, ptr %5556, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1715, ptr noundef nonnull align 8 dereferenceable(104) %605, i64 104, i1 false)
-  %5557 = getelementptr inbounds i8, ptr %1715, i64 120
+  %5557 = getelementptr inbounds nuw i8, ptr %1715, i64 120
   store ptr null, ptr %5557, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1716, ptr nonnull align 8 %1715, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.301, i64 17)
           to label %5558 unwind label %5552
 
 5558:                                             ; preds = %5554
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5542, ptr noundef nonnull align 8 dereferenceable(136) %1717, i64 136, i1 false)
-  %5559 = getelementptr inbounds i8, ptr %5542, i64 136
+  %5559 = getelementptr inbounds nuw i8, ptr %5542, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5559, ptr noundef nonnull align 8 dereferenceable(136) %1716, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1719, ptr nonnull align 8 %5542, i64 2)
           to label %5560 unwind label %.thread4455
@@ -15664,12 +15664,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5563 unwind label %5126
 
 5563:                                             ; preds = %5562
-  %5564 = getelementptr inbounds i8, ptr %1713, i64 104
+  %5564 = getelementptr inbounds nuw i8, ptr %1713, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.302, ptr %5564, align 8
-  %5565 = getelementptr inbounds i8, ptr %1713, i64 112
+  %5565 = getelementptr inbounds nuw i8, ptr %1713, i64 112
   store i64 2, ptr %5565, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1713, ptr noundef nonnull align 8 dereferenceable(104) %604, i64 104, i1 false)
-  %5566 = getelementptr inbounds i8, ptr %1713, i64 120
+  %5566 = getelementptr inbounds nuw i8, ptr %1713, i64 120
   store ptr null, ptr %5566, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1714, ptr nonnull align 8 %1713, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.303, i64 13)
           to label %5567 unwind label %5126
@@ -15718,12 +15718,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5575
 
 5578:                                             ; preds = %5574
-  %5579 = getelementptr inbounds i8, ptr %1707, i64 104
+  %5579 = getelementptr inbounds nuw i8, ptr %1707, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5579, align 8
-  %5580 = getelementptr inbounds i8, ptr %1707, i64 112
+  %5580 = getelementptr inbounds nuw i8, ptr %1707, i64 112
   store i64 1, ptr %5580, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1707, ptr noundef nonnull align 8 dereferenceable(104) %603, i64 104, i1 false)
-  %5581 = getelementptr inbounds i8, ptr %1707, i64 120
+  %5581 = getelementptr inbounds nuw i8, ptr %1707, i64 120
   store ptr null, ptr %5581, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %602, ptr nonnull align 8 %2457)
           to label %5584 unwind label %5582
@@ -15736,13 +15736,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5584:                                             ; preds = %5578
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5572, ptr noundef nonnull align 8 dereferenceable(136) %1707, i64 136, i1 false)
-  %5585 = getelementptr inbounds i8, ptr %5572, i64 136
+  %5585 = getelementptr inbounds nuw i8, ptr %5572, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5585, ptr noundef nonnull align 8 dereferenceable(104) %602, i64 104, i1 false)
-  %.sroa.2491.0..sroa_idx = getelementptr inbounds i8, ptr %5572, i64 240
+  %.sroa.2491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5572, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2491.0..sroa_idx, align 8
-  %.sroa.3492.0..sroa_idx = getelementptr inbounds i8, ptr %5572, i64 248
+  %.sroa.3492.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5572, i64 248
   store i64 1, ptr %.sroa.3492.0..sroa_idx, align 8
-  %.sroa.4493.0..sroa_idx = getelementptr inbounds i8, ptr %5572, i64 256
+  %.sroa.4493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5572, i64 256
   store ptr null, ptr %.sroa.4493.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1709, ptr nonnull align 8 %5572, i64 2)
           to label %5586 unwind label %.thread4466
@@ -15781,12 +15781,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5591
 
 5594:                                             ; preds = %5590
-  %5595 = getelementptr inbounds i8, ptr %1704, i64 104
+  %5595 = getelementptr inbounds nuw i8, ptr %1704, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5595, align 8
-  %5596 = getelementptr inbounds i8, ptr %1704, i64 112
+  %5596 = getelementptr inbounds nuw i8, ptr %1704, i64 112
   store i64 1, ptr %5596, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1704, ptr noundef nonnull align 8 dereferenceable(104) %601, i64 104, i1 false)
-  %5597 = getelementptr inbounds i8, ptr %1704, i64 120
+  %5597 = getelementptr inbounds nuw i8, ptr %1704, i64 120
   store ptr null, ptr %5597, align 8
   invoke void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u20$as$u20$core..clone..Clone$GT$5clone17hfbd694c62944d24fE"(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1703, ptr nonnull align 8 %1714)
           to label %5600 unwind label %5598
@@ -15799,7 +15799,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5600:                                             ; preds = %5594
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5588, ptr noundef nonnull align 8 dereferenceable(136) %1704, i64 136, i1 false)
-  %5601 = getelementptr inbounds i8, ptr %5588, i64 136
+  %5601 = getelementptr inbounds nuw i8, ptr %5588, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5601, ptr noundef nonnull align 8 dereferenceable(136) %1703, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1706, ptr nonnull align 8 %5588, i64 2)
           to label %5602 unwind label %.thread4477
@@ -15846,12 +15846,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5609
 
 5612:                                             ; preds = %5608
-  %5613 = getelementptr inbounds i8, ptr %1697, i64 104
+  %5613 = getelementptr inbounds nuw i8, ptr %1697, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5613, align 8
-  %5614 = getelementptr inbounds i8, ptr %1697, i64 112
+  %5614 = getelementptr inbounds nuw i8, ptr %1697, i64 112
   store i64 1, ptr %5614, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1697, ptr noundef nonnull align 8 dereferenceable(104) %600, i64 104, i1 false)
-  %5615 = getelementptr inbounds i8, ptr %1697, i64 120
+  %5615 = getelementptr inbounds nuw i8, ptr %1697, i64 120
   store ptr null, ptr %5615, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %599, ptr nonnull align 8 %2457)
           to label %5618 unwind label %5616
@@ -15864,13 +15864,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5618:                                             ; preds = %5612
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5606, ptr noundef nonnull align 8 dereferenceable(136) %1697, i64 136, i1 false)
-  %5619 = getelementptr inbounds i8, ptr %5606, i64 136
+  %5619 = getelementptr inbounds nuw i8, ptr %5606, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5619, ptr noundef nonnull align 8 dereferenceable(104) %599, i64 104, i1 false)
-  %.sroa.2496.0..sroa_idx = getelementptr inbounds i8, ptr %5606, i64 240
+  %.sroa.2496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5606, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2496.0..sroa_idx, align 8
-  %.sroa.3497.0..sroa_idx = getelementptr inbounds i8, ptr %5606, i64 248
+  %.sroa.3497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5606, i64 248
   store i64 1, ptr %.sroa.3497.0..sroa_idx, align 8
-  %.sroa.4498.0..sroa_idx = getelementptr inbounds i8, ptr %5606, i64 256
+  %.sroa.4498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5606, i64 256
   store ptr null, ptr %.sroa.4498.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1699, ptr nonnull align 8 %5606, i64 2)
           to label %5620 unwind label %.thread4488
@@ -15909,12 +15909,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5625
 
 5628:                                             ; preds = %5624
-  %5629 = getelementptr inbounds i8, ptr %1694, i64 104
+  %5629 = getelementptr inbounds nuw i8, ptr %1694, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5629, align 8
-  %5630 = getelementptr inbounds i8, ptr %1694, i64 112
+  %5630 = getelementptr inbounds nuw i8, ptr %1694, i64 112
   store i64 1, ptr %5630, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1694, ptr noundef nonnull align 8 dereferenceable(104) %598, i64 104, i1 false)
-  %5631 = getelementptr inbounds i8, ptr %1694, i64 120
+  %5631 = getelementptr inbounds nuw i8, ptr %1694, i64 120
   store ptr null, ptr %5631, align 8
   invoke void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u20$as$u20$core..clone..Clone$GT$5clone17hfbd694c62944d24fE"(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1693, ptr nonnull align 8 %1714)
           to label %5634 unwind label %5632
@@ -15927,7 +15927,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5634:                                             ; preds = %5628
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5622, ptr noundef nonnull align 8 dereferenceable(136) %1694, i64 136, i1 false)
-  %5635 = getelementptr inbounds i8, ptr %5622, i64 136
+  %5635 = getelementptr inbounds nuw i8, ptr %5622, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5635, ptr noundef nonnull align 8 dereferenceable(136) %1693, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1696, ptr nonnull align 8 %5622, i64 2)
           to label %5636 unwind label %.thread4499
@@ -15974,12 +15974,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5643
 
 5646:                                             ; preds = %5642
-  %5647 = getelementptr inbounds i8, ptr %1687, i64 104
+  %5647 = getelementptr inbounds nuw i8, ptr %1687, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5647, align 8
-  %5648 = getelementptr inbounds i8, ptr %1687, i64 112
+  %5648 = getelementptr inbounds nuw i8, ptr %1687, i64 112
   store i64 1, ptr %5648, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1687, ptr noundef nonnull align 8 dereferenceable(104) %597, i64 104, i1 false)
-  %5649 = getelementptr inbounds i8, ptr %1687, i64 120
+  %5649 = getelementptr inbounds nuw i8, ptr %1687, i64 120
   store ptr null, ptr %5649, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %596, ptr nonnull align 8 %2457)
           to label %5652 unwind label %5650
@@ -15992,13 +15992,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5652:                                             ; preds = %5646
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5640, ptr noundef nonnull align 8 dereferenceable(136) %1687, i64 136, i1 false)
-  %5653 = getelementptr inbounds i8, ptr %5640, i64 136
+  %5653 = getelementptr inbounds nuw i8, ptr %5640, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5653, ptr noundef nonnull align 8 dereferenceable(104) %596, i64 104, i1 false)
-  %.sroa.2501.0..sroa_idx = getelementptr inbounds i8, ptr %5640, i64 240
+  %.sroa.2501.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5640, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2501.0..sroa_idx, align 8
-  %.sroa.3502.0..sroa_idx = getelementptr inbounds i8, ptr %5640, i64 248
+  %.sroa.3502.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5640, i64 248
   store i64 1, ptr %.sroa.3502.0..sroa_idx, align 8
-  %.sroa.4503.0..sroa_idx = getelementptr inbounds i8, ptr %5640, i64 256
+  %.sroa.4503.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5640, i64 256
   store ptr null, ptr %.sroa.4503.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1689, ptr nonnull align 8 %5640, i64 2)
           to label %5654 unwind label %.thread4510
@@ -16037,12 +16037,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5659
 
 5662:                                             ; preds = %5658
-  %5663 = getelementptr inbounds i8, ptr %1684, i64 104
+  %5663 = getelementptr inbounds nuw i8, ptr %1684, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5663, align 8
-  %5664 = getelementptr inbounds i8, ptr %1684, i64 112
+  %5664 = getelementptr inbounds nuw i8, ptr %1684, i64 112
   store i64 1, ptr %5664, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1684, ptr noundef nonnull align 8 dereferenceable(104) %595, i64 104, i1 false)
-  %5665 = getelementptr inbounds i8, ptr %1684, i64 120
+  %5665 = getelementptr inbounds nuw i8, ptr %1684, i64 120
   store ptr null, ptr %5665, align 8
   invoke void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u20$as$u20$core..clone..Clone$GT$5clone17hfbd694c62944d24fE"(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1683, ptr nonnull align 8 %1714)
           to label %5668 unwind label %5666
@@ -16055,7 +16055,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5668:                                             ; preds = %5662
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5656, ptr noundef nonnull align 8 dereferenceable(136) %1684, i64 136, i1 false)
-  %5669 = getelementptr inbounds i8, ptr %5656, i64 136
+  %5669 = getelementptr inbounds nuw i8, ptr %5656, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5669, ptr noundef nonnull align 8 dereferenceable(136) %1683, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1686, ptr nonnull align 8 %5656, i64 2)
           to label %5670 unwind label %.thread4521
@@ -16102,12 +16102,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5677
 
 5680:                                             ; preds = %5676
-  %5681 = getelementptr inbounds i8, ptr %1677, i64 104
+  %5681 = getelementptr inbounds nuw i8, ptr %1677, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5681, align 8
-  %5682 = getelementptr inbounds i8, ptr %1677, i64 112
+  %5682 = getelementptr inbounds nuw i8, ptr %1677, i64 112
   store i64 1, ptr %5682, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1677, ptr noundef nonnull align 8 dereferenceable(104) %594, i64 104, i1 false)
-  %5683 = getelementptr inbounds i8, ptr %1677, i64 120
+  %5683 = getelementptr inbounds nuw i8, ptr %1677, i64 120
   store ptr null, ptr %5683, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %593, ptr nonnull align 8 %2457)
           to label %5686 unwind label %5684
@@ -16120,13 +16120,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5686:                                             ; preds = %5680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5674, ptr noundef nonnull align 8 dereferenceable(136) %1677, i64 136, i1 false)
-  %5687 = getelementptr inbounds i8, ptr %5674, i64 136
+  %5687 = getelementptr inbounds nuw i8, ptr %5674, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5687, ptr noundef nonnull align 8 dereferenceable(104) %593, i64 104, i1 false)
-  %.sroa.2506.0..sroa_idx = getelementptr inbounds i8, ptr %5674, i64 240
+  %.sroa.2506.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5674, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2506.0..sroa_idx, align 8
-  %.sroa.3507.0..sroa_idx = getelementptr inbounds i8, ptr %5674, i64 248
+  %.sroa.3507.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5674, i64 248
   store i64 1, ptr %.sroa.3507.0..sroa_idx, align 8
-  %.sroa.4508.0..sroa_idx = getelementptr inbounds i8, ptr %5674, i64 256
+  %.sroa.4508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5674, i64 256
   store ptr null, ptr %.sroa.4508.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1679, ptr nonnull align 8 %5674, i64 2)
           to label %5688 unwind label %.thread4532
@@ -16165,12 +16165,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5693
 
 5696:                                             ; preds = %5692
-  %5697 = getelementptr inbounds i8, ptr %1674, i64 104
+  %5697 = getelementptr inbounds nuw i8, ptr %1674, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5697, align 8
-  %5698 = getelementptr inbounds i8, ptr %1674, i64 112
+  %5698 = getelementptr inbounds nuw i8, ptr %1674, i64 112
   store i64 1, ptr %5698, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1674, ptr noundef nonnull align 8 dereferenceable(104) %592, i64 104, i1 false)
-  %5699 = getelementptr inbounds i8, ptr %1674, i64 120
+  %5699 = getelementptr inbounds nuw i8, ptr %1674, i64 120
   store ptr null, ptr %5699, align 8
   invoke void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u20$as$u20$core..clone..Clone$GT$5clone17hfbd694c62944d24fE"(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1673, ptr nonnull align 8 %1714)
           to label %5702 unwind label %5700
@@ -16183,7 +16183,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5702:                                             ; preds = %5696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5690, ptr noundef nonnull align 8 dereferenceable(136) %1674, i64 136, i1 false)
-  %5703 = getelementptr inbounds i8, ptr %5690, i64 136
+  %5703 = getelementptr inbounds nuw i8, ptr %5690, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5703, ptr noundef nonnull align 8 dereferenceable(136) %1673, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1676, ptr nonnull align 8 %5690, i64 2)
           to label %5704 unwind label %.thread4543
@@ -16257,12 +16257,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5719
 
 5722:                                             ; preds = %5718
-  %5723 = getelementptr inbounds i8, ptr %1663, i64 104
+  %5723 = getelementptr inbounds nuw i8, ptr %1663, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5723, align 8
-  %5724 = getelementptr inbounds i8, ptr %1663, i64 112
+  %5724 = getelementptr inbounds nuw i8, ptr %1663, i64 112
   store i64 1, ptr %5724, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1663, ptr noundef nonnull align 8 dereferenceable(104) %591, i64 104, i1 false)
-  %5725 = getelementptr inbounds i8, ptr %1663, i64 120
+  %5725 = getelementptr inbounds nuw i8, ptr %1663, i64 120
   store ptr null, ptr %5725, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %590, ptr nonnull align 8 %1672)
           to label %5728 unwind label %5726
@@ -16275,13 +16275,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5728:                                             ; preds = %5722
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5716, ptr noundef nonnull align 8 dereferenceable(136) %1663, i64 136, i1 false)
-  %5729 = getelementptr inbounds i8, ptr %5716, i64 136
+  %5729 = getelementptr inbounds nuw i8, ptr %5716, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5729, ptr noundef nonnull align 8 dereferenceable(104) %590, i64 104, i1 false)
-  %.sroa.2511.0..sroa_idx = getelementptr inbounds i8, ptr %5716, i64 240
+  %.sroa.2511.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5716, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2511.0..sroa_idx, align 8
-  %.sroa.3512.0..sroa_idx = getelementptr inbounds i8, ptr %5716, i64 248
+  %.sroa.3512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5716, i64 248
   store i64 1, ptr %.sroa.3512.0..sroa_idx, align 8
-  %.sroa.4513.0..sroa_idx = getelementptr inbounds i8, ptr %5716, i64 256
+  %.sroa.4513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5716, i64 256
   store ptr null, ptr %.sroa.4513.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1665, ptr nonnull align 8 %5716, i64 2)
           to label %5730 unwind label %.thread4554
@@ -16320,12 +16320,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5735
 
 5738:                                             ; preds = %5734
-  %5739 = getelementptr inbounds i8, ptr %1660, i64 104
+  %5739 = getelementptr inbounds nuw i8, ptr %1660, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5739, align 8
-  %5740 = getelementptr inbounds i8, ptr %1660, i64 112
+  %5740 = getelementptr inbounds nuw i8, ptr %1660, i64 112
   store i64 1, ptr %5740, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1660, ptr noundef nonnull align 8 dereferenceable(104) %589, i64 104, i1 false)
-  %5741 = getelementptr inbounds i8, ptr %1660, i64 120
+  %5741 = getelementptr inbounds nuw i8, ptr %1660, i64 120
   store ptr null, ptr %5741, align 8
   invoke void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u20$as$u20$core..clone..Clone$GT$5clone17hfbd694c62944d24fE"(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1659, ptr nonnull align 8 %1714)
           to label %5744 unwind label %5742
@@ -16338,7 +16338,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5744:                                             ; preds = %5738
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5732, ptr noundef nonnull align 8 dereferenceable(136) %1660, i64 136, i1 false)
-  %5745 = getelementptr inbounds i8, ptr %5732, i64 136
+  %5745 = getelementptr inbounds nuw i8, ptr %5732, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5745, ptr noundef nonnull align 8 dereferenceable(136) %1659, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1662, ptr nonnull align 8 %5732, i64 2)
           to label %5746 unwind label %.thread4565
@@ -16385,12 +16385,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5753
 
 5756:                                             ; preds = %5752
-  %5757 = getelementptr inbounds i8, ptr %1653, i64 104
+  %5757 = getelementptr inbounds nuw i8, ptr %1653, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5757, align 8
-  %5758 = getelementptr inbounds i8, ptr %1653, i64 112
+  %5758 = getelementptr inbounds nuw i8, ptr %1653, i64 112
   store i64 1, ptr %5758, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1653, ptr noundef nonnull align 8 dereferenceable(104) %588, i64 104, i1 false)
-  %5759 = getelementptr inbounds i8, ptr %1653, i64 120
+  %5759 = getelementptr inbounds nuw i8, ptr %1653, i64 120
   store ptr null, ptr %5759, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %587, ptr nonnull align 8 %1672)
           to label %5762 unwind label %5760
@@ -16403,13 +16403,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5762:                                             ; preds = %5756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5750, ptr noundef nonnull align 8 dereferenceable(136) %1653, i64 136, i1 false)
-  %5763 = getelementptr inbounds i8, ptr %5750, i64 136
+  %5763 = getelementptr inbounds nuw i8, ptr %5750, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5763, ptr noundef nonnull align 8 dereferenceable(104) %587, i64 104, i1 false)
-  %.sroa.2516.0..sroa_idx = getelementptr inbounds i8, ptr %5750, i64 240
+  %.sroa.2516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5750, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2516.0..sroa_idx, align 8
-  %.sroa.3517.0..sroa_idx = getelementptr inbounds i8, ptr %5750, i64 248
+  %.sroa.3517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5750, i64 248
   store i64 1, ptr %.sroa.3517.0..sroa_idx, align 8
-  %.sroa.4518.0..sroa_idx = getelementptr inbounds i8, ptr %5750, i64 256
+  %.sroa.4518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5750, i64 256
   store ptr null, ptr %.sroa.4518.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1655, ptr nonnull align 8 %5750, i64 2)
           to label %5764 unwind label %.thread4576
@@ -16448,12 +16448,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5769
 
 5772:                                             ; preds = %5768
-  %5773 = getelementptr inbounds i8, ptr %1650, i64 104
+  %5773 = getelementptr inbounds nuw i8, ptr %1650, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5773, align 8
-  %5774 = getelementptr inbounds i8, ptr %1650, i64 112
+  %5774 = getelementptr inbounds nuw i8, ptr %1650, i64 112
   store i64 1, ptr %5774, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1650, ptr noundef nonnull align 8 dereferenceable(104) %586, i64 104, i1 false)
-  %5775 = getelementptr inbounds i8, ptr %1650, i64 120
+  %5775 = getelementptr inbounds nuw i8, ptr %1650, i64 120
   store ptr null, ptr %5775, align 8
   invoke void @"_ZN86_$LT$cranelift_codegen_meta..cdsl..operands..Operand$u20$as$u20$core..clone..Clone$GT$5clone17hfbd694c62944d24fE"(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1649, ptr nonnull align 8 %1714)
           to label %5778 unwind label %5776
@@ -16466,7 +16466,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5778:                                             ; preds = %5772
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5766, ptr noundef nonnull align 8 dereferenceable(136) %1650, i64 136, i1 false)
-  %5779 = getelementptr inbounds i8, ptr %5766, i64 136
+  %5779 = getelementptr inbounds nuw i8, ptr %5766, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5779, ptr noundef nonnull align 8 dereferenceable(136) %1649, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1652, ptr nonnull align 8 %5766, i64 2)
           to label %5780 unwind label %.thread4587
@@ -16505,7 +16505,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5789:                                             ; preds = %5787
   store ptr %5788, ptr %1648, align 8
-  %5790 = getelementptr inbounds i8, ptr %1, i64 112
+  %5790 = getelementptr inbounds nuw i8, ptr %1, i64 112
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %1640, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.321, i64 18, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.320, i64 156, ptr nonnull align 8 %5790)
           to label %5794 unwind label %5792
 
@@ -16549,12 +16549,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5798
 
 5801:                                             ; preds = %5797
-  %5802 = getelementptr inbounds i8, ptr %1637, i64 104
+  %5802 = getelementptr inbounds nuw i8, ptr %1637, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5802, align 8
-  %5803 = getelementptr inbounds i8, ptr %1637, i64 112
+  %5803 = getelementptr inbounds nuw i8, ptr %1637, i64 112
   store i64 1, ptr %5803, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1637, ptr noundef nonnull align 8 dereferenceable(104) %585, i64 104, i1 false)
-  %5804 = getelementptr inbounds i8, ptr %1637, i64 120
+  %5804 = getelementptr inbounds nuw i8, ptr %1637, i64 120
   store ptr null, ptr %5804, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %584, ptr nonnull align 8 %1648)
           to label %5808 unwind label %5806
@@ -16570,12 +16570,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5805
 
 5808:                                             ; preds = %5801
-  %5809 = getelementptr inbounds i8, ptr %1636, i64 104
+  %5809 = getelementptr inbounds nuw i8, ptr %1636, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %5809, align 8
-  %5810 = getelementptr inbounds i8, ptr %1636, i64 112
+  %5810 = getelementptr inbounds nuw i8, ptr %1636, i64 112
   store i64 1, ptr %5810, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1636, ptr noundef nonnull align 8 dereferenceable(104) %584, i64 104, i1 false)
-  %5811 = getelementptr inbounds i8, ptr %1636, i64 120
+  %5811 = getelementptr inbounds nuw i8, ptr %1636, i64 120
   store ptr null, ptr %5811, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %583, ptr nonnull align 8 %2582)
           to label %5814 unwind label %5812
@@ -16588,15 +16588,15 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5814:                                             ; preds = %5808
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5795, ptr noundef nonnull align 8 dereferenceable(136) %1637, i64 136, i1 false)
-  %5815 = getelementptr inbounds i8, ptr %5795, i64 136
+  %5815 = getelementptr inbounds nuw i8, ptr %5795, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5815, ptr noundef nonnull align 8 dereferenceable(136) %1636, i64 136, i1 false)
-  %5816 = getelementptr inbounds i8, ptr %5795, i64 272
+  %5816 = getelementptr inbounds nuw i8, ptr %5795, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5816, ptr noundef nonnull align 8 dereferenceable(104) %583, i64 104, i1 false)
-  %.sroa.2521.0..sroa_idx = getelementptr inbounds i8, ptr %5795, i64 376
+  %.sroa.2521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5795, i64 376
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.28, ptr %.sroa.2521.0..sroa_idx, align 8
-  %.sroa.3522.0..sroa_idx = getelementptr inbounds i8, ptr %5795, i64 384
+  %.sroa.3522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5795, i64 384
   store i64 4, ptr %.sroa.3522.0..sroa_idx, align 8
-  %.sroa.4523.0..sroa_idx = getelementptr inbounds i8, ptr %5795, i64 392
+  %.sroa.4523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5795, i64 392
   store ptr null, ptr %.sroa.4523.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1639, ptr nonnull align 8 %5795, i64 3)
           to label %5817 unwind label %.thread4598
@@ -16632,11 +16632,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5824:                                             ; preds = %5821
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5819, ptr noundef nonnull align 8 dereferenceable(104) %582, i64 104, i1 false)
-  %.sroa.2526.0..sroa_idx = getelementptr inbounds i8, ptr %5819, i64 104
+  %.sroa.2526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5819, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2526.0..sroa_idx, align 8
-  %.sroa.3527.0..sroa_idx = getelementptr inbounds i8, ptr %5819, i64 112
+  %.sroa.3527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5819, i64 112
   store i64 1, ptr %.sroa.3527.0..sroa_idx, align 8
-  %.sroa.4528.0..sroa_idx = getelementptr inbounds i8, ptr %5819, i64 120
+  %.sroa.4528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5819, i64 120
   store ptr null, ptr %.sroa.4528.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1635, ptr nonnull align 8 %5819, i64 1)
           to label %5825 unwind label %.thread4609
@@ -16691,12 +16691,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5834
 
 5837:                                             ; preds = %5833
-  %5838 = getelementptr inbounds i8, ptr %1628, i64 104
+  %5838 = getelementptr inbounds nuw i8, ptr %1628, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5838, align 8
-  %5839 = getelementptr inbounds i8, ptr %1628, i64 112
+  %5839 = getelementptr inbounds nuw i8, ptr %1628, i64 112
   store i64 1, ptr %5839, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1628, ptr noundef nonnull align 8 dereferenceable(104) %581, i64 104, i1 false)
-  %5840 = getelementptr inbounds i8, ptr %1628, i64 120
+  %5840 = getelementptr inbounds nuw i8, ptr %1628, i64 120
   store ptr null, ptr %5840, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %580, ptr nonnull align 8 %2457)
           to label %5844 unwind label %5842
@@ -16712,12 +16712,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5841
 
 5844:                                             ; preds = %5837
-  %5845 = getelementptr inbounds i8, ptr %1627, i64 104
+  %5845 = getelementptr inbounds nuw i8, ptr %1627, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %5845, align 8
-  %5846 = getelementptr inbounds i8, ptr %1627, i64 112
+  %5846 = getelementptr inbounds nuw i8, ptr %1627, i64 112
   store i64 1, ptr %5846, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1627, ptr noundef nonnull align 8 dereferenceable(104) %580, i64 104, i1 false)
-  %5847 = getelementptr inbounds i8, ptr %1627, i64 120
+  %5847 = getelementptr inbounds nuw i8, ptr %1627, i64 120
   store ptr null, ptr %5847, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %579, ptr nonnull align 8 %2477)
           to label %5850 unwind label %5848
@@ -16729,21 +16729,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5841 unwind label %8361
 
 5850:                                             ; preds = %5844
-  %5851 = getelementptr inbounds i8, ptr %1625, i64 104
+  %5851 = getelementptr inbounds nuw i8, ptr %1625, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.324, ptr %5851, align 8
-  %5852 = getelementptr inbounds i8, ptr %1625, i64 112
+  %5852 = getelementptr inbounds nuw i8, ptr %1625, i64 112
   store i64 4, ptr %5852, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1625, ptr noundef nonnull align 8 dereferenceable(104) %579, i64 104, i1 false)
-  %5853 = getelementptr inbounds i8, ptr %1625, i64 120
+  %5853 = getelementptr inbounds nuw i8, ptr %1625, i64 120
   store ptr null, ptr %5853, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1626, ptr nonnull align 8 %1625, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.325, i64 17)
           to label %5854 unwind label %5848
 
 5854:                                             ; preds = %5850
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5831, ptr noundef nonnull align 8 dereferenceable(136) %1628, i64 136, i1 false)
-  %5855 = getelementptr inbounds i8, ptr %5831, i64 136
+  %5855 = getelementptr inbounds nuw i8, ptr %5831, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5855, ptr noundef nonnull align 8 dereferenceable(136) %1627, i64 136, i1 false)
-  %5856 = getelementptr inbounds i8, ptr %5831, i64 272
+  %5856 = getelementptr inbounds nuw i8, ptr %5831, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5856, ptr noundef nonnull align 8 dereferenceable(136) %1626, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1630, ptr nonnull align 8 %5831, i64 3)
           to label %5857 unwind label %.thread4620
@@ -16779,11 +16779,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5864:                                             ; preds = %5861
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5859, ptr noundef nonnull align 8 dereferenceable(104) %578, i64 104, i1 false)
-  %.sroa.2531.0..sroa_idx = getelementptr inbounds i8, ptr %5859, i64 104
+  %.sroa.2531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5859, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2531.0..sroa_idx, align 8
-  %.sroa.3532.0..sroa_idx = getelementptr inbounds i8, ptr %5859, i64 112
+  %.sroa.3532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5859, i64 112
   store i64 1, ptr %.sroa.3532.0..sroa_idx, align 8
-  %.sroa.4533.0..sroa_idx = getelementptr inbounds i8, ptr %5859, i64 120
+  %.sroa.4533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5859, i64 120
   store ptr null, ptr %.sroa.4533.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1624, ptr nonnull align 8 %5859, i64 1)
           to label %5865 unwind label %.thread4631
@@ -16830,12 +16830,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5872
 
 5875:                                             ; preds = %5871
-  %5876 = getelementptr inbounds i8, ptr %1617, i64 104
+  %5876 = getelementptr inbounds nuw i8, ptr %1617, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5876, align 8
-  %5877 = getelementptr inbounds i8, ptr %1617, i64 112
+  %5877 = getelementptr inbounds nuw i8, ptr %1617, i64 112
   store i64 1, ptr %5877, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1617, ptr noundef nonnull align 8 dereferenceable(104) %577, i64 104, i1 false)
-  %5878 = getelementptr inbounds i8, ptr %1617, i64 120
+  %5878 = getelementptr inbounds nuw i8, ptr %1617, i64 120
   store ptr null, ptr %5878, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %576, ptr nonnull align 8 %2457)
           to label %5882 unwind label %5880
@@ -16851,12 +16851,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5879
 
 5882:                                             ; preds = %5875
-  %5883 = getelementptr inbounds i8, ptr %1616, i64 104
+  %5883 = getelementptr inbounds nuw i8, ptr %1616, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %5883, align 8
-  %5884 = getelementptr inbounds i8, ptr %1616, i64 112
+  %5884 = getelementptr inbounds nuw i8, ptr %1616, i64 112
   store i64 1, ptr %5884, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1616, ptr noundef nonnull align 8 dereferenceable(104) %576, i64 104, i1 false)
-  %5885 = getelementptr inbounds i8, ptr %1616, i64 120
+  %5885 = getelementptr inbounds nuw i8, ptr %1616, i64 120
   store ptr null, ptr %5885, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %575, ptr nonnull align 8 %2477)
           to label %5888 unwind label %5886
@@ -16868,21 +16868,21 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5879 unwind label %8361
 
 5888:                                             ; preds = %5882
-  %5889 = getelementptr inbounds i8, ptr %1614, i64 104
+  %5889 = getelementptr inbounds nuw i8, ptr %1614, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.324, ptr %5889, align 8
-  %5890 = getelementptr inbounds i8, ptr %1614, i64 112
+  %5890 = getelementptr inbounds nuw i8, ptr %1614, i64 112
   store i64 4, ptr %5890, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1614, ptr noundef nonnull align 8 dereferenceable(104) %575, i64 104, i1 false)
-  %5891 = getelementptr inbounds i8, ptr %1614, i64 120
+  %5891 = getelementptr inbounds nuw i8, ptr %1614, i64 120
   store ptr null, ptr %5891, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1615, ptr nonnull align 8 %1614, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.325, i64 17)
           to label %5892 unwind label %5886
 
 5892:                                             ; preds = %5888
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5869, ptr noundef nonnull align 8 dereferenceable(136) %1617, i64 136, i1 false)
-  %5893 = getelementptr inbounds i8, ptr %5869, i64 136
+  %5893 = getelementptr inbounds nuw i8, ptr %5869, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5893, ptr noundef nonnull align 8 dereferenceable(136) %1616, i64 136, i1 false)
-  %5894 = getelementptr inbounds i8, ptr %5869, i64 272
+  %5894 = getelementptr inbounds nuw i8, ptr %5869, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5894, ptr noundef nonnull align 8 dereferenceable(136) %1615, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1619, ptr nonnull align 8 %5869, i64 3)
           to label %5895 unwind label %.thread4642
@@ -16921,12 +16921,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5900
 
 5903:                                             ; preds = %5899
-  %5904 = getelementptr inbounds i8, ptr %1611, i64 104
+  %5904 = getelementptr inbounds nuw i8, ptr %1611, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %5904, align 8
-  %5905 = getelementptr inbounds i8, ptr %1611, i64 112
+  %5905 = getelementptr inbounds nuw i8, ptr %1611, i64 112
   store i64 1, ptr %5905, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1611, ptr noundef nonnull align 8 dereferenceable(104) %574, i64 104, i1 false)
-  %5906 = getelementptr inbounds i8, ptr %1611, i64 120
+  %5906 = getelementptr inbounds nuw i8, ptr %1611, i64 120
   store ptr null, ptr %5906, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %573, ptr nonnull align 8 %2477)
           to label %5909 unwind label %5907
@@ -16938,19 +16938,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %5900 unwind label %8361
 
 5909:                                             ; preds = %5903
-  %5910 = getelementptr inbounds i8, ptr %1609, i64 104
+  %5910 = getelementptr inbounds nuw i8, ptr %1609, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.328, ptr %5910, align 8
-  %5911 = getelementptr inbounds i8, ptr %1609, i64 112
+  %5911 = getelementptr inbounds nuw i8, ptr %1609, i64 112
   store i64 5, ptr %5911, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1609, ptr noundef nonnull align 8 dereferenceable(104) %573, i64 104, i1 false)
-  %5912 = getelementptr inbounds i8, ptr %1609, i64 120
+  %5912 = getelementptr inbounds nuw i8, ptr %1609, i64 120
   store ptr null, ptr %5912, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1610, ptr nonnull align 8 %1609, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.329, i64 18)
           to label %5913 unwind label %5907
 
 5913:                                             ; preds = %5909
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5897, ptr noundef nonnull align 8 dereferenceable(136) %1611, i64 136, i1 false)
-  %5914 = getelementptr inbounds i8, ptr %5897, i64 136
+  %5914 = getelementptr inbounds nuw i8, ptr %5897, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5914, ptr noundef nonnull align 8 dereferenceable(136) %1610, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1613, ptr nonnull align 8 %5897, i64 2)
           to label %5915 unwind label %.thread4653
@@ -17036,12 +17036,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5933
 
 5936:                                             ; preds = %5932
-  %5937 = getelementptr inbounds i8, ptr %1596, i64 104
+  %5937 = getelementptr inbounds nuw i8, ptr %1596, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5937, align 8
-  %5938 = getelementptr inbounds i8, ptr %1596, i64 112
+  %5938 = getelementptr inbounds nuw i8, ptr %1596, i64 112
   store i64 1, ptr %5938, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1596, ptr noundef nonnull align 8 dereferenceable(104) %572, i64 104, i1 false)
-  %5939 = getelementptr inbounds i8, ptr %1596, i64 120
+  %5939 = getelementptr inbounds nuw i8, ptr %1596, i64 120
   store ptr null, ptr %5939, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %571, ptr nonnull align 8 %1608)
           to label %5942 unwind label %5940
@@ -17054,13 +17054,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5942:                                             ; preds = %5936
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5930, ptr noundef nonnull align 8 dereferenceable(136) %1596, i64 136, i1 false)
-  %5943 = getelementptr inbounds i8, ptr %5930, i64 136
+  %5943 = getelementptr inbounds nuw i8, ptr %5930, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5943, ptr noundef nonnull align 8 dereferenceable(104) %571, i64 104, i1 false)
-  %.sroa.2536.0..sroa_idx = getelementptr inbounds i8, ptr %5930, i64 240
+  %.sroa.2536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5930, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2536.0..sroa_idx, align 8
-  %.sroa.3537.0..sroa_idx = getelementptr inbounds i8, ptr %5930, i64 248
+  %.sroa.3537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5930, i64 248
   store i64 1, ptr %.sroa.3537.0..sroa_idx, align 8
-  %.sroa.4538.0..sroa_idx = getelementptr inbounds i8, ptr %5930, i64 256
+  %.sroa.4538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5930, i64 256
   store ptr null, ptr %.sroa.4538.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1598, ptr nonnull align 8 %5930, i64 2)
           to label %5944 unwind label %.thread4664
@@ -17096,11 +17096,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5951:                                             ; preds = %5948
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5946, ptr noundef nonnull align 8 dereferenceable(104) %570, i64 104, i1 false)
-  %.sroa.2541.0..sroa_idx = getelementptr inbounds i8, ptr %5946, i64 104
+  %.sroa.2541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5946, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2541.0..sroa_idx, align 8
-  %.sroa.3542.0..sroa_idx = getelementptr inbounds i8, ptr %5946, i64 112
+  %.sroa.3542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5946, i64 112
   store i64 1, ptr %.sroa.3542.0..sroa_idx, align 8
-  %.sroa.4543.0..sroa_idx = getelementptr inbounds i8, ptr %5946, i64 120
+  %.sroa.4543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5946, i64 120
   store ptr null, ptr %.sroa.4543.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1595, ptr nonnull align 8 %5946, i64 1)
           to label %5952 unwind label %.thread4675
@@ -17147,12 +17147,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5959
 
 5962:                                             ; preds = %5958
-  %5963 = getelementptr inbounds i8, ptr %1588, i64 104
+  %5963 = getelementptr inbounds nuw i8, ptr %1588, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5963, align 8
-  %5964 = getelementptr inbounds i8, ptr %1588, i64 112
+  %5964 = getelementptr inbounds nuw i8, ptr %1588, i64 112
   store i64 1, ptr %5964, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1588, ptr noundef nonnull align 8 dereferenceable(104) %569, i64 104, i1 false)
-  %5965 = getelementptr inbounds i8, ptr %1588, i64 120
+  %5965 = getelementptr inbounds nuw i8, ptr %1588, i64 120
   store ptr null, ptr %5965, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %568, ptr nonnull align 8 %1608)
           to label %5968 unwind label %5966
@@ -17165,13 +17165,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5968:                                             ; preds = %5962
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5956, ptr noundef nonnull align 8 dereferenceable(136) %1588, i64 136, i1 false)
-  %5969 = getelementptr inbounds i8, ptr %5956, i64 136
+  %5969 = getelementptr inbounds nuw i8, ptr %5956, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5969, ptr noundef nonnull align 8 dereferenceable(104) %568, i64 104, i1 false)
-  %.sroa.2546.0..sroa_idx = getelementptr inbounds i8, ptr %5956, i64 240
+  %.sroa.2546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5956, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2546.0..sroa_idx, align 8
-  %.sroa.3547.0..sroa_idx = getelementptr inbounds i8, ptr %5956, i64 248
+  %.sroa.3547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5956, i64 248
   store i64 1, ptr %.sroa.3547.0..sroa_idx, align 8
-  %.sroa.4548.0..sroa_idx = getelementptr inbounds i8, ptr %5956, i64 256
+  %.sroa.4548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5956, i64 256
   store ptr null, ptr %.sroa.4548.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1590, ptr nonnull align 8 %5956, i64 2)
           to label %5970 unwind label %.thread4686
@@ -17207,11 +17207,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5977:                                             ; preds = %5974
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5972, ptr noundef nonnull align 8 dereferenceable(104) %567, i64 104, i1 false)
-  %.sroa.2551.0..sroa_idx = getelementptr inbounds i8, ptr %5972, i64 104
+  %.sroa.2551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5972, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2551.0..sroa_idx, align 8
-  %.sroa.3552.0..sroa_idx = getelementptr inbounds i8, ptr %5972, i64 112
+  %.sroa.3552.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5972, i64 112
   store i64 1, ptr %.sroa.3552.0..sroa_idx, align 8
-  %.sroa.4553.0..sroa_idx = getelementptr inbounds i8, ptr %5972, i64 120
+  %.sroa.4553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5972, i64 120
   store ptr null, ptr %.sroa.4553.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1587, ptr nonnull align 8 %5972, i64 1)
           to label %5978 unwind label %.thread4697
@@ -17258,12 +17258,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %5985
 
 5988:                                             ; preds = %5984
-  %5989 = getelementptr inbounds i8, ptr %1580, i64 104
+  %5989 = getelementptr inbounds nuw i8, ptr %1580, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %5989, align 8
-  %5990 = getelementptr inbounds i8, ptr %1580, i64 112
+  %5990 = getelementptr inbounds nuw i8, ptr %1580, i64 112
   store i64 1, ptr %5990, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1580, ptr noundef nonnull align 8 dereferenceable(104) %566, i64 104, i1 false)
-  %5991 = getelementptr inbounds i8, ptr %1580, i64 120
+  %5991 = getelementptr inbounds nuw i8, ptr %1580, i64 120
   store ptr null, ptr %5991, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %565, ptr nonnull align 8 %1608)
           to label %5994 unwind label %5992
@@ -17276,13 +17276,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 5994:                                             ; preds = %5988
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5982, ptr noundef nonnull align 8 dereferenceable(136) %1580, i64 136, i1 false)
-  %5995 = getelementptr inbounds i8, ptr %5982, i64 136
+  %5995 = getelementptr inbounds nuw i8, ptr %5982, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5995, ptr noundef nonnull align 8 dereferenceable(104) %565, i64 104, i1 false)
-  %.sroa.2556.0..sroa_idx = getelementptr inbounds i8, ptr %5982, i64 240
+  %.sroa.2556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5982, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2556.0..sroa_idx, align 8
-  %.sroa.3557.0..sroa_idx = getelementptr inbounds i8, ptr %5982, i64 248
+  %.sroa.3557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5982, i64 248
   store i64 1, ptr %.sroa.3557.0..sroa_idx, align 8
-  %.sroa.4558.0..sroa_idx = getelementptr inbounds i8, ptr %5982, i64 256
+  %.sroa.4558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5982, i64 256
   store ptr null, ptr %.sroa.4558.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1582, ptr nonnull align 8 %5982, i64 2)
           to label %5996 unwind label %.thread4708
@@ -17318,11 +17318,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6003:                                             ; preds = %6000
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5998, ptr noundef nonnull align 8 dereferenceable(104) %564, i64 104, i1 false)
-  %.sroa.2561.0..sroa_idx = getelementptr inbounds i8, ptr %5998, i64 104
+  %.sroa.2561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5998, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2561.0..sroa_idx, align 8
-  %.sroa.3562.0..sroa_idx = getelementptr inbounds i8, ptr %5998, i64 112
+  %.sroa.3562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5998, i64 112
   store i64 1, ptr %.sroa.3562.0..sroa_idx, align 8
-  %.sroa.4563.0..sroa_idx = getelementptr inbounds i8, ptr %5998, i64 120
+  %.sroa.4563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5998, i64 120
   store ptr null, ptr %.sroa.4563.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1579, ptr nonnull align 8 %5998, i64 1)
           to label %6004 unwind label %.thread4719
@@ -17366,11 +17366,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6013:                                             ; preds = %6010
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6008, ptr noundef nonnull align 8 dereferenceable(104) %563, i64 104, i1 false)
-  %.sroa.2566.0..sroa_idx = getelementptr inbounds i8, ptr %6008, i64 104
+  %.sroa.2566.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6008, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2566.0..sroa_idx, align 8
-  %.sroa.3567.0..sroa_idx = getelementptr inbounds i8, ptr %6008, i64 112
+  %.sroa.3567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6008, i64 112
   store i64 1, ptr %.sroa.3567.0..sroa_idx, align 8
-  %.sroa.4568.0..sroa_idx = getelementptr inbounds i8, ptr %6008, i64 120
+  %.sroa.4568.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6008, i64 120
   store ptr null, ptr %.sroa.4568.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1574, ptr nonnull align 8 %6008, i64 1)
           to label %6014 unwind label %.thread4730
@@ -17406,11 +17406,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6021:                                             ; preds = %6018
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6016, ptr noundef nonnull align 8 dereferenceable(104) %562, i64 104, i1 false)
-  %.sroa.2571.0..sroa_idx = getelementptr inbounds i8, ptr %6016, i64 104
+  %.sroa.2571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6016, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2571.0..sroa_idx, align 8
-  %.sroa.3572.0..sroa_idx = getelementptr inbounds i8, ptr %6016, i64 112
+  %.sroa.3572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6016, i64 112
   store i64 1, ptr %.sroa.3572.0..sroa_idx, align 8
-  %.sroa.4573.0..sroa_idx = getelementptr inbounds i8, ptr %6016, i64 120
+  %.sroa.4573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6016, i64 120
   store ptr null, ptr %.sroa.4573.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1572, ptr nonnull align 8 %6016, i64 1)
           to label %6022 unwind label %.thread4741
@@ -17457,12 +17457,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6029
 
 6032:                                             ; preds = %6028
-  %6033 = getelementptr inbounds i8, ptr %1565, i64 104
+  %6033 = getelementptr inbounds nuw i8, ptr %1565, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6033, align 8
-  %6034 = getelementptr inbounds i8, ptr %1565, i64 112
+  %6034 = getelementptr inbounds nuw i8, ptr %1565, i64 112
   store i64 1, ptr %6034, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1565, ptr noundef nonnull align 8 dereferenceable(104) %561, i64 104, i1 false)
-  %6035 = getelementptr inbounds i8, ptr %1565, i64 120
+  %6035 = getelementptr inbounds nuw i8, ptr %1565, i64 120
   store ptr null, ptr %6035, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %560, ptr nonnull align 8 %1608)
           to label %6038 unwind label %6036
@@ -17475,13 +17475,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6038:                                             ; preds = %6032
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6026, ptr noundef nonnull align 8 dereferenceable(136) %1565, i64 136, i1 false)
-  %6039 = getelementptr inbounds i8, ptr %6026, i64 136
+  %6039 = getelementptr inbounds nuw i8, ptr %6026, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6039, ptr noundef nonnull align 8 dereferenceable(104) %560, i64 104, i1 false)
-  %.sroa.2576.0..sroa_idx = getelementptr inbounds i8, ptr %6026, i64 240
+  %.sroa.2576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6026, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2576.0..sroa_idx, align 8
-  %.sroa.3577.0..sroa_idx = getelementptr inbounds i8, ptr %6026, i64 248
+  %.sroa.3577.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6026, i64 248
   store i64 1, ptr %.sroa.3577.0..sroa_idx, align 8
-  %.sroa.4578.0..sroa_idx = getelementptr inbounds i8, ptr %6026, i64 256
+  %.sroa.4578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6026, i64 256
   store ptr null, ptr %.sroa.4578.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1567, ptr nonnull align 8 %6026, i64 2)
           to label %6040 unwind label %.thread4752
@@ -17517,11 +17517,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6047:                                             ; preds = %6044
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6042, ptr noundef nonnull align 8 dereferenceable(104) %559, i64 104, i1 false)
-  %.sroa.2581.0..sroa_idx = getelementptr inbounds i8, ptr %6042, i64 104
+  %.sroa.2581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6042, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2581.0..sroa_idx, align 8
-  %.sroa.3582.0..sroa_idx = getelementptr inbounds i8, ptr %6042, i64 112
+  %.sroa.3582.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6042, i64 112
   store i64 1, ptr %.sroa.3582.0..sroa_idx, align 8
-  %.sroa.4583.0..sroa_idx = getelementptr inbounds i8, ptr %6042, i64 120
+  %.sroa.4583.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6042, i64 120
   store ptr null, ptr %.sroa.4583.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1564, ptr nonnull align 8 %6042, i64 1)
           to label %6048 unwind label %.thread4763
@@ -17568,12 +17568,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6055
 
 6058:                                             ; preds = %6054
-  %6059 = getelementptr inbounds i8, ptr %1557, i64 104
+  %6059 = getelementptr inbounds nuw i8, ptr %1557, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6059, align 8
-  %6060 = getelementptr inbounds i8, ptr %1557, i64 112
+  %6060 = getelementptr inbounds nuw i8, ptr %1557, i64 112
   store i64 1, ptr %6060, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1557, ptr noundef nonnull align 8 dereferenceable(104) %558, i64 104, i1 false)
-  %6061 = getelementptr inbounds i8, ptr %1557, i64 120
+  %6061 = getelementptr inbounds nuw i8, ptr %1557, i64 120
   store ptr null, ptr %6061, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %557, ptr nonnull align 8 %1608)
           to label %6064 unwind label %6062
@@ -17586,13 +17586,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6064:                                             ; preds = %6058
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6052, ptr noundef nonnull align 8 dereferenceable(136) %1557, i64 136, i1 false)
-  %6065 = getelementptr inbounds i8, ptr %6052, i64 136
+  %6065 = getelementptr inbounds nuw i8, ptr %6052, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6065, ptr noundef nonnull align 8 dereferenceable(104) %557, i64 104, i1 false)
-  %.sroa.2586.0..sroa_idx = getelementptr inbounds i8, ptr %6052, i64 240
+  %.sroa.2586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6052, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2586.0..sroa_idx, align 8
-  %.sroa.3587.0..sroa_idx = getelementptr inbounds i8, ptr %6052, i64 248
+  %.sroa.3587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6052, i64 248
   store i64 1, ptr %.sroa.3587.0..sroa_idx, align 8
-  %.sroa.4588.0..sroa_idx = getelementptr inbounds i8, ptr %6052, i64 256
+  %.sroa.4588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6052, i64 256
   store ptr null, ptr %.sroa.4588.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1559, ptr nonnull align 8 %6052, i64 2)
           to label %6066 unwind label %.thread4774
@@ -17628,11 +17628,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6073:                                             ; preds = %6070
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6068, ptr noundef nonnull align 8 dereferenceable(104) %556, i64 104, i1 false)
-  %.sroa.2591.0..sroa_idx = getelementptr inbounds i8, ptr %6068, i64 104
+  %.sroa.2591.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6068, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2591.0..sroa_idx, align 8
-  %.sroa.3592.0..sroa_idx = getelementptr inbounds i8, ptr %6068, i64 112
+  %.sroa.3592.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6068, i64 112
   store i64 1, ptr %.sroa.3592.0..sroa_idx, align 8
-  %.sroa.4593.0..sroa_idx = getelementptr inbounds i8, ptr %6068, i64 120
+  %.sroa.4593.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6068, i64 120
   store ptr null, ptr %.sroa.4593.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1556, ptr nonnull align 8 %6068, i64 1)
           to label %6074 unwind label %.thread4785
@@ -17679,12 +17679,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6081
 
 6084:                                             ; preds = %6080
-  %6085 = getelementptr inbounds i8, ptr %1549, i64 104
+  %6085 = getelementptr inbounds nuw i8, ptr %1549, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6085, align 8
-  %6086 = getelementptr inbounds i8, ptr %1549, i64 112
+  %6086 = getelementptr inbounds nuw i8, ptr %1549, i64 112
   store i64 1, ptr %6086, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1549, ptr noundef nonnull align 8 dereferenceable(104) %555, i64 104, i1 false)
-  %6087 = getelementptr inbounds i8, ptr %1549, i64 120
+  %6087 = getelementptr inbounds nuw i8, ptr %1549, i64 120
   store ptr null, ptr %6087, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %554, ptr nonnull align 8 %1608)
           to label %6090 unwind label %6088
@@ -17697,13 +17697,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6090:                                             ; preds = %6084
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6078, ptr noundef nonnull align 8 dereferenceable(136) %1549, i64 136, i1 false)
-  %6091 = getelementptr inbounds i8, ptr %6078, i64 136
+  %6091 = getelementptr inbounds nuw i8, ptr %6078, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6091, ptr noundef nonnull align 8 dereferenceable(104) %554, i64 104, i1 false)
-  %.sroa.2596.0..sroa_idx = getelementptr inbounds i8, ptr %6078, i64 240
+  %.sroa.2596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6078, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2596.0..sroa_idx, align 8
-  %.sroa.3597.0..sroa_idx = getelementptr inbounds i8, ptr %6078, i64 248
+  %.sroa.3597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6078, i64 248
   store i64 1, ptr %.sroa.3597.0..sroa_idx, align 8
-  %.sroa.4598.0..sroa_idx = getelementptr inbounds i8, ptr %6078, i64 256
+  %.sroa.4598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6078, i64 256
   store ptr null, ptr %.sroa.4598.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1551, ptr nonnull align 8 %6078, i64 2)
           to label %6092 unwind label %.thread4796
@@ -17739,11 +17739,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6099:                                             ; preds = %6096
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6094, ptr noundef nonnull align 8 dereferenceable(104) %553, i64 104, i1 false)
-  %.sroa.2601.0..sroa_idx = getelementptr inbounds i8, ptr %6094, i64 104
+  %.sroa.2601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6094, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2601.0..sroa_idx, align 8
-  %.sroa.3602.0..sroa_idx = getelementptr inbounds i8, ptr %6094, i64 112
+  %.sroa.3602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6094, i64 112
   store i64 1, ptr %.sroa.3602.0..sroa_idx, align 8
-  %.sroa.4603.0..sroa_idx = getelementptr inbounds i8, ptr %6094, i64 120
+  %.sroa.4603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6094, i64 120
   store ptr null, ptr %.sroa.4603.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1548, ptr nonnull align 8 %6094, i64 1)
           to label %6100 unwind label %.thread4807
@@ -17790,12 +17790,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6107
 
 6110:                                             ; preds = %6106
-  %6111 = getelementptr inbounds i8, ptr %1541, i64 104
+  %6111 = getelementptr inbounds nuw i8, ptr %1541, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6111, align 8
-  %6112 = getelementptr inbounds i8, ptr %1541, i64 112
+  %6112 = getelementptr inbounds nuw i8, ptr %1541, i64 112
   store i64 1, ptr %6112, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1541, ptr noundef nonnull align 8 dereferenceable(104) %552, i64 104, i1 false)
-  %6113 = getelementptr inbounds i8, ptr %1541, i64 120
+  %6113 = getelementptr inbounds nuw i8, ptr %1541, i64 120
   store ptr null, ptr %6113, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %551, ptr align 8 %2)
           to label %6116 unwind label %6114
@@ -17808,13 +17808,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6116:                                             ; preds = %6110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6104, ptr noundef nonnull align 8 dereferenceable(136) %1541, i64 136, i1 false)
-  %6117 = getelementptr inbounds i8, ptr %6104, i64 136
+  %6117 = getelementptr inbounds nuw i8, ptr %6104, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6117, ptr noundef nonnull align 8 dereferenceable(104) %551, i64 104, i1 false)
-  %.sroa.2606.0..sroa_idx = getelementptr inbounds i8, ptr %6104, i64 240
+  %.sroa.2606.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6104, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2606.0..sroa_idx, align 8
-  %.sroa.3607.0..sroa_idx = getelementptr inbounds i8, ptr %6104, i64 248
+  %.sroa.3607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6104, i64 248
   store i64 1, ptr %.sroa.3607.0..sroa_idx, align 8
-  %.sroa.4608.0..sroa_idx = getelementptr inbounds i8, ptr %6104, i64 256
+  %.sroa.4608.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6104, i64 256
   store ptr null, ptr %.sroa.4608.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1543, ptr nonnull align 8 %6104, i64 2)
           to label %6118 unwind label %.thread4818
@@ -17850,11 +17850,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6125:                                             ; preds = %6122
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6120, ptr noundef nonnull align 8 dereferenceable(104) %550, i64 104, i1 false)
-  %.sroa.2611.0..sroa_idx = getelementptr inbounds i8, ptr %6120, i64 104
+  %.sroa.2611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6120, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2611.0..sroa_idx, align 8
-  %.sroa.3612.0..sroa_idx = getelementptr inbounds i8, ptr %6120, i64 112
+  %.sroa.3612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6120, i64 112
   store i64 1, ptr %.sroa.3612.0..sroa_idx, align 8
-  %.sroa.4613.0..sroa_idx = getelementptr inbounds i8, ptr %6120, i64 120
+  %.sroa.4613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6120, i64 120
   store ptr null, ptr %.sroa.4613.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1540, ptr nonnull align 8 %6120, i64 1)
           to label %6126 unwind label %.thread4829
@@ -17901,12 +17901,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6133
 
 6136:                                             ; preds = %6132
-  %6137 = getelementptr inbounds i8, ptr %1533, i64 104
+  %6137 = getelementptr inbounds nuw i8, ptr %1533, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6137, align 8
-  %6138 = getelementptr inbounds i8, ptr %1533, i64 112
+  %6138 = getelementptr inbounds nuw i8, ptr %1533, i64 112
   store i64 1, ptr %6138, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1533, ptr noundef nonnull align 8 dereferenceable(104) %549, i64 104, i1 false)
-  %6139 = getelementptr inbounds i8, ptr %1533, i64 120
+  %6139 = getelementptr inbounds nuw i8, ptr %1533, i64 120
   store ptr null, ptr %6139, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %548, ptr align 8 %2)
           to label %6142 unwind label %6140
@@ -17919,13 +17919,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6142:                                             ; preds = %6136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6130, ptr noundef nonnull align 8 dereferenceable(136) %1533, i64 136, i1 false)
-  %6143 = getelementptr inbounds i8, ptr %6130, i64 136
+  %6143 = getelementptr inbounds nuw i8, ptr %6130, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6143, ptr noundef nonnull align 8 dereferenceable(104) %548, i64 104, i1 false)
-  %.sroa.2616.0..sroa_idx = getelementptr inbounds i8, ptr %6130, i64 240
+  %.sroa.2616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6130, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2616.0..sroa_idx, align 8
-  %.sroa.3617.0..sroa_idx = getelementptr inbounds i8, ptr %6130, i64 248
+  %.sroa.3617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6130, i64 248
   store i64 1, ptr %.sroa.3617.0..sroa_idx, align 8
-  %.sroa.4618.0..sroa_idx = getelementptr inbounds i8, ptr %6130, i64 256
+  %.sroa.4618.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6130, i64 256
   store ptr null, ptr %.sroa.4618.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1535, ptr nonnull align 8 %6130, i64 2)
           to label %6144 unwind label %.thread4840
@@ -17961,11 +17961,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6151:                                             ; preds = %6148
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6146, ptr noundef nonnull align 8 dereferenceable(104) %547, i64 104, i1 false)
-  %.sroa.2621.0..sroa_idx = getelementptr inbounds i8, ptr %6146, i64 104
+  %.sroa.2621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6146, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2621.0..sroa_idx, align 8
-  %.sroa.3622.0..sroa_idx = getelementptr inbounds i8, ptr %6146, i64 112
+  %.sroa.3622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6146, i64 112
   store i64 1, ptr %.sroa.3622.0..sroa_idx, align 8
-  %.sroa.4623.0..sroa_idx = getelementptr inbounds i8, ptr %6146, i64 120
+  %.sroa.4623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6146, i64 120
   store ptr null, ptr %.sroa.4623.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1532, ptr nonnull align 8 %6146, i64 1)
           to label %6152 unwind label %.thread4851
@@ -18012,12 +18012,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6159
 
 6162:                                             ; preds = %6158
-  %6163 = getelementptr inbounds i8, ptr %1525, i64 104
+  %6163 = getelementptr inbounds nuw i8, ptr %1525, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6163, align 8
-  %6164 = getelementptr inbounds i8, ptr %1525, i64 112
+  %6164 = getelementptr inbounds nuw i8, ptr %1525, i64 112
   store i64 1, ptr %6164, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1525, ptr noundef nonnull align 8 dereferenceable(104) %546, i64 104, i1 false)
-  %6165 = getelementptr inbounds i8, ptr %1525, i64 120
+  %6165 = getelementptr inbounds nuw i8, ptr %1525, i64 120
   store ptr null, ptr %6165, align 8
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %545, ptr align 8 %2)
           to label %6168 unwind label %6166
@@ -18030,13 +18030,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6168:                                             ; preds = %6162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6156, ptr noundef nonnull align 8 dereferenceable(136) %1525, i64 136, i1 false)
-  %6169 = getelementptr inbounds i8, ptr %6156, i64 136
+  %6169 = getelementptr inbounds nuw i8, ptr %6156, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6169, ptr noundef nonnull align 8 dereferenceable(104) %545, i64 104, i1 false)
-  %.sroa.2626.0..sroa_idx = getelementptr inbounds i8, ptr %6156, i64 240
+  %.sroa.2626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6156, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2626.0..sroa_idx, align 8
-  %.sroa.3627.0..sroa_idx = getelementptr inbounds i8, ptr %6156, i64 248
+  %.sroa.3627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6156, i64 248
   store i64 1, ptr %.sroa.3627.0..sroa_idx, align 8
-  %.sroa.4628.0..sroa_idx = getelementptr inbounds i8, ptr %6156, i64 256
+  %.sroa.4628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6156, i64 256
   store ptr null, ptr %.sroa.4628.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1527, ptr nonnull align 8 %6156, i64 2)
           to label %6170 unwind label %.thread4862
@@ -18072,11 +18072,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6177:                                             ; preds = %6174
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6172, ptr noundef nonnull align 8 dereferenceable(104) %544, i64 104, i1 false)
-  %.sroa.2631.0..sroa_idx = getelementptr inbounds i8, ptr %6172, i64 104
+  %.sroa.2631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6172, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2631.0..sroa_idx, align 8
-  %.sroa.3632.0..sroa_idx = getelementptr inbounds i8, ptr %6172, i64 112
+  %.sroa.3632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6172, i64 112
   store i64 1, ptr %.sroa.3632.0..sroa_idx, align 8
-  %.sroa.4633.0..sroa_idx = getelementptr inbounds i8, ptr %6172, i64 120
+  %.sroa.4633.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6172, i64 120
   store ptr null, ptr %.sroa.4633.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1524, ptr nonnull align 8 %6172, i64 1)
           to label %6178 unwind label %.thread4873
@@ -18123,12 +18123,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6185
 
 6188:                                             ; preds = %6184
-  %6189 = getelementptr inbounds i8, ptr %1516, i64 104
+  %6189 = getelementptr inbounds nuw i8, ptr %1516, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6189, align 8
-  %6190 = getelementptr inbounds i8, ptr %1516, i64 112
+  %6190 = getelementptr inbounds nuw i8, ptr %1516, i64 112
   store i64 1, ptr %6190, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1516, ptr noundef nonnull align 8 dereferenceable(104) %543, i64 104, i1 false)
-  %6191 = getelementptr inbounds i8, ptr %1516, i64 120
+  %6191 = getelementptr inbounds nuw i8, ptr %1516, i64 120
   store ptr null, ptr %6191, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1517, ptr nonnull align 8 %1516, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6192 unwind label %6186
@@ -18144,19 +18144,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %6185 unwind label %8361
 
 6195:                                             ; preds = %6192
-  %6196 = getelementptr inbounds i8, ptr %1514, i64 104
+  %6196 = getelementptr inbounds nuw i8, ptr %1514, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %6196, align 8
-  %6197 = getelementptr inbounds i8, ptr %1514, i64 112
+  %6197 = getelementptr inbounds nuw i8, ptr %1514, i64 112
   store i64 1, ptr %6197, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1514, ptr noundef nonnull align 8 dereferenceable(104) %542, i64 104, i1 false)
-  %6198 = getelementptr inbounds i8, ptr %1514, i64 120
+  %6198 = getelementptr inbounds nuw i8, ptr %1514, i64 120
   store ptr null, ptr %6198, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1515, ptr nonnull align 8 %1514, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.355, i64 23)
           to label %6199 unwind label %6193
 
 6199:                                             ; preds = %6195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6182, ptr noundef nonnull align 8 dereferenceable(136) %1517, i64 136, i1 false)
-  %6200 = getelementptr inbounds i8, ptr %6182, i64 136
+  %6200 = getelementptr inbounds nuw i8, ptr %6182, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6200, ptr noundef nonnull align 8 dereferenceable(136) %1515, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1519, ptr nonnull align 8 %6182, i64 2)
           to label %6201 unwind label %.thread4884
@@ -18192,11 +18192,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6208:                                             ; preds = %6205
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6203, ptr noundef nonnull align 8 dereferenceable(104) %541, i64 104, i1 false)
-  %.sroa.2636.0..sroa_idx = getelementptr inbounds i8, ptr %6203, i64 104
+  %.sroa.2636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6203, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2636.0..sroa_idx, align 8
-  %.sroa.3637.0..sroa_idx = getelementptr inbounds i8, ptr %6203, i64 112
+  %.sroa.3637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6203, i64 112
   store i64 1, ptr %.sroa.3637.0..sroa_idx, align 8
-  %.sroa.4638.0..sroa_idx = getelementptr inbounds i8, ptr %6203, i64 120
+  %.sroa.4638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6203, i64 120
   store ptr null, ptr %.sroa.4638.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1513, ptr nonnull align 8 %6203, i64 1)
           to label %6209 unwind label %.thread4895
@@ -18243,12 +18243,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6216
 
 6219:                                             ; preds = %6215
-  %6220 = getelementptr inbounds i8, ptr %1505, i64 104
+  %6220 = getelementptr inbounds nuw i8, ptr %1505, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6220, align 8
-  %6221 = getelementptr inbounds i8, ptr %1505, i64 112
+  %6221 = getelementptr inbounds nuw i8, ptr %1505, i64 112
   store i64 1, ptr %6221, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1505, ptr noundef nonnull align 8 dereferenceable(104) %540, i64 104, i1 false)
-  %6222 = getelementptr inbounds i8, ptr %1505, i64 120
+  %6222 = getelementptr inbounds nuw i8, ptr %1505, i64 120
   store ptr null, ptr %6222, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1506, ptr nonnull align 8 %1505, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6223 unwind label %6217
@@ -18264,19 +18264,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %6216 unwind label %8361
 
 6226:                                             ; preds = %6223
-  %6227 = getelementptr inbounds i8, ptr %1503, i64 104
+  %6227 = getelementptr inbounds nuw i8, ptr %1503, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %6227, align 8
-  %6228 = getelementptr inbounds i8, ptr %1503, i64 112
+  %6228 = getelementptr inbounds nuw i8, ptr %1503, i64 112
   store i64 1, ptr %6228, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1503, ptr noundef nonnull align 8 dereferenceable(104) %539, i64 104, i1 false)
-  %6229 = getelementptr inbounds i8, ptr %1503, i64 120
+  %6229 = getelementptr inbounds nuw i8, ptr %1503, i64 120
   store ptr null, ptr %6229, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1504, ptr nonnull align 8 %1503, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.355, i64 23)
           to label %6230 unwind label %6224
 
 6230:                                             ; preds = %6226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6213, ptr noundef nonnull align 8 dereferenceable(136) %1506, i64 136, i1 false)
-  %6231 = getelementptr inbounds i8, ptr %6213, i64 136
+  %6231 = getelementptr inbounds nuw i8, ptr %6213, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6231, ptr noundef nonnull align 8 dereferenceable(136) %1504, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1508, ptr nonnull align 8 %6213, i64 2)
           to label %6232 unwind label %.thread4906
@@ -18312,11 +18312,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6239:                                             ; preds = %6236
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6234, ptr noundef nonnull align 8 dereferenceable(104) %538, i64 104, i1 false)
-  %.sroa.2641.0..sroa_idx = getelementptr inbounds i8, ptr %6234, i64 104
+  %.sroa.2641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6234, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2641.0..sroa_idx, align 8
-  %.sroa.3642.0..sroa_idx = getelementptr inbounds i8, ptr %6234, i64 112
+  %.sroa.3642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6234, i64 112
   store i64 1, ptr %.sroa.3642.0..sroa_idx, align 8
-  %.sroa.4643.0..sroa_idx = getelementptr inbounds i8, ptr %6234, i64 120
+  %.sroa.4643.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6234, i64 120
   store ptr null, ptr %.sroa.4643.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1502, ptr nonnull align 8 %6234, i64 1)
           to label %6240 unwind label %.thread4917
@@ -18363,12 +18363,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6247
 
 6250:                                             ; preds = %6246
-  %6251 = getelementptr inbounds i8, ptr %1494, i64 104
+  %6251 = getelementptr inbounds nuw i8, ptr %1494, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6251, align 8
-  %6252 = getelementptr inbounds i8, ptr %1494, i64 112
+  %6252 = getelementptr inbounds nuw i8, ptr %1494, i64 112
   store i64 1, ptr %6252, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1494, ptr noundef nonnull align 8 dereferenceable(104) %537, i64 104, i1 false)
-  %6253 = getelementptr inbounds i8, ptr %1494, i64 120
+  %6253 = getelementptr inbounds nuw i8, ptr %1494, i64 120
   store ptr null, ptr %6253, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1495, ptr nonnull align 8 %1494, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6254 unwind label %6248
@@ -18385,13 +18385,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6257:                                             ; preds = %6254
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6244, ptr noundef nonnull align 8 dereferenceable(136) %1495, i64 136, i1 false)
-  %6258 = getelementptr inbounds i8, ptr %6244, i64 136
+  %6258 = getelementptr inbounds nuw i8, ptr %6244, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6258, ptr noundef nonnull align 8 dereferenceable(104) %536, i64 104, i1 false)
-  %.sroa.2646.0..sroa_idx = getelementptr inbounds i8, ptr %6244, i64 240
+  %.sroa.2646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6244, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2646.0..sroa_idx, align 8
-  %.sroa.3647.0..sroa_idx = getelementptr inbounds i8, ptr %6244, i64 248
+  %.sroa.3647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6244, i64 248
   store i64 1, ptr %.sroa.3647.0..sroa_idx, align 8
-  %.sroa.4648.0..sroa_idx = getelementptr inbounds i8, ptr %6244, i64 256
+  %.sroa.4648.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6244, i64 256
   store ptr null, ptr %.sroa.4648.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1497, ptr nonnull align 8 %6244, i64 2)
           to label %6259 unwind label %.thread4928
@@ -18427,11 +18427,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6266:                                             ; preds = %6263
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6261, ptr noundef nonnull align 8 dereferenceable(104) %535, i64 104, i1 false)
-  %.sroa.2651.0..sroa_idx = getelementptr inbounds i8, ptr %6261, i64 104
+  %.sroa.2651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6261, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2651.0..sroa_idx, align 8
-  %.sroa.3652.0..sroa_idx = getelementptr inbounds i8, ptr %6261, i64 112
+  %.sroa.3652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6261, i64 112
   store i64 1, ptr %.sroa.3652.0..sroa_idx, align 8
-  %.sroa.4653.0..sroa_idx = getelementptr inbounds i8, ptr %6261, i64 120
+  %.sroa.4653.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6261, i64 120
   store ptr null, ptr %.sroa.4653.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1493, ptr nonnull align 8 %6261, i64 1)
           to label %6267 unwind label %.thread4939
@@ -18478,12 +18478,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6274
 
 6277:                                             ; preds = %6273
-  %6278 = getelementptr inbounds i8, ptr %1485, i64 104
+  %6278 = getelementptr inbounds nuw i8, ptr %1485, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6278, align 8
-  %6279 = getelementptr inbounds i8, ptr %1485, i64 112
+  %6279 = getelementptr inbounds nuw i8, ptr %1485, i64 112
   store i64 1, ptr %6279, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1485, ptr noundef nonnull align 8 dereferenceable(104) %534, i64 104, i1 false)
-  %6280 = getelementptr inbounds i8, ptr %1485, i64 120
+  %6280 = getelementptr inbounds nuw i8, ptr %1485, i64 120
   store ptr null, ptr %6280, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1486, ptr nonnull align 8 %1485, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6281 unwind label %6275
@@ -18500,13 +18500,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6284:                                             ; preds = %6281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6271, ptr noundef nonnull align 8 dereferenceable(136) %1486, i64 136, i1 false)
-  %6285 = getelementptr inbounds i8, ptr %6271, i64 136
+  %6285 = getelementptr inbounds nuw i8, ptr %6271, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6285, ptr noundef nonnull align 8 dereferenceable(104) %533, i64 104, i1 false)
-  %.sroa.2656.0..sroa_idx = getelementptr inbounds i8, ptr %6271, i64 240
+  %.sroa.2656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6271, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2656.0..sroa_idx, align 8
-  %.sroa.3657.0..sroa_idx = getelementptr inbounds i8, ptr %6271, i64 248
+  %.sroa.3657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6271, i64 248
   store i64 1, ptr %.sroa.3657.0..sroa_idx, align 8
-  %.sroa.4658.0..sroa_idx = getelementptr inbounds i8, ptr %6271, i64 256
+  %.sroa.4658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6271, i64 256
   store ptr null, ptr %.sroa.4658.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1488, ptr nonnull align 8 %6271, i64 2)
           to label %6286 unwind label %.thread4950
@@ -18542,11 +18542,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6293:                                             ; preds = %6290
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6288, ptr noundef nonnull align 8 dereferenceable(104) %532, i64 104, i1 false)
-  %.sroa.2661.0..sroa_idx = getelementptr inbounds i8, ptr %6288, i64 104
+  %.sroa.2661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6288, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2661.0..sroa_idx, align 8
-  %.sroa.3662.0..sroa_idx = getelementptr inbounds i8, ptr %6288, i64 112
+  %.sroa.3662.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6288, i64 112
   store i64 1, ptr %.sroa.3662.0..sroa_idx, align 8
-  %.sroa.4663.0..sroa_idx = getelementptr inbounds i8, ptr %6288, i64 120
+  %.sroa.4663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6288, i64 120
   store ptr null, ptr %.sroa.4663.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1484, ptr nonnull align 8 %6288, i64 1)
           to label %6294 unwind label %.thread4961
@@ -18593,12 +18593,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6301
 
 6304:                                             ; preds = %6300
-  %6305 = getelementptr inbounds i8, ptr %1476, i64 104
+  %6305 = getelementptr inbounds nuw i8, ptr %1476, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6305, align 8
-  %6306 = getelementptr inbounds i8, ptr %1476, i64 112
+  %6306 = getelementptr inbounds nuw i8, ptr %1476, i64 112
   store i64 1, ptr %6306, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1476, ptr noundef nonnull align 8 dereferenceable(104) %531, i64 104, i1 false)
-  %6307 = getelementptr inbounds i8, ptr %1476, i64 120
+  %6307 = getelementptr inbounds nuw i8, ptr %1476, i64 120
   store ptr null, ptr %6307, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1477, ptr nonnull align 8 %1476, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6308 unwind label %6302
@@ -18614,19 +18614,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %6301 unwind label %8361
 
 6311:                                             ; preds = %6308
-  %6312 = getelementptr inbounds i8, ptr %1474, i64 104
+  %6312 = getelementptr inbounds nuw i8, ptr %1474, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %6312, align 8
-  %6313 = getelementptr inbounds i8, ptr %1474, i64 112
+  %6313 = getelementptr inbounds nuw i8, ptr %1474, i64 112
   store i64 1, ptr %6313, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1474, ptr noundef nonnull align 8 dereferenceable(104) %530, i64 104, i1 false)
-  %6314 = getelementptr inbounds i8, ptr %1474, i64 120
+  %6314 = getelementptr inbounds nuw i8, ptr %1474, i64 120
   store ptr null, ptr %6314, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1475, ptr nonnull align 8 %1474, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.355, i64 23)
           to label %6315 unwind label %6309
 
 6315:                                             ; preds = %6311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6298, ptr noundef nonnull align 8 dereferenceable(136) %1477, i64 136, i1 false)
-  %6316 = getelementptr inbounds i8, ptr %6298, i64 136
+  %6316 = getelementptr inbounds nuw i8, ptr %6298, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6316, ptr noundef nonnull align 8 dereferenceable(136) %1475, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1479, ptr nonnull align 8 %6298, i64 2)
           to label %6317 unwind label %.thread4972
@@ -18662,11 +18662,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6324:                                             ; preds = %6321
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6319, ptr noundef nonnull align 8 dereferenceable(104) %529, i64 104, i1 false)
-  %.sroa.2666.0..sroa_idx = getelementptr inbounds i8, ptr %6319, i64 104
+  %.sroa.2666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6319, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2666.0..sroa_idx, align 8
-  %.sroa.3667.0..sroa_idx = getelementptr inbounds i8, ptr %6319, i64 112
+  %.sroa.3667.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6319, i64 112
   store i64 1, ptr %.sroa.3667.0..sroa_idx, align 8
-  %.sroa.4668.0..sroa_idx = getelementptr inbounds i8, ptr %6319, i64 120
+  %.sroa.4668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6319, i64 120
   store ptr null, ptr %.sroa.4668.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1473, ptr nonnull align 8 %6319, i64 1)
           to label %6325 unwind label %.thread4983
@@ -18713,12 +18713,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6332
 
 6335:                                             ; preds = %6331
-  %6336 = getelementptr inbounds i8, ptr %1465, i64 104
+  %6336 = getelementptr inbounds nuw i8, ptr %1465, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6336, align 8
-  %6337 = getelementptr inbounds i8, ptr %1465, i64 112
+  %6337 = getelementptr inbounds nuw i8, ptr %1465, i64 112
   store i64 1, ptr %6337, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1465, ptr noundef nonnull align 8 dereferenceable(104) %528, i64 104, i1 false)
-  %6338 = getelementptr inbounds i8, ptr %1465, i64 120
+  %6338 = getelementptr inbounds nuw i8, ptr %1465, i64 120
   store ptr null, ptr %6338, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1466, ptr nonnull align 8 %1465, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6339 unwind label %6333
@@ -18734,19 +18734,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %6332 unwind label %8361
 
 6342:                                             ; preds = %6339
-  %6343 = getelementptr inbounds i8, ptr %1463, i64 104
+  %6343 = getelementptr inbounds nuw i8, ptr %1463, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %6343, align 8
-  %6344 = getelementptr inbounds i8, ptr %1463, i64 112
+  %6344 = getelementptr inbounds nuw i8, ptr %1463, i64 112
   store i64 1, ptr %6344, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1463, ptr noundef nonnull align 8 dereferenceable(104) %527, i64 104, i1 false)
-  %6345 = getelementptr inbounds i8, ptr %1463, i64 120
+  %6345 = getelementptr inbounds nuw i8, ptr %1463, i64 120
   store ptr null, ptr %6345, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1464, ptr nonnull align 8 %1463, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.355, i64 23)
           to label %6346 unwind label %6340
 
 6346:                                             ; preds = %6342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6329, ptr noundef nonnull align 8 dereferenceable(136) %1466, i64 136, i1 false)
-  %6347 = getelementptr inbounds i8, ptr %6329, i64 136
+  %6347 = getelementptr inbounds nuw i8, ptr %6329, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6347, ptr noundef nonnull align 8 dereferenceable(136) %1464, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1468, ptr nonnull align 8 %6329, i64 2)
           to label %6348 unwind label %.thread4994
@@ -18782,11 +18782,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6355:                                             ; preds = %6352
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6350, ptr noundef nonnull align 8 dereferenceable(104) %526, i64 104, i1 false)
-  %.sroa.2671.0..sroa_idx = getelementptr inbounds i8, ptr %6350, i64 104
+  %.sroa.2671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6350, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2671.0..sroa_idx, align 8
-  %.sroa.3672.0..sroa_idx = getelementptr inbounds i8, ptr %6350, i64 112
+  %.sroa.3672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6350, i64 112
   store i64 1, ptr %.sroa.3672.0..sroa_idx, align 8
-  %.sroa.4673.0..sroa_idx = getelementptr inbounds i8, ptr %6350, i64 120
+  %.sroa.4673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6350, i64 120
   store ptr null, ptr %.sroa.4673.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1462, ptr nonnull align 8 %6350, i64 1)
           to label %6356 unwind label %.thread5005
@@ -18833,12 +18833,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6363
 
 6366:                                             ; preds = %6362
-  %6367 = getelementptr inbounds i8, ptr %1454, i64 104
+  %6367 = getelementptr inbounds nuw i8, ptr %1454, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6367, align 8
-  %6368 = getelementptr inbounds i8, ptr %1454, i64 112
+  %6368 = getelementptr inbounds nuw i8, ptr %1454, i64 112
   store i64 1, ptr %6368, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1454, ptr noundef nonnull align 8 dereferenceable(104) %525, i64 104, i1 false)
-  %6369 = getelementptr inbounds i8, ptr %1454, i64 120
+  %6369 = getelementptr inbounds nuw i8, ptr %1454, i64 120
   store ptr null, ptr %6369, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1455, ptr nonnull align 8 %1454, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6370 unwind label %6364
@@ -18854,19 +18854,19 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %6363 unwind label %8361
 
 6373:                                             ; preds = %6370
-  %6374 = getelementptr inbounds i8, ptr %1452, i64 104
+  %6374 = getelementptr inbounds nuw i8, ptr %1452, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %6374, align 8
-  %6375 = getelementptr inbounds i8, ptr %1452, i64 112
+  %6375 = getelementptr inbounds nuw i8, ptr %1452, i64 112
   store i64 1, ptr %6375, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1452, ptr noundef nonnull align 8 dereferenceable(104) %524, i64 104, i1 false)
-  %6376 = getelementptr inbounds i8, ptr %1452, i64 120
+  %6376 = getelementptr inbounds nuw i8, ptr %1452, i64 120
   store ptr null, ptr %6376, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1453, ptr nonnull align 8 %1452, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.355, i64 23)
           to label %6377 unwind label %6371
 
 6377:                                             ; preds = %6373
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6360, ptr noundef nonnull align 8 dereferenceable(136) %1455, i64 136, i1 false)
-  %6378 = getelementptr inbounds i8, ptr %6360, i64 136
+  %6378 = getelementptr inbounds nuw i8, ptr %6360, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6378, ptr noundef nonnull align 8 dereferenceable(136) %1453, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1457, ptr nonnull align 8 %6360, i64 2)
           to label %6379 unwind label %.thread5016
@@ -18902,11 +18902,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6386:                                             ; preds = %6383
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6381, ptr noundef nonnull align 8 dereferenceable(104) %523, i64 104, i1 false)
-  %.sroa.2676.0..sroa_idx = getelementptr inbounds i8, ptr %6381, i64 104
+  %.sroa.2676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6381, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2676.0..sroa_idx, align 8
-  %.sroa.3677.0..sroa_idx = getelementptr inbounds i8, ptr %6381, i64 112
+  %.sroa.3677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6381, i64 112
   store i64 1, ptr %.sroa.3677.0..sroa_idx, align 8
-  %.sroa.4678.0..sroa_idx = getelementptr inbounds i8, ptr %6381, i64 120
+  %.sroa.4678.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6381, i64 120
   store ptr null, ptr %.sroa.4678.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1451, ptr nonnull align 8 %6381, i64 1)
           to label %6387 unwind label %.thread5027
@@ -18953,12 +18953,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6394
 
 6397:                                             ; preds = %6393
-  %6398 = getelementptr inbounds i8, ptr %1443, i64 104
+  %6398 = getelementptr inbounds nuw i8, ptr %1443, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6398, align 8
-  %6399 = getelementptr inbounds i8, ptr %1443, i64 112
+  %6399 = getelementptr inbounds nuw i8, ptr %1443, i64 112
   store i64 1, ptr %6399, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1443, ptr noundef nonnull align 8 dereferenceable(104) %522, i64 104, i1 false)
-  %6400 = getelementptr inbounds i8, ptr %1443, i64 120
+  %6400 = getelementptr inbounds nuw i8, ptr %1443, i64 120
   store ptr null, ptr %6400, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1444, ptr nonnull align 8 %1443, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6401 unwind label %6395
@@ -18975,13 +18975,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6404:                                             ; preds = %6401
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6391, ptr noundef nonnull align 8 dereferenceable(136) %1444, i64 136, i1 false)
-  %6405 = getelementptr inbounds i8, ptr %6391, i64 136
+  %6405 = getelementptr inbounds nuw i8, ptr %6391, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6405, ptr noundef nonnull align 8 dereferenceable(104) %521, i64 104, i1 false)
-  %.sroa.2681.0..sroa_idx = getelementptr inbounds i8, ptr %6391, i64 240
+  %.sroa.2681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6391, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2681.0..sroa_idx, align 8
-  %.sroa.3682.0..sroa_idx = getelementptr inbounds i8, ptr %6391, i64 248
+  %.sroa.3682.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6391, i64 248
   store i64 1, ptr %.sroa.3682.0..sroa_idx, align 8
-  %.sroa.4683.0..sroa_idx = getelementptr inbounds i8, ptr %6391, i64 256
+  %.sroa.4683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6391, i64 256
   store ptr null, ptr %.sroa.4683.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1446, ptr nonnull align 8 %6391, i64 2)
           to label %6406 unwind label %.thread5038
@@ -19017,11 +19017,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6413:                                             ; preds = %6410
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6408, ptr noundef nonnull align 8 dereferenceable(104) %520, i64 104, i1 false)
-  %.sroa.2686.0..sroa_idx = getelementptr inbounds i8, ptr %6408, i64 104
+  %.sroa.2686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6408, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2686.0..sroa_idx, align 8
-  %.sroa.3687.0..sroa_idx = getelementptr inbounds i8, ptr %6408, i64 112
+  %.sroa.3687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6408, i64 112
   store i64 1, ptr %.sroa.3687.0..sroa_idx, align 8
-  %.sroa.4688.0..sroa_idx = getelementptr inbounds i8, ptr %6408, i64 120
+  %.sroa.4688.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6408, i64 120
   store ptr null, ptr %.sroa.4688.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1442, ptr nonnull align 8 %6408, i64 1)
           to label %6414 unwind label %.thread5049
@@ -19068,12 +19068,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6421
 
 6424:                                             ; preds = %6420
-  %6425 = getelementptr inbounds i8, ptr %1434, i64 104
+  %6425 = getelementptr inbounds nuw i8, ptr %1434, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6425, align 8
-  %6426 = getelementptr inbounds i8, ptr %1434, i64 112
+  %6426 = getelementptr inbounds nuw i8, ptr %1434, i64 112
   store i64 1, ptr %6426, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1434, ptr noundef nonnull align 8 dereferenceable(104) %519, i64 104, i1 false)
-  %6427 = getelementptr inbounds i8, ptr %1434, i64 120
+  %6427 = getelementptr inbounds nuw i8, ptr %1434, i64 120
   store ptr null, ptr %6427, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1435, ptr nonnull align 8 %1434, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6428 unwind label %6422
@@ -19090,13 +19090,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6431:                                             ; preds = %6428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6418, ptr noundef nonnull align 8 dereferenceable(136) %1435, i64 136, i1 false)
-  %6432 = getelementptr inbounds i8, ptr %6418, i64 136
+  %6432 = getelementptr inbounds nuw i8, ptr %6418, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6432, ptr noundef nonnull align 8 dereferenceable(104) %518, i64 104, i1 false)
-  %.sroa.2691.0..sroa_idx = getelementptr inbounds i8, ptr %6418, i64 240
+  %.sroa.2691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6418, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2691.0..sroa_idx, align 8
-  %.sroa.3692.0..sroa_idx = getelementptr inbounds i8, ptr %6418, i64 248
+  %.sroa.3692.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6418, i64 248
   store i64 1, ptr %.sroa.3692.0..sroa_idx, align 8
-  %.sroa.4693.0..sroa_idx = getelementptr inbounds i8, ptr %6418, i64 256
+  %.sroa.4693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6418, i64 256
   store ptr null, ptr %.sroa.4693.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1437, ptr nonnull align 8 %6418, i64 2)
           to label %6433 unwind label %.thread5060
@@ -19132,11 +19132,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6440:                                             ; preds = %6437
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6435, ptr noundef nonnull align 8 dereferenceable(104) %517, i64 104, i1 false)
-  %.sroa.2696.0..sroa_idx = getelementptr inbounds i8, ptr %6435, i64 104
+  %.sroa.2696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6435, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2696.0..sroa_idx, align 8
-  %.sroa.3697.0..sroa_idx = getelementptr inbounds i8, ptr %6435, i64 112
+  %.sroa.3697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6435, i64 112
   store i64 1, ptr %.sroa.3697.0..sroa_idx, align 8
-  %.sroa.4698.0..sroa_idx = getelementptr inbounds i8, ptr %6435, i64 120
+  %.sroa.4698.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6435, i64 120
   store ptr null, ptr %.sroa.4698.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1433, ptr nonnull align 8 %6435, i64 1)
           to label %6441 unwind label %.thread5071
@@ -19183,12 +19183,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6448
 
 6451:                                             ; preds = %6447
-  %6452 = getelementptr inbounds i8, ptr %1425, i64 104
+  %6452 = getelementptr inbounds nuw i8, ptr %1425, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6452, align 8
-  %6453 = getelementptr inbounds i8, ptr %1425, i64 112
+  %6453 = getelementptr inbounds nuw i8, ptr %1425, i64 112
   store i64 1, ptr %6453, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1425, ptr noundef nonnull align 8 dereferenceable(104) %516, i64 104, i1 false)
-  %6454 = getelementptr inbounds i8, ptr %1425, i64 120
+  %6454 = getelementptr inbounds nuw i8, ptr %1425, i64 120
   store ptr null, ptr %6454, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1426, ptr nonnull align 8 %1425, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.354, i64 31)
           to label %6455 unwind label %6449
@@ -19205,13 +19205,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6458:                                             ; preds = %6455
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6445, ptr noundef nonnull align 8 dereferenceable(136) %1426, i64 136, i1 false)
-  %6459 = getelementptr inbounds i8, ptr %6445, i64 136
+  %6459 = getelementptr inbounds nuw i8, ptr %6445, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6459, ptr noundef nonnull align 8 dereferenceable(104) %515, i64 104, i1 false)
-  %.sroa.2701.0..sroa_idx = getelementptr inbounds i8, ptr %6445, i64 240
+  %.sroa.2701.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6445, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.251, ptr %.sroa.2701.0..sroa_idx, align 8
-  %.sroa.3702.0..sroa_idx = getelementptr inbounds i8, ptr %6445, i64 248
+  %.sroa.3702.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6445, i64 248
   store i64 1, ptr %.sroa.3702.0..sroa_idx, align 8
-  %.sroa.4703.0..sroa_idx = getelementptr inbounds i8, ptr %6445, i64 256
+  %.sroa.4703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6445, i64 256
   store ptr null, ptr %.sroa.4703.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1428, ptr nonnull align 8 %6445, i64 2)
           to label %6460 unwind label %.thread5082
@@ -19247,11 +19247,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6467:                                             ; preds = %6464
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6462, ptr noundef nonnull align 8 dereferenceable(104) %514, i64 104, i1 false)
-  %.sroa.2706.0..sroa_idx = getelementptr inbounds i8, ptr %6462, i64 104
+  %.sroa.2706.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6462, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2706.0..sroa_idx, align 8
-  %.sroa.3707.0..sroa_idx = getelementptr inbounds i8, ptr %6462, i64 112
+  %.sroa.3707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6462, i64 112
   store i64 1, ptr %.sroa.3707.0..sroa_idx, align 8
-  %.sroa.4708.0..sroa_idx = getelementptr inbounds i8, ptr %6462, i64 120
+  %.sroa.4708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6462, i64 120
   store ptr null, ptr %.sroa.4708.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1424, ptr nonnull align 8 %6462, i64 1)
           to label %6468 unwind label %.thread5093
@@ -19295,11 +19295,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6477:                                             ; preds = %6474
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6472, ptr noundef nonnull align 8 dereferenceable(104) %513, i64 104, i1 false)
-  %.sroa.2711.0..sroa_idx = getelementptr inbounds i8, ptr %6472, i64 104
+  %.sroa.2711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6472, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2711.0..sroa_idx, align 8
-  %.sroa.3712.0..sroa_idx = getelementptr inbounds i8, ptr %6472, i64 112
+  %.sroa.3712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6472, i64 112
   store i64 1, ptr %.sroa.3712.0..sroa_idx, align 8
-  %.sroa.4713.0..sroa_idx = getelementptr inbounds i8, ptr %6472, i64 120
+  %.sroa.4713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6472, i64 120
   store ptr null, ptr %.sroa.4713.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1419, ptr nonnull align 8 %6472, i64 1)
           to label %6478 unwind label %.thread5104
@@ -19335,11 +19335,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6485:                                             ; preds = %6482
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6480, ptr noundef nonnull align 8 dereferenceable(104) %512, i64 104, i1 false)
-  %.sroa.2716.0..sroa_idx = getelementptr inbounds i8, ptr %6480, i64 104
+  %.sroa.2716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6480, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2716.0..sroa_idx, align 8
-  %.sroa.3717.0..sroa_idx = getelementptr inbounds i8, ptr %6480, i64 112
+  %.sroa.3717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6480, i64 112
   store i64 1, ptr %.sroa.3717.0..sroa_idx, align 8
-  %.sroa.4718.0..sroa_idx = getelementptr inbounds i8, ptr %6480, i64 120
+  %.sroa.4718.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6480, i64 120
   store ptr null, ptr %.sroa.4718.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1417, ptr nonnull align 8 %6480, i64 1)
           to label %6486 unwind label %.thread5115
@@ -19383,11 +19383,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6495:                                             ; preds = %6492
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6490, ptr noundef nonnull align 8 dereferenceable(104) %511, i64 104, i1 false)
-  %.sroa.2721.0..sroa_idx = getelementptr inbounds i8, ptr %6490, i64 104
+  %.sroa.2721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6490, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2721.0..sroa_idx, align 8
-  %.sroa.3722.0..sroa_idx = getelementptr inbounds i8, ptr %6490, i64 112
+  %.sroa.3722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6490, i64 112
   store i64 1, ptr %.sroa.3722.0..sroa_idx, align 8
-  %.sroa.4723.0..sroa_idx = getelementptr inbounds i8, ptr %6490, i64 120
+  %.sroa.4723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6490, i64 120
   store ptr null, ptr %.sroa.4723.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1412, ptr nonnull align 8 %6490, i64 1)
           to label %6496 unwind label %.thread5126
@@ -19423,11 +19423,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6503:                                             ; preds = %6500
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6498, ptr noundef nonnull align 8 dereferenceable(104) %510, i64 104, i1 false)
-  %.sroa.2726.0..sroa_idx = getelementptr inbounds i8, ptr %6498, i64 104
+  %.sroa.2726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6498, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2726.0..sroa_idx, align 8
-  %.sroa.3727.0..sroa_idx = getelementptr inbounds i8, ptr %6498, i64 112
+  %.sroa.3727.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6498, i64 112
   store i64 1, ptr %.sroa.3727.0..sroa_idx, align 8
-  %.sroa.4728.0..sroa_idx = getelementptr inbounds i8, ptr %6498, i64 120
+  %.sroa.4728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6498, i64 120
   store ptr null, ptr %.sroa.4728.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1410, ptr nonnull align 8 %6498, i64 1)
           to label %6504 unwind label %.thread5137
@@ -19471,11 +19471,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6513:                                             ; preds = %6510
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6508, ptr noundef nonnull align 8 dereferenceable(104) %509, i64 104, i1 false)
-  %.sroa.2731.0..sroa_idx = getelementptr inbounds i8, ptr %6508, i64 104
+  %.sroa.2731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6508, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2731.0..sroa_idx, align 8
-  %.sroa.3732.0..sroa_idx = getelementptr inbounds i8, ptr %6508, i64 112
+  %.sroa.3732.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6508, i64 112
   store i64 1, ptr %.sroa.3732.0..sroa_idx, align 8
-  %.sroa.4733.0..sroa_idx = getelementptr inbounds i8, ptr %6508, i64 120
+  %.sroa.4733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6508, i64 120
   store ptr null, ptr %.sroa.4733.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1405, ptr nonnull align 8 %6508, i64 1)
           to label %6514 unwind label %.thread5148
@@ -19511,11 +19511,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6521:                                             ; preds = %6518
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6516, ptr noundef nonnull align 8 dereferenceable(104) %508, i64 104, i1 false)
-  %.sroa.2736.0..sroa_idx = getelementptr inbounds i8, ptr %6516, i64 104
+  %.sroa.2736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6516, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2736.0..sroa_idx, align 8
-  %.sroa.3737.0..sroa_idx = getelementptr inbounds i8, ptr %6516, i64 112
+  %.sroa.3737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6516, i64 112
   store i64 1, ptr %.sroa.3737.0..sroa_idx, align 8
-  %.sroa.4738.0..sroa_idx = getelementptr inbounds i8, ptr %6516, i64 120
+  %.sroa.4738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6516, i64 120
   store ptr null, ptr %.sroa.4738.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1403, ptr nonnull align 8 %6516, i64 1)
           to label %6522 unwind label %.thread5159
@@ -19559,11 +19559,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6531:                                             ; preds = %6528
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6526, ptr noundef nonnull align 8 dereferenceable(104) %507, i64 104, i1 false)
-  %.sroa.2741.0..sroa_idx = getelementptr inbounds i8, ptr %6526, i64 104
+  %.sroa.2741.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6526, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2741.0..sroa_idx, align 8
-  %.sroa.3742.0..sroa_idx = getelementptr inbounds i8, ptr %6526, i64 112
+  %.sroa.3742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6526, i64 112
   store i64 1, ptr %.sroa.3742.0..sroa_idx, align 8
-  %.sroa.4743.0..sroa_idx = getelementptr inbounds i8, ptr %6526, i64 120
+  %.sroa.4743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6526, i64 120
   store ptr null, ptr %.sroa.4743.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1398, ptr nonnull align 8 %6526, i64 1)
           to label %6532 unwind label %.thread5170
@@ -19599,11 +19599,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6539:                                             ; preds = %6536
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6534, ptr noundef nonnull align 8 dereferenceable(104) %506, i64 104, i1 false)
-  %.sroa.2746.0..sroa_idx = getelementptr inbounds i8, ptr %6534, i64 104
+  %.sroa.2746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6534, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2746.0..sroa_idx, align 8
-  %.sroa.3747.0..sroa_idx = getelementptr inbounds i8, ptr %6534, i64 112
+  %.sroa.3747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6534, i64 112
   store i64 1, ptr %.sroa.3747.0..sroa_idx, align 8
-  %.sroa.4748.0..sroa_idx = getelementptr inbounds i8, ptr %6534, i64 120
+  %.sroa.4748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6534, i64 120
   store ptr null, ptr %.sroa.4748.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1396, ptr nonnull align 8 %6534, i64 1)
           to label %6540 unwind label %.thread5181
@@ -19647,11 +19647,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6549:                                             ; preds = %6546
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6544, ptr noundef nonnull align 8 dereferenceable(104) %505, i64 104, i1 false)
-  %.sroa.2751.0..sroa_idx = getelementptr inbounds i8, ptr %6544, i64 104
+  %.sroa.2751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6544, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2751.0..sroa_idx, align 8
-  %.sroa.3752.0..sroa_idx = getelementptr inbounds i8, ptr %6544, i64 112
+  %.sroa.3752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6544, i64 112
   store i64 1, ptr %.sroa.3752.0..sroa_idx, align 8
-  %.sroa.4753.0..sroa_idx = getelementptr inbounds i8, ptr %6544, i64 120
+  %.sroa.4753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6544, i64 120
   store ptr null, ptr %.sroa.4753.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1391, ptr nonnull align 8 %6544, i64 1)
           to label %6550 unwind label %.thread5192
@@ -19687,11 +19687,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6557:                                             ; preds = %6554
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6552, ptr noundef nonnull align 8 dereferenceable(104) %504, i64 104, i1 false)
-  %.sroa.2756.0..sroa_idx = getelementptr inbounds i8, ptr %6552, i64 104
+  %.sroa.2756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6552, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2756.0..sroa_idx, align 8
-  %.sroa.3757.0..sroa_idx = getelementptr inbounds i8, ptr %6552, i64 112
+  %.sroa.3757.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6552, i64 112
   store i64 1, ptr %.sroa.3757.0..sroa_idx, align 8
-  %.sroa.4758.0..sroa_idx = getelementptr inbounds i8, ptr %6552, i64 120
+  %.sroa.4758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6552, i64 120
   store ptr null, ptr %.sroa.4758.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1389, ptr nonnull align 8 %6552, i64 1)
           to label %6558 unwind label %.thread5203
@@ -19735,11 +19735,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6567:                                             ; preds = %6564
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6562, ptr noundef nonnull align 8 dereferenceable(104) %503, i64 104, i1 false)
-  %.sroa.2761.0..sroa_idx = getelementptr inbounds i8, ptr %6562, i64 104
+  %.sroa.2761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6562, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2761.0..sroa_idx, align 8
-  %.sroa.3762.0..sroa_idx = getelementptr inbounds i8, ptr %6562, i64 112
+  %.sroa.3762.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6562, i64 112
   store i64 1, ptr %.sroa.3762.0..sroa_idx, align 8
-  %.sroa.4763.0..sroa_idx = getelementptr inbounds i8, ptr %6562, i64 120
+  %.sroa.4763.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6562, i64 120
   store ptr null, ptr %.sroa.4763.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1384, ptr nonnull align 8 %6562, i64 1)
           to label %6568 unwind label %.thread5214
@@ -19775,11 +19775,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6575:                                             ; preds = %6572
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6570, ptr noundef nonnull align 8 dereferenceable(104) %502, i64 104, i1 false)
-  %.sroa.2766.0..sroa_idx = getelementptr inbounds i8, ptr %6570, i64 104
+  %.sroa.2766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6570, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2766.0..sroa_idx, align 8
-  %.sroa.3767.0..sroa_idx = getelementptr inbounds i8, ptr %6570, i64 112
+  %.sroa.3767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6570, i64 112
   store i64 1, ptr %.sroa.3767.0..sroa_idx, align 8
-  %.sroa.4768.0..sroa_idx = getelementptr inbounds i8, ptr %6570, i64 120
+  %.sroa.4768.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6570, i64 120
   store ptr null, ptr %.sroa.4768.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1382, ptr nonnull align 8 %6570, i64 1)
           to label %6576 unwind label %.thread5225
@@ -19818,7 +19818,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6585:                                             ; preds = %6583
   store ptr %6584, ptr %1380, align 8
-  %6586 = getelementptr inbounds i8, ptr %1, i64 80
+  %6586 = getelementptr inbounds nuw i8, ptr %1, i64 80
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %1372, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.389, i64 4, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.388, i64 3431, ptr nonnull align 8 %6586)
           to label %6590 unwind label %6588
 
@@ -19848,7 +19848,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6593:                                             ; preds = %6590
   store ptr %6591, ptr %1370, align 8
-  %6594 = getelementptr inbounds i8, ptr %2, i64 832
+  %6594 = getelementptr inbounds nuw i8, ptr %2, i64 832
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %501, ptr nonnull align 8 %6594)
           to label %6598 unwind label %6596
 
@@ -19863,12 +19863,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6595
 
 6598:                                             ; preds = %6593
-  %6599 = getelementptr inbounds i8, ptr %1369, i64 104
+  %6599 = getelementptr inbounds nuw i8, ptr %1369, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.248, ptr %6599, align 8
-  %6600 = getelementptr inbounds i8, ptr %1369, i64 112
+  %6600 = getelementptr inbounds nuw i8, ptr %1369, i64 112
   store i64 4, ptr %6600, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1369, ptr noundef nonnull align 8 dereferenceable(104) %501, i64 104, i1 false)
-  %6601 = getelementptr inbounds i8, ptr %1369, i64 120
+  %6601 = getelementptr inbounds nuw i8, ptr %1369, i64 120
   store ptr null, ptr %6601, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %500, ptr nonnull align 8 %1380)
           to label %6605 unwind label %6603
@@ -19884,12 +19884,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6602
 
 6605:                                             ; preds = %6598
-  %6606 = getelementptr inbounds i8, ptr %1368, i64 104
+  %6606 = getelementptr inbounds nuw i8, ptr %1368, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6606, align 8
-  %6607 = getelementptr inbounds i8, ptr %1368, i64 112
+  %6607 = getelementptr inbounds nuw i8, ptr %1368, i64 112
   store i64 1, ptr %6607, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1368, ptr noundef nonnull align 8 dereferenceable(104) %500, i64 104, i1 false)
-  %6608 = getelementptr inbounds i8, ptr %1368, i64 120
+  %6608 = getelementptr inbounds nuw i8, ptr %1368, i64 120
   store ptr null, ptr %6608, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %499, ptr nonnull align 8 %1380)
           to label %6611 unwind label %6609
@@ -19902,15 +19902,15 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6611:                                             ; preds = %6605
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6591, ptr noundef nonnull align 8 dereferenceable(136) %1369, i64 136, i1 false)
-  %6612 = getelementptr inbounds i8, ptr %6591, i64 136
+  %6612 = getelementptr inbounds nuw i8, ptr %6591, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6612, ptr noundef nonnull align 8 dereferenceable(136) %1368, i64 136, i1 false)
-  %6613 = getelementptr inbounds i8, ptr %6591, i64 272
+  %6613 = getelementptr inbounds nuw i8, ptr %6591, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6613, ptr noundef nonnull align 8 dereferenceable(104) %499, i64 104, i1 false)
-  %.sroa.2771.0..sroa_idx = getelementptr inbounds i8, ptr %6591, i64 376
+  %.sroa.2771.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6591, i64 376
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2771.0..sroa_idx, align 8
-  %.sroa.3772.0..sroa_idx = getelementptr inbounds i8, ptr %6591, i64 384
+  %.sroa.3772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6591, i64 384
   store i64 1, ptr %.sroa.3772.0..sroa_idx, align 8
-  %.sroa.4773.0..sroa_idx = getelementptr inbounds i8, ptr %6591, i64 392
+  %.sroa.4773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6591, i64 392
   store ptr null, ptr %.sroa.4773.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1371, ptr nonnull align 8 %6591, i64 3)
           to label %6614 unwind label %.thread5236
@@ -19958,11 +19958,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 6627:                                             ; preds = %6624
   %6628 = load ptr, ptr %1366, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6628, ptr noundef nonnull align 8 dereferenceable(104) %498, i64 104, i1 false)
-  %.sroa.2776.0..sroa_idx = getelementptr inbounds i8, ptr %6628, i64 104
+  %.sroa.2776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6628, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2776.0..sroa_idx, align 8
-  %.sroa.3777.0..sroa_idx = getelementptr inbounds i8, ptr %6628, i64 112
+  %.sroa.3777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6628, i64 112
   store i64 1, ptr %.sroa.3777.0..sroa_idx, align 8
-  %.sroa.4778.0..sroa_idx = getelementptr inbounds i8, ptr %6628, i64 120
+  %.sroa.4778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6628, i64 120
   store ptr null, ptr %.sroa.4778.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1367, ptr nonnull align 8 %6628, i64 1)
           to label %6632 unwind label %.thread5243
@@ -20033,12 +20033,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6643
 
 6646:                                             ; preds = %6642
-  %6647 = getelementptr inbounds i8, ptr %1359, i64 104
+  %6647 = getelementptr inbounds nuw i8, ptr %1359, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6647, align 8
-  %6648 = getelementptr inbounds i8, ptr %1359, i64 112
+  %6648 = getelementptr inbounds nuw i8, ptr %1359, i64 112
   store i64 1, ptr %6648, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1359, ptr noundef nonnull align 8 dereferenceable(104) %497, i64 104, i1 false)
-  %6649 = getelementptr inbounds i8, ptr %1359, i64 120
+  %6649 = getelementptr inbounds nuw i8, ptr %1359, i64 120
   store ptr null, ptr %6649, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %496, ptr nonnull align 8 %1380)
           to label %6652 unwind label %6650
@@ -20051,13 +20051,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6652:                                             ; preds = %6646
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6640, ptr noundef nonnull align 8 dereferenceable(136) %1359, i64 136, i1 false)
-  %6653 = getelementptr inbounds i8, ptr %6640, i64 136
+  %6653 = getelementptr inbounds nuw i8, ptr %6640, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6653, ptr noundef nonnull align 8 dereferenceable(104) %496, i64 104, i1 false)
-  %.sroa.2781.0..sroa_idx = getelementptr inbounds i8, ptr %6640, i64 240
+  %.sroa.2781.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6640, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2781.0..sroa_idx, align 8
-  %.sroa.3782.0..sroa_idx = getelementptr inbounds i8, ptr %6640, i64 248
+  %.sroa.3782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6640, i64 248
   store i64 1, ptr %.sroa.3782.0..sroa_idx, align 8
-  %.sroa.4783.0..sroa_idx = getelementptr inbounds i8, ptr %6640, i64 256
+  %.sroa.4783.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6640, i64 256
   store ptr null, ptr %.sroa.4783.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1361, ptr nonnull align 8 %6640, i64 2)
           to label %6654 unwind label %.thread5253
@@ -20092,12 +20092,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5256 unwind label %8361
 
 6661:                                             ; preds = %6658
-  %6662 = getelementptr inbounds i8, ptr %1355, i64 104
+  %6662 = getelementptr inbounds nuw i8, ptr %1355, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6662, align 8
-  %6663 = getelementptr inbounds i8, ptr %1355, i64 112
+  %6663 = getelementptr inbounds nuw i8, ptr %1355, i64 112
   store i64 1, ptr %6663, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1355, ptr noundef nonnull align 8 dereferenceable(104) %495, i64 104, i1 false)
-  %6664 = getelementptr inbounds i8, ptr %1355, i64 120
+  %6664 = getelementptr inbounds nuw i8, ptr %1355, i64 120
   store ptr null, ptr %6664, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1356, ptr nonnull align 8 %1355, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.392, i64 40)
           to label %6665 unwind label %6659
@@ -20149,12 +20149,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6673
 
 6676:                                             ; preds = %6672
-  %6677 = getelementptr inbounds i8, ptr %1349, i64 104
+  %6677 = getelementptr inbounds nuw i8, ptr %1349, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6677, align 8
-  %6678 = getelementptr inbounds i8, ptr %1349, i64 112
+  %6678 = getelementptr inbounds nuw i8, ptr %1349, i64 112
   store i64 1, ptr %6678, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1349, ptr noundef nonnull align 8 dereferenceable(104) %494, i64 104, i1 false)
-  %6679 = getelementptr inbounds i8, ptr %1349, i64 120
+  %6679 = getelementptr inbounds nuw i8, ptr %1349, i64 120
   store ptr null, ptr %6679, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %493, ptr nonnull align 8 %1380)
           to label %6682 unwind label %6680
@@ -20167,13 +20167,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6682:                                             ; preds = %6676
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6670, ptr noundef nonnull align 8 dereferenceable(136) %1349, i64 136, i1 false)
-  %6683 = getelementptr inbounds i8, ptr %6670, i64 136
+  %6683 = getelementptr inbounds nuw i8, ptr %6670, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6683, ptr noundef nonnull align 8 dereferenceable(104) %493, i64 104, i1 false)
-  %.sroa.2786.0..sroa_idx = getelementptr inbounds i8, ptr %6670, i64 240
+  %.sroa.2786.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6670, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2786.0..sroa_idx, align 8
-  %.sroa.3787.0..sroa_idx = getelementptr inbounds i8, ptr %6670, i64 248
+  %.sroa.3787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6670, i64 248
   store i64 1, ptr %.sroa.3787.0..sroa_idx, align 8
-  %.sroa.4788.0..sroa_idx = getelementptr inbounds i8, ptr %6670, i64 256
+  %.sroa.4788.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6670, i64 256
   store ptr null, ptr %.sroa.4788.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1351, ptr nonnull align 8 %6670, i64 2)
           to label %6684 unwind label %.thread5275
@@ -20208,12 +20208,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5278 unwind label %8361
 
 6691:                                             ; preds = %6688
-  %6692 = getelementptr inbounds i8, ptr %1345, i64 104
+  %6692 = getelementptr inbounds nuw i8, ptr %1345, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6692, align 8
-  %6693 = getelementptr inbounds i8, ptr %1345, i64 112
+  %6693 = getelementptr inbounds nuw i8, ptr %1345, i64 112
   store i64 1, ptr %6693, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1345, ptr noundef nonnull align 8 dereferenceable(104) %492, i64 104, i1 false)
-  %6694 = getelementptr inbounds i8, ptr %1345, i64 120
+  %6694 = getelementptr inbounds nuw i8, ptr %1345, i64 120
   store ptr null, ptr %6694, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1346, ptr nonnull align 8 %1345, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.392, i64 40)
           to label %6695 unwind label %6689
@@ -20265,12 +20265,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6703
 
 6706:                                             ; preds = %6702
-  %6707 = getelementptr inbounds i8, ptr %1339, i64 104
+  %6707 = getelementptr inbounds nuw i8, ptr %1339, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6707, align 8
-  %6708 = getelementptr inbounds i8, ptr %1339, i64 112
+  %6708 = getelementptr inbounds nuw i8, ptr %1339, i64 112
   store i64 1, ptr %6708, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1339, ptr noundef nonnull align 8 dereferenceable(104) %491, i64 104, i1 false)
-  %6709 = getelementptr inbounds i8, ptr %1339, i64 120
+  %6709 = getelementptr inbounds nuw i8, ptr %1339, i64 120
   store ptr null, ptr %6709, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %490, ptr nonnull align 8 %1380)
           to label %6712 unwind label %6710
@@ -20283,13 +20283,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6712:                                             ; preds = %6706
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6700, ptr noundef nonnull align 8 dereferenceable(136) %1339, i64 136, i1 false)
-  %6713 = getelementptr inbounds i8, ptr %6700, i64 136
+  %6713 = getelementptr inbounds nuw i8, ptr %6700, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6713, ptr noundef nonnull align 8 dereferenceable(104) %490, i64 104, i1 false)
-  %.sroa.2791.0..sroa_idx = getelementptr inbounds i8, ptr %6700, i64 240
+  %.sroa.2791.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6700, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2791.0..sroa_idx, align 8
-  %.sroa.3792.0..sroa_idx = getelementptr inbounds i8, ptr %6700, i64 248
+  %.sroa.3792.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6700, i64 248
   store i64 1, ptr %.sroa.3792.0..sroa_idx, align 8
-  %.sroa.4793.0..sroa_idx = getelementptr inbounds i8, ptr %6700, i64 256
+  %.sroa.4793.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6700, i64 256
   store ptr null, ptr %.sroa.4793.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1341, ptr nonnull align 8 %6700, i64 2)
           to label %6714 unwind label %.thread5297
@@ -20324,12 +20324,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5300 unwind label %8361
 
 6721:                                             ; preds = %6718
-  %6722 = getelementptr inbounds i8, ptr %1335, i64 104
+  %6722 = getelementptr inbounds nuw i8, ptr %1335, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6722, align 8
-  %6723 = getelementptr inbounds i8, ptr %1335, i64 112
+  %6723 = getelementptr inbounds nuw i8, ptr %1335, i64 112
   store i64 1, ptr %6723, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1335, ptr noundef nonnull align 8 dereferenceable(104) %489, i64 104, i1 false)
-  %6724 = getelementptr inbounds i8, ptr %1335, i64 120
+  %6724 = getelementptr inbounds nuw i8, ptr %1335, i64 120
   store ptr null, ptr %6724, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1336, ptr nonnull align 8 %1335, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.392, i64 40)
           to label %6725 unwind label %6719
@@ -20381,12 +20381,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6733
 
 6736:                                             ; preds = %6732
-  %6737 = getelementptr inbounds i8, ptr %1329, i64 104
+  %6737 = getelementptr inbounds nuw i8, ptr %1329, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6737, align 8
-  %6738 = getelementptr inbounds i8, ptr %1329, i64 112
+  %6738 = getelementptr inbounds nuw i8, ptr %1329, i64 112
   store i64 1, ptr %6738, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1329, ptr noundef nonnull align 8 dereferenceable(104) %488, i64 104, i1 false)
-  %6739 = getelementptr inbounds i8, ptr %1329, i64 120
+  %6739 = getelementptr inbounds nuw i8, ptr %1329, i64 120
   store ptr null, ptr %6739, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %487, ptr nonnull align 8 %1380)
           to label %6742 unwind label %6740
@@ -20399,13 +20399,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6742:                                             ; preds = %6736
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6730, ptr noundef nonnull align 8 dereferenceable(136) %1329, i64 136, i1 false)
-  %6743 = getelementptr inbounds i8, ptr %6730, i64 136
+  %6743 = getelementptr inbounds nuw i8, ptr %6730, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6743, ptr noundef nonnull align 8 dereferenceable(104) %487, i64 104, i1 false)
-  %.sroa.2796.0..sroa_idx = getelementptr inbounds i8, ptr %6730, i64 240
+  %.sroa.2796.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6730, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2796.0..sroa_idx, align 8
-  %.sroa.3797.0..sroa_idx = getelementptr inbounds i8, ptr %6730, i64 248
+  %.sroa.3797.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6730, i64 248
   store i64 1, ptr %.sroa.3797.0..sroa_idx, align 8
-  %.sroa.4798.0..sroa_idx = getelementptr inbounds i8, ptr %6730, i64 256
+  %.sroa.4798.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6730, i64 256
   store ptr null, ptr %.sroa.4798.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1331, ptr nonnull align 8 %6730, i64 2)
           to label %6744 unwind label %.thread5319
@@ -20440,12 +20440,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5322 unwind label %8361
 
 6751:                                             ; preds = %6748
-  %6752 = getelementptr inbounds i8, ptr %1325, i64 104
+  %6752 = getelementptr inbounds nuw i8, ptr %1325, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6752, align 8
-  %6753 = getelementptr inbounds i8, ptr %1325, i64 112
+  %6753 = getelementptr inbounds nuw i8, ptr %1325, i64 112
   store i64 1, ptr %6753, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1325, ptr noundef nonnull align 8 dereferenceable(104) %486, i64 104, i1 false)
-  %6754 = getelementptr inbounds i8, ptr %1325, i64 120
+  %6754 = getelementptr inbounds nuw i8, ptr %1325, i64 120
   store ptr null, ptr %6754, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1326, ptr nonnull align 8 %1325, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.392, i64 40)
           to label %6755 unwind label %6749
@@ -20494,11 +20494,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6765:                                             ; preds = %6762
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6760, ptr noundef nonnull align 8 dereferenceable(104) %485, i64 104, i1 false)
-  %.sroa.2801.0..sroa_idx = getelementptr inbounds i8, ptr %6760, i64 104
+  %.sroa.2801.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6760, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2801.0..sroa_idx, align 8
-  %.sroa.3802.0..sroa_idx = getelementptr inbounds i8, ptr %6760, i64 112
+  %.sroa.3802.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6760, i64 112
   store i64 1, ptr %.sroa.3802.0..sroa_idx, align 8
-  %.sroa.4803.0..sroa_idx = getelementptr inbounds i8, ptr %6760, i64 120
+  %.sroa.4803.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6760, i64 120
   store ptr null, ptr %.sroa.4803.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1321, ptr nonnull align 8 %6760, i64 1)
           to label %6766 unwind label %.thread5341
@@ -20533,12 +20533,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5344 unwind label %8361
 
 6773:                                             ; preds = %6770
-  %6774 = getelementptr inbounds i8, ptr %1316, i64 104
+  %6774 = getelementptr inbounds nuw i8, ptr %1316, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6774, align 8
-  %6775 = getelementptr inbounds i8, ptr %1316, i64 112
+  %6775 = getelementptr inbounds nuw i8, ptr %1316, i64 112
   store i64 1, ptr %6775, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1316, ptr noundef nonnull align 8 dereferenceable(104) %484, i64 104, i1 false)
-  %6776 = getelementptr inbounds i8, ptr %1316, i64 120
+  %6776 = getelementptr inbounds nuw i8, ptr %1316, i64 120
   store ptr null, ptr %6776, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1317, ptr nonnull align 8 %1316, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.392, i64 40)
           to label %6777 unwind label %6771
@@ -20590,12 +20590,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6785
 
 6788:                                             ; preds = %6784
-  %6789 = getelementptr inbounds i8, ptr %1310, i64 104
+  %6789 = getelementptr inbounds nuw i8, ptr %1310, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6789, align 8
-  %6790 = getelementptr inbounds i8, ptr %1310, i64 112
+  %6790 = getelementptr inbounds nuw i8, ptr %1310, i64 112
   store i64 1, ptr %6790, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1310, ptr noundef nonnull align 8 dereferenceable(104) %483, i64 104, i1 false)
-  %6791 = getelementptr inbounds i8, ptr %1310, i64 120
+  %6791 = getelementptr inbounds nuw i8, ptr %1310, i64 120
   store ptr null, ptr %6791, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %482, ptr nonnull align 8 %1380)
           to label %6795 unwind label %6793
@@ -20611,12 +20611,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6792
 
 6795:                                             ; preds = %6788
-  %6796 = getelementptr inbounds i8, ptr %1309, i64 104
+  %6796 = getelementptr inbounds nuw i8, ptr %1309, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %6796, align 8
-  %6797 = getelementptr inbounds i8, ptr %1309, i64 112
+  %6797 = getelementptr inbounds nuw i8, ptr %1309, i64 112
   store i64 1, ptr %6797, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1309, ptr noundef nonnull align 8 dereferenceable(104) %482, i64 104, i1 false)
-  %6798 = getelementptr inbounds i8, ptr %1309, i64 120
+  %6798 = getelementptr inbounds nuw i8, ptr %1309, i64 120
   store ptr null, ptr %6798, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %481, ptr nonnull align 8 %1380)
           to label %6801 unwind label %6799
@@ -20629,15 +20629,15 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6801:                                             ; preds = %6795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6782, ptr noundef nonnull align 8 dereferenceable(136) %1310, i64 136, i1 false)
-  %6802 = getelementptr inbounds i8, ptr %6782, i64 136
+  %6802 = getelementptr inbounds nuw i8, ptr %6782, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6802, ptr noundef nonnull align 8 dereferenceable(136) %1309, i64 136, i1 false)
-  %6803 = getelementptr inbounds i8, ptr %6782, i64 272
+  %6803 = getelementptr inbounds nuw i8, ptr %6782, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6803, ptr noundef nonnull align 8 dereferenceable(104) %481, i64 104, i1 false)
-  %.sroa.2806.0..sroa_idx = getelementptr inbounds i8, ptr %6782, i64 376
+  %.sroa.2806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6782, i64 376
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.403, ptr %.sroa.2806.0..sroa_idx, align 8
-  %.sroa.3807.0..sroa_idx = getelementptr inbounds i8, ptr %6782, i64 384
+  %.sroa.3807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6782, i64 384
   store i64 1, ptr %.sroa.3807.0..sroa_idx, align 8
-  %.sroa.4808.0..sroa_idx = getelementptr inbounds i8, ptr %6782, i64 392
+  %.sroa.4808.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6782, i64 392
   store ptr null, ptr %.sroa.4808.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1312, ptr nonnull align 8 %6782, i64 3)
           to label %6804 unwind label %.thread5363
@@ -20672,12 +20672,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5366 unwind label %8361
 
 6811:                                             ; preds = %6808
-  %6812 = getelementptr inbounds i8, ptr %1305, i64 104
+  %6812 = getelementptr inbounds nuw i8, ptr %1305, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6812, align 8
-  %6813 = getelementptr inbounds i8, ptr %1305, i64 112
+  %6813 = getelementptr inbounds nuw i8, ptr %1305, i64 112
   store i64 1, ptr %6813, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1305, ptr noundef nonnull align 8 dereferenceable(104) %480, i64 104, i1 false)
-  %6814 = getelementptr inbounds i8, ptr %1305, i64 120
+  %6814 = getelementptr inbounds nuw i8, ptr %1305, i64 120
   store ptr null, ptr %6814, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1306, ptr nonnull align 8 %1305, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.392, i64 40)
           to label %6815 unwind label %6809
@@ -20726,11 +20726,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6825:                                             ; preds = %6822
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6820, ptr noundef nonnull align 8 dereferenceable(104) %479, i64 104, i1 false)
-  %.sroa.2811.0..sroa_idx = getelementptr inbounds i8, ptr %6820, i64 104
+  %.sroa.2811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6820, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2811.0..sroa_idx, align 8
-  %.sroa.3812.0..sroa_idx = getelementptr inbounds i8, ptr %6820, i64 112
+  %.sroa.3812.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6820, i64 112
   store i64 1, ptr %.sroa.3812.0..sroa_idx, align 8
-  %.sroa.4813.0..sroa_idx = getelementptr inbounds i8, ptr %6820, i64 120
+  %.sroa.4813.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6820, i64 120
   store ptr null, ptr %.sroa.4813.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1301, ptr nonnull align 8 %6820, i64 1)
           to label %6826 unwind label %.thread5385
@@ -20765,12 +20765,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5388 unwind label %8361
 
 6833:                                             ; preds = %6830
-  %6834 = getelementptr inbounds i8, ptr %1296, i64 104
+  %6834 = getelementptr inbounds nuw i8, ptr %1296, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6834, align 8
-  %6835 = getelementptr inbounds i8, ptr %1296, i64 112
+  %6835 = getelementptr inbounds nuw i8, ptr %1296, i64 112
   store i64 1, ptr %6835, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1296, ptr noundef nonnull align 8 dereferenceable(104) %478, i64 104, i1 false)
-  %6836 = getelementptr inbounds i8, ptr %1296, i64 120
+  %6836 = getelementptr inbounds nuw i8, ptr %1296, i64 120
   store ptr null, ptr %6836, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1297, ptr nonnull align 8 %1296, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.406, i64 32)
           to label %6837 unwind label %6831
@@ -20819,11 +20819,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6847:                                             ; preds = %6844
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6842, ptr noundef nonnull align 8 dereferenceable(104) %477, i64 104, i1 false)
-  %.sroa.2816.0..sroa_idx = getelementptr inbounds i8, ptr %6842, i64 104
+  %.sroa.2816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6842, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2816.0..sroa_idx, align 8
-  %.sroa.3817.0..sroa_idx = getelementptr inbounds i8, ptr %6842, i64 112
+  %.sroa.3817.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6842, i64 112
   store i64 1, ptr %.sroa.3817.0..sroa_idx, align 8
-  %.sroa.4818.0..sroa_idx = getelementptr inbounds i8, ptr %6842, i64 120
+  %.sroa.4818.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6842, i64 120
   store ptr null, ptr %.sroa.4818.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1292, ptr nonnull align 8 %6842, i64 1)
           to label %6848 unwind label %.thread5407
@@ -20858,12 +20858,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5410 unwind label %8361
 
 6855:                                             ; preds = %6852
-  %6856 = getelementptr inbounds i8, ptr %1287, i64 104
+  %6856 = getelementptr inbounds nuw i8, ptr %1287, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6856, align 8
-  %6857 = getelementptr inbounds i8, ptr %1287, i64 112
+  %6857 = getelementptr inbounds nuw i8, ptr %1287, i64 112
   store i64 1, ptr %6857, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1287, ptr noundef nonnull align 8 dereferenceable(104) %476, i64 104, i1 false)
-  %6858 = getelementptr inbounds i8, ptr %1287, i64 120
+  %6858 = getelementptr inbounds nuw i8, ptr %1287, i64 120
   store ptr null, ptr %6858, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1288, ptr nonnull align 8 %1287, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.409, i64 31)
           to label %6859 unwind label %6853
@@ -20915,12 +20915,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6867
 
 6870:                                             ; preds = %6866
-  %6871 = getelementptr inbounds i8, ptr %1281, i64 104
+  %6871 = getelementptr inbounds nuw i8, ptr %1281, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6871, align 8
-  %6872 = getelementptr inbounds i8, ptr %1281, i64 112
+  %6872 = getelementptr inbounds nuw i8, ptr %1281, i64 112
   store i64 1, ptr %6872, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1281, ptr noundef nonnull align 8 dereferenceable(104) %475, i64 104, i1 false)
-  %6873 = getelementptr inbounds i8, ptr %1281, i64 120
+  %6873 = getelementptr inbounds nuw i8, ptr %1281, i64 120
   store ptr null, ptr %6873, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %474, ptr nonnull align 8 %1380)
           to label %6876 unwind label %6874
@@ -20933,13 +20933,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6876:                                             ; preds = %6870
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6864, ptr noundef nonnull align 8 dereferenceable(136) %1281, i64 136, i1 false)
-  %6877 = getelementptr inbounds i8, ptr %6864, i64 136
+  %6877 = getelementptr inbounds nuw i8, ptr %6864, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6877, ptr noundef nonnull align 8 dereferenceable(104) %474, i64 104, i1 false)
-  %.sroa.2821.0..sroa_idx = getelementptr inbounds i8, ptr %6864, i64 240
+  %.sroa.2821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6864, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2821.0..sroa_idx, align 8
-  %.sroa.3822.0..sroa_idx = getelementptr inbounds i8, ptr %6864, i64 248
+  %.sroa.3822.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6864, i64 248
   store i64 1, ptr %.sroa.3822.0..sroa_idx, align 8
-  %.sroa.4823.0..sroa_idx = getelementptr inbounds i8, ptr %6864, i64 256
+  %.sroa.4823.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6864, i64 256
   store ptr null, ptr %.sroa.4823.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1283, ptr nonnull align 8 %6864, i64 2)
           to label %6878 unwind label %.thread5429
@@ -20974,12 +20974,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5432 unwind label %8361
 
 6885:                                             ; preds = %6882
-  %6886 = getelementptr inbounds i8, ptr %1277, i64 104
+  %6886 = getelementptr inbounds nuw i8, ptr %1277, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6886, align 8
-  %6887 = getelementptr inbounds i8, ptr %1277, i64 112
+  %6887 = getelementptr inbounds nuw i8, ptr %1277, i64 112
   store i64 1, ptr %6887, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1277, ptr noundef nonnull align 8 dereferenceable(104) %473, i64 104, i1 false)
-  %6888 = getelementptr inbounds i8, ptr %1277, i64 120
+  %6888 = getelementptr inbounds nuw i8, ptr %1277, i64 120
   store ptr null, ptr %6888, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1278, ptr nonnull align 8 %1277, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.412, i64 48)
           to label %6889 unwind label %6883
@@ -21031,12 +21031,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6897
 
 6900:                                             ; preds = %6896
-  %6901 = getelementptr inbounds i8, ptr %1271, i64 104
+  %6901 = getelementptr inbounds nuw i8, ptr %1271, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6901, align 8
-  %6902 = getelementptr inbounds i8, ptr %1271, i64 112
+  %6902 = getelementptr inbounds nuw i8, ptr %1271, i64 112
   store i64 1, ptr %6902, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1271, ptr noundef nonnull align 8 dereferenceable(104) %472, i64 104, i1 false)
-  %6903 = getelementptr inbounds i8, ptr %1271, i64 120
+  %6903 = getelementptr inbounds nuw i8, ptr %1271, i64 120
   store ptr null, ptr %6903, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %471, ptr nonnull align 8 %1380)
           to label %6906 unwind label %6904
@@ -21049,13 +21049,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6906:                                             ; preds = %6900
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6894, ptr noundef nonnull align 8 dereferenceable(136) %1271, i64 136, i1 false)
-  %6907 = getelementptr inbounds i8, ptr %6894, i64 136
+  %6907 = getelementptr inbounds nuw i8, ptr %6894, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6907, ptr noundef nonnull align 8 dereferenceable(104) %471, i64 104, i1 false)
-  %.sroa.2826.0..sroa_idx = getelementptr inbounds i8, ptr %6894, i64 240
+  %.sroa.2826.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6894, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2826.0..sroa_idx, align 8
-  %.sroa.3827.0..sroa_idx = getelementptr inbounds i8, ptr %6894, i64 248
+  %.sroa.3827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6894, i64 248
   store i64 1, ptr %.sroa.3827.0..sroa_idx, align 8
-  %.sroa.4828.0..sroa_idx = getelementptr inbounds i8, ptr %6894, i64 256
+  %.sroa.4828.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6894, i64 256
   store ptr null, ptr %.sroa.4828.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1273, ptr nonnull align 8 %6894, i64 2)
           to label %6908 unwind label %.thread5451
@@ -21090,12 +21090,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5454 unwind label %8361
 
 6915:                                             ; preds = %6912
-  %6916 = getelementptr inbounds i8, ptr %1267, i64 104
+  %6916 = getelementptr inbounds nuw i8, ptr %1267, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6916, align 8
-  %6917 = getelementptr inbounds i8, ptr %1267, i64 112
+  %6917 = getelementptr inbounds nuw i8, ptr %1267, i64 112
   store i64 1, ptr %6917, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1267, ptr noundef nonnull align 8 dereferenceable(104) %470, i64 104, i1 false)
-  %6918 = getelementptr inbounds i8, ptr %1267, i64 120
+  %6918 = getelementptr inbounds nuw i8, ptr %1267, i64 120
   store ptr null, ptr %6918, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1268, ptr nonnull align 8 %1267, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.415, i64 30)
           to label %6919 unwind label %6913
@@ -21147,12 +21147,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %6927
 
 6930:                                             ; preds = %6926
-  %6931 = getelementptr inbounds i8, ptr %1261, i64 104
+  %6931 = getelementptr inbounds nuw i8, ptr %1261, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %6931, align 8
-  %6932 = getelementptr inbounds i8, ptr %1261, i64 112
+  %6932 = getelementptr inbounds nuw i8, ptr %1261, i64 112
   store i64 1, ptr %6932, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1261, ptr noundef nonnull align 8 dereferenceable(104) %469, i64 104, i1 false)
-  %6933 = getelementptr inbounds i8, ptr %1261, i64 120
+  %6933 = getelementptr inbounds nuw i8, ptr %1261, i64 120
   store ptr null, ptr %6933, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %468, ptr nonnull align 8 %1380)
           to label %6936 unwind label %6934
@@ -21165,13 +21165,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6936:                                             ; preds = %6930
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6924, ptr noundef nonnull align 8 dereferenceable(136) %1261, i64 136, i1 false)
-  %6937 = getelementptr inbounds i8, ptr %6924, i64 136
+  %6937 = getelementptr inbounds nuw i8, ptr %6924, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6937, ptr noundef nonnull align 8 dereferenceable(104) %468, i64 104, i1 false)
-  %.sroa.2831.0..sroa_idx = getelementptr inbounds i8, ptr %6924, i64 240
+  %.sroa.2831.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6924, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2831.0..sroa_idx, align 8
-  %.sroa.3832.0..sroa_idx = getelementptr inbounds i8, ptr %6924, i64 248
+  %.sroa.3832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6924, i64 248
   store i64 1, ptr %.sroa.3832.0..sroa_idx, align 8
-  %.sroa.4833.0..sroa_idx = getelementptr inbounds i8, ptr %6924, i64 256
+  %.sroa.4833.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6924, i64 256
   store ptr null, ptr %.sroa.4833.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1263, ptr nonnull align 8 %6924, i64 2)
           to label %6938 unwind label %.thread5473
@@ -21206,12 +21206,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5476 unwind label %8361
 
 6945:                                             ; preds = %6942
-  %6946 = getelementptr inbounds i8, ptr %1257, i64 104
+  %6946 = getelementptr inbounds nuw i8, ptr %1257, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6946, align 8
-  %6947 = getelementptr inbounds i8, ptr %1257, i64 112
+  %6947 = getelementptr inbounds nuw i8, ptr %1257, i64 112
   store i64 1, ptr %6947, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1257, ptr noundef nonnull align 8 dereferenceable(104) %467, i64 104, i1 false)
-  %6948 = getelementptr inbounds i8, ptr %1257, i64 120
+  %6948 = getelementptr inbounds nuw i8, ptr %1257, i64 120
   store ptr null, ptr %6948, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1258, ptr nonnull align 8 %1257, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.418, i64 29)
           to label %6949 unwind label %6943
@@ -21260,11 +21260,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6959:                                             ; preds = %6956
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6954, ptr noundef nonnull align 8 dereferenceable(104) %466, i64 104, i1 false)
-  %.sroa.2836.0..sroa_idx = getelementptr inbounds i8, ptr %6954, i64 104
+  %.sroa.2836.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6954, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2836.0..sroa_idx, align 8
-  %.sroa.3837.0..sroa_idx = getelementptr inbounds i8, ptr %6954, i64 112
+  %.sroa.3837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6954, i64 112
   store i64 1, ptr %.sroa.3837.0..sroa_idx, align 8
-  %.sroa.4838.0..sroa_idx = getelementptr inbounds i8, ptr %6954, i64 120
+  %.sroa.4838.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6954, i64 120
   store ptr null, ptr %.sroa.4838.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1253, ptr nonnull align 8 %6954, i64 1)
           to label %6960 unwind label %.thread5495
@@ -21299,12 +21299,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5498 unwind label %8361
 
 6967:                                             ; preds = %6964
-  %6968 = getelementptr inbounds i8, ptr %1248, i64 104
+  %6968 = getelementptr inbounds nuw i8, ptr %1248, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6968, align 8
-  %6969 = getelementptr inbounds i8, ptr %1248, i64 112
+  %6969 = getelementptr inbounds nuw i8, ptr %1248, i64 112
   store i64 1, ptr %6969, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1248, ptr noundef nonnull align 8 dereferenceable(104) %465, i64 104, i1 false)
-  %6970 = getelementptr inbounds i8, ptr %1248, i64 120
+  %6970 = getelementptr inbounds nuw i8, ptr %1248, i64 120
   store ptr null, ptr %6970, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1249, ptr nonnull align 8 %1248, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.421, i64 31)
           to label %6971 unwind label %6965
@@ -21353,11 +21353,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 6981:                                             ; preds = %6978
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6976, ptr noundef nonnull align 8 dereferenceable(104) %464, i64 104, i1 false)
-  %.sroa.2841.0..sroa_idx = getelementptr inbounds i8, ptr %6976, i64 104
+  %.sroa.2841.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6976, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2841.0..sroa_idx, align 8
-  %.sroa.3842.0..sroa_idx = getelementptr inbounds i8, ptr %6976, i64 112
+  %.sroa.3842.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6976, i64 112
   store i64 1, ptr %.sroa.3842.0..sroa_idx, align 8
-  %.sroa.4843.0..sroa_idx = getelementptr inbounds i8, ptr %6976, i64 120
+  %.sroa.4843.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6976, i64 120
   store ptr null, ptr %.sroa.4843.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1244, ptr nonnull align 8 %6976, i64 1)
           to label %6982 unwind label %.thread5517
@@ -21392,12 +21392,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5520 unwind label %8361
 
 6989:                                             ; preds = %6986
-  %6990 = getelementptr inbounds i8, ptr %1239, i64 104
+  %6990 = getelementptr inbounds nuw i8, ptr %1239, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %6990, align 8
-  %6991 = getelementptr inbounds i8, ptr %1239, i64 112
+  %6991 = getelementptr inbounds nuw i8, ptr %1239, i64 112
   store i64 1, ptr %6991, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1239, ptr noundef nonnull align 8 dereferenceable(104) %463, i64 104, i1 false)
-  %6992 = getelementptr inbounds i8, ptr %1239, i64 120
+  %6992 = getelementptr inbounds nuw i8, ptr %1239, i64 120
   store ptr null, ptr %6992, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1240, ptr nonnull align 8 %1239, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.421, i64 31)
           to label %6993 unwind label %6987
@@ -21446,11 +21446,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7003:                                             ; preds = %7000
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6998, ptr noundef nonnull align 8 dereferenceable(104) %462, i64 104, i1 false)
-  %.sroa.2846.0..sroa_idx = getelementptr inbounds i8, ptr %6998, i64 104
+  %.sroa.2846.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6998, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2846.0..sroa_idx, align 8
-  %.sroa.3847.0..sroa_idx = getelementptr inbounds i8, ptr %6998, i64 112
+  %.sroa.3847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6998, i64 112
   store i64 1, ptr %.sroa.3847.0..sroa_idx, align 8
-  %.sroa.4848.0..sroa_idx = getelementptr inbounds i8, ptr %6998, i64 120
+  %.sroa.4848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6998, i64 120
   store ptr null, ptr %.sroa.4848.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1235, ptr nonnull align 8 %6998, i64 1)
           to label %7004 unwind label %.thread5539
@@ -21485,12 +21485,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5542 unwind label %8361
 
 7011:                                             ; preds = %7008
-  %7012 = getelementptr inbounds i8, ptr %1230, i64 104
+  %7012 = getelementptr inbounds nuw i8, ptr %1230, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %7012, align 8
-  %7013 = getelementptr inbounds i8, ptr %1230, i64 112
+  %7013 = getelementptr inbounds nuw i8, ptr %1230, i64 112
   store i64 1, ptr %7013, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1230, ptr noundef nonnull align 8 dereferenceable(104) %461, i64 104, i1 false)
-  %7014 = getelementptr inbounds i8, ptr %1230, i64 120
+  %7014 = getelementptr inbounds nuw i8, ptr %1230, i64 120
   store ptr null, ptr %7014, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1231, ptr nonnull align 8 %1230, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.421, i64 31)
           to label %7015 unwind label %7009
@@ -21539,11 +21539,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7025:                                             ; preds = %7022
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7020, ptr noundef nonnull align 8 dereferenceable(104) %460, i64 104, i1 false)
-  %.sroa.2851.0..sroa_idx = getelementptr inbounds i8, ptr %7020, i64 104
+  %.sroa.2851.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7020, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2851.0..sroa_idx, align 8
-  %.sroa.3852.0..sroa_idx = getelementptr inbounds i8, ptr %7020, i64 112
+  %.sroa.3852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7020, i64 112
   store i64 1, ptr %.sroa.3852.0..sroa_idx, align 8
-  %.sroa.4853.0..sroa_idx = getelementptr inbounds i8, ptr %7020, i64 120
+  %.sroa.4853.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7020, i64 120
   store ptr null, ptr %.sroa.4853.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1226, ptr nonnull align 8 %7020, i64 1)
           to label %7026 unwind label %.thread5561
@@ -21578,12 +21578,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5564 unwind label %8361
 
 7033:                                             ; preds = %7030
-  %7034 = getelementptr inbounds i8, ptr %1221, i64 104
+  %7034 = getelementptr inbounds nuw i8, ptr %1221, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %7034, align 8
-  %7035 = getelementptr inbounds i8, ptr %1221, i64 112
+  %7035 = getelementptr inbounds nuw i8, ptr %1221, i64 112
   store i64 1, ptr %7035, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1221, ptr noundef nonnull align 8 dereferenceable(104) %459, i64 104, i1 false)
-  %7036 = getelementptr inbounds i8, ptr %1221, i64 120
+  %7036 = getelementptr inbounds nuw i8, ptr %1221, i64 120
   store ptr null, ptr %7036, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1222, ptr nonnull align 8 %1221, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.421, i64 31)
           to label %7037 unwind label %7031
@@ -21632,11 +21632,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7047:                                             ; preds = %7044
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7042, ptr noundef nonnull align 8 dereferenceable(104) %458, i64 104, i1 false)
-  %.sroa.2856.0..sroa_idx = getelementptr inbounds i8, ptr %7042, i64 104
+  %.sroa.2856.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7042, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2856.0..sroa_idx, align 8
-  %.sroa.3857.0..sroa_idx = getelementptr inbounds i8, ptr %7042, i64 112
+  %.sroa.3857.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7042, i64 112
   store i64 1, ptr %.sroa.3857.0..sroa_idx, align 8
-  %.sroa.4858.0..sroa_idx = getelementptr inbounds i8, ptr %7042, i64 120
+  %.sroa.4858.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7042, i64 120
   store ptr null, ptr %.sroa.4858.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1217, ptr nonnull align 8 %7042, i64 1)
           to label %7048 unwind label %.thread5583
@@ -21672,11 +21672,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7055:                                             ; preds = %7052
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7050, ptr noundef nonnull align 8 dereferenceable(104) %457, i64 104, i1 false)
-  %.sroa.2861.0..sroa_idx = getelementptr inbounds i8, ptr %7050, i64 104
+  %.sroa.2861.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7050, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2861.0..sroa_idx, align 8
-  %.sroa.3862.0..sroa_idx = getelementptr inbounds i8, ptr %7050, i64 112
+  %.sroa.3862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7050, i64 112
   store i64 1, ptr %.sroa.3862.0..sroa_idx, align 8
-  %.sroa.4863.0..sroa_idx = getelementptr inbounds i8, ptr %7050, i64 120
+  %.sroa.4863.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7050, i64 120
   store ptr null, ptr %.sroa.4863.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1215, ptr nonnull align 8 %7050, i64 1)
           to label %7056 unwind label %.thread5594
@@ -21720,11 +21720,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7065:                                             ; preds = %7062
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7060, ptr noundef nonnull align 8 dereferenceable(104) %456, i64 104, i1 false)
-  %.sroa.2866.0..sroa_idx = getelementptr inbounds i8, ptr %7060, i64 104
+  %.sroa.2866.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7060, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2866.0..sroa_idx, align 8
-  %.sroa.3867.0..sroa_idx = getelementptr inbounds i8, ptr %7060, i64 112
+  %.sroa.3867.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7060, i64 112
   store i64 1, ptr %.sroa.3867.0..sroa_idx, align 8
-  %.sroa.4868.0..sroa_idx = getelementptr inbounds i8, ptr %7060, i64 120
+  %.sroa.4868.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7060, i64 120
   store ptr null, ptr %.sroa.4868.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1210, ptr nonnull align 8 %7060, i64 1)
           to label %7066 unwind label %.thread5605
@@ -21760,11 +21760,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7073:                                             ; preds = %7070
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7068, ptr noundef nonnull align 8 dereferenceable(104) %455, i64 104, i1 false)
-  %.sroa.2871.0..sroa_idx = getelementptr inbounds i8, ptr %7068, i64 104
+  %.sroa.2871.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7068, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2871.0..sroa_idx, align 8
-  %.sroa.3872.0..sroa_idx = getelementptr inbounds i8, ptr %7068, i64 112
+  %.sroa.3872.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7068, i64 112
   store i64 1, ptr %.sroa.3872.0..sroa_idx, align 8
-  %.sroa.4873.0..sroa_idx = getelementptr inbounds i8, ptr %7068, i64 120
+  %.sroa.4873.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7068, i64 120
   store ptr null, ptr %.sroa.4873.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1208, ptr nonnull align 8 %7068, i64 1)
           to label %7074 unwind label %.thread5616
@@ -21778,7 +21778,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %7076 unwind label %6588
 
 7076:                                             ; preds = %7075
-  %7077 = getelementptr inbounds i8, ptr %1, i64 136
+  %7077 = getelementptr inbounds nuw i8, ptr %1, i64 136
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %1204, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.433, i64 7, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.432, i64 599, ptr nonnull align 8 %7077)
           to label %7078 unwind label %6588
 
@@ -21812,12 +21812,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7082
 
 7085:                                             ; preds = %7081
-  %7086 = getelementptr inbounds i8, ptr %1201, i64 104
+  %7086 = getelementptr inbounds nuw i8, ptr %1201, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %7086, align 8
-  %7087 = getelementptr inbounds i8, ptr %1201, i64 112
+  %7087 = getelementptr inbounds nuw i8, ptr %1201, i64 112
   store i64 8, ptr %7087, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1201, ptr noundef nonnull align 8 dereferenceable(104) %454, i64 104, i1 false)
-  %7088 = getelementptr inbounds i8, ptr %1201, i64 120
+  %7088 = getelementptr inbounds nuw i8, ptr %1201, i64 120
   store ptr null, ptr %7088, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %453, ptr nonnull align 8 %2425)
           to label %7091 unwind label %7089
@@ -21830,13 +21830,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7091:                                             ; preds = %7085
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7079, ptr noundef nonnull align 8 dereferenceable(136) %1201, i64 136, i1 false)
-  %7092 = getelementptr inbounds i8, ptr %7079, i64 136
+  %7092 = getelementptr inbounds nuw i8, ptr %7079, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7092, ptr noundef nonnull align 8 dereferenceable(104) %453, i64 104, i1 false)
-  %.sroa.2876.0..sroa_idx = getelementptr inbounds i8, ptr %7079, i64 240
+  %.sroa.2876.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7079, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2876.0..sroa_idx, align 8
-  %.sroa.3877.0..sroa_idx = getelementptr inbounds i8, ptr %7079, i64 248
+  %.sroa.3877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7079, i64 248
   store i64 1, ptr %.sroa.3877.0..sroa_idx, align 8
-  %.sroa.4878.0..sroa_idx = getelementptr inbounds i8, ptr %7079, i64 256
+  %.sroa.4878.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7079, i64 256
   store ptr null, ptr %.sroa.4878.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1203, ptr nonnull align 8 %7079, i64 2)
           to label %7093 unwind label %.thread5627
@@ -21871,12 +21871,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5630 unwind label %8361
 
 7100:                                             ; preds = %7097
-  %7101 = getelementptr inbounds i8, ptr %1197, i64 104
+  %7101 = getelementptr inbounds nuw i8, ptr %1197, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %7101, align 8
-  %7102 = getelementptr inbounds i8, ptr %1197, i64 112
+  %7102 = getelementptr inbounds nuw i8, ptr %1197, i64 112
   store i64 1, ptr %7102, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1197, ptr noundef nonnull align 8 dereferenceable(104) %452, i64 104, i1 false)
-  %7103 = getelementptr inbounds i8, ptr %1197, i64 120
+  %7103 = getelementptr inbounds nuw i8, ptr %1197, i64 120
   store ptr null, ptr %7103, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1198, ptr nonnull align 8 %1197, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.434, i64 25)
           to label %7104 unwind label %7098
@@ -21935,12 +21935,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5641 unwind label %8361
 
 7120:                                             ; preds = %7117
-  %7121 = getelementptr inbounds i8, ptr %1190, i64 104
+  %7121 = getelementptr inbounds nuw i8, ptr %1190, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.241, ptr %7121, align 8
-  %7122 = getelementptr inbounds i8, ptr %1190, i64 112
+  %7122 = getelementptr inbounds nuw i8, ptr %1190, i64 112
   store i64 1, ptr %7122, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1190, ptr noundef nonnull align 8 dereferenceable(104) %451, i64 104, i1 false)
-  %7123 = getelementptr inbounds i8, ptr %1190, i64 120
+  %7123 = getelementptr inbounds nuw i8, ptr %1190, i64 120
   store ptr null, ptr %7123, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1191, ptr nonnull align 8 %1190, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.437, i64 14)
           to label %7124 unwind label %7118
@@ -21991,12 +21991,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5647 unwind label %8361
 
 7136:                                             ; preds = %7133
-  %7137 = getelementptr inbounds i8, ptr %1185, i64 104
+  %7137 = getelementptr inbounds nuw i8, ptr %1185, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %7137, align 8
-  %7138 = getelementptr inbounds i8, ptr %1185, i64 112
+  %7138 = getelementptr inbounds nuw i8, ptr %1185, i64 112
   store i64 1, ptr %7138, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1185, ptr noundef nonnull align 8 dereferenceable(104) %450, i64 104, i1 false)
-  %7139 = getelementptr inbounds i8, ptr %1185, i64 120
+  %7139 = getelementptr inbounds nuw i8, ptr %1185, i64 120
   store ptr null, ptr %7139, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1186, ptr nonnull align 8 %1185, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.220, i64 14)
           to label %7140 unwind label %7134
@@ -22113,11 +22113,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7170:                                             ; preds = %7167
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7165, ptr noundef nonnull align 8 dereferenceable(104) %449, i64 104, i1 false)
-  %.sroa.2881.0..sroa_idx = getelementptr inbounds i8, ptr %7165, i64 104
+  %.sroa.2881.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7165, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2881.0..sroa_idx, align 8
-  %.sroa.3882.0..sroa_idx = getelementptr inbounds i8, ptr %7165, i64 112
+  %.sroa.3882.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7165, i64 112
   store i64 1, ptr %.sroa.3882.0..sroa_idx, align 8
-  %.sroa.4883.0..sroa_idx = getelementptr inbounds i8, ptr %7165, i64 120
+  %.sroa.4883.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7165, i64 120
   store ptr null, ptr %.sroa.4883.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1173, ptr nonnull align 8 %7165, i64 1)
           to label %7171 unwind label %.thread5666
@@ -22153,11 +22153,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 7178:                                             ; preds = %7175
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7173, ptr noundef nonnull align 8 dereferenceable(104) %448, i64 104, i1 false)
-  %.sroa.2886.0..sroa_idx = getelementptr inbounds i8, ptr %7173, i64 104
+  %.sroa.2886.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7173, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2886.0..sroa_idx, align 8
-  %.sroa.3887.0..sroa_idx = getelementptr inbounds i8, ptr %7173, i64 112
+  %.sroa.3887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7173, i64 112
   store i64 1, ptr %.sroa.3887.0..sroa_idx, align 8
-  %.sroa.4888.0..sroa_idx = getelementptr inbounds i8, ptr %7173, i64 120
+  %.sroa.4888.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7173, i64 120
   store ptr null, ptr %.sroa.4888.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1171, ptr nonnull align 8 %7173, i64 1)
           to label %7179 unwind label %.thread5677
@@ -22238,12 +22238,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5680 unwind label %8361
 
 7202:                                             ; preds = %7199
-  %7203 = getelementptr inbounds i8, ptr %1159, i64 104
+  %7203 = getelementptr inbounds nuw i8, ptr %1159, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7203, align 8
-  %7204 = getelementptr inbounds i8, ptr %1159, i64 112
+  %7204 = getelementptr inbounds nuw i8, ptr %1159, i64 112
   store i64 1, ptr %7204, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1159, ptr noundef nonnull align 8 dereferenceable(104) %447, i64 104, i1 false)
-  %7205 = getelementptr inbounds i8, ptr %1159, i64 120
+  %7205 = getelementptr inbounds nuw i8, ptr %1159, i64 120
   store ptr null, ptr %7205, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1160, ptr nonnull align 8 %1159, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.446, i64 54)
           to label %7206 unwind label %7200
@@ -22296,11 +22296,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7218:                                             ; preds = %7215
   %7219 = load ptr, ptr %1156, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7219, ptr noundef nonnull align 8 dereferenceable(104) %446, i64 104, i1 false)
-  %.sroa.2891.0..sroa_idx = getelementptr inbounds i8, ptr %7219, i64 104
+  %.sroa.2891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7219, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2891.0..sroa_idx, align 8
-  %.sroa.3892.0..sroa_idx = getelementptr inbounds i8, ptr %7219, i64 112
+  %.sroa.3892.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7219, i64 112
   store i64 1, ptr %.sroa.3892.0..sroa_idx, align 8
-  %.sroa.4893.0..sroa_idx = getelementptr inbounds i8, ptr %7219, i64 120
+  %.sroa.4893.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7219, i64 120
   store ptr null, ptr %.sroa.4893.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1157, ptr nonnull align 8 %7219, i64 1)
           to label %7220 unwind label %.thread5694
@@ -22400,12 +22400,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7242
 
 7245:                                             ; preds = %7241
-  %7246 = getelementptr inbounds i8, ptr %1143, i64 104
+  %7246 = getelementptr inbounds nuw i8, ptr %1143, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7246, align 8
-  %7247 = getelementptr inbounds i8, ptr %1143, i64 112
+  %7247 = getelementptr inbounds nuw i8, ptr %1143, i64 112
   store i64 1, ptr %7247, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1143, ptr noundef nonnull align 8 dereferenceable(104) %445, i64 104, i1 false)
-  %7248 = getelementptr inbounds i8, ptr %1143, i64 120
+  %7248 = getelementptr inbounds nuw i8, ptr %1143, i64 120
   store ptr null, ptr %7248, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %444, ptr nonnull align 8 %1155)
           to label %7251 unwind label %7249
@@ -22419,13 +22419,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7251:                                             ; preds = %7245
   %7252 = load ptr, ptr %1144, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7252, ptr noundef nonnull align 8 dereferenceable(136) %1143, i64 136, i1 false)
-  %7253 = getelementptr inbounds i8, ptr %7252, i64 136
+  %7253 = getelementptr inbounds nuw i8, ptr %7252, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7253, ptr noundef nonnull align 8 dereferenceable(104) %444, i64 104, i1 false)
-  %.sroa.2896.0..sroa_idx = getelementptr inbounds i8, ptr %7252, i64 240
+  %.sroa.2896.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7252, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2896.0..sroa_idx, align 8
-  %.sroa.3897.0..sroa_idx = getelementptr inbounds i8, ptr %7252, i64 248
+  %.sroa.3897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7252, i64 248
   store i64 1, ptr %.sroa.3897.0..sroa_idx, align 8
-  %.sroa.4898.0..sroa_idx = getelementptr inbounds i8, ptr %7252, i64 256
+  %.sroa.4898.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7252, i64 256
   store ptr null, ptr %.sroa.4898.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1145, ptr nonnull align 8 %7252, i64 2)
           to label %7254 unwind label %.thread5705
@@ -22473,11 +22473,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7267:                                             ; preds = %7264
   %7268 = load ptr, ptr %1141, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7268, ptr noundef nonnull align 8 dereferenceable(104) %443, i64 104, i1 false)
-  %.sroa.2901.0..sroa_idx = getelementptr inbounds i8, ptr %7268, i64 104
+  %.sroa.2901.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7268, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2901.0..sroa_idx, align 8
-  %.sroa.3902.0..sroa_idx = getelementptr inbounds i8, ptr %7268, i64 112
+  %.sroa.3902.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7268, i64 112
   store i64 1, ptr %.sroa.3902.0..sroa_idx, align 8
-  %.sroa.4903.0..sroa_idx = getelementptr inbounds i8, ptr %7268, i64 120
+  %.sroa.4903.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7268, i64 120
   store ptr null, ptr %.sroa.4903.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1142, ptr nonnull align 8 %7268, i64 1)
           to label %7272 unwind label %.thread5712
@@ -22548,12 +22548,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7283
 
 7286:                                             ; preds = %7282
-  %7287 = getelementptr inbounds i8, ptr %1134, i64 104
+  %7287 = getelementptr inbounds nuw i8, ptr %1134, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7287, align 8
-  %7288 = getelementptr inbounds i8, ptr %1134, i64 112
+  %7288 = getelementptr inbounds nuw i8, ptr %1134, i64 112
   store i64 1, ptr %7288, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1134, ptr noundef nonnull align 8 dereferenceable(104) %442, i64 104, i1 false)
-  %7289 = getelementptr inbounds i8, ptr %1134, i64 120
+  %7289 = getelementptr inbounds nuw i8, ptr %1134, i64 120
   store ptr null, ptr %7289, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %441, ptr nonnull align 8 %1155)
           to label %7292 unwind label %7290
@@ -22567,13 +22567,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7292:                                             ; preds = %7286
   %7293 = load ptr, ptr %1135, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7293, ptr noundef nonnull align 8 dereferenceable(136) %1134, i64 136, i1 false)
-  %7294 = getelementptr inbounds i8, ptr %7293, i64 136
+  %7294 = getelementptr inbounds nuw i8, ptr %7293, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7294, ptr noundef nonnull align 8 dereferenceable(104) %441, i64 104, i1 false)
-  %.sroa.2906.0..sroa_idx = getelementptr inbounds i8, ptr %7293, i64 240
+  %.sroa.2906.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7293, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2906.0..sroa_idx, align 8
-  %.sroa.3907.0..sroa_idx = getelementptr inbounds i8, ptr %7293, i64 248
+  %.sroa.3907.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7293, i64 248
   store i64 1, ptr %.sroa.3907.0..sroa_idx, align 8
-  %.sroa.4908.0..sroa_idx = getelementptr inbounds i8, ptr %7293, i64 256
+  %.sroa.4908.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7293, i64 256
   store ptr null, ptr %.sroa.4908.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1136, ptr nonnull align 8 %7293, i64 2)
           to label %7295 unwind label %.thread5722
@@ -22621,11 +22621,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7308:                                             ; preds = %7305
   %7309 = load ptr, ptr %1132, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7309, ptr noundef nonnull align 8 dereferenceable(104) %440, i64 104, i1 false)
-  %.sroa.2911.0..sroa_idx = getelementptr inbounds i8, ptr %7309, i64 104
+  %.sroa.2911.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7309, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2911.0..sroa_idx, align 8
-  %.sroa.3912.0..sroa_idx = getelementptr inbounds i8, ptr %7309, i64 112
+  %.sroa.3912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7309, i64 112
   store i64 1, ptr %.sroa.3912.0..sroa_idx, align 8
-  %.sroa.4913.0..sroa_idx = getelementptr inbounds i8, ptr %7309, i64 120
+  %.sroa.4913.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7309, i64 120
   store ptr null, ptr %.sroa.4913.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1133, ptr nonnull align 8 %7309, i64 1)
           to label %7313 unwind label %.thread5729
@@ -22696,12 +22696,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7324
 
 7327:                                             ; preds = %7323
-  %7328 = getelementptr inbounds i8, ptr %1125, i64 104
+  %7328 = getelementptr inbounds nuw i8, ptr %1125, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7328, align 8
-  %7329 = getelementptr inbounds i8, ptr %1125, i64 112
+  %7329 = getelementptr inbounds nuw i8, ptr %1125, i64 112
   store i64 1, ptr %7329, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1125, ptr noundef nonnull align 8 dereferenceable(104) %439, i64 104, i1 false)
-  %7330 = getelementptr inbounds i8, ptr %1125, i64 120
+  %7330 = getelementptr inbounds nuw i8, ptr %1125, i64 120
   store ptr null, ptr %7330, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %438, ptr nonnull align 8 %1155)
           to label %7333 unwind label %7331
@@ -22715,13 +22715,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7333:                                             ; preds = %7327
   %7334 = load ptr, ptr %1126, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7334, ptr noundef nonnull align 8 dereferenceable(136) %1125, i64 136, i1 false)
-  %7335 = getelementptr inbounds i8, ptr %7334, i64 136
+  %7335 = getelementptr inbounds nuw i8, ptr %7334, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7335, ptr noundef nonnull align 8 dereferenceable(104) %438, i64 104, i1 false)
-  %.sroa.2916.0..sroa_idx = getelementptr inbounds i8, ptr %7334, i64 240
+  %.sroa.2916.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7334, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2916.0..sroa_idx, align 8
-  %.sroa.3917.0..sroa_idx = getelementptr inbounds i8, ptr %7334, i64 248
+  %.sroa.3917.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7334, i64 248
   store i64 1, ptr %.sroa.3917.0..sroa_idx, align 8
-  %.sroa.4918.0..sroa_idx = getelementptr inbounds i8, ptr %7334, i64 256
+  %.sroa.4918.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7334, i64 256
   store ptr null, ptr %.sroa.4918.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1127, ptr nonnull align 8 %7334, i64 2)
           to label %7336 unwind label %.thread5739
@@ -22769,11 +22769,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7349:                                             ; preds = %7346
   %7350 = load ptr, ptr %1123, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7350, ptr noundef nonnull align 8 dereferenceable(104) %437, i64 104, i1 false)
-  %.sroa.2921.0..sroa_idx = getelementptr inbounds i8, ptr %7350, i64 104
+  %.sroa.2921.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7350, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2921.0..sroa_idx, align 8
-  %.sroa.3922.0..sroa_idx = getelementptr inbounds i8, ptr %7350, i64 112
+  %.sroa.3922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7350, i64 112
   store i64 1, ptr %.sroa.3922.0..sroa_idx, align 8
-  %.sroa.4923.0..sroa_idx = getelementptr inbounds i8, ptr %7350, i64 120
+  %.sroa.4923.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7350, i64 120
   store ptr null, ptr %.sroa.4923.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1124, ptr nonnull align 8 %7350, i64 1)
           to label %7354 unwind label %.thread5746
@@ -22881,11 +22881,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7378:                                             ; preds = %7375
   %7379 = load ptr, ptr %1110, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7379, ptr noundef nonnull align 8 dereferenceable(104) %436, i64 104, i1 false)
-  %.sroa.2926.0..sroa_idx = getelementptr inbounds i8, ptr %7379, i64 104
+  %.sroa.2926.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7379, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2926.0..sroa_idx, align 8
-  %.sroa.3927.0..sroa_idx = getelementptr inbounds i8, ptr %7379, i64 112
+  %.sroa.3927.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7379, i64 112
   store i64 1, ptr %.sroa.3927.0..sroa_idx, align 8
-  %.sroa.4928.0..sroa_idx = getelementptr inbounds i8, ptr %7379, i64 120
+  %.sroa.4928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7379, i64 120
   store ptr null, ptr %.sroa.4928.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1111, ptr nonnull align 8 %7379, i64 1)
           to label %7380 unwind label %.thread5756
@@ -22933,11 +22933,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7393:                                             ; preds = %7390
   %7394 = load ptr, ptr %1108, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7394, ptr noundef nonnull align 8 dereferenceable(104) %435, i64 104, i1 false)
-  %.sroa.2931.0..sroa_idx = getelementptr inbounds i8, ptr %7394, i64 104
+  %.sroa.2931.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7394, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2931.0..sroa_idx, align 8
-  %.sroa.3932.0..sroa_idx = getelementptr inbounds i8, ptr %7394, i64 112
+  %.sroa.3932.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7394, i64 112
   store i64 1, ptr %.sroa.3932.0..sroa_idx, align 8
-  %.sroa.4933.0..sroa_idx = getelementptr inbounds i8, ptr %7394, i64 120
+  %.sroa.4933.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7394, i64 120
   store ptr null, ptr %.sroa.4933.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1109, ptr nonnull align 8 %7394, i64 1)
           to label %7398 unwind label %.thread5763
@@ -23006,11 +23006,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7411:                                             ; preds = %7408
   %7412 = load ptr, ptr %1102, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7412, ptr noundef nonnull align 8 dereferenceable(104) %434, i64 104, i1 false)
-  %.sroa.2936.0..sroa_idx = getelementptr inbounds i8, ptr %7412, i64 104
+  %.sroa.2936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7412, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2936.0..sroa_idx, align 8
-  %.sroa.3937.0..sroa_idx = getelementptr inbounds i8, ptr %7412, i64 112
+  %.sroa.3937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7412, i64 112
   store i64 1, ptr %.sroa.3937.0..sroa_idx, align 8
-  %.sroa.4938.0..sroa_idx = getelementptr inbounds i8, ptr %7412, i64 120
+  %.sroa.4938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7412, i64 120
   store ptr null, ptr %.sroa.4938.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1103, ptr nonnull align 8 %7412, i64 1)
           to label %7413 unwind label %.thread5773
@@ -23058,11 +23058,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7426:                                             ; preds = %7423
   %7427 = load ptr, ptr %1100, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7427, ptr noundef nonnull align 8 dereferenceable(104) %433, i64 104, i1 false)
-  %.sroa.2941.0..sroa_idx = getelementptr inbounds i8, ptr %7427, i64 104
+  %.sroa.2941.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7427, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2941.0..sroa_idx, align 8
-  %.sroa.3942.0..sroa_idx = getelementptr inbounds i8, ptr %7427, i64 112
+  %.sroa.3942.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7427, i64 112
   store i64 1, ptr %.sroa.3942.0..sroa_idx, align 8
-  %.sroa.4943.0..sroa_idx = getelementptr inbounds i8, ptr %7427, i64 120
+  %.sroa.4943.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7427, i64 120
   store ptr null, ptr %.sroa.4943.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1101, ptr nonnull align 8 %7427, i64 1)
           to label %7431 unwind label %.thread5780
@@ -23131,11 +23131,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7444:                                             ; preds = %7441
   %7445 = load ptr, ptr %1094, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7445, ptr noundef nonnull align 8 dereferenceable(104) %432, i64 104, i1 false)
-  %.sroa.2946.0..sroa_idx = getelementptr inbounds i8, ptr %7445, i64 104
+  %.sroa.2946.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7445, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2946.0..sroa_idx, align 8
-  %.sroa.3947.0..sroa_idx = getelementptr inbounds i8, ptr %7445, i64 112
+  %.sroa.3947.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7445, i64 112
   store i64 1, ptr %.sroa.3947.0..sroa_idx, align 8
-  %.sroa.4948.0..sroa_idx = getelementptr inbounds i8, ptr %7445, i64 120
+  %.sroa.4948.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7445, i64 120
   store ptr null, ptr %.sroa.4948.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1095, ptr nonnull align 8 %7445, i64 1)
           to label %7446 unwind label %.thread5790
@@ -23183,11 +23183,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7459:                                             ; preds = %7456
   %7460 = load ptr, ptr %1092, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7460, ptr noundef nonnull align 8 dereferenceable(104) %431, i64 104, i1 false)
-  %.sroa.2951.0..sroa_idx = getelementptr inbounds i8, ptr %7460, i64 104
+  %.sroa.2951.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7460, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2951.0..sroa_idx, align 8
-  %.sroa.3952.0..sroa_idx = getelementptr inbounds i8, ptr %7460, i64 112
+  %.sroa.3952.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7460, i64 112
   store i64 1, ptr %.sroa.3952.0..sroa_idx, align 8
-  %.sroa.4953.0..sroa_idx = getelementptr inbounds i8, ptr %7460, i64 120
+  %.sroa.4953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7460, i64 120
   store ptr null, ptr %.sroa.4953.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1093, ptr nonnull align 8 %7460, i64 1)
           to label %7464 unwind label %.thread5797
@@ -23256,11 +23256,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7477:                                             ; preds = %7474
   %7478 = load ptr, ptr %1086, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7478, ptr noundef nonnull align 8 dereferenceable(104) %430, i64 104, i1 false)
-  %.sroa.2956.0..sroa_idx = getelementptr inbounds i8, ptr %7478, i64 104
+  %.sroa.2956.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7478, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.2956.0..sroa_idx, align 8
-  %.sroa.3957.0..sroa_idx = getelementptr inbounds i8, ptr %7478, i64 112
+  %.sroa.3957.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7478, i64 112
   store i64 1, ptr %.sroa.3957.0..sroa_idx, align 8
-  %.sroa.4958.0..sroa_idx = getelementptr inbounds i8, ptr %7478, i64 120
+  %.sroa.4958.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7478, i64 120
   store ptr null, ptr %.sroa.4958.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1087, ptr nonnull align 8 %7478, i64 1)
           to label %7479 unwind label %.thread5807
@@ -23308,11 +23308,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7492:                                             ; preds = %7489
   %7493 = load ptr, ptr %1084, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7493, ptr noundef nonnull align 8 dereferenceable(104) %429, i64 104, i1 false)
-  %.sroa.2961.0..sroa_idx = getelementptr inbounds i8, ptr %7493, i64 104
+  %.sroa.2961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7493, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2961.0..sroa_idx, align 8
-  %.sroa.3962.0..sroa_idx = getelementptr inbounds i8, ptr %7493, i64 112
+  %.sroa.3962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7493, i64 112
   store i64 1, ptr %.sroa.3962.0..sroa_idx, align 8
-  %.sroa.4963.0..sroa_idx = getelementptr inbounds i8, ptr %7493, i64 120
+  %.sroa.4963.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7493, i64 120
   store ptr null, ptr %.sroa.4963.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1085, ptr nonnull align 8 %7493, i64 1)
           to label %7497 unwind label %.thread5814
@@ -23383,12 +23383,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7508
 
 7511:                                             ; preds = %7507
-  %7512 = getelementptr inbounds i8, ptr %1077, i64 104
+  %7512 = getelementptr inbounds nuw i8, ptr %1077, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7512, align 8
-  %7513 = getelementptr inbounds i8, ptr %1077, i64 112
+  %7513 = getelementptr inbounds nuw i8, ptr %1077, i64 112
   store i64 1, ptr %7513, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1077, ptr noundef nonnull align 8 dereferenceable(104) %428, i64 104, i1 false)
-  %7514 = getelementptr inbounds i8, ptr %1077, i64 120
+  %7514 = getelementptr inbounds nuw i8, ptr %1077, i64 120
   store ptr null, ptr %7514, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %427, ptr nonnull align 8 %1121)
           to label %7517 unwind label %7515
@@ -23402,13 +23402,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7517:                                             ; preds = %7511
   %7518 = load ptr, ptr %1078, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7518, ptr noundef nonnull align 8 dereferenceable(136) %1077, i64 136, i1 false)
-  %7519 = getelementptr inbounds i8, ptr %7518, i64 136
+  %7519 = getelementptr inbounds nuw i8, ptr %7518, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7519, ptr noundef nonnull align 8 dereferenceable(104) %427, i64 104, i1 false)
-  %.sroa.2966.0..sroa_idx = getelementptr inbounds i8, ptr %7518, i64 240
+  %.sroa.2966.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7518, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2966.0..sroa_idx, align 8
-  %.sroa.3967.0..sroa_idx = getelementptr inbounds i8, ptr %7518, i64 248
+  %.sroa.3967.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7518, i64 248
   store i64 1, ptr %.sroa.3967.0..sroa_idx, align 8
-  %.sroa.4968.0..sroa_idx = getelementptr inbounds i8, ptr %7518, i64 256
+  %.sroa.4968.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7518, i64 256
   store ptr null, ptr %.sroa.4968.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1079, ptr nonnull align 8 %7518, i64 2)
           to label %7520 unwind label %.thread5824
@@ -23445,11 +23445,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7527:                                             ; preds = %7524
   %7528 = load ptr, ptr %1075, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7528, ptr noundef nonnull align 8 dereferenceable(104) %426, i64 104, i1 false)
-  %.sroa.2971.0..sroa_idx = getelementptr inbounds i8, ptr %7528, i64 104
+  %.sroa.2971.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7528, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2971.0..sroa_idx, align 8
-  %.sroa.3972.0..sroa_idx = getelementptr inbounds i8, ptr %7528, i64 112
+  %.sroa.3972.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7528, i64 112
   store i64 1, ptr %.sroa.3972.0..sroa_idx, align 8
-  %.sroa.4973.0..sroa_idx = getelementptr inbounds i8, ptr %7528, i64 120
+  %.sroa.4973.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7528, i64 120
   store ptr null, ptr %.sroa.4973.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1076, ptr nonnull align 8 %7528, i64 1)
           to label %7529 unwind label %.thread5835
@@ -23531,12 +23531,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7546
 
 7549:                                             ; preds = %7545
-  %7550 = getelementptr inbounds i8, ptr %1063, i64 104
+  %7550 = getelementptr inbounds nuw i8, ptr %1063, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7550, align 8
-  %7551 = getelementptr inbounds i8, ptr %1063, i64 112
+  %7551 = getelementptr inbounds nuw i8, ptr %1063, i64 112
   store i64 1, ptr %7551, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1063, ptr noundef nonnull align 8 dereferenceable(104) %425, i64 104, i1 false)
-  %7552 = getelementptr inbounds i8, ptr %1063, i64 120
+  %7552 = getelementptr inbounds nuw i8, ptr %1063, i64 120
   store ptr null, ptr %7552, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %424, ptr nonnull align 8 %1074)
           to label %7555 unwind label %7553
@@ -23550,13 +23550,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7555:                                             ; preds = %7549
   %7556 = load ptr, ptr %1064, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %7556, ptr noundef nonnull align 8 dereferenceable(136) %1063, i64 136, i1 false)
-  %7557 = getelementptr inbounds i8, ptr %7556, i64 136
+  %7557 = getelementptr inbounds nuw i8, ptr %7556, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7557, ptr noundef nonnull align 8 dereferenceable(104) %424, i64 104, i1 false)
-  %.sroa.2976.0..sroa_idx = getelementptr inbounds i8, ptr %7556, i64 240
+  %.sroa.2976.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7556, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %.sroa.2976.0..sroa_idx, align 8
-  %.sroa.3977.0..sroa_idx = getelementptr inbounds i8, ptr %7556, i64 248
+  %.sroa.3977.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7556, i64 248
   store i64 1, ptr %.sroa.3977.0..sroa_idx, align 8
-  %.sroa.4978.0..sroa_idx = getelementptr inbounds i8, ptr %7556, i64 256
+  %.sroa.4978.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7556, i64 256
   store ptr null, ptr %.sroa.4978.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1065, ptr nonnull align 8 %7556, i64 2)
           to label %7558 unwind label %.thread5846
@@ -23593,11 +23593,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7565:                                             ; preds = %7562
   %7566 = load ptr, ptr %1061, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7566, ptr noundef nonnull align 8 dereferenceable(104) %423, i64 104, i1 false)
-  %.sroa.2981.0..sroa_idx = getelementptr inbounds i8, ptr %7566, i64 104
+  %.sroa.2981.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7566, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2981.0..sroa_idx, align 8
-  %.sroa.3982.0..sroa_idx = getelementptr inbounds i8, ptr %7566, i64 112
+  %.sroa.3982.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7566, i64 112
   store i64 1, ptr %.sroa.3982.0..sroa_idx, align 8
-  %.sroa.4983.0..sroa_idx = getelementptr inbounds i8, ptr %7566, i64 120
+  %.sroa.4983.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7566, i64 120
   store ptr null, ptr %.sroa.4983.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1062, ptr nonnull align 8 %7566, i64 1)
           to label %7567 unwind label %.thread5857
@@ -23651,12 +23651,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5860 unwind label %8361
 
 7582:                                             ; preds = %7579
-  %7583 = getelementptr inbounds i8, ptr %1054, i64 104
+  %7583 = getelementptr inbounds nuw i8, ptr %1054, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7583, align 8
-  %7584 = getelementptr inbounds i8, ptr %1054, i64 112
+  %7584 = getelementptr inbounds nuw i8, ptr %1054, i64 112
   store i64 1, ptr %7584, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1054, ptr noundef nonnull align 8 dereferenceable(104) %422, i64 104, i1 false)
-  %7585 = getelementptr inbounds i8, ptr %1054, i64 120
+  %7585 = getelementptr inbounds nuw i8, ptr %1054, i64 120
   store ptr null, ptr %7585, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1055, ptr nonnull align 8 %1054, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.471, i64 57)
           to label %7586 unwind label %7580
@@ -23709,11 +23709,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7598:                                             ; preds = %7595
   %7599 = load ptr, ptr %1051, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7599, ptr noundef nonnull align 8 dereferenceable(104) %421, i64 104, i1 false)
-  %.sroa.2986.0..sroa_idx = getelementptr inbounds i8, ptr %7599, i64 104
+  %.sroa.2986.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7599, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2986.0..sroa_idx, align 8
-  %.sroa.3987.0..sroa_idx = getelementptr inbounds i8, ptr %7599, i64 112
+  %.sroa.3987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7599, i64 112
   store i64 1, ptr %.sroa.3987.0..sroa_idx, align 8
-  %.sroa.4988.0..sroa_idx = getelementptr inbounds i8, ptr %7599, i64 120
+  %.sroa.4988.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7599, i64 120
   store ptr null, ptr %.sroa.4988.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1052, ptr nonnull align 8 %7599, i64 1)
           to label %7600 unwind label %.thread5874
@@ -23781,12 +23781,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5877 unwind label %8361
 
 7619:                                             ; preds = %7616
-  %7620 = getelementptr inbounds i8, ptr %1044, i64 104
+  %7620 = getelementptr inbounds nuw i8, ptr %1044, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7620, align 8
-  %7621 = getelementptr inbounds i8, ptr %1044, i64 112
+  %7621 = getelementptr inbounds nuw i8, ptr %1044, i64 112
   store i64 1, ptr %7621, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1044, ptr noundef nonnull align 8 dereferenceable(104) %420, i64 104, i1 false)
-  %7622 = getelementptr inbounds i8, ptr %1044, i64 120
+  %7622 = getelementptr inbounds nuw i8, ptr %1044, i64 120
   store ptr null, ptr %7622, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1045, ptr nonnull align 8 %1044, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.471, i64 57)
           to label %7623 unwind label %7617
@@ -23839,11 +23839,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7635:                                             ; preds = %7632
   %7636 = load ptr, ptr %1041, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7636, ptr noundef nonnull align 8 dereferenceable(104) %419, i64 104, i1 false)
-  %.sroa.2991.0..sroa_idx = getelementptr inbounds i8, ptr %7636, i64 104
+  %.sroa.2991.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7636, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2991.0..sroa_idx, align 8
-  %.sroa.3992.0..sroa_idx = getelementptr inbounds i8, ptr %7636, i64 112
+  %.sroa.3992.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7636, i64 112
   store i64 1, ptr %.sroa.3992.0..sroa_idx, align 8
-  %.sroa.4993.0..sroa_idx = getelementptr inbounds i8, ptr %7636, i64 120
+  %.sroa.4993.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7636, i64 120
   store ptr null, ptr %.sroa.4993.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1042, ptr nonnull align 8 %7636, i64 1)
           to label %7637 unwind label %.thread5891
@@ -23938,12 +23938,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5894 unwind label %8361
 
 7664:                                             ; preds = %7661
-  %7665 = getelementptr inbounds i8, ptr %1030, i64 104
+  %7665 = getelementptr inbounds nuw i8, ptr %1030, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7665, align 8
-  %7666 = getelementptr inbounds i8, ptr %1030, i64 112
+  %7666 = getelementptr inbounds nuw i8, ptr %1030, i64 112
   store i64 1, ptr %7666, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1030, ptr noundef nonnull align 8 dereferenceable(104) %418, i64 104, i1 false)
-  %7667 = getelementptr inbounds i8, ptr %1030, i64 120
+  %7667 = getelementptr inbounds nuw i8, ptr %1030, i64 120
   store ptr null, ptr %7667, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1031, ptr nonnull align 8 %1030, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.478, i64 71)
           to label %7668 unwind label %7662
@@ -23996,11 +23996,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7680:                                             ; preds = %7677
   %7681 = load ptr, ptr %1027, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7681, ptr noundef nonnull align 8 dereferenceable(104) %417, i64 104, i1 false)
-  %.sroa.2996.0..sroa_idx = getelementptr inbounds i8, ptr %7681, i64 104
+  %.sroa.2996.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7681, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.2996.0..sroa_idx, align 8
-  %.sroa.3997.0..sroa_idx = getelementptr inbounds i8, ptr %7681, i64 112
+  %.sroa.3997.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7681, i64 112
   store i64 1, ptr %.sroa.3997.0..sroa_idx, align 8
-  %.sroa.4998.0..sroa_idx = getelementptr inbounds i8, ptr %7681, i64 120
+  %.sroa.4998.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7681, i64 120
   store ptr null, ptr %.sroa.4998.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1028, ptr nonnull align 8 %7681, i64 1)
           to label %7682 unwind label %.thread5908
@@ -24068,12 +24068,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread5911 unwind label %8361
 
 7701:                                             ; preds = %7698
-  %7702 = getelementptr inbounds i8, ptr %1020, i64 104
+  %7702 = getelementptr inbounds nuw i8, ptr %1020, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %7702, align 8
-  %7703 = getelementptr inbounds i8, ptr %1020, i64 112
+  %7703 = getelementptr inbounds nuw i8, ptr %1020, i64 112
   store i64 1, ptr %7703, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1020, ptr noundef nonnull align 8 dereferenceable(104) %416, i64 104, i1 false)
-  %7704 = getelementptr inbounds i8, ptr %1020, i64 120
+  %7704 = getelementptr inbounds nuw i8, ptr %1020, i64 120
   store ptr null, ptr %7704, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %1021, ptr nonnull align 8 %1020, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.481, i64 68)
           to label %7705 unwind label %7699
@@ -24126,11 +24126,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7717:                                             ; preds = %7714
   %7718 = load ptr, ptr %1017, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7718, ptr noundef nonnull align 8 dereferenceable(104) %415, i64 104, i1 false)
-  %.sroa.21001.0..sroa_idx = getelementptr inbounds i8, ptr %7718, i64 104
+  %.sroa.21001.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7718, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21001.0..sroa_idx, align 8
-  %.sroa.31002.0..sroa_idx = getelementptr inbounds i8, ptr %7718, i64 112
+  %.sroa.31002.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7718, i64 112
   store i64 1, ptr %.sroa.31002.0..sroa_idx, align 8
-  %.sroa.41003.0..sroa_idx = getelementptr inbounds i8, ptr %7718, i64 120
+  %.sroa.41003.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7718, i64 120
   store ptr null, ptr %.sroa.41003.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1018, ptr nonnull align 8 %7718, i64 1)
           to label %7719 unwind label %.thread5925
@@ -24259,11 +24259,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7752:                                             ; preds = %7749
   %7753 = load ptr, ptr %1000, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7753, ptr noundef nonnull align 8 dereferenceable(104) %414, i64 104, i1 false)
-  %.sroa.21006.0..sroa_idx = getelementptr inbounds i8, ptr %7753, i64 104
+  %.sroa.21006.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7753, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21006.0..sroa_idx, align 8
-  %.sroa.31007.0..sroa_idx = getelementptr inbounds i8, ptr %7753, i64 112
+  %.sroa.31007.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7753, i64 112
   store i64 1, ptr %.sroa.31007.0..sroa_idx, align 8
-  %.sroa.41008.0..sroa_idx = getelementptr inbounds i8, ptr %7753, i64 120
+  %.sroa.41008.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7753, i64 120
   store ptr null, ptr %.sroa.41008.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %1001, ptr nonnull align 8 %7753, i64 1)
           to label %7754 unwind label %.thread5936
@@ -24300,11 +24300,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7761:                                             ; preds = %7758
   %7762 = load ptr, ptr %998, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7762, ptr noundef nonnull align 8 dereferenceable(104) %413, i64 104, i1 false)
-  %.sroa.21011.0..sroa_idx = getelementptr inbounds i8, ptr %7762, i64 104
+  %.sroa.21011.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7762, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21011.0..sroa_idx, align 8
-  %.sroa.31012.0..sroa_idx = getelementptr inbounds i8, ptr %7762, i64 112
+  %.sroa.31012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7762, i64 112
   store i64 1, ptr %.sroa.31012.0..sroa_idx, align 8
-  %.sroa.41013.0..sroa_idx = getelementptr inbounds i8, ptr %7762, i64 120
+  %.sroa.41013.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7762, i64 120
   store ptr null, ptr %.sroa.41013.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %999, ptr nonnull align 8 %7762, i64 1)
           to label %7763 unwind label %.thread5947
@@ -24349,11 +24349,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7772:                                             ; preds = %7769
   %7773 = load ptr, ptr %993, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7773, ptr noundef nonnull align 8 dereferenceable(104) %412, i64 104, i1 false)
-  %.sroa.21016.0..sroa_idx = getelementptr inbounds i8, ptr %7773, i64 104
+  %.sroa.21016.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7773, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21016.0..sroa_idx, align 8
-  %.sroa.31017.0..sroa_idx = getelementptr inbounds i8, ptr %7773, i64 112
+  %.sroa.31017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7773, i64 112
   store i64 1, ptr %.sroa.31017.0..sroa_idx, align 8
-  %.sroa.41018.0..sroa_idx = getelementptr inbounds i8, ptr %7773, i64 120
+  %.sroa.41018.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7773, i64 120
   store ptr null, ptr %.sroa.41018.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %994, ptr nonnull align 8 %7773, i64 1)
           to label %7774 unwind label %.thread5958
@@ -24390,11 +24390,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7781:                                             ; preds = %7778
   %7782 = load ptr, ptr %991, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7782, ptr noundef nonnull align 8 dereferenceable(104) %411, i64 104, i1 false)
-  %.sroa.21021.0..sroa_idx = getelementptr inbounds i8, ptr %7782, i64 104
+  %.sroa.21021.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7782, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21021.0..sroa_idx, align 8
-  %.sroa.31022.0..sroa_idx = getelementptr inbounds i8, ptr %7782, i64 112
+  %.sroa.31022.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7782, i64 112
   store i64 1, ptr %.sroa.31022.0..sroa_idx, align 8
-  %.sroa.41023.0..sroa_idx = getelementptr inbounds i8, ptr %7782, i64 120
+  %.sroa.41023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7782, i64 120
   store ptr null, ptr %.sroa.41023.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %992, ptr nonnull align 8 %7782, i64 1)
           to label %7783 unwind label %.thread5969
@@ -24466,11 +24466,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7800:                                             ; preds = %7797
   %7801 = load ptr, ptr %980, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7801, ptr noundef nonnull align 8 dereferenceable(104) %410, i64 104, i1 false)
-  %.sroa.21026.0..sroa_idx = getelementptr inbounds i8, ptr %7801, i64 104
+  %.sroa.21026.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7801, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21026.0..sroa_idx, align 8
-  %.sroa.31027.0..sroa_idx = getelementptr inbounds i8, ptr %7801, i64 112
+  %.sroa.31027.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7801, i64 112
   store i64 1, ptr %.sroa.31027.0..sroa_idx, align 8
-  %.sroa.41028.0..sroa_idx = getelementptr inbounds i8, ptr %7801, i64 120
+  %.sroa.41028.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7801, i64 120
   store ptr null, ptr %.sroa.41028.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %981, ptr nonnull align 8 %7801, i64 1)
           to label %7802 unwind label %.thread5980
@@ -24507,11 +24507,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7809:                                             ; preds = %7806
   %7810 = load ptr, ptr %978, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7810, ptr noundef nonnull align 8 dereferenceable(104) %409, i64 104, i1 false)
-  %.sroa.21031.0..sroa_idx = getelementptr inbounds i8, ptr %7810, i64 104
+  %.sroa.21031.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7810, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21031.0..sroa_idx, align 8
-  %.sroa.31032.0..sroa_idx = getelementptr inbounds i8, ptr %7810, i64 112
+  %.sroa.31032.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7810, i64 112
   store i64 1, ptr %.sroa.31032.0..sroa_idx, align 8
-  %.sroa.41033.0..sroa_idx = getelementptr inbounds i8, ptr %7810, i64 120
+  %.sroa.41033.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7810, i64 120
   store ptr null, ptr %.sroa.41033.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %979, ptr nonnull align 8 %7810, i64 1)
           to label %7811 unwind label %.thread5991
@@ -24564,11 +24564,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7822:                                             ; preds = %7819
   %7823 = load ptr, ptr %971, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7823, ptr noundef nonnull align 8 dereferenceable(104) %408, i64 104, i1 false)
-  %.sroa.21036.0..sroa_idx = getelementptr inbounds i8, ptr %7823, i64 104
+  %.sroa.21036.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7823, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21036.0..sroa_idx, align 8
-  %.sroa.31037.0..sroa_idx = getelementptr inbounds i8, ptr %7823, i64 112
+  %.sroa.31037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7823, i64 112
   store i64 1, ptr %.sroa.31037.0..sroa_idx, align 8
-  %.sroa.41038.0..sroa_idx = getelementptr inbounds i8, ptr %7823, i64 120
+  %.sroa.41038.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7823, i64 120
   store ptr null, ptr %.sroa.41038.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %972, ptr nonnull align 8 %7823, i64 1)
           to label %7824 unwind label %.thread6002
@@ -24605,11 +24605,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7831:                                             ; preds = %7828
   %7832 = load ptr, ptr %969, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7832, ptr noundef nonnull align 8 dereferenceable(104) %407, i64 104, i1 false)
-  %.sroa.21041.0..sroa_idx = getelementptr inbounds i8, ptr %7832, i64 104
+  %.sroa.21041.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7832, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21041.0..sroa_idx, align 8
-  %.sroa.31042.0..sroa_idx = getelementptr inbounds i8, ptr %7832, i64 112
+  %.sroa.31042.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7832, i64 112
   store i64 1, ptr %.sroa.31042.0..sroa_idx, align 8
-  %.sroa.41043.0..sroa_idx = getelementptr inbounds i8, ptr %7832, i64 120
+  %.sroa.41043.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7832, i64 120
   store ptr null, ptr %.sroa.41043.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %970, ptr nonnull align 8 %7832, i64 1)
           to label %7833 unwind label %.thread6013
@@ -24693,11 +24693,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7853:                                             ; preds = %7850
   %7854 = load ptr, ptr %959, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7854, ptr noundef nonnull align 8 dereferenceable(104) %406, i64 104, i1 false)
-  %.sroa.21046.0..sroa_idx = getelementptr inbounds i8, ptr %7854, i64 104
+  %.sroa.21046.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7854, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21046.0..sroa_idx, align 8
-  %.sroa.31047.0..sroa_idx = getelementptr inbounds i8, ptr %7854, i64 112
+  %.sroa.31047.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7854, i64 112
   store i64 1, ptr %.sroa.31047.0..sroa_idx, align 8
-  %.sroa.41048.0..sroa_idx = getelementptr inbounds i8, ptr %7854, i64 120
+  %.sroa.41048.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7854, i64 120
   store ptr null, ptr %.sroa.41048.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %960, ptr nonnull align 8 %7854, i64 1)
           to label %7855 unwind label %.thread6024
@@ -24734,11 +24734,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7862:                                             ; preds = %7859
   %7863 = load ptr, ptr %957, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7863, ptr noundef nonnull align 8 dereferenceable(104) %405, i64 104, i1 false)
-  %.sroa.21051.0..sroa_idx = getelementptr inbounds i8, ptr %7863, i64 104
+  %.sroa.21051.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7863, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21051.0..sroa_idx, align 8
-  %.sroa.31052.0..sroa_idx = getelementptr inbounds i8, ptr %7863, i64 112
+  %.sroa.31052.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7863, i64 112
   store i64 1, ptr %.sroa.31052.0..sroa_idx, align 8
-  %.sroa.41053.0..sroa_idx = getelementptr inbounds i8, ptr %7863, i64 120
+  %.sroa.41053.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7863, i64 120
   store ptr null, ptr %.sroa.41053.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %958, ptr nonnull align 8 %7863, i64 1)
           to label %7864 unwind label %.thread6035
@@ -24783,11 +24783,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7873:                                             ; preds = %7870
   %7874 = load ptr, ptr %952, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7874, ptr noundef nonnull align 8 dereferenceable(104) %404, i64 104, i1 false)
-  %.sroa.21056.0..sroa_idx = getelementptr inbounds i8, ptr %7874, i64 104
+  %.sroa.21056.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7874, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21056.0..sroa_idx, align 8
-  %.sroa.31057.0..sroa_idx = getelementptr inbounds i8, ptr %7874, i64 112
+  %.sroa.31057.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7874, i64 112
   store i64 1, ptr %.sroa.31057.0..sroa_idx, align 8
-  %.sroa.41058.0..sroa_idx = getelementptr inbounds i8, ptr %7874, i64 120
+  %.sroa.41058.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7874, i64 120
   store ptr null, ptr %.sroa.41058.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %953, ptr nonnull align 8 %7874, i64 1)
           to label %7875 unwind label %.thread6046
@@ -24824,11 +24824,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7882:                                             ; preds = %7879
   %7883 = load ptr, ptr %950, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7883, ptr noundef nonnull align 8 dereferenceable(104) %403, i64 104, i1 false)
-  %.sroa.21061.0..sroa_idx = getelementptr inbounds i8, ptr %7883, i64 104
+  %.sroa.21061.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7883, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21061.0..sroa_idx, align 8
-  %.sroa.31062.0..sroa_idx = getelementptr inbounds i8, ptr %7883, i64 112
+  %.sroa.31062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7883, i64 112
   store i64 1, ptr %.sroa.31062.0..sroa_idx, align 8
-  %.sroa.41063.0..sroa_idx = getelementptr inbounds i8, ptr %7883, i64 120
+  %.sroa.41063.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7883, i64 120
   store ptr null, ptr %.sroa.41063.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %951, ptr nonnull align 8 %7883, i64 1)
           to label %7884 unwind label %.thread6057
@@ -24873,11 +24873,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7893:                                             ; preds = %7890
   %7894 = load ptr, ptr %945, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7894, ptr noundef nonnull align 8 dereferenceable(104) %402, i64 104, i1 false)
-  %.sroa.21066.0..sroa_idx = getelementptr inbounds i8, ptr %7894, i64 104
+  %.sroa.21066.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7894, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21066.0..sroa_idx, align 8
-  %.sroa.31067.0..sroa_idx = getelementptr inbounds i8, ptr %7894, i64 112
+  %.sroa.31067.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7894, i64 112
   store i64 1, ptr %.sroa.31067.0..sroa_idx, align 8
-  %.sroa.41068.0..sroa_idx = getelementptr inbounds i8, ptr %7894, i64 120
+  %.sroa.41068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7894, i64 120
   store ptr null, ptr %.sroa.41068.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %946, ptr nonnull align 8 %7894, i64 1)
           to label %7895 unwind label %.thread6068
@@ -24914,11 +24914,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7902:                                             ; preds = %7899
   %7903 = load ptr, ptr %943, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7903, ptr noundef nonnull align 8 dereferenceable(104) %401, i64 104, i1 false)
-  %.sroa.21071.0..sroa_idx = getelementptr inbounds i8, ptr %7903, i64 104
+  %.sroa.21071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7903, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21071.0..sroa_idx, align 8
-  %.sroa.31072.0..sroa_idx = getelementptr inbounds i8, ptr %7903, i64 112
+  %.sroa.31072.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7903, i64 112
   store i64 1, ptr %.sroa.31072.0..sroa_idx, align 8
-  %.sroa.41073.0..sroa_idx = getelementptr inbounds i8, ptr %7903, i64 120
+  %.sroa.41073.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7903, i64 120
   store ptr null, ptr %.sroa.41073.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %944, ptr nonnull align 8 %7903, i64 1)
           to label %7904 unwind label %.thread6079
@@ -25025,11 +25025,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7931:                                             ; preds = %7928
   %7932 = load ptr, ptr %928, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7932, ptr noundef nonnull align 8 dereferenceable(104) %400, i64 104, i1 false)
-  %.sroa.21076.0..sroa_idx = getelementptr inbounds i8, ptr %7932, i64 104
+  %.sroa.21076.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7932, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21076.0..sroa_idx, align 8
-  %.sroa.31077.0..sroa_idx = getelementptr inbounds i8, ptr %7932, i64 112
+  %.sroa.31077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7932, i64 112
   store i64 1, ptr %.sroa.31077.0..sroa_idx, align 8
-  %.sroa.41078.0..sroa_idx = getelementptr inbounds i8, ptr %7932, i64 120
+  %.sroa.41078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7932, i64 120
   store ptr null, ptr %.sroa.41078.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %929, ptr nonnull align 8 %7932, i64 1)
           to label %7933 unwind label %.thread6090
@@ -25066,11 +25066,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7940:                                             ; preds = %7937
   %7941 = load ptr, ptr %926, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7941, ptr noundef nonnull align 8 dereferenceable(104) %399, i64 104, i1 false)
-  %.sroa.21081.0..sroa_idx = getelementptr inbounds i8, ptr %7941, i64 104
+  %.sroa.21081.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7941, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21081.0..sroa_idx, align 8
-  %.sroa.31082.0..sroa_idx = getelementptr inbounds i8, ptr %7941, i64 112
+  %.sroa.31082.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7941, i64 112
   store i64 1, ptr %.sroa.31082.0..sroa_idx, align 8
-  %.sroa.41083.0..sroa_idx = getelementptr inbounds i8, ptr %7941, i64 120
+  %.sroa.41083.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7941, i64 120
   store ptr null, ptr %.sroa.41083.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %927, ptr nonnull align 8 %7941, i64 1)
           to label %7942 unwind label %.thread6101
@@ -25115,11 +25115,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7951:                                             ; preds = %7948
   %7952 = load ptr, ptr %921, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7952, ptr noundef nonnull align 8 dereferenceable(104) %398, i64 104, i1 false)
-  %.sroa.21086.0..sroa_idx = getelementptr inbounds i8, ptr %7952, i64 104
+  %.sroa.21086.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7952, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21086.0..sroa_idx, align 8
-  %.sroa.31087.0..sroa_idx = getelementptr inbounds i8, ptr %7952, i64 112
+  %.sroa.31087.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7952, i64 112
   store i64 1, ptr %.sroa.31087.0..sroa_idx, align 8
-  %.sroa.41088.0..sroa_idx = getelementptr inbounds i8, ptr %7952, i64 120
+  %.sroa.41088.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7952, i64 120
   store ptr null, ptr %.sroa.41088.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %922, ptr nonnull align 8 %7952, i64 1)
           to label %7953 unwind label %.thread6112
@@ -25156,11 +25156,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7960:                                             ; preds = %7957
   %7961 = load ptr, ptr %919, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7961, ptr noundef nonnull align 8 dereferenceable(104) %397, i64 104, i1 false)
-  %.sroa.21091.0..sroa_idx = getelementptr inbounds i8, ptr %7961, i64 104
+  %.sroa.21091.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7961, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %.sroa.21091.0..sroa_idx, align 8
-  %.sroa.31092.0..sroa_idx = getelementptr inbounds i8, ptr %7961, i64 112
+  %.sroa.31092.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7961, i64 112
   store i64 1, ptr %.sroa.31092.0..sroa_idx, align 8
-  %.sroa.41093.0..sroa_idx = getelementptr inbounds i8, ptr %7961, i64 120
+  %.sroa.41093.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7961, i64 120
   store ptr null, ptr %.sroa.41093.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %920, ptr nonnull align 8 %7961, i64 1)
           to label %7962 unwind label %.thread6123
@@ -25232,11 +25232,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 7979:                                             ; preds = %7976
   %7980 = load ptr, ptr %910, align 8, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7980, ptr noundef nonnull align 8 dereferenceable(104) %396, i64 104, i1 false)
-  %.sroa.21096.0..sroa_idx = getelementptr inbounds i8, ptr %7980, i64 104
+  %.sroa.21096.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7980, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %.sroa.21096.0..sroa_idx, align 8
-  %.sroa.31097.0..sroa_idx = getelementptr inbounds i8, ptr %7980, i64 112
+  %.sroa.31097.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7980, i64 112
   store i64 1, ptr %.sroa.31097.0..sroa_idx, align 8
-  %.sroa.41098.0..sroa_idx = getelementptr inbounds i8, ptr %7980, i64 120
+  %.sroa.41098.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7980, i64 120
   store ptr null, ptr %.sroa.41098.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %911, ptr nonnull align 8 %7980, i64 1)
           to label %7981 unwind label %.thread6134
@@ -25286,12 +25286,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %7992
 
 7995:                                             ; preds = %7991
-  %7996 = getelementptr inbounds i8, ptr %906, i64 104
+  %7996 = getelementptr inbounds nuw i8, ptr %906, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.511, ptr %7996, align 8
-  %7997 = getelementptr inbounds i8, ptr %906, i64 112
+  %7997 = getelementptr inbounds nuw i8, ptr %906, i64 112
   store i64 2, ptr %7997, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %906, ptr noundef nonnull align 8 dereferenceable(104) %395, i64 104, i1 false)
-  %7998 = getelementptr inbounds i8, ptr %906, i64 120
+  %7998 = getelementptr inbounds nuw i8, ptr %906, i64 120
   store ptr null, ptr %7998, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %907, ptr nonnull align 8 %906, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.512, i64 19)
           to label %7999 unwind label %7993
@@ -25318,12 +25318,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8363 unwind label %8361
 
 8006:                                             ; preds = %8003
-  %8007 = getelementptr inbounds i8, ptr %903, i64 104
+  %8007 = getelementptr inbounds nuw i8, ptr %903, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.513, ptr %8007, align 8
-  %8008 = getelementptr inbounds i8, ptr %903, i64 112
+  %8008 = getelementptr inbounds nuw i8, ptr %903, i64 112
   store i64 2, ptr %8008, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %903, ptr noundef nonnull align 8 dereferenceable(104) %394, i64 104, i1 false)
-  %8009 = getelementptr inbounds i8, ptr %903, i64 120
+  %8009 = getelementptr inbounds nuw i8, ptr %903, i64 120
   store ptr null, ptr %8009, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %904, ptr nonnull align 8 %903, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.514, i64 20)
           to label %8010 unwind label %8004
@@ -25331,7 +25331,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8010:                                             ; preds = %8006
   %8011 = load ptr, ptr %908, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8011, ptr noundef nonnull align 8 dereferenceable(136) %907, i64 136, i1 false)
-  %8012 = getelementptr inbounds i8, ptr %8011, i64 136
+  %8012 = getelementptr inbounds nuw i8, ptr %8011, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8012, ptr noundef nonnull align 8 dereferenceable(136) %904, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %909, ptr nonnull align 8 %8011, i64 2)
           to label %8016 unwind label %.thread6141
@@ -25416,12 +25416,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8031
 
 8034:                                             ; preds = %8030
-  %8035 = getelementptr inbounds i8, ptr %896, i64 104
+  %8035 = getelementptr inbounds nuw i8, ptr %896, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.511, ptr %8035, align 8
-  %8036 = getelementptr inbounds i8, ptr %896, i64 112
+  %8036 = getelementptr inbounds nuw i8, ptr %896, i64 112
   store i64 2, ptr %8036, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %896, ptr noundef nonnull align 8 dereferenceable(104) %393, i64 104, i1 false)
-  %8037 = getelementptr inbounds i8, ptr %896, i64 120
+  %8037 = getelementptr inbounds nuw i8, ptr %896, i64 120
   store ptr null, ptr %8037, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %392, ptr nonnull align 8 %2465)
           to label %8040 unwind label %8038
@@ -25435,13 +25435,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8040:                                             ; preds = %8034
   %8041 = load ptr, ptr %897, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8041, ptr noundef nonnull align 8 dereferenceable(136) %896, i64 136, i1 false)
-  %8042 = getelementptr inbounds i8, ptr %8041, i64 136
+  %8042 = getelementptr inbounds nuw i8, ptr %8041, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8042, ptr noundef nonnull align 8 dereferenceable(104) %392, i64 104, i1 false)
-  %.sroa.21101.0..sroa_idx = getelementptr inbounds i8, ptr %8041, i64 240
+  %.sroa.21101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8041, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.513, ptr %.sroa.21101.0..sroa_idx, align 8
-  %.sroa.31102.0..sroa_idx = getelementptr inbounds i8, ptr %8041, i64 248
+  %.sroa.31102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8041, i64 248
   store i64 2, ptr %.sroa.31102.0..sroa_idx, align 8
-  %.sroa.41103.0..sroa_idx = getelementptr inbounds i8, ptr %8041, i64 256
+  %.sroa.41103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8041, i64 256
   store ptr null, ptr %.sroa.41103.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %898, ptr nonnull align 8 %8041, i64 2)
           to label %8043 unwind label %.thread6151
@@ -25487,12 +25487,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6154 unwind label %8361
 
 8056:                                             ; preds = %8053
-  %8057 = getelementptr inbounds i8, ptr %892, i64 104
+  %8057 = getelementptr inbounds nuw i8, ptr %892, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %8057, align 8
-  %8058 = getelementptr inbounds i8, ptr %892, i64 112
+  %8058 = getelementptr inbounds nuw i8, ptr %892, i64 112
   store i64 1, ptr %8058, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %892, ptr noundef nonnull align 8 dereferenceable(104) %391, i64 104, i1 false)
-  %8059 = getelementptr inbounds i8, ptr %892, i64 120
+  %8059 = getelementptr inbounds nuw i8, ptr %892, i64 120
   store ptr null, ptr %8059, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %893, ptr nonnull align 8 %892, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.517, i64 34)
           to label %8060 unwind label %8054
@@ -25553,7 +25553,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 
 8076:                                             ; preds = %8074
   store ptr %8075, ptr %890, align 8
-  %8077 = getelementptr inbounds i8, ptr %1, i64 8
+  %8077 = getelementptr inbounds nuw i8, ptr %1, i64 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %881, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.521, i64 10, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.520, i64 459, ptr nonnull align 8 %8077)
           to label %8081 unwind label %8079
 
@@ -25597,14 +25597,14 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8085
 
 8088:                                             ; preds = %8084
-  %8089 = getelementptr inbounds i8, ptr %878, i64 104
+  %8089 = getelementptr inbounds nuw i8, ptr %878, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %8089, align 8
-  %8090 = getelementptr inbounds i8, ptr %878, i64 112
+  %8090 = getelementptr inbounds nuw i8, ptr %878, i64 112
   store i64 8, ptr %8090, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %878, ptr noundef nonnull align 8 dereferenceable(104) %390, i64 104, i1 false)
-  %8091 = getelementptr inbounds i8, ptr %878, i64 120
+  %8091 = getelementptr inbounds nuw i8, ptr %878, i64 120
   store ptr null, ptr %8091, align 8
-  %8092 = getelementptr inbounds i8, ptr %2, i64 1144
+  %8092 = getelementptr inbounds nuw i8, ptr %2, i64 1144
   invoke void @"_ZN154_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..operands..OperandKind$GT$$GT$4from17h6666ddced692af66E"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %389, ptr nonnull align 8 %8092)
           to label %8096 unwind label %8094
 
@@ -25619,12 +25619,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8093
 
 8096:                                             ; preds = %8088
-  %8097 = getelementptr inbounds i8, ptr %877, i64 104
+  %8097 = getelementptr inbounds nuw i8, ptr %877, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.522, ptr %8097, align 8
-  %8098 = getelementptr inbounds i8, ptr %877, i64 112
+  %8098 = getelementptr inbounds nuw i8, ptr %877, i64 112
   store i64 11, ptr %8098, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %877, ptr noundef nonnull align 8 dereferenceable(104) %389, i64 104, i1 false)
-  %8099 = getelementptr inbounds i8, ptr %877, i64 120
+  %8099 = getelementptr inbounds nuw i8, ptr %877, i64 120
   store ptr null, ptr %8099, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %388, ptr nonnull align 8 %2449)
           to label %8103 unwind label %8101
@@ -25640,12 +25640,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8100
 
 8103:                                             ; preds = %8096
-  %8104 = getelementptr inbounds i8, ptr %876, i64 104
+  %8104 = getelementptr inbounds nuw i8, ptr %876, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %8104, align 8
-  %8105 = getelementptr inbounds i8, ptr %876, i64 112
+  %8105 = getelementptr inbounds nuw i8, ptr %876, i64 112
   store i64 1, ptr %8105, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %876, ptr noundef nonnull align 8 dereferenceable(104) %388, i64 104, i1 false)
-  %8106 = getelementptr inbounds i8, ptr %876, i64 120
+  %8106 = getelementptr inbounds nuw i8, ptr %876, i64 120
   store ptr null, ptr %8106, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %387, ptr nonnull align 8 %890)
           to label %8109 unwind label %8107
@@ -25657,12 +25657,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8100 unwind label %8361
 
 8109:                                             ; preds = %8103
-  %8110 = getelementptr inbounds i8, ptr %874, i64 104
+  %8110 = getelementptr inbounds nuw i8, ptr %874, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %8110, align 8
-  %8111 = getelementptr inbounds i8, ptr %874, i64 112
+  %8111 = getelementptr inbounds nuw i8, ptr %874, i64 112
   store i64 1, ptr %8111, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %874, ptr noundef nonnull align 8 dereferenceable(104) %387, i64 104, i1 false)
-  %8112 = getelementptr inbounds i8, ptr %874, i64 120
+  %8112 = getelementptr inbounds nuw i8, ptr %874, i64 120
   store ptr null, ptr %8112, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %875, ptr nonnull align 8 %874, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.523, i64 29)
           to label %8113 unwind label %8107
@@ -25670,11 +25670,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8113:                                             ; preds = %8109
   %8114 = load ptr, ptr %879, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8114, ptr noundef nonnull align 8 dereferenceable(136) %878, i64 136, i1 false)
-  %8115 = getelementptr inbounds i8, ptr %8114, i64 136
+  %8115 = getelementptr inbounds nuw i8, ptr %8114, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8115, ptr noundef nonnull align 8 dereferenceable(136) %877, i64 136, i1 false)
-  %8116 = getelementptr inbounds i8, ptr %8114, i64 272
+  %8116 = getelementptr inbounds nuw i8, ptr %8114, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8116, ptr noundef nonnull align 8 dereferenceable(136) %876, i64 136, i1 false)
-  %8117 = getelementptr inbounds i8, ptr %8114, i64 408
+  %8117 = getelementptr inbounds nuw i8, ptr %8114, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8117, ptr noundef nonnull align 8 dereferenceable(136) %875, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %880, ptr nonnull align 8 %8114, i64 4)
           to label %8118 unwind label %.thread6168
@@ -25709,12 +25709,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6171 unwind label %8361
 
 8125:                                             ; preds = %8122
-  %8126 = getelementptr inbounds i8, ptr %870, i64 104
+  %8126 = getelementptr inbounds nuw i8, ptr %870, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %8126, align 8
-  %8127 = getelementptr inbounds i8, ptr %870, i64 112
+  %8127 = getelementptr inbounds nuw i8, ptr %870, i64 112
   store i64 1, ptr %8127, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %870, ptr noundef nonnull align 8 dereferenceable(104) %386, i64 104, i1 false)
-  %8128 = getelementptr inbounds i8, ptr %870, i64 120
+  %8128 = getelementptr inbounds nuw i8, ptr %870, i64 120
   store ptr null, ptr %8128, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %871, ptr nonnull align 8 %870, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.524, i64 23)
           to label %8129 unwind label %8123
@@ -25779,12 +25779,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8141
 
 8144:                                             ; preds = %8140
-  %8145 = getelementptr inbounds i8, ptr %861, i64 104
+  %8145 = getelementptr inbounds nuw i8, ptr %861, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %8145, align 8
-  %8146 = getelementptr inbounds i8, ptr %861, i64 112
+  %8146 = getelementptr inbounds nuw i8, ptr %861, i64 112
   store i64 8, ptr %8146, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %861, ptr noundef nonnull align 8 dereferenceable(104) %385, i64 104, i1 false)
-  %8147 = getelementptr inbounds i8, ptr %861, i64 120
+  %8147 = getelementptr inbounds nuw i8, ptr %861, i64 120
   store ptr null, ptr %8147, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %384, ptr nonnull align 8 %2449)
           to label %8151 unwind label %8149
@@ -25800,12 +25800,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8148
 
 8151:                                             ; preds = %8144
-  %8152 = getelementptr inbounds i8, ptr %860, i64 104
+  %8152 = getelementptr inbounds nuw i8, ptr %860, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %8152, align 8
-  %8153 = getelementptr inbounds i8, ptr %860, i64 112
+  %8153 = getelementptr inbounds nuw i8, ptr %860, i64 112
   store i64 1, ptr %8153, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %860, ptr noundef nonnull align 8 dereferenceable(104) %384, i64 104, i1 false)
-  %8154 = getelementptr inbounds i8, ptr %860, i64 120
+  %8154 = getelementptr inbounds nuw i8, ptr %860, i64 120
   store ptr null, ptr %8154, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %383, ptr nonnull align 8 %890)
           to label %8158 unwind label %8156
@@ -25821,12 +25821,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8155
 
 8158:                                             ; preds = %8151
-  %8159 = getelementptr inbounds i8, ptr %858, i64 104
+  %8159 = getelementptr inbounds nuw i8, ptr %858, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.527, ptr %8159, align 8
-  %8160 = getelementptr inbounds i8, ptr %858, i64 112
+  %8160 = getelementptr inbounds nuw i8, ptr %858, i64 112
   store i64 1, ptr %8160, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %858, ptr noundef nonnull align 8 dereferenceable(104) %383, i64 104, i1 false)
-  %8161 = getelementptr inbounds i8, ptr %858, i64 120
+  %8161 = getelementptr inbounds nuw i8, ptr %858, i64 120
   store ptr null, ptr %8161, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %859, ptr nonnull align 8 %858, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.528, i64 21)
           to label %8162 unwind label %8156
@@ -25842,12 +25842,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8155 unwind label %8361
 
 8165:                                             ; preds = %8162
-  %8166 = getelementptr inbounds i8, ptr %856, i64 104
+  %8166 = getelementptr inbounds nuw i8, ptr %856, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %8166, align 8
-  %8167 = getelementptr inbounds i8, ptr %856, i64 112
+  %8167 = getelementptr inbounds nuw i8, ptr %856, i64 112
   store i64 1, ptr %8167, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %856, ptr noundef nonnull align 8 dereferenceable(104) %382, i64 104, i1 false)
-  %8168 = getelementptr inbounds i8, ptr %856, i64 120
+  %8168 = getelementptr inbounds nuw i8, ptr %856, i64 120
   store ptr null, ptr %8168, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %857, ptr nonnull align 8 %856, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.523, i64 29)
           to label %8169 unwind label %8163
@@ -25855,11 +25855,11 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8169:                                             ; preds = %8165
   %8170 = load ptr, ptr %862, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8170, ptr noundef nonnull align 8 dereferenceable(136) %861, i64 136, i1 false)
-  %8171 = getelementptr inbounds i8, ptr %8170, i64 136
+  %8171 = getelementptr inbounds nuw i8, ptr %8170, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8171, ptr noundef nonnull align 8 dereferenceable(136) %860, i64 136, i1 false)
-  %8172 = getelementptr inbounds i8, ptr %8170, i64 272
+  %8172 = getelementptr inbounds nuw i8, ptr %8170, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8172, ptr noundef nonnull align 8 dereferenceable(136) %859, i64 136, i1 false)
-  %8173 = getelementptr inbounds i8, ptr %8170, i64 408
+  %8173 = getelementptr inbounds nuw i8, ptr %8170, i64 408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8173, ptr noundef nonnull align 8 dereferenceable(136) %857, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %863, ptr nonnull align 8 %8170, i64 4)
           to label %8174 unwind label %.thread6190
@@ -25894,12 +25894,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6193 unwind label %8361
 
 8181:                                             ; preds = %8178
-  %8182 = getelementptr inbounds i8, ptr %852, i64 104
+  %8182 = getelementptr inbounds nuw i8, ptr %852, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %8182, align 8
-  %8183 = getelementptr inbounds i8, ptr %852, i64 112
+  %8183 = getelementptr inbounds nuw i8, ptr %852, i64 112
   store i64 1, ptr %8183, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %852, ptr noundef nonnull align 8 dereferenceable(104) %381, i64 104, i1 false)
-  %8184 = getelementptr inbounds i8, ptr %852, i64 120
+  %8184 = getelementptr inbounds nuw i8, ptr %852, i64 120
   store ptr null, ptr %8184, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %853, ptr nonnull align 8 %852, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.524, i64 23)
           to label %8185 unwind label %8179
@@ -25964,12 +25964,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8197
 
 8200:                                             ; preds = %8196
-  %8201 = getelementptr inbounds i8, ptr %844, i64 104
+  %8201 = getelementptr inbounds nuw i8, ptr %844, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %8201, align 8
-  %8202 = getelementptr inbounds i8, ptr %844, i64 112
+  %8202 = getelementptr inbounds nuw i8, ptr %844, i64 112
   store i64 8, ptr %8202, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %844, ptr noundef nonnull align 8 dereferenceable(104) %380, i64 104, i1 false)
-  %8203 = getelementptr inbounds i8, ptr %844, i64 120
+  %8203 = getelementptr inbounds nuw i8, ptr %844, i64 120
   store ptr null, ptr %8203, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %379, ptr nonnull align 8 %2449)
           to label %8206 unwind label %8204
@@ -25983,13 +25983,13 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8206:                                             ; preds = %8200
   %8207 = load ptr, ptr %845, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8207, ptr noundef nonnull align 8 dereferenceable(136) %844, i64 136, i1 false)
-  %8208 = getelementptr inbounds i8, ptr %8207, i64 136
+  %8208 = getelementptr inbounds nuw i8, ptr %8207, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8208, ptr noundef nonnull align 8 dereferenceable(104) %379, i64 104, i1 false)
-  %.sroa.21106.0..sroa_idx = getelementptr inbounds i8, ptr %8207, i64 240
+  %.sroa.21106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8207, i64 240
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %.sroa.21106.0..sroa_idx, align 8
-  %.sroa.31107.0..sroa_idx = getelementptr inbounds i8, ptr %8207, i64 248
+  %.sroa.31107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8207, i64 248
   store i64 1, ptr %.sroa.31107.0..sroa_idx, align 8
-  %.sroa.41108.0..sroa_idx = getelementptr inbounds i8, ptr %8207, i64 256
+  %.sroa.41108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8207, i64 256
   store ptr null, ptr %.sroa.41108.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %846, ptr nonnull align 8 %8207, i64 2)
           to label %8209 unwind label %.thread6212
@@ -26024,12 +26024,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6215 unwind label %8361
 
 8216:                                             ; preds = %8213
-  %8217 = getelementptr inbounds i8, ptr %840, i64 104
+  %8217 = getelementptr inbounds nuw i8, ptr %840, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %8217, align 8
-  %8218 = getelementptr inbounds i8, ptr %840, i64 112
+  %8218 = getelementptr inbounds nuw i8, ptr %840, i64 112
   store i64 1, ptr %8218, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %840, ptr noundef nonnull align 8 dereferenceable(104) %378, i64 104, i1 false)
-  %8219 = getelementptr inbounds i8, ptr %840, i64 120
+  %8219 = getelementptr inbounds nuw i8, ptr %840, i64 120
   store ptr null, ptr %8219, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %841, ptr nonnull align 8 %840, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.524, i64 23)
           to label %8220 unwind label %8214
@@ -26057,7 +26057,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8226 unwind label %8079
 
 8226:                                             ; preds = %8225
-  %8227 = getelementptr inbounds i8, ptr %1, i64 208
+  %8227 = getelementptr inbounds nuw i8, ptr %1, i64 208
   invoke void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder3new17h59d7b37911a143dcE(ptr nonnull sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %836, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.532, i64 12, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.531, i64 376, ptr nonnull align 8 %8227)
           to label %8228 unwind label %8079
 
@@ -26091,12 +26091,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8232
 
 8235:                                             ; preds = %8231
-  %8236 = getelementptr inbounds i8, ptr %833, i64 104
+  %8236 = getelementptr inbounds nuw i8, ptr %833, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.120, ptr %8236, align 8
-  %8237 = getelementptr inbounds i8, ptr %833, i64 112
+  %8237 = getelementptr inbounds nuw i8, ptr %833, i64 112
   store i64 8, ptr %8237, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %833, ptr noundef nonnull align 8 dereferenceable(104) %377, i64 104, i1 false)
-  %8238 = getelementptr inbounds i8, ptr %833, i64 120
+  %8238 = getelementptr inbounds nuw i8, ptr %833, i64 120
   store ptr null, ptr %8238, align 8
   invoke void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nonnull sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %376, ptr nonnull align 8 %890)
           to label %8242 unwind label %8240
@@ -26112,12 +26112,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8239
 
 8242:                                             ; preds = %8235
-  %8243 = getelementptr inbounds i8, ptr %831, i64 104
+  %8243 = getelementptr inbounds nuw i8, ptr %831, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %8243, align 8
-  %8244 = getelementptr inbounds i8, ptr %831, i64 112
+  %8244 = getelementptr inbounds nuw i8, ptr %831, i64 112
   store i64 1, ptr %8244, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %831, ptr noundef nonnull align 8 dereferenceable(104) %376, i64 104, i1 false)
-  %8245 = getelementptr inbounds i8, ptr %831, i64 120
+  %8245 = getelementptr inbounds nuw i8, ptr %831, i64 120
   store ptr null, ptr %8245, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %832, ptr nonnull align 8 %831, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.523, i64 29)
           to label %8246 unwind label %8240
@@ -26135,15 +26135,15 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8249:                                             ; preds = %8246
   %8250 = load ptr, ptr %834, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8250, ptr noundef nonnull align 8 dereferenceable(136) %833, i64 136, i1 false)
-  %8251 = getelementptr inbounds i8, ptr %8250, i64 136
+  %8251 = getelementptr inbounds nuw i8, ptr %8250, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8251, ptr noundef nonnull align 8 dereferenceable(136) %832, i64 136, i1 false)
-  %8252 = getelementptr inbounds i8, ptr %8250, i64 272
+  %8252 = getelementptr inbounds nuw i8, ptr %8250, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8252, ptr noundef nonnull align 8 dereferenceable(104) %375, i64 104, i1 false)
-  %.sroa.21111.0..sroa_idx = getelementptr inbounds i8, ptr %8250, i64 376
+  %.sroa.21111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8250, i64 376
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.121, ptr %.sroa.21111.0..sroa_idx, align 8
-  %.sroa.31112.0..sroa_idx = getelementptr inbounds i8, ptr %8250, i64 384
+  %.sroa.31112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8250, i64 384
   store i64 1, ptr %.sroa.31112.0..sroa_idx, align 8
-  %.sroa.41113.0..sroa_idx = getelementptr inbounds i8, ptr %8250, i64 392
+  %.sroa.41113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8250, i64 392
   store ptr null, ptr %.sroa.41113.0..sroa_idx, align 8
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %835, ptr nonnull align 8 %8250, i64 3)
           to label %8253 unwind label %.thread6234
@@ -26245,12 +26245,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
   br label %8275
 
 8278:                                             ; preds = %8274
-  %8279 = getelementptr inbounds i8, ptr %816, i64 104
+  %8279 = getelementptr inbounds nuw i8, ptr %816, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.19, ptr %8279, align 8
-  %8280 = getelementptr inbounds i8, ptr %816, i64 112
+  %8280 = getelementptr inbounds nuw i8, ptr %816, i64 112
   store i64 1, ptr %8280, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %816, ptr noundef nonnull align 8 dereferenceable(104) %374, i64 104, i1 false)
-  %8281 = getelementptr inbounds i8, ptr %816, i64 120
+  %8281 = getelementptr inbounds nuw i8, ptr %816, i64 120
   store ptr null, ptr %8281, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %817, ptr nonnull align 8 %816, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.538, i64 34)
           to label %8282 unwind label %8276
@@ -26266,12 +26266,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %8275 unwind label %8361
 
 8285:                                             ; preds = %8282
-  %8286 = getelementptr inbounds i8, ptr %814, i64 104
+  %8286 = getelementptr inbounds nuw i8, ptr %814, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.71, ptr %8286, align 8
-  %8287 = getelementptr inbounds i8, ptr %814, i64 112
+  %8287 = getelementptr inbounds nuw i8, ptr %814, i64 112
   store i64 1, ptr %8287, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %814, ptr noundef nonnull align 8 dereferenceable(104) %373, i64 104, i1 false)
-  %8288 = getelementptr inbounds i8, ptr %814, i64 120
+  %8288 = getelementptr inbounds nuw i8, ptr %814, i64 120
   store ptr null, ptr %8288, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %815, ptr nonnull align 8 %814, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.539, i64 20)
           to label %8289 unwind label %8283
@@ -26279,7 +26279,7 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
 8289:                                             ; preds = %8285
   %8290 = load ptr, ptr %818, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8290, ptr noundef nonnull align 8 dereferenceable(136) %817, i64 136, i1 false)
-  %8291 = getelementptr inbounds i8, ptr %8290, i64 136
+  %8291 = getelementptr inbounds nuw i8, ptr %8290, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8291, ptr noundef nonnull align 8 dereferenceable(136) %815, i64 136, i1 false)
   invoke void @_ZN5alloc5slice4hack8into_vec17h0013bc75694021c1E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %819, ptr nonnull align 8 %8290, i64 2)
           to label %8292 unwind label %.thread6245
@@ -26325,12 +26325,12 @@ _ZN22cranelift_codegen_meta6shared12instructions22define_simd_arithmetic17h13aa8
           to label %.thread6248 unwind label %8361
 
 8305:                                             ; preds = %8302
-  %8306 = getelementptr inbounds i8, ptr %810, i64 104
+  %8306 = getelementptr inbounds nuw i8, ptr %810, i64 104
   store ptr @anon.d1d4bea1a3108f383c23b2c9c4b960e6.65, ptr %8306, align 8
-  %8307 = getelementptr inbounds i8, ptr %810, i64 112
+  %8307 = getelementptr inbounds nuw i8, ptr %810, i64 112
   store i64 1, ptr %8307, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %810, ptr noundef nonnull align 8 dereferenceable(104) %372, i64 104, i1 false)
-  %8308 = getelementptr inbounds i8, ptr %810, i64 120
+  %8308 = getelementptr inbounds nuw i8, ptr %810, i64 120
   store ptr null, ptr %8308, align 8
   invoke void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %811, ptr nonnull align 8 %810, ptr nonnull align 1 @anon.d1d4bea1a3108f383c23b2c9c4b960e6.540, i64 16)
           to label %8309 unwind label %8303

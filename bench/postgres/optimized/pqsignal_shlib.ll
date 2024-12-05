@@ -26,9 +26,9 @@ define ptr @pqsignal(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 9:                                                ; preds = %2, %8
   %.010 = phi ptr [ @wrapper_handler, %8 ], [ %1, %2 ]
   store ptr %.010, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = call i32 @sigemptyset(ptr noundef nonnull %10) #3
-  %12 = getelementptr inbounds i8, ptr %3, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %13 = icmp eq i32 %0, 17
   %spec.select = select i1 %13, i32 268435457, i32 268435456
   store i32 %spec.select, ptr %12, align 8

@@ -24,7 +24,7 @@ define i32 @ieee80211_mhz_to_chan(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %.not14 = icmp ugt i32 %0, %7
   br i1 %.not14, label %14, label %8
@@ -32,7 +32,7 @@ define i32 @ieee80211_mhz_to_chan(i32 noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %5
   %9 = sub i32 %0, %4
   %10 = udiv i32 %9, 5
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %10
   br label %.loopexit
@@ -54,20 +54,20 @@ define i32 @ieee80211_chan_to_mhz(i32 noundef %0, i1 noundef zeroext %1) local_u
 3:                                                ; preds = %2, %23
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
   %4 = getelementptr [5 x %struct.freq_cvt_s], ptr @freq_cvt, i64 0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
   %8 = xor i1 %1, %7
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %10, align 8
   %.not = icmp slt i32 %0, %11
   br i1 %.not, label %23, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %4, align 16
   %16 = sub i32 %14, %15
@@ -104,7 +104,7 @@ define noalias ptr @ieee80211_mhz_to_str(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %.not14.i = icmp ugt i32 %0, %7
   br i1 %.not14.i, label %8, label %ieee80211_mhz_to_chan.exit
@@ -117,7 +117,7 @@ define noalias ptr @ieee80211_mhz_to_str(i32 noundef %0) local_unnamed_addr #1 {
 ieee80211_mhz_to_chan.exit:                       ; preds = %5
   %9 = sub i32 %0, %4
   %10 = udiv i32 %9, 5
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, %10
   %14 = icmp slt i32 %13, 0

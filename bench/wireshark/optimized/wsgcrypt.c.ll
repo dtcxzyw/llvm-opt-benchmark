@@ -116,35 +116,35 @@ define void @crypt_des_ecb(ptr noundef initializes((0, 8)) %0, ptr noundef %1, p
   %7 = getelementptr i8, ptr %2, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = tail call i8 @llvm.fshl.i8(i8 %6, i8 %8, i8 7)
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %9, ptr %10, align 1
   %11 = getelementptr i8, ptr %2, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = tail call i8 @llvm.fshl.i8(i8 %8, i8 %12, i8 6)
-  %14 = getelementptr inbounds i8, ptr %4, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %13, ptr %14, align 1
   %15 = getelementptr i8, ptr %2, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = tail call i8 @llvm.fshl.i8(i8 %12, i8 %16, i8 5)
-  %18 = getelementptr inbounds i8, ptr %4, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %17, ptr %18, align 1
   %19 = getelementptr i8, ptr %2, i64 4
   %20 = load i8, ptr %19, align 1
   %21 = tail call i8 @llvm.fshl.i8(i8 %16, i8 %20, i8 4)
-  %22 = getelementptr inbounds i8, ptr %4, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %21, ptr %22, align 1
   %23 = getelementptr i8, ptr %2, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = tail call i8 @llvm.fshl.i8(i8 %20, i8 %24, i8 3)
-  %26 = getelementptr inbounds i8, ptr %4, i64 5
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %25, ptr %26, align 1
   %27 = getelementptr i8, ptr %2, i64 6
   %28 = load i8, ptr %27, align 1
   %29 = tail call i8 @llvm.fshl.i8(i8 %24, i8 %28, i8 2)
-  %30 = getelementptr inbounds i8, ptr %4, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %29, ptr %30, align 1
   %31 = shl i8 %28, 1
-  %32 = getelementptr inbounds i8, ptr %4, i64 7
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %31, ptr %32, align 1
   %33 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 302, i32 noundef 1, i32 noundef 0) #4
   %.not = icmp eq i32 %33, 0
@@ -393,9 +393,9 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   %27 = load ptr, ptr %9, align 8
   call void @gcry_md_write(ptr noundef %27, ptr noundef %3, i64 noundef %19) #4
   %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
   br i1 %33, label %34, label %35
@@ -410,7 +410,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   %37 = udiv i32 %.04047, %10
   %38 = trunc i32 %37 to i8
   %39 = add i8 %38, 1
-  %40 = getelementptr inbounds i8, ptr %28, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %41 = add i32 %36, 1
   store i32 %41, ptr %29, align 8
   %42 = sext i32 %36 to i64

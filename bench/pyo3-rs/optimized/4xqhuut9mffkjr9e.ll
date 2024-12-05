@@ -142,7 +142,7 @@ define void @"_ZN64_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$syn..parse..Parse$
   %3 = alloca [208 x i8], align 8
   %4 = alloca [208 x i8], align 8
   call void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemArgument$u20$as$u20$syn..parse..Parse$GT$5parse17h0c1ed6a97182fc10E"(ptr nonnull sret([208 x i8]) align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 40
   br i1 %.not, label %10, label %7
@@ -150,13 +150,13 @@ define void @"_ZN64_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$syn..parse..Parse$
 7:                                                ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, ptr noundef nonnull align 8 dereferenceable(208) %4, i64 208, i1 false)
   %8 = call align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h194b002347f533e4E(ptr nonnull align 8 %3)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   br label %12
 

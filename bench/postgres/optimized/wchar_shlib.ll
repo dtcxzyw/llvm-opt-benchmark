@@ -1648,7 +1648,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %55 = sdiv i32 %54, 2
   %56 = sext i32 %55 to i64
   %57 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.nonspacing, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp ugt i32 %.0.i, %59
   br i1 %60, label %61, label %63
@@ -1684,7 +1684,7 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %72 = sdiv i32 %71, 2
   %73 = sext i32 %72 to i64
   %74 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.east_asian_fw, i64 %73
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp ugt i32 %.0.i, %76
   br i1 %77, label %78, label %80

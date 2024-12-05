@@ -116,18 +116,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @pic_begin_graph(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @troff_comments, ptr noundef %7, ptr noundef %9, ptr noundef %11) #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @agnameof(ptr noundef %13) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @troff_comments, ptr noundef %14) #7
@@ -143,19 +143,19 @@ define internal void @pic_end_graph(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @pic_begin_page(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 576
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %.sroa.0.0.copyload = load i32, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 580
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 580
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 584
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 584
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 588
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 588
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.b = load i1, ptr @onetime, align 1
   br i1 %.b, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 480
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %6 [
     i32 0, label %8
@@ -176,7 +176,7 @@ define internal void @pic_begin_page(ptr noundef %0) #0 {
   %14 = sitofp i32 %.sroa.0.0.copyload to double
   %15 = fsub double %13, %14
   %16 = fdiv double %15, 7.200000e+01
-  %17 = getelementptr inbounds i8, ptr %0, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 90
   %.048 = select i1 %19, double %12, double %16
@@ -242,9 +242,9 @@ define internal void @pic_end_page(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load i8, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load double, ptr %7, align 8
   switch i8 %6, label %11 [
     i8 108, label %._crit_edge
@@ -262,9 +262,9 @@ define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr noc
 
 ._crit_edge:                                      ; preds = %4, %11, %9
   %.sroa.019.0 = phi double [ %13, %11 ], [ %10, %9 ], [ %1, %4 ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load double, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %18, null
@@ -296,8 +296,8 @@ tailrecurse.i:                                    ; preds = %40, %23
 
 28:                                               ; preds = %26, %tailrecurse.i
   %.01317.i = phi i64 [ 0, %tailrecurse.i ], [ %27, %26 ]
-  %29 = getelementptr inbounds [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw [33 x %struct.fontinfo], ptr @fonttab, i64 0, i64 %.01317.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %31)
   %33 = tail call i64 @llvm.umin.i64(i64 %.tr15.i, i64 %32)
@@ -325,7 +325,7 @@ picfontname.exit:                                 ; preds = %36, %28
   %43 = load ptr, ptr %14, align 8
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr @pic_textspan.lastname, align 8
-  %.phi.trans.insert32 = getelementptr inbounds i8, ptr %43, i64 24
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %.pre33 = load double, ptr %.phi.trans.insert32, align 8
   br label %45
 
@@ -360,15 +360,15 @@ picfontname.exit:                                 ; preds = %36, %28
 define internal void @pic_ellipse(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   %4 = select i1 %.not, ptr @.str.84, ptr @.str.83
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load double, ptr %5, align 8
   %7 = load double, ptr %1, align 8
   %8 = fsub double %6, %7
   %9 = fmul double %8, 2.000000e+00
   %10 = fdiv double %9, 7.200000e+01
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load double, ptr %13, align 8
   %15 = fsub double %12, %14
   %16 = fmul double %15, 2.000000e+00
@@ -392,7 +392,7 @@ define internal void @pic_polygon(ptr noundef %0, ptr nocapture noundef readonly
   %.in38.v.i = select i1 %7, double -5.000000e-01, double 5.000000e-01
   %.in38.i = fadd double %6, %.in38.v.i
   %8 = fptosi double %.in38.i to i32
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fcmp ult double %10, 0.000000e+00
   %.in39.v.i = select i1 %11, double -5.000000e-01, double 5.000000e-01
@@ -411,7 +411,7 @@ picptarray.exit:                                  ; preds = %.lr.ph.i, %4
   %.in.v.i = select i1 %16, double -5.000000e-01, double 5.000000e-01
   %.in.i = fadd double %15, %.in.v.i
   %17 = fptosi double %.in.i to i32
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load double, ptr %18, align 8
   %20 = fcmp ult double %19, 0.000000e+00
   %.in37.v.i = select i1 %20, double -5.000000e-01, double 5.000000e-01
@@ -426,11 +426,11 @@ picptarray.exit:                                  ; preds = %.lr.ph.i, %4
 define internal void @pic_bezier(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 %3) #0 {
   %5 = alloca [4 x %struct.pointf_s], align 16
   %6 = load double, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store double %6, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %9, ptr %10, align 8
   %11 = fcmp ult double %6, 0.000000e+00
   %.in.v = select i1 %11, double -5.000000e-01, double 5.000000e-01
@@ -460,11 +460,11 @@ define internal void @pic_bezier(ptr noundef %0, ptr nocapture noundef readonly 
   %.03447 = phi i64 [ 1, %.lr.ph ], [ %27, %20 ]
   %21 = getelementptr %struct.pointf_s, ptr %19, i64 %.03447
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds [4 x %struct.pointf_s], ptr %5, i64 0, i64 %.03447
+  %23 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %5, i64 0, i64 %.03447
   store double %22, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store double %25, ptr %26, align 8
   %27 = add nuw nsw i64 %.03447, 1
   %exitcond.not = icmp eq i64 %27, 4
@@ -508,7 +508,7 @@ define internal void @pic_polyline(ptr noundef %0, ptr nocapture noundef readonl
   %.in38.v.i = select i1 %6, double -5.000000e-01, double 5.000000e-01
   %.in38.i = fadd double %5, %.in38.v.i
   %7 = fptosi double %.in38.i to i32
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fcmp ult double %9, 0.000000e+00
   %.in39.v.i = select i1 %10, double -5.000000e-01, double 5.000000e-01

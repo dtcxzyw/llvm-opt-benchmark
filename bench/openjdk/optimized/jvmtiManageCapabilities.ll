@@ -93,12 +93,12 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabili
   %.0813 = phi ptr [ %2, %3 ], [ %10, %4 ]
   %.0912 = phi ptr [ %1, %3 ], [ %7, %4 ]
   %.01011 = phi ptr [ %0, %3 ], [ %5, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %6 = load i8, ptr %.01011, align 1
-  %7 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %8 = load i8, ptr %.0912, align 1
   %9 = or i8 %8, %6
-  %10 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   store i8 %9, ptr %.0813, align 1
   %11 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %11, 6
@@ -117,12 +117,12 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabiliti
   %.0813 = phi ptr [ %2, %3 ], [ %10, %4 ]
   %.0912 = phi ptr [ %1, %3 ], [ %7, %4 ]
   %.01011 = phi ptr [ %0, %3 ], [ %5, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %6 = load i8, ptr %.01011, align 1
-  %7 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %8 = load i8, ptr %.0912, align 1
   %9 = and i8 %8, %6
-  %10 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   store i8 %9, ptr %.0813, align 1
   %11 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %11, 6
@@ -141,13 +141,13 @@ define hidden noundef ptr @_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabil
   %.0813 = phi ptr [ %2, %3 ], [ %11, %4 ]
   %.0912 = phi ptr [ %1, %3 ], [ %7, %4 ]
   %.01011 = phi ptr [ %0, %3 ], [ %5, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %6 = load i8, ptr %.01011, align 1
-  %7 = getelementptr inbounds i8, ptr %.0912, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %8 = load i8, ptr %.0912, align 1
   %9 = xor i8 %8, -1
   %10 = and i8 %6, %9
-  %11 = getelementptr inbounds i8, ptr %.0813, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813, i64 1
   store i8 %10, ptr %.0813, align 1
   %12 = add nuw nsw i32 %.014, 1
   %exitcond.not = icmp eq i32 %12, 6
@@ -166,7 +166,7 @@ define hidden noundef zeroext i1 @_ZN23JvmtiManageCapabilities8has_someEPK17jvmt
   %.046 = phi ptr [ %0, %1 ], [ %4, %2 ]
   %3 = load i8, ptr %.046, align 1
   %.not.not = icmp ne i8 %3, 0
-  %4 = getelementptr inbounds i8, ptr %.046, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   %5 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %5, 6
   %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
@@ -184,9 +184,9 @@ define hidden void @_ZN23JvmtiManageCapabilities17copy_capabilitiesEPK17jvmtiCap
   %.09 = phi i32 [ 0, %2 ], [ %7, %3 ]
   %.058 = phi ptr [ %1, %2 ], [ %6, %3 ]
   %.067 = phi ptr [ %0, %2 ], [ %4, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.067, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.067, i64 1
   %5 = load i8, ptr %.067, align 1
-  %6 = getelementptr inbounds i8, ptr %.058, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   store i8 %5, ptr %.058, align 1
   %7 = add nuw nsw i32 %.09, 1
   %exitcond.not = icmp eq i32 %7, 6
@@ -205,13 +205,13 @@ define hidden void @_ZN23JvmtiManageCapabilities33get_potential_capabilities_nol
   %.0813.i = phi ptr [ %2, %3 ], [ %11, %4 ]
   %.0912.i = phi ptr [ %1, %3 ], [ %7, %4 ]
   %.01011.i = phi ptr [ @_ZN23JvmtiManageCapabilities19always_capabilitiesE, %3 ], [ %5, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.01011.i, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 1
   %6 = load i8, ptr %.01011.i, align 1
-  %7 = getelementptr inbounds i8, ptr %.0912.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
   %8 = load i8, ptr %.0912.i, align 1
   %9 = xor i8 %8, -1
   %10 = and i8 %6, %9
-  %11 = getelementptr inbounds i8, ptr %.0813.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 1
   store i8 %10, ptr %.0813.i, align 1
   %12 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %12, 6
@@ -223,7 +223,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds 
   %.0912.i13 = phi ptr [ %15, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %0, %4 ]
   %13 = getelementptr i8, ptr %.0813.i12, i64 1
   %14 = load i8, ptr %.0813.i12, align 1
-  %15 = getelementptr inbounds i8, ptr %.0912.i13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.0912.i13, i64 1
   %16 = load i8, ptr %.0912.i13, align 1
   %17 = or i8 %16, %14
   store i8 %17, ptr %.0813.i12, align 1
@@ -237,7 +237,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds =
   %.0912.i18 = phi ptr [ %21, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ @_ZN23JvmtiManageCapabilities34always_solo_remaining_capabilitiesE, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit ]
   %19 = getelementptr i8, ptr %.0813.i17, i64 1
   %20 = load i8, ptr %.0813.i17, align 1
-  %21 = getelementptr inbounds i8, ptr %.0912.i18, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0912.i18, i64 1
   %22 = load i8, ptr %.0912.i18, align 1
   %23 = or i8 %22, %20
   store i8 %23, ptr %.0813.i17, align 1
@@ -256,7 +256,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit21: ; preds
   %.0912.i24 = phi ptr [ %29, %.preheader ], [ @_ZN23JvmtiManageCapabilities19onload_capabilitiesE, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit21 ]
   %27 = getelementptr i8, ptr %.0813.i23, i64 1
   %28 = load i8, ptr %.0813.i23, align 1
-  %29 = getelementptr inbounds i8, ptr %.0912.i24, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0912.i24, i64 1
   %30 = load i8, ptr %.0912.i24, align 1
   %31 = or i8 %30, %28
   store i8 %31, ptr %.0813.i23, align 1
@@ -270,7 +270,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27: ; preds
   %.0912.i30 = phi ptr [ %35, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27 ], [ @_ZN23JvmtiManageCapabilities34onload_solo_remaining_capabilitiesE, %.preheader ]
   %33 = getelementptr i8, ptr %.0813.i29, i64 1
   %34 = load i8, ptr %.0813.i29, align 1
-  %35 = getelementptr inbounds i8, ptr %.0912.i30, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0912.i30, i64 1
   %36 = load i8, ptr %.0912.i30, align 1
   %37 = or i8 %36, %34
   store i8 %37, ptr %.0813.i29, align 1
@@ -304,13 +304,13 @@ _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit: ; preds = %_ZN23
   %.0813.i.i = phi ptr [ %15, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %2, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
   %.0912.i.i = phi ptr [ %11, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %1, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
   %.01011.i.i = phi ptr [ %9, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ @_ZN23JvmtiManageCapabilities19always_capabilitiesE, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
-  %9 = getelementptr inbounds i8, ptr %.01011.i.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 1
   %10 = load i8, ptr %.01011.i.i, align 1
-  %11 = getelementptr inbounds i8, ptr %.0912.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 1
   %12 = load i8, ptr %.0912.i.i, align 1
   %13 = xor i8 %12, -1
   %14 = and i8 %10, %13
-  %15 = getelementptr inbounds i8, ptr %.0813.i.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 1
   store i8 %14, ptr %.0813.i.i, align 1
   %16 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 6
@@ -322,7 +322,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit.i: ; pred
   %.0912.i13.i = phi ptr [ %19, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit.i ], [ %0, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ]
   %17 = getelementptr i8, ptr %.0813.i12.i, i64 1
   %18 = load i8, ptr %.0813.i12.i, align 1
-  %19 = getelementptr inbounds i8, ptr %.0912.i13.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0912.i13.i, i64 1
   %20 = load i8, ptr %.0912.i13.i, align 1
   %21 = or i8 %20, %18
   store i8 %21, ptr %.0813.i12.i, align 1
@@ -336,7 +336,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit.i: ; preds
   %.0912.i18.i = phi ptr [ %25, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit.i ], [ @_ZN23JvmtiManageCapabilities34always_solo_remaining_capabilitiesE, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit.i ]
   %23 = getelementptr i8, ptr %.0813.i17.i, i64 1
   %24 = load i8, ptr %.0813.i17.i, align 1
-  %25 = getelementptr inbounds i8, ptr %.0912.i18.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.0912.i18.i, i64 1
   %26 = load i8, ptr %.0912.i18.i, align 1
   %27 = or i8 %26, %24
   store i8 %27, ptr %.0813.i17.i, align 1
@@ -355,7 +355,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit21.i: ; pre
   %.0912.i24.i = phi ptr [ %33, %.preheader.i ], [ @_ZN23JvmtiManageCapabilities19onload_capabilitiesE, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit21.i ]
   %31 = getelementptr i8, ptr %.0813.i23.i, i64 1
   %32 = load i8, ptr %.0813.i23.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.0912.i24.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0912.i24.i, i64 1
   %34 = load i8, ptr %.0912.i24.i, align 1
   %35 = or i8 %34, %32
   store i8 %35, ptr %.0813.i23.i, align 1
@@ -369,7 +369,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27.i: ; pre
   %.0912.i30.i = phi ptr [ %39, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27.i ], [ @_ZN23JvmtiManageCapabilities34onload_solo_remaining_capabilitiesE, %.preheader.i ]
   %37 = getelementptr i8, ptr %.0813.i29.i, i64 1
   %38 = load i8, ptr %.0813.i29.i, align 1
-  %39 = getelementptr inbounds i8, ptr %.0912.i30.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0912.i30.i, i64 1
   %40 = load i8, ptr %.0912.i30.i, align 1
   %41 = or i8 %40, %38
   store i8 %41, ptr %.0813.i29.i, align 1
@@ -411,13 +411,13 @@ _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit: ; preds = %_ZN23
   %.0813.i.i = phi ptr [ %17, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %5, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
   %.0912.i.i = phi ptr [ %13, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %1, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
   %.01011.i.i = phi ptr [ %11, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ @_ZN23JvmtiManageCapabilities19always_capabilitiesE, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.01011.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 1
   %12 = load i8, ptr %.01011.i.i, align 1
-  %13 = getelementptr inbounds i8, ptr %.0912.i.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 1
   %14 = load i8, ptr %.0912.i.i, align 1
   %15 = xor i8 %14, -1
   %16 = and i8 %12, %15
-  %17 = getelementptr inbounds i8, ptr %.0813.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 1
   store i8 %16, ptr %.0813.i.i, align 1
   %18 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %18, 6
@@ -429,7 +429,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit.i: ; pred
   %.0912.i13.i = phi ptr [ %21, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit.i ], [ %0, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ]
   %19 = getelementptr i8, ptr %.0813.i12.i, i64 1
   %20 = load i8, ptr %.0813.i12.i, align 1
-  %21 = getelementptr inbounds i8, ptr %.0912.i13.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0912.i13.i, i64 1
   %22 = load i8, ptr %.0912.i13.i, align 1
   %23 = or i8 %22, %20
   store i8 %23, ptr %.0813.i12.i, align 1
@@ -443,7 +443,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit.i: ; preds
   %.0912.i18.i = phi ptr [ %27, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit.i ], [ @_ZN23JvmtiManageCapabilities34always_solo_remaining_capabilitiesE, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit.i ]
   %25 = getelementptr i8, ptr %.0813.i17.i, i64 1
   %26 = load i8, ptr %.0813.i17.i, align 1
-  %27 = getelementptr inbounds i8, ptr %.0912.i18.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0912.i18.i, i64 1
   %28 = load i8, ptr %.0912.i18.i, align 1
   %29 = or i8 %28, %26
   store i8 %29, ptr %.0813.i17.i, align 1
@@ -462,7 +462,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit21.i: ; pre
   %.0912.i24.i = phi ptr [ %35, %.preheader.i ], [ @_ZN23JvmtiManageCapabilities19onload_capabilitiesE, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit21.i ]
   %33 = getelementptr i8, ptr %.0813.i23.i, i64 1
   %34 = load i8, ptr %.0813.i23.i, align 1
-  %35 = getelementptr inbounds i8, ptr %.0912.i24.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0912.i24.i, i64 1
   %36 = load i8, ptr %.0912.i24.i, align 1
   %37 = or i8 %36, %34
   store i8 %37, ptr %.0813.i23.i, align 1
@@ -476,7 +476,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27.i: ; pre
   %.0912.i30.i = phi ptr [ %41, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27.i ], [ @_ZN23JvmtiManageCapabilities34onload_solo_remaining_capabilitiesE, %.preheader.i ]
   %39 = getelementptr i8, ptr %.0813.i29.i, i64 1
   %40 = load i8, ptr %.0813.i29.i, align 1
-  %41 = getelementptr inbounds i8, ptr %.0912.i30.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.0912.i30.i, i64 1
   %42 = load i8, ptr %.0912.i30.i, align 1
   %43 = or i8 %42, %40
   store i8 %43, ptr %.0813.i29.i, align 1
@@ -491,7 +491,7 @@ _ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabil
   %.014.i = phi i32 [ %51, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ 0, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit.preheader ]
   %.0813.i = phi ptr [ %47, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %5, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit.preheader ]
   %.01011.i = phi ptr [ %45, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %2, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit.preheader ]
-  %45 = getelementptr inbounds i8, ptr %.01011.i, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 1
   %46 = load i8, ptr %.01011.i, align 1
   %47 = getelementptr i8, ptr %.0813.i, i64 1
   %48 = load i8, ptr %.0813.i, align 1
@@ -507,7 +507,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds 
   %.046.i = phi ptr [ %53, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %5, %_ZN23JvmtiManageCapabilities33get_potential_capabilities_nolockEPK17jvmtiCapabilitiesS2_PS0_.exit ]
   %52 = load i8, ptr %.046.i, align 1
   %.not.not.i = icmp ne i8 %52, 0
-  %53 = getelementptr inbounds i8, ptr %.046.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.046.i, i64 1
   %54 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i13 = icmp eq i32 %54, 6
   %or.cond.i = select i1 %.not.not.i, i1 true, i1 %exitcond.not.i13
@@ -522,7 +522,7 @@ _ZN23JvmtiManageCapabilities8has_someEPK17jvmtiCapabilities.exit: ; preds = %_ZN
   %.0912.i16 = phi ptr [ %57, %.preheader ], [ %2, %_ZN23JvmtiManageCapabilities8has_someEPK17jvmtiCapabilities.exit ]
   %55 = getelementptr i8, ptr %.0813.i15, i64 1
   %56 = load i8, ptr %.0813.i15, align 1
-  %57 = getelementptr inbounds i8, ptr %.0912.i16, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0912.i16, i64 1
   %58 = load i8, ptr %.0912.i16, align 1
   %59 = or i8 %58, %56
   store i8 %59, ptr %.0813.i15, align 1
@@ -535,12 +535,12 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds =
   %.0813.i20 = phi ptr [ %66, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %5, %.preheader ]
   %.0912.i21 = phi ptr [ %63, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %2, %.preheader ]
   %.01011.i22 = phi ptr [ %61, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ @_ZN23JvmtiManageCapabilities19onload_capabilitiesE, %.preheader ]
-  %61 = getelementptr inbounds i8, ptr %.01011.i22, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.01011.i22, i64 1
   %62 = load i8, ptr %.01011.i22, align 1
-  %63 = getelementptr inbounds i8, ptr %.0912.i21, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.0912.i21, i64 1
   %64 = load i8, ptr %.0912.i21, align 1
   %65 = and i8 %64, %62
-  %66 = getelementptr inbounds i8, ptr %.0813.i20, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0813.i20, i64 1
   store i8 %65, ptr %.0813.i20, align 1
   %67 = add nuw nsw i32 %.014.i19, 1
   %exitcond.not.i23 = icmp eq i32 %67, 6
@@ -552,7 +552,7 @@ _ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds = %
   %.0912.i26 = phi ptr [ %70, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %5, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ]
   %68 = getelementptr i8, ptr %.0813.i25, i64 1
   %69 = load i8, ptr %.0813.i25, align 1
-  %70 = getelementptr inbounds i8, ptr %.0912.i26, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.0912.i26, i64 1
   %71 = load i8, ptr %.0912.i26, align 1
   %72 = or i8 %71, %69
   store i8 %72, ptr %.0813.i25, align 1
@@ -566,7 +566,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit29: ; preds
   %.0912.i32 = phi ptr [ %76, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit29 ], [ %5, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit ]
   %74 = getelementptr i8, ptr %.0813.i31, i64 1
   %75 = load i8, ptr %.0813.i31, align 1
-  %76 = getelementptr inbounds i8, ptr %.0912.i32, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0912.i32, i64 1
   %77 = load i8, ptr %.0912.i32, align 1
   %78 = xor i8 %77, -1
   %79 = and i8 %75, %78
@@ -580,12 +580,12 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit35: ; pred
   %.0813.i37 = phi ptr [ %86, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit35 ], [ %5, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit29 ]
   %.0912.i38 = phi ptr [ %83, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit35 ], [ %2, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit29 ]
   %.01011.i39 = phi ptr [ %81, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit35 ], [ @_ZN23JvmtiManageCapabilities24onload_solo_capabilitiesE, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit29 ]
-  %81 = getelementptr inbounds i8, ptr %.01011.i39, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.01011.i39, i64 1
   %82 = load i8, ptr %.01011.i39, align 1
-  %83 = getelementptr inbounds i8, ptr %.0912.i38, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.0912.i38, i64 1
   %84 = load i8, ptr %.0912.i38, align 1
   %85 = and i8 %84, %82
-  %86 = getelementptr inbounds i8, ptr %.0813.i37, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0813.i37, i64 1
   store i8 %85, ptr %.0813.i37, align 1
   %87 = add nuw nsw i32 %.014.i36, 1
   %exitcond.not.i40 = icmp eq i32 %87, 6
@@ -597,7 +597,7 @@ _ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit41: ; preds =
   %.0912.i44 = phi ptr [ %90, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit41 ], [ %5, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit35 ]
   %88 = getelementptr i8, ptr %.0813.i43, i64 1
   %89 = load i8, ptr %.0813.i43, align 1
-  %90 = getelementptr inbounds i8, ptr %.0912.i44, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.0912.i44, i64 1
   %91 = load i8, ptr %.0912.i44, align 1
   %92 = or i8 %91, %89
   store i8 %92, ptr %.0813.i43, align 1
@@ -611,7 +611,7 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit47: ; preds
   %.0912.i50 = phi ptr [ %96, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit47 ], [ %5, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit41 ]
   %94 = getelementptr i8, ptr %.0813.i49, i64 1
   %95 = load i8, ptr %.0813.i49, align 1
-  %96 = getelementptr inbounds i8, ptr %.0912.i50, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.0912.i50, i64 1
   %97 = load i8, ptr %.0912.i50, align 1
   %98 = xor i8 %97, -1
   %99 = and i8 %95, %98
@@ -626,7 +626,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit53: ; pred
   %.0912.i56 = phi ptr [ %103, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit53 ], [ %2, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit47 ]
   %101 = getelementptr i8, ptr %.0813.i55, i64 1
   %102 = load i8, ptr %.0813.i55, align 1
-  %103 = getelementptr inbounds i8, ptr %.0912.i56, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.0912.i56, i64 1
   %104 = load i8, ptr %.0912.i56, align 1
   %105 = xor i8 %104, -1
   %106 = and i8 %102, %105
@@ -641,7 +641,7 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit59: ; pred
   %.0912.i62 = phi ptr [ %110, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit59 ], [ %2, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit53 ]
   %108 = getelementptr i8, ptr %.0813.i61, i64 1
   %109 = load i8, ptr %.0813.i61, align 1
-  %110 = getelementptr inbounds i8, ptr %.0912.i62, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.0912.i62, i64 1
   %111 = load i8, ptr %.0912.i62, align 1
   %112 = xor i8 %111, -1
   %113 = and i8 %109, %112
@@ -676,12 +676,12 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit65: ; pred
   %.0813.i67 = phi ptr [ %130, %124 ], [ %3, %.preheader73 ]
   %.0912.i68 = phi ptr [ %127, %124 ], [ %2, %.preheader73 ]
   %.01011.i69 = phi ptr [ %125, %124 ], [ %0, %.preheader73 ]
-  %125 = getelementptr inbounds i8, ptr %.01011.i69, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %.01011.i69, i64 1
   %126 = load i8, ptr %.01011.i69, align 1
-  %127 = getelementptr inbounds i8, ptr %.0912.i68, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.0912.i68, i64 1
   %128 = load i8, ptr %.0912.i68, align 1
   %129 = or i8 %128, %126
-  %130 = getelementptr inbounds i8, ptr %.0813.i67, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.0813.i67, i64 1
   store i8 %129, ptr %.0813.i67, align 1
   %131 = add nuw nsw i32 %.014.i66, 1
   %exitcond.not.i70 = icmp eq i32 %131, 6
@@ -713,12 +713,12 @@ define hidden void @_ZN23JvmtiManageCapabilities6updateEv() local_unnamed_addr #
   %.0813.i = phi ptr [ %1, %0 ], [ %8, %2 ]
   %.0912.i = phi ptr [ @_ZN23JvmtiManageCapabilities24always_solo_capabilitiesE, %0 ], [ %5, %2 ]
   %.01011.i = phi ptr [ @_ZN23JvmtiManageCapabilities19always_capabilitiesE, %0 ], [ %3, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.01011.i, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 1
   %4 = load i8, ptr %.01011.i, align 1
-  %5 = getelementptr inbounds i8, ptr %.0912.i, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
   %6 = load i8, ptr %.0912.i, align 1
   %7 = or i8 %6, %4
-  %8 = getelementptr inbounds i8, ptr %.0813.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 1
   store i8 %7, ptr %.0813.i, align 1
   %9 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %9, 6
@@ -847,12 +847,12 @@ _ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit: ; preds = %_ZN23
   %.0813.i = phi ptr [ %16, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %4, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
   %.0912.i = phi ptr [ %13, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %1, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
   %.01011.i = phi ptr [ %11, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ], [ %0, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.01011.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01011.i, i64 1
   %12 = load i8, ptr %.01011.i, align 1
-  %13 = getelementptr inbounds i8, ptr %.0912.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
   %14 = load i8, ptr %.0912.i, align 1
   %15 = and i8 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.0813.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 1
   store i8 %15, ptr %.0813.i, align 1
   %17 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %17, 6
@@ -863,12 +863,12 @@ _ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds = %
   %.0813.i6 = phi ptr [ %23, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %5, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ]
   %.0912.i7 = phi ptr [ %20, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %4, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ]
   %.01011.i8 = phi ptr [ %18, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ @_ZN23JvmtiManageCapabilities24always_solo_capabilitiesE, %_ZN23JvmtiManageCapabilities23CapabilitiesMutexLockerC2Ev.exit ]
-  %18 = getelementptr inbounds i8, ptr %.01011.i8, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01011.i8, i64 1
   %19 = load i8, ptr %.01011.i8, align 1
-  %20 = getelementptr inbounds i8, ptr %.0912.i7, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.0912.i7, i64 1
   %21 = load i8, ptr %.0912.i7, align 1
   %22 = and i8 %21, %19
-  %23 = getelementptr inbounds i8, ptr %.0813.i6, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0813.i6, i64 1
   store i8 %22, ptr %.0813.i6, align 1
   %24 = add nuw nsw i32 %.014.i5, 1
   %exitcond.not.i9 = icmp eq i32 %24, 6
@@ -880,7 +880,7 @@ _ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit10: ; preds =
   %.0912.i13 = phi ptr [ %27, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit10 ], [ %5, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit ]
   %25 = getelementptr i8, ptr %.0813.i12, i64 1
   %26 = load i8, ptr %.0813.i12, align 1
-  %27 = getelementptr inbounds i8, ptr %.0912.i13, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0912.i13, i64 1
   %28 = load i8, ptr %.0912.i13, align 1
   %29 = or i8 %28, %26
   store i8 %29, ptr %.0813.i12, align 1
@@ -893,12 +893,12 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit: ; preds =
   %.0813.i17 = phi ptr [ %36, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %5, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit10 ]
   %.0912.i18 = phi ptr [ %33, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ %4, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit10 ]
   %.01011.i19 = phi ptr [ %31, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ], [ @_ZN23JvmtiManageCapabilities24onload_solo_capabilitiesE, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit10 ]
-  %31 = getelementptr inbounds i8, ptr %.01011.i19, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.01011.i19, i64 1
   %32 = load i8, ptr %.01011.i19, align 1
-  %33 = getelementptr inbounds i8, ptr %.0912.i18, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0912.i18, i64 1
   %34 = load i8, ptr %.0912.i18, align 1
   %35 = and i8 %34, %32
-  %36 = getelementptr inbounds i8, ptr %.0813.i17, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.0813.i17, i64 1
   store i8 %35, ptr %.0813.i17, align 1
   %37 = add nuw nsw i32 %.014.i16, 1
   %exitcond.not.i20 = icmp eq i32 %37, 6
@@ -910,7 +910,7 @@ _ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit21: ; preds =
   %.0912.i24 = phi ptr [ %40, %_ZN23JvmtiManageCapabilities4bothEPK17jvmtiCapabilitiesS2_PS0_.exit21 ], [ %5, %_ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit ]
   %38 = getelementptr i8, ptr %.0813.i23, i64 1
   %39 = load i8, ptr %.0813.i23, align 1
-  %40 = getelementptr inbounds i8, ptr %.0912.i24, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i24, i64 1
   %41 = load i8, ptr %.0912.i24, align 1
   %42 = or i8 %41, %39
   store i8 %42, ptr %.0813.i23, align 1
@@ -939,13 +939,13 @@ _ZN23JvmtiManageCapabilities6eitherEPK17jvmtiCapabilitiesS2_PS0_.exit27: ; preds
   %.0813.i29 = phi ptr [ %2, %49 ], [ %57, %50 ]
   %.0912.i30 = phi ptr [ %1, %49 ], [ %53, %50 ]
   %.01011.i31 = phi ptr [ %0, %49 ], [ %51, %50 ]
-  %51 = getelementptr inbounds i8, ptr %.01011.i31, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.01011.i31, i64 1
   %52 = load i8, ptr %.01011.i31, align 1
-  %53 = getelementptr inbounds i8, ptr %.0912.i30, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0912.i30, i64 1
   %54 = load i8, ptr %.0912.i30, align 1
   %55 = xor i8 %54, -1
   %56 = and i8 %52, %55
-  %57 = getelementptr inbounds i8, ptr %.0813.i29, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0813.i29, i64 1
   store i8 %56, ptr %.0813.i29, align 1
   %58 = add nuw nsw i32 %.014.i28, 1
   %exitcond.not.i32 = icmp eq i32 %58, 6

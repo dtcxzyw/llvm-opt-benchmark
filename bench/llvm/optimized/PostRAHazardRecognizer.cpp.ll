@@ -63,11 +63,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL40initializePostRAHazardRecognizerPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #12
   store ptr @.str.3, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 25, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 18, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_122PostRAHazardRecognizer2IDE, ptr %4, align 8
@@ -119,19 +119,19 @@ declare { ptr, i64 } @_ZNK4llvm4Pass11getPassNameEv(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -180,11 +180,11 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122PostRAHazardRecognizer20r
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(288) %4) #10
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 960
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 960
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(1041) %1) #10
   %.not37 = icmp eq ptr %12, null
@@ -200,8 +200,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122PostRAHazardRecognizer20r
 .lr.ph49:                                         ; preds = %13, %._crit_edge
   %.sroa.024.047 = phi ptr [ %.sroa.024.0, %._crit_edge ], [ %.sroa.024.044, %13 ]
   %.01946 = phi i1 [ %.1.lcssa, %._crit_edge ], [ false, %13 ]
-  %16 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 56
-  %17 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 48
   %.sroa.021.040 = load ptr, ptr %16, align 8
   %.not3941 = icmp eq ptr %.sroa.021.040, %17
   br i1 %.not3941, label %._crit_edge, label %.lr.ph
@@ -210,32 +210,32 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122PostRAHazardRecognizer20r
   %.sroa.021.043 = phi ptr [ %.sroa.021.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.021.040, %.lr.ph49 ]
   %.142 = phi i1 [ %spec.select, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.01946, %.lr.ph49 ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull %.sroa.021.043) #10
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 noundef %21) #10
   %25 = load ptr, ptr %8, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 808
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 808
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.024.047, ptr %.sroa.021.043, i32 noundef %21) #10
   %.not = icmp ne i32 %21, 0
   %spec.select = select i1 %.not, i1 true, i1 %.142
   %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull %.sroa.021.043) #10
   %31 = load ptr, ptr %12, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %.lr.ph
   %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
   br label %39
@@ -282,7 +282,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i: ; preds = %._crit_edge, %13
   %.019.lcssa = phi i1 [ false, %13 ], [ %.1.lcssa, %._crit_edge ]
   %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(12) %12) #10
   br label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit

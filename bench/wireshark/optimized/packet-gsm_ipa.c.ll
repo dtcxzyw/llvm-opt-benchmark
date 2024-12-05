@@ -243,7 +243,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   br i1 %or.cond, label %.loopexit, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.30) #2
   %16 = load ptr, ptr %14, align 8
@@ -254,7 +254,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %13
   %.not = icmp ne i32 %3, 0
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %dissect_ipaccess.exit

@@ -116,7 +116,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp16, label %if.then17, label %while.cond, !llvm.loop !5
 
 if.then17:                                        ; preds = %while.body
-  %a_un = getelementptr inbounds i8, ptr %aux, i64 8
+  %a_un = getelementptr inbounds nuw i8, ptr %aux, i64 8
   %4 = load i64, ptr %a_un, align 8
   store atomic i64 %4, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
   br label %while.end
@@ -157,7 +157,7 @@ _ZN4absl18debugging_internal11VDSOSupportC2Ev.exit: ; preds = %cond.true.i, %con
   br i1 %call.i6, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %_ZN4absl18debugging_internal11VDSOSupportC2Ev.exit
-  %address = getelementptr inbounds i8, ptr %info, i64 16
+  %address = getelementptr inbounds nuw i8, ptr %info, i64 16
   %9 = load ptr, ptr %address, align 8
   br label %if.end30
 

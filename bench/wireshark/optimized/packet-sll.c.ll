@@ -138,7 +138,7 @@ define hidden void @proto_register_sll() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @sll_value(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @proto_sll, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #7
@@ -147,7 +147,7 @@ define internal ptr @sll_value(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @sll_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_sll, align 4
   %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 0) #7
@@ -193,25 +193,25 @@ declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sll_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @add_conversation_table_data(ptr noundef %0, ptr noundef %3, ptr noundef nonnull @no_dst, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @sll_ct_dissector_info, i32 noundef 0) #7
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sll_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @sll_endpoint_dissector_info, i32 noundef 0) #7
   ret i32 1
@@ -370,9 +370,9 @@ switch.hole_check:                                ; preds = %7
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i16 %8 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_sll_common, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_sll_common, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 348
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %switch.load, ptr %12, align 4
   br label %13
 
@@ -402,7 +402,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %61
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.26) #7
   %26 = load ptr, ptr %24, align 8
@@ -517,22 +517,22 @@ define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture nounde
   ]
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef range(i32 5, 14) %8, i32 noundef 4) #7
   store i32 2, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 116
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 4, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 212
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 4, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %14, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %21, align 8
   %22 = call ptr @wmem_file_scope() #7
   %23 = load i32, ptr %18, align 8
@@ -546,11 +546,11 @@ define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture nounde
 27:                                               ; preds = %12
   %28 = sext i32 %24 to i64
   %29 = call noalias ptr @wmem_memdup(ptr noundef %22, ptr noundef %25, i64 noundef %28) #7
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %24, ptr %32, align 4
   br label %copy_address_wmem.exit
 
@@ -560,22 +560,22 @@ copy_address_wmem.exit:                           ; preds = %12, %27
   br label %62
 
 35:                                               ; preds = %6
-  %36 = getelementptr inbounds i8, ptr %1, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %37 = call ptr @tvb_get_ptr(ptr noundef %2, i32 noundef range(i32 5, 14) %8, i32 noundef 6) #7
   store i32 1, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 116
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 6, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %37, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 212
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 6, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 216
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %37, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 224
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %44, align 8
   %45 = call ptr @wmem_file_scope() #7
   %46 = load i32, ptr %41, align 8
@@ -589,11 +589,11 @@ copy_address_wmem.exit:                           ; preds = %12, %27
 50:                                               ; preds = %35
   %51 = sext i32 %47 to i64
   %52 = call noalias ptr @wmem_memdup(ptr noundef %45, ptr noundef %48, i64 noundef %51) #7
-  %53 = getelementptr inbounds i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %52, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %47, ptr %55, align 4
   br label %copy_address_wmem.exit31
 
@@ -640,7 +640,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %15, label %37
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @proto_sll, align 4
   %19 = zext nneg i16 %6 to i64
@@ -666,14 +666,14 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
 
 29:                                               ; preds = %25
   store i16 %6, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %4, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %31, align 8
   %32 = load i32, ptr @hf_sll_trailer, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %34, align 4
   %35 = load ptr, ptr @ethertype_handle, align 8
   %36 = call i32 @call_dissector_with_data(ptr noundef %35, ptr noundef %3, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %8) #7
@@ -713,7 +713,7 @@ define internal nonnull ptr @sll_conv_get_filter_type(ptr nocapture noundef read
   ]
 
 .thread8.sink.split:                              ; preds = %2, %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %switch.selectcmp12 = icmp eq i32 %4, 2
   %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.9, ptr @.str.57
@@ -736,7 +736,7 @@ define internal nonnull ptr @sll_endpoint_get_filter_type(ptr nocapture noundef 
   ]
 
 .thread8.sink.split:                              ; preds = %2, %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %switch.selectcmp12 = icmp eq i32 %4, 2
   %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.9, ptr @.str.57

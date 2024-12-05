@@ -49,7 +49,7 @@ define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, p
   br i1 %27, label %88, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %7, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %38
@@ -76,7 +76,7 @@ define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, p
   br label %83
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %6, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = call i32 @posix_spawn_file_actions_addclose(ptr noundef nonnull %8, i32 noundef %44) #4
   %.not41 = icmp eq i32 %45, 0
@@ -122,7 +122,7 @@ define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, p
 
 63:                                               ; preds = %61, %59
   %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = call i32 @posix_spawnp(ptr noundef nonnull %5, ptr noundef %64, ptr noundef nonnull %8, ptr noundef null, ptr noundef %66, ptr noundef null) #4
   %.not49 = icmp eq i32 %67, 0
@@ -162,7 +162,7 @@ define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, p
 88:                                               ; preds = %25, %19, %83
   %89 = load i32, ptr %6, align 4
   %90 = call i32 @close(i32 noundef %89) #4
-  %91 = getelementptr inbounds i8, ptr %6, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = call i32 @close(i32 noundef %92) #4
   br label %94
@@ -217,7 +217,7 @@ define dso_local void @__archive_check_child(i32 noundef %0, i32 noundef %1) loc
 
 4:                                                ; preds = %2
   store i32 %0, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 4, ptr %5, align 4
   br label %6
 
@@ -228,9 +228,9 @@ define dso_local void @__archive_check_child(i32 noundef %0, i32 noundef %1) loc
 
 7:                                                ; preds = %6
   %8 = zext nneg i32 %.0 to i64
-  %9 = getelementptr inbounds [2 x %struct.pollfd], ptr %3, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [2 x %struct.pollfd], ptr %3, i64 0, i64 %8
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i16 1, ptr %10, align 4
   %11 = add nuw nsw i32 %.0, 1
   br label %12

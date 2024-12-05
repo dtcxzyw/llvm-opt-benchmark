@@ -63,21 +63,21 @@ define hidden void @_ZN13WeakProcessor12weak_oops_doEP17BoolObjectClosureP10OopC
   store i64 0, ptr %.sroa.4, align 8
   store i64 0, ptr %.sroa.7, align 8
   store i64 0, ptr %.sroa.9, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef nonnull align 8 dereferenceable(20) %8) #6
   %.not10.not.i.i.i = icmp eq i64 %9, 0
   br i1 %.not10.not.i.i.i, label %_ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEvPT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %11
 
 11:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
   %.0911.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %32, %_ZN10OopStorage5Block7iterateINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEEEbT_.exit.i.i.i ]
   %12 = getelementptr inbounds ptr, ptr %10, i64 %.0911.i.i.i
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 512
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 512
   %15 = load volatile i64, ptr %14, align 8
   %.not9.i.i.i.i.i = icmp eq i64 %15, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -87,7 +87,7 @@ define hidden void @_ZN13WeakProcessor12weak_oops_doEP17BoolObjectClosureP10OopC
   %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %17 = shl nuw i64 1, %16
   %18 = xor i64 %17, %.0810.i.i.i.i.i
-  %19 = getelementptr inbounds [64 x ptr], ptr %13, i64 0, i64 %16
+  %19 = getelementptr inbounds nuw [64 x ptr], ptr %13, i64 0, i64 %16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZNK10OopStorage5OopFnIN13WeakProcessor15CountingClosureI17BoolObjectClosure10OopClosureEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %22
@@ -133,21 +133,21 @@ _ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10O
   br label %_ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit
 
 35:                                               ; preds = %3
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef nonnull align 8 dereferenceable(20) %37) #6
   %.not11.not.i.i.i = icmp eq i64 %38, 0
   br i1 %.not11.not.i.i.i, label %_ZN10OopStorage12weak_oops_doI17BoolObjectClosure10OopClosureEEvPT_PT0_.exit, label %.lr.ph.i.i.i11
 
 .lr.ph.i.i.i11:                                   ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br label %40
 
 40:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i11
   %.01012.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i11 ], [ %58, %_ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i ]
   %41 = getelementptr inbounds ptr, ptr %39, i64 %.01012.i.i.i
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 512
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 512
   %44 = load volatile i64, ptr %43, align 8
   %.not9.i.i.i.i.i12 = icmp eq i64 %44, 0
   br i1 %.not9.i.i.i.i.i12, label %_ZN10OopStorage5Block7iterateINS_9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i13
@@ -157,7 +157,7 @@ _ZN10OopStorage7oops_doIN13WeakProcessor15CountingClosureI17BoolObjectClosure10O
   %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i14, i1 true)
   %46 = shl nuw i64 1, %45
   %47 = xor i64 %46, %.0810.i.i.i.i.i14
-  %48 = getelementptr inbounds [64 x ptr], ptr %42, i64 0, i64 %45
+  %48 = getelementptr inbounds nuw [64 x ptr], ptr %42, i64 0, i64 %45
   %49 = load ptr, ptr %48, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK10OopStorage9IfAliveFnI17BoolObjectClosureNS_5OopFnI10OopClosureEEEclEPP7oopDesc.exit.i.i.i.i.i, label %50
@@ -210,21 +210,21 @@ define hidden void @_ZN13WeakProcessor7oops_doEP10OopClosure(ptr noundef %0) loc
 2:                                                ; preds = %1, %_ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit
   %.sroa.0.08 = phi i32 [ 5, %1 ], [ %22, %_ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit ]
   %3 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %.sroa.0.08) #6
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 @_ZNK10OopStorage11ActiveArray11block_countEv(ptr noundef nonnull align 8 dereferenceable(20) %5) #6
   %.not10.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not10.not.i.i.i, label %_ZN10OopStorage12weak_oops_doI10OopClosureEEvPT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %8
 
 8:                                                ; preds = %_ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
   %.0911.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %21, %_ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i ]
   %9 = getelementptr inbounds ptr, ptr %7, i64 %.0911.i.i.i
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 512
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 512
   %12 = load volatile i64, ptr %11, align 8
   %.not9.i.i.i.i.i = icmp eq i64 %12, 0
   br i1 %.not9.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_10SkipNullFnINS_5OopFnI10OopClosureEEEEEEbT_.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -234,7 +234,7 @@ define hidden void @_ZN13WeakProcessor7oops_doEP10OopClosure(ptr noundef %0) loc
   %13 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %14 = shl nuw i64 1, %13
   %15 = xor i64 %14, %.0810.i.i.i.i.i
-  %16 = getelementptr inbounds [64 x ptr], ptr %10, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw [64 x ptr], ptr %10, i64 0, i64 %13
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK10OopStorage10SkipNullFnINS_5OopFnI10OopClosureEEEclIPP7oopDescEEbT_.exit.i.i.i.i.i, label %18
@@ -302,7 +302,7 @@ define hidden void @_ZN13WeakProcessor4Task10initializeEv(ptr nocapture noundef 
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   tail call void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %5) #6
   br label %6
@@ -317,10 +317,10 @@ declare void @_ZN18WeakProcessorTimes18set_active_workersEj(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13WeakProcessor4TaskC2Ej(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 12), (16, 584)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %4, i8 0, i64 568, i1 false)
   tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %5, i32 5, ptr noundef nonnull align 8 dereferenceable(568) %4)
   %6 = load ptr, ptr %0, align 8
@@ -340,10 +340,10 @@ _ZN13WeakProcessor4TaskC2EP18WeakProcessorTimesj.exit: ; preds = %2, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13WeakProcessor4TaskC2EP18WeakProcessorTimesj(ptr noundef nonnull align 8 dereferenceable(584) initializes((0, 12), (16, 584)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(568) %5, i8 0, i64 568, i1 false)
   tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0ELb0EEELi10EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(488) %6, i32 5, ptr noundef nonnull align 8 dereferenceable(568) %5)
   %7 = load ptr, ptr %0, align 8
@@ -362,7 +362,7 @@ _ZN13WeakProcessor4Task10initializeEv.exit:       ; preds = %3, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13WeakProcessor4Task15report_num_deadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(584) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -383,7 +383,7 @@ _ZN25OopStorageSetWeakParStateILb0ELb0EE15report_num_deadEv.exit: ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13WeakProcessor14WeakOopsDoTask4workEj(ptr noundef nonnull align 8 dereferenceable(632) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 624
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %0, i32 noundef %1) #6
   ret void
@@ -482,21 +482,21 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0EL
   %4 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %1) #6
   %5 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = add i32 %1, 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #6
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(440) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext false) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = add i32 %1, 2
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #6
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(392) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext false) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = add i32 %1, 3
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0ELb0EEELi7EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(344) %16, i32 %17, ptr noundef nonnull %18)
   store ptr %11, ptr %13, align 8
   store ptr %6, ptr %8, align 8
@@ -513,21 +513,21 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0EL
   %4 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %1) #6
   %5 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = add i32 %1, 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #6
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(296) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext false) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = add i32 %1, 2
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #6
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext false) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = add i32 %1, 3
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0ELb0EEELi4EEC2IN13OopStorageSet8IteratorINS5_6WeakIdEEEEET_PPS2_(ptr noundef nonnull align 8 dereferenceable(200) %16, i32 %17, ptr noundef nonnull %18)
   store ptr %11, ptr %13, align 8
   store ptr %6, ptr %8, align 8
@@ -540,21 +540,21 @@ define linkonce_odr hidden void @_ZN13ValueObjBlockIN10OopStorage8ParStateILb0EL
   %4 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %1) #6
   %5 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4, i32 noundef %5, i1 noundef zeroext false) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = add i32 %1, 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %7) #6
   %10 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %9, i32 noundef %10, i1 noundef zeroext false) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = add i32 %1, 2
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %12) #6
   %15 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef %14, i32 noundef %15, i1 noundef zeroext false) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = add i32 %1, 3
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = tail call noundef ptr @_ZN13OopStorageSet11get_storageINS_6WeakIdEEEP10OopStorageT_(i32 noundef %17) #6
   %20 = tail call noundef i32 @_ZN10OopStorage13BasicParState30default_estimated_thread_countEb(i1 noundef zeroext false) #6
   tail call void @_ZN10OopStorage13BasicParStateC1EPKS_jb(ptr noundef nonnull align 8 dereferenceable(49) %16, ptr noundef %19, i32 noundef %20, i1 noundef zeroext false) #6

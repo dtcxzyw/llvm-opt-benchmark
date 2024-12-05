@@ -12,19 +12,19 @@ define noalias noundef ptr @Msat_OrderAlloc(ptr noundef %0) local_unnamed_addr #
   %calloc = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
   store ptr %0, ptr %calloc, align 8
   %2 = tail call ptr @Msat_IntVecAlloc(i32 noundef 0) #9
-  %3 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %2, ptr %3, align 8
   %4 = tail call ptr @Msat_IntVecAlloc(i32 noundef 0) #9
-  %5 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 100
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %7 = load i32, ptr %6, align 4
   tail call void @Msat_IntVecGrow(ptr noundef %2, i32 noundef %7) #9
   %8 = add nsw i32 %7, 1
   tail call void @Msat_IntVecGrow(ptr noundef %4, i32 noundef %8) #9
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %10, align 8
   ret ptr %calloc
 }
@@ -33,18 +33,18 @@ declare ptr @Msat_IntVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Msat_OrderSetBounds(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @Msat_IntVecGrow(ptr noundef %4, i32 noundef %1) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %1, 1
   tail call void @Msat_IntVecGrow(ptr noundef %6, i32 noundef %7) #9
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %9, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %11, align 8
   ret void
 }
@@ -53,32 +53,32 @@ declare void @Msat_IntVecGrow(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Msat_OrderClean(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph21, label %._crit_edge
 
 .lr.ph21:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %20
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %12 = phi ptr [ %15, %.lr.ph ], [ %4, %2 ]
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   store i32 0, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
@@ -87,17 +87,17 @@ define void @Msat_OrderClean(ptr nocapture noundef readonly %0, ptr nocapture no
 20:                                               ; preds = %.lr.ph21, %20
   %indvars.iv24 = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next25, %20 ]
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv24
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv24
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %24, align 8
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.next25
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.next25
   store i32 %23, ptr %26, align 4
   %27 = load ptr, ptr %3, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv24
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv24
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %28, i64 %32
@@ -111,9 +111,9 @@ define void @Msat_OrderClean(ptr nocapture noundef readonly %0, ptr nocapture no
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.lcssa = phi i32 [ %9, %.preheader ], [ %35, %20 ]
   %38 = add nsw i32 %.lcssa, 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %38, ptr %41, align 8
   ret void
 }
@@ -126,9 +126,9 @@ define range(i32 0, 2) i32 @Msat_OrderCheck(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @Msat_HeapCheck_rec(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not15 = icmp slt i32 %1, %6
   br i1 %.not15, label %.lr.ph, label %._crit_edge
@@ -146,7 +146,7 @@ tailrecurse:                                      ; preds = %28
 9:                                                ; preds = %.lr.ph
   %10 = ashr i32 %.tr1416, 1
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %4, align 8
   %15 = sext i32 %.tr1416 to i64
@@ -177,10 +177,10 @@ tailrecurse:                                      ; preds = %28
 
 ; Function Attrs: nounwind uwtable
 define void @Msat_OrderFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @Msat_IntVecFree(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @Msat_IntVecFree(ptr noundef %5) #9
   tail call void @free(ptr noundef %0) #9
@@ -204,7 +204,7 @@ define i32 @Msat_OrderVarSelect(ptr nocapture noundef readonly %0) local_unnamed
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg8 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg9 = add i64 %.neg, %.neg8
@@ -213,25 +213,25 @@ define i32 @Msat_OrderVarSelect(ptr nocapture noundef readonly %0) local_unnamed
 Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg9, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %Msat_HeapGetTop.exit, %Abc_Clock.exit
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 1
   br i1 %.not, label %.loopexit, label %16
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = call i32 @Msat_IntVecPop(ptr noundef nonnull %13) #9
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %20, ptr %23, align 4
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %24, align 8
@@ -244,14 +244,14 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
   store i32 0, ptr %31, align 4
   %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %36, label %Msat_HeapGetTop.exit
 
 36:                                               ; preds = %16
   %37 = load ptr, ptr %32, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %34, 2
   %40 = sext i32 %39 to i64
@@ -265,7 +265,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %44 = or disjoint i32 %43, 1
   %45 = icmp slt i32 %44, %41
   %.pre.pre.i.i = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %.pre.pre.i.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.pre.pre.i.i, i64 40
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %42, align 8
   br i1 %45, label %49, label %._crit_edge51.i.i
@@ -322,7 +322,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   store i32 %.03337.i.i, ptr %80, align 4
   %81 = shl i32 %.0.i.i, 1
   %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = icmp slt i32 %81, %84
   br i1 %85, label %.lr.ph.i.i, label %.._crit_edge.loopexit_crit_edge.i.i, !llvm.loop !7
@@ -345,7 +345,7 @@ Msat_HeapPercolateDown.exit.i:                    ; preds = %64, %.._crit_edge.l
 
 Msat_HeapGetTop.exit:                             ; preds = %16, %Msat_HeapPercolateDown.exit.i
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 104
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i32, ptr %94, i64 %30
   %96 = load i32, ptr %95, align 4
@@ -361,7 +361,7 @@ Msat_HeapGetTop.exit:                             ; preds = %16, %Msat_HeapPerco
 101:                                              ; preds = %98
   %102 = load i64, ptr %2, align 8
   %103 = mul nsw i64 %102, 1000000
-  %104 = getelementptr inbounds i8, ptr %2, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %105 = load i64, ptr %104, align 8
   %106 = sdiv i64 %105, 1000
   %107 = add nsw i64 %106, %103
@@ -398,7 +398,7 @@ define void @Msat_OrderVarUnassigned(ptr nocapture noundef readonly %0, i32 noun
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg9 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg10 = add i64 %.neg, %.neg9
@@ -408,12 +408,12 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.0.i.neg = phi i64 [ %.neg10, %7 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %11 = icmp sgt i32 %1, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   br i1 %11, label %14, label %Abc_Clock.exit._crit_edge
 
 14:                                               ; preds = %Abc_Clock.exit
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %1, %16
   br i1 %17, label %18, label %Abc_Clock.exit._crit_edge
@@ -421,17 +421,17 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 18:                                               ; preds = %14
   %19 = load ptr, ptr %13, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %Abc_Clock.exit._crit_edge, label %72
 
 Abc_Clock.exit._crit_edge:                        ; preds = %Abc_Clock.exit, %18, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %13, align 8
   %29 = sext i32 %1 to i64
   %30 = getelementptr inbounds i32, ptr %28, i64 %29
@@ -455,7 +455,7 @@ Abc_Clock.exit._crit_edge:                        ; preds = %Abc_Clock.exit, %18
   %.024.i.i = phi i32 [ %41, %57 ], [ %35, %Abc_Clock.exit._crit_edge ]
   %41 = ashr i32 %.024.i.i, 1
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds double, ptr %44, i64 %.pre32.i.i
   %46 = load double, ptr %45, align 8
@@ -512,7 +512,7 @@ Msat_HeapInsert.exit:                             ; preds = %.lr.ph.i.i, %Abc_Cl
 75:                                               ; preds = %72
   %76 = load i64, ptr %3, align 8
   %77 = mul nsw i64 %76, 1000000
-  %78 = getelementptr inbounds i8, ptr %3, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = sdiv i64 %79, 1000
   %81 = add nsw i64 %80, %77
@@ -540,7 +540,7 @@ define void @Msat_OrderUpdate(ptr nocapture noundef readonly %0, i32 noundef %1)
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg9 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg10 = add i64 %.neg, %.neg9
@@ -553,9 +553,9 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   br i1 %11, label %12, label %61
 
 12:                                               ; preds = %Abc_Clock.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %1, %16
   br i1 %17, label %18, label %61
@@ -563,13 +563,13 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 18:                                               ; preds = %12
   %19 = load ptr, ptr %14, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %61, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %22 to i64
@@ -583,7 +583,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %.024.i.i = phi i32 [ %30, %46 ], [ %22, %23 ]
   %30 = ashr i32 %.024.i.i, 1
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds double, ptr %33, i64 %.pre32.i.i
   %35 = load double, ptr %34, align 8
@@ -640,7 +640,7 @@ Msat_HeapIncrease.exit:                           ; preds = %.lr.ph.i.i, %23, %.
 64:                                               ; preds = %61
   %65 = load i64, ptr %3, align 8
   %66 = mul nsw i64 %65, 1000000
-  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = sdiv i64 %68, 1000
   %70 = add nsw i64 %69, %66

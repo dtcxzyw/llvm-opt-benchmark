@@ -13,10 +13,10 @@ define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef read
   br i1 %3, label %4, label %60
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = and i32 %7, 254
   %11 = icmp eq i32 %10, 252
@@ -38,31 +38,31 @@ define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef read
   br label %61
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 11
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 13
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 15
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 17
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 18
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 19
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 21
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 22
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %43 = load i8, ptr %42, align 1
   %44 = or i8 %19, %21
   %45 = or i8 %44, %23
@@ -81,7 +81,7 @@ define dso_local range(i32 0, 5) i32 @Curl_ipv6_scope(ptr nocapture noundef read
   br i1 %.not, label %57, label %60
 
 57:                                               ; preds = %17
-  %58 = getelementptr inbounds i8, ptr %0, i64 23
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %59 = load i8, ptr %58, align 1
   %.not23 = icmp eq i8 %59, 1
   br i1 %.not23, label %61, label %60
@@ -116,7 +116,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %92
   %.052.us = phi ptr [ %.0.us, %92 ], [ %.049, %.lr.ph ]
   %.151.us = phi i32 [ %.3.us, %92 ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.052.us, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.052.us, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not36.us = icmp eq ptr %14, null
   br i1 %.not36.us, label %92, label %15
@@ -131,7 +131,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   br i1 %19, label %20, label %92
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.052.us, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.052.us, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @curl_strequal(ptr noundef %22, ptr noundef %3) #5
   %.not37.us = icmp ne i32 %23, 0
@@ -139,7 +139,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   br label %92
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %.052.us, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.052.us, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @curl_strequal(ptr noundef %26, ptr noundef %3) #5
   %.not38.us = icmp eq i32 %27, 0
@@ -153,10 +153,10 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   br i1 %31, label %32, label %88
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %29, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 9
   %37 = load i8, ptr %36, align 1
   %38 = and i32 %35, 254
   %39 = icmp eq i32 %38, 252
@@ -175,31 +175,31 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   ]
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %29, i64 10
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 10
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %29, i64 11
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 11
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %29, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %29, i64 13
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 13
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %29, i64 14
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 14
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %29, i64 15
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 15
   %56 = load i8, ptr %55, align 1
-  %57 = getelementptr inbounds i8, ptr %29, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %29, i64 17
+  %59 = getelementptr inbounds nuw i8, ptr %29, i64 17
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %29, i64 18
+  %61 = getelementptr inbounds nuw i8, ptr %29, i64 18
   %62 = load i8, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %29, i64 19
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 19
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %29, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %66 = load i8, ptr %65, align 1
-  %67 = getelementptr inbounds i8, ptr %29, i64 21
+  %67 = getelementptr inbounds nuw i8, ptr %29, i64 21
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %29, i64 22
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 22
   %70 = load i8, ptr %69, align 1
   %71 = or i8 %46, %48
   %72 = or i8 %71, %50
@@ -218,7 +218,7 @@ define dso_local range(i32 0, 3) i32 @Curl_if2ip(i32 noundef %0, i32 noundef %1,
   br i1 %.not.i.us, label %84, label %88
 
 84:                                               ; preds = %44
-  %85 = getelementptr inbounds i8, ptr %29, i64 23
+  %85 = getelementptr inbounds nuw i8, ptr %29, i64 23
   %86 = load i8, ptr %85, align 1
   %.not23.i.us = icmp eq i8 %86, 1
   br i1 %.not23.i.us, label %Curl_ipv6_scope.exit.us, label %88
@@ -235,7 +235,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %88, %87, %84, %40, 
   br i1 %.not39.us, label %89, label %92
 
 89:                                               ; preds = %Curl_ipv6_scope.exit.us
-  %90 = getelementptr inbounds i8, ptr %29, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %91 = load i32, ptr %90, align 4
   %.not41.us = icmp eq i32 %91, %2
   %or.cond.us = select i1 %.not40, i1 true, i1 %.not41.us
@@ -250,7 +250,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %88, %87, %84, %40, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %120
   %.052 = phi ptr [ %.0, %120 ], [ %.049, %.lr.ph ]
   %.151 = phi i32 [ %.3, %120 ], [ 0, %.lr.ph ]
-  %93 = getelementptr inbounds i8, ptr %.052, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %.052, i64 24
   %94 = load ptr, ptr %93, align 8
   %.not36 = icmp eq ptr %94, null
   br i1 %.not36, label %120, label %95
@@ -262,21 +262,21 @@ Curl_ipv6_scope.exit.us:                          ; preds = %88, %87, %84, %40, 
   br i1 %98, label %99, label %114
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %.052, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 @curl_strequal(ptr noundef %101, ptr noundef %3) #5
   %.not38 = icmp eq i32 %102, 0
   br i1 %.not38, label %120, label %103
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %.052, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.052, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %8, i8 0, i64 12, i1 false)
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   br label %110
 
 .split.us:                                        ; preds = %89
-  %107 = getelementptr inbounds i8, ptr %29, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.not42 = icmp eq i32 %91, 0
   br i1 %.not42, label %110, label %108
 
@@ -296,7 +296,7 @@ Curl_ipv6_scope.exit.us:                          ; preds = %88, %87, %84, %40, 
   br i1 %115, label %116, label %120
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %.052, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.052, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call i32 @curl_strequal(ptr noundef %118, ptr noundef %3) #5
   %.not37 = icmp ne i32 %119, 0

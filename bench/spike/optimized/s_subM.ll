@@ -30,13 +30,13 @@ define void @softfloat_subM(i8 noundef zeroext %0, ptr nocapture noundef readonl
   %.neg22 = sext i1 %.in to i32
   %16 = zext i1 %.in to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %20 = load i32, ptr %19, align 4
   %.neg18 = add i32 %18, %.neg22
   %21 = sub i32 %.neg18, %20
-  %22 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
   store i32 %21, ptr %22, align 4
   %23 = icmp eq i64 %indvars.iv.next, %11
   br i1 %23, label %._crit_edge, label %.lr.ph

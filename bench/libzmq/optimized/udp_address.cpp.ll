@@ -29,23 +29,23 @@ entry:
   %ref.tmp = alloca %"union.zmq::ip_addr_t", align 4
   %ref.tmp3 = alloca %"union.zmq::ip_addr_t", align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13udp_address_tE, i64 16), ptr %this, align 8
-  %_bind_interface = getelementptr inbounds i8, ptr %this, i64 36
+  %_bind_interface = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 -1, ptr %_bind_interface, align 4
-  %_is_multicast = getelementptr inbounds i8, ptr %this, i64 68
+  %_is_multicast = getelementptr inbounds nuw i8, ptr %this, i64 68
   store i8 0, ptr %_is_multicast, align 4
-  %_address = getelementptr inbounds i8, ptr %this, i64 72
+  %_address = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_address) #10
   invoke void @_ZN3zmq9ip_addr_t3anyEi(ptr nonnull sret(%"union.zmq::ip_addr_t") align 4 %ref.tmp, i32 noundef 2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_bind_address2 = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_bind_address2, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp, i64 28, i1 false)
   invoke void @_ZN3zmq9ip_addr_t3anyEi(ptr nonnull sret(%"union.zmq::ip_addr_t") align 4 %ref.tmp3, i32 noundef 2)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %_target_address5 = getelementptr inbounds i8, ptr %this, i64 40
+  %_target_address5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_target_address5, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp3, i64 28, i1 false)
   ret void
 
@@ -73,7 +73,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define void @_ZN3zmq13udp_address_tD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13udp_address_tE, i64 16), ptr %this, align 8
-  %_address = getelementptr inbounds i8, ptr %this, i64 72
+  %_address = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_address) #10
   ret void
 }
@@ -99,7 +99,7 @@ entry:
   %resolver_opts = alloca %"class.zmq::ip_resolver_options_t", align 8
   %resolver = alloca %"class.zmq::ip_resolver_t", align 8
   %ref.tmp80 = alloca %"union.zmq::ip_addr_t", align 4
-  %_address = getelementptr inbounds i8, ptr %this, i64 72
+  %_address = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %_address, ptr noundef %name_)
   %call3 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name_, i32 noundef 59) #12
   %tobool.not.not = icmp eq ptr %call3, null
@@ -144,7 +144,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad4
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %_bind_address = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %src_name) #10
   %call21 = invoke noundef i32 @_ZN3zmq13ip_resolver_t7resolveEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %src_resolver, ptr noundef nonnull %_bind_address, ptr noundef %call18)
           to label %invoke.cont20 unwind label %lpad19
@@ -199,9 +199,9 @@ cleanup.thread:                                   ; preds = %if.then26, %invoke.
 
 cleanup:                                          ; preds = %if.end28, %if.else
   %spec.store.select.sink = phi i32 [ %spec.store.select, %if.else ], [ 0, %if.end28 ]
-  %3 = getelementptr inbounds i8, ptr %this, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %spec.store.select.sink, ptr %3, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %call3, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call3, i64 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %src_name) #10
   br label %if.end42
 
@@ -220,14 +220,14 @@ if.end42:                                         ; preds = %cleanup, %entry
   %call50 = call noundef nonnull align 1 dereferenceable(6) ptr @_ZN3zmq21ip_resolver_options_t4ipv6Eb(ptr noundef nonnull align 1 dereferenceable(6) %call48, i1 noundef zeroext %ipv6_)
   %agg.tmp51.sroa.0.0.copyload = load i48, ptr %resolver_opts, align 8
   call void @_ZN3zmq13ip_resolver_tC1ENS_21ip_resolver_options_tE(ptr noundef nonnull align 8 dereferenceable(14) %resolver, i48 %agg.tmp51.sroa.0.0.copyload)
-  %_target_address = getelementptr inbounds i8, ptr %this, i64 40
+  %_target_address = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call55 = call noundef i32 @_ZN3zmq13ip_resolver_t7resolveEPNS_9ip_addr_tEPKc(ptr noundef nonnull align 8 dereferenceable(14) %resolver, ptr noundef nonnull %_target_address, ptr noundef %name_.addr.0)
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.end42
   %call61 = call noundef zeroext i1 @_ZNK3zmq9ip_addr_t12is_multicastEv(ptr noundef nonnull align 4 dereferenceable(28) %_target_address)
-  %_is_multicast = getelementptr inbounds i8, ptr %this, i64 68
+  %_is_multicast = getelementptr inbounds nuw i8, ptr %this, i64 68
   %frombool62 = zext i1 %call61 to i8
   store i8 %frombool62, ptr %_is_multicast, align 4
   %call65 = call noundef zeroext i16 @_ZNK3zmq9ip_addr_t4portEv(ptr noundef nonnull align 4 dereferenceable(28) %_target_address)
@@ -244,7 +244,7 @@ if.then70:                                        ; preds = %if.then67
   br label %return
 
 if.end72:                                         ; preds = %if.then67
-  %_bind_address73 = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address73 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN3zmq9ip_addr_t8set_portEt(ptr noundef nonnull align 4 dereferenceable(28) %_bind_address73, i16 noundef zeroext %call65)
   br label %if.end93
 
@@ -256,20 +256,20 @@ if.else75:                                        ; preds = %if.end58
 if.then79:                                        ; preds = %if.else75
   %call83 = call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %_target_address)
   call void @_ZN3zmq9ip_addr_t3anyEi(ptr nonnull sret(%"union.zmq::ip_addr_t") align 4 %ref.tmp80, i32 noundef %call83)
-  %_bind_address85 = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address85 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_bind_address85, ptr noundef nonnull align 4 dereferenceable(28) %ref.tmp80, i64 28, i1 false)
   call void @_ZN3zmq9ip_addr_t8set_portEt(ptr noundef nonnull align 4 dereferenceable(28) %_bind_address85, i16 noundef zeroext %call65)
-  %_bind_interface88 = getelementptr inbounds i8, ptr %this, i64 36
+  %_bind_interface88 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 0, ptr %_bind_interface88, align 4
   br label %if.end93
 
 if.else89:                                        ; preds = %if.else75
-  %_bind_address91 = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address91 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_bind_address91, ptr noundef nonnull align 8 dereferenceable(28) %_target_address, i64 28, i1 false)
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end72, %if.then79, %if.else89
-  %_bind_address94 = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address94 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call96 = call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %_bind_address94)
   %call99 = call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %_target_address)
   %cmp100.not = icmp eq i32 %call96, %call99
@@ -286,7 +286,7 @@ if.end103:                                        ; preds = %if.end93
 land.lhs.true:                                    ; preds = %if.end103
   %5 = load i8, ptr %_is_multicast, align 4
   %tobool106 = trunc i8 %5 to i1
-  %_bind_interface108 = getelementptr inbounds i8, ptr %this, i64 36
+  %_bind_interface108 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %6 = load i32, ptr %_bind_interface108, align 4
   %cmp109 = icmp slt i32 %6, 0
   %or.cond = select i1 %tobool106, i1 %cmp109, i1 false
@@ -355,7 +355,7 @@ declare noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 der
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3zmq13udp_address_t6familyEv(ptr noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_bind_address = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %_bind_address)
   ret i32 %call
 }
@@ -363,7 +363,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK3zmq13udp_address_t8is_mcastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %_is_multicast = getelementptr inbounds i8, ptr %this, i64 68
+  %_is_multicast = getelementptr inbounds nuw i8, ptr %this, i64 68
   %0 = load i8, ptr %_is_multicast, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -372,14 +372,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZNK3zmq13udp_address_t9bind_addrEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_bind_address = getelementptr inbounds i8, ptr %this, i64 8
+  %_bind_address = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %_bind_address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK3zmq13udp_address_t7bind_ifEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %_bind_interface = getelementptr inbounds i8, ptr %this, i64 36
+  %_bind_interface = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %_bind_interface, align 4
   ret i32 %0
 }
@@ -387,14 +387,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @_ZNK3zmq13udp_address_t11target_addrEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_target_address = getelementptr inbounds i8, ptr %this, i64 40
+  %_target_address = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %_target_address
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq13udp_address_t9to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %addr_) unnamed_addr #0 align 2 {
 entry:
-  %_address = getelementptr inbounds i8, ptr %this, i64 72
+  %_address = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %addr_, ptr noundef nonnull align 8 dereferenceable(32) %_address)
   ret i32 0
 }

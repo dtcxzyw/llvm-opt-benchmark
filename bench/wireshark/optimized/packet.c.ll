@@ -159,7 +159,7 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 define internal void @destroy_dissector_table(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_hash_table_destroy(ptr noundef %2) #25
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_slist_free(ptr noundef %4) #25
   tail call void @g_slice_free1(i64 noundef 56, ptr noundef nonnull %0) #25
@@ -178,7 +178,7 @@ define internal void @destroy_depend_dissector_list(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @destroy_heuristic_dissector_list(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @g_slist_free_full(ptr noundef %3, ptr noundef nonnull @destroy_heuristic_dissector_entry) #25
   tail call void @g_slice_free1(i64 noundef 24, ptr noundef %0) #25
@@ -241,7 +241,7 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
   br i1 %.not, label %28, label %.preheader
 
 .preheader:                                       ; preds = %0
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -263,7 +263,7 @@ define hidden void @packet_cleanup() local_unnamed_addr #0 {
 21:                                               ; preds = %.lr.ph, %19
   %22 = phi ptr [ %15, %.lr.ph ], [ %.pre, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
@@ -391,15 +391,15 @@ define void @postseq_cleanup_all_protocols() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @add_new_data_source(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 16) #25
   store ptr %1, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = tail call noalias ptr @wmem_strdup(ptr noundef %7, ptr noundef %2) #25
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @g_slist_append(ptr noundef %11, ptr noundef nonnull %6) #25
   store ptr %12, ptr %10, align 8
@@ -414,7 +414,7 @@ declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @remove_last_data_source(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @g_slist_last(ptr noundef %3) #25
   %5 = load ptr, ptr %2, align 8
@@ -431,7 +431,7 @@ declare ptr @g_slist_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 define noalias ptr @get_data_source_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @tvb_captured_length(ptr noundef %2) #25
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %3, 1
   %7 = select i1 %6, ptr @.str.5, ptr @.str.6
@@ -451,7 +451,7 @@ define ptr @get_data_source_tvb(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.0912 = load ptr, ptr %3, align 8
   %.not13 = icmp eq ptr %.0912, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
@@ -459,7 +459,7 @@ define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr n
 .lr.ph:                                           ; preds = %2, %12
   %.0914 = phi ptr [ %.09, %12 ], [ %.0912, %2 ]
   %4 = load ptr, ptr %.0914, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %12, label %7
@@ -474,7 +474,7 @@ define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr n
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph, %7
-  %13 = getelementptr inbounds i8, ptr %.0914, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0914, i64 8
   %.09 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.09, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -489,7 +489,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @free_data_sources(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -510,7 +510,7 @@ define void @mark_frame_as_depended_upon(ptr nocapture noundef %0, i32 noundef %
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -585,7 +585,7 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %22
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %20 = load i32, ptr %19, align 4
   %cond = icmp eq i32 %20, 10949
   %.str.12..str.13 = select i1 %cond, ptr @.str.12, ptr @.str.13
@@ -608,18 +608,18 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 25:                                               ; preds = %23, %22
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
-  %28 = getelementptr inbounds i8, ptr %0, i64 440
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr %26, ptr %28, align 8
   store ptr @.str.17, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %30, align 8
   %31 = load i32, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 50
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 50
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 128
   %.not92 = icmp eq i16 %35, 0
@@ -627,8 +627,8 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 36:                                               ; preds = %25
   store i32 1, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   br label %39
 
@@ -644,56 +644,56 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   ]
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %2, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 80
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %39, %39, %39, %39, %41
   %.sink101 = phi ptr [ %42, %41 ], [ null, %39 ], [ null, %39 ], [ null, %39 ], [ null, %39 ], [ null, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %.sink101, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %.sink.split, %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %4, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 136
-  %48 = getelementptr inbounds i8, ptr %0, i64 288
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, i8 0, i64 144, i1 false)
   store ptr @.str.5, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 304
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 328
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 336
-  %52 = getelementptr inbounds i8, ptr %0, i64 372
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 372
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store i32 -1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 408
-  %54 = getelementptr inbounds i8, ptr %0, i64 432
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 -1, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = call noalias ptr @wmem_list_new(ptr noundef %55) #25
-  %57 = getelementptr inbounds i8, ptr %0, i64 384
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @frame_delta_abs_time(ptr noundef %59, ptr noundef nonnull %4, i32 noundef %61, ptr noundef nonnull %62) #25
-  %63 = getelementptr inbounds i8, ptr %2, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %64 = load i32, ptr %63, align 8
   %.not93 = icmp eq i32 %64, 0
   br i1 %.not93, label %69, label %65
 
 65:                                               ; preds = %44
-  %66 = getelementptr inbounds i8, ptr %0, i64 80
-  %67 = getelementptr inbounds i8, ptr %2, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @nstime_copy(ptr noundef nonnull %66, ptr noundef nonnull %67) #25
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %68, align 8
   br label %69
 
@@ -709,23 +709,23 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %78
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %2, i64 232
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %77 = load ptr, ptr %76, align 8
   br label %78
 
 78:                                               ; preds = %75, %72
   %.sink = phi ptr [ %77, %75 ], [ %74, %72 ]
-  %79 = getelementptr inbounds i8, ptr %8, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sink, ptr %79, align 8
   store i32 %1, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %80, align 8
   store volatile i32 0, ptr %10, align 4
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @dissect_record.catch_spec, i64 noundef 1) #25
-  %81 = getelementptr inbounds i8, ptr %12, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %82 = call i32 @_setjmp(ptr noundef nonnull %81) #28
   %.not95 = icmp eq i32 %82, 0
-  %83 = getelementptr inbounds i8, ptr %12, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink103 = select i1 %.not95, ptr null, ptr %83
   store volatile ptr %.sink103, ptr %9, align 8
   %.0..0..0..0. = load volatile i32, ptr %10, align 4
@@ -760,15 +760,15 @@ define hidden void @dissect_record(ptr noundef %0, i32 noundef %1, ptr noundef %
   store ptr %93, ptr %95, align 8
   %96 = load ptr, ptr %54, align 8
   %97 = call noalias ptr @wmem_strdup(ptr noundef %96, ptr noundef %.0..0..0..0.18) #25
-  %98 = getelementptr inbounds i8, ptr %95, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 128
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %100 = load ptr, ptr %99, align 8
   %101 = call ptr @g_slist_append(ptr noundef %100, ptr noundef nonnull %95) #25
   store ptr %101, ptr %99, align 8
   %102 = load ptr, ptr @frame_handle, align 8
   %103 = load ptr, ptr %58, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
   %.not.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i, label %106, label %call_dissector_only.exit.i
@@ -784,7 +784,7 @@ call_dissector_only.exit.i:                       ; preds = %92
 
 109:                                              ; preds = %call_dissector_only.exit.i
   %110 = load ptr, ptr @data_handle, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8
   %.not.i = icmp eq ptr %112, null
   br i1 %.not.i, label %113, label %114
@@ -810,7 +810,7 @@ call_dissector_with_data.exit:                    ; preds = %114, %call_dissecto
 
 119:                                              ; preds = %118
   %.0..0..0..0.12 = load volatile ptr, ptr %9, align 8
-  %120 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %121 = load volatile i64, ptr %120, align 8
   %122 = icmp eq i64 %121, 1
   br i1 %122, label %123, label %125
@@ -834,14 +834,14 @@ call_dissector_with_data.exit:                    ; preds = %114, %call_dissecto
 
 128:                                              ; preds = %127
   %.0..0..0..0.14 = load volatile ptr, ptr %9, align 8
-  %129 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %130 = load volatile i64, ptr %129, align 8
   %131 = icmp eq i64 %130, 4
   br i1 %131, label %136, label %132
 
 132:                                              ; preds = %128
   %.0..0..0..0.15 = load volatile ptr, ptr %9, align 8
-  %133 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %134 = load volatile i64, ptr %133, align 8
   %135 = icmp eq i64 %134, 3
   br i1 %135, label %136, label %143
@@ -850,7 +850,7 @@ call_dissector_with_data.exit:                    ; preds = %114, %call_dissecto
   %.0..0..0..0.8 = load volatile i32, ptr %10, align 4
   %137 = or i32 %.0..0..0..0.8, 1
   store volatile i32 %137, ptr %10, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = load i32, ptr @proto_malformed, align 4
   %141 = load ptr, ptr %58, align 8
@@ -875,11 +875,11 @@ call_dissector_with_data.exit:                    ; preds = %114, %call_dissecto
   unreachable
 
 147:                                              ; preds = %145, %143
-  %148 = getelementptr inbounds i8, ptr %12, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %149 = load volatile ptr, ptr %148, align 8
   call void @except_free(ptr noundef %149) #25
   %150 = call ptr @except_pop() #25
-  %151 = getelementptr inbounds i8, ptr %2, i64 232
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %152 = load ptr, ptr %151, align 8
   call void @wtap_block_unref(ptr noundef %152) #25
   store ptr null, ptr %151, align 8
@@ -926,7 +926,7 @@ call_dissector_only.exit:                         ; preds = %5
 
 9:                                                ; preds = %call_dissector_only.exit
   %10 = load ptr, ptr @data_handle, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %14
@@ -973,50 +973,50 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
 
 13:                                               ; preds = %11, %5
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 440
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr %14, ptr %16, align 8
   store ptr @.str.19, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 136
-  %22 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %21, i8 0, i64 144, i1 false)
   store ptr @.str.5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 304
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 328
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 336
-  %26 = getelementptr inbounds i8, ptr %0, i64 372
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 372
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   store i32 -1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 432
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %29 = load ptr, ptr %28, align 8
   %30 = call noalias ptr @wmem_list_new(ptr noundef %29) #25
-  %31 = getelementptr inbounds i8, ptr %0, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @frame_delta_abs_time(ptr noundef %33, ptr noundef %3, i32 noundef %35, ptr noundef nonnull %36) #25
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_file.catch_spec, i64 noundef 1) #25
-  %37 = getelementptr inbounds i8, ptr %10, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %38 = call i32 @_setjmp(ptr noundef nonnull %37) #28
   %.not67 = icmp eq i32 %38, 0
-  %39 = getelementptr inbounds i8, ptr %10, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not67, ptr null, ptr %39
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -1044,7 +1044,7 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
   br i1 %47, label %48, label %call_dissector_with_data.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %3, i64 50
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 50
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 256
   %.not69 = icmp eq i16 %51, 0
@@ -1056,14 +1056,14 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
   br label %58
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %1, i64 232
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %57 = load ptr, ptr %56, align 8
   br label %58
 
 58:                                               ; preds = %55, %52
   %storemerge = phi ptr [ %57, %55 ], [ %54, %52 ]
   store ptr %storemerge, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %59, align 8
   %60 = load ptr, ptr %32, align 8
   %61 = load ptr, ptr %28, align 8
@@ -1071,15 +1071,15 @@ define hidden void @dissect_file(ptr noundef initializes((8, 16), (24, 40), (104
   store ptr %60, ptr %62, align 8
   %63 = load ptr, ptr %28, align 8
   %64 = call noalias ptr @wmem_strdup(ptr noundef %63, ptr noundef nonnull @.str.20) #25
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr @g_slist_append(ptr noundef %67, ptr noundef nonnull %62) #25
   store ptr %68, ptr %66, align 8
   %69 = load ptr, ptr @file_handle, align 8
   %70 = load ptr, ptr %32, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
   %.not.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i, label %73, label %call_dissector_only.exit.i
@@ -1095,7 +1095,7 @@ call_dissector_only.exit.i:                       ; preds = %58
 
 76:                                               ; preds = %call_dissector_only.exit.i
   %77 = load ptr, ptr @data_handle, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %80, label %81
@@ -1121,7 +1121,7 @@ call_dissector_with_data.exit:                    ; preds = %81, %call_dissector
 
 86:                                               ; preds = %85
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %87 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %88 = load volatile i64, ptr %87, align 8
   %89 = icmp eq i64 %88, 1
   br i1 %89, label %90, label %92
@@ -1145,21 +1145,21 @@ call_dissector_with_data.exit:                    ; preds = %81, %call_dissector
 
 95:                                               ; preds = %94
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %96 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %97 = load volatile i64, ptr %96, align 8
   %98 = icmp eq i64 %97, 4
   br i1 %98, label %107, label %99
 
 99:                                               ; preds = %95
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %100 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %101 = load volatile i64, ptr %100, align 8
   %102 = icmp eq i64 %101, 2
   br i1 %102, label %107, label %103
 
 103:                                              ; preds = %99
   %.0..0..0..0.15 = load volatile ptr, ptr %7, align 8
-  %104 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %105 = load volatile i64, ptr %104, align 8
   %106 = icmp eq i64 %105, 3
   br i1 %106, label %107, label %114
@@ -1168,7 +1168,7 @@ call_dissector_with_data.exit:                    ; preds = %81, %call_dissector
   %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
   %108 = or i32 %.0..0..0..0.7, 1
   store volatile i32 %108, ptr %8, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr @proto_malformed, align 4
   %112 = load ptr, ptr %32, align 8
@@ -1192,15 +1192,15 @@ call_dissector_with_data.exit:                    ; preds = %81, %call_dissector
   unreachable
 
 118:                                              ; preds = %116, %114
-  %119 = getelementptr inbounds i8, ptr %10, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %120 = load volatile ptr, ptr %119, align 8
   call void @except_free(ptr noundef %120) #25
   %121 = call ptr @except_pop() #25
-  %122 = getelementptr inbounds i8, ptr %1, i64 232
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %123 = load ptr, ptr %122, align 8
   call void @wtap_block_unref(ptr noundef %123) #25
   store ptr null, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 50
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 50
   %125 = load i16, ptr %124, align 2
   %126 = or i16 %125, 8
   store i16 %126, ptr %124, align 2
@@ -1286,7 +1286,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
@@ -1299,7 +1299,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, -4
   %switch = icmp eq i32 %34, 4
@@ -1311,14 +1311,14 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 36:                                               ; preds = %31
   %37 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %2, ptr %38, align 8
   store ptr %2, ptr %37, align 8
   %39 = load ptr, ptr %.0.i, align 8
   %40 = zext i32 %1 to i64
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call i32 @g_hash_table_insert(ptr noundef %39, ptr noundef %41, ptr noundef nonnull %37) #25
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %44 = load i32, ptr %43, align 8
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %46, label %45
@@ -1371,7 +1371,7 @@ define void @dissector_add_for_decode_as(ptr noundef %0, ptr noundef %1) local_u
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %15 = load ptr, ptr @stderr, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @proto_get_protocol_long_name(ptr noundef %17) #25
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.25, ptr noundef %18) #29
@@ -1385,7 +1385,7 @@ define void @dissector_add_for_decode_as(ptr noundef %0, ptr noundef %1) local_u
 
 find_dissector_table.exit:                        ; preds = %11, %2
   %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ]
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %23 = load i32, ptr %22, align 8
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %36
@@ -1403,7 +1403,7 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   %28 = icmp eq ptr %.0.i49, null
   %spec.store.select = select i1 %28, ptr @.str.29, ptr %.0.i49
   %29 = load ptr, ptr @stderr, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @proto_get_protocol_short_name(ptr noundef %31) #25
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.30, ptr noundef nonnull %spec.store.select, ptr noundef %32, ptr noundef %0) #29
@@ -1416,28 +1416,28 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   unreachable
 
 36:                                               ; preds = %find_dissector_table.exit
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not42 = icmp eq ptr %38, null
   br i1 %.not42, label %45, label %39
 
 39:                                               ; preds = %36
   %40 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %38) #25
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @proto_get_protocol_short_name(ptr noundef %42) #25
   %44 = tail call i32 @register_depend_dissector(ptr noundef %40, ptr noundef %43)
   br label %45
 
 45:                                               ; preds = %39, %36
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @g_slist_find(ptr noundef %47, ptr noundef %1) #25
   %.not43 = icmp eq ptr %48, null
   br i1 %.not43, label %49, label %73
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %51 = load i32, ptr %50, align 8
   %.not44 = icmp eq i32 %51, 26
   %.pre58 = load ptr, ptr %46, align 8
@@ -1448,13 +1448,13 @@ dissector_handle_get_dissector_name.exit:         ; preds = %24, %26
   br i1 %.not4556, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %53
 
 53:                                               ; preds = %.lr.ph, %69
   %.057 = phi ptr [ %.pre58, %.lr.ph ], [ %.0, %69 ]
   %54 = load ptr, ptr %.057, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not46 = icmp eq ptr %56, null
   br i1 %.not46, label %69, label %57
@@ -1483,7 +1483,7 @@ dissector_handle_get_dissector_name.exit53:       ; preds = %57
   unreachable
 
 69:                                               ; preds = %53, %57, %dissector_handle_get_dissector_name.exit53
-  %70 = getelementptr inbounds i8, ptr %.057, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   %.0 = load ptr, ptr %70, align 8
   %.not45 = icmp eq ptr %.0, null
   br i1 %.not45, label %.loopexit.loopexit, label %53, !llvm.loop !7
@@ -1513,7 +1513,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly %1, p
   br i1 %6, label %8, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %19
 
 8:                                                ; preds = %4
@@ -1536,7 +1536,7 @@ define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly %1, p
 
 find_dissector_table.exit:                        ; preds = %8, %11
   %.0.i = phi ptr [ %10, %8 ], [ %15, %11 ]
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %17 = load i32, ptr %16, align 8
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %.loopexit, label %18
@@ -1549,7 +1549,7 @@ find_dissector_table.exit:                        ; preds = %8, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next, %._crit_edge ]
   %20 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp ult i32 %21, %23
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -1609,7 +1609,7 @@ define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr n
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @proto_get_id(ptr noundef %14) #25
   %16 = tail call ptr @wmem_epan_scope() #25
@@ -1635,7 +1635,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %29 = tail call ptr @wmem_epan_scope() #25
   %30 = load ptr, ptr %13, align 8
   %31 = tail call ptr @proto_get_protocol_short_name(ptr noundef %30) #25
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %33 = load ptr, ptr %32, align 8
   br i1 %28, label %34, label %36
 
@@ -1650,10 +1650,10 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 38:                                               ; preds = %36, %34
   %.027 = phi ptr [ %35, %34 ], [ %37, %36 ]
   %39 = tail call ptr @wmem_epan_scope() #25
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.47, ptr noundef %41) #25
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %44 = load i32, ptr %43, align 8
   %switch.tableidx = add i32 %44, -4
   %45 = icmp ult i32 %switch.tableidx, 4
@@ -1666,7 +1666,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 switch.lookup:                                    ; preds = %38
   %48 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissector_add_range_preference, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissector_add_range_preference, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = tail call ptr @wmem_epan_scope() #25
   %50 = tail call i32 @range_convert_str(ptr noundef %49, ptr noundef %17, ptr noundef %2, i32 noundef %switch.load) #25
@@ -1712,7 +1712,7 @@ define void @dissector_delete_uint(ptr noundef %0, i32 noundef %1, ptr nocapture
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -1756,14 +1756,14 @@ define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1
   br i1 %.not23, label %.loopexit, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %6
 
 6:                                                ; preds = %.lr.ph22, %._crit_edge
   %indvars.iv26 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next27, %._crit_edge ]
   %7 = getelementptr [1 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv26
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %8, %10
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
@@ -1797,7 +1797,7 @@ define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1
 
 find_dissector_table.exit.i:                      ; preds = %21, %18, %15, %.lr.ph
   %.0.i.i = phi ptr [ %14, %.lr.ph ], [ %20, %21 ], [ null, %18 ], [ null, %15 ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %24 [
     i32 4, label %find_uint_dtbl_entry.exit.i
@@ -1875,7 +1875,7 @@ find_dissector_table.exit:                        ; preds = %3, %6
   br label %26
 
 17:                                               ; preds = %find_dissector_table.exit
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, %2
   br i1 %.not, label %23, label %20
@@ -1924,16 +1924,16 @@ declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissector_delete_all_check(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %3
   %9 = tail call i32 @proto_get_id(ptr noundef nonnull %7) #25
-  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @proto_get_id(ptr noundef %11) #25
   %13 = icmp eq i32 %9, %12
@@ -1970,7 +1970,7 @@ define void @dissector_change_uint(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2007,7 +2007,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br label %36
 
 28:                                               ; preds = %22, %21
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %2, ptr %29, align 8
   br label %36
 
@@ -2017,7 +2017,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 31:                                               ; preds = %30
   %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
   %34 = load ptr, ptr %.0.i, align 8
   %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %18, ptr noundef nonnull %32) #25
@@ -2052,7 +2052,7 @@ define void @dissector_reset_uint(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ], [ null, %8 ], [ null, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %14 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2080,7 +2080,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
   br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %21, ptr %23, align 8
   br label %27
 
@@ -2099,7 +2099,7 @@ define range(i32 0, 2) i32 @dissector_is_uint_changed(ptr noundef readonly %0, i
   br i1 %.not, label %17, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %6 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2122,7 +2122,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %3, %3, %3, %3, %3
   br i1 %.not8, label %17, label %11
 
 11:                                               ; preds = %find_uint_dtbl_entry.exit
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
   %15 = icmp ne ptr %13, %14
@@ -2136,7 +2136,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %3, %3, %3, %3, %3
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_try_uint_new(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %10 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2159,13 +2159,13 @@ find_uint_dtbl_entry.exit:                        ; preds = %7, %7, %7, %7, %7
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %find_uint_dtbl_entry.exit
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %3, i64 292
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 292
   %22 = load i32, ptr %21, align 4
   store i32 %1, ptr %21, align 4
   %23 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6)
@@ -2183,17 +2183,17 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %6, %7
   %13 = phi i32 [ %11, %7 ], [ 0, %6 ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not59 = icmp eq ptr %17, null
   br i1 %.not59, label %20, label %18
@@ -2205,9 +2205,9 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
 
 20:                                               ; preds = %18, %12
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 328
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %23 = load i16, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 360
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @wmem_list_count(ptr noundef %25) #25
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 244), align 4
@@ -2219,7 +2219,7 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %2, i64 330
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 330
   store i16 %23, ptr %31, align 2
   %32 = icmp ne i16 %23, 0
   %.neg = sext i1 %32 to i16
@@ -2248,7 +2248,7 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   br label %43
 
 43:                                               ; preds = %37, %40, %35, %30
-  %44 = getelementptr inbounds i8, ptr %2, i64 276
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 276
   %45 = load i8, ptr %44, align 4
   %46 = and i8 %45, 1
   %.not64 = icmp eq i8 %46, 0
@@ -2276,7 +2276,7 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   br label %57
 
 57:                                               ; preds = %54, %52, %49
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i32, ptr %58, align 8
   switch i32 %59, label %70 [
     i32 0, label %60
@@ -2284,15 +2284,15 @@ define internal fastcc i32 @call_dissector_work(ptr nocapture noundef readonly %
   ]
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5) #25
   br label %call_dissector_through_handle.exit
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 %66(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %5, ptr noundef %68) #25
   br label %call_dissector_through_handle.exit
@@ -2317,7 +2317,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   br i1 %.not65, label %79, label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %2, i64 332
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 332
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
   br label %79
@@ -2342,9 +2342,9 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   br i1 %.not, label %.loopexit, label %88
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %3, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %13, %92
   br i1 %93, label %94, label %.loopexit
@@ -2378,7 +2378,7 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_try_uint(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %8 [
     i32 4, label %find_uint_dtbl_entry.exit.i
@@ -2401,13 +2401,13 @@ find_uint_dtbl_entry.exit.i:                      ; preds = %5, %5, %5, %5, %5
   br i1 %13, label %dissector_try_uint_new.exit, label %14
 
 14:                                               ; preds = %find_uint_dtbl_entry.exit.i
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %dissector_try_uint_new.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 292
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 292
   %20 = load i32, ptr %19, align 4
   store i32 %1, ptr %19, align 4
   %21 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 1, ptr noundef null)
@@ -2421,7 +2421,7 @@ dissector_try_uint_new.exit:                      ; preds = %find_uint_dtbl_entr
 
 ; Function Attrs: nounwind uwtable
 define ptr @dissector_get_uint_handle(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %5 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2444,7 +2444,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %2, %2, %2, %2, %2
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %find_uint_dtbl_entry.exit
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -2478,7 +2478,7 @@ define ptr @dissector_get_default_uint_handle(ptr noundef %0, i32 noundef %1) lo
 
 find_dissector_table.exit:                        ; preds = %11, %2
   %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %14 [
     i32 4, label %find_uint_dtbl_entry.exit
@@ -2556,7 +2556,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
@@ -2569,7 +2569,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %34 [
     i32 26, label %35
@@ -2584,10 +2584,10 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 35:                                               ; preds = %31, %31, %31, %31
   %36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   store ptr %2, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %43
@@ -2604,7 +2604,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0 = phi ptr [ %42, %41 ], [ %44, %43 ]
   %46 = load ptr, ptr %.0.i, align 8
   %47 = tail call i32 @g_hash_table_insert(ptr noundef %46, ptr noundef %.0, ptr noundef nonnull %36) #25
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %49 = load i32, ptr %48, align 8
   %.not = icmp eq i32 %49, 0
   br i1 %.not, label %51, label %50
@@ -2646,7 +2646,7 @@ define void @dissector_delete_string(ptr noundef %0, ptr noundef %1, ptr nocaptu
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 26, label %16
@@ -2660,7 +2660,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %22
@@ -2715,7 +2715,7 @@ define void @dissector_change_string(ptr noundef %0, ptr noundef %1, ptr noundef
 
 find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ], [ null, %9 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 26, label %16
@@ -2729,7 +2729,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %22
@@ -2765,7 +2765,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
   br label %43
 
 34:                                               ; preds = %28, %27
-  %35 = getelementptr inbounds i8, ptr %25, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %2, ptr %35, align 8
   br label %43
 
@@ -2775,7 +2775,7 @@ find_string_dtbl_entry.exit:                      ; preds = %20, %22
 37:                                               ; preds = %36
   %38 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
   store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %2, ptr %39, align 8
   %40 = load ptr, ptr %.0.i, align 8
   %41 = tail call noalias ptr @g_strdup(ptr noundef %1) #25
@@ -2811,7 +2811,7 @@ define void @dissector_reset_string(ptr noundef %0, ptr noundef %1) local_unname
 
 find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   %.0.i = phi ptr [ %4, %2 ], [ %10, %11 ], [ null, %8 ], [ null, %5 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %14 [
     i32 26, label %15
@@ -2825,7 +2825,7 @@ find_dissector_table.exit:                        ; preds = %2, %5, %8, %11
   unreachable
 
 15:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %21
@@ -2852,7 +2852,7 @@ find_string_dtbl_entry.exit:                      ; preds = %19, %21
   br i1 %.not, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %27, ptr %29, align 8
   br label %33
 
@@ -2871,7 +2871,7 @@ define range(i32 0, 2) i32 @dissector_is_string_changed(ptr noundef readonly %0,
   br i1 %.not, label %23, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %6 [
     i32 26, label %7
@@ -2885,7 +2885,7 @@ define range(i32 0, 2) i32 @dissector_is_string_changed(ptr noundef readonly %0,
   unreachable
 
 7:                                                ; preds = %3, %3, %3, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %13
@@ -2907,7 +2907,7 @@ find_string_dtbl_entry.exit:                      ; preds = %11, %13
   br i1 %.not8, label %23, label %17
 
 17:                                               ; preds = %find_string_dtbl_entry.exit
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %16, align 8
   %21 = icmp ne ptr %19, %20
@@ -2925,7 +2925,7 @@ define i32 @dissector_try_string_new(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not, label %30, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %11 [
     i32 26, label %12
@@ -2939,7 +2939,7 @@ define i32 @dissector_try_string_new(ptr nocapture noundef readonly %0, ptr noun
   unreachable
 
 12:                                               ; preds = %8, %8, %8, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %18
@@ -2961,13 +2961,13 @@ find_string_dtbl_entry.exit:                      ; preds = %16, %18
   br i1 %.not21, label %30, label %22
 
 22:                                               ; preds = %find_string_dtbl_entry.exit
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %3, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %28 = load ptr, ptr %27, align 8
   store ptr %1, ptr %27, align 8
   %29 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %24, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6)
@@ -2991,7 +2991,7 @@ define ptr @dissector_get_string_handle(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %20, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %6 [
     i32 26, label %7
@@ -3005,7 +3005,7 @@ define ptr @dissector_get_string_handle(ptr nocapture noundef readonly %0, ptr n
   unreachable
 
 7:                                                ; preds = %3, %3, %3, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %13
@@ -3027,7 +3027,7 @@ find_string_dtbl_entry.exit:                      ; preds = %11, %13
   br i1 %.not8, label %20, label %17
 
 17:                                               ; preds = %find_string_dtbl_entry.exit
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -3065,7 +3065,7 @@ define ptr @dissector_get_default_string_handle(ptr noundef %0, ptr noundef %1) 
 
 find_dissector_table.exit:                        ; preds = %12, %3
   %.0.i = phi ptr [ %5, %3 ], [ %11, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 26, label %16
@@ -3079,7 +3079,7 @@ find_dissector_table.exit:                        ; preds = %12, %3
   unreachable
 
 16:                                               ; preds = %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit, %find_dissector_table.exit
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %22
@@ -3156,7 +3156,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
@@ -3170,12 +3170,12 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 31:                                               ; preds = %19
   %32 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %2, ptr %33, align 8
   store ptr %2, ptr %32, align 8
   %34 = load ptr, ptr %.0.i, align 8
   %35 = tail call i32 @g_hash_table_insert(ptr noundef %34, ptr noundef %1, ptr noundef nonnull %32) #25
-  %36 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %39, label %38
@@ -3196,7 +3196,7 @@ define ptr @dissector_get_custom_table_handle(ptr nocapture noundef readonly %0,
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3252,7 +3252,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   %22 = load ptr, ptr @stderr, align 8
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.24, ptr noundef %0) #29
   %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @proto_get_protocol_long_name(ptr noundef %26) #25
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.25, ptr noundef %27) #29
@@ -3265,7 +3265,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   unreachable
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %33, 36
   br i1 %.not, label %35, label %34
@@ -3276,12 +3276,12 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
 
 35:                                               ; preds = %31
   %36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #30
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %2, ptr %37, align 8
   store ptr %2, ptr %36, align 8
   %38 = load ptr, ptr %.0.i, align 8
   %39 = tail call i32 @g_hash_table_insert(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %36) #25
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %41 = load i32, ptr %40, align 8
   %.not18 = icmp eq i32 %41, 0
   br i1 %.not18, label %43, label %42
@@ -3302,7 +3302,7 @@ define i32 @dissector_try_guid_new(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -3324,7 +3324,7 @@ define i32 @dissector_try_guid(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not.i, label %dissector_try_guid_new.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %dissector_try_guid_new.exit, label %12
@@ -3346,7 +3346,7 @@ define ptr @dissector_get_guid_handle(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3357,7 +3357,7 @@ define ptr @dissector_get_guid_handle(ptr nocapture noundef readonly %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_try_payload(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %7 [
     i32 4, label %find_uint_dtbl_entry.exit.i.i
@@ -3378,13 +3378,13 @@ find_uint_dtbl_entry.exit.i.i:                    ; preds = %4, %4, %4, %4, %4
   br i1 %10, label %dissector_try_uint.exit, label %11
 
 11:                                               ; preds = %find_uint_dtbl_entry.exit.i.i
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %dissector_try_uint.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %2, i64 292
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %17 = load i32, ptr %16, align 4
   store i32 0, ptr %16, align 4
   %18 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef null)
@@ -3398,7 +3398,7 @@ dissector_try_uint.exit:                          ; preds = %find_uint_dtbl_entr
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_try_payload_new(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %9 [
     i32 4, label %find_uint_dtbl_entry.exit.i
@@ -3419,13 +3419,13 @@ find_uint_dtbl_entry.exit.i:                      ; preds = %6, %6, %6, %6, %6
   br i1 %12, label %dissector_try_uint_new.exit, label %13
 
 13:                                               ; preds = %find_uint_dtbl_entry.exit.i
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %dissector_try_uint_new.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 292
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 292
   %19 = load i32, ptr %18, align 4
   store i32 0, ptr %18, align 4
   %20 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5)
@@ -3451,7 +3451,7 @@ define void @dissector_reset_payload(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @dissector_get_payload_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %4 [
     i32 4, label %find_uint_dtbl_entry.exit.i
@@ -3472,7 +3472,7 @@ find_uint_dtbl_entry.exit.i:                      ; preds = %1, %1, %1, %1, %1
   br i1 %.not.i, label %dissector_get_uint_handle.exit, label %7
 
 7:                                                ; preds = %find_uint_dtbl_entry.exit.i
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %dissector_get_uint_handle.exit
 
@@ -3483,7 +3483,7 @@ dissector_get_uint_handle.exit:                   ; preds = %find_uint_dtbl_entr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @dtbl_entry_get_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3550,7 +3550,7 @@ declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissector_compare_filter_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -3562,7 +3562,7 @@ define internal i32 @dissector_compare_filter_name(ptr nocapture noundef readonl
 
 9:                                                ; preds = %2, %6
   %.0 = phi ptr [ %8, %6 ], [ @.str.5, %2 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -3597,7 +3597,7 @@ define ptr @dissector_table_get_dissector_handles(ptr noundef readonly %0) local
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   br label %5
 
@@ -3610,9 +3610,9 @@ define ptr @dissector_table_get_dissector_handles(ptr noundef readonly %0) local
 define ptr @dissector_table_get_dissector_handle(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lookup_entry, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   call void @g_slist_foreach(ptr noundef %6, ptr noundef nonnull @find_dissector_in_table, ptr noundef nonnull %3) #25
   %7 = load ptr, ptr %4, align 8
@@ -3621,7 +3621,7 @@ define ptr @dissector_table_get_dissector_handle(ptr nocapture noundef readonly 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @find_dissector_in_table(ptr noundef %0, ptr nocapture noundef %1) #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -3633,7 +3633,7 @@ define internal void @find_dissector_in_table(ptr noundef %0, ptr nocapture noun
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %10, align 8
   br label %11
 
@@ -3647,7 +3647,7 @@ define i32 @dissector_table_get_type(ptr noundef readonly %0) local_unnamed_addr
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   br label %5
 
@@ -3658,14 +3658,14 @@ define i32 @dissector_table_get_type(ptr noundef readonly %0) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @dissector_table_allow_decode_as(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @dissector_table_supports_decode_as(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -3692,13 +3692,13 @@ define void @dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr noundef
 
 find_dissector_table.exit:                        ; preds = %3, %7
   %.0.i = phi ptr [ %6, %3 ], [ %11, %7 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %16, align 8
   store ptr %2, ptr %4, align 8
   %17 = load ptr, ptr %.0.i, align 8
@@ -3710,23 +3710,23 @@ declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_table_foreach_func(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
   tail call void %13(ptr noundef %15, i32 noundef %17, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18) #25
@@ -3757,7 +3757,7 @@ define void @dissector_table_foreach_handle(ptr noundef %0, ptr nocapture nounde
 
 find_dissector_table.exit:                        ; preds = %3, %6
   %.0.i = phi ptr [ %5, %3 ], [ %10, %6 ]
-  %.0.in9 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %.0.in9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %.010 = load ptr, ptr %.0.in9, align 8
   %.not11 = icmp eq ptr %.010, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -3766,7 +3766,7 @@ find_dissector_table.exit:                        ; preds = %3, %6
   %.012 = phi ptr [ %.0, %.lr.ph ], [ %.010, %find_dissector_table.exit ]
   %11 = load ptr, ptr %.012, align 8
   tail call void %1(ptr noundef %0, ptr noundef %11, ptr noundef %2) #25
-  %.0.in = getelementptr inbounds i8, ptr %.012, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -3779,9 +3779,9 @@ find_dissector_table.exit:                        ; preds = %3, %6
 define void @dissector_all_tables_foreach_changed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dissector_foreach_info, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @dissector_table_foreach_changed_func, ptr %5, align 8
   %6 = load ptr, ptr @dissector_tables, align 8
   call void @g_hash_table_foreach(ptr noundef %6, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %3) #25
@@ -3791,17 +3791,17 @@ define void @dissector_all_tables_foreach_changed(ptr noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = load ptr, ptr %2, align 8
   tail call void %10(ptr noundef %12, i32 noundef %14, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15) #25
@@ -3813,7 +3813,7 @@ define internal void @dissector_table_foreach_changed_func(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((24, 36)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8
   %5 = load ptr, ptr @dissector_tables, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
@@ -3838,16 +3838,16 @@ define internal void @dissector_all_tables_foreach_func(ptr noundef %0, ptr noca
 
 find_dissector_table.exit.i:                      ; preds = %13, %3
   %.0.i.i = phi ptr [ %6, %3 ], [ %12, %13 ]
-  %14 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %15 = load i32, ptr %14, align 8
   br label %get_dissector_table_selector_type.exit
 
 get_dissector_table_selector_type.exit:           ; preds = %7, %10, %find_dissector_table.exit.i
   %.0.i = phi i32 [ %15, %find_dissector_table.exit.i ], [ 0, %10 ], [ 0, %7 ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %.0.i, ptr %16, align 8
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @g_hash_table_foreach(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %2) #25
   ret void
@@ -3875,13 +3875,13 @@ define hidden void @dissector_table_foreach_changed(ptr noundef %0, ptr noundef 
 
 find_dissector_table.exit:                        ; preds = %3, %7
   %.0.i = phi ptr [ %6, %3 ], [ %11, %7 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %16, align 8
   store ptr %2, ptr %4, align 8
   %17 = load ptr, ptr %.0.i, align 8
@@ -3893,7 +3893,7 @@ find_dissector_table.exit:                        ; preds = %3, %7
 define void @dissector_all_tables_foreach_table(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.dissector_foreach_table_info, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %.not = icmp eq ptr %2, null
   %6 = load ptr, ptr @dissector_tables, align 8
@@ -3924,9 +3924,9 @@ declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unname
 define internal void @dissector_all_tables_foreach_list_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %1, align 8
   tail call void %6(ptr noundef %0, ptr noundef %8, ptr noundef %9) #25
@@ -3937,9 +3937,9 @@ declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_all_tables_foreach_table_func(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   tail call void %5(ptr noundef %0, ptr noundef %7, ptr noundef %8) #25
@@ -3973,13 +3973,13 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
   ]
 
 11:                                               ; preds = %9, %9, %9, %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @g_direct_hash, ptr %12, align 8
   %13 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #25
   br label %23
 
 14:                                               ; preds = %9, %9, %9, %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @g_str_hash, ptr %15, align 8
   %16 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_free) #25
   br label %23
@@ -3989,7 +3989,7 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
   br label %23
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %10, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @g_direct_hash, ptr %20, align 8
   %21 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @g_free) #25
   br label %23
@@ -4001,13 +4001,13 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
 23:                                               ; preds = %19, %17, %14, %11
   %.sink = phi ptr [ %21, %19 ], [ %18, %17 ], [ %16, %14 ], [ %13, %11 ]
   store ptr %.sink, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %4, ptr %27, align 4
   %28 = icmp eq i32 %2, -1
   br i1 %28, label %31, label %29
@@ -4018,9 +4018,9 @@ define noundef ptr @register_dissector_table(ptr noundef %0, ptr noundef %1, i32
 
 31:                                               ; preds = %23, %29
   %32 = phi ptr [ %30, %29 ], [ null, %23 ]
-  %33 = getelementptr inbounds i8, ptr %10, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 0, ptr %34, align 8
   %35 = load ptr, ptr @dissector_tables, align 8
   %36 = tail call i32 @g_hash_table_insert(ptr noundef %35, ptr noundef %0, ptr noundef nonnull %10) #25
@@ -4043,9 +4043,9 @@ define internal range(i32 0, 2) i32 @uuid_equal(ptr nocapture noundef readonly %
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i16, ptr %7, align 4
   %9 = icmp eq i16 %6, %8
   %10 = zext i1 %9 to i32
@@ -4071,17 +4071,17 @@ define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef 
 
 10:                                               ; preds = %6
   %11 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #31
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %3, ptr %12, align 8
   %13 = tail call ptr @g_hash_table_new_full(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @g_free) #25
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 30, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 0, ptr %17, align 4
   %18 = icmp eq i32 %2, -1
   br i1 %18, label %21, label %19
@@ -4092,9 +4092,9 @@ define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef 
 
 21:                                               ; preds = %10, %19
   %22 = phi ptr [ %20, %19 ], [ null, %10 ]
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 0, ptr %24, align 8
   %25 = load ptr, ptr @dissector_tables, align 8
   %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef %0, ptr noundef nonnull %11) #25
@@ -4127,7 +4127,7 @@ define void @register_dissector_table_alias(ptr noundef readnone %0, ptr noundef
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.021, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !14
@@ -4176,7 +4176,7 @@ define hidden void @deregister_dissector_table(ptr noundef %0) local_unnamed_add
   br label %16
 
 16:                                               ; preds = %.lr.ph, %13
-  %17 = getelementptr inbounds i8, ptr %.013, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not11 = icmp eq ptr %18, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -4214,7 +4214,7 @@ define ptr @get_dissector_table_ui_name(ptr noundef %0) local_unnamed_addr #0 {
 
 find_dissector_table.exit:                        ; preds = %10, %1
   %.0.i = phi ptr [ %3, %1 ], [ %9, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %find_dissector_table.exit.thread
 
@@ -4248,7 +4248,7 @@ define i32 @get_dissector_table_selector_type(ptr noundef %0) local_unnamed_addr
 
 find_dissector_table.exit:                        ; preds = %10, %1
   %.0.i = phi ptr [ %3, %1 ], [ %9, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %12 = load i32, ptr %11, align 8
   br label %find_dissector_table.exit.thread
 
@@ -4282,7 +4282,7 @@ define i32 @get_dissector_table_param(ptr noundef %0) local_unnamed_addr #0 {
 
 find_dissector_table.exit:                        ; preds = %10, %1
   %.0.i = phi ptr [ %3, %1 ], [ %9, %10 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %12 = load i32, ptr %11, align 4
   br label %find_dissector_table.exit.thread
 
@@ -4343,7 +4343,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   unreachable
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @g_slist_length(ptr noundef %22) #25
   %.not57 = icmp eq i32 %23, 0
@@ -4359,7 +4359,7 @@ define void @heur_dissector_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @find_protocol_by_id(i32 noundef %4) #25
   %33 = icmp eq ptr %31, %32
@@ -4412,21 +4412,21 @@ check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
   %50 = tail call noalias dereferenceable_or_null(48) ptr @g_slice_alloc(i64 noundef 48) #31
   store ptr %1, ptr %50, align 8
   %51 = tail call ptr @find_protocol_by_id(i32 noundef %4) #25
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %2, ptr %53, align 8
   %54 = tail call noalias ptr @g_strdup(ptr noundef %3) #25
-  %55 = getelementptr inbounds i8, ptr %50, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store ptr %54, ptr %55, align 8
   %56 = tail call noalias ptr @g_strdup(ptr noundef %0) #25
-  %57 = getelementptr inbounds i8, ptr %50, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %56, ptr %57, align 8
   %58 = icmp eq i32 %5, 1
   %59 = zext i1 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %50, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i32 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %50, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %62 = zext i1 %58 to i8
   store i8 %62, ptr %61, align 4
   %63 = load ptr, ptr @heuristic_short_names, align 8
@@ -4437,7 +4437,7 @@ check_valid_heur_name_or_fail.exit:               ; preds = %._crit_edge
   %67 = load ptr, ptr %52, align 8
   %68 = load ptr, ptr %55, align 8
   tail call void @proto_add_heuristic_dissector(ptr noundef %67, ptr noundef %68) #25
-  %69 = getelementptr inbounds i8, ptr %8, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not51 = icmp eq ptr %70, null
   br i1 %.not51, label %76, label %71
@@ -4468,9 +4468,9 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
   store ptr %1, ptr %4, align 8
   %7 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @g_slist_find_custom(ptr noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @find_matching_heur_dissector) #25
   %.not = icmp eq ptr %11, null
@@ -4478,11 +4478,11 @@ define void @heur_dissector_delete(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   call void @proto_add_deregistered_data(ptr noundef %15) #25
   %16 = load ptr, ptr @heuristic_short_names, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @g_hash_table_remove(ptr noundef %16, ptr noundef %18) #25
   %20 = load ptr, ptr %17, align 8
@@ -4507,9 +4507,9 @@ define internal range(i32 0, 2) i32 @find_matching_heur_dissector(ptr nocapture 
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %8, %10
   %12 = zext i1 %11 to i32
@@ -4530,26 +4530,26 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %6, %7
   %13 = phi i32 [ %11, %7 ], [ 0, %6 ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %15 = load i16, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 330
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 330
   store i16 %15, ptr %16, align 2
   %17 = icmp ne i16 %15, 0
   %.neg = sext i1 %17 to i16
   %18 = add i16 %15, %.neg
   store i16 %18, ptr %14, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 424
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 360
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @wmem_list_count(ptr noundef %23) #25
   store ptr null, ptr %4, align 8
@@ -4562,18 +4562,18 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   unreachable
 
 28:                                               ; preds = %12
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.06891 = load ptr, ptr %29, align 8
   %.not7592 = icmp eq ptr %.06891, null
   br i1 %.not7592, label %.loopexit88, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %2, i64 336
-  %31 = getelementptr inbounds i8, ptr %2, i64 332
-  %32 = getelementptr inbounds i8, ptr %3, i64 40
-  %33 = getelementptr inbounds i8, ptr %2, i64 376
-  %34 = getelementptr inbounds i8, ptr %2, i64 368
-  %35 = getelementptr inbounds i8, ptr %2, i64 377
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 336
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 332
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 376
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 368
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 377
   br label %36
 
 36:                                               ; preds = %.lr.ph95, %.loopexit.thread107
@@ -4581,7 +4581,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   %.06993 = phi ptr [ null, %.lr.ph95 ], [ %.1, %.loopexit.thread107 ]
   store i16 %18, ptr %14, align 8
   %37 = load ptr, ptr %.06894, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not76 = icmp eq ptr %39, null
   br i1 %.not76, label %.thread, label %40
@@ -4592,7 +4592,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   br i1 %.not77, label %.loopexit.thread107, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %37, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit.thread107, label %46
@@ -4611,7 +4611,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   br label %.thread
 
 .thread:                                          ; preds = %36, %47, %46
-  %51 = getelementptr inbounds i8, ptr %37, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %20, align 8
   %53 = load i32, ptr %30, align 8
@@ -4649,7 +4649,7 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
 
 65:                                               ; preds = %.thread84, %.thread86
   %66 = load ptr, ptr %32, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %13, %68
   br i1 %69, label %.thread103, label %.thread87
@@ -4768,7 +4768,7 @@ remove_last_layer.exit:                           ; preds = %110, %113
 
 .loopexit.thread107:                              ; preds = %.thread100, %.loopexit, %40, %42
   %.1 = phi ptr [ %.06993, %42 ], [ %.06993, %40 ], [ %.06894, %.loopexit ], [ %.06894, %.thread100 ]
-  %130 = getelementptr inbounds i8, ptr %.06894, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.06894, i64 8
   %.068 = load ptr, ptr %130, align 8
   %.not75 = icmp eq ptr %.068, null
   br i1 %.not75, label %.loopexit88, label %36, !llvm.loop !18
@@ -4792,22 +4792,22 @@ declare i32 @proto_get_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_layer(ptr nocapture noundef initializes((377, 378)) %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 376
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load i8, ptr %3, align 8
   %5 = add i8 %4, 1
   store i8 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
   %9 = inttoptr i64 %8 to ptr
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %9) #25
-  %10 = getelementptr inbounds i8, ptr %0, i64 368
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_map_new(ptr noundef %15, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #25
   store ptr %16, ptr %10, align 8
@@ -4820,7 +4820,7 @@ define internal fastcc void @add_layer(ptr nocapture noundef initializes((377, 3
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 4) #25
   store i32 1, ptr %24, align 4
@@ -4838,7 +4838,7 @@ define internal fastcc void @add_layer(ptr nocapture noundef initializes((377, 3
 30:                                               ; preds = %27, %21
   %31 = phi i32 [ %.pre, %21 ], [ %29, %27 ]
   %32 = trunc i32 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %0, i64 377
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 377
   store i8 %32, ptr %33, align 1
   ret void
 }
@@ -4849,14 +4849,14 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 376
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %5 = load i8, ptr %4, align 8
   %6 = add i8 %5, -1
   store i8 %6, ptr %4, align 8
   br label %7
 
 7:                                                ; preds = %3, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 360
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @wmem_list_tail(ptr noundef %9) #25
   %11 = tail call ptr @wmem_list_frame_data(ptr noundef %10) #25
@@ -4866,7 +4866,7 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
 
 13:                                               ; preds = %7
   %14 = ptrtoint ptr %11 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 368
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %16 = load ptr, ptr %15, align 8
   %sext = shl i64 %14, 32
   %17 = ashr exact i64 %sext, 32
@@ -4894,7 +4894,7 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
 28:                                               ; preds = %25
   %29 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %27) #25
   %30 = ptrtoint ptr %29 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 368
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %32 = load ptr, ptr %31, align 8
   %sext22 = shl i64 %30, 32
   %33 = ashr exact i64 %sext22, 32
@@ -4902,7 +4902,7 @@ define internal fastcc void @remove_last_layer(ptr nocapture noundef %0, i32 nou
   %35 = tail call ptr @wmem_map_lookup(ptr noundef %32, ptr noundef %34) #25
   %36 = load i32, ptr %35, align 4
   %37 = trunc i32 %36 to i8
-  %38 = getelementptr inbounds i8, ptr %0, i64 377
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 377
   store i8 %37, ptr %38, align 1
   br label %39
 
@@ -4921,12 +4921,12 @@ define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr no
   %4 = alloca %struct.heur_dissector_foreach_info, align 8
   %5 = load ptr, ptr @heur_dissector_lists, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4) #25
   ret void
@@ -4934,9 +4934,9 @@ define void @heur_dissector_table_foreach(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @heur_dissector_table_foreach_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   tail call void %4(ptr noundef %6, ptr noundef %0, ptr noundef %7) #25
@@ -4947,7 +4947,7 @@ define internal void @heur_dissector_table_foreach_func(ptr noundef %0, ptr noca
 define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.heur_dissector_foreach_table_info, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %10, label %6
@@ -4973,7 +4973,7 @@ define void @dissector_all_heur_tables_foreach_table(ptr noundef %0, ptr noundef
 define internal void @dissector_all_heur_tables_foreach_list_func(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr @heur_dissector_lists, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   tail call void %6(ptr noundef %0, ptr noundef %4, ptr noundef %7) #25
@@ -4982,7 +4982,7 @@ define internal void @dissector_all_heur_tables_foreach_list_func(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissector_all_heur_tables_foreach_table_func(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
   tail call void %5(ptr noundef %0, ptr noundef %1, ptr noundef %6) #25
@@ -4994,7 +4994,7 @@ define void @dissector_dump_heur_decodes() local_unnamed_addr #0 {
   %1 = alloca %struct.heur_dissector_foreach_table_info, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @dissector_dump_heur_decodes_display, ptr %2, align 8
   %3 = load ptr, ptr @heur_dissector_lists, align 8
   call void @g_hash_table_foreach(ptr noundef %3, ptr noundef nonnull @dissector_all_heur_tables_foreach_table_func, ptr noundef nonnull %1) #25
@@ -5008,12 +5008,12 @@ define internal void @dissector_dump_heur_decodes_display(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = load ptr, ptr @heur_dissector_lists, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #25
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @display_heur_dissector_table_entries, ptr %8, align 8
   store ptr null, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   call void @g_slist_foreach(ptr noundef %10, ptr noundef nonnull @heur_dissector_table_foreach_func, ptr noundef nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -5042,10 +5042,10 @@ define noundef ptr @register_heur_dissector_list_with_description(ptr noundef %0
 
 12:                                               ; preds = %7, %10
   %13 = phi ptr [ %11, %10 ], [ null, %7 ]
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %13, ptr %14, align 8
   store ptr %1, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %15, align 8
   %16 = load ptr, ptr @heur_dissector_lists, align 8
   %17 = tail call i32 @g_hash_table_insert(ptr noundef %16, ptr noundef %0, ptr noundef nonnull %8) #25
@@ -5074,10 +5074,10 @@ define noundef ptr @register_heur_dissector_list(ptr noundef %0, i32 noundef %1)
 
 register_heur_dissector_list_with_description.exit: ; preds = %6, %9
   %11 = phi ptr [ %10, %9 ], [ null, %6 ]
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
   store ptr null, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @heur_dissector_lists, align 8
   %15 = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %0, ptr noundef nonnull %7) #25
@@ -5104,7 +5104,7 @@ define ptr @dissector_handle_get_protocol_long_name(ptr noundef readonly %0) loc
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -5124,7 +5124,7 @@ define ptr @dissector_handle_get_protocol_short_name(ptr noundef readonly %0) lo
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -5144,7 +5144,7 @@ define ptr @dissector_handle_get_short_name(ptr noundef readonly %0) local_unnam
   br i1 %2, label %dissector_handle_get_protocol_short_name.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %dissector_handle_get_protocol_short_name.exit, label %7
@@ -5160,14 +5160,14 @@ dissector_handle_get_protocol_short_name.exit:    ; preds = %1, %3, %7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @dissector_handle_get_description(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissector_handle_get_protocol_index(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -5208,7 +5208,7 @@ define ptr @find_dissector_add_dependency(ptr noundef %0, i32 noundef %1) local_
 7:                                                ; preds = %2
   %8 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
   %9 = tail call ptr @proto_get_protocol_short_name(ptr noundef %8) #25
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %dissector_handle_get_protocol_short_name.exit, label %13
@@ -5230,19 +5230,19 @@ dissector_handle_get_protocol_short_name.exit:    ; preds = %7, %13
 define noalias noundef ptr @create_dissector_handle(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @wmem_epan_scope() #25
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 48) #25
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %6, align 8
   %7 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %7, ptr %8, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %7) #25
   store ptr %11, ptr %10, align 8
   br label %new_dissector_handle.exit
@@ -5256,16 +5256,16 @@ define noalias noundef ptr @create_dissector_handle_with_name(ptr noundef %0, i3
   %4 = tail call ptr @wmem_epan_scope() #25
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #25
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8
   %10 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %10, ptr %11, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %12
@@ -5284,16 +5284,16 @@ define noalias noundef ptr @create_dissector_handle_with_name_and_description(pt
   %5 = tail call ptr @wmem_epan_scope() #25
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #25
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %10, align 8
   %11 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %11, ptr %12, align 8
   %13 = icmp ne ptr %3, null
   %.not.i = icmp eq ptr %11, null
@@ -5313,21 +5313,21 @@ new_dissector_handle.exit:                        ; preds = %4, %14
 define noalias noundef ptr @create_dissector_handle_with_data(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @wmem_epan_scope() #25
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #25
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %2, ptr %8, align 8
   %9 = tail call ptr @find_protocol_by_id(i32 noundef %1) #25
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %9, ptr %10, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = tail call ptr @proto_get_protocol_short_name(ptr noundef nonnull %9) #25
   store ptr %13, ptr %12, align 8
   br label %new_dissector_handle.exit
@@ -5341,16 +5341,16 @@ define noundef ptr @register_dissector(ptr noundef %0, ptr noundef %1, i32 nound
   %4 = tail call ptr @wmem_epan_scope() #25
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 48) #25
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %9, align 8
   %10 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %10, ptr %11, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %12
@@ -5388,16 +5388,16 @@ define noundef ptr @register_dissector_with_description(ptr noundef %0, ptr noun
   %5 = tail call ptr @wmem_epan_scope() #25
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #25
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %10, align 8
   %11 = tail call ptr @find_protocol_by_id(i32 noundef %3) #25
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %11, ptr %12, align 8
   %13 = icmp ne ptr %1, null
   %.not.i = icmp eq ptr %11, null
@@ -5437,16 +5437,16 @@ define noundef ptr @register_dissector_with_data(ptr noundef %0, ptr noundef %1,
   %5 = tail call ptr @wmem_epan_scope() #25
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 48) #25
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %10, align 8
   %11 = tail call ptr @find_protocol_by_id(i32 noundef %2) #25
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %11, ptr %12, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %new_dissector_handle.exit, label %13
@@ -5502,7 +5502,7 @@ define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %destroy_dissector_handle.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %.not10.i.i = icmp eq i32 %16, 0
   br i1 %.not10.i.i, label %destroy_dissector_handle.exit, label %.lr.ph.i.i
@@ -5521,7 +5521,7 @@ define hidden void @deregister_dissector(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %18
   %23 = trunc nuw i64 %indvars.iv.i.i to i32
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not7.i.i = icmp eq ptr %25, null
   br i1 %.not7.i.i, label %28, label %26
@@ -5600,7 +5600,7 @@ call_dissector_only.exit.i:                       ; preds = %4
 
 8:                                                ; preds = %call_dissector_only.exit.i
   %9 = load ptr, ptr @data_handle, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %13
@@ -5636,27 +5636,27 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   unreachable
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %9 = load i16, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 330
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 330
   store i16 %9, ptr %10, align 2
   %11 = icmp ne i16 %9, 0
   %.neg = sext i1 %11 to i16
   %12 = add i16 %9, %.neg
   store i16 %12, ptr %8, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 424
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 360
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @wmem_list_count(ptr noundef %17) #25
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %.not41 = icmp eq i32 %20, 0
   br i1 %.not41, label %26, label %21
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not42 = icmp eq ptr %23, null
   br i1 %.not42, label %.thread, label %24
@@ -5668,7 +5668,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
 
 26:                                               ; preds = %24, %7
   %27 = load ptr, ptr @data_handle, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
   %.not44 = icmp eq ptr %29, null
   br i1 %.not44, label %30, label %31
@@ -5695,7 +5695,7 @@ define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %21, %34, %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %14, align 8
   %40 = load ptr, ptr %0, align 8
@@ -5771,9 +5771,9 @@ define void @dissector_dump_decodes() local_unnamed_addr #0 {
   %1 = alloca %struct.dissector_foreach_info, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @dissector_dump_decodes_display, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @dissector_table_foreach_func, ptr %3, align 8
   %4 = load ptr, ptr @dissector_tables, align 8
   call void @g_hash_table_foreach(ptr noundef %4, ptr noundef nonnull @dissector_all_tables_foreach_func, ptr noundef nonnull %1) #25
@@ -5804,16 +5804,16 @@ define internal void @dissector_dump_decodes_display(ptr noundef %0, i32 %1, ptr
 
 find_dissector_table.exit:                        ; preds = %5, %10
   %.0.i = phi ptr [ %9, %5 ], [ %14, %10 ]
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -4
   %switch = icmp eq i32 %17, 4
   br i1 %switch, label %18, label %dissector_handle_get_protocol_index.exit.thread
 
 18:                                               ; preds = %find_dissector_table.exit
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %dissector_handle_get_protocol_index.exit.thread, label %dissector_handle_get_protocol_index.exit
@@ -5857,9 +5857,9 @@ define internal i32 @compare_dissector_key_name(ptr nocapture noundef readonly %
 define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @dissector_tables, align 8
   %4 = tail call ptr @g_hash_table_lookup(ptr noundef %3, ptr noundef %0) #25
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @ftype_name(i32 noundef %8) #25
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %0, ptr noundef %6, ptr noundef %9)
@@ -5869,7 +5869,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
   br i1 %switch, label %13, label %28
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %26 [
     i32 0, label %16
@@ -5904,7 +5904,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
   br label %28
 
 28:                                               ; preds = %2, %16, %18, %20, %22, %24, %26
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %34, label %31
@@ -5919,7 +5919,7 @@ define internal void @dissector_dump_dissector_tables_display(ptr noundef %0, pt
   br label %36
 
 36:                                               ; preds = %34, %31
-  %37 = getelementptr inbounds i8, ptr %4, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %38 = load i32, ptr %37, align 8
   %.not11 = icmp eq i32 %38, 0
   %39 = select i1 %.not11, ptr @.str.64, ptr @.str.5
@@ -5936,7 +5936,7 @@ define internal void @dissector_dump_heur_dissector_tables_display(ptr noundef %
   %.not = icmp eq ptr %5, null
   %. = select i1 %.not, ptr %0, ptr %5
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, ptr noundef %0, ptr noundef %.)
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
   br i1 %.not9, label %12, label %9
@@ -5977,9 +5977,9 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %12 = getelementptr %struct.dissector_info, ptr %8, i64 %11
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %15, ptr %16, align 8
   %17 = add i32 %.016, 1
   %18 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #25
@@ -5995,7 +5995,7 @@ define void @dissector_dump_dissectors() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph19 ], [ 0, %._crit_edge ]
   %19 = getelementptr %struct.dissector_info, ptr %8, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %20, ptr noundef %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6042,7 +6042,7 @@ define void @register_postdissector(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %4, %1
   %7 = phi ptr [ %5, %4 ], [ %3, %1 ]
   store ptr %0, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %8, align 8
   %9 = call ptr @g_array_append_vals(ptr noundef %7, ptr noundef nonnull %2, i32 noundef 1) #25
   store ptr %9, ptr @postdissectors, align 8
@@ -6060,7 +6060,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone %0, ptr noundef
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -6083,7 +6083,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone %0, ptr noundef
   br i1 %11, label %12, label %7
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not8 = icmp eq ptr %14, null
   br i1 %.not8, label %17, label %15
@@ -6111,7 +6111,7 @@ define hidden void @deregister_postdissector(ptr noundef readnone %0) local_unna
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -6130,7 +6130,7 @@ define hidden void @deregister_postdissector(ptr noundef readnone %0) local_unna
 
 10:                                               ; preds = %6
   %11 = trunc nuw i64 %indvars.iv to i32
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not7 = icmp eq ptr %13, null
   br i1 %.not7, label %16, label %14
@@ -6160,7 +6160,7 @@ declare ptr @g_array_remove_index_fast(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @have_postdissector() local_unnamed_addr #0 {
   %1 = load ptr, ptr @postdissectors, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -6171,7 +6171,7 @@ define hidden range(i32 0, 2) i32 @have_postdissector() local_unnamed_addr #0 {
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr %struct.postdissector, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
@@ -6188,7 +6188,7 @@ define hidden range(i32 0, 2) i32 @have_postdissector() local_unnamed_addr #0 {
 12:                                               ; preds = %._crit_edge13, %.lr.ph
   %13 = phi ptr [ %.pre, %._crit_edge13 ], [ %4, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
@@ -6202,7 +6202,7 @@ define hidden range(i32 0, 2) i32 @have_postdissector() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden void @call_all_postdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @postdissectors, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -6224,7 +6224,7 @@ call_dissector_only.exit:                         ; preds = %.lr.ph
   %12 = tail call fastcc i32 @call_dissector_work(ptr noundef nonnull readonly %10, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr @postdissectors, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
@@ -6237,7 +6237,7 @@ call_dissector_only.exit:                         ; preds = %.lr.ph
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @postdissectors_want_hfids() local_unnamed_addr #18 {
   %1 = load ptr, ptr @postdissectors, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %.not11 = icmp eq i32 %3, 0
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -6255,7 +6255,7 @@ define range(i32 0, 2) i32 @postdissectors_want_hfids() local_unnamed_addr #18 {
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %.not7 = icmp eq i32 %10, 0
   br i1 %.not7, label %11, label %._crit_edge
@@ -6277,7 +6277,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -6292,7 +6292,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   %.not6 = icmp eq i32 %12, 0
   br i1 %.not6, label %14, label %13
@@ -6305,7 +6305,7 @@ define void @prime_epan_dissect_with_postdissector_wanted_hfids(ptr noundef %0) 
 14:                                               ; preds = %.lr.ph, %10, %13
   %15 = phi ptr [ %6, %.lr.ph ], [ %6, %10 ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
@@ -6319,7 +6319,7 @@ declare void @epan_dissect_prime_with_hfid_array(ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define void @increment_dissection_depth(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 432
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -6337,7 +6337,7 @@ define void @increment_dissection_depth(ptr nocapture noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define void @decrement_dissection_depth(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 432
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -6358,10 +6358,10 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @destroy_heuristic_dissector_entry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #25
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #25
   tail call void @g_slice_free1(i64 noundef 48, ptr noundef %0) #25
@@ -6397,55 +6397,55 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   %10 = alloca %struct.except_catch, align 8
   store volatile i32 0, ptr %6, align 4
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %13 = load i16, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @col_get_writable(ptr noundef %15, i32 noundef -1) #25
   %17 = load ptr, ptr %14, align 8
   call void @col_set_writable(ptr noundef %17, i32 noundef -1, i32 noundef 0) #25
-  %18 = getelementptr inbounds i8, ptr %2, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 116
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 140
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 164
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 184
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 188
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 192
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 208
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 212
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 216
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 232
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 236
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %2, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %53 = load ptr, ptr %52, align 8
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @call_dissector_work_error.catch_spec, i64 noundef 1) #25
-  %54 = getelementptr inbounds i8, ptr %10, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %55 = call i32 @_setjmp(ptr noundef nonnull %54) #28
   %.not = icmp eq i32 %55, 0
-  %56 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not, ptr null, ptr %56
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -6474,7 +6474,7 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load ptr, ptr %67, align 8
   %.not.i = icmp eq ptr %68, null
   br i1 %.not.i, label %74, label %69
@@ -6491,7 +6491,7 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   br label %74
 
 74:                                               ; preds = %71, %69, %65
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i32, ptr %75, align 8
   switch i32 %76, label %87 [
     i32 0, label %77
@@ -6499,15 +6499,15 @@ define internal fastcc i32 @call_dissector_work_error(ptr nocapture noundef read
   ]
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 %79(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) #25
   br label %call_dissector_through_handle.exit
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %0, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 %83(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %85) #25
   br label %call_dissector_through_handle.exit
@@ -6534,7 +6534,7 @@ call_dissector_through_handle.exit:               ; preds = %77, %81
 
 91:                                               ; preds = %90
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %92 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %93 = load volatile i64, ptr %92, align 8
   %94 = icmp eq i64 %93, 1
   br i1 %94, label %95, label %104
@@ -6548,32 +6548,32 @@ call_dissector_through_handle.exit:               ; preds = %77, %81
   store i32 %19, ptr %18, align 8
   store i32 %21, ptr %20, align 4
   store ptr %23, ptr %22, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 128
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr null, ptr %98, align 8
   store i32 %25, ptr %24, align 8
   store i32 %27, ptr %26, align 4
   store ptr %29, ptr %28, align 8
-  %99 = getelementptr inbounds i8, ptr %2, i64 152
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr null, ptr %99, align 8
   store i32 %31, ptr %30, align 8
   store i32 %33, ptr %32, align 4
   store ptr %35, ptr %34, align 8
-  %100 = getelementptr inbounds i8, ptr %2, i64 176
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr null, ptr %100, align 8
   store i32 %37, ptr %36, align 8
   store i32 %39, ptr %38, align 4
   store ptr %41, ptr %40, align 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 200
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr null, ptr %101, align 8
   store i32 %43, ptr %42, align 8
   store i32 %45, ptr %44, align 4
   store ptr %47, ptr %46, align 8
-  %102 = getelementptr inbounds i8, ptr %2, i64 224
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store ptr null, ptr %102, align 8
   store i32 %49, ptr %48, align 8
   store i32 %51, ptr %50, align 4
   store ptr %53, ptr %52, align 8
-  %103 = getelementptr inbounds i8, ptr %2, i64 248
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr null, ptr %103, align 8
   store ptr %11, ptr %2, align 8
   store i16 %13, ptr %12, align 8
@@ -6592,21 +6592,21 @@ call_dissector_through_handle.exit:               ; preds = %77, %81
 
 107:                                              ; preds = %106
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %108 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %109 = load volatile i64, ptr %108, align 8
   %110 = icmp eq i64 %109, 4
   br i1 %110, label %119, label %111
 
 111:                                              ; preds = %107
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %112 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %113 = load volatile i64, ptr %112, align 8
   %114 = icmp eq i64 %113, 2
   br i1 %114, label %119, label %115
 
 115:                                              ; preds = %111
   %.0..0..0..0.15 = load volatile ptr, ptr %7, align 8
-  %116 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %117 = load volatile i64, ptr %116, align 8
   %118 = icmp eq i64 %117, 3
   br i1 %118, label %119, label %122
@@ -6636,7 +6636,7 @@ call_dissector_through_handle.exit:               ; preds = %77, %81
   unreachable
 
 126:                                              ; preds = %124, %122
-  %127 = getelementptr inbounds i8, ptr %10, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %128 = load volatile ptr, ptr %127, align 8
   call void @except_free(ptr noundef %128) #25
   %129 = call ptr @except_pop() #25
@@ -6645,34 +6645,34 @@ call_dissector_through_handle.exit:               ; preds = %77, %81
   store i32 %19, ptr %18, align 8
   store i32 %21, ptr %20, align 4
   store ptr %23, ptr %22, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 128
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr null, ptr %131, align 8
   store i32 %25, ptr %24, align 8
   store i32 %27, ptr %26, align 4
   store ptr %29, ptr %28, align 8
-  %132 = getelementptr inbounds i8, ptr %2, i64 152
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr null, ptr %132, align 8
   store i32 %31, ptr %30, align 8
   store i32 %33, ptr %32, align 4
   store ptr %35, ptr %34, align 8
-  %133 = getelementptr inbounds i8, ptr %2, i64 176
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr null, ptr %133, align 8
   store i32 %37, ptr %36, align 8
   store i32 %39, ptr %38, align 4
   store ptr %41, ptr %40, align 8
-  %134 = getelementptr inbounds i8, ptr %2, i64 200
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr null, ptr %134, align 8
   store i32 %43, ptr %42, align 8
   store i32 %45, ptr %44, align 4
   store ptr %47, ptr %46, align 8
-  %135 = getelementptr inbounds i8, ptr %2, i64 224
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store ptr null, ptr %135, align 8
   store i32 %49, ptr %48, align 8
   store i32 %51, ptr %50, align 4
   store ptr %53, ptr %52, align 8
-  %136 = getelementptr inbounds i8, ptr %2, i64 248
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr null, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %2, i64 340
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 340
   store i16 0, ptr %137, align 4
   %.0..0..0..0.19 = load volatile i32, ptr %6, align 4
   ret i32 %.0..0..0..0.19
@@ -6703,7 +6703,7 @@ declare void @wmem_list_remove_frame(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %31, label %6
@@ -6717,7 +6717,7 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
   br i1 %.not9, label %15, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   %.not10 = icmp eq i32 %13, 0
   %14 = select i1 %.not10, i32 70, i32 84
@@ -6731,7 +6731,7 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
   br i1 %.not11, label %24, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   %23 = select i1 %22, i32 84, i32 70
@@ -6739,9 +6739,9 @@ define internal void @display_heur_dissector_table_entries(ptr noundef %0, ptr n
 
 24:                                               ; preds = %19, %15
   %25 = phi i32 [ 70, %15 ], [ %23, %19 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, ptr noundef %0, ptr noundef %8, i32 noundef %16, i32 noundef %25, ptr noundef %27, ptr noundef %29)
   br label %31
@@ -6758,7 +6758,7 @@ declare zeroext i8 @proto_check_field_name(ptr noundef) local_unnamed_addr #1
 define internal void @dissector_delete_from_table(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %4, ptr noundef nonnull @dissector_delete_all_check, ptr noundef %2) #25
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_slist_remove(ptr noundef %7, ptr noundef %2) #25
   store ptr %8, ptr %6, align 8

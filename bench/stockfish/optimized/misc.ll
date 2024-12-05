@@ -110,7 +110,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN9Stockfish11engine_infoB5cxx11Eb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3) #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str) #21
   %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.33, i64 noundef 3) #21
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 48) #21
@@ -180,7 +180,7 @@ define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 n
   br i1 %0, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = atomicrmw add ptr %7, i64 1 seq_cst, align 8
   br label %9
 
@@ -193,7 +193,7 @@ define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 0, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i64 %0 seq_cst, align 8
   ret void
 }
@@ -203,10 +203,10 @@ define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 nounde
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.0"], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 0, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i64 %0 seq_cst, align 8
   %8 = mul nsw i64 %0, %0
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = atomicrmw add ptr %9, i64 %8 seq_cst, align 8
   ret void
 }
@@ -216,18 +216,18 @@ define dso_local void @_ZN9Stockfish13dbg_correl_ofElli(i64 noundef %0, i64 noun
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.1"], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 0, i64 %4
   %6 = atomicrmw add ptr %5, i64 1 seq_cst, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = atomicrmw add ptr %7, i64 %0 seq_cst, align 8
   %9 = mul nsw i64 %0, %0
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = atomicrmw add ptr %10, i64 %9 seq_cst, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = atomicrmw add ptr %12, i64 %1 seq_cst, align 8
   %14 = mul nsw i64 %1, %1
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = atomicrmw add ptr %15, i64 %14 seq_cst, align 8
   %17 = mul nsw i64 %1, %0
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %19 = atomicrmw add ptr %18, i64 %17 seq_cst, align 8
   ret void
 }
@@ -238,7 +238,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 1:                                                ; preds = %0, %22
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %22 ]
-  %2 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 0, i64 %indvars.iv
   %3 = load atomic i64, ptr %2 seq_cst, align 16
   %.not34 = icmp eq i64 %3, 0
   br i1 %.not34, label %22, label %4
@@ -250,7 +250,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.21) #21
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %3) #21
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.22) #21
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load atomic i64, ptr %11 seq_cst, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %12) #21
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.23) #21
@@ -270,7 +270,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 .preheader60:                                     ; preds = %22, %39
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %39 ], [ 0, %22 ]
-  %23 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 0, i64 %indvars.iv66
+  %23 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo"], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 0, i64 %indvars.iv66
   %24 = load atomic i64, ptr %23 seq_cst, align 16
   %.not33 = icmp eq i64 %24, 0
   br i1 %.not33, label %39, label %25
@@ -282,7 +282,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
   %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.21) #21
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %29, i64 noundef %24) #21
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.25) #21
-  %32 = getelementptr inbounds i8, ptr %23, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %33 = load atomic i64, ptr %32 seq_cst, align 8
   %34 = sitofp i64 %33 to double
   %35 = sitofp i64 %24 to double
@@ -298,18 +298,18 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 .preheader59:                                     ; preds = %39, %63
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %63 ], [ 0, %39 ]
-  %40 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.0"], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 0, i64 %indvars.iv70
+  %40 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.0"], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 0, i64 %indvars.iv70
   %41 = load atomic i64, ptr %40 seq_cst, align 8
   %.not32 = icmp eq i64 %41, 0
   br i1 %.not32, label %63, label %42
 
 42:                                               ; preds = %.preheader59
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load atomic i64, ptr %43 seq_cst, align 8
   %45 = sitofp i64 %44 to double
   %46 = sitofp i64 %41 to double
   %47 = fdiv double %45, %46
-  %48 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %49 = load atomic i64, ptr %48 seq_cst, align 8
   %50 = sitofp i64 %49 to double
   %51 = fdiv double %50, %46
@@ -333,28 +333,28 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 .preheader:                                       ; preds = %63, %112
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %112 ], [ 0, %63 ]
-  %64 = getelementptr inbounds [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.1"], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 0, i64 %indvars.iv74
+  %64 = getelementptr inbounds nuw [32 x %"struct.Stockfish::(anonymous namespace)::DebugInfo.1"], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 0, i64 %indvars.iv74
   %65 = load atomic i64, ptr %64 seq_cst, align 16
   %.not = icmp eq i64 %65, 0
   br i1 %.not, label %112, label %66
 
 66:                                               ; preds = %.preheader
-  %67 = getelementptr inbounds i8, ptr %64, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %68 = load atomic i64, ptr %67 seq_cst, align 8
   %69 = sitofp i64 %68 to double
   %70 = sitofp i64 %65 to double
   %71 = fdiv double %69, %70
-  %72 = getelementptr inbounds i8, ptr %64, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %73 = load atomic i64, ptr %72 seq_cst, align 8
   %74 = sitofp i64 %73 to double
-  %75 = getelementptr inbounds i8, ptr %64, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %76 = load atomic i64, ptr %75 seq_cst, align 8
   %77 = sitofp i64 %76 to double
   %78 = fdiv double %77, %70
   %79 = fneg double %74
   %80 = fdiv double %79, %70
   %81 = tail call double @llvm.fmuladd.f64(double %80, double %78, double %71)
-  %82 = getelementptr inbounds i8, ptr %64, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %83 = load atomic i64, ptr %82 seq_cst, align 16
   %84 = sitofp i64 %83 to double
   %85 = fdiv double %84, %70
@@ -364,7 +364,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
   %89 = fmul double %88, %88
   %90 = fsub double %85, %89
   %91 = tail call double @sqrt(double noundef %90) #21
-  %92 = getelementptr inbounds i8, ptr %64, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %93 = load atomic i64, ptr %92 seq_cst, align 16
   %94 = sitofp i64 %93 to double
   %95 = fdiv double %94, %70
@@ -579,11 +579,11 @@ define dso_local void @_ZN9Stockfish11CommandLineC2EiPPc(ptr noundef nonnull ali
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %1, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %17 = load ptr, ptr %14, align 8
@@ -745,9 +745,9 @@ define internal void @_ZN9Stockfish12_GLOBAL__N_16LoggerD2Ev(ptr noundef nonnull
   call fastcc void @_ZN9Stockfish12_GLOBAL__N_16Logger5startERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 512
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %6) #21
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #21
   ret void
@@ -803,10 +803,10 @@ declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fpo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie4syncEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE7pubsyncEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #21
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE7pubsyncEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
   ret i32 %7
@@ -818,7 +818,7 @@ declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsgetnEPcl(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie9underflowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #21
   ret i32 %4
@@ -826,7 +826,7 @@ define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie9underflowEv(ptr noc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie5uflowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %3) #21
   %5 = load i32, ptr @_ZZN9Stockfish12_GLOBAL__N_13Tie3logEiPKcE4last, align 4
@@ -834,13 +834,13 @@ define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie5uflowEv(ptr nocaptu
   br i1 %6, label %7, label %_ZN9Stockfish12_GLOBAL__N_13Tie3logEiPKc.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputnEPKcl(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull @.str.35, i64 noundef 3) #21
   br label %_ZN9Stockfish12_GLOBAL__N_13Tie3logEiPKc.exit
 
 _ZN9Stockfish12_GLOBAL__N_13Tie3logEiPKc.exit:    ; preds = %1, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = trunc i32 %4 to i8
   %14 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 noundef signext %13) #21
@@ -854,7 +854,7 @@ declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie8overflowEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
   %6 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext %5) #21
@@ -863,13 +863,13 @@ define internal noundef i32 @_ZN9Stockfish12_GLOBAL__N_13Tie8overflowEi(ptr noca
   br i1 %8, label %9, label %_ZN9Stockfish12_GLOBAL__N_13Tie3logEiPKc.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputnEPKcl(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull @.str.36, i64 noundef 3) #21
   br label %_ZN9Stockfish12_GLOBAL__N_13Tie3logEiPKc.exit
 
 _ZN9Stockfish12_GLOBAL__N_13Tie3logEiPKc.exit:    ; preds = %2, %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = trunc i32 %6 to i8
   %16 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sputcEc(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 noundef signext %15) #21

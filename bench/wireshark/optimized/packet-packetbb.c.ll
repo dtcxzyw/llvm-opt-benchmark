@@ -382,7 +382,7 @@ define internal i32 @dissect_packetbb(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %20, label %340, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.144) #6
   %24 = load ptr, ptr %22, align 8
@@ -428,7 +428,7 @@ dissect_pbb_header.exit:                          ; preds = %44, %46
   br i1 %50, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %dissect_pbb_header.exit
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %52
 
 52:                                               ; preds = %.lr.ph, %dissect_pbb_message.exit

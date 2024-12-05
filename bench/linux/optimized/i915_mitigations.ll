@@ -78,7 +78,7 @@ sub_0:                                            ; preds = %18, %.lr.ph
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %28 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
   %.fr = freeze i8 %29
   %30 = icmp ne i8 %.fr, 111

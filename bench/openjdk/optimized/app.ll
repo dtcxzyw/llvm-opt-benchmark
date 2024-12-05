@@ -242,7 +242,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3app6launchERKSt9nothrow_tPFvvEP11
   %14 = alloca %struct.SourceCodePos, align 8
   %15 = tail call noundef zeroext i1 @_ZN3app13isWithLoggingEv()
   %16 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br i1 %15, label %18, label %19
 
 18:                                               ; preds = %3
@@ -346,9 +346,9 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %_ZN8tstrings3anyC2E
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   store ptr %8, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
   store ptr @.str.4, ptr %11, align 8
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %11, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 184, ptr %52, align 8
   invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(16) %47)
           to label %.invoke unwind label %66
@@ -360,9 +360,9 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %_ZN8tstrings3anyC2E
 55:                                               ; preds = %53
   store ptr %8, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
   store ptr @.str.4, ptr %9, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 184, ptr %57, align 8
   invoke void @_Z18reportUnknownErrorRK13SourceCodePos(ptr noundef nonnull align 8 dereferenceable(20) %9)
           to label %.invoke unwind label %58
@@ -418,9 +418,9 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %_ZN8tstrings3anyC2E
 84:                                               ; preds = %78
   %85 = call ptr @__cxa_begin_catch(ptr %80) #13
   store ptr @.str.4, ptr %14, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__FUNCTION__._ZN3app6launchERKSt9nothrow_tPFvvEP11LogAppender, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %14, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 184, ptr %87, align 8
   invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull align 8 dereferenceable(16) %85)
           to label %88 unwind label %89
@@ -457,7 +457,7 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %_ZN8tstrings3anyC2E
 
 _ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %94
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(40) %95) #13
   br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit
@@ -477,7 +477,7 @@ _ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; pre
 
 _ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i28: ; preds = %99
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(40) %100) #13
   br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit29
@@ -520,27 +520,27 @@ define internal fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr no
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
           to label %.noexc6 unwind label %24
 
 .noexc6:                                          ; preds = %.noexc
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV14TeeLogAppender, i64 16), ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %.8.val, ptr %14, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN6Logger13defaultLoggerEv()
           to label %16 unwind label %24
 
 16:                                               ; preds = %.noexc6
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %9, ptr %17, align 8
   %18 = load ptr, ptr %.0.val, align 8
   store ptr %3, ptr %.0.val, align 8
@@ -549,7 +549,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr no
 
 _ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(40) %18) #13
   br label %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit
@@ -578,9 +578,9 @@ _ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i: ; preds = %16
 
 30:                                               ; preds = %26
   store ptr @.str.4, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__FUNCTION__._ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 84, ptr %32, align 8
   invoke void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(16) %29)
           to label %.invoke unwind label %36
@@ -590,9 +590,9 @@ _ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; pre
 
 33:                                               ; preds = %26
   store ptr @.str.4, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @__FUNCTION__._ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 84, ptr %35, align 8
   invoke void @_Z18reportUnknownErrorRK13SourceCodePos(ptr noundef nonnull align 8 dereferenceable(20) %1)
           to label %.invoke unwind label %36
@@ -734,14 +734,14 @@ define internal void @_ZN12_GLOBAL__N_119StandardLogAppender6appendERK8LogEvent(
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.6)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.7)
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.9)
-  %13 = getelementptr inbounds i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   ret void
@@ -791,9 +791,9 @@ define linkonce_odr hidden void @_ZN20WithExtraLogAppenderD2Ev(ptr noundef nonnu
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %6, align 8
   ret void
 
@@ -819,9 +819,9 @@ define linkonce_odr hidden void @_ZN20WithExtraLogAppenderD0Ev(ptr noundef nonnu
   unreachable
 
 _ZN20WithExtraLogAppenderD2Ev.exit:               ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #17
   ret void
@@ -835,27 +835,27 @@ define linkonce_odr hidden void @_ZN14TeeLogAppenderD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14TeeLogAppender6appendERK8LogEvent(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #4 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %9
 
 9:                                                ; preds = %5, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not4 = icmp eq ptr %11, null
   br i1 %.not4, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(136) %1)
   br label %16

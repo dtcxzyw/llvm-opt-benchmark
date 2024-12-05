@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TInfoSinkBase6appendEPKc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
@@ -62,7 +62,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TInfoSinkBase6appendEic(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
@@ -110,7 +110,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TInfoSinkBase6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
@@ -164,14 +164,14 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang13TInfoSinkBase6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %22, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #6
@@ -189,7 +189,7 @@ define void @_ZN7glslang13TInfoSinkBase6appendERKNSt7__cxx1112basic_stringIcSt11
   br label %_ZN7glslang13TInfoSinkBase8checkMemEm.exit
 
 _ZN7glslang13TInfoSinkBase8checkMemEm.exit:       ; preds = %6, %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %20) #6
   %.pre = load i32, ptr %3, align 8
@@ -203,7 +203,7 @@ _ZN7glslang13TInfoSinkBase8checkMemEm.exit:       ; preds = %6, %14
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stdout, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %fputs = tail call i32 @fputs(ptr %28, ptr %26)
   br label %29

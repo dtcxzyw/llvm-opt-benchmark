@@ -10,9 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @Curl_bufcp_init(ptr nocapture noundef writeonly initializes((0, 32)) %pool, i64 noundef %chunk_size, i64 noundef %spare_max) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pool, i8 0, i64 24, i1 false)
-  %chunk_size3 = getelementptr inbounds i8, ptr %pool, i64 8
+  %chunk_size3 = getelementptr inbounds nuw i8, ptr %pool, i64 8
   store i64 %chunk_size, ptr %chunk_size3, align 8
-  %spare_max4 = getelementptr inbounds i8, ptr %pool, i64 24
+  %spare_max4 = getelementptr inbounds nuw i8, ptr %pool, i64 24
   store i64 %spare_max, ptr %spare_max4, align 8
   ret void
 }
@@ -38,7 +38,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %tobool.not.i, label %chunk_list_free.exit, label %while.body.i, !llvm.loop !4
 
 chunk_list_free.exit:                             ; preds = %while.body.i, %entry
-  %spare_count = getelementptr inbounds i8, ptr %pool, i64 16
+  %spare_count = getelementptr inbounds nuw i8, ptr %pool, i64 16
   store i64 0, ptr %spare_count, align 8
   ret void
 }
@@ -47,11 +47,11 @@ chunk_list_free.exit:                             ; preds = %while.body.i, %entr
 define hidden void @Curl_bufq_init2(ptr nocapture noundef writeonly initializes((0, 64)) %q, i64 noundef %chunk_size, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
-  %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
+  %chunk_size3.i = getelementptr inbounds nuw i8, ptr %q, i64 48
   store i64 %chunk_size, ptr %chunk_size3.i, align 8
-  %max_chunks4.i = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks4.i = getelementptr inbounds nuw i8, ptr %q, i64 40
   store i64 %max_chunks, ptr %max_chunks4.i, align 8
-  %opts6.i = getelementptr inbounds i8, ptr %q, i64 56
+  %opts6.i = getelementptr inbounds nuw i8, ptr %q, i64 56
   store i32 %opts, ptr %opts6.i, align 8
   ret void
 }
@@ -60,11 +60,11 @@ entry:
 define hidden void @Curl_bufq_init(ptr nocapture noundef writeonly initializes((0, 64)) %q, i64 noundef %chunk_size, i64 noundef %max_chunks) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
-  %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
+  %chunk_size3.i = getelementptr inbounds nuw i8, ptr %q, i64 48
   store i64 %chunk_size, ptr %chunk_size3.i, align 8
-  %max_chunks4.i = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks4.i = getelementptr inbounds nuw i8, ptr %q, i64 40
   store i64 %max_chunks, ptr %max_chunks4.i, align 8
-  %opts6.i = getelementptr inbounds i8, ptr %q, i64 56
+  %opts6.i = getelementptr inbounds nuw i8, ptr %q, i64 56
   store i32 0, ptr %opts6.i, align 8
   ret void
 }
@@ -72,16 +72,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Curl_bufq_initp(ptr nocapture noundef writeonly initializes((0, 64)) %q, ptr noundef %pool, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #3 {
 entry:
-  %chunk_size = getelementptr inbounds i8, ptr %pool, i64 8
+  %chunk_size = getelementptr inbounds nuw i8, ptr %pool, i64 8
   %0 = load i64, ptr %chunk_size, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
-  %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
+  %chunk_size3.i = getelementptr inbounds nuw i8, ptr %q, i64 48
   store i64 %0, ptr %chunk_size3.i, align 8
-  %max_chunks4.i = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks4.i = getelementptr inbounds nuw i8, ptr %q, i64 40
   store i64 %max_chunks, ptr %max_chunks4.i, align 8
-  %pool5.i = getelementptr inbounds i8, ptr %q, i64 24
+  %pool5.i = getelementptr inbounds nuw i8, ptr %q, i64 24
   store ptr %pool, ptr %pool5.i, align 8
-  %opts6.i = getelementptr inbounds i8, ptr %q, i64 56
+  %opts6.i = getelementptr inbounds nuw i8, ptr %q, i64 56
   store i32 %opts, ptr %opts6.i, align 8
   ret void
 }
@@ -104,7 +104,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %tobool.not.i, label %chunk_list_free.exit, label %while.body.i, !llvm.loop !4
 
 chunk_list_free.exit:                             ; preds = %while.body.i, %entry
-  %spare = getelementptr inbounds i8, ptr %q, i64 16
+  %spare = getelementptr inbounds nuw i8, ptr %q, i64 16
   %5 = load ptr, ptr %spare, align 8
   %tobool.not4.i4 = icmp eq ptr %5, null
   br i1 %tobool.not4.i4, label %chunk_list_free.exit7, label %while.body.i5
@@ -120,9 +120,9 @@ while.body.i5:                                    ; preds = %chunk_list_free.exi
   br i1 %tobool.not.i6, label %chunk_list_free.exit7, label %while.body.i5, !llvm.loop !4
 
 chunk_list_free.exit7:                            ; preds = %while.body.i5, %chunk_list_free.exit
-  %tail = getelementptr inbounds i8, ptr %q, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %q, i64 8
   store ptr null, ptr %tail, align 8
-  %chunk_count = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count = getelementptr inbounds nuw i8, ptr %q, i64 32
   store i64 0, ptr %chunk_count, align 8
   ret void
 }
@@ -135,7 +135,7 @@ entry:
   br i1 %tobool.not8, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %spare = getelementptr inbounds i8, ptr %q, i64 16
+  %spare = getelementptr inbounds nuw i8, ptr %q, i64 16
   %.pre = load ptr, ptr %spare, align 8
   br label %while.body
 
@@ -151,7 +151,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %entry
-  %tail = getelementptr inbounds i8, ptr %q, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %q, i64 8
   store ptr null, ptr %tail, align 8
   ret void
 }
@@ -184,7 +184,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @Curl_bufq_space(ptr nocapture noundef readonly %q) local_unnamed_addr #5 {
 entry:
-  %tail = getelementptr inbounds i8, ptr %q, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load ptr, ptr %tail, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -199,7 +199,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %space.0 = phi i64 [ %sub.i, %if.then ], [ 0, %entry ]
-  %spare = getelementptr inbounds i8, ptr %q, i64 16
+  %spare = getelementptr inbounds nuw i8, ptr %q, i64 16
   %3 = load ptr, ptr %spare, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.end7, label %while.body
@@ -207,7 +207,7 @@ if.end:                                           ; preds = %if.then, %entry
 while.body:                                       ; preds = %if.end, %while.body
   %chunk.019 = phi ptr [ %5, %while.body ], [ %3, %if.end ]
   %space.218 = phi i64 [ %add6, %while.body ], [ %space.0, %if.end ]
-  %dlen = getelementptr inbounds i8, ptr %chunk.019, i64 8
+  %dlen = getelementptr inbounds nuw i8, ptr %chunk.019, i64 8
   %4 = load i64, ptr %dlen, align 8
   %add6 = add i64 %4, %space.218
   %5 = load ptr, ptr %chunk.019, align 8
@@ -216,16 +216,16 @@ while.body:                                       ; preds = %if.end, %while.body
 
 if.end7:                                          ; preds = %while.body, %if.end
   %space.1 = phi i64 [ %space.0, %if.end ], [ %add6, %while.body ]
-  %chunk_count = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count = getelementptr inbounds nuw i8, ptr %q, i64 32
   %6 = load i64, ptr %chunk_count, align 8
-  %max_chunks = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks = getelementptr inbounds nuw i8, ptr %q, i64 40
   %7 = load i64, ptr %max_chunks, align 8
   %cmp = icmp ult i64 %6, %7
   br i1 %cmp, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end7
   %sub = sub nuw i64 %7, %6
-  %chunk_size = getelementptr inbounds i8, ptr %q, i64 48
+  %chunk_size = getelementptr inbounds nuw i8, ptr %q, i64 48
   %8 = load i64, ptr %chunk_size, align 8
   %mul = mul i64 %8, %sub
   %add11 = add i64 %mul, %space.1
@@ -259,21 +259,21 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @Curl_bufq_is_full(ptr nocapture noundef readonly %q) local_unnamed_addr #6 {
 entry:
-  %tail = getelementptr inbounds i8, ptr %q, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load ptr, ptr %tail, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %spare = getelementptr inbounds i8, ptr %q, i64 16
+  %spare = getelementptr inbounds nuw i8, ptr %q, i64 16
   %1 = load ptr, ptr %spare, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %chunk_count = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count = getelementptr inbounds nuw i8, ptr %q, i64 32
   %2 = load i64, ptr %chunk_count, align 8
-  %max_chunks = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks = getelementptr inbounds nuw i8, ptr %q, i64 40
   %3 = load i64, ptr %max_chunks, align 8
   %cmp = icmp ult i64 %2, %3
   br i1 %cmp, label %return, label %if.end3
@@ -310,24 +310,24 @@ while.body:                                       ; preds = %entry, %chunk_appen
   br i1 %tobool1.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %while.body
-  %chunk_count = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count = getelementptr inbounds nuw i8, ptr %q, i64 32
   %0 = load i64, ptr %chunk_count, align 8
-  %max_chunks = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks = getelementptr inbounds nuw i8, ptr %q, i64 40
   %1 = load i64, ptr %max_chunks, align 8
   %cmp = icmp ult i64 %0, %1
   br i1 %cmp, label %return, label %while.end
 
 if.end3:                                          ; preds = %while.body
-  %w_offset.i = getelementptr inbounds i8, ptr %call, i64 24
+  %w_offset.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %2 = load i64, ptr %w_offset.i, align 8
-  %dlen.i = getelementptr inbounds i8, ptr %call, i64 8
+  %dlen.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load i64, ptr %dlen.i, align 8
   %tobool.not.i = icmp eq i64 %3, %2
   br i1 %tobool.not.i, label %while.end, label %chunk_append.exit
 
 chunk_append.exit:                                ; preds = %if.end3
   %sub.i = sub i64 %3, %2
-  %x.i = getelementptr inbounds i8, ptr %call, i64 32
+  %x.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %2
   %cond.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 range(i64 1, 0) %len.addr.024)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr readonly align 1 %buf.addr.025, i64 %cond.i, i1 false)
@@ -356,7 +356,7 @@ return:                                           ; preds = %chunk_append.exit, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_non_full_tail(ptr nocapture noundef %q) unnamed_addr #2 {
 entry:
-  %tail = getelementptr inbounds i8, ptr %q, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load ptr, ptr %tail, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -370,7 +370,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %spare.i = getelementptr inbounds i8, ptr %q, i64 16
+  %spare.i = getelementptr inbounds nuw i8, ptr %q, i64 16
   %3 = load ptr, ptr %spare.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -379,27 +379,27 @@ if.then.i:                                        ; preds = %if.end
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %spare.i, align 8
   store ptr null, ptr %3, align 8
-  %r_offset.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %r_offset.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i, i8 0, i64 16, i1 false)
   br label %if.then5
 
 if.end.i:                                         ; preds = %if.end
-  %chunk_count.i = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count.i = getelementptr inbounds nuw i8, ptr %q, i64 32
   %5 = load i64, ptr %chunk_count.i, align 8
-  %max_chunks.i = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks.i = getelementptr inbounds nuw i8, ptr %q, i64 40
   %6 = load i64, ptr %max_chunks.i, align 8
   %cmp.not.i = icmp ult i64 %5, %6
   br i1 %cmp.not.i, label %if.end5.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %opts.i = getelementptr inbounds i8, ptr %q, i64 56
+  %opts.i = getelementptr inbounds nuw i8, ptr %q, i64 56
   %7 = load i32, ptr %opts.i, align 8
   %and.i = and i32 %7, 1
   %tobool3.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool3.not.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %pool.i = getelementptr inbounds i8, ptr %q, i64 24
+  %pool.i = getelementptr inbounds nuw i8, ptr %q, i64 24
   %8 = load ptr, ptr %pool.i, align 8
   %tobool6.not.i = icmp eq ptr %8, null
   br i1 %tobool6.not.i, label %if.else.i, label %if.then7.i
@@ -412,18 +412,18 @@ if.then7.i:                                       ; preds = %if.end5.i
 if.then.i.i:                                      ; preds = %if.then7.i
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %spare_count.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %spare_count.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %spare_count.i.i, align 8
   %dec.i.i = add i64 %11, -1
   store i64 %dec.i.i, ptr %spare_count.i.i, align 8
   store ptr null, ptr %9, align 8
-  %r_offset.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %r_offset.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i.i, i8 0, i64 16, i1 false)
   br label %if.end11.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
   %12 = load ptr, ptr @Curl_ccalloc, align 8
-  %chunk_size.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %chunk_size.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %chunk_size.i.i, align 8
   %add.i.i = add i64 %13, 40
   %call.i.i = tail call ptr %12(i64 noundef 1, i64 noundef %add.i.i) #11
@@ -432,7 +432,7 @@ if.end.i.i:                                       ; preds = %if.then7.i
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
   %14 = load i64, ptr %chunk_size.i.i, align 8
-  %dlen.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %dlen.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 %14, ptr %dlen.i.i, align 8
   br label %if.end11.i
 
@@ -445,7 +445,7 @@ if.end11.i:                                       ; preds = %if.end5.i.i, %if.th
 
 if.else.i:                                        ; preds = %if.end5.i
   %16 = load ptr, ptr @Curl_ccalloc, align 8
-  %chunk_size.i = getelementptr inbounds i8, ptr %q, i64 48
+  %chunk_size.i = getelementptr inbounds nuw i8, ptr %q, i64 48
   %17 = load i64, ptr %chunk_size.i, align 8
   %add.i = add i64 %17, 40
   %call13.i = tail call ptr %16(i64 noundef 1, i64 noundef %add.i) #11
@@ -454,7 +454,7 @@ if.else.i:                                        ; preds = %if.end5.i
 
 if.end16.i:                                       ; preds = %if.else.i
   %18 = load i64, ptr %chunk_size.i, align 8
-  %dlen.i = getelementptr inbounds i8, ptr %call13.i, i64 8
+  %dlen.i = getelementptr inbounds nuw i8, ptr %call13.i, i64 8
   store i64 %18, ptr %dlen.i, align 8
   %19 = load i64, ptr %chunk_count.i, align 8
   %inc19.i = add i64 %19, 1
@@ -490,12 +490,12 @@ entry:
   br i1 %tobool.not14, label %if.then4, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tail.i = getelementptr inbounds i8, ptr %q, i64 8
-  %pool.i = getelementptr inbounds i8, ptr %q, i64 24
-  %chunk_count.i = getelementptr inbounds i8, ptr %q, i64 32
-  %max_chunks.i = getelementptr inbounds i8, ptr %q, i64 40
-  %opts.i = getelementptr inbounds i8, ptr %q, i64 56
-  %spare.i = getelementptr inbounds i8, ptr %q, i64 16
+  %tail.i = getelementptr inbounds nuw i8, ptr %q, i64 8
+  %pool.i = getelementptr inbounds nuw i8, ptr %q, i64 24
+  %chunk_count.i = getelementptr inbounds nuw i8, ptr %q, i64 32
+  %max_chunks.i = getelementptr inbounds nuw i8, ptr %q, i64 40
+  %opts.i = getelementptr inbounds nuw i8, ptr %q, i64 56
+  %spare.i = getelementptr inbounds nuw i8, ptr %q, i64 16
   %.pre = load ptr, ptr %q, align 8
   br label %land.rhs
 
@@ -508,11 +508,11 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %pr
   br i1 %tobool1.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %x.i = getelementptr inbounds i8, ptr %0, i64 32
-  %r_offset.i = getelementptr inbounds i8, ptr %0, i64 16
+  %x.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %r_offset.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %r_offset.i, align 8
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %1
-  %w_offset.i = getelementptr inbounds i8, ptr %0, i64 24
+  %w_offset.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i64, ptr %w_offset.i, align 8
   %sub.i = sub i64 %2, %1
   %tobool.not.i = icmp eq i64 %sub.i, 0
@@ -569,9 +569,9 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %tobool6.not.i, label %if.else.i13, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %spare_count.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %spare_count.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load i64, ptr %spare_count.i.i, align 8
-  %spare_max.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %spare_max.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %spare_max.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %11, %12
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -664,12 +664,12 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.not, label %land.lhs.true4, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %land.lhs.true
-  %tail.i = getelementptr inbounds i8, ptr %q, i64 8
-  %pool.i = getelementptr inbounds i8, ptr %q, i64 24
-  %chunk_count.i = getelementptr inbounds i8, ptr %q, i64 32
-  %max_chunks.i = getelementptr inbounds i8, ptr %q, i64 40
-  %opts.i = getelementptr inbounds i8, ptr %q, i64 56
-  %spare.i = getelementptr inbounds i8, ptr %q, i64 16
+  %tail.i = getelementptr inbounds nuw i8, ptr %q, i64 8
+  %pool.i = getelementptr inbounds nuw i8, ptr %q, i64 24
+  %chunk_count.i = getelementptr inbounds nuw i8, ptr %q, i64 32
+  %max_chunks.i = getelementptr inbounds nuw i8, ptr %q, i64 40
+  %opts.i = getelementptr inbounds nuw i8, ptr %q, i64 56
+  %spare.i = getelementptr inbounds nuw i8, ptr %q, i64 16
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end19.i, %land.rhs.lr.ph.i
@@ -698,9 +698,9 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
   br i1 %tobool6.not.i, label %if.else.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %spare_count.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %spare_count.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load i64, ptr %spare_count.i.i, align 8
-  %spare_max.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %spare_max.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %spare_max.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %9, %10
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -768,7 +768,7 @@ land.lhs.true4:                                   ; preds = %land.rhs.i, %land.l
 if.then7:                                         ; preds = %land.lhs.true4
   %22 = getelementptr i8, ptr %.pr, i64 24
   %23 = getelementptr i8, ptr %.pr, i64 16
-  %x.i = getelementptr inbounds i8, ptr %.pr, i64 32
+  %x.i = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %.val
   store ptr %arrayidx.i, ptr %pbuf, align 8
   %24 = load i64, ptr %22, align 8
@@ -818,7 +818,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %2 = getelementptr i8, ptr %c.017, i64 24
   %add.i = add i64 %c.0.val, %offset.addr.016
-  %x.i = getelementptr inbounds i8, ptr %c.017, i64 32
+  %x.i = getelementptr inbounds nuw i8, ptr %c.017, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %add.i
   store ptr %arrayidx.i, ptr %pbuf, align 8
   %3 = load i64, ptr %2, align 8
@@ -843,12 +843,12 @@ entry:
   br i1 %tobool.not7, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tail.i = getelementptr inbounds i8, ptr %q, i64 8
-  %pool.i = getelementptr inbounds i8, ptr %q, i64 24
-  %chunk_count.i = getelementptr inbounds i8, ptr %q, i64 32
-  %max_chunks.i = getelementptr inbounds i8, ptr %q, i64 40
-  %opts.i = getelementptr inbounds i8, ptr %q, i64 56
-  %spare.i = getelementptr inbounds i8, ptr %q, i64 16
+  %tail.i = getelementptr inbounds nuw i8, ptr %q, i64 8
+  %pool.i = getelementptr inbounds nuw i8, ptr %q, i64 24
+  %chunk_count.i = getelementptr inbounds nuw i8, ptr %q, i64 32
+  %max_chunks.i = getelementptr inbounds nuw i8, ptr %q, i64 40
+  %opts.i = getelementptr inbounds nuw i8, ptr %q, i64 56
+  %spare.i = getelementptr inbounds nuw i8, ptr %q, i64 16
   %.pre = load ptr, ptr %q, align 8
   br label %land.rhs
 
@@ -859,9 +859,9 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %pr
   br i1 %tobool1.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %w_offset.i = getelementptr inbounds i8, ptr %0, i64 24
+  %w_offset.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %w_offset.i, align 8
-  %r_offset.i = getelementptr inbounds i8, ptr %0, i64 16
+  %r_offset.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %r_offset.i, align 8
   %tobool.not.i = icmp eq i64 %1, %2
   br i1 %tobool.not.i, label %chunk_skip.exit, label %if.then.i
@@ -911,9 +911,9 @@ if.end.i:                                         ; preds = %if.then.i6, %while.
   br i1 %tobool6.not.i, label %if.else.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i
-  %spare_count.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %spare_count.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load i64, ptr %spare_count.i.i, align 8
-  %spare_max.i.i = getelementptr inbounds i8, ptr %9, i64 24
+  %spare_max.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %spare_max.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %10, %11
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -1041,13 +1041,13 @@ entry:
   br i1 %tobool.not74, label %if.end20, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tail.i = getelementptr inbounds i8, ptr %q, i64 8
-  %spare.i = getelementptr inbounds i8, ptr %q, i64 16
-  %chunk_count.i = getelementptr inbounds i8, ptr %q, i64 32
-  %max_chunks.i = getelementptr inbounds i8, ptr %q, i64 40
-  %opts.i.i = getelementptr inbounds i8, ptr %q, i64 56
-  %pool.i.i = getelementptr inbounds i8, ptr %q, i64 24
-  %chunk_size.i.i = getelementptr inbounds i8, ptr %q, i64 48
+  %tail.i = getelementptr inbounds nuw i8, ptr %q, i64 8
+  %spare.i = getelementptr inbounds nuw i8, ptr %q, i64 16
+  %chunk_count.i = getelementptr inbounds nuw i8, ptr %q, i64 32
+  %max_chunks.i = getelementptr inbounds nuw i8, ptr %q, i64 40
+  %opts.i.i = getelementptr inbounds nuw i8, ptr %q, i64 56
+  %pool.i.i = getelementptr inbounds nuw i8, ptr %q, i64 24
+  %chunk_size.i.i = getelementptr inbounds nuw i8, ptr %q, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
@@ -1166,7 +1166,7 @@ if.then.i.i:                                      ; preds = %if.end.i37
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %spare.i, align 8
   store ptr null, ptr %12, align 8
-  %r_offset.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
+  %r_offset.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i.i, i8 0, i64 16, i1 false)
   br label %if.then5.i
 
@@ -1195,18 +1195,18 @@ if.then7.i.i:                                     ; preds = %if.end5.i.i
 if.then.i.i.i:                                    ; preds = %if.then7.i.i
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  %spare_count.i.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %spare_count.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i64, ptr %spare_count.i.i.i, align 8
   %dec.i.i.i = add i64 %20, -1
   store i64 %dec.i.i.i, ptr %spare_count.i.i.i, align 8
   store ptr null, ptr %18, align 8
-  %r_offset.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %r_offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %r_offset.i.i.i.i, i8 0, i64 16, i1 false)
   br label %if.end11.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then7.i.i
   %21 = load ptr, ptr @Curl_ccalloc, align 8
-  %chunk_size.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %chunk_size.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i64, ptr %chunk_size.i.i.i, align 8
   %add.i.i.i = add i64 %22, 40
   %call.i.i.i = tail call ptr %21(i64 noundef 1, i64 noundef %add.i.i.i) #11
@@ -1215,7 +1215,7 @@ if.end.i.i.i:                                     ; preds = %if.then7.i.i
 
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %23 = load i64, ptr %chunk_size.i.i.i, align 8
-  %dlen.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %dlen.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store i64 %23, ptr %dlen.i.i.i, align 8
   br label %if.end11.i.i
 
@@ -1236,7 +1236,7 @@ if.else.i.i:                                      ; preds = %if.end5.i.i
 
 if.end16.i.i:                                     ; preds = %if.else.i.i
   %27 = load i64, ptr %chunk_size.i.i, align 8
-  %dlen.i.i43 = getelementptr inbounds i8, ptr %call13.i.i, i64 8
+  %dlen.i.i43 = getelementptr inbounds nuw i8, ptr %call13.i.i, i64 8
   store i64 %27, ptr %dlen.i.i43, align 8
   %28 = load i64, ptr %chunk_count.i, align 8
   %inc19.i.i = add i64 %28, 1
@@ -1267,16 +1267,16 @@ if.then.i30:                                      ; preds = %land.lhs.true.i.i, 
 
 if.end3.i26:                                      ; preds = %do.end.i, %if.then8.i40, %land.lhs.true.i
   %retval.0.i41 = phi ptr [ %retval.0.i.i, %if.then8.i40 ], [ %retval.0.i.i, %do.end.i ], [ %9, %land.lhs.true.i ]
-  %w_offset.i.i = getelementptr inbounds i8, ptr %retval.0.i41, i64 24
+  %w_offset.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i41, i64 24
   %32 = load i64, ptr %w_offset.i.i, align 8
-  %dlen.i.i = getelementptr inbounds i8, ptr %retval.0.i41, i64 8
+  %dlen.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i41, i64 8
   %33 = load i64, ptr %dlen.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %33, %32
   br i1 %tobool.not.i.i, label %while.end.i, label %chunk_append.exit.i
 
 chunk_append.exit.i:                              ; preds = %if.end3.i26
   %sub.i.i = sub i64 %33, %32
-  %x.i.i = getelementptr inbounds i8, ptr %retval.0.i41, i64 32
+  %x.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i41, i64 32
   %arrayidx.i.i = getelementptr inbounds [1 x i8], ptr %x.i.i, i64 0, i64 %32
   %cond.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i, i64 range(i64 1, 0) %len.addr.024.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i, ptr readonly align 1 %buf.addr.025.i, i64 %cond.i.i, i1 false)
@@ -1304,7 +1304,7 @@ if.end13:                                         ; preds = %Curl_bufq_write.exi
   br i1 %cmp14, label %while.end, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.076, i64 %retval.0.i29
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.076, i64 %retval.0.i29
   %sub = sub i64 %len.addr.075, %retval.0.i29
   %add = add i64 %retval.0.i29, %nwritten.077
   %tobool.not = icmp eq i64 %sub, 0
@@ -1341,9 +1341,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end2
 
 if.then:                                          ; preds = %entry
-  %chunk_count = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count = getelementptr inbounds nuw i8, ptr %q, i64 32
   %0 = load i64, ptr %chunk_count, align 8
-  %max_chunks = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks = getelementptr inbounds nuw i8, ptr %q, i64 40
   %1 = load i64, ptr %max_chunks, align 8
   %cmp = icmp ult i64 %0, %1
   br i1 %cmp, label %if.then1, label %if.end
@@ -1357,9 +1357,9 @@ if.end:                                           ; preds = %if.then
   br label %return
 
 if.end2:                                          ; preds = %entry
-  %w_offset.i = getelementptr inbounds i8, ptr %call, i64 24
+  %w_offset.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %2 = load i64, ptr %w_offset.i, align 8
-  %dlen.i = getelementptr inbounds i8, ptr %call, i64 8
+  %dlen.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %3 = load i64, ptr %dlen.i, align 8
   %tobool.not.i = icmp eq i64 %3, %2
   br i1 %tobool.not.i, label %chunk_slurpn.exit.thread, label %if.end.i
@@ -1370,7 +1370,7 @@ chunk_slurpn.exit.thread:                         ; preds = %if.end2
 
 if.end.i:                                         ; preds = %if.end2
   %sub.i = sub i64 %3, %2
-  %x.i = getelementptr inbounds i8, ptr %call, i64 32
+  %x.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %arrayidx.i = getelementptr inbounds [1 x i8], ptr %x.i, i64 0, i64 %2
   %tobool2.not.not.i = icmp eq i64 %max_len, 0
   %4 = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %max_len)
@@ -1407,14 +1407,14 @@ entry:
   br i1 %tobool.not.i27.i, label %if.then.i.i, label %if.end2.i.lr.ph.i
 
 if.end2.i.lr.ph.i:                                ; preds = %entry
-  %tail.i = getelementptr inbounds i8, ptr %q, i64 8
+  %tail.i = getelementptr inbounds nuw i8, ptr %q, i64 8
   br label %if.end2.i.i
 
 if.then.i.i:                                      ; preds = %if.end18.i, %entry
   %nread.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %if.end18.i ]
-  %chunk_count.i.i = getelementptr inbounds i8, ptr %q, i64 32
+  %chunk_count.i.i = getelementptr inbounds nuw i8, ptr %q, i64 32
   %0 = load i64, ptr %chunk_count.i.i, align 8
-  %max_chunks.i.i = getelementptr inbounds i8, ptr %q, i64 40
+  %max_chunks.i.i = getelementptr inbounds nuw i8, ptr %q, i64 40
   %1 = load i64, ptr %max_chunks.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, %1
   %..i = select i1 %cmp.i.i, i32 27, i32 81
@@ -1423,16 +1423,16 @@ if.then.i.i:                                      ; preds = %if.end18.i, %entry
 if.end2.i.i:                                      ; preds = %if.end18.i, %if.end2.i.lr.ph.i
   %call.i29.i = phi ptr [ %call.i26.i, %if.end2.i.lr.ph.i ], [ %call.i.i, %if.end18.i ]
   %nread.028.i = phi i64 [ 0, %if.end2.i.lr.ph.i ], [ %add.i, %if.end18.i ]
-  %w_offset.i.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 24
+  %w_offset.i.i.i = getelementptr inbounds nuw i8, ptr %call.i29.i, i64 24
   %2 = load i64, ptr %w_offset.i.i.i, align 8
-  %dlen.i.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 8
+  %dlen.i.i.i = getelementptr inbounds nuw i8, ptr %call.i29.i, i64 8
   %3 = load i64, ptr %dlen.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %3, %2
   br i1 %tobool.not.i.i.i, label %if.then.sink.split.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end2.i.i
   %sub.i.i.i = sub i64 %3, %2
-  %x.i.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 32
+  %x.i.i.i = getelementptr inbounds nuw i8, ptr %call.i29.i, i64 32
   %arrayidx.i.i.i = getelementptr inbounds [1 x i8], ptr %x.i.i.i, i64 0, i64 %2
   %call.i.i.i = tail call i64 %reader(ptr noundef %reader_ctx, ptr noundef nonnull %arrayidx.i.i.i, i64 noundef %sub.i.i.i, ptr noundef nonnull %err) #11
   %cmp5.i.i.i = icmp sgt i64 %call.i.i.i, 0

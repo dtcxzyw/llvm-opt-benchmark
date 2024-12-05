@@ -12,7 +12,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
   %4 = add i64 %3, -39
   %switch.i = icmp ult i64 %4, 2
   %..i = select i1 %switch.i, i64 8, i64 176
-  %5 = getelementptr inbounds i8, ptr %.val, i64 %..i
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 %..i
   %6 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %5, ptr nonnull align 1 @anon.fdc69fa71bf30e019c92f8fe53a04d60.3, i64 3)
   ret i1 %6
 }

@@ -8,9 +8,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17Ts_SolveQuadraticEPKdPdS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = load double, ptr %0, align 8
   %9 = fmul double %5, 4.000000e+00
@@ -79,16 +79,16 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__23Ts_SolveCubicInInt
   %7 = load double, ptr %6, align 8
   %8 = fadd double %5, %7
   %9 = fmul double %8, 5.000000e-01
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load double, ptr %19, align 8
   %21 = load double, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -250,17 +250,17 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__13Ts_SolveCubicEPKdd
   store double 1.000000e+00, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load double, ptr %8, align 8
   %10 = fmul double %9, 3.000000e+00
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %10, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fmul double %13, 2.000000e+00
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load double, ptr %16, align 8
   store double %17, ptr %4, align 16
   %18 = fmul double %10, 4.000000e+00

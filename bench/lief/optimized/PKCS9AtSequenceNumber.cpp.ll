@@ -40,7 +40,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 680
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 680
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
@@ -48,7 +48,7 @@ define void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber6acceptERNS_7VisitorE(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5printB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   tail call void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %4) #8
   ret void
@@ -136,17 +136,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %32 = udiv i32 %.020.i, 100
   %33 = or disjoint i32 %31, 1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i32 %.01819.i to i64
-  %38 = getelementptr inbounds i8, ptr %24, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 %37
   store i8 %36, ptr %38, align 1
   %39 = zext nneg i32 %31 to i64
-  %40 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %39
   %41 = load i8, ptr %40, align 2
   %42 = add i32 %.01819.i, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %24, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 %43
   store i8 %41, ptr %44, align 1
   %45 = add i32 %.01819.i, -2
   %46 = icmp ugt i32 %.020.i, 9999
@@ -161,12 +161,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %49 = shl nuw nsw i32 %.0.lcssa.i, 1
   %50 = or disjoint i32 %49, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %24, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %53, ptr %54, align 1
   %55 = zext nneg i32 %49 to i64
-  %56 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %55
   %57 = load i8, ptr %56, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -223,13 +223,13 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5cloneEv(ptr
           to label %4 unwind label %11
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE21PKCS9AtSequenceNumberE, i64 16), ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 12
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %8, align 4
   store ptr %3, ptr %0, align 8
@@ -244,7 +244,7 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE21PKCS9AtSequenceNumber5cloneEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4LIEF2PE9Attribute4typeEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }

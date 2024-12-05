@@ -17,31 +17,31 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_ns_check_argument_types(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 10
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 32
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i16, ptr %13, align 1
   %15 = and i16 %14, 7
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq i16 %15, 0
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = zext nneg i16 %15 to i64
   br label %22
 
@@ -60,7 +60,7 @@ define dso_local void @acpi_ns_check_argument_types(ptr nocapture noundef readon
   %32 = load ptr, ptr %19, align 8
   %33 = getelementptr ptr, ptr %32, i64 %23
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 9
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 9
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = icmp ne i32 %37, %31
@@ -76,7 +76,7 @@ define dso_local void @acpi_ns_check_argument_types(ptr nocapture noundef readon
   %46 = add nuw nsw i32 %45, 1
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 61, ptr noundef %42, i16 noundef zeroext 0, ptr noundef nonnull @.str, i32 noundef %46, ptr noundef %43, ptr noundef %44) #2
   %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 10
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 10
   %49 = load i16, ptr %48, align 2
   %50 = or i16 %49, 32
   store i16 %50, ptr %48, align 2
@@ -103,18 +103,18 @@ define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocaptu
   br i1 %4, label %41, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 32
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %10, label %41
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i16, ptr %11, align 1
   %13 = and i16 %12, 7
   %14 = zext nneg i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = icmp eq i8 %16, 8
@@ -130,7 +130,7 @@ define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocaptu
   br label %41
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %2, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %41
@@ -142,7 +142,7 @@ define dso_local void @acpi_ns_check_acpi_compliance(ptr noundef %0, ptr nocaptu
 
 29:                                               ; preds = %10
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 14
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 14
   %32 = load i8, ptr %31, align 2
   %33 = zext i8 %32 to i32
   %34 = icmp samesign ugt i32 %14, %33
@@ -171,7 +171,7 @@ declare dso_local void @acpi_ut_predefined_bios_error(ptr noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 10
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 32
   %8 = icmp eq i16 %7, 0
@@ -182,7 +182,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
   br i1 %10, label %11, label %30
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 9
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = icmp eq i8 %13, 8
@@ -199,7 +199,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 14
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 14
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i32
   %25 = icmp ult i32 %2, %24
@@ -218,7 +218,7 @@ define dso_local void @acpi_ns_check_argument_count(ptr noundef %0, ptr nocaptur
   br label %42
 
 30:                                               ; preds = %9
-  %31 = getelementptr inbounds i8, ptr %3, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %32 = load i16, ptr %31, align 1
   %33 = and i16 %32, 7
   %34 = zext nneg i16 %33 to i32

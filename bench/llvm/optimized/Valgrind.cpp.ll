@@ -8,15 +8,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm3sys17RunningOnValgrindEv() local_u
   %1 = alloca [6 x i64], align 16
   %2 = alloca i64, align 8
   store volatile i64 4097, ptr %1, align 16
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store volatile i64 0, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store volatile i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store volatile i64 0, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store volatile i64 0, ptr %7, align 8
   %8 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1, i64 0) #1, !srcloc !4
   store volatile i64 %8, ptr %2, align 8
@@ -32,15 +32,15 @@ define dso_local void @_ZN4llvm3sys27ValgrindDiscardTranslationsEPKvm(ptr nounde
   %4 = alloca i64, align 8
   store volatile i64 4098, ptr %3, align 16
   %5 = ptrtoint ptr %0 to i64
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store volatile i64 %1, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store volatile i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store volatile i64 0, ptr %9, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store volatile i64 0, ptr %10, align 8
   %11 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #1, !srcloc !5
   store volatile i64 %11, ptr %4, align 8

@@ -38,14 +38,14 @@ if.then9:                                         ; preds = %if.end
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %state.i = getelementptr inbounds i8, ptr %aead, i64 176
+  %state.i = getelementptr inbounds nuw i8, ptr %aead, i64 176
   %0 = load i8, ptr %state.i, align 8
   %.off.i = add i8 %0, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %if.end.i
-  %aadLen.i = getelementptr inbounds i8, ptr %aead, i64 168
+  %aadLen.i = getelementptr inbounds nuw i8, ptr %aead, i64 168
   %1 = load i32, ptr %aadLen.i, align 8
   %sub.i = xor i32 %1, -1
   %cmp12.i = icmp ugt i32 %inAADLen, %sub.i
@@ -57,7 +57,7 @@ if.end15.i:                                       ; preds = %if.end11.i
   br i1 %or.cond1.i, label %if.then19.i, label %if.end15
 
 if.then19.i:                                      ; preds = %if.end15.i
-  %poly.i = getelementptr inbounds i8, ptr %aead, i64 72
+  %poly.i = getelementptr inbounds nuw i8, ptr %aead, i64 72
   %call.i = call i32 @wc_Poly1305Update(ptr noundef nonnull %poly.i, ptr noundef nonnull %inAAD, i32 noundef %inAADLen) #4
   %cmp20.i = icmp eq i32 %call.i, 0
   br i1 %cmp20.i, label %if.then22.i, label %return
@@ -99,7 +99,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %authKey, i8 0, i64 32, i1 false)
   %tobool.not = icmp ne i32 %isEncrypt, 0
   %conv = zext i1 %tobool.not to i8
-  %isEncrypt4 = getelementptr inbounds i8, ptr %aead, i64 177
+  %isEncrypt4 = getelementptr inbounds nuw i8, ptr %aead, i64 177
   store i8 %conv, ptr %isEncrypt4, align 1
   %call = tail call i32 @wc_Chacha_SetKey(ptr noundef nonnull %aead, ptr noundef nonnull %inKey, i32 noundef 32) #4
   %cmp5 = icmp eq i32 %call, 0
@@ -116,7 +116,7 @@ if.end18:                                         ; preds = %if.end10
   br i1 %cmp19, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end18
-  %poly = getelementptr inbounds i8, ptr %aead, i64 72
+  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
   %call23 = call i32 @wc_Poly1305SetKey(ptr noundef nonnull %poly, ptr noundef nonnull %authKey, i32 noundef 32) #4
   %cmp25 = icmp eq i32 %call23, 0
   br i1 %cmp25, label %if.end30, label %return
@@ -127,7 +127,7 @@ if.end30:                                         ; preds = %if.end24
   br i1 %cmp31, label %if.then33, label %return
 
 if.then33:                                        ; preds = %if.end30
-  %state = getelementptr inbounds i8, ptr %aead, i64 176
+  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
   store i8 1, ptr %state, align 8
   br label %return
 
@@ -149,14 +149,14 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %state = getelementptr inbounds i8, ptr %aead, i64 176
+  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
   %0 = load i8, ptr %state, align 8
   %.off = add i8 %0, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end
-  %aadLen = getelementptr inbounds i8, ptr %aead, i64 168
+  %aadLen = getelementptr inbounds nuw i8, ptr %aead, i64 168
   %1 = load i32, ptr %aadLen, align 8
   %sub = xor i32 %1, -1
   %cmp12 = icmp ugt i32 %inAADLen, %sub
@@ -168,7 +168,7 @@ if.end15:                                         ; preds = %if.end11
   br i1 %or.cond1, label %if.then19, label %return
 
 if.then19:                                        ; preds = %if.end15
-  %poly = getelementptr inbounds i8, ptr %aead, i64 72
+  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
   %call = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %poly, ptr noundef nonnull %inAAD, i32 noundef %inAADLen) #4
   %cmp20 = icmp eq i32 %call, 0
   br i1 %cmp20, label %if.then22, label %return
@@ -196,14 +196,14 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds i8, ptr %aead, i64 176
+  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
   %0 = load i8, ptr %state, align 8
   %.off = add i8 %0, -1
   %switch = icmp ult i8 %.off, 3
   br i1 %switch, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end
-  %dataLen17 = getelementptr inbounds i8, ptr %aead, i64 172
+  %dataLen17 = getelementptr inbounds nuw i8, ptr %aead, i64 172
   %1 = load i32, ptr %dataLen17, align 4
   %sub = xor i32 %1, -1
   %cmp18 = icmp ugt i32 %dataLen, %sub
@@ -218,8 +218,8 @@ if.end27.thread:                                  ; preds = %if.end21
   br label %if.then31
 
 if.end27:                                         ; preds = %if.end21
-  %poly = getelementptr inbounds i8, ptr %aead, i64 72
-  %aadLen = getelementptr inbounds i8, ptr %aead, i64 168
+  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
+  %aadLen = getelementptr inbounds nuw i8, ptr %aead, i64 168
   %2 = load i32, ptr %aadLen, align 8
   %call = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %poly, i32 noundef %2) #4
   store i8 3, ptr %state, align 8
@@ -227,7 +227,7 @@ if.end27:                                         ; preds = %if.end21
   br i1 %cmp29, label %if.then31, label %return
 
 if.then31:                                        ; preds = %if.end27.thread, %if.end27
-  %isEncrypt = getelementptr inbounds i8, ptr %aead, i64 177
+  %isEncrypt = getelementptr inbounds nuw i8, ptr %aead, i64 177
   %bf.load = load i8, ptr %isEncrypt, align 1
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -239,12 +239,12 @@ if.then32:                                        ; preds = %if.then31
   br i1 %cmp34, label %if.then36, label %return
 
 if.then36:                                        ; preds = %if.then32
-  %poly37 = getelementptr inbounds i8, ptr %aead, i64 72
+  %poly37 = getelementptr inbounds nuw i8, ptr %aead, i64 72
   %call38 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %poly37, ptr noundef nonnull %outData, i32 noundef %dataLen) #4
   br label %if.end49
 
 if.else:                                          ; preds = %if.then31
-  %poly40 = getelementptr inbounds i8, ptr %aead, i64 72
+  %poly40 = getelementptr inbounds nuw i8, ptr %aead, i64 72
   %call41 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %poly40, ptr noundef nonnull %inData, i32 noundef %dataLen) #4
   %cmp42 = icmp eq i32 %call41, 0
   br i1 %cmp42, label %if.then44, label %return
@@ -278,7 +278,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds i8, ptr %aead, i64 176
+  %state = getelementptr inbounds nuw i8, ptr %aead, i64 176
   %0 = load i8, ptr %state, align 8
   %1 = and i8 %0, -2
   %switch = icmp eq i8 %1, 2
@@ -289,23 +289,23 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp12, label %if.end15, label %if.end21
 
 if.end15:                                         ; preds = %if.end9
-  %poly = getelementptr inbounds i8, ptr %aead, i64 72
-  %aadLen = getelementptr inbounds i8, ptr %aead, i64 168
+  %poly = getelementptr inbounds nuw i8, ptr %aead, i64 72
+  %aadLen = getelementptr inbounds nuw i8, ptr %aead, i64 168
   %2 = load i32, ptr %aadLen, align 8
   %call = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %poly, i32 noundef %2) #4
   %cmp16 = icmp eq i32 %call, 0
   br i1 %cmp16, label %if.end21, label %if.end35
 
 if.end21:                                         ; preds = %if.end9, %if.end15
-  %poly19 = getelementptr inbounds i8, ptr %aead, i64 72
-  %dataLen = getelementptr inbounds i8, ptr %aead, i64 172
+  %poly19 = getelementptr inbounds nuw i8, ptr %aead, i64 72
+  %dataLen = getelementptr inbounds nuw i8, ptr %aead, i64 172
   %3 = load i32, ptr %dataLen, align 4
   %call20 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %poly19, i32 noundef %3) #4
   %cmp22 = icmp eq i32 %call20, 0
   br i1 %cmp22, label %if.end29, label %if.end35
 
 if.end29:                                         ; preds = %if.end21
-  %aadLen26 = getelementptr inbounds i8, ptr %aead, i64 168
+  %aadLen26 = getelementptr inbounds nuw i8, ptr %aead, i64 168
   %4 = load i32, ptr %aadLen26, align 8
   %5 = load i32, ptr %dataLen, align 4
   %call28 = tail call i32 @wc_Poly1305_EncodeSizes(ptr noundef nonnull %poly19, i32 noundef %4, i32 noundef %5) #4
@@ -334,7 +334,7 @@ while.body.i:                                     ; preds = %if.end35, %while.bo
   %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %conv.i, %if.end35 ]
   %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %aead, %if.end35 ]
   %dec.i = add nsw i32 %l.114.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %for.body.i.preheader, label %while.body.i, !llvm.loop !4
@@ -346,7 +346,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %w.017.i.ph, %for.body.i.preheader ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.body.i.preheader ]
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
+  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add nsw i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -356,7 +356,7 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   %z.122.i = phi ptr [ %incdec.ptr13.i, %while.body12.i ], [ %incdec.ptr7.i, %while.cond9.preheader.i ]
   %len.addr.121.i = phi i32 [ %dec10.i, %while.body12.i ], [ %sub8.i, %while.cond9.preheader.i ]
   %dec10.i = add i32 %len.addr.121.i, -1
-  %incdec.ptr13.i = getelementptr inbounds i8, ptr %z.122.i, i64 1
+  %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %z.122.i, i64 1
   store volatile i8 0, ptr %z.122.i, align 1
   %tobool11.not.i = icmp eq i32 %dec10.i, 0
   br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !7
@@ -399,14 +399,14 @@ if.then9:                                         ; preds = %if.end
   br i1 %or.cond.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then9
-  %state.i = getelementptr inbounds i8, ptr %aead, i64 176
+  %state.i = getelementptr inbounds nuw i8, ptr %aead, i64 176
   %0 = load i8, ptr %state.i, align 8
   %.off.i = add i8 %0, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %if.end11.i, label %return
 
 if.end11.i:                                       ; preds = %if.end.i
-  %aadLen.i = getelementptr inbounds i8, ptr %aead, i64 168
+  %aadLen.i = getelementptr inbounds nuw i8, ptr %aead, i64 168
   %1 = load i32, ptr %aadLen.i, align 8
   %sub.i = xor i32 %1, -1
   %cmp12.i = icmp ugt i32 %inAADLen, %sub.i
@@ -418,7 +418,7 @@ if.end15.i:                                       ; preds = %if.end11.i
   br i1 %or.cond1.i, label %if.then19.i, label %if.end15
 
 if.then19.i:                                      ; preds = %if.end15.i
-  %poly.i = getelementptr inbounds i8, ptr %aead, i64 72
+  %poly.i = getelementptr inbounds nuw i8, ptr %aead, i64 72
   %call.i = call i32 @wc_Poly1305Update(ptr noundef nonnull %poly.i, ptr noundef nonnull %inAAD, i32 noundef %inAADLen) #4
   %cmp20.i = icmp eq i32 %call.i, 0
   br i1 %cmp20.i, label %if.then22.i, label %return
@@ -443,9 +443,9 @@ if.end20:                                         ; preds = %if.end15
 for.body.i.i:                                     ; preds = %if.end20, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end20 ]
   %compareSum.07.i.i = phi i32 [ %or.i.i, %for.body.i.i ], [ 0, %if.end20 ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %inAuthTag, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %inAuthTag, i64 %indvars.iv.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %calculatedAuthTag, i64 %indvars.iv.i.i
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %calculatedAuthTag, i64 %indvars.iv.i.i
   %4 = load i8, ptr %arrayidx2.i.i, align 1
   %xor5.i.i = xor i8 %4, %3
   %xor.i.i = zext i8 %xor5.i.i to i32
@@ -478,9 +478,9 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
   %compareSum.07.i = phi i32 [ %or.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %authTag, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %authTag, i64 %indvars.iv.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %authTagChk, i64 %indvars.iv.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %authTagChk, i64 %indvars.iv.i
   %1 = load i8, ptr %arrayidx2.i, align 1
   %xor5.i = xor i8 %1, %0
   %xor.i = zext i8 %xor5.i to i32

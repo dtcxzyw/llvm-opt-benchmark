@@ -978,7 +978,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
 11:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not = icmp sgt i8 %12, -1
   br i1 %.not, label %17, label %14
 
@@ -988,7 +988,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %16, label %385, label %17
 
 17:                                               ; preds = %14, %11
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.312) #4
   %20 = load ptr, ptr %18, align 8
@@ -999,7 +999,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23) #4
   %25 = and i8 %12, -128
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %5, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %26, ptr %27, align 4
   %28 = and i8 %12, 127
   store i8 %28, ptr %13, align 4
@@ -1008,7 +1008,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %31 = tail call ptr @val_to_str(i32 noundef %30, ptr noundef nonnull @formatnames, ptr noundef nonnull @.str.698) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.697, ptr noundef %31) #4
   %32 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #4
-  %33 = getelementptr inbounds i8, ptr %5, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %32, ptr %33, align 2
   %34 = load i32, ptr @hf_gvsp_status, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
@@ -1018,7 +1018,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
 37:                                               ; preds = %17
   %38 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %39, ptr %40, align 8
   %41 = load i32, ptr @hf_gvsp_blockid16, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %41, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
@@ -1028,13 +1028,13 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
   %45 = zext i8 %44 to i32
   %46 = and i32 %45, 4
-  %47 = getelementptr inbounds i8, ptr %5, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %46, ptr %47, align 8
   %48 = and i32 %45, 2
-  %49 = getelementptr inbounds i8, ptr %5, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %48, ptr %49, align 4
   %50 = and i32 %45, 1
-  %51 = getelementptr inbounds i8, ptr %5, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %50, ptr %51, align 8
   %52 = load i32, ptr @hf_gvsp_flags, align 4
   %53 = load i32, ptr @ett_gvsp_flags, align 4
@@ -1052,7 +1052,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
   %60 = load i32, ptr @hf_gvsp_format, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %60, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   %62 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #4
-  %63 = getelementptr inbounds i8, ptr %5, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %64 = and i32 %62, 16777215
   store i32 %64, ptr %63, align 8
   br i1 %36, label %73, label %65
@@ -1084,7 +1084,7 @@ define internal i32 @dissect_gvsp(ptr noundef %0, ptr nocapture noundef readonly
 
 78:                                               ; preds = %.sink.split, %65, %70
   %79 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
-  %80 = getelementptr inbounds i8, ptr %5, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %79, ptr %80, align 8
   %81 = load i32, ptr @hf_gvsp_blockid64, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %81, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #4
@@ -1512,7 +1512,7 @@ status_with_payload.exit.thread2.i131:            ; preds = %136, %134
 
 372:                                              ; preds = %369, %366
   %373 = phi i16 [ %371, %369 ], [ 0, %366 ]
-  %374 = getelementptr inbounds i8, ptr %5, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %375 = and i16 %373, 16384
   %376 = zext nneg i16 %375 to i32
   store i32 %376, ptr %5, align 8
@@ -1672,13 +1672,13 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_packet_payload_multizone(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 6
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %status_with_payload.exit.thread2, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp ne i32 %10, 0
   %.not = icmp eq i16 %6, 256
@@ -1713,7 +1713,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_packet_all_in(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 21) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i16, ptr %5, align 8
   switch i16 %6, label %dissect_packet_payload.exit [
     i16 1, label %7
@@ -1751,13 +1751,13 @@ define internal fastcc void @dissect_packet_all_in(ptr noundef %0, ptr noundef %
 
 23:                                               ; preds = %16, %7
   %.0 = phi i32 [ %22, %16 ], [ %14, %7 ]
-  %24 = getelementptr inbounds i8, ptr %3, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %status_with_payload.exit.thread2.i, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %3, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %29 = load i32, ptr %28, align 4
   %.not.i.i = icmp ne i32 %29, 0
   %.not.i = icmp eq i16 %25, 256
@@ -1803,13 +1803,13 @@ status_with_payload.exit.thread2.i:               ; preds = %27, %23
 
 56:                                               ; preds = %49, %34
   %.1 = phi i32 [ %55, %49 ], [ %47, %34 ]
-  %57 = getelementptr inbounds i8, ptr %3, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %58 = load i16, ptr %57, align 2
   %59 = icmp eq i16 %58, 0
   br i1 %59, label %status_with_payload.exit.thread2.i181, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %3, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %62 = load i32, ptr %61, align 4
   %.not.i.i178 = icmp ne i32 %62, 0
   %.not.i179 = icmp eq i16 %58, 256
@@ -1865,13 +1865,13 @@ status_with_payload.exit.thread2.i181:            ; preds = %60, %56
 
 97:                                               ; preds = %90, %83
   %.2 = phi i32 [ %96, %90 ], [ %88, %83 ]
-  %98 = getelementptr inbounds i8, ptr %3, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %99 = load i16, ptr %98, align 2
   %100 = icmp eq i16 %99, 0
   br i1 %100, label %status_with_payload.exit.thread2.i187, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %3, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %103 = load i32, ptr %102, align 4
   %.not.i.i184 = icmp ne i32 %103, 0
   %.not.i185 = icmp eq i16 %99, 256
@@ -1917,13 +1917,13 @@ status_with_payload.exit.thread2.i187:            ; preds = %101, %97
 
 130:                                              ; preds = %123, %108
   %.3 = phi i32 [ %129, %123 ], [ %121, %108 ]
-  %131 = getelementptr inbounds i8, ptr %3, i64 6
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %132 = load i16, ptr %131, align 2
   %133 = icmp eq i16 %132, 0
   br i1 %133, label %status_with_payload.exit.thread2.i193, label %134
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds i8, ptr %3, i64 28
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %136 = load i32, ptr %135, align 4
   %.not.i.i190 = icmp ne i32 %136, 0
   %.not.i191 = icmp eq i16 %132, 256
@@ -1970,13 +1970,13 @@ status_with_payload.exit.thread2.i193:            ; preds = %134, %130
 
 163:                                              ; preds = %156, %141
   %.4 = phi i32 [ %162, %156 ], [ %154, %141 ]
-  %164 = getelementptr inbounds i8, ptr %3, i64 6
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %165 = load i16, ptr %164, align 2
   %166 = icmp eq i16 %165, 0
   br i1 %166, label %status_with_payload.exit.thread2.i199, label %167
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds i8, ptr %3, i64 28
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %169 = load i32, ptr %168, align 4
   %.not.i.i196 = icmp ne i32 %169, 0
   %.not.i197 = icmp eq i16 %165, 256
@@ -2014,13 +2014,13 @@ status_with_payload.exit.thread2.i199:            ; preds = %167, %163
 
 187:                                              ; preds = %180, %174
   %.5 = phi i32 [ %186, %180 ], [ %178, %174 ]
-  %188 = getelementptr inbounds i8, ptr %3, i64 6
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %189 = load i16, ptr %188, align 2
   %190 = icmp eq i16 %189, 0
   br i1 %190, label %status_with_payload.exit.thread2.i205, label %191
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %3, i64 28
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %193 = load i32, ptr %192, align 4
   %.not.i.i202 = icmp ne i32 %193, 0
   %.not.i203 = icmp eq i16 %189, 256
@@ -2074,13 +2074,13 @@ status_with_payload.exit.thread2.i205:            ; preds = %191, %187
 
 227:                                              ; preds = %220, %198
   %.6 = phi i32 [ %226, %220 ], [ %218, %198 ]
-  %228 = getelementptr inbounds i8, ptr %3, i64 6
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %229 = load i16, ptr %228, align 2
   %230 = icmp eq i16 %229, 0
   br i1 %230, label %status_with_payload.exit.thread2.i211, label %231
 
 231:                                              ; preds = %227
-  %232 = getelementptr inbounds i8, ptr %3, i64 28
+  %232 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %233 = load i32, ptr %232, align 4
   %.not.i.i208 = icmp ne i32 %233, 0
   %.not.i209 = icmp eq i16 %229, 256

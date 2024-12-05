@@ -72,14 +72,14 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline12RawAnimationEE4S
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit
   %.010 = phi i64 [ 0, %.lr.ph ], [ %60, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit ]
   %11 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation", ptr %1, i64 %.010
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load float, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %14 = load i8, ptr %8, align 8
@@ -110,12 +110,12 @@ _ZN3ozz2io8OArchivelsEf.exit:                     ; preds = %10, %16
   store float %26, ptr %7, align 4
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %32 = getelementptr inbounds i8, ptr %11, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %11, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -131,7 +131,7 @@ _ZN3ozz2io8OArchivelsEf.exit:                     ; preds = %10, %16
   store i32 %42, ptr %5, align 4
   %43 = load ptr, ptr %0, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -150,7 +150,7 @@ _ZN3ozz2io8OArchivelsEf.exit:                     ; preds = %10, %16
   store i32 %53, ptr %4, align 4
   %54 = load ptr, ptr %0, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -159,7 +159,7 @@ _ZN3ozz2io8OArchivelsEf.exit:                     ; preds = %10, %16
 
 _ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS7_EEEEEvRKT_.exit: ; preds = %_ZN3ozz2io8OArchivelsEf.exit, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %59 = getelementptr inbounds i8, ptr %11, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef 1)
   %60 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %60, %2
@@ -181,7 +181,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline12RawAnimationEE4L
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
 9:                                                ; preds = %4
@@ -215,11 +215,11 @@ _ZN3ozz3log6LoggerlsIA34_cEERSoRKT_.exit:         ; preds = %9
 20:                                               ; preds = %.lr.ph, %_ZN3ozz2io8IArchiversERf.exit
   %.015 = phi i64 [ 0, %.lr.ph ], [ %43, %_ZN3ozz2io8IArchiversERf.exit ]
   %21 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation", ptr %1, i64 %.015
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %5, i64 noundef 4)
   %28 = load i8, ptr %8, align 8
@@ -257,7 +257,7 @@ _ZN3ozz2io8IArchiversERf.exit:                    ; preds = %30, %39
   store float %41, ptr %22, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @_ZN3ozz2io6ExternISt6vectorINS_9animation7offline12RawAnimation10JointTrackENS_12StdAllocatorIS6_EEEE4LoadERNS0_8IArchiveEPS9_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 noundef 1, i32 noundef 0)
-  %42 = getelementptr inbounds i8, ptr %21, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 32
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 noundef 1, i32 noundef 0)
   %43 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %43, %2
@@ -297,14 +297,14 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4SaveERNS0_8OArchiveEPKS5_m.exit
   %.044 = phi i64 [ 0, %.lr.ph ], [ %170, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4SaveERNS0_8OArchiveEPKS5_m.exit ]
   %15 = getelementptr inbounds %"struct.ozz::io::internal::Array", ptr %1, i64 %.044
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4SaveERNS0_8OArchiveEPKS5_m.exit, label %.lr.ph.i
@@ -312,7 +312,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
 .lr.ph.i:                                         ; preds = %14, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation8ScaleKeyEEEEEvRKT_.exit.i
   %.010.i = phi i64 [ %169, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation8ScaleKeyEEEEEvRKT_.exit.i ], [ 0, %14 ]
   %19 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %16, i64 %.010.i
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -328,7 +328,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
   store i32 %30, ptr %6, align 4
   %31 = load ptr, ptr %0, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -345,7 +345,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
   store i32 %41, ptr %5, align 4
   %42 = load ptr, ptr %0, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %5, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -354,7 +354,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS0_8internal5ArrayIKNS_9a
 
 .lr.ph.i.i.i.i32:                                 ; preds = %36, %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i34
   %.08.i.i.i.i33 = phi i64 [ %68, %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i34 ], [ 0, %36 ]
-  %47 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %37, i64 %.08.i.i.i.i33
+  %47 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %37, i64 %.08.i.i.i.i33
   %48 = load float, ptr %47, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %49 = load i8, ptr %13, align 8
@@ -385,19 +385,19 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i.i.i34:           ; preds = %51, %.lr.ph.i.i.i.i
   store float %61, ptr %4, align 4
   %62 = load ptr, ptr %0, align 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = call noundef i64 %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull %4, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %67 = getelementptr inbounds i8, ptr %47, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 4
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %67, i64 noundef 1)
   %68 = add nuw nsw i64 %.08.i.i.i.i33, 1
   %exitcond.not.i.i.i.i35 = icmp eq i64 %68, %38
   br i1 %exitcond.not.i.i.i.i35, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRKT_.exit.i, label %.lr.ph.i.i.i.i32, !llvm.loop !8
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRKT_.exit.i: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i34, %36, %.lr.ph.i
-  %69 = getelementptr inbounds i8, ptr %19, i64 24
-  %70 = getelementptr inbounds i8, ptr %19, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %69, align 8
   %73 = ptrtoint ptr %71 to i64
@@ -413,7 +413,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14
   store i32 %80, ptr %9, align 4
   %81 = load ptr, ptr %0, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef nonnull %9, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -430,7 +430,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14
   store i32 %91, ptr %8, align 4
   %92 = load ptr, ptr %0, align 8
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef i64 %95(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull %8, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
@@ -439,7 +439,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14
 
 .lr.ph.i.i.i.i15:                                 ; preds = %86, %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i17
   %.08.i.i.i.i16 = phi i64 [ %118, %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i17 ], [ 0, %86 ]
-  %97 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %87, i64 %.08.i.i.i.i16
+  %97 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %87, i64 %.08.i.i.i.i16
   %98 = load float, ptr %97, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %99 = load i8, ptr %13, align 8
@@ -470,19 +470,19 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i.i.i17:           ; preds = %101, %.lr.ph.i.i.i.
   store float %111, ptr %7, align 4
   %112 = load ptr, ptr %0, align 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef i64 %115(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull %7, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %117 = getelementptr inbounds i8, ptr %97, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %97, i64 4
   call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %117, i64 noundef 1)
   %118 = add nuw nsw i64 %.08.i.i.i.i16, 1
   %exitcond.not.i.i.i.i18 = icmp eq i64 %118, %88
   br i1 %exitcond.not.i.i.i.i18, label %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation11RotationKeyEEEEEvRKT_.exit.i, label %.lr.ph.i.i.i.i15, !llvm.loop !9
 
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation11RotationKeyEEEEEvRKT_.exit.i: ; preds = %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i17, %86, %_ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRKT_.exit.i
-  %119 = getelementptr inbounds i8, ptr %19, i64 48
-  %120 = getelementptr inbounds i8, ptr %19, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %119, align 8
   %123 = ptrtoint ptr %121 to i64
@@ -498,7 +498,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation11
   store i32 %130, ptr %12, align 4
   %131 = load ptr, ptr %0, align 8
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(8) %131, ptr noundef nonnull %12, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -515,7 +515,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation11
   store i32 %141, ptr %11, align 4
   %142 = load ptr, ptr %0, align 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8
   %146 = call noundef i64 %145(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef nonnull %11, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -524,7 +524,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKNS_9animation7offline12RawAnimation11
 
 .lr.ph.i.i.i.i:                                   ; preds = %136, %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i
   %.08.i.i.i.i = phi i64 [ %168, %_ZN3ozz2io8OArchivelsEf.exit.i.i.i.i ], [ 0, %136 ]
-  %147 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %137, i64 %.08.i.i.i.i
+  %147 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %137, i64 %.08.i.i.i.i
   %148 = load float, ptr %147, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %149 = load i8, ptr %13, align 8
@@ -555,11 +555,11 @@ _ZN3ozz2io8OArchivelsEf.exit.i.i.i.i:             ; preds = %151, %.lr.ph.i.i.i.
   store float %161, ptr %10, align 4
   %162 = load ptr, ptr %0, align 8
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
   %166 = call noundef i64 %165(ptr noundef nonnull align 8 dereferenceable(8) %162, ptr noundef nonnull %10, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %167 = getelementptr inbounds i8, ptr %147, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %147, i64 4
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4SaveERNS0_8OArchiveEPKS3_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %167, i64 noundef 1)
   %168 = add nuw nsw i64 %.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %168, %138
@@ -594,8 +594,8 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %80
@@ -604,7 +604,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %6, i64 noundef 4)
   %17 = load i8, ptr %8, align 8
@@ -614,7 +614,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
   %20 = select i1 %18, i32 %.sroa.0.0.insert.insert.i, i32 %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %11, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -634,13 +634,13 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
   br i1 %33, label %34, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %24, i64 %21
   %.not.i.i = icmp eq ptr %23, %35
   br i1 %.not.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE6resizeEm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %34, %_ZN3ozz9animation7offline12RawAnimation10JointTrackD2Ev.exit
   %.06.i.i.i = phi ptr [ %68, %_ZN3ozz9animation7offline12RawAnimation10JointTrackD2Ev.exit ], [ %35, %34 ]
-  %36 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 48
   %37 = load ptr, ptr %36, align 8
   %.not.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit.i, label %38
@@ -651,7 +651,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %37)
           to label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit.i unwind label %44
@@ -664,7 +664,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternISt6vectorINS_9animation7of
   unreachable
 
 _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit.i: ; preds = %40, %.lr.ph.i.i.i
-  %47 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not.i.i.i1.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEED2Ev.exit.i, label %49
@@ -675,7 +675,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   invoke void %54(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull %48)
           to label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEED2Ev.exit.i unwind label %55
@@ -698,7 +698,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   invoke void %64(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull %58)
           to label %_ZN3ozz9animation7offline12RawAnimation10JointTrackD2Ev.exit unwind label %65
@@ -711,7 +711,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   unreachable
 
 _ZN3ozz9animation7offline12RawAnimation10JointTrackD2Ev.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEED2Ev.exit.i, %61
-  %68 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %68, %23
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
@@ -730,7 +730,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %71 = load ptr, ptr %0, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef i64 %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %5, i64 noundef 4)
   %76 = load i8, ptr %8, align 8
@@ -757,14 +757,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline12RawAni
   br i1 %.not, label %77, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -802,7 +802,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocat
 26:                                               ; preds = %_ZNKSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc.exit
   %27 = mul nuw nsw i64 %24, 72
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %27, i64 noundef 8)
           to label %35 unwind label %32
@@ -826,50 +826,50 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocat
   %.sroa.010.014.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %6, %35 ]
   %38 = load ptr, ptr %.sroa.010.014.i.i, align 8
   store ptr %38, ptr %.015.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %.015.i.i, i64 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %.015.i.i, i64 16
-  %43 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.010.014.i.i, i8 0, i64 24, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.015.i.i, i64 24
-  %46 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 24
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %.015.i.i, i64 32
-  %49 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 32
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %.015.i.i, i64 40
-  %52 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 40
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %51, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
-  %54 = getelementptr inbounds i8, ptr %.015.i.i, i64 48
-  %55 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 48
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %.015.i.i, i64 56
-  %58 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 56
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %.015.i.i, i64 64
-  %61 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 64
   %62 = load ptr, ptr %61, align 8
   store ptr %62, ptr %60, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i, i64 72
-  %64 = getelementptr inbounds i8, ptr %.015.i.i, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 72
   %.not.i.i = icmp eq ptr %63, %5
   br i1 %.not.i.i, label %.lr.ph.i46, label %.lr.ph.i.i, !llvm.loop !15
 
 .lr.ph.i46:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i46
   %.06.i47 = phi ptr [ %65, %.lr.ph.i46 ], [ %6, %.lr.ph.i.i ]
   tail call void @_ZN3ozz9animation7offline12RawAnimation10JointTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %.06.i47) #14
-  %65 = getelementptr inbounds i8, ptr %.06.i47, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %.06.i47, i64 72
   %.not.i48 = icmp eq ptr %65, %5
   br i1 %.not.i48, label %_ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit49, label %.lr.ph.i46, !llvm.loop !13
 
@@ -883,7 +883,7 @@ _ZSt8_DestroyIPN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAlloca
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
   invoke void %71(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %6)
           to label %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit unwind label %72
@@ -899,7 +899,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdA
   store ptr %31, ptr %0, align 8
   %75 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %36, i64 %1
   store ptr %75, ptr %4, align 8
-  %76 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %31, i64 %24
+  %76 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %31, i64 %24
   store ptr %76, ptr %11, align 8
   br label %77
 
@@ -929,7 +929,7 @@ declare noundef ptr @_ZN3ozz6memory17default_allocatorEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3ozz9animation7offline12RawAnimation10JointTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit, label %4
@@ -940,7 +940,7 @@ define linkonce_odr dso_local void @_ZN3ozz9animation7offline12RawAnimation10Joi
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %3)
           to label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit unwind label %10
@@ -953,7 +953,7 @@ define linkonce_odr dso_local void @_ZN3ozz9animation7offline12RawAnimation10Joi
   unreachable
 
 _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEED2Ev.exit: ; preds = %1, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i.i.i1 = icmp eq ptr %14, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEED2Ev.exit, label %15
@@ -964,7 +964,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %14)
           to label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEED2Ev.exit unwind label %21
@@ -987,7 +987,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %24)
           to label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEED2Ev.exit unwind label %31
@@ -1018,14 +1018,14 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9a
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4LoadERNS0_8IArchiveEPS5_mj.exit
   %.076 = phi i64 [ 0, %.lr.ph ], [ %291, %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4LoadERNS0_8IArchiveEPS5_mj.exit ]
   %16 = getelementptr inbounds %"struct.ozz::io::internal::Array.17", ptr %1, i64 %.076
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8
   %.not.i = icmp eq i64 %19, 0
   br i1 %.not.i, label %_ZN3ozz2io6ExternINS_9animation7offline12RawAnimation10JointTrackEE4LoadERNS0_8IArchiveEPS5_mj.exit, label %.lr.ph.i
@@ -1036,7 +1036,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9a
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %7, i64 noundef 4)
   %26 = load i8, ptr %14, align 8
@@ -1046,7 +1046,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9a
   %29 = select i1 %27, i32 %.sroa.0.0.insert.insert.i.i35, i32 %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %20, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %20, align 8
   %34 = ptrtoint ptr %32 to i64
@@ -1058,7 +1058,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternIKNS0_8internal5ArrayINS_9a
 
 39:                                               ; preds = %.lr.ph.i
   %40 = sub nuw nsw i64 %30, %37
-  %41 = getelementptr inbounds i8, ptr %20, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %43, %34
@@ -1085,7 +1085,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAll
 51:                                               ; preds = %_ZNKSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc.exit.i
   %52 = shl nuw nsw i64 %49, 4
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = invoke noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef %52, i64 noundef 4)
           to label %60 unwind label %57
@@ -1108,8 +1108,8 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAll
   %.015.i.i.i72 = phi ptr [ %64, %.lr.ph.i.i.i71 ], [ %56, %60 ]
   %.sroa.010.014.i.i.i73 = phi ptr [ %63, %.lr.ph.i.i.i71 ], [ %33, %60 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i.i72, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i.i73, i64 16, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i.i73, i64 16
-  %64 = getelementptr inbounds i8, ptr %.015.i.i.i72, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i73, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.015.i.i.i72, i64 16
   %.not.i.i.i74 = icmp eq ptr %63, %32
   br i1 %.not.i.i.i74, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i, label %.lr.ph.i.i.i71, !llvm.loop !16
 
@@ -1123,7 +1123,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation1
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
   invoke void %70(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull %33)
           to label %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i unwind label %71
@@ -1137,9 +1137,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation1
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i: ; preds = %67, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation14TranslationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i
   store ptr %56, ptr %20, align 8
-  %74 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %61, i64 %40
+  %74 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %61, i64 %40
   store ptr %74, ptr %31, align 8
-  %75 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %56, i64 %49
+  %75 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %56, i64 %49
   store ptr %75, ptr %41, align 8
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
@@ -1148,7 +1148,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12
   br i1 %77, label %78, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %33, i64 %30
+  %79 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %33, i64 %30
   %.not.i.i.i53 = icmp eq ptr %32, %79
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i, label %80
 
@@ -1165,7 +1165,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %83 = load ptr, ptr %0, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef nonnull %6, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -1173,11 +1173,11 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
 
 .lr.ph.i.i.i.i37:                                 ; preds = %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i39, %81
   %.08.i.i.i.i38 = phi i64 [ %109, %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i39 ], [ 0, %81 ]
-  %88 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %82, i64 %.08.i.i.i.i38
+  %88 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %82, i64 %.08.i.i.i.i38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %89 = load ptr, ptr %0, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = call noundef i64 %92(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull %5, i64 noundef 4)
   %94 = load i8, ptr %14, align 8
@@ -1214,18 +1214,18 @@ _ZN3ozz2io8IArchiversERf.exit.i.i.i.i39:          ; preds = %105, %96
   %107 = phi float [ %104, %96 ], [ %106, %105 ]
   store float %107, ptr %88, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %108 = getelementptr inbounds i8, ptr %88, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %88, i64 4
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %108, i64 noundef 1, i32 noundef 0)
   %109 = add nuw nsw i64 %.08.i.i.i.i38, 1
   %exitcond.not.i.i.i.i40 = icmp eq i64 %109, %30
   br i1 %exitcond.not.i.i.i.i40, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRT_.exit.i, label %.lr.ph.i.i.i.i37, !llvm.loop !17
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRT_.exit.i: ; preds = %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i39, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
-  %110 = getelementptr inbounds i8, ptr %20, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   %111 = load ptr, ptr %0, align 8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = call noundef i64 %114(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull %10, i64 noundef 4)
   %116 = load i8, ptr %14, align 8
@@ -1235,7 +1235,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation14
   %119 = select i1 %117, i32 %.sroa.0.0.insert.insert.i.i14, i32 %118
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds i8, ptr %20, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr %110, align 8
   %124 = ptrtoint ptr %122 to i64
@@ -1247,7 +1247,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation14
 
 129:                                              ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation14TranslationKeyEEEEEvRT_.exit.i
   %130 = sub nuw nsw i64 %120, %127
-  %131 = getelementptr inbounds i8, ptr %20, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %132 = load ptr, ptr %131, align 8
   %133 = ptrtoint ptr %132 to i64
   %134 = sub i64 %133, %124
@@ -1274,7 +1274,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAlloca
 141:                                              ; preds = %_ZNKSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc.exit.i
   %142 = mul nuw nsw i64 %139, 20
   %143 = load ptr, ptr %140, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8
   %146 = invoke noundef ptr %145(ptr noundef nonnull align 8 dereferenceable(8) %140, i64 noundef %142, i64 noundef 4)
           to label %150 unwind label %147
@@ -1297,8 +1297,8 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAlloca
   %.015.i.i.i62 = phi ptr [ %154, %.lr.ph.i.i.i61 ], [ %146, %150 ]
   %.sroa.010.014.i.i.i63 = phi ptr [ %153, %.lr.ph.i.i.i61 ], [ %123, %150 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.015.i.i.i62, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.010.014.i.i.i63, i64 20, i1 false)
-  %153 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i.i63, i64 20
-  %154 = getelementptr inbounds i8, ptr %.015.i.i.i62, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i63, i64 20
+  %154 = getelementptr inbounds nuw i8, ptr %.015.i.i.i62, i64 20
   %.not.i.i.i64 = icmp eq ptr %153, %122
   br i1 %.not.i.i.i64, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i, label %.lr.ph.i.i.i61, !llvm.loop !18
 
@@ -1312,7 +1312,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation1
 
 157:                                              ; preds = %155
   %158 = load ptr, ptr %156, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %160 = load ptr, ptr %159, align 8
   invoke void %160(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull %123)
           to label %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i unwind label %161
@@ -1326,9 +1326,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation1
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i: ; preds = %157, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation11RotationKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i
   store ptr %146, ptr %110, align 8
-  %164 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %151, i64 %130
+  %164 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %151, i64 %130
   store ptr %164, ptr %121, align 8
-  %165 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %146, i64 %139
+  %165 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %146, i64 %139
   store ptr %165, ptr %131, align 8
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
@@ -1337,7 +1337,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12Std
   br i1 %167, label %168, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
 168:                                              ; preds = %166
-  %169 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %123, i64 %120
+  %169 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %123, i64 %120
   %.not.i.i.i32 = icmp eq ptr %122, %169
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i, label %170
 
@@ -1354,7 +1354,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %173 = load ptr, ptr %0, align 8
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = call noundef i64 %176(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull %9, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -1362,11 +1362,11 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
 
 .lr.ph.i.i.i.i16:                                 ; preds = %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i18, %171
   %.08.i.i.i.i17 = phi i64 [ %199, %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i18 ], [ 0, %171 ]
-  %178 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %172, i64 %.08.i.i.i.i17
+  %178 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %172, i64 %.08.i.i.i.i17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %179 = load ptr, ptr %0, align 8
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = call noundef i64 %182(ptr noundef nonnull align 8 dereferenceable(8) %179, ptr noundef nonnull %8, i64 noundef 4)
   %184 = load i8, ptr %14, align 8
@@ -1403,18 +1403,18 @@ _ZN3ozz2io8IArchiversERf.exit.i.i.i.i18:          ; preds = %195, %186
   %197 = phi float [ %194, %186 ], [ %196, %195 ]
   store float %197, ptr %178, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %198 = getelementptr inbounds i8, ptr %178, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %178, i64 4
   call void @_ZN3ozz2io6ExternINS_4math10QuaternionEE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(16) %198, i64 noundef 1, i32 noundef 0)
   %199 = add nuw nsw i64 %.08.i.i.i.i17, 1
   %exitcond.not.i.i.i.i19 = icmp eq i64 %199, %120
   br i1 %exitcond.not.i.i.i.i19, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation11RotationKeyEEEEEvRT_.exit.i, label %.lr.ph.i.i.i.i16, !llvm.loop !19
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation11RotationKeyEEEEEvRT_.exit.i: ; preds = %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i18, %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
-  %200 = getelementptr inbounds i8, ptr %20, i64 48
+  %200 = getelementptr inbounds nuw i8, ptr %20, i64 48
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %201 = load ptr, ptr %0, align 8
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load ptr, ptr %203, align 8
   %205 = call noundef i64 %204(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef nonnull %13, i64 noundef 4)
   %206 = load i8, ptr %14, align 8
@@ -1424,7 +1424,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation11
   %209 = select i1 %207, i32 %.sroa.0.0.insert.insert.i.i, i32 %208
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds i8, ptr %20, i64 56
+  %211 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %200, align 8
   %214 = ptrtoint ptr %212 to i64
@@ -1436,7 +1436,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation11
 
 219:                                              ; preds = %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayINS_9animation7offline12RawAnimation11RotationKeyEEEEEvRT_.exit.i
   %220 = sub nuw nsw i64 %210, %217
-  %221 = getelementptr inbounds i8, ptr %20, i64 64
+  %221 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %222 = load ptr, ptr %221, align 8
   %223 = ptrtoint ptr %222 to i64
   %224 = sub i64 %223, %214
@@ -1463,7 +1463,7 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorI
 231:                                              ; preds = %_ZNKSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE12_M_check_lenEmPKc.exit.i
   %232 = shl nuw nsw i64 %229, 4
   %233 = load ptr, ptr %230, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = invoke noundef ptr %235(ptr noundef nonnull align 8 dereferenceable(8) %230, i64 noundef %232, i64 noundef 4)
           to label %240 unwind label %237
@@ -1486,8 +1486,8 @@ _ZNKSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorI
   %.015.i.i.i = phi ptr [ %244, %.lr.ph.i.i.i ], [ %236, %240 ]
   %.sroa.010.014.i.i.i = phi ptr [ %243, %.lr.ph.i.i.i ], [ %213, %240 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.015.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.010.014.i.i.i, i64 16, i1 false)
-  %243 = getelementptr inbounds i8, ptr %.sroa.010.014.i.i.i, i64 16
-  %244 = getelementptr inbounds i8, ptr %.015.i.i.i, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 16
   %.not.i.i.i55 = icmp eq ptr %243, %212
   br i1 %.not.i.i.i55, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !20
 
@@ -1501,7 +1501,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8
 
 247:                                              ; preds = %245
   %248 = load ptr, ptr %246, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = load ptr, ptr %249, align 8
   invoke void %250(ptr noundef nonnull align 8 dereferenceable(8) %246, ptr noundef nonnull %213)
           to label %_ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i unwind label %251
@@ -1515,9 +1515,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit.i: ; preds = %247, %_ZSt34__uninitialized_move_if_noexcept_aIPN3ozz9animation7offline12RawAnimation8ScaleKeyES5_NS0_12StdAllocatorIS4_EEET0_T_S9_S8_RT1_.exit.i
   store ptr %236, ptr %200, align 8
-  %254 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %241, i64 %220
+  %254 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %241, i64 %220
   store ptr %254, ptr %211, align 8
-  %255 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %236, i64 %229
+  %255 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %236, i64 %229
   store ptr %255, ptr %221, align 8
   br label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
@@ -1526,7 +1526,7 @@ _ZNSt12_Vector_baseIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllo
   br i1 %257, label %258, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i
 
 258:                                              ; preds = %256
-  %259 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %213, i64 %210
+  %259 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %213, i64 %210
   %.not.i.i.i = icmp eq ptr %212, %259
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE6resizeEm.exit.i, label %260
 
@@ -1543,7 +1543,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %263 = load ptr, ptr %0, align 8
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
   %267 = call noundef i64 %266(ptr noundef nonnull align 8 dereferenceable(8) %263, ptr noundef nonnull %12, i64 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -1551,11 +1551,11 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i, %261
   %.08.i.i.i.i = phi i64 [ %289, %_ZN3ozz2io8IArchiversERf.exit.i.i.i.i ], [ 0, %261 ]
-  %268 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %262, i64 %.08.i.i.i.i
+  %268 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %262, i64 %.08.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %269 = load ptr, ptr %0, align 8
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = call noundef i64 %272(ptr noundef nonnull align 8 dereferenceable(8) %269, ptr noundef nonnull %11, i64 noundef 4)
   %274 = load i8, ptr %14, align 8
@@ -1592,7 +1592,7 @@ _ZN3ozz2io8IArchiversERf.exit.i.i.i.i:            ; preds = %285, %276
   %287 = phi float [ %284, %276 ], [ %286, %285 ]
   store float %287, ptr %268, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %288 = getelementptr inbounds i8, ptr %268, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %268, i64 4
   call void @_ZN3ozz2io6ExternINS_4math6Float3EE4LoadERNS0_8IArchiveEPS3_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 4 dereferenceable(12) %288, i64 noundef 1, i32 noundef 0)
   %289 = add nuw nsw i64 %.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %289, %210

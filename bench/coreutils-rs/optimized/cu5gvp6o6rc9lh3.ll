@@ -20,10 +20,10 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h7a3db366a5fd85ccE(ptr n
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 8192, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %.outer
 
@@ -68,7 +68,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br i1 %22, label %.noexc, label %.loopexit
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i8, ptr %24, align 8, !range !9, !noundef !4
   %26 = icmp eq i8 %25, 35
   br i1 %26, label %.noexc, label %.loopexit
@@ -83,7 +83,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br i1 %32, label %.noexc, label %.loopexit
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1c4a06db13c3abc6E.exit"
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.017.ph, ptr %34, align 8
   br label %37
 
@@ -106,7 +106,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 .loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1c4a06db13c3abc6E.exit20", %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %27, %23, %21
   %.lcssa46.sink = phi ptr [ %18, %21 ], [ %18, %23 ], [ %18, %27 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1c4a06db13c3abc6E.exit20" ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.lcssa46.sink, ptr %40, align 8
   br label %37
 

@@ -2353,7 +2353,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 _PyLong_IsCompact.exit:                           ; preds = %entry
-  %long_value.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %long_value.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %3 = load i64, ptr %long_value.i, align 8
   %cmp.i = icmp ult i64 %3, 16
   br i1 %cmp.i, label %_PyLong_CompactValue.exit, label %if.end
@@ -2361,7 +2361,7 @@ _PyLong_IsCompact.exit:                           ; preds = %entry
 _PyLong_CompactValue.exit:                        ; preds = %_PyLong_IsCompact.exit
   %and.i = and i64 %3, 3
   %sub.i = sub nsw i64 1, %and.i
-  %ob_digit.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %ob_digit.i = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %4 = load i32, ptr %ob_digit.i, align 8
   %conv.i8 = zext i32 %4 to i64
   %mul.i = mul nsw i64 %sub.i, %conv.i8

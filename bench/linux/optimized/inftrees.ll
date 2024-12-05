@@ -42,7 +42,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   br i1 %22, label %.loopexit30, label %13, !llvm.loop !5
 
 .loopexit30:                                      ; preds = %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 30
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 30
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   %23 = icmp eq i16 %.pre, 0
   %24 = load i32, ptr %4, align 4
@@ -79,17 +79,17 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %37 = getelementptr i8, ptr %36, i64 4
   store ptr %37, ptr %3, align 8
   store i8 64, ptr %36, align 2
-  %38 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 1, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %36, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i16 0, ptr %39, align 2
   %40 = load ptr, ptr %3, align 8
   %41 = getelementptr i8, ptr %40, i64 4
   store ptr %41, ptr %3, align 8
   store i8 64, ptr %40, align 2
-  %42 = getelementptr inbounds i8, ptr %40, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 1, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %40, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store i16 0, ptr %43, align 2
   br label %277
 
@@ -142,7 +142,7 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
 
 74:                                               ; preds = %70, %68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !11
-  %75 = getelementptr inbounds i8, ptr %8, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 0, ptr %75, align 2
   br label %79
 
@@ -265,9 +265,9 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %154 = zext i32 %153 to i64
   %155 = getelementptr %struct.code, ptr %123, i64 %154
   store i8 %146, ptr %155, align 2
-  %156 = getelementptr inbounds i8, ptr %155, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1
   store i8 %130, ptr %156, align 1
-  %157 = getelementptr inbounds i8, ptr %155, i64 2
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 2
   store i16 %147, ptr %157, align 2
   %158 = icmp eq i32 %152, 0
   br i1 %158, label %159, label %150, !llvm.loop !14
@@ -413,9 +413,9 @@ define dso_local noundef range(i32 -1, 2) i32 @zlib_inflate_table(i32 noundef %0
   %256 = zext i32 %255 to i64
   %257 = getelementptr %struct.code, ptr %254, i64 %256
   store i8 64, ptr %257, align 2
-  %258 = getelementptr inbounds i8, ptr %257, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 1
   store i8 %253, ptr %258, align 1
-  %259 = getelementptr inbounds i8, ptr %257, i64 2
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 2
   store i16 0, ptr %259, align 2
   %260 = add i32 %251, -1
   %261 = shl nuw i32 1, %260

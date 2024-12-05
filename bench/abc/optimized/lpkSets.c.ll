@@ -37,7 +37,7 @@ define i32 @Lpk_ComputeSets_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %8, label %Kit_DsdNtkObj.exit.thread, label %Kit_DsdNtkObj.exit
 
 Kit_DsdNtkObj.exit:                               ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = sub nsw i32 %5, %7
   %12 = sext i32 %11 to i64
@@ -63,9 +63,9 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %.not77, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader63
-  %21 = getelementptr inbounds i8, ptr %14, i64 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
-  %.phi.trans.insert.i56 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.phi.trans.insert.i56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %78
 
 .preheader62:                                     ; preds = %17
@@ -74,17 +74,17 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %.not78, label %.critedge, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %.preheader62
-  %24 = getelementptr inbounds i8, ptr %14, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
   br label %25
 
 25:                                               ; preds = %.lr.ph69, %25
   %indvars.iv85 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next86, %25 ]
   %.05067 = phi i32 [ 0, %.lr.ph69 ], [ %31, %25 ]
-  %26 = getelementptr inbounds [0 x i16], ptr %24, i64 0, i64 %indvars.iv85
+  %26 = getelementptr inbounds nuw [0 x i16], ptr %24, i64 0, i64 %indvars.iv85
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %28, ptr noundef %2)
-  %30 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %indvars.iv85
+  %30 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv85
   store i32 %29, ptr %30, align 4
   %31 = or i32 %29, %.05067
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -102,8 +102,8 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %36, label %.preheader.lr.ph, label %.critedge2
 
 .preheader.lr.ph:                                 ; preds = %.critedge
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %Vec_IntPush.exit
@@ -127,7 +127,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %.not, label %47, label %43
 
 43:                                               ; preds = %.lr.ph74
-  %44 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %indvars.iv88
+  %44 = getelementptr inbounds nuw [16 x i32], ptr %4, i64 0, i64 %indvars.iv88
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, %.04872
   br label %47
@@ -210,7 +210,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 78:                                               ; preds = %.lr.ph, %Vec_IntPush.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit61 ]
   %.15165 = phi i32 [ 0, %.lr.ph ], [ %83, %Vec_IntPush.exit61 ]
-  %79 = getelementptr inbounds [0 x i16], ptr %21, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [0 x i16], ptr %21, i64 0, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %81, ptr noundef %2)
@@ -291,11 +291,11 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nounwind uwtable
 define i32 @Lpk_ComputeSets(ptr noundef %0, ptr noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %8, label %Vec_IntPush.exit
 
@@ -327,17 +327,17 @@ Vec_IntPush.exit:                                 ; preds = %2, %Vec_IntGrow.exi
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds i32, ptr %15, i64 %17
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %20 = load i16, ptr %19, align 2
   %21 = lshr i16 %20, 1
   %22 = load i16, ptr %0, align 8
   %23 = icmp uge i16 %21, %22
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %narrow.i = sub nuw nsw i16 %21, %22
   %26 = zext nneg i16 %narrow.i to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 448
@@ -347,7 +347,7 @@ Vec_IntPush.exit:                                 ; preds = %2, %Vec_IntGrow.exi
   ]
 
 Kit_DsdNtkRoot.exit31:                            ; preds = %Vec_IntPush.exit
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i16, ptr %31, align 4
   %33 = lshr i16 %32, 1
   %34 = zext nneg i16 %33 to i32
@@ -358,7 +358,7 @@ Kit_DsdNtkRoot.exit31:                            ; preds = %Vec_IntPush.exit
   br i1 %38, label %39, label %.Vec_IntGrow.exit10_crit_edge.i32
 
 .Vec_IntGrow.exit10_crit_edge.i32:                ; preds = %Kit_DsdNtkRoot.exit31
-  %.phi.trans.insert.i33 = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i34 = load ptr, ptr %.phi.trans.insert.i33, align 8
   br label %Vec_IntPush.exit38
 
@@ -367,7 +367,7 @@ Kit_DsdNtkRoot.exit31:                            ; preds = %Vec_IntPush.exit
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not9.i.i36 = icmp eq ptr %43, null
   br i1 %.not9.i.i36, label %46, label %44
@@ -388,7 +388,7 @@ Vec_IntGrow.exit.i37:                             ; preds = %46, %44
 
 49:                                               ; preds = %39
   %50 = shl nuw nsw i32 %36, 1
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not9.i9.i35 = icmp eq ptr %52, null
   %53 = zext nneg i32 %50 to i64
@@ -428,7 +428,7 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %71, label %72, label %.Vec_IntGrow.exit10_crit_edge.i39
 
 .Vec_IntGrow.exit10_crit_edge.i39:                ; preds = %66
-  %.phi.trans.insert.i40 = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i41 = load ptr, ptr %.phi.trans.insert.i40, align 8
   br label %Vec_IntPush.exit45
 
@@ -437,7 +437,7 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not9.i.i43 = icmp eq ptr %76, null
   br i1 %.not9.i.i43, label %79, label %77
@@ -458,7 +458,7 @@ Vec_IntGrow.exit.i44:                             ; preds = %79, %77
 
 82:                                               ; preds = %72
   %83 = shl nuw nsw i32 %69, 1
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not9.i9.i42 = icmp eq ptr %85, null
   %86 = zext nneg i32 %83 to i64
@@ -498,7 +498,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
 101:                                              ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
   %.val26 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i32, ptr %.val26, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4
   %104 = xor i32 %103, -1
   %105 = and i32 %68, %104
@@ -555,7 +555,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 .lr.ph.us:                                        ; preds = %..critedge2_crit_edge.us, %.lr.ph117.split.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
   %.0116.us = phi i32 [ %.us-phi.us, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
-  %21 = getelementptr inbounds i32, ptr %.val109, i64 %indvars.iv133
+  %21 = getelementptr inbounds nuw i32, ptr %.val109, i64 %indvars.iv133
   %22 = load i32, ptr %21, align 4
   %.fr128 = freeze i32 %22
   %23 = and i32 %.fr128, 65535
@@ -571,7 +571,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 .lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %101
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %.lr.ph.split.us121.preheader ]
   %.1113.us = phi i32 [ %.2.us, %101 ], [ %.0116.us, %.lr.ph.split.us121.preheader ]
-  %27 = getelementptr inbounds i32, ptr %.val108.us, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %.val108.us, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 65535
   %30 = icmp eq i32 %29, 0
@@ -629,7 +629,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 74:                                               ; preds = %37
   %75 = and i32 %38, 65535
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.TravId, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.TravId, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
   %.not.us = icmp sgt i32 %78, %8
   br i1 %.not.us, label %86, label %79
@@ -642,7 +642,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   store i16 %80, ptr %83, align 2
   store i32 %12, ptr %77, align 4
   %84 = trunc nsw i32 %72 to i8
-  %85 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
+  %85 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
   store i8 %84, ptr %85, align 1
   br label %.sink.split
 
@@ -651,7 +651,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %87, label %88, label %101
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
+  %89 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
   %90 = load i8, ptr %89, align 1
   %91 = sext i8 %90 to i32
   %92 = icmp sgt i32 %72, %91
@@ -666,12 +666,12 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 .sink.split:                                      ; preds = %79, %93
   %.2.us.ph = phi i32 [ %.1113.us, %93 ], [ %81, %79 ]
   %95 = trunc nuw nsw i32 %70 to i8
-  %96 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %76
+  %96 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %76
   store i8 %95, ptr %96, align 1
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = shl i32 %97, 16
   %99 = or i32 %98, %.sink154
-  %100 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %76
+  %100 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %76
   store i32 %99, ptr %100, align 4
   br label %101
 
@@ -705,10 +705,10 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 .critedge:                                        ; preds = %.critedge.preheader129, %.critedge
   %indvars.iv138 = phi i64 [ 0, %.critedge.preheader129 ], [ %indvars.iv.next139, %.critedge ]
   %.089124 = phi i32 [ 1000, %.critedge.preheader129 ], [ %spec.select, %.critedge ]
-  %106 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv138
+  %106 = getelementptr inbounds nuw [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv138
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i64
-  %109 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = sext i8 %110 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %111)
@@ -718,10 +718,10 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 112:                                              ; preds = %.lr.ph126, %177
   %indvars.iv143 = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next144, %177 ]
-  %113 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv143
+  %113 = getelementptr inbounds nuw [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv143
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %115
   %117 = load i8, ptr %116, align 1
   %118 = sext i8 %117 to i32
   %119 = icmp eq i32 %spec.select, %118
@@ -737,21 +737,21 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   store i32 %124, ptr %5, align 4
   %125 = sext i32 %121 to i64
   %126 = getelementptr inbounds %struct.Lpk_Set_t_, ptr %4, i64 %125
-  %127 = getelementptr inbounds [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %115
+  %127 = getelementptr inbounds nuw [65536 x i32], ptr @Lpk_ComposeSets.Parents, i64 0, i64 %115
   %128 = load i32, ptr %127, align 4
   %129 = and i32 %128, 65535
   %130 = lshr i32 %128, 16
   %.val107 = load ptr, ptr %103, align 8
   %131 = zext nneg i32 %129 to i64
-  %132 = getelementptr inbounds i32, ptr %.val107, i64 %131
+  %132 = getelementptr inbounds nuw i32, ptr %.val107, i64 %131
   %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds i8, ptr %126, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %133, ptr %134, align 4
   %.val106 = load ptr, ptr %104, align 8
   %135 = zext nneg i32 %130 to i64
-  %136 = getelementptr inbounds i32, ptr %.val106, i64 %135
+  %136 = getelementptr inbounds nuw i32, ptr %.val106, i64 %135
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %126, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 %137, ptr %138, align 4
   %139 = or i32 %137, %133
   store i8 %105, ptr %126, align 4
@@ -770,7 +770,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %152 = lshr i32 %151, 8
   %153 = add nuw nsw i32 %152, %151
   %154 = trunc i32 %153 to i8
-  %155 = getelementptr inbounds i8, ptr %126, i64 3
+  %155 = getelementptr inbounds nuw i8, ptr %126, i64 3
   store i8 %154, ptr %155, align 1
   %156 = lshr i32 %139, 16
   %157 = and i32 %156, %139
@@ -789,11 +789,11 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %170 = lshr i32 %169, 8
   %171 = add nuw nsw i32 %170, %169
   %172 = trunc i32 %171 to i8
-  %173 = getelementptr inbounds i8, ptr %126, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %126, i64 1
   store i8 %172, ptr %173, align 1
   %174 = xor i8 %172, -1
   %175 = add nsw i8 %174, %154
-  %176 = getelementptr inbounds i8, ptr %126, i64 2
+  %176 = getelementptr inbounds nuw i8, ptr %126, i64 2
   store i8 %175, ptr %176, align 2
   br label %177
 
@@ -811,9 +811,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Lpk_MapSuppPrintSet(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = or i32 %6, %4
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %1)
@@ -821,15 +821,15 @@ define void @Lpk_MapSuppPrintSet(ptr nocapture noundef readonly %0, i32 noundef 
   %10 = sext i8 %9 to i32
   %11 = add nsw i32 %10, 97
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %15)
-  %17 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %19)
-  %21 = getelementptr inbounds i8, ptr %0, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i8, ptr %21, align 2
   %23 = sext i8 %22 to i32
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %23)
@@ -887,19 +887,19 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define i32 @Lpk_MapSuppRedDecSelect(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8241712
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8241712
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8241720
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8241720
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8240912
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8240912
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.val, align 8
-  %15 = getelementptr inbounds i8, ptr %.val, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %21, label %20
@@ -957,7 +957,7 @@ define i32 @Lpk_MapSuppRedDecSelect(ptr nocapture noundef readonly %0, ptr nound
 .lr.ph.i:                                         ; preds = %.critedge, %Lpk_PrintSetOne.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %Lpk_PrintSetOne.exit.i ], [ 0, %.critedge ]
   %.val8.i = load ptr, ptr %24, align 8
-  %42 = getelementptr inbounds i32, ptr %.val8.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr %.val8.i, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   br label %44
 
@@ -1002,7 +1002,7 @@ Lpk_PrintSetOne.exit.i:                           ; preds = %49
 .lr.ph.i84:                                       ; preds = %.thread96, %Lpk_PrintSetOne.exit.i91
   %indvars.iv.i85 = phi i64 [ %indvars.iv.next.i93, %Lpk_PrintSetOne.exit.i91 ], [ 0, %.thread96 ]
   %.val8.i86 = load ptr, ptr %26, align 8
-  %57 = getelementptr inbounds i32, ptr %.val8.i86, i64 %indvars.iv.i85
+  %57 = getelementptr inbounds nuw i32, ptr %.val8.i86, i64 %indvars.iv.i85
   %58 = load i32, ptr %57, align 4
   br label %59
 
@@ -1066,7 +1066,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
   %indvars.iv = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next, %.lr.ph101 ]
-  %72 = getelementptr inbounds %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @Lpk_MapSuppPrintSet(ptr noundef nonnull %72, i32 noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1081,7 +1081,7 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 
 .lr.ph104:                                        ; preds = %.critedge77
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i32, ptr %77, align 4
   %wide.trip.count111 = zext nneg i32 %74 to i64
   br label %79
@@ -1090,8 +1090,8 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
   %80 = phi ptr [ null, %.lr.ph104 ], [ %88, %87 ]
   %indvars.iv108 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next109, %87 ]
   %.064103 = phi i32 [ 0, %.lr.ph104 ], [ %.1, %87 ]
-  %81 = getelementptr inbounds %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv108
-  %82 = getelementptr inbounds i8, ptr %81, i64 3
+  %81 = getelementptr inbounds nuw %struct.Lpk_Set_t_, ptr @Lpk_MapSuppRedDecSelect.pStore, i64 %indvars.iv108
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 3
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i32
   %.not72 = icmp sgt i32 %78, %84
@@ -1138,9 +1138,9 @@ Lpk_PrintSets.exit95:                             ; preds = %Lpk_PrintSetOne.exi
 
 .critedge79:                                      ; preds = %92, %93
   %99 = phi ptr [ %88, %92 ], [ %.pre113, %93 ]
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %99, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %103 = load i32, ptr %102, align 4
   %104 = or i32 %103, %101
   %105 = lshr i32 %104, 16

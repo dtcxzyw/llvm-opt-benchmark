@@ -52,13 +52,13 @@ define dso_local void @save_cred_state() local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @conf, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4360
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4360
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @xstrdup(ptr noundef %7) #12
   store ptr %8, ptr %4, align 8
   call void @_xstrcat(ptr noundef nonnull %4, ptr noundef nonnull @.str) #12
   %9 = load ptr, ptr @conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4360
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4360
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @xstrdup(ptr noundef %11) #12
   store ptr %12, ptr %3, align 8
@@ -91,13 +91,13 @@ define dso_local void @save_cred_state() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2)
   call void @slurm_init_update_node_msg(ptr noundef nonnull %2) #12
   %27 = load ptr, ptr @conf, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4272
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4272
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 512, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr @.str.5, ptr %32, align 8
   %33 = call i32 @slurm_update_node(ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2)
@@ -131,9 +131,9 @@ define dso_local void @save_cred_state() local_unnamed_addr #0 {
   unreachable
 
 _cred_context_pack.exit:                          ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %35, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %35, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = call i64 @write(i32 noundef %18, ptr noundef %48, i64 noundef %51) #12
@@ -160,13 +160,13 @@ _cred_context_pack.exit:                          ; preds = %39
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1)
   call void @slurm_init_update_node_msg(ptr noundef nonnull %1) #12
   %66 = load ptr, ptr @conf, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 4272
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4272
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 512, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @.str.5, ptr %71, align 8
   %72 = call i32 @slurm_update_node(ptr noundef nonnull %1) #12
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1)
@@ -278,14 +278,14 @@ define dso_local void @cred_state_init() local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @conf, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4427
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4427
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %40, label %8
 
 8:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %9 = getelementptr inbounds i8, ptr %4, i64 4360
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4360
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #12
   store ptr %11, ptr %3, align 8
@@ -517,13 +517,13 @@ define dso_local noundef i32 @cred_insert_jobid(i32 noundef %0) local_unnamed_ad
 
 17:                                               ; preds = %7
   %18 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 90, ptr noundef nonnull @__func__._job_state_create) #12
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 0, ptr %20, align 8
   %21 = call i64 @time(ptr noundef null) #12
   store i64 %21, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 2147483647, ptr %22, align 8
   %23 = load ptr, ptr @cred_job_list, align 8
   call void @list_append(ptr noundef %23, ptr noundef nonnull %18) #12
@@ -577,13 +577,13 @@ define dso_local range(i32 -1, 1) i32 @cred_revoke(i32 noundef %0, i64 noundef %
 
 15:                                               ; preds = %9
   %16 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 90, ptr noundef nonnull @__func__._job_state_create) #12
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %18, align 8
   %19 = call i64 @time(ptr noundef null) #12
   store i64 %19, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 2147483647, ptr %20, align 8
   %21 = load ptr, ptr @cred_job_list, align 8
   call void @list_append(ptr noundef %21, ptr noundef nonnull %16) #12
@@ -591,7 +591,7 @@ define dso_local range(i32 -1, 1) i32 @cred_revoke(i32 noundef %0, i64 noundef %
 
 22:                                               ; preds = %15, %9
   %.017 = phi ptr [ %14, %9 ], [ %16, %15 ]
-  %23 = getelementptr inbounds i8, ptr %.017, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.017, i64 24
   %24 = load i64, ptr %23, align 8
   %.not25 = icmp eq i64 %24, 0
   br i1 %.not25, label %35, label %25
@@ -612,7 +612,7 @@ define dso_local range(i32 -1, 1) i32 @cred_revoke(i32 noundef %0, i64 noundef %
   br label %31
 
 31:                                               ; preds = %30, %27
-  %32 = getelementptr inbounds i8, ptr %.017, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   store i64 2147483647, ptr %32, align 8
   br label %35
 
@@ -661,7 +661,7 @@ define dso_local zeroext i1 @cred_revoked(ptr nocapture noundef readonly %0) loc
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -673,13 +673,13 @@ define dso_local zeroext i1 @cred_revoked(ptr nocapture noundef readonly %0) loc
   br i1 %.not13, label %18, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i64, ptr %13, align 8
   %.not14 = icmp eq i64 %14, 0
   br i1 %.not14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i64, ptr %16, align 8
   %.not15 = icmp sle i64 %17, %14
   br label %18
@@ -730,7 +730,7 @@ define dso_local range(i32 -1, 1) i32 @cred_begin_expiration(i32 noundef %0) loc
   br i1 %.not15, label %32, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp slt i64 %15, 2147483647
   br i1 %16, label %32, label %17
@@ -746,7 +746,7 @@ define dso_local range(i32 -1, 1) i32 @cred_begin_expiration(i32 noundef %0) loc
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = load i64, ptr %14, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.11, i32 noundef %26, i64 noundef %27) #12
@@ -803,7 +803,7 @@ define dso_local void @cred_handle_reissue(ptr nocapture noundef readonly %0, i1
   unreachable
 
 8:                                                ; preds = %4, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -815,13 +815,13 @@ define dso_local void @cred_handle_reissue(ptr nocapture noundef readonly %0, i1
   br i1 %.not15, label %30, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i64, ptr %15, align 8
   %.not16 = icmp eq i64 %16, 0
   br i1 %.not16, label %30, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i64, ptr %18, align 8
   %20 = icmp sgt i64 %19, %16
   br i1 %20, label %21, label %30
@@ -832,7 +832,7 @@ define dso_local void @cred_handle_reissue(ptr nocapture noundef readonly %0, i1
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %26 = load i32, ptr %25, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, i32 noundef %26) #12
   br label %27
@@ -891,7 +891,7 @@ define dso_local noundef zeroext i1 @cred_cache_valid(ptr noundef %0) local_unna
   %14 = load ptr, ptr @cred_state_list, align 8
   %15 = call i32 @list_delete_all(ptr noundef %14, ptr noundef nonnull @_list_find_expired_cred_state, ptr noundef nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -903,13 +903,13 @@ define dso_local noundef zeroext i1 @cred_cache_valid(ptr noundef %0) local_unna
   br i1 %.not15.i, label %cred_handle_reissue.exit, label %21
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load i64, ptr %22, align 8
   %.not16.i = icmp eq i64 %23, 0
   br i1 %.not16.i, label %cred_handle_reissue.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load i64, ptr %25, align 8
   %27 = icmp sgt i64 %26, %23
   br i1 %27, label %28, label %cred_handle_reissue.exit
@@ -920,7 +920,7 @@ define dso_local noundef zeroext i1 @cred_cache_valid(ptr noundef %0) local_unna
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %33 = load i32, ptr %32, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.12, i32 noundef %33) #12
   br label %34
@@ -945,22 +945,22 @@ cred_handle_reissue.exit:                         ; preds = %9, %21, %24, %34
   %42 = load ptr, ptr %16, align 8
   %43 = load i32, ptr %42, align 8
   %44 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 90, ptr noundef nonnull @__func__._job_state_create) #12
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 %43, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 0, ptr %46, align 8
   %47 = call i64 @time(ptr noundef null) #12
   store i64 %47, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 2147483647, ptr %48, align 8
   %49 = load ptr, ptr @cred_job_list, align 8
   call void @list_append(ptr noundef %49, ptr noundef nonnull %44) #12
   br label %_credential_revoked.exit
 
 50:                                               ; preds = %cred_handle_reissue.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %54 = load i64, ptr %53, align 8
   %.not9.i = icmp sgt i64 %52, %54
   br i1 %.not9.i, label %_credential_revoked.exit, label %55
@@ -971,9 +971,9 @@ cred_handle_reissue.exit:                         ; preds = %9, %21, %24, %34
   br i1 %57, label %58, label %79
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %40, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %40, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %62 = load i64, ptr %61, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.16, i32 noundef %60, i64 noundef %62) #12
   br label %79
@@ -986,16 +986,16 @@ _credential_revoked.exit:                         ; preds = %50, %41
 
 65:                                               ; preds = %_credential_revoked.exit
   %66 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 79, ptr noundef nonnull @__func__._cred_state_create) #12
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %67, ptr noundef nonnull align 8 dereferenceable(12) %68, i64 12, i1 false)
-  %69 = getelementptr inbounds i8, ptr %0, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %66, align 8
   %71 = call i32 @cred_expiration() #12
   %72 = sext i32 %71 to i64
   %73 = add nsw i64 %70, %72
-  %74 = getelementptr inbounds i8, ptr %66, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %73, ptr %74, align 8
   %75 = load ptr, ptr @cred_state_list, align 8
   call void @list_append(ptr noundef %75, ptr noundef nonnull %66) #12
@@ -1035,15 +1035,15 @@ declare i32 @slurm_pack_list(ptr noundef, ptr noundef, ptr noundef, i16 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_job_state_pack(ptr nocapture noundef readonly %0, i16 zeroext %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   tail call void @pack32(i32 noundef %5, ptr noundef %2) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   tail call void @pack_time(i64 noundef %7, ptr noundef %2) #12
   %8 = load i64, ptr %0, align 8
   tail call void @pack_time(i64 noundef %8, ptr noundef %2) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   tail call void @pack_time(i64 noundef %10, ptr noundef %2) #12
   ret void
@@ -1051,11 +1051,11 @@ define internal void @_job_state_pack(ptr nocapture noundef readonly %0, i16 zer
 
 ; Function Attrs: nounwind uwtable
 define internal void @_cred_state_pack(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @pack_step_id(ptr noundef nonnull %4, ptr noundef %2, i16 noundef zeroext %1) #12
   %5 = load i64, ptr %0, align 8
   tail call void @pack_time(i64 noundef %5, ptr noundef %2) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   tail call void @pack_time(i64 noundef %7, ptr noundef %2) #12
   ret void
@@ -1076,13 +1076,13 @@ define internal range(i32 -1, 1) i32 @_job_state_unpack(ptr nocapture noundef wr
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 160, ptr noundef nonnull @__func__._job_state_unpack) #12
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %2) #12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %33
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = tail call i32 @unpack_time(ptr noundef nonnull %9, ptr noundef %2) #12
   %.not6 = icmp eq i32 %10, 0
   br i1 %.not6, label %11, label %33
@@ -1093,7 +1093,7 @@ define internal range(i32 -1, 1) i32 @_job_state_unpack(ptr nocapture noundef wr
   br i1 %.not7, label %13, label %33
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = tail call i32 @unpack_time(ptr noundef nonnull %14, ptr noundef %2) #12
   %.not8 = icmp eq i32 %15, 0
   br i1 %.not8, label %16, label %33
@@ -1147,7 +1147,7 @@ define internal range(i32 -1, 1) i32 @_cred_state_unpack(ptr nocapture noundef w
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 197, ptr noundef nonnull @__func__._cred_state_unpack) #12
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call i32 @unpack_step_id_members(ptr noundef nonnull %6, ptr noundef %2, i16 noundef zeroext 10496) #12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %13
@@ -1158,7 +1158,7 @@ define internal range(i32 -1, 1) i32 @_cred_state_unpack(ptr nocapture noundef w
   br i1 %.not5, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = tail call i32 @unpack_time(ptr noundef nonnull %11, ptr noundef %2) #12
   %.not6 = icmp eq i32 %12, 0
   br i1 %.not6, label %14, label %13
@@ -1186,14 +1186,14 @@ declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_list_find_expired_job_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %6, %8
   br i1 %9, label %11, label %10
@@ -1211,7 +1211,7 @@ declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_list_find_job_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %3
   %. = zext i1 %6 to i32
@@ -1221,7 +1221,7 @@ define internal range(i32 0, 2) i32 @_list_find_job_state(ptr nocapture noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_list_find_expired_cred_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %3, %5
   %. = zext i1 %6 to i32
@@ -1230,8 +1230,8 @@ define internal range(i32 0, 2) i32 @_list_find_expired_cred_state(ptr nocapture
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @_list_find_cred_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %3, ptr noundef nonnull dereferenceable(12) %5, i64 12)
   %.not = icmp eq i32 %bcmp, 0
@@ -1239,7 +1239,7 @@ define internal range(i32 0, 2) i32 @_list_find_cred_state(ptr nocapture noundef
 
 6:                                                ; preds = %2
   %7 = load i64, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %7, %9
   br i1 %10, label %12, label %11

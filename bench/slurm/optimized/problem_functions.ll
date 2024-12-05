@@ -34,11 +34,11 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_problem(i32 noundef %0, ptr
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 88
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.not114.i = icmp eq ptr %4, null
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_set_cond.exit
@@ -383,18 +383,18 @@ _set_cond.exit:                                   ; preds = %145, %26
   br i1 %.not8696, label %._crit_edge99, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.preheader
-  %179 = getelementptr inbounds i8, ptr %177, i64 320
-  %180 = getelementptr inbounds i8, ptr %177, i64 132
-  %181 = getelementptr inbounds i8, ptr %177, i64 40
-  %182 = getelementptr inbounds i8, ptr %177, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 320
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 132
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 40
+  %182 = getelementptr inbounds nuw i8, ptr %177, i64 8
   br label %183
 
 183:                                              ; preds = %.lr.ph98, %199
   %184 = phi ptr [ %178, %.lr.ph98 ], [ %203, %199 ]
   %.097 = phi i32 [ 1, %.lr.ph98 ], [ %202, %199 ]
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load i16, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %184, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %188 = load ptr, ptr %187, align 8
   switch i16 %186, label %199 [
     i16 0, label %189

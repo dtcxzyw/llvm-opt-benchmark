@@ -19,9 +19,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5T__visit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
 switch.edge:
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -11
   %switch = icmp ult i32 %8, -5
@@ -37,7 +37,7 @@ switch.edge:
 
 ._crit_edge:                                      ; preds = %10
   %.pre = load ptr, ptr %4, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 12
   %.pre48 = load i32, ptr %.phi.trans.insert, align 4
   br label %17
 
@@ -60,7 +60,7 @@ switch.edge:
   ]
 
 .preheader:                                       ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %19, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 52
   %21 = load i32, ptr %20, align 4
   %.not46 = icmp eq i32 %21, 0
   br i1 %.not46, label %.loopexit, label %.lr.ph
@@ -68,7 +68,7 @@ switch.edge:
 22:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 52
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
@@ -77,9 +77,9 @@ switch.edge:
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %28 = phi ptr [ %23, %22 ], [ %19, %.preheader ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %30, i64 %indvars.iv, i32 3
+  %31 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %30, i64 %indvars.iv, i32 3
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @H5T__visit(ptr noundef %32, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %34 = icmp slt i32 %33, 0
@@ -92,7 +92,7 @@ switch.edge:
   br label %69
 
 39:                                               ; preds = %17, %17, %17
-  %40 = getelementptr inbounds i8, ptr %19, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @H5T__visit(ptr noundef %41, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   %43 = icmp slt i32 %42, 0

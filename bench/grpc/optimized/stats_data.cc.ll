@@ -125,9 +125,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %arrayidx4 = getelementptr inbounds [20 x i64], ptr %result, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [20 x i64], ptr %result, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %arrayidx4, align 8
@@ -147,12 +147,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x i64], ptr %left, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr %left, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds [20 x i64], ptr %right, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [20 x i64], ptr %right, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %0, %1
-  %arrayidx6 = getelementptr inbounds [20 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [20 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
   store i64 %sub, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -169,9 +169,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [26 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [26 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %arrayidx4 = getelementptr inbounds [26 x i64], ptr %result, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [26 x i64], ptr %result, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %arrayidx4, align 8
@@ -191,12 +191,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [26 x i64], ptr %left, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [26 x i64], ptr %left, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds [26 x i64], ptr %right, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [26 x i64], ptr %right, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %0, %1
-  %arrayidx6 = getelementptr inbounds [26 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [26 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
   store i64 %sub, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
@@ -213,9 +213,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %arrayidx4 = getelementptr inbounds [20 x i64], ptr %result, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [20 x i64], ptr %result, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %arrayidx4, align 8
@@ -235,12 +235,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x i64], ptr %left, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr %left, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds [20 x i64], ptr %right, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [20 x i64], ptr %right, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %0, %1
-  %arrayidx6 = getelementptr inbounds [20 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [20 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
   store i64 %sub, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -257,9 +257,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [10 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %arrayidx4 = getelementptr inbounds [10 x i64], ptr %result, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [10 x i64], ptr %result, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %arrayidx4, align 8
@@ -279,12 +279,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [10 x i64], ptr %left, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x i64], ptr %left, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds [10 x i64], ptr %right, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [10 x i64], ptr %right, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %0, %1
-  %arrayidx6 = getelementptr inbounds [10 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [10 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
   store i64 %sub, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -301,9 +301,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %this, i64 0, i64 %indvars.iv
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
-  %arrayidx4 = getelementptr inbounds [20 x i64], ptr %result, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [20 x i64], ptr %result, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %arrayidx4, align 8
@@ -323,12 +323,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [20 x i64], ptr %left, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i64], ptr %left, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr inbounds [20 x i64], ptr %right, i64 0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw [20 x i64], ptr %right, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %0, %1
-  %arrayidx6 = getelementptr inbounds [20 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [20 x i64], ptr %agg.result, i64 0, i64 %indvars.iv
   store i64 %sub, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
@@ -357,11 +357,11 @@ if.then5:                                         ; preds = %if.else3
   %0 = bitcast double %conv to i64
   %sub = add nsw i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
-  %arrayidx = getelementptr inbounds [30 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable1E, i64 0, i64 %shr
+  %arrayidx = getelementptr inbounds nuw [30 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable1E, i64 0, i64 %shr
   %1 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %1 to i32
   %idxprom = zext i8 %1 to i64
-  %arrayidx7 = getelementptr inbounds [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable0E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
   %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
@@ -392,11 +392,11 @@ if.then5:                                         ; preds = %if.else3
   %0 = bitcast double %conv to i64
   %sub = add nsw i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
-  %arrayidx = getelementptr inbounds [29 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable3E, i64 0, i64 %shr
+  %arrayidx = getelementptr inbounds nuw [29 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable3E, i64 0, i64 %shr
   %1 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %1 to i32
   %idxprom = zext i8 %1 to i64
-  %arrayidx7 = getelementptr inbounds [27 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [27 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable2E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
   %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
@@ -427,11 +427,11 @@ if.then5:                                         ; preds = %if.else3
   %0 = bitcast double %conv to i64
   %sub = add nsw i64 %0, -4611686018427387904
   %shr = lshr i64 %sub, 52
-  %arrayidx = getelementptr inbounds [23 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable5E, i64 0, i64 %shr
+  %arrayidx = getelementptr inbounds nuw [23 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable5E, i64 0, i64 %shr
   %1 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %1 to i32
   %idxprom = zext i8 %1 to i64
-  %arrayidx7 = getelementptr inbounds [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable4E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
   %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
@@ -462,11 +462,11 @@ if.then5:                                         ; preds = %if.else3
   %0 = bitcast double %conv to i64
   %sub = add nsw i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
-  %arrayidx = getelementptr inbounds [9 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable7E, i64 0, i64 %shr
+  %arrayidx = getelementptr inbounds nuw [9 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable7E, i64 0, i64 %shr
   %1 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %1 to i32
   %idxprom = zext i8 %1 to i64
-  %arrayidx7 = getelementptr inbounds [11 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [11 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable6E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
   %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
@@ -502,11 +502,11 @@ if.then5:                                         ; preds = %if.else3
   %0 = bitcast double %conv to i64
   %sub = add nsw i64 %0, -4613937818241073152
   %shr = lshr i64 %sub, 51
-  %arrayidx = getelementptr inbounds [23 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable9E, i64 0, i64 %shr
+  %arrayidx = getelementptr inbounds nuw [23 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable9E, i64 0, i64 %shr
   %1 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %1 to i32
   %idxprom = zext i8 %1 to i64
-  %arrayidx7 = getelementptr inbounds [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, i64 0, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw [21 x i32], ptr @_ZN9grpc_core12_GLOBAL__N_112kStatsTable8E, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx7, align 4
   %cmp8 = icmp slt i32 %value, %2
   %conv9.neg = sext i1 %cmp8 to i32
@@ -542,24 +542,24 @@ do.body:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %which to i64
-  %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %which to i64
-  %switch.gep2 = getelementptr inbounds [14 x ptr], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.1, i64 0, i64 %2
+  %switch.gep2 = getelementptr inbounds nuw [14 x ptr], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.1, i64 0, i64 %2
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %3 = zext nneg i32 %which to i64
-  %switch.gep4 = getelementptr inbounds [14 x i32], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.2, i64 0, i64 %3
+  %switch.gep4 = getelementptr inbounds nuw [14 x i32], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.2, i64 0, i64 %3
   %switch.load5 = load i32, ptr %switch.gep4, align 4
   %4 = zext nneg i32 %which to i64
-  %switch.gep6 = getelementptr inbounds [14 x i64], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.3, i64 0, i64 %4
+  %switch.gep6 = getelementptr inbounds nuw [14 x i64], ptr @switch.table._ZNK9grpc_core11GlobalStats9histogramENS0_9HistogramE.3, i64 0, i64 %4
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   store ptr %switch.load, ptr %agg.result, align 8
-  %bucket_boundaries76 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bucket_boundaries76 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %switch.load3, ptr %bucket_boundaries76, align 8
-  %num_buckets77 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %num_buckets77 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 %switch.load5, ptr %num_buckets77, align 8
-  %buckets78 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  %work_serializer_items_per_run = getelementptr inbounds i8, ptr %this, i64 %switch.load7
+  %buckets78 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  %work_serializer_items_per_run = getelementptr inbounds nuw i8, ptr %this, i64 %switch.load7
   store ptr %work_serializer_items_per_run, ptr %buckets78, align 8
   ret void
 }
@@ -583,49 +583,49 @@ lpad.i:                                           ; preds = %entry
 
 _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %entry
   store ptr %call.i59, ptr %agg.result, align 8, !alias.scope !15
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %data_.i, align 8
-  %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %shards_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %shards_.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %1, i64 %2
   %cmp.not161 = icmp eq i64 %2, 0
   br i1 %cmp.not161, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %server_calls_created9 = getelementptr inbounds i8, ptr %call.i59, i64 8
-  %client_channels_created13 = getelementptr inbounds i8, ptr %call.i59, i64 16
-  %client_subchannels_created17 = getelementptr inbounds i8, ptr %call.i59, i64 24
-  %server_channels_created21 = getelementptr inbounds i8, ptr %call.i59, i64 32
-  %insecure_connections_created25 = getelementptr inbounds i8, ptr %call.i59, i64 40
-  %syscall_write29 = getelementptr inbounds i8, ptr %call.i59, i64 48
-  %syscall_read33 = getelementptr inbounds i8, ptr %call.i59, i64 56
-  %tcp_read_alloc_8k37 = getelementptr inbounds i8, ptr %call.i59, i64 64
-  %tcp_read_alloc_64k41 = getelementptr inbounds i8, ptr %call.i59, i64 72
-  %http2_settings_writes45 = getelementptr inbounds i8, ptr %call.i59, i64 80
-  %http2_pings_sent49 = getelementptr inbounds i8, ptr %call.i59, i64 88
-  %http2_writes_begun53 = getelementptr inbounds i8, ptr %call.i59, i64 96
-  %http2_transport_stalls57 = getelementptr inbounds i8, ptr %call.i59, i64 104
-  %http2_stream_stalls61 = getelementptr inbounds i8, ptr %call.i59, i64 112
-  %cq_pluck_creates65 = getelementptr inbounds i8, ptr %call.i59, i64 120
-  %cq_next_creates69 = getelementptr inbounds i8, ptr %call.i59, i64 128
-  %cq_callback_creates73 = getelementptr inbounds i8, ptr %call.i59, i64 136
-  %wrr_updates77 = getelementptr inbounds i8, ptr %call.i59, i64 144
-  %work_serializer_items_enqueued81 = getelementptr inbounds i8, ptr %call.i59, i64 152
-  %work_serializer_items_dequeued85 = getelementptr inbounds i8, ptr %call.i59, i64 160
-  %call_initial_size88 = getelementptr inbounds i8, ptr %call.i59, i64 168
-  %tcp_write_size90 = getelementptr inbounds i8, ptr %call.i59, i64 376
-  %tcp_write_iov_size92 = getelementptr inbounds i8, ptr %call.i59, i64 536
-  %tcp_read_size94 = getelementptr inbounds i8, ptr %call.i59, i64 616
-  %tcp_read_offer96 = getelementptr inbounds i8, ptr %call.i59, i64 776
-  %tcp_read_offer_iov_size98 = getelementptr inbounds i8, ptr %call.i59, i64 936
-  %http2_send_message_size100 = getelementptr inbounds i8, ptr %call.i59, i64 1016
-  %http2_metadata_size102 = getelementptr inbounds i8, ptr %call.i59, i64 1176
-  %wrr_subchannel_list_size104 = getelementptr inbounds i8, ptr %call.i59, i64 1384
-  %wrr_subchannel_ready_size106 = getelementptr inbounds i8, ptr %call.i59, i64 1544
-  %work_serializer_run_time_ms108 = getelementptr inbounds i8, ptr %call.i59, i64 1704
-  %work_serializer_work_time_ms110 = getelementptr inbounds i8, ptr %call.i59, i64 1864
-  %work_serializer_work_time_per_item_ms112 = getelementptr inbounds i8, ptr %call.i59, i64 2024
-  %work_serializer_items_per_run114 = getelementptr inbounds i8, ptr %call.i59, i64 2184
+  %server_calls_created9 = getelementptr inbounds nuw i8, ptr %call.i59, i64 8
+  %client_channels_created13 = getelementptr inbounds nuw i8, ptr %call.i59, i64 16
+  %client_subchannels_created17 = getelementptr inbounds nuw i8, ptr %call.i59, i64 24
+  %server_channels_created21 = getelementptr inbounds nuw i8, ptr %call.i59, i64 32
+  %insecure_connections_created25 = getelementptr inbounds nuw i8, ptr %call.i59, i64 40
+  %syscall_write29 = getelementptr inbounds nuw i8, ptr %call.i59, i64 48
+  %syscall_read33 = getelementptr inbounds nuw i8, ptr %call.i59, i64 56
+  %tcp_read_alloc_8k37 = getelementptr inbounds nuw i8, ptr %call.i59, i64 64
+  %tcp_read_alloc_64k41 = getelementptr inbounds nuw i8, ptr %call.i59, i64 72
+  %http2_settings_writes45 = getelementptr inbounds nuw i8, ptr %call.i59, i64 80
+  %http2_pings_sent49 = getelementptr inbounds nuw i8, ptr %call.i59, i64 88
+  %http2_writes_begun53 = getelementptr inbounds nuw i8, ptr %call.i59, i64 96
+  %http2_transport_stalls57 = getelementptr inbounds nuw i8, ptr %call.i59, i64 104
+  %http2_stream_stalls61 = getelementptr inbounds nuw i8, ptr %call.i59, i64 112
+  %cq_pluck_creates65 = getelementptr inbounds nuw i8, ptr %call.i59, i64 120
+  %cq_next_creates69 = getelementptr inbounds nuw i8, ptr %call.i59, i64 128
+  %cq_callback_creates73 = getelementptr inbounds nuw i8, ptr %call.i59, i64 136
+  %wrr_updates77 = getelementptr inbounds nuw i8, ptr %call.i59, i64 144
+  %work_serializer_items_enqueued81 = getelementptr inbounds nuw i8, ptr %call.i59, i64 152
+  %work_serializer_items_dequeued85 = getelementptr inbounds nuw i8, ptr %call.i59, i64 160
+  %call_initial_size88 = getelementptr inbounds nuw i8, ptr %call.i59, i64 168
+  %tcp_write_size90 = getelementptr inbounds nuw i8, ptr %call.i59, i64 376
+  %tcp_write_iov_size92 = getelementptr inbounds nuw i8, ptr %call.i59, i64 536
+  %tcp_read_size94 = getelementptr inbounds nuw i8, ptr %call.i59, i64 616
+  %tcp_read_offer96 = getelementptr inbounds nuw i8, ptr %call.i59, i64 776
+  %tcp_read_offer_iov_size98 = getelementptr inbounds nuw i8, ptr %call.i59, i64 936
+  %http2_send_message_size100 = getelementptr inbounds nuw i8, ptr %call.i59, i64 1016
+  %http2_metadata_size102 = getelementptr inbounds nuw i8, ptr %call.i59, i64 1176
+  %wrr_subchannel_list_size104 = getelementptr inbounds nuw i8, ptr %call.i59, i64 1384
+  %wrr_subchannel_ready_size106 = getelementptr inbounds nuw i8, ptr %call.i59, i64 1544
+  %work_serializer_run_time_ms108 = getelementptr inbounds nuw i8, ptr %call.i59, i64 1704
+  %work_serializer_work_time_ms110 = getelementptr inbounds nuw i8, ptr %call.i59, i64 1864
+  %work_serializer_work_time_per_item_ms112 = getelementptr inbounds nuw i8, ptr %call.i59, i64 2024
+  %work_serializer_items_per_run114 = getelementptr inbounds nuw i8, ptr %call.i59, i64 2184
   %.pre = load i64, ptr %server_calls_created9, align 8
   %.pre163 = load i64, ptr %client_channels_created13, align 8
   %.pre164 = load i64, ptr %client_subchannels_created17, align 8
@@ -672,95 +672,95 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %23 = load i64, ptr %call.i59, align 8
   %add = add i64 %23, %22
   store i64 %add, ptr %call.i59, align 8
-  %server_calls_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 8
+  %server_calls_created = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 8
   %24 = load atomic i64, ptr %server_calls_created monotonic, align 8
   %add10 = add i64 %21, %24
   store i64 %add10, ptr %server_calls_created9, align 8
-  %client_channels_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 16
+  %client_channels_created = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 16
   %25 = load atomic i64, ptr %client_channels_created monotonic, align 8
   %add14 = add i64 %20, %25
   store i64 %add14, ptr %client_channels_created13, align 8
-  %client_subchannels_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 24
+  %client_subchannels_created = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 24
   %26 = load atomic i64, ptr %client_subchannels_created monotonic, align 8
   %add18 = add i64 %19, %26
   store i64 %add18, ptr %client_subchannels_created17, align 8
-  %server_channels_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 32
+  %server_channels_created = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 32
   %27 = load atomic i64, ptr %server_channels_created monotonic, align 8
   %add22 = add i64 %18, %27
   store i64 %add22, ptr %server_channels_created21, align 8
-  %insecure_connections_created = getelementptr inbounds i8, ptr %__begin1.0162, i64 40
+  %insecure_connections_created = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 40
   %28 = load atomic i64, ptr %insecure_connections_created monotonic, align 8
   %add26 = add i64 %17, %28
   store i64 %add26, ptr %insecure_connections_created25, align 8
-  %syscall_write = getelementptr inbounds i8, ptr %__begin1.0162, i64 48
+  %syscall_write = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 48
   %29 = load atomic i64, ptr %syscall_write monotonic, align 8
   %add30 = add i64 %16, %29
   store i64 %add30, ptr %syscall_write29, align 8
-  %syscall_read = getelementptr inbounds i8, ptr %__begin1.0162, i64 56
+  %syscall_read = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 56
   %30 = load atomic i64, ptr %syscall_read monotonic, align 8
   %add34 = add i64 %15, %30
   store i64 %add34, ptr %syscall_read33, align 8
-  %tcp_read_alloc_8k = getelementptr inbounds i8, ptr %__begin1.0162, i64 64
+  %tcp_read_alloc_8k = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 64
   %31 = load atomic i64, ptr %tcp_read_alloc_8k monotonic, align 8
   %add38 = add i64 %14, %31
   store i64 %add38, ptr %tcp_read_alloc_8k37, align 8
-  %tcp_read_alloc_64k = getelementptr inbounds i8, ptr %__begin1.0162, i64 72
+  %tcp_read_alloc_64k = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 72
   %32 = load atomic i64, ptr %tcp_read_alloc_64k monotonic, align 8
   %add42 = add i64 %13, %32
   store i64 %add42, ptr %tcp_read_alloc_64k41, align 8
-  %http2_settings_writes = getelementptr inbounds i8, ptr %__begin1.0162, i64 80
+  %http2_settings_writes = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 80
   %33 = load atomic i64, ptr %http2_settings_writes monotonic, align 8
   %add46 = add i64 %12, %33
   store i64 %add46, ptr %http2_settings_writes45, align 8
-  %http2_pings_sent = getelementptr inbounds i8, ptr %__begin1.0162, i64 88
+  %http2_pings_sent = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 88
   %34 = load atomic i64, ptr %http2_pings_sent monotonic, align 8
   %add50 = add i64 %11, %34
   store i64 %add50, ptr %http2_pings_sent49, align 8
-  %http2_writes_begun = getelementptr inbounds i8, ptr %__begin1.0162, i64 96
+  %http2_writes_begun = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 96
   %35 = load atomic i64, ptr %http2_writes_begun monotonic, align 8
   %add54 = add i64 %10, %35
   store i64 %add54, ptr %http2_writes_begun53, align 8
-  %http2_transport_stalls = getelementptr inbounds i8, ptr %__begin1.0162, i64 104
+  %http2_transport_stalls = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 104
   %36 = load atomic i64, ptr %http2_transport_stalls monotonic, align 8
   %add58 = add i64 %9, %36
   store i64 %add58, ptr %http2_transport_stalls57, align 8
-  %http2_stream_stalls = getelementptr inbounds i8, ptr %__begin1.0162, i64 112
+  %http2_stream_stalls = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 112
   %37 = load atomic i64, ptr %http2_stream_stalls monotonic, align 8
   %add62 = add i64 %8, %37
   store i64 %add62, ptr %http2_stream_stalls61, align 8
-  %cq_pluck_creates = getelementptr inbounds i8, ptr %__begin1.0162, i64 120
+  %cq_pluck_creates = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 120
   %38 = load atomic i64, ptr %cq_pluck_creates monotonic, align 8
   %add66 = add i64 %7, %38
   store i64 %add66, ptr %cq_pluck_creates65, align 8
-  %cq_next_creates = getelementptr inbounds i8, ptr %__begin1.0162, i64 128
+  %cq_next_creates = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 128
   %39 = load atomic i64, ptr %cq_next_creates monotonic, align 8
   %add70 = add i64 %6, %39
   store i64 %add70, ptr %cq_next_creates69, align 8
-  %cq_callback_creates = getelementptr inbounds i8, ptr %__begin1.0162, i64 136
+  %cq_callback_creates = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 136
   %40 = load atomic i64, ptr %cq_callback_creates monotonic, align 8
   %add74 = add i64 %5, %40
   store i64 %add74, ptr %cq_callback_creates73, align 8
-  %wrr_updates = getelementptr inbounds i8, ptr %__begin1.0162, i64 144
+  %wrr_updates = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 144
   %41 = load atomic i64, ptr %wrr_updates monotonic, align 8
   %add78 = add i64 %4, %41
   store i64 %add78, ptr %wrr_updates77, align 8
-  %work_serializer_items_enqueued = getelementptr inbounds i8, ptr %__begin1.0162, i64 152
+  %work_serializer_items_enqueued = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 152
   %42 = load atomic i64, ptr %work_serializer_items_enqueued monotonic, align 8
   %add82 = add i64 %3, %42
   store i64 %add82, ptr %work_serializer_items_enqueued81, align 8
-  %work_serializer_items_dequeued = getelementptr inbounds i8, ptr %__begin1.0162, i64 160
+  %work_serializer_items_dequeued = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 160
   %43 = load atomic i64, ptr %work_serializer_items_dequeued monotonic, align 8
   %44 = load i64, ptr %work_serializer_items_dequeued85, align 8
   %add86 = add i64 %44, %43
   store i64 %add86, ptr %work_serializer_items_dequeued85, align 8
-  %call_initial_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 168
+  %call_initial_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 168
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body
   %indvars.iv.i = phi i64 [ 0, %for.body ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [26 x %"struct.std::atomic"], ptr %call_initial_size, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [26 x %"struct.std::atomic"], ptr %call_initial_size, i64 0, i64 %indvars.iv.i
   %45 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %arrayidx4.i = getelementptr inbounds [26 x i64], ptr %call_initial_size88, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw [26 x i64], ptr %call_initial_size88, i64 0, i64 %indvars.iv.i
   %46 = load i64, ptr %arrayidx4.i, align 8
   %add.i = add i64 %46, %45
   store i64 %add.i, ptr %arrayidx4.i, align 8
@@ -769,14 +769,14 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit, label %for.body.i, !llvm.loop !7
 
 _ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit: ; preds = %for.body.i
-  %tcp_write_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 376
+  %tcp_write_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 376
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %for.body.i61, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit
   %indvars.iv.i62 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit ], [ %indvars.iv.next.i66, %for.body.i61 ]
-  %arrayidx.i63 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %tcp_write_size, i64 0, i64 %indvars.iv.i62
+  %arrayidx.i63 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %tcp_write_size, i64 0, i64 %indvars.iv.i62
   %47 = load atomic i64, ptr %arrayidx.i63 monotonic, align 8
-  %arrayidx4.i64 = getelementptr inbounds [20 x i64], ptr %tcp_write_size90, i64 0, i64 %indvars.iv.i62
+  %arrayidx4.i64 = getelementptr inbounds nuw [20 x i64], ptr %tcp_write_size90, i64 0, i64 %indvars.iv.i62
   %48 = load i64, ptr %arrayidx4.i64, align 8
   %add.i65 = add i64 %48, %47
   store i64 %add.i65, ptr %arrayidx4.i64, align 8
@@ -785,14 +785,14 @@ for.body.i61:                                     ; preds = %for.body.i61, %_ZNK
   br i1 %exitcond.not.i67, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit, label %for.body.i61, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit: ; preds = %for.body.i61
-  %tcp_write_iov_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 536
+  %tcp_write_iov_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 536
   br label %for.body.i68
 
 for.body.i68:                                     ; preds = %for.body.i68, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit
   %indvars.iv.i69 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit ], [ %indvars.iv.next.i73, %for.body.i68 ]
-  %arrayidx.i70 = getelementptr inbounds [10 x %"struct.std::atomic"], ptr %tcp_write_iov_size, i64 0, i64 %indvars.iv.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [10 x %"struct.std::atomic"], ptr %tcp_write_iov_size, i64 0, i64 %indvars.iv.i69
   %49 = load atomic i64, ptr %arrayidx.i70 monotonic, align 8
-  %arrayidx4.i71 = getelementptr inbounds [10 x i64], ptr %tcp_write_iov_size92, i64 0, i64 %indvars.iv.i69
+  %arrayidx4.i71 = getelementptr inbounds nuw [10 x i64], ptr %tcp_write_iov_size92, i64 0, i64 %indvars.iv.i69
   %50 = load i64, ptr %arrayidx4.i71, align 8
   %add.i72 = add i64 %50, %49
   store i64 %add.i72, ptr %arrayidx4.i71, align 8
@@ -801,14 +801,14 @@ for.body.i68:                                     ; preds = %for.body.i68, %_ZNK
   br i1 %exitcond.not.i74, label %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit, label %for.body.i68, !llvm.loop !11
 
 _ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit: ; preds = %for.body.i68
-  %tcp_read_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 616
+  %tcp_read_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 616
   br label %for.body.i75
 
 for.body.i75:                                     ; preds = %for.body.i75, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit
   %indvars.iv.i76 = phi i64 [ 0, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit ], [ %indvars.iv.next.i80, %for.body.i75 ]
-  %arrayidx.i77 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %tcp_read_size, i64 0, i64 %indvars.iv.i76
+  %arrayidx.i77 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %tcp_read_size, i64 0, i64 %indvars.iv.i76
   %51 = load atomic i64, ptr %arrayidx.i77 monotonic, align 8
-  %arrayidx4.i78 = getelementptr inbounds [20 x i64], ptr %tcp_read_size94, i64 0, i64 %indvars.iv.i76
+  %arrayidx4.i78 = getelementptr inbounds nuw [20 x i64], ptr %tcp_read_size94, i64 0, i64 %indvars.iv.i76
   %52 = load i64, ptr %arrayidx4.i78, align 8
   %add.i79 = add i64 %52, %51
   store i64 %add.i79, ptr %arrayidx4.i78, align 8
@@ -817,14 +817,14 @@ for.body.i75:                                     ; preds = %for.body.i75, %_ZNK
   br i1 %exitcond.not.i81, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82, label %for.body.i75, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82: ; preds = %for.body.i75
-  %tcp_read_offer = getelementptr inbounds i8, ptr %__begin1.0162, i64 776
+  %tcp_read_offer = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 776
   br label %for.body.i83
 
 for.body.i83:                                     ; preds = %for.body.i83, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82
   %indvars.iv.i84 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit82 ], [ %indvars.iv.next.i88, %for.body.i83 ]
-  %arrayidx.i85 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %tcp_read_offer, i64 0, i64 %indvars.iv.i84
+  %arrayidx.i85 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %tcp_read_offer, i64 0, i64 %indvars.iv.i84
   %53 = load atomic i64, ptr %arrayidx.i85 monotonic, align 8
-  %arrayidx4.i86 = getelementptr inbounds [20 x i64], ptr %tcp_read_offer96, i64 0, i64 %indvars.iv.i84
+  %arrayidx4.i86 = getelementptr inbounds nuw [20 x i64], ptr %tcp_read_offer96, i64 0, i64 %indvars.iv.i84
   %54 = load i64, ptr %arrayidx4.i86, align 8
   %add.i87 = add i64 %54, %53
   store i64 %add.i87, ptr %arrayidx4.i86, align 8
@@ -833,14 +833,14 @@ for.body.i83:                                     ; preds = %for.body.i83, %_ZNK
   br i1 %exitcond.not.i89, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90, label %for.body.i83, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90: ; preds = %for.body.i83
-  %tcp_read_offer_iov_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 936
+  %tcp_read_offer_iov_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 936
   br label %for.body.i91
 
 for.body.i91:                                     ; preds = %for.body.i91, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90
   %indvars.iv.i92 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit90 ], [ %indvars.iv.next.i96, %for.body.i91 ]
-  %arrayidx.i93 = getelementptr inbounds [10 x %"struct.std::atomic"], ptr %tcp_read_offer_iov_size, i64 0, i64 %indvars.iv.i92
+  %arrayidx.i93 = getelementptr inbounds nuw [10 x %"struct.std::atomic"], ptr %tcp_read_offer_iov_size, i64 0, i64 %indvars.iv.i92
   %55 = load atomic i64, ptr %arrayidx.i93 monotonic, align 8
-  %arrayidx4.i94 = getelementptr inbounds [10 x i64], ptr %tcp_read_offer_iov_size98, i64 0, i64 %indvars.iv.i92
+  %arrayidx4.i94 = getelementptr inbounds nuw [10 x i64], ptr %tcp_read_offer_iov_size98, i64 0, i64 %indvars.iv.i92
   %56 = load i64, ptr %arrayidx4.i94, align 8
   %add.i95 = add i64 %56, %55
   store i64 %add.i95, ptr %arrayidx4.i94, align 8
@@ -849,14 +849,14 @@ for.body.i91:                                     ; preds = %for.body.i91, %_ZNK
   br i1 %exitcond.not.i97, label %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98, label %for.body.i91, !llvm.loop !11
 
 _ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98: ; preds = %for.body.i91
-  %http2_send_message_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1016
+  %http2_send_message_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 1016
   br label %for.body.i99
 
 for.body.i99:                                     ; preds = %for.body.i99, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98
   %indvars.iv.i100 = phi i64 [ 0, %_ZNK9grpc_core24HistogramCollector_80_107CollectEPNS_15Histogram_80_10E.exit98 ], [ %indvars.iv.next.i104, %for.body.i99 ]
-  %arrayidx.i101 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %http2_send_message_size, i64 0, i64 %indvars.iv.i100
+  %arrayidx.i101 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %http2_send_message_size, i64 0, i64 %indvars.iv.i100
   %57 = load atomic i64, ptr %arrayidx.i101 monotonic, align 8
-  %arrayidx4.i102 = getelementptr inbounds [20 x i64], ptr %http2_send_message_size100, i64 0, i64 %indvars.iv.i100
+  %arrayidx4.i102 = getelementptr inbounds nuw [20 x i64], ptr %http2_send_message_size100, i64 0, i64 %indvars.iv.i100
   %58 = load i64, ptr %arrayidx4.i102, align 8
   %add.i103 = add i64 %58, %57
   store i64 %add.i103, ptr %arrayidx4.i102, align 8
@@ -865,14 +865,14 @@ for.body.i99:                                     ; preds = %for.body.i99, %_ZNK
   br i1 %exitcond.not.i105, label %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106, label %for.body.i99, !llvm.loop !9
 
 _ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106: ; preds = %for.body.i99
-  %http2_metadata_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1176
+  %http2_metadata_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 1176
   br label %for.body.i107
 
 for.body.i107:                                    ; preds = %for.body.i107, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106
   %indvars.iv.i108 = phi i64 [ 0, %_ZNK9grpc_core30HistogramCollector_16777216_207CollectEPNS_21Histogram_16777216_20E.exit106 ], [ %indvars.iv.next.i112, %for.body.i107 ]
-  %arrayidx.i109 = getelementptr inbounds [26 x %"struct.std::atomic"], ptr %http2_metadata_size, i64 0, i64 %indvars.iv.i108
+  %arrayidx.i109 = getelementptr inbounds nuw [26 x %"struct.std::atomic"], ptr %http2_metadata_size, i64 0, i64 %indvars.iv.i108
   %59 = load atomic i64, ptr %arrayidx.i109 monotonic, align 8
-  %arrayidx4.i110 = getelementptr inbounds [26 x i64], ptr %http2_metadata_size102, i64 0, i64 %indvars.iv.i108
+  %arrayidx4.i110 = getelementptr inbounds nuw [26 x i64], ptr %http2_metadata_size102, i64 0, i64 %indvars.iv.i108
   %60 = load i64, ptr %arrayidx4.i110, align 8
   %add.i111 = add i64 %60, %59
   store i64 %add.i111, ptr %arrayidx4.i110, align 8
@@ -881,14 +881,14 @@ for.body.i107:                                    ; preds = %for.body.i107, %_ZN
   br i1 %exitcond.not.i113, label %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114, label %for.body.i107, !llvm.loop !7
 
 _ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114: ; preds = %for.body.i107
-  %wrr_subchannel_list_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1384
+  %wrr_subchannel_list_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 1384
   br label %for.body.i115
 
 for.body.i115:                                    ; preds = %for.body.i115, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114
   %indvars.iv.i116 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_65536_267CollectEPNS_18Histogram_65536_26E.exit114 ], [ %indvars.iv.next.i120, %for.body.i115 ]
-  %arrayidx.i117 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %wrr_subchannel_list_size, i64 0, i64 %indvars.iv.i116
+  %arrayidx.i117 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %wrr_subchannel_list_size, i64 0, i64 %indvars.iv.i116
   %61 = load atomic i64, ptr %arrayidx.i117 monotonic, align 8
-  %arrayidx4.i118 = getelementptr inbounds [20 x i64], ptr %wrr_subchannel_list_size104, i64 0, i64 %indvars.iv.i116
+  %arrayidx4.i118 = getelementptr inbounds nuw [20 x i64], ptr %wrr_subchannel_list_size104, i64 0, i64 %indvars.iv.i116
   %62 = load i64, ptr %arrayidx4.i118, align 8
   %add.i119 = add i64 %62, %61
   store i64 %add.i119, ptr %arrayidx4.i118, align 8
@@ -897,14 +897,14 @@ for.body.i115:                                    ; preds = %for.body.i115, %_ZN
   br i1 %exitcond.not.i121, label %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit, label %for.body.i115, !llvm.loop !13
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit: ; preds = %for.body.i115
-  %wrr_subchannel_ready_size = getelementptr inbounds i8, ptr %__begin1.0162, i64 1544
+  %wrr_subchannel_ready_size = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 1544
   br label %for.body.i122
 
 for.body.i122:                                    ; preds = %for.body.i122, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit
   %indvars.iv.i123 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit ], [ %indvars.iv.next.i127, %for.body.i122 ]
-  %arrayidx.i124 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %wrr_subchannel_ready_size, i64 0, i64 %indvars.iv.i123
+  %arrayidx.i124 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %wrr_subchannel_ready_size, i64 0, i64 %indvars.iv.i123
   %63 = load atomic i64, ptr %arrayidx.i124 monotonic, align 8
-  %arrayidx4.i125 = getelementptr inbounds [20 x i64], ptr %wrr_subchannel_ready_size106, i64 0, i64 %indvars.iv.i123
+  %arrayidx4.i125 = getelementptr inbounds nuw [20 x i64], ptr %wrr_subchannel_ready_size106, i64 0, i64 %indvars.iv.i123
   %64 = load i64, ptr %arrayidx4.i125, align 8
   %add.i126 = add i64 %64, %63
   store i64 %add.i126, ptr %arrayidx4.i125, align 8
@@ -913,14 +913,14 @@ for.body.i122:                                    ; preds = %for.body.i122, %_ZN
   br i1 %exitcond.not.i128, label %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129, label %for.body.i122, !llvm.loop !13
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129: ; preds = %for.body.i122
-  %work_serializer_run_time_ms = getelementptr inbounds i8, ptr %__begin1.0162, i64 1704
+  %work_serializer_run_time_ms = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 1704
   br label %for.body.i130
 
 for.body.i130:                                    ; preds = %for.body.i130, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129
   %indvars.iv.i131 = phi i64 [ 0, %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit129 ], [ %indvars.iv.next.i135, %for.body.i130 ]
-  %arrayidx.i132 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_run_time_ms, i64 0, i64 %indvars.iv.i131
+  %arrayidx.i132 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %work_serializer_run_time_ms, i64 0, i64 %indvars.iv.i131
   %65 = load atomic i64, ptr %arrayidx.i132 monotonic, align 8
-  %arrayidx4.i133 = getelementptr inbounds [20 x i64], ptr %work_serializer_run_time_ms108, i64 0, i64 %indvars.iv.i131
+  %arrayidx4.i133 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_run_time_ms108, i64 0, i64 %indvars.iv.i131
   %66 = load i64, ptr %arrayidx4.i133, align 8
   %add.i134 = add i64 %66, %65
   store i64 %add.i134, ptr %arrayidx4.i133, align 8
@@ -929,14 +929,14 @@ for.body.i130:                                    ; preds = %for.body.i130, %_ZN
   br i1 %exitcond.not.i136, label %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit, label %for.body.i130, !llvm.loop !4
 
 _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit: ; preds = %for.body.i130
-  %work_serializer_work_time_ms = getelementptr inbounds i8, ptr %__begin1.0162, i64 1864
+  %work_serializer_work_time_ms = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 1864
   br label %for.body.i137
 
 for.body.i137:                                    ; preds = %for.body.i137, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit
   %indvars.iv.i138 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit ], [ %indvars.iv.next.i142, %for.body.i137 ]
-  %arrayidx.i139 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_work_time_ms, i64 0, i64 %indvars.iv.i138
+  %arrayidx.i139 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %work_serializer_work_time_ms, i64 0, i64 %indvars.iv.i138
   %67 = load atomic i64, ptr %arrayidx.i139 monotonic, align 8
-  %arrayidx4.i140 = getelementptr inbounds [20 x i64], ptr %work_serializer_work_time_ms110, i64 0, i64 %indvars.iv.i138
+  %arrayidx4.i140 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_work_time_ms110, i64 0, i64 %indvars.iv.i138
   %68 = load i64, ptr %arrayidx4.i140, align 8
   %add.i141 = add i64 %68, %67
   store i64 %add.i141, ptr %arrayidx4.i140, align 8
@@ -945,14 +945,14 @@ for.body.i137:                                    ; preds = %for.body.i137, %_ZN
   br i1 %exitcond.not.i143, label %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144, label %for.body.i137, !llvm.loop !4
 
 _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144: ; preds = %for.body.i137
-  %work_serializer_work_time_per_item_ms = getelementptr inbounds i8, ptr %__begin1.0162, i64 2024
+  %work_serializer_work_time_per_item_ms = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 2024
   br label %for.body.i145
 
 for.body.i145:                                    ; preds = %for.body.i145, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144
   %indvars.iv.i146 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit144 ], [ %indvars.iv.next.i150, %for.body.i145 ]
-  %arrayidx.i147 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_work_time_per_item_ms, i64 0, i64 %indvars.iv.i146
+  %arrayidx.i147 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %work_serializer_work_time_per_item_ms, i64 0, i64 %indvars.iv.i146
   %69 = load atomic i64, ptr %arrayidx.i147 monotonic, align 8
-  %arrayidx4.i148 = getelementptr inbounds [20 x i64], ptr %work_serializer_work_time_per_item_ms112, i64 0, i64 %indvars.iv.i146
+  %arrayidx4.i148 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_work_time_per_item_ms112, i64 0, i64 %indvars.iv.i146
   %70 = load i64, ptr %arrayidx4.i148, align 8
   %add.i149 = add i64 %70, %69
   store i64 %add.i149, ptr %arrayidx4.i148, align 8
@@ -961,14 +961,14 @@ for.body.i145:                                    ; preds = %for.body.i145, %_ZN
   br i1 %exitcond.not.i151, label %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152, label %for.body.i145, !llvm.loop !4
 
 _ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152: ; preds = %for.body.i145
-  %work_serializer_items_per_run = getelementptr inbounds i8, ptr %__begin1.0162, i64 2184
+  %work_serializer_items_per_run = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 2184
   br label %for.body.i153
 
 for.body.i153:                                    ; preds = %for.body.i153, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152
   %indvars.iv.i154 = phi i64 [ 0, %_ZNK9grpc_core28HistogramCollector_100000_207CollectEPNS_19Histogram_100000_20E.exit152 ], [ %indvars.iv.next.i158, %for.body.i153 ]
-  %arrayidx.i155 = getelementptr inbounds [20 x %"struct.std::atomic"], ptr %work_serializer_items_per_run, i64 0, i64 %indvars.iv.i154
+  %arrayidx.i155 = getelementptr inbounds nuw [20 x %"struct.std::atomic"], ptr %work_serializer_items_per_run, i64 0, i64 %indvars.iv.i154
   %71 = load atomic i64, ptr %arrayidx.i155 monotonic, align 8
-  %arrayidx4.i156 = getelementptr inbounds [20 x i64], ptr %work_serializer_items_per_run114, i64 0, i64 %indvars.iv.i154
+  %arrayidx4.i156 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_items_per_run114, i64 0, i64 %indvars.iv.i154
   %72 = load i64, ptr %arrayidx4.i156, align 8
   %add.i157 = add i64 %72, %71
   store i64 %add.i157, ptr %arrayidx4.i156, align 8
@@ -977,7 +977,7 @@ for.body.i153:                                    ; preds = %for.body.i153, %_ZN
   br i1 %exitcond.not.i159, label %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit160, label %for.body.i153, !llvm.loop !13
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit160: ; preds = %for.body.i153
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0162, i64 2344
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.0162, i64 2344
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
@@ -1021,453 +1021,453 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
   %2 = load i64, ptr %other, align 8
   %sub = sub i64 %1, %2
   store i64 %sub, ptr %call.i, align 8
-  %server_calls_created = getelementptr inbounds i8, ptr %this, i64 8
+  %server_calls_created = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %server_calls_created, align 8
-  %server_calls_created4 = getelementptr inbounds i8, ptr %other, i64 8
+  %server_calls_created4 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %4 = load i64, ptr %server_calls_created4, align 8
   %sub5 = sub i64 %3, %4
-  %server_calls_created7 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %server_calls_created7 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %sub5, ptr %server_calls_created7, align 8
-  %client_channels_created = getelementptr inbounds i8, ptr %this, i64 16
+  %client_channels_created = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i64, ptr %client_channels_created, align 8
-  %client_channels_created8 = getelementptr inbounds i8, ptr %other, i64 16
+  %client_channels_created8 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %6 = load i64, ptr %client_channels_created8, align 8
   %sub9 = sub i64 %5, %6
-  %client_channels_created11 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %client_channels_created11 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %sub9, ptr %client_channels_created11, align 8
-  %client_subchannels_created = getelementptr inbounds i8, ptr %this, i64 24
+  %client_subchannels_created = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i64, ptr %client_subchannels_created, align 8
-  %client_subchannels_created12 = getelementptr inbounds i8, ptr %other, i64 24
+  %client_subchannels_created12 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %8 = load i64, ptr %client_subchannels_created12, align 8
   %sub13 = sub i64 %7, %8
-  %client_subchannels_created15 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %client_subchannels_created15 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %sub13, ptr %client_subchannels_created15, align 8
-  %server_channels_created = getelementptr inbounds i8, ptr %this, i64 32
+  %server_channels_created = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load i64, ptr %server_channels_created, align 8
-  %server_channels_created16 = getelementptr inbounds i8, ptr %other, i64 32
+  %server_channels_created16 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %10 = load i64, ptr %server_channels_created16, align 8
   %sub17 = sub i64 %9, %10
-  %server_channels_created19 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %server_channels_created19 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %sub17, ptr %server_channels_created19, align 8
-  %insecure_connections_created = getelementptr inbounds i8, ptr %this, i64 40
+  %insecure_connections_created = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load i64, ptr %insecure_connections_created, align 8
-  %insecure_connections_created20 = getelementptr inbounds i8, ptr %other, i64 40
+  %insecure_connections_created20 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %12 = load i64, ptr %insecure_connections_created20, align 8
   %sub21 = sub i64 %11, %12
-  %insecure_connections_created23 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %insecure_connections_created23 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i64 %sub21, ptr %insecure_connections_created23, align 8
-  %syscall_write = getelementptr inbounds i8, ptr %this, i64 48
+  %syscall_write = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load i64, ptr %syscall_write, align 8
-  %syscall_write24 = getelementptr inbounds i8, ptr %other, i64 48
+  %syscall_write24 = getelementptr inbounds nuw i8, ptr %other, i64 48
   %14 = load i64, ptr %syscall_write24, align 8
   %sub25 = sub i64 %13, %14
-  %syscall_write27 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %syscall_write27 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i64 %sub25, ptr %syscall_write27, align 8
-  %syscall_read = getelementptr inbounds i8, ptr %this, i64 56
+  %syscall_read = getelementptr inbounds nuw i8, ptr %this, i64 56
   %15 = load i64, ptr %syscall_read, align 8
-  %syscall_read28 = getelementptr inbounds i8, ptr %other, i64 56
+  %syscall_read28 = getelementptr inbounds nuw i8, ptr %other, i64 56
   %16 = load i64, ptr %syscall_read28, align 8
   %sub29 = sub i64 %15, %16
-  %syscall_read31 = getelementptr inbounds i8, ptr %call.i, i64 56
+  %syscall_read31 = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store i64 %sub29, ptr %syscall_read31, align 8
-  %tcp_read_alloc_8k = getelementptr inbounds i8, ptr %this, i64 64
+  %tcp_read_alloc_8k = getelementptr inbounds nuw i8, ptr %this, i64 64
   %17 = load i64, ptr %tcp_read_alloc_8k, align 8
-  %tcp_read_alloc_8k32 = getelementptr inbounds i8, ptr %other, i64 64
+  %tcp_read_alloc_8k32 = getelementptr inbounds nuw i8, ptr %other, i64 64
   %18 = load i64, ptr %tcp_read_alloc_8k32, align 8
   %sub33 = sub i64 %17, %18
-  %tcp_read_alloc_8k35 = getelementptr inbounds i8, ptr %call.i, i64 64
+  %tcp_read_alloc_8k35 = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   store i64 %sub33, ptr %tcp_read_alloc_8k35, align 8
-  %tcp_read_alloc_64k = getelementptr inbounds i8, ptr %this, i64 72
+  %tcp_read_alloc_64k = getelementptr inbounds nuw i8, ptr %this, i64 72
   %19 = load i64, ptr %tcp_read_alloc_64k, align 8
-  %tcp_read_alloc_64k36 = getelementptr inbounds i8, ptr %other, i64 72
+  %tcp_read_alloc_64k36 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %20 = load i64, ptr %tcp_read_alloc_64k36, align 8
   %sub37 = sub i64 %19, %20
-  %tcp_read_alloc_64k39 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %tcp_read_alloc_64k39 = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store i64 %sub37, ptr %tcp_read_alloc_64k39, align 8
-  %http2_settings_writes = getelementptr inbounds i8, ptr %this, i64 80
+  %http2_settings_writes = getelementptr inbounds nuw i8, ptr %this, i64 80
   %21 = load i64, ptr %http2_settings_writes, align 8
-  %http2_settings_writes40 = getelementptr inbounds i8, ptr %other, i64 80
+  %http2_settings_writes40 = getelementptr inbounds nuw i8, ptr %other, i64 80
   %22 = load i64, ptr %http2_settings_writes40, align 8
   %sub41 = sub i64 %21, %22
-  %http2_settings_writes43 = getelementptr inbounds i8, ptr %call.i, i64 80
+  %http2_settings_writes43 = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store i64 %sub41, ptr %http2_settings_writes43, align 8
-  %http2_pings_sent = getelementptr inbounds i8, ptr %this, i64 88
+  %http2_pings_sent = getelementptr inbounds nuw i8, ptr %this, i64 88
   %23 = load i64, ptr %http2_pings_sent, align 8
-  %http2_pings_sent44 = getelementptr inbounds i8, ptr %other, i64 88
+  %http2_pings_sent44 = getelementptr inbounds nuw i8, ptr %other, i64 88
   %24 = load i64, ptr %http2_pings_sent44, align 8
   %sub45 = sub i64 %23, %24
-  %http2_pings_sent47 = getelementptr inbounds i8, ptr %call.i, i64 88
+  %http2_pings_sent47 = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store i64 %sub45, ptr %http2_pings_sent47, align 8
-  %http2_writes_begun = getelementptr inbounds i8, ptr %this, i64 96
+  %http2_writes_begun = getelementptr inbounds nuw i8, ptr %this, i64 96
   %25 = load i64, ptr %http2_writes_begun, align 8
-  %http2_writes_begun48 = getelementptr inbounds i8, ptr %other, i64 96
+  %http2_writes_begun48 = getelementptr inbounds nuw i8, ptr %other, i64 96
   %26 = load i64, ptr %http2_writes_begun48, align 8
   %sub49 = sub i64 %25, %26
-  %http2_writes_begun51 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %http2_writes_begun51 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store i64 %sub49, ptr %http2_writes_begun51, align 8
-  %http2_transport_stalls = getelementptr inbounds i8, ptr %this, i64 104
+  %http2_transport_stalls = getelementptr inbounds nuw i8, ptr %this, i64 104
   %27 = load i64, ptr %http2_transport_stalls, align 8
-  %http2_transport_stalls52 = getelementptr inbounds i8, ptr %other, i64 104
+  %http2_transport_stalls52 = getelementptr inbounds nuw i8, ptr %other, i64 104
   %28 = load i64, ptr %http2_transport_stalls52, align 8
   %sub53 = sub i64 %27, %28
-  %http2_transport_stalls55 = getelementptr inbounds i8, ptr %call.i, i64 104
+  %http2_transport_stalls55 = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store i64 %sub53, ptr %http2_transport_stalls55, align 8
-  %http2_stream_stalls = getelementptr inbounds i8, ptr %this, i64 112
+  %http2_stream_stalls = getelementptr inbounds nuw i8, ptr %this, i64 112
   %29 = load i64, ptr %http2_stream_stalls, align 8
-  %http2_stream_stalls56 = getelementptr inbounds i8, ptr %other, i64 112
+  %http2_stream_stalls56 = getelementptr inbounds nuw i8, ptr %other, i64 112
   %30 = load i64, ptr %http2_stream_stalls56, align 8
   %sub57 = sub i64 %29, %30
-  %http2_stream_stalls59 = getelementptr inbounds i8, ptr %call.i, i64 112
+  %http2_stream_stalls59 = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store i64 %sub57, ptr %http2_stream_stalls59, align 8
-  %cq_pluck_creates = getelementptr inbounds i8, ptr %this, i64 120
+  %cq_pluck_creates = getelementptr inbounds nuw i8, ptr %this, i64 120
   %31 = load i64, ptr %cq_pluck_creates, align 8
-  %cq_pluck_creates60 = getelementptr inbounds i8, ptr %other, i64 120
+  %cq_pluck_creates60 = getelementptr inbounds nuw i8, ptr %other, i64 120
   %32 = load i64, ptr %cq_pluck_creates60, align 8
   %sub61 = sub i64 %31, %32
-  %cq_pluck_creates63 = getelementptr inbounds i8, ptr %call.i, i64 120
+  %cq_pluck_creates63 = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store i64 %sub61, ptr %cq_pluck_creates63, align 8
-  %cq_next_creates = getelementptr inbounds i8, ptr %this, i64 128
+  %cq_next_creates = getelementptr inbounds nuw i8, ptr %this, i64 128
   %33 = load i64, ptr %cq_next_creates, align 8
-  %cq_next_creates64 = getelementptr inbounds i8, ptr %other, i64 128
+  %cq_next_creates64 = getelementptr inbounds nuw i8, ptr %other, i64 128
   %34 = load i64, ptr %cq_next_creates64, align 8
   %sub65 = sub i64 %33, %34
-  %cq_next_creates67 = getelementptr inbounds i8, ptr %call.i, i64 128
+  %cq_next_creates67 = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i64 %sub65, ptr %cq_next_creates67, align 8
-  %cq_callback_creates = getelementptr inbounds i8, ptr %this, i64 136
+  %cq_callback_creates = getelementptr inbounds nuw i8, ptr %this, i64 136
   %35 = load i64, ptr %cq_callback_creates, align 8
-  %cq_callback_creates68 = getelementptr inbounds i8, ptr %other, i64 136
+  %cq_callback_creates68 = getelementptr inbounds nuw i8, ptr %other, i64 136
   %36 = load i64, ptr %cq_callback_creates68, align 8
   %sub69 = sub i64 %35, %36
-  %cq_callback_creates71 = getelementptr inbounds i8, ptr %call.i, i64 136
+  %cq_callback_creates71 = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store i64 %sub69, ptr %cq_callback_creates71, align 8
-  %wrr_updates = getelementptr inbounds i8, ptr %this, i64 144
+  %wrr_updates = getelementptr inbounds nuw i8, ptr %this, i64 144
   %37 = load i64, ptr %wrr_updates, align 8
-  %wrr_updates72 = getelementptr inbounds i8, ptr %other, i64 144
+  %wrr_updates72 = getelementptr inbounds nuw i8, ptr %other, i64 144
   %38 = load i64, ptr %wrr_updates72, align 8
   %sub73 = sub i64 %37, %38
-  %wrr_updates75 = getelementptr inbounds i8, ptr %call.i, i64 144
+  %wrr_updates75 = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store i64 %sub73, ptr %wrr_updates75, align 8
-  %work_serializer_items_enqueued = getelementptr inbounds i8, ptr %this, i64 152
+  %work_serializer_items_enqueued = getelementptr inbounds nuw i8, ptr %this, i64 152
   %39 = load i64, ptr %work_serializer_items_enqueued, align 8
-  %work_serializer_items_enqueued76 = getelementptr inbounds i8, ptr %other, i64 152
+  %work_serializer_items_enqueued76 = getelementptr inbounds nuw i8, ptr %other, i64 152
   %40 = load i64, ptr %work_serializer_items_enqueued76, align 8
   %sub77 = sub i64 %39, %40
-  %work_serializer_items_enqueued79 = getelementptr inbounds i8, ptr %call.i, i64 152
+  %work_serializer_items_enqueued79 = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store i64 %sub77, ptr %work_serializer_items_enqueued79, align 8
-  %work_serializer_items_dequeued = getelementptr inbounds i8, ptr %this, i64 160
+  %work_serializer_items_dequeued = getelementptr inbounds nuw i8, ptr %this, i64 160
   %41 = load i64, ptr %work_serializer_items_dequeued, align 8
-  %work_serializer_items_dequeued80 = getelementptr inbounds i8, ptr %other, i64 160
+  %work_serializer_items_dequeued80 = getelementptr inbounds nuw i8, ptr %other, i64 160
   %42 = load i64, ptr %work_serializer_items_dequeued80, align 8
   %sub81 = sub i64 %41, %42
-  %work_serializer_items_dequeued83 = getelementptr inbounds i8, ptr %call.i, i64 160
+  %work_serializer_items_dequeued83 = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store i64 %sub81, ptr %work_serializer_items_dequeued83, align 8
-  %call_initial_size = getelementptr inbounds i8, ptr %this, i64 168
-  %call_initial_size84 = getelementptr inbounds i8, ptr %other, i64 168
+  %call_initial_size = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %call_initial_size84 = getelementptr inbounds nuw i8, ptr %other, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp, i8 0, i64 208, i1 false), !alias.scope !21
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [26 x i64], ptr %call_initial_size, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [26 x i64], ptr %call_initial_size, i64 0, i64 %indvars.iv.i
   %43 = load i64, ptr %arrayidx.i, align 8, !noalias !21
-  %arrayidx3.i = getelementptr inbounds [26 x i64], ptr %call_initial_size84, i64 0, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw [26 x i64], ptr %call_initial_size84, i64 0, i64 %indvars.iv.i
   %44 = load i64, ptr %arrayidx3.i, align 8, !noalias !21
   %sub.i = sub i64 %43, %44
-  %arrayidx6.i = getelementptr inbounds [26 x i64], ptr %ref.tmp, i64 0, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw [26 x i64], ptr %ref.tmp, i64 0, i64 %indvars.iv.i
   store i64 %sub.i, ptr %arrayidx6.i, align 8, !alias.scope !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 26
   br i1 %exitcond.not.i, label %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit, label %for.body.i, !llvm.loop !8
 
 _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit: ; preds = %for.body.i
-  %call_initial_size86 = getelementptr inbounds i8, ptr %call.i, i64 168
+  %call_initial_size86 = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %call_initial_size86, ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp, i64 208, i1 false)
-  %tcp_write_size = getelementptr inbounds i8, ptr %this, i64 376
-  %tcp_write_size88 = getelementptr inbounds i8, ptr %other, i64 376
+  %tcp_write_size = getelementptr inbounds nuw i8, ptr %this, i64 376
+  %tcp_write_size88 = getelementptr inbounds nuw i8, ptr %other, i64 376
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp87, i8 0, i64 160, i1 false), !alias.scope !24
   br label %for.body.i35
 
 for.body.i35:                                     ; preds = %for.body.i35, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit
   %indvars.iv.i36 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit ], [ %indvars.iv.next.i41, %for.body.i35 ]
-  %arrayidx.i37 = getelementptr inbounds [20 x i64], ptr %tcp_write_size, i64 0, i64 %indvars.iv.i36
+  %arrayidx.i37 = getelementptr inbounds nuw [20 x i64], ptr %tcp_write_size, i64 0, i64 %indvars.iv.i36
   %45 = load i64, ptr %arrayidx.i37, align 8, !noalias !24
-  %arrayidx3.i38 = getelementptr inbounds [20 x i64], ptr %tcp_write_size88, i64 0, i64 %indvars.iv.i36
+  %arrayidx3.i38 = getelementptr inbounds nuw [20 x i64], ptr %tcp_write_size88, i64 0, i64 %indvars.iv.i36
   %46 = load i64, ptr %arrayidx3.i38, align 8, !noalias !24
   %sub.i39 = sub i64 %45, %46
-  %arrayidx6.i40 = getelementptr inbounds [20 x i64], ptr %ref.tmp87, i64 0, i64 %indvars.iv.i36
+  %arrayidx6.i40 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp87, i64 0, i64 %indvars.iv.i36
   store i64 %sub.i39, ptr %arrayidx6.i40, align 8, !alias.scope !24
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 20
   br i1 %exitcond.not.i42, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit, label %for.body.i35, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit: ; preds = %for.body.i35
-  %tcp_write_size90 = getelementptr inbounds i8, ptr %call.i, i64 376
+  %tcp_write_size90 = getelementptr inbounds nuw i8, ptr %call.i, i64 376
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %tcp_write_size90, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp87, i64 160, i1 false)
-  %tcp_write_iov_size = getelementptr inbounds i8, ptr %this, i64 536
-  %tcp_write_iov_size92 = getelementptr inbounds i8, ptr %other, i64 536
+  %tcp_write_iov_size = getelementptr inbounds nuw i8, ptr %this, i64 536
+  %tcp_write_iov_size92 = getelementptr inbounds nuw i8, ptr %other, i64 536
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp91, i8 0, i64 80, i1 false), !alias.scope !27
   br label %for.body.i43
 
 for.body.i43:                                     ; preds = %for.body.i43, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit
   %indvars.iv.i44 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit ], [ %indvars.iv.next.i49, %for.body.i43 ]
-  %arrayidx.i45 = getelementptr inbounds [10 x i64], ptr %tcp_write_iov_size, i64 0, i64 %indvars.iv.i44
+  %arrayidx.i45 = getelementptr inbounds nuw [10 x i64], ptr %tcp_write_iov_size, i64 0, i64 %indvars.iv.i44
   %47 = load i64, ptr %arrayidx.i45, align 8, !noalias !27
-  %arrayidx3.i46 = getelementptr inbounds [10 x i64], ptr %tcp_write_iov_size92, i64 0, i64 %indvars.iv.i44
+  %arrayidx3.i46 = getelementptr inbounds nuw [10 x i64], ptr %tcp_write_iov_size92, i64 0, i64 %indvars.iv.i44
   %48 = load i64, ptr %arrayidx3.i46, align 8, !noalias !27
   %sub.i47 = sub i64 %47, %48
-  %arrayidx6.i48 = getelementptr inbounds [10 x i64], ptr %ref.tmp91, i64 0, i64 %indvars.iv.i44
+  %arrayidx6.i48 = getelementptr inbounds nuw [10 x i64], ptr %ref.tmp91, i64 0, i64 %indvars.iv.i44
   store i64 %sub.i47, ptr %arrayidx6.i48, align 8, !alias.scope !27
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 10
   br i1 %exitcond.not.i50, label %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit, label %for.body.i43, !llvm.loop !12
 
 _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit:  ; preds = %for.body.i43
-  %tcp_write_iov_size94 = getelementptr inbounds i8, ptr %call.i, i64 536
+  %tcp_write_iov_size94 = getelementptr inbounds nuw i8, ptr %call.i, i64 536
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tcp_write_iov_size94, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp91, i64 80, i1 false)
-  %tcp_read_size = getelementptr inbounds i8, ptr %this, i64 616
-  %tcp_read_size96 = getelementptr inbounds i8, ptr %other, i64 616
+  %tcp_read_size = getelementptr inbounds nuw i8, ptr %this, i64 616
+  %tcp_read_size96 = getelementptr inbounds nuw i8, ptr %other, i64 616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp95, i8 0, i64 160, i1 false), !alias.scope !30
   br label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.body.i51, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit
   %indvars.iv.i52 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit ], [ %indvars.iv.next.i57, %for.body.i51 ]
-  %arrayidx.i53 = getelementptr inbounds [20 x i64], ptr %tcp_read_size, i64 0, i64 %indvars.iv.i52
+  %arrayidx.i53 = getelementptr inbounds nuw [20 x i64], ptr %tcp_read_size, i64 0, i64 %indvars.iv.i52
   %49 = load i64, ptr %arrayidx.i53, align 8, !noalias !30
-  %arrayidx3.i54 = getelementptr inbounds [20 x i64], ptr %tcp_read_size96, i64 0, i64 %indvars.iv.i52
+  %arrayidx3.i54 = getelementptr inbounds nuw [20 x i64], ptr %tcp_read_size96, i64 0, i64 %indvars.iv.i52
   %50 = load i64, ptr %arrayidx3.i54, align 8, !noalias !30
   %sub.i55 = sub i64 %49, %50
-  %arrayidx6.i56 = getelementptr inbounds [20 x i64], ptr %ref.tmp95, i64 0, i64 %indvars.iv.i52
+  %arrayidx6.i56 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp95, i64 0, i64 %indvars.iv.i52
   store i64 %sub.i55, ptr %arrayidx6.i56, align 8, !alias.scope !30
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 20
   br i1 %exitcond.not.i58, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59, label %for.body.i51, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59: ; preds = %for.body.i51
-  %tcp_read_size98 = getelementptr inbounds i8, ptr %call.i, i64 616
+  %tcp_read_size98 = getelementptr inbounds nuw i8, ptr %call.i, i64 616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %tcp_read_size98, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp95, i64 160, i1 false)
-  %tcp_read_offer = getelementptr inbounds i8, ptr %this, i64 776
-  %tcp_read_offer100 = getelementptr inbounds i8, ptr %other, i64 776
+  %tcp_read_offer = getelementptr inbounds nuw i8, ptr %this, i64 776
+  %tcp_read_offer100 = getelementptr inbounds nuw i8, ptr %other, i64 776
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp99, i8 0, i64 160, i1 false), !alias.scope !33
   br label %for.body.i60
 
 for.body.i60:                                     ; preds = %for.body.i60, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59
   %indvars.iv.i61 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit59 ], [ %indvars.iv.next.i66, %for.body.i60 ]
-  %arrayidx.i62 = getelementptr inbounds [20 x i64], ptr %tcp_read_offer, i64 0, i64 %indvars.iv.i61
+  %arrayidx.i62 = getelementptr inbounds nuw [20 x i64], ptr %tcp_read_offer, i64 0, i64 %indvars.iv.i61
   %51 = load i64, ptr %arrayidx.i62, align 8, !noalias !33
-  %arrayidx3.i63 = getelementptr inbounds [20 x i64], ptr %tcp_read_offer100, i64 0, i64 %indvars.iv.i61
+  %arrayidx3.i63 = getelementptr inbounds nuw [20 x i64], ptr %tcp_read_offer100, i64 0, i64 %indvars.iv.i61
   %52 = load i64, ptr %arrayidx3.i63, align 8, !noalias !33
   %sub.i64 = sub i64 %51, %52
-  %arrayidx6.i65 = getelementptr inbounds [20 x i64], ptr %ref.tmp99, i64 0, i64 %indvars.iv.i61
+  %arrayidx6.i65 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp99, i64 0, i64 %indvars.iv.i61
   store i64 %sub.i64, ptr %arrayidx6.i65, align 8, !alias.scope !33
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i61, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, 20
   br i1 %exitcond.not.i67, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68, label %for.body.i60, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68: ; preds = %for.body.i60
-  %tcp_read_offer102 = getelementptr inbounds i8, ptr %call.i, i64 776
+  %tcp_read_offer102 = getelementptr inbounds nuw i8, ptr %call.i, i64 776
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %tcp_read_offer102, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp99, i64 160, i1 false)
-  %tcp_read_offer_iov_size = getelementptr inbounds i8, ptr %this, i64 936
-  %tcp_read_offer_iov_size104 = getelementptr inbounds i8, ptr %other, i64 936
+  %tcp_read_offer_iov_size = getelementptr inbounds nuw i8, ptr %this, i64 936
+  %tcp_read_offer_iov_size104 = getelementptr inbounds nuw i8, ptr %other, i64 936
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp103, i8 0, i64 80, i1 false), !alias.scope !36
   br label %for.body.i69
 
 for.body.i69:                                     ; preds = %for.body.i69, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68
   %indvars.iv.i70 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit68 ], [ %indvars.iv.next.i75, %for.body.i69 ]
-  %arrayidx.i71 = getelementptr inbounds [10 x i64], ptr %tcp_read_offer_iov_size, i64 0, i64 %indvars.iv.i70
+  %arrayidx.i71 = getelementptr inbounds nuw [10 x i64], ptr %tcp_read_offer_iov_size, i64 0, i64 %indvars.iv.i70
   %53 = load i64, ptr %arrayidx.i71, align 8, !noalias !36
-  %arrayidx3.i72 = getelementptr inbounds [10 x i64], ptr %tcp_read_offer_iov_size104, i64 0, i64 %indvars.iv.i70
+  %arrayidx3.i72 = getelementptr inbounds nuw [10 x i64], ptr %tcp_read_offer_iov_size104, i64 0, i64 %indvars.iv.i70
   %54 = load i64, ptr %arrayidx3.i72, align 8, !noalias !36
   %sub.i73 = sub i64 %53, %54
-  %arrayidx6.i74 = getelementptr inbounds [10 x i64], ptr %ref.tmp103, i64 0, i64 %indvars.iv.i70
+  %arrayidx6.i74 = getelementptr inbounds nuw [10 x i64], ptr %ref.tmp103, i64 0, i64 %indvars.iv.i70
   store i64 %sub.i73, ptr %arrayidx6.i74, align 8, !alias.scope !36
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, 10
   br i1 %exitcond.not.i76, label %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77, label %for.body.i69, !llvm.loop !12
 
 _ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77: ; preds = %for.body.i69
-  %tcp_read_offer_iov_size106 = getelementptr inbounds i8, ptr %call.i, i64 936
+  %tcp_read_offer_iov_size106 = getelementptr inbounds nuw i8, ptr %call.i, i64 936
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tcp_read_offer_iov_size106, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp103, i64 80, i1 false)
-  %http2_send_message_size = getelementptr inbounds i8, ptr %this, i64 1016
-  %http2_send_message_size108 = getelementptr inbounds i8, ptr %other, i64 1016
+  %http2_send_message_size = getelementptr inbounds nuw i8, ptr %this, i64 1016
+  %http2_send_message_size108 = getelementptr inbounds nuw i8, ptr %other, i64 1016
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107, i8 0, i64 160, i1 false), !alias.scope !39
   br label %for.body.i78
 
 for.body.i78:                                     ; preds = %for.body.i78, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77
   %indvars.iv.i79 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_15Histogram_80_10ES2_.exit77 ], [ %indvars.iv.next.i84, %for.body.i78 ]
-  %arrayidx.i80 = getelementptr inbounds [20 x i64], ptr %http2_send_message_size, i64 0, i64 %indvars.iv.i79
+  %arrayidx.i80 = getelementptr inbounds nuw [20 x i64], ptr %http2_send_message_size, i64 0, i64 %indvars.iv.i79
   %55 = load i64, ptr %arrayidx.i80, align 8, !noalias !39
-  %arrayidx3.i81 = getelementptr inbounds [20 x i64], ptr %http2_send_message_size108, i64 0, i64 %indvars.iv.i79
+  %arrayidx3.i81 = getelementptr inbounds nuw [20 x i64], ptr %http2_send_message_size108, i64 0, i64 %indvars.iv.i79
   %56 = load i64, ptr %arrayidx3.i81, align 8, !noalias !39
   %sub.i82 = sub i64 %55, %56
-  %arrayidx6.i83 = getelementptr inbounds [20 x i64], ptr %ref.tmp107, i64 0, i64 %indvars.iv.i79
+  %arrayidx6.i83 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp107, i64 0, i64 %indvars.iv.i79
   store i64 %sub.i82, ptr %arrayidx6.i83, align 8, !alias.scope !39
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 20
   br i1 %exitcond.not.i85, label %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86, label %for.body.i78, !llvm.loop !10
 
 _ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86: ; preds = %for.body.i78
-  %http2_send_message_size110 = getelementptr inbounds i8, ptr %call.i, i64 1016
+  %http2_send_message_size110 = getelementptr inbounds nuw i8, ptr %call.i, i64 1016
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %http2_send_message_size110, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp107, i64 160, i1 false)
-  %http2_metadata_size = getelementptr inbounds i8, ptr %this, i64 1176
-  %http2_metadata_size112 = getelementptr inbounds i8, ptr %other, i64 1176
+  %http2_metadata_size = getelementptr inbounds nuw i8, ptr %this, i64 1176
+  %http2_metadata_size112 = getelementptr inbounds nuw i8, ptr %other, i64 1176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp111, i8 0, i64 208, i1 false), !alias.scope !42
   br label %for.body.i87
 
 for.body.i87:                                     ; preds = %for.body.i87, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86
   %indvars.iv.i88 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_21Histogram_16777216_20ES2_.exit86 ], [ %indvars.iv.next.i93, %for.body.i87 ]
-  %arrayidx.i89 = getelementptr inbounds [26 x i64], ptr %http2_metadata_size, i64 0, i64 %indvars.iv.i88
+  %arrayidx.i89 = getelementptr inbounds nuw [26 x i64], ptr %http2_metadata_size, i64 0, i64 %indvars.iv.i88
   %57 = load i64, ptr %arrayidx.i89, align 8, !noalias !42
-  %arrayidx3.i90 = getelementptr inbounds [26 x i64], ptr %http2_metadata_size112, i64 0, i64 %indvars.iv.i88
+  %arrayidx3.i90 = getelementptr inbounds nuw [26 x i64], ptr %http2_metadata_size112, i64 0, i64 %indvars.iv.i88
   %58 = load i64, ptr %arrayidx3.i90, align 8, !noalias !42
   %sub.i91 = sub i64 %57, %58
-  %arrayidx6.i92 = getelementptr inbounds [26 x i64], ptr %ref.tmp111, i64 0, i64 %indvars.iv.i88
+  %arrayidx6.i92 = getelementptr inbounds nuw [26 x i64], ptr %ref.tmp111, i64 0, i64 %indvars.iv.i88
   store i64 %sub.i91, ptr %arrayidx6.i92, align 8, !alias.scope !42
   %indvars.iv.next.i93 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i94 = icmp eq i64 %indvars.iv.next.i93, 26
   br i1 %exitcond.not.i94, label %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95, label %for.body.i87, !llvm.loop !8
 
 _ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95: ; preds = %for.body.i87
-  %http2_metadata_size114 = getelementptr inbounds i8, ptr %call.i, i64 1176
+  %http2_metadata_size114 = getelementptr inbounds nuw i8, ptr %call.i, i64 1176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %http2_metadata_size114, ptr noundef nonnull align 8 dereferenceable(208) %ref.tmp111, i64 208, i1 false)
-  %wrr_subchannel_list_size = getelementptr inbounds i8, ptr %this, i64 1384
-  %wrr_subchannel_list_size116 = getelementptr inbounds i8, ptr %other, i64 1384
+  %wrr_subchannel_list_size = getelementptr inbounds nuw i8, ptr %this, i64 1384
+  %wrr_subchannel_list_size116 = getelementptr inbounds nuw i8, ptr %other, i64 1384
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp115, i8 0, i64 160, i1 false), !alias.scope !45
   br label %for.body.i96
 
 for.body.i96:                                     ; preds = %for.body.i96, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95
   %indvars.iv.i97 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_65536_26ES2_.exit95 ], [ %indvars.iv.next.i102, %for.body.i96 ]
-  %arrayidx.i98 = getelementptr inbounds [20 x i64], ptr %wrr_subchannel_list_size, i64 0, i64 %indvars.iv.i97
+  %arrayidx.i98 = getelementptr inbounds nuw [20 x i64], ptr %wrr_subchannel_list_size, i64 0, i64 %indvars.iv.i97
   %59 = load i64, ptr %arrayidx.i98, align 8, !noalias !45
-  %arrayidx3.i99 = getelementptr inbounds [20 x i64], ptr %wrr_subchannel_list_size116, i64 0, i64 %indvars.iv.i97
+  %arrayidx3.i99 = getelementptr inbounds nuw [20 x i64], ptr %wrr_subchannel_list_size116, i64 0, i64 %indvars.iv.i97
   %60 = load i64, ptr %arrayidx3.i99, align 8, !noalias !45
   %sub.i100 = sub i64 %59, %60
-  %arrayidx6.i101 = getelementptr inbounds [20 x i64], ptr %ref.tmp115, i64 0, i64 %indvars.iv.i97
+  %arrayidx6.i101 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp115, i64 0, i64 %indvars.iv.i97
   store i64 %sub.i100, ptr %arrayidx6.i101, align 8, !alias.scope !45
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, 20
   br i1 %exitcond.not.i103, label %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit, label %for.body.i96, !llvm.loop !14
 
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit: ; preds = %for.body.i96
-  %wrr_subchannel_list_size118 = getelementptr inbounds i8, ptr %call.i, i64 1384
+  %wrr_subchannel_list_size118 = getelementptr inbounds nuw i8, ptr %call.i, i64 1384
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %wrr_subchannel_list_size118, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp115, i64 160, i1 false)
-  %wrr_subchannel_ready_size = getelementptr inbounds i8, ptr %this, i64 1544
-  %wrr_subchannel_ready_size120 = getelementptr inbounds i8, ptr %other, i64 1544
+  %wrr_subchannel_ready_size = getelementptr inbounds nuw i8, ptr %this, i64 1544
+  %wrr_subchannel_ready_size120 = getelementptr inbounds nuw i8, ptr %other, i64 1544
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp119, i8 0, i64 160, i1 false), !alias.scope !48
   br label %for.body.i104
 
 for.body.i104:                                    ; preds = %for.body.i104, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit
   %indvars.iv.i105 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit ], [ %indvars.iv.next.i110, %for.body.i104 ]
-  %arrayidx.i106 = getelementptr inbounds [20 x i64], ptr %wrr_subchannel_ready_size, i64 0, i64 %indvars.iv.i105
+  %arrayidx.i106 = getelementptr inbounds nuw [20 x i64], ptr %wrr_subchannel_ready_size, i64 0, i64 %indvars.iv.i105
   %61 = load i64, ptr %arrayidx.i106, align 8, !noalias !48
-  %arrayidx3.i107 = getelementptr inbounds [20 x i64], ptr %wrr_subchannel_ready_size120, i64 0, i64 %indvars.iv.i105
+  %arrayidx3.i107 = getelementptr inbounds nuw [20 x i64], ptr %wrr_subchannel_ready_size120, i64 0, i64 %indvars.iv.i105
   %62 = load i64, ptr %arrayidx3.i107, align 8, !noalias !48
   %sub.i108 = sub i64 %61, %62
-  %arrayidx6.i109 = getelementptr inbounds [20 x i64], ptr %ref.tmp119, i64 0, i64 %indvars.iv.i105
+  %arrayidx6.i109 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp119, i64 0, i64 %indvars.iv.i105
   store i64 %sub.i108, ptr %arrayidx6.i109, align 8, !alias.scope !48
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 20
   br i1 %exitcond.not.i111, label %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112, label %for.body.i104, !llvm.loop !14
 
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112: ; preds = %for.body.i104
-  %wrr_subchannel_ready_size122 = getelementptr inbounds i8, ptr %call.i, i64 1544
+  %wrr_subchannel_ready_size122 = getelementptr inbounds nuw i8, ptr %call.i, i64 1544
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %wrr_subchannel_ready_size122, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp119, i64 160, i1 false)
-  %work_serializer_run_time_ms = getelementptr inbounds i8, ptr %this, i64 1704
-  %work_serializer_run_time_ms124 = getelementptr inbounds i8, ptr %other, i64 1704
+  %work_serializer_run_time_ms = getelementptr inbounds nuw i8, ptr %this, i64 1704
+  %work_serializer_run_time_ms124 = getelementptr inbounds nuw i8, ptr %other, i64 1704
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp123, i8 0, i64 160, i1 false), !alias.scope !51
   br label %for.body.i113
 
 for.body.i113:                                    ; preds = %for.body.i113, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112
   %indvars.iv.i114 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit112 ], [ %indvars.iv.next.i119, %for.body.i113 ]
-  %arrayidx.i115 = getelementptr inbounds [20 x i64], ptr %work_serializer_run_time_ms, i64 0, i64 %indvars.iv.i114
+  %arrayidx.i115 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_run_time_ms, i64 0, i64 %indvars.iv.i114
   %63 = load i64, ptr %arrayidx.i115, align 8, !noalias !51
-  %arrayidx3.i116 = getelementptr inbounds [20 x i64], ptr %work_serializer_run_time_ms124, i64 0, i64 %indvars.iv.i114
+  %arrayidx3.i116 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_run_time_ms124, i64 0, i64 %indvars.iv.i114
   %64 = load i64, ptr %arrayidx3.i116, align 8, !noalias !51
   %sub.i117 = sub i64 %63, %64
-  %arrayidx6.i118 = getelementptr inbounds [20 x i64], ptr %ref.tmp123, i64 0, i64 %indvars.iv.i114
+  %arrayidx6.i118 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp123, i64 0, i64 %indvars.iv.i114
   store i64 %sub.i117, ptr %arrayidx6.i118, align 8, !alias.scope !51
   %indvars.iv.next.i119 = add nuw nsw i64 %indvars.iv.i114, 1
   %exitcond.not.i120 = icmp eq i64 %indvars.iv.next.i119, 20
   br i1 %exitcond.not.i120, label %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit, label %for.body.i113, !llvm.loop !6
 
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit: ; preds = %for.body.i113
-  %work_serializer_run_time_ms126 = getelementptr inbounds i8, ptr %call.i, i64 1704
+  %work_serializer_run_time_ms126 = getelementptr inbounds nuw i8, ptr %call.i, i64 1704
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_run_time_ms126, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp123, i64 160, i1 false)
-  %work_serializer_work_time_ms = getelementptr inbounds i8, ptr %this, i64 1864
-  %work_serializer_work_time_ms128 = getelementptr inbounds i8, ptr %other, i64 1864
+  %work_serializer_work_time_ms = getelementptr inbounds nuw i8, ptr %this, i64 1864
+  %work_serializer_work_time_ms128 = getelementptr inbounds nuw i8, ptr %other, i64 1864
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp127, i8 0, i64 160, i1 false), !alias.scope !54
   br label %for.body.i121
 
 for.body.i121:                                    ; preds = %for.body.i121, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit
   %indvars.iv.i122 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit ], [ %indvars.iv.next.i127, %for.body.i121 ]
-  %arrayidx.i123 = getelementptr inbounds [20 x i64], ptr %work_serializer_work_time_ms, i64 0, i64 %indvars.iv.i122
+  %arrayidx.i123 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_work_time_ms, i64 0, i64 %indvars.iv.i122
   %65 = load i64, ptr %arrayidx.i123, align 8, !noalias !54
-  %arrayidx3.i124 = getelementptr inbounds [20 x i64], ptr %work_serializer_work_time_ms128, i64 0, i64 %indvars.iv.i122
+  %arrayidx3.i124 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_work_time_ms128, i64 0, i64 %indvars.iv.i122
   %66 = load i64, ptr %arrayidx3.i124, align 8, !noalias !54
   %sub.i125 = sub i64 %65, %66
-  %arrayidx6.i126 = getelementptr inbounds [20 x i64], ptr %ref.tmp127, i64 0, i64 %indvars.iv.i122
+  %arrayidx6.i126 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp127, i64 0, i64 %indvars.iv.i122
   store i64 %sub.i125, ptr %arrayidx6.i126, align 8, !alias.scope !54
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i122, 1
   %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, 20
   br i1 %exitcond.not.i128, label %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129, label %for.body.i121, !llvm.loop !6
 
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129: ; preds = %for.body.i121
-  %work_serializer_work_time_ms130 = getelementptr inbounds i8, ptr %call.i, i64 1864
+  %work_serializer_work_time_ms130 = getelementptr inbounds nuw i8, ptr %call.i, i64 1864
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_work_time_ms130, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp127, i64 160, i1 false)
-  %work_serializer_work_time_per_item_ms = getelementptr inbounds i8, ptr %this, i64 2024
-  %work_serializer_work_time_per_item_ms132 = getelementptr inbounds i8, ptr %other, i64 2024
+  %work_serializer_work_time_per_item_ms = getelementptr inbounds nuw i8, ptr %this, i64 2024
+  %work_serializer_work_time_per_item_ms132 = getelementptr inbounds nuw i8, ptr %other, i64 2024
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp131, i8 0, i64 160, i1 false), !alias.scope !57
   br label %for.body.i130
 
 for.body.i130:                                    ; preds = %for.body.i130, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129
   %indvars.iv.i131 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit129 ], [ %indvars.iv.next.i136, %for.body.i130 ]
-  %arrayidx.i132 = getelementptr inbounds [20 x i64], ptr %work_serializer_work_time_per_item_ms, i64 0, i64 %indvars.iv.i131
+  %arrayidx.i132 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_work_time_per_item_ms, i64 0, i64 %indvars.iv.i131
   %67 = load i64, ptr %arrayidx.i132, align 8, !noalias !57
-  %arrayidx3.i133 = getelementptr inbounds [20 x i64], ptr %work_serializer_work_time_per_item_ms132, i64 0, i64 %indvars.iv.i131
+  %arrayidx3.i133 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_work_time_per_item_ms132, i64 0, i64 %indvars.iv.i131
   %68 = load i64, ptr %arrayidx3.i133, align 8, !noalias !57
   %sub.i134 = sub i64 %67, %68
-  %arrayidx6.i135 = getelementptr inbounds [20 x i64], ptr %ref.tmp131, i64 0, i64 %indvars.iv.i131
+  %arrayidx6.i135 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp131, i64 0, i64 %indvars.iv.i131
   store i64 %sub.i134, ptr %arrayidx6.i135, align 8, !alias.scope !57
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond.not.i137 = icmp eq i64 %indvars.iv.next.i136, 20
   br i1 %exitcond.not.i137, label %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138, label %for.body.i130, !llvm.loop !6
 
 _ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138: ; preds = %for.body.i130
-  %work_serializer_work_time_per_item_ms134 = getelementptr inbounds i8, ptr %call.i, i64 2024
+  %work_serializer_work_time_per_item_ms134 = getelementptr inbounds nuw i8, ptr %call.i, i64 2024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_work_time_per_item_ms134, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp131, i64 160, i1 false)
-  %work_serializer_items_per_run = getelementptr inbounds i8, ptr %this, i64 2184
-  %work_serializer_items_per_run136 = getelementptr inbounds i8, ptr %other, i64 2184
+  %work_serializer_items_per_run = getelementptr inbounds nuw i8, ptr %this, i64 2184
+  %work_serializer_items_per_run136 = getelementptr inbounds nuw i8, ptr %other, i64 2184
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp135, i8 0, i64 160, i1 false), !alias.scope !60
   br label %for.body.i139
 
 for.body.i139:                                    ; preds = %for.body.i139, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138
   %indvars.iv.i140 = phi i64 [ 0, %_ZN9grpc_coremiERKNS_19Histogram_100000_20ES2_.exit138 ], [ %indvars.iv.next.i145, %for.body.i139 ]
-  %arrayidx.i141 = getelementptr inbounds [20 x i64], ptr %work_serializer_items_per_run, i64 0, i64 %indvars.iv.i140
+  %arrayidx.i141 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_items_per_run, i64 0, i64 %indvars.iv.i140
   %69 = load i64, ptr %arrayidx.i141, align 8, !noalias !60
-  %arrayidx3.i142 = getelementptr inbounds [20 x i64], ptr %work_serializer_items_per_run136, i64 0, i64 %indvars.iv.i140
+  %arrayidx3.i142 = getelementptr inbounds nuw [20 x i64], ptr %work_serializer_items_per_run136, i64 0, i64 %indvars.iv.i140
   %70 = load i64, ptr %arrayidx3.i142, align 8, !noalias !60
   %sub.i143 = sub i64 %69, %70
-  %arrayidx6.i144 = getelementptr inbounds [20 x i64], ptr %ref.tmp135, i64 0, i64 %indvars.iv.i140
+  %arrayidx6.i144 = getelementptr inbounds nuw [20 x i64], ptr %ref.tmp135, i64 0, i64 %indvars.iv.i140
   store i64 %sub.i143, ptr %arrayidx6.i144, align 8, !alias.scope !60
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i140, 1
   %exitcond.not.i146 = icmp eq i64 %indvars.iv.next.i145, 20
   br i1 %exitcond.not.i146, label %_ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit147, label %for.body.i139, !llvm.loop !14
 
 _ZN9grpc_coremiERKNS_18Histogram_10000_20ES2_.exit147: ; preds = %for.body.i139
-  %work_serializer_items_per_run138 = getelementptr inbounds i8, ptr %call.i, i64 2184
+  %work_serializer_items_per_run138 = getelementptr inbounds nuw i8, ptr %call.i, i64 2184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %work_serializer_items_per_run138, ptr noundef nonnull align 8 dereferenceable(160) %ref.tmp135, i64 160, i1 false)
   ret void
 }

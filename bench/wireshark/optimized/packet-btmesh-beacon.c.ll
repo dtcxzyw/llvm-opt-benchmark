@@ -151,7 +151,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.66) #2
   %7 = icmp eq ptr %3, null
@@ -169,7 +169,7 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   br i1 %7, label %.cont.thread, label %.cont
 
 .cont:                                            ; preds = %4
-  %.0130.sroa.gep131 = getelementptr inbounds i8, ptr %3, i64 4
+  %.0130.sroa.gep131 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.else.val = load i32, ptr %.0130.sroa.gep131, align 4
   %.not = icmp eq i32 %.else.val, 0
   br i1 %.not, label %.cont.thread, label %.cont139

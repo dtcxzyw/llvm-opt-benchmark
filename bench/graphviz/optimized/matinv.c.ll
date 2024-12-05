@@ -47,9 +47,9 @@ gv_calloc.exit._crit_edge.thread:                 ; preds = %gv_calloc.exit.preh
 .preheader41.us:                                  ; preds = %.preheader41.us.preheader, %.preheader41.us
   %indvars.iv = phi i64 [ 0, %.preheader41.us.preheader ], [ %indvars.iv.next, %.preheader41.us ]
   tail call void @llvm.memset.p0.i64(ptr align 8 %13, i8 0, i64 %16, i1 false)
-  %17 = getelementptr inbounds double, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
   store double 1.000000e+00, ptr %17, align 8
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   tail call void @lu_solve(ptr noundef %19, ptr noundef %13, i32 noundef %2) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -75,21 +75,21 @@ gv_calloc.exit._crit_edge:                        ; preds = %.preheader41.us
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %24 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv55
+  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv55
   br label %25
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next51, %25 ]
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds double, ptr %26, i64 %indvars.iv50
+  %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv50
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv50
+  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv50
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds double, ptr %30, i64 %indvars.iv55
+  %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv55
   %32 = load double, ptr %31, align 8
   store double %32, ptr %27, align 8
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv55
+  %34 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv55
   store double %28, ptr %34, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %indvars.iv55

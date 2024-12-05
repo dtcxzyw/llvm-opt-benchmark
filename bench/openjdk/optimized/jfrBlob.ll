@@ -15,11 +15,11 @@ define hidden void @_ZN7JfrBlobC2EPKhm(ptr nocapture noundef nonnull writeonly a
   %4 = tail call noundef ptr @_ZN11JfrCHeapObj23allocate_array_noinlineEmm(i64 noundef %2, i64 noundef 1) #6
   tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %4, i64 noundef %2) #6
   store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %7, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %1, i64 %2, i1 false)
   ret void
@@ -31,16 +31,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7JfrBlobD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   tail call void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef %2, i64 noundef %4) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %8) #6, !srcloc !6
   %10 = icmp eq i64 %9, 1
   br i1 %10, label %11, label %_ZNK15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE10remove_refEv.exit
@@ -72,7 +72,7 @@ declare void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK7JfrBlob17reset_write_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %.lr.ph, label %tailrecurse._crit_edge
@@ -81,14 +81,14 @@ define hidden void @_ZNK7JfrBlob17reset_write_stateEv(ptr nocapture noundef nonn
   %5 = phi ptr [ %9, %tailrecurse ], [ %2, %1 ]
   %.tr1 = phi ptr [ %8, %tailrecurse ], [ %0, %1 ]
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %.tr1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.tr1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.lr.ph, label %tailrecurse._crit_edge
@@ -100,7 +100,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurs
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7JfrBlob8set_nextERK14RefCountHandleI15RefCountPointerIS_23MultiThreadedRefCounterEE(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %3
   br i1 %6, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %.lr.ph.preheader
@@ -116,14 +116,14 @@ define hidden void @_ZN7JfrBlob8set_nextERK14RefCountHandleI15RefCountPointerIS_
 tailrecurse:                                      ; preds = %.lr.ph.preheader, %.lr.ph
   %7 = phi ptr [ %10, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %3
   br i1 %11, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %.lr.ph
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.tr10.lcssa = phi ptr [ %0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %.tr10.lcssa, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.tr10.lcssa, i64 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.thread, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit
 
@@ -132,7 +132,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit: ; preds = %.lr.ph._crit_edge
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %13) #6, !srcloc !6
   %.pre = load ptr, ptr %12, align 8
   store ptr %3, ptr %12, align 8
@@ -140,7 +140,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4
   br i1 %.not.i4, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(8) %16) #6, !srcloc !6
   %18 = icmp eq i64 %17, 1
   br i1 %18, label %19, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit
@@ -174,11 +174,11 @@ define hidden void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind noalias nocapture w
   %7 = tail call noundef ptr @_ZN11JfrCHeapObj23allocate_array_noinlineEmm(i64 noundef %2, i64 noundef 1) #6
   tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %7, i64 noundef %2) #6
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 0, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr readonly align 1 %1, i64 %2, i1 false)
   br label %11
@@ -191,14 +191,14 @@ define hidden void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind noalias nocapture w
 
 14:                                               ; preds = %11
   store ptr %4, ptr %12, align 8, !noalias !8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store volatile i64 0, ptr %15, align 8, !noalias !8
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE4makeEPKS0_.exit
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterE4makeEPKS0_.exit: ; preds = %11, %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   store ptr %12, ptr %0, align 8, !alias.scope !14
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(8) %16) #6, !noalias !14, !srcloc !6
   ret void
 }

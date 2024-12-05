@@ -65,13 +65,13 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
 .split17.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr @anon.fed15eb7140697eae985617ca7c78cfd.5, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %21, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #11
   unreachable
@@ -88,13 +88,13 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
 24:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   store ptr @anon.fed15eb7140697eae985617ca7c78cfd.1, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %28, align 8
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #11
   unreachable
@@ -102,7 +102,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
 .split19.us:                                      ; preds = %22, %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %0, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %29, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !5, !noundef !4
   %30 = load ptr, ptr %.val, align 8, !align !5, !noundef !4

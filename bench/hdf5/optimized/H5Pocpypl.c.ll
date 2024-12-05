@@ -380,7 +380,7 @@ define range(i32 -1, 1) i32 @H5Padd_merge_committed_dtype_path(i64 noundef %0, p
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds i8, ptr %53, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %66, ptr %67, align 8
   %68 = call i32 @H5P_poke(ptr noundef nonnull %39, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #6
   %69 = icmp slt i32 %68, 0
@@ -497,7 +497,7 @@ define range(i32 -1, 1) i32 @H5Pfree_merge_committed_dtype_paths(i64 noundef %0)
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.i
   %.06.i = phi ptr [ %41, %.lr.ph.i ], [ %39, %38 ]
-  %40 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %.06.i, align 8
   %43 = call ptr @H5MM_xfree(ptr noundef %42) #6
@@ -593,7 +593,7 @@ define range(i32 -1, 1) i32 @H5Pset_mcdt_search_cb(i64 noundef %0, ptr noundef %
 
 40:                                               ; preds = %32
   store ptr %1, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %41, align 8
   %42 = call i32 @H5P_set(ptr noundef nonnull %34, ptr noundef nonnull @.str.19, ptr noundef nonnull %4) #6
   %43 = icmp slt i32 %42, 0
@@ -692,7 +692,7 @@ define range(i32 -1, 1) i32 @H5Pget_mcdt_search_cb(i64 noundef %0, ptr noundef w
   br i1 %.not17, label %48, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %2, align 8
   br label %48
@@ -780,7 +780,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr nocapture noun
   %12 = load i64, ptr %2, align 8
   %13 = add i64 %12, %6
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %.022, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -791,7 +791,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr nocapture noun
   br i1 %.not18, label %18, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %15, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %17, ptr %1, align 8
   store i8 0, ptr %15, align 1
   br label %18
@@ -834,7 +834,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nocap
   br i1 %.not33, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.02941, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02941, i64 8
   store ptr %5, ptr %16, align 8
   br label %18
 
@@ -851,7 +851,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nocap
 
 ._crit_edge:                                      ; preds = %18, %2
   %21 = phi ptr [ %3, %2 ], [ %19, %18 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %0, align 8
   br label %37
 
@@ -866,7 +866,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nocap
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   %.06.i = phi ptr [ %29, %.lr.ph.i ], [ %27, %23 ]
-  %28 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %.06.i, align 8
   %31 = tail call ptr @H5MM_xfree(ptr noundef %30) #6
@@ -899,7 +899,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_del(i64 %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.06.i = phi ptr [ %7, %.lr.ph.i ], [ %5, %4 ]
-  %6 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %.06.i, align 8
   %9 = tail call ptr @H5MM_xfree(ptr noundef %8) #6
@@ -947,8 +947,8 @@ define internal i32 @H5P__ocpy_merge_comm_dt_list_cmp(ptr nocapture noundef read
   br i1 %.not, label %10, label %.loopexit
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.01324, i64 8
-  %12 = getelementptr inbounds i8, ptr %.01223, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01324, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01223, i64 8
   %.012 = load ptr, ptr %12, align 8
   %.013 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %.013, null
@@ -976,7 +976,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_close(ptr nocapture re
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.06.i = phi ptr [ %6, %.lr.ph.i ], [ %4, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %.06.i, align 8
   %8 = tail call ptr @H5MM_xfree(ptr noundef %7) #6
@@ -1014,13 +1014,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr no
   br i1 %.not29, label %11, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.02242, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.02242, i64 8
   store ptr %2, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %8, %9
   %.125 = phi ptr [ %.02441, %9 ], [ %2, %8 ]
-  %12 = getelementptr inbounds i8, ptr %.02643, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.02643, i64 8
   %.026 = load ptr, ptr %12, align 8
   %.not.not = icmp eq ptr %.026, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
@@ -1040,7 +1040,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr no
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.06.i = phi ptr [ %18, %.lr.ph.i ], [ %.02441, %13 ]
-  %17 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %.06.i, align 8
   %20 = tail call ptr @H5MM_xfree(ptr noundef %19) #6

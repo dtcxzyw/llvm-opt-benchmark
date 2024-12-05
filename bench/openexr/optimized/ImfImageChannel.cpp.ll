@@ -53,19 +53,19 @@ define void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr nocapture noun
 entry:
   %frombool = zext i1 %pLinear to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212ImageChannelE, i64 16), ptr %this, align 8
-  %_level = getelementptr inbounds i8, ptr %this, i64 8
+  %_level = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %level, ptr %_level, align 8
-  %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %xSampling, ptr %_xSampling, align 8
-  %_ySampling = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %ySampling, ptr %_ySampling, align 4
-  %_pLinear = getelementptr inbounds i8, ptr %this, i64 24
+  %_pLinear = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 %frombool, ptr %_pLinear, align 8
-  %_pixelsPerRow = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_pixelsPerRow, align 4
-  %_pixelsPerColumn = getelementptr inbounds i8, ptr %this, i64 32
+  %_pixelsPerColumn = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %_pixelsPerColumn, align 8
-  %_numPixels = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_numPixels, align 8
   ret void
 }
@@ -93,17 +93,17 @@ entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_xSampling.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load i32, ptr %_ySampling.i, align 4
-  %_pLinear.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_pLinear.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i8, ptr %_pLinear.i, align 8
   %tobool.i = trunc i8 %3 to i1
   call void @_ZN7Imf_3_27ChannelC1ENS_9PixelTypeEiib(ptr noundef nonnull align 4 dereferenceable(13) %retval, i32 noundef %call, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %tobool.i)
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -114,20 +114,20 @@ declare void @_ZN7Imf_3_27ChannelC1ENS_9PixelTypeEiib(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
-  %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %_xSampling, align 8
   %rem = srem i32 %1, %2
   %tobool.not = icmp eq i32 %rem, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %y = getelementptr inbounds i8, ptr %0, i64 28
+  %y = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %y, align 4
-  %_ySampling = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load i32, ptr %_ySampling, align 4
   %rem4 = srem i32 %3, %4
   %tobool5.not = icmp eq i32 %rem4, 0
@@ -148,11 +148,11 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
-  %max = getelementptr inbounds i8, ptr %0, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %max, align 4
   %sub = sub nsw i32 %6, %1
   %add = add nsw i32 %sub, 1
-  %y10 = getelementptr inbounds i8, ptr %0, i64 36
+  %y10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %y10, align 4
   %sub13 = sub nsw i32 %7, %3
   %add14 = add nsw i32 %sub13, 1
@@ -182,13 +182,13 @@ lpad24:                                           ; preds = %if.then22
   br label %eh.resume
 
 if.end26:                                         ; preds = %lor.lhs.false18
-  %_pixelsPerRow = getelementptr inbounds i8, ptr %this, i64 28
+  %_pixelsPerRow = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %div, ptr %_pixelsPerRow, align 4
-  %_pixelsPerColumn = getelementptr inbounds i8, ptr %this, i64 32
+  %_pixelsPerColumn = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %div29, ptr %_pixelsPerColumn, align 8
   %mul = mul nsw i32 %div29, %div
   %conv = sext i32 %mul to i64
-  %_numPixels = getelementptr inbounds i8, ptr %this, i64 40
+  %_numPixels = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %conv, ptr %_numPixels, align 8
   ret void
 
@@ -218,27 +218,27 @@ define void @_ZNK7Imf_3_212ImageChannel11boundsCheckEii(ptr nocapture noundef no
 entry:
   %_iex_throw_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %_iex_throw_s54 = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_dataWindow.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
   %cmp = icmp slt i32 %x, %1
   br i1 %cmp, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %max = getelementptr inbounds i8, ptr %0, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i32, ptr %max, align 4
   %cmp5 = icmp sgt i32 %x, %2
   br i1 %cmp5, label %do.body, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %y8 = getelementptr inbounds i8, ptr %0, i64 28
+  %y8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %y8, align 4
   %cmp9 = icmp slt i32 %y, %3
   br i1 %cmp9, label %do.body, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false6
-  %y12 = getelementptr inbounds i8, ptr %0, i64 36
+  %y12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %y12, align 4
   %cmp13 = icmp sgt i32 %y, %4
   br i1 %cmp13, label %do.body, label %if.end
@@ -246,7 +246,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
 do.body:                                          ; preds = %entry, %lor.lhs.false, %lor.lhs.false6, %lor.lhs.false10
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.2)
           to label %invoke.cont unwind label %lpad
 
@@ -276,7 +276,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %y30 = getelementptr inbounds i8, ptr %0, i64 28
+  %y30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %y30, align 4
   %call32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call28, i32 noundef %6)
           to label %invoke.cont31 unwind label %lpad
@@ -286,7 +286,7 @@ invoke.cont31:                                    ; preds = %invoke.cont27
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %max35 = getelementptr inbounds i8, ptr %0, i64 32
+  %max35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %max35, align 4
   %call38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call34, i32 noundef %7)
           to label %invoke.cont37 unwind label %lpad
@@ -296,7 +296,7 @@ invoke.cont37:                                    ; preds = %invoke.cont33
           to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  %y42 = getelementptr inbounds i8, ptr %0, i64 36
+  %y42 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %y42, align 4
   %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call40, i32 noundef %8)
           to label %invoke.cont43 unwind label %lpad
@@ -326,14 +326,14 @@ lpad47:                                           ; preds = %invoke.cont45
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %_xSampling = getelementptr inbounds i8, ptr %this, i64 16
+  %_xSampling = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load i32, ptr %_xSampling, align 8
   %rem = srem i32 %x, %11
   %tobool.not = icmp eq i32 %rem, 0
   br i1 %tobool.not, label %lor.lhs.false49, label %do.body53
 
 lor.lhs.false49:                                  ; preds = %if.end
-  %_ySampling = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling = getelementptr inbounds nuw i8, ptr %this, i64 20
   %12 = load i32, ptr %_ySampling, align 4
   %rem50 = srem i32 %y, %12
   %tobool51.not = icmp eq i32 %rem50, 0
@@ -342,7 +342,7 @@ lor.lhs.false49:                                  ; preds = %if.end
 do.body53:                                        ; preds = %if.end, %lor.lhs.false49
   tail call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s54)
-  %add.ptr55 = getelementptr inbounds i8, ptr %_iex_throw_s54, i64 16
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %_iex_throw_s54, i64 16
   %call58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr55, ptr noundef nonnull @.str.2)
           to label %invoke.cont57 unwind label %lpad56
 
@@ -372,7 +372,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
           to label %invoke.cont70 unwind label %lpad56
 
 invoke.cont70:                                    ; preds = %invoke.cont68
-  %_ySampling72 = getelementptr inbounds i8, ptr %this, i64 20
+  %_ySampling72 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %14 = load i32, ptr %_ySampling72, align 4
   %call74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call71, i32 noundef %14)
           to label %invoke.cont73 unwind label %lpad56

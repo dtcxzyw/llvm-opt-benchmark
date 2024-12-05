@@ -40,15 +40,15 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.then10:                                        ; preds = %if.then2.i, %if.then8
   %retval.0.i.ph = phi i32 [ %call.i, %if.then8 ], [ %call1.i, %if.then2.i ]
-  %handle_queue = getelementptr inbounds i8, ptr %tcp, i64 32
+  %handle_queue = getelementptr inbounds nuw i8, ptr %tcp, i64 32
   %1 = load ptr, ptr %handle_queue, align 8
-  %prev.i = getelementptr inbounds i8, ptr %tcp, i64 40
+  %prev.i = getelementptr inbounds nuw i8, ptr %tcp, i64 40
   %2 = load ptr, ptr %prev.i, align 8
   store ptr %1, ptr %2, align 8
   %3 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %1, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %prev4.i, align 8
-  %fd = getelementptr inbounds i8, ptr %tcp, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %tcp, i64 184
   %4 = load i32, ptr %fd, align 8
   %cmp11.not = icmp eq i32 %4, -1
   br i1 %cmp11.not, label %if.end16, label %if.then12
@@ -97,7 +97,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %land.lhs.true, %if.end
   %conv319 = phi i32 [ %conv3, %if.end ], [ 10, %land.lhs.true ]
-  %fd.i = getelementptr inbounds i8, ptr %tcp, i64 184
+  %fd.i = getelementptr inbounds nuw i8, ptr %tcp, i64 184
   %0 = load i32, ptr %fd.i, align 8
   %cmp1.i = icmp eq i32 %0, -1
   br i1 %cmp1.i, label %if.then2.i, label %if.end6
@@ -118,7 +118,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 
 if.end6:                                          ; preds = %if.end, %if.end.i, %if.end.i.i
   store i32 1, ptr %on, align 4
-  %fd = getelementptr inbounds i8, ptr %tcp, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %tcp, i64 184
   %1 = load i32, ptr %fd, align 8
   %call7 = call i32 @setsockopt(i32 noundef %1, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on, i32 noundef 4) #7
   %tobool8.not = icmp eq i32 %call7, 0
@@ -169,9 +169,9 @@ if.end45:                                         ; preds = %land.lhs.true36
 
 cond.end:                                         ; preds = %land.lhs.true36, %if.end29
   %cond = phi i32 [ 0, %if.end29 ], [ -98, %land.lhs.true36 ]
-  %delayed_error = getelementptr inbounds i8, ptr %tcp, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %tcp, i64 232
   store i32 %cond, ptr %delayed_error, align 8
-  %flags53 = getelementptr inbounds i8, ptr %tcp, i64 88
+  %flags53 = getelementptr inbounds nuw i8, ptr %tcp, i64 88
   %8 = load i32, ptr %flags53, align 8
   %or = or i32 %8, 8192
   store i32 %or, ptr %flags53, align 8
@@ -202,13 +202,13 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
 define hidden i32 @uv__tcp_connect(ptr noundef %req, ptr noundef %handle, ptr noundef %addr, i32 noundef %addrlen, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %tmp6 = alloca %struct.sockaddr_in6, align 4
-  %connect_req = getelementptr inbounds i8, ptr %handle, i64 120
+  %connect_req = getelementptr inbounds nuw i8, ptr %handle, i64 120
   %0 = load ptr, ptr %connect_req, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %delayed_error = getelementptr inbounds i8, ptr %handle, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %handle, i64 232
   %1 = load i32, ptr %delayed_error, align 8
   %cmp1.not = icmp eq i32 %1, 0
   br i1 %cmp1.not, label %if.end3, label %do.body44
@@ -220,7 +220,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i, label %out.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end3
-  %fd.i = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd.i = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %3 = load i32, ptr %fd.i, align 8
   %cmp1.i = icmp eq i32 %3, -1
   br i1 %cmp1.i, label %if.then2.i, label %out.i
@@ -240,7 +240,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 out.i:                                            ; preds = %if.end.i, %if.end3
-  %flags15.i = getelementptr inbounds i8, ptr %handle, i64 88
+  %flags15.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %4 = load i32, ptr %flags15.i, align 8
   %or.i = or i32 %4, 49152
   store i32 %or.i, ptr %flags15.i, align 8
@@ -252,9 +252,9 @@ if.end5:                                          ; preds = %out.i, %if.end.i.i
   br i1 %cmp.not.i, label %uv__is_ipv6_link_local.exit, label %if.end15
 
 uv__is_ipv6_link_local.exit:                      ; preds = %if.end5
-  %sin6_addr.i = getelementptr inbounds i8, ptr %addr, i64 8
+  %sin6_addr.i = getelementptr inbounds nuw i8, ptr %addr, i64 8
   %b.sroa.0.0.copyload.i = load i8, ptr %sin6_addr.i, align 4
-  %b.sroa.2.0.sin6_addr.sroa_idx.i = getelementptr inbounds i8, ptr %addr, i64 9
+  %b.sroa.2.0.sin6_addr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %addr, i64 9
   %b.sroa.2.0.copyload.i = load i8, ptr %b.sroa.2.0.sin6_addr.sroa_idx.i, align 1
   %cmp3.i = icmp ne i8 %b.sroa.0.0.copyload.i, -2
   %cmp7.i = icmp ne i8 %b.sroa.2.0.copyload.i, -128
@@ -263,7 +263,7 @@ uv__is_ipv6_link_local.exit:                      ; preds = %if.end5
 
 if.then8:                                         ; preds = %uv__is_ipv6_link_local.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %tmp6, ptr noundef nonnull align 2 dereferenceable(28) %addr, i64 28, i1 false)
-  %sin6_scope_id = getelementptr inbounds i8, ptr %tmp6, i64 24
+  %sin6_scope_id = getelementptr inbounds nuw i8, ptr %tmp6, i64 24
   %6 = load i32, ptr %sin6_scope_id, align 4
   %cmp9 = icmp eq i32 %6, 0
   br i1 %cmp9, label %if.then11, label %if.end15
@@ -276,7 +276,7 @@ if.then11:                                        ; preds = %if.then8
 if.end15:                                         ; preds = %if.end5, %if.then8, %if.then11, %uv__is_ipv6_link_local.exit
   %addr.addr.0 = phi ptr [ %tmp6, %if.then11 ], [ %addr, %if.then8 ], [ %addr, %uv__is_ipv6_link_local.exit ], [ %addr, %if.end5 ]
   %call16 = tail call ptr @__errno_location() #8
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end15
@@ -304,25 +304,25 @@ if.else38:                                        ; preds = %land.rhs
   br label %return
 
 do.body44:                                        ; preds = %land.rhs, %land.rhs, %do.body, %if.then36, %if.end
-  %type = getelementptr inbounds i8, ptr %req, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i32 2, ptr %type, align 8
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %9 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %9, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %9, i64 32
   %10 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %10, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %cb52 = getelementptr inbounds i8, ptr %req, i64 64
+  %cb52 = getelementptr inbounds nuw i8, ptr %req, i64 64
   store ptr %cb, ptr %cb52, align 8
-  %handle53 = getelementptr inbounds i8, ptr %req, i64 72
+  %handle53 = getelementptr inbounds nuw i8, ptr %req, i64 72
   store ptr %handle, ptr %handle53, align 8
-  %queue = getelementptr inbounds i8, ptr %req, i64 80
+  %queue = getelementptr inbounds nuw i8, ptr %req, i64 80
   store ptr %queue, ptr %queue, align 8
-  %prev.i = getelementptr inbounds i8, ptr %req, i64 88
+  %prev.i = getelementptr inbounds nuw i8, ptr %req, i64 88
   store ptr %queue, ptr %prev.i, align 8
   store ptr %req, ptr %connect_req, align 8
   %11 = load ptr, ptr %loop, align 8
-  %io_watcher56 = getelementptr inbounds i8, ptr %handle, i64 136
+  %io_watcher56 = getelementptr inbounds nuw i8, ptr %handle, i64 136
   call void @uv__io_start(ptr noundef %11, ptr noundef nonnull %io_watcher56, i32 noundef 4) #7
   %12 = load i32, ptr %delayed_error, align 8
   %tobool58.not = icmp eq i32 %12, 0
@@ -356,16 +356,16 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond.backedge
   %p.07 = phi ptr [ %p.0, %for.cond.backedge ], [ %p.05, %for.cond.preheader ]
-  %ifa_addr = getelementptr inbounds i8, ptr %p.07, i64 24
+  %ifa_addr = getelementptr inbounds nuw i8, ptr %p.07, i64 24
   %0 = load ptr, ptr %ifa_addr, align 8
   %1 = load i16, ptr %0, align 2
   %cmp.not.i = icmp eq i16 %1, 10
   br i1 %cmp.not.i, label %if.end.i, label %for.cond.backedge
 
 if.end.i:                                         ; preds = %for.body
-  %sin6_addr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %sin6_addr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %b.sroa.0.0.copyload.i = load i8, ptr %sin6_addr.i, align 4
-  %b.sroa.2.0.sin6_addr.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 9
+  %b.sroa.2.0.sin6_addr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %b.sroa.2.0.copyload.i = load i8, ptr %b.sroa.2.0.sin6_addr.sroa_idx.i, align 1
   %cmp3.i = icmp ne i8 %b.sroa.0.0.copyload.i, -2
   %cmp7.i = icmp ne i8 %b.sroa.2.0.copyload.i, -128
@@ -378,7 +378,7 @@ for.cond.backedge:                                ; preds = %if.end.i, %for.body
   br i1 %cmp.not, label %if.end8, label %for.body
 
 if.then6:                                         ; preds = %if.end.i
-  %sin6_scope_id = getelementptr inbounds i8, ptr %0, i64 24
+  %sin6_scope_id = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load i32, ptr %sin6_scope_id, align 4
   br label %if.end8
 
@@ -401,7 +401,7 @@ declare void @uv__io_feed(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_open(ptr noundef %handle, i32 noundef %sock) local_unnamed_addr #0 {
 entry:
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
   %call = tail call i32 @uv__fd_exists(ptr noundef %0, i32 noundef %sock) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -430,7 +430,7 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_getsockname(ptr noundef %handle, ptr noundef %name, ptr noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %delayed_error = getelementptr inbounds i8, ptr %handle, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %handle, i64 232
   %0 = load i32, ptr %delayed_error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -452,7 +452,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_tcp_getpeername(ptr noundef %handle, ptr noundef %name, ptr noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %delayed_error = getelementptr inbounds i8, ptr %handle, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %handle, i64 232
   %0 = load i32, ptr %delayed_error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -474,13 +474,13 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_close_reset(ptr
 entry:
   %l = alloca %struct.linger, align 8
   store i64 1, ptr %l, align 8
-  %shutdown_req = getelementptr inbounds i8, ptr %handle, i64 128
+  %shutdown_req = getelementptr inbounds nuw i8, ptr %handle, i64 128
   %0 = load ptr, ptr %shutdown_req, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fd1 = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd1 = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %1 = load i32, ptr %fd1, align 8
   %call = call i32 @setsockopt(i32 noundef %1, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %l, i32 noundef 8) #7
   %cmp2.not = icmp eq i32 %call, 0
@@ -514,13 +514,13 @@ declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @uv__tcp_listen(ptr noundef %tcp, i32 noundef %backlog, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %delayed_error = getelementptr inbounds i8, ptr %tcp, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %tcp, i64 232
   %0 = load i32, ptr %delayed_error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fd.i = getelementptr inbounds i8, ptr %tcp, i64 184
+  %fd.i = getelementptr inbounds nuw i8, ptr %tcp, i64 184
   %1 = load i32, ptr %fd.i, align 8
   %cmp1.i = icmp eq i32 %1, -1
   br i1 %cmp1.i, label %if.then2.i, label %if.end4
@@ -556,15 +556,15 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %io_watcher = getelementptr inbounds i8, ptr %tcp, i64 136
-  %connection_cb = getelementptr inbounds i8, ptr %tcp, i64 224
+  %io_watcher = getelementptr inbounds nuw i8, ptr %tcp, i64 136
+  %connection_cb = getelementptr inbounds nuw i8, ptr %tcp, i64 224
   store ptr %cb, ptr %connection_cb, align 8
-  %flags10 = getelementptr inbounds i8, ptr %tcp, i64 88
+  %flags10 = getelementptr inbounds nuw i8, ptr %tcp, i64 88
   %4 = load i32, ptr %flags10, align 8
   %or = or i32 %4, 8192
   store i32 %or, ptr %flags10, align 8
   store ptr @uv__server_io, ptr %io_watcher, align 8
-  %loop = getelementptr inbounds i8, ptr %tcp, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %tcp, i64 8
   %5 = load ptr, ptr %loop, align 8
   tail call void @uv__io_start(ptr noundef %5, ptr noundef nonnull %io_watcher, i32 noundef 1) #7
   br label %return
@@ -649,7 +649,7 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_nodelay(ptr nocapture noundef %handle, i32 noundef %on) local_unnamed_addr #0 {
 entry:
   %on.addr.i = alloca i32, align 4
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -675,7 +675,7 @@ uv__tcp_nodelay.exit:                             ; preds = %if.then
 
 if.end4:                                          ; preds = %uv__tcp_nodelay.exit.thread, %uv__tcp_nodelay.exit, %entry
   %tobool5.not = icmp eq i32 %on, 0
-  %flags7 = getelementptr inbounds i8, ptr %handle, i64 88
+  %flags7 = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %2 = load i32, ptr %flags7, align 8
   %and = and i32 %2, -16777217
   %masksel = select i1 %tobool5.not, i32 0, i32 16777216
@@ -691,7 +691,7 @@ return:                                           ; preds = %if.end4, %uv__tcp_n
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tcp_keepalive(ptr nocapture noundef %handle, i32 noundef %on, i32 noundef %delay) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end4, label %if.then
@@ -703,7 +703,7 @@ if.then:                                          ; preds = %entry
 
 if.end4:                                          ; preds = %if.then, %entry
   %tobool5.not = icmp eq i32 %on, 0
-  %flags7 = getelementptr inbounds i8, ptr %handle, i64 88
+  %flags7 = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags7, align 8
   %and = and i32 %1, -33554433
   %masksel = select i1 %tobool5.not, i32 0, i32 33554432
@@ -761,9 +761,9 @@ if.end7:                                          ; preds = %entry
 if.then10:                                        ; preds = %if.end7
   %2 = load i32, ptr %temp, align 4
   store i32 %2, ptr %fds, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %3 = load i32, ptr %arrayidx12, align 4
-  %arrayidx13 = getelementptr inbounds i8, ptr %fds, i64 4
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %fds, i64 4
   store i32 %3, ptr %arrayidx13, align 4
   br label %return
 
@@ -780,7 +780,7 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   br i1 %tobool2.not, label %if.end32, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %arrayidx27 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %5 = load i32, ptr %arrayidx27, align 4
   %call28 = call i32 @uv__nonblock_ioctl(i32 noundef %5, i32 noundef 1) #7
   %tobool29.not = icmp eq i32 %call28, 0
@@ -789,9 +789,9 @@ if.then26:                                        ; preds = %if.end23
 if.end32:                                         ; preds = %if.then26, %if.end23
   %6 = load i32, ptr %temp, align 4
   store i32 %6, ptr %fds, align 4
-  %arrayidx35 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %7 = load i32, ptr %arrayidx35, align 4
-  %arrayidx36 = getelementptr inbounds i8, ptr %fds, i64 4
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %fds, i64 4
   store i32 %7, ptr %arrayidx36, align 4
   br label %return
 
@@ -799,7 +799,7 @@ fail:                                             ; preds = %if.then26, %if.then
   %err.0 = phi i32 [ %call19, %if.then17 ], [ %call28, %if.then26 ]
   %8 = load i32, ptr %temp, align 4
   %call38 = call i32 @uv__close(i32 noundef %8) #7
-  %arrayidx39 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %9 = load i32, ptr %arrayidx39, align 4
   %call40 = call i32 @uv__close(i32 noundef %9) #7
   br label %return

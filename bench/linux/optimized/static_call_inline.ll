@@ -105,7 +105,7 @@ define dso_local void @__static_call_update(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit6
 
 .preheader9:                                      ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 1
   %14 = icmp eq i64 %13, 0
@@ -118,8 +118,8 @@ define dso_local void @__static_call_update(ptr noundef %0, ptr noundef %1, ptr 
   br label %20
 
 thread-pre-split:                                 ; preds = %.loopexit
-  %18 = getelementptr inbounds i8, ptr %111, i64 16
-  %19 = getelementptr inbounds i8, ptr %111, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %.pr = load ptr, ptr %18, align 8
   %.pr5 = load ptr, ptr %19, align 8
   br label %20
@@ -138,9 +138,9 @@ thread-pre-split:                                 ; preds = %.loopexit
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %21, i64 1096
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 1096
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %21, i64 1092
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 1092
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr %struct.static_call_site, ptr %31, i64 %34
@@ -160,7 +160,7 @@ thread-pre-split:                                 ; preds = %.loopexit
 
 .preheader.split.us:                              ; preds = %.preheader, %71
   %42 = phi ptr [ %72, %71 ], [ %22, %.preheader ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = ptrtoint ptr %43 to i64
@@ -213,7 +213,7 @@ thread-pre-split:                                 ; preds = %.loopexit
 
 .preheader.split:                                 ; preds = %.preheader, %108
   %74 = phi ptr [ %109, %108 ], [ %22, %.preheader ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
   %78 = ptrtoint ptr %75 to i64
@@ -336,7 +336,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
 
 .split:                                           ; preds = %4, %39
   %21 = phi ptr [ %40, %39 ], [ @__start_static_call_sites, %4 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = ptrtoint ptr %22 to i64
@@ -399,9 +399,9 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
   br i1 %57, label %.loopexit4, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %49, i64 1096
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 1096
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %49, i64 1092
+  %61 = getelementptr inbounds nuw i8, ptr %49, i64 1092
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr %struct.static_call_site, ptr %60, i64 %63
@@ -433,7 +433,7 @@ define dso_local noundef range(i32 0, 2) i32 @static_call_text_reserved(ptr noun
 
 .preheader.split:                                 ; preds = %.preheader, %99
   %81 = phi ptr [ %100, %99 ], [ %60, %.preheader ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = zext i32 %83 to i64
   %85 = ptrtoint ptr %82 to i64
@@ -523,7 +523,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %0, null
-  %13 = getelementptr inbounds i8, ptr %0, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %27
 
 14:                                               ; preds = %.thread, %114, %.thread9, %70
@@ -565,7 +565,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   %42 = getelementptr [7 x %struct.module_memory], ptr %13, i64 0, i64 %35
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = zext i32 %46 to i64
   %48 = sub i64 %33, %44
@@ -583,7 +583,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br i1 %55, label %61, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %54
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %29, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.pre11 = ptrtoint ptr %.phi.trans.insert to i64
   br label %70
@@ -596,7 +596,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %56, %54
-  %62 = getelementptr inbounds i8, ptr %29, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = ptrtoint ptr %62 to i64
@@ -610,7 +610,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
 70:                                               ; preds = %._crit_edge, %61
   %.pre-phi = phi i64 [ %.pre11, %._crit_edge ], [ %65, %61 ]
   %71 = phi i32 [ %.pre, %._crit_edge ], [ %69, %61 ]
-  %72 = getelementptr inbounds i8, ptr %29, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %73 = sext i32 %71 to i64
   %74 = add i64 %.pre-phi, %73
   %75 = and i64 %74, -4
@@ -619,7 +619,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br i1 %77, label %14, label %86
 
 .thread:                                          ; preds = %56
-  %78 = getelementptr inbounds i8, ptr %29, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = ptrtoint ptr %78 to i64
@@ -636,7 +636,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   %87 = phi ptr [ %72, %86 ], [ %78, %.thread ]
   %88 = phi i64 [ %.pre-phi, %86 ], [ %81, %.thread ]
   %89 = phi ptr [ %76, %86 ], [ %84, %.thread ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = or i64 %32, 1
   store i64 %91, ptr %90, align 8
   br label %14
@@ -648,7 +648,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   br i1 %95, label %.thread10, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %76, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = and i64 %98, 1
   %100 = icmp eq i64 %99, 0
@@ -664,7 +664,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
   %107 = and i64 %104, -2
   %108 = inttoptr i64 %107 to ptr
   %109 = select i1 %106, ptr null, ptr %108
-  %110 = getelementptr inbounds i8, ptr %94, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store ptr %109, ptr %110, align 8
   store ptr %94, ptr %97, align 8
   %111 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -674,9 +674,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__static_call_init(ptr nou
 
 114:                                              ; preds = %103, %96
   %115 = phi ptr [ %112, %103 ], [ %94, %96 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %0, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %115, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr %29, ptr %117, align 8
   %118 = load i64, ptr %97, align 8
   %119 = and i64 %118, 1
@@ -727,13 +727,13 @@ declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 -1, 2) i32 @static_call_site_cmp(ptr noundef %0, ptr noundef %1) #9 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
   %6 = ptrtoint ptr %3 to i64
   %7 = add i64 %5, %6
   %8 = and i64 %7, -4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = ptrtoint ptr %9 to i64
@@ -749,13 +749,13 @@ define internal void @static_call_site_swap(ptr noundef %0, ptr noundef %1, i32 
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
   %7 = load i32, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %1, align 4
   %11 = trunc i64 %6 to i32
   %12 = sub i32 %10, %11
   store i32 %12, ptr %0, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = sub i32 %14, %11
   store i32 %15, ptr %8, align 4
@@ -779,9 +779,9 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1092
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr %struct.static_call_site, ptr %6, i64 %9
@@ -794,7 +794,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
 
 .preheader20.split.us:                            ; preds = %.preheader20, %22
   %13 = phi ptr [ %23, %22 ], [ %6, %.preheader20 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = ptrtoint ptr %14 to i64
@@ -811,7 +811,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
 
 .preheader20.split:                               ; preds = %.preheader20, %62
   %25 = phi ptr [ %63, %62 ], [ %6, %.preheader20 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = ptrtoint ptr %26 to i64
@@ -836,7 +836,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   br i1 %42, label %43, label %34
 
 43:                                               ; preds = %.preheader19
-  %44 = getelementptr inbounds i8, ptr %37, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = ptrtoint ptr %44 to i64
@@ -890,7 +890,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
 .preheader:                                       ; preds = %67, %.loopexit
   %74 = phi ptr [ %97, %.loopexit ], [ %69, %67 ]
   %75 = phi ptr [ %96, %.loopexit ], [ null, %67 ]
-  %76 = getelementptr inbounds i8, ptr %74, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = ptrtoint ptr %76 to i64
@@ -901,7 +901,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   br i1 %83, label %.loopexit, label %84
 
 84:                                               ; preds = %.preheader
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   br label %86
 
 86:                                               ; preds = %90, %84
@@ -911,7 +911,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   br i1 %89, label %.loopexit, label %90
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, %2
   br i1 %93, label %94, label %86, !llvm.loop !43
@@ -929,9 +929,9 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   br i1 %98, label %.preheader, label %.loopexit18, !llvm.loop !44
 
 99:                                               ; preds = %3
-  %100 = getelementptr inbounds i8, ptr %2, i64 1096
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %2, i64 1092
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
   %105 = getelementptr %struct.static_call_site, ptr %101, i64 %104
@@ -941,7 +941,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
 .preheader24:                                     ; preds = %99, %.loopexit23
   %107 = phi ptr [ %130, %.loopexit23 ], [ %101, %99 ]
   %108 = phi ptr [ %129, %.loopexit23 ], [ null, %99 ]
-  %109 = getelementptr inbounds i8, ptr %107, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = ptrtoint ptr %109 to i64
@@ -952,7 +952,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   br i1 %116, label %.loopexit23, label %117
 
 117:                                              ; preds = %.preheader24
-  %118 = getelementptr inbounds i8, ptr %115, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
   br label %119
 
 119:                                              ; preds = %123, %117
@@ -962,7 +962,7 @@ define internal noundef range(i32 1, 32800) i32 @static_call_module_notify(ptr n
   br i1 %122, label %.loopexit23, label %123
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %121, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, %2
   br i1 %126, label %127, label %119, !llvm.loop !43

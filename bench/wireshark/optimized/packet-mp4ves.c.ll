@@ -263,7 +263,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mp4ves(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.97) #4
   %.not = icmp eq ptr %2, null
@@ -349,7 +349,7 @@ define hidden void @proto_reg_handoff_mp4ves() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %3 = phi ptr [ %17, %15 ], [ @.str.168, %.lr.ph.preheader ]
   %.012 = phi ptr [ %16, %15 ], [ @mp4ves_capability_tab, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds i8, ptr %.012, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not9 = icmp eq ptr %5, null
   br i1 %.not9, label %8, label %6
@@ -360,7 +360,7 @@ define hidden void @proto_reg_handoff_mp4ves() local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %6, %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.012, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %15, label %11
@@ -407,7 +407,7 @@ define internal i32 @dissect_mp4ves_name(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not17, label %25, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %9
-  %10 = getelementptr inbounds i8, ptr %1, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %11 = load ptr, ptr %10, align 8
   br label %.lr.ph.i
 
@@ -425,9 +425,9 @@ define internal i32 @dissect_mp4ves_name(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not.i, label %find_cap.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
 find_cap.exit:                                    ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.165, ptr noundef %20) #4
   %21 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %2) #4
@@ -436,7 +436,7 @@ find_cap.exit:                                    ; preds = %.lr.ph.i
   br label %25
 
 find_cap.exit.thread:                             ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef nonnull @.str.167, ptr noundef %11) #4
   br label %25
@@ -714,7 +714,7 @@ define internal range(i32 0, 3) i32 @dissect_mp4ves_par_profile(ptr noundef %0, 
   br i1 %.not14, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.178, ptr noundef nonnull %12) #4
   br label %16
@@ -746,7 +746,7 @@ define internal range(i32 0, 3) i32 @dissect_mp4ves_par_video_object_type(ptr no
   br i1 %.not14, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.179, ptr noundef nonnull %12) #4
   br label %16

@@ -97,13 +97,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_text_console_get_label(ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
 entry:
-  %chr = getelementptr inbounds i8, ptr %c, i64 312
+  %chr = getelementptr inbounds nuw i8, ptr %c, i64 312
   %0 = load ptr, ptr %chr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %label = getelementptr inbounds i8, ptr %0, i64 96
+  %label = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load ptr, ptr %label, align 8
   br label %cond.end
 
@@ -125,21 +125,21 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %total_height.i = getelementptr inbounds i8, ptr %s, i64 240
-  %backscroll_height.i = getelementptr inbounds i8, ptr %s, i64 244
+  %total_height.i = getelementptr inbounds nuw i8, ptr %s, i64 240
+  %backscroll_height.i = getelementptr inbounds nuw i8, ptr %s, i64 244
   %0 = load i32, ptr %backscroll_height.i, align 4
   %1 = load i32, ptr %total_height.i, align 8
-  %height.i = getelementptr inbounds i8, ptr %s, i64 236
+  %height.i = getelementptr inbounds nuw i8, ptr %s, i64 236
   %2 = load i32, ptr %height.i, align 4
   %sub11.i = sub i32 %1, %2
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %0, i32 %sub11.i)
-  %y_base18.i = getelementptr inbounds i8, ptr %s, i64 260
+  %y_base18.i = getelementptr inbounds nuw i8, ptr %s, i64 260
   %3 = load i32, ptr %y_base18.i, align 4
   %sub19.i = sub i32 %3, %spec.select.i
   %cmp20.i = icmp slt i32 %sub19.i, 0
   %add.i = select i1 %cmp20.i, i32 %1, i32 0
   %spec.select29.i = add i32 %add.i, %sub19.i
-  %y_displayed27.i = getelementptr inbounds i8, ptr %s, i64 256
+  %y_displayed27.i = getelementptr inbounds nuw i8, ptr %s, i64 256
   %y_displayed27.promoted.i = load i32, ptr %y_displayed27.i, align 8
   %cmp28.i = icmp eq i32 %y_displayed27.promoted.i, %spec.select29.i
   br i1 %cmp28.i, label %console_scroll.exit, label %if.end30.i
@@ -157,15 +157,15 @@ console_scroll.exit:                              ; preds = %if.end30.i, %sw.bb
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %y_displayed.i = getelementptr inbounds i8, ptr %s, i64 256
-  %y_base.i = getelementptr inbounds i8, ptr %s, i64 260
+  %y_displayed.i = getelementptr inbounds nuw i8, ptr %s, i64 256
+  %y_base.i = getelementptr inbounds nuw i8, ptr %s, i64 260
   %4 = load i32, ptr %y_base.i, align 4
   %y_displayed.promoted.i = load i32, ptr %y_displayed.i, align 8
   %cmp2.i = icmp eq i32 %y_displayed.promoted.i, %4
   br i1 %cmp2.i, label %console_scroll.exit38, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb1
-  %total_height.i37 = getelementptr inbounds i8, ptr %s, i64 240
+  %total_height.i37 = getelementptr inbounds nuw i8, ptr %s, i64 240
   %inc.i = add i32 %y_displayed.promoted.i, 1
   %5 = load i32, ptr %total_height.i37, align 8
   %cmp5.i = icmp eq i32 %inc.i, %5
@@ -178,21 +178,21 @@ console_scroll.exit38:                            ; preds = %if.end.i, %sw.bb1
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %total_height.i39 = getelementptr inbounds i8, ptr %s, i64 240
-  %backscroll_height.i40 = getelementptr inbounds i8, ptr %s, i64 244
+  %total_height.i39 = getelementptr inbounds nuw i8, ptr %s, i64 240
+  %backscroll_height.i40 = getelementptr inbounds nuw i8, ptr %s, i64 244
   %6 = load i32, ptr %backscroll_height.i40, align 4
   %7 = load i32, ptr %total_height.i39, align 8
-  %height.i41 = getelementptr inbounds i8, ptr %s, i64 236
+  %height.i41 = getelementptr inbounds nuw i8, ptr %s, i64 236
   %8 = load i32, ptr %height.i41, align 4
   %sub11.i42 = sub i32 %7, %8
   %spec.select.i43 = tail call i32 @llvm.smin.i32(i32 %6, i32 %sub11.i42)
-  %y_base18.i44 = getelementptr inbounds i8, ptr %s, i64 260
+  %y_base18.i44 = getelementptr inbounds nuw i8, ptr %s, i64 260
   %9 = load i32, ptr %y_base18.i44, align 4
   %sub19.i45 = sub i32 %9, %spec.select.i43
   %cmp20.i46 = icmp slt i32 %sub19.i45, 0
   %add.i47 = select i1 %cmp20.i46, i32 %7, i32 0
   %spec.select29.i48 = add i32 %add.i47, %sub19.i45
-  %y_displayed27.i49 = getelementptr inbounds i8, ptr %s, i64 256
+  %y_displayed27.i49 = getelementptr inbounds nuw i8, ptr %s, i64 256
   %sub35.i50 = add i32 %7, -1
   %y_displayed27.promoted.i51 = load i32, ptr %y_displayed27.i49, align 8
   br label %for.body26.i52
@@ -217,9 +217,9 @@ console_scroll.exit62:                            ; preds = %for.body26.i52, %if
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %total_height.i63 = getelementptr inbounds i8, ptr %s, i64 240
-  %y_displayed.i64 = getelementptr inbounds i8, ptr %s, i64 256
-  %y_base.i65 = getelementptr inbounds i8, ptr %s, i64 260
+  %total_height.i63 = getelementptr inbounds nuw i8, ptr %s, i64 240
+  %y_displayed.i64 = getelementptr inbounds nuw i8, ptr %s, i64 256
+  %y_base.i65 = getelementptr inbounds nuw i8, ptr %s, i64 260
   %10 = load i32, ptr %y_base.i65, align 4
   %y_displayed.promoted.i66 = load i32, ptr %y_displayed.i64, align 8
   br label %for.body.i67
@@ -250,9 +250,9 @@ sw.default:                                       ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.default
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 27, ptr %buf, align 16
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %buf, i64 2
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %buf, i64 2
   store i8 91, ptr %incdec.ptr, align 1
   %cmp6 = icmp samesign ugt i32 %keysym, 57609
   %div.lhs.trunc = trunc i32 %keysym to i8
@@ -261,7 +261,7 @@ if.then:                                          ; preds = %sw.default
 if.then7:                                         ; preds = %if.then
   %div78 = udiv i8 %div.lhs.trunc, 10
   %conv = or disjoint i8 %div78, 48
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %buf, i64 3
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %buf, i64 3
   store i8 %conv, ptr %incdec.ptr5, align 2
   br label %if.end
 
@@ -281,17 +281,17 @@ if.else:                                          ; preds = %sw.default
   br i1 %or.cond1, label %if.then18, label %if.else23
 
 if.then18:                                        ; preds = %if.else
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %buf, i64 1
+  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 27, ptr %buf, align 16
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %buf, i64 2
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %buf, i64 2
   store i8 91, ptr %incdec.ptr19, align 1
   %conv21 = trunc i32 %keysym to i8
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %buf, i64 3
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %buf, i64 3
   store i8 %conv21, ptr %incdec.ptr20, align 2
   br label %if.end36
 
 if.else23:                                        ; preds = %if.else
-  %echo = getelementptr inbounds i8, ptr %s, i64 292
+  %echo = getelementptr inbounds nuw i8, ptr %s, i64 292
   %15 = load i32, ptr %echo, align 4
   %tobool.not = icmp eq i32 %15, 0
   br i1 %tobool.not, label %if.else31, label %land.lhs.true24
@@ -303,22 +303,22 @@ land.lhs.true24:                                  ; preds = %if.else23
   ]
 
 if.then29:                                        ; preds = %land.lhs.true24, %land.lhs.true24
-  %chr = getelementptr inbounds i8, ptr %s, i64 312
+  %chr = getelementptr inbounds nuw i8, ptr %s, i64 312
   %16 = load ptr, ptr %chr, align 8
   %call = tail call i32 @qemu_chr_write(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 1, i1 noundef zeroext true) #12
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %buf, i64 1
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 10, ptr %buf, align 16
   br label %if.end36
 
 if.else31:                                        ; preds = %land.lhs.true24, %if.else23
   %conv32 = trunc i32 %keysym to i8
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %buf, i64 1
+  %incdec.ptr33 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 %conv32, ptr %buf, align 16
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then18, %if.else31, %if.then29, %if.end
   %q.1 = phi ptr [ %incdec.ptr12, %if.end ], [ %incdec.ptr22, %if.then18 ], [ %incdec.ptr30, %if.then29 ], [ %incdec.ptr33, %if.else31 ]
-  %echo37 = getelementptr inbounds i8, ptr %s, i64 292
+  %echo37 = getelementptr inbounds nuw i8, ptr %s, i64 292
   %17 = load i32, ptr %echo37, align 4
   %tobool38.not = icmp eq i32 %17, 0
   br i1 %tobool38.not, label %if.end36.if.end45_crit_edge, label %if.then39
@@ -330,7 +330,7 @@ if.end36.if.end45_crit_edge:                      ; preds = %if.end36
   br label %if.end45
 
 if.then39:                                        ; preds = %if.end36
-  %chr40 = getelementptr inbounds i8, ptr %s, i64 312
+  %chr40 = getelementptr inbounds nuw i8, ptr %s, i64 312
   %18 = load ptr, ptr %chr40, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %q.1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
@@ -341,14 +341,14 @@ if.then39:                                        ; preds = %if.end36
 
 if.end45:                                         ; preds = %if.end36.if.end45_crit_edge, %if.then39
   %sub.ptr.sub53.pre-phi = phi i64 [ %.pre82, %if.end36.if.end45_crit_edge ], [ %sub.ptr.sub, %if.then39 ]
-  %out_fifo = getelementptr inbounds i8, ptr %s, i64 320
+  %out_fifo = getelementptr inbounds nuw i8, ptr %s, i64 320
   %call46 = call i32 @fifo8_num_free(ptr noundef nonnull %out_fifo) #12
   %conv49 = zext i32 %call46 to i64
   %cond = call i64 @llvm.smin.i64(i64 %sub.ptr.sub53.pre-phi, i64 %conv49)
   %conv56 = trunc i64 %cond to i32
   call void @fifo8_push_all(ptr noundef nonnull %out_fifo, ptr noundef nonnull %buf, i32 noundef %conv56) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
-  %chr.i = getelementptr inbounds i8, ptr %s, i64 312
+  %chr.i = getelementptr inbounds nuw i8, ptr %s, i64 312
   %19 = load ptr, ptr %chr.i, align 8
   %call.i = call i32 @qemu_chr_be_can_write(ptr noundef %19) #12
   %call1.i = call i32 @fifo8_num_used(ptr noundef nonnull %out_fifo) #12
@@ -419,9 +419,9 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @qemu_text_console_select(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %c, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %width = getelementptr inbounds i8, ptr %c, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %c, i64 232
   %0 = load i32, ptr %width, align 8
-  %height = getelementptr inbounds i8, ptr %c, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %c, i64 236
   %1 = load i32, ptr %height, align 4
   tail call void @dpy_text_resize(ptr noundef %call.i, i32 noundef %0, i32 noundef %1) #12
   %2 = load i8, ptr @cursor_visible_phase, align 1
@@ -471,15 +471,15 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qemu_text_console_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.QEMU_TEXT_CONSOLE) #12
-  %out_fifo = getelementptr inbounds i8, ptr %call.i, i64 320
+  %out_fifo = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   tail call void @fifo8_create(ptr noundef nonnull %out_fifo, i32 noundef 16) #12
-  %total_height = getelementptr inbounds i8, ptr %call.i, i64 240
+  %total_height = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   store i32 512, ptr %total_height, align 8
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %hw_ops = getelementptr inbounds i8, ptr %call.i5, i64 184
+  %hw_ops = getelementptr inbounds nuw i8, ptr %call.i5, i64 184
   store ptr @text_console_ops, ptr %hw_ops, align 8
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %hw = getelementptr inbounds i8, ptr %call.i6, i64 192
+  %hw = getelementptr inbounds nuw i8, ptr %call.i6, i64 192
   store ptr %call.i, ptr %hw, align 8
   ret void
 }
@@ -533,7 +533,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @text_console_update(ptr noundef %opaque, ptr nocapture noundef writeonly %chardata) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, i32 noundef 18, ptr noundef nonnull @__func__.QEMU_TEXT_CONSOLE) #12
-  %text_x = getelementptr inbounds i8, ptr %call.i, i64 272
+  %text_x = getelementptr inbounds nuw i8, ptr %call.i, i64 272
   %0 = load i32, ptr %text_x, align 8
   %arrayidx2 = getelementptr i8, ptr %call.i, i64 276
   %1 = load i32, ptr %arrayidx2, align 4
@@ -541,9 +541,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %text_y = getelementptr inbounds i8, ptr %call.i, i64 280
+  %text_y = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   %2 = load i32, ptr %text_y, align 8
-  %width = getelementptr inbounds i8, ptr %call.i, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %call.i, i64 232
   %arrayidx11 = getelementptr i8, ptr %call.i, i64 284
   %3 = load i32, ptr %arrayidx11, align 4
   %cmp12.not46 = icmp sgt i32 %2, %3
@@ -551,12 +551,12 @@ if.then:                                          ; preds = %entry
 
 for.cond13.preheader.lr.ph:                       ; preds = %if.then
   %4 = load i32, ptr %width, align 8
-  %cells = getelementptr inbounds i8, ptr %call.i, i64 264
+  %cells = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.cond13.preheader.preheader, label %for.cond13.preheader.lr.ph.split.us
 
 for.cond13.preheader.preheader:                   ; preds = %for.cond13.preheader.lr.ph
-  %y_base = getelementptr inbounds i8, ptr %call.i, i64 260
+  %y_base = getelementptr inbounds nuw i8, ptr %call.i, i64 260
   %6 = load i32, ptr %y_base, align 4
   %add = add i32 %2, %6
   %mul = mul i32 %add, %4
@@ -588,7 +588,7 @@ for.body16:                                       ; preds = %for.cond13.preheade
   %11 = load ptr, ptr %cells, align 8
   %idxprom = sext i32 %src.144 to i64
   %arrayidx17 = getelementptr %struct.TextCell, ptr %11, i64 %idxprom
-  %t_attrib = getelementptr inbounds i8, ptr %arrayidx17, i64 1
+  %t_attrib = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 1
   %bf.load = load i16, ptr %t_attrib, align 1
   %bf.lshr = lshr i16 %bf.load, 8
   %12 = and i16 %bf.lshr, 1
@@ -636,7 +636,7 @@ for.end46:                                        ; preds = %for.inc44, %for.con
   tail call void @dpy_text_update(ptr noundef %call.i39, i32 noundef %23, i32 noundef %24, i32 noundef %sub, i32 noundef %sub58) #12
   %26 = load i32, ptr %width, align 8
   store i32 %26, ptr %text_x, align 8
-  %height = getelementptr inbounds i8, ptr %call.i, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %call.i, i64 236
   %27 = load i32, ptr %height, align 4
   store i32 %27, ptr %text_y, align 8
   store i32 0, ptr %arrayidx2, align 4
@@ -644,16 +644,16 @@ for.end46:                                        ; preds = %for.inc44, %for.con
   br label %if.end
 
 if.end:                                           ; preds = %for.end46, %entry
-  %cursor_invalidate = getelementptr inbounds i8, ptr %call.i, i64 288
+  %cursor_invalidate = getelementptr inbounds nuw i8, ptr %call.i, i64 288
   %28 = load i32, ptr %cursor_invalidate, align 8
   %tobool.not = icmp eq i32 %28, 0
   br i1 %tobool.not, label %if.end71, label %if.then68
 
 if.then68:                                        ; preds = %if.end
   %call.i40 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %x = getelementptr inbounds i8, ptr %call.i, i64 248
+  %x = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   %29 = load i32, ptr %x, align 8
-  %y = getelementptr inbounds i8, ptr %call.i, i64 252
+  %y = getelementptr inbounds nuw i8, ptr %call.i, i64 252
   %30 = load i32, ptr %y, align 4
   tail call void @dpy_text_cursor(ptr noundef %call.i40, i32 noundef %29, i32 noundef %30) #12
   store i32 0, ptr %cursor_invalidate, align 8
@@ -669,7 +669,7 @@ declare ptr @object_dynamic_cast(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc void @text_console_resize(ptr noundef %t) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %t, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
-  %scanout = getelementptr inbounds i8, ptr %call.i, i64 64
+  %scanout = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %0 = load i32, ptr %scanout, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.end, label %if.else
@@ -679,7 +679,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %surface = getelementptr inbounds i8, ptr %call.i, i64 56
+  %surface = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %1 = load ptr, ptr %surface, align 8
   %.val = load ptr, ptr %1, align 8
   %call.i41 = tail call i32 @pixman_image_get_width(ptr noundef %.val) #12
@@ -688,23 +688,23 @@ if.end:                                           ; preds = %entry
   %.val40 = load ptr, ptr %2, align 8
   %call.i42 = tail call i32 @pixman_image_get_height(ptr noundef %.val40) #12
   %div4 = sdiv i32 %call.i42, 16
-  %width = getelementptr inbounds i8, ptr %t, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %t, i64 232
   %3 = load i32, ptr %width, align 8
   %cmp5 = icmp eq i32 %div, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %if.end
-  %height = getelementptr inbounds i8, ptr %t, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %t, i64 236
   %4 = load i32, ptr %height, align 4
   %cmp6 = icmp eq i32 %div4, %4
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %land.lhs.true, %if.end
   store i32 %div, ptr %width, align 8
-  %height11 = getelementptr inbounds i8, ptr %t, i64 236
+  %height11 = getelementptr inbounds nuw i8, ptr %t, i64 236
   store i32 %div4, ptr %height11, align 4
   %cond = tail call i32 @llvm.smin.i32(i32 %div, i32 %3)
-  %total_height = getelementptr inbounds i8, ptr %t, i64 240
+  %total_height = getelementptr inbounds nuw i8, ptr %t, i64 240
   %5 = load i32, ptr %total_height, align 8
   %mul = mul i32 %5, %div
   %add = add i32 %mul, 1
@@ -716,7 +716,7 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
 
 for.body.lr.ph:                                   ; preds = %if.end8
   %cmp21 = icmp sgt i32 %cond, 0
-  %cells24 = getelementptr inbounds i8, ptr %t, i64 264
+  %cells24 = getelementptr inbounds nuw i8, ptr %t, i64 264
   %.pre = load i32, ptr %width, align 8
   br i1 %cmp21, label %for.body.us, label %for.body.lr.ph.split
 
@@ -752,7 +752,7 @@ for.body38.us:                                    ; preds = %for.body38.us.prehe
   %c.248.us = phi ptr [ %incdec.ptr57.us, %for.body38.us ], [ %incdec.ptr.us, %for.body38.us.preheader ]
   %x.147.us = phi i32 [ %inc59.us, %for.body38.us ], [ %cond, %for.body38.us.preheader ]
   store i8 32, ptr %c.248.us, align 1
-  %t_attrib.us = getelementptr inbounds i8, ptr %c.248.us, i64 1
+  %t_attrib.us = getelementptr inbounds nuw i8, ptr %c.248.us, i64 1
   store i16 %bf.set.us, ptr %t_attrib.us, align 1
   %incdec.ptr57.us = getelementptr i8, ptr %c.248.us, i64 3
   %inc59.us = add nuw nsw i32 %x.147.us, 1
@@ -800,7 +800,7 @@ for.body38.us64:                                  ; preds = %for.body.us53, %for
   %c.248.us66 = phi ptr [ %arrayidx.us58, %for.body.us53 ], [ %incdec.ptr57.us71, %for.body38.us64 ]
   %x.147.us67 = phi i32 [ %cond, %for.body.us53 ], [ %inc59.us72, %for.body38.us64 ]
   store i8 32, ptr %c.248.us66, align 1
-  %t_attrib.us68 = getelementptr inbounds i8, ptr %c.248.us66, i64 1
+  %t_attrib.us68 = getelementptr inbounds nuw i8, ptr %c.248.us66, i64 1
   store i16 7, ptr %t_attrib.us68, align 1
   %incdec.ptr57.us71 = getelementptr i8, ptr %c.248.us66, i64 3
   %inc59.us72 = add nsw i32 %x.147.us67, 1
@@ -813,7 +813,7 @@ for.cond34.for.inc61_crit_edge.us75:              ; preds = %for.body38.us64
   br i1 %exitcond.not, label %for.end63, label %for.body.us53, !llvm.loop !12
 
 for.end63:                                        ; preds = %for.cond34.for.inc61_crit_edge.us75, %for.inc61.us, %for.body.lr.ph.split, %if.end8
-  %cells64 = getelementptr inbounds i8, ptr %t, i64 264
+  %cells64 = getelementptr inbounds nuw i8, ptr %t, i64 264
   %18 = load ptr, ptr %cells64, align 8
   tail call void @g_free(ptr noundef %18) #12
   store ptr %call15, ptr %cells64, align 8
@@ -840,21 +840,21 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %text_x = getelementptr inbounds i8, ptr %s, i64 272
+  %text_x = getelementptr inbounds nuw i8, ptr %s, i64 272
   store i32 0, ptr %text_x, align 8
-  %text_y = getelementptr inbounds i8, ptr %s, i64 280
+  %text_y = getelementptr inbounds nuw i8, ptr %s, i64 280
   store i32 0, ptr %text_y, align 8
-  %width = getelementptr inbounds i8, ptr %s, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %s, i64 232
   %0 = load i32, ptr %width, align 8
   %sub = add i32 %0, -1
   %arrayidx4 = getelementptr i8, ptr %s, i64 276
   store i32 %sub, ptr %arrayidx4, align 4
-  %height = getelementptr inbounds i8, ptr %s, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %s, i64 236
   %1 = load i32, ptr %height, align 4
   %sub5 = add i32 %1, -1
   %arrayidx7 = getelementptr i8, ptr %s, i64 284
   store i32 %sub5, ptr %arrayidx7, align 4
-  %cursor_invalidate = getelementptr inbounds i8, ptr %s, i64 288
+  %cursor_invalidate = getelementptr inbounds nuw i8, ptr %s, i64 288
   store i32 1, ptr %cursor_invalidate, align 8
   %call.i32 = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call1.val = load ptr, ptr %call1, align 8
@@ -866,12 +866,12 @@ if.end:                                           ; preds = %entry
   store i64 -281474976710656, ptr %color.i, align 8
   %call.i35 = tail call ptr @qemu_console_surface(ptr noundef %call.i32) #12
   store i16 0, ptr %rect.i, align 2
-  %y.i = getelementptr inbounds i8, ptr %rect.i, i64 2
+  %y.i = getelementptr inbounds nuw i8, ptr %rect.i, i64 2
   store i16 0, ptr %y.i, align 2
-  %width2.i = getelementptr inbounds i8, ptr %rect.i, i64 4
+  %width2.i = getelementptr inbounds nuw i8, ptr %rect.i, i64 4
   %conv3.i = trunc i32 %call.i33 to i16
   store i16 %conv3.i, ptr %width2.i, align 2
-  %height4.i = getelementptr inbounds i8, ptr %rect.i, i64 6
+  %height4.i = getelementptr inbounds nuw i8, ptr %rect.i, i64 6
   %conv5.i = trunc i32 %call.i34 to i16
   store i16 %conv5.i, ptr %height4.i, align 2
   %tobool.not.i = icmp eq ptr %call.i35, null
@@ -891,14 +891,14 @@ qemu_console_fill_rect.exit:                      ; preds = %if.end
   br i1 %cmp46, label %for.body.lr.ph, label %for.end25
 
 for.body.lr.ph:                                   ; preds = %qemu_console_fill_rect.exit
-  %cells = getelementptr inbounds i8, ptr %s, i64 264
-  %total_height = getelementptr inbounds i8, ptr %s, i64 240
+  %cells = getelementptr inbounds nuw i8, ptr %s, i64 264
+  %total_height = getelementptr inbounds nuw i8, ptr %s, i64 240
   %4 = load i32, ptr %width, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %for.body.preheader, label %for.end25
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %y_displayed = getelementptr inbounds i8, ptr %s, i64 256
+  %y_displayed = getelementptr inbounds nuw i8, ptr %s, i64 256
   %6 = load i32, ptr %y_displayed, align 8
   br label %for.body
 
@@ -934,7 +934,7 @@ if.else.i39:                                      ; preds = %for.body16
   unreachable
 
 if.end.i:                                         ; preds = %for.body16
-  %t_attrib = getelementptr inbounds i8, ptr %c.044, i64 1
+  %t_attrib = getelementptr inbounds nuw i8, ptr %c.044, i64 1
   %bf.load.i = load i16, ptr %t_attrib, align 1
   %11 = and i16 %bf.load.i, 2048
   %tobool1.not.i = icmp eq i16 %11, 0
@@ -1075,36 +1075,36 @@ if.end56:                                         ; preds = %if.then52, %if.end
 define internal fastcc void @console_show_cursor(ptr noundef initializes((288, 292)) %s, i32 noundef range(i32 0, 2) %show) unnamed_addr #0 {
 entry:
   %t_attrib = alloca %struct.TextAttributes, align 2
-  %x1 = getelementptr inbounds i8, ptr %s, i64 248
+  %x1 = getelementptr inbounds nuw i8, ptr %s, i64 248
   %0 = load i32, ptr %x1, align 8
-  %cursor_invalidate = getelementptr inbounds i8, ptr %s, i64 288
+  %cursor_invalidate = getelementptr inbounds nuw i8, ptr %s, i64 288
   store i32 1, ptr %cursor_invalidate, align 8
-  %width = getelementptr inbounds i8, ptr %s, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %s, i64 232
   %1 = load i32, ptr %width, align 8
   %cmp.not = icmp slt i32 %0, %1
   %sub = add i32 %1, -1
   %spec.select = select i1 %cmp.not, i32 %0, i32 %sub
-  %y_base = getelementptr inbounds i8, ptr %s, i64 260
+  %y_base = getelementptr inbounds nuw i8, ptr %s, i64 260
   %2 = load i32, ptr %y_base, align 4
-  %y3 = getelementptr inbounds i8, ptr %s, i64 252
+  %y3 = getelementptr inbounds nuw i8, ptr %s, i64 252
   %3 = load i32, ptr %y3, align 4
   %add = add i32 %3, %2
-  %total_height = getelementptr inbounds i8, ptr %s, i64 240
+  %total_height = getelementptr inbounds nuw i8, ptr %s, i64 240
   %4 = load i32, ptr %total_height, align 8
   %rem = srem i32 %add, %4
-  %y_displayed = getelementptr inbounds i8, ptr %s, i64 256
+  %y_displayed = getelementptr inbounds nuw i8, ptr %s, i64 256
   %5 = load i32, ptr %y_displayed, align 8
   %sub4 = sub i32 %rem, %5
   %cmp5 = icmp slt i32 %sub4, 0
   %add8 = select i1 %cmp5, i32 %4, i32 0
   %y.0 = add i32 %add8, %sub4
-  %height = getelementptr inbounds i8, ptr %s, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %s, i64 236
   %6 = load i32, ptr %height, align 4
   %cmp10 = icmp slt i32 %y.0, %6
   br i1 %cmp10, label %if.then11, label %if.end25
 
 if.then11:                                        ; preds = %entry
-  %cells = getelementptr inbounds i8, ptr %s, i64 264
+  %cells = getelementptr inbounds nuw i8, ptr %s, i64 264
   %7 = load ptr, ptr %cells, align 8
   %mul = mul i32 %rem, %1
   %add13 = add i32 %mul, %spec.select
@@ -1130,7 +1130,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %call.i28 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %10 = load i8, ptr %arrayidx, align 1
   %conv22 = zext i8 %10 to i32
-  %t_attrib23 = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %t_attrib23 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   tail call fastcc void @vga_putcharxy(ptr noundef %call.i28, i32 noundef %spec.select, i32 noundef %y.0, i32 noundef %conv22, ptr noundef nonnull %t_attrib23)
   br label %if.end24
 
@@ -1140,7 +1140,7 @@ if.end24:                                         ; preds = %if.else, %if.then15
   br i1 %call1.i, label %if.end.i, label %if.end25
 
 if.end.i:                                         ; preds = %if.end24
-  %update_x0.i = getelementptr inbounds i8, ptr %s, i64 296
+  %update_x0.i = getelementptr inbounds nuw i8, ptr %s, i64 296
   %11 = load i32, ptr %update_x0.i, align 8
   %mul.i = shl i32 %spec.select, 3
   %cmp.i = icmp sgt i32 %11, %mul.i
@@ -1151,7 +1151,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %update_y0.i = getelementptr inbounds i8, ptr %s, i64 300
+  %update_y0.i = getelementptr inbounds nuw i8, ptr %s, i64 300
   %12 = load i32, ptr %update_y0.i, align 4
   %mul6.i = shl i32 %y.0, 4
   %cmp7.i = icmp sgt i32 %12, %mul6.i
@@ -1162,7 +1162,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.end5.i
-  %update_x1.i = getelementptr inbounds i8, ptr %s, i64 304
+  %update_x1.i = getelementptr inbounds nuw i8, ptr %s, i64 304
   %13 = load i32, ptr %update_x1.i, align 8
   %mul12.i = add i32 %mul.i, 8
   %cmp13.i = icmp slt i32 %13, %mul12.i
@@ -1173,7 +1173,7 @@ if.then14.i:                                      ; preds = %if.end11.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then14.i, %if.end11.i
-  %update_y1.i = getelementptr inbounds i8, ptr %s, i64 308
+  %update_y1.i = getelementptr inbounds nuw i8, ptr %s, i64 308
   %14 = load i32, ptr %update_y1.i, align 4
   %mul20.i = add i32 %mul6.i, 16
   %cmp21.i = icmp slt i32 %14, %mul20.i
@@ -1261,15 +1261,15 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 define internal void @char_vc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #12
-  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
+  %parse = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @vc_chr_parse, ptr %parse, align 8
-  %open = getelementptr inbounds i8, ptr %call.i, i64 112
+  %open = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @vc_chr_open, ptr %open, align 8
-  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
+  %chr_write = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @vc_chr_write, ptr %chr_write, align 8
-  %chr_accept_input = getelementptr inbounds i8, ptr %call.i, i64 200
+  %chr_accept_input = getelementptr inbounds nuw i8, ptr %call.i, i64 200
   store ptr @vc_chr_accept_input, ptr %chr_accept_input, align 8
-  %chr_set_echo = getelementptr inbounds i8, ptr %call.i, i64 208
+  %chr_set_echo = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   store ptr @vc_chr_set_echo, ptr %chr_set_echo, align 8
   ret void
 }
@@ -1279,7 +1279,7 @@ define internal void @vc_chr_parse(ptr noundef %opts, ptr nocapture noundef writ
 entry:
   store i32 16, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #13
-  %u = getelementptr inbounds i8, ptr %backend, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
   store ptr %call, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call) #12
   %call2 = tail call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.13, i64 noundef 0) #12
@@ -1288,11 +1288,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %has_width = getelementptr inbounds i8, ptr %call, i64 10
+  %has_width = getelementptr inbounds nuw i8, ptr %call, i64 10
   store i8 1, ptr %has_width, align 2
   %sext = shl i64 %call2, 32
   %conv4 = ashr exact i64 %sext, 32
-  %width = getelementptr inbounds i8, ptr %call, i64 16
+  %width = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %conv4, ptr %width, align 8
   br label %if.end
 
@@ -1303,11 +1303,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp7.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %has_height = getelementptr inbounds i8, ptr %call, i64 24
+  %has_height = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i8 1, ptr %has_height, align 8
   %sext21 = shl i64 %call5, 32
   %conv10 = ashr exact i64 %sext21, 32
-  %height = getelementptr inbounds i8, ptr %call, i64 32
+  %height = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %conv10, ptr %height, align 8
   br label %if.end11
 
@@ -1318,11 +1318,11 @@ if.end11:                                         ; preds = %if.then9, %if.end
   br i1 %cmp14.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.end11
-  %has_cols = getelementptr inbounds i8, ptr %call, i64 40
+  %has_cols = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i8 1, ptr %has_cols, align 8
   %sext22 = shl i64 %call12, 32
   %conv17 = ashr exact i64 %sext22, 32
-  %cols = getelementptr inbounds i8, ptr %call, i64 48
+  %cols = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 %conv17, ptr %cols, align 8
   br label %if.end18
 
@@ -1333,11 +1333,11 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp21.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end18
-  %has_rows = getelementptr inbounds i8, ptr %call, i64 56
+  %has_rows = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i8 1, ptr %has_rows, align 8
   %sext23 = shl i64 %call19, 32
   %conv24 = ashr exact i64 %sext23, 32
-  %rows = getelementptr inbounds i8, ptr %call, i64 64
+  %rows = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i64 %conv24, ptr %rows, align 8
   br label %if.end25
 
@@ -1349,28 +1349,28 @@ if.end25:                                         ; preds = %if.then23, %if.end1
 define internal void @vc_chr_open(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %u = getelementptr inbounds i8, ptr %backend, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
-  %has_width = getelementptr inbounds i8, ptr %0, i64 10
+  %has_width = getelementptr inbounds nuw i8, ptr %0, i64 10
   %1 = load i8, ptr %has_width, align 2
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %width1 = getelementptr inbounds i8, ptr %0, i64 16
+  %width1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %width1, align 8
   %conv = trunc i64 %2 to i32
   br label %if.end5
 
 if.else:                                          ; preds = %entry
-  %has_cols = getelementptr inbounds i8, ptr %0, i64 40
+  %has_cols = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %has_cols, align 8
   %tobool2 = trunc i8 %3 to i1
   br i1 %tobool2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.else
-  %cols = getelementptr inbounds i8, ptr %0, i64 48
+  %cols = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %cols, align 8
   %.tr = trunc i64 %4 to i32
   %conv4 = shl i32 %.tr, 3
@@ -1378,25 +1378,25 @@ if.then3:                                         ; preds = %if.else
 
 if.end5:                                          ; preds = %if.else, %if.then3, %if.then
   %width.0 = phi i32 [ %conv, %if.then ], [ %conv4, %if.then3 ], [ 0, %if.else ]
-  %has_height = getelementptr inbounds i8, ptr %0, i64 24
+  %has_height = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i8, ptr %has_height, align 8
   %tobool6 = trunc i8 %5 to i1
   br i1 %tobool6, label %if.then7, label %if.else10
 
 if.then7:                                         ; preds = %if.end5
-  %height8 = getelementptr inbounds i8, ptr %0, i64 32
+  %height8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %height8, align 8
   %conv9 = trunc i64 %6 to i32
   br label %if.end16
 
 if.else10:                                        ; preds = %if.end5
-  %has_rows = getelementptr inbounds i8, ptr %0, i64 56
+  %has_rows = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i8, ptr %has_rows, align 8
   %tobool11 = trunc i8 %7 to i1
   br i1 %tobool11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.else10
-  %rows = getelementptr inbounds i8, ptr %0, i64 64
+  %rows = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %rows, align 8
   %.tr36 = trunc i64 %8 to i32
   %conv14 = shl i32 %.tr36, 4
@@ -1427,7 +1427,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %width.0, i32 noundef %height.0) #12
   br label %trace_console_txt_new.exit
@@ -1462,14 +1462,14 @@ if.end28:                                         ; preds = %if.else25, %if.then
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef %s.0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call30 = tail call ptr @qemu_create_displaysurface(i32 noundef %width.1, i32 noundef %height.1) #12
   tail call void @dpy_gfx_replace_surface(ptr noundef %call.i39, ptr noundef %call30) #12
-  %chr31 = getelementptr inbounds i8, ptr %s.0, i64 312
+  %chr31 = getelementptr inbounds nuw i8, ptr %s.0, i64 312
   store ptr %chr, ptr %chr31, align 8
-  %console = getelementptr inbounds i8, ptr %call.i, i64 152
+  %console = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr %s.0, ptr %console, align 8
-  %t_attrib = getelementptr inbounds i8, ptr %call.i, i64 180
+  %t_attrib = getelementptr inbounds nuw i8, ptr %call.i, i64 180
   store i16 7, ptr %t_attrib, align 4
   tail call fastcc void @text_console_resize(ptr noundef %s.0)
-  %label = getelementptr inbounds i8, ptr %chr, i64 96
+  %label = getelementptr inbounds nuw i8, ptr %chr, i64 96
   %15 = load ptr, ptr %label, align 8
   %tobool50.not = icmp eq ptr %15, null
   br i1 %tobool50.not, label %if.end84, label %if.then51
@@ -1500,36 +1500,36 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %response.i = alloca [40 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
-  %console = getelementptr inbounds i8, ptr %call.i, i64 152
+  %console = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %console, align 8
-  %width = getelementptr inbounds i8, ptr %0, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %0, i64 232
   %1 = load i32, ptr %width, align 8
   %mul = shl i32 %1, 3
-  %update_x0 = getelementptr inbounds i8, ptr %0, i64 296
+  %update_x0 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 %mul, ptr %update_x0, align 8
-  %height = getelementptr inbounds i8, ptr %0, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %0, i64 236
   %2 = load i32, ptr %height, align 4
   %mul1 = shl i32 %2, 4
-  %update_y0 = getelementptr inbounds i8, ptr %0, i64 300
+  %update_y0 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %mul1, ptr %update_y0, align 4
-  %update_x1 = getelementptr inbounds i8, ptr %0, i64 304
+  %update_x1 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %update_x1, align 8
-  %update_y1 = getelementptr inbounds i8, ptr %0, i64 308
+  %update_y1 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 0, ptr %update_y1, align 4
   tail call fastcc void @console_show_cursor(ptr noundef %0, i32 noundef 0)
   %cmp98 = icmp sgt i32 %len, 0
   br i1 %cmp98, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %state.i = getelementptr inbounds i8, ptr %call.i, i64 160
-  %nb_esc_params37.i = getelementptr inbounds i8, ptr %call.i, i64 176
-  %esc_params60.i = getelementptr inbounds i8, ptr %call.i, i64 164
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
+  %nb_esc_params37.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
+  %esc_params60.i = getelementptr inbounds nuw i8, ptr %call.i, i64 164
   %arrayidx63.i = getelementptr i8, ptr %call.i, i64 168
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %x_saved245.i = getelementptr inbounds i8, ptr %call.i, i64 184
-  %y_saved247.i = getelementptr inbounds i8, ptr %call.i, i64 188
-  %t_attrib6.i.i24 = getelementptr inbounds i8, ptr %call.i, i64 180
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
+  %x_saved245.i = getelementptr inbounds nuw i8, ptr %call.i, i64 184
+  %y_saved247.i = getelementptr inbounds nuw i8, ptr %call.i, i64 188
+  %t_attrib6.i.i24 = getelementptr inbounds nuw i8, ptr %call.i, i64 180
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %wide.trip.count = zext nneg i32 %len to i64
   br label %for.body
 
@@ -1560,7 +1560,7 @@ sw.bb.i:                                          ; preds = %for.body
   ]
 
 sw.bb1.i:                                         ; preds = %sw.bb.i
-  %x2.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x2.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i32 0, ptr %x2.i, align 8
   br label %vc_putchar.exit
 
@@ -1569,7 +1569,7 @@ sw.bb3.i:                                         ; preds = %sw.bb.i
   br label %vc_putchar.exit
 
 sw.bb4.i:                                         ; preds = %sw.bb.i
-  %x5.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x5.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load i32, ptr %x5.i, align 8
   %cmp.i = icmp sgt i32 %6, 0
   br i1 %cmp.i, label %if.then.i, label %vc_putchar.exit
@@ -1580,12 +1580,12 @@ if.then.i:                                        ; preds = %sw.bb4.i
   br label %vc_putchar.exit
 
 sw.bb7.i:                                         ; preds = %sw.bb.i
-  %x8.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x8.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %7 = load i32, ptr %x8.i, align 8
   %rem.i = srem i32 %7, 8
   %reass.sub.i = sub i32 %7, %rem.i
   %add.i = add i32 %reass.sub.i, 8
-  %width.i = getelementptr inbounds i8, ptr %4, i64 232
+  %width.i = getelementptr inbounds nuw i8, ptr %4, i64 232
   %8 = load i32, ptr %width.i, align 8
   %cmp10.i = icmp sgt i32 %add.i, %8
   br i1 %cmp10.i, label %if.then11.i, label %if.else.i
@@ -1605,9 +1605,9 @@ sw.bb23.i:                                        ; preds = %sw.bb.i
   br label %vc_putchar.exit
 
 sw.default.i:                                     ; preds = %sw.bb.i
-  %x.i.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x.i.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %9 = load i32, ptr %x.i.i, align 8
-  %width.i.i = getelementptr inbounds i8, ptr %4, i64 232
+  %width.i.i = getelementptr inbounds nuw i8, ptr %4, i64 232
   %10 = load i32, ptr %width.i.i, align 8
   %cmp.not.i.i = icmp slt i32 %9, %10
   br i1 %cmp.not.i.i, label %vc_put_one.exit.i, label %if.then.i.i
@@ -1623,22 +1623,22 @@ if.then.i.i:                                      ; preds = %sw.default.i
 vc_put_one.exit.i:                                ; preds = %if.then.i.i, %sw.default.i
   %11 = phi i32 [ %.pre17.i.i, %if.then.i.i ], [ %9, %sw.default.i ]
   %12 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %10, %sw.default.i ]
-  %y_base.i.i = getelementptr inbounds i8, ptr %4, i64 260
+  %y_base.i.i = getelementptr inbounds nuw i8, ptr %4, i64 260
   %13 = load i32, ptr %y_base.i.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y.i.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %14 = load i32, ptr %y.i.i, align 4
   %add.i.i = add i32 %14, %13
-  %total_height.i.i = getelementptr inbounds i8, ptr %4, i64 240
+  %total_height.i.i = getelementptr inbounds nuw i8, ptr %4, i64 240
   %15 = load i32, ptr %total_height.i.i, align 8
   %rem.i.i = srem i32 %add.i.i, %15
-  %cells.i.i = getelementptr inbounds i8, ptr %4, i64 264
+  %cells.i.i = getelementptr inbounds nuw i8, ptr %4, i64 264
   %16 = load ptr, ptr %cells.i.i, align 8
   %mul.i.i = mul i32 %rem.i.i, %12
   %add4.i.i = add i32 %mul.i.i, %11
   %idxprom.i.i = sext i32 %add4.i.i to i64
   %arrayidx.i.i = getelementptr %struct.TextCell, ptr %16, i64 %idxprom.i.i
   store i8 %3, ptr %arrayidx.i.i, align 1
-  %t_attrib.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 1
+  %t_attrib.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
   %17 = load i16, ptr %t_attrib6.i.i24, align 4
   store i16 %17, ptr %t_attrib.i.i, align 1
   %18 = load i32, ptr %x.i.i, align 8
@@ -1764,27 +1764,27 @@ if.then70.i:                                      ; preds = %sw.bb66.i
 
 if.end73.i:                                       ; preds = %if.then70.i, %sw.bb66.i
   %35 = phi i32 [ 1, %if.then70.i ], [ %34, %sw.bb66.i ]
-  %x74.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x74.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %36 = load i32, ptr %x74.i, align 8
-  %y75.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y75.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %37 = load i32, ptr %y75.i, align 4
   %sub78.i = sub i32 %37, %35
   %vc.val152.i = load ptr, ptr %console, align 8
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
   %spec.store.select1.i.i = tail call i32 @llvm.smax.i32(i32 %sub78.i, i32 0)
-  %height.i.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 236
+  %height.i.i = getelementptr inbounds nuw i8, ptr %vc.val152.i, i64 236
   %38 = load i32, ptr %height.i.i, align 4
   %cmp4.not.i.i = icmp slt i32 %spec.store.select1.i.i, %38
   %sub.i.i = add i32 %38, -1
   %spec.select.i.i = select i1 %cmp4.not.i.i, i32 %spec.store.select1.i.i, i32 %sub.i.i
-  %width.i158.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 232
+  %width.i158.i = getelementptr inbounds nuw i8, ptr %vc.val152.i, i64 232
   %39 = load i32, ptr %width.i158.i, align 8
   %cmp8.not.i.i = icmp slt i32 %spec.store.select.i.i, %39
   %sub11.i.i = add i32 %39, -1
   %x.addr.0.i.i = select i1 %cmp8.not.i.i, i32 %spec.store.select.i.i, i32 %sub11.i.i
-  %x13.i.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 248
+  %x13.i.i = getelementptr inbounds nuw i8, ptr %vc.val152.i, i64 248
   store i32 %x.addr.0.i.i, ptr %x13.i.i, align 8
-  %y14.i.i = getelementptr inbounds i8, ptr %vc.val152.i, i64 252
+  %y14.i.i = getelementptr inbounds nuw i8, ptr %vc.val152.i, i64 252
   store i32 %spec.select.i.i, ptr %y14.i.i, align 4
   br label %vc_putchar.exit
 
@@ -1799,27 +1799,27 @@ if.then83.i:                                      ; preds = %sw.bb79.i
 
 if.end86.i:                                       ; preds = %if.then83.i, %sw.bb79.i
   %41 = phi i32 [ 1, %if.then83.i ], [ %40, %sw.bb79.i ]
-  %x87.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x87.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %42 = load i32, ptr %x87.i, align 8
-  %y88.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y88.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %43 = load i32, ptr %y88.i, align 4
   %add91.i = add i32 %43, %41
   %vc.val153.i = load ptr, ptr %console, align 8
   %spec.store.select.i159.i = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
   %spec.store.select1.i160.i = tail call i32 @llvm.smax.i32(i32 %add91.i, i32 0)
-  %height.i161.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 236
+  %height.i161.i = getelementptr inbounds nuw i8, ptr %vc.val153.i, i64 236
   %44 = load i32, ptr %height.i161.i, align 4
   %cmp4.not.i162.i = icmp slt i32 %spec.store.select1.i160.i, %44
   %sub.i163.i = add i32 %44, -1
   %spec.select.i164.i = select i1 %cmp4.not.i162.i, i32 %spec.store.select1.i160.i, i32 %sub.i163.i
-  %width.i165.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 232
+  %width.i165.i = getelementptr inbounds nuw i8, ptr %vc.val153.i, i64 232
   %45 = load i32, ptr %width.i165.i, align 8
   %cmp8.not.i166.i = icmp slt i32 %spec.store.select.i159.i, %45
   %sub11.i167.i = add i32 %45, -1
   %x.addr.0.i168.i = select i1 %cmp8.not.i166.i, i32 %spec.store.select.i159.i, i32 %sub11.i167.i
-  %x13.i169.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 248
+  %x13.i169.i = getelementptr inbounds nuw i8, ptr %vc.val153.i, i64 248
   store i32 %x.addr.0.i168.i, ptr %x13.i169.i, align 8
-  %y14.i170.i = getelementptr inbounds i8, ptr %vc.val153.i, i64 252
+  %y14.i170.i = getelementptr inbounds nuw i8, ptr %vc.val153.i, i64 252
   store i32 %spec.select.i164.i, ptr %y14.i170.i, align 4
   br label %vc_putchar.exit
 
@@ -1834,27 +1834,27 @@ if.then96.i:                                      ; preds = %sw.bb92.i
 
 if.end99.i:                                       ; preds = %if.then96.i, %sw.bb92.i
   %47 = phi i32 [ 1, %if.then96.i ], [ %46, %sw.bb92.i ]
-  %x100.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x100.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %48 = load i32, ptr %x100.i, align 8
   %add103.i = add i32 %48, %47
-  %y104.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y104.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %49 = load i32, ptr %y104.i, align 4
   %vc.val154.i = load ptr, ptr %console, align 8
   %spec.store.select.i171.i = tail call i32 @llvm.smax.i32(i32 %add103.i, i32 0)
   %spec.store.select1.i172.i = tail call i32 @llvm.smax.i32(i32 %49, i32 0)
-  %height.i173.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 236
+  %height.i173.i = getelementptr inbounds nuw i8, ptr %vc.val154.i, i64 236
   %50 = load i32, ptr %height.i173.i, align 4
   %cmp4.not.i174.i = icmp slt i32 %spec.store.select1.i172.i, %50
   %sub.i175.i = add i32 %50, -1
   %spec.select.i176.i = select i1 %cmp4.not.i174.i, i32 %spec.store.select1.i172.i, i32 %sub.i175.i
-  %width.i177.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 232
+  %width.i177.i = getelementptr inbounds nuw i8, ptr %vc.val154.i, i64 232
   %51 = load i32, ptr %width.i177.i, align 8
   %cmp8.not.i178.i = icmp slt i32 %spec.store.select.i171.i, %51
   %sub11.i179.i = add i32 %51, -1
   %x.addr.0.i180.i = select i1 %cmp8.not.i178.i, i32 %spec.store.select.i171.i, i32 %sub11.i179.i
-  %x13.i181.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 248
+  %x13.i181.i = getelementptr inbounds nuw i8, ptr %vc.val154.i, i64 248
   store i32 %x.addr.0.i180.i, ptr %x13.i181.i, align 8
-  %y14.i182.i = getelementptr inbounds i8, ptr %vc.val154.i, i64 252
+  %y14.i182.i = getelementptr inbounds nuw i8, ptr %vc.val154.i, i64 252
   store i32 %spec.select.i176.i, ptr %y14.i182.i, align 4
   br label %vc_putchar.exit
 
@@ -1869,51 +1869,51 @@ if.then109.i:                                     ; preds = %sw.bb105.i
 
 if.end112.i:                                      ; preds = %if.then109.i, %sw.bb105.i
   %53 = phi i32 [ 1, %if.then109.i ], [ %52, %sw.bb105.i ]
-  %x113.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x113.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %54 = load i32, ptr %x113.i, align 8
   %sub116.i = sub i32 %54, %53
-  %y117.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y117.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %55 = load i32, ptr %y117.i, align 4
   %vc.val155.i = load ptr, ptr %console, align 8
   %spec.store.select.i183.i = tail call i32 @llvm.smax.i32(i32 %sub116.i, i32 0)
   %spec.store.select1.i184.i = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
-  %height.i185.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 236
+  %height.i185.i = getelementptr inbounds nuw i8, ptr %vc.val155.i, i64 236
   %56 = load i32, ptr %height.i185.i, align 4
   %cmp4.not.i186.i = icmp slt i32 %spec.store.select1.i184.i, %56
   %sub.i187.i = add i32 %56, -1
   %spec.select.i188.i = select i1 %cmp4.not.i186.i, i32 %spec.store.select1.i184.i, i32 %sub.i187.i
-  %width.i189.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 232
+  %width.i189.i = getelementptr inbounds nuw i8, ptr %vc.val155.i, i64 232
   %57 = load i32, ptr %width.i189.i, align 8
   %cmp8.not.i190.i = icmp slt i32 %spec.store.select.i183.i, %57
   %sub11.i191.i = add i32 %57, -1
   %x.addr.0.i192.i = select i1 %cmp8.not.i190.i, i32 %spec.store.select.i183.i, i32 %sub11.i191.i
-  %x13.i193.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 248
+  %x13.i193.i = getelementptr inbounds nuw i8, ptr %vc.val155.i, i64 248
   store i32 %x.addr.0.i192.i, ptr %x13.i193.i, align 8
-  %y14.i194.i = getelementptr inbounds i8, ptr %vc.val155.i, i64 252
+  %y14.i194.i = getelementptr inbounds nuw i8, ptr %vc.val155.i, i64 252
   store i32 %spec.select.i188.i, ptr %y14.i194.i, align 4
   br label %vc_putchar.exit
 
 sw.bb118.i:                                       ; preds = %trace_console_putchar_csi.exit.i
   %58 = load i32, ptr %esc_params60.i, align 4
   %sub121.i = add i32 %58, -1
-  %y122.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y122.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %59 = load i32, ptr %y122.i, align 4
   %vc.val156.i = load ptr, ptr %console, align 8
   %spec.store.select.i195.i = tail call i32 @llvm.smax.i32(i32 %sub121.i, i32 0)
   %spec.store.select1.i196.i = tail call i32 @llvm.smax.i32(i32 %59, i32 0)
-  %height.i197.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 236
+  %height.i197.i = getelementptr inbounds nuw i8, ptr %vc.val156.i, i64 236
   %60 = load i32, ptr %height.i197.i, align 4
   %cmp4.not.i198.i = icmp slt i32 %spec.store.select1.i196.i, %60
   %sub.i199.i = add i32 %60, -1
   %spec.select.i200.i = select i1 %cmp4.not.i198.i, i32 %spec.store.select1.i196.i, i32 %sub.i199.i
-  %width.i201.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 232
+  %width.i201.i = getelementptr inbounds nuw i8, ptr %vc.val156.i, i64 232
   %61 = load i32, ptr %width.i201.i, align 8
   %cmp8.not.i202.i = icmp slt i32 %spec.store.select.i195.i, %61
   %sub11.i203.i = add i32 %61, -1
   %x.addr.0.i204.i = select i1 %cmp8.not.i202.i, i32 %spec.store.select.i195.i, i32 %sub11.i203.i
-  %x13.i205.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 248
+  %x13.i205.i = getelementptr inbounds nuw i8, ptr %vc.val156.i, i64 248
   store i32 %x.addr.0.i204.i, ptr %x13.i205.i, align 8
-  %y14.i206.i = getelementptr inbounds i8, ptr %vc.val156.i, i64 252
+  %y14.i206.i = getelementptr inbounds nuw i8, ptr %vc.val156.i, i64 252
   store i32 %spec.select.i200.i, ptr %y14.i206.i, align 4
   br label %vc_putchar.exit
 
@@ -1925,19 +1925,19 @@ sw.bb123.i:                                       ; preds = %trace_console_putch
   %vc.val157.i = load ptr, ptr %console, align 8
   %spec.store.select.i207.i = tail call i32 @llvm.smax.i32(i32 %sub126.i, i32 0)
   %spec.store.select1.i208.i = tail call i32 @llvm.smax.i32(i32 %sub129.i, i32 0)
-  %height.i209.i = getelementptr inbounds i8, ptr %vc.val157.i, i64 236
+  %height.i209.i = getelementptr inbounds nuw i8, ptr %vc.val157.i, i64 236
   %64 = load i32, ptr %height.i209.i, align 4
   %cmp4.not.i210.i = icmp slt i32 %spec.store.select1.i208.i, %64
   %sub.i211.i = add i32 %64, -1
   %spec.select.i212.i = select i1 %cmp4.not.i210.i, i32 %spec.store.select1.i208.i, i32 %sub.i211.i
-  %width.i213.i = getelementptr inbounds i8, ptr %vc.val157.i, i64 232
+  %width.i213.i = getelementptr inbounds nuw i8, ptr %vc.val157.i, i64 232
   %65 = load i32, ptr %width.i213.i, align 8
   %cmp8.not.i214.i = icmp slt i32 %spec.store.select.i207.i, %65
   %sub11.i215.i = add i32 %65, -1
   %x.addr.0.i216.i = select i1 %cmp8.not.i214.i, i32 %spec.store.select.i207.i, i32 %sub11.i215.i
-  %x13.i217.i = getelementptr inbounds i8, ptr %vc.val157.i, i64 248
+  %x13.i217.i = getelementptr inbounds nuw i8, ptr %vc.val157.i, i64 248
   store i32 %x.addr.0.i216.i, ptr %x13.i217.i, align 8
-  %y14.i218.i = getelementptr inbounds i8, ptr %vc.val157.i, i64 252
+  %y14.i218.i = getelementptr inbounds nuw i8, ptr %vc.val157.i, i64 252
   store i32 %spec.select.i212.i, ptr %y14.i218.i, align 4
   br label %vc_putchar.exit
 
@@ -1950,41 +1950,41 @@ sw.bb130.i:                                       ; preds = %trace_console_putch
   ]
 
 for.cond178.preheader.i:                          ; preds = %sw.bb130.i
-  %height179.i = getelementptr inbounds i8, ptr %4, i64 236
+  %height179.i = getelementptr inbounds nuw i8, ptr %4, i64 236
   %67 = load i32, ptr %height179.i, align 4
   %cmp180.not311.i = icmp slt i32 %67, 0
   br i1 %cmp180.not311.i, label %vc_putchar.exit, label %for.cond182.preheader.lr.ph.i
 
 for.cond182.preheader.lr.ph.i:                    ; preds = %for.cond178.preheader.i
-  %width183.i = getelementptr inbounds i8, ptr %4, i64 232
+  %width183.i = getelementptr inbounds nuw i8, ptr %4, i64 232
   %68 = load i32, ptr %width183.i, align 8
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %for.cond182.preheader.i, label %vc_putchar.exit
 
 for.cond156.preheader.i:                          ; preds = %sw.bb130.i
-  %y157.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y157.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %70 = load i32, ptr %y157.i, align 4
   %cmp158.not315.i = icmp slt i32 %70, 0
   br i1 %cmp158.not315.i, label %vc_putchar.exit, label %for.cond160.preheader.lr.ph.i
 
 for.cond160.preheader.lr.ph.i:                    ; preds = %for.cond156.preheader.i
-  %x167.i = getelementptr inbounds i8, ptr %4, i64 248
-  %width161.i = getelementptr inbounds i8, ptr %4, i64 232
+  %x167.i = getelementptr inbounds nuw i8, ptr %4, i64 248
+  %width161.i = getelementptr inbounds nuw i8, ptr %4, i64 232
   %71 = load i32, ptr %width161.i, align 8
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %for.cond160.preheader.i, label %vc_putchar.exit
 
 sw.bb133.i:                                       ; preds = %sw.bb130.i
-  %y134.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y134.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %73 = load i32, ptr %y134.i, align 4
-  %height.i = getelementptr inbounds i8, ptr %4, i64 236
+  %height.i = getelementptr inbounds nuw i8, ptr %4, i64 236
   %74 = load i32, ptr %height.i, align 4
   %cmp136319.i = icmp slt i32 %73, %74
   br i1 %cmp136319.i, label %for.cond138.preheader.lr.ph.i, label %vc_putchar.exit
 
 for.cond138.preheader.lr.ph.i:                    ; preds = %sw.bb133.i
-  %width139.i = getelementptr inbounds i8, ptr %4, i64 232
-  %x145.i = getelementptr inbounds i8, ptr %4, i64 248
+  %width139.i = getelementptr inbounds nuw i8, ptr %4, i64 232
+  %x145.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %75 = load i32, ptr %width139.i, align 8
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %for.cond138.preheader.i, label %vc_putchar.exit
@@ -2011,25 +2011,25 @@ land.lhs.true144.i:                               ; preds = %for.body141.i
 
 if.end148.i:                                      ; preds = %land.lhs.true144.i, %for.body141.i
   %83 = load ptr, ptr %console, align 8
-  %y_base.i220.i = getelementptr inbounds i8, ptr %83, i64 260
+  %y_base.i220.i = getelementptr inbounds nuw i8, ptr %83, i64 260
   %84 = load i32, ptr %y_base.i220.i, align 4
-  %total_height.i221.i = getelementptr inbounds i8, ptr %83, i64 240
+  %total_height.i221.i = getelementptr inbounds nuw i8, ptr %83, i64 240
   %85 = load i32, ptr %total_height.i221.i, align 8
-  %width.i222.i = getelementptr inbounds i8, ptr %83, i64 232
+  %width.i222.i = getelementptr inbounds nuw i8, ptr %83, i64 232
   %86 = load i32, ptr %width.i222.i, align 8
   %cmp.not.i223.i = icmp slt i32 %x.0318.i, %86
   %sub.i224.i = add i32 %86, -1
   %spec.select.i225.i = select i1 %cmp.not.i223.i, i32 %x.0318.i, i32 %sub.i224.i
   %add.i226.i = add i32 %84, %y.0320.i
   %rem.i227.i = srem i32 %add.i226.i, %85
-  %cells.i228.i = getelementptr inbounds i8, ptr %83, i64 264
+  %cells.i228.i = getelementptr inbounds nuw i8, ptr %83, i64 264
   %87 = load ptr, ptr %cells.i228.i, align 8
   %mul.i229.i = mul i32 %rem.i227.i, %86
   %add3.i.i = add i32 %mul.i229.i, %spec.select.i225.i
   %idxprom.i230.i = sext i32 %add3.i.i to i64
   %arrayidx.i231.i = getelementptr %struct.TextCell, ptr %87, i64 %idxprom.i230.i
   store i8 32, ptr %arrayidx.i231.i, align 1
-  %t_attrib.i232.i = getelementptr inbounds i8, ptr %arrayidx.i231.i, i64 1
+  %t_attrib.i232.i = getelementptr inbounds nuw i8, ptr %arrayidx.i231.i, i64 1
   store i16 7, ptr %t_attrib.i232.i, align 1
   %vc.val.i233.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i233.i, i32 noundef %spec.select.i225.i, i32 noundef %y.0320.i)
@@ -2075,25 +2075,25 @@ land.lhs.true166.i:                               ; preds = %for.body163.i
 
 if.end170.i:                                      ; preds = %land.lhs.true166.i, %for.body163.i
   %97 = load ptr, ptr %console, align 8
-  %y_base.i235.i = getelementptr inbounds i8, ptr %97, i64 260
+  %y_base.i235.i = getelementptr inbounds nuw i8, ptr %97, i64 260
   %98 = load i32, ptr %y_base.i235.i, align 4
-  %total_height.i236.i = getelementptr inbounds i8, ptr %97, i64 240
+  %total_height.i236.i = getelementptr inbounds nuw i8, ptr %97, i64 240
   %99 = load i32, ptr %total_height.i236.i, align 8
-  %width.i237.i = getelementptr inbounds i8, ptr %97, i64 232
+  %width.i237.i = getelementptr inbounds nuw i8, ptr %97, i64 232
   %100 = load i32, ptr %width.i237.i, align 8
   %cmp.not.i238.i = icmp slt i32 %x.1314.i, %100
   %sub.i239.i = add i32 %100, -1
   %spec.select.i240.i = select i1 %cmp.not.i238.i, i32 %x.1314.i, i32 %sub.i239.i
   %add.i241.i = add i32 %98, %y.1316.i
   %rem.i242.i = srem i32 %add.i241.i, %99
-  %cells.i243.i = getelementptr inbounds i8, ptr %97, i64 264
+  %cells.i243.i = getelementptr inbounds nuw i8, ptr %97, i64 264
   %101 = load ptr, ptr %cells.i243.i, align 8
   %mul.i244.i = mul i32 %rem.i242.i, %100
   %add3.i245.i = add i32 %mul.i244.i, %spec.select.i240.i
   %idxprom.i246.i = sext i32 %add3.i245.i to i64
   %arrayidx.i247.i = getelementptr %struct.TextCell, ptr %101, i64 %idxprom.i246.i
   store i8 32, ptr %arrayidx.i247.i, align 1
-  %t_attrib.i248.i = getelementptr inbounds i8, ptr %arrayidx.i247.i, i64 1
+  %t_attrib.i248.i = getelementptr inbounds nuw i8, ptr %arrayidx.i247.i, i64 1
   store i16 7, ptr %t_attrib.i248.i, align 1
   %vc.val.i249.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i249.i, i32 noundef %spec.select.i240.i, i32 noundef %y.1316.i)
@@ -2123,25 +2123,25 @@ for.cond182.preheader.i:                          ; preds = %for.cond182.prehead
 for.body185.i:                                    ; preds = %for.cond182.preheader.i, %for.body185.i
   %x.2310.i = phi i32 [ %inc187.i, %for.body185.i ], [ 0, %for.cond182.preheader.i ]
   %107 = load ptr, ptr %console, align 8
-  %y_base.i251.i = getelementptr inbounds i8, ptr %107, i64 260
+  %y_base.i251.i = getelementptr inbounds nuw i8, ptr %107, i64 260
   %108 = load i32, ptr %y_base.i251.i, align 4
-  %total_height.i252.i = getelementptr inbounds i8, ptr %107, i64 240
+  %total_height.i252.i = getelementptr inbounds nuw i8, ptr %107, i64 240
   %109 = load i32, ptr %total_height.i252.i, align 8
-  %width.i253.i = getelementptr inbounds i8, ptr %107, i64 232
+  %width.i253.i = getelementptr inbounds nuw i8, ptr %107, i64 232
   %110 = load i32, ptr %width.i253.i, align 8
   %cmp.not.i254.i = icmp slt i32 %x.2310.i, %110
   %sub.i255.i = add i32 %110, -1
   %spec.select.i256.i = select i1 %cmp.not.i254.i, i32 %x.2310.i, i32 %sub.i255.i
   %add.i257.i = add i32 %108, %y.2312.i
   %rem.i258.i = srem i32 %add.i257.i, %109
-  %cells.i259.i = getelementptr inbounds i8, ptr %107, i64 264
+  %cells.i259.i = getelementptr inbounds nuw i8, ptr %107, i64 264
   %111 = load ptr, ptr %cells.i259.i, align 8
   %mul.i260.i = mul i32 %rem.i258.i, %110
   %add3.i261.i = add i32 %mul.i260.i, %spec.select.i256.i
   %idxprom.i262.i = sext i32 %add3.i261.i to i64
   %arrayidx.i263.i = getelementptr %struct.TextCell, ptr %111, i64 %idxprom.i262.i
   store i8 32, ptr %arrayidx.i263.i, align 1
-  %t_attrib.i264.i = getelementptr inbounds i8, ptr %arrayidx.i263.i, i64 1
+  %t_attrib.i264.i = getelementptr inbounds nuw i8, ptr %arrayidx.i263.i, i64 1
   store i16 7, ptr %t_attrib.i264.i, align 1
   %vc.val.i265.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i265.i, i32 noundef %spec.select.i256.i, i32 noundef %y.2312.i)
@@ -2170,61 +2170,61 @@ sw.bb193.i:                                       ; preds = %trace_console_putch
   ]
 
 for.cond218.preheader.i:                          ; preds = %sw.bb193.i
-  %width219.i = getelementptr inbounds i8, ptr %4, i64 232
+  %width219.i = getelementptr inbounds nuw i8, ptr %4, i64 232
   %116 = load i32, ptr %width219.i, align 8
   %cmp220303.i = icmp sgt i32 %116, 0
   br i1 %cmp220303.i, label %for.body221.lr.ph.i, label %vc_putchar.exit
 
 for.body221.lr.ph.i:                              ; preds = %for.cond218.preheader.i
-  %y222.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y222.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   br label %for.body221.i
 
 for.cond207.preheader.i:                          ; preds = %sw.bb193.i
-  %width210.i = getelementptr inbounds i8, ptr %4, i64 232
-  %x208.i = getelementptr inbounds i8, ptr %4, i64 248
+  %width210.i = getelementptr inbounds nuw i8, ptr %4, i64 232
+  %x208.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %117 = load i32, ptr %x208.i, align 8
   %cmp209.not305.i = icmp slt i32 %117, 0
   br i1 %cmp209.not305.i, label %vc_putchar.exit, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.cond207.preheader.i
-  %y213.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y213.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   br label %land.rhs.i
 
 sw.bb196.i:                                       ; preds = %sw.bb193.i
-  %x197.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x197.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %118 = load i32, ptr %x197.i, align 8
-  %width199.i = getelementptr inbounds i8, ptr %4, i64 232
+  %width199.i = getelementptr inbounds nuw i8, ptr %4, i64 232
   %119 = load i32, ptr %width199.i, align 8
   %cmp200307.i = icmp slt i32 %118, %119
   br i1 %cmp200307.i, label %for.body201.lr.ph.i, label %vc_putchar.exit
 
 for.body201.lr.ph.i:                              ; preds = %sw.bb196.i
-  %y202.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y202.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   br label %for.body201.i
 
 for.body201.i:                                    ; preds = %for.body201.i, %for.body201.lr.ph.i
   %x.3308.i = phi i32 [ %118, %for.body201.lr.ph.i ], [ %inc204.i, %for.body201.i ]
   %120 = load i32, ptr %y202.i, align 4
   %121 = load ptr, ptr %console, align 8
-  %y_base.i267.i = getelementptr inbounds i8, ptr %121, i64 260
+  %y_base.i267.i = getelementptr inbounds nuw i8, ptr %121, i64 260
   %122 = load i32, ptr %y_base.i267.i, align 4
-  %total_height.i268.i = getelementptr inbounds i8, ptr %121, i64 240
+  %total_height.i268.i = getelementptr inbounds nuw i8, ptr %121, i64 240
   %123 = load i32, ptr %total_height.i268.i, align 8
-  %width.i269.i = getelementptr inbounds i8, ptr %121, i64 232
+  %width.i269.i = getelementptr inbounds nuw i8, ptr %121, i64 232
   %124 = load i32, ptr %width.i269.i, align 8
   %cmp.not.i270.i = icmp slt i32 %x.3308.i, %124
   %sub.i271.i = add i32 %124, -1
   %spec.select.i272.i = select i1 %cmp.not.i270.i, i32 %x.3308.i, i32 %sub.i271.i
   %add.i273.i = add i32 %122, %120
   %rem.i274.i = srem i32 %add.i273.i, %123
-  %cells.i275.i = getelementptr inbounds i8, ptr %121, i64 264
+  %cells.i275.i = getelementptr inbounds nuw i8, ptr %121, i64 264
   %125 = load ptr, ptr %cells.i275.i, align 8
   %mul.i276.i = mul i32 %rem.i274.i, %124
   %add3.i277.i = add i32 %mul.i276.i, %spec.select.i272.i
   %idxprom.i278.i = sext i32 %add3.i277.i to i64
   %arrayidx.i279.i = getelementptr %struct.TextCell, ptr %125, i64 %idxprom.i278.i
   store i8 32, ptr %arrayidx.i279.i, align 1
-  %t_attrib.i280.i = getelementptr inbounds i8, ptr %arrayidx.i279.i, i64 1
+  %t_attrib.i280.i = getelementptr inbounds nuw i8, ptr %arrayidx.i279.i, i64 1
   store i16 7, ptr %t_attrib.i280.i, align 1
   %vc.val.i281.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i281.i, i32 noundef %spec.select.i272.i, i32 noundef %120)
@@ -2242,25 +2242,25 @@ land.rhs.i:                                       ; preds = %for.body212.i, %lan
 for.body212.i:                                    ; preds = %land.rhs.i
   %128 = load i32, ptr %y213.i, align 4
   %129 = load ptr, ptr %console, align 8
-  %y_base.i79 = getelementptr inbounds i8, ptr %129, i64 260
+  %y_base.i79 = getelementptr inbounds nuw i8, ptr %129, i64 260
   %130 = load i32, ptr %y_base.i79, align 4
-  %total_height.i80 = getelementptr inbounds i8, ptr %129, i64 240
+  %total_height.i80 = getelementptr inbounds nuw i8, ptr %129, i64 240
   %131 = load i32, ptr %total_height.i80, align 8
-  %width.i81 = getelementptr inbounds i8, ptr %129, i64 232
+  %width.i81 = getelementptr inbounds nuw i8, ptr %129, i64 232
   %132 = load i32, ptr %width.i81, align 8
   %cmp.not.i = icmp slt i32 %x.4306.i, %132
   %sub.i = add i32 %132, -1
   %spec.select.i = select i1 %cmp.not.i, i32 %x.4306.i, i32 %sub.i
   %add.i82 = add i32 %130, %128
   %rem.i83 = srem i32 %add.i82, %131
-  %cells.i = getelementptr inbounds i8, ptr %129, i64 264
+  %cells.i = getelementptr inbounds nuw i8, ptr %129, i64 264
   %133 = load ptr, ptr %cells.i, align 8
   %mul.i84 = mul i32 %rem.i83, %132
   %add3.i = add i32 %mul.i84, %spec.select.i
   %idxprom.i = sext i32 %add3.i to i64
   %arrayidx.i85 = getelementptr %struct.TextCell, ptr %133, i64 %idxprom.i
   store i8 32, ptr %arrayidx.i85, align 1
-  %t_attrib.i = getelementptr inbounds i8, ptr %arrayidx.i85, i64 1
+  %t_attrib.i = getelementptr inbounds nuw i8, ptr %arrayidx.i85, i64 1
   store i16 7, ptr %t_attrib.i, align 1
   %vc.val.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i, i32 noundef %spec.select.i, i32 noundef %128)
@@ -2273,25 +2273,25 @@ for.body221.i:                                    ; preds = %for.body221.i, %for
   %x.5304.i = phi i32 [ 0, %for.body221.lr.ph.i ], [ %inc224.i, %for.body221.i ]
   %135 = load i32, ptr %y222.i, align 4
   %136 = load ptr, ptr %console, align 8
-  %y_base.i283.i = getelementptr inbounds i8, ptr %136, i64 260
+  %y_base.i283.i = getelementptr inbounds nuw i8, ptr %136, i64 260
   %137 = load i32, ptr %y_base.i283.i, align 4
-  %total_height.i284.i = getelementptr inbounds i8, ptr %136, i64 240
+  %total_height.i284.i = getelementptr inbounds nuw i8, ptr %136, i64 240
   %138 = load i32, ptr %total_height.i284.i, align 8
-  %width.i285.i = getelementptr inbounds i8, ptr %136, i64 232
+  %width.i285.i = getelementptr inbounds nuw i8, ptr %136, i64 232
   %139 = load i32, ptr %width.i285.i, align 8
   %cmp.not.i286.i = icmp slt i32 %x.5304.i, %139
   %sub.i287.i = add i32 %139, -1
   %spec.select.i288.i = select i1 %cmp.not.i286.i, i32 %x.5304.i, i32 %sub.i287.i
   %add.i289.i = add i32 %137, %135
   %rem.i290.i = srem i32 %add.i289.i, %138
-  %cells.i291.i = getelementptr inbounds i8, ptr %136, i64 264
+  %cells.i291.i = getelementptr inbounds nuw i8, ptr %136, i64 264
   %140 = load ptr, ptr %cells.i291.i, align 8
   %mul.i292.i = mul i32 %rem.i290.i, %139
   %add3.i293.i = add i32 %mul.i292.i, %spec.select.i288.i
   %idxprom.i294.i = sext i32 %add3.i293.i to i64
   %arrayidx.i295.i = getelementptr %struct.TextCell, ptr %140, i64 %idxprom.i294.i
   store i8 32, ptr %arrayidx.i295.i, align 1
-  %t_attrib.i296.i = getelementptr inbounds i8, ptr %arrayidx.i295.i, i64 1
+  %t_attrib.i296.i = getelementptr inbounds nuw i8, ptr %arrayidx.i295.i, i64 1
   store i16 7, ptr %t_attrib.i296.i, align 1
   %vc.val.i297.i = load ptr, ptr %console, align 8
   tail call fastcc void @vc_update_xy(ptr %vc.val.i297.i, i32 noundef %spec.select.i288.i, i32 noundef %135)
@@ -2516,9 +2516,9 @@ while.body.i49:                                   ; preds = %sw.bb228.i, %vc_put
   %145 = phi i8 [ %159, %vc_put_one.exit.i58 ], [ 27, %sw.bb228.i ]
   %buf.addr.04.i50 = phi ptr [ %incdec.ptr.i72, %vc_put_one.exit.i58 ], [ @.str.20, %sw.bb228.i ]
   %146 = load ptr, ptr %console, align 8
-  %x.i.i51 = getelementptr inbounds i8, ptr %146, i64 248
+  %x.i.i51 = getelementptr inbounds nuw i8, ptr %146, i64 248
   %147 = load i32, ptr %x.i.i51, align 8
-  %width.i.i52 = getelementptr inbounds i8, ptr %146, i64 232
+  %width.i.i52 = getelementptr inbounds nuw i8, ptr %146, i64 232
   %148 = load i32, ptr %width.i.i52, align 8
   %cmp.not.i.i53 = icmp slt i32 %147, %148
   br i1 %cmp.not.i.i53, label %vc_put_one.exit.i58, label %if.then.i.i54
@@ -2534,22 +2534,22 @@ if.then.i.i54:                                    ; preds = %while.body.i49
 vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %while.body.i49
   %149 = phi i32 [ %.pre17.i.i57, %if.then.i.i54 ], [ %147, %while.body.i49 ]
   %150 = phi i32 [ %.pre.i.i56, %if.then.i.i54 ], [ %148, %while.body.i49 ]
-  %y_base.i.i59 = getelementptr inbounds i8, ptr %146, i64 260
+  %y_base.i.i59 = getelementptr inbounds nuw i8, ptr %146, i64 260
   %151 = load i32, ptr %y_base.i.i59, align 4
-  %y.i.i60 = getelementptr inbounds i8, ptr %146, i64 252
+  %y.i.i60 = getelementptr inbounds nuw i8, ptr %146, i64 252
   %152 = load i32, ptr %y.i.i60, align 4
   %add.i.i61 = add i32 %152, %151
-  %total_height.i.i62 = getelementptr inbounds i8, ptr %146, i64 240
+  %total_height.i.i62 = getelementptr inbounds nuw i8, ptr %146, i64 240
   %153 = load i32, ptr %total_height.i.i62, align 8
   %rem.i.i63 = srem i32 %add.i.i61, %153
-  %cells.i.i64 = getelementptr inbounds i8, ptr %146, i64 264
+  %cells.i.i64 = getelementptr inbounds nuw i8, ptr %146, i64 264
   %154 = load ptr, ptr %cells.i.i64, align 8
   %mul.i.i65 = mul i32 %rem.i.i63, %150
   %add4.i.i66 = add i32 %mul.i.i65, %149
   %idxprom.i.i67 = sext i32 %add4.i.i66 to i64
   %arrayidx.i.i68 = getelementptr %struct.TextCell, ptr %154, i64 %idxprom.i.i67
   store i8 %145, ptr %arrayidx.i.i68, align 1
-  %t_attrib.i.i69 = getelementptr inbounds i8, ptr %arrayidx.i.i68, i64 1
+  %t_attrib.i.i69 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i68, i64 1
   %155 = load i16, ptr %t_attrib6.i.i24, align 4
   store i16 %155, ptr %t_attrib.i.i69, align 1
   %156 = load i32, ptr %x.i.i51, align 8
@@ -2565,16 +2565,16 @@ vc_put_one.exit.i58:                              ; preds = %if.then.i.i54, %whi
   br i1 %exitcond, label %vc_putchar.exit, label %while.body.i49, !llvm.loop !27
 
 sw.bb232.i:                                       ; preds = %sw.bb228.i
-  %y_base.i = getelementptr inbounds i8, ptr %4, i64 260
+  %y_base.i = getelementptr inbounds nuw i8, ptr %4, i64 260
   %160 = load i32, ptr %y_base.i, align 4
-  %y233.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y233.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %161 = load i32, ptr %y233.i, align 4
   %add234.i = add i32 %161, %160
-  %total_height.i = getelementptr inbounds i8, ptr %4, i64 240
+  %total_height.i = getelementptr inbounds nuw i8, ptr %4, i64 240
   %162 = load i32, ptr %total_height.i, align 8
   %rem235.i = srem i32 %add234.i, %162
   %add236.i = add i32 %rem235.i, 1
-  %x237.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x237.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %163 = load i32, ptr %x237.i, align 8
   %add238.i = add i32 %163, 1
   %call.i21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %response.i, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %add236.i, i32 noundef %add238.i) #12
@@ -2586,9 +2586,9 @@ while.body.i:                                     ; preds = %sw.bb232.i, %vc_put
   %165 = phi i8 [ %179, %vc_put_one.exit.i32 ], [ %164, %sw.bb232.i ]
   %buf.addr.04.i = phi ptr [ %incdec.ptr.i, %vc_put_one.exit.i32 ], [ %response.i, %sw.bb232.i ]
   %166 = load ptr, ptr %console, align 8
-  %x.i.i25 = getelementptr inbounds i8, ptr %166, i64 248
+  %x.i.i25 = getelementptr inbounds nuw i8, ptr %166, i64 248
   %167 = load i32, ptr %x.i.i25, align 8
-  %width.i.i26 = getelementptr inbounds i8, ptr %166, i64 232
+  %width.i.i26 = getelementptr inbounds nuw i8, ptr %166, i64 232
   %168 = load i32, ptr %width.i.i26, align 8
   %cmp.not.i.i27 = icmp slt i32 %167, %168
   br i1 %cmp.not.i.i27, label %vc_put_one.exit.i32, label %if.then.i.i28
@@ -2604,22 +2604,22 @@ if.then.i.i28:                                    ; preds = %while.body.i
 vc_put_one.exit.i32:                              ; preds = %if.then.i.i28, %while.body.i
   %169 = phi i32 [ %.pre17.i.i31, %if.then.i.i28 ], [ %167, %while.body.i ]
   %170 = phi i32 [ %.pre.i.i30, %if.then.i.i28 ], [ %168, %while.body.i ]
-  %y_base.i.i33 = getelementptr inbounds i8, ptr %166, i64 260
+  %y_base.i.i33 = getelementptr inbounds nuw i8, ptr %166, i64 260
   %171 = load i32, ptr %y_base.i.i33, align 4
-  %y.i.i34 = getelementptr inbounds i8, ptr %166, i64 252
+  %y.i.i34 = getelementptr inbounds nuw i8, ptr %166, i64 252
   %172 = load i32, ptr %y.i.i34, align 4
   %add.i.i35 = add i32 %172, %171
-  %total_height.i.i36 = getelementptr inbounds i8, ptr %166, i64 240
+  %total_height.i.i36 = getelementptr inbounds nuw i8, ptr %166, i64 240
   %173 = load i32, ptr %total_height.i.i36, align 8
   %rem.i.i37 = srem i32 %add.i.i35, %173
-  %cells.i.i38 = getelementptr inbounds i8, ptr %166, i64 264
+  %cells.i.i38 = getelementptr inbounds nuw i8, ptr %166, i64 264
   %174 = load ptr, ptr %cells.i.i38, align 8
   %mul.i.i39 = mul i32 %rem.i.i37, %170
   %add4.i.i40 = add i32 %mul.i.i39, %169
   %idxprom.i.i41 = sext i32 %add4.i.i40 to i64
   %arrayidx.i.i42 = getelementptr %struct.TextCell, ptr %174, i64 %idxprom.i.i41
   store i8 %165, ptr %arrayidx.i.i42, align 1
-  %t_attrib.i.i43 = getelementptr inbounds i8, ptr %arrayidx.i.i42, i64 1
+  %t_attrib.i.i43 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i42, i64 1
   %175 = load i16, ptr %t_attrib6.i.i24, align 4
   store i16 %175, ptr %t_attrib.i.i43, align 1
   %176 = load i32, ptr %x.i.i25, align 8
@@ -2635,20 +2635,20 @@ vc_put_one.exit.i32:                              ; preds = %if.then.i.i28, %whi
   br i1 %tobool.not.i, label %vc_putchar.exit, label %while.body.i, !llvm.loop !27
 
 sw.bb241.i:                                       ; preds = %trace_console_putchar_csi.exit.i
-  %x242.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x242.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   %180 = load i32, ptr %x242.i, align 8
   store i32 %180, ptr %x_saved245.i, align 8
-  %y243.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y243.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   %181 = load i32, ptr %y243.i, align 4
   store i32 %181, ptr %y_saved247.i, align 4
   br label %vc_putchar.exit
 
 sw.bb244.i:                                       ; preds = %trace_console_putchar_csi.exit.i
   %182 = load i32, ptr %x_saved245.i, align 8
-  %x246.i = getelementptr inbounds i8, ptr %4, i64 248
+  %x246.i = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i32 %182, ptr %x246.i, align 8
   %183 = load i32, ptr %y_saved247.i, align 4
-  %y248.i = getelementptr inbounds i8, ptr %4, i64 252
+  %y248.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   store i32 %183, ptr %y248.i, align 4
   br label %vc_putchar.exit
 
@@ -2721,13 +2721,13 @@ define internal void @vc_chr_accept_input(ptr noundef %chr) #0 {
 entry:
   %size.i = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
-  %console = getelementptr inbounds i8, ptr %call.i, i64 152
+  %console = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %console, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i)
-  %chr.i = getelementptr inbounds i8, ptr %0, i64 312
+  %chr.i = getelementptr inbounds nuw i8, ptr %0, i64 312
   %1 = load ptr, ptr %chr.i, align 8
   %call.i1 = tail call i32 @qemu_chr_be_can_write(ptr noundef %1) #12
-  %out_fifo.i = getelementptr inbounds i8, ptr %0, i64 320
+  %out_fifo.i = getelementptr inbounds nuw i8, ptr %0, i64 320
   %call1.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %out_fifo.i) #12
   %cmp10.i = icmp ne i32 %call.i1, 0
   %cmp211.i = icmp ne i32 %call1.i, 0
@@ -2761,9 +2761,9 @@ define internal void @vc_chr_set_echo(ptr noundef %chr, i1 noundef zeroext %echo
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 852, ptr noundef nonnull @__func__.VC_CHARDEV) #12
   %conv = zext i1 %echo to i32
-  %console = getelementptr inbounds i8, ptr %call.i, i64 152
+  %console = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %0 = load ptr, ptr %console, align 8
-  %echo1 = getelementptr inbounds i8, ptr %0, i64 292
+  %echo1 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %conv, ptr %echo1, align 4
   ret void
 }
@@ -2801,11 +2801,11 @@ define internal fastcc void @vc_put_lf(ptr %vc.152.val) unnamed_addr #0 {
 entry:
   %color.i = alloca %struct.pixman_color, align 8
   %rect.i = alloca %struct.pixman_rectangle16, align 2
-  %y = getelementptr inbounds i8, ptr %vc.152.val, i64 252
+  %y = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 252
   %0 = load i32, ptr %y, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %y, align 4
-  %height = getelementptr inbounds i8, ptr %vc.152.val, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 236
   %1 = load i32, ptr %height, align 4
   %cmp.not = icmp slt i32 %inc, %1
   br i1 %cmp.not, label %if.end103, label %if.then
@@ -2813,21 +2813,21 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = add i32 %1, -1
   store i32 %sub, ptr %y, align 4
-  %y_displayed = getelementptr inbounds i8, ptr %vc.152.val, i64 256
+  %y_displayed = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 256
   %2 = load i32, ptr %y_displayed, align 8
-  %y_base = getelementptr inbounds i8, ptr %vc.152.val, i64 260
+  %y_base = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 260
   %3 = load i32, ptr %y_base, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %if.then6, label %if.then.if.end12_crit_edge
 
 if.then.if.end12_crit_edge:                       ; preds = %if.then
-  %total_height15.phi.trans.insert = getelementptr inbounds i8, ptr %vc.152.val, i64 240
+  %total_height15.phi.trans.insert = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 240
   %.pre = load i32, ptr %total_height15.phi.trans.insert, align 8
   br label %if.end12
 
 if.then6:                                         ; preds = %if.then
   %inc8 = add i32 %2, 1
-  %total_height = getelementptr inbounds i8, ptr %vc.152.val, i64 240
+  %total_height = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 240
   %4 = load i32, ptr %total_height, align 8
   %cmp9 = icmp eq i32 %inc8, %4
   %spec.store.select = select i1 %cmp9, i32 0, i32 %inc8
@@ -2841,7 +2841,7 @@ if.end12:                                         ; preds = %if.then.if.end12_cr
   %cmp16 = icmp eq i32 %inc14, %6
   %spec.store.select59 = select i1 %cmp16, i32 0, i32 %inc14
   store i32 %spec.store.select59, ptr %y_base, align 4
-  %backscroll_height = getelementptr inbounds i8, ptr %vc.152.val, i64 244
+  %backscroll_height = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 244
   %7 = load i32, ptr %backscroll_height, align 4
   %cmp21 = icmp slt i32 %7, %6
   br i1 %cmp21, label %if.then22, label %if.end25
@@ -2852,13 +2852,13 @@ if.then22:                                        ; preds = %if.end12
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then22, %if.end12
-  %width = getelementptr inbounds i8, ptr %vc.152.val, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 232
   %8 = load i32, ptr %width, align 8
   %cmp314 = icmp sgt i32 %8, 0
   br i1 %cmp314, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end25
-  %cells = getelementptr inbounds i8, ptr %vc.152.val, i64 264
+  %cells = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 264
   %9 = load ptr, ptr %cells, align 8
   %sub28 = add i32 %sub, %spec.store.select59
   %rem = srem i32 %sub28, %6
@@ -2871,7 +2871,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %c.06 = phi ptr [ %incdec.ptr, %for.body ], [ %arrayidx, %for.body.preheader ]
   %x.05 = phi i32 [ %inc50, %for.body ], [ 0, %for.body.preheader ]
   store i8 32, ptr %c.06, align 1
-  %t_attrib = getelementptr inbounds i8, ptr %c.06, i64 1
+  %t_attrib = getelementptr inbounds nuw i8, ptr %c.06, i64 1
   store i16 7, ptr %t_attrib, align 1
   %incdec.ptr = getelementptr i8, ptr %c.06, i64 3
   %inc50 = add nuw nsw i32 %x.05, 1
@@ -2892,9 +2892,9 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp53, label %if.then54, label %if.end103
 
 if.then54:                                        ; preds = %for.end
-  %text_x = getelementptr inbounds i8, ptr %vc.152.val, i64 272
+  %text_x = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 272
   store i32 0, ptr %text_x, align 8
-  %text_y = getelementptr inbounds i8, ptr %vc.152.val, i64 280
+  %text_y = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 280
   store i32 0, ptr %text_y, align 8
   %sub58 = add i32 %.lcssa, -1
   %arrayidx60 = getelementptr i8, ptr %vc.152.val, i64 276
@@ -2930,16 +2930,16 @@ qemu_console_bitblt.exit:                         ; preds = %if.then54
   store i64 -281474976710656, ptr %color.i, align 8
   %call.i62 = tail call ptr @qemu_console_surface(ptr noundef %call.i61) #12
   store i16 0, ptr %rect.i, align 2
-  %y.i = getelementptr inbounds i8, ptr %rect.i, i64 2
+  %y.i = getelementptr inbounds nuw i8, ptr %rect.i, i64 2
   %.tr2 = trunc i32 %18 to i16
   %20 = shl i16 %.tr2, 4
   %conv1.i = add i16 %20, -16
   store i16 %conv1.i, ptr %y.i, align 2
-  %width2.i = getelementptr inbounds i8, ptr %rect.i, i64 4
+  %width2.i = getelementptr inbounds nuw i8, ptr %rect.i, i64 4
   %.tr3 = trunc i32 %19 to i16
   %conv3.i = shl i16 %.tr3, 3
   store i16 %conv3.i, ptr %width2.i, align 2
-  %height4.i = getelementptr inbounds i8, ptr %rect.i, i64 6
+  %height4.i = getelementptr inbounds nuw i8, ptr %rect.i, i64 6
   store i16 16, ptr %height4.i, align 2
   %tobool.not.i63 = icmp eq ptr %call.i62, null
   br i1 %tobool.not.i63, label %if.else.i64, label %qemu_console_fill_rect.exit
@@ -2953,17 +2953,17 @@ qemu_console_fill_rect.exit:                      ; preds = %qemu_console_bitblt
   %call6.i = call i32 @pixman_image_fill_rectangles(i32 noundef 1, ptr noundef %21, ptr noundef nonnull %color.i, i32 noundef 1, ptr noundef nonnull %rect.i) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %color.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rect.i)
-  %update_x0 = getelementptr inbounds i8, ptr %vc.152.val, i64 296
+  %update_x0 = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 296
   store i32 0, ptr %update_x0, align 8
-  %update_y0 = getelementptr inbounds i8, ptr %vc.152.val, i64 300
+  %update_y0 = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 300
   store i32 0, ptr %update_y0, align 4
   %22 = load i32, ptr %width, align 8
   %mul99 = shl i32 %22, 3
-  %update_x1 = getelementptr inbounds i8, ptr %vc.152.val, i64 304
+  %update_x1 = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 304
   store i32 %mul99, ptr %update_x1, align 8
   %23 = load i32, ptr %height, align 4
   %mul101 = shl i32 %23, 4
-  %update_y1 = getelementptr inbounds i8, ptr %vc.152.val, i64 308
+  %update_y1 = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 308
   store i32 %mul101, ptr %update_y1, align 4
   br label %if.end103
 
@@ -2979,7 +2979,7 @@ declare void @pixman_image_composite(i32 noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vc_update_xy(ptr %vc.152.val, i32 noundef %x, i32 noundef %y) unnamed_addr #0 {
 entry:
-  %text_x = getelementptr inbounds i8, ptr %vc.152.val, i64 272
+  %text_x = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 272
   %0 = load i32, ptr %text_x, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %0, i32 %x)
   store i32 %cond, ptr %text_x, align 8
@@ -2987,7 +2987,7 @@ entry:
   %1 = load i32, ptr %arrayidx4, align 4
   %cond10 = tail call i32 @llvm.smax.i32(i32 %1, i32 %x)
   store i32 %cond10, ptr %arrayidx4, align 4
-  %text_y = getelementptr inbounds i8, ptr %vc.152.val, i64 280
+  %text_y = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 280
   %2 = load i32, ptr %text_y, align 8
   %cond19 = tail call i32 @llvm.smin.i32(i32 %2, i32 %y)
   store i32 %cond19, ptr %text_y, align 8
@@ -2995,30 +2995,30 @@ entry:
   %3 = load i32, ptr %arrayidx23, align 4
   %cond29 = tail call i32 @llvm.smax.i32(i32 %3, i32 %y)
   store i32 %cond29, ptr %arrayidx23, align 4
-  %y_base = getelementptr inbounds i8, ptr %vc.152.val, i64 260
+  %y_base = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 260
   %4 = load i32, ptr %y_base, align 4
   %add = add i32 %4, %y
-  %total_height = getelementptr inbounds i8, ptr %vc.152.val, i64 240
+  %total_height = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 240
   %5 = load i32, ptr %total_height, align 8
   %rem = srem i32 %add, %5
-  %y_displayed = getelementptr inbounds i8, ptr %vc.152.val, i64 256
+  %y_displayed = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 256
   %6 = load i32, ptr %y_displayed, align 8
   %sub = sub i32 %rem, %6
   %cmp32 = icmp slt i32 %sub, 0
   %add34 = select i1 %cmp32, i32 %5, i32 0
   %spec.select = add i32 %add34, %sub
-  %height = getelementptr inbounds i8, ptr %vc.152.val, i64 236
+  %height = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 236
   %7 = load i32, ptr %height, align 4
   %cmp35 = icmp slt i32 %spec.select, %7
   br i1 %cmp35, label %if.then36, label %if.end45
 
 if.then36:                                        ; preds = %entry
-  %width = getelementptr inbounds i8, ptr %vc.152.val, i64 232
+  %width = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 232
   %8 = load i32, ptr %width, align 8
   %cmp37.not = icmp slt i32 %x, %8
   %sub40 = add i32 %8, -1
   %spec.select40 = select i1 %cmp37.not, i32 %x, i32 %sub40
-  %cells = getelementptr inbounds i8, ptr %vc.152.val, i64 264
+  %cells = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 264
   %9 = load ptr, ptr %cells, align 8
   %mul = mul i32 %8, %rem
   %add43 = add i32 %spec.select40, %mul
@@ -3027,14 +3027,14 @@ if.then36:                                        ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vc.152.val, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %10 = load i8, ptr %arrayidx44, align 1
   %conv = zext i8 %10 to i32
-  %t_attrib = getelementptr inbounds i8, ptr %arrayidx44, i64 1
+  %t_attrib = getelementptr inbounds nuw i8, ptr %arrayidx44, i64 1
   tail call fastcc void @vga_putcharxy(ptr noundef %call.i, i32 noundef %spec.select40, i32 noundef %spec.select, i32 noundef %conv, ptr noundef nonnull %t_attrib)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %vc.152.val, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call1.i = tail call zeroext i1 @qemu_console_is_visible(ptr noundef %call.i.i) #12
   br i1 %call1.i, label %if.end.i, label %if.end45
 
 if.end.i:                                         ; preds = %if.then36
-  %update_x0.i = getelementptr inbounds i8, ptr %vc.152.val, i64 296
+  %update_x0.i = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 296
   %11 = load i32, ptr %update_x0.i, align 8
   %mul.i = shl i32 %spec.select40, 3
   %cmp.i = icmp sgt i32 %11, %mul.i
@@ -3045,7 +3045,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i, %if.end.i
-  %update_y0.i = getelementptr inbounds i8, ptr %vc.152.val, i64 300
+  %update_y0.i = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 300
   %12 = load i32, ptr %update_y0.i, align 4
   %mul6.i = shl i32 %spec.select, 4
   %cmp7.i = icmp sgt i32 %12, %mul6.i
@@ -3056,7 +3056,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then8.i, %if.end5.i
-  %update_x1.i = getelementptr inbounds i8, ptr %vc.152.val, i64 304
+  %update_x1.i = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 304
   %13 = load i32, ptr %update_x1.i, align 8
   %mul12.i = add i32 %mul.i, 8
   %cmp13.i = icmp slt i32 %13, %mul12.i
@@ -3067,7 +3067,7 @@ if.then14.i:                                      ; preds = %if.end11.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then14.i, %if.end11.i
-  %update_y1.i = getelementptr inbounds i8, ptr %vc.152.val, i64 308
+  %update_y1.i = getelementptr inbounds nuw i8, ptr %vc.152.val, i64 308
   %14 = load i32, ptr %update_y1.i, align 4
   %mul20.i = add i32 %mul6.i, 16
   %cmp21.i = icmp slt i32 %14, %mul20.i

@@ -1032,7 +1032,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vrt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [8 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.376) #8
   %8 = load ptr, ptr %6, align 8
@@ -1341,7 +1341,7 @@ dissect_context_as_cif.exit.i:                    ; preds = %209
   br i1 %.not.i, label %dissect_context.exit, label %212
 
 212:                                              ; preds = %dissect_context_as_cif.exit.i
-  %213 = getelementptr inbounds i8, ptr %5, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %214 = load i32, ptr %213, align 4
   br label %215
 
@@ -1827,14 +1827,14 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 define internal fastcc void @dissect_context_ephemeris(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %3, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %2, i32 noundef %12, i32 noundef 3, i32 noundef 0) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %3, 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %2, i32 noundef %16, i32 noundef 4, i32 noundef 0) #8
@@ -1850,46 +1850,46 @@ define internal fastcc void @dissect_context_ephemeris(ptr nocapture noundef rea
 
 .sink.split:                                      ; preds = %20, %4
   %.sink = phi i64 [ 20, %4 ], [ 16, %20 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %3, 8
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %2, i32 noundef %24, i32 noundef 8, i32 noundef 0) #8
   br label %26
 
 26:                                               ; preds = %.sink.split, %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %3, 16
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef 4, i32 noundef 0) #8
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %3, 20
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %2, i32 noundef %33, i32 noundef 4, i32 noundef 0) #8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %3, 24
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %2, i32 noundef %37, i32 noundef 4, i32 noundef 0) #8
-  %39 = getelementptr inbounds i8, ptr %0, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %3, 28
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %40, ptr noundef %2, i32 noundef %41, i32 noundef 4, i32 noundef 0) #8
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %3, 32
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %44, ptr noundef %2, i32 noundef %45, i32 noundef 4, i32 noundef 0) #8
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %3, 36
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %48, ptr noundef %2, i32 noundef %49, i32 noundef 4, i32 noundef 0) #8
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %3, 40
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %52, ptr noundef %2, i32 noundef %53, i32 noundef 4, i32 noundef 0) #8
-  %55 = getelementptr inbounds i8, ptr %0, i64 52
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %3, 44
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %56, ptr noundef %2, i32 noundef %57, i32 noundef 4, i32 noundef 0) #8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %3, 48
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %60, ptr noundef %2, i32 noundef %61, i32 noundef 4, i32 noundef 0) #8
@@ -1900,14 +1900,14 @@ define internal fastcc void @dissect_context_ephemeris(ptr nocapture noundef rea
 define internal fastcc void @dissect_context_formatted_gps_ins(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %3, 1
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %2, i32 noundef %12, i32 noundef 3, i32 noundef 0) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %3, 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %2, i32 noundef %16, i32 noundef 4, i32 noundef 0) #8
@@ -1923,38 +1923,38 @@ define internal fastcc void @dissect_context_formatted_gps_ins(ptr nocapture nou
 
 .sink.split:                                      ; preds = %20, %4
   %.sink = phi i64 [ 20, %4 ], [ 16, %20 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %3, 8
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %2, i32 noundef %24, i32 noundef 8, i32 noundef 0) #8
   br label %26
 
 26:                                               ; preds = %.sink.split, %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %3, 16
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef 4, i32 noundef 0) #8
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %3, 20
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %2, i32 noundef %33, i32 noundef 4, i32 noundef 0) #8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %3, 24
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %36, ptr noundef %2, i32 noundef %37, i32 noundef 4, i32 noundef 0) #8
-  %39 = getelementptr inbounds i8, ptr %0, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %3, 28
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %40, ptr noundef %2, i32 noundef %41, i32 noundef 4, i32 noundef 0) #8
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %3, 32
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %44, ptr noundef %2, i32 noundef %45, i32 noundef 4, i32 noundef 0) #8
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %3, 36
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %48, ptr noundef %2, i32 noundef %49, i32 noundef 4, i32 noundef 0) #8
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %3, 40
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %52, ptr noundef %2, i32 noundef %53, i32 noundef 4, i32 noundef 0) #8

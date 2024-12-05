@@ -703,7 +703,7 @@ for.body71:                                       ; preds = %for.body71.lr.ph, %
   %indvars.iv = phi i64 [ 0, %for.body71.lr.ph ], [ %indvars.iv.next, %for.inc79 ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call73 = call ptr @OPENSSL_sk_value(ptr noundef %call17, i32 noundef %2) #4
-  %arrayidx = getelementptr inbounds ptr, ptr %si_chains.2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %si_chains.2, i64 %indvars.iv
   %cond = select i1 %tobool74.not, ptr null, ptr %arrayidx
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %signer.i)
   %call.i109 = call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %call) #4
@@ -810,7 +810,7 @@ if.end104.us:                                     ; preds = %if.end99.us
   br i1 %tobool107.not, label %cond.end112.us, label %cond.true108.us
 
 cond.true108.us:                                  ; preds = %if.end104.us
-  %arrayidx110.us = getelementptr inbounds ptr, ptr %si_chains.1, i64 %indvars.iv178
+  %arrayidx110.us = getelementptr inbounds nuw ptr, ptr %si_chains.1, i64 %indvars.iv178
   %5 = load ptr, ptr %arrayidx110.us, align 8
   br label %cond.end112.us
 
@@ -1063,7 +1063,7 @@ for.body233.preheader:                            ; preds = %for.cond230.prehead
 
 for.body233:                                      ; preds = %for.body233.preheader, %for.body233
   %indvars.iv183 = phi i64 [ 0, %for.body233.preheader ], [ %indvars.iv.next184, %for.body233 ]
-  %arrayidx235 = getelementptr inbounds ptr, ptr %si_chains.3, i64 %indvars.iv183
+  %arrayidx235 = getelementptr inbounds nuw ptr, ptr %si_chains.3, i64 %indvars.iv183
   %9 = load ptr, ptr %arrayidx235, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %9) #4
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -1271,7 +1271,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cms_ctx = getelementptr inbounds i8, ptr %si, i64 88
+  %cms_ctx = getelementptr inbounds nuw i8, ptr %si, i64 88
   %0 = load ptr, ptr %cms_ctx, align 8
   %call = tail call ptr @ossl_cms_ctx_get0_libctx(ptr noundef %0) #4
   %call2 = tail call ptr @ossl_cms_ctx_get0_propq(ptr noundef %0) #4
@@ -1302,7 +1302,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp16, label %if.end38, label %if.end18
 
 if.end18:                                         ; preds = %if.end14
-  %data = getelementptr inbounds i8, ptr %call15, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call15, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %call15, align 8
   %call19 = tail call ptr @BIO_new_mem_buf(ptr noundef %1, i32 noundef %2) #4
@@ -1457,9 +1457,9 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds i8, ptr %call1, i64 32
+  %key = getelementptr inbounds nuw i8, ptr %call1, i64 32
   %0 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds i8, ptr %call1, i64 40
+  %keylen = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 715) #4
   %cmp4.not = icmp eq ptr %call, null
@@ -1467,7 +1467,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %debug7 = getelementptr inbounds i8, ptr %call1, i64 64
+  %debug7 = getelementptr inbounds nuw i8, ptr %call1, i64 64
   %2 = load i32, ptr %debug7, align 8
   %3 = icmp ne i32 %2, 0
   br label %if.end8
@@ -1734,9 +1734,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %key = getelementptr inbounds i8, ptr %call1, i64 32
+  %key = getelementptr inbounds nuw i8, ptr %call1, i64 32
   %0 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds i8, ptr %call1, i64 40
+  %keylen = getelementptr inbounds nuw i8, ptr %call1, i64 40
   %1 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 835) #4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key, i8 0, i64 16, i1 false)
@@ -1826,11 +1826,11 @@ if.end7:                                          ; preds = %lor.lhs.false.i, %i
   %call8 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
   %and = lshr i32 %flags, 17
   %and.lobit = and i32 %and, 1
-  %debug = getelementptr inbounds i8, ptr %call8, i64 64
+  %debug = getelementptr inbounds nuw i8, ptr %call8, i64 64
   store i32 %and.lobit, ptr %debug, align 8
   %cmp10 = icmp eq ptr %cert, null
   %conv11 = zext i1 %cmp10 to i32
-  %havenocert = getelementptr inbounds i8, ptr %call8, i64 68
+  %havenocert = getelementptr inbounds nuw i8, ptr %call8, i64 68
   store i32 %conv11, ptr %havenocert, align 4
   %cmp12 = icmp eq ptr %pk, null
   %cmp21 = icmp eq ptr %out, null

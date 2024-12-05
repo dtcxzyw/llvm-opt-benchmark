@@ -40,9 +40,9 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   br i1 %11, label %87, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %14, align 8
   store i8 1, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #7
@@ -51,21 +51,21 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   store i16 0, ptr %7, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !5
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = trunc i32 %16 to i16
   store i16 %17, ptr %8, align 16
-  %18 = getelementptr inbounds i8, ptr %8, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i16 %17, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %8, i64 18
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 18
   store i16 1, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %8, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %23, align 8
   %24 = call i32 @i2c_transfer(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 2) #7
   %25 = icmp eq i32 %24, 2
@@ -77,9 +77,9 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 852
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 852
   %31 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 74, ptr noundef %30, i32 noundef %31) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 74, ptr noundef nonnull %30, i32 noundef %31) #7
   br label %.thread
 
 .thread:                                          ; preds = %29, %26
@@ -108,7 +108,7 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   br i1 %41, label %42, label %34
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread4, label %46
@@ -125,17 +125,17 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   %49 = load i32, ptr %15, align 4
   %50 = trunc i32 %49 to i16
   store i16 %50, ptr %5, align 16
-  %51 = getelementptr inbounds i8, ptr %5, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 %50, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %5, i64 18
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 1, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %5, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %5, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %4, ptr %56, align 8
   %57 = call i32 @i2c_transfer(ptr noundef %48, ptr noundef nonnull %5, i32 noundef 2) #7
   %58 = icmp eq i32 %57, 2
@@ -147,9 +147,9 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   br i1 %61, label %62, label %.thread6
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %48, i64 852
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 852
   %64 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 75, ptr noundef %63, i32 noundef %64) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 75, ptr noundef nonnull %63, i32 noundef %64) #7
   br label %.thread6
 
 .thread6:                                         ; preds = %62, %59
@@ -177,7 +177,7 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   br i1 %73, label %74, label %67
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %71, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread4, label %78
@@ -193,9 +193,9 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr nocapture noundef %0, ptr no
   %81 = phi i8 [ %33, %42 ], [ %66, %74 ], [ %66, %67 ], [ %33, %34 ]
   %82 = phi ptr [ @.str, %42 ], [ @.str.1, %74 ], [ @.str.1, %67 ], [ @.str, %34 ]
   %83 = zext i8 %81 to i32
-  %84 = getelementptr inbounds i8, ptr %1, i64 852
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 852
   %85 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull %82, i32 noundef %83, ptr noundef %84, i32 noundef %85) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull %82, i32 noundef %83, ptr noundef nonnull %84, i32 noundef %85) #7
   br label %86
 
 86:                                               ; preds = %.thread6, %.thread, %.thread4
@@ -213,11 +213,11 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
   %4 = alloca %struct.i2c_msg, align 8
   %5 = alloca [2 x i8], align 2
   %6 = alloca %struct.i2c_msg, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br i1 %1, label %12, label %26
 
 12:                                               ; preds = %2
@@ -228,9 +228,9 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
   %13 = load i32, ptr %11, align 4
   %14 = trunc i32 %13 to i16
   store i16 %14, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 2, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %16, align 8
   %17 = call i32 @i2c_transfer(ptr noundef %10, ptr noundef nonnull %6, i32 noundef 1) #7
   %18 = icmp eq i32 %17, 1
@@ -242,9 +242,9 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %10, i64 852
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 852
   %24 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef %23, i32 noundef %24) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef nonnull %23, i32 noundef %24) #7
   br label %25
 
 25:                                               ; preds = %22, %19, %12
@@ -260,9 +260,9 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
   %27 = load i32, ptr %11, align 4
   %28 = trunc i32 %27 to i16
   store i16 %28, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 2, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %30, align 8
   %31 = call i32 @i2c_transfer(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 1) #7
   %32 = icmp eq i32 %31, 1
@@ -274,9 +274,9 @@ define internal void @ch7xxx_dpms(ptr nocapture noundef readonly %0, i1 noundef 
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %10, i64 852
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 852
   %38 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef %37, i32 noundef %38) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef nonnull %37, i32 noundef %38) #7
   br label %39
 
 39:                                               ; preds = %36, %33, %26
@@ -327,21 +327,21 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %30 = select i1 %28, i8 8, i8 6
   %31 = select i1 %28, i8 22, i8 38
   %32 = select i1 %28, i8 96, i8 -96
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #7
   store i16 49, ptr %25, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #7
   store i64 0, ptr %26, align 8, !annotation !5
-  %37 = getelementptr inbounds i8, ptr %0, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = trunc i32 %38 to i16
   store i16 %39, ptr %26, align 8
-  %40 = getelementptr inbounds i8, ptr %26, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i16 2, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %26, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %25, ptr %41, align 8
   %42 = call i32 @i2c_transfer(ptr noundef %36, ptr noundef nonnull %26, i32 noundef 1) #7
   %43 = icmp eq i32 %42, 1
@@ -353,9 +353,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %36, i64 852
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 852
   %49 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 49, ptr noundef %48, i32 noundef %49) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 49, ptr noundef nonnull %48, i32 noundef %49) #7
   br label %50
 
 50:                                               ; preds = %47, %44, %3
@@ -370,11 +370,11 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %53 = load i32, ptr %37, align 4
   %54 = trunc i32 %53 to i16
   store i16 %54, ptr %24, align 8
-  %55 = getelementptr inbounds i8, ptr %24, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i16 2, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %24, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %23, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %23, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 %29, ptr %57, align 1
   %58 = call i32 @i2c_transfer(ptr noundef %52, ptr noundef nonnull %24, i32 noundef 1) #7
   %59 = icmp eq i32 %58, 1
@@ -386,9 +386,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %52, i64 852
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 852
   %65 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 50, ptr noundef %64, i32 noundef %65) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 50, ptr noundef nonnull %64, i32 noundef %65) #7
   br label %66
 
 66:                                               ; preds = %63, %60, %50
@@ -403,11 +403,11 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %69 = load i32, ptr %37, align 4
   %70 = trunc i32 %69 to i16
   store i16 %70, ptr %22, align 8
-  %71 = getelementptr inbounds i8, ptr %22, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i16 2, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %22, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %21, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %30, ptr %73, align 1
   %74 = call i32 @i2c_transfer(ptr noundef %68, ptr noundef nonnull %22, i32 noundef 1) #7
   %75 = icmp eq i32 %74, 1
@@ -419,9 +419,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %68, i64 852
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 852
   %81 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 51, ptr noundef %80, i32 noundef %81) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 51, ptr noundef nonnull %80, i32 noundef %81) #7
   br label %82
 
 82:                                               ; preds = %79, %76, %66
@@ -436,11 +436,11 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %85 = load i32, ptr %37, align 4
   %86 = trunc i32 %85 to i16
   store i16 %86, ptr %20, align 8
-  %87 = getelementptr inbounds i8, ptr %20, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i16 2, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %20, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %19, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %19, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 %31, ptr %89, align 1
   %90 = call i32 @i2c_transfer(ptr noundef %84, ptr noundef nonnull %20, i32 noundef 1) #7
   %91 = icmp eq i32 %90, 1
@@ -452,9 +452,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %84, i64 852
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 852
   %97 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 52, ptr noundef %96, i32 noundef %97) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 52, ptr noundef nonnull %96, i32 noundef %97) #7
   br label %98
 
 98:                                               ; preds = %95, %92, %82
@@ -469,9 +469,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %101 = load i32, ptr %37, align 4
   %102 = trunc i32 %101 to i16
   store i16 %102, ptr %18, align 8
-  %103 = getelementptr inbounds i8, ptr %18, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i16 2, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %18, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %17, ptr %104, align 8
   %105 = call i32 @i2c_transfer(ptr noundef %100, ptr noundef nonnull %18, i32 noundef 1) #7
   %106 = icmp eq i32 %105, 1
@@ -483,9 +483,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %100, i64 852
+  %111 = getelementptr inbounds nuw i8, ptr %100, i64 852
   %112 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 53, ptr noundef %111, i32 noundef %112) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 53, ptr noundef nonnull %111, i32 noundef %112) #7
   br label %113
 
 113:                                              ; preds = %110, %107, %98
@@ -500,11 +500,11 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %116 = load i32, ptr %37, align 4
   %117 = trunc i32 %116 to i16
   store i16 %117, ptr %16, align 8
-  %118 = getelementptr inbounds i8, ptr %16, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i16 2, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %16, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %15, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %32, ptr %120, align 1
   %121 = call i32 @i2c_transfer(ptr noundef %115, ptr noundef nonnull %16, i32 noundef 1) #7
   %122 = icmp eq i32 %121, 1
@@ -516,9 +516,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %115, i64 852
+  %127 = getelementptr inbounds nuw i8, ptr %115, i64 852
   %128 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 54, ptr noundef %127, i32 noundef %128) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 54, ptr noundef nonnull %127, i32 noundef %128) #7
   br label %129
 
 129:                                              ; preds = %126, %123, %113
@@ -533,9 +533,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %132 = load i32, ptr %37, align 4
   %133 = trunc i32 %132 to i16
   store i16 %133, ptr %14, align 8
-  %134 = getelementptr inbounds i8, ptr %14, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i16 2, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %14, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %13, ptr %135, align 8
   %136 = call i32 @i2c_transfer(ptr noundef %131, ptr noundef nonnull %14, i32 noundef 1) #7
   %137 = icmp eq i32 %136, 1
@@ -547,9 +547,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %131, i64 852
+  %142 = getelementptr inbounds nuw i8, ptr %131, i64 852
   %143 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 55, ptr noundef %142, i32 noundef %143) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 55, ptr noundef nonnull %142, i32 noundef %143) #7
   br label %144
 
 144:                                              ; preds = %141, %138, %129
@@ -566,17 +566,17 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %147 = load i32, ptr %37, align 4
   %148 = trunc i32 %147 to i16
   store i16 %148, ptr %12, align 16
-  %149 = getelementptr inbounds i8, ptr %12, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i16 1, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %12, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %10, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %12, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i16 %148, ptr %151, align 16
-  %152 = getelementptr inbounds i8, ptr %12, i64 18
+  %152 = getelementptr inbounds nuw i8, ptr %12, i64 18
   store i16 1, ptr %152, align 2
-  %153 = getelementptr inbounds i8, ptr %12, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i16 1, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %12, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %11, ptr %154, align 8
   %155 = call i32 @i2c_transfer(ptr noundef %146, ptr noundef nonnull %12, i32 noundef 2) #7
   %156 = icmp eq i32 %155, 2
@@ -593,9 +593,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %146, i64 852
+  %164 = getelementptr inbounds nuw i8, ptr %146, i64 852
   %165 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 31, ptr noundef %164, i32 noundef %165) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 31, ptr noundef nonnull %164, i32 noundef %165) #7
   br label %166
 
 166:                                              ; preds = %163, %160, %157
@@ -603,7 +603,7 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #7
-  %168 = getelementptr inbounds i8, ptr %1, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %169 = load i32, ptr %168, align 8
   %170 = and i32 %169, 1
   %171 = icmp eq i32 %170, 0
@@ -622,11 +622,11 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %180 = load i32, ptr %37, align 4
   %181 = trunc i32 %180 to i16
   store i16 %181, ptr %9, align 8
-  %182 = getelementptr inbounds i8, ptr %9, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i16 2, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %9, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %8, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %177, ptr %184, align 1
   %185 = call i32 @i2c_transfer(ptr noundef %179, ptr noundef nonnull %9, i32 noundef 1) #7
   %186 = icmp eq i32 %185, 1
@@ -638,9 +638,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %189, label %190, label %193
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %179, i64 852
+  %191 = getelementptr inbounds nuw i8, ptr %179, i64 852
   %192 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 31, ptr noundef %191, i32 noundef %192) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 31, ptr noundef nonnull %191, i32 noundef %192) #7
   br label %193
 
 193:                                              ; preds = %190, %187, %166
@@ -655,9 +655,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %196 = load i32, ptr %37, align 4
   %197 = trunc i32 %196 to i16
   store i16 %197, ptr %7, align 8
-  %198 = getelementptr inbounds i8, ptr %7, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 2, ptr %198, align 4
-  %199 = getelementptr inbounds i8, ptr %7, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %199, align 8
   %200 = call i32 @i2c_transfer(ptr noundef %195, ptr noundef nonnull %7, i32 noundef 1) #7
   %201 = icmp eq i32 %200, 1
@@ -669,9 +669,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %204, label %205, label %208
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %195, i64 852
+  %206 = getelementptr inbounds nuw i8, ptr %195, i64 852
   %207 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 33, ptr noundef %206, i32 noundef %207) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 33, ptr noundef nonnull %206, i32 noundef %207) #7
   br label %208
 
 208:                                              ; preds = %205, %202, %193
@@ -686,9 +686,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   %211 = load i32, ptr %37, align 4
   %212 = trunc i32 %211 to i16
   store i16 %212, ptr %5, align 8
-  %213 = getelementptr inbounds i8, ptr %5, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 2, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %5, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %214, align 8
   %215 = call i32 @i2c_transfer(ptr noundef %210, ptr noundef nonnull %5, i32 noundef 1) #7
   %216 = icmp eq i32 %215, 1
@@ -700,9 +700,9 @@ define internal void @ch7xxx_mode_set(ptr nocapture noundef readonly %0, ptr noc
   br i1 %219, label %220, label %223
 
 220:                                              ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %210, i64 852
+  %221 = getelementptr inbounds nuw i8, ptr %210, i64 852
   %222 = load i32, ptr %37, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 34, ptr noundef %221, i32 noundef %222) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 34, ptr noundef nonnull %221, i32 noundef %222) #7
   br label %223
 
 223:                                              ; preds = %220, %217, %208
@@ -723,9 +723,9 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   %9 = alloca [2 x i8], align 2
   %10 = alloca [2 x i8], align 2
   %11 = alloca [2 x %struct.i2c_msg], align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #7
   store i16 73, ptr %9, align 2, !annotation !5
@@ -733,21 +733,21 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   store i16 0, ptr %10, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 0, i64 32, i1 false), !annotation !5
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = trunc i32 %17 to i16
   store i16 %18, ptr %11, align 16
-  %19 = getelementptr inbounds i8, ptr %11, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i16 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %11, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 %18, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %11, i64 18
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i16 1, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %11, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i16 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %11, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %10, ptr %24, align 8
   %25 = call i32 @i2c_transfer(ptr noundef %15, ptr noundef nonnull %11, i32 noundef 2) #7
   %26 = icmp eq i32 %25, 2
@@ -763,9 +763,9 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %15, i64 852
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 852
   %34 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 73, ptr noundef %33, i32 noundef %34) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 73, ptr noundef nonnull %33, i32 noundef %34) #7
   br label %35
 
 35:                                               ; preds = %32, %29, %27
@@ -784,11 +784,11 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   %41 = load i32, ptr %16, align 4
   %42 = trunc i32 %41 to i16
   store i16 %42, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 2, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %38, ptr %45, align 1
   %46 = call i32 @i2c_transfer(ptr noundef %40, ptr noundef nonnull %8, i32 noundef 1) #7
   %47 = icmp eq i32 %46, 1
@@ -800,9 +800,9 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %40, i64 852
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 852
   %53 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef %52, i32 noundef %53) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef nonnull %52, i32 noundef %53) #7
   br label %54
 
 54:                                               ; preds = %51, %48, %35
@@ -819,17 +819,17 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   %57 = load i32, ptr %16, align 4
   %58 = trunc i32 %57 to i16
   store i16 %58, ptr %6, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 1, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %58, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %6, i64 18
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 1, ptr %62, align 2
-  %63 = getelementptr inbounds i8, ptr %6, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %6, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %5, ptr %64, align 8
   %65 = call i32 @i2c_transfer(ptr noundef %56, ptr noundef nonnull %6, i32 noundef 2) #7
   %66 = icmp eq i32 %65, 2
@@ -848,9 +848,9 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %56, i64 852
+  %76 = getelementptr inbounds nuw i8, ptr %56, i64 852
   %77 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 32, ptr noundef %76, i32 noundef %77) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 32, ptr noundef nonnull %76, i32 noundef %77) #7
   br label %78
 
 78:                                               ; preds = %75, %72, %67
@@ -867,11 +867,11 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   %82 = load i32, ptr %16, align 4
   %83 = trunc i32 %82 to i16
   store i16 %83, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %3, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 2, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %2, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %36, ptr %86, align 1
   %87 = call i32 @i2c_transfer(ptr noundef %81, ptr noundef nonnull %3, i32 noundef 1) #7
   %88 = icmp eq i32 %87, 1
@@ -883,9 +883,9 @@ define internal range(i32 1, 3) i32 @ch7xxx_detect(ptr nocapture noundef readonl
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %81, i64 852
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 852
   %94 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef %93, i32 noundef %94) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, i32 noundef 73, ptr noundef nonnull %93, i32 noundef %94) #7
   br label %95
 
 95:                                               ; preds = %92, %89, %78
@@ -899,9 +899,9 @@ define internal zeroext i1 @ch7xxx_get_hw_state(ptr nocapture noundef readonly %
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   store i16 73, ptr %2, align 2, !annotation !5
@@ -909,21 +909,21 @@ define internal zeroext i1 @ch7xxx_get_hw_state(ptr nocapture noundef readonly %
   store i16 0, ptr %3, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = trunc i32 %10 to i16
   store i16 %11, ptr %4, align 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 %11, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 18
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %4, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %3, ptr %17, align 8
   %18 = call i32 @i2c_transfer(ptr noundef %8, ptr noundef nonnull %4, i32 noundef 2) #7
   %19 = icmp eq i32 %18, 2
@@ -940,9 +940,9 @@ define internal zeroext i1 @ch7xxx_get_hw_state(ptr nocapture noundef readonly %
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %8, i64 852
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 852
   %28 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 73, ptr noundef %27, i32 noundef %28) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef 73, ptr noundef nonnull %27, i32 noundef %28) #7
   br label %29
 
 29:                                               ; preds = %26, %23, %20
@@ -955,7 +955,7 @@ define internal zeroext i1 @ch7xxx_get_hw_state(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ch7xxx_destroy(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -974,16 +974,16 @@ define internal void @ch7xxx_dump_regs(ptr nocapture noundef readonly %0) #0 ali
   %2 = alloca [2 x i8], align 2
   %3 = alloca [2 x i8], align 2
   %4 = alloca [2 x %struct.i2c_msg], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 18
-  %12 = getelementptr inbounds i8, ptr %4, i64 20
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
-  %14 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %15
 
 15:                                               ; preds = %37, %1
@@ -1031,9 +1031,9 @@ define internal void @ch7xxx_dump_regs(ptr nocapture noundef readonly %0) #0 ali
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %22, i64 852
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 852
   %36 = load i32, ptr %7, align 4
-  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef %35, i32 noundef %36) #7
+  call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef nonnull %35, i32 noundef %36) #7
   br label %37
 
 37:                                               ; preds = %34, %31, %28

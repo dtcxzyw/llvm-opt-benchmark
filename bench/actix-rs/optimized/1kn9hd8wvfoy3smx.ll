@@ -18,15 +18,15 @@ define void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13into_searc
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   store ptr %1, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -46,9 +46,9 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store i64 %8, ptr %4, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %9, ptr %.sroa.22.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %11 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17h1f08737b874c17c6E(i64 24, i64 8)
           to label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h322b657f218b940bE.exit.i" unwind label %12
@@ -72,9 +72,9 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %17 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i64, ptr %20, align 8, !noundef !3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$closure$u7d$$u7d$17h24c64bb3b239b72bE.exit"
@@ -91,11 +91,11 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h1c8c184a14969af0E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %5 = add i64 %.sroa.4.0.copyload, %.sroa.2.0.copyload
@@ -103,9 +103,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   store i64 %7, ptr %4, align 8, !noalias !4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !4
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h291d18f3299bf193E"(ptr nonnull align 8 %4, ptr nonnull align 1 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
           to label %11 unwind label %9, !noalias !4
@@ -143,11 +143,11 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %6 = getelementptr i8, ptr %1, i64 8
   %.val1 = load i64, ptr %6, align 8, !noundef !3
   store ptr %.val, ptr %0, align 8, !alias.scope !8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val1, ptr %7, align 8, !alias.scope !8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %8, align 8, !alias.scope !8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %9, align 8, !alias.scope !8
   ret void
 }
@@ -161,10 +161,10 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707a4f57E(ptr nonnull sret({ ptr, i64, i8, [7 x i8] }) align 8 %5, ptr nonnull align 8 %.val), !noalias !12
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store ptr %2, ptr %0, align 8, !alias.scope !12
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %8, align 8, !alias.scope !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
@@ -228,16 +228,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   resume { ptr, i32 } %.pn50
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %28 = load i64, ptr %27, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %18, ptr nonnull align 1 %26, i64 %28, i1 zeroext %2, i1 zeroext false)
           to label %37 unwind label %35
 
 29:                                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %19, i64 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %32 = load i64, ptr %31, align 8, !noundef !3
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %45, label %46
@@ -254,23 +254,23 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
 
 .sink.split:                                      ; preds = %48, %76
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %76 ], [ 0, %48 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 80
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 80
   store i64 %.sroa.5.0.sink, ptr %.sroa.5.0..sroa_idx, align 8
   br label %37
 
 37:                                               ; preds = %.sink.split, %24
-  %38 = getelementptr inbounds i8, ptr %18, i64 64
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -9223372036854775808, ptr %40, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  %41 = getelementptr inbounds i8, ptr %0, i64 146
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %42 = zext i1 %2 to i8
   store i8 %42, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %43, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
-  %44 = getelementptr inbounds i8, ptr %0, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   ret void
 
@@ -283,15 +283,15 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
           to label %49 unwind label %35
 
 48:                                               ; preds = %45
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   store i64 2, ptr %18, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
+  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 56
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.25.0..sroa_idx, align 8
   br label %.sink.split
@@ -300,14 +300,14 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %50 = extractvalue { i64, ptr } %47, 0
   %51 = extractvalue { i64, ptr } %47, 1
   store i64 %50, ptr %16, align 8
-  %52 = getelementptr inbounds i8, ptr %16, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %16, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %53, align 8
   store i64 0, ptr %15, align 8
-  %54 = getelementptr inbounds i8, ptr %15, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %15, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %55, align 8
   store i64 -9223372036854775808, ptr %14, align 8
   %56 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %30)
@@ -334,16 +334,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
   %58 = extractvalue { ptr, ptr } %56, 0
   %59 = extractvalue { ptr, ptr } %56, 1
   store ptr %58, ptr %13, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 64
-  %62 = getelementptr inbounds i8, ptr %12, i64 8
-  %63 = getelementptr inbounds i8, ptr %12, i64 40
-  %64 = getelementptr inbounds i8, ptr %11, i64 16
-  %65 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  %66 = getelementptr inbounds i8, ptr %7, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %57
@@ -360,9 +360,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
           to label %76 unwind label %.loopexit.split-lp
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %73 = load ptr, ptr %72, align 8, !nonnull !3, !noundef !3
-  %74 = getelementptr inbounds i8, ptr %67, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %75 = load i64, ptr %74, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %12, ptr nonnull align 1 %73, i64 %75, i1 zeroext %2, i1 zeroext true)
           to label %79 unwind label %.loopexit
@@ -370,21 +370,21 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
 76:                                               ; preds = %70
   %.sroa.09.0.copyload = load i64, ptr %14, align 8
   %77 = icmp eq i64 %.sroa.09.0.copyload, -9223372036854775808
-  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.311.sroa.2.0.copyload = load i64, ptr %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.311.sroa.0.0.copyload = load ptr, ptr %.sroa.311.0..sroa_idx, align 8
   %.sroa.037.0 = select i1 %77, i64 0, i64 %.sroa.09.0.copyload
   %.sroa.338.0 = select i1 %77, ptr inttoptr (i64 8 to ptr), ptr %.sroa.311.sroa.0.0.copyload
   %.sroa.5.0 = select i1 %77, i64 0, i64 %.sroa.311.sroa.2.0.copyload
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.315.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i64 2, ptr %18, align 8
-  %78 = getelementptr inbounds i8, ptr %18, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i64 %.sroa.037.0, ptr %78, align 8
-  %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %.sroa.338.0, ptr %.sroa.338.0..sroa_idx, align 8
   br label %.sink.split
 
@@ -407,7 +407,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h4b8687ea9f67f5c
           to label %108 unwind label %.thread70
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %82, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %88 = extractvalue { i64, ptr } %84, 0
   %89 = extractvalue { i64, ptr } %84, 1
   %90 = icmp ne ptr %89, null
@@ -559,16 +559,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %19, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %18, ptr nonnull align 1 %28, i64 %30, i1 zeroext %2, i1 zeroext false)
           to label %39 unwind label %37
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %19, i64 8
-  %33 = getelementptr inbounds i8, ptr %19, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %34 = load i64, ptr %33, align 8, !noundef !3
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %47, label %48
@@ -585,23 +585,23 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
 
 .sink.split:                                      ; preds = %50, %78
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %78 ], [ 0, %50 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 80
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 80
   store i64 %.sroa.5.0.sink, ptr %.sroa.5.0..sroa_idx, align 8
   br label %39
 
 39:                                               ; preds = %.sink.split, %26
-  %40 = getelementptr inbounds i8, ptr %18, i64 64
-  %41 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -9223372036854775808, ptr %42, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  %43 = getelementptr inbounds i8, ptr %0, i64 146
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %44 = zext i1 %2 to i8
   store i8 %44, ptr %43, align 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr align 8 %1)
   ret void
@@ -615,15 +615,15 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
           to label %51 unwind label %37
 
 50:                                               ; preds = %47
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   store i64 2, ptr %18, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
+  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 56
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.25.0..sroa_idx, align 8
   br label %.sink.split
@@ -632,14 +632,14 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %52 = extractvalue { i64, ptr } %49, 0
   %53 = extractvalue { i64, ptr } %49, 1
   store i64 %52, ptr %16, align 8
-  %54 = getelementptr inbounds i8, ptr %16, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %16, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %55, align 8
   store i64 0, ptr %15, align 8
-  %56 = getelementptr inbounds i8, ptr %15, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %15, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %57, align 8
   store i64 -9223372036854775808, ptr %14, align 8
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
@@ -666,16 +666,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
   %60 = extractvalue { ptr, ptr } %58, 0
   %61 = extractvalue { ptr, ptr } %58, 1
   store ptr %60, ptr %13, align 8
-  %62 = getelementptr inbounds i8, ptr %13, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %12, i64 64
-  %64 = getelementptr inbounds i8, ptr %12, i64 8
-  %65 = getelementptr inbounds i8, ptr %12, i64 40
-  %66 = getelementptr inbounds i8, ptr %11, i64 16
-  %67 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  %68 = getelementptr inbounds i8, ptr %7, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %59
@@ -692,9 +692,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
           to label %78 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %69, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %77 = load i64, ptr %76, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %12, ptr nonnull align 1 %75, i64 %77, i1 zeroext %2, i1 zeroext true)
           to label %81 unwind label %.loopexit
@@ -702,21 +702,21 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
 78:                                               ; preds = %72
   %.sroa.09.0.copyload = load i64, ptr %14, align 8
   %79 = icmp eq i64 %.sroa.09.0.copyload, -9223372036854775808
-  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.311.sroa.2.0.copyload = load i64, ptr %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.311.sroa.0.0.copyload = load ptr, ptr %.sroa.311.0..sroa_idx, align 8
   %.sroa.037.0 = select i1 %79, i64 0, i64 %.sroa.09.0.copyload
   %.sroa.338.0 = select i1 %79, ptr inttoptr (i64 8 to ptr), ptr %.sroa.311.sroa.0.0.copyload
   %.sroa.5.0 = select i1 %79, i64 0, i64 %.sroa.311.sroa.2.0.copyload
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.315.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i64 2, ptr %18, align 8
-  %80 = getelementptr inbounds i8, ptr %18, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i64 %.sroa.037.0, ptr %80, align 8
-  %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %.sroa.338.0, ptr %.sroa.338.0..sroa_idx, align 8
   br label %.sink.split
 
@@ -739,7 +739,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h758f8b4bbe8a00a
           to label %110 unwind label %.thread70
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %84, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = extractvalue { i64, ptr } %86, 0
   %91 = extractvalue { i64, ptr } %86, 1
   %92 = icmp ne ptr %91, null
@@ -894,16 +894,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %19, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds i8, ptr %19, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %18, ptr nonnull align 1 %28, i64 %30, i1 zeroext %2, i1 zeroext false)
           to label %39 unwind label %37
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %19, i64 8
-  %33 = getelementptr inbounds i8, ptr %19, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %34 = load i64, ptr %33, align 8, !noundef !3
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %47, label %48
@@ -920,23 +920,23 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
 
 .sink.split:                                      ; preds = %50, %78
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %78 ], [ 0, %50 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 80
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 80
   store i64 %.sroa.5.0.sink, ptr %.sroa.5.0..sroa_idx, align 8
   br label %39
 
 39:                                               ; preds = %.sink.split, %26
-  %40 = getelementptr inbounds i8, ptr %18, i64 64
-  %41 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -9223372036854775808, ptr %42, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
-  %43 = getelementptr inbounds i8, ptr %0, i64 146
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %44 = zext i1 %2 to i8
   store i8 %44, ptr %43, align 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 64, i1 false)
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h23deb10694fd4210E"(ptr align 8 %1)
   ret void
@@ -950,15 +950,15 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
           to label %51 unwind label %37
 
 50:                                               ; preds = %47
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   store i64 2, ptr %18, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
+  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 56
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.25.0..sroa_idx, align 8
   br label %.sink.split
@@ -967,14 +967,14 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %52 = extractvalue { i64, ptr } %49, 0
   %53 = extractvalue { i64, ptr } %49, 1
   store i64 %52, ptr %16, align 8
-  %54 = getelementptr inbounds i8, ptr %16, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %16, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %55, align 8
   store i64 0, ptr %15, align 8
-  %56 = getelementptr inbounds i8, ptr %15, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %15, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %57, align 8
   store i64 -9223372036854775808, ptr %14, align 8
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
@@ -1001,16 +1001,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
   %60 = extractvalue { ptr, ptr } %58, 0
   %61 = extractvalue { ptr, ptr } %58, 1
   store ptr %60, ptr %13, align 8
-  %62 = getelementptr inbounds i8, ptr %13, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %12, i64 64
-  %64 = getelementptr inbounds i8, ptr %12, i64 8
-  %65 = getelementptr inbounds i8, ptr %12, i64 40
-  %66 = getelementptr inbounds i8, ptr %11, i64 16
-  %67 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  %68 = getelementptr inbounds i8, ptr %7, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %59
@@ -1027,9 +1027,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
           to label %78 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %69, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %77 = load i64, ptr %76, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %12, ptr nonnull align 1 %75, i64 %77, i1 zeroext %2, i1 zeroext true)
           to label %81 unwind label %.loopexit
@@ -1037,21 +1037,21 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
 78:                                               ; preds = %72
   %.sroa.09.0.copyload = load i64, ptr %14, align 8
   %79 = icmp eq i64 %.sroa.09.0.copyload, -9223372036854775808
-  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.311.sroa.2.0.copyload = load i64, ptr %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.311.sroa.0.0.copyload = load ptr, ptr %.sroa.311.0..sroa_idx, align 8
   %.sroa.037.0 = select i1 %79, i64 0, i64 %.sroa.09.0.copyload
   %.sroa.338.0 = select i1 %79, ptr inttoptr (i64 8 to ptr), ptr %.sroa.311.sroa.0.0.copyload
   %.sroa.5.0 = select i1 %79, i64 0, i64 %.sroa.311.sroa.2.0.copyload
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.315.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   store i64 2, ptr %18, align 8
-  %80 = getelementptr inbounds i8, ptr %18, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i64 %.sroa.037.0, ptr %80, align 8
-  %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 72
+  %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %.sroa.338.0, ptr %.sroa.338.0..sroa_idx, align 8
   br label %.sink.split
 
@@ -1074,7 +1074,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17h97be0ed74b84f23
           to label %110 unwind label %.thread70
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %84, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = extractvalue { i64, ptr } %86, 0
   %91 = extractvalue { i64, ptr } %86, 1
   %92 = icmp ne ptr %91, null
@@ -1212,7 +1212,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %20 = alloca { i64, [3 x i64] }, align 8
   %21 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %2, ptr %22, align 8
   call void @"_ZN63_$LT$$RF$str$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17hdfe7c0f466c9ebfbE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %20, ptr nonnull align 8 %21)
   %23 = load i64, ptr %20, align 8, !range !15, !noundef !3
@@ -1223,16 +1223,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   resume { ptr, i32 } %.pn50
 
 26:                                               ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds i8, ptr %20, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %19, ptr nonnull align 1 %28, i64 %30, i1 zeroext %3, i1 zeroext false)
           to label %39 unwind label %37
 
 31:                                               ; preds = %4
-  %32 = getelementptr inbounds i8, ptr %20, i64 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %34 = load i64, ptr %33, align 8, !noundef !3
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %47, label %48
@@ -1249,23 +1249,23 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
 
 .sink.split:                                      ; preds = %50, %78
   %.sroa.5.0.sink = phi i64 [ %.sroa.5.0, %78 ], [ 0, %50 ]
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 80
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 80
   store i64 %.sroa.5.0.sink, ptr %.sroa.5.0..sroa_idx, align 8
   br label %39
 
 39:                                               ; preds = %.sink.split, %26
-  %40 = getelementptr inbounds i8, ptr %19, i64 64
-  %41 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i16 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -9223372036854775808, ptr %42, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  %43 = getelementptr inbounds i8, ptr %0, i64 146
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %44 = zext i1 %3 to i8
   store i8 %44, ptr %43, align 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
-  %46 = getelementptr inbounds i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   ret void
 
@@ -1278,15 +1278,15 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
           to label %51 unwind label %37
 
 50:                                               ; preds = %47
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   store i64 2, ptr %19, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %19, i64 48
+  %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx.sroa_idx, align 8
-  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %19, i64 56
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 72
+  %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.25.0..sroa_idx, align 8
   br label %.sink.split
@@ -1295,14 +1295,14 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %52 = extractvalue { i64, ptr } %49, 0
   %53 = extractvalue { i64, ptr } %49, 1
   store i64 %52, ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %17, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %17, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %55, align 8
   store i64 0, ptr %16, align 8
-  %56 = getelementptr inbounds i8, ptr %16, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %16, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %57, align 8
   store i64 -9223372036854775808, ptr %15, align 8
   %58 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0965ba9e91838ee4E"(ptr nonnull align 8 %32)
@@ -1329,16 +1329,16 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
   %60 = extractvalue { ptr, ptr } %58, 0
   %61 = extractvalue { ptr, ptr } %58, 1
   store ptr %60, ptr %14, align 8
-  %62 = getelementptr inbounds i8, ptr %14, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %13, i64 64
-  %64 = getelementptr inbounds i8, ptr %13, i64 8
-  %65 = getelementptr inbounds i8, ptr %13, i64 40
-  %66 = getelementptr inbounds i8, ptr %12, i64 16
-  %67 = getelementptr inbounds i8, ptr %12, i64 24
-  %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
-  %68 = getelementptr inbounds i8, ptr %8, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %59
@@ -1355,9 +1355,9 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
           to label %78 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %69, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %77 = load i64, ptr %76, align 8, !noundef !3
   invoke void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(ptr nonnull sret({ { i64, [7 x i64] }, { { i64, ptr, {} }, i64 } }) align 8 %13, ptr nonnull align 1 %75, i64 %77, i1 zeroext %3, i1 zeroext true)
           to label %81 unwind label %.loopexit
@@ -1365,21 +1365,21 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
 78:                                               ; preds = %72
   %.sroa.09.0.copyload = load i64, ptr %15, align 8
   %79 = icmp eq i64 %.sroa.09.0.copyload, -9223372036854775808
-  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.311.sroa.2.0.copyload = load i64, ptr %.sroa.311.sroa.2.0..sroa.311.0..sroa_idx.sroa_idx, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.311.sroa.0.0.copyload = load ptr, ptr %.sroa.311.0..sroa_idx, align 8
   %.sroa.037.0 = select i1 %79, i64 0, i64 %.sroa.09.0.copyload
   %.sroa.338.0 = select i1 %79, ptr inttoptr (i64 8 to ptr), ptr %.sroa.311.sroa.0.0.copyload
   %.sroa.5.0 = select i1 %79, i64 0, i64 %.sroa.311.sroa.2.0.copyload
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 40
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.315.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store i64 2, ptr %19, align 8
-  %80 = getelementptr inbounds i8, ptr %19, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i64 %.sroa.037.0, ptr %80, align 8
-  %.sroa.338.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 72
+  %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 72
   store ptr %.sroa.338.0, ptr %.sroa.338.0..sroa_idx, align 8
   br label %.sink.split
 
@@ -1402,7 +1402,7 @@ define void @_ZN12actix_router8resource11ResourceDef9construct17hbf01b9ee8547d56
           to label %110 unwind label %.thread70
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %84, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %90 = extractvalue { i64, ptr } %86, 0
   %91 = extractvalue { i64, ptr } %86, 1
   %92 = icmp ne ptr %91, null
@@ -1554,19 +1554,19 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
 .critedge10:                                      ; preds = %13, %13
   %16 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !11, !noundef !3
   %17 = load i64, ptr %6, align 8, !range !18, !noundef !3
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !7, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %16, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = load i64, ptr %20, align 8, !noundef !3
   store i64 %17, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %21, ptr %23, align 8
   %24 = call { ptr, ptr } @_ZN3log6logger17h39dab4f56d215c13E()
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = extractvalue { ptr, ptr } %24, 1
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !invariant.load !3, !nonnull !3
   %29 = call zeroext i1 %28(ptr align 1 %25, ptr nonnull align 8 %4)
   br i1 %29, label %30, label %12
@@ -1614,19 +1614,19 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
 .critedge10:                                      ; preds = %13, %13
   %16 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !11, !noundef !3
   %17 = load i64, ptr %6, align 8, !range !18, !noundef !3
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8, !nonnull !3, !align !7, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %16, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = load i64, ptr %20, align 8, !noundef !3
   store i64 %17, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %19, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %21, ptr %23, align 8
   %24 = call { ptr, ptr } @_ZN3log6logger17h39dab4f56d215c13E()
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = extractvalue { ptr, ptr } %24, 1
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !invariant.load !3, !nonnull !3
   %29 = call zeroext i1 %28(ptr align 1 %25, ptr nonnull align 8 %4)
   br i1 %29, label %30, label %12

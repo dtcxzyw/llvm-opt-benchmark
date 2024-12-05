@@ -87,11 +87,11 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z23_gmx_sel_mempool_createv() local_unnamed_addr #0 {
   %1 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 99, i64 noundef 1, i64 noundef 64)
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 0, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 0, i64 36, i1 false)
   ret ptr %1
@@ -101,25 +101,25 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z24_gmx_sel_mempool_destroyP17gmx_sel_mempool_t(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -135,7 +135,7 @@ define void @_Z24_gmx_sel_mempool_destroyP17gmx_sel_mempool_t(ptr noundef %0) lo
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %1
   %15 = phi ptr [ %.pre, %.loopexit.loopexit ], [ null, %.preheader ], [ %3, %1 ]
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef %15)
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef %17)
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 124, ptr noundef nonnull %0)
@@ -151,13 +151,13 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr nocaptur
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
   %6 = add i64 %1, 7
   %7 = and i64 %6, -8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %32, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %1
   br i1 %13, label %14, label %25
@@ -174,11 +174,11 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr nocaptur
 17:                                               ; preds = %16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm, ptr %18, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 136, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %15, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %19 unwind label %22
@@ -213,7 +213,7 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr nocaptur
   br label %66
 
 25:                                               ; preds = %10
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 %7
   store ptr %28, ptr %26, align 8
@@ -239,7 +239,7 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr nocaptur
   %37 = load i64, ptr %0, align 8
   %38 = add i64 %37, %7
   store i64 %38, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load i64, ptr %39, align 8
   %41 = icmp ugt i64 %38, %40
   br i1 %41, label %42, label %43
@@ -250,22 +250,22 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr nocaptur
 
 43:                                               ; preds = %36, %42, %25
   %.039 = phi ptr [ %27, %25 ], [ %33, %42 ], [ %33, %36 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load i32, ptr %46, align 8
   %.not44 = icmp slt i32 %45, %47
   br i1 %.not44, label %._crit_edge, label %48
 
 ._crit_edge:                                      ; preds = %43
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %54
 
 48:                                               ; preds = %43
   %49 = add nsw i32 %45, 10
   store i32 %49, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = sext i32 %49 to i64
   %52 = load ptr, ptr %50, align 8
   %53 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef %52, i64 noundef range(i64 -2147483638, 2147483648) %51, i64 noundef 16)
@@ -276,7 +276,7 @@ define noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr nocaptur
 54:                                               ; preds = %._crit_edge, %48
   %55 = phi i32 [ %45, %._crit_edge ], [ %.pre54, %48 ]
   %56 = phi ptr [ %.pre, %._crit_edge ], [ %53, %48 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = sext i32 %55 to i64
   %59 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %56, i64 %58
   store ptr %.039, ptr %59, align 8
@@ -308,8 +308,8 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -323,7 +323,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -337,7 +337,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -348,12 +348,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -398,7 +398,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -418,13 +418,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx16GromacsExceptionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -432,10 +432,10 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -461,10 +461,10 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -486,7 +486,7 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
@@ -507,9 +507,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -525,7 +525,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
@@ -713,13 +713,13 @@ define void @_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv(ptr nocapture nound
   br i1 %3, label %33, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %6 to i64
   %12 = getelementptr %struct.gmx_sel_mempool_block_t, ptr %10, i64 %11
@@ -736,22 +736,22 @@ define void @_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv(ptr nocapture nound
   %18 = add nsw i32 %6, -1
   store i32 %18, ptr %5, align 8
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %10, i64 %19, i32 1
+  %20 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %10, i64 %19, i32 1
   %21 = load i64, ptr %20, align 8
   %sext = shl i64 %21, 32
   %22 = ashr exact i64 %sext, 32
   %23 = load i64, ptr %0, align 8
   %24 = sub i64 %23, %22
   store i64 %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %22
   store i64 %31, ptr %29, align 8
@@ -770,7 +770,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6
@@ -780,7 +780,7 @@ define void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr nocapture nou
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -794,7 +794,7 @@ define void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr nocapture nou
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %14, align 8
   br label %16
 
@@ -812,9 +812,9 @@ define void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr nocapture nou
   unreachable
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %17, ptr %22, align 8
   ret void
 }
@@ -824,26 +824,26 @@ define void @_Z28_gmx_sel_mempool_alloc_groupP17gmx_sel_mempool_tP15gmx_ana_inde
   %4 = sext i32 %2 to i64
   %5 = shl nsw i64 %4, 2
   %6 = tail call noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr noundef %0, i64 noundef %5)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %6, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z27_gmx_sel_mempool_free_groupP17gmx_sel_mempool_tP15gmx_ana_index_t(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_Z21_gmx_sel_mempool_freeP17gmx_sel_mempool_tPv.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr %struct.gmx_sel_mempool_block_t, ptr %12, i64 %13
@@ -860,22 +860,22 @@ define void @_Z27_gmx_sel_mempool_free_groupP17gmx_sel_mempool_tP15gmx_ana_index
   %20 = add nsw i32 %8, -1
   store i32 %20, ptr %7, align 8
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds %struct.gmx_sel_mempool_block_t, ptr %12, i64 %21, i32 1
+  %22 = getelementptr inbounds nuw %struct.gmx_sel_mempool_block_t, ptr %12, i64 %21, i32 1
   %23 = load i64, ptr %22, align 8
   %sext.i = shl i64 %23, 32
   %24 = ashr exact i64 %sext.i, 32
   %25 = load i64, ptr %0, align 8
   %26 = sub i64 %25, %24
   store i64 %26, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %34, label %29
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %24
   store i64 %33, ptr %31, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoerce4size17h95d2e2476947105dE(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !4, !noalias !7, !nonnull !9, !noundef !9
   %4 = load ptr, ptr %0, align 8, !alias.scope !4, !noalias !7, !nonnull !9, !noundef !9
   %5 = ptrtoint ptr %3 to i64
@@ -21,7 +21,7 @@ define hidden noundef range(i64 0, 461168601842738791) i64 @_ZN4core4iter8adapte
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hca8d123707e6c5dbE.llvm.11272671525488888136"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
   %5 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   %6 = ptrtoint ptr %4 to i64
@@ -29,9 +29,9 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %8 = sub nuw i64 %6, %7
   %9 = udiv exact i64 %8, 40
   store i64 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %11, align 8
   ret void
 }
@@ -39,11 +39,11 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN9html5ever9tokenizer9interface7Doctype3new17he62f0dd24bcf2ce0E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(80) initializes((0, 8), (24, 32), (48, 56), (72, 73)) %0) unnamed_addr #2 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %4, align 8
   ret void
 }
@@ -54,17 +54,17 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
   %4 = alloca { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, align 8
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { { i64, ptr }, i64 }, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8, !range !10, !noundef !9
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i8, ptr %9, align 8, !range !10, !noundef !9
   %.not = icmp eq i8 %8, %10
   br i1 %.not, label %11, label %45
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8, !noundef !9
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8, !noundef !9
   %.not10 = icmp eq i64 %13, %15
   br i1 %.not10, label %16, label %45
@@ -72,14 +72,14 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !11, !noalias !14, !nonnull !9, !noundef !9
   %20 = load i64, ptr %17, align 8, !alias.scope !11, !noalias !14, !noundef !9
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb14f8b2a01aaf01aE.llvm.10562867175124784169"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 %19, i64 noundef %20), !noalias !11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !16, !noalias !19, !nonnull !9, !noundef !9
   %24 = load i64, ptr %21, align 8, !alias.scope !16, !noalias !19, !noundef !9
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hb14f8b2a01aaf01aE.llvm.10562867175124784169"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 %23, i64 noundef %24)
@@ -96,9 +96,9 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
   br label %25
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68017a393e756342E.exit": ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !9, !noundef !9
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   invoke void @_ZN4core5slice4sort10merge_sort17h94b332b68c45157eE(ptr noalias noundef nonnull align 8 %29, i64 noundef %31, ptr noalias noundef nonnull align 1 %3)
@@ -112,9 +112,9 @@ define noundef zeroext i1 @_ZN9html5ever9tokenizer9interface3Tag23equiv_modulo_a
 
 34:                                               ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68017a393e756342E.exit"
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load ptr, ptr %35, align 8, !nonnull !9, !noundef !9
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = load i64, ptr %37, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   invoke void @_ZN4core5slice4sort10merge_sort17h94b332b68c45157eE(ptr noalias noundef nonnull align 8 %36, i64 noundef %38, ptr noalias noundef nonnull align 1 %3)

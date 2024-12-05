@@ -23,26 +23,26 @@ define i32 @mca_pml_monitoring_start(i64 noundef %0, ptr noundef %1) local_unnam
   br i1 %6, label %67, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %67
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %12 = load i32, ptr %11, align 8
   %.not17 = icmp eq i32 %12, 1
   br i1 %.not17, label %13, label %67
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %5, i64 488
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 488
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %15 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
@@ -66,7 +66,7 @@ define i32 @mca_pml_monitoring_start(i64 noundef %0, ptr noundef %1) local_unnam
   br i1 %36, label %37, label %ompi_group_get_proc_ptr.exit.i
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %31, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %39 = load i8, ptr @opal_uses_threads, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %43
@@ -97,7 +97,7 @@ ompi_group_get_proc_ptr.exit.i:                   ; preds = %43, %41, %27, %13
   br label %54
 
 52:                                               ; preds = %ompi_group_get_proc_ptr.exit.i
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   %.sroa.05.0.copyload.i = load i64, ptr %53, align 8
   br label %54
 
@@ -116,11 +116,11 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %54
   %59 = load i64, ptr %3, align 8
   %60 = trunc i64 %59 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %61 = getelementptr inbounds i8, ptr %5, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %62, i64 24
   %.val = load i64, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 480
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 480
   %65 = load i64, ptr %64, align 8
   %66 = mul i64 %65, %.val
   call void @mca_common_monitoring_record_pml(i32 noundef %60, i64 noundef %66, i32 noundef 1) #3

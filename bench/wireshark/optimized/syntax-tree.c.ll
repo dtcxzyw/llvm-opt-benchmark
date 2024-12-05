@@ -118,7 +118,7 @@ define noundef nonnull ptr @sttype_name(i32 noundef %0) local_unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.sprint_node, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.sprint_node, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -134,7 +134,7 @@ define noundef nonnull ptr @stnode_op_name(i32 noundef %0) local_unnamed_addr #2
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [23 x ptr], ptr @switch.table.stnode_op_name, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [23 x ptr], ptr @switch.table.stnode_op_name, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -150,13 +150,13 @@ define void @stnode_clear(ptr nocapture noundef initializes((40, 58)) %0) local_
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not19 = icmp eq ptr %8, null
   br i1 %.not19, label %10, label %9
@@ -166,24 +166,24 @@ define void @stnode_clear(ptr nocapture noundef initializes((40, 58)) %0) local_
   br label %10
 
 10:                                               ; preds = %1, %3, %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #13
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @g_free(ptr noundef %14) #13
   store ptr null, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @g_free(ptr noundef %16) #13
   store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 0, ptr %19, align 8
   ret void
 }
@@ -192,15 +192,15 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @stnode_init(ptr nocapture noundef writeonly initializes((0, 58)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 %4, i64 %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %5, ptr %.sroa.2.0..sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 0, ptr %10, align 8
   %11 = icmp eq i32 %1, 0
   br i1 %11, label %12, label %13
@@ -214,19 +214,19 @@ define void @stnode_init(ptr nocapture noundef writeonly initializes((0, 58)) %0
   %15 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %13
   %20 = tail call ptr %18(ptr noundef %2) #13
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   br label %24
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %23, align 8
   br label %24
 
@@ -239,27 +239,27 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define void @stnode_replace(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i16, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %stnode_clear.exit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not18.i = icmp eq ptr %13, null
   br i1 %.not18.i, label %stnode_clear.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not19.i = icmp eq ptr %16, null
   br i1 %.not19.i, label %stnode_clear.exit, label %17
@@ -269,12 +269,12 @@ define void @stnode_replace(ptr nocapture noundef %0, i32 noundef %1, ptr nounde
   br label %stnode_clear.exit
 
 stnode_clear.exit:                                ; preds = %3, %11, %14, %17
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %18, align 8
   tail call void @g_free(ptr noundef %19) #13
   store ptr null, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void @g_free(ptr noundef %21) #13
   store ptr null, ptr %20, align 8
@@ -297,19 +297,19 @@ stnode_clear.exit:                                ; preds = %3, %11, %14, %17
   %27 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i9 = icmp eq ptr %30, null
   br i1 %.not.i9, label %34, label %31
 
 31:                                               ; preds = %25
   %32 = tail call ptr %30(ptr noundef %2) #13
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %32, ptr %33, align 8
   br label %stnode_init.exit
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %35, align 8
   br label %stnode_init.exit
 
@@ -332,15 +332,15 @@ define void @stnode_mutate(ptr nocapture noundef writeonly initializes((0, 8)) %
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, i64 %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #14
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %3, ptr %9, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %4, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i16 0, ptr %10, align 8
   %11 = icmp eq i32 %0, 0
   br i1 %11, label %12, label %13
@@ -354,19 +354,19 @@ define noundef ptr @stnode_new(i32 noundef %0, ptr noundef %1, ptr noundef %2, i
   %15 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %13
   %20 = tail call ptr %18(ptr noundef %1) #13
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %20, ptr %21, align 8
   br label %stnode_init.exit
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %23, align 8
   br label %stnode_init.exit
 
@@ -380,13 +380,13 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stnode_new_empty(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 64) #14
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i64 -1, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i16 0, ptr %5, align 8
   %6 = icmp eq i32 %0, 0
   br i1 %6, label %7, label %8
@@ -400,19 +400,19 @@ define noundef ptr @stnode_new_empty(i32 noundef %0) local_unnamed_addr #0 {
   %10 = getelementptr [15 x ptr], ptr @type_list, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %17, label %14
 
 14:                                               ; preds = %8
   %15 = tail call ptr %13(ptr noundef null) #13
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %15, ptr %16, align 8
   br label %stnode_new.exit
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %18, align 8
   br label %stnode_new.exit
 
@@ -423,19 +423,19 @@ stnode_new.exit:                                  ; preds = %7, %14, %17
 ; Function Attrs: nounwind uwtable
 define noundef ptr @stnode_dup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #14
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #13
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i16, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i16 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
   store ptr %13, ptr %2, align 8
@@ -443,10 +443,10 @@ define noundef ptr @stnode_dup(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   br i1 %.not, label %22, label %20
 
@@ -456,7 +456,7 @@ define noundef ptr @stnode_dup(ptr nocapture noundef readonly %0) local_unnamed_
 
 22:                                               ; preds = %15, %1, %20
   %.sink = phi ptr [ %21, %20 ], [ null, %1 ], [ %19, %15 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sink, ptr %23, align 8
   ret ptr %2
 }
@@ -471,13 +471,13 @@ define void @stnode_free(ptr noundef initializes((40, 58)) %0) local_unnamed_add
   br i1 %.not.i, label %stnode_clear.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not18.i = icmp eq ptr %5, null
   br i1 %.not18.i, label %stnode_clear.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not19.i = icmp eq ptr %8, null
   br i1 %.not19.i, label %stnode_clear.exit, label %9
@@ -487,24 +487,24 @@ define void @stnode_free(ptr noundef initializes((40, 58)) %0) local_unnamed_add
   br label %stnode_clear.exit
 
 stnode_clear.exit:                                ; preds = %1, %3, %6, %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11) #13
   store ptr null, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #13
   store ptr null, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15) #13
   store ptr null, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 0, ptr %18, align 8
   tail call void @g_free(ptr noundef nonnull %0) #13
   ret void
@@ -519,7 +519,7 @@ define noundef nonnull ptr @stnode_type_name(ptr nocapture noundef readonly %0) 
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.sprint_node, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.sprint_node, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sttype_name.exit
 
@@ -545,21 +545,21 @@ define i32 @stnode_type_id(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @stnode_data(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @stnode_string(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @stnode_steal_data(ptr nocapture noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   ret ptr %3
@@ -567,16 +567,16 @@ define ptr @stnode_steal_data(ptr nocapture noundef %0) local_unnamed_addr #9 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @stnode_token(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @stnode_location(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
@@ -585,16 +585,16 @@ define { i64, i64 } @stnode_location(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @stnode_set_location(ptr nocapture noundef writeonly initializes((40, 56)) %0, i64 %1, i64 %2) local_unnamed_addr #10 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @stnode_get_flags(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, %1
   %6 = icmp ne i16 %5, 0
@@ -603,7 +603,7 @@ define zeroext i1 @stnode_get_flags(ptr nocapture noundef readonly %0, i16 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @stnode_set_flags(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = or i16 %4, %1
   store i16 %5, ptr %3, align 8
@@ -612,23 +612,23 @@ define void @stnode_set_flags(ptr nocapture noundef %0, i16 noundef zeroext %1) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @stnode_merge_location(ptr nocapture noundef writeonly initializes((40, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.sroa.0.0.copyload.i15 = load i64, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.2.0.copyload.i17 = load i64, ptr %.sroa.2.0..sroa_idx.i16, align 8
   %6 = icmp sgt i64 %.sroa.0.0.copyload.i15, -1
   %7 = icmp sgt i64 %.sroa.0.0.copyload.i15, %.sroa.0.0.copyload.i
   %or.cond = select i1 %6, i1 %7, i1 false
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.0.0.copyload.i, ptr %8, align 8
   %9 = sub i64 %.sroa.0.0.copyload.i15, %.sroa.0.0.copyload.i
   %10 = add i64 %9, %.sroa.2.0.copyload.i17
   %11 = select i1 %or.cond, i64 %10, i64 %.sroa.2.0.copyload.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %11, ptr %12, align 8
   ret void
 }
@@ -648,13 +648,13 @@ stnode_type_id.exit:                              ; preds = %2
   ]
 
 4:                                                ; preds = %stnode_type_id.exit, %stnode_type_id.exit
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %stnode_type_id.exit20.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #13
   %10 = load ptr, ptr %5, align 8
@@ -663,7 +663,7 @@ stnode_type_id.exit:                              ; preds = %2
   br label %44
 
 stnode_type_id.exit20.thread:                     ; preds = %stnode_type_id.exit, %4, %2
-  %12 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -673,7 +673,7 @@ stnode_type_id.exit20.thread:                     ; preds = %stnode_type_id.exit
   br label %21
 
 17:                                               ; preds = %stnode_type_id.exit20.thread
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %13(ptr noundef %19, i1 noundef zeroext %1) #13
   br label %21
@@ -757,7 +757,7 @@ stnode_type_name.exit.i:                          ; preds = %stnode_type_id.exit
   br label %41
 
 _node_tostr.exit:                                 ; preds = %21
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void @g_free(ptr noundef %40) #13
   store ptr %.013.i, ptr %39, align 8
@@ -765,7 +765,7 @@ _node_tostr.exit:                                 ; preds = %21
 
 41:                                               ; preds = %stnode_type_id.exit.i, %stnode_type_id.exit.i, %stnode_type_name.exit.i
   %.014.i.ph = phi ptr [ %.013.i, %stnode_type_id.exit.i ], [ %.013.i, %stnode_type_id.exit.i ], [ %38, %stnode_type_name.exit.i ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   tail call void @g_free(ptr noundef %43) #13
   store ptr %.014.i.ph, ptr %42, align 8
@@ -816,7 +816,7 @@ define internal fastcc ptr @sprint_node(ptr nocapture noundef nonnull %0) unname
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.sprint_node, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.sprint_node, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %stnode_type_name.exit
 
@@ -825,9 +825,9 @@ stnode_type_name.exit:                            ; preds = %1, %switch.lookup
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0.i.i) #13
   %7 = tail call ptr @stnode_tostr(ptr noundef nonnull %0, i1 noundef zeroext false)
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef %7) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2, ptr noundef nonnull @.str.52, i64 noundef %9, i64 noundef %11) #13
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %2, ptr noundef nonnull @.str.53) #13
@@ -1002,7 +1002,7 @@ indent.exit70:                                    ; preds = %.lr.ph.i67, %24
   unreachable
 
 32:                                               ; preds = %stnode_type_id.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @g_slist_length(ptr noundef %34) #13
   %36 = lshr i32 %35, 1
@@ -1032,7 +1032,7 @@ indent.exit77:                                    ; preds = %.lr.ph.i74, %40
   %42 = load ptr, ptr %.095, align 8
   %43 = tail call ptr @stnode_tostr(ptr noundef %42, i1 noundef zeroext false)
   tail call void @wmem_strbuf_append(ptr noundef %0, ptr noundef %43) #13
-  %44 = getelementptr inbounds i8, ptr %.095, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.095, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   %.not58 = icmp eq ptr %46, null
@@ -1045,7 +1045,7 @@ indent.exit77:                                    ; preds = %.lr.ph.i74, %40
   br label %49
 
 49:                                               ; preds = %indent.exit77, %47
-  %50 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = load ptr, ptr %50, align 8
   %cond = icmp eq ptr %51, null
   br i1 %cond, label %.loopexit, label %52
@@ -1088,7 +1088,7 @@ indent.exit84.loopexit.us:                        ; preds = %.lr.ph.i81.us
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %56) #13
   %61 = load ptr, ptr %.05493.us, align 8
   tail call fastcc void @visit_tree(ptr noundef %0, ptr noundef %61, i32 noundef %56)
-  %62 = getelementptr inbounds i8, ptr %.05493.us, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.05493.us, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not56.us = icmp eq ptr %63, null
   br i1 %.not56.us, label %.loopexit, label %60
@@ -1098,7 +1098,7 @@ indent.exit84:                                    ; preds = %.lr.ph, %67
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %56) #13
   %64 = load ptr, ptr %.05493, align 8
   tail call fastcc void @visit_tree(ptr noundef %0, ptr noundef %64, i32 noundef %56)
-  %65 = getelementptr inbounds i8, ptr %.05493, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.05493, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not56 = icmp eq ptr %66, null
   br i1 %.not56, label %.loopexit, label %67

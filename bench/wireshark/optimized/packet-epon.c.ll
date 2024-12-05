@@ -137,7 +137,7 @@ define internal i32 @dissect_epon(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 17:                                               ; preds = %10, %7, %4
   %.082 = phi i32 [ 2, %4 ], [ 1, %7 ], [ 0, %10 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.36) #2
   %20 = load ptr, ptr %18, align 8

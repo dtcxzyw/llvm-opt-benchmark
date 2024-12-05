@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK19G1PhaseDependentSeq31enough_samples_to_use_mixed_seqEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2
   ret i1 %4
@@ -23,7 +23,7 @@ define hidden noundef zeroext i1 @_ZNK19G1PhaseDependentSeq31enough_samples_to_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN11G1Analytics24enough_samples_availableEPK12TruncatedSeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2
   ret i1 %4
@@ -32,7 +32,7 @@ define hidden noundef zeroext i1 @_ZN11G1Analytics24enough_samples_availableEPK1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19G1PhaseDependentSeqC2Ei(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, double noundef 3.000000e-01) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef %1, double noundef 3.000000e-01) #7
   ret void
 }
@@ -42,7 +42,7 @@ declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN19G1PhaseDependentSeq7seq_rawEb(ptr noundef nonnull readnone align 8 dereferenceable(144) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %.idx = select i1 %1, i64 0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   ret ptr %3
 }
 
@@ -57,9 +57,9 @@ declare void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19G1PhaseDependentSeq3addEdb(ptr noundef nonnull align 8 dereferenceable(144) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %.idx.i = select i1 %2, i64 0, i64 72
-  %4 = getelementptr inbounds i8, ptr %0, i64 %.idx.i
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef %1) #7
   ret void
@@ -67,7 +67,7 @@ define hidden void @_ZN19G1PhaseDependentSeq3addEdb(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 3
   %or.cond.not = select i1 %2, i1 true, i1 %6
@@ -77,7 +77,7 @@ define hidden noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Prediction
   %8 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #7
   %9 = load double, ptr %1, align 8
   %10 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp slt i32 %12, 5
   br i1 %13, label %14, label %_ZNK13G1Predictions7predictEPK12TruncatedSeq.exit
@@ -98,7 +98,7 @@ _ZNK13G1Predictions7predictEPK12TruncatedSeq.exit: ; preds = %7, %14
   br label %39
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %24) #7
   %26 = load double, ptr %1, align 8
   %27 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %24) #7
@@ -129,65 +129,65 @@ _ZNK13G1Predictions7predictEPK12TruncatedSeq.exit5: ; preds = %23, %30
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1AnalyticsC2EPK13G1Predictions(ptr noundef nonnull align 8 dereferenceable(2048) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %3, i32 noundef 10, double noundef 3.000000e-01) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %4, i32 noundef 10, double noundef 3.000000e-01) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %5, i32 noundef 10, double noundef 3.000000e-01) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %6, i32 noundef 10, double noundef 3.000000e-01) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store double 0.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %8, i32 noundef 10, double noundef 3.000000e-01) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %9, i32 noundef 10, double noundef 3.000000e-01) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 448
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 448
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %10, i32 noundef 10, double noundef 3.000000e-01) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 520
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 520
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %11, i32 noundef 10, double noundef 3.000000e-01) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 592
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 592
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %12, i32 noundef 10, double noundef 3.000000e-01) #7
-  %13 = getelementptr inbounds i8, ptr %0, i64 664
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 664
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %13, i32 noundef 10, double noundef 3.000000e-01) #7
-  %14 = getelementptr inbounds i8, ptr %0, i64 736
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 736
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef 10, double noundef 3.000000e-01) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 808
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 808
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %15, i32 noundef 10, double noundef 3.000000e-01) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 880
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 880
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %16, i32 noundef 10, double noundef 3.000000e-01) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 952
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 952
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %17, i32 noundef 10, double noundef 3.000000e-01) #7
-  %18 = getelementptr inbounds i8, ptr %0, i64 1024
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef 10, double noundef 3.000000e-01) #7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1096
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %19, i32 noundef 10, double noundef 3.000000e-01) #7
-  %20 = getelementptr inbounds i8, ptr %0, i64 1168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %20, i32 noundef 10, double noundef 3.000000e-01) #7
-  %21 = getelementptr inbounds i8, ptr %0, i64 1240
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %21, i32 noundef 10, double noundef 3.000000e-01) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 1312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef 10, double noundef 3.000000e-01) #7
-  %23 = getelementptr inbounds i8, ptr %0, i64 1384
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %23, i32 noundef 10, double noundef 3.000000e-01) #7
-  %24 = getelementptr inbounds i8, ptr %0, i64 1456
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef 10, double noundef 3.000000e-01) #7
-  %25 = getelementptr inbounds i8, ptr %0, i64 1528
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(144) %25, i32 noundef 10, double noundef 3.000000e-01) #7
-  %26 = getelementptr inbounds i8, ptr %0, i64 1600
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %26, i32 noundef 10, double noundef 3.000000e-01) #7
-  %27 = getelementptr inbounds i8, ptr %0, i64 1672
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %27, i32 noundef 10, double noundef 3.000000e-01) #7
-  %28 = getelementptr inbounds i8, ptr %0, i64 1744
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %28, i32 noundef 10, double noundef 3.000000e-01) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 1816
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %29, i32 noundef 10, double noundef 3.000000e-01) #7
-  %30 = getelementptr inbounds i8, ptr %0, i64 1888
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %30, i32 noundef 10, double noundef 3.000000e-01) #7
-  %31 = getelementptr inbounds i8, ptr %0, i64 1960
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   tail call void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72) %31, i32 noundef 10, double noundef 3.000000e-01) #7
-  %32 = getelementptr inbounds i8, ptr %0, i64 2032
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = tail call noundef double @_ZN2os11elapsedTimeEv() #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %31, double noundef %33) #7
@@ -201,19 +201,19 @@ define hidden void @_ZN11G1AnalyticsC2EPK13G1Predictions(ptr noundef nonnull ali
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %9, double noundef 0.000000e+00) #7
   %39 = zext nneg i32 %38 to i64
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %11, double noundef 1.000000e+00) #7
-  %40 = getelementptr inbounds [8 x double], ptr @_ZL41young_only_cost_per_card_scan_ms_defaults, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [8 x double], ptr @_ZL41young_only_cost_per_card_scan_ms_defaults, i64 0, i64 %39
   %41 = load double, ptr %40, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %13, double noundef %41) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %23, double noundef 0.000000e+00) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %25, double noundef 0.000000e+00) #7
-  %42 = getelementptr inbounds [8 x double], ptr @_ZL25cost_per_byte_ms_defaults, i64 0, i64 %39
+  %42 = getelementptr inbounds nuw [8 x double], ptr @_ZL25cost_per_byte_ms_defaults, i64 0, i64 %39
   %43 = load double, ptr %42, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(144) %19, double noundef %43) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %27, double noundef 5.000000e+00) #7
-  %44 = getelementptr inbounds [8 x double], ptr @_ZL39young_other_cost_per_region_ms_defaults, i64 0, i64 %39
+  %44 = getelementptr inbounds nuw [8 x double], ptr @_ZL39young_other_cost_per_region_ms_defaults, i64 0, i64 %39
   %45 = load double, ptr %44, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %28, double noundef %45) #7
-  %46 = getelementptr inbounds [8 x double], ptr @_ZL43non_young_other_cost_per_region_ms_defaults, i64 0, i64 %39
+  %46 = getelementptr inbounds nuw [8 x double], ptr @_ZL43non_young_other_cost_per_region_ms_defaults, i64 0, i64 %39
   %47 = load double, ptr %46, align 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %29, double noundef %47) #7
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef 5.000000e-02) #7
@@ -229,7 +229,7 @@ define hidden noundef double @_ZNK11G1Analytics24predict_in_unit_intervalEPK12Tr
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit
@@ -260,7 +260,7 @@ define hidden noundef i64 @_ZNK11G1Analytics12predict_sizeEPK12TruncatedSeq(ptr 
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -290,7 +290,7 @@ define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK12Trunca
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -345,39 +345,39 @@ define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK19G1Phas
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK11G1Analytics17num_alloc_rate_msEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics38report_concurrent_mark_remark_times_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics20report_alloc_rate_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics25compute_pause_time_ratiosEdd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1960
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   %5 = tail call noundef double @_ZNK12TruncatedSeq6oldestEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #7
   %6 = fsub double %1, %5
   %7 = fmul double %6, 1.000000e+03
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load double, ptr %9, align 8
   %11 = tail call noundef double @_ZNK12TruncatedSeq6oldestEv(ptr noundef nonnull align 8 dereferenceable(72) %8) #7
   %12 = fsub double %10, %11
   %13 = fadd double %2, %12
   %14 = fdiv double %13, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 2032
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2032
   %16 = fcmp ogt double %14, 0.000000e+00
   %17 = select i1 %16, double %14, double 0.000000e+00
   %18 = fcmp olt double %17, 1.000000e+00
@@ -387,7 +387,7 @@ define hidden void @_ZN11G1Analytics25compute_pause_time_ratiosEdd(ptr noundef n
   %21 = fsub double %1, %20
   %22 = fmul double %21, 1.000000e+03
   %23 = fdiv double %2, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 2040
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2040
   %25 = fcmp ogt double %23, 0.000000e+00
   %26 = select i1 %25, double %23, double 0.000000e+00
   %27 = fcmp olt double %26, 1.000000e+00
@@ -398,7 +398,7 @@ define hidden void @_ZN11G1Analytics25compute_pause_time_ratiosEdd(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics28oldest_known_gc_end_time_secEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1960
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   %3 = tail call noundef double @_ZNK12TruncatedSeq6oldestEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #7
   ret double %3
 }
@@ -407,28 +407,28 @@ declare noundef double @_ZNK12TruncatedSeq6oldestEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics27most_recent_gc_end_time_secEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1960
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   %3 = tail call noundef double @_ZNK12TruncatedSeq4lastEv(ptr noundef nonnull align 8 dereferenceable(72) %2) #7
   ret double %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics32report_concurrent_refine_rate_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics28report_dirtied_cards_rate_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 376
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics38report_dirtied_cards_in_thread_buffersEm(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = uitofp i64 %1 to double
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %4) #7
   ret void
@@ -436,11 +436,11 @@ define hidden void @_ZN11G1Analytics38report_dirtied_cards_in_thread_buffersEm(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics28report_cost_per_card_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 664
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -448,11 +448,11 @@ define hidden void @_ZN11G1Analytics28report_cost_per_card_scan_msEdb(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics29report_cost_per_card_merge_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -460,11 +460,11 @@ define hidden void @_ZN11G1Analytics29report_cost_per_card_merge_msEdb(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics33report_cost_per_code_root_scan_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 952
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -472,11 +472,11 @@ define hidden void @_ZN11G1Analytics33report_cost_per_code_root_scan_msEdb(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics31report_card_scan_to_merge_ratioEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -484,11 +484,11 @@ define hidden void @_ZN11G1Analytics31report_card_scan_to_merge_ratioEdb(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics23report_cost_per_byte_msEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1096
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -496,32 +496,32 @@ define hidden void @_ZN11G1Analytics23report_cost_per_byte_msEdb(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics37report_young_other_cost_per_region_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1744
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics41report_non_young_other_cost_per_region_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1816
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics29report_constant_other_time_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1672
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics20report_pending_cardsEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -529,11 +529,11 @@ define hidden void @_ZN11G1Analytics20report_pending_cardsEdb(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics21report_card_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1384
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -541,11 +541,11 @@ define hidden void @_ZN11G1Analytics21report_card_rs_lengthEdb(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics26report_code_root_rs_lengthEdb(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1528
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %.idx.i.i = select i1 %2, i64 0, i64 72
-  %5 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
@@ -553,8 +553,8 @@ define hidden void @_ZN11G1Analytics26report_code_root_rs_lengthEdb(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics21predict_alloc_rate_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 2
   br i1 %5, label %6, label %24
@@ -592,12 +592,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %6, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics33predict_concurrent_refine_rate_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -622,12 +622,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %1, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics29predict_dirtied_cards_rate_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 376
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -652,12 +652,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %1, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK11G1Analytics39predict_dirtied_cards_in_thread_buffersEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 448
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 456
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics12predict_sizeEPK12TruncatedSeq.exit
@@ -684,7 +684,7 @@ _ZNK11G1Analytics12predict_sizeEPK12TruncatedSeq.exit: ; preds = %1, %10
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK11G1Analytics21predict_scan_card_numEmb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 520
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %6, i1 noundef zeroext %2)
   %8 = fcmp ogt double %7, 0.000000e+00
@@ -699,7 +699,7 @@ define hidden noundef i64 @_ZNK11G1Analytics21predict_scan_card_numEmb(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics26predict_card_merge_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %6, i1 noundef zeroext %2)
   %8 = fcmp ogt double %7, 0.000000e+00
@@ -711,7 +711,7 @@ define hidden noundef double @_ZNK11G1Analytics26predict_card_merge_time_msEmb(p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics30predict_code_root_scan_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 952
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %6, i1 noundef zeroext %2)
   %8 = fcmp ogt double %7, 0.000000e+00
@@ -723,7 +723,7 @@ define hidden noundef double @_ZNK11G1Analytics30predict_code_root_scan_time_msE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics25predict_card_scan_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 664
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %6, i1 noundef zeroext %2)
   %8 = fcmp ogt double %7, 0.000000e+00
@@ -735,7 +735,7 @@ define hidden noundef double @_ZNK11G1Analytics25predict_card_scan_time_msEmb(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %6 = load ptr, ptr %0, align 8
   %7 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef %6, i1 noundef zeroext %2)
   %8 = fcmp ogt double %7, 0.000000e+00
@@ -746,12 +746,12 @@ define hidden noundef double @_ZNK11G1Analytics27predict_object_copy_time_msEmb(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics30predict_constant_other_time_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1672
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 1680
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -776,12 +776,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %1, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics27predict_young_other_time_msEm(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1744
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #7
   %6 = load double, ptr %4, align 8
   %7 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 1752
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 5
   br i1 %10, label %11, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -808,12 +808,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %2, %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics31predict_non_young_other_time_msEm(ptr noundef nonnull align 8 dereferenceable(2048) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1816
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #7
   %6 = load double, ptr %4, align 8
   %7 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 1824
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1824
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 5
   br i1 %10, label %11, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -840,12 +840,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %2, %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics22predict_remark_time_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -870,12 +870,12 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %1, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZNK11G1Analytics23predict_cleanup_time_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   %5 = load double, ptr %3, align 8
   %6 = tail call noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 5
   br i1 %9, label %10, label %_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit
@@ -900,7 +900,7 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %1, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK11G1Analytics22predict_card_rs_lengthEb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1384
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i1 noundef zeroext %1)
   %6 = fcmp ogt double %5, 0.000000e+00
@@ -911,7 +911,7 @@ define hidden noundef i64 @_ZNK11G1Analytics22predict_card_rs_lengthEb(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK11G1Analytics27predict_code_root_rs_lengthEb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i1 noundef zeroext %1)
   %6 = fcmp ogt double %5, 0.000000e+00
@@ -922,7 +922,7 @@ define hidden noundef i64 @_ZNK11G1Analytics27predict_code_root_rs_lengthEb(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK11G1Analytics21predict_pending_cardsEb(ptr noundef nonnull align 8 dereferenceable(2048) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef %4, i1 noundef zeroext %1)
   %6 = fcmp ogt double %5, 0.000000e+00
@@ -935,16 +935,16 @@ declare noundef double @_ZNK12TruncatedSeq4lastEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics22update_recent_gc_timesEdd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %4, double noundef %2) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 1960
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1960
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %5, double noundef %1) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1Analytics39report_concurrent_mark_cleanup_times_msEd(ptr noundef nonnull align 8 dereferenceable(2048) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) %3, double noundef %1) #7
   ret void
 }

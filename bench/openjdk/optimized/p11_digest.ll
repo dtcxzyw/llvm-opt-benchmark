@@ -12,14 +12,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestInit(ptr noundef %
 7:                                                ; preds = %4
   %8 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1824
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1824
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 %11(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %5, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(i64 noundef %2, ptr noundef %8) #5
   tail call void @freeCKMechanismPtr(ptr noundef %8) #5
@@ -51,14 +51,14 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
 16:                                               ; preds = %10
   %17 = tail call ptr @jMechanismToCKMechanismPtr(ptr noundef %0, ptr noundef %3) #5
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %22, label %61
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %14, i64 304
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 304
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24(i64 noundef %2, ptr noundef %17) #5
   %26 = tail call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %25) #5
@@ -87,11 +87,11 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
 33:                                               ; preds = %29, %27
   %.1 = phi ptr [ %31, %29 ], [ %11, %27 ]
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1600
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1600
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %.1) #5
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1824
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1824
   %39 = load ptr, ptr %38, align 8
   %40 = call zeroext i8 %39(ptr noundef nonnull %0) #5
   %.not46 = icmp eq i8 %40, 0
@@ -101,7 +101,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
   %42 = call i32 @llvm.smin.i32(i32 %9, i32 64)
   %43 = sext i32 %42 to i64
   store i64 %43, ptr %13, align 8
-  %44 = getelementptr inbounds i8, ptr %14, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 312
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %6 to i64
   %47 = call i64 %45(i64 noundef %2, ptr noundef nonnull %.1, i64 noundef %46, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
@@ -111,7 +111,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestSingle(ptr noundef 
 
 50:                                               ; preds = %41
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1664
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1664
   %53 = load ptr, ptr %52, align 8
   %54 = load i64, ptr %13, align 8
   %55 = trunc i64 %54 to i32
@@ -158,7 +158,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestUpdate(ptr noundef
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 320
   %14 = load ptr, ptr %13, align 8
   %15 = inttoptr i64 %3 to ptr
   %16 = sext i32 %6 to i64
@@ -188,7 +188,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestUpdate(ptr noundef
 .lr.ph:                                           ; preds = %21, %27
   %.04663 = phi i32 [ 4096, %27 ], [ %22, %21 ]
   %.04761 = phi ptr [ %8, %27 ], [ %24, %21 ]
-  %29 = getelementptr inbounds i8, ptr %9, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 320
   br label %30
 
 30:                                               ; preds = %.lr.ph, %48
@@ -196,11 +196,11 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestUpdate(ptr noundef
   %.04557 = phi i32 [ %6, %.lr.ph ], [ %50, %48 ]
   %31 = call i32 @llvm.smin.i32(i32 %.04663, i32 %.04557)
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1600
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1600
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %.058, i32 noundef %31, ptr noundef nonnull %.04761) #5
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1824
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1824
   %37 = load ptr, ptr %36, align 8
   %38 = call zeroext i8 %37(ptr noundef nonnull %0) #5
   %.not53 = icmp eq i8 %38, 0
@@ -255,7 +255,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestKey(ptr noundef %0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 328
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(i64 noundef %2, i64 noundef %3) #5
   %11 = tail call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %10) #5
@@ -277,7 +277,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestFinal(ptr noundef %
   br i1 %12, label %28, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %11, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 336
   %15 = load ptr, ptr %14, align 8
   %16 = call i64 %15(i64 noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %17 = call i64 @ckAssertReturnValueOK(ptr noundef %0, i64 noundef %16) #5
@@ -286,7 +286,7 @@ define i32 @Java_sun_security_pkcs11_wrapper_PKCS11_C_1DigestFinal(ptr noundef %
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1664
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1664
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr %8, align 8
   %24 = trunc i64 %23 to i32
@@ -315,14 +315,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1SeedRandom(ptr noundef %
 9:                                                ; preds = %4
   call void @jByteArrayToCKByteArray(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = call zeroext i8 %12(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 512
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 512
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load i64, ptr %6, align 8
@@ -346,11 +346,11 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateRandom(ptr nound
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1368
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, ptr noundef %3) #5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1472
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1472
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #5
   %16 = icmp eq ptr %15, null
@@ -358,11 +358,11 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GenerateRandom(ptr nound
 
 17:                                               ; preds = %7
   %18 = sext i32 %11 to i64
-  %19 = getelementptr inbounds i8, ptr %5, i64 520
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 520
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i64 %20(i64 noundef %2, ptr noundef nonnull %15, i64 noundef %18) #5
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1536
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1536
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %15, i32 noundef 0) #5
   %25 = tail call i64 @ckAssertReturnValueOK(ptr noundef nonnull %0, i64 noundef %21) #5

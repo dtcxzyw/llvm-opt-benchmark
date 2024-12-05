@@ -1552,9 +1552,9 @@ if.end.i75:                                       ; preds = %if.else
 if.end14:                                         ; preds = %if.end.i75, %if.else, %get_id.exit
   %func_or_id.0 = phi ptr [ %call9.i, %get_id.exit ], [ %func, %if.else ], [ %func, %if.end.i75 ]
   store ptr %call, ptr %stack, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %stack, i64 8
   store ptr %func_or_id.0, ptr %arrayinit.element, align 8
-  %arrayinit.element15 = getelementptr inbounds i8, ptr %stack, i64 16
+  %arrayinit.element15 = getelementptr inbounds nuw i8, ptr %stack, i64 16
   store ptr %spec.store.select, ptr %arrayinit.element15, align 16
   %call16 = call ptr @PyObject_Vectorcall(ptr noundef %watcher, ptr noundef nonnull %stack, i64 noundef 3, ptr noundef null) #6
   %cmp17 = icmp eq ptr %call16, null

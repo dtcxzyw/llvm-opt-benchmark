@@ -102,7 +102,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Diag7forwardERKNS_3MatER
 39:                                               ; preds = %.lr.ph128, %39
   %indvars.iv135 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next136, %39 ]
   %40 = load ptr, ptr %1, align 8
-  %41 = getelementptr inbounds float, ptr %40, i64 %indvars.iv135
+  %41 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv135
   %42 = load float, ptr %41, align 4
   %43 = sub nsw i64 %indvars.iv135, %37
   %44 = load ptr, ptr %2, align 8
@@ -112,8 +112,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Diag7forwardERKNS_3MatER
   %48 = load i64, ptr %36, align 8
   %49 = mul i64 %47, %48
   %50 = getelementptr inbounds i8, ptr %44, i64 %49
-  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv135
-  %52 = getelementptr inbounds float, ptr %51, i64 %38
+  %51 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv135
+  %52 = getelementptr inbounds nuw float, ptr %51, i64 %38
   store float %42, ptr %52, align 4
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
@@ -204,11 +204,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Diag7forwardERKNS_3MatER
   %95 = load i64, ptr %7, align 8
   %96 = mul i64 %94, %95
   %97 = getelementptr inbounds i8, ptr %91, i64 %96
-  %98 = getelementptr inbounds float, ptr %97, i64 %indvars.iv
-  %99 = getelementptr inbounds float, ptr %98, i64 %89
+  %98 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw float, ptr %98, i64 %89
   %100 = load float, ptr %99, align 4
   %101 = load ptr, ptr %2, align 8
-  %102 = getelementptr inbounds float, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv
   store float %100, ptr %102, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

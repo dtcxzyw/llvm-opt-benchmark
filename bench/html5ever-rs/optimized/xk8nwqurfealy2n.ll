@@ -21,7 +21,7 @@ define noundef i32 @_ZN11markup5ever4util12smallcharset12SmallCharSet20nonmember
 7:                                                ; preds = %.lr.ph, %16
   %.011 = phi i32 [ 0, %.lr.ph ], [ %17, %16 ]
   %.sroa.0.010 = phi ptr [ %1, %.lr.ph ], [ %8, %16 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.010, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 1
   %9 = load i8, ptr %.sroa.0.010, align 1, !noalias !4, !noundef !7
   %10 = icmp ugt i8 %9, 63
   br i1 %10, label %16, label %11

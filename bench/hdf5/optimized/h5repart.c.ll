@@ -57,7 +57,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %10 = load ptr, ptr %1, align 8
   %11 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 47) #17
   %.not = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %.0 = select i1 %.not, ptr %10, ptr %12
   %13 = icmp sgt i32 %0, 1
   br i1 %13, label %.lr.ph, label %.critedge
@@ -76,13 +76,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %.not439.not.not, label %.critedge.loopexit, label %sub_1
 
 sub_1:                                            ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %21 = load i8, ptr %20, align 1
   %.not342 = icmp eq i8 %21, 118
   br i1 %.not342, label %.tail, label %sub_1244
 
 .tail:                                            ; preds = %sub_1
-  %22 = getelementptr inbounds i8, ptr %18, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %sub_1244
@@ -93,13 +93,13 @@ sub_1:                                            ; preds = %.lr.ph
   br label %49
 
 sub_1244:                                         ; preds = %sub_1, %.tail
-  %27 = getelementptr inbounds i8, ptr %18, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %28 = load i8, ptr %27, align 1
   %.not344 = icmp eq i8 %28, 86
   br i1 %.not344, label %.tail242, label %.tail242.thread
 
 .tail242:                                         ; preds = %sub_1244
-  %29 = getelementptr inbounds i8, ptr %18, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %.tail242.thread
@@ -132,7 +132,7 @@ sub_1244:                                         ; preds = %sub_1, %.tail
   br label %49
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %18, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %48 [
     i8 98, label %44
@@ -239,7 +239,7 @@ sub_1244:                                         ; preds = %sub_1, %.tail
   unreachable
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %4, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %86 = load i64, ptr %85, align 8
   br i1 %.0185.lcssa, label %90, label %87
 
@@ -367,7 +367,7 @@ sub_1244:                                         ; preds = %sub_1, %.tail
 
 .lr.ph327:                                        ; preds = %.preheader, %135
   %.0180326 = phi i64 [ %136, %135 ], [ 0, %.preheader ]
-  %137 = getelementptr inbounds i8, ptr %114, i64 %.0180326
+  %137 = getelementptr inbounds nuw i8, ptr %114, i64 %.0180326
   %138 = load i8, ptr %137, align 1
   %.not221 = icmp eq i8 %138, 0
   br i1 %.not221, label %135, label %141
@@ -743,7 +743,7 @@ define internal fastcc i64 @get_size(ptr noundef %0, ptr nocapture noundef nonnu
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i64
   %15 = getelementptr inbounds i16, ptr %7, i64 %14
@@ -808,7 +808,7 @@ define internal fastcc i64 @get_size(ptr noundef %0, ptr nocapture noundef nonnu
   br i1 %.not28, label %.thread32, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %42, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %47 = load i8, ptr %46, align 1
   %.not29 = icmp eq i8 %47, 0
   br i1 %.not29, label %48, label %56

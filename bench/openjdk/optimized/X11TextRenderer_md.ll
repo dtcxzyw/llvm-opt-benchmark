@@ -24,12 +24,12 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
   br i1 %13, label %checkPixmap.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = tail call ptr @getDefaultConfig(i32 noundef %18) #5
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %42
@@ -41,12 +41,12 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
   br i1 %.not.i, label %39, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %28 = load i32, ptr %27, align 4
   %29 = shl nsw i32 %28, 5
   %30 = sext i32 %29 to i64
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #6
-  %32 = getelementptr inbounds i8, ptr %25, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %.thread.i
@@ -56,9 +56,9 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
   br label %39
 
 .thread.i:                                        ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %25, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %25, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i32 %37, ptr %38, align 8
   store ptr %25, ptr %20, align 8
   br label %42
@@ -74,25 +74,25 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
 
 42:                                               ; preds = %39, %.thread.i, %14
   %43 = phi ptr [ %.pr.i, %39 ], [ %25, %.thread.i ], [ %21, %14 ]
-  %44 = getelementptr inbounds i8, ptr %19, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %60, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %19, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %57, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %19, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %53 = load i32, ptr %52, align 8
   %.not43.i = icmp eq i32 %53, 1024
   br i1 %.not43.i, label %54, label %57
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %19, i64 124
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 124
   %56 = load i32, ptr %55, align 4
   %.not44.i = icmp eq i32 %56, 32
   br i1 %.not44.i, label %checkPixmap.exit, label %57
@@ -104,7 +104,7 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
   br label %60
 
 60:                                               ; preds = %57, %42
-  %61 = getelementptr inbounds i8, ptr %19, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %62 = load ptr, ptr %61, align 8
   %.not46.i = icmp eq ptr %62, null
   br i1 %.not46.i, label %66, label %63
@@ -117,9 +117,9 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
 
 66:                                               ; preds = %63, %60
   %67 = load ptr, ptr @awt_display, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 232
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 232
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %19, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds %struct.Screen, ptr %69, i64 %72, i32 2
@@ -153,9 +153,9 @@ define void @AWTDrawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1,
   %88 = load ptr, ptr @awt_display, align 8
   %89 = load ptr, ptr %61, align 8
   %90 = tail call i32 @XSetBackground(ptr noundef %88, ptr noundef %89, i64 noundef 0) #5
-  %91 = getelementptr inbounds i8, ptr %19, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store i32 1024, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %19, i64 124
+  %92 = getelementptr inbounds nuw i8, ptr %19, i64 124
   store i32 32, ptr %92, align 4
   %.pre = load ptr, ptr %20, align 8
   %.pre82 = load i64, ptr %44, align 8
@@ -166,33 +166,33 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %93 = phi ptr [ %.pre83, %86 ], [ %49, %54 ]
   %94 = phi i64 [ %.pre82, %86 ], [ %45, %54 ]
   %95 = phi ptr [ %.pre, %86 ], [ %43, %54 ]
-  %96 = getelementptr inbounds i8, ptr %8, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 2, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %8, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i64 %94, ptr %97, align 8
   %98 = load i32, ptr %4, align 4
-  %99 = getelementptr inbounds i8, ptr %8, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i32 %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %4, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %8, i64 84
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 84
   store i32 %101, ptr %102, align 4
   %103 = load ptr, ptr @awt_display, align 8
   %104 = call i32 @XChangeGC(ptr noundef %103, ptr noundef nonnull %12, i64 noundef 14592, ptr noundef nonnull %8) #5
   %105 = load i32, ptr %100, align 4
-  %106 = getelementptr inbounds i8, ptr %4, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %107 = load i32, ptr %106, align 4
   %108 = icmp slt i32 %105, %107
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %checkPixmap.exit
-  %109 = getelementptr inbounds i8, ptr %4, i64 8
-  %110 = getelementptr inbounds i8, ptr %95, i64 44
-  %111 = getelementptr inbounds i8, ptr %95, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %112 = icmp sgt i32 %6, 0
-  %113 = getelementptr inbounds i8, ptr %95, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %wide.trip.count182.i = zext nneg i32 %6 to i64
-  %114 = getelementptr inbounds i8, ptr %9, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %115 = load i32, ptr %4, align 4
   %116 = load i32, ptr %109, align 4
   %117 = icmp slt i32 %115, %116
@@ -250,20 +250,20 @@ checkPixmap.exit:                                 ; preds = %86, %54
 
 .lr.ph169.i:                                      ; preds = %.preheader.i.loopexit, %.loopexit.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.loopexit.i ], [ 0, %.preheader.i.loopexit ]
-  %138 = getelementptr inbounds %struct.ImageRef, ptr %5, i64 %indvars.iv179.i
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
+  %138 = getelementptr inbounds nuw %struct.ImageRef, ptr %5, i64 %indvars.iv179.i
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
   %.not.i73 = icmp eq ptr %140, null
   br i1 %.not.i73, label %.loopexit.i, label %141
 
 141:                                              ; preds = %.lr.ph169.i
-  %142 = getelementptr inbounds i8, ptr %138, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %143 = load i32, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %138, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 32
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %138, i64 36
+  %146 = getelementptr inbounds nuw i8, ptr %138, i64 36
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %138, i64 28
+  %148 = getelementptr inbounds nuw i8, ptr %138, i64 28
   %149 = load i32, ptr %148, align 4
   %150 = add nsw i32 %145, %143
   %151 = add nsw i32 %149, %147
@@ -279,7 +279,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %.0140.i = call i32 @llvm.smax.i32(i32 %147, i32 %.06279)
   %narrow164.i = select i1 %154, i32 %156, i32 0
   %.1131.idx.i = zext i32 %narrow164.i to i64
-  %.1131.i = getelementptr inbounds i8, ptr %.0130.i, i64 %.1131.idx.i
+  %.1131.i = getelementptr inbounds nuw i8, ptr %.0130.i, i64 %.1131.idx.i
   %.0139.i = call i32 @llvm.smin.i32(i32 %150, i32 %spec.select72)
   %.0138.i = call i32 @llvm.smin.i32(i32 %151, i32 %spec.select)
   %.not158.i = icmp sgt i32 %.0139.i, %.0141.i
@@ -343,7 +343,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %.1127.i = phi i32 [ %184, %180 ], [ %.0126.i, %178 ]
   %.1124.i = phi i32 [ %188, %180 ], [ %.0123.i, %178 ]
   %.1122.i = phi i32 [ 128, %180 ], [ %.0121.i, %178 ]
-  %190 = getelementptr inbounds i8, ptr %.2132.i, i64 %indvars.iv173.i
+  %190 = getelementptr inbounds nuw i8, ptr %.2132.i, i64 %indvars.iv173.i
   %191 = load i8, ptr %190, align 1
   %.not162.i = icmp eq i8 %191, 0
   %192 = select i1 %.not162.i, i32 0, i32 %.1122.i
@@ -359,7 +359,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %197 = getelementptr inbounds i8, ptr %.1134.i, i64 %196
   store i8 %195, ptr %197, align 1
   %198 = getelementptr inbounds i8, ptr %.1134.i, i64 %134
-  %199 = getelementptr inbounds i8, ptr %.2132.i, i64 %172
+  %199 = getelementptr inbounds nuw i8, ptr %.2132.i, i64 %172
   %200 = add nsw i32 %.0136.i, -1
   %201 = icmp sgt i32 %.0136.i, 1
   br i1 %201, label %175, label %.loopexit.i, !llvm.loop !11
@@ -400,7 +400,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %.1119.i = phi i32 [ %212, %208 ], [ %.0118.i, %207 ]
   %.1117.i = phi i32 [ %216, %208 ], [ %.0116.i, %207 ]
   %.1.i = phi i32 [ 1, %208 ], [ %.0.i74, %207 ]
-  %218 = getelementptr inbounds i8, ptr %.3.i, i64 %indvars.iv.i
+  %218 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %indvars.iv.i
   %219 = load i8, ptr %218, align 1
   %.not161.i = icmp eq i8 %219, 0
   %220 = select i1 %.not161.i, i32 0, i32 %.1.i
@@ -416,7 +416,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %225 = getelementptr inbounds i8, ptr %.2135.i, i64 %224
   store i8 %223, ptr %225, align 1
   %226 = getelementptr inbounds i8, ptr %.2135.i, i64 %134
-  %227 = getelementptr inbounds i8, ptr %.3.i, i64 %172
+  %227 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %172
   %228 = add nsw i32 %.1137.i, -1
   %229 = icmp sgt i32 %.1137.i, 1
   br i1 %229, label %204, label %.loopexit.i, !llvm.loop !13

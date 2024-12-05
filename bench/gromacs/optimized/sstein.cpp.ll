@@ -82,7 +82,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph284:                                        ; preds = %.lr.ph284.preheader, %62
   %49 = phi i32 [ %.pre, %.lr.ph284.preheader ], [ %51, %62 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph284.preheader ], [ %indvars.iv.next, %62 ]
-  %50 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %51, %49
   br i1 %52, label %53, label %54
@@ -96,7 +96,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds float, ptr %27, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
   %58 = load float, ptr %57, align 4
   %gep392 = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %59 = load float, ptr %gep392, align 4
@@ -157,10 +157,10 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %gep315 = getelementptr float, ptr %invariant.gep314, i64 %78
   %79 = or disjoint i32 %76, 1
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds float, ptr %33, i64 %80
+  %81 = getelementptr inbounds nuw float, ptr %33, i64 %80
   %82 = or disjoint i32 %75, 1
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %33, i64 %83
+  %84 = getelementptr inbounds nuw float, ptr %33, i64 %83
   %85 = sext i32 %30 to i64
   %86 = shl nsw i64 %31, 2
   %scevgep = getelementptr i8, ptr %7, i64 %86
@@ -183,7 +183,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 93:                                               ; preds = %88, %90
   %.0246 = phi i32 [ %92, %90 ], [ 1, %88 ]
-  %94 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv381
+  %94 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv381
   %95 = load i32, ptr %94, align 4
   %96 = sub nsw i32 %95, %.0246
   %97 = add nsw i32 %96, 1
@@ -501,7 +501,7 @@ define void @sstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 259:                                              ; preds = %.lr.ph312, %259
   %indvars.iv367 = phi i64 [ 1, %.lr.ph312 ], [ %indvars.iv.next368, %259 ]
-  %260 = getelementptr inbounds float, ptr %33, i64 %indvars.iv367
+  %260 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv367
   %261 = load float, ptr %260, align 4
   %262 = trunc nuw nsw i64 %indvars.iv367 to i32
   %263 = add i32 %257, %262

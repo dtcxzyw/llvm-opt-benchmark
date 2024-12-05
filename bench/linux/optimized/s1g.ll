@@ -39,18 +39,18 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @ieee80211_s1g_sta_rate_init(ptr nocapture noundef initializes((1796, 1800)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2385
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2385
   %3 = load i16, ptr %2, align 1
   %4 = or i16 %3, 8192
   store i16 %4, ptr %2, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1796
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1796
   store i32 81920, ptr %5, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @ieee80211_s1g_is_twt_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 252
@@ -58,13 +58,13 @@ define dso_local zeroext i1 @ieee80211_s1g_is_twt_setup(ptr nocapture noundef re
   br i1 %6, label %7, label %15, !prof !6
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load i8, ptr %8, align 2
   %10 = icmp eq i8 %9, 22
   br i1 %10, label %11, label %15, !prof !6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 6
   br label %15
@@ -76,15 +76,15 @@ define dso_local zeroext i1 @ieee80211_s1g_is_twt_setup(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 10
-  %6 = tail call ptr @sta_info_get_bss(ptr noundef %0, ptr noundef %5) #10
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %6 = tail call ptr @sta_info_get_bss(ptr noundef %0, ptr noundef nonnull %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %143, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %143 [
     i8 6, label %11
@@ -93,12 +93,12 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 26
-  %14 = getelementptr inbounds i8, ptr %12, i64 30
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 26
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 30
   %15 = load i16, ptr %14, align 1
   %16 = and i16 %15, -2
   store i16 %16, ptr %14, align 1
-  %17 = getelementptr inbounds i8, ptr %12, i64 29
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 29
   %18 = load i8, ptr %17, align 1
   %19 = and i8 %18, 8
   %20 = icmp eq i8 %19, 0
@@ -113,18 +113,18 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
 24:                                               ; preds = %11
   %25 = or i8 %18, 16
   store i8 %25, ptr %17, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 1256
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 2680
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 2680
   %29 = tail call i32 @__SCT__might_resched() #10
   %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1415
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1415
   %32 = load i8, ptr %31, align 1, !range !7, !noundef !8
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %0, i64 1264
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 32
   %38 = icmp ne i32 %37, 0
@@ -135,14 +135,14 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
 41:                                               ; preds = %34
   store i1 true, ptr @drv_add_twt_setup.__already_done, align 1
   tail call void asm sideeffect "2939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2939) #10, !srcloc !10
-  %42 = getelementptr inbounds i8, ptr %0, i64 1248
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  %45 = getelementptr inbounds i8, ptr %43, i64 296
-  %46 = getelementptr inbounds i8, ptr %0, i64 1280
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 296
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %47 = select i1 %44, ptr %46, ptr %45
   %48 = load i32, ptr %35, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %47, i32 noundef %48) #10
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull %47, i32 noundef %48) #10
   tail call void asm sideeffect "2940: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2940b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2940) #10, !srcloc !11
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1600, i32 2313, i64 12) #10, !srcloc !12
   tail call void asm sideeffect "2941: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2941) #10, !srcloc !13
@@ -150,7 +150,7 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   br label %.thread
 
 .thread:                                          ; preds = %24, %41, %34
-  %49 = getelementptr inbounds i8, ptr %0, i64 1264
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 32
   %52 = icmp eq i32 %51, 0
@@ -177,9 +177,9 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @__SCT__tp_func_drv_add_twt_setup(ptr noundef %65, ptr noundef %27, ptr noundef %28, ptr noundef %13, ptr noundef %14) #10
+  %66 = tail call i32 @__SCT__tp_func_drv_add_twt_setup(ptr noundef %65, ptr noundef %27, ptr noundef nonnull %28, ptr noundef nonnull %13, ptr noundef nonnull %14) #10
   br label %67
 
 67:                                               ; preds = %63, %60
@@ -197,11 +197,11 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   br label %74
 
 74:                                               ; preds = %71, %67, %54, %53
-  %75 = getelementptr inbounds i8, ptr %27, i64 448
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 448
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 872
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 872
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef %27, ptr noundef %28, ptr noundef %13) #10
+  tail call void %78(ptr noundef %27, ptr noundef nonnull %28, ptr noundef nonnull %13) #10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_void, i64 8), i32 2) #10
           to label %99 [label %79], !srcloc !15
 
@@ -222,7 +222,7 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   br i1 %87, label %92, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %90, ptr noundef %27) #10
   br label %92
@@ -242,13 +242,13 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   br label %99
 
 99:                                               ; preds = %96, %92, %79, %74, %.thread, %21
-  %100 = getelementptr inbounds i8, ptr %12, i64 28
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = add nuw nsw i32 %102, 29
-  %104 = getelementptr inbounds i8, ptr %0, i64 1256
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 96
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 96
   %107 = load i32, ptr %106, align 8
   %108 = add i32 %107, %103
   %109 = tail call ptr @__netdev_alloc_skb(ptr noundef null, i32 noundef %108, i32 noundef 2080) #10
@@ -256,15 +256,15 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   br i1 %110, label %143, label %111
 
 111:                                              ; preds = %99
-  %112 = getelementptr inbounds i8, ptr %0, i64 5062
-  %113 = getelementptr inbounds i8, ptr %12, i64 10
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 5062
+  %113 = getelementptr inbounds nuw i8, ptr %12, i64 10
   %114 = load i32, ptr %106, align 8
-  %115 = getelementptr inbounds i8, ptr %109, i64 200
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 200
   %116 = load ptr, ptr %115, align 8
   %117 = sext i32 %114 to i64
   %118 = getelementptr i8, ptr %116, i64 %117
   store ptr %118, ptr %115, align 8
-  %119 = getelementptr inbounds i8, ptr %109, i64 184
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 184
   %120 = load i32, ptr %119, align 8
   %121 = add i32 %120, %114
   store i32 %121, ptr %119, align 8
@@ -272,22 +272,22 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
   %123 = zext nneg i32 %103 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 %122, i8 0, i64 %123, i1 false)
   store i16 208, ptr %122, align 2
-  %124 = getelementptr inbounds i8, ptr %122, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %124, ptr noundef align 1 dereferenceable(6) %113, i64 6, i1 false)
-  %125 = getelementptr inbounds i8, ptr %122, i64 10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %125, ptr noundef align 2 dereferenceable(6) %112, i64 6, i1 false)
-  %126 = getelementptr inbounds i8, ptr %122, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %126, ptr noundef align 1 dereferenceable(6) %112, i64 6, i1 false)
-  %127 = getelementptr inbounds i8, ptr %122, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %124, ptr noundef nonnull align 1 dereferenceable(6) %113, i64 6, i1 false)
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %125, ptr noundef nonnull align 2 dereferenceable(6) %112, i64 6, i1 false)
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %126, ptr noundef nonnull align 1 dereferenceable(6) %112, i64 6, i1 false)
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store i8 22, ptr %127, align 2
-  %128 = getelementptr inbounds i8, ptr %122, i64 25
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 25
   store i8 6, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %122, i64 26
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 26
   %130 = load i8, ptr %100, align 1
   %131 = zext i8 %130 to i64
   %132 = add nuw nsw i64 %131, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %129, ptr noundef align 1 %13, i64 %132, i1 false)
-  %133 = getelementptr inbounds i8, ptr %109, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %129, ptr noundef nonnull align 1 dereferenceable(1) %13, i64 %132, i1 false)
+  %133 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %134 = load i32, ptr %133, align 8
   %135 = or i32 %134, 1114113
   store i32 %135, ptr %133, align 8
@@ -296,12 +296,12 @@ define dso_local void @ieee80211_s1g_rx_twt_action(ptr noundef %0, ptr nocapture
 
 136:                                              ; preds = %8
   %137 = load ptr, ptr %3, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 1256
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %6, i64 2680
-  %141 = getelementptr inbounds i8, ptr %137, i64 26
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 2680
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 26
   %142 = load i8, ptr %141, align 1
-  tail call fastcc void @drv_twt_teardown_request(ptr noundef %139, ptr noundef %0, ptr noundef %140, i8 noundef zeroext %142)
+  tail call fastcc void @drv_twt_teardown_request(ptr noundef %139, ptr noundef %0, ptr noundef nonnull %140, i8 noundef zeroext %142)
   br label %143
 
 143:                                              ; preds = %136, %111, %99, %8, %2
@@ -313,32 +313,32 @@ declare dso_local ptr @sta_info_get_bss(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_s1g_status_twt_action(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
-  %6 = tail call ptr @sta_info_get_bss(ptr noundef %0, ptr noundef %5) #10
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = tail call ptr @sta_info_get_bss(ptr noundef %0, ptr noundef nonnull %5) #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %50, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %12, label %50
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 30
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 30
   %15 = load i16, ptr %14, align 1
   %16 = lshr i16 %15, 7
   %17 = trunc i16 %16 to i8
   %18 = and i8 %17, 7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1256
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 2680
-  tail call fastcc void @drv_twt_teardown_request(ptr noundef %20, ptr noundef %0, ptr noundef %21, i8 noundef zeroext %18)
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 2680
+  tail call fastcc void @drv_twt_teardown_request(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %21, i8 noundef zeroext %18)
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 27
   %26 = tail call ptr @__netdev_alloc_skb(ptr noundef null, i32 noundef %25, i32 noundef 2080) #10
@@ -346,35 +346,35 @@ define dso_local void @ieee80211_s1g_status_twt_action(ptr noundef %0, ptr nocap
   br i1 %27, label %50, label %28
 
 28:                                               ; preds = %12
-  %29 = getelementptr inbounds i8, ptr %0, i64 5062
-  %30 = getelementptr inbounds i8, ptr %13, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 5062
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 10
   %31 = load i32, ptr %23, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 200
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %31 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
   store ptr %35, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 184
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, %31
   store i32 %38, ptr %36, align 8
   %39 = tail call ptr @skb_put(ptr noundef nonnull %26, i32 noundef 27) #10
-  %40 = getelementptr inbounds i8, ptr %39, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(27) %40, i8 0, i64 25, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %40, i8 0, i64 25, i1 false)
   store i16 208, ptr %39, align 2
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %41, ptr noundef align 1 dereferenceable(6) %30, i64 6, i1 false)
-  %42 = getelementptr inbounds i8, ptr %39, i64 10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %42, ptr noundef align 2 dereferenceable(6) %29, i64 6, i1 false)
-  %43 = getelementptr inbounds i8, ptr %39, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %43, ptr noundef align 1 dereferenceable(6) %29, i64 6, i1 false)
-  %44 = getelementptr inbounds i8, ptr %39, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %41, ptr noundef nonnull align 1 dereferenceable(6) %30, i64 6, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %42, ptr noundef nonnull align 2 dereferenceable(6) %29, i64 6, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %43, ptr noundef nonnull align 1 dereferenceable(6) %29, i64 6, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i8 22, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %39, i64 25
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 7, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %39, i64 26
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 26
   store i8 %18, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %26, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = or i32 %48, 65537
   store i32 %49, ptr %47, align 8
@@ -424,15 +424,15 @@ declare dso_local void @ieee80211_tx_skb_tid(ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @drv_twt_teardown_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #9 align 16 {
   %5 = tail call i32 @__SCT__might_resched() #10
-  %6 = getelementptr inbounds i8, ptr %1, i64 1256
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1415
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1415
   %9 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 1264
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 32
   %15 = icmp ne i32 %14, 0
@@ -443,14 +443,14 @@ define internal fastcc void @drv_twt_teardown_request(ptr noundef %0, ptr nounde
 18:                                               ; preds = %11
   store i1 true, ptr @drv_twt_teardown_request.__already_done, align 1
   tail call void asm sideeffect "2943: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2943) #10, !srcloc !29
-  %19 = getelementptr inbounds i8, ptr %1, i64 1248
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %20, i64 296
-  %23 = getelementptr inbounds i8, ptr %1, i64 1280
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %24 = select i1 %21, ptr %23, ptr %22
   %25 = load i32, ptr %12, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %24, i32 noundef %25) #10
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef nonnull %24, i32 noundef %25) #10
   tail call void asm sideeffect "2944: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2944) #10, !srcloc !30
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1617, i32 2313, i64 12) #10, !srcloc !31
   tail call void asm sideeffect "2945: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2945) #10, !srcloc !32
@@ -458,16 +458,16 @@ define internal fastcc void @drv_twt_teardown_request(ptr noundef %0, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %4, %18, %11
-  %26 = getelementptr inbounds i8, ptr %1, i64 1264
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 32
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %81, label %30
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 448
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 880
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 880
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %81, label %36
@@ -493,7 +493,7 @@ define internal fastcc void @drv_twt_teardown_request(ptr noundef %0, ptr nounde
   br i1 %45, label %50, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @__SCT__tp_func_drv_twt_teardown_request(ptr noundef %48, ptr noundef %0, ptr noundef %2, i8 noundef zeroext %3) #10
   br label %50
@@ -514,7 +514,7 @@ define internal fastcc void @drv_twt_teardown_request(ptr noundef %0, ptr nounde
 
 57:                                               ; preds = %54, %50, %37, %36
   %58 = load ptr, ptr %31, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 880
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 880
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef %0, ptr noundef %2, i8 noundef zeroext %3) #10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_void, i64 8), i32 2) #10
@@ -537,7 +537,7 @@ define internal fastcc void @drv_twt_teardown_request(ptr noundef %0, ptr nounde
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %72, ptr noundef %0) #10
   br label %74

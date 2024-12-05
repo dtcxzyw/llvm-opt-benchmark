@@ -5,10 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddSubSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -29,7 +29,7 @@ define ptr @extraZddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %4, label %112, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
   %9 = icmp eq ptr %2, %7
@@ -37,7 +37,7 @@ define ptr @extraZddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %or.cond, label %112, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %1, %12
   br i1 %13, label %112, label %14
@@ -53,7 +53,7 @@ define ptr @extraZddSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.05.i = phi ptr [ %19, %.lr.ph.i ], [ %1, %16 ]
-  %18 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 2147483647
@@ -72,21 +72,21 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   br i1 %.not, label %24, label %112
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 320
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %1, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %2, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %30, %34
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @extraZddSubSet(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %2)
   %40 = icmp eq ptr %39, null
@@ -94,8 +94,8 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 
 41:                                               ; preds = %24
   %42 = icmp eq i32 %30, %34
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %46) #3
@@ -109,11 +109,11 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %51 = ptrtoint ptr %47 to i64
   %52 = and i64 %51, -2
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr @extraZddSubSet(ptr noundef nonnull %0, ptr noundef %58, ptr noundef nonnull %47)
   %60 = icmp eq ptr %59, null
@@ -124,11 +124,11 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   br label %112
 
 62:                                               ; preds = %50
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = ptrtoint ptr %59 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -147,7 +147,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %76 = ptrtoint ptr %72 to i64
   %77 = and i64 %76, -2
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
@@ -177,7 +177,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %93 = ptrtoint ptr %47 to i64
   %94 = and i64 %93, -2
   %95 = inttoptr i64 %94 to ptr
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 4
@@ -193,7 +193,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
   %103 = ptrtoint ptr %99 to i64
   %104 = and i64 %103, -2
   %105 = inttoptr i64 %104 to ptr
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
@@ -215,10 +215,10 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %16
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddSupSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -239,7 +239,7 @@ define ptr @extraZddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %4, label %122, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
   br i1 %8, label %122, label %9
@@ -251,7 +251,7 @@ define ptr @extraZddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.05.i = phi ptr [ %12, %.lr.ph.i ], [ %2, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 2147483647
@@ -259,7 +259,7 @@ define ptr @extraZddSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %.0.lcssa.i = phi ptr [ %2, %9 ], [ %12, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0.lcssa.i, %15
   br i1 %.not, label %122, label %16
@@ -276,32 +276,32 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %.not111, label %21, label %122
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 320
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %1, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %2, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %27, %31
   br i1 %32, label %33, label %66
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %2)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %122, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = ptrtoint ptr %36 to i64
   %41 = and i64 %40, -2
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -318,7 +318,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %51 = ptrtoint ptr %47 to i64
   %52 = and i64 %51, -2
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4
@@ -346,21 +346,21 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %67, label %68, label %116
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef %71, ptr noundef %73)
   %75 = icmp eq ptr %74, null
   br i1 %75, label %122, label %76
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = ptrtoint ptr %74 to i64
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -378,7 +378,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %90 = ptrtoint ptr %86 to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, 1
   store i32 %95, ptr %93, align 4
@@ -396,7 +396,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %101 = ptrtoint ptr %97 to i64
   %102 = and i64 %101, -2
   %103 = inttoptr i64 %102 to ptr
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 4
@@ -421,7 +421,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br label %121
 
 116:                                              ; preds = %66
-  %117 = getelementptr inbounds i8, ptr %2, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = tail call ptr @extraZddSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %118)
   %120 = icmp eq ptr %119, null
@@ -439,10 +439,10 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddNotSubSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -460,7 +460,7 @@ define ptr @Extra_zddNotSubSet(ptr noundef initializes((448, 452)) %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   br i1 %4, label %124, label %7
 
@@ -469,7 +469,7 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %8, label %124, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %2, %11
   br i1 %12, label %13, label %15
@@ -490,32 +490,32 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %.not, label %20, label %124
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 320
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %1, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %2, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %26, %30
   br i1 %31, label %32, label %53
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %34, ptr noundef nonnull %2)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %124, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = ptrtoint ptr %35 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -537,8 +537,8 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 53:                                               ; preds = %20
   %54 = icmp eq i32 %26, %30
-  %55 = getelementptr inbounds i8, ptr %2, i64 16
-  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %57, ptr noundef %58) #3
@@ -552,11 +552,11 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %63 = ptrtoint ptr %59 to i64
   %64 = and i64 %63, -2
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, 1
   store i32 %68, ptr %66, align 4
-  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @extraZddNotSubSet(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %59)
   %72 = icmp eq ptr %71, null
@@ -567,11 +567,11 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br label %124
 
 74:                                               ; preds = %62
-  %75 = getelementptr inbounds i8, ptr %1, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %76 = ptrtoint ptr %71 to i64
   %77 = and i64 %76, -2
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
@@ -590,7 +590,7 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %88 = ptrtoint ptr %84 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
@@ -620,7 +620,7 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %105 = ptrtoint ptr %59 to i64
   %106 = and i64 %105, -2
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
@@ -636,7 +636,7 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %115 = ptrtoint ptr %111 to i64
   %116 = and i64 %115, -2
   %117 = inttoptr i64 %116 to ptr
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = add i32 %119, 1
   store i32 %120, ptr %118, align 4
@@ -658,10 +658,10 @@ define ptr @extraZddNotSubSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddNotSupSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -679,7 +679,7 @@ define ptr @Extra_zddNotSupSet(ptr noundef initializes((448, 452)) %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   br i1 %4, label %123, label %7
 
@@ -694,7 +694,7 @@ define ptr @extraZddNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.05.i = phi ptr [ %12, %.lr.ph.i ], [ %2, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 2147483647
@@ -702,7 +702,7 @@ define ptr @extraZddNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %.0.lcssa.i = phi ptr [ %2, %9 ], [ %12, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %.0.lcssa.i, %15
   %17 = icmp eq ptr %1, %6
@@ -719,32 +719,32 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %.not110, label %22, label %123
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %1, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %2, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %28, %32
   br i1 %33, label %34, label %67
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %36, ptr noundef nonnull %2)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %123, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = ptrtoint ptr %37 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -761,7 +761,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %52 = ptrtoint ptr %48 to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
@@ -789,21 +789,21 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br i1 %68, label %69, label %117
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %1, i64 16
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef %72, ptr noundef %74)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %123, label %77
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %2, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %79 = ptrtoint ptr %75 to i64
   %80 = and i64 %79, -2
   %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
@@ -821,7 +821,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %91 = ptrtoint ptr %87 to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, 1
   store i32 %96, ptr %94, align 4
@@ -839,7 +839,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   %102 = ptrtoint ptr %98 to i64
   %103 = and i64 %102, -2
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
@@ -864,7 +864,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
   br label %122
 
 117:                                              ; preds = %67
-  %118 = getelementptr inbounds i8, ptr %2, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = tail call ptr @extraZddNotSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %119)
   %121 = icmp eq ptr %120, null
@@ -882,10 +882,10 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %9
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_zddMaxNotSupSet(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load i32, ptr %4, align 8
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -903,7 +903,7 @@ define ptr @Extra_zddMaxNotSupSet(ptr noundef initializes((448, 452)) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define ptr @extraZddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %1, %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   br i1 %4, label %145, label %7
 
@@ -922,7 +922,7 @@ define ptr @extraZddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %.05.i = phi ptr [ %14, %.lr.ph.i ], [ %2, %11 ]
-  %13 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 2147483647
@@ -930,7 +930,7 @@ define ptr @extraZddMaxNotSupSet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %.0.lcssa.i = phi ptr [ %2, %11 ], [ %14, %.lr.ph.i ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %.0.lcssa.i, %17
   %19 = icmp eq ptr %1, %6
@@ -947,32 +947,32 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   br i1 %.not135, label %24, label %145
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 320
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %1, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %2, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %30, %34
   br i1 %35, label %36, label %79
 
 36:                                               ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull %2)
   %40 = icmp eq ptr %39, null
   br i1 %40, label %145, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = ptrtoint ptr %39 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -989,7 +989,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -1006,7 +1006,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %64 = ptrtoint ptr %60 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -1035,21 +1035,21 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   br i1 %80, label %81, label %139
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
-  %83 = getelementptr inbounds i8, ptr %1, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %86)
   %88 = icmp eq ptr %87, null
   br i1 %88, label %145, label %89
 
 89:                                               ; preds = %81
-  %90 = getelementptr inbounds i8, ptr %2, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %91 = ptrtoint ptr %87 to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, 1
   store i32 %96, ptr %94, align 4
@@ -1067,7 +1067,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %103 = ptrtoint ptr %99 to i64
   %104 = and i64 %103, -2
   %105 = inttoptr i64 %104 to ptr
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
@@ -1085,7 +1085,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %114 = ptrtoint ptr %110 to i64
   %115 = and i64 %114, -2
   %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 4
@@ -1103,7 +1103,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   %124 = ptrtoint ptr %120 to i64
   %125 = and i64 %124, -2
   %126 = inttoptr i64 %125 to ptr
-  %127 = getelementptr inbounds i8, ptr %126, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = add i32 %128, 1
   store i32 %129, ptr %127, align 4
@@ -1128,7 +1128,7 @@ Extra_zddEmptyBelongs.exit:                       ; preds = %.lr.ph.i, %11
   br label %144
 
 139:                                              ; preds = %79
-  %140 = getelementptr inbounds i8, ptr %2, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %141 = load ptr, ptr %140, align 8
   %142 = tail call ptr @extraZddMaxNotSupSet(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %141)
   %143 = icmp eq ptr %142, null
@@ -1152,7 +1152,7 @@ define range(i32 0, 2) i32 @Extra_zddEmptyBelongs(ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.05 = phi ptr [ %5, %.lr.ph ], [ %1, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.05, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.05, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 2147483647
@@ -1160,7 +1160,7 @@ define range(i32 0, 2) i32 @Extra_zddEmptyBelongs(ptr nocapture noundef readonly
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %5, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %.0.lcssa, %8
   %10 = zext i1 %9 to i32
@@ -1174,19 +1174,19 @@ define range(i32 0, 2) i32 @Extra_zddIsOneSubset(ptr nocapture noundef readonly 
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %9
   %.010 = phi ptr [ %1, %.lr.ph ], [ %11, %9 ]
-  %7 = getelementptr inbounds i8, ptr %.010, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, %5
   br i1 %.not7, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.010, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 2147483647
@@ -1194,7 +1194,7 @@ define range(i32 0, 2) i32 @Extra_zddIsOneSubset(ptr nocapture noundef readonly 
 
 ._crit_edge:                                      ; preds = %9, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %11, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %.0.lcssa, %14
   %16 = zext i1 %15 to i32

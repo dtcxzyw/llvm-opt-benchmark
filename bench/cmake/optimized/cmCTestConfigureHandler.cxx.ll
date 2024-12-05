@@ -169,14 +169,14 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN23cmCTestConfigureHandler14Pro
           to label %60 unwind label %85
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load ptr, ptr %61, align 8
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(112) %10)
           to label %63 unwind label %85
 
 63:                                               ; preds = %60
   %64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
-  %65 = getelementptr inbounds i8, ptr %0, i64 9
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %66 = load i8, ptr %65, align 1
   %67 = trunc i8 %66 to i1
   invoke void @_ZN7cmCTest3LogEiPKciS1_b(ptr noundef nonnull align 8 dereferenceable(8) %62, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef 26, ptr noundef %64, i1 noundef zeroext %67)
@@ -566,7 +566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
 
 204:                                              ; preds = %203
   %205 = load ptr, ptr %61, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %207 = load i8, ptr %206, align 8
   %208 = trunc i8 %207 to i1
   invoke void @_ZN7cmCTest8StartXMLER11cmXMLWriterb(ptr noundef nonnull align 8 dereferenceable(8) %205, ptr noundef nonnull align 8 dereferenceable(83) %31, i1 noundef zeroext %208)

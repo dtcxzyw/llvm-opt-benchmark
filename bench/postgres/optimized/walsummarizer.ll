@@ -88,17 +88,17 @@ define dso_local void @WalSummarizerShmemInit() local_unnamed_addr #1 {
 
 5:                                                ; preds = %0
   store i8 0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @ConditionVariableInit(ptr noundef nonnull %11) #11
   br label %12
 
@@ -142,7 +142,7 @@ define dso_local void @WalSummarizerMain() local_unnamed_addr #3 {
   %21 = call zeroext i1 @LWLockAcquire(ptr noundef %20, i32 noundef 0) #11
   %22 = load i32, ptr @MyProcNumber, align 4
   %23 = load ptr, ptr @WalSummarizerCtl, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 %22, ptr %24, align 4
   %25 = load ptr, ptr @MainLWLockArray, align 8
   %26 = getelementptr i8, ptr %25, i64 6272
@@ -318,7 +318,7 @@ HandleWalSummarizerInterrupts.exit28:             ; preds = %91, %93
   %94 = getelementptr i8, ptr %.045.i, i64 16
   %.0.val.i = load ptr, ptr %94, align 8
   %95 = load ptr, ptr %.0.val.i, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i32, ptr %96, align 8
   %98 = call i64 @XLogGetOldestSegno(i32 noundef %97) #11
   %99 = load i32, ptr @wal_segment_size, align 4
@@ -333,13 +333,13 @@ HandleWalSummarizerInterrupts.exit28:             ; preds = %91, %93
   %.139.us.i = phi ptr [ %.2.us.i, %130 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
   %.sroa.0.038.us.i = phi ptr [ %.sroa.0.1.us.i, %130 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
   %.sroa.5.037.us.i = phi i32 [ %131, %130 ], [ 0, %HandleWalSummarizerInterrupts.exit28 ]
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.038.us.i, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.us.i, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = icmp slt i32 %.sroa.5.037.us.i, %104
   br i1 %105, label %106, label %.split41.us.i
 
 106:                                              ; preds = %.split.us.i
-  %107 = getelementptr inbounds i8, ptr %.sroa.0.038.us.i, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.us.i, i64 16
   %108 = load ptr, ptr %107, align 8
   %109 = sext i32 %.sroa.5.037.us.i to i64
   %110 = getelementptr %union.ListCell, ptr %108, i64 %109
@@ -382,7 +382,7 @@ HandleWalSummarizerInterrupts.exit28:             ; preds = %91, %93
   br label %HandleWalSummarizerInterrupts.exit.us.i
 
 HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
-  %125 = getelementptr inbounds i8, ptr %111, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %126 = load i32, ptr %125, align 8
   %.not29.us.i = icmp eq i32 %97, %126
   br i1 %.not29.us.i, label %127, label %130
@@ -406,7 +406,7 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
   %.139.i = phi ptr [ %.2.i, %167 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
   %.sroa.0.038.i = phi ptr [ %.sroa.0.1.i, %167 ], [ %.045.i, %HandleWalSummarizerInterrupts.exit28 ]
   %.sroa.5.037.i = phi i32 [ %168, %167 ], [ 0, %HandleWalSummarizerInterrupts.exit28 ]
-  %132 = getelementptr inbounds i8, ptr %.sroa.0.038.i, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.i, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = icmp slt i32 %.sroa.5.037.i, %133
   br i1 %134, label %135, label %.split41.us.i
@@ -417,7 +417,7 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
   br i1 %.not.i23, label %MaybeRemoveOldWalSummaries.exit, label %.lr.ph.i, !llvm.loop !7
 
 135:                                              ; preds = %.split.i
-  %136 = getelementptr inbounds i8, ptr %.sroa.0.038.i, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.i, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = sext i32 %.sroa.5.037.i to i64
   %139 = getelementptr %union.ListCell, ptr %137, i64 %138
@@ -473,13 +473,13 @@ HandleWalSummarizerInterrupts.exit.us.i:          ; preds = %124, %122
   br label %HandleWalSummarizerInterrupts.exit.i
 
 HandleWalSummarizerInterrupts.exit.i:             ; preds = %157, %155
-  %158 = getelementptr inbounds i8, ptr %140, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %159 = load i32, ptr %158, align 8
   %.not29.i = icmp eq i32 %97, %159
   br i1 %.not29.i, label %160, label %167
 
 160:                                              ; preds = %HandleWalSummarizerInterrupts.exit.i
-  %161 = getelementptr inbounds i8, ptr %140, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %162 = load i64, ptr %161, align 8
   %.not30.i = icmp ugt i64 %162, %101
   br i1 %.not30.i, label %164, label %163
@@ -583,20 +583,20 @@ GetLatestLSN.exit:                                ; preds = %170, %176, %178
   %206 = getelementptr i8, ptr %205, i64 6272
   %207 = call zeroext i1 @LWLockAcquire(ptr noundef %206, i32 noundef 0) #11
   %208 = load ptr, ptr @WalSummarizerCtl, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i64 %204, ptr %209, align 8
   %210 = load i32, ptr %4, align 4
-  %211 = getelementptr inbounds i8, ptr %208, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 4
   store i32 %210, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %208, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store i8 1, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %208, i64 24
+  %213 = getelementptr inbounds nuw i8, ptr %208, i64 24
   store i64 %204, ptr %213, align 8
   %214 = load ptr, ptr @MainLWLockArray, align 8
   %215 = getelementptr i8, ptr %214, i64 6272
   call void @LWLockRelease(ptr noundef %215) #11
   %216 = load ptr, ptr @WalSummarizerCtl, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 32
   call void @ConditionVariableBroadcast(ptr noundef nonnull %217) #11
   br label %.outer
 
@@ -631,7 +631,7 @@ define internal void @WalSummarizerShutdown(i32 %0, i64 %1) #1 {
   %4 = getelementptr i8, ptr %3, i64 6272
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 0) #11
   %6 = load ptr, ptr @WalSummarizerCtl, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 -1, ptr %7, align 4
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr i8, ptr %8, i64 6272
@@ -691,13 +691,13 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
 
 ._crit_edge:                                      ; preds = %33, %.preheader
   %.lcssa65 = phi ptr [ %13, %.preheader ], [ %39, %33 ]
-  %16 = getelementptr inbounds i8, ptr %.lcssa65, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.lcssa65, i64 8
   %17 = load i64, ptr %16, align 8
   %.not56 = icmp eq ptr %0, null
   br i1 %.not56, label %21, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = getelementptr inbounds i8, ptr %.lcssa65, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa65, i64 4
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %0, align 4
   br label %21
@@ -707,7 +707,7 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
   br i1 %.not57, label %26, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %.lcssa65, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.lcssa65, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = and i8 %24, 1
   store i8 %25, ptr %1, align 1
@@ -718,7 +718,7 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
 
 27:                                               ; preds = %26
   %28 = load i64, ptr %16, align 8
-  %29 = getelementptr inbounds i8, ptr %.lcssa65, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.lcssa65, i64 24
   store i64 %28, ptr %29, align 8
   br label %30
 
@@ -779,7 +779,7 @@ GetLatestLSN.exit:                                ; preds = %43, %49, %51
   br i1 %.not.i, label %list_length.exit, label %55
 
 55:                                               ; preds = %GetLatestLSN.exit
-  %56 = getelementptr inbounds i8, ptr %54, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %57 to i64
   br label %list_length.exit
@@ -829,13 +829,13 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   br i1 %.not52, label %._crit_edge73, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph85, label %._crit_edge73
 
 .lr.ph85:                                         ; preds = %.lr.ph72
-  %85 = getelementptr inbounds i8, ptr %81, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %86 = load ptr, ptr %85, align 8
   %wide.trip.count = zext nneg i32 %83 to i64
   br label %87
@@ -846,7 +846,7 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %.16983 = phi i64 [ %80, %.lr.ph85 ], [ %spec.select58, %87 ]
   %88 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv91
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = icmp ugt i64 %91, %.16983
   %spec.select = select i1 %92, i8 1, i8 %.0436884
@@ -860,13 +860,13 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %.1.lcssa = phi i64 [ %80, %77 ], [ %80, %.lr.ph72 ], [ %spec.select58, %87 ]
   %93 = load ptr, ptr @WalSummarizerCtl, align 8
   store i8 1, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 %.1.lcssa, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 %71, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i8 %.043.lcssa, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %93, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store i64 %.1.lcssa, ptr %97, align 8
   %.not54 = icmp eq ptr %0, null
   br i1 %.not54, label %99, label %98
@@ -977,16 +977,16 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %17 = tail call ptr @palloc0(i64 noundef 24) #11
   store i32 %0, ptr %17, align 8
   %18 = icmp ne i64 %3, 0
-  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = zext i1 %18 to i8
   store i8 %20, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %4, ptr %21, align 8
   %22 = load i32, ptr @wal_segment_size, align 4
   store ptr @summarizer_read_local_xlog_page, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @wal_segment_open, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @wal_segment_close, ptr %24, align 8
   %25 = call ptr @XLogReaderAllocate(i32 noundef %22, ptr noundef null, ptr noundef nonnull %11, ptr noundef nonnull %17) #11
   %26 = icmp eq ptr %25, null
@@ -1014,7 +1014,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %17, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %55
@@ -1036,7 +1036,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br label %52
 
 52:                                               ; preds = %41, %43
-  %53 = getelementptr inbounds i8, ptr %25, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %54 = load i64, ptr %53, align 8
   br label %61
 
@@ -1060,17 +1060,17 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 .lr.ph101:                                        ; preds = %61
   %64 = icmp eq i64 %.0, 0
-  %65 = getelementptr inbounds i8, ptr %25, i64 40
-  %66 = getelementptr inbounds i8, ptr %25, i64 104
-  %67 = getelementptr inbounds i8, ptr %7, i64 32
-  %68 = getelementptr inbounds i8, ptr %7, i64 40
-  %69 = getelementptr inbounds i8, ptr %6, i64 32
-  %70 = getelementptr inbounds i8, ptr %6, i64 40
-  %71 = getelementptr inbounds i8, ptr %25, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %104
 
 ._crit_edge102:                                   ; preds = %201, %61
-  %72 = getelementptr inbounds i8, ptr %17, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %73 = load i8, ptr %72, align 8
   %74 = trunc i8 %73 to i1
   br i1 %74, label %75, label %90
@@ -1080,7 +1080,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br i1 %76, label %77, label %88
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %25, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %79 = load i64, ptr %78, align 8
   %80 = lshr i64 %79, 32
   %81 = trunc nuw i64 %80 to i32
@@ -1103,7 +1103,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %92)
   %93 = call i32 @errcode_for_file_access() #11
-  %94 = getelementptr inbounds i8, ptr %25, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %95 = load i64, ptr %94, align 8
   %96 = lshr i64 %95, 32
   %97 = trunc nuw i64 %96 to i32
@@ -1131,7 +1131,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 
 107:                                              ; preds = %105, %104
   %108 = load ptr, ptr %66, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 57
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 57
   %110 = load i8, ptr %109, align 1
   switch i8 %110, label %.critedge [
     i8 2, label %111
@@ -1140,7 +1140,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   ]
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %108, i64 56
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %113 = load i8, ptr %112, align 8
   %114 = and i8 %113, -16
   switch i8 %114, label %.critedge [
@@ -1149,9 +1149,9 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   ]
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %108, i64 72
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 12
   %119 = load i32, ptr %118, align 4
   %.not18.i = icmp eq i32 %119, 1
   br i1 %.not18.i, label %.critedge, label %120
@@ -1161,16 +1161,16 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br label %.critedge
 
 121:                                              ; preds = %111
-  %122 = getelementptr inbounds i8, ptr %108, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i32, ptr %124, align 4
   %126 = and i32 %125, 1
   %.not.i = icmp eq i32 %126, 0
   br i1 %.not.i, label %130, label %127
 
 127:                                              ; preds = %121
-  %128 = getelementptr inbounds i8, ptr %123, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %129 = load i32, ptr %123, align 4
   call void @BlockRefTableSetLimitBlock(ptr noundef %16, ptr noundef nonnull %128, i32 noundef 0, i32 noundef %129) #11
   %.pre.i = load i32, ptr %124, align 4
@@ -1183,7 +1183,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br i1 %.not17.i, label %.critedge, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %123, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %135 = load i32, ptr %123, align 4
   call void @BlockRefTableSetLimitBlock(ptr noundef %16, ptr noundef nonnull %134, i32 noundef 2, i32 noundef %135) #11
   br label %.critedge
@@ -1191,7 +1191,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
 136:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %7)
-  %137 = getelementptr inbounds i8, ptr %108, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %138 = load i8, ptr %137, align 8
   %139 = lshr i8 %138, 4
   %140 = and i8 %139, 7
@@ -1203,7 +1203,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   ]
 
 141:                                              ; preds = %136, %136
-  %142 = getelementptr inbounds i8, ptr %108, i64 72
+  %142 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %143 = load ptr, ptr %142, align 8
   call void @ParseCommitRecord(i8 noundef zeroext %138, ptr noundef %143, ptr noundef nonnull %6) #11
   %144 = load i32, ptr %69, align 8
@@ -1238,7 +1238,7 @@ define internal fastcc i64 @SummarizeWAL(i32 noundef %0, i64 noundef %1, i1 noun
   br i1 %155, label %.preheader.i, label %SummarizeXactRecord.exit, !llvm.loop !10
 
 156:                                              ; preds = %136, %136
-  %157 = getelementptr inbounds i8, ptr %108, i64 72
+  %157 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %158 = load ptr, ptr %157, align 8
   call void @ParseAbortRecord(i8 noundef zeroext %138, ptr noundef %158, ptr noundef nonnull %7) #11
   %159 = load i32, ptr %67, align 8
@@ -1293,7 +1293,7 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
 
 .critedge:                                        ; preds = %171, %133, %130, %120, %115, %111, %107, %SummarizeXactRecord.exit, %174
   %177 = load ptr, ptr %66, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 84
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 84
   %179 = load i32, ptr %178, align 4
   %.not9198 = icmp slt i32 %179, 0
   br i1 %.not9198, label %._crit_edge, label %.lr.ph
@@ -1315,7 +1315,7 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
 186:                                              ; preds = %184, %.lr.ph
   %187 = add i32 %.08599, 1
   %188 = load ptr, ptr %66, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 84
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 84
   %190 = load i32, ptr %189, align 4
   %.not91 = icmp sgt i32 %187, %190
   br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -1326,7 +1326,7 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
   %193 = getelementptr i8, ptr %192, i64 6272
   %194 = call zeroext i1 @LWLockAcquire(ptr noundef %193, i32 noundef 0) #11
   %195 = load ptr, ptr @WalSummarizerCtl, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store i64 %191, ptr %196, align 8
   %197 = load ptr, ptr @MainLWLockArray, align 8
   %198 = getelementptr i8, ptr %197, i64 6272
@@ -1346,7 +1346,7 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
 
 .loopexit:                                        ; preds = %174, %105, %199, %88
   %.084 = phi i64 [ %89, %88 ], [ %175, %174 ], [ %.0, %105 ], [ %191, %199 ]
-  %204 = getelementptr inbounds i8, ptr %25, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %205 = load ptr, ptr %204, align 8
   call void @pfree(ptr noundef %205) #11
   call void @XLogReaderFree(ptr noundef nonnull %25) #11
@@ -1362,7 +1362,7 @@ SummarizeXactRecord.exit:                         ; preds = %167, %152, %136, %1
   %213 = trunc nuw i64 %212 to i32
   %214 = trunc i64 %.084 to i32
   %215 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.14, i32 noundef %0, i32 noundef %210, i32 noundef %211, i32 noundef %213, i32 noundef %214) #11
-  %216 = getelementptr inbounds i8, ptr %10, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %216, align 8
   %217 = call i32 @PathNameOpenFile(ptr noundef nonnull %8, i32 noundef 577) #11
   store i32 %217, ptr %10, align 8
@@ -1416,12 +1416,12 @@ define dso_local void @GetWalSummarizerState(ptr nocapture noundef writeonly ini
   br label %30
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %8, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %0, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %1, align 8
   %19 = icmp eq i32 %14, -1
@@ -1432,7 +1432,7 @@ define dso_local void @GetWalSummarizerState(ptr nocapture noundef writeonly ini
   br label %30
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %2, align 8
   %24 = load ptr, ptr @ProcGlobal, align 8
@@ -1470,7 +1470,7 @@ define dso_local void @SetWalSummarizerLatch() local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %4, i64 6272
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #11
   %7 = load ptr, ptr @WalSummarizerCtl, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr @MainLWLockArray, align 8
   %11 = getelementptr i8, ptr %10, i64 6272
@@ -1501,9 +1501,9 @@ define dso_local i64 @WaitForWalSummarization(i64 noundef %0, i64 noundef %1, pt
   %8 = getelementptr i8, ptr %7, i64 6272
   %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 0) #11
   %10 = load ptr, ptr @WalSummarizerCtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %2, align 8
   %15 = load ptr, ptr @MainLWLockArray, align 8
@@ -1527,15 +1527,15 @@ define dso_local i64 @WaitForWalSummarization(i64 noundef %0, i64 noundef %1, pt
 .lr.ph12:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %23 = phi i64 [ %21, %.lr.ph ], [ %18, %.lr.ph.preheader ]
   %24 = load ptr, ptr @WalSummarizerCtl, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %25, i64 noundef %23, i32 noundef 134217782) #11
   %27 = load ptr, ptr @MainLWLockArray, align 8
   %28 = getelementptr i8, ptr %27, i64 6272
   %29 = tail call zeroext i1 @LWLockAcquire(ptr noundef %28, i32 noundef 0) #11
   %30 = load ptr, ptr @WalSummarizerCtl, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %2, align 8
   %35 = load ptr, ptr @MainLWLockArray, align 8
@@ -1582,10 +1582,10 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
   %8 = alloca %struct.WALReadError, align 8
   %9 = alloca i32, align 4
   tail call fastcc void @HandleWalSummarizerInterrupts()
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = add i64 %1, 8192
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8
   %.not32 = icmp ugt i64 %12, %14
   br i1 %.not32, label %.lr.ph, label %.loopexit
@@ -1593,7 +1593,7 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
 .lr.ph:                                           ; preds = %5
   %15 = sext i32 %2 to i64
   %16 = add i64 %1, %15
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   br label %18
 
 18:                                               ; preds = %.lr.ph, %73
@@ -1607,7 +1607,7 @@ define internal i32 @summarizer_read_local_xlog_page(ptr noundef %0, i64 noundef
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 1, ptr %25, align 8
   br label %82
 

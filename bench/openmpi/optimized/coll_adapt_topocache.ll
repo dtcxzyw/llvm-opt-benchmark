@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @destruct_topology_cache(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -29,47 +29,47 @@ define internal void @destruct_topology_cache(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @ompi_coll_adapt_module_cached_topology(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 624
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.02435 = load volatile ptr, ptr %8, align 8
   %.not2636 = icmp eq ptr %.02435, %9
   br i1 %.not2636, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %20
   %.02437 = phi ptr [ %.024, %20 ], [ %.02435, %7 ]
-  %10 = getelementptr inbounds i8, ptr %.02437, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.02437, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %2
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.02437, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %.02437, i64 52
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %3
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.02437, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.02437, i64 40
   %19 = load ptr, ptr %18, align 8
   br label %88
 
 20:                                               ; preds = %.lr.ph, %13
-  %21 = getelementptr inbounds i8, ptr %.02437, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.02437, i64 16
   %.024 = load volatile ptr, ptr %21, align 8
   %.not26 = icmp eq ptr %.024, %9
   br i1 %.not26, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 22:                                               ; preds = %4
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 56), align 8
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #5
   %25 = load i32, ptr @opal_class_init_epoch, align 4
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %25, %26
   br i1 %.not.i, label %28, label %27
 
@@ -83,9 +83,9 @@ define ptr @ompi_coll_adapt_module_cached_topology(ptr nocapture noundef %0, ptr
 
 29:                                               ; preds = %28
   store ptr @opal_list_t_class, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -94,7 +94,7 @@ define ptr @ompi_coll_adapt_module_cached_topology(ptr nocapture noundef %0, ptr
   %33 = phi ptr [ %35, %.lr.ph.i.i ], [ %32, %29 ]
   %.07.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %29 ]
   tail call void %33(ptr noundef nonnull %24) #4
-  %34 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !6
@@ -165,10 +165,10 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %28, %2
 
 create_topology.exit:                             ; preds = %.loopexit, %36, %38, %40, %42, %44, %50, %54, %57, %59
   %.023.i = phi ptr [ null, %59 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ null, %.loopexit ], [ %51, %50 ], [ %56, %54 ], [ %58, %57 ]
-  %61 = load i64, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 56), align 8
+  %61 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 56), align 8
   %62 = tail call noalias ptr @malloc(i64 noundef %61) #5
   %63 = load i32, ptr @opal_class_init_epoch, align 4
-  %64 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 32), align 8
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 32), align 8
   %.not.i27 = icmp eq i32 %63, %64
   br i1 %.not.i27, label %66, label %65
 
@@ -182,9 +182,9 @@ create_topology.exit:                             ; preds = %.loopexit, %36, %38
 
 67:                                               ; preds = %66
   store ptr @ompi_coll_adapt_topology_cache_item_t_class, ptr %62, align 8
-  %68 = getelementptr inbounds i8, ptr %62, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store volatile i32 1, ptr %68, align 8
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 40), align 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_adapt_topology_cache_item_t_class, i64 40), align 8
   %70 = load ptr, ptr %69, align 8
   %.not6.i.i29 = icmp eq ptr %70, null
   br i1 %.not6.i.i29, label %opal_obj_new.exit33, label %.lr.ph.i.i30
@@ -193,31 +193,31 @@ create_topology.exit:                             ; preds = %.loopexit, %36, %38
   %71 = phi ptr [ %73, %.lr.ph.i.i30 ], [ %70, %67 ]
   %.07.i.i31 = phi ptr [ %72, %.lr.ph.i.i30 ], [ %69, %67 ]
   tail call void %71(ptr noundef nonnull %62) #4
-  %72 = getelementptr inbounds i8, ptr %.07.i.i31, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.07.i.i31, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not.i.i32 = icmp eq ptr %73, null
   br i1 %.not.i.i32, label %opal_obj_new.exit33, label %.lr.ph.i.i30, !llvm.loop !6
 
 opal_obj_new.exit33:                              ; preds = %.lr.ph.i.i30, %66, %67
-  %74 = getelementptr inbounds i8, ptr %62, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store ptr %.023.i, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %62, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 48
   store i32 %2, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %62, i64 52
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 52
   store i32 %3, ptr %76, align 4
   %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
-  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %80 = load volatile ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %62, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store volatile ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %62, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store volatile ptr %78, ptr %82, align 8
   %83 = load volatile ptr, ptr %79, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store volatile ptr %62, ptr %84, align 8
   store volatile ptr %62, ptr %79, align 8
-  %85 = getelementptr inbounds i8, ptr %77, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %86 = load volatile i64, ptr %85, align 8
   %87 = add i64 %86, 1
   store volatile i64 %87, ptr %85, align 8

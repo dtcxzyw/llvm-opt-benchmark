@@ -20,7 +20,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
   br i1 %.not, label %8, label %._crit_edge
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.03243, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.03243, i64 1
   %10 = icmp ult ptr %9, %5
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -74,7 +74,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
 .lr.ph.i.i.i:                                     ; preds = %34, %.lr.ph.i.i.i
   %.014.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i ], [ 0, %34 ]
   %.01213.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %.031, %34 ]
-  %37 = getelementptr inbounds i8, ptr %.01213.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.01213.i.i.i, i64 1
   %38 = load i8, ptr %.01213.i.i.i, align 1
   %39 = add i8 %38, -48
   %40 = mul nuw i64 %.014.i.i.i, 10
@@ -152,10 +152,10 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.p
 
 switch.lookup:                                    ; preds = %73
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %76
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table.lexbor_strtod_internal, i64 0, i64 %76
   %switch.load = load i64, ptr %switch.gep, align 8
   %77 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep72 = getelementptr inbounds [7 x i32], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %77
+  %switch.gep72 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.lexbor_strtod_internal.1, i64 0, i64 %77
   %switch.load73 = load i32, ptr %switch.gep72, align 4
   br label %lexbor_strtod_adjust_pow10.exit.i
 

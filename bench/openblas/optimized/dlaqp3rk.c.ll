@@ -490,7 +490,7 @@ split:                                            ; preds = %170, %._crit_edge95
   store i32 %353, ptr %25, align 4, !tbaa !3
   %354 = add nsw i32 %341, -1
   store i32 %354, ptr %26, align 4, !tbaa !3
-  %355 = getelementptr inbounds double, ptr %34, i64 %349
+  %355 = getelementptr inbounds nuw double, ptr %34, i64 %349
   %356 = load double, ptr %355, align 8, !tbaa !7
   %357 = fneg double %356
   store double %357, ptr %27, align 8, !tbaa !7
@@ -675,9 +675,9 @@ split:                                            ; preds = %170, %._crit_edge95
   %485 = sext i32 %484 to i64
   %486 = getelementptr inbounds double, ptr %32, i64 %485
   %487 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %486, ptr noundef nonnull @c__1) #7
-  %488 = getelementptr inbounds double, ptr %35, i64 %478
+  %488 = getelementptr inbounds nuw double, ptr %35, i64 %478
   store double %487, ptr %488, align 8, !tbaa !7
-  %489 = getelementptr inbounds double, ptr %36, i64 %478
+  %489 = getelementptr inbounds nuw double, ptr %36, i64 %478
   store double %487, ptr %489, align 8, !tbaa !7
   %490 = icmp sgt i32 %480, 0
   br i1 %490, label %476, label %.loopexit, !llvm.loop !13

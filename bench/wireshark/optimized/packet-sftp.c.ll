@@ -188,7 +188,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %6 = load i16, ptr %5, align 8
   %.not = icmp eq i16 %6, 0
   br i1 %.not, label %14, label %7
@@ -199,9 +199,9 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 332
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 336
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %12, align 8
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %315
@@ -218,16 +218,16 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 332
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %21, align 4
   %22 = sub nuw i32 %15, %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 336
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %22, ptr %23, align 8
   %24 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %315
 
 25:                                               ; preds = %17, %14
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %27, ptr noundef nonnull @.str.94) #2
   %29 = load i32, ptr @proto_sftp, align 4
@@ -239,7 +239,7 @@ define internal i32 @dissect_sftp(ptr noundef %0, ptr nocapture noundef %1, ptr 
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
   %36 = load i32, ptr @hf_ssh_sftp_type, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i8 %35 to i32
   %41 = tail call ptr @val_to_str(i32 noundef %40, ptr noundef nonnull @ssh2_sftp_vals, ptr noundef nonnull @.str.95) #2

@@ -66,7 +66,7 @@ define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type4nameE
 define void @_ZNK5boost4urls7grammar6detail14error_cat_type7messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2, ptr noundef null, i64 noundef 0) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -127,7 +127,7 @@ define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type7messa
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK5boost4urls7grammar6detail14error_cat_type7messageEiPcm, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK5boost4urls7grammar6detail14error_cat_type7messageEiPcm, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -156,7 +156,7 @@ define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail18condition_cat_type4n
 define void @_ZNK5boost4urls7grammar6detail18condition_cat_type7messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = load ptr, ptr %1, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2, ptr noundef null, i64 noundef 0) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -217,7 +217,7 @@ define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail18condition_cat_type7m
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #9
   %8 = extractvalue { i32, ptr } %7, 0

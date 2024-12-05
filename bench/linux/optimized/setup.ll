@@ -614,10 +614,10 @@ define internal fastcc void @parse_setup_data() unnamed_addr #0 section ".init.t
 .preheader:                                       ; preds = %0, %24
   %3 = phi i64 [ %10, %24 ], [ %1, %0 ]
   %4 = tail call ptr @early_memremap(i64 noundef %3, i64 noundef 16) #11
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = load i64, ptr %4, align 8
   tail call void @early_memunmap(ptr noundef %4, i64 noundef 16) #11
@@ -643,17 +643,17 @@ define internal fastcc void @parse_setup_data() unnamed_addr #0 section ".init.t
 15:                                               ; preds = %.preheader
   %16 = zext i32 %7 to i64
   %17 = tail call ptr @early_memremap(i64 noundef %3, i64 noundef %16) #11
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  tail call void @add_bootloader_randomness(ptr noundef %18, i64 noundef %21) #12
+  tail call void @add_bootloader_randomness(ptr noundef nonnull %18, i64 noundef %21) #12
   %22 = load i32, ptr %19, align 4
   %23 = zext i32 %22 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %23, i1 false)
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18) #11, !srcloc !20
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %23, i1 false)
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %18) #11, !srcloc !20
   store i32 0, ptr %19, align 1
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19) #11, !srcloc !20
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19) #11, !srcloc !20
   tail call void @early_memunmap(ptr noundef %17, i64 noundef %16) #11
   br label %24
 
@@ -1046,12 +1046,12 @@ define internal fastcc void @memblock_x86_reserve_range_setup_data() unnamed_add
 
 6:                                                ; preds = %.preheader
   %7 = load i64, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = add nuw nsw i64 %10, 16
   %12 = tail call i32 @memblock_reserve(i64 noundef %3, i64 noundef %11) #11
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, -2147483648
   br i1 %15, label %16, label %._crit_edge
@@ -1066,15 +1066,15 @@ define internal fastcc void @memblock_x86_reserve_range_setup_data() unnamed_add
   br i1 %21, label %36, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, -2147483648
   br i1 %25, label %._crit_edge, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %20, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = tail call i32 @memblock_reserve(i64 noundef %28, i64 noundef %30) #11
   br label %._crit_edge

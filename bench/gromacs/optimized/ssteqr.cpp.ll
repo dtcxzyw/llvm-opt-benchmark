@@ -757,7 +757,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %387
   %indvars.iv673 = phi i64 [ 1, %.lr.ph601.preheader ], [ %indvars.iv.next674, %387 ]
-  %380 = getelementptr inbounds float, ptr %27, i64 %indvars.iv673
+  %380 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv673
   %381 = load float, ptr %380, align 4
   %382 = call noundef float @llvm.fabs.f32(float %381)
   %383 = fcmp ogt float %382, 0x3810000000000000
@@ -812,7 +812,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv680 = phi i64 [ %indvars.iv678, %.lr.ph607.preheader ], [ %indvars.iv.next681, %.lr.ph607 ]
   %.0456604 = phi i32 [ %397, %.lr.ph607.preheader ], [ %.1457, %.lr.ph607 ]
   %.2467603 = phi float [ %394, %.lr.ph607.preheader ], [ %.3468, %.lr.ph607 ]
-  %399 = getelementptr inbounds float, ptr %26, i64 %indvars.iv680
+  %399 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv680
   %400 = load float, ptr %399, align 4
   %401 = fcmp olt float %400, %.2467603
   %.3468 = select i1 %401, float %400, float %.2467603

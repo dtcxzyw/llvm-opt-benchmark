@@ -186,7 +186,7 @@ define void @_ZN3g2o12EdgeSBAScaleC2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   tail call void @_ZN3g2o16OptimizableGraph4EdgeC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0)
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTVN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EEE, i64 16), ptr %0, align 8
@@ -199,7 +199,7 @@ define void @_ZN3g2o12EdgeSBAScaleC2Ev(ptr noundef nonnull align 8 dereferenceab
   store ptr null, ptr %7, align 8, !alias.scope !7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -223,7 +223,7 @@ define void @_ZN3g2o12EdgeSBAScaleC2Ev(ptr noundef nonnull align 8 dereferenceab
   br i1 %.not.i.i, label %_ZN3g2o14BaseBinaryEdgeILi1EdNS_9VertexCamES1_EC2Ev.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.not.i.i.i.i = icmp eq ptr %12, %23
   br i1 %.not.i.i.i.i, label %_ZN3g2o14BaseBinaryEdgeILi1EdNS_9VertexCamES1_EC2Ev.exit, label %24
 
@@ -253,7 +253,7 @@ define noundef zeroext i1 @_ZN3g2o12EdgeSBAScale4readERSi(ptr noundef nonnull al
   %3 = alloca double, align 8
   %4 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -307,7 +307,7 @@ define void @_ZN3g2o12EdgeSBAScale15initialEstimateERKSt3setIPNS_10HyperGraph6Ve
 
 14:                                               ; preds = %3, %12
   %15 = phi ptr [ %13, %12 ], [ null, %3 ]
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -318,9 +318,9 @@ define void @_ZN3g2o12EdgeSBAScale15initialEstimateERKSt3setIPNS_10HyperGraph6Ve
 
 21:                                               ; preds = %14, %19
   %22 = phi ptr [ %20, %19 ], [ null, %14 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not10.i.i.i = icmp eq ptr %24, null
   br i1 %.not10.i.i.i, label %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, label %.lr.ph.i.i.i
 
@@ -351,13 +351,13 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %34 = load <2 x i64>, ptr %33, align 16, !noalias !12
   %35 = xor <2 x i64> %34, splat (i64 -9223372036854775808)
-  %36 = getelementptr inbounds i8, ptr %15, i64 208
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %37 = load <2 x i64>, ptr %36, align 16, !noalias !12
   %38 = xor <2 x i64> %37, <i64 -9223372036854775808, i64 0>
   %39 = getelementptr inbounds nuw i8, ptr %15, i64 224
   %40 = load <2 x double>, ptr %39, align 1, !noalias !19
   %41 = fneg <2 x double> %40
-  %42 = getelementptr inbounds i8, ptr %15, i64 240
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %43 = load double, ptr %42, align 8, !noalias !19
   %44 = fneg double %43
   %bc.i = bitcast <2 x i64> %35 to <2 x double>
@@ -403,12 +403,12 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   store <2 x i64> %35, ptr %.sroa.0, align 16
-  %.sroa.0.16..sroa_idx197 = getelementptr inbounds i8, ptr %.sroa.0, i64 16
+  %.sroa.0.16..sroa_idx197 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   store <2 x i64> %38, ptr %.sroa.0.16..sroa_idx197, align 16
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 224
-  %77 = getelementptr inbounds i8, ptr %22, i64 240
+  %77 = getelementptr inbounds nuw i8, ptr %22, i64 240
   %78 = load double, ptr %77, align 8, !noalias !27
-  %79 = getelementptr inbounds i8, ptr %22, i64 232
+  %79 = getelementptr inbounds nuw i8, ptr %22, i64 232
   %80 = load double, ptr %79, align 8, !noalias !27
   %81 = fneg double %80
   %82 = fmul double %46, %81
@@ -445,20 +445,20 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %107 = fadd double %78, %106
   %108 = fadd double %107, %101
   %109 = fadd <2 x double> %71, %105
-  %.sroa.0.32..sroa_idx199 = getelementptr inbounds i8, ptr %.sroa.0, i64 32
+  %.sroa.0.32..sroa_idx199 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 32
   store <2 x double> %109, ptr %.sroa.0.32..sroa_idx199, align 16, !alias.scope !24
   %110 = fadd double %74, %108
   %111 = load <2 x double>, ptr %75, align 16, !noalias !37
-  %112 = getelementptr inbounds i8, ptr %22, i64 208
+  %112 = getelementptr inbounds nuw i8, ptr %22, i64 208
   %113 = load <2 x double>, ptr %112, align 16, !noalias !37
   %114 = bitcast <2 x i64> %35 to <2 x double>
   %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
-  %.sroa.0.8..sroa_idx196 = getelementptr inbounds i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8..sroa_idx196 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %.sroa.0.8..sroa.0.8..sroa.0.8..sroa.0.8. = load <2 x double>, ptr %.sroa.0.8..sroa_idx196, align 8, !alias.scope !24
   %116 = shufflevector <2 x double> %.sroa.0.8..sroa.0.8..sroa.0.8..sroa.0.8., <2 x double> poison, <2 x i32> zeroinitializer
   %117 = bitcast <2 x i64> %38 to <2 x double>
   %118 = shufflevector <2 x double> %117, <2 x double> poison, <2 x i32> zeroinitializer
-  %.sroa.0.24..sroa_idx198 = getelementptr inbounds i8, ptr %.sroa.0, i64 24
+  %.sroa.0.24..sroa_idx198 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.24..sroa.0.24..sroa.0.24..sroa.0.24. = load <2 x double>, ptr %.sroa.0.24..sroa_idx198, align 8, !alias.scope !24
   %119 = shufflevector <2 x double> %.sroa.0.24..sroa.0.24..sroa.0.24..sroa.0.24., <2 x double> poison, <2 x i32> zeroinitializer
   %120 = fmul <2 x double> %111, %119
@@ -524,7 +524,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 16 dereferenceable(56) %33, i64 32, i1 false)
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %169, ptr noundef nonnull align 16 dereferenceable(24) %39, i64 24, i1 false)
-  %170 = getelementptr inbounds i8, ptr %15, i64 200
+  %170 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %171 = load double, ptr %170, align 8, !noalias !45
   %172 = load double, ptr %36, align 8, !noalias !45
   %173 = extractelement <2 x double> %167, i64 1
@@ -543,7 +543,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   %.sroa.017.8.vec.insert.i.i.i.i21 = insertelement <2 x double> %.sroa.017.0.vec.insert.i.i.i.i20, double %181, i64 1
   %185 = fadd <2 x double> %.sroa.017.8.vec.insert.i.i.i.i21, %.sroa.017.8.vec.insert.i.i.i.i21
   %186 = fadd double %184, %184
-  %187 = getelementptr inbounds i8, ptr %15, i64 216
+  %187 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %188 = load double, ptr %187, align 8, !noalias !54
   %.sroa.017.8.vec.extract.i.i.i.i22 = extractelement <2 x double> %185, i64 1
   %189 = fneg double %.sroa.017.8.vec.extract.i.i.i.i22
@@ -569,19 +569,19 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
   %205 = load <2 x double>, ptr %169, align 16, !alias.scope !42
   %206 = fadd <2 x double> %205, %201
   store <2 x double> %206, ptr %169, align 16, !alias.scope !42
-  %207 = getelementptr inbounds i8, ptr %5, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %208 = load double, ptr %207, align 16, !alias.scope !42
   %209 = fadd double %208, %204
   store double %209, ptr %207, align 16, !alias.scope !42
   %210 = load <2 x double>, ptr %5, align 16, !alias.scope !42
   %211 = shufflevector <2 x double> %210, <2 x double> poison, <2 x i32> zeroinitializer
-  %212 = getelementptr inbounds i8, ptr %5, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %213 = load <2 x double>, ptr %212, align 8, !alias.scope !42
   %214 = shufflevector <2 x double> %213, <2 x double> poison, <2 x i32> zeroinitializer
-  %215 = getelementptr inbounds i8, ptr %5, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %216 = load <2 x double>, ptr %215, align 16, !alias.scope !42
   %217 = shufflevector <2 x double> %216, <2 x double> poison, <2 x i32> zeroinitializer
-  %218 = getelementptr inbounds i8, ptr %5, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %219 = load <2 x double>, ptr %218, align 8, !alias.scope !42
   %220 = shufflevector <2 x double> %219, <2 x double> poison, <2 x i32> zeroinitializer
   %221 = fmul <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0.75, %220
@@ -639,7 +639,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
 _ZNK3g2o7SE3QuatmlERKS0_.exit28:                  ; preds = %._crit_edge.i.i27, %251
   call void @_ZN3g2o6SBACamC1ERKNS_7SE3QuatE(ptr noundef nonnull align 16 dereferenceable(552) %4, ptr noundef nonnull align 16 dereferenceable(56) %5)
   %257 = load ptr, ptr %22, align 16
-  %258 = getelementptr inbounds i8, ptr %257, i64 256
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 256
   %259 = load ptr, ptr %258, align 8
   call void %259(ptr noundef nonnull align 16 dereferenceable(776) %22, ptr noundef nonnull align 16 dereferenceable(552) %4)
   br label %487
@@ -648,13 +648,13 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %260 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %261 = load <2 x i64>, ptr %260, align 16, !noalias !57
   %262 = xor <2 x i64> %261, splat (i64 -9223372036854775808)
-  %263 = getelementptr inbounds i8, ptr %22, i64 208
+  %263 = getelementptr inbounds nuw i8, ptr %22, i64 208
   %264 = load <2 x i64>, ptr %263, align 16, !noalias !57
   %265 = xor <2 x i64> %264, <i64 -9223372036854775808, i64 0>
   %266 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %267 = load <2 x double>, ptr %266, align 1, !noalias !64
   %268 = fneg <2 x double> %267
-  %269 = getelementptr inbounds i8, ptr %22, i64 240
+  %269 = getelementptr inbounds nuw i8, ptr %22, i64 240
   %270 = load double, ptr %269, align 8, !noalias !64
   %271 = fneg double %270
   %bc.i30 = bitcast <2 x i64> %262 to <2 x double>
@@ -700,12 +700,12 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %302 = getelementptr inbounds nuw i8, ptr %15, i64 192
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   store <2 x i64> %262, ptr %.sroa.0113, align 16
-  %.sroa.0113.16..sroa_idx193 = getelementptr inbounds i8, ptr %.sroa.0113, i64 16
+  %.sroa.0113.16..sroa_idx193 = getelementptr inbounds nuw i8, ptr %.sroa.0113, i64 16
   store <2 x i64> %265, ptr %.sroa.0113.16..sroa_idx193, align 16
   %303 = getelementptr inbounds nuw i8, ptr %15, i64 224
-  %304 = getelementptr inbounds i8, ptr %15, i64 240
+  %304 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %305 = load double, ptr %304, align 8, !noalias !72
-  %306 = getelementptr inbounds i8, ptr %15, i64 232
+  %306 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %307 = load double, ptr %306, align 8, !noalias !72
   %308 = fneg double %307
   %309 = fmul double %273, %308
@@ -742,20 +742,20 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %334 = fadd double %305, %333
   %335 = fadd double %334, %328
   %336 = fadd <2 x double> %298, %332
-  %.sroa.0113.32..sroa_idx195 = getelementptr inbounds i8, ptr %.sroa.0113, i64 32
+  %.sroa.0113.32..sroa_idx195 = getelementptr inbounds nuw i8, ptr %.sroa.0113, i64 32
   store <2 x double> %336, ptr %.sroa.0113.32..sroa_idx195, align 16, !alias.scope !69
   %337 = fadd double %301, %335
   %338 = load <2 x double>, ptr %302, align 16, !noalias !82
-  %339 = getelementptr inbounds i8, ptr %15, i64 208
+  %339 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %340 = load <2 x double>, ptr %339, align 16, !noalias !82
   %341 = bitcast <2 x i64> %262 to <2 x double>
   %342 = shufflevector <2 x double> %341, <2 x double> poison, <2 x i32> zeroinitializer
-  %.sroa.0113.8..sroa_idx192 = getelementptr inbounds i8, ptr %.sroa.0113, i64 8
+  %.sroa.0113.8..sroa_idx192 = getelementptr inbounds nuw i8, ptr %.sroa.0113, i64 8
   %.sroa.0113.8..sroa.0113.8..sroa.0113.8..sroa.0113.8. = load <2 x double>, ptr %.sroa.0113.8..sroa_idx192, align 8, !alias.scope !69
   %343 = shufflevector <2 x double> %.sroa.0113.8..sroa.0113.8..sroa.0113.8..sroa.0113.8., <2 x double> poison, <2 x i32> zeroinitializer
   %344 = bitcast <2 x i64> %265 to <2 x double>
   %345 = shufflevector <2 x double> %344, <2 x double> poison, <2 x i32> zeroinitializer
-  %.sroa.0113.24..sroa_idx194 = getelementptr inbounds i8, ptr %.sroa.0113, i64 24
+  %.sroa.0113.24..sroa_idx194 = getelementptr inbounds nuw i8, ptr %.sroa.0113, i64 24
   %.sroa.0113.24..sroa.0113.24..sroa.0113.24..sroa.0113.24. = load <2 x double>, ptr %.sroa.0113.24..sroa_idx194, align 8, !alias.scope !69
   %346 = shufflevector <2 x double> %.sroa.0113.24..sroa.0113.24..sroa.0113.24..sroa.0113.24., <2 x double> poison, <2 x i32> zeroinitializer
   %347 = fmul <2 x double> %338, %346
@@ -821,7 +821,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit51:                  ; preds = %_ZNKSt3setIPN3g2o10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %7, ptr noundef nonnull align 16 dereferenceable(56) %260, i64 32, i1 false)
   %396 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %396, ptr noundef nonnull align 16 dereferenceable(24) %266, i64 24, i1 false)
-  %397 = getelementptr inbounds i8, ptr %22, i64 200
+  %397 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %398 = load double, ptr %397, align 8, !noalias !90
   %399 = load double, ptr %263, align 8, !noalias !90
   %400 = extractelement <2 x double> %394, i64 1
@@ -840,7 +840,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit51:                  ; preds = %_ZNKSt3setIPN3g2o10
   %.sroa.017.8.vec.insert.i.i.i.i54 = insertelement <2 x double> %.sroa.017.0.vec.insert.i.i.i.i53, double %408, i64 1
   %412 = fadd <2 x double> %.sroa.017.8.vec.insert.i.i.i.i54, %.sroa.017.8.vec.insert.i.i.i.i54
   %413 = fadd double %411, %411
-  %414 = getelementptr inbounds i8, ptr %22, i64 216
+  %414 = getelementptr inbounds nuw i8, ptr %22, i64 216
   %415 = load double, ptr %414, align 8, !noalias !99
   %.sroa.017.8.vec.extract.i.i.i.i55 = extractelement <2 x double> %412, i64 1
   %416 = fneg double %.sroa.017.8.vec.extract.i.i.i.i55
@@ -866,19 +866,19 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit51:                  ; preds = %_ZNKSt3setIPN3g2o10
   %432 = load <2 x double>, ptr %396, align 16, !alias.scope !87
   %433 = fadd <2 x double> %432, %428
   store <2 x double> %433, ptr %396, align 16, !alias.scope !87
-  %434 = getelementptr inbounds i8, ptr %7, i64 48
+  %434 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %435 = load double, ptr %434, align 16, !alias.scope !87
   %436 = fadd double %435, %431
   store double %436, ptr %434, align 16, !alias.scope !87
   %437 = load <2 x double>, ptr %7, align 16, !alias.scope !87
   %438 = shufflevector <2 x double> %437, <2 x double> poison, <2 x i32> zeroinitializer
-  %439 = getelementptr inbounds i8, ptr %7, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %440 = load <2 x double>, ptr %439, align 8, !alias.scope !87
   %441 = shufflevector <2 x double> %440, <2 x double> poison, <2 x i32> zeroinitializer
-  %442 = getelementptr inbounds i8, ptr %7, i64 16
+  %442 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %443 = load <2 x double>, ptr %442, align 16, !alias.scope !87
   %444 = shufflevector <2 x double> %443, <2 x double> poison, <2 x i32> zeroinitializer
-  %445 = getelementptr inbounds i8, ptr %7, i64 24
+  %445 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %446 = load <2 x double>, ptr %445, align 8, !alias.scope !87
   %447 = shufflevector <2 x double> %446, <2 x double> poison, <2 x i32> zeroinitializer
   %448 = fmul <2 x double> %.sroa.0113.0..sroa.0113.0..sroa.0113.0.114, %447
@@ -936,7 +936,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit51:                  ; preds = %_ZNKSt3setIPN3g2o10
 _ZNK3g2o7SE3QuatmlERKS0_.exit61:                  ; preds = %._crit_edge.i.i60, %478
   call void @_ZN3g2o6SBACamC1ERKNS_7SE3QuatE(ptr noundef nonnull align 16 dereferenceable(552) %6, ptr noundef nonnull align 16 dereferenceable(56) %7)
   %484 = load ptr, ptr %15, align 16
-  %485 = getelementptr inbounds i8, ptr %484, i64 256
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 256
   %486 = load ptr, ptr %485, align 8
   call void %486(ptr noundef nonnull align 16 dereferenceable(776) %15, ptr noundef nonnull align 16 dereferenceable(552) %6)
   br label %487
@@ -956,7 +956,7 @@ define void @_ZN3g2o12EdgeSBAScale12computeErrorEv(ptr nocapture noundef nonnull
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8, !nonnull !102, !noundef !102
   %5 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTIN3g2o10HyperGraph6VertexE, ptr nonnull @_ZTIN3g2o9VertexCamE, i64 0) #21
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !102, !noundef !102
   %8 = tail call ptr @__dynamic_cast(ptr nonnull %7, ptr nonnull @_ZTIN3g2o10HyperGraph6VertexE, ptr nonnull @_ZTIN3g2o9VertexCamE, i64 0) #21
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 224
@@ -1021,7 +1021,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o18BaseFixedSizedEdgeILi1EdJNS_9V
   br i1 %7, label %8, label %_ZNK3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE18allVerticesFixedNsIJLm0ELm1EEEEbSt16integer_sequenceImJXspT_EEE.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %12 = load i8, ptr %11, align 4
@@ -1089,12 +1089,12 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE2
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef double %11(ptr noundef nonnull align 8 dereferenceable(200) %0)
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %13, double noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1103,7 +1103,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE2
   %20 = fneg double %19
   %21 = load double, ptr %18, align 8
   %22 = fmul double %21, %20
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load double, ptr %23, align 8, !noalias !103
   %25 = fmul double %22, %24
   store double %25, ptr %3, align 8
@@ -1154,16 +1154,16 @@ _ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE14linearizeOplusERNS_17JacobianWorkspaceE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %3, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(272) %0)
   ret void
@@ -1209,7 +1209,7 @@ define linkonce_odr noundef i32 @_ZNK3g2o8BaseEdgeILi1EdE4rankEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE14linearizeOplusEv(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(272) %0)
   br i1 %5, label %9, label %6
@@ -1365,7 +1365,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
 .lr.ph.i.i.i:                                     ; preds = %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit, %.lr.ph.i.i.i
   %.07.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %1, %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit ]
   store ptr %15, ptr %.07.i.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !109
 
@@ -1381,7 +1381,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %34
   %.07.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %9, %34 ]
   store ptr %15, ptr %.07.i.i.i.i.i.i.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !109
 
@@ -1406,7 +1406,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
 .lr.ph.i.i.i71:                                   ; preds = %_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit69, %.lr.ph.i.i.i71
   %.07.i.i.i72 = phi ptr [ %42, %.lr.ph.i.i.i71 ], [ %1, %_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit69 ]
   store ptr %15, ptr %.07.i.i.i72, align 8
-  %42 = getelementptr inbounds i8, ptr %.07.i.i.i72, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.07.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %42, %9
   br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !109
 
@@ -1449,7 +1449,7 @@ _ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
 .lr.ph.i.i.i.i.i.i.i75:                           ; preds = %.lr.ph.i.i.i.i.i.i.i75, %60
   %.07.i.i.i.i.i.i.i76 = phi ptr [ %65, %.lr.ph.i.i.i.i.i.i.i75 ], [ %62, %60 ]
   store ptr %64, ptr %.07.i.i.i.i.i.i.i76, align 8
-  %65 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i76, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i76, i64 8
   %.not.i.i.i.i.i.i.i77 = icmp eq ptr %65, %63
   br i1 %.not.i.i.i.i.i.i.i77, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit79, label %.lr.ph.i.i.i.i.i.i.i75, !llvm.loop !109
 
@@ -1483,7 +1483,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET
 _ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %69, %71
   store ptr %61, ptr %0, align 8
   store ptr %70, ptr %8, align 8
-  %73 = getelementptr inbounds ptr, ptr %61, i64 %54
+  %73 = getelementptr inbounds nuw ptr, ptr %61, i64 %54
   store ptr %73, ptr %6, align 8
   br label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit
 
@@ -1522,7 +1522,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE2
   br i1 %18, label %_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi0EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit, label %19
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %.sroa.020.i, ptr noundef nonnull align 8 dereferenceable(10) %20, i64 10, i1 false)
   %.sroa.015.sroa.0.0.copyload.i = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 144
@@ -1534,8 +1534,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE2
   %27 = load <2 x double>, ptr %21, align 16
   %28 = fadd <2 x double> %27, %26
   store <2 x double> %28, ptr %21, align 16
-  %29 = getelementptr inbounds i8, ptr %14, i64 160
-  %30 = getelementptr inbounds i8, ptr %.sroa.015.sroa.0.0.copyload.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.015.sroa.0.0.copyload.i, i64 16
   %31 = load <2 x double>, ptr %30, align 16
   %32 = load double, ptr %2, align 8
   %33 = insertelement <2 x double> poison, double %32, i64 0
@@ -1544,8 +1544,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE2
   %36 = load <2 x double>, ptr %29, align 16
   %37 = fadd <2 x double> %36, %35
   store <2 x double> %37, ptr %29, align 16
-  %38 = getelementptr inbounds i8, ptr %14, i64 176
-  %39 = getelementptr inbounds i8, ptr %.sroa.015.sroa.0.0.copyload.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.015.sroa.0.0.copyload.i, i64 32
   %40 = load <2 x double>, ptr %39, align 16
   %41 = load double, ptr %2, align 8
   %42 = insertelement <2 x double> poison, double %41, i64 0
@@ -1566,7 +1566,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 100
   %54 = load i8, ptr %53, align 4
@@ -1610,7 +1610,7 @@ _ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0EL
 _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNILi0EEEvRKN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEES8_.exit: ; preds = %3, %19, %_ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINS_9TransposeIKNS1_INS2_IdLi1ELi6ELi1ELi1ELi6EEELi16ES5_EEEENSB_IKNSA_ISF_NS2_IdLi1ELi1ELi0ELi1ELi1EEELi0EEEEELi0EEEEERS6_RKNS7_IT_EE.exit.i.i.i, %_ZN5Eigen7NoAliasINS_3MapINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi0ENS_6StrideILi0ELi0EEEEENS_10MatrixBaseEEpLINS_7ProductINSA_INS_9TransposeIKNS1_INS2_IdLi1ELi6ELi1ELi1ELi6EEELi16ES5_EEEENS2_IdLi1ELi1ELi0ELi1ELi1EEELi0EEESD_Li0EEEEERS6_RKNS7_IT_EE.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %.sroa.020.i)
   %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 100
   %70 = load i8, ptr %69, align 4
@@ -1630,8 +1630,8 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNIL
   %79 = load <2 x double>, ptr %73, align 16
   %80 = fadd <2 x double> %79, %78
   store <2 x double> %80, ptr %73, align 16
-  %81 = getelementptr inbounds i8, ptr %68, i64 160
-  %82 = getelementptr inbounds i8, ptr %.sroa.015.sroa.0.0.copyload.i5, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 160
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.015.sroa.0.0.copyload.i5, i64 16
   %83 = load <2 x double>, ptr %82, align 16
   %84 = load double, ptr %2, align 8
   %85 = insertelement <2 x double> poison, double %84, i64 0
@@ -1640,8 +1640,8 @@ _ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE23constructQuadraticFormNIL
   %88 = load <2 x double>, ptr %81, align 16
   %89 = fadd <2 x double> %88, %87
   store <2 x double> %89, ptr %81, align 16
-  %90 = getelementptr inbounds i8, ptr %68, i64 176
-  %91 = getelementptr inbounds i8, ptr %.sroa.015.sroa.0.0.copyload.i5, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 176
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.015.sroa.0.0.copyload.i5, i64 32
   %92 = load <2 x double>, ptr %91, align 16
   %93 = load double, ptr %2, align 8
   %94 = insertelement <2 x double> poison, double %93, i64 0
@@ -1677,13 +1677,13 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   %10 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
   %11 = fmul <2 x double> %7, %10
   store <2 x double> %11, ptr %4, align 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 16
   %14 = load <2 x double>, ptr %13, align 16
   %15 = fmul <2 x double> %14, %10
   store <2 x double> %15, ptr %12, align 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 32
   %18 = load <2 x double>, ptr %17, align 16
   %19 = fmul <2 x double> %18, %10
   store <2 x double> %19, ptr %16, align 16
@@ -1707,7 +1707,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %32, ptr %26, align 1
   %33 = getelementptr i8, ptr %26, i64 16
   %34 = load ptr, ptr %22, align 16
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load <2 x double>, ptr %35, align 16
   %37 = load ptr, ptr %23, align 8
   %38 = load double, ptr %37, align 8
@@ -1719,7 +1719,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %43, ptr %33, align 1
   %44 = getelementptr i8, ptr %26, i64 32
   %45 = load ptr, ptr %22, align 16
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load <2 x double>, ptr %46, align 16
   %48 = load ptr, ptr %23, align 8
   %49 = load double, ptr %48, align 8
@@ -1743,7 +1743,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %65, ptr %55, align 1
   %66 = getelementptr i8, ptr %26, i64 64
   %67 = load ptr, ptr %22, align 16
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load <2 x double>, ptr %68, align 16
   %70 = load ptr, ptr %23, align 8
   %71 = getelementptr i8, ptr %70, i64 8
@@ -1756,7 +1756,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %77, ptr %66, align 1
   %78 = getelementptr i8, ptr %26, i64 80
   %79 = load ptr, ptr %22, align 16
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load <2 x double>, ptr %80, align 16
   %82 = load ptr, ptr %23, align 8
   %83 = getelementptr i8, ptr %82, i64 8
@@ -1781,7 +1781,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %100, ptr %90, align 1
   %101 = getelementptr i8, ptr %26, i64 112
   %102 = load ptr, ptr %22, align 16
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load <2 x double>, ptr %103, align 16
   %105 = load ptr, ptr %23, align 8
   %106 = getelementptr i8, ptr %105, i64 16
@@ -1794,7 +1794,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %112, ptr %101, align 1
   %113 = getelementptr i8, ptr %26, i64 128
   %114 = load ptr, ptr %22, align 16
-  %115 = getelementptr inbounds i8, ptr %114, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = load <2 x double>, ptr %115, align 16
   %117 = load ptr, ptr %23, align 8
   %118 = getelementptr i8, ptr %117, i64 16
@@ -1819,7 +1819,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %135, ptr %125, align 1
   %136 = getelementptr i8, ptr %26, i64 160
   %137 = load ptr, ptr %22, align 16
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load <2 x double>, ptr %138, align 16
   %140 = load ptr, ptr %23, align 8
   %141 = getelementptr i8, ptr %140, i64 24
@@ -1832,7 +1832,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %147, ptr %136, align 1
   %148 = getelementptr i8, ptr %26, i64 176
   %149 = load ptr, ptr %22, align 16
-  %150 = getelementptr inbounds i8, ptr %149, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %151 = load <2 x double>, ptr %150, align 16
   %152 = load ptr, ptr %23, align 8
   %153 = getelementptr i8, ptr %152, i64 24
@@ -1857,7 +1857,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %170, ptr %160, align 1
   %171 = getelementptr i8, ptr %26, i64 208
   %172 = load ptr, ptr %22, align 16
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load <2 x double>, ptr %173, align 16
   %175 = load ptr, ptr %23, align 8
   %176 = getelementptr i8, ptr %175, i64 32
@@ -1870,7 +1870,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %182, ptr %171, align 1
   %183 = getelementptr i8, ptr %26, i64 224
   %184 = load ptr, ptr %22, align 16
-  %185 = getelementptr inbounds i8, ptr %184, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %186 = load <2 x double>, ptr %185, align 16
   %187 = load ptr, ptr %23, align 8
   %188 = getelementptr i8, ptr %187, i64 32
@@ -1895,7 +1895,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %205, ptr %195, align 1
   %206 = getelementptr i8, ptr %26, i64 256
   %207 = load ptr, ptr %22, align 16
-  %208 = getelementptr inbounds i8, ptr %207, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %209 = load <2 x double>, ptr %208, align 16
   %210 = load ptr, ptr %23, align 8
   %211 = getelementptr i8, ptr %210, i64 40
@@ -1908,7 +1908,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %217, ptr %206, align 1
   %218 = getelementptr i8, ptr %26, i64 272
   %219 = load ptr, ptr %22, align 16
-  %220 = getelementptr inbounds i8, ptr %219, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
   %221 = load <2 x double>, ptr %220, align 16
   %222 = load ptr, ptr %23, align 8
   %223 = getelementptr i8, ptr %222, i64 40
@@ -1937,13 +1937,13 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
   %13 = fmul <2 x double> %9, %12
   store <2 x double> %13, ptr %5, align 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 16
   %16 = load <2 x double>, ptr %15, align 16
   %17 = fmul <2 x double> %16, %12
   store <2 x double> %17, ptr %14, align 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 32
   %20 = load <2 x double>, ptr %19, align 16
   %21 = fmul <2 x double> %20, %12
   store <2 x double> %21, ptr %18, align 16
@@ -1963,7 +1963,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %31, ptr %26, align 1
   %32 = getelementptr i8, ptr %26, i64 16
   %33 = load ptr, ptr %22, align 16
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load <2 x double>, ptr %34, align 16
   %36 = load ptr, ptr %24, align 16
   %37 = load double, ptr %36, align 8
@@ -1975,7 +1975,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %42, ptr %32, align 1
   %43 = getelementptr i8, ptr %26, i64 32
   %44 = load ptr, ptr %22, align 16
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load <2 x double>, ptr %45, align 16
   %47 = load ptr, ptr %24, align 16
   %48 = load double, ptr %47, align 8
@@ -1999,7 +1999,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %64, ptr %54, align 1
   %65 = getelementptr i8, ptr %26, i64 64
   %66 = load ptr, ptr %22, align 16
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load <2 x double>, ptr %67, align 16
   %69 = load ptr, ptr %24, align 16
   %70 = getelementptr i8, ptr %69, i64 8
@@ -2012,7 +2012,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %76, ptr %65, align 1
   %77 = getelementptr i8, ptr %26, i64 80
   %78 = load ptr, ptr %22, align 16
-  %79 = getelementptr inbounds i8, ptr %78, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load <2 x double>, ptr %79, align 16
   %81 = load ptr, ptr %24, align 16
   %82 = getelementptr i8, ptr %81, i64 8
@@ -2037,7 +2037,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %99, ptr %89, align 1
   %100 = getelementptr i8, ptr %26, i64 112
   %101 = load ptr, ptr %22, align 16
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load <2 x double>, ptr %102, align 16
   %104 = load ptr, ptr %24, align 16
   %105 = getelementptr i8, ptr %104, i64 16
@@ -2050,7 +2050,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %111, ptr %100, align 1
   %112 = getelementptr i8, ptr %26, i64 128
   %113 = load ptr, ptr %22, align 16
-  %114 = getelementptr inbounds i8, ptr %113, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = load <2 x double>, ptr %114, align 16
   %116 = load ptr, ptr %24, align 16
   %117 = getelementptr i8, ptr %116, i64 16
@@ -2075,7 +2075,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %134, ptr %124, align 1
   %135 = getelementptr i8, ptr %26, i64 160
   %136 = load ptr, ptr %22, align 16
-  %137 = getelementptr inbounds i8, ptr %136, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load <2 x double>, ptr %137, align 16
   %139 = load ptr, ptr %24, align 16
   %140 = getelementptr i8, ptr %139, i64 24
@@ -2088,7 +2088,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %146, ptr %135, align 1
   %147 = getelementptr i8, ptr %26, i64 176
   %148 = load ptr, ptr %22, align 16
-  %149 = getelementptr inbounds i8, ptr %148, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load <2 x double>, ptr %149, align 16
   %151 = load ptr, ptr %24, align 16
   %152 = getelementptr i8, ptr %151, i64 24
@@ -2113,7 +2113,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %169, ptr %159, align 1
   %170 = getelementptr i8, ptr %26, i64 208
   %171 = load ptr, ptr %22, align 16
-  %172 = getelementptr inbounds i8, ptr %171, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load <2 x double>, ptr %172, align 16
   %174 = load ptr, ptr %24, align 16
   %175 = getelementptr i8, ptr %174, i64 32
@@ -2126,7 +2126,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %181, ptr %170, align 1
   %182 = getelementptr i8, ptr %26, i64 224
   %183 = load ptr, ptr %22, align 16
-  %184 = getelementptr inbounds i8, ptr %183, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %185 = load <2 x double>, ptr %184, align 16
   %186 = load ptr, ptr %24, align 16
   %187 = getelementptr i8, ptr %186, i64 32
@@ -2151,7 +2151,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %204, ptr %194, align 1
   %205 = getelementptr i8, ptr %26, i64 256
   %206 = load ptr, ptr %22, align 16
-  %207 = getelementptr inbounds i8, ptr %206, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load <2 x double>, ptr %207, align 16
   %209 = load ptr, ptr %24, align 16
   %210 = getelementptr i8, ptr %209, i64 40
@@ -2164,7 +2164,7 @@ define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_3Map
   store <2 x double> %216, ptr %205, align 1
   %217 = getelementptr i8, ptr %26, i64 272
   %218 = load ptr, ptr %22, align 16
-  %219 = getelementptr inbounds i8, ptr %218, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %220 = load <2 x double>, ptr %219, align 16
   %221 = load ptr, ptr %24, align 16
   %222 = getelementptr i8, ptr %221, i64 40
@@ -2195,39 +2195,39 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit.preheader: ; preds 
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %2, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %13
 
 13:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit.preheader, %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit
   %indvars.iv = phi i64 [ 0, %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit.preheader ], [ %indvars.iv.next, %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit ]
   %14 = load ptr, ptr %5, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr noundef nonnull align 16 dereferenceable(776) %5)
           to label %17 unwind label %63
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds double, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
   store double 1.000000e-09, ptr %19, align 8
   %20 = load ptr, ptr %10, align 8
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef %20)
           to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %17
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 216
   %26 = load ptr, ptr %25, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit unwind label %63
 
 _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(176) %0)
           to label %30 unwind label %63
@@ -2235,39 +2235,39 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 30:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit
   %31 = load double, ptr %12, align 8
   %32 = load ptr, ptr %5, align 16
-  %33 = getelementptr inbounds i8, ptr %32, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %34 = load ptr, ptr %33, align 8
   invoke void %34(ptr noundef nonnull align 16 dereferenceable(776) %5)
           to label %35 unwind label %63
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %5, align 16
-  %37 = getelementptr inbounds i8, ptr %36, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 168
   %38 = load ptr, ptr %37, align 8
   invoke void %38(ptr noundef nonnull align 16 dereferenceable(776) %5)
           to label %39 unwind label %63
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds double, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv
   store double -1.000000e-09, ptr %41, align 8
   %42 = load ptr, ptr %10, align 8
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 224
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 224
   %45 = load ptr, ptr %44, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef %42)
           to label %.noexc21 unwind label %63
 
 .noexc21:                                         ; preds = %39
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 216
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 216
   %48 = load ptr, ptr %47, align 8
   invoke void %48(ptr noundef nonnull align 8 dereferenceable(128) %5)
           to label %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23 unwind label %63
 
 _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23: ; preds = %.noexc21
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(176) %0)
           to label %52 unwind label %63
@@ -2275,7 +2275,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23: ; preds = %.noexc21
 52:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23
   %53 = load double, ptr %12, align 8
   %54 = load ptr, ptr %5, align 16
-  %55 = getelementptr inbounds i8, ptr %54, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 176
   %56 = load ptr, ptr %55, align 8
   invoke void %56(ptr noundef nonnull align 16 dereferenceable(776) %5)
           to label %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit unwind label %63
@@ -2283,10 +2283,10 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23: ; preds = %.noexc21
 _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit: ; preds = %52
   %57 = fsub double %31, %53
   %58 = load ptr, ptr %10, align 8
-  %59 = getelementptr inbounds double, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv
   store double 0.000000e+00, ptr %59, align 8
   %60 = load ptr, ptr %11, align 8, !noalias !122
-  %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv
   %62 = fmul double %57, 0x41BDCD64FFFFFFFF
   store double %62, ptr %61, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2329,7 +2329,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_9VertexCamES1_EE1
   %2 = alloca %"class.g2o::ceres::internal::FixedArray", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %8 = load i8, ptr %7, align 4
@@ -2349,32 +2349,32 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit.preheader: ; preds 
 14:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit.preheader, %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit
   %indvars.iv = phi i64 [ 0, %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit.preheader ], [ %indvars.iv.next, %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit ]
   %15 = load ptr, ptr %6, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 16 dereferenceable(776) %6)
           to label %18 unwind label %64
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   store double 1.000000e-09, ptr %20, align 8
   %21 = load ptr, ptr %11, align 8
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %24 = load ptr, ptr %23, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef %21)
           to label %.noexc unwind label %64
 
 .noexc:                                           ; preds = %18
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 216
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit unwind label %64
 
 _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   invoke void %30(ptr noundef nonnull align 8 dereferenceable(176) %0)
           to label %31 unwind label %64
@@ -2382,39 +2382,39 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 31:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit
   %32 = load double, ptr %13, align 8
   %33 = load ptr, ptr %6, align 16
-  %34 = getelementptr inbounds i8, ptr %33, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
   %35 = load ptr, ptr %34, align 8
   invoke void %35(ptr noundef nonnull align 16 dereferenceable(776) %6)
           to label %36 unwind label %64
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %6, align 16
-  %38 = getelementptr inbounds i8, ptr %37, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 168
   %39 = load ptr, ptr %38, align 8
   invoke void %39(ptr noundef nonnull align 16 dereferenceable(776) %6)
           to label %40 unwind label %64
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %11, align 8
-  %42 = getelementptr inbounds double, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv
   store double -1.000000e-09, ptr %42, align 8
   %43 = load ptr, ptr %11, align 8
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 224
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 224
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef %43)
           to label %.noexc21 unwind label %64
 
 .noexc21:                                         ; preds = %40
   %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 216
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 216
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(128) %6)
           to label %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23 unwind label %64
 
 _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23: ; preds = %.noexc21
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(176) %0)
           to label %53 unwind label %64
@@ -2422,7 +2422,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23: ; preds = %.noexc21
 53:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23
   %54 = load double, ptr %13, align 8
   %55 = load ptr, ptr %6, align 16
-  %56 = getelementptr inbounds i8, ptr %55, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 176
   %57 = load ptr, ptr %56, align 8
   invoke void %57(ptr noundef nonnull align 16 dereferenceable(776) %6)
           to label %_ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit unwind label %64
@@ -2430,10 +2430,10 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit23: ; preds = %.noexc21
 _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit: ; preds = %53
   %58 = fsub double %32, %54
   %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv
   store double 0.000000e+00, ptr %60, align 8
   %61 = load ptr, ptr %12, align 8, !noalias !126
-  %62 = getelementptr inbounds double, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv
   %63 = fmul double %58, 0x41BDCD64FFFFFFFF
   store double %63, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

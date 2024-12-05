@@ -52,14 +52,14 @@ define hidden noundef zeroext i1 @_ZN15LocationPrinter12is_valid_objEPv(ptr noun
   br i1 %or.cond, label %37, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = tail call noundef zeroext i1 @_ZN2os17is_readable_rangeEPKvS1_(ptr noundef %0, ptr noundef nonnull %10) #3
   br i1 %11, label %12, label %37
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef %0) #3
   br i1 %17, label %18, label %37
@@ -67,7 +67,7 @@ define hidden noundef zeroext i1 @_ZN15LocationPrinter12is_valid_objEPv(ptr noun
 18:                                               ; preds = %12
   %19 = load i8, ptr @UseCompressedClassPointers, align 1
   %20 = trunc i8 %19 to i1
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %20, label %22, label %34
 
 22:                                               ; preds = %18

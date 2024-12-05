@@ -27,7 +27,7 @@ $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 define void @_ZN4LIEF5MachO13SymbolCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO13SymbolCommandE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret void
 }
@@ -43,8 +43,8 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN4LIEF5MachO13SymbolC
 
 5:                                                ; preds = %2
   call void @_ZN4LIEF5MachO11LoadCommandD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
   ret ptr %0
 
@@ -71,8 +71,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN4LIEF5MachO13SymbolCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO13SymbolCommandE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   ret void
 }
@@ -102,27 +102,27 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZN4LIEF5MachO13SymbolCommandC2ERKNS0_7details14symtab_commandE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   tail call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %4, i32 noundef %6)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO13SymbolCommandE, i64 16), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 60
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %10, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   ret void
 }
@@ -150,56 +150,56 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand13symbol_offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand16numberof_symbolsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand14strings_offsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK4LIEF5MachO13SymbolCommand12strings_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 68
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF5MachO13SymbolCommand13symbol_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF5MachO13SymbolCommand16numberof_symbolsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF5MachO13SymbolCommand14strings_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF5MachO13SymbolCommand12strings_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret void
 }
@@ -207,7 +207,7 @@ define void @_ZN4LIEF5MachO13SymbolCommand12strings_sizeEj(ptr nocapture noundef
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF5MachO13SymbolCommand6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 888
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 888
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(112) %0)
   ret void

@@ -87,7 +87,7 @@ define hidden noundef i32 @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RK
 32:                                               ; preds = %.lr.ph.us, %32
   %indvars.iv171 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next172, %32 ]
   %.0112154.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %35, %32 ]
-  %33 = getelementptr inbounds float, ptr %31, i64 %indvars.iv171
+  %33 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv171
   %34 = load float, ptr %33, align 4
   %35 = fadd fast float %34, %.0112154.us
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
@@ -97,7 +97,7 @@ define hidden noundef i32 @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RK
 ._crit_edge.us:                                   ; preds = %32
   %36 = fmul fast float %35, %25
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds float, ptr %37, i64 %indvars.iv176
+  %38 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv176
   store float %36, ptr %38, align 4
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
@@ -139,7 +139,7 @@ define hidden noundef i32 @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RK
 57:                                               ; preds = %.lr.ph.us164, %57
   %indvars.iv186 = phi i64 [ 0, %.lr.ph.us164 ], [ %indvars.iv.next187, %57 ]
   %.0109159.us = phi float [ 0.000000e+00, %.lr.ph.us164 ], [ %61, %57 ]
-  %58 = getelementptr inbounds float, ptr %53, i64 %indvars.iv186
+  %58 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv186
   %59 = load float, ptr %58, align 4
   %60 = fsub fast float %59, %56
   %square.us = fmul fast float %60, %60
@@ -160,7 +160,7 @@ define hidden noundef i32 @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RK
 .lr.ph158.split:                                  ; preds = %.lr.ph158, %.lr.ph158.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph158.split ], [ 0, %.lr.ph158 ]
   %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds float, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv
   store float 0.000000e+00, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count179

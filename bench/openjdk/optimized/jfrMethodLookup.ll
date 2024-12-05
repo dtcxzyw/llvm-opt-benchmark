@@ -51,16 +51,16 @@ define hidden noundef range(i32 0, 65536) i32 @_ZN15JfrMethodLookup13method_id_n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN15JfrMethodLookup9method_idEPK6Method(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, -8064
-  %11 = getelementptr inbounds i8, ptr %3, i64 50
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 50
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
   %14 = or i64 %10, %13
@@ -75,13 +75,13 @@ define hidden noundef range(i64 0, 281474976710656) i64 @_ZN15JfrMethodLookup8kl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i64 0, 281474976710656) i64 @_ZN15JfrMethodLookup8klass_idEPK6Method(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 16
   ret i64 %10

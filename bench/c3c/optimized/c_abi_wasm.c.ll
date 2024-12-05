@@ -30,7 +30,7 @@ define dso_local ptr @wasm_create_params(ptr noundef readonly %0) local_unnamed_
 
 9:                                                ; preds = %5, %wasm_classify_argument_type.exit
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %wasm_classify_argument_type.exit ]
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc ptr @type_lowering(ptr noundef %11)
   %13 = tail call fastcc ptr @type_lowering(ptr noundef readonly %12)
@@ -52,7 +52,7 @@ define dso_local ptr @wasm_create_params(ptr noundef readonly %0) local_unnamed_
 
 wasm_classify_argument_type.exit:                 ; preds = %17, %19
   %.0.i = phi ptr [ %18, %17 ], [ %20, %19 ]
-  %21 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %.0.i, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -72,7 +72,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.026 = phi ptr [ %0, %1 ], [ %.026.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.026, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
@@ -102,25 +102,25 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   unreachable
 
 7:                                                ; preds = %.backedge
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %.backedge.backedge
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.backedge.backedge
 
@@ -130,21 +130,21 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 26:                                               ; preds = %.backedge, %.backedge, %.backedge
   %27 = load ptr, ptr @type_iptr, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
 30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.backedge.backedge
 
 37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
   %41 = icmp eq ptr %40, %39
@@ -155,7 +155,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
   %48 = icmp eq ptr %47, %46
@@ -175,13 +175,13 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #3
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #3
   br label %.loopexit
@@ -201,7 +201,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @c_abi_func_create_wasm(ptr nocapture noundef initializes((56, 64), (72, 88)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %3)
   %5 = tail call zeroext i1 @type_is_abi_aggregate(ptr noundef %4) #3
@@ -222,7 +222,7 @@ define dso_local void @c_abi_func_create_wasm(ptr nocapture noundef initializes(
 
 wasm_classify_return.exit:                        ; preds = %8, %10
   %.0.i = phi ptr [ %9, %8 ], [ %11, %10 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.0.i, ptr %12, align 8
   %13 = load i16, ptr %0, align 8
   %14 = and i16 %13, 128
@@ -230,7 +230,7 @@ wasm_classify_return.exit:                        ; preds = %8, %10
   br i1 %.not, label %28, label %15
 
 15:                                               ; preds = %wasm_classify_return.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @type_get_ptr(ptr noundef %17) #3
   %19 = tail call fastcc ptr @type_lowering(ptr noundef readonly %18)
@@ -252,20 +252,20 @@ wasm_classify_return.exit:                        ; preds = %8, %10
 
 wasm_classify_argument_type.exit:                 ; preds = %23, %25
   %.0.i9 = phi ptr [ %24, %23 ], [ %26, %25 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.0.i9, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %wasm_classify_argument_type.exit, %wasm_classify_return.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @wasm_create_params(ptr noundef %30)
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @wasm_create_params(ptr noundef %34)
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %35, ptr %36, align 8
   ret void
 }

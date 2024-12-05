@@ -82,9 +82,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 8), align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 784), ptr %4, align 8
   ret void
 }
@@ -92,29 +92,29 @@ define internal void @mca_btl_tcp_frag_eager_constructor(ptr nocapture noundef w
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define internal void @mca_btl_tcp_frag_max_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_module, i64 24), align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1136), ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @mca_btl_tcp_frag_user_constructor(ptr nocapture noundef writeonly initializes((256, 264), (272, 280)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr getelementptr inbounds (i8, ptr @mca_btl_tcp_component, i64 1488), ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 252
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.4, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %8, i64 noundef %10) #12
   %12 = sext i32 %11 to i64
@@ -127,7 +127,7 @@ define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %20
 
 16:                                               ; preds = %20
@@ -147,9 +147,9 @@ define i64 @mca_btl_tcp_frag_dump(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv, %25
   %27 = select i1 %26, ptr @.str.6, ptr @.str.7
-  %28 = getelementptr inbounds [5 x %struct.iovec], ptr %15, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [5 x %struct.iovec], ptr %15, i64 0, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %23, ptr noundef nonnull @.str.5, ptr noundef nonnull %27, ptr noundef %29, i64 noundef %31) #12
   %33 = add nsw i32 %32, %.034
@@ -169,18 +169,18 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.msghdr, align 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   store i64 %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, i8 0, i64 20, i1 false)
   br label %13
 
@@ -202,13 +202,13 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %21 = load ptr, ptr @opal_process_name_print, align 8
   %22 = call ptr @opal_proc_local_get() #12
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = call ptr %21(i64 %24) #12
   %26 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef nonnull @.str.8, ptr noundef %20, ptr noundef %25, ptr noundef nonnull @.str.9, i32 noundef 128, ptr noundef nonnull @__func__.mca_btl_tcp_frag_send) #12
   %27 = load ptr, ptr %6, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = load i32, ptr %17, align 4
   %32 = call ptr @strerror(i32 noundef %31) #12
@@ -216,9 +216,9 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   %34 = zext i32 %33 to i64
   %35 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef nonnull @.str.10, ptr noundef %28, i64 noundef %30, ptr noundef %32, i64 noundef %34) #12
   %36 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef nonnull @.str.11) #12
-  %37 = getelementptr inbounds i8, ptr %0, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   store i32 3, ptr %39, align 8
   %40 = load ptr, ptr %37, align 8
   call void @mca_btl_tcp_endpoint_close(ptr noundef %40) #12
@@ -236,15 +236,15 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %48 = load ptr, ptr @opal_process_name_print, align 8
   %49 = call ptr @opal_proc_local_get() #12
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load i64, ptr %50, align 8
   %52 = call ptr %48(i64 %51) #12
   %53 = call i32 (ptr, ...) @mca_btl_base_err(ptr noundef nonnull @.str.8, ptr noundef %47, ptr noundef %52, ptr noundef nonnull @.str.9, i32 noundef 136, ptr noundef nonnull @__func__.mca_btl_tcp_frag_send) #12
-  %54 = getelementptr inbounds i8, ptr %0, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not40 = icmp eq ptr %59, null
   br i1 %.not40, label %64, label %60
@@ -265,9 +265,9 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   br label %70
 
 70:                                               ; preds = %64, %41
-  %71 = getelementptr inbounds i8, ptr %0, i64 136
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 112
   store i32 3, ptr %73, align 8
   %74 = load ptr, ptr %71, align 8
   call void @mca_btl_tcp_endpoint_close(ptr noundef %74) #12
@@ -280,7 +280,7 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   br i1 %.not52, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
-  %77 = getelementptr inbounds i8, ptr %0, i64 252
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %.promoted = load ptr, ptr %6, align 8
   br label %78
 
@@ -289,14 +289,14 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   %80 = phi ptr [ %.promoted, %.lr.ph ], [ %85, %83 ]
   %.03551 = phi i64 [ %14, %.lr.ph ], [ %84, %83 ]
   %.03650 = phi i64 [ 0, %.lr.ph ], [ %89, %83 ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8
   %.not = icmp slt i64 %.03551, %82
   br i1 %.not, label %90, label %83
 
 83:                                               ; preds = %78
   %84 = sub i64 %.03551, %82
-  %85 = getelementptr inbounds i8, ptr %80, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %85, ptr %6, align 8
   %86 = load i32, ptr %77, align 4
   %87 = add i32 %86, 1
@@ -312,7 +312,7 @@ define zeroext i1 @mca_btl_tcp_frag_send(ptr nocapture noundef %0, i32 noundef %
   %92 = getelementptr inbounds i8, ptr %91, i64 %.03551
   store ptr %92, ptr %80, align 8
   %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = sub i64 %95, %.03551
   store i64 %96, ptr %94, align 8
@@ -348,24 +348,24 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
-  %6 = getelementptr inbounds i8, ptr %4, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 252
-  %11 = getelementptr inbounds i8, ptr %4, i64 696
-  %12 = getelementptr inbounds i8, ptr %0, i64 154
-  %13 = getelementptr inbounds i8, ptr %0, i64 156
-  %14 = getelementptr inbounds i8, ptr %0, i64 153
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
-  %19 = getelementptr inbounds i8, ptr %0, i64 304
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 696
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %21
 
 21:                                               ; preds = %.backedge, %2
@@ -394,10 +394,10 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %.0128177 = phi i64 [ %22, %.lr.ph.preheader ], [ %38, %25 ]
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.iovec, ptr %30, i64 %indvars.iv, i32 1
+  %31 = getelementptr inbounds nuw %struct.iovec, ptr %30, i64 %indvars.iv, i32 1
   %32 = load i64, ptr %31, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.0128177, i64 %32)
-  %33 = getelementptr inbounds %struct.iovec, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %struct.iovec, ptr %30, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %29, i64 %spec.select, i1 false)
   %35 = load ptr, ptr %8, align 8
@@ -446,12 +446,12 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %4, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %65 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %64) #12
   br label %66
 
 66:                                               ; preds = %60, %63
-  %67 = getelementptr inbounds i8, ptr %4, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 4
   br i1 %69, label %70, label %71
@@ -467,7 +467,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   br i1 %73, label %74, label %.loopexit146
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %4, i64 200
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %76 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #12
   br label %.loopexit146
 
@@ -485,13 +485,13 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %82 = load ptr, ptr @opal_process_name_print, align 8
   %83 = tail call ptr @opal_proc_local_get() #12
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load i64, ptr %84, align 8
   %86 = tail call ptr %82(i64 %85) #12
   %87 = tail call i32 (ptr, ...) @mca_btl_base_err(ptr noundef nonnull @.str.8, ptr noundef %81, ptr noundef %86, ptr noundef nonnull @.str.9, i32 noundef 235, ptr noundef nonnull @__func__.mca_btl_tcp_frag_recv) #12
   %88 = load ptr, ptr %7, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = load i32, ptr %78, align 4
   %93 = tail call ptr @strerror(i32 noundef %92) #12
@@ -511,9 +511,9 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 103:                                              ; preds = %98
   %104 = load ptr, ptr @opal_get_proc_hostname, align 8
-  %105 = getelementptr inbounds i8, ptr %4, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = load ptr, ptr %107, align 8
   %109 = tail call ptr %104(ptr noundef %108) #12
   %110 = load ptr, ptr @opal_show_help, align 8
@@ -535,14 +535,14 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %120 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %121 = load ptr, ptr @opal_process_name_print, align 8
   %122 = tail call ptr @opal_proc_local_get() #12
-  %123 = getelementptr inbounds i8, ptr %122, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %124 = load i64, ptr %123, align 8
   %125 = tail call ptr %121(i64 %124) #12
   %126 = tail call i32 (ptr, ...) @mca_btl_base_err(ptr noundef nonnull @.str.8, ptr noundef %120, ptr noundef %125, ptr noundef nonnull @.str.9, i32 noundef 248, ptr noundef nonnull @__func__.mca_btl_tcp_frag_recv) #12
   %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %131 = load ptr, ptr %130, align 8
   %.not143 = icmp eq ptr %131, null
   br i1 %.not143, label %136, label %132
@@ -568,12 +568,12 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %4, i64 200
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %147 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %146) #12
   br label %148
 
 148:                                              ; preds = %142, %145
-  %149 = getelementptr inbounds i8, ptr %4, i64 112
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i32 3, ptr %149, align 8
   tail call void @mca_btl_tcp_endpoint_close(ptr noundef %4) #12
   %150 = load i8, ptr @opal_uses_threads, align 1
@@ -581,7 +581,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   br i1 %151, label %152, label %.loopexit146
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %4, i64 200
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %154 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %153) #12
   br label %.loopexit146
 
@@ -605,7 +605,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %159 = phi ptr [ %.promoted, %.lr.ph180 ], [ %174, %170 ]
   %.1130179 = phi i64 [ %.0129, %.lr.ph180 ], [ %171, %170 ]
   %.1132178 = phi i32 [ 0, %.lr.ph180 ], [ %176, %170 ]
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i64, ptr %160, align 8
   %162 = icmp slt i64 %.1130179, %161
   br i1 %162, label %163, label %170
@@ -615,7 +615,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %165 = getelementptr inbounds i8, ptr %164, i64 %.1130179
   store ptr %165, ptr %159, align 8
   %166 = load ptr, ptr %7, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i64, ptr %167, align 8
   %169 = sub i64 %168, %.1130179
   store i64 %169, ptr %167, align 8
@@ -626,7 +626,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
   %172 = load i32, ptr %10, align 4
   %173 = add i32 %172, 1
   store i32 %173, ptr %10, align 4
-  %174 = getelementptr inbounds i8, ptr %159, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store ptr %174, ptr %7, align 8
   %175 = add i32 %158, -1
   store i32 %175, ptr %5, align 8
@@ -670,7 +670,7 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 192:                                              ; preds = %190
   %193 = load ptr, ptr %3, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 112
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 112
   store i32 2, ptr %194, align 8
   %195 = load ptr, ptr %3, align 8
   tail call void @mca_btl_tcp_endpoint_close(ptr noundef %195) #12
@@ -726,14 +726,14 @@ define noundef zeroext i1 @mca_btl_tcp_frag_recv(ptr noundef %0, i32 noundef %1)
 
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
   %indvars.iv201 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next202, %.lr.ph182 ]
-  %211 = getelementptr inbounds [2 x %struct.mca_btl_base_segment_t], ptr %15, i64 0, i64 %indvars.iv201
+  %211 = getelementptr inbounds nuw [2 x %struct.mca_btl_base_segment_t], ptr %15, i64 0, i64 %indvars.iv201
   %212 = load ptr, ptr %211, align 8
   %213 = add nuw nsw i64 %indvars.iv201, 2
-  %214 = getelementptr inbounds [5 x %struct.iovec], ptr %16, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw [5 x %struct.iovec], ptr %16, i64 0, i64 %213
   store ptr %212, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %211, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %216 = load i64, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %214, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i64 %216, ptr %217, align 8
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count

@@ -1264,7 +1264,7 @@ define internal i32 @dissect_cipmotion(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not96, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 92
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 255
   br label %33
@@ -1291,7 +1291,7 @@ define internal i32 @dissect_cipmotion(ptr noundef %0, ptr noundef %1, ptr nound
   %45 = add nuw nsw i32 %.0, 2
   %46 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %45) #4
   %47 = zext i8 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @col_set_str(ptr noundef %49, i32 noundef 34, ptr noundef nonnull @.str.594) #4
   %50 = load ptr, ptr %48, align 8
@@ -1453,10 +1453,10 @@ dissect_var_cont_conn_header.exit:                ; preds = %142, %141, %90, %89
   br i1 %.not149, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %11, i64 4
-  %154 = getelementptr inbounds i8, ptr %11, i64 12
-  %155 = getelementptr inbounds i8, ptr %24, i64 4
-  %156 = getelementptr inbounds i8, ptr %24, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %155 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %24, i64 12
   br label %157
 
 157:                                              ; preds = %.lr.ph, %776
@@ -1763,7 +1763,7 @@ dissect_cntr_event.exit:                          ; preds = %288, %279
   br i1 %.not.i.i114, label %343, label %340
 
 340:                                              ; preds = %337
-  %341 = getelementptr inbounds i8, ptr %339, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %342 = load ptr, ptr %341, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %319, ptr noundef nonnull @.str.719, ptr noundef %342) #4
   br label %343
@@ -1847,7 +1847,7 @@ dissect_get_axis_attr_list_request.exit.i:        ; preds = %343, %309
   br i1 %.not.i.i.i, label %dissect_motion_attribute.exit.i.i, label %385
 
 385:                                              ; preds = %379
-  %386 = getelementptr inbounds i8, ptr %384, i64 16
+  %386 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %387 = load ptr, ptr %386, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %358, ptr noundef nonnull @.str.719, ptr noundef %387) #4
   %388 = and i32 %381, 254
@@ -2377,7 +2377,7 @@ dissect_devce_event.exit:                         ; preds = %624, %611
   br i1 %.not.i.i.i129, label %dissect_motion_attribute.exit.i.i130, label %705
 
 705:                                              ; preds = %701
-  %706 = getelementptr inbounds i8, ptr %704, i64 16
+  %706 = getelementptr inbounds nuw i8, ptr %704, i64 16
   %707 = load ptr, ptr %706, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %682, ptr noundef nonnull @.str.719, ptr noundef %707) #4
   %708 = icmp ult i8 %670, 2
@@ -2463,7 +2463,7 @@ dissect_get_axis_attr_list_response.exit.i:       ; preds = %725, %660
   br i1 %.not.i54.i, label %750, label %747
 
 747:                                              ; preds = %.lr.ph.i53.i
-  %748 = getelementptr inbounds i8, ptr %746, i64 16
+  %748 = getelementptr inbounds nuw i8, ptr %746, i64 16
   %749 = load ptr, ptr %748, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %739, ptr noundef nonnull @.str.719, ptr noundef %749) #4
   br label %750
@@ -2549,7 +2549,7 @@ define internal i32 @dissect_cipmotion3(ptr noundef %0, ptr noundef %1, ptr noun
   %5 = alloca %struct.cip_conn_info, align 8
   %6 = alloca %struct.cip_io_data_input, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %5, i8 0, i64 240, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 3, ptr %7, align 4
   store ptr %5, ptr %6, align 8
   %8 = call i32 @dissect_cipmotion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
@@ -2624,7 +2624,7 @@ define internal fastcc void @dissect_set_cyclic_list_request(ptr noundef %0, ptr
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load ptr, ptr %20, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.719, ptr noundef %21) #4
   br label %22
@@ -2677,7 +2677,7 @@ define internal fastcc void @dissect_set_cyclic_list_respone(ptr noundef %0, ptr
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.719, ptr noundef %23) #4
   br label %24

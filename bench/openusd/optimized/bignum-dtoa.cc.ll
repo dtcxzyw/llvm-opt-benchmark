@@ -441,7 +441,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %9 = tail call noundef zeroext i16 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum21DivideModuloIntBignumERKS1_(ptr noundef nonnull align 4 dereferenceable(516) %2, ptr noundef nonnull align 4 dereferenceable(516) %3)
   %10 = trunc i16 %9 to i8
   %11 = add i8 %10, 48
-  %12 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej(ptr noundef nonnull align 4 dereferenceable(516) %2, i32 noundef 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -460,7 +460,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %20 = getelementptr inbounds i8, ptr %4, i64 %19
   store i8 %18, ptr %20, align 1
   %.phi.trans.insert = zext nneg i32 %7 to i64
-  %.phi.trans.insert40 = getelementptr inbounds i8, ptr %4, i64 %.phi.trans.insert
+  %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %4, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert40, align 1
   br label %.lr.ph36
 
@@ -472,11 +472,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
 
 22:                                               ; preds = %.lr.ph36
   %23 = zext nneg i32 %.034 to i64
-  %24 = getelementptr inbounds i8, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 %23
   store i8 48, ptr %24, align 1
   %25 = add nsw i32 %.034, -1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = add i8 %28, 1
   store i8 %29, ptr %27, align 1

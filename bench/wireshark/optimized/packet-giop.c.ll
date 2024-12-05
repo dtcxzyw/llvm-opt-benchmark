@@ -756,11 +756,11 @@ define void @register_giop_user_module(ptr noundef %0, ptr noundef %1, ptr nound
   %13 = call ptr @wmem_epan_scope() #14
   %14 = call noalias ptr @wmem_alloc(ptr noundef %13, i64 noundef 24) #14
   store ptr %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %1, ptr %15, align 8
   store ptr %0, ptr %14, align 8
   %16 = call ptr @find_protocol_by_id(i32 noundef %3) #14
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr @giop_module_hash, align 8
   %19 = call i32 @g_hash_table_insert(ptr noundef %18, ptr noundef nonnull %10, ptr noundef nonnull %12) #14
@@ -784,11 +784,11 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 define void @register_giop_user(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @wmem_epan_scope() #14
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 24) #14
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
   store ptr %0, ptr %5, align 8
   %7 = tail call ptr @find_protocol_by_id(i32 noundef %2) #14
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr @giop_sub_list, align 8
   %10 = tail call ptr @g_slist_prepend(ptr noundef %9, ptr noundef nonnull %5) #14
@@ -838,7 +838,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @is_big_endian(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %3 = load i8, ptr %2, align 1
   switch i8 %3, label %12 [
     i8 2, label %4
@@ -847,7 +847,7 @@ define range(i32 0, 2) i32 @is_big_endian(ptr nocapture noundef readonly %0) loc
   ]
 
 4:                                                ; preds = %1, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %6 = load i8, ptr %5, align 2
   %7 = and i8 %6, 1
   %8 = xor i8 %7, 1
@@ -855,7 +855,7 @@ define range(i32 0, 2) i32 @is_big_endian(ptr nocapture noundef readonly %0) loc
   br label %12
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %11 = load i8, ptr %10, align 2
   %.not = icmp eq i8 %11, 0
   %.4 = zext i1 %.not to i32
@@ -980,7 +980,7 @@ define zeroext i8 @get_CDR_octet(ptr noundef %0, ptr nocapture noundef %1) local
 
 ; Function Attrs: nounwind uwtable
 define void @get_CDR_any(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_list_new(ptr noundef %10) #14
   %12 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %11)
@@ -1427,7 +1427,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
 106:                                              ; preds = %18
   %107 = tail call ptr @wmem_list_head(ptr noundef %9) #14
   %108 = tail call ptr @wmem_list_frame_next(ptr noundef %107) #14
-  %109 = getelementptr inbounds i8, ptr %1, i64 408
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %110, ptr noundef nonnull @.str.236) #14
   %112 = tail call ptr @wmem_list_frame_data(ptr noundef %108) #14
@@ -1537,7 +1537,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
   %173 = load i32, ptr %4, align 4
   %174 = add i32 %173, -4
   %175 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %172, ptr noundef %0, i32 noundef %174, i32 noundef 4, i32 noundef %171) #14
-  %176 = getelementptr inbounds i8, ptr %1, i64 408
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %177 = load ptr, ptr %176, align 8
   %178 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %177, ptr noundef nonnull @.str.239) #14
   %.not405 = icmp eq ptr %10, null
@@ -1592,7 +1592,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
   %199 = tail call ptr @wmem_list_frame_next(ptr noundef %197) #14
   %200 = tail call ptr @wmem_list_frame_data(ptr noundef %199) #14
   %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %1, i64 408
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %203 = load ptr, ptr %202, align 8
   %204 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %203, ptr noundef nonnull @.str.241) #14
   %.not401 = icmp eq ptr %10, null
@@ -1683,7 +1683,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
   br label %.loopexit
 
 243:                                              ; preds = %18
-  %244 = getelementptr inbounds i8, ptr %1, i64 408
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %245 = load ptr, ptr %244, align 8
   %246 = call i32 @get_CDR_wchar(ptr noundef %245, ptr noundef %0, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %7)
   %.not395 = icmp eq ptr %2, null
@@ -1717,7 +1717,7 @@ define internal fastcc void @dissect_data_for_typecode_with_params(ptr noundef %
   br label %.loopexit
 
 267:                                              ; preds = %18
-  %268 = getelementptr inbounds i8, ptr %1, i64 408
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %269 = load ptr, ptr %268, align 8
   %270 = call i32 @get_CDR_wstring(ptr noundef %269, ptr noundef %0, ptr noundef nonnull %12, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7)
   %.not = icmp eq ptr %2, null
@@ -1853,7 +1853,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %8 = icmp slt i32 %6, 0
   %9 = sub i32 %5, %6
   %.093 = select i1 %8, i32 %9, i32 %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %.093 to i64
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef %12) #14
@@ -2459,7 +2459,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @get_CDR_typeCode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr @wmem_list_new(ptr noundef %9) #14
   %11 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %10)
@@ -2543,7 +2543,7 @@ define zeroext i16 @get_CDR_ushort(ptr noundef %0, ptr nocapture noundef %1, i32
 ; Function Attrs: nounwind uwtable
 define range(i32 -255, 256) i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %7 = load i8, ptr %6, align 1
   %8 = icmp ugt i8 %7, 1
   %.pre = load i32, ptr %3, align 4
@@ -2650,7 +2650,7 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
 24:                                               ; preds = %20, %get_CDR_ulong.exit
   %25 = phi i32 [ %23, %20 ], [ %17, %get_CDR_ulong.exit ]
   %.0 = phi i32 [ 5, %20 ], [ %16, %get_CDR_ulong.exit ]
-  %26 = getelementptr inbounds i8, ptr %6, i64 5
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 5
   %27 = load i8, ptr %26, align 1
   %28 = icmp ult i8 %27, 2
   %29 = zext i1 %28 to i32
@@ -2721,15 +2721,15 @@ define internal range(i32 0, 2) i32 @dissect_giop_heur(ptr noundef %0, ptr nound
   br i1 %.not, label %9, label %dissect_giop_tcp.exit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %32
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 50
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not15 = icmp eq i16 %18, 0
@@ -3150,7 +3150,7 @@ define internal fastcc void @dissect_tk_struct_params(ptr noundef %0, ptr nounde
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 4) #14
   %15 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %9)
@@ -3249,7 +3249,7 @@ define internal fastcc void @dissect_tk_union_params(ptr noundef %0, ptr noundef
   call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %11)
   %16 = load i32, ptr @hf_giop_typecode_name, align 4
   call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %16, ptr noundef %11)
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #14
   %20 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, ptr noundef %7, ptr noundef %19)
@@ -3422,7 +3422,7 @@ get_CDR_ulong.exit:                               ; preds = %22, %24
 define internal fastcc void @dissect_tk_sequence_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %12, i64 noundef 4) #14
   %14 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %9)
@@ -3477,7 +3477,7 @@ get_CDR_ulong.exit:                               ; preds = %26, %28
 define internal fastcc void @dissect_tk_array_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %12, i64 noundef 4) #14
   %14 = call i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %10, ptr noundef nonnull %9)
@@ -3545,7 +3545,7 @@ define internal fastcc void @dissect_tk_alias_params(ptr noundef %0, ptr noundef
   call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %14, i32 noundef %17, ptr noundef %11)
   %18 = load ptr, ptr %11, align 8
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %18) #14
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef 4) #14
   %22 = load ptr, ptr %19, align 8
@@ -3612,7 +3612,7 @@ get_CDR_ulong.exit:                               ; preds = %20, %22
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
@@ -3675,7 +3675,7 @@ get_CDR_short.exit:                               ; preds = %20, %22
   %26 = load i32, ptr @hf_giop_typecode_ValueModifier, align 4
   %27 = sext i16 %.in.i to i32
   %28 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef %27) #14
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @wmem_list_new(ptr noundef %30) #14
   %32 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %31)
@@ -3863,7 +3863,7 @@ define internal fastcc void @dissect_tk_value_box_params(ptr noundef %0, ptr nou
   call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %10)
   %15 = load i32, ptr @hf_giop_typecode_name, align 4
   call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef %10)
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #14
   %19 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %18)
@@ -3970,9 +3970,9 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 define internal i32 @dissect_giop_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.MessageHeader, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.208) #14
   %10 = load ptr, ptr %8, align 8
@@ -3982,7 +3982,7 @@ define internal i32 @dissect_giop_common(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = load i32, ptr @ett_giop, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #14
   %15 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i64 noundef 12) #14
-  %16 = getelementptr inbounds i8, ptr %5, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %is_big_endian.exit [
     i8 2, label %18
@@ -3991,7 +3991,7 @@ define internal i32 @dissect_giop_common(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 18:                                               ; preds = %4, %4
-  %19 = getelementptr inbounds i8, ptr %5, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %20 = load i8, ptr %19, align 2
   %21 = and i8 %20, 1
   %22 = xor i8 %21, 1
@@ -3999,7 +3999,7 @@ define internal i32 @dissect_giop_common(ptr noundef %0, ptr noundef %1, ptr nou
   br label %is_big_endian.exit
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %5, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %25 = load i8, ptr %24, align 2
   %.not.i = icmp eq i8 %25, 0
   %.4.i = zext i1 %.not.i to i32
@@ -4012,7 +4012,7 @@ is_big_endian.exit:                               ; preds = %4, %18, %23
   %28 = load i32, ptr @hf_giop_message_magic, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #14
   %30 = load i32, ptr @ett_giop_header_version, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %32 = load i8, ptr %31, align 4
   %33 = zext i8 %32 to i32
   %34 = load i8, ptr %16, align 1
@@ -4054,7 +4054,7 @@ is_big_endian.exit:                               ; preds = %4, %18, %23
   %60 = load i32, ptr @hf_giop_message_flags, align 4
   %61 = load i32, ptr @ett_giop_message_flags, align 4
   %62 = call ptr @proto_tree_add_bitmask(ptr noundef %36, ptr noundef %0, i32 noundef 6, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @giop_message_flags, i32 noundef 0) #14
-  %63 = getelementptr inbounds i8, ptr %5, i64 6
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %64 = load i8, ptr %63, align 2
   %65 = and i8 %64, 1
   %66 = icmp eq i8 %65, 0
@@ -4092,7 +4092,7 @@ is_big_endian.exit:                               ; preds = %4, %18, %23
   %83 = zext i8 %82 to i32
   %84 = load i8, ptr %16, align 1
   %85 = zext i8 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %5, i64 7
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = call ptr @val_to_str(i32 noundef %88, ptr noundef nonnull @giop_message_types, ptr noundef nonnull @.str.253) #14
@@ -4112,7 +4112,7 @@ is_big_endian.exit:                               ; preds = %4, %18, %23
   br i1 %97, label %177, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %5, i64 6
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %100 = load i8, ptr %99, align 2
   %101 = and i8 %100, 8
   %.not121 = icmp eq i8 %101, 0
@@ -4155,7 +4155,7 @@ is_big_endian.exit:                               ; preds = %4, %18, %23
 
 get_CDR_ulong.exit:                               ; preds = %113, %115
   %117 = phi i32 [ %114, %113 ], [ %116, %115 ]
-  %118 = getelementptr inbounds i8, ptr %5, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %117, ptr %118, align 4
   %119 = load i8, ptr %86, align 1
   %.not124 = icmp eq i8 %119, 7
@@ -4216,7 +4216,7 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   %156 = trunc i64 %155 to i8
   store i8 %156, ptr %86, align 1
   %157 = call i32 @tvb_captured_length_remaining(ptr noundef %spec.select, i32 noundef 0) #14
-  %158 = getelementptr inbounds i8, ptr %5, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %157, ptr %158, align 8
   br label %159
 
@@ -4369,7 +4369,7 @@ define internal fastcc void @dissect_giop_request_1_1(ptr noundef %0, ptr nounde
 get_CDR_ulong.exit:                               ; preds = %15, %17
   %19 = phi i32 [ %16, %15 ], [ %18, %17 ]
   %20 = add i32 %14, 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %19) #14
   %23 = load i32, ptr @hf_giop_req_id, align 4
@@ -4382,13 +4382,13 @@ get_CDR_ulong.exit:                               ; preds = %15, %17
   %28 = load i32, ptr @hf_giop_rsp_expected, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #14
   %30 = add i32 %14, 5
-  %31 = getelementptr inbounds i8, ptr %3, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %32 = load i8, ptr %31, align 1
   %.not135 = icmp eq i8 %32, 0
   br i1 %.not135, label %41, label %33
 
 33:                                               ; preds = %get_CDR_ulong.exit
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %30, i32 noundef 3) #14
   %36 = call noalias ptr @wmem_alloc0(ptr noundef %35, i64 noundef 4) #14
@@ -4462,7 +4462,7 @@ get_CDR_ulong.exit151:                            ; preds = %62, %64
   br i1 %.not136, label %87, label %76
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %1, i64 408
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %78 = load ptr, ptr %77, align 8
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %67, i32 noundef %66) #14
   %79 = add i32 %66, 1
@@ -4516,7 +4516,7 @@ get_CDR_string.exit:                              ; preds = %92, %94
 
 104:                                              ; preds = %get_CDR_string.exit
   %105 = load ptr, ptr %21, align 8
-  %106 = getelementptr inbounds i8, ptr %1, i64 408
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %107 = load ptr, ptr %106, align 8
   %108 = zext i32 %spec.select.i to i64
   %109 = call ptr @format_text(ptr noundef %107, ptr noundef %100, i64 noundef %108) #14
@@ -4562,7 +4562,7 @@ get_CDR_ulong.exit158:                            ; preds = %116, %118
   br i1 %.not138, label %150, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %129
-  %130 = getelementptr inbounds i8, ptr %1, i64 408
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %131 = load ptr, ptr %130, align 8
   call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %121, i32 noundef %120) #14
   %132 = add i32 %120, 1
@@ -4599,9 +4599,9 @@ make_printable_string.exit:                       ; preds = %142
   br label %150
 
 150:                                              ; preds = %make_printable_string.exit, %129
-  %151 = getelementptr inbounds i8, ptr %1, i64 80
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 50
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 50
   %154 = load i16, ptr %153, align 2
   %155 = and i16 %154, 8
   %.not139 = icmp eq i16 %155, 0
@@ -4609,21 +4609,21 @@ make_printable_string.exit:                       ; preds = %142
 
 156:                                              ; preds = %150
   %157 = load ptr, ptr @giop_complete_request_list, align 8
-  %158 = getelementptr inbounds i8, ptr %1, i64 20
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %159 = load i32, ptr %158, align 4
-  %160 = getelementptr inbounds i8, ptr %1, i64 208
-  %161 = getelementptr inbounds i8, ptr %1, i64 284
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %162 = load i32, ptr %161, align 4
   %163 = call fastcc ptr @insert_in_comp_req_list(ptr noundef %157, i32 noundef %159, i32 noundef %19, ptr noundef %100, ptr noundef nonnull %160, i32 noundef %162)
   store ptr %163, ptr @giop_complete_request_list, align 8
   br label %164
 
 164:                                              ; preds = %156, %150
-  %165 = getelementptr inbounds i8, ptr %3, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %19, ptr %165, align 4
   %166 = load ptr, ptr @giop_objkey_hash, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %167 = getelementptr inbounds i8, ptr %6, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.0, ptr %167, align 8
   store ptr %.0176, ptr %6, align 8
   %168 = call ptr @g_hash_table_lookup(ptr noundef %166, ptr noundef nonnull %6) #14
@@ -4738,16 +4738,16 @@ define internal fastcc void @dissect_giop_request_1_2(ptr noundef %0, ptr nounde
 
 get_CDR_ulong.exit:                               ; preds = %12, %14
   %16 = phi i32 [ %13, %12 ], [ %15, %14 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %16) #14
   %20 = load i32, ptr @hf_giop_req_id, align 4
   %21 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %16) #14
   %22 = load i32, ptr @hf_giop_response_flag, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #14
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 5, i32 noundef 3) #14
   %26 = tail call noalias ptr @wmem_alloc0(ptr noundef %25, i64 noundef 4) #14
@@ -4764,7 +4764,7 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
   %32 = load ptr, ptr @giop_objkey_hash, align 8
   %33 = load i32, ptr %8, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %33, ptr %34, align 8
   store ptr %30, ptr %6, align 8
   %35 = call ptr @g_hash_table_lookup(ptr noundef %32, ptr noundef nonnull %6) #14
@@ -4844,9 +4844,9 @@ get_CDR_string.exit:                              ; preds = %42, %44
   br label %set_new_alignment.exit
 
 set_new_alignment.exit:                           ; preds = %._crit_edge.i, %61
-  %69 = getelementptr inbounds i8, ptr %1, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 50
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 50
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, 8
   %.not80 = icmp eq i16 %73, 0
@@ -4854,10 +4854,10 @@ set_new_alignment.exit:                           ; preds = %._crit_edge.i, %61
 
 74:                                               ; preds = %set_new_alignment.exit
   %75 = load ptr, ptr @giop_complete_request_list, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %1, i64 208
-  %79 = getelementptr inbounds i8, ptr %1, i64 284
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %80 = load i32, ptr %79, align 4
   %81 = call fastcc ptr @insert_in_comp_req_list(ptr noundef %75, i32 noundef %77, i32 noundef %16, ptr noundef %50, ptr noundef nonnull %78, i32 noundef %80)
   store ptr %81, ptr @giop_complete_request_list, align 8
@@ -4974,7 +4974,7 @@ define internal fastcc void @dissect_giop_reply(ptr noundef %0, ptr noundef %1, 
 get_CDR_ulong.exit:                               ; preds = %13, %15
   %17 = phi i32 [ %14, %13 ], [ %16, %15 ]
   %18 = add i32 %12, 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %17) #14
   %21 = load i32, ptr @hf_giop_req_id, align 4
@@ -5003,19 +5003,19 @@ get_CDR_ulong.exit48:                             ; preds = %28, %30
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.274, ptr noundef %35) #14
   %36 = load i32, ptr @hf_giop_reply_status, align 4
   %37 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %36, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef %32) #14
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 50
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8
   %.not = icmp eq i16 %42, 0
   br i1 %.not, label %43, label %91
 
 43:                                               ; preds = %get_CDR_ulong.exit48
-  %44 = getelementptr inbounds i8, ptr %1, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 232
-  %47 = getelementptr inbounds i8, ptr %1, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %48 = load i32, ptr %47, align 8
   %49 = load ptr, ptr @giop_complete_request_list, align 8
   %50 = tail call ptr @g_list_last(ptr noundef %49) #14
@@ -5023,27 +5023,27 @@ get_CDR_ulong.exit48:                             ; preds = %28, %30
   br i1 %.not17.i, label %get_mfn_from_fn_and_reqid.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %1, i64 236
-  %52 = getelementptr inbounds i8, ptr %1, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 240
   br label %53
 
 53:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i
   %.018.i = phi ptr [ %50, %.lr.ph.i ], [ %79, %cmp_address.exit.thread.i ]
   %54 = load ptr, ptr %.018.i, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, %17
   br i1 %57, label %58, label %cmp_address.exit.thread.i
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %54, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = load i32, ptr %46, align 8
   %or.cond.not.i = icmp eq i32 %60, %61
   br i1 %or.cond.not.i, label %62, label %cmp_address.exit.thread.i
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %54, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 44
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr %51, align 4
   %or.cond16.not.i = icmp eq i32 %64, %65
@@ -5054,7 +5054,7 @@ get_CDR_ulong.exit48:                             ; preds = %28, %30
   br i1 %67, label %cmp_address.exit.thread14.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %54, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %52, align 8
   %71 = sext i32 %64 to i64
@@ -5063,7 +5063,7 @@ cmp_address.exit.i:                               ; preds = %66
   br i1 %72, label %cmp_address.exit.thread14.i, label %cmp_address.exit.thread.i
 
 cmp_address.exit.thread14.i:                      ; preds = %cmp_address.exit.i, %66
-  %73 = getelementptr inbounds i8, ptr %54, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, %48
   br i1 %75, label %76, label %cmp_address.exit.thread.i
@@ -5073,7 +5073,7 @@ cmp_address.exit.thread14.i:                      ; preds = %cmp_address.exit.i,
   br label %get_mfn_from_fn_and_reqid.exit
 
 cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.thread14.i, %cmp_address.exit.i, %62, %58, %53
-  %78 = getelementptr inbounds i8, ptr %.018.i, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %get_mfn_from_fn_and_reqid.exit, label %53, !llvm.loop !24
@@ -5108,9 +5108,9 @@ insert_in_complete_reply_hash.exit:               ; preds = %81, %84
   br label %91
 
 91:                                               ; preds = %get_mfn_from_fn_and_reqid.exit, %insert_in_complete_reply_hash.exit, %get_CDR_ulong.exit48
-  %92 = getelementptr inbounds i8, ptr %3, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %17, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %3, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %32, ptr %93, align 8
   %94 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %33) #14
   %95 = icmp sgt i32 %94, 0
@@ -5143,7 +5143,7 @@ define internal fastcc void @dissect_giop_reply_1_2(ptr noundef %0, ptr noundef 
 
 14:                                               ; preds = %12, %10
   %15 = phi i32 [ %11, %10 ], [ %13, %12 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %15) #14
   %18 = load i32, ptr @hf_giop_req_id, align 4
@@ -5181,19 +5181,19 @@ get_CDR_ulong.exit47:                             ; preds = %20, %22
 
 set_new_alignment.exit:                           ; preds = %.lr.ph.i, %get_CDR_ulong.exit47
   %33 = phi i32 [ %.promoted.i48, %get_CDR_ulong.exit47 ], [ %31, %.lr.ph.i ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 50
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 8
   %.not = icmp eq i16 %38, 0
   br i1 %.not, label %39, label %87
 
 39:                                               ; preds = %set_new_alignment.exit
-  %40 = getelementptr inbounds i8, ptr %1, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 232
-  %43 = getelementptr inbounds i8, ptr %1, i64 288
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %44 = load i32, ptr %43, align 8
   %45 = load ptr, ptr @giop_complete_request_list, align 8
   %46 = tail call ptr @g_list_last(ptr noundef %45) #14
@@ -5201,27 +5201,27 @@ set_new_alignment.exit:                           ; preds = %.lr.ph.i, %get_CDR_
   br i1 %.not17.i, label %get_mfn_from_fn_and_reqid.exit, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %1, i64 236
-  %48 = getelementptr inbounds i8, ptr %1, i64 240
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 240
   br label %49
 
 49:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i49
   %.018.i = phi ptr [ %46, %.lr.ph.i49 ], [ %75, %cmp_address.exit.thread.i ]
   %50 = load ptr, ptr %.018.i, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, %15
   br i1 %53, label %54, label %cmp_address.exit.thread.i
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %50, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %56 = load i32, ptr %55, align 8
   %57 = load i32, ptr %42, align 8
   %or.cond.not.i = icmp eq i32 %56, %57
   br i1 %or.cond.not.i, label %58, label %cmp_address.exit.thread.i
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %47, align 4
   %or.cond16.not.i = icmp eq i32 %60, %61
@@ -5232,7 +5232,7 @@ set_new_alignment.exit:                           ; preds = %.lr.ph.i, %get_CDR_
   br i1 %63, label %cmp_address.exit.thread14.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %50, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %48, align 8
   %67 = sext i32 %60 to i64
@@ -5241,7 +5241,7 @@ cmp_address.exit.i:                               ; preds = %62
   br i1 %68, label %cmp_address.exit.thread14.i, label %cmp_address.exit.thread.i
 
 cmp_address.exit.thread14.i:                      ; preds = %cmp_address.exit.i, %62
-  %69 = getelementptr inbounds i8, ptr %50, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, %44
   br i1 %71, label %72, label %cmp_address.exit.thread.i
@@ -5251,7 +5251,7 @@ cmp_address.exit.thread14.i:                      ; preds = %cmp_address.exit.i,
   br label %get_mfn_from_fn_and_reqid.exit
 
 cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.thread14.i, %cmp_address.exit.i, %58, %54, %49
-  %74 = getelementptr inbounds i8, ptr %.018.i, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
   %75 = load ptr, ptr %74, align 8
   %.not.i50 = icmp eq ptr %75, null
   br i1 %.not.i50, label %get_mfn_from_fn_and_reqid.exit, label %49, !llvm.loop !24
@@ -5286,9 +5286,9 @@ insert_in_complete_reply_hash.exit:               ; preds = %77, %80
   br label %87
 
 87:                                               ; preds = %get_mfn_from_fn_and_reqid.exit, %insert_in_complete_reply_hash.exit, %set_new_alignment.exit
-  %88 = getelementptr inbounds i8, ptr %3, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %15, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %3, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %24, ptr %89, align 8
   call fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %1, ptr noundef %9, i32 noundef %4, i32 noundef %24, ptr noundef %3, ptr noundef %2)
   ret void
@@ -5311,7 +5311,7 @@ define internal fastcc void @dissect_giop_cancel_request(ptr noundef %0, ptr noc
 
 get_CDR_ulong.exit:                               ; preds = %7, %9
   %11 = phi i32 [ %8, %7 ], [ %10, %9 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %11) #14
   %14 = load i32, ptr @hf_giop_req_id, align 4
@@ -5339,12 +5339,12 @@ define internal fastcc void @dissect_giop_locate_request(ptr noundef %0, ptr nou
 get_CDR_ulong.exit:                               ; preds = %10, %12
   %14 = phi i32 [ %11, %10 ], [ %13, %12 ]
   store i32 4, ptr %6, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.278, i32 noundef %14) #14
   %17 = load i32, ptr @hf_giop_req_id, align 4
   %18 = call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %14) #14
-  %19 = getelementptr inbounds i8, ptr %3, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %20 = load i8, ptr %19, align 1
   %21 = icmp ult i8 %20, 2
   br i1 %21, label %22, label %39
@@ -5408,7 +5408,7 @@ define internal fastcc void @dissect_giop_locate_reply(ptr noundef %0, ptr nound
 
 13:                                               ; preds = %11, %9
   %14 = phi i32 [ %10, %9 ], [ %12, %11 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %14) #14
   %17 = load i32, ptr @hf_giop_req_id, align 4
@@ -5428,7 +5428,7 @@ get_CDR_ulong.exit33:                             ; preds = %19, %21
   store i32 8, ptr %6, align 4
   %24 = load i32, ptr @hf_giop_locale_status, align 4
   %25 = tail call ptr @proto_tree_add_uint(ptr noundef %8, i32 noundef %24, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %23) #14
-  %26 = getelementptr inbounds i8, ptr %3, i64 5
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %27 = load i8, ptr %26, align 1
   %28 = icmp ugt i8 %27, 1
   br i1 %28, label %.preheader, label %32
@@ -5500,7 +5500,7 @@ define internal fastcc void @dissect_giop_fragment(ptr noundef %0, ptr nocapture
 
 get_CDR_ulong.exit:                               ; preds = %7, %9
   %11 = phi i32 [ %8, %7 ], [ %10, %9 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %11) #14
   %14 = load i32, ptr @hf_giop_req_id, align 4
@@ -5982,7 +5982,7 @@ get_CDR_ulong.exit.i:                             ; preds = %91, %89
   br i1 %.not118.i, label %145, label %105
 
 105:                                              ; preds = %104
-  %106 = getelementptr inbounds i8, ptr %1, i64 408
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %107 = load ptr, ptr %106, align 8
   %108 = load i32, ptr %3, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %108, i32 noundef %93) #14
@@ -5999,9 +5999,9 @@ get_CDR_ulong.exit.i:                             ; preds = %91, %89
   br i1 %.not119.i, label %140, label %117
 
 117:                                              ; preds = %105
-  %118 = getelementptr inbounds i8, ptr %1, i64 80
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 50
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 50
   %121 = load i16, ptr %120, align 2
   %122 = and i16 %121, 8
   %.not121.i = icmp eq i16 %122, 0
@@ -6010,7 +6010,7 @@ get_CDR_ulong.exit.i:                             ; preds = %91, %89
 123:                                              ; preds = %117
   %124 = load ptr, ptr @giop_objkey_hash, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %125 = getelementptr inbounds i8, ptr %8, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %93, ptr %125, align 8
   store ptr %111, ptr %8, align 8
   %126 = call ptr @g_hash_table_lookup(ptr noundef %124, ptr noundef nonnull %8) #14
@@ -6024,7 +6024,7 @@ get_CDR_ulong.exit.i:                             ; preds = %91, %89
 insert_in_objkey_hash.exit:                       ; preds = %123, %127
   %129 = call ptr @wmem_file_scope() #14
   %130 = call noalias ptr @wmem_alloc(ptr noundef %129, i64 noundef 16) #14
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 %93, ptr %131, align 8
   %132 = call ptr @wmem_file_scope() #14
   %133 = call noalias ptr @wmem_memdup(ptr noundef %132, ptr noundef %111, i64 noundef %113) #14
@@ -6034,7 +6034,7 @@ insert_in_objkey_hash.exit:                       ; preds = %123, %127
   %136 = call ptr @wmem_file_scope() #14
   %137 = call noalias ptr @wmem_strdup(ptr noundef %136, ptr noundef nonnull %6) #14
   store ptr %137, ptr %135, align 8
-  %138 = getelementptr inbounds i8, ptr %135, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i32 0, ptr %138, align 8
   %139 = call i32 @g_hash_table_insert(ptr noundef %124, ptr noundef nonnull %130, ptr noundef nonnull %135) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -6091,7 +6091,7 @@ get_CDR_ulong.exit134.i:                          ; preds = %153, %151
   br i1 %.not154.i, label %decode_IIOP_IOR_profile.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_CDR_ulong.exit134.i
-  %160 = getelementptr inbounds i8, ptr %1, i64 408
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %161 = load ptr, ptr @g_ascii_table, align 8
   br label %162
 
@@ -6233,7 +6233,7 @@ make_printable_string.exit.i:                     ; preds = %209
   br label %decode_IIOP_IOR_profile.exit
 
 229:                                              ; preds = %221
-  %230 = getelementptr inbounds i8, ptr %1, i64 408
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %231 = load ptr, ptr %230, align 8
   %232 = load i32, ptr %3, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %232, i32 noundef %222) #14
@@ -6286,24 +6286,24 @@ define internal fastcc ptr @insert_in_comp_req_list(ptr noundef %0, i32 noundef 
   %7 = tail call ptr @wmem_file_scope() #14
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 72) #14
   store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %10, align 8
   %11 = tail call ptr @wmem_file_scope() #14
   %12 = tail call noalias ptr @wmem_strdup(ptr noundef %11, ptr noundef %3) #14
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %5, ptr %15, align 8
   %16 = tail call ptr @wmem_file_scope() #14
-  %17 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %18 = load i32, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %18, ptr %17, align 8
@@ -6313,11 +6313,11 @@ define internal fastcc ptr @insert_in_comp_req_list(ptr noundef %0, i32 noundef 
 24:                                               ; preds = %6
   %25 = sext i32 %20 to i64
   %26 = tail call noalias ptr @wmem_memdup(ptr noundef %16, ptr noundef %22, i64 noundef %25) #14
-  %27 = getelementptr inbounds i8, ptr %8, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %26, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %20, ptr %29, align 4
   br label %copy_address_wmem.exit
 
@@ -6329,7 +6329,7 @@ copy_address_wmem.exit:                           ; preds = %6, %24
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.giop_module_key, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull @.str.271, ptr noundef nonnull %6, i64 noundef 4) #14
   %.not.i = icmp eq i32 %11, 0
@@ -6368,16 +6368,16 @@ get_modname_from_repoid.exit:                     ; preds = %.preheader.i, %.pre
   br i1 %.not, label %get_modname_from_repoid.exit.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8
   %.not34 = icmp eq i16 %33, 0
   br i1 %.not34, label %34, label %add_sub_handle_repoid_to_comp_req_list.exit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = load ptr, ptr @giop_complete_request_list, align 8
   %38 = call ptr @g_list_last(ptr noundef %37) #14
@@ -6392,16 +6392,16 @@ get_modname_from_repoid.exit:                     ; preds = %.preheader.i, %.pre
   br i1 %41, label %find_fn_in_list.exit.i, label %42
 
 42:                                               ; preds = %.lr.ph.i.i
-  %43 = getelementptr inbounds i8, ptr %.079.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 16
   %44 = load ptr, ptr %43, align 8
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %add_sub_handle_repoid_to_comp_req_list.exit, label %.lr.ph.i.i, !llvm.loop !28
 
 find_fn_in_list.exit.i:                           ; preds = %.lr.ph.i.i
-  %45 = getelementptr inbounds i8, ptr %39, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %27, ptr %45, align 8
   %46 = call noalias ptr @g_strdup(ptr noundef nonnull %6) #14
-  %47 = getelementptr inbounds i8, ptr %39, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %46, ptr %47, align 8
   br label %add_sub_handle_repoid_to_comp_req_list.exit
 
@@ -6412,7 +6412,7 @@ add_sub_handle_repoid_to_comp_req_list.exit:      ; preds = %42, %find_fn_in_lis
   br i1 %.not35, label %get_modname_from_repoid.exit.thread, label %50
 
 50:                                               ; preds = %add_sub_handle_repoid_to_comp_req_list.exit
-  %51 = getelementptr inbounds i8, ptr %27, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 @proto_is_protocol_enabled(ptr noundef %52) #14
   %.not36 = icmp eq i32 %53, 0
@@ -6442,7 +6442,7 @@ define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr nou
   br i1 %10, label %73, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %is_big_endian.exit.thread [
     i8 2, label %14
@@ -6451,7 +6451,7 @@ define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr nou
   ]
 
 14:                                               ; preds = %11, %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %16 = load i8, ptr %15, align 2
   %17 = and i8 %16, 1
   %18 = xor i8 %17, 1
@@ -6459,7 +6459,7 @@ define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr nou
   br label %is_big_endian.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %4, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %21 = load i8, ptr %20, align 2
   %.not.i = icmp eq i8 %21, 0
   %.4.i = zext i1 %.not.i to i32
@@ -6471,7 +6471,7 @@ is_big_endian.exit:                               ; preds = %14, %19
   br i1 %.not, label %is_big_endian.exit.thread, label %22
 
 22:                                               ; preds = %is_big_endian.exit
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 %25, 24
@@ -6492,7 +6492,7 @@ is_big_endian.exit:                               ; preds = %14, %19
   br label %43
 
 is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.exit
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %42 = load i32, ptr %41, align 1
   br label %43
 
@@ -6512,7 +6512,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.
   %.04354 = phi i32 [ %70, %69 ], [ 0, %.preheader ]
   %48 = load ptr, ptr @giop_sub_list, align 8
   %49 = tail call ptr @g_slist_nth_data(ptr noundef %48, i32 noundef %.04354) #14
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @proto_is_protocol_enabled(ptr noundef %51) #14
   %.not48 = icmp eq i32 %52, 0
@@ -6556,7 +6556,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %69, %.preheader
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   tail call void @col_set_str(ptr noundef %72, i32 noundef 34, ptr noundef nonnull @.str.208) #14
   br label %73
@@ -6577,7 +6577,7 @@ define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr no
   br i1 %6, label %30, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %3, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %9, i32 noundef %4) #14
@@ -6733,7 +6733,7 @@ get_CDR_ulong.exit:                               ; preds = %24, %26
   br i1 %.not, label %80, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %2, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %42, i32 noundef %28) #14
@@ -6875,10 +6875,10 @@ get_CDR_ulong.exit:                               ; preds = %18, %20
   br i1 %or.cond, label %27, label %37
 
 27:                                               ; preds = %get_CDR_ulong.exit
-  %28 = getelementptr inbounds i8, ptr %2, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @tvb_get_stringz_enc(ptr noundef %29, ptr noundef %0, i32 noundef %23, ptr noundef nonnull %11, i32 noundef 0) #14
-  %31 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %31, align 8
   %32 = load i32, ptr @hf_giop_exception_id, align 4
   %33 = load i32, ptr %11, align 4
@@ -6889,7 +6889,7 @@ get_CDR_ulong.exit:                               ; preds = %18, %20
   br label %37
 
 37:                                               ; preds = %get_CDR_ulong.exit, %27, %8
-  %38 = getelementptr inbounds i8, ptr %2, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %39 = load i32, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %39, ptr %9, align 4
@@ -6923,13 +6923,13 @@ get_mfn_from_fn.exit:                             ; preds = %37, %42
   br i1 %51, label %find_fn_in_list.exit, label %52
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.079.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not.i78 = icmp eq ptr %54, null
   br i1 %.not.i78, label %.critedge77, label %.lr.ph.i, !llvm.loop !28
 
 find_fn_in_list.exit:                             ; preds = %.lr.ph.i
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @giop_op_resolve, ptr noundef nonnull dereferenceable(1) %56) #17
   %.not71 = icmp eq i32 %57, 0
@@ -6940,7 +6940,7 @@ find_fn_in_list.exit:                             ; preds = %.lr.ph.i
   br label %.critedge77
 
 59:                                               ; preds = %find_fn_in_list.exit
-  %60 = getelementptr inbounds i8, ptr %49, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %61 = load ptr, ptr %60, align 8
   %.not72 = icmp eq ptr %61, null
   br i1 %.not72, label %65, label %62
@@ -7218,7 +7218,7 @@ is_big_endian.exit.thread:                        ; preds = %9, %is_big_endian.e
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @giop_hash_objkey_hash(ptr nocapture noundef readonly %0) #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -7246,9 +7246,9 @@ define internal i32 @giop_hash_objkey_hash(ptr nocapture noundef readonly %0) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @giop_hash_objkey_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %12

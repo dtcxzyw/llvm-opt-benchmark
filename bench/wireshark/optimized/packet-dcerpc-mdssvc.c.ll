@@ -156,13 +156,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mdssvc_dissect_struct_blob(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -229,7 +229,7 @@ mdssvc_dissect_element_blob_spotlight_blob.exit:  ; preds = %31, %37, %39
   %44 = sub i32 %.0.i, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %44) #3
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %.not51 = icmp eq i32 %48, 0
@@ -297,7 +297,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal i32 @mdssvc_dissect_open_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.77, ptr %9, align 8
   %10 = load i32, ptr @hf_mdssvc_mdssvc_open_device_id, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_open_device_id_, i32 noundef 1, ptr noundef nonnull @.str.81, i32 noundef %10) #3
@@ -328,7 +328,7 @@ define internal i32 @mdssvc_dissect_open_request(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_open_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.77, ptr %8, align 8
   %9 = load i32, ptr @hf_mdssvc_mdssvc_open_device_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_open_device_id_, i32 noundef 1, ptr noundef nonnull @.str.81, i32 noundef %9) #3
@@ -354,7 +354,7 @@ define internal i32 @mdssvc_dissect_open_response(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_unknown1_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.78, ptr %7, align 8
   %8 = load i32, ptr @hf_mdssvc_mdssvc_unknown1_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_unknown1_handle_, i32 noundef 1, ptr noundef nonnull @.str.85, i32 noundef %8) #3
@@ -382,7 +382,7 @@ define internal i32 @mdssvc_dissect_unknown1_request(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_unknown1_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.78, ptr %7, align 8
   %8 = load i32, ptr @hf_mdssvc_mdssvc_unknown1_status, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_unknown1_status_, i32 noundef 1, ptr noundef nonnull @.str.86, i32 noundef %8) #3
@@ -398,7 +398,7 @@ define internal i32 @mdssvc_dissect_unknown1_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_cmd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.79, ptr %7, align 8
   %8 = load i32, ptr @hf_mdssvc_mdssvc_cmd_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_cmd_handle_, i32 noundef 1, ptr noundef nonnull @.str.85, i32 noundef %8) #3
@@ -444,7 +444,7 @@ define internal i32 @mdssvc_dissect_cmd_request(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_cmd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.79, ptr %7, align 8
   %8 = load i32, ptr @hf_mdssvc_mdssvc_cmd_fragment, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_cmd_fragment_, i32 noundef 1, ptr noundef nonnull @.str.89, i32 noundef %8) #3
@@ -460,7 +460,7 @@ define internal i32 @mdssvc_dissect_cmd_response(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_close_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.80, ptr %7, align 8
   %8 = load i32, ptr @hf_mdssvc_mdssvc_close_in_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_close_in_handle_, i32 noundef 1, ptr noundef nonnull @.str.92, i32 noundef %8) #3
@@ -482,7 +482,7 @@ define internal i32 @mdssvc_dissect_close_request(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @mdssvc_dissect_close_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.80, ptr %7, align 8
   %8 = load i32, ptr @hf_mdssvc_mdssvc_close_out_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @mdssvc_dissect_element_close_out_handle_, i32 noundef 1, ptr noundef nonnull @.str.93, i32 noundef %8) #3

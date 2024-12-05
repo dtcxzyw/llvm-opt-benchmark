@@ -102,9 +102,9 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.val295 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val295, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %.val295, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, 32
   store i64 %27, ptr %25, align 8
@@ -117,7 +117,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
 .critedge:                                        ; preds = %22, %.preheader321, %18
   %30 = tail call i32 @Aig_ManLevels(ptr noundef %0) #5
   %31 = add nsw i32 %30, 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 4
   %.val286324 = load i32, ptr %34, align 4
@@ -135,9 +135,9 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %40 = phi ptr [ %33, %.lr.ph326 ], [ %48, %39 ]
   %41 = getelementptr i8, ptr %40, i64 8
   %.val296 = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds ptr, ptr %.val296, i64 %indvars.iv367
+  %42 = getelementptr inbounds nuw ptr, ptr %.val296, i64 %indvars.iv367
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, -72057589742960641
   %47 = or disjoint i64 %46, %38
@@ -252,9 +252,9 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %105 = phi ptr [ %115, %.lr.ph336 ], [ %102, %._crit_edge332 ]
   %106 = getelementptr i8, ptr %105, i64 8
   %.val297 = load ptr, ptr %106, align 8
-  %107 = getelementptr inbounds ptr, ptr %.val297, i64 %indvars.iv370
+  %107 = getelementptr inbounds nuw ptr, ptr %.val297, i64 %indvars.iv370
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 36
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 36
   %110 = load i32, ptr %109, align 4
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.41, i32 noundef %110, i32 noundef %110) #5
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43) #5
@@ -276,7 +276,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br i1 %119, label %.lr.ph343, label %._crit_edge344
 
 .lr.ph343:                                        ; preds = %.critedge4
-  %120 = getelementptr inbounds i8, ptr %0, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %121
 
 121:                                              ; preds = %.lr.ph343, %.critedge6
@@ -298,13 +298,13 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %indvars.iv376 = phi i64 [ %indvars.iv.next377, %145 ], [ 0, %.lr.ph340 ]
   %129 = getelementptr i8, ptr %128, i64 8
   %.val298.us = load ptr, ptr %129, align 8
-  %130 = getelementptr inbounds ptr, ptr %.val298.us, i64 %indvars.iv376
+  %130 = getelementptr inbounds nuw ptr, ptr %.val298.us, i64 %indvars.iv376
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %145, label %133
 
 133:                                              ; preds = %.lr.ph340.split.us
-  %134 = getelementptr inbounds i8, ptr %131, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %135 = load i64, ptr %134, align 8
   %136 = lshr i64 %135, 32
   %137 = trunc nuw i64 %136 to i32
@@ -313,7 +313,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br i1 %.not276.us, label %139, label %145
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds i8, ptr %131, i64 36
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 36
   %141 = load i32, ptr %140, align 4
   %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.41, i32 noundef %141, i32 noundef %141) #5
   %143 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 17, i64 1, ptr %13)
@@ -335,13 +335,13 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %indvars.iv373 = phi i64 [ %indvars.iv.next374, %172 ], [ 0, %.lr.ph340 ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val298 = load ptr, ptr %151, align 8
-  %152 = getelementptr inbounds ptr, ptr %.val298, i64 %indvars.iv373
+  %152 = getelementptr inbounds nuw ptr, ptr %.val298, i64 %indvars.iv373
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %172, label %155
 
 155:                                              ; preds = %.lr.ph340.split
-  %156 = getelementptr inbounds i8, ptr %153, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %157 = load i64, ptr %156, align 8
   %158 = lshr i64 %157, 32
   %159 = trunc nuw i64 %158 to i32
@@ -350,7 +350,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br i1 %.not276, label %161, label %172
 
 161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %153, i64 36
+  %162 = getelementptr inbounds nuw i8, ptr %153, i64 36
   %163 = load i32, ptr %162, align 4
   %164 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.41, i32 noundef %163, i32 noundef %163) #5
   %165 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 17, i64 1, ptr %13)
@@ -398,7 +398,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br i1 %.not257, label %192, label %185
 
 185:                                              ; preds = %._crit_edge344
-  %186 = getelementptr inbounds i8, ptr %.val305, i64 36
+  %186 = getelementptr inbounds nuw i8, ptr %.val305, i64 36
   %187 = load i32, ptr %186, align 4
   %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.47, i32 noundef %187) #5
   %189 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 17, i64 1, ptr %13)
@@ -407,7 +407,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br label %192
 
 192:                                              ; preds = %185, %._crit_edge344
-  %193 = getelementptr inbounds i8, ptr %0, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr i8, ptr %194, i64 4
   %.val289345 = load i32, ptr %195, align 4
@@ -419,9 +419,9 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %197 = phi ptr [ %207, %.lr.ph348 ], [ %194, %192 ]
   %198 = getelementptr i8, ptr %197, i64 8
   %.val299 = load ptr, ptr %198, align 8
-  %199 = getelementptr inbounds ptr, ptr %.val299, i64 %indvars.iv379
+  %199 = getelementptr inbounds nuw ptr, ptr %.val299, i64 %indvars.iv379
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 36
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 36
   %202 = load i32, ptr %201, align 4
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.41, i32 noundef %202, i32 noundef %202) #5
   %204 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.48) #5
@@ -455,9 +455,9 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %216 = phi ptr [ %223, %.lr.ph351 ], [ %212, %.critedge8 ]
   %217 = getelementptr i8, ptr %216, i64 8
   %.val300 = load ptr, ptr %217, align 8
-  %218 = getelementptr inbounds ptr, ptr %.val300, i64 %indvars.iv382
+  %218 = getelementptr inbounds nuw ptr, ptr %.val300, i64 %indvars.iv382
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 36
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 36
   %221 = load i32, ptr %220, align 4
   %222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.50, i32 noundef %221) #5
   %indvars.iv.next383 = add nuw nsw i64 %indvars.iv382, 1
@@ -469,7 +469,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br i1 %226, label %.lr.ph351, label %.critedge10.preheader, !llvm.loop !13
 
 .critedge12.preheader:                            ; preds = %.critedge10, %.critedge8, %.critedge10.preheader
-  %227 = getelementptr inbounds i8, ptr %0, i64 32
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr i8, ptr %228, i64 4
   %.val292356 = load i32, ptr %229, align 4
@@ -482,13 +482,13 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %.0237353 = phi i32 [ %241, %.critedge10 ], [ -1, %.critedge10.preheader ]
   %232 = getelementptr i8, ptr %231, i64 8
   %.val301 = load ptr, ptr %232, align 8
-  %233 = getelementptr inbounds ptr, ptr %.val301, i64 %indvars.iv385
+  %233 = getelementptr inbounds nuw ptr, ptr %.val301, i64 %indvars.iv385
   %234 = load ptr, ptr %233, align 8
   %.not272 = icmp eq i64 %indvars.iv385, 0
   br i1 %.not272, label %.critedge10, label %235
 
 235:                                              ; preds = %.lr.ph355
-  %236 = getelementptr inbounds i8, ptr %234, i64 36
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 36
   %237 = load i32, ptr %236, align 4
   %238 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.51, i32 noundef %.0237353, i32 noundef %237) #5
   %.pre399 = load ptr, ptr %32, align 8
@@ -496,7 +496,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
 
 .critedge10:                                      ; preds = %235, %.lr.ph355
   %239 = phi ptr [ %.pre399, %235 ], [ %231, %.lr.ph355 ]
-  %240 = getelementptr inbounds i8, ptr %234, i64 36
+  %240 = getelementptr inbounds nuw i8, ptr %234, i64 36
   %241 = load i32, ptr %240, align 4
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %242 = getelementptr i8, ptr %239, i64 4
@@ -510,7 +510,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %245 = phi ptr [ %299, %.critedge12 ], [ %228, %.critedge12.preheader ]
   %246 = getelementptr i8, ptr %245, i64 8
   %.val302 = load ptr, ptr %246, align 8
-  %247 = getelementptr inbounds ptr, ptr %.val302, i64 %indvars.iv388
+  %247 = getelementptr inbounds nuw ptr, ptr %.val302, i64 %indvars.iv388
   %248 = load ptr, ptr %247, align 8
   %249 = icmp eq ptr %248, null
   br i1 %249, label %.critedge12, label %250
@@ -531,7 +531,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   br i1 %switch, label %257, label %.critedge12
 
 257:                                              ; preds = %255, %250
-  %258 = getelementptr inbounds i8, ptr %248, i64 36
+  %258 = getelementptr inbounds nuw i8, ptr %248, i64 36
   %259 = load i32, ptr %258, align 4
   %260 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.52, i32 noundef %259) #5
   %261 = tail call i64 @fwrite(ptr nonnull @.str.53, i64 4, i64 1, ptr %13)
@@ -544,7 +544,7 @@ define void @Aig_WriteDotAig(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef
   %264 = ptrtoint ptr %.val312 to i64
   %265 = and i64 %264, -2
   %266 = inttoptr i64 %265 to ptr
-  %267 = getelementptr inbounds i8, ptr %266, i64 36
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 36
   %268 = load i32, ptr %267, align 4
   br label %Aig_ObjFaninId0.exit
 
@@ -580,7 +580,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %257, %263
   %286 = ptrtoint ptr %.val314 to i64
   %287 = and i64 %286, -2
   %288 = inttoptr i64 %287 to ptr
-  %289 = getelementptr inbounds i8, ptr %288, i64 36
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 36
   %290 = load i32, ptr %289, align 4
   br label %Aig_ObjFaninId1.exit
 
@@ -627,9 +627,9 @@ Aig_ObjFaninId1.exit:                             ; preds = %280, %285
 307:                                              ; preds = %.lr.ph361, %307
   %indvars.iv391 = phi i64 [ 0, %.lr.ph361 ], [ %indvars.iv.next392, %307 ]
   %.val303 = load ptr, ptr %306, align 8
-  %308 = getelementptr inbounds ptr, ptr %.val303, i64 %indvars.iv391
+  %308 = getelementptr inbounds nuw ptr, ptr %.val303, i64 %indvars.iv391
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 24
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load i64, ptr %310, align 8
   %312 = and i64 %311, -33
   store i64 %312, ptr %310, align 8
@@ -651,17 +651,17 @@ Aig_ObjFaninId1.exit:                             ; preds = %280, %285
   %318 = phi ptr [ %333, %.lr.ph364 ], [ %315, %.critedge16 ]
   %319 = getelementptr i8, ptr %318, i64 8
   %.val304 = load ptr, ptr %319, align 8
-  %320 = getelementptr inbounds ptr, ptr %.val304, i64 %indvars.iv394
+  %320 = getelementptr inbounds nuw ptr, ptr %.val304, i64 %indvars.iv394
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr i8, ptr %321, i64 8
   %.val316 = load ptr, ptr %322, align 8
   %323 = ptrtoint ptr %.val316 to i64
   %324 = and i64 %323, -2
   %325 = inttoptr i64 %324 to ptr
-  %326 = getelementptr inbounds i8, ptr %325, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %327 = load i64, ptr %326, align 8
   %328 = and i64 %327, 72057589742960640
-  %329 = getelementptr inbounds i8, ptr %321, i64 24
+  %329 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %330 = load i64, ptr %329, align 8
   %331 = and i64 %330, -72057589742960641
   %332 = or disjoint i64 %331, %328

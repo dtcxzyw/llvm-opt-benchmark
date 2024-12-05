@@ -41,7 +41,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
+  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
   %0 = load i64, ptr %tag_length, align 8
   br label %return
 
@@ -57,7 +57,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
+  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
   %0 = load i64, ptr %tag_length, align 8
   %add = add i64 %0, 4
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %max_protected_frame_size, i64 %add)
@@ -86,7 +86,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
+  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end2, label %if.then1
@@ -102,7 +102,7 @@ if.then.i25:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
+  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
   %1 = load i8, ptr %is_protect, align 1
   %tobool3 = trunc i8 %1 to i1
   br i1 %tobool3, label %if.end5, label %if.then4
@@ -119,7 +119,7 @@ if.then.i33:                                      ; preds = %if.then4
 
 if.end5:                                          ; preds = %if.end2
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %tag, align 8
-  %agg.tmp6.sroa.2.0.tag.sroa_idx = getelementptr inbounds i8, ptr %tag, i64 8
+  %agg.tmp6.sroa.2.0.tag.sroa_idx = getelementptr inbounds nuw i8, ptr %tag, i64 8
   %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.tag.sroa_idx, align 8
   %cmp1.i = icmp eq ptr %header.coerce0, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
@@ -163,7 +163,7 @@ if.then.i14.i:                                    ; preds = %if.then9.i
   br label %return
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
+  %tag_length.i = getelementptr inbounds nuw i8, ptr %rp, i64 16
   %2 = load i64, ptr %tag_length.i, align 8
   %cmp12.not.i = icmp eq i64 %agg.tmp6.sroa.2.0.copyload, %2
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
@@ -202,28 +202,28 @@ if.end14:                                         ; preds = %if.end9, %_ZL16get_
   %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
   %conv2.i.i = trunc nuw i32 %shr.i.i to i8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %header.coerce0, i64 3
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 3
   store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
   %shr3.i.i = lshr i32 %conv.i, 16
   %conv7.i.i = trunc i32 %shr3.i.i to i8
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %header.coerce0, i64 2
+  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 2
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
   %shr9.i.i = lshr i32 %conv.i, 8
   %conv13.i.i = trunc i32 %shr9.i.i to i8
-  %arrayidx14.i.i = getelementptr inbounds i8, ptr %header.coerce0, i64 1
+  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 1
   store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
   %conv18.i.i = trunc i32 %conv.i to i8
   store i8 %conv18.i.i, ptr %header.coerce0, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %header.coerce0, i64 4
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %header.coerce0, i64 7
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 4
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 7
   store i8 0, ptr %arrayidx.i3.i, align 1
-  %arrayidx8.i4.i = getelementptr inbounds i8, ptr %header.coerce0, i64 6
+  %arrayidx8.i4.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 6
   store i8 0, ptr %arrayidx8.i4.i, align 1
-  %arrayidx14.i5.i = getelementptr inbounds i8, ptr %header.coerce0, i64 5
+  %arrayidx14.i5.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 5
   store i8 0, ptr %arrayidx14.i5.i, align 1
   store i8 6, ptr %add.ptr.i, align 1
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
+  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %5 = load ptr, ptr %crypter, align 8
   %6 = load ptr, ptr %rp, align 8
   %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %6)
@@ -336,7 +336,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
+  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end2, label %if.then1
@@ -352,7 +352,7 @@ if.then.i23:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
+  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
   %1 = load i8, ptr %is_protect, align 1
   %tobool3 = trunc i8 %1 to i1
   br i1 %tobool3, label %if.then4, label %if.end5
@@ -369,7 +369,7 @@ if.then.i31:                                      ; preds = %if.then4
 
 if.end5:                                          ; preds = %if.end2
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %tag, align 8
-  %agg.tmp6.sroa.2.0.tag.sroa_idx = getelementptr inbounds i8, ptr %tag, i64 8
+  %agg.tmp6.sroa.2.0.tag.sroa_idx = getelementptr inbounds nuw i8, ptr %tag, i64 8
   %agg.tmp6.sroa.2.0.copyload = load i64, ptr %agg.tmp6.sroa.2.0.tag.sroa_idx, align 8
   %cmp1.i = icmp eq ptr %header.coerce0, null
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
@@ -413,7 +413,7 @@ if.then.i14.i:                                    ; preds = %if.then9.i
   br label %return
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %tag_length.i = getelementptr inbounds i8, ptr %rp, i64 16
+  %tag_length.i = getelementptr inbounds nuw i8, ptr %rp, i64 16
   %2 = load i64, ptr %tag_length.i, align 8
   %cmp12.not.i = icmp eq i64 %agg.tmp6.sroa.2.0.copyload, %2
   br i1 %cmp12.not.i, label %if.end9, label %if.then13.i
@@ -465,7 +465,7 @@ if.then.i6.i44:                                   ; preds = %if.then2.i42
   br label %return
 
 if.end3.i47:                                      ; preds = %if.end.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %header.coerce0, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 4
   %5 = load i32, ptr %add.ptr.i, align 1
   %cmp6.not.i = icmp eq i32 %5, 6
   br i1 %cmp6.not.i, label %if.end14, label %if.then7.i
@@ -483,7 +483,7 @@ if.then.i14.i49:                                  ; preds = %if.then7.i
 if.end14:                                         ; preds = %if.end3.i47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i8 0, i64 16, i1 false)
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
+  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %6 = load ptr, ptr %crypter, align 8
   %7 = load ptr, ptr %rp, align 8
   %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %7)
@@ -544,7 +544,7 @@ if.then.i6:                                       ; preds = %if.then2
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %add.ptr = getelementptr inbounds i8, ptr %header, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %header, i64 4
   %1 = load i32, ptr %add.ptr, align 1
   %cmp6.not = icmp eq i32 %1, 6
   br i1 %cmp6.not, label %return, label %if.then7
@@ -616,7 +616,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
+  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then1, label %if.end2
@@ -632,7 +632,7 @@ if.then.i30:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
+  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
   %1 = load i8, ptr %is_protect, align 1
   %tobool3 = trunc i8 %1 to i1
   br i1 %tobool3, label %if.end5, label %if.then4
@@ -678,7 +678,7 @@ if.then.i47:                                      ; preds = %if.then7
 
 if.end8:                                          ; preds = %_ZL16get_total_lengthPK5iovecm.exit
   %add = add i64 %total_length.0.lcssa.i, 8
-  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
+  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
   %3 = load i64, ptr %tag_length, align 8
   %add10 = add i64 %add, %3
   %cmp11.not = icmp eq i64 %protected_frame.coerce1, %add10
@@ -700,38 +700,38 @@ if.end20:                                         ; preds = %if.end8
   %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
   %conv2.i.i = trunc nuw i32 %shr.i.i to i8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 3
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 3
   store i8 %conv2.i.i, ptr %arrayidx.i.i, align 1
   %shr3.i.i = lshr i32 %conv.i, 16
   %conv7.i.i = trunc i32 %shr3.i.i to i8
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 2
+  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 2
   store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 1
   %shr9.i.i = lshr i32 %conv.i, 8
   %conv13.i.i = trunc i32 %shr9.i.i to i8
-  %arrayidx14.i.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 1
+  %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 1
   store i8 %conv13.i.i, ptr %arrayidx14.i.i, align 1
   %conv18.i.i = trunc i32 %conv.i to i8
   store i8 %conv18.i.i, ptr %protected_frame.coerce0, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 4
-  %arrayidx.i3.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 7
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 4
+  %arrayidx.i3.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 7
   store i8 0, ptr %arrayidx.i3.i, align 1
-  %arrayidx8.i4.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 6
+  %arrayidx8.i4.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 6
   store i8 0, ptr %arrayidx8.i4.i, align 1
-  %arrayidx14.i5.i = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 5
+  %arrayidx14.i5.i = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 5
   store i8 0, ptr %arrayidx14.i5.i, align 1
   store i8 6, ptr %add.ptr.i, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %protected_frame.coerce0, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %protected_frame.coerce0, i64 8
   %5 = load i64, ptr %tag_length, align 8
   %add26 = add i64 %5, %total_length.0.lcssa.i
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
+  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %6 = load ptr, ptr %crypter, align 8
   %7 = load ptr, ptr %rp, align 8
   %call27 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %7)
   %8 = load ptr, ptr %rp, align 8
   %call29 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %8)
   store ptr %add.ptr, ptr %agg.tmp, align 8
-  %ciphertext.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %ciphertext.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %add26, ptr %ciphertext.sroa.2.0.agg.tmp.sroa_idx, align 8
   %call30 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %6, ptr noundef %call27, i64 noundef %call29, ptr noundef null, i64 noundef 0, ptr noundef %unprotected_vec, i64 noundef %unprotected_vec_length, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
   %cmp31.not = icmp eq i32 %call30, 0
@@ -776,7 +776,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_integrity_only = getelementptr inbounds i8, ptr %rp, i64 24
+  %is_integrity_only = getelementptr inbounds nuw i8, ptr %rp, i64 24
   %0 = load i8, ptr %is_integrity_only, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then1, label %if.end2
@@ -792,7 +792,7 @@ if.then.i30:                                      ; preds = %if.then1
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %is_protect = getelementptr inbounds i8, ptr %rp, i64 25
+  %is_protect = getelementptr inbounds nuw i8, ptr %rp, i64 25
   %1 = load i8, ptr %is_protect, align 1
   %tobool3 = trunc i8 %1 to i1
   br i1 %tobool3, label %if.then4, label %if.end5
@@ -823,7 +823,7 @@ for.body.i:                                       ; preds = %if.end5, %for.body.
 
 _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i, %if.end5
   %total_length.0.lcssa.i = phi i64 [ 0, %if.end5 ], [ %add.i45, %for.body.i ]
-  %tag_length = getelementptr inbounds i8, ptr %rp, i64 16
+  %tag_length = getelementptr inbounds nuw i8, ptr %rp, i64 16
   %3 = load i64, ptr %tag_length, align 8
   %cmp6 = icmp ult i64 %total_length.0.lcssa.i, %3
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -867,7 +867,7 @@ if.then.i63:                                      ; preds = %if.then14
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %iov_len16 = getelementptr inbounds i8, ptr %unprotected_data, i64 8
+  %iov_len16 = getelementptr inbounds nuw i8, ptr %unprotected_data, i64 8
   %4 = load i64, ptr %iov_len16, align 8
   %sub = sub i64 %total_length.0.lcssa.i, %3
   %cmp18.not = icmp eq i64 %4, %sub
@@ -884,7 +884,7 @@ if.end20:                                         ; preds = %if.end15
 
 if.end25:                                         ; preds = %if.end20
   store i64 0, ptr %bytes_written, align 8
-  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
+  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %5 = load ptr, ptr %crypter, align 8
   %6 = load ptr, ptr %rp, align 8
   %call26 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %6)
@@ -955,17 +955,17 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp11.not, label %if.end13, label %cleanup
 
 if.end13:                                         ; preds = %if.end7
-  %tag_length = getelementptr inbounds i8, ptr %call, i64 16
+  %tag_length = getelementptr inbounds nuw i8, ptr %call, i64 16
   %call14 = call noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef nonnull %crypter, ptr noundef nonnull %tag_length, ptr noundef %error_details)
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %if.end17, label %cleanup
 
 if.end17:                                         ; preds = %if.end13
-  %crypter18 = getelementptr inbounds i8, ptr %call, i64 8
+  %crypter18 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %crypter, ptr %crypter18, align 8
-  %is_integrity_only20 = getelementptr inbounds i8, ptr %call, i64 24
+  %is_integrity_only20 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i8 %frombool1, ptr %is_integrity_only20, align 8
-  %is_protect23 = getelementptr inbounds i8, ptr %call, i64 25
+  %is_protect23 = getelementptr inbounds nuw i8, ptr %call, i64 25
   store i8 %frombool2, ptr %is_protect23, align 1
   store ptr %call, ptr %rp, align 8
   br label %return
@@ -1002,7 +1002,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %rp, align 8
   tail call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %0)
-  %crypter = getelementptr inbounds i8, ptr %rp, i64 8
+  %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
   %1 = load ptr, ptr %crypter, align 8
   tail call void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef %1)
   tail call void @gpr_free(ptr noundef nonnull %rp)

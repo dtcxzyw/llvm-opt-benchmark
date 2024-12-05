@@ -31,9 +31,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i64 %1, i32 %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %5, %7
   br i1 %.not, label %._crit_edge, label %8
@@ -73,7 +73,7 @@ define hidden void @_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry(ptr
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds %class.HandlerTableEntry, ptr %22, i64 %24
   store i64 %1, ptr %25, align 4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %2, ptr %.sroa.23.0..sroa_idx, align 4
   ret void
 }
@@ -85,7 +85,7 @@ declare noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13Allo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK21ExceptionHandlerTable12subtable_forEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -98,7 +98,7 @@ define hidden noundef ptr @_ZNK21ExceptionHandlerTable12subtable_forEi(ptr nocap
   %.089 = phi i32 [ 0, %.lr.ph ], [ %16, %13 ]
   %8 = sext i32 %.089 to i64
   %9 = getelementptr inbounds %class.HandlerTableEntry, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %._crit_edge, label %13
@@ -131,9 +131,9 @@ define hidden void @_ZN21ExceptionHandlerTableC2Ei(ptr nocapture noundef nonnull
   %8 = mul nuw nsw i64 %7, 12
   %9 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i32 noundef 0) #9
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %11, align 4
   ret void
 }
@@ -142,14 +142,14 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN21ExceptionHandlerTableC2EPK7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 186
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 188
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %10 = load i32, ptr %9, align 4
   %11 = load i16, ptr %5, align 2
   %12 = zext i16 %11 to i32
@@ -157,9 +157,9 @@ define hidden void @_ZN21ExceptionHandlerTableC2EPK7nmethod(ptr nocapture nounde
   %13 = sext i32 %gepdiff.i to i64
   %14 = udiv i64 %13, 12
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %17, align 4
   ret void
 }
@@ -175,9 +175,9 @@ define hidden void @_ZN21ExceptionHandlerTable12add_subtableEiP13GrowableArrayIl
   %.sroa.225.0.insert.shift = shl nuw i64 %.sroa.225.0.insert.ext, 32
   %.sroa.024.0.insert.ext = zext nneg i32 %6 to i64
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.225.0.insert.shift, %.sroa.024.0.insert.ext
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %.not.i = icmp slt i32 %10, %12
   br i1 %.not.i, label %._crit_edge.i, label %13
@@ -217,7 +217,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit: ; preds = %._crit
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds %class.HandlerTableEntry, ptr %26, i64 %28
   store i64 %.sroa.024.0.insert.insert, ptr %29, align 4
-  %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %.sroa.23.0..sroa_idx.i, align 4
   %30 = load i32, ptr %2, align 4
   %31 = icmp sgt i32 %30, 0
@@ -225,18 +225,18 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit: ; preds = %._crit
 
 .lr.ph:                                           ; preds = %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit
   %.not = icmp eq ptr %3, null
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv31
   %37 = load i64, ptr %36, align 8
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds i64, ptr %38, i64 %indvars.iv31
+  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv31
   %40 = load i64, ptr %39, align 8
   %.sroa.2.0.insert.ext.us = shl i64 %40, 32
   %.sroa.0.0.insert.ext.us = and i64 %37, 4294967295
@@ -275,7 +275,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us: ; preds = %.
   %56 = sext i32 %53 to i64
   %57 = getelementptr inbounds %class.HandlerTableEntry, ptr %54, i64 %56
   store i64 %.sroa.0.0.insert.insert.us, ptr %57, align 4
-  %.sroa.23.0..sroa_idx.i20.us = getelementptr inbounds i8, ptr %57, i64 8
+  %.sroa.23.0..sroa_idx.i20.us = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 0, ptr %.sroa.23.0..sroa_idx.i20.us, align 4
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %58 = load i32, ptr %2, align 4
@@ -286,14 +286,14 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23.us: ; preds = %.
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23 ], [ 0, %.lr.ph ]
   %61 = load ptr, ptr %32, align 8
-  %62 = getelementptr inbounds i64, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8
   %64 = trunc i64 %63 to i32
   %65 = load ptr, ptr %33, align 8
-  %66 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8
   %68 = load ptr, ptr %34, align 8
-  %69 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %.sroa.2.0.insert.ext = shl i64 %70, 32
   %.sroa.0.0.insert.ext = and i64 %67, 4294967295
@@ -338,7 +338,7 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23: ; preds = %._cr
   %87 = sext i32 %84 to i64
   %88 = getelementptr inbounds %class.HandlerTableEntry, ptr %85, i64 %87
   store i64 %.sroa.0.0.insert.insert, ptr %88, align 4
-  %.sroa.23.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %88, i64 8
+  %.sroa.23.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i32 %64, ptr %.sroa.23.0..sroa_idx.i20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load i32, ptr %2, align 4
@@ -352,14 +352,14 @@ _ZN21ExceptionHandlerTable9add_entryE17HandlerTableEntry.exit23: ; preds = %._cr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN21ExceptionHandlerTable7copy_toEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 186
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = mul nsw i32 %11, 12
   %13 = add i32 %12, 7
@@ -372,7 +372,7 @@ define hidden void @_ZN21ExceptionHandlerTable7copy_toEP7nmethod(ptr nocapture n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN21ExceptionHandlerTable13copy_bytes_toEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %5, 12
   %7 = add i32 %6, 7
@@ -387,7 +387,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK21ExceptionHandlerTable9entry_forEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.i, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread
@@ -400,7 +400,7 @@ define hidden noundef ptr @_ZNK21ExceptionHandlerTable9entry_forEiii(ptr nocaptu
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %18, %16 ]
   %10 = sext i32 %.089.i to i64
   %11 = getelementptr inbounds %class.HandlerTableEntry, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
   %15 = load i32, ptr %11, align 4
@@ -420,13 +420,13 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %9
   %.in = phi i32 [ %21, %29 ], [ %15, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
   %.01118 = phi ptr [ %22, %29 ], [ %11, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
   %21 = add nsw i32 %.in, -1
-  %22 = getelementptr inbounds i8, ptr %.01118, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.01118, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %2
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.01118, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %.01118, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %3
   br i1 %28, label %_ZNK21ExceptionHandlerTable12subtable_forEi.exit.thread, label %29
@@ -445,7 +445,7 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %4 = load i32, ptr %1, align 4
   %.not = icmp eq ptr %2, null
   %5 = load ptr, ptr @tty, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   br i1 %.not, label %8, label %.thread
 
@@ -466,12 +466,12 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %.in25 = phi i32 [ %14, %.lr.ph.split.us ], [ %4, %8 ]
   %.021.us = phi ptr [ %15, %.lr.ph.split.us ], [ %1, %8 ]
   %14 = add nsw i32 %.in25, -1
-  %15 = getelementptr inbounds i8, ptr %.021.us, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.021.us, i64 12
   %16 = load ptr, ptr @tty, align 8
   %17 = load i32, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %.021.us, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.021.us, i64 20
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %.021.us, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.021.us, i64 16
   %21 = load i32, ptr %20, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.11, i32 noundef %17, i32 noundef %19, i32 noundef %21) #9
   %.not26 = icmp eq i32 %14, 0
@@ -481,12 +481,12 @@ define hidden void @_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableE
   %.in = phi i32 [ %22, %.lr.ph.split ], [ %4, %.thread ]
   %.021 = phi ptr [ %23, %.lr.ph.split ], [ %1, %.thread ]
   %22 = add nsw i32 %.in, -1
-  %23 = getelementptr inbounds i8, ptr %.021, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.021, i64 12
   %24 = load ptr, ptr @tty, align 8
   %25 = load i32, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %.021, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %.021, i64 20
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.021, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i8, ptr %2, i64 %30
@@ -504,7 +504,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @tty, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %5, 12
   %7 = add i32 %6, 7
@@ -533,7 +533,7 @@ define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK21ExceptionHandlerTable18print_subtable_forEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %_ZNK21ExceptionHandlerTable14print_subtableEP17HandlerTableEntryPh.exit
@@ -546,7 +546,7 @@ define hidden void @_ZNK21ExceptionHandlerTable18print_subtable_forEi(ptr nocapt
   %.089.i = phi i32 [ 0, %.lr.ph.i ], [ %16, %14 ]
   %8 = sext i32 %.089.i to i64
   %9 = getelementptr inbounds %class.HandlerTableEntry, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
   %13 = load i32, ptr %9, align 4
@@ -568,12 +568,12 @@ _ZNK21ExceptionHandlerTable12subtable_forEi.exit: ; preds = %7
   %.in25.i = phi i32 [ %20, %.lr.ph.split.us.i ], [ %13, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
   %.021.us.i = phi ptr [ %21, %.lr.ph.split.us.i ], [ %9, %_ZNK21ExceptionHandlerTable12subtable_forEi.exit ]
   %20 = add nsw i32 %.in25.i, -1
-  %21 = getelementptr inbounds i8, ptr %.021.us.i, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 12
   %22 = load ptr, ptr @tty, align 8
   %23 = load i32, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %.021.us.i, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 20
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %.021.us.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.021.us.i, i64 16
   %27 = load i32, ptr %26, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull @.str.11, i32 noundef %23, i32 noundef %25, i32 noundef %27) #9
   %.not26.i = icmp eq i32 %20, 0
@@ -590,23 +590,23 @@ define hidden void @_ZN22ImplicitExceptionTable8set_sizeEj(ptr nocapture noundef
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 2
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i32 noundef 0) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
   %7 = icmp eq i32 %5, %6
   br i1 %7, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre8 = shl i32 %5, 1
   %.pre9 = zext i32 %.pre8 to i64
@@ -619,7 +619,7 @@ define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr nocapture noundef 
   %11 = shl i32 %spec.select, 1
   store i32 %11, ptr %0, align 8
   %12 = shl i32 %spec.select, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %9 to i64
   %16 = shl nuw nsw i64 %15, 2
@@ -632,12 +632,12 @@ define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr nocapture noundef 
 20:                                               ; preds = %._crit_edge, %8
   %.pre-phi10 = phi i64 [ %.pre9, %._crit_edge ], [ %15, %8 ]
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %19, %8 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = getelementptr inbounds i32, ptr %21, i64 %.pre-phi10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %.pre-phi10
   store i32 %1, ptr %23, align 4
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %.pre-phi10
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %.pre-phi10
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %2, ptr %26, align 4
   %27 = add i32 %5, 1
   store i32 %27, ptr %4, align 4
@@ -646,13 +646,13 @@ define hidden void @_ZN22ImplicitExceptionTable6appendEjj(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext i32 %4 to i64
   br label %8
@@ -666,14 +666,14 @@ define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %9 = shl nuw i64 %indvars.iv, 1
   %10 = and i64 %9, 4294967294
-  %11 = getelementptr inbounds i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %7
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i32, ptr %6, i64 %10
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   br label %.loopexit
 
@@ -684,7 +684,7 @@ define hidden noundef i32 @_ZNK22ImplicitExceptionTable19continuation_offsetEj(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   %5 = load ptr, ptr @tty, align 8
@@ -696,7 +696,7 @@ define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr nocapture noundef 
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.13, i32 noundef %4, i32 noundef %8) #9
   %9 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.14) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext i32 %4 to i64
   br label %11
 
@@ -719,15 +719,15 @@ define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr nocapture noundef 
   %21 = load ptr, ptr %10, align 8
   %22 = shl nuw i64 %indvars.iv, 1
   %23 = and i64 %22, 4294967294
-  %24 = getelementptr inbounds i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %28 = ptrtoint ptr %27 to i64
-  %29 = getelementptr inbounds i8, ptr %24, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
   %33 = ptrtoint ptr %32 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull @.str.15, i64 noundef %28, i64 noundef %33) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -736,7 +736,7 @@ define hidden void @_ZNK22ImplicitExceptionTable5printEPh(ptr nocapture noundef 
 
 34:                                               ; preds = %19
   %35 = load ptr, ptr @tty, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %_ZN12outputStream3bolEv.exit
@@ -767,31 +767,31 @@ declare noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN22ImplicitExceptionTableC2EPK7nmethod(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 186
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %4 = load i16, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load i16, ptr %5, align 8
   %7 = icmp eq i16 %4, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %10, align 8
   br label %20
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = zext i16 %6 to i64
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %16, align 8
   %17 = load i32, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store ptr %19, ptr %16, align 8
   br label %20
 
@@ -803,21 +803,21 @@ define hidden void @_ZN22ImplicitExceptionTableC2EPK7nmethod(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN22ImplicitExceptionTable7copy_toEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN22ImplicitExceptionTable13copy_bytes_toEPhi.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %10
   store i32 %4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %3, align 4
   %16 = shl i32 %15, 1
@@ -832,15 +832,15 @@ _ZN22ImplicitExceptionTable13copy_bytes_toEPhi.exit: ; preds = %2, %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN22ImplicitExceptionTable13copy_bytes_toEPhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
   store i32 %5, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %4, align 4
   %11 = shl i32 %10, 1
@@ -855,17 +855,17 @@ define hidden void @_ZN22ImplicitExceptionTable13copy_bytes_toEPhi(ptr nocapture
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK22ImplicitExceptionTable6verifyEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4
   %gepdiff.i = sub i32 %8, %10
   %wide.trip.count = zext i32 %4 to i64
@@ -880,13 +880,13 @@ define hidden void @_ZNK22ImplicitExceptionTable6verifyEP7nmethod(ptr nocapture 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %13 = shl nuw i64 %indvars.iv, 1
   %14 = and i64 %13, 4294967294
-  %15 = getelementptr inbounds i32, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp ugt i32 %16, %gepdiff.i
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %20, %gepdiff.i
   br i1 %21, label %22, label %11

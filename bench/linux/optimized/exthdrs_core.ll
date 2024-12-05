@@ -47,9 +47,9 @@ define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nocap
   %6 = alloca i16, align 2
   %7 = load i8, ptr %2, align 1
   store i16 0, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
-  %9 = getelementptr inbounds i8, ptr %0, i64 116
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = icmp eq ptr %0, null
   br label %12
 
@@ -150,7 +150,7 @@ define dso_local i32 @ipv6_skip_exthdr(ptr noundef %0, i32 noundef %1, ptr nocap
 
 55:                                               ; preds = %54, %.thread5
   %56 = phi i32 [ 3, %54 ], [ 2, %.thread5 ]
-  %57 = getelementptr inbounds i8, ptr %32, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, %56
@@ -191,13 +191,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #5 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 180
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i64
   %9 = getelementptr i8, ptr %5, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load i32, ptr %10, align 8
   %12 = zext i16 %7 to i32
   %13 = sub i32 %11, %12
@@ -208,7 +208,7 @@ define dso_local i32 @ipv6_find_tlv(ptr nocapture noundef readonly %0, i32 nound
 16:                                               ; preds = %3
   %17 = sext i32 %1 to i64
   %18 = getelementptr i8, ptr %9, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw nsw i32 %21, 3
@@ -267,19 +267,19 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
   %7 = alloca %struct.ipv6_opt_hdr, align 2
   %8 = alloca %struct.ipv6_rt_hdr, align 4
   %9 = alloca i16, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 180
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %15, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %23 = load i8, ptr %22, align 2
   %24 = icmp eq ptr %3, null
   br i1 %24, label %26, label %25
@@ -296,9 +296,9 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 116
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %27, %33
   %35 = sub i32 %31, %34
@@ -334,7 +334,7 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
 
 51:                                               ; preds = %.thread13
   %52 = load i32, ptr %1, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 6
   %54 = load i8, ptr %53, align 2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
   br label %55
@@ -344,8 +344,8 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
   %56 = phi i8 [ %54, %51 ], [ %23, %26 ]
   %57 = add i32 %.in, 40
   %58 = icmp slt i32 %2, 0
-  %59 = getelementptr inbounds i8, ptr %0, i64 112
-  %60 = getelementptr inbounds i8, ptr %0, i64 116
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %61 = icmp eq ptr %0, null
   %62 = icmp eq ptr %4, null
   br label %63
@@ -443,7 +443,7 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
   br i1 %108, label %.thread25.sink.split, label %109
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %102, i64 3
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 3
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 0
   %113 = select i1 %112, i8 0, i8 %68
@@ -556,7 +556,7 @@ define dso_local range(i32 -74, 256) i32 @ipv6_find_hdr(ptr noundef %0, ptr noca
 .thread25:                                        ; preds = %.thread25.sink.split, %.thread20, %114, %154, %153
   %159 = phi i8 [ %68, %154 ], [ %68, %153 ], [ %68, %114 ], [ %68, %.thread20 ], [ %.ph, %.thread25.sink.split ]
   %160 = phi i32 [ 2, %154 ], [ 2, %153 ], [ 3, %114 ], [ 3, %.thread20 ], [ 3, %.thread25.sink.split ]
-  %161 = getelementptr inbounds i8, ptr %85, i64 1
+  %161 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = shl nuw nsw i32 %163, %160

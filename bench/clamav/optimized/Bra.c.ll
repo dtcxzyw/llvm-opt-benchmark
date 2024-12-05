@@ -391,7 +391,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
 .split.us:                                        ; preds = %6, %.thread.us
   %8 = phi i64 [ %61, %.thread.us ], [ 0, %6 ]
   %.04550.us = phi i32 [ %60, %.thread.us ], [ 0, %6 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %.thread.us [
     i8 64, label %17
@@ -401,7 +401,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
 11:                                               ; preds = %.split.us
   %12 = or disjoint i32 %.04550.us, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = icmp ugt i8 %15, -65
   br i1 %16, label %23, label %.thread.us
@@ -409,7 +409,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
 17:                                               ; preds = %.split.us
   %18 = or disjoint i32 %.04550.us, 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp ult i8 %21, 64
   br i1 %22, label %23, label %.thread.us
@@ -419,20 +419,20 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
   %.pre-phi53 = phi i64 [ %19, %17 ], [ %13, %11 ]
   %25 = zext nneg i8 %10 to i32
   %26 = shl nuw nsw i32 %25, 24
-  %27 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi53
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi53
   %28 = zext i8 %24 to i32
   %29 = shl nuw nsw i32 %28, 16
   %30 = or disjoint i32 %29, %26
   %31 = or disjoint i32 %.04550.us, 2
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 8
   %37 = or disjoint i32 %30, %36
   %38 = or disjoint i32 %.04550.us, 3
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = or disjoint i32 %37, %42
@@ -468,7 +468,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
 .split:                                           ; preds = %6, %.thread
   %62 = phi i64 [ %115, %.thread ], [ 0, %6 ]
   %.04550 = phi i32 [ %114, %.thread ], [ 0, %6 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %62
   %64 = load i8, ptr %63, align 1
   switch i8 %64, label %.thread [
     i8 64, label %65
@@ -478,7 +478,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
 65:                                               ; preds = %.split
   %66 = or disjoint i32 %.04550, 1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = icmp ult i8 %69, 64
   br i1 %70, label %77, label %.thread
@@ -486,7 +486,7 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
 71:                                               ; preds = %.split
   %72 = or disjoint i32 %.04550, 1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %0, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = icmp ugt i8 %75, -65
   br i1 %76, label %77, label %.thread
@@ -496,20 +496,20 @@ define range(i64 0, 4294967296) i64 @SPARC_Convert(ptr nocapture noundef %0, i64
   %.pre-phi = phi i64 [ %73, %71 ], [ %67, %65 ]
   %79 = zext nneg i8 %64 to i32
   %80 = shl nuw nsw i32 %79, 24
-  %81 = getelementptr inbounds i8, ptr %0, i64 %.pre-phi
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre-phi
   %82 = zext i8 %78 to i32
   %83 = shl nuw nsw i32 %82, 16
   %84 = or disjoint i32 %83, %80
   %85 = or disjoint i32 %.04550, 2
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
   %91 = or disjoint i32 %84, %90
   %92 = or disjoint i32 %.04550, 3
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %0, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = or disjoint i32 %91, %96

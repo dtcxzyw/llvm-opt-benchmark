@@ -43,7 +43,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #8
   store ptr %17, ptr @gvdClass, align 8
@@ -52,7 +52,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #8
   store ptr %23, ptr @gvdClass, align 8
@@ -61,7 +61,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 752
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 752
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #8
   store ptr %29, ptr @gvdCountFID, align 8
@@ -70,7 +70,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @gvdClass, align 8
   %36 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #8
@@ -80,7 +80,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 752
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 752
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @gvdClass, align 8
   %43 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef %42, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #8
@@ -90,7 +90,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 45:                                               ; preds = %38
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 752
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 752
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @gvdClass, align 8
   %50 = tail call ptr %48(ptr noundef nonnull %0, ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #8
@@ -100,7 +100,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 52:                                               ; preds = %45
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 752
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 752
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @gvdClass, align 8
   %57 = tail call ptr %55(ptr noundef nonnull %0, ptr noundef %56, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10) #8
@@ -110,7 +110,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 264
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 264
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr @gvdClass, align 8
   %64 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef %63, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #8
@@ -124,7 +124,7 @@ define hidden zeroext range(i8 0, 2) i8 @storeGVData(ptr noundef %0, ptr noundef
 
 init_JNI_IDs.exit:                                ; preds = %66, %11
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 800
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 800
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr @gvdCountFID, align 8
   %71 = tail call i32 %69(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %70) #8
@@ -136,17 +136,17 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
 
 76:                                               ; preds = %109, %init_JNI_IDs.exit
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 760
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 760
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr @gvdGlyphsFID, align 8
   %81 = tail call ptr %79(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %80) #8
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 760
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 760
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @gvdPositionsFID, align 8
   %86 = tail call ptr %84(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %85) #8
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 760
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 760
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr @gvdIndicesFID, align 8
   %91 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %90) #8
@@ -163,11 +163,11 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
 
 96:                                               ; preds = %76
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 1368
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1368
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i32 %99(ptr noundef nonnull %0, ptr noundef nonnull %81) #8
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1368
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1368
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 %103(ptr noundef nonnull %0, ptr noundef nonnull %86) #8
   %105 = icmp sgt i32 %73, %100
@@ -177,29 +177,29 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   br i1 %107, label %109, label %.critedge
 
 109:                                              ; preds = %96
-  %110 = getelementptr inbounds i8, ptr %108, i64 488
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 488
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr @gvdGrowMID, align 8
   tail call void (ptr, ptr, ptr, ...) %111(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %112) #8
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1824
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1824
   %115 = load ptr, ptr %114, align 8
   %116 = tail call zeroext i8 %115(ptr noundef nonnull %0) #8
   %.not149 = icmp eq i8 %116, 0
   br i1 %.not149, label %76, label %init_JNI_IDs.exit.thread, !llvm.loop !6
 
 .critedge:                                        ; preds = %96
-  %117 = getelementptr inbounds i8, ptr %108, i64 816
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 816
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
   %120 = tail call float %118(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %119) #8
   %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 816
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 816
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
   %125 = tail call float %123(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %124) #8
   %126 = load ptr, ptr %0, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 1776
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1776
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr %128(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef null) #8
   %130 = icmp eq ptr %129, null
@@ -207,7 +207,7 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
 
 131:                                              ; preds = %.critedge
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 1776
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1776
   %134 = load ptr, ptr %133, align 8
   %135 = tail call ptr %134(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef null) #8
   %136 = icmp eq ptr %135, null
@@ -215,13 +215,13 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   br i1 %136, label %138, label %141
 
 138:                                              ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %137, i64 1784
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 1784
   %140 = load ptr, ptr %139, align 8
   tail call void %140(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
   br label %init_JNI_IDs.exit.thread
 
 141:                                              ; preds = %131
-  %142 = getelementptr inbounds i8, ptr %137, i64 1776
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 1776
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr %143(ptr noundef nonnull %0, ptr noundef nonnull %91, ptr noundef null) #8
   %145 = icmp eq ptr %144, null
@@ -239,11 +239,11 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
 
 149:                                              ; preds = %141
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 1784
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1784
   %152 = load ptr, ptr %151, align 8
   tail call void %152(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
   %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 1784
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 1784
   %155 = load ptr, ptr %154, align 8
   tail call void %155(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %135, i32 noundef 0) #8
   br label %init_JNI_IDs.exit.thread
@@ -253,8 +253,8 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %.0139164 = phi float [ 0.000000e+00, %.lr.ph ], [ %184, %156 ]
   %.0140163 = phi float [ 0.000000e+00, %.lr.ph ], [ %188, %156 ]
   %157 = add nsw i64 %indvars.iv, %148
-  %158 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %8, i64 %indvars.iv
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %158 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %8, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load i32, ptr %159, align 4
   %161 = add i32 %147, %160
   %162 = getelementptr inbounds i32, ptr %144, i64 %157
@@ -264,8 +264,8 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %165 = getelementptr inbounds i32, ptr %129, i64 %157
   store i32 %164, ptr %165, align 4
   %166 = fadd float %120, %.0139164
-  %167 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %9, i64 %indvars.iv
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %167 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %9, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i32, ptr %168, align 4
   %170 = sitofp i32 %169 to float
   %171 = tail call float @llvm.fmuladd.f32(float %170, float %12, float %166)
@@ -273,7 +273,7 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %173 = getelementptr inbounds float, ptr %135, i64 %172
   store float %171, ptr %173, align 4
   %174 = fadd float %125, %.0140163
-  %175 = getelementptr inbounds i8, ptr %167, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %176 = load i32, ptr %175, align 4
   %177 = sitofp i32 %176 to float
   %178 = fneg float %177
@@ -284,7 +284,7 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %182 = load i32, ptr %167, align 4
   %183 = sitofp i32 %182 to float
   %184 = tail call float @llvm.fmuladd.f32(float %183, float %12, float %.0139164)
-  %185 = getelementptr inbounds i8, ptr %167, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = sitofp i32 %186 to float
   %188 = tail call float @llvm.fmuladd.f32(float %187, float %12, float %.0140163)
@@ -307,29 +307,29 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %197 = getelementptr inbounds float, ptr %135, i64 %196
   store float %191, ptr %197, align 4
   %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 1784
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 1784
   %200 = load ptr, ptr %199, align 8
   tail call void %200(ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %129, i32 noundef 0) #8
   %201 = load ptr, ptr %0, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 1784
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 1784
   %203 = load ptr, ptr %202, align 8
   tail call void %203(ptr noundef nonnull %0, ptr noundef %86, ptr noundef nonnull %135, i32 noundef 0) #8
   %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 1784
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1784
   %206 = load ptr, ptr %205, align 8
   tail call void %206(ptr noundef nonnull %0, ptr noundef %91, ptr noundef nonnull %144, i32 noundef 0) #8
   %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 888
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 888
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
   tail call void %209(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %210, float noundef %190) #8
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 888
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 888
   %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
   tail call void %213(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %214, float noundef %191) #8
   %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 872
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 872
   %217 = load ptr, ptr %216, align 8
   %218 = load ptr, ptr @gvdCountFID, align 8
   tail call void %217(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %218, i32 noundef %189) #8
@@ -353,19 +353,19 @@ define hidden noundef ptr @createJDKFontInfo(ptr noundef %0, ptr noundef %1, ptr
 
 7:                                                ; preds = %5
   store ptr %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1640
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1640
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void %12(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %13) #8
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store float %3, ptr %14, align 8
   %15 = load float, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %17 = load float, ptr %16, align 4
   %18 = fcmp olt float %15, 0.000000e+00
   %19 = fneg float %15
@@ -409,11 +409,11 @@ define hidden noundef ptr @createJDKFontInfo(ptr noundef %0, ptr noundef %1, ptr
 
 euclidianDistance.exit:                           ; preds = %7, %23, %25
   %.0.i = phi float [ %49, %25 ], [ %.037.i, %7 ], [ %.038.i, %23 ]
-  %50 = getelementptr inbounds i8, ptr %6, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store float %.0.i, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %6, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %52 = load float, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %54 = load float, ptr %53, align 4
   %55 = fcmp olt float %52, 0.000000e+00
   %56 = fneg float %52
@@ -457,13 +457,13 @@ euclidianDistance.exit:                           ; preds = %7, %23, %25
 
 euclidianDistance.exit30:                         ; preds = %euclidianDistance.exit, %60, %62
   %.0.i29 = phi float [ %86, %62 ], [ %.037.i28, %euclidianDistance.exit ], [ %.038.i27, %60 ]
-  %87 = getelementptr inbounds i8, ptr %6, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store float %.0.i29, ptr %87, align 8
   %88 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #8
   %.not26 = icmp eq ptr %88, null
   %89 = fdiv float %.0.i, %3
   %.sink = select i1 %.not26, float 1.000000e+00, float %89
-  %90 = getelementptr inbounds i8, ptr %6, i64 52
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store float %.sink, ptr %90, align 4
   br label %91
 
@@ -492,9 +492,9 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr nounde
 
 23:                                               ; preds = %16
   store ptr %0, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %3, ptr %25, align 8
   %26 = inttoptr i64 %6 to ptr
   %27 = tail call ptr @hb_jdk_font_create(ptr noundef %26, ptr noundef nonnull %22, ptr noundef null) #8
@@ -508,11 +508,11 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr nounde
   tail call void @hb_buffer_set_direction(ptr noundef %28, i32 noundef %spec.select) #8
   tail call void @hb_buffer_set_cluster_level(ptr noundef %28, i32 noundef 1) #8
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1480
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1480
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %7, ptr noundef null) #8
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1824
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1824
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i8 %37(ptr noundef nonnull %0) #8
   %.not84 = icmp eq i8 %38, 0
@@ -526,7 +526,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr nounde
 
 40:                                               ; preds = %23
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1368
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1368
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef %7) #8
   %45 = sub nsw i32 %11, %10
@@ -537,7 +537,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr nounde
 
 47:                                               ; preds = %40
   %48 = tail call i32 @hb_feature_from_string(ptr noundef nonnull %19, i32 noundef -1, ptr noundef nonnull %46) #8
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = tail call i32 @hb_feature_from_string(ptr noundef nonnull %21, i32 noundef -1, ptr noundef nonnull %49) #8
   br label %51
 
@@ -547,7 +547,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr nounde
   %53 = tail call i32 @hb_buffer_get_length(ptr noundef %28) #8
   %54 = tail call ptr @hb_buffer_get_glyph_infos(ptr noundef %28, ptr noundef null) #8
   %55 = call ptr @hb_buffer_get_glyph_positions(ptr noundef %28, ptr noundef nonnull %17) #8
-  %56 = getelementptr inbounds i8, ptr %22, i64 52
+  %56 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %57 = load float, ptr %56, align 4
   %58 = call zeroext i8 @storeGVData(ptr noundef nonnull %0, ptr noundef %8, i32 noundef %15, i32 noundef %12, i32 noundef %10, ptr noundef %13, i32 noundef %45, i32 noundef %53, ptr noundef %54, ptr noundef %55, float noundef %57)
   call void @hb_buffer_destroy(ptr noundef %28) #8
@@ -561,7 +561,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_SunLayoutEngine_shape(ptr nounde
 
 60:                                               ; preds = %59, %51
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1544
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1544
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %34, i32 noundef 2) #8
   br label %64

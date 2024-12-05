@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN3std2fs11OpenOptions4open17hd6a3d9f5566a29a3E(ptr sret({ i32, [3 x i32] }) align 8 %0, ptr align 4 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, i64 }, align 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   %7 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hd08fe79e2a870feaE"(ptr nonnull align 8 %5)
   %8 = extractvalue { ptr, i64 } %7, 0
@@ -27,15 +27,15 @@ define void @_ZN3std2fs4File6create17hc85490d333c8878cE(ptr sret({ i32, [3 x i32
   %5 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %6 = alloca { ptr, i64 }, align 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %7, align 8
   store i32 0, ptr %5, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 438, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 9
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 11
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 11
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %.sroa.3.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 1, ptr %.sroa.4.0..sroa_idx, align 1
   store i8 1, ptr %.sroa.7.0..sroa_idx, align 4
@@ -45,7 +45,7 @@ define void @_ZN3std2fs4File6create17hc85490d333c8878cE(ptr sret({ i32, [3 x i32
   %10 = extractvalue { ptr, i64 } %8, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %9, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %10, ptr %11, align 8
   %12 = call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hd08fe79e2a870feaE"(ptr nonnull align 8 %4)
   %13 = extractvalue { ptr, i64 } %12, 0
@@ -62,7 +62,7 @@ define noundef ptr @_ZN3std2io5Write9write_all17h65928e756faa5383E(ptr align 4 %
   br i1 %5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %30

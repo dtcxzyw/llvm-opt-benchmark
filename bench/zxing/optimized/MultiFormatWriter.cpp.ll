@@ -88,7 +88,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
 
 24:                                               ; preds = %5
   call void @_ZN5ZXing5Aztec6WriterC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %6)
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i8, ptr %25, align 4, !noalias !4
   %.not.i = icmp eq i8 %26, 0
   br i1 %.not.i, label %28, label %27
@@ -98,7 +98,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load i32, ptr %29, align 4, !noalias !4
   %or.cond.i = icmp ult i32 %30, 9
   br i1 %or.cond.i, label %31, label %35
@@ -106,18 +106,18 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
 31:                                               ; preds = %28
   %32 = mul nuw nsw i32 %30, 100
   %33 = lshr i32 %32, 3
-  %34 = getelementptr inbounds i8, ptr %6, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %33, ptr %34, align 4, !noalias !4
   br label %35
 
 35:                                               ; preds = %31, %28
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 4, !noalias !7
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %39, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_5Aztec6WriterEZNKS0_6encodeES8_iiE3$_2EEDaOT_T0_.exit"
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %6, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %37, ptr %40, align 4, !noalias !7
   br label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_5Aztec6WriterEZNKS0_6encodeES8_iiE3$_2EEDaOT_T0_.exit"
 
@@ -127,24 +127,24 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
 
 41:                                               ; preds = %5
   call void @_ZN5ZXing10DataMatrix6WriterC1Ev(ptr noundef nonnull align 4 dereferenceable(25) %7)
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.val.val = load i8, ptr %42, align 4
   %.not.i19 = icmp eq i8 %.val.val, 0
   br i1 %.not.i19, label %45, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %7, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 %.val.val, ptr %44, align 4, !noalias !10
   br label %45
 
 45:                                               ; preds = %43, %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i32, ptr %46, align 4, !noalias !13
   %48 = icmp sgt i32 %47, -1
   br i1 %48, label %49, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit"
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %7, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %47, ptr %50, align 4, !noalias !13
   br label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_3clINS_10DataMatrix6WriterEEEDaOT_.exit"
 
@@ -154,7 +154,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
 
 51:                                               ; preds = %5
   call void @_ZN5ZXing6Pdf4176WriterC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %52 = getelementptr inbounds i8, ptr %1, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %53 = load i8, ptr %52, align 4, !noalias !16
   %.not.i20 = icmp eq i8 %53, 0
   br i1 %.not.i20, label %.noexc, label %54
@@ -164,18 +164,18 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
           to label %.noexc unwind label %65
 
 .noexc:                                           ; preds = %54, %51
-  %56 = getelementptr inbounds i8, ptr %1, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %57 = load i32, ptr %56, align 4, !noalias !16
   %or.cond.i21 = icmp ult i32 %57, 9
   br i1 %or.cond.i21, label %58, label %60
 
 58:                                               ; preds = %.noexc
-  %59 = getelementptr inbounds i8, ptr %8, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %57, ptr %59, align 4, !noalias !16
   br label %60
 
 60:                                               ; preds = %58, %.noexc
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load i32, ptr %61, align 4, !noalias !19
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %64, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_6Pdf4176WriterEEEDaOT_.exit.i"
@@ -200,18 +200,18 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
 
 67:                                               ; preds = %5
   call void @_ZN5ZXing6QRCode6WriterC1Ev(ptr noundef nonnull align 4 dereferenceable(24) %9)
-  %68 = getelementptr inbounds i8, ptr %1, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %69 = load i8, ptr %68, align 4, !noalias !22
   %.not.i23 = icmp eq i8 %69, 0
   br i1 %.not.i23, label %72, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %69, ptr %71, align 4, !noalias !22
   br label %72
 
 72:                                               ; preds = %70, %67
-  %73 = getelementptr inbounds i8, ptr %1, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %74 = load i32, ptr %73, align 4, !noalias !22
   %or.cond.i24 = icmp ult i32 %74, 9
   br i1 %or.cond.i24, label %75, label %79
@@ -221,12 +221,12 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   %.lhs.trunc.i.i = add nsw i8 %76, -1
   %77 = sdiv i8 %.lhs.trunc.i.i, 2
   %.sext.i.i = zext nneg i8 %77 to i32
-  %78 = getelementptr inbounds i8, ptr %9, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sext.i.i, ptr %78, align 4, !noalias !22
   br label %79
 
 79:                                               ; preds = %75, %72
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load i32, ptr %80, align 4, !noalias !25
   %82 = icmp sgt i32 %81, -1
   br i1 %82, label %83, label %"_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_1clINS_6QRCode6WriterEZNKS0_6encodeES8_iiE3$_5EEDaOT_T0_.exit"
@@ -240,7 +240,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13CodabarWriterEEEDaOT_.exit": ; preds = %5
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load i32, ptr %84, align 4, !noalias !28
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %85, i32 -1)
   store i32 %spec.store.select, ptr %10, align 4
@@ -248,7 +248,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code39WriterEEEDaOT_.exit": ; preds = %5
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load i32, ptr %86, align 4, !noalias !31
   %spec.store.select104 = tail call i32 @llvm.smax.i32(i32 %87, i32 -1)
   store i32 %spec.store.select104, ptr %11, align 4
@@ -256,7 +256,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD12Code93WriterEEEDaOT_.exit": ; preds = %5
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load i32, ptr %88, align 4, !noalias !34
   %spec.store.select105 = tail call i32 @llvm.smax.i32(i32 %89, i32 -1)
   store i32 %spec.store.select105, ptr %12, align 4
@@ -264,7 +264,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD13Code128WriterEEEDaOT_.exit": ; preds = %5
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load i32, ptr %90, align 4, !noalias !37
   %spec.store.select106 = tail call i32 @llvm.smax.i32(i32 %91, i32 -1)
   store i32 %spec.store.select106, ptr %13, align 4
@@ -272,7 +272,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10EAN8WriterEEEDaOT_.exit": ; preds = %5
-  %92 = getelementptr inbounds i8, ptr %1, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = load i32, ptr %92, align 4, !noalias !40
   %spec.store.select107 = tail call i32 @llvm.smax.i32(i32 %93, i32 -1)
   store i32 %spec.store.select107, ptr %14, align 4
@@ -280,7 +280,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD11EAN13WriterEEEDaOT_.exit": ; preds = %5
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i32, ptr %94, align 4, !noalias !43
   %spec.store.select108 = tail call i32 @llvm.smax.i32(i32 %95, i32 -1)
   store i32 %spec.store.select108, ptr %15, align 4
@@ -288,7 +288,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD9ITFWriterEEEDaOT_.exit": ; preds = %5
-  %96 = getelementptr inbounds i8, ptr %1, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = load i32, ptr %96, align 4, !noalias !46
   %spec.store.select109 = tail call i32 @llvm.smax.i32(i32 %97, i32 -1)
   store i32 %spec.store.select109, ptr %16, align 4
@@ -296,7 +296,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCAWriterEEEDaOT_.exit": ; preds = %5
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load i32, ptr %98, align 4, !noalias !49
   %spec.store.select110 = tail call i32 @llvm.smax.i32(i32 %99, i32 -1)
   store i32 %spec.store.select110, ptr %17, align 4
@@ -304,7 +304,7 @@ define void @_ZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwS
   br label %119
 
 "_ZZNK5ZXing17MultiFormatWriter6encodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEiiENK3$_0clINS_4OneD10UPCEWriterEEEDaOT_.exit": ; preds = %5
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %101 = load i32, ptr %100, align 4, !noalias !52
   %spec.store.select111 = tail call i32 @llvm.smax.i32(i32 %101, i32 -1)
   store i32 %spec.store.select111, ptr %18, align 4

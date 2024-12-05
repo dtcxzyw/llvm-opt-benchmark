@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -55,7 +55,7 @@ define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef 
 
 16:                                               ; preds = %13
   %17 = tail call i32 @mca_sharedfp_individual_write_metadata_file(ptr noundef nonnull %2)
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr null, ptr %18, align 8
   br label %19
 
@@ -76,17 +76,17 @@ define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef 
   %26 = sext i32 %0 to i64
   store i64 %26, ptr %20, align 8
   %27 = tail call double @mca_sharedfp_individual_gettime() #4
-  %28 = getelementptr inbounds i8, ptr %20, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %.preheader
@@ -97,13 +97,13 @@ define i32 @mca_sharedfp_individual_insert_metadata(i32 noundef %0, i64 noundef 
 
 .preheader:                                       ; preds = %23, %.preheader
   %.0 = phi ptr [ %39, %.preheader ], [ %35, %23 ]
-  %38 = getelementptr inbounds i8, ptr %.0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %39 = load ptr, ptr %38, align 8
   %.not32 = icmp eq ptr %39, null
   br i1 %.not32, label %40, label %.preheader, !llvm.loop !4
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %.0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %20, ptr %41, align 8
   br label %42
 
@@ -118,45 +118,45 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define i32 @mca_sharedfp_individual_write_metadata_file(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.mca_sharedfp_individual_record2, align 8
   %3 = alloca %struct.ompi_status_public_t, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %11, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %9, %1
-  %14 = getelementptr inbounds i8, ptr %5, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not27 = icmp eq ptr %15, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
-  %19 = getelementptr inbounds i8, ptr %5, i64 32
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph, %46
   %.02228 = phi ptr [ %15, %.lr.ph ], [ %42, %46 ]
   %22 = load i64, ptr %.02228, align 8
   store i64 %22, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %.02228, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.02228, i64 8
   %24 = load double, ptr %23, align 8
   store double %24, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %.02228, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %17, align 8
-  %27 = getelementptr inbounds i8, ptr %.02228, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.02228, i64 24
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %18, align 8
   %29 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
@@ -180,7 +180,7 @@ define i32 @mca_sharedfp_individual_write_metadata_file(ptr nocapture noundef re
   br label %39
 
 39:                                               ; preds = %30, %21
-  %40 = getelementptr inbounds i8, ptr %.02228, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.02228, i64 32
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %14, align 8
   call void @free(ptr noundef nonnull %.02228) #4

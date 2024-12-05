@@ -117,16 +117,16 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %11 = alloca i32, align 4
   tail call void @device_initialize(ptr noundef %0) #9
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @snd_hda_bus_type, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 688
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr @default_release, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 680
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr @hdac_dev_attr_groups, ptr %16, align 8
   %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %2) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 220
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %19 = load i16, ptr %18, align 4
   %20 = and i16 %19, 8
   %21 = icmp eq i16 %20, 0
@@ -138,20 +138,20 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   br label %24
 
 24:                                               ; preds = %22, %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 736
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store ptr %1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 744
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store i32 %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 728
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @__mutex_init(ptr noundef %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @snd_hdac_device_init.__key) #9
-  %29 = getelementptr inbounds i8, ptr %0, i64 888
-  tail call void @__mutex_init(ptr noundef %29, ptr noundef nonnull @.str.3, ptr noundef nonnull @snd_hdac_device_init.__key.2) #9
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  tail call void @__mutex_init(ptr noundef nonnull %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @snd_hdac_device_init.__key) #9
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  tail call void @__mutex_init(ptr noundef nonnull %29, ptr noundef nonnull @.str.3, ptr noundef nonnull @snd_hdac_device_init.__key.2) #9
   %30 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 0) #9
-  %31 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %31, ptr elementtype(i32) %31) #9, !srcloc !5
-  %32 = getelementptr inbounds i8, ptr %0, i64 832
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31, ptr nonnull elementtype(i32) %31) #9, !srcloc !5
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store volatile i32 0, ptr %32, align 4
   %33 = tail call i32 @snd_hdac_bus_add_device(ptr noundef %1, ptr noundef %0) #9
   %34 = icmp slt i32 %33, 0
@@ -165,7 +165,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %38 = icmp sgt i32 %36, -1
   %39 = select i1 %38, i32 %37, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
-  %40 = getelementptr inbounds i8, ptr %0, i64 772
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 772
   store i32 %39, ptr %40, align 4
   %41 = icmp eq i32 %39, -1
   br i1 %41, label %42, label %47
@@ -189,7 +189,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %50 = icmp sgt i32 %48, -1
   %51 = select i1 %50, i32 %49, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
-  %52 = getelementptr inbounds i8, ptr %0, i64 776
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store i32 %51, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
   store i32 0, ptr %8, align 4, !annotation !6
@@ -198,7 +198,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %55 = icmp sgt i32 %53, -1
   %56 = select i1 %55, i32 %54, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
-  %57 = getelementptr inbounds i8, ptr %0, i64 780
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 780
   store i32 %56, ptr %57, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   store i32 0, ptr %7, align 4, !annotation !6
@@ -215,11 +215,11 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
 
 66:                                               ; preds = %47
   %67 = lshr i32 %59, 16
-  %68 = getelementptr inbounds i8, ptr %0, i64 770
-  %69 = getelementptr inbounds i8, ptr %0, i64 788
-  %70 = getelementptr inbounds i8, ptr %0, i64 792
-  %71 = getelementptr inbounds i8, ptr %0, i64 768
-  %72 = getelementptr inbounds i8, ptr %0, i64 784
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 770
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 788
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %73 = and i32 %67, 32767
   br label %74
 
@@ -277,13 +277,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   br i1 %105, label %.loopexit, label %74, !llvm.loop !7
 
 .loopexit:                                        ; preds = %102, %47
-  %106 = getelementptr inbounds i8, ptr %0, i64 768
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %107 = load i16, ptr %106, align 8
   %108 = icmp eq i16 %107, 0
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %.loopexit
-  %110 = getelementptr inbounds i8, ptr %0, i64 770
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 770
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
   br i1 %112, label %113, label %114
@@ -309,7 +309,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %124 = icmp sgt i32 %122, -1
   %125 = select i1 %124, i32 %123, i32 -1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
-  %126 = getelementptr inbounds i8, ptr %0, i64 796
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 796
   store i32 %125, ptr %126, align 4
   %127 = load i32, ptr %52, align 8
   switch i32 %127, label %149 [
@@ -336,19 +336,19 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
 
 138:                                              ; preds = %134, %133
   %139 = phi i32 [ -1, %133 ], [ %137, %134 ]
-  %140 = getelementptr inbounds i8, ptr %0, i64 816
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %145, label %143
 
 143:                                              ; preds = %138
-  %144 = call i32 %141(ptr noundef %0, i32 noundef %139, i32 noundef 0, ptr noundef %52) #9
+  %144 = call i32 %141(ptr noundef %0, i32 noundef %139, i32 noundef 0, ptr noundef nonnull %52) #9
   br label %149
 
 145:                                              ; preds = %138
   %146 = load ptr, ptr %25, align 8
   %147 = load i32, ptr %26, align 8
-  %148 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %146, i32 noundef %147, i32 noundef %139, ptr noundef %52) #9
+  %148 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %146, i32 noundef %147, i32 noundef %139, ptr noundef nonnull %52) #9
   br label %149
 
 149:                                              ; preds = %145, %143, %118
@@ -363,7 +363,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   br i1 %155, label %156, label %160
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %154, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = call noalias ptr @kstrdup(ptr noundef %158, i32 noundef 3264) #9
   br label %166
@@ -380,7 +380,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
 
 166:                                              ; preds = %164, %156
   %167 = phi ptr [ %159, %156 ], [ %165, %164 ]
-  %168 = getelementptr inbounds i8, ptr %0, i64 800
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 800
   store ptr %167, ptr %168, align 8
   %169 = icmp eq ptr %167, null
   br i1 %169, label %176, label %170
@@ -389,7 +389,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %171 = load i32, ptr %40, align 4
   %172 = and i32 %171, 65535
   %173 = call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.5, i32 noundef %172) #9
-  %174 = getelementptr inbounds i8, ptr %0, i64 808
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr %173, ptr %174, align 8
   %175 = icmp eq ptr %173, null
   br i1 %175, label %176, label %178
@@ -412,7 +412,7 @@ declare dso_local void @device_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @default_release(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 432
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %.lr.ph, !prof !11
@@ -420,7 +420,7 @@ define internal void @default_release(ptr noundef %0) #0 align 16 {
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, -1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -434,13 +434,13 @@ define internal void @default_release(ptr noundef %0) #0 align 16 {
 
 .thread:                                          ; preds = %11, %.lr.ph, %1
   %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 736
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %16 = load ptr, ptr %15, align 8
   tail call void @snd_hdac_bus_remove_device(ptr noundef %16, ptr noundef %0) #9
-  %17 = getelementptr inbounds i8, ptr %0, i64 800
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %18 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %18) #9
-  %19 = getelementptr inbounds i8, ptr %0, i64 808
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #9
   ret void
@@ -461,9 +461,9 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @mutex_lock(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 768
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  tail call void @mutex_lock(ptr noundef nonnull %3) #9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %5 = load i16, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   store i32 0, ptr %2, align 4, !annotation !6
@@ -500,25 +500,25 @@ define dso_local i32 @snd_hdac_refresh_widgets(ptr noundef %0) #0 align 16 {
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 824
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i32 %19, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 828
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 828
   store i16 %18, ptr %32, align 4
   %33 = trunc nuw nsw i32 %19 to i16
   %34 = add nuw i16 %18, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 830
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 830
   store i16 %34, ptr %35, align 2
   br label %36
 
 36:                                               ; preds = %30, %27, %24
   %37 = phi i32 [ -22, %24 ], [ %28, %27 ], [ %28, %30 ]
-  call void @mutex_unlock(ptr noundef %3) #9
+  call void @mutex_unlock(ptr noundef nonnull %3) #9
   ret i32 %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_read(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 744
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 16
   br i1 %8, label %9, label %15
@@ -548,7 +548,7 @@ define dso_local i32 @snd_hdac_read(ptr noundef %0, i16 noundef zeroext %1, i32 
 
 25:                                               ; preds = %17, %15
   %26 = phi i32 [ -1, %15 ], [ %24, %17 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %32, label %30
@@ -558,7 +558,7 @@ define dso_local i32 @snd_hdac_read(ptr noundef %0, i16 noundef zeroext %1, i32 
   br label %37
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 736
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %6, align 8
   %36 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %34, i32 noundef %35, i32 noundef %26, ptr noundef %4) #9
@@ -580,7 +580,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 432
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %.lr.ph, !prof !11
@@ -588,7 +588,7 @@ define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, -1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -602,13 +602,13 @@ define dso_local void @snd_hdac_device_exit(ptr noundef %0) #0 align 16 {
 
 .thread:                                          ; preds = %11, %.lr.ph, %1
   %14 = tail call i32 @__pm_runtime_set_status(ptr noundef %0, i32 noundef 2) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 736
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %16 = load ptr, ptr %15, align 8
   tail call void @snd_hdac_bus_remove_device(ptr noundef %16, ptr noundef %0) #9
-  %17 = getelementptr inbounds i8, ptr %0, i64 800
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %18 = load ptr, ptr %17, align 8
   tail call void @kfree(ptr noundef %18) #9
-  %19 = getelementptr inbounds i8, ptr %0, i64 808
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #9
   ret void
@@ -627,10 +627,10 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_register(ptr nou
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @mutex_lock(ptr noundef %5) #9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  tail call void @mutex_lock(ptr noundef nonnull %5) #9
   %6 = tail call i32 @hda_widget_sysfs_init(ptr noundef %0) #9
-  tail call void @mutex_unlock(ptr noundef %5) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %5) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %9
 
@@ -660,19 +660,19 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hdac_device_unregister(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 2
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 840
-  tail call void @mutex_lock(ptr noundef %7) #9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  tail call void @mutex_lock(ptr noundef nonnull %7) #9
   tail call void @hda_widget_sysfs_exit(ptr noundef %0) #9
-  tail call void @mutex_unlock(ptr noundef %7) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #9
   tail call void @device_del(ptr noundef %0) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 736
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %9 = load ptr, ptr %8, align 8
   tail call void @snd_hdac_bus_remove_device(ptr noundef %9, ptr noundef %0) #9
   br label %10
@@ -695,7 +695,7 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_hdac_device_set_chip_name(pt
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %9 = load ptr, ptr %8, align 8
   tail call void @kfree(ptr noundef %9) #9
   store ptr %5, ptr %8, align 8
@@ -711,11 +711,11 @@ declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_codec_modalias(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 772
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 772
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 780
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 728
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.6, i32 noundef %5, i32 noundef %7, i32 noundef %9) #9
   ret i32 %10
@@ -726,7 +726,7 @@ declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_exec_verb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 816
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -736,9 +736,9 @@ define dso_local i32 @snd_hdac_exec_verb(ptr noundef %0, i32 noundef %1, i32 nou
   br label %16
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 736
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 744
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %14 = load i32, ptr %13, align 8
   %15 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %12, i32 noundef %14, i32 noundef %1, ptr noundef %3) #9
   br label %16
@@ -786,7 +786,7 @@ declare dso_local i32 @snd_hdac_regmap_read_raw_uncached(ptr noundef, i32 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 880
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -796,7 +796,7 @@ define dso_local i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext
   %10 = shl i32 %9, 20
   %11 = or i32 %2, %10
   %12 = or i32 %11, 983040
-  %13 = getelementptr inbounds i8, ptr %0, i64 944
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %14 = load i8, ptr %13, align 8
   %15 = or i8 %14, 2
   store i8 %15, ptr %13, align 8
@@ -896,15 +896,15 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   ]
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %0, i64 744
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %40 = icmp ult i16 %1, 128
-  %41 = getelementptr inbounds i8, ptr %0, i64 816
-  %42 = getelementptr inbounds i8, ptr %0, i64 736
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %43 = icmp eq ptr %2, null
   br label %76
 
 44:                                               ; preds = %29
-  %45 = getelementptr inbounds i8, ptr %0, i64 744
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %46 = load i32, ptr %45, align 8
   %47 = icmp ult i32 %46, 16
   %48 = icmp ult i16 %1, 128
@@ -923,7 +923,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
 
 55:                                               ; preds = %51, %50
   %56 = phi i32 [ -1, %50 ], [ %54, %51 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 816
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %62, label %60
@@ -933,7 +933,7 @@ define dso_local i32 @snd_hdac_get_connections(ptr noundef %0, i16 noundef zeroe
   br label %67
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %0, i64 736
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %45, align 8
   %66 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %64, i32 noundef %65, i32 noundef %56, ptr noundef nonnull %7) #9
@@ -1113,7 +1113,7 @@ define dso_local i32 @snd_hdac_power_up(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_power_down(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 @ktime_get_mono_fast_ns() #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store volatile i64 %2, ptr %3, align 8
   %4 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #9
   ret i32 %4
@@ -1121,7 +1121,7 @@ define dso_local i32 @snd_hdac_power_down(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_power_up_pm(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %._crit_edge, label %.lr.ph, !prof !11
@@ -1129,7 +1129,7 @@ define dso_local i32 @snd_hdac_power_up_pm(ptr noundef %0) #0 align 16 {
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -1152,7 +1152,7 @@ define dso_local i32 @snd_hdac_power_up_pm(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -1, 2) i32 @snd_hdac_keep_power_up(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %._crit_edge, label %.lr.ph, !prof !11
@@ -1160,7 +1160,7 @@ define dso_local range(i32 -1, 2) i32 @snd_hdac_keep_power_up(ptr noundef %0) lo
 .lr.ph:                                           ; preds = %1, %11
   %5 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %6 = add i32 %5, 1
-  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %5) #9, !srcloc !12
+  %7 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %5) #9, !srcloc !12
   %8 = extractvalue { i8, i32 } %7, 0
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
@@ -1192,7 +1192,7 @@ declare dso_local i32 @pm_runtime_get_if_active(ptr noundef, i1 noundef zeroext)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load volatile i32, ptr %2, align 4
   %4 = add i32 %3, -1
   %5 = icmp slt i32 %4, 0
@@ -1201,7 +1201,7 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
 .lr.ph:                                           ; preds = %1, %12
   %6 = phi i32 [ %14, %12 ], [ %4, %1 ]
   %7 = phi i32 [ %13, %12 ], [ %3, %1 ]
-  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 %6, ptr elementtype(i32) %2, i32 %7) #9, !srcloc !12
+  %8 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 %6, ptr nonnull elementtype(i32) %2, i32 %7) #9, !srcloc !12
   %9 = extractvalue { i8, i32 } %8, 0
   %10 = icmp ult i8 %9, 2
   tail call void @llvm.assume(i1 %10)
@@ -1216,7 +1216,7 @@ define dso_local i32 @snd_hdac_power_down_pm(ptr noundef %0) #0 align 16 {
 
 ._crit_edge:                                      ; preds = %12, %1
   %16 = tail call i64 @ktime_get_mono_fast_ns() #9
-  %17 = getelementptr inbounds i8, ptr %0, i64 472
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store volatile i64 %16, ptr %17, align 8
   %18 = tail call i32 @__pm_runtime_suspend(ptr noundef %0, i32 noundef 13) #9
   br label %.thread
@@ -1256,7 +1256,7 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
 
 9:                                                ; preds = %8, %7, %6, %5, %3, %3
   %10 = phi i32 [ %0, %8 ], [ 13, %7 ], [ 11, %6 ], [ 12, %5 ], [ 10, %3 ], [ 10, %3 ]
-  %11 = getelementptr inbounds i8, ptr %4, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %12 = and i32 %10, 31
   %13 = shl nuw i32 1, %12
   %14 = lshr i32 %10, 5
@@ -1265,7 +1265,7 @@ define dso_local i32 @snd_hdac_stream_format_bits(i32 noundef %0, i32 noundef %1
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %13, %17
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %20 = and i32 %1, 31
   %21 = shl nuw i32 1, %20
   %22 = lshr i32 %1, 5
@@ -1312,7 +1312,7 @@ define dso_local i32 @snd_hdac_stream_format(i32 noundef %0, i32 noundef %1, i32
 14:                                               ; preds = %12, %3
   %15 = phi i1 [ false, %3 ], [ %13, %12 ]
   %16 = phi ptr [ @rate_bits, %3 ], [ %7, %12 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 4
   br label %21
 
@@ -1389,7 +1389,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
 15:                                               ; preds = %13, %4
   %16 = phi i1 [ false, %4 ], [ %14, %13 ]
   %17 = phi ptr [ @rate_bits, %4 ], [ %8, %13 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4
   br label %22
 
@@ -1529,7 +1529,7 @@ define dso_local noundef range(i32 -5, 1) i32 @snd_hdac_query_supported_pcm(ptr 
   br i1 %50, label %51, label %.thread6
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 768
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %53 = load i16, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   store i32 0, ptr %7, align 4, !annotation !6
@@ -1638,7 +1638,7 @@ define internal fastcc i32 @query_pcm_param(ptr noundef %0, i16 noundef zeroext 
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 768
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %7 = load i16, ptr %6, align 8
   %8 = icmp eq i16 %7, %1
   br i1 %8, label %.thread, label %9
@@ -1740,7 +1740,7 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %0, i64 768
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %34 = load i16, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
@@ -1809,7 +1809,7 @@ define dso_local noundef zeroext i1 @snd_hdac_is_supported_format(ptr noundef %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 744
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %8, 16
   br i1 %9, label %10, label %16
@@ -1841,7 +1841,7 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
   %27 = phi i32 [ -1, %16 ], [ %25, %18 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   store i32 0, ptr %6, align 4, !annotation !6
-  %28 = getelementptr inbounds i8, ptr %0, i64 816
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %33, label %31
@@ -1851,7 +1851,7 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
   br label %38
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 736
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %7, align 8
   %37 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %35, i32 noundef %36, i32 noundef %27, ptr noundef nonnull %6) #9
@@ -1868,7 +1868,7 @@ define dso_local i32 @snd_hdac_codec_read(ptr noundef %0, i16 noundef zeroext %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 744
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 16
   br i1 %8, label %9, label %15
@@ -1898,7 +1898,7 @@ define dso_local i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %
 
 25:                                               ; preds = %17, %15
   %26 = phi i32 [ -1, %15 ], [ %24, %17 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %32, label %30
@@ -1908,7 +1908,7 @@ define dso_local i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %
   br label %37
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 736
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %6, align 8
   %36 = tail call i32 @snd_hdac_bus_exec_verb(ptr noundef %34, i32 noundef %35, i32 noundef %26, ptr noundef null) #9
@@ -1922,7 +1922,7 @@ define dso_local i32 @snd_hdac_codec_write(ptr noundef %0, i16 noundef zeroext %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 744
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, 16
   %8 = icmp ult i16 %1, 128
@@ -1945,7 +1945,7 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
   %18 = phi i32 [ -1, %11 ], [ %16, %12 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6
-  %19 = getelementptr inbounds i8, ptr %0, i64 816
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -1955,7 +1955,7 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
   br label %29
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 736
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %5, align 8
   %28 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %26, i32 noundef %27, i32 noundef %18, ptr noundef nonnull %4) #9
@@ -1980,12 +1980,12 @@ define dso_local zeroext i1 @snd_hdac_check_power_state(ptr noundef %0, i16 noun
 define dso_local i32 @snd_hdac_sync_power_state(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = load volatile i64, ptr @jiffies, align 64
-  %6 = getelementptr inbounds i8, ptr %0, i64 744
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %7 = icmp ult i16 %1, 128
   %8 = zext i16 %1 to i32
   %9 = shl nuw nsw i32 %8, 20
-  %10 = getelementptr inbounds i8, ptr %0, i64 816
-  %11 = getelementptr inbounds i8, ptr %0, i64 736
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %invariant.op = or disjoint i32 %9, 984320
   %12 = sub i64 -500, %5
   br i1 %7, label %.split, label %.split.us

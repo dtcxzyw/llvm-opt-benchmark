@@ -63,9 +63,9 @@ define void @srot_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %36 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %39 = load float, ptr %38, align 4
   %40 = fmul float %12, %39
   %41 = tail call float @llvm.fmuladd.f32(float %11, float %37, float %40)

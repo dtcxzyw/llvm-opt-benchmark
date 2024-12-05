@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mei_dmam_ring_free(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   br label %3
 
 3:                                                ; preds = %14, %1
@@ -21,9 +21,9 @@ define dso_local void @mei_dmam_ring_free(ptr nocapture noundef %0) local_unname
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   tail call void @dmam_free_coherent(ptr noundef %9, i64 noundef %11, ptr noundef nonnull %6, i64 noundef %13) #7
   store ptr null, ptr %5, align 8
@@ -40,7 +40,7 @@ define dso_local void @mei_dmam_ring_free(ptr nocapture noundef %0) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   br label %5
 
 .critedge:                                        ; preds = %5, %14, %17
@@ -51,7 +51,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 5:                                                ; preds = %.critedge, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %.critedge ]
   %7 = getelementptr [3 x %struct.mei_dma_dscr], ptr %2, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.critedge, label %11
@@ -74,8 +74,8 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = tail call ptr @dmam_alloc_attrs(ptr noundef %18, i64 noundef %9, ptr noundef %19, i32 noundef 3264, i64 noundef 0) #7
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %20 = tail call ptr @dmam_alloc_attrs(ptr noundef %18, i64 noundef %9, ptr noundef nonnull %19, i32 noundef 3264, i64 noundef 0) #7
   store ptr %20, ptr %7, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.preheader.preheader, label %.critedge
@@ -92,9 +92,9 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 
 25:                                               ; preds = %.preheader
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i64, ptr %29, align 8
   tail call void @dmam_free_coherent(ptr noundef %26, i64 noundef %28, ptr noundef nonnull %23, i64 noundef %30) #7
   store ptr null, ptr %22, align 8
@@ -112,7 +112,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @mei_dma_ring_is_allocated(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
   ret i1 %4
@@ -158,7 +158,7 @@ define dso_local void @mei_dma_ring_read(ptr nocapture noundef readonly %0, ptr 
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 2
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load volatile i32, ptr %15, align 1
   %17 = add i32 %14, -1
   %18 = and i32 %17, %16
@@ -217,7 +217,7 @@ define dso_local void @mei_dma_ring_read(ptr nocapture noundef readonly %0, ptr 
 define dso_local i32 @mei_dma_ring_empty_slots(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 3248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %22, label %7
@@ -233,11 +233,11 @@ define dso_local i32 @mei_dma_ring_empty_slots(ptr nocapture noundef readonly %0
   br label %22
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 3264
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3264
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 2
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load volatile i32, ptr %15, align 1
   %17 = load volatile i32, ptr %3, align 1
   %18 = icmp ugt i32 %16, %17
@@ -265,7 +265,7 @@ define dso_local void @mei_dma_ring_write(ptr nocapture noundef readonly %0, ptr
   br label %46
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 3264
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3264
   %10 = load i64, ptr %9, align 8
   %11 = lshr i64 %10, 2
   %12 = trunc i64 %11 to i32
@@ -282,7 +282,7 @@ define dso_local void @mei_dma_ring_write(ptr nocapture noundef readonly %0, ptr
 
 22:                                               ; preds = %8
   %23 = sub i32 %12, %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 3248
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %25 = load ptr, ptr %24, align 8
   %26 = shl i32 %15, 2
   %27 = zext i32 %26 to i64
@@ -298,7 +298,7 @@ define dso_local void @mei_dma_ring_write(ptr nocapture noundef readonly %0, ptr
   %34 = phi i32 [ 0, %22 ], [ %15, %8 ]
   %35 = phi i32 [ %32, %22 ], [ %19, %8 ]
   %36 = phi ptr [ %31, %22 ], [ %1, %8 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 3248
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %38 = load ptr, ptr %37, align 8
   %39 = shl i32 %34, 2
   %40 = zext i32 %39 to i64

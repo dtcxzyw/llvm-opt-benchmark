@@ -159,12 +159,12 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader20
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.01.0.copyload.i1 = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i3 = load i64, ptr %.sroa.2.0..sroa_idx.i2, align 8
-  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload.i5 = load i64, ptr %.sroa.3.0..sroa_idx.i4, align 8
   br label %34
 
@@ -172,12 +172,12 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   br i1 %25, label %._crit_edge, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %.preheader
-  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sroa.3.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.01.0.copyload.i13 = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i14, align 8
-  %.sroa.3.0..sroa_idx.i16 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload.i17 = load i64, ptr %.sroa.3.0..sroa_idx.i16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -287,13 +287,13 @@ define void @_ZNK5boost4urls19params_encoded_base9find_implENS0_6detail16params_
   %64 = load i8, ptr %63, align 1, !tbaa !51
   %.not.i.i10.i = icmp eq i8 %64, 37
   %storemerge.v.i.i11.i = select i1 %.not.i.i10.i, i64 3, i64 1
-  %storemerge.i.i12.i = getelementptr inbounds i8, ptr %63, i64 %storemerge.v.i.i11.i
+  %storemerge.i.i12.i = getelementptr inbounds nuw i8, ptr %63, i64 %storemerge.v.i.i11.i
   store ptr %storemerge.i.i12.i, ptr %27, align 8, !tbaa !39
   %65 = load ptr, ptr %30, align 8, !tbaa !39
   %66 = load i8, ptr %65, align 1, !tbaa !51
   %.not.i6.i13.i = icmp eq i8 %66, 37
   %storemerge.v.i7.i14.i = select i1 %.not.i6.i13.i, i64 3, i64 1
-  %storemerge.i8.i15.i = getelementptr inbounds i8, ptr %65, i64 %storemerge.v.i7.i14.i
+  %storemerge.i8.i15.i = getelementptr inbounds nuw i8, ptr %65, i64 %storemerge.v.i7.i14.i
   store ptr %storemerge.i8.i15.i, ptr %30, align 8, !tbaa !39
   %67 = icmp eq ptr %storemerge.i.i12.i, %47
   br i1 %67, label %.loopexit, label %.lr.ph.i5.i, !llvm.loop !52
@@ -359,12 +359,12 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   br i1 %20, label %.preheader, label %.preheader19
 
 .preheader19:                                     ; preds = %5
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.01.0.copyload.i1 = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i3 = load i64, ptr %.sroa.2.0..sroa_idx.i2, align 8
-  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload.i5 = load i64, ptr %.sroa.3.0..sroa_idx.i4, align 8
   br label %34
 
@@ -375,12 +375,12 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   br i1 %25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sroa.3.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.01.0.copyload.i13 = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i15 = load i64, ptr %.sroa.2.0..sroa_idx.i14, align 8
-  %.sroa.3.0..sroa_idx.i16 = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload.i17 = load i64, ptr %.sroa.3.0..sroa_idx.i16, align 8
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -519,13 +519,13 @@ define void @_ZNK5boost4urls19params_encoded_base14find_last_implENS0_6detail16p
   %71 = load i8, ptr %70, align 1, !tbaa !51
   %.not.i.i10.i = icmp eq i8 %71, 37
   %storemerge.v.i.i11.i = select i1 %.not.i.i10.i, i64 3, i64 1
-  %storemerge.i.i12.i = getelementptr inbounds i8, ptr %70, i64 %storemerge.v.i.i11.i
+  %storemerge.i.i12.i = getelementptr inbounds nuw i8, ptr %70, i64 %storemerge.v.i.i11.i
   store ptr %storemerge.i.i12.i, ptr %27, align 8, !tbaa !39
   %72 = load ptr, ptr %30, align 8, !tbaa !39
   %73 = load i8, ptr %72, align 1, !tbaa !51
   %.not.i6.i13.i = icmp eq i8 %73, 37
   %storemerge.v.i7.i14.i = select i1 %.not.i6.i13.i, i64 3, i64 1
-  %storemerge.i8.i15.i = getelementptr inbounds i8, ptr %72, i64 %storemerge.v.i7.i14.i
+  %storemerge.i8.i15.i = getelementptr inbounds nuw i8, ptr %72, i64 %storemerge.v.i7.i14.i
   store ptr %storemerge.i8.i15.i, ptr %30, align 8, !tbaa !39
   %74 = icmp eq ptr %storemerge.i.i12.i, %49
   br i1 %74, label %._crit_edge.i16.i, label %.lr.ph.i5.i, !llvm.loop !52

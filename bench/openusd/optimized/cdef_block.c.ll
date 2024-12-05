@@ -18,20 +18,20 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %6 = alloca [8 x [15 x i32]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(480) %6, i8 0, i64 480, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 60
-  %8 = getelementptr inbounds i8, ptr %6, i64 120
-  %9 = getelementptr inbounds i8, ptr %6, i64 180
-  %10 = getelementptr inbounds i8, ptr %6, i64 240
-  %11 = getelementptr inbounds i8, ptr %6, i64 300
-  %12 = getelementptr inbounds i8, ptr %6, i64 360
-  %13 = getelementptr inbounds i8, ptr %6, i64 420
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 180
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 300
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 420
   %14 = sext i32 %1 to i64
   br label %.preheader93
 
 .preheader93:                                     ; preds = %4, %64
   %indvars.iv122 = phi i64 [ 0, %4 ], [ %indvars.iv.next123, %64 ]
   %15 = mul nsw i64 %indvars.iv122, %14
-  %16 = getelementptr inbounds [15 x i32], ptr %8, i64 0, i64 %indvars.iv122
+  %16 = getelementptr inbounds nuw [15 x i32], ptr %8, i64 0, i64 %indvars.iv122
   %17 = add nuw nsw i64 %indvars.iv122, 7
   %18 = trunc nuw nsw i64 %indvars.iv122 to i32
   %19 = lshr i64 %indvars.iv122, 1
@@ -42,8 +42,8 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   br label %25
 
 .preheader92:                                     ; preds = %64
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %65
 
 25:                                               ; preds = %.preheader93, %25
@@ -54,7 +54,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %28 = lshr i32 %27, %3
   %29 = add nsw i32 %28, -128
   %30 = add nuw nsw i64 %indvars.iv, %indvars.iv122
-  %31 = getelementptr inbounds [15 x i32], ptr %6, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [15 x i32], ptr %6, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %29, %32
   store i32 %33, ptr %31, align 4
@@ -62,7 +62,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %35 = lshr i32 %34, 1
   %36 = add nuw nsw i32 %35, %18
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds [15 x i32], ptr %7, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [15 x i32], ptr %7, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, %29
   store i32 %40, ptr %38, align 4
@@ -71,12 +71,12 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   store i32 %42, ptr %16, align 4
   %43 = sub nsw i32 %22, %35
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds [15 x i32], ptr %9, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [15 x i32], ptr %9, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add nsw i32 %46, %29
   store i32 %47, ptr %45, align 4
   %48 = sub nuw nsw i64 %17, %indvars.iv
-  %49 = getelementptr inbounds [15 x i32], ptr %10, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [15 x i32], ptr %10, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, %29
   store i32 %51, ptr %49, align 4
@@ -86,12 +86,12 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, %29
   store i32 %56, ptr %54, align 4
-  %57 = getelementptr inbounds [15 x i32], ptr %12, i64 0, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [15 x i32], ptr %12, i64 0, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, %29
   store i32 %59, ptr %57, align 4
   %60 = add nuw nsw i64 %indvars.iv, %20
-  %61 = getelementptr inbounds [15 x i32], ptr %13, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [15 x i32], ptr %13, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, %29
   store i32 %63, ptr %61, align 4
@@ -108,11 +108,11 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %indvars.iv126 = phi i64 [ 0, %.preheader92 ], [ %indvars.iv.next127, %65 ]
   %66 = phi i32 [ 0, %.preheader92 ], [ %71, %65 ]
   %67 = phi i32 [ 0, %.preheader92 ], [ %75, %65 ]
-  %68 = getelementptr inbounds [15 x i32], ptr %8, i64 0, i64 %indvars.iv126
+  %68 = getelementptr inbounds nuw [15 x i32], ptr %8, i64 0, i64 %indvars.iv126
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, %69
   %71 = add nuw nsw i32 %66, %70
-  %72 = getelementptr inbounds [15 x i32], ptr %12, i64 0, i64 %indvars.iv126
+  %72 = getelementptr inbounds nuw [15 x i32], ptr %12, i64 0, i64 %indvars.iv126
   %73 = load i32, ptr %72, align 4
   %74 = mul nsw i32 %73, %73
   %75 = add nuw nsw i32 %67, %74
@@ -125,30 +125,30 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   store i32 %77, ptr %23, align 8
   %78 = mul nuw nsw i32 %75, 105
   store i32 %78, ptr %24, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %80
 
 80:                                               ; preds = %76, %80
   %indvars.iv130 = phi i64 [ 0, %76 ], [ %indvars.iv.next131, %80 ]
   %81 = phi i32 [ 0, %76 ], [ %94, %80 ]
   %82 = phi i32 [ 0, %76 ], [ %103, %80 ]
-  %83 = getelementptr inbounds [15 x i32], ptr %6, i64 0, i64 %indvars.iv130
+  %83 = getelementptr inbounds nuw [15 x i32], ptr %6, i64 0, i64 %indvars.iv130
   %84 = load i32, ptr %83, align 4
   %85 = mul nsw i32 %84, %84
   %86 = sub nuw nsw i64 14, %indvars.iv130
-  %87 = getelementptr inbounds [15 x i32], ptr %6, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [15 x i32], ptr %6, i64 0, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = mul nsw i32 %88, %88
   %90 = add nuw nsw i32 %89, %85
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %91 = getelementptr inbounds [9 x i32], ptr @cdef_find_dir_c.div_table, i64 0, i64 %indvars.iv.next131
+  %91 = getelementptr inbounds nuw [9 x i32], ptr @cdef_find_dir_c.div_table, i64 0, i64 %indvars.iv.next131
   %92 = load i32, ptr %91, align 4
   %93 = mul nsw i32 %90, %92
   %94 = add nsw i32 %93, %81
-  %95 = getelementptr inbounds [15 x i32], ptr %10, i64 0, i64 %indvars.iv130
+  %95 = getelementptr inbounds nuw [15 x i32], ptr %10, i64 0, i64 %indvars.iv130
   %96 = load i32, ptr %95, align 4
   %97 = mul nsw i32 %96, %96
-  %98 = getelementptr inbounds [15 x i32], ptr %10, i64 0, i64 %86
+  %98 = getelementptr inbounds nuw [15 x i32], ptr %10, i64 0, i64 %86
   %99 = load i32, ptr %98, align 4
   %100 = mul nsw i32 %99, %99
   %101 = add nuw nsw i32 %100, %97
@@ -158,13 +158,13 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %exitcond133.not, label %104, label %80, !llvm.loop !8
 
 104:                                              ; preds = %80
-  %105 = getelementptr inbounds i8, ptr %6, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %106 = load i32, ptr %105, align 4
   %107 = mul i32 %106, 105
   %108 = mul i32 %107, %106
   %109 = add nsw i32 %108, %94
   store i32 %109, ptr %5, align 16
-  %110 = getelementptr inbounds i8, ptr %6, i64 268
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 268
   %111 = load i32, ptr %110, align 4
   %112 = mul i32 %111, 105
   %113 = mul i32 %112, %111
@@ -174,7 +174,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
 
 .preheader91:                                     ; preds = %104, %141
   %indvars.iv142 = phi i64 [ 1, %104 ], [ %indvars.iv.next143, %141 ]
-  %115 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv142
+  %115 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv142
   %.promoted104 = load i32, ptr %115, align 4
   br label %116
 
@@ -182,7 +182,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %indvars.iv134 = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next135, %116 ]
   %117 = phi i32 [ %.promoted104, %.preheader91 ], [ %122, %116 ]
   %118 = add nuw nsw i64 %indvars.iv134, 3
-  %119 = getelementptr inbounds [8 x [15 x i32]], ptr %6, i64 0, i64 %indvars.iv142, i64 %118
+  %119 = getelementptr inbounds nuw [8 x [15 x i32]], ptr %6, i64 0, i64 %indvars.iv142, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = mul nsw i32 %120, %120
   %122 = add nsw i32 %117, %121
@@ -197,17 +197,17 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
 125:                                              ; preds = %123, %125
   %indvars.iv138 = phi i64 [ 0, %123 ], [ %indvars.iv.next139, %125 ]
   %126 = phi i32 [ %124, %123 ], [ %140, %125 ]
-  %127 = getelementptr inbounds [8 x [15 x i32]], ptr %6, i64 0, i64 %indvars.iv142, i64 %indvars.iv138
+  %127 = getelementptr inbounds nuw [8 x [15 x i32]], ptr %6, i64 0, i64 %indvars.iv142, i64 %indvars.iv138
   %128 = load i32, ptr %127, align 4
   %129 = mul nsw i32 %128, %128
   %130 = sub nuw nsw i64 10, %indvars.iv138
-  %131 = getelementptr inbounds [8 x [15 x i32]], ptr %6, i64 0, i64 %indvars.iv142, i64 %130
+  %131 = getelementptr inbounds nuw [8 x [15 x i32]], ptr %6, i64 0, i64 %indvars.iv142, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = mul nsw i32 %132, %132
   %134 = add nuw nsw i32 %133, %129
   %135 = shl nuw nsw i64 %indvars.iv138, 1
   %136 = add nuw nsw i64 %135, 2
-  %137 = getelementptr inbounds [9 x i32], ptr @cdef_find_dir_c.div_table, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [9 x i32], ptr @cdef_find_dir_c.div_table, i64 0, i64 %136
   %138 = load i32, ptr %137, align 8
   %139 = mul nsw i32 %134, %138
   %140 = add nsw i32 %139, %126
@@ -225,7 +225,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.preheader ], [ 0, %141 ]
   %.084112 = phi i32 [ %spec.select89, %.preheader ], [ 0, %141 ]
   %.086111 = phi i32 [ %spec.select, %.preheader ], [ 0, %141 ]
-  %143 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv145
+  %143 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv145
   %144 = load i32, ptr %143, align 4
   %145 = icmp sgt i32 %144, %.086111
   %spec.select = tail call i32 @llvm.smax.i32(i32 %144, i32 %.086111)
@@ -238,7 +238,7 @@ define hidden i32 @cdef_find_dir_c(ptr nocapture noundef readonly %0, i32 nounde
 147:                                              ; preds = %.preheader
   %148 = xor i32 %spec.select89, 4
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = sub nsw i32 %spec.select, %151
   %153 = ashr i32 %152, 10
@@ -254,7 +254,7 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly %0, ptr nocapture 
   %12 = lshr i32 %4, %10
   %13 = and i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds [2 x [2 x i32]], ptr @cdef_pri_taps, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [2 x [2 x i32]], ptr @cdef_pri_taps, i64 0, i64 %14
   %16 = and i32 %9, -3
   %17 = icmp eq i32 %16, 1
   %18 = zext i1 %17 to i32
@@ -299,7 +299,7 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly %0, ptr nocapture 
 42:                                               ; preds = %.preheader, %179
   %indvars.iv217 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next218, %179 ]
   %43 = add nuw nsw i64 %indvars.iv217, %40
-  %44 = getelementptr inbounds i16, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw i16, ptr %3, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = sext i16 %45 to i32
   %47 = getelementptr i16, ptr %3, i64 %43
@@ -321,7 +321,7 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly %0, ptr nocapture 
   %57 = sub nsw i64 %43, %54
   %58 = getelementptr inbounds i16, ptr %3, i64 %57
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = sext i16 %56 to i32
   br i1 %.not.i, label %constrain.exit.thread, label %64
@@ -370,7 +370,7 @@ constrain.exit181:                                ; preds = %constrain.exit.thre
   %.2 = select i1 %.not171, i32 %.1, i32 %89
   %90 = tail call i32 @llvm.smin.i32(i32 %.0162210, i32 %62)
   %91 = tail call i32 @llvm.smin.i32(i32 %90, i32 %83)
-  %92 = getelementptr inbounds [8 x [2 x i32]], ptr @cdef_directions, i64 0, i64 %27, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @cdef_directions, i64 0, i64 %27, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
   %94 = sext i32 %93 to i64
   %95 = getelementptr i16, ptr %48, i64 %94
@@ -378,7 +378,7 @@ constrain.exit181:                                ; preds = %constrain.exit.thre
   %97 = sub nsw i64 %43, %94
   %98 = getelementptr inbounds i16, ptr %3, i64 %97
   %99 = load i16, ptr %98, align 2
-  %100 = getelementptr inbounds [8 x [2 x i32]], ptr @cdef_directions, i64 0, i64 %30, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x [2 x i32]], ptr @cdef_directions, i64 0, i64 %30, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4
   %102 = sext i32 %101 to i64
   %103 = getelementptr i16, ptr %49, i64 %102
@@ -406,7 +406,7 @@ constrain.exit181:                                ; preds = %constrain.exit.thre
   %117 = tail call i32 @llvm.smin.i32(i32 %116, i32 %110)
   %118 = tail call i32 @llvm.smin.i32(i32 %117, i32 %112)
   %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 %114)
-  %120 = getelementptr inbounds i32, ptr @cdef_sec_taps, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i32, ptr @cdef_sec_taps, i64 %indvars.iv
   %121 = load i32, ptr %120, align 4
   br i1 %.not.i182, label %constrain.exit205, label %122
 
@@ -542,7 +542,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef %0, ptr nocapture noundef wri
 
 .lr.ph179.us:                                     ; preds = %.lr.ph179.us.preheader, %._crit_edge180.us
   %indvars.iv211 = phi i64 [ 0, %.lr.ph179.us.preheader ], [ %indvars.iv.next212, %._crit_edge180.us ]
-  %32 = getelementptr inbounds %struct.cdef_list, ptr %10, i64 %indvars.iv211
+  %32 = getelementptr inbounds nuw %struct.cdef_list, ptr %10, i64 %indvars.iv211
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 1
@@ -601,19 +601,19 @@ define hidden void @av1_cdef_filter_fb(ptr noundef %0, ptr nocapture noundef wri
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %57 = getelementptr inbounds %struct.cdef_list, ptr %10, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %struct.cdef_list, ptr %10, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
   %.idx = mul nuw nsw i64 %59, 2304
-  %63 = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.idx169 = shl nuw nsw i64 %62, 4
-  %64 = getelementptr inbounds i8, ptr %63, i64 %.idx169
-  %65 = getelementptr inbounds [16 x i32], ptr %8, i64 %59, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx169
+  %65 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 %59, i64 %62
   %66 = tail call i32 @cdef_find_dir_c(ptr noundef %64, i32 noundef 144, ptr noundef %65, i32 noundef %15)
-  %67 = getelementptr inbounds [16 x i32], ptr %6, i64 %59, i64 %62
+  %67 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 %59, i64 %62
   store i32 %66, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -640,13 +640,13 @@ define hidden void @av1_cdef_filter_fb(ptr noundef %0, ptr nocapture noundef wri
 
 71:                                               ; preds = %.lr.ph174, %71
   %indvars.iv190 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next191, %71 ]
-  %72 = getelementptr inbounds %struct.cdef_list, ptr %10, i64 %indvars.iv190
+  %72 = getelementptr inbounds nuw %struct.cdef_list, ptr %10, i64 %indvars.iv190
   %73 = load i8, ptr %72, align 1
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %73 to i64
   %77 = zext i8 %75 to i64
-  %78 = getelementptr inbounds [16 x i32], ptr %6, i64 %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 %76, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i32, ptr %70, i64 %80
@@ -675,7 +675,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef %0, ptr nocapture noundef wri
 
 .lr.ph176.split.us:                               ; preds = %.lr.ph176, %132
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %132 ], [ 0, %.lr.ph176 ]
-  %90 = getelementptr inbounds %struct.cdef_list, ptr %10, i64 %indvars.iv200
+  %90 = getelementptr inbounds nuw %struct.cdef_list, ptr %10, i64 %indvars.iv200
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 1
@@ -700,7 +700,7 @@ define hidden void @av1_cdef_filter_fb(ptr noundef %0, ptr nocapture noundef wri
 109:                                              ; preds = %.lr.ph176.split.us
   %110 = zext i8 %91 to i64
   %111 = zext i8 %94 to i64
-  %112 = getelementptr inbounds [16 x i32], ptr %8, i64 %110, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 %110, i64 %111
   %113 = load i32, ptr %112, align 4
   %.not.i163.us = icmp ult i32 %113, 64
   br i1 %.not.i163.us, label %adjust_strength.exit166.us, label %114
@@ -730,7 +730,7 @@ adjust_strength.exit166.us:                       ; preds = %114, %109
 127:                                              ; preds = %125
   %128 = zext i8 %91 to i64
   %129 = zext i8 %94 to i64
-  %130 = getelementptr inbounds [16 x i32], ptr %6, i64 %128, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 %128, i64 %129
   %131 = load i32, ptr %130, align 4
   br label %132
 
@@ -743,7 +743,7 @@ adjust_strength.exit166.us:                       ; preds = %114, %109
 
 .lr.ph176.split:                                  ; preds = %.lr.ph176, %174
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %174 ], [ 0, %.lr.ph176 ]
-  %134 = getelementptr inbounds %struct.cdef_list, ptr %10, i64 %indvars.iv195
+  %134 = getelementptr inbounds nuw %struct.cdef_list, ptr %10, i64 %indvars.iv195
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 1
@@ -765,7 +765,7 @@ adjust_strength.exit166.us:                       ; preds = %114, %109
 151:                                              ; preds = %.lr.ph176.split
   %152 = zext i8 %135 to i64
   %153 = zext i8 %138 to i64
-  %154 = getelementptr inbounds [16 x i32], ptr %8, i64 %152, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i32], ptr %8, i64 %152, i64 %153
   %155 = load i32, ptr %154, align 4
   %.not.i = icmp ult i32 %155, 64
   br i1 %.not.i, label %adjust_strength.exit, label %156
@@ -795,7 +795,7 @@ adjust_strength.exit:                             ; preds = %151, %156
 169:                                              ; preds = %167
   %170 = zext i8 %135 to i64
   %171 = zext i8 %138 to i64
-  %172 = getelementptr inbounds [16 x i32], ptr %6, i64 %170, i64 %171
+  %172 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 %170, i64 %171
   %173 = load i32, ptr %172, align 4
   br label %174
 

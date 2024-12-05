@@ -360,7 +360,7 @@ define internal i32 @dissect_agentx_pdu(ptr noundef %0, ptr nocapture noundef re
   %21 = phi i32 [ %10, %9 ], [ %15, %14 ]
   %22 = phi i32 [ %11, %9 ], [ %16, %14 ]
   %23 = phi i32 [ %13, %9 ], [ %18, %14 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.92) #6
   %26 = load ptr, ptr %24, align 8
@@ -996,7 +996,7 @@ dissect_rem_caps_pdu.exit:                        ; preds = %369, %dissect_octet
 397:                                              ; preds = %395, %393
   %398 = phi i32 [ %394, %393 ], [ %396, %395 ]
   %399 = load i32, ptr @hf_resp_uptime, align 4
-  %400 = getelementptr inbounds i8, ptr %1, i64 408
+  %400 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %401 = load ptr, ptr %400, align 8
   %402 = tail call ptr @signed_time_msecs_to_str(ptr noundef %401, i32 noundef %398) #6
   %403 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %392, i32 noundef %399, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef %398, ptr noundef nonnull @.str.182, ptr noundef %402) #6

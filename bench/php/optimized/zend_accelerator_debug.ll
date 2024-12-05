@@ -47,7 +47,7 @@ define internal fastcc void @zend_accel_error_va_args(i32 noundef %0, ptr nocapt
   store i64 %8, ptr %4, align 8
   %9 = call ptr @localtime(ptr noundef nonnull %4) #11
   %10 = call ptr @asctime(ptr noundef %9) #11
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i8 0, ptr %11, align 1
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 80), align 8
   %.not20 = icmp eq ptr %12, null

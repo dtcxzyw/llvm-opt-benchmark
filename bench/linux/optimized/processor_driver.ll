@@ -152,7 +152,7 @@ declare dso_local void @__cpuhp_remove_state(i32 noundef, i1 noundef zeroext) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_processor_start(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 632
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #4
   %5 = getelementptr i8, ptr %3, i64 -16
@@ -173,7 +173,7 @@ define internal i32 @acpi_processor_start(ptr nocapture noundef readonly %0) #2 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_processor_stop(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 632
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %3) #4
   %5 = getelementptr i8, ptr %3, i64 -16
@@ -208,13 +208,13 @@ declare dso_local void @cpu_hotplug_disable() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @__acpi_processor_start(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 608
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %38, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 1024
   %9 = icmp eq i16 %8, 0
@@ -254,7 +254,7 @@ define internal fastcc i32 @__acpi_processor_start(ptr noundef nonnull %0) unnam
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @acpi_install_notify_handler(ptr noundef %31, i32 noundef 2, ptr noundef nonnull @acpi_processor_notify, ptr noundef nonnull %0) #4
   %33 = icmp eq i32 %32, 0
@@ -294,13 +294,13 @@ declare dso_local i32 @acpi_install_notify_handler(ptr noundef, i32 noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_processor_notify(ptr noundef readnone %0, i32 noundef %1, ptr noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %7, label %52
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 608
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %52, label %11
@@ -313,7 +313,7 @@ define internal void @acpi_processor_notify(ptr noundef readnone %0, i32 noundef
   ]
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = load i32, ptr %13, align 8
   tail call void @acpi_processor_ppc_has_changed(ptr noundef nonnull %9, i32 noundef 1) #4
   %15 = load i32, ptr %13, align 8
@@ -321,56 +321,56 @@ define internal void @acpi_processor_notify(ptr noundef readnone %0, i32 noundef
   br i1 %16, label %52, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %2, i64 208
-  %19 = getelementptr inbounds i8, ptr %2, i64 696
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %2, i64 616
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 616
   %24 = load ptr, ptr %23, align 8
   br label %25
 
 25:                                               ; preds = %22, %17
   %26 = phi ptr [ %24, %22 ], [ %20, %17 ]
-  %27 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %18, ptr noundef %26, i8 noundef zeroext -128, i32 noundef %15) #4
+  %27 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef nonnull %18, ptr noundef %26, i8 noundef zeroext -128, i32 noundef %15) #4
   br label %52
 
 28:                                               ; preds = %11
   %29 = tail call i32 @acpi_processor_power_state_has_changed(ptr noundef nonnull %9) #4
-  %30 = getelementptr inbounds i8, ptr %2, i64 208
-  %31 = getelementptr inbounds i8, ptr %2, i64 696
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %2, i64 616
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 616
   %36 = load ptr, ptr %35, align 8
   br label %37
 
 37:                                               ; preds = %34, %28
   %38 = phi ptr [ %36, %34 ], [ %32, %28 ]
-  %39 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %30, ptr noundef %38, i8 noundef zeroext -127, i32 noundef 0) #4
+  %39 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef nonnull %30, ptr noundef %38, i8 noundef zeroext -127, i32 noundef 0) #4
   br label %52
 
 40:                                               ; preds = %11
   %41 = tail call i32 @acpi_processor_tstate_has_changed(ptr noundef nonnull %9) #4
-  %42 = getelementptr inbounds i8, ptr %2, i64 208
-  %43 = getelementptr inbounds i8, ptr %2, i64 696
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %2, i64 616
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 616
   %48 = load ptr, ptr %47, align 8
   br label %49
 
 49:                                               ; preds = %46, %40
   %50 = phi ptr [ %48, %46 ], [ %44, %40 ]
-  %51 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %42, ptr noundef %50, i8 noundef zeroext -126, i32 noundef 0) #4
+  %51 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef nonnull %42, ptr noundef %50, i8 noundef zeroext -126, i32 noundef 0) #4
   br label %52
 
 52:                                               ; preds = %49, %37, %25, %12, %11, %7, %3
@@ -431,14 +431,14 @@ define internal noundef i32 @acpi_soft_cpu_online(i32 noundef %0) #2 align 16 {
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 1024
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %20) #5
   %22 = load i16, ptr %14, align 8

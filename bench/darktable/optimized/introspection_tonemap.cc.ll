@@ -129,28 +129,28 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %7 = alloca %class.PermutohedralLattice, align 8
   %8 = alloca [3 x float], align 4
   %9 = alloca [2 x float], align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 16, !tbaa !6
-  %12 = getelementptr inbounds i8, ptr %1, i64 132
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %13 = load i32, ptr %12, align 4, !tbaa !23
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 4, !tbaa !24
-  %16 = getelementptr inbounds i8, ptr %4, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !25
   %18 = sext i32 %15 to i64
   %19 = sext i32 %17 to i64
   %20 = mul nsw i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %22 = load i32, ptr %21, align 8, !tbaa !26
   %23 = sitofp i32 %22 to float
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load float, ptr %24, align 4, !tbaa !27
   %26 = fmul reassoc nsz arcp contract afn float %25, %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 148
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %28 = load i32, ptr %27, align 4, !tbaa !28
   %29 = sitofp i32 %28 to float
   %30 = fmul reassoc nsz arcp contract afn float %25, %29
-  %31 = getelementptr inbounds i8, ptr %11, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %32 = load float, ptr %31, align 4, !tbaa !29
   %33 = fpext float %32 to double
   %34 = fmul reassoc nsz arcp contract afn double %33, 1.000000e-02
@@ -169,9 +169,9 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 43:                                               ; preds = %6
   %44 = sext i32 %13 to i64
   %45 = icmp sgt i32 %15, 0
-  %46 = getelementptr inbounds i8, ptr %8, i64 4
-  %47 = getelementptr inbounds i8, ptr %8, i64 8
-  %48 = getelementptr inbounds i8, ptr %9, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br i1 %45, label %49, label %.loopexit6
 
 49:                                               ; preds = %43
@@ -196,7 +196,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %62 = load float, ptr %60, align 4, !tbaa !31
   %63 = fpext float %62 to double
   %64 = fmul reassoc nsz arcp contract afn double %63, 2.126000e-01
-  %65 = getelementptr inbounds i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %66 = load <2 x float>, ptr %65, align 4, !tbaa !31
   %67 = fpext <2 x float> %66 to <2 x double>
   %68 = fmul reassoc nsz arcp contract afn <2 x double> %67, <double 7.152000e-01, double 7.220000e-02>
@@ -262,15 +262,15 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 96:                                               ; preds = %91
   %97 = sext i32 %13 to i64
   %98 = icmp sgt i32 %15, 0
-  %99 = getelementptr inbounds i8, ptr %7, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = fadd reassoc nsz arcp contract afn float %93, -1.000000e+00
   br i1 %98, label %102, label %.loopexit
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %7, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !36
   %107 = zext nneg i32 %17 to i64
   %invariant.op7 = mul nsw i64 %18, %97
@@ -289,62 +289,62 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %115 = phi ptr [ %112, %108 ], [ %204, %113 ]
   %116 = phi ptr [ %111, %108 ], [ %203, %113 ]
   %117 = phi i64 [ %110, %108 ], [ %202, %113 ]
-  %118 = getelementptr inbounds %"struct.PermutohedralLattice<3, 2>::ReplayEntry", ptr %100, i64 %117
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
-  %120 = getelementptr inbounds i8, ptr %118, i64 20
+  %118 = getelementptr inbounds nuw %"struct.PermutohedralLattice<3, 2>::ReplayEntry", ptr %100, i64 %117
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %121 = load i32, ptr %119, align 4, !tbaa !38
   %122 = sext i32 %121 to i64
   %123 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %106, i64 %122
   %124 = load float, ptr %120, align 4, !tbaa !31
   %125 = load float, ptr %123, align 4, !tbaa !31
   %126 = fmul reassoc nsz arcp contract afn float %125, %124
-  %127 = getelementptr inbounds i8, ptr %123, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %128 = load float, ptr %127, align 4, !tbaa !31
   %129 = fmul reassoc nsz arcp contract afn float %128, %124
-  %130 = getelementptr inbounds i8, ptr %118, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %131 = load i32, ptr %130, align 4, !tbaa !38
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %106, i64 %132
-  %134 = getelementptr inbounds i8, ptr %118, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %135 = load float, ptr %134, align 4, !tbaa !31
   %136 = load float, ptr %133, align 4, !tbaa !31
   %137 = fmul reassoc nsz arcp contract afn float %136, %135
   %138 = fadd reassoc nsz arcp contract afn float %137, %126
-  %139 = getelementptr inbounds i8, ptr %133, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %140 = load float, ptr %139, align 4, !tbaa !31
   %141 = fmul reassoc nsz arcp contract afn float %140, %135
   %142 = fadd reassoc nsz arcp contract afn float %141, %129
-  %143 = getelementptr inbounds i8, ptr %118, i64 12
+  %143 = getelementptr inbounds nuw i8, ptr %118, i64 12
   %144 = load i32, ptr %143, align 4, !tbaa !38
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %106, i64 %145
-  %147 = getelementptr inbounds i8, ptr %118, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %118, i64 28
   %148 = load float, ptr %147, align 4, !tbaa !31
   %149 = load float, ptr %146, align 4, !tbaa !31
   %150 = fmul reassoc nsz arcp contract afn float %149, %148
   %151 = fadd reassoc nsz arcp contract afn float %138, %150
-  %152 = getelementptr inbounds i8, ptr %146, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %153 = load float, ptr %152, align 4, !tbaa !31
   %154 = fmul reassoc nsz arcp contract afn float %153, %148
   %155 = fadd reassoc nsz arcp contract afn float %142, %154
-  %156 = getelementptr inbounds i8, ptr %118, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %157 = load i32, ptr %156, align 4, !tbaa !38
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %106, i64 %158
-  %160 = getelementptr inbounds i8, ptr %118, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %161 = load float, ptr %160, align 4, !tbaa !31
   %162 = load float, ptr %159, align 4, !tbaa !31
   %163 = fmul reassoc nsz arcp contract afn float %162, %161
   %164 = fadd reassoc nsz arcp contract afn float %151, %163
-  %165 = getelementptr inbounds i8, ptr %159, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %166 = load float, ptr %165, align 4, !tbaa !31
   %167 = fmul reassoc nsz arcp contract afn float %166, %161
   %168 = fadd reassoc nsz arcp contract afn float %155, %167
   %169 = load float, ptr %116, align 4, !tbaa !31
   %170 = fpext float %169 to double
   %171 = fmul reassoc nsz arcp contract afn double %170, 2.126000e-01
-  %172 = getelementptr inbounds i8, ptr %116, i64 4
-  %173 = getelementptr inbounds i8, ptr %116, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %174 = load <2 x float>, ptr %172, align 4, !tbaa !31
   %175 = fpext <2 x float> %174 to <2 x double>
   %176 = fmul reassoc nsz arcp contract afn <2 x double> %175, <double 7.152000e-01, double 7.220000e-02>
@@ -366,15 +366,15 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   store float %191, ptr %115, align 4, !tbaa !31
   %192 = load float, ptr %172, align 4, !tbaa !31
   %193 = fmul reassoc nsz arcp contract afn float %190, %192
-  %194 = getelementptr inbounds i8, ptr %115, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store float %193, ptr %194, align 4, !tbaa !31
   %195 = load float, ptr %173, align 4, !tbaa !31
   %196 = fmul reassoc nsz arcp contract afn float %190, %195
-  %197 = getelementptr inbounds i8, ptr %115, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store float %196, ptr %197, align 4, !tbaa !31
-  %198 = getelementptr inbounds i8, ptr %116, i64 12
+  %198 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %199 = load float, ptr %198, align 4, !tbaa !31
-  %200 = getelementptr inbounds i8, ptr %115, i64 12
+  %200 = getelementptr inbounds nuw i8, ptr %115, i64 12
   store float %199, ptr %200, align 4, !tbaa !31
   %201 = add nuw nsw i32 %114, 1
   %202 = add nuw nsw i64 %117, 1
@@ -390,10 +390,10 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 
 .loopexit:                                        ; preds = %206, %96, %94
   %209 = phi float [ %95, %94 ], [ %101, %96 ], [ %101, %206 ]
-  %210 = getelementptr inbounds i8, ptr %1, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !41
-  %212 = getelementptr inbounds i8, ptr %211, i64 272
-  %213 = getelementptr inbounds i8, ptr %211, i64 280
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 272
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 280
   %214 = load float, ptr %213, align 4, !tbaa !31
   %215 = fpext float %214 to double
   %216 = fmul reassoc nsz arcp contract afn double %215, 7.220000e-02
@@ -442,7 +442,7 @@ declare float @llvm.minnum.f32(float, float) #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i64 %1, ptr %0, align 8, !tbaa !42
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8, !tbaa !44
   %6 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #26
   %7 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znam(i64 noundef 64) #26
@@ -451,21 +451,21 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr n
   %10 = extractvalue { i64, i1 } %8, 0
   %11 = select i1 %9, i64 -1, i64 %10
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #26
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8, !tbaa !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false), !tbaa !38
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <8 x i32> <i32 1, i32 1, i32 1, i32 -3, i32 2, i32 2, i32 -2, i32 -2>, ptr %14, align 4, !tbaa !38
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 3, ptr %15, align 4, !tbaa !38
-  %16 = getelementptr inbounds i8, ptr %7, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, i8 -1, i64 12, i1 false), !tbaa !38
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %17, align 8, !tbaa !46
   store <2 x float> <float 0x400279A760000000, float 0x3FF5555560000000>, ptr %6, align 4, !tbaa !31
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 0x3FEE2B7E00000000, ptr %18, align 4, !tbaa !31
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %19, align 8, !tbaa !47
   %20 = uitofp i64 %3 to float
   %21 = uitofp i64 %1 to float
@@ -488,12 +488,12 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr n
   %38 = select i1 %35, i64 -1, i64 %37
   %39 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %38) #26
   store i64 %2, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = icmp eq i64 %2, 0
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %4
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %40, ptr %43, align 8, !tbaa !48
   br label %.loopexit
 
@@ -510,16 +510,16 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr n
 .preheader2:                                      ; preds = %44, %.preheader2
   %52 = phi ptr [ %58, %.preheader2 ], [ %40, %44 ]
   %53 = phi i64 [ %59, %.preheader2 ], [ 0, %44 ]
-  %54 = getelementptr inbounds i8, ptr %52, i64 56
-  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 0, ptr %55, align 8, !tbaa !49
-  %56 = getelementptr inbounds i8, ptr %52, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store i64 1, ptr %56, align 8, !tbaa !50
-  %57 = getelementptr inbounds i8, ptr %52, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  %58 = getelementptr inbounds i8, ptr %52, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %59 = add i64 %53, 1
   %60 = icmp eq i64 %59, %49
   br i1 %60, label %.loopexit3, label %.preheader2, !llvm.loop !51
@@ -531,91 +531,91 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr n
 
 .preheader:                                       ; preds = %.loopexit3, %.preheader
   %63 = phi ptr [ %103, %.preheader ], [ %61, %.loopexit3 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 56
-  %65 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i64 0, ptr %65, align 8, !tbaa !49
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   store i64 1, ptr %66, align 8, !tbaa !50
-  %67 = getelementptr inbounds i8, ptr %63, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  %68 = getelementptr inbounds i8, ptr %63, i64 80
-  %69 = getelementptr inbounds i8, ptr %63, i64 136
-  %70 = getelementptr inbounds i8, ptr %63, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 104
   store i64 0, ptr %70, align 8, !tbaa !49
-  %71 = getelementptr inbounds i8, ptr %63, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   store i64 1, ptr %71, align 8, !tbaa !50
-  %72 = getelementptr inbounds i8, ptr %63, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
-  %73 = getelementptr inbounds i8, ptr %63, i64 160
-  %74 = getelementptr inbounds i8, ptr %63, i64 216
-  %75 = getelementptr inbounds i8, ptr %63, i64 184
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 160
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 216
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 184
   store i64 0, ptr %75, align 8, !tbaa !49
-  %76 = getelementptr inbounds i8, ptr %63, i64 208
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
   store i64 1, ptr %76, align 8, !tbaa !50
-  %77 = getelementptr inbounds i8, ptr %63, i64 192
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
-  %78 = getelementptr inbounds i8, ptr %63, i64 240
-  %79 = getelementptr inbounds i8, ptr %63, i64 296
-  %80 = getelementptr inbounds i8, ptr %63, i64 264
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 240
+  %79 = getelementptr inbounds nuw i8, ptr %63, i64 296
+  %80 = getelementptr inbounds nuw i8, ptr %63, i64 264
   store i64 0, ptr %80, align 8, !tbaa !49
-  %81 = getelementptr inbounds i8, ptr %63, i64 288
+  %81 = getelementptr inbounds nuw i8, ptr %63, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
   store i64 1, ptr %81, align 8, !tbaa !50
-  %82 = getelementptr inbounds i8, ptr %63, i64 272
+  %82 = getelementptr inbounds nuw i8, ptr %63, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  %83 = getelementptr inbounds i8, ptr %63, i64 320
-  %84 = getelementptr inbounds i8, ptr %63, i64 376
-  %85 = getelementptr inbounds i8, ptr %63, i64 344
+  %83 = getelementptr inbounds nuw i8, ptr %63, i64 320
+  %84 = getelementptr inbounds nuw i8, ptr %63, i64 376
+  %85 = getelementptr inbounds nuw i8, ptr %63, i64 344
   store i64 0, ptr %85, align 8, !tbaa !49
-  %86 = getelementptr inbounds i8, ptr %63, i64 368
+  %86 = getelementptr inbounds nuw i8, ptr %63, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
   store i64 1, ptr %86, align 8, !tbaa !50
-  %87 = getelementptr inbounds i8, ptr %63, i64 352
+  %87 = getelementptr inbounds nuw i8, ptr %63, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
-  %88 = getelementptr inbounds i8, ptr %63, i64 400
-  %89 = getelementptr inbounds i8, ptr %63, i64 456
-  %90 = getelementptr inbounds i8, ptr %63, i64 424
+  %88 = getelementptr inbounds nuw i8, ptr %63, i64 400
+  %89 = getelementptr inbounds nuw i8, ptr %63, i64 456
+  %90 = getelementptr inbounds nuw i8, ptr %63, i64 424
   store i64 0, ptr %90, align 8, !tbaa !49
-  %91 = getelementptr inbounds i8, ptr %63, i64 448
+  %91 = getelementptr inbounds nuw i8, ptr %63, i64 448
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
   store i64 1, ptr %91, align 8, !tbaa !50
-  %92 = getelementptr inbounds i8, ptr %63, i64 432
+  %92 = getelementptr inbounds nuw i8, ptr %63, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
-  %93 = getelementptr inbounds i8, ptr %63, i64 480
-  %94 = getelementptr inbounds i8, ptr %63, i64 536
-  %95 = getelementptr inbounds i8, ptr %63, i64 504
+  %93 = getelementptr inbounds nuw i8, ptr %63, i64 480
+  %94 = getelementptr inbounds nuw i8, ptr %63, i64 536
+  %95 = getelementptr inbounds nuw i8, ptr %63, i64 504
   store i64 0, ptr %95, align 8, !tbaa !49
-  %96 = getelementptr inbounds i8, ptr %63, i64 528
+  %96 = getelementptr inbounds nuw i8, ptr %63, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, i8 0, i64 24, i1 false)
   store i64 1, ptr %96, align 8, !tbaa !50
-  %97 = getelementptr inbounds i8, ptr %63, i64 512
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
-  %98 = getelementptr inbounds i8, ptr %63, i64 560
-  %99 = getelementptr inbounds i8, ptr %63, i64 616
-  %100 = getelementptr inbounds i8, ptr %63, i64 584
+  %98 = getelementptr inbounds nuw i8, ptr %63, i64 560
+  %99 = getelementptr inbounds nuw i8, ptr %63, i64 616
+  %100 = getelementptr inbounds nuw i8, ptr %63, i64 584
   store i64 0, ptr %100, align 8, !tbaa !49
-  %101 = getelementptr inbounds i8, ptr %63, i64 608
+  %101 = getelementptr inbounds nuw i8, ptr %63, i64 608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
   store i64 1, ptr %101, align 8, !tbaa !50
-  %102 = getelementptr inbounds i8, ptr %63, i64 592
+  %102 = getelementptr inbounds nuw i8, ptr %63, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
-  %103 = getelementptr inbounds i8, ptr %63, i64 640
+  %103 = getelementptr inbounds nuw i8, ptr %63, i64 640
   %104 = icmp eq ptr %103, %45
   br i1 %104, label %.loopexit1, label %.preheader
 
 .loopexit1:                                       ; preds = %.preheader, %.loopexit3
-  %105 = getelementptr inbounds i8, ptr %0, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %40, ptr %105, align 8, !tbaa !48
   br label %106
 
@@ -644,10 +644,10 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %7 = alloca %"struct.HashTablePermutohedral<3, 2>::Key", align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #25
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #25
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !47
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load <2 x float>, ptr %10, align 4, !tbaa !31
   %13 = extractelement <2 x float> %12, i64 1
   %14 = fmul reassoc nsz arcp contract afn float %13, -3.000000e+00
@@ -858,24 +858,24 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %203 = load float, ptr %202, align 4, !tbaa !31
   %204 = fsub reassoc nsz arcp contract afn float %203, %193
   store float %204, ptr %202, align 4, !tbaa !31
-  %205 = getelementptr inbounds i8, ptr %6, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %206 = load float, ptr %205, align 16, !tbaa !31
   %207 = fadd reassoc nsz arcp contract afn float %206, 1.000000e+00
   %208 = load float, ptr %6, align 16, !tbaa !31
   %209 = fadd reassoc nsz arcp contract afn float %207, %208
   store float %209, ptr %6, align 16, !tbaa !31
-  %210 = getelementptr inbounds i8, ptr %0, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %211 = load ptr, ptr %210, align 8, !tbaa !45
   %212 = getelementptr inbounds %"struct.PermutohedralLattice<3, 2>::ReplayEntry", ptr %211, i64 %3
   store i32 %4, ptr %212, align 4, !tbaa !54
-  %213 = getelementptr inbounds i8, ptr %0, i64 24
-  %214 = getelementptr inbounds i8, ptr %7, i64 4
-  %215 = getelementptr inbounds i8, ptr %0, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %216 = sext i32 %4 to i64
-  %217 = getelementptr inbounds i8, ptr %2, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %218 = load ptr, ptr %215, align 8, !tbaa !48
-  %219 = getelementptr inbounds i8, ptr %7, i64 6
-  %220 = getelementptr inbounds i8, ptr %7, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %221
 
 221:                                              ; preds = %.loopexit, %142
@@ -920,12 +920,12 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   store i32 %256, ptr %7, align 4, !tbaa !57
   %257 = getelementptr inbounds %class.HashTablePermutohedral, ptr %223, i64 %216
   %258 = zext i32 %256 to i64
-  %259 = getelementptr inbounds i8, ptr %257, i64 48
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 48
   %260 = load i64, ptr %259, align 8
   %261 = and i64 %260, %258
-  %262 = getelementptr inbounds i8, ptr %257, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %263 = load ptr, ptr %262, align 8, !tbaa !59
-  %264 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %263, i64 %261
+  %264 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %263, i64 %261
   %265 = load i32, ptr %264, align 4, !tbaa !38
   %266 = icmp eq i32 %265, -1
   br i1 %266, label %.loopexit5, label %268
@@ -941,19 +941,19 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
 
 .loopexit5:                                       ; preds = %305, %221
   %270 = phi i64 [ %261, %221 ], [ %307, %305 ]
-  %271 = getelementptr inbounds i8, ptr %257, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %257, i64 32
   %272 = load i64, ptr %271, align 8, !tbaa !61
-  %273 = getelementptr inbounds i8, ptr %257, i64 40
+  %273 = getelementptr inbounds nuw i8, ptr %257, i64 40
   %274 = load i64, ptr %273, align 8, !tbaa !62
   %275 = icmp ult i64 %272, %274
   br i1 %275, label %283, label %276
 
 276:                                              ; preds = %.loopexit5
-  %277 = getelementptr inbounds i8, ptr %257, i64 72
+  %277 = getelementptr inbounds nuw i8, ptr %257, i64 72
   %278 = load i64, ptr %277, align 8, !tbaa !63
   %279 = add i64 %278, 1
   store i64 %279, ptr %277, align 8, !tbaa !63
-  %280 = getelementptr inbounds i8, ptr %257, i64 24
+  %280 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %281 = load i64, ptr %280, align 8, !tbaa !49
   tail call void @_ZN22HashTablePermutohedralILi3ELi2EE9growExactEm(ptr noundef nonnull align 8 dereferenceable(80) %257, i64 noundef %281)
   %282 = load i64, ptr %271, align 8, !tbaa !61
@@ -985,7 +985,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   br i1 %300, label %301, label %305
 
 301:                                              ; preds = %294
-  %302 = getelementptr inbounds i8, ptr %298, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %298, i64 4
   %303 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %302, ptr noundef nonnull dereferenceable(6) %214, i64 6)
   %304 = icmp eq i32 %303, 0
   br i1 %304, label %.loopexit, label %305
@@ -1004,12 +1004,12 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %313 = phi i32 [ %288, %283 ], [ %295, %301 ]
   %314 = freeze i32 %313
   %315 = icmp sgt i32 %314, -1
-  %316 = getelementptr inbounds i8, ptr %257, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %317 = load ptr, ptr %316, align 8
   %318 = zext nneg i32 %314 to i64
-  %319 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %317, i64 %318
+  %319 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %317, i64 %318
   tail call void @llvm.assume(i1 %315)
-  %320 = getelementptr inbounds [5 x float], ptr %6, i64 0, i64 %224
+  %320 = getelementptr inbounds nuw [5 x float], ptr %6, i64 0, i64 %224
   %321 = load float, ptr %320, align 4, !tbaa !31
   %322 = load float, ptr %2, align 4, !tbaa !31
   %323 = fmul reassoc nsz arcp contract afn float %322, %321
@@ -1018,7 +1018,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   store float %325, ptr %319, align 4, !tbaa !31
   %326 = load float, ptr %217, align 4, !tbaa !31
   %327 = fmul reassoc nsz arcp contract afn float %326, %321
-  %328 = getelementptr inbounds i8, ptr %319, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %319, i64 4
   %329 = load float, ptr %328, align 4, !tbaa !31
   %330 = fadd reassoc nsz arcp contract afn float %329, %327
   store float %330, ptr %328, align 4, !tbaa !31
@@ -1045,21 +1045,21 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_splat_threadsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !44
   %4 = icmp ult i64 %3, 2
   br i1 %4, label %461, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !48
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !62
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load i64, ptr %10, align 8, !tbaa !63
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %13 = load i64, ptr %12, align 8, !tbaa !70
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = load i64, ptr %14, align 8, !tbaa !61
   %16 = add i64 %3, -1
   %17 = icmp ult i64 %3, 9
@@ -1156,7 +1156,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %90 = phi i64 [ %80, %73 ], [ %123, %101 ]
   tail call void @_ZN22HashTablePermutohedralILi3ELi2EE9growExactEm(ptr noundef nonnull align 8 dereferenceable(80) %7, i64 noundef %87)
   %91 = load ptr, ptr %6, align 8, !tbaa !48
-  %92 = getelementptr inbounds i8, ptr %91, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %93 = load i64, ptr %92, align 8, !tbaa !71
   %94 = add i64 %93, %89
   %95 = load i64, ptr %2, align 8, !tbaa !44
@@ -1175,19 +1175,19 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %106 = phi i64 [ %114, %101 ], [ %.ph113, %.preheader109 ]
   %107 = phi i64 [ %124, %101 ], [ %.ph114, %.preheader109 ]
   %108 = getelementptr inbounds %class.HashTablePermutohedral, ptr %7, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load i64, ptr %109, align 8, !tbaa !62
   %111 = add i64 %110, %102
-  %112 = getelementptr inbounds i8, ptr %108, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %113 = load i64, ptr %112, align 8, !tbaa !61
   %114 = add i64 %113, %106
-  %115 = getelementptr inbounds i8, ptr %108, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %116 = load i64, ptr %115, align 8, !tbaa !70
   %117 = add i64 %116, %105
-  %118 = getelementptr inbounds i8, ptr %108, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %119 = load i64, ptr %118, align 8, !tbaa !71
   %120 = add i64 %119, %103
-  %121 = getelementptr inbounds i8, ptr %108, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %122 = load i64, ptr %121, align 8, !tbaa !63
   %123 = add i64 %122, %104
   %124 = add nuw i64 %107, 1
@@ -1209,9 +1209,9 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %134 = phi i64 [ %146, %150 ], [ 0, %.loopexit26 ]
   %135 = getelementptr inbounds %class.HashTablePermutohedral, ptr %132, i64 %133
   %136 = load ptr, ptr %135, align 8, !tbaa !60
-  %137 = getelementptr inbounds i8, ptr %135, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !36
-  %139 = getelementptr inbounds i8, ptr %135, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %140 = load i64, ptr %139, align 8, !tbaa !61
   %141 = icmp ugt i64 %140, 4611686018427387903
   %142 = shl i64 %140, 2
@@ -1244,36 +1244,36 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %161 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Key", ptr %136, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !57
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds i8, ptr %159, i64 48
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %165 = load i64, ptr %164, align 8
   %166 = and i64 %165, %163
-  %167 = getelementptr inbounds i8, ptr %159, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !59
-  %169 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %168, i64 %166
+  %169 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %168, i64 %166
   %170 = load i32, ptr %169, align 4, !tbaa !38
   %171 = icmp eq i32 %170, -1
   br i1 %171, label %.loopexit22, label %172
 
 172:                                              ; preds = %.preheader23
   %173 = load ptr, ptr %159, align 8, !tbaa !60
-  %174 = getelementptr inbounds i8, ptr %161, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 4
   br label %200
 
 .loopexit22:                                      ; preds = %211, %.preheader23
   %175 = phi i64 [ %166, %.preheader23 ], [ %213, %211 ]
-  %176 = getelementptr inbounds i8, ptr %159, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %177 = load i64, ptr %176, align 8, !tbaa !61
-  %178 = getelementptr inbounds i8, ptr %159, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %159, i64 40
   %179 = load i64, ptr %178, align 8, !tbaa !62
   %180 = icmp ult i64 %177, %179
   br i1 %180, label %189, label %181
 
 181:                                              ; preds = %.loopexit22
-  %182 = getelementptr inbounds i8, ptr %159, i64 72
+  %182 = getelementptr inbounds nuw i8, ptr %159, i64 72
   %183 = load i64, ptr %182, align 8, !tbaa !63
   %184 = add i64 %183, 1
   store i64 %184, ptr %182, align 8, !tbaa !63
-  %185 = getelementptr inbounds i8, ptr %159, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %186 = load i64, ptr %185, align 8, !tbaa !49
   tail call void @_ZN22HashTablePermutohedralILi3ELi2EE9growExactEm(ptr noundef nonnull align 8 dereferenceable(80) %159, i64 noundef %186)
   %187 = load i64, ptr %176, align 8, !tbaa !61
@@ -1306,7 +1306,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %200
-  %208 = getelementptr inbounds i8, ptr %204, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 4
   %209 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %208, ptr noundef nonnull dereferenceable(6) %174, i64 6)
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %.loopexit21, label %211
@@ -1326,23 +1326,23 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %220 = phi i32 [ %195, %189 ], [ %201, %207 ]
   %221 = freeze i32 %220
   %222 = icmp sgt i32 %221, -1
-  %223 = getelementptr inbounds i8, ptr %159, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %224 = load ptr, ptr %223, align 8
   %225 = zext nneg i32 %221 to i64
-  %226 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %224, i64 %225
   tail call void @llvm.assume(i1 %222)
   %227 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %138, i64 %160
   %228 = load float, ptr %227, align 4, !tbaa !31
   %229 = load float, ptr %226, align 4, !tbaa !31
   %230 = fadd reassoc nsz arcp contract afn float %229, %228
   store float %230, ptr %226, align 4, !tbaa !31
-  %231 = getelementptr inbounds i8, ptr %227, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %232 = load float, ptr %231, align 4, !tbaa !31
-  %233 = getelementptr inbounds i8, ptr %226, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %234 = load float, ptr %233, align 4, !tbaa !31
   %235 = fadd reassoc nsz arcp contract afn float %234, %232
   store float %235, ptr %233, align 4, !tbaa !31
-  %236 = getelementptr inbounds i8, ptr %219, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %237 = load ptr, ptr %236, align 8, !tbaa !36
   %238 = ptrtoint ptr %226 to i64
   %239 = ptrtoint ptr %237 to i64
@@ -1371,7 +1371,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %259 = getelementptr i8, ptr %258, i64 -24
   %260 = load i64, ptr %259, align 8
   %261 = getelementptr inbounds i8, ptr %256, i64 %260
-  %262 = getelementptr inbounds i8, ptr %261, i64 240
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 240
   %263 = load ptr, ptr %262, align 8, !tbaa !91
   %264 = icmp eq ptr %263, null
   br i1 %264, label %265, label %266
@@ -1381,20 +1381,20 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   unreachable
 
 266:                                              ; preds = %246
-  %267 = getelementptr inbounds i8, ptr %263, i64 56
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 56
   %268 = load i8, ptr %267, align 8, !tbaa !99
   %269 = icmp eq i8 %268, 0
   br i1 %269, label %273, label %270
 
 270:                                              ; preds = %266
-  %271 = getelementptr inbounds i8, ptr %263, i64 67
+  %271 = getelementptr inbounds nuw i8, ptr %263, i64 67
   %272 = load i8, ptr %271, align 1, !tbaa !65
   br label %278
 
 273:                                              ; preds = %266
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %263)
   %274 = load ptr, ptr %263, align 8, !tbaa !89
-  %275 = getelementptr inbounds i8, ptr %274, i64 48
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 48
   %276 = load ptr, ptr %275, align 8
   %277 = tail call noundef signext i8 %276(ptr noundef nonnull align 8 dereferenceable(570) %263, i8 noundef signext 10)
   br label %278
@@ -1417,7 +1417,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %293 = getelementptr i8, ptr %292, i64 -24
   %294 = load i64, ptr %293, align 8
   %295 = getelementptr inbounds i8, ptr %290, i64 %294
-  %296 = getelementptr inbounds i8, ptr %295, i64 240
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 240
   %297 = load ptr, ptr %296, align 8, !tbaa !91
   %298 = icmp eq ptr %297, null
   br i1 %298, label %299, label %300
@@ -1427,20 +1427,20 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   unreachable
 
 300:                                              ; preds = %278
-  %301 = getelementptr inbounds i8, ptr %297, i64 56
+  %301 = getelementptr inbounds nuw i8, ptr %297, i64 56
   %302 = load i8, ptr %301, align 8, !tbaa !99
   %303 = icmp eq i8 %302, 0
   br i1 %303, label %307, label %304
 
 304:                                              ; preds = %300
-  %305 = getelementptr inbounds i8, ptr %297, i64 67
+  %305 = getelementptr inbounds nuw i8, ptr %297, i64 67
   %306 = load i8, ptr %305, align 1, !tbaa !65
   br label %312
 
 307:                                              ; preds = %300
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %297)
   %308 = load ptr, ptr %297, align 8, !tbaa !89
-  %309 = getelementptr inbounds i8, ptr %308, i64 48
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 48
   %310 = load ptr, ptr %309, align 8
   %311 = tail call noundef signext i8 %310(ptr noundef nonnull align 8 dereferenceable(570) %297, i8 noundef signext 10)
   br label %312
@@ -1459,7 +1459,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %323 = getelementptr i8, ptr %322, i64 -24
   %324 = load i64, ptr %323, align 8
   %325 = getelementptr inbounds i8, ptr %320, i64 %324
-  %326 = getelementptr inbounds i8, ptr %325, i64 240
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 240
   %327 = load ptr, ptr %326, align 8, !tbaa !91
   %328 = icmp eq ptr %327, null
   br i1 %328, label %329, label %330
@@ -1469,20 +1469,20 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   unreachable
 
 330:                                              ; preds = %312
-  %331 = getelementptr inbounds i8, ptr %327, i64 56
+  %331 = getelementptr inbounds nuw i8, ptr %327, i64 56
   %332 = load i8, ptr %331, align 8, !tbaa !99
   %333 = icmp eq i8 %332, 0
   br i1 %333, label %337, label %334
 
 334:                                              ; preds = %330
-  %335 = getelementptr inbounds i8, ptr %327, i64 67
+  %335 = getelementptr inbounds nuw i8, ptr %327, i64 67
   %336 = load i8, ptr %335, align 1, !tbaa !65
   br label %342
 
 337:                                              ; preds = %330
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %327)
   %338 = load ptr, ptr %327, align 8, !tbaa !89
-  %339 = getelementptr inbounds i8, ptr %338, i64 48
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 48
   %340 = load ptr, ptr %339, align 8
   %341 = tail call noundef signext i8 %340(ptr noundef nonnull align 8 dereferenceable(570) %327, i8 noundef signext 10)
   br label %342
@@ -1499,7 +1499,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   br i1 %348, label %386, label %349
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %0, i64 32
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %351 = load ptr, ptr %350, align 8, !tbaa !45
   %352 = and i64 %347, 1
   %353 = icmp eq i64 %347, 1
@@ -1521,28 +1521,28 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   br i1 %361, label %362, label %386
 
 362:                                              ; preds = %.thread
-  %363 = getelementptr inbounds i8, ptr %359, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 4
   %364 = zext nneg i32 %360 to i64
-  %365 = getelementptr inbounds ptr, ptr %99, i64 %364
+  %365 = getelementptr inbounds nuw ptr, ptr %99, i64 %364
   %366 = load ptr, ptr %365, align 8, !tbaa !85
   %367 = load i32, ptr %363, align 4, !tbaa !38
   %368 = sext i32 %367 to i64
   %369 = getelementptr inbounds i32, ptr %366, i64 %368
   %370 = load i32, ptr %369, align 4, !tbaa !38
   store i32 %370, ptr %363, align 4, !tbaa !38
-  %371 = getelementptr inbounds i8, ptr %359, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %359, i64 8
   %372 = load i32, ptr %371, align 4, !tbaa !38
   %373 = sext i32 %372 to i64
   %374 = getelementptr inbounds i32, ptr %366, i64 %373
   %375 = load i32, ptr %374, align 4, !tbaa !38
   store i32 %375, ptr %371, align 4, !tbaa !38
-  %376 = getelementptr inbounds i8, ptr %359, i64 12
+  %376 = getelementptr inbounds nuw i8, ptr %359, i64 12
   %377 = load i32, ptr %376, align 4, !tbaa !38
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds i32, ptr %366, i64 %378
   %380 = load i32, ptr %379, align 4, !tbaa !38
   store i32 %380, ptr %376, align 4, !tbaa !38
-  %381 = getelementptr inbounds i8, ptr %359, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %382 = load i32, ptr %381, align 4, !tbaa !38
   %383 = sext i32 %382 to i64
   %384 = getelementptr inbounds i32, ptr %366, i64 %383
@@ -1563,28 +1563,28 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   br i1 %393, label %394, label %418
 
 394:                                              ; preds = %389
-  %395 = getelementptr inbounds i8, ptr %391, i64 4
+  %395 = getelementptr inbounds nuw i8, ptr %391, i64 4
   %396 = zext nneg i32 %392 to i64
-  %397 = getelementptr inbounds ptr, ptr %99, i64 %396
+  %397 = getelementptr inbounds nuw ptr, ptr %99, i64 %396
   %398 = load ptr, ptr %397, align 8, !tbaa !85
   %399 = load i32, ptr %395, align 4, !tbaa !38
   %400 = sext i32 %399 to i64
   %401 = getelementptr inbounds i32, ptr %398, i64 %400
   %402 = load i32, ptr %401, align 4, !tbaa !38
   store i32 %402, ptr %395, align 4, !tbaa !38
-  %403 = getelementptr inbounds i8, ptr %391, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %404 = load i32, ptr %403, align 4, !tbaa !38
   %405 = sext i32 %404 to i64
   %406 = getelementptr inbounds i32, ptr %398, i64 %405
   %407 = load i32, ptr %406, align 4, !tbaa !38
   store i32 %407, ptr %403, align 4, !tbaa !38
-  %408 = getelementptr inbounds i8, ptr %391, i64 12
+  %408 = getelementptr inbounds nuw i8, ptr %391, i64 12
   %409 = load i32, ptr %408, align 4, !tbaa !38
   %410 = sext i32 %409 to i64
   %411 = getelementptr inbounds i32, ptr %398, i64 %410
   %412 = load i32, ptr %411, align 4, !tbaa !38
   store i32 %412, ptr %408, align 4, !tbaa !38
-  %413 = getelementptr inbounds i8, ptr %391, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %391, i64 16
   %414 = load i32, ptr %413, align 4, !tbaa !38
   %415 = sext i32 %414 to i64
   %416 = getelementptr inbounds i32, ptr %398, i64 %415
@@ -1600,28 +1600,28 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   br i1 %422, label %423, label %447
 
 423:                                              ; preds = %418
-  %424 = getelementptr inbounds i8, ptr %420, i64 4
+  %424 = getelementptr inbounds nuw i8, ptr %420, i64 4
   %425 = zext nneg i32 %421 to i64
-  %426 = getelementptr inbounds ptr, ptr %99, i64 %425
+  %426 = getelementptr inbounds nuw ptr, ptr %99, i64 %425
   %427 = load ptr, ptr %426, align 8, !tbaa !85
   %428 = load i32, ptr %424, align 4, !tbaa !38
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds i32, ptr %427, i64 %429
   %431 = load i32, ptr %430, align 4, !tbaa !38
   store i32 %431, ptr %424, align 4, !tbaa !38
-  %432 = getelementptr inbounds i8, ptr %420, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %420, i64 8
   %433 = load i32, ptr %432, align 4, !tbaa !38
   %434 = sext i32 %433 to i64
   %435 = getelementptr inbounds i32, ptr %427, i64 %434
   %436 = load i32, ptr %435, align 4, !tbaa !38
   store i32 %436, ptr %432, align 4, !tbaa !38
-  %437 = getelementptr inbounds i8, ptr %420, i64 12
+  %437 = getelementptr inbounds nuw i8, ptr %420, i64 12
   %438 = load i32, ptr %437, align 4, !tbaa !38
   %439 = sext i32 %438 to i64
   %440 = getelementptr inbounds i32, ptr %427, i64 %439
   %441 = load i32, ptr %440, align 4, !tbaa !38
   store i32 %441, ptr %437, align 4, !tbaa !38
-  %442 = getelementptr inbounds i8, ptr %420, i64 16
+  %442 = getelementptr inbounds nuw i8, ptr %420, i64 16
   %443 = load i32, ptr %442, align 4, !tbaa !38
   %444 = sext i32 %443 to i64
   %445 = getelementptr inbounds i32, ptr %427, i64 %444
@@ -1665,9 +1665,9 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
 define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = alloca %"struct.HashTablePermutohedral<3, 2>::Key", align 4
   %3 = alloca %"struct.HashTablePermutohedral<3, 2>::Key", align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !48
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !61
   %8 = icmp ugt i64 %7, 2305843009213693951
   %9 = shl i64 %7, 3
@@ -1681,7 +1681,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   br label %14
 
 14:                                               ; preds = %13, %1
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = load ptr, ptr %5, align 8, !tbaa !60
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !76
@@ -1692,7 +1692,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
 21:                                               ; preds = %14
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.22, i64 noundef 27)
   %23 = load ptr, ptr %4, align 8, !tbaa !48
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i64, ptr %24, align 8, !tbaa !61
   %26 = shl i64 %25, 3
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %26)
@@ -1701,7 +1701,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %27, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 240
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 240
   %34 = load ptr, ptr %33, align 8, !tbaa !91
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
@@ -1711,20 +1711,20 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   unreachable
 
 37:                                               ; preds = %21
-  %38 = getelementptr inbounds i8, ptr %34, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %39 = load i8, ptr %38, align 8, !tbaa !99
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %34, i64 67
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 67
   %43 = load i8, ptr %42, align 1, !tbaa !65
   br label %49
 
 44:                                               ; preds = %37
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %34)
   %45 = load ptr, ptr %34, align 8, !tbaa !89
-  %46 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef signext i8 %47(ptr noundef nonnull align 8 dereferenceable(570) %34, i8 noundef signext 10)
   br label %49
@@ -1734,7 +1734,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %27, i8 noundef signext %50)
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %51)
   %53 = load ptr, ptr %4, align 8, !tbaa !48
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i64, ptr %54, align 8, !tbaa !61
   br label %56
 
@@ -1742,19 +1742,19 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %57 = phi i64 [ %55, %49 ], [ %7, %14 ]
   %58 = phi ptr [ %53, %49 ], [ %5, %14 ]
   %59 = icmp eq i64 %57, 0
-  %60 = getelementptr inbounds i8, ptr %2, i64 4
-  %61 = getelementptr inbounds i8, ptr %2, i64 6
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 4
-  %64 = getelementptr inbounds i8, ptr %3, i64 6
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 48
-  %67 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %68 = ptrtoint ptr %16 to i64
   br i1 %59, label %230, label %69
 
 69:                                               ; preds = %56
-  %70 = getelementptr inbounds i8, ptr %58, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !59
   br label %72
 
@@ -1762,23 +1762,23 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %73 = phi i64 [ %223, %222 ], [ 0, %69 ]
   %74 = phi ptr [ %75, %222 ], [ %11, %69 ]
   %75 = phi ptr [ %74, %222 ], [ %16, %69 ]
-  %76 = getelementptr inbounds [3 x i16], ptr %60, i64 0, i64 %73
-  %77 = getelementptr inbounds [3 x i16], ptr %63, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw [3 x i16], ptr %60, i64 0, i64 %73
+  %77 = getelementptr inbounds nuw [3 x i16], ptr %63, i64 0, i64 %73
   br label %78
 
 78:                                               ; preds = %214, %72
   %79 = phi i64 [ 0, %72 ], [ %220, %214 ]
   %80 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Key", ptr %17, i64 %79
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #25
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load <2 x i16>, ptr %81, align 2, !tbaa !56
   %83 = add <2 x i16> %82, splat (i16 1)
   store <2 x i16> %83, ptr %60, align 4, !tbaa !56
-  %84 = getelementptr inbounds i8, ptr %80, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %85 = load i16, ptr %84, align 2, !tbaa !56
   %86 = add i16 %85, 1
   store i16 %86, ptr %62, align 4, !tbaa !56
-  %87 = getelementptr inbounds [3 x i16], ptr %81, i64 0, i64 %73
+  %87 = getelementptr inbounds nuw [3 x i16], ptr %81, i64 0, i64 %73
   %88 = load i16, ptr %87, align 2, !tbaa !56
   %89 = add i16 %88, -3
   store i16 %89, ptr %76, align 2, !tbaa !56
@@ -1815,7 +1815,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %116 = zext i32 %100 to i64
   %117 = load i64, ptr %66, align 8
   %118 = and i64 %117, %116
-  %119 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %71, i64 %118
+  %119 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %71, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !38
   %121 = icmp eq i32 %120, -1
   br i1 %121, label %.loopexit9, label %122
@@ -1835,7 +1835,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds i8, ptr %129, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %134 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %133, ptr noundef nonnull dereferenceable(6) %60, i64 6)
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %142, label %136
@@ -1852,7 +1852,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %143 = icmp slt i32 %127, 0
   %144 = load ptr, ptr %67, align 8
   %145 = zext nneg i32 %127 to i64
-  %146 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %144, i64 %145
   br i1 %143, label %.loopexit9, label %147
 
 .loopexit9:                                       ; preds = %136, %142, %78
@@ -1866,7 +1866,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %152 = getelementptr inbounds i8, ptr %75, i64 %151
   %153 = zext i32 %114 to i64
   %154 = and i64 %117, %153
-  %155 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %71, i64 %154
+  %155 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %71, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !38
   %157 = icmp eq i32 %156, -1
   br i1 %157, label %.loopexit, label %158
@@ -1886,7 +1886,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %160
-  %169 = getelementptr inbounds i8, ptr %165, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %170 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %169, ptr noundef nonnull dereferenceable(6) %63, i64 6)
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %178, label %172
@@ -1903,7 +1903,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %179 = icmp slt i32 %163, 0
   %180 = load ptr, ptr %67, align 8
   %181 = zext nneg i32 %163 to i64
-  %182 = getelementptr inbounds %struct.HashTablePermutohedralValue, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw %struct.HashTablePermutohedralValue, ptr %180, i64 %181
   br i1 %179, label %.loopexit, label %183
 
 .loopexit:                                        ; preds = %172, %178, %147
@@ -1941,19 +1941,19 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   br i1 %149, label %206, label %203
 
 203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %152, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %205 = load float, ptr %204, align 4, !tbaa !31
   br label %206
 
 206:                                              ; preds = %203, %198
   %207 = phi float [ 0.000000e+00, %198 ], [ %205, %203 ]
-  %208 = getelementptr inbounds i8, ptr %115, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %209 = load float, ptr %208, align 4, !tbaa !31
   %210 = fmul reassoc nsz arcp contract afn float %209, 5.000000e-01
   br i1 %185, label %214, label %211
 
 211:                                              ; preds = %206
-  %212 = getelementptr inbounds i8, ptr %188, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %213 = load float, ptr %212, align 4, !tbaa !31
   br label %214
 
@@ -1962,7 +1962,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %216 = fadd reassoc nsz arcp contract afn float %215, %207
   %217 = fmul reassoc nsz arcp contract afn float %216, 2.500000e-01
   %218 = fadd reassoc nsz arcp contract afn float %217, %210
-  %219 = getelementptr inbounds i8, ptr %189, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store float %218, ptr %219, align 4, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #25
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %2) #25
@@ -1996,7 +1996,7 @@ declare float @llvm.exp.f32(float) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -2006,7 +2006,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EED2Ev(ptr nou
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !45
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -2016,7 +2016,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EED2Ev(ptr nou
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -2026,7 +2026,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EED2Ev(ptr nou
   br label %16
 
 16:                                               ; preds = %15, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8, !tbaa !48
   %19 = icmp eq ptr %18, null
   br i1 %19, label %44, label %20
@@ -2086,7 +2086,7 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EED2Ev(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #8 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !6
   %7 = load <2 x float>, ptr %1, align 4, !tbaa !31
   store <2 x float> %7, ptr %6, align 4, !tbaa !31
@@ -2096,7 +2096,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #9 {
   %4 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #29
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !6
   ret void
 }
@@ -2106,7 +2106,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #11 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 16, !tbaa !6
   tail call void @free(ptr noundef %5) #25
   store ptr null, ptr %4, align 16, !tbaa !6
@@ -2127,15 +2127,15 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 704
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %2, ptr %6, align 16, !tbaa !108
-  %7 = getelementptr inbounds i8, ptr %0, i64 712
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %8 = tail call noundef i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #25
   %9 = load ptr, ptr %6, align 16, !tbaa !108
   %10 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.2)
   store ptr %10, ptr %9, align 8, !tbaa !117
   %11 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.3)
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !119
   tail call void @dt_bauhaus_slider_set_format(ptr noundef %11, ptr noundef nonnull @.str.4)
   ret void
@@ -2185,7 +2185,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.3) #30
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = select i1 %7, ptr %8, ptr null
   br label %10
 
@@ -2235,9 +2235,9 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 32768, ptr %3, align 8, !tbaa !49
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 32767, ptr %4, align 8, !tbaa !50
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %12, label %6
@@ -2248,16 +2248,16 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm
   br i1 %8, label %.preheader, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %10, align 8, !tbaa !62
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %11, align 8, !tbaa !61
   br label %27
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 16384, ptr %13, align 8, !tbaa !62
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %14, align 8, !tbaa !61
   br label %27
 
@@ -2273,9 +2273,9 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm
 21:                                               ; preds = %.preheader
   store i64 %17, ptr %3, align 8, !tbaa !49
   store i64 %19, ptr %4, align 8, !tbaa !50
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %22, align 8, !tbaa !62
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %23, align 8, !tbaa !61
   %24 = icmp ugt i64 %17, 4611686018427387903
   %25 = shl i64 %15, 3
@@ -2288,7 +2288,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm
   %29 = phi i64 [ 131072, %12 ], [ 131072, %9 ], [ %25, %21 ]
   %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sink) #26
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 -1, i64 %29, i1 false), !tbaa !66
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8, !tbaa !59
   %32 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %28, i64 12)
   %33 = extractvalue { i64, i1 } %32, 1
@@ -2301,13 +2301,13 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm
   %39 = select i1 %37, i64 -1, i64 %38
   %40 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %39) #26
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %40, i8 0, i64 %38, i1 false)
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %41, align 8, !tbaa !36
   %42 = add i64 %38, %29
   %43 = add i64 %42, %34
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %43, ptr %44, align 8, !tbaa !71
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %43, ptr %45, align 8, !tbaa !70
   ret void
 }
@@ -2323,14 +2323,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExactEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !49
   %5 = shl i64 %1, 1
   %6 = icmp ult i64 %4, %5
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8, !tbaa !50
   br label %10
 
@@ -2349,7 +2349,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
   br label %18
 
 18:                                               ; preds = %17, %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %19, align 8, !tbaa !62
   %20 = icmp ugt i64 %1, 2305843009213693951
   %21 = shl i64 %1, 3
@@ -2363,9 +2363,9 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
   br label %26
 
 26:                                               ; preds = %25, %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !36
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %29, align 8, !tbaa !61
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %34, label %32
@@ -2427,12 +2427,12 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
 
 62:                                               ; preds = %61, %54
   %63 = icmp eq i64 %4, 0
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !59
   br i1 %63, label %96, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %4, 1
   %70 = icmp eq i64 %4, 1
@@ -2459,7 +2459,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
   %82 = load i32, ptr %81, align 4, !tbaa !57
   %83 = zext i32 %82 to i64
   %84 = and i64 %68, %83
-  %85 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %59, i64 %84
+  %85 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %59, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !66
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %.loopexit, label %.preheader
@@ -2496,7 +2496,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
   %106 = load i32, ptr %105, align 4, !tbaa !57
   %107 = zext i32 %106 to i64
   %108 = and i64 %68, %107
-  %109 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %59, i64 %108
+  %109 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %59, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !66
   %111 = icmp eq i32 %110, -1
   br i1 %111, label %.loopexit16, label %.preheader15
@@ -2529,7 +2529,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
   %128 = load i32, ptr %127, align 4, !tbaa !57
   %129 = zext i32 %128 to i64
   %130 = and i64 %68, %129
-  %131 = getelementptr inbounds %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %59, i64 %130
+  %131 = getelementptr inbounds nuw %"struct.HashTablePermutohedral<3, 2>::Entry", ptr %59, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !66
   %133 = icmp eq i32 %132, -1
   br i1 %133, label %.loopexit14, label %.preheader13
@@ -2566,7 +2566,7 @@ define linkonce_odr hidden void @_ZN22HashTablePermutohedralILi3ELi2EE9growExact
   %149 = load i64, ptr %19, align 8, !tbaa !62
   %150 = mul i64 %149, 20
   %151 = add i64 %150, %148
-  %152 = getelementptr inbounds i8, ptr %0, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %151, ptr %152, align 8, !tbaa !71
   ret void
 }

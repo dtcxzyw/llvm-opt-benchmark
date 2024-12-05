@@ -37,7 +37,7 @@ define noundef range(i32 -1, 2) i32 @_ZN2cv3hal5LU32fEPfmiS1_mi(ptr nocapture no
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5LU32fEPfmiS1_miE24__cv_trace_location_fn75)
   %8 = call fastcc noundef i32 @_ZN2cv3halL6LUImplIfEEiPT_miS3_miS2_(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %11
@@ -319,7 +319,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZN2cv3halL6LUImplIfEEiPT_m
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -344,7 +344,7 @@ define noundef range(i32 -1, 2) i32 @_ZN2cv3hal5LU64fEPdmiS1_mi(ptr nocapture no
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal5LU64fEPdmiS1_miE24__cv_trace_location_fn86)
   %8 = call fastcc noundef i32 @_ZN2cv3halL6LUImplIdEEiPT_miS3_miS2_(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %11
@@ -625,7 +625,7 @@ define noundef zeroext i1 @_ZN2cv3hal11Cholesky32fEPfmiS1_mi(ptr nocapture nound
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11Cholesky32fEPfmiS1_miE25__cv_trace_location_fn175)
   %8 = call fastcc noundef zeroext i1 @_ZN2cv3halL8CholImplIfEEbPT_miS3_mi(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %11
@@ -940,7 +940,7 @@ define noundef zeroext i1 @_ZN2cv3hal11Cholesky64fEPdmiS1_mi(ptr nocapture nound
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3hal11Cholesky64fEPdmiS1_miE25__cv_trace_location_fn184)
   %8 = call fastcc noundef zeroext i1 @_ZN2cv3halL8CholImplIdEEbPT_miS3_mi(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %11
@@ -1242,9 +1242,9 @@ define noundef range(i32 0, 2) i32 @_ZN2cv3hal5QR32fEPfmiiiS1_mS1_(ptr nocapture
   call void @llvm.lifetime.start.p0(i64 1072, ptr nonnull %9)
   %11 = lshr i64 %1, 2
   %12 = lshr i64 %6, 2
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not.i = icmp eq i32 %2, 0
   %15 = add nsw i32 %3, %2
   %16 = icmp ne ptr %7, null
@@ -1299,7 +1299,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %33 = mul i64 %32, %11
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %33
   %34 = load float, ptr %gep.i, align 4
-  %35 = getelementptr inbounds float, ptr %24, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i
   store float %34, ptr %35, align 4
   %36 = call float @llvm.fmuladd.f32(float %34, float %34, float %.0191215.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1337,7 +1337,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %indvars.iv308.i.us = phi i64 [ %indvars.iv306.i, %.preheader213.i.us ], [ %indvars.iv.next309.i.us, %47 ]
   %.0186220.i.us = phi float [ 0.000000e+00, %.preheader213.i.us ], [ %53, %47 ]
   %48 = sub nuw nsw i64 %indvars.iv308.i.us, %indvars.iv306.i
-  %49 = getelementptr inbounds float, ptr %24, i64 %48
+  %49 = getelementptr inbounds nuw float, ptr %24, i64 %48
   %50 = load float, ptr %49, align 4
   %51 = mul i64 %indvars.iv308.i.us, %11
   %gep225.i.us = getelementptr float, ptr %invariant.gep224.i.us, i64 %51
@@ -1350,7 +1350,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 .preheader212.i.us:                               ; preds = %47, %.preheader212.i.us
   %indvars.iv313.i.us = phi i64 [ %indvars.iv.next314.i.us, %.preheader212.i.us ], [ %indvars.iv306.i, %47 ]
   %54 = sub nuw nsw i64 %indvars.iv313.i.us, %indvars.iv306.i
-  %55 = getelementptr inbounds float, ptr %24, i64 %54
+  %55 = getelementptr inbounds nuw float, ptr %24, i64 %54
   %56 = load float, ptr %55, align 4
   %57 = mul i64 %indvars.iv313.i.us, %11
   %gep230.i.us = getelementptr float, ptr %invariant.gep224.i.us, i64 %57
@@ -1369,7 +1369,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 .lr.ph219.i:                                      ; preds = %.lr.ph219.i, %.lr.ph219.preheader.i
   %indvars.iv301.i = phi i64 [ 0, %.lr.ph219.preheader.i ], [ %indvars.iv.next302.i, %.lr.ph219.i ]
-  %61 = getelementptr inbounds float, ptr %24, i64 %indvars.iv301.i
+  %61 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv301.i
   %62 = load float, ptr %61, align 4
   %63 = fdiv float %62, %45
   store float %63, ptr %61, align 4
@@ -1380,7 +1380,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 ._crit_edge232.i:                                 ; preds = %._crit_edge228.i.loopexit.us, %.preheader213.lr.ph.i
   %64 = load float, ptr %24, align 4
   %65 = fmul float %64, %64
-  %66 = getelementptr inbounds float, ptr %.0193.i, i64 %indvars.iv306.i
+  %66 = getelementptr inbounds nuw float, ptr %.0193.i, i64 %indvars.iv306.i
   store float %65, ptr %66, align 4
   %invariant.gep233.i = getelementptr float, ptr %0, i64 %indvars.iv306.i
   %67 = icmp sgt i64 %29, 1
@@ -1393,7 +1393,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %indvars.iv323.i = phi i64 [ 1, %.lr.ph237.preheader.i ], [ %indvars.iv.next324.i, %.lr.ph237.i ]
-  %68 = getelementptr inbounds float, ptr %24, i64 %indvars.iv323.i
+  %68 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv323.i
   %69 = load float, ptr %68, align 4
   %70 = fdiv float %69, %.pre.i
   %71 = add nuw nsw i64 %indvars.iv323.i, %indvars.iv306.i
@@ -1436,7 +1436,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %77 = mul i64 %76, %11
   %gep246.us.i = getelementptr float, ptr %invariant.gep245.us.i, i64 %77
   %78 = load float, ptr %gep246.us.i, align 4
-  %79 = getelementptr inbounds float, ptr %24, i64 %indvars.iv343.i
+  %79 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv343.i
   store float %78, ptr %79, align 4
   %indvars.iv.next344.i = add nuw nsw i64 %indvars.iv343.i, 1
   %exitcond349.not.i = icmp eq i64 %indvars.iv.next344.i, %wide.trip.count348.i
@@ -1444,7 +1444,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 .preheader210.us.i:                               ; preds = %75, %.lr.ph272.split.us.i
   %80 = icmp slt i64 %indvars.iv350.i, %26
-  %81 = getelementptr inbounds float, ptr %.0193.i, i64 %indvars.iv350.i
+  %81 = getelementptr inbounds nuw float, ptr %.0193.i, i64 %indvars.iv350.i
   br i1 %80, label %.lr.ph249.us.us.i, label %._crit_edge259.us.i
 
 .lr.ph244.us.i:                                   ; preds = %.lr.ph272.split.us.i
@@ -1461,7 +1461,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 82:                                               ; preds = %.preheader208.us.us.i, %82
   %indvars.iv357.i = phi i64 [ %indvars.iv350.i, %.preheader208.us.us.i ], [ %indvars.iv.next358.i, %82 ]
   %83 = sub nuw nsw i64 %indvars.iv357.i, %indvars.iv350.i
-  %84 = getelementptr inbounds float, ptr %24, i64 %83
+  %84 = getelementptr inbounds nuw float, ptr %24, i64 %83
   %85 = load float, ptr %84, align 4
   %86 = fmul float %85, 2.000000e+00
   %87 = load float, ptr %81, align 4
@@ -1479,7 +1479,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %indvars.iv352.i = phi i64 [ %indvars.iv350.i, %.lr.ph249.us.us.i ], [ %indvars.iv.next353.i, %92 ]
   %.0179247.us.us.i = phi float [ 0.000000e+00, %.lr.ph249.us.us.i ], [ %98, %92 ]
   %93 = sub nuw nsw i64 %indvars.iv352.i, %indvars.iv350.i
-  %94 = getelementptr inbounds float, ptr %24, i64 %93
+  %94 = getelementptr inbounds nuw float, ptr %24, i64 %93
   %95 = load float, ptr %94, align 4
   %96 = mul i64 %indvars.iv352.i, %12
   %gep252.us.us.i = getelementptr float, ptr %invariant.gep251.us.us.i, i64 %96
@@ -1526,7 +1526,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %103 = mul i64 %102, %11
   %gep246.i = getelementptr float, ptr %invariant.gep245.i, i64 %103
   %104 = load float, ptr %gep246.i, align 4
-  %105 = getelementptr inbounds float, ptr %24, i64 %indvars.iv331.i
+  %105 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv331.i
   store float %104, ptr %105, align 4
   %indvars.iv.next332.i = add nuw nsw i64 %indvars.iv331.i, 1
   %exitcond337.not.i = icmp eq i64 %indvars.iv.next332.i, %wide.trip.count336.i
@@ -1637,7 +1637,7 @@ _ZN2cv10AutoBufferIfLm264EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 148:                                              ; preds = %.loopexit.i, %147
   call void @llvm.lifetime.end.p0(i64 1072, ptr nonnull %9)
-  %149 = getelementptr inbounds i8, ptr %10, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %150 = load i32, ptr %149, align 8
   %.not.i26 = icmp eq i32 %150, 0
   br i1 %.not.i26, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %151
@@ -1671,9 +1671,9 @@ define noundef range(i32 0, 2) i32 @_ZN2cv3hal5QR64fEPdmiiiS1_mS1_(ptr nocapture
   call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %9)
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %6, 3
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not.i = icmp eq i32 %2, 0
   %15 = add nsw i32 %3, %2
   %16 = icmp ne ptr %7, null
@@ -1728,7 +1728,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %33 = mul i64 %32, %11
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %33
   %34 = load double, ptr %gep.i, align 8
-  %35 = getelementptr inbounds double, ptr %24, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.i
   store double %34, ptr %35, align 8
   %36 = call double @llvm.fmuladd.f64(double %34, double %34, double %.0191215.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1766,7 +1766,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %indvars.iv308.i.us = phi i64 [ %indvars.iv306.i, %.preheader213.i.us ], [ %indvars.iv.next309.i.us, %47 ]
   %.0186220.i.us = phi double [ 0.000000e+00, %.preheader213.i.us ], [ %53, %47 ]
   %48 = sub nuw nsw i64 %indvars.iv308.i.us, %indvars.iv306.i
-  %49 = getelementptr inbounds double, ptr %24, i64 %48
+  %49 = getelementptr inbounds nuw double, ptr %24, i64 %48
   %50 = load double, ptr %49, align 8
   %51 = mul i64 %indvars.iv308.i.us, %11
   %gep225.i.us = getelementptr double, ptr %invariant.gep224.i.us, i64 %51
@@ -1779,7 +1779,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 .preheader212.i.us:                               ; preds = %47, %.preheader212.i.us
   %indvars.iv313.i.us = phi i64 [ %indvars.iv.next314.i.us, %.preheader212.i.us ], [ %indvars.iv306.i, %47 ]
   %54 = sub nuw nsw i64 %indvars.iv313.i.us, %indvars.iv306.i
-  %55 = getelementptr inbounds double, ptr %24, i64 %54
+  %55 = getelementptr inbounds nuw double, ptr %24, i64 %54
   %56 = load double, ptr %55, align 8
   %57 = mul i64 %indvars.iv313.i.us, %11
   %gep230.i.us = getelementptr double, ptr %invariant.gep224.i.us, i64 %57
@@ -1798,7 +1798,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 .lr.ph219.i:                                      ; preds = %.lr.ph219.i, %.lr.ph219.preheader.i
   %indvars.iv301.i = phi i64 [ 0, %.lr.ph219.preheader.i ], [ %indvars.iv.next302.i, %.lr.ph219.i ]
-  %61 = getelementptr inbounds double, ptr %24, i64 %indvars.iv301.i
+  %61 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv301.i
   %62 = load double, ptr %61, align 8
   %63 = fdiv double %62, %45
   store double %63, ptr %61, align 8
@@ -1809,7 +1809,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 ._crit_edge232.i:                                 ; preds = %._crit_edge228.i.loopexit.us, %.preheader213.lr.ph.i
   %64 = load double, ptr %24, align 8
   %65 = fmul double %64, %64
-  %66 = getelementptr inbounds double, ptr %.0193.i, i64 %indvars.iv306.i
+  %66 = getelementptr inbounds nuw double, ptr %.0193.i, i64 %indvars.iv306.i
   store double %65, ptr %66, align 8
   %invariant.gep233.i = getelementptr double, ptr %0, i64 %indvars.iv306.i
   %67 = icmp sgt i64 %29, 1
@@ -1822,7 +1822,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
   %indvars.iv323.i = phi i64 [ 1, %.lr.ph237.preheader.i ], [ %indvars.iv.next324.i, %.lr.ph237.i ]
-  %68 = getelementptr inbounds double, ptr %24, i64 %indvars.iv323.i
+  %68 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv323.i
   %69 = load double, ptr %68, align 8
   %70 = fdiv double %69, %.pre.i
   %71 = add nuw nsw i64 %indvars.iv323.i, %indvars.iv306.i
@@ -1865,7 +1865,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %77 = mul i64 %76, %11
   %gep246.us.i = getelementptr double, ptr %invariant.gep245.us.i, i64 %77
   %78 = load double, ptr %gep246.us.i, align 8
-  %79 = getelementptr inbounds double, ptr %24, i64 %indvars.iv343.i
+  %79 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv343.i
   store double %78, ptr %79, align 8
   %indvars.iv.next344.i = add nuw nsw i64 %indvars.iv343.i, 1
   %exitcond349.not.i = icmp eq i64 %indvars.iv.next344.i, %wide.trip.count348.i
@@ -1873,7 +1873,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 .preheader210.us.i:                               ; preds = %75, %.lr.ph272.split.us.i
   %80 = icmp slt i64 %indvars.iv350.i, %26
-  %81 = getelementptr inbounds double, ptr %.0193.i, i64 %indvars.iv350.i
+  %81 = getelementptr inbounds nuw double, ptr %.0193.i, i64 %indvars.iv350.i
   br i1 %80, label %.lr.ph249.us.us.i, label %._crit_edge259.us.i
 
 .lr.ph244.us.i:                                   ; preds = %.lr.ph272.split.us.i
@@ -1890,7 +1890,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 82:                                               ; preds = %.preheader208.us.us.i, %82
   %indvars.iv357.i = phi i64 [ %indvars.iv350.i, %.preheader208.us.us.i ], [ %indvars.iv.next358.i, %82 ]
   %83 = sub nuw nsw i64 %indvars.iv357.i, %indvars.iv350.i
-  %84 = getelementptr inbounds double, ptr %24, i64 %83
+  %84 = getelementptr inbounds nuw double, ptr %24, i64 %83
   %85 = load double, ptr %84, align 8
   %86 = fmul double %85, 2.000000e+00
   %87 = load double, ptr %81, align 8
@@ -1908,7 +1908,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %indvars.iv352.i = phi i64 [ %indvars.iv350.i, %.lr.ph249.us.us.i ], [ %indvars.iv.next353.i, %92 ]
   %.0179247.us.us.i = phi double [ 0.000000e+00, %.lr.ph249.us.us.i ], [ %98, %92 ]
   %93 = sub nuw nsw i64 %indvars.iv352.i, %indvars.iv350.i
-  %94 = getelementptr inbounds double, ptr %24, i64 %93
+  %94 = getelementptr inbounds nuw double, ptr %24, i64 %93
   %95 = load double, ptr %94, align 8
   %96 = mul i64 %indvars.iv352.i, %12
   %gep252.us.us.i = getelementptr double, ptr %invariant.gep251.us.us.i, i64 %96
@@ -1955,7 +1955,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
   %103 = mul i64 %102, %11
   %gep246.i = getelementptr double, ptr %invariant.gep245.i, i64 %103
   %104 = load double, ptr %gep246.i, align 8
-  %105 = getelementptr inbounds double, ptr %24, i64 %indvars.iv331.i
+  %105 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv331.i
   store double %104, ptr %105, align 8
   %indvars.iv.next332.i = add nuw nsw i64 %indvars.iv331.i, 1
   %exitcond337.not.i = icmp eq i64 %indvars.iv.next332.i, %wide.trip.count336.i
@@ -2066,7 +2066,7 @@ _ZN2cv10AutoBufferIdLm136EE8allocateEm.exit.i:    ; preds = %.noexc, %8
 
 148:                                              ; preds = %.loopexit.i, %147
   call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %9)
-  %149 = getelementptr inbounds i8, ptr %10, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %150 = load i32, ptr %149, align 8
   %.not.i26 = icmp eq i32 %150, 0
   br i1 %.not.i26, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %151

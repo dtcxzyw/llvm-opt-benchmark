@@ -86,7 +86,7 @@ define void @LAPACKE_ztp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %58 = phi i32 [ 0, %48 ], [ %73, %56 ]
   %59 = getelementptr { double, double }, ptr %55, i64 %57
   %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load double, ptr %61, align 8
   %63 = add nsw i32 %58, %50
   %64 = add i32 %33, %58
@@ -96,7 +96,7 @@ define void @LAPACKE_ztp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %68 = add nsw i32 %63, %67
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds { double, double }, ptr %5, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store double %60, ptr %70, align 8
   store double %62, ptr %71, align 8
   %72 = add nuw nsw i64 %57, 1
@@ -126,7 +126,7 @@ define void @LAPACKE_ztp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds { double, double }, ptr %4, i64 %90
   %92 = load double, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load double, ptr %93, align 8
   %95 = add nuw nsw i64 %87, 1
   %96 = mul i64 %95, %87
@@ -134,8 +134,8 @@ define void @LAPACKE_ztp_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %98 = lshr i32 %97, 1
   %99 = add nuw nsw i32 %98, %78
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds { double, double }, ptr %5, i64 %100
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %101 = getelementptr inbounds nuw { double, double }, ptr %5, i64 %100
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store double %92, ptr %101, align 8
   store double %94, ptr %102, align 8
   %exitcond.not = icmp eq i64 %95, %44

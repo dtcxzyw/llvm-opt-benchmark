@@ -29,13 +29,13 @@ define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataC2Ev(ptr noundef no
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15ReferenceOpDataE, i64 16), ptr %this, align 8
-  %m_referenceStyle = getelementptr inbounds i8, ptr %this, i64 168
+  %m_referenceStyle = getelementptr inbounds nuw i8, ptr %this, i64 168
   store i32 0, ptr %m_referenceStyle, align 8
-  %m_path = getelementptr inbounds i8, ptr %this, i64 176
+  %m_path = getelementptr inbounds nuw i8, ptr %this, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_path) #9
-  %m_alias = getelementptr inbounds i8, ptr %this, i64 208
+  %m_alias = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_alias) #9
-  %m_direction = getelementptr inbounds i8, ptr %this, i64 240
+  %m_direction = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i32 0, ptr %m_direction, align 8
   ret void
 }
@@ -49,12 +49,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(244) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15ReferenceOpDataE, i64 16), ptr %this, align 8
-  %m_alias = getelementptr inbounds i8, ptr %this, i64 208
+  %m_alias = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_alias) #9
-  %m_path = getelementptr inbounds i8, ptr %this, i64 176
+  %m_path = getelementptr inbounds nuw i8, ptr %this, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_path) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 16), ptr %this, align 8
-  %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_metadata.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i) #9
   ret void
 }
@@ -66,12 +66,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(244) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15ReferenceOpDataE, i64 16), ptr %this, align 8
-  %m_alias.i = getelementptr inbounds i8, ptr %this, i64 208
+  %m_alias.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_alias.i) #9
-  %m_path.i = getelementptr inbounds i8, ptr %this, i64 176
+  %m_path.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_path.i) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 16), ptr %this, align 8
-  %m_metadata.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_metadata.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_metadata.i.i) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void
@@ -111,17 +111,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_referenceStyle = getelementptr inbounds i8, ptr %this, i64 168
+  %m_referenceStyle = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load i32, ptr %m_referenceStyle, align 8
-  %m_referenceStyle2 = getelementptr inbounds i8, ptr %other, i64 168
+  %m_referenceStyle2 = getelementptr inbounds nuw i8, ptr %other, i64 168
   %1 = load i32, ptr %m_referenceStyle2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %m_direction = getelementptr inbounds i8, ptr %this, i64 240
+  %m_direction = getelementptr inbounds nuw i8, ptr %this, i64 240
   %2 = load i32, ptr %m_direction, align 8
-  %m_direction5 = getelementptr inbounds i8, ptr %other, i64 240
+  %m_direction5 = getelementptr inbounds nuw i8, ptr %other, i64 240
   %3 = load i32, ptr %m_direction5, align 8
   %cmp6.not = icmp eq i32 %2, %3
   br i1 %cmp6.not, label %if.end8, label %return
@@ -131,8 +131,8 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end8
-  %m_path = getelementptr inbounds i8, ptr %this, i64 176
-  %m_path12 = getelementptr inbounds i8, ptr %other, i64 176
+  %m_path = getelementptr inbounds nuw i8, ptr %this, i64 176
+  %m_path12 = getelementptr inbounds nuw i8, ptr %other, i64 176
   %call.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_path) #9
   %call1.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_path12) #9
   %cmp.i.i = icmp eq i64 %call.i.i, %call1.i.i
@@ -151,8 +151,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br i1 %.not23, label %if.end20, label %return
 
 if.else:                                          ; preds = %if.end8
-  %m_alias = getelementptr inbounds i8, ptr %this, i64 208
-  %m_alias16 = getelementptr inbounds i8, ptr %other, i64 208
+  %m_alias = getelementptr inbounds nuw i8, ptr %this, i64 208
+  %m_alias16 = getelementptr inbounds nuw i8, ptr %other, i64 208
   %call.i.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_alias) #9
   %call1.i.i6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %m_alias16) #9
   %cmp.i.i7 = icmp eq i64 %call.i.i5, %call1.i.i6
@@ -216,7 +216,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_15ReferenceOpDataES2_(ptr noundef nonnull align 8 dereferenceable(244) %lhs, ptr noundef nonnull align 8 dereferenceable(244) %rhs) local_unnamed_addr #0 {
 entry:
   %vtable = load ptr, ptr %lhs, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(244) %lhs, ptr noundef nonnull align 8 dereferenceable(168) %rhs)
   ret i1 %call

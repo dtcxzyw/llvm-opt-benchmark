@@ -34,18 +34,18 @@ define dso_local void @snd_seq_system_broadcast(i32 noundef %0, i32 noundef %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 28, i1 false)
   %8 = load i32, ptr @sysclient, align 4
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 %9, ptr %10, align 4
   %11 = trunc nuw i32 %5 to i8
-  %12 = getelementptr inbounds i8, ptr %4, i64 13
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 %11, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 14
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 -2, ptr %13, align 2
   %14 = trunc i32 %0 to i8
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %14, ptr %15, align 4
   %16 = trunc i32 %1 to i8
-  %17 = getelementptr inbounds i8, ptr %4, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 %16, ptr %17, align 1
   %18 = trunc i32 %2 to i8
   store i8 %18, ptr %4, align 4
@@ -71,21 +71,21 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @snd_seq_system_notify(i32 noundef %0, i32 noundef %1, ptr noundef initializes((1, 2), (12, 16)) %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %4, align 1
   %5 = load i32, ptr @sysclient, align 4
   %6 = trunc i32 %5 to i8
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 %6, ptr %7, align 4
   %8 = load i32, ptr @announce_port, align 4
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %9, ptr %10, align 1
   %11 = trunc i32 %0 to i8
-  %12 = getelementptr inbounds i8, ptr %2, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 %11, ptr %12, align 2
   %13 = trunc i32 %1 to i8
-  %14 = getelementptr inbounds i8, ptr %2, i64 15
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 %13, ptr %14, align 1
   %15 = tail call i32 @snd_seq_kernel_client_dispatch(i32 noundef %5, ptr noundef %2, i32 noundef 0, i32 noundef 0) #7
   ret i32 %15
@@ -101,7 +101,7 @@ define dso_local i32 @snd_seq_system_client_init() local_unnamed_addr #4 section
   br i1 %4, label %36, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   store ptr @event_input_timer, ptr %6, align 8
   %7 = tail call i32 (ptr, i32, ptr, ...) @snd_seq_create_kernel_client(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str) #7
@@ -115,26 +115,26 @@ define dso_local i32 @snd_seq_system_client_init() local_unnamed_addr #4 section
   br label %36
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %3, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #7
-  %13 = getelementptr inbounds i8, ptr %3, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %12, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false) #7
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 35, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i32 1, ptr %16, align 8
   %17 = trunc i32 %7 to i8
   store i8 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %18, align 1
   %19 = call i32 @snd_seq_kernel_client_ctl(i32 noundef %7, i32 noundef -1062710496, ptr noundef nonnull %3) #7
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %29, label %21
 
 21:                                               ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(9) %12, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %12, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #7
   store i32 33, ptr %13, align 4
   store ptr null, ptr %14, align 8
   store i32 0, ptr %15, align 8

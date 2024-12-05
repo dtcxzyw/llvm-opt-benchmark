@@ -39,11 +39,11 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
   ]
 
 .lr.ph.i:                                         ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i32, ptr %8, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph15.i, label %assign_list_collations.exit
@@ -69,11 +69,11 @@ define internal noundef zeroext i1 @assign_query_collations_walker(ptr noundef %
 22:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %1, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %25, align 8
   %26 = call zeroext i1 @assign_collations_walker(ptr noundef nonnull %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -86,15 +86,15 @@ assign_list_collations.exit:                      ; preds = %.lr.ph15.i, %.lr.ph
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i32, ptr %4, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph15, label %._crit_edge
@@ -125,11 +125,11 @@ define dso_local void @assign_list_collations(ptr noundef %0, ptr noundef readon
 define dso_local void @assign_expr_collations(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %6, align 8
   %7 = call zeroext i1 @assign_collations_walker(ptr noundef %1, ptr noundef nonnull %3)
   ret void
@@ -150,15 +150,15 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
   store ptr %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 -1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 -1, ptr %17, align 8
   %18 = load i32, ptr %0, align 4
   switch i32 %18, label %219 [
@@ -192,15 +192,15 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
 
 19:                                               ; preds = %11
   %20 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
   br label %237
 
 25:                                               ; preds = %11
   %26 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   %.not137 = icmp eq i32 %28, 0
   br i1 %.not137, label %237, label %29
@@ -210,17 +210,17 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   br label %237
 
 31:                                               ; preds = %11
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %assign_list_collations.exit, label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 12
-  %38 = getelementptr inbounds i8, ptr %8, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %39 = load i32, ptr %34, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph188, label %assign_list_collations.exit
@@ -244,19 +244,19 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   br i1 %47, label %.lr.ph188, label %assign_list_collations.exit
 
 48:                                               ; preds = %11
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %.not135 = icmp eq ptr %50, null
   %.not136 = icmp eq ptr %52, null
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
-  %56 = getelementptr inbounds i8, ptr %52, i64 16
-  %57 = getelementptr inbounds i8, ptr %7, i64 8
-  %58 = getelementptr inbounds i8, ptr %7, i64 12
-  %59 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %brmerge = select i1 %.not136, i1 true, i1 %.not135
   br i1 %brmerge, label %.thread146, label %.split.split
 
@@ -310,12 +310,12 @@ select_common_collation.exit:                     ; preds = %71
 
 .thread146:                                       ; preds = %66, %71, %48
   %.us-phi = phi ptr [ null, %48 ], [ %.0120, %71 ], [ %.0120, %66 ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.us-phi, ptr %86, align 8
   br label %assign_list_collations.exit
 
 87:                                               ; preds = %11
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load i32, ptr %88, align 8
   %90 = tail call i32 @get_typcollation(i32 noundef %89) #5
   %91 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
@@ -355,7 +355,7 @@ select_common_collation.exit:                     ; preds = %71
   br i1 %105, label %106, label %237
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %108 = load i32, ptr %107, align 8
   %.not133 = icmp eq i32 %108, 0
   br i1 %.not133, label %237, label %109
@@ -381,7 +381,7 @@ select_common_collation.exit:                     ; preds = %71
   br label %assign_list_collations.exit
 
 123:                                              ; preds = %11
-  %124 = getelementptr inbounds i8, ptr %0, i64 104
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %assign_list_collations.exit, label %127
@@ -390,13 +390,13 @@ select_common_collation.exit:                     ; preds = %71
   %128 = getelementptr i8, ptr %125, i64 16
   %.val = load ptr, ptr %128, align 8
   %129 = load ptr, ptr %.val, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 42
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 42
   %131 = load i8, ptr %130, align 2
   %132 = trunc i8 %131 to i1
   br i1 %132, label %assign_list_collations.exit, label %133
 
 133:                                              ; preds = %127
-  %134 = getelementptr inbounds i8, ptr %129, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = tail call i32 @exprCollation(ptr noundef %135) #5
   %137 = load ptr, ptr %134, align 8
@@ -418,7 +418,7 @@ select_common_collation.exit:                     ; preds = %71
   br label %237
 
 147:                                              ; preds = %11
-  %148 = getelementptr inbounds i8, ptr %0, i64 74
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %149 = load i8, ptr %148, align 2
   switch i8 %149, label %153 [
     i8 110, label %150
@@ -449,48 +449,48 @@ select_common_collation.exit:                     ; preds = %71
 
 158:                                              ; preds = %152, %151, %150
   %159 = load ptr, ptr %1, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %161 = load ptr, ptr %160, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %159, ptr %6, align 8
-  %162 = getelementptr inbounds i8, ptr %6, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %6, i64 12
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %6, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 -1, ptr %164, align 8
   %165 = call zeroext i1 @assign_collations_walker(ptr noundef %161, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %221
 
 166:                                              ; preds = %11
-  %167 = getelementptr inbounds i8, ptr %0, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %168 = load ptr, ptr %167, align 8
   %169 = call zeroext i1 @assign_collations_walker(ptr noundef %168, ptr noundef nonnull %9)
   %170 = load ptr, ptr %1, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %172 = load ptr, ptr %171, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %170, ptr %5, align 8
-  %173 = getelementptr inbounds i8, ptr %5, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %5, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %174, align 4
-  %175 = getelementptr inbounds i8, ptr %5, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 -1, ptr %175, align 8
   %176 = call zeroext i1 @assign_collations_walker(ptr noundef %172, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %221
 
 177:                                              ; preds = %11
-  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %.not138 = icmp eq ptr %179, null
   br i1 %.not138, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %179, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %182 = load i32, ptr %180, align 4
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %.lr.ph173, label %._crit_edge
@@ -500,10 +500,10 @@ select_common_collation.exit:                     ; preds = %71
   %184 = load ptr, ptr %181, align 8
   %185 = getelementptr %union.ListCell, ptr %184, i64 %indvars.iv
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = call zeroext i1 @assign_collations_walker(ptr noundef %188, ptr noundef nonnull %9)
-  %190 = getelementptr inbounds i8, ptr %186, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = call zeroext i1 @assign_collations_walker(ptr noundef %191, ptr noundef nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -513,41 +513,41 @@ select_common_collation.exit:                     ; preds = %71
   br i1 %195, label %.lr.ph173, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph173, %.lr.ph, %177
-  %196 = getelementptr inbounds i8, ptr %0, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %197 = load ptr, ptr %196, align 8
   %198 = call zeroext i1 @assign_collations_walker(ptr noundef %197, ptr noundef nonnull %9)
   br label %221
 
 199:                                              ; preds = %11
-  %200 = getelementptr inbounds i8, ptr %0, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %201 = load ptr, ptr %200, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store ptr %12, ptr %4, align 8
-  %202 = getelementptr inbounds i8, ptr %4, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %4, i64 12
+  %203 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %203, align 4
-  %204 = getelementptr inbounds i8, ptr %4, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %204, align 8
   %205 = call zeroext i1 @assign_collations_walker(ptr noundef %201, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %206 = load ptr, ptr %1, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %208 = load ptr, ptr %207, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %206, ptr %3, align 8
-  %209 = getelementptr inbounds i8, ptr %3, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %3, i64 12
+  %210 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %3, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %211, align 8
   %212 = call zeroext i1 @assign_collations_walker(ptr noundef %208, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %213 = getelementptr inbounds i8, ptr %0, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %214 = load ptr, ptr %213, align 8
   %215 = call zeroext i1 @assign_collations_walker(ptr noundef %214, ptr noundef nonnull %9)
-  %216 = getelementptr inbounds i8, ptr %0, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %217 = load ptr, ptr %216, align 8
   %218 = call zeroext i1 @assign_collations_walker(ptr noundef %217, ptr noundef nonnull %9)
   br label %221
@@ -614,11 +614,11 @@ assign_list_collations.exit:                      ; preds = %.lr.ph188, %31, %.l
 define dso_local i32 @select_common_collation(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.assign_collations_context, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 -1, ptr %7, align 8
   %8 = call zeroext i1 @assign_collations_walker(ptr noundef %1, ptr noundef nonnull %4)
   %9 = load i32, ptr %6, align 4
@@ -634,13 +634,13 @@ define dso_local i32 @select_common_collation(ptr noundef %0, ptr noundef %1, i1
   %14 = tail call i32 @errcode(i32 noundef 17432708) #5
   %15 = load i32, ptr %5, align 8
   %16 = tail call ptr @get_collation_name(i32 noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @get_collation_name(i32 noundef %18) #5
   %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %16, ptr noundef %19) #5
   %21 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #5
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 @parser_errposition(ptr noundef %22, i32 noundef %24) #5
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 232, ptr noundef nonnull @__func__.select_common_collation) #5
@@ -687,17 +687,17 @@ declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i32, ptr %6, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph18, label %._crit_edge
@@ -707,7 +707,7 @@ define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef n
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 42
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %17 = load i8, ptr %16, align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %22
@@ -741,19 +741,19 @@ define internal fastcc void @assign_aggregate_collations(ptr nocapture noundef n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @assign_ordered_set_collations(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %list_length.exit.thread
 
 9:                                                ; preds = %list_length.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @get_func_variadictype(i32 noundef %11) #5
   %.fr25 = freeze i32 %12
@@ -762,19 +762,19 @@ list_length.exit:                                 ; preds = %2
 
 list_length.exit.thread:                          ; preds = %2, %9, %list_length.exit
   %.fr = phi i1 [ false, %list_length.exit ], [ %13, %9 ], [ false, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @assign_collations_walker(ptr noundef %15, ptr noundef nonnull %1)
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit.thread
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 12
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i32, ptr %18, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %.fr, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -823,33 +823,33 @@ list_length.exit.thread:                          ; preds = %2, %9, %list_length
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @assign_hypothetical_collations(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.assign_collations_context, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_head.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   br label %list_head.exit
 
 list_head.exit:                                   ; preds = %2, %6
   %9 = phi ptr [ %8, %6 ], [ null, %2 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not.i37 = icmp eq ptr %11, null
   br i1 %.not.i37, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %list_head.exit
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %list_length.exit.thread
 
 17:                                               ; preds = %list_length.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @get_func_variadictype(i32 noundef %19) #5
   %21 = icmp eq i32 %20, 0
@@ -864,7 +864,7 @@ list_length.exit.thread:                          ; preds = %list_head.exit, %17
   br i1 %.not.i40, label %list_length.exit41, label %25
 
 25:                                               ; preds = %list_length.exit.thread
-  %26 = getelementptr inbounds i8, ptr %22, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %27 = load i32, ptr %26, align 4
   br label %list_length.exit41
 
@@ -875,7 +875,7 @@ list_length.exit41:                               ; preds = %list_length.exit.th
   br i1 %.not.i42, label %list_length.exit43, label %30
 
 30:                                               ; preds = %list_length.exit41
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4
   br label %list_length.exit43
 
@@ -893,11 +893,11 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   br i1 %38, label %.lr.ph52, label %._crit_edge
 
 .lr.ph52:                                         ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 12
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
-  %42 = getelementptr inbounds i8, ptr %3, i64 20
-  %43 = getelementptr inbounds i8, ptr %3, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %55
 
 .lr.ph:                                           ; preds = %list_length.exit43, %.lr.ph
@@ -932,7 +932,7 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   store i32 0, ptr %42, align 4
   store i32 -1, ptr %43, align 8
   %59 = call zeroext i1 @assign_collations_walker(ptr noundef %56, ptr noundef nonnull %3)
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = call zeroext i1 @assign_collations_walker(ptr noundef %61, ptr noundef nonnull %3)
   %63 = load i32, ptr %40, align 4
@@ -1023,22 +1023,22 @@ declare void @exprSetInputCollation(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %1, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %0, ptr %11, align 8
   store i32 %1, ptr %7, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %12, align 8
   %13 = icmp eq i32 %1, 2
   br i1 %13, label %14, label %41
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %3, ptr %15, align 4
   br label %.sink.split
 
@@ -1053,7 +1053,7 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
   ]
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %0, %21
   br i1 %.not, label %41, label %22
@@ -1073,12 +1073,12 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
 
 26:                                               ; preds = %25
   store i32 2, ptr %7, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %0, ptr %27, align 4
   br label %.sink.split
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i32, ptr %29, align 8
   %.not41 = icmp eq i32 %0, %30
   br i1 %.not41, label %41, label %31
@@ -1099,7 +1099,7 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
 .sink.split:                                      ; preds = %14, %24, %26
   %.sink43 = phi i64 [ 24, %26 ], [ 16, %24 ], [ 24, %14 ]
   %.sink = phi i32 [ %2, %26 ], [ %2, %24 ], [ %4, %14 ]
-  %40 = getelementptr inbounds i8, ptr %5, i64 %.sink43
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink43
   store i32 %.sink, ptr %40, align 8
   br label %41
 

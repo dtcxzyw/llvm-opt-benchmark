@@ -194,16 +194,16 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #18, !srcloc !7
   %5 = inttoptr i64 %4 to ptr
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %7, align 8
   %8 = mul i32 %0, 1640531527
   %9 = lshr i32 %8, 24
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr [256 x %struct.kvm_task_sleep_head], ptr @async_pf_sleepers, i64 0, i64 %10
   call void @_raw_spin_lock(ptr noundef %11) #17
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %13
 
 13:                                               ; preds = %17, %1
@@ -213,39 +213,39 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %0
   br i1 %20, label %21, label %13, !llvm.loop !8
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %24 = load ptr, ptr %23, align 8
   store volatile ptr %22, ptr %24, align 8
   %25 = icmp eq ptr %22, null
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store volatile ptr %24, ptr %27, align 8
   br label %36
 
 .thread:                                          ; preds = %13
-  %28 = getelementptr inbounds i8, ptr %2, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %0, ptr %28, align 8
   %29 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !11
-  %30 = getelementptr inbounds i8, ptr %2, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  call void @__init_swait_queue_head(ptr noundef %31, ptr noundef nonnull @.str.11, ptr noundef nonnull @kvm_async_pf_queue_task.__key) #17
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  call void @__init_swait_queue_head(ptr noundef nonnull %31, ptr noundef nonnull @.str.11, ptr noundef nonnull @kvm_async_pf_queue_task.__key) #17
   %32 = load ptr, ptr %12, align 8
   store volatile ptr %32, ptr %2, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store volatile ptr %2, ptr %35, align 8
   br label %37
 
@@ -258,10 +258,10 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
 
 37:                                               ; preds = %.thread, %34
   store volatile ptr %2, ptr %12, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store volatile ptr %12, ptr %38, align 8
   call void @_raw_spin_unlock(ptr noundef %11) #17
-  call void @prepare_to_swait_exclusive(ptr noundef %31, ptr noundef nonnull %3, i32 noundef 2) #17
+  call void @prepare_to_swait_exclusive(ptr noundef nonnull %31, ptr noundef nonnull %3, i32 noundef 2) #17
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.loopexit, label %.preheader
@@ -270,13 +270,13 @@ define dso_local void @kvm_async_pf_task_wait_schedule(i32 noundef %0) #1 align 
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !12
   call void @schedule() #17
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !13
-  call void @prepare_to_swait_exclusive(ptr noundef %31, ptr noundef nonnull %3, i32 noundef 2) #17
+  call void @prepare_to_swait_exclusive(ptr noundef nonnull %31, ptr noundef nonnull %3, i32 noundef 2) #17
   %41 = load ptr, ptr %38, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %37
-  call void @finish_swait(ptr noundef %31, ptr noundef nonnull %3) #17
+  call void @finish_swait(ptr noundef nonnull %31, ptr noundef nonnull %3) #17
   br label %43
 
 43:                                               ; preds = %36, %.loopexit
@@ -313,14 +313,14 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   br i1 %6, label %.preheader11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %39
 
 .preheader11:                                     ; preds = %1, %.loopexit
   %9 = phi i64 [ %37, %.loopexit ], [ 0, %1 ]
   %10 = getelementptr [256 x %struct.kvm_task_sleep_head], ptr @async_pf_sleepers, i64 0, i64 %9
   tail call void @_raw_spin_lock(ptr noundef %10) #17
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %.preheader
@@ -328,14 +328,14 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
 .preheader:                                       ; preds = %.preheader11, %35
   %14 = phi ptr [ %15, %35 ], [ %12, %.preheader11 ]
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !15
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %35
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %29, label %24
@@ -346,7 +346,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %15, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store volatile ptr %22, ptr %27, align 8
   br label %28
 
@@ -356,14 +356,14 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
 
 29:                                               ; preds = %28, %20
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %30 = getelementptr inbounds i8, ptr %14, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %30
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %14, i64 16
-  tail call void @swake_up_one(ptr noundef %34) #17
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  tail call void @swake_up_one(ptr noundef nonnull %34) #17
   br label %35
 
 35:                                               ; preds = %33, %29, %.preheader
@@ -388,7 +388,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %43, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %0
   br i1 %48, label %66, label %41, !llvm.loop !8
@@ -412,31 +412,31 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   br label %39
 
 55:                                               ; preds = %.thread
-  %56 = getelementptr inbounds i8, ptr %40, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 %0, ptr %56, align 8
   %57 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !20
-  %58 = getelementptr inbounds i8, ptr %40, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 44
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %40, i64 16
-  tail call void @__init_swait_queue_head(ptr noundef %59, ptr noundef nonnull @.str.1, ptr noundef nonnull @kvm_async_pf_task_wake.__key) #17
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %59, ptr noundef nonnull @.str.1, ptr noundef nonnull @kvm_async_pf_task_wake.__key) #17
   %60 = load ptr, ptr %8, align 8
   store volatile ptr %60, ptr %40, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store volatile ptr %40, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %62, %55
   store volatile ptr %40, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %40, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store volatile ptr %8, ptr %65, align 8
   br label %82
 
 66:                                               ; preds = %45
-  %67 = getelementptr inbounds i8, ptr %43, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %76, label %70
@@ -448,7 +448,7 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
   br i1 %72, label %75, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store volatile ptr %68, ptr %74, align 8
   br label %75
 
@@ -458,14 +458,14 @@ define dso_local void @kvm_async_pf_task_wake(i32 noundef %0) #1 align 16 {
 
 76:                                               ; preds = %75, %66
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %77 = getelementptr inbounds i8, ptr %43, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %78 = load volatile ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, %77
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %43, i64 16
-  tail call void @swake_up_one(ptr noundef %81) #17
+  %81 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  tail call void @swake_up_one(ptr noundef nonnull %81) #17
   br label %82
 
 82:                                               ; preds = %80, %76, %64
@@ -521,7 +521,7 @@ kvm_read_and_reset_apf_flags.exit:                ; preds = %2
 6:                                                ; preds = %kvm_read_and_reset_apf_flags.exit
   %7 = tail call i8 @irqentry_enter(ptr noundef %0) #17
   tail call void asm sideeffect "600: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 600b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 600) #17, !srcloc !24
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 512
   %11 = icmp eq i64 %10, 0
@@ -537,7 +537,7 @@ kvm_read_and_reset_apf_flags.exit:                ; preds = %2
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 3
   %20 = icmp eq i64 %19, 0
@@ -591,7 +591,7 @@ declare dso_local void @irqentry_exit(ptr noundef, i8) local_unnamed_addr #4 sec
 define dso_local void @sysvec_kvm_asyncpf_interrupt(ptr noundef %0) local_unnamed_addr #5 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #17
   tail call void asm sideeffect "606: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 606b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 606) #17, !srcloc !33
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -751,8 +751,8 @@ define dso_local zeroext i1 @kvm_para_available() #1 align 16 {
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %22, %11
@@ -809,8 +809,8 @@ define dso_local i32 @kvm_arch_para_features() local_unnamed_addr #1 align 16 {
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %22, %11
@@ -869,8 +869,8 @@ define dso_local i32 @kvm_arch_para_hints() #1 align 16 {
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %22, %11
@@ -1184,8 +1184,8 @@ define dso_local void @arch_haltpoll_enable(i32 noundef %0) #1 align 16 {
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %15
 
 15:                                               ; preds = %23, %12
@@ -1291,8 +1291,8 @@ define dso_local void @arch_haltpoll_disable(i32 noundef %0) #1 align 16 {
 
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %15
 
 15:                                               ; preds = %23, %12
@@ -1391,8 +1391,8 @@ define internal fastcc zeroext i1 @pv_tlb_flush_supported() unnamed_addr #1 alig
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #17
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %16
 
 16:                                               ; preds = %24, %13
@@ -1450,8 +1450,8 @@ __kvm_cpuid_base.exit:                            ; preds = %6, %9, %27
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
-  %48 = getelementptr inbounds i8, ptr %2, i64 4
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %50
 
 50:                                               ; preds = %58, %47
@@ -1509,8 +1509,8 @@ __kvm_cpuid_base.exit1:                           ; preds = %40, %43, %61
 
 81:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %82 = getelementptr inbounds i8, ptr %1, i64 4
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %84
 
 84:                                               ; preds = %92, %81
@@ -1588,8 +1588,8 @@ define internal fastcc zeroext i1 @pv_ipi_supported() unnamed_addr #1 align 16 {
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %22, %11
@@ -1656,8 +1656,8 @@ define internal fastcc range(i32 0, 1073807360) i32 @__kvm_cpuid_base() unnamed_
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 11:                                               ; preds = %19, %8
@@ -1708,13 +1708,13 @@ define internal void @kvm_apic_init() #10 section ".init.text" align 16 {
 define internal fastcc void @kvm_setup_pv_ipi() unnamed_addr #10 section ".init.text" align 16 {
   store ptr @kvm_send_ipi_mask, ptr getelementptr inbounds (i8, ptr @__x86_apic_override, i64 40), align 8
   %1 = load ptr, ptr @apic, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr @kvm_send_ipi_mask, ptr %2, align 8
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__apic_call_send_IPI_mask, ptr noundef nonnull @__SCT__apic_call_send_IPI_mask, ptr noundef nonnull @kvm_send_ipi_mask) #17
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @kvm_send_ipi_mask) #23
   store ptr @kvm_send_ipi_mask_allbutself, ptr getelementptr inbounds (i8, ptr @__x86_apic_override, i64 48), align 8
   %4 = load ptr, ptr @apic, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr @kvm_send_ipi_mask_allbutself, ptr %5, align 8
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__apic_call_send_IPI_mask_allbutself, ptr noundef nonnull @__SCT__apic_call_send_IPI_mask_allbutself, ptr noundef nonnull @kvm_send_ipi_mask_allbutself) #17
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21, ptr noundef nonnull @kvm_send_ipi_mask_allbutself) #23
@@ -1941,7 +1941,7 @@ define internal i64 @kvm_steal_clock(i32 noundef %0) #1 align 16 {
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @steal_time to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %8
 
 8:                                                ; preds = %.backedge, %1
@@ -2026,7 +2026,7 @@ define internal void @kvm_flush_tlb_multi(ptr nocapture noundef readonly %0, ptr
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @steal_time to i64)
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load volatile i8, ptr %22, align 8
   %24 = and i8 %23, 1
   %25 = icmp eq i8 %24, 0
@@ -2034,7 +2034,7 @@ define internal void @kvm_flush_tlb_multi(ptr nocapture noundef readonly %0, ptr
 
 26:                                               ; preds = %16
   %27 = or i8 %23, 2
-  %28 = tail call { i8, i8 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgb $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},q,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 %27, ptr elementtype(i8) %22, i8 %23) #17, !srcloc !79
+  %28 = tail call { i8, i8 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgb $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},q,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 %27, ptr nonnull elementtype(i8) %22, i8 %23) #17, !srcloc !79
   %29 = extractvalue { i8, i8 } %28, 0
   %30 = icmp ult i8 %29, 2
   tail call void @llvm.assume(i1 %30)
@@ -2211,8 +2211,8 @@ define internal fastcc void @kvm_guest_cpu_offline(i1 noundef zeroext %0) unname
 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #17
-  %18 = getelementptr inbounds i8, ptr %3, i64 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %20
 
 20:                                               ; preds = %28, %17
@@ -2279,8 +2279,8 @@ __kvm_cpuid_base.exit:                            ; preds = %10, %13, %31
 
 53:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
-  %54 = getelementptr inbounds i8, ptr %2, i64 4
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %56
 
 56:                                               ; preds = %64, %53
@@ -2354,7 +2354,7 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
   %86 = phi i64 [ %114, %.loopexit ], [ 0, %85 ]
   %87 = getelementptr [256 x %struct.kvm_task_sleep_head], ptr @async_pf_sleepers, i64 0, i64 %86
   tail call void @_raw_spin_lock(ptr noundef %87) #17
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.loopexit, label %.preheader
@@ -2362,14 +2362,14 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
 .preheader:                                       ; preds = %.preheader5, %112
   %91 = phi ptr [ %92, %112 ], [ %89, %.preheader5 ]
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 44
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 44
   %94 = load i32, ptr %93, align 4
   %95 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !15
   %96 = icmp eq i32 %94, %95
   br i1 %96, label %97, label %112
 
 97:                                               ; preds = %.preheader
-  %98 = getelementptr inbounds i8, ptr %91, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %106, label %101
@@ -2380,7 +2380,7 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
   br i1 %102, label %105, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %92, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store volatile ptr %99, ptr %104, align 8
   br label %105
 
@@ -2390,14 +2390,14 @@ __kvm_cpuid_base.exit4:                           ; preds = %46, %49, %67
 
 106:                                              ; preds = %105, %97
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !16
-  %107 = getelementptr inbounds i8, ptr %91, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %108 = load volatile ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %107
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %91, i64 16
-  tail call void @swake_up_one(ptr noundef %111) #17
+  %111 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  tail call void @swake_up_one(ptr noundef nonnull %111) #17
   br label %112
 
 112:                                              ; preds = %110, %106, %.preheader
@@ -2446,8 +2446,8 @@ define internal fastcc void @kvm_guest_cpu_init() unnamed_addr #1 align 16 {
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #17
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %16
 
 16:                                               ; preds = %24, %13
@@ -2520,8 +2520,8 @@ __kvm_cpuid_base.exit:                            ; preds = %6, %9, %27
 
 54:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #17
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %57
 
 57:                                               ; preds = %65, %54
@@ -2603,8 +2603,8 @@ __kvm_cpuid_base.exit1:                           ; preds = %47, %50, %68
 
 97:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %98 = getelementptr inbounds i8, ptr %1, i64 4
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %100
 
 100:                                              ; preds = %108, %97
@@ -2728,8 +2728,8 @@ define internal noundef i32 @kvm_suspend() #1 align 16 {
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %22, %11
@@ -2832,8 +2832,8 @@ define internal void @kvm_resume() #1 align 16 {
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #17
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %21
 
 21:                                               ; preds = %29, %18

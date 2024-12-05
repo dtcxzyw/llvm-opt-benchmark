@@ -53,7 +53,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9S
   br i1 %6, label %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %8, i64 noundef 3) #7
   call void @_ZN4llvm11SplitStringENS_9StringRefERNS_15SmallVectorImplIS0_EES0_(ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str, i64 1) #7
   %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9S
 13:                                               ; preds = %11
   %14 = load ptr, ptr %4, align 8
   %.sroa.05.0.copyload = load ptr, ptr %14, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
   %15 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   br i1 %15, label %.loopexit, label %16
@@ -90,9 +90,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9S
   %.01019 = phi i32 [ %37, %30 ], [ 8, %19 ]
   %.01118 = phi i32 [ %36, %30 ], [ 1, %19 ]
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %"class.llvm::StringRef", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %24, i64 %23
   %.sroa.0.0.copyload = load ptr, ptr %25, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %26 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   br i1 %26, label %.loopexit, label %27
@@ -149,7 +149,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   br i1 %6, label %_ZN4llvm11SmallVectorINS_9StringRefELj5EED2Ev.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull %8, i64 noundef 5) #7
   call void @_ZN4llvm11SplitStringENS_9StringRefERNS_15SmallVectorImplIS0_EES0_(ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str, i64 1) #7
   %9 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
@@ -163,7 +163,7 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
 13:                                               ; preds = %11
   %14 = load ptr, ptr %4, align 8
   %.sroa.06.0.copyload = load ptr, ptr %14, align 8
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.27.0.copyload = load i64, ptr %.sroa.27.0..sroa_idx, align 8
   %15 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.06.0.copyload, i64 %.sroa.27.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   br i1 %15, label %56, label %16
@@ -196,9 +196,9 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 8, %22 ]
   %.158 = phi i8 [ %.2, %40 ], [ %.055, %22 ]
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds %"class.llvm::StringRef", ptr %27, i64 %indvars.iv63
+  %28 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %27, i64 %indvars.iv63
   %.sroa.0.0.copyload = load ptr, ptr %28, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %29 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   br i1 %29, label %30, label %32
@@ -279,7 +279,7 @@ define dso_local void @_ZNK4llvm5MachO13PackedVersioncvNSt7__cxx1112basic_string
   %6 = alloca %"class.llvm::format_object", align 8
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca %"class.llvm::raw_svector_ostream", align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %9, i64 noundef 32) #7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8

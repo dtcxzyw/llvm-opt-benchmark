@@ -21,30 +21,30 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_7517CollationSettingsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(852) initializes((0, 44), (48, 60), (64, 84)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode = alloca i32, align 4
-  %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
+  %softRefCount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationSettingsE, i64 16), ptr %this, align 8
-  %options = getelementptr inbounds i8, ptr %this, i64 24
-  %options2 = getelementptr inbounds i8, ptr %other, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %options2 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %0 = load i32, ptr %options2, align 8
   store i32 %0, ptr %options, align 8
-  %variableTop = getelementptr inbounds i8, ptr %this, i64 28
-  %variableTop3 = getelementptr inbounds i8, ptr %other, i64 28
+  %variableTop = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %variableTop3 = getelementptr inbounds nuw i8, ptr %other, i64 28
   %1 = load i32, ptr %variableTop3, align 4
   store i32 %1, ptr %variableTop, align 4
-  %reorderTable = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable, align 8
-  %minHighNoReorder = getelementptr inbounds i8, ptr %this, i64 40
-  %minHighNoReorder4 = getelementptr inbounds i8, ptr %other, i64 40
+  %minHighNoReorder = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %minHighNoReorder4 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i32, ptr %minHighNoReorder4, align 8
   store i32 %2, ptr %minHighNoReorder, align 8
-  %reorderRanges = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %reorderRanges, align 8
-  %reorderRangesLength = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength, align 8
-  %reorderCodes = getelementptr inbounds i8, ptr %this, i64 64
-  %fastLatinOptions = getelementptr inbounds i8, ptr %this, i64 80
-  %fastLatinOptions5 = getelementptr inbounds i8, ptr %other, i64 80
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %fastLatinOptions = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %fastLatinOptions5 = getelementptr inbounds nuw i8, ptr %other, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reorderCodes, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %fastLatinOptions5, align 8
   store i32 %3, ptr %fastLatinOptions, align 8
@@ -58,8 +58,8 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp, label %do.body, label %if.end
 
 do.body:                                          ; preds = %invoke.cont
-  %fastLatinPrimaries = getelementptr inbounds i8, ptr %this, i64 84
-  %fastLatinPrimaries7 = getelementptr inbounds i8, ptr %other, i64 84
+  %fastLatinPrimaries = getelementptr inbounds nuw i8, ptr %this, i64 84
+  %fastLatinPrimaries7 = getelementptr inbounds nuw i8, ptr %other, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(768) %fastLatinPrimaries, ptr noundef nonnull align 4 dereferenceable(768) %fastLatinPrimaries7, i64 768, i1 false)
   br label %if.end
 
@@ -81,61 +81,61 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end18
 
 if.end:                                           ; preds = %entry
-  %reorderTable.i = getelementptr inbounds i8, ptr %other, i64 32
+  %reorderTable.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %1 = load ptr, ptr %reorderTable.i, align 8
   %cmp.i14.not = icmp eq ptr %1, null
-  %minHighNoReorder.i = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br i1 %cmp.i14.not, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  %reorderTable.i16 = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i16 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable.i16, align 8
   store i32 0, ptr %minHighNoReorder.i, align 8
-  %reorderRangesLength.i = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength.i, align 8
-  %reorderCodesLength.i = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength.i, align 8
   br label %if.end18
 
 if.end5:                                          ; preds = %if.end
-  %minHighNoReorder = getelementptr inbounds i8, ptr %other, i64 40
+  %minHighNoReorder = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i32, ptr %minHighNoReorder, align 8
   store i32 %2, ptr %minHighNoReorder.i, align 8
-  %reorderCodesCapacity = getelementptr inbounds i8, ptr %other, i64 76
+  %reorderCodesCapacity = getelementptr inbounds nuw i8, ptr %other, i64 76
   %3 = load i32, ptr %reorderCodesCapacity, align 4
   %cmp = icmp eq i32 %3, 0
   br i1 %cmp, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end5
   %4 = load ptr, ptr %reorderTable.i, align 8
-  %reorderTable8 = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %4, ptr %reorderTable8, align 8
-  %reorderRanges = getelementptr inbounds i8, ptr %other, i64 48
+  %reorderRanges = getelementptr inbounds nuw i8, ptr %other, i64 48
   %5 = load ptr, ptr %reorderRanges, align 8
-  %reorderRanges9 = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges9 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %5, ptr %reorderRanges9, align 8
-  %reorderRangesLength = getelementptr inbounds i8, ptr %other, i64 56
+  %reorderRangesLength = getelementptr inbounds nuw i8, ptr %other, i64 56
   %6 = load i32, ptr %reorderRangesLength, align 8
-  %reorderRangesLength10 = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength10 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %6, ptr %reorderRangesLength10, align 8
-  %reorderCodes = getelementptr inbounds i8, ptr %other, i64 64
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %other, i64 64
   %7 = load ptr, ptr %reorderCodes, align 8
-  %reorderCodes11 = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes11 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %7, ptr %reorderCodes11, align 8
-  %reorderCodesLength = getelementptr inbounds i8, ptr %other, i64 72
+  %reorderCodesLength = getelementptr inbounds nuw i8, ptr %other, i64 72
   %8 = load i32, ptr %reorderCodesLength, align 8
-  %reorderCodesLength12 = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength12 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %8, ptr %reorderCodesLength12, align 8
   br label %if.end18
 
 if.else:                                          ; preds = %if.end5
-  %reorderCodes13 = getelementptr inbounds i8, ptr %other, i64 64
+  %reorderCodes13 = getelementptr inbounds nuw i8, ptr %other, i64 64
   %9 = load ptr, ptr %reorderCodes13, align 8
-  %reorderCodesLength14 = getelementptr inbounds i8, ptr %other, i64 72
+  %reorderCodesLength14 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %10 = load i32, ptr %reorderCodesLength14, align 8
-  %reorderRanges15 = getelementptr inbounds i8, ptr %other, i64 48
+  %reorderRanges15 = getelementptr inbounds nuw i8, ptr %other, i64 48
   %11 = load ptr, ptr %reorderRanges15, align 8
-  %reorderRangesLength16 = getelementptr inbounds i8, ptr %other, i64 56
+  %reorderRangesLength16 = getelementptr inbounds nuw i8, ptr %other, i64 56
   %12 = load i32, ptr %reorderRangesLength16, align 8
   %13 = load ptr, ptr %reorderTable.i, align 8
   %14 = load i32, ptr %errorCode, align 4
@@ -144,13 +144,13 @@ if.else:                                          ; preds = %if.end5
 
 if.end.i:                                         ; preds = %if.else
   %add.i = add nsw i32 %12, %10
-  %reorderCodesCapacity.i = getelementptr inbounds i8, ptr %this, i64 76
+  %reorderCodesCapacity.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %15 = load i32, ptr %reorderCodesCapacity.i, align 4
   %cmp.not.i = icmp sgt i32 %add.i, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %reorderCodes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %16 = load ptr, ptr %reorderCodes.i, align 8
   br label %do.body.i
 
@@ -165,12 +165,12 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %reorderTable.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable.i.i, align 8
   store i32 0, ptr %minHighNoReorder.i, align 8
-  %reorderRangesLength.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength.i.i, align 8
-  %reorderCodesLength.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength.i.i, align 8
   store i32 7, ptr %errorCode, align 4
   br label %if.end18
@@ -181,13 +181,13 @@ if.end8.i:                                        ; preds = %if.else.i
   br i1 %cmp10.not.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %reorderCodes12.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes12.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %18 = load ptr, ptr %reorderCodes12.i, align 8
   tail call void @uprv_free_75(ptr noundef %18)
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then11.i, %if.end8.i
-  %reorderCodes14.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes14.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %call5.i, ptr %reorderCodes14.i, align 8
   store i32 %and.i, ptr %reorderCodesCapacity.i, align 4
   br label %do.body.i
@@ -206,18 +206,18 @@ do.body.i:                                        ; preds = %if.end13.i, %if.the
   %mul25.i = shl nsw i32 %12, 2
   %conv26.i = sext i32 %mul25.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24.i, ptr readonly align 4 %11, i64 %conv26.i, i1 false)
-  %reorderCodes28.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes28.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %20 = load ptr, ptr %reorderCodes28.i, align 8
   %21 = load i32, ptr %reorderCodesCapacity.i, align 4
   %idx.ext30.i = sext i32 %21 to i64
   %add.ptr31.i = getelementptr inbounds i32, ptr %20, i64 %idx.ext30.i
-  %reorderTable.i17 = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i17 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr31.i, ptr %reorderTable.i17, align 8
-  %reorderCodesLength.i18 = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i18 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %10, ptr %reorderCodesLength.i18, align 8
-  %reorderRanges.i = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr24.i, ptr %reorderRanges.i, align 8
-  %reorderRangesLength.i19 = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i19 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %12, ptr %reorderRangesLength.i19, align 8
   br label %if.end18
 
@@ -237,13 +237,13 @@ declare void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferen
 define void @_ZN6icu_7517CollationSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(852) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationSettingsE, i64 16), ptr %this, align 8
-  %reorderCodesCapacity = getelementptr inbounds i8, ptr %this, i64 76
+  %reorderCodesCapacity = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i32, ptr %reorderCodesCapacity, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %reorderCodes = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %reorderCodes, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %if.end unwind label %terminate.lpad
@@ -288,9 +288,9 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7517CollationSettingseqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %other) local_unnamed_addr #7 align 2 {
 entry:
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %options, align 8
-  %options2 = getelementptr inbounds i8, ptr %other, i64 24
+  %options2 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %1 = load i32, ptr %options2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
@@ -301,17 +301,17 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %variableTop = getelementptr inbounds i8, ptr %this, i64 28
+  %variableTop = getelementptr inbounds nuw i8, ptr %this, i64 28
   %2 = load i32, ptr %variableTop, align 4
-  %variableTop5 = getelementptr inbounds i8, ptr %other, i64 28
+  %variableTop5 = getelementptr inbounds nuw i8, ptr %other, i64 28
   %3 = load i32, ptr %variableTop5, align 4
   %cmp6.not = icmp eq i32 %2, %3
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %land.lhs.true, %if.end
-  %reorderCodesLength = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load i32, ptr %reorderCodesLength, align 8
-  %reorderCodesLength9 = getelementptr inbounds i8, ptr %other, i64 72
+  %reorderCodesLength9 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %5 = load i32, ptr %reorderCodesLength9, align 8
   %cmp10.not = icmp eq i32 %4, %5
   br i1 %cmp10.not, label %for.cond.preheader, label %return
@@ -321,18 +321,18 @@ for.cond.preheader:                               ; preds = %if.end8
   br i1 %cmp147, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %reorderCodes = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load ptr, ptr %reorderCodes, align 8
-  %reorderCodes15 = getelementptr inbounds i8, ptr %other, i64 64
+  %reorderCodes15 = getelementptr inbounds nuw i8, ptr %other, i64 64
   %7 = load ptr, ptr %reorderCodes15, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx, align 4
-  %arrayidx17 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %arrayidx17 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx17, align 4
   %cmp18.not = icmp eq i32 %8, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -348,15 +348,15 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7517CollationSettings8hashCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %options, align 8
   %shl = shl i32 %0, 8
   %and = and i32 %0, 12
   %cmp.not = icmp eq i32 %and, 0
-  %variableTop = getelementptr inbounds i8, ptr %this, i64 28
+  %variableTop = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %variableTop, align 4
   %xor = select i1 %cmp.not, i32 0, i32 %1
-  %reorderCodesLength = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load i32, ptr %reorderCodesLength, align 8
   %3 = xor i32 %shl, %xor
   %xor3 = xor i32 %3, %2
@@ -364,7 +364,7 @@ entry:
   br i1 %cmp57, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %reorderCodes = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load ptr, ptr %reorderCodes, align 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
@@ -372,7 +372,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %h.18 = phi i32 [ %xor3, %for.body.lr.ph ], [ %xor7, %for.body ]
-  %arrayidx = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx, align 4
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %shl6 = shl i32 %5, %6
@@ -389,13 +389,13 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517CollationSettings15resetReorderingEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(852) initializes((32, 44), (56, 60), (72, 76)) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %reorderTable = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable, align 8
-  %minHighNoReorder = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %minHighNoReorder, align 8
-  %reorderRangesLength = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength, align 8
-  %reorderCodesLength = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength, align 8
   ret void
 }
@@ -422,7 +422,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %land.lhs.true, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 1, %land.lhs.true ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %table, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %table, i64 %indvars.iv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i = icmp eq i8 %1, 0
   br i1 %cmp1.i, label %if.end34, label %for.cond.i
@@ -447,24 +447,24 @@ land.lhs.true8:                                   ; preds = %land.lhs.true6
   br i1 %cmp11.not, label %if.end34, label %if.then12
 
 if.then12:                                        ; preds = %for.cond.i, %land.lhs.true8
-  %reorderCodesCapacity = getelementptr inbounds i8, ptr %this, i64 76
+  %reorderCodesCapacity = getelementptr inbounds nuw i8, ptr %this, i64 76
   %6 = load i32, ptr %reorderCodesCapacity, align 4
   %cmp13.not = icmp eq i32 %6, 0
   br i1 %cmp13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.then12
-  %reorderCodes = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load ptr, ptr %reorderCodes, align 8
   tail call void @uprv_free_75(ptr noundef %7)
   store i32 0, ptr %reorderCodesCapacity, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.then12
-  %reorderTable = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %table, ptr %reorderTable, align 8
-  %reorderCodes17 = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes17 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %codes, ptr %reorderCodes17, align 8
-  %reorderCodesLength = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %length, ptr %reorderCodesLength, align 8
   %cmp1823 = icmp sgt i32 %rangesLength, 0
   br i1 %cmp1823, label %land.rhs.preheader, label %while.end
@@ -475,7 +475,7 @@ land.rhs.preheader:                               ; preds = %if.end16
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
-  %arrayidx20 = getelementptr inbounds i32, ptr %ranges, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw i32, ptr %ranges, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx20, align 4
   %and21 = and i32 %8, 16711680
   %cmp22 = icmp eq i32 %and21, 0
@@ -496,11 +496,11 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp23, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %while.body, %while.end
-  %minHighNoReorder = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %minHighNoReorder, align 8
-  %reorderRanges = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %reorderRanges, align 8
-  %reorderRangesLength = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength, align 8
   br label %return
 
@@ -510,14 +510,14 @@ if.else:                                          ; preds = %while.end
   %arrayidx27 = getelementptr i8, ptr %11, i64 -4
   %12 = load i32, ptr %arrayidx27, align 4
   %and28 = and i32 %12, -65536
-  %minHighNoReorder29 = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder29 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %and28, ptr %minHighNoReorder29, align 8
   %idx.ext = zext nneg i32 %firstSplitByteRangeIndex.0.lcssa to i64
-  %add.ptr = getelementptr inbounds i32, ptr %ranges, i64 %idx.ext
-  %reorderRanges30 = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr = getelementptr inbounds nuw i32, ptr %ranges, i64 %idx.ext
+  %reorderRanges30 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr, ptr %reorderRanges30, align 8
   %sub31 = sub nsw i32 %rangesLength, %firstSplitByteRangeIndex.0.lcssa
-  %reorderRangesLength32 = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength32 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %sub31, ptr %reorderRangesLength32, align 8
   br label %return
 
@@ -541,7 +541,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds i8, ptr %table, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %table, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %cmp1 = icmp eq i8 %0, 0
   br i1 %cmp1, label %return, label %for.cond
@@ -572,13 +572,13 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end, %land.lhs.true
-  %reorderTable.i = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable.i, align 8
-  %minHighNoReorder.i = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %minHighNoReorder.i, align 8
-  %reorderRangesLength.i = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength.i, align 8
-  %reorderCodesLength.i = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength.i, align 8
   br label %cleanup.cont
 
@@ -599,31 +599,31 @@ lpad:                                             ; preds = %if.then11.i, %if.el
   resume { ptr, i32 } %3
 
 if.end10:                                         ; preds = %invoke.cont
-  %count.i = getelementptr inbounds i8, ptr %rangesList, i64 8
+  %count.i = getelementptr inbounds nuw i8, ptr %rangesList, i64 8
   %4 = load i32, ptr %count.i, align 8
   %cmp13 = icmp eq i32 %4, 0
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end10
-  %reorderTable.i36 = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i36 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable.i36, align 8
-  %minHighNoReorder.i37 = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder.i37 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %minHighNoReorder.i37, align 8
-  %reorderRangesLength.i38 = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i38 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength.i38, align 8
-  %reorderCodesLength.i39 = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i39 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength.i39, align 8
   br label %cleanup
 
 if.end15:                                         ; preds = %if.end10
-  %elements.i = getelementptr inbounds i8, ptr %rangesList, i64 24
+  %elements.i = getelementptr inbounds nuw i8, ptr %rangesList, i64 24
   %5 = load ptr, ptr %elements.i, align 8
   %6 = sext i32 %4 to i64
   %7 = getelementptr i32, ptr %5, i64 %6
   %arrayidx18 = getelementptr i8, ptr %7, i64 -4
   %8 = load i32, ptr %arrayidx18, align 4
   %and = and i32 %8, -65536
-  %minHighNoReorder = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %and, ptr %minHighNoReorder, align 8
   %cmp1947 = icmp sgt i32 %4, 0
   br i1 %cmp1947, label %for.body.preheader, label %while.body38.preheader
@@ -646,7 +646,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv56 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next57, %for.inc ]
   %firstSplitByteRangeIndex.049 = phi i32 [ -1, %for.body.preheader ], [ %firstSplitByteRangeIndex.1, %for.inc ]
   %b.048 = phi i32 [ 0, %for.body.preheader ], [ %b.2, %for.inc ]
-  %arrayidx21 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv56
+  %arrayidx21 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv56
   %10 = load i32, ptr %arrayidx21, align 4
   %shr = lshr i32 %10, 24
   %cmp2245 = icmp slt i32 %b.048, %shr
@@ -662,7 +662,7 @@ while.body:                                       ; preds = %while.body.preheade
   %12 = trunc nsw i64 %indvars.iv to i32
   %add = add i32 %10, %12
   %conv = trunc i32 %add to i8
-  %arrayidx24 = getelementptr inbounds [256 x i8], ptr %table, i64 0, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds nuw [256 x i8], ptr %table, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -676,7 +676,7 @@ while.end:                                        ; preds = %while.body, %for.bo
 
 if.then27:                                        ; preds = %while.end
   %idxprom28 = zext nneg i32 %shr to i64
-  %arrayidx29 = getelementptr inbounds [256 x i8], ptr %table, i64 0, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw [256 x i8], ptr %table, i64 0, i64 %idxprom28
   store i8 0, ptr %arrayidx29, align 1
   %add30 = add nuw nsw i32 %shr, 1
   %cmp31 = icmp slt i32 %firstSplitByteRangeIndex.049, 0
@@ -694,7 +694,7 @@ for.inc:                                          ; preds = %if.then27, %while.e
 while.body38:                                     ; preds = %while.body38.preheader, %while.body38
   %indvars.iv61 = phi i64 [ %9, %while.body38.preheader ], [ %indvars.iv.next62, %while.body38 ]
   %conv39 = trunc i64 %indvars.iv61 to i8
-  %arrayidx41 = getelementptr inbounds [256 x i8], ptr %table, i64 0, i64 %indvars.iv61
+  %arrayidx41 = getelementptr inbounds nuw [256 x i8], ptr %table, i64 0, i64 %indvars.iv61
   store i8 %conv39, ptr %arrayidx41, align 1
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %14 = and i64 %indvars.iv.next62, 4294967295
@@ -707,7 +707,7 @@ while.end43:                                      ; preds = %while.body38, %whil
   %sub46 = sub nsw i32 %4, %firstSplitByteRangeIndex.0.lcssa69
   %narrow = call i32 @llvm.smax.i32(i32 %firstSplitByteRangeIndex.0.lcssa69, i32 0)
   %ranges.0.idx = zext nneg i32 %narrow to i64
-  %ranges.0 = getelementptr inbounds i32, ptr %5, i64 %ranges.0.idx
+  %ranges.0 = getelementptr inbounds nuw i32, ptr %5, i64 %ranges.0.idx
   %rangesLength.0 = select i1 %cmp44, i32 0, i32 %sub46
   %15 = load i32, ptr %errorCode, align 4
   %cmp.i.i = icmp slt i32 %15, 1
@@ -715,13 +715,13 @@ while.end43:                                      ; preds = %while.body38, %whil
 
 if.end.i:                                         ; preds = %while.end43
   %add.i = add nsw i32 %rangesLength.0, %codesLength
-  %reorderCodesCapacity.i = getelementptr inbounds i8, ptr %this, i64 76
+  %reorderCodesCapacity.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %16 = load i32, ptr %reorderCodesCapacity.i, align 4
   %cmp.not.i = icmp sgt i32 %add.i, %16
   br i1 %cmp.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %reorderCodes.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %17 = load ptr, ptr %reorderCodes.i, align 8
   br label %do.body.i
 
@@ -739,12 +739,12 @@ call5.i.noexc:                                    ; preds = %if.else.i
   br i1 %cmp6.i, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %call5.i.noexc
-  %reorderTable.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable.i.i, align 8
   store i32 0, ptr %minHighNoReorder, align 8
-  %reorderRangesLength.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength.i.i, align 8
-  %reorderCodesLength.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength.i.i, align 8
   store i32 7, ptr %errorCode, align 4
   br label %cleanup
@@ -755,13 +755,13 @@ if.end8.i:                                        ; preds = %call5.i.noexc
   br i1 %cmp10.not.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %reorderCodes12.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes12.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %19 = load ptr, ptr %reorderCodes12.i, align 8
   invoke void @uprv_free_75(ptr noundef %19)
           to label %if.end13.i unwind label %lpad
 
 if.end13.i:                                       ; preds = %if.then11.i, %if.end8.i
-  %reorderCodes14.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes14.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %call5.i44, ptr %reorderCodes14.i, align 8
   store i32 %and.i, ptr %reorderCodesCapacity.i, align 4
   br label %do.body.i
@@ -780,18 +780,18 @@ do.body.i:                                        ; preds = %if.end13.i, %if.the
   %mul25.i = shl nsw i32 %rangesLength.0, 2
   %conv26.i = sext i32 %mul25.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24.i, ptr readonly align 4 %ranges.0, i64 %conv26.i, i1 false)
-  %reorderCodes28.i = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes28.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %21 = load ptr, ptr %reorderCodes28.i, align 8
   %22 = load i32, ptr %reorderCodesCapacity.i, align 4
   %idx.ext30.i = sext i32 %22 to i64
   %add.ptr31.i = getelementptr inbounds i32, ptr %21, i64 %idx.ext30.i
-  %reorderTable.i40 = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i40 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr31.i, ptr %reorderTable.i40, align 8
-  %reorderCodesLength.i41 = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i41 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %codesLength, ptr %reorderCodesLength.i41, align 8
-  %reorderRanges.i = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr24.i, ptr %reorderRanges.i, align 8
-  %reorderRangesLength.i42 = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i42 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %rangesLength.0, ptr %reorderRangesLength.i42, align 8
   br label %cleanup
 
@@ -816,13 +816,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add = add nsw i32 %rangesLength, %codesLength
-  %reorderCodesCapacity = getelementptr inbounds i8, ptr %this, i64 76
+  %reorderCodesCapacity = getelementptr inbounds nuw i8, ptr %this, i64 76
   %1 = load i32, ptr %reorderCodesCapacity, align 4
   %cmp.not = icmp sgt i32 %add, %1
   br i1 %cmp.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %reorderCodes = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %reorderCodes, align 8
   br label %do.body
 
@@ -837,13 +837,13 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.else
-  %reorderTable.i = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable.i, align 8
-  %minHighNoReorder.i = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %minHighNoReorder.i, align 8
-  %reorderRangesLength.i = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 0, ptr %reorderRangesLength.i, align 8
-  %reorderCodesLength.i = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %reorderCodesLength.i, align 8
   store i32 7, ptr %errorCode, align 4
   br label %return
@@ -854,13 +854,13 @@ if.end8:                                          ; preds = %if.else
   br i1 %cmp10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
-  %reorderCodes12 = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes12 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load ptr, ptr %reorderCodes12, align 8
   tail call void @uprv_free_75(ptr noundef %4)
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end8
-  %reorderCodes14 = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes14 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %call5, ptr %reorderCodes14, align 8
   store i32 %and, ptr %reorderCodesCapacity, align 4
   br label %do.body
@@ -879,18 +879,18 @@ do.body:                                          ; preds = %if.then2, %if.end13
   %mul25 = shl nsw i32 %rangesLength, 2
   %conv26 = sext i32 %mul25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr24, ptr align 4 %ranges, i64 %conv26, i1 false)
-  %reorderCodes28 = getelementptr inbounds i8, ptr %this, i64 64
+  %reorderCodes28 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load ptr, ptr %reorderCodes28, align 8
   %7 = load i32, ptr %reorderCodesCapacity, align 4
   %idx.ext30 = sext i32 %7 to i64
   %add.ptr31 = getelementptr inbounds i32, ptr %6, i64 %idx.ext30
-  %reorderTable = getelementptr inbounds i8, ptr %this, i64 32
+  %reorderTable = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr31, ptr %reorderTable, align 8
-  %reorderCodesLength = getelementptr inbounds i8, ptr %this, i64 72
+  %reorderCodesLength = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %codesLength, ptr %reorderCodesLength, align 8
-  %reorderRanges = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr24, ptr %reorderRanges, align 8
-  %reorderRangesLength = getelementptr inbounds i8, ptr %this, i64 56
+  %reorderRangesLength = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %rangesLength, ptr %reorderRangesLength, align 8
   br label %return
 
@@ -907,14 +907,14 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7517CollationSettings9reorderExEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %this, i32 noundef %p) local_unnamed_addr #7 align 2 {
 entry:
-  %minHighNoReorder = getelementptr inbounds i8, ptr %this, i64 40
+  %minHighNoReorder = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %minHighNoReorder, align 8
   %cmp.not = icmp ult i32 %p, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %or = or i32 %p, 65535
-  %reorderRanges = getelementptr inbounds i8, ptr %this, i64 48
+  %reorderRanges = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %reorderRanges, align 8
   br label %while.cond
 
@@ -922,7 +922,7 @@ while.cond:                                       ; preds = %while.cond, %if.end
   %ranges.0 = phi ptr [ %1, %if.end ], [ %incdec.ptr, %while.cond ]
   %2 = load i32, ptr %ranges.0, align 4
   %cmp2.not = icmp ult i32 %or, %2
-  %incdec.ptr = getelementptr inbounds i8, ptr %ranges.0, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ranges.0, i64 4
   br i1 %cmp2.not, label %while.end, label %while.cond, !llvm.loop !12
 
 while.end:                                        ; preds = %while.cond
@@ -943,7 +943,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %entry
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %options, align 8
   %and = and i32 %1, -61441
   switch i32 %value, label %sw.default [
@@ -990,7 +990,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %options, align 8
   %or = or i32 %1, %bit
   store i32 %or, ptr %options, align 8
@@ -998,14 +998,14 @@ sw.bb:                                            ; preds = %if.end
 
 sw.bb2:                                           ; preds = %if.end
   %not = xor i32 %bit, -1
-  %options3 = getelementptr inbounds i8, ptr %this, i64 24
+  %options3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %options3, align 8
   %and = and i32 %2, %not
   store i32 %and, ptr %options3, align 8
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %if.end
-  %options5 = getelementptr inbounds i8, ptr %this, i64 24
+  %options5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i32, ptr %options5, align 8
   %not6 = xor i32 %bit, -1
   %and7 = and i32 %3, %not6
@@ -1030,7 +1030,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %entry
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %options, align 8
   %and = and i32 %1, -769
   switch i32 %value, label %sw.default [
@@ -1076,7 +1076,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %entry
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %options, align 8
   %and = and i32 %1, -13
   switch i32 %value, label %sw.default [
@@ -1116,7 +1116,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %entry
-  %options = getelementptr inbounds i8, ptr %this, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %options, align 8
   %and = and i32 %1, -113
   switch i32 %value, label %sw.default [

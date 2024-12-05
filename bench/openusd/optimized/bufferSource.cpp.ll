@@ -88,24 +88,24 @@ define linkonce_odr noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__6TfHashcl
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call { i32, i64 } %7(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %9 = extractvalue { i32, i64 } %8, 0
   %10 = extractvalue { i32, i64 } %8, 1
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %15 = tail call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__21HdDataSizeOfTupleTypeENS_11HdTupleTypeE(i32 %9, i64 %10)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %20 = mul i64 %19, %15
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Tf_HashState12_AppendBytesEPKcm(ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef %14, i64 noundef %20)
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr %23(ptr noundef nonnull align 8 dereferenceable(12) %1)
   %25 = load ptr, ptr %24, align 8
@@ -170,7 +170,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSource7IsValidEv(ptr noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(12) %0)
   ret i1 %5
@@ -205,7 +205,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr %14(ptr noundef nonnull align 8 dereferenceable(12) %3)
   br label %16
@@ -265,7 +265,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__22HdComputedBufferSour
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(12) %4)
   br label %15
@@ -300,7 +300,7 @@ define { i32, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__22HdComputedBufferSou
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = tail call { i32, i64 } %13(ptr noundef nonnull align 8 dereferenceable(12) %4)
   %15 = extractvalue { i32, i64 } %14, 0
@@ -324,7 +324,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__22HdComputedBufferSour
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(12) %3)
   br label %9
@@ -434,7 +434,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdComputedBuffe
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -460,7 +460,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdComputedBuffe
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -485,7 +485,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__22HdComputedBuffe
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__14HdBufferSourceEED2Ev.exit

@@ -234,7 +234,7 @@ define internal noundef i32 @dissect_metamako(ptr noundef %0, ptr noundef %1, pt
   br i1 %20, label %.lr.ph254, label %.thread
 
 .lr.ph254:                                        ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %22
 
 22:                                               ; preds = %.lr.ph254, %validate_metamako_timestamp.exit.thread
@@ -351,14 +351,14 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   br i1 %78, label %22, label %79, !llvm.loop !6
 
 79:                                               ; preds = %validate_metamako_timestamp.exit.thread
-  %80 = getelementptr inbounds i8, ptr %5, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %28, ptr %80, align 8
   %.not = icmp eq i32 %.0188252, 1
   store i64 %31, ptr %5, align 8
   br i1 %.1213, label %.thread, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load ptr, ptr %82, align 8
   tail call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.79) #6
   %84 = load i32, ptr @proto_metamako, align 4
@@ -517,12 +517,12 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   br i1 %.not222, label %177, label %168
 
 168:                                              ; preds = %.loopexit238
-  %169 = getelementptr inbounds i8, ptr %167, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %170 = load i32, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %167, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = load i32, ptr %167, align 8
-  %174 = getelementptr inbounds i8, ptr %5, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %175 = load i32, ptr %174, align 8
   %176 = sext i32 %175 to i64
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.87, i32 noundef %170, i32 noundef %172, i32 noundef %173, i64 noundef %176) #6
@@ -539,20 +539,20 @@ validate_metamako_timestamp.exit.thread:          ; preds = %48, %45, %36, %34, 
   br i1 %.not.i232, label %proto_item_set_generated.exit, label %181
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %180, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %183 = load ptr, ptr %182, align 8
   %.not5.i = icmp eq ptr %183, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %184
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %183, i64 28
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 28
   %186 = load i32, ptr %185, align 4
   %187 = or i32 %186, 2
   store i32 %187, ptr %185, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %178, %181, %184
-  %188 = getelementptr inbounds i8, ptr %1, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %188, ptr noundef nonnull %5) #6
   %189 = load i32, ptr @hf_metamako_time_diff, align 4
   %190 = call ptr @proto_tree_add_time(ptr noundef %166, i32 noundef %189, ptr noundef %0, i32 noundef %.2, i32 noundef 8, ptr noundef nonnull %6) #6
@@ -560,13 +560,13 @@ proto_item_set_generated.exit:                    ; preds = %178, %181, %184
   br i1 %.not.i233, label %proto_item_set_generated.exit235, label %191
 
 191:                                              ; preds = %proto_item_set_generated.exit
-  %192 = getelementptr inbounds i8, ptr %190, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %193 = load ptr, ptr %192, align 8
   %.not5.i234 = icmp eq ptr %193, null
   br i1 %.not5.i234, label %proto_item_set_generated.exit235, label %194
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %193, i64 28
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 28
   %196 = load i32, ptr %195, align 4
   %197 = or i32 %196, 2
   store i32 %197, ptr %195, align 4

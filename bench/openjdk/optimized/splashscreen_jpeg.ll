@@ -15,20 +15,20 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 2) i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ImageFormat, align 8
   %4 = tail call i32 @jReadHeader(ptr noundef %1, i32 noundef 1) #11
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 2, ptr %5, align 8
   %6 = tail call i32 @jStrtDecompress(ptr noundef %1) #11
   tail call void @SplashCleanup(ptr noundef %0) #11
-  %7 = getelementptr inbounds i8, ptr %1, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 10440
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 140
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 10444
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 9320
-  %14 = getelementptr inbounds i8, ptr %0, i64 9352
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 9352
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   %17 = icmp sgt i32 %8, 0
@@ -56,7 +56,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef 
   br i1 %.not, label %85, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 148
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %85
@@ -67,16 +67,16 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef 
   br i1 %35, label %36, label %85
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 10448
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   store i32 1, ptr %37, align 8
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
-  %38 = getelementptr inbounds i8, ptr %0, i64 10456
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   store ptr %calloc, ptr %38, align 8
   %39 = icmp eq ptr %calloc, null
   br i1 %39, label %85, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 10632
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 10632
   store i32 1, ptr %41, align 8
   %42 = mul nuw nsw i32 %22, %11
   %43 = zext nneg i32 %42 to i64
@@ -93,9 +93,9 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef 
   %48 = load i32, ptr %7, align 8
   %49 = load i32, ptr %30, align 4
   %50 = mul i32 %49, %48
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %1, i32 noundef 1, i32 noundef %50, i32 noundef 1) #11
   %56 = icmp eq ptr %55, null
@@ -111,15 +111,15 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef 
 
 61:                                               ; preds = %47
   call void @initFormat(ptr noundef nonnull %3, i32 noundef 16711680, i32 noundef 65280, i32 noundef 255, i32 noundef 0) #11
-  %62 = getelementptr inbounds i8, ptr %3, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %3, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 -16777216, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 10436
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 10436
   store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 168
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %67 = load i32, ptr %66, align 8
   %68 = load i32, ptr %10, align 4
   %69 = icmp ult i32 %67, %68
@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef 
   %72 = load ptr, ptr %71, align 8
   %73 = mul i32 %70, %22
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %74
   %76 = call i32 @jReadScanlines(ptr noundef nonnull %1, ptr noundef nonnull %55, i32 noundef 1) #11
   %77 = load ptr, ptr %55, align 8
   %78 = load i32, ptr %14, align 8
@@ -182,20 +182,20 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpegStream(ptr noundef %0, ptr no
   %5 = call ptr @jStdError(ptr noundef nonnull %4) #11
   store ptr %5, ptr %3, align 8
   store ptr @my_error_exit, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %7 = call i32 @_setjmp(ptr noundef nonnull %6) #13
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %29
 
 8:                                                ; preds = %2
   call void @jCreaDecompress(ptr noundef nonnull %3, i32 noundef 62, i64 noundef 632) #11
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %set_stream_src.exit
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr %15(ptr noundef nonnull %3, i32 noundef 0, i64 noundef 80) #11
@@ -203,24 +203,24 @@ define hidden range(i32 0, 2) i32 @SplashDecodeJpegStream(ptr noundef %0, ptr no
   %17 = load ptr, ptr %13, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr %18(ptr noundef nonnull %3, i32 noundef 0, i64 noundef 4096) #11
-  %20 = getelementptr inbounds i8, ptr %16, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr %19, ptr %20, align 8
   %.pre.i = load ptr, ptr %9, align 8
   br label %set_stream_src.exit
 
 set_stream_src.exit:                              ; preds = %8, %12
   %21 = phi ptr [ %.pre.i, %12 ], [ %10, %8 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr @stream_init_source, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @stream_fill_input_buffer, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr @stream_skip_input_data, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr @jResyncRestart, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr @stream_term_source, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store ptr %1, ptr %27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %28 = call i32 @SplashDecodeJpeg(ptr noundef %0, ptr noundef nonnull %3)
@@ -237,10 +237,10 @@ declare ptr @jStdError(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #5 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %0) #11
-  %5 = getelementptr inbounds i8, ptr %2, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %5, i32 noundef 1) #14
   unreachable
 }
@@ -257,21 +257,21 @@ declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @stream_init_source(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @stream_fill_input_buffer(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %6(ptr noundef nonnull %5, ptr noundef %8, i32 noundef 4096) #11
   %10 = sext i32 %9 to i64
@@ -279,14 +279,14 @@ define internal noundef i32 @stream_fill_input_buffer(ptr noundef %0) #0 {
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %3, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 42, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
@@ -295,16 +295,16 @@ define internal noundef i32 @stream_fill_input_buffer(ptr noundef %0) #0 {
 
 20:                                               ; preds = %15, %12
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 120, ptr %22, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0, i32 noundef -1) #11
   %26 = load ptr, ptr %7, align 8
   store i8 -1, ptr %26, align 1
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 -39, ptr %28, align 1
   br label %29
 
@@ -312,22 +312,22 @@ define internal noundef i32 @stream_fill_input_buffer(ptr noundef %0) #0 {
   %.0 = phi i64 [ 2, %20 ], [ %10, %1 ]
   %30 = load ptr, ptr %7, align 8
   store ptr %30, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 0, ptr %32, align 8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @stream_skip_input_data(ptr noundef %0, i64 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.preheader, label %45
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -337,10 +337,10 @@ define internal void @stream_skip_input_data(ptr noundef %0, i64 noundef %1) #0 
   %.013 = phi i64 [ %10, %stream_fill_input_buffer.exit ], [ %1, %.preheader ]
   %10 = sub nsw i64 %.013, %9
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %14(ptr noundef nonnull %13, ptr noundef %16, i32 noundef 4096) #11
   %18 = sext i32 %17 to i64
@@ -348,14 +348,14 @@ define internal void @stream_skip_input_data(ptr noundef %0, i64 noundef %1) #0 
   br i1 %19, label %20, label %stream_fill_input_buffer.exit
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %11, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %22 = load i32, ptr %21, align 8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %28, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 42, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %26, align 8
@@ -364,16 +364,16 @@ define internal void @stream_skip_input_data(ptr noundef %0, i64 noundef %1) #0 
 
 28:                                               ; preds = %23, %20
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 120, ptr %30, align 8
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, i32 noundef -1) #11
   %34 = load ptr, ptr %15, align 8
   store i8 -1, ptr %34, align 1
   %35 = load ptr, ptr %15, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 -39, ptr %36, align 1
   br label %stream_fill_input_buffer.exit
 
@@ -381,9 +381,9 @@ stream_fill_input_buffer.exit:                    ; preds = %.lr.ph, %28
   %.0.i = phi i64 [ 2, %28 ], [ %18, %.lr.ph ]
   %37 = load ptr, ptr %15, align 8
   store ptr %37, ptr %11, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.0.i, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %11, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 0, ptr %39, align 8
   %40 = load i64, ptr %6, align 8
   %41 = icmp sgt i64 %10, %40

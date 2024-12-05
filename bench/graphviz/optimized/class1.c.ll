@@ -52,9 +52,9 @@ define void @class1(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph54, %nonconstraint_edge.exit.thread
   %.03750 = phi ptr [ %126, %nonconstraint_edge.exit.thread ], [ %3, %.lr.ph54 ]
-  %4 = getelementptr inbounds i8, ptr %.03750, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.03750, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %.not42 = icmp eq ptr %7, null
   br i1 %.not42, label %8, label %nonconstraint_edge.exit.thread
@@ -82,9 +82,9 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
   %16 = load i32, ptr %.03750, align 8
   %17 = and i32 %16, 3
   %18 = icmp eq i32 %17, 3
-  %19 = getelementptr inbounds i8, ptr %.03750, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.03750, i64 64
   %20 = select i1 %18, ptr %.03750, ptr %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @UF_find(ptr noundef %22) #3
   %24 = load i32, ptr %.03750, align 8
@@ -92,24 +92,24 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
   %26 = icmp eq i32 %25, 2
   %27 = getelementptr inbounds i8, ptr %.03750, i64 -64
   %28 = select i1 %26, ptr %.03750, ptr %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @UF_find(ptr noundef %30) #3
   %32 = icmp eq ptr %23, %31
   br i1 %32, label %nonconstraint_edge.exit.thread, label %33
 
 33:                                               ; preds = %nonconstraint_edge.exit
-  %34 = getelementptr inbounds i8, ptr %23, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 336
   %37 = load ptr, ptr %36, align 8
   %.not43 = icmp eq ptr %37, null
   br i1 %.not43, label %38, label %43
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %31, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 336
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 336
   %42 = load ptr, ptr %41, align 8
   %.not44 = icmp eq ptr %42, null
   br i1 %.not44, label %121, label %43
@@ -119,33 +119,33 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 3
   %47 = select i1 %46, ptr %.03750, ptr %19
-  %48 = getelementptr inbounds i8, ptr %47, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq i32 %45, 2
   %51 = select i1 %50, ptr %.03750, ptr %27
-  %52 = getelementptr inbounds i8, ptr %51, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8
   %.idx.i = select i1 %46, i64 0, i64 64
-  %54 = getelementptr inbounds i8, ptr %.03750, i64 %.idx.i
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.03750, i64 %.idx.i
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 336
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 336
   %60 = load ptr, ptr %59, align 8
   %.not.i46 = icmp eq ptr %60, null
   br i1 %.not.i46, label %73, label %61
 
 61:                                               ; preds = %43
-  %62 = getelementptr inbounds i8, ptr %58, i64 360
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 360
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 384
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 384
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 360
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 360
   %71 = load i32, ptr %70, align 8
   %72 = sub nsw i32 %63, %71
   br label %73
@@ -154,25 +154,25 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
   %.040.i = phi i32 [ %72, %61 ], [ 0, %43 ]
   %.idx44.i = select i1 %50, i64 0, i64 -64
   %74 = getelementptr inbounds i8, ptr %.03750, i64 %.idx44.i
-  %75 = getelementptr inbounds i8, ptr %74, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 336
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 336
   %80 = load ptr, ptr %79, align 8
   %.not45.i = icmp eq ptr %80, null
   br i1 %.not45.i, label %interclust1.exit, label %81
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %78, i64 360
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 360
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 384
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 384
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 360
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 360
   %91 = load i32, ptr %90, align 8
   %.neg.i = sub i32 %91, %83
   br label %interclust1.exit
@@ -180,7 +180,7 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
 interclust1.exit:                                 ; preds = %73, %81
   %.039.neg.i = phi i32 [ %.neg.i, %81 ], [ 0, %73 ]
   %92 = load ptr, ptr %4, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 228
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 228
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %.039.neg.i, %.040.i
   %96 = add i32 %95, %94
@@ -191,28 +191,28 @@ interclust1.exit:                                 ; preds = %73, %81
   %.038.i = uitofp nneg i32 %.03846.i to double
   %.0.i47 = select i1 %97, double 0.000000e+00, double %99
   %100 = tail call ptr @virtual_node(ptr noundef %0) #3
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 216
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 216
   store i8 2, ptr %103, align 8
   %104 = tail call ptr @UF_find(ptr noundef %49) #3
   %105 = tail call ptr @UF_find(ptr noundef %53) #3
   %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 212
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 212
   %108 = load i32, ptr %107, align 4
   %109 = mul nsw i32 %108, 10
   %110 = tail call ptr @make_aux_edge(ptr noundef %100, ptr noundef %104, double noundef %.0.i47, i32 noundef %109) #3
   %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 212
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 212
   %113 = load i32, ptr %112, align 4
   %114 = tail call ptr @make_aux_edge(ptr noundef %100, ptr noundef %105, double noundef %.038.i, i32 noundef %113) #3
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 160
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 160
   store ptr %.03750, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 160
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 160
   store ptr %.03750, ptr %120, align 8
   br label %nonconstraint_edge.exit.thread
 

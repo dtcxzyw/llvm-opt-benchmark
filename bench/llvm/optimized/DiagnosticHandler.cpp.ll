@@ -107,7 +107,7 @@ define internal void @_ZN12_GLOBAL__N_114PassRemarksOptD2Ev(ptr nocapture nounde
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -133,7 +133,7 @@ define internal void @_ZN12_GLOBAL__N_114PassRemarksOptD2Ev(ptr nocapture nounde
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -158,7 +158,7 @@ define internal void @_ZN12_GLOBAL__N_114PassRemarksOptD2Ev(ptr nocapture nounde
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt10shared_ptrIN4llvm5RegexEED2Ev.exit
@@ -200,7 +200,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #16
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -343,7 +343,7 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarks
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %22 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val = load ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -386,7 +386,7 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarks
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 0, ptr %39, align 4
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -412,7 +412,7 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarks
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 12
@@ -437,7 +437,7 @@ define internal noundef zeroext i1 @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarks
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %62, %38
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   br label %_ZNSt10shared_ptrIN4llvm5RegexEED2Ev.exit.i.i
@@ -546,7 +546,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i.i: ; preds = %12, %_Z
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #16
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit, label %18
 
@@ -582,7 +582,7 @@ define internal void @_ZNK4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENS0_6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE10setDefaultEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.val = load ptr, ptr %2, align 8
   store ptr null, ptr %.val, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val, i64 8
@@ -602,7 +602,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENS0_6p
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -628,7 +628,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENS0_6p
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -653,7 +653,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENS0_6p
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %34, %10
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i.i
@@ -745,7 +745,7 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %22 = load i8, ptr %21, align 1, !noalias !13
   %23 = icmp eq i8 %22, 1
   %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !13
-  %.sroa.36.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.36.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i = load i64, ptr %.sroa.36.0..sroa_idx.i, align 8, !noalias !13
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
@@ -754,17 +754,17 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %25 = load i8, ptr %24, align 1, !noalias !13
   %26 = icmp eq i8 %25, 1
   %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !13
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !13
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.3.0.i = select i1 %26, i64 %.sroa.3.0.copyload.i, i64 undef
   store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !13
-  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.36.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !alias.scope !13
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !13
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.014.i, ptr %28, align 8, !alias.scope !13
@@ -867,7 +867,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -974,15 +974,15 @@ define internal void @_GLOBAL__sub_I_DiagnosticHandler.cpp() #13 section ".text.
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 168), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, ptr nonnull @.str, i64 12) #16
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 48), align 8
-  store i64 7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 56), align 8
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 56), align 8
   store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 32), align 8
-  store i64 85, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 40), align 8
+  store i64 85, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 40), align 8
   %7 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 10), align 2
   %8 = and i16 %7, -97
   %9 = or disjoint i16 %8, 32
   store i16 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 10), align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 128), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 128), align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %16, label %11
 
@@ -998,7 +998,7 @@ define internal void @_GLOBAL__sub_I_DiagnosticHandler.cpp() #13 section ".text.
   br label %__cxx_global_var_init.3.exit
 
 16:                                               ; preds = %0
-  store ptr @_ZN12_GLOBAL__N_123PassRemarksPassedOptLocE, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 128), align 8
+  store ptr @_ZN12_GLOBAL__N_123PassRemarksPassedOptLocE, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_111PassRemarksB5cxx11E, i64 128), align 8
   br label %__cxx_global_var_init.3.exit
 
 __cxx_global_var_init.3.exit:                     ; preds = %11, %16
@@ -1020,15 +1020,15 @@ __cxx_global_var_init.3.exit:                     ; preds = %11, %16
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 168), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, ptr nonnull @.str.7, i64 19) #16
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 48), align 8
-  store i64 7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 56), align 8
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 56), align 8
   store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 32), align 8
-  store i64 92, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 40), align 8
+  store i64 92, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 40), align 8
   %21 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 10), align 2
   %22 = and i16 %21, -97
   %23 = or disjoint i16 %22, 32
   store i16 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 10), align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 128), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 128), align 8
   %.not.i.i.i.i.i.i.i.i.i.i1 = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i1, label %30, label %25
 
@@ -1044,7 +1044,7 @@ __cxx_global_var_init.3.exit:                     ; preds = %11, %16
   br label %__cxx_global_var_init.6.exit
 
 30:                                               ; preds = %__cxx_global_var_init.3.exit
-  store ptr @_ZN12_GLOBAL__N_123PassRemarksMissedOptLocE, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 128), align 8
+  store ptr @_ZN12_GLOBAL__N_123PassRemarksMissedOptLocE, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_117PassRemarksMissedB5cxx11E, i64 128), align 8
   br label %__cxx_global_var_init.6.exit
 
 __cxx_global_var_init.6.exit:                     ; preds = %25, %30
@@ -1066,15 +1066,15 @@ __cxx_global_var_init.6.exit:                     ; preds = %25, %30
   store ptr @_ZNSt17_Function_handlerIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm2cl3optIN12_GLOBAL__N_114PassRemarksOptELb1ENSA_6parserIS5_EEEUlS7_E_EE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 168), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, ptr nonnull @.str.10, i64 21) #16
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 48), align 8
-  store i64 7, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 56), align 8
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 56), align 8
   store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 32), align 8
-  store i64 94, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 40), align 8
+  store i64 94, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 40), align 8
   %35 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 10), align 2
   %36 = and i16 %35, -97
   %37 = or disjoint i16 %36, 32
   store i16 %37, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 10), align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 128), align 8
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 128), align 8
   %.not.i.i.i.i.i.i.i.i.i.i3 = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i3, label %44, label %39
 
@@ -1090,7 +1090,7 @@ __cxx_global_var_init.6.exit:                     ; preds = %25, %30
   br label %__cxx_global_var_init.9.exit
 
 44:                                               ; preds = %__cxx_global_var_init.6.exit
-  store ptr @_ZN12_GLOBAL__N_125PassRemarksAnalysisOptLocE, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 128), align 8
+  store ptr @_ZN12_GLOBAL__N_125PassRemarksAnalysisOptLocE, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_119PassRemarksAnalysisB5cxx11E, i64 128), align 8
   br label %__cxx_global_var_init.9.exit
 
 __cxx_global_var_init.9.exit:                     ; preds = %39, %44

@@ -42,21 +42,21 @@ define void @sswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv92 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next93, %.lr.ph83 ]
-  %19 = getelementptr inbounds float, ptr %1, i64 %indvars.iv92
+  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv92
   %20 = load float, ptr %19, align 4
   %21 = add nuw nsw i64 %indvars.iv92, 1
-  %22 = getelementptr inbounds float, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw float, ptr %1, i64 %21
   %23 = load float, ptr %22, align 4
   %24 = add nuw nsw i64 %indvars.iv92, 2
-  %25 = getelementptr inbounds float, ptr %1, i64 %24
+  %25 = getelementptr inbounds nuw float, ptr %1, i64 %24
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds float, ptr %3, i64 %indvars.iv92
+  %27 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv92
   %28 = load float, ptr %27, align 4
   store float %28, ptr %19, align 4
-  %29 = getelementptr inbounds float, ptr %3, i64 %21
+  %29 = getelementptr inbounds nuw float, ptr %3, i64 %21
   %30 = load float, ptr %29, align 4
   store float %30, ptr %22, align 4
-  %31 = getelementptr inbounds float, ptr %3, i64 %24
+  %31 = getelementptr inbounds nuw float, ptr %3, i64 %24
   %32 = load float, ptr %31, align 4
   store float %32, ptr %25, align 4
   store float %20, ptr %27, align 4
@@ -68,9 +68,9 @@ define void @sswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv95 = phi i64 [ %18, %.lr.ph85.preheader ], [ %indvars.iv.next96, %.lr.ph85 ]
-  %34 = getelementptr inbounds float, ptr %1, i64 %indvars.iv95
+  %34 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv95
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds float, ptr %3, i64 %indvars.iv95
+  %36 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv95
   %37 = load float, ptr %36, align 4
   store float %37, ptr %34, align 4
   store float %35, ptr %36, align 4

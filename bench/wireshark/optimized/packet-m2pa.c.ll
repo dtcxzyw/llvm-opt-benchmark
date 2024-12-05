@@ -171,9 +171,9 @@ define internal i32 @dissect_m2pa(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_m2pa, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_m2pa, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull %switch.load) #2
   br label %10
@@ -192,7 +192,7 @@ switch.lookup:                                    ; preds = %4
 
 16:                                               ; preds = %10
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #2
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i16 %17 to i32
   %21 = tail call ptr @val_to_str_const(i32 noundef %20, ptr noundef nonnull @v2_message_type_values, ptr noundef nonnull @.str.69) #2
@@ -263,7 +263,7 @@ dissect_v2_user_data_message.exit.i.i:            ; preds = %38, %36
 
 58:                                               ; preds = %10
   %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = zext i8 %59 to i32
   %63 = tail call ptr @val_to_str_const(i32 noundef %62, ptr noundef nonnull @v8_message_type_values, ptr noundef nonnull @.str.73) #2
@@ -352,7 +352,7 @@ dissect_v2_user_data_message.exit.i.i:            ; preds = %38, %36
 
 118:                                              ; preds = %10
   %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
-  %120 = getelementptr inbounds i8, ptr %1, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = zext i8 %119 to i32
   %123 = tail call ptr @val_to_str_const(i32 noundef %122, ptr noundef nonnull @v8_message_type_values, ptr noundef nonnull @.str.73) #2

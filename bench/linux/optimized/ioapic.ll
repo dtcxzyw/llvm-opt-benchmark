@@ -71,14 +71,14 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 14
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 4
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %.thread11, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %12, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread11, label %21
@@ -151,15 +151,15 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
 
 48:                                               ; preds = %42
   store ptr %2, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %0, ptr %49, align 8
   %50 = load i64, ptr %6, align 8
   %51 = trunc i64 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %44, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %44, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 96
   store volatile ptr %53, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %44, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 104
   store volatile ptr %53, ptr %54, align 8
   %55 = call i32 @acpi_ioapic_registered(ptr noundef %0, i32 noundef %51) #8
   %56 = icmp eq i32 %55, 0
@@ -171,8 +171,8 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   br i1 %59, label %77, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 920
-  %62 = getelementptr inbounds i8, ptr %58, i64 928
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 920
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 928
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %77, label %65
@@ -195,7 +195,7 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   br i1 %74, label %75, label %.thread13
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %44, i64 88
+  %76 = getelementptr inbounds nuw i8, ptr %44, i64 88
   store ptr %58, ptr %76, align 8
   br label %78
 
@@ -206,15 +206,15 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
 78:                                               ; preds = %77, %75
   %79 = phi ptr [ %61, %75 ], [ null, %77 ]
   %80 = phi ptr [ %58, %75 ], [ null, %77 ]
-  %81 = getelementptr inbounds i8, ptr %44, i64 24
-  %82 = call i32 @acpi_walk_resources(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @setup_res, ptr noundef %81) #8
-  %83 = getelementptr inbounds i8, ptr %44, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %82 = call i32 @acpi_walk_resources(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @setup_res, ptr noundef nonnull %81) #8
+  %83 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr %28, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %44, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %85 = load i64, ptr %84, align 8
   %86 = or i64 %85, 2147483648
   store i64 %86, ptr %84, align 8
-  %87 = call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef %81) #8
+  %87 = call i32 @insert_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull %81) #8
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %116
 
@@ -223,7 +223,7 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   br i1 %90, label %95, label %91
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %79, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %93 = load i64, ptr %92, align 8
   %94 = icmp eq i64 %93, 0
   br i1 %94, label %95, label %96
@@ -244,7 +244,7 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   %104 = phi ptr [ null, %48 ], [ %97, %96 ]
   %105 = phi ptr [ null, %48 ], [ %80, %96 ]
   %106 = load ptr, ptr @ioapic_list, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %53, ptr %107, align 8
   store ptr %106, ptr %53, align 8
   store ptr @ioapic_list, ptr %54, align 8
@@ -254,10 +254,10 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %105, i64 184
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 184
   %111 = load i64, ptr %6, align 8
   %112 = trunc i64 %111 to i32
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %110, ptr noundef nonnull @.str.8, ptr noundef nonnull %28, ptr noundef %104, i32 noundef %112) #10
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %110, ptr noundef nonnull @.str.8, ptr noundef nonnull %28, ptr noundef %104, i32 noundef %112) #10
   br label %134
 
 113:                                              ; preds = %103
@@ -282,13 +282,13 @@ define internal noundef i32 @handle_ioapic_add(ptr noundef %0, i32 %1, ptr nound
   br i1 %122, label %129, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %44, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %129, label %127
 
 127:                                              ; preds = %123
-  %128 = call i32 @release_resource(ptr noundef %81) #8
+  %128 = call i32 @release_resource(ptr noundef nonnull %81) #8
   br label %129
 
 129:                                              ; preds = %127, %123, %120
@@ -330,7 +330,7 @@ define dso_local void @pci_ioapic_remove(ptr nocapture noundef readonly %0) loca
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %4, i64 -96
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = icmp eq ptr %9, %10
@@ -387,7 +387,7 @@ define dso_local range(i32 -16, 1) i32 @acpi_ioapic_remove(ptr nocapture noundef
   %6 = getelementptr i8, ptr %5, i64 -96
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = icmp eq ptr %10, %11
@@ -418,10 +418,10 @@ define dso_local range(i32 -16, 1) i32 @acpi_ioapic_remove(ptr nocapture noundef
   br label %31
 
 31:                                               ; preds = %29, %25, %13
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %33, ptr %35, align 8
   store volatile ptr %34, ptr %33, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
@@ -480,7 +480,7 @@ declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef
 define internal noundef range(i32 0, 16388) i32 @setup_res(ptr noundef %0, ptr noundef initializes((24, 32)) %1) #0 align 16 {
   %3 = alloca %struct.resource_win, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   store i64 0, ptr %4, align 8
   %5 = tail call i32 @acpi_dev_filter_resource_type(ptr noundef %0, i64 noundef 512) #8

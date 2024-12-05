@@ -12,7 +12,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %L = getelementptr inbounds i8, ptr %sb, i64 24
+  %L = getelementptr inbounds nuw i8, ptr %sb, i64 24
   %0 = load i64, ptr %L, align 8
   %and = and i64 %0, -8
   %1 = inttoptr i64 %and to ptr
@@ -21,7 +21,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call fastcc void @buf_grow(ptr noundef %sb, i32 noundef %sz)
-  %b = getelementptr inbounds i8, ptr %sb, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %2 = load ptr, ptr %b, align 8
   ret ptr %2
 }
@@ -32,9 +32,9 @@ declare hidden void @lj_err_mem(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @buf_grow(ptr nocapture noundef %sb, i32 noundef %sz) unnamed_addr #0 {
 entry:
-  %e = getelementptr inbounds i8, ptr %sb, i64 8
+  %e = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %0 = load ptr, ptr %e, align 8
-  %b = getelementptr inbounds i8, ptr %sb, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %1 = load ptr, ptr %b, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -53,7 +53,7 @@ while.cond:                                       ; preds = %while.cond, %entry
 
 while.end:                                        ; preds = %while.cond
   %sub.ptr.sub4 = sub i64 %sub.ptr.lhs.cast2, %sub.ptr.rhs.cast
-  %L = getelementptr inbounds i8, ptr %sb, i64 24
+  %L = getelementptr inbounds nuw i8, ptr %sb, i64 24
   %3 = load i64, ptr %L, align 8
   %and = and i64 %3, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -66,7 +66,7 @@ if.then10:                                        ; preds = %while.end
   %call = tail call ptr @lj_mem_realloc(ptr noundef %4, ptr noundef null, i64 noundef 0, i64 noundef %conv14) #8
   %and15 = and i64 %3, -3
   store i64 %and15, ptr %L, align 8
-  %5 = getelementptr inbounds i8, ptr %sb, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %sb, i64 32
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %b, align 8
   %conv19 = and i64 %sub.ptr.sub, 4294967295
@@ -86,7 +86,7 @@ if.end27:                                         ; preds = %if.else, %if.then10
   br i1 %tobool29.not, label %if.end36, label %if.then30
 
 if.then30:                                        ; preds = %if.end27
-  %r = getelementptr inbounds i8, ptr %sb, i64 40
+  %r = getelementptr inbounds nuw i8, ptr %sb, i64 40
   %7 = load ptr, ptr %r, align 8
   %8 = load ptr, ptr %b, align 8
   %sub.ptr.lhs.cast32 = ptrtoint ptr %7 to i64
@@ -99,23 +99,23 @@ if.then30:                                        ; preds = %if.end27
 if.end36:                                         ; preds = %if.then30, %if.end27
   store ptr %b6.0, ptr %b, align 8
   %idx.ext = and i64 %sub.ptr.sub4, 4294967295
-  %add.ptr38 = getelementptr inbounds i8, ptr %b6.0, i64 %idx.ext
+  %add.ptr38 = getelementptr inbounds nuw i8, ptr %b6.0, i64 %idx.ext
   store ptr %add.ptr38, ptr %sb, align 8
   %idx.ext40 = zext i32 %nsz.0 to i64
-  %add.ptr41 = getelementptr inbounds i8, ptr %b6.0, i64 %idx.ext40
+  %add.ptr41 = getelementptr inbounds nuw i8, ptr %b6.0, i64 %idx.ext40
   store ptr %add.ptr41, ptr %e, align 8
   %and43 = and i64 %3, 4
   %tobool44.not = icmp eq i64 %and43, 0
   br i1 %tobool44.not, label %if.end54, label %if.then45
 
 if.then45:                                        ; preds = %if.end36
-  %9 = getelementptr inbounds i8, ptr %sb, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %sb, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %b47 = getelementptr inbounds i8, ptr %11, i64 16
+  %b47 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %b6.0, ptr %b47, align 8
   store ptr %add.ptr38, ptr %11, align 8
-  %e53 = getelementptr inbounds i8, ptr %11, i64 8
+  %e53 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %add.ptr41, ptr %e53, align 8
   br label %if.end54
 
@@ -126,7 +126,7 @@ if.end54:                                         ; preds = %if.then45, %if.end3
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_buf_more2(ptr nocapture noundef %sb, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
-  %L = getelementptr inbounds i8, ptr %sb, i64 24
+  %L = getelementptr inbounds nuw i8, ptr %sb, i64 24
   %0 = load i64, ptr %L, align 8
   %and = and i64 %0, 1
   %tobool.not = icmp eq i64 %and, 0
@@ -136,7 +136,7 @@ entry:
   br i1 %tobool.not, label %if.else62, label %if.then
 
 if.then:                                          ; preds = %entry
-  %r = getelementptr inbounds i8, ptr %sb, i64 40
+  %r = getelementptr inbounds nuw i8, ptr %sb, i64 40
   %2 = load ptr, ptr %r, align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast
@@ -153,9 +153,9 @@ if.then7:                                         ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %e = getelementptr inbounds i8, ptr %sb, i64 8
+  %e = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %5 = load ptr, ptr %e, align 8
-  %b = getelementptr inbounds i8, ptr %sb, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %6 = load ptr, ptr %b, align 8
   %sub.ptr.lhs.cast12 = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %6 to i64
@@ -200,12 +200,12 @@ if.then53:                                        ; preds = %if.end48
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %7, ptr align 1 %8, i64 %conv56, i1 false)
   %9 = load ptr, ptr %b, align 8
   store ptr %9, ptr %r, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %conv56
+  %add.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %conv56
   store ptr %add.ptr, ptr %sb, align 8
   br label %return
 
 if.else62:                                        ; preds = %entry
-  %b65 = getelementptr inbounds i8, ptr %sb, i64 16
+  %b65 = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %10 = load ptr, ptr %b65, align 8
   %sub.ptr.rhs.cast67 = ptrtoint ptr %10 to i64
   %sub.ptr.sub68 = sub i64 %sub.ptr.lhs.cast66, %sub.ptr.rhs.cast67
@@ -236,9 +236,9 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_buf_shrink(ptr noundef %L, ptr nocapture noundef %sb) local_unnamed_addr #0 {
 entry:
-  %b1 = getelementptr inbounds i8, ptr %sb, i64 16
+  %b1 = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %0 = load ptr, ptr %b1, align 8
-  %e = getelementptr inbounds i8, ptr %sb, i64 8
+  %e = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
@@ -257,9 +257,9 @@ if.then:                                          ; preds = %entry
   %call = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef %0, i64 noundef %conv7, i64 noundef %conv8) #8
   store ptr %call, ptr %b1, align 8
   %idx.ext = and i64 %sub.ptr.sub5, 4294967295
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %idx.ext
   store ptr %add.ptr, ptr %sb, align 8
-  %add.ptr13 = getelementptr inbounds i8, ptr %call, i64 %conv8
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %call, i64 %conv8
   store ptr %add.ptr13, ptr %e, align 8
   br label %if.end
 
@@ -272,15 +272,15 @@ declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 no
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_buf_tmp(ptr noundef %L, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = ptrtoint ptr %L to i64
-  %L1 = getelementptr inbounds i8, ptr %1, i64 224
+  %L1 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store i64 %2, ptr %L1, align 8
-  %e.i = getelementptr inbounds i8, ptr %1, i64 208
+  %e.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %3 = load ptr, ptr %e.i, align 8
-  %b.i = getelementptr inbounds i8, ptr %1, i64 216
+  %b.i = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load ptr, ptr %b.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
@@ -300,7 +300,7 @@ if.then.i9:                                       ; preds = %if.then.i
   unreachable
 
 lj_buf_need2.exit:                                ; preds = %if.then.i
-  %tmpbuf = getelementptr inbounds i8, ptr %1, i64 200
+  %tmpbuf = getelementptr inbounds nuw i8, ptr %1, i64 200
   tail call fastcc void @buf_grow(ptr noundef nonnull %tmpbuf, i32 noundef %sz)
   %6 = load ptr, ptr %b.i, align 8
   br label %lj_buf_need.exit
@@ -313,7 +313,7 @@ lj_buf_need.exit:                                 ; preds = %entry, %lj_buf_need
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_bufx_set(ptr noundef initializes((0, 8), (32, 48)) %sbx, ptr noundef %p, i32 noundef %len, ptr noundef %ref) local_unnamed_addr #0 {
 entry:
-  %L1 = getelementptr inbounds i8, ptr %sbx, i64 24
+  %L1 = getelementptr inbounds nuw i8, ptr %sbx, i64 24
   %0 = load i64, ptr %L1, align 8
   %and = and i64 %0, -8
   %1 = inttoptr i64 %and to ptr
@@ -322,43 +322,43 @@ entry:
   br i1 %tobool.i.not, label %if.then.i, label %lj_bufx_free.exit
 
 if.then.i:                                        ; preds = %entry
-  %glref.i = getelementptr inbounds i8, ptr %1, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %glref.i, align 8
   %3 = inttoptr i64 %2 to ptr
-  %b.i = getelementptr inbounds i8, ptr %sbx, i64 16
+  %b.i = getelementptr inbounds nuw i8, ptr %sbx, i64 16
   %4 = load ptr, ptr %b.i, align 8
-  %e.i = getelementptr inbounds i8, ptr %sbx, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sbx, i64 8
   %5 = load ptr, ptr %e.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv4.i = and i64 %sub.ptr.sub.i, 4294967295
-  %gc.i = getelementptr inbounds i8, ptr %3, i64 16
+  %gc.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %gc.i, align 8
   %sub.i = sub i64 %6, %conv4.i
   store i64 %sub.i, ptr %gc.i, align 8
   %7 = load ptr, ptr %3, align 8
-  %allocd.i = getelementptr inbounds i8, ptr %3, i64 8
+  %allocd.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %allocd.i, align 8
   %call.i = tail call ptr %7(ptr noundef %8, ptr noundef %4, i64 noundef %conv4.i, i64 noundef 0) #8
   br label %lj_bufx_free.exit
 
 lj_bufx_free.exit:                                ; preds = %if.then.i, %entry
-  %9 = getelementptr inbounds i8, ptr %sbx, i64 32
-  %e7.i = getelementptr inbounds i8, ptr %sbx, i64 8
-  %b8.i = getelementptr inbounds i8, ptr %sbx, i64 16
-  %r.i = getelementptr inbounds i8, ptr %sbx, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %sbx, i64 32
+  %e7.i = getelementptr inbounds nuw i8, ptr %sbx, i64 8
+  %b8.i = getelementptr inbounds nuw i8, ptr %sbx, i64 16
+  %r.i = getelementptr inbounds nuw i8, ptr %sbx, i64 40
   %add.i11 = or disjoint i64 %and, 3
   store i64 %add.i11, ptr %L1, align 8
   store ptr %p, ptr %b8.i, align 8
   store ptr %p, ptr %r.i, align 8
   %idx.ext.i = zext i32 %len to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %p, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %p, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %e7.i, align 8
   store ptr %add.ptr.i, ptr %sbx, align 8
   %10 = ptrtoint ptr %ref to i64
   store i64 %10, ptr %9, align 8
-  %marked = getelementptr inbounds i8, ptr %ref, i64 8
+  %marked = getelementptr inbounds nuw i8, ptr %ref, i64 8
   %11 = load i8, ptr %marked, align 8
   %12 = and i8 %11, 3
   %tobool.not = icmp eq i8 %12, 0
@@ -373,7 +373,7 @@ land.lhs.true:                                    ; preds = %lj_bufx_free.exit
 
 if.then:                                          ; preds = %land.lhs.true
   %add.ptr = getelementptr inbounds i8, ptr %sbx, i64 -48
-  %glref = getelementptr inbounds i8, ptr %1, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %glref, align 8
   %16 = inttoptr i64 %15 to ptr
   tail call void @lj_gc_barrierf(ptr noundef %16, ptr noundef nonnull %add.ptr, ptr noundef nonnull %ref) #8
@@ -388,7 +388,7 @@ declare hidden void @lj_gc_barrierf(ptr noundef, ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_bufx_more(ptr nocapture noundef %sbx, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
-  %e.i = getelementptr inbounds i8, ptr %sbx, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sbx, i64 8
   %0 = load ptr, ptr %e.i, align 8
   %1 = load ptr, ptr %sbx, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -416,7 +416,7 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putmem(ptr noundef returned %sb, ptr nocapture noundef readonly %q, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %0 = load ptr, ptr %e.i, align 8
   %1 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -434,7 +434,7 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
   %retval.i.0 = phi ptr [ %call.i, %if.then.i ], [ %1, %entry ]
   %conv.i3 = zext i32 %len to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0, ptr align 1 %q, i64 %conv.i3, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.i.0, i64 %conv.i3
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 %conv.i3
   store ptr %add.ptr.i, ptr %sb, align 8
   ret ptr %sb
 }
@@ -443,7 +443,7 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 define hidden noundef ptr @lj_buf_putchar(ptr noundef returned %sb, i32 noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sb, align 8
-  %e = getelementptr inbounds i8, ptr %sb, i64 8
+  %e = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e, align 8
   %cmp = icmp ult ptr %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end
   %call.i.sink = phi ptr [ %call.i, %if.end ], [ %0, %entry ]
   %conv.i = trunc i32 %c to i8
   store i8 %conv.i, ptr %call.i.sink, align 1
-  %storemerge = getelementptr inbounds i8, ptr %call.i.sink, i64 1
+  %storemerge = getelementptr inbounds nuw i8, ptr %call.i.sink, i64 1
   store ptr %storemerge, ptr %sb, align 8
   ret ptr %sb
 }
@@ -464,9 +464,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putstr(ptr noundef returned %sb, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %s, i64 20
+  %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
-  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e.i, align 8
   %2 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -482,10 +482,10 @@ if.then.i:                                        ; preds = %entry
 
 lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
   %retval.i.0 = phi ptr [ %call.i, %if.then.i ], [ %2, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %s, i64 24
   %conv.i4 = zext i32 %0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0, ptr nonnull align 1 %add.ptr, i64 %conv.i4, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.i.0, i64 %conv.i4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.i.0, i64 %conv.i4
   store ptr %add.ptr.i, ptr %sb, align 8
   ret ptr %sb
 }
@@ -493,9 +493,9 @@ lj_buf_more.exit:                                 ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putstr_reverse(ptr noundef returned %sb, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %s, i64 20
+  %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
-  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e.i, align 8
   %2 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -508,12 +508,12 @@ entry:
 lj_buf_more.exit.thread:                          ; preds = %entry
   %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %0)
   %idx.ext17 = zext i32 %0 to i64
-  %add.ptr18 = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext17
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %call.i, i64 %idx.ext17
   br label %while.body.preheader
 
 lj_buf_more.exit:                                 ; preds = %entry
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %idx.ext
   %cmp13.not = icmp eq i32 %0, 0
   br i1 %cmp13.not, label %while.end, label %while.body.preheader
 
@@ -521,8 +521,8 @@ while.body.preheader:                             ; preds = %lj_buf_more.exit.th
   %add.ptr22 = phi ptr [ %add.ptr18, %lj_buf_more.exit.thread ], [ %add.ptr, %lj_buf_more.exit ]
   %idx.ext21 = phi i64 [ %idx.ext17, %lj_buf_more.exit.thread ], [ %idx.ext, %lj_buf_more.exit ]
   %retval.i.020 = phi ptr [ %call.i, %lj_buf_more.exit.thread ], [ %2, %lj_buf_more.exit ]
-  %add.ptr2 = getelementptr inbounds i8, ptr %s, i64 24
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr2, i64 %idx.ext21
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %s, i64 24
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 %idx.ext21
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -530,7 +530,7 @@ while.body:                                       ; preds = %while.body.preheade
   %w.014 = phi ptr [ %incdec.ptr6, %while.body ], [ %retval.i.020, %while.body.preheader ]
   %q.0 = getelementptr inbounds i8, ptr %add.ptr4.pn15, i64 -1
   %3 = load i8, ptr %q.0, align 1
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %w.014, i64 1
+  %incdec.ptr6 = getelementptr inbounds nuw i8, ptr %w.014, i64 1
   store i8 %3, ptr %w.014, align 1
   %cmp = icmp ult ptr %incdec.ptr6, %add.ptr22
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
@@ -544,9 +544,9 @@ while.end:                                        ; preds = %while.body, %lj_buf
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putstr_lower(ptr noundef returned %sb, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %s, i64 20
+  %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
-  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e.i, align 8
   %2 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -559,19 +559,19 @@ entry:
 lj_buf_more.exit.thread:                          ; preds = %entry
   %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %0)
   %idx.ext21 = zext i32 %0 to i64
-  %add.ptr22 = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext21
+  %add.ptr22 = getelementptr inbounds nuw i8, ptr %call.i, i64 %idx.ext21
   br label %for.body.preheader
 
 lj_buf_more.exit:                                 ; preds = %entry
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %idx.ext
   %cmp17.not = icmp eq i32 %0, 0
   br i1 %cmp17.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %lj_buf_more.exit.thread, %lj_buf_more.exit
   %add.ptr25 = phi ptr [ %add.ptr22, %lj_buf_more.exit.thread ], [ %add.ptr, %lj_buf_more.exit ]
   %retval.i.024 = phi ptr [ %call.i, %lj_buf_more.exit.thread ], [ %2, %lj_buf_more.exit ]
-  %add.ptr2 = getelementptr inbounds i8, ptr %s, i64 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -583,8 +583,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %add = or disjoint i8 %3, 32
   %spec.select = select i1 %or.cond, i8 %add, i8 %3
   store i8 %spec.select, ptr %w.018, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %w.018, i64 1
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %q.019, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %w.018, i64 1
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %q.019, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr25
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
@@ -597,9 +597,9 @@ for.end:                                          ; preds = %for.body, %lj_buf_m
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putstr_upper(ptr noundef returned %sb, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %s, i64 20
+  %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
-  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load ptr, ptr %e.i, align 8
   %2 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -612,19 +612,19 @@ entry:
 lj_buf_more.exit.thread:                          ; preds = %entry
   %call.i = tail call ptr @lj_buf_more2(ptr noundef nonnull %sb, i32 noundef %0)
   %idx.ext21 = zext i32 %0 to i64
-  %add.ptr22 = getelementptr inbounds i8, ptr %call.i, i64 %idx.ext21
+  %add.ptr22 = getelementptr inbounds nuw i8, ptr %call.i, i64 %idx.ext21
   br label %for.body.preheader
 
 lj_buf_more.exit:                                 ; preds = %entry
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %idx.ext
   %cmp17.not = icmp eq i32 %0, 0
   br i1 %cmp17.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %lj_buf_more.exit.thread, %lj_buf_more.exit
   %add.ptr25 = phi ptr [ %add.ptr22, %lj_buf_more.exit.thread ], [ %add.ptr, %lj_buf_more.exit ]
   %retval.i.024 = phi ptr [ %call.i, %lj_buf_more.exit.thread ], [ %2, %lj_buf_more.exit ]
-  %add.ptr2 = getelementptr inbounds i8, ptr %s, i64 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -636,8 +636,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub = add nsw i8 %3, -32
   %spec.select = select i1 %or.cond, i8 %sub, i8 %3
   store i8 %spec.select, ptr %w.018, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %w.018, i64 1
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %q.019, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %w.018, i64 1
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %q.019, i64 1
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr25
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
@@ -650,7 +650,7 @@ for.end:                                          ; preds = %for.body, %lj_buf_m
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @lj_buf_putstr_rep(ptr noundef returned %sb, ptr noundef readonly %s, i32 noundef %rep) local_unnamed_addr #0 {
 entry:
-  %len1 = getelementptr inbounds i8, ptr %s, i64 20
+  %len1 = getelementptr inbounds nuw i8, ptr %s, i64 20
   %0 = load i32, ptr %len1, align 4
   %cmp = icmp sgt i32 %rep, 0
   %tobool = icmp ne i32 %0, 0
@@ -665,7 +665,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %if.then
-  %L = getelementptr inbounds i8, ptr %sb, i64 24
+  %L = getelementptr inbounds nuw i8, ptr %sb, i64 24
   %1 = load i64, ptr %L, align 8
   %and = and i64 %1, -8
   %2 = inttoptr i64 %and to ptr
@@ -674,7 +674,7 @@ if.then8:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %conv9 = trunc nuw nsw i64 %mul to i32
-  %e.i = getelementptr inbounds i8, ptr %sb, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %3 = load ptr, ptr %e.i, align 8
   %4 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
@@ -691,7 +691,7 @@ if.then.i:                                        ; preds = %if.end
 lj_buf_more.exit:                                 ; preds = %if.end, %if.then.i
   %retval.i.0 = phi ptr [ %call.i, %if.then.i ], [ %4, %if.end ]
   %cmp10 = icmp eq i32 %0, 1
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %s, i64 24
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %lj_buf_more.exit
@@ -702,7 +702,7 @@ if.then12:                                        ; preds = %lj_buf_more.exit
   br label %if.end33
 
 if.else:                                          ; preds = %lj_buf_more.exit
-  %add.ptr18 = getelementptr inbounds i8, ptr %add.ptr, i64 %conv2
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %conv2
   br label %do.body19
 
 do.body19:                                        ; preds = %do.cond28, %if.else
@@ -713,9 +713,9 @@ do.body19:                                        ; preds = %do.cond28, %if.else
 do.body21:                                        ; preds = %do.body21, %do.body19
   %w.3 = phi ptr [ %w.2, %do.body19 ], [ %incdec.ptr23, %do.body21 ]
   %q.0 = phi ptr [ %add.ptr, %do.body19 ], [ %incdec.ptr22, %do.body21 ]
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %q.0, i64 1
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %q.0, i64 1
   %7 = load i8, ptr %q.0, align 1
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %w.3, i64 1
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %w.3, i64 1
   store i8 %7, ptr %w.3, align 1
   %cmp25 = icmp ult ptr %incdec.ptr22, %add.ptr18
   br i1 %cmp25, label %do.body21, label %do.cond28, !llvm.loop !9
@@ -741,7 +741,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %len = getelementptr inbounds i8, ptr %sep, i64 20
+  %len = getelementptr inbounds nuw i8, ptr %sep, i64 20
   %0 = load i32, ptr %len, align 4
   br label %cond.end
 
@@ -751,11 +751,11 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %cond.end
-  %asize = getelementptr inbounds i8, ptr %t, i64 48
-  %array = getelementptr inbounds i8, ptr %t, i64 16
-  %e.i45 = getelementptr inbounds i8, ptr %sb, i64 8
+  %asize = getelementptr inbounds nuw i8, ptr %t, i64 48
+  %array = getelementptr inbounds nuw i8, ptr %t, i64 16
+  %e.i45 = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %tobool35.not = icmp eq i32 %cond, 0
-  %add.ptr37 = getelementptr inbounds i8, ptr %sep, i64 24
+  %add.ptr37 = getelementptr inbounds nuw i8, ptr %sep, i64 24
   %conv.i58 = zext i32 %cond to i64
   %1 = sext i32 %i to i64
   %sext = sext i32 %e to i64
@@ -799,7 +799,7 @@ if.else:                                          ; preds = %cond.end4
 if.then12:                                        ; preds = %if.else
   %and = and i64 %7, 140737488355327
   %9 = inttoptr i64 %and to ptr
-  %len14 = getelementptr inbounds i8, ptr %9, i64 20
+  %len14 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %10 = load i32, ptr %len14, align 4
   %add = add i32 %10, %cond
   %11 = load ptr, ptr %e.i45, align 8
@@ -821,10 +821,10 @@ if.then.i55:                                      ; preds = %if.then12
 lj_buf_more.exit57:                               ; preds = %if.then12, %if.then.i55
   %.pre-phi = phi ptr [ %9, %if.then12 ], [ %.pre41, %if.then.i55 ]
   %retval.i42.0 = phi ptr [ %12, %if.then12 ], [ %call.i56, %if.then.i55 ]
-  %add.ptr = getelementptr inbounds i8, ptr %.pre-phi, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 24
   %conv.i62 = zext i32 %10 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i42.0, ptr nonnull align 1 %add.ptr, i64 %conv.i62, i1 false)
-  %add.ptr.i64 = getelementptr inbounds i8, ptr %retval.i42.0, i64 %conv.i62
+  %add.ptr.i64 = getelementptr inbounds nuw i8, ptr %retval.i42.0, i64 %conv.i62
   br label %if.end29
 
 if.else19:                                        ; preds = %if.else
@@ -833,7 +833,7 @@ if.else19:                                        ; preds = %if.else
 
 if.then24:                                        ; preds = %if.else19
   %call25 = tail call ptr @lj_strfmt_putfnum(ptr noundef %sb, i32 noundef 251658293, double noundef %8) #8
-  %e.i = getelementptr inbounds i8, ptr %call25, i64 8
+  %e.i = getelementptr inbounds nuw i8, ptr %call25, i64 8
   %13 = load ptr, ptr %e.i, align 8
   %14 = load ptr, ptr %call25, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
@@ -858,7 +858,7 @@ if.end34:                                         ; preds = %if.end29
 
 if.then36:                                        ; preds = %if.end34
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %w.0, ptr nonnull align 1 %add.ptr37, i64 %conv.i58, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %w.0, i64 %conv.i58
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %w.0, i64 %conv.i58
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then36, %if.end34
@@ -884,11 +884,11 @@ declare hidden ptr @lj_strfmt_putfnum(ptr noundef, i32 noundef, double noundef) 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_buf_tostr(ptr nocapture noundef readonly %sb) local_unnamed_addr #0 {
 entry:
-  %L = getelementptr inbounds i8, ptr %sb, i64 24
+  %L = getelementptr inbounds nuw i8, ptr %sb, i64 24
   %0 = load i64, ptr %L, align 8
   %and = and i64 %0, -8
   %1 = inttoptr i64 %and to ptr
-  %b = getelementptr inbounds i8, ptr %sb, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %2 = load ptr, ptr %b, align 8
   %3 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
@@ -904,20 +904,20 @@ declare hidden ptr @lj_str_new(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_buf_cat2str(ptr noundef %L, ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %s1, i64 20
+  %len = getelementptr inbounds nuw i8, ptr %s1, i64 20
   %0 = load i32, ptr %len, align 4
-  %len3 = getelementptr inbounds i8, ptr %s2, i64 20
+  %len3 = getelementptr inbounds nuw i8, ptr %s2, i64 20
   %1 = load i32, ptr %len3, align 4
   %add = add i32 %1, %0
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %2 = load i64, ptr %glref.i, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = ptrtoint ptr %L to i64
-  %L1.i = getelementptr inbounds i8, ptr %3, i64 224
+  %L1.i = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %4, ptr %L1.i, align 8
-  %e.i.i = getelementptr inbounds i8, ptr %3, i64 208
+  %e.i.i = getelementptr inbounds nuw i8, ptr %3, i64 208
   %5 = load ptr, ptr %e.i.i, align 8
-  %b.i.i = getelementptr inbounds i8, ptr %3, i64 216
+  %b.i.i = getelementptr inbounds nuw i8, ptr %3, i64 216
   %6 = load ptr, ptr %b.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
@@ -937,18 +937,18 @@ if.then.i9.i:                                     ; preds = %if.then.i.i
   unreachable
 
 lj_buf_need2.exit.i:                              ; preds = %if.then.i.i
-  %tmpbuf.i = getelementptr inbounds i8, ptr %3, i64 200
+  %tmpbuf.i = getelementptr inbounds nuw i8, ptr %3, i64 200
   tail call fastcc void @buf_grow(ptr noundef nonnull %tmpbuf.i, i32 noundef %add)
   %8 = load ptr, ptr %b.i.i, align 8
   br label %lj_buf_tmp.exit
 
 lj_buf_tmp.exit:                                  ; preds = %entry, %lj_buf_need2.exit.i
   %retval.i.0.i = phi ptr [ %8, %lj_buf_need2.exit.i ], [ %6, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %s1, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %s1, i64 24
   %conv = zext i32 %0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i.0.i, ptr nonnull align 1 %add.ptr, i64 %conv, i1 false)
-  %add.ptr4 = getelementptr inbounds i8, ptr %retval.i.0.i, i64 %conv
-  %add.ptr5 = getelementptr inbounds i8, ptr %s2, i64 24
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %retval.i.0.i, i64 %conv
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %s2, i64 24
   %conv6 = zext i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr4, ptr nonnull align 1 %add.ptr5, i64 %conv6, i1 false)
   %conv8 = zext i32 %add to i64
@@ -963,7 +963,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden i32 @lj_buf_ruleb128(ptr nocapture noundef %pp) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %pp, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
   %cmp = icmp slt i8 %1, 0
@@ -983,7 +983,7 @@ do.body:                                          ; preds = %do.body, %if.then
   %add = add nuw nsw i32 %sh.0, 7
   %shl = shl i32 %and5, %add
   %or = or i32 %shl, %v.1
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %w.1, i64 1
+  %incdec.ptr6 = getelementptr inbounds nuw i8, ptr %w.1, i64 1
   %cmp8 = icmp slt i8 %2, 0
   br i1 %cmp8, label %do.body, label %if.end, !llvm.loop !11
 

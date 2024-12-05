@@ -31,11 +31,11 @@ entry:
   %commandLine = alloca %"class.EA::EAMain::CommandLine", align 8
   %printServerAddress = alloca ptr, align 8
   store i32 %argc, ptr %commandLine, align 8
-  %mArgv.i = getelementptr inbounds i8, ptr %commandLine, i64 8
+  %mArgv.i = getelementptr inbounds nuw i8, ptr %commandLine, i64 8
   %add.i = add nsw i32 %argc, 1
   %conv.i = sext i32 %add.i to i64
   %call.i = tail call noalias ptr @calloc(i64 noundef %conv.i, i64 noundef 8) #19
-  %0 = getelementptr inbounds i8, ptr %commandLine, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %commandLine, i64 16
   store i64 0, ptr %0, align 8
   store ptr %call.i, ptr %mArgv.i, align 8
   %cmp7.i = icmp sgt i32 %argc, 0
@@ -100,13 +100,13 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %if.end3, %for.cond
   %cmp4 = phi i1 [ true, %if.end3 ], [ false, %for.cond ]
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ 1, %for.cond ]
-  %arrayidx = getelementptr inbounds [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   %cmp6 = icmp eq i8 %0, %1
   br i1 %cmp6, label %if.then7, label %for.cond
 
 if.then7:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %pSwitch, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pSwitch, i64 1
   br label %for.end
 
 for.end:                                          ; preds = %for.cond, %if.then7
@@ -119,7 +119,7 @@ for.end:                                          ; preds = %for.cond, %if.then7
   br i1 %or.cond30, label %for.cond14.preheader, label %return
 
 for.cond14.preheader:                             ; preds = %for.end
-  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
+  %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %mArgv, align 8
   %4 = zext nneg i32 %spec.store.select to i64
   %wide.trip.count75 = zext i32 %2 to i64
@@ -127,7 +127,7 @@ for.cond14.preheader:                             ; preds = %for.end
 
 for.body17.us:                                    ; preds = %for.cond14.preheader, %for.inc70.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %for.inc70.us ], [ %4, %for.cond14.preheader ]
-  %arrayidx19.us = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv72
+  %arrayidx19.us = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv72
   %5 = load ptr, ptr %arrayidx19.us, align 8
   %call20.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   %cmp21.us = icmp ugt i64 %call20.us, 1
@@ -139,13 +139,13 @@ for.cond23.us:                                    ; preds = %for.body25.us
 for.body25.us:                                    ; preds = %for.cond23.preheader.us, %for.cond23.us
   %cmp24.us = phi i1 [ true, %for.cond23.preheader.us ], [ false, %for.cond23.us ]
   %indvars.iv69 = phi i64 [ 0, %for.cond23.preheader.us ], [ 1, %for.cond23.us ]
-  %arrayidx29.us = getelementptr inbounds [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv69
+  %arrayidx29.us = getelementptr inbounds nuw [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv69
   %6 = load i8, ptr %arrayidx29.us, align 1
   %cmp31.us = icmp eq i8 %8, %6
   br i1 %cmp31.us, label %if.then38.us, label %for.cond23.us
 
 if.then38.us:                                     ; preds = %for.body25.us
-  %add.ptr.us = getelementptr inbounds i8, ptr %5, i64 1
+  %add.ptr.us = getelementptr inbounds nuw i8, ptr %5, i64 1
   %call40.us = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr.us, ptr noundef nonnull dereferenceable(1) %pSwitch.addr.0) #21
   %cmp44.us = icmp eq ptr %call40.us, %add.ptr.us
   br i1 %cmp44.us, label %if.then45.us, label %for.inc70.us
@@ -169,7 +169,7 @@ for.cond23.preheader.us:                          ; preds = %for.body17.us
 
 for.body17:                                       ; preds = %for.cond14.preheader, %for.inc70
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %for.inc70 ], [ %4, %for.cond14.preheader ]
-  %arrayidx19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv66
+  %arrayidx19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv66
   %9 = load ptr, ptr %arrayidx19, align 8
   %call20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %cmp21 = icmp ugt i64 %call20, 1
@@ -185,13 +185,13 @@ for.cond23:                                       ; preds = %for.body25
 for.body25:                                       ; preds = %for.cond23.preheader, %for.cond23
   %cmp24 = phi i1 [ true, %for.cond23.preheader ], [ false, %for.cond23 ]
   %indvars.iv63 = phi i64 [ 0, %for.cond23.preheader ], [ 1, %for.cond23 ]
-  %arrayidx29 = getelementptr inbounds [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv63
+  %arrayidx29 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZNK2EA6EAMain11CommandLine10FindSwitchEPKcbPS3_ic.kSwitchIDs, i64 0, i64 %indvars.iv63
   %11 = load i8, ptr %arrayidx29, align 1
   %cmp31 = icmp eq i8 %10, %11
   br i1 %cmp31, label %if.then38, label %for.cond23
 
 if.then38:                                        ; preds = %for.body25
-  %add.ptr41.ptr = getelementptr inbounds i8, ptr %9, i64 1
+  %add.ptr41.ptr = getelementptr inbounds nuw i8, ptr %9, i64 1
   %12 = load i8, ptr %pSwitch.addr.0, align 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then45, label %while.cond.preheader.i
@@ -204,7 +204,7 @@ while.cond.preheader.i:                           ; preds = %if.then38
 while.cond2.preheader.i:                          ; preds = %while.cond.preheader.i, %if.end12.i
   %14 = phi i8 [ %18, %if.end12.i ], [ %13, %while.cond.preheader.i ]
   %cp.020.i.idx = phi i64 [ %cp.020.i.add, %if.end12.i ], [ 1, %while.cond.preheader.i ]
-  %cp.020.i.ptr = getelementptr inbounds i8, ptr %9, i64 %cp.020.i.idx
+  %cp.020.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %cp.020.i.idx
   br label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body7.i, %while.cond2.preheader.i
@@ -224,8 +224,8 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %cmp.i, label %while.body7.i, label %if.end12.i
 
 while.body7.i:                                    ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.017.i, i64 1
-  %incdec.ptr8.i = getelementptr inbounds i8, ptr %t.018.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.017.i, i64 1
+  %incdec.ptr8.i = getelementptr inbounds nuw i8, ptr %t.018.i, i64 1
   %.pr.i = load i8, ptr %incdec.ptr.i, align 1
   %tobool3.not.i = icmp eq i8 %.pr.i, 0
   br i1 %tobool3.not.i, label %while.end.i, label %land.lhs.true.i, !llvm.loop !9
@@ -237,7 +237,7 @@ while.end.i:                                      ; preds = %while.body7.i
 
 if.end12.i:                                       ; preds = %land.rhs.i, %while.end.i
   %cp.020.i.add = add nuw nsw i64 %cp.020.i.idx, 1
-  %incdec.ptr13.i.ptr = getelementptr inbounds i8, ptr %9, i64 %cp.020.i.add
+  %incdec.ptr13.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %cp.020.i.add
   %18 = load i8, ptr %incdec.ptr13.i.ptr, align 1
   %tobool1.not.i = icmp eq i8 %18, 0
   br i1 %tobool1.not.i, label %for.inc70, label %while.cond2.preheader.i, !llvm.loop !10
@@ -264,7 +264,7 @@ if.then53:                                        ; preds = %if.then45, %if.then
 
 if.then57:                                        ; preds = %if.then53
   %add.ptr46.le = getelementptr inbounds i8, ptr %.us-phi, i64 %call
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %add.ptr46.le, i64 1
+  %incdec.ptr58 = getelementptr inbounds nuw i8, ptr %add.ptr46.le, i64 1
   %20 = load i8, ptr %incdec.ptr58, align 1
   %tobool59 = icmp ne i8 %20, 0
   %or.cond = and i1 %tobool, %tobool59
@@ -506,11 +506,11 @@ declare noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef) local
 define dso_local void @_ZN2EA6EAMain11CommandLineC2EiPPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #6 align 2 {
 entry:
   store i32 %argc, ptr %this, align 8
-  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
+  %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %add = add nsw i32 %argc, 1
   %conv = sext i32 %add to i64
   %call = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 8) #19
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %call, ptr %mArgv, align 8
   %cmp7 = icmp sgt i32 %argc, 0
@@ -522,10 +522,10 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr %mArgv, align 8
-  %arrayidx5 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   store ptr %1, ptr %arrayidx5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -550,7 +550,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef readonly %args) unnamed_addr #8 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
+  %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mArgv, i8 0, i64 16, i1 false)
   tail call void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %args, i32 noundef 0)
   ret void
@@ -566,7 +566,7 @@ entry:
   %spec.select39.v = select i1 %tobool.not.not, i64 1, i64 2
   %spec.select39 = add i64 %call, %spec.select39.v
   %call3 = tail call noalias ptr @calloc(i64 noundef %spec.select39, i64 noundef 1) #19
-  %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %spec.select
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call3, i64 %spec.select
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %inputCommandLine, i64 %call, i1 false)
   %call4 = tail call noalias dereferenceable_or_null(1024) ptr @calloc(i64 noundef 128, i64 noundef 8) #19
   %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 %call
@@ -619,7 +619,7 @@ while.body15:                                     ; preds = %land.rhs
   %spec.select41 = select i1 %tobool18, ptr %quoteStart.148, ptr %ptr.246
   %isQuoted.3 = select i1 %cmp17, i8 1, i8 %isQuoted.247
   %quoteStart.2 = select i1 %cmp17, ptr %spec.select41, ptr %quoteStart.148
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.246, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ptr.246, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr, %scevgep69
   br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !13
 
@@ -637,7 +637,7 @@ if.then22:                                        ; preds = %while.end
   br i1 %cmp25, label %if.then26, label %if.end30
 
 if.then26:                                        ; preds = %if.then22
-  %add.ptr27 = getelementptr inbounds i8, ptr %quoteStart.1.lcssa, i64 1
+  %add.ptr27 = getelementptr inbounds nuw i8, ptr %quoteStart.1.lcssa, i64 1
   %sub.ptr.rhs.cast = ptrtoint ptr %quoteStart.1.lcssa to i64
   %sub.ptr.sub = sub i64 %end.06167, %sub.ptr.rhs.cast
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %quoteStart.1.lcssa, ptr nonnull align 1 %add.ptr27, i64 %sub.ptr.sub, i1 false)
@@ -647,7 +647,7 @@ if.then26:                                        ; preds = %if.then22
   br label %for.end
 
 if.end30:                                         ; preds = %if.then22
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %ptr.2.lcssa, i64 1
+  %incdec.ptr31 = getelementptr inbounds nuw i8, ptr %ptr.2.lcssa, i64 1
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %while.end, %if.then26
@@ -664,7 +664,7 @@ if.then34:                                        ; preds = %for.end
   %idxprom36 = sext i32 %argc.159 to i64
   %arrayidx37 = getelementptr inbounds ptr, ptr %call4, i64 %idxprom36
   store ptr %ptr.060, ptr %arrayidx37, align 8
-  %incdec.ptr38 = getelementptr inbounds i8, ptr %ptr.3, i64 1
+  %incdec.ptr38 = getelementptr inbounds nuw i8, ptr %ptr.3, i64 1
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %for.end
@@ -688,7 +688,7 @@ land.rhs42:                                       ; preds = %land.rhs42.preheade
   br i1 %tobool45.not, label %while.end49, label %while.body47
 
 while.body47:                                     ; preds = %land.rhs42
-  %incdec.ptr48 = getelementptr inbounds i8, ptr %ptr.555, i64 1
+  %incdec.ptr48 = getelementptr inbounds nuw i8, ptr %ptr.555, i64 1
   %exitcond73.not = icmp eq ptr %incdec.ptr48, %scevgep72
   br i1 %exitcond73.not, label %while.end49, label %land.rhs42, !llvm.loop !15
 
@@ -700,9 +700,9 @@ while.end49:                                      ; preds = %land.rhs42, %while.
 while.end50:                                      ; preds = %while.end49, %if.end10
   %argc.1.lcssa = phi i32 [ %argc.0, %if.end10 ], [ %argc.2, %while.end49 ]
   store i32 %argc.1.lcssa, ptr %this, align 8
-  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
+  %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call4, ptr %mArgv, align 8
-  %mCommandLine = getelementptr inbounds i8, ptr %this, i64 16
+  %mCommandLine = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call3, ptr %mCommandLine, align 8
   ret void
 }
@@ -711,7 +711,7 @@ while.end50:                                      ; preds = %while.end49, %if.en
 define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef readonly %args, i32 noundef %flags) unnamed_addr #8 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
+  %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mArgv, i8 0, i64 16, i1 false)
   tail call void @_ZN2EA6EAMain11CommandLine16ParseCommandLineEPKcj(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %args, i32 noundef %flags)
   ret void
@@ -720,7 +720,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @_ZN2EA6EAMain11CommandLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 {
 entry:
-  %mArgv = getelementptr inbounds i8, ptr %this, i64 8
+  %mArgv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mArgv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -731,7 +731,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %mCommandLine = getelementptr inbounds i8, ptr %this, i64 16
+  %mCommandLine = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mCommandLine, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end8, label %if.then5

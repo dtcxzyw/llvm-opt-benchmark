@@ -152,12 +152,12 @@ define internal i32 @dissect_logcat_text_brief(ptr noundef %0, ptr noundef %1, p
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.20, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
@@ -178,12 +178,12 @@ define internal i32 @dissect_logcat_text_tag(ptr noundef %0, ptr noundef %1, ptr
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.21, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
@@ -204,12 +204,12 @@ define internal i32 @dissect_logcat_text_time(ptr noundef %0, ptr noundef %1, pt
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.22, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
@@ -230,33 +230,33 @@ define internal i32 @dissect_logcat_text_process(ptr noundef %0, ptr noundef %1,
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.23, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 236
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 240
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr @.str.30, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 212
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr @.str.30, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %22, align 8
   %23 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_process.dinfo)
   ret i32 %23
@@ -272,33 +272,33 @@ define internal i32 @dissect_logcat_text_thread(ptr noundef %0, ptr noundef %1, 
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.20, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 236
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 240
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr @.str.30, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 212
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr @.str.30, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %22, align 8
   %23 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_thread.dinfo)
   ret i32 %23
@@ -314,12 +314,12 @@ define internal i32 @dissect_logcat_text_threadtime(ptr noundef %0, ptr noundef 
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.25, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
@@ -340,12 +340,12 @@ define internal i32 @dissect_logcat_text_long(ptr noundef %0, ptr noundef %1, pt
 7:                                                ; preds = %4
   %8 = tail call ptr @export_pdu_create_tags(ptr noundef %1, ptr noundef nonnull @.str.26, i16 noundef zeroext 12, ptr noundef null) #5
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %9, ptr %10, align 8
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %12 = getelementptr inbounds i8, ptr %8, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %0, ptr %13, align 8
   %14 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %14, ptr noundef %1, ptr noundef %8) #5
@@ -483,29 +483,29 @@ define internal i32 @get_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %5, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_strdup(ptr noundef %15, ptr noundef %1) #5
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %18 = trunc i64 %17 to i32
   %19 = load i32, ptr @hf_logcat_text_tag, align 4
   %20 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %19, ptr noundef %2, i32 noundef %13, i32 noundef %18, ptr noundef %1) #5
-  %21 = getelementptr inbounds i8, ptr %5, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %22 = add i32 %18, 1
   store i32 7, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 212
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 212
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store ptr %16, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 224
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store i32 7, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 236
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 236
   store i32 12, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 240
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store ptr @.str.27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store ptr null, ptr %29, align 8
   %30 = add i32 %18, %13
   ret i32 %30
@@ -545,7 +545,7 @@ define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
   %16 = trunc i64 %15 to i32
   %17 = tail call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %14, ptr noundef %2, i32 noundef %13, i32 noundef %16, ptr noundef %1) #5
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_add_str(ptr noundef %19, i32 noundef 25, ptr noundef %1) #5
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6
@@ -556,7 +556,7 @@ define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 2) #5
@@ -564,7 +564,7 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %11 = load i32, ptr @ett_logcat, align 4
   %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #5
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.27) #5
   %15 = load ptr, ptr @special_regex, align 8
@@ -581,7 +581,7 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
 
 22:                                               ; preds = %17
   %23 = tail call i32 @g_strv_length(ptr noundef nonnull %20) #5
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, 2
   %.not44 = icmp eq i32 %23, %26
@@ -592,7 +592,7 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
   br i1 %.not47, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %30
 
 28:                                               ; preds = %22
@@ -705,21 +705,21 @@ define internal i32 @get_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %14 = ptrtoint ptr %0 to i64
   %15 = sub i64 %13, %14
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
-  %18 = getelementptr inbounds i8, ptr %8, i64 12
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.29, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %8, ptr noundef nonnull %7) #5
   %22 = icmp eq i32 %21, 6
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %8, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 70, ptr %24, align 4
   %25 = load i32, ptr %17, align 8
   %26 = add i32 %25, -1
   store i32 %26, ptr %17, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 -1, ptr %27, align 8
   %28 = call i64 @mktime(ptr noundef nonnull %8) #5
   store i64 %28, ptr %9, align 8
@@ -727,7 +727,7 @@ define internal i32 @get_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %30 = sitofp i32 %29 to double
   %31 = fmul double %30, 1.000000e+06
   %32 = fptosi double %31 to i32
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %32, ptr %33, align 8
   %34 = load i32, ptr @hf_logcat_text_timestamp, align 4
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #6

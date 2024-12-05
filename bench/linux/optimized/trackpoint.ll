@@ -73,11 +73,11 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   %3 = alloca [2 x ptr], align 16
   %4 = alloca [2 x i8], align 2
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #7
   store i16 0, ptr %4, align 2
-  %7 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 737) #7
+  %7 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef 737) #7
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread
 
@@ -93,7 +93,7 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   br label %104
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %15 = load i8, ptr %14, align 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #7
   br i1 %1, label %16, label %104
@@ -106,74 +106,74 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 
 20:                                               ; preds = %16
   %21 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
-  %22 = getelementptr inbounds i8, ptr %18, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i8 %21, ptr %22, align 2
   %23 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 11), align 1
-  %24 = getelementptr inbounds i8, ptr %18, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 3
   store i8 %23, ptr %24, align 1
   %25 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 11), align 1
-  %26 = getelementptr inbounds i8, ptr %18, i64 5
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 5
   store i8 %25, ptr %26, align 1
   %27 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 11), align 1
-  %28 = getelementptr inbounds i8, ptr %18, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 6
   store i8 %27, ptr %28, align 2
   %29 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 11), align 1
-  %30 = getelementptr inbounds i8, ptr %18, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 7
   store i8 %29, ptr %30, align 1
   %31 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 11), align 1
-  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i8 %31, ptr %32, align 8
   %33 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 11), align 1
-  %34 = getelementptr inbounds i8, ptr %18, i64 9
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 9
   store i8 %33, ptr %34, align 1
   %35 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 11), align 1
-  %36 = getelementptr inbounds i8, ptr %18, i64 10
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 10
   store i8 %35, ptr %36, align 2
   %37 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 11), align 1
-  %38 = getelementptr inbounds i8, ptr %18, i64 11
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 11
   store i8 %37, ptr %38, align 1
   %39 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 11), align 1
-  %40 = getelementptr inbounds i8, ptr %18, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i8 %39, ptr %40, align 4
   %41 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 11), align 1
-  %42 = getelementptr inbounds i8, ptr %18, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i8 %41, ptr %42, align 4
   %43 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 11), align 1
   %44 = icmp ne i8 %43, 0
-  %45 = getelementptr inbounds i8, ptr %18, i64 13
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 13
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 1
   %47 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 11), align 1
   %48 = icmp ne i8 %47, 0
-  %49 = getelementptr inbounds i8, ptr %18, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 14
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 2
   %51 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 11), align 1
   %52 = icmp ne i8 %51, 0
-  %53 = getelementptr inbounds i8, ptr %18, i64 15
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 15
   %54 = zext i1 %52 to i8
   store i8 %54, ptr %53, align 1
   store i8 %10, ptr %18, align 8
-  %55 = getelementptr inbounds i8, ptr %18, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %15, ptr %55, align 1
   store ptr %18, ptr %0, align 8
   %56 = zext nneg i8 %10 to i64
   %57 = getelementptr [7 x ptr], ptr @trackpoint_variants, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 216
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @.str, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 432
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr @trackpoint_reconnect, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 448
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @trackpoint_disconnect, ptr %62, align 8
   %63 = icmp eq i8 %10, 1
   br i1 %63, label %64, label %.thread3.sink.split
 
 64:                                               ; preds = %20
   store i8 75, ptr %5, align 1
-  %65 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 4578) #7
+  %65 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 4578) #7
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %.thread3.sink.split.sink.split
 
@@ -190,8 +190,8 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 .thread3.sink.split.sink.split:                   ; preds = %67, %64
   %.str.2.sink = phi ptr [ @.str.1, %64 ], [ @.str.2, %67 ]
   %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %74, ptr noundef nonnull %.str.2.sink) #9
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 344
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %74, ptr noundef nonnull %.str.2.sink) #9
   br label %.thread3.sink.split
 
 .thread3.sink.split:                              ; preds = %.thread3.sink.split.sink.split, %20
@@ -199,23 +199,23 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   br label %.thread3
 
 .thread3:                                         ; preds = %.thread3.sink.split, %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
   call void @input_set_capability(ptr noundef %76, i32 noundef 1, i32 noundef 274) #7
   br label %77
 
 77:                                               ; preds = %.thread3, %70
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %80, i64 0) #7, !srcloc !5
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %80, i64 0) #7, !srcloc !5
   %81 = load ptr, ptr %78, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %82, i64 5) #7, !srcloc !5
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %82, i64 5) #7, !srcloc !5
   br i1 %63, label %83, label %86
 
 83:                                               ; preds = %77
-  %84 = call fastcc i32 @trackpoint_power_on_reset(ptr noundef %6)
+  %84 = call fastcc i32 @trackpoint_power_on_reset(ptr noundef nonnull %6)
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %87, label %86
 
@@ -225,20 +225,20 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 
 87:                                               ; preds = %86, %83
   %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 344
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   store ptr @trackpoint_attr_group, ptr %3, align 16
-  %90 = getelementptr inbounds i8, ptr %3, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %90, align 8
-  %91 = call i32 @device_add_groups(ptr noundef %89, ptr noundef nonnull %3) #7
+  %91 = call i32 @device_add_groups(ptr noundef nonnull %89, ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   %92 = icmp eq i32 %91, 0
   %93 = load ptr, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 344
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 344
   br i1 %92, label %97, label %95
 
 95:                                               ; preds = %87
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %94, ptr noundef nonnull @.str.3, i32 noundef %91) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %94, ptr noundef nonnull @.str.3, i32 noundef %91) #9
   %96 = load ptr, ptr %0, align 8
   call void @kfree(ptr noundef %96) #7
   store ptr null, ptr %0, align 8
@@ -251,7 +251,7 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   %101 = zext i8 %100 to i32
   %102 = lshr i32 %101, 4
   %103 = and i32 %101, 15
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %94, ptr noundef nonnull @.str.4, ptr noundef %98, i32 noundef %99, i32 noundef %102, i32 noundef %103) #9
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %94, ptr noundef nonnull @.str.4, ptr noundef %98, i32 noundef %99, i32 noundef %102, i32 noundef %103) #9
   br label %104
 
 104:                                              ; preds = %.thread, %97, %95, %16, %13
@@ -270,8 +270,8 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #7
   store i16 0, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = call i32 @ps2_command(ptr noundef %5, ptr noundef nonnull %3, i32 noundef 737) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 737) #7
   %7 = icmp eq i32 %6, 0
   %8 = load i8, ptr %3, align 2
   %9 = add i8 %8, -1
@@ -290,9 +290,9 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   store i8 127, ptr %2, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %18, align 1
-  %19 = call i32 @ps2_command(ptr noundef %5, ptr noundef nonnull %2, i32 noundef 4834) #7
+  %19 = call i32 @ps2_command(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef 4834) #7
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %27
 
@@ -322,14 +322,14 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @trackpoint_disconnect(ptr nocapture noundef %0) #0 align 16 {
   %2 = alloca [2 x ptr], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 344
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   store ptr @trackpoint_attr_group, ptr %2, align 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %6, align 8
-  call void @device_remove_groups(ptr noundef %5, ptr noundef nonnull %2) #7
+  call void @device_remove_groups(ptr noundef nonnull %5, ptr noundef nonnull %2) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   %7 = load ptr, ptr %0, align 8
   call void @kfree(ptr noundef %7) #7
@@ -348,7 +348,7 @@ define internal fastcc i32 @trackpoint_power_on_reset(ptr noundef %0) unnamed_ad
   %2 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #7
   store i8 127, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %2, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %3, align 1
   %4 = call i32 @ps2_command(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 4834) #7
   %5 = icmp eq i32 %4, 0
@@ -428,10 +428,10 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %54, label %55, label %94
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %50) #7
   store i8 45, ptr %50, align 1
-  %57 = call i32 @ps2_command(ptr noundef %56, ptr noundef nonnull %50, i32 noundef 4578) #7
+  %57 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %50, i32 noundef 4578) #7
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %67
 
@@ -444,11 +444,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 63:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %49) #7
   store i8 71, ptr %49, align 1
-  %64 = getelementptr inbounds i8, ptr %49, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 45, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %49, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store i8 1, ptr %65, align 1
-  %66 = call i32 @ps2_command(ptr noundef %56, ptr noundef nonnull %49, i32 noundef 12514) #7
+  %66 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %49, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %49) #7
   br label %67
 
@@ -456,7 +456,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %48) #7
   store i8 32, ptr %48, align 1
-  %68 = call i32 @ps2_command(ptr noundef %56, ptr noundef nonnull %48, i32 noundef 4578) #7
+  %68 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %48, i32 noundef 4578) #7
   %69 = icmp ne i32 %68, 0
   %70 = load i8, ptr %48, align 1
   %71 = icmp sgt i8 %70, -1
@@ -466,11 +466,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 73:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %47) #7
   store i8 71, ptr %47, align 1
-  %74 = getelementptr inbounds i8, ptr %47, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 32, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %47, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store i8 -128, ptr %75, align 1
-  %76 = call i32 @ps2_command(ptr noundef %56, ptr noundef nonnull %47, i32 noundef 12514) #7
+  %76 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %47, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %47) #7
   br label %77
 
@@ -478,7 +478,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48) #7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46) #7
   store i8 35, ptr %46, align 1
-  %78 = call i32 @ps2_command(ptr noundef %56, ptr noundef nonnull %46, i32 noundef 4578) #7
+  %78 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %46, i32 noundef 4578) #7
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %88
 
@@ -491,11 +491,11 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 84:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %45) #7
   store i8 71, ptr %45, align 1
-  %85 = getelementptr inbounds i8, ptr %45, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i8 35, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %45, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store i8 1, ptr %86, align 1
-  %87 = call i32 @ps2_command(ptr noundef %56, ptr noundef nonnull %45, i32 noundef 12514) #7
+  %87 = call i32 @ps2_command(ptr noundef nonnull %56, ptr noundef nonnull %45, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %45) #7
   br label %88
 
@@ -504,7 +504,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br label %94
 
 89:                                               ; preds = %2
-  %90 = getelementptr inbounds i8, ptr %51, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %91 = load i8, ptr %90, align 1
   %92 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 11), align 1
   %93 = icmp eq i8 %91, %92
@@ -513,27 +513,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 94:                                               ; preds = %52, %88, %89
   %95 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 9), align 1
   %96 = icmp eq i8 %95, 0
-  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_sensitivity, i64 8), align 8
-  %99 = getelementptr inbounds i8, ptr %51, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %100 = load i8, ptr %99, align 1
   br i1 %96, label %101, label %105
 
 101:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %44) #7
   store i8 -127, ptr %44, align 1
-  %102 = getelementptr inbounds i8, ptr %44, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %98, ptr %102, align 1
-  %103 = getelementptr inbounds i8, ptr %44, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %44, i64 2
   store i8 %100, ptr %103, align 1
-  %104 = call i32 @ps2_command(ptr noundef %97, ptr noundef nonnull %44, i32 noundef 12514) #7
+  %104 = call i32 @ps2_command(ptr noundef nonnull %97, ptr noundef nonnull %44, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %44) #7
   br label %123
 
 105:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %43) #7
   store i8 %98, ptr %43, align 1
-  %106 = call i32 @ps2_command(ptr noundef %97, ptr noundef nonnull %43, i32 noundef 4578) #7
+  %106 = call i32 @ps2_command(ptr noundef nonnull %97, ptr noundef nonnull %43, i32 noundef 4578) #7
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %122
 
@@ -548,16 +548,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 114:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %42) #7
   store i8 71, ptr %42, align 1
-  %115 = getelementptr inbounds i8, ptr %42, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i8 %98, ptr %115, align 1
-  %116 = getelementptr inbounds i8, ptr %42, i64 2
+  %116 = getelementptr inbounds nuw i8, ptr %42, i64 2
   store i8 %95, ptr %116, align 1
   %117 = add i8 %98, -47
   %118 = icmp ult i8 %117, -15
   br i1 %118, label %121, label %119
 
 119:                                              ; preds = %114
-  %120 = call i32 @ps2_command(ptr noundef %97, ptr noundef nonnull %42, i32 noundef 12514) #7
+  %120 = call i32 @ps2_command(ptr noundef nonnull %97, ptr noundef nonnull %42, i32 noundef 12514) #7
   br label %121
 
 121:                                              ; preds = %119, %114
@@ -572,7 +572,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread, label %128
 
 .thread:                                          ; preds = %89, %123
-  %124 = getelementptr inbounds i8, ptr %51, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %125 = load i8, ptr %124, align 1
   %126 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 11), align 1
   %127 = icmp eq i8 %125, %126
@@ -587,27 +587,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 132:                                              ; preds = %128
   %133 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 9), align 1
   %134 = icmp eq i8 %133, 0
-  %135 = getelementptr inbounds i8, ptr %0, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_inertia, i64 8), align 8
-  %137 = getelementptr inbounds i8, ptr %51, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %138 = load i8, ptr %137, align 1
   br i1 %134, label %139, label %143
 
 139:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %41) #7
   store i8 -127, ptr %41, align 1
-  %140 = getelementptr inbounds i8, ptr %41, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store i8 %136, ptr %140, align 1
-  %141 = getelementptr inbounds i8, ptr %41, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store i8 %138, ptr %141, align 1
-  %142 = call i32 @ps2_command(ptr noundef %135, ptr noundef nonnull %41, i32 noundef 12514) #7
+  %142 = call i32 @ps2_command(ptr noundef nonnull %135, ptr noundef nonnull %41, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %41) #7
   br label %161
 
 143:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #7
   store i8 %136, ptr %40, align 1
-  %144 = call i32 @ps2_command(ptr noundef %135, ptr noundef nonnull %40, i32 noundef 4578) #7
+  %144 = call i32 @ps2_command(ptr noundef nonnull %135, ptr noundef nonnull %40, i32 noundef 4578) #7
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %160
 
@@ -622,16 +622,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 152:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %39) #7
   store i8 71, ptr %39, align 1
-  %153 = getelementptr inbounds i8, ptr %39, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store i8 %136, ptr %153, align 1
-  %154 = getelementptr inbounds i8, ptr %39, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %39, i64 2
   store i8 %133, ptr %154, align 1
   %155 = add i8 %136, -47
   %156 = icmp ult i8 %155, -15
   br i1 %156, label %159, label %157
 
 157:                                              ; preds = %152
-  %158 = call i32 @ps2_command(ptr noundef %135, ptr noundef nonnull %39, i32 noundef 12514) #7
+  %158 = call i32 @ps2_command(ptr noundef nonnull %135, ptr noundef nonnull %39, i32 noundef 12514) #7
   br label %159
 
 159:                                              ; preds = %157, %152
@@ -646,7 +646,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread15, label %166
 
 .thread15:                                        ; preds = %.thread, %161
-  %162 = getelementptr inbounds i8, ptr %51, i64 3
+  %162 = getelementptr inbounds nuw i8, ptr %51, i64 3
   %163 = load i8, ptr %162, align 1
   %164 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 11), align 1
   %165 = icmp eq i8 %163, %164
@@ -661,27 +661,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 170:                                              ; preds = %166
   %171 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 9), align 1
   %172 = icmp eq i8 %171, 0
-  %173 = getelementptr inbounds i8, ptr %0, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %174 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_speed, i64 8), align 8
-  %175 = getelementptr inbounds i8, ptr %51, i64 3
+  %175 = getelementptr inbounds nuw i8, ptr %51, i64 3
   %176 = load i8, ptr %175, align 1
   br i1 %172, label %177, label %181
 
 177:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %38) #7
   store i8 -127, ptr %38, align 1
-  %178 = getelementptr inbounds i8, ptr %38, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store i8 %174, ptr %178, align 1
-  %179 = getelementptr inbounds i8, ptr %38, i64 2
+  %179 = getelementptr inbounds nuw i8, ptr %38, i64 2
   store i8 %176, ptr %179, align 1
-  %180 = call i32 @ps2_command(ptr noundef %173, ptr noundef nonnull %38, i32 noundef 12514) #7
+  %180 = call i32 @ps2_command(ptr noundef nonnull %173, ptr noundef nonnull %38, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %38) #7
   br label %199
 
 181:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %37) #7
   store i8 %174, ptr %37, align 1
-  %182 = call i32 @ps2_command(ptr noundef %173, ptr noundef nonnull %37, i32 noundef 4578) #7
+  %182 = call i32 @ps2_command(ptr noundef nonnull %173, ptr noundef nonnull %37, i32 noundef 4578) #7
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %198
 
@@ -696,16 +696,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 190:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %36) #7
   store i8 71, ptr %36, align 1
-  %191 = getelementptr inbounds i8, ptr %36, i64 1
+  %191 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store i8 %174, ptr %191, align 1
-  %192 = getelementptr inbounds i8, ptr %36, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i8 %171, ptr %192, align 1
   %193 = add i8 %174, -47
   %194 = icmp ult i8 %193, -15
   br i1 %194, label %197, label %195
 
 195:                                              ; preds = %190
-  %196 = call i32 @ps2_command(ptr noundef %173, ptr noundef nonnull %36, i32 noundef 12514) #7
+  %196 = call i32 @ps2_command(ptr noundef nonnull %173, ptr noundef nonnull %36, i32 noundef 12514) #7
   br label %197
 
 197:                                              ; preds = %195, %190
@@ -720,7 +720,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread16, label %204
 
 .thread16:                                        ; preds = %.thread15, %199
-  %200 = getelementptr inbounds i8, ptr %51, i64 5
+  %200 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %201 = load i8, ptr %200, align 1
   %202 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 11), align 1
   %203 = icmp eq i8 %201, %202
@@ -735,27 +735,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 208:                                              ; preds = %204
   %209 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 9), align 1
   %210 = icmp eq i8 %209, 0
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_reach, i64 8), align 8
-  %213 = getelementptr inbounds i8, ptr %51, i64 5
+  %213 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %214 = load i8, ptr %213, align 1
   br i1 %210, label %215, label %219
 
 215:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %35) #7
   store i8 -127, ptr %35, align 1
-  %216 = getelementptr inbounds i8, ptr %35, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %212, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %35, i64 2
+  %217 = getelementptr inbounds nuw i8, ptr %35, i64 2
   store i8 %214, ptr %217, align 1
-  %218 = call i32 @ps2_command(ptr noundef %211, ptr noundef nonnull %35, i32 noundef 12514) #7
+  %218 = call i32 @ps2_command(ptr noundef nonnull %211, ptr noundef nonnull %35, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %35) #7
   br label %237
 
 219:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %34) #7
   store i8 %212, ptr %34, align 1
-  %220 = call i32 @ps2_command(ptr noundef %211, ptr noundef nonnull %34, i32 noundef 4578) #7
+  %220 = call i32 @ps2_command(ptr noundef nonnull %211, ptr noundef nonnull %34, i32 noundef 4578) #7
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %222, label %236
 
@@ -770,16 +770,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 228:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %33) #7
   store i8 71, ptr %33, align 1
-  %229 = getelementptr inbounds i8, ptr %33, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %212, ptr %229, align 1
-  %230 = getelementptr inbounds i8, ptr %33, i64 2
+  %230 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %209, ptr %230, align 1
   %231 = add i8 %212, -47
   %232 = icmp ult i8 %231, -15
   br i1 %232, label %235, label %233
 
 233:                                              ; preds = %228
-  %234 = call i32 @ps2_command(ptr noundef %211, ptr noundef nonnull %33, i32 noundef 12514) #7
+  %234 = call i32 @ps2_command(ptr noundef nonnull %211, ptr noundef nonnull %33, i32 noundef 12514) #7
   br label %235
 
 235:                                              ; preds = %233, %228
@@ -794,7 +794,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread17, label %242
 
 .thread17:                                        ; preds = %.thread16, %237
-  %238 = getelementptr inbounds i8, ptr %51, i64 6
+  %238 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %239 = load i8, ptr %238, align 1
   %240 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 11), align 1
   %241 = icmp eq i8 %239, %240
@@ -809,27 +809,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 246:                                              ; preds = %242
   %247 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 9), align 1
   %248 = icmp eq i8 %247, 0
-  %249 = getelementptr inbounds i8, ptr %0, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %250 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_draghys, i64 8), align 8
-  %251 = getelementptr inbounds i8, ptr %51, i64 6
+  %251 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %252 = load i8, ptr %251, align 1
   br i1 %248, label %253, label %257
 
 253:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %32) #7
   store i8 -127, ptr %32, align 1
-  %254 = getelementptr inbounds i8, ptr %32, i64 1
+  %254 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 %250, ptr %254, align 1
-  %255 = getelementptr inbounds i8, ptr %32, i64 2
+  %255 = getelementptr inbounds nuw i8, ptr %32, i64 2
   store i8 %252, ptr %255, align 1
-  %256 = call i32 @ps2_command(ptr noundef %249, ptr noundef nonnull %32, i32 noundef 12514) #7
+  %256 = call i32 @ps2_command(ptr noundef nonnull %249, ptr noundef nonnull %32, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %32) #7
   br label %275
 
 257:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %31) #7
   store i8 %250, ptr %31, align 1
-  %258 = call i32 @ps2_command(ptr noundef %249, ptr noundef nonnull %31, i32 noundef 4578) #7
+  %258 = call i32 @ps2_command(ptr noundef nonnull %249, ptr noundef nonnull %31, i32 noundef 4578) #7
   %259 = icmp eq i32 %258, 0
   br i1 %259, label %260, label %274
 
@@ -844,16 +844,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 266:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %30) #7
   store i8 71, ptr %30, align 1
-  %267 = getelementptr inbounds i8, ptr %30, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 %250, ptr %267, align 1
-  %268 = getelementptr inbounds i8, ptr %30, i64 2
+  %268 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i8 %247, ptr %268, align 1
   %269 = add i8 %250, -47
   %270 = icmp ult i8 %269, -15
   br i1 %270, label %273, label %271
 
 271:                                              ; preds = %266
-  %272 = call i32 @ps2_command(ptr noundef %249, ptr noundef nonnull %30, i32 noundef 12514) #7
+  %272 = call i32 @ps2_command(ptr noundef nonnull %249, ptr noundef nonnull %30, i32 noundef 12514) #7
   br label %273
 
 273:                                              ; preds = %271, %266
@@ -868,7 +868,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread18, label %280
 
 .thread18:                                        ; preds = %.thread17, %275
-  %276 = getelementptr inbounds i8, ptr %51, i64 7
+  %276 = getelementptr inbounds nuw i8, ptr %51, i64 7
   %277 = load i8, ptr %276, align 1
   %278 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 11), align 1
   %279 = icmp eq i8 %277, %278
@@ -883,27 +883,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 284:                                              ; preds = %280
   %285 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 9), align 1
   %286 = icmp eq i8 %285, 0
-  %287 = getelementptr inbounds i8, ptr %0, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %288 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_mindrag, i64 8), align 8
-  %289 = getelementptr inbounds i8, ptr %51, i64 7
+  %289 = getelementptr inbounds nuw i8, ptr %51, i64 7
   %290 = load i8, ptr %289, align 1
   br i1 %286, label %291, label %295
 
 291:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %29) #7
   store i8 -127, ptr %29, align 1
-  %292 = getelementptr inbounds i8, ptr %29, i64 1
+  %292 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 %288, ptr %292, align 1
-  %293 = getelementptr inbounds i8, ptr %29, i64 2
+  %293 = getelementptr inbounds nuw i8, ptr %29, i64 2
   store i8 %290, ptr %293, align 1
-  %294 = call i32 @ps2_command(ptr noundef %287, ptr noundef nonnull %29, i32 noundef 12514) #7
+  %294 = call i32 @ps2_command(ptr noundef nonnull %287, ptr noundef nonnull %29, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %29) #7
   br label %313
 
 295:                                              ; preds = %284
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #7
   store i8 %288, ptr %28, align 1
-  %296 = call i32 @ps2_command(ptr noundef %287, ptr noundef nonnull %28, i32 noundef 4578) #7
+  %296 = call i32 @ps2_command(ptr noundef nonnull %287, ptr noundef nonnull %28, i32 noundef 4578) #7
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %312
 
@@ -918,16 +918,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 304:                                              ; preds = %298
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %27) #7
   store i8 71, ptr %27, align 1
-  %305 = getelementptr inbounds i8, ptr %27, i64 1
+  %305 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %288, ptr %305, align 1
-  %306 = getelementptr inbounds i8, ptr %27, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %27, i64 2
   store i8 %285, ptr %306, align 1
   %307 = add i8 %288, -47
   %308 = icmp ult i8 %307, -15
   br i1 %308, label %311, label %309
 
 309:                                              ; preds = %304
-  %310 = call i32 @ps2_command(ptr noundef %287, ptr noundef nonnull %27, i32 noundef 12514) #7
+  %310 = call i32 @ps2_command(ptr noundef nonnull %287, ptr noundef nonnull %27, i32 noundef 12514) #7
   br label %311
 
 311:                                              ; preds = %309, %304
@@ -942,7 +942,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread19, label %318
 
 .thread19:                                        ; preds = %.thread18, %313
-  %314 = getelementptr inbounds i8, ptr %51, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %315 = load i8, ptr %314, align 1
   %316 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 11), align 1
   %317 = icmp eq i8 %315, %316
@@ -957,27 +957,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 322:                                              ; preds = %318
   %323 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 9), align 1
   %324 = icmp eq i8 %323, 0
-  %325 = getelementptr inbounds i8, ptr %0, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %326 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_thresh, i64 8), align 8
-  %327 = getelementptr inbounds i8, ptr %51, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %328 = load i8, ptr %327, align 1
   br i1 %324, label %329, label %333
 
 329:                                              ; preds = %322
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26) #7
   store i8 -127, ptr %26, align 1
-  %330 = getelementptr inbounds i8, ptr %26, i64 1
+  %330 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store i8 %326, ptr %330, align 1
-  %331 = getelementptr inbounds i8, ptr %26, i64 2
+  %331 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i8 %328, ptr %331, align 1
-  %332 = call i32 @ps2_command(ptr noundef %325, ptr noundef nonnull %26, i32 noundef 12514) #7
+  %332 = call i32 @ps2_command(ptr noundef nonnull %325, ptr noundef nonnull %26, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %26) #7
   br label %351
 
 333:                                              ; preds = %322
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25) #7
   store i8 %326, ptr %25, align 1
-  %334 = call i32 @ps2_command(ptr noundef %325, ptr noundef nonnull %25, i32 noundef 4578) #7
+  %334 = call i32 @ps2_command(ptr noundef nonnull %325, ptr noundef nonnull %25, i32 noundef 4578) #7
   %335 = icmp eq i32 %334, 0
   br i1 %335, label %336, label %350
 
@@ -992,16 +992,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 342:                                              ; preds = %336
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %24) #7
   store i8 71, ptr %24, align 1
-  %343 = getelementptr inbounds i8, ptr %24, i64 1
+  %343 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %326, ptr %343, align 1
-  %344 = getelementptr inbounds i8, ptr %24, i64 2
+  %344 = getelementptr inbounds nuw i8, ptr %24, i64 2
   store i8 %323, ptr %344, align 1
   %345 = add i8 %326, -47
   %346 = icmp ult i8 %345, -15
   br i1 %346, label %349, label %347
 
 347:                                              ; preds = %342
-  %348 = call i32 @ps2_command(ptr noundef %325, ptr noundef nonnull %24, i32 noundef 12514) #7
+  %348 = call i32 @ps2_command(ptr noundef nonnull %325, ptr noundef nonnull %24, i32 noundef 12514) #7
   br label %349
 
 349:                                              ; preds = %347, %342
@@ -1016,7 +1016,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread20, label %356
 
 .thread20:                                        ; preds = %.thread19, %351
-  %352 = getelementptr inbounds i8, ptr %51, i64 9
+  %352 = getelementptr inbounds nuw i8, ptr %51, i64 9
   %353 = load i8, ptr %352, align 1
   %354 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 11), align 1
   %355 = icmp eq i8 %353, %354
@@ -1031,27 +1031,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 360:                                              ; preds = %356
   %361 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 9), align 1
   %362 = icmp eq i8 %361, 0
-  %363 = getelementptr inbounds i8, ptr %0, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %364 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_upthresh, i64 8), align 8
-  %365 = getelementptr inbounds i8, ptr %51, i64 9
+  %365 = getelementptr inbounds nuw i8, ptr %51, i64 9
   %366 = load i8, ptr %365, align 1
   br i1 %362, label %367, label %371
 
 367:                                              ; preds = %360
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %23) #7
   store i8 -127, ptr %23, align 1
-  %368 = getelementptr inbounds i8, ptr %23, i64 1
+  %368 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 %364, ptr %368, align 1
-  %369 = getelementptr inbounds i8, ptr %23, i64 2
+  %369 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 %366, ptr %369, align 1
-  %370 = call i32 @ps2_command(ptr noundef %363, ptr noundef nonnull %23, i32 noundef 12514) #7
+  %370 = call i32 @ps2_command(ptr noundef nonnull %363, ptr noundef nonnull %23, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %23) #7
   br label %389
 
 371:                                              ; preds = %360
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %22) #7
   store i8 %364, ptr %22, align 1
-  %372 = call i32 @ps2_command(ptr noundef %363, ptr noundef nonnull %22, i32 noundef 4578) #7
+  %372 = call i32 @ps2_command(ptr noundef nonnull %363, ptr noundef nonnull %22, i32 noundef 4578) #7
   %373 = icmp eq i32 %372, 0
   br i1 %373, label %374, label %388
 
@@ -1066,16 +1066,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 380:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %21) #7
   store i8 71, ptr %21, align 1
-  %381 = getelementptr inbounds i8, ptr %21, i64 1
+  %381 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %364, ptr %381, align 1
-  %382 = getelementptr inbounds i8, ptr %21, i64 2
+  %382 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i8 %361, ptr %382, align 1
   %383 = add i8 %364, -47
   %384 = icmp ult i8 %383, -15
   br i1 %384, label %387, label %385
 
 385:                                              ; preds = %380
-  %386 = call i32 @ps2_command(ptr noundef %363, ptr noundef nonnull %21, i32 noundef 12514) #7
+  %386 = call i32 @ps2_command(ptr noundef nonnull %363, ptr noundef nonnull %21, i32 noundef 12514) #7
   br label %387
 
 387:                                              ; preds = %385, %380
@@ -1090,7 +1090,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread21, label %394
 
 .thread21:                                        ; preds = %.thread20, %389
-  %390 = getelementptr inbounds i8, ptr %51, i64 10
+  %390 = getelementptr inbounds nuw i8, ptr %51, i64 10
   %391 = load i8, ptr %390, align 1
   %392 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 11), align 1
   %393 = icmp eq i8 %391, %392
@@ -1105,27 +1105,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 398:                                              ; preds = %394
   %399 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 9), align 1
   %400 = icmp eq i8 %399, 0
-  %401 = getelementptr inbounds i8, ptr %0, i64 16
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %402 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ztime, i64 8), align 8
-  %403 = getelementptr inbounds i8, ptr %51, i64 10
+  %403 = getelementptr inbounds nuw i8, ptr %51, i64 10
   %404 = load i8, ptr %403, align 1
   br i1 %400, label %405, label %409
 
 405:                                              ; preds = %398
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %20) #7
   store i8 -127, ptr %20, align 1
-  %406 = getelementptr inbounds i8, ptr %20, i64 1
+  %406 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 %402, ptr %406, align 1
-  %407 = getelementptr inbounds i8, ptr %20, i64 2
+  %407 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %404, ptr %407, align 1
-  %408 = call i32 @ps2_command(ptr noundef %401, ptr noundef nonnull %20, i32 noundef 12514) #7
+  %408 = call i32 @ps2_command(ptr noundef nonnull %401, ptr noundef nonnull %20, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %20) #7
   br label %427
 
 409:                                              ; preds = %398
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %19) #7
   store i8 %402, ptr %19, align 1
-  %410 = call i32 @ps2_command(ptr noundef %401, ptr noundef nonnull %19, i32 noundef 4578) #7
+  %410 = call i32 @ps2_command(ptr noundef nonnull %401, ptr noundef nonnull %19, i32 noundef 4578) #7
   %411 = icmp eq i32 %410, 0
   br i1 %411, label %412, label %426
 
@@ -1140,16 +1140,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 418:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %18) #7
   store i8 71, ptr %18, align 1
-  %419 = getelementptr inbounds i8, ptr %18, i64 1
+  %419 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %402, ptr %419, align 1
-  %420 = getelementptr inbounds i8, ptr %18, i64 2
+  %420 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i8 %399, ptr %420, align 1
   %421 = add i8 %402, -47
   %422 = icmp ult i8 %421, -15
   br i1 %422, label %425, label %423
 
 423:                                              ; preds = %418
-  %424 = call i32 @ps2_command(ptr noundef %401, ptr noundef nonnull %18, i32 noundef 12514) #7
+  %424 = call i32 @ps2_command(ptr noundef nonnull %401, ptr noundef nonnull %18, i32 noundef 12514) #7
   br label %425
 
 425:                                              ; preds = %423, %418
@@ -1164,7 +1164,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread22, label %432
 
 .thread22:                                        ; preds = %.thread21, %427
-  %428 = getelementptr inbounds i8, ptr %51, i64 11
+  %428 = getelementptr inbounds nuw i8, ptr %51, i64 11
   %429 = load i8, ptr %428, align 1
   %430 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 11), align 1
   %431 = icmp eq i8 %429, %430
@@ -1179,27 +1179,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 436:                                              ; preds = %432
   %437 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 9), align 1
   %438 = icmp eq i8 %437, 0
-  %439 = getelementptr inbounds i8, ptr %0, i64 16
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %440 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_jenks, i64 8), align 8
-  %441 = getelementptr inbounds i8, ptr %51, i64 11
+  %441 = getelementptr inbounds nuw i8, ptr %51, i64 11
   %442 = load i8, ptr %441, align 1
   br i1 %438, label %443, label %447
 
 443:                                              ; preds = %436
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %17) #7
   store i8 -127, ptr %17, align 1
-  %444 = getelementptr inbounds i8, ptr %17, i64 1
+  %444 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %440, ptr %444, align 1
-  %445 = getelementptr inbounds i8, ptr %17, i64 2
+  %445 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %442, ptr %445, align 1
-  %446 = call i32 @ps2_command(ptr noundef %439, ptr noundef nonnull %17, i32 noundef 12514) #7
+  %446 = call i32 @ps2_command(ptr noundef nonnull %439, ptr noundef nonnull %17, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %17) #7
   br label %465
 
 447:                                              ; preds = %436
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #7
   store i8 %440, ptr %16, align 1
-  %448 = call i32 @ps2_command(ptr noundef %439, ptr noundef nonnull %16, i32 noundef 4578) #7
+  %448 = call i32 @ps2_command(ptr noundef nonnull %439, ptr noundef nonnull %16, i32 noundef 4578) #7
   %449 = icmp eq i32 %448, 0
   br i1 %449, label %450, label %464
 
@@ -1214,16 +1214,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 456:                                              ; preds = %450
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %15) #7
   store i8 71, ptr %15, align 1
-  %457 = getelementptr inbounds i8, ptr %15, i64 1
+  %457 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 %440, ptr %457, align 1
-  %458 = getelementptr inbounds i8, ptr %15, i64 2
+  %458 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i8 %437, ptr %458, align 1
   %459 = add i8 %440, -47
   %460 = icmp ult i8 %459, -15
   br i1 %460, label %463, label %461
 
 461:                                              ; preds = %456
-  %462 = call i32 @ps2_command(ptr noundef %439, ptr noundef nonnull %15, i32 noundef 12514) #7
+  %462 = call i32 @ps2_command(ptr noundef nonnull %439, ptr noundef nonnull %15, i32 noundef 12514) #7
   br label %463
 
 463:                                              ; preds = %461, %456
@@ -1238,7 +1238,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread23, label %470
 
 .thread23:                                        ; preds = %.thread22, %465
-  %466 = getelementptr inbounds i8, ptr %51, i64 12
+  %466 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %467 = load i8, ptr %466, align 1
   %468 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 11), align 1
   %469 = icmp eq i8 %467, %468
@@ -1253,27 +1253,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 474:                                              ; preds = %470
   %475 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 9), align 1
   %476 = icmp eq i8 %475, 0
-  %477 = getelementptr inbounds i8, ptr %0, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %478 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_drift_time, i64 8), align 8
-  %479 = getelementptr inbounds i8, ptr %51, i64 12
+  %479 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %480 = load i8, ptr %479, align 1
   br i1 %476, label %481, label %485
 
 481:                                              ; preds = %474
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #7
   store i8 -127, ptr %14, align 1
-  %482 = getelementptr inbounds i8, ptr %14, i64 1
+  %482 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %478, ptr %482, align 1
-  %483 = getelementptr inbounds i8, ptr %14, i64 2
+  %483 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %480, ptr %483, align 1
-  %484 = call i32 @ps2_command(ptr noundef %477, ptr noundef nonnull %14, i32 noundef 12514) #7
+  %484 = call i32 @ps2_command(ptr noundef nonnull %477, ptr noundef nonnull %14, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %14) #7
   br label %503
 
 485:                                              ; preds = %474
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #7
   store i8 %478, ptr %13, align 1
-  %486 = call i32 @ps2_command(ptr noundef %477, ptr noundef nonnull %13, i32 noundef 4578) #7
+  %486 = call i32 @ps2_command(ptr noundef nonnull %477, ptr noundef nonnull %13, i32 noundef 4578) #7
   %487 = icmp eq i32 %486, 0
   br i1 %487, label %488, label %502
 
@@ -1288,16 +1288,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 494:                                              ; preds = %488
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %12) #7
   store i8 71, ptr %12, align 1
-  %495 = getelementptr inbounds i8, ptr %12, i64 1
+  %495 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %478, ptr %495, align 1
-  %496 = getelementptr inbounds i8, ptr %12, i64 2
+  %496 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i8 %475, ptr %496, align 1
   %497 = add i8 %478, -47
   %498 = icmp ult i8 %497, -15
   br i1 %498, label %501, label %499
 
 499:                                              ; preds = %494
-  %500 = call i32 @ps2_command(ptr noundef %477, ptr noundef nonnull %12, i32 noundef 12514) #7
+  %500 = call i32 @ps2_command(ptr noundef nonnull %477, ptr noundef nonnull %12, i32 noundef 12514) #7
   br label %501
 
 501:                                              ; preds = %499, %494
@@ -1312,12 +1312,12 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %503
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %51, i64 13
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %51, i64 13
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !6
   br label %508
 
 .thread24:                                        ; preds = %.thread23, %503
-  %504 = getelementptr inbounds i8, ptr %51, i64 13
+  %504 = getelementptr inbounds nuw i8, ptr %51, i64 13
   %505 = load i8, ptr %504, align 1, !range !6, !noundef !7
   %506 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 11), align 1
   %507 = icmp eq i8 %505, %506
@@ -1327,25 +1327,25 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   %509 = phi i8 [ %.pre, %._crit_edge ], [ %505, %.thread24 ]
   %510 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 9), align 1
   %511 = icmp eq i8 %510, 0
-  %512 = getelementptr inbounds i8, ptr %0, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %513 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_press_to_select, i64 8), align 8
   br i1 %511, label %514, label %518
 
 514:                                              ; preds = %508
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %11) #7
   store i8 -127, ptr %11, align 1
-  %515 = getelementptr inbounds i8, ptr %11, i64 1
+  %515 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 %513, ptr %515, align 1
-  %516 = getelementptr inbounds i8, ptr %11, i64 2
+  %516 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i8 %509, ptr %516, align 1
-  %517 = call i32 @ps2_command(ptr noundef %512, ptr noundef nonnull %11, i32 noundef 12514) #7
+  %517 = call i32 @ps2_command(ptr noundef nonnull %512, ptr noundef nonnull %11, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %11) #7
   br label %536
 
 518:                                              ; preds = %508
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #7
   store i8 %513, ptr %10, align 1
-  %519 = call i32 @ps2_command(ptr noundef %512, ptr noundef nonnull %10, i32 noundef 4578) #7
+  %519 = call i32 @ps2_command(ptr noundef nonnull %512, ptr noundef nonnull %10, i32 noundef 4578) #7
   %520 = icmp eq i32 %519, 0
   br i1 %520, label %521, label %535
 
@@ -1360,16 +1360,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 527:                                              ; preds = %521
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9) #7
   store i8 71, ptr %9, align 1
-  %528 = getelementptr inbounds i8, ptr %9, i64 1
+  %528 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %513, ptr %528, align 1
-  %529 = getelementptr inbounds i8, ptr %9, i64 2
+  %529 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 %510, ptr %529, align 1
   %530 = add i8 %513, -47
   %531 = icmp ult i8 %530, -15
   br i1 %531, label %534, label %532
 
 532:                                              ; preds = %527
-  %533 = call i32 @ps2_command(ptr noundef %512, ptr noundef nonnull %9, i32 noundef 12514) #7
+  %533 = call i32 @ps2_command(ptr noundef nonnull %512, ptr noundef nonnull %9, i32 noundef 12514) #7
   br label %534
 
 534:                                              ; preds = %532, %527
@@ -1384,7 +1384,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread25, label %541
 
 .thread25:                                        ; preds = %.thread24, %536
-  %537 = getelementptr inbounds i8, ptr %51, i64 14
+  %537 = getelementptr inbounds nuw i8, ptr %51, i64 14
   %538 = load i8, ptr %537, align 1, !range !6, !noundef !7
   %539 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 11), align 1
   %540 = icmp eq i8 %538, %539
@@ -1399,27 +1399,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 545:                                              ; preds = %541
   %546 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 9), align 1
   %547 = icmp eq i8 %546, 0
-  %548 = getelementptr inbounds i8, ptr %0, i64 16
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %549 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_skipback, i64 8), align 8
-  %550 = getelementptr inbounds i8, ptr %51, i64 14
+  %550 = getelementptr inbounds nuw i8, ptr %51, i64 14
   %551 = load i8, ptr %550, align 1, !range !6, !noundef !7
   br i1 %547, label %552, label %556
 
 552:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %8) #7
   store i8 -127, ptr %8, align 1
-  %553 = getelementptr inbounds i8, ptr %8, i64 1
+  %553 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %549, ptr %553, align 1
-  %554 = getelementptr inbounds i8, ptr %8, i64 2
+  %554 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %551, ptr %554, align 1
-  %555 = call i32 @ps2_command(ptr noundef %548, ptr noundef nonnull %8, i32 noundef 12514) #7
+  %555 = call i32 @ps2_command(ptr noundef nonnull %548, ptr noundef nonnull %8, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %8) #7
   br label %574
 
 556:                                              ; preds = %545
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
   store i8 %549, ptr %7, align 1
-  %557 = call i32 @ps2_command(ptr noundef %548, ptr noundef nonnull %7, i32 noundef 4578) #7
+  %557 = call i32 @ps2_command(ptr noundef nonnull %548, ptr noundef nonnull %7, i32 noundef 4578) #7
   %558 = icmp eq i32 %557, 0
   br i1 %558, label %559, label %573
 
@@ -1434,16 +1434,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 565:                                              ; preds = %559
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #7
   store i8 71, ptr %6, align 1
-  %566 = getelementptr inbounds i8, ptr %6, i64 1
+  %566 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %549, ptr %566, align 1
-  %567 = getelementptr inbounds i8, ptr %6, i64 2
+  %567 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %546, ptr %567, align 1
   %568 = add i8 %549, -47
   %569 = icmp ult i8 %568, -15
   br i1 %569, label %572, label %570
 
 570:                                              ; preds = %565
-  %571 = call i32 @ps2_command(ptr noundef %548, ptr noundef nonnull %6, i32 noundef 12514) #7
+  %571 = call i32 @ps2_command(ptr noundef nonnull %548, ptr noundef nonnull %6, i32 noundef 12514) #7
   br label %572
 
 572:                                              ; preds = %570, %565
@@ -1458,7 +1458,7 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %.thread26, label %579
 
 .thread26:                                        ; preds = %.thread25, %574
-  %575 = getelementptr inbounds i8, ptr %51, i64 15
+  %575 = getelementptr inbounds nuw i8, ptr %51, i64 15
   %576 = load i8, ptr %575, align 1, !range !6, !noundef !7
   %577 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 11), align 1
   %578 = icmp eq i8 %576, %577
@@ -1473,27 +1473,27 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 583:                                              ; preds = %579
   %584 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 9), align 1
   %585 = icmp eq i8 %584, 0
-  %586 = getelementptr inbounds i8, ptr %0, i64 16
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %587 = load i8, ptr getelementptr inbounds (i8, ptr @trackpoint_attr_ext_dev, i64 8), align 8
-  %588 = getelementptr inbounds i8, ptr %51, i64 15
+  %588 = getelementptr inbounds nuw i8, ptr %51, i64 15
   %589 = load i8, ptr %588, align 1, !range !6, !noundef !7
   br i1 %585, label %590, label %594
 
 590:                                              ; preds = %583
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
   store i8 -127, ptr %5, align 1
-  %591 = getelementptr inbounds i8, ptr %5, i64 1
+  %591 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %587, ptr %591, align 1
-  %592 = getelementptr inbounds i8, ptr %5, i64 2
+  %592 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %589, ptr %592, align 1
-  %593 = call i32 @ps2_command(ptr noundef %586, ptr noundef nonnull %5, i32 noundef 12514) #7
+  %593 = call i32 @ps2_command(ptr noundef nonnull %586, ptr noundef nonnull %5, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
   br label %612
 
 594:                                              ; preds = %583
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #7
   store i8 %587, ptr %4, align 1
-  %595 = call i32 @ps2_command(ptr noundef %586, ptr noundef nonnull %4, i32 noundef 4578) #7
+  %595 = call i32 @ps2_command(ptr noundef nonnull %586, ptr noundef nonnull %4, i32 noundef 4578) #7
   %596 = icmp eq i32 %595, 0
   br i1 %596, label %597, label %611
 
@@ -1508,16 +1508,16 @@ define internal fastcc void @trackpoint_sync(ptr noundef %0, i1 noundef zeroext 
 603:                                              ; preds = %597
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #7
   store i8 71, ptr %3, align 1
-  %604 = getelementptr inbounds i8, ptr %3, i64 1
+  %604 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %587, ptr %604, align 1
-  %605 = getelementptr inbounds i8, ptr %3, i64 2
+  %605 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %584, ptr %605, align 1
   %606 = add i8 %587, -47
   %607 = icmp ult i8 %606, -15
   br i1 %607, label %610, label %608
 
 608:                                              ; preds = %603
-  %609 = call i32 @ps2_command(ptr noundef %586, ptr noundef nonnull %3, i32 noundef 12514) #7
+  %609 = call i32 @ps2_command(ptr noundef nonnull %586, ptr noundef nonnull %3, i32 noundef 12514) #7
   br label %610
 
 610:                                              ; preds = %608, %603
@@ -1565,7 +1565,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr i8, ptr %4, i64 %5
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %9 = load i8, ptr %8, align 2, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   %11 = icmp eq i8 %7, 0
@@ -1597,16 +1597,16 @@ define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr nocapture nound
   %14 = getelementptr i8, ptr %7, i64 %8
   %15 = load i8, ptr %6, align 1
   store i8 %15, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i8, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
   store i8 -127, ptr %5, align 1
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %5, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %15, ptr %20, align 1
-  %21 = call i32 @ps2_command(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 12514) #7
+  %21 = call i32 @ps2_command(ptr noundef nonnull %16, ptr noundef nonnull %5, i32 noundef 12514) #7
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
   %22 = icmp eq i32 %21, 0
   %23 = sext i32 %21 to i64
@@ -1643,7 +1643,7 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture nound
   br label %38
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %16 = load i8, ptr %15, align 2, !range !6, !noundef !7
   %17 = icmp eq i8 %16, 0
   %.pre = load i8, ptr %6, align 1, !range !6
@@ -1662,15 +1662,15 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture nound
 
 24:                                               ; preds = %20
   store i8 %21, ptr %9, align 1
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i8, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 9
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %28 = load i8, ptr %27, align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #7
   store i8 71, ptr %5, align 1
-  %29 = getelementptr inbounds i8, ptr %5, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %26, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %5, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %28, ptr %30, align 1
   %31 = add i8 %26, -47
   %32 = icmp ult i8 %31, -15
@@ -1681,8 +1681,8 @@ define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture nound
   br label %38
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = call i32 @ps2_command(ptr noundef %34, ptr noundef nonnull %5, i32 noundef 12514) #7
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = call i32 @ps2_command(ptr noundef nonnull %34, ptr noundef nonnull %5, i32 noundef 12514) #7
   %.fr = freeze i32 %35
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #7
   %36 = icmp eq i32 %.fr, 0
@@ -1718,7 +1718,7 @@ define internal zeroext i16 @trackpoint_is_attr_visible(ptr noundef %0, ptr noun
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i16, ptr %14, align 8
   br label %16
 

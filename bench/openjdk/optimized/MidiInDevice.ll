@@ -114,7 +114,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 12:                                               ; preds = %11
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %1) #4
   %17 = icmp eq ptr %16, null
@@ -126,7 +126,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 264
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %.2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #4
   %24 = icmp eq ptr %23, null
@@ -139,7 +139,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #4
   %32 = icmp eq ptr %31, null
@@ -149,7 +149,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
   %.170 = phi ptr [ %31, %27 ], [ %.06986, %25 ], [ %.06986, %6 ]
   %.167 = phi ptr [ %.268, %27 ], [ %.268, %25 ], [ %.06687, %6 ]
   %.1 = phi ptr [ %.2, %27 ], [ %.2, %25 ], [ %.06588, %6 ]
-  %34 = getelementptr inbounds i8, ptr %7, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %35 = load i32, ptr %34, align 4
   switch i32 %35, label %79 [
     i32 0, label %36
@@ -157,20 +157,20 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
   ]
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = load i64, ptr %7, align 8
   tail call void @MIDI_IN_ReleaseMessage(ptr noundef %4, ptr noundef nonnull %7) #4
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 488
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 488
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ptr, ...) %42(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.167, i32 noundef %38, i64 noundef %39) #4
   br label %80
 
 43:                                               ; preds = %33
   %44 = load i64, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 16
-  %46 = getelementptr inbounds i8, ptr %7, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %49 [
@@ -185,7 +185,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
   %.not84 = phi i1 [ false, %49 ], [ true, %43 ], [ true, %43 ]
   %.0 = phi i32 [ 1, %49 ], [ 0, %43 ], [ 0, %43 ]
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1408
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1408
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %45, align 8
   %55 = add i32 %54, %.0
@@ -195,7 +195,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1472
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1472
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef null) #4
   %.not83 = icmp eq ptr %61, null
@@ -203,7 +203,7 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 62:                                               ; preds = %57
   %63 = zext nneg i32 %.0 to i64
-  %64 = getelementptr inbounds i8, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %63
   %65 = load ptr, ptr %46, align 8
   %66 = load i32, ptr %45, align 8
   %67 = zext i32 %66 to i64
@@ -217,15 +217,15 @@ define void @Java_com_sun_media_sound_MidiInDevice_nGetMessages(ptr noundef %0, 
 
 69:                                               ; preds = %68, %62
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1536
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1536
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %0, ptr noundef nonnull %56, ptr noundef nonnull %61, i32 noundef 0) #4
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 488
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 488
   %75 = load ptr, ptr %74, align 8
   tail call void (ptr, ptr, ptr, ...) %75(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.170, ptr noundef nonnull %56, i64 noundef %44) #4
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 184
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull %0, ptr noundef nonnull %56) #4
   br label %80

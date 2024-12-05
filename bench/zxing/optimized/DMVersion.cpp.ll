@@ -25,14 +25,14 @@ define noundef ptr @_ZN5ZXing10DataMatrix20VersionForDimensionsEii(i32 noundef %
 
 .preheader:                                       ; preds = %4, %16
   %.016.idx19 = phi i64 [ %.016.add, %16 ], [ 0, %4 ]
-  %.016.ptr20 = getelementptr inbounds i8, ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, i64 %.016.idx19
-  %9 = getelementptr inbounds i8, ptr %.016.ptr20, i64 4
+  %.016.ptr20 = getelementptr inbounds nuw i8, ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, i64 %.016.idx19
+  %9 = getelementptr inbounds nuw i8, ptr %.016.ptr20, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.016.ptr20, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.016.ptr20, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %.loopexit, label %16

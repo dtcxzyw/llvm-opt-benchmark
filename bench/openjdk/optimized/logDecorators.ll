@@ -42,14 +42,14 @@ define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(
 
 2:                                                ; preds = %1, %12
   %.0814 = phi i64 [ 0, %1 ], [ %13, %12 ]
-  %3 = getelementptr inbounds [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814
+  %3 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %4) #5
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.split.loop.exit9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814, i64 1
+  %8 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814, i64 1
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %9) #5
   %11 = icmp eq i32 %10, 0
@@ -119,14 +119,14 @@ define hidden noundef zeroext i1 @_ZN13LogDecorators5parseEPKcP12outputStream(pt
 
 17:                                               ; preds = %.preheader, %27
   %.0814.i = phi i64 [ %28, %27 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814.i
+  %18 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814.i
   %19 = load ptr, ptr %18, align 16
   %20 = tail call i32 @strcasecmp(ptr noundef readonly %.023, ptr noundef %19) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %_ZN13LogDecorators11from_stringEPKc.exit, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814.i, i64 1
+  %23 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814.i, i64 1
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcasecmp(ptr noundef readonly %.023, ptr noundef %24) #5
   %26 = icmp eq i32 %25, 0
@@ -153,7 +153,7 @@ _ZN13LogDecorators11from_stringEPKc.exit.thread:  ; preds = %_ZN13LogDecorators1
 30:                                               ; preds = %_ZN13LogDecorators11from_stringEPKc.exit
   %31 = shl nuw i32 1, %.0.i
   %32 = or i32 %31, %.024
-  %33 = getelementptr inbounds i8, ptr %15, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br i1 %.not, label %34, label %14, !llvm.loop !8
 
 .thread:                                          ; preds = %29, %_ZN13LogDecorators11from_stringEPKc.exit.thread

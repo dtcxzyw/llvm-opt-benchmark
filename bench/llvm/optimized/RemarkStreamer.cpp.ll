@@ -113,7 +113,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -337,7 +337,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS0_13boolOrDefau
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i32, ptr %7, align 4
   store i32 %12, ptr %11, align 8
   %13 = trunc i32 %1 to i16
@@ -400,7 +400,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i.i: ; preds = %12, %_Z
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6parserIS2_EEED2Ev.exit, label %18
 
@@ -430,15 +430,15 @@ define linkonce_odr hidden void @_ZNK4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6parserIS2_EEE16printOptionValueEmb(ptr noundef nonnull align 8 dereferenceable(192) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca %"struct.llvm::cl::OptionValue", align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %2, label %.critedge, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 148
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %.pre
   %12 = select i1 %8, i1 %11, i1 false
@@ -448,7 +448,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6p
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %14, ptr noundef nonnull align 8 dereferenceable(5) %15, i64 5, i1 false)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS0_13boolOrDefaultEEE, i64 16), ptr %4, align 8
   call void @_ZNK4llvm2cl6parserINS0_13boolOrDefaultEE15printOptionDiffERKNS0_6OptionES2_NS0_11OptionValueIS2_EEm(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %.pre, ptr noundef nonnull %4, i64 noundef %1) #14
@@ -461,13 +461,13 @@ define linkonce_odr hidden void @_ZNK4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6parserIS2_EEE10setDefaultEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 148
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %storemerge.i = select i1 %4, i32 %6, i32 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %storemerge.i, ptr %7, align 8
   ret void
 }
@@ -584,7 +584,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -666,9 +666,9 @@ declare void @_ZN4llvm5RegexC1EOS0_(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_RemarkStreamer.cpp() #12 section ".text.startup" {
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL20EnableRemarksSection, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS0_13boolOrDefaultEEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueINS0_13boolOrDefaultEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optINS0_13boolOrDefaultELb0ENS0_6parserIS2_EEEE, i64 16), ptr @_ZL20EnableRemarksSection, align 8
   tail call void @_ZN4llvm2cl12basic_parserINS0_13boolOrDefaultEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL20EnableRemarksSection) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserINS0_13boolOrDefaultEEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 152), align 8
@@ -677,10 +677,10 @@ define internal void @_GLOBAL__sub_I_RemarkStreamer.cpp() #12 section ".text.sta
   store ptr @_ZNSt17_Function_handlerIFvRKN4llvm2cl13boolOrDefaultEENS1_3optIS2_Lb0ENS1_6parserIS2_EEEUlS4_E_EE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 176), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZL20EnableRemarksSection, ptr nonnull align 1 dereferenceable(16) @.str, i64 15) #14
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 32), align 8
-  store i64 133, ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 128), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 148), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL20EnableRemarksSection, i64 144), align 8
+  store i64 133, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 128), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 148), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 144), align 8
   %1 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL20EnableRemarksSection, i64 10), align 2
   %2 = and i16 %1, -97
   %3 = or disjoint i16 %2, 32

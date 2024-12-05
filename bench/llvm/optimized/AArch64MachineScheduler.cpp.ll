@@ -184,7 +184,7 @@ define linkonce_odr hidden void @_ZN4llvm26AArch64PostRASchedStrategyD2Ev(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #7
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %_ZN4llvm20PostGenericSchedulerD2Ev.exit, label %9
 
@@ -207,7 +207,7 @@ define linkonce_odr hidden void @_ZN4llvm26AArch64PostRASchedStrategyD0Ev(ptr no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #7
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %_ZN4llvm26AArch64PostRASchedStrategyD2Ev.exit, label %9
 
@@ -333,7 +333,7 @@ define linkonce_odr hidden void @_ZN4llvm20GenericSchedulerBaseD2Ev(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #7
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN4llvm14SchedRemainderD2Ev.exit, label %7
 

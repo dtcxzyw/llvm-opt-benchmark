@@ -154,7 +154,7 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   br i1 %13, label %81, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #7
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.48, ptr noundef nonnull dereferenceable(1) %17) #8
@@ -173,7 +173,7 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
 
 22:                                               ; preds = %19, %21
   %.062 = phi i1 [ false, %19 ], [ true, %21 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.45) #7
   %25 = load ptr, ptr %23, align 8
@@ -195,10 +195,10 @@ define internal i32 @dissect_roon_discover(ptr noundef %0, ptr nocapture noundef
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %37 = getelementptr inbounds i8, ptr %8, i64 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %roon_map_length.exit.i
 
 roon_map_length.exit.i:                           ; preds = %.lr.ph, %76
@@ -229,7 +229,7 @@ roon_map_name.exit.thread:                        ; preds = %roon_map_length.exi
   br label %roon_map_length.exit.i72
 
 roon_map_name.exit:                               ; preds = %roon_map_length.exit.i
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %.not64 = icmp eq ptr %56, null
@@ -242,7 +242,7 @@ roon_map_length.exit.i68:                         ; preds = %roon_map_name.exit
   %57 = call ptr @bsearch(ptr noundef nonnull %7, ptr noundef nonnull @roon_disco_string_fields, i64 noundef 21, i64 noundef 24, ptr noundef nonnull @compare_keys) #7
   %.not.i69 = icmp ne ptr %57, null
   call void @llvm.assume(i1 %.not.i69)
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %60 = load i32, ptr %59, align 4
@@ -262,7 +262,7 @@ roon_map_name.exit74.thread:                      ; preds = %roon_map_length.exi
   br label %76
 
 roon_map_name.exit74:                             ; preds = %roon_map_length.exit.i72
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %.not65 = icmp eq ptr %64, null
@@ -275,7 +275,7 @@ roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit7
   %65 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @roon_disco_bool_fields, i64 noundef 1, i64 noundef 24, ptr noundef nonnull @compare_keys) #7
   %.not.i78 = icmp ne ptr %65, null
   call void @llvm.assume(i1 %.not.i78)
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %68 = load i8, ptr %51, align 1
@@ -283,7 +283,7 @@ roon_map_length.exit.i77:                         ; preds = %roon_map_name.exit7
   br i1 %.not84, label %sub_1, label %roon_map_length.exit.i77.tail
 
 sub_1:                                            ; preds = %roon_map_length.exit.i77
-  %69 = getelementptr inbounds i8, ptr %51, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = icmp ne i8 %70, 0
   %72 = zext i1 %71 to i64

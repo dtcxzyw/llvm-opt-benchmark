@@ -34,20 +34,20 @@ define hidden range(i32 -1, 2) i32 @mplog_open(ptr noundef %0, ptr noundef %1, p
   br i1 %.not17, label %10, label %23
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 177, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 148
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @mplog_read, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @mplog_seek_read, ptr %16, align 8
   %17 = load i32, ptr @mplog_file_type_subtype, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = load ptr, ptr %0, align 8
   %20 = call i64 @file_seek(ptr noundef %19, i64 noundef 128, i32 noundef 0, ptr noundef %1) #3
@@ -78,7 +78,7 @@ define internal range(i32 0, 2) i32 @mplog_read(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @mplog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #3
   %10 = icmp eq i64 %9, -1
@@ -127,14 +127,14 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   %6 = alloca [8 x i8], align 1
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 4100) #3
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr i8, ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
-  %13 = getelementptr inbounds i8, ptr %6, i64 2
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %16
 
 16:                                               ; preds = %50, %5
@@ -236,24 +236,24 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   store i8 %59, ptr %60, align 1
   store i32 0, ptr %1, align 8
   %61 = call ptr @wtap_block_create(i32 noundef 5) #3
-  %62 = getelementptr inbounds i8, ptr %1, i64 232
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 64
-  %64 = getelementptr inbounds i8, ptr %1, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 177, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %65, align 4
   %66 = mul nuw nsw i64 %.1, 10
   %67 = udiv i64 %.1, 100000000
-  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %67, ptr %68, align 8
   %69 = urem i64 %66, 1000000000
   %70 = trunc nuw nsw i64 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %70, ptr %71, align 8
   %72 = add i32 %.182, 4
   store i32 %72, ptr %63, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 68
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %72, ptr %73, align 4
   br label %74
 

@@ -153,27 +153,27 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 22, ptr %agg.result, align 8, !tbaa !12
-  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 352
+  %which_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 352
   store i8 2, ptr %which_.i.i.i, align 8, !tbaa !13
   br label %return
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %info) #18
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %info, i64 272
-  %maybeCcEnum.i = getelementptr inbounds i8, ptr %info, i64 280
-  %hasValue.i.i8.i = getelementptr inbounds i8, ptr %info, i64 284
-  %maybeCcInfo.i = getelementptr inbounds i8, ptr %info, i64 288
-  %hasValue.i.i9.i = getelementptr inbounds i8, ptr %info, i64 308
-  %tcpCcInfoBytesRead.i = getelementptr inbounds i8, ptr %info, i64 312
-  %maybeSendBufInUseBytes.i = getelementptr inbounds i8, ptr %info, i64 320
-  %hasValue.i.i10.i = getelementptr inbounds i8, ptr %info, i64 328
-  %maybeRecvBufInUseBytes.i = getelementptr inbounds i8, ptr %info, i64 336
-  %hasValue.i.i11.i = getelementptr inbounds i8, ptr %info, i64 344
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 272
+  %maybeCcEnum.i = getelementptr inbounds nuw i8, ptr %info, i64 280
+  %hasValue.i.i8.i = getelementptr inbounds nuw i8, ptr %info, i64 284
+  %maybeCcInfo.i = getelementptr inbounds nuw i8, ptr %info, i64 288
+  %hasValue.i.i9.i = getelementptr inbounds nuw i8, ptr %info, i64 308
+  %tcpCcInfoBytesRead.i = getelementptr inbounds nuw i8, ptr %info, i64 312
+  %maybeSendBufInUseBytes.i = getelementptr inbounds nuw i8, ptr %info, i64 320
+  %hasValue.i.i10.i = getelementptr inbounds nuw i8, ptr %info, i64 328
+  %maybeRecvBufInUseBytes.i = getelementptr inbounds nuw i8, ptr %info, i64 336
+  %hasValue.i.i11.i = getelementptr inbounds nuw i8, ptr %info, i64 344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %info, i8 0, i64 352, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len) #18
   store i32 232, ptr %len, align 4, !tbaa !8
   %vtable = load ptr, ptr %netopsDispatcher, align 8, !tbaa !16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call5 = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, i32 %0, i32 noundef 6, i32 noundef 11, ptr noundef nonnull %info, ptr noundef nonnull %len)
           to label %invoke.cont unwind label %lpad
@@ -221,14 +221,14 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 
 invoke.cont30:                                    ; preds = %invoke.cont25
   %5 = load ptr, ptr %ref.tmp27, align 8, !tbaa !22
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 8
   %6 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !25
   %call2.i102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call24, ptr noundef %5, i64 noundef %6)
           to label %cleanup.action unwind label %lpad32
 
 cleanup.action:                                   ; preds = %invoke.cont30
   %7 = load ptr, ptr %ref.tmp27, align 8, !tbaa !22
-  %8 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 16
   %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -277,7 +277,7 @@ lpad32:                                           ; preds = %invoke.cont30
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load ptr, ptr %ref.tmp27, align 8, !tbaa !22
-  %17 = getelementptr inbounds i8, ptr %ref.tmp27, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp27, i64 16
   %cmp.i.i.i104 = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i106, label %if.then.i.i105
 
@@ -308,7 +308,7 @@ cleanup.action58:                                 ; preds = %cleanup.action51, %
 
 if.end71:                                         ; preds = %invoke.cont
   %19 = load i32, ptr %len, align 4, !tbaa !8
-  %tcpInfoBytesRead = getelementptr inbounds i8, ptr %info, i64 232
+  %tcpInfoBytesRead = getelementptr inbounds nuw i8, ptr %info, i64 232
   store i32 %19, ptr %tcpInfoBytesRead, align 8, !tbaa !26
   %20 = load i8, ptr %options, align 1, !tbaa !39, !range !41, !noundef !42
   %tobool72.not = icmp eq i8 %20, 0
@@ -319,7 +319,7 @@ if.then73:                                        ; preds = %if.end71
           to label %if.end75 unwind label %lpad
 
 if.end75:                                         ; preds = %if.then73, %if.end71
-  %getMemInfo = getelementptr inbounds i8, ptr %options, i64 1
+  %getMemInfo = getelementptr inbounds nuw i8, ptr %options, i64 1
   %21 = load i8, ptr %getMemInfo, align 1, !tbaa !43, !range !41, !noundef !42
   %tobool76.not = icmp eq i8 %21, 0
   br i1 %tobool76.not, label %if.end79, label %if.then77
@@ -386,24 +386,24 @@ if.end13.i:                                       ; preds = %_ZN5folly8OptionalI
 
 if.end79:                                         ; preds = %if.end13.i, %if.then77, %if.end75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(236) %agg.result, ptr noundef nonnull align 8 dereferenceable(236) %info, i64 236, i1 false)
-  %maybeCcNameRaw.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
-  %hasValue.i.i.i.i125 = getelementptr inbounds i8, ptr %agg.result, i64 272
+  %maybeCcNameRaw.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 240
+  %hasValue.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %agg.result, i64 272
   store i8 0, ptr %hasValue.i.i.i.i125, align 8, !tbaa !48
   %30 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !48, !range !41, !noundef !42
   %tobool.i.i.not.i.i.i127 = icmp eq i8 %30, 0
   br i1 %tobool.i.i.not.i.i.i127, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i, label %invoke.cont2.i.i.i
 
 invoke.cont2.i.i.i:                               ; preds = %if.end79
-  %maybeCcNameRaw3.i.i = getelementptr inbounds i8, ptr %info, i64 240
-  %31 = getelementptr inbounds i8, ptr %agg.result, i64 256
+  %maybeCcNameRaw3.i.i = getelementptr inbounds nuw i8, ptr %info, i64 240
+  %31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 256
   store ptr %31, ptr %maybeCcNameRaw.i.i, align 8, !tbaa !49
   %32 = load ptr, ptr %maybeCcNameRaw3.i.i, align 8, !tbaa !22
-  %33 = getelementptr inbounds i8, ptr %info, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %info, i64 256
   %cmp.i.i.i.i.i.i = icmp eq ptr %32, %33
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i9.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i9.i.i.i:                               ; preds = %invoke.cont2.i.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %info, i64 248
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 248
   %34 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !25
   %cmp3.i.i.i.i.i.i = icmp ult i64 %34, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -415,21 +415,21 @@ if.else.i.i.i.i.i:                                ; preds = %invoke.cont2.i.i.i
   store ptr %32, ptr %maybeCcNameRaw.i.i, align 8, !tbaa !22
   %35 = load i64, ptr %33, align 8, !tbaa !12
   store i64 %35, ptr %31, align 8, !tbaa !12
-  %_M_string_length.i30.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %info, i64 248
+  %_M_string_length.i30.i.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %info, i64 248
   %.pre = load i64, ptr %_M_string_length.i30.i.i.i.i.i.phi.trans.insert, align 8, !tbaa !25
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i9.i.i.i
   %36 = phi i64 [ %34, %if.then.i.i9.i.i.i ], [ %.pre, %if.else.i.i.i.i.i ]
-  %_M_string_length.i31.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
+  %_M_string_length.i31.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 248
   store i64 %36, ptr %_M_string_length.i31.i.i.i.i.i, align 8, !tbaa !25
   store i8 1, ptr %hasValue.i.i.i.i125, align 8, !tbaa !50
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %if.end79
-  %maybeCcEnum.i.i = getelementptr inbounds i8, ptr %agg.result, i64 280
+  %maybeCcEnum.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 280
   store i8 0, ptr %maybeCcEnum.i.i, align 8, !tbaa !12
-  %hasValue.i.i15.i.i = getelementptr inbounds i8, ptr %agg.result, i64 284
+  %hasValue.i.i15.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 284
   store i8 0, ptr %hasValue.i.i15.i.i, align 4, !tbaa !51
   %37 = load i8, ptr %hasValue.i.i8.i, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i17.i.i = icmp eq i8 %37, 0
@@ -442,9 +442,9 @@ invoke.cont2.i18.i.i:                             ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalINS_7TcpInfo21CongestionControlNameEEC2EOS3_.exit.i.i
 
 _ZN5folly8OptionalINS_7TcpInfo21CongestionControlNameEEC2EOS3_.exit.i.i: ; preds = %invoke.cont2.i18.i.i, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i.i
-  %maybeCcInfo.i.i = getelementptr inbounds i8, ptr %agg.result, i64 288
+  %maybeCcInfo.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 288
   store i8 0, ptr %maybeCcInfo.i.i, align 8, !tbaa !12
-  %hasValue.i.i19.i.i = getelementptr inbounds i8, ptr %agg.result, i64 308
+  %hasValue.i.i19.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 308
   store i8 0, ptr %hasValue.i.i19.i.i, align 4, !tbaa !55
   %39 = load i8, ptr %hasValue.i.i9.i, align 4, !tbaa !56, !range !41, !noundef !42
   %tobool.i.i.not.i21.i.i = icmp eq i8 %39, 0
@@ -456,12 +456,12 @@ invoke.cont2.i22.i.i:                             ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalINS_6detail11tcp_cc_infoEEC2EOS3_.exit.i.i
 
 _ZN5folly8OptionalINS_6detail11tcp_cc_infoEEC2EOS3_.exit.i.i: ; preds = %invoke.cont2.i22.i.i, %_ZN5folly8OptionalINS_7TcpInfo21CongestionControlNameEEC2EOS3_.exit.i.i
-  %tcpCcInfoBytesRead.i.i = getelementptr inbounds i8, ptr %agg.result, i64 312
+  %tcpCcInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 312
   %40 = load i32, ptr %tcpCcInfoBytesRead.i, align 8, !tbaa !58
   store i32 %40, ptr %tcpCcInfoBytesRead.i.i, align 8, !tbaa !58
-  %maybeSendBufInUseBytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 320
+  %maybeSendBufInUseBytes.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 320
   store i8 0, ptr %maybeSendBufInUseBytes.i.i, align 8, !tbaa !12
-  %hasValue.i.i23.i.i = getelementptr inbounds i8, ptr %agg.result, i64 328
+  %hasValue.i.i23.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 328
   store i8 0, ptr %hasValue.i.i23.i.i, align 8, !tbaa !59
   %41 = load i8, ptr %hasValue.i.i10.i, align 8, !tbaa !47, !range !41, !noundef !42
   %tobool.i.i.not.i25.i.i = icmp eq i8 %41, 0
@@ -474,9 +474,9 @@ invoke.cont2.i26.i.i:                             ; preds = %_ZN5folly8OptionalI
   br label %_ZN5folly8OptionalImEC2EOS1_.exit.i.i
 
 _ZN5folly8OptionalImEC2EOS1_.exit.i.i:            ; preds = %invoke.cont2.i26.i.i, %_ZN5folly8OptionalINS_6detail11tcp_cc_infoEEC2EOS3_.exit.i.i
-  %maybeRecvBufInUseBytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 336
+  %maybeRecvBufInUseBytes.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 336
   store i8 0, ptr %maybeRecvBufInUseBytes.i.i, align 8, !tbaa !12
-  %hasValue.i.i27.i.i = getelementptr inbounds i8, ptr %agg.result, i64 344
+  %hasValue.i.i27.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 344
   store i8 0, ptr %hasValue.i.i27.i.i, align 8, !tbaa !59
   %43 = load i8, ptr %hasValue.i.i11.i, align 8, !tbaa !47, !range !41, !noundef !42
   %tobool.i.i.not.i29.i.i = icmp eq i8 %43, 0
@@ -489,14 +489,14 @@ invoke.cont2.i30.i.i:                             ; preds = %_ZN5folly8OptionalI
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %invoke.cont2.i30.i.i, %_ZN5folly8OptionalImEC2EOS1_.exit.i.i
-  %which_.i = getelementptr inbounds i8, ptr %agg.result, i64 352
+  %which_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 352
   store i8 1, ptr %which_.i, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len) #18
   br label %_ZN5folly7TcpInfoD2Ev.exit
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %cond.end, %cond.false
   store i32 %2, ptr %agg.result, align 8, !tbaa !12
-  %which_.i.i.i103 = getelementptr inbounds i8, ptr %agg.result, i64 352
+  %which_.i.i.i103 = getelementptr inbounds nuw i8, ptr %agg.result, i64 352
   store i8 2, ptr %which_.i.i.i103, align 8, !tbaa !13
   %.pre129 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !48, !range !41
   %45 = icmp eq i8 %.pre129, 0
@@ -504,15 +504,15 @@ cleanup:                                          ; preds = %_ZNSt7__cxx1112basi
   br i1 %45, label %_ZN5folly7TcpInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup
-  %maybeCcNameRaw.i = getelementptr inbounds i8, ptr %info, i64 240
+  %maybeCcNameRaw.i = getelementptr inbounds nuw i8, ptr %info, i64 240
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !48
   %46 = load ptr, ptr %maybeCcNameRaw.i, align 8, !tbaa !22
-  %47 = getelementptr inbounds i8, ptr %info, i64 256
+  %47 = getelementptr inbounds nuw i8, ptr %info, i64 256
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %46, %47
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %info, i64 248
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 248
   %48 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !25
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %48, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -534,15 +534,15 @@ ehcleanup80:                                      ; preds = %cleanup.action58, %
   br i1 %tobool.not.i.i.i.i116, label %_ZN5folly7TcpInfoD2Ev.exit124, label %if.then.i.i.i.i117
 
 if.then.i.i.i.i117:                               ; preds = %ehcleanup80
-  %maybeCcNameRaw.i118 = getelementptr inbounds i8, ptr %info, i64 240
+  %maybeCcNameRaw.i118 = getelementptr inbounds nuw i8, ptr %info, i64 240
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !48
   %50 = load ptr, ptr %maybeCcNameRaw.i118, align 8, !tbaa !22
-  %51 = getelementptr inbounds i8, ptr %info, i64 256
+  %51 = getelementptr inbounds nuw i8, ptr %info, i64 256
   %cmp.i.i.i.i.i.i.i119 = icmp eq ptr %50, %51
   br i1 %cmp.i.i.i.i.i.i.i119, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i121, label %if.then.i.i.i.i.i.i120
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i121: ; preds = %if.then.i.i.i.i117
-  %_M_string_length.i.i.i.i.i.i.i122 = getelementptr inbounds i8, ptr %info, i64 248
+  %_M_string_length.i.i.i.i.i.i.i122 = getelementptr inbounds nuw i8, ptr %info, i64 248
   %52 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i122, align 8, !tbaa !25
   %cmp3.i.i.i.i.i.i.i123 = icmp ult i64 %52, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i123)
@@ -615,7 +615,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %optlen) #18
   store i32 16, ptr %optlen, align 4, !tbaa !8
   %vtable = load ptr, ptr %netopsDispatcher, align 8, !tbaa !16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call3 = call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, i32 %0, i32 noundef 6, i32 noundef 13, ptr noundef nonnull %tcpCongestion, ptr noundef nonnull %optlen)
   %cmp = icmp slt i32 %call3, 0
@@ -654,14 +654,14 @@ invoke.cont14:                                    ; preds = %invoke.cont
 
 invoke.cont20:                                    ; preds = %invoke.cont14
   %5 = load ptr, ptr %ref.tmp16, align 8, !tbaa !22
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 8
   %6 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !25
   %call2.i275 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef %5, i64 noundef %6)
           to label %cleanup.action unwind label %lpad22
 
 cleanup.action:                                   ; preds = %invoke.cont20
   %7 = load ptr, ptr %ref.tmp16, align 8, !tbaa !22
-  %8 = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 16
   %cmp.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -695,7 +695,7 @@ lpad22:                                           ; preds = %invoke.cont20
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr %ref.tmp16, align 8, !tbaa !22
-  %14 = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 16
   %cmp.i.i.i276 = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i276, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i278, label %if.then.i.i277
 
@@ -722,7 +722,7 @@ cleanup.action40:                                 ; preds = %cleanup.action33, %
 
 if.end50:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ccStr) #18
-  %16 = getelementptr inbounds i8, ptr %ccStr, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %ccStr, i64 16
   store ptr %16, ptr %ccStr, align 8, !tbaa !49
   %call.i.i282 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %tcpCongestion) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #18
@@ -755,7 +755,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 invoke.cont54:                                    ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %20 = load i64, ptr %__dnew.i.i, align 8, !tbaa !46
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ccStr, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ccStr, i64 8
   store i64 %20, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !25
   %21 = load ptr, ptr %ccStr, align 8, !tbaa !22
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %21, i64 %20
@@ -766,8 +766,8 @@ invoke.cont54:                                    ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i285, label %if.then60, label %if.else
 
 if.then60:                                        ; preds = %invoke.cont54
-  %maybeCcEnum = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %22 = load i8, ptr %hasValue.i.i.i.i, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %invoke.cont63
@@ -786,8 +786,8 @@ if.else:                                          ; preds = %invoke.cont54
   br i1 %cmp.i287, label %if.then68, label %if.else75
 
 if.then68:                                        ; preds = %if.else
-  %maybeCcEnum70 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i288 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum70 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i288 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %23 = load i8, ptr %hasValue.i.i.i.i288, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i289 = icmp eq i8 %23, 0
   br i1 %tobool.i.i.not.i.i289, label %if.else.i.i290, label %invoke.cont72
@@ -806,8 +806,8 @@ if.else75:                                        ; preds = %if.else
   br i1 %cmp.i293, label %if.then78, label %if.else85
 
 if.then78:                                        ; preds = %if.else75
-  %maybeCcEnum80 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i294 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum80 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i294 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %24 = load i8, ptr %hasValue.i.i.i.i294, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i295 = icmp eq i8 %24, 0
   br i1 %tobool.i.i.not.i.i295, label %if.else.i.i296, label %invoke.cont82
@@ -826,8 +826,8 @@ if.else85:                                        ; preds = %if.else75
   br i1 %cmp.i299, label %if.then88, label %if.else95
 
 if.then88:                                        ; preds = %if.else85
-  %maybeCcEnum90 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i300 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum90 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i300 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %25 = load i8, ptr %hasValue.i.i.i.i300, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i301 = icmp eq i8 %25, 0
   br i1 %tobool.i.i.not.i.i301, label %if.else.i.i302, label %invoke.cont92
@@ -846,8 +846,8 @@ if.else95:                                        ; preds = %if.else85
   br i1 %cmp.i305, label %if.then98, label %if.else105
 
 if.then98:                                        ; preds = %if.else95
-  %maybeCcEnum100 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i306 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum100 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i306 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %26 = load i8, ptr %hasValue.i.i.i.i306, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i307 = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i307, label %if.else.i.i308, label %invoke.cont102
@@ -866,8 +866,8 @@ if.else105:                                       ; preds = %if.else95
   br i1 %cmp.i311, label %if.then108, label %if.else115
 
 if.then108:                                       ; preds = %if.else105
-  %maybeCcEnum110 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i312 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum110 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i312 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %27 = load i8, ptr %hasValue.i.i.i.i312, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i313 = icmp eq i8 %27, 0
   br i1 %tobool.i.i.not.i.i313, label %if.else.i.i314, label %invoke.cont112
@@ -886,8 +886,8 @@ if.else115:                                       ; preds = %if.else105
   br i1 %cmp.i317, label %if.then118, label %if.else125
 
 if.then118:                                       ; preds = %if.else115
-  %maybeCcEnum120 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i318 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum120 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i318 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %28 = load i8, ptr %hasValue.i.i.i.i318, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i319 = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i319, label %if.else.i.i320, label %invoke.cont122
@@ -903,8 +903,8 @@ invoke.cont122:                                   ; preds = %if.else.i.i320, %if
 if.else125:                                       ; preds = %if.else115
   %call.i322 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ccStr, ptr noundef nonnull @.str.23) #18
   %cmp.i323 = icmp eq i32 %call.i322, 0
-  %maybeCcEnum130 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i.i.i.i324 = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum130 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i.i.i.i324 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %29 = load i8, ptr %hasValue.i.i.i.i324, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i.i325 = icmp eq i8 %29, 0
   br i1 %cmp.i323, label %if.then128, label %if.else135
@@ -932,8 +932,8 @@ invoke.cont139:                                   ; preds = %if.else.i.i330, %if
   br label %if.end149
 
 if.end149:                                        ; preds = %invoke.cont139, %invoke.cont132, %invoke.cont122, %invoke.cont112, %invoke.cont102, %invoke.cont92, %invoke.cont82, %invoke.cont72, %invoke.cont63
-  %maybeCcNameRaw = getelementptr inbounds i8, ptr %wrappedInfo, i64 240
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %wrappedInfo, i64 272
+  %maybeCcNameRaw = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 240
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 272
   %30 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !48, !range !41, !noundef !42
   %tobool.not.i.i.i = icmp eq i8 %30, 0
   br i1 %tobool.not.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit.i, label %if.then.i.i.i
@@ -941,12 +941,12 @@ if.end149:                                        ; preds = %invoke.cont139, %in
 if.then.i.i.i:                                    ; preds = %if.end149
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !48
   %31 = load ptr, ptr %maybeCcNameRaw, align 8, !tbaa !22
-  %32 = getelementptr inbounds i8, ptr %wrappedInfo, i64 256
+  %32 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 256
   %cmp.i.i.i.i.i.i = icmp eq ptr %31, %32
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.then.i.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %wrappedInfo, i64 248
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 248
   %33 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !25
   %cmp3.i.i.i.i.i.i = icmp ult i64 %33, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -957,7 +957,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit.i
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %if.end149
-  %34 = getelementptr inbounds i8, ptr %wrappedInfo, i64 256
+  %34 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 256
   store ptr %34, ptr %maybeCcNameRaw, align 8, !tbaa !49
   %35 = load ptr, ptr %ccStr, align 8, !tbaa !22
   %cmp.i.i.i.i = icmp eq ptr %35, %16
@@ -980,12 +980,12 @@ if.else.i.i.i:                                    ; preds = %_ZN5folly8OptionalI
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit338: ; preds = %if.else.i.i.i, %if.then.i.i2.i
   %38 = phi i64 [ %.pre, %if.else.i.i.i ], [ %36, %if.then.i.i2.i ]
-  %_M_string_length.i31.i.i.i = getelementptr inbounds i8, ptr %wrappedInfo, i64 248
+  %_M_string_length.i31.i.i.i = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 248
   store i64 %38, ptr %_M_string_length.i31.i.i.i, align 8, !tbaa !25
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ccStr) #18
-  %maybeCcEnum154 = getelementptr inbounds i8, ptr %wrappedInfo, i64 280
-  %hasValue.i = getelementptr inbounds i8, ptr %wrappedInfo, i64 284
+  %maybeCcEnum154 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 280
+  %hasValue.i = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 284
   %39 = load i8, ptr %hasValue.i, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.not.i = icmp eq i8 %39, 0
   %this.val.i = load i32, ptr %maybeCcEnum154, align 8
@@ -1025,7 +1025,7 @@ sw.epilog:                                        ; preds = %_ZNSt7__cxx1112basi
   store i32 20, ptr %len, align 4, !tbaa !8
   %agg.tmp167.sroa.0.0.copyload = load i32, ptr %fd, align 4, !tbaa !8
   %vtable169 = load ptr, ptr %netopsDispatcher, align 8, !tbaa !16
-  %vfn170 = getelementptr inbounds i8, ptr %vtable169, i64 48
+  %vfn170 = getelementptr inbounds nuw i8, ptr %vtable169, i64 48
   %41 = load ptr, ptr %vfn170, align 8
   %call171 = call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(8) %netopsDispatcher, i32 %agg.tmp167.sroa.0.0.copyload, i32 noundef 6, i32 noundef 26, ptr noundef nonnull %ccInfo, ptr noundef nonnull %len)
   %cmp172 = icmp slt i32 %call171, 0
@@ -1064,14 +1064,14 @@ invoke.cont195:                                   ; preds = %invoke.cont193
 
 invoke.cont200:                                   ; preds = %invoke.cont195
   %45 = load ptr, ptr %ref.tmp197, align 8, !tbaa !22
-  %_M_string_length.i.i348 = getelementptr inbounds i8, ptr %ref.tmp197, i64 8
+  %_M_string_length.i.i348 = getelementptr inbounds nuw i8, ptr %ref.tmp197, i64 8
   %46 = load i64, ptr %_M_string_length.i.i348, align 8, !tbaa !25
   %call2.i349 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call194, ptr noundef %45, i64 noundef %46)
           to label %cleanup.action207 unwind label %lpad202
 
 cleanup.action207:                                ; preds = %invoke.cont200
   %47 = load ptr, ptr %ref.tmp197, align 8, !tbaa !22
-  %48 = getelementptr inbounds i8, ptr %ref.tmp197, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %ref.tmp197, i64 16
   %cmp.i.i.i351 = icmp eq ptr %47, %48
   br i1 %cmp.i.i.i351, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i353, label %if.then.i.i352
 
@@ -1105,7 +1105,7 @@ lpad202:                                          ; preds = %invoke.cont200
   %52 = landingpad { ptr, i32 }
           cleanup
   %53 = load ptr, ptr %ref.tmp197, align 8, !tbaa !22
-  %54 = getelementptr inbounds i8, ptr %ref.tmp197, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %ref.tmp197, i64 16
   %cmp.i.i.i357 = icmp eq ptr %53, %54
   br i1 %cmp.i.i.i357, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i359, label %if.then.i.i358
 
@@ -1133,8 +1133,8 @@ cleanup.action225:                                ; preds = %cleanup.action218, 
   br label %ehcleanup244
 
 if.end236:                                        ; preds = %sw.epilog
-  %maybeCcInfo = getelementptr inbounds i8, ptr %wrappedInfo, i64 288
-  %hasValue.i.i.i.i363 = getelementptr inbounds i8, ptr %wrappedInfo, i64 308
+  %maybeCcInfo = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 288
+  %hasValue.i.i.i.i363 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 308
   %56 = load i8, ptr %hasValue.i.i.i.i363, align 4, !tbaa !56, !range !41, !noundef !42
   %tobool.i.i.not.i.i364 = icmp eq i8 %56, 0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %maybeCcInfo, ptr noundef nonnull align 4 dereferenceable(20) %ccInfo, i64 20, i1 false)
@@ -1146,7 +1146,7 @@ if.else.i.i365:                                   ; preds = %if.end236
 
 _ZN5folly8OptionalINS_6detail11tcp_cc_infoEEaSIRS2_EERS3_OT_.exit: ; preds = %if.else.i.i365, %if.end236
   %57 = load i32, ptr %len, align 4, !tbaa !8
-  %tcpCcInfoBytesRead = getelementptr inbounds i8, ptr %wrappedInfo, i64 312
+  %tcpCcInfoBytesRead = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 312
   store i32 %57, ptr %tcpCcInfoBytesRead, align 8, !tbaa !58
   br label %cleanup
 
@@ -1188,8 +1188,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %maybeSendBufInUseBytes = getelementptr inbounds i8, ptr %wrappedInfo, i64 320
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %wrappedInfo, i64 328
+  %maybeSendBufInUseBytes = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 320
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 328
   %2 = load i8, ptr %hasValue.i.i.i.i, align 8, !tbaa !47, !range !41, !noundef !42
   %tobool.i.i.not.i.i = icmp eq i8 %2, 0
   %3 = load i64, ptr %val, align 8, !tbaa !46
@@ -1212,8 +1212,8 @@ if.end5:                                          ; preds = %_ZN5folly8OptionalI
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end5
-  %maybeRecvBufInUseBytes = getelementptr inbounds i8, ptr %wrappedInfo, i64 336
-  %hasValue.i.i.i.i18 = getelementptr inbounds i8, ptr %wrappedInfo, i64 344
+  %maybeRecvBufInUseBytes = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 336
+  %hasValue.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %wrappedInfo, i64 344
   %6 = load i8, ptr %hasValue.i.i.i.i18, align 8, !tbaa !47, !range !41, !noundef !42
   %tobool.i.i.not.i.i19 = icmp eq i8 %6, 0
   %7 = load i64, ptr %val, align 8, !tbaa !46
@@ -1246,13 +1246,13 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo6minrttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpInfoBytesRead.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i, align 8, !tbaa !26
   %tobool.not = icmp slt i32 %0, 152
   br i1 %tobool.not, label %cond.false, label %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
 
 _ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit: ; preds = %entry
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %this, i64 148
+  %memptr.offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 148
   %1 = load i32, ptr %memptr.offset.i.i, align 4, !tbaa !8
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46
@@ -1264,7 +1264,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
   %.sink = phi i8 [ 0, %cond.false ], [ 1, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink, ptr %2, align 8
   ret void
 }
@@ -1279,13 +1279,13 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo4srttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpInfoBytesRead.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i, align 8, !tbaa !26
   %tobool.not = icmp slt i32 %0, 72
   br i1 %tobool.not, label %cond.false, label %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
 
 _ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit: ; preds = %entry
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %this, i64 68
+  %memptr.offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 68
   %1 = load i32, ptr %memptr.offset.i.i, align 4, !tbaa !8
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46
@@ -1297,7 +1297,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit
   %.sink = phi i8 [ 0, %cond.false ], [ 1, %_ZN6google12CheckNotNullIRKPKjEET_PKciS7_OS5_.exit ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink, ptr %2, align 8
   ret void
 }
@@ -1306,13 +1306,13 @@ cond.end:                                         ; preds = %cond.false, %_ZN6go
 define void @_ZNK5folly7TcpInfo9bytesSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !60
   %tobool.not.not.i = icmp slt i32 %0, 208
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   %1 = load i64, ptr %memptr.offset.i.i.i, align 8, !tbaa !63, !noalias !60
   store i64 %1, ptr %agg.result, align 8, !tbaa !46, !alias.scope !60
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
@@ -1323,7 +1323,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !60
   ret void
 }
@@ -1332,13 +1332,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo13bytesReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !64
   %tobool.not.not.i = icmp slt i32 %0, 136
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %1 = load i64, ptr %memptr.offset.i.i.i, align 8, !tbaa !63, !noalias !64
   store i64 %1, ptr %agg.result, align 8, !tbaa !46, !alias.scope !64
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
@@ -1349,7 +1349,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !64
   ret void
 }
@@ -1358,13 +1358,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo18bytesRetransmittedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !67
   %tobool.not.not.i = icmp slt i32 %0, 216
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %1 = load i64, ptr %memptr.offset.i.i.i, align 8, !tbaa !63, !noalias !67
   store i64 %1, ptr %agg.result, align 8, !tbaa !46, !alias.scope !67
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
@@ -1375,7 +1375,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !67
   ret void
 }
@@ -1384,13 +1384,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo12bytesNotSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !70
   %tobool.not.not.i = icmp slt i32 %0, 148
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   %1 = load i32, ptr %memptr.offset.i.i.i, align 8, !tbaa !8, !noalias !70
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !70
@@ -1402,7 +1402,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !70
   ret void
 }
@@ -1411,13 +1411,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo10bytesAckedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !73
   %tobool.not.not.i = icmp slt i32 %0, 128
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %1 = load i64, ptr %memptr.offset.i.i.i, align 8, !tbaa !63, !noalias !73
   store i64 %1, ptr %agg.result, align 8, !tbaa !46, !alias.scope !73
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
@@ -1428,7 +1428,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !73
   ret void
 }
@@ -1437,13 +1437,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo11packetsSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !76
   %tobool.not.not.i = icmp slt i32 %0, 140
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %1 = load i32, ptr %memptr.offset.i.i.i, align 8, !tbaa !8, !noalias !76
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !76
@@ -1455,7 +1455,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !76
   ret void
 }
@@ -1464,13 +1464,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo19packetsWithDataSentEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !79
   %tobool.not.not.i = icmp slt i32 %0, 160
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 156
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   %1 = load i32, ptr %memptr.offset.i.i.i, align 4, !tbaa !8, !noalias !79
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !79
@@ -1482,7 +1482,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !79
   ret void
 }
@@ -1491,13 +1491,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo15packetsReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !82
   %tobool.not.not.i = icmp slt i32 %0, 144
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 140
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 140
   %1 = load i32, ptr %memptr.offset.i.i.i, align 4, !tbaa !8, !noalias !82
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !82
@@ -1509,7 +1509,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !82
   ret void
 }
@@ -1518,13 +1518,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo23packetsWithDataReceivedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !85
   %tobool.not.not.i = icmp slt i32 %0, 156
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   %1 = load i32, ptr %memptr.offset.i.i.i, align 8, !tbaa !8, !noalias !85
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !85
@@ -1536,7 +1536,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !85
   ret void
 }
@@ -1545,13 +1545,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo20packetsRetransmittedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !88
   %tobool.not.not.i = icmp slt i32 %0, 104
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 100
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 100
   %1 = load i32, ptr %memptr.offset.i.i.i, align 4, !tbaa !8, !noalias !88
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !88
@@ -1563,7 +1563,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !88
   ret void
 }
@@ -1571,22 +1571,22 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo15packetsInFlightEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !42
   %tobool.not.not.i19 = icmp sgt i32 %0, 39
   br i1 %tobool.not.not.i19, label %_ZNKR5folly8OptionalImEdeEv.exit65, label %if.end
 
 _ZNKR5folly8OptionalImEdeEv.exit65:               ; preds = %entry
-  %memptr.offset.i.i.i43 = getelementptr inbounds i8, ptr %this, i64 32
+  %memptr.offset.i.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i32, ptr %memptr.offset.i.i.i43, align 8
   %lostOutOpt.sroa.0.0 = zext i32 %1 to i64
-  %memptr.offset.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 28
+  %memptr.offset.i.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %2 = load i32, ptr %memptr.offset.i.i.i32, align 4
   %sackedOutOpt.sroa.0.0 = zext i32 %2 to i64
-  %memptr.offset.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 36
+  %memptr.offset.i.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %3 = load i32, ptr %memptr.offset.i.i.i21, align 4
   %retransOutOpt.sroa.0.0 = zext i32 %3 to i64
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i32, ptr %memptr.offset.i.i.i, align 8
   %packetsOutOpt.sroa.0.0 = zext i32 %4 to i64
   %5 = add nuw nsw i64 %sackedOutOpt.sroa.0.0, %lostOutOpt.sroa.0.0
@@ -1601,7 +1601,7 @@ if.end:                                           ; preds = %entry
 
 cleanup:                                          ; preds = %if.end, %_ZNKR5folly8OptionalImEdeEv.exit65
   %.sink = phi i8 [ 1, %_ZNKR5folly8OptionalImEdeEv.exit65 ], [ 0, %if.end ]
-  %6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink, ptr %6, align 8
   ret void
 }
@@ -1610,13 +1610,13 @@ cleanup:                                          ; preds = %if.end, %_ZNKR5foll
 define void @_ZNK5folly7TcpInfo16packetsDeliveredEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !91
   %tobool.not.not.i = icmp slt i32 %0, 196
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load i32, ptr %memptr.offset.i.i.i, align 8, !tbaa !8, !noalias !91
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !91
@@ -1628,7 +1628,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !91
   ret void
 }
@@ -1637,13 +1637,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo27packetsDeliveredWithCEMarksEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !94
   %tobool.not.not.i = icmp slt i32 %0, 200
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 196
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 196
   %1 = load i32, ptr %memptr.offset.i.i.i, align 4, !tbaa !8, !noalias !94
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !94
@@ -1655,7 +1655,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !94
   ret void
 }
@@ -1664,13 +1664,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 define void @_ZNK5folly7TcpInfo13cwndInPacketsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !97
   %tobool.not.not.i = icmp slt i32 %0, 84
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load i32, ptr %memptr.offset.i.i.i, align 8, !tbaa !8, !noalias !97
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !97
@@ -1682,7 +1682,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !97
   ret void
 }
@@ -1690,16 +1690,16 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo11cwndInBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i.i, align 8, !tbaa !26, !noalias !100
   %tobool.not.not.i.i = icmp slt i32 %0, 84
   br i1 %tobool.not.not.i.i, label %if.end, label %_ZNKR5folly8OptionalImE5valueEv.exit12
 
 _ZNKR5folly8OptionalImE5valueEv.exit12:           ; preds = %entry
-  %memptr.offset.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %memptr.offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load i32, ptr %memptr.offset.i.i.i.i, align 8, !tbaa !8, !noalias !100
   %conv.i.i = zext i32 %1 to i64
-  %tcpi_snd_mss.i19 = getelementptr inbounds i8, ptr %this, i64 16
+  %tcpi_snd_mss.i19 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %tcpi_snd_mss.i19, align 8, !tbaa !105, !noalias !106
   %conv.i20 = zext i32 %2 to i64
   %mul = mul nuw i64 %conv.i20, %conv.i.i
@@ -1712,7 +1712,7 @@ if.end:                                           ; preds = %entry
 
 cleanup:                                          ; preds = %if.end, %_ZNKR5folly8OptionalImE5valueEv.exit12
   %.sink = phi i8 [ 0, %if.end ], [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit12 ]
-  %3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink, ptr %3, align 8
   ret void
 }
@@ -1720,10 +1720,10 @@ cleanup:                                          ; preds = %if.end, %_ZNKR5foll
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo3mssEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpi_snd_mss = getelementptr inbounds i8, ptr %this, i64 16
+  %tcpi_snd_mss = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %tcpi_snd_mss, align 8, !tbaa !105
   %conv = zext i32 %0 to i64
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %conv, ptr %agg.result, align 8, !tbaa !46
   store i8 1, ptr %hasValue.i.i, align 8, !tbaa !47
   ret void
@@ -1733,13 +1733,13 @@ entry:
 define void @_ZNK5folly7TcpInfo8ssthreshEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !109
   %tobool.not.not.i = icmp slt i32 %0, 80
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 76
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %1 = load i32, ptr %memptr.offset.i.i.i, align 4, !tbaa !8, !noalias !109
   %conv.i = zext i32 %1 to i64
   store i64 %conv.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !109
@@ -1751,7 +1751,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !109
   ret void
 }
@@ -1759,13 +1759,13 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail8tcp_infoE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo25deliveryRateBitsPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i.i, align 8, !tbaa !26, !noalias !112
   %tobool.not.not.i.i = icmp slt i32 %0, 168
   br i1 %tobool.not.not.i.i, label %if.end.i, label %_ZNKR5folly8OptionalImE5valueEv.exit.i
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %entry
-  %memptr.offset.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %memptr.offset.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load i64, ptr %memptr.offset.i.i.i.i, align 8, !tbaa !63, !noalias !112
   %mul.i = shl i64 %1, 3
   store i64 %mul.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !117
@@ -1777,7 +1777,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; preds = %if.end.i, %_ZNKR5folly8OptionalImE5valueEv.exit.i
   %.sink.i = phi i8 [ 0, %if.end.i ], [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !117
   ret void
 }
@@ -1786,13 +1786,13 @@ _ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; pred
 define void @_ZNK5folly7TcpInfo26deliveryRateBytesPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %tcpInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i, align 8, !tbaa !26, !noalias !120
   %tobool.not.not.i = icmp slt i32 %0, 168
   br i1 %tobool.not.not.i, label %cleanup.cont.i, label %cleanup.i
 
 cleanup.i:                                        ; preds = %entry
-  %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %memptr.offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %1 = load i64, ptr %memptr.offset.i.i.i, align 8, !tbaa !63, !noalias !120
   store i64 %1, ptr %agg.result, align 8, !tbaa !46, !alias.scope !120
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit
@@ -1803,7 +1803,7 @@ cleanup.cont.i:                                   ; preds = %entry
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoET_.exit: ; preds = %cleanup.cont.i, %cleanup.i
   %.sink.i = phi i8 [ 0, %cleanup.cont.i ], [ 1, %cleanup.i ]
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i, ptr %2, align 8, !alias.scope !120
   ret void
 }
@@ -1811,10 +1811,10 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IyEENS_8OptionalImEEMNS_6detail8tcp_infoE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo22deliveryRateAppLimitedEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.11") align 1 initializes((0, 2)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tcpInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %tcpInfoBytesRead.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i32, ptr %tcpInfoBytesRead.i.i.i, align 8, !tbaa !26, !noalias !123
   %tobool.not.not.i.i = icmp sgt i32 %0, 167
-  %tcpi_delivery_rate_app_limited = getelementptr inbounds i8, ptr %this, i64 6
+  %tcpi_delivery_rate_app_limited = getelementptr inbounds nuw i8, ptr %this, i64 6
   %bf.load = load i16, ptr %tcpi_delivery_rate_app_limited, align 2
   %1 = lshr i16 %bf.load, 8
   %2 = trunc nuw i16 %1 to i8
@@ -1822,7 +1822,7 @@ entry:
   %frombool.sink = select i1 %tobool.not.not.i.i, i8 %frombool, i8 0
   %.sink = zext i1 %tobool.not.not.i.i to i8
   store i8 %frombool.sink, ptr %agg.result, align 1, !tbaa !12
-  %3 = getelementptr inbounds i8, ptr %agg.result, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
   store i8 %.sink, ptr %3, align 1, !tbaa !128
   ret void
 }
@@ -1831,19 +1831,19 @@ entry:
 define void @_ZNK5folly7TcpInfo9ccNameRawB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((32, 33)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !48
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !50, !range !41, !noundef !42
   %tobool.i.i.not.i = icmp eq i8 %0, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_.exit, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %maybeCcNameRaw = getelementptr inbounds i8, ptr %this, i64 240
-  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %maybeCcNameRaw = getelementptr inbounds nuw i8, ptr %this, i64 240
+  %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !49
   %2 = load ptr, ptr %maybeCcNameRaw, align 8, !tbaa !22
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   %3 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i.i) #18
   store i64 %3, ptr %__dnew.i.i.i.i, align 8, !tbaa !46
@@ -1878,7 +1878,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIJRKS6_EEEvDpOT_.exit.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %7 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !46
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %7, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !25
   %8 = load ptr, ptr %agg.result, align 8, !tbaa !22
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 %7
@@ -1901,7 +1901,7 @@ if.then.i.i11.i:                                  ; preds = %lpad.i
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.then.i.i11.i
-  %_M_string_length.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i.i.i12.i, align 8, !tbaa !25
   %cmp3.i.i.i.i.i.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -1922,15 +1922,15 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS7_
 define void @_ZNK5folly7TcpInfo10ccNameEnumEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.2") align 4 initializes((0, 1), (4, 5)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 4, !tbaa !12
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i8 0, ptr %hasValue.i.i, align 4, !tbaa !51
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %0 = load i8, ptr %hasValue.i.i.i, align 4, !tbaa !52, !range !41, !noundef !42
   %tobool.i.i.not.i = icmp eq i8 %0, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalINS_7TcpInfo21CongestionControlNameEEC2ERKS3_.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %entry
-  %maybeCcEnum = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load i32, ptr %maybeCcEnum, align 8, !tbaa !53
   store i32 %1, ptr %agg.result, align 4, !tbaa !53
   store i8 1, ptr %hasValue.i.i, align 4, !tbaa !52
@@ -1951,19 +1951,19 @@ entry:
   %ref.tmp10 = alloca i64, align 8
   %ref.tmp13 = alloca i32, align 4
   %ref.tmp19 = alloca %"class.google::LogMessageFatal", align 8
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %0 = load i8, ptr %hasValue.i.i.i.i, align 4, !tbaa !52, !range !41, !noalias !130, !noundef !42
   %tobool.i.i.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.i.i.not.i.i, label %if.then, label %_ZNKR5folly8OptionalINS_7TcpInfo21CongestionControlNameEE5valueEv.exit
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %agg.result, align 8, !tbaa !12
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !133
   br label %cleanup
 
 _ZNKR5folly8OptionalINS_7TcpInfo21CongestionControlNameEE5valueEv.exit: ; preds = %entry
-  %maybeCcEnum.i = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load i32, ptr %maybeCcEnum.i, align 8, !tbaa !53, !noalias !130
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v1.addr.i)
@@ -2038,7 +2038,7 @@ while.exit17:                                     ; preds = %_ZN6google12Check_G
   %conv.i43 = phi i64 [ %conv.i, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ], [ %conv.i44, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result9) #18
   %arrayidx.i.i = getelementptr inbounds [9 x %"class.folly::Range"], ptr @_ZN5folly12_GLOBAL__N_18kCcNamesE, i64 0, i64 %conv.i43
-  %hasValue.i.i31 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %hasValue.i.i31 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false), !tbaa.struct !139
   store i8 1, ptr %hasValue.i.i31, align 8, !tbaa !141
   br label %cleanup
@@ -2153,25 +2153,25 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo18bbrBwBitsPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 308
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i.i, align 4, !tbaa !56, !range !41, !noalias !145, !noundef !42
   %tobool.i.not.i.i = icmp eq i8 %0, 0
-  %hasValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %1 = load i8, ptr %hasValue.i.i.i.i.i.i, align 4, !range !41, !noalias !145
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %1, 0
   %or.cond.not15.i.not89.i = select i1 %tobool.i.not.i.i, i1 true, i1 %tobool.i.i.not.i.i.i.i
-  %maybeCcEnum.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %2 = load i32, ptr %maybeCcEnum.i.i.i, align 8, !noalias !145
   %cmp.i.i.i = icmp ne i32 %2, 5
   %or.cond14.i.not88.i = select i1 %or.cond.not15.i.not89.i, i1 true, i1 %cmp.i.i.i
-  %tcpCcInfoBytesRead.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %tcpCcInfoBytesRead.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i.i, align 8, !noalias !145
   %or.cond.i.i22.i = icmp slt i32 %3, 8
   %or.cond87.i = select i1 %or.cond14.i.not88.i, i1 true, i1 %or.cond.i.i22.i
   br i1 %or.cond87.i, label %if.end.i4, label %_ZNKR5folly8OptionalImE5valueEv.exit.i
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i:           ; preds = %entry
-  %maybeCcInfo.i.i = getelementptr inbounds i8, ptr %this, i64 288
+  %maybeCcInfo.i.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %4 = load i64, ptr %maybeCcInfo.i.i, align 8, !noalias !145
   %mul.i = shl i64 %4, 3
   store i64 %mul.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !148
@@ -2183,7 +2183,7 @@ if.end.i4:                                        ; preds = %entry
 
 _ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; preds = %if.end.i4, %_ZNKR5folly8OptionalImE5valueEv.exit.i
   %.sink.i3 = phi i8 [ 0, %if.end.i4 ], [ 1, %_ZNKR5folly8OptionalImE5valueEv.exit.i ]
-  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink.i3, ptr %5, align 8, !alias.scope !148
   ret void
 }
@@ -2191,25 +2191,25 @@ _ZN5folly7TcpInfo29bytesPerSecondToBitsPerSecondERKNS_8OptionalImEE.exit: ; pred
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo19bbrBwBytesPerSecondEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i, align 4, !tbaa !56, !range !41, !noalias !42, !noundef !42
   %tobool.i.not.i = icmp eq i8 %0, 0
-  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %1 = load i8, ptr %hasValue.i.i.i.i.i, align 4, !range !41, !noalias !42
   %tobool.i.i.not.i.i.i = icmp eq i8 %1, 0
   %or.cond.not15.i.not89 = select i1 %tobool.i.not.i, i1 true, i1 %tobool.i.i.not.i.i.i
-  %maybeCcEnum.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %2 = load i32, ptr %maybeCcEnum.i.i, align 8, !noalias !42
   %cmp.i.i = icmp ne i32 %2, 5
   %or.cond14.i.not88 = select i1 %or.cond.not15.i.not89, i1 true, i1 %cmp.i.i
-  %tcpCcInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %tcpCcInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i, align 8
   %or.cond.i.i22 = icmp slt i32 %3, 8
   %or.cond87 = select i1 %or.cond14.i.not88, i1 true, i1 %or.cond.i.i22
   br i1 %or.cond87, label %if.end, label %_ZNR5folly8OptionalImEdeEv.exit35
 
 _ZNR5folly8OptionalImEdeEv.exit35:                ; preds = %entry
-  %maybeCcInfo.i = getelementptr inbounds i8, ptr %this, i64 288
+  %maybeCcInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %4 = load i64, ptr %maybeCcInfo.i, align 8, !noalias !42
   store i64 %4, ptr %agg.result, align 8, !tbaa !46
   br label %cleanup
@@ -2220,7 +2220,7 @@ if.end:                                           ; preds = %entry
 
 cleanup:                                          ; preds = %if.end, %_ZNR5folly8OptionalImEdeEv.exit35
   %.sink = phi i8 [ 0, %if.end ], [ 1, %_ZNR5folly8OptionalImEdeEv.exit35 ]
-  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink, ptr %5, align 8
   ret void
 }
@@ -2228,25 +2228,25 @@ cleanup:                                          ; preds = %if.end, %_ZNR5folly
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK5folly7TcpInfo9bbrMinrttEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.9") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i, align 4, !tbaa !56, !range !41, !noalias !151, !noundef !42
   %tobool.i.not.i = icmp eq i8 %0, 0
-  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %1 = load i8, ptr %hasValue.i.i.i.i.i, align 4, !range !41, !noalias !151
   %tobool.i.i.not.i.i.i = icmp eq i8 %1, 0
   %or.cond.not15.i.not14 = select i1 %tobool.i.not.i, i1 true, i1 %tobool.i.i.not.i.i.i
-  %maybeCcEnum.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %2 = load i32, ptr %maybeCcEnum.i.i, align 8, !noalias !151
   %cmp.i.i = icmp ne i32 %2, 5
   %or.cond14.i.not13 = select i1 %or.cond.not15.i.not14, i1 true, i1 %cmp.i.i
-  %tcpCcInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %tcpCcInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i, align 8
   %or.cond.i.i = icmp slt i32 %3, 12
   %or.cond = select i1 %or.cond14.i.not13, i1 true, i1 %or.cond.i.i
   br i1 %or.cond, label %cond.false, label %_ZNR5folly8OptionalImEdeEv.exit
 
 _ZNR5folly8OptionalImEdeEv.exit:                  ; preds = %entry
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %memptr.offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %4 = load i32, ptr %memptr.offset.i.i, align 8, !tbaa !8, !noalias !154
   %conv5.i.i = zext i32 %4 to i64
   store i64 %conv5.i.i, ptr %agg.result, align 8, !tbaa !46
@@ -2258,7 +2258,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %_ZNR5folly8OptionalImEdeEv.exit
   %.sink = phi i8 [ 0, %cond.false ], [ 1, %_ZNR5folly8OptionalImEdeEv.exit ]
-  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %.sink, ptr %5, align 8
   ret void
 }
@@ -2267,14 +2267,14 @@ cond.end:                                         ; preds = %cond.false, %_ZNR5f
 define void @_ZNK5folly7TcpInfo13bbrPacingGainEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i, align 4, !tbaa !56, !range !41, !noalias !157, !noundef !42
   %tobool.i.not.i = icmp ne i8 %0, 0
-  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %1 = load i8, ptr %hasValue.i.i.i.i.i, align 4, !range !41, !noalias !157
   %tobool.i.i.not.i.i.i = icmp ne i8 %1, 0
   %or.cond.not15.i = select i1 %tobool.i.not.i, i1 %tobool.i.i.not.i.i.i, i1 false
-  %maybeCcEnum.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %2 = load i32, ptr %maybeCcEnum.i.i, align 8, !noalias !157
   %cmp.i.i = icmp eq i32 %2, 5
   %or.cond14.i = select i1 %or.cond.not15.i, i1 %cmp.i.i, i1 false
@@ -2282,29 +2282,29 @@ entry:
 
 _ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i: ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
-  %tcpCcInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %tcpCcInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i, align 8, !tbaa !58, !noalias !163
   %or.cond.i.i = icmp slt i32 %3, 16
   br i1 %or.cond.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %this, i64 300
+  %memptr.offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   %4 = load i32, ptr %memptr.offset.i.i, align 4, !tbaa !8, !noalias !163
   %conv5.i.i = zext i32 %4 to i64
-  %hasValue.i.i.i8.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i.i8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %conv5.i.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !163
   store i8 1, ptr %hasValue.i.i.i8.i, align 8, !tbaa !47, !alias.scope !163
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 if.end.i.i:                                       ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
   store i8 0, ptr %agg.result, align 8, !tbaa !12, !alias.scope !163
-  %hasValue.i.i8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i8.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i8.i.i, align 8, !tbaa !59, !alias.scope !163
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 if.end.i:                                         ; preds = %entry
   store i8 0, ptr %agg.result, align 8, !tbaa !12, !alias.scope !157
-  %hasValue.i.i9.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i9.i, align 8, !tbaa !59, !alias.scope !157
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
@@ -2316,14 +2316,14 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
 define void @_ZNK5folly7TcpInfo11bbrCwndGainEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 308
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 308
   %0 = load i8, ptr %hasValue.i.i, align 4, !tbaa !56, !range !41, !noalias !164, !noundef !42
   %tobool.i.not.i = icmp ne i8 %0, 0
-  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 284
+  %hasValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 284
   %1 = load i8, ptr %hasValue.i.i.i.i.i, align 4, !range !41, !noalias !164
   %tobool.i.i.not.i.i.i = icmp ne i8 %1, 0
   %or.cond.not15.i = select i1 %tobool.i.not.i, i1 %tobool.i.i.not.i.i.i, i1 false
-  %maybeCcEnum.i.i = getelementptr inbounds i8, ptr %this, i64 280
+  %maybeCcEnum.i.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %2 = load i32, ptr %maybeCcEnum.i.i, align 8, !noalias !164
   %cmp.i.i = icmp eq i32 %2, 5
   %or.cond14.i = select i1 %or.cond.not15.i, i1 %cmp.i.i, i1 false
@@ -2331,29 +2331,29 @@ entry:
 
 _ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i: ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  %tcpCcInfoBytesRead.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %tcpCcInfoBytesRead.i.i = getelementptr inbounds nuw i8, ptr %this, i64 312
   %3 = load i32, ptr %tcpCcInfoBytesRead.i.i, align 8, !tbaa !58, !noalias !170
   %or.cond.i.i = icmp slt i32 %3, 20
   br i1 %or.cond.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %memptr.offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %4 = load i32, ptr %memptr.offset.i.i, align 8, !tbaa !8, !noalias !170
   %conv5.i.i = zext i32 %4 to i64
-  %hasValue.i.i.i8.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i.i8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %conv5.i.i, ptr %agg.result, align 8, !tbaa !46, !alias.scope !170
   store i8 1, ptr %hasValue.i.i.i8.i, align 8, !tbaa !47, !alias.scope !170
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 if.end.i.i:                                       ; preds = %_ZNKR5folly8OptionalINS_6detail11tcp_cc_infoEE5valueEv.exit.i
   store i8 0, ptr %agg.result, align 8, !tbaa !12, !alias.scope !170
-  %hasValue.i.i8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i8.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i8.i.i, align 8, !tbaa !59, !alias.scope !170
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
 if.end.i:                                         ; preds = %entry
   store i8 0, ptr %agg.result, align 8, !tbaa !12, !alias.scope !164
-  %hasValue.i.i9.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i9.i, align 8, !tbaa !59, !alias.scope !164
   br label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit
 
@@ -2365,15 +2365,15 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
 define void @_ZNK5folly7TcpInfo17sendBufInUseBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8, !tbaa !12
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !59
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !47, !range !41, !noundef !42
   %tobool.i.i.not.i = icmp eq i8 %0, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalImEC2ERKS1_.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %entry
-  %maybeSendBufInUseBytes = getelementptr inbounds i8, ptr %this, i64 320
+  %maybeSendBufInUseBytes = getelementptr inbounds nuw i8, ptr %this, i64 320
   %1 = load i64, ptr %maybeSendBufInUseBytes, align 8, !tbaa !46
   store i64 %1, ptr %agg.result, align 8, !tbaa !46
   store i8 1, ptr %hasValue.i.i, align 8, !tbaa !47
@@ -2387,15 +2387,15 @@ _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %invoke.cont2.i, %en
 define void @_ZNK5folly7TcpInfo17recvBufInUseBytesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional.6") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %agg.result, align 8, !tbaa !12
-  %hasValue.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !59
-  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %hasValue.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load i8, ptr %hasValue.i.i.i, align 8, !tbaa !47, !range !41, !noundef !42
   %tobool.i.i.not.i = icmp eq i8 %0, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalImEC2ERKS1_.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %entry
-  %maybeRecvBufInUseBytes = getelementptr inbounds i8, ptr %this, i64 336
+  %maybeRecvBufInUseBytes = getelementptr inbounds nuw i8, ptr %this, i64 336
   %1 = load i64, ptr %maybeRecvBufInUseBytes, align 8, !tbaa !46
   store i64 %1, ptr %agg.result, align 8, !tbaa !46
   store i8 1, ptr %hasValue.i.i, align 8, !tbaa !47

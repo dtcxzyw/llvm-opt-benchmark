@@ -54,16 +54,16 @@ lpad:                                             ; preds = %invoke.cont38, %if.
 
 invoke.cont19:                                    ; preds = %if.then, %entry
   store i32 %index, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   store ptr %s, ptr %domain, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %domain, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %domain, i64 8
   store ptr %s, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %c, i64 232
   %2 = load ptr, ptr %m_manager.i, align 8
-  %m_special_relations_fid.i = getelementptr inbounds i8, ptr %c, i64 1512
+  %m_special_relations_fid.i = getelementptr inbounds nuw i8, ptr %c, i64 1512
   %3 = load i32, ptr %m_special_relations_fid.i, align 8
-  %m_bool_sort.i = getelementptr inbounds i8, ptr %2, i64 840
+  %m_bool_sort.i = getelementptr inbounds nuw i8, ptr %2, i64 840
   %4 = load ptr, ptr %m_bool_sort.i, align 8
   %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %3, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %4)
           to label %invoke.cont23 unwind label %lpad4
@@ -188,16 +188,16 @@ lpad:                                             ; preds = %invoke.cont38, %if.
 
 invoke.cont19:                                    ; preds = %if.then, %entry
   store i32 %index, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   store ptr %s, ptr %domain, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %domain, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %domain, i64 8
   store ptr %s, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %c, i64 232
   %2 = load ptr, ptr %m_manager.i, align 8
-  %m_special_relations_fid.i = getelementptr inbounds i8, ptr %c, i64 1512
+  %m_special_relations_fid.i = getelementptr inbounds nuw i8, ptr %c, i64 1512
   %3 = load i32, ptr %m_special_relations_fid.i, align 8
-  %m_bool_sort.i = getelementptr inbounds i8, ptr %2, i64 840
+  %m_bool_sort.i = getelementptr inbounds nuw i8, ptr %2, i64 840
   %4 = load ptr, ptr %m_bool_sort.i, align 8
   %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %3, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %4)
           to label %invoke.cont23 unwind label %lpad4
@@ -295,16 +295,16 @@ lpad:                                             ; preds = %invoke.cont38, %if.
 
 invoke.cont19:                                    ; preds = %if.then, %entry
   store i32 %index, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   store ptr %s, ptr %domain, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %domain, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %domain, i64 8
   store ptr %s, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %c, i64 232
   %2 = load ptr, ptr %m_manager.i, align 8
-  %m_special_relations_fid.i = getelementptr inbounds i8, ptr %c, i64 1512
+  %m_special_relations_fid.i = getelementptr inbounds nuw i8, ptr %c, i64 1512
   %3 = load i32, ptr %m_special_relations_fid.i, align 8
-  %m_bool_sort.i = getelementptr inbounds i8, ptr %2, i64 840
+  %m_bool_sort.i = getelementptr inbounds nuw i8, ptr %2, i64 840
   %4 = load ptr, ptr %m_bool_sort.i, align 8
   %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %3, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %4)
           to label %invoke.cont23 unwind label %lpad4
@@ -402,16 +402,16 @@ lpad:                                             ; preds = %invoke.cont38, %if.
 
 invoke.cont19:                                    ; preds = %if.then, %entry
   store i32 %index, ptr %p, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   store ptr %s, ptr %domain, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %domain, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %domain, i64 8
   store ptr %s, ptr %arrayinit.element, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %c, i64 232
   %2 = load ptr, ptr %m_manager.i, align 8
-  %m_special_relations_fid.i = getelementptr inbounds i8, ptr %c, i64 1512
+  %m_special_relations_fid.i = getelementptr inbounds nuw i8, ptr %c, i64 1512
   %3 = load i32, ptr %m_special_relations_fid.i, align 8
-  %m_bool_sort.i = getelementptr inbounds i8, ptr %2, i64 840
+  %m_bool_sort.i = getelementptr inbounds nuw i8, ptr %2, i64 840
   %4 = load ptr, ptr %m_bool_sort.i, align 8
   %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %3, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %p, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef %4)
           to label %invoke.cont23 unwind label %lpad4
@@ -510,21 +510,21 @@ ehcleanup.thread:                                 ; preds = %if.then
   br label %if.then.i17
 
 invoke.cont9:                                     ; preds = %entry, %if.then
-  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
+  %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %c, i64 232
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %c, i64 232
   %2 = load ptr, ptr %m_manager.i, align 8
   store ptr %f, ptr %param, align 8
-  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %param, i64 8
+  %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %param, i64 8
   store i8 1, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
-  %m_domain.i = getelementptr inbounds i8, ptr %f, i64 48
+  %m_domain.i = getelementptr inbounds nuw i8, ptr %f, i64 48
   %3 = load ptr, ptr %m_domain.i, align 8
   store ptr %3, ptr %domain, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %domain, i64 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %f, i64 56
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %domain, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %f, i64 56
   %4 = load ptr, ptr %arrayidx.i, align 8
   store ptr %4, ptr %arrayinit.element, align 8
-  %m_special_relations_fid.i = getelementptr inbounds i8, ptr %c, i64 1512
+  %m_special_relations_fid.i = getelementptr inbounds nuw i8, ptr %c, i64 1512
   %5 = load i32, ptr %m_special_relations_fid.i, align 8
   %call24 = invoke noundef ptr @_ZN11ast_manager12mk_func_declEiijPK9parameterjPKP4sortS4_(ptr noundef nonnull align 8 dereferenceable(976) %2, i32 noundef %5, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %param, i32 noundef 2, ptr noundef nonnull %domain, ptr noundef null)
           to label %invoke.cont23 unwind label %ehcleanup

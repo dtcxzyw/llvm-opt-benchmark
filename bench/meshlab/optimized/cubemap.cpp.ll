@@ -120,7 +120,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeOldERNS_8Matrix44IfEE(ptr nocapture n
 5:                                                ; preds = %5, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %5 ]
   %6 = add nuw nsw i64 %indvars.iv.i.i.i, %4
-  %7 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %6
   %8 = shl i64 %indvars.iv.i.i.i, 2
   %9 = add nuw nsw i64 %8, %indvars.iv15.i.i.i
   %10 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %9
@@ -140,15 +140,15 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeOldERNS_8Matrix44IfEE(ptr nocapture n
 _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
   call void @glMultMatrixf(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load float, ptr %14, align 4
   call void @glScalef(float noundef %15, float noundef %15, float noundef %15)
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %17
 
 17:                                               ; preds = %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, %29
   %indvars.iv14 = phi i64 [ 0, %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit ], [ %indvars.iv.next15, %29 ]
-  %18 = getelementptr inbounds [6 x i32], ptr %16, i64 0, i64 %indvars.iv14
+  %18 = getelementptr inbounds nuw [6 x i32], ptr %16, i64 0, i64 %indvars.iv14
   %19 = load i32, ptr %18, align 4
   call void @glBindTexture(i32 noundef 3553, i32 noundef %19)
   call void @glBegin(i32 noundef 7)
@@ -156,12 +156,12 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
 
 20:                                               ; preds = %17, %20
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds [4 x [2 x float]], ptr @_ZL8tex_vert, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x [2 x float]], ptr @_ZL8tex_vert, i64 0, i64 %indvars.iv
   %22 = load float, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load float, ptr %23, align 4
   call void @glTexCoord2f(float noundef %22, float noundef %24)
-  %25 = getelementptr inbounds [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv14, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv14, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %27
@@ -195,7 +195,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr nocapture n
   call void @glPushMatrix()
   call void @glLoadIdentity()
   call void @glMatrixMode(i32 noundef 5888)
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load float, ptr %6, align 4
   call void @glScalef(float noundef %7, float noundef %7, float noundef %7)
   call void @glDisable(i32 noundef 2896)
@@ -231,7 +231,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr nocapture n
 10:                                               ; preds = %10, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %10 ]
   %11 = add nuw nsw i64 %indvars.iv.i.i.i, %9
-  %12 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %11
   %13 = shl i64 %indvars.iv.i.i.i, 2
   %14 = add nuw nsw i64 %13, %indvars.iv15.i.i.i
   %15 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %14
@@ -251,7 +251,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr nocapture n
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %18
   call void @glMultMatrixf(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %19
 
 19:                                               ; preds = %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, %32
@@ -261,16 +261,16 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %18
 
 _ZN3vcg8glNormalERKNS_6Point3IfEE.exit:           ; preds = %19, %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit ]
-  %20 = getelementptr inbounds [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [6 x [4 x i32]], ptr @_ZL10cube_faces, i64 0, i64 %indvars.iv15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds [8 x %"class.vcg::Point3"], ptr @_ZL13cube_vertices, i64 0, i64 %22
   %24 = load float, ptr %23, align 4
   %25 = fneg float %24
-  %26 = getelementptr inbounds i8, ptr %23, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %27 = load float, ptr %26, align 4
   %28 = fneg float %27
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %30 = load float, ptr %29, align 4
   %31 = fneg float %30
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %25, i64 0
@@ -310,7 +310,7 @@ define linkonce_odr void @_ZN12checkGLError9debugInfoEPKc(ptr noundef %0) local_
   %4 = alloca %class.QByteArray, align 8
   call void @_ZN12checkGLError10makeStringEPKc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef %0)
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN10QByteArrayD2Ev.exit, label %11
@@ -322,15 +322,15 @@ define linkonce_odr void @_ZN12checkGLError9debugInfoEPKc(ptr noundef %0) local_
 
 11:                                               ; preds = %1
   store i32 2, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 20, i1 false)
   store ptr @.str.14, ptr %13, align 8
   %14 = icmp eq ptr %5, @_ZN10QArrayData11shared_nullE
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load i64, ptr %16, align 8, !noalias !18
   %18 = getelementptr inbounds i8, ptr %5, i64 %17
   br label %19
@@ -342,7 +342,7 @@ define linkonce_odr void @_ZN12checkGLError9debugInfoEPKc(ptr noundef %0) local_
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
   invoke void (ptr, ptr, ...) @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.6, ptr noundef nonnull %25)
@@ -900,13 +900,13 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
 .preheader.i:                                     ; preds = %13, %2
   %indvars.iv13.i = phi i64 [ 0, %2 ], [ %indvars.iv.next14.i, %13 ]
   %5 = shl nuw nsw i64 %indvars.iv13.i, 2
-  %6 = getelementptr inbounds [16 x float], ptr %1, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [16 x float], ptr %1, i64 0, i64 %5
   %7 = getelementptr double, ptr %3, i64 %indvars.iv13.i
   br label %8
 
 8:                                                ; preds = %8, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds float, ptr %6, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
   %10 = load float, ptr %9, align 4
   %11 = fpext float %10 to double
   %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv.i, 5
@@ -923,19 +923,19 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
 
 _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %13
   %.sroa.0286.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %3, align 16
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.3.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.4.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.sroa.5.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   %.sroa.6.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 96
+  %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.sroa.7.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i, align 16
-  %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 112
+  %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 112
   %.sroa.8.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i, align 16
   %14 = shufflevector <2 x double> %.sroa.3.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %15 = fmul <2 x double> %.sroa.0286.0.copyload.i.i.i.i.i.i.i, %14
@@ -1052,31 +1052,31 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   %126 = shufflevector <2 x double> %93, <2 x double> %91, <2 x i32> <i32 1, i32 3>
   %127 = fmul <2 x double> %126, %123
   store <2 x double> %127, ptr %4, align 16
-  %128 = getelementptr inbounds i8, ptr %4, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %129 = shufflevector <2 x double> %93, <2 x double> %91, <2 x i32> <i32 0, i32 2>
   %130 = fmul <2 x double> %129, %125
   store <2 x double> %130, ptr %128, align 16
-  %131 = getelementptr inbounds i8, ptr %4, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %132 = shufflevector <2 x double> %107, <2 x double> %105, <2 x i32> <i32 1, i32 3>
   %133 = fmul <2 x double> %132, %123
   store <2 x double> %133, ptr %131, align 16
-  %134 = getelementptr inbounds i8, ptr %4, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %135 = shufflevector <2 x double> %107, <2 x double> %105, <2 x i32> <i32 0, i32 2>
   %136 = fmul <2 x double> %135, %125
   store <2 x double> %136, ptr %134, align 16
-  %137 = getelementptr inbounds i8, ptr %4, i64 64
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %138 = shufflevector <2 x double> %121, <2 x double> %119, <2 x i32> <i32 1, i32 3>
   %139 = fmul <2 x double> %138, %123
   store <2 x double> %139, ptr %137, align 16
-  %140 = getelementptr inbounds i8, ptr %4, i64 96
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %141 = shufflevector <2 x double> %121, <2 x double> %119, <2 x i32> <i32 0, i32 2>
   %142 = fmul <2 x double> %141, %125
   store <2 x double> %142, ptr %140, align 16
-  %143 = getelementptr inbounds i8, ptr %4, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %144 = shufflevector <2 x double> %78, <2 x double> %76, <2 x i32> <i32 1, i32 3>
   %145 = fmul <2 x double> %144, %123
   store <2 x double> %145, ptr %143, align 16
-  %146 = getelementptr inbounds i8, ptr %4, i64 112
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %147 = shufflevector <2 x double> %78, <2 x double> %76, <2 x i32> <i32 0, i32 2>
   %148 = fmul <2 x double> %147, %125
   store <2 x double> %148, ptr %146, align 16
@@ -1095,7 +1095,7 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   %154 = load double, ptr %153, align 8
   %155 = fptrunc double %154 to float
   %156 = add nuw nsw i64 %indvars.iv.i5, %150
-  %157 = getelementptr inbounds [16 x float], ptr %0, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw [16 x float], ptr %0, i64 0, i64 %156
   store float %155, ptr %157, align 4
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 4
@@ -1129,14 +1129,14 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nocapture
 
 14:                                               ; preds = %14, %4
   %.idx = phi i64 [ 0, %4 ], [ %.add, %14 ]
-  %.ptr = getelementptr inbounds i8, ptr %11, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   store ptr @_ZN10QArrayData11shared_nullE, ptr %.ptr, align 8
   %.add = add nuw nsw i64 %.idx, 8
   %15 = icmp eq i64 %.add, 48
   br i1 %15, label %16, label %14
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %11, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %10, ptr noundef nonnull @.str.15, i32 noundef 5)
           to label %.noexc unwind label %81
@@ -1173,7 +1173,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
           to label %.noexc18 unwind label %81
 
 .noexc18:                                         ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %9, align 8
   store ptr %26, ptr %24, align 8
@@ -1205,7 +1205,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i13: ; preds = %_ZN9QtPrivate8RefC
           to label %.noexc25 unwind label %81
 
 .noexc25:                                         ; preds = %30
-  %31 = getelementptr inbounds i8, ptr %11, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %32 = load ptr, ptr %31, align 16
   %33 = load ptr, ptr %8, align 8
   store ptr %33, ptr %31, align 16
@@ -1237,7 +1237,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i20: ; preds = %_ZN9QtPrivate8RefC
           to label %.noexc32 unwind label %81
 
 .noexc32:                                         ; preds = %37
-  %38 = getelementptr inbounds i8, ptr %11, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
   store ptr %40, ptr %38, align 8
@@ -1269,7 +1269,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i27: ; preds = %_ZN9QtPrivate8RefC
           to label %.noexc39 unwind label %81
 
 .noexc39:                                         ; preds = %44
-  %45 = getelementptr inbounds i8, ptr %11, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %46 = load ptr, ptr %45, align 16
   %47 = load ptr, ptr %6, align 8
   store ptr %47, ptr %45, align 16
@@ -1301,7 +1301,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i34: ; preds = %_ZN9QtPrivate8RefC
           to label %.noexc46 unwind label %81
 
 .noexc46:                                         ; preds = %51
-  %52 = getelementptr inbounds i8, ptr %11, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %5, align 8
   store ptr %54, ptr %52, align 8
@@ -1334,7 +1334,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i41: ; preds = %_ZN9QtPrivate8RefC
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, -4
   invoke void @_ZNK7QString4leftEi(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %64)
@@ -1484,7 +1484,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap4LoadEPKc(ptr noundef nonnull align 
 
 10:                                               ; preds = %6, %8
   store i32 0, ptr %0, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4
   br label %12
 
@@ -1502,7 +1502,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadOldEPKc(ptr noundef nonnull ali
   tail call void @glPushAttrib(i32 noundef 8192)
   tail call void @glDisable(i32 noundef 3552)
   tail call void @glEnable(i32 noundef 3553)
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -1518,7 +1518,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadOldEPKc(ptr noundef nonnull ali
 
 12:                                               ; preds = %11, %50
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %50 ]
-  %13 = getelementptr inbounds [6 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [6 x i32], ptr %7, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   invoke void @glBindTexture(i32 noundef 3553, i32 noundef %14)
           to label %15 unwind label %.loopexit
@@ -1721,15 +1721,15 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadExtEPKc(ptr noundef nonnull ali
   %12 = phi i32 [ %.pre, %10 ], [ %8, %2 ]
   tail call void @glBindTexture(i32 noundef 34067, i32 noundef %12)
   store i32 34070, ptr %3, align 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 34069, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 34072, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 34071, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 34074, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 34073, ptr %17, align 4
   tail call void @glTexParameterf(i32 noundef 34067, i32 noundef 10240, float noundef 9.729000e+03)
   tail call void @glTexParameterf(i32 noundef 34067, i32 noundef 10241, float noundef 9.987000e+03)
@@ -1812,7 +1812,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %29, %_ZN9QtPrivate8
           to label %42 unwind label %35
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds [6 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %46 unwind label %59
@@ -1910,8 +1910,8 @@ define internal void @_GLOBAL__sub_I_cubemap.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   store float -1.000000e+00, ptr @_ZL13cube_vertices, align 16
-  store float 1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 4), align 4
-  store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 8), align 8
+  store float 1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 4), align 4
+  store float -1.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL13cube_vertices, i64 8), align 8
   store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 12), align 4
   store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 16), align 16
   store float -1.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL13cube_vertices, i64 20), align 4

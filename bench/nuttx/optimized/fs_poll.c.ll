@@ -28,7 +28,7 @@ declare i32 @fs_getfilep(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.lr.ph.split.i32.preheader, label %12
@@ -38,8 +38,8 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   br i1 %.not.i34, label %poll_notify.exit, label %.lr.ph.split.i32.preheader.split
 
 .lr.ph.split.i32.preheader.split:                 ; preds = %.lr.ph.split.i32.preheader
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %.promoted = load i32, ptr %6, align 8
@@ -49,7 +49,7 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   br i1 %9, label %poll_notify.exit, label %poll_notify.exit.loopexit48
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %5, i64 26
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 15
   switch i16 %15, label %poll_notify.exit [
@@ -63,18 +63,18 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   ]
 
 ._crit_edge:                                      ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %25
 
 16:                                               ; preds = %12, %12, %12, %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not28 = icmp eq ptr %18, null
   br i1 %.not28, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not29 = icmp eq ptr %21, null
   br i1 %.not29, label %24, label %22
@@ -96,7 +96,7 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   br i1 %.not30, label %.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %29 = load ptr, ptr %28, align 8
   %.not31 = icmp eq ptr %29, null
   br i1 %.not31, label %.thread, label %30
@@ -110,12 +110,12 @@ define i32 @file_poll(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
 
 .lr.ph.split.i.preheader:                         ; preds = %.thread
   %.not.i = icmp eq ptr %1, null
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %.not.i, label %poll_notify.exit, label %.lr.ph.split.i.preheader50
 
 .lr.ph.split.i.preheader50:                       ; preds = %.lr.ph.split.i.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 5
   %37 = load i32, ptr %33, align 8
@@ -152,7 +152,7 @@ poll_notify.exit:                                 ; preds = %.lr.ph.split.i32.pr
 define void @poll_default_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i32, align 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -188,17 +188,17 @@ define void @poll_notify(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %25 ]
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %.lr.ph.split
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, 24
   %13 = and i32 %12, %2
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = or i32 %13, %15
   %17 = and i32 %16, 24
@@ -212,7 +212,7 @@ define void @poll_notify(ptr nocapture noundef readonly %0, i32 noundef %1, i32 
   br i1 %or.cond, label %25, label %21
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not22 = icmp eq ptr %23, null
   br i1 %.not22, label %25, label %24
@@ -246,14 +246,14 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.thread.i ]
-  %9 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv.i
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %9 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @poll_default_cb, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %13, align 8
   %14 = load i32, ptr %9, align 8
   %15 = icmp sgt i32 %14, -1
@@ -278,7 +278,7 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 
 .preheader.i:                                     ; preds = %19, %.thread55.i
   %.0.i57.i = phi i32 [ %17, %.thread55.i ], [ %21, %19 ]
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not43.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not43.i, label %.thread, label %.lr.ph42.preheader.i
 
@@ -288,7 +288,7 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 
 .lr.ph42.i:                                       ; preds = %poll_fdsetup.exit34.i, %.lr.ph42.preheader.i
   %indvars.iv47.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvars.iv.next48.i, %poll_fdsetup.exit34.i ]
-  %24 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv47.i
+  %24 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv47.i
   %25 = load i32, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %26 = call i32 @fs_getfilep(i32 noundef %25, ptr noundef nonnull %5) #4
@@ -297,14 +297,14 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
 
 28:                                               ; preds = %.lr.ph42.i
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.lr.ph.split.i32.preheader.split.i.i, label %38
 
 .lr.ph.split.i32.preheader.split.i.i:             ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %24, i64 8
-  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   %.promoted.i.i = load i32, ptr %32, align 8
@@ -314,7 +314,7 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   br i1 %35, label %poll_fdsetup.exit34.i, label %poll_notify.exit.loopexit48.i.i
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %31, i64 26
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 26
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 15
   switch i16 %41, label %poll_fdsetup.exit34.i [
@@ -326,18 +326,18 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   ]
 
 ._crit_edge.i.i:                                  ; preds = %38
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %31, i64 32
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %31, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %51
 
 42:                                               ; preds = %38, %38, %38, %38
-  %43 = getelementptr inbounds i8, ptr %31, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not28.i.i = icmp eq ptr %44, null
   br i1 %.not28.i.i, label %50, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %47 = load ptr, ptr %46, align 8
   %.not29.i.i = icmp eq ptr %47, null
   br i1 %.not29.i.i, label %50, label %48
@@ -356,7 +356,7 @@ define i32 @poll(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_a
   br i1 %.not30.i.i, label %poll_fdsetup.exit34.i, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %52, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %55 = load ptr, ptr %54, align 8
   %.not31.i.i = icmp eq ptr %55, null
   br i1 %.not31.i.i, label %poll_fdsetup.exit34.i, label %56
@@ -416,7 +416,7 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   %indvars.iv.i28 = phi i64 [ 0, %.lr.ph.preheader.i25 ], [ %indvars.iv.next.i30, %106 ]
   %.026.i = phi i32 [ 0, %.lr.ph.preheader.i25 ], [ %.1.i, %106 ]
   %.02024.i = phi i32 [ %.1, %.lr.ph.preheader.i25 ], [ %spec.select.i, %106 ]
-  %70 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv.i28
+  %70 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv.i28
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, -1
   br i1 %72, label %73, label %106
@@ -429,14 +429,14 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not.i.i33 = icmp eq ptr %79, null
   br i1 %.not.i.i33, label %.lr.ph.split.i32.preheader.split.i.i41, label %86
 
 .lr.ph.split.i32.preheader.split.i.i41:           ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %70, i64 8
-  %81 = getelementptr inbounds i8, ptr %70, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   %.promoted.i.i42 = load i32, ptr %80, align 8
@@ -446,7 +446,7 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   br i1 %83, label %poll_fdsetup.exit.i, label %poll_notify.exit.loopexit48.i.i43
 
 86:                                               ; preds = %76
-  %87 = getelementptr inbounds i8, ptr %79, i64 26
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 26
   %88 = load i16, ptr %87, align 2
   %89 = and i16 %88, 15
   switch i16 %89, label %poll_fdsetup.exit.i [
@@ -460,18 +460,18 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   ]
 
 ._crit_edge.i.i34:                                ; preds = %86
-  %.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %79, i64 32
+  %.phi.trans.insert.i.i35 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %.pre.i.i36 = load ptr, ptr %.phi.trans.insert.i.i35, align 8
   br label %99
 
 90:                                               ; preds = %86, %86, %86, %86
-  %91 = getelementptr inbounds i8, ptr %79, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %92 = load ptr, ptr %91, align 8
   %.not28.i.i39 = icmp eq ptr %92, null
   br i1 %.not28.i.i39, label %98, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %92, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %95 = load ptr, ptr %94, align 8
   %.not29.i.i40 = icmp eq ptr %95, null
   br i1 %.not29.i.i40, label %98, label %96
@@ -493,7 +493,7 @@ poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   br i1 %.not30.i.i37, label %.thread.i.i, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %100, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 64
   %103 = load ptr, ptr %102, align 8
   %.not31.i.i38 = icmp eq ptr %103, null
   br i1 %.not31.i.i38, label %.thread.i.i, label %104
@@ -518,12 +518,12 @@ poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.lo
   %.1.i = phi i32 [ %.0.i.i, %poll_fdsetup.exit.i ], [ %.026.i, %.lr.ph.i27 ]
   %107 = icmp slt i32 %.1.i, 0
   %spec.select.i = select i1 %107, i32 %.1.i, i32 %.02024.i
-  %108 = getelementptr inbounds i8, ptr %70, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %109 = load i32, ptr %108, align 8
   %.not.i29 = icmp ne i32 %109, 0
   %110 = zext i1 %.not.i29 to i32
   %spec.select52 = add nuw nsw i32 %.146, %110
-  %111 = getelementptr inbounds i8, ptr %70, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)

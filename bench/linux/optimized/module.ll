@@ -125,23 +125,23 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
   %12 = phi ptr [ @memcpy, %5 ], [ @text_poke, %10 ]
   %13 = zext i32 %3 to i64
   %14 = getelementptr %struct.elf64_shdr, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store i64 0, ptr %6, align 8, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   store i64 0, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %19, 24
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %14, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %23 = zext i32 %2 to i64
   %24 = getelementptr %struct.elf64_shdr, ptr %0, i64 %23, i32 3
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %26
 
 26:                                               ; preds = %69, %21
@@ -158,12 +158,12 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
   %37 = getelementptr i8, ptr %34, i64 %36
   %38 = load i64, ptr %24, align 8
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 32
   %43 = getelementptr %struct.elf64_sym, ptr %39, i64 %42, i32 4
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %44
   store i64 %47, ptr %6, align 8
@@ -192,7 +192,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
 
 55:                                               ; preds = %26
   %56 = and i64 %41, 4294967295
-  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %25, i64 noundef %56) #12
+  %57 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef nonnull %25, i64 noundef %56) #12
   br label %.thread
 
 .sink.split:                                      ; preds = %26, %26, %54
@@ -228,7 +228,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
 
 75:                                               ; preds = %49, %51
   %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, i32 noundef %48, i64 noundef %47) #12
-  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %25) #12
+  %77 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull %25) #12
   br label %.thread
 
 .thread:                                          ; preds = %69, %65, %55, %75, %11
@@ -249,19 +249,19 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr nocapture 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.callthunk_sites, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 62
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
   %8 = getelementptr %struct.elf64_shdr, ptr %1, i64 %7, i32 4
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i64
   %14 = getelementptr %struct.elf64_shdr, ptr %1, i64 %13
   %15 = icmp ugt ptr %14, %1
-  %.sink42.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink42.sroa.gep59 = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink42.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink42.sroa.gep59 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %15, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -328,10 +328,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %67, label %71, label %78
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %62, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %62, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 4294967295
   br label %78
@@ -342,10 +342,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %68, label %81, label %88
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %60, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %60, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %86 = load i64, ptr %85, align 8
   %87 = and i64 %86, 4294967295
   br label %88
@@ -359,10 +359,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %67, label %93, label %.thread
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %62, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %95 = load i64, ptr %94, align 8
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %62, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %98 = load i64, ptr %97, align 8
   %99 = getelementptr i8, ptr %96, i64 %98
   tail call void @apply_retpolines(ptr noundef %96, ptr noundef %99) #10
@@ -373,10 +373,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %100, label %108, label %101
 
 101:                                              ; preds = %.thread
-  %102 = getelementptr inbounds i8, ptr %61, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %103 = load i64, ptr %102, align 8
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %61, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr i8, ptr %104, i64 %106
   tail call void @apply_returns(ptr noundef %104, ptr noundef %107) #10
@@ -387,10 +387,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %.not, label %122, label %.thread11
 
 .thread11:                                        ; preds = %108
-  %109 = getelementptr inbounds i8, ptr %66, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %110 = load i64, ptr %109, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %66, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %113 = load i64, ptr %112, align 8
   %114 = getelementptr i8, ptr %111, i64 %113
   tail call void @apply_alternatives(ptr noundef %111, ptr noundef %114) #10
@@ -400,14 +400,14 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %.not16, label %.thread12, label %.thread14
 
 .thread14:                                        ; preds = %.thread11
-  %115 = getelementptr inbounds i8, ptr %59, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %116 = load i64, ptr %115, align 8
   %117 = inttoptr i64 %116 to ptr
   store ptr %117, ptr %4, align 8
-  %118 = getelementptr inbounds i8, ptr %59, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %119 = load i64, ptr %118, align 8
   %120 = getelementptr i8, ptr %117, i64 %119
-  %121 = getelementptr inbounds i8, ptr %4, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %120, ptr %121, align 8
   br label %.thread12
 
@@ -418,11 +418,11 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
 123:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %124 = getelementptr inbounds i8, ptr %59, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %125 = load i64, ptr %124, align 8
   %126 = inttoptr i64 %125 to ptr
   store ptr %126, ptr %4, align 8
-  %127 = getelementptr inbounds i8, ptr %59, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %128 = load i64, ptr %127, align 8
   %129 = getelementptr i8, ptr %126, i64 %128
   br label %.thread13
@@ -430,7 +430,7 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
 .thread12:                                        ; preds = %.thread11, %.thread14
   %130 = load i64, ptr %109, align 8
   %131 = inttoptr i64 %130 to ptr
-  %132 = getelementptr inbounds i8, ptr %4, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %131, ptr %132, align 8
   %133 = load i64, ptr %109, align 8
   %134 = inttoptr i64 %133 to ptr
@@ -451,10 +451,10 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %138, label %146, label %139
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %58, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %141 = load i64, ptr %140, align 8
   %142 = inttoptr i64 %141 to ptr
-  %143 = getelementptr inbounds i8, ptr %58, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr i8, ptr %142, i64 %144
   call void @apply_seal_endbr(ptr noundef %142, ptr noundef %145) #10
@@ -465,20 +465,20 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %147, label %162, label %148
 
 148:                                              ; preds = %146
-  %149 = getelementptr inbounds i8, ptr %65, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %150 = load i64, ptr %149, align 8
   %151 = inttoptr i64 %150 to ptr
-  %152 = getelementptr inbounds i8, ptr %2, i64 320
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %153 = load ptr, ptr %152, align 64
-  %154 = getelementptr inbounds i8, ptr %2, i64 328
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %155 = load i32, ptr %154, align 8
   %156 = zext i32 %155 to i64
   %157 = getelementptr i8, ptr %153, i64 %156
-  %158 = getelementptr inbounds i8, ptr %2, i64 24
-  %159 = getelementptr inbounds i8, ptr %65, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %160 = load i64, ptr %159, align 8
   %161 = getelementptr i8, ptr %151, i64 %160
-  call void @alternatives_smp_module_add(ptr noundef %2, ptr noundef %158, ptr noundef %151, ptr noundef %161, ptr noundef %153, ptr noundef %157) #10
+  call void @alternatives_smp_module_add(ptr noundef %2, ptr noundef nonnull %158, ptr noundef %151, ptr noundef %161, ptr noundef %153, ptr noundef %157) #10
   br label %162
 
 162:                                              ; preds = %148, %146
@@ -488,15 +488,15 @@ define dso_local noundef i32 @module_finalize(ptr nocapture noundef readonly %0,
   br i1 %165, label %166, label %177
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds i8, ptr %63, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %168 = load i64, ptr %167, align 8
   %169 = inttoptr i64 %168 to ptr
-  %170 = getelementptr inbounds i8, ptr %63, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %171 = load i64, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %64, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %173 = load i64, ptr %172, align 8
   %174 = inttoptr i64 %173 to ptr
-  %175 = getelementptr inbounds i8, ptr %64, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %176 = load i64, ptr %175, align 8
   call void @unwind_module_init(ptr noundef %2, ptr noundef %169, i64 noundef %171, ptr noundef %174, i64 noundef %176) #10
   br label %177

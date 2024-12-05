@@ -42,7 +42,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23MachineFunctionAnalysis6Result10i
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %12 = load i32, ptr %11, align 4, !noalias !4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
   %.not1317.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1317.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -53,12 +53,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm23MachineFunctionAnalysis6Result10i
   br i1 %16, label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_23MachineFunctionAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.01118.i.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01118.i.i.i.i, i64 8
   %.not13.i.i.i.i = icmp eq ptr %18, %14
   br i1 %.not13.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i.i:                              ; preds = %17, %10
-  %19 = getelementptr inbounds ptr, ptr %7, i64 %13
+  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
   br label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_23MachineFunctionAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit
 
 20:                                               ; preds = %4
@@ -81,7 +81,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm23MachineFunctionAnalysis6Result10i
   %27 = load i32, ptr %26, align 8, !noalias !4
   %.v.v.i14.i.i.i.i = select i1 %23, i32 %25, i32 %27
   %.v.i15.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i to i64
-  %28 = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %.v.i15.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %.v.i15.i.i.i.i
   br label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_23MachineFunctionAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit
 
 _ZNK4llvm17PreservedAnalyses10getCheckerINS_23MachineFunctionAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i, %22
@@ -94,7 +94,7 @@ _ZNK4llvm17PreservedAnalyses10getCheckerINS_23MachineFunctionAnalysisEEENS0_24Pr
   %34 = load i32, ptr %33, align 8, !noalias !4
   %.v.v.i.i.i.i = select i1 %32, i32 %29, i32 %34
   %.v.i.i.i.i = zext i32 %.v.v.i.i.i.i to i64
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %.v.i.i.i.i
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %.v.i.i.i.i
   %36 = icmp ne ptr %.0.i.i.i.i, %35
   ret i1 %36
 }
@@ -105,7 +105,7 @@ _ZNSt10unique_ptrIN4llvm15MachineFunctionESt14default_deleteIS1_EED2Ev.exit15:
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #6
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(1232) %5, ptr noundef nonnull align 8 dereferenceable(136) %2) #6
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8FunctionEJEE3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #6
@@ -132,7 +132,7 @@ _ZNSt10unique_ptrIN4llvm15MachineFunctionESt14default_deleteIS1_EED2Ev.exit15:
   tail call void @_ZN4llvm15MachineFunction29initTargetMachineFunctionInfoERKNS_19TargetSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(1041) %25, ptr noundef nonnull align 1 %9) #6
   %26 = load ptr, ptr %1, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(1232) %26, ptr noundef nonnull align 8 dereferenceable(1041) %25) #6
   %30 = ptrtoint ptr %25 to i64
@@ -155,7 +155,7 @@ define linkonce_odr hidden void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20veri
   %4 = alloca %"class.llvm::PreservedAnalyses", align 8
   %5 = alloca %"class.llvm::SmallDenseMap.307", align 8
   %6 = alloca %"class.llvm::AnalysisManager<llvm::Module>::Invalidator", align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %7, i8 0, i64 72, i1 false), !alias.scope !12
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %8, ptr %4, align 8, !alias.scope !12
@@ -172,7 +172,7 @@ define linkonce_odr hidden void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20veri
   store ptr %13, ptr %14, align 8, !alias.scope !12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 2, ptr %15, align 8, !alias.scope !12
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds i8, ptr %5, i64 8
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %16, align 4
@@ -180,7 +180,7 @@ define linkonce_odr hidden void @_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE20veri
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.07.i.i.i.idx = phi i64 [ %.07.i.i.i.add, %.lr.ph.i.i.i ], [ 8, %3 ]
-  %.07.i.i.i.ptr = getelementptr inbounds i8, ptr %5, i64 %.07.i.i.i.idx
+  %.07.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.07.i.i.i.idx
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i.i.ptr, align 8
   %.07.i.i.i.add = add nuw nsw i64 %.07.i.i.i.idx, 16
   %.not.i.i.i = icmp eq i64 %.07.i.i.i.add, 136

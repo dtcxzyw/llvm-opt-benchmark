@@ -65,7 +65,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_aruba_adp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.15) #2
   %7 = load ptr, ptr %5, align 8
@@ -106,7 +106,7 @@ define internal i32 @dissect_aruba_adp(ptr noundef %0, ptr nocapture noundef rea
   %.str.23.sink = phi ptr [ @.str.23, %21 ], [ @.str.21, %13 ]
   %22 = load i32, ptr %hf_adp_switchip.sink, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef %.sink36, i32 noundef 0) #2
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef %.sink35, i32 noundef 6) #2
   %27 = load ptr, ptr %5, align 8

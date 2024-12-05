@@ -97,21 +97,21 @@ define dso_local void @_ZN4llvm29WarnMissedTransformationsPass3runERNS_8Function
 
 .lr.ph.i:                                         ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %31 = getelementptr inbounds i8, ptr %5, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %33 = getelementptr inbounds i8, ptr %8, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %35 = getelementptr inbounds i8, ptr %14, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  %37 = getelementptr inbounds i8, ptr %11, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 80
-  %39 = getelementptr inbounds i8, ptr %17, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 96
   br label %45
 
 ._crit_edge.i:                                    ; preds = %_ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitterE.exit.i, %22
   %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %20) #5
   %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds i8, ptr %20, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %43 = icmp eq ptr %41, %42
   br i1 %43, label %_ZL32warnAboutLeftoverTransformationsPN4llvm8FunctionEPNS_8LoopInfoEPNS_25OptimizationRemarkEmitterE.exit, label %44
 
@@ -415,7 +415,7 @@ _ZL32warnAboutLeftoverTransformationsPN4llvm4LoopEPNS_25OptimizationRemarkEmitte
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  %125 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %.not.i = icmp eq ptr %125, %29
   br i1 %.not.i, label %._crit_edge.i, label %45
 

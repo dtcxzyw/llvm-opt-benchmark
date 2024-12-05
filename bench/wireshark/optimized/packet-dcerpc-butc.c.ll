@@ -378,7 +378,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_Restore_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -459,7 +459,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 1
@@ -503,7 +503,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_dumpDesc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -551,7 +551,7 @@ define hidden i32 @butc_dissect_tc_dumpDesc(ptr noundef %0, i32 noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_restoreDesc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -607,7 +607,7 @@ define hidden i32 @butc_dissect_tc_restoreDesc(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_dumpStat(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -653,7 +653,7 @@ define hidden i32 @butc_dissect_tc_dumpStat(ptr noundef %0, i32 noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -697,7 +697,7 @@ define hidden i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -749,7 +749,7 @@ define hidden i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_tcInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -787,7 +787,7 @@ define hidden i32 @butc_dissect_tc_tcInfo(ptr noundef %0, i32 noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_restoreArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -818,7 +818,7 @@ define hidden i32 @butc_dissect_tc_restoreArray(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -849,7 +849,7 @@ define hidden i32 @butc_dissect_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_dumpInterface(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -897,7 +897,7 @@ define hidden i32 @butc_dissect_tc_dumpInterface(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -933,7 +933,7 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -967,7 +967,7 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 nou
 define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp ne i32 %12, 0
   %13 = and i32 %1, 3

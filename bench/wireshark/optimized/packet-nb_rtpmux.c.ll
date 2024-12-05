@@ -73,7 +73,7 @@ define internal i32 @dissect_nb_rtpmux(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %6, label %81, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.19) #3
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #3

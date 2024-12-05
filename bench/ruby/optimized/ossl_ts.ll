@@ -301,7 +301,7 @@ define internal i64 @ossl_ts_resp_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -313,7 +313,7 @@ define internal noundef i64 @ossl_ts_resp_initialize(i64 noundef returned %0, i6
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = inttoptr i64 %0 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #7
@@ -521,7 +521,7 @@ define internal i64 @ossl_ts_resp_get_token(i64 noundef %0) #0 {
 
 13:                                               ; preds = %7
   %14 = inttoptr i64 %9 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %10, ptr %15, align 8
   br label %16
 
@@ -560,7 +560,7 @@ define internal i64 @ossl_ts_resp_get_token_info(i64 noundef %0) #0 {
 
 13:                                               ; preds = %7
   %14 = inttoptr i64 %9 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %10, ptr %15, align 8
   br label %16
 
@@ -586,9 +586,9 @@ define internal i64 @ossl_ts_resp_get_tsa_certificate(i64 noundef %0) #0 {
   br i1 %.not11, label %16, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef 0) #7
   %13 = tail call ptr @PKCS7_cert_from_signer_info(ptr noundef nonnull %6, ptr noundef %12) #7
@@ -634,7 +634,7 @@ define internal i64 @ossl_ts_resp_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !10
   %16 = and i64 %15, 8192
   %.not.i.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %18
 
 18:                                               ; preds = %11
@@ -748,9 +748,9 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef %1,
   br i1 %.not41, label %43, label %.preheader
 
 .preheader:                                       ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @OPENSSL_sk_num(ptr noundef %40) #7
   %42 = icmp sgt i32 %41, 0
@@ -766,7 +766,7 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.preheader, %52
   %.03144 = phi i32 [ %54, %52 ], [ 0, %.preheader ]
   %45 = load ptr, ptr %37, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr @OPENSSL_sk_value(ptr noundef %47, i32 noundef %.03144) #7
   %49 = call i32 @OPENSSL_sk_push(ptr noundef %.0, ptr noundef %48) #7
@@ -784,7 +784,7 @@ define internal noundef i64 @ossl_ts_resp_verify(i32 noundef %0, ptr noundef %1,
   %53 = call i32 @X509_up_ref(ptr noundef %48) #7
   %54 = add nuw nsw i32 %.03144, 1
   %55 = load ptr, ptr %37, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 @OPENSSL_sk_num(ptr noundef %57) #7
   %59 = icmp slt i32 %54, %58
@@ -823,7 +823,7 @@ define internal i64 @ossl_ts_token_info_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -833,7 +833,7 @@ define internal noundef i64 @ossl_ts_token_info_initialize(i64 noundef returned 
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = inttoptr i64 %0 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = tail call i64 @ossl_to_der_if_possible(i64 noundef %1) #7
@@ -938,7 +938,7 @@ define internal i64 @ossl_ts_token_info_get_msg_imprint(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = tail call ptr @TS_TST_INFO_get_msg_imprint(ptr noundef nonnull %2) #7
   %7 = tail call ptr @TS_MSG_IMPRINT_get_msg(ptr noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %7, align 8
   %11 = sext i32 %10 to i64
@@ -1053,7 +1053,7 @@ define internal i64 @ossl_ts_token_info_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !17
   %16 = and i64 %15, 8192
   %.not.i.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %18
 
 18:                                               ; preds = %11
@@ -1107,7 +1107,7 @@ define internal i64 @ossl_ts_req_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   %9 = tail call i32 @TS_REQ_set_version(ptr noundef nonnull %3, i64 noundef 1) #7
   %10 = tail call i32 @TS_REQ_set_cert_req(ptr noundef nonnull %3, i32 noundef 1) #7
@@ -1119,7 +1119,7 @@ define internal noundef i64 @ossl_ts_req_initialize(i32 noundef %0, ptr noundef 
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 8
   %9 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.65, ptr noundef nonnull %5) #7
@@ -1252,7 +1252,7 @@ define internal noundef i64 @ossl_ts_req_set_algorithm(i64 noundef %0, i64 nound
   %11 = load i64, ptr %10, align 8, !noalias !23
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %14
 
 14:                                               ; preds = %7
@@ -1271,7 +1271,7 @@ RSTRING_PTR.exit.i:                               ; preds = %14, %7
   %19 = load i64, ptr %18, align 8, !noalias !26
   %20 = and i64 %19, 8192
   %.not.i.i5.i = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i.i5.i, label %23, label %22
 
 22:                                               ; preds = %16
@@ -1348,7 +1348,7 @@ define internal i64 @ossl_ts_req_set_msg_imprint(i64 noundef %0, i64 noundef %1)
   %12 = load i64, ptr %11, align 8, !noalias !29
   %13 = and i64 %12, 8192
   %.not.i.i = icmp eq i64 %13, 0
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %15
 
 15:                                               ; preds = %8
@@ -1357,7 +1357,7 @@ define internal i64 @ossl_ts_req_set_msg_imprint(i64 noundef %0, i64 noundef %1)
 
 RSTRING_PTR.exit:                                 ; preds = %8, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %8 ]
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, 2147483648
   %.not.i.i4 = icmp ult i64 %18, 4294967296
@@ -1397,7 +1397,7 @@ define internal i64 @ossl_ts_req_get_msg_imprint(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = tail call ptr @TS_REQ_get_msg_imprint(ptr noundef nonnull %2) #7
   %7 = tail call ptr @TS_MSG_IMPRINT_get_msg(ptr noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %7, align 8
   %11 = sext i32 %10 to i64
@@ -1426,7 +1426,7 @@ define internal noundef i64 @ossl_ts_req_set_policy_id(i64 noundef %0, i64 nound
   %11 = load i64, ptr %10, align 8, !noalias !32
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %14
 
 14:                                               ; preds = %7
@@ -1445,7 +1445,7 @@ RSTRING_PTR.exit.i:                               ; preds = %14, %7
   %19 = load i64, ptr %18, align 8, !noalias !35
   %20 = and i64 %19, 8192
   %.not.i.i5.i = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i.i5.i, label %23, label %22
 
 22:                                               ; preds = %16
@@ -1649,7 +1649,7 @@ define internal i64 @ossl_ts_req_to_der(i64 noundef %0) #0 {
   %28 = load i64, ptr %27, align 8, !noalias !38
   %29 = and i64 %28, 8192
   %.not.i.i.i = icmp eq i64 %29, 0
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %31
 
 31:                                               ; preds = %24
@@ -1899,7 +1899,7 @@ rbimpl_intern_const.exit121:                      ; preds = %.lr.ph.i119, %68
 
 .preheader:                                       ; preds = %rbimpl_intern_const.exit121
   %73 = inttoptr i64 %70 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   br label %75
 
 75:                                               ; preds = %.preheader, %88
@@ -1960,7 +1960,7 @@ rb_array_len.exit:                                ; preds = %78, %81
 101:                                              ; preds = %97
   call void @ossl_clear_error() #7
   %102 = inttoptr i64 %10 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store ptr %99, ptr %103, align 8
   br label %.loopexit124
 
@@ -2250,7 +2250,7 @@ define internal i64 @obj_to_asn1obj_i(i64 noundef %0) #0 {
   %6 = load i64, ptr %5, align 8, !noalias !46
   %7 = and i64 %6, 8192
   %.not.i.i.i = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %9
 
 9:                                                ; preds = %1
@@ -2269,7 +2269,7 @@ RSTRING_PTR.exit.i:                               ; preds = %9, %1
   %14 = load i64, ptr %13, align 8, !noalias !49
   %15 = and i64 %14, 8192
   %.not.i.i5.i = icmp eq i64 %15, 0
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br i1 %.not.i.i5.i, label %18, label %17
 
 17:                                               ; preds = %11

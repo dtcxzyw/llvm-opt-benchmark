@@ -16,13 +16,13 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
 
 .preheader108:                                    ; preds = %4
   store i32 %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %2, ptr %6, align 8
   %7 = icmp sgt i32 %1, -1
   br i1 %7, label %.lr.ph113, label %.thread
 
 .thread:                                          ; preds = %.preheader108
-  %8 = getelementptr inbounds i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %8, align 4
   br label %._crit_edge119
 
@@ -38,7 +38,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
 
 ._crit_edge:                                      ; preds = %.lr.ph113
   %13 = icmp eq i32 %1, 0
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %._crit_edge
@@ -76,7 +76,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   %.094.lcssa145 = phi i32 [ %.094.lcssa146148, %._crit_edge119 ], [ %11, %15 ]
   %27 = phi i32 [ 1, %._crit_edge119 ], [ 0, %15 ]
   %.087 = phi i32 [ %21, %._crit_edge119 ], [ 0, %15 ]
-  %28 = getelementptr inbounds i8, ptr %3, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %.sink, ptr %28, align 4
   %29 = icmp sgt i32 %2, 0
   br i1 %29, label %.lr.ph126, label %._crit_edge127
@@ -93,7 +93,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
 
 ._crit_edge127:                                   ; preds = %.lr.ph126, %26
   %.086.lcssa = phi i32 [ -1, %26 ], [ %.086124, %.lr.ph126 ]
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %34, align 8
   %35 = icmp eq i32 %.094.lcssa145, %.086.lcssa
   br i1 %35, label %36, label %.preheader107
@@ -103,7 +103,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   br i1 %.not129, label %._crit_edge134, label %.lr.ph133
 
 36:                                               ; preds = %._crit_edge127
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %37, align 8
   br label %.loopexit
 
@@ -128,14 +128,14 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   br i1 %.not104.not, label %45, label %.thread149
 
 .thread149:                                       ; preds = %._crit_edge134
-  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %44, align 8
   br label %.loopexit
 
 45:                                               ; preds = %._crit_edge134
   %reass.sub = sub i32 %spec.select, %42
   %46 = add i32 %reass.sub, 1
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %46, ptr %47, align 8
   %48 = icmp ult i32 %reass.sub, 2147483647
   br i1 %48, label %49, label %.loopexit
@@ -168,7 +168,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   br i1 %.not105.not, label %.lr.ph138, label %.loopexit.loopexit, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %.lr.ph138
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.loopexit
 
@@ -178,15 +178,15 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %.loopexit
-  %66 = getelementptr inbounds i8, ptr %3, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %66, align 4
   br label %74
 
 67:                                               ; preds = %.loopexit
-  %68 = getelementptr inbounds i8, ptr %3, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 0
-  %71 = getelementptr inbounds i8, ptr %3, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %70, label %72, label %73
 
 72:                                               ; preds = %67
@@ -207,7 +207,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_netpatterns_cleanup_narray_knomial_tree(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -223,7 +223,7 @@ define void @ompi_netpatterns_cleanup_narray_knomial_tree(ptr noundef %0) local_
   br i1 %.not5, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @ompi_netpatterns_cleanup_recursive_knomial_tree_node(ptr noundef nonnull %8) #10
   br label %9
 
@@ -243,13 +243,13 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
 
 .preheader120:                                    ; preds = %4
   store i32 %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %2, ptr %6, align 8
   %7 = icmp sgt i32 %1, -1
   br i1 %7, label %.lr.ph125, label %.thread
 
 .thread:                                          ; preds = %.preheader120
-  %8 = getelementptr inbounds i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %8, align 4
   br label %._crit_edge131
 
@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
 
 ._crit_edge:                                      ; preds = %.lr.ph125
   %13 = icmp eq i32 %1, 0
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %._crit_edge
@@ -292,11 +292,11 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
   %.1104.lcssa = phi i32 [ 1, %16 ], [ 1, %.thread ], [ %19, %.lr.ph130 ]
   %.0100.lcssa = phi i32 [ 0, %16 ], [ 0, %.thread ], [ %18, %.lr.ph130 ]
   %21 = sub nsw i32 %1, %.0100.lcssa
-  %22 = getelementptr inbounds i8, ptr %3, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %.1104.lcssa, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %25 = tail call i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %.1104.lcssa, i32 noundef %21, i32 noundef %0, ptr noundef nonnull %24) #10
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %81
@@ -312,7 +312,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
   %.sink = phi i32 [ %30, %26 ], [ -1, %15 ]
   %.0106.lcssa161 = phi i32 [ %.0106.lcssa162164, %26 ], [ %11, %15 ]
   %.099 = phi i32 [ %21, %26 ], [ 0, %15 ]
-  %32 = getelementptr inbounds i8, ptr %3, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %.sink, ptr %32, align 4
   %33 = icmp sgt i32 %2, 0
   br i1 %33, label %.lr.ph138, label %._crit_edge139
@@ -340,7 +340,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
 
 41:                                               ; preds = %39, %._crit_edge139
   %.097 = phi i32 [ %40, %39 ], [ %2, %._crit_edge139 ]
-  %42 = getelementptr inbounds i8, ptr %3, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %42, align 8
   %43 = icmp eq i32 %.0106.lcssa161, %.098.lcssa
   br i1 %43, label %.loopexit.sink.split, label %.preheader119
@@ -370,7 +370,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
 
 50:                                               ; preds = %._crit_edge148
   %51 = sub i32 %spec.select, %48
-  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %51, ptr %52, align 8
   %53 = icmp sgt i32 %51, 0
   br i1 %53, label %54, label %.loopexit
@@ -403,26 +403,26 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
   br i1 %.not118.not, label %.lr.ph152, label %.loopexit, !llvm.loop !14
 
 .loopexit.sink.split:                             ; preds = %._crit_edge148, %41
-  %68 = getelementptr inbounds i8, ptr %3, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %68, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph152, %.loopexit.sink.split, %50
-  %69 = getelementptr inbounds i8, ptr %3, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %.loopexit
-  %73 = getelementptr inbounds i8, ptr %3, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %73, align 4
   br label %81
 
 74:                                               ; preds = %.loopexit
-  %75 = getelementptr inbounds i8, ptr %3, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, 0
-  %78 = getelementptr inbounds i8, ptr %3, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %77, label %79, label %80
 
 79:                                               ; preds = %74
@@ -490,7 +490,7 @@ define range(i32 -2, 1) i32 @ompi_netpatterns_setup_narray_tree_contigous_ranks(
 
 10:                                               ; preds = %3
   %11 = add nsw i32 %1, -1
-  %12 = getelementptr inbounds i8, ptr %6, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %12, align 4
   %13 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %11, i32 noundef 0, ptr noundef nonnull %6)
   br label %14
@@ -511,7 +511,7 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
   %.062 = select i1 %.not, i32 0, i32 %.recomposed
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %3, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %.063, ptr %9, align 8
   %.not69 = icmp eq i32 %.063, 0
   br i1 %.not69, label %.loopexit, label %10
@@ -520,7 +520,7 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
   %11 = sext i32 %.063 to i64
   %12 = shl nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #9
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %13, ptr %14, align 8
   %.not70 = icmp eq ptr %13, null
   br i1 %.not70, label %15, label %18
@@ -537,7 +537,7 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
 .lr.ph:                                           ; preds = %18
   %.not71 = icmp eq i32 %.062, 0
   %20 = add nsw i32 %2, 1
-  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.0 = add i32 %.064, -1
   br i1 %.not71, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
@@ -557,19 +557,19 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
   %.06074.us = phi i32 [ %2, %.lr.ph.split.us.preheader ], [ %36, %38 ]
   %25 = sext i32 %.06074.us to i64
   %26 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %3, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 %2, ptr %28, align 4
   %29 = mul nsw i64 %indvars.iv82, %23
   %30 = add nsw i64 %29, %24
   %31 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %3, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 %2, ptr %33, align 4
   %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv82
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv82
   %36 = trunc nsw i64 %30 to i32
   store i32 %36, ptr %35, align 4
   %37 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %.0, i32 noundef %36, ptr noundef nonnull %3)
@@ -591,9 +591,9 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
   %.06074 = phi i32 [ %2, %.lr.ph.split.preheader ], [ %48, %39 ]
   %40 = sext i32 %.06074 to i64
   %41 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %3, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i32 %2, ptr %43, align 4
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %44, i32 %.062)
@@ -603,14 +603,14 @@ define internal fastcc range(i32 -2, 1) i32 @fill_in_node_data(i32 noundef %0, i
   %48 = add nsw i32 %47, %spec.select
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %3, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 %2, ptr %52, align 4
   %53 = icmp slt i64 %indvars.iv, %22
   %54 = zext i1 %53 to i32
   %55 = load ptr, ptr %21, align 8
-  %56 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   store i32 %48, ptr %56, align 4
   %57 = add nuw i32 %.0, %54
   %58 = tail call fastcc i32 @fill_in_node_data(i32 noundef %0, i32 noundef %57, i32 noundef %48, ptr noundef nonnull %3)

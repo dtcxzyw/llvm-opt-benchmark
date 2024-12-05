@@ -1780,9 +1780,9 @@ define range(i32 -1, -2147483648) i32 @H5Piterate(i64 noundef %0, ptr noundef %1
 
 48:                                               ; preds = %42
   store ptr %2, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %50, align 8
   %51 = tail call i32 @H5I_get_type(i64 noundef %0) #2
   %52 = icmp eq i32 %51, 11
@@ -1848,10 +1848,10 @@ declare i32 @H5P__iterate_plist(ptr noundef, i1 noundef zeroext, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5P__iterate_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %3(i64 noundef %5, ptr noundef %6, ptr noundef %8) #2
   ret i32 %9

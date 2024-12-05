@@ -67,7 +67,7 @@ define dso_local void @_ZN4llvm3pdb17NativeEnumModules7getNextEv(ptr dead_on_unw
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(20) %1) #4
   %.not = icmp ult i32 %4, %8
@@ -82,7 +82,7 @@ define dso_local void @_ZN4llvm3pdb17NativeEnumModules7getNextEv(ptr dead_on_unw
   %12 = add i32 %11, 1
   store i32 %12, ptr %3, align 8
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.42") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %11) #4
   br label %16

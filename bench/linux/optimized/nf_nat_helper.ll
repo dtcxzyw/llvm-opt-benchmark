@@ -22,7 +22,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_nat_exp_f
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) #0 align 16 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %11) #5
   %13 = icmp eq i32 %12, 0
@@ -34,15 +34,15 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
 
 16:                                               ; preds = %14
   %17 = sub nuw i32 %7, %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 188
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = sub i32 %23, %25
   br label %27
@@ -62,9 +62,9 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
   br i1 %20, label %35, label %41
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 188
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %39 = load i32, ptr %38, align 8
   %40 = sub i32 %39, %37
   br label %41
@@ -77,13 +77,13 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
   br i1 %45, label %46, label %72
 
 46:                                               ; preds = %41, %27, %14
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %3 to i64
   %50 = getelementptr i8, ptr %48, i64 %49
   %51 = load i32, ptr %10, align 8
   %52 = sub i32 %51, %3
-  %53 = getelementptr inbounds i8, ptr %50, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %54 = load i16, ptr %53, align 4
   %55 = lshr i16 %54, 2
   %56 = and i16 %55, 60
@@ -92,17 +92,17 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
   tail call fastcc void @mangle_contents(ptr noundef %0, i32 noundef %58, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7)
   %59 = load i32, ptr %10, align 8
   %60 = sub i32 %59, %3
-  %61 = getelementptr inbounds i8, ptr %1, i64 50
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %62 = load i16, ptr %61, align 2
   %63 = trunc i16 %62 to i8
-  %64 = getelementptr inbounds i8, ptr %50, i64 16
-  tail call void @nf_nat_csum_recalc(ptr noundef %0, i8 noundef zeroext %63, i8 noundef zeroext 6, ptr noundef %50, ptr noundef %64, i32 noundef %60, i32 noundef %52) #5
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  tail call void @nf_nat_csum_recalc(ptr noundef %0, i8 noundef zeroext %63, i8 noundef zeroext 6, ptr noundef %50, ptr noundef nonnull %64, i32 noundef %60, i32 noundef %52) #5
   %65 = icmp ne i32 %7, %5
   %66 = and i1 %65, %8
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %46
-  %68 = getelementptr inbounds i8, ptr %50, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = sub i32 %7, %5
   %71 = tail call i32 @nf_ct_seqadj_set(ptr noundef %1, i32 noundef %2, i32 noundef %69, i32 noundef %70) #5
@@ -121,7 +121,7 @@ declare dso_local i32 @skb_ensure_writable(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %11, label %10, !prof !5
@@ -132,9 +132,9 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   unreachable
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 180
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %15 = load i16, ptr %14, align 4
   %16 = zext i16 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
@@ -146,7 +146,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   %23 = getelementptr i8, ptr %21, i64 %22
   %24 = zext i32 %3 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = getelementptr i8, ptr %13, i64 %28
@@ -175,12 +175,12 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   br label %54
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load i32, ptr %42, align 8
   %44 = sub i32 %5, %3
   %45 = add i32 %43, %44
   store i32 %45, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %12, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -192,14 +192,14 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   br label %54
 
 54:                                               ; preds = %41, %40, %34
-  %55 = getelementptr inbounds i8, ptr %0, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, -8
   %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 50
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 50
   %60 = load i16, ptr %59, align 2
   %61 = icmp eq i16 %60, 2
-  %62 = getelementptr inbounds i8, ptr %0, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %63 = load i32, ptr %62, align 8
   %64 = trunc i32 %63 to i16
   br i1 %61, label %65, label %76
@@ -210,7 +210,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   %68 = load i16, ptr %14, align 4
   %69 = zext i16 %68 to i64
   %70 = getelementptr i8, ptr %67, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   store i16 %66, ptr %71, align 2
   %72 = load ptr, ptr %12, align 8
   %73 = load i16, ptr %14, align 4
@@ -226,7 +226,7 @@ define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32
   %80 = load i16, ptr %14, align 4
   %81 = zext i16 %80 to i64
   %82 = getelementptr i8, ptr %79, i64 %81
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i16 %78, ptr %83, align 4
   br label %84
 
@@ -245,7 +245,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) #0 align 16 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %10) #5
   %12 = icmp eq i32 %11, 0
@@ -257,15 +257,15 @@ define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, pt
 
 15:                                               ; preds = %13
   %16 = sub nuw i32 %7, %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 188
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %24 = load i32, ptr %23, align 8
   %25 = sub i32 %22, %24
   br label %26
@@ -285,9 +285,9 @@ define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, pt
   br i1 %19, label %34, label %40
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 188
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = load i32, ptr %37, align 8
   %39 = sub i32 %38, %36
   br label %40
@@ -300,7 +300,7 @@ define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, pt
   br i1 %44, label %45, label %70
 
 45:                                               ; preds = %40, %26, %13
-  %46 = getelementptr inbounds i8, ptr %0, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %47 = load ptr, ptr %46, align 8
   %48 = zext i32 %3 to i64
   %49 = getelementptr i8, ptr %47, i64 %48
@@ -312,25 +312,25 @@ define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, pt
   %54 = sub i32 %53, %3
   %55 = trunc i32 %54 to i16
   %56 = tail call i16 @llvm.bswap.i16(i16 %55)
-  %57 = getelementptr inbounds i8, ptr %49, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i16 %56, ptr %57, align 2
-  %58 = getelementptr inbounds i8, ptr %49, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %59 = load i16, ptr %58, align 2
   %60 = icmp eq i16 %59, 0
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %45
-  %62 = getelementptr inbounds i8, ptr %0, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %63 = load i8, ptr %62, align 8
   %64 = and i8 %63, 96
   %65 = icmp eq i8 %64, 96
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %61, %45
-  %67 = getelementptr inbounds i8, ptr %1, i64 50
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %68 = load i16, ptr %67, align 2
   %69 = trunc i16 %68 to i8
-  tail call void @nf_nat_csum_recalc(ptr noundef %0, i8 noundef zeroext %69, i8 noundef zeroext 17, ptr noundef %49, ptr noundef %58, i32 noundef %54, i32 noundef %51) #5
+  tail call void @nf_nat_csum_recalc(ptr noundef %0, i8 noundef zeroext %69, i8 noundef zeroext 17, ptr noundef %49, ptr noundef nonnull %58, i32 noundef %54, i32 noundef %51) #5
   br label %70
 
 70:                                               ; preds = %66, %61, %40, %29, %8
@@ -345,7 +345,7 @@ declare i16 @llvm.bswap.i16(i16) #3
 define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca %struct.nf_nat_range2, align 4
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 384
   %7 = icmp eq i64 %6, 0
@@ -357,37 +357,37 @@ define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr nocapture nounde
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i64 0, ptr %10, align 4, !annotation !13
   store i32 1, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 20
-  %13 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 188
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   %.offs1 = select i1 %18, i64 92, i64 36
   %19 = getelementptr i8, ptr %15, i64 %.offs1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %19, i64 16, i1 false)
   %20 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
   store i32 3, ptr %3, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 36
-  %22 = getelementptr inbounds i8, ptr %3, i64 38
-  %23 = getelementptr inbounds i8, ptr %1, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 38
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %24 = load i16, ptr %23, align 8
   store i16 %24, ptr %22, align 2
   store i16 %24, ptr %21, align 4
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %16, align 4
   %28 = icmp eq i32 %27, 0
   %.offs = select i1 %28, i64 72, i64 16
   %29 = getelementptr i8, ptr %26, i64 %.offs
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 4 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %29, i64 16, i1 false)
   %30 = call i32 @nf_nat_setup_info(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1) #5
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #5
   ret void
@@ -404,7 +404,7 @@ define dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef initializes((68, 
   %3 = xor i16 %1, -1
   %4 = zext i16 %3 to i32
   %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 128)
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   br label %7
 
 7:                                                ; preds = %14, %2

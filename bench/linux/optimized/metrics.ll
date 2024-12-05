@@ -36,8 +36,8 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
   store i8 0, ptr %5, align 1
   %13 = getelementptr i8, ptr %10, i64 -4
   %14 = icmp eq ptr %3, null
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = icmp sgt i32 %2, 3
   br i1 %17, label %.lr.ph, label %.thread.thread
 
@@ -52,7 +52,7 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %.thread, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %18, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 16383
   %27 = zext nneg i16 %26 to i32
@@ -179,7 +179,7 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
 
 .thread.thread:                                   ; preds = %12, %82, %.thread
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
-  %86 = getelementptr inbounds i8, ptr %10, i64 68
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 68
   store volatile i32 1, ptr %86, align 4
   br label %88
 

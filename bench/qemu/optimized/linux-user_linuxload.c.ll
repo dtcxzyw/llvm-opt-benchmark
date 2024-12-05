@@ -44,7 +44,7 @@ define dso_local noundef i64 @loader_build_argptr(i32 noundef %envc, i32 noundef
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds i8, ptr %1, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %add = shl i32 %envc, 3
   %mul = add i32 %add, 8
@@ -54,20 +54,20 @@ entry:
   %mul2 = add i32 %add1, 8
   %conv3 = sext i32 %mul2 to i64
   %sub4 = sub i64 %sub, %conv3
-  %info = getelementptr inbounds i8, ptr %2, i64 48
+  %info = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %envp5 = getelementptr inbounds i8, ptr %3, i64 144
+  %envp5 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i64 %sub, ptr %envp5, align 8
   %conv6 = sext i32 %envc to i64
   %4 = load ptr, ptr %info, align 8
-  %envc8 = getelementptr inbounds i8, ptr %4, i64 136
+  %envc8 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i64 %conv6, ptr %envc8, align 8
   %5 = load ptr, ptr %info, align 8
-  %argv10 = getelementptr inbounds i8, ptr %5, i64 128
+  %argv10 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i64 %sub4, ptr %argv10, align 8
   %conv11 = sext i32 %argc to i64
   %6 = load ptr, ptr %info, align 8
-  %argc13 = getelementptr inbounds i8, ptr %6, i64 120
+  %argc13 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 %conv11, ptr %argc13, align 8
   %tobool.not = icmp eq i32 %push_ptr, 0
   br i1 %tobool.not, label %if.end31, label %if.then
@@ -105,7 +105,7 @@ do.body40:                                        ; preds = %if.end31
 
 if.end44:                                         ; preds = %if.end31, %do.body40
   %7 = load ptr, ptr %info, align 8
-  %arg_strings = getelementptr inbounds i8, ptr %7, i64 184
+  %arg_strings = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i64 %stringp, ptr %arg_strings, align 8
   %cmp57 = icmp sgt i32 %argc, 0
   br i1 %cmp57, label %while.body, label %while.end
@@ -144,7 +144,7 @@ do.body70:                                        ; preds = %while.end
 
 if.end73:                                         ; preds = %while.end, %do.body70
   %8 = load ptr, ptr %info, align 8
-  %env_strings = getelementptr inbounds i8, ptr %8, i64 192
+  %env_strings = getelementptr inbounds nuw i8, ptr %8, i64 192
   store i64 %stringp.addr.0.lcssa, ptr %env_strings, align 8
   %cmp7863 = icmp sgt i32 %envc, 0
   br i1 %cmp7863, label %while.body80, label %while.end97
@@ -193,9 +193,9 @@ declare i64 @target_strlen(i64 noundef) local_unnamed_addr #1
 define dso_local range(i32 -2147483648, 1) i32 @loader_exec(i32 noundef %fdexec, ptr noundef %filename, ptr noundef %argv, ptr noundef %envp, ptr noundef %regs, ptr noundef %infop, ptr noundef initializes((1036, 1040), (1080, 1088)) %bprm) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
-  %fd = getelementptr inbounds i8, ptr %bprm, i64 1036
+  %fd = getelementptr inbounds nuw i8, ptr %bprm, i64 1036
   store i32 %fdexec, ptr %fd, align 4
-  %filename2 = getelementptr inbounds i8, ptr %bprm, i64 1080
+  %filename2 = getelementptr inbounds nuw i8, ptr %bprm, i64 1080
   store ptr %filename, ptr %filename2, align 8
   %0 = load ptr, ptr %argv, align 8
   %tobool.not3.i = icmp eq ptr %0, null
@@ -212,9 +212,9 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 count.exit:                                       ; preds = %for.body.i, %entry
   %i.0.lcssa.i = phi i32 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %argc = getelementptr inbounds i8, ptr %bprm, i64 1056
+  %argc = getelementptr inbounds nuw i8, ptr %bprm, i64 1056
   store i32 %i.0.lcssa.i, ptr %argc, align 16
-  %argv3 = getelementptr inbounds i8, ptr %bprm, i64 1064
+  %argv3 = getelementptr inbounds nuw i8, ptr %bprm, i64 1064
   store ptr %argv, ptr %argv3, align 8
   %2 = load ptr, ptr %envp, align 8
   %tobool.not3.i17 = icmp eq ptr %2, null
@@ -231,12 +231,12 @@ for.body.i18:                                     ; preds = %count.exit, %for.bo
 
 count.exit25:                                     ; preds = %for.body.i18, %count.exit
   %i.0.lcssa.i24 = phi i32 [ 0, %count.exit ], [ %inc.i22, %for.body.i18 ]
-  %envc = getelementptr inbounds i8, ptr %bprm, i64 1060
+  %envc = getelementptr inbounds nuw i8, ptr %bprm, i64 1060
   store i32 %i.0.lcssa.i24, ptr %envc, align 4
-  %envp5 = getelementptr inbounds i8, ptr %bprm, i64 1072
+  %envp5 = getelementptr inbounds nuw i8, ptr %bprm, i64 1072
   store ptr %envp, ptr %envp5, align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %src.i = getelementptr inbounds i8, ptr %bprm, i64 1024
+  %src.i = getelementptr inbounds nuw i8, ptr %bprm, i64 1024
   %call.i = call i32 @fstat64(i32 noundef %fdexec, ptr noundef nonnull %st.i) #13
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -248,7 +248,7 @@ if.then.i:                                        ; preds = %count.exit25
   br label %prepare_binprm.exit
 
 if.end.i:                                         ; preds = %count.exit25
-  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %st.i, i64 24
   %5 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %5, 61440
   %cmp3.i = icmp ne i32 %and.i, 32768
@@ -263,17 +263,17 @@ prepare_binprm.exit.thread:                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %call9.i = tail call i32 @geteuid() #13
-  %e_uid.i = getelementptr inbounds i8, ptr %bprm, i64 1048
+  %e_uid.i = getelementptr inbounds nuw i8, ptr %bprm, i64 1048
   store i32 %call9.i, ptr %e_uid.i, align 8
   %call10.i = tail call i32 @getegid() #13
-  %e_gid.i = getelementptr inbounds i8, ptr %bprm, i64 1052
+  %e_gid.i = getelementptr inbounds nuw i8, ptr %bprm, i64 1052
   store i32 %call10.i, ptr %e_gid.i, align 4
   %and11.i = and i32 %5, 2048
   %tobool12.not.i = icmp eq i32 %and11.i, 0
   br i1 %tobool12.not.i, label %if.end15.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end8.i
-  %st_uid.i = getelementptr inbounds i8, ptr %st.i, i64 28
+  %st_uid.i = getelementptr inbounds nuw i8, ptr %st.i, i64 28
   %6 = load i32, ptr %st_uid.i, align 4
   store i32 %6, ptr %e_uid.i, align 8
   br label %if.end15.i
@@ -284,7 +284,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %if.en
   br i1 %cmp17.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %st_gid.i = getelementptr inbounds i8, ptr %st.i, i64 32
+  %st_gid.i = getelementptr inbounds nuw i8, ptr %st.i, i64 32
   %7 = load i32, ptr %st_gid.i, align 8
   store i32 %7, ptr %e_gid.i, align 4
   br label %if.end20.i
@@ -315,7 +315,7 @@ if.then30.i:                                      ; preds = %if.end27.i
 
 if.end35.i:                                       ; preds = %if.then30.i, %if.end27.i
   store ptr %bprm, ptr %src.i, align 16
-  %cache_size.i = getelementptr inbounds i8, ptr %bprm, i64 1032
+  %cache_size.i = getelementptr inbounds nuw i8, ptr %bprm, i64 1032
   store i32 %conv.i, ptr %cache_size.i, align 8
   br label %prepare_binprm.exit
 
@@ -370,7 +370,7 @@ declare void @do_init_thread(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @imgsrc_read(ptr noundef %dst, i64 noundef %offset, i64 noundef %len, ptr nocapture noundef readonly %img, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %add = add i64 %len, %offset
-  %cache_size = getelementptr inbounds i8, ptr %img, i64 8
+  %cache_size = getelementptr inbounds nuw i8, ptr %img, i64 8
   %0 = load i32, ptr %cache_size, align 8
   %conv = zext i32 %0 to i64
   %cmp.not = icmp ugt i64 %add, %conv
@@ -383,7 +383,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %img, i64 12
+  %fd = getelementptr inbounds nuw i8, ptr %img, i64 12
   %2 = load i32, ptr %fd, align 4
   %cmp2 = icmp slt i32 %2, 0
   br i1 %cmp2, label %if.then4, label %if.end5
@@ -457,7 +457,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %src, i64 12
+  %fd = getelementptr inbounds nuw i8, ptr %src, i64 12
   %0 = load i32, ptr %fd, align 4
   %cmp1 = icmp sgt i32 %0, -1
   br i1 %cmp1, label %if.then2, label %if.end4
@@ -467,7 +467,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %cache_size = getelementptr inbounds i8, ptr %src, i64 8
+  %cache_size = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %cache_size, align 8
   %conv = zext i32 %1 to i64
   %cmp5 = icmp ult i64 %offset, %conv

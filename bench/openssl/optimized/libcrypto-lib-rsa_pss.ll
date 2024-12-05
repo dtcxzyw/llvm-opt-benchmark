@@ -52,7 +52,7 @@ if.then11:                                        ; preds = %if.else
 
 if.end13:                                         ; preds = %if.end7, %if.else
   %sLen.addr.0 = phi i32 [ %sLen, %if.else ], [ %call4, %if.end7 ]
-  %n = getelementptr inbounds i8, ptr %rsa, i64 40
+  %n = getelementptr inbounds nuw i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
   %call14 = tail call i32 @BN_num_bits(ptr noundef %0) #9
   %sub = add i32 %call14, 7
@@ -77,7 +77,7 @@ if.end18:                                         ; preds = %if.end13
   %dec = sext i1 %cmp19 to i32
   %emLen.0 = add nsw i32 %call15, %dec
   %EM.addr.0.idx = zext i1 %cmp19 to i64
-  %EM.addr.0 = getelementptr inbounds i8, ptr %EM, i64 %EM.addr.0.idx
+  %EM.addr.0 = getelementptr inbounds nuw i8, ptr %EM, i64 %EM.addr.0.idx
   %add = add nuw nsw i32 %call4, 2
   %cmp23 = icmp slt i32 %emLen.0, %add
   br i1 %cmp23, label %if.then25, label %if.end26
@@ -144,9 +144,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx65 = getelementptr inbounds i8, ptr %EM.addr.0, i64 %indvars.iv
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %EM.addr.0, i64 %indvars.iv
   %7 = load i8, ptr %arrayidx65, align 1
-  %arrayidx68 = getelementptr inbounds i8, ptr %call50, i64 %indvars.iv
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %call50, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx68, align 1
   %xor66 = xor i8 %8, %7
   store i8 %xor66, ptr %arrayidx68, align 1
@@ -173,7 +173,7 @@ if.end78:                                         ; preds = %if.then72, %for.end
 
 for.cond79:                                       ; preds = %for.cond79, %if.end78
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %for.cond79 ], [ 0, %if.end78 ]
-  %arrayidx81 = getelementptr inbounds i8, ptr %call50, i64 %indvars.iv71
+  %arrayidx81 = getelementptr inbounds nuw i8, ptr %call50, i64 %indvars.iv71
   %12 = load i8, ptr %arrayidx81, align 1
   %cmp83 = icmp eq i8 %12, 0
   %cmp86 = icmp slt i64 %indvars.iv71, %11
@@ -231,7 +231,7 @@ if.end120:                                        ; preds = %lor.lhs.false115
 if.then123:                                       ; preds = %if.end120
   %sub121 = sub nsw i32 %sub48, %inc92
   %idx.ext124 = zext nneg i32 %inc92 to i64
-  %add.ptr125 = getelementptr inbounds i8, ptr %call50, i64 %idx.ext124
+  %add.ptr125 = getelementptr inbounds nuw i8, ptr %call50, i64 %idx.ext124
   %conv127 = sext i32 %sub121 to i64
   %call128 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr125, i64 noundef %conv127) #9
   %tobool129.not = icmp eq i32 %call128, 0
@@ -331,7 +331,7 @@ if.then14:                                        ; preds = %if.else12
 if.end18:                                         ; preds = %if.end3, %if.then8, %if.else12, %if.then11
   %sLen.addr.1 = phi i32 [ -3, %if.then8 ], [ -3, %if.then11 ], [ %sLen, %if.else12 ], [ %call, %if.end3 ]
   %sLenMax.0 = phi i32 [ -1, %if.then8 ], [ %call, %if.then11 ], [ -1, %if.else12 ], [ %sLen, %if.end3 ]
-  %n = getelementptr inbounds i8, ptr %rsa, i64 40
+  %n = getelementptr inbounds nuw i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
   %call19 = tail call i32 @BN_num_bits(ptr noundef %0) #9
   %sub = add i32 %call19, 7
@@ -342,7 +342,7 @@ if.end18:                                         ; preds = %if.end3, %if.then8,
   br i1 %cmp21, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end18
-  %incdec.ptr = getelementptr inbounds i8, ptr %EM, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %EM, i64 1
   store i8 0, ptr %EM, align 1
   %dec = add nsw i32 %call20, -1
   br label %if.end23
@@ -394,7 +394,7 @@ if.then43:                                        ; preds = %if.end41
   br i1 %cmp45, label %err, label %if.end48
 
 if.end48:                                         ; preds = %if.then43
-  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
+  %libctx = getelementptr inbounds nuw i8, ptr %rsa, i64 8
   %3 = load ptr, ptr %libctx, align 8
   %call50 = tail call i32 @RAND_bytes_ex(ptr noundef %3, ptr noundef nonnull %call44, i64 noundef %conv, i32 noundef 0) #9
   %cmp51 = icmp slt i32 %call50, 1
@@ -447,29 +447,30 @@ if.end83:                                         ; preds = %if.end79
   br i1 %tobool87.not, label %if.end89, label %err
 
 if.end89:                                         ; preds = %if.end83
-  %5 = add nsw i32 %emLen.0, -2
-  %6 = add i32 %call, %sLen.addr.2
-  %sub92 = sub i32 %5, %6
-  %idx.ext93 = sext i32 %sub92 to i64
-  %add.ptr94 = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idx.ext93
-  %7 = load i8, ptr %add.ptr94, align 1
-  %8 = xor i8 %7, 1
-  store i8 %8, ptr %add.ptr94, align 1
-  br i1 %cmp42, label %for.body.preheader, label %if.end108
+  %5 = add i32 %call, %sLen.addr.2
+  %sub91 = sub i32 %emLen.0, %5
+  %6 = sext i32 %sub91 to i64
+  %7 = getelementptr i8, ptr %EM.addr.0, i64 %6
+  %add.ptr94 = getelementptr i8, ptr %7, i64 -2
+  %8 = load i8, ptr %add.ptr94, align 1
+  %9 = xor i8 %8, 1
+  store i8 %9, ptr %add.ptr94, align 1
+  br i1 %cmp42, label %if.then100, label %if.end108
 
-for.body.preheader:                               ; preds = %if.end89
+if.then100:                                       ; preds = %if.end89
+  %incdec.ptr95 = getelementptr i8, ptr %7, i64 -1
   %wide.trip.count = zext nneg i32 %sLen.addr.2 to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %add.ptr94.pn66 = phi ptr [ %add.ptr94, %for.body.preheader ], [ %p.0, %for.body ]
-  %p.0 = getelementptr inbounds i8, ptr %add.ptr94.pn66, i64 1
-  %arrayidx = getelementptr inbounds i8, ptr %salt.1, i64 %indvars.iv
-  %9 = load i8, ptr %arrayidx, align 1
-  %10 = load i8, ptr %p.0, align 1
-  %xor10662 = xor i8 %10, %9
-  store i8 %xor10662, ptr %p.0, align 1
+for.body:                                         ; preds = %if.then100, %for.body
+  %indvars.iv = phi i64 [ 0, %if.then100 ], [ %indvars.iv.next, %for.body ]
+  %p.066 = phi ptr [ %incdec.ptr95, %if.then100 ], [ %incdec.ptr104, %for.body ]
+  %arrayidx = getelementptr inbounds nuw i8, ptr %salt.1, i64 %indvars.iv
+  %10 = load i8, ptr %arrayidx, align 1
+  %incdec.ptr104 = getelementptr inbounds nuw i8, ptr %p.066, i64 1
+  %11 = load i8, ptr %p.066, align 1
+  %xor10662 = xor i8 %11, %10
+  store i8 %xor10662, ptr %p.066, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end108, label %for.body, !llvm.loop !7
@@ -480,16 +481,16 @@ if.end108:                                        ; preds = %for.body, %if.end89
 if.then110:                                       ; preds = %if.end108
   %sub111 = sub nuw nsw i32 8, %and
   %shr = lshr i32 255, %sub111
-  %11 = load i8, ptr %EM.addr.0, align 1
-  %12 = trunc nuw nsw i32 %shr to i8
-  %conv115 = and i8 %11, %12
+  %12 = load i8, ptr %EM.addr.0, align 1
+  %13 = trunc nuw nsw i32 %shr to i8
+  %conv115 = and i8 %12, %13
   store i8 %conv115, ptr %EM.addr.0, align 1
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then110, %if.end108
-  %sub117 = add nsw i32 %emLen.0, -1
-  %idxprom118 = zext nneg i32 %sub117 to i64
-  %arrayidx119 = getelementptr inbounds i8, ptr %EM.addr.0, i64 %idxprom118
+  %14 = sext i32 %emLen.0 to i64
+  %15 = getelementptr i8, ptr %EM.addr.0, i64 %14
+  %arrayidx119 = getelementptr i8, ptr %15, i64 -1
   store i8 -68, ptr %arrayidx119, align 1
   br label %err
 
@@ -572,7 +573,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hash_algorithm_nid = getelementptr inbounds i8, ptr %rsa_pss_params, i64 8
+  %hash_algorithm_nid = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 8
   store i32 %maskgenhashalg_nid, ptr %hash_algorithm_nid, align 4
   br label %return
 
@@ -588,7 +589,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %salt_len = getelementptr inbounds i8, ptr %rsa_pss_params, i64 12
+  %salt_len = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 12
   store i32 %saltlen, ptr %salt_len, align 4
   br label %return
 
@@ -604,7 +605,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %trailer_field = getelementptr inbounds i8, ptr %rsa_pss_params, i64 16
+  %trailer_field = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 16
   store i32 %trailerfield, ptr %trailer_field, align 4
   br label %return
 
@@ -635,7 +636,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mask_gen = getelementptr inbounds i8, ptr %rsa_pss_params, i64 4
+  %mask_gen = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 4
   %0 = load i32, ptr %mask_gen, align 4
   br label %return
 
@@ -651,7 +652,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hash_algorithm_nid = getelementptr inbounds i8, ptr %rsa_pss_params, i64 8
+  %hash_algorithm_nid = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 8
   %0 = load i32, ptr %hash_algorithm_nid, align 4
   br label %return
 
@@ -667,7 +668,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %salt_len = getelementptr inbounds i8, ptr %rsa_pss_params, i64 12
+  %salt_len = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 12
   %0 = load i32, ptr %salt_len, align 4
   br label %return
 
@@ -683,7 +684,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %trailer_field = getelementptr inbounds i8, ptr %rsa_pss_params, i64 16
+  %trailer_field = getelementptr inbounds nuw i8, ptr %rsa_pss_params, i64 16
   %0 = load i32, ptr %trailer_field, align 4
   br label %return
 

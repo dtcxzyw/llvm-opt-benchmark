@@ -42,8 +42,8 @@ define void @_ZN3gmx26applyGlobalSimulationStateERKNS_15SimulationInputEP26Parti
 
 10:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(76) %1, ptr noundef nonnull align 8 dereferenceable(76) %8, i64 41, i1 false)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
-  %12 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(24) %11) #9
@@ -51,22 +51,22 @@ define void @_ZN3gmx26applyGlobalSimulationStateERKNS_15SimulationInputEP26Parti
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
   store ptr %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %14, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %16, align 8
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %27 = load ptr, ptr %26, align 8
   store ptr %13, ptr %6, align 8
   store ptr %15, ptr %24, align 8
@@ -85,9 +85,9 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
-  %29 = getelementptr inbounds i8, ptr %8, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %30, ptr %31, align 8
   %32 = load ptr, ptr %12, align 8
   %.not.i.i.i.i = icmp eq ptr %32, null
@@ -99,7 +99,7 @@ _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; pr
 
 _ZN26PartialDeserializedTprFileD2Ev.exit:         ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %33
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #9
-  %34 = getelementptr inbounds i8, ptr %9, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %36
@@ -136,7 +136,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
   %11 = extractvalue { i64, ptr } %9, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %10, ptr %11) #9
   %12 = load i64, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %12, ptr %14, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %15 unwind label %19
@@ -144,7 +144,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
 15:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %17 unwind label %21
 
@@ -195,7 +195,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -256,7 +256,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN3gmx15applyLocalStateERKNS_15SimulationInputEP8t_fileioPK9t_commrecPiP10t_inputrecP7t_stateP18ObservablesHistorybRKNS_18MDModulesNotifiersEPNS_24ReadCheckpointDataHolderEb(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(600) %8, ptr noundef %9, i1 noundef zeroext %10) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #9
   store ptr %15, ptr %13, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, i8 noundef zeroext 2)
@@ -264,7 +264,7 @@ define void @_ZN3gmx15applyLocalStateERKNS_15SimulationInputEP8t_fileioPK9t_comm
           to label %16 unwind label %20
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %19
@@ -303,7 +303,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #9
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %11, ptr %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %14 unwind label %18
@@ -311,7 +311,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
 14:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %16 unwind label %20
 

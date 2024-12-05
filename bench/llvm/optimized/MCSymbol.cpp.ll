@@ -58,7 +58,7 @@ define dso_local noundef ptr @_ZN4llvm8MCSymbolnwEmPKNS_14StringMapEntryINS_18MC
 _ZN4llvm9MCContext8allocateEjj.exit:              ; preds = %19, %.critedge.i.i.i
   %.0.i.i.i = phi ptr [ %21, %19 ], [ %22, %.critedge.i.i.i ]
   %23 = zext i1 %.not to i64
-  %24 = getelementptr inbounds %"union.llvm::MCSymbol::NameEntryStorageTy", ptr %.0.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw %"union.llvm::MCSymbol::NameEntryStorageTy", ptr %.0.i.i.i, i64 %23
   ret ptr %24
 }
 
@@ -86,7 +86,7 @@ define dso_local void @_ZNK4llvm8MCSymbol5printERNS_11raw_ostreamEPKNS_9MCAsmInf
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 -8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %9, align 8
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit
 
@@ -98,7 +98,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %3, %7
 
 12:                                               ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(484) %2, ptr %.sroa.0.0.i, i64 %.sroa.4.0.i) #7
   br i1 %16, label %17, label %32
@@ -152,7 +152,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %3, %7
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 34, ptr %39, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -186,7 +186,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %42, %44
 57:                                               ; preds = %48
   store i16 28252, ptr %50, align 1
   %58 = load ptr, ptr %38, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
   store ptr %59, ptr %38, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -206,7 +206,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %42, %44
 69:                                               ; preds = %60
   store i16 8796, ptr %62, align 1
   %70 = load ptr, ptr %38, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   store ptr %71, ptr %38, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -221,13 +221,13 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %42, %44
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %73, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %78, ptr %38, align 8
   store i8 %47, ptr %73, align 1
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %77, %75, %69, %67, %57, %55
-  %79 = getelementptr inbounds i8, ptr %.039, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %.not23 = icmp eq ptr %79, %46
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -242,7 +242,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %77, %75, %69, %67, 
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 84:                                               ; preds = %._crit_edge
-  %85 = getelementptr inbounds i8, ptr %80, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 1
   store ptr %85, ptr %38, align 8
   store i8 34, ptr %80, align 1
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
@@ -278,7 +278,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   br i1 %.not.i.i.i, label %16, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %17, i64 noundef %14, i64 noundef 16) #7
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
@@ -287,7 +287,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
   %20 = getelementptr inbounds %"struct.std::pair.117", ptr %18, i64 %19
   store ptr %11, ptr %20, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
   %22 = add i64 %21, 1
@@ -333,7 +333,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #7
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -347,7 +347,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #7
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void

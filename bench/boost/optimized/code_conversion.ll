@@ -107,7 +107,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix3aux12code_con
   store ptr %7, ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.01753
   %18 = load ptr, ptr %4, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
   switch i32 %21, label %.loopexit48 [
@@ -224,7 +224,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix3aux12code_con
   store ptr %7, ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i32, ptr %7, i64 %.01752
   %18 = load ptr, ptr %4, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
   switch i32 %21, label %.loopexit47 [
@@ -367,7 +367,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix3aux12code_con
   store ptr %7, ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.01753
   %18 = load ptr, ptr %4, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
   switch i32 %21, label %.loopexit48 [
@@ -510,7 +510,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix3aux12code_con
   store ptr %7, ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i16, ptr %7, i64 %.01752
   %18 = load ptr, ptr %4, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
   switch i32 %21, label %.loopexit47 [
@@ -767,7 +767,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix3aux12code_con
   store ptr %7, ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.01753
   %18 = load ptr, ptr %4, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
   switch i32 %21, label %.loopexit48 [
@@ -910,7 +910,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost3log11v2_mt_posix3aux12code_con
   store ptr %7, ptr %9, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i32, ptr %7, i64 %.01752
   %18 = load ptr, ptr %4, align 8, !tbaa !7
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %7, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(8) %9)
   switch i32 %21, label %.loopexit47 [

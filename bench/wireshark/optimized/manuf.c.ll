@@ -58818,7 +58818,7 @@ define ptr @ws_manuf_lookup(ptr nocapture noundef readonly %0, ptr noundef write
   br i1 %.not.i, label %select_registry.exit.thread, label %select_registry.exit
 
 select_registry.exit:                             ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %9, i64 3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 3
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %42 [
     i8 0, label %select_registry.exit.thread
@@ -58835,20 +58835,20 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %5)
   %14 = load i8, ptr %6, align 1
   store i8 %14, ptr %5, align 1
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
-  %16 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %17 = load i8, ptr %16, align 1
   store i8 %17, ptr %15, align 1
-  %18 = getelementptr inbounds i8, ptr %5, i64 2
-  %19 = getelementptr inbounds i8, ptr %6, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %20 = load i8, ptr %19, align 1
   store i8 %20, ptr %18, align 1
-  %21 = getelementptr inbounds i8, ptr %5, i64 3
-  %22 = getelementptr inbounds i8, ptr %6, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, -16
   store i8 %24, ptr %21, align 1
-  %scevgep.i = getelementptr inbounds i8, ptr %5, i64 4
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 0, ptr %scevgep.i, align 1
   %25 = call ptr @bsearch(ptr noundef nonnull %5, ptr noundef nonnull @global_manuf_oui28_table, i64 noundef 5137, i64 noundef 24, ptr noundef nonnull @compare_oui28_entry) #11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
@@ -58859,24 +58859,24 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
   %27 = load i8, ptr %6, align 1
   store i8 %27, ptr %4, align 1
-  %28 = getelementptr inbounds i8, ptr %4, i64 1
-  %29 = getelementptr inbounds i8, ptr %6, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %30 = load i8, ptr %29, align 1
   store i8 %30, ptr %28, align 1
-  %31 = getelementptr inbounds i8, ptr %4, i64 2
-  %32 = getelementptr inbounds i8, ptr %6, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %33 = load i8, ptr %32, align 1
   store i8 %33, ptr %31, align 1
-  %34 = getelementptr inbounds i8, ptr %4, i64 3
-  %35 = getelementptr inbounds i8, ptr %6, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %36 = load i8, ptr %35, align 1
   store i8 %36, ptr %34, align 1
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, -16
   store i8 %40, ptr %37, align 1
-  %.ptr.i = getelementptr inbounds i8, ptr %4, i64 5
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 0, ptr %.ptr.i, align 1
   %41 = call ptr @bsearch(ptr noundef nonnull %4, ptr noundef nonnull @global_manuf_oui36_table, i64 noundef 10404, i64 noundef 24, ptr noundef nonnull @compare_oui36_entry) #11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %4)
@@ -58890,9 +58890,9 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
 .sink.split:                                      ; preds = %26, %13, %select_registry.exit.thread
   %.sink30 = phi ptr [ %12, %select_registry.exit.thread ], [ %25, %13 ], [ %41, %26 ]
   %.017.ph = phi i32 [ 24, %select_registry.exit.thread ], [ 28, %13 ], [ 36, %26 ]
-  %43 = getelementptr inbounds i8, ptr %.sink30, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sink30, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.sink30, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sink30, i64 16
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -58934,7 +58934,7 @@ define ptr @ws_manuf_lookup_str(ptr nocapture noundef readonly %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define ptr @ws_manuf_lookup_oui24(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [6 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %3, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, ptr noundef nonnull align 1 dereferenceable(3) %0, i64 3, i1 false)
   %5 = load i8, ptr %3, align 1
@@ -58945,7 +58945,7 @@ define ptr @ws_manuf_lookup_oui24(ptr nocapture noundef readonly %0, ptr noundef
   br i1 %.not.i, label %select_registry.exit.thread, label %select_registry.exit
 
 select_registry.exit:                             ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %7, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %select_registry.exit.thread
@@ -58959,9 +58959,9 @@ select_registry.exit.thread:                      ; preds = %2, %select_registry
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %select_registry.exit.thread
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8
   br label %17
 
@@ -58989,39 +58989,39 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ws_manuf_iter_init(ptr nocapture noundef writeonly initializes((0, 30), (32, 54), (56, 78), (80, 96)) %0) local_unnamed_addr #4 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
   %3 = getelementptr i8, ptr %0, i64 27
   store i8 0, ptr %3, align 1
   %4 = getelementptr i8, ptr %0, i64 28
   store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 29
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 24, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str.7, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @.str.8, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 14308608, ptr %9, align 8
   %10 = getelementptr i8, ptr %0, i64 52
   store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 53
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 28, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @.str.36728, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.36729, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %15, ptr noundef nonnull align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 77
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 77
   store i8 36, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @.str.45509, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @.str.45510, ptr %18, align 8
   ret void
 }
@@ -59035,34 +59035,34 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %.035.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %.035.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %3, align 16
   br label %8
 
 8:                                                ; preds = %6, %2
   %.035.sroa.phi = phi ptr [ %.035.sroa.gep, %6 ], [ %3, %2 ]
   %.035 = phi i64 [ 1, %6 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ult i64 %10, 5137
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = add nuw nsw i64 %.035, 1
   store ptr %13, ptr %.035.sroa.phi, align 8
   br label %15
 
 15:                                               ; preds = %12, %8
   %.136 = phi i64 [ %14, %12 ], [ %.035, %8 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp ult i64 %17, 10404
   br i1 %18, label %.thread, label %22
 
 .thread:                                          ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = add nuw nsw i64 %.136, 1
   %21 = getelementptr [3 x ptr], ptr %3, i64 0, i64 %.136
   store ptr %19, ptr %21, align 8
@@ -59101,7 +59101,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
 ._crit_edge:                                      ; preds = %31, %23
   %.034.lcssa = phi ptr [ %24, %23 ], [ %.1, %31 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %.034.lcssa, i64 24, i1 false)
-  %33 = getelementptr inbounds i8, ptr %.034.lcssa, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %.034.lcssa, i64 5
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %60 [
     i8 24, label %35
@@ -59117,7 +59117,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
   br i1 %38, label %39, label %68
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = getelementptr [34910 x %struct.manuf_oui24_t], ptr @global_manuf_oui24_table, i64 0, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %40, ptr noundef nonnull readonly align 8 dereferenceable(3) %41, i64 3, i1 false)
   %42 = getelementptr i8, ptr %0, i64 27
@@ -59134,7 +59134,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
   br i1 %47, label %48, label %68
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = getelementptr [5137 x %struct.manuf_oui28_t], ptr @global_manuf_oui28_table, i64 0, i64 %46
   %51 = load i32, ptr %50, align 8
   store i32 %51, ptr %49, align 8
@@ -59150,7 +59150,7 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = getelementptr [10404 x %struct.manuf_oui36_t], ptr @global_manuf_oui36_table, i64 0, i64 %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %58, ptr noundef nonnull readonly align 8 dereferenceable(5) %59, i64 5, i1 false)
   br label %.sink.split
@@ -59164,15 +59164,15 @@ define noundef zeroext i1 @ws_manuf_iter_next(ptr noundef %0, ptr nocapture noun
   %.sink56 = phi ptr [ %41, %39 ], [ %59, %57 ], [ %50, %48 ]
   %.sink54 = phi i64 [ 32, %39 ], [ 80, %57 ], [ 56, %48 ]
   %.sink50 = phi i64 [ 40, %39 ], [ 88, %57 ], [ 64, %48 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 %.sink59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink59
   store i8 %34, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %.sink56, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sink56, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 %.sink54
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink54
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.sink56, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 %.sink50
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink50
   store ptr %66, ptr %67, align 8
   br label %68
 
@@ -59186,7 +59186,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ws_manuf_block_str(ptr noundef returned writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %45 [
     i8 24, label %6
@@ -59256,51 +59256,51 @@ define void @ws_manuf_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %3 = alloca %struct.ws_manuf, align 8
   %4 = alloca [64 x i8], align 16
   store i64 0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 27
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 27
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 29
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 29
   store i8 24, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @.str.7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr @.str.8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 14308608, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 53
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 53
   store i8 28, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %2, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr @.str.36728, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr @.str.36729, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %18, ptr noundef nonnull align 16 dereferenceable(5) @global_manuf_oui36_table, i64 5, i1 false)
-  %19 = getelementptr inbounds i8, ptr %2, i64 77
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 77
   store i8 36, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr @.str.45509, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr @.str.45510, ptr %21, align 8
   %22 = call zeroext i1 @ws_manuf_iter_next(ptr noundef nonnull %2, ptr noundef nonnull %3)
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %3, i64 5
-  %24 = getelementptr inbounds i8, ptr %3, i64 1
-  %25 = getelementptr inbounds i8, ptr %3, i64 2
-  %26 = getelementptr inbounds i8, ptr %3, i64 3
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %30
 
 30:                                               ; preds = %.lr.ph, %ws_manuf_block_str.exit

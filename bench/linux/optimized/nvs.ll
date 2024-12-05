@@ -21,13 +21,13 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0
 
 6:                                                ; preds = %2
   store i64 %0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @nvs_region_list, i64 8), align 8
   store ptr %8, ptr getelementptr inbounds (i8, ptr @nvs_region_list, i64 8), align 8
   store ptr @nvs_region_list, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %10, align 8
   store volatile ptr %8, ptr %9, align 8
   %11 = add i64 %0, -1
@@ -45,11 +45,11 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0
   br i1 %19, label %32, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @nvs_list, i64 8), align 8
   store ptr %21, ptr getelementptr inbounds (i8, ptr @nvs_list, i64 8), align 8
   store ptr @nvs_list, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %22, ptr %23, align 8
   store volatile ptr %21, ptr %22, align 8
   store i64 %15, ptr %18, align 8
@@ -57,7 +57,7 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0
   %25 = sub nuw nsw i64 4096, %24
   %26 = tail call i64 @llvm.umin.i64(i64 %16, i64 %25)
   %27 = trunc nuw nsw i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %27, ptr %28, align 8
   %29 = add i64 %26, %15
   %30 = sub i64 %16, %26
@@ -73,9 +73,9 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_nvs_register(i64 noundef %0
   %35 = phi ptr [ %37, %.preheader ], [ %33, %32 ]
   %36 = getelementptr i8, ptr %35, i64 -40
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %39, ptr %40, align 8
   store volatile ptr %37, ptr %39, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %35, align 8

@@ -131,7 +131,7 @@ define internal void @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionE
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %32)
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %36 = getelementptr inbounds i8, ptr %29, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %35, ptr noundef nonnull %36, i64 noundef 6) #13
   %37 = load i32, ptr %1, align 8
@@ -145,9 +145,9 @@ define internal void @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionE
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %.sroa.566.0..sroa_idx.i = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.566.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.566.0.copyload.i = load i64, ptr %.sroa.566.0..sroa_idx.i, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 232
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 2
   %.not.i = icmp eq i64 %43, 0
@@ -157,7 +157,7 @@ define internal void @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionE
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
-  %.sroa.566.0..sroa_idx67.i = getelementptr inbounds i8, ptr %46, i64 24
+  %.sroa.566.0..sroa_idx67.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   %.sroa.566.0.copyload68.i = load i64, ptr %.sroa.566.0..sroa_idx67.i, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
@@ -166,14 +166,14 @@ define internal void @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionE
 49:                                               ; preds = %34
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8
-  %.sroa.566.0..sroa_idx69.i = getelementptr inbounds i8, ptr %51, i64 8
+  %.sroa.566.0..sroa_idx69.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.566.0.copyload70.i = load i64, ptr %.sroa.566.0..sroa_idx69.i, align 8
   br label %57
 
 52:                                               ; preds = %34
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8
-  %.sroa.566.0..sroa_idx71.i = getelementptr inbounds i8, ptr %54, i64 24
+  %.sroa.566.0..sroa_idx71.i = getelementptr inbounds nuw i8, ptr %54, i64 24
   %.sroa.566.0.copyload72.i = load i64, ptr %.sroa.566.0..sroa_idx71.i, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
@@ -183,7 +183,7 @@ define internal void @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17encodeInstructionE
   %.sroa.055.0.i = phi i32 [ %48, %44 ], [ 44, %49 ], [ %56, %52 ], [ %spec.select.i, %38 ], [ 0, %34 ]
   %.sroa.566.0.i = phi i64 [ %.sroa.566.0.copyload68.i, %44 ], [ %.sroa.566.0.copyload70.i, %49 ], [ %.sroa.566.0.copyload72.i, %52 ], [ %.sroa.566.0.copyload.i, %38 ], [ 0, %34 ]
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %59 = getelementptr inbounds i8, ptr %30, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %30, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %58, ptr noundef nonnull %59, i64 noundef 6) #13
   store i32 12071, ptr %30, align 8
@@ -203,7 +203,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit.i: ; preds = %63, %57
   %65 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #13
   %66 = getelementptr inbounds %"class.llvm::MCOperand", ptr %64, i64 %65
   store i8 1, ptr %66, align 1
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %66, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 1
   %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #13
   %68 = add i64 %67, 1
@@ -223,7 +223,7 @@ _ZN4llvm13MCInstBuilder7addExprEPKNS_6MCExprE.exit.i: ; preds = %72, %_ZN4llvm13
   %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #13
   %75 = getelementptr inbounds %"class.llvm::MCOperand", ptr %73, i64 %74
   store i8 5, ptr %75, align 1
-  %.sroa.22.0..sroa_idx.i.i.i28.i = getelementptr inbounds i8, ptr %75, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i28.i = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 %.sroa.566.0.i, ptr %.sroa.22.0..sroa_idx.i.i.i28.i, align 1
   %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %58) #13
   %77 = add i64 %76, 1
@@ -244,7 +244,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit.i:               ; preds = %82, %_ZN4llvm13MCIn
   %84 = trunc i64 %83 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   store i32 %84, ptr %28, align 4
-  %85 = getelementptr inbounds i8, ptr %28, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %28, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %28, ptr noundef nonnull %85)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   %86 = load i32, ptr %1, align 8
@@ -255,7 +255,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit.i:               ; preds = %82, %_ZN4llvm13MCIn
 
 87:                                               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit.i, %_ZN4llvm13MCInstBuilderD2Ev.exit.i
   %88 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %89 = getelementptr inbounds i8, ptr %31, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %31, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %88, ptr noundef nonnull %89, i64 noundef 6) #13
   store i32 12784, ptr %31, align 8
@@ -274,7 +274,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit32.i: ; preds = %93, %87
   %95 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #13
   %96 = getelementptr inbounds %"class.llvm::MCOperand", ptr %94, i64 %95
   store i8 1, ptr %96, align 1
-  %.sroa.22.0..sroa_idx.i.i.i31.i = getelementptr inbounds i8, ptr %96, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i31.i = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 43, ptr %.sroa.22.0..sroa_idx.i.i.i31.i, align 1
   %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #13
   %98 = add i64 %97, 1
@@ -294,7 +294,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit36.i: ; preds = %102, %_ZN4l
   %104 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #13
   %105 = getelementptr inbounds %"class.llvm::MCOperand", ptr %103, i64 %104
   store i8 1, ptr %105, align 1
-  %.sroa.22.0..sroa_idx.i.i.i35.i = getelementptr inbounds i8, ptr %105, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i35.i = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i35.i, align 1
   %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #13
   %107 = add i64 %106, 1
@@ -314,7 +314,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i:          ; preds = %111, %_ZN4llvm13MCI
   %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #13
   %114 = getelementptr inbounds %"class.llvm::MCOperand", ptr %112, i64 %113
   store i8 2, ptr %114, align 1
-  %.sroa.22.0..sroa_idx.i.i.i38.i = getelementptr inbounds i8, ptr %114, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i38.i = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 0, ptr %.sroa.22.0..sroa_idx.i.i.i38.i, align 1
   %115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %88) #13
   %116 = add i64 %115, 1
@@ -328,7 +328,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i:          ; preds = %111, %_ZN4llvm13MCI
 
 121:                                              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit.i
   %122 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %123 = getelementptr inbounds i8, ptr %32, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %32, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %32, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %122, ptr noundef nonnull %123, i64 noundef 6) #13
   store i32 12784, ptr %32, align 8
@@ -347,7 +347,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit43.i: ; preds = %127, %121
   %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   %130 = getelementptr inbounds %"class.llvm::MCOperand", ptr %128, i64 %129
   store i8 1, ptr %130, align 1
-  %.sroa.22.0..sroa_idx.i.i.i42.i = getelementptr inbounds i8, ptr %130, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i42.i = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i42.i, align 1
   %131 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   %132 = add i64 %131, 1
@@ -367,7 +367,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit47.i: ; preds = %136, %_ZN4l
   %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   %139 = getelementptr inbounds %"class.llvm::MCOperand", ptr %137, i64 %138
   store i8 1, ptr %139, align 1
-  %.sroa.22.0..sroa_idx.i.i.i46.i = getelementptr inbounds i8, ptr %139, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i46.i = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i46.i, align 1
   %140 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   %141 = add i64 %140, 1
@@ -387,7 +387,7 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit50.i:        ; preds = %145, %_ZN4llvm13MCI
   %147 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   %148 = getelementptr inbounds %"class.llvm::MCOperand", ptr %146, i64 %147
   store i8 2, ptr %148, align 1
-  %.sroa.22.0..sroa_idx.i.i.i49.i = getelementptr inbounds i8, ptr %148, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i49.i = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i64 0, ptr %.sroa.22.0..sroa_idx.i.i.i49.i, align 1
   %149 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #13
   %150 = add i64 %149, 1
@@ -409,7 +409,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit39.i:             ; preds = %_ZN4llvm13MCInstBui
   %156 = trunc i64 %155 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   store i32 %156, ptr %27, align 4
-  %157 = getelementptr inbounds i8, ptr %27, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %27, ptr noundef nonnull %157)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
   %158 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %35) #13
@@ -436,23 +436,23 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter18expandFunctionCallERKN4llvm6MCInstERNS1_
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %164 = load ptr, ptr %163, align 8
   %.sroa.036.0.copyload.i = load i8, ptr %164, align 8
-  %.sroa.238.0..sroa_idx.i = getelementptr inbounds i8, ptr %164, i64 8
+  %.sroa.238.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %164, i64 8
   %.sroa.238.0.copyload.i = load i64, ptr %.sroa.238.0..sroa_idx.i, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %.sroa.033.0.copyload.i = load i8, ptr %165, align 8
-  %.sroa.235.0..sroa_idx.i = getelementptr inbounds i8, ptr %164, i64 24
+  %.sroa.235.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %164, i64 24
   %.sroa.235.0.copyload.i = load i64, ptr %.sroa.235.0..sroa_idx.i, align 8
-  %166 = getelementptr inbounds i8, ptr %164, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %.sroa.031.0.copyload.i = load i8, ptr %166, align 8
-  %.sroa.232.0..sroa_idx.i = getelementptr inbounds i8, ptr %164, i64 40
+  %.sroa.232.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %164, i64 40
   %.sroa.232.0.copyload.i = load i64, ptr %.sroa.232.0..sroa_idx.i, align 8
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %164, i64 56
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %164, i64 56
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
   %167 = load i8, ptr %.sroa.1.0.copyload.i, align 8
   %.not.i31 = icmp eq i8 %167, 4
   %168 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload.i, i64 -8
   %spec.select.i.i.i = select i1 %.not.i31, ptr %168, ptr null
-  %169 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
   %spec.select.i32 = select i1 %.not.i31, ptr %169, ptr null
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %170, align 8
@@ -487,7 +487,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter18expandFunctionCallERKN4llvm6MCInstERNS1_
 
 184:                                              ; preds = %177, %162
   %185 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %186 = getelementptr inbounds i8, ptr %26, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %26, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %26, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %185, ptr noundef nonnull %186, i64 noundef 6) #13
   store i32 11884, ptr %26, align 8
@@ -506,7 +506,7 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i: ; preds = %190, %18
   %192 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %193 = getelementptr inbounds %"class.llvm::MCOperand", ptr %191, i64 %192
   store i8 %.sroa.036.0.copyload.i, ptr %193, align 1
-  %.sroa.22.0..sroa_idx.i.i.i.i34 = getelementptr inbounds i8, ptr %193, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i64 %.sroa.238.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i34, align 1
   %194 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %195 = add i64 %194, 1
@@ -526,7 +526,7 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit23.i: ; preds = %199, %
   %201 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %202 = getelementptr inbounds %"class.llvm::MCOperand", ptr %200, i64 %201
   store i8 %.sroa.033.0.copyload.i, ptr %202, align 1
-  %.sroa.22.0..sroa_idx.i.i.i22.i = getelementptr inbounds i8, ptr %202, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i64 %.sroa.235.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i.i.i22.i, align 1
   %203 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %204 = add i64 %203, 1
@@ -546,14 +546,14 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit29.i: ; preds = %208, %
   %210 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %211 = getelementptr inbounds %"class.llvm::MCOperand", ptr %209, i64 %210
   store i8 %.sroa.031.0.copyload.i, ptr %211, align 1
-  %.sroa.22.0..sroa_idx.i.i.i28.i36 = getelementptr inbounds i8, ptr %211, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i28.i36 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store i64 %.sroa.232.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i.i.i28.i36, align 1
   %212 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %185) #13
   %213 = add i64 %212, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %185, i64 noundef %213) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(128) %26, i64 16, i1 false)
   %214 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %215 = getelementptr inbounds i8, ptr %25, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %25, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %214, ptr noundef nonnull %215, i64 noundef 6) #13
   %216 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(112) %185) #13
   br i1 %216, label %_ZN4llvm6MCInstC2ERKS0_.exit.i, label %217
@@ -577,7 +577,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit.i37:             ; preds = %222, %_ZN4llvm6MCIn
   %224 = trunc i64 %223 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   store i32 %224, ptr %22, align 4
-  %225 = getelementptr inbounds i8, ptr %22, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %22, ptr noundef nonnull %225)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
   %226 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %214) #13
@@ -608,11 +608,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter14expandAddTPRelERKN4llvm6MCInstERNS1_15Sm
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load i32, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %232, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %236 = load i32, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %232, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %232, i64 32
   %.sroa.061.0.copyload.i = load i8, ptr %237, align 8
-  %.sroa.362.0..sroa_idx.i = getelementptr inbounds i8, ptr %232, i64 40
+  %.sroa.362.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %232, i64 40
   %.sroa.362.0.copyload.i = load i64, ptr %.sroa.362.0..sroa_idx.i, align 8
   %238 = icmp eq i32 %33, 383
   switch i32 %33, label %290 [
@@ -632,7 +632,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter14expandAddTPRelERKN4llvm6MCInstERNS1_15Sm
   br i1 %.not.i45, label %243, label %247
 
 243:                                              ; preds = %239
-  %244 = getelementptr inbounds i8, ptr %4, i64 224
+  %244 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %245 = load i64, ptr %244, align 8
   %246 = and i64 %245, 2199023255552
   %.not77.i = icmp eq i64 %246, 0
@@ -656,7 +656,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter14expandAddTPRelERKN4llvm6MCInstERNS1_15Sm
   %.sroa.068.0.i = phi i32 [ %234, %247 ], [ %236, %250 ]
   %253 = select i1 %238, i32 12439, i32 12440
   %254 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %255 = getelementptr inbounds i8, ptr %16, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %254, ptr noundef nonnull %255, i64 noundef 6) #13
   store i32 %253, ptr %16, align 8
@@ -676,7 +676,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit.i47: ; preds = %259, %.crit
   %261 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #13
   %262 = getelementptr inbounds %"class.llvm::MCOperand", ptr %260, i64 %261
   store i8 1, ptr %262, align 1
-  %.sroa.22.0..sroa_idx.i.i.i.i49 = getelementptr inbounds i8, ptr %262, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i48, ptr %.sroa.22.0..sroa_idx.i.i.i.i49, align 1
   %263 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #13
   %264 = add i64 %263, 1
@@ -696,14 +696,14 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i50:        ; preds = %268, %_ZN4llvm13MCI
   %270 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #13
   %271 = getelementptr inbounds %"class.llvm::MCOperand", ptr %269, i64 %270
   store i8 2, ptr %271, align 1
-  %.sroa.22.0..sroa_idx.i.i.i35.i51 = getelementptr inbounds i8, ptr %271, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i35.i51 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i64 6, ptr %.sroa.22.0..sroa_idx.i.i.i35.i51, align 1
   %272 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %254) #13
   %273 = add i64 %272, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %254, i64 noundef %273) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) %16, i64 16, i1 false)
   %274 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %275 = getelementptr inbounds i8, ptr %15, i64 32
+  %275 = getelementptr inbounds nuw i8, ptr %15, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %274, ptr noundef nonnull %275, i64 noundef 6) #13
   %276 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(112) %254) #13
   br i1 %276, label %_ZN4llvm6MCInstC2ERKS0_.exit.i52, label %277
@@ -727,7 +727,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit.i53:             ; preds = %282, %_ZN4llvm6MCIn
   %284 = trunc i64 %283 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14)
   store i16 %284, ptr %14, align 2
-  %285 = getelementptr inbounds i8, ptr %14, i64 2
+  %285 = getelementptr inbounds nuw i8, ptr %14, i64 2
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %14, ptr noundef nonnull %285)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14)
   %286 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %274) #13
@@ -757,7 +757,7 @@ switch.lookup:                                    ; preds = %250, %243
 _ZL19getInvertedBranchOpj.exit.i:                 ; preds = %230, %switch.lookup, %293, %292, %291
   %.0.i.i = phi i32 [ 12082, %293 ], [ 12078, %292 ], [ 12081, %291 ], [ %switch.load, %switch.lookup ], [ 12077, %230 ]
   %294 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %295 = getelementptr inbounds i8, ptr %18, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %18, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %294, ptr noundef nonnull %295, i64 noundef 6) #13
   store i32 %.0.i.i, ptr %18, align 8
@@ -777,7 +777,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit39.i: ; preds = %299, %_ZL19
   %301 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %294) #13
   %302 = getelementptr inbounds %"class.llvm::MCOperand", ptr %300, i64 %301
   store i8 1, ptr %302, align 1
-  %.sroa.22.0..sroa_idx.i.i.i38.i38 = getelementptr inbounds i8, ptr %302, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i38.i38 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i37.i, ptr %.sroa.22.0..sroa_idx.i.i.i38.i38, align 1
   %303 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %294) #13
   %304 = add i64 %303, 1
@@ -798,7 +798,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit43.i40: ; preds = %308, %_ZN
   %310 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %294) #13
   %311 = getelementptr inbounds %"class.llvm::MCOperand", ptr %309, i64 %310
   store i8 1, ptr %311, align 1
-  %.sroa.22.0..sroa_idx.i.i.i42.i41 = getelementptr inbounds i8, ptr %311, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i42.i41 = getelementptr inbounds nuw i8, ptr %311, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i41.i, ptr %.sroa.22.0..sroa_idx.i.i.i42.i41, align 1
   %312 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %294) #13
   %313 = add i64 %312, 1
@@ -818,14 +818,14 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit46.i:        ; preds = %317, %_ZN4llvm13MCI
   %319 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %294) #13
   %320 = getelementptr inbounds %"class.llvm::MCOperand", ptr %318, i64 %319
   store i8 2, ptr %320, align 1
-  %.sroa.22.0..sroa_idx.i.i.i45.i = getelementptr inbounds i8, ptr %320, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i45.i = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i64 8, ptr %.sroa.22.0..sroa_idx.i.i.i45.i, align 1
   %321 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %294) #13
   %322 = add i64 %321, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %294, i64 noundef %322) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %17, ptr noundef nonnull align 8 dereferenceable(128) %18, i64 16, i1 false)
   %323 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %324 = getelementptr inbounds i8, ptr %17, i64 32
+  %324 = getelementptr inbounds nuw i8, ptr %17, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %323, ptr noundef nonnull %324, i64 noundef 6) #13
   %325 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(112) %294) #13
   br i1 %325, label %_ZN4llvm6MCInstC2ERKS0_.exit47.i, label %326
@@ -849,7 +849,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit48.i:             ; preds = %331, %_ZN4llvm6MCIn
   %333 = trunc i64 %332 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 %333, ptr %13, align 4
-  %334 = getelementptr inbounds i8, ptr %13, i64 4
+  %334 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %13, ptr noundef nonnull %334)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %335 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %323) #13
@@ -866,7 +866,7 @@ _ZN4llvm6MCInstD2Ev.exit.sink.split.i:            ; preds = %_ZN4llvm13MCInstBui
 _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %_ZN4llvm6MCInstD2Ev.exit.sink.split.i, %_ZN4llvm13MCInstBuilderD2Ev.exit48.i, %_ZN4llvm13MCInstBuilderD2Ev.exit.i53
   %.033.i = phi i32 [ 2, %_ZN4llvm13MCInstBuilderD2Ev.exit.i53 ], [ 4, %_ZN4llvm13MCInstBuilderD2Ev.exit48.i ], [ %.033.ph.i, %_ZN4llvm6MCInstD2Ev.exit.sink.split.i ]
   %338 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %339 = getelementptr inbounds i8, ptr %20, i64 32
+  %339 = getelementptr inbounds nuw i8, ptr %20, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %20, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %338, ptr noundef nonnull %339, i64 noundef 6) #13
   store i32 12783, ptr %20, align 8
@@ -885,7 +885,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit53.i: ; preds = %343, %_ZN4l
   %345 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %338) #13
   %346 = getelementptr inbounds %"class.llvm::MCOperand", ptr %344, i64 %345
   store i8 1, ptr %346, align 1
-  %.sroa.22.0..sroa_idx.i.i.i52.i = getelementptr inbounds i8, ptr %346, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i52.i = getelementptr inbounds nuw i8, ptr %346, i64 8
   store i64 43, ptr %.sroa.22.0..sroa_idx.i.i.i52.i, align 1
   %347 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %338) #13
   %348 = add i64 %347, 1
@@ -905,14 +905,14 @@ _ZN4llvm13MCInstBuilder10addOperandERKNS_9MCOperandE.exit.i44: ; preds = %352, %
   %354 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %338) #13
   %355 = getelementptr inbounds %"class.llvm::MCOperand", ptr %353, i64 %354
   store i8 %.sroa.061.0.copyload.i, ptr %355, align 1
-  %.sroa.22.0..sroa_idx.i.i.i56.i = getelementptr inbounds i8, ptr %355, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i56.i = getelementptr inbounds nuw i8, ptr %355, i64 8
   store i64 %.sroa.362.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i.i.i56.i, align 1
   %356 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %338) #13
   %357 = add i64 %356, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %338, i64 noundef %357) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %20, i64 16, i1 false)
   %358 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %359 = getelementptr inbounds i8, ptr %19, i64 32
+  %359 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %358, ptr noundef nonnull %359, i64 noundef 6) #13
   %360 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(112) %338) #13
   br i1 %360, label %_ZN4llvm6MCInstC2ERKS0_.exit57.i, label %361
@@ -936,7 +936,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit58.i:             ; preds = %366, %_ZN4llvm6MCIn
   %368 = trunc i64 %367 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 %368, ptr %12, align 4
-  %369 = getelementptr inbounds i8, ptr %12, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %12, ptr noundef nonnull %369)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %370 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
@@ -980,14 +980,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter16expandLongCondBrERKN4llvm6MCInstERNS1_15
   br label %459
 
 384:                                              ; preds = %5
-  %385 = getelementptr inbounds i8, ptr %1, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %1, i64 16
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val30 = load ptr, ptr %386, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
-  %.sroa.1.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %.val30, i64 56
+  %.sroa.1.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %.val30, i64 56
   %.sroa.1.0.copyload.i55 = load ptr, ptr %.sroa.1.0..sroa_idx.i54, align 8
   %387 = load i8, ptr %.sroa.1.0.copyload.i55, align 8
   %.not.i56 = icmp eq i8 %387, 4
@@ -995,11 +995,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter16expandLongCondBrERKN4llvm6MCInstERNS1_15
   %spec.select.i.i.i57 = select i1 %.not.i56, ptr %388, ptr null
   %389 = getelementptr inbounds nuw i8, ptr %.val30, i64 8
   %390 = load i32, ptr %389, align 8
-  %391 = getelementptr inbounds i8, ptr %.val30, i64 24
+  %391 = getelementptr inbounds nuw i8, ptr %.val30, i64 24
   %392 = load i32, ptr %391, align 8
-  %393 = getelementptr inbounds i8, ptr %.val30, i64 40
+  %393 = getelementptr inbounds nuw i8, ptr %.val30, i64 40
   %394 = load i64, ptr %393, align 8
-  %395 = getelementptr inbounds i8, ptr %spec.select.i.i.i57, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i57, i64 8
   %spec.select.i58 = select i1 %.not.i56, ptr %395, ptr null
   store ptr %spec.select.i58, ptr %9, align 8, !alias.scope !13
   %396 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1010,7 +1010,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter16expandLongCondBrERKN4llvm6MCInstERNS1_15
   store ptr %.val, ptr %398, align 8, !alias.scope !13
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %9)
   %399 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %400 = getelementptr inbounds i8, ptr %11, i64 32
+  %400 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %11, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %399, ptr noundef nonnull %400, i64 noundef 6) #13
   store i32 12784, ptr %11, align 8
@@ -1030,7 +1030,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit.i60: ; preds = %404, %384
   %406 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %399) #13
   %407 = getelementptr inbounds %"class.llvm::MCOperand", ptr %405, i64 %406
   store i8 1, ptr %407, align 1
-  %.sroa.22.0..sroa_idx.i.i.i.i62 = getelementptr inbounds i8, ptr %407, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %407, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i.i61, ptr %.sroa.22.0..sroa_idx.i.i.i.i62, align 1
   %408 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %399) #13
   %409 = add i64 %408, 1
@@ -1051,7 +1051,7 @@ _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit19.i: ; preds = %413, %_ZN4l
   %415 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %399) #13
   %416 = getelementptr inbounds %"class.llvm::MCOperand", ptr %414, i64 %415
   store i8 1, ptr %416, align 1
-  %.sroa.22.0..sroa_idx.i.i.i18.i = getelementptr inbounds i8, ptr %416, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i18.i = getelementptr inbounds nuw i8, ptr %416, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i17.i, ptr %.sroa.22.0..sroa_idx.i.i.i18.i, align 1
   %417 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %399) #13
   %418 = add i64 %417, 1
@@ -1071,14 +1071,14 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.i63:        ; preds = %422, %_ZN4llvm13MCI
   %424 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %399) #13
   %425 = getelementptr inbounds %"class.llvm::MCOperand", ptr %423, i64 %424
   store i8 2, ptr %425, align 1
-  %.sroa.22.0..sroa_idx.i.i.i21.i = getelementptr inbounds i8, ptr %425, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i21.i = getelementptr inbounds nuw i8, ptr %425, i64 8
   store i64 %394, ptr %.sroa.22.0..sroa_idx.i.i.i21.i, align 1
   %426 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %399) #13
   %427 = add i64 %426, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %399, i64 noundef %427) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(128) %11, i64 16, i1 false)
   %428 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %429 = getelementptr inbounds i8, ptr %10, i64 32
+  %429 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %428, ptr noundef nonnull %429, i64 noundef 6) #13
   %430 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(112) %399) #13
   br i1 %430, label %_ZN4llvm6MCInstC2ERKS0_.exit.i64, label %431
@@ -1102,7 +1102,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit.i65:             ; preds = %436, %_ZN4llvm6MCIn
   %438 = trunc i64 %437 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %438, ptr %8, align 4
-  %439 = getelementptr inbounds i8, ptr %8, i64 4
+  %439 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %8, ptr noundef nonnull %439)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %440 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %428) #13
@@ -1136,7 +1136,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17expandTLSDESCCallERKN4llvm6MCInstERNS1_1
   %454 = trunc i64 %452 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   store i16 %454, ptr %7, align 2
-  %455 = getelementptr inbounds i8, ptr %7, i64 2
+  %455 = getelementptr inbounds nuw i8, ptr %7, i64 2
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %7, ptr noundef nonnull %455)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   br label %459
@@ -1145,7 +1145,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17expandTLSDESCCallERKN4llvm6MCInstERNS1_1
   %457 = trunc i64 %452 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %457, ptr %6, align 4
-  %458 = getelementptr inbounds i8, ptr %6, i64 4
+  %458 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %6, ptr noundef nonnull %458)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %459
@@ -1166,7 +1166,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getB
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = load i32, ptr %1, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds [13812 x i64], ptr @_ZZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoEE8InstBits, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [13812 x i64], ptr @_ZZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getBinaryCodeForInstrERKN4llvm6MCInstERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoEE8InstBits, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
   switch i32 %7, label %8393 [
     i32 12441, label %8399
@@ -3099,7 +3099,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getB
   ]
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %3, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val = load i64, ptr %12, align 8
   %13 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val)
   %14 = zext i32 %13 to i64
@@ -3112,7 +3112,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getB
   br label %8399
 
 21:                                               ; preds = %4, %4
-  %22 = getelementptr inbounds i8, ptr %3, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3423 = load i64, ptr %22, align 8
   %23 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3423)
   %24 = zext i32 %23 to i64
@@ -3125,7 +3125,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getB
   br label %8399
 
 31:                                               ; preds = %4, %4
-  %32 = getelementptr inbounds i8, ptr %3, i64 216
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3424 = load i64, ptr %32, align 8
   %33 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3424)
   %34 = zext i32 %33 to i64
@@ -3141,7 +3141,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getB
   br i1 %42, label %44, label %55
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3465 = load ptr, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.val3465, i64 160
   %47 = load ptr, ptr %46, align 8
@@ -3149,7 +3149,7 @@ define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter21getB
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds i16, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit
@@ -3170,7 +3170,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 63:                                               ; preds = %4
-  %64 = getelementptr inbounds i8, ptr %3, i64 216
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3425 = load i64, ptr %64, align 8
   %65 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3425)
   %66 = shl i32 %65, 15
@@ -3183,7 +3183,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %71, label %73, label %84
 
 73:                                               ; preds = %63
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3466 = load ptr, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %.val3466, i64 160
   %76 = load ptr, ptr %75, align 8
@@ -3191,7 +3191,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 96
   %79 = load ptr, ptr %78, align 8
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds i16, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw i16, ptr %79, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3856
@@ -3213,7 +3213,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 93:                                               ; preds = %4, %4
-  %94 = getelementptr inbounds i8, ptr %3, i64 216
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3426 = load i64, ptr %94, align 8
   %95 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3426)
   %96 = zext i32 %95 to i64
@@ -3231,7 +3231,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %106, label %108, label %119
 
 108:                                              ; preds = %93
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3467 = load ptr, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.val3467, i64 160
   %111 = load ptr, ptr %110, align 8
@@ -3239,7 +3239,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 96
   %114 = load ptr, ptr %113, align 8
   %115 = zext i32 %112 to i64
-  %116 = getelementptr inbounds i16, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw i16, ptr %114, i64 %115
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3858
@@ -3261,7 +3261,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 128:                                              ; preds = %4, %4
-  %129 = getelementptr inbounds i8, ptr %3, i64 216
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3427 = load i64, ptr %129, align 8
   %130 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3427)
   %131 = zext i32 %130 to i64
@@ -3279,7 +3279,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %141, label %143, label %154
 
 143:                                              ; preds = %128
-  %144 = getelementptr inbounds i8, ptr %0, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3468 = load ptr, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %.val3468, i64 160
   %146 = load ptr, ptr %145, align 8
@@ -3287,7 +3287,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 96
   %149 = load ptr, ptr %148, align 8
   %150 = zext i32 %147 to i64
-  %151 = getelementptr inbounds i16, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw i16, ptr %149, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3860
@@ -3309,7 +3309,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 163:                                              ; preds = %4, %4
-  %164 = getelementptr inbounds i8, ptr %3, i64 216
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3428 = load i64, ptr %164, align 8
   %165 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3428)
   %166 = zext i32 %165 to i64
@@ -3319,14 +3319,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %170 = and i64 %169, 124
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load i8, ptr %173, align 8
   %175 = icmp eq i8 %174, 1
-  %176 = getelementptr inbounds i8, ptr %172, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 24
   br i1 %175, label %177, label %188
 
 177:                                              ; preds = %163
-  %178 = getelementptr inbounds i8, ptr %0, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3469 = load ptr, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %.val3469, i64 160
   %180 = load ptr, ptr %179, align 8
@@ -3334,7 +3334,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 96
   %183 = load ptr, ptr %182, align 8
   %184 = zext i32 %181 to i64
-  %185 = getelementptr inbounds i16, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw i16, ptr %183, i64 %184
   %186 = load i16, ptr %185, align 2
   %187 = zext i16 %186 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3862
@@ -3355,7 +3355,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 196:                                              ; preds = %4
-  %197 = getelementptr inbounds i8, ptr %3, i64 216
+  %197 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3429 = load i64, ptr %197, align 8
   %198 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3429)
   %199 = zext i32 %198 to i64
@@ -3365,14 +3365,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %203 = and i64 %202, 124
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = load i8, ptr %206, align 8
   %208 = icmp eq i8 %207, 1
-  %209 = getelementptr inbounds i8, ptr %205, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 24
   br i1 %208, label %210, label %221
 
 210:                                              ; preds = %196
-  %211 = getelementptr inbounds i8, ptr %0, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3470 = load ptr, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %.val3470, i64 160
   %213 = load ptr, ptr %212, align 8
@@ -3380,7 +3380,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 96
   %216 = load ptr, ptr %215, align 8
   %217 = zext i32 %214 to i64
-  %218 = getelementptr inbounds i16, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw i16, ptr %216, i64 %217
   %219 = load i16, ptr %218, align 2
   %220 = zext i16 %219 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3864
@@ -3401,7 +3401,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 229:                                              ; preds = %4
-  %230 = getelementptr inbounds i8, ptr %3, i64 216
+  %230 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3430 = load i64, ptr %230, align 8
   %231 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3430)
   %232 = zext i32 %231 to i64
@@ -3421,7 +3421,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %244, label %246, label %257
 
 246:                                              ; preds = %229
-  %247 = getelementptr inbounds i8, ptr %0, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3471 = load ptr, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %.val3471, i64 160
   %249 = load ptr, ptr %248, align 8
@@ -3429,7 +3429,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 96
   %252 = load ptr, ptr %251, align 8
   %253 = zext i32 %250 to i64
-  %254 = getelementptr inbounds i16, ptr %252, i64 %253
+  %254 = getelementptr inbounds nuw i16, ptr %252, i64 %253
   %255 = load i16, ptr %254, align 2
   %256 = zext i16 %255 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3866
@@ -3452,7 +3452,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 267:                                              ; preds = %4
-  %268 = getelementptr inbounds i8, ptr %3, i64 216
+  %268 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3431 = load i64, ptr %268, align 8
   %269 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3431)
   %270 = zext i32 %269 to i64
@@ -3474,7 +3474,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 286:                                              ; preds = %4, %4
-  %287 = getelementptr inbounds i8, ptr %3, i64 216
+  %287 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3432 = load i64, ptr %287, align 8
   %288 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3432)
   %289 = zext i32 %288 to i64
@@ -3490,7 +3490,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %297, label %299, label %310
 
 299:                                              ; preds = %286
-  %300 = getelementptr inbounds i8, ptr %0, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3472 = load ptr, ptr %300, align 8
   %301 = getelementptr inbounds nuw i8, ptr %.val3472, i64 160
   %302 = load ptr, ptr %301, align 8
@@ -3498,7 +3498,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %304 = getelementptr inbounds nuw i8, ptr %302, i64 96
   %305 = load ptr, ptr %304, align 8
   %306 = zext i32 %303 to i64
-  %307 = getelementptr inbounds i16, ptr %305, i64 %306
+  %307 = getelementptr inbounds nuw i16, ptr %305, i64 %306
   %308 = load i16, ptr %307, align 2
   %309 = zext i16 %308 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3868
@@ -3519,7 +3519,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 318:                                              ; preds = %4, %4
-  %319 = getelementptr inbounds i8, ptr %3, i64 216
+  %319 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3433 = load i64, ptr %319, align 8
   %320 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3433)
   %321 = zext i32 %320 to i64
@@ -3535,7 +3535,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %329, label %331, label %342
 
 331:                                              ; preds = %318
-  %332 = getelementptr inbounds i8, ptr %0, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3473 = load ptr, ptr %332, align 8
   %333 = getelementptr inbounds nuw i8, ptr %.val3473, i64 160
   %334 = load ptr, ptr %333, align 8
@@ -3543,7 +3543,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 96
   %337 = load ptr, ptr %336, align 8
   %338 = zext i32 %335 to i64
-  %339 = getelementptr inbounds i16, ptr %337, i64 %338
+  %339 = getelementptr inbounds nuw i16, ptr %337, i64 %338
   %340 = load i16, ptr %339, align 2
   %341 = zext i16 %340 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3870
@@ -3566,20 +3566,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 350:                                              ; preds = %4, %4
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i8, ptr %353, align 8
   %355 = icmp eq i8 %354, 2
   br i1 %355, label %356, label %361
 
 356:                                              ; preds = %350
-  %357 = getelementptr inbounds i8, ptr %352, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %352, i64 24
   %358 = load i64, ptr %357, align 8
   %359 = trunc i64 %358 to i32
   %360 = lshr i32 %359, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit
 
 361:                                              ; preds = %350
-  %362 = getelementptr inbounds i8, ptr %3, i64 216
+  %362 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3824 = load i64, ptr %362, align 8
   %363 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3824)
   %.pre4673 = load ptr, ptr %351, align 8
@@ -3604,7 +3604,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   br i1 %376, label %378, label %389
 
 378:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit
-  %379 = getelementptr inbounds i8, ptr %0, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3474 = load ptr, ptr %379, align 8
   %380 = getelementptr inbounds nuw i8, ptr %.val3474, i64 160
   %381 = load ptr, ptr %380, align 8
@@ -3612,7 +3612,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %383 = getelementptr inbounds nuw i8, ptr %381, i64 96
   %384 = load ptr, ptr %383, align 8
   %385 = zext i32 %382 to i64
-  %386 = getelementptr inbounds i16, ptr %384, i64 %385
+  %386 = getelementptr inbounds nuw i16, ptr %384, i64 %385
   %387 = load i16, ptr %386, align 2
   %388 = zext i16 %387 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3873
@@ -3638,14 +3638,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 400:                                              ; preds = %4
   %401 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %402 = load ptr, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %402, i64 32
+  %403 = getelementptr inbounds nuw i8, ptr %402, i64 32
   %404 = load i8, ptr %403, align 8
   %405 = icmp eq i8 %404, 1
-  %406 = getelementptr inbounds i8, ptr %402, i64 40
+  %406 = getelementptr inbounds nuw i8, ptr %402, i64 40
   br i1 %405, label %407, label %418
 
 407:                                              ; preds = %400
-  %408 = getelementptr inbounds i8, ptr %0, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3475 = load ptr, ptr %408, align 8
   %409 = getelementptr inbounds nuw i8, ptr %.val3475, i64 160
   %410 = load ptr, ptr %409, align 8
@@ -3653,7 +3653,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 96
   %413 = load ptr, ptr %412, align 8
   %414 = zext i32 %411 to i64
-  %415 = getelementptr inbounds i16, ptr %413, i64 %414
+  %415 = getelementptr inbounds nuw i16, ptr %413, i64 %414
   %416 = load i16, ptr %415, align 2
   %417 = zext i16 %416 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3875
@@ -3678,12 +3678,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 428:                                              ; preds = %4
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %430 = load ptr, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %430, i64 32
-  %432 = getelementptr inbounds i8, ptr %0, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 32
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3476 = load ptr, ptr %432, align 8
   %433 = load i8, ptr %431, align 8
   %434 = icmp eq i8 %433, 1
-  %435 = getelementptr inbounds i8, ptr %430, i64 40
+  %435 = getelementptr inbounds nuw i8, ptr %430, i64 40
   br i1 %434, label %436, label %446
 
 436:                                              ; preds = %428
@@ -3693,7 +3693,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 96
   %441 = load ptr, ptr %440, align 8
   %442 = zext i32 %439 to i64
-  %443 = getelementptr inbounds i16, ptr %441, i64 %442
+  %443 = getelementptr inbounds nuw i16, ptr %441, i64 %442
   %444 = load i16, ptr %443, align 2
   %445 = zext i16 %444 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3877
@@ -3711,10 +3711,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %451 = and i64 %450, 4096
   %452 = shl nuw nsw i64 %449, 2
   %453 = and i64 %452, 124
-  %454 = getelementptr inbounds i8, ptr %430, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %455 = load i8, ptr %454, align 8
   %456 = icmp eq i8 %455, 1
-  %457 = getelementptr inbounds i8, ptr %430, i64 24
+  %457 = getelementptr inbounds nuw i8, ptr %430, i64 24
   br i1 %456, label %458, label %468
 
 458:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3877
@@ -3724,7 +3724,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %462 = getelementptr inbounds nuw i8, ptr %460, i64 96
   %463 = load ptr, ptr %462, align 8
   %464 = zext i32 %461 to i64
-  %465 = getelementptr inbounds i16, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw i16, ptr %463, i64 %464
   %466 = load i16, ptr %465, align 2
   %467 = zext i16 %466 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3879
@@ -3747,12 +3747,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 476:                                              ; preds = %4, %4
   %477 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 32
-  %480 = getelementptr inbounds i8, ptr %0, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 32
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3478 = load ptr, ptr %480, align 8
   %481 = load i8, ptr %479, align 8
   %482 = icmp eq i8 %481, 1
-  %483 = getelementptr inbounds i8, ptr %478, i64 40
+  %483 = getelementptr inbounds nuw i8, ptr %478, i64 40
   br i1 %482, label %484, label %494
 
 484:                                              ; preds = %476
@@ -3762,7 +3762,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %488 = getelementptr inbounds nuw i8, ptr %486, i64 96
   %489 = load ptr, ptr %488, align 8
   %490 = zext i32 %487 to i64
-  %491 = getelementptr inbounds i16, ptr %489, i64 %490
+  %491 = getelementptr inbounds nuw i16, ptr %489, i64 %490
   %492 = load i16, ptr %491, align 2
   %493 = zext i16 %492 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3881
@@ -3780,10 +3780,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %499 = and i64 %498, 4096
   %500 = shl nuw nsw i64 %497, 2
   %501 = and i64 %500, 124
-  %502 = getelementptr inbounds i8, ptr %478, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %478, i64 16
   %503 = load i8, ptr %502, align 8
   %504 = icmp eq i8 %503, 1
-  %505 = getelementptr inbounds i8, ptr %478, i64 24
+  %505 = getelementptr inbounds nuw i8, ptr %478, i64 24
   br i1 %504, label %506, label %516
 
 506:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3881
@@ -3793,7 +3793,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 96
   %511 = load ptr, ptr %510, align 8
   %512 = zext i32 %509 to i64
-  %513 = getelementptr inbounds i16, ptr %511, i64 %512
+  %513 = getelementptr inbounds nuw i16, ptr %511, i64 %512
   %514 = load i16, ptr %513, align 2
   %515 = zext i16 %514 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3883
@@ -3816,12 +3816,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 524:                                              ; preds = %4
   %525 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %526 = load ptr, ptr %525, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 32
-  %528 = getelementptr inbounds i8, ptr %0, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 32
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3480 = load ptr, ptr %528, align 8
   %529 = load i8, ptr %527, align 8
   %530 = icmp eq i8 %529, 1
-  %531 = getelementptr inbounds i8, ptr %526, i64 40
+  %531 = getelementptr inbounds nuw i8, ptr %526, i64 40
   br i1 %530, label %532, label %542
 
 532:                                              ; preds = %524
@@ -3831,7 +3831,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %536 = getelementptr inbounds nuw i8, ptr %534, i64 96
   %537 = load ptr, ptr %536, align 8
   %538 = zext i32 %535 to i64
-  %539 = getelementptr inbounds i16, ptr %537, i64 %538
+  %539 = getelementptr inbounds nuw i16, ptr %537, i64 %538
   %540 = load i16, ptr %539, align 2
   %541 = zext i16 %540 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3885
@@ -3846,10 +3846,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3884 = phi i64 [ %541, %532 ], [ %544, %542 ]
   %545 = shl i64 %.0.i3884, 7
   %546 = and i64 %545, 4096
-  %547 = getelementptr inbounds i8, ptr %526, i64 16
+  %547 = getelementptr inbounds nuw i8, ptr %526, i64 16
   %548 = load i8, ptr %547, align 8
   %549 = icmp eq i8 %548, 1
-  %550 = getelementptr inbounds i8, ptr %526, i64 24
+  %550 = getelementptr inbounds nuw i8, ptr %526, i64 24
   br i1 %549, label %551, label %561
 
 551:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3885
@@ -3859,7 +3859,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %555 = getelementptr inbounds nuw i8, ptr %553, i64 96
   %556 = load ptr, ptr %555, align 8
   %557 = zext i32 %554 to i64
-  %558 = getelementptr inbounds i16, ptr %556, i64 %557
+  %558 = getelementptr inbounds nuw i16, ptr %556, i64 %557
   %559 = load i16, ptr %558, align 2
   %560 = zext i16 %559 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3887
@@ -3879,7 +3879,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 568:                                              ; preds = %4, %4, %4
-  %569 = getelementptr inbounds i8, ptr %3, i64 216
+  %569 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3434 = load i64, ptr %569, align 8
   %570 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3434)
   %571 = shl i32 %570, 20
@@ -3892,7 +3892,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %576, label %578, label %589
 
 578:                                              ; preds = %568
-  %579 = getelementptr inbounds i8, ptr %0, i64 8
+  %579 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3482 = load ptr, ptr %579, align 8
   %580 = getelementptr inbounds nuw i8, ptr %.val3482, i64 160
   %581 = load ptr, ptr %580, align 8
@@ -3900,7 +3900,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %583 = getelementptr inbounds nuw i8, ptr %581, i64 96
   %584 = load ptr, ptr %583, align 8
   %585 = zext i32 %582 to i64
-  %586 = getelementptr inbounds i16, ptr %584, i64 %585
+  %586 = getelementptr inbounds nuw i16, ptr %584, i64 %585
   %587 = load i16, ptr %586, align 2
   %588 = zext i16 %587 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3889
@@ -3922,7 +3922,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 598:                                              ; preds = %4, %4, %4, %4, %4, %4, %4
-  %599 = getelementptr inbounds i8, ptr %3, i64 216
+  %599 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3435 = load i64, ptr %599, align 8
   %600 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3435)
   %601 = zext i32 %600 to i64
@@ -3932,7 +3932,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %605 = and i64 %604, 3968
   %606 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %607 = load ptr, ptr %606, align 8
-  %608 = getelementptr inbounds i8, ptr %0, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3483 = load ptr, ptr %608, align 8
   %609 = load i8, ptr %607, align 8
   %610 = icmp eq i8 %609, 1
@@ -3946,7 +3946,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %616 = getelementptr inbounds nuw i8, ptr %614, i64 96
   %617 = load ptr, ptr %616, align 8
   %618 = zext i32 %615 to i64
-  %619 = getelementptr inbounds i16, ptr %617, i64 %618
+  %619 = getelementptr inbounds nuw i16, ptr %617, i64 %618
   %620 = load i16, ptr %619, align 2
   %621 = zext i16 %620 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3891
@@ -3961,10 +3961,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3890 = phi i64 [ %621, %612 ], [ %624, %622 ]
   %625 = shl i64 %.0.i3890, 20
   %626 = and i64 %625, 32505856
-  %627 = getelementptr inbounds i8, ptr %607, i64 16
+  %627 = getelementptr inbounds nuw i8, ptr %607, i64 16
   %628 = load i8, ptr %627, align 8
   %629 = icmp eq i8 %628, 1
-  %630 = getelementptr inbounds i8, ptr %607, i64 24
+  %630 = getelementptr inbounds nuw i8, ptr %607, i64 24
   br i1 %629, label %631, label %641
 
 631:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3891
@@ -3974,7 +3974,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %635 = getelementptr inbounds nuw i8, ptr %633, i64 96
   %636 = load ptr, ptr %635, align 8
   %637 = zext i32 %634 to i64
-  %638 = getelementptr inbounds i16, ptr %636, i64 %637
+  %638 = getelementptr inbounds nuw i16, ptr %636, i64 %637
   %639 = load i16, ptr %638, align 2
   %640 = zext i16 %639 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3893
@@ -3996,7 +3996,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 650:                                              ; preds = %4, %4, %4
-  %651 = getelementptr inbounds i8, ptr %3, i64 216
+  %651 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3436 = load i64, ptr %651, align 8
   %652 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3436)
   %653 = zext i32 %652 to i64
@@ -4006,12 +4006,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %657 = and i64 %656, 3968
   %658 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %659 = load ptr, ptr %658, align 8
-  %660 = getelementptr inbounds i8, ptr %659, i64 16
-  %661 = getelementptr inbounds i8, ptr %0, i64 8
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 16
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3485 = load ptr, ptr %661, align 8
   %662 = load i8, ptr %660, align 8
   %663 = icmp eq i8 %662, 1
-  %664 = getelementptr inbounds i8, ptr %659, i64 24
+  %664 = getelementptr inbounds nuw i8, ptr %659, i64 24
   br i1 %663, label %665, label %675
 
 665:                                              ; preds = %650
@@ -4021,7 +4021,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %669 = getelementptr inbounds nuw i8, ptr %667, i64 96
   %670 = load ptr, ptr %669, align 8
   %671 = zext i32 %668 to i64
-  %672 = getelementptr inbounds i16, ptr %670, i64 %671
+  %672 = getelementptr inbounds nuw i16, ptr %670, i64 %671
   %673 = load i16, ptr %672, align 2
   %674 = zext i16 %673 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3895
@@ -4036,10 +4036,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3894 = phi i64 [ %674, %665 ], [ %677, %675 ]
   %678 = shl i64 %.0.i3894, 20
   %679 = and i64 %678, 32505856
-  %680 = getelementptr inbounds i8, ptr %659, i64 32
+  %680 = getelementptr inbounds nuw i8, ptr %659, i64 32
   %681 = load i8, ptr %680, align 8
   %682 = icmp eq i8 %681, 1
-  %683 = getelementptr inbounds i8, ptr %659, i64 40
+  %683 = getelementptr inbounds nuw i8, ptr %659, i64 40
   br i1 %682, label %684, label %694
 
 684:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3895
@@ -4049,7 +4049,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %688 = getelementptr inbounds nuw i8, ptr %686, i64 96
   %689 = load ptr, ptr %688, align 8
   %690 = zext i32 %687 to i64
-  %691 = getelementptr inbounds i16, ptr %689, i64 %690
+  %691 = getelementptr inbounds nuw i16, ptr %689, i64 %690
   %692 = load i16, ptr %691, align 2
   %693 = zext i16 %692 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3897
@@ -4071,16 +4071,16 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 703:                                              ; preds = %4, %4
-  %704 = getelementptr inbounds i8, ptr %3, i64 216
+  %704 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %705 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %706 = load ptr, ptr %705, align 8
-  %707 = getelementptr inbounds i8, ptr %706, i64 32
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 32
   %708 = load i8, ptr %707, align 8
   %709 = icmp eq i8 %708, 2
   br i1 %709, label %710, label %715
 
 710:                                              ; preds = %703
-  %711 = getelementptr inbounds i8, ptr %706, i64 40
+  %711 = getelementptr inbounds nuw i8, ptr %706, i64 40
   %712 = load i64, ptr %711, align 8
   %713 = trunc i64 %712 to i32
   %714 = lshr i32 %713, 1
@@ -4110,7 +4110,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   br i1 %728, label %730, label %741
 
 730:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3899
-  %731 = getelementptr inbounds i8, ptr %0, i64 8
+  %731 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3487 = load ptr, ptr %731, align 8
   %732 = getelementptr inbounds nuw i8, ptr %.val3487, i64 160
   %733 = load ptr, ptr %732, align 8
@@ -4118,7 +4118,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %735 = getelementptr inbounds nuw i8, ptr %733, i64 96
   %736 = load ptr, ptr %735, align 8
   %737 = zext i32 %734 to i64
-  %738 = getelementptr inbounds i16, ptr %736, i64 %737
+  %738 = getelementptr inbounds nuw i16, ptr %736, i64 %737
   %739 = load i16, ptr %738, align 2
   %740 = zext i16 %739 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3901
@@ -4149,20 +4149,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 756:                                              ; preds = %4, %4, %4, %4, %4, %4
   %757 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %758 = load ptr, ptr %757, align 8
-  %759 = getelementptr inbounds i8, ptr %758, i64 32
+  %759 = getelementptr inbounds nuw i8, ptr %758, i64 32
   %760 = load i8, ptr %759, align 8
   %761 = icmp eq i8 %760, 2
   br i1 %761, label %762, label %767
 
 762:                                              ; preds = %756
-  %763 = getelementptr inbounds i8, ptr %758, i64 40
+  %763 = getelementptr inbounds nuw i8, ptr %758, i64 40
   %764 = load i64, ptr %763, align 8
   %765 = trunc i64 %764 to i32
   %766 = lshr i32 %765, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3903
 
 767:                                              ; preds = %756
-  %768 = getelementptr inbounds i8, ptr %3, i64 216
+  %768 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3826 = load i64, ptr %768, align 8
   %769 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3826)
   %.pre4671 = load ptr, ptr %757, align 8
@@ -4180,12 +4180,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %777 = and i64 %776, 3840
   %778 = lshr i64 %771, 3
   %779 = and i64 %778, 128
-  %780 = getelementptr inbounds i8, ptr %770, i64 16
-  %781 = getelementptr inbounds i8, ptr %0, i64 8
+  %780 = getelementptr inbounds nuw i8, ptr %770, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3488 = load ptr, ptr %781, align 8
   %782 = load i8, ptr %780, align 8
   %783 = icmp eq i8 %782, 1
-  %784 = getelementptr inbounds i8, ptr %770, i64 24
+  %784 = getelementptr inbounds nuw i8, ptr %770, i64 24
   br i1 %783, label %785, label %795
 
 785:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3903
@@ -4195,7 +4195,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %789 = getelementptr inbounds nuw i8, ptr %787, i64 96
   %790 = load ptr, ptr %789, align 8
   %791 = zext i32 %788 to i64
-  %792 = getelementptr inbounds i16, ptr %790, i64 %791
+  %792 = getelementptr inbounds nuw i16, ptr %790, i64 %791
   %793 = load i16, ptr %792, align 2
   %794 = zext i16 %793 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3905
@@ -4222,7 +4222,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %807 = getelementptr inbounds nuw i8, ptr %805, i64 96
   %808 = load ptr, ptr %807, align 8
   %809 = zext i32 %806 to i64
-  %810 = getelementptr inbounds i16, ptr %808, i64 %809
+  %810 = getelementptr inbounds nuw i16, ptr %808, i64 %809
   %811 = load i16, ptr %810, align 2
   %812 = zext i16 %811 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3907
@@ -4246,7 +4246,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 824:                                              ; preds = %4, %4
-  %825 = getelementptr inbounds i8, ptr %3, i64 216
+  %825 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3438 = load i64, ptr %825, align 8
   %826 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3438)
   %827 = shl i32 %826, 12
@@ -4258,7 +4258,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %831, label %833, label %844
 
 833:                                              ; preds = %824
-  %834 = getelementptr inbounds i8, ptr %0, i64 8
+  %834 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3490 = load ptr, ptr %834, align 8
   %835 = getelementptr inbounds nuw i8, ptr %.val3490, i64 160
   %836 = load ptr, ptr %835, align 8
@@ -4266,7 +4266,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %838 = getelementptr inbounds nuw i8, ptr %836, i64 96
   %839 = load ptr, ptr %838, align 8
   %840 = zext i32 %837 to i64
-  %841 = getelementptr inbounds i16, ptr %839, i64 %840
+  %841 = getelementptr inbounds nuw i16, ptr %839, i64 %840
   %842 = load i16, ptr %841, align 2
   %843 = zext i16 %842 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3909
@@ -4290,20 +4290,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 853:                                              ; preds = %4
   %854 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %855 = load ptr, ptr %854, align 8
-  %856 = getelementptr inbounds i8, ptr %855, i64 16
+  %856 = getelementptr inbounds nuw i8, ptr %855, i64 16
   %857 = load i8, ptr %856, align 8
   %858 = icmp eq i8 %857, 2
   br i1 %858, label %859, label %864
 
 859:                                              ; preds = %853
-  %860 = getelementptr inbounds i8, ptr %855, i64 24
+  %860 = getelementptr inbounds nuw i8, ptr %855, i64 24
   %861 = load i64, ptr %860, align 8
   %862 = trunc i64 %861 to i32
   %863 = lshr i32 %862, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3911
 
 864:                                              ; preds = %853
-  %865 = getelementptr inbounds i8, ptr %3, i64 216
+  %865 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3827 = load i64, ptr %865, align 8
   %866 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3827)
   %.pre4670 = load ptr, ptr %854, align 8
@@ -4327,7 +4327,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   br i1 %878, label %880, label %891
 
 880:                                              ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3911
-  %881 = getelementptr inbounds i8, ptr %0, i64 8
+  %881 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3491 = load ptr, ptr %881, align 8
   %882 = getelementptr inbounds nuw i8, ptr %.val3491, i64 160
   %883 = load ptr, ptr %882, align 8
@@ -4335,7 +4335,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %885 = getelementptr inbounds nuw i8, ptr %883, i64 96
   %886 = load ptr, ptr %885, align 8
   %887 = zext i32 %884 to i64
-  %888 = getelementptr inbounds i16, ptr %886, i64 %887
+  %888 = getelementptr inbounds nuw i16, ptr %886, i64 %887
   %889 = load i16, ptr %888, align 2
   %890 = zext i16 %889 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3913
@@ -4366,7 +4366,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %905, label %907, label %918
 
 907:                                              ; preds = %901
-  %908 = getelementptr inbounds i8, ptr %0, i64 8
+  %908 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3492 = load ptr, ptr %908, align 8
   %909 = getelementptr inbounds nuw i8, ptr %.val3492, i64 160
   %910 = load ptr, ptr %909, align 8
@@ -4374,7 +4374,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %912 = getelementptr inbounds nuw i8, ptr %910, i64 96
   %913 = load ptr, ptr %912, align 8
   %914 = zext i32 %911 to i64
-  %915 = getelementptr inbounds i16, ptr %913, i64 %914
+  %915 = getelementptr inbounds nuw i16, ptr %913, i64 %914
   %916 = load i16, ptr %915, align 2
   %917 = zext i16 %916 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3915
@@ -4401,7 +4401,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %928, label %930, label %941
 
 930:                                              ; preds = %924
-  %931 = getelementptr inbounds i8, ptr %0, i64 8
+  %931 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3493 = load ptr, ptr %931, align 8
   %932 = getelementptr inbounds nuw i8, ptr %.val3493, i64 160
   %933 = load ptr, ptr %932, align 8
@@ -4409,7 +4409,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %935 = getelementptr inbounds nuw i8, ptr %933, i64 96
   %936 = load ptr, ptr %935, align 8
   %937 = zext i32 %934 to i64
-  %938 = getelementptr inbounds i16, ptr %936, i64 %937
+  %938 = getelementptr inbounds nuw i16, ptr %936, i64 %937
   %939 = load i16, ptr %938, align 2
   %940 = zext i16 %939 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3917
@@ -4442,7 +4442,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3919
 
 957:                                              ; preds = %947
-  %958 = getelementptr inbounds i8, ptr %3, i64 216
+  %958 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3828 = load i64, ptr %958, align 8
   %959 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3828)
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3919
@@ -4474,7 +4474,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
 980:                                              ; preds = %4
   %981 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %982 = load ptr, ptr %981, align 8
-  %983 = getelementptr inbounds i8, ptr %0, i64 8
+  %983 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3494 = load ptr, ptr %983, align 8
   %984 = load i8, ptr %982, align 8
   %985 = icmp eq i8 %984, 1
@@ -4488,7 +4488,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %991 = getelementptr inbounds nuw i8, ptr %989, i64 96
   %992 = load ptr, ptr %991, align 8
   %993 = zext i32 %990 to i64
-  %994 = getelementptr inbounds i16, ptr %992, i64 %993
+  %994 = getelementptr inbounds nuw i16, ptr %992, i64 %993
   %995 = load i16, ptr %994, align 2
   %996 = zext i16 %995 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3921
@@ -4502,10 +4502,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3921: ; preds = %987, %997
   %.0.i3920 = phi i64 [ %996, %987 ], [ %999, %997 ]
   %1000 = and i64 %.0.i3920, 127
-  %1001 = getelementptr inbounds i8, ptr %982, i64 16
+  %1001 = getelementptr inbounds nuw i8, ptr %982, i64 16
   %1002 = load i8, ptr %1001, align 8
   %1003 = icmp eq i8 %1002, 1
-  %1004 = getelementptr inbounds i8, ptr %982, i64 24
+  %1004 = getelementptr inbounds nuw i8, ptr %982, i64 24
   br i1 %1003, label %1005, label %1015
 
 1005:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3921
@@ -4515,7 +4515,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1009 = getelementptr inbounds nuw i8, ptr %1007, i64 96
   %1010 = load ptr, ptr %1009, align 8
   %1011 = zext i32 %1008 to i64
-  %1012 = getelementptr inbounds i16, ptr %1010, i64 %1011
+  %1012 = getelementptr inbounds nuw i16, ptr %1010, i64 %1011
   %1013 = load i16, ptr %1012, align 2
   %1014 = zext i16 %1013 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3923
@@ -4530,7 +4530,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3922 = phi i64 [ %1014, %1005 ], [ %1017, %1015 ]
   %1018 = shl i64 %.0.i3922, 12
   %1019 = and i64 %1018, 28672
-  %1020 = getelementptr inbounds i8, ptr %3, i64 216
+  %1020 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3439 = load i64, ptr %1020, align 8
   %1021 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3439)
   %1022 = zext i32 %1021 to i64
@@ -4539,11 +4539,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1025 = shl nuw nsw i64 %1022, 7
   %1026 = and i64 %1025, 3968
   %1027 = load ptr, ptr %981, align 8
-  %1028 = getelementptr inbounds i8, ptr %1027, i64 32
+  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 32
   %.val3496 = load ptr, ptr %983, align 8
   %1029 = load i8, ptr %1028, align 8
   %1030 = icmp eq i8 %1029, 1
-  %1031 = getelementptr inbounds i8, ptr %1027, i64 40
+  %1031 = getelementptr inbounds nuw i8, ptr %1027, i64 40
   br i1 %1030, label %1032, label %1042
 
 1032:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3923
@@ -4553,7 +4553,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1036 = getelementptr inbounds nuw i8, ptr %1034, i64 96
   %1037 = load ptr, ptr %1036, align 8
   %1038 = zext i32 %1035 to i64
-  %1039 = getelementptr inbounds i16, ptr %1037, i64 %1038
+  %1039 = getelementptr inbounds nuw i16, ptr %1037, i64 %1038
   %1040 = load i16, ptr %1039, align 2
   %1041 = zext i16 %1040 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3925
@@ -4568,10 +4568,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3924 = phi i64 [ %1041, %1032 ], [ %1044, %1042 ]
   %1045 = shl i64 %.0.i3924, 20
   %1046 = and i64 %1045, 32505856
-  %1047 = getelementptr inbounds i8, ptr %1027, i64 48
+  %1047 = getelementptr inbounds nuw i8, ptr %1027, i64 48
   %1048 = load i8, ptr %1047, align 8
   %1049 = icmp eq i8 %1048, 1
-  %1050 = getelementptr inbounds i8, ptr %1027, i64 56
+  %1050 = getelementptr inbounds nuw i8, ptr %1027, i64 56
   br i1 %1049, label %1051, label %1061
 
 1051:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3925
@@ -4581,7 +4581,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1055 = getelementptr inbounds nuw i8, ptr %1053, i64 96
   %1056 = load ptr, ptr %1055, align 8
   %1057 = zext i32 %1054 to i64
-  %1058 = getelementptr inbounds i16, ptr %1056, i64 %1057
+  %1058 = getelementptr inbounds nuw i16, ptr %1056, i64 %1057
   %1059 = load i16, ptr %1058, align 2
   %1060 = zext i16 %1059 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3927
@@ -4607,7 +4607,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1072:                                             ; preds = %4
   %1073 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1074 = load ptr, ptr %1073, align 8
-  %1075 = getelementptr inbounds i8, ptr %0, i64 8
+  %1075 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3498 = load ptr, ptr %1075, align 8
   %1076 = load i8, ptr %1074, align 8
   %1077 = icmp eq i8 %1076, 1
@@ -4621,7 +4621,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1083 = getelementptr inbounds nuw i8, ptr %1081, i64 96
   %1084 = load ptr, ptr %1083, align 8
   %1085 = zext i32 %1082 to i64
-  %1086 = getelementptr inbounds i16, ptr %1084, i64 %1085
+  %1086 = getelementptr inbounds nuw i16, ptr %1084, i64 %1085
   %1087 = load i16, ptr %1086, align 2
   %1088 = zext i16 %1087 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3929
@@ -4635,10 +4635,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3929: ; preds = %1079, %1089
   %.0.i3928 = phi i64 [ %1088, %1079 ], [ %1091, %1089 ]
   %1092 = and i64 %.0.i3928, 127
-  %1093 = getelementptr inbounds i8, ptr %1074, i64 16
+  %1093 = getelementptr inbounds nuw i8, ptr %1074, i64 16
   %1094 = load i8, ptr %1093, align 8
   %1095 = icmp eq i8 %1094, 1
-  %1096 = getelementptr inbounds i8, ptr %1074, i64 24
+  %1096 = getelementptr inbounds nuw i8, ptr %1074, i64 24
   br i1 %1095, label %1097, label %1107
 
 1097:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3929
@@ -4648,7 +4648,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1101 = getelementptr inbounds nuw i8, ptr %1099, i64 96
   %1102 = load ptr, ptr %1101, align 8
   %1103 = zext i32 %1100 to i64
-  %1104 = getelementptr inbounds i16, ptr %1102, i64 %1103
+  %1104 = getelementptr inbounds nuw i16, ptr %1102, i64 %1103
   %1105 = load i16, ptr %1104, align 2
   %1106 = zext i16 %1105 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3931
@@ -4663,20 +4663,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3930 = phi i64 [ %1106, %1097 ], [ %1109, %1107 ]
   %1110 = shl i64 %.0.i3930, 12
   %1111 = and i64 %1110, 28672
-  %1112 = getelementptr inbounds i8, ptr %1074, i64 64
+  %1112 = getelementptr inbounds nuw i8, ptr %1074, i64 64
   %1113 = load i8, ptr %1112, align 8
   %1114 = icmp eq i8 %1113, 2
   br i1 %1114, label %1115, label %1120
 
 1115:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3931
-  %1116 = getelementptr inbounds i8, ptr %1074, i64 72
+  %1116 = getelementptr inbounds nuw i8, ptr %1074, i64 72
   %1117 = load i64, ptr %1116, align 8
   %1118 = trunc i64 %1117 to i32
   %1119 = lshr i32 %1118, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3933
 
 1120:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3931
-  %1121 = getelementptr inbounds i8, ptr %3, i64 216
+  %1121 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3829 = load i64, ptr %1121, align 8
   %1122 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3829)
   %.pre4668 = load ptr, ptr %1073, align 8
@@ -4696,10 +4696,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %1130 = and i64 %1129, 3840
   %1131 = lshr i64 %1124, 3
   %1132 = and i64 %1131, 128
-  %1133 = getelementptr inbounds i8, ptr %1123, i64 48
+  %1133 = getelementptr inbounds nuw i8, ptr %1123, i64 48
   %1134 = load i8, ptr %1133, align 8
   %1135 = icmp eq i8 %1134, 1
-  %1136 = getelementptr inbounds i8, ptr %1123, i64 56
+  %1136 = getelementptr inbounds nuw i8, ptr %1123, i64 56
   br i1 %1135, label %1137, label %1147
 
 1137:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3933
@@ -4709,7 +4709,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %1141 = getelementptr inbounds nuw i8, ptr %1139, i64 96
   %1142 = load ptr, ptr %1141, align 8
   %1143 = zext i32 %1140 to i64
-  %1144 = getelementptr inbounds i16, ptr %1142, i64 %1143
+  %1144 = getelementptr inbounds nuw i16, ptr %1142, i64 %1143
   %1145 = load i16, ptr %1144, align 2
   %1146 = zext i16 %1145 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3935
@@ -4724,10 +4724,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3934 = phi i64 [ %1146, %1137 ], [ %1149, %1147 ]
   %1150 = shl i64 %.0.i3934, 20
   %1151 = and i64 %1150, 32505856
-  %1152 = getelementptr inbounds i8, ptr %1123, i64 32
+  %1152 = getelementptr inbounds nuw i8, ptr %1123, i64 32
   %1153 = load i8, ptr %1152, align 8
   %1154 = icmp eq i8 %1153, 1
-  %1155 = getelementptr inbounds i8, ptr %1123, i64 40
+  %1155 = getelementptr inbounds nuw i8, ptr %1123, i64 40
   br i1 %1154, label %1156, label %1166
 
 1156:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3935
@@ -4737,7 +4737,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1160 = getelementptr inbounds nuw i8, ptr %1158, i64 96
   %1161 = load ptr, ptr %1160, align 8
   %1162 = zext i32 %1159 to i64
-  %1163 = getelementptr inbounds i16, ptr %1161, i64 %1162
+  %1163 = getelementptr inbounds nuw i16, ptr %1161, i64 %1162
   %1164 = load i16, ptr %1163, align 2
   %1165 = zext i16 %1164 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3937
@@ -4765,7 +4765,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1179:                                             ; preds = %4
   %1180 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1181 = load ptr, ptr %1180, align 8
-  %1182 = getelementptr inbounds i8, ptr %0, i64 8
+  %1182 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3502 = load ptr, ptr %1182, align 8
   %1183 = load i8, ptr %1181, align 8
   %1184 = icmp eq i8 %1183, 1
@@ -4779,7 +4779,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1190 = getelementptr inbounds nuw i8, ptr %1188, i64 96
   %1191 = load ptr, ptr %1190, align 8
   %1192 = zext i32 %1189 to i64
-  %1193 = getelementptr inbounds i16, ptr %1191, i64 %1192
+  %1193 = getelementptr inbounds nuw i16, ptr %1191, i64 %1192
   %1194 = load i16, ptr %1193, align 2
   %1195 = zext i16 %1194 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3939
@@ -4793,10 +4793,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3939: ; preds = %1186, %1196
   %.0.i3938 = phi i64 [ %1195, %1186 ], [ %1198, %1196 ]
   %1199 = and i64 %.0.i3938, 3
-  %1200 = getelementptr inbounds i8, ptr %1181, i64 16
+  %1200 = getelementptr inbounds nuw i8, ptr %1181, i64 16
   %1201 = load i8, ptr %1200, align 8
   %1202 = icmp eq i8 %1201, 1
-  %1203 = getelementptr inbounds i8, ptr %1181, i64 24
+  %1203 = getelementptr inbounds nuw i8, ptr %1181, i64 24
   br i1 %1202, label %1204, label %1214
 
 1204:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3939
@@ -4806,7 +4806,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1208 = getelementptr inbounds nuw i8, ptr %1206, i64 96
   %1209 = load ptr, ptr %1208, align 8
   %1210 = zext i32 %1207 to i64
-  %1211 = getelementptr inbounds i16, ptr %1209, i64 %1210
+  %1211 = getelementptr inbounds nuw i16, ptr %1209, i64 %1210
   %1212 = load i16, ptr %1211, align 2
   %1213 = zext i16 %1212 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3941
@@ -4821,20 +4821,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3940 = phi i64 [ %1213, %1204 ], [ %1216, %1214 ]
   %1217 = shl i64 %.0.i3940, 13
   %1218 = and i64 %1217, 57344
-  %1219 = getelementptr inbounds i8, ptr %1181, i64 32
+  %1219 = getelementptr inbounds nuw i8, ptr %1181, i64 32
   %1220 = load i8, ptr %1219, align 8
   %1221 = icmp eq i8 %1220, 2
   br i1 %1221, label %1222, label %1227
 
 1222:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3941
-  %1223 = getelementptr inbounds i8, ptr %1181, i64 40
+  %1223 = getelementptr inbounds nuw i8, ptr %1181, i64 40
   %1224 = load i64, ptr %1223, align 8
   %1225 = trunc i64 %1224 to i32
   %1226 = lshr i32 %1225, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3943
 
 1227:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3941
-  %1228 = getelementptr inbounds i8, ptr %3, i64 216
+  %1228 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3830 = load i64, ptr %1228, align 8
   %1229 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3830)
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3943
@@ -4870,7 +4870,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
 1254:                                             ; preds = %4
   %1255 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1256 = load ptr, ptr %1255, align 8
-  %1257 = getelementptr inbounds i8, ptr %0, i64 8
+  %1257 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3504 = load ptr, ptr %1257, align 8
   %1258 = load i8, ptr %1256, align 8
   %1259 = icmp eq i8 %1258, 1
@@ -4884,7 +4884,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %1265 = getelementptr inbounds nuw i8, ptr %1263, i64 96
   %1266 = load ptr, ptr %1265, align 8
   %1267 = zext i32 %1264 to i64
-  %1268 = getelementptr inbounds i16, ptr %1266, i64 %1267
+  %1268 = getelementptr inbounds nuw i16, ptr %1266, i64 %1267
   %1269 = load i16, ptr %1268, align 2
   %1270 = zext i16 %1269 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3945
@@ -4898,10 +4898,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3945: ; preds = %1261, %1271
   %.0.i3944 = phi i64 [ %1270, %1261 ], [ %1273, %1271 ]
   %1274 = and i64 %.0.i3944, 3
-  %1275 = getelementptr inbounds i8, ptr %1256, i64 16
+  %1275 = getelementptr inbounds nuw i8, ptr %1256, i64 16
   %1276 = load i8, ptr %1275, align 8
   %1277 = icmp eq i8 %1276, 1
-  %1278 = getelementptr inbounds i8, ptr %1256, i64 24
+  %1278 = getelementptr inbounds nuw i8, ptr %1256, i64 24
   br i1 %1277, label %1279, label %1289
 
 1279:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3945
@@ -4911,7 +4911,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1283 = getelementptr inbounds nuw i8, ptr %1281, i64 96
   %1284 = load ptr, ptr %1283, align 8
   %1285 = zext i32 %1282 to i64
-  %1286 = getelementptr inbounds i16, ptr %1284, i64 %1285
+  %1286 = getelementptr inbounds nuw i16, ptr %1284, i64 %1285
   %1287 = load i16, ptr %1286, align 2
   %1288 = zext i16 %1287 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3947
@@ -4926,10 +4926,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3946 = phi i64 [ %1288, %1279 ], [ %1291, %1289 ]
   %1292 = shl i64 %.0.i3946, 13
   %1293 = and i64 %1292, 57344
-  %1294 = getelementptr inbounds i8, ptr %1256, i64 64
+  %1294 = getelementptr inbounds nuw i8, ptr %1256, i64 64
   %1295 = load i8, ptr %1294, align 8
   %1296 = icmp eq i8 %1295, 1
-  %1297 = getelementptr inbounds i8, ptr %1256, i64 72
+  %1297 = getelementptr inbounds nuw i8, ptr %1256, i64 72
   br i1 %1296, label %1298, label %1308
 
 1298:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3947
@@ -4939,7 +4939,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1302 = getelementptr inbounds nuw i8, ptr %1300, i64 96
   %1303 = load ptr, ptr %1302, align 8
   %1304 = zext i32 %1301 to i64
-  %1305 = getelementptr inbounds i16, ptr %1303, i64 %1304
+  %1305 = getelementptr inbounds nuw i16, ptr %1303, i64 %1304
   %1306 = load i16, ptr %1305, align 2
   %1307 = zext i16 %1306 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3949
@@ -4957,10 +4957,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1313 = and i64 %1312, 7168
   %1314 = shl nuw nsw i64 %1311, 5
   %1315 = and i64 %1314, 96
-  %1316 = getelementptr inbounds i8, ptr %1256, i64 32
+  %1316 = getelementptr inbounds nuw i8, ptr %1256, i64 32
   %1317 = load i8, ptr %1316, align 8
   %1318 = icmp eq i8 %1317, 1
-  %1319 = getelementptr inbounds i8, ptr %1256, i64 40
+  %1319 = getelementptr inbounds nuw i8, ptr %1256, i64 40
   br i1 %1318, label %1320, label %1330
 
 1320:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3949
@@ -4970,7 +4970,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1324 = getelementptr inbounds nuw i8, ptr %1322, i64 96
   %1325 = load ptr, ptr %1324, align 8
   %1326 = zext i32 %1323 to i64
-  %1327 = getelementptr inbounds i16, ptr %1325, i64 %1326
+  %1327 = getelementptr inbounds nuw i16, ptr %1325, i64 %1326
   %1328 = load i16, ptr %1327, align 2
   %1329 = zext i16 %1328 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3951
@@ -4985,10 +4985,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3950 = phi i64 [ %1329, %1320 ], [ %1332, %1330 ]
   %1333 = shl i64 %.0.i3950, 2
   %1334 = and i64 %1333, 28
-  %1335 = getelementptr inbounds i8, ptr %1256, i64 48
+  %1335 = getelementptr inbounds nuw i8, ptr %1256, i64 48
   %1336 = load i8, ptr %1335, align 8
   %1337 = icmp eq i8 %1336, 1
-  %1338 = getelementptr inbounds i8, ptr %1256, i64 56
+  %1338 = getelementptr inbounds nuw i8, ptr %1256, i64 56
   br i1 %1337, label %1339, label %1349
 
 1339:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3951
@@ -4998,7 +4998,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1343 = getelementptr inbounds nuw i8, ptr %1341, i64 96
   %1344 = load ptr, ptr %1343, align 8
   %1345 = zext i32 %1342 to i64
-  %1346 = getelementptr inbounds i16, ptr %1344, i64 %1345
+  %1346 = getelementptr inbounds nuw i16, ptr %1344, i64 %1345
   %1347 = load i16, ptr %1346, align 2
   %1348 = zext i16 %1347 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3953
@@ -5024,7 +5024,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1360:                                             ; preds = %4
   %1361 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1362 = load ptr, ptr %1361, align 8
-  %1363 = getelementptr inbounds i8, ptr %0, i64 8
+  %1363 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3509 = load ptr, ptr %1363, align 8
   %1364 = load i8, ptr %1362, align 8
   %1365 = icmp eq i8 %1364, 1
@@ -5038,7 +5038,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1371 = getelementptr inbounds nuw i8, ptr %1369, i64 96
   %1372 = load ptr, ptr %1371, align 8
   %1373 = zext i32 %1370 to i64
-  %1374 = getelementptr inbounds i16, ptr %1372, i64 %1373
+  %1374 = getelementptr inbounds nuw i16, ptr %1372, i64 %1373
   %1375 = load i16, ptr %1374, align 2
   %1376 = zext i16 %1375 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3955
@@ -5052,10 +5052,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3955: ; preds = %1367, %1377
   %.0.i3954 = phi i64 [ %1376, %1367 ], [ %1379, %1377 ]
   %1380 = and i64 %.0.i3954, 3
-  %1381 = getelementptr inbounds i8, ptr %1362, i64 16
+  %1381 = getelementptr inbounds nuw i8, ptr %1362, i64 16
   %1382 = load i8, ptr %1381, align 8
   %1383 = icmp eq i8 %1382, 1
-  %1384 = getelementptr inbounds i8, ptr %1362, i64 24
+  %1384 = getelementptr inbounds nuw i8, ptr %1362, i64 24
   br i1 %1383, label %1385, label %1395
 
 1385:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3955
@@ -5065,7 +5065,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1389 = getelementptr inbounds nuw i8, ptr %1387, i64 96
   %1390 = load ptr, ptr %1389, align 8
   %1391 = zext i32 %1388 to i64
-  %1392 = getelementptr inbounds i16, ptr %1390, i64 %1391
+  %1392 = getelementptr inbounds nuw i16, ptr %1390, i64 %1391
   %1393 = load i16, ptr %1392, align 2
   %1394 = zext i16 %1393 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3957
@@ -5080,10 +5080,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3956 = phi i64 [ %1394, %1385 ], [ %1397, %1395 ]
   %1398 = shl i64 %.0.i3956, 13
   %1399 = and i64 %1398, 57344
-  %1400 = getelementptr inbounds i8, ptr %1362, i64 48
+  %1400 = getelementptr inbounds nuw i8, ptr %1362, i64 48
   %1401 = load i8, ptr %1400, align 8
   %1402 = icmp eq i8 %1401, 1
-  %1403 = getelementptr inbounds i8, ptr %1362, i64 56
+  %1403 = getelementptr inbounds nuw i8, ptr %1362, i64 56
   br i1 %1402, label %1404, label %1414
 
 1404:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3957
@@ -5093,7 +5093,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1408 = getelementptr inbounds nuw i8, ptr %1406, i64 96
   %1409 = load ptr, ptr %1408, align 8
   %1410 = zext i32 %1407 to i64
-  %1411 = getelementptr inbounds i16, ptr %1409, i64 %1410
+  %1411 = getelementptr inbounds nuw i16, ptr %1409, i64 %1410
   %1412 = load i16, ptr %1411, align 2
   %1413 = zext i16 %1412 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3959
@@ -5108,10 +5108,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3958 = phi i64 [ %1413, %1404 ], [ %1416, %1414 ]
   %1417 = shl i64 %.0.i3958, 7
   %1418 = and i64 %1417, 8064
-  %1419 = getelementptr inbounds i8, ptr %1362, i64 32
+  %1419 = getelementptr inbounds nuw i8, ptr %1362, i64 32
   %1420 = load i8, ptr %1419, align 8
   %1421 = icmp eq i8 %1420, 1
-  %1422 = getelementptr inbounds i8, ptr %1362, i64 40
+  %1422 = getelementptr inbounds nuw i8, ptr %1362, i64 40
   br i1 %1421, label %1423, label %1433
 
 1423:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3959
@@ -5121,7 +5121,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1427 = getelementptr inbounds nuw i8, ptr %1425, i64 96
   %1428 = load ptr, ptr %1427, align 8
   %1429 = zext i32 %1426 to i64
-  %1430 = getelementptr inbounds i16, ptr %1428, i64 %1429
+  %1430 = getelementptr inbounds nuw i16, ptr %1428, i64 %1429
   %1431 = load i16, ptr %1430, align 2
   %1432 = zext i16 %1431 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3961
@@ -5145,7 +5145,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1442:                                             ; preds = %4
   %1443 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1444 = load ptr, ptr %1443, align 8
-  %1445 = getelementptr inbounds i8, ptr %0, i64 8
+  %1445 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3513 = load ptr, ptr %1445, align 8
   %1446 = load i8, ptr %1444, align 8
   %1447 = icmp eq i8 %1446, 1
@@ -5159,7 +5159,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1453 = getelementptr inbounds nuw i8, ptr %1451, i64 96
   %1454 = load ptr, ptr %1453, align 8
   %1455 = zext i32 %1452 to i64
-  %1456 = getelementptr inbounds i16, ptr %1454, i64 %1455
+  %1456 = getelementptr inbounds nuw i16, ptr %1454, i64 %1455
   %1457 = load i16, ptr %1456, align 2
   %1458 = zext i16 %1457 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3963
@@ -5173,10 +5173,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3963: ; preds = %1449, %1459
   %.0.i3962 = phi i64 [ %1458, %1449 ], [ %1461, %1459 ]
   %1462 = and i64 %.0.i3962, 3
-  %1463 = getelementptr inbounds i8, ptr %1444, i64 16
+  %1463 = getelementptr inbounds nuw i8, ptr %1444, i64 16
   %1464 = load i8, ptr %1463, align 8
   %1465 = icmp eq i8 %1464, 1
-  %1466 = getelementptr inbounds i8, ptr %1444, i64 24
+  %1466 = getelementptr inbounds nuw i8, ptr %1444, i64 24
   br i1 %1465, label %1467, label %1477
 
 1467:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3963
@@ -5186,7 +5186,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1471 = getelementptr inbounds nuw i8, ptr %1469, i64 96
   %1472 = load ptr, ptr %1471, align 8
   %1473 = zext i32 %1470 to i64
-  %1474 = getelementptr inbounds i16, ptr %1472, i64 %1473
+  %1474 = getelementptr inbounds nuw i16, ptr %1472, i64 %1473
   %1475 = load i16, ptr %1474, align 2
   %1476 = zext i16 %1475 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3965
@@ -5201,20 +5201,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3964 = phi i64 [ %1476, %1467 ], [ %1479, %1477 ]
   %1480 = shl i64 %.0.i3964, 13
   %1481 = and i64 %1480, 57344
-  %1482 = getelementptr inbounds i8, ptr %1444, i64 48
+  %1482 = getelementptr inbounds nuw i8, ptr %1444, i64 48
   %1483 = load i8, ptr %1482, align 8
   %1484 = icmp eq i8 %1483, 2
   br i1 %1484, label %1485, label %1490
 
 1485:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3965
-  %1486 = getelementptr inbounds i8, ptr %1444, i64 56
+  %1486 = getelementptr inbounds nuw i8, ptr %1444, i64 56
   %1487 = load i64, ptr %1486, align 8
   %1488 = trunc i64 %1487 to i32
   %1489 = lshr i32 %1488, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3967
 
 1490:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3965
-  %1491 = getelementptr inbounds i8, ptr %3, i64 216
+  %1491 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3831 = load i64, ptr %1491, align 8
   %1492 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3831)
   %.pre4667 = load ptr, ptr %1443, align 8
@@ -5233,10 +5233,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %1501 = and i64 %1500, 24
   %1502 = lshr i64 %1494, 2
   %1503 = and i64 %1502, 4
-  %1504 = getelementptr inbounds i8, ptr %1493, i64 32
+  %1504 = getelementptr inbounds nuw i8, ptr %1493, i64 32
   %1505 = load i8, ptr %1504, align 8
   %1506 = icmp eq i8 %1505, 1
-  %1507 = getelementptr inbounds i8, ptr %1493, i64 40
+  %1507 = getelementptr inbounds nuw i8, ptr %1493, i64 40
   br i1 %1506, label %1508, label %1518
 
 1508:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3967
@@ -5247,7 +5247,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %1512 = getelementptr inbounds nuw i8, ptr %1510, i64 96
   %1513 = load ptr, ptr %1512, align 8
   %1514 = zext i32 %1511 to i64
-  %1515 = getelementptr inbounds i16, ptr %1513, i64 %1514
+  %1515 = getelementptr inbounds nuw i16, ptr %1513, i64 %1514
   %1516 = load i16, ptr %1515, align 2
   %1517 = zext i16 %1516 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3969
@@ -5275,12 +5275,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1531:                                             ; preds = %4
   %1532 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1533 = load ptr, ptr %1532, align 8
-  %1534 = getelementptr inbounds i8, ptr %1533, i64 16
-  %1535 = getelementptr inbounds i8, ptr %0, i64 8
+  %1534 = getelementptr inbounds nuw i8, ptr %1533, i64 16
+  %1535 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3516 = load ptr, ptr %1535, align 8
   %1536 = load i8, ptr %1534, align 8
   %1537 = icmp eq i8 %1536, 1
-  %1538 = getelementptr inbounds i8, ptr %1533, i64 24
+  %1538 = getelementptr inbounds nuw i8, ptr %1533, i64 24
   br i1 %1537, label %1539, label %1549
 
 1539:                                             ; preds = %1531
@@ -5290,7 +5290,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1543 = getelementptr inbounds nuw i8, ptr %1541, i64 96
   %1544 = load ptr, ptr %1543, align 8
   %1545 = zext i32 %1542 to i64
-  %1546 = getelementptr inbounds i16, ptr %1544, i64 %1545
+  %1546 = getelementptr inbounds nuw i16, ptr %1544, i64 %1545
   %1547 = load i16, ptr %1546, align 2
   %1548 = zext i16 %1547 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3971
@@ -5304,10 +5304,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3971: ; preds = %1539, %1549
   %.0.i3970 = phi i64 [ %1548, %1539 ], [ %1551, %1549 ]
   %1552 = and i64 %.0.i3970, 127
-  %1553 = getelementptr inbounds i8, ptr %1533, i64 48
+  %1553 = getelementptr inbounds nuw i8, ptr %1533, i64 48
   %1554 = load i8, ptr %1553, align 8
   %1555 = icmp eq i8 %1554, 1
-  %1556 = getelementptr inbounds i8, ptr %1533, i64 56
+  %1556 = getelementptr inbounds nuw i8, ptr %1533, i64 56
   br i1 %1555, label %1557, label %1567
 
 1557:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3971
@@ -5317,7 +5317,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1561 = getelementptr inbounds nuw i8, ptr %1559, i64 96
   %1562 = load ptr, ptr %1561, align 8
   %1563 = zext i32 %1560 to i64
-  %1564 = getelementptr inbounds i16, ptr %1562, i64 %1563
+  %1564 = getelementptr inbounds nuw i16, ptr %1562, i64 %1563
   %1565 = load i16, ptr %1564, align 2
   %1566 = zext i16 %1565 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3973
@@ -5332,10 +5332,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3972 = phi i64 [ %1566, %1557 ], [ %1569, %1567 ]
   %1570 = shl i64 %.0.i3972, 25
   %1571 = and i64 %1570, 100663296
-  %1572 = getelementptr inbounds i8, ptr %1533, i64 32
+  %1572 = getelementptr inbounds nuw i8, ptr %1533, i64 32
   %1573 = load i8, ptr %1572, align 8
   %1574 = icmp eq i8 %1573, 1
-  %1575 = getelementptr inbounds i8, ptr %1533, i64 40
+  %1575 = getelementptr inbounds nuw i8, ptr %1533, i64 40
   br i1 %1574, label %1576, label %1586
 
 1576:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3973
@@ -5345,7 +5345,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1580 = getelementptr inbounds nuw i8, ptr %1578, i64 96
   %1581 = load ptr, ptr %1580, align 8
   %1582 = zext i32 %1579 to i64
-  %1583 = getelementptr inbounds i16, ptr %1581, i64 %1582
+  %1583 = getelementptr inbounds nuw i16, ptr %1581, i64 %1582
   %1584 = load i16, ptr %1583, align 2
   %1585 = zext i16 %1584 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3975
@@ -5360,10 +5360,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3974 = phi i64 [ %1585, %1576 ], [ %1588, %1586 ]
   %1589 = shl i64 %.0.i3974, 12
   %1590 = and i64 %1589, 28672
-  %1591 = getelementptr inbounds i8, ptr %1533, i64 96
+  %1591 = getelementptr inbounds nuw i8, ptr %1533, i64 96
   %1592 = load i8, ptr %1591, align 8
   %1593 = icmp eq i8 %1592, 1
-  %1594 = getelementptr inbounds i8, ptr %1533, i64 104
+  %1594 = getelementptr inbounds nuw i8, ptr %1533, i64 104
   br i1 %1593, label %1595, label %1605
 
 1595:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3975
@@ -5373,7 +5373,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1599 = getelementptr inbounds nuw i8, ptr %1597, i64 96
   %1600 = load ptr, ptr %1599, align 8
   %1601 = zext i32 %1598 to i64
-  %1602 = getelementptr inbounds i16, ptr %1600, i64 %1601
+  %1602 = getelementptr inbounds nuw i16, ptr %1600, i64 %1601
   %1603 = load i16, ptr %1602, align 2
   %1604 = zext i16 %1603 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3977
@@ -5387,10 +5387,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3977: ; preds = %1595, %1605
   %.0.i3976 = phi i64 [ %1604, %1595 ], [ %1607, %1605 ]
   %1608 = shl i64 %.0.i3976, 27
-  %1609 = getelementptr inbounds i8, ptr %1533, i64 80
+  %1609 = getelementptr inbounds nuw i8, ptr %1533, i64 80
   %1610 = load i8, ptr %1609, align 8
   %1611 = icmp eq i8 %1610, 1
-  %1612 = getelementptr inbounds i8, ptr %1533, i64 88
+  %1612 = getelementptr inbounds nuw i8, ptr %1533, i64 88
   br i1 %1611, label %1613, label %1623
 
 1613:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3977
@@ -5400,7 +5400,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1617 = getelementptr inbounds nuw i8, ptr %1615, i64 96
   %1618 = load ptr, ptr %1617, align 8
   %1619 = zext i32 %1616 to i64
-  %1620 = getelementptr inbounds i16, ptr %1618, i64 %1619
+  %1620 = getelementptr inbounds nuw i16, ptr %1618, i64 %1619
   %1621 = load i16, ptr %1620, align 2
   %1622 = zext i16 %1621 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3979
@@ -5415,10 +5415,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3978 = phi i64 [ %1622, %1613 ], [ %1625, %1623 ]
   %1626 = shl i64 %.0.i3978, 20
   %1627 = and i64 %1626, 32505856
-  %1628 = getelementptr inbounds i8, ptr %1533, i64 64
+  %1628 = getelementptr inbounds nuw i8, ptr %1533, i64 64
   %1629 = load i8, ptr %1628, align 8
   %1630 = icmp eq i8 %1629, 1
-  %1631 = getelementptr inbounds i8, ptr %1533, i64 72
+  %1631 = getelementptr inbounds nuw i8, ptr %1533, i64 72
   br i1 %1630, label %1632, label %1642
 
 1632:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3979
@@ -5428,7 +5428,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1636 = getelementptr inbounds nuw i8, ptr %1634, i64 96
   %1637 = load ptr, ptr %1636, align 8
   %1638 = zext i32 %1635 to i64
-  %1639 = getelementptr inbounds i16, ptr %1637, i64 %1638
+  %1639 = getelementptr inbounds nuw i16, ptr %1637, i64 %1638
   %1640 = load i16, ptr %1639, align 2
   %1641 = zext i16 %1640 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3981
@@ -5455,7 +5455,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1654 = getelementptr inbounds nuw i8, ptr %1652, i64 96
   %1655 = load ptr, ptr %1654, align 8
   %1656 = zext i32 %1653 to i64
-  %1657 = getelementptr inbounds i16, ptr %1655, i64 %1656
+  %1657 = getelementptr inbounds nuw i16, ptr %1655, i64 %1656
   %1658 = load i16, ptr %1657, align 2
   %1659 = zext i16 %1658 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3983
@@ -5483,12 +5483,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1672:                                             ; preds = %4, %4
   %1673 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1674 = load ptr, ptr %1673, align 8
-  %1675 = getelementptr inbounds i8, ptr %1674, i64 16
-  %1676 = getelementptr inbounds i8, ptr %0, i64 8
+  %1675 = getelementptr inbounds nuw i8, ptr %1674, i64 16
+  %1676 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3523 = load ptr, ptr %1676, align 8
   %1677 = load i8, ptr %1675, align 8
   %1678 = icmp eq i8 %1677, 1
-  %1679 = getelementptr inbounds i8, ptr %1674, i64 24
+  %1679 = getelementptr inbounds nuw i8, ptr %1674, i64 24
   br i1 %1678, label %1680, label %1690
 
 1680:                                             ; preds = %1672
@@ -5498,7 +5498,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1684 = getelementptr inbounds nuw i8, ptr %1682, i64 96
   %1685 = load ptr, ptr %1684, align 8
   %1686 = zext i32 %1683 to i64
-  %1687 = getelementptr inbounds i16, ptr %1685, i64 %1686
+  %1687 = getelementptr inbounds nuw i16, ptr %1685, i64 %1686
   %1688 = load i16, ptr %1687, align 2
   %1689 = zext i16 %1688 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3985
@@ -5513,10 +5513,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3985: ; preds = %1680, %1690
   %.0.i3984 = phi i32 [ %1689, %1680 ], [ %1693, %1690 ]
   %1694 = and i32 %.0.i3984, 127
-  %1695 = getelementptr inbounds i8, ptr %1674, i64 32
+  %1695 = getelementptr inbounds nuw i8, ptr %1674, i64 32
   %1696 = load i8, ptr %1695, align 8
   %1697 = icmp eq i8 %1696, 1
-  %1698 = getelementptr inbounds i8, ptr %1674, i64 40
+  %1698 = getelementptr inbounds nuw i8, ptr %1674, i64 40
   br i1 %1697, label %1699, label %1709
 
 1699:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3985
@@ -5526,7 +5526,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1703 = getelementptr inbounds nuw i8, ptr %1701, i64 96
   %1704 = load ptr, ptr %1703, align 8
   %1705 = zext i32 %1702 to i64
-  %1706 = getelementptr inbounds i16, ptr %1704, i64 %1705
+  %1706 = getelementptr inbounds nuw i16, ptr %1704, i64 %1705
   %1707 = load i16, ptr %1706, align 2
   %1708 = zext i16 %1707 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3987
@@ -5543,17 +5543,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1713 = shl i32 %.0.i3986, 12
   %1714 = and i32 %1713, 28672
   %1715 = or disjoint i32 %1694, %1714
-  %1716 = getelementptr inbounds i8, ptr %3, i64 216
+  %1716 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3440 = load i64, ptr %1716, align 8
   %1717 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3440)
   %1718 = shl i32 %1717, 20
   %1719 = or disjoint i32 %1715, %1718
   %1720 = load ptr, ptr %1673, align 8
-  %1721 = getelementptr inbounds i8, ptr %1720, i64 48
+  %1721 = getelementptr inbounds nuw i8, ptr %1720, i64 48
   %.val3525 = load ptr, ptr %1676, align 8
   %1722 = load i8, ptr %1721, align 8
   %1723 = icmp eq i8 %1722, 1
-  %1724 = getelementptr inbounds i8, ptr %1720, i64 56
+  %1724 = getelementptr inbounds nuw i8, ptr %1720, i64 56
   br i1 %1723, label %1725, label %1735
 
 1725:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3987
@@ -5563,7 +5563,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1729 = getelementptr inbounds nuw i8, ptr %1727, i64 96
   %1730 = load ptr, ptr %1729, align 8
   %1731 = zext i32 %1728 to i64
-  %1732 = getelementptr inbounds i16, ptr %1730, i64 %1731
+  %1732 = getelementptr inbounds nuw i16, ptr %1730, i64 %1731
   %1733 = load i16, ptr %1732, align 2
   %1734 = zext i16 %1733 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3989
@@ -5592,7 +5592,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1749 = getelementptr inbounds nuw i8, ptr %1747, i64 96
   %1750 = load ptr, ptr %1749, align 8
   %1751 = zext i32 %1748 to i64
-  %1752 = getelementptr inbounds i16, ptr %1750, i64 %1751
+  %1752 = getelementptr inbounds nuw i16, ptr %1750, i64 %1751
   %1753 = load i16, ptr %1752, align 2
   %1754 = zext i16 %1753 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3991
@@ -5616,12 +5616,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1764:                                             ; preds = %4
   %1765 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1766 = load ptr, ptr %1765, align 8
-  %1767 = getelementptr inbounds i8, ptr %1766, i64 16
-  %1768 = getelementptr inbounds i8, ptr %0, i64 8
+  %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 16
+  %1768 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3527 = load ptr, ptr %1768, align 8
   %1769 = load i8, ptr %1767, align 8
   %1770 = icmp eq i8 %1769, 1
-  %1771 = getelementptr inbounds i8, ptr %1766, i64 24
+  %1771 = getelementptr inbounds nuw i8, ptr %1766, i64 24
   br i1 %1770, label %1772, label %1782
 
 1772:                                             ; preds = %1764
@@ -5631,7 +5631,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1776 = getelementptr inbounds nuw i8, ptr %1774, i64 96
   %1777 = load ptr, ptr %1776, align 8
   %1778 = zext i32 %1775 to i64
-  %1779 = getelementptr inbounds i16, ptr %1777, i64 %1778
+  %1779 = getelementptr inbounds nuw i16, ptr %1777, i64 %1778
   %1780 = load i16, ptr %1779, align 2
   %1781 = zext i16 %1780 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3993
@@ -5645,10 +5645,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3993: ; preds = %1772, %1782
   %.0.i3992 = phi i64 [ %1781, %1772 ], [ %1784, %1782 ]
   %1785 = and i64 %.0.i3992, 127
-  %1786 = getelementptr inbounds i8, ptr %1766, i64 48
+  %1786 = getelementptr inbounds nuw i8, ptr %1766, i64 48
   %1787 = load i8, ptr %1786, align 8
   %1788 = icmp eq i8 %1787, 1
-  %1789 = getelementptr inbounds i8, ptr %1766, i64 56
+  %1789 = getelementptr inbounds nuw i8, ptr %1766, i64 56
   br i1 %1788, label %1790, label %1800
 
 1790:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3993
@@ -5658,7 +5658,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1794 = getelementptr inbounds nuw i8, ptr %1792, i64 96
   %1795 = load ptr, ptr %1794, align 8
   %1796 = zext i32 %1793 to i64
-  %1797 = getelementptr inbounds i16, ptr %1795, i64 %1796
+  %1797 = getelementptr inbounds nuw i16, ptr %1795, i64 %1796
   %1798 = load i16, ptr %1797, align 2
   %1799 = zext i16 %1798 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3995
@@ -5672,10 +5672,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3995: ; preds = %1790, %1800
   %.0.i3994 = phi i64 [ %1799, %1790 ], [ %1802, %1800 ]
   %1803 = shl i64 %.0.i3994, 25
-  %1804 = getelementptr inbounds i8, ptr %1766, i64 32
+  %1804 = getelementptr inbounds nuw i8, ptr %1766, i64 32
   %1805 = load i8, ptr %1804, align 8
   %1806 = icmp eq i8 %1805, 1
-  %1807 = getelementptr inbounds i8, ptr %1766, i64 40
+  %1807 = getelementptr inbounds nuw i8, ptr %1766, i64 40
   br i1 %1806, label %1808, label %1818
 
 1808:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3995
@@ -5685,7 +5685,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1812 = getelementptr inbounds nuw i8, ptr %1810, i64 96
   %1813 = load ptr, ptr %1812, align 8
   %1814 = zext i32 %1811 to i64
-  %1815 = getelementptr inbounds i16, ptr %1813, i64 %1814
+  %1815 = getelementptr inbounds nuw i16, ptr %1813, i64 %1814
   %1816 = load i16, ptr %1815, align 2
   %1817 = zext i16 %1816 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3997
@@ -5700,10 +5700,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3996 = phi i64 [ %1817, %1808 ], [ %1820, %1818 ]
   %1821 = shl i64 %.0.i3996, 12
   %1822 = and i64 %1821, 28672
-  %1823 = getelementptr inbounds i8, ptr %1766, i64 80
+  %1823 = getelementptr inbounds nuw i8, ptr %1766, i64 80
   %1824 = load i8, ptr %1823, align 8
   %1825 = icmp eq i8 %1824, 1
-  %1826 = getelementptr inbounds i8, ptr %1766, i64 88
+  %1826 = getelementptr inbounds nuw i8, ptr %1766, i64 88
   br i1 %1825, label %1827, label %1837
 
 1827:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3997
@@ -5713,7 +5713,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1831 = getelementptr inbounds nuw i8, ptr %1829, i64 96
   %1832 = load ptr, ptr %1831, align 8
   %1833 = zext i32 %1830 to i64
-  %1834 = getelementptr inbounds i16, ptr %1832, i64 %1833
+  %1834 = getelementptr inbounds nuw i16, ptr %1832, i64 %1833
   %1835 = load i16, ptr %1834, align 2
   %1836 = zext i16 %1835 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3999
@@ -5728,10 +5728,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i3998 = phi i64 [ %1836, %1827 ], [ %1839, %1837 ]
   %1840 = shl i64 %.0.i3998, 20
   %1841 = and i64 %1840, 32505856
-  %1842 = getelementptr inbounds i8, ptr %1766, i64 64
+  %1842 = getelementptr inbounds nuw i8, ptr %1766, i64 64
   %1843 = load i8, ptr %1842, align 8
   %1844 = icmp eq i8 %1843, 1
-  %1845 = getelementptr inbounds i8, ptr %1766, i64 72
+  %1845 = getelementptr inbounds nuw i8, ptr %1766, i64 72
   br i1 %1844, label %1846, label %1856
 
 1846:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit3999
@@ -5741,7 +5741,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1850 = getelementptr inbounds nuw i8, ptr %1848, i64 96
   %1851 = load ptr, ptr %1850, align 8
   %1852 = zext i32 %1849 to i64
-  %1853 = getelementptr inbounds i16, ptr %1851, i64 %1852
+  %1853 = getelementptr inbounds nuw i16, ptr %1851, i64 %1852
   %1854 = load i16, ptr %1853, align 2
   %1855 = zext i16 %1854 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4001
@@ -5768,7 +5768,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1868 = getelementptr inbounds nuw i8, ptr %1866, i64 96
   %1869 = load ptr, ptr %1868, align 8
   %1870 = zext i32 %1867 to i64
-  %1871 = getelementptr inbounds i16, ptr %1869, i64 %1870
+  %1871 = getelementptr inbounds nuw i16, ptr %1869, i64 %1870
   %1872 = load i16, ptr %1871, align 2
   %1873 = zext i16 %1872 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4003
@@ -5795,11 +5795,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1885:                                             ; preds = %4
   %1886 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1887 = load ptr, ptr %1886, align 8
-  %1888 = getelementptr inbounds i8, ptr %1887, i64 16
-  %1889 = getelementptr inbounds i8, ptr %0, i64 8
+  %1888 = getelementptr inbounds nuw i8, ptr %1887, i64 16
+  %1889 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1890 = load i8, ptr %1888, align 8
   %1891 = icmp eq i8 %1890, 1
-  %1892 = getelementptr inbounds i8, ptr %1887, i64 24
+  %1892 = getelementptr inbounds nuw i8, ptr %1887, i64 24
   br i1 %1891, label %1893, label %1903
 
 1893:                                             ; preds = %1885
@@ -5810,7 +5810,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1897 = getelementptr inbounds nuw i8, ptr %1895, i64 96
   %1898 = load ptr, ptr %1897, align 8
   %1899 = zext i32 %1896 to i64
-  %1900 = getelementptr inbounds i16, ptr %1898, i64 %1899
+  %1900 = getelementptr inbounds nuw i16, ptr %1898, i64 %1899
   %1901 = load i16, ptr %1900, align 2
   %1902 = zext i16 %1901 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4005
@@ -5825,7 +5825,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4005: ; preds = %1893, %1903
   %.0.i4004 = phi i32 [ %1902, %1893 ], [ %1906, %1903 ]
   %1907 = and i32 %.0.i4004, 127
-  %1908 = getelementptr inbounds i8, ptr %3, i64 216
+  %1908 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3441 = load i64, ptr %1908, align 8
   %1909 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3441)
   %1910 = shl i32 %1909, 12
@@ -5844,7 +5844,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1920 = getelementptr inbounds nuw i8, ptr %1918, i64 96
   %1921 = load ptr, ptr %1920, align 8
   %1922 = zext i32 %1919 to i64
-  %1923 = getelementptr inbounds i16, ptr %1921, i64 %1922
+  %1923 = getelementptr inbounds nuw i16, ptr %1921, i64 %1922
   %1924 = load i16, ptr %1923, align 2
   %1925 = zext i16 %1924 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4007
@@ -5868,11 +5868,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1935:                                             ; preds = %4
   %1936 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1937 = load ptr, ptr %1936, align 8
-  %1938 = getelementptr inbounds i8, ptr %1937, i64 16
-  %1939 = getelementptr inbounds i8, ptr %0, i64 8
+  %1938 = getelementptr inbounds nuw i8, ptr %1937, i64 16
+  %1939 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1940 = load i8, ptr %1938, align 8
   %1941 = icmp eq i8 %1940, 1
-  %1942 = getelementptr inbounds i8, ptr %1937, i64 24
+  %1942 = getelementptr inbounds nuw i8, ptr %1937, i64 24
   br i1 %1941, label %1943, label %1953
 
 1943:                                             ; preds = %1935
@@ -5883,7 +5883,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %1947 = getelementptr inbounds nuw i8, ptr %1945, i64 96
   %1948 = load ptr, ptr %1947, align 8
   %1949 = zext i32 %1946 to i64
-  %1950 = getelementptr inbounds i16, ptr %1948, i64 %1949
+  %1950 = getelementptr inbounds nuw i16, ptr %1948, i64 %1949
   %1951 = load i16, ptr %1950, align 2
   %1952 = zext i16 %1951 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4009
@@ -5898,20 +5898,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4009: ; preds = %1943, %1953
   %.0.i4008 = phi i32 [ %1952, %1943 ], [ %1956, %1953 ]
   %1957 = and i32 %.0.i4008, 127
-  %1958 = getelementptr inbounds i8, ptr %1937, i64 32
+  %1958 = getelementptr inbounds nuw i8, ptr %1937, i64 32
   %1959 = load i8, ptr %1958, align 8
   %1960 = icmp eq i8 %1959, 2
   br i1 %1960, label %1961, label %1966
 
 1961:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4009
-  %1962 = getelementptr inbounds i8, ptr %1937, i64 40
+  %1962 = getelementptr inbounds nuw i8, ptr %1937, i64 40
   %1963 = load i64, ptr %1962, align 8
   %1964 = trunc i64 %1963 to i32
   %1965 = lshr i32 %1964, 1
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4011
 
 1966:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4009
-  %1967 = getelementptr inbounds i8, ptr %3, i64 216
+  %1967 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3832 = load i64, ptr %1967, align 8
   %1968 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3832)
   %.pre = load ptr, ptr %1936, align 8
@@ -5935,7 +5935,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_
   %1979 = getelementptr inbounds nuw i8, ptr %1977, i64 96
   %1980 = load ptr, ptr %1979, align 8
   %1981 = zext i32 %1978 to i64
-  %1982 = getelementptr inbounds i16, ptr %1980, i64 %1981
+  %1982 = getelementptr inbounds nuw i16, ptr %1980, i64 %1981
   %1983 = load i16, ptr %1982, align 2
   %1984 = zext i16 %1983 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4013
@@ -5959,12 +5959,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 1994:                                             ; preds = %4
   %1995 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1996 = load ptr, ptr %1995, align 8
-  %1997 = getelementptr inbounds i8, ptr %1996, i64 16
-  %1998 = getelementptr inbounds i8, ptr %0, i64 8
+  %1997 = getelementptr inbounds nuw i8, ptr %1996, i64 16
+  %1998 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3537 = load ptr, ptr %1998, align 8
   %1999 = load i8, ptr %1997, align 8
   %2000 = icmp eq i8 %1999, 1
-  %2001 = getelementptr inbounds i8, ptr %1996, i64 24
+  %2001 = getelementptr inbounds nuw i8, ptr %1996, i64 24
   br i1 %2000, label %2002, label %2012
 
 2002:                                             ; preds = %1994
@@ -5974,7 +5974,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2006 = getelementptr inbounds nuw i8, ptr %2004, i64 96
   %2007 = load ptr, ptr %2006, align 8
   %2008 = zext i32 %2005 to i64
-  %2009 = getelementptr inbounds i16, ptr %2007, i64 %2008
+  %2009 = getelementptr inbounds nuw i16, ptr %2007, i64 %2008
   %2010 = load i16, ptr %2009, align 2
   %2011 = zext i16 %2010 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4015
@@ -5988,10 +5988,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4015: ; preds = %2002, %2012
   %.0.i4014 = phi i64 [ %2011, %2002 ], [ %2014, %2012 ]
   %2015 = and i64 %.0.i4014, 3
-  %2016 = getelementptr inbounds i8, ptr %1996, i64 32
+  %2016 = getelementptr inbounds nuw i8, ptr %1996, i64 32
   %2017 = load i8, ptr %2016, align 8
   %2018 = icmp eq i8 %2017, 1
-  %2019 = getelementptr inbounds i8, ptr %1996, i64 40
+  %2019 = getelementptr inbounds nuw i8, ptr %1996, i64 40
   br i1 %2018, label %2020, label %2030
 
 2020:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4015
@@ -6001,7 +6001,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2024 = getelementptr inbounds nuw i8, ptr %2022, i64 96
   %2025 = load ptr, ptr %2024, align 8
   %2026 = zext i32 %2023 to i64
-  %2027 = getelementptr inbounds i16, ptr %2025, i64 %2026
+  %2027 = getelementptr inbounds nuw i16, ptr %2025, i64 %2026
   %2028 = load i16, ptr %2027, align 2
   %2029 = zext i16 %2028 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4017
@@ -6016,10 +6016,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4016 = phi i64 [ %2029, %2020 ], [ %2032, %2030 ]
   %2033 = shl i64 %.0.i4016, 13
   %2034 = and i64 %2033, 57344
-  %2035 = getelementptr inbounds i8, ptr %1996, i64 64
+  %2035 = getelementptr inbounds nuw i8, ptr %1996, i64 64
   %2036 = load i8, ptr %2035, align 8
   %2037 = icmp eq i8 %2036, 1
-  %2038 = getelementptr inbounds i8, ptr %1996, i64 72
+  %2038 = getelementptr inbounds nuw i8, ptr %1996, i64 72
   br i1 %2037, label %2039, label %2049
 
 2039:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4017
@@ -6029,7 +6029,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2043 = getelementptr inbounds nuw i8, ptr %2041, i64 96
   %2044 = load ptr, ptr %2043, align 8
   %2045 = zext i32 %2042 to i64
-  %2046 = getelementptr inbounds i16, ptr %2044, i64 %2045
+  %2046 = getelementptr inbounds nuw i16, ptr %2044, i64 %2045
   %2047 = load i16, ptr %2046, align 2
   %2048 = zext i16 %2047 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4019
@@ -6059,7 +6059,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2064 = getelementptr inbounds nuw i8, ptr %2062, i64 96
   %2065 = load ptr, ptr %2064, align 8
   %2066 = zext i32 %2063 to i64
-  %2067 = getelementptr inbounds i16, ptr %2065, i64 %2066
+  %2067 = getelementptr inbounds nuw i16, ptr %2065, i64 %2066
   %2068 = load i16, ptr %2067, align 2
   %2069 = zext i16 %2068 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4021
@@ -6074,10 +6074,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4020 = phi i64 [ %2069, %2060 ], [ %2072, %2070 ]
   %2073 = shl i64 %.0.i4020, 2
   %2074 = and i64 %2073, 28
-  %2075 = getelementptr inbounds i8, ptr %1996, i64 48
+  %2075 = getelementptr inbounds nuw i8, ptr %1996, i64 48
   %2076 = load i8, ptr %2075, align 8
   %2077 = icmp eq i8 %2076, 1
-  %2078 = getelementptr inbounds i8, ptr %1996, i64 56
+  %2078 = getelementptr inbounds nuw i8, ptr %1996, i64 56
   br i1 %2077, label %2079, label %2089
 
 2079:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4021
@@ -6087,7 +6087,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2083 = getelementptr inbounds nuw i8, ptr %2081, i64 96
   %2084 = load ptr, ptr %2083, align 8
   %2085 = zext i32 %2082 to i64
-  %2086 = getelementptr inbounds i16, ptr %2084, i64 %2085
+  %2086 = getelementptr inbounds nuw i16, ptr %2084, i64 %2085
   %2087 = load i16, ptr %2086, align 2
   %2088 = zext i16 %2087 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4023
@@ -6113,12 +6113,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2100:                                             ; preds = %4
   %2101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2102 = load ptr, ptr %2101, align 8
-  %2103 = getelementptr inbounds i8, ptr %2102, i64 16
-  %2104 = getelementptr inbounds i8, ptr %0, i64 8
+  %2103 = getelementptr inbounds nuw i8, ptr %2102, i64 16
+  %2104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3542 = load ptr, ptr %2104, align 8
   %2105 = load i8, ptr %2103, align 8
   %2106 = icmp eq i8 %2105, 1
-  %2107 = getelementptr inbounds i8, ptr %2102, i64 24
+  %2107 = getelementptr inbounds nuw i8, ptr %2102, i64 24
   br i1 %2106, label %2108, label %2118
 
 2108:                                             ; preds = %2100
@@ -6128,7 +6128,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2112 = getelementptr inbounds nuw i8, ptr %2110, i64 96
   %2113 = load ptr, ptr %2112, align 8
   %2114 = zext i32 %2111 to i64
-  %2115 = getelementptr inbounds i16, ptr %2113, i64 %2114
+  %2115 = getelementptr inbounds nuw i16, ptr %2113, i64 %2114
   %2116 = load i16, ptr %2115, align 2
   %2117 = zext i16 %2116 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4025
@@ -6142,10 +6142,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4025: ; preds = %2108, %2118
   %.0.i4024 = phi i64 [ %2117, %2108 ], [ %2120, %2118 ]
   %2121 = and i64 %.0.i4024, 3
-  %2122 = getelementptr inbounds i8, ptr %2102, i64 32
+  %2122 = getelementptr inbounds nuw i8, ptr %2102, i64 32
   %2123 = load i8, ptr %2122, align 8
   %2124 = icmp eq i8 %2123, 1
-  %2125 = getelementptr inbounds i8, ptr %2102, i64 40
+  %2125 = getelementptr inbounds nuw i8, ptr %2102, i64 40
   br i1 %2124, label %2126, label %2136
 
 2126:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4025
@@ -6155,7 +6155,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2130 = getelementptr inbounds nuw i8, ptr %2128, i64 96
   %2131 = load ptr, ptr %2130, align 8
   %2132 = zext i32 %2129 to i64
-  %2133 = getelementptr inbounds i16, ptr %2131, i64 %2132
+  %2133 = getelementptr inbounds nuw i16, ptr %2131, i64 %2132
   %2134 = load i16, ptr %2133, align 2
   %2135 = zext i16 %2134 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4027
@@ -6170,7 +6170,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4026 = phi i64 [ %2135, %2126 ], [ %2138, %2136 ]
   %2139 = shl i64 %.0.i4026, 13
   %2140 = and i64 %2139, 57344
-  %2141 = getelementptr inbounds i8, ptr %3, i64 216
+  %2141 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3442 = load i64, ptr %2141, align 8
   %2142 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3442)
   %2143 = zext i32 %2142 to i64
@@ -6192,7 +6192,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2156 = getelementptr inbounds nuw i8, ptr %2154, i64 96
   %2157 = load ptr, ptr %2156, align 8
   %2158 = zext i32 %2155 to i64
-  %2159 = getelementptr inbounds i16, ptr %2157, i64 %2158
+  %2159 = getelementptr inbounds nuw i16, ptr %2157, i64 %2158
   %2160 = load i16, ptr %2159, align 2
   %2161 = zext i16 %2160 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4029
@@ -6217,12 +6217,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2172:                                             ; preds = %4
   %2173 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2174 = load ptr, ptr %2173, align 8
-  %2175 = getelementptr inbounds i8, ptr %2174, i64 16
-  %2176 = getelementptr inbounds i8, ptr %0, i64 8
+  %2175 = getelementptr inbounds nuw i8, ptr %2174, i64 16
+  %2176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3545 = load ptr, ptr %2176, align 8
   %2177 = load i8, ptr %2175, align 8
   %2178 = icmp eq i8 %2177, 1
-  %2179 = getelementptr inbounds i8, ptr %2174, i64 24
+  %2179 = getelementptr inbounds nuw i8, ptr %2174, i64 24
   br i1 %2178, label %2180, label %2190
 
 2180:                                             ; preds = %2172
@@ -6232,7 +6232,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2184 = getelementptr inbounds nuw i8, ptr %2182, i64 96
   %2185 = load ptr, ptr %2184, align 8
   %2186 = zext i32 %2183 to i64
-  %2187 = getelementptr inbounds i16, ptr %2185, i64 %2186
+  %2187 = getelementptr inbounds nuw i16, ptr %2185, i64 %2186
   %2188 = load i16, ptr %2187, align 2
   %2189 = zext i16 %2188 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4031
@@ -6246,10 +6246,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4031: ; preds = %2180, %2190
   %.0.i4030 = phi i64 [ %2189, %2180 ], [ %2192, %2190 ]
   %2193 = and i64 %.0.i4030, 3
-  %2194 = getelementptr inbounds i8, ptr %2174, i64 32
+  %2194 = getelementptr inbounds nuw i8, ptr %2174, i64 32
   %2195 = load i8, ptr %2194, align 8
   %2196 = icmp eq i8 %2195, 1
-  %2197 = getelementptr inbounds i8, ptr %2174, i64 40
+  %2197 = getelementptr inbounds nuw i8, ptr %2174, i64 40
   br i1 %2196, label %2198, label %2208
 
 2198:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4031
@@ -6259,7 +6259,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2202 = getelementptr inbounds nuw i8, ptr %2200, i64 96
   %2203 = load ptr, ptr %2202, align 8
   %2204 = zext i32 %2201 to i64
-  %2205 = getelementptr inbounds i16, ptr %2203, i64 %2204
+  %2205 = getelementptr inbounds nuw i16, ptr %2203, i64 %2204
   %2206 = load i16, ptr %2205, align 2
   %2207 = zext i16 %2206 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4033
@@ -6274,10 +6274,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4032 = phi i64 [ %2207, %2198 ], [ %2210, %2208 ]
   %2211 = shl i64 %.0.i4032, 13
   %2212 = and i64 %2211, 57344
-  %2213 = getelementptr inbounds i8, ptr %2174, i64 48
+  %2213 = getelementptr inbounds nuw i8, ptr %2174, i64 48
   %2214 = load i8, ptr %2213, align 8
   %2215 = icmp eq i8 %2214, 1
-  %2216 = getelementptr inbounds i8, ptr %2174, i64 56
+  %2216 = getelementptr inbounds nuw i8, ptr %2174, i64 56
   br i1 %2215, label %2217, label %2227
 
 2217:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4033
@@ -6287,7 +6287,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2221 = getelementptr inbounds nuw i8, ptr %2219, i64 96
   %2222 = load ptr, ptr %2221, align 8
   %2223 = zext i32 %2220 to i64
-  %2224 = getelementptr inbounds i16, ptr %2222, i64 %2223
+  %2224 = getelementptr inbounds nuw i16, ptr %2222, i64 %2223
   %2225 = load i16, ptr %2224, align 2
   %2226 = zext i16 %2225 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4035
@@ -6314,7 +6314,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2239 = getelementptr inbounds nuw i8, ptr %2237, i64 96
   %2240 = load ptr, ptr %2239, align 8
   %2241 = zext i32 %2238 to i64
-  %2242 = getelementptr inbounds i16, ptr %2240, i64 %2241
+  %2242 = getelementptr inbounds nuw i16, ptr %2240, i64 %2241
   %2243 = load i16, ptr %2242, align 2
   %2244 = zext i16 %2243 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4037
@@ -6338,12 +6338,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2254:                                             ; preds = %4
   %2255 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2256 = load ptr, ptr %2255, align 8
-  %2257 = getelementptr inbounds i8, ptr %2256, i64 16
-  %2258 = getelementptr inbounds i8, ptr %0, i64 8
+  %2257 = getelementptr inbounds nuw i8, ptr %2256, i64 16
+  %2258 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3549 = load ptr, ptr %2258, align 8
   %2259 = load i8, ptr %2257, align 8
   %2260 = icmp eq i8 %2259, 1
-  %2261 = getelementptr inbounds i8, ptr %2256, i64 24
+  %2261 = getelementptr inbounds nuw i8, ptr %2256, i64 24
   br i1 %2260, label %2262, label %2272
 
 2262:                                             ; preds = %2254
@@ -6353,7 +6353,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2266 = getelementptr inbounds nuw i8, ptr %2264, i64 96
   %2267 = load ptr, ptr %2266, align 8
   %2268 = zext i32 %2265 to i64
-  %2269 = getelementptr inbounds i16, ptr %2267, i64 %2268
+  %2269 = getelementptr inbounds nuw i16, ptr %2267, i64 %2268
   %2270 = load i16, ptr %2269, align 2
   %2271 = zext i16 %2270 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4039
@@ -6367,10 +6367,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4039: ; preds = %2262, %2272
   %.0.i4038 = phi i64 [ %2271, %2262 ], [ %2274, %2272 ]
   %2275 = and i64 %.0.i4038, 3
-  %2276 = getelementptr inbounds i8, ptr %2256, i64 32
+  %2276 = getelementptr inbounds nuw i8, ptr %2256, i64 32
   %2277 = load i8, ptr %2276, align 8
   %2278 = icmp eq i8 %2277, 1
-  %2279 = getelementptr inbounds i8, ptr %2256, i64 40
+  %2279 = getelementptr inbounds nuw i8, ptr %2256, i64 40
   br i1 %2278, label %2280, label %2290
 
 2280:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4039
@@ -6380,7 +6380,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2284 = getelementptr inbounds nuw i8, ptr %2282, i64 96
   %2285 = load ptr, ptr %2284, align 8
   %2286 = zext i32 %2283 to i64
-  %2287 = getelementptr inbounds i16, ptr %2285, i64 %2286
+  %2287 = getelementptr inbounds nuw i16, ptr %2285, i64 %2286
   %2288 = load i16, ptr %2287, align 2
   %2289 = zext i16 %2288 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4041
@@ -6395,10 +6395,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4040 = phi i64 [ %2289, %2280 ], [ %2292, %2290 ]
   %2293 = shl i64 %.0.i4040, 12
   %2294 = and i64 %2293, 61440
-  %2295 = getelementptr inbounds i8, ptr %2256, i64 48
+  %2295 = getelementptr inbounds nuw i8, ptr %2256, i64 48
   %2296 = load i8, ptr %2295, align 8
   %2297 = icmp eq i8 %2296, 1
-  %2298 = getelementptr inbounds i8, ptr %2256, i64 56
+  %2298 = getelementptr inbounds nuw i8, ptr %2256, i64 56
   br i1 %2297, label %2299, label %2309
 
 2299:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4041
@@ -6408,7 +6408,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2303 = getelementptr inbounds nuw i8, ptr %2301, i64 96
   %2304 = load ptr, ptr %2303, align 8
   %2305 = zext i32 %2302 to i64
-  %2306 = getelementptr inbounds i16, ptr %2304, i64 %2305
+  %2306 = getelementptr inbounds nuw i16, ptr %2304, i64 %2305
   %2307 = load i16, ptr %2306, align 2
   %2308 = zext i16 %2307 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4043
@@ -6435,7 +6435,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2321 = getelementptr inbounds nuw i8, ptr %2319, i64 96
   %2322 = load ptr, ptr %2321, align 8
   %2323 = zext i32 %2320 to i64
-  %2324 = getelementptr inbounds i16, ptr %2322, i64 %2323
+  %2324 = getelementptr inbounds nuw i16, ptr %2322, i64 %2323
   %2325 = load i16, ptr %2324, align 2
   %2326 = zext i16 %2325 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4045
@@ -6459,12 +6459,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2336:                                             ; preds = %4
   %2337 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2338 = load ptr, ptr %2337, align 8
-  %2339 = getelementptr inbounds i8, ptr %2338, i64 16
-  %2340 = getelementptr inbounds i8, ptr %0, i64 8
+  %2339 = getelementptr inbounds nuw i8, ptr %2338, i64 16
+  %2340 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3553 = load ptr, ptr %2340, align 8
   %2341 = load i8, ptr %2339, align 8
   %2342 = icmp eq i8 %2341, 1
-  %2343 = getelementptr inbounds i8, ptr %2338, i64 24
+  %2343 = getelementptr inbounds nuw i8, ptr %2338, i64 24
   br i1 %2342, label %2344, label %2354
 
 2344:                                             ; preds = %2336
@@ -6474,7 +6474,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2348 = getelementptr inbounds nuw i8, ptr %2346, i64 96
   %2349 = load ptr, ptr %2348, align 8
   %2350 = zext i32 %2347 to i64
-  %2351 = getelementptr inbounds i16, ptr %2349, i64 %2350
+  %2351 = getelementptr inbounds nuw i16, ptr %2349, i64 %2350
   %2352 = load i16, ptr %2351, align 2
   %2353 = zext i16 %2352 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4047
@@ -6488,10 +6488,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4047: ; preds = %2344, %2354
   %.0.i4046 = phi i64 [ %2353, %2344 ], [ %2356, %2354 ]
   %2357 = and i64 %.0.i4046, 3
-  %2358 = getelementptr inbounds i8, ptr %2338, i64 32
+  %2358 = getelementptr inbounds nuw i8, ptr %2338, i64 32
   %2359 = load i8, ptr %2358, align 8
   %2360 = icmp eq i8 %2359, 1
-  %2361 = getelementptr inbounds i8, ptr %2338, i64 40
+  %2361 = getelementptr inbounds nuw i8, ptr %2338, i64 40
   br i1 %2360, label %2362, label %2372
 
 2362:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4047
@@ -6501,7 +6501,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2366 = getelementptr inbounds nuw i8, ptr %2364, i64 96
   %2367 = load ptr, ptr %2366, align 8
   %2368 = zext i32 %2365 to i64
-  %2369 = getelementptr inbounds i16, ptr %2367, i64 %2368
+  %2369 = getelementptr inbounds nuw i16, ptr %2367, i64 %2368
   %2370 = load i16, ptr %2369, align 2
   %2371 = zext i16 %2370 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4049
@@ -6516,10 +6516,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4048 = phi i64 [ %2371, %2362 ], [ %2374, %2372 ]
   %2375 = shl i64 %.0.i4048, 10
   %2376 = and i64 %2375, 64512
-  %2377 = getelementptr inbounds i8, ptr %2338, i64 48
+  %2377 = getelementptr inbounds nuw i8, ptr %2338, i64 48
   %2378 = load i8, ptr %2377, align 8
   %2379 = icmp eq i8 %2378, 1
-  %2380 = getelementptr inbounds i8, ptr %2338, i64 56
+  %2380 = getelementptr inbounds nuw i8, ptr %2338, i64 56
   br i1 %2379, label %2381, label %2391
 
 2381:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4049
@@ -6529,7 +6529,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2385 = getelementptr inbounds nuw i8, ptr %2383, i64 96
   %2386 = load ptr, ptr %2385, align 8
   %2387 = zext i32 %2384 to i64
-  %2388 = getelementptr inbounds i16, ptr %2386, i64 %2387
+  %2388 = getelementptr inbounds nuw i16, ptr %2386, i64 %2387
   %2389 = load i16, ptr %2388, align 2
   %2390 = zext i16 %2389 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4051
@@ -6556,7 +6556,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2403 = getelementptr inbounds nuw i8, ptr %2401, i64 96
   %2404 = load ptr, ptr %2403, align 8
   %2405 = zext i32 %2402 to i64
-  %2406 = getelementptr inbounds i16, ptr %2404, i64 %2405
+  %2406 = getelementptr inbounds nuw i16, ptr %2404, i64 %2405
   %2407 = load i16, ptr %2406, align 2
   %2408 = zext i16 %2407 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4053
@@ -6571,10 +6571,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4052 = phi i64 [ %2408, %2399 ], [ %2411, %2409 ]
   %2412 = shl i64 %.0.i4052, 7
   %2413 = and i64 %2412, 896
-  %2414 = getelementptr inbounds i8, ptr %2338, i64 64
+  %2414 = getelementptr inbounds nuw i8, ptr %2338, i64 64
   %2415 = load i8, ptr %2414, align 8
   %2416 = icmp eq i8 %2415, 1
-  %2417 = getelementptr inbounds i8, ptr %2338, i64 72
+  %2417 = getelementptr inbounds nuw i8, ptr %2338, i64 72
   br i1 %2416, label %2418, label %2428
 
 2418:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4053
@@ -6584,7 +6584,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2422 = getelementptr inbounds nuw i8, ptr %2420, i64 96
   %2423 = load ptr, ptr %2422, align 8
   %2424 = zext i32 %2421 to i64
-  %2425 = getelementptr inbounds i16, ptr %2423, i64 %2424
+  %2425 = getelementptr inbounds nuw i16, ptr %2423, i64 %2424
   %2426 = load i16, ptr %2425, align 2
   %2427 = zext i16 %2426 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4055
@@ -6609,7 +6609,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2438:                                             ; preds = %4
   %2439 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2440 = load ptr, ptr %2439, align 8
-  %2441 = getelementptr inbounds i8, ptr %0, i64 8
+  %2441 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3558 = load ptr, ptr %2441, align 8
   %2442 = load i8, ptr %2440, align 8
   %2443 = icmp eq i8 %2442, 1
@@ -6623,7 +6623,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2449 = getelementptr inbounds nuw i8, ptr %2447, i64 96
   %2450 = load ptr, ptr %2449, align 8
   %2451 = zext i32 %2448 to i64
-  %2452 = getelementptr inbounds i16, ptr %2450, i64 %2451
+  %2452 = getelementptr inbounds nuw i16, ptr %2450, i64 %2451
   %2453 = load i16, ptr %2452, align 2
   %2454 = zext i16 %2453 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4057
@@ -6638,10 +6638,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4056 = phi i64 [ %2454, %2445 ], [ %2457, %2455 ]
   %2458 = shl i64 %.0.i4056, 24
   %2459 = and i64 %2458, 251658240
-  %2460 = getelementptr inbounds i8, ptr %2440, i64 16
+  %2460 = getelementptr inbounds nuw i8, ptr %2440, i64 16
   %2461 = load i8, ptr %2460, align 8
   %2462 = icmp eq i8 %2461, 1
-  %2463 = getelementptr inbounds i8, ptr %2440, i64 24
+  %2463 = getelementptr inbounds nuw i8, ptr %2440, i64 24
   br i1 %2462, label %2464, label %2474
 
 2464:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4057
@@ -6651,7 +6651,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2468 = getelementptr inbounds nuw i8, ptr %2466, i64 96
   %2469 = load ptr, ptr %2468, align 8
   %2470 = zext i32 %2467 to i64
-  %2471 = getelementptr inbounds i16, ptr %2469, i64 %2470
+  %2471 = getelementptr inbounds nuw i16, ptr %2469, i64 %2470
   %2472 = load i16, ptr %2471, align 2
   %2473 = zext i16 %2472 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4059
@@ -6679,7 +6679,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %2485, label %2487, label %2498
 
 2487:                                             ; preds = %2481
-  %2488 = getelementptr inbounds i8, ptr %0, i64 8
+  %2488 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3560 = load ptr, ptr %2488, align 8
   %2489 = getelementptr inbounds nuw i8, ptr %.val3560, i64 160
   %2490 = load ptr, ptr %2489, align 8
@@ -6687,7 +6687,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2492 = getelementptr inbounds nuw i8, ptr %2490, i64 96
   %2493 = load ptr, ptr %2492, align 8
   %2494 = zext i32 %2491 to i64
-  %2495 = getelementptr inbounds i16, ptr %2493, i64 %2494
+  %2495 = getelementptr inbounds nuw i16, ptr %2493, i64 %2494
   %2496 = load i16, ptr %2495, align 2
   %2497 = zext i16 %2496 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4061
@@ -6708,7 +6708,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2504:                                             ; preds = %4, %4, %4, %4, %4
   %2505 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2506 = load ptr, ptr %2505, align 8
-  %2507 = getelementptr inbounds i8, ptr %0, i64 8
+  %2507 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3561 = load ptr, ptr %2507, align 8
   %2508 = load i8, ptr %2506, align 8
   %2509 = icmp eq i8 %2508, 1
@@ -6722,7 +6722,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2515 = getelementptr inbounds nuw i8, ptr %2513, i64 96
   %2516 = load ptr, ptr %2515, align 8
   %2517 = zext i32 %2514 to i64
-  %2518 = getelementptr inbounds i16, ptr %2516, i64 %2517
+  %2518 = getelementptr inbounds nuw i16, ptr %2516, i64 %2517
   %2519 = load i16, ptr %2518, align 2
   %2520 = zext i16 %2519 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4063
@@ -6747,11 +6747,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2527 = getelementptr i8, ptr %2506, i64 40
   %.val3834.val3838 = load i32, ptr %2527, align 8
   %2528 = zext i32 %.val3834.val to i64
-  %2529 = getelementptr inbounds i16, ptr %.val3833.val.val, i64 %2528
+  %2529 = getelementptr inbounds nuw i16, ptr %.val3833.val.val, i64 %2528
   %2530 = load i16, ptr %2529, align 2
   %2531 = zext i16 %2530 to i64
   %2532 = zext i32 %.val3834.val3838 to i64
-  %2533 = getelementptr inbounds i16, ptr %.val3833.val.val, i64 %2532
+  %2533 = getelementptr inbounds nuw i16, ptr %.val3833.val.val, i64 %2532
   %2534 = load i16, ptr %2533, align 2
   %2535 = zext i16 %2534 to i64
   %2536 = shl nuw nsw i64 %2531, 20
@@ -6768,7 +6768,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2545:                                             ; preds = %4, %4, %4
   %2546 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2547 = load ptr, ptr %2546, align 8
-  %2548 = getelementptr inbounds i8, ptr %0, i64 8
+  %2548 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3562 = load ptr, ptr %2548, align 8
   %2549 = load i8, ptr %2547, align 8
   %2550 = icmp eq i8 %2549, 1
@@ -6782,7 +6782,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2556 = getelementptr inbounds nuw i8, ptr %2554, i64 96
   %2557 = load ptr, ptr %2556, align 8
   %2558 = zext i32 %2555 to i64
-  %2559 = getelementptr inbounds i16, ptr %2557, i64 %2558
+  %2559 = getelementptr inbounds nuw i16, ptr %2557, i64 %2558
   %2560 = load i16, ptr %2559, align 2
   %2561 = zext i16 %2560 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4065
@@ -6797,10 +6797,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4064 = phi i64 [ %2561, %2552 ], [ %2564, %2562 ]
   %2565 = shl i64 %.0.i4064, 7
   %2566 = and i64 %2565, 3968
-  %2567 = getelementptr inbounds i8, ptr %2547, i64 16
+  %2567 = getelementptr inbounds nuw i8, ptr %2547, i64 16
   %2568 = load i8, ptr %2567, align 8
   %2569 = icmp eq i8 %2568, 1
-  %2570 = getelementptr inbounds i8, ptr %2547, i64 24
+  %2570 = getelementptr inbounds nuw i8, ptr %2547, i64 24
   br i1 %2569, label %2571, label %2581
 
 2571:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4065
@@ -6810,7 +6810,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2575 = getelementptr inbounds nuw i8, ptr %2573, i64 96
   %2576 = load ptr, ptr %2575, align 8
   %2577 = zext i32 %2574 to i64
-  %2578 = getelementptr inbounds i16, ptr %2576, i64 %2577
+  %2578 = getelementptr inbounds nuw i16, ptr %2576, i64 %2577
   %2579 = load i16, ptr %2578, align 2
   %2580 = zext i16 %2579 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4067
@@ -6832,7 +6832,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2588:                                             ; preds = %4, %4
   %2589 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2590 = load ptr, ptr %2589, align 8
-  %2591 = getelementptr inbounds i8, ptr %0, i64 8
+  %2591 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3564 = load ptr, ptr %2591, align 8
   %2592 = load i8, ptr %2590, align 8
   %2593 = icmp eq i8 %2592, 1
@@ -6846,7 +6846,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2599 = getelementptr inbounds nuw i8, ptr %2597, i64 96
   %2600 = load ptr, ptr %2599, align 8
   %2601 = zext i32 %2598 to i64
-  %2602 = getelementptr inbounds i16, ptr %2600, i64 %2601
+  %2602 = getelementptr inbounds nuw i16, ptr %2600, i64 %2601
   %2603 = load i16, ptr %2602, align 2
   %2604 = zext i16 %2603 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4069
@@ -6861,10 +6861,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4068 = phi i64 [ %2604, %2595 ], [ %2607, %2605 ]
   %2608 = shl i64 %.0.i4068, 2
   %2609 = and i64 %2608, 28
-  %2610 = getelementptr inbounds i8, ptr %2590, i64 16
+  %2610 = getelementptr inbounds nuw i8, ptr %2590, i64 16
   %2611 = load i8, ptr %2610, align 8
   %2612 = icmp eq i8 %2611, 1
-  %2613 = getelementptr inbounds i8, ptr %2590, i64 24
+  %2613 = getelementptr inbounds nuw i8, ptr %2590, i64 24
   br i1 %2612, label %2614, label %2624
 
 2614:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4069
@@ -6874,7 +6874,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2618 = getelementptr inbounds nuw i8, ptr %2616, i64 96
   %2619 = load ptr, ptr %2618, align 8
   %2620 = zext i32 %2617 to i64
-  %2621 = getelementptr inbounds i16, ptr %2619, i64 %2620
+  %2621 = getelementptr inbounds nuw i16, ptr %2619, i64 %2620
   %2622 = load i16, ptr %2621, align 2
   %2623 = zext i16 %2622 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4071
@@ -6889,7 +6889,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4070 = phi i64 [ %2623, %2614 ], [ %2626, %2624 ]
   %2627 = shl i64 %.0.i4070, 7
   %2628 = and i64 %2627, 896
-  %2629 = getelementptr inbounds i8, ptr %3, i64 216
+  %2629 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3443 = load i64, ptr %2629, align 8
   %2630 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3443)
   %2631 = zext i32 %2630 to i64
@@ -6906,7 +6906,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2640:                                             ; preds = %4, %4
   %2641 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2642 = load ptr, ptr %2641, align 8
-  %2643 = getelementptr inbounds i8, ptr %0, i64 8
+  %2643 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3566 = load ptr, ptr %2643, align 8
   %2644 = load i8, ptr %2642, align 8
   %2645 = icmp eq i8 %2644, 1
@@ -6920,7 +6920,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2651 = getelementptr inbounds nuw i8, ptr %2649, i64 96
   %2652 = load ptr, ptr %2651, align 8
   %2653 = zext i32 %2650 to i64
-  %2654 = getelementptr inbounds i16, ptr %2652, i64 %2653
+  %2654 = getelementptr inbounds nuw i16, ptr %2652, i64 %2653
   %2655 = load i16, ptr %2654, align 2
   %2656 = zext i16 %2655 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4073
@@ -6935,10 +6935,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4072 = phi i64 [ %2656, %2647 ], [ %2659, %2657 ]
   %2660 = shl i64 %.0.i4072, 2
   %2661 = and i64 %2660, 28
-  %2662 = getelementptr inbounds i8, ptr %2642, i64 16
+  %2662 = getelementptr inbounds nuw i8, ptr %2642, i64 16
   %2663 = load i8, ptr %2662, align 8
   %2664 = icmp eq i8 %2663, 1
-  %2665 = getelementptr inbounds i8, ptr %2642, i64 24
+  %2665 = getelementptr inbounds nuw i8, ptr %2642, i64 24
   br i1 %2664, label %2666, label %2676
 
 2666:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4073
@@ -6948,7 +6948,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2670 = getelementptr inbounds nuw i8, ptr %2668, i64 96
   %2671 = load ptr, ptr %2670, align 8
   %2672 = zext i32 %2669 to i64
-  %2673 = getelementptr inbounds i16, ptr %2671, i64 %2672
+  %2673 = getelementptr inbounds nuw i16, ptr %2671, i64 %2672
   %2674 = load i16, ptr %2673, align 2
   %2675 = zext i16 %2674 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4075
@@ -6963,7 +6963,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4074 = phi i64 [ %2675, %2666 ], [ %2678, %2676 ]
   %2679 = shl i64 %.0.i4074, 7
   %2680 = and i64 %2679, 896
-  %2681 = getelementptr inbounds i8, ptr %3, i64 216
+  %2681 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3444 = load i64, ptr %2681, align 8
   %2682 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3444)
   %2683 = zext i32 %2682 to i64
@@ -6983,7 +6983,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2695:                                             ; preds = %4
   %2696 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2697 = load ptr, ptr %2696, align 8
-  %2698 = getelementptr inbounds i8, ptr %0, i64 8
+  %2698 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3568 = load ptr, ptr %2698, align 8
   %2699 = load i8, ptr %2697, align 8
   %2700 = icmp eq i8 %2699, 1
@@ -6997,7 +6997,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2706 = getelementptr inbounds nuw i8, ptr %2704, i64 96
   %2707 = load ptr, ptr %2706, align 8
   %2708 = zext i32 %2705 to i64
-  %2709 = getelementptr inbounds i16, ptr %2707, i64 %2708
+  %2709 = getelementptr inbounds nuw i16, ptr %2707, i64 %2708
   %2710 = load i16, ptr %2709, align 2
   %2711 = zext i16 %2710 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4077
@@ -7012,10 +7012,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4076 = phi i64 [ %2711, %2702 ], [ %2714, %2712 ]
   %2715 = shl i64 %.0.i4076, 2
   %2716 = and i64 %2715, 28
-  %2717 = getelementptr inbounds i8, ptr %2697, i64 16
+  %2717 = getelementptr inbounds nuw i8, ptr %2697, i64 16
   %2718 = load i8, ptr %2717, align 8
   %2719 = icmp eq i8 %2718, 1
-  %2720 = getelementptr inbounds i8, ptr %2697, i64 24
+  %2720 = getelementptr inbounds nuw i8, ptr %2697, i64 24
   br i1 %2719, label %2721, label %2731
 
 2721:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4077
@@ -7025,7 +7025,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2725 = getelementptr inbounds nuw i8, ptr %2723, i64 96
   %2726 = load ptr, ptr %2725, align 8
   %2727 = zext i32 %2724 to i64
-  %2728 = getelementptr inbounds i16, ptr %2726, i64 %2727
+  %2728 = getelementptr inbounds nuw i16, ptr %2726, i64 %2727
   %2729 = load i16, ptr %2728, align 2
   %2730 = zext i16 %2729 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4079
@@ -7040,7 +7040,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4078 = phi i64 [ %2730, %2721 ], [ %2733, %2731 ]
   %2734 = shl i64 %.0.i4078, 7
   %2735 = and i64 %2734, 896
-  %2736 = getelementptr inbounds i8, ptr %3, i64 216
+  %2736 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3445 = load i64, ptr %2736, align 8
   %2737 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3445)
   %2738 = zext i32 %2737 to i64
@@ -7057,7 +7057,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2747:                                             ; preds = %4, %4
   %2748 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2749 = load ptr, ptr %2748, align 8
-  %2750 = getelementptr inbounds i8, ptr %0, i64 8
+  %2750 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3570 = load ptr, ptr %2750, align 8
   %2751 = load i8, ptr %2749, align 8
   %2752 = icmp eq i8 %2751, 1
@@ -7071,7 +7071,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2758 = getelementptr inbounds nuw i8, ptr %2756, i64 96
   %2759 = load ptr, ptr %2758, align 8
   %2760 = zext i32 %2757 to i64
-  %2761 = getelementptr inbounds i16, ptr %2759, i64 %2760
+  %2761 = getelementptr inbounds nuw i16, ptr %2759, i64 %2760
   %2762 = load i16, ptr %2761, align 2
   %2763 = zext i16 %2762 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4081
@@ -7087,10 +7087,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4080 = phi i32 [ %2763, %2754 ], [ %2767, %2764 ]
   %2768 = shl i32 %.0.i4080, 2
   %2769 = and i32 %2768, 28
-  %2770 = getelementptr inbounds i8, ptr %2749, i64 16
+  %2770 = getelementptr inbounds nuw i8, ptr %2749, i64 16
   %2771 = load i8, ptr %2770, align 8
   %2772 = icmp eq i8 %2771, 1
-  %2773 = getelementptr inbounds i8, ptr %2749, i64 24
+  %2773 = getelementptr inbounds nuw i8, ptr %2749, i64 24
   br i1 %2772, label %2774, label %2784
 
 2774:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4081
@@ -7100,7 +7100,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2778 = getelementptr inbounds nuw i8, ptr %2776, i64 96
   %2779 = load ptr, ptr %2778, align 8
   %2780 = zext i32 %2777 to i64
-  %2781 = getelementptr inbounds i16, ptr %2779, i64 %2780
+  %2781 = getelementptr inbounds nuw i16, ptr %2779, i64 %2780
   %2782 = load i16, ptr %2781, align 2
   %2783 = zext i16 %2782 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4083
@@ -7117,7 +7117,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2788 = shl i32 %.0.i4082, 7
   %2789 = and i32 %2788, 896
   %2790 = or disjoint i32 %2789, %2769
-  %2791 = getelementptr inbounds i8, ptr %3, i64 216
+  %2791 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3446 = load i64, ptr %2791, align 8
   %2792 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3446)
   %2793 = shl i32 %2792, 4
@@ -7130,7 +7130,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2798:                                             ; preds = %4
   %2799 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2800 = load ptr, ptr %2799, align 8
-  %2801 = getelementptr inbounds i8, ptr %0, i64 8
+  %2801 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3572 = load ptr, ptr %2801, align 8
   %2802 = load i8, ptr %2800, align 8
   %2803 = icmp eq i8 %2802, 1
@@ -7144,7 +7144,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2809 = getelementptr inbounds nuw i8, ptr %2807, i64 96
   %2810 = load ptr, ptr %2809, align 8
   %2811 = zext i32 %2808 to i64
-  %2812 = getelementptr inbounds i16, ptr %2810, i64 %2811
+  %2812 = getelementptr inbounds nuw i16, ptr %2810, i64 %2811
   %2813 = load i16, ptr %2812, align 2
   %2814 = zext i16 %2813 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4085
@@ -7159,10 +7159,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4084 = phi i64 [ %2814, %2805 ], [ %2817, %2815 ]
   %2818 = shl i64 %.0.i4084, 2
   %2819 = and i64 %2818, 28
-  %2820 = getelementptr inbounds i8, ptr %2800, i64 16
+  %2820 = getelementptr inbounds nuw i8, ptr %2800, i64 16
   %2821 = load i8, ptr %2820, align 8
   %2822 = icmp eq i8 %2821, 1
-  %2823 = getelementptr inbounds i8, ptr %2800, i64 24
+  %2823 = getelementptr inbounds nuw i8, ptr %2800, i64 24
   br i1 %2822, label %2824, label %2834
 
 2824:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4085
@@ -7172,7 +7172,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2828 = getelementptr inbounds nuw i8, ptr %2826, i64 96
   %2829 = load ptr, ptr %2828, align 8
   %2830 = zext i32 %2827 to i64
-  %2831 = getelementptr inbounds i16, ptr %2829, i64 %2830
+  %2831 = getelementptr inbounds nuw i16, ptr %2829, i64 %2830
   %2832 = load i16, ptr %2831, align 2
   %2833 = zext i16 %2832 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4087
@@ -7187,10 +7187,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4086 = phi i64 [ %2833, %2824 ], [ %2836, %2834 ]
   %2837 = shl i64 %.0.i4086, 7
   %2838 = and i64 %2837, 896
-  %2839 = getelementptr inbounds i8, ptr %2800, i64 32
+  %2839 = getelementptr inbounds nuw i8, ptr %2800, i64 32
   %2840 = load i8, ptr %2839, align 8
   %2841 = icmp eq i8 %2840, 1
-  %2842 = getelementptr inbounds i8, ptr %2800, i64 40
+  %2842 = getelementptr inbounds nuw i8, ptr %2800, i64 40
   br i1 %2841, label %2843, label %2853
 
 2843:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4087
@@ -7200,7 +7200,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2847 = getelementptr inbounds nuw i8, ptr %2845, i64 96
   %2848 = load ptr, ptr %2847, align 8
   %2849 = zext i32 %2846 to i64
-  %2850 = getelementptr inbounds i16, ptr %2848, i64 %2849
+  %2850 = getelementptr inbounds nuw i16, ptr %2848, i64 %2849
   %2851 = load i16, ptr %2850, align 2
   %2852 = zext i16 %2851 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4089
@@ -7230,7 +7230,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2868:                                             ; preds = %4
   %2869 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2870 = load ptr, ptr %2869, align 8
-  %2871 = getelementptr inbounds i8, ptr %0, i64 8
+  %2871 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3575 = load ptr, ptr %2871, align 8
   %2872 = load i8, ptr %2870, align 8
   %2873 = icmp eq i8 %2872, 1
@@ -7244,7 +7244,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2879 = getelementptr inbounds nuw i8, ptr %2877, i64 96
   %2880 = load ptr, ptr %2879, align 8
   %2881 = zext i32 %2878 to i64
-  %2882 = getelementptr inbounds i16, ptr %2880, i64 %2881
+  %2882 = getelementptr inbounds nuw i16, ptr %2880, i64 %2881
   %2883 = load i16, ptr %2882, align 2
   %2884 = zext i16 %2883 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4091
@@ -7259,10 +7259,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4090 = phi i64 [ %2884, %2875 ], [ %2887, %2885 ]
   %2888 = shl i64 %.0.i4090, 2
   %2889 = and i64 %2888, 28
-  %2890 = getelementptr inbounds i8, ptr %2870, i64 16
+  %2890 = getelementptr inbounds nuw i8, ptr %2870, i64 16
   %2891 = load i8, ptr %2890, align 8
   %2892 = icmp eq i8 %2891, 1
-  %2893 = getelementptr inbounds i8, ptr %2870, i64 24
+  %2893 = getelementptr inbounds nuw i8, ptr %2870, i64 24
   br i1 %2892, label %2894, label %2904
 
 2894:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4091
@@ -7272,7 +7272,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2898 = getelementptr inbounds nuw i8, ptr %2896, i64 96
   %2899 = load ptr, ptr %2898, align 8
   %2900 = zext i32 %2897 to i64
-  %2901 = getelementptr inbounds i16, ptr %2899, i64 %2900
+  %2901 = getelementptr inbounds nuw i16, ptr %2899, i64 %2900
   %2902 = load i16, ptr %2901, align 2
   %2903 = zext i16 %2902 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4093
@@ -7287,10 +7287,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4092 = phi i64 [ %2903, %2894 ], [ %2906, %2904 ]
   %2907 = shl i64 %.0.i4092, 7
   %2908 = and i64 %2907, 896
-  %2909 = getelementptr inbounds i8, ptr %2870, i64 32
+  %2909 = getelementptr inbounds nuw i8, ptr %2870, i64 32
   %2910 = load i8, ptr %2909, align 8
   %2911 = icmp eq i8 %2910, 1
-  %2912 = getelementptr inbounds i8, ptr %2870, i64 40
+  %2912 = getelementptr inbounds nuw i8, ptr %2870, i64 40
   br i1 %2911, label %2913, label %2923
 
 2913:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4093
@@ -7300,7 +7300,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2917 = getelementptr inbounds nuw i8, ptr %2915, i64 96
   %2918 = load ptr, ptr %2917, align 8
   %2919 = zext i32 %2916 to i64
-  %2920 = getelementptr inbounds i16, ptr %2918, i64 %2919
+  %2920 = getelementptr inbounds nuw i16, ptr %2918, i64 %2919
   %2921 = load i16, ptr %2920, align 2
   %2922 = zext i16 %2921 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4095
@@ -7327,14 +7327,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2935:                                             ; preds = %4, %4
   %2936 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2937 = load ptr, ptr %2936, align 8
-  %2938 = getelementptr inbounds i8, ptr %2937, i64 16
+  %2938 = getelementptr inbounds nuw i8, ptr %2937, i64 16
   %2939 = load i8, ptr %2938, align 8
   %2940 = icmp eq i8 %2939, 1
-  %2941 = getelementptr inbounds i8, ptr %2937, i64 24
+  %2941 = getelementptr inbounds nuw i8, ptr %2937, i64 24
   br i1 %2940, label %2942, label %2953
 
 2942:                                             ; preds = %2935
-  %2943 = getelementptr inbounds i8, ptr %0, i64 8
+  %2943 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3578 = load ptr, ptr %2943, align 8
   %2944 = getelementptr inbounds nuw i8, ptr %.val3578, i64 160
   %2945 = load ptr, ptr %2944, align 8
@@ -7342,7 +7342,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2947 = getelementptr inbounds nuw i8, ptr %2945, i64 96
   %2948 = load ptr, ptr %2947, align 8
   %2949 = zext i32 %2946 to i64
-  %2950 = getelementptr inbounds i16, ptr %2948, i64 %2949
+  %2950 = getelementptr inbounds nuw i16, ptr %2948, i64 %2949
   %2951 = load i16, ptr %2950, align 2
   %2952 = zext i16 %2951 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4097
@@ -7363,14 +7363,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 2959:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %2960 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2961 = load ptr, ptr %2960, align 8
-  %2962 = getelementptr inbounds i8, ptr %2961, i64 16
+  %2962 = getelementptr inbounds nuw i8, ptr %2961, i64 16
   %2963 = load i8, ptr %2962, align 8
   %2964 = icmp eq i8 %2963, 1
-  %2965 = getelementptr inbounds i8, ptr %2961, i64 24
+  %2965 = getelementptr inbounds nuw i8, ptr %2961, i64 24
   br i1 %2964, label %2966, label %2977
 
 2966:                                             ; preds = %2959
-  %2967 = getelementptr inbounds i8, ptr %0, i64 8
+  %2967 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3579 = load ptr, ptr %2967, align 8
   %2968 = getelementptr inbounds nuw i8, ptr %.val3579, i64 160
   %2969 = load ptr, ptr %2968, align 8
@@ -7378,7 +7378,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2971 = getelementptr inbounds nuw i8, ptr %2969, i64 96
   %2972 = load ptr, ptr %2971, align 8
   %2973 = zext i32 %2970 to i64
-  %2974 = getelementptr inbounds i16, ptr %2972, i64 %2973
+  %2974 = getelementptr inbounds nuw i16, ptr %2972, i64 %2973
   %2975 = load i16, ptr %2974, align 2
   %2976 = zext i16 %2975 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4099
@@ -7405,7 +7405,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %2987, label %2989, label %3000
 
 2989:                                             ; preds = %2983
-  %2990 = getelementptr inbounds i8, ptr %0, i64 8
+  %2990 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3580 = load ptr, ptr %2990, align 8
   %2991 = getelementptr inbounds nuw i8, ptr %.val3580, i64 160
   %2992 = load ptr, ptr %2991, align 8
@@ -7413,7 +7413,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %2994 = getelementptr inbounds nuw i8, ptr %2992, i64 96
   %2995 = load ptr, ptr %2994, align 8
   %2996 = zext i32 %2993 to i64
-  %2997 = getelementptr inbounds i16, ptr %2995, i64 %2996
+  %2997 = getelementptr inbounds nuw i16, ptr %2995, i64 %2996
   %2998 = load i16, ptr %2997, align 2
   %2999 = zext i16 %2998 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4101
@@ -7428,7 +7428,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4100 = phi i64 [ %2999, %2989 ], [ %3002, %3000 ]
   %3003 = shl i64 %.0.i4100, 2
   %3004 = and i64 %3003, 28
-  %3005 = getelementptr inbounds i8, ptr %3, i64 216
+  %3005 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3447 = load i64, ptr %3005, align 8
   %3006 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3447)
   %3007 = zext i32 %3006 to i64
@@ -7444,7 +7444,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3015:                                             ; preds = %4, %4
   %3016 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3017 = load ptr, ptr %3016, align 8
-  %3018 = getelementptr inbounds i8, ptr %0, i64 8
+  %3018 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3581 = load ptr, ptr %3018, align 8
   %3019 = load i8, ptr %3017, align 8
   %3020 = icmp eq i8 %3019, 1
@@ -7458,7 +7458,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3026 = getelementptr inbounds nuw i8, ptr %3024, i64 96
   %3027 = load ptr, ptr %3026, align 8
   %3028 = zext i32 %3025 to i64
-  %3029 = getelementptr inbounds i16, ptr %3027, i64 %3028
+  %3029 = getelementptr inbounds nuw i16, ptr %3027, i64 %3028
   %3030 = load i16, ptr %3029, align 2
   %3031 = zext i16 %3030 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4103
@@ -7473,10 +7473,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4102 = phi i64 [ %3031, %3022 ], [ %3034, %3032 ]
   %3035 = shl i64 %.0.i4102, 2
   %3036 = and i64 %3035, 28
-  %3037 = getelementptr inbounds i8, ptr %3017, i64 32
+  %3037 = getelementptr inbounds nuw i8, ptr %3017, i64 32
   %3038 = load i8, ptr %3037, align 8
   %3039 = icmp eq i8 %3038, 1
-  %3040 = getelementptr inbounds i8, ptr %3017, i64 40
+  %3040 = getelementptr inbounds nuw i8, ptr %3017, i64 40
   br i1 %3039, label %3041, label %3051
 
 3041:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4103
@@ -7486,7 +7486,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3045 = getelementptr inbounds nuw i8, ptr %3043, i64 96
   %3046 = load ptr, ptr %3045, align 8
   %3047 = zext i32 %3044 to i64
-  %3048 = getelementptr inbounds i16, ptr %3046, i64 %3047
+  %3048 = getelementptr inbounds nuw i16, ptr %3046, i64 %3047
   %3049 = load i16, ptr %3048, align 2
   %3050 = zext i16 %3049 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4105
@@ -7506,20 +7506,20 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br label %8399
 
 3058:                                             ; preds = %4, %4, %4, %4
-  %3059 = getelementptr inbounds i8, ptr %1, i64 16
+  %3059 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val3839 = load ptr, ptr %3059, align 8
   %3060 = getelementptr i8, ptr %.val3839, i64 8
   %.val3839.val = load i64, ptr %3060, align 8
   %3061 = shl i64 %.val3839.val, 4
   %3062 = and i64 %3061, 240
-  %3063 = getelementptr inbounds i8, ptr %.val3839, i64 16
+  %3063 = getelementptr inbounds nuw i8, ptr %.val3839, i64 16
   %3064 = load i8, ptr %3063, align 8
   %3065 = icmp eq i8 %3064, 1
-  %3066 = getelementptr inbounds i8, ptr %.val3839, i64 24
+  %3066 = getelementptr inbounds nuw i8, ptr %.val3839, i64 24
   br i1 %3065, label %3067, label %3078
 
 3067:                                             ; preds = %3058
-  %3068 = getelementptr inbounds i8, ptr %0, i64 8
+  %3068 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3583 = load ptr, ptr %3068, align 8
   %3069 = getelementptr inbounds nuw i8, ptr %.val3583, i64 160
   %3070 = load ptr, ptr %3069, align 8
@@ -7527,7 +7527,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3072 = getelementptr inbounds nuw i8, ptr %3070, i64 96
   %3073 = load ptr, ptr %3072, align 8
   %3074 = zext i32 %3071 to i64
-  %3075 = getelementptr inbounds i16, ptr %3073, i64 %3074
+  %3075 = getelementptr inbounds nuw i16, ptr %3073, i64 %3074
   %3076 = load i16, ptr %3075, align 2
   %3077 = zext i16 %3076 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4107
@@ -7555,7 +7555,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %3089, label %3091, label %3102
 
 3091:                                             ; preds = %3085
-  %3092 = getelementptr inbounds i8, ptr %0, i64 8
+  %3092 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3584 = load ptr, ptr %3092, align 8
   %3093 = getelementptr inbounds nuw i8, ptr %.val3584, i64 160
   %3094 = load ptr, ptr %3093, align 8
@@ -7563,7 +7563,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3096 = getelementptr inbounds nuw i8, ptr %3094, i64 96
   %3097 = load ptr, ptr %3096, align 8
   %3098 = zext i32 %3095 to i64
-  %3099 = getelementptr inbounds i16, ptr %3097, i64 %3098
+  %3099 = getelementptr inbounds nuw i16, ptr %3097, i64 %3098
   %3100 = load i16, ptr %3099, align 2
   %3101 = zext i16 %3100 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4109
@@ -7590,7 +7590,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %3112, label %3114, label %3125
 
 3114:                                             ; preds = %3108
-  %3115 = getelementptr inbounds i8, ptr %0, i64 8
+  %3115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3585 = load ptr, ptr %3115, align 8
   %3116 = getelementptr inbounds nuw i8, ptr %.val3585, i64 160
   %3117 = load ptr, ptr %3116, align 8
@@ -7598,7 +7598,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3119 = getelementptr inbounds nuw i8, ptr %3117, i64 96
   %3120 = load ptr, ptr %3119, align 8
   %3121 = zext i32 %3118 to i64
-  %3122 = getelementptr inbounds i16, ptr %3120, i64 %3121
+  %3122 = getelementptr inbounds nuw i16, ptr %3120, i64 %3121
   %3123 = load i16, ptr %3122, align 2
   %3124 = zext i16 %3123 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4111
@@ -7619,7 +7619,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3131:                                             ; preds = %4
   %3132 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3133 = load ptr, ptr %3132, align 8
-  %3134 = getelementptr inbounds i8, ptr %0, i64 8
+  %3134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3586 = load ptr, ptr %3134, align 8
   %3135 = load i8, ptr %3133, align 8
   %3136 = icmp eq i8 %3135, 1
@@ -7633,7 +7633,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3142 = getelementptr inbounds nuw i8, ptr %3140, i64 96
   %3143 = load ptr, ptr %3142, align 8
   %3144 = zext i32 %3141 to i64
-  %3145 = getelementptr inbounds i16, ptr %3143, i64 %3144
+  %3145 = getelementptr inbounds nuw i16, ptr %3143, i64 %3144
   %3146 = load i16, ptr %3145, align 2
   %3147 = zext i16 %3146 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4113
@@ -7648,10 +7648,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4112 = phi i64 [ %3147, %3138 ], [ %3150, %3148 ]
   %3151 = shl i64 %.0.i4112, 7
   %3152 = and i64 %3151, 3968
-  %3153 = getelementptr inbounds i8, ptr %3133, i64 16
+  %3153 = getelementptr inbounds nuw i8, ptr %3133, i64 16
   %3154 = load i8, ptr %3153, align 8
   %3155 = icmp eq i8 %3154, 1
-  %3156 = getelementptr inbounds i8, ptr %3133, i64 24
+  %3156 = getelementptr inbounds nuw i8, ptr %3133, i64 24
   br i1 %3155, label %3157, label %3167
 
 3157:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4113
@@ -7661,7 +7661,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3161 = getelementptr inbounds nuw i8, ptr %3159, i64 96
   %3162 = load ptr, ptr %3161, align 8
   %3163 = zext i32 %3160 to i64
-  %3164 = getelementptr inbounds i16, ptr %3162, i64 %3163
+  %3164 = getelementptr inbounds nuw i16, ptr %3162, i64 %3163
   %3165 = load i16, ptr %3164, align 2
   %3166 = zext i16 %3165 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4115
@@ -7683,12 +7683,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3174:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3175 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3176 = load ptr, ptr %3175, align 8
-  %3177 = getelementptr inbounds i8, ptr %3176, i64 16
-  %3178 = getelementptr inbounds i8, ptr %0, i64 8
+  %3177 = getelementptr inbounds nuw i8, ptr %3176, i64 16
+  %3178 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3588 = load ptr, ptr %3178, align 8
   %3179 = load i8, ptr %3177, align 8
   %3180 = icmp eq i8 %3179, 1
-  %3181 = getelementptr inbounds i8, ptr %3176, i64 24
+  %3181 = getelementptr inbounds nuw i8, ptr %3176, i64 24
   br i1 %3180, label %3182, label %3192
 
 3182:                                             ; preds = %3174
@@ -7698,7 +7698,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3186 = getelementptr inbounds nuw i8, ptr %3184, i64 96
   %3187 = load ptr, ptr %3186, align 8
   %3188 = zext i32 %3185 to i64
-  %3189 = getelementptr inbounds i16, ptr %3187, i64 %3188
+  %3189 = getelementptr inbounds nuw i16, ptr %3187, i64 %3188
   %3190 = load i16, ptr %3189, align 2
   %3191 = zext i16 %3190 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4117
@@ -7713,10 +7713,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4116 = phi i64 [ %3191, %3182 ], [ %3194, %3192 ]
   %3195 = shl i64 %.0.i4116, 15
   %3196 = and i64 %3195, 1015808
-  %3197 = getelementptr inbounds i8, ptr %3176, i64 32
+  %3197 = getelementptr inbounds nuw i8, ptr %3176, i64 32
   %3198 = load i8, ptr %3197, align 8
   %3199 = icmp eq i8 %3198, 1
-  %3200 = getelementptr inbounds i8, ptr %3176, i64 40
+  %3200 = getelementptr inbounds nuw i8, ptr %3176, i64 40
   br i1 %3199, label %3201, label %3211
 
 3201:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4117
@@ -7726,7 +7726,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3205 = getelementptr inbounds nuw i8, ptr %3203, i64 96
   %3206 = load ptr, ptr %3205, align 8
   %3207 = zext i32 %3204 to i64
-  %3208 = getelementptr inbounds i16, ptr %3206, i64 %3207
+  %3208 = getelementptr inbounds nuw i16, ptr %3206, i64 %3207
   %3209 = load i16, ptr %3208, align 2
   %3210 = zext i16 %3209 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4119
@@ -7753,7 +7753,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3223 = getelementptr inbounds nuw i8, ptr %3221, i64 96
   %3224 = load ptr, ptr %3223, align 8
   %3225 = zext i32 %3222 to i64
-  %3226 = getelementptr inbounds i16, ptr %3224, i64 %3225
+  %3226 = getelementptr inbounds nuw i16, ptr %3224, i64 %3225
   %3227 = load i16, ptr %3226, align 2
   %3228 = zext i16 %3227 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4121
@@ -7776,12 +7776,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3237:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3238 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3239 = load ptr, ptr %3238, align 8
-  %3240 = getelementptr inbounds i8, ptr %3239, i64 16
-  %3241 = getelementptr inbounds i8, ptr %0, i64 8
+  %3240 = getelementptr inbounds nuw i8, ptr %3239, i64 16
+  %3241 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3591 = load ptr, ptr %3241, align 8
   %3242 = load i8, ptr %3240, align 8
   %3243 = icmp eq i8 %3242, 1
-  %3244 = getelementptr inbounds i8, ptr %3239, i64 24
+  %3244 = getelementptr inbounds nuw i8, ptr %3239, i64 24
   br i1 %3243, label %3245, label %3255
 
 3245:                                             ; preds = %3237
@@ -7791,7 +7791,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3249 = getelementptr inbounds nuw i8, ptr %3247, i64 96
   %3250 = load ptr, ptr %3249, align 8
   %3251 = zext i32 %3248 to i64
-  %3252 = getelementptr inbounds i16, ptr %3250, i64 %3251
+  %3252 = getelementptr inbounds nuw i16, ptr %3250, i64 %3251
   %3253 = load i16, ptr %3252, align 2
   %3254 = zext i16 %3253 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4123
@@ -7818,7 +7818,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3267 = getelementptr inbounds nuw i8, ptr %3265, i64 96
   %3268 = load ptr, ptr %3267, align 8
   %3269 = zext i32 %3266 to i64
-  %3270 = getelementptr inbounds i16, ptr %3268, i64 %3269
+  %3270 = getelementptr inbounds nuw i16, ptr %3268, i64 %3269
   %3271 = load i16, ptr %3270, align 2
   %3272 = zext i16 %3271 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4125
@@ -7840,12 +7840,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3280:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3281 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3282 = load ptr, ptr %3281, align 8
-  %3283 = getelementptr inbounds i8, ptr %3282, i64 16
-  %3284 = getelementptr inbounds i8, ptr %0, i64 8
+  %3283 = getelementptr inbounds nuw i8, ptr %3282, i64 16
+  %3284 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3593 = load ptr, ptr %3284, align 8
   %3285 = load i8, ptr %3283, align 8
   %3286 = icmp eq i8 %3285, 1
-  %3287 = getelementptr inbounds i8, ptr %3282, i64 24
+  %3287 = getelementptr inbounds nuw i8, ptr %3282, i64 24
   br i1 %3286, label %3288, label %3298
 
 3288:                                             ; preds = %3280
@@ -7855,7 +7855,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3292 = getelementptr inbounds nuw i8, ptr %3290, i64 96
   %3293 = load ptr, ptr %3292, align 8
   %3294 = zext i32 %3291 to i64
-  %3295 = getelementptr inbounds i16, ptr %3293, i64 %3294
+  %3295 = getelementptr inbounds nuw i16, ptr %3293, i64 %3294
   %3296 = load i16, ptr %3295, align 2
   %3297 = zext i16 %3296 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4127
@@ -7883,7 +7883,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3311 = getelementptr inbounds nuw i8, ptr %3309, i64 96
   %3312 = load ptr, ptr %3311, align 8
   %3313 = zext i32 %3310 to i64
-  %3314 = getelementptr inbounds i16, ptr %3312, i64 %3313
+  %3314 = getelementptr inbounds nuw i16, ptr %3312, i64 %3313
   %3315 = load i16, ptr %3314, align 2
   %3316 = zext i16 %3315 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4129
@@ -7900,7 +7900,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3321 = shl i32 %.0.i4128, 7
   %3322 = and i32 %3321, 3968
   %3323 = or disjoint i32 %3303, %3322
-  %3324 = getelementptr inbounds i8, ptr %3, i64 216
+  %3324 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3448 = load i64, ptr %3324, align 8
   %3325 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3448)
   %3326 = shl i32 %3325, 20
@@ -7912,12 +7912,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3330:                                             ; preds = %4, %4
   %3331 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3332 = load ptr, ptr %3331, align 8
-  %3333 = getelementptr inbounds i8, ptr %3332, i64 16
-  %3334 = getelementptr inbounds i8, ptr %0, i64 8
+  %3333 = getelementptr inbounds nuw i8, ptr %3332, i64 16
+  %3334 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3595 = load ptr, ptr %3334, align 8
   %3335 = load i8, ptr %3333, align 8
   %3336 = icmp eq i8 %3335, 1
-  %3337 = getelementptr inbounds i8, ptr %3332, i64 24
+  %3337 = getelementptr inbounds nuw i8, ptr %3332, i64 24
   br i1 %3336, label %3338, label %3348
 
 3338:                                             ; preds = %3330
@@ -7927,7 +7927,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3342 = getelementptr inbounds nuw i8, ptr %3340, i64 96
   %3343 = load ptr, ptr %3342, align 8
   %3344 = zext i32 %3341 to i64
-  %3345 = getelementptr inbounds i16, ptr %3343, i64 %3344
+  %3345 = getelementptr inbounds nuw i16, ptr %3343, i64 %3344
   %3346 = load i16, ptr %3345, align 2
   %3347 = zext i16 %3346 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4131
@@ -7954,7 +7954,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3360 = getelementptr inbounds nuw i8, ptr %3358, i64 96
   %3361 = load ptr, ptr %3360, align 8
   %3362 = zext i32 %3359 to i64
-  %3363 = getelementptr inbounds i16, ptr %3361, i64 %3362
+  %3363 = getelementptr inbounds nuw i16, ptr %3361, i64 %3362
   %3364 = load i16, ptr %3363, align 2
   %3365 = zext i16 %3364 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4133
@@ -7969,10 +7969,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4132 = phi i64 [ %3365, %3356 ], [ %3368, %3366 ]
   %3369 = shl i64 %.0.i4132, 7
   %3370 = and i64 %3369, 3968
-  %3371 = getelementptr inbounds i8, ptr %3332, i64 32
+  %3371 = getelementptr inbounds nuw i8, ptr %3332, i64 32
   %3372 = load i8, ptr %3371, align 8
   %3373 = icmp eq i8 %3372, 1
-  %3374 = getelementptr inbounds i8, ptr %3332, i64 40
+  %3374 = getelementptr inbounds nuw i8, ptr %3332, i64 40
   br i1 %3373, label %3375, label %3385
 
 3375:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4133
@@ -7982,7 +7982,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3379 = getelementptr inbounds nuw i8, ptr %3377, i64 96
   %3380 = load ptr, ptr %3379, align 8
   %3381 = zext i32 %3378 to i64
-  %3382 = getelementptr inbounds i16, ptr %3380, i64 %3381
+  %3382 = getelementptr inbounds nuw i16, ptr %3380, i64 %3381
   %3383 = load i16, ptr %3382, align 2
   %3384 = zext i16 %3383 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4135
@@ -8005,12 +8005,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3393:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3394 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3395 = load ptr, ptr %3394, align 8
-  %3396 = getelementptr inbounds i8, ptr %3395, i64 16
-  %3397 = getelementptr inbounds i8, ptr %0, i64 8
+  %3396 = getelementptr inbounds nuw i8, ptr %3395, i64 16
+  %3397 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3598 = load ptr, ptr %3397, align 8
   %3398 = load i8, ptr %3396, align 8
   %3399 = icmp eq i8 %3398, 1
-  %3400 = getelementptr inbounds i8, ptr %3395, i64 24
+  %3400 = getelementptr inbounds nuw i8, ptr %3395, i64 24
   br i1 %3399, label %3401, label %3411
 
 3401:                                             ; preds = %3393
@@ -8020,7 +8020,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3405 = getelementptr inbounds nuw i8, ptr %3403, i64 96
   %3406 = load ptr, ptr %3405, align 8
   %3407 = zext i32 %3404 to i64
-  %3408 = getelementptr inbounds i16, ptr %3406, i64 %3407
+  %3408 = getelementptr inbounds nuw i16, ptr %3406, i64 %3407
   %3409 = load i16, ptr %3408, align 2
   %3410 = zext i16 %3409 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4137
@@ -8047,7 +8047,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3423 = getelementptr inbounds nuw i8, ptr %3421, i64 96
   %3424 = load ptr, ptr %3423, align 8
   %3425 = zext i32 %3422 to i64
-  %3426 = getelementptr inbounds i16, ptr %3424, i64 %3425
+  %3426 = getelementptr inbounds nuw i16, ptr %3424, i64 %3425
   %3427 = load i16, ptr %3426, align 2
   %3428 = zext i16 %3427 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4139
@@ -8062,7 +8062,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4138 = phi i64 [ %3428, %3419 ], [ %3431, %3429 ]
   %3432 = shl i64 %.0.i4138, 7
   %3433 = and i64 %3432, 3968
-  %3434 = getelementptr inbounds i8, ptr %3, i64 216
+  %3434 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3449 = load i64, ptr %3434, align 8
   %3435 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3449)
   %3436 = zext i32 %3435 to i64
@@ -8079,12 +8079,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3445:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3446 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3447 = load ptr, ptr %3446, align 8
-  %3448 = getelementptr inbounds i8, ptr %3447, i64 16
-  %3449 = getelementptr inbounds i8, ptr %0, i64 8
+  %3448 = getelementptr inbounds nuw i8, ptr %3447, i64 16
+  %3449 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3600 = load ptr, ptr %3449, align 8
   %3450 = load i8, ptr %3448, align 8
   %3451 = icmp eq i8 %3450, 1
-  %3452 = getelementptr inbounds i8, ptr %3447, i64 24
+  %3452 = getelementptr inbounds nuw i8, ptr %3447, i64 24
   br i1 %3451, label %3453, label %3463
 
 3453:                                             ; preds = %3445
@@ -8094,7 +8094,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3457 = getelementptr inbounds nuw i8, ptr %3455, i64 96
   %3458 = load ptr, ptr %3457, align 8
   %3459 = zext i32 %3456 to i64
-  %3460 = getelementptr inbounds i16, ptr %3458, i64 %3459
+  %3460 = getelementptr inbounds nuw i16, ptr %3458, i64 %3459
   %3461 = load i16, ptr %3460, align 2
   %3462 = zext i16 %3461 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4141
@@ -8121,7 +8121,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3475 = getelementptr inbounds nuw i8, ptr %3473, i64 96
   %3476 = load ptr, ptr %3475, align 8
   %3477 = zext i32 %3474 to i64
-  %3478 = getelementptr inbounds i16, ptr %3476, i64 %3477
+  %3478 = getelementptr inbounds nuw i16, ptr %3476, i64 %3477
   %3479 = load i16, ptr %3478, align 2
   %3480 = zext i16 %3479 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4143
@@ -8136,10 +8136,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4142 = phi i64 [ %3480, %3471 ], [ %3483, %3481 ]
   %3484 = shl i64 %.0.i4142, 7
   %3485 = and i64 %3484, 3968
-  %3486 = getelementptr inbounds i8, ptr %3447, i64 32
+  %3486 = getelementptr inbounds nuw i8, ptr %3447, i64 32
   %3487 = load i8, ptr %3486, align 8
   %3488 = icmp eq i8 %3487, 1
-  %3489 = getelementptr inbounds i8, ptr %3447, i64 40
+  %3489 = getelementptr inbounds nuw i8, ptr %3447, i64 40
   br i1 %3488, label %3490, label %3500
 
 3490:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4143
@@ -8149,7 +8149,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3494 = getelementptr inbounds nuw i8, ptr %3492, i64 96
   %3495 = load ptr, ptr %3494, align 8
   %3496 = zext i32 %3493 to i64
-  %3497 = getelementptr inbounds i16, ptr %3495, i64 %3496
+  %3497 = getelementptr inbounds nuw i16, ptr %3495, i64 %3496
   %3498 = load i16, ptr %3497, align 2
   %3499 = zext i16 %3498 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4145
@@ -8176,12 +8176,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3512:                                             ; preds = %4, %4, %4, %4, %4
   %3513 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3514 = load ptr, ptr %3513, align 8
-  %3515 = getelementptr inbounds i8, ptr %3514, i64 16
-  %3516 = getelementptr inbounds i8, ptr %0, i64 8
+  %3515 = getelementptr inbounds nuw i8, ptr %3514, i64 16
+  %3516 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3603 = load ptr, ptr %3516, align 8
   %3517 = load i8, ptr %3515, align 8
   %3518 = icmp eq i8 %3517, 1
-  %3519 = getelementptr inbounds i8, ptr %3514, i64 24
+  %3519 = getelementptr inbounds nuw i8, ptr %3514, i64 24
   br i1 %3518, label %3520, label %3530
 
 3520:                                             ; preds = %3512
@@ -8191,7 +8191,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3524 = getelementptr inbounds nuw i8, ptr %3522, i64 96
   %3525 = load ptr, ptr %3524, align 8
   %3526 = zext i32 %3523 to i64
-  %3527 = getelementptr inbounds i16, ptr %3525, i64 %3526
+  %3527 = getelementptr inbounds nuw i16, ptr %3525, i64 %3526
   %3528 = load i16, ptr %3527, align 2
   %3529 = zext i16 %3528 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4147
@@ -8218,7 +8218,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3542 = getelementptr inbounds nuw i8, ptr %3540, i64 96
   %3543 = load ptr, ptr %3542, align 8
   %3544 = zext i32 %3541 to i64
-  %3545 = getelementptr inbounds i16, ptr %3543, i64 %3544
+  %3545 = getelementptr inbounds nuw i16, ptr %3543, i64 %3544
   %3546 = load i16, ptr %3545, align 2
   %3547 = zext i16 %3546 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4149
@@ -8233,10 +8233,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4148 = phi i64 [ %3547, %3538 ], [ %3550, %3548 ]
   %3551 = shl i64 %.0.i4148, 7
   %3552 = and i64 %3551, 3968
-  %3553 = getelementptr inbounds i8, ptr %3514, i64 32
+  %3553 = getelementptr inbounds nuw i8, ptr %3514, i64 32
   %3554 = load i8, ptr %3553, align 8
   %3555 = icmp eq i8 %3554, 1
-  %3556 = getelementptr inbounds i8, ptr %3514, i64 40
+  %3556 = getelementptr inbounds nuw i8, ptr %3514, i64 40
   br i1 %3555, label %3557, label %3567
 
 3557:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4149
@@ -8246,7 +8246,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3561 = getelementptr inbounds nuw i8, ptr %3559, i64 96
   %3562 = load ptr, ptr %3561, align 8
   %3563 = zext i32 %3560 to i64
-  %3564 = getelementptr inbounds i16, ptr %3562, i64 %3563
+  %3564 = getelementptr inbounds nuw i16, ptr %3562, i64 %3563
   %3565 = load i16, ptr %3564, align 2
   %3566 = zext i16 %3565 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4151
@@ -8261,10 +8261,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4150 = phi i64 [ %3566, %3557 ], [ %3569, %3567 ]
   %3570 = shl i64 %.0.i4150, 25
   %3571 = and i64 %3570, 1040187392
-  %3572 = getelementptr inbounds i8, ptr %3514, i64 48
+  %3572 = getelementptr inbounds nuw i8, ptr %3514, i64 48
   %3573 = load i8, ptr %3572, align 8
   %3574 = icmp eq i8 %3573, 1
-  %3575 = getelementptr inbounds i8, ptr %3514, i64 56
+  %3575 = getelementptr inbounds nuw i8, ptr %3514, i64 56
   br i1 %3574, label %3576, label %3586
 
 3576:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4151
@@ -8274,7 +8274,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3580 = getelementptr inbounds nuw i8, ptr %3578, i64 96
   %3581 = load ptr, ptr %3580, align 8
   %3582 = zext i32 %3579 to i64
-  %3583 = getelementptr inbounds i16, ptr %3581, i64 %3582
+  %3583 = getelementptr inbounds nuw i16, ptr %3581, i64 %3582
   %3584 = load i16, ptr %3583, align 2
   %3585 = zext i16 %3584 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4153
@@ -8298,12 +8298,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3595:                                             ; preds = %4, %4
   %3596 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3597 = load ptr, ptr %3596, align 8
-  %3598 = getelementptr inbounds i8, ptr %3597, i64 16
-  %3599 = getelementptr inbounds i8, ptr %0, i64 8
+  %3598 = getelementptr inbounds nuw i8, ptr %3597, i64 16
+  %3599 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3607 = load ptr, ptr %3599, align 8
   %3600 = load i8, ptr %3598, align 8
   %3601 = icmp eq i8 %3600, 1
-  %3602 = getelementptr inbounds i8, ptr %3597, i64 24
+  %3602 = getelementptr inbounds nuw i8, ptr %3597, i64 24
   br i1 %3601, label %3603, label %3613
 
 3603:                                             ; preds = %3595
@@ -8313,7 +8313,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3607 = getelementptr inbounds nuw i8, ptr %3605, i64 96
   %3608 = load ptr, ptr %3607, align 8
   %3609 = zext i32 %3606 to i64
-  %3610 = getelementptr inbounds i16, ptr %3608, i64 %3609
+  %3610 = getelementptr inbounds nuw i16, ptr %3608, i64 %3609
   %3611 = load i16, ptr %3610, align 2
   %3612 = zext i16 %3611 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4155
@@ -8340,7 +8340,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3625 = getelementptr inbounds nuw i8, ptr %3623, i64 96
   %3626 = load ptr, ptr %3625, align 8
   %3627 = zext i32 %3624 to i64
-  %3628 = getelementptr inbounds i16, ptr %3626, i64 %3627
+  %3628 = getelementptr inbounds nuw i16, ptr %3626, i64 %3627
   %3629 = load i16, ptr %3628, align 2
   %3630 = zext i16 %3629 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4157
@@ -8355,10 +8355,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4156 = phi i64 [ %3630, %3621 ], [ %3633, %3631 ]
   %3634 = shl i64 %.0.i4156, 7
   %3635 = and i64 %3634, 3968
-  %3636 = getelementptr inbounds i8, ptr %3597, i64 32
+  %3636 = getelementptr inbounds nuw i8, ptr %3597, i64 32
   %3637 = load i8, ptr %3636, align 8
   %3638 = icmp eq i8 %3637, 1
-  %3639 = getelementptr inbounds i8, ptr %3597, i64 40
+  %3639 = getelementptr inbounds nuw i8, ptr %3597, i64 40
   br i1 %3638, label %3640, label %3650
 
 3640:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4157
@@ -8368,7 +8368,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3644 = getelementptr inbounds nuw i8, ptr %3642, i64 96
   %3645 = load ptr, ptr %3644, align 8
   %3646 = zext i32 %3643 to i64
-  %3647 = getelementptr inbounds i16, ptr %3645, i64 %3646
+  %3647 = getelementptr inbounds nuw i16, ptr %3645, i64 %3646
   %3648 = load i16, ptr %3647, align 2
   %3649 = zext i16 %3648 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4159
@@ -8382,10 +8382,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4159: ; preds = %3640, %3650
   %.0.i4158 = phi i64 [ %3649, %3640 ], [ %3652, %3650 ]
   %3653 = shl i64 %.0.i4158, 26
-  %3654 = getelementptr inbounds i8, ptr %3597, i64 48
+  %3654 = getelementptr inbounds nuw i8, ptr %3597, i64 48
   %3655 = load i8, ptr %3654, align 8
   %3656 = icmp eq i8 %3655, 1
-  %3657 = getelementptr inbounds i8, ptr %3597, i64 56
+  %3657 = getelementptr inbounds nuw i8, ptr %3597, i64 56
   br i1 %3656, label %3658, label %3668
 
 3658:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4159
@@ -8395,7 +8395,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3662 = getelementptr inbounds nuw i8, ptr %3660, i64 96
   %3663 = load ptr, ptr %3662, align 8
   %3664 = zext i32 %3661 to i64
-  %3665 = getelementptr inbounds i16, ptr %3663, i64 %3664
+  %3665 = getelementptr inbounds nuw i16, ptr %3663, i64 %3664
   %3666 = load i16, ptr %3665, align 2
   %3667 = zext i16 %3666 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4161
@@ -8420,12 +8420,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3677:                                             ; preds = %4
   %3678 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3679 = load ptr, ptr %3678, align 8
-  %3680 = getelementptr inbounds i8, ptr %3679, i64 16
-  %3681 = getelementptr inbounds i8, ptr %0, i64 8
+  %3680 = getelementptr inbounds nuw i8, ptr %3679, i64 16
+  %3681 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3611 = load ptr, ptr %3681, align 8
   %3682 = load i8, ptr %3680, align 8
   %3683 = icmp eq i8 %3682, 1
-  %3684 = getelementptr inbounds i8, ptr %3679, i64 24
+  %3684 = getelementptr inbounds nuw i8, ptr %3679, i64 24
   br i1 %3683, label %3685, label %3695
 
 3685:                                             ; preds = %3677
@@ -8435,7 +8435,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3689 = getelementptr inbounds nuw i8, ptr %3687, i64 96
   %3690 = load ptr, ptr %3689, align 8
   %3691 = zext i32 %3688 to i64
-  %3692 = getelementptr inbounds i16, ptr %3690, i64 %3691
+  %3692 = getelementptr inbounds nuw i16, ptr %3690, i64 %3691
   %3693 = load i16, ptr %3692, align 2
   %3694 = zext i16 %3693 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4163
@@ -8463,7 +8463,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3708 = getelementptr inbounds nuw i8, ptr %3706, i64 96
   %3709 = load ptr, ptr %3708, align 8
   %3710 = zext i32 %3707 to i64
-  %3711 = getelementptr inbounds i16, ptr %3709, i64 %3710
+  %3711 = getelementptr inbounds nuw i16, ptr %3709, i64 %3710
   %3712 = load i16, ptr %3711, align 2
   %3713 = zext i16 %3712 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4165
@@ -8480,7 +8480,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3718 = shl i32 %.0.i4164, 7
   %3719 = and i32 %3718, 3968
   %3720 = or disjoint i32 %3719, %3700
-  %3721 = getelementptr inbounds i8, ptr %3, i64 216
+  %3721 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3450 = load i64, ptr %3721, align 8
   %3722 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3450)
   %3723 = shl i32 %3722, 20
@@ -8493,12 +8493,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3728:                                             ; preds = %4, %4, %4, %4, %4
   %3729 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3730 = load ptr, ptr %3729, align 8
-  %3731 = getelementptr inbounds i8, ptr %3730, i64 16
-  %3732 = getelementptr inbounds i8, ptr %0, i64 8
+  %3731 = getelementptr inbounds nuw i8, ptr %3730, i64 16
+  %3732 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3613 = load ptr, ptr %3732, align 8
   %3733 = load i8, ptr %3731, align 8
   %3734 = icmp eq i8 %3733, 1
-  %3735 = getelementptr inbounds i8, ptr %3730, i64 24
+  %3735 = getelementptr inbounds nuw i8, ptr %3730, i64 24
   br i1 %3734, label %3736, label %3746
 
 3736:                                             ; preds = %3728
@@ -8508,7 +8508,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3740 = getelementptr inbounds nuw i8, ptr %3738, i64 96
   %3741 = load ptr, ptr %3740, align 8
   %3742 = zext i32 %3739 to i64
-  %3743 = getelementptr inbounds i16, ptr %3741, i64 %3742
+  %3743 = getelementptr inbounds nuw i16, ptr %3741, i64 %3742
   %3744 = load i16, ptr %3743, align 2
   %3745 = zext i16 %3744 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4167
@@ -8535,7 +8535,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3758 = getelementptr inbounds nuw i8, ptr %3756, i64 96
   %3759 = load ptr, ptr %3758, align 8
   %3760 = zext i32 %3757 to i64
-  %3761 = getelementptr inbounds i16, ptr %3759, i64 %3760
+  %3761 = getelementptr inbounds nuw i16, ptr %3759, i64 %3760
   %3762 = load i16, ptr %3761, align 2
   %3763 = zext i16 %3762 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4169
@@ -8550,10 +8550,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4168 = phi i64 [ %3763, %3754 ], [ %3766, %3764 ]
   %3767 = shl i64 %.0.i4168, 7
   %3768 = and i64 %3767, 3968
-  %3769 = getelementptr inbounds i8, ptr %3730, i64 32
+  %3769 = getelementptr inbounds nuw i8, ptr %3730, i64 32
   %3770 = load i8, ptr %3769, align 8
   %3771 = icmp eq i8 %3770, 1
-  %3772 = getelementptr inbounds i8, ptr %3730, i64 40
+  %3772 = getelementptr inbounds nuw i8, ptr %3730, i64 40
   br i1 %3771, label %3773, label %3783
 
 3773:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4169
@@ -8563,7 +8563,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3777 = getelementptr inbounds nuw i8, ptr %3775, i64 96
   %3778 = load ptr, ptr %3777, align 8
   %3779 = zext i32 %3776 to i64
-  %3780 = getelementptr inbounds i16, ptr %3778, i64 %3779
+  %3780 = getelementptr inbounds nuw i16, ptr %3778, i64 %3779
   %3781 = load i16, ptr %3780, align 2
   %3782 = zext i16 %3781 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4171
@@ -8586,12 +8586,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3791:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3792 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3793 = load ptr, ptr %3792, align 8
-  %3794 = getelementptr inbounds i8, ptr %3793, i64 16
-  %3795 = getelementptr inbounds i8, ptr %0, i64 8
+  %3794 = getelementptr inbounds nuw i8, ptr %3793, i64 16
+  %3795 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3616 = load ptr, ptr %3795, align 8
   %3796 = load i8, ptr %3794, align 8
   %3797 = icmp eq i8 %3796, 1
-  %3798 = getelementptr inbounds i8, ptr %3793, i64 24
+  %3798 = getelementptr inbounds nuw i8, ptr %3793, i64 24
   br i1 %3797, label %3799, label %3809
 
 3799:                                             ; preds = %3791
@@ -8601,7 +8601,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3803 = getelementptr inbounds nuw i8, ptr %3801, i64 96
   %3804 = load ptr, ptr %3803, align 8
   %3805 = zext i32 %3802 to i64
-  %3806 = getelementptr inbounds i16, ptr %3804, i64 %3805
+  %3806 = getelementptr inbounds nuw i16, ptr %3804, i64 %3805
   %3807 = load i16, ptr %3806, align 2
   %3808 = zext i16 %3807 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4173
@@ -8628,7 +8628,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3821 = getelementptr inbounds nuw i8, ptr %3819, i64 96
   %3822 = load ptr, ptr %3821, align 8
   %3823 = zext i32 %3820 to i64
-  %3824 = getelementptr inbounds i16, ptr %3822, i64 %3823
+  %3824 = getelementptr inbounds nuw i16, ptr %3822, i64 %3823
   %3825 = load i16, ptr %3824, align 2
   %3826 = zext i16 %3825 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4175
@@ -8643,10 +8643,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4174 = phi i64 [ %3826, %3817 ], [ %3829, %3827 ]
   %3830 = shl i64 %.0.i4174, 7
   %3831 = and i64 %3830, 3968
-  %3832 = getelementptr inbounds i8, ptr %3793, i64 32
+  %3832 = getelementptr inbounds nuw i8, ptr %3793, i64 32
   %3833 = load i8, ptr %3832, align 8
   %3834 = icmp eq i8 %3833, 1
-  %3835 = getelementptr inbounds i8, ptr %3793, i64 40
+  %3835 = getelementptr inbounds nuw i8, ptr %3793, i64 40
   br i1 %3834, label %3836, label %3846
 
 3836:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4175
@@ -8656,7 +8656,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3840 = getelementptr inbounds nuw i8, ptr %3838, i64 96
   %3841 = load ptr, ptr %3840, align 8
   %3842 = zext i32 %3839 to i64
-  %3843 = getelementptr inbounds i16, ptr %3841, i64 %3842
+  %3843 = getelementptr inbounds nuw i16, ptr %3841, i64 %3842
   %3844 = load i16, ptr %3843, align 2
   %3845 = zext i16 %3844 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4177
@@ -8679,12 +8679,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3854:                                             ; preds = %4
   %3855 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3856 = load ptr, ptr %3855, align 8
-  %3857 = getelementptr inbounds i8, ptr %3856, i64 16
-  %3858 = getelementptr inbounds i8, ptr %0, i64 8
+  %3857 = getelementptr inbounds nuw i8, ptr %3856, i64 16
+  %3858 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3619 = load ptr, ptr %3858, align 8
   %3859 = load i8, ptr %3857, align 8
   %3860 = icmp eq i8 %3859, 1
-  %3861 = getelementptr inbounds i8, ptr %3856, i64 24
+  %3861 = getelementptr inbounds nuw i8, ptr %3856, i64 24
   br i1 %3860, label %3862, label %3872
 
 3862:                                             ; preds = %3854
@@ -8694,7 +8694,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3866 = getelementptr inbounds nuw i8, ptr %3864, i64 96
   %3867 = load ptr, ptr %3866, align 8
   %3868 = zext i32 %3865 to i64
-  %3869 = getelementptr inbounds i16, ptr %3867, i64 %3868
+  %3869 = getelementptr inbounds nuw i16, ptr %3867, i64 %3868
   %3870 = load i16, ptr %3869, align 2
   %3871 = zext i16 %3870 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4179
@@ -8721,7 +8721,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3884 = getelementptr inbounds nuw i8, ptr %3882, i64 96
   %3885 = load ptr, ptr %3884, align 8
   %3886 = zext i32 %3883 to i64
-  %3887 = getelementptr inbounds i16, ptr %3885, i64 %3886
+  %3887 = getelementptr inbounds nuw i16, ptr %3885, i64 %3886
   %3888 = load i16, ptr %3887, align 2
   %3889 = zext i16 %3888 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4181
@@ -8736,10 +8736,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4180 = phi i64 [ %3889, %3880 ], [ %3892, %3890 ]
   %3893 = shl i64 %.0.i4180, 7
   %3894 = and i64 %3893, 3968
-  %3895 = getelementptr inbounds i8, ptr %3856, i64 32
+  %3895 = getelementptr inbounds nuw i8, ptr %3856, i64 32
   %3896 = load i8, ptr %3895, align 8
   %3897 = icmp eq i8 %3896, 1
-  %3898 = getelementptr inbounds i8, ptr %3856, i64 40
+  %3898 = getelementptr inbounds nuw i8, ptr %3856, i64 40
   br i1 %3897, label %3899, label %3909
 
 3899:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4181
@@ -8749,7 +8749,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3903 = getelementptr inbounds nuw i8, ptr %3901, i64 96
   %3904 = load ptr, ptr %3903, align 8
   %3905 = zext i32 %3902 to i64
-  %3906 = getelementptr inbounds i16, ptr %3904, i64 %3905
+  %3906 = getelementptr inbounds nuw i16, ptr %3904, i64 %3905
   %3907 = load i16, ptr %3906, align 2
   %3908 = zext i16 %3907 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4183
@@ -8772,12 +8772,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3917:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3918 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3919 = load ptr, ptr %3918, align 8
-  %3920 = getelementptr inbounds i8, ptr %3919, i64 16
-  %3921 = getelementptr inbounds i8, ptr %0, i64 8
+  %3920 = getelementptr inbounds nuw i8, ptr %3919, i64 16
+  %3921 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3622 = load ptr, ptr %3921, align 8
   %3922 = load i8, ptr %3920, align 8
   %3923 = icmp eq i8 %3922, 1
-  %3924 = getelementptr inbounds i8, ptr %3919, i64 24
+  %3924 = getelementptr inbounds nuw i8, ptr %3919, i64 24
   br i1 %3923, label %3925, label %3935
 
 3925:                                             ; preds = %3917
@@ -8787,7 +8787,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3929 = getelementptr inbounds nuw i8, ptr %3927, i64 96
   %3930 = load ptr, ptr %3929, align 8
   %3931 = zext i32 %3928 to i64
-  %3932 = getelementptr inbounds i16, ptr %3930, i64 %3931
+  %3932 = getelementptr inbounds nuw i16, ptr %3930, i64 %3931
   %3933 = load i16, ptr %3932, align 2
   %3934 = zext i16 %3933 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4185
@@ -8814,7 +8814,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3947 = getelementptr inbounds nuw i8, ptr %3945, i64 96
   %3948 = load ptr, ptr %3947, align 8
   %3949 = zext i32 %3946 to i64
-  %3950 = getelementptr inbounds i16, ptr %3948, i64 %3949
+  %3950 = getelementptr inbounds nuw i16, ptr %3948, i64 %3949
   %3951 = load i16, ptr %3950, align 2
   %3952 = zext i16 %3951 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4187
@@ -8836,12 +8836,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 3960:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %3961 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3962 = load ptr, ptr %3961, align 8
-  %3963 = getelementptr inbounds i8, ptr %3962, i64 16
-  %3964 = getelementptr inbounds i8, ptr %0, i64 8
+  %3963 = getelementptr inbounds nuw i8, ptr %3962, i64 16
+  %3964 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3624 = load ptr, ptr %3964, align 8
   %3965 = load i8, ptr %3963, align 8
   %3966 = icmp eq i8 %3965, 1
-  %3967 = getelementptr inbounds i8, ptr %3962, i64 24
+  %3967 = getelementptr inbounds nuw i8, ptr %3962, i64 24
   br i1 %3966, label %3968, label %3978
 
 3968:                                             ; preds = %3960
@@ -8851,7 +8851,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3972 = getelementptr inbounds nuw i8, ptr %3970, i64 96
   %3973 = load ptr, ptr %3972, align 8
   %3974 = zext i32 %3971 to i64
-  %3975 = getelementptr inbounds i16, ptr %3973, i64 %3974
+  %3975 = getelementptr inbounds nuw i16, ptr %3973, i64 %3974
   %3976 = load i16, ptr %3975, align 2
   %3977 = zext i16 %3976 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4189
@@ -8878,7 +8878,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3990 = getelementptr inbounds nuw i8, ptr %3988, i64 96
   %3991 = load ptr, ptr %3990, align 8
   %3992 = zext i32 %3989 to i64
-  %3993 = getelementptr inbounds i16, ptr %3991, i64 %3992
+  %3993 = getelementptr inbounds nuw i16, ptr %3991, i64 %3992
   %3994 = load i16, ptr %3993, align 2
   %3995 = zext i16 %3994 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4191
@@ -8893,7 +8893,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4190 = phi i64 [ %3995, %3986 ], [ %3998, %3996 ]
   %3999 = shl i64 %.0.i4190, 7
   %4000 = and i64 %3999, 3968
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %3962, i64 40
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3962, i64 40
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %switch.i.not = icmp eq i32 %.sroa.1.0.copyload.i, 11
   %4001 = select i1 %switch.i.not, i64 0, i64 33554432
@@ -8905,12 +8905,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4005:                                             ; preds = %4, %4, %4, %4, %4
   %4006 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4007 = load ptr, ptr %4006, align 8
-  %4008 = getelementptr inbounds i8, ptr %4007, i64 16
-  %4009 = getelementptr inbounds i8, ptr %0, i64 8
+  %4008 = getelementptr inbounds nuw i8, ptr %4007, i64 16
+  %4009 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3626 = load ptr, ptr %4009, align 8
   %4010 = load i8, ptr %4008, align 8
   %4011 = icmp eq i8 %4010, 1
-  %4012 = getelementptr inbounds i8, ptr %4007, i64 24
+  %4012 = getelementptr inbounds nuw i8, ptr %4007, i64 24
   br i1 %4011, label %4013, label %4023
 
 4013:                                             ; preds = %4005
@@ -8920,7 +8920,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4017 = getelementptr inbounds nuw i8, ptr %4015, i64 96
   %4018 = load ptr, ptr %4017, align 8
   %4019 = zext i32 %4016 to i64
-  %4020 = getelementptr inbounds i16, ptr %4018, i64 %4019
+  %4020 = getelementptr inbounds nuw i16, ptr %4018, i64 %4019
   %4021 = load i16, ptr %4020, align 2
   %4022 = zext i16 %4021 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4193
@@ -8947,7 +8947,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4035 = getelementptr inbounds nuw i8, ptr %4033, i64 96
   %4036 = load ptr, ptr %4035, align 8
   %4037 = zext i32 %4034 to i64
-  %4038 = getelementptr inbounds i16, ptr %4036, i64 %4037
+  %4038 = getelementptr inbounds nuw i16, ptr %4036, i64 %4037
   %4039 = load i16, ptr %4038, align 2
   %4040 = zext i16 %4039 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4195
@@ -8969,12 +8969,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4048:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %4049 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4050 = load ptr, ptr %4049, align 8
-  %4051 = getelementptr inbounds i8, ptr %4050, i64 16
-  %4052 = getelementptr inbounds i8, ptr %0, i64 8
+  %4051 = getelementptr inbounds nuw i8, ptr %4050, i64 16
+  %4052 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3628 = load ptr, ptr %4052, align 8
   %4053 = load i8, ptr %4051, align 8
   %4054 = icmp eq i8 %4053, 1
-  %4055 = getelementptr inbounds i8, ptr %4050, i64 24
+  %4055 = getelementptr inbounds nuw i8, ptr %4050, i64 24
   br i1 %4054, label %4056, label %4066
 
 4056:                                             ; preds = %4048
@@ -8984,7 +8984,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4060 = getelementptr inbounds nuw i8, ptr %4058, i64 96
   %4061 = load ptr, ptr %4060, align 8
   %4062 = zext i32 %4059 to i64
-  %4063 = getelementptr inbounds i16, ptr %4061, i64 %4062
+  %4063 = getelementptr inbounds nuw i16, ptr %4061, i64 %4062
   %4064 = load i16, ptr %4063, align 2
   %4065 = zext i16 %4064 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4197
@@ -9011,7 +9011,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4078 = getelementptr inbounds nuw i8, ptr %4076, i64 96
   %4079 = load ptr, ptr %4078, align 8
   %4080 = zext i32 %4077 to i64
-  %4081 = getelementptr inbounds i16, ptr %4079, i64 %4080
+  %4081 = getelementptr inbounds nuw i16, ptr %4079, i64 %4080
   %4082 = load i16, ptr %4081, align 2
   %4083 = zext i16 %4082 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4199
@@ -9026,7 +9026,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4198 = phi i64 [ %4083, %4074 ], [ %4086, %4084 ]
   %4087 = shl i64 %.0.i4198, 7
   %4088 = and i64 %4087, 3968
-  %.sroa.1.0..sroa_idx.i4200 = getelementptr inbounds i8, ptr %4050, i64 40
+  %.sroa.1.0..sroa_idx.i4200 = getelementptr inbounds nuw i8, ptr %4050, i64 40
   %.sroa.1.0.copyload.i4201 = load i32, ptr %.sroa.1.0..sroa_idx.i4200, align 8
   %switch.i4202.not = icmp eq i32 %.sroa.1.0.copyload.i4201, 11
   %4089 = select i1 %switch.i4202.not, i64 0, i64 33554432
@@ -9038,12 +9038,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4093:                                             ; preds = %4
   %4094 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4095 = load ptr, ptr %4094, align 8
-  %4096 = getelementptr inbounds i8, ptr %4095, i64 16
-  %4097 = getelementptr inbounds i8, ptr %0, i64 8
+  %4096 = getelementptr inbounds nuw i8, ptr %4095, i64 16
+  %4097 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3630 = load ptr, ptr %4097, align 8
   %4098 = load i8, ptr %4096, align 8
   %4099 = icmp eq i8 %4098, 1
-  %4100 = getelementptr inbounds i8, ptr %4095, i64 24
+  %4100 = getelementptr inbounds nuw i8, ptr %4095, i64 24
   br i1 %4099, label %4101, label %4111
 
 4101:                                             ; preds = %4093
@@ -9053,7 +9053,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4105 = getelementptr inbounds nuw i8, ptr %4103, i64 96
   %4106 = load ptr, ptr %4105, align 8
   %4107 = zext i32 %4104 to i64
-  %4108 = getelementptr inbounds i16, ptr %4106, i64 %4107
+  %4108 = getelementptr inbounds nuw i16, ptr %4106, i64 %4107
   %4109 = load i16, ptr %4108, align 2
   %4110 = zext i16 %4109 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4205
@@ -9068,10 +9068,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4204 = phi i64 [ %4110, %4101 ], [ %4113, %4111 ]
   %4114 = shl i64 %.0.i4204, 7
   %4115 = and i64 %4114, 3968
-  %4116 = getelementptr inbounds i8, ptr %4095, i64 32
+  %4116 = getelementptr inbounds nuw i8, ptr %4095, i64 32
   %4117 = load i8, ptr %4116, align 8
   %4118 = icmp eq i8 %4117, 1
-  %4119 = getelementptr inbounds i8, ptr %4095, i64 40
+  %4119 = getelementptr inbounds nuw i8, ptr %4095, i64 40
   br i1 %4118, label %4120, label %4130
 
 4120:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4205
@@ -9081,7 +9081,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4124 = getelementptr inbounds nuw i8, ptr %4122, i64 96
   %4125 = load ptr, ptr %4124, align 8
   %4126 = zext i32 %4123 to i64
-  %4127 = getelementptr inbounds i16, ptr %4125, i64 %4126
+  %4127 = getelementptr inbounds nuw i16, ptr %4125, i64 %4126
   %4128 = load i16, ptr %4127, align 2
   %4129 = zext i16 %4128 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4207
@@ -9103,12 +9103,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4137:                                             ; preds = %4, %4, %4, %4, %4
   %4138 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4139 = load ptr, ptr %4138, align 8
-  %4140 = getelementptr inbounds i8, ptr %4139, i64 32
-  %4141 = getelementptr inbounds i8, ptr %0, i64 8
+  %4140 = getelementptr inbounds nuw i8, ptr %4139, i64 32
+  %4141 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3632 = load ptr, ptr %4141, align 8
   %4142 = load i8, ptr %4140, align 8
   %4143 = icmp eq i8 %4142, 1
-  %4144 = getelementptr inbounds i8, ptr %4139, i64 40
+  %4144 = getelementptr inbounds nuw i8, ptr %4139, i64 40
   br i1 %4143, label %4145, label %4155
 
 4145:                                             ; preds = %4137
@@ -9118,7 +9118,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4149 = getelementptr inbounds nuw i8, ptr %4147, i64 96
   %4150 = load ptr, ptr %4149, align 8
   %4151 = zext i32 %4148 to i64
-  %4152 = getelementptr inbounds i16, ptr %4150, i64 %4151
+  %4152 = getelementptr inbounds nuw i16, ptr %4150, i64 %4151
   %4153 = load i16, ptr %4152, align 2
   %4154 = zext i16 %4153 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4209
@@ -9146,7 +9146,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4168 = getelementptr inbounds nuw i8, ptr %4166, i64 96
   %4169 = load ptr, ptr %4168, align 8
   %4170 = zext i32 %4167 to i64
-  %4171 = getelementptr inbounds i16, ptr %4169, i64 %4170
+  %4171 = getelementptr inbounds nuw i16, ptr %4169, i64 %4170
   %4172 = load i16, ptr %4171, align 2
   %4173 = zext i16 %4172 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4211
@@ -9163,7 +9163,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4178 = shl i32 %.0.i4210, 7
   %4179 = and i32 %4178, 3968
   %4180 = or disjoint i32 %4160, %4179
-  %4181 = getelementptr inbounds i8, ptr %3, i64 216
+  %4181 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3451 = load i64, ptr %4181, align 8
   %4182 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3451)
   %4183 = shl i32 %4182, 20
@@ -9175,12 +9175,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4187:                                             ; preds = %4, %4, %4, %4, %4, %4
   %4188 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4189 = load ptr, ptr %4188, align 8
-  %4190 = getelementptr inbounds i8, ptr %4189, i64 32
-  %4191 = getelementptr inbounds i8, ptr %0, i64 8
+  %4190 = getelementptr inbounds nuw i8, ptr %4189, i64 32
+  %4191 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3634 = load ptr, ptr %4191, align 8
   %4192 = load i8, ptr %4190, align 8
   %4193 = icmp eq i8 %4192, 1
-  %4194 = getelementptr inbounds i8, ptr %4189, i64 40
+  %4194 = getelementptr inbounds nuw i8, ptr %4189, i64 40
   br i1 %4193, label %4195, label %4205
 
 4195:                                             ; preds = %4187
@@ -9190,7 +9190,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4199 = getelementptr inbounds nuw i8, ptr %4197, i64 96
   %4200 = load ptr, ptr %4199, align 8
   %4201 = zext i32 %4198 to i64
-  %4202 = getelementptr inbounds i16, ptr %4200, i64 %4201
+  %4202 = getelementptr inbounds nuw i16, ptr %4200, i64 %4201
   %4203 = load i16, ptr %4202, align 2
   %4204 = zext i16 %4203 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4213
@@ -9217,7 +9217,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4217 = getelementptr inbounds nuw i8, ptr %4215, i64 96
   %4218 = load ptr, ptr %4217, align 8
   %4219 = zext i32 %4216 to i64
-  %4220 = getelementptr inbounds i16, ptr %4218, i64 %4219
+  %4220 = getelementptr inbounds nuw i16, ptr %4218, i64 %4219
   %4221 = load i16, ptr %4220, align 2
   %4222 = zext i16 %4221 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4215
@@ -9232,10 +9232,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4214 = phi i64 [ %4222, %4213 ], [ %4225, %4223 ]
   %4226 = shl i64 %.0.i4214, 7
   %4227 = and i64 %4226, 3968
-  %4228 = getelementptr inbounds i8, ptr %4189, i64 16
+  %4228 = getelementptr inbounds nuw i8, ptr %4189, i64 16
   %4229 = load i8, ptr %4228, align 8
   %4230 = icmp eq i8 %4229, 1
-  %4231 = getelementptr inbounds i8, ptr %4189, i64 24
+  %4231 = getelementptr inbounds nuw i8, ptr %4189, i64 24
   br i1 %4230, label %4232, label %4242
 
 4232:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4215
@@ -9245,7 +9245,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4236 = getelementptr inbounds nuw i8, ptr %4234, i64 96
   %4237 = load ptr, ptr %4236, align 8
   %4238 = zext i32 %4235 to i64
-  %4239 = getelementptr inbounds i16, ptr %4237, i64 %4238
+  %4239 = getelementptr inbounds nuw i16, ptr %4237, i64 %4238
   %4240 = load i16, ptr %4239, align 2
   %4241 = zext i16 %4240 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4217
@@ -9268,12 +9268,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4249:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %4250 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4251 = load ptr, ptr %4250, align 8
-  %4252 = getelementptr inbounds i8, ptr %4251, i64 32
-  %4253 = getelementptr inbounds i8, ptr %0, i64 8
+  %4252 = getelementptr inbounds nuw i8, ptr %4251, i64 32
+  %4253 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3637 = load ptr, ptr %4253, align 8
   %4254 = load i8, ptr %4252, align 8
   %4255 = icmp eq i8 %4254, 1
-  %4256 = getelementptr inbounds i8, ptr %4251, i64 40
+  %4256 = getelementptr inbounds nuw i8, ptr %4251, i64 40
   br i1 %4255, label %4257, label %4267
 
 4257:                                             ; preds = %4249
@@ -9283,7 +9283,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4261 = getelementptr inbounds nuw i8, ptr %4259, i64 96
   %4262 = load ptr, ptr %4261, align 8
   %4263 = zext i32 %4260 to i64
-  %4264 = getelementptr inbounds i16, ptr %4262, i64 %4263
+  %4264 = getelementptr inbounds nuw i16, ptr %4262, i64 %4263
   %4265 = load i16, ptr %4264, align 2
   %4266 = zext i16 %4265 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4219
@@ -9311,7 +9311,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4280 = getelementptr inbounds nuw i8, ptr %4278, i64 96
   %4281 = load ptr, ptr %4280, align 8
   %4282 = zext i32 %4279 to i64
-  %4283 = getelementptr inbounds i16, ptr %4281, i64 %4282
+  %4283 = getelementptr inbounds nuw i16, ptr %4281, i64 %4282
   %4284 = load i16, ptr %4283, align 2
   %4285 = zext i16 %4284 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4221
@@ -9328,17 +9328,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4290 = shl i32 %.0.i4220, 7
   %4291 = and i32 %4290, 3968
   %4292 = or disjoint i32 %4291, %4272
-  %4293 = getelementptr inbounds i8, ptr %3, i64 216
+  %4293 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3452 = load i64, ptr %4293, align 8
   %4294 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3452)
   %4295 = shl i32 %4294, 20
   %4296 = and i32 %4295, 32505856
   %4297 = or disjoint i32 %4292, %4296
   %4298 = load ptr, ptr %4250, align 8
-  %4299 = getelementptr inbounds i8, ptr %4298, i64 64
+  %4299 = getelementptr inbounds nuw i8, ptr %4298, i64 64
   %4300 = load i8, ptr %4299, align 8
   %4301 = icmp eq i8 %4300, 1
-  %4302 = getelementptr inbounds i8, ptr %4298, i64 72
+  %4302 = getelementptr inbounds nuw i8, ptr %4298, i64 72
   br i1 %4301, label %4303, label %4313
 
 4303:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4221
@@ -9349,7 +9349,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4307 = getelementptr inbounds nuw i8, ptr %4305, i64 96
   %4308 = load ptr, ptr %4307, align 8
   %4309 = zext i32 %4306 to i64
-  %4310 = getelementptr inbounds i16, ptr %4308, i64 %4309
+  %4310 = getelementptr inbounds nuw i16, ptr %4308, i64 %4309
   %4311 = load i16, ptr %4310, align 2
   %4312 = zext i16 %4311 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4223
@@ -9373,12 +9373,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4322:                                             ; preds = %4, %4, %4, %4
   %4323 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4324 = load ptr, ptr %4323, align 8
-  %4325 = getelementptr inbounds i8, ptr %4324, i64 32
-  %4326 = getelementptr inbounds i8, ptr %0, i64 8
+  %4325 = getelementptr inbounds nuw i8, ptr %4324, i64 32
+  %4326 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3640 = load ptr, ptr %4326, align 8
   %4327 = load i8, ptr %4325, align 8
   %4328 = icmp eq i8 %4327, 1
-  %4329 = getelementptr inbounds i8, ptr %4324, i64 40
+  %4329 = getelementptr inbounds nuw i8, ptr %4324, i64 40
   br i1 %4328, label %4330, label %4340
 
 4330:                                             ; preds = %4322
@@ -9388,7 +9388,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4334 = getelementptr inbounds nuw i8, ptr %4332, i64 96
   %4335 = load ptr, ptr %4334, align 8
   %4336 = zext i32 %4333 to i64
-  %4337 = getelementptr inbounds i16, ptr %4335, i64 %4336
+  %4337 = getelementptr inbounds nuw i16, ptr %4335, i64 %4336
   %4338 = load i16, ptr %4337, align 2
   %4339 = zext i16 %4338 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4225
@@ -9403,10 +9403,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4224 = phi i64 [ %4339, %4330 ], [ %4342, %4340 ]
   %4343 = shl i64 %.0.i4224, 15
   %4344 = and i64 %4343, 1015808
-  %4345 = getelementptr inbounds i8, ptr %4324, i64 16
+  %4345 = getelementptr inbounds nuw i8, ptr %4324, i64 16
   %4346 = load i8, ptr %4345, align 8
   %4347 = icmp eq i8 %4346, 1
-  %4348 = getelementptr inbounds i8, ptr %4324, i64 24
+  %4348 = getelementptr inbounds nuw i8, ptr %4324, i64 24
   br i1 %4347, label %4349, label %4359
 
 4349:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4225
@@ -9416,7 +9416,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4353 = getelementptr inbounds nuw i8, ptr %4351, i64 96
   %4354 = load ptr, ptr %4353, align 8
   %4355 = zext i32 %4352 to i64
-  %4356 = getelementptr inbounds i16, ptr %4354, i64 %4355
+  %4356 = getelementptr inbounds nuw i16, ptr %4354, i64 %4355
   %4357 = load i16, ptr %4356, align 2
   %4358 = zext i16 %4357 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4227
@@ -9431,7 +9431,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4226 = phi i64 [ %4358, %4349 ], [ %4361, %4359 ]
   %4362 = shl i64 %.0.i4226, 7
   %4363 = and i64 %4362, 3968
-  %4364 = getelementptr inbounds i8, ptr %3, i64 216
+  %4364 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3453 = load i64, ptr %4364, align 8
   %4365 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3453)
   %4366 = zext i32 %4365 to i64
@@ -9448,12 +9448,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4375:                                             ; preds = %4, %4, %4, %4
   %4376 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4377 = load ptr, ptr %4376, align 8
-  %4378 = getelementptr inbounds i8, ptr %4377, i64 32
-  %4379 = getelementptr inbounds i8, ptr %0, i64 8
+  %4378 = getelementptr inbounds nuw i8, ptr %4377, i64 32
+  %4379 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3642 = load ptr, ptr %4379, align 8
   %4380 = load i8, ptr %4378, align 8
   %4381 = icmp eq i8 %4380, 1
-  %4382 = getelementptr inbounds i8, ptr %4377, i64 40
+  %4382 = getelementptr inbounds nuw i8, ptr %4377, i64 40
   br i1 %4381, label %4383, label %4393
 
 4383:                                             ; preds = %4375
@@ -9463,7 +9463,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4387 = getelementptr inbounds nuw i8, ptr %4385, i64 96
   %4388 = load ptr, ptr %4387, align 8
   %4389 = zext i32 %4386 to i64
-  %4390 = getelementptr inbounds i16, ptr %4388, i64 %4389
+  %4390 = getelementptr inbounds nuw i16, ptr %4388, i64 %4389
   %4391 = load i16, ptr %4390, align 2
   %4392 = zext i16 %4391 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4229
@@ -9478,10 +9478,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4228 = phi i64 [ %4392, %4383 ], [ %4395, %4393 ]
   %4396 = shl i64 %.0.i4228, 15
   %4397 = and i64 %4396, 1015808
-  %4398 = getelementptr inbounds i8, ptr %4377, i64 16
+  %4398 = getelementptr inbounds nuw i8, ptr %4377, i64 16
   %4399 = load i8, ptr %4398, align 8
   %4400 = icmp eq i8 %4399, 1
-  %4401 = getelementptr inbounds i8, ptr %4377, i64 24
+  %4401 = getelementptr inbounds nuw i8, ptr %4377, i64 24
   br i1 %4400, label %4402, label %4412
 
 4402:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4229
@@ -9491,7 +9491,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4406 = getelementptr inbounds nuw i8, ptr %4404, i64 96
   %4407 = load ptr, ptr %4406, align 8
   %4408 = zext i32 %4405 to i64
-  %4409 = getelementptr inbounds i16, ptr %4407, i64 %4408
+  %4409 = getelementptr inbounds nuw i16, ptr %4407, i64 %4408
   %4410 = load i16, ptr %4409, align 2
   %4411 = zext i16 %4410 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4231
@@ -9506,10 +9506,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4230 = phi i64 [ %4411, %4402 ], [ %4414, %4412 ]
   %4415 = shl i64 %.0.i4230, 7
   %4416 = and i64 %4415, 3968
-  %4417 = getelementptr inbounds i8, ptr %4377, i64 48
+  %4417 = getelementptr inbounds nuw i8, ptr %4377, i64 48
   %4418 = load i8, ptr %4417, align 8
   %4419 = icmp eq i8 %4418, 1
-  %4420 = getelementptr inbounds i8, ptr %4377, i64 56
+  %4420 = getelementptr inbounds nuw i8, ptr %4377, i64 56
   br i1 %4419, label %4421, label %4431
 
 4421:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4231
@@ -9519,7 +9519,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4425 = getelementptr inbounds nuw i8, ptr %4423, i64 96
   %4426 = load ptr, ptr %4425, align 8
   %4427 = zext i32 %4424 to i64
-  %4428 = getelementptr inbounds i16, ptr %4426, i64 %4427
+  %4428 = getelementptr inbounds nuw i16, ptr %4426, i64 %4427
   %4429 = load i16, ptr %4428, align 2
   %4430 = zext i16 %4429 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4233
@@ -9546,12 +9546,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4443:                                             ; preds = %4
   %4444 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4445 = load ptr, ptr %4444, align 8
-  %4446 = getelementptr inbounds i8, ptr %4445, i64 32
-  %4447 = getelementptr inbounds i8, ptr %0, i64 8
+  %4446 = getelementptr inbounds nuw i8, ptr %4445, i64 32
+  %4447 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3645 = load ptr, ptr %4447, align 8
   %4448 = load i8, ptr %4446, align 8
   %4449 = icmp eq i8 %4448, 1
-  %4450 = getelementptr inbounds i8, ptr %4445, i64 40
+  %4450 = getelementptr inbounds nuw i8, ptr %4445, i64 40
   br i1 %4449, label %4451, label %4461
 
 4451:                                             ; preds = %4443
@@ -9561,7 +9561,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4455 = getelementptr inbounds nuw i8, ptr %4453, i64 96
   %4456 = load ptr, ptr %4455, align 8
   %4457 = zext i32 %4454 to i64
-  %4458 = getelementptr inbounds i16, ptr %4456, i64 %4457
+  %4458 = getelementptr inbounds nuw i16, ptr %4456, i64 %4457
   %4459 = load i16, ptr %4458, align 2
   %4460 = zext i16 %4459 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4235
@@ -9576,10 +9576,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4234 = phi i64 [ %4460, %4451 ], [ %4463, %4461 ]
   %4464 = shl i64 %.0.i4234, 15
   %4465 = and i64 %4464, 1015808
-  %4466 = getelementptr inbounds i8, ptr %4445, i64 16
+  %4466 = getelementptr inbounds nuw i8, ptr %4445, i64 16
   %4467 = load i8, ptr %4466, align 8
   %4468 = icmp eq i8 %4467, 1
-  %4469 = getelementptr inbounds i8, ptr %4445, i64 24
+  %4469 = getelementptr inbounds nuw i8, ptr %4445, i64 24
   br i1 %4468, label %4470, label %4480
 
 4470:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4235
@@ -9589,7 +9589,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4474 = getelementptr inbounds nuw i8, ptr %4472, i64 96
   %4475 = load ptr, ptr %4474, align 8
   %4476 = zext i32 %4473 to i64
-  %4477 = getelementptr inbounds i16, ptr %4475, i64 %4476
+  %4477 = getelementptr inbounds nuw i16, ptr %4475, i64 %4476
   %4478 = load i16, ptr %4477, align 2
   %4479 = zext i16 %4478 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4237
@@ -9604,10 +9604,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4236 = phi i64 [ %4479, %4470 ], [ %4482, %4480 ]
   %4483 = shl i64 %.0.i4236, 7
   %4484 = and i64 %4483, 3968
-  %4485 = getelementptr inbounds i8, ptr %4445, i64 48
+  %4485 = getelementptr inbounds nuw i8, ptr %4445, i64 48
   %4486 = load i8, ptr %4485, align 8
   %4487 = icmp eq i8 %4486, 1
-  %4488 = getelementptr inbounds i8, ptr %4445, i64 56
+  %4488 = getelementptr inbounds nuw i8, ptr %4445, i64 56
   br i1 %4487, label %4489, label %4499
 
 4489:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4237
@@ -9617,7 +9617,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4493 = getelementptr inbounds nuw i8, ptr %4491, i64 96
   %4494 = load ptr, ptr %4493, align 8
   %4495 = zext i32 %4492 to i64
-  %4496 = getelementptr inbounds i16, ptr %4494, i64 %4495
+  %4496 = getelementptr inbounds nuw i16, ptr %4494, i64 %4495
   %4497 = load i16, ptr %4496, align 2
   %4498 = zext i16 %4497 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4239
@@ -9632,10 +9632,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4238 = phi i64 [ %4498, %4489 ], [ %4501, %4499 ]
   %4502 = shl i64 %.0.i4238, 25
   %4503 = and i64 %4502, 1040187392
-  %4504 = getelementptr inbounds i8, ptr %4445, i64 64
+  %4504 = getelementptr inbounds nuw i8, ptr %4445, i64 64
   %4505 = load i8, ptr %4504, align 8
   %4506 = icmp eq i8 %4505, 1
-  %4507 = getelementptr inbounds i8, ptr %4445, i64 72
+  %4507 = getelementptr inbounds nuw i8, ptr %4445, i64 72
   br i1 %4506, label %4508, label %4518
 
 4508:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4239
@@ -9645,7 +9645,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4512 = getelementptr inbounds nuw i8, ptr %4510, i64 96
   %4513 = load ptr, ptr %4512, align 8
   %4514 = zext i32 %4511 to i64
-  %4515 = getelementptr inbounds i16, ptr %4513, i64 %4514
+  %4515 = getelementptr inbounds nuw i16, ptr %4513, i64 %4514
   %4516 = load i16, ptr %4515, align 2
   %4517 = zext i16 %4516 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4241
@@ -9669,12 +9669,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4527:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %4528 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4529 = load ptr, ptr %4528, align 8
-  %4530 = getelementptr inbounds i8, ptr %4529, i64 32
-  %4531 = getelementptr inbounds i8, ptr %0, i64 8
+  %4530 = getelementptr inbounds nuw i8, ptr %4529, i64 32
+  %4531 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3649 = load ptr, ptr %4531, align 8
   %4532 = load i8, ptr %4530, align 8
   %4533 = icmp eq i8 %4532, 1
-  %4534 = getelementptr inbounds i8, ptr %4529, i64 40
+  %4534 = getelementptr inbounds nuw i8, ptr %4529, i64 40
   br i1 %4533, label %4535, label %4545
 
 4535:                                             ; preds = %4527
@@ -9684,7 +9684,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4539 = getelementptr inbounds nuw i8, ptr %4537, i64 96
   %4540 = load ptr, ptr %4539, align 8
   %4541 = zext i32 %4538 to i64
-  %4542 = getelementptr inbounds i16, ptr %4540, i64 %4541
+  %4542 = getelementptr inbounds nuw i16, ptr %4540, i64 %4541
   %4543 = load i16, ptr %4542, align 2
   %4544 = zext i16 %4543 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4243
@@ -9700,10 +9700,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4242 = phi i32 [ %4544, %4535 ], [ %4548, %4545 ]
   %4549 = shl i32 %.0.i4242, 15
   %4550 = and i32 %4549, 1015808
-  %4551 = getelementptr inbounds i8, ptr %4529, i64 16
+  %4551 = getelementptr inbounds nuw i8, ptr %4529, i64 16
   %4552 = load i8, ptr %4551, align 8
   %4553 = icmp eq i8 %4552, 1
-  %4554 = getelementptr inbounds i8, ptr %4529, i64 24
+  %4554 = getelementptr inbounds nuw i8, ptr %4529, i64 24
   br i1 %4553, label %4555, label %4565
 
 4555:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4243
@@ -9713,7 +9713,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4559 = getelementptr inbounds nuw i8, ptr %4557, i64 96
   %4560 = load ptr, ptr %4559, align 8
   %4561 = zext i32 %4558 to i64
-  %4562 = getelementptr inbounds i16, ptr %4560, i64 %4561
+  %4562 = getelementptr inbounds nuw i16, ptr %4560, i64 %4561
   %4563 = load i16, ptr %4562, align 2
   %4564 = zext i16 %4563 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4245
@@ -9730,17 +9730,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4569 = shl i32 %.0.i4244, 7
   %4570 = and i32 %4569, 3968
   %4571 = or disjoint i32 %4570, %4550
-  %4572 = getelementptr inbounds i8, ptr %3, i64 216
+  %4572 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3454 = load i64, ptr %4572, align 8
   %4573 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3454)
   %4574 = shl i32 %4573, 20
   %4575 = and i32 %4574, 32505856
   %4576 = or disjoint i32 %4571, %4575
   %4577 = load ptr, ptr %4528, align 8
-  %4578 = getelementptr inbounds i8, ptr %4577, i64 64
+  %4578 = getelementptr inbounds nuw i8, ptr %4577, i64 64
   %4579 = load i8, ptr %4578, align 8
   %4580 = icmp eq i8 %4579, 1
-  %4581 = getelementptr inbounds i8, ptr %4577, i64 72
+  %4581 = getelementptr inbounds nuw i8, ptr %4577, i64 72
   br i1 %4580, label %4582, label %4592
 
 4582:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4245
@@ -9751,7 +9751,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4586 = getelementptr inbounds nuw i8, ptr %4584, i64 96
   %4587 = load ptr, ptr %4586, align 8
   %4588 = zext i32 %4585 to i64
-  %4589 = getelementptr inbounds i16, ptr %4587, i64 %4588
+  %4589 = getelementptr inbounds nuw i16, ptr %4587, i64 %4588
   %4590 = load i16, ptr %4589, align 2
   %4591 = zext i16 %4590 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4247
@@ -9775,12 +9775,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4601:                                             ; preds = %4, %4
   %4602 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4603 = load ptr, ptr %4602, align 8
-  %4604 = getelementptr inbounds i8, ptr %4603, i64 32
-  %4605 = getelementptr inbounds i8, ptr %0, i64 8
+  %4604 = getelementptr inbounds nuw i8, ptr %4603, i64 32
+  %4605 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3652 = load ptr, ptr %4605, align 8
   %4606 = load i8, ptr %4604, align 8
   %4607 = icmp eq i8 %4606, 1
-  %4608 = getelementptr inbounds i8, ptr %4603, i64 40
+  %4608 = getelementptr inbounds nuw i8, ptr %4603, i64 40
   br i1 %4607, label %4609, label %4619
 
 4609:                                             ; preds = %4601
@@ -9790,7 +9790,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4613 = getelementptr inbounds nuw i8, ptr %4611, i64 96
   %4614 = load ptr, ptr %4613, align 8
   %4615 = zext i32 %4612 to i64
-  %4616 = getelementptr inbounds i16, ptr %4614, i64 %4615
+  %4616 = getelementptr inbounds nuw i16, ptr %4614, i64 %4615
   %4617 = load i16, ptr %4616, align 2
   %4618 = zext i16 %4617 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4249
@@ -9805,10 +9805,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4248 = phi i64 [ %4618, %4609 ], [ %4621, %4619 ]
   %4622 = shl i64 %.0.i4248, 15
   %4623 = and i64 %4622, 1015808
-  %4624 = getelementptr inbounds i8, ptr %4603, i64 16
+  %4624 = getelementptr inbounds nuw i8, ptr %4603, i64 16
   %4625 = load i8, ptr %4624, align 8
   %4626 = icmp eq i8 %4625, 1
-  %4627 = getelementptr inbounds i8, ptr %4603, i64 24
+  %4627 = getelementptr inbounds nuw i8, ptr %4603, i64 24
   br i1 %4626, label %4628, label %4638
 
 4628:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4249
@@ -9818,7 +9818,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4632 = getelementptr inbounds nuw i8, ptr %4630, i64 96
   %4633 = load ptr, ptr %4632, align 8
   %4634 = zext i32 %4631 to i64
-  %4635 = getelementptr inbounds i16, ptr %4633, i64 %4634
+  %4635 = getelementptr inbounds nuw i16, ptr %4633, i64 %4634
   %4636 = load i16, ptr %4635, align 2
   %4637 = zext i16 %4636 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4251
@@ -9846,7 +9846,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %4649, label %4651, label %4662
 
 4651:                                             ; preds = %4645
-  %4652 = getelementptr inbounds i8, ptr %0, i64 8
+  %4652 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3654 = load ptr, ptr %4652, align 8
   %4653 = getelementptr inbounds nuw i8, ptr %.val3654, i64 160
   %4654 = load ptr, ptr %4653, align 8
@@ -9854,7 +9854,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4656 = getelementptr inbounds nuw i8, ptr %4654, i64 96
   %4657 = load ptr, ptr %4656, align 8
   %4658 = zext i32 %4655 to i64
-  %4659 = getelementptr inbounds i16, ptr %4657, i64 %4658
+  %4659 = getelementptr inbounds nuw i16, ptr %4657, i64 %4658
   %4660 = load i16, ptr %4659, align 2
   %4661 = zext i16 %4660 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4253
@@ -9875,7 +9875,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4668:                                             ; preds = %4, %4, %4
   %4669 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4670 = load ptr, ptr %4669, align 8
-  %4671 = getelementptr inbounds i8, ptr %0, i64 8
+  %4671 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3655 = load ptr, ptr %4671, align 8
   %4672 = load i8, ptr %4670, align 8
   %4673 = icmp eq i8 %4672, 1
@@ -9889,7 +9889,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4679 = getelementptr inbounds nuw i8, ptr %4677, i64 96
   %4680 = load ptr, ptr %4679, align 8
   %4681 = zext i32 %4678 to i64
-  %4682 = getelementptr inbounds i16, ptr %4680, i64 %4681
+  %4682 = getelementptr inbounds nuw i16, ptr %4680, i64 %4681
   %4683 = load i16, ptr %4682, align 2
   %4684 = zext i16 %4683 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4255
@@ -9914,11 +9914,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4691 = getelementptr i8, ptr %4670, i64 40
   %.val3836.val3837 = load i32, ptr %4691, align 8
   %4692 = zext i32 %.val3836.val to i64
-  %4693 = getelementptr inbounds i16, ptr %.val3835.val.val, i64 %4692
+  %4693 = getelementptr inbounds nuw i16, ptr %.val3835.val.val, i64 %4692
   %4694 = load i16, ptr %4693, align 2
   %4695 = zext i16 %4694 to i64
   %4696 = zext i32 %.val3836.val3837 to i64
-  %4697 = getelementptr inbounds i16, ptr %.val3835.val.val, i64 %4696
+  %4697 = getelementptr inbounds nuw i16, ptr %.val3835.val.val, i64 %4696
   %4698 = load i16, ptr %4697, align 2
   %4699 = zext i16 %4698 to i64
   %4700 = shl nuw nsw i64 %4699, 15
@@ -9935,7 +9935,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4709:                                             ; preds = %4, %4, %4, %4
   %4710 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4711 = load ptr, ptr %4710, align 8
-  %4712 = getelementptr inbounds i8, ptr %0, i64 8
+  %4712 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3656 = load ptr, ptr %4712, align 8
   %4713 = load i8, ptr %4711, align 8
   %4714 = icmp eq i8 %4713, 1
@@ -9949,7 +9949,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4720 = getelementptr inbounds nuw i8, ptr %4718, i64 96
   %4721 = load ptr, ptr %4720, align 8
   %4722 = zext i32 %4719 to i64
-  %4723 = getelementptr inbounds i16, ptr %4721, i64 %4722
+  %4723 = getelementptr inbounds nuw i16, ptr %4721, i64 %4722
   %4724 = load i16, ptr %4723, align 2
   %4725 = zext i16 %4724 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4257
@@ -9964,10 +9964,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4256 = phi i64 [ %4725, %4716 ], [ %4728, %4726 ]
   %4729 = shl i64 %.0.i4256, 20
   %4730 = and i64 %4729, 32505856
-  %4731 = getelementptr inbounds i8, ptr %4711, i64 16
+  %4731 = getelementptr inbounds nuw i8, ptr %4711, i64 16
   %4732 = load i8, ptr %4731, align 8
   %4733 = icmp eq i8 %4732, 1
-  %4734 = getelementptr inbounds i8, ptr %4711, i64 24
+  %4734 = getelementptr inbounds nuw i8, ptr %4711, i64 24
   br i1 %4733, label %4735, label %4745
 
 4735:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4257
@@ -9977,7 +9977,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4739 = getelementptr inbounds nuw i8, ptr %4737, i64 96
   %4740 = load ptr, ptr %4739, align 8
   %4741 = zext i32 %4738 to i64
-  %4742 = getelementptr inbounds i16, ptr %4740, i64 %4741
+  %4742 = getelementptr inbounds nuw i16, ptr %4740, i64 %4741
   %4743 = load i16, ptr %4742, align 2
   %4744 = zext i16 %4743 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4259
@@ -9999,7 +9999,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4752:                                             ; preds = %4, %4
   %4753 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4754 = load ptr, ptr %4753, align 8
-  %4755 = getelementptr inbounds i8, ptr %0, i64 8
+  %4755 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3658 = load ptr, ptr %4755, align 8
   %4756 = load i8, ptr %4754, align 8
   %4757 = icmp eq i8 %4756, 1
@@ -10013,7 +10013,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4763 = getelementptr inbounds nuw i8, ptr %4761, i64 96
   %4764 = load ptr, ptr %4763, align 8
   %4765 = zext i32 %4762 to i64
-  %4766 = getelementptr inbounds i16, ptr %4764, i64 %4765
+  %4766 = getelementptr inbounds nuw i16, ptr %4764, i64 %4765
   %4767 = load i16, ptr %4766, align 2
   %4768 = zext i16 %4767 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4261
@@ -10028,10 +10028,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4260 = phi i64 [ %4768, %4759 ], [ %4771, %4769 ]
   %4772 = shl i64 %.0.i4260, 2
   %4773 = and i64 %4772, 28
-  %4774 = getelementptr inbounds i8, ptr %4754, i64 16
+  %4774 = getelementptr inbounds nuw i8, ptr %4754, i64 16
   %4775 = load i8, ptr %4774, align 8
   %4776 = icmp eq i8 %4775, 1
-  %4777 = getelementptr inbounds i8, ptr %4754, i64 24
+  %4777 = getelementptr inbounds nuw i8, ptr %4754, i64 24
   br i1 %4776, label %4778, label %4788
 
 4778:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4261
@@ -10041,7 +10041,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4782 = getelementptr inbounds nuw i8, ptr %4780, i64 96
   %4783 = load ptr, ptr %4782, align 8
   %4784 = zext i32 %4781 to i64
-  %4785 = getelementptr inbounds i16, ptr %4783, i64 %4784
+  %4785 = getelementptr inbounds nuw i16, ptr %4783, i64 %4784
   %4786 = load i16, ptr %4785, align 2
   %4787 = zext i16 %4786 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4263
@@ -10056,7 +10056,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4262 = phi i64 [ %4787, %4778 ], [ %4790, %4788 ]
   %4791 = shl i64 %.0.i4262, 7
   %4792 = and i64 %4791, 896
-  %4793 = getelementptr inbounds i8, ptr %3, i64 216
+  %4793 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3455 = load i64, ptr %4793, align 8
   %4794 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3455)
   %4795 = zext i32 %4794 to i64
@@ -10073,7 +10073,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4804:                                             ; preds = %4, %4
   %4805 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4806 = load ptr, ptr %4805, align 8
-  %4807 = getelementptr inbounds i8, ptr %0, i64 8
+  %4807 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3660 = load ptr, ptr %4807, align 8
   %4808 = load i8, ptr %4806, align 8
   %4809 = icmp eq i8 %4808, 1
@@ -10087,7 +10087,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4815 = getelementptr inbounds nuw i8, ptr %4813, i64 96
   %4816 = load ptr, ptr %4815, align 8
   %4817 = zext i32 %4814 to i64
-  %4818 = getelementptr inbounds i16, ptr %4816, i64 %4817
+  %4818 = getelementptr inbounds nuw i16, ptr %4816, i64 %4817
   %4819 = load i16, ptr %4818, align 2
   %4820 = zext i16 %4819 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4265
@@ -10102,10 +10102,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4264 = phi i64 [ %4820, %4811 ], [ %4823, %4821 ]
   %4824 = shl i64 %.0.i4264, 2
   %4825 = and i64 %4824, 28
-  %4826 = getelementptr inbounds i8, ptr %4806, i64 16
+  %4826 = getelementptr inbounds nuw i8, ptr %4806, i64 16
   %4827 = load i8, ptr %4826, align 8
   %4828 = icmp eq i8 %4827, 1
-  %4829 = getelementptr inbounds i8, ptr %4806, i64 24
+  %4829 = getelementptr inbounds nuw i8, ptr %4806, i64 24
   br i1 %4828, label %4830, label %4840
 
 4830:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4265
@@ -10115,7 +10115,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4834 = getelementptr inbounds nuw i8, ptr %4832, i64 96
   %4835 = load ptr, ptr %4834, align 8
   %4836 = zext i32 %4833 to i64
-  %4837 = getelementptr inbounds i16, ptr %4835, i64 %4836
+  %4837 = getelementptr inbounds nuw i16, ptr %4835, i64 %4836
   %4838 = load i16, ptr %4837, align 2
   %4839 = zext i16 %4838 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4267
@@ -10130,7 +10130,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4266 = phi i64 [ %4839, %4830 ], [ %4842, %4840 ]
   %4843 = shl i64 %.0.i4266, 7
   %4844 = and i64 %4843, 896
-  %4845 = getelementptr inbounds i8, ptr %3, i64 216
+  %4845 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3456 = load i64, ptr %4845, align 8
   %4846 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3456)
   %4847 = zext i32 %4846 to i64
@@ -10150,7 +10150,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4859:                                             ; preds = %4
   %4860 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4861 = load ptr, ptr %4860, align 8
-  %4862 = getelementptr inbounds i8, ptr %0, i64 8
+  %4862 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3662 = load ptr, ptr %4862, align 8
   %4863 = load i8, ptr %4861, align 8
   %4864 = icmp eq i8 %4863, 1
@@ -10164,7 +10164,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4870 = getelementptr inbounds nuw i8, ptr %4868, i64 96
   %4871 = load ptr, ptr %4870, align 8
   %4872 = zext i32 %4869 to i64
-  %4873 = getelementptr inbounds i16, ptr %4871, i64 %4872
+  %4873 = getelementptr inbounds nuw i16, ptr %4871, i64 %4872
   %4874 = load i16, ptr %4873, align 2
   %4875 = zext i16 %4874 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4269
@@ -10179,10 +10179,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4268 = phi i64 [ %4875, %4866 ], [ %4878, %4876 ]
   %4879 = shl i64 %.0.i4268, 2
   %4880 = and i64 %4879, 28
-  %4881 = getelementptr inbounds i8, ptr %4861, i64 16
+  %4881 = getelementptr inbounds nuw i8, ptr %4861, i64 16
   %4882 = load i8, ptr %4881, align 8
   %4883 = icmp eq i8 %4882, 1
-  %4884 = getelementptr inbounds i8, ptr %4861, i64 24
+  %4884 = getelementptr inbounds nuw i8, ptr %4861, i64 24
   br i1 %4883, label %4885, label %4895
 
 4885:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4269
@@ -10192,7 +10192,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4889 = getelementptr inbounds nuw i8, ptr %4887, i64 96
   %4890 = load ptr, ptr %4889, align 8
   %4891 = zext i32 %4888 to i64
-  %4892 = getelementptr inbounds i16, ptr %4890, i64 %4891
+  %4892 = getelementptr inbounds nuw i16, ptr %4890, i64 %4891
   %4893 = load i16, ptr %4892, align 2
   %4894 = zext i16 %4893 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4271
@@ -10207,7 +10207,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4270 = phi i64 [ %4894, %4885 ], [ %4897, %4895 ]
   %4898 = shl i64 %.0.i4270, 7
   %4899 = and i64 %4898, 896
-  %4900 = getelementptr inbounds i8, ptr %3, i64 216
+  %4900 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3457 = load i64, ptr %4900, align 8
   %4901 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3457)
   %4902 = zext i32 %4901 to i64
@@ -10224,7 +10224,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4911:                                             ; preds = %4
   %4912 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4913 = load ptr, ptr %4912, align 8
-  %4914 = getelementptr inbounds i8, ptr %0, i64 8
+  %4914 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3664 = load ptr, ptr %4914, align 8
   %4915 = load i8, ptr %4913, align 8
   %4916 = icmp eq i8 %4915, 1
@@ -10238,7 +10238,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4922 = getelementptr inbounds nuw i8, ptr %4920, i64 96
   %4923 = load ptr, ptr %4922, align 8
   %4924 = zext i32 %4921 to i64
-  %4925 = getelementptr inbounds i16, ptr %4923, i64 %4924
+  %4925 = getelementptr inbounds nuw i16, ptr %4923, i64 %4924
   %4926 = load i16, ptr %4925, align 2
   %4927 = zext i16 %4926 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4273
@@ -10254,10 +10254,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4272 = phi i32 [ %4927, %4918 ], [ %4931, %4928 ]
   %4932 = shl i32 %.0.i4272, 2
   %4933 = and i32 %4932, 28
-  %4934 = getelementptr inbounds i8, ptr %4913, i64 16
+  %4934 = getelementptr inbounds nuw i8, ptr %4913, i64 16
   %4935 = load i8, ptr %4934, align 8
   %4936 = icmp eq i8 %4935, 1
-  %4937 = getelementptr inbounds i8, ptr %4913, i64 24
+  %4937 = getelementptr inbounds nuw i8, ptr %4913, i64 24
   br i1 %4936, label %4938, label %4948
 
 4938:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4273
@@ -10267,7 +10267,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4942 = getelementptr inbounds nuw i8, ptr %4940, i64 96
   %4943 = load ptr, ptr %4942, align 8
   %4944 = zext i32 %4941 to i64
-  %4945 = getelementptr inbounds i16, ptr %4943, i64 %4944
+  %4945 = getelementptr inbounds nuw i16, ptr %4943, i64 %4944
   %4946 = load i16, ptr %4945, align 2
   %4947 = zext i16 %4946 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4275
@@ -10284,7 +10284,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4952 = shl i32 %.0.i4274, 7
   %4953 = and i32 %4952, 896
   %4954 = or disjoint i32 %4953, %4933
-  %4955 = getelementptr inbounds i8, ptr %3, i64 216
+  %4955 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3458 = load i64, ptr %4955, align 8
   %4956 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3458)
   %4957 = shl i32 %4956, 4
@@ -10297,7 +10297,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 4962:                                             ; preds = %4
   %4963 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4964 = load ptr, ptr %4963, align 8
-  %4965 = getelementptr inbounds i8, ptr %0, i64 8
+  %4965 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3666 = load ptr, ptr %4965, align 8
   %4966 = load i8, ptr %4964, align 8
   %4967 = icmp eq i8 %4966, 1
@@ -10311,7 +10311,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4973 = getelementptr inbounds nuw i8, ptr %4971, i64 96
   %4974 = load ptr, ptr %4973, align 8
   %4975 = zext i32 %4972 to i64
-  %4976 = getelementptr inbounds i16, ptr %4974, i64 %4975
+  %4976 = getelementptr inbounds nuw i16, ptr %4974, i64 %4975
   %4977 = load i16, ptr %4976, align 2
   %4978 = zext i16 %4977 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4277
@@ -10326,10 +10326,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4276 = phi i64 [ %4978, %4969 ], [ %4981, %4979 ]
   %4982 = shl i64 %.0.i4276, 2
   %4983 = and i64 %4982, 28
-  %4984 = getelementptr inbounds i8, ptr %4964, i64 16
+  %4984 = getelementptr inbounds nuw i8, ptr %4964, i64 16
   %4985 = load i8, ptr %4984, align 8
   %4986 = icmp eq i8 %4985, 1
-  %4987 = getelementptr inbounds i8, ptr %4964, i64 24
+  %4987 = getelementptr inbounds nuw i8, ptr %4964, i64 24
   br i1 %4986, label %4988, label %4998
 
 4988:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4277
@@ -10339,7 +10339,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4992 = getelementptr inbounds nuw i8, ptr %4990, i64 96
   %4993 = load ptr, ptr %4992, align 8
   %4994 = zext i32 %4991 to i64
-  %4995 = getelementptr inbounds i16, ptr %4993, i64 %4994
+  %4995 = getelementptr inbounds nuw i16, ptr %4993, i64 %4994
   %4996 = load i16, ptr %4995, align 2
   %4997 = zext i16 %4996 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4279
@@ -10354,10 +10354,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4278 = phi i64 [ %4997, %4988 ], [ %5000, %4998 ]
   %5001 = shl i64 %.0.i4278, 7
   %5002 = and i64 %5001, 896
-  %5003 = getelementptr inbounds i8, ptr %4964, i64 32
+  %5003 = getelementptr inbounds nuw i8, ptr %4964, i64 32
   %5004 = load i8, ptr %5003, align 8
   %5005 = icmp eq i8 %5004, 1
-  %5006 = getelementptr inbounds i8, ptr %4964, i64 40
+  %5006 = getelementptr inbounds nuw i8, ptr %4964, i64 40
   br i1 %5005, label %5007, label %5017
 
 5007:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4279
@@ -10367,7 +10367,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5011 = getelementptr inbounds nuw i8, ptr %5009, i64 96
   %5012 = load ptr, ptr %5011, align 8
   %5013 = zext i32 %5010 to i64
-  %5014 = getelementptr inbounds i16, ptr %5012, i64 %5013
+  %5014 = getelementptr inbounds nuw i16, ptr %5012, i64 %5013
   %5015 = load i16, ptr %5014, align 2
   %5016 = zext i16 %5015 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4281
@@ -10397,7 +10397,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5032:                                             ; preds = %4
   %5033 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5034 = load ptr, ptr %5033, align 8
-  %5035 = getelementptr inbounds i8, ptr %0, i64 8
+  %5035 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3669 = load ptr, ptr %5035, align 8
   %5036 = load i8, ptr %5034, align 8
   %5037 = icmp eq i8 %5036, 1
@@ -10411,7 +10411,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5043 = getelementptr inbounds nuw i8, ptr %5041, i64 96
   %5044 = load ptr, ptr %5043, align 8
   %5045 = zext i32 %5042 to i64
-  %5046 = getelementptr inbounds i16, ptr %5044, i64 %5045
+  %5046 = getelementptr inbounds nuw i16, ptr %5044, i64 %5045
   %5047 = load i16, ptr %5046, align 2
   %5048 = zext i16 %5047 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4283
@@ -10426,10 +10426,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4282 = phi i64 [ %5048, %5039 ], [ %5051, %5049 ]
   %5052 = shl i64 %.0.i4282, 2
   %5053 = and i64 %5052, 28
-  %5054 = getelementptr inbounds i8, ptr %5034, i64 16
+  %5054 = getelementptr inbounds nuw i8, ptr %5034, i64 16
   %5055 = load i8, ptr %5054, align 8
   %5056 = icmp eq i8 %5055, 1
-  %5057 = getelementptr inbounds i8, ptr %5034, i64 24
+  %5057 = getelementptr inbounds nuw i8, ptr %5034, i64 24
   br i1 %5056, label %5058, label %5068
 
 5058:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4283
@@ -10439,7 +10439,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5062 = getelementptr inbounds nuw i8, ptr %5060, i64 96
   %5063 = load ptr, ptr %5062, align 8
   %5064 = zext i32 %5061 to i64
-  %5065 = getelementptr inbounds i16, ptr %5063, i64 %5064
+  %5065 = getelementptr inbounds nuw i16, ptr %5063, i64 %5064
   %5066 = load i16, ptr %5065, align 2
   %5067 = zext i16 %5066 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4285
@@ -10454,10 +10454,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4284 = phi i64 [ %5067, %5058 ], [ %5070, %5068 ]
   %5071 = shl i64 %.0.i4284, 7
   %5072 = and i64 %5071, 896
-  %5073 = getelementptr inbounds i8, ptr %5034, i64 32
+  %5073 = getelementptr inbounds nuw i8, ptr %5034, i64 32
   %5074 = load i8, ptr %5073, align 8
   %5075 = icmp eq i8 %5074, 1
-  %5076 = getelementptr inbounds i8, ptr %5034, i64 40
+  %5076 = getelementptr inbounds nuw i8, ptr %5034, i64 40
   br i1 %5075, label %5077, label %5087
 
 5077:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4285
@@ -10467,7 +10467,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5081 = getelementptr inbounds nuw i8, ptr %5079, i64 96
   %5082 = load ptr, ptr %5081, align 8
   %5083 = zext i32 %5080 to i64
-  %5084 = getelementptr inbounds i16, ptr %5082, i64 %5083
+  %5084 = getelementptr inbounds nuw i16, ptr %5082, i64 %5083
   %5085 = load i16, ptr %5084, align 2
   %5086 = zext i16 %5085 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4287
@@ -10494,11 +10494,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5099:                                             ; preds = %4
   %5100 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5101 = load ptr, ptr %5100, align 8
-  %5102 = getelementptr inbounds i8, ptr %5101, i64 16
-  %5103 = getelementptr inbounds i8, ptr %0, i64 8
+  %5102 = getelementptr inbounds nuw i8, ptr %5101, i64 16
+  %5103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5104 = load i8, ptr %5102, align 8
   %5105 = icmp eq i8 %5104, 1
-  %5106 = getelementptr inbounds i8, ptr %5101, i64 24
+  %5106 = getelementptr inbounds nuw i8, ptr %5101, i64 24
   br i1 %5105, label %5107, label %5117
 
 5107:                                             ; preds = %5099
@@ -10509,7 +10509,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5111 = getelementptr inbounds nuw i8, ptr %5109, i64 96
   %5112 = load ptr, ptr %5111, align 8
   %5113 = zext i32 %5110 to i64
-  %5114 = getelementptr inbounds i16, ptr %5112, i64 %5113
+  %5114 = getelementptr inbounds nuw i16, ptr %5112, i64 %5113
   %5115 = load i16, ptr %5114, align 2
   %5116 = zext i16 %5115 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4289
@@ -10525,18 +10525,18 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4288 = phi i32 [ %5116, %5107 ], [ %5120, %5117 ]
   %5121 = shl i32 %.0.i4288, 20
   %5122 = and i32 %5121, 32505856
-  %5123 = getelementptr inbounds i8, ptr %3, i64 216
+  %5123 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3459 = load i64, ptr %5123, align 8
   %5124 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3459)
   %5125 = shl i32 %5124, 15
   %5126 = and i32 %5125, 1015808
   %5127 = or disjoint i32 %5126, %5122
   %5128 = load ptr, ptr %5100, align 8
-  %5129 = getelementptr inbounds i8, ptr %5128, i64 32
+  %5129 = getelementptr inbounds nuw i8, ptr %5128, i64 32
   %.val3673 = load ptr, ptr %5103, align 8
   %5130 = load i8, ptr %5129, align 8
   %5131 = icmp eq i8 %5130, 1
-  %5132 = getelementptr inbounds i8, ptr %5128, i64 40
+  %5132 = getelementptr inbounds nuw i8, ptr %5128, i64 40
   br i1 %5131, label %5133, label %5143
 
 5133:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4289
@@ -10546,7 +10546,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5137 = getelementptr inbounds nuw i8, ptr %5135, i64 96
   %5138 = load ptr, ptr %5137, align 8
   %5139 = zext i32 %5136 to i64
-  %5140 = getelementptr inbounds i16, ptr %5138, i64 %5139
+  %5140 = getelementptr inbounds nuw i16, ptr %5138, i64 %5139
   %5141 = load i16, ptr %5140, align 2
   %5142 = zext i16 %5141 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4291
@@ -10575,7 +10575,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5157 = getelementptr inbounds nuw i8, ptr %5155, i64 96
   %5158 = load ptr, ptr %5157, align 8
   %5159 = zext i32 %5156 to i64
-  %5160 = getelementptr inbounds i16, ptr %5158, i64 %5159
+  %5160 = getelementptr inbounds nuw i16, ptr %5158, i64 %5159
   %5161 = load i16, ptr %5160, align 2
   %5162 = zext i16 %5161 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4293
@@ -10599,12 +10599,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5172:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %5173 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5174 = load ptr, ptr %5173, align 8
-  %5175 = getelementptr inbounds i8, ptr %5174, i64 16
-  %5176 = getelementptr inbounds i8, ptr %0, i64 8
+  %5175 = getelementptr inbounds nuw i8, ptr %5174, i64 16
+  %5176 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3675 = load ptr, ptr %5176, align 8
   %5177 = load i8, ptr %5175, align 8
   %5178 = icmp eq i8 %5177, 1
-  %5179 = getelementptr inbounds i8, ptr %5174, i64 24
+  %5179 = getelementptr inbounds nuw i8, ptr %5174, i64 24
   br i1 %5178, label %5180, label %5190
 
 5180:                                             ; preds = %5172
@@ -10614,7 +10614,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5184 = getelementptr inbounds nuw i8, ptr %5182, i64 96
   %5185 = load ptr, ptr %5184, align 8
   %5186 = zext i32 %5183 to i64
-  %5187 = getelementptr inbounds i16, ptr %5185, i64 %5186
+  %5187 = getelementptr inbounds nuw i16, ptr %5185, i64 %5186
   %5188 = load i16, ptr %5187, align 2
   %5189 = zext i16 %5188 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4295
@@ -10641,7 +10641,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5202 = getelementptr inbounds nuw i8, ptr %5200, i64 96
   %5203 = load ptr, ptr %5202, align 8
   %5204 = zext i32 %5201 to i64
-  %5205 = getelementptr inbounds i16, ptr %5203, i64 %5204
+  %5205 = getelementptr inbounds nuw i16, ptr %5203, i64 %5204
   %5206 = load i16, ptr %5205, align 2
   %5207 = zext i16 %5206 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4297
@@ -10663,12 +10663,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5215:                                             ; preds = %4, %4, %4, %4, %4
   %5216 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5217 = load ptr, ptr %5216, align 8
-  %5218 = getelementptr inbounds i8, ptr %5217, i64 16
-  %5219 = getelementptr inbounds i8, ptr %0, i64 8
+  %5218 = getelementptr inbounds nuw i8, ptr %5217, i64 16
+  %5219 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3677 = load ptr, ptr %5219, align 8
   %5220 = load i8, ptr %5218, align 8
   %5221 = icmp eq i8 %5220, 1
-  %5222 = getelementptr inbounds i8, ptr %5217, i64 24
+  %5222 = getelementptr inbounds nuw i8, ptr %5217, i64 24
   br i1 %5221, label %5223, label %5233
 
 5223:                                             ; preds = %5215
@@ -10678,7 +10678,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5227 = getelementptr inbounds nuw i8, ptr %5225, i64 96
   %5228 = load ptr, ptr %5227, align 8
   %5229 = zext i32 %5226 to i64
-  %5230 = getelementptr inbounds i16, ptr %5228, i64 %5229
+  %5230 = getelementptr inbounds nuw i16, ptr %5228, i64 %5229
   %5231 = load i16, ptr %5230, align 2
   %5232 = zext i16 %5231 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4299
@@ -10693,10 +10693,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4298 = phi i64 [ %5232, %5223 ], [ %5235, %5233 ]
   %5236 = shl i64 %.0.i4298, 20
   %5237 = and i64 %5236, 32505856
-  %5238 = getelementptr inbounds i8, ptr %5217, i64 32
+  %5238 = getelementptr inbounds nuw i8, ptr %5217, i64 32
   %5239 = load i8, ptr %5238, align 8
   %5240 = icmp eq i8 %5239, 1
-  %5241 = getelementptr inbounds i8, ptr %5217, i64 40
+  %5241 = getelementptr inbounds nuw i8, ptr %5217, i64 40
   br i1 %5240, label %5242, label %5252
 
 5242:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4299
@@ -10706,7 +10706,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5246 = getelementptr inbounds nuw i8, ptr %5244, i64 96
   %5247 = load ptr, ptr %5246, align 8
   %5248 = zext i32 %5245 to i64
-  %5249 = getelementptr inbounds i16, ptr %5247, i64 %5248
+  %5249 = getelementptr inbounds nuw i16, ptr %5247, i64 %5248
   %5250 = load i16, ptr %5249, align 2
   %5251 = zext i16 %5250 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4301
@@ -10733,7 +10733,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5264 = getelementptr inbounds nuw i8, ptr %5262, i64 96
   %5265 = load ptr, ptr %5264, align 8
   %5266 = zext i32 %5263 to i64
-  %5267 = getelementptr inbounds i16, ptr %5265, i64 %5266
+  %5267 = getelementptr inbounds nuw i16, ptr %5265, i64 %5266
   %5268 = load i16, ptr %5267, align 2
   %5269 = zext i16 %5268 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4303
@@ -10748,10 +10748,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4302 = phi i64 [ %5269, %5260 ], [ %5272, %5270 ]
   %5273 = shl i64 %.0.i4302, 7
   %5274 = and i64 %5273, 3968
-  %5275 = getelementptr inbounds i8, ptr %5217, i64 48
+  %5275 = getelementptr inbounds nuw i8, ptr %5217, i64 48
   %5276 = load i8, ptr %5275, align 8
   %5277 = icmp eq i8 %5276, 1
-  %5278 = getelementptr inbounds i8, ptr %5217, i64 56
+  %5278 = getelementptr inbounds nuw i8, ptr %5217, i64 56
   br i1 %5277, label %5279, label %5289
 
 5279:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4303
@@ -10761,7 +10761,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5283 = getelementptr inbounds nuw i8, ptr %5281, i64 96
   %5284 = load ptr, ptr %5283, align 8
   %5285 = zext i32 %5282 to i64
-  %5286 = getelementptr inbounds i16, ptr %5284, i64 %5285
+  %5286 = getelementptr inbounds nuw i16, ptr %5284, i64 %5285
   %5287 = load i16, ptr %5286, align 2
   %5288 = zext i16 %5287 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4305
@@ -10785,12 +10785,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5298:                                             ; preds = %4
   %5299 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5300 = load ptr, ptr %5299, align 8
-  %5301 = getelementptr inbounds i8, ptr %5300, i64 16
-  %5302 = getelementptr inbounds i8, ptr %0, i64 8
+  %5301 = getelementptr inbounds nuw i8, ptr %5300, i64 16
+  %5302 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3681 = load ptr, ptr %5302, align 8
   %5303 = load i8, ptr %5301, align 8
   %5304 = icmp eq i8 %5303, 1
-  %5305 = getelementptr inbounds i8, ptr %5300, i64 24
+  %5305 = getelementptr inbounds nuw i8, ptr %5300, i64 24
   br i1 %5304, label %5306, label %5316
 
 5306:                                             ; preds = %5298
@@ -10800,7 +10800,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5310 = getelementptr inbounds nuw i8, ptr %5308, i64 96
   %5311 = load ptr, ptr %5310, align 8
   %5312 = zext i32 %5309 to i64
-  %5313 = getelementptr inbounds i16, ptr %5311, i64 %5312
+  %5313 = getelementptr inbounds nuw i16, ptr %5311, i64 %5312
   %5314 = load i16, ptr %5313, align 2
   %5315 = zext i16 %5314 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4307
@@ -10815,10 +10815,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4306 = phi i64 [ %5315, %5306 ], [ %5318, %5316 ]
   %5319 = shl i64 %.0.i4306, 20
   %5320 = and i64 %5319, 32505856
-  %5321 = getelementptr inbounds i8, ptr %5300, i64 48
+  %5321 = getelementptr inbounds nuw i8, ptr %5300, i64 48
   %5322 = load i8, ptr %5321, align 8
   %5323 = icmp eq i8 %5322, 1
-  %5324 = getelementptr inbounds i8, ptr %5300, i64 56
+  %5324 = getelementptr inbounds nuw i8, ptr %5300, i64 56
   br i1 %5323, label %5325, label %5335
 
 5325:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4307
@@ -10828,7 +10828,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5329 = getelementptr inbounds nuw i8, ptr %5327, i64 96
   %5330 = load ptr, ptr %5329, align 8
   %5331 = zext i32 %5328 to i64
-  %5332 = getelementptr inbounds i16, ptr %5330, i64 %5331
+  %5332 = getelementptr inbounds nuw i16, ptr %5330, i64 %5331
   %5333 = load i16, ptr %5332, align 2
   %5334 = zext i16 %5333 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4309
@@ -10843,10 +10843,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4308 = phi i64 [ %5334, %5325 ], [ %5337, %5335 ]
   %5338 = shl i64 %.0.i4308, 15
   %5339 = and i64 %5338, 1015808
-  %5340 = getelementptr inbounds i8, ptr %5300, i64 32
+  %5340 = getelementptr inbounds nuw i8, ptr %5300, i64 32
   %5341 = load i8, ptr %5340, align 8
   %5342 = icmp eq i8 %5341, 1
-  %5343 = getelementptr inbounds i8, ptr %5300, i64 40
+  %5343 = getelementptr inbounds nuw i8, ptr %5300, i64 40
   br i1 %5342, label %5344, label %5354
 
 5344:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4309
@@ -10856,7 +10856,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5348 = getelementptr inbounds nuw i8, ptr %5346, i64 96
   %5349 = load ptr, ptr %5348, align 8
   %5350 = zext i32 %5347 to i64
-  %5351 = getelementptr inbounds i16, ptr %5349, i64 %5350
+  %5351 = getelementptr inbounds nuw i16, ptr %5349, i64 %5350
   %5352 = load i16, ptr %5351, align 2
   %5353 = zext i16 %5352 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4311
@@ -10883,7 +10883,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5366 = getelementptr inbounds nuw i8, ptr %5364, i64 96
   %5367 = load ptr, ptr %5366, align 8
   %5368 = zext i32 %5365 to i64
-  %5369 = getelementptr inbounds i16, ptr %5367, i64 %5368
+  %5369 = getelementptr inbounds nuw i16, ptr %5367, i64 %5368
   %5370 = load i16, ptr %5369, align 2
   %5371 = zext i16 %5370 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4313
@@ -10907,14 +10907,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5381:                                             ; preds = %4
   %5382 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5383 = load ptr, ptr %5382, align 8
-  %5384 = getelementptr inbounds i8, ptr %5383, i64 16
+  %5384 = getelementptr inbounds nuw i8, ptr %5383, i64 16
   %5385 = load i8, ptr %5384, align 8
   %5386 = icmp eq i8 %5385, 1
-  %5387 = getelementptr inbounds i8, ptr %5383, i64 24
+  %5387 = getelementptr inbounds nuw i8, ptr %5383, i64 24
   br i1 %5386, label %5388, label %5399
 
 5388:                                             ; preds = %5381
-  %5389 = getelementptr inbounds i8, ptr %0, i64 8
+  %5389 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3685 = load ptr, ptr %5389, align 8
   %5390 = getelementptr inbounds nuw i8, ptr %.val3685, i64 160
   %5391 = load ptr, ptr %5390, align 8
@@ -10922,7 +10922,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5393 = getelementptr inbounds nuw i8, ptr %5391, i64 96
   %5394 = load ptr, ptr %5393, align 8
   %5395 = zext i32 %5392 to i64
-  %5396 = getelementptr inbounds i16, ptr %5394, i64 %5395
+  %5396 = getelementptr inbounds nuw i16, ptr %5394, i64 %5395
   %5397 = load i16, ptr %5396, align 2
   %5398 = zext i16 %5397 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4315
@@ -10943,12 +10943,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5405:                                             ; preds = %4, %4
   %5406 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5407 = load ptr, ptr %5406, align 8
-  %5408 = getelementptr inbounds i8, ptr %5407, i64 16
-  %5409 = getelementptr inbounds i8, ptr %0, i64 8
+  %5408 = getelementptr inbounds nuw i8, ptr %5407, i64 16
+  %5409 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3686 = load ptr, ptr %5409, align 8
   %5410 = load i8, ptr %5408, align 8
   %5411 = icmp eq i8 %5410, 1
-  %5412 = getelementptr inbounds i8, ptr %5407, i64 24
+  %5412 = getelementptr inbounds nuw i8, ptr %5407, i64 24
   br i1 %5411, label %5413, label %5423
 
 5413:                                             ; preds = %5405
@@ -10958,7 +10958,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5417 = getelementptr inbounds nuw i8, ptr %5415, i64 96
   %5418 = load ptr, ptr %5417, align 8
   %5419 = zext i32 %5416 to i64
-  %5420 = getelementptr inbounds i16, ptr %5418, i64 %5419
+  %5420 = getelementptr inbounds nuw i16, ptr %5418, i64 %5419
   %5421 = load i16, ptr %5420, align 2
   %5422 = zext i16 %5421 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4317
@@ -10985,7 +10985,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5435 = getelementptr inbounds nuw i8, ptr %5433, i64 96
   %5436 = load ptr, ptr %5435, align 8
   %5437 = zext i32 %5434 to i64
-  %5438 = getelementptr inbounds i16, ptr %5436, i64 %5437
+  %5438 = getelementptr inbounds nuw i16, ptr %5436, i64 %5437
   %5439 = load i16, ptr %5438, align 2
   %5440 = zext i16 %5439 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4319
@@ -11007,11 +11007,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5448:                                             ; preds = %4, %4
   %5449 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5450 = load ptr, ptr %5449, align 8
-  %5451 = getelementptr inbounds i8, ptr %5450, i64 32
-  %5452 = getelementptr inbounds i8, ptr %0, i64 8
+  %5451 = getelementptr inbounds nuw i8, ptr %5450, i64 32
+  %5452 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5453 = load i8, ptr %5451, align 8
   %5454 = icmp eq i8 %5453, 1
-  %5455 = getelementptr inbounds i8, ptr %5450, i64 40
+  %5455 = getelementptr inbounds nuw i8, ptr %5450, i64 40
   br i1 %5454, label %5456, label %5466
 
 5456:                                             ; preds = %5448
@@ -11022,7 +11022,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5460 = getelementptr inbounds nuw i8, ptr %5458, i64 96
   %5461 = load ptr, ptr %5460, align 8
   %5462 = zext i32 %5459 to i64
-  %5463 = getelementptr inbounds i16, ptr %5461, i64 %5462
+  %5463 = getelementptr inbounds nuw i16, ptr %5461, i64 %5462
   %5464 = load i16, ptr %5463, align 2
   %5465 = zext i16 %5464 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4321
@@ -11038,7 +11038,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4320 = phi i32 [ %5465, %5456 ], [ %5469, %5466 ]
   %5470 = shl i32 %.0.i4320, 20
   %5471 = and i32 %5470, 32505856
-  %5472 = getelementptr inbounds i8, ptr %3, i64 216
+  %5472 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3460 = load i64, ptr %5472, align 8
   %5473 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3460)
   %5474 = shl i32 %5473, 15
@@ -11058,7 +11058,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5485 = getelementptr inbounds nuw i8, ptr %5483, i64 96
   %5486 = load ptr, ptr %5485, align 8
   %5487 = zext i32 %5484 to i64
-  %5488 = getelementptr inbounds i16, ptr %5486, i64 %5487
+  %5488 = getelementptr inbounds nuw i16, ptr %5486, i64 %5487
   %5489 = load i16, ptr %5488, align 2
   %5490 = zext i16 %5489 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4323
@@ -11075,10 +11075,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5495 = shl i32 %.0.i4322, 7
   %5496 = and i32 %5495, 3968
   %5497 = or disjoint i32 %5476, %5496
-  %5498 = getelementptr inbounds i8, ptr %5477, i64 16
+  %5498 = getelementptr inbounds nuw i8, ptr %5477, i64 16
   %5499 = load i8, ptr %5498, align 8
   %5500 = icmp eq i8 %5499, 1
-  %5501 = getelementptr inbounds i8, ptr %5477, i64 24
+  %5501 = getelementptr inbounds nuw i8, ptr %5477, i64 24
   br i1 %5500, label %5502, label %5512
 
 5502:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4323
@@ -11088,7 +11088,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5506 = getelementptr inbounds nuw i8, ptr %5504, i64 96
   %5507 = load ptr, ptr %5506, align 8
   %5508 = zext i32 %5505 to i64
-  %5509 = getelementptr inbounds i16, ptr %5507, i64 %5508
+  %5509 = getelementptr inbounds nuw i16, ptr %5507, i64 %5508
   %5510 = load i16, ptr %5509, align 2
   %5511 = zext i16 %5510 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4325
@@ -11112,11 +11112,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5521:                                             ; preds = %4, %4, %4
   %5522 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5523 = load ptr, ptr %5522, align 8
-  %5524 = getelementptr inbounds i8, ptr %5523, i64 32
-  %5525 = getelementptr inbounds i8, ptr %0, i64 8
+  %5524 = getelementptr inbounds nuw i8, ptr %5523, i64 32
+  %5525 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5526 = load i8, ptr %5524, align 8
   %5527 = icmp eq i8 %5526, 1
-  %5528 = getelementptr inbounds i8, ptr %5523, i64 40
+  %5528 = getelementptr inbounds nuw i8, ptr %5523, i64 40
   br i1 %5527, label %5529, label %5539
 
 5529:                                             ; preds = %5521
@@ -11127,7 +11127,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5533 = getelementptr inbounds nuw i8, ptr %5531, i64 96
   %5534 = load ptr, ptr %5533, align 8
   %5535 = zext i32 %5532 to i64
-  %5536 = getelementptr inbounds i16, ptr %5534, i64 %5535
+  %5536 = getelementptr inbounds nuw i16, ptr %5534, i64 %5535
   %5537 = load i16, ptr %5536, align 2
   %5538 = zext i16 %5537 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4327
@@ -11143,18 +11143,18 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4326 = phi i32 [ %5538, %5529 ], [ %5542, %5539 ]
   %5543 = shl i32 %.0.i4326, 20
   %5544 = and i32 %5543, 32505856
-  %5545 = getelementptr inbounds i8, ptr %3, i64 216
+  %5545 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3461 = load i64, ptr %5545, align 8
   %5546 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3461)
   %5547 = shl i32 %5546, 15
   %5548 = and i32 %5547, 1015808
   %5549 = or disjoint i32 %5548, %5544
   %5550 = load ptr, ptr %5522, align 8
-  %5551 = getelementptr inbounds i8, ptr %5550, i64 16
+  %5551 = getelementptr inbounds nuw i8, ptr %5550, i64 16
   %.val3692 = load ptr, ptr %5525, align 8
   %5552 = load i8, ptr %5551, align 8
   %5553 = icmp eq i8 %5552, 1
-  %5554 = getelementptr inbounds i8, ptr %5550, i64 24
+  %5554 = getelementptr inbounds nuw i8, ptr %5550, i64 24
   br i1 %5553, label %5555, label %5565
 
 5555:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4327
@@ -11164,7 +11164,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5559 = getelementptr inbounds nuw i8, ptr %5557, i64 96
   %5560 = load ptr, ptr %5559, align 8
   %5561 = zext i32 %5558 to i64
-  %5562 = getelementptr inbounds i16, ptr %5560, i64 %5561
+  %5562 = getelementptr inbounds nuw i16, ptr %5560, i64 %5561
   %5563 = load i16, ptr %5562, align 2
   %5564 = zext i16 %5563 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4329
@@ -11193,7 +11193,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5579 = getelementptr inbounds nuw i8, ptr %5577, i64 96
   %5580 = load ptr, ptr %5579, align 8
   %5581 = zext i32 %5578 to i64
-  %5582 = getelementptr inbounds i16, ptr %5580, i64 %5581
+  %5582 = getelementptr inbounds nuw i16, ptr %5580, i64 %5581
   %5583 = load i16, ptr %5582, align 2
   %5584 = zext i16 %5583 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4331
@@ -11217,12 +11217,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5594:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %5595 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5596 = load ptr, ptr %5595, align 8
-  %5597 = getelementptr inbounds i8, ptr %5596, i64 32
-  %5598 = getelementptr inbounds i8, ptr %0, i64 8
+  %5597 = getelementptr inbounds nuw i8, ptr %5596, i64 32
+  %5598 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3694 = load ptr, ptr %5598, align 8
   %5599 = load i8, ptr %5597, align 8
   %5600 = icmp eq i8 %5599, 1
-  %5601 = getelementptr inbounds i8, ptr %5596, i64 40
+  %5601 = getelementptr inbounds nuw i8, ptr %5596, i64 40
   br i1 %5600, label %5602, label %5612
 
 5602:                                             ; preds = %5594
@@ -11232,7 +11232,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5606 = getelementptr inbounds nuw i8, ptr %5604, i64 96
   %5607 = load ptr, ptr %5606, align 8
   %5608 = zext i32 %5605 to i64
-  %5609 = getelementptr inbounds i16, ptr %5607, i64 %5608
+  %5609 = getelementptr inbounds nuw i16, ptr %5607, i64 %5608
   %5610 = load i16, ptr %5609, align 2
   %5611 = zext i16 %5610 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4333
@@ -11247,10 +11247,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4332 = phi i64 [ %5611, %5602 ], [ %5614, %5612 ]
   %5615 = shl i64 %.0.i4332, 20
   %5616 = and i64 %5615, 32505856
-  %5617 = getelementptr inbounds i8, ptr %5596, i64 16
+  %5617 = getelementptr inbounds nuw i8, ptr %5596, i64 16
   %5618 = load i8, ptr %5617, align 8
   %5619 = icmp eq i8 %5618, 1
-  %5620 = getelementptr inbounds i8, ptr %5596, i64 24
+  %5620 = getelementptr inbounds nuw i8, ptr %5596, i64 24
   br i1 %5619, label %5621, label %5631
 
 5621:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4333
@@ -11260,7 +11260,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5625 = getelementptr inbounds nuw i8, ptr %5623, i64 96
   %5626 = load ptr, ptr %5625, align 8
   %5627 = zext i32 %5624 to i64
-  %5628 = getelementptr inbounds i16, ptr %5626, i64 %5627
+  %5628 = getelementptr inbounds nuw i16, ptr %5626, i64 %5627
   %5629 = load i16, ptr %5628, align 2
   %5630 = zext i16 %5629 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4335
@@ -11275,10 +11275,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4334 = phi i64 [ %5630, %5621 ], [ %5633, %5631 ]
   %5634 = shl i64 %.0.i4334, 15
   %5635 = and i64 %5634, 1015808
-  %5636 = getelementptr inbounds i8, ptr %5596, i64 48
+  %5636 = getelementptr inbounds nuw i8, ptr %5596, i64 48
   %5637 = load i8, ptr %5636, align 8
   %5638 = icmp eq i8 %5637, 1
-  %5639 = getelementptr inbounds i8, ptr %5596, i64 56
+  %5639 = getelementptr inbounds nuw i8, ptr %5596, i64 56
   br i1 %5638, label %5640, label %5650
 
 5640:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4335
@@ -11288,7 +11288,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5644 = getelementptr inbounds nuw i8, ptr %5642, i64 96
   %5645 = load ptr, ptr %5644, align 8
   %5646 = zext i32 %5643 to i64
-  %5647 = getelementptr inbounds i16, ptr %5645, i64 %5646
+  %5647 = getelementptr inbounds nuw i16, ptr %5645, i64 %5646
   %5648 = load i16, ptr %5647, align 2
   %5649 = zext i16 %5648 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4337
@@ -11315,7 +11315,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5662 = getelementptr inbounds nuw i8, ptr %5660, i64 96
   %5663 = load ptr, ptr %5662, align 8
   %5664 = zext i32 %5661 to i64
-  %5665 = getelementptr inbounds i16, ptr %5663, i64 %5664
+  %5665 = getelementptr inbounds nuw i16, ptr %5663, i64 %5664
   %5666 = load i16, ptr %5665, align 2
   %5667 = zext i16 %5666 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4339
@@ -11339,12 +11339,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5677:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %5678 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5679 = load ptr, ptr %5678, align 8
-  %5680 = getelementptr inbounds i8, ptr %5679, i64 32
-  %5681 = getelementptr inbounds i8, ptr %0, i64 8
+  %5680 = getelementptr inbounds nuw i8, ptr %5679, i64 32
+  %5681 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3698 = load ptr, ptr %5681, align 8
   %5682 = load i8, ptr %5680, align 8
   %5683 = icmp eq i8 %5682, 1
-  %5684 = getelementptr inbounds i8, ptr %5679, i64 40
+  %5684 = getelementptr inbounds nuw i8, ptr %5679, i64 40
   br i1 %5683, label %5685, label %5695
 
 5685:                                             ; preds = %5677
@@ -11354,7 +11354,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5689 = getelementptr inbounds nuw i8, ptr %5687, i64 96
   %5690 = load ptr, ptr %5689, align 8
   %5691 = zext i32 %5688 to i64
-  %5692 = getelementptr inbounds i16, ptr %5690, i64 %5691
+  %5692 = getelementptr inbounds nuw i16, ptr %5690, i64 %5691
   %5693 = load i16, ptr %5692, align 2
   %5694 = zext i16 %5693 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4341
@@ -11369,10 +11369,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4340 = phi i64 [ %5694, %5685 ], [ %5697, %5695 ]
   %5698 = shl i64 %.0.i4340, 20
   %5699 = and i64 %5698, 32505856
-  %5700 = getelementptr inbounds i8, ptr %5679, i64 16
+  %5700 = getelementptr inbounds nuw i8, ptr %5679, i64 16
   %5701 = load i8, ptr %5700, align 8
   %5702 = icmp eq i8 %5701, 1
-  %5703 = getelementptr inbounds i8, ptr %5679, i64 24
+  %5703 = getelementptr inbounds nuw i8, ptr %5679, i64 24
   br i1 %5702, label %5704, label %5714
 
 5704:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4341
@@ -11382,7 +11382,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5708 = getelementptr inbounds nuw i8, ptr %5706, i64 96
   %5709 = load ptr, ptr %5708, align 8
   %5710 = zext i32 %5707 to i64
-  %5711 = getelementptr inbounds i16, ptr %5709, i64 %5710
+  %5711 = getelementptr inbounds nuw i16, ptr %5709, i64 %5710
   %5712 = load i16, ptr %5711, align 2
   %5713 = zext i16 %5712 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4343
@@ -11409,7 +11409,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5726 = getelementptr inbounds nuw i8, ptr %5724, i64 96
   %5727 = load ptr, ptr %5726, align 8
   %5728 = zext i32 %5725 to i64
-  %5729 = getelementptr inbounds i16, ptr %5727, i64 %5728
+  %5729 = getelementptr inbounds nuw i16, ptr %5727, i64 %5728
   %5730 = load i16, ptr %5729, align 2
   %5731 = zext i16 %5730 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4345
@@ -11432,12 +11432,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5740:                                             ; preds = %4, %4, %4, %4, %4, %4
   %5741 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5742 = load ptr, ptr %5741, align 8
-  %5743 = getelementptr inbounds i8, ptr %5742, i64 32
-  %5744 = getelementptr inbounds i8, ptr %0, i64 8
+  %5743 = getelementptr inbounds nuw i8, ptr %5742, i64 32
+  %5744 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3701 = load ptr, ptr %5744, align 8
   %5745 = load i8, ptr %5743, align 8
   %5746 = icmp eq i8 %5745, 1
-  %5747 = getelementptr inbounds i8, ptr %5742, i64 40
+  %5747 = getelementptr inbounds nuw i8, ptr %5742, i64 40
   br i1 %5746, label %5748, label %5758
 
 5748:                                             ; preds = %5740
@@ -11447,7 +11447,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5752 = getelementptr inbounds nuw i8, ptr %5750, i64 96
   %5753 = load ptr, ptr %5752, align 8
   %5754 = zext i32 %5751 to i64
-  %5755 = getelementptr inbounds i16, ptr %5753, i64 %5754
+  %5755 = getelementptr inbounds nuw i16, ptr %5753, i64 %5754
   %5756 = load i16, ptr %5755, align 2
   %5757 = zext i16 %5756 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4347
@@ -11462,10 +11462,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4346 = phi i64 [ %5757, %5748 ], [ %5760, %5758 ]
   %5761 = shl i64 %.0.i4346, 20
   %5762 = and i64 %5761, 32505856
-  %5763 = getelementptr inbounds i8, ptr %5742, i64 16
+  %5763 = getelementptr inbounds nuw i8, ptr %5742, i64 16
   %5764 = load i8, ptr %5763, align 8
   %5765 = icmp eq i8 %5764, 1
-  %5766 = getelementptr inbounds i8, ptr %5742, i64 24
+  %5766 = getelementptr inbounds nuw i8, ptr %5742, i64 24
   br i1 %5765, label %5767, label %5777
 
 5767:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4347
@@ -11475,7 +11475,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5771 = getelementptr inbounds nuw i8, ptr %5769, i64 96
   %5772 = load ptr, ptr %5771, align 8
   %5773 = zext i32 %5770 to i64
-  %5774 = getelementptr inbounds i16, ptr %5772, i64 %5773
+  %5774 = getelementptr inbounds nuw i16, ptr %5772, i64 %5773
   %5775 = load i16, ptr %5774, align 2
   %5776 = zext i16 %5775 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4349
@@ -11502,7 +11502,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5789 = getelementptr inbounds nuw i8, ptr %5787, i64 96
   %5790 = load ptr, ptr %5789, align 8
   %5791 = zext i32 %5788 to i64
-  %5792 = getelementptr inbounds i16, ptr %5790, i64 %5791
+  %5792 = getelementptr inbounds nuw i16, ptr %5790, i64 %5791
   %5793 = load i16, ptr %5792, align 2
   %5794 = zext i16 %5793 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4351
@@ -11517,10 +11517,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4350 = phi i64 [ %5794, %5785 ], [ %5797, %5795 ]
   %5798 = shl i64 %.0.i4350, 7
   %5799 = and i64 %5798, 3968
-  %5800 = getelementptr inbounds i8, ptr %5742, i64 48
+  %5800 = getelementptr inbounds nuw i8, ptr %5742, i64 48
   %5801 = load i8, ptr %5800, align 8
   %5802 = icmp eq i8 %5801, 1
-  %5803 = getelementptr inbounds i8, ptr %5742, i64 56
+  %5803 = getelementptr inbounds nuw i8, ptr %5742, i64 56
   br i1 %5802, label %5804, label %5814
 
 5804:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4351
@@ -11530,7 +11530,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5808 = getelementptr inbounds nuw i8, ptr %5806, i64 96
   %5809 = load ptr, ptr %5808, align 8
   %5810 = zext i32 %5807 to i64
-  %5811 = getelementptr inbounds i16, ptr %5809, i64 %5810
+  %5811 = getelementptr inbounds nuw i16, ptr %5809, i64 %5810
   %5812 = load i16, ptr %5811, align 2
   %5813 = zext i16 %5812 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4353
@@ -11554,12 +11554,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5822:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %5823 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5824 = load ptr, ptr %5823, align 8
-  %5825 = getelementptr inbounds i8, ptr %5824, i64 32
-  %5826 = getelementptr inbounds i8, ptr %0, i64 8
+  %5825 = getelementptr inbounds nuw i8, ptr %5824, i64 32
+  %5826 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3705 = load ptr, ptr %5826, align 8
   %5827 = load i8, ptr %5825, align 8
   %5828 = icmp eq i8 %5827, 1
-  %5829 = getelementptr inbounds i8, ptr %5824, i64 40
+  %5829 = getelementptr inbounds nuw i8, ptr %5824, i64 40
   br i1 %5828, label %5830, label %5840
 
 5830:                                             ; preds = %5822
@@ -11569,7 +11569,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5834 = getelementptr inbounds nuw i8, ptr %5832, i64 96
   %5835 = load ptr, ptr %5834, align 8
   %5836 = zext i32 %5833 to i64
-  %5837 = getelementptr inbounds i16, ptr %5835, i64 %5836
+  %5837 = getelementptr inbounds nuw i16, ptr %5835, i64 %5836
   %5838 = load i16, ptr %5837, align 2
   %5839 = zext i16 %5838 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4355
@@ -11584,10 +11584,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4354 = phi i64 [ %5839, %5830 ], [ %5842, %5840 ]
   %5843 = shl i64 %.0.i4354, 20
   %5844 = and i64 %5843, 32505856
-  %5845 = getelementptr inbounds i8, ptr %5824, i64 16
+  %5845 = getelementptr inbounds nuw i8, ptr %5824, i64 16
   %5846 = load i8, ptr %5845, align 8
   %5847 = icmp eq i8 %5846, 1
-  %5848 = getelementptr inbounds i8, ptr %5824, i64 24
+  %5848 = getelementptr inbounds nuw i8, ptr %5824, i64 24
   br i1 %5847, label %5849, label %5859
 
 5849:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4355
@@ -11597,7 +11597,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5853 = getelementptr inbounds nuw i8, ptr %5851, i64 96
   %5854 = load ptr, ptr %5853, align 8
   %5855 = zext i32 %5852 to i64
-  %5856 = getelementptr inbounds i16, ptr %5854, i64 %5855
+  %5856 = getelementptr inbounds nuw i16, ptr %5854, i64 %5855
   %5857 = load i16, ptr %5856, align 2
   %5858 = zext i16 %5857 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4357
@@ -11624,7 +11624,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5871 = getelementptr inbounds nuw i8, ptr %5869, i64 96
   %5872 = load ptr, ptr %5871, align 8
   %5873 = zext i32 %5870 to i64
-  %5874 = getelementptr inbounds i16, ptr %5872, i64 %5873
+  %5874 = getelementptr inbounds nuw i16, ptr %5872, i64 %5873
   %5875 = load i16, ptr %5874, align 2
   %5876 = zext i16 %5875 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4359
@@ -11639,10 +11639,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4358 = phi i64 [ %5876, %5867 ], [ %5879, %5877 ]
   %5880 = shl i64 %.0.i4358, 7
   %5881 = and i64 %5880, 3968
-  %5882 = getelementptr inbounds i8, ptr %5824, i64 48
+  %5882 = getelementptr inbounds nuw i8, ptr %5824, i64 48
   %5883 = load i8, ptr %5882, align 8
   %5884 = icmp eq i8 %5883, 1
-  %5885 = getelementptr inbounds i8, ptr %5824, i64 56
+  %5885 = getelementptr inbounds nuw i8, ptr %5824, i64 56
   br i1 %5884, label %5886, label %5896
 
 5886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4359
@@ -11652,7 +11652,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5890 = getelementptr inbounds nuw i8, ptr %5888, i64 96
   %5891 = load ptr, ptr %5890, align 8
   %5892 = zext i32 %5889 to i64
-  %5893 = getelementptr inbounds i16, ptr %5891, i64 %5892
+  %5893 = getelementptr inbounds nuw i16, ptr %5891, i64 %5892
   %5894 = load i16, ptr %5893, align 2
   %5895 = zext i16 %5894 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4361
@@ -11676,12 +11676,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5905:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %5906 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5907 = load ptr, ptr %5906, align 8
-  %5908 = getelementptr inbounds i8, ptr %5907, i64 32
-  %5909 = getelementptr inbounds i8, ptr %0, i64 8
+  %5908 = getelementptr inbounds nuw i8, ptr %5907, i64 32
+  %5909 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3709 = load ptr, ptr %5909, align 8
   %5910 = load i8, ptr %5908, align 8
   %5911 = icmp eq i8 %5910, 1
-  %5912 = getelementptr inbounds i8, ptr %5907, i64 40
+  %5912 = getelementptr inbounds nuw i8, ptr %5907, i64 40
   br i1 %5911, label %5913, label %5923
 
 5913:                                             ; preds = %5905
@@ -11691,7 +11691,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5917 = getelementptr inbounds nuw i8, ptr %5915, i64 96
   %5918 = load ptr, ptr %5917, align 8
   %5919 = zext i32 %5916 to i64
-  %5920 = getelementptr inbounds i16, ptr %5918, i64 %5919
+  %5920 = getelementptr inbounds nuw i16, ptr %5918, i64 %5919
   %5921 = load i16, ptr %5920, align 2
   %5922 = zext i16 %5921 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4363
@@ -11706,10 +11706,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4362 = phi i64 [ %5922, %5913 ], [ %5925, %5923 ]
   %5926 = shl i64 %.0.i4362, 20
   %5927 = and i64 %5926, 32505856
-  %5928 = getelementptr inbounds i8, ptr %5907, i64 16
+  %5928 = getelementptr inbounds nuw i8, ptr %5907, i64 16
   %5929 = load i8, ptr %5928, align 8
   %5930 = icmp eq i8 %5929, 1
-  %5931 = getelementptr inbounds i8, ptr %5907, i64 24
+  %5931 = getelementptr inbounds nuw i8, ptr %5907, i64 24
   br i1 %5930, label %5932, label %5942
 
 5932:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4363
@@ -11719,7 +11719,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5936 = getelementptr inbounds nuw i8, ptr %5934, i64 96
   %5937 = load ptr, ptr %5936, align 8
   %5938 = zext i32 %5935 to i64
-  %5939 = getelementptr inbounds i16, ptr %5937, i64 %5938
+  %5939 = getelementptr inbounds nuw i16, ptr %5937, i64 %5938
   %5940 = load i16, ptr %5939, align 2
   %5941 = zext i16 %5940 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4365
@@ -11746,7 +11746,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5954 = getelementptr inbounds nuw i8, ptr %5952, i64 96
   %5955 = load ptr, ptr %5954, align 8
   %5956 = zext i32 %5953 to i64
-  %5957 = getelementptr inbounds i16, ptr %5955, i64 %5956
+  %5957 = getelementptr inbounds nuw i16, ptr %5955, i64 %5956
   %5958 = load i16, ptr %5957, align 2
   %5959 = zext i16 %5958 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4367
@@ -11761,10 +11761,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4366 = phi i64 [ %5959, %5950 ], [ %5962, %5960 ]
   %5963 = shl i64 %.0.i4366, 7
   %5964 = and i64 %5963, 3968
-  %5965 = getelementptr inbounds i8, ptr %5907, i64 48
+  %5965 = getelementptr inbounds nuw i8, ptr %5907, i64 48
   %5966 = load i8, ptr %5965, align 8
   %5967 = icmp eq i8 %5966, 1
-  %5968 = getelementptr inbounds i8, ptr %5907, i64 56
+  %5968 = getelementptr inbounds nuw i8, ptr %5907, i64 56
   br i1 %5967, label %5969, label %5979
 
 5969:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4367
@@ -11774,7 +11774,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5973 = getelementptr inbounds nuw i8, ptr %5971, i64 96
   %5974 = load ptr, ptr %5973, align 8
   %5975 = zext i32 %5972 to i64
-  %5976 = getelementptr inbounds i16, ptr %5974, i64 %5975
+  %5976 = getelementptr inbounds nuw i16, ptr %5974, i64 %5975
   %5977 = load i16, ptr %5976, align 2
   %5978 = zext i16 %5977 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4369
@@ -11798,12 +11798,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 5988:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %5989 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5990 = load ptr, ptr %5989, align 8
-  %5991 = getelementptr inbounds i8, ptr %5990, i64 32
-  %5992 = getelementptr inbounds i8, ptr %0, i64 8
+  %5991 = getelementptr inbounds nuw i8, ptr %5990, i64 32
+  %5992 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3713 = load ptr, ptr %5992, align 8
   %5993 = load i8, ptr %5991, align 8
   %5994 = icmp eq i8 %5993, 1
-  %5995 = getelementptr inbounds i8, ptr %5990, i64 40
+  %5995 = getelementptr inbounds nuw i8, ptr %5990, i64 40
   br i1 %5994, label %5996, label %6006
 
 5996:                                             ; preds = %5988
@@ -11813,7 +11813,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6000 = getelementptr inbounds nuw i8, ptr %5998, i64 96
   %6001 = load ptr, ptr %6000, align 8
   %6002 = zext i32 %5999 to i64
-  %6003 = getelementptr inbounds i16, ptr %6001, i64 %6002
+  %6003 = getelementptr inbounds nuw i16, ptr %6001, i64 %6002
   %6004 = load i16, ptr %6003, align 2
   %6005 = zext i16 %6004 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4371
@@ -11828,10 +11828,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4370 = phi i64 [ %6005, %5996 ], [ %6008, %6006 ]
   %6009 = shl i64 %.0.i4370, 20
   %6010 = and i64 %6009, 32505856
-  %6011 = getelementptr inbounds i8, ptr %5990, i64 16
+  %6011 = getelementptr inbounds nuw i8, ptr %5990, i64 16
   %6012 = load i8, ptr %6011, align 8
   %6013 = icmp eq i8 %6012, 1
-  %6014 = getelementptr inbounds i8, ptr %5990, i64 24
+  %6014 = getelementptr inbounds nuw i8, ptr %5990, i64 24
   br i1 %6013, label %6015, label %6025
 
 6015:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4371
@@ -11841,7 +11841,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6019 = getelementptr inbounds nuw i8, ptr %6017, i64 96
   %6020 = load ptr, ptr %6019, align 8
   %6021 = zext i32 %6018 to i64
-  %6022 = getelementptr inbounds i16, ptr %6020, i64 %6021
+  %6022 = getelementptr inbounds nuw i16, ptr %6020, i64 %6021
   %6023 = load i16, ptr %6022, align 2
   %6024 = zext i16 %6023 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4373
@@ -11868,7 +11868,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6037 = getelementptr inbounds nuw i8, ptr %6035, i64 96
   %6038 = load ptr, ptr %6037, align 8
   %6039 = zext i32 %6036 to i64
-  %6040 = getelementptr inbounds i16, ptr %6038, i64 %6039
+  %6040 = getelementptr inbounds nuw i16, ptr %6038, i64 %6039
   %6041 = load i16, ptr %6040, align 2
   %6042 = zext i16 %6041 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4375
@@ -11883,7 +11883,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4374 = phi i64 [ %6042, %6033 ], [ %6045, %6043 ]
   %6046 = shl i64 %.0.i4374, 7
   %6047 = and i64 %6046, 3968
-  %.sroa.1.0..sroa_idx.i4376 = getelementptr inbounds i8, ptr %5990, i64 56
+  %.sroa.1.0..sroa_idx.i4376 = getelementptr inbounds nuw i8, ptr %5990, i64 56
   %.sroa.1.0.copyload.i4377 = load i32, ptr %.sroa.1.0..sroa_idx.i4376, align 8
   %switch.i4378.not = icmp eq i32 %.sroa.1.0.copyload.i4377, 11
   %6048 = select i1 %switch.i4378.not, i64 0, i64 33554432
@@ -11896,12 +11896,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6053:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %6054 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6055 = load ptr, ptr %6054, align 8
-  %6056 = getelementptr inbounds i8, ptr %6055, i64 32
-  %6057 = getelementptr inbounds i8, ptr %0, i64 8
+  %6056 = getelementptr inbounds nuw i8, ptr %6055, i64 32
+  %6057 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3716 = load ptr, ptr %6057, align 8
   %6058 = load i8, ptr %6056, align 8
   %6059 = icmp eq i8 %6058, 1
-  %6060 = getelementptr inbounds i8, ptr %6055, i64 40
+  %6060 = getelementptr inbounds nuw i8, ptr %6055, i64 40
   br i1 %6059, label %6061, label %6071
 
 6061:                                             ; preds = %6053
@@ -11911,7 +11911,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6065 = getelementptr inbounds nuw i8, ptr %6063, i64 96
   %6066 = load ptr, ptr %6065, align 8
   %6067 = zext i32 %6064 to i64
-  %6068 = getelementptr inbounds i16, ptr %6066, i64 %6067
+  %6068 = getelementptr inbounds nuw i16, ptr %6066, i64 %6067
   %6069 = load i16, ptr %6068, align 2
   %6070 = zext i16 %6069 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4381
@@ -11926,10 +11926,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4380 = phi i64 [ %6070, %6061 ], [ %6073, %6071 ]
   %6074 = shl i64 %.0.i4380, 20
   %6075 = and i64 %6074, 32505856
-  %6076 = getelementptr inbounds i8, ptr %6055, i64 16
+  %6076 = getelementptr inbounds nuw i8, ptr %6055, i64 16
   %6077 = load i8, ptr %6076, align 8
   %6078 = icmp eq i8 %6077, 1
-  %6079 = getelementptr inbounds i8, ptr %6055, i64 24
+  %6079 = getelementptr inbounds nuw i8, ptr %6055, i64 24
   br i1 %6078, label %6080, label %6090
 
 6080:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4381
@@ -11939,7 +11939,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6084 = getelementptr inbounds nuw i8, ptr %6082, i64 96
   %6085 = load ptr, ptr %6084, align 8
   %6086 = zext i32 %6083 to i64
-  %6087 = getelementptr inbounds i16, ptr %6085, i64 %6086
+  %6087 = getelementptr inbounds nuw i16, ptr %6085, i64 %6086
   %6088 = load i16, ptr %6087, align 2
   %6089 = zext i16 %6088 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4383
@@ -11966,7 +11966,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6102 = getelementptr inbounds nuw i8, ptr %6100, i64 96
   %6103 = load ptr, ptr %6102, align 8
   %6104 = zext i32 %6101 to i64
-  %6105 = getelementptr inbounds i16, ptr %6103, i64 %6104
+  %6105 = getelementptr inbounds nuw i16, ptr %6103, i64 %6104
   %6106 = load i16, ptr %6105, align 2
   %6107 = zext i16 %6106 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4385
@@ -11981,7 +11981,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4384 = phi i64 [ %6107, %6098 ], [ %6110, %6108 ]
   %6111 = shl i64 %.0.i4384, 7
   %6112 = and i64 %6111, 3968
-  %.sroa.1.0..sroa_idx.i4386 = getelementptr inbounds i8, ptr %6055, i64 56
+  %.sroa.1.0..sroa_idx.i4386 = getelementptr inbounds nuw i8, ptr %6055, i64 56
   %.sroa.1.0.copyload.i4387 = load i32, ptr %.sroa.1.0..sroa_idx.i4386, align 8
   %switch.i4388.not = icmp eq i32 %.sroa.1.0.copyload.i4387, 11
   %6113 = select i1 %switch.i4388.not, i64 0, i64 33554432
@@ -11994,12 +11994,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6118:                                             ; preds = %4
   %6119 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6120 = load ptr, ptr %6119, align 8
-  %6121 = getelementptr inbounds i8, ptr %6120, i64 32
-  %6122 = getelementptr inbounds i8, ptr %0, i64 8
+  %6121 = getelementptr inbounds nuw i8, ptr %6120, i64 32
+  %6122 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3719 = load ptr, ptr %6122, align 8
   %6123 = load i8, ptr %6121, align 8
   %6124 = icmp eq i8 %6123, 1
-  %6125 = getelementptr inbounds i8, ptr %6120, i64 40
+  %6125 = getelementptr inbounds nuw i8, ptr %6120, i64 40
   br i1 %6124, label %6126, label %6136
 
 6126:                                             ; preds = %6118
@@ -12009,7 +12009,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6130 = getelementptr inbounds nuw i8, ptr %6128, i64 96
   %6131 = load ptr, ptr %6130, align 8
   %6132 = zext i32 %6129 to i64
-  %6133 = getelementptr inbounds i16, ptr %6131, i64 %6132
+  %6133 = getelementptr inbounds nuw i16, ptr %6131, i64 %6132
   %6134 = load i16, ptr %6133, align 2
   %6135 = zext i16 %6134 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4391
@@ -12024,10 +12024,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4390 = phi i64 [ %6135, %6126 ], [ %6138, %6136 ]
   %6139 = shl i64 %.0.i4390, 20
   %6140 = and i64 %6139, 32505856
-  %6141 = getelementptr inbounds i8, ptr %6120, i64 48
+  %6141 = getelementptr inbounds nuw i8, ptr %6120, i64 48
   %6142 = load i8, ptr %6141, align 8
   %6143 = icmp eq i8 %6142, 1
-  %6144 = getelementptr inbounds i8, ptr %6120, i64 56
+  %6144 = getelementptr inbounds nuw i8, ptr %6120, i64 56
   br i1 %6143, label %6145, label %6155
 
 6145:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4391
@@ -12037,7 +12037,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6149 = getelementptr inbounds nuw i8, ptr %6147, i64 96
   %6150 = load ptr, ptr %6149, align 8
   %6151 = zext i32 %6148 to i64
-  %6152 = getelementptr inbounds i16, ptr %6150, i64 %6151
+  %6152 = getelementptr inbounds nuw i16, ptr %6150, i64 %6151
   %6153 = load i16, ptr %6152, align 2
   %6154 = zext i16 %6153 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4393
@@ -12064,7 +12064,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6167 = getelementptr inbounds nuw i8, ptr %6165, i64 96
   %6168 = load ptr, ptr %6167, align 8
   %6169 = zext i32 %6166 to i64
-  %6170 = getelementptr inbounds i16, ptr %6168, i64 %6169
+  %6170 = getelementptr inbounds nuw i16, ptr %6168, i64 %6169
   %6171 = load i16, ptr %6170, align 2
   %6172 = zext i16 %6171 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4395
@@ -12079,10 +12079,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4394 = phi i64 [ %6172, %6163 ], [ %6175, %6173 ]
   %6176 = shl i64 %.0.i4394, 7
   %6177 = and i64 %6176, 3968
-  %6178 = getelementptr inbounds i8, ptr %6120, i64 16
+  %6178 = getelementptr inbounds nuw i8, ptr %6120, i64 16
   %6179 = load i8, ptr %6178, align 8
   %6180 = icmp eq i8 %6179, 1
-  %6181 = getelementptr inbounds i8, ptr %6120, i64 24
+  %6181 = getelementptr inbounds nuw i8, ptr %6120, i64 24
   br i1 %6180, label %6182, label %6192
 
 6182:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4395
@@ -12092,7 +12092,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6186 = getelementptr inbounds nuw i8, ptr %6184, i64 96
   %6187 = load ptr, ptr %6186, align 8
   %6188 = zext i32 %6185 to i64
-  %6189 = getelementptr inbounds i16, ptr %6187, i64 %6188
+  %6189 = getelementptr inbounds nuw i16, ptr %6187, i64 %6188
   %6190 = load i16, ptr %6189, align 2
   %6191 = zext i16 %6190 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4397
@@ -12116,12 +12116,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6201:                                             ; preds = %4, %4, %4
   %6202 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6203 = load ptr, ptr %6202, align 8
-  %6204 = getelementptr inbounds i8, ptr %6203, i64 32
-  %6205 = getelementptr inbounds i8, ptr %0, i64 8
+  %6204 = getelementptr inbounds nuw i8, ptr %6203, i64 32
+  %6205 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3723 = load ptr, ptr %6205, align 8
   %6206 = load i8, ptr %6204, align 8
   %6207 = icmp eq i8 %6206, 1
-  %6208 = getelementptr inbounds i8, ptr %6203, i64 40
+  %6208 = getelementptr inbounds nuw i8, ptr %6203, i64 40
   br i1 %6207, label %6209, label %6219
 
 6209:                                             ; preds = %6201
@@ -12131,7 +12131,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6213 = getelementptr inbounds nuw i8, ptr %6211, i64 96
   %6214 = load ptr, ptr %6213, align 8
   %6215 = zext i32 %6212 to i64
-  %6216 = getelementptr inbounds i16, ptr %6214, i64 %6215
+  %6216 = getelementptr inbounds nuw i16, ptr %6214, i64 %6215
   %6217 = load i16, ptr %6216, align 2
   %6218 = zext i16 %6217 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4399
@@ -12146,10 +12146,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4398 = phi i64 [ %6218, %6209 ], [ %6221, %6219 ]
   %6222 = shl i64 %.0.i4398, 20
   %6223 = and i64 %6222, 32505856
-  %6224 = getelementptr inbounds i8, ptr %6203, i64 48
+  %6224 = getelementptr inbounds nuw i8, ptr %6203, i64 48
   %6225 = load i8, ptr %6224, align 8
   %6226 = icmp eq i8 %6225, 1
-  %6227 = getelementptr inbounds i8, ptr %6203, i64 56
+  %6227 = getelementptr inbounds nuw i8, ptr %6203, i64 56
   br i1 %6226, label %6228, label %6238
 
 6228:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4399
@@ -12159,7 +12159,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6232 = getelementptr inbounds nuw i8, ptr %6230, i64 96
   %6233 = load ptr, ptr %6232, align 8
   %6234 = zext i32 %6231 to i64
-  %6235 = getelementptr inbounds i16, ptr %6233, i64 %6234
+  %6235 = getelementptr inbounds nuw i16, ptr %6233, i64 %6234
   %6236 = load i16, ptr %6235, align 2
   %6237 = zext i16 %6236 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4401
@@ -12186,7 +12186,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6250 = getelementptr inbounds nuw i8, ptr %6248, i64 96
   %6251 = load ptr, ptr %6250, align 8
   %6252 = zext i32 %6249 to i64
-  %6253 = getelementptr inbounds i16, ptr %6251, i64 %6252
+  %6253 = getelementptr inbounds nuw i16, ptr %6251, i64 %6252
   %6254 = load i16, ptr %6253, align 2
   %6255 = zext i16 %6254 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4403
@@ -12201,10 +12201,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4402 = phi i64 [ %6255, %6246 ], [ %6258, %6256 ]
   %6259 = shl i64 %.0.i4402, 7
   %6260 = and i64 %6259, 3968
-  %6261 = getelementptr inbounds i8, ptr %6203, i64 16
+  %6261 = getelementptr inbounds nuw i8, ptr %6203, i64 16
   %6262 = load i8, ptr %6261, align 8
   %6263 = icmp eq i8 %6262, 1
-  %6264 = getelementptr inbounds i8, ptr %6203, i64 24
+  %6264 = getelementptr inbounds nuw i8, ptr %6203, i64 24
   br i1 %6263, label %6265, label %6275
 
 6265:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4403
@@ -12214,7 +12214,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6269 = getelementptr inbounds nuw i8, ptr %6267, i64 96
   %6270 = load ptr, ptr %6269, align 8
   %6271 = zext i32 %6268 to i64
-  %6272 = getelementptr inbounds i16, ptr %6270, i64 %6271
+  %6272 = getelementptr inbounds nuw i16, ptr %6270, i64 %6271
   %6273 = load i16, ptr %6272, align 2
   %6274 = zext i16 %6273 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4405
@@ -12238,12 +12238,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6284:                                             ; preds = %4, %4, %4
   %6285 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6286 = load ptr, ptr %6285, align 8
-  %6287 = getelementptr inbounds i8, ptr %6286, i64 32
-  %6288 = getelementptr inbounds i8, ptr %0, i64 8
+  %6287 = getelementptr inbounds nuw i8, ptr %6286, i64 32
+  %6288 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3727 = load ptr, ptr %6288, align 8
   %6289 = load i8, ptr %6287, align 8
   %6290 = icmp eq i8 %6289, 1
-  %6291 = getelementptr inbounds i8, ptr %6286, i64 40
+  %6291 = getelementptr inbounds nuw i8, ptr %6286, i64 40
   br i1 %6290, label %6292, label %6302
 
 6292:                                             ; preds = %6284
@@ -12253,7 +12253,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6296 = getelementptr inbounds nuw i8, ptr %6294, i64 96
   %6297 = load ptr, ptr %6296, align 8
   %6298 = zext i32 %6295 to i64
-  %6299 = getelementptr inbounds i16, ptr %6297, i64 %6298
+  %6299 = getelementptr inbounds nuw i16, ptr %6297, i64 %6298
   %6300 = load i16, ptr %6299, align 2
   %6301 = zext i16 %6300 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4407
@@ -12268,10 +12268,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4406 = phi i64 [ %6301, %6292 ], [ %6304, %6302 ]
   %6305 = shl i64 %.0.i4406, 20
   %6306 = and i64 %6305, 32505856
-  %6307 = getelementptr inbounds i8, ptr %6286, i64 48
+  %6307 = getelementptr inbounds nuw i8, ptr %6286, i64 48
   %6308 = load i8, ptr %6307, align 8
   %6309 = icmp eq i8 %6308, 1
-  %6310 = getelementptr inbounds i8, ptr %6286, i64 56
+  %6310 = getelementptr inbounds nuw i8, ptr %6286, i64 56
   br i1 %6309, label %6311, label %6321
 
 6311:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4407
@@ -12281,7 +12281,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6315 = getelementptr inbounds nuw i8, ptr %6313, i64 96
   %6316 = load ptr, ptr %6315, align 8
   %6317 = zext i32 %6314 to i64
-  %6318 = getelementptr inbounds i16, ptr %6316, i64 %6317
+  %6318 = getelementptr inbounds nuw i16, ptr %6316, i64 %6317
   %6319 = load i16, ptr %6318, align 2
   %6320 = zext i16 %6319 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4409
@@ -12296,10 +12296,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4408 = phi i64 [ %6320, %6311 ], [ %6323, %6321 ]
   %6324 = shl i64 %.0.i4408, 15
   %6325 = and i64 %6324, 1015808
-  %6326 = getelementptr inbounds i8, ptr %6286, i64 16
+  %6326 = getelementptr inbounds nuw i8, ptr %6286, i64 16
   %6327 = load i8, ptr %6326, align 8
   %6328 = icmp eq i8 %6327, 1
-  %6329 = getelementptr inbounds i8, ptr %6286, i64 24
+  %6329 = getelementptr inbounds nuw i8, ptr %6286, i64 24
   br i1 %6328, label %6330, label %6340
 
 6330:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4409
@@ -12309,7 +12309,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6334 = getelementptr inbounds nuw i8, ptr %6332, i64 96
   %6335 = load ptr, ptr %6334, align 8
   %6336 = zext i32 %6333 to i64
-  %6337 = getelementptr inbounds i16, ptr %6335, i64 %6336
+  %6337 = getelementptr inbounds nuw i16, ptr %6335, i64 %6336
   %6338 = load i16, ptr %6337, align 2
   %6339 = zext i16 %6338 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4411
@@ -12336,7 +12336,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6352 = getelementptr inbounds nuw i8, ptr %6350, i64 96
   %6353 = load ptr, ptr %6352, align 8
   %6354 = zext i32 %6351 to i64
-  %6355 = getelementptr inbounds i16, ptr %6353, i64 %6354
+  %6355 = getelementptr inbounds nuw i16, ptr %6353, i64 %6354
   %6356 = load i16, ptr %6355, align 2
   %6357 = zext i16 %6356 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4413
@@ -12360,12 +12360,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6367:                                             ; preds = %4, %4, %4, %4, %4, %4
   %6368 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6369 = load ptr, ptr %6368, align 8
-  %6370 = getelementptr inbounds i8, ptr %6369, i64 32
-  %6371 = getelementptr inbounds i8, ptr %0, i64 8
+  %6370 = getelementptr inbounds nuw i8, ptr %6369, i64 32
+  %6371 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3731 = load ptr, ptr %6371, align 8
   %6372 = load i8, ptr %6370, align 8
   %6373 = icmp eq i8 %6372, 1
-  %6374 = getelementptr inbounds i8, ptr %6369, i64 40
+  %6374 = getelementptr inbounds nuw i8, ptr %6369, i64 40
   br i1 %6373, label %6375, label %6385
 
 6375:                                             ; preds = %6367
@@ -12375,7 +12375,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6379 = getelementptr inbounds nuw i8, ptr %6377, i64 96
   %6380 = load ptr, ptr %6379, align 8
   %6381 = zext i32 %6378 to i64
-  %6382 = getelementptr inbounds i16, ptr %6380, i64 %6381
+  %6382 = getelementptr inbounds nuw i16, ptr %6380, i64 %6381
   %6383 = load i16, ptr %6382, align 2
   %6384 = zext i16 %6383 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4415
@@ -12390,10 +12390,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4414 = phi i64 [ %6384, %6375 ], [ %6387, %6385 ]
   %6388 = shl i64 %.0.i4414, 20
   %6389 = and i64 %6388, 32505856
-  %6390 = getelementptr inbounds i8, ptr %6369, i64 48
+  %6390 = getelementptr inbounds nuw i8, ptr %6369, i64 48
   %6391 = load i8, ptr %6390, align 8
   %6392 = icmp eq i8 %6391, 1
-  %6393 = getelementptr inbounds i8, ptr %6369, i64 56
+  %6393 = getelementptr inbounds nuw i8, ptr %6369, i64 56
   br i1 %6392, label %6394, label %6404
 
 6394:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4415
@@ -12403,7 +12403,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6398 = getelementptr inbounds nuw i8, ptr %6396, i64 96
   %6399 = load ptr, ptr %6398, align 8
   %6400 = zext i32 %6397 to i64
-  %6401 = getelementptr inbounds i16, ptr %6399, i64 %6400
+  %6401 = getelementptr inbounds nuw i16, ptr %6399, i64 %6400
   %6402 = load i16, ptr %6401, align 2
   %6403 = zext i16 %6402 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4417
@@ -12418,10 +12418,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4416 = phi i64 [ %6403, %6394 ], [ %6406, %6404 ]
   %6407 = shl i64 %.0.i4416, 15
   %6408 = and i64 %6407, 1015808
-  %6409 = getelementptr inbounds i8, ptr %6369, i64 16
+  %6409 = getelementptr inbounds nuw i8, ptr %6369, i64 16
   %6410 = load i8, ptr %6409, align 8
   %6411 = icmp eq i8 %6410, 1
-  %6412 = getelementptr inbounds i8, ptr %6369, i64 24
+  %6412 = getelementptr inbounds nuw i8, ptr %6369, i64 24
   br i1 %6411, label %6413, label %6423
 
 6413:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4417
@@ -12431,7 +12431,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6417 = getelementptr inbounds nuw i8, ptr %6415, i64 96
   %6418 = load ptr, ptr %6417, align 8
   %6419 = zext i32 %6416 to i64
-  %6420 = getelementptr inbounds i16, ptr %6418, i64 %6419
+  %6420 = getelementptr inbounds nuw i16, ptr %6418, i64 %6419
   %6421 = load i16, ptr %6420, align 2
   %6422 = zext i16 %6421 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4419
@@ -12458,7 +12458,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6435 = getelementptr inbounds nuw i8, ptr %6433, i64 96
   %6436 = load ptr, ptr %6435, align 8
   %6437 = zext i32 %6434 to i64
-  %6438 = getelementptr inbounds i16, ptr %6436, i64 %6437
+  %6438 = getelementptr inbounds nuw i16, ptr %6436, i64 %6437
   %6439 = load i16, ptr %6438, align 2
   %6440 = zext i16 %6439 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4421
@@ -12482,14 +12482,14 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6450:                                             ; preds = %4
   %6451 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6452 = load ptr, ptr %6451, align 8
-  %6453 = getelementptr inbounds i8, ptr %6452, i64 32
+  %6453 = getelementptr inbounds nuw i8, ptr %6452, i64 32
   %6454 = load i8, ptr %6453, align 8
   %6455 = icmp eq i8 %6454, 1
-  %6456 = getelementptr inbounds i8, ptr %6452, i64 40
+  %6456 = getelementptr inbounds nuw i8, ptr %6452, i64 40
   br i1 %6455, label %6457, label %6468
 
 6457:                                             ; preds = %6450
-  %6458 = getelementptr inbounds i8, ptr %0, i64 8
+  %6458 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3735 = load ptr, ptr %6458, align 8
   %6459 = getelementptr inbounds nuw i8, ptr %.val3735, i64 160
   %6460 = load ptr, ptr %6459, align 8
@@ -12497,7 +12497,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6462 = getelementptr inbounds nuw i8, ptr %6460, i64 96
   %6463 = load ptr, ptr %6462, align 8
   %6464 = zext i32 %6461 to i64
-  %6465 = getelementptr inbounds i16, ptr %6463, i64 %6464
+  %6465 = getelementptr inbounds nuw i16, ptr %6463, i64 %6464
   %6466 = load i16, ptr %6465, align 2
   %6467 = zext i16 %6466 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4423
@@ -12518,12 +12518,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6474:                                             ; preds = %4, %4, %4, %4, %4, %4, %4
   %6475 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6476 = load ptr, ptr %6475, align 8
-  %6477 = getelementptr inbounds i8, ptr %6476, i64 32
-  %6478 = getelementptr inbounds i8, ptr %0, i64 8
+  %6477 = getelementptr inbounds nuw i8, ptr %6476, i64 32
+  %6478 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3736 = load ptr, ptr %6478, align 8
   %6479 = load i8, ptr %6477, align 8
   %6480 = icmp eq i8 %6479, 1
-  %6481 = getelementptr inbounds i8, ptr %6476, i64 40
+  %6481 = getelementptr inbounds nuw i8, ptr %6476, i64 40
   br i1 %6480, label %6482, label %6492
 
 6482:                                             ; preds = %6474
@@ -12533,7 +12533,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6486 = getelementptr inbounds nuw i8, ptr %6484, i64 96
   %6487 = load ptr, ptr %6486, align 8
   %6488 = zext i32 %6485 to i64
-  %6489 = getelementptr inbounds i16, ptr %6487, i64 %6488
+  %6489 = getelementptr inbounds nuw i16, ptr %6487, i64 %6488
   %6490 = load i16, ptr %6489, align 2
   %6491 = zext i16 %6490 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4425
@@ -12548,10 +12548,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4424 = phi i64 [ %6491, %6482 ], [ %6494, %6492 ]
   %6495 = shl i64 %.0.i4424, 2
   %6496 = and i64 %6495, 28
-  %6497 = getelementptr inbounds i8, ptr %6476, i64 16
+  %6497 = getelementptr inbounds nuw i8, ptr %6476, i64 16
   %6498 = load i8, ptr %6497, align 8
   %6499 = icmp eq i8 %6498, 1
-  %6500 = getelementptr inbounds i8, ptr %6476, i64 24
+  %6500 = getelementptr inbounds nuw i8, ptr %6476, i64 24
   br i1 %6499, label %6501, label %6511
 
 6501:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4425
@@ -12561,7 +12561,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6505 = getelementptr inbounds nuw i8, ptr %6503, i64 96
   %6506 = load ptr, ptr %6505, align 8
   %6507 = zext i32 %6504 to i64
-  %6508 = getelementptr inbounds i16, ptr %6506, i64 %6507
+  %6508 = getelementptr inbounds nuw i16, ptr %6506, i64 %6507
   %6509 = load i16, ptr %6508, align 2
   %6510 = zext i16 %6509 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4427
@@ -12583,11 +12583,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6518:                                             ; preds = %4, %4
   %6519 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6520 = load ptr, ptr %6519, align 8
-  %6521 = getelementptr inbounds i8, ptr %6520, i64 48
-  %6522 = getelementptr inbounds i8, ptr %0, i64 8
+  %6521 = getelementptr inbounds nuw i8, ptr %6520, i64 48
+  %6522 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6523 = load i8, ptr %6521, align 8
   %6524 = icmp eq i8 %6523, 1
-  %6525 = getelementptr inbounds i8, ptr %6520, i64 56
+  %6525 = getelementptr inbounds nuw i8, ptr %6520, i64 56
   br i1 %6524, label %6526, label %6536
 
 6526:                                             ; preds = %6518
@@ -12598,7 +12598,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6530 = getelementptr inbounds nuw i8, ptr %6528, i64 96
   %6531 = load ptr, ptr %6530, align 8
   %6532 = zext i32 %6529 to i64
-  %6533 = getelementptr inbounds i16, ptr %6531, i64 %6532
+  %6533 = getelementptr inbounds nuw i16, ptr %6531, i64 %6532
   %6534 = load i16, ptr %6533, align 2
   %6535 = zext i16 %6534 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4429
@@ -12614,18 +12614,18 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4428 = phi i32 [ %6535, %6526 ], [ %6539, %6536 ]
   %6540 = shl i32 %.0.i4428, 20
   %6541 = and i32 %6540, 32505856
-  %6542 = getelementptr inbounds i8, ptr %3, i64 216
+  %6542 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3462 = load i64, ptr %6542, align 8
   %6543 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3462)
   %6544 = shl i32 %6543, 15
   %6545 = and i32 %6544, 1015808
   %6546 = or disjoint i32 %6545, %6541
   %6547 = load ptr, ptr %6519, align 8
-  %6548 = getelementptr inbounds i8, ptr %6547, i64 32
+  %6548 = getelementptr inbounds nuw i8, ptr %6547, i64 32
   %.val3739 = load ptr, ptr %6522, align 8
   %6549 = load i8, ptr %6548, align 8
   %6550 = icmp eq i8 %6549, 1
-  %6551 = getelementptr inbounds i8, ptr %6547, i64 40
+  %6551 = getelementptr inbounds nuw i8, ptr %6547, i64 40
   br i1 %6550, label %6552, label %6562
 
 6552:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4429
@@ -12635,7 +12635,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6556 = getelementptr inbounds nuw i8, ptr %6554, i64 96
   %6557 = load ptr, ptr %6556, align 8
   %6558 = zext i32 %6555 to i64
-  %6559 = getelementptr inbounds i16, ptr %6557, i64 %6558
+  %6559 = getelementptr inbounds nuw i16, ptr %6557, i64 %6558
   %6560 = load i16, ptr %6559, align 2
   %6561 = zext i16 %6560 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4431
@@ -12652,10 +12652,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6566 = shl i32 %.0.i4430, 7
   %6567 = and i32 %6566, 3968
   %6568 = or disjoint i32 %6546, %6567
-  %6569 = getelementptr inbounds i8, ptr %6547, i64 16
+  %6569 = getelementptr inbounds nuw i8, ptr %6547, i64 16
   %6570 = load i8, ptr %6569, align 8
   %6571 = icmp eq i8 %6570, 1
-  %6572 = getelementptr inbounds i8, ptr %6547, i64 24
+  %6572 = getelementptr inbounds nuw i8, ptr %6547, i64 24
   br i1 %6571, label %6573, label %6583
 
 6573:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4431
@@ -12665,7 +12665,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6577 = getelementptr inbounds nuw i8, ptr %6575, i64 96
   %6578 = load ptr, ptr %6577, align 8
   %6579 = zext i32 %6576 to i64
-  %6580 = getelementptr inbounds i16, ptr %6578, i64 %6579
+  %6580 = getelementptr inbounds nuw i16, ptr %6578, i64 %6579
   %6581 = load i16, ptr %6580, align 2
   %6582 = zext i16 %6581 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4433
@@ -12689,12 +12689,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6592:                                             ; preds = %4, %4, %4, %4, %4
   %6593 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6594 = load ptr, ptr %6593, align 8
-  %6595 = getelementptr inbounds i8, ptr %6594, i64 48
-  %6596 = getelementptr inbounds i8, ptr %0, i64 8
+  %6595 = getelementptr inbounds nuw i8, ptr %6594, i64 48
+  %6596 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3741 = load ptr, ptr %6596, align 8
   %6597 = load i8, ptr %6595, align 8
   %6598 = icmp eq i8 %6597, 1
-  %6599 = getelementptr inbounds i8, ptr %6594, i64 56
+  %6599 = getelementptr inbounds nuw i8, ptr %6594, i64 56
   br i1 %6598, label %6600, label %6610
 
 6600:                                             ; preds = %6592
@@ -12704,7 +12704,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6604 = getelementptr inbounds nuw i8, ptr %6602, i64 96
   %6605 = load ptr, ptr %6604, align 8
   %6606 = zext i32 %6603 to i64
-  %6607 = getelementptr inbounds i16, ptr %6605, i64 %6606
+  %6607 = getelementptr inbounds nuw i16, ptr %6605, i64 %6606
   %6608 = load i16, ptr %6607, align 2
   %6609 = zext i16 %6608 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4435
@@ -12719,10 +12719,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4434 = phi i64 [ %6609, %6600 ], [ %6612, %6610 ]
   %6613 = shl i64 %.0.i4434, 20
   %6614 = and i64 %6613, 32505856
-  %6615 = getelementptr inbounds i8, ptr %6594, i64 32
+  %6615 = getelementptr inbounds nuw i8, ptr %6594, i64 32
   %6616 = load i8, ptr %6615, align 8
   %6617 = icmp eq i8 %6616, 1
-  %6618 = getelementptr inbounds i8, ptr %6594, i64 40
+  %6618 = getelementptr inbounds nuw i8, ptr %6594, i64 40
   br i1 %6617, label %6619, label %6629
 
 6619:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4435
@@ -12732,7 +12732,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6623 = getelementptr inbounds nuw i8, ptr %6621, i64 96
   %6624 = load ptr, ptr %6623, align 8
   %6625 = zext i32 %6622 to i64
-  %6626 = getelementptr inbounds i16, ptr %6624, i64 %6625
+  %6626 = getelementptr inbounds nuw i16, ptr %6624, i64 %6625
   %6627 = load i16, ptr %6626, align 2
   %6628 = zext i16 %6627 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4437
@@ -12759,7 +12759,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6641 = getelementptr inbounds nuw i8, ptr %6639, i64 96
   %6642 = load ptr, ptr %6641, align 8
   %6643 = zext i32 %6640 to i64
-  %6644 = getelementptr inbounds i16, ptr %6642, i64 %6643
+  %6644 = getelementptr inbounds nuw i16, ptr %6642, i64 %6643
   %6645 = load i16, ptr %6644, align 2
   %6646 = zext i16 %6645 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4439
@@ -12782,12 +12782,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6655:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %6656 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6657 = load ptr, ptr %6656, align 8
-  %6658 = getelementptr inbounds i8, ptr %6657, i64 48
-  %6659 = getelementptr inbounds i8, ptr %0, i64 8
+  %6658 = getelementptr inbounds nuw i8, ptr %6657, i64 48
+  %6659 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3744 = load ptr, ptr %6659, align 8
   %6660 = load i8, ptr %6658, align 8
   %6661 = icmp eq i8 %6660, 1
-  %6662 = getelementptr inbounds i8, ptr %6657, i64 56
+  %6662 = getelementptr inbounds nuw i8, ptr %6657, i64 56
   br i1 %6661, label %6663, label %6673
 
 6663:                                             ; preds = %6655
@@ -12797,7 +12797,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6667 = getelementptr inbounds nuw i8, ptr %6665, i64 96
   %6668 = load ptr, ptr %6667, align 8
   %6669 = zext i32 %6666 to i64
-  %6670 = getelementptr inbounds i16, ptr %6668, i64 %6669
+  %6670 = getelementptr inbounds nuw i16, ptr %6668, i64 %6669
   %6671 = load i16, ptr %6670, align 2
   %6672 = zext i16 %6671 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4441
@@ -12812,10 +12812,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4440 = phi i64 [ %6672, %6663 ], [ %6675, %6673 ]
   %6676 = shl i64 %.0.i4440, 20
   %6677 = and i64 %6676, 32505856
-  %6678 = getelementptr inbounds i8, ptr %6657, i64 32
+  %6678 = getelementptr inbounds nuw i8, ptr %6657, i64 32
   %6679 = load i8, ptr %6678, align 8
   %6680 = icmp eq i8 %6679, 1
-  %6681 = getelementptr inbounds i8, ptr %6657, i64 40
+  %6681 = getelementptr inbounds nuw i8, ptr %6657, i64 40
   br i1 %6680, label %6682, label %6692
 
 6682:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4441
@@ -12825,7 +12825,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6686 = getelementptr inbounds nuw i8, ptr %6684, i64 96
   %6687 = load ptr, ptr %6686, align 8
   %6688 = zext i32 %6685 to i64
-  %6689 = getelementptr inbounds i16, ptr %6687, i64 %6688
+  %6689 = getelementptr inbounds nuw i16, ptr %6687, i64 %6688
   %6690 = load i16, ptr %6689, align 2
   %6691 = zext i16 %6690 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4443
@@ -12840,10 +12840,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4442 = phi i64 [ %6691, %6682 ], [ %6694, %6692 ]
   %6695 = shl i64 %.0.i4442, 15
   %6696 = and i64 %6695, 1015808
-  %6697 = getelementptr inbounds i8, ptr %6657, i64 16
+  %6697 = getelementptr inbounds nuw i8, ptr %6657, i64 16
   %6698 = load i8, ptr %6697, align 8
   %6699 = icmp eq i8 %6698, 1
-  %6700 = getelementptr inbounds i8, ptr %6657, i64 24
+  %6700 = getelementptr inbounds nuw i8, ptr %6657, i64 24
   br i1 %6699, label %6701, label %6711
 
 6701:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4443
@@ -12853,7 +12853,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6705 = getelementptr inbounds nuw i8, ptr %6703, i64 96
   %6706 = load ptr, ptr %6705, align 8
   %6707 = zext i32 %6704 to i64
-  %6708 = getelementptr inbounds i16, ptr %6706, i64 %6707
+  %6708 = getelementptr inbounds nuw i16, ptr %6706, i64 %6707
   %6709 = load i16, ptr %6708, align 2
   %6710 = zext i16 %6709 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4445
@@ -12876,12 +12876,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6719:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %6720 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6721 = load ptr, ptr %6720, align 8
-  %6722 = getelementptr inbounds i8, ptr %6721, i64 48
-  %6723 = getelementptr inbounds i8, ptr %0, i64 8
+  %6722 = getelementptr inbounds nuw i8, ptr %6721, i64 48
+  %6723 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3747 = load ptr, ptr %6723, align 8
   %6724 = load i8, ptr %6722, align 8
   %6725 = icmp eq i8 %6724, 1
-  %6726 = getelementptr inbounds i8, ptr %6721, i64 56
+  %6726 = getelementptr inbounds nuw i8, ptr %6721, i64 56
   br i1 %6725, label %6727, label %6737
 
 6727:                                             ; preds = %6719
@@ -12891,7 +12891,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6731 = getelementptr inbounds nuw i8, ptr %6729, i64 96
   %6732 = load ptr, ptr %6731, align 8
   %6733 = zext i32 %6730 to i64
-  %6734 = getelementptr inbounds i16, ptr %6732, i64 %6733
+  %6734 = getelementptr inbounds nuw i16, ptr %6732, i64 %6733
   %6735 = load i16, ptr %6734, align 2
   %6736 = zext i16 %6735 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4447
@@ -12906,10 +12906,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4446 = phi i64 [ %6736, %6727 ], [ %6739, %6737 ]
   %6740 = shl i64 %.0.i4446, 20
   %6741 = and i64 %6740, 32505856
-  %6742 = getelementptr inbounds i8, ptr %6721, i64 32
+  %6742 = getelementptr inbounds nuw i8, ptr %6721, i64 32
   %6743 = load i8, ptr %6742, align 8
   %6744 = icmp eq i8 %6743, 1
-  %6745 = getelementptr inbounds i8, ptr %6721, i64 40
+  %6745 = getelementptr inbounds nuw i8, ptr %6721, i64 40
   br i1 %6744, label %6746, label %6756
 
 6746:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4447
@@ -12919,7 +12919,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6750 = getelementptr inbounds nuw i8, ptr %6748, i64 96
   %6751 = load ptr, ptr %6750, align 8
   %6752 = zext i32 %6749 to i64
-  %6753 = getelementptr inbounds i16, ptr %6751, i64 %6752
+  %6753 = getelementptr inbounds nuw i16, ptr %6751, i64 %6752
   %6754 = load i16, ptr %6753, align 2
   %6755 = zext i16 %6754 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4449
@@ -12934,10 +12934,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4448 = phi i64 [ %6755, %6746 ], [ %6758, %6756 ]
   %6759 = shl i64 %.0.i4448, 15
   %6760 = and i64 %6759, 1015808
-  %6761 = getelementptr inbounds i8, ptr %6721, i64 16
+  %6761 = getelementptr inbounds nuw i8, ptr %6721, i64 16
   %6762 = load i8, ptr %6761, align 8
   %6763 = icmp eq i8 %6762, 1
-  %6764 = getelementptr inbounds i8, ptr %6721, i64 24
+  %6764 = getelementptr inbounds nuw i8, ptr %6721, i64 24
   br i1 %6763, label %6765, label %6775
 
 6765:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4449
@@ -12947,7 +12947,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6769 = getelementptr inbounds nuw i8, ptr %6767, i64 96
   %6770 = load ptr, ptr %6769, align 8
   %6771 = zext i32 %6768 to i64
-  %6772 = getelementptr inbounds i16, ptr %6770, i64 %6771
+  %6772 = getelementptr inbounds nuw i16, ptr %6770, i64 %6771
   %6773 = load i16, ptr %6772, align 2
   %6774 = zext i16 %6773 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4451
@@ -12962,10 +12962,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4450 = phi i64 [ %6774, %6765 ], [ %6777, %6775 ]
   %6778 = shl i64 %.0.i4450, 7
   %6779 = and i64 %6778, 3968
-  %6780 = getelementptr inbounds i8, ptr %6721, i64 64
+  %6780 = getelementptr inbounds nuw i8, ptr %6721, i64 64
   %6781 = load i8, ptr %6780, align 8
   %6782 = icmp eq i8 %6781, 1
-  %6783 = getelementptr inbounds i8, ptr %6721, i64 72
+  %6783 = getelementptr inbounds nuw i8, ptr %6721, i64 72
   br i1 %6782, label %6784, label %6794
 
 6784:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4451
@@ -12975,7 +12975,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6788 = getelementptr inbounds nuw i8, ptr %6786, i64 96
   %6789 = load ptr, ptr %6788, align 8
   %6790 = zext i32 %6787 to i64
-  %6791 = getelementptr inbounds i16, ptr %6789, i64 %6790
+  %6791 = getelementptr inbounds nuw i16, ptr %6789, i64 %6790
   %6792 = load i16, ptr %6791, align 2
   %6793 = zext i16 %6792 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4453
@@ -12999,12 +12999,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6803:                                             ; preds = %4, %4
   %6804 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6805 = load ptr, ptr %6804, align 8
-  %6806 = getelementptr inbounds i8, ptr %6805, i64 48
-  %6807 = getelementptr inbounds i8, ptr %0, i64 8
+  %6806 = getelementptr inbounds nuw i8, ptr %6805, i64 48
+  %6807 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3751 = load ptr, ptr %6807, align 8
   %6808 = load i8, ptr %6806, align 8
   %6809 = icmp eq i8 %6808, 1
-  %6810 = getelementptr inbounds i8, ptr %6805, i64 56
+  %6810 = getelementptr inbounds nuw i8, ptr %6805, i64 56
   br i1 %6809, label %6811, label %6821
 
 6811:                                             ; preds = %6803
@@ -13014,7 +13014,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6815 = getelementptr inbounds nuw i8, ptr %6813, i64 96
   %6816 = load ptr, ptr %6815, align 8
   %6817 = zext i32 %6814 to i64
-  %6818 = getelementptr inbounds i16, ptr %6816, i64 %6817
+  %6818 = getelementptr inbounds nuw i16, ptr %6816, i64 %6817
   %6819 = load i16, ptr %6818, align 2
   %6820 = zext i16 %6819 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4455
@@ -13029,10 +13029,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4454 = phi i64 [ %6820, %6811 ], [ %6823, %6821 ]
   %6824 = shl i64 %.0.i4454, 20
   %6825 = and i64 %6824, 32505856
-  %6826 = getelementptr inbounds i8, ptr %6805, i64 64
+  %6826 = getelementptr inbounds nuw i8, ptr %6805, i64 64
   %6827 = load i8, ptr %6826, align 8
   %6828 = icmp eq i8 %6827, 1
-  %6829 = getelementptr inbounds i8, ptr %6805, i64 72
+  %6829 = getelementptr inbounds nuw i8, ptr %6805, i64 72
   br i1 %6828, label %6830, label %6840
 
 6830:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4455
@@ -13042,7 +13042,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6834 = getelementptr inbounds nuw i8, ptr %6832, i64 96
   %6835 = load ptr, ptr %6834, align 8
   %6836 = zext i32 %6833 to i64
-  %6837 = getelementptr inbounds i16, ptr %6835, i64 %6836
+  %6837 = getelementptr inbounds nuw i16, ptr %6835, i64 %6836
   %6838 = load i16, ptr %6837, align 2
   %6839 = zext i16 %6838 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4457
@@ -13057,10 +13057,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4456 = phi i64 [ %6839, %6830 ], [ %6842, %6840 ]
   %6843 = shl i64 %.0.i4456, 15
   %6844 = and i64 %6843, 1015808
-  %6845 = getelementptr inbounds i8, ptr %6805, i64 32
+  %6845 = getelementptr inbounds nuw i8, ptr %6805, i64 32
   %6846 = load i8, ptr %6845, align 8
   %6847 = icmp eq i8 %6846, 1
-  %6848 = getelementptr inbounds i8, ptr %6805, i64 40
+  %6848 = getelementptr inbounds nuw i8, ptr %6805, i64 40
   br i1 %6847, label %6849, label %6859
 
 6849:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4457
@@ -13070,7 +13070,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6853 = getelementptr inbounds nuw i8, ptr %6851, i64 96
   %6854 = load ptr, ptr %6853, align 8
   %6855 = zext i32 %6852 to i64
-  %6856 = getelementptr inbounds i16, ptr %6854, i64 %6855
+  %6856 = getelementptr inbounds nuw i16, ptr %6854, i64 %6855
   %6857 = load i16, ptr %6856, align 2
   %6858 = zext i16 %6857 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4459
@@ -13085,10 +13085,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4458 = phi i64 [ %6858, %6849 ], [ %6861, %6859 ]
   %6862 = shl i64 %.0.i4458, 7
   %6863 = and i64 %6862, 3968
-  %6864 = getelementptr inbounds i8, ptr %6805, i64 16
+  %6864 = getelementptr inbounds nuw i8, ptr %6805, i64 16
   %6865 = load i8, ptr %6864, align 8
   %6866 = icmp eq i8 %6865, 1
-  %6867 = getelementptr inbounds i8, ptr %6805, i64 24
+  %6867 = getelementptr inbounds nuw i8, ptr %6805, i64 24
   br i1 %6866, label %6868, label %6878
 
 6868:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4459
@@ -13098,7 +13098,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6872 = getelementptr inbounds nuw i8, ptr %6870, i64 96
   %6873 = load ptr, ptr %6872, align 8
   %6874 = zext i32 %6871 to i64
-  %6875 = getelementptr inbounds i16, ptr %6873, i64 %6874
+  %6875 = getelementptr inbounds nuw i16, ptr %6873, i64 %6874
   %6876 = load i16, ptr %6875, align 2
   %6877 = zext i16 %6876 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4461
@@ -13122,12 +13122,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6887:                                             ; preds = %4, %4, %4, %4
   %6888 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6889 = load ptr, ptr %6888, align 8
-  %6890 = getelementptr inbounds i8, ptr %6889, i64 48
-  %6891 = getelementptr inbounds i8, ptr %0, i64 8
+  %6890 = getelementptr inbounds nuw i8, ptr %6889, i64 48
+  %6891 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3755 = load ptr, ptr %6891, align 8
   %6892 = load i8, ptr %6890, align 8
   %6893 = icmp eq i8 %6892, 1
-  %6894 = getelementptr inbounds i8, ptr %6889, i64 56
+  %6894 = getelementptr inbounds nuw i8, ptr %6889, i64 56
   br i1 %6893, label %6895, label %6905
 
 6895:                                             ; preds = %6887
@@ -13137,7 +13137,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6899 = getelementptr inbounds nuw i8, ptr %6897, i64 96
   %6900 = load ptr, ptr %6899, align 8
   %6901 = zext i32 %6898 to i64
-  %6902 = getelementptr inbounds i16, ptr %6900, i64 %6901
+  %6902 = getelementptr inbounds nuw i16, ptr %6900, i64 %6901
   %6903 = load i16, ptr %6902, align 2
   %6904 = zext i16 %6903 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4463
@@ -13152,10 +13152,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4462 = phi i64 [ %6904, %6895 ], [ %6907, %6905 ]
   %6908 = shl i64 %.0.i4462, 20
   %6909 = and i64 %6908, 32505856
-  %6910 = getelementptr inbounds i8, ptr %6889, i64 64
+  %6910 = getelementptr inbounds nuw i8, ptr %6889, i64 64
   %6911 = load i8, ptr %6910, align 8
   %6912 = icmp eq i8 %6911, 1
-  %6913 = getelementptr inbounds i8, ptr %6889, i64 72
+  %6913 = getelementptr inbounds nuw i8, ptr %6889, i64 72
   br i1 %6912, label %6914, label %6924
 
 6914:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4463
@@ -13165,7 +13165,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6918 = getelementptr inbounds nuw i8, ptr %6916, i64 96
   %6919 = load ptr, ptr %6918, align 8
   %6920 = zext i32 %6917 to i64
-  %6921 = getelementptr inbounds i16, ptr %6919, i64 %6920
+  %6921 = getelementptr inbounds nuw i16, ptr %6919, i64 %6920
   %6922 = load i16, ptr %6921, align 2
   %6923 = zext i16 %6922 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4465
@@ -13180,10 +13180,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4464 = phi i64 [ %6923, %6914 ], [ %6926, %6924 ]
   %6927 = shl i64 %.0.i4464, 15
   %6928 = and i64 %6927, 1015808
-  %6929 = getelementptr inbounds i8, ptr %6889, i64 32
+  %6929 = getelementptr inbounds nuw i8, ptr %6889, i64 32
   %6930 = load i8, ptr %6929, align 8
   %6931 = icmp eq i8 %6930, 1
-  %6932 = getelementptr inbounds i8, ptr %6889, i64 40
+  %6932 = getelementptr inbounds nuw i8, ptr %6889, i64 40
   br i1 %6931, label %6933, label %6943
 
 6933:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4465
@@ -13193,7 +13193,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6937 = getelementptr inbounds nuw i8, ptr %6935, i64 96
   %6938 = load ptr, ptr %6937, align 8
   %6939 = zext i32 %6936 to i64
-  %6940 = getelementptr inbounds i16, ptr %6938, i64 %6939
+  %6940 = getelementptr inbounds nuw i16, ptr %6938, i64 %6939
   %6941 = load i16, ptr %6940, align 2
   %6942 = zext i16 %6941 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4467
@@ -13208,10 +13208,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4466 = phi i64 [ %6942, %6933 ], [ %6945, %6943 ]
   %6946 = shl i64 %.0.i4466, 7
   %6947 = and i64 %6946, 3968
-  %6948 = getelementptr inbounds i8, ptr %6889, i64 16
+  %6948 = getelementptr inbounds nuw i8, ptr %6889, i64 16
   %6949 = load i8, ptr %6948, align 8
   %6950 = icmp eq i8 %6949, 1
-  %6951 = getelementptr inbounds i8, ptr %6889, i64 24
+  %6951 = getelementptr inbounds nuw i8, ptr %6889, i64 24
   br i1 %6950, label %6952, label %6962
 
 6952:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4467
@@ -13221,7 +13221,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6956 = getelementptr inbounds nuw i8, ptr %6954, i64 96
   %6957 = load ptr, ptr %6956, align 8
   %6958 = zext i32 %6955 to i64
-  %6959 = getelementptr inbounds i16, ptr %6957, i64 %6958
+  %6959 = getelementptr inbounds nuw i16, ptr %6957, i64 %6958
   %6960 = load i16, ptr %6959, align 2
   %6961 = zext i16 %6960 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4469
@@ -13245,12 +13245,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 6971:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %6972 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6973 = load ptr, ptr %6972, align 8
-  %6974 = getelementptr inbounds i8, ptr %6973, i64 48
-  %6975 = getelementptr inbounds i8, ptr %0, i64 8
+  %6974 = getelementptr inbounds nuw i8, ptr %6973, i64 48
+  %6975 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3759 = load ptr, ptr %6975, align 8
   %6976 = load i8, ptr %6974, align 8
   %6977 = icmp eq i8 %6976, 1
-  %6978 = getelementptr inbounds i8, ptr %6973, i64 56
+  %6978 = getelementptr inbounds nuw i8, ptr %6973, i64 56
   br i1 %6977, label %6979, label %6989
 
 6979:                                             ; preds = %6971
@@ -13260,7 +13260,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6983 = getelementptr inbounds nuw i8, ptr %6981, i64 96
   %6984 = load ptr, ptr %6983, align 8
   %6985 = zext i32 %6982 to i64
-  %6986 = getelementptr inbounds i16, ptr %6984, i64 %6985
+  %6986 = getelementptr inbounds nuw i16, ptr %6984, i64 %6985
   %6987 = load i16, ptr %6986, align 2
   %6988 = zext i16 %6987 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4471
@@ -13274,10 +13274,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4471: ; preds = %6979, %6989
   %.0.i4470 = phi i64 [ %6988, %6979 ], [ %6991, %6989 ]
   %6992 = shl i64 %.0.i4470, 27
-  %6993 = getelementptr inbounds i8, ptr %6973, i64 32
+  %6993 = getelementptr inbounds nuw i8, ptr %6973, i64 32
   %6994 = load i8, ptr %6993, align 8
   %6995 = icmp eq i8 %6994, 1
-  %6996 = getelementptr inbounds i8, ptr %6973, i64 40
+  %6996 = getelementptr inbounds nuw i8, ptr %6973, i64 40
   br i1 %6995, label %6997, label %7007
 
 6997:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4471
@@ -13287,7 +13287,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7001 = getelementptr inbounds nuw i8, ptr %6999, i64 96
   %7002 = load ptr, ptr %7001, align 8
   %7003 = zext i32 %7000 to i64
-  %7004 = getelementptr inbounds i16, ptr %7002, i64 %7003
+  %7004 = getelementptr inbounds nuw i16, ptr %7002, i64 %7003
   %7005 = load i16, ptr %7004, align 2
   %7006 = zext i16 %7005 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4473
@@ -13302,10 +13302,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4472 = phi i64 [ %7006, %6997 ], [ %7009, %7007 ]
   %7010 = shl i64 %.0.i4472, 20
   %7011 = and i64 %7010, 32505856
-  %7012 = getelementptr inbounds i8, ptr %6973, i64 16
+  %7012 = getelementptr inbounds nuw i8, ptr %6973, i64 16
   %7013 = load i8, ptr %7012, align 8
   %7014 = icmp eq i8 %7013, 1
-  %7015 = getelementptr inbounds i8, ptr %6973, i64 24
+  %7015 = getelementptr inbounds nuw i8, ptr %6973, i64 24
   br i1 %7014, label %7016, label %7026
 
 7016:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4473
@@ -13315,7 +13315,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7020 = getelementptr inbounds nuw i8, ptr %7018, i64 96
   %7021 = load ptr, ptr %7020, align 8
   %7022 = zext i32 %7019 to i64
-  %7023 = getelementptr inbounds i16, ptr %7021, i64 %7022
+  %7023 = getelementptr inbounds nuw i16, ptr %7021, i64 %7022
   %7024 = load i16, ptr %7023, align 2
   %7025 = zext i16 %7024 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4475
@@ -13330,10 +13330,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4474 = phi i64 [ %7025, %7016 ], [ %7028, %7026 ]
   %7029 = shl i64 %.0.i4474, 15
   %7030 = and i64 %7029, 1015808
-  %7031 = getelementptr inbounds i8, ptr %6973, i64 64
+  %7031 = getelementptr inbounds nuw i8, ptr %6973, i64 64
   %7032 = load i8, ptr %7031, align 8
   %7033 = icmp eq i8 %7032, 1
-  %7034 = getelementptr inbounds i8, ptr %6973, i64 72
+  %7034 = getelementptr inbounds nuw i8, ptr %6973, i64 72
   br i1 %7033, label %7035, label %7045
 
 7035:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4475
@@ -13343,7 +13343,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7039 = getelementptr inbounds nuw i8, ptr %7037, i64 96
   %7040 = load ptr, ptr %7039, align 8
   %7041 = zext i32 %7038 to i64
-  %7042 = getelementptr inbounds i16, ptr %7040, i64 %7041
+  %7042 = getelementptr inbounds nuw i16, ptr %7040, i64 %7041
   %7043 = load i16, ptr %7042, align 2
   %7044 = zext i16 %7043 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4477
@@ -13370,7 +13370,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7057 = getelementptr inbounds nuw i8, ptr %7055, i64 96
   %7058 = load ptr, ptr %7057, align 8
   %7059 = zext i32 %7056 to i64
-  %7060 = getelementptr inbounds i16, ptr %7058, i64 %7059
+  %7060 = getelementptr inbounds nuw i16, ptr %7058, i64 %7059
   %7061 = load i16, ptr %7060, align 2
   %7062 = zext i16 %7061 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4479
@@ -13396,12 +13396,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7073:                                             ; preds = %4, %4, %4
   %7074 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7075 = load ptr, ptr %7074, align 8
-  %7076 = getelementptr inbounds i8, ptr %7075, i64 48
-  %7077 = getelementptr inbounds i8, ptr %0, i64 8
+  %7076 = getelementptr inbounds nuw i8, ptr %7075, i64 48
+  %7077 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3764 = load ptr, ptr %7077, align 8
   %7078 = load i8, ptr %7076, align 8
   %7079 = icmp eq i8 %7078, 1
-  %7080 = getelementptr inbounds i8, ptr %7075, i64 56
+  %7080 = getelementptr inbounds nuw i8, ptr %7075, i64 56
   br i1 %7079, label %7081, label %7091
 
 7081:                                             ; preds = %7073
@@ -13411,7 +13411,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7085 = getelementptr inbounds nuw i8, ptr %7083, i64 96
   %7086 = load ptr, ptr %7085, align 8
   %7087 = zext i32 %7084 to i64
-  %7088 = getelementptr inbounds i16, ptr %7086, i64 %7087
+  %7088 = getelementptr inbounds nuw i16, ptr %7086, i64 %7087
   %7089 = load i16, ptr %7088, align 2
   %7090 = zext i16 %7089 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4481
@@ -13426,10 +13426,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4480 = phi i64 [ %7090, %7081 ], [ %7093, %7091 ]
   %7094 = shl i64 %.0.i4480, 7
   %7095 = and i64 %7094, 3968
-  %7096 = getelementptr inbounds i8, ptr %7075, i64 16
+  %7096 = getelementptr inbounds nuw i8, ptr %7075, i64 16
   %7097 = load i8, ptr %7096, align 8
   %7098 = icmp eq i8 %7097, 1
-  %7099 = getelementptr inbounds i8, ptr %7075, i64 24
+  %7099 = getelementptr inbounds nuw i8, ptr %7075, i64 24
   br i1 %7098, label %7100, label %7110
 
 7100:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4481
@@ -13439,7 +13439,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7104 = getelementptr inbounds nuw i8, ptr %7102, i64 96
   %7105 = load ptr, ptr %7104, align 8
   %7106 = zext i32 %7103 to i64
-  %7107 = getelementptr inbounds i16, ptr %7105, i64 %7106
+  %7107 = getelementptr inbounds nuw i16, ptr %7105, i64 %7106
   %7108 = load i16, ptr %7107, align 2
   %7109 = zext i16 %7108 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4483
@@ -13454,10 +13454,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4482 = phi i64 [ %7109, %7100 ], [ %7112, %7110 ]
   %7113 = shl i64 %.0.i4482, 20
   %7114 = and i64 %7113, 32505856
-  %7115 = getelementptr inbounds i8, ptr %7075, i64 32
+  %7115 = getelementptr inbounds nuw i8, ptr %7075, i64 32
   %7116 = load i8, ptr %7115, align 8
   %7117 = icmp eq i8 %7116, 1
-  %7118 = getelementptr inbounds i8, ptr %7075, i64 40
+  %7118 = getelementptr inbounds nuw i8, ptr %7075, i64 40
   br i1 %7117, label %7119, label %7129
 
 7119:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4483
@@ -13467,7 +13467,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7123 = getelementptr inbounds nuw i8, ptr %7121, i64 96
   %7124 = load ptr, ptr %7123, align 8
   %7125 = zext i32 %7122 to i64
-  %7126 = getelementptr inbounds i16, ptr %7124, i64 %7125
+  %7126 = getelementptr inbounds nuw i16, ptr %7124, i64 %7125
   %7127 = load i16, ptr %7126, align 2
   %7128 = zext i16 %7127 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4485
@@ -13490,12 +13490,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7137:                                             ; preds = %4
   %7138 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7139 = load ptr, ptr %7138, align 8
-  %7140 = getelementptr inbounds i8, ptr %7139, i64 16
-  %7141 = getelementptr inbounds i8, ptr %0, i64 8
+  %7140 = getelementptr inbounds nuw i8, ptr %7139, i64 16
+  %7141 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3767 = load ptr, ptr %7141, align 8
   %7142 = load i8, ptr %7140, align 8
   %7143 = icmp eq i8 %7142, 1
-  %7144 = getelementptr inbounds i8, ptr %7139, i64 24
+  %7144 = getelementptr inbounds nuw i8, ptr %7139, i64 24
   br i1 %7143, label %7145, label %7155
 
 7145:                                             ; preds = %7137
@@ -13505,7 +13505,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7149 = getelementptr inbounds nuw i8, ptr %7147, i64 96
   %7150 = load ptr, ptr %7149, align 8
   %7151 = zext i32 %7148 to i64
-  %7152 = getelementptr inbounds i16, ptr %7150, i64 %7151
+  %7152 = getelementptr inbounds nuw i16, ptr %7150, i64 %7151
   %7153 = load i16, ptr %7152, align 2
   %7154 = zext i16 %7153 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4487
@@ -13532,7 +13532,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7167 = getelementptr inbounds nuw i8, ptr %7165, i64 96
   %7168 = load ptr, ptr %7167, align 8
   %7169 = zext i32 %7166 to i64
-  %7170 = getelementptr inbounds i16, ptr %7168, i64 %7169
+  %7170 = getelementptr inbounds nuw i16, ptr %7168, i64 %7169
   %7171 = load i16, ptr %7170, align 2
   %7172 = zext i16 %7171 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4489
@@ -13547,10 +13547,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4488 = phi i64 [ %7172, %7163 ], [ %7175, %7173 ]
   %7176 = shl i64 %.0.i4488, 7
   %7177 = and i64 %7176, 3968
-  %7178 = getelementptr inbounds i8, ptr %7139, i64 32
+  %7178 = getelementptr inbounds nuw i8, ptr %7139, i64 32
   %7179 = load i8, ptr %7178, align 8
   %7180 = icmp eq i8 %7179, 1
-  %7181 = getelementptr inbounds i8, ptr %7139, i64 40
+  %7181 = getelementptr inbounds nuw i8, ptr %7139, i64 40
   br i1 %7180, label %7182, label %7192
 
 7182:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4489
@@ -13560,7 +13560,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7186 = getelementptr inbounds nuw i8, ptr %7184, i64 96
   %7187 = load ptr, ptr %7186, align 8
   %7188 = zext i32 %7185 to i64
-  %7189 = getelementptr inbounds i16, ptr %7187, i64 %7188
+  %7189 = getelementptr inbounds nuw i16, ptr %7187, i64 %7188
   %7190 = load i16, ptr %7189, align 2
   %7191 = zext i16 %7190 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4491
@@ -13589,7 +13589,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %7204, label %7206, label %7217
 
 7206:                                             ; preds = %7200
-  %7207 = getelementptr inbounds i8, ptr %0, i64 8
+  %7207 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3770 = load ptr, ptr %7207, align 8
   %7208 = getelementptr inbounds nuw i8, ptr %.val3770, i64 160
   %7209 = load ptr, ptr %7208, align 8
@@ -13597,7 +13597,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7211 = getelementptr inbounds nuw i8, ptr %7209, i64 96
   %7212 = load ptr, ptr %7211, align 8
   %7213 = zext i32 %7210 to i64
-  %7214 = getelementptr inbounds i16, ptr %7212, i64 %7213
+  %7214 = getelementptr inbounds nuw i16, ptr %7212, i64 %7213
   %7215 = load i16, ptr %7214, align 2
   %7216 = zext i16 %7215 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4493
@@ -13623,7 +13623,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %7226, label %7228, label %7239
 
 7228:                                             ; preds = %7222
-  %7229 = getelementptr inbounds i8, ptr %0, i64 8
+  %7229 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3771 = load ptr, ptr %7229, align 8
   %7230 = getelementptr inbounds nuw i8, ptr %.val3771, i64 160
   %7231 = load ptr, ptr %7230, align 8
@@ -13631,7 +13631,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7233 = getelementptr inbounds nuw i8, ptr %7231, i64 96
   %7234 = load ptr, ptr %7233, align 8
   %7235 = zext i32 %7232 to i64
-  %7236 = getelementptr inbounds i16, ptr %7234, i64 %7235
+  %7236 = getelementptr inbounds nuw i16, ptr %7234, i64 %7235
   %7237 = load i16, ptr %7236, align 2
   %7238 = zext i16 %7237 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4495
@@ -13657,7 +13657,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   br i1 %7248, label %7250, label %7261
 
 7250:                                             ; preds = %7244
-  %7251 = getelementptr inbounds i8, ptr %0, i64 8
+  %7251 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3772 = load ptr, ptr %7251, align 8
   %7252 = getelementptr inbounds nuw i8, ptr %.val3772, i64 160
   %7253 = load ptr, ptr %7252, align 8
@@ -13665,7 +13665,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7255 = getelementptr inbounds nuw i8, ptr %7253, i64 96
   %7256 = load ptr, ptr %7255, align 8
   %7257 = zext i32 %7254 to i64
-  %7258 = getelementptr inbounds i16, ptr %7256, i64 %7257
+  %7258 = getelementptr inbounds nuw i16, ptr %7256, i64 %7257
   %7259 = load i16, ptr %7258, align 2
   %7260 = zext i16 %7259 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4497
@@ -13680,7 +13680,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4496 = phi i64 [ %7260, %7250 ], [ %7263, %7261 ]
   %7264 = shl i64 %.0.i4496, 7
   %7265 = and i64 %7264, 3968
-  %.sroa.1.0..sroa_idx.i4498 = getelementptr inbounds i8, ptr %7246, i64 24
+  %.sroa.1.0..sroa_idx.i4498 = getelementptr inbounds nuw i8, ptr %7246, i64 24
   %.sroa.1.0.copyload.i4499 = load i32, ptr %.sroa.1.0..sroa_idx.i4498, align 8
   %switch.i4500.not = icmp eq i32 %.sroa.1.0.copyload.i4499, 11
   %7266 = select i1 %switch.i4500.not, i64 0, i64 33554432
@@ -13691,12 +13691,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7269:                                             ; preds = %4
   %7270 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7271 = load ptr, ptr %7270, align 8
-  %7272 = getelementptr inbounds i8, ptr %7271, i64 16
-  %7273 = getelementptr inbounds i8, ptr %0, i64 8
+  %7272 = getelementptr inbounds nuw i8, ptr %7271, i64 16
+  %7273 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3773 = load ptr, ptr %7273, align 8
   %7274 = load i8, ptr %7272, align 8
   %7275 = icmp eq i8 %7274, 1
-  %7276 = getelementptr inbounds i8, ptr %7271, i64 24
+  %7276 = getelementptr inbounds nuw i8, ptr %7271, i64 24
   br i1 %7275, label %7277, label %7287
 
 7277:                                             ; preds = %7269
@@ -13706,7 +13706,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7281 = getelementptr inbounds nuw i8, ptr %7279, i64 96
   %7282 = load ptr, ptr %7281, align 8
   %7283 = zext i32 %7280 to i64
-  %7284 = getelementptr inbounds i16, ptr %7282, i64 %7283
+  %7284 = getelementptr inbounds nuw i16, ptr %7282, i64 %7283
   %7285 = load i16, ptr %7284, align 2
   %7286 = zext i16 %7285 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4503
@@ -13733,7 +13733,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7299 = getelementptr inbounds nuw i8, ptr %7297, i64 96
   %7300 = load ptr, ptr %7299, align 8
   %7301 = zext i32 %7298 to i64
-  %7302 = getelementptr inbounds i16, ptr %7300, i64 %7301
+  %7302 = getelementptr inbounds nuw i16, ptr %7300, i64 %7301
   %7303 = load i16, ptr %7302, align 2
   %7304 = zext i16 %7303 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4505
@@ -13755,11 +13755,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7312:                                             ; preds = %4, %4, %4, %4
   %7313 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7314 = load ptr, ptr %7313, align 8
-  %7315 = getelementptr inbounds i8, ptr %7314, i64 16
-  %7316 = getelementptr inbounds i8, ptr %0, i64 8
+  %7315 = getelementptr inbounds nuw i8, ptr %7314, i64 16
+  %7316 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7317 = load i8, ptr %7315, align 8
   %7318 = icmp eq i8 %7317, 1
-  %7319 = getelementptr inbounds i8, ptr %7314, i64 24
+  %7319 = getelementptr inbounds nuw i8, ptr %7314, i64 24
   br i1 %7318, label %7320, label %7330
 
 7320:                                             ; preds = %7312
@@ -13770,7 +13770,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7324 = getelementptr inbounds nuw i8, ptr %7322, i64 96
   %7325 = load ptr, ptr %7324, align 8
   %7326 = zext i32 %7323 to i64
-  %7327 = getelementptr inbounds i16, ptr %7325, i64 %7326
+  %7327 = getelementptr inbounds nuw i16, ptr %7325, i64 %7326
   %7328 = load i16, ptr %7327, align 2
   %7329 = zext i16 %7328 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4507
@@ -13786,7 +13786,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4506 = phi i32 [ %7329, %7320 ], [ %7333, %7330 ]
   %7334 = shl i32 %.0.i4506, 20
   %7335 = and i32 %7334, 32505856
-  %7336 = getelementptr inbounds i8, ptr %3, i64 216
+  %7336 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3463 = load i64, ptr %7336, align 8
   %7337 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3463)
   %7338 = shl i32 %7337, 15
@@ -13806,7 +13806,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7349 = getelementptr inbounds nuw i8, ptr %7347, i64 96
   %7350 = load ptr, ptr %7349, align 8
   %7351 = zext i32 %7348 to i64
-  %7352 = getelementptr inbounds i16, ptr %7350, i64 %7351
+  %7352 = getelementptr inbounds nuw i16, ptr %7350, i64 %7351
   %7353 = load i16, ptr %7352, align 2
   %7354 = zext i16 %7353 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4509
@@ -13830,11 +13830,11 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7364:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %7365 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7366 = load ptr, ptr %7365, align 8
-  %7367 = getelementptr inbounds i8, ptr %7366, i64 16
-  %7368 = getelementptr inbounds i8, ptr %0, i64 8
+  %7367 = getelementptr inbounds nuw i8, ptr %7366, i64 16
+  %7368 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7369 = load i8, ptr %7367, align 8
   %7370 = icmp eq i8 %7369, 1
-  %7371 = getelementptr inbounds i8, ptr %7366, i64 24
+  %7371 = getelementptr inbounds nuw i8, ptr %7366, i64 24
   br i1 %7370, label %7372, label %7382
 
 7372:                                             ; preds = %7364
@@ -13845,7 +13845,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7376 = getelementptr inbounds nuw i8, ptr %7374, i64 96
   %7377 = load ptr, ptr %7376, align 8
   %7378 = zext i32 %7375 to i64
-  %7379 = getelementptr inbounds i16, ptr %7377, i64 %7378
+  %7379 = getelementptr inbounds nuw i16, ptr %7377, i64 %7378
   %7380 = load i16, ptr %7379, align 2
   %7381 = zext i16 %7380 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4511
@@ -13861,7 +13861,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4510 = phi i32 [ %7381, %7372 ], [ %7385, %7382 ]
   %7386 = shl i32 %.0.i4510, 20
   %7387 = and i32 %7386, 32505856
-  %7388 = getelementptr inbounds i8, ptr %3, i64 216
+  %7388 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %.val3464 = load i64, ptr %7388, align 8
   %7389 = tail call fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val3464)
   %7390 = shl i32 %7389, 15
@@ -13881,7 +13881,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7401 = getelementptr inbounds nuw i8, ptr %7399, i64 96
   %7402 = load ptr, ptr %7401, align 8
   %7403 = zext i32 %7400 to i64
-  %7404 = getelementptr inbounds i16, ptr %7402, i64 %7403
+  %7404 = getelementptr inbounds nuw i16, ptr %7402, i64 %7403
   %7405 = load i16, ptr %7404, align 2
   %7406 = zext i16 %7405 to i32
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4513
@@ -13898,7 +13898,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7411 = shl i32 %.0.i4512, 7
   %7412 = and i32 %7411, 3968
   %7413 = or disjoint i32 %7392, %7412
-  %.sroa.1.0..sroa_idx.i4514 = getelementptr inbounds i8, ptr %7393, i64 56
+  %.sroa.1.0..sroa_idx.i4514 = getelementptr inbounds nuw i8, ptr %7393, i64 56
   %.sroa.1.0.copyload.i4515 = load i32, ptr %.sroa.1.0..sroa_idx.i4514, align 8
   %switch.i4516.not = icmp eq i32 %.sroa.1.0.copyload.i4515, 11
   %7414 = select i1 %switch.i4516.not, i32 0, i32 33554432
@@ -13910,12 +13910,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7418:                                             ; preds = %4
   %7419 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7420 = load ptr, ptr %7419, align 8
-  %7421 = getelementptr inbounds i8, ptr %7420, i64 16
-  %7422 = getelementptr inbounds i8, ptr %0, i64 8
+  %7421 = getelementptr inbounds nuw i8, ptr %7420, i64 16
+  %7422 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3779 = load ptr, ptr %7422, align 8
   %7423 = load i8, ptr %7421, align 8
   %7424 = icmp eq i8 %7423, 1
-  %7425 = getelementptr inbounds i8, ptr %7420, i64 24
+  %7425 = getelementptr inbounds nuw i8, ptr %7420, i64 24
   br i1 %7424, label %7426, label %7436
 
 7426:                                             ; preds = %7418
@@ -13925,7 +13925,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7430 = getelementptr inbounds nuw i8, ptr %7428, i64 96
   %7431 = load ptr, ptr %7430, align 8
   %7432 = zext i32 %7429 to i64
-  %7433 = getelementptr inbounds i16, ptr %7431, i64 %7432
+  %7433 = getelementptr inbounds nuw i16, ptr %7431, i64 %7432
   %7434 = load i16, ptr %7433, align 2
   %7435 = zext i16 %7434 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4519
@@ -13940,10 +13940,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4518 = phi i64 [ %7435, %7426 ], [ %7438, %7436 ]
   %7439 = shl i64 %.0.i4518, 20
   %7440 = and i64 %7439, 32505856
-  %7441 = getelementptr inbounds i8, ptr %7420, i64 32
+  %7441 = getelementptr inbounds nuw i8, ptr %7420, i64 32
   %7442 = load i8, ptr %7441, align 8
   %7443 = icmp eq i8 %7442, 1
-  %7444 = getelementptr inbounds i8, ptr %7420, i64 40
+  %7444 = getelementptr inbounds nuw i8, ptr %7420, i64 40
   br i1 %7443, label %7445, label %7455
 
 7445:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4519
@@ -13953,7 +13953,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7449 = getelementptr inbounds nuw i8, ptr %7447, i64 96
   %7450 = load ptr, ptr %7449, align 8
   %7451 = zext i32 %7448 to i64
-  %7452 = getelementptr inbounds i16, ptr %7450, i64 %7451
+  %7452 = getelementptr inbounds nuw i16, ptr %7450, i64 %7451
   %7453 = load i16, ptr %7452, align 2
   %7454 = zext i16 %7453 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4521
@@ -13983,7 +13983,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7470 = getelementptr inbounds nuw i8, ptr %7468, i64 96
   %7471 = load ptr, ptr %7470, align 8
   %7472 = zext i32 %7469 to i64
-  %7473 = getelementptr inbounds i16, ptr %7471, i64 %7472
+  %7473 = getelementptr inbounds nuw i16, ptr %7471, i64 %7472
   %7474 = load i16, ptr %7473, align 2
   %7475 = zext i16 %7474 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4523
@@ -13998,7 +13998,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4522 = phi i64 [ %7475, %7466 ], [ %7478, %7476 ]
   %7479 = shl i64 %.0.i4522, 7
   %7480 = and i64 %7479, 3968
-  %.sroa.1.0..sroa_idx.i4524 = getelementptr inbounds i8, ptr %7420, i64 56
+  %.sroa.1.0..sroa_idx.i4524 = getelementptr inbounds nuw i8, ptr %7420, i64 56
   %.sroa.1.0.copyload.i4525 = load i32, ptr %.sroa.1.0..sroa_idx.i4524, align 8
   %switch.i4526.not = icmp eq i32 %.sroa.1.0.copyload.i4525, 11
   %7481 = select i1 %switch.i4526.not, i64 0, i64 33554432
@@ -14012,12 +14012,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7487:                                             ; preds = %4, %4
   %7488 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7489 = load ptr, ptr %7488, align 8
-  %7490 = getelementptr inbounds i8, ptr %7489, i64 16
-  %7491 = getelementptr inbounds i8, ptr %0, i64 8
+  %7490 = getelementptr inbounds nuw i8, ptr %7489, i64 16
+  %7491 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3782 = load ptr, ptr %7491, align 8
   %7492 = load i8, ptr %7490, align 8
   %7493 = icmp eq i8 %7492, 1
-  %7494 = getelementptr inbounds i8, ptr %7489, i64 24
+  %7494 = getelementptr inbounds nuw i8, ptr %7489, i64 24
   br i1 %7493, label %7495, label %7505
 
 7495:                                             ; preds = %7487
@@ -14027,7 +14027,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7499 = getelementptr inbounds nuw i8, ptr %7497, i64 96
   %7500 = load ptr, ptr %7499, align 8
   %7501 = zext i32 %7498 to i64
-  %7502 = getelementptr inbounds i16, ptr %7500, i64 %7501
+  %7502 = getelementptr inbounds nuw i16, ptr %7500, i64 %7501
   %7503 = load i16, ptr %7502, align 2
   %7504 = zext i16 %7503 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4529
@@ -14042,10 +14042,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4528 = phi i64 [ %7504, %7495 ], [ %7507, %7505 ]
   %7508 = shl i64 %.0.i4528, 20
   %7509 = and i64 %7508, 32505856
-  %7510 = getelementptr inbounds i8, ptr %7489, i64 32
+  %7510 = getelementptr inbounds nuw i8, ptr %7489, i64 32
   %7511 = load i8, ptr %7510, align 8
   %7512 = icmp eq i8 %7511, 1
-  %7513 = getelementptr inbounds i8, ptr %7489, i64 40
+  %7513 = getelementptr inbounds nuw i8, ptr %7489, i64 40
   br i1 %7512, label %7514, label %7524
 
 7514:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4529
@@ -14055,7 +14055,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7518 = getelementptr inbounds nuw i8, ptr %7516, i64 96
   %7519 = load ptr, ptr %7518, align 8
   %7520 = zext i32 %7517 to i64
-  %7521 = getelementptr inbounds i16, ptr %7519, i64 %7520
+  %7521 = getelementptr inbounds nuw i16, ptr %7519, i64 %7520
   %7522 = load i16, ptr %7521, align 2
   %7523 = zext i16 %7522 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4531
@@ -14082,7 +14082,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7536 = getelementptr inbounds nuw i8, ptr %7534, i64 96
   %7537 = load ptr, ptr %7536, align 8
   %7538 = zext i32 %7535 to i64
-  %7539 = getelementptr inbounds i16, ptr %7537, i64 %7538
+  %7539 = getelementptr inbounds nuw i16, ptr %7537, i64 %7538
   %7540 = load i16, ptr %7539, align 2
   %7541 = zext i16 %7540 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4533
@@ -14105,12 +14105,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7550:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %7551 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7552 = load ptr, ptr %7551, align 8
-  %7553 = getelementptr inbounds i8, ptr %7552, i64 16
-  %7554 = getelementptr inbounds i8, ptr %0, i64 8
+  %7553 = getelementptr inbounds nuw i8, ptr %7552, i64 16
+  %7554 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3785 = load ptr, ptr %7554, align 8
   %7555 = load i8, ptr %7553, align 8
   %7556 = icmp eq i8 %7555, 1
-  %7557 = getelementptr inbounds i8, ptr %7552, i64 24
+  %7557 = getelementptr inbounds nuw i8, ptr %7552, i64 24
   br i1 %7556, label %7558, label %7568
 
 7558:                                             ; preds = %7550
@@ -14120,7 +14120,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7562 = getelementptr inbounds nuw i8, ptr %7560, i64 96
   %7563 = load ptr, ptr %7562, align 8
   %7564 = zext i32 %7561 to i64
-  %7565 = getelementptr inbounds i16, ptr %7563, i64 %7564
+  %7565 = getelementptr inbounds nuw i16, ptr %7563, i64 %7564
   %7566 = load i16, ptr %7565, align 2
   %7567 = zext i16 %7566 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4535
@@ -14135,10 +14135,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4534 = phi i64 [ %7567, %7558 ], [ %7570, %7568 ]
   %7571 = shl i64 %.0.i4534, 20
   %7572 = and i64 %7571, 32505856
-  %7573 = getelementptr inbounds i8, ptr %7552, i64 32
+  %7573 = getelementptr inbounds nuw i8, ptr %7552, i64 32
   %7574 = load i8, ptr %7573, align 8
   %7575 = icmp eq i8 %7574, 1
-  %7576 = getelementptr inbounds i8, ptr %7552, i64 40
+  %7576 = getelementptr inbounds nuw i8, ptr %7552, i64 40
   br i1 %7575, label %7577, label %7587
 
 7577:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4535
@@ -14148,7 +14148,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7581 = getelementptr inbounds nuw i8, ptr %7579, i64 96
   %7582 = load ptr, ptr %7581, align 8
   %7583 = zext i32 %7580 to i64
-  %7584 = getelementptr inbounds i16, ptr %7582, i64 %7583
+  %7584 = getelementptr inbounds nuw i16, ptr %7582, i64 %7583
   %7585 = load i16, ptr %7584, align 2
   %7586 = zext i16 %7585 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4537
@@ -14175,7 +14175,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7599 = getelementptr inbounds nuw i8, ptr %7597, i64 96
   %7600 = load ptr, ptr %7599, align 8
   %7601 = zext i32 %7598 to i64
-  %7602 = getelementptr inbounds i16, ptr %7600, i64 %7601
+  %7602 = getelementptr inbounds nuw i16, ptr %7600, i64 %7601
   %7603 = load i16, ptr %7602, align 2
   %7604 = zext i16 %7603 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4539
@@ -14190,7 +14190,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4538 = phi i64 [ %7604, %7595 ], [ %7607, %7605 ]
   %7608 = shl i64 %.0.i4538, 7
   %7609 = and i64 %7608, 3968
-  %.sroa.1.0..sroa_idx.i4540 = getelementptr inbounds i8, ptr %7552, i64 56
+  %.sroa.1.0..sroa_idx.i4540 = getelementptr inbounds nuw i8, ptr %7552, i64 56
   %.sroa.1.0.copyload.i4541 = load i32, ptr %.sroa.1.0..sroa_idx.i4540, align 8
   %switch.i4542.not = icmp eq i32 %.sroa.1.0.copyload.i4541, 11
   %7610 = select i1 %switch.i4542.not, i64 0, i64 33554432
@@ -14203,12 +14203,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7615:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   %7616 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7617 = load ptr, ptr %7616, align 8
-  %7618 = getelementptr inbounds i8, ptr %7617, i64 16
-  %7619 = getelementptr inbounds i8, ptr %0, i64 8
+  %7618 = getelementptr inbounds nuw i8, ptr %7617, i64 16
+  %7619 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3788 = load ptr, ptr %7619, align 8
   %7620 = load i8, ptr %7618, align 8
   %7621 = icmp eq i8 %7620, 1
-  %7622 = getelementptr inbounds i8, ptr %7617, i64 24
+  %7622 = getelementptr inbounds nuw i8, ptr %7617, i64 24
   br i1 %7621, label %7623, label %7633
 
 7623:                                             ; preds = %7615
@@ -14218,7 +14218,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7627 = getelementptr inbounds nuw i8, ptr %7625, i64 96
   %7628 = load ptr, ptr %7627, align 8
   %7629 = zext i32 %7626 to i64
-  %7630 = getelementptr inbounds i16, ptr %7628, i64 %7629
+  %7630 = getelementptr inbounds nuw i16, ptr %7628, i64 %7629
   %7631 = load i16, ptr %7630, align 2
   %7632 = zext i16 %7631 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4545
@@ -14233,10 +14233,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4544 = phi i64 [ %7632, %7623 ], [ %7635, %7633 ]
   %7636 = shl i64 %.0.i4544, 20
   %7637 = and i64 %7636, 32505856
-  %7638 = getelementptr inbounds i8, ptr %7617, i64 32
+  %7638 = getelementptr inbounds nuw i8, ptr %7617, i64 32
   %7639 = load i8, ptr %7638, align 8
   %7640 = icmp eq i8 %7639, 1
-  %7641 = getelementptr inbounds i8, ptr %7617, i64 40
+  %7641 = getelementptr inbounds nuw i8, ptr %7617, i64 40
   br i1 %7640, label %7642, label %7652
 
 7642:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4545
@@ -14246,7 +14246,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7646 = getelementptr inbounds nuw i8, ptr %7644, i64 96
   %7647 = load ptr, ptr %7646, align 8
   %7648 = zext i32 %7645 to i64
-  %7649 = getelementptr inbounds i16, ptr %7647, i64 %7648
+  %7649 = getelementptr inbounds nuw i16, ptr %7647, i64 %7648
   %7650 = load i16, ptr %7649, align 2
   %7651 = zext i16 %7650 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4547
@@ -14273,7 +14273,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7664 = getelementptr inbounds nuw i8, ptr %7662, i64 96
   %7665 = load ptr, ptr %7664, align 8
   %7666 = zext i32 %7663 to i64
-  %7667 = getelementptr inbounds i16, ptr %7665, i64 %7666
+  %7667 = getelementptr inbounds nuw i16, ptr %7665, i64 %7666
   %7668 = load i16, ptr %7667, align 2
   %7669 = zext i16 %7668 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4549
@@ -14296,12 +14296,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7678:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %7679 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7680 = load ptr, ptr %7679, align 8
-  %7681 = getelementptr inbounds i8, ptr %7680, i64 16
-  %7682 = getelementptr inbounds i8, ptr %0, i64 8
+  %7681 = getelementptr inbounds nuw i8, ptr %7680, i64 16
+  %7682 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3791 = load ptr, ptr %7682, align 8
   %7683 = load i8, ptr %7681, align 8
   %7684 = icmp eq i8 %7683, 1
-  %7685 = getelementptr inbounds i8, ptr %7680, i64 24
+  %7685 = getelementptr inbounds nuw i8, ptr %7680, i64 24
   br i1 %7684, label %7686, label %7696
 
 7686:                                             ; preds = %7678
@@ -14311,7 +14311,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7690 = getelementptr inbounds nuw i8, ptr %7688, i64 96
   %7691 = load ptr, ptr %7690, align 8
   %7692 = zext i32 %7689 to i64
-  %7693 = getelementptr inbounds i16, ptr %7691, i64 %7692
+  %7693 = getelementptr inbounds nuw i16, ptr %7691, i64 %7692
   %7694 = load i16, ptr %7693, align 2
   %7695 = zext i16 %7694 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4551
@@ -14326,10 +14326,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4550 = phi i64 [ %7695, %7686 ], [ %7698, %7696 ]
   %7699 = shl i64 %.0.i4550, 20
   %7700 = and i64 %7699, 32505856
-  %7701 = getelementptr inbounds i8, ptr %7680, i64 32
+  %7701 = getelementptr inbounds nuw i8, ptr %7680, i64 32
   %7702 = load i8, ptr %7701, align 8
   %7703 = icmp eq i8 %7702, 1
-  %7704 = getelementptr inbounds i8, ptr %7680, i64 40
+  %7704 = getelementptr inbounds nuw i8, ptr %7680, i64 40
   br i1 %7703, label %7705, label %7715
 
 7705:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4551
@@ -14339,7 +14339,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7709 = getelementptr inbounds nuw i8, ptr %7707, i64 96
   %7710 = load ptr, ptr %7709, align 8
   %7711 = zext i32 %7708 to i64
-  %7712 = getelementptr inbounds i16, ptr %7710, i64 %7711
+  %7712 = getelementptr inbounds nuw i16, ptr %7710, i64 %7711
   %7713 = load i16, ptr %7712, align 2
   %7714 = zext i16 %7713 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4553
@@ -14366,7 +14366,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7727 = getelementptr inbounds nuw i8, ptr %7725, i64 96
   %7728 = load ptr, ptr %7727, align 8
   %7729 = zext i32 %7726 to i64
-  %7730 = getelementptr inbounds i16, ptr %7728, i64 %7729
+  %7730 = getelementptr inbounds nuw i16, ptr %7728, i64 %7729
   %7731 = load i16, ptr %7730, align 2
   %7732 = zext i16 %7731 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4555
@@ -14381,7 +14381,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4554 = phi i64 [ %7732, %7723 ], [ %7735, %7733 ]
   %7736 = shl i64 %.0.i4554, 7
   %7737 = and i64 %7736, 3968
-  %.sroa.1.0..sroa_idx.i4556 = getelementptr inbounds i8, ptr %7680, i64 56
+  %.sroa.1.0..sroa_idx.i4556 = getelementptr inbounds nuw i8, ptr %7680, i64 56
   %.sroa.1.0.copyload.i4557 = load i32, ptr %.sroa.1.0..sroa_idx.i4556, align 8
   %switch.i4558.not = icmp eq i32 %.sroa.1.0.copyload.i4557, 11
   %7738 = select i1 %switch.i4558.not, i64 0, i64 33554432
@@ -14394,12 +14394,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7743:                                             ; preds = %4, %4, %4, %4, %4, %4
   %7744 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7745 = load ptr, ptr %7744, align 8
-  %7746 = getelementptr inbounds i8, ptr %7745, i64 16
-  %7747 = getelementptr inbounds i8, ptr %0, i64 8
+  %7746 = getelementptr inbounds nuw i8, ptr %7745, i64 16
+  %7747 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3794 = load ptr, ptr %7747, align 8
   %7748 = load i8, ptr %7746, align 8
   %7749 = icmp eq i8 %7748, 1
-  %7750 = getelementptr inbounds i8, ptr %7745, i64 24
+  %7750 = getelementptr inbounds nuw i8, ptr %7745, i64 24
   br i1 %7749, label %7751, label %7761
 
 7751:                                             ; preds = %7743
@@ -14409,7 +14409,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7755 = getelementptr inbounds nuw i8, ptr %7753, i64 96
   %7756 = load ptr, ptr %7755, align 8
   %7757 = zext i32 %7754 to i64
-  %7758 = getelementptr inbounds i16, ptr %7756, i64 %7757
+  %7758 = getelementptr inbounds nuw i16, ptr %7756, i64 %7757
   %7759 = load i16, ptr %7758, align 2
   %7760 = zext i16 %7759 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4561
@@ -14436,7 +14436,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7773 = getelementptr inbounds nuw i8, ptr %7771, i64 96
   %7774 = load ptr, ptr %7773, align 8
   %7775 = zext i32 %7772 to i64
-  %7776 = getelementptr inbounds i16, ptr %7774, i64 %7775
+  %7776 = getelementptr inbounds nuw i16, ptr %7774, i64 %7775
   %7777 = load i16, ptr %7776, align 2
   %7778 = zext i16 %7777 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4563
@@ -14458,12 +14458,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7786:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %7787 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7788 = load ptr, ptr %7787, align 8
-  %7789 = getelementptr inbounds i8, ptr %7788, i64 16
-  %7790 = getelementptr inbounds i8, ptr %0, i64 8
+  %7789 = getelementptr inbounds nuw i8, ptr %7788, i64 16
+  %7790 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3796 = load ptr, ptr %7790, align 8
   %7791 = load i8, ptr %7789, align 8
   %7792 = icmp eq i8 %7791, 1
-  %7793 = getelementptr inbounds i8, ptr %7788, i64 24
+  %7793 = getelementptr inbounds nuw i8, ptr %7788, i64 24
   br i1 %7792, label %7794, label %7804
 
 7794:                                             ; preds = %7786
@@ -14473,7 +14473,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7798 = getelementptr inbounds nuw i8, ptr %7796, i64 96
   %7799 = load ptr, ptr %7798, align 8
   %7800 = zext i32 %7797 to i64
-  %7801 = getelementptr inbounds i16, ptr %7799, i64 %7800
+  %7801 = getelementptr inbounds nuw i16, ptr %7799, i64 %7800
   %7802 = load i16, ptr %7801, align 2
   %7803 = zext i16 %7802 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4565
@@ -14500,7 +14500,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7816 = getelementptr inbounds nuw i8, ptr %7814, i64 96
   %7817 = load ptr, ptr %7816, align 8
   %7818 = zext i32 %7815 to i64
-  %7819 = getelementptr inbounds i16, ptr %7817, i64 %7818
+  %7819 = getelementptr inbounds nuw i16, ptr %7817, i64 %7818
   %7820 = load i16, ptr %7819, align 2
   %7821 = zext i16 %7820 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4567
@@ -14515,7 +14515,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4566 = phi i64 [ %7821, %7812 ], [ %7824, %7822 ]
   %7825 = shl i64 %.0.i4566, 7
   %7826 = and i64 %7825, 3968
-  %.sroa.1.0..sroa_idx.i4568 = getelementptr inbounds i8, ptr %7788, i64 40
+  %.sroa.1.0..sroa_idx.i4568 = getelementptr inbounds nuw i8, ptr %7788, i64 40
   %.sroa.1.0.copyload.i4569 = load i32, ptr %.sroa.1.0..sroa_idx.i4568, align 8
   %switch.i4570.not = icmp eq i32 %.sroa.1.0.copyload.i4569, 11
   %7827 = select i1 %switch.i4570.not, i64 0, i64 33554432
@@ -14527,12 +14527,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7831:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %7832 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7833 = load ptr, ptr %7832, align 8
-  %7834 = getelementptr inbounds i8, ptr %7833, i64 16
-  %7835 = getelementptr inbounds i8, ptr %0, i64 8
+  %7834 = getelementptr inbounds nuw i8, ptr %7833, i64 16
+  %7835 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3798 = load ptr, ptr %7835, align 8
   %7836 = load i8, ptr %7834, align 8
   %7837 = icmp eq i8 %7836, 1
-  %7838 = getelementptr inbounds i8, ptr %7833, i64 24
+  %7838 = getelementptr inbounds nuw i8, ptr %7833, i64 24
   br i1 %7837, label %7839, label %7849
 
 7839:                                             ; preds = %7831
@@ -14542,7 +14542,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7843 = getelementptr inbounds nuw i8, ptr %7841, i64 96
   %7844 = load ptr, ptr %7843, align 8
   %7845 = zext i32 %7842 to i64
-  %7846 = getelementptr inbounds i16, ptr %7844, i64 %7845
+  %7846 = getelementptr inbounds nuw i16, ptr %7844, i64 %7845
   %7847 = load i16, ptr %7846, align 2
   %7848 = zext i16 %7847 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4573
@@ -14557,10 +14557,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4572 = phi i64 [ %7848, %7839 ], [ %7851, %7849 ]
   %7852 = shl i64 %.0.i4572, 20
   %7853 = and i64 %7852, 32505856
-  %7854 = getelementptr inbounds i8, ptr %7833, i64 32
+  %7854 = getelementptr inbounds nuw i8, ptr %7833, i64 32
   %7855 = load i8, ptr %7854, align 8
   %7856 = icmp eq i8 %7855, 1
-  %7857 = getelementptr inbounds i8, ptr %7833, i64 40
+  %7857 = getelementptr inbounds nuw i8, ptr %7833, i64 40
   br i1 %7856, label %7858, label %7868
 
 7858:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4573
@@ -14570,7 +14570,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7862 = getelementptr inbounds nuw i8, ptr %7860, i64 96
   %7863 = load ptr, ptr %7862, align 8
   %7864 = zext i32 %7861 to i64
-  %7865 = getelementptr inbounds i16, ptr %7863, i64 %7864
+  %7865 = getelementptr inbounds nuw i16, ptr %7863, i64 %7864
   %7866 = load i16, ptr %7865, align 2
   %7867 = zext i16 %7866 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4575
@@ -14597,7 +14597,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7880 = getelementptr inbounds nuw i8, ptr %7878, i64 96
   %7881 = load ptr, ptr %7880, align 8
   %7882 = zext i32 %7879 to i64
-  %7883 = getelementptr inbounds i16, ptr %7881, i64 %7882
+  %7883 = getelementptr inbounds nuw i16, ptr %7881, i64 %7882
   %7884 = load i16, ptr %7883, align 2
   %7885 = zext i16 %7884 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4577
@@ -14620,12 +14620,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7894:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %7895 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7896 = load ptr, ptr %7895, align 8
-  %7897 = getelementptr inbounds i8, ptr %7896, i64 16
-  %7898 = getelementptr inbounds i8, ptr %0, i64 8
+  %7897 = getelementptr inbounds nuw i8, ptr %7896, i64 16
+  %7898 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3801 = load ptr, ptr %7898, align 8
   %7899 = load i8, ptr %7897, align 8
   %7900 = icmp eq i8 %7899, 1
-  %7901 = getelementptr inbounds i8, ptr %7896, i64 24
+  %7901 = getelementptr inbounds nuw i8, ptr %7896, i64 24
   br i1 %7900, label %7902, label %7912
 
 7902:                                             ; preds = %7894
@@ -14635,7 +14635,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7906 = getelementptr inbounds nuw i8, ptr %7904, i64 96
   %7907 = load ptr, ptr %7906, align 8
   %7908 = zext i32 %7905 to i64
-  %7909 = getelementptr inbounds i16, ptr %7907, i64 %7908
+  %7909 = getelementptr inbounds nuw i16, ptr %7907, i64 %7908
   %7910 = load i16, ptr %7909, align 2
   %7911 = zext i16 %7910 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4579
@@ -14650,10 +14650,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4578 = phi i64 [ %7911, %7902 ], [ %7914, %7912 ]
   %7915 = shl i64 %.0.i4578, 20
   %7916 = and i64 %7915, 32505856
-  %7917 = getelementptr inbounds i8, ptr %7896, i64 32
+  %7917 = getelementptr inbounds nuw i8, ptr %7896, i64 32
   %7918 = load i8, ptr %7917, align 8
   %7919 = icmp eq i8 %7918, 1
-  %7920 = getelementptr inbounds i8, ptr %7896, i64 40
+  %7920 = getelementptr inbounds nuw i8, ptr %7896, i64 40
   br i1 %7919, label %7921, label %7931
 
 7921:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4579
@@ -14663,7 +14663,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7925 = getelementptr inbounds nuw i8, ptr %7923, i64 96
   %7926 = load ptr, ptr %7925, align 8
   %7927 = zext i32 %7924 to i64
-  %7928 = getelementptr inbounds i16, ptr %7926, i64 %7927
+  %7928 = getelementptr inbounds nuw i16, ptr %7926, i64 %7927
   %7929 = load i16, ptr %7928, align 2
   %7930 = zext i16 %7929 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4581
@@ -14690,7 +14690,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7943 = getelementptr inbounds nuw i8, ptr %7941, i64 96
   %7944 = load ptr, ptr %7943, align 8
   %7945 = zext i32 %7942 to i64
-  %7946 = getelementptr inbounds i16, ptr %7944, i64 %7945
+  %7946 = getelementptr inbounds nuw i16, ptr %7944, i64 %7945
   %7947 = load i16, ptr %7946, align 2
   %7948 = zext i16 %7947 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4583
@@ -14705,7 +14705,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4582 = phi i64 [ %7948, %7939 ], [ %7951, %7949 ]
   %7952 = shl i64 %.0.i4582, 7
   %7953 = and i64 %7952, 3968
-  %.sroa.1.0..sroa_idx.i4584 = getelementptr inbounds i8, ptr %7896, i64 56
+  %.sroa.1.0..sroa_idx.i4584 = getelementptr inbounds nuw i8, ptr %7896, i64 56
   %.sroa.1.0.copyload.i4585 = load i32, ptr %.sroa.1.0..sroa_idx.i4584, align 8
   %switch.i4586.not = icmp eq i32 %.sroa.1.0.copyload.i4585, 11
   %7954 = select i1 %switch.i4586.not, i64 0, i64 33554432
@@ -14718,12 +14718,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 7959:                                             ; preds = %4, %4
   %7960 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7961 = load ptr, ptr %7960, align 8
-  %7962 = getelementptr inbounds i8, ptr %7961, i64 32
-  %7963 = getelementptr inbounds i8, ptr %0, i64 8
+  %7962 = getelementptr inbounds nuw i8, ptr %7961, i64 32
+  %7963 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3804 = load ptr, ptr %7963, align 8
   %7964 = load i8, ptr %7962, align 8
   %7965 = icmp eq i8 %7964, 1
-  %7966 = getelementptr inbounds i8, ptr %7961, i64 40
+  %7966 = getelementptr inbounds nuw i8, ptr %7961, i64 40
   br i1 %7965, label %7967, label %7977
 
 7967:                                             ; preds = %7959
@@ -14733,7 +14733,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7971 = getelementptr inbounds nuw i8, ptr %7969, i64 96
   %7972 = load ptr, ptr %7971, align 8
   %7973 = zext i32 %7970 to i64
-  %7974 = getelementptr inbounds i16, ptr %7972, i64 %7973
+  %7974 = getelementptr inbounds nuw i16, ptr %7972, i64 %7973
   %7975 = load i16, ptr %7974, align 2
   %7976 = zext i16 %7975 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4589
@@ -14748,10 +14748,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4588 = phi i64 [ %7976, %7967 ], [ %7979, %7977 ]
   %7980 = shl i64 %.0.i4588, 20
   %7981 = and i64 %7980, 32505856
-  %7982 = getelementptr inbounds i8, ptr %7961, i64 48
+  %7982 = getelementptr inbounds nuw i8, ptr %7961, i64 48
   %7983 = load i8, ptr %7982, align 8
   %7984 = icmp eq i8 %7983, 1
-  %7985 = getelementptr inbounds i8, ptr %7961, i64 56
+  %7985 = getelementptr inbounds nuw i8, ptr %7961, i64 56
   br i1 %7984, label %7986, label %7996
 
 7986:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4589
@@ -14761,7 +14761,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7990 = getelementptr inbounds nuw i8, ptr %7988, i64 96
   %7991 = load ptr, ptr %7990, align 8
   %7992 = zext i32 %7989 to i64
-  %7993 = getelementptr inbounds i16, ptr %7991, i64 %7992
+  %7993 = getelementptr inbounds nuw i16, ptr %7991, i64 %7992
   %7994 = load i16, ptr %7993, align 2
   %7995 = zext i16 %7994 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4591
@@ -14776,10 +14776,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4590 = phi i64 [ %7995, %7986 ], [ %7998, %7996 ]
   %7999 = shl i64 %.0.i4590, 15
   %8000 = and i64 %7999, 1015808
-  %8001 = getelementptr inbounds i8, ptr %7961, i64 16
+  %8001 = getelementptr inbounds nuw i8, ptr %7961, i64 16
   %8002 = load i8, ptr %8001, align 8
   %8003 = icmp eq i8 %8002, 1
-  %8004 = getelementptr inbounds i8, ptr %7961, i64 24
+  %8004 = getelementptr inbounds nuw i8, ptr %7961, i64 24
   br i1 %8003, label %8005, label %8015
 
 8005:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4591
@@ -14789,7 +14789,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8009 = getelementptr inbounds nuw i8, ptr %8007, i64 96
   %8010 = load ptr, ptr %8009, align 8
   %8011 = zext i32 %8008 to i64
-  %8012 = getelementptr inbounds i16, ptr %8010, i64 %8011
+  %8012 = getelementptr inbounds nuw i16, ptr %8010, i64 %8011
   %8013 = load i16, ptr %8012, align 2
   %8014 = zext i16 %8013 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4593
@@ -14812,12 +14812,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 8023:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %8024 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8025 = load ptr, ptr %8024, align 8
-  %8026 = getelementptr inbounds i8, ptr %8025, i64 32
-  %8027 = getelementptr inbounds i8, ptr %0, i64 8
+  %8026 = getelementptr inbounds nuw i8, ptr %8025, i64 32
+  %8027 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3807 = load ptr, ptr %8027, align 8
   %8028 = load i8, ptr %8026, align 8
   %8029 = icmp eq i8 %8028, 1
-  %8030 = getelementptr inbounds i8, ptr %8025, i64 40
+  %8030 = getelementptr inbounds nuw i8, ptr %8025, i64 40
   br i1 %8029, label %8031, label %8041
 
 8031:                                             ; preds = %8023
@@ -14827,7 +14827,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8035 = getelementptr inbounds nuw i8, ptr %8033, i64 96
   %8036 = load ptr, ptr %8035, align 8
   %8037 = zext i32 %8034 to i64
-  %8038 = getelementptr inbounds i16, ptr %8036, i64 %8037
+  %8038 = getelementptr inbounds nuw i16, ptr %8036, i64 %8037
   %8039 = load i16, ptr %8038, align 2
   %8040 = zext i16 %8039 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4595
@@ -14842,10 +14842,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4594 = phi i64 [ %8040, %8031 ], [ %8043, %8041 ]
   %8044 = shl i64 %.0.i4594, 20
   %8045 = and i64 %8044, 32505856
-  %8046 = getelementptr inbounds i8, ptr %8025, i64 16
+  %8046 = getelementptr inbounds nuw i8, ptr %8025, i64 16
   %8047 = load i8, ptr %8046, align 8
   %8048 = icmp eq i8 %8047, 1
-  %8049 = getelementptr inbounds i8, ptr %8025, i64 24
+  %8049 = getelementptr inbounds nuw i8, ptr %8025, i64 24
   br i1 %8048, label %8050, label %8060
 
 8050:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4595
@@ -14855,7 +14855,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8054 = getelementptr inbounds nuw i8, ptr %8052, i64 96
   %8055 = load ptr, ptr %8054, align 8
   %8056 = zext i32 %8053 to i64
-  %8057 = getelementptr inbounds i16, ptr %8055, i64 %8056
+  %8057 = getelementptr inbounds nuw i16, ptr %8055, i64 %8056
   %8058 = load i16, ptr %8057, align 2
   %8059 = zext i16 %8058 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4597
@@ -14882,7 +14882,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8072 = getelementptr inbounds nuw i8, ptr %8070, i64 96
   %8073 = load ptr, ptr %8072, align 8
   %8074 = zext i32 %8071 to i64
-  %8075 = getelementptr inbounds i16, ptr %8073, i64 %8074
+  %8075 = getelementptr inbounds nuw i16, ptr %8073, i64 %8074
   %8076 = load i16, ptr %8075, align 2
   %8077 = zext i16 %8076 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4599
@@ -14897,7 +14897,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4598 = phi i64 [ %8077, %8068 ], [ %8080, %8078 ]
   %8081 = shl i64 %.0.i4598, 7
   %8082 = and i64 %8081, 3968
-  %.sroa.1.0..sroa_idx.i4600 = getelementptr inbounds i8, ptr %8025, i64 56
+  %.sroa.1.0..sroa_idx.i4600 = getelementptr inbounds nuw i8, ptr %8025, i64 56
   %.sroa.1.0.copyload.i4601 = load i32, ptr %.sroa.1.0..sroa_idx.i4600, align 8
   %switch.i4602.not = icmp eq i32 %.sroa.1.0.copyload.i4601, 11
   %8083 = select i1 %switch.i4602.not, i64 0, i64 33554432
@@ -14910,12 +14910,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 8088:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %8089 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8090 = load ptr, ptr %8089, align 8
-  %8091 = getelementptr inbounds i8, ptr %8090, i64 32
-  %8092 = getelementptr inbounds i8, ptr %0, i64 8
+  %8091 = getelementptr inbounds nuw i8, ptr %8090, i64 32
+  %8092 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3810 = load ptr, ptr %8092, align 8
   %8093 = load i8, ptr %8091, align 8
   %8094 = icmp eq i8 %8093, 1
-  %8095 = getelementptr inbounds i8, ptr %8090, i64 40
+  %8095 = getelementptr inbounds nuw i8, ptr %8090, i64 40
   br i1 %8094, label %8096, label %8106
 
 8096:                                             ; preds = %8088
@@ -14925,7 +14925,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8100 = getelementptr inbounds nuw i8, ptr %8098, i64 96
   %8101 = load ptr, ptr %8100, align 8
   %8102 = zext i32 %8099 to i64
-  %8103 = getelementptr inbounds i16, ptr %8101, i64 %8102
+  %8103 = getelementptr inbounds nuw i16, ptr %8101, i64 %8102
   %8104 = load i16, ptr %8103, align 2
   %8105 = zext i16 %8104 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4605
@@ -14940,10 +14940,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4604 = phi i64 [ %8105, %8096 ], [ %8108, %8106 ]
   %8109 = shl i64 %.0.i4604, 20
   %8110 = and i64 %8109, 32505856
-  %8111 = getelementptr inbounds i8, ptr %8090, i64 16
+  %8111 = getelementptr inbounds nuw i8, ptr %8090, i64 16
   %8112 = load i8, ptr %8111, align 8
   %8113 = icmp eq i8 %8112, 1
-  %8114 = getelementptr inbounds i8, ptr %8090, i64 24
+  %8114 = getelementptr inbounds nuw i8, ptr %8090, i64 24
   br i1 %8113, label %8115, label %8125
 
 8115:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4605
@@ -14953,7 +14953,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8119 = getelementptr inbounds nuw i8, ptr %8117, i64 96
   %8120 = load ptr, ptr %8119, align 8
   %8121 = zext i32 %8118 to i64
-  %8122 = getelementptr inbounds i16, ptr %8120, i64 %8121
+  %8122 = getelementptr inbounds nuw i16, ptr %8120, i64 %8121
   %8123 = load i16, ptr %8122, align 2
   %8124 = zext i16 %8123 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4607
@@ -14980,7 +14980,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8137 = getelementptr inbounds nuw i8, ptr %8135, i64 96
   %8138 = load ptr, ptr %8137, align 8
   %8139 = zext i32 %8136 to i64
-  %8140 = getelementptr inbounds i16, ptr %8138, i64 %8139
+  %8140 = getelementptr inbounds nuw i16, ptr %8138, i64 %8139
   %8141 = load i16, ptr %8140, align 2
   %8142 = zext i16 %8141 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4609
@@ -14995,7 +14995,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4608 = phi i64 [ %8142, %8133 ], [ %8145, %8143 ]
   %8146 = shl i64 %.0.i4608, 7
   %8147 = and i64 %8146, 3968
-  %.sroa.1.0..sroa_idx.i4610 = getelementptr inbounds i8, ptr %8090, i64 56
+  %.sroa.1.0..sroa_idx.i4610 = getelementptr inbounds nuw i8, ptr %8090, i64 56
   %.sroa.1.0.copyload.i4611 = load i32, ptr %.sroa.1.0..sroa_idx.i4610, align 8
   %switch.i4612.not = icmp eq i32 %.sroa.1.0.copyload.i4611, 11
   %8148 = select i1 %switch.i4612.not, i64 0, i64 33554432
@@ -15008,12 +15008,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 8153:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %8154 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8155 = load ptr, ptr %8154, align 8
-  %8156 = getelementptr inbounds i8, ptr %8155, i64 32
-  %8157 = getelementptr inbounds i8, ptr %0, i64 8
+  %8156 = getelementptr inbounds nuw i8, ptr %8155, i64 32
+  %8157 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3813 = load ptr, ptr %8157, align 8
   %8158 = load i8, ptr %8156, align 8
   %8159 = icmp eq i8 %8158, 1
-  %8160 = getelementptr inbounds i8, ptr %8155, i64 40
+  %8160 = getelementptr inbounds nuw i8, ptr %8155, i64 40
   br i1 %8159, label %8161, label %8171
 
 8161:                                             ; preds = %8153
@@ -15023,7 +15023,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8165 = getelementptr inbounds nuw i8, ptr %8163, i64 96
   %8166 = load ptr, ptr %8165, align 8
   %8167 = zext i32 %8164 to i64
-  %8168 = getelementptr inbounds i16, ptr %8166, i64 %8167
+  %8168 = getelementptr inbounds nuw i16, ptr %8166, i64 %8167
   %8169 = load i16, ptr %8168, align 2
   %8170 = zext i16 %8169 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4615
@@ -15038,10 +15038,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4614 = phi i64 [ %8170, %8161 ], [ %8173, %8171 ]
   %8174 = shl i64 %.0.i4614, 20
   %8175 = and i64 %8174, 32505856
-  %8176 = getelementptr inbounds i8, ptr %8155, i64 16
+  %8176 = getelementptr inbounds nuw i8, ptr %8155, i64 16
   %8177 = load i8, ptr %8176, align 8
   %8178 = icmp eq i8 %8177, 1
-  %8179 = getelementptr inbounds i8, ptr %8155, i64 24
+  %8179 = getelementptr inbounds nuw i8, ptr %8155, i64 24
   br i1 %8178, label %8180, label %8190
 
 8180:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4615
@@ -15051,7 +15051,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8184 = getelementptr inbounds nuw i8, ptr %8182, i64 96
   %8185 = load ptr, ptr %8184, align 8
   %8186 = zext i32 %8183 to i64
-  %8187 = getelementptr inbounds i16, ptr %8185, i64 %8186
+  %8187 = getelementptr inbounds nuw i16, ptr %8185, i64 %8186
   %8188 = load i16, ptr %8187, align 2
   %8189 = zext i16 %8188 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4617
@@ -15073,12 +15073,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 8197:                                             ; preds = %4, %4, %4, %4, %4
   %8198 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8199 = load ptr, ptr %8198, align 8
-  %8200 = getelementptr inbounds i8, ptr %8199, i64 32
-  %8201 = getelementptr inbounds i8, ptr %0, i64 8
+  %8200 = getelementptr inbounds nuw i8, ptr %8199, i64 32
+  %8201 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3815 = load ptr, ptr %8201, align 8
   %8202 = load i8, ptr %8200, align 8
   %8203 = icmp eq i8 %8202, 1
-  %8204 = getelementptr inbounds i8, ptr %8199, i64 40
+  %8204 = getelementptr inbounds nuw i8, ptr %8199, i64 40
   br i1 %8203, label %8205, label %8215
 
 8205:                                             ; preds = %8197
@@ -15088,7 +15088,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8209 = getelementptr inbounds nuw i8, ptr %8207, i64 96
   %8210 = load ptr, ptr %8209, align 8
   %8211 = zext i32 %8208 to i64
-  %8212 = getelementptr inbounds i16, ptr %8210, i64 %8211
+  %8212 = getelementptr inbounds nuw i16, ptr %8210, i64 %8211
   %8213 = load i16, ptr %8212, align 2
   %8214 = zext i16 %8213 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4619
@@ -15103,10 +15103,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4618 = phi i64 [ %8214, %8205 ], [ %8217, %8215 ]
   %8218 = shl i64 %.0.i4618, 20
   %8219 = and i64 %8218, 32505856
-  %8220 = getelementptr inbounds i8, ptr %8199, i64 48
+  %8220 = getelementptr inbounds nuw i8, ptr %8199, i64 48
   %8221 = load i8, ptr %8220, align 8
   %8222 = icmp eq i8 %8221, 1
-  %8223 = getelementptr inbounds i8, ptr %8199, i64 56
+  %8223 = getelementptr inbounds nuw i8, ptr %8199, i64 56
   br i1 %8222, label %8224, label %8234
 
 8224:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4619
@@ -15116,7 +15116,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8228 = getelementptr inbounds nuw i8, ptr %8226, i64 96
   %8229 = load ptr, ptr %8228, align 8
   %8230 = zext i32 %8227 to i64
-  %8231 = getelementptr inbounds i16, ptr %8229, i64 %8230
+  %8231 = getelementptr inbounds nuw i16, ptr %8229, i64 %8230
   %8232 = load i16, ptr %8231, align 2
   %8233 = zext i16 %8232 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4621
@@ -15131,10 +15131,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4620 = phi i64 [ %8233, %8224 ], [ %8236, %8234 ]
   %8237 = shl i64 %.0.i4620, 15
   %8238 = and i64 %8237, 1015808
-  %8239 = getelementptr inbounds i8, ptr %8199, i64 16
+  %8239 = getelementptr inbounds nuw i8, ptr %8199, i64 16
   %8240 = load i8, ptr %8239, align 8
   %8241 = icmp eq i8 %8240, 1
-  %8242 = getelementptr inbounds i8, ptr %8199, i64 24
+  %8242 = getelementptr inbounds nuw i8, ptr %8199, i64 24
   br i1 %8241, label %8243, label %8253
 
 8243:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4621
@@ -15144,7 +15144,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8247 = getelementptr inbounds nuw i8, ptr %8245, i64 96
   %8248 = load ptr, ptr %8247, align 8
   %8249 = zext i32 %8246 to i64
-  %8250 = getelementptr inbounds i16, ptr %8248, i64 %8249
+  %8250 = getelementptr inbounds nuw i16, ptr %8248, i64 %8249
   %8251 = load i16, ptr %8250, align 2
   %8252 = zext i16 %8251 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4623
@@ -15167,12 +15167,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 8261:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %8262 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8263 = load ptr, ptr %8262, align 8
-  %8264 = getelementptr inbounds i8, ptr %8263, i64 48
-  %8265 = getelementptr inbounds i8, ptr %0, i64 8
+  %8264 = getelementptr inbounds nuw i8, ptr %8263, i64 48
+  %8265 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3818 = load ptr, ptr %8265, align 8
   %8266 = load i8, ptr %8264, align 8
   %8267 = icmp eq i8 %8266, 1
-  %8268 = getelementptr inbounds i8, ptr %8263, i64 56
+  %8268 = getelementptr inbounds nuw i8, ptr %8263, i64 56
   br i1 %8267, label %8269, label %8279
 
 8269:                                             ; preds = %8261
@@ -15182,7 +15182,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8273 = getelementptr inbounds nuw i8, ptr %8271, i64 96
   %8274 = load ptr, ptr %8273, align 8
   %8275 = zext i32 %8272 to i64
-  %8276 = getelementptr inbounds i16, ptr %8274, i64 %8275
+  %8276 = getelementptr inbounds nuw i16, ptr %8274, i64 %8275
   %8277 = load i16, ptr %8276, align 2
   %8278 = zext i16 %8277 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4625
@@ -15197,10 +15197,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4624 = phi i64 [ %8278, %8269 ], [ %8281, %8279 ]
   %8282 = shl i64 %.0.i4624, 20
   %8283 = and i64 %8282, 32505856
-  %8284 = getelementptr inbounds i8, ptr %8263, i64 32
+  %8284 = getelementptr inbounds nuw i8, ptr %8263, i64 32
   %8285 = load i8, ptr %8284, align 8
   %8286 = icmp eq i8 %8285, 1
-  %8287 = getelementptr inbounds i8, ptr %8263, i64 40
+  %8287 = getelementptr inbounds nuw i8, ptr %8263, i64 40
   br i1 %8286, label %8288, label %8298
 
 8288:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4625
@@ -15210,7 +15210,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8292 = getelementptr inbounds nuw i8, ptr %8290, i64 96
   %8293 = load ptr, ptr %8292, align 8
   %8294 = zext i32 %8291 to i64
-  %8295 = getelementptr inbounds i16, ptr %8293, i64 %8294
+  %8295 = getelementptr inbounds nuw i16, ptr %8293, i64 %8294
   %8296 = load i16, ptr %8295, align 2
   %8297 = zext i16 %8296 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4627
@@ -15225,10 +15225,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4626 = phi i64 [ %8297, %8288 ], [ %8300, %8298 ]
   %8301 = shl i64 %.0.i4626, 15
   %8302 = and i64 %8301, 1015808
-  %8303 = getelementptr inbounds i8, ptr %8263, i64 16
+  %8303 = getelementptr inbounds nuw i8, ptr %8263, i64 16
   %8304 = load i8, ptr %8303, align 8
   %8305 = icmp eq i8 %8304, 1
-  %8306 = getelementptr inbounds i8, ptr %8263, i64 24
+  %8306 = getelementptr inbounds nuw i8, ptr %8263, i64 24
   br i1 %8305, label %8307, label %8317
 
 8307:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4627
@@ -15238,7 +15238,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8311 = getelementptr inbounds nuw i8, ptr %8309, i64 96
   %8312 = load ptr, ptr %8311, align 8
   %8313 = zext i32 %8310 to i64
-  %8314 = getelementptr inbounds i16, ptr %8312, i64 %8313
+  %8314 = getelementptr inbounds nuw i16, ptr %8312, i64 %8313
   %8315 = load i16, ptr %8314, align 2
   %8316 = zext i16 %8315 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4629
@@ -15253,7 +15253,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4628 = phi i64 [ %8316, %8307 ], [ %8319, %8317 ]
   %8320 = shl i64 %.0.i4628, 7
   %8321 = and i64 %8320, 3968
-  %.sroa.1.0..sroa_idx.i4630 = getelementptr inbounds i8, ptr %8263, i64 72
+  %.sroa.1.0..sroa_idx.i4630 = getelementptr inbounds nuw i8, ptr %8263, i64 72
   %.sroa.1.0.copyload.i4631 = load i32, ptr %.sroa.1.0..sroa_idx.i4630, align 8
   %switch.i4632.not = icmp eq i32 %.sroa.1.0.copyload.i4631, 11
   %8322 = select i1 %switch.i4632.not, i64 0, i64 33554432
@@ -15266,12 +15266,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
 8327:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %8328 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8329 = load ptr, ptr %8328, align 8
-  %8330 = getelementptr inbounds i8, ptr %8329, i64 48
-  %8331 = getelementptr inbounds i8, ptr %0, i64 8
+  %8330 = getelementptr inbounds nuw i8, ptr %8329, i64 48
+  %8331 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val3821 = load ptr, ptr %8331, align 8
   %8332 = load i8, ptr %8330, align 8
   %8333 = icmp eq i8 %8332, 1
-  %8334 = getelementptr inbounds i8, ptr %8329, i64 56
+  %8334 = getelementptr inbounds nuw i8, ptr %8329, i64 56
   br i1 %8333, label %8335, label %8345
 
 8335:                                             ; preds = %8327
@@ -15281,7 +15281,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8339 = getelementptr inbounds nuw i8, ptr %8337, i64 96
   %8340 = load ptr, ptr %8339, align 8
   %8341 = zext i32 %8338 to i64
-  %8342 = getelementptr inbounds i16, ptr %8340, i64 %8341
+  %8342 = getelementptr inbounds nuw i16, ptr %8340, i64 %8341
   %8343 = load i16, ptr %8342, align 2
   %8344 = zext i16 %8343 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4635
@@ -15296,10 +15296,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4634 = phi i64 [ %8344, %8335 ], [ %8347, %8345 ]
   %8348 = shl i64 %.0.i4634, 20
   %8349 = and i64 %8348, 32505856
-  %8350 = getelementptr inbounds i8, ptr %8329, i64 32
+  %8350 = getelementptr inbounds nuw i8, ptr %8329, i64 32
   %8351 = load i8, ptr %8350, align 8
   %8352 = icmp eq i8 %8351, 1
-  %8353 = getelementptr inbounds i8, ptr %8329, i64 40
+  %8353 = getelementptr inbounds nuw i8, ptr %8329, i64 40
   br i1 %8352, label %8354, label %8364
 
 8354:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4635
@@ -15309,7 +15309,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8358 = getelementptr inbounds nuw i8, ptr %8356, i64 96
   %8359 = load ptr, ptr %8358, align 8
   %8360 = zext i32 %8357 to i64
-  %8361 = getelementptr inbounds i16, ptr %8359, i64 %8360
+  %8361 = getelementptr inbounds nuw i16, ptr %8359, i64 %8360
   %8362 = load i16, ptr %8361, align 2
   %8363 = zext i16 %8362 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4637
@@ -15324,10 +15324,10 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4636 = phi i64 [ %8363, %8354 ], [ %8366, %8364 ]
   %8367 = shl i64 %.0.i4636, 15
   %8368 = and i64 %8367, 1015808
-  %8369 = getelementptr inbounds i8, ptr %8329, i64 16
+  %8369 = getelementptr inbounds nuw i8, ptr %8329, i64 16
   %8370 = load i8, ptr %8369, align 8
   %8371 = icmp eq i8 %8370, 1
-  %8372 = getelementptr inbounds i8, ptr %8329, i64 24
+  %8372 = getelementptr inbounds nuw i8, ptr %8329, i64 24
   br i1 %8371, label %8373, label %8383
 
 8373:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4637
@@ -15337,7 +15337,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8377 = getelementptr inbounds nuw i8, ptr %8375, i64 96
   %8378 = load ptr, ptr %8377, align 8
   %8379 = zext i32 %8376 to i64
-  %8380 = getelementptr inbounds i16, ptr %8378, i64 %8379
+  %8380 = getelementptr inbounds nuw i16, ptr %8378, i64 %8379
   %8381 = load i16, ptr %8380, align 2
   %8382 = zext i16 %8381 to i64
   br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4639
@@ -15352,7 +15352,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.0.i4638 = phi i64 [ %8382, %8373 ], [ %8385, %8383 ]
   %8386 = shl i64 %.0.i4638, 7
   %8387 = and i64 %8386, 3968
-  %.sroa.1.0..sroa_idx.i4640 = getelementptr inbounds i8, ptr %8329, i64 72
+  %.sroa.1.0..sroa_idx.i4640 = getelementptr inbounds nuw i8, ptr %8329, i64 72
   %.sroa.1.0.copyload.i4641 = load i32, ptr %.sroa.1.0..sroa_idx.i4640, align 8
   %switch.i4642.not = icmp eq i32 %.sroa.1.0.copyload.i4641, 11
   %8388 = select i1 %switch.i4642.not, i64 0, i64 33554432
@@ -15426,7 +15426,7 @@ _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit: ; preds = %7, %8
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %5, i64 noundef 16) #13
   br label %_ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31
 
@@ -15490,7 +15490,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupEL
   br i1 %spec.select.i.i.i.i, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %12, i64 noundef %4, i64 noundef 24) #13
   %.pre = load ptr, ptr %0, align 8
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE28reserveForParamAndGetAddressERKS1_m.exit
@@ -15500,7 +15500,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupEL
   %15 = ptrtoint ptr %1 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %4, i64 noundef 24) #13
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
@@ -15531,7 +15531,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getI
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = zext nneg i32 %2 to i64
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"class.llvm::MCOperand", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %1, align 8
@@ -15562,7 +15562,7 @@ define internal fastcc noundef i32 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getI
   ]
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %62 [
     i32 17, label %51
@@ -15800,7 +15800,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #13
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 

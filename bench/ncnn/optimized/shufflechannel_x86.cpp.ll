@@ -126,7 +126,7 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef %58)
   br label %65
@@ -272,11 +272,11 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
   %142 = shufflevector <4 x float> %137, <4 x float> %140, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %141, ptr %.011151814, align 1
   store <4 x float> %142, ptr %.011161813, align 1
-  %143 = getelementptr inbounds i8, ptr %.011061817, i64 16
-  %144 = getelementptr inbounds i8, ptr %.011131816, i64 16
-  %145 = getelementptr inbounds i8, ptr %.011141815, i64 16
-  %146 = getelementptr inbounds i8, ptr %.011151814, i64 16
-  %147 = getelementptr inbounds i8, ptr %.011161813, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %.011061817, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.011131816, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.011141815, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.011151814, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %.011161813, i64 16
   %148 = add nuw nsw i32 %.011171812, 1
   %exitcond.not = icmp eq i32 %148, %26
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -308,7 +308,7 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
   %158 = sext i32 %157 to i64
   %159 = mul i64 %156, %158
   %160 = getelementptr inbounds i8, ptr %152, i64 %159
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = mul i64 %149, %158
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %164 = load i64, ptr %163, align 8
@@ -327,9 +327,9 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
   %170 = load <4 x float>, ptr %.011101822, align 1
   %171 = shufflevector <4 x float> %169, <4 x float> %170, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x float> %171, ptr %.011091823, align 1
-  %172 = getelementptr inbounds i8, ptr %.011111821, i64 16
-  %173 = getelementptr inbounds i8, ptr %.011101822, i64 16
-  %174 = getelementptr inbounds i8, ptr %.011091823, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %.011111821, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %.011101822, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.011091823, i64 16
   %175 = add nuw nsw i32 %.011081824, 1
   %exitcond1868.not = icmp eq i32 %175, %26
   br i1 %exitcond1868.not, label %.critedge, label %.lr.ph1826, !llvm.loop !7
@@ -395,7 +395,7 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
 
 203:                                              ; preds = %200
   %204 = load ptr, ptr %201, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8
   invoke void %206(ptr noundef nonnull align 8 dereferenceable(8) %201, ptr noundef %202)
           to label %209 unwind label %210
@@ -443,7 +443,7 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
 
 222:                                              ; preds = %219
   %223 = load ptr, ptr %220, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %225 = load ptr, ptr %224, align 8
   invoke void %225(ptr noundef nonnull align 8 dereferenceable(8) %220, ptr noundef %221)
           to label %228 unwind label %230
@@ -484,7 +484,7 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
 
 239:                                              ; preds = %236
   %240 = load ptr, ptr %237, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
   %242 = load ptr, ptr %241, align 8
   invoke void %242(ptr noundef nonnull align 8 dereferenceable(8) %237, ptr noundef %238)
           to label %.critedge unwind label %245
@@ -523,7 +523,7 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
 
 256:                                              ; preds = %253
   %257 = load ptr, ptr %254, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %259 = load ptr, ptr %258, align 8
   invoke void %259(ptr noundef nonnull align 8 dereferenceable(8) %254, ptr noundef %255)
           to label %262 unwind label %263
@@ -616,10 +616,10 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
   %308 = shufflevector <4 x float> %305, <4 x float> %306, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   store <4 x float> %307, ptr %.011001829, align 1
   store <4 x float> %308, ptr %.010991830, align 1
-  %309 = getelementptr inbounds i8, ptr %.011021827, i64 16
-  %310 = getelementptr inbounds i8, ptr %.011011828, i64 16
-  %311 = getelementptr inbounds i8, ptr %.011001829, i64 16
-  %312 = getelementptr inbounds i8, ptr %.010991830, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %.011021827, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %.011011828, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %.011001829, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %.010991830, i64 16
   %313 = add nuw nsw i32 %.010981831, 1
   %exitcond1869.not = icmp eq i32 %313, %26
   br i1 %exitcond1869.not, label %._crit_edge1834, label %.lr.ph1833, !llvm.loop !8
@@ -717,12 +717,12 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
   store <4 x float> %365, ptr %.010931854, align 1
   store <4 x float> %366, ptr %.010921855, align 1
   store <4 x float> %367, ptr %.010911856, align 1
-  %368 = getelementptr inbounds i8, ptr %.010961851, i64 16
-  %369 = getelementptr inbounds i8, ptr %.010951852, i64 16
-  %370 = getelementptr inbounds i8, ptr %.010941853, i64 16
-  %371 = getelementptr inbounds i8, ptr %.010931854, i64 16
-  %372 = getelementptr inbounds i8, ptr %.010921855, i64 16
-  %373 = getelementptr inbounds i8, ptr %.010911856, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %.010961851, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %.010951852, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %.010941853, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %.010931854, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %.010921855, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %.010911856, i64 16
   %374 = add nuw nsw i32 %.010901857, 1
   %exitcond1881.not = icmp eq i32 %374, %26
   br i1 %exitcond1881.not, label %._crit_edge1860, label %.lr.ph1859, !llvm.loop !10
@@ -796,14 +796,14 @@ define hidden noundef i32 @_ZNK4ncnn18ShuffleChannel_x867forwardERKNS_3MatERS1_R
   store <4 x float> %416, ptr %.010831842, align 1
   store <4 x float> %417, ptr %.010821843, align 1
   store <4 x float> %418, ptr %.010811844, align 1
-  %419 = getelementptr inbounds i8, ptr %.010881837, i64 16
-  %420 = getelementptr inbounds i8, ptr %.010871838, i64 16
-  %421 = getelementptr inbounds i8, ptr %.010861839, i64 16
-  %422 = getelementptr inbounds i8, ptr %.010851840, i64 16
-  %423 = getelementptr inbounds i8, ptr %.010841841, i64 16
-  %424 = getelementptr inbounds i8, ptr %.010831842, i64 16
-  %425 = getelementptr inbounds i8, ptr %.010821843, i64 16
-  %426 = getelementptr inbounds i8, ptr %.010811844, i64 16
+  %419 = getelementptr inbounds nuw i8, ptr %.010881837, i64 16
+  %420 = getelementptr inbounds nuw i8, ptr %.010871838, i64 16
+  %421 = getelementptr inbounds nuw i8, ptr %.010861839, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %.010851840, i64 16
+  %423 = getelementptr inbounds nuw i8, ptr %.010841841, i64 16
+  %424 = getelementptr inbounds nuw i8, ptr %.010831842, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %.010821843, i64 16
+  %426 = getelementptr inbounds nuw i8, ptr %.010811844, i64 16
   %427 = add nuw nsw i32 %.01845, 1
   %exitcond1875.not = icmp eq i32 %427, %26
   br i1 %exitcond1875.not, label %._crit_edge1848, label %.lr.ph1847, !llvm.loop !12

@@ -102,7 +102,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_miop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %6, ptr noundef nonnull @.str.35) #2
   tail call void @wmem_strbuf_append(ptr noundef %7, ptr noundef nonnull @.str.36) #2
@@ -116,7 +116,7 @@ dissect_miop_heur_check.exit:                     ; preds = %4
   br i1 %.not.i.not, label %11, label %dissect_miop_heur_check.exit.thread
 
 11:                                               ; preds = %dissect_miop_heur_check.exit
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.29) #2
   %14 = load ptr, ptr %12, align 8

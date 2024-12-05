@@ -137,11 +137,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL57initializeMachineBranchProbabilityInfoWrapperPassPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr @.str.13, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 35, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.14, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 19, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE, ptr %4, align 8
@@ -185,7 +185,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -225,7 +225,7 @@ define dso_local void @_ZN4llvm35MachineBranchProbabilityPrinterPass3runERNS_15M
 16:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(78) %9, ptr noundef nonnull align 1 dereferenceable(78) @.str.5, i64 78, i1 false)
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 78
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 78
   store ptr %18, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -280,13 +280,13 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %30, %32, %33
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 3
   store ptr %48, ptr %46, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 
 _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %43, %45
   %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_15MachineFunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm32MachineBranchProbabilityAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(1041) %2) #14
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %.sroa.024.030 = load ptr, ptr %51, align 8
@@ -323,14 +323,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %43, %45
 69:                                               ; preds = %.lr.ph
   store i16 8224, ptr %62, align 1
   %70 = load ptr, ptr %61, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
   store ptr %71, ptr %61, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22
 
 _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %67, %69
   %.0.i.i21 = phi ptr [ %68, %67 ], [ %58, %69 ]
   %72 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm28MachineBranchProbabilityInfo20printEdgeProbabilityERNS_11raw_ostreamEPKNS_17MachineBasicBlockES5_(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i21, ptr noundef nonnull %.sroa.024.032, ptr noundef %57)
-  %73 = getelementptr inbounds i8, ptr %.029, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %.not = icmp eq ptr %73, %56
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -395,25 +395,25 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm28Mac
   br i1 %17, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %3
   br i1 %21, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %3
   br i1 %25, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit36, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %3
   br i1 %29, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit38, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %32 = add nsw i64 %.047.i.i.i.i.i, -1
   %33 = icmp sgt i64 %.047.i.i.i.i.i, 1
   br i1 %33, label %15, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !10
@@ -437,7 +437,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm28Mac
   br i1 %37, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %38, %._crit_edge.i.i.i.i.i
@@ -447,7 +447,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm28Mac
   br i1 %41, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit, label %42
 
 42:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %43 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %42, %._crit_edge.i.i.i.i.i
@@ -460,15 +460,15 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm28Mac
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit: ; preds = %18
-  %47 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit36: ; preds = %22
-  %48 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit38: ; preds = %26
-  %49 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit: ; preds = %15, %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit, %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit36, %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit38, %35, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %46
@@ -491,7 +491,7 @@ _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicB
 61:                                               ; preds = %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %54, ptr noundef nonnull align 1 dereferenceable(5) @.str.8, i64 5, i1 false)
   %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 5
   store ptr %63, ptr %53, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -528,7 +528,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit: ; preds = %_ZN4llvm11raw_ost
 79:                                               ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit
   store i32 540945696, ptr %72, align 1
   %80 = load ptr, ptr %71, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store ptr %81, ptr %71, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12
 
@@ -565,7 +565,7 @@ _ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit14: ; preds = %_ZN4llvm11raw_o
 97:                                               ; preds = %_ZN4llvmlsERNS_11raw_ostreamERKNS_9PrintableE.exit14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %90, ptr noundef nonnull align 1 dereferenceable(16) @.str.10, i64 16, i1 false)
   %98 = load ptr, ptr %89, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %99, ptr %89, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit17
 
@@ -595,7 +595,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %95, %97
 114:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %107, ptr noundef nonnull align 1 dereferenceable(1) %102, i64 %103, i1 false)
   %115 = load ptr, ptr %106, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 %103
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %103
   store ptr %116, ptr %106, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit20
 
@@ -679,7 +679,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm28MachineBranchProbabilityInfo10inv
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %12 = load i32, ptr %11, align 4, !noalias !12
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
   %.not1317.i.i.i.i = icmp eq i32 %12, 0
   br i1 %.not1317.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -690,12 +690,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm28MachineBranchProbabilityInfo10inv
   br i1 %16, label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_32MachineBranchProbabilityAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.01118.i.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01118.i.i.i.i, i64 8
   %.not13.i.i.i.i = icmp eq ptr %18, %14
   br i1 %.not13.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 ._crit_edge.i.i.i.i:                              ; preds = %17, %10
-  %19 = getelementptr inbounds ptr, ptr %7, i64 %13
+  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
   br label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_32MachineBranchProbabilityAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit
 
 20:                                               ; preds = %4
@@ -718,7 +718,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm28MachineBranchProbabilityInfo10inv
   %27 = load i32, ptr %26, align 8, !noalias !12
   %.v.v.i14.i.i.i.i = select i1 %23, i32 %25, i32 %27
   %.v.i15.i.i.i.i = zext i32 %.v.v.i14.i.i.i.i to i64
-  %28 = getelementptr inbounds ptr, ptr %.pre.i.i.i, i64 %.v.i15.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %.v.i15.i.i.i.i
   br label %_ZNK4llvm17PreservedAnalyses10getCheckerINS_32MachineBranchProbabilityAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit
 
 _ZNK4llvm17PreservedAnalyses10getCheckerINS_32MachineBranchProbabilityAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.i.i.i.i, %._ZNK4llvm19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i.i, %22
@@ -731,7 +731,7 @@ _ZNK4llvm17PreservedAnalyses10getCheckerINS_32MachineBranchProbabilityAnalysisEE
   %34 = load i32, ptr %33, align 8, !noalias !12
   %.v.v.i.i.i.i = select i1 %32, i32 %29, i32 %34
   %.v.i.i.i.i = zext i32 %.v.v.i.i.i.i to i64
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %.v.i.i.i.i
+  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %.v.i.i.i.i
   %36 = icmp ne ptr %.0.i.i.i.i, %35
   ret i1 %36
 }
@@ -768,25 +768,25 @@ define dso_local i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilit
   br i1 %13, label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %2
   br i1 %17, label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %2
   br i1 %21, label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit17, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %2
   br i1 %25, label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
   %28 = add nsw i64 %.047.i.i.i.i, -1
   %29 = icmp sgt i64 %.047.i.i.i.i, 1
   br i1 %29, label %11, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !10
@@ -810,7 +810,7 @@ define dso_local i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilit
   br i1 %33, label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %34
@@ -820,7 +820,7 @@ define dso_local i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilit
   br i1 %37, label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit, label %38
 
 38:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %39 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %38
@@ -833,15 +833,15 @@ define dso_local i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilit
   br label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit
 
 _ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %14
-  %43 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit
 
 _ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit17: ; preds = %18
-  %44 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit
 
 _ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19: ; preds = %22
-  %45 = getelementptr inbounds i8, ptr %.02946.i.i.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit
 
 _ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit: ; preds = %11, %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit17, %_ZN4llvm4findINS_14iterator_rangeIPKPNS_17MachineBasicBlockEEEPKS2_EEDaOT_RKT0_.exit.loopexit.split.loop.exit19, %31, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %42
@@ -877,25 +877,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm28MachineBranchProbabilityInfo9isE
   br i1 %15, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %2
   br i1 %19, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %2
   br i1 %23, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit15, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %2
   br i1 %27, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit17, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %30 = add nsw i64 %.047.i.i.i.i.i, -1
   %31 = icmp sgt i64 %.047.i.i.i.i.i, 1
   br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !10
@@ -919,7 +919,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm28MachineBranchProbabilityInfo9isE
   br i1 %35, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %36, %._crit_edge.i.i.i.i.i
@@ -929,7 +929,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm28MachineBranchProbabilityInfo9isE
   br i1 %39, label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit, label %40
 
 40:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %41 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %40, %._crit_edge.i.i.i.i.i
@@ -942,15 +942,15 @@ define dso_local noundef zeroext i1 @_ZNK4llvm28MachineBranchProbabilityInfo9isE
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit: ; preds = %16
-  %45 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit15: ; preds = %20
-  %46 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit17: ; preds = %24
-  %47 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit
 
 _ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit: ; preds = %13, %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit, %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit15, %_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockES3_.exit.loopexit.split.loop.exit17, %33, %._crit_edge._crit_edge.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i, %44
@@ -1102,7 +1102,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1219,9 +1219,9 @@ define internal void @_GLOBAL__sub_I_MachineBranchProbabilityInfo.cpp() #12 sect
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm16StaticLikelyProbE, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZN4llvm16StaticLikelyProbE, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm16StaticLikelyProbE) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 152), align 8
@@ -1230,7 +1230,7 @@ define internal void @_GLOBAL__sub_I_MachineBranchProbabilityInfo.cpp() #12 sect
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 176), align 8
   tail call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZN4llvm16StaticLikelyProbE, ptr nonnull align 1 dereferenceable(19) @.str, i64 18) #14
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 32), align 8
-  store i64 70, ptr getelementptr inbounds (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 40), align 8
+  store i64 70, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm16StaticLikelyProbE, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 80, ptr %2, align 4
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE15setInitialValueERKj(ptr noundef nonnull align 8 dereferenceable(192) @_ZN4llvm16StaticLikelyProbE, ptr noundef nonnull align 4 dereferenceable(4) %2) #14
@@ -1242,9 +1242,9 @@ define internal void @_GLOBAL__sub_I_MachineBranchProbabilityInfo.cpp() #12 sect
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZN4llvm16StaticLikelyProbE) #14
   %6 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev, ptr nonnull @_ZN4llvm16StaticLikelyProbE, ptr nonnull @__dso_handle) #14
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm17ProfileLikelyProbE, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZN4llvm17ProfileLikelyProbE, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZN4llvm17ProfileLikelyProbE) #14
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 152), align 8
@@ -1253,7 +1253,7 @@ define internal void @_GLOBAL__sub_I_MachineBranchProbabilityInfo.cpp() #12 sect
   store ptr @_ZNSt17_Function_handlerIFvRKjEN4llvm2cl3optIjLb0ENS4_6parserIjEEEUlS1_E_EE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 176), align 8
   call void @_ZN4llvm2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) @_ZN4llvm17ProfileLikelyProbE, ptr nonnull align 1 dereferenceable(20) @.str.3, i64 19) #14
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 32), align 8
-  store i64 97, ptr getelementptr inbounds (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 40), align 8
+  store i64 97, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm17ProfileLikelyProbE, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 51, ptr %1, align 4
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE15setInitialValueERKj(ptr noundef nonnull align 8 dereferenceable(192) @_ZN4llvm17ProfileLikelyProbE, ptr noundef nonnull align 4 dereferenceable(4) %1) #14

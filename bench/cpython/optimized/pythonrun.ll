@@ -1300,9 +1300,9 @@ if.end.i22.i:                                     ; preds = %if.then.i21.i
   br i1 %tobool.not.i.i, label %if.then3.i.i, label %if.end9.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i22.i
-  %interp.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %interp.i.i, align 8
-  %builtins.i.i = getelementptr inbounds i8, ptr %13, i64 1248
+  %builtins.i.i = getelementptr inbounds nuw i8, ptr %13, i64 1248
   %14 = load ptr, ptr %builtins.i.i, align 8
   %call4.i.i = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %call1, ptr noundef nonnull @.str.26, ptr noundef %14) #8
   %cmp5.i.i = icmp slt i32 %call4.i.i, 0
@@ -1339,7 +1339,7 @@ run_eval_code_obj.exit.i:                         ; preds = %if.end9.i.i
   br i1 %tobool22.not.i, label %if.end24.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %run_eval_code_obj.exit.i
-  %co_flags.i = getelementptr inbounds i8, ptr %call13.i, i64 48
+  %co_flags.i = getelementptr inbounds nuw i8, ptr %call13.i, i64 48
   %18 = load i32, ptr %co_flags.i, align 8
   %and.i = and i32 %18, 33423360
   %19 = load i32, ptr %flags, align 4
@@ -1960,7 +1960,7 @@ define internal fastcc range(i32 -1, 1) i32 @set_main_loader(ptr noundef %d, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call1 = tail call ptr @_PyImport_GetImportlibExternalLoader(ptr noundef %2, ptr noundef %loader_name) #8
   %cmp = icmp eq ptr %call1, null
@@ -2247,7 +2247,7 @@ entry:
 define hidden range(i32 0, 2) i32 @_Py_HandleSystemExit(ptr nocapture noundef writeonly %exitcode_p) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_Py_GetConfig() #8
-  %inspect1 = getelementptr inbounds i8, ptr %call, i64 188
+  %inspect1 = getelementptr inbounds nuw i8, ptr %call, i64 188
   %0 = load i32, ptr %inspect1, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -2499,9 +2499,9 @@ if.end35:                                         ; preds = %if.end34, %if.end25
 
 if.then37:                                        ; preds = %if.end35
   store ptr %call.val, ptr %args, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %call, ptr %arrayinit.element, align 8
-  %arrayinit.element38 = getelementptr inbounds i8, ptr %args, i64 16
+  %arrayinit.element38 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr %tb.1, ptr %arrayinit.element38, align 16
   %call39 = call ptr @PyObject_Vectorcall(ptr noundef nonnull %call26, ptr noundef nonnull %args, i64 noundef 3, ptr noundef null) #8
   %cmp40 = icmp eq ptr %call39, null
@@ -2763,7 +2763,7 @@ fallback:                                         ; preds = %Py_XDECREF.exit, %i
   tail call void @PyErr_Clear() #8
   store ptr %file, ptr %ctx, align 8
   %call25 = tail call ptr @PySet_New(ptr noundef null) #8
-  %seen = getelementptr inbounds i8, ptr %ctx, i64 8
+  %seen = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call25, ptr %seen, align 8
   %cmp27 = icmp eq ptr %call25, null
   br i1 %cmp27, label %if.then28, label %if.end29
@@ -2836,7 +2836,7 @@ entry:
   %tmp.i.i = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
+  %c_recursion_remaining.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 44
   %2 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -2849,7 +2849,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %entry
   br i1 %tobool2.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %_Py_EnterRecursiveCall.exit
-  %seen = getelementptr inbounds i8, ptr %ctx, i64 8
+  %seen = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %seen, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end6, label %if.then1
@@ -2971,7 +2971,7 @@ if.end.i30.i:                                     ; preds = %if.end13.i
   br i1 %cmp.i32.i, label %print_exception_cause_and_context.exit.sink.split, label %print_exception_cause_and_context.exit
 
 if.end14.i:                                       ; preds = %if.end6.i
-  %suppress_context.i = getelementptr inbounds i8, ptr %value, i64 64
+  %suppress_context.i = getelementptr inbounds nuw i8, ptr %value, i64 64
   %17 = load i8, ptr %suppress_context.i, align 8
   %tobool15.not.i = icmp eq i8 %17, 0
   br i1 %tobool15.not.i, label %if.end17.i, label %if.end6
@@ -3030,7 +3030,7 @@ if.then.i:                                        ; preds = %if.end6
 
 if.end.i16.i:                                     ; preds = %if.then.i
   %value.val.i.i = load ptr, ptr %21, align 8
-  %tp_name.i.i = getelementptr inbounds i8, ptr %value.val.i.i, i64 24
+  %tp_name.i.i = getelementptr inbounds nuw i8, ptr %value.val.i.i, i64 24
   %24 = load ptr, ptr %tp_name.i.i, align 8
   %call2.i.i = tail call i32 @PyFile_WriteString(ptr noundef %24, ptr noundef %20) #8
   %cmp3.i.i = icmp slt i32 %call2.i.i, 0
@@ -3485,7 +3485,7 @@ error:                                            ; preds = %if.end.i16.i, %if.t
 return.sink.split:                                ; preds = %print_exception.exit, %if.end19.i, %if.then1.i26.i, %if.end.i23.i, %error
   %retval.0.ph = phi i32 [ -1, %error ], [ 0, %if.end.i23.i ], [ 0, %if.then1.i26.i ], [ 0, %if.end19.i ], [ 0, %print_exception.exit ]
   %68 = load ptr, ptr %0, align 8
-  %c_recursion_remaining.i.i17 = getelementptr inbounds i8, ptr %68, i64 44
+  %c_recursion_remaining.i.i17 = getelementptr inbounds nuw i8, ptr %68, i64 44
   %69 = load i32, ptr %c_recursion_remaining.i.i17, align 4
   %inc.i.i18 = add i32 %69, 1
   store i32 %inc.i.i18, ptr %c_recursion_remaining.i.i17, align 4
@@ -3743,7 +3743,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool6.not, label %if.else10, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %ob_sval.i = getelementptr inbounds i8, ptr %cmd, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %5 = getelementptr i8, ptr %cmd, i64 16
   %cmd.val22 = load i64, ptr %5, align 8
   store i64 %cmd.val22, ptr %size, align 8
@@ -3765,7 +3765,7 @@ if.then13:                                        ; preds = %if.else10, %PyObjec
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13
-  %ob_start.i = getelementptr inbounds i8, ptr %cmd, i64 40
+  %ob_start.i = getelementptr inbounds nuw i8, ptr %cmd, i64 40
   %7 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -3781,7 +3781,7 @@ if.else16:                                        ; preds = %PyObject_TypeCheck.
 
 if.then19:                                        ; preds = %if.else16
   %8 = load ptr, ptr %view, align 8
-  %len = getelementptr inbounds i8, ptr %view, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %view, i64 16
   %9 = load i64, ptr %len, align 8
   %call20 = call ptr @PyBytes_FromStringAndSize(ptr noundef %8, i64 noundef %9) #8
   store ptr %call20, ptr %cmd_copy, align 8
@@ -3791,7 +3791,7 @@ if.then19:                                        ; preds = %if.else16
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.then19
-  %ob_sval.i29 = getelementptr inbounds i8, ptr %10, i64 32
+  %ob_sval.i29 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = getelementptr i8, ptr %10, i64 16
   %.val = load i64, ptr %11, align 8
   store i64 %.val, ptr %size, align 8
@@ -4285,9 +4285,9 @@ if.end.i167:                                      ; preds = %if.else
   br label %if.end7
 
 if.end:                                           ; preds = %if.then
-  %interp1 = getelementptr inbounds i8, ptr %1, i64 16
+  %interp1 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %interp1, align 8
-  %_interactive_src_count = getelementptr inbounds i8, ptr %3, i64 416720
+  %_interactive_src_count = getelementptr inbounds nuw i8, ptr %3, i64 416720
   %4 = load i64, ptr %_interactive_src_count, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %_interactive_src_count, align 8
@@ -4608,9 +4608,9 @@ if.end.i79:                                       ; preds = %if.then.i77
   br i1 %tobool.not.i, label %if.then3.i, label %if.end9.i
 
 if.then3.i:                                       ; preds = %if.end.i79
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load ptr, ptr %interp.i, align 8
-  %builtins.i = getelementptr inbounds i8, ptr %38, i64 1248
+  %builtins.i = getelementptr inbounds nuw i8, ptr %38, i64 1248
   %39 = load ptr, ptr %builtins.i, align 8
   %call4.i = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %globals, ptr noundef nonnull @.str.26, ptr noundef %39) #8
   %cmp5.i = icmp slt i32 %call4.i, 0
@@ -4724,7 +4724,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %seen = getelementptr inbounds i8, ptr %ctx, i64 8
+  %seen = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %seen, align 8
   %call1 = tail call i32 @PySet_Contains(ptr noundef %0, ptr noundef nonnull %call) #8
   %1 = load i64, ptr %call, align 8
@@ -4766,7 +4766,7 @@ entry:
   %0 = load ptr, ptr %ctx, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
+  %c_recursion_remaining.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
   %dec.i.i.i = add i32 %3, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
@@ -4781,7 +4781,7 @@ _Py_EnterRecursiveCall.exit:                      ; preds = %entry
 if.end:                                           ; preds = %entry, %_Py_EnterRecursiveCall.exit
   %call1 = tail call fastcc i32 @print_exception_recursive(ptr noundef %ctx, ptr noundef nonnull %value)
   %4 = load ptr, ptr %1, align 8
-  %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %4, i64 44
+  %c_recursion_remaining.i.i = getelementptr inbounds nuw i8, ptr %4, i64 44
   %5 = load i32, ptr %c_recursion_remaining.i.i, align 4
   %inc.i.i = add i32 %5, 1
   store i32 %inc.i.i, ptr %c_recursion_remaining.i.i, align 4

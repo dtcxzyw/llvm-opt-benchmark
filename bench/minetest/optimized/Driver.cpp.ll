@@ -167,155 +167,155 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp115 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp122 = alloca %"class.std::__cxx11::basic_string", align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1176
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1176
   tail call void @_ZN3irr5video24COpenGL3ExtensionHandler17initExtensionsNewEv(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr) #13
-  %TextureFormats = getelementptr inbounds i8, ptr %this, i64 1608
+  %TextureFormats = getelementptr inbounds nuw i8, ptr %this, i64 1608
   store i32 32855, ptr %TextureFormats, align 8, !tbaa !14
-  %ref.tmp.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1612
+  %ref.tmp.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1612
   store i32 32993, ptr %ref.tmp.sroa.4.0.arrayidx.sroa_idx, align 4, !tbaa !14
-  %ref.tmp.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1616
+  %ref.tmp.sroa.5.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1616
   store i32 33638, ptr %ref.tmp.sroa.5.0.arrayidx.sroa_idx, align 8, !tbaa !14
-  %ref.tmp.sroa.6194.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1624
+  %ref.tmp.sroa.6194.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1624
   store ptr null, ptr %ref.tmp.sroa.6194.0.arrayidx.sroa_idx, align 8, !tbaa !16
-  %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 1632
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %this, i64 1632
   store i32 6407, ptr %arrayidx8, align 8, !tbaa !14
-  %ref.tmp2.sroa.4.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1636
+  %ref.tmp2.sroa.4.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1636
   store i32 6407, ptr %ref.tmp2.sroa.4.0.arrayidx8.sroa_idx, align 4, !tbaa !14
-  %ref.tmp2.sroa.5.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1640
+  %ref.tmp2.sroa.5.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1640
   store i32 33635, ptr %ref.tmp2.sroa.5.0.arrayidx8.sroa_idx, align 8, !tbaa !14
-  %ref.tmp2.sroa.6193.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1648
+  %ref.tmp2.sroa.6193.0.arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1648
   store ptr null, ptr %ref.tmp2.sroa.6193.0.arrayidx8.sroa_idx, align 8, !tbaa !16
-  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 1656
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 1656
   store i32 32849, ptr %arrayidx15, align 8, !tbaa !14
-  %ref.tmp9.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1660
+  %ref.tmp9.sroa.4.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1660
   store i32 6407, ptr %ref.tmp9.sroa.4.0.arrayidx15.sroa_idx, align 4, !tbaa !14
-  %ref.tmp9.sroa.5.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1664
+  %ref.tmp9.sroa.5.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1664
   store i32 5121, ptr %ref.tmp9.sroa.5.0.arrayidx15.sroa_idx, align 8, !tbaa !14
-  %ref.tmp9.sroa.6192.0.arrayidx15.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1672
+  %ref.tmp9.sroa.6192.0.arrayidx15.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1672
   store ptr null, ptr %ref.tmp9.sroa.6192.0.arrayidx15.sroa_idx, align 8, !tbaa !16
-  %arrayidx22 = getelementptr inbounds i8, ptr %this, i64 1680
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %this, i64 1680
   store i32 32856, ptr %arrayidx22, align 8, !tbaa !14
-  %ref.tmp16.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1684
+  %ref.tmp16.sroa.4.0.arrayidx22.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1684
   store i32 32993, ptr %ref.tmp16.sroa.4.0.arrayidx22.sroa_idx, align 4, !tbaa !14
-  %ref.tmp16.sroa.5.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1688
+  %ref.tmp16.sroa.5.0.arrayidx22.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1688
   store i32 33639, ptr %ref.tmp16.sroa.5.0.arrayidx22.sroa_idx, align 8, !tbaa !14
-  %ref.tmp16.sroa.6191.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1696
+  %ref.tmp16.sroa.6191.0.arrayidx22.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1696
   store ptr null, ptr %ref.tmp16.sroa.6191.0.arrayidx22.sroa_idx, align 8, !tbaa !16
-  %arrayidx29 = getelementptr inbounds i8, ptr %this, i64 1704
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %this, i64 1704
   store i32 33325, ptr %arrayidx29, align 8, !tbaa !14
-  %ref.tmp23.sroa.4.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1708
+  %ref.tmp23.sroa.4.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1708
   store i32 6403, ptr %ref.tmp23.sroa.4.0.arrayidx29.sroa_idx, align 4, !tbaa !14
-  %ref.tmp23.sroa.5.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1712
+  %ref.tmp23.sroa.5.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1712
   store i32 5131, ptr %ref.tmp23.sroa.5.0.arrayidx29.sroa_idx, align 8, !tbaa !14
-  %ref.tmp23.sroa.6190.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1720
+  %ref.tmp23.sroa.6190.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1720
   store ptr null, ptr %ref.tmp23.sroa.6190.0.arrayidx29.sroa_idx, align 8, !tbaa !16
-  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 1728
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %this, i64 1728
   store i32 33327, ptr %arrayidx36, align 8, !tbaa !14
-  %ref.tmp30.sroa.4.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1732
+  %ref.tmp30.sroa.4.0.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1732
   store i32 33319, ptr %ref.tmp30.sroa.4.0.arrayidx36.sroa_idx, align 4, !tbaa !14
-  %ref.tmp30.sroa.5.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1736
+  %ref.tmp30.sroa.5.0.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1736
   store i32 5131, ptr %ref.tmp30.sroa.5.0.arrayidx36.sroa_idx, align 8, !tbaa !14
-  %ref.tmp30.sroa.6189.0.arrayidx36.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1744
+  %ref.tmp30.sroa.6189.0.arrayidx36.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1744
   store ptr null, ptr %ref.tmp30.sroa.6189.0.arrayidx36.sroa_idx, align 8, !tbaa !16
-  %arrayidx43 = getelementptr inbounds i8, ptr %this, i64 1752
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %this, i64 1752
   store i32 34842, ptr %arrayidx43, align 8, !tbaa !14
-  %ref.tmp37.sroa.4.0.arrayidx43.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1756
+  %ref.tmp37.sroa.4.0.arrayidx43.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1756
   store i32 6408, ptr %ref.tmp37.sroa.4.0.arrayidx43.sroa_idx, align 4, !tbaa !14
-  %ref.tmp37.sroa.5.0.arrayidx43.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1760
+  %ref.tmp37.sroa.5.0.arrayidx43.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1760
   store i32 5131, ptr %ref.tmp37.sroa.5.0.arrayidx43.sroa_idx, align 8, !tbaa !14
-  %ref.tmp37.sroa.6188.0.arrayidx43.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1768
+  %ref.tmp37.sroa.6188.0.arrayidx43.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1768
   store ptr null, ptr %ref.tmp37.sroa.6188.0.arrayidx43.sroa_idx, align 8, !tbaa !16
-  %arrayidx50 = getelementptr inbounds i8, ptr %this, i64 1776
+  %arrayidx50 = getelementptr inbounds nuw i8, ptr %this, i64 1776
   store i32 33326, ptr %arrayidx50, align 8, !tbaa !14
-  %ref.tmp44.sroa.4.0.arrayidx50.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1780
+  %ref.tmp44.sroa.4.0.arrayidx50.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1780
   store i32 6403, ptr %ref.tmp44.sroa.4.0.arrayidx50.sroa_idx, align 4, !tbaa !14
-  %ref.tmp44.sroa.5.0.arrayidx50.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1784
+  %ref.tmp44.sroa.5.0.arrayidx50.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1784
   store i32 5126, ptr %ref.tmp44.sroa.5.0.arrayidx50.sroa_idx, align 8, !tbaa !14
-  %ref.tmp44.sroa.6187.0.arrayidx50.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1792
+  %ref.tmp44.sroa.6187.0.arrayidx50.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1792
   store ptr null, ptr %ref.tmp44.sroa.6187.0.arrayidx50.sroa_idx, align 8, !tbaa !16
-  %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 1800
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %this, i64 1800
   store i32 33328, ptr %arrayidx57, align 8, !tbaa !14
-  %ref.tmp51.sroa.4.0.arrayidx57.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1804
+  %ref.tmp51.sroa.4.0.arrayidx57.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1804
   store i32 33319, ptr %ref.tmp51.sroa.4.0.arrayidx57.sroa_idx, align 4, !tbaa !14
-  %ref.tmp51.sroa.5.0.arrayidx57.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1808
+  %ref.tmp51.sroa.5.0.arrayidx57.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1808
   store i32 5126, ptr %ref.tmp51.sroa.5.0.arrayidx57.sroa_idx, align 8, !tbaa !14
-  %ref.tmp51.sroa.6186.0.arrayidx57.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1816
+  %ref.tmp51.sroa.6186.0.arrayidx57.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1816
   store ptr null, ptr %ref.tmp51.sroa.6186.0.arrayidx57.sroa_idx, align 8, !tbaa !16
-  %arrayidx64 = getelementptr inbounds i8, ptr %this, i64 1824
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %this, i64 1824
   store i32 34836, ptr %arrayidx64, align 8, !tbaa !14
-  %ref.tmp58.sroa.4.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1828
+  %ref.tmp58.sroa.4.0.arrayidx64.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1828
   store i32 6408, ptr %ref.tmp58.sroa.4.0.arrayidx64.sroa_idx, align 4, !tbaa !14
-  %ref.tmp58.sroa.5.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1832
+  %ref.tmp58.sroa.5.0.arrayidx64.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1832
   store i32 5126, ptr %ref.tmp58.sroa.5.0.arrayidx64.sroa_idx, align 8, !tbaa !14
-  %ref.tmp58.sroa.6185.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1840
+  %ref.tmp58.sroa.6185.0.arrayidx64.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1840
   store ptr null, ptr %ref.tmp58.sroa.6185.0.arrayidx64.sroa_idx, align 8, !tbaa !16
-  %arrayidx71 = getelementptr inbounds i8, ptr %this, i64 1848
+  %arrayidx71 = getelementptr inbounds nuw i8, ptr %this, i64 1848
   store i32 33321, ptr %arrayidx71, align 8, !tbaa !14
-  %ref.tmp65.sroa.4.0.arrayidx71.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1852
+  %ref.tmp65.sroa.4.0.arrayidx71.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1852
   store i32 6403, ptr %ref.tmp65.sroa.4.0.arrayidx71.sroa_idx, align 4, !tbaa !14
-  %ref.tmp65.sroa.5.0.arrayidx71.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1856
+  %ref.tmp65.sroa.5.0.arrayidx71.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1856
   store i32 5121, ptr %ref.tmp65.sroa.5.0.arrayidx71.sroa_idx, align 8, !tbaa !14
-  %ref.tmp65.sroa.6184.0.arrayidx71.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1864
+  %ref.tmp65.sroa.6184.0.arrayidx71.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1864
   store ptr null, ptr %ref.tmp65.sroa.6184.0.arrayidx71.sroa_idx, align 8, !tbaa !16
-  %arrayidx78 = getelementptr inbounds i8, ptr %this, i64 1872
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %this, i64 1872
   store i32 33323, ptr %arrayidx78, align 8, !tbaa !14
-  %ref.tmp72.sroa.4.0.arrayidx78.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1876
+  %ref.tmp72.sroa.4.0.arrayidx78.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1876
   store i32 33319, ptr %ref.tmp72.sroa.4.0.arrayidx78.sroa_idx, align 4, !tbaa !14
-  %ref.tmp72.sroa.5.0.arrayidx78.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1880
+  %ref.tmp72.sroa.5.0.arrayidx78.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1880
   store i32 5121, ptr %ref.tmp72.sroa.5.0.arrayidx78.sroa_idx, align 8, !tbaa !14
-  %ref.tmp72.sroa.6183.0.arrayidx78.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1888
+  %ref.tmp72.sroa.6183.0.arrayidx78.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1888
   store ptr null, ptr %ref.tmp72.sroa.6183.0.arrayidx78.sroa_idx, align 8, !tbaa !16
-  %arrayidx85 = getelementptr inbounds i8, ptr %this, i64 1896
+  %arrayidx85 = getelementptr inbounds nuw i8, ptr %this, i64 1896
   store i32 33322, ptr %arrayidx85, align 8, !tbaa !14
-  %ref.tmp79.sroa.4.0.arrayidx85.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1900
+  %ref.tmp79.sroa.4.0.arrayidx85.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1900
   store i32 6403, ptr %ref.tmp79.sroa.4.0.arrayidx85.sroa_idx, align 4, !tbaa !14
-  %ref.tmp79.sroa.5.0.arrayidx85.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1904
+  %ref.tmp79.sroa.5.0.arrayidx85.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1904
   store i32 5123, ptr %ref.tmp79.sroa.5.0.arrayidx85.sroa_idx, align 8, !tbaa !14
-  %ref.tmp79.sroa.6182.0.arrayidx85.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1912
+  %ref.tmp79.sroa.6182.0.arrayidx85.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1912
   store ptr null, ptr %ref.tmp79.sroa.6182.0.arrayidx85.sroa_idx, align 8, !tbaa !16
-  %arrayidx92 = getelementptr inbounds i8, ptr %this, i64 1920
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %this, i64 1920
   store i32 33324, ptr %arrayidx92, align 8, !tbaa !14
-  %ref.tmp86.sroa.4.0.arrayidx92.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1924
+  %ref.tmp86.sroa.4.0.arrayidx92.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1924
   store i32 33319, ptr %ref.tmp86.sroa.4.0.arrayidx92.sroa_idx, align 4, !tbaa !14
-  %ref.tmp86.sroa.5.0.arrayidx92.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1928
+  %ref.tmp86.sroa.5.0.arrayidx92.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1928
   store i32 5123, ptr %ref.tmp86.sroa.5.0.arrayidx92.sroa_idx, align 8, !tbaa !14
-  %ref.tmp86.sroa.6181.0.arrayidx92.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1936
+  %ref.tmp86.sroa.6181.0.arrayidx92.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1936
   store ptr null, ptr %ref.tmp86.sroa.6181.0.arrayidx92.sroa_idx, align 8, !tbaa !16
-  %arrayidx99 = getelementptr inbounds i8, ptr %this, i64 1944
+  %arrayidx99 = getelementptr inbounds nuw i8, ptr %this, i64 1944
   store i32 33189, ptr %arrayidx99, align 8, !tbaa !14
-  %ref.tmp93.sroa.4.0.arrayidx99.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1948
+  %ref.tmp93.sroa.4.0.arrayidx99.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1948
   store i32 6402, ptr %ref.tmp93.sroa.4.0.arrayidx99.sroa_idx, align 4, !tbaa !14
-  %ref.tmp93.sroa.5.0.arrayidx99.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1952
+  %ref.tmp93.sroa.5.0.arrayidx99.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1952
   store i32 5123, ptr %ref.tmp93.sroa.5.0.arrayidx99.sroa_idx, align 8, !tbaa !14
-  %ref.tmp93.sroa.6180.0.arrayidx99.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1960
+  %ref.tmp93.sroa.6180.0.arrayidx99.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1960
   store ptr null, ptr %ref.tmp93.sroa.6180.0.arrayidx99.sroa_idx, align 8, !tbaa !16
-  %arrayidx106 = getelementptr inbounds i8, ptr %this, i64 1968
+  %arrayidx106 = getelementptr inbounds nuw i8, ptr %this, i64 1968
   store i32 33191, ptr %arrayidx106, align 8, !tbaa !14
-  %ref.tmp100.sroa.4.0.arrayidx106.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1972
+  %ref.tmp100.sroa.4.0.arrayidx106.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1972
   store i32 6402, ptr %ref.tmp100.sroa.4.0.arrayidx106.sroa_idx, align 4, !tbaa !14
-  %ref.tmp100.sroa.5.0.arrayidx106.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1976
+  %ref.tmp100.sroa.5.0.arrayidx106.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1976
   store i32 5125, ptr %ref.tmp100.sroa.5.0.arrayidx106.sroa_idx, align 8, !tbaa !14
-  %ref.tmp100.sroa.6179.0.arrayidx106.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1984
+  %ref.tmp100.sroa.6179.0.arrayidx106.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1984
   store ptr null, ptr %ref.tmp100.sroa.6179.0.arrayidx106.sroa_idx, align 8, !tbaa !16
-  %arrayidx113 = getelementptr inbounds i8, ptr %this, i64 1992
+  %arrayidx113 = getelementptr inbounds nuw i8, ptr %this, i64 1992
   store i32 35056, ptr %arrayidx113, align 8, !tbaa !14
-  %ref.tmp107.sroa.4.0.arrayidx113.sroa_idx = getelementptr inbounds i8, ptr %this, i64 1996
+  %ref.tmp107.sroa.4.0.arrayidx113.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1996
   store i32 34041, ptr %ref.tmp107.sroa.4.0.arrayidx113.sroa_idx, align 4, !tbaa !14
-  %ref.tmp107.sroa.5.0.arrayidx113.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2000
+  %ref.tmp107.sroa.5.0.arrayidx113.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 2000
   store i32 34042, ptr %ref.tmp107.sroa.5.0.arrayidx113.sroa_idx, align 8, !tbaa !14
-  %ref.tmp107.sroa.6178.0.arrayidx113.sroa_idx = getelementptr inbounds i8, ptr %this, i64 2008
+  %ref.tmp107.sroa.6178.0.arrayidx113.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 2008
   store ptr null, ptr %ref.tmp107.sroa.6178.0.arrayidx113.sroa_idx, align 8, !tbaa !16
   %call = tail call noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase16isVersionAtLeastEii(ptr noundef nonnull align 8 dereferenceable(2920) %this, i32 noundef 4, i32 noundef 6) #13
   br i1 %call, label %cleanup.done138.thread224, label %lor.lhs.false
 
 cleanup.done138.thread224:                        ; preds = %entry
-  %AnisotropicFilterSupported219225 = getelementptr inbounds i8, ptr %this, i64 1260
+  %AnisotropicFilterSupported219225 = getelementptr inbounds nuw i8, ptr %this, i64 1260
   store i8 1, ptr %AnisotropicFilterSupported219225, align 4, !tbaa !17
   br label %cleanup.done150
 
 lor.lhs.false:                                    ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp115) #13
-  %0 = getelementptr inbounds i8, ptr %ref.tmp115, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 16
   store ptr %0, ptr %ref.tmp115, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #13
   store i64 33, ptr %__dnew.i.i, align 8, !tbaa !25
@@ -324,7 +324,7 @@ lor.lhs.false:                                    ; preds = %entry
   %1 = load i64, ptr %__dnew.i.i, align 8, !tbaa !25
   store i64 %1, ptr %0, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %call2.i.i, ptr noundef nonnull align 1 dereferenceable(33) @.str.1, i64 33, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp115, i64 8
   store i64 %1, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !28
@@ -334,7 +334,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 lor.rhs:                                          ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp122) #13
-  %2 = getelementptr inbounds i8, ptr %ref.tmp122, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp122, i64 16
   store ptr %2, ptr %ref.tmp122, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i195) #13
   store i64 33, ptr %__dnew.i.i195, align 8, !tbaa !25
@@ -343,14 +343,14 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   %3 = load i64, ptr %__dnew.i.i195, align 8, !tbaa !25
   store i64 %3, ptr %2, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %call2.i.i204, ptr noundef nonnull align 1 dereferenceable(33) @.str.2, i64 33, i1 false)
-  %_M_string_length.i.i.i.i199 = getelementptr inbounds i8, ptr %ref.tmp122, i64 8
+  %_M_string_length.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %ref.tmp122, i64 8
   store i64 %3, ptr %_M_string_length.i.i.i.i199, align 8, !tbaa !29
   %arrayidx.i.i.i200 = getelementptr inbounds i8, ptr %call2.i.i204, i64 %3
   store i8 0, ptr %arrayidx.i.i.i200, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i195) #13
   %call128 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #13
   %4 = zext i1 %call128 to i8
-  %AnisotropicFilterSupported = getelementptr inbounds i8, ptr %this, i64 1260
+  %AnisotropicFilterSupported = getelementptr inbounds nuw i8, ptr %this, i64 1260
   store i8 %4, ptr %AnisotropicFilterSupported, align 4, !tbaa !17
   %5 = load ptr, ptr %ref.tmp122, align 8, !tbaa !26
   %cmp.i.i.i = icmp eq ptr %5, %2
@@ -371,7 +371,7 @@ cleanup.done138.thread:                           ; preds = %if.then.i.i206, %_Z
   br label %cleanup.action140
 
 cleanup.done138:                                  ; preds = %lor.lhs.false
-  %AnisotropicFilterSupported219 = getelementptr inbounds i8, ptr %this, i64 1260
+  %AnisotropicFilterSupported219 = getelementptr inbounds nuw i8, ptr %this, i64 1260
   store i8 1, ptr %AnisotropicFilterSupported219, align 4, !tbaa !17
   br label %cleanup.action140
 
@@ -397,9 +397,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %if
 
 cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212, %cleanup.done138.thread224
   %AnisotropicFilterSupported220223 = phi ptr [ %AnisotropicFilterSupported220222, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212 ], [ %AnisotropicFilterSupported219225, %cleanup.done138.thread224 ]
-  %BlendMinMaxSupported = getelementptr inbounds i8, ptr %this, i64 1261
+  %BlendMinMaxSupported = getelementptr inbounds nuw i8, ptr %this, i64 1261
   store i8 1, ptr %BlendMinMaxSupported, align 1, !tbaa !30
-  %BlendOperation = getelementptr inbounds i8, ptr %this, i64 1192
+  %BlendOperation = getelementptr inbounds nuw i8, ptr %this, i64 1192
   store i8 1, ptr %BlendOperation, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i) #13
   store i32 0, ptr %val.i, align 4, !tbaa !14
@@ -408,9 +408,9 @@ cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basi
   %10 = load i32, ptr %val.i, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i) #13
   %conv = trunc i32 %10 to i8
-  %ColorAttachment = getelementptr inbounds i8, ptr %this, i64 1193
+  %ColorAttachment = getelementptr inbounds nuw i8, ptr %this, i64 1193
   store i8 %conv, ptr %ColorAttachment, align 1, !tbaa !32
-  %MaxTextureUnits = getelementptr inbounds i8, ptr %this, i64 1195
+  %MaxTextureUnits = getelementptr inbounds nuw i8, ptr %this, i64 1195
   store i8 4, ptr %MaxTextureUnits, align 1, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i213) #13
   store i32 0, ptr %val.i213, align 4, !tbaa !14
@@ -419,7 +419,7 @@ cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basi
   %12 = load i32, ptr %val.i213, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i213) #13
   %conv159 = trunc i32 %12 to i8
-  %MultipleRenderTarget = getelementptr inbounds i8, ptr %this, i64 1194
+  %MultipleRenderTarget = getelementptr inbounds nuw i8, ptr %this, i64 1194
   store i8 %conv159, ptr %MultipleRenderTarget, align 2, !tbaa !34
   %13 = load i8, ptr %AnisotropicFilterSupported220223, align 4, !tbaa !17, !range !35, !noundef !36
   %tobool.not = icmp eq i8 %13, 0
@@ -433,7 +433,7 @@ if.then:                                          ; preds = %cleanup.done150
   %15 = load i32, ptr %val.i214, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i214) #13
   %conv165 = trunc i32 %15 to i8
-  %MaxAnisotropy = getelementptr inbounds i8, ptr %this, i64 1202
+  %MaxAnisotropy = getelementptr inbounds nuw i8, ptr %this, i64 1202
   store i8 %conv165, ptr %MaxAnisotropy, align 2, !tbaa !37
   br label %if.end
 
@@ -444,7 +444,7 @@ if.end:                                           ; preds = %if.then, %cleanup.d
   call void %16(i32 noundef 33001, ptr noundef nonnull %val.i215) #13
   %17 = load i32, ptr %val.i215, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i215) #13
-  %MaxIndices = getelementptr inbounds i8, ptr %this, i64 1204
+  %MaxIndices = getelementptr inbounds nuw i8, ptr %this, i64 1204
   store i32 %17, ptr %MaxIndices, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i216) #13
   store i32 0, ptr %val.i216, align 4, !tbaa !14
@@ -452,15 +452,15 @@ if.end:                                           ; preds = %if.then, %cleanup.d
   call void %18(i32 noundef 3379, ptr noundef nonnull %val.i216) #13
   %19 = load i32, ptr %val.i216, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %val.i216) #13
-  %MaxTextureSize = getelementptr inbounds i8, ptr %this, i64 1208
+  %MaxTextureSize = getelementptr inbounds nuw i8, ptr %this, i64 1208
   store i32 %19, ptr %MaxTextureSize, align 8, !tbaa !39
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 352), align 8, !tbaa !40
-  %MaxTextureLODBias = getelementptr inbounds i8, ptr %this, i64 1212
+  %MaxTextureLODBias = getelementptr inbounds nuw i8, ptr %this, i64 1212
   call void %20(i32 noundef 34045, ptr noundef nonnull %MaxTextureLODBias) #13
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 352), align 8, !tbaa !40
-  %DimAliasedLine = getelementptr inbounds i8, ptr %this, i64 1216
+  %DimAliasedLine = getelementptr inbounds nuw i8, ptr %this, i64 1216
   call void %21(i32 noundef 33902, ptr noundef nonnull %DimAliasedLine) #13
-  %DimAliasedPoint = getelementptr inbounds i8, ptr %this, i64 1224
+  %DimAliasedPoint = getelementptr inbounds nuw i8, ptr %this, i64 1224
   store <2 x float> splat (float 1.000000e+00), ptr %DimAliasedPoint, align 8, !tbaa !41
   ret void
 }
@@ -481,23 +481,23 @@ define noundef nonnull ptr @_ZN3irr5video19createOpenGL3DriverERKNS_27SIrrlichtC
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 1) #13
   %call = tail call noalias noundef nonnull dereferenceable(2944) ptr @_Znwm(i64 noundef 2944) #15
-  %0 = getelementptr inbounds i8, ptr %call, i64 2920
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 2920
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !42
-  %DebugName.i.i = getelementptr inbounds i8, ptr %call, i64 2928
+  %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 2928
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !44
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 2936
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 2936
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !46
   tail call void @_ZN3irr5video18COpenGL3DriverBaseC2ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8), ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) #13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 24), ptr %call, align 8, !tbaa !42
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1336), ptr %0, align 8, !tbaa !42
-  %add.ptr4.i = getelementptr inbounds i8, ptr %call, i64 8
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1120), ptr %add.ptr4.i, align 8, !tbaa !42
-  %add.ptr5.i = getelementptr inbounds i8, ptr %call, i64 1168
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %call, i64 1168
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1184), ptr %add.ptr5.i, align 8, !tbaa !42
-  %add.ptr6.i = getelementptr inbounds i8, ptr %call, i64 1176
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %call, i64 1176
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1296), ptr %add.ptr6.i, align 8, !tbaa !42
-  %WindowSize = getelementptr inbounds i8, ptr %params, i64 8
-  %Stencilbuffer = getelementptr inbounds i8, ptr %params, i64 29
+  %WindowSize = getelementptr inbounds nuw i8, ptr %params, i64 8
+  %Stencilbuffer = getelementptr inbounds nuw i8, ptr %params, i64 29
   %1 = load i8, ptr %Stencilbuffer, align 1, !tbaa !47, !range !35, !noundef !36
   %tobool = icmp ne i8 %1, 0
   %call1 = tail call noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17genericDriverInitERKNS_4core11dimension2dIjEEb(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull align 4 dereferenceable(8) %WindowSize, i1 noundef zeroext %tobool) #13
@@ -514,9 +514,9 @@ declare noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase8endSceneEv(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull align 8 dereferenceable(2920) %this, i32 noundef %feature) unnamed_addr #1 comdat align 2 {
 entry:
-  %FeatureEnabled = getelementptr inbounds i8, ptr %this, i64 1107
+  %FeatureEnabled = getelementptr inbounds nuw i8, ptr %this, i64 1107
   %idxprom = zext i32 %feature to i64
-  %arrayidx = getelementptr inbounds [39 x i8], ptr %FeatureEnabled, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [39 x i8], ptr %FeatureEnabled, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1, !tbaa !55, !range !35, !noundef !36
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -561,7 +561,7 @@ sw.bb2.i:                                         ; preds = %land.rhs, %land.rhs
   br label %land.end
 
 sw.bb3.i:                                         ; preds = %land.rhs
-  %StencilBuffer.i = getelementptr inbounds i8, ptr %this, i64 1232
+  %StencilBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 1232
   %1 = load i8, ptr %StencilBuffer.i, align 8, !tbaa !56, !range !35, !noundef !36
   %tobool.i = icmp ne i8 %1, 0
   br label %land.end
@@ -767,10 +767,10 @@ declare void @_ZN3irr5video11CNullDriver16enableMaterial2DEb(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video18COpenGL3DriverBase13getVendorInfoEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %VendorName = getelementptr inbounds i8, ptr %this, i64 1360
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %VendorName = getelementptr inbounds nuw i8, ptr %this, i64 1360
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !23
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %0, align 8, !tbaa !28
   %cmp.i.i = icmp eq ptr %VendorName, %agg.result
@@ -792,7 +792,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDr
 define linkonce_odr void @_ZN3irr5video11CNullDriver27setAllowZWriteOnTransparentEb(ptr noundef nonnull align 8 dereferenceable(1164) %this, i1 noundef zeroext %flag) unnamed_addr #1 comdat align 2 {
 entry:
   %frombool = zext i1 %flag to i8
-  %AllowZWriteOnTransparent = getelementptr inbounds i8, ptr %this, i64 1106
+  %AllowZWriteOnTransparent = getelementptr inbounds nuw i8, ptr %this, i64 1106
   store i8 %frombool, ptr %AllowZWriteOnTransparent, align 2, !tbaa !57
   ret void
 }
@@ -936,97 +936,97 @@ declare void @_ZN3irr5video11CNullDriver15enableClipPlaneEjb(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13getVendorInfoEv(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1164) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !23
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %0, align 8, !tbaa !28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 29, i8 noundef signext 0) #13
   %1 = load ptr, ptr %agg.result, align 8, !tbaa !26
   store i8 78, ptr %1, align 1, !tbaa !28
   %2 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.1 = getelementptr inbounds i8, ptr %2, i64 1
+  %arrayidx.i.i.i.1 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 111, ptr %arrayidx.i.i.i.1, align 1, !tbaa !28
   %3 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.2 = getelementptr inbounds i8, ptr %3, i64 2
+  %arrayidx.i.i.i.2 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 116, ptr %arrayidx.i.i.i.2, align 1, !tbaa !28
   %4 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.3 = getelementptr inbounds i8, ptr %4, i64 3
+  %arrayidx.i.i.i.3 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 32, ptr %arrayidx.i.i.i.3, align 1, !tbaa !28
   %5 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.4 = getelementptr inbounds i8, ptr %5, i64 4
+  %arrayidx.i.i.i.4 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 97, ptr %arrayidx.i.i.i.4, align 1, !tbaa !28
   %6 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.5 = getelementptr inbounds i8, ptr %6, i64 5
+  %arrayidx.i.i.i.5 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 118, ptr %arrayidx.i.i.i.5, align 1, !tbaa !28
   %7 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.6 = getelementptr inbounds i8, ptr %7, i64 6
+  %arrayidx.i.i.i.6 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 97, ptr %arrayidx.i.i.i.6, align 1, !tbaa !28
   %8 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.7 = getelementptr inbounds i8, ptr %8, i64 7
+  %arrayidx.i.i.i.7 = getelementptr inbounds nuw i8, ptr %8, i64 7
   store i8 105, ptr %arrayidx.i.i.i.7, align 1, !tbaa !28
   %9 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.8 = getelementptr inbounds i8, ptr %9, i64 8
+  %arrayidx.i.i.i.8 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 108, ptr %arrayidx.i.i.i.8, align 1, !tbaa !28
   %10 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.9 = getelementptr inbounds i8, ptr %10, i64 9
+  %arrayidx.i.i.i.9 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 97, ptr %arrayidx.i.i.i.9, align 1, !tbaa !28
   %11 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.10 = getelementptr inbounds i8, ptr %11, i64 10
+  %arrayidx.i.i.i.10 = getelementptr inbounds nuw i8, ptr %11, i64 10
   store i8 98, ptr %arrayidx.i.i.i.10, align 1, !tbaa !28
   %12 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.11 = getelementptr inbounds i8, ptr %12, i64 11
+  %arrayidx.i.i.i.11 = getelementptr inbounds nuw i8, ptr %12, i64 11
   store i8 108, ptr %arrayidx.i.i.i.11, align 1, !tbaa !28
   %13 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.12 = getelementptr inbounds i8, ptr %13, i64 12
+  %arrayidx.i.i.i.12 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i8 101, ptr %arrayidx.i.i.i.12, align 1, !tbaa !28
   %14 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.13 = getelementptr inbounds i8, ptr %14, i64 13
+  %arrayidx.i.i.i.13 = getelementptr inbounds nuw i8, ptr %14, i64 13
   store i8 32, ptr %arrayidx.i.i.i.13, align 1, !tbaa !28
   %15 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.14 = getelementptr inbounds i8, ptr %15, i64 14
+  %arrayidx.i.i.i.14 = getelementptr inbounds nuw i8, ptr %15, i64 14
   store i8 111, ptr %arrayidx.i.i.i.14, align 1, !tbaa !28
   %16 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.15 = getelementptr inbounds i8, ptr %16, i64 15
+  %arrayidx.i.i.i.15 = getelementptr inbounds nuw i8, ptr %16, i64 15
   store i8 110, ptr %arrayidx.i.i.i.15, align 1, !tbaa !28
   %17 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.16 = getelementptr inbounds i8, ptr %17, i64 16
+  %arrayidx.i.i.i.16 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i8 32, ptr %arrayidx.i.i.i.16, align 1, !tbaa !28
   %18 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.17 = getelementptr inbounds i8, ptr %18, i64 17
+  %arrayidx.i.i.i.17 = getelementptr inbounds nuw i8, ptr %18, i64 17
   store i8 116, ptr %arrayidx.i.i.i.17, align 1, !tbaa !28
   %19 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.18 = getelementptr inbounds i8, ptr %19, i64 18
+  %arrayidx.i.i.i.18 = getelementptr inbounds nuw i8, ptr %19, i64 18
   store i8 104, ptr %arrayidx.i.i.i.18, align 1, !tbaa !28
   %20 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.19 = getelementptr inbounds i8, ptr %20, i64 19
+  %arrayidx.i.i.i.19 = getelementptr inbounds nuw i8, ptr %20, i64 19
   store i8 105, ptr %arrayidx.i.i.i.19, align 1, !tbaa !28
   %21 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.20 = getelementptr inbounds i8, ptr %21, i64 20
+  %arrayidx.i.i.i.20 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i8 115, ptr %arrayidx.i.i.i.20, align 1, !tbaa !28
   %22 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.21 = getelementptr inbounds i8, ptr %22, i64 21
+  %arrayidx.i.i.i.21 = getelementptr inbounds nuw i8, ptr %22, i64 21
   store i8 32, ptr %arrayidx.i.i.i.21, align 1, !tbaa !28
   %23 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.22 = getelementptr inbounds i8, ptr %23, i64 22
+  %arrayidx.i.i.i.22 = getelementptr inbounds nuw i8, ptr %23, i64 22
   store i8 100, ptr %arrayidx.i.i.i.22, align 1, !tbaa !28
   %24 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.23 = getelementptr inbounds i8, ptr %24, i64 23
+  %arrayidx.i.i.i.23 = getelementptr inbounds nuw i8, ptr %24, i64 23
   store i8 114, ptr %arrayidx.i.i.i.23, align 1, !tbaa !28
   %25 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.24 = getelementptr inbounds i8, ptr %25, i64 24
+  %arrayidx.i.i.i.24 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i8 105, ptr %arrayidx.i.i.i.24, align 1, !tbaa !28
   %26 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.25 = getelementptr inbounds i8, ptr %26, i64 25
+  %arrayidx.i.i.i.25 = getelementptr inbounds nuw i8, ptr %26, i64 25
   store i8 118, ptr %arrayidx.i.i.i.25, align 1, !tbaa !28
   %27 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.26 = getelementptr inbounds i8, ptr %27, i64 26
+  %arrayidx.i.i.i.26 = getelementptr inbounds nuw i8, ptr %27, i64 26
   store i8 101, ptr %arrayidx.i.i.i.26, align 1, !tbaa !28
   %28 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.27 = getelementptr inbounds i8, ptr %28, i64 27
+  %arrayidx.i.i.i.27 = getelementptr inbounds nuw i8, ptr %28, i64 27
   store i8 114, ptr %arrayidx.i.i.i.27, align 1, !tbaa !28
   %29 = load ptr, ptr %agg.result, align 8, !tbaa !26
-  %arrayidx.i.i.i.28 = getelementptr inbounds i8, ptr %29, i64 28
+  %arrayidx.i.i.i.28 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i8 46, ptr %arrayidx.i.i.i.28, align 1, !tbaa !28
   ret void
 }

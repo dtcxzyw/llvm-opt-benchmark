@@ -67,7 +67,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %4 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %call.i) #10
   br label %trace_keymap_parse.exit.i
@@ -92,13 +92,13 @@ cond.end.i:                                       ; preds = %trace_keymap_parse.
   br i1 %tobool2.not.i, label %parse_keyboard_layout.exit.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %cond.end.i
-  %invariant.gep.i = getelementptr inbounds i8, ptr %line.i, i64 1
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %line.i, i64 1
   %call386.i = call ptr @fgets(ptr noundef nonnull %line.i, i32 noundef 1024, ptr noundef nonnull %call1.i)
   %cmp87.i = icmp eq ptr %call386.i, null
   br i1 %cmp87.i, label %parse_keyboard_layout.exit.thread7, label %if.end5.lr.ph.i
 
 if.end5.lr.ph.i:                                  ; preds = %for.cond.preheader.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %keyname.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %keyname.i, i64 1
   br label %if.end5.i
 
 parse_keyboard_layout.exit.thread:                ; preds = %cond.end.thread.i, %cond.end.i
@@ -213,7 +213,7 @@ get_keysym.exit.thread.i:                         ; preds = %if.then8.i.i, %land
   br label %for.cond.backedge.i
 
 get_keysym.exit.i:                                ; preds = %for.body.i.i
-  %keysym.i.i = getelementptr inbounds i8, ptr %p.010.i.i, i64 8
+  %keysym.i.i = getelementptr inbounds nuw i8, ptr %p.010.i.i, i64 8
   %16 = load i32, ptr %keysym.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
   %cmp59.i = icmp eq i32 %16, 0
@@ -306,7 +306,7 @@ get_keysym.exit63.thread.i:                       ; preds = %if.then8.i54.i, %la
   br label %for.cond.backedge.i
 
 get_keysym.exit63.i:                              ; preds = %for.body.i40.i
-  %keysym.i62.i = getelementptr inbounds i8, ptr %p.010.i41.i, i64 8
+  %keysym.i62.i = getelementptr inbounds nuw i8, ptr %p.010.i41.i, i64 8
   %26 = load i32, ptr %keysym.i62.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i38.i)
   %tobool93.not.i = icmp eq i32 %26, 0
@@ -390,7 +390,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %keysym) #10
   br label %trace_keymap_unmapped.exit
@@ -410,7 +410,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %keycodes = getelementptr inbounds i8, ptr %call, i64 4
+  %keycodes = getelementptr inbounds nuw i8, ptr %call, i64 4
   %9 = load i16, ptr %keycodes, align 4
   %conv3 = zext i16 %9 to i32
   br label %return
@@ -423,7 +423,7 @@ for.cond40.preheader:                             ; preds = %if.end4
   br i1 %cmp4234.not, label %if.end63, label %for.body44.lr.ph
 
 for.body44.lr.ph:                                 ; preds = %for.cond40.preheader
-  %keycodes45 = getelementptr inbounds i8, ptr %call, i64 4
+  %keycodes45 = getelementptr inbounds nuw i8, ptr %call, i64 4
   %tobool50.not = icmp eq ptr %kbd, null
   br i1 %tobool50.not, label %for.body44.us, label %for.body44
 
@@ -462,7 +462,7 @@ if.end25:                                         ; preds = %if.then6, %land.lhs
   br i1 %cmp2736.not, label %if.end63, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end25
-  %keycodes29 = getelementptr inbounds i8, ptr %call, i64 4
+  %keycodes29 = getelementptr inbounds nuw i8, ptr %call, i64 4
   %wide.trip.count = zext i32 %13 to i64
   br label %for.body
 
@@ -503,7 +503,7 @@ for.inc60:                                        ; preds = %for.body44
   br i1 %cmp42, label %for.body44, label %if.end63, !llvm.loop !9
 
 if.end63:                                         ; preds = %for.inc60, %for.body44.us, %for.cond, %for.cond40.preheader, %if.end25
-  %keycodes64 = getelementptr inbounds i8, ptr %call, i64 4
+  %keycodes64 = getelementptr inbounds nuw i8, ptr %call, i64 4
   %19 = load i16, ptr %keycodes64, align 4
   %conv66 = zext i16 %19 to i32
   br label %return
@@ -541,7 +541,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.keysym_is_numlock, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.keysym_is_numlock, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -588,7 +588,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %conv1 = zext nneg i32 %2 to i64
   %conv4 = trunc i32 %keycode to i16
-  %keycodes = getelementptr inbounds i8, ptr %call, i64 4
+  %keycodes = getelementptr inbounds nuw i8, ptr %call, i64 4
   %inc = add nuw nsw i32 %2, 1
   store i32 %inc, ptr %call, align 4
   %arrayidx = getelementptr [4 x i16], ptr %keycodes, i64 0, i64 %conv1
@@ -602,7 +602,7 @@ if.else:                                          ; preds = %if.then
 if.end6:                                          ; preds = %entry
   %call7 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #9
   %conv8 = trunc i32 %keycode to i16
-  %keycodes9 = getelementptr inbounds i8, ptr %call7, i64 4
+  %keycodes9 = getelementptr inbounds nuw i8, ptr %call7, i64 4
   store i16 %conv8, ptr %keycodes9, align 4
   store i32 1, ptr %call7, align 4
   %3 = load ptr, ptr %k, align 8
@@ -630,7 +630,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef range(i32 1, 0) %keysym, i32 noundef %keycode, ptr noundef nonnull %line) #10
   br label %trace_keymap_add.exit

@@ -56,10 +56,10 @@ define void @_ZN7glslang22SetThreadPoolAllocatorEPNS_14TPoolAllocatorE(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 84)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 8), (40, 84)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = sext i32 %1 to i64
   store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = icmp ult i32 %1, 4096
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %5, i8 0, i64 44, i1 false)
   br i1 %6, label %7, label %8
@@ -70,54 +70,64 @@ define void @_ZN7glslang14TPoolAllocatorC2Eii(ptr nocapture noundef nonnull alig
 
 8:                                                ; preds = %7, %3
   %9 = phi i64 [ 4096, %7 ], [ %4, %3 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %9, ptr %10, align 8
-  %11 = tail call i32 @llvm.umax.i32(i32 %2, i32 8)
-  %narrow = and i32 %11, -8
+  %10 = tail call i32 @llvm.umax.i32(i32 %2, i32 8)
+  %narrow = and i32 %10, -8
   %spec.select = sext i32 %narrow to i64
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %8
-  %.0 = phi i64 [ 1, %8 ], [ %14, %12 ]
-  %13 = icmp ult i64 %.0, %spec.select
-  %14 = shl i64 %.0, 1
-  br i1 %13, label %12, label %15, !llvm.loop !5
+11:                                               ; preds = %11, %8
+  %.0 = phi i64 [ 1, %8 ], [ %13, %11 ]
+  %12 = icmp ult i64 %.0, %spec.select
+  %13 = shl i64 %.0, 1
+  br i1 %12, label %11, label %_ZN7glslang14TPoolAllocator4pushEv.exit, !llvm.loop !5
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+_ZN7glslang14TPoolAllocator4pushEv.exit:          ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0, ptr %16, align 8
   %17 = add i64 %.0, -1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = add i64 %.0, 15
   %21 = sub i64 0, %.0
   %22 = and i64 %20, %21
   store i64 %22, ptr %19, align 8
-  tail call void @_ZN7glslang14TPoolAllocator4pushEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %25 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
+  store i64 %9, ptr %25, align 8
+  %.sroa.3.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr null, ptr %.sroa.3.0..sroa_idx2.i, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %25, ptr %15, align 8
+  store ptr %26, ptr %23, align 8
+  store ptr %26, ptr %24, align 8
+  store i64 %9, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang14TPoolAllocator4pushEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %8, %10
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %1
   store i64 %3, ptr %8, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %.sroa.3.0..sroa_idx, align 8
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %13, ptr %7, align 8
   br label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE9push_backERKS2_.exit
 
@@ -130,7 +140,7 @@ define void @_ZN7glslang14TPoolAllocator4pushEv(ptr nocapture noundef nonnull al
   br i1 %19, label %20, label %_ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 
 20:                                               ; preds = %14
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #11
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #13
   unreachable
 
 _ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %14
@@ -140,59 +150,52 @@ _ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc
   %23 = icmp ult i64 %22, %21
   %24 = tail call i64 @llvm.umin.i64(i64 %22, i64 576460752303423487)
   %25 = select i1 %23, i64 576460752303423487, i64 %24
-  %.not.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_M_allocateEm.exit.i.i, label %26
-
-26:                                               ; preds = %_ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %27 = shl nuw nsw i64 %25, 4
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #12
-  br label %_ZNSt12_Vector_baseIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %26, %_ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %29 = phi ptr [ %28, %26 ], [ null, %_ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]
-  %30 = getelementptr inbounds %"struct.glslang::TPoolAllocator::tAllocState", ptr %29, i64 %21
-  store i64 %3, ptr %30, align 8
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %30, i64 8
+  %.not.i.i.i = icmp ne i64 %25, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %26 = shl nuw nsw i64 %25, 4
+  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #12
+  %28 = getelementptr inbounds i8, ptr %27, i64 %18
+  store i64 %3, ptr %28, align 8
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %5, ptr %.sroa.3.0..sroa_idx2, align 8
-  %31 = icmp sgt i64 %18, 0
-  br i1 %31, label %32, label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  %29 = icmp sgt i64 %18, 0
+  br i1 %29, label %30, label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-32:                                               ; preds = %_ZNSt12_Vector_baseIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %15, i64 %18, i1 false)
+30:                                               ; preds = %_ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %15, i64 %18, i1 false)
   br label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %32, %_ZNSt12_Vector_baseIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_M_allocateEm.exit.i.i
-  %33 = getelementptr inbounds i8, ptr %29, i64 %18
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %30, %_ZNKSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.not.i17.i.i = icmp eq ptr %15, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %35
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %32
 
-35:                                               ; preds = %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %18) #13
+32:                                               ; preds = %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef %18) #14
   br label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %29, ptr %6, align 8
-  store ptr %34, ptr %7, align 8
-  %36 = getelementptr inbounds %"struct.glslang::TPoolAllocator::tAllocState", ptr %29, i64 %25
-  store ptr %36, ptr %9, align 8
+_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %27, ptr %6, align 8
+  store ptr %31, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %"struct.glslang::TPoolAllocator::tAllocState", ptr %27, i64 %25
+  store ptr %33, ptr %9, align 8
   br label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE9push_backERKS2_.exit: ; preds = %11, %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %37 = load i64, ptr %0, align 8
-  store i64 %37, ptr %2, align 8
+  %34 = load i64, ptr %0, align 8
+  store i64 %34, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
   br i1 %.not6, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not57 = icmp eq ptr %5, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph8
@@ -200,7 +203,7 @@ define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr nocapture noundef nonnull align
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
   %7 = load ptr, ptr %6, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %6) #13
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #14
   store ptr %7, ptr %2, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !7
@@ -208,24 +211,24 @@ define void @_ZN7glslang14TPoolAllocatorD2Ev(ptr nocapture noundef nonnull align
 .lr.ph8:                                          ; preds = %.preheader, %.lr.ph8
   %8 = phi ptr [ %9, %.lr.ph8 ], [ %5, %.preheader ]
   %9 = load ptr, ptr %8, align 8
-  tail call void @_ZdaPv(ptr noundef nonnull %8) #13
+  tail call void @_ZdaPv(ptr noundef nonnull %8) #14
   store ptr %9, ptr %4, align 8
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph8, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph8, %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EED2Ev.exit, label %12
 
 12:                                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #14
   br label %_ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7glslang14TPoolAllocator11tAllocStateESaIS2_EED2Ev.exit: ; preds = %._crit_edge, %12
@@ -242,8 +245,8 @@ define void @_ZNK7glslang11TAllocation15checkGuardBlockEPhhPKc(ptr nocapture nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang14TPoolAllocator3popEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %4, %5
@@ -254,27 +257,27 @@ define void @_ZN7glslang14TPoolAllocator3popEv(ptr nocapture noundef nonnull ali
   %9 = getelementptr inbounds i8, ptr %4, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not4 = icmp eq ptr %14, %10
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %16
 
 16:                                               ; preds = %.lr.ph, %26
   %17 = phi ptr [ %14, %.lr.ph ], [ %18, %26 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, 1
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %16
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #13
+  tail call void @_ZdaPv(ptr noundef nonnull %17) #14
   br label %26
 
 23:                                               ; preds = %16
@@ -305,17 +308,17 @@ define void @_ZN7glslang14TPoolAllocator3popEv(ptr nocapture noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang14TPoolAllocator6popAllEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %.not1 = icmp eq ptr %4, %5
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZN7glslang14TPoolAllocator3popEv.exit
@@ -338,13 +341,13 @@ define void @_ZN7glslang14TPoolAllocator6popAllEv(ptr nocapture noundef nonnull 
 .lr.ph.i:                                         ; preds = %13, %28
   %19 = phi ptr [ %20, %28 ], [ %18, %13 ]
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp ugt i64 %22, 1
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %.lr.ph.i
-  tail call void @_ZdaPv(ptr noundef nonnull %19) #13
+  tail call void @_ZdaPv(ptr noundef nonnull %19) #14
   br label %28
 
 25:                                               ; preds = %.lr.ph.i
@@ -384,15 +387,15 @@ _ZN7glslang14TPoolAllocator3popEv.exit:           ; preds = %9, %._crit_edge.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %1
   store i64 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %1
   %12 = load i64, ptr %0, align 8
@@ -400,10 +403,10 @@ define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef
   br i1 %.not, label %22, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %11
   %20 = xor i64 %18, -1
@@ -412,7 +415,7 @@ define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef
   br label %57
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %1
   %26 = icmp ugt i64 %25, %12
@@ -420,13 +423,13 @@ define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef
 
 27:                                               ; preds = %22
   %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %25) #12
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = add i64 %12, -1
   %32 = add i64 %31, %25
   %33 = udiv i64 %32, %12
   store ptr %30, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %33, ptr %34, align 8
   store ptr %28, ptr %29, align 8
   store i64 %12, ptr %9, align 8
@@ -436,7 +439,7 @@ define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef
   br label %57
 
 38:                                               ; preds = %22
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %.not26 = icmp eq ptr %40, null
   br i1 %.not26, label %43, label %41
@@ -452,16 +455,16 @@ define noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr nocapture noundef
 
 45:                                               ; preds = %43, %41
   %.021 = phi ptr [ %40, %41 ], [ %44, %43 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %.021, align 8
-  %48 = getelementptr inbounds i8, ptr %.021, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   store i64 1, ptr %48, align 8
   store ptr %.021, ptr %46, align 8
   %49 = load i64, ptr %23, align 8
   %50 = getelementptr inbounds i8, ptr %.021, i64 %49
   %51 = add i64 %49, %1
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %51, %53
   %55 = xor i64 %53, -1
@@ -506,6 +509,9 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #10
 
@@ -520,9 +526,10 @@ attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #12 = { builtin nounwind allocsize(0) }
-attributes #13 = { builtin nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -60,7 +60,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   %.1178 = phi ptr [ %.4, %461 ], [ %411, %432 ], [ %.2179, %71 ]
   %.1170 = phi i32 [ 3, %461 ], [ %.0169, %432 ], [ %spec.select, %71 ]
   %.1 = phi i32 [ %462, %461 ], [ %433, %432 ], [ %67, %71 ]
-  %4 = getelementptr inbounds i8, ptr %.1178, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.1178, i64 1
   br label %5
 
 5:                                                ; preds = %3, %0
@@ -166,7 +166,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 
 52:                                               ; preds = %50
   %53 = zext nneg i32 %44 to i64
-  %54 = getelementptr inbounds [296 x i8], ptr @yytranslate, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [296 x i8], ptr @yytranslate, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i32
   br label %57
@@ -179,14 +179,14 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [272 x i8], ptr @yycheck, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
   %.not216 = icmp eq i32 %.0187, %63
   br i1 %.not216, label %64, label %74
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %60
+  %65 = getelementptr inbounds nuw [272 x i8], ptr @yytable, i64 0, i64 %60
   %66 = load i8, ptr %65, align 1
   %67 = sext i8 %66 to i32
   %68 = icmp slt i8 %66, 1
@@ -198,7 +198,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 
 71:                                               ; preds = %64
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0169, i32 1)
-  %72 = getelementptr inbounds i8, ptr %.2192, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.2192, i64 8
   %73 = load i64, ptr @htmllval, align 8
   store i64 %73, ptr %72, align 8
   store i32 -2, ptr @htmlchar, align 4
@@ -287,7 +287,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   unreachable
 
 mkLabel.exit:                                     ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %89, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i8 2, ptr %94, align 8
   store ptr %88, ptr %89, align 8
   store ptr %89, ptr @HTMLstate.0, align 8
@@ -307,7 +307,7 @@ mkLabel.exit:                                     ; preds = %86
   unreachable
 
 mkLabel.exit225:                                  ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %98, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i8 1, ptr %103, align 8
   store ptr %97, ptr %98, align 8
   store ptr %98, ptr @HTMLstate.0, align 8
@@ -360,11 +360,11 @@ agxblen.exit.i.i:                                 ; preds = %gv_alloc.exit.i
 appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %122
   %.0.i.i = phi ptr [ %123, %122 ], [ %116, %agxblen.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, i8 0, i64 32, i1 false)
-  %124 = getelementptr inbounds i8, ptr %109, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr %.0.i.i, ptr %124, align 8
   %125 = load ptr, ptr @HTMLstate.5, align 8
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %109, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store ptr %126, ptr %127, align 8
   %128 = load ptr, ptr @HTMLstate.2, align 8
   %129 = load ptr, ptr %128, align 8
@@ -383,7 +383,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 135:                                              ; preds = %79
   %136 = load ptr, ptr @HTMLstate.5, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
   call void @free(ptr noundef %136) #17
   store ptr %138, ptr @HTMLstate.5, align 8
@@ -396,7 +396,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 141:                                              ; preds = %79
   %142 = load ptr, ptr @HTMLstate.5, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   call void @free(ptr noundef %142) #17
   store ptr %144, ptr @HTMLstate.5, align 8
@@ -409,7 +409,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 147:                                              ; preds = %79
   %148 = load ptr, ptr @HTMLstate.5, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8
   call void @free(ptr noundef %148) #17
   store ptr %150, ptr @HTMLstate.5, align 8
@@ -422,7 +422,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 153:                                              ; preds = %79
   %154 = load ptr, ptr @HTMLstate.5, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   call void @free(ptr noundef %154) #17
   store ptr %156, ptr @HTMLstate.5, align 8
@@ -435,7 +435,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 159:                                              ; preds = %79
   %160 = load ptr, ptr @HTMLstate.5, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
   call void @free(ptr noundef %160) #17
   store ptr %162, ptr @HTMLstate.5, align 8
@@ -448,7 +448,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 165:                                              ; preds = %79
   %166 = load ptr, ptr @HTMLstate.5, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
   call void @free(ptr noundef %166) #17
   store ptr %168, ptr @HTMLstate.5, align 8
@@ -461,7 +461,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 171:                                              ; preds = %79
   %172 = load ptr, ptr @HTMLstate.5, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
   call void @free(ptr noundef %172) #17
   store ptr %174, ptr @HTMLstate.5, align 8
@@ -474,7 +474,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
 
 177:                                              ; preds = %79
   %178 = load ptr, ptr @HTMLstate.5, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
   call void @free(ptr noundef %178) #17
   store ptr %180, ptr @HTMLstate.5, align 8
@@ -512,7 +512,7 @@ agxbclear.exit.i:                                 ; preds = %190
   br label %agxbuse.exit.preheader
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i8, ptr %191, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i64 0, ptr %194, align 8
   %195 = load ptr, ptr %191, align 8
   br label %agxbuse.exit.preheader
@@ -528,7 +528,7 @@ agxbuse.exit:                                     ; preds = %agxbuse.exit.prehea
   br i1 %.not.i, label %199, label %197
 
 197:                                              ; preds = %agxbuse.exit
-  %198 = getelementptr inbounds i8, ptr %.02.i, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %.02.i, i64 1
   %.not4.i = icmp eq i8 %196, 32
   br i1 %.not4.i, label %agxbuse.exit, label %nonSpace.exit
 
@@ -540,18 +540,18 @@ nonSpace.exit:                                    ; preds = %197
 199:                                              ; preds = %agxbuse.exit
   %200 = load ptr, ptr @HTMLstate.1, align 8
   %201 = load ptr, ptr %.2192, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 104
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 104
   store ptr %200, ptr %202, align 8
   %203 = load ptr, ptr @Dtqueue, align 8
   %204 = call ptr @dtopen(ptr noundef nonnull @rowDisc, ptr noundef %203) #17
   %205 = load ptr, ptr %.2192, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 112
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 112
   store ptr %204, ptr %206, align 8
   %207 = load ptr, ptr %.2192, align 8
   store ptr %207, ptr @HTMLstate.1, align 8
   %208 = load ptr, ptr @HTMLstate.5, align 8
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %207, i64 160
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 160
   store ptr %209, ptr %210, align 8
   %211 = load ptr, ptr %.2192, align 8
   br label %407
@@ -569,7 +569,7 @@ agxbclear.exit.i230:                              ; preds = %212
   br label %agxbuse.exit231.preheader
 
 215:                                              ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %213, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i64 0, ptr %216, align 8
   %217 = load ptr, ptr %213, align 8
   br label %agxbuse.exit231.preheader
@@ -585,7 +585,7 @@ agxbuse.exit231:                                  ; preds = %agxbuse.exit231.pre
   br i1 %.not.i233, label %221, label %219
 
 219:                                              ; preds = %agxbuse.exit231
-  %220 = getelementptr inbounds i8, ptr %.02.i232, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %.02.i232, i64 1
   %.not4.i234 = icmp eq i8 %218, 32
   br i1 %.not4.i234, label %agxbuse.exit231, label %nonSpace.exit236
 
@@ -596,7 +596,7 @@ nonSpace.exit236:                                 ; preds = %219
 
 221:                                              ; preds = %agxbuse.exit231
   %222 = load ptr, ptr @HTMLstate.1, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 104
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 104
   %224 = load ptr, ptr %223, align 8
   store ptr %224, ptr @HTMLstate.1, align 8
   br label %407
@@ -641,7 +641,7 @@ nonSpace.exit236:                                 ; preds = %219
 246:                                              ; preds = %79
   %247 = getelementptr inbounds i8, ptr %.2192, i64 -16
   %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   store i8 1, ptr %249, align 8
   %250 = load ptr, ptr %.2192, align 8
   br label %407
@@ -661,20 +661,20 @@ nonSpace.exit236:                                 ; preds = %219
   unreachable
 
 gv_alloc.exit.i237:                               ; preds = %251
-  %260 = getelementptr inbounds i8, ptr %255, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %253, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %254, i64 168
+  %261 = getelementptr inbounds nuw i8, ptr %254, i64 168
   %262 = load i8, ptr %261, align 8
   %263 = trunc i8 %262 to i1
   br i1 %263, label %264, label %addRow.exit
 
 264:                                              ; preds = %gv_alloc.exit.i237
-  %265 = getelementptr inbounds i8, ptr %255, i64 24
+  %265 = getelementptr inbounds nuw i8, ptr %255, i64 24
   store i8 1, ptr %265, align 8
   br label %addRow.exit
 
 addRow.exit:                                      ; preds = %gv_alloc.exit.i237, %264
-  %266 = getelementptr inbounds i8, ptr %254, i64 112
+  %266 = getelementptr inbounds nuw i8, ptr %254, i64 112
   %267 = load ptr, ptr %266, align 8
   %268 = load ptr, ptr %267, align 8
   %269 = call ptr %268(ptr noundef nonnull %267, ptr noundef nonnull %255, i32 noundef 1) #17
@@ -682,7 +682,7 @@ addRow.exit:                                      ; preds = %gv_alloc.exit.i237,
 
 270:                                              ; preds = %79
   %271 = load ptr, ptr @HTMLstate.1, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 112
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 112
   %273 = load ptr, ptr %272, align 8
   %274 = load ptr, ptr %273, align 8
   %275 = call ptr %274(ptr noundef nonnull %273, ptr noundef null, i32 noundef 256) #17
@@ -699,7 +699,7 @@ addRow.exit:                                      ; preds = %gv_alloc.exit.i237,
 280:                                              ; preds = %79
   %281 = getelementptr inbounds i8, ptr %.2192, i64 -16
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 136
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 136
   %284 = load i8, ptr %283, align 8
   %285 = or i8 %284, 1
   store i8 %285, ptr %283, align 8
@@ -722,31 +722,31 @@ addRow.exit:                                      ; preds = %gv_alloc.exit.i237,
 
 gv_alloc.exit.i238:                               ; preds = %287
   %296 = load ptr, ptr @HTMLstate.1, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 112
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 112
   %298 = load ptr, ptr %297, align 8
   %299 = load ptr, ptr %298, align 8
   %300 = call ptr %299(ptr noundef nonnull %298, ptr noundef null, i32 noundef 256) #17
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %291, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %291, i64 16
   store ptr %289, ptr %303, align 8
   %304 = load ptr, ptr %302, align 8
   %305 = call ptr %304(ptr noundef nonnull %302, ptr noundef nonnull %291, i32 noundef 1) #17
-  %306 = getelementptr inbounds i8, ptr %289, i64 120
+  %306 = getelementptr inbounds nuw i8, ptr %289, i64 120
   store i8 1, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %296, i64 168
+  %307 = getelementptr inbounds nuw i8, ptr %296, i64 168
   %308 = load i8, ptr %307, align 8
   %309 = and i8 %308, 2
   %.not.i239 = icmp eq i8 %309, 0
   br i1 %.not.i239, label %setCell.exit, label %310
 
 310:                                              ; preds = %gv_alloc.exit.i238
-  %311 = getelementptr inbounds i8, ptr %289, i64 136
+  %311 = getelementptr inbounds nuw i8, ptr %289, i64 136
   store i8 1, ptr %311, align 8
   br label %setCell.exit
 
 setCell.exit:                                     ; preds = %gv_alloc.exit.i238, %310
-  %312 = getelementptr inbounds i8, ptr %289, i64 112
+  %312 = getelementptr inbounds nuw i8, ptr %289, i64 112
   store ptr %290, ptr %312, align 8
   br label %407
 
@@ -771,31 +771,31 @@ setCell.exit:                                     ; preds = %gv_alloc.exit.i238,
 
 gv_alloc.exit.i240:                               ; preds = %316
   %325 = load ptr, ptr @HTMLstate.1, align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 112
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 112
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %327, align 8
   %329 = call ptr %328(ptr noundef nonnull %327, ptr noundef null, i32 noundef 256) #17
-  %330 = getelementptr inbounds i8, ptr %329, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %320, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %320, i64 16
   store ptr %318, ptr %332, align 8
   %333 = load ptr, ptr %331, align 8
   %334 = call ptr %333(ptr noundef nonnull %331, ptr noundef nonnull %320, i32 noundef 1) #17
-  %335 = getelementptr inbounds i8, ptr %318, i64 120
+  %335 = getelementptr inbounds nuw i8, ptr %318, i64 120
   store i8 2, ptr %335, align 8
-  %336 = getelementptr inbounds i8, ptr %325, i64 168
+  %336 = getelementptr inbounds nuw i8, ptr %325, i64 168
   %337 = load i8, ptr %336, align 8
   %338 = and i8 %337, 2
   %.not.i241 = icmp eq i8 %338, 0
   br i1 %.not.i241, label %setCell.exit242, label %339
 
 339:                                              ; preds = %gv_alloc.exit.i240
-  %340 = getelementptr inbounds i8, ptr %318, i64 136
+  %340 = getelementptr inbounds nuw i8, ptr %318, i64 136
   store i8 1, ptr %340, align 8
   br label %setCell.exit242
 
 setCell.exit242:                                  ; preds = %gv_alloc.exit.i240, %339
-  %341 = getelementptr inbounds i8, ptr %318, i64 112
+  %341 = getelementptr inbounds nuw i8, ptr %318, i64 112
   store ptr %319, ptr %341, align 8
   br label %407
 
@@ -820,31 +820,31 @@ setCell.exit242:                                  ; preds = %gv_alloc.exit.i240,
 
 gv_alloc.exit.i243:                               ; preds = %345
   %354 = load ptr, ptr @HTMLstate.1, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 112
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 112
   %356 = load ptr, ptr %355, align 8
   %357 = load ptr, ptr %356, align 8
   %358 = call ptr %357(ptr noundef nonnull %356, ptr noundef null, i32 noundef 256) #17
-  %359 = getelementptr inbounds i8, ptr %358, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %349, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %349, i64 16
   store ptr %347, ptr %361, align 8
   %362 = load ptr, ptr %360, align 8
   %363 = call ptr %362(ptr noundef nonnull %360, ptr noundef nonnull %349, i32 noundef 1) #17
-  %364 = getelementptr inbounds i8, ptr %347, i64 120
+  %364 = getelementptr inbounds nuw i8, ptr %347, i64 120
   store i8 3, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %354, i64 168
+  %365 = getelementptr inbounds nuw i8, ptr %354, i64 168
   %366 = load i8, ptr %365, align 8
   %367 = and i8 %366, 2
   %.not.i244 = icmp eq i8 %367, 0
   br i1 %.not.i244, label %setCell.exit245, label %368
 
 368:                                              ; preds = %gv_alloc.exit.i243
-  %369 = getelementptr inbounds i8, ptr %347, i64 136
+  %369 = getelementptr inbounds nuw i8, ptr %347, i64 136
   store i8 1, ptr %369, align 8
   br label %setCell.exit245
 
 setCell.exit245:                                  ; preds = %gv_alloc.exit.i243, %368
-  %370 = getelementptr inbounds i8, ptr %347, i64 112
+  %370 = getelementptr inbounds nuw i8, ptr %347, i64 112
   store ptr %348, ptr %370, align 8
   br label %407
 
@@ -868,31 +868,31 @@ setCell.exit245:                                  ; preds = %gv_alloc.exit.i243,
 
 gv_alloc.exit.i246:                               ; preds = %374
   %382 = load ptr, ptr @HTMLstate.1, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 112
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 112
   %384 = load ptr, ptr %383, align 8
   %385 = load ptr, ptr %384, align 8
   %386 = call ptr %385(ptr noundef nonnull %384, ptr noundef null, i32 noundef 256) #17
-  %387 = getelementptr inbounds i8, ptr %386, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %377, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %377, i64 16
   store ptr %375, ptr %389, align 8
   %390 = load ptr, ptr %388, align 8
   %391 = call ptr %390(ptr noundef nonnull %388, ptr noundef nonnull %377, i32 noundef 1) #17
-  %392 = getelementptr inbounds i8, ptr %375, i64 120
+  %392 = getelementptr inbounds nuw i8, ptr %375, i64 120
   store i8 2, ptr %392, align 8
-  %393 = getelementptr inbounds i8, ptr %382, i64 168
+  %393 = getelementptr inbounds nuw i8, ptr %382, i64 168
   %394 = load i8, ptr %393, align 8
   %395 = and i8 %394, 2
   %.not.i247 = icmp eq i8 %395, 0
   br i1 %.not.i247, label %setCell.exit248, label %396
 
 396:                                              ; preds = %gv_alloc.exit.i246
-  %397 = getelementptr inbounds i8, ptr %375, i64 136
+  %397 = getelementptr inbounds nuw i8, ptr %375, i64 136
   store i8 1, ptr %397, align 8
   br label %setCell.exit248
 
 setCell.exit248:                                  ; preds = %gv_alloc.exit.i246, %396
-  %398 = getelementptr inbounds i8, ptr %375, i64 112
+  %398 = getelementptr inbounds nuw i8, ptr %375, i64 112
   store ptr %376, ptr %398, align 8
   br label %407
 
@@ -916,7 +916,7 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
   %409 = sub nsw i64 0, %408
   %410 = getelementptr inbounds %union.HTMLSTYPE, ptr %.2192, i64 %409
   %411 = getelementptr inbounds i8, ptr %.2179, i64 %409
-  %412 = getelementptr inbounds i8, ptr %410, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store ptr %.sroa.0.0, ptr %412, align 8
   %413 = getelementptr inbounds [70 x i8], ptr @yyr1, i64 0, i64 %80
   %414 = load i8, ptr %413, align 1
@@ -933,13 +933,13 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
 
 423:                                              ; preds = %407
   %424 = zext nneg i32 %422 to i64
-  %425 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %424
+  %425 = getelementptr inbounds nuw [272 x i8], ptr @yycheck, i64 0, i64 %424
   %426 = load i8, ptr %425, align 1
   %427 = icmp eq i8 %426, %420
   br i1 %427, label %428, label %430
 
 428:                                              ; preds = %423
-  %429 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %424
+  %429 = getelementptr inbounds nuw [272 x i8], ptr @yytable, i64 0, i64 %424
   br label %432
 
 430:                                              ; preds = %423, %407
@@ -994,7 +994,7 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
 448:                                              ; preds = %444
   %449 = sext i16 %445 to i64
   %450 = add nsw i64 %449, 1
-  %451 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw [272 x i8], ptr @yytable, i64 0, i64 %450
   %452 = load i8, ptr %451, align 1
   %453 = icmp sgt i8 %452, 0
   br i1 %453, label %461, label %454
@@ -1015,7 +1015,7 @@ setCell.exit248:                                  ; preds = %gv_alloc.exit.i246,
 
 461:                                              ; preds = %448
   %462 = zext nneg i8 %452 to i32
-  %463 = getelementptr inbounds i8, ptr %.4194, i64 8
+  %463 = getelementptr inbounds nuw i8, ptr %.4194, i64 8
   %464 = load i64, ptr @htmllval, align 8
   store i64 %464, ptr %463, align 8
   br label %3
@@ -1071,9 +1071,9 @@ define internal fastcc void @cleanup() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.07, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @dtclose(ptr noundef %8) #17
   tail call void @free_html_data(ptr noundef nonnull %.07) #17
@@ -1094,7 +1094,7 @@ define internal fastcc void @cleanup() unnamed_addr #0 {
   %15 = tail call ptr %14(ptr noundef nonnull %13, ptr noundef null, i32 noundef 64) #17
   store ptr @free_item, ptr getelementptr inbounds (i8, ptr @fspanDisc, i64 24), align 8
   %16 = load ptr, ptr @HTMLstate.5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not4.i = icmp eq ptr %18, null
   br i1 %.not4.i, label %freeFontstack.exit, label %.lr.ph.i
@@ -1103,7 +1103,7 @@ define internal fastcc void @cleanup() unnamed_addr #0 {
   %19 = phi ptr [ %21, %.lr.ph.i ], [ %18, %._crit_edge ]
   %.05.i = phi ptr [ %19, %.lr.ph.i ], [ %16, %._crit_edge ]
   tail call void @free(ptr noundef nonnull %.05.i) #17
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %freeFontstack.exit, label %.lr.ph.i
@@ -1138,7 +1138,7 @@ gv_alloc.exit:                                    ; preds = %0
 10:                                               ; preds = %9, %gv_alloc.exit
   %11 = tail call i32 @dtsize(ptr noundef %1) #17
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %12, ptr %13, align 8
   %.not20 = icmp eq i32 %11, 0
   br i1 %.not20, label %.loopexit, label %14
@@ -1154,8 +1154,8 @@ gv_alloc.exit:                                    ; preds = %0
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %14 ]
   %.01823 = phi ptr [ %21, %.lr.ph ], [ %17, %14 ]
-  %18 = getelementptr inbounds %struct.htextspan_t, ptr %15, i64 %indvars.iv
-  %19 = getelementptr inbounds i8, ptr %.01823, i64 16
+  %18 = getelementptr inbounds nuw %struct.htextspan_t, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %.01823, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %1, align 8
@@ -1185,15 +1185,15 @@ gv_alloc.exit:                                    ; preds = %1
   %7 = load ptr, ptr @HTMLstate.2, align 8
   %8 = tail call i32 @dtsize(ptr noundef %7) #17
   %9 = trunc i32 %0 to i8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 %9, ptr %11, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %gv_alloc.exit
   %13 = sext i32 %8 to i64
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %13, ptr %14, align 8
   %15 = tail call fastcc ptr @gv_calloc(i64 noundef %13, i64 noundef 72)
   store ptr %15, ptr %10, align 8
@@ -1204,8 +1204,8 @@ gv_alloc.exit:                                    ; preds = %1
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.02126 = phi ptr [ %19, %.lr.ph ], [ %16, %12 ]
-  %17 = getelementptr inbounds %struct.textspan_t, ptr %15, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %.02126, i64 16
+  %17 = getelementptr inbounds nuw %struct.textspan_t, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %.02126, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %18, i64 72, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load ptr, ptr %.02126, align 8
@@ -1225,7 +1225,7 @@ gv_alloc.exit:                                    ; preds = %1
 
 gv_alloc.exit24:                                  ; preds = %20
   store ptr %21, ptr %10, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 1, ptr %26, align 8
   %27 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str.10) #17
   %28 = icmp eq ptr %27, null
@@ -1241,7 +1241,7 @@ gv_strdup.exit:                                   ; preds = %gv_alloc.exit24
   store ptr %27, ptr %21, align 8
   %32 = load ptr, ptr @HTMLstate.5, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %21, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %33, ptr %34, align 8
   br label %.loopexit
 
@@ -1275,13 +1275,13 @@ gv_alloc.exit:                                    ; preds = %1
   br i1 %.not, label %39, label %10
 
 10:                                               ; preds = %gv_alloc.exit
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not18 = icmp eq ptr %15, null
   br i1 %.not18, label %17, label %16
@@ -1291,13 +1291,13 @@ gv_alloc.exit:                                    ; preds = %1
   br label %17
 
 17:                                               ; preds = %16, %13, %10
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fcmp olt double %19, 0.000000e+00
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %9, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %23 = load double, ptr %22, align 8
   %24 = fcmp ult double %23, 0.000000e+00
   br i1 %24, label %26, label %25
@@ -1321,14 +1321,14 @@ gv_alloc.exit:                                    ; preds = %1
   br label %31
 
 31:                                               ; preds = %30, %28, %26
-  %32 = getelementptr inbounds i8, ptr %9, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 127
   %.not21 = icmp eq i32 %34, 0
   br i1 %.not21, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = or i32 %37, %34
   store i32 %38, ptr %36, align 8
@@ -1336,13 +1336,13 @@ gv_alloc.exit:                                    ; preds = %1
 
 39:                                               ; preds = %31, %35, %gv_alloc.exit
   %40 = load ptr, ptr @HTMLstate.6, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 256
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 256
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr %43(ptr noundef nonnull %42, ptr noundef nonnull %2, i32 noundef 1) #17
   store ptr %44, ptr %3, align 8
   %45 = load ptr, ptr @HTMLstate.5, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %45, ptr %46, align 8
   store ptr %3, ptr @HTMLstate.5, align 8
   ret void
@@ -1361,11 +1361,11 @@ define ptr @parseHTML(ptr noundef %0, ptr nocapture noundef writeonly initialize
   store ptr %5, ptr @HTMLstate.5, align 8
   store ptr null, ptr @HTMLstate.1, align 8
   store ptr null, ptr @HTMLstate.0, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr @HTMLstate.6, align 8
   %12 = load ptr, ptr @Dtqueue, align 8
@@ -1396,7 +1396,7 @@ define ptr @parseHTML(ptr noundef %0, ptr nocapture noundef writeonly initialize
   store ptr null, ptr @HTMLstate.2, align 8
   store ptr null, ptr @HTMLstate.3, align 8
   store ptr null, ptr @HTMLstate.5, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 31
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val6 = load i8, ptr %26, align 1
   %27 = icmp eq i8 %.val6, -1
   br i1 %27, label %28, label %agxbfree.exit
@@ -1475,10 +1475,10 @@ declare void @free_html_label(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_citem(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
-  %6 = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %7 = load i8, ptr %6, align 8
   switch i8 %7, label %cleanCell.exit [
     i8 1, label %8
@@ -1487,7 +1487,7 @@ define internal void @free_citem(ptr nocapture noundef %0, ptr nocapture readnon
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @dtclose(ptr noundef %11) #17
   tail call void @free_html_data(ptr noundef %9) #17
@@ -1514,7 +1514,7 @@ define internal void @free_item(ptr nocapture noundef %0, ptr nocapture readnone
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @free_fitem(ptr nocapture noundef %0, ptr nocapture readnone %1) #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #17
   tail call void @free(ptr noundef %0) #17
@@ -1523,8 +1523,8 @@ define internal void @free_fitem(ptr nocapture noundef %0, ptr nocapture readnon
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_fspan(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %.lr.ph.preheader
@@ -1538,7 +1538,7 @@ define internal void @free_fspan(ptr nocapture noundef %0, ptr nocapture readnon
   %.089 = phi ptr [ %8, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %7 = load ptr, ptr %.089, align 8
   tail call void @free(ptr noundef %7) #17
-  %8 = getelementptr inbounds i8, ptr %.089, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %.089, i64 72
   %9 = add nuw i64 %.010, 1
   %10 = load i64, ptr %4, align 8
   %11 = icmp ult i64 %9, %10
@@ -1568,9 +1568,9 @@ define internal fastcc void @agxbputc(ptr nocapture noundef %0) unnamed_addr #0 
   br i1 %.not.i, label %agxbsizeof.exit, label %agxbsizeof.exit.thread
 
 agxbsizeof.exit:                                  ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.fr.i = freeze i64 %6
   %.not = icmp ult i64 %4, %.fr.i
@@ -1629,7 +1629,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit
 gv_calloc.exit.i:                                 ; preds = %.thread
   %29 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 8 %0, i64 %29, i1 false)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %29, ptr %30, align 8
   br label %.thread26
 
@@ -1637,10 +1637,10 @@ gv_calloc.exit.i:                                 ; preds = %.thread
   %spec.select3742.i = phi i64 [ 62, %gv_calloc.exit.i ], [ 0, %12 ], [ %spec.select34.i, %19 ], [ %spec.select34.i, %21 ]
   %.0.i15 = phi ptr [ %24, %gv_calloc.exit.i ], [ null, %12 ], [ %14, %19 ], [ %14, %21 ]
   store ptr %.0.i15, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3742.i, ptr %31, align 8
   store i8 -1, ptr %2, align 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %36
 
@@ -1650,7 +1650,7 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 
 .thread35:                                        ; preds = %agxbsizeof.exit.thread
   %32 = zext nneg i8 %.val.i to i64
-  %33 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %32
   store i8 0, ptr %33, align 1
   %34 = load i8, ptr %2, align 1
   %35 = add i8 %34, 1
@@ -1660,7 +1660,7 @@ gv_calloc.exit.i:                                 ; preds = %.thread
 36:                                               ; preds = %._crit_edge, %.thread26
   %37 = phi ptr [ %.0.i15, %.thread26 ], [ %.pre39, %._crit_edge ]
   %38 = phi i64 [ %.pre, %.thread26 ], [ %4, %._crit_edge ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = getelementptr inbounds i8, ptr %37, i64 %38
   store i8 0, ptr %40, align 1
   %41 = load i64, ptr %39, align 8
@@ -1685,7 +1685,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_ritem(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @dtclose(ptr noundef %4) #17
   tail call void @free(ptr noundef %0) #17

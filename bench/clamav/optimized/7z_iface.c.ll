@@ -46,16 +46,16 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   store ptr @FileInStream_fmap_Read, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @FileInStream_fmap_Seek, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   call void @LookToRead_CreateVTable(ptr noundef nonnull %4, i32 noundef 0) #6
   store i64 %1, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %19, align 8
   call void @LookToRead_Init(ptr noundef nonnull %4) #6
   call void @SzArEx_Init(ptr noundef nonnull %5) #6
@@ -66,9 +66,9 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   ]
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 64
   %.not100 = icmp eq i32 %26, 0
@@ -83,17 +83,17 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   store i32 -1, ptr %7, align 4
   store ptr null, ptr %8, align 8
   store i64 0, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %31 = load i32, ptr %30, align 8
   %.not165 = icmp eq i32 %31, 0
   br i1 %.not165, label %.loopexit, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
-  %33 = getelementptr inbounds i8, ptr %5, i64 104
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %37
 
 37:                                               ; preds = %.lr.ph131, %123
@@ -105,19 +105,19 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   store i64 0, ptr %10, align 8
   store i64 0, ptr %11, align 8
   %38 = load ptr, ptr %32, align 8
-  %39 = getelementptr inbounds %struct.CSzFileItem, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct.CSzFileItem, ptr %38, i64 %indvars.iv
   %40 = call i32 @cli_checklimits(ptr noundef nonnull @.str.2, ptr noundef %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
   %.not101 = icmp eq i32 %40, 0
   br i1 %.not101, label %41, label %.loopexit
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 25
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 25
   %43 = load i8, ptr %42, align 1
   %.not102 = icmp eq i8 %43, 0
   br i1 %.not102, label %44, label %123
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %39, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = call i32 @cli_checklimits(ptr noundef nonnull @.str.2, ptr noundef %0, i64 noundef %46, i64 noundef 0, i64 noundef 0) #6
   %.not103 = icmp eq i32 %47, 0
@@ -183,7 +183,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 73:                                               ; preds = %._crit_edge
   %74 = load ptr, ptr %34, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 64
   %.not106 = icmp eq i32 %77, 0
@@ -198,13 +198,13 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 80:                                               ; preds = %73, %78, %._crit_edge
   %.268 = phi i32 [ 1, %78 ], [ 1, %73 ], [ %.066128, %._crit_edge ]
   %81 = load i64, ptr %45, align 8
-  %82 = getelementptr inbounds i8, ptr %39, i64 27
+  %82 = getelementptr inbounds nuw i8, ptr %39, i64 27
   %83 = load i8, ptr %82, align 1
   %.not108 = icmp eq i8 %83, 0
   br i1 %.not108, label %87, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %39, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %86 = load i32, ptr %85, align 8
   br label %87
 
@@ -255,7 +255,7 @@ define i32 @cli_7unz(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %113 = load i32, ptr %13, align 4
   %114 = call i32 @close(i32 noundef %113) #6
   %115 = load ptr, ptr %36, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i32, ptr %116, align 8
   %.not112 = icmp eq i32 %117, 0
   br i1 %.not112, label %118, label %select.unfold
@@ -355,11 +355,11 @@ define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr nocapture nounde
   br i1 %5, label %24, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %12 = load i64, ptr %11, align 8
   %.not.i = icmp eq i64 %10, %12
   br i1 %.not.i, label %fmap_readn.exit, label %13
@@ -371,7 +371,7 @@ define internal range(i32 0, 9) i32 @FileInStream_fmap_Read(ptr nocapture nounde
 15:                                               ; preds = %13
   %16 = sub nuw i64 %12, %10
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 0) %4, i64 %16)
-  %17 = getelementptr inbounds i8, ptr %8, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %8, i64 noundef %10, i64 noundef %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %19, null
@@ -414,13 +414,13 @@ define internal range(i32 0, 2) i32 @FileInStream_fmap_Seek(ptr nocapture nounde
 
 4:                                                ; preds = %3
   %5 = load i64, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %6, align 8
   br label %20
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add nsw i64 %10, %8
   store i64 %11, ptr %9, align 8
@@ -428,13 +428,13 @@ define internal range(i32 0, 2) i32 @FileInStream_fmap_Seek(ptr nocapture nounde
   br label %20
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %1, align 8
   %18 = add i64 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %18, ptr %19, align 8
   store i64 %18, ptr %1, align 8
   br label %20

@@ -89,7 +89,7 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %15, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 1, %15 ]
-  %23 = getelementptr inbounds [5 x i32], ptr @_ZL15canViewFileType, i64 0, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [5 x i32], ptr @_ZL15canViewFileType, i64 0, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %16, %24
   br i1 %25, label %_ZL8can_viewi.exit, label %26
@@ -188,7 +188,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #10
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -196,7 +196,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -247,7 +247,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -297,13 +297,13 @@ define void @_Z8view_allPK16gmx_output_env_tiP8t_filenm(ptr noundef %0, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL8can_viewi.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL8can_viewi.exit.thread ]
-  %5 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %11, %.lr.ph
   %indvars.iv.i = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds [5 x i32], ptr @_ZL15canViewFileType, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [5 x i32], ptr @_ZL15canViewFileType, i64 0, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %_ZL8can_viewi.exit, label %11
@@ -326,7 +326,7 @@ _ZL8can_viewi.exit:                               ; preds = %7
   br i1 %16, label %17, label %_ZL8can_viewi.exit.thread
 
 17:                                               ; preds = %15, %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #10
   tail call void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %20, ptr noundef null)

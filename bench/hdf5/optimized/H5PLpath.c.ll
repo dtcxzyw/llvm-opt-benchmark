@@ -191,7 +191,7 @@ define noundef i32 @H5PL__close_path_table() local_unnamed_addr #0 {
   %2 = phi i32 [ %11, %10 ], [ %1, %0 ]
   %3 = phi ptr [ %12, %10 ], [ %.pre11, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %0 ]
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
@@ -199,7 +199,7 @@ define noundef i32 @H5PL__close_path_table() local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph
   %7 = tail call ptr @H5MM_xfree(ptr noundef nonnull %5) #13
   %8 = load ptr, ptr @H5PL_paths_g, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr %7, ptr %9, align 8
   %.pre10 = load i32, ptr @H5PL_num_paths_g, align 4
   br label %10
@@ -247,7 +247,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5PL__insert_at(ptr noundef %0, i32
 H5PL__expand_path_table.exit:                     ; preds = %6
   %13 = load i32, ptr @H5PL_num_paths_g, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, i8 0, i64 128, i1 false)
   br label %25
 
@@ -277,7 +277,7 @@ H5PL__expand_path_table.exit:                     ; preds = %6
 32:                                               ; preds = %25
   %33 = load ptr, ptr @H5PL_paths_g, align 8
   %34 = zext i32 %1 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not = icmp ne ptr %36, null
   %.pre = load i32, ptr @H5PL_num_paths_g, align 4
@@ -292,9 +292,9 @@ H5PL__expand_path_table.exit:                     ; preds = %6
 39:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %38, %.lr.ph.i ], [ %40, %39 ]
   %40 = add nsw i64 %indvars.iv.i, -1
-  %41 = getelementptr inbounds ptr, ptr %33, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %33, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
   store ptr %42, ptr %43, align 8
   %.wide.i = icmp ugt i64 %40, %34
   br i1 %.wide.i, label %39, label %H5PL__make_space_at.exit
@@ -331,7 +331,7 @@ define range(i32 -1, 1) i32 @H5PL__prepend_path(ptr noundef %0) local_unnamed_ad
 define range(i32 -1, 1) i32 @H5PL__replace_path(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @H5PL_paths_g, align 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %11
@@ -355,11 +355,11 @@ define range(i32 -1, 1) i32 @H5PL__replace_path(ptr noundef %0, i32 noundef %1) 
 
 H5PL__replace_at.exit:                            ; preds = %11
   %18 = load ptr, ptr @H5PL_paths_g, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %4
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %4
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @H5MM_xfree(ptr noundef %20) #13
   %22 = load ptr, ptr @H5PL_paths_g, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %4
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %4
   store ptr %12, ptr %23, align 8
   br label %28
 
@@ -395,7 +395,7 @@ define range(i32 -1, 1) i32 @H5PL__insert_path(ptr noundef %0, i32 noundef %1) l
 define range(i32 -1, 1) i32 @H5PL__remove_path(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @H5PL_paths_g, align 8
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %3
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %10
@@ -412,7 +412,7 @@ define range(i32 -1, 1) i32 @H5PL__remove_path(i32 noundef %0) local_unnamed_add
   store i32 %12, ptr @H5PL_num_paths_g, align 4
   %13 = tail call ptr @H5MM_xfree(ptr noundef nonnull %5) #13
   %14 = load ptr, ptr @H5PL_paths_g, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %3
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %3
   store ptr %13, ptr %15, align 8
   %16 = load i32, ptr @H5PL_num_paths_g, align 4
   %17 = icmp ult i32 %0, %16
@@ -422,15 +422,15 @@ define range(i32 -1, 1) i32 @H5PL__remove_path(i32 noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %3, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
-  %21 = getelementptr inbounds ptr, ptr %14, i64 %wide.trip.count
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %wide.trip.count
   store ptr null, ptr %21, align 8
   br label %22
 
@@ -454,7 +454,7 @@ define ptr @H5PL__get_path(i32 noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = load ptr, ptr @H5PL_paths_g, align 8
   %9 = zext i32 %0 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -474,7 +474,7 @@ define range(i32 -1, -2147483648) i32 @H5PL__path_table_iterate(i32 noundef %0, 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = icmp eq i32 %0, 3
   %11 = icmp eq i32 %0, 0
   %12 = icmp eq i32 %0, 1
@@ -484,7 +484,7 @@ define range(i32 -1, -2147483648) i32 @H5PL__path_table_iterate(i32 noundef %0, 
 14:                                               ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %15 = load ptr, ptr @H5PL_paths_g, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -511,19 +511,19 @@ H5PL__path_table_iterate_process_path.exit.thread13: ; preds = %14
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %21 = phi ptr [ %82, %.backedge.i ], [ %20, %.preheader.i ]
   %.171.i = phi ptr [ %.1.be.i, %.backedge.i ], [ null, %.preheader.i ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %.not73.i = icmp eq i8 %23, 108
   br i1 %.not73.i, label %sub_1.i, label %.backedge.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %24 = getelementptr inbounds i8, ptr %21, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %25 = load i8, ptr %24, align 1
   %.not74.i = icmp eq i8 %25, 105
   br i1 %.not74.i, label %.tail.i, label %.backedge.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %26 = getelementptr inbounds i8, ptr %21, i64 21
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 21
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 98
   br i1 %28, label %29, label %.backedge.i
@@ -675,7 +675,7 @@ H5PL__path_table_iterate_process_path.exit:       ; preds = %.thread.i
   %100 = load i64, ptr @H5E_PLUGIN_g, align 8
   %101 = load i64, ptr @H5E_BADITER_g, align 8
   %102 = load ptr, ptr @H5PL_paths_g, align 8
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8
   %105 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__path_table_iterate, i32 noundef 578, i64 noundef %100, i64 noundef %101, ptr noundef nonnull @.str.13, ptr noundef %104) #13
   br label %.loopexit
@@ -705,8 +705,8 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readon
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 8:                                                ; preds = %92
@@ -719,7 +719,7 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readon
 12:                                               ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %13 = load ptr, ptr @H5PL_paths_g, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   store i8 0, ptr %1, align 1
@@ -741,19 +741,19 @@ define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readon
 sub_0.i:                                          ; preds = %.preheader.i, %.backedge.i
   %21 = phi ptr [ %60, %.backedge.i ], [ %17, %.preheader.i ]
   %.148.i = phi ptr [ %.1.be.i, %.backedge.i ], [ null, %.preheader.i ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %.not51.i = icmp eq i8 %23, 108
   br i1 %.not51.i, label %sub_1.i, label %.backedge.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %24 = getelementptr inbounds i8, ptr %21, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %25 = load i8, ptr %24, align 1
   %.not52.i = icmp eq i8 %25, 105
   br i1 %.not52.i, label %.tail.i, label %.backedge.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %26 = getelementptr inbounds i8, ptr %21, i64 21
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 21
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 98
   br i1 %28, label %29, label %.backedge.i
@@ -864,7 +864,7 @@ H5PL__find_plugin_in_path.exit:                   ; preds = %.loopexit.i
   %86 = load i64, ptr @H5E_PLUGIN_g, align 8
   %87 = load i64, ptr @H5E_CANTGET_g, align 8
   %88 = load ptr, ptr @H5PL_paths_g, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5PL__find_plugin_in_path_table, i32 noundef 805, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.14, ptr noundef %90) #13
   br label %92

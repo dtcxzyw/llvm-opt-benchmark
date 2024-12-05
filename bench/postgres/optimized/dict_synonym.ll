@@ -21,15 +21,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tsearch_readline_state, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph123, label %._crit_edge.thread
@@ -41,7 +41,7 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str) #6
   %16 = icmp eq i32 %15, 0
@@ -62,7 +62,7 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   br label %30
 
 .split:                                           ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 @errcode(i32 noundef 50856066) #7
@@ -112,7 +112,7 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not67140, label %._crit_edge144, label %.lr.ph143
 
 .lr.ph143:                                        ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = trunc nuw i8 %.159 to i1
   br label %49
 
@@ -307,11 +307,11 @@ findwrd.exit.thread:                              ; preds = %53, %.lr.ph128, %69
   %.056.lcssa = phi i32 [ 0, %44 ], [ %.157, %findwrd.exit.thread ]
   call void @tsearch_readline_end(ptr noundef nonnull %2) #7
   store i32 %.056.lcssa, ptr %45, align 8
-  %122 = getelementptr inbounds i8, ptr %45, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = sext i32 %.056.lcssa to i64
   call void @pg_qsort(ptr noundef %123, i64 noundef %124, i64 noundef 24, ptr noundef nonnull @compareSyn) #7
-  %125 = getelementptr inbounds i8, ptr %45, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %126 = and i8 %.159, 1
   store i8 %126, ptr %125, align 8
   %127 = ptrtoint ptr %45 to i64
@@ -370,7 +370,7 @@ define internal i32 @compareSyn(ptr nocapture noundef readonly %0, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @dsynonym_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.Syn, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr i8, ptr %0, i64 48
@@ -388,7 +388,7 @@ define dso_local i64 @dsynonym_lexize(ptr nocapture noundef readonly %0) local_u
   br i1 %15, label %46, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %23
@@ -405,9 +405,9 @@ define dso_local i64 @dsynonym_lexize(ptr nocapture noundef readonly %0) local_u
 25:                                               ; preds = %23, %20
   %storemerge = phi ptr [ %24, %23 ], [ %22, %20 ]
   store ptr %storemerge, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %5, align 8
   %30 = sext i32 %29 to i64
@@ -419,17 +419,17 @@ define dso_local i64 @dsynonym_lexize(ptr nocapture noundef readonly %0) local_u
 
 33:                                               ; preds = %25
   %34 = call ptr @palloc0(i64 noundef 32) #7
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = call ptr @pnstrdup(ptr noundef %36, i64 noundef %39) #7
-  %41 = getelementptr inbounds i8, ptr %34, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %31, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %43 = load i16, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %34, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 2
   store i16 %43, ptr %44, align 2
   %45 = ptrtoint ptr %34 to i64
   br label %46

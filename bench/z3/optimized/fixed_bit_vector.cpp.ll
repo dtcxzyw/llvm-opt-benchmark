@@ -54,10 +54,10 @@ for.body.preheader:                               ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %other, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %2 = add nuw nsw i64 %indvars.iv, %0
-  %arrayidx7 = getelementptr inbounds [1 x i32], ptr %this, i64 0, i64 %2
+  %arrayidx7 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %2
   store i32 %1, ptr %arrayidx7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -73,7 +73,7 @@ for.body13:                                       ; preds = %for.end, %for.body1
   %add14 = add i32 %i8.051, %lo
   %div1.i.i = lshr i32 %i8.051, 5
   %idxprom.i.i = zext nneg i32 %div1.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i
   %3 = load i32, ptr %arrayidx.i.i, align 4
   %rem.i.i = and i32 %i8.051, 31
   %shl.i.i = shl nuw i32 1, %rem.i.i
@@ -82,7 +82,7 @@ for.body13:                                       ; preds = %for.end, %for.body1
   %conv.neg.i = sext i1 %cmp.i to i32
   %div1.i.i23 = lshr i32 %add14, 5
   %idxprom.i.i24 = zext nneg i32 %div1.i.i23 to i64
-  %arrayidx.i.i25 = getelementptr inbounds [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i24
+  %arrayidx.i.i25 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i24
   %4 = load i32, ptr %arrayidx.i.i25, align 4
   %xor.i = xor i32 %4, %conv.neg.i
   %and.i28 = and i32 %xor.i, %shl.i.i
@@ -97,7 +97,7 @@ for.body23:                                       ; preds = %for.body23.preheade
   %add24 = add i32 %i18.047, %lo
   %div1.i.i29 = lshr i32 %i18.047, 5
   %idxprom.i.i30 = zext nneg i32 %div1.i.i29 to i64
-  %arrayidx.i.i31 = getelementptr inbounds [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i30
+  %arrayidx.i.i31 = getelementptr inbounds nuw [1 x i32], ptr %other, i64 0, i64 %idxprom.i.i30
   %5 = load i32, ptr %arrayidx.i.i31, align 4
   %rem.i.i32 = and i32 %i18.047, 31
   %shl.i.i33 = shl nuw i32 1, %rem.i.i32
@@ -106,7 +106,7 @@ for.body23:                                       ; preds = %for.body23.preheade
   %conv.neg.i36 = sext i1 %cmp.i35 to i32
   %div1.i.i37 = lshr i32 %add24, 5
   %idxprom.i.i38 = zext nneg i32 %div1.i.i37 to i64
-  %arrayidx.i.i39 = getelementptr inbounds [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i38
+  %arrayidx.i.i39 = getelementptr inbounds nuw [1 x i32], ptr %this, i64 0, i64 %idxprom.i.i38
   %6 = load i32, ptr %arrayidx.i.i39, align 4
   %xor.i40 = xor i32 %6, %conv.neg.i36
   %rem.i.i41 = and i32 %add24, 31
@@ -126,21 +126,21 @@ for.end28:                                        ; preds = %for.body23, %for.bo
 define hidden void @_ZN24fixed_bit_vector_managerC2Ej(ptr noundef nonnull align 8 dereferenceable(540) %this, i32 noundef %num_bits) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN22small_object_allocatorC1EPKc(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull @.str)
-  %m_num_bits = getelementptr inbounds i8, ptr %this, i64 520
+  %m_num_bits = getelementptr inbounds nuw i8, ptr %this, i64 520
   store i32 %num_bits, ptr %m_num_bits, align 8
   %add.i = add i32 %num_bits, 31
   %div1.i = lshr i32 %add.i, 5
-  %m_num_words = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words = getelementptr inbounds nuw i8, ptr %this, i64 528
   store i32 %div1.i, ptr %m_num_words, align 8
   %mul = shl nuw nsw i32 %div1.i, 2
-  %m_num_bytes = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes = getelementptr inbounds nuw i8, ptr %this, i64 524
   store i32 %mul, ptr %m_num_bytes, align 4
   %rem = and i32 %num_bits, 31
   %notmask = shl nsw i32 -1, %rem
   %sub = xor i32 %notmask, -1
-  %m_mask = getelementptr inbounds i8, ptr %this, i64 532
+  %m_mask = getelementptr inbounds nuw i8, ptr %this, i64 532
   store i32 %sub, ptr %m_mask, align 4
-  %m_05 = getelementptr inbounds i8, ptr %this, i64 536
+  %m_05 = getelementptr inbounds nuw i8, ptr %this, i64 536
   store i32 0, ptr %m_05, align 8
   %cmp = icmp eq i32 %rem, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -163,13 +163,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bytes = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_0 = getelementptr inbounds i8, ptr %this, i64 536
+  %m_0 = getelementptr inbounds nuw i8, ptr %this, i64 536
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -187,13 +187,13 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager9allocate0Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bytes.i = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %m_0.i = getelementptr inbounds i8, ptr %this, i64 536
+  %m_0.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   br label %_ZN24fixed_bit_vector_manager8allocateEv.exit
 
 if.end.i:                                         ; preds = %entry
@@ -213,7 +213,7 @@ _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull returned writeonly align 4 dereferenceable(4) %bv) local_unnamed_addr #6 align 2 {
 entry:
-  %m_num_bytes.i = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
   %conv = zext i32 %0 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %bv, i8 0, i64 %conv, i1 false)
@@ -223,13 +223,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager9allocate1Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bytes.i = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %m_0.i = getelementptr inbounds i8, ptr %this, i64 536
+  %m_0.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   br label %_ZN24fixed_bit_vector_manager8allocateEv.exit
 
 if.end.i:                                         ; preds = %entry
@@ -249,7 +249,7 @@ _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull returned writeonly align 4 dereferenceable(4) %bv) local_unnamed_addr #6 align 2 {
 entry:
-  %m_num_bytes.i = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
   %conv = zext i32 %0 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %bv, i8 -1, i64 %conv, i1 false)
@@ -259,13 +259,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager8allocateERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bv) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bytes.i = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %m_0.i = getelementptr inbounds i8, ptr %this, i64 536
+  %m_0.i = getelementptr inbounds nuw i8, ptr %this, i64 536
   br label %_ZN24fixed_bit_vector_manager8allocateEv.exit
 
 if.end.i:                                         ; preds = %entry
@@ -285,7 +285,7 @@ _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dst, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %src) local_unnamed_addr #6 align 2 {
 entry:
-  %m_num_bytes.i = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes.i, align 4
   %conv = zext i32 %0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %dst, ptr nonnull align 4 %src, i64 %conv, i1 false)
@@ -295,7 +295,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN24fixed_bit_vector_manager10deallocateEP16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %bv) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bytes = getelementptr inbounds i8, ptr %this, i64 524
+  %m_num_bytes = getelementptr inbounds nuw i8, ptr %this, i64 524
   %0 = load i32, ptr %m_num_bytes, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -317,16 +317,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_andER16fixed_bit_vectorRKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull returned align 4 dereferenceable(4) %dst, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %src) local_unnamed_addr #3 align 2 {
 entry:
-  %m_num_words = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words, align 8
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %src, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %src, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [1 x i32], ptr %dst, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [1 x i32], ptr %dst, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx4, align 4
   %and = and i32 %2, %1
   store i32 %and, ptr %arrayidx4, align 4
@@ -343,16 +343,16 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager6set_orER16fixed_bit_vectorRKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull returned align 4 dereferenceable(4) %dst, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %src) local_unnamed_addr #3 align 2 {
 entry:
-  %m_num_words = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words, align 8
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %src, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %src, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [1 x i32], ptr %dst, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [1 x i32], ptr %dst, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx4, align 4
   %or = or i32 %2, %1
   store i32 %or, ptr %arrayidx4, align 4
@@ -369,14 +369,14 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_negER16fixed_bit_vector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull returned align 4 dereferenceable(4) %dst) local_unnamed_addr #3 align 2 {
 entry:
-  %m_num_words = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words, align 8
   %cmp6.not = icmp eq i32 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %dst, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %dst, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %not = xor i32 %1, -1
   store i32 %not, ptr %arrayidx, align 4
@@ -393,7 +393,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bv) local_unnamed_addr #8 align 2 {
 entry:
-  %m_num_words.i = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -401,9 +401,9 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add i32 %0, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %bv, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %bv, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
-  %m_mask = getelementptr inbounds i8, ptr %this, i64 532
+  %m_mask = getelementptr inbounds nuw i8, ptr %this, i64 532
   %2 = load i32, ptr %m_mask, align 4
   %and = and i32 %2, %1
   br label %return
@@ -420,7 +420,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_num_words.i = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i, align 8
   %cmp2 = icmp eq i32 %0, 0
   br i1 %cmp2, label %return, label %for.cond.preheader
@@ -441,20 +441,20 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %a, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
-  %arrayidx8 = getelementptr inbounds [1 x i32], ptr %b, i64 0, i64 %indvars.iv
+  %arrayidx8 = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx8, align 4
   %cmp9.not = icmp eq i32 %1, %2
   br i1 %cmp9.not, label %for.cond, label %return
 
 _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit18: ; preds = %for.cond, %for.cond.preheader
   %idxprom.i.pre-phi = phi i64 [ 0, %for.cond.preheader ], [ %wide.trip.count, %for.cond ]
-  %arrayidx.i = getelementptr inbounds [1 x i32], ptr %a, i64 0, i64 %idxprom.i.pre-phi
+  %arrayidx.i = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %idxprom.i.pre-phi
   %3 = load i32, ptr %arrayidx.i, align 4
-  %m_mask.i = getelementptr inbounds i8, ptr %this, i64 532
+  %m_mask.i = getelementptr inbounds nuw i8, ptr %this, i64 532
   %4 = load i32, ptr %m_mask.i, align 4
-  %arrayidx.i14 = getelementptr inbounds [1 x i32], ptr %b, i64 0, i64 %idxprom.i.pre-phi
+  %arrayidx.i14 = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %idxprom.i.pre-phi
   %5 = load i32, ptr %arrayidx.i14, align 4
   %6 = xor i32 %5, %3
   %7 = and i32 %6, %4
@@ -469,7 +469,7 @@ return:                                           ; preds = %for.body, %if.end, 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK24fixed_bit_vector_manager4hashERK16fixed_bit_vector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull align 4 dereferenceable(4) %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bits.i = getelementptr inbounds i8, ptr %this, i64 520
+  %m_num_bits.i = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load i32, ptr %m_num_bits.i, align 8
   %div1 = lshr i32 %0, 3
   %call3 = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %src, i32 noundef %div1, i32 noundef %0)
@@ -481,7 +481,7 @@ declare noundef i32 @_Z11string_hashPKcjj(ptr noundef, i32 noundef, i32 noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK24fixed_bit_vector_manager8containsERK16fixed_bit_vectorS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %b) local_unnamed_addr #8 align 2 {
 entry:
-  %m_num_words.i = getelementptr inbounds i8, ptr %this, i64 528
+  %m_num_words.i = getelementptr inbounds nuw i8, ptr %this, i64 528
   %0 = load i32, ptr %m_num_words.i, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -502,9 +502,9 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [1 x i32], ptr %a, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
-  %arrayidx5 = getelementptr inbounds [1 x i32], ptr %b, i64 0, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx5, align 4
   %and = and i32 %2, %1
   %cmp9.not = icmp eq i32 %and, %2
@@ -512,11 +512,11 @@ for.body:                                         ; preds = %for.body.preheader,
 
 _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit19: ; preds = %for.cond, %for.cond.preheader
   %idxprom.i.pre-phi = phi i64 [ 0, %for.cond.preheader ], [ %wide.trip.count, %for.cond ]
-  %arrayidx.i = getelementptr inbounds [1 x i32], ptr %b, i64 0, i64 %idxprom.i.pre-phi
+  %arrayidx.i = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %idxprom.i.pre-phi
   %3 = load i32, ptr %arrayidx.i, align 4
-  %m_mask.i = getelementptr inbounds i8, ptr %this, i64 532
+  %m_mask.i = getelementptr inbounds nuw i8, ptr %this, i64 532
   %4 = load i32, ptr %m_mask.i, align 4
-  %arrayidx.i15 = getelementptr inbounds [1 x i32], ptr %a, i64 0, i64 %idxprom.i.pre-phi
+  %arrayidx.i15 = getelementptr inbounds nuw [1 x i32], ptr %a, i64 0, i64 %idxprom.i.pre-phi
   %5 = load i32, ptr %arrayidx.i15, align 4
   %6 = xor i32 %5, -1
   %7 = and i32 %4, %3
@@ -532,7 +532,7 @@ return:                                           ; preds = %for.body, %entry, %
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK24fixed_bit_vector_manager7displayERSoRK16fixed_bit_vector(ptr nocapture noundef nonnull readonly align 8 dereferenceable(540) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %b) local_unnamed_addr #4 align 2 {
 entry:
-  %m_num_bits.i = getelementptr inbounds i8, ptr %this, i64 520
+  %m_num_bits.i = getelementptr inbounds nuw i8, ptr %this, i64 520
   %0 = load i32, ptr %m_num_bits.i, align 8
   %cmp.not5 = icmp eq i32 %0, 0
   br i1 %cmp.not5, label %while.end, label %while.body
@@ -542,7 +542,7 @@ while.body:                                       ; preds = %entry, %while.body
   %dec = add i32 %i.06, -1
   %div1.i.i = lshr i32 %dec, 5
   %idxprom.i.i = zext nneg i32 %div1.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [1 x i32], ptr %b, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [1 x i32], ptr %b, i64 0, i64 %idxprom.i.i
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %rem.i.i = and i32 %dec, 31
   %shl.i.i = shl nuw i32 1, %rem.i.i

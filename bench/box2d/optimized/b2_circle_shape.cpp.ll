@@ -24,13 +24,13 @@ define noundef ptr @_ZNK13b2CircleShape5CloneEP16b2BlockAllocator(ptr nocapture 
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 24)
   store ptr getelementptr inbounds (i8, ptr @_ZTV13b2CircleShape, i64 16), ptr %call, align 8
-  %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_type.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_type.i, i8 0, i64 16, i1 false)
-  %m_type2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_type2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_type2.i.i, align 8
   store i64 %0, ptr %m_type.i, align 8
-  %m_p.i = getelementptr inbounds i8, ptr %call, i64 16
-  %m_p2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_p.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %m_p2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %m_p2.i, align 8
   store i64 %1, ptr %m_p.i, align 8
   ret ptr %call
@@ -47,13 +47,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK13b2CircleShape9TestPointERK11b2TransformRK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p) unnamed_addr #3 align 2 {
 entry:
-  %q = getelementptr inbounds i8, ptr %transform, i64 8
-  %m_p = getelementptr inbounds i8, ptr %this, i64 16
-  %c.i = getelementptr inbounds i8, ptr %transform, i64 12
+  %q = getelementptr inbounds nuw i8, ptr %transform, i64 8
+  %m_p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %c.i = getelementptr inbounds nuw i8, ptr %transform, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 8
   %2 = load float, ptr %q, align 4
-  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -62,17 +62,17 @@ entry:
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)
   %7 = load float, ptr %transform, align 4
   %add.i = fadd float %7, %5
-  %y.i2 = getelementptr inbounds i8, ptr %transform, i64 4
+  %y.i2 = getelementptr inbounds nuw i8, ptr %transform, i64 4
   %8 = load float, ptr %y.i2, align 4
   %add3.i = fadd float %8, %6
   %9 = load float, ptr %p, align 4
   %sub.i = fsub float %9, %add.i
-  %y.i5 = getelementptr inbounds i8, ptr %p, i64 4
+  %y.i5 = getelementptr inbounds nuw i8, ptr %p, i64 4
   %10 = load float, ptr %y.i5, align 4
   %sub3.i = fsub float %10, %add3.i
   %mul3.i = fmul float %sub3.i, %sub3.i
   %11 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul3.i)
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load float, ptr %m_radius, align 4
   %mul = fmul float %12, %12
   %cmp = fcmp ole float %11, %mul
@@ -82,13 +82,13 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZNK13b2CircleShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, i32 %childIndex) unnamed_addr #4 align 2 {
 entry:
-  %q = getelementptr inbounds i8, ptr %transform, i64 8
-  %m_p = getelementptr inbounds i8, ptr %this, i64 16
-  %c.i = getelementptr inbounds i8, ptr %transform, i64 12
+  %q = getelementptr inbounds nuw i8, ptr %transform, i64 8
+  %m_p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %c.i = getelementptr inbounds nuw i8, ptr %transform, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 8
   %2 = load float, ptr %q, align 4
-  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -97,24 +97,24 @@ entry:
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)
   %7 = load float, ptr %transform, align 4
   %add.i = fadd float %7, %5
-  %y.i17 = getelementptr inbounds i8, ptr %transform, i64 4
+  %y.i17 = getelementptr inbounds nuw i8, ptr %transform, i64 4
   %8 = load float, ptr %y.i17, align 4
   %add3.i = fadd float %8, %6
   %9 = load float, ptr %input, align 4
   %sub.i = fsub float %9, %add.i
-  %y.i20 = getelementptr inbounds i8, ptr %input, i64 4
+  %y.i20 = getelementptr inbounds nuw i8, ptr %input, i64 4
   %10 = load float, ptr %y.i20, align 4
   %sub3.i = fsub float %10, %add3.i
   %mul3.i = fmul float %sub3.i, %sub3.i
   %11 = tail call noundef float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul3.i)
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load float, ptr %m_radius, align 4
   %neg = fneg float %12
   %13 = tail call float @llvm.fmuladd.f32(float %neg, float %12, float %11)
-  %p2 = getelementptr inbounds i8, ptr %input, i64 8
+  %p2 = getelementptr inbounds nuw i8, ptr %input, i64 8
   %14 = load float, ptr %p2, align 4
   %sub.i26 = fsub float %14, %9
-  %y.i27 = getelementptr inbounds i8, ptr %input, i64 12
+  %y.i27 = getelementptr inbounds nuw i8, ptr %input, i64 12
   %15 = load float, ptr %y.i27, align 4
   %sub3.i29 = fsub float %15, %10
   %mul3.i34 = fmul float %sub3.i, %sub3.i29
@@ -137,7 +137,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp14, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %maxFraction = getelementptr inbounds i8, ptr %input, i64 16
+  %maxFraction = getelementptr inbounds nuw i8, ptr %input, i64 16
   %20 = load float, ptr %maxFraction, align 4
   %mul = fmul float %17, %20
   %cmp15 = fcmp ult float %mul, %fneg
@@ -145,7 +145,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then16:                                        ; preds = %land.lhs.true
   %div = fdiv float %fneg, %17
-  %fraction = getelementptr inbounds i8, ptr %output, i64 8
+  %fraction = getelementptr inbounds nuw i8, ptr %output, i64 8
   store float %div, ptr %fraction, align 4
   %mul.i = fmul float %sub.i26, %div
   %mul1.i = fmul float %sub3.i29, %div
@@ -161,7 +161,7 @@ if.then16:                                        ; preds = %land.lhs.true
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16
-  %y.i.i = getelementptr inbounds i8, ptr %output, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %output, i64 4
   %div.i = fdiv float 1.000000e+00, %sqrt.i.i
   %mul.i47 = fmul float %add.i41, %div.i
   store float %mul.i47, ptr %output, align 4
@@ -183,13 +183,13 @@ declare float @sqrtf(float noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK13b2CircleShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, i32 %childIndex) unnamed_addr #7 align 2 {
 entry:
-  %q = getelementptr inbounds i8, ptr %transform, i64 8
-  %m_p = getelementptr inbounds i8, ptr %this, i64 16
-  %c.i = getelementptr inbounds i8, ptr %transform, i64 12
+  %q = getelementptr inbounds nuw i8, ptr %transform, i64 8
+  %m_p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %c.i = getelementptr inbounds nuw i8, ptr %transform, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 8
   %2 = load float, ptr %q, align 4
-  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -198,22 +198,22 @@ entry:
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul6.i)
   %7 = load float, ptr %transform, align 4
   %add.i = fadd float %7, %5
-  %y.i7 = getelementptr inbounds i8, ptr %transform, i64 4
+  %y.i7 = getelementptr inbounds nuw i8, ptr %transform, i64 4
   %8 = load float, ptr %y.i7, align 4
   %add3.i = fadd float %8, %6
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %9 = load float, ptr %m_radius, align 4
   %sub = fsub float %add.i, %9
   %sub5 = fsub float %add3.i, %9
   store float %sub, ptr %aabb, align 4
-  %y.i10 = getelementptr inbounds i8, ptr %aabb, i64 4
+  %y.i10 = getelementptr inbounds nuw i8, ptr %aabb, i64 4
   store float %sub5, ptr %y.i10, align 4
-  %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
+  %upperBound = getelementptr inbounds nuw i8, ptr %aabb, i64 8
   %10 = load float, ptr %m_radius, align 4
   %add = fadd float %add.i, %10
   %add10 = fadd float %add3.i, %10
   store float %add, ptr %upperBound, align 4
-  %y.i11 = getelementptr inbounds i8, ptr %aabb, i64 12
+  %y.i11 = getelementptr inbounds nuw i8, ptr %aabb, i64 12
   store float %add10, ptr %y.i11, align 4
   ret void
 }
@@ -222,25 +222,25 @@ entry:
 define void @_ZNK13b2CircleShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 16)) %massData, float noundef %density) unnamed_addr #8 align 2 {
 entry:
   %mul = fmul float %density, 0x400921FB60000000
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load float, ptr %m_radius, align 4
   %mul2 = fmul float %mul, %0
   %mul4 = fmul float %0, %mul2
   store float %mul4, ptr %massData, align 4
-  %m_p = getelementptr inbounds i8, ptr %this, i64 16
-  %center = getelementptr inbounds i8, ptr %massData, i64 4
+  %m_p = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %center = getelementptr inbounds nuw i8, ptr %massData, i64 4
   %1 = load i64, ptr %m_p, align 8
   store i64 %1, ptr %center, align 4
   %2 = load float, ptr %m_radius, align 4
   %mul7 = fmul float %2, 5.000000e-01
   %3 = load float, ptr %m_p, align 8
-  %y.i = getelementptr inbounds i8, ptr %this, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load float, ptr %y.i, align 4
   %mul3.i = fmul float %4, %4
   %5 = tail call noundef float @llvm.fmuladd.f32(float %3, float %3, float %mul3.i)
   %6 = tail call float @llvm.fmuladd.f32(float %mul7, float %2, float %5)
   %mul12 = fmul float %mul4, %6
-  %I = getelementptr inbounds i8, ptr %massData, i64 12
+  %I = getelementptr inbounds nuw i8, ptr %massData, i64 12
   store float %mul12, ptr %I, align 4
   ret void
 }

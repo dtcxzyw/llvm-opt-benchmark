@@ -61,10 +61,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_event_box_new() #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !13
   %6 = tail call ptr @gtk_label_new(ptr noundef nonnull @.str.1) #6
   store ptr %6, ptr %2, align 8, !tbaa !14
@@ -77,9 +77,9 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %12 = load ptr, ptr %2, align 8, !tbaa !14
   tail call void @gtk_container_add(ptr noundef %11, ptr noundef %12) #6
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
-  %14 = getelementptr inbounds i8, ptr %13, i64 14656
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 14656
   store ptr %0, ptr %14, align 8, !tbaa !26
-  %15 = getelementptr inbounds i8, ptr %13, i64 14664
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 14664
   store ptr @_lib_hinter_set_message, ptr %15, align 8, !tbaa !32
   ret void
 }
@@ -105,7 +105,7 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_hinter_set_message(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = icmp eq ptr %1, null
   br i1 %5, label %26, label %6
@@ -154,9 +154,9 @@ define internal void @_lib_hinter_set_message(ptr nocapture noundef readonly %0,
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !16
-  %3 = getelementptr inbounds i8, ptr %2, i64 14656
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 14656
   store ptr null, ptr %3, align 8, !tbaa !26
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %5) #6
   store ptr null, ptr %4, align 8, !tbaa !6

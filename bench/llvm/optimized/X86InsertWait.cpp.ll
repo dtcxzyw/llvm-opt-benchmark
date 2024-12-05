@@ -63,19 +63,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_110WaitInsert11getPassNameEv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -135,14 +135,14 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_110WaitInsert20runOnMachineF
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %12, i64 616
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 616
   br label %16
 
 16:                                               ; preds = %.lr.ph66, %._crit_edge
   %.sroa.045.064 = phi ptr [ %.sroa.045.061, %.lr.ph66 ], [ %.sroa.045.0, %._crit_edge ]
   %.01463 = phi i1 [ false, %.lr.ph66 ], [ %.1.lcssa, %._crit_edge ]
-  %17 = getelementptr inbounds i8, ptr %.sroa.045.064, i64 56
-  %18 = getelementptr inbounds i8, ptr %.sroa.045.064, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.045.064, i64 48
   %.sroa.038.057 = load ptr, ptr %17, align 8
   %.not5158 = icmp eq ptr %.sroa.038.057, %18
   br i1 %.not5158, label %._crit_edge, label %.lr.ph
@@ -201,7 +201,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread: ; preds = %30, %_ZNK
 42:                                               ; preds = %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.038.060, i64 32
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 8
   %.not.i.i = icmp eq i64 %47, 0
@@ -242,7 +242,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit._crit_edge.i: ; preds = %_Z
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.038.060, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 16
   %.not.i5.i = icmp eq i64 %67, 0

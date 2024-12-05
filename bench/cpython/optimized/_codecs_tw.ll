@@ -53,10 +53,10 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 define internal void @_cjk_free(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #7
-  %mapping_list = getelementptr inbounds i8, ptr %call.i, i64 8
+  %mapping_list = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %mapping_list, align 8
   tail call void @PyMem_Free(ptr noundef %0) #7
-  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
+  %codec_list = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %codec_list, align 8
   tail call void @PyMem_Free(ptr noundef %1) #7
   ret void
@@ -85,13 +85,13 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %self) #7
-  %num_codecs = getelementptr inbounds i8, ptr %call.i, i64 4
+  %num_codecs = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %4 = load i32, ptr %num_codecs, align 4
   %cmp68 = icmp sgt i32 %4, 0
   br i1 %cmp68, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
+  %codec_list = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %5 = load ptr, ptr %codec_list, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %for.body
@@ -144,7 +144,7 @@ if.end.i31.i:                                     ; preds = %if.then3.i
   br i1 %cmp.i33.i, label %return.sink.split.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i.i.i.i, %if.end.i19.i
-  %cjk_module.i.i = getelementptr inbounds i8, ptr %call.i17.i, i64 8
+  %cjk_module.i.i = getelementptr inbounds nuw i8, ptr %call.i17.i, i64 8
   store ptr %self, ptr %cjk_module.i.i, align 8
   %call5.i = tail call ptr @PyCapsule_New(ptr noundef nonnull %call.i17.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @destroy_codec_capsule) #7
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -222,7 +222,7 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal void @destroy_codec_capsule(ptr noundef %capsule) #0 {
 entry:
   %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %capsule, ptr noundef nonnull @.str.5) #7
-  %cjk_module = getelementptr inbounds i8, ptr %call, i64 8
+  %cjk_module = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %cjk_module, align 8
   %1 = load i64, ptr %0, align 8
   %2 = and i64 %1, 2147483648
@@ -266,16 +266,16 @@ entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #7
   store i32 2, ptr %call.i.i, align 8
   %call.i8.i = tail call ptr @PyMem_Calloc(i64 noundef 2, i64 noundef 24) #7
-  %mapping_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %mapping_list.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr %call.i8.i, ptr %mapping_list.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i8.i, null
   br i1 %cmp.i.i, label %register_maps.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   store ptr @.str.9, ptr %call.i8.i, align 8
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i8.i, i64 8
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i8.i, i64 8
   store ptr @big5_encmap, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i8.i, i64 16
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i8.i, i64 16
   store ptr @big5_decmap, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
   %0 = load ptr, ptr %mapping_list.i.i, align 8
   %arrayidx6.i.i = getelementptr i8, ptr %0, i64 24
@@ -284,25 +284,25 @@ if.end.i:                                         ; preds = %entry
   store ptr @cp950ext_encmap, ptr %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i, align 8
   %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %0, i64 40
   store ptr @cp950ext_decmap, ptr %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i, align 8
-  %num_codecs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %num_codecs.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 2, ptr %num_codecs.i.i, align 4
   %call.i9.i = tail call ptr @PyMem_Calloc(i64 noundef 2, i64 noundef 80) #7
-  %codec_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %codec_list.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr %call.i9.i, ptr %codec_list.i.i, align 8
   %cmp.i10.i = icmp eq ptr %call.i9.i, null
   br i1 %cmp.i10.i, label %register_maps.exit, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %if.end.i
   store ptr @.str.9, ptr %call.i9.i, align 8
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i12.i = getelementptr inbounds i8, ptr %call.i9.i, i64 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 24
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 8
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i12.i, i8 0, i64 16, i1 false)
   store ptr @big5_encode, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.5.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 32
-  %.compoundliteral.sroa.7.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 48
+  %.compoundliteral.sroa.5.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 32
+  %.compoundliteral.sroa.7.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.compoundliteral.sroa.5.0.arrayidx.sroa_idx.i.i, i8 0, i64 16, i1 false)
   store ptr @big5_decode, ptr %.compoundliteral.sroa.7.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i9.i, i64 56
+  %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call.i9.i, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.8.0.arrayidx.sroa_idx.i.i, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %codec_list.i.i, align 8
   %arrayidx6.i13.i = getelementptr i8, ptr %1, i64 80
@@ -338,12 +338,12 @@ add_codecs.exit.i:                                ; preds = %for.body.i.i, %if.e
   br i1 %cmp620.i, label %for.body.lr.ph.i, label %register_maps.exit
 
 for.body.lr.ph.i:                                 ; preds = %add_codecs.exit.i
-  %7 = getelementptr inbounds i8, ptr %mhname.i, i64 1
-  %8 = getelementptr inbounds i8, ptr %mhname.i, i64 2
-  %9 = getelementptr inbounds i8, ptr %mhname.i, i64 3
-  %10 = getelementptr inbounds i8, ptr %mhname.i, i64 4
-  %11 = getelementptr inbounds i8, ptr %mhname.i, i64 5
-  %add.ptr7.i = getelementptr inbounds i8, ptr %mhname.i, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 3
+  %10 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %mhname.i, i64 5
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %mhname.i, i64 6
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -466,14 +466,14 @@ do.end20:                                         ; preds = %do.body15
 
 land.lhs.true:                                    ; preds = %do.end20
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv26 = zext i8 %10 to i32
   %cmp27.not = icmp samesign ult i32 %and, %conv26
   br i1 %cmp27.not, label %return, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %land.lhs.true
-  %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx, i64 9
   %11 = load i8, ptr %top, align 1
   %conv34 = zext i8 %11 to i32
   %cmp35.not = icmp samesign ugt i32 %and, %conv34
@@ -551,14 +551,14 @@ land.lhs.true:                                    ; preds = %do.end15
   %arrayidx19 = getelementptr i8, ptr %0, i64 1
   %4 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %4 to i64
-  %bottom = getelementptr inbounds i8, ptr %arrayidx16, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 8
   %5 = load i8, ptr %bottom, align 8
   %conv23 = zext i8 %5 to i64
   %cmp24.not = icmp ult i8 %4, %5
   br i1 %cmp24.not, label %return, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %land.lhs.true
-  %top = getelementptr inbounds i8, ptr %arrayidx16, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 9
   %6 = load i8, ptr %top, align 1
   %cmp32.not = icmp ugt i8 %4, %6
   br i1 %cmp32.not, label %return, label %land.lhs.true34
@@ -660,14 +660,14 @@ do.end24:                                         ; preds = %do.body19
 
 land.lhs.true:                                    ; preds = %do.end24
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr inbounds i8, ptr %arrayidx25, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx25, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv31 = zext i8 %10 to i32
   %cmp32.not = icmp samesign ult i32 %and, %conv31
   br i1 %cmp32.not, label %if.else, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %land.lhs.true
-  %top = getelementptr inbounds i8, ptr %arrayidx25, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx25, i64 9
   %11 = load i8, ptr %top, align 1
   %conv39 = zext i8 %11 to i32
   %cmp40.not = icmp samesign ugt i32 %and, %conv39
@@ -689,14 +689,14 @@ if.else:                                          ; preds = %land.lhs.true42, %l
 
 land.lhs.true66:                                  ; preds = %if.else
   %and67 = and i32 %retval.0.i, 255
-  %bottom71 = getelementptr inbounds i8, ptr %arrayidx62, i64 8
+  %bottom71 = getelementptr inbounds nuw i8, ptr %arrayidx62, i64 8
   %14 = load i8, ptr %bottom71, align 8
   %conv72 = zext i8 %14 to i32
   %cmp73.not = icmp samesign ult i32 %and67, %conv72
   br i1 %cmp73.not, label %return, label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %land.lhs.true66
-  %top80 = getelementptr inbounds i8, ptr %arrayidx62, i64 9
+  %top80 = getelementptr inbounds nuw i8, ptr %arrayidx62, i64 9
   %15 = load i8, ptr %top80, align 1
   %conv81 = zext i8 %15 to i32
   %cmp82.not = icmp samesign ugt i32 %and67, %conv81
@@ -775,14 +775,14 @@ land.lhs.true:                                    ; preds = %do.end15
   %arrayidx19 = getelementptr i8, ptr %0, i64 1
   %4 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %4 to i64
-  %bottom = getelementptr inbounds i8, ptr %arrayidx16, i64 8
+  %bottom = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 8
   %5 = load i8, ptr %bottom, align 8
   %conv23 = zext i8 %5 to i64
   %cmp24.not = icmp ult i8 %4, %5
   br i1 %cmp24.not, label %if.else, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %land.lhs.true
-  %top = getelementptr inbounds i8, ptr %arrayidx16, i64 9
+  %top = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 9
   %6 = load i8, ptr %top, align 1
   %cmp32.not = icmp ugt i8 %4, %6
   br i1 %cmp32.not, label %if.else, label %land.lhs.true34
@@ -810,14 +810,14 @@ land.lhs.true63:                                  ; preds = %if.else
   %arrayidx64 = getelementptr i8, ptr %0, i64 1
   %9 = load i8, ptr %arrayidx64, align 1
   %conv65 = zext i8 %9 to i64
-  %bottom68 = getelementptr inbounds i8, ptr %arrayidx59, i64 8
+  %bottom68 = getelementptr inbounds nuw i8, ptr %arrayidx59, i64 8
   %10 = load i8, ptr %bottom68, align 8
   %conv69 = zext i8 %10 to i64
   %cmp70.not = icmp ult i8 %9, %10
   br i1 %cmp70.not, label %return, label %land.lhs.true72
 
 land.lhs.true72:                                  ; preds = %land.lhs.true63
-  %top77 = getelementptr inbounds i8, ptr %arrayidx59, i64 9
+  %top77 = getelementptr inbounds nuw i8, ptr %arrayidx59, i64 9
   %11 = load i8, ptr %top77, align 1
   %cmp79.not = icmp ugt i8 %9, %11
   br i1 %cmp79.not, label %return, label %land.lhs.true81

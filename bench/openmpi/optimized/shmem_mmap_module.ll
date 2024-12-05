@@ -47,15 +47,15 @@ define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16
   %6 = alloca %struct.stat, align 8
   %7 = tail call i32 @getpid() #15
   store i32 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %11, i8 0, i64 4097, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr inttoptr (i64 -1 to ptr), ptr %12, align 8
   %13 = load i32, ptr @opal_shmem_mmap_relocate_backing_file, align 4
   %.not = icmp eq i32 %13, 0
@@ -98,7 +98,7 @@ define internal i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16
   %35 = phi i8 [ %40, %.lr.ph.i.i ], [ %34, %26 ]
   %.09.i.i = phi ptr [ %36, %.lr.ph.i.i ], [ %1, %26 ]
   %.058.i.i = phi i64 [ %39, %.lr.ph.i.i ], [ 0, %26 ]
-  %36 = getelementptr inbounds i8, ptr %.09.i.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 1
   %37 = zext i8 %35 to i64
   %38 = mul i64 %.058.i.i, 65599
   %39 = add i64 %38, %37
@@ -373,9 +373,9 @@ define internal ptr @segment_attach(ptr nocapture noundef %0) #1 {
   br i1 %.not, label %53, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 2) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 8
   %8 = icmp eq i32 %6, -1
   br i1 %8, label %9, label %20
@@ -400,10 +400,10 @@ opal_gethostname.exit:                            ; preds = %9, %14
   br label %56
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = tail call ptr @mmap(ptr noundef null, i64 noundef %22, i32 noundef 3, i32 noundef 1, i32 noundef %6, i64 noundef 0) #15
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
   br i1 %25, label %26, label %39
@@ -455,7 +455,7 @@ opal_gethostname.exit24:                          ; preds = %42, %47
   br label %53
 
 53:                                               ; preds = %39, %opal_gethostname.exit24, %1
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
   br label %56
 
@@ -466,9 +466,9 @@ opal_gethostname.exit24:                          ; preds = %42, %47
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @segment_detach(ptr nocapture noundef initializes((0, 5), (8, 12), (32, 4129)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = tail call i32 @munmap(ptr noundef %3, i64 noundef %5) #15
   %.not = icmp eq i32 %6, 0
@@ -496,12 +496,12 @@ opal_gethostname.exit:                            ; preds = %7, %12
 18:                                               ; preds = %opal_gethostname.exit, %1
   %.0 = phi i32 [ -1, %opal_gethostname.exit ], [ 0, %1 ]
   store i32 0, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %20, align 8
   store i64 0, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4097) %21, i8 0, i64 4097, i1 false)
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
   ret i32 %.0
@@ -509,7 +509,7 @@ opal_gethostname.exit:                            ; preds = %7, %12
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @segment_unlink(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call i32 @unlink(ptr noundef nonnull %2) #15
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %16
@@ -534,9 +534,9 @@ opal_gethostname.exit:                            ; preds = %5, %10
   br label %21
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, -2
   store i8 %20, ptr %18, align 4

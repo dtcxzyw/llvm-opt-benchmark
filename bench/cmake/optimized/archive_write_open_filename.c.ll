@@ -75,7 +75,7 @@ define internal fastcc i32 @open_filename(ptr noundef %0, i32 noundef range(i32 
 
 7:                                                ; preds = %3
   %.not = icmp eq i32 %1, 0
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %7
@@ -166,7 +166,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = call i32 @archive_mstring_get_mbs(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %17, label %8
@@ -235,7 +235,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 36:                                               ; preds = %28
   %37 = call i32 @archive_write_get_bytes_in_last_block(ptr noundef %0) #7
   %38 = icmp slt i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %3, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %40 = load i32, ptr %39, align 8
   br i1 %38, label %41, label %._crit_edge
 
@@ -263,7 +263,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 
 47:                                               ; preds = %._crit_edge
   %48 = load i64, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = call i32 @archive_write_set_skip_file(ptr noundef %0, i64 noundef %48, i64 noundef %50) #7
   br label %52
@@ -323,7 +323,7 @@ define internal noundef i32 @file_free(ptr nocapture readnone %0, ptr noundef %1
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @archive_mstring_clean(ptr noundef nonnull %5) #7
   tail call void @free(ptr noundef nonnull %1) #7
   br label %6

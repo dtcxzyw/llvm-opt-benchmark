@@ -62,13 +62,13 @@ nearest_power.exit:                               ; preds = %.preheader, %4
   br i1 %.not11, label %14, label %8
 
 8:                                                ; preds = %nearest_power.exit
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.07.i, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
   %11 = shl i64 %.07.i, 3
   %12 = udiv i64 %11, 10
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %12, ptr %13, align 8
   br label %14
 
@@ -102,13 +102,13 @@ nearest_power.exit:                               ; preds = %.preheader, %5
   br i1 %.not12, label %15, label %9
 
 9:                                                ; preds = %nearest_power.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.07.i, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %11, align 8
   %12 = shl i64 %.07.i, 3
   %13 = udiv i64 %12, 10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %13, ptr %14, align 8
   br label %15
 
@@ -125,7 +125,7 @@ define noundef ptr @cli_hashtab_find(ptr noundef readonly %0, ptr noundef readon
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %hash.exit, label %.lr.ph.i
@@ -176,7 +176,7 @@ hash.exit:                                        ; preds = %4, %._crit_edge.loo
   br i1 %.not32, label %38, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.024, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.024, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %2, %31
   br i1 %32, label %33, label %38
@@ -210,7 +210,7 @@ define noundef ptr @cli_htu32_find(ptr noundef readonly %0, i32 noundef %1) loca
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = xor i32 %1, -1
   %7 = shl i32 %1, 15
@@ -260,7 +260,7 @@ define noundef ptr @cli_htu32_next(ptr noundef readonly %0, ptr noundef %1) loca
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not24 = icmp eq i64 %5, 0
   br i1 %.not24, label %.loopexit, label %6
@@ -318,22 +318,22 @@ define noundef ptr @cli_hashtab_insert(ptr noundef %0, ptr nocapture noundef rea
   br i1 %.not, label %95, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, i64 noundef %13) #18
   tail call fastcc void @cli_hashtab_grow(ptr noundef %0)
   br label %14
 
 14:                                               ; preds = %11, %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %hash.exit.us, label %.lr.ph.i.preheader
 
@@ -344,7 +344,7 @@ hash.exit.us:                                     ; preds = %14, %39
   %17 = and i64 %16, 1
   %18 = xor i64 %17, 1
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds %struct.cli_element, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw %struct.cli_element, ptr %19, i64 %18
   br label %21
 
 21:                                               ; preds = %37, %hash.exit.us
@@ -362,7 +362,7 @@ hash.exit.us:                                     ; preds = %14, %39
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.056.us, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.056.us, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.split77.us, label %30
@@ -427,7 +427,7 @@ hash.exit.us:                                     ; preds = %14, %39
   %58 = add i64 %40, 4294967295
   %59 = and i64 %58, %57
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds %struct.cli_element, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw %struct.cli_element, ptr %60, i64 %59
   br label %62
 
 62:                                               ; preds = %92, %._crit_edge.loopexit.i
@@ -459,9 +459,9 @@ hash.exit.us:                                     ; preds = %14, %39
   %70 = getelementptr inbounds i8, ptr %66, i64 %2
   store i8 0, ptr %70, align 1
   store ptr %66, ptr %spec.select, align 8
-  %71 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   store i64 %3, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   store i64 %2, ptr %72, align 8
   %73 = load i64, ptr %6, align 8
   %74 = add i64 %73, 1
@@ -478,7 +478,7 @@ hash.exit.us:                                     ; preds = %14, %39
   br label %92
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %.056, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %2, %80
   br i1 %81, label %82, label %86
@@ -490,7 +490,7 @@ hash.exit.us:                                     ; preds = %14, %39
 
 .split77.us:                                      ; preds = %82, %26
   %.us-phi78 = phi ptr [ %.056.us, %26 ], [ %.056, %82 ]
-  %85 = getelementptr inbounds i8, ptr %.us-phi78, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.us-phi78, i64 8
   store i64 %3, ptr %85, align 8
   br label %95
 
@@ -525,7 +525,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cli_hashtab_grow(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
   br label %5
@@ -579,7 +579,7 @@ nearest_power.exit:                               ; preds = %5, %7
   br i1 %or.cond, label %50, label %22
 
 22:                                               ; preds = %.lr.ph67.split
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i64, ptr %23, align 8
   %.not.i = icmp eq i64 %24, 0
   br i1 %.not.i, label %hash.exit, label %.lr.ph.i
@@ -613,7 +613,7 @@ nearest_power.exit:                               ; preds = %5, %7
 hash.exit:                                        ; preds = %22, %._crit_edge.loopexit.i
   %.08.lcssa.i = phi i64 [ 1, %22 ], [ %41, %._crit_edge.loopexit.i ]
   %.04859 = and i64 %.08.lcssa.i, %17
-  %.04660 = getelementptr inbounds %struct.cli_element, ptr %14, i64 %.04859
+  %.04660 = getelementptr inbounds nuw %struct.cli_element, ptr %14, i64 %.04859
   %42 = load ptr, ptr %.04660, align 8
   %.not71 = icmp eq ptr %42, null
   br i1 %.not71, label %._crit_edge.thread, label %.lr.ph
@@ -658,12 +658,12 @@ hash.exit:                                        ; preds = %22, %._crit_edge.lo
   %54 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %54) #18
   store ptr %14, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.047.lcssa, ptr %55, align 8
   store i64 %.07.i, ptr %2, align 8
   %56 = shl i64 %.07.i, 3
   %57 = udiv i64 %56, 10
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %57, ptr %58, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %.07.i) #18
   br label %59
@@ -685,22 +685,22 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
   br i1 %.not, label %57, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, i64 noundef %12) #18
   tail call fastcc void @cli_htu32_grow(ptr noundef %0, ptr noundef %2)
   br label %13
 
 13:                                               ; preds = %10, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
 15:                                               ; preds = %56, %13
@@ -723,7 +723,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
   %30 = add i64 %17, 4294967295
   %31 = and i64 %30, %29
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds %struct.cli_htu32_element, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %32, i64 %31
   br label %34
 
 34:                                               ; preds = %54, %15
@@ -758,8 +758,8 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.041, i64 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.041, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %45, align 8
   br label %57
@@ -793,7 +793,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cli_htu32_grow(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1
   br label %6
@@ -853,7 +853,7 @@ nearest_power.exit:                               ; preds = %6, %8
   %32 = xor i32 %31, %30
   %33 = zext i32 %32 to i64
   %34 = and i64 %15, %33
-  %.04555 = getelementptr inbounds %struct.cli_htu32_element, ptr %11, i64 %34
+  %.04555 = getelementptr inbounds nuw %struct.cli_htu32_element, ptr %11, i64 %34
   %35 = load i32, ptr %.04555, align 8
   %.not64 = icmp eq i32 %35, 0
   br i1 %.not64, label %._crit_edge.thread, label %.lr.ph
@@ -897,12 +897,12 @@ nearest_power.exit:                               ; preds = %6, %8
   %48 = load ptr, ptr %0, align 8
   tail call void @mpool_free(ptr noundef %1, ptr noundef %48) #18
   store ptr %11, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.046.lcssa, ptr %49, align 8
   store i64 %.07.i, ptr %3, align 8
   %50 = shl i64 %.07.i, 3
   %51 = udiv i64 %50, 10
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %51, ptr %52, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %0, i64 noundef %.07.i) #18
   br label %53
@@ -920,7 +920,7 @@ define void @cli_hashtab_delete(ptr noundef readonly %0, ptr noundef readonly %1
   br i1 %.not.i, label %cli_hashtab_find.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %hash.exit.i, label %.lr.ph.i.i
@@ -971,7 +971,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not32.i, label %38, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %2, %31
   br i1 %32, label %33, label %38
@@ -1009,7 +1009,7 @@ define void @cli_htu32_delete(ptr noundef readonly %0, i32 noundef %1) local_unn
   br i1 %.not.i, label %cli_htu32_find.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = xor i32 %1, -1
   %7 = shl i32 %1, 15
@@ -1058,7 +1058,7 @@ cli_htu32_find.exit.thread:                       ; preds = %22, %26, %2, %cli_h
 
 ; Function Attrs: nounwind uwtable
 define void @cli_hashtab_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not18 = icmp eq i64 %3, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -1100,7 +1100,7 @@ define void @cli_hashtab_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %16
 
 16:                                               ; preds = %15, %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %17, align 8
   ret void
 }
@@ -1115,21 +1115,21 @@ define void @cli_htu32_clear(ptr nocapture noundef initializes((16, 24)) %0) loc
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %6, i1 false)
   br label %7
 
 7:                                                ; preds = %3, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @cli_hashtab_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not18.i = icmp eq i64 %3, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1173,7 +1173,7 @@ define void @cli_hashtab_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 cli_hashtab_clear.exit:                           ; preds = %._crit_edge.i, %15
   %16 = phi ptr [ null, %._crit_edge.i ], [ %.pre, %15 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %17, align 8
   tail call void @free(ptr noundef %16) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1196,7 +1196,7 @@ define i64 @cli_htu32_numitems(ptr noundef readonly %0) local_unnamed_addr #11 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   br label %5
 
@@ -1207,7 +1207,7 @@ define i64 @cli_htu32_numitems(ptr noundef readonly %0) local_unnamed_addr #11 {
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @cli_hashtab_store(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not12 = icmp eq i64 %4, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -1224,7 +1224,7 @@ define noundef i32 @cli_hashtab_store(ptr nocapture noundef readonly %0, ptr noc
   br i1 %or.cond, label %13, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.4, i64 noundef %11, ptr noundef nonnull %8) #18
   %.pre = load i64, ptr %3, align 8
@@ -1248,7 +1248,7 @@ define noundef i32 @cli_hashtab_generate_c(ptr nocapture noundef readonly %0, pt
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %puts16 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not22 = icmp eq i64 %5, 0
   br i1 %.not22, label %._crit_edge, label %.lr.ph
@@ -1274,9 +1274,9 @@ define noundef i32 @cli_hashtab_generate_c(ptr nocapture noundef readonly %0, pt
   br label %19
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %8, i64 noundef %15, i64 noundef %17)
   br label %19
@@ -1291,9 +1291,9 @@ define noundef i32 @cli_hashtab_generate_c(ptr nocapture noundef readonly %0, pt
   %puts17 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %1)
   %24 = load i64, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %1, i64 noundef %24, i64 noundef %26, i64 noundef %28)
   %puts18 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -1365,20 +1365,20 @@ nearest_power.exit:                               ; preds = %8, %10
   %14 = mul i64 %.07.i, %13
   %15 = udiv i64 %14, 100
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %16, ptr %17, align 4
   %18 = trunc i64 %.07.i to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %18, ptr %19, align 8
   %20 = add i32 %18, -1
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %22, align 8
   %23 = shl i64 %.07.i, 2
   %24 = tail call ptr @cli_max_malloc(i64 noundef %23) #18
   store ptr %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %25, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.sink.split, label %26
@@ -1386,7 +1386,7 @@ nearest_power.exit:                               ; preds = %8, %10
 26:                                               ; preds = %nearest_power.exit
   %27 = lshr i64 %.07.i, 5
   %28 = tail call ptr @cli_max_calloc(i64 noundef %27, i64 noundef 4) #18
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
   %.not23 = icmp eq ptr %28, null
   br i1 %.not23, label %30, label %32
@@ -1437,17 +1437,17 @@ nearest_power.exit:                               ; preds = %9, %11
   %15 = mul i64 %.07.i, %14
   %16 = udiv i64 %15, 100
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %17, ptr %18, align 4
   %19 = trunc i64 %.07.i to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %19, ptr %20, align 8
   %21 = add i32 %19, -1
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %24, align 8
   %25 = shl i64 %.07.i, 2
   %26 = tail call ptr @mpool_malloc(ptr noundef %3, i64 noundef %25) #18
@@ -1458,7 +1458,7 @@ nearest_power.exit:                               ; preds = %9, %11
 27:                                               ; preds = %nearest_power.exit
   %28 = lshr i64 %.07.i, 5
   %29 = tail call ptr @mpool_calloc(ptr noundef %3, i64 noundef %28, i64 noundef 4) #18
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %31, label %33
@@ -1482,12 +1482,12 @@ declare ptr @mpool_malloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @cli_hashset_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21, i32 noundef %3, i32 noundef %5) #18
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   %8 = load ptr, ptr %0, align 8
@@ -1496,14 +1496,14 @@ define void @cli_hashset_destroy(ptr nocapture noundef %0) local_unnamed_addr #0
 9:                                                ; preds = %1
   tail call void @mpool_free(ptr noundef nonnull %7, ptr noundef %8) #18
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @mpool_free(ptr noundef %10, ptr noundef %12) #18
   br label %16
 
 13:                                               ; preds = %1
   tail call void @free(ptr noundef %8) #18
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #18
   br label %16
@@ -1516,26 +1516,26 @@ define void @cli_hashset_destroy(ptr nocapture noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_hashset_addkey(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %5, %7
   br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 28
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert33 = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8
   br label %128
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i32 noundef %4, i32 noundef %11) #18
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   %14 = load i32, ptr %10, align 8
@@ -1656,7 +1656,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   br i1 %.not55.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %cli_hashset_init_pool.exit.i
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = zext i32 %.sroa.14.0.i to i64
   br label %59
 
@@ -1666,7 +1666,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %.sroa.17.152.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.17.2.i, %cli_hashset_addkey_internal.exit.i ]
   %61 = load ptr, ptr %57, align 8
   %62 = lshr i64 %.02453.i, 5
-  %63 = getelementptr inbounds i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
   %66 = and i64 %.02453.i, 31
@@ -1677,7 +1677,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
 
 69:                                               ; preds = %59
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i32, ptr %70, i64 %.02453.i
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %.02453.i
   %72 = load i32, ptr %71, align 4
   %73 = xor i32 %72, -1
   %74 = shl i32 %72, 15
@@ -1693,7 +1693,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %84 = and i32 %83, %.sroa.14.0.i
   %85 = zext i32 %84 to i64
   %86 = lshr i64 %85, 5
-  %87 = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.i, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
   %90 = and i64 %85, 31
@@ -1714,7 +1714,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %.pre18.i.i = lshr i64 %.01114.i.i.i, 5
   %.pre.i.i = and i64 %.01114.i.i.i, 31
   %.pre19.i.i = shl nuw nsw i64 1, %.pre.i.i
-  %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %.pre18.i.i
+  %.phi.trans.insert.i.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %.sroa.7.0.i, i64 %.pre18.i.i
   %.pre11.i.pre.i = load i32, ptr %.phi.trans.insert.i.phi.trans.insert.i, align 4
   %.pre61.i = zext i32 %.pre11.i.pre.i to i64
   br label %cli_hashset_search.exit.i.i
@@ -1724,7 +1724,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
   %97 = add i64 %.01114.i.i.i, %.015.i.i.i
   %98 = and i64 %97, %58
   %99 = lshr i64 %98, 5
-  %100 = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.i, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
   %103 = and i64 %98, 31
@@ -1744,11 +1744,11 @@ cli_hashset_search.exit.i.i:                      ; preds = %95, %.cli_hashset_s
   br i1 %.not.i35.i, label %108, label %cli_hashset_addkey_internal.exit.i
 
 108:                                              ; preds = %cli_hashset_search.exit.i.i
-  %109 = getelementptr inbounds i32, ptr %.sroa.7.0.i, i64 %.pre-phi.i.i
+  %109 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.i, i64 %.pre-phi.i.i
   %110 = trunc nuw i64 %.pre-phi17.i.i to i32
   %111 = or i32 %106, %110
   store i32 %111, ptr %109, align 4
-  %112 = getelementptr inbounds i32, ptr %.sroa.0.0.i, i64 %.011.lcssa.i.i.i
+  %112 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.011.lcssa.i.i.i
   store i32 %72, ptr %112, align 4
   %113 = add i32 %.sroa.17.152.i, 1
   %.pre.i = load i32, ptr %10, align 8
@@ -1775,25 +1775,25 @@ cli_hashset_addkey_internal.exit.i:               ; preds = %108, %cli_hashset_s
 121:                                              ; preds = %._crit_edge.i
   tail call void @mpool_free(ptr noundef nonnull %119, ptr noundef %120) #18
   %122 = load ptr, ptr %12, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load ptr, ptr %123, align 8
   tail call void @mpool_free(ptr noundef %122, ptr noundef %124) #18
   br label %cli_hashset_grow.exit
 
 125:                                              ; preds = %._crit_edge.i
   tail call void @free(ptr noundef %120) #18
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load ptr, ptr %126, align 8
   tail call void @free(ptr noundef %127) #18
   br label %cli_hashset_grow.exit
 
 cli_hashset_grow.exit:                            ; preds = %121, %125
   store ptr %.sroa.0.0.i, ptr %0, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8
   store ptr %.sroa.10.0.i, ptr %12, align 8
   store i32 %.sroa.12.0.i, ptr %10, align 8
-  %.sroa.14.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 28
+  %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.14.0.i, ptr %.sroa.14.0..sroa_idx.i, align 4
   store i32 %.sroa.17.1.lcssa.i, ptr %3, align 8
   store i32 %.sroa.21.0.i, ptr %6, align 4
@@ -1816,7 +1816,7 @@ cli_hashset_grow.exit:                            ; preds = %121, %125
   %142 = and i32 %130, %141
   %143 = zext i32 %142 to i64
   %144 = lshr i64 %143, 5
-  %145 = getelementptr inbounds i32, ptr %129, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %129, i64 %144
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
   %148 = and i64 %143, 31
@@ -1842,7 +1842,7 @@ cli_hashset_grow.exit:                            ; preds = %121, %125
   %.pre18.i = lshr i64 %.01114.i.i, 5
   %.pre.i10 = and i64 %.01114.i.i, 31
   %.pre19.i = shl nuw nsw i64 1, %.pre.i10
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i32, ptr %129, i64 %.pre18.i
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i32, ptr %129, i64 %.pre18.i
   %.pre11.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 4
   %.pre36 = zext i32 %.pre11.i.pre to i64
   br label %cli_hashset_search.exit.i
@@ -1852,7 +1852,7 @@ cli_hashset_grow.exit:                            ; preds = %121, %125
   %158 = add i64 %.01114.i.i, %.015.i.i
   %159 = and i64 %158, %152
   %160 = lshr i64 %159, 5
-  %161 = getelementptr inbounds i32, ptr %129, i64 %160
+  %161 = getelementptr inbounds nuw i32, ptr %129, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = zext i32 %162 to i64
   %164 = and i64 %159, 31
@@ -1872,12 +1872,12 @@ cli_hashset_search.exit.i:                        ; preds = %156, %.cli_hashset_
   br i1 %.not.i9, label %169, label %cli_hashset_addkey_internal.exit
 
 169:                                              ; preds = %cli_hashset_search.exit.i
-  %170 = getelementptr inbounds i32, ptr %129, i64 %.pre-phi.i
+  %170 = getelementptr inbounds nuw i32, ptr %129, i64 %.pre-phi.i
   %171 = trunc nuw i64 %.pre-phi17.i to i32
   %172 = or i32 %167, %171
   store i32 %172, ptr %170, align 4
   %173 = load ptr, ptr %0, align 8
-  %174 = getelementptr inbounds i32, ptr %173, i64 %.011.lcssa.i.i
+  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %.011.lcssa.i.i
   store i32 %1, ptr %174, align 4
   %175 = load i32, ptr %3, align 8
   %176 = add i32 %175, 1
@@ -1902,14 +1902,14 @@ define range(i32 0, 35) i32 @cli_hashset_removekey(ptr nocapture noundef %0, i32
   %11 = mul i32 %10, 2057
   %12 = lshr i32 %11, 16
   %13 = xor i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = lshr i64 %17, 5
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = and i64 %17, 31
@@ -1942,7 +1942,7 @@ define range(i32 0, 35) i32 @cli_hashset_removekey(ptr nocapture noundef %0, i32
   %34 = add i64 %.01114.i, %.015.i
   %35 = and i64 %34, %28
   %36 = lshr i64 %35, 5
-  %37 = getelementptr inbounds i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = and i64 %35, 31
@@ -1955,7 +1955,7 @@ cli_hashset_search.exit:                          ; preds = %32, %.cli_hashset_s
   %.pre16.pre-phi = phi i64 [ %.pre21, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %41, %32 ]
   %.pre.pre-phi = phi i64 [ %.pre20, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %36, %32 ]
   %.011.lcssa.i.ph = phi i64 [ %.01114.i, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %35, %32 ]
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %19, i64 %.pre.pre-phi
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %19, i64 %.pre.pre-phi
   %.pre11 = load i32, ptr %.phi.trans.insert, align 4
   %.pre12 = zext i32 %.pre11 to i64
   %.pre18 = and i64 %.pre16.pre-phi, %.pre12
@@ -1963,15 +1963,15 @@ cli_hashset_search.exit:                          ; preds = %32, %.cli_hashset_s
   br i1 %43, label %cli_hashset_search.exit.thread, label %44
 
 44:                                               ; preds = %cli_hashset_search.exit
-  %45 = getelementptr inbounds i32, ptr %19, i64 %.pre.pre-phi
+  %45 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre.pre-phi
   %46 = trunc nuw i64 %.pre16.pre-phi to i32
   %47 = xor i32 %46, -1
   %48 = and i32 %.pre11, %47
   store i32 %48, ptr %45, align 4
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %.011.lcssa.i.ph
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.011.lcssa.i.ph
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, -1
   store i32 %53, ptr %51, align 8
@@ -1995,14 +1995,14 @@ define zeroext i1 @cli_hashset_contains(ptr nocapture noundef readonly %0, i32 n
   %11 = mul i32 %10, 2057
   %12 = lshr i32 %11, 16
   %13 = xor i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, %13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = lshr i64 %17, 5
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = and i64 %17, 31
@@ -2035,7 +2035,7 @@ define zeroext i1 @cli_hashset_contains(ptr nocapture noundef readonly %0, i32 n
   %34 = add i64 %.01114.i, %.015.i
   %35 = and i64 %34, %28
   %36 = lshr i64 %35, 5
-  %37 = getelementptr inbounds i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = and i64 %35, 31
@@ -2047,7 +2047,7 @@ define zeroext i1 @cli_hashset_contains(ptr nocapture noundef readonly %0, i32 n
 cli_hashset_search.exit.loopexit:                 ; preds = %32, %.cli_hashset_search.exit.loopexit_crit_edge
   %.pre9.pre-phi = phi i64 [ %.pre14, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %41, %32 ]
   %.pre.pre-phi = phi i64 [ %.pre13, %.cli_hashset_search.exit.loopexit_crit_edge ], [ %36, %32 ]
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %19, i64 %.pre.pre-phi
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %19, i64 %.pre.pre-phi
   %.pre4 = load i32, ptr %.phi.trans.insert, align 4
   %.pre5 = zext i32 %.pre4 to i64
   %.pre11 = and i64 %.pre9.pre-phi, %.pre5
@@ -2065,7 +2065,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
   br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 2
@@ -2075,13 +2075,13 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
   br i1 %.not21, label %12, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %.not27 = icmp eq i32 %10, 0
   br i1 %.not27, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
 12:                                               ; preds = %3
@@ -2100,7 +2100,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %11, align 8
   %20 = lshr i64 %.01823, 5
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = and i64 %.01823, 31
@@ -2111,7 +2111,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.01823
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %.01823
   %30 = load i32, ptr %29, align 4
   %31 = add nuw nsw i64 %.01724, 1
   %32 = getelementptr inbounds i32, ptr %8, i64 %.01724
@@ -2156,14 +2156,14 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr nocapture noundef read
   %13 = mul i32 %12, 2057
   %14 = lshr i32 %13, 16
   %15 = xor i32 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, %15
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = lshr i64 %19, 5
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = and i64 %19, 31
@@ -2188,7 +2188,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr nocapture noundef read
   %.pre13.i = lshr i64 %.01114.i.i, 5
   %.pre.i = and i64 %.01114.i.i, 31
   %.pre14.i = shl nuw nsw i64 1, %.pre.i
-  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds i32, ptr %21, i64 %.pre13.i
+  %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i32, ptr %21, i64 %.pre13.i
   %.pre4.i.pre = load i32, ptr %.phi.trans.insert.i.phi.trans.insert, align 4
   %.pre = zext i32 %.pre4.i.pre to i64
   %.pre8 = and i64 %.pre14.i, %.pre
@@ -2200,7 +2200,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr nocapture noundef read
   %36 = add i64 %.01114.i.i, %.015.i.i
   %37 = and i64 %36, %29
   %38 = lshr i64 %37, 5
-  %39 = getelementptr inbounds i32, ptr %21, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %21, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = and i64 %37, 31
@@ -2231,19 +2231,19 @@ define range(i32 0, 21) i32 @cli_map_init(ptr nocapture noundef writeonly %0, i3
   br i1 %.not11.i, label %cli_hashtab_init.exit, label %9
 
 9:                                                ; preds = %.preheader.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 64, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 51, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 -1, ptr %16, align 8
   br label %cli_hashtab_init.exit
 
@@ -2254,14 +2254,14 @@ cli_hashtab_init.exit:                            ; preds = %.preheader.i, %4, %
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_map_addkey(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
   br i1 %.not, label %6, label %75
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %hash.exit.i, label %.lr.ph.i.i
@@ -2312,7 +2312,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not32.i, label %41, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, %7
   br i1 %35, label %36, label %41
@@ -2333,19 +2333,19 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not33.i, label %47, label %29
 
 cli_hashtab_find.exit:                            ; preds = %38, %36
-  %44 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
   br label %.sink.split
 
 47:                                               ; preds = %41, %29
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i32, ptr %48, align 8
   %50 = add i32 %49, 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 8
   %.not41 = icmp eq i32 %52, 0
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %50 to i64
   br i1 %.not41, label %66, label %56
@@ -2362,7 +2362,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
   %61 = load i32, ptr %51, align 8
   %62 = mul i32 %61, %49
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %63
   %65 = sext i32 %61 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %64, i8 0, i64 %65, i1 false)
   %.pre = zext i32 %49 to i64
@@ -2377,7 +2377,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
 69:                                               ; preds = %66
   store ptr %68, ptr %53, align 8
   %70 = zext i32 %49 to i64
-  %71 = getelementptr inbounds %struct.cli_map_value, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw %struct.cli_map_value, ptr %68, i64 %70
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   br label %72
 
@@ -2391,7 +2391,7 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
 .sink.split:                                      ; preds = %72, %cli_hashtab_find.exit
   %.sink = phi i32 [ %46, %cli_hashtab_find.exit ], [ %49, %72 ]
   %.0.ph = phi i32 [ 9, %cli_hashtab_find.exit ], [ 0, %72 ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 52
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.sink, ptr %74, align 4
   br label %75
 
@@ -2404,14 +2404,14 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 11) i32 @cli_map_removekey(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
   br i1 %.not, label %6, label %cli_hashtab_delete.exit
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %hash.exit.i, label %.lr.ph.i.i
@@ -2462,7 +2462,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not32.i, label %41, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, %7
   br i1 %35, label %36, label %41
@@ -2483,10 +2483,10 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not33.i, label %cli_hashtab_delete.exit, label %29
 
 cli_hashtab_find.exit:                            ; preds = %38, %36
-  %44 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %.not28 = icmp sle i32 %48, %46
   %49 = icmp slt i32 %46, 0
@@ -2494,20 +2494,20 @@ cli_hashtab_find.exit:                            ; preds = %38, %36
   br i1 %or.cond, label %cli_hashtab_delete.exit, label %50
 
 50:                                               ; preds = %cli_hashtab_find.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 8
   %.not29 = icmp eq i32 %52, 0
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   br i1 %.not29, label %55, label %60
 
 55:                                               ; preds = %50
   %56 = and i64 %45, 2147483647
-  %57 = getelementptr inbounds %struct.cli_map_value, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw %struct.cli_map_value, ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   tail call void @free(ptr noundef %58) #18
   store ptr null, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 0, ptr %59, align 8
   br label %65
 
@@ -2569,7 +2569,7 @@ hash.exit.i.i:                                    ; preds = %._crit_edge.loopexi
   br i1 %.not32.i.i, label %98, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.024.i.i, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 16
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %91, %7
   br i1 %92, label %93, label %98
@@ -2601,7 +2601,7 @@ cli_hashtab_delete.exit:                          ; preds = %29, %41, %98, %86, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   %.not29 = icmp eq i32 %5, %2
@@ -2609,9 +2609,9 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0,
   br i1 %or.cond, label %6, label %31
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %.not30 = icmp uge i32 %8, %10
   %11 = icmp slt i32 %8, 0
@@ -2619,7 +2619,7 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0,
   br i1 %or.cond34, label %31, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   br i1 %.not, label %20, label %15
 
@@ -2633,7 +2633,7 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0,
 
 20:                                               ; preds = %12
   %21 = zext nneg i32 %8 to i64
-  %22 = getelementptr inbounds %struct.cli_map_value, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw %struct.cli_map_value, ptr %14, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not32 = icmp eq ptr %23, null
   br i1 %.not32, label %25, label %24
@@ -2655,7 +2655,7 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0,
 
 29:                                               ; preds = %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %1, i64 %26, i1 false)
-  %30 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %2, ptr %30, align 8
   br label %31
 
@@ -2666,14 +2666,14 @@ define range(i32 0, 21) i32 @cli_map_setvalue(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 17) i32 @cli_map_find(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #15 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, %2
   br i1 %.not, label %6, label %cli_hashtab_find.exit.thread
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %hash.exit.i, label %.lr.ph.i.i
@@ -2724,7 +2724,7 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not32.i, label %41, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %.024.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, %7
   br i1 %35, label %36, label %41
@@ -2745,10 +2745,10 @@ hash.exit.i:                                      ; preds = %._crit_edge.loopexi
   br i1 %.not33.i, label %cli_hashtab_find.exit.thread, label %29
 
 cli_hashtab_find.exit:                            ; preds = %38, %36
-  %44 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %46, ptr %47, align 8
   br label %cli_hashtab_find.exit.thread
 
@@ -2759,28 +2759,28 @@ cli_hashtab_find.exit.thread:                     ; preds = %29, %41, %3, %cli_h
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_map_getvalue_size(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %17
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %.not9 = icmp ult i32 %6, %10
   br i1 %.not9, label %11, label %17
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %6 to i64
-  %15 = getelementptr inbounds %struct.cli_map_value, ptr %13, i64 %14, i32 1
+  %15 = getelementptr inbounds nuw %struct.cli_map_value, ptr %13, i64 %14, i32 1
   %16 = load i32, ptr %15, align 8
   br label %17
 
@@ -2791,22 +2791,22 @@ define i32 @cli_map_getvalue_size(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @cli_map_getvalue(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %.not = icmp ult i32 %3, %7
   br i1 %.not, label %8, label %21
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %9, align 8
   %.not12 = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   br i1 %.not12, label %17, label %13
 
@@ -2818,7 +2818,7 @@ define ptr @cli_map_getvalue(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 17:                                               ; preds = %8
   %18 = zext nneg i32 %3 to i64
-  %19 = getelementptr inbounds %struct.cli_map_value, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw %struct.cli_map_value, ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -2829,7 +2829,7 @@ define ptr @cli_map_getvalue(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @cli_map_delete(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not18.i.i = icmp eq i64 %3, 0
   br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -2873,29 +2873,29 @@ define void @cli_map_delete(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 cli_hashtab_free.exit:                            ; preds = %._crit_edge.i.i, %15
   %16 = phi ptr [ null, %._crit_edge.i.i ], [ %.pre.i, %15 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %17, align 8
   tail call void @free(ptr noundef %16) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %cli_hashtab_free.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
   %.not10 = icmp eq i32 %21, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds %struct.cli_map_value, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.cli_map_value, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2905,7 +2905,7 @@ cli_hashtab_free.exit:                            ; preds = %._crit_edge.i.i, %1
   br i1 %29, label %23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %cli_hashtab_free.exit, %.preheader
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   tail call void @free(ptr noundef %31) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)

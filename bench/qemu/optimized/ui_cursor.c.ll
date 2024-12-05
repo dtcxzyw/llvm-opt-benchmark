@@ -47,13 +47,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @cursor_print_ascii_art(ptr nocapture noundef readonly %c, ptr noundef %prefix) local_unnamed_addr #0 {
 entry:
-  %height = getelementptr inbounds i8, ptr %c, i64 2
+  %height = getelementptr inbounds nuw i8, ptr %c, i64 2
   %0 = load i16, ptr %height, align 2
   %cmp17.not = icmp eq i16 %0, 0
   br i1 %cmp17.not, label %for.end29, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %data1 = getelementptr inbounds i8, ptr %c, i64 16
+  %data1 = getelementptr inbounds nuw i8, ptr %c, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
@@ -241,16 +241,16 @@ cursor_alloc.exit:                                ; preds = %for.end
   %add.i = add nuw nsw i64 %mul3.i, 16
   %call.i = call noalias ptr @g_malloc0(i64 noundef %add.i) #14
   store i16 %conv, ptr %call.i, align 4
-  %height10.i = getelementptr inbounds i8, ptr %call.i, i64 2
+  %height10.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2
   store i16 %conv37, ptr %height10.i, align 2
-  %refcount.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %refcount.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 1, ptr %refcount.i, align 4
   %17 = load i32, ptr %height, align 4
   %cmp4427.not = icmp eq i32 %17, 0
   br i1 %cmp4427.not, label %return, label %for.cond47.preheader.lr.ph
 
 for.cond47.preheader.lr.ph:                       ; preds = %cursor_alloc.exit
-  %data = getelementptr inbounds i8, ptr %call.i, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %18 = add i32 %line.0.lcssa, %17
   %wide.trip.count = zext i32 %17 to i64
   br label %for.cond47.preheader
@@ -317,9 +317,9 @@ if.end:                                           ; preds = %entry
   %add = add nuw nsw i64 %mul3, 16
   %call = tail call noalias ptr @g_malloc0(i64 noundef %add) #14
   store i16 %width, ptr %call, align 4
-  %height10 = getelementptr inbounds i8, ptr %call, i64 2
+  %height10 = getelementptr inbounds nuw i8, ptr %call, i64 2
   store i16 %height, ptr %height10, align 2
-  %refcount = getelementptr inbounds i8, ptr %call, i64 12
+  %refcount = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 1, ptr %refcount, align 4
   br label %return
 
@@ -334,7 +334,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef ptr @cursor_ref(ptr noundef returned %c) local_unnamed_addr #4 {
 entry:
-  %refcount = getelementptr inbounds i8, ptr %c, i64 12
+  %refcount = getelementptr inbounds nuw i8, ptr %c, i64 12
   %0 = load i32, ptr %refcount, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %refcount, align 4
@@ -348,7 +348,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcount = getelementptr inbounds i8, ptr %c, i64 12
+  %refcount = getelementptr inbounds nuw i8, ptr %c, i64 12
   %0 = load i32, ptr %refcount, align 4
   %dec = add i32 %0, -1
   store i32 %dec, ptr %refcount, align 4
@@ -378,13 +378,13 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @cursor_set_mono(ptr nocapture noundef %c, i32 noundef %foreground, i32 noundef %background, ptr noundef readonly %image, i32 noundef %transparent, ptr noundef readonly %mask) local_unnamed_addr #7 {
 entry:
-  %data1 = getelementptr inbounds i8, ptr %c, i64 16
+  %data1 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %cmp = icmp eq ptr %image, %mask
   %0 = load i16, ptr %c, align 4
   %conv.i = zext i16 %0 to i64
   %sub.i = add nuw nsw i64 %conv.i, 7
   %div1.i = lshr i64 %sub.i, 3
-  %height = getelementptr inbounds i8, ptr %c, i64 2
+  %height = getelementptr inbounds nuw i8, ptr %c, i64 2
   %1 = load i16, ptr %height, align 2
   %cmp2101.not = icmp eq i16 %1, 0
   br i1 %cmp2101.not, label %if.end143, label %for.cond4.preheader.lr.ph
@@ -788,7 +788,7 @@ entry:
   %conv.i = zext i16 %0 to i32
   %sub.i = add nuw nsw i32 %conv.i, 7
   %div1.i = lshr i32 %sub.i, 3
-  %height = getelementptr inbounds i8, ptr %c, i64 2
+  %height = getelementptr inbounds nuw i8, ptr %c, i64 2
   %1 = load i16, ptr %height, align 2
   %conv = zext i16 %1 to i32
   %mul = mul nuw nsw i32 %div1.i, %conv
@@ -799,7 +799,7 @@ entry:
   br i1 %cmp23.not, label %for.end28, label %for.cond6.preheader.lr.ph
 
 for.cond6.preheader.lr.ph:                        ; preds = %entry
-  %data1 = getelementptr inbounds i8, ptr %c, i64 16
+  %data1 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %idx.ext = zext nneg i32 %div1.i to i64
   %.pre = load i16, ptr %c, align 4
   br label %for.cond6.preheader
@@ -876,7 +876,7 @@ entry:
   %conv.i = zext i16 %0 to i32
   %sub.i = add nuw nsw i32 %conv.i, 7
   %div1.i = lshr i32 %sub.i, 3
-  %height = getelementptr inbounds i8, ptr %c, i64 2
+  %height = getelementptr inbounds nuw i8, ptr %c, i64 2
   %1 = load i16, ptr %height, align 2
   %conv = zext i16 %1 to i32
   %mul = mul nuw nsw i32 %div1.i, %conv
@@ -887,7 +887,7 @@ entry:
   br i1 %cmp50.not, label %for.end40, label %for.cond6.preheader.lr.ph
 
 for.cond6.preheader.lr.ph:                        ; preds = %entry
-  %data1 = getelementptr inbounds i8, ptr %c, i64 16
+  %data1 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %cmp13.not = icmp eq i32 %transparent, 0
   %idx.ext = zext nneg i32 %div1.i to i64
   %.pre99 = load i16, ptr %c, align 4

@@ -12,50 +12,50 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @fill_stat_data(ptr nocapture noundef writeonly initializes((0, 36)) %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
-  %st_ctim = getelementptr inbounds i8, ptr %st, i64 104
+  %st_ctim = getelementptr inbounds nuw i8, ptr %st, i64 104
   %0 = load i64, ptr %st_ctim, align 8
   %conv = trunc i64 %0 to i32
   store i32 %conv, ptr %sd, align 4
-  %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
+  %st_mtim = getelementptr inbounds nuw i8, ptr %st, i64 88
   %1 = load i64, ptr %st_mtim, align 8
   %conv2 = trunc i64 %1 to i32
-  %sd_mtime = getelementptr inbounds i8, ptr %sd, i64 8
+  %sd_mtime = getelementptr inbounds nuw i8, ptr %sd, i64 8
   store i32 %conv2, ptr %sd_mtime, align 4
-  %tv_nsec = getelementptr inbounds i8, ptr %st, i64 112
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %st, i64 112
   %2 = load i64, ptr %tv_nsec, align 8
   %conv5 = trunc i64 %2 to i32
-  %nsec = getelementptr inbounds i8, ptr %sd, i64 4
+  %nsec = getelementptr inbounds nuw i8, ptr %sd, i64 4
   store i32 %conv5, ptr %nsec, align 4
-  %tv_nsec8 = getelementptr inbounds i8, ptr %st, i64 96
+  %tv_nsec8 = getelementptr inbounds nuw i8, ptr %st, i64 96
   %3 = load i64, ptr %tv_nsec8, align 8
   %conv9 = trunc i64 %3 to i32
-  %nsec11 = getelementptr inbounds i8, ptr %sd, i64 12
+  %nsec11 = getelementptr inbounds nuw i8, ptr %sd, i64 12
   store i32 %conv9, ptr %nsec11, align 4
   %4 = load i64, ptr %st, align 8
   %conv12 = trunc i64 %4 to i32
-  %sd_dev = getelementptr inbounds i8, ptr %sd, i64 16
+  %sd_dev = getelementptr inbounds nuw i8, ptr %sd, i64 16
   store i32 %conv12, ptr %sd_dev, align 4
-  %st_ino = getelementptr inbounds i8, ptr %st, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %st, i64 8
   %5 = load i64, ptr %st_ino, align 8
   %conv13 = trunc i64 %5 to i32
-  %sd_ino = getelementptr inbounds i8, ptr %sd, i64 20
+  %sd_ino = getelementptr inbounds nuw i8, ptr %sd, i64 20
   store i32 %conv13, ptr %sd_ino, align 4
-  %st_uid = getelementptr inbounds i8, ptr %st, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %st, i64 28
   %6 = load i32, ptr %st_uid, align 4
-  %sd_uid = getelementptr inbounds i8, ptr %sd, i64 24
+  %sd_uid = getelementptr inbounds nuw i8, ptr %sd, i64 24
   store i32 %6, ptr %sd_uid, align 4
-  %st_gid = getelementptr inbounds i8, ptr %st, i64 32
+  %st_gid = getelementptr inbounds nuw i8, ptr %st, i64 32
   %7 = load i32, ptr %st_gid, align 8
-  %sd_gid = getelementptr inbounds i8, ptr %sd, i64 28
+  %sd_gid = getelementptr inbounds nuw i8, ptr %sd, i64 28
   store i32 %7, ptr %sd_gid, align 4
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   %8 = load i64, ptr %st_size, align 8
   %conv.i = trunc i64 %8 to i32
   %tobool.i = icmp eq i32 %conv.i, 0
   %tobool1.i = icmp ne i64 %8, 0
   %or.cond.i = and i1 %tobool1.i, %tobool.i
   %.conv.i = select i1 %or.cond.i, i32 -2147483648, i32 %conv.i
-  %sd_size = getelementptr inbounds i8, ptr %sd, i64 32
+  %sd_size = getelementptr inbounds nuw i8, ptr %sd, i64 32
   store i32 %.conv.i, ptr %sd_size, align 4
   ret void
 }
@@ -65,44 +65,44 @@ define dso_local void @fake_lstat_data(ptr nocapture noundef readonly %sd, ptr n
 entry:
   %0 = load i32, ptr %sd, align 4
   %conv.i = zext i32 %0 to i64
-  %st_ctim.i = getelementptr inbounds i8, ptr %st, i64 104
+  %st_ctim.i = getelementptr inbounds nuw i8, ptr %st, i64 104
   store i64 %conv.i, ptr %st_ctim.i, align 8
-  %sd_mtime.i = getelementptr inbounds i8, ptr %sd, i64 8
+  %sd_mtime.i = getelementptr inbounds nuw i8, ptr %sd, i64 8
   %1 = load i32, ptr %sd_mtime.i, align 4
   %conv2.i = zext i32 %1 to i64
-  %st_mtim.i = getelementptr inbounds i8, ptr %st, i64 88
+  %st_mtim.i = getelementptr inbounds nuw i8, ptr %st, i64 88
   store i64 %conv2.i, ptr %st_mtim.i, align 8
-  %nsec.i = getelementptr inbounds i8, ptr %sd, i64 4
+  %nsec.i = getelementptr inbounds nuw i8, ptr %sd, i64 4
   %2 = load i32, ptr %nsec.i, align 4
   %conv5.i = zext i32 %2 to i64
-  %tv_nsec.i = getelementptr inbounds i8, ptr %st, i64 112
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %st, i64 112
   store i64 %conv5.i, ptr %tv_nsec.i, align 8
-  %nsec8.i = getelementptr inbounds i8, ptr %sd, i64 12
+  %nsec8.i = getelementptr inbounds nuw i8, ptr %sd, i64 12
   %3 = load i32, ptr %nsec8.i, align 4
   %conv9.i = zext i32 %3 to i64
-  %tv_nsec11.i = getelementptr inbounds i8, ptr %st, i64 96
+  %tv_nsec11.i = getelementptr inbounds nuw i8, ptr %st, i64 96
   store i64 %conv9.i, ptr %tv_nsec11.i, align 8
-  %sd_dev = getelementptr inbounds i8, ptr %sd, i64 16
+  %sd_dev = getelementptr inbounds nuw i8, ptr %sd, i64 16
   %4 = load i32, ptr %sd_dev, align 4
   %conv = zext i32 %4 to i64
   store i64 %conv, ptr %st, align 8
-  %sd_ino = getelementptr inbounds i8, ptr %sd, i64 20
+  %sd_ino = getelementptr inbounds nuw i8, ptr %sd, i64 20
   %5 = load i32, ptr %sd_ino, align 4
   %conv1 = zext i32 %5 to i64
-  %st_ino = getelementptr inbounds i8, ptr %st, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %st, i64 8
   store i64 %conv1, ptr %st_ino, align 8
-  %sd_uid = getelementptr inbounds i8, ptr %sd, i64 24
+  %sd_uid = getelementptr inbounds nuw i8, ptr %sd, i64 24
   %6 = load i32, ptr %sd_uid, align 4
-  %st_uid = getelementptr inbounds i8, ptr %st, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %st, i64 28
   store i32 %6, ptr %st_uid, align 4
-  %sd_gid = getelementptr inbounds i8, ptr %sd, i64 28
+  %sd_gid = getelementptr inbounds nuw i8, ptr %sd, i64 28
   %7 = load i32, ptr %sd_gid, align 4
-  %st_gid = getelementptr inbounds i8, ptr %st, i64 32
+  %st_gid = getelementptr inbounds nuw i8, ptr %st, i64 32
   store i32 %7, ptr %st_gid, align 8
-  %sd_size = getelementptr inbounds i8, ptr %sd, i64 32
+  %sd_size = getelementptr inbounds nuw i8, ptr %sd, i64 32
   %8 = load i32, ptr %sd_size, align 4
   %conv2 = zext i32 %8 to i64
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   store i64 %conv2, ptr %st_size, align 8
   ret void
 }
@@ -110,9 +110,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 64) i32 @match_stat_data(ptr nocapture noundef readonly %sd, ptr nocapture noundef readonly %st) local_unnamed_addr #1 {
 entry:
-  %sd_mtime = getelementptr inbounds i8, ptr %sd, i64 8
+  %sd_mtime = getelementptr inbounds nuw i8, ptr %sd, i64 8
   %0 = load i32, ptr %sd_mtime, align 4
-  %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
+  %st_mtim = getelementptr inbounds nuw i8, ptr %st, i64 88
   %1 = load i64, ptr %st_mtim, align 8
   %conv = trunc i64 %1 to i32
   %cmp.not = icmp ne i32 %0, %conv
@@ -126,7 +126,7 @@ entry:
 
 if.end11.thread:                                  ; preds = %entry
   %4 = load i32, ptr %sd, align 4
-  %st_ctim = getelementptr inbounds i8, ptr %st, i64 104
+  %st_ctim = getelementptr inbounds nuw i8, ptr %st, i64 104
   %5 = load i64, ptr %st_ctim, align 8
   %conv6 = trunc i64 %5 to i32
   %cmp7.not = icmp eq i32 %4, %conv6
@@ -140,17 +140,17 @@ if.end11:                                         ; preds = %entry
 
 if.then13:                                        ; preds = %if.end11.thread, %if.end11
   %changed.121 = phi i32 [ %spec.select16, %if.end11.thread ], [ %spec.select, %if.end11 ]
-  %sd_uid = getelementptr inbounds i8, ptr %sd, i64 24
+  %sd_uid = getelementptr inbounds nuw i8, ptr %sd, i64 24
   %6 = load i32, ptr %sd_uid, align 4
-  %st_uid = getelementptr inbounds i8, ptr %st, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %st, i64 28
   %7 = load i32, ptr %st_uid, align 4
   %cmp14.not = icmp eq i32 %6, %7
   br i1 %cmp14.not, label %lor.lhs.false, label %if.then18
 
 lor.lhs.false:                                    ; preds = %if.then13
-  %sd_gid = getelementptr inbounds i8, ptr %sd, i64 28
+  %sd_gid = getelementptr inbounds nuw i8, ptr %sd, i64 28
   %8 = load i32, ptr %sd_gid, align 4
-  %st_gid = getelementptr inbounds i8, ptr %st, i64 32
+  %st_gid = getelementptr inbounds nuw i8, ptr %st, i64 32
   %9 = load i32, ptr %st_gid, align 8
   %cmp16.not = icmp eq i32 %8, %9
   br i1 %cmp16.not, label %if.end20, label %if.then18
@@ -161,9 +161,9 @@ if.then18:                                        ; preds = %lor.lhs.false, %if.
 
 if.end20:                                         ; preds = %if.then18, %lor.lhs.false
   %changed.3 = phi i32 [ %or19, %if.then18 ], [ %changed.121, %lor.lhs.false ]
-  %sd_ino = getelementptr inbounds i8, ptr %sd, i64 20
+  %sd_ino = getelementptr inbounds nuw i8, ptr %sd, i64 20
   %10 = load i32, ptr %sd_ino, align 4
-  %st_ino = getelementptr inbounds i8, ptr %st, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %st, i64 8
   %11 = load i64, ptr %st_ino, align 8
   %conv21 = trunc i64 %11 to i32
   %cmp22.not = icmp eq i32 %10, %conv21
@@ -173,9 +173,9 @@ if.end20:                                         ; preds = %if.then18, %lor.lhs
 
 if.end27:                                         ; preds = %if.end20, %if.end11
   %changed.2 = phi i32 [ %spec.select, %if.end11 ], [ %spec.select17, %if.end20 ]
-  %sd_size = getelementptr inbounds i8, ptr %sd, i64 32
+  %sd_size = getelementptr inbounds nuw i8, ptr %sd, i64 32
   %12 = load i32, ptr %sd_size, align 4
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   %13 = load i64, ptr %st_size, align 8
   %conv.i = trunc i64 %13 to i32
   %tobool.i = icmp eq i32 %conv.i, 0
@@ -213,16 +213,16 @@ entry:
   br i1 %brmerge, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and = and i32 %1, 61440
   %cmp5 = icmp eq i32 %and, 32768
   br i1 %cmp5, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end4
-  %sd_mtime.i = getelementptr inbounds i8, ptr %0, i64 8
+  %sd_mtime.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %sd_mtime.i, align 4
-  %st_mtim.i = getelementptr inbounds i8, ptr %st, i64 88
+  %st_mtim.i = getelementptr inbounds nuw i8, ptr %st, i64 88
   %3 = load i64, ptr %st_mtim.i, align 8
   %conv.i = trunc i64 %3 to i32
   %cmp.not.i = icmp ne i32 %2, %conv.i
@@ -236,7 +236,7 @@ land.rhs:                                         ; preds = %if.end4
 
 if.end11.thread.i:                                ; preds = %land.rhs
   %6 = load i32, ptr %0, align 4
-  %st_ctim.i = getelementptr inbounds i8, ptr %st, i64 104
+  %st_ctim.i = getelementptr inbounds nuw i8, ptr %st, i64 104
   %7 = load i64, ptr %st_ctim.i, align 8
   %conv6.i = trunc i64 %7 to i32
   %cmp7.not.i = icmp eq i32 %6, %conv6.i
@@ -250,17 +250,17 @@ if.end11.i:                                       ; preds = %land.rhs
 
 if.then13.i:                                      ; preds = %if.end11.i, %if.end11.thread.i
   %changed.121.i = phi i32 [ %spec.select16.i, %if.end11.thread.i ], [ %spec.select.i, %if.end11.i ]
-  %sd_uid.i = getelementptr inbounds i8, ptr %0, i64 24
+  %sd_uid.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %sd_uid.i, align 4
-  %st_uid.i = getelementptr inbounds i8, ptr %st, i64 28
+  %st_uid.i = getelementptr inbounds nuw i8, ptr %st, i64 28
   %9 = load i32, ptr %st_uid.i, align 4
   %cmp14.not.i = icmp eq i32 %8, %9
   br i1 %cmp14.not.i, label %lor.lhs.false.i, label %if.then18.i
 
 lor.lhs.false.i:                                  ; preds = %if.then13.i
-  %sd_gid.i = getelementptr inbounds i8, ptr %0, i64 28
+  %sd_gid.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %sd_gid.i, align 4
-  %st_gid.i = getelementptr inbounds i8, ptr %st, i64 32
+  %st_gid.i = getelementptr inbounds nuw i8, ptr %st, i64 32
   %11 = load i32, ptr %st_gid.i, align 8
   %cmp16.not.i = icmp eq i32 %10, %11
   br i1 %cmp16.not.i, label %if.end20.i, label %if.then18.i
@@ -271,9 +271,9 @@ if.then18.i:                                      ; preds = %lor.lhs.false.i, %i
 
 if.end20.i:                                       ; preds = %if.then18.i, %lor.lhs.false.i
   %changed.3.i = phi i32 [ %or19.i, %if.then18.i ], [ %changed.121.i, %lor.lhs.false.i ]
-  %sd_ino.i = getelementptr inbounds i8, ptr %0, i64 20
+  %sd_ino.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %sd_ino.i, align 4
-  %st_ino.i = getelementptr inbounds i8, ptr %st, i64 8
+  %st_ino.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   %13 = load i64, ptr %st_ino.i, align 8
   %conv21.i = trunc i64 %13 to i32
   %cmp22.not.i = icmp eq i32 %12, %conv21.i
@@ -283,9 +283,9 @@ if.end20.i:                                       ; preds = %if.then18.i, %lor.l
 
 match_stat_data.exit:                             ; preds = %if.end11.i, %if.end20.i
   %changed.2.i = phi i32 [ %spec.select.i, %if.end11.i ], [ %spec.select17.i, %if.end20.i ]
-  %sd_size.i = getelementptr inbounds i8, ptr %0, i64 32
+  %sd_size.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %sd_size.i, align 4
-  %st_size.i = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   %15 = load i64, ptr %st_size.i, align 8
   %conv.i.i = trunc i64 %15 to i32
   %tobool.i.i = icmp eq i32 %conv.i.i, 0
@@ -315,7 +315,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp1 = icmp eq i32 %and, 32768
@@ -339,50 +339,50 @@ if.then2:                                         ; preds = %if.else
 
 if.end:                                           ; preds = %if.then2, %if.else
   %3 = phi ptr [ %call3, %if.then2 ], [ %2, %if.else ]
-  %st_ctim.i = getelementptr inbounds i8, ptr %st, i64 104
+  %st_ctim.i = getelementptr inbounds nuw i8, ptr %st, i64 104
   %4 = load i64, ptr %st_ctim.i, align 8
   %conv.i = trunc i64 %4 to i32
   store i32 %conv.i, ptr %3, align 4
-  %st_mtim.i = getelementptr inbounds i8, ptr %st, i64 88
+  %st_mtim.i = getelementptr inbounds nuw i8, ptr %st, i64 88
   %5 = load i64, ptr %st_mtim.i, align 8
   %conv2.i = trunc i64 %5 to i32
-  %sd_mtime.i = getelementptr inbounds i8, ptr %3, i64 8
+  %sd_mtime.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %conv2.i, ptr %sd_mtime.i, align 4
-  %tv_nsec.i = getelementptr inbounds i8, ptr %st, i64 112
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %st, i64 112
   %6 = load i64, ptr %tv_nsec.i, align 8
   %conv5.i = trunc i64 %6 to i32
-  %nsec.i = getelementptr inbounds i8, ptr %3, i64 4
+  %nsec.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %conv5.i, ptr %nsec.i, align 4
-  %tv_nsec8.i = getelementptr inbounds i8, ptr %st, i64 96
+  %tv_nsec8.i = getelementptr inbounds nuw i8, ptr %st, i64 96
   %7 = load i64, ptr %tv_nsec8.i, align 8
   %conv9.i = trunc i64 %7 to i32
-  %nsec11.i = getelementptr inbounds i8, ptr %3, i64 12
+  %nsec11.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %conv9.i, ptr %nsec11.i, align 4
   %8 = load i64, ptr %st, align 8
   %conv12.i = trunc i64 %8 to i32
-  %sd_dev.i = getelementptr inbounds i8, ptr %3, i64 16
+  %sd_dev.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %conv12.i, ptr %sd_dev.i, align 4
-  %st_ino.i = getelementptr inbounds i8, ptr %st, i64 8
+  %st_ino.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   %9 = load i64, ptr %st_ino.i, align 8
   %conv13.i = trunc i64 %9 to i32
-  %sd_ino.i = getelementptr inbounds i8, ptr %3, i64 20
+  %sd_ino.i = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %conv13.i, ptr %sd_ino.i, align 4
-  %st_uid.i = getelementptr inbounds i8, ptr %st, i64 28
+  %st_uid.i = getelementptr inbounds nuw i8, ptr %st, i64 28
   %10 = load i32, ptr %st_uid.i, align 4
-  %sd_uid.i = getelementptr inbounds i8, ptr %3, i64 24
+  %sd_uid.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %10, ptr %sd_uid.i, align 4
-  %st_gid.i = getelementptr inbounds i8, ptr %st, i64 32
+  %st_gid.i = getelementptr inbounds nuw i8, ptr %st, i64 32
   %11 = load i32, ptr %st_gid.i, align 8
-  %sd_gid.i = getelementptr inbounds i8, ptr %3, i64 28
+  %sd_gid.i = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %11, ptr %sd_gid.i, align 4
-  %st_size.i = getelementptr inbounds i8, ptr %st, i64 48
+  %st_size.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   %12 = load i64, ptr %st_size.i, align 8
   %conv.i.i = trunc i64 %12 to i32
   %tobool.i.i = icmp eq i32 %conv.i.i, 0
   %tobool1.i.i = icmp ne i64 %12, 0
   %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
   %.conv.i.i = select i1 %or.cond.i.i, i32 -2147483648, i32 %conv.i.i
-  %sd_size.i = getelementptr inbounds i8, ptr %3, i64 32
+  %sd_size.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %.conv.i.i, ptr %sd_size.i, align 4
   br label %if.end6
 

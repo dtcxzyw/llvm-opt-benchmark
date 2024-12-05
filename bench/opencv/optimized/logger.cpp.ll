@@ -417,7 +417,7 @@ define noundef i32 @_ZN2cv5utils7logging14getLogTagLevelEPKc(ptr noundef %0) loc
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr @_ZZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel) #8
   br label %_ZN2cv5utils7logging11getLogLevelEv.exit
@@ -492,7 +492,7 @@ _ZN2cv5utils7logging8internalL16getLogTagManagerEv.exit: ; preds = %16, %19, %23
           to label %37 unwind label %39
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %38, ptr @_ZZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel) #8
   br label %_ZN2cv5utils7logging11getLogLevelEv.exit13
@@ -524,7 +524,7 @@ _ZN2cv5utils7logging11getLogLevelEv.exit13:       ; preds = %30, %33, %37
   br label %common.resume
 
 47:                                               ; preds = %29
-  %48 = getelementptr inbounds i8, ptr %28, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %49
 
 49:                                               ; preds = %47, %_ZN2cv5utils7logging11getLogLevelEv.exit13, %_ZN2cv5utils7logging11getLogLevelEv.exit
@@ -549,7 +549,7 @@ define noundef i32 @_ZN2cv5utils7logging11getLogLevelEv() local_unnamed_addr #3 
           to label %7 unwind label %9
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr @_ZZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel) #8
   br label %_ZN2cv5utils7logging8internalL19getLogLevelVariableEv.exit
@@ -582,7 +582,7 @@ define noundef i32 @_ZN2cv5utils7logging11setLogLevelENS1_8LogLevelE(i32 noundef
           to label %8 unwind label %10
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr @_ZZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv5utils7logging8internalL19getLogLevelVariableEvE17refGlobalLogLevel) #8
   br label %_ZN2cv5utils7logging8internalL19getLogLevelVariableEv.exit
@@ -866,7 +866,7 @@ define void @_ZN2cv5utils7logging8internal17writeLogMessageExENS1_8LogLevelEPKcS
   %18 = phi i8 [ %22, %21 ], [ %17, %16 ]
   %.024.i = phi ptr [ %.1.i, %21 ], [ null, %16 ]
   %.01623.i = phi ptr [ %19, %21 ], [ %2, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.01623.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 1
   switch i8 %18, label %21 [
     i8 92, label %20
     i8 47, label %20

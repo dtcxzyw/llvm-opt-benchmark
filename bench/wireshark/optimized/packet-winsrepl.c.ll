@@ -273,7 +273,7 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %10 = alloca [61 x i8], align 16
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.87) #3
   %15 = load ptr, ptr %13, align 8
@@ -401,10 +401,10 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.i.i:                                       ; preds = %73
   %.not.i.i.i = icmp eq ptr %77, null
-  %81 = getelementptr inbounds i8, ptr %1, i64 408
-  %82 = getelementptr inbounds i8, ptr %8, i64 4
-  %83 = getelementptr inbounds i8, ptr %8, i64 8
-  %84 = getelementptr inbounds i8, ptr %8, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %85
 
 85:                                               ; preds = %dissect_winsrepl_wins_name.exit.i.i, %.lr.ph.i.i

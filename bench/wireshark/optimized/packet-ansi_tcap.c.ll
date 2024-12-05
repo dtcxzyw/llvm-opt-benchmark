@@ -425,9 +425,9 @@ define internal i32 @dissect_ansi_tcap(ptr noundef %0, ptr noundef %1, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 8), i8 0, i64 56, i1 false)
   store i32 1096041281, ptr @ansi_tcap_private, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 4), align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.193) #4
   %.not = icmp eq ptr %2, null
@@ -494,11 +494,11 @@ declare i32 @dissect_ber_choice(ptr noundef, ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_unidirectional(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.194) #4
   %13 = load i32, ptr @ett_ansi_tcap_UniTransactionPDU, align 4
@@ -509,11 +509,11 @@ define internal i32 @dissect_ansi_tcap_T_unidirectional(i1 noundef zeroext %0, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_queryWithPerm(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.209) #4
   %13 = load i32, ptr @ett_ansi_tcap_TransactionPDU, align 4
@@ -524,11 +524,11 @@ define internal i32 @dissect_ansi_tcap_T_queryWithPerm(i1 noundef zeroext %0, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_queryWithoutPerm(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.210) #4
   %13 = load i32, ptr @ett_ansi_tcap_TransactionPDU, align 4
@@ -539,11 +539,11 @@ define internal i32 @dissect_ansi_tcap_T_queryWithoutPerm(i1 noundef zeroext %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_response(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.211) #4
   %13 = load i32, ptr @ett_ansi_tcap_TransactionPDU, align 4
@@ -554,11 +554,11 @@ define internal i32 @dissect_ansi_tcap_T_response(i1 noundef zeroext %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_conversationWithPerm(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.212) #4
   %13 = load i32, ptr @ett_ansi_tcap_TransactionPDU, align 4
@@ -569,11 +569,11 @@ define internal i32 @dissect_ansi_tcap_T_conversationWithPerm(i1 noundef zeroext
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_conversationWithoutPerm(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.213) #4
   %13 = load i32, ptr @ett_ansi_tcap_TransactionPDU, align 4
@@ -584,11 +584,11 @@ define internal i32 @dissect_ansi_tcap_T_conversationWithoutPerm(i1 noundef zero
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_tcap_T_abort(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 5, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.214) #4
   %13 = load i32, ptr @ett_ansi_tcap_Abort, align 4
@@ -634,9 +634,9 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
 
 13:                                               ; preds = %10
   %14 = icmp samesign ugt i32 %12, 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %7, align 8
   br i1 %14, label %20, label %23
@@ -683,7 +683,7 @@ define internal i32 @dissect_ansi_tcap_TransactionID_U(i1 noundef zeroext %0, pt
 .sink.split15:                                    ; preds = %25, %34, %30, %26
   %.sink16 = phi i32 [ %29, %26 ], [ %33, %30 ], [ %36, %34 ], [ 0, %25 ]
   %37 = load ptr, ptr @gp_tcapsrt_info, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %.sink16, ptr %38, align 4
   br label %39
 
@@ -858,7 +858,7 @@ define internal i32 @dissect_ansi_tcap_T_componentIDs(i1 noundef zeroext %0, ptr
 define internal i32 @dissect_ansi_tcap_OperationCode(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = load i32, ptr @ett_ansi_tcap_OperationCode, align 4
   %8 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @OperationCode_choice, i32 noundef %5, i32 noundef %7, ptr noundef nonnull getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44)) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 56), align 8
   ret i32 %8
@@ -885,7 +885,7 @@ define internal i32 @dissect_ansi_tcap_T_national(i1 noundef zeroext %0, ptr nou
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %9 = and i32 %8, 32767
   store i32 %9, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_ansi_tcap_op_code_nat, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
@@ -938,7 +938,7 @@ define internal i32 @dissect_ansi_tcap_T_national(i1 noundef zeroext %0, ptr nou
 
 switch.lookup:                                    ; preds = %30
   %32 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_ansi_tcap_T_national, i64 0, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_ansi_tcap_T_national, i64 0, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -963,21 +963,21 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 40), align 8
   %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %8, label %47
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %12 = tail call ptr @address_to_str(ptr noundef %10, ptr noundef nonnull %11) #4
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %15 = tail call ptr @address_to_str(ptr noundef %13, ptr noundef nonnull %14) #4
-  %16 = getelementptr inbounds i8, ptr %7, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %21 = icmp eq i16 %20, 0
@@ -1013,15 +1013,15 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44), align 4
   store i32 %36, ptr %35, align 4
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %37, ptr %38, align 4
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %39, ptr %40, align 4
   %41 = load ptr, ptr @TransactionId_table, align 8
   %42 = tail call ptr @wmem_file_scope() #4
   %43 = tail call noalias ptr @wmem_strdup(ptr noundef %42, ptr noundef %.0.i) #4
-  %44 = getelementptr inbounds i8, ptr %7, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = tail call zeroext i1 @wmem_multimap_insert32(ptr noundef %41, ptr noundef %43, i32 noundef %45, ptr noundef nonnull %35) #4
   br label %save_invoke_data.exit
@@ -1032,12 +1032,12 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   br i1 %.not.i, label %save_invoke_data.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %7, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 208
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %53 = tail call ptr @address_to_str(ptr noundef %51, ptr noundef nonnull %52) #4
   %54 = load ptr, ptr %50, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 232
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %56 = tail call ptr @address_to_str(ptr noundef %54, ptr noundef nonnull %55) #4
   %57 = load ptr, ptr %50, align 8
   %58 = tail call noalias ptr @wmem_alloc(ptr noundef %57, i64 noundef 1024) #4
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
 
 67:                                               ; preds = %65, %63, %61
   %68 = load ptr, ptr @TransactionId_table, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = tail call ptr @wmem_multimap_lookup32_le(ptr noundef %68, ptr noundef nonnull %58, i32 noundef %70) #4
   %.not19.i = icmp eq ptr %71, null
@@ -1072,10 +1072,10 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
 72:                                               ; preds = %67
   %73 = load i32, ptr %71, align 4
   store i32 %73, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 44), align 4
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i32, ptr %74, align 4
   store i32 %75, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
-  %76 = getelementptr inbounds i8, ptr %71, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %77 = load i32, ptr %76, align 4
   store i32 %77, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 52), align 4
   %78 = icmp eq i32 %73, 0
@@ -1088,13 +1088,13 @@ define internal fastcc range(i32 0, 2) i32 @find_tcap_subdissector(ptr noundef %
   br i1 %.not.i33, label %proto_item_set_generated.exit, label %81
 
 81:                                               ; preds = %72
-  %82 = getelementptr inbounds i8, ptr %80, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %83 = load ptr, ptr %82, align 8
   %.not5.i = icmp eq ptr %83, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %83, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = or i32 %86, 2
   store i32 %87, ptr %85, align 4
@@ -1118,9 +1118,9 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
 89:                                               ; preds = %save_invoke_data.exit
   %90 = load i32, ptr getelementptr inbounds (i8, ptr @ansi_tcap_private, i64 48), align 8
   %91 = load ptr, ptr @ansi_tcap_national_opcode_table, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 128
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %95 = load ptr, ptr %94, align 8
   %96 = tail call i32 @dissector_try_uint(ptr noundef %91, i32 noundef %90, ptr noundef %0, ptr noundef %93, ptr noundef %95) #4
   %.not31 = icmp eq i32 %96, 0
@@ -1143,9 +1143,9 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
 
 108:                                              ; preds = %104
   %109 = load ptr, ptr @ansi_map_handle, align 8
-  %110 = getelementptr inbounds i8, ptr %1, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 @call_dissector_with_data(ptr noundef %109, ptr noundef %0, ptr noundef %111, ptr noundef %113, ptr noundef nonnull @ansi_tcap_private) #4
   br label %130
@@ -1157,16 +1157,16 @@ save_invoke_data.exit._crit_edge:                 ; preds = %save_invoke_data.ex
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr @ain_handle, align 8
-  %120 = getelementptr inbounds i8, ptr %1, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 128
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %123 = load ptr, ptr %122, align 8
   %124 = tail call i32 @call_dissector_with_data(ptr noundef %119, ptr noundef %0, ptr noundef %121, ptr noundef %123, ptr noundef nonnull @ansi_tcap_private) #4
   br label %130
 
 125:                                              ; preds = %save_invoke_data.exit._crit_edge, %115
   %126 = phi i32 [ %.pre, %save_invoke_data.exit._crit_edge ], [ %105, %115 ]
-  %127 = getelementptr inbounds i8, ptr %1, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %128, ptr noundef nonnull @ei_ansi_tcap_dissector_not_implemented, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.205, i32 noundef %126) #4
   br label %130

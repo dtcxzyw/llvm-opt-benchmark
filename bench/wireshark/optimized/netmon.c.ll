@@ -94,7 +94,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %.not312, label %366, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %27 [
     i8 1, label %30
@@ -114,9 +114,9 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 30:                                               ; preds = %23, %26
   %.0288.in = phi ptr [ @netmon_2_x_file_type_subtype, %26 ], [ @netmon_1_x_file_type_subtype, %23 ]
   %.0288 = load i32, ptr %.0288.in, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.val = load i8, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %5, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.val337 = load i8, ptr %32, align 1
   %33 = zext i8 %.val337 to i16
   %34 = shl nuw i16 %33, 8
@@ -141,16 +141,16 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %366
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0288, ptr %46, align 4
   %47 = call noalias dereferenceable_or_null(56) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 56) #14
-  %48 = getelementptr inbounds i8, ptr %0, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @netmon_read, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @netmon_seek_read, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @netmon_close, ptr %51, align 8
   %52 = load i8, ptr %24, align 1
   %53 = icmp eq i8 %52, 2
@@ -170,58 +170,58 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 62:                                               ; preds = %45, %57
   %.sink = phi i32 [ %61, %57 ], [ -1, %45 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 144
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.sink, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.val338 = load i16, ptr %65, align 4
   %66 = zext i16 %.val338 to i32
   %67 = add nsw i32 %66, -1900
-  %68 = getelementptr inbounds i8, ptr %6, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %5, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.val340 = load i16, ptr %69, align 2
   %70 = zext i16 %.val340 to i32
   %71 = add nsw i32 %70, -1
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %5, i64 10
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %.val342 = load i16, ptr %73, align 2
   %74 = zext i16 %.val342 to i32
-  %75 = getelementptr inbounds i8, ptr %6, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %5, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.val344 = load i16, ptr %76, align 4
   %77 = zext i16 %.val344 to i32
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 14
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %.val346 = load i16, ptr %79, align 2
   %80 = zext i16 %.val346 to i32
-  %81 = getelementptr inbounds i8, ptr %6, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %80, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %5, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val348 = load i16, ptr %82, align 4
   %83 = zext i16 %.val348 to i32
   store i32 %83, ptr %6, align 8
-  %84 = getelementptr inbounds i8, ptr %6, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %84, align 8
   %85 = call i64 @mktime(ptr noundef nonnull %6) #13
   store i64 %85, ptr %47, align 8
-  %86 = getelementptr inbounds i8, ptr %5, i64 18
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 18
   %.val350 = load i16, ptr %86, align 2
   %87 = zext i16 %.val350 to i32
   %88 = mul i32 %87, 1000000
-  %89 = getelementptr inbounds i8, ptr %47, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %88, ptr %89, align 8
   %90 = load i8, ptr %24, align 1
-  %91 = getelementptr inbounds i8, ptr %47, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i8 %90, ptr %91, align 4
   %92 = load i8, ptr %5, align 4
-  %93 = getelementptr inbounds i8, ptr %47, i64 13
+  %93 = getelementptr inbounds nuw i8, ptr %47, i64 13
   store i8 %92, ptr %93, align 1
-  %94 = getelementptr inbounds i8, ptr %5, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i8 %90, 2
   br i1 %96, label %97, label %99
@@ -235,13 +235,13 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %100, label %101, label %.thread
 
 101:                                              ; preds = %99, %97
-  %102 = getelementptr inbounds i8, ptr %5, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %5, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %5, i64 44
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %109 = load i32, ptr %108, align 4
   br label %.thread
 
@@ -250,7 +250,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   %.0291 = phi i32 [ %105, %101 ], [ 0, %99 ], [ 0, %97 ]
   %.0290 = phi i32 [ %107, %101 ], [ 0, %99 ], [ 0, %97 ]
   %.0289 = phi i32 [ %103, %101 ], [ 0, %99 ], [ 0, %97 ]
-  %110 = getelementptr inbounds i8, ptr %5, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %111 = load i32, ptr %110, align 4
   %112 = lshr i32 %111, 2
   %113 = zext i32 %111 to i64
@@ -379,9 +379,9 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br label %366
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %47, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i32 %112, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %47, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %161, ptr %170, align 8
   br i1 %.not315, label %251, label %171
 
@@ -418,8 +418,8 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %187, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader356
-  %188 = getelementptr inbounds i8, ptr %7, i64 8
-  %189 = getelementptr inbounds i8, ptr %7, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %191
 
 190:                                              ; preds = %182
@@ -466,7 +466,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   %207 = load i32, ptr %7, align 4
   store i32 %207, ptr %206, align 8
   %208 = load i32, ptr %189, align 4
-  %209 = getelementptr inbounds i8, ptr %206, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 4
   store i32 %208, ptr %209, align 4
   %210 = zext i32 %208 to i64
   %211 = inttoptr i64 %210 to ptr
@@ -485,7 +485,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 218:                                              ; preds = %205
   %219 = sub i32 %196, %197
   %220 = call fastcc ptr @utf_16_to_utf_8(ptr noundef %214, i32 noundef %197)
-  %221 = getelementptr inbounds i8, ptr %206, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store ptr %220, ptr %221, align 8
   call void @g_free(ptr noundef %214) #13
   %222 = icmp ult i32 %219, 4
@@ -511,7 +511,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 229:                                              ; preds = %225
   %230 = add i32 %219, -4
   %231 = load i32, ptr %8, align 4
-  %232 = getelementptr inbounds i8, ptr %206, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store i32 %231, ptr %232, align 8
   %.not335 = icmp eq i32 %231, 0
   br i1 %.not335, label %248, label %233
@@ -530,7 +530,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 237:                                              ; preds = %233
   %238 = zext i32 %231 to i64
   %239 = call noalias ptr @g_malloc(i64 noundef %238) #15
-  %240 = getelementptr inbounds i8, ptr %206, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store ptr %239, ptr %240, align 8
   %241 = load ptr, ptr %0, align 8
   %242 = load i32, ptr %232, align 8
@@ -553,7 +553,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %249, label %191, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %248, %.preheader356
-  %250 = getelementptr inbounds i8, ptr %47, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store ptr %172, ptr %250, align 8
   br label %251
 
@@ -641,7 +641,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 285:                                              ; preds = %280
   %286 = load i32, ptr %10, align 4
-  %287 = getelementptr inbounds i8, ptr %265, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i32 %286, ptr %287, align 8
   %288 = load ptr, ptr %0, align 8
   %289 = zext i32 %286 to i64
@@ -668,7 +668,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 297:                                              ; preds = %293
   %298 = load i32, ptr %10, align 4
-  %299 = getelementptr inbounds i8, ptr %265, i64 24
+  %299 = getelementptr inbounds nuw i8, ptr %265, i64 24
   store i32 %298, ptr %299, align 8
   %300 = zext i32 %298 to i64
   %301 = inttoptr i64 %300 to ptr
@@ -684,7 +684,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 306:                                              ; preds = %297
   %.val352 = load i16, ptr %11, align 2
-  %307 = getelementptr inbounds i8, ptr %265, i64 28
+  %307 = getelementptr inbounds nuw i8, ptr %265, i64 28
   store i16 %.val352, ptr %307, align 4
   %308 = load ptr, ptr %0, align 8
   %309 = call i32 @wtap_read_bytes(ptr noundef %308, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2) #13
@@ -707,7 +707,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 315:                                              ; preds = %311
   %.val354 = load i16, ptr %11, align 2
-  %316 = getelementptr inbounds i8, ptr %265, i64 30
+  %316 = getelementptr inbounds nuw i8, ptr %265, i64 30
   store i16 %.val354, ptr %316, align 2
   %317 = load ptr, ptr %0, align 8
   %318 = call i32 @wtap_read_bytes(ptr noundef %317, ptr noundef nonnull %11, i32 noundef 2, ptr noundef %1, ptr noundef %2) #13
@@ -732,13 +732,13 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   %325 = load i32, ptr %10, align 4
   %326 = icmp ne i32 %325, 0
   %327 = zext i1 %326 to i32
-  %328 = getelementptr inbounds i8, ptr %265, i64 32
+  %328 = getelementptr inbounds nuw i8, ptr %265, i64 32
   store i32 %327, ptr %328, align 8
   %329 = load ptr, ptr %0, align 8
   br i1 %326, label %330, label %339
 
 330:                                              ; preds = %324
-  %331 = getelementptr inbounds i8, ptr %265, i64 36
+  %331 = getelementptr inbounds nuw i8, ptr %265, i64 36
   %332 = call i32 @wtap_read_bytes(ptr noundef %329, ptr noundef nonnull %331, i32 noundef 16, ptr noundef %1, ptr noundef %2) #13
   %.not330 = icmp eq i32 %332, 0
   br i1 %.not330, label %333, label %334
@@ -749,7 +749,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 334:                                              ; preds = %330
   %335 = load ptr, ptr %0, align 8
-  %336 = getelementptr inbounds i8, ptr %265, i64 52
+  %336 = getelementptr inbounds nuw i8, ptr %265, i64 52
   %337 = call i32 @wtap_read_bytes(ptr noundef %335, ptr noundef nonnull %336, i32 noundef 16, ptr noundef %1, ptr noundef %2) #13
   %.not331 = icmp eq i32 %337, 0
   br i1 %.not331, label %338, label %351
@@ -769,7 +769,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 342:                                              ; preds = %339
   %343 = load i32, ptr %12, align 16
-  %344 = getelementptr inbounds i8, ptr %265, i64 36
+  %344 = getelementptr inbounds nuw i8, ptr %265, i64 36
   store i32 %343, ptr %344, align 4
   %345 = load ptr, ptr %0, align 8
   %346 = call i32 @wtap_read_bytes(ptr noundef %345, ptr noundef nonnull %12, i32 noundef 16, ptr noundef %1, ptr noundef %2) #13
@@ -782,7 +782,7 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
 
 348:                                              ; preds = %342
   %349 = load i32, ptr %12, align 16
-  %350 = getelementptr inbounds i8, ptr %265, i64 52
+  %350 = getelementptr inbounds nuw i8, ptr %265, i64 52
   store i32 %349, ptr %350, align 4
   br label %351
 
@@ -792,12 +792,12 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   br i1 %.not318, label %353, label %.preheader, !llvm.loop !6
 
 353:                                              ; preds = %351
-  %354 = getelementptr inbounds i8, ptr %47, i64 40
+  %354 = getelementptr inbounds nuw i8, ptr %47, i64 40
   store ptr %258, ptr %354, align 8
   br label %355
 
 355:                                              ; preds = %353, %251
-  %356 = getelementptr inbounds i8, ptr %47, i64 48
+  %356 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store i32 0, ptr %356, align 8
   %357 = load i8, ptr %91, align 4
   switch i8 %357, label %366 [
@@ -806,14 +806,14 @@ define hidden range(i32 -1, 2) i32 @netmon_open(ptr noundef %0, ptr noundef %1, 
   ]
 
 358:                                              ; preds = %355
-  %359 = getelementptr inbounds i8, ptr %0, i64 148
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %359, align 4
   br label %366
 
 360:                                              ; preds = %355
   %361 = load i8, ptr %93, align 1
   %362 = icmp ugt i8 %361, 2
-  %363 = getelementptr inbounds i8, ptr %0, i64 148
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 148
   br i1 %362, label %364, label %365
 
 364:                                              ; preds = %360
@@ -840,11 +840,11 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netmon_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %12
 
 12:                                               ; preds = %28, %6
@@ -898,7 +898,7 @@ define internal range(i32 0, 2) i32 @netmon_read(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netmon_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #13
   %10 = icmp eq i64 %9, -1
@@ -928,9 +928,9 @@ define internal range(i32 0, 2) i32 @netmon_seek_read(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @netmon_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -941,7 +941,7 @@ define internal void @netmon_close(ptr nocapture noundef readonly %0) #0 {
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %11, label %10
@@ -952,7 +952,7 @@ define internal void @netmon_close(ptr nocapture noundef readonly %0) #0 {
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not13 = icmp eq ptr %13, null
   br i1 %.not13, label %15, label %14
@@ -986,10 +986,10 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @netmonrec_comment_destroy(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #13
   tail call void @g_free(ptr noundef %0) #13
@@ -1171,7 +1171,7 @@ define internal fastcc ptr @utf_16_to_utf_8(ptr nocapture noundef readonly %0, i
 define internal void @netmonrec_process_info_destroy(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #13
   tail call void @g_free(ptr noundef nonnull %0) #13
@@ -1205,9 +1205,9 @@ define internal fastcc range(i32 0, 3) i32 @netmon_process_record(ptr nocapture 
   %8 = alloca %union.anon, align 8
   %9 = alloca %union.anon.0, align 1
   %.sroa.0.sroa.6 = alloca [68 x i8], align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i8, ptr %12, align 4
   %switch.selectcmp = icmp eq i8 %13, 2
   %switch.select = select i1 %switch.selectcmp, i32 16, i32 0
@@ -1225,18 +1225,18 @@ define internal fastcc range(i32 0, 3) i32 @netmon_process_record(ptr nocapture 
   ]
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %8, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.val141 = load i16, ptr %18, align 4
   %19 = zext i16 %.val141 to i32
-  %20 = getelementptr inbounds i8, ptr %8, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %.val139 = load i16, ptr %20, align 2
   %21 = zext i16 %.val139 to i32
   br label %.thread
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp ugt i32 %26, 262144
   br i1 %27, label %28, label %.thread
@@ -1252,9 +1252,9 @@ define internal fastcc range(i32 0, 3) i32 @netmon_process_record(ptr nocapture 
   %.0117151 = phi i32 [ %26, %22 ], [ %21, %17 ], [ 0, %15 ]
   store i32 0, ptr %2, align 8
   %30 = call ptr @wtap_block_create(i32 noundef 5) #13
-  %31 = getelementptr inbounds i8, ptr %2, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = load i32, ptr %32, align 8
   %cond = icmp eq i32 %33, 13
   br i1 %cond, label %34, label %52
@@ -1280,20 +1280,20 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
   br label %.thread155
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %2, i64 80
-  %42 = getelementptr inbounds i8, ptr %7, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %43 = load i16, ptr %42, align 2
   %rev.i = call i16 @llvm.bswap.i16(i16 %43)
-  %44 = getelementptr inbounds i8, ptr %7, i64 14
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %45 = load i16, ptr %44, align 2
   %rev13.i = call i16 @llvm.bswap.i16(i16 %45)
-  %46 = getelementptr inbounds i8, ptr %2, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i16 %rev.i, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 90
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 90
   store i16 %rev13.i, ptr %47, align 2
   store i32 0, ptr %41, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 94
-  %49 = getelementptr inbounds i8, ptr %2, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 94
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 0, ptr %49, align 8
   store i64 0, ptr %48, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1323,7 +1323,7 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
 
 61:                                               ; preds = %58, %54, %52
   %.0122 = phi i64 [ 0, %52 ], [ %60, %58 ], [ %57, %54 ]
-  %62 = getelementptr inbounds i8, ptr %11, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
   %65 = add i64 %.0122, %64
@@ -1352,17 +1352,17 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
   %79 = add nsw i64 %.0120.lcssa, %78
   %80 = urem i64 %.0121.lcssa, 1000000000
   %81 = trunc nuw nsw i64 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %2, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %82, align 4
   %83 = load i64, ptr %11, align 8
   %84 = add i64 %79, %83
-  %85 = getelementptr inbounds i8, ptr %2, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %81, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %.1118, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 68
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %.1, ptr %88, align 4
   %89 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %.1118, ptr noundef %4, ptr noundef %5) #13
   %.not130 = icmp eq i32 %89, 0
@@ -1374,7 +1374,7 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
   br i1 %92, label %93, label %152
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %11, i64 13
+  %94 = getelementptr inbounds nuw i8, ptr %11, i64 13
   %95 = load i8, ptr %94, align 1
   switch i8 %95, label %97 [
     i8 0, label %152
@@ -1396,7 +1396,7 @@ netmon_read_atm_pseudoheader.exit.thread:         ; preds = %38
 
 100:                                              ; preds = %98
   %.val = load i8, ptr %9, align 1
-  %101 = getelementptr inbounds i8, ptr %9, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.val138 = load i8, ptr %101, align 1
   %102 = zext i8 %.val138 to i16
   %103 = shl nuw i16 %102, 8
@@ -1510,14 +1510,14 @@ default.unreachable:                              ; preds = %108
 
 142:                                              ; preds = %137, %108, %120, %138, %139, %129, %111, %112, %113, %114, %115, %116
   %.0114 = phi i32 [ 196, %116 ], [ 195, %115 ], [ 194, %114 ], [ 193, %113 ], [ 192, %112 ], [ 191, %111 ], [ %123, %120 ], [ %132, %129 ], [ 189, %139 ], [ 190, %138 ], [ 20, %108 ], [ 187, %137 ]
-  %143 = getelementptr inbounds i8, ptr %2, i64 72
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %.0114, ptr %143, align 8
   %144 = load i8, ptr %94, align 1
   %145 = icmp ugt i8 %144, 2
   br i1 %145, label %146, label %152
 
 146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %9, i64 6
+  %147 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %148 = load i64, ptr %147, align 1
   %149 = call zeroext i1 @filetime_to_nstime(ptr noundef nonnull %85, i64 noundef %148) #13
   br i1 %149, label %152, label %150
@@ -1529,7 +1529,7 @@ default.unreachable:                              ; preds = %108
   br label %.thread155
 
 152:                                              ; preds = %93, %142, %146, %90
-  %153 = getelementptr inbounds i8, ptr %2, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %154 = load i32, ptr %153, align 8
   switch i32 %154, label %netmon_set_pseudo_header_info.exit [
     i32 13, label %155
@@ -1538,27 +1538,27 @@ default.unreachable:                              ; preds = %108
 
 155:                                              ; preds = %152
   %156 = load ptr, ptr %3, align 8
-  %157 = getelementptr inbounds i8, ptr %3, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %158 = load i64, ptr %157, align 8
   %159 = getelementptr i8, ptr %156, i64 %158
   call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %159) #13
   br label %netmon_set_pseudo_header_info.exit
 
 160:                                              ; preds = %152
-  %161 = getelementptr inbounds i8, ptr %2, i64 80
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %161, align 8
   br label %netmon_set_pseudo_header_info.exit
 
 netmon_set_pseudo_header_info.exit:               ; preds = %152, %155, %160
-  %162 = getelementptr inbounds i8, ptr %11, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %163 = load ptr, ptr %162, align 8
   %.not134 = icmp eq ptr %163, null
   br i1 %.not134, label %.thread155, label %164
 
 164:                                              ; preds = %netmon_set_pseudo_header_info.exit
-  %165 = getelementptr inbounds i8, ptr %11, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %11, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %168 = load i32, ptr %167, align 8
   %169 = add i32 %168, -1
   %170 = zext i32 %169 to i64
@@ -1572,7 +1572,7 @@ netmon_set_pseudo_header_info.exit:               ; preds = %152, %155, %160
 
 176:                                              ; preds = %164
   %177 = load i32, ptr %153, align 8
-  %178 = getelementptr inbounds i8, ptr %2, i64 80
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 80
   switch i32 %177, label %210 [
     i32 13, label %.thread158
     i32 1, label %.thread161
@@ -1581,86 +1581,86 @@ netmon_set_pseudo_header_info.exit:               ; preds = %152, %155, %160
 
 .thread158:                                       ; preds = %176
   %.sroa.0.sroa.0.0.copyload144 = load i32, ptr %178, align 8
-  %.sroa.0.sroa.6.0..sroa_idx147 = getelementptr inbounds i8, ptr %2, i64 84
+  %.sroa.0.sroa.6.0..sroa_idx147 = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.sroa.6, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.sroa.6.0..sroa_idx147, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %178, i8 0, i64 104, i1 false)
-  %179 = getelementptr inbounds i8, ptr %2, i64 104
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 13, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %175, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %181 = load ptr, ptr %180, align 8
   store ptr %181, ptr %178, align 8
-  %182 = getelementptr inbounds i8, ptr %175, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %183 = load i32, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %2, i64 88
+  %184 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %175, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %2, i64 96
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %186, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %2, i64 112
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %.sroa.0.sroa.0.0.copyload144, ptr %188, align 8
-  %.sroa.0.sroa.6.0..sroa_idx148 = getelementptr inbounds i8, ptr %2, i64 116
+  %.sroa.0.sroa.6.0..sroa_idx148 = getelementptr inbounds nuw i8, ptr %2, i64 116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.sroa.6.0..sroa_idx148, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.sroa.6, i64 24, i1 false)
   br label %220
 
 .thread161:                                       ; preds = %176
   %189 = load i32, ptr %178, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %178, i8 0, i64 104, i1 false)
-  %190 = getelementptr inbounds i8, ptr %2, i64 104
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 1, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %175, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %192 = load ptr, ptr %191, align 8
   store ptr %192, ptr %178, align 8
-  %193 = getelementptr inbounds i8, ptr %175, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %194 = load i32, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %2, i64 88
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %194, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %175, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %2, i64 96
+  %198 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %197, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %2, i64 112
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %189, ptr %199, align 8
   br label %220
 
 .thread164:                                       ; preds = %176
   %.sroa.0.sroa.0.0.copyload = load i32, ptr %178, align 8
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
+  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.0.sroa.6, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.0.sroa.6.0..sroa_idx, i64 68, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %178, i8 0, i64 104, i1 false)
-  %200 = getelementptr inbounds i8, ptr %2, i64 104
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 126, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %175, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %202 = load ptr, ptr %201, align 8
   store ptr %202, ptr %178, align 8
-  %203 = getelementptr inbounds i8, ptr %175, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %204 = load i32, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %2, i64 88
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %204, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %175, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %2, i64 96
+  %208 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %207, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %2, i64 112
+  %209 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 %.sroa.0.sroa.0.0.copyload, ptr %209, align 8
-  %.sroa.0.sroa.6.0..sroa_idx146 = getelementptr inbounds i8, ptr %2, i64 116
+  %.sroa.0.sroa.6.0..sroa_idx146 = getelementptr inbounds nuw i8, ptr %2, i64 116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.0.sroa.6.0..sroa_idx146, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.0.sroa.6, i64 68, i1 false)
   br label %220
 
 210:                                              ; preds = %176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %178, i8 0, i64 104, i1 false)
-  %211 = getelementptr inbounds i8, ptr %2, i64 104
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %177, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %175, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %213 = load ptr, ptr %212, align 8
   store ptr %213, ptr %178, align 8
-  %214 = getelementptr inbounds i8, ptr %175, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %215 = load i32, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %2, i64 88
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %215, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %175, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %2, i64 96
+  %219 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %218, ptr %219, align 8
   br label %220
 
@@ -1712,21 +1712,21 @@ define internal range(i32 0, 2) i32 @netmon_dump_open_1_x(ptr noundef %0, ptr no
   br i1 %5, label %netmon_dump_open.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 128, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @netmon_dump, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @netmon_dump_finish, ptr %9, align 8
   %10 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %10, ptr %11, align 8
   store i32 0, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 128, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   br label %netmon_dump_open.exit
 
@@ -1743,8 +1743,8 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   %7 = alloca %struct.netmonrec_2_x_hdr, align 8
   %8 = alloca %struct.netmonrec_2_1_trlr, align 1
   %9 = alloca %struct.netmon_atm_hdr, align 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %13, 0
@@ -1765,7 +1765,7 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   br i1 %19, label %20, label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %17
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %31
 
@@ -1774,9 +1774,9 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   br label %184
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load i32, ptr %24, align 8
   %.not100 = icmp eq i32 %23, %25
   br i1 %.not100, label %27, label %26
@@ -1796,12 +1796,12 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
 
 31:                                               ; preds = %._crit_edge115, %27
   %32 = phi i32 [ %.pre, %._crit_edge115 ], [ %23, %27 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = icmp eq i32 %32, -1
   br i1 %34, label %35, label %51
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %37 = load i32, ptr %36, align 8
   %38 = icmp ugt i32 %37, 13
   br i1 %38, label %43, label %39
@@ -1824,12 +1824,12 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   store i8 %47, ptr %8, align 1
   %48 = lshr i32 %46, 8
   %49 = trunc i32 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %8, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %49, ptr %50, align 1
   br label %51
 
 51:                                               ; preds = %44, %31
-  %52 = getelementptr inbounds i8, ptr %12, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %53 = load i32, ptr %52, align 8
   %.not102 = icmp eq i32 %53, 0
   br i1 %.not102, label %55, label %54
@@ -1839,29 +1839,29 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   br label %184
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %12, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %57 = load i32, ptr %56, align 4
   %.not103 = icmp eq i32 %57, 0
   br i1 %.not103, label %58, label %._crit_edge117
 
 ._crit_edge117:                                   ; preds = %55
-  %.phi.trans.insert118 = getelementptr inbounds i8, ptr %12, i64 8
+  %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pre119 = load i64, ptr %.phi.trans.insert118, align 8
-  %.phi.trans.insert120 = getelementptr inbounds i8, ptr %12, i64 16
+  %.phi.trans.insert120 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.pre121 = load i32, ptr %.phi.trans.insert120, align 8
   br label %67
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %1, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %63 = load i32, ptr %62, align 8
   %.fr = freeze i32 %63
   %64 = srem i32 %.fr, 1000000
   %65 = sub nsw i32 %.fr, %64
-  %66 = getelementptr inbounds i8, ptr %12, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %65, ptr %66, align 8
   store i32 1, ptr %56, align 4
   %.pre116 = load i32, ptr %33, align 8
@@ -1873,10 +1873,10 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   %70 = phi i32 [ %.pre116, %58 ], [ %32, %._crit_edge117 ]
   %71 = icmp eq i32 %70, 13
   %. = select i1 %71, i32 16, i32 0
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = sub i64 %73, %69
-  %75 = getelementptr inbounds i8, ptr %1, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = sub i32 %76, %68
   %78 = icmp slt i32 %77, 0
@@ -1904,7 +1904,7 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %67
   %.090.lcssa = phi i64 [ %74, %67 ], [ %93, %.lr.ph.preheader ]
   %.0.lcssa = phi i32 [ %77, %67 ], [ %90, %.lr.ph.preheader ]
-  %94 = getelementptr inbounds i8, ptr %1, i64 68
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 68
   br i1 %.not99, label %107, label %95
 
 95:                                               ; preds = %._crit_edge
@@ -1916,11 +1916,11 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   store i64 %100, ptr %7, align 8
   %101 = load i32, ptr %94, align 4
   %102 = add i32 %101, %.
-  %103 = getelementptr inbounds i8, ptr %7, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %102, ptr %103, align 8
   %104 = load i32, ptr %10, align 8
   %105 = add i32 %104, %.
-  %106 = getelementptr inbounds i8, ptr %7, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %105, ptr %106, align 4
   br label %121
 
@@ -1934,12 +1934,12 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   %113 = load i32, ptr %94, align 4
   %114 = add i32 %113, %.
   %115 = trunc i32 %114 to i16
-  %116 = getelementptr inbounds i8, ptr %6, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %115, ptr %116, align 4
   %117 = load i32, ptr %10, align 8
   %118 = add i32 %117, %.
   %119 = trunc i32 %118 to i16
-  %120 = getelementptr inbounds i8, ptr %6, i64 6
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %119, ptr %120, align 2
   br label %121
 
@@ -1956,16 +1956,16 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
   br i1 %125, label %126, label %136
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %1, i64 88
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %9, i8 0, i64 12, i1 false)
   %128 = load i16, ptr %127, align 8
   %rev = call i16 @llvm.bswap.i16(i16 %128)
-  %129 = getelementptr inbounds i8, ptr %9, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i16 %rev, ptr %129, align 2
-  %130 = getelementptr inbounds i8, ptr %1, i64 90
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %131 = load i16, ptr %130, align 2
   %rev106 = call i16 @llvm.bswap.i16(i16 %131)
-  %132 = getelementptr inbounds i8, ptr %9, i64 14
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 14
   store i16 %rev106, ptr %132, align 2
   %133 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 16, ptr noundef %3) #13
   %.not107 = icmp eq i32 %133, 0
@@ -2002,33 +2002,33 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
 
 150:                                              ; preds = %148, %140
   %.1 = phi i64 [ %149, %148 ], [ %143, %140 ]
-  %151 = getelementptr inbounds i8, ptr %12, i64 44
+  %151 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %152 = load i32, ptr %151, align 4
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %157
 
 154:                                              ; preds = %150
   %155 = call noalias dereferenceable_or_null(4096) ptr @g_malloc(i64 noundef 4096) #15
-  %156 = getelementptr inbounds i8, ptr %12, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %155, ptr %156, align 8
   store i32 1024, ptr %151, align 4
   br label %167
 
 157:                                              ; preds = %150
-  %158 = getelementptr inbounds i8, ptr %12, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %159 = load i32, ptr %158, align 8
   %.not110 = icmp ult i32 %159, %152
   br i1 %.not110, label %._crit_edge122, label %160
 
 ._crit_edge122:                                   ; preds = %157
-  %.phi.trans.insert123 = getelementptr inbounds i8, ptr %12, i64 32
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.pre124 = load ptr, ptr %.phi.trans.insert123, align 8
   br label %167
 
 160:                                              ; preds = %157
   %161 = shl i32 %152, 1
   store i32 %161, ptr %151, align 4
-  %162 = getelementptr inbounds i8, ptr %12, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %163 = load ptr, ptr %162, align 8
   %164 = zext i32 %161 to i64
   %165 = shl nuw nsw i64 %164, 2
@@ -2038,9 +2038,9 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
 
 167:                                              ; preds = %._crit_edge122, %160, %154
   %168 = phi ptr [ %.pre124, %._crit_edge122 ], [ %166, %160 ], [ %155, %154 ]
-  %169 = getelementptr inbounds i8, ptr %12, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %170 = load i32, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %12, i64 40
+  %171 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %172 = load i32, ptr %171, align 8
   %173 = zext i32 %172 to i64
   %174 = getelementptr i32, ptr %168, i64 %173
@@ -2071,13 +2071,13 @@ define internal range(i32 0, 2) i32 @netmon_dump(ptr noundef %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.netmon_hdr, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef %12, i64 noundef %10, ptr noundef %1) #13
   %.not = icmp eq i32 %13, 0
@@ -2089,16 +2089,16 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   br i1 %16, label %91, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %20, i8 0, i64 56, i1 false)
   %21 = load i32, ptr %6, align 8
   %.not37 = icmp eq i32 %21, 0
   br i1 %.not37, label %27, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, -1
   %26 = zext i1 %25 to i8
@@ -2108,7 +2108,7 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   %.sink = phi i8 [ 2, %22 ], [ 1, %17 ]
   %storemerge = phi i8 [ %26, %22 ], [ 1, %17 ]
   %.033 = phi ptr [ @netmon_2_x_magic, %22 ], [ @netmon_1_x_magic, %17 ]
-  %28 = getelementptr inbounds i8, ptr %4, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %.sink, ptr %28, align 1
   store i8 %storemerge, ptr %4, align 4
   %29 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %.033, i64 noundef 4, ptr noundef %1) #13
@@ -2116,7 +2116,7 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
   br i1 %.not38, label %91, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %39, label %34
@@ -2130,76 +2130,76 @@ define internal range(i32 0, 2) i32 @netmon_dump_finish(ptr noundef %0, ptr noun
 
 39:                                               ; preds = %30, %34
   %.sink41 = phi i16 [ %38, %34 ], [ 1, %30 ]
-  %40 = getelementptr inbounds i8, ptr %4, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %.sink41, ptr %40, align 2
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = tail call ptr @localtime(ptr noundef nonnull %41) #13
   %.not39 = icmp eq ptr %42, null
   br i1 %.not39, label %72, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %42, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = trunc i32 %45 to i16
   %47 = add i16 %46, 1900
-  %48 = getelementptr inbounds i8, ptr %4, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %42, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = trunc i32 %50 to i16
   %52 = add i16 %51, 1
-  %53 = getelementptr inbounds i8, ptr %4, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i16 %52, ptr %53, align 2
-  %54 = getelementptr inbounds i8, ptr %42, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = trunc i32 %55 to i16
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 %56, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %42, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = trunc i32 %59 to i16
-  %61 = getelementptr inbounds i8, ptr %4, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i16 %60, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %42, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = trunc i32 %63 to i16
-  %65 = getelementptr inbounds i8, ptr %4, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i16 %64, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %42, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = trunc i32 %67 to i16
-  %69 = getelementptr inbounds i8, ptr %4, i64 14
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i16 %68, ptr %69, align 2
   %70 = load i32, ptr %42, align 8
   %71 = trunc i32 %70 to i16
   br label %76
 
 72:                                               ; preds = %39
-  %73 = getelementptr inbounds i8, ptr %4, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1900, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %4, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i16 1, ptr %74, align 2
-  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %72, %43
   %.sink42 = phi i16 [ 0, %72 ], [ %71, %43 ]
-  %77 = getelementptr inbounds i8, ptr %4, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 %.sink42, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %6, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = sdiv i32 %79, 1000000
   %81 = trunc nsw i32 %80 to i16
-  %82 = getelementptr inbounds i8, ptr %4, i64 18
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 %81, ptr %82, align 2
-  %83 = getelementptr inbounds i8, ptr %6, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %4, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %84, ptr %85, align 4
   %86 = load i32, ptr %7, align 8
   %87 = shl i32 %86, 2
-  %88 = getelementptr inbounds i8, ptr %4, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %87, ptr %88, align 4
   %89 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 60, ptr noundef %1) #13
   %.not40 = icmp eq i32 %89, 0
@@ -2253,21 +2253,21 @@ define internal range(i32 0, 2) i32 @netmon_dump_open_2_x(ptr noundef %0, ptr no
   br i1 %5, label %netmon_dump_open.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 128, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @netmon_dump, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @netmon_dump_finish, ptr %9, align 8
   %10 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %10, ptr %11, align 8
   store i32 1, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 128, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   br label %netmon_dump_open.exit
 

@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 632
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %5) #3
   %7 = getelementptr i8, ptr %5, i64 -16
@@ -47,10 +47,10 @@ define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readon
 .thread:                                          ; preds = %3, %14, %10
   %16 = getelementptr i8, ptr %0, i64 -168
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 200
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 216
   %22 = load i8, ptr %21, align 8
   %23 = zext i8 %22 to i32
   %24 = getelementptr i8, ptr %0, i64 -128
@@ -61,31 +61,31 @@ define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readon
 
 .preheader:                                       ; preds = %.thread, %49
   %28 = phi ptr [ %50, %49 ], [ %26, %.thread ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %49, label %32
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %30, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %20
   br i1 %35, label %36, label %49
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %30, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %23
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %30, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %25
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %28, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
@@ -97,7 +97,7 @@ define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readon
   br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !5
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load i16, ptr %53, align 8
   br label %.loopexit
 
@@ -108,7 +108,7 @@ define internal zeroext i16 @smbios_attr_is_visible(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i16 @acpi_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 632
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %5) #3
   %7 = getelementptr i8, ptr %5, i64 -16
@@ -127,7 +127,7 @@ define internal zeroext i16 @acpi_attr_is_visible(ptr nocapture noundef readonly
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i16, ptr %17, align 8
   br label %.thread
 
@@ -169,32 +169,32 @@ define internal i64 @smbios_label_show(ptr nocapture noundef readonly %0, ptr no
 
 .preheader.i:                                     ; preds = %3, %36
   %11 = phi ptr [ %37, %36 ], [ %9, %3 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %36, label %15
 
 15:                                               ; preds = %.preheader.i
-  %16 = getelementptr inbounds i8, ptr %13, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %.val.val.val
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %8
   br i1 %22, label %23, label %36
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %13, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %.val1
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %23
   %28 = icmp eq ptr %2, null
-  %29 = getelementptr inbounds i8, ptr %11, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %30 = load ptr, ptr %29, align 8
   br i1 %28, label %34, label %31
 
@@ -235,25 +235,25 @@ define internal i64 @index_show(ptr nocapture noundef readonly %0, ptr nocapture
 
 .preheader.i:                                     ; preds = %3, %38
   %11 = phi ptr [ %39, %38 ], [ %9, %3 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %38, label %15
 
 15:                                               ; preds = %.preheader.i
-  %16 = getelementptr inbounds i8, ptr %13, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %.val.val.val
   br i1 %18, label %19, label %38
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %8
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %13, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %.val1
   br i1 %26, label %27, label %38
@@ -263,14 +263,14 @@ define internal i64 @index_show(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %13, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef nonnull %2, ptr noundef nonnull @.str, i32 noundef %31) #3
   %33 = sext i32 %32 to i64
   br label %find_smbios_instance_string.exit
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %11, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i64 @strlen(ptr noundef %36) #3
   br label %find_smbios_instance_string.exit
@@ -314,14 +314,14 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dsm_get_label(ptr %.632.v
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %12, align 8
   %18 = icmp eq i32 %17, 4
   br i1 %18, label %19, label %.thread1
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2
   br i1 %22, label %23, label %.thread1
@@ -343,7 +343,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dsm_get_label(ptr %.632.v
   br i1 %.not, label %36, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %34) #3
   br label %48

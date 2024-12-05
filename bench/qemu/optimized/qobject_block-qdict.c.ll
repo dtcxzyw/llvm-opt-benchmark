@@ -51,7 +51,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end7, label %qobject_ref_impl.exit
 
 qobject_ref_impl.exit:                            ; preds = %if.end
-  %refcnt.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -183,7 +183,7 @@ if.then29:                                        ; preds = %if.else27
   br i1 %tobool.not.i, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then29
-  %refcnt.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -249,13 +249,13 @@ while.body:                                       ; preds = %if.end.thread, %if.
 if.then6:                                         ; preds = %while.body
   %3 = load ptr, ptr %dst, align 8
   %4 = load ptr, ptr %p, align 8
-  %value = getelementptr inbounds i8, ptr %entry1.013, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %entry1.013, i64 8
   %5 = load ptr, ptr %value, align 8
   %tobool9.not = icmp eq ptr %5, null
   br i1 %tobool9.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
-  %refcnt.i = getelementptr inbounds i8, ptr %5, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %6, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -380,7 +380,7 @@ if.else35:                                        ; preds = %if.end23
   br i1 %tobool16.not, label %qobject_ref_impl.exit, label %if.then.i18
 
 if.then.i18:                                      ; preds = %if.end13.qdict_count_prefixed_entries.exit_crit_edge, %if.else35
-  %refcnt.i = getelementptr inbounds i8, ptr %call5, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %inc.i19 = add i64 %5, 1
   store i64 %inc.i19, ptr %refcnt.i, align 8
@@ -424,7 +424,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end55
   %ent.0247 = phi ptr [ %call56, %if.end55 ], [ %call1, %entry ]
-  %value = getelementptr inbounds i8, ptr %ent.0247, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %ent.0247, i64 8
   %0 = load ptr, ptr %value, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
@@ -568,7 +568,7 @@ if.end29:                                         ; preds = %qobject_type.exit.i
   br i1 %tobool32.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end29
-  %refcnt.i = getelementptr inbounds i8, ptr %8, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -584,7 +584,7 @@ if.else:                                          ; preds = %if.end21
   br i1 %tobool45.not, label %qobject_ref_impl.exit105, label %if.then.i102
 
 if.then.i102:                                     ; preds = %if.else
-  %refcnt.i103 = getelementptr inbounds i8, ptr %10, i64 8
+  %refcnt.i103 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i64, ptr %refcnt.i103, align 8
   %inc.i104 = add i64 %11, 1
   store i64 %inc.i104, ptr %refcnt.i103, align 8
@@ -608,7 +608,7 @@ for.end:                                          ; preds = %if.end55, %entry
 
 for.body61:                                       ; preds = %for.end, %for.inc90
   %ent.1249 = phi ptr [ %call91, %for.inc90 ], [ %call58, %for.end ]
-  %value62 = getelementptr inbounds i8, ptr %ent.1249, i64 8
+  %value62 = getelementptr inbounds nuw i8, ptr %ent.1249, i64 8
   %12 = load ptr, ptr %value62, align 8
   %tobool.not.i106 = icmp eq ptr %12, null
   br i1 %tobool.not.i106, label %if.else74.thread, label %land.lhs.true.i107
@@ -659,7 +659,7 @@ if.else74:                                        ; preds = %land.lhs.true65
 if.then.i117:                                     ; preds = %if.else74.thread285, %if.else74
   %18 = phi ptr [ %15, %if.else74.thread285 ], [ %17, %if.else74 ]
   %.pr288 = phi ptr [ %12, %if.else74.thread285 ], [ %.pr.pre, %if.else74 ]
-  %refcnt.i118 = getelementptr inbounds i8, ptr %.pr288, i64 8
+  %refcnt.i118 = getelementptr inbounds nuw i8, ptr %.pr288, i64 8
   %19 = load i64, ptr %refcnt.i118, align 8
   %inc.i119 = add i64 %19, 1
   store i64 %inc.i119, ptr %refcnt.i118, align 8
@@ -681,7 +681,7 @@ for.end92:                                        ; preds = %for.inc90, %for.end
   br i1 %tobool94.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.end92
-  %refcnt.i122 = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i122 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %22 = load i64, ptr %refcnt.i122, align 8
   %tobool1.not.i123 = icmp eq i64 %22, 0
   br i1 %tobool1.not.i123, label %if.else.i126, label %land.lhs.true.i124
@@ -784,7 +784,7 @@ for.body123.us:                                   ; preds = %for.body123.lr.ph, 
   br i1 %tobool127.not.us, label %if.then128, label %if.end129.us
 
 if.end129.us:                                     ; preds = %for.body123.us
-  %refcnt.i146.us = getelementptr inbounds i8, ptr %call126.us, i64 8
+  %refcnt.i146.us = getelementptr inbounds nuw i8, ptr %call126.us, i64 8
   %25 = load i64, ptr %refcnt.i146.us, align 8
   %inc.i147.us = add i64 %25, 1
   store i64 %inc.i147.us, ptr %refcnt.i146.us, align 8
@@ -820,7 +820,7 @@ if.else.i.i138:                                   ; preds = %if.end129
 qobject_type.exit.i139:                           ; preds = %if.end129
   %cmp.i140 = icmp eq i32 %obj.val.i136, 5
   %spec.select255 = select i1 %cmp.i140, ptr %call109.fr, ptr null
-  %refcnt.i146 = getelementptr inbounds i8, ptr %call126, i64 8
+  %refcnt.i146 = getelementptr inbounds nuw i8, ptr %call126, i64 8
   %27 = load i64, ptr %refcnt.i146, align 8
   %inc.i147 = add i64 %27, 1
   store i64 %inc.i147, ptr %refcnt.i146, align 8
@@ -835,7 +835,7 @@ for.end144:                                       ; preds = %qobject_type.exit.i
   br i1 %tobool146.not, label %return, label %lor.lhs.false.i150
 
 lor.lhs.false.i150:                               ; preds = %for.end144
-  %refcnt.i151 = getelementptr inbounds i8, ptr %call57, i64 8
+  %refcnt.i151 = getelementptr inbounds nuw i8, ptr %call57, i64 8
   %28 = load i64, ptr %refcnt.i151, align 8
   %tobool1.not.i152 = icmp eq i64 %28, 0
   br i1 %tobool1.not.i152, label %if.else.i157, label %land.lhs.true.i153
@@ -867,7 +867,7 @@ error:                                            ; preds = %if.then68, %qdict_i
   br i1 %tobool168.not, label %qobject_unref_impl.exit168, label %lor.lhs.false.i160
 
 lor.lhs.false.i160:                               ; preds = %error
-  %refcnt.i161 = getelementptr inbounds i8, ptr %call57, i64 8
+  %refcnt.i161 = getelementptr inbounds nuw i8, ptr %call57, i64 8
   %29 = load i64, ptr %refcnt.i161, align 8
   %tobool1.not.i162 = icmp eq i64 %29, 0
   br i1 %tobool1.not.i162, label %if.else.i167, label %land.lhs.true.i163
@@ -893,7 +893,7 @@ qobject_unref_impl.exit168:                       ; preds = %error.thread, %erro
   br i1 %tobool178.not, label %qobject_unref_impl.exit178, label %lor.lhs.false.i170
 
 lor.lhs.false.i170:                               ; preds = %qobject_unref_impl.exit168
-  %refcnt.i171 = getelementptr inbounds i8, ptr %two_level.0230, i64 8
+  %refcnt.i171 = getelementptr inbounds nuw i8, ptr %two_level.0230, i64 8
   %30 = load i64, ptr %refcnt.i171, align 8
   %tobool1.not.i172 = icmp eq i64 %30, 0
   br i1 %tobool1.not.i172, label %if.else.i177, label %land.lhs.true.i173
@@ -917,7 +917,7 @@ qobject_unref_impl.exit178:                       ; preds = %qobject_unref_impl.
   br i1 %tobool188.not, label %return, label %lor.lhs.false.i180
 
 lor.lhs.false.i180:                               ; preds = %qobject_unref_impl.exit178
-  %refcnt.i181 = getelementptr inbounds i8, ptr %dst.0229, i64 8
+  %refcnt.i181 = getelementptr inbounds nuw i8, ptr %dst.0229, i64 8
   %31 = load i64, ptr %refcnt.i181, align 8
   %tobool1.not.i182 = icmp eq i64 %31, 0
   br i1 %tobool1.not.i182, label %if.else.i187, label %land.lhs.true.i183
@@ -1079,13 +1079,13 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %entry1.012.us = phi ptr [ %call2.us, %qobject_ref_impl.exit.us ], [ %call, %while.body.lr.ph ]
   %call2.us = tail call ptr @qdict_next(ptr noundef %src, ptr noundef nonnull %entry1.012.us) #7
   %0 = load ptr, ptr %entry1.012.us, align 8
-  %value.us = getelementptr inbounds i8, ptr %entry1.012.us, i64 8
+  %value.us = getelementptr inbounds nuw i8, ptr %entry1.012.us, i64 8
   %1 = load ptr, ptr %value.us, align 8
   %tobool7.not.us = icmp eq ptr %1, null
   br i1 %tobool7.not.us, label %qobject_ref_impl.exit.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %while.body.us
-  %refcnt.i.us = getelementptr inbounds i8, ptr %1, i64 8
+  %refcnt.i.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i64, ptr %refcnt.i.us, align 8
   %inc.i.us = add i64 %2, 1
   store i64 %inc.i.us, ptr %refcnt.i.us, align 8
@@ -1108,13 +1108,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then:                                          ; preds = %while.body
   %5 = load ptr, ptr %entry1.012, align 8
-  %value = getelementptr inbounds i8, ptr %entry1.012, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %entry1.012, i64 8
   %6 = load ptr, ptr %value, align 8
   %tobool7.not = icmp eq ptr %6, null
   br i1 %tobool7.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %refcnt.i = getelementptr inbounds i8, ptr %6, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -1149,7 +1149,7 @@ while.body:                                       ; preds = %entry, %if.end15
   br i1 %tobool2.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %to = getelementptr inbounds i8, ptr %renames.addr.019, i64 8
+  %to = getelementptr inbounds nuw i8, ptr %renames.addr.019, i64 8
   %2 = load ptr, ptr %to, align 8
   %call3 = tail call i32 @qdict_haskey(ptr noundef %qdict, ptr noundef %2) #7
   %tobool4.not = icmp eq i32 %call3, 0
@@ -1169,7 +1169,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool11.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %refcnt.i = getelementptr inbounds i8, ptr %call9, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %7 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -1206,7 +1206,7 @@ for.end.thread.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %tmp.032.i = phi ptr [ %tmp.1.i, %for.inc.i ], [ null, %entry ]
   %ent.031.i = phi ptr [ %call13.i, %for.inc.i ], [ %call.i, %entry ]
-  %value.i = getelementptr inbounds i8, ptr %ent.031.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %ent.031.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %.val.i = load i32, ptr %0, align 8
   %1 = add i32 %.val.i, -1
@@ -1269,7 +1269,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %tobool14.not.i, label %qdict_crumple_for_keyval_qiv.exit, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %for.end.i
-  %refcnt.i.i = getelementptr inbounds i8, ptr %tmp.1.i, i64 8
+  %refcnt.i.i = getelementptr inbounds nuw i8, ptr %tmp.1.i, i64 8
   %3 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i.i, label %if.else.i27.i, label %land.lhs.true.i25.i
@@ -1295,7 +1295,7 @@ qdict_crumple_for_keyval_qiv.exit:                ; preds = %for.end.thread.i, %
 
 lor.lhs.false.i:                                  ; preds = %qdict_crumple_for_keyval_qiv.exit
   %call1 = tail call ptr @qobject_input_visitor_new_keyval(ptr noundef nonnull %call1637.i) #7
-  %refcnt.i = getelementptr inbounds i8, ptr %call1637.i, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call1637.i, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %4, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1390,7 +1390,7 @@ if.else17:                                        ; preds = %for.body
   br label %qobject_ref_impl.exit
 
 if.then.i:                                        ; preds = %land.lhs.true13, %if.else11
-  %refcnt.i = getelementptr inbounds i8, ptr %entry1.0.val, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %entry1.0.val, i64 8
   %2 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %refcnt.i, align 8

@@ -64,7 +64,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 35:                                               ; preds = %.lr.ph331, %54
   %indvars.iv415 = phi i64 [ 1, %.lr.ph331 ], [ %indvars.iv.next416, %54 ]
-  %36 = getelementptr inbounds float, ptr %14, i64 %indvars.iv415
+  %36 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv415
   %37 = load float, ptr %36, align 4
   %38 = tail call noundef float @llvm.fabs.f32(float %37)
   %39 = fcmp ogt float %38, 0x3810000000000000
@@ -83,7 +83,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv411 = phi i64 [ 1, %.lr.ph327 ], [ %indvars.iv.next412, %41 ]
   %gep495 = getelementptr float, ptr %invariant.gep494, i64 %indvars.iv411
   %42 = load float, ptr %gep495, align 4
-  %43 = getelementptr inbounds float, ptr %14, i64 %indvars.iv411
+  %43 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv411
   %44 = load float, ptr %43, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %37, float %42, float %44)
   store float %45, ptr %43, align 4
@@ -184,7 +184,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 81:                                               ; preds = %.lr.ph346, %100
   %indvars.iv429 = phi i64 [ %79, %.lr.ph346 ], [ %indvars.iv.next430, %100 ]
-  %82 = getelementptr inbounds float, ptr %14, i64 %indvars.iv429
+  %82 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv429
   %83 = load float, ptr %82, align 4
   %84 = tail call noundef float @llvm.fabs.f32(float %83)
   %85 = fcmp ogt float %84, 0x3810000000000000
@@ -203,7 +203,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv426 = phi i64 [ %79, %.lr.ph343 ], [ %indvars.iv.next427, %87 ]
   %gep499 = getelementptr float, ptr %invariant.gep498, i64 %indvars.iv426
   %88 = load float, ptr %gep499, align 4
-  %89 = getelementptr inbounds float, ptr %14, i64 %indvars.iv426
+  %89 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv426
   %90 = load float, ptr %89, align 4
   %91 = tail call float @llvm.fmuladd.f32(float %83, float %88, float %90)
   store float %91, ptr %89, align 4
@@ -324,7 +324,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 141:                                              ; preds = %._crit_edge361, %.lr.ph364
   %indvars.iv438 = phi i64 [ %139, %.lr.ph364 ], [ %indvars.iv.next439, %._crit_edge361 ]
-  %142 = getelementptr inbounds float, ptr %14, i64 %indvars.iv438
+  %142 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv438
   %143 = load float, ptr %142, align 4
   switch i8 %17, label %151 [
     i8 110, label %144
@@ -360,7 +360,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv.next441 = add nsw i64 %indvars.iv440, -1
   %gep503 = getelementptr float, ptr %invariant.gep502, i64 %indvars.iv.next441
   %155 = load float, ptr %gep503, align 4
-  %156 = getelementptr inbounds float, ptr %14, i64 %indvars.iv.next441
+  %156 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.next441
   %157 = load float, ptr %156, align 4
   %158 = tail call float @llvm.fmuladd.f32(float %155, float %157, float %.1358)
   %159 = icmp samesign ugt i64 %indvars.iv440, 2
@@ -469,7 +469,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv469 = phi i64 [ 1, %.lr.ph386 ], [ %indvars.iv.next470, %._crit_edge382 ]
   %indvars.iv462 = phi i32 [ 2, %.lr.ph386 ], [ %indvars.iv.next463, %._crit_edge382 ]
   %201 = sext i32 %indvars.iv462 to i64
-  %202 = getelementptr inbounds float, ptr %14, i64 %indvars.iv469
+  %202 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv469
   %203 = load float, ptr %202, align 4
   switch i8 %17, label %211 [
     i8 110, label %204
@@ -501,7 +501,7 @@ define void @strmv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %.5379 = phi float [ %.4, %.lr.ph381 ], [ %217, %213 ]
   %gep507 = getelementptr float, ptr %invariant.gep506, i64 %indvars.iv464
   %214 = load float, ptr %gep507, align 4
-  %215 = getelementptr inbounds float, ptr %14, i64 %indvars.iv464
+  %215 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv464
   %216 = load float, ptr %215, align 4
   %217 = tail call float @llvm.fmuladd.f32(float %214, float %216, float %.5379)
   %indvars.iv.next465 = add nsw i64 %indvars.iv464, 1

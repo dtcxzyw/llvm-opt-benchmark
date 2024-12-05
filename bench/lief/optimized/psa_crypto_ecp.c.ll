@@ -76,7 +76,7 @@ define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i
   br i1 %8, label %39, label %46
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %25, i64 272
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 272
   %41 = tail call i32 @mbedtls_ecp_point_read_binary(ptr noundef nonnull %25, ptr noundef nonnull %40, ptr noundef %2, i64 noundef %3) #6
   %42 = tail call i32 @mbedtls_to_psa_error(i32 noundef %41) #6
   %.not58 = icmp eq i32 %42, 0
@@ -137,7 +137,7 @@ define hidden i32 @mbedtls_psa_ecp_import_key(ptr nocapture noundef readonly %0,
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = load i16, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   %13 = call i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %9, i64 noundef %12, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %8)
@@ -153,7 +153,7 @@ define hidden i32 @mbedtls_psa_ecp_import_key(ptr nocapture noundef readonly %0,
   %16 = and i16 %15, -12289
   %17 = icmp eq i16 %16, 16705
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load i64, ptr %19, align 8
   %21 = zext i1 %17 to i64
   %storemerge = add i64 %20, %21
@@ -177,14 +177,14 @@ define hidden i32 @mbedtls_psa_ecp_export_key(i16 noundef zeroext %0, ptr nounde
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %10 = tail call i32 @mbedtls_ecp_is_zero(ptr noundef nonnull %9) #6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 248
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr @mbedtls_psa_random_state, align 8
   %15 = tail call i32 @mbedtls_ecp_mul(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %14) #6
   %16 = tail call i32 @mbedtls_to_psa_error(i32 noundef %15) #6
@@ -202,7 +202,7 @@ define hidden i32 @mbedtls_psa_ecp_export_key(i16 noundef zeroext %0, ptr nounde
   br label %36
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %1, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
@@ -249,7 +249,7 @@ define hidden i32 @mbedtls_psa_ecp_export_public_key(ptr nocapture noundef reado
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i16, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = call i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %8, i64 noundef %11, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %7)
@@ -281,12 +281,12 @@ define hidden i32 @mbedtls_psa_ecp_generate_key(ptr nocapture noundef readonly %
   %8 = icmp eq i16 %7, 16640
   %9 = trunc i16 %6 to i8
   %spec.select = select i1 %8, i8 %9, i8 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   %13 = tail call i32 @mbedtls_ecc_group_of_psa(i8 noundef zeroext %spec.select, i64 noundef %12, i32 noundef 0) #6
   %14 = tail call ptr @mbedtls_ecp_curve_info_from_grp_id(i32 noundef %13) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %17, label %30
@@ -336,7 +336,7 @@ define hidden i32 @mbedtls_psa_ecdsa_sign_hash(ptr nocapture noundef readonly %0
   %12 = alloca %struct.mbedtls_mpi, align 8
   store ptr null, ptr %10, align 8
   %13 = load i16, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
   %17 = call i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %13, i64 noundef %16, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %10)
@@ -345,7 +345,7 @@ define hidden i32 @mbedtls_psa_ecdsa_sign_hash(ptr nocapture noundef readonly %0
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 7
   %23 = lshr i64 %22, 3
@@ -387,14 +387,14 @@ switch.early.test:                                ; preds = %28
   %35 = phi i32 [ 0, %switch.early.test ], [ %spec.select, %31 ]
   %36 = call ptr @mbedtls_md_info_from_psa(i32 noundef %35) #6
   %37 = call i32 @mbedtls_md_get_type(ptr noundef %36) #6
-  %38 = getelementptr inbounds i8, ptr %19, i64 248
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %39 = load ptr, ptr @mbedtls_psa_random_state, align 8
   %40 = call i32 @mbedtls_ecdsa_sign_det_ext(ptr noundef nonnull %19, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %38, ptr noundef %4, i64 noundef %5, i32 noundef %37, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %39) #6
   %.not44 = icmp eq i32 %40, 0
   br i1 %.not44, label %45, label %50
 
 41:                                               ; preds = %26
-  %42 = getelementptr inbounds i8, ptr %19, i64 248
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 248
   %43 = load ptr, ptr @mbedtls_psa_random_state, align 8
   %44 = call i32 @mbedtls_ecdsa_sign(ptr noundef nonnull %19, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %42, ptr noundef %4, i64 noundef %5, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %43) #6
   %.not42 = icmp eq i32 %44, 0
@@ -406,7 +406,7 @@ switch.early.test:                                ; preds = %28
   br i1 %.not45, label %47, label %50
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %6, i64 %23
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   %49 = call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %12, ptr noundef %48, i64 noundef %23) #6
   br label %50
 
@@ -453,7 +453,7 @@ define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr nocapture noundef readonly 
   %11 = alloca %struct.mbedtls_mpi, align 8
   store ptr null, ptr %9, align 8
   %12 = load i16, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
   %16 = call i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %12, i64 noundef %15, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %9)
@@ -462,7 +462,7 @@ define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr nocapture noundef readonly 
 
 17:                                               ; preds = %8
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 7
   %22 = lshr i64 %21, 3
@@ -478,20 +478,20 @@ define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr nocapture noundef readonly 
   br i1 %.not22, label %26, label %39
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %6, i64 %22
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 %22
   %28 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %11, ptr noundef %27, i64 noundef %22) #6
   %.not23 = icmp eq i32 %28, 0
   br i1 %.not23, label %29, label %39
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %18, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 272
   %31 = call i32 @mbedtls_ecp_is_zero(ptr noundef nonnull %30) #6
   %.not24 = icmp eq i32 %31, 0
   br i1 %.not24, label %37, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %18, i64 248
-  %34 = getelementptr inbounds i8, ptr %18, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 248
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %35 = load ptr, ptr @mbedtls_psa_random_state, align 8
   %36 = call i32 @mbedtls_ecp_mul(ptr noundef nonnull %18, ptr noundef nonnull %30, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %35) #6
   %.not25 = icmp eq i32 %36, 0

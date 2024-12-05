@@ -28,7 +28,7 @@ entry:
 define dso_local i32 @ref_iterator_peel(ptr noundef %ref_iterator, ptr noundef %peeled) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ref_iterator, align 8
-  %peel = getelementptr inbounds i8, ptr %0, i64 8
+  %peel = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %peel, align 8
   %call = tail call i32 %1(ptr noundef nonnull %ref_iterator, ptr noundef %peeled) #11
   ret i32 %call
@@ -38,7 +38,7 @@ entry:
 define dso_local i32 @ref_iterator_abort(ptr noundef %ref_iterator) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ref_iterator, align 8
-  %abort = getelementptr inbounds i8, ptr %0, i64 16
+  %abort = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %abort, align 8
   %call = tail call i32 %1(ptr noundef nonnull %ref_iterator) #11
   ret i32 %call
@@ -49,13 +49,13 @@ define dso_local void @base_ref_iterator_init(ptr nocapture noundef initializes(
 entry:
   store ptr %vtable, ptr %iter, align 8
   %tobool = icmp ne i32 %ordered, 0
-  %ordered3 = getelementptr inbounds i8, ptr %iter, i64 8
+  %ordered3 = getelementptr inbounds nuw i8, ptr %iter, i64 8
   %0 = zext i1 %tobool to i8
   %bf.load = load i8, ptr %ordered3, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %0
   store i8 %bf.set, ptr %ordered3, align 8
-  %refname = getelementptr inbounds i8, ptr %iter, i64 16
+  %refname = getelementptr inbounds nuw i8, ptr %iter, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %refname, i8 0, i64 20, i1 false)
   ret void
 }
@@ -75,11 +75,11 @@ define dso_local noundef ptr @empty_ref_iterator_begin() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #11
   store ptr @empty_ref_iterator_vtable, ptr %call, align 8
-  %ordered3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ordered3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %bf.load.i = load i8, ptr %ordered3.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %ordered3.i, align 8
-  %refname.i = getelementptr inbounds i8, ptr %call, i64 16
+  %refname.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %refname.i, i8 0, i64 20, i1 false)
   ret ptr %call
 }
@@ -101,23 +101,23 @@ entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 80) #11
   store ptr @merge_ref_iterator_vtable, ptr %call, align 8
   %tobool.i = icmp ne i32 %ordered, 0
-  %ordered3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ordered3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = zext i1 %tobool.i to i8
   %bf.load.i = load i8, ptr %ordered3.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   %bf.set.i = or disjoint i8 %bf.clear.i, %0
   store i8 %bf.set.i, ptr %ordered3.i, align 8
-  %refname.i = getelementptr inbounds i8, ptr %call, i64 16
+  %refname.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %refname.i, i8 0, i64 20, i1 false)
-  %iter01 = getelementptr inbounds i8, ptr %call, i64 40
+  %iter01 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %iter0, ptr %iter01, align 8
-  %iter12 = getelementptr inbounds i8, ptr %call, i64 48
+  %iter12 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %iter1, ptr %iter12, align 8
-  %select3 = getelementptr inbounds i8, ptr %call, i64 56
+  %select3 = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %select, ptr %select3, align 8
-  %cb_data4 = getelementptr inbounds i8, ptr %call, i64 64
+  %cb_data4 = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %cb_data, ptr %cb_data4, align 8
-  %current = getelementptr inbounds i8, ptr %call, i64 72
+  %current = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr null, ptr %current, align 8
   ret ptr %call
 }
@@ -130,7 +130,7 @@ entry:
   br i1 %cmp.i.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @empty_ref_iterator_vtable, i64 16), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @empty_ref_iterator_vtable, i64 16), align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %front) #11
   br label %return
 
@@ -140,19 +140,19 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i9.not, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @empty_ref_iterator_vtable, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @empty_ref_iterator_vtable, i64 16), align 8
   %call.i12 = tail call i32 %3(ptr noundef nonnull %back) #11
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %ordered = getelementptr inbounds i8, ptr %front, i64 8
+  %ordered = getelementptr inbounds nuw i8, ptr %front, i64 8
   %bf.load = load i8, ptr %ordered, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool7.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool7.not, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else6
-  %ordered8 = getelementptr inbounds i8, ptr %back, i64 8
+  %ordered8 = getelementptr inbounds nuw i8, ptr %back, i64 8
   %bf.load9 = load i8, ptr %ordered8, align 8
   %bf.clear10 = and i8 %bf.load9, 1
   %tobool12.not = icmp eq i8 %bf.clear10, 0
@@ -165,19 +165,19 @@ if.then13:                                        ; preds = %lor.lhs.false, %if.
 if.end15:                                         ; preds = %lor.lhs.false
   %call.i13 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 80) #11
   store ptr @merge_ref_iterator_vtable, ptr %call.i13, align 8
-  %ordered3.i.i = getelementptr inbounds i8, ptr %call.i13, i64 8
+  %ordered3.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
   %bf.load.i.i = load i8, ptr %ordered3.i.i, align 8
   %bf.set.i.i = or i8 %bf.load.i.i, 1
   store i8 %bf.set.i.i, ptr %ordered3.i.i, align 8
-  %refname.i.i = getelementptr inbounds i8, ptr %call.i13, i64 16
+  %refname.i.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %refname.i.i, i8 0, i64 20, i1 false)
-  %iter01.i = getelementptr inbounds i8, ptr %call.i13, i64 40
+  %iter01.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 40
   store ptr %front, ptr %iter01.i, align 8
-  %iter12.i = getelementptr inbounds i8, ptr %call.i13, i64 48
+  %iter12.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 48
   store ptr %back, ptr %iter12.i, align 8
-  %select3.i = getelementptr inbounds i8, ptr %call.i13, i64 56
+  %select3.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 56
   store ptr @overlay_iterator_select, ptr %select3.i, align 8
-  %cb_data4.i = getelementptr inbounds i8, ptr %call.i13, i64 64
+  %cb_data4.i = getelementptr inbounds nuw i8, ptr %call.i13, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cb_data4.i, i8 0, i64 16, i1 false)
   br label %return
 
@@ -204,9 +204,9 @@ if.else:                                          ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.else
-  %refname = getelementptr inbounds i8, ptr %front, i64 16
+  %refname = getelementptr inbounds nuw i8, ptr %front, i64 16
   %0 = load ptr, ptr %refname, align 8
-  %refname5 = getelementptr inbounds i8, ptr %back, i64 16
+  %refname5 = getelementptr inbounds nuw i8, ptr %back, i64 16
   %1 = load ptr, ptr %refname5, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #13
   %cmp6 = icmp slt i32 %call, 0
@@ -233,23 +233,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
-  %ordered = getelementptr inbounds i8, ptr %iter0, i64 8
+  %ordered = getelementptr inbounds nuw i8, ptr %iter0, i64 8
   %bf.load = load i8, ptr %ordered, align 8
   %bf.clear = and i8 %bf.load, 1
   store ptr @prefix_ref_iterator_vtable, ptr %call, align 8
-  %ordered3.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ordered3.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %bf.load.i = load i8, ptr %ordered3.i, align 8
   %bf.clear.i = and i8 %bf.load.i, -2
   %bf.set.i = or disjoint i8 %bf.clear.i, %bf.clear
   store i8 %bf.set.i, ptr %ordered3.i, align 8
-  %refname.i = getelementptr inbounds i8, ptr %call, i64 16
+  %refname.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %refname.i, i8 0, i64 20, i1 false)
-  %iter02 = getelementptr inbounds i8, ptr %call, i64 40
+  %iter02 = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %iter0, ptr %iter02, align 8
   %call3 = tail call ptr @xstrdup(ptr noundef nonnull %prefix) #11
-  %prefix4 = getelementptr inbounds i8, ptr %call, i64 48
+  %prefix4 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %call3, ptr %prefix4, align 8
-  %trim5 = getelementptr inbounds i8, ptr %call, i64 56
+  %trim5 = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i32 %trim, ptr %trim5, align 8
   br label %return
 
@@ -265,9 +265,9 @@ define dso_local i32 @do_for_each_repo_ref_iterator(ptr noundef %r, ptr noundef 
 entry:
   %0 = load ptr, ptr @current_ref_iter, align 8
   store ptr %iter, ptr @current_ref_iter, align 8
-  %refname = getelementptr inbounds i8, ptr %iter, i64 16
-  %oid = getelementptr inbounds i8, ptr %iter, i64 24
-  %flags = getelementptr inbounds i8, ptr %iter, i64 32
+  %refname = getelementptr inbounds nuw i8, ptr %iter, i64 16
+  %oid = getelementptr inbounds nuw i8, ptr %iter, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %iter, i64 32
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -287,7 +287,7 @@ while.body:                                       ; preds = %while.cond
 
 if.then:                                          ; preds = %while.body
   %6 = load ptr, ptr %iter, align 8
-  %abort.i = getelementptr inbounds i8, ptr %6, i64 16
+  %abort.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %abort.i, align 8
   %call.i7 = tail call i32 %7(ptr noundef nonnull %iter) #11
   br label %out
@@ -307,7 +307,7 @@ out:                                              ; preds = %out.loopexit, %if.t
 define internal i32 @empty_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
 entry:
   %0 = load ptr, ptr %ref_iterator, align 8
-  %abort.i = getelementptr inbounds i8, ptr %0, i64 16
+  %abort.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %abort.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %ref_iterator) #11
   ret i32 %call.i
@@ -330,13 +330,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @merge_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
 entry:
-  %current = getelementptr inbounds i8, ptr %ref_iterator, i64 72
+  %current = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 72
   %0 = load ptr, ptr %current, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %iter0 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
+  %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %1 = load ptr, ptr %iter0, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
@@ -350,7 +350,7 @@ if.then1:                                         ; preds = %if.then
   br i1 %cmp3, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.then1, %if.then
-  %iter1 = getelementptr inbounds i8, ptr %ref_iterator, i64 48
+  %iter1 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 48
   %4 = load ptr, ptr %iter1, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -378,10 +378,10 @@ if.then17:                                        ; preds = %if.else
   br i1 %cmp19, label %error, label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.then17, %if.end5, %if.then8
-  %select = getelementptr inbounds i8, ptr %ref_iterator, i64 56
-  %iter024 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
-  %iter125 = getelementptr inbounds i8, ptr %ref_iterator, i64 48
-  %cb_data = getelementptr inbounds i8, ptr %ref_iterator, i64 64
+  %select = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 56
+  %iter024 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
+  %iter125 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 48
+  %cb_data = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %if.end56, %if.end23
@@ -397,14 +397,14 @@ while.body:                                       ; preds = %if.end56, %if.end23
 
 if.then28:                                        ; preds = %while.body
   %15 = load ptr, ptr %ref_iterator, align 8
-  %abort.i = getelementptr inbounds i8, ptr %15, i64 16
+  %abort.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = load ptr, ptr %abort.i, align 8
   %call.i36 = tail call i32 %16(ptr noundef nonnull %ref_iterator) #11
   br label %return
 
 if.then32:                                        ; preds = %while.body
   %17 = load ptr, ptr %ref_iterator, align 8
-  %abort.i37 = getelementptr inbounds i8, ptr %17, i64 16
+  %abort.i37 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load ptr, ptr %abort.i37, align 8
   %call.i38 = tail call i32 %18(ptr noundef nonnull %ref_iterator) #11
   br label %return
@@ -440,25 +440,25 @@ if.end56:                                         ; preds = %if.then48, %if.then
 if.then59:                                        ; preds = %if.end56
   %22 = load ptr, ptr %current, align 8
   %23 = load ptr, ptr %22, align 8
-  %refname = getelementptr inbounds i8, ptr %23, i64 16
+  %refname = getelementptr inbounds nuw i8, ptr %23, i64 16
   %24 = load ptr, ptr %refname, align 8
-  %refname61 = getelementptr inbounds i8, ptr %ref_iterator, i64 16
+  %refname61 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 16
   store ptr %24, ptr %refname61, align 8
   %25 = load ptr, ptr %22, align 8
-  %oid = getelementptr inbounds i8, ptr %25, i64 24
+  %oid = getelementptr inbounds nuw i8, ptr %25, i64 24
   %26 = load ptr, ptr %oid, align 8
-  %oid64 = getelementptr inbounds i8, ptr %ref_iterator, i64 24
+  %oid64 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 24
   store ptr %26, ptr %oid64, align 8
   %27 = load ptr, ptr %22, align 8
-  %flags = getelementptr inbounds i8, ptr %27, i64 32
+  %flags = getelementptr inbounds nuw i8, ptr %27, i64 32
   %28 = load i32, ptr %flags, align 8
-  %flags67 = getelementptr inbounds i8, ptr %ref_iterator, i64 32
+  %flags67 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 32
   store i32 %28, ptr %flags67, align 8
   br label %return
 
 error:                                            ; preds = %if.then51, %if.then17, %if.then8, %if.then1
   %29 = load ptr, ptr %ref_iterator, align 8
-  %abort.i40 = getelementptr inbounds i8, ptr %29, i64 16
+  %abort.i40 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %30 = load ptr, ptr %abort.i40, align 8
   %call.i41 = tail call i32 %30(ptr noundef nonnull %ref_iterator) #11
   br label %return
@@ -471,7 +471,7 @@ return:                                           ; preds = %error, %if.then59, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @merge_ref_iterator_peel(ptr nocapture noundef readonly %ref_iterator, ptr noundef %peeled) #0 {
 entry:
-  %current = getelementptr inbounds i8, ptr %ref_iterator, i64 72
+  %current = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 72
   %0 = load ptr, ptr %current, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -483,7 +483,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
-  %peel.i = getelementptr inbounds i8, ptr %2, i64 8
+  %peel.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %peel.i, align 8
   %call.i = tail call i32 %3(ptr noundef nonnull %1, ptr noundef %peeled) #11
   ret i32 %call.i
@@ -492,14 +492,14 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 0) i32 @merge_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #0 {
 entry:
-  %iter0 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
+  %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %abort.i = getelementptr inbounds i8, ptr %1, i64 16
+  %abort.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %abort.i, align 8
   %call.i = tail call i32 %2(ptr noundef nonnull %0) #11
   %cmp.not = icmp eq i32 %call.i, -1
@@ -508,14 +508,14 @@ if.then:                                          ; preds = %entry
 
 if.end3:                                          ; preds = %if.then, %entry
   %ok.0 = phi i32 [ -1, %entry ], [ %spec.select, %if.then ]
-  %iter1 = getelementptr inbounds i8, ptr %ref_iterator, i64 48
+  %iter1 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 48
   %3 = load ptr, ptr %iter1, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end11, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
   %4 = load ptr, ptr %3, align 8
-  %abort.i7 = getelementptr inbounds i8, ptr %4, i64 16
+  %abort.i7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %abort.i7, align 8
   %call.i8 = tail call i32 %5(ptr noundef nonnull %3) #11
   %cmp8.not = icmp eq i32 %call.i8, -1
@@ -534,7 +534,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal i32 @prefix_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
 entry:
-  %iter0 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
+  %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = load ptr, ptr %1, align 8
@@ -543,12 +543,12 @@ entry:
   br i1 %cmp46, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %prefix = getelementptr inbounds i8, ptr %ref_iterator, i64 48
+  %prefix = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %3 = load ptr, ptr %iter0, align 8
-  %refname = getelementptr inbounds i8, ptr %3, i64 16
+  %refname = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %refname, align 8
   %5 = load ptr, ptr %prefix, align 8
   %6 = load i8, ptr %5, align 1
@@ -568,14 +568,14 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %cmp5.i, label %while.cond.backedge, label %if.then6
 
 if.end.i:                                         ; preds = %while.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %refname.addr.09.i, i64 1
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %prefix.addr.010.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %refname.addr.09.i, i64 1
+  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %prefix.addr.010.i, i64 1
   %9 = load i8, ptr %incdec.ptr7.i, align 1
   %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %if.end11, label %while.body.i, !llvm.loop !7
 
 if.then6:                                         ; preds = %if.then.i
-  %ordered = getelementptr inbounds i8, ptr %3, i64 8
+  %ordered = getelementptr inbounds nuw i8, ptr %3, i64 8
   %bf.load = load i8, ptr %ordered, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -590,13 +590,13 @@ while.cond.backedge:                              ; preds = %if.then6, %if.then.
 
 if.then8:                                         ; preds = %if.then6
   %12 = load ptr, ptr %3, align 8
-  %abort.i = getelementptr inbounds i8, ptr %12, i64 16
+  %abort.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %abort.i, align 8
   %call.i20 = tail call i32 %13(ptr noundef nonnull %3) #11
   br label %while.end
 
 if.end11:                                         ; preds = %while.body, %if.end.i
-  %trim = getelementptr inbounds i8, ptr %ref_iterator, i64 56
+  %trim = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 56
   %14 = load i32, ptr %trim, align 8
   %tobool12.not = icmp eq i32 %14, 0
   br i1 %tobool12.not, label %if.end31, label %if.then13
@@ -617,15 +617,15 @@ if.end21:                                         ; preds = %if.then13
 
 if.end31:                                         ; preds = %if.end11, %if.end21
   %.sink = phi ptr [ %add.ptr, %if.end21 ], [ %4, %if.end11 ]
-  %refname30 = getelementptr inbounds i8, ptr %ref_iterator, i64 16
+  %refname30 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 16
   store ptr %.sink, ptr %refname30, align 8
-  %oid = getelementptr inbounds i8, ptr %3, i64 24
+  %oid = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %oid, align 8
-  %oid34 = getelementptr inbounds i8, ptr %ref_iterator, i64 24
+  %oid34 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 24
   store ptr %15, ptr %oid34, align 8
-  %flags = getelementptr inbounds i8, ptr %3, i64 32
+  %flags = getelementptr inbounds nuw i8, ptr %3, i64 32
   %16 = load i32, ptr %flags, align 8
-  %flags37 = getelementptr inbounds i8, ptr %ref_iterator, i64 32
+  %flags37 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 32
   store i32 %16, ptr %flags37, align 8
   br label %return
 
@@ -633,7 +633,7 @@ while.end:                                        ; preds = %while.cond.backedge
   %ok.0 = phi i32 [ %call.i20, %if.then8 ], [ %call.i45, %entry ], [ %call.i, %while.cond.backedge ]
   store ptr null, ptr %iter0, align 8
   %17 = load ptr, ptr %ref_iterator, align 8
-  %abort.i21 = getelementptr inbounds i8, ptr %17, i64 16
+  %abort.i21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load ptr, ptr %abort.i21, align 8
   %call.i22 = tail call i32 %18(ptr noundef nonnull %ref_iterator) #11
   %cmp40.not = icmp eq i32 %call.i22, -1
@@ -648,10 +648,10 @@ return:                                           ; preds = %while.end, %if.end3
 ; Function Attrs: nounwind uwtable
 define internal i32 @prefix_ref_iterator_peel(ptr nocapture noundef readonly %ref_iterator, ptr noundef %peeled) #0 {
 entry:
-  %iter0 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
+  %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
   %1 = load ptr, ptr %0, align 8
-  %peel.i = getelementptr inbounds i8, ptr %1, i64 8
+  %peel.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %peel.i, align 8
   %call.i = tail call i32 %2(ptr noundef nonnull %0, ptr noundef %peeled) #11
   ret i32 %call.i
@@ -660,21 +660,21 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @prefix_ref_iterator_abort(ptr nocapture noundef %ref_iterator) #0 {
 entry:
-  %iter0 = getelementptr inbounds i8, ptr %ref_iterator, i64 40
+  %iter0 = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 40
   %0 = load ptr, ptr %iter0, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %abort.i = getelementptr inbounds i8, ptr %1, i64 16
+  %abort.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %abort.i, align 8
   %call.i = tail call i32 %2(ptr noundef nonnull %0) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %ok.0 = phi i32 [ %call.i, %if.then ], [ -1, %entry ]
-  %prefix = getelementptr inbounds i8, ptr %ref_iterator, i64 48
+  %prefix = getelementptr inbounds nuw i8, ptr %ref_iterator, i64 48
   %3 = load ptr, ptr %prefix, align 8
   tail call void @free(ptr noundef %3) #11
   tail call void @free(ptr noundef nonnull %ref_iterator) #11

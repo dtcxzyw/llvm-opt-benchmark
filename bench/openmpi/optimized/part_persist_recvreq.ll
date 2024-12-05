@@ -22,13 +22,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @mca_part_persist_precv_request_construct(ptr noundef initializes((100, 101), (112, 136), (192, 200)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @mca_part_persist_start, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @mca_part_persist_free, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i8 1, ptr %5, align 4
   %6 = load i32, ptr @opal_class_init_epoch, align 4
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 32), align 8
@@ -40,11 +40,11 @@ define internal void @mca_part_persist_precv_request_construct(ptr noundef initi
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr @opal_convertor_t_class, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store volatile i32 1, ptr %11, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %13 = load ptr, ptr %12, align 8
   %.not6.i = icmp eq ptr %13, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -53,7 +53,7 @@ define internal void @mca_part_persist_precv_request_construct(ptr noundef initi
   %14 = phi ptr [ %16, %.lr.ph.i ], [ %13, %9 ]
   %.07.i = phi ptr [ %15, %.lr.ph.i ], [ %12, %9 ]
   tail call void %14(ptr noundef nonnull %10) #5
-  %15 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -71,13 +71,13 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   %.03437 = phi i64 [ %47, %opal_thread_swap_ptr.exit ], [ 0, %2 ]
   %3 = getelementptr inbounds ptr, ptr %1, i64 %.03437
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 592
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %4, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %4, i64 600
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 600
   store i64 0, ptr %11, align 8
   br i1 %7, label %12, label %24
 
@@ -85,16 +85,16 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br i1 %10, label %13, label %15
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 520
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 520
   br label %.loopexit.sink.split
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %4, i64 544
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 544
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 520
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 520
   %22 = load i64, ptr %21, align 8
   %23 = tail call i32 %20(i64 noundef %22, ptr noundef nonnull %17) #5
   br label %.loopexit.sink.split
@@ -103,13 +103,13 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br i1 %10, label %25, label %.loopexit
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %4, i64 520
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 520
   %27 = load i64, ptr %26, align 8
   %.not40 = icmp eq i64 %27, 0
   br i1 %.not40, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %4, i64 608
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 608
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
@@ -125,7 +125,7 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
 .loopexit.sink.split:                             ; preds = %15, %13
   %.sink42.in = phi ptr [ %14, %13 ], [ %21, %15 ]
   %.1.ph = phi i32 [ 0, %13 ], [ %23, %15 ]
-  %.sink.in = getelementptr inbounds i8, ptr %4, i64 608
+  %.sink.in = getelementptr inbounds nuw i8, ptr %4, i64 608
   %.sink = load ptr, ptr %.sink.in, align 8
   %.sink42 = load i64, ptr %.sink42.in, align 8
   %35 = shl i64 %.sink42, 2
@@ -135,17 +135,17 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %24, %25
   %.135 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
   %.1 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %29 ]
-  %36 = getelementptr inbounds i8, ptr %4, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store volatile i32 2, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 -1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 76
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %4, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store volatile i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr null, ptr %41, align 8
   %42 = load i8, ptr @opal_uses_threads, align 1
   %43 = trunc i8 %42 to i1
@@ -174,7 +174,7 @@ opal_thread_swap_ptr.exit:                        ; preds = %44, %46
 ; Function Attrs: alwaysinline nofree norecurse nounwind uwtable
 define internal range(i32 -1, 1) i32 @mca_part_persist_free(ptr nocapture noundef %0) #2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 164
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %7, label %6

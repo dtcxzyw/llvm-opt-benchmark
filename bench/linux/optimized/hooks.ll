@@ -334,17 +334,17 @@ define internal noundef i32 @selinux_init() #0 section ".init.text" align 16 {
   tail call void @__mutex_init(ptr noundef nonnull getelementptr inbounds (i8, ptr @selinux_state, i64 64), ptr noundef nonnull @.str.34, ptr noundef nonnull @selinux_init.__key.33) #24
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1776
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1776
   %8 = load ptr, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %14, align 4
   store i32 1, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 1240
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1240
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 4194304
   %18 = icmp eq i32 %17, 0
@@ -419,14 +419,14 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 32
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq i64 %2, 0
   %17 = icmp ne ptr %3, null
@@ -434,8 +434,8 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %18, label %19, label %342
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
-  tail call void @mutex_lock(ptr noundef %20) #24
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  tail call void @mutex_lock(ptr noundef nonnull %20) #24
   %21 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
   %22 = icmp eq i8 %21, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !9
@@ -451,7 +451,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %13, i64 14
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %30 = load i16, ptr %29, align 2
   %31 = or i16 %30, 4096
   store i16 %31, ptr %29, align 2
@@ -465,16 +465,16 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br label %.thread
 
 36:                                               ; preds = %19
-  %37 = getelementptr inbounds i8, ptr %13, i64 14
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 256
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %50, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 2
   %47 = icmp eq i32 %46, 0
@@ -483,9 +483,9 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %41, %36
-  %51 = getelementptr inbounds i8, ptr %15, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -529,7 +529,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
 
 79:                                               ; preds = %77, %61
   %80 = phi i16 [ %78, %77 ], [ %38, %61 ]
-  %81 = getelementptr inbounds i8, ptr %1, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %100, label %84
@@ -541,7 +541,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %87, label %97, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %13, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %85, 1
   %92 = icmp ne i32 %91, 0
@@ -564,7 +564,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
 
 100:                                              ; preds = %98, %79
   %101 = phi i16 [ %99, %98 ], [ %80, %79 ]
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %121, label %105
@@ -576,7 +576,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %108, label %118, label %109
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %59, i64 28
+  %110 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %106, 4
   %113 = icmp ne i32 %112, 0
@@ -599,7 +599,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
 
 121:                                              ; preds = %119, %100
   %122 = phi i16 [ %120, %119 ], [ %101, %100 ]
-  %123 = getelementptr inbounds i8, ptr %1, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %142, label %126
@@ -611,7 +611,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %129, label %139, label %130
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %13, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %127, 8
   %134 = icmp ne i32 %133, 0
@@ -650,7 +650,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %154, label %.thread, label %.critedge
 
 155:                                              ; preds = %142
-  %156 = getelementptr inbounds i8, ptr %0, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %157, align 8
   %159 = tail call i32 @strcmp(ptr noundef %158, ptr noundef nonnull dereferenceable(5) @.str.3) #24
@@ -726,7 +726,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br label %198
 
 198:                                              ; preds = %196, %193
-  %199 = getelementptr inbounds i8, ptr %13, i64 12
+  %199 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %200 = load i16, ptr %199, align 4
   %201 = icmp eq i16 %200, 0
   br i1 %201, label %202, label %209
@@ -743,7 +743,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br label %.thread
 
 209:                                              ; preds = %202, %198
-  %210 = getelementptr inbounds i8, ptr %0, i64 1072
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %211 = load ptr, ptr %210, align 16
   %212 = icmp eq ptr %211, @init_user_ns
   br i1 %212, label %247, label %213
@@ -785,15 +785,15 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
 235:                                              ; preds = %232
   store i16 6, ptr %199, align 4
   %236 = load ptr, ptr %7, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 128
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 128
   %238 = load ptr, ptr %237, align 8
   %239 = load i32, ptr @selinux_blob_sizes, align 4
   %240 = sext i32 %239 to i64
   %241 = getelementptr i8, ptr %238, i64 %240
-  %242 = getelementptr inbounds i8, ptr %241, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds i8, ptr %13, i64 8
-  %245 = tail call i32 @security_transition_sid(i32 noundef %243, i32 noundef %243, i16 noundef zeroext 7, ptr noundef null, ptr noundef %244) #24
+  %244 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %245 = tail call i32 @security_transition_sid(i32 noundef %243, i32 noundef %243, i16 noundef zeroext 7, ptr noundef null, ptr noundef nonnull %244) #24
   %246 = icmp eq i32 %245, 0
   br i1 %246, label %334, label %.thread
 
@@ -802,12 +802,12 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   br i1 %248, label %265, label %249
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds i8, ptr %8, i64 128
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %251 = load ptr, ptr %250, align 8
   %252 = load i32, ptr @selinux_blob_sizes, align 4
   %253 = sext i32 %252 to i64
   %254 = getelementptr i8, ptr %251, i64 %253
-  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %256 = load i32, ptr %255, align 4
   %257 = load i32, ptr %13, align 8
   %258 = tail call i32 @avc_has_perm(i32 noundef %256, i32 noundef %257, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
@@ -873,7 +873,7 @@ define internal i32 @selinux_set_mnt_opts(ptr noundef %0, ptr noundef readonly %
   %287 = load i32, ptr @selinux_blob_sizes, align 4
   %288 = sext i32 %287 to i64
   %289 = getelementptr i8, ptr %.val34, i64 %288
-  %290 = getelementptr inbounds i8, ptr %289, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = load i32, ptr %13, align 8
   %293 = tail call i32 @avc_has_perm(i32 noundef %291, i32 noundef %292, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
@@ -888,7 +888,7 @@ may_context_mount_inode_relabel.exit:             ; preds = %285
 
 298:                                              ; preds = %may_context_mount_inode_relabel.exit, %284
   %299 = icmp eq i32 %146, 0
-  %300 = getelementptr inbounds i8, ptr %13, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %145, ptr %300, align 8
   store i16 6, ptr %199, align 4
   %spec.select = select i1 %299, i32 %145, i32 %146
@@ -905,7 +905,7 @@ may_context_mount_inode_relabel.exit:             ; preds = %285
   %305 = load i32, ptr @selinux_blob_sizes, align 4
   %306 = sext i32 %305 to i64
   %307 = getelementptr i8, ptr %.val35, i64 %306
-  %308 = getelementptr inbounds i8, ptr %307, i64 4
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = load i32, ptr %13, align 8
   %311 = tail call i32 @avc_has_perm(i32 noundef %309, i32 noundef %310, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
@@ -919,9 +919,9 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
   br i1 %315, label %316, label %.thread
 
 316:                                              ; preds = %may_context_mount_inode_relabel.exit37
-  %317 = getelementptr inbounds i8, ptr %59, i64 28
+  %317 = getelementptr inbounds nuw i8, ptr %59, i64 28
   store i32 %303, ptr %317, align 4
-  %318 = getelementptr inbounds i8, ptr %59, i64 34
+  %318 = getelementptr inbounds nuw i8, ptr %59, i64 34
   store i8 1, ptr %318, align 2
   br label %319
 
@@ -941,7 +941,7 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
   br label %.thread
 
 325:                                              ; preds = %321, %321
-  %326 = getelementptr inbounds i8, ptr %13, i64 4
+  %326 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %327 = load i32, ptr %326, align 4
   %328 = icmp eq i32 %147, %327
   br i1 %328, label %333, label %329
@@ -963,15 +963,15 @@ may_context_mount_inode_relabel.exit37:           ; preds = %.thread39
 
 .thread:                                          ; preds = %.thread39, %285, %249, %.critedge, %334, %329, %323, %may_context_mount_inode_relabel.exit37, %may_context_mount_inode_relabel.exit, %280, %260, %235, %227, %205, %151, %41, %34, %28, %25
   %336 = phi i32 [ -22, %.critedge ], [ %245, %235 ], [ %335, %334 ], [ %262, %260 ], [ %296, %may_context_mount_inode_relabel.exit ], [ %314, %may_context_mount_inode_relabel.exit37 ], [ -22, %323 ], [ %331, %329 ], [ %282, %280 ], [ %203, %205 ], [ 0, %41 ], [ -22, %34 ], [ 0, %28 ], [ 0, %25 ], [ 0, %151 ], [ -13, %227 ], [ %258, %249 ], [ %293, %285 ], [ %311, %.thread39 ]
-  tail call void @mutex_unlock(ptr noundef %20) #24
+  tail call void @mutex_unlock(ptr noundef nonnull %20) #24
   br label %342
 
 .critedge:                                        ; preds = %130, %109, %88, %68, %151, %139, %118, %97, %76
-  %337 = getelementptr inbounds i8, ptr %0, i64 920
-  %338 = getelementptr inbounds i8, ptr %0, i64 40
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %339, align 8
-  %341 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %337, ptr noundef %340) #25
+  %341 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull %337, ptr noundef %340) #25
   br label %.thread
 
 342:                                              ; preds = %.thread, %4
@@ -996,7 +996,7 @@ define internal fastcc i32 @may_context_mount_sb_relabel(i32 noundef range(i32 1
   %2 = load i32, ptr @selinux_blob_sizes, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr i8, ptr %.128.val, i64 %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @avc_has_perm(i32 noundef %6, i32 noundef %.0.val, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
   %8 = icmp eq i32 %7, 0
@@ -1017,7 +1017,7 @@ define internal fastcc i32 @may_context_mount_inode_relabel(i32 noundef range(i3
   %3 = load i32, ptr @selinux_blob_sizes, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr i8, ptr %.128.val, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %1, align 8
   %9 = tail call i32 @avc_has_perm(i32 noundef %7, i32 noundef %8, i16 noundef zeroext 6, i32 noundef 16, ptr noundef null) #24
@@ -1037,16 +1037,16 @@ define internal fastcc i32 @may_context_mount_inode_relabel(i32 noundef range(i3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %13 = load i16, ptr %12, align 4
   %14 = icmp eq i16 %13, 1
   br i1 %14, label %15, label %57
@@ -1054,18 +1054,18 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
 15:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #24
   store i32 0, ptr %2, align 4, !annotation !5
-  %16 = getelementptr inbounds i8, ptr %11, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 920
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %21, ptr noundef %24) #25
+  %25 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef nonnull %21, ptr noundef %24) #25
   br label %43
 
 26:                                               ; preds = %15
@@ -1078,23 +1078,23 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
 
 32:                                               ; preds = %26
   %33 = icmp eq i32 %28, -95
-  %34 = getelementptr inbounds i8, ptr %0, i64 920
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   br i1 %33, label %38, label %40
 
 38:                                               ; preds = %32
-  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %34, ptr noundef %37) #25
+  %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %34, ptr noundef %37) #25
   br label %43
 
 40:                                               ; preds = %32
   %41 = sub i32 0, %28
-  %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef %34, ptr noundef %37, i32 noundef %41) #25
+  %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef nonnull %34, ptr noundef %37, i32 noundef %41) #25
   br label %55
 
 43:                                               ; preds = %38, %20
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 @security_genfs_sid(ptr noundef %46, ptr noundef nonnull @.str.24, i16 noundef zeroext 8, ptr noundef nonnull %2) #24
@@ -1102,10 +1102,10 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 920
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %51 = load ptr, ptr %44, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %50, ptr noundef %52) #25
+  %53 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef nonnull %50, ptr noundef %52) #25
   store i16 4, ptr %12, align 4
   %54 = load i32, ptr %2, align 4
   store i32 %54, ptr %7, align 8
@@ -1121,7 +1121,7 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   br label %124
 
 57:                                               ; preds = %.thread, %1
-  %58 = getelementptr inbounds i8, ptr %7, i64 14
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %59 = load i16, ptr %58, align 2
   %60 = or i16 %59, 256
   store i16 %60, ptr %58, align 2
@@ -1129,7 +1129,7 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   %62 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr i8, ptr %61, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %66 = load i16, ptr %65, align 4
   switch i16 %66, label %.thread9 [
     i16 1, label %.thread6
@@ -1140,7 +1140,7 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   ]
 
 67:                                               ; preds = %57
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = call i32 @strcmp(ptr noundef %70, ptr noundef nonnull dereferenceable(6) @.str.10) #24
@@ -1198,9 +1198,9 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   %98 = phi i16 [ %91, %.thread6 ], [ %92, %.thread9 ], [ %spec.select, %93 ]
   store i16 %98, ptr %58, align 2
   %99 = call fastcc i32 @inode_doinit_with_dentry(ptr noundef %11, ptr noundef %9)
-  %100 = getelementptr inbounds i8, ptr %7, i64 64
-  call void @_raw_spin_lock(ptr noundef %100) #24
-  %101 = getelementptr inbounds i8, ptr %7, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  call void @_raw_spin_lock(ptr noundef nonnull %100) #24
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %102 = load volatile ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, %101
   br i1 %103, label %.loopexit, label %.preheader
@@ -1209,21 +1209,21 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   %104 = phi ptr [ %122, %121 ], [ %102, %97 ]
   %105 = getelementptr i8, ptr %104, i64 -8
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %104, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %108, ptr %110, align 8
   store volatile ptr %109, ptr %108, align 8
   store volatile ptr %104, ptr %104, align 8
   store volatile ptr %104, ptr %107, align 8
-  call void @_raw_spin_unlock(ptr noundef %100) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %100) #24
   %111 = call ptr @igrab(ptr noundef %106) #24
   %112 = icmp eq ptr %111, null
   br i1 %112, label %121, label %113
 
 113:                                              ; preds = %.preheader
-  %114 = getelementptr inbounds i8, ptr %111, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 12
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 512
   %117 = icmp eq i32 %116, 0
@@ -1238,13 +1238,13 @@ define internal fastcc i32 @sb_finish_set_opts(ptr noundef %0) unnamed_addr #1 a
   br label %121
 
 121:                                              ; preds = %120, %.preheader
-  call void @_raw_spin_lock(ptr noundef %100) #24
+  call void @_raw_spin_lock(ptr noundef nonnull %100) #24
   %122 = load volatile ptr, ptr %101, align 8
   %123 = icmp eq ptr %122, %101
   br i1 %123, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %121, %97
-  call void @_raw_spin_unlock(ptr noundef %100) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %100) #24
   br label %124
 
 124:                                              ; preds = %55, %.loopexit
@@ -1261,7 +1261,7 @@ declare dso_local i32 @avc_has_perm(i32 noundef, i32 noundef, i16 noundef zeroex
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -1270,20 +1270,20 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   %10 = select i1 %6, ptr null, ptr %9, !prof !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
   store i32 0, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 34
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 34
   %12 = load i8, ptr %11, align 2
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %153, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %10, i64 36
-  tail call void @_raw_spin_lock(ptr noundef %15) #24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 36
+  tail call void @_raw_spin_lock(ptr noundef nonnull %15) #24
   %16 = load i8, ptr %11, align 2
   %17 = icmp eq i8 %16, 1
   br i1 %17, label %151, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %10, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %20 = load i16, ptr %19, align 8
   %21 = icmp eq i16 %20, 7
   br i1 %21, label %22, label %35
@@ -1327,51 +1327,51 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
 
 35:                                               ; preds = %33, %18
   %36 = phi i16 [ %34, %33 ], [ %20, %18 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 160
   %40 = load ptr, ptr %39, align 32
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %40, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 14
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 14
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 256
   %47 = icmp eq i16 %46, 0
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %35
-  %49 = getelementptr inbounds i8, ptr %43, i64 64
-  tail call void @_raw_spin_lock(ptr noundef %49) #24
-  %50 = getelementptr inbounds i8, ptr %10, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  tail call void @_raw_spin_lock(ptr noundef nonnull %49) #24
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %51 = load volatile ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %50
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %43, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %50, ptr %56, align 8
   store ptr %55, ptr %50, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %54, ptr %57, align 8
   store volatile ptr %50, ptr %54, align 8
   br label %58
 
 58:                                               ; preds = %53, %48
-  tail call void @_raw_spin_unlock(ptr noundef %49) #24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %49) #24
   br label %151
 
 59:                                               ; preds = %35
-  %60 = getelementptr inbounds i8, ptr %10, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %3, align 4
   store i8 2, ptr %11, align 2
-  tail call void @_raw_spin_unlock(ptr noundef %15) #24
-  %64 = getelementptr inbounds i8, ptr %43, i64 12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %15) #24
+  %64 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %65 = load i16, ptr %64, align 4
   switch i16 %65, label %95 [
     i16 7, label %66
@@ -1382,14 +1382,14 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   ]
 
 66:                                               ; preds = %59, %59
-  %67 = getelementptr inbounds i8, ptr %0, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 8
   %70 = icmp eq i16 %69, 0
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %43, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr %3, align 4
   br label %137
@@ -1399,8 +1399,8 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   br i1 %75, label %78, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @lockref_get(ptr noundef %77) #24
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  tail call void @lockref_get(ptr noundef nonnull %77) #24
   br label %.thread
 
 78:                                               ; preds = %74
@@ -1415,7 +1415,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %78, %76, %81
   %84 = phi ptr [ %82, %81 ], [ %79, %78 ], [ %1, %76 ]
-  %85 = getelementptr inbounds i8, ptr %43, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = call fastcc i32 @inode_doinit_use_xattr(ptr noundef %0, ptr noundef nonnull %84, i32 noundef %86, ptr noundef nonnull %3)
   call void @dput(ptr noundef nonnull %84) #24
@@ -1432,7 +1432,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   br label %137
 
 92:                                               ; preds = %59
-  %93 = getelementptr inbounds i8, ptr %43, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %94 = load i32, ptr %93, align 8
   store i32 %94, ptr %3, align 4
   br label %137
@@ -1461,8 +1461,8 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %1, i64 96
-  tail call void @lockref_get(ptr noundef %110) #24
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  tail call void @lockref_get(ptr noundef nonnull %110) #24
   br label %.thread11
 
 111:                                              ; preds = %107
@@ -1493,7 +1493,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
   br i1 %125, label %136, label %126
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %0, i64 2
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %128 = load i16, ptr %127, align 2
   %129 = and i16 %128, 8
   %130 = icmp eq i16 %129, 0
@@ -1515,7 +1515,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
 
 137:                                              ; preds = %136, %135, %121, %104, %95, %92, %89, %88, %.thread, %71
   %138 = phi i32 [ %119, %121 ], [ %133, %135 ], [ 0, %136 ], [ 0, %104 ], [ 0, %95 ], [ 0, %92 ], [ %91, %89 ], [ 0, %88 ], [ %87, %.thread ], [ 0, %71 ]
-  call void @_raw_spin_lock(ptr noundef %15) #24
+  call void @_raw_spin_lock(ptr noundef nonnull %15) #24
   %139 = load i8, ptr %11, align 2
   %140 = icmp eq i8 %139, 2
   br i1 %140, label %141, label %151
@@ -1536,7 +1536,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
 
 146:                                              ; preds = %114, %81
   %147 = phi i32 [ %96, %114 ], [ %63, %81 ]
-  tail call void @_raw_spin_lock(ptr noundef %15) #24
+  tail call void @_raw_spin_lock(ptr noundef nonnull %15) #24
   %148 = load i8, ptr %11, align 2
   %149 = icmp eq i8 %148, 2
   br i1 %149, label %150, label %151
@@ -1548,7 +1548,7 @@ define internal fastcc i32 @inode_doinit_with_dentry(ptr noundef %0, ptr noundef
 
 151:                                              ; preds = %150, %146, %144, %143, %137, %58, %14
   %152 = phi i32 [ 0, %14 ], [ %138, %143 ], [ 0, %144 ], [ %138, %137 ], [ 0, %58 ], [ 0, %150 ], [ 0, %146 ]
-  call void @_raw_spin_unlock(ptr noundef %15) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %15) #24
   br label %153
 
 153:                                              ; preds = %151, %2
@@ -1662,12 +1662,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @inode_doinit_use_xattr(ptr
 
 33:                                               ; preds = %31
   %34 = sub i32 0, %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 920
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 920
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %39 = load i64, ptr %38, align 8
-  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.inode_doinit_use_xattr, i32 noundef %34, ptr noundef %37, i64 noundef %39) #25
+  %40 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.inode_doinit_use_xattr, i32 noundef %34, ptr noundef nonnull %37, i64 noundef %39) #25
   br label %61
 
 41:                                               ; preds = %31
@@ -1680,10 +1680,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @inode_doinit_use_xattr(ptr
   br i1 %44, label %60, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 920
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 920
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i32 %43, -22
   br i1 %51, label %52, label %57
@@ -1694,12 +1694,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @inode_doinit_use_xattr(ptr
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, i64 noundef %50, ptr noundef %48, ptr noundef nonnull %29) #25
+  %56 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, i64 noundef %50, ptr noundef nonnull %48, ptr noundef nonnull %29) #25
   br label %60
 
 57:                                               ; preds = %45
   %58 = sub i32 0, %43
-  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.inode_doinit_use_xattr, ptr noundef nonnull %29, i32 noundef %58, ptr noundef %48, i64 noundef %50) #25
+  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.inode_doinit_use_xattr, ptr noundef nonnull %29, i32 noundef %58, ptr noundef nonnull %48, i64 noundef %50) #25
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %42
@@ -1716,7 +1716,7 @@ declare dso_local void @dput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @selinux_genfs_get_sid(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 0) #24
   %8 = icmp eq i64 %7, 0
@@ -1756,7 +1756,7 @@ define internal fastcc i32 @selinux_genfs_get_sid(ptr noundef nonnull %0, i16 no
 
 .loopexit:                                        ; preds = %.preheader, %19, %16
   %29 = phi ptr [ %11, %16 ], [ %11, %19 ], [ %24, %.preheader ]
-  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @security_genfs_sid(ptr noundef %32, ptr noundef %29, i16 noundef zeroext %1, ptr noundef %3) #24
@@ -1873,19 +1873,19 @@ define internal noundef i32 @selinux_lsm_notifier_avc_callback(i32 noundef %0) #
 define internal i32 @selinux_binder_set_context_mgr(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 %9
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %17, i16 noundef zeroext 57, i32 noundef 4, ptr noundef null) #24
   ret i32 %18
@@ -1895,24 +1895,24 @@ define internal i32 @selinux_binder_set_context_mgr(ptr nocapture noundef readon
 define internal i32 @selinux_binder_transaction(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 %10
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 %10
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %13, %18
   br i1 %24, label %28, label %25
@@ -1933,17 +1933,17 @@ define internal i32 @selinux_binder_transaction(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_binder_transfer_binder(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 %6
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @avc_has_perm(i32 noundef %9, i32 noundef %14, i16 noundef zeroext 57, i32 noundef 8, ptr noundef null) #24
   ret i32 %15
@@ -1952,26 +1952,26 @@ define internal i32 @selinux_binder_transfer_binder(ptr nocapture noundef readon
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_binder_transfer_file(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @selinux_blob_sizes, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %2, i64 152
-  %18 = getelementptr inbounds i8, ptr %2, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %20, ptr noundef align 8 dereferenceable(16) %17, i64 16, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %17, i64 16, i1 false)
   %21 = load i32, ptr %16, align 4
   %22 = icmp eq i32 %11, %21
   br i1 %22, label %26, label %23
@@ -1982,16 +1982,16 @@ define internal i32 @selinux_binder_transfer_file(ptr nocapture readnone %0, ptr
   br i1 %25, label %26, label %80
 
 26:                                               ; preds = %23, %3
-  %27 = getelementptr inbounds i8, ptr %19, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %80, !prof !15
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %28, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %37 = call i32 @__SCT__might_resched() #24
@@ -2005,7 +2005,7 @@ define internal i32 @selinux_binder_transfer_file(ptr nocapture readnone %0, ptr
   %42 = sext i32 %36 to i64
   %43 = getelementptr i8, ptr %35, i64 %42
   %44 = select i1 %41, ptr null, ptr %43, !prof !10
-  %45 = getelementptr inbounds i8, ptr %44, i64 34
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 34
   %46 = load i8, ptr %45, align 2
   %47 = icmp eq i8 %46, 1
   br i1 %47, label %50, label %48
@@ -2021,11 +2021,11 @@ define internal i32 @selinux_binder_transfer_file(ptr nocapture readnone %0, ptr
   %54 = sext i32 %53 to i64
   %55 = getelementptr i8, ptr %51, i64 %54
   %56 = select i1 %52, ptr null, ptr %55, !prof !10
-  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %56, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %60 = load i16, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = shl i32 %62, 1
   %64 = and i32 %63, 2
@@ -2034,7 +2034,7 @@ define internal i32 @selinux_binder_transfer_file(ptr nocapture readnone %0, ptr
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %50
-  %68 = getelementptr inbounds i8, ptr %2, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1024
   %71 = icmp eq i32 %70, 0
@@ -2064,24 +2064,24 @@ define internal i32 @selinux_binder_transfer_file(ptr nocapture readnone %0, ptr
 define internal i32 @selinux_ptrace_access_check(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @__rcu_read_lock() #24
-  %14 = getelementptr inbounds i8, ptr %0, i64 1776
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %15 = load volatile ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @selinux_blob_sizes, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   tail call void @__rcu_read_unlock() #24
   %23 = and i32 %1, 1
@@ -2104,27 +2104,27 @@ define internal i32 @selinux_ptrace_access_check(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_ptrace_traceme(ptr noundef %0) #1 align 16 {
   tail call void @__rcu_read_lock() #24
-  %2 = getelementptr inbounds i8, ptr %0, i64 1776
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %3 = load volatile ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @selinux_blob_sizes, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   tail call void @__rcu_read_unlock() #24
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %12 = inttoptr i64 %11 to ptr
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %12, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %10, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 128, ptr noundef null) #24
@@ -2135,24 +2135,24 @@ define internal i32 @selinux_ptrace_traceme(ptr noundef %0) #1 align 16 {
 define internal i32 @selinux_capget(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @__rcu_read_lock() #24
-  %16 = getelementptr inbounds i8, ptr %0, i64 1776
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %17 = load volatile ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @selinux_blob_sizes, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   tail call void @__rcu_read_unlock() #24
   %25 = tail call i32 @avc_has_perm(i32 noundef %15, i32 noundef %24, i16 noundef zeroext 2, i32 noundef 8192, ptr noundef null) #24
@@ -2161,17 +2161,17 @@ define internal i32 @selinux_capget(ptr noundef %0, ptr nocapture readnone %1, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_capset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 align 16 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 %9
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %17, i16 noundef zeroext 2, i32 noundef 16384, ptr noundef null) #24
   ret i32 %18
@@ -2186,21 +2186,21 @@ define internal i32 @selinux_capable(ptr nocapture noundef readonly %0, ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %2, 31
   %16 = shl nuw i32 1, %15
   store i8 3, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %17, align 8
   %18 = ashr i32 %2, 5
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink.sroa.gep5 = getelementptr inbounds i8, ptr %6, i64 4
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink.sroa.gep5 = getelementptr inbounds nuw i8, ptr %6, i64 4
   switch i32 %18, label %23 [
     i32 0, label %19
     i32 1, label %21
@@ -2272,7 +2272,7 @@ define internal i32 @selinux_capable(ptr nocapture noundef readonly %0, ptr noun
 define internal i32 @selinux_quotactl(i32 noundef %0, i32 %1, i32 %2, ptr noundef readonly %3) #1 align 16 {
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %3, null
   br i1 %9, label %28, label %10
@@ -2301,14 +2301,14 @@ define internal i32 @selinux_quotactl(i32 noundef %0, i32 %1, i32 %2, ptr nounde
 
 12:                                               ; preds = %11, %10, %10, %10, %10, %10, %10, %10, %10
   %13 = phi i32 [ 256, %11 ], [ 128, %10 ], [ 128, %10 ], [ 128, %10 ], [ 128, %10 ], [ 128, %10 ], [ 128, %10 ], [ 128, %10 ], [ 128, %10 ]
-  %14 = getelementptr inbounds i8, ptr %8, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @selinux_blob_sizes, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %15, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %22 = load ptr, ptr %21, align 32
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %24 = sext i32 %23 to i64
@@ -2327,16 +2327,16 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %13 = tail call i32 @__SCT__might_resched() #24
@@ -2350,7 +2350,7 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
   %18 = sext i32 %12 to i64
   %19 = getelementptr i8, ptr %11, i64 %18
   %20 = select i1 %17, ptr null, ptr %19, !prof !10
-  %21 = getelementptr inbounds i8, ptr %20, i64 34
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 34
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %24
@@ -2360,19 +2360,19 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
   br label %26
 
 26:                                               ; preds = %24, %16, %1
-  %27 = getelementptr inbounds i8, ptr %8, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %50, !prof !15
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @selinux_blob_sizes, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %10, align 8
   %40 = icmp eq ptr %39, null
@@ -2380,9 +2380,9 @@ define internal i32 @selinux_quota_on(ptr noundef %0) #1 align 16 {
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = select i1 %40, ptr null, ptr %43, !prof !10
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load i16, ptr %47, align 8
   %49 = call i32 @avc_has_perm(i32 noundef %38, i32 noundef %46, i16 noundef zeroext %48, i32 noundef 32768, ptr noundef nonnull %2) #24
   br label %50
@@ -2419,14 +2419,14 @@ define internal i32 @selinux_syslog(i32 noundef %0) #1 align 16 {
   %9 = phi i64 [ %7, %6 ], [ %5, %4 ], [ %3, %2 ]
   %10 = phi i32 [ 4, %6 ], [ 8, %4 ], [ 2, %2 ]
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 1784
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1784
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @selinux_blob_sizes, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %15, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @avc_has_perm(i32 noundef %20, i32 noundef 1, i16 noundef zeroext 4, i32 noundef %10, ptr noundef null) #24
   ret i32 %21
@@ -2437,16 +2437,16 @@ define internal range(i32 0, 2) i32 @selinux_vm_enough_memory(ptr nocapture read
   %3 = alloca %struct.av_decision, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @avc_has_perm_noaudit(i32 noundef %14, i32 noundef %14, i16 noundef zeroext 5, i32 noundef 2097152, i32 noundef 0, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #24
@@ -2460,13 +2460,13 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_network_audit, align 8
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 640
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i16, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #24
   %14 = icmp ugt i32 %7, 15
@@ -2474,13 +2474,13 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
 
 15:                                               ; preds = %2
   store i32 0, ptr %5, align 4, !annotation !5
-  %16 = getelementptr inbounds i8, ptr %0, i64 516
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %17 = zext i16 %13 to i64
   %18 = add nsw i64 %17, -1
   %19 = getelementptr [0 x %struct.security_class_mapping], ptr @secclass_map, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %23
 
 23:                                               ; preds = %83, %15
@@ -2493,7 +2493,7 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %24, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %32 = load i16, ptr %31, align 4
   %33 = call i32 @selinux_nlmsg_lookup(i16 noundef zeroext %13, i16 noundef zeroext %32, ptr noundef nonnull %5) #24
   switch i32 %33, label %.loopexit [
@@ -2509,7 +2509,7 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %.thread, label %40
@@ -2534,17 +2534,17 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
   store i16 0, ptr %22, align 8
   %46 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 1784
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1784
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 128
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr @selinux_blob_sizes, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr i8, ptr %51, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %37, align 8
-  %58 = getelementptr inbounds i8, ptr %36, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %59 = load i16, ptr %58, align 8
   %60 = call i32 @avc_has_perm(i32 noundef %56, i32 noundef %57, i16 noundef zeroext %59, i32 noundef %35, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
@@ -2565,10 +2565,10 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
   %70 = load ptr, ptr %19, align 8
   %71 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds i8, ptr %72, i64 1320
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1320
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 1800
-  %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.40, i32 noundef %67, i32 noundef %69, ptr noundef %70, i32 noundef %74, ptr noundef %75) #25
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 1800
+  %76 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.40, i32 noundef %67, i32 noundef %69, ptr noundef %70, i32 noundef %74, ptr noundef nonnull %75) #25
   br label %77
 
 77:                                               ; preds = %65, %62
@@ -2603,25 +2603,25 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr nocapture noundef 
 define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 %14
-  %21 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %24 = tail call i32 @__SCT__might_resched() #24
@@ -2635,7 +2635,7 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
   %29 = sext i32 %23 to i64
   %30 = getelementptr i8, ptr %22, i64 %29
   %31 = select i1 %28, ptr null, ptr %30, !prof !10
-  %32 = getelementptr inbounds i8, ptr %31, i64 34
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 34
   %33 = load i8, ptr %32, align 2
   %34 = icmp eq i8 %33, 1
   br i1 %34, label %37, label %35
@@ -2652,16 +2652,16 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
   %41 = sext i32 %40 to i64
   %42 = getelementptr i8, ptr %38, i64 %41
   %43 = select i1 %39, ptr null, ptr %42, !prof !10
-  %44 = getelementptr inbounds i8, ptr %15, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %20, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %45, ptr %46, align 4
   store i32 %45, ptr %20, align 4
-  %47 = getelementptr inbounds i8, ptr %20, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %20, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %20, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %49, align 4
   %50 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
   %51 = icmp eq i8 %50, 0
@@ -2670,25 +2670,25 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
 
 52:                                               ; preds = %37
   store i32 7, ptr %46, align 4
-  %53 = getelementptr inbounds i8, ptr %20, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %53, align 4
   br label %180
 
 54:                                               ; preds = %37
-  %55 = getelementptr inbounds i8, ptr %15, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %88, label %58
 
 58:                                               ; preds = %54
   store i32 %56, ptr %46, align 4
-  %59 = getelementptr inbounds i8, ptr %20, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 4
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 152
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 152
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i1 @mnt_may_suid(ptr noundef %65) #24
   %67 = icmp eq i32 %62, 0
@@ -2734,18 +2734,18 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
 
 88:                                               ; preds = %54
   %89 = load i32, ptr %44, align 4
-  %90 = getelementptr inbounds i8, ptr %43, i64 28
+  %90 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %91 = load i32, ptr %90, align 4
-  %92 = tail call i32 @security_transition_sid(i32 noundef %89, i32 noundef %91, i16 noundef zeroext 2, ptr noundef null, ptr noundef %46) #24
+  %92 = tail call i32 @security_transition_sid(i32 noundef %89, i32 noundef %91, i16 noundef zeroext 2, ptr noundef null, ptr noundef nonnull %46) #24
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %180
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %0, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %96 = load i32, ptr %95, align 8
   %97 = and i32 %96, 4
   %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 152
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 152
   %100 = load ptr, ptr %99, align 8
   %101 = tail call zeroext i1 @mnt_may_suid(ptr noundef %100) #24
   %102 = icmp eq i32 %97, 0
@@ -2793,14 +2793,14 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
   %123 = phi i32 [ %.pre17, %..thread_crit_edge ], [ %.pre18, %75 ], [ %.pre, %69 ], [ %.pre, %58 ], [ %.pre19, %122 ], [ %.pre19, %117 ], [ %.pre20, %110 ], [ %.pre21, %104 ], [ %.pre21, %94 ]
   store i8 12, ptr %2, align 8
   %124 = load ptr, ptr %3, align 8
-  %125 = getelementptr inbounds i8, ptr %2, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %124, ptr %125, align 8
   %126 = load i32, ptr %46, align 4
   %127 = icmp eq i32 %126, %123
   br i1 %127, label %128, label %133
 
 128:                                              ; preds = %.thread
-  %129 = getelementptr inbounds i8, ptr %43, i64 28
+  %129 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %130 = load i32, ptr %129, align 4
   %131 = call i32 @avc_has_perm(i32 noundef %123, i32 noundef %130, i16 noundef zeroext 7, i32 noundef 33554432, ptr noundef nonnull %2) #24
   %132 = icmp eq i32 %131, 0
@@ -2813,14 +2813,14 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
 
 136:                                              ; preds = %133
   %137 = load i32, ptr %46, align 4
-  %138 = getelementptr inbounds i8, ptr %43, i64 28
+  %138 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %139 = load i32, ptr %138, align 4
   %140 = call i32 @avc_has_perm(i32 noundef %137, i32 noundef %139, i16 noundef zeroext 7, i32 noundef 67108864, ptr noundef nonnull %2) #24
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %180
 
 142:                                              ; preds = %136
-  %143 = getelementptr inbounds i8, ptr %0, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, 1
   %146 = icmp eq i32 %145, 0
@@ -2855,7 +2855,7 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
   br i1 %162, label %163, label %180
 
 163:                                              ; preds = %159, %156, %152
-  %164 = getelementptr inbounds i8, ptr %0, i64 84
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %165 = load i32, ptr %164, align 4
   %166 = or i32 %165, 7602176
   store i32 %166, ptr %164, align 4
@@ -2863,7 +2863,7 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
   %168 = load i32, ptr %46, align 4
   %169 = call i32 @avc_has_perm(i32 noundef %167, i32 noundef %168, i16 noundef zeroext 2, i32 noundef 524288, ptr noundef null) #24
   %170 = icmp ne i32 %169, 0
-  %171 = getelementptr inbounds i8, ptr %0, i64 40
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %172 = load i8, ptr %171, align 8
   %173 = and i8 %172, 4
   %174 = icmp ne i8 %173, 0
@@ -2886,14 +2886,14 @@ define internal i32 @selinux_bprm_creds_for_exec(ptr nocapture noundef %0) #1 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @selinux_blob_sizes, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %9, align 4
   %13 = icmp eq i32 %11, %12
@@ -2902,16 +2902,16 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
 14:                                               ; preds = %1
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 1856
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1856
   %18 = load ptr, ptr %17, align 64
   %19 = tail call ptr @get_current_tty() #24
   %20 = icmp eq ptr %19, null
   br i1 %20, label %59, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %19, i64 592
-  tail call void @_raw_spin_lock(ptr noundef %22) #24
-  %23 = getelementptr inbounds i8, ptr %19, i64 608
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 592
+  tail call void @_raw_spin_lock(ptr noundef nonnull %22) #24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 608
   %24 = load volatile ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %23
   br i1 %25, label %57, label %26
@@ -2922,11 +2922,11 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 168
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 512
   %35 = icmp eq i32 %34, 0
@@ -2937,23 +2937,23 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
   %38 = load i32, ptr @selinux_blob_sizes, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr i8, ptr %37, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %31, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr i8, ptr %44, i64 %47
   %49 = select i1 %45, ptr null, ptr %48, !prof !10
-  %50 = getelementptr inbounds i8, ptr %49, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %49, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %53 = load i16, ptr %52, align 8
   %54 = call i32 @avc_has_perm(i32 noundef %42, i32 noundef %51, i16 noundef zeroext %53, i32 noundef 6, ptr noundef nonnull %2) #24
   %55 = icmp eq i32 %54, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
-  call void @_raw_spin_unlock(ptr noundef %22) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %22) #24
   call void @tty_kref_put(ptr noundef nonnull %19) #24
   br i1 %55, label %59, label %56
 
@@ -2962,13 +2962,13 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
   br label %59
 
 57:                                               ; preds = %21
-  tail call void @_raw_spin_unlock(ptr noundef %22) #24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %22) #24
   tail call void @tty_kref_put(ptr noundef nonnull %19) #24
   br label %59
 
 58:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
-  tail call void @_raw_spin_unlock(ptr noundef %22) #24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %22) #24
   tail call void @tty_kref_put(ptr noundef nonnull %19) #24
   br label %59
 
@@ -3000,7 +3000,7 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
   br label %75
 
 75:                                               ; preds = %74, %72, %59
-  %76 = getelementptr inbounds i8, ptr %16, i64 1228
+  %76 = getelementptr inbounds nuw i8, ptr %16, i64 1228
   store i32 0, ptr %76, align 4
   %77 = load i32, ptr %9, align 4
   %78 = load i32, ptr %10, align 4
@@ -3009,20 +3009,20 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
   br i1 %80, label %103, label %81
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %16, i64 2056
-  call void @_raw_spin_lock(ptr noundef %82) #24
-  %83 = getelementptr inbounds i8, ptr %16, i64 1880
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 2056
+  call void @_raw_spin_lock(ptr noundef nonnull %82) #24
+  %83 = getelementptr inbounds nuw i8, ptr %16, i64 1880
   br label %84
 
 84:                                               ; preds = %84, %81
   %85 = phi i64 [ 0, %81 ], [ %96, %84 ]
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 672
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 672
   %88 = getelementptr %struct.rlimit, ptr %87, i64 %85
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1880), align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 672
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 672
   %91 = getelementptr %struct.rlimit, ptr %90, i64 %85
-  %92 = getelementptr inbounds i8, ptr %88, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = load i64, ptr %91, align 8
   %95 = call i64 @llvm.umin.i64(i64 %93, i64 %94)
@@ -3032,9 +3032,9 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
   br i1 %97, label %98, label %84, !llvm.loop !21
 
 98:                                               ; preds = %84
-  call void @_raw_spin_unlock(ptr noundef %82) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %82) #24
   %99 = load ptr, ptr %83, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 672
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 672
   %101 = load volatile i64, ptr %100, align 8
   %102 = call i32 @update_rlimit_cpu(ptr noundef %16, i64 noundef %101) #24
   br label %103
@@ -3047,15 +3047,15 @@ define internal void @selinux_bprm_committing_creds(ptr nocapture noundef readon
 define internal void @selinux_bprm_committed_creds(ptr nocapture readnone %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %11
   br i1 %14, label %40, label %15
@@ -3067,7 +3067,7 @@ define internal void @selinux_bprm_committed_creds(ptr nocapture readnone %0) #1
 
 18:                                               ; preds = %15
   tail call void @clear_itimer() #24
-  %19 = getelementptr inbounds i8, ptr %3, i64 1888
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1888
   %20 = load ptr, ptr %19, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %20) #24
   %21 = load volatile i64, ptr %3, align 8
@@ -3076,21 +3076,21 @@ define internal void @selinux_bprm_committed_creds(ptr nocapture readnone %0) #1
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %3, i64 1936
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 256
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %24, %18
-  %30 = getelementptr inbounds i8, ptr %3, i64 1920
-  tail call void @flush_sigqueue(ptr noundef %30) #24
-  %31 = getelementptr inbounds i8, ptr %3, i64 1880
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 1920
+  tail call void @flush_sigqueue(ptr noundef nonnull %30) #24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
-  tail call void @flush_sigqueue(ptr noundef %33) #24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  tail call void @flush_sigqueue(ptr noundef nonnull %33) #24
   tail call void @flush_signal_handlers(ptr noundef %3, i32 noundef 1) #24
-  %34 = getelementptr inbounds i8, ptr %3, i64 1896
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 1896
   store i64 0, ptr %34, align 8
   tail call void @recalc_sigpending() #24
   br label %35
@@ -3102,7 +3102,7 @@ define internal void @selinux_bprm_committed_creds(ptr nocapture readnone %0) #1
 
 37:                                               ; preds = %35, %15
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #24
-  %38 = getelementptr inbounds i8, ptr %3, i64 1328
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 1328
   %39 = load ptr, ptr %38, align 16
   tail call void @__wake_up_parent(ptr noundef %3, ptr noundef %39) #24
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #24
@@ -3120,12 +3120,12 @@ define internal void @selinux_free_mnt_opts(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 14
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
   %11 = and i32 %10, 256
@@ -3162,13 +3162,13 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
   br i1 %31, label %32, label %119
 
 32:                                               ; preds = %23, %20
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %46, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %10, 1
   %40 = icmp ne i32 %39, 0
@@ -3180,17 +3180,17 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
   br i1 %45, label %46, label %119
 
 46:                                               ; preds = %36, %32
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %96, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %58 = tail call i32 @__SCT__might_resched() #24
@@ -3204,7 +3204,7 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
   %63 = sext i32 %57 to i64
   %64 = getelementptr i8, ptr %56, i64 %63
   %65 = select i1 %62, ptr null, ptr %64, !prof !10
-  %66 = getelementptr inbounds i8, ptr %65, i64 34
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 34
   %67 = load i8, ptr %66, align 2
   %68 = icmp eq i8 %67, 1
   br i1 %68, label %71, label %69
@@ -3228,7 +3228,7 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
   %81 = sext i32 %80 to i64
   %82 = getelementptr i8, ptr %78, i64 %81
   %83 = select i1 %79, ptr null, ptr %82, !prof !10
-  %84 = getelementptr inbounds i8, ptr %83, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %73, 4
   %87 = icmp ne i32 %86, 0
@@ -3246,7 +3246,7 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
 
 96:                                               ; preds = %93, %76, %46
   %97 = phi i16 [ %72, %93 ], [ %72, %76 ], [ %9, %46 ]
-  %98 = getelementptr inbounds i8, ptr %1, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %118, label %101
@@ -3258,7 +3258,7 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
   br i1 %104, label %115, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %7, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %102, 8
   %109 = icmp ne i32 %108, 0
@@ -3285,12 +3285,12 @@ define internal range(i32 0, 2) i32 @selinux_sb_mnt_opts_compat(ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 14
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 256
   %11 = icmp eq i16 %10, 0
@@ -3312,13 +3312,13 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
   br i1 %22, label %23, label %106
 
 23:                                               ; preds = %17, %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = and i16 %9, 1
   %31 = icmp ne i16 %30, 0
@@ -3327,17 +3327,17 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
   br i1 %33, label %34, label %106
 
 34:                                               ; preds = %27, %23
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %84, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %46 = tail call i32 @__SCT__might_resched() #24
@@ -3351,7 +3351,7 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
   %51 = sext i32 %45 to i64
   %52 = getelementptr i8, ptr %44, i64 %51
   %53 = select i1 %50, ptr null, ptr %52, !prof !10
-  %54 = getelementptr inbounds i8, ptr %53, i64 34
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 34
   %55 = load i8, ptr %54, align 2
   %56 = icmp eq i8 %55, 1
   br i1 %56, label %59, label %57
@@ -3375,7 +3375,7 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
   %69 = sext i32 %68 to i64
   %70 = getelementptr i8, ptr %66, i64 %69
   %71 = select i1 %67, ptr null, ptr %70, !prof !10
-  %72 = getelementptr inbounds i8, ptr %71, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %61, 4
   %75 = icmp ne i32 %74, 0
@@ -3393,7 +3393,7 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
 
 84:                                               ; preds = %81, %64, %34
   %85 = phi i16 [ %60, %81 ], [ %60, %64 ], [ %9, %34 ]
-  %86 = getelementptr inbounds i8, ptr %1, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %112, label %89
@@ -3405,7 +3405,7 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
   br i1 %92, label %103, label %93
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %7, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %90, 8
   %97 = icmp ne i32 %96, 0
@@ -3422,11 +3422,11 @@ define internal noundef range(i32 -22, 1) i32 @selinux_sb_remount(ptr noundef %0
   br i1 %105, label %106, label %112
 
 106:                                              ; preds = %103, %93, %81, %64, %27, %17
-  %107 = getelementptr inbounds i8, ptr %0, i64 920
-  %108 = getelementptr inbounds i8, ptr %0, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, ptr noundef %107, ptr noundef %110) #25
+  %111 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, ptr noundef nonnull %107, ptr noundef %110) #25
   br label %112
 
 112:                                              ; preds = %106, %103, %93, %84, %2
@@ -3439,23 +3439,23 @@ define internal i32 @selinux_sb_kern_mount(ptr nocapture noundef readonly %0) #1
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 32
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %20 = sext i32 %19 to i64
@@ -3468,12 +3468,12 @@ define internal i32 @selinux_sb_kern_mount(ptr nocapture noundef readonly %0) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_sb_show_options(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 14
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 256
   %11 = icmp eq i16 %10, 0
@@ -3512,7 +3512,7 @@ define internal i32 @selinux_sb_show_options(ptr noundef %0, ptr nocapture nound
 27:                                               ; preds = %23
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 44) #24
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.43) #24
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = tail call fastcc i32 @show_sid(ptr noundef %0, i32 noundef %29)
   %31 = icmp eq i32 %30, 0
@@ -3531,7 +3531,7 @@ define internal i32 @selinux_sb_show_options(ptr noundef %0, ptr nocapture nound
 36:                                               ; preds = %32
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 44) #24
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.44) #24
-  %37 = getelementptr inbounds i8, ptr %7, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = tail call fastcc i32 @show_sid(ptr noundef %0, i32 noundef %38)
   %40 = icmp eq i32 %39, 0
@@ -3548,11 +3548,11 @@ define internal i32 @selinux_sb_show_options(ptr noundef %0, ptr nocapture nound
   br i1 %44, label %77, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %1, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %53 = tail call i32 @__SCT__might_resched() #24
@@ -3566,7 +3566,7 @@ define internal i32 @selinux_sb_show_options(ptr noundef %0, ptr nocapture nound
   %58 = sext i32 %52 to i64
   %59 = getelementptr i8, ptr %51, i64 %58
   %60 = select i1 %57, ptr null, ptr %59, !prof !10
-  %61 = getelementptr inbounds i8, ptr %60, i64 34
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 34
   %62 = load i8, ptr %61, align 2
   %63 = icmp eq i8 %62, 1
   br i1 %63, label %66, label %64
@@ -3584,7 +3584,7 @@ define internal i32 @selinux_sb_show_options(ptr noundef %0, ptr nocapture nound
   %72 = select i1 %68, ptr null, ptr %71, !prof !10
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 44) #24
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.45) #24
-  %73 = getelementptr inbounds i8, ptr %72, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = tail call fastcc i32 @show_sid(ptr noundef %0, i32 noundef %74)
   %76 = icmp eq i32 %75, 0
@@ -3615,25 +3615,25 @@ define internal i32 @selinux_sb_statfs(ptr nocapture noundef readonly %0) #1 ali
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %20 = load ptr, ptr %19, align 32
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %22 = sext i32 %21 to i64
@@ -3649,25 +3649,25 @@ define internal i32 @selinux_mount(ptr nocapture readnone %0, ptr nocapture noun
   %6 = alloca %struct.common_audit_data, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
   %11 = and i64 %3, 32
   %12 = icmp eq i64 %11, 0
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   br i1 %12, label %32, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %14, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @selinux_blob_sizes, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %17, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %26 = load ptr, ptr %25, align 32
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %28 = sext i32 %27 to i64
@@ -3677,14 +3677,14 @@ define internal i32 @selinux_mount(ptr nocapture readnone %0, ptr nocapture noun
   br label %78
 
 32:                                               ; preds = %5
-  %33 = getelementptr inbounds i8, ptr %14, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %34 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %35, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %36 = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %39 = tail call i32 @__SCT__might_resched() #24
@@ -3698,7 +3698,7 @@ define internal i32 @selinux_mount(ptr nocapture readnone %0, ptr nocapture noun
   %44 = sext i32 %38 to i64
   %45 = getelementptr i8, ptr %37, i64 %44
   %46 = select i1 %43, ptr null, ptr %45, !prof !10
-  %47 = getelementptr inbounds i8, ptr %46, i64 34
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 34
   %48 = load i8, ptr %47, align 2
   %49 = icmp eq i8 %48, 1
   br i1 %49, label %52, label %50
@@ -3708,19 +3708,19 @@ define internal i32 @selinux_mount(ptr nocapture readnone %0, ptr nocapture noun
   br label %52
 
 52:                                               ; preds = %50, %42, %32
-  %53 = getelementptr inbounds i8, ptr %34, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 512
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %76, !prof !15
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %10, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr @selinux_blob_sizes, align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr i8, ptr %59, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = load ptr, ptr %36, align 8
   %66 = icmp eq ptr %65, null
@@ -3728,9 +3728,9 @@ define internal i32 @selinux_mount(ptr nocapture readnone %0, ptr nocapture noun
   %68 = sext i32 %67 to i64
   %69 = getelementptr i8, ptr %65, i64 %68
   %70 = select i1 %66, ptr null, ptr %69, !prof !10
-  %71 = getelementptr inbounds i8, ptr %70, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 28
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %70, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %74 = load i16, ptr %73, align 8
   %75 = call i32 @avc_has_perm(i32 noundef %64, i32 noundef %72, i16 noundef zeroext %74, i32 noundef 65536, ptr noundef nonnull %6) #24
   br label %76
@@ -3749,18 +3749,18 @@ define internal i32 @selinux_mount(ptr nocapture readnone %0, ptr nocapture noun
 define internal i32 @selinux_umount(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %17 = load ptr, ptr %16, align 32
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %19 = sext i32 %18 to i64
@@ -3772,15 +3772,15 @@ define internal i32 @selinux_umount(ptr nocapture noundef readonly %0, i32 %1) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 32
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %11 = load ptr, ptr %10, align 32
   %12 = getelementptr i8, ptr %11, i64 %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 14
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 2
@@ -3792,8 +3792,8 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %21, label %22, label %281
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %12, i64 16
-  tail call void @mutex_lock(ptr noundef %23) #24
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  tail call void @mutex_lock(ptr noundef nonnull %23) #24
   %24 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
   %25 = icmp eq i8 %24, 0
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !9
@@ -3805,7 +3805,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %28, label %279, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %12, i64 14
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 14
   %31 = load i16, ptr %30, align 2
   %32 = or i16 %31, 4096
   store i16 %32, ptr %30, align 2
@@ -3826,14 +3826,14 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   unreachable
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %12, i64 14
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 14
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 256
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %159, label %45
 
 45:                                               ; preds = %40
-  tail call void @mutex_unlock(ptr noundef %23) #24
+  tail call void @mutex_unlock(ptr noundef nonnull %23) #24
   %46 = and i64 %2, 1
   %47 = icmp eq i64 %46, 0
   %48 = icmp ne i32 %17, 0
@@ -3853,11 +3853,11 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %57 = getelementptr i8, ptr %54, i64 %56
   %58 = load ptr, ptr %10, align 32
   %59 = getelementptr i8, ptr %58, i64 %56
-  %60 = getelementptr inbounds i8, ptr %57, i64 14
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 14
   %61 = load i16, ptr %60, align 2
   %62 = and i16 %61, 15
   %63 = zext nneg i16 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %59, i64 14
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 14
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 15
   %67 = icmp eq i16 %62, %66
@@ -3880,9 +3880,9 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %77, label %84, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %57, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %59, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %80, %82
   br i1 %83, label %84, label %153
@@ -3892,9 +3892,9 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %85, label %92, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %57, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %59, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %88, %90
   br i1 %91, label %92, label %153
@@ -3905,11 +3905,11 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %94, label %281, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %0, i64 104
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %103 = tail call i32 @__SCT__might_resched() #24
@@ -3923,7 +3923,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %108 = sext i32 %102 to i64
   %109 = getelementptr i8, ptr %101, i64 %108
   %110 = select i1 %107, ptr null, ptr %109, !prof !10
-  %111 = getelementptr inbounds i8, ptr %110, i64 34
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 34
   %112 = load i8, ptr %111, align 2
   %113 = icmp eq i8 %112, 1
   br i1 %113, label %116, label %114
@@ -3939,11 +3939,11 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %120 = sext i32 %119 to i64
   %121 = getelementptr i8, ptr %117, i64 %120
   %122 = select i1 %118, ptr null, ptr %121, !prof !10
-  %123 = getelementptr inbounds i8, ptr %1, i64 104
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 56
   %128 = load ptr, ptr %127, align 8
   %129 = tail call i32 @__SCT__might_resched() #24
   %130 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
@@ -3955,7 +3955,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %133 = icmp eq ptr %128, null
   %134 = getelementptr i8, ptr %128, i64 %120
   %135 = select i1 %133, ptr null, ptr %134, !prof !10
-  %136 = getelementptr inbounds i8, ptr %135, i64 34
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 34
   %137 = load i8, ptr %136, align 2
   %138 = icmp eq i8 %137, 1
   br i1 %138, label %141, label %139
@@ -3971,32 +3971,32 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %145 = sext i32 %144 to i64
   %146 = getelementptr i8, ptr %142, i64 %145
   %147 = select i1 %143, ptr null, ptr %146, !prof !10
-  %148 = getelementptr inbounds i8, ptr %122, i64 28
+  %148 = getelementptr inbounds nuw i8, ptr %122, i64 28
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %147, i64 28
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 28
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %149, %151
   br i1 %152, label %281, label %153
 
 153:                                              ; preds = %141, %86, %78, %71, %53
-  %154 = getelementptr inbounds i8, ptr %1, i64 920
-  %155 = getelementptr inbounds i8, ptr %1, i64 40
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 920
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %156, align 8
-  %158 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %154, ptr noundef %157) #25
+  %158 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull %154, ptr noundef %157) #25
   br label %281
 
 159:                                              ; preds = %40
   store i16 %36, ptr %41, align 2
   %160 = load i32, ptr %9, align 8
   store i32 %160, ptr %12, align 8
-  %161 = getelementptr inbounds i8, ptr %9, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %162 = load i32, ptr %161, align 4
-  %163 = getelementptr inbounds i8, ptr %12, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %162, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %9, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %165 = load i16, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %12, i64 12
+  %166 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i16 %165, ptr %166, align 4
   %167 = icmp eq i16 %165, 7
   %168 = and i64 %2, 1
@@ -4030,7 +4030,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %177, label %182, label %.thread2
 
 182:                                              ; preds = %181
-  %183 = getelementptr inbounds i8, ptr %9, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %184 = load i32, ptr %183, align 8
   %185 = icmp eq i32 %16, 0
   br i1 %185, label %186, label %187
@@ -4044,11 +4044,11 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %188, label %189, label %218
 
 189:                                              ; preds = %187
-  %190 = getelementptr inbounds i8, ptr %1, i64 104
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 48
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 48
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 56
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 56
   %195 = load ptr, ptr %194, align 8
   %196 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %197 = tail call i32 @__SCT__might_resched() #24
@@ -4062,7 +4062,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %202 = sext i32 %196 to i64
   %203 = getelementptr i8, ptr %195, i64 %202
   %204 = select i1 %201, ptr null, ptr %203, !prof !10
-  %205 = getelementptr inbounds i8, ptr %204, i64 34
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 34
   %206 = load i8, ptr %205, align 2
   %207 = icmp eq i8 %206, 1
   br i1 %207, label %210, label %208
@@ -4078,12 +4078,12 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %214 = sext i32 %213 to i64
   %215 = getelementptr i8, ptr %211, i64 %214
   %216 = select i1 %212, ptr null, ptr %215, !prof !10
-  %217 = getelementptr inbounds i8, ptr %216, i64 28
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 28
   store i32 %184, ptr %217, align 4
   br label %218
 
 218:                                              ; preds = %210, %187
-  %219 = getelementptr inbounds i8, ptr %12, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %184, ptr %219, align 8
   br label %.thread2
 
@@ -4092,11 +4092,11 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   br i1 %220, label %277, label %221
 
 221:                                              ; preds = %.thread2
-  %222 = getelementptr inbounds i8, ptr %0, i64 104
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 48
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 48
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 56
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 56
   %227 = load ptr, ptr %226, align 8
   %228 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %229 = tail call i32 @__SCT__might_resched() #24
@@ -4110,7 +4110,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %234 = sext i32 %228 to i64
   %235 = getelementptr i8, ptr %227, i64 %234
   %236 = select i1 %233, ptr null, ptr %235, !prof !10
-  %237 = getelementptr inbounds i8, ptr %236, i64 34
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 34
   %238 = load i8, ptr %237, align 2
   %239 = icmp eq i8 %238, 1
   br i1 %239, label %242, label %240
@@ -4126,11 +4126,11 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %246 = sext i32 %245 to i64
   %247 = getelementptr i8, ptr %243, i64 %246
   %248 = select i1 %244, ptr null, ptr %247, !prof !10
-  %249 = getelementptr inbounds i8, ptr %1, i64 104
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 48
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 48
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 56
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 56
   %254 = load ptr, ptr %253, align 8
   %255 = tail call i32 @__SCT__might_resched() #24
   %256 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
@@ -4142,7 +4142,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %259 = icmp eq ptr %254, null
   %260 = getelementptr i8, ptr %254, i64 %246
   %261 = select i1 %259, ptr null, ptr %260, !prof !10
-  %262 = getelementptr inbounds i8, ptr %261, i64 34
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 34
   %263 = load i8, ptr %262, align 2
   %264 = icmp eq i8 %263, 1
   br i1 %264, label %267, label %265
@@ -4158,9 +4158,9 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
   %271 = sext i32 %270 to i64
   %272 = getelementptr i8, ptr %268, i64 %271
   %273 = select i1 %269, ptr null, ptr %272, !prof !10
-  %274 = getelementptr inbounds i8, ptr %248, i64 28
+  %274 = getelementptr inbounds nuw i8, ptr %248, i64 28
   %275 = load i32, ptr %274, align 4
-  %276 = getelementptr inbounds i8, ptr %273, i64 28
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 28
   store i32 %275, ptr %276, align 4
   br label %277
 
@@ -4170,7 +4170,7 @@ define internal i32 @selinux_sb_clone_mnt_opts(ptr nocapture noundef readonly %0
 
 279:                                              ; preds = %277, %173, %29, %26
   %280 = phi i32 [ 0, %277 ], [ %174, %173 ], [ 0, %29 ], [ 0, %26 ]
-  tail call void @mutex_unlock(ptr noundef %23) #24
+  tail call void @mutex_unlock(ptr noundef nonnull %23) #24
   br label %281
 
 281:                                              ; preds = %279, %153, %141, %92, %4
@@ -4183,18 +4183,18 @@ define internal i32 @selinux_move_mount(ptr nocapture readnone %0, ptr nocapture
   %3 = alloca %struct.common_audit_data, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %1, i64 16, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %16 = tail call i32 @__SCT__might_resched() #24
@@ -4208,7 +4208,7 @@ define internal i32 @selinux_move_mount(ptr nocapture readnone %0, ptr nocapture
   %21 = sext i32 %15 to i64
   %22 = getelementptr i8, ptr %14, i64 %21
   %23 = select i1 %20, ptr null, ptr %22, !prof !10
-  %24 = getelementptr inbounds i8, ptr %23, i64 34
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 34
   %25 = load i8, ptr %24, align 2
   %26 = icmp eq i8 %25, 1
   br i1 %26, label %29, label %27
@@ -4218,19 +4218,19 @@ define internal i32 @selinux_move_mount(ptr nocapture readnone %0, ptr nocapture
   br label %29
 
 29:                                               ; preds = %27, %19, %2
-  %30 = getelementptr inbounds i8, ptr %11, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %53, !prof !15
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %7, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr @selinux_blob_sizes, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %36, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %13, align 8
   %43 = icmp eq ptr %42, null
@@ -4238,9 +4238,9 @@ define internal i32 @selinux_move_mount(ptr nocapture readnone %0, ptr nocapture
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr %42, i64 %45
   %47 = select i1 %43, ptr null, ptr %46, !prof !10
-  %48 = getelementptr inbounds i8, ptr %47, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = load i16, ptr %50, align 8
   %52 = call i32 @avc_has_perm(i32 noundef %41, i32 noundef %49, i16 noundef zeroext %51, i32 noundef 65536, ptr noundef nonnull %3) #24
   br label %53
@@ -4257,16 +4257,16 @@ define internal i32 @selinux_dentry_init_security(ptr nocapture noundef readonly
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #24
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1784
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1784
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = and i32 %1, 61440
   %22 = add nsw i32 %21, -4096
@@ -4301,27 +4301,27 @@ define internal i32 @selinux_dentry_init_security(ptr nocapture noundef readonly
 30:                                               ; preds = %29, %28, %27, %26, %25, %24, %6
   %31 = phi i16 [ 7, %29 ], [ 14, %28 ], [ 11, %27 ], [ 8, %26 ], [ 12, %25 ], [ 10, %24 ], [ 13, %6 ]
   store i32 0, ptr %7, align 4, !annotation !5
-  %32 = getelementptr inbounds i8, ptr %20, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 160
   %35 = load ptr, ptr %34, align 32
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %35, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 14
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 14
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 256
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %30
-  %44 = getelementptr inbounds i8, ptr %38, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %45 = load i16, ptr %44, align 4
   %46 = icmp eq i16 %45, 6
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %38, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %49 = load i32, ptr %48, align 8
   br label %selinux_determine_inode_label.exit.thread
 
@@ -4331,13 +4331,13 @@ define internal i32 @selinux_dentry_init_security(ptr nocapture noundef readonly
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %16, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %selinux_determine_inode_label.exit.thread
 
 57:                                               ; preds = %53, %50
-  %58 = getelementptr inbounds i8, ptr %20, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %61 = tail call i32 @__SCT__might_resched() #24
@@ -4351,7 +4351,7 @@ define internal i32 @selinux_dentry_init_security(ptr nocapture noundef readonly
   %66 = sext i32 %60 to i64
   %67 = getelementptr i8, ptr %59, i64 %66
   %68 = select i1 %65, ptr null, ptr %67, !prof !10
-  %69 = getelementptr inbounds i8, ptr %68, i64 34
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 34
   %70 = load i8, ptr %69, align 2
   %71 = icmp eq i8 %70, 1
   br i1 %71, label %selinux_determine_inode_label.exit, label %72
@@ -4372,9 +4372,9 @@ selinux_determine_inode_label.exit:               ; preds = %57, %64, %72
   %78 = sext i32 %77 to i64
   %79 = getelementptr i8, ptr %75, i64 %78
   %80 = select i1 %76, ptr null, ptr %79, !prof !10
-  %81 = getelementptr inbounds i8, ptr %16, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %80, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %84 = load i32, ptr %83, align 4
   %85 = call i32 @security_transition_sid(i32 noundef %82, i32 noundef %84, i16 noundef zeroext range(i16 7, 15) %31, ptr noundef %2, ptr noundef nonnull %7) #24
   %86 = icmp eq i32 %85, 0
@@ -4403,14 +4403,14 @@ selinux_determine_inode_label.exit:               ; preds = %57, %64, %72
 define internal i32 @selinux_dentry_create_files_as(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #1 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
-  %7 = getelementptr inbounds i8, ptr %3, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = and i32 %1, 61440
   %17 = add nsw i32 %16, -4096
@@ -4445,27 +4445,27 @@ define internal i32 @selinux_dentry_create_files_as(ptr nocapture noundef readon
 25:                                               ; preds = %24, %23, %22, %21, %20, %19, %5
   %26 = phi i16 [ 7, %24 ], [ 14, %23 ], [ 11, %22 ], [ 8, %21 ], [ 12, %20 ], [ 10, %19 ], [ 13, %5 ]
   store i32 0, ptr %6, align 4, !annotation !5
-  %27 = getelementptr inbounds i8, ptr %15, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 160
   %30 = load ptr, ptr %29, align 32
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 14
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 14
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 256
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %45, label %38
 
 38:                                               ; preds = %25
-  %39 = getelementptr inbounds i8, ptr %33, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %40 = load i16, ptr %39, align 4
   %41 = icmp eq i16 %40, 6
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %33, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %44 = load i32, ptr %43, align 8
   br label %selinux_determine_inode_label.exit.thread
 
@@ -4475,13 +4475,13 @@ define internal i32 @selinux_dentry_create_files_as(ptr nocapture noundef readon
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %11, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %selinux_determine_inode_label.exit.thread
 
 52:                                               ; preds = %48, %45
-  %53 = getelementptr inbounds i8, ptr %15, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %56 = tail call i32 @__SCT__might_resched() #24
@@ -4495,7 +4495,7 @@ define internal i32 @selinux_dentry_create_files_as(ptr nocapture noundef readon
   %61 = sext i32 %55 to i64
   %62 = getelementptr i8, ptr %54, i64 %61
   %63 = select i1 %60, ptr null, ptr %62, !prof !10
-  %64 = getelementptr inbounds i8, ptr %63, i64 34
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 34
   %65 = load i8, ptr %64, align 2
   %66 = icmp eq i8 %65, 1
   br i1 %66, label %selinux_determine_inode_label.exit, label %67
@@ -4511,9 +4511,9 @@ selinux_determine_inode_label.exit:               ; preds = %52, %59, %67
   %72 = sext i32 %71 to i64
   %73 = getelementptr i8, ptr %69, i64 %72
   %74 = select i1 %70, ptr null, ptr %73, !prof !10
-  %75 = getelementptr inbounds i8, ptr %11, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %74, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %78 = load i32, ptr %77, align 4
   %79 = call i32 @security_transition_sid(i32 noundef %76, i32 noundef %78, i16 noundef zeroext range(i16 7, 15) %26, ptr noundef %2, ptr noundef nonnull %6) #24
   %80 = icmp eq i32 %79, 0
@@ -4528,10 +4528,10 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 selinux_determine_inode_label.exit.thread:        ; preds = %48, %42, %selinux_determine_inode_label.exit._crit_edge
   %.pre-phi = phi i64 [ %.pre2, %selinux_determine_inode_label.exit._crit_edge ], [ %10, %42 ], [ %10, %48 ]
   %81 = phi i32 [ %.pre1, %selinux_determine_inode_label.exit._crit_edge ], [ %44, %42 ], [ %50, %48 ]
-  %82 = getelementptr inbounds i8, ptr %4, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr i8, ptr %83, i64 %.pre-phi
-  %85 = getelementptr inbounds i8, ptr %84, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 %81, ptr %85, align 4
   br label %86
 
@@ -4543,7 +4543,7 @@ selinux_determine_inode_label.exit.thread:        ; preds = %48, %42, %selinux_d
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_inode_free_security(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -4554,37 +4554,37 @@ define internal void @selinux_inode_free_security(ptr nocapture noundef readonly
   br i1 %9, label %31, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %13, align 32
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %14, i64 %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !24
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %18, %23
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21, %10
-  %26 = getelementptr inbounds i8, ptr %17, i64 64
-  tail call void @_raw_spin_lock(ptr noundef %26) #24
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  tail call void @_raw_spin_lock(ptr noundef nonnull %26) #24
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %28, ptr %30, align 8
   store volatile ptr %29, ptr %28, align 8
   store volatile ptr %18, ptr %18, align 8
   store volatile ptr %18, ptr %27, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %26) #24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %26) #24
   br label %31
 
 31:                                               ; preds = %25, %21, %1
@@ -4598,9 +4598,9 @@ define internal i32 @selinux_inode_init_security(ptr nocapture noundef readonly 
   %8 = alloca ptr, align 8
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 1784
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1784
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @selinux_blob_sizes, align 4
   %16 = sext i32 %15 to i64
@@ -4623,14 +4623,14 @@ define internal i32 @selinux_inode_init_security(ptr nocapture noundef readonly 
   store i32 0, ptr %7, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
   store ptr null, ptr %8, align 8, !annotation !5
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %29 = load ptr, ptr %28, align 32
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds i8, ptr %17, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %6, align 4
   %35 = load i16, ptr %0, align 8
@@ -4666,20 +4666,20 @@ define internal i32 @selinux_inode_init_security(ptr nocapture noundef readonly 
 
 45:                                               ; preds = %44, %43, %42, %41, %40, %39, %24
   %46 = phi i16 [ 7, %44 ], [ 14, %43 ], [ 11, %42 ], [ 8, %41 ], [ 12, %40 ], [ 10, %39 ], [ 13, %24 ]
-  %47 = getelementptr inbounds i8, ptr %32, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 256
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %32, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %53 = load i16, ptr %52, align 4
   %54 = icmp eq i16 %53, 6
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %32, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %57 = load i32, ptr %56, align 8
   br label %selinux_determine_inode_label.exit.thread
 
@@ -4691,7 +4691,7 @@ define internal i32 @selinux_inode_init_security(ptr nocapture noundef readonly 
   br i1 %or.cond, label %62, label %selinux_determine_inode_label.exit.thread
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %1, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %66 = tail call i32 @__SCT__might_resched() #24
@@ -4705,7 +4705,7 @@ define internal i32 @selinux_inode_init_security(ptr nocapture noundef readonly 
   %71 = sext i32 %65 to i64
   %72 = getelementptr i8, ptr %64, i64 %71
   %73 = select i1 %70, ptr null, ptr %72, !prof !10
-  %74 = getelementptr inbounds i8, ptr %73, i64 34
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 34
   %75 = load i8, ptr %74, align 2
   %76 = icmp eq i8 %75, 1
   br i1 %76, label %selinux_determine_inode_label.exit, label %77
@@ -4726,9 +4726,9 @@ selinux_determine_inode_label.exit:               ; preds = %62, %69, %77
   %83 = sext i32 %82 to i64
   %84 = getelementptr i8, ptr %80, i64 %83
   %85 = select i1 %81, ptr null, ptr %84, !prof !10
-  %86 = getelementptr inbounds i8, ptr %17, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %85, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = call i32 @security_transition_sid(i32 noundef %87, i32 noundef %89, i16 noundef zeroext range(i16 7, 15) %46, ptr noundef %2, ptr noundef nonnull %6) #24
   %91 = icmp eq i32 %90, 0
@@ -4745,7 +4745,7 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
   br i1 %93, label %118, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %0, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   %98 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -4785,12 +4785,12 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 
 112:                                              ; preds = %111, %110, %109, %108, %107, %106, %94
   %113 = phi i16 [ 7, %111 ], [ 14, %110 ], [ 11, %109 ], [ 8, %108 ], [ 12, %107 ], [ 10, %106 ], [ 13, %94 ]
-  %114 = getelementptr inbounds i8, ptr %101, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 32
   store i16 %113, ptr %114, align 8
   %115 = load i32, ptr %6, align 4
-  %116 = getelementptr inbounds i8, ptr %101, i64 28
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 28
   store i32 %115, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %101, i64 34
+  %117 = getelementptr inbounds nuw i8, ptr %101, i64 34
   store i8 1, ptr %117, align 2
   br label %118
 
@@ -4818,11 +4818,11 @@ selinux_determine_inode_label.exit._crit_edge:    ; preds = %selinux_determine_i
 
 131:                                              ; preds = %127
   %132 = load ptr, ptr %8, align 8
-  %133 = getelementptr inbounds i8, ptr %25, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %132, ptr %133, align 8
   %134 = load i32, ptr %7, align 4
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %25, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %135, ptr %136, align 8
   store ptr @.str, ptr %25, align 8
   br label %137
@@ -4840,9 +4840,9 @@ define internal i32 @selinux_inode_init_security_anon(ptr nocapture noundef read
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
@@ -4855,7 +4855,7 @@ define internal i32 @selinux_inode_init_security_anon(ptr nocapture noundef read
 
 16:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -4866,24 +4866,24 @@ define internal i32 @selinux_inode_init_security_anon(ptr nocapture noundef read
   br i1 %24, label %42, label %25
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %2, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   %29 = getelementptr i8, ptr %27, i64 %21
   %30 = select i1 %28, ptr null, ptr %29, !prof !10
-  %31 = getelementptr inbounds i8, ptr %30, i64 34
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 34
   %32 = load i8, ptr %31, align 2
   %33 = icmp eq i8 %32, 1
   br i1 %33, label %.thread, label %40
 
 .thread:                                          ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %30, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load i16, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %23, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 28
   store i32 %38, ptr %39, align 4
   br label %49
 
@@ -4892,36 +4892,36 @@ define internal i32 @selinux_inode_init_security_anon(ptr nocapture noundef read
   br label %65
 
 42:                                               ; preds = %16
-  %43 = getelementptr inbounds i8, ptr %23, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 95, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %13, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %23, i64 28
-  %47 = tail call i32 @security_transition_sid(i32 noundef %45, i32 noundef %45, i16 noundef zeroext 95, ptr noundef %1, ptr noundef %46) #24
+  %46 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  %47 = tail call i32 @security_transition_sid(i32 noundef %45, i32 noundef %45, i16 noundef zeroext 95, ptr noundef %1, ptr noundef nonnull %46) #24
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %65
 
 49:                                               ; preds = %.thread, %42
-  %50 = getelementptr inbounds i8, ptr %23, i64 34
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 34
   store i8 1, ptr %50, align 2
   store i8 17, ptr %4, align 8
   %51 = icmp eq ptr %1, null
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   br label %55
 
 55:                                               ; preds = %52, %49
   %56 = phi ptr [ %54, %52 ], [ @.str.49, %49 ]
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %13, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %23, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %23, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %63 = load i16, ptr %62, align 8
   %64 = call i32 @avc_has_perm(i32 noundef %59, i32 noundef %61, i16 noundef zeroext %63, i32 noundef 8, ptr noundef nonnull %4) #24
   br label %65
@@ -5013,16 +5013,16 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1784
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %20 = tail call i32 @__SCT__might_resched() #24
@@ -5036,7 +5036,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %25 = sext i32 %19 to i64
   %26 = getelementptr i8, ptr %18, i64 %25
   %27 = select i1 %24, ptr null, ptr %26, !prof !10
-  %28 = getelementptr inbounds i8, ptr %27, i64 34
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 34
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, 1
   br i1 %30, label %33, label %31
@@ -5052,9 +5052,9 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
   %39 = select i1 %35, ptr null, ptr %38, !prof !10
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @__SCT__might_resched() #24
   %45 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
@@ -5066,7 +5066,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %48 = icmp eq ptr %43, null
   %49 = getelementptr i8, ptr %43, i64 %37
   %50 = select i1 %48, ptr null, ptr %49, !prof !10
-  %51 = getelementptr inbounds i8, ptr %50, i64 34
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 34
   %52 = load i8, ptr %51, align 2
   %53 = icmp eq i8 %52, 1
   br i1 %53, label %56, label %54
@@ -5085,7 +5085,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %63 = load i32, ptr %1, align 8
   %64 = and i32 %63, 6291456
   %65 = icmp ne i32 %64, 2097152
-  %66 = getelementptr inbounds i8, ptr %2, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 @__SCT__might_resched() #24
   %69 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
@@ -5097,7 +5097,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %72 = icmp eq ptr %67, null
   %73 = getelementptr i8, ptr %67, i64 %60
   %74 = select i1 %72, ptr null, ptr %73, !prof !10
-  %75 = getelementptr inbounds i8, ptr %74, i64 34
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 34
   %76 = load i8, ptr %75, align 2
   %77 = icmp eq i8 %76, 1
   br i1 %77, label %80, label %78
@@ -5114,18 +5114,18 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %85 = getelementptr i8, ptr %81, i64 %84
   %86 = select i1 %82, ptr null, ptr %85, !prof !10
   store i8 10, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %39, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %89, i16 noundef zeroext 8, i32 noundef 335544320, ptr noundef nonnull %5) #24
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %92, label %157
 
 92:                                               ; preds = %80
-  %93 = getelementptr inbounds i8, ptr %62, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %62, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %96 = load i16, ptr %95, align 8
   %97 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %94, i16 noundef zeroext %96, i32 noundef 8192, ptr noundef nonnull %5) #24
   %98 = icmp eq i32 %97, 0
@@ -5149,7 +5149,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %109 = and i32 %108, 7340032
   %110 = icmp eq i32 %109, 0
   %111 = select i1 %110, i32 301989888, i32 369098752
-  %112 = getelementptr inbounds i8, ptr %86, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %113 = load i32, ptr %112, align 4
   %114 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %113, i16 noundef zeroext 8, i32 noundef %111, ptr noundef nonnull %5) #24
   %115 = icmp eq i32 %114, 0
@@ -5162,9 +5162,9 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %119, label %156, label %120
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %3, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %124 = load ptr, ptr %123, align 8
   %125 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %126 = call i32 @__SCT__might_resched() #24
@@ -5178,7 +5178,7 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %131 = sext i32 %125 to i64
   %132 = getelementptr i8, ptr %124, i64 %131
   %133 = select i1 %130, ptr null, ptr %132, !prof !10
-  %134 = getelementptr inbounds i8, ptr %133, i64 34
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 34
   %135 = load i8, ptr %134, align 2
   %136 = icmp eq i8 %135, 1
   br i1 %136, label %139, label %137
@@ -5197,9 +5197,9 @@ define internal i32 @selinux_inode_rename(ptr noundef %0, ptr noundef %1, ptr no
   %146 = load i32, ptr %3, align 8
   %147 = and i32 %146, 6291456
   %148 = icmp eq i32 %147, 2097152
-  %149 = getelementptr inbounds i8, ptr %145, i64 28
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %145, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %152 = load i16, ptr %151, align 8
   %153 = select i1 %148, i32 536870912, i32 2048
   %154 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %150, i16 noundef zeroext %152, i32 noundef %153, ptr noundef nonnull %5) #24
@@ -5220,16 +5220,16 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %13 = tail call i32 @__SCT__might_resched() #24
@@ -5243,7 +5243,7 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
   %18 = sext i32 %12 to i64
   %19 = getelementptr i8, ptr %11, i64 %18
   %20 = select i1 %17, ptr null, ptr %19, !prof !10
-  %21 = getelementptr inbounds i8, ptr %20, i64 34
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 34
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %24
@@ -5253,19 +5253,19 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
   br label %26
 
 26:                                               ; preds = %24, %16, %1
-  %27 = getelementptr inbounds i8, ptr %8, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %50, !prof !15
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @selinux_blob_sizes, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %10, align 8
   %40 = icmp eq ptr %39, null
@@ -5273,9 +5273,9 @@ define internal i32 @selinux_inode_readlink(ptr noundef %0) #1 align 16 {
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = select i1 %40, ptr null, ptr %43, !prof !10
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load i16, ptr %47, align 8
   %49 = call i32 @avc_has_perm(i32 noundef %38, i32 noundef %46, i16 noundef zeroext %48, i32 noundef 2, ptr noundef nonnull %2) #24
   br label %50
@@ -5291,21 +5291,21 @@ define internal i32 @selinux_inode_follow_link(ptr noundef %0, ptr noundef %1, i
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -5325,7 +5325,7 @@ define internal i32 @selinux_inode_follow_link(ptr noundef %0, ptr noundef %1, i
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %23, i64 34
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 34
   %31 = load i8, ptr %30, align 2
   %32 = icmp eq i8 %31, 1
   %33 = or i1 %2, %32
@@ -5358,9 +5358,9 @@ define internal i32 @selinux_inode_follow_link(ptr noundef %0, ptr noundef %1, i
 
 .thread2:                                         ; preds = %.thread, %39
   %47 = phi ptr [ %42, %39 ], [ null, %.thread ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = load i16, ptr %50, align 8
   %52 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %49, i16 noundef zeroext %51, i32 noundef 2, ptr noundef nonnull %4) #24
   br label %53
@@ -5376,7 +5376,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   %3 = alloca %struct.av_decision, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
   %8 = and i32 %1, 128
   %9 = icmp ne i32 %8, 0
@@ -5386,7 +5386,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   br i1 %11, label %.thread7, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 512
   %16 = icmp eq i32 %15, 0
@@ -5432,14 +5432,14 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
 44:                                               ; preds = %35, %31, %29
   %45 = phi i32 [ %30, %29 ], [ %34, %31 ], [ %43, %35 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !5
-  %46 = getelementptr inbounds i8, ptr %7, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr @selinux_blob_sizes, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr i8, ptr %47, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -5459,7 +5459,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %59, i64 34
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 34
   %67 = load i8, ptr %66, align 2
   %68 = icmp eq i8 %67, 1
   %69 = or i1 %9, %68
@@ -5492,9 +5492,9 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
 
 .thread5:                                         ; preds = %.thread, %75
   %83 = phi ptr [ %78, %75 ], [ null, %.thread ]
-  %84 = getelementptr inbounds i8, ptr %83, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 28
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %83, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %87 = load i16, ptr %86, align 8
   %88 = call i32 @avc_has_perm_noaudit(i32 noundef %52, i32 noundef %85, i16 noundef zeroext %87, i32 noundef %45, i32 noundef 0, ptr noundef nonnull %3) #24
   %89 = load i32, ptr %3, align 4
@@ -5506,7 +5506,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
 93:                                               ; preds = %.thread5
   %94 = shl i32 %1, 13
   %95 = and i32 %94, 131072
-  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, %91
   %99 = icmp ne i32 %95, 0
@@ -5520,7 +5520,7 @@ define internal i32 @selinux_inode_permission(ptr noundef %0, i32 noundef %1) #1
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %3, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %107, %45
   br label %109
@@ -5549,9 +5549,9 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %1, align 8
   %12 = and i32 %11, 512
@@ -5573,9 +5573,9 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %26 = tail call i32 @__SCT__might_resched() #24
@@ -5589,7 +5589,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   %31 = sext i32 %25 to i64
   %32 = getelementptr i8, ptr %24, i64 %31
   %33 = select i1 %30, ptr null, ptr %32, !prof !10
-  %34 = getelementptr inbounds i8, ptr %33, i64 34
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 34
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %35, 1
   br i1 %36, label %39, label %37
@@ -5599,19 +5599,19 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   br label %39
 
 39:                                               ; preds = %37, %29, %21
-  %40 = getelementptr inbounds i8, ptr %10, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 512
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %63, !prof !15
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %8, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr @selinux_blob_sizes, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %46, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %23, align 8
   %53 = icmp eq ptr %52, null
@@ -5619,9 +5619,9 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   %55 = sext i32 %54 to i64
   %56 = getelementptr i8, ptr %52, i64 %55
   %57 = select i1 %53, ptr null, ptr %56, !prof !10
-  %58 = getelementptr inbounds i8, ptr %57, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %61 = load i16, ptr %60, align 8
   %62 = call i32 @avc_has_perm(i32 noundef %51, i32 noundef %59, i16 noundef zeroext %61, i32 noundef 32, ptr noundef nonnull %4) #24
   br label %63
@@ -5637,9 +5637,9 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   br i1 %67, label %78, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %10, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %72 = load i64, ptr %71, align 32
   %73 = icmp ne i64 %72, 1397703499
   %74 = and i32 %18, 8200
@@ -5653,9 +5653,9 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %3, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %10, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %84 = tail call i32 @__SCT__might_resched() #24
@@ -5669,7 +5669,7 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   %89 = sext i32 %83 to i64
   %90 = getelementptr i8, ptr %82, i64 %89
   %91 = select i1 %88, ptr null, ptr %90, !prof !10
-  %92 = getelementptr inbounds i8, ptr %91, i64 34
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 34
   %93 = load i8, ptr %92, align 2
   %94 = icmp eq i8 %93, 1
   br i1 %94, label %97, label %95
@@ -5679,19 +5679,19 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   br label %97
 
 97:                                               ; preds = %95, %87, %78
-  %98 = getelementptr inbounds i8, ptr %10, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 512
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %121, !prof !15
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %8, i64 128
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr @selinux_blob_sizes, align 4
   %106 = sext i32 %105 to i64
   %107 = getelementptr i8, ptr %104, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %81, align 8
   %111 = icmp eq ptr %110, null
@@ -5699,9 +5699,9 @@ define internal i32 @selinux_inode_setattr(ptr noundef %0, ptr nocapture noundef
   %113 = sext i32 %112 to i64
   %114 = getelementptr i8, ptr %110, i64 %113
   %115 = select i1 %111, ptr null, ptr %114, !prof !10
-  %116 = getelementptr inbounds i8, ptr %115, i64 28
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 28
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %115, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %119 = load i16, ptr %118, align 8
   %120 = call i32 @avc_has_perm(i32 noundef %109, i32 noundef %117, i16 noundef zeroext %119, i32 noundef %79, ptr noundef nonnull %3) #24
   br label %121
@@ -5721,18 +5721,18 @@ define internal i32 @selinux_inode_getattr(ptr nocapture noundef readonly %0) #1
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %15 = tail call i32 @__SCT__might_resched() #24
@@ -5746,7 +5746,7 @@ define internal i32 @selinux_inode_getattr(ptr nocapture noundef readonly %0) #1
   %20 = sext i32 %14 to i64
   %21 = getelementptr i8, ptr %13, i64 %20
   %22 = select i1 %19, ptr null, ptr %21, !prof !10
-  %23 = getelementptr inbounds i8, ptr %22, i64 34
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 34
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %28, label %26
@@ -5756,19 +5756,19 @@ define internal i32 @selinux_inode_getattr(ptr nocapture noundef readonly %0) #1
   br label %28
 
 28:                                               ; preds = %26, %18, %1
-  %29 = getelementptr inbounds i8, ptr %10, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %6, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr @selinux_blob_sizes, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %35, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %12, align 8
   %42 = icmp eq ptr %41, null
@@ -5776,9 +5776,9 @@ define internal i32 @selinux_inode_getattr(ptr nocapture noundef readonly %0) #1
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
   %46 = select i1 %42, ptr null, ptr %45, !prof !10
-  %47 = getelementptr inbounds i8, ptr %46, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = load i16, ptr %49, align 8
   %51 = call i32 @avc_has_perm(i32 noundef %40, i32 noundef %48, i16 noundef zeroext %50, i32 noundef 16, ptr noundef nonnull %2) #24
   br label %52
@@ -5794,7 +5794,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca %struct.common_audit_data, align 8
   %8 = alloca %struct.common_audit_data, align 8
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !5
@@ -5802,14 +5802,14 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   store i32 0, ptr %9, align 4, !annotation !5
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 1784
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1784
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @selinux_blob_sizes, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @strcmp(ptr noundef %2, ptr noundef nonnull dereferenceable(17) @.str.21) #24
   %24 = icmp eq i32 %23, 0
@@ -5826,9 +5826,9 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %35 = tail call i32 @__SCT__might_resched() #24
@@ -5842,7 +5842,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %40 = sext i32 %34 to i64
   %41 = getelementptr i8, ptr %33, i64 %40
   %42 = select i1 %39, ptr null, ptr %41, !prof !10
-  %43 = getelementptr inbounds i8, ptr %42, i64 34
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 34
   %44 = load i8, ptr %43, align 2
   %45 = icmp eq i8 %44, 1
   br i1 %45, label %48, label %46
@@ -5852,19 +5852,19 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   br label %48
 
 48:                                               ; preds = %46, %38, %28
-  %49 = getelementptr inbounds i8, ptr %30, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 512
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %72, !prof !15
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %29, i64 128
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr @selinux_blob_sizes, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr i8, ptr %55, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = load ptr, ptr %32, align 8
   %62 = icmp eq ptr %61, null
@@ -5872,9 +5872,9 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %64 = sext i32 %63 to i64
   %65 = getelementptr i8, ptr %61, i64 %64
   %66 = select i1 %62, ptr null, ptr %65, !prof !10
-  %67 = getelementptr inbounds i8, ptr %66, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 28
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %70 = load i16, ptr %69, align 8
   %71 = call i32 @avc_has_perm(i32 noundef %60, i32 noundef %68, i16 noundef zeroext %70, i32 noundef 32, ptr noundef nonnull %7) #24
   br label %72
@@ -5897,14 +5897,14 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   br label %168
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %11, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 160
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 160
   %85 = load ptr, ptr %84, align 32
   %86 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %87 = sext i32 %86 to i64
   %88 = getelementptr i8, ptr %85, i64 %87
-  %89 = getelementptr inbounds i8, ptr %88, i64 14
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 14
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 16
   %92 = icmp eq i16 %91, 0
@@ -5916,10 +5916,10 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
 
 95:                                               ; preds = %93
   store i8 10, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %8, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %96, align 8
   %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %101 = tail call i32 @__SCT__might_resched() #24
@@ -5933,7 +5933,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %106 = sext i32 %100 to i64
   %107 = getelementptr i8, ptr %99, i64 %106
   %108 = select i1 %105, ptr null, ptr %107, !prof !10
-  %109 = getelementptr inbounds i8, ptr %108, i64 34
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 34
   %110 = load i8, ptr %109, align 2
   %111 = icmp eq i8 %110, 1
   br i1 %111, label %114, label %112
@@ -5949,9 +5949,9 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
   %118 = sext i32 %117 to i64
   %119 = getelementptr i8, ptr %115, i64 %118
   %120 = select i1 %116, ptr null, ptr %119, !prof !10
-  %121 = getelementptr inbounds i8, ptr %120, i64 28
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 28
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %120, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %124 = load i16, ptr %123, align 8
   %125 = call i32 @avc_has_perm(i32 noundef %22, i32 noundef %122, i16 noundef zeroext %124, i32 noundef 128, ptr noundef nonnull %8) #24
   %126 = icmp eq i32 %125, 0
@@ -5981,7 +5981,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
 
 141:                                              ; preds = %135, %133
   %142 = phi i64 [ %140, %135 ], [ 0, %133 ]
-  %143 = getelementptr inbounds i8, ptr %13, i64 1976
+  %143 = getelementptr inbounds nuw i8, ptr %13, i64 1976
   %144 = load ptr, ptr %143, align 8
   %145 = call ptr @audit_log_start(ptr noundef %144, i32 noundef 2080, i32 noundef 1401) #24
   %146 = icmp eq ptr %145, null
@@ -6033,7 +6033,7 @@ define internal i32 @selinux_inode_setxattr(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 %4) #1 align 16 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
   %9 = tail call i32 @strcmp(ptr noundef %1, ptr noundef nonnull dereferenceable(17) @.str.21) #24
@@ -6054,18 +6054,18 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr nocapture 
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %8, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 920
-  %22 = getelementptr inbounds i8, ptr %8, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 920
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = sub i32 0, %16
-  %25 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, ptr noundef %21, i64 noundef %23, i32 noundef %24) #25
+  %25 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.52, ptr noundef nonnull %21, i64 noundef %23, i32 noundef %24) #25
   br label %68
 
 26:                                               ; preds = %14
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %31 = call i32 @__SCT__might_resched() #24
@@ -6079,7 +6079,7 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr nocapture 
   %36 = sext i32 %30 to i64
   %37 = getelementptr i8, ptr %29, i64 %36
   %38 = select i1 %35, ptr null, ptr %37, !prof !10
-  %39 = getelementptr inbounds i8, ptr %38, i64 34
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 34
   %40 = load i8, ptr %39, align 2
   %41 = icmp eq i8 %40, 1
   br i1 %41, label %44, label %42
@@ -6095,8 +6095,8 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr nocapture 
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %45, i64 %48
   %50 = select i1 %46, ptr null, ptr %49, !prof !10
-  %51 = getelementptr inbounds i8, ptr %50, i64 36
-  call void @_raw_spin_lock(ptr noundef %51) #24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 36
+  call void @_raw_spin_lock(ptr noundef nonnull %51) #24
   %52 = load i16, ptr %8, align 8
   %53 = zext i16 %52 to i32
   %54 = add nsw i32 %53, -4096
@@ -6130,14 +6130,14 @@ define internal void @selinux_inode_post_setxattr(ptr noundef %0, ptr nocapture 
 
 62:                                               ; preds = %61, %60, %59, %58, %57, %56, %44
   %63 = phi i16 [ 7, %61 ], [ 14, %60 ], [ 11, %59 ], [ 8, %58 ], [ 12, %57 ], [ 10, %56 ], [ 13, %44 ]
-  %64 = getelementptr inbounds i8, ptr %50, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store i16 %63, ptr %64, align 8
   %65 = load i32, ptr %6, align 4
-  %66 = getelementptr inbounds i8, ptr %50, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %50, i64 28
   store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %50, i64 34
+  %67 = getelementptr inbounds nuw i8, ptr %50, i64 34
   store i8 1, ptr %67, align 2
-  call void @_raw_spin_unlock(ptr noundef %51) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %51) #24
   br label %68
 
 68:                                               ; preds = %62, %18, %11, %5
@@ -6150,16 +6150,16 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr nocapture readno
   %3 = alloca %struct.common_audit_data, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %14 = tail call i32 @__SCT__might_resched() #24
@@ -6173,7 +6173,7 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr nocapture readno
   %19 = sext i32 %13 to i64
   %20 = getelementptr i8, ptr %12, i64 %19
   %21 = select i1 %18, ptr null, ptr %20, !prof !10
-  %22 = getelementptr inbounds i8, ptr %21, i64 34
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 34
   %23 = load i8, ptr %22, align 2
   %24 = icmp eq i8 %23, 1
   br i1 %24, label %27, label %25
@@ -6183,19 +6183,19 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr nocapture readno
   br label %27
 
 27:                                               ; preds = %25, %17, %2
-  %28 = getelementptr inbounds i8, ptr %9, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 512
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %51, !prof !15
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %7, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr @selinux_blob_sizes, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %34, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = load ptr, ptr %11, align 8
   %41 = icmp eq ptr %40, null
@@ -6203,9 +6203,9 @@ define internal i32 @selinux_inode_getxattr(ptr noundef %0, ptr nocapture readno
   %43 = sext i32 %42 to i64
   %44 = getelementptr i8, ptr %40, i64 %43
   %45 = select i1 %41, ptr null, ptr %44, !prof !10
-  %46 = getelementptr inbounds i8, ptr %45, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %45, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %49 = load i16, ptr %48, align 8
   %50 = call i32 @avc_has_perm(i32 noundef %39, i32 noundef %47, i16 noundef zeroext %49, i32 noundef 16, ptr noundef nonnull %3) #24
   br label %51
@@ -6221,16 +6221,16 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %13 = tail call i32 @__SCT__might_resched() #24
@@ -6244,7 +6244,7 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
   %18 = sext i32 %12 to i64
   %19 = getelementptr i8, ptr %11, i64 %18
   %20 = select i1 %17, ptr null, ptr %19, !prof !10
-  %21 = getelementptr inbounds i8, ptr %20, i64 34
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 34
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %24
@@ -6254,19 +6254,19 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
   br label %26
 
 26:                                               ; preds = %24, %16, %1
-  %27 = getelementptr inbounds i8, ptr %8, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %50, !prof !15
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %6, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @selinux_blob_sizes, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %10, align 8
   %40 = icmp eq ptr %39, null
@@ -6274,9 +6274,9 @@ define internal i32 @selinux_inode_listxattr(ptr noundef %0) #1 align 16 {
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = select i1 %40, ptr null, ptr %43, !prof !10
-  %45 = getelementptr inbounds i8, ptr %44, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %48 = load i16, ptr %47, align 8
   %49 = call i32 @avc_has_perm(i32 noundef %38, i32 noundef %46, i16 noundef zeroext %48, i32 noundef 16, ptr noundef nonnull %2) #24
   br label %50
@@ -6302,16 +6302,16 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
 10:                                               ; preds = %7
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 1784
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1784
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %21 = tail call i32 @__SCT__might_resched() #24
@@ -6325,7 +6325,7 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
   %26 = sext i32 %20 to i64
   %27 = getelementptr i8, ptr %19, i64 %26
   %28 = select i1 %25, ptr null, ptr %27, !prof !10
-  %29 = getelementptr inbounds i8, ptr %28, i64 34
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 34
   %30 = load i8, ptr %29, align 2
   %31 = icmp eq i8 %30, 1
   br i1 %31, label %34, label %32
@@ -6335,19 +6335,19 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
   br label %34
 
 34:                                               ; preds = %32, %24, %10
-  %35 = getelementptr inbounds i8, ptr %16, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 512
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %58, !prof !15
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %14, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr @selinux_blob_sizes, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr i8, ptr %41, i64 %43
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = load ptr, ptr %18, align 8
   %48 = icmp eq ptr %47, null
@@ -6355,9 +6355,9 @@ define internal i32 @selinux_inode_removexattr(ptr noundef %0, ptr noundef %1, p
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %47, i64 %50
   %52 = select i1 %48, ptr null, ptr %51, !prof !10
-  %53 = getelementptr inbounds i8, ptr %52, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %56 = load i16, ptr %55, align 8
   %57 = call i32 @avc_has_perm(i32 noundef %46, i32 noundef %54, i16 noundef zeroext %56, i32 noundef 32, ptr noundef nonnull %4) #24
   br label %58
@@ -6384,16 +6384,16 @@ define internal i32 @selinux_inode_set_acl(ptr nocapture readnone %0, ptr nounde
   %5 = alloca %struct.common_audit_data, align 8
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1784
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %16 = tail call i32 @__SCT__might_resched() #24
@@ -6407,7 +6407,7 @@ define internal i32 @selinux_inode_set_acl(ptr nocapture readnone %0, ptr nounde
   %21 = sext i32 %15 to i64
   %22 = getelementptr i8, ptr %14, i64 %21
   %23 = select i1 %20, ptr null, ptr %22, !prof !10
-  %24 = getelementptr inbounds i8, ptr %23, i64 34
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 34
   %25 = load i8, ptr %24, align 2
   %26 = icmp eq i8 %25, 1
   br i1 %26, label %29, label %27
@@ -6417,19 +6417,19 @@ define internal i32 @selinux_inode_set_acl(ptr nocapture readnone %0, ptr nounde
   br label %29
 
 29:                                               ; preds = %27, %19, %4
-  %30 = getelementptr inbounds i8, ptr %11, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %53, !prof !15
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %9, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr @selinux_blob_sizes, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %36, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr %13, align 8
   %43 = icmp eq ptr %42, null
@@ -6437,9 +6437,9 @@ define internal i32 @selinux_inode_set_acl(ptr nocapture readnone %0, ptr nounde
   %45 = sext i32 %44 to i64
   %46 = getelementptr i8, ptr %42, i64 %45
   %47 = select i1 %43, ptr null, ptr %46, !prof !10
-  %48 = getelementptr inbounds i8, ptr %47, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = load i16, ptr %50, align 8
   %52 = call i32 @avc_has_perm(i32 noundef %41, i32 noundef %49, i16 noundef zeroext %51, i32 noundef 32, ptr noundef nonnull %5) #24
   br label %53
@@ -6455,16 +6455,16 @@ define internal i32 @selinux_inode_get_acl(ptr nocapture readnone %0, ptr nounde
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %15 = tail call i32 @__SCT__might_resched() #24
@@ -6478,7 +6478,7 @@ define internal i32 @selinux_inode_get_acl(ptr nocapture readnone %0, ptr nounde
   %20 = sext i32 %14 to i64
   %21 = getelementptr i8, ptr %13, i64 %20
   %22 = select i1 %19, ptr null, ptr %21, !prof !10
-  %23 = getelementptr inbounds i8, ptr %22, i64 34
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 34
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %28, label %26
@@ -6488,19 +6488,19 @@ define internal i32 @selinux_inode_get_acl(ptr nocapture readnone %0, ptr nounde
   br label %28
 
 28:                                               ; preds = %26, %18, %3
-  %29 = getelementptr inbounds i8, ptr %10, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %8, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr @selinux_blob_sizes, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %35, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %12, align 8
   %42 = icmp eq ptr %41, null
@@ -6508,9 +6508,9 @@ define internal i32 @selinux_inode_get_acl(ptr nocapture readnone %0, ptr nounde
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
   %46 = select i1 %42, ptr null, ptr %45, !prof !10
-  %47 = getelementptr inbounds i8, ptr %46, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = load i16, ptr %49, align 8
   %51 = call i32 @avc_has_perm(i32 noundef %40, i32 noundef %48, i16 noundef zeroext %50, i32 noundef 16, ptr noundef nonnull %4) #24
   br label %52
@@ -6526,16 +6526,16 @@ define internal i32 @selinux_inode_remove_acl(ptr nocapture readnone %0, ptr nou
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 10, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %15 = tail call i32 @__SCT__might_resched() #24
@@ -6549,7 +6549,7 @@ define internal i32 @selinux_inode_remove_acl(ptr nocapture readnone %0, ptr nou
   %20 = sext i32 %14 to i64
   %21 = getelementptr i8, ptr %13, i64 %20
   %22 = select i1 %19, ptr null, ptr %21, !prof !10
-  %23 = getelementptr inbounds i8, ptr %22, i64 34
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 34
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %28, label %26
@@ -6559,19 +6559,19 @@ define internal i32 @selinux_inode_remove_acl(ptr nocapture readnone %0, ptr nou
   br label %28
 
 28:                                               ; preds = %26, %18, %3
-  %29 = getelementptr inbounds i8, ptr %10, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %52, !prof !15
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %8, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr @selinux_blob_sizes, align 4
   %37 = sext i32 %36 to i64
   %38 = getelementptr i8, ptr %35, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %12, align 8
   %42 = icmp eq ptr %41, null
@@ -6579,9 +6579,9 @@ define internal i32 @selinux_inode_remove_acl(ptr nocapture readnone %0, ptr nou
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
   %46 = select i1 %42, ptr null, ptr %45, !prof !10
-  %47 = getelementptr inbounds i8, ptr %46, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = load i16, ptr %49, align 8
   %51 = call i32 @avc_has_perm(i32 noundef %40, i32 noundef %48, i16 noundef zeroext %50, i32 noundef 32, ptr noundef nonnull %4) #24
   br label %52
@@ -6611,7 +6611,7 @@ define internal i32 @selinux_inode_getsecurity(ptr nocapture readnone %0, ptr no
   br i1 %13, label %14, label %70
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %18 = tail call i32 @__SCT__might_resched() #24
@@ -6625,7 +6625,7 @@ define internal i32 @selinux_inode_getsecurity(ptr nocapture readnone %0, ptr no
   %23 = sext i32 %17 to i64
   %24 = getelementptr i8, ptr %16, i64 %23
   %25 = select i1 %22, ptr null, ptr %24, !prof !10
-  %26 = getelementptr inbounds i8, ptr %25, i64 34
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 34
   %27 = load i8, ptr %26, align 2
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %31, label %29
@@ -6644,7 +6644,7 @@ define internal i32 @selinux_inode_getsecurity(ptr nocapture readnone %0, ptr no
   %37 = select i1 %33, ptr null, ptr %36, !prof !10
   %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 1784
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1784
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @cap_capable(ptr noundef %41, ptr noundef nonnull @init_user_ns, i32 noundef 33, i32 noundef 2) #24
   %43 = icmp eq i32 %42, 0
@@ -6653,12 +6653,12 @@ define internal i32 @selinux_inode_getsecurity(ptr nocapture readnone %0, ptr no
 44:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !5
-  %45 = getelementptr inbounds i8, ptr %41, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 128
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr @selinux_blob_sizes, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %46, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @avc_has_perm_noaudit(i32 noundef %51, i32 noundef %51, i16 noundef zeroext 54, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #24
   %53 = icmp eq i32 %52, 0
@@ -6666,13 +6666,13 @@ define internal i32 @selinux_inode_getsecurity(ptr nocapture readnone %0, ptr no
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %44
-  %55 = getelementptr inbounds i8, ptr %37, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = call i32 @security_sid_to_context_force(i32 noundef %56, ptr noundef nonnull %8, ptr noundef nonnull %7) #24
   br label %62
 
 58:                                               ; preds = %44, %31
-  %59 = getelementptr inbounds i8, ptr %37, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %60 = load i32, ptr %59, align 4
   %61 = call i32 @security_sid_to_context(i32 noundef %60, ptr noundef nonnull %8, ptr noundef nonnull %7) #24
   br label %62
@@ -6705,7 +6705,7 @@ define internal i32 @selinux_inode_getsecurity(ptr nocapture readnone %0, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_inode_setsecurity(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 %4) #1 align 16 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -6719,14 +6719,14 @@ define internal i32 @selinux_inode_setsecurity(ptr nocapture noundef readonly %0
 
 16:                                               ; preds = %5
   store i32 0, ptr %6, align 4, !annotation !5
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %20 = load ptr, ptr %19, align 32
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 14
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 14
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 16
   %27 = icmp eq i16 %26, 0
@@ -6745,8 +6745,8 @@ define internal i32 @selinux_inode_setsecurity(ptr nocapture noundef readonly %0
   br i1 %35, label %36, label %54
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %13, i64 36
-  call void @_raw_spin_lock(ptr noundef %37) #24
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 36
+  call void @_raw_spin_lock(ptr noundef nonnull %37) #24
   %38 = load i16, ptr %0, align 8
   %39 = zext i16 %38 to i32
   %40 = add nsw i32 %39, -4096
@@ -6780,14 +6780,14 @@ define internal i32 @selinux_inode_setsecurity(ptr nocapture noundef readonly %0
 
 48:                                               ; preds = %47, %46, %45, %44, %43, %42, %36
   %49 = phi i16 [ 7, %47 ], [ 14, %46 ], [ 11, %45 ], [ 8, %44 ], [ 12, %43 ], [ 10, %42 ], [ 13, %36 ]
-  %50 = getelementptr inbounds i8, ptr %13, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i16 %49, ptr %50, align 8
   %51 = load i32, ptr %6, align 4
-  %52 = getelementptr inbounds i8, ptr %13, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %13, i64 34
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 34
   store i8 1, ptr %53, align 2
-  call void @_raw_spin_unlock(ptr noundef %37) #24
+  call void @_raw_spin_unlock(ptr noundef nonnull %37) #24
   br label %54
 
 54:                                               ; preds = %48, %32, %28, %16, %5
@@ -6820,14 +6820,14 @@ define internal noundef range(i32 0, 18) i32 @selinux_inode_listsecurity(ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @selinux_inode_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
   %9 = select i1 %5, ptr null, ptr %8, !prof !10
-  %10 = getelementptr inbounds i8, ptr %9, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %1, align 4
   ret void
@@ -6846,23 +6846,23 @@ define internal noundef range(i32 -12, 1) i32 @selinux_inode_copy_up(ptr nocaptu
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %6, %5 ], [ %3, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
   %23 = select i1 %19, ptr null, ptr %22, !prof !10
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %14, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %25, ptr %26, align 4
   store ptr %9, ptr %1, align 8
   br label %27
@@ -6887,8 +6887,8 @@ define internal i32 @selinux_path_notify(ptr nocapture noundef readonly %0, i64 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
   switch i32 %2, label %93 [
     i32 1, label %32
     i32 2, label %7
@@ -6898,20 +6898,20 @@ define internal i32 @selinux_path_notify(ptr nocapture noundef readonly %0, i64 
 7:                                                ; preds = %3
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1784
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1784
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @selinux_blob_sizes, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %15, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %24 = load ptr, ptr %23, align 32
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %26 = sext i32 %25 to i64
@@ -6936,18 +6936,18 @@ define internal i32 @selinux_path_notify(ptr nocapture noundef readonly %0, i64 
   %41 = select i1 %39, i32 %37, i32 %40
   %42 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 1784
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1784
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 1, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %50, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
-  %51 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %54 = call i32 @__SCT__might_resched() #24
@@ -6961,7 +6961,7 @@ define internal i32 @selinux_path_notify(ptr nocapture noundef readonly %0, i64 
   %59 = sext i32 %53 to i64
   %60 = getelementptr i8, ptr %52, i64 %59
   %61 = select i1 %58, ptr null, ptr %60, !prof !10
-  %62 = getelementptr inbounds i8, ptr %61, i64 34
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 34
   %63 = load i8, ptr %62, align 2
   %64 = icmp eq i8 %63, 1
   br i1 %64, label %67, label %65
@@ -6971,19 +6971,19 @@ define internal i32 @selinux_path_notify(ptr nocapture noundef readonly %0, i64 
   br label %67
 
 67:                                               ; preds = %65, %57, %32
-  %68 = getelementptr inbounds i8, ptr %49, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 512
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %91, !prof !15
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %45, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr @selinux_blob_sizes, align 4
   %76 = sext i32 %75 to i64
   %77 = getelementptr i8, ptr %74, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = load ptr, ptr %51, align 8
   %81 = icmp eq ptr %80, null
@@ -6991,9 +6991,9 @@ define internal i32 @selinux_path_notify(ptr nocapture noundef readonly %0, i64 
   %83 = sext i32 %82 to i64
   %84 = getelementptr i8, ptr %80, i64 %83
   %85 = select i1 %81, ptr null, ptr %84, !prof !10
-  %86 = getelementptr inbounds i8, ptr %85, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %85, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %89 = load i16, ptr %88, align 8
   %90 = call i32 @avc_has_perm(i32 noundef %79, i32 noundef %87, i16 noundef zeroext %89, i32 noundef %41, ptr noundef nonnull %4) #24
   br label %91
@@ -7018,9 +7018,9 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
   %7 = alloca %struct.qstr, align 8
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1784
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1784
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
@@ -7059,7 +7059,7 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
   br i1 %30, label %31, label %62
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %16, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %36, label %35
@@ -7069,17 +7069,17 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
   br label %49
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %1, i64 114
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %38 = load i16, ptr %37, align 2
   %39 = call fastcc zeroext i16 @inode_mode_to_security_class(i16 noundef zeroext %38), !range !26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #24
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %41, ptr %42, align 8
   %43 = call i64 @hashlen_string(ptr noundef %0, ptr noundef %41) #30
   store i64 %43, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %16, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %3, align 4
   %47 = call i32 @security_transition_sid(i32 noundef %45, i32 noundef %46, i16 noundef zeroext %39, ptr noundef nonnull %7, ptr noundef nonnull %4) #24
@@ -7123,29 +7123,29 @@ define internal i32 @selinux_kernfs_init_security(ptr noundef %0, ptr noundef %1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 1784
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1784
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %1, 0
   br i1 %22, label %145, label %23
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %27 = tail call i32 @__SCT__might_resched() #24
@@ -7159,7 +7159,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   %32 = sext i32 %26 to i64
   %33 = getelementptr i8, ptr %25, i64 %32
   %34 = select i1 %31, ptr null, ptr %33, !prof !10
-  %35 = getelementptr inbounds i8, ptr %34, i64 34
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 34
   %36 = load i8, ptr %35, align 2
   %37 = icmp eq i8 %36, 1
   br i1 %37, label %40, label %38
@@ -7180,15 +7180,15 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   %47 = sext i32 %46 to i64
   %48 = getelementptr i8, ptr %44, i64 %47
   %49 = select i1 %45, ptr null, ptr %48, !prof !10
-  %50 = getelementptr inbounds i8, ptr %10, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %49, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %51, %53
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %43
-  %56 = getelementptr inbounds i8, ptr %10, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = tail call i32 @avc_policy_seqno() #24
   %59 = icmp eq i32 %57, %58
@@ -7197,7 +7197,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
 60:                                               ; preds = %55, %43, %40
   %61 = load ptr, ptr %13, align 8
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 1024
   %66 = icmp eq i32 %65, 0
@@ -7250,15 +7250,15 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   %103 = getelementptr i8, ptr %100, i64 %102
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  %104 = getelementptr inbounds i8, ptr %61, i64 128
+  %104 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr @selinux_blob_sizes, align 4
   %107 = sext i32 %106 to i64
   %108 = getelementptr i8, ptr %105, i64 %107
-  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4
   store i8 12, ptr %3, align 8
-  %111 = getelementptr inbounds i8, ptr %3, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %111, align 8
   %112 = load i32, ptr %103, align 4
   %113 = icmp eq i32 %110, %112
@@ -7274,7 +7274,7 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   br i1 %118, label %143, label %119
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %62, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 512
   %123 = icmp eq i32 %122, 0
@@ -7285,18 +7285,18 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
   %126 = load i32, ptr @selinux_blob_sizes, align 4
   %127 = sext i32 %126 to i64
   %128 = getelementptr i8, ptr %125, i64 %127
-  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
   %130 = load i32, ptr %129, align 4
-  %131 = getelementptr inbounds i8, ptr %62, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   %134 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %135 = sext i32 %134 to i64
   %136 = getelementptr i8, ptr %132, i64 %135
   %137 = select i1 %133, ptr null, ptr %136, !prof !10
-  %138 = getelementptr inbounds i8, ptr %137, i64 28
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 28
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %137, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %141 = load i16, ptr %140, align 8
   %142 = call i32 @avc_has_perm(i32 noundef %130, i32 noundef %139, i16 noundef zeroext %141, i32 noundef %99, ptr noundef nonnull %3) #24
   br label %143
@@ -7313,24 +7313,24 @@ define internal i32 @selinux_file_permission(ptr noundef %0, i32 noundef %1) #1 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal noundef i32 @selinux_file_alloc_security(ptr nocapture noundef readonly %0) #13 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %3, i64 %5
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %6, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %17, ptr %18, align 4
   ret i32 0
 }
@@ -7344,9 +7344,9 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %8 = alloca %struct.common_audit_data, align 8
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 1784
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1784
   %12 = load ptr, ptr %11, align 8
-  %.sink13.sroa.gep14 = getelementptr inbounds i8, ptr %5, i64 4
+  %.sink13.sroa.gep14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   switch i32 %1, label %162 [
     i32 21531, label %13
     i32 1, label %13
@@ -7364,24 +7364,24 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   ]
 
 13:                                               ; preds = %3, %3, %3, %3, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %15, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !5
-  %21 = getelementptr inbounds i8, ptr %12, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr @selinux_blob_sizes, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %22, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   store i8 12, ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %28, align 8
   %29 = load i32, ptr %18, align 4
   %30 = icmp eq i32 %27, %29
@@ -7393,7 +7393,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br i1 %33, label %34, label %58
 
 34:                                               ; preds = %31, %13
-  %35 = getelementptr inbounds i8, ptr %20, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 512
   %38 = icmp eq i32 %37, 0
@@ -7404,18 +7404,18 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %41 = load i32, ptr @selinux_blob_sizes, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %40, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %20, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %47, i64 %50
   %52 = select i1 %48, ptr null, ptr %51, !prof !10
-  %53 = getelementptr inbounds i8, ptr %52, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %56 = load i16, ptr %55, align 8
   %57 = call i32 @avc_has_perm(i32 noundef %45, i32 noundef %54, i16 noundef zeroext %56, i32 noundef 16, ptr noundef nonnull %8) #24
   br label %58
@@ -7426,24 +7426,24 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br label %166
 
 60:                                               ; preds = %3, %3
-  %61 = getelementptr inbounds i8, ptr %0, i64 192
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %64 = sext i32 %63 to i64
   %65 = getelementptr i8, ptr %62, i64 %64
-  %66 = getelementptr inbounds i8, ptr %0, i64 168
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !5
-  %68 = getelementptr inbounds i8, ptr %12, i64 128
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr @selinux_blob_sizes, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr i8, ptr %69, i64 %71
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   store i8 12, ptr %7, align 8
-  %75 = getelementptr inbounds i8, ptr %7, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %75, align 8
   %76 = load i32, ptr %65, align 4
   %77 = icmp eq i32 %74, %76
@@ -7455,7 +7455,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br i1 %80, label %81, label %105
 
 81:                                               ; preds = %78, %60
-  %82 = getelementptr inbounds i8, ptr %67, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 512
   %85 = icmp eq i32 %84, 0
@@ -7466,18 +7466,18 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   %88 = load i32, ptr @selinux_blob_sizes, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr i8, ptr %87, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %67, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   %96 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr i8, ptr %94, i64 %97
   %99 = select i1 %95, ptr null, ptr %98, !prof !10
-  %100 = getelementptr inbounds i8, ptr %99, i64 28
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 28
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %99, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %103 = load i16, ptr %102, align 8
   %104 = call i32 @avc_has_perm(i32 noundef %92, i32 noundef %101, i16 noundef zeroext %103, i32 noundef 32, ptr noundef nonnull %7) #24
   br label %105
@@ -7488,22 +7488,22 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br label %166
 
 107:                                              ; preds = %3, %3
-  %108 = getelementptr inbounds i8, ptr %0, i64 192
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %109 = load ptr, ptr %108, align 8
   %110 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr i8, ptr %109, i64 %111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
-  %113 = getelementptr inbounds i8, ptr %12, i64 128
+  %113 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %114 = load ptr, ptr %113, align 8
   %115 = load i32, ptr @selinux_blob_sizes, align 4
   %116 = sext i32 %115 to i64
   %117 = getelementptr i8, ptr %114, i64 %116
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   store i8 12, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %6, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %120, align 8
   %121 = load i32, ptr %112, align 4
   %122 = icmp eq i32 %119, %121
@@ -7523,20 +7523,20 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br label %166
 
 129:                                              ; preds = %3, %3
-  %.sink13.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink13.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !5
-  %130 = getelementptr inbounds i8, ptr %12, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr @selinux_blob_sizes, align 4
   %133 = sext i32 %132 to i64
   %134 = getelementptr i8, ptr %131, i64 %133
-  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4
   store i8 3, ptr %4, align 8
-  %137 = getelementptr inbounds i8, ptr %4, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 26, ptr %137, align 8
   %138 = call i32 @avc_has_perm_noaudit(i32 noundef %136, i32 noundef %136, i16 noundef zeroext 5, i32 noundef 67108864, i32 noundef 0, ptr noundef nonnull %5) #24
   %139 = load i32, ptr %5, align 4
@@ -7643,26 +7643,26 @@ define internal i32 @selinux_mmap_file(ptr noundef %0, i64 %1, i64 noundef %2, i
 
 13:                                               ; preds = %.split
   %14 = inttoptr i64 %7 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 1784
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1784
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr @selinux_blob_sizes, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %18, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @avc_has_perm(i32 noundef %23, i32 noundef %23, i16 noundef zeroext 2, i32 noundef 33554432, ptr noundef null) #24
   br label %file_map_prot_check.exit
 
 25:                                               ; preds = %4
   store i8 12, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %26, align 8
   %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
-  %28 = getelementptr inbounds i8, ptr %0, i64 168
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
@@ -7670,25 +7670,25 @@ define internal i32 @selinux_mmap_file(ptr noundef %0, i64 %1, i64 noundef %2, i
 
 34:                                               ; preds = %25
   %35 = inttoptr i64 %27 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 1784
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1784
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr @selinux_blob_sizes, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr i8, ptr %39, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %29, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr i8, ptr %46, i64 %49
   %51 = select i1 %47, ptr null, ptr %50, !prof !10
-  %52 = getelementptr inbounds i8, ptr %51, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %51, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %55 = load i16, ptr %54, align 8
   %56 = call i32 @avc_has_perm(i32 noundef %44, i32 noundef %53, i16 noundef zeroext %55, i32 noundef 1024, ptr noundef nonnull %5) #24
   %57 = icmp eq i32 %56, 0
@@ -7715,14 +7715,14 @@ define internal i32 @selinux_mmap_addr(i64 noundef %0) #1 align 16 {
 3:                                                ; preds = %1
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @avc_has_perm(i32 noundef %14, i32 noundef %14, i16 noundef zeroext 52, i32 noundef 1, ptr noundef null) #24
   br label %16
@@ -7737,14 +7737,14 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr @default_noexec, align 4
   %17 = icmp eq i32 %16, 0
@@ -7754,7 +7754,7 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   br i1 %20, label %.thread6, label %21
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 4
   %25 = icmp eq i64 %24, 0
@@ -7762,17 +7762,17 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
 
 26:                                               ; preds = %21
   %27 = load i64, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 360
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 360
   %31 = load i64, ptr %30, align 8
   %32 = icmp ult i64 %27, %31
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 352
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 352
   %37 = load i64, ptr %36, align 32
   %38 = icmp ugt i64 %35, %37
   br i1 %38, label %39, label %41
@@ -7782,19 +7782,19 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   br label %110
 
 41:                                               ; preds = %33, %26
-  %42 = getelementptr inbounds i8, ptr %0, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %29, i64 368
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 368
   %47 = load i64, ptr %46, align 16
   %48 = icmp ugt i64 %27, %47
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = icmp ult i64 %51, %47
   br i1 %52, label %53, label %56
@@ -7815,18 +7815,18 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
 
 .thread:                                          ; preds = %41, %58
   %60 = phi ptr [ %.pr, %58 ], [ %43, %41 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 112
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.thread6, label %64
 
 64:                                               ; preds = %.thread
-  %65 = getelementptr inbounds i8, ptr %60, i64 192
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 192
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %68 = sext i32 %67 to i64
   %69 = getelementptr i8, ptr %66, i64 %68
-  %70 = getelementptr inbounds i8, ptr %60, i64 168
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 168
   %71 = load ptr, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
@@ -7834,10 +7834,10 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   %73 = load i32, ptr @selinux_blob_sizes, align 4
   %74 = sext i32 %73 to i64
   %75 = getelementptr i8, ptr %72, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
   store i8 12, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %60, ptr %78, align 8
   %79 = load i32, ptr %69, align 4
   %80 = icmp eq i32 %77, %79
@@ -7849,7 +7849,7 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   br i1 %83, label %84, label %108
 
 84:                                               ; preds = %81, %64
-  %85 = getelementptr inbounds i8, ptr %71, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 512
   %88 = icmp eq i32 %87, 0
@@ -7860,18 +7860,18 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   %91 = load i32, ptr @selinux_blob_sizes, align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr i8, ptr %90, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %71, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %71, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   %99 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr i8, ptr %97, i64 %100
   %102 = select i1 %98, ptr null, ptr %101, !prof !10
-  %103 = getelementptr inbounds i8, ptr %102, i64 28
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %102, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %106 = load i16, ptr %105, align 8
   %107 = call i32 @avc_has_perm(i32 noundef %95, i32 noundef %104, i16 noundef zeroext %106, i32 noundef 524288, ptr noundef nonnull %4) #24
   br label %108
@@ -7887,9 +7887,9 @@ define internal i32 @selinux_file_mprotect(ptr noundef %0, i64 %1, i64 noundef %
   br i1 %112, label %.thread6, label %120
 
 .thread6:                                         ; preds = %58, %.thread, %110, %21, %3
-  %113 = getelementptr inbounds i8, ptr %0, i64 136
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load i64, ptr %115, align 8
   %117 = trunc i64 %116 to i32
   %118 = and i32 %117, 8
@@ -7906,26 +7906,26 @@ define internal i32 @selinux_file_lock(ptr noundef %0, i32 %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  %15 = getelementptr inbounds i8, ptr %7, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   store i8 12, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %22, align 8
   %23 = load i32, ptr %12, align 4
   %24 = icmp eq i32 %21, %23
@@ -7937,7 +7937,7 @@ define internal i32 @selinux_file_lock(ptr noundef %0, i32 %1) #1 align 16 {
   br i1 %27, label %28, label %52
 
 28:                                               ; preds = %25, %2
-  %29 = getelementptr inbounds i8, ptr %14, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 512
   %32 = icmp eq i32 %31, 0
@@ -7948,18 +7948,18 @@ define internal i32 @selinux_file_lock(ptr noundef %0, i32 %1) #1 align 16 {
   %35 = load i32, ptr @selinux_blob_sizes, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %34, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %14, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
   %46 = select i1 %42, ptr null, ptr %45, !prof !10
-  %47 = getelementptr inbounds i8, ptr %46, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %50 = load i16, ptr %49, align 8
   %51 = call i32 @avc_has_perm(i32 noundef %39, i32 noundef %48, i16 noundef zeroext %50, i32 noundef 64, ptr noundef nonnull %3) #24
   br label %52
@@ -7977,7 +7977,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %6 = alloca %struct.common_audit_data, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
   switch i32 %1, label %135 [
     i32 4, label %11
@@ -7996,7 +7996,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   ]
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1024
   %15 = icmp ne i32 %14, 0
@@ -8006,24 +8006,24 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %18, label %19, label %66
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
-  %27 = getelementptr inbounds i8, ptr %10, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @selinux_blob_sizes, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr i8, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   store i8 12, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %34, align 8
   %35 = load i32, ptr %24, align 4
   %36 = icmp eq i32 %33, %35
@@ -8035,7 +8035,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %39, label %40, label %64
 
 40:                                               ; preds = %37, %19
-  %41 = getelementptr inbounds i8, ptr %26, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 512
   %44 = icmp eq i32 %43, 0
@@ -8046,18 +8046,18 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %47 = load i32, ptr @selinux_blob_sizes, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr i8, ptr %46, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %26, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   %55 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %56 = sext i32 %55 to i64
   %57 = getelementptr i8, ptr %53, i64 %56
   %58 = select i1 %54, ptr null, ptr %57, !prof !10
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %58, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %62 = load i16, ptr %61, align 8
   %63 = call i32 @avc_has_perm(i32 noundef %51, i32 noundef %60, i16 noundef zeroext %62, i32 noundef 4, ptr noundef nonnull %6) #24
   br label %64
@@ -8068,22 +8068,22 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   br label %135
 
 66:                                               ; preds = %11, %3, %3, %3, %3, %3, %3
-  %67 = getelementptr inbounds i8, ptr %0, i64 192
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %70 = sext i32 %69 to i64
   %71 = getelementptr i8, ptr %68, i64 %70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
-  %72 = getelementptr inbounds i8, ptr %10, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %73 = load ptr, ptr %72, align 8
   %74 = load i32, ptr @selinux_blob_sizes, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr i8, ptr %73, i64 %75
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   store i8 12, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %79, align 8
   %80 = load i32, ptr %71, align 4
   %81 = icmp eq i32 %78, %80
@@ -8103,24 +8103,24 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   br label %135
 
 88:                                               ; preds = %3, %3, %3, %3, %3, %3
-  %89 = getelementptr inbounds i8, ptr %0, i64 192
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %90 = load ptr, ptr %89, align 8
   %91 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr i8, ptr %90, i64 %92
-  %94 = getelementptr inbounds i8, ptr %0, i64 168
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %95 = load ptr, ptr %94, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  %96 = getelementptr inbounds i8, ptr %10, i64 128
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr @selinux_blob_sizes, align 4
   %99 = sext i32 %98 to i64
   %100 = getelementptr i8, ptr %97, i64 %99
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   store i8 12, ptr %4, align 8
-  %103 = getelementptr inbounds i8, ptr %4, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %103, align 8
   %104 = load i32, ptr %93, align 4
   %105 = icmp eq i32 %102, %104
@@ -8132,7 +8132,7 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %108, label %109, label %133
 
 109:                                              ; preds = %106, %88
-  %110 = getelementptr inbounds i8, ptr %95, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 512
   %113 = icmp eq i32 %112, 0
@@ -8143,18 +8143,18 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
   %116 = load i32, ptr @selinux_blob_sizes, align 4
   %117 = sext i32 %116 to i64
   %118 = getelementptr i8, ptr %115, i64 %117
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %95, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
   %124 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %125 = sext i32 %124 to i64
   %126 = getelementptr i8, ptr %122, i64 %125
   %127 = select i1 %123, ptr null, ptr %126, !prof !10
-  %128 = getelementptr inbounds i8, ptr %127, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %127, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %131 = load i16, ptr %130, align 8
   %132 = call i32 @avc_has_perm(i32 noundef %120, i32 noundef %129, i16 noundef zeroext %131, i32 noundef 64, ptr noundef nonnull %4) #24
   br label %133
@@ -8171,23 +8171,23 @@ define internal i32 @selinux_file_fcntl(ptr noundef %0, i32 noundef %1, i64 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal void @selinux_file_set_fowner(ptr nocapture noundef readonly %0) #13 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %3, i64 %5
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %17, ptr %18, align 4
   ret void
 }
@@ -8195,14 +8195,14 @@ define internal void @selinux_file_set_fowner(ptr nocapture noundef readonly %0)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_file_send_sigiotask(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
   tail call void @__rcu_read_lock() #24
-  %4 = getelementptr inbounds i8, ptr %0, i64 1776
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %5 = load volatile ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_unlock() #24
   %13 = getelementptr i8, ptr %1, i64 112
@@ -8227,7 +8227,7 @@ define internal i32 @selinux_file_send_sigiotask(ptr noundef %0, ptr nocapture n
   %20 = phi i32 [ 16, %17 ], [ 8, %16 ], [ 4, %18 ], [ 64, %3 ]
   %21 = sext i32 %15 to i64
   %22 = getelementptr i8, ptr %14, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @avc_has_perm(i32 noundef %24, i32 noundef %12, i16 noundef zeroext 2, i32 noundef %20, ptr noundef null) #24
   ret i32 %25
@@ -8238,9 +8238,9 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 1
   %10 = and i32 %9, 2
@@ -8249,7 +8249,7 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1024
   %17 = icmp eq i32 %16, 0
@@ -8266,24 +8266,24 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
 22:                                               ; preds = %20, %18, %1
   %23 = phi i32 [ %19, %18 ], [ %21, %20 ], [ %10, %1 ]
   %24 = tail call i32 @llvm.umax.i32(i32 %23, i32 1)
-  %25 = getelementptr inbounds i8, ptr %0, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = load ptr, ptr %30, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
-  %32 = getelementptr inbounds i8, ptr %6, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @selinux_blob_sizes, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   store i8 12, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %39, align 8
   %40 = load i32, ptr %29, align 4
   %41 = icmp eq i32 %38, %40
@@ -8295,7 +8295,7 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
   br i1 %44, label %45, label %69
 
 45:                                               ; preds = %42, %22
-  %46 = getelementptr inbounds i8, ptr %31, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 512
   %49 = icmp eq i32 %48, 0
@@ -8306,18 +8306,18 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
   %52 = load i32, ptr @selinux_blob_sizes, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr i8, ptr %51, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %31, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   %60 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %61 = sext i32 %60 to i64
   %62 = getelementptr i8, ptr %58, i64 %61
   %63 = select i1 %59, ptr null, ptr %62, !prof !10
-  %64 = getelementptr inbounds i8, ptr %63, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %63, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %67 = load i16, ptr %66, align 8
   %68 = call i32 @avc_has_perm(i32 noundef %56, i32 noundef %65, i16 noundef zeroext %67, i32 noundef %24, ptr noundef nonnull %2) #24
   br label %69
@@ -8331,14 +8331,14 @@ define internal i32 @selinux_file_receive(ptr noundef %0) #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %13 = tail call i32 @__SCT__might_resched() #24
@@ -8352,7 +8352,7 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   %18 = sext i32 %12 to i64
   %19 = getelementptr i8, ptr %11, i64 %18
   %20 = select i1 %17, ptr null, ptr %19, !prof !10
-  %21 = getelementptr inbounds i8, ptr %20, i64 34
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 34
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %24
@@ -8368,16 +8368,16 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   %30 = sext i32 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
   %32 = select i1 %28, ptr null, ptr %31, !prof !10
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %34, ptr %35, align 4
   %36 = tail call i32 @avc_policy_seqno() #24
-  %37 = getelementptr inbounds i8, ptr %7, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = shl i32 %41, 1
   %43 = and i32 %42, 2
@@ -8386,7 +8386,7 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   br i1 %45, label %55, label %46
 
 46:                                               ; preds = %26
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1024
   %50 = icmp eq i32 %49, 0
@@ -8409,9 +8409,9 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   br i1 %60, label %69, label %61
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %58, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %65 = load i64, ptr %64, align 32
   %66 = icmp eq i64 %65, 1397703499
   %67 = or disjoint i32 %57, 262144
@@ -8423,32 +8423,32 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %2, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %58, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 512
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %96, !prof !15
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %39, i64 128
+  %77 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr @selinux_blob_sizes, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr i8, ptr %78, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %58, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   %87 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr i8, ptr %85, i64 %88
   %90 = select i1 %86, ptr null, ptr %89, !prof !10
-  %91 = getelementptr inbounds i8, ptr %90, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %90, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %94 = load i16, ptr %93, align 8
   %95 = call i32 @avc_has_perm(i32 noundef %83, i32 noundef %92, i16 noundef zeroext %94, i32 noundef %70, ptr noundef nonnull %2) #24
   br label %96
@@ -8463,14 +8463,14 @@ define internal i32 @selinux_file_open(ptr noundef %0) #1 align 16 {
 define internal i32 @selinux_task_alloc(ptr nocapture readnone %0, i64 %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @avc_has_perm(i32 noundef %13, i32 noundef %13, i16 noundef zeroext 2, i32 noundef 1, ptr noundef null) #24
   ret i32 %14
@@ -8478,12 +8478,12 @@ define internal i32 @selinux_task_alloc(ptr nocapture readnone %0, i64 %1) #1 al
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal noundef i32 @selinux_cred_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #14 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @selinux_blob_sizes, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %5, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(24) %11, ptr noundef align 4 dereferenceable(24) %8, i64 24, i1 false)
@@ -8492,12 +8492,12 @@ define internal noundef i32 @selinux_cred_prepare(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @selinux_cred_transfer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(24) %10, ptr noundef align 4 dereferenceable(24) %7, i64 24, i1 false)
@@ -8506,12 +8506,12 @@ define internal void @selinux_cred_transfer(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @selinux_cred_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %1, align 4
   ret void
@@ -8519,18 +8519,18 @@ define internal void @selinux_cred_getsecid(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_kernel_act_as(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
   %6 = sext i32 %5 to i64
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 %6
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %15, i32 noundef %1, i16 noundef zeroext 55, i32 noundef 1, ptr noundef null) #24
   %17 = icmp eq i32 %16, 0
@@ -8538,13 +8538,13 @@ define internal i32 @selinux_kernel_act_as(ptr nocapture noundef readonly %0, i3
 
 18:                                               ; preds = %2
   %19 = getelementptr i8, ptr %4, i64 %6
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 0, ptr %23, align 4
   br label %24
 
@@ -8554,7 +8554,7 @@ define internal i32 @selinux_kernel_act_as(ptr nocapture noundef readonly %0, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_kernel_create_files_as(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %6 = tail call i32 @__SCT__might_resched() #24
@@ -8568,7 +8568,7 @@ define internal i32 @selinux_kernel_create_files_as(ptr nocapture noundef readon
   %11 = sext i32 %5 to i64
   %12 = getelementptr i8, ptr %4, i64 %11
   %13 = select i1 %10, ptr null, ptr %12, !prof !10
-  %14 = getelementptr inbounds i8, ptr %13, i64 34
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 34
   %15 = load i8, ptr %14, align 2
   %16 = icmp eq i8 %15, 1
   br i1 %16, label %19, label %17
@@ -8584,20 +8584,20 @@ define internal i32 @selinux_kernel_create_files_as(ptr nocapture noundef readon
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
   %25 = select i1 %21, ptr null, ptr %24, !prof !10
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @selinux_blob_sizes, align 4
   %29 = sext i32 %28 to i64
   %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 1784
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1784
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 %29
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %25, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = tail call i32 @avc_has_perm(i32 noundef %38, i32 noundef %40, i16 noundef zeroext 55, i32 noundef 2, ptr noundef null) #24
   %42 = icmp eq i32 %41, 0
@@ -8606,7 +8606,7 @@ define internal i32 @selinux_kernel_create_files_as(ptr nocapture noundef readon
 43:                                               ; preds = %19
   %44 = getelementptr i8, ptr %27, i64 %29
   %45 = load i32, ptr %39, align 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %45, ptr %46, align 4
   br label %47
 
@@ -8620,18 +8620,18 @@ define internal i32 @selinux_kernel_module_request(ptr noundef %0) #1 align 16 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 8, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef 1, i16 noundef zeroext 4, i32 noundef 16, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
@@ -8646,14 +8646,14 @@ define internal i32 @selinux_kernel_load_data(i32 noundef %0, i1 zeroext %1) #1 
 4:                                                ; preds = %2
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %15, i32 noundef %15, i16 noundef zeroext 4, i32 noundef 32, ptr noundef null) #24
   br label %17
@@ -8674,14 +8674,14 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp ne ptr %0, null
   %.not1 = and i1 %18, %2
@@ -8693,9 +8693,9 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
 
 21:                                               ; preds = %6
   store i8 12, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %26 = sext i32 %25 to i64
@@ -8710,9 +8710,9 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
   br i1 %32, label %33, label %selinux_kernel_module_from_file.exit
 
 33:                                               ; preds = %30, %21
-  %34 = getelementptr inbounds i8, ptr %0, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %39 = call i32 @__SCT__might_resched() #24
@@ -8726,7 +8726,7 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
   %44 = sext i32 %38 to i64
   %45 = getelementptr i8, ptr %37, i64 %44
   %46 = select i1 %43, ptr null, ptr %45, !prof !10
-  %47 = getelementptr inbounds i8, ptr %46, i64 34
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 34
   %48 = load i8, ptr %47, align 2
   %49 = icmp eq i8 %48, 1
   br i1 %49, label %52, label %50
@@ -8742,7 +8742,7 @@ define internal i32 @selinux_kernel_read_file(ptr noundef %0, i32 noundef %1, i1
   %56 = sext i32 %55 to i64
   %57 = getelementptr i8, ptr %53, i64 %56
   %58 = select i1 %54, ptr null, ptr %57, !prof !10
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
   %61 = call i32 @avc_has_perm(i32 noundef %17, i32 noundef %60, i16 noundef zeroext 4, i32 noundef 32, ptr noundef nonnull %4) #24
   br label %selinux_kernel_module_from_file.exit
@@ -8761,24 +8761,24 @@ selinux_kernel_module_from_file.exit:             ; preds = %19, %30, %52
 define internal i32 @selinux_task_setpgid(ptr noundef %0, i32 %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @__rcu_read_lock() #24
-  %14 = getelementptr inbounds i8, ptr %0, i64 1776
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %15 = load volatile ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @selinux_blob_sizes, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   tail call void @__rcu_read_unlock() #24
   %23 = tail call i32 @avc_has_perm(i32 noundef %13, i32 noundef %22, i16 noundef zeroext 2, i32 noundef 4096, ptr noundef null) #24
@@ -8789,24 +8789,24 @@ define internal i32 @selinux_task_setpgid(ptr noundef %0, i32 %1) #1 align 16 {
 define internal i32 @selinux_task_getpgid(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %0, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 2048, ptr noundef null) #24
@@ -8817,24 +8817,24 @@ define internal i32 @selinux_task_getpgid(ptr noundef %0) #1 align 16 {
 define internal i32 @selinux_task_getsid(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %0, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 1024, ptr noundef null) #24
@@ -8845,14 +8845,14 @@ define internal i32 @selinux_task_getsid(ptr noundef %0) #1 align 16 {
 define internal void @selinux_current_getsecid_subj(ptr nocapture noundef writeonly initializes((0, 4)) %0) #15 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %0, align 4
   ret void
@@ -8861,14 +8861,14 @@ define internal void @selinux_current_getsecid_subj(ptr nocapture noundef writeo
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_task_getsecid_obj(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 align 16 {
   tail call void @__rcu_read_lock() #24
-  %3 = getelementptr inbounds i8, ptr %0, i64 1776
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %4 = load volatile ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @selinux_blob_sizes, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @__rcu_read_unlock() #24
   store i32 %11, ptr %1, align 4
@@ -8879,24 +8879,24 @@ define internal void @selinux_task_getsecid_obj(ptr noundef %0, ptr nocapture no
 define internal i32 @selinux_task_setnice(ptr noundef %0, i32 %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @__rcu_read_lock() #24
-  %14 = getelementptr inbounds i8, ptr %0, i64 1776
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %15 = load volatile ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @selinux_blob_sizes, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   tail call void @__rcu_read_unlock() #24
   %23 = tail call i32 @avc_has_perm(i32 noundef %13, i32 noundef %22, i16 noundef zeroext 2, i32 noundef 512, ptr noundef null) #24
@@ -8907,24 +8907,24 @@ define internal i32 @selinux_task_setnice(ptr noundef %0, i32 %1) #1 align 16 {
 define internal i32 @selinux_task_setioprio(ptr noundef %0, i32 %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @__rcu_read_lock() #24
-  %14 = getelementptr inbounds i8, ptr %0, i64 1776
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %15 = load volatile ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @selinux_blob_sizes, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   tail call void @__rcu_read_unlock() #24
   %23 = tail call i32 @avc_has_perm(i32 noundef %13, i32 noundef %22, i16 noundef zeroext 2, i32 noundef 512, ptr noundef null) #24
@@ -8935,24 +8935,24 @@ define internal i32 @selinux_task_setioprio(ptr noundef %0, i32 %1) #1 align 16 
 define internal i32 @selinux_task_getioprio(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %0, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 256, ptr noundef null) #24
@@ -8970,17 +8970,17 @@ define internal i32 @selinux_task_prlimit(ptr nocapture noundef readonly %0, ptr
   %8 = shl i32 %2, 30
   %9 = and i32 %8, 1073741824
   %10 = or disjoint i32 %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 %14
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @avc_has_perm(i32 noundef %17, i32 noundef %22, i16 noundef zeroext 2, i32 noundef %10, ptr noundef null) #24
   br label %24
@@ -8992,14 +8992,14 @@ define internal i32 @selinux_task_prlimit(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1880
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
   %.idx = shl nuw nsw i64 %6, 4
   %7 = getelementptr i8, ptr %5, i64 680
   %8 = getelementptr i8, ptr %7, i64 %.idx
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %9, %11
   br i1 %12, label %35, label %13
@@ -9007,24 +9007,24 @@ define internal i32 @selinux_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr 
 13:                                               ; preds = %3
   %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 1784
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1784
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @selinux_blob_sizes, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   tail call void @__rcu_read_lock() #24
-  %25 = getelementptr inbounds i8, ptr %0, i64 1776
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %26 = load volatile ptr, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %26, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @selinux_blob_sizes, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr i8, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   tail call void @__rcu_read_unlock() #24
   %34 = tail call i32 @avc_has_perm(i32 noundef %24, i32 noundef %33, i16 noundef zeroext 2, i32 noundef 2097152, ptr noundef null) #24
@@ -9039,24 +9039,24 @@ define internal i32 @selinux_task_setrlimit(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @selinux_task_setscheduler(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %0, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 512, ptr noundef null) #24
@@ -9067,24 +9067,24 @@ define internal i32 @selinux_task_setscheduler(ptr noundef %0) #1 align 16 {
 define internal i32 @selinux_task_getscheduler(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %0, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 256, ptr noundef null) #24
@@ -9095,24 +9095,24 @@ define internal i32 @selinux_task_getscheduler(ptr noundef %0) #1 align 16 {
 define internal i32 @selinux_task_movememory(ptr noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   tail call void @__rcu_read_lock() #24
-  %13 = getelementptr inbounds i8, ptr %0, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %14 = load volatile ptr, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @selinux_blob_sizes, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   tail call void @__rcu_read_unlock() #24
   %22 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %21, i16 noundef zeroext 2, i32 noundef 512, ptr noundef null) #24
@@ -9148,28 +9148,28 @@ define internal i32 @selinux_task_kill(ptr noundef %0, ptr nocapture readnone %1
 12:                                               ; preds = %9
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 1784
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1784
   %16 = load ptr, ptr %15, align 8
   br label %17
 
 17:                                               ; preds = %12, %9
   %18 = phi ptr [ %16, %12 ], [ %3, %9 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr @selinux_blob_sizes, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   tail call void @__rcu_read_lock() #24
-  %26 = getelementptr inbounds i8, ptr %0, i64 1776
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %27 = load volatile ptr, ptr %26, align 16
-  %28 = getelementptr inbounds i8, ptr %27, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr @selinux_blob_sizes, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   tail call void @__rcu_read_unlock() #24
   %35 = tail call i32 @avc_has_perm(i32 noundef %25, i32 noundef %34, i16 noundef zeroext 2, i32 noundef %10, ptr noundef null) #24
@@ -9178,7 +9178,7 @@ define internal i32 @selinux_task_kill(ptr noundef %0, ptr nocapture readnone %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_task_to_inode(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -9186,18 +9186,18 @@ define internal void @selinux_task_to_inode(ptr noundef %0, ptr nocapture nounde
   %8 = getelementptr i8, ptr %4, i64 %7
   %9 = select i1 %5, ptr null, ptr %8, !prof !10
   tail call void @__rcu_read_lock() #24
-  %10 = getelementptr inbounds i8, ptr %0, i64 1776
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %11 = load volatile ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   tail call void @__rcu_read_unlock() #24
-  %19 = getelementptr inbounds i8, ptr %9, i64 36
-  tail call void @_raw_spin_lock(ptr noundef %19) #24
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  tail call void @_raw_spin_lock(ptr noundef nonnull %19) #24
   %20 = load i16, ptr %1, align 8
   %21 = zext i16 %20 to i32
   %22 = add nsw i32 %21, -4096
@@ -9231,13 +9231,13 @@ define internal void @selinux_task_to_inode(ptr noundef %0, ptr nocapture nounde
 
 30:                                               ; preds = %29, %28, %27, %26, %25, %24, %2
   %31 = phi i16 [ 7, %29 ], [ 14, %28 ], [ 11, %27 ], [ 8, %26 ], [ 12, %25 ], [ 10, %24 ], [ 13, %2 ]
-  %32 = getelementptr inbounds i8, ptr %9, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %18, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %9, i64 34
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 34
   store i8 1, ptr %34, align 2
-  tail call void @_raw_spin_unlock(ptr noundef %19) #24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %19) #24
   ret void
 }
 
@@ -9245,14 +9245,14 @@ define internal void @selinux_task_to_inode(ptr noundef %0, ptr nocapture nounde
 define internal i32 @selinux_userns_create(ptr nocapture readnone %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %12, i16 noundef zeroext 97, i32 noundef 1, ptr noundef null) #24
   ret i32 %13
@@ -9278,26 +9278,26 @@ define internal i32 @selinux_ipc_permission(ptr nocapture noundef readonly %0, i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 1784
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1784
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr @selinux_blob_sizes, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 16
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
   store i8 4, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = load i16, ptr %30, align 4
   %37 = call i32 @avc_has_perm(i32 noundef %25, i32 noundef %35, i16 noundef zeroext %36, i32 noundef %14, ptr noundef nonnull %3) #24
@@ -9311,12 +9311,12 @@ define internal i32 @selinux_ipc_permission(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @selinux_ipc_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 16
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %1, align 4
   ret void
@@ -9329,26 +9329,26 @@ define internal i32 @selinux_msg_queue_associate(ptr nocapture noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 16
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
   store i8 4, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef %24, i16 noundef zeroext 28, i32 noundef 64, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
@@ -9371,14 +9371,14 @@ define internal i32 @selinux_msg_queue_msgctl(ptr nocapture noundef readonly %0,
 4:                                                ; preds = %2, %2
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %15, i32 noundef 1, i16 noundef zeroext 4, i32 noundef 1, ptr noundef null) #24
   br label %44
@@ -9395,26 +9395,26 @@ define internal i32 @selinux_msg_queue_msgctl(ptr nocapture noundef readonly %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 1784
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr @selinux_blob_sizes, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 16
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %33, i64 %35
   store i8 4, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load i16, ptr %36, align 4
   %43 = call i32 @avc_has_perm(i32 noundef %31, i32 noundef %41, i16 noundef zeroext %42, i32 noundef %20, ptr noundef nonnull %3) #24
@@ -9433,21 +9433,21 @@ define internal i32 @selinux_msg_queue_msgsnd(ptr nocapture noundef readonly %0,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 16
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 20), align 4
   %24 = sext i32 %23 to i64
@@ -9457,7 +9457,7 @@ define internal i32 @selinux_msg_queue_msgsnd(ptr nocapture noundef readonly %0,
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %20, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @security_transition_sid(i32 noundef %15, i32 noundef %30, i16 noundef zeroext 27, ptr noundef null, ptr noundef %25) #24
   %32 = icmp eq i32 %31, 0
@@ -9465,11 +9465,11 @@ define internal i32 @selinux_msg_queue_msgsnd(ptr nocapture noundef readonly %0,
 
 33:                                               ; preds = %28, %3
   store i8 4, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %20, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = call i32 @avc_has_perm(i32 noundef %15, i32 noundef %38, i16 noundef zeroext 28, i32 noundef 32, ptr noundef nonnull %4) #24
   %40 = icmp eq i32 %39, 0
@@ -9499,30 +9499,30 @@ define internal i32 @selinux_msg_queue_msgrcv(ptr nocapture noundef readonly %0,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
   tail call void @__rcu_read_lock() #24
-  %7 = getelementptr inbounds i8, ptr %2, i64 1776
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1776
   %8 = load volatile ptr, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @__rcu_read_unlock() #24
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 16
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 20), align 4
   store i8 4, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = call i32 @avc_has_perm(i32 noundef %15, i32 noundef %28, i16 noundef zeroext 28, i32 noundef 16, ptr noundef nonnull %6) #24
   %30 = icmp eq i32 %29, 0
@@ -9548,26 +9548,26 @@ define internal i32 @selinux_shm_associate(ptr nocapture noundef readonly %0, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 16
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
   store i8 4, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef %24, i16 noundef zeroext 29, i32 noundef 64, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
@@ -9592,14 +9592,14 @@ define internal i32 @selinux_shm_shmctl(ptr nocapture noundef readonly %0, i32 n
 4:                                                ; preds = %2, %2
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %15, i32 noundef 1, i16 noundef zeroext 4, i32 noundef 1, ptr noundef null) #24
   br label %45
@@ -9619,26 +9619,26 @@ define internal i32 @selinux_shm_shmctl(ptr nocapture noundef readonly %0, i32 n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %22 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1784
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1784
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @selinux_blob_sizes, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 16
   %35 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %34, i64 %36
   store i8 4, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = load i16, ptr %37, align 4
   %44 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %42, i16 noundef zeroext %43, i32 noundef %21, ptr noundef nonnull %3) #24
@@ -9660,26 +9660,26 @@ define internal i32 @selinux_shm_shmat(ptr nocapture noundef readonly %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1784
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1784
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 16
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
   store i8 4, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = load i16, ptr %23, align 4
   %30 = call i32 @avc_has_perm(i32 noundef %18, i32 noundef %28, i16 noundef zeroext %29, i32 noundef %7, ptr noundef nonnull %4) #24
@@ -9694,26 +9694,26 @@ define internal i32 @selinux_sem_associate(ptr nocapture noundef readonly %0, i3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 16
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr i8, ptr %16, i64 %18
   store i8 4, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @avc_has_perm(i32 noundef %14, i32 noundef %24, i16 noundef zeroext 26, i32 noundef 64, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
@@ -9743,14 +9743,14 @@ define internal i32 @selinux_sem_semctl(ptr nocapture noundef readonly %0, i32 n
 4:                                                ; preds = %2, %2
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %15, i32 noundef 1, i16 noundef zeroext 4, i32 noundef 1, ptr noundef null) #24
   br label %47
@@ -9776,26 +9776,26 @@ define internal i32 @selinux_sem_semctl(ptr nocapture noundef readonly %0, i32 n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 1784
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1784
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr @selinux_blob_sizes, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 16
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr i8, ptr %36, i64 %38
   store i8 4, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = load i16, ptr %39, align 4
   %46 = call i32 @avc_has_perm(i32 noundef %34, i32 noundef %44, i16 noundef zeroext %45, i32 noundef %23, ptr noundef nonnull %3) #24
@@ -9816,26 +9816,26 @@ define internal i32 @selinux_sem_semop(ptr nocapture noundef readonly %0, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1784
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1784
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @selinux_blob_sizes, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 16
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
   store i8 4, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = load i16, ptr %23, align 4
   %30 = call i32 @avc_has_perm(i32 noundef %18, i32 noundef %28, i16 noundef zeroext %29, i32 noundef %7, ptr noundef nonnull %5) #24
@@ -9885,10 +9885,10 @@ define internal range(i32 1, 0) i32 @selinux_getselfattr(i32 noundef %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -2147483648, 1) i32 @selinux_setselfattr(i32 noundef %0, ptr noundef %1, i64 %2, i32 %3) #1 align 16 {
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = tail call fastcc i32 @selinux_lsm_setattr(i64 noundef %5, ptr noundef %6, i64 noundef %8)
+  %9 = tail call fastcc i32 @selinux_lsm_setattr(i64 noundef %5, ptr noundef nonnull %6, i64 noundef %8)
   %10 = tail call i32 @llvm.smin.i32(i32 %9, i32 0)
   ret i32 %10
 }
@@ -9953,18 +9953,18 @@ define internal void @selinux_release_secctx(ptr noundef %0, i32 %1) #1 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_inode_invalidate_secctx(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
   %8 = select i1 %4, ptr null, ptr %7, !prof !10
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
-  tail call void @_raw_spin_lock(ptr noundef %9) #24
-  %10 = getelementptr inbounds i8, ptr %8, i64 34
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  tail call void @_raw_spin_lock(ptr noundef nonnull %9) #24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 34
   store i8 0, ptr %10, align 2
-  tail call void @_raw_spin_unlock(ptr noundef %9) #24
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %9) #24
   ret void
 }
 
@@ -9988,26 +9988,26 @@ define internal i32 @selinux_inode_setsecctx(ptr noundef %0, ptr noundef %1, i32
 define internal i32 @selinux_socket_unix_stream_connect(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = alloca %struct.lsm_network_audit, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 640
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
   store i8 2, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load i16, ptr %18, align 8
   %20 = call i32 @avc_has_perm(i32 noundef %15, i32 noundef %17, i16 noundef zeroext %19, i32 noundef 2097152, ptr noundef nonnull %4) #24
   %21 = icmp eq i32 %20, 0
@@ -10015,17 +10015,17 @@ define internal i32 @selinux_socket_unix_stream_connect(ptr nocapture noundef re
 
 22:                                               ; preds = %3
   %23 = load i32, ptr %14, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %23, ptr %24, align 4
   %25 = load i32, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 16
-  %27 = call i32 @security_sid_mls_copy(i32 noundef %25, i32 noundef %23, ptr noundef %26) #24
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %27 = call i32 @security_sid_mls_copy(i32 noundef %25, i32 noundef %23, ptr noundef nonnull %26) #24
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %22
   %30 = load i32, ptr %26, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %30, ptr %31, align 4
   br label %32
 
@@ -10040,28 +10040,28 @@ define internal i32 @selinux_socket_unix_stream_connect(ptr nocapture noundef re
 define internal i32 @selinux_socket_unix_may_send(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_network_audit, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 640
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
   store i8 2, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load i16, ptr %19, align 8
   %21 = call i32 @avc_has_perm(i32 noundef %16, i32 noundef %18, i16 noundef zeroext %20, i32 noundef 524288, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
@@ -10074,9 +10074,9 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
   %5 = alloca i32, align 4
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1784
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
@@ -10088,7 +10088,7 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
 16:                                               ; preds = %4
   store i32 0, ptr %5, align 4, !annotation !5
   %17 = tail call fastcc zeroext i16 @socket_type_to_security_class(i32 noundef %0, i32 noundef %1, i32 noundef %2), !range !27
-  %18 = getelementptr inbounds i8, ptr %14, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %.thread
@@ -10098,7 +10098,7 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
   br label %26
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %14, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @security_transition_sid(i32 noundef %23, i32 noundef %23, i16 noundef zeroext %17, ptr noundef null, ptr noundef nonnull %5) #24
   %25 = icmp eq i32 %24, 0
@@ -10110,7 +10110,7 @@ define internal i32 @selinux_socket_create(i32 noundef %0, i32 noundef %1, i32 n
 
 26:                                               ; preds = %._crit_edge, %.thread
   %27 = phi i32 [ %.pre, %._crit_edge ], [ %19, %.thread ]
-  %28 = getelementptr inbounds i8, ptr %14, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = call i32 @avc_has_perm(i32 noundef %29, i32 noundef %27, i16 noundef zeroext %17, i32 noundef 8, ptr noundef null) #24
   br label %31
@@ -10126,14 +10126,14 @@ define internal i32 @selinux_socket_post_create(ptr nocapture noundef readonly %
   %6 = alloca i32, align 4
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 1784
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1784
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -10147,7 +10147,7 @@ define internal i32 @selinux_socket_post_create(ptr nocapture noundef readonly %
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %15, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %.thread
@@ -10157,7 +10157,7 @@ define internal i32 @selinux_socket_post_create(ptr nocapture noundef readonly %
   br label %34
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %15, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = call i32 @security_transition_sid(i32 noundef %31, i32 noundef %31, i16 noundef zeroext %23, ptr noundef null, ptr noundef nonnull %6) #24
   %33 = icmp eq i32 %32, 0
@@ -10169,29 +10169,29 @@ define internal i32 @selinux_socket_post_create(ptr nocapture noundef readonly %
 
 34:                                               ; preds = %._crit_edge, %.thread, %5
   %35 = phi i32 [ %.pre, %._crit_edge ], [ %27, %.thread ], [ 1, %5 ]
-  %36 = getelementptr inbounds i8, ptr %22, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i16 %23, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %22, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 28
   store i32 %35, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %22, i64 34
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 34
   store i8 1, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %54, label %42
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %40, i64 640
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 640
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i16 %23, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 %35, ptr %46, align 8
   %47 = icmp eq i16 %23, 60
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %44, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 28
   store i32 0, ptr %49, align 4
   br label %50
 
@@ -10209,21 +10209,21 @@ define internal i32 @selinux_socket_post_create(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal noundef i32 @selinux_socket_socketpair(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 640
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 640
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %15, ptr %16, align 4
   ret i32 0
 }
@@ -10235,15 +10235,15 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   %6 = alloca %struct.common_audit_data, align 8
   %7 = alloca %struct.lsm_network_audit, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 640
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %.thread, label %16
@@ -10262,25 +10262,25 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
 
 21:                                               ; preds = %16
   store i8 2, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %22, align 8
   store i32 0, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 0, ptr %24, align 8
   %25 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 1784
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1784
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @selinux_blob_sizes, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %30, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %12, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %37 = load i16, ptr %36, align 8
   %38 = call i32 @avc_has_perm(i32 noundef %35, i32 noundef %14, i16 noundef zeroext %37, i32 noundef 2048, ptr noundef nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
@@ -10289,7 +10289,7 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   br i1 %39, label %40, label %127
 
 40:                                               ; preds = %.thread, %21
-  %41 = getelementptr inbounds i8, ptr %10, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %42 = load i16, ptr %41, align 8
   %43 = icmp eq i16 %42, 10
   switch i16 %42, label %127 [
@@ -10331,7 +10331,7 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   br i1 %54, label %.thread12, label %122
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %61, label %122
@@ -10345,27 +10345,27 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   %63 = phi ptr [ %1, %55 ], [ %1, %50 ], [ null, %59 ]
   %64 = phi ptr [ null, %55 ], [ null, %50 ], [ %1, %59 ]
   %65 = phi i16 [ 2, %55 ], [ %47, %50 ], [ 10, %59 ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %67 = load i16, ptr %66, align 2
   %68 = call i16 @llvm.bswap.i16(i16 %67)
-  %69 = getelementptr inbounds i8, ptr %1, i64 %62
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %62
   store i8 2, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 %67, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %7, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i16 %65, ptr %72, align 8
   %73 = icmp eq i16 %67, 0
   br i1 %73, label %102, label %74
 
 74:                                               ; preds = %61
-  %75 = getelementptr inbounds i8, ptr %10, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1100
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1100
   %78 = load volatile i32, ptr %77, align 4
   %79 = zext i16 %68 to i32
-  %80 = getelementptr inbounds i8, ptr %76, i64 1344
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 1344
   %81 = load volatile i32, ptr %80, align 64
   %82 = icmp sgt i32 %81, %79
   br i1 %82, label %89, label %83
@@ -10379,7 +10379,7 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   br i1 %88, label %89, label %102
 
 89:                                               ; preds = %83, %74
-  %90 = getelementptr inbounds i8, ptr %10, i64 516
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 516
   %91 = load i16, ptr %90, align 4
   %92 = trunc i16 %91 to i8
   %93 = call i32 @sel_netport_sid(i8 noundef zeroext %92, i16 noundef zeroext %68, ptr noundef nonnull %8) #24
@@ -10389,15 +10389,15 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
 95:                                               ; preds = %89
   %96 = load i32, ptr %13, align 8
   %97 = load i32, ptr %8, align 4
-  %98 = getelementptr inbounds i8, ptr %12, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %99 = load i16, ptr %98, align 8
   %100 = call i32 @avc_has_perm(i32 noundef %96, i32 noundef %97, i16 noundef zeroext %99, i32 noundef 1048576, ptr noundef nonnull %6) #24
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %.thread9
 
 102:                                              ; preds = %95, %83, %61
-  %103 = getelementptr inbounds i8, ptr %12, i64 24
-  %104 = call i32 @sel_netnode_sid(ptr noundef %69, i16 noundef zeroext %65, ptr noundef nonnull %8) #24
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %104 = call i32 @sel_netnode_sid(ptr noundef nonnull %69, i16 noundef zeroext %65, ptr noundef nonnull %8) #24
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %.thread9
 
@@ -10406,18 +10406,18 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   br i1 %107, label %108, label %113
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %63, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = load ptr, ptr %70, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 28
   store i32 %110, ptr %112, align 4
   br label %117
 
 113:                                              ; preds = %106
   %114 = load ptr, ptr %70, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 40
-  %116 = getelementptr inbounds i8, ptr %64, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %115, ptr noundef align 4 dereferenceable(16) %116, i64 16, i1 false)
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 4 dereferenceable(16) %116, i64 16, i1 false)
   br label %117
 
 117:                                              ; preds = %113, %108
@@ -10444,7 +10444,7 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
-  %123 = getelementptr inbounds i8, ptr %12, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %124 = load i16, ptr %123, align 8
   %125 = icmp eq i16 %124, 60
   %126 = select i1 %125, i32 -22, i32 -97
@@ -10457,7 +10457,7 @@ define internal i32 @selinux_socket_bind(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_socket_connect(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc i32 @selinux_socket_connect_helper(ptr %5, ptr noundef %1, i32 noundef %2)
   %7 = icmp eq i32 %6, 0
@@ -10476,15 +10476,15 @@ define internal i32 @selinux_socket_connect(ptr nocapture noundef readonly %0, p
 define internal i32 @selinux_socket_listen(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_network_audit, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %35, label %12
@@ -10498,25 +10498,25 @@ define internal i32 @selinux_socket_listen(ptr nocapture noundef readonly %0, i3
 
 17:                                               ; preds = %12
   store i8 2, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %18, align 8
   store i32 0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 0, ptr %20, align 8
   %21 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 1784
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr @selinux_blob_sizes, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %33 = load i16, ptr %32, align 8
   %34 = call i32 @avc_has_perm(i32 noundef %31, i32 noundef %10, i16 noundef zeroext %33, i32 noundef 8192, ptr noundef nonnull %3) #24
   br label %35
@@ -10532,15 +10532,15 @@ define internal i32 @selinux_socket_listen(ptr nocapture noundef readonly %0, i3
 define internal i32 @selinux_socket_accept(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_network_audit, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %.thread, label %12
@@ -10559,25 +10559,25 @@ define internal i32 @selinux_socket_accept(ptr nocapture noundef readonly %0, pt
 
 17:                                               ; preds = %12
   store i8 2, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %18, align 8
   store i32 0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 0, ptr %20, align 8
   %21 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 1784
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr @selinux_blob_sizes, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %33 = load i16, ptr %32, align 8
   %34 = call i32 @avc_has_perm(i32 noundef %31, i32 noundef %10, i16 noundef zeroext %33, i32 noundef 16384, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
@@ -10586,32 +10586,32 @@ define internal i32 @selinux_socket_accept(ptr nocapture noundef readonly %0, pt
   br i1 %35, label %36, label %59
 
 36:                                               ; preds = %.thread, %17
-  %37 = getelementptr inbounds i8, ptr %0, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr i8, ptr %38, i64 %41
   %43 = select i1 %39, ptr null, ptr %42, !prof !10
-  %44 = getelementptr inbounds i8, ptr %43, i64 36
-  call void @_raw_spin_lock(ptr noundef %44) #24
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
+  call void @_raw_spin_lock(ptr noundef nonnull %44) #24
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load i16, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %48 = load i32, ptr %47, align 4
-  call void @_raw_spin_unlock(ptr noundef %44) #24
-  %49 = getelementptr inbounds i8, ptr %1, i64 184
+  call void @_raw_spin_unlock(ptr noundef nonnull %44) #24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   %52 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr i8, ptr %50, i64 %53
   %55 = select i1 %51, ptr null, ptr %54, !prof !10
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i16 %46, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
   store i32 %48, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %55, i64 34
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 34
   store i8 1, ptr %58, align 2
   br label %59
 
@@ -10624,15 +10624,15 @@ define internal i32 @selinux_socket_accept(ptr nocapture noundef readonly %0, pt
 define internal i32 @selinux_socket_sendmsg(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = alloca %struct.lsm_network_audit, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %36, label %13
@@ -10646,25 +10646,25 @@ define internal i32 @selinux_socket_sendmsg(ptr nocapture noundef readonly %0, p
 
 18:                                               ; preds = %13
   store i8 2, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %19, align 8
   store i32 0, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 0, ptr %21, align 8
   %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1784
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1784
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @selinux_blob_sizes, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i16, ptr %33, align 8
   %35 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %11, i16 noundef zeroext %34, i32 noundef 4, ptr noundef nonnull %4) #24
   br label %36
@@ -10680,15 +10680,15 @@ define internal i32 @selinux_socket_sendmsg(ptr nocapture noundef readonly %0, p
 define internal i32 @selinux_socket_recvmsg(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #1 align 16 {
   %5 = alloca %struct.common_audit_data, align 8
   %6 = alloca %struct.lsm_network_audit, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 640
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !5
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %37, label %14
@@ -10702,25 +10702,25 @@ define internal i32 @selinux_socket_recvmsg(ptr nocapture noundef readonly %0, p
 
 19:                                               ; preds = %14
   store i8 2, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %20, align 8
   store i32 0, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 0, ptr %22, align 8
   %23 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 1784
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1784
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @selinux_blob_sizes, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr i8, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %10, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %35 = load i16, ptr %34, align 8
   %36 = call i32 @avc_has_perm(i32 noundef %33, i32 noundef %12, i16 noundef zeroext %35, i32 noundef 2, ptr noundef nonnull %5) #24
   br label %37
@@ -10736,15 +10736,15 @@ define internal i32 @selinux_socket_recvmsg(ptr nocapture noundef readonly %0, p
 define internal i32 @selinux_socket_getsockname(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = alloca %struct.lsm_network_audit, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %34, label %11
@@ -10758,25 +10758,25 @@ define internal i32 @selinux_socket_getsockname(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %11
   store i8 2, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %17, align 8
   store i32 0, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 0, ptr %19, align 8
   %20 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 1784
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1784
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr @selinux_blob_sizes, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr i8, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %32 = load i16, ptr %31, align 8
   %33 = call i32 @avc_has_perm(i32 noundef %30, i32 noundef %9, i16 noundef zeroext %32, i32 noundef 16, ptr noundef nonnull %2) #24
   br label %34
@@ -10792,15 +10792,15 @@ define internal i32 @selinux_socket_getsockname(ptr nocapture noundef readonly %
 define internal i32 @selinux_socket_getpeername(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = alloca %struct.lsm_network_audit, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %34, label %11
@@ -10814,25 +10814,25 @@ define internal i32 @selinux_socket_getpeername(ptr nocapture noundef readonly %
 
 16:                                               ; preds = %11
   store i8 2, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %17, align 8
   store i32 0, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 0, ptr %19, align 8
   %20 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 1784
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1784
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr @selinux_blob_sizes, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr i8, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %32 = load i16, ptr %31, align 8
   %33 = call i32 @avc_has_perm(i32 noundef %30, i32 noundef %9, i16 noundef zeroext %32, i32 noundef 16, ptr noundef nonnull %2) #24
   br label %34
@@ -10848,15 +10848,15 @@ define internal i32 @selinux_socket_getpeername(ptr nocapture noundef readonly %
 define internal i32 @selinux_socket_getsockopt(ptr nocapture noundef readonly %0, i32 %1, i32 %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = alloca %struct.lsm_network_audit, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %36, label %13
@@ -10870,25 +10870,25 @@ define internal i32 @selinux_socket_getsockopt(ptr nocapture noundef readonly %0
 
 18:                                               ; preds = %13
   store i8 2, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %19, align 8
   store i32 0, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 0, ptr %21, align 8
   %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1784
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1784
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @selinux_blob_sizes, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i16, ptr %33, align 8
   %35 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %11, i16 noundef zeroext %34, i32 noundef 32768, ptr noundef nonnull %4) #24
   br label %36
@@ -10904,15 +10904,15 @@ define internal i32 @selinux_socket_getsockopt(ptr nocapture noundef readonly %0
 define internal i32 @selinux_socket_setsockopt(ptr noundef %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
   %5 = alloca %struct.lsm_network_audit, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 640
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !5
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %.thread, label %13
@@ -10931,25 +10931,25 @@ define internal i32 @selinux_socket_setsockopt(ptr noundef %0, i32 noundef %1, i
 
 18:                                               ; preds = %13
   store i8 2, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %19, align 8
   store i32 0, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 0, ptr %21, align 8
   %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1784
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1784
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @selinux_blob_sizes, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i16, ptr %33, align 8
   %35 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %11, i16 noundef zeroext %34, i32 noundef 65536, ptr noundef nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #24
@@ -10970,15 +10970,15 @@ define internal i32 @selinux_socket_setsockopt(ptr noundef %0, i32 noundef %1, i
 define internal i32 @selinux_socket_shutdown(ptr nocapture noundef readonly %0, i32 %1) #1 align 16 {
   %3 = alloca %struct.common_audit_data, align 8
   %4 = alloca %struct.lsm_network_audit, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %35, label %12
@@ -10992,25 +10992,25 @@ define internal i32 @selinux_socket_shutdown(ptr nocapture noundef readonly %0, 
 
 17:                                               ; preds = %12
   store i8 2, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %18, align 8
   store i32 0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 0, ptr %20, align 8
   %21 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 1784
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1784
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr @selinux_blob_sizes, align 4
   %28 = sext i32 %27 to i64
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %33 = load i16, ptr %32, align 8
   %34 = call i32 @avc_has_perm(i32 noundef %31, i32 noundef %10, i16 noundef zeroext %33, i32 noundef 131072, ptr noundef nonnull %3) #24
   br label %35
@@ -11033,11 +11033,11 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   %9 = alloca %struct.lsm_network_audit, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 640
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i16, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load i32, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #24
@@ -11051,7 +11051,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %24 = load i16, ptr %23, align 8
   %25 = icmp eq i16 %24, 8
   %26 = select i1 %25, i16 2, i16 10
@@ -11073,15 +11073,15 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
   store ptr null, ptr %7, align 8, !annotation !5
-  %32 = getelementptr inbounds i8, ptr %1, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %33 = load i32, ptr %32, align 8
   store i8 2, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %34, align 8
   store i32 %33, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %28, ptr %36, align 8
   %37 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null)
   %38 = icmp eq i32 %37, 0
@@ -11098,7 +11098,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %42, %39
-  %46 = getelementptr inbounds i8, ptr %1, i64 160
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %47 = load i32, ptr %46, align 8
   %48 = call i32 @avc_has_perm(i32 noundef %17, i32 noundef %47, i16 noundef zeroext 49, i32 noundef 2, ptr noundef nonnull %5) #24
   %49 = icmp eq i32 %48, 0
@@ -11139,15 +11139,15 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
 
 .thread:                                          ; preds = %60, %64
   %68 = phi i1 [ %66, %64 ], [ true, %60 ]
-  %69 = getelementptr inbounds i8, ptr %1, i64 144
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %70 = load i32, ptr %69, align 8
   store i8 2, ptr %8, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %71, align 8
   store i32 %70, ptr %9, align 8
-  %72 = getelementptr inbounds i8, ptr %9, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i16 %28, ptr %73, align 8
   %74 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null)
   %75 = icmp eq i32 %74, 0
@@ -11186,7 +11186,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
 87:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  %88 = getelementptr inbounds i8, ptr %0, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %69, align 8
   %91 = load ptr, ptr %10, align 8
@@ -11219,7 +11219,7 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr nocapture noundef readonly 
   br i1 %61, label %103, label %107
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %1, i64 160
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %105 = load i32, ptr %104, align 8
   %106 = call i32 @avc_has_perm(i32 noundef %17, i32 noundef %105, i16 noundef zeroext 49, i32 noundef 2, ptr noundef nonnull %8) #24
   br label %107
@@ -11239,11 +11239,11 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr nocapture noundef read
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 640
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 640
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i16, ptr %13, align 8
   switch i16 %14, label %.thread [
     i16 24, label %15
@@ -11252,7 +11252,7 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr nocapture noundef read
   ]
 
 15:                                               ; preds = %6, %6, %6
-  %16 = getelementptr inbounds i8, ptr %12, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -11338,7 +11338,7 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %10 = load i16, ptr %9, align 8
   switch i16 %10, label %11 [
     i16 8, label %.thread3
@@ -11353,22 +11353,22 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
   br label %.thread3
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 1
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
   %27 = select i1 %23, ptr null, ptr %26, !prof !10
-  %28 = getelementptr inbounds i8, ptr %27, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 28
   br label %41
 
 29:                                               ; preds = %14
@@ -11423,7 +11423,7 @@ define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_sk_free_security(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 640
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   tail call void @selinux_netlbl_sk_security_free(ptr noundef %3) #24
@@ -11433,21 +11433,21 @@ define internal void @selinux_sk_free_security(ptr nocapture noundef %0) #1 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_sk_clone_security(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i16, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i16 %14, ptr %15, align 8
   tail call void @selinux_netlbl_sk_security_reset(ptr noundef %6) #24
   ret void
@@ -11459,9 +11459,9 @@ define internal void @selinux_sk_getsecid(ptr noundef readonly %0, ptr nocapture
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   br label %9
 
@@ -11473,16 +11473,16 @@ define internal void @selinux_sk_getsecid(ptr noundef readonly %0, ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @selinux_sock_graft(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #14 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
   %9 = select i1 %5, ptr null, ptr %8, !prof !10
-  %10 = getelementptr inbounds i8, ptr %0, i64 640
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i16, ptr %12, align 8
   switch i16 %13, label %18 [
     i16 2, label %14
@@ -11491,16 +11491,16 @@ define internal void @selinux_sock_graft(ptr nocapture noundef readonly %0, ptr 
   ]
 
 14:                                               ; preds = %2, %2, %2
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %16, ptr %17, align 4
   br label %18
 
 18:                                               ; preds = %14, %2
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %20 = load i16, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i16 %20, ptr %21, align 8
   ret void
 }
@@ -11508,9 +11508,9 @@ define internal void @selinux_sock_graft(ptr nocapture noundef readonly %0, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_sctp_assoc_request(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 640
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
   %8 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 4), align 4, !range !7, !noundef !8
@@ -11524,9 +11524,9 @@ define internal i32 @selinux_sctp_assoc_request(ptr noundef %0, ptr noundef %1) 
 
 13:                                               ; preds = %10
   store i32 0, ptr %3, align 4, !annotation !5
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 2092
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2092
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -11546,7 +11546,7 @@ define internal i32 @selinux_sctp_assoc_request(ptr noundef %0, ptr noundef %1) 
 
 22:                                               ; preds = %._crit_edge, %.thread
   %23 = phi i32 [ %.pre, %._crit_edge ], [ %15, %.thread ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 2088
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   store i32 %23, ptr %24, align 8
   %25 = call i32 @selinux_netlbl_sctp_assoc_request(ptr noundef %0, ptr noundef %1) #24
   br label %26
@@ -11559,23 +11559,23 @@ define internal i32 @selinux_sctp_assoc_request(ptr noundef %0, ptr noundef %1) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_sctp_sk_clone(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %7 = load ptr, ptr %6, align 8
   %8 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 4), align 4, !range !7, !noundef !8
   %9 = icmp eq i8 %8, 0
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = getelementptr inbounds i8, ptr %7, i64 20
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %9, label %14, label %20
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %11, align 4
   %19 = load i16, ptr %12, align 8
@@ -11584,10 +11584,10 @@ define internal void @selinux_sctp_sk_clone(ptr nocapture noundef readonly %0, p
   br label %26
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 2088
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 2092
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2092
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %11, align 4
   %25 = load i16, ptr %12, align 8
@@ -11606,7 +11606,7 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 624
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %3, 0
   br i1 %10, label %.preheader, label %.thread
@@ -11712,18 +11712,18 @@ define internal i32 @selinux_sctp_bind_connect(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_sctp_assoc_established(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 640
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 4), align 4, !range !7, !noundef !8
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 2088
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   store i32 %11, ptr %12, align 8
   %13 = tail call fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr noundef %1)
   br label %14
@@ -11735,20 +11735,20 @@ define internal i32 @selinux_sctp_assoc_established(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_mptcp_add_subflow(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 640
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i16, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %11, ptr %12, align 8
   tail call void @selinux_netlbl_sk_security_free(ptr noundef %4) #24
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i16, ptr %13, align 8
   %15 = tail call i32 @selinux_netlbl_socket_post_create(ptr noundef %1, i16 noundef zeroext %14) #24
   ret i32 %15
@@ -11760,9 +11760,9 @@ define internal i32 @selinux_inet_conn_request(ptr nocapture noundef readonly %0
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = trunc i32 %12 to i16
@@ -11797,7 +11797,7 @@ define internal i32 @selinux_inet_conn_request(ptr nocapture noundef readonly %0
 23:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   %27 = icmp eq i32 %26, 0
@@ -11820,9 +11820,9 @@ define internal i32 @selinux_inet_conn_request(ptr nocapture noundef readonly %0
 31:                                               ; preds = %._crit_edge, %.thread2
   %32 = phi i32 [ %.pre3, %._crit_edge ], [ 0, %.thread2 ]
   %33 = phi i32 [ %.pre, %._crit_edge ], [ %25, %.thread2 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 216
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 220
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 220
   store i32 %32, ptr %35, align 4
   %36 = call i32 @selinux_netlbl_inet_conn_request(ptr noundef %2, i16 noundef zeroext %13) #24
   br label %37
@@ -11836,17 +11836,17 @@ define internal i32 @selinux_inet_conn_request(ptr nocapture noundef readonly %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_inet_csk_clone(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 220
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = trunc i32 %13 to i16
@@ -11858,15 +11858,15 @@ define internal void @selinux_inet_csk_clone(ptr noundef %0, ptr nocapture nound
 define internal void @selinux_inet_conn_established(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq i16 %6, 10
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, 8
   %14 = select i1 %13, i16 2, i16 10
@@ -11883,10 +11883,10 @@ define internal void @selinux_inet_conn_established(ptr nocapture noundef readon
   br i1 %18, label %19, label %27, !prof !15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %8, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %21 = load i32, ptr %3, align 4
   %22 = load i32, ptr %4, align 4
-  %23 = call i32 @security_net_peersid_resolve(i32 noundef %21, i32 noundef %22, i32 noundef 0, ptr noundef %20) #24
+  %23 = call i32 @security_net_peersid_resolve(i32 noundef %21, i32 noundef %22, i32 noundef 0, ptr noundef nonnull %20) #24
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %27, label %25, !prof !15
 
@@ -11904,14 +11904,14 @@ define internal void @selinux_inet_conn_established(ptr nocapture noundef readon
 define internal i32 @selinux_secmark_relabel_packet(i32 noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %0, i16 noundef zeroext 49, i32 noundef 4, ptr noundef null) #24
   ret i32 %13
@@ -11931,9 +11931,9 @@ define internal void @selinux_secmark_refcount_dec() #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @selinux_req_classify_flow(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((20, 24)) %1) #16 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %4, ptr %5, align 4
   ret void
 }
@@ -11948,14 +11948,14 @@ define internal void @selinux_tun_dev_free_security(ptr noundef %0) #1 align 16 
 define internal i32 @selinux_tun_dev_create() #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1784
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1784
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @selinux_blob_sizes, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @avc_has_perm(i32 noundef %11, i32 noundef %11, i16 noundef zeroext 56, i32 noundef 8, ptr noundef null) #24
   ret i32 %12
@@ -11965,14 +11965,14 @@ define internal i32 @selinux_tun_dev_create() #1 align 16 {
 define internal i32 @selinux_tun_dev_attach_queue(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %0, align 4
   %14 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %13, i16 noundef zeroext 56, i32 noundef 2097152, ptr noundef null) #24
@@ -11981,12 +11981,12 @@ define internal i32 @selinux_tun_dev_attach_queue(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define internal noundef i32 @selinux_tun_dev_attach(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 56, ptr %7, align 8
   ret i32 0
 }
@@ -11995,14 +11995,14 @@ define internal noundef i32 @selinux_tun_dev_attach(ptr nocapture noundef readon
 define internal i32 @selinux_tun_dev_open(ptr nocapture noundef %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %0, align 4
   %14 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %13, i16 noundef zeroext 56, i32 noundef 128, ptr noundef null) #24
@@ -12025,7 +12025,7 @@ define internal i32 @selinux_tun_dev_open(ptr nocapture noundef %0) #1 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_key_free(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #24
@@ -12067,17 +12067,17 @@ define internal i32 @selinux_key_permission(ptr noundef %0, ptr nocapture nounde
 
 9:                                                ; preds = %3, %7, %6, %5, %4, %3
   %10 = phi i32 [ 32, %7 ], [ 16, %6 ], [ 8, %5 ], [ 4, %4 ], [ %2, %3 ], [ %2, %3 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = ptrtoint ptr %0 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @avc_has_perm(i32 noundef %17, i32 noundef %23, i16 noundef zeroext 50, i32 noundef %10, ptr noundef null) #24
@@ -12092,7 +12092,7 @@ define internal i32 @selinux_key_permission(ptr noundef %0, ptr nocapture nounde
 define internal i32 @selinux_key_getsecurity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   store ptr null, ptr %3, align 8
@@ -12123,14 +12123,14 @@ declare dso_local void @selinux_audit_rule_free(ptr noundef) #2
 define internal i32 @selinux_perf_event_open(ptr nocapture readnone %0, i32 noundef %1) #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   switch i32 %1, label %20 [
     i32 0, label %17
@@ -12160,7 +12160,7 @@ define internal i32 @selinux_perf_event_open(ptr nocapture readnone %0, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @selinux_perf_event_free(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1016
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #24
@@ -12169,18 +12169,18 @@ define internal void @selinux_perf_event_free(ptr nocapture noundef %0) #1 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_perf_event_read(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1016
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %3, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %14, i32 noundef %15, i16 noundef zeroext 94, i32 noundef 16, ptr noundef null) #24
@@ -12189,18 +12189,18 @@ define internal i32 @selinux_perf_event_read(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @selinux_perf_event_write(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1016
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1784
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1784
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %3, align 4
   %16 = tail call i32 @avc_has_perm(i32 noundef %14, i32 noundef %15, i16 noundef zeroext 94, i32 noundef 32, ptr noundef null) #24
@@ -12211,19 +12211,19 @@ define internal i32 @selinux_perf_event_write(ptr nocapture noundef readonly %0)
 define internal i32 @selinux_uring_override_creds(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1784
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1784
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @selinux_blob_sizes, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 %9
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @avc_has_perm(i32 noundef %12, i32 noundef %17, i16 noundef zeroext 96, i32 noundef 1, ptr noundef null) #24
   ret i32 %18
@@ -12233,14 +12233,14 @@ define internal i32 @selinux_uring_override_creds(ptr nocapture noundef readonly
 define internal i32 @selinux_uring_sqpoll() #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1784
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1784
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @selinux_blob_sizes, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @avc_has_perm(i32 noundef %11, i32 noundef %11, i16 noundef zeroext 96, i32 noundef 2, ptr noundef null) #24
   ret i32 %12
@@ -12250,9 +12250,9 @@ define internal i32 @selinux_uring_sqpoll() #1 align 16 {
 define internal i32 @selinux_uring_cmd(ptr nocapture noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.common_audit_data, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -12262,20 +12262,20 @@ define internal i32 @selinux_uring_cmd(ptr nocapture noundef readonly %0) #1 ali
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %13, align 8
   %14 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 1784
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1784
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr @selinux_blob_sizes, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %12, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = call i32 @avc_has_perm(i32 noundef %24, i32 noundef %26, i16 noundef zeroext 96, i32 noundef 4, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
@@ -12284,12 +12284,12 @@ define internal i32 @selinux_uring_cmd(ptr nocapture noundef readonly %0) #1 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_submount(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %4 = load ptr, ptr %3, align 32
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 14
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 11
   %11 = icmp eq i16 %10, 0
@@ -12318,9 +12318,9 @@ define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_submount(ptr n
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %27, ptr %28, align 4
   br label %29
 
@@ -12330,14 +12330,14 @@ define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_submount(ptr n
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %7, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %14, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %34, ptr %35, align 4
   br label %36
 
 36:                                               ; preds = %32, %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %14, ptr %37, align 8
   br label %38
 
@@ -12348,14 +12348,14 @@ define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_submount(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @selinux_fs_context_dup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = tail call dereferenceable_or_null(16) ptr @kmemdup(ptr noundef nonnull %4, i64 noundef 16, i32 noundef 3264) #31
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   %10 = select i1 %9, i32 -12, i32 0
@@ -12371,16 +12371,16 @@ define internal i32 @selinux_fs_context_parse_param(ptr noundef %0, ptr noundef 
   %3 = alloca %struct.fs_parse_result, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = call i32 @__fs_parse(ptr noundef %4, ptr noundef nonnull @selinux_fs_parameters, ptr noundef %1, ptr noundef nonnull %3) #24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = call i32 @__fs_parse(ptr noundef nonnull %4, ptr noundef nonnull @selinux_fs_parameters, ptr noundef %1, ptr noundef nonnull %3) #24
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
-  %11 = call fastcc i32 @selinux_add_opt(i32 noundef %5, ptr noundef %9, ptr noundef %10)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %11 = call fastcc i32 @selinux_add_opt(i32 noundef %5, ptr noundef %9, ptr noundef nonnull %10)
   br label %12
 
 12:                                               ; preds = %7, %2
@@ -12438,7 +12438,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
 27:                                               ; preds = %24, %22
   %28 = phi i64 [ 0, %22 ], [ %25, %24 ]
   %29 = getelementptr [5 x %struct.anon.138], ptr @tokens, i64 0, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp ugt i32 %31, %9
@@ -12451,7 +12451,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
   br i1 %37, label %38, label %24
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %29, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %40 = load i8, ptr %39, align 8, !range !7, !noundef !8
   %41 = icmp eq i8 %40, 0
   %42 = icmp eq i32 %31, %9
@@ -12472,13 +12472,13 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
 .loopexit16:                                      ; preds = %44
   %49 = getelementptr i8, ptr %4, i64 %32
   %50 = getelementptr i8, ptr %49, i64 1
-  %51 = getelementptr inbounds i8, ptr %29, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, -1
   br i1 %53, label %.thread12, label %57
 
 .loopexit16.thread:                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %29, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, -1
   br i1 %56, label %.thread12, label %.thread36
@@ -12528,9 +12528,9 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
 
 .thread12:                                        ; preds = %24, %.loopexit16.thread, %.loopexit16
   %81 = and i8 %6, 1
-  %82 = add nsw i8 %81, -1
-  %83 = sext i8 %82 to i64
-  %84 = getelementptr i8, ptr %4, i64 %83
+  %82 = zext nneg i8 %81 to i64
+  %83 = getelementptr i8, ptr %4, i64 %82
+  %84 = getelementptr i8, ptr %83, i64 -1
   %85 = xor i8 %81, 1
   %86 = zext nneg i8 %85 to i32
   %87 = add i32 %9, %86
@@ -12585,7 +12585,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal noundef i32 @selinux_msg_msg_alloc_security(ptr nocapture noundef readonly %0) #14 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 20), align 4
   %5 = sext i32 %4 to i64
@@ -12601,35 +12601,35 @@ define internal i32 @selinux_msg_queue_alloc_security(ptr nocapture noundef read
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 16
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %15, i64 %17
   store i16 28, ptr %18, align 4
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @selinux_blob_sizes, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %26, ptr %27, align 4
   store i8 4, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %29, ptr %30, align 8
   %31 = call i32 @avc_has_perm(i32 noundef %13, i32 noundef %26, i16 noundef zeroext 28, i32 noundef 1, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
@@ -12643,35 +12643,35 @@ define internal i32 @selinux_shm_alloc_security(ptr nocapture noundef readonly %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 16
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %15, i64 %17
   store i16 29, ptr %18, align 4
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @selinux_blob_sizes, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %26, ptr %27, align 4
   store i8 4, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %29, ptr %30, align 8
   %31 = call i32 @avc_has_perm(i32 noundef %13, i32 noundef %26, i16 noundef zeroext 29, i32 noundef 1, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
@@ -12680,30 +12680,30 @@ define internal i32 @selinux_shm_alloc_security(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @selinux_sb_alloc_security(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr i8, ptr %3, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @__mutex_init(ptr noundef %7, ptr noundef nonnull @.str.59, ptr noundef nonnull @selinux_sb_alloc_security.__key) #24
-  %8 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  tail call void @__mutex_init(ptr noundef nonnull %7, ptr noundef nonnull @.str.59, ptr noundef nonnull @selinux_sb_alloc_security.__key) #24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store volatile ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store volatile ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %10, align 8
   store i32 3, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 5, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 3, ptr %12, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @selinux_inode_alloc_security(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -12712,29 +12712,29 @@ define internal noundef i32 @selinux_inode_alloc_security(ptr noundef %0) #1 ali
   %8 = select i1 %4, ptr null, ptr %7, !prof !10
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 1784
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1784
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @selinux_blob_sizes, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %14, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile ptr %21, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store volatile ptr %21, ptr %22, align 8
   store ptr %0, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 3, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i16 7, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 34
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 34
   store i8 0, ptr %26, align 2
   ret i32 0
 }
@@ -12746,35 +12746,35 @@ define internal i32 @selinux_sem_alloc_security(ptr nocapture noundef readonly %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 16
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %15, i64 %17
   store i16 26, ptr %18, align 4
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @selinux_blob_sizes, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %18, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %26, ptr %27, align 4
   store i8 4, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %29, ptr %30, align 8
   %31 = call i32 @avc_has_perm(i32 noundef %13, i32 noundef %26, i16 noundef zeroext 26, i32 noundef 1, ptr noundef nonnull %2) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #24
@@ -12824,14 +12824,14 @@ define internal noundef range(i32 -12, 1) i32 @selinux_sk_alloc_security(ptr noc
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i16 15, ptr %20, align 8
   tail call void @selinux_netlbl_sk_security_reset(ptr noundef nonnull %15) #24
-  %21 = getelementptr inbounds i8, ptr %0, i64 640
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store ptr %15, ptr %21, align 8
   br label %22
 
@@ -12850,14 +12850,14 @@ define internal noundef range(i32 -12, 1) i32 @selinux_tun_dev_alloc_security(pt
 5:                                                ; preds = %1
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1784
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %3, align 8
   store ptr %3, ptr %0, align 8
@@ -12876,25 +12876,25 @@ define internal noundef range(i32 -12, 1) i32 @selinux_key_alloc(ptr nocapture n
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @selinux_blob_sizes, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr i8, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %12, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load i32, ptr %17, align 4
   br label %19
 
 19:                                               ; preds = %16, %7
   %20 = phi i32 [ %18, %16 ], [ %14, %7 ]
   store i32 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %5, ptr %21, align 8
   br label %22
 
@@ -12916,17 +12916,17 @@ define internal noundef range(i32 -12, 1) i32 @selinux_perf_event_alloc(ptr noca
 5:                                                ; preds = %1
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1784
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1016
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr %3, ptr %17, align 8
   br label %18
 
@@ -12964,27 +12964,27 @@ define internal fastcc i32 @ptrace_parent_sid() unnamed_addr #1 align 16 {
   tail call void @__rcu_read_lock() #24
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i32, ptr %3, align 16
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread, label %6, !prof !15
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds i8, ptr %2, i64 1336
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1336
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
   tail call void @__rcu_read_lock() #24
-  %11 = getelementptr inbounds i8, ptr %8, i64 1776
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1776
   %12 = load volatile ptr, ptr %11, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @selinux_blob_sizes, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr i8, ptr %14, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   tail call void @__rcu_read_unlock() #24
   br label %.thread
@@ -13019,7 +13019,7 @@ declare dso_local i32 @iterate_fd(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @match_file(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = alloca %struct.common_audit_data, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = shl i32 %6, 1
   %8 = and i32 %7, 2
@@ -13028,7 +13028,7 @@ define internal noundef i32 @match_file(ptr nocapture noundef readonly %0, ptr n
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1024
   %15 = icmp eq i32 %14, 0
@@ -13045,24 +13045,24 @@ define internal noundef i32 @match_file(ptr nocapture noundef readonly %0, ptr n
 20:                                               ; preds = %18, %16, %3
   %21 = phi i32 [ %17, %16 ], [ %19, %18 ], [ %8, %3 ]
   %22 = tail call i32 @llvm.umax.i32(i32 %21, i32 1)
-  %23 = getelementptr inbounds i8, ptr %1, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %26 = sext i32 %25 to i64
   %27 = getelementptr i8, ptr %24, i64 %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 168
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr @selinux_blob_sizes, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr i8, ptr %31, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   store i8 12, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %37, align 8
   %38 = load i32, ptr %27, align 4
   %39 = icmp eq i32 %36, %38
@@ -13079,7 +13079,7 @@ define internal noundef i32 @match_file(ptr nocapture noundef readonly %0, ptr n
   br label %71
 
 44:                                               ; preds = %40, %20
-  %45 = getelementptr inbounds i8, ptr %29, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 512
   %48 = icmp eq i32 %47, 0
@@ -13094,18 +13094,18 @@ define internal noundef i32 @match_file(ptr nocapture noundef readonly %0, ptr n
   %51 = load i32, ptr @selinux_blob_sizes, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr i8, ptr %50, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %29, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   %59 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr i8, ptr %57, i64 %60
   %62 = select i1 %58, ptr null, ptr %61, !prof !10
-  %63 = getelementptr inbounds i8, ptr %62, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %62, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = load i16, ptr %65, align 8
   %67 = call i32 @avc_has_perm(i32 noundef %55, i32 noundef %64, i16 noundef zeroext %66, i32 noundef %22, ptr noundef nonnull %4) #24
   %.fr = freeze i32 %67
@@ -13226,16 +13226,16 @@ define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 nound
   %5 = alloca %struct.common_audit_data, align 8
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1784
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1784
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %18 = tail call i32 @__SCT__might_resched() #24
@@ -13249,7 +13249,7 @@ define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 nound
   %23 = sext i32 %17 to i64
   %24 = getelementptr i8, ptr %16, i64 %23
   %25 = select i1 %22, ptr null, ptr %24, !prof !10
-  %26 = getelementptr inbounds i8, ptr %25, i64 34
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 34
   %27 = load i8, ptr %26, align 2
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %31, label %29
@@ -13267,46 +13267,46 @@ define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 nound
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
   %37 = select i1 %33, ptr null, ptr %36, !prof !10
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 160
   %41 = load ptr, ptr %40, align 32
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr i8, ptr %41, i64 %43
-  %45 = getelementptr inbounds i8, ptr %14, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %46 = load i32, ptr %45, align 4
   store i8 10, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %37, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @avc_has_perm(i32 noundef %46, i32 noundef %49, i16 noundef zeroext 8, i32 noundef 301989888, ptr noundef nonnull %5) #24
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %114
 
 52:                                               ; preds = %31
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load ptr, ptr %38, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 160
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 160
   %56 = load ptr, ptr %55, align 32
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 12), align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr i8, ptr %56, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 14
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 14
   %61 = load i16, ptr %60, align 2
   %62 = and i16 %61, 256
   %63 = icmp eq i16 %62, 0
   br i1 %63, label %71, label %64
 
 64:                                               ; preds = %52
-  %65 = getelementptr inbounds i8, ptr %59, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %66 = load i16, ptr %65, align 4
   %67 = icmp eq i16 %66, 6
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %59, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %70 = load i32, ptr %69, align 8
   br label %selinux_determine_inode_label.exit.thread
 
@@ -13316,7 +13316,7 @@ define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 nound
   br i1 %73, label %78, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %14, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %selinux_determine_inode_label.exit.thread
@@ -13335,7 +13335,7 @@ define internal fastcc i32 @may_create(ptr noundef %0, ptr noundef %1, i16 nound
   %86 = sext i32 %80 to i64
   %87 = getelementptr i8, ptr %79, i64 %86
   %88 = select i1 %85, ptr null, ptr %87, !prof !10
-  %89 = getelementptr inbounds i8, ptr %88, i64 34
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 34
   %90 = load i8, ptr %89, align 2
   %91 = icmp eq i8 %90, 1
   br i1 %91, label %selinux_determine_inode_label.exit, label %92
@@ -13357,9 +13357,9 @@ selinux_determine_inode_label.exit:               ; preds = %78, %84, %92
   %99 = getelementptr i8, ptr %95, i64 %98
   %100 = select i1 %96, ptr null, ptr %99, !prof !10
   %101 = load i32, ptr %45, align 4
-  %102 = getelementptr inbounds i8, ptr %100, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 28
   %103 = load i32, ptr %102, align 4
-  %104 = call i32 @security_transition_sid(i32 noundef %101, i32 noundef %103, i16 noundef zeroext range(i16 7, 15) %2, ptr noundef %53, ptr noundef nonnull %4) #24
+  %104 = call i32 @security_transition_sid(i32 noundef %101, i32 noundef %103, i16 noundef zeroext range(i16 7, 15) %2, ptr noundef nonnull %53, ptr noundef nonnull %4) #24
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %selinux_determine_inode_label.exit._crit_edge, label %114
 
@@ -13393,16 +13393,16 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %19 = tail call i32 @__SCT__might_resched() #24
@@ -13416,7 +13416,7 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
   %24 = sext i32 %18 to i64
   %25 = getelementptr i8, ptr %17, i64 %24
   %26 = select i1 %23, ptr null, ptr %25, !prof !10
-  %27 = getelementptr inbounds i8, ptr %26, i64 34
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 34
   %28 = load i8, ptr %27, align 2
   %29 = icmp eq i8 %28, 1
   br i1 %29, label %32, label %30
@@ -13432,9 +13432,9 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
   %36 = sext i32 %35 to i64
   %37 = getelementptr i8, ptr %33, i64 %36
   %38 = select i1 %34, ptr null, ptr %37, !prof !10
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @__SCT__might_resched() #24
   %44 = load volatile i8, ptr getelementptr inbounds (i8, ptr @selinux_state, i64 1), align 1, !range !7, !noundef !8
@@ -13446,7 +13446,7 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
   %47 = icmp eq ptr %42, null
   %48 = getelementptr i8, ptr %42, i64 %36
   %49 = select i1 %47, ptr null, ptr %48, !prof !10
-  %50 = getelementptr inbounds i8, ptr %49, i64 34
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 34
   %51 = load i8, ptr %50, align 2
   %52 = icmp eq i8 %51, 1
   br i1 %52, label %55, label %53
@@ -13463,11 +13463,11 @@ define internal fastcc i32 @may_link(ptr noundef %0, ptr noundef %1, i32 noundef
   %60 = getelementptr i8, ptr %56, i64 %59
   %61 = select i1 %57, ptr null, ptr %60, !prof !10
   store i8 10, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %62, align 8
   %63 = icmp eq i32 %2, 0
   %64 = select i1 %63, i32 301989888, i32 335544320
-  %65 = getelementptr inbounds i8, ptr %38, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %66 = load i32, ptr %65, align 4
   %67 = call i32 @avc_has_perm(i32 noundef %15, i32 noundef %66, i16 noundef zeroext 8, i32 noundef %64, ptr noundef nonnull %4) #24
   %68 = icmp eq i32 %67, 0
@@ -13491,9 +13491,9 @@ default.unreachable1:                             ; preds = %69
 
 72:                                               ; preds = %71, %70, %69
   %73 = phi i32 [ 536870912, %71 ], [ 2048, %70 ], [ 4096, %69 ]
-  %74 = getelementptr inbounds i8, ptr %61, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %61, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %77 = load i16, ptr %76, align 8
   %78 = call i32 @avc_has_perm(i32 noundef %15, i32 noundef %75, i16 noundef zeroext %77, i32 noundef %73, ptr noundef nonnull %4) #24
   br label %79
@@ -13509,7 +13509,7 @@ define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef r
   %6 = alloca %struct.common_audit_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
@@ -13517,22 +13517,22 @@ define internal fastcc i32 @audit_inode_permission(ptr noundef %0, i32 noundef r
   %12 = getelementptr i8, ptr %8, i64 %11
   %13 = select i1 %9, ptr null, ptr %12, !prof !10
   store i8 9, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %14, align 8
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 1784
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1784
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr @selinux_blob_sizes, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr i8, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %13, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %13, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = load i16, ptr %28, align 8
   %30 = call i32 @slow_avc_audit(i32 noundef %25, i32 noundef %27, i16 noundef zeroext %29, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #24
@@ -13554,28 +13554,28 @@ define internal fastcc zeroext i1 @has_cap_mac_admin() unnamed_addr #1 align 16 
   %2 = alloca %struct.av_decision, align 4
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1784
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1784
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @cap_capable(ptr noundef %6, ptr noundef nonnull @init_user_ns, i32 noundef 33, i32 noundef 0) #24
   %8 = icmp eq i32 %7, 0
-  %.sink1.sroa.gep1 = getelementptr inbounds i8, ptr %2, i64 4
+  %.sink1.sroa.gep1 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %8, label %9, label %37
 
 9:                                                ; preds = %0
-  %.sink1.sroa.gep = getelementptr inbounds i8, ptr %2, i64 8
+  %.sink1.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !5
-  %10 = getelementptr inbounds i8, ptr %6, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @selinux_blob_sizes, align 4
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %11, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   store i8 3, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 33, ptr %17, align 8
   %18 = call i32 @avc_has_perm_noaudit(i32 noundef %16, i32 noundef %16, i16 noundef zeroext 54, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %2) #24
   %19 = load i32, ptr %2, align 4
@@ -13662,31 +13662,31 @@ define internal fastcc i32 @ioctl_has_perm(ptr nocapture readonly %.128.val, ptr
   %4 = alloca %struct.lsm_ioctlop_audit, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %12, align 8, !annotation !5
   %13 = load i32, ptr @selinux_blob_sizes, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr i8, ptr %.128.val, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = lshr i16 %1, 8
   %19 = trunc nuw i16 %18 to i8
   %20 = trunc i16 %1 to i8
   store i8 11, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef align 8 dereferenceable(16) %23, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false)
   %24 = load i32, ptr %9, align 4
   %25 = icmp eq i32 %17, %24
   br i1 %25, label %29, label %26
@@ -13697,14 +13697,14 @@ define internal fastcc i32 @ioctl_has_perm(ptr nocapture readonly %.128.val, ptr
   br i1 %28, label %29, label %63
 
 29:                                               ; preds = %26, %2
-  %30 = getelementptr inbounds i8, ptr %11, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %63, !prof !15
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %11, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %38 = call i32 @__SCT__might_resched() #24
@@ -13718,7 +13718,7 @@ define internal fastcc i32 @ioctl_has_perm(ptr nocapture readonly %.128.val, ptr
   %43 = sext i32 %37 to i64
   %44 = getelementptr i8, ptr %36, i64 %43
   %45 = select i1 %42, ptr null, ptr %44, !prof !10
-  %46 = getelementptr inbounds i8, ptr %45, i64 34
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 34
   %47 = load i8, ptr %46, align 2
   %48 = icmp eq i8 %47, 1
   br i1 %48, label %51, label %49
@@ -13734,9 +13734,9 @@ define internal fastcc i32 @ioctl_has_perm(ptr nocapture readonly %.128.val, ptr
   %55 = sext i32 %54 to i64
   %56 = getelementptr i8, ptr %52, i64 %55
   %57 = select i1 %53, ptr null, ptr %56, !prof !10
-  %58 = getelementptr inbounds i8, ptr %57, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %61 = load i16, ptr %60, align 8
   %62 = call i32 @avc_has_extended_perms(i32 noundef %17, i32 noundef %59, i16 noundef zeroext %61, i32 noundef 1, i8 noundef zeroext %19, i8 noundef zeroext %20, ptr noundef nonnull %3) #24
   br label %63
@@ -13756,14 +13756,14 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %4 = alloca %struct.common_audit_data, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr @default_noexec, align 4
   %17 = icmp eq i32 %16, 0
@@ -13781,9 +13781,9 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   br label %87
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 512
   %30 = icmp eq i32 %29, 0
@@ -13806,7 +13806,7 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %.pre5 = load i32, ptr @selinux_blob_sizes, align 4
   %.phi.trans.insert = sext i32 %.pre5 to i64
   %.phi.trans.insert6 = getelementptr i8, ptr %.pre, i64 %.phi.trans.insert
-  %.phi.trans.insert7 = getelementptr inbounds i8, ptr %.phi.trans.insert6, i64 4
+  %.phi.trans.insert7 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert6, i64 4
   %.pre8 = load i32, ptr %.phi.trans.insert7, align 4
   br label %.thread4
 
@@ -13822,17 +13822,17 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %45 = select i1 %44, i32 2, i32 6
   %46 = or disjoint i32 %45, 16384
   %47 = select i1 %19, i32 %45, i32 %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 4), align 4
   %51 = sext i32 %50 to i64
   %52 = getelementptr i8, ptr %49, i64 %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 168
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %54 = load ptr, ptr %53, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !5
   store i8 12, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %55, align 8
   %56 = load i32, ptr %52, align 4
   %57 = icmp eq i32 %40, %56
@@ -13844,7 +13844,7 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   br i1 %60, label %61, label %85
 
 61:                                               ; preds = %58, %.thread4
-  %62 = getelementptr inbounds i8, ptr %54, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 512
   %65 = icmp eq i32 %64, 0
@@ -13855,18 +13855,18 @@ define internal fastcc i32 @file_map_prot_check(ptr noundef %0, i64 noundef %1, 
   %68 = load i32, ptr @selinux_blob_sizes, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr i8, ptr %67, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %54, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   %76 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 8), align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr i8, ptr %74, i64 %77
   %79 = select i1 %75, ptr null, ptr %78, !prof !10
-  %80 = getelementptr inbounds i8, ptr %79, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %79, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %83 = load i16, ptr %82, align 8
   %84 = call i32 @avc_has_perm(i32 noundef %72, i32 noundef %81, i16 noundef zeroext %83, i32 noundef %47, ptr noundef nonnull %4) #24
   br label %85
@@ -13890,9 +13890,9 @@ define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   store i32 0, ptr %4, align 4, !annotation !5
   tail call void @__rcu_read_lock() #24
-  %5 = getelementptr inbounds i8, ptr %1, i64 1776
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1776
   %6 = load volatile ptr, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @selinux_blob_sizes, align 4
   %10 = sext i32 %9 to i64
@@ -13903,14 +13903,14 @@ define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, 
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %13, i64 1784
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1784
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 %10
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %11, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @avc_has_perm(i32 noundef %22, i32 noundef %24, i16 noundef zeroext 2, i32 noundef 65536, ptr noundef null) #24
   %26 = icmp eq i32 %25, 0
@@ -13927,23 +13927,23 @@ define internal fastcc i32 @selinux_lsm_getattr(i32 noundef %0, ptr noundef %1, 
   ]
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %11, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 4
   br label %38
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %38
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %11, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 12
   br label %38
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %11, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %38
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %11, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 20
   br label %38
 
 38:                                               ; preds = %36, %34, %32, %30, %28, %27
@@ -13979,14 +13979,14 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   %4 = alloca i32, align 4
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @selinux_blob_sizes, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %10, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   store i32 0, ptr %4, align 4
@@ -14056,7 +14056,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   %45 = add i64 %36, -1
   %46 = getelementptr i8, ptr %1, i64 %45
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %6, i64 1976
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 1976
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @audit_log_start(ptr noundef %49, i32 noundef 2080, i32 noundef 1401) #24
   %51 = icmp eq ptr %50, null
@@ -14086,7 +14086,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   br i1 %63, label %.thread, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %62, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr @selinux_blob_sizes, align 4
   %68 = sext i32 %67 to i64
@@ -14101,13 +14101,13 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
 
 70:                                               ; preds = %64
   %71 = load i32, ptr %4, align 4
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %71, ptr %72, align 4
   br label %114
 
 73:                                               ; preds = %64
   %74 = load i32, ptr %4, align 4
-  %75 = getelementptr inbounds i8, ptr %69, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 12
   store i32 %74, ptr %75, align 4
   br label %114
 
@@ -14127,13 +14127,13 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
 
 82:                                               ; preds = %._crit_edge, %76
   %83 = phi i32 [ %.pre, %._crit_edge ], [ 0, %76 ]
-  %84 = getelementptr inbounds i8, ptr %69, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i32 %83, ptr %84, align 4
   br label %114
 
 85:                                               ; preds = %64
   %86 = load i32, ptr %4, align 4
-  %87 = getelementptr inbounds i8, ptr %69, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 20
   store i32 %86, ptr %87, align 4
   br label %114
 
@@ -14147,7 +14147,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   br i1 %92, label %99, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %69, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = load i32, ptr %4, align 4
   %97 = call i32 @security_bounded_transition(i32 noundef %95, i32 noundef %96) #24
@@ -14155,7 +14155,7 @@ define internal fastcc i32 @selinux_lsm_setattr(i64 noundef range(i64 -214748364
   br i1 %98, label %99, label %117
 
 99:                                               ; preds = %93, %91
-  %100 = getelementptr inbounds i8, ptr %69, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %4, align 4
   %103 = call i32 @avc_has_perm(i32 noundef %101, i32 noundef %102, i16 noundef zeroext 2, i32 noundef 8388608, ptr noundef null) #24
@@ -14502,13 +14502,13 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
   %5 = alloca %struct.common_audit_data, align 8
   %6 = alloca %struct.lsm_network_audit, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %.24.val, i64 640
+  %8 = getelementptr inbounds nuw i8, ptr %.24.val, i64 640
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %.thread, label %13
@@ -14527,25 +14527,25 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
 
 18:                                               ; preds = %13
   store i8 2, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %19, align 8
   store i32 0, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.24.val, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 0, ptr %21, align 8
   %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1784
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1784
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr @selinux_blob_sizes, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %34 = load i16, ptr %33, align 8
   %35 = call i32 @avc_has_perm(i32 noundef %32, i32 noundef %11, i16 noundef zeroext %34, i32 noundef 4096, ptr noundef nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
@@ -14563,7 +14563,7 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
   br i1 %41, label %76, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %9, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %44 = load i16, ptr %43, align 8
   switch i16 %44, label %75 [
     i16 16, label %45
@@ -14597,10 +14597,10 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
   br label %.thread2
 
 53:                                               ; preds = %48, %46
-  %54 = getelementptr inbounds i8, ptr %0, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %55 = load i16, ptr %54, align 2
   %56 = call i16 @llvm.bswap.i16(i16 %55)
-  %57 = getelementptr inbounds i8, ptr %.24.val, i64 516
+  %57 = getelementptr inbounds nuw i8, ptr %.24.val, i64 516
   %58 = load i16, ptr %57, align 4
   %59 = trunc i16 %58 to i8
   %60 = call i32 @sel_netport_sid(i8 noundef zeroext %59, i16 noundef zeroext %56, ptr noundef nonnull %7) #24
@@ -14628,12 +14628,12 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
 65:                                               ; preds = %62, %64
   %66 = phi i32 [ 0, %62 ], [ 4194304, %64 ]
   store i8 2, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 18
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 %55, ptr %68, align 2
   %69 = load i16, ptr %0, align 2
-  %70 = getelementptr inbounds i8, ptr %6, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 %69, ptr %70, align 8
   %71 = load i32, ptr %10, align 8
   %72 = load i32, ptr %7, align 4
@@ -14670,9 +14670,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   %13 = alloca %struct.tcphdr, align 4
   %14 = alloca %struct.udphdr, align 8
   %15 = alloca %struct.dccp_hdr, align 2
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i16, ptr %18, align 8
   switch i16 %19, label %290 [
     i16 2, label %20
@@ -14682,21 +14682,21 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
 20:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 20, i1 false), !annotation !5
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 180
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 116
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, %32
   %38 = sub i32 %34, %37
@@ -14729,18 +14729,18 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %.thread13
-  %57 = getelementptr inbounds i8, ptr %50, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = load ptr, ptr %16, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   store i32 %58, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %50, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %62 = load i32, ptr %61, align 4
   %63 = load ptr, ptr %16, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 %62, ptr %64, align 8
   %65 = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %50, i64 9
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %50, i64 9
   %.pre67 = load i8, ptr %.phi.trans.insert, align 1
   br i1 %65, label %._crit_edge, label %66
 
@@ -14758,7 +14758,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
 67:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %13) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, i8 0, i64 20, i1 false), !annotation !5
-  %68 = getelementptr inbounds i8, ptr %50, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, -225
   %71 = icmp eq i16 %70, 0
@@ -14793,12 +14793,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   %89 = phi ptr [ %87, %84 ], [ %13, %81 ]
   %90 = load i16, ptr %89, align 4
   %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 20
   store i16 %90, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %89, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = load ptr, ptr %16, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 18
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 18
   store i16 %94, ptr %96, align 2
   br label %.thread16
 
@@ -14809,7 +14809,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
 97:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #24
   store i64 0, ptr %14, align 8, !annotation !5
-  %98 = getelementptr inbounds i8, ptr %50, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, -225
   %101 = icmp eq i16 %100, 0
@@ -14844,12 +14844,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   %119 = phi ptr [ %117, %114 ], [ %14, %111 ]
   %120 = load i16, ptr %119, align 2
   %121 = load ptr, ptr %16, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 20
   store i16 %120, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %119, i64 2
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 2
   %124 = load i16, ptr %123, align 2
   %125 = load ptr, ptr %16, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 18
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 18
   store i16 %124, ptr %126, align 2
   br label %.thread20
 
@@ -14860,7 +14860,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
 127:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %15, i8 0, i64 12, i1 false), !annotation !5
-  %128 = getelementptr inbounds i8, ptr %50, i64 6
+  %128 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %129 = load i16, ptr %128, align 2
   %130 = and i16 %129, -225
   %131 = icmp eq i16 %130, 0
@@ -14895,12 +14895,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   %149 = phi ptr [ %147, %144 ], [ %15, %141 ]
   %150 = load i16, ptr %149, align 2
   %151 = load ptr, ptr %16, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 20
   store i16 %150, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %149, i64 2
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 2
   %154 = load i16, ptr %153, align 2
   %155 = load ptr, ptr %16, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 18
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 18
   store i16 %154, ptr %156, align 2
   br label %.thread24
 
@@ -14919,11 +14919,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   br i1 %158, label %162, label %160
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %159, i64 28
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 28
   br label %290
 
 162:                                              ; preds = %157
-  %163 = getelementptr inbounds i8, ptr %159, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 24
   br label %290
 
 164:                                              ; preds = %5
@@ -14932,21 +14932,21 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #24
   store i16 0, ptr %8, align 2, !annotation !5
-  %165 = getelementptr inbounds i8, ptr %0, i64 192
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %0, i64 180
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %168 = load i16, ptr %167, align 4
   %169 = zext i16 %168 to i64
   %170 = getelementptr i8, ptr %166, i64 %169
-  %171 = getelementptr inbounds i8, ptr %0, i64 200
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %172 = load ptr, ptr %171, align 8
   %173 = ptrtoint ptr %170 to i64
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
   %176 = trunc i64 %175 to i32
-  %177 = getelementptr inbounds i8, ptr %0, i64 112
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 116
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, %176
   %182 = sub i32 %178, %181
@@ -14976,14 +14976,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @selinux_parse_skb(ptr noun
 .thread31:                                        ; preds = %..thread31_crit_edge, %189
   %194 = phi ptr [ %17, %189 ], [ %.pre, %..thread31_crit_edge ]
   %195 = phi ptr [ %192, %189 ], [ %7, %..thread31_crit_edge ]
-  %196 = getelementptr inbounds i8, ptr %194, i64 40
-  %197 = getelementptr inbounds i8, ptr %195, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %196, ptr noundef align 4 dereferenceable(16) %197, i64 16, i1 false)
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 40
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %196, ptr noundef nonnull align 4 dereferenceable(16) %197, i64 16, i1 false)
   %198 = load ptr, ptr %16, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 24
-  %200 = getelementptr inbounds i8, ptr %195, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %199, ptr noundef align 4 dereferenceable(16) %200, i64 16, i1 false)
-  %201 = getelementptr inbounds i8, ptr %195, i64 6
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 4 dereferenceable(16) %200, i64 16, i1 false)
+  %201 = getelementptr inbounds nuw i8, ptr %195, i64 6
   %202 = load i8, ptr %201, align 2
   store i8 %202, ptr %6, align 1
   %203 = add i32 %176, 40
@@ -15037,12 +15037,12 @@ thread-pre-split:                                 ; preds = %206, %208
   %225 = phi ptr [ %223, %220 ], [ %9, %217 ]
   %226 = load i16, ptr %225, align 4
   %227 = load ptr, ptr %16, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 20
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 20
   store i16 %226, ptr %228, align 4
-  %229 = getelementptr inbounds i8, ptr %225, i64 2
+  %229 = getelementptr inbounds nuw i8, ptr %225, i64 2
   %230 = load i16, ptr %229, align 2
   %231 = load ptr, ptr %16, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 18
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 18
   store i16 %230, ptr %232, align 2
   br label %.thread34
 
@@ -15080,12 +15080,12 @@ thread-pre-split:                                 ; preds = %206, %208
   %249 = phi ptr [ %247, %244 ], [ %10, %241 ]
   %250 = load i16, ptr %249, align 2
   %251 = load ptr, ptr %16, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 20
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 20
   store i16 %250, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %249, i64 2
+  %253 = getelementptr inbounds nuw i8, ptr %249, i64 2
   %254 = load i16, ptr %253, align 2
   %255 = load ptr, ptr %16, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 18
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 18
   store i16 %254, ptr %256, align 2
   br label %.thread38
 
@@ -15123,12 +15123,12 @@ thread-pre-split:                                 ; preds = %206, %208
   %273 = phi ptr [ %271, %268 ], [ %11, %265 ]
   %274 = load i16, ptr %273, align 2
   %275 = load ptr, ptr %16, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 20
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 20
   store i16 %274, ptr %276, align 4
-  %277 = getelementptr inbounds i8, ptr %273, i64 2
+  %277 = getelementptr inbounds nuw i8, ptr %273, i64 2
   %278 = load i16, ptr %277, align 2
   %279 = load ptr, ptr %16, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 18
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 18
   store i16 %278, ptr %280, align 2
   br label %.thread42
 
@@ -15151,11 +15151,11 @@ thread-pre-split:                                 ; preds = %206, %208
   br i1 %282, label %286, label %284
 
 284:                                              ; preds = %281
-  %285 = getelementptr inbounds i8, ptr %283, i64 40
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 40
   br label %290
 
 286:                                              ; preds = %281
-  %287 = getelementptr inbounds i8, ptr %283, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 24
   br label %290
 
 288:                                              ; preds = %.thread30, %.thread
@@ -15250,11 +15250,11 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   %4 = alloca i32, align 4
   %5 = alloca %struct.common_audit_data, align 8
   %6 = alloca %struct.lsm_network_audit, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i16, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 640
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
@@ -15262,7 +15262,7 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, 8
   %18 = select i1 %17, i16 2, i16 10
@@ -15282,7 +15282,7 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   br i1 %25, label %40, label %26
 
 26:                                               ; preds = %23, %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 2092
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2092
   store i32 0, ptr %27, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #24
   store i32 0, ptr %3, align 4, !annotation !5
@@ -15295,7 +15295,7 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
 30:                                               ; preds = %26
   %31 = load i32, ptr %3, align 4
   %32 = load i32, ptr %4, align 4
-  %33 = call i32 @security_net_peersid_resolve(i32 noundef %31, i32 noundef %32, i32 noundef 0, ptr noundef %27) #24
+  %33 = call i32 @security_net_peersid_resolve(i32 noundef %31, i32 noundef %32, i32 noundef 0, ptr noundef nonnull %27) #24
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35, !prof !15
 
@@ -15316,7 +15316,7 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
   br i1 %39, label %42, label %44
 
 40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %0, i64 2092
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2092
   br label %42
 
 42:                                               ; preds = %40, %37
@@ -15326,21 +15326,21 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
 
 44:                                               ; preds = %42, %37
   %45 = phi i32 [ 3, %42 ], [ %38, %37 ]
-  %46 = getelementptr inbounds i8, ptr %12, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %44
   store i32 1, ptr %46, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 2092
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2092
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %12, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %51, ptr %52, align 4
   br label %66
 
 53:                                               ; preds = %44
-  %54 = getelementptr inbounds i8, ptr %12, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %45
   br i1 %56, label %66, label %57
@@ -15348,14 +15348,14 @@ define internal fastcc i32 @selinux_sctp_process_new_assoc(ptr noundef %0, ptr n
 57:                                               ; preds = %53
   %58 = load ptr, ptr %7, align 8
   store i8 2, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %59, align 8
   store i32 0, ptr %6, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %58, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %63 = load i16, ptr %62, align 8
   %64 = call i32 @avc_has_perm(i32 noundef %55, i32 noundef %45, i16 noundef zeroext %63, i32 noundef 8388608, ptr noundef nonnull %5) #24
   %65 = icmp eq i32 %64, 0
@@ -15433,13 +15433,13 @@ define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr
   ]
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %52
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %21, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %46, label %52
@@ -15450,19 +15450,19 @@ define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr
   br i1 %32, label %46, label %52
 
 33:                                               ; preds = %20
-  %34 = getelementptr inbounds i8, ptr %21, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %46, label %52
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %21, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %52
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %21, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %46, label %52
@@ -15475,7 +15475,7 @@ define internal fastcc i32 @selinux_add_opt(i32 noundef range(i32 0, -1) %0, ptr
 
 46:                                               ; preds = %41, %33, %30, %26
   %47 = phi ptr [ %23, %26 ], [ %21, %30 ], [ %34, %33 ], [ %42, %41 ]
-  %48 = tail call i32 @security_context_str_to_sid(ptr noundef nonnull %1, ptr noundef %47, i32 noundef 3264) #24
+  %48 = tail call i32 @security_context_str_to_sid(ptr noundef nonnull %1, ptr noundef nonnull %47, i32 noundef 3264) #24
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %54, label %50
 
@@ -15575,41 +15575,41 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #24
   store i8 0, ptr %10, align 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 18
   %26 = load volatile i8, ptr %25, align 2
   %27 = icmp eq i8 %26, 12
   br i1 %27, label %28, label %.thread6
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %22, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %.thread6
 
 .thread6:                                         ; preds = %24, %28
   %32 = phi ptr [ %30, %28 ], [ %22, %24 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 640
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 640
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 216
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i16
   store i8 2, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %42, align 8
   store i32 %38, ptr %9, align 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %9, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i16 %41, ptr %44, align 8
   %45 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0, ptr noundef nonnull %10)
   %46 = icmp eq i32 %45, 0
@@ -15626,9 +15626,9 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %50, %47
-  %54 = getelementptr inbounds i8, ptr %34, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %57 = load i32, ptr %56, align 8
   %58 = call i32 @avc_has_perm(i32 noundef %55, i32 noundef %57, i16 noundef zeroext 49, i32 noundef 1, ptr noundef nonnull %8) #24
   %59 = icmp eq i32 %58, 0
@@ -15668,25 +15668,25 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
 
 .thread7:                                         ; preds = %68, %72
   %76 = phi i1 [ %74, %72 ], [ true, %68 ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %87, label %80
 
 80:                                               ; preds = %.thread7
-  %81 = getelementptr inbounds i8, ptr %78, i64 18
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 18
   %82 = load volatile i8, ptr %81, align 2
   %83 = icmp eq i8 %82, 12
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %78, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 96
   %86 = load ptr, ptr %85, align 8
   br label %87
 
 87:                                               ; preds = %84, %80, %.thread7
   %88 = phi ptr [ %86, %84 ], [ %78, %80 ], [ null, %.thread7 ]
-  %89 = getelementptr inbounds i8, ptr %1, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %90 = load i64, ptr %89, align 8
   %91 = and i64 %90, -2
   %92 = icmp eq i64 %91, 0
@@ -15694,7 +15694,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
 
 93:                                               ; preds = %87
   %94 = inttoptr i64 %91 to ptr
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %110, label %98
@@ -15704,7 +15704,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   br i1 %99, label %220, label %100
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds i8, ptr %88, i64 18
+  %101 = getelementptr inbounds nuw i8, ptr %88, i64 18
   %102 = load volatile i8, ptr %101, align 2
   %103 = zext nneg i8 %102 to i32
   %104 = shl nuw i32 1, %103
@@ -15713,20 +15713,20 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   br i1 %106, label %220, label %.thread8
 
 .thread8:                                         ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %2, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i16
   br label %131
 
 110:                                              ; preds = %93, %87
-  %111 = getelementptr inbounds i8, ptr %2, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i16
   %114 = icmp eq ptr %88, null
   br i1 %114, label %115, label %131
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %1, i64 144
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %130, label %119
@@ -15763,7 +15763,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
 131:                                              ; preds = %.thread8, %110
   %132 = phi i16 [ %109, %.thread8 ], [ %113, %110 ]
   %133 = phi i8 [ %108, %.thread8 ], [ %112, %110 ]
-  %134 = getelementptr inbounds i8, ptr %88, i64 18
+  %134 = getelementptr inbounds nuw i8, ptr %88, i64 18
   %135 = load volatile i8, ptr %134, align 2
   %136 = zext nneg i8 %135 to i32
   %137 = shl nuw i32 1, %136
@@ -15774,7 +15774,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
 140:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #24
   store i32 0, ptr %15, align 4, !annotation !5
-  %141 = getelementptr inbounds i8, ptr %88, i64 640
+  %141 = getelementptr inbounds nuw i8, ptr %88, i64 640
   %142 = load ptr, ptr %141, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   store i32 0, ptr %4, align 4, !annotation !5
@@ -15809,21 +15809,21 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   ]
 
 156:                                              ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %1, i64 60
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %158 = load i16, ptr %157, align 4
   %159 = and i16 %158, 4
   %160 = icmp eq i16 %159, 0
   br i1 %160, label %.thread12, label %.thread11
 
 161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %1, i64 56
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %163 = load i16, ptr %162, align 8
   %164 = and i16 %163, 1
   %165 = icmp eq i16 %164, 0
   br i1 %165, label %.thread12, label %.thread11
 
 .thread12:                                        ; preds = %156, %161
-  %166 = getelementptr inbounds i8, ptr %142, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %167 = load i32, ptr %166, align 8
   store i32 %167, ptr %11, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #24
@@ -15840,7 +15840,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   br label %220
 
 169:                                              ; preds = %152
-  %170 = getelementptr inbounds i8, ptr %142, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %171 = load i32, ptr %170, align 8
   %172 = call i32 @security_sid_mls_copy(i32 noundef %171, i32 noundef %153, ptr noundef nonnull %11) #24
   %173 = icmp eq i32 %172, 0
@@ -15848,9 +15848,9 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   br i1 %173, label %179, label %220
 
 174:                                              ; preds = %131
-  %175 = getelementptr inbounds i8, ptr %88, i64 640
+  %175 = getelementptr inbounds nuw i8, ptr %88, i64 640
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load i32, ptr %177, align 8
   store i32 %178, ptr %11, align 4
   br label %179
@@ -15858,17 +15858,17 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
 179:                                              ; preds = %.thread12, %174, %169, %130, %129
   %180 = phi i16 [ %113, %129 ], [ %113, %130 ], [ %132, %169 ], [ %132, %174 ], [ %132, %.thread12 ]
   %181 = phi i32 [ 16, %129 ], [ 1, %130 ], [ 1, %169 ], [ 1, %174 ], [ 1, %.thread12 ]
-  %182 = getelementptr inbounds i8, ptr %2, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 216
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 216
   %185 = load i32, ptr %184, align 8
   store i8 2, ptr %12, align 8
-  %186 = getelementptr inbounds i8, ptr %12, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %186, align 8
   store i32 %185, ptr %13, align 8
-  %187 = getelementptr inbounds i8, ptr %13, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %13, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i16 %180, ptr %188, align 8
   %189 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %12, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null)
   %190 = icmp eq i32 %189, 0
@@ -15879,7 +15879,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
 
 192:                                              ; preds = %191
   %193 = load i32, ptr %11, align 4
-  %194 = getelementptr inbounds i8, ptr %1, i64 160
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %195 = load i32, ptr %194, align 8
   %196 = call i32 @avc_has_perm(i32 noundef %193, i32 noundef %195, i16 noundef zeroext 49, i32 noundef %181, ptr noundef nonnull %12) #24
   %197 = icmp eq i32 %196, 0
@@ -15893,7 +15893,7 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr nocapture re
   store i32 0, ptr %16, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #24
   store i32 0, ptr %17, align 4, !annotation !5
-  %200 = getelementptr inbounds i8, ptr %2, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %201 = load ptr, ptr %200, align 8
   %202 = call i32 @sel_netif_sid(ptr noundef %201, i32 noundef %185, ptr noundef nonnull %16) #24
   %203 = icmp eq i32 %202, 0
@@ -15990,7 +15990,7 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr nocapture re
   store i32 0, ptr %9, align 4, !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false), !annotation !5
-  %29 = getelementptr inbounds i8, ptr %2, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
@@ -16015,17 +16015,17 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr nocapture re
 41:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 216
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 216
   %45 = load i32, ptr %44, align 8
   store i8 2, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %10, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %46, align 8
   store i32 %45, ptr %11, align 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 %31, ptr %48, align 8
   %49 = call fastcc i32 @selinux_parse_skb(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null)
   %50 = icmp eq i32 %49, 0
@@ -16035,7 +16035,7 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr nocapture re
   br i1 %28, label %52, label %72
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %2, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %8, align 8
   %56 = load i32, ptr %9, align 4
@@ -16082,7 +16082,7 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr nocapture re
 
 73:                                               ; preds = %72
   %74 = load i32, ptr %9, align 4
-  %75 = getelementptr inbounds i8, ptr %1, i64 160
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %76 = load i32, ptr %75, align 8
   %77 = call i32 @avc_has_perm(i32 noundef %74, i32 noundef %76, i16 noundef zeroext 49, i32 noundef 8, ptr noundef nonnull %10) #24
   %78 = icmp eq i32 %77, 0
@@ -16123,13 +16123,13 @@ define internal range(i32 0, 2) i32 @selinux_ip_output(ptr nocapture readnone %0
   br i1 %5, label %29, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 18
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %12 = load volatile i8, ptr %11, align 2
   %13 = zext nneg i8 %12 to i32
   %14 = shl nuw i32 1, %13
@@ -16138,15 +16138,15 @@ define internal range(i32 0, 2) i32 @selinux_ip_output(ptr nocapture readnone %0
   br i1 %16, label %.thread, label %29
 
 .thread:                                          ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %8, i64 640
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   br label %21
 
 21:                                               ; preds = %.thread, %6
   %22 = phi i32 [ 1, %6 ], [ %20, %.thread ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = tail call i32 @selinux_netlbl_skbuff_setsid(ptr noundef %1, i16 noundef zeroext %25, i32 noundef %22) #24

@@ -43,10 +43,10 @@ define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr nocapture noundef %0,
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
-  %12 = tail call i32 @strcmp(ptr noundef %11, ptr noundef nonnull dereferenceable(1) %6) #11
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %6) #11
   %13 = icmp eq i32 %12, 0
   %14 = and i1 %1, %13
   %15 = select i1 %13, i32 0, i32 -6
@@ -56,9 +56,9 @@ define dso_local range(i32 -6, 1) i32 @lifebook_detect(ptr nocapture noundef %0,
   br i1 %1, label %17, label %20
 
 17:                                               ; preds = %16, %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @.str, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @.str.1, ptr %19, align 8
   br label %20
 
@@ -74,7 +74,7 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 16 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i1, ptr @lifebook_use_6byte_proto, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
@@ -87,15 +87,15 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
   br label %54
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i1, ptr @lifebook_use_6byte_proto, align 1
   %13 = select i1 %12, i8 8, i8 7
   store i8 %13, ptr %3, align 1
-  %14 = call i32 @ps2_command(ptr noundef %11, ptr noundef nonnull %3, i32 noundef 4328) #11
+  %14 = call i32 @ps2_command(ptr noundef nonnull %11, ptr noundef nonnull %3, i32 noundef 4328) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   %15 = select i1 %6, i32 4096, i32 1024
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %16, i8 0, i64 112, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %16, i8 0, i64 112, i1 false)
   call void @input_set_capability(ptr noundef %5, i32 noundef 1, i32 noundef 330) #11
   call void @input_set_abs_params(ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef %15, i32 noundef 0, i32 noundef 0) #11
   call void @input_set_abs_params(ptr noundef %5, i32 noundef 1, i32 noundef 0, i32 noundef %15, i32 noundef 0, i32 noundef 0) #11
@@ -114,24 +114,24 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
 
 26:                                               ; preds = %19
   store ptr %22, ptr %21, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
-  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef 32, ptr noundef nonnull @.str.3, ptr noundef %29) #11
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %27, i64 noundef 32, ptr noundef nonnull @.str.3, ptr noundef nonnull %29) #11
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %27, ptr %31, align 8
   store ptr @.str.4, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %22, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i16 17, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %22, i64 26
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 26
   store i16 2, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %22, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 28
   store i16 9, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %22, i64 30
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 30
   store i16 0, ptr %35, align 2
   %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 344
-  %38 = getelementptr inbounds i8, ptr %22, i64 608
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 344
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 608
   store ptr %37, ptr %38, align 8
   call void @input_set_capability(ptr noundef nonnull %22, i32 noundef 2, i32 noundef 0) #11
   call void @input_set_capability(ptr noundef nonnull %22, i32 noundef 2, i32 noundef 1) #11
@@ -152,24 +152,24 @@ define dso_local i32 @lifebook_init(ptr noundef %0) local_unnamed_addr #4 align 
   call void @kfree(ptr noundef %21) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   store i8 6, ptr %2, align 1
-  %44 = call i32 @ps2_command(ptr noundef %11, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %44 = call i32 @ps2_command(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef 4328) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   br label %54
 
 45:                                               ; preds = %.thread6, %10
-  %46 = getelementptr inbounds i8, ptr %0, i64 400
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @lifebook_process_byte, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 416
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr @lifebook_set_resolution, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 448
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @lifebook_disconnect, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 432
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr @lifebook_absolute_mode, ptr %49, align 8
   %50 = load i1, ptr @lifebook_use_6byte_proto, align 1
   %51 = select i1 %50, i32 6, i32 3
-  %52 = getelementptr inbounds i8, ptr %0, i64 248
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 242
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 242
   store i8 3, ptr %53, align 2
   br label %54
 
@@ -190,11 +190,11 @@ define internal i32 @lifebook_absolute_mode(ptr noundef %0) #4 align 16 {
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i1, ptr @lifebook_use_6byte_proto, align 1
   %8 = select i1 %7, i8 8, i8 7
   store i8 %8, ptr %2, align 1
-  %9 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %9 = call i32 @ps2_command(ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 4328) #11
   br label %10
 
 10:                                               ; preds = %5, %1
@@ -211,7 +211,7 @@ declare dso_local void @input_set_abs_params(ptr noundef, i32 noundef, i32 nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %8, label %6
@@ -222,7 +222,7 @@ define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 al
 
 8:                                                ; preds = %6, %1
   %9 = phi ptr [ %7, %6 ], [ null, %1 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 8
   %13 = icmp eq i8 %12, 0
@@ -230,7 +230,7 @@ define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 al
 
 14:                                               ; preds = %8
   %15 = load i1, ptr @lifebook_use_6byte_proto, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 241
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %17 = load i8, ptr %16, align 1
   br i1 %15, label %23, label %18
 
@@ -239,7 +239,7 @@ define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 al
   br i1 %19, label %.thread4, label %115
 
 .thread2:                                         ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 241
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 241
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 3
   br i1 %22, label %66, label %115
@@ -316,10 +316,10 @@ define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 al
   br i1 %67, label %.thread7, label %.thread8
 
 .thread7:                                         ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 344
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.6) #13
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 344
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %70, ptr noundef nonnull @.str.6) #13
   br label %115
 
 71:                                               ; preds = %60, %.thread5
@@ -379,7 +379,7 @@ define internal range(i32 0, 3) i32 @lifebook_process_byte(ptr noundef %0) #4 al
   br i1 %112, label %115, label %113
 
 .thread8:                                         ; preds = %66
-  tail call void @psmouse_report_standard_motion(ptr noundef nonnull %9, ptr noundef %10) #11
+  tail call void @psmouse_report_standard_motion(ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   br label %113
 
 113:                                              ; preds = %106, %.thread8
@@ -406,12 +406,12 @@ define internal void @lifebook_set_resolution(ptr noundef %0, i32 noundef %1) #4
   %8 = getelementptr [5 x i8], ptr @lifebook_set_resolution.params, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   store i8 %9, ptr %3, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = call i32 @ps2_command(ptr noundef %10, ptr noundef nonnull %3, i32 noundef 4328) #11
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = call i32 @ps2_command(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 4328) #11
   %12 = load i8, ptr %3, align 1
   %13 = zext nneg i8 %12 to i32
   %14 = shl i32 50, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 %14, ptr %15, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   ret void

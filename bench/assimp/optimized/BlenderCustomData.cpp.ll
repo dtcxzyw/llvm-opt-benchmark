@@ -308,7 +308,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -318,11 +318,11 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %flag.i.i = getelementptr inbounds i8, ptr %read.i, i64 40
-  %mat_nr.i.i = getelementptr inbounds i8, ptr %read.i, i64 44
-  %bweight.i.i = getelementptr inbounds i8, ptr %read.i, i64 48
-  %co2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %flag.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 40
+  %mat_nr.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 44
+  %bweight.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 48
+  %co2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -338,11 +338,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %co.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %co.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %co.i.i, ptr noundef nonnull align 8 dereferenceable(36) %co2.i.i, i64 36, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 56
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 56
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !4
@@ -389,16 +389,16 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %ss) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %cmp.not6.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not6.i.i.i, label %if.then, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %0, %entry ]
   %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.08.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ss)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -413,7 +413,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.07.i.i.i, ptr %__x.addr.08.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
+  %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i, !llvm.loop !6
@@ -423,7 +423,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br i1 %cmp.i.i.i, label %if.then, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ss, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i)
           to label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -454,8 +454,8 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit
-  %structures = getelementptr inbounds i8, ptr %this, i64 48
-  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
+  %structures = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %second = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 64
   %6 = load i64, ptr %second, align 8
   %7 = load ptr, ptr %structures, align 8
   %add.ptr.i = getelementptr inbounds %"class.Assimp::Blender::Structure", ptr %7, i64 %6
@@ -486,7 +486,7 @@ entry:
   %7 = select i1 %5, i64 -1, i64 %6
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
   store i64 %cnt, ptr %call, align 16
-  %.ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -496,18 +496,18 @@ new.ctorloop:                                     ; preds = %entry
 
 invoke.cont:                                      ; preds = %new.ctorloop, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur.add, %invoke.cont ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call, i64 %arrayctor.cur.idx
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.idx
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %arrayctor.cur.ptr.ptr, align 8
-  %flag.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 40
+  %flag.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 40
   store i8 0, ptr %flag.i, align 8
-  %mat_nr.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 44
+  %mat_nr.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 44
   store i32 0, ptr %mat_nr.i, align 4
-  %bweight.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 48
+  %bweight.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 48
   store i32 0, ptr %bweight.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 56
-  %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call, i64 %arrayctor.cur.add
+  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.add
   %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont
 
@@ -587,7 +587,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -597,8 +597,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %v12.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %v12.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -611,11 +611,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %v1.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %v1.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %v1.i.i, ptr noundef nonnull align 8 dereferenceable(12) %v12.i.i, i64 12, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 32
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !7
@@ -665,7 +665,7 @@ entry:
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #19
   store i64 %cnt, ptr %call, align 16
-  %4 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -675,10 +675,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -746,7 +746,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -756,8 +756,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %v12.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %v12.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -770,11 +770,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %v1.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %v1.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %v1.i.i, ptr noundef nonnull align 8 dereferenceable(21) %v12.i.i, i64 21, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 40
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 40
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !8
@@ -828,7 +828,7 @@ entry:
   %7 = select i1 %5, i64 -1, i64 %6
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
   store i64 %cnt, ptr %call, align 16
-  %8 = getelementptr inbounds i8, ptr %call, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -838,10 +838,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 40
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 40
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -909,7 +909,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -919,12 +919,12 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %flag.i.i = getelementptr inbounds i8, ptr %read.i, i64 48
-  %mode.i.i = getelementptr inbounds i8, ptr %read.i, i64 50
-  %tile.i.i = getelementptr inbounds i8, ptr %read.i, i64 52
-  %unwrap.i.i = getelementptr inbounds i8, ptr %read.i, i64 54
-  %uv2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %flag.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 48
+  %mode.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 50
+  %tile.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 52
+  %unwrap.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 54
+  %uv2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -941,11 +941,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %uv.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %uv.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %uv.i.i, ptr noundef nonnull align 8 dereferenceable(40) %uv2.i.i, i64 40, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 56
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 56
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !9
@@ -999,7 +999,7 @@ entry:
   %7 = select i1 %5, i64 -1, i64 %6
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
   store i64 %cnt, ptr %call, align 16
-  %8 = getelementptr inbounds i8, ptr %call, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -1009,18 +1009,18 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 16), ptr %arrayctor.cur, align 8
-  %flag.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 48
+  %flag.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 48
   store i8 0, ptr %flag.i, align 8
-  %mode.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 50
+  %mode.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 50
   store i16 0, ptr %mode.i, align 2
-  %tile.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 52
+  %tile.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 52
   store i16 0, ptr %tile.i, align 4
-  %unwrap.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 54
+  %unwrap.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 54
   store i16 0, ptr %unwrap.i, align 2
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 56
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 56
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -1088,7 +1088,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -1098,8 +1098,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %tpage2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %tpage2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -1112,11 +1112,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %tpage.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %tpage.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tpage.i.i, ptr noundef nonnull align 8 dereferenceable(16) %tpage2.i.i, i64 16, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 32
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !10
@@ -1166,7 +1166,7 @@ entry:
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #19
   store i64 %cnt, ptr %call, align 16
-  %4 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -1176,10 +1176,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -1247,7 +1247,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -1257,8 +1257,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %uv2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %uv2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -1271,11 +1271,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %uv.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %uv.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %uv.i.i, ptr noundef nonnull align 8 dereferenceable(12) %uv2.i.i, i64 12, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 32
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !11
@@ -1325,7 +1325,7 @@ entry:
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #19
   store i64 %cnt, ptr %call, align 16
-  %4 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -1335,10 +1335,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -1406,7 +1406,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -1416,8 +1416,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %r2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %r2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -1430,12 +1430,12 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %r.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %r.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   %4 = load i32, ptr %r2.i.i, align 8
   store i32 %4, ptr %r.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 24
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !12
@@ -1489,7 +1489,7 @@ entry:
   %7 = select i1 %5, i64 -1, i64 %6
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
   store i64 %cnt, ptr %call, align 16
-  %8 = getelementptr inbounds i8, ptr %call, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -1499,10 +1499,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 24
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 24
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -1570,7 +1570,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -1580,8 +1580,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %loopstart2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %loopstart2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -1594,11 +1594,11 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %loopstart.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %loopstart.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %loopstart.i.i, ptr noundef nonnull align 8 dereferenceable(11) %loopstart2.i.i, i64 11, i1 false)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 32
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !13
@@ -1648,7 +1648,7 @@ entry:
   %3 = select i1 %0, i64 -1, i64 %2
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #19
   store i64 %cnt, ptr %call, align 16
-  %4 = getelementptr inbounds i8, ptr %call, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -1658,10 +1658,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -1729,7 +1729,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %dna = getelementptr inbounds i8, ptr %db, i64 8
+  %dna = getelementptr inbounds nuw i8, ptr %db, i64 8
   %call = invoke noundef nonnull align 8 dereferenceable(120) ptr @_ZNK6Assimp7Blender3DNAixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %dna, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -1739,8 +1739,8 @@ invoke.cont3:                                     ; preds = %invoke.cont
   br i1 %cmp4.not.i, label %invoke.cont4, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont3
-  %dna_type.i.i.i = getelementptr inbounds i8, ptr %read.i, i64 8
-  %v2.i.i = getelementptr inbounds i8, ptr %read.i, i64 16
+  %dna_type.i.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 8
+  %v2.i.i = getelementptr inbounds nuw i8, ptr %read.i, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %.noexc5, %for.body.lr.ph.i
@@ -1753,12 +1753,12 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
 
 .noexc5:                                          ; preds = %for.body.i
   %3 = load ptr, ptr %dna_type.i.i.i, align 8
-  %dna_type2.i.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 8
+  %dna_type2.i.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 8
   store ptr %3, ptr %dna_type2.i.i.i, align 8
-  %v.i.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 16
+  %v.i.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 16
   %4 = load i64, ptr %v2.i.i, align 8
   store i64 %4, ptr %v.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.06.i, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.addr.06.i, i64 24
   %inc.i = add nuw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %cnt
   br i1 %exitcond.not.i, label %invoke.cont4, label %for.body.i, !llvm.loop !14
@@ -1812,7 +1812,7 @@ entry:
   %7 = select i1 %5, i64 -1, i64 %6
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #19
   store i64 %cnt, ptr %call, align 16
-  %8 = getelementptr inbounds i8, ptr %call, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %isempty = icmp eq i64 %cnt, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -1822,10 +1822,10 @@ new.ctorloop:                                     ; preds = %entry
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
+  %dna_type.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 16), ptr %arrayctor.cur, align 8
-  %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 24
+  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 24
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -1891,11 +1891,11 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %cdtype to i64
-  %arrayidx.i.i = getelementptr inbounds [42 x %"struct.Assimp::Blender::CustomDataTypeDescription"], ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds nuw [42 x %"struct.Assimp::Blender::CustomDataTypeDescription"], ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 0, i64 %conv
   %cdtd.sroa.0.0.copyload = load ptr, ptr %arrayidx.i.i, align 8
-  %cdtd.sroa.3.0.call1.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %cdtd.sroa.3.0.call1.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %cdtd.sroa.3.0.copyload = load ptr, ptr %cdtd.sroa.3.0.call1.sroa_idx, align 8
-  %cdtd.sroa.5.0.call1.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %cdtd.sroa.5.0.call1.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %cdtd.sroa.5.0.copyload = load ptr, ptr %cdtd.sroa.5.0.call1.sroa_idx, align 8
   %tobool = icmp ne ptr %cdtd.sroa.0.0.copyload, null
   %tobool2 = icmp ne ptr %cdtd.sroa.3.0.copyload, null
@@ -1995,24 +1995,24 @@ unreachable.i.i.i:                                ; preds = %invoke.cont7.i.i.i
   unreachable
 
 _ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EEC2IS2_PFvPS2_EvEEPT_T0_.exit: ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i4.i.i.i, align 8
-  %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 16
+  %_M_impl.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i, i64 16
   store ptr %__d, ptr %_M_impl.i.i.i.i, align 8
-  %_M_ptr.i.i5.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 24
+  %_M_ptr.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i4.i.i.i, i64 24
   store ptr %__p, ptr %_M_ptr.i.i5.i.i.i, align 8
   store ptr %__p, ptr %this, align 8
-  %_M_refcount3.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount3.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %_M_refcount3.i, align 8
   store ptr %call5.i.i.i4.i.i.i, ptr %_M_refcount3.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EEC2IS2_PFvPS2_EvEEPT_T0_.exit
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -2020,10 +2020,10 @@ if.then.i.i:                                      ; preds = %_ZNSt12__shared_ptr
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br label %if.end8.sink.split.i.i.i
@@ -2049,10 +2049,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  %_M_weak_count.i.i.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2074,7 +2074,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br label %_ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2086,9 +2086,9 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.34") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %customdata, i32 noundef %cdtype, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
-  %layers = getelementptr inbounds i8, ptr %customdata, i64 16
+  %layers = getelementptr inbounds nuw i8, ptr %customdata, i64 16
   %0 = load ptr, ptr %layers, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %customdata, i64 24
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %customdata, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %0, %1
   br i1 %cmp.i.not8, label %for.end, label %for.body
@@ -2097,13 +2097,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %10, %for.inc ], [ %1, %entry ]
   %it.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %3 = load ptr, ptr %it.sroa.0.09, align 8
-  %type = getelementptr inbounds i8, ptr %3, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %4, %cdtype
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %name9 = getelementptr inbounds i8, ptr %3, i64 48
+  %name9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %name9) #16
   %cmp.i2 = icmp eq i32 %call.i, 0
   br i1 %cmp.i2, label %if.then, label %land.lhs.true.for.inc_crit_edge
@@ -2115,15 +2115,15 @@ land.lhs.true.for.inc_crit_edge:                  ; preds = %land.lhs.true
 if.then:                                          ; preds = %land.lhs.true
   %5 = load ptr, ptr %it.sroa.0.09, align 8
   store ptr %5, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.09, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %6, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2140,7 +2140,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 for.inc:                                          ; preds = %land.lhs.true.for.inc_crit_edge, %for.body
   %10 = phi ptr [ %.pre, %land.lhs.true.for.inc_crit_edge ], [ %2, %for.body ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.09, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !15
 
@@ -2155,9 +2155,9 @@ return:                                           ; preds = %if.else.i.i.i.i.i, 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN6Assimp7Blender22getCustomDataLayerDataERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %customdata, i32 noundef %cdtype, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %layers.i = getelementptr inbounds i8, ptr %customdata, i64 16
+  %layers.i = getelementptr inbounds nuw i8, ptr %customdata, i64 16
   %0 = load ptr, ptr %layers.i, align 8, !noalias !16
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %customdata, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %customdata, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !16
   %cmp.i.not8.i = icmp eq ptr %0, %1
   br i1 %cmp.i.not8.i, label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEED2Ev.exit, label %for.body.i
@@ -2166,13 +2166,13 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %2 = phi ptr [ %10, %for.inc.i ], [ %1, %entry ]
   %it.sroa.0.09.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %entry ]
   %3 = load ptr, ptr %it.sroa.0.09.i, align 8, !noalias !16
-  %type.i = getelementptr inbounds i8, ptr %3, i64 16
+  %type.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i32, ptr %type.i, align 8, !noalias !16
   %cmp.i = icmp eq i32 %4, %cdtype
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %name9.i = getelementptr inbounds i8, ptr %3, i64 48
+  %name9.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %call.i.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %name9.i) #16, !noalias !16
   %cmp.i2.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i2.i, label %if.then.i, label %land.lhs.true.for.inc_crit_edge.i
@@ -2183,13 +2183,13 @@ land.lhs.true.for.inc_crit_edge.i:                ; preds = %land.lhs.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %5 = load ptr, ptr %it.sroa.0.09.i, align 8, !noalias !16
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 8
+  %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.09.i, i64 8
   %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2206,7 +2206,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.for.inc_crit_edge.i, %for.body.i
   %10 = phi ptr [ %.pre.i, %land.lhs.true.for.inc_crit_edge.i ], [ %2, %for.body.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.09.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %10
   br i1 %cmp.i.not.i, label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEED2Ev.exit, label %for.body.i, !llvm.loop !15
 
@@ -2215,7 +2215,7 @@ _ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeER
   br i1 %cmp.i1.not, label %cleanup, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6Assimp7Blender18getCustomDataLayerERKNS0_10CustomDataENS0_14CustomDataTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %data = getelementptr inbounds i8, ptr %5, i64 112
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 112
   %11 = load ptr, ptr %data, align 8
   br label %cleanup
 
@@ -2225,7 +2225,7 @@ cleanup:                                          ; preds = %land.lhs.true, %_ZN
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -2233,10 +2233,10 @@ if.then.i.i.i:                                    ; preds = %cleanup
 
 if.then.i.i.i.i3:                                 ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br label %if.end8.sink.split.i.i.i.i
@@ -2262,10 +2262,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2287,7 +2287,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i3
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
   br label %_ZNSt10shared_ptrIN6Assimp7Blender15CustomDataLayerEED2Ev.exit
@@ -2851,9 +2851,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
-  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_ptr, align 8
   invoke void %0(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2879,7 +2879,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
+  %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSPFvPN6Assimp7Blender8ElemBaseEE
   br i1 %cmp.i, label %cond.true, label %if.end.i
@@ -2895,7 +2895,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br i1 %cmp7.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry, %_ZNKSt9type_infoeqERKS_.exit
-  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit, %cond.true

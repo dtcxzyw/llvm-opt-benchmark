@@ -64,13 +64,13 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 .split17.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.d023d46553e80f33d30700de6f23ad43.10, ptr %6, align 8, !alias.scope !4, !noalias !7
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %17, align 8, !alias.scope !4, !noalias !7
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %18, align 8, !alias.scope !4, !noalias !7
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %19, align 8, !alias.scope !4, !noalias !7
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !4, !noalias !7
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #8
   unreachable
@@ -87,13 +87,13 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 23:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store ptr @anon.d023d46553e80f33d30700de6f23ad43.1, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @anon.d023d46553e80f33d30700de6f23ad43.2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #8
   unreachable
@@ -101,7 +101,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 .split19.us:                                      ; preds = %21, %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %28, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !9, !align !10, !noundef !9
   %29 = load ptr, ptr %.val, align 8, !align !10, !noundef !9
@@ -131,7 +131,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
   %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 128)
   %.0.in.sroa.speculated.i.i.i.i = tail call noundef range(i64 16, 129) i64 @llvm.umax.i64(i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i, i64 16)
   store i64 1, ptr %.val.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   store i64 %.0.in.sroa.speculated.i.i.i.i, ptr %37, align 8
   store i32 4, ptr %28, align 8
   call void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bb5f6fba474e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
@@ -179,7 +179,7 @@ define hidden { ptr, i64 } @"_ZN3std3ffi6os_str85_$LT$impl$u20$core..convert..As
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17h8925e0ca698da9a9E.llvm.8544828415197069924"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !9, !align !11, !noundef !9
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !9
   %5 = insertvalue { ptr, i64 } poison, ptr %2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %4, 1

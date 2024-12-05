@@ -40,7 +40,7 @@ define hidden noundef i32 @handleOpen(ptr nocapture noundef readonly %0, i32 nou
   br i1 %15, label %.preheader, label %.critedge2, !llvm.loop !8
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 61440
   %20 = icmp eq i32 %19, 16384
@@ -75,7 +75,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden i32 @getFD(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #8
   %8 = icmp eq ptr %7, null
@@ -83,7 +83,7 @@ define hidden i32 @getFD(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @IO_fd_fdID, align 8
   %14 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %13) #8
@@ -134,7 +134,7 @@ define hidden void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 20:                                               ; preds = %.critedge
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 760
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 760
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3) #8
   %.not37 = icmp eq ptr %24, null
@@ -142,7 +142,7 @@ define hidden void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 872
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 872
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @IO_fd_fdID, align 8
   tail call void %28(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef %29, i32 noundef %19) #8
@@ -150,7 +150,7 @@ define hidden void @fileOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %31 = trunc i32 %30 to i8
   %32 = and i8 %31, 1
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 840
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 840
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @IO_append_fdID, align 8
   tail call void %35(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef %36, i8 noundef zeroext %32) #8
@@ -182,12 +182,12 @@ declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden void @fileDescriptorClose(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @IO_fd_fdID, align 8
   %7 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0) #8
   %12 = icmp ne ptr %11, null
@@ -197,12 +197,12 @@ define hidden void @fileDescriptorClose(ptr noundef %0, ptr noundef %1) local_un
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 872
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 872
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @IO_fd_fdID, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %18, i32 noundef -1) #8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0) #8
   %.not = icmp eq ptr %22, null
@@ -219,7 +219,7 @@ define hidden void @fileDescriptorClose(ptr noundef %0, ptr noundef %1) local_un
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 872
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 872
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @IO_fd_fdID, align 8
   tail call void %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, i32 noundef %7) #8
@@ -319,7 +319,7 @@ define hidden range(i32 0, 2) i32 @handleAvailable(i32 noundef %0, ptr nocapture
   br i1 %10, label %5, label %.critedge, !llvm.loop !12
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = trunc i32 %13 to i16
   %trunc = and i16 %14, -4096
@@ -354,7 +354,7 @@ define hidden range(i32 0, 2) i32 @handleAvailable(i32 noundef %0, ptr nocapture
   br label %.sink.split
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds i8, ptr %3, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %28 = load i64, ptr %27, align 8
   br label %.critedge
 
@@ -443,7 +443,7 @@ define hidden i64 @handleGetLength(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %.critedge.thread, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 24576
@@ -457,7 +457,7 @@ define hidden i64 @handleGetLength(i32 noundef %0) local_unnamed_addr #0 {
   br label %.critedge.thread
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %2, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %23 = load i64, ptr %22, align 8
   br label %.critedge.thread
 

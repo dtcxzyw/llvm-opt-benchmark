@@ -369,7 +369,7 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %47
@@ -394,7 +394,7 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
   %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %8) #5
   %24 = load i32, ptr @hf_epm_annotation, align 4
   %25 = load i32, ptr %8, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.042, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef %25, i32 noundef 0, ptr noundef %27, ptr noundef nonnull %9) #5
   %29 = load i32, ptr %8, align 4
@@ -414,7 +414,7 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
 35:                                               ; preds = %34
   %36 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.124, ptr noundef nonnull %31) #5
-  %37 = getelementptr inbounds i8, ptr %.042, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.042, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.124, ptr noundef %39) #5
@@ -423,7 +423,7 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
 
 40:                                               ; preds = %35, %34
   %41 = phi ptr [ %.pre, %35 ], [ %31, %34 ]
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.125, ptr noundef %41) #5
   br label %44
@@ -450,7 +450,7 @@ define internal i32 @epm_dissect_tower(ptr noundef %0, i32 noundef %1, ptr nound
   %9 = alloca ptr, align 8
   %10 = alloca %struct._e_guid_t, align 4
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %181
@@ -479,18 +479,18 @@ define internal i32 @epm_dissect_tower(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not4.i, label %epm_dissect_tower_data.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 408
-  %26 = getelementptr inbounds i8, ptr %10, i64 4
-  %27 = getelementptr inbounds i8, ptr %10, i64 6
-  %28 = getelementptr inbounds i8, ptr %10, i64 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 9
-  %30 = getelementptr inbounds i8, ptr %10, i64 10
-  %31 = getelementptr inbounds i8, ptr %10, i64 11
-  %32 = getelementptr inbounds i8, ptr %10, i64 12
-  %33 = getelementptr inbounds i8, ptr %10, i64 13
-  %34 = getelementptr inbounds i8, ptr %10, i64 14
-  %35 = getelementptr inbounds i8, ptr %10, i64 15
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 11
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 13
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 14
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 15
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %37
 
 37:                                               ; preds = %175, %.lr.ph.i
@@ -760,7 +760,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @epm_dissect_pointer_UUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #5
   ret i32 %9
@@ -768,7 +768,7 @@ define internal i32 @epm_dissect_pointer_UUID(ptr noundef %0, i32 noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @epm_dissect_pointer_IF_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #5
   %10 = load i32, ptr @hf_epm_ver_maj, align 4

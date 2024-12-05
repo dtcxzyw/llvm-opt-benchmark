@@ -129,7 +129,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy27calc_default_active_workersEmmmm(i
   %6 = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 %1)
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(104) %7) #5
   %12 = load i64, ptr @HeapSizePerGCThread, align 8
@@ -148,7 +148,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy27calc_default_active_workersEmmmm(i
 
 22:                                               ; preds = %18, %4
   %.0 = phi i64 [ %21, %18 ], [ %16, %4 ]
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %25, label %24
 
@@ -187,7 +187,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy19calc_active_workersEmmm(i64 nounde
   %12 = tail call noundef i64 @llvm.umax.i64(i64 %11, i64 %10)
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(104) %13) #5
   %18 = load i64, ptr @HeapSizePerGCThread, align 8
@@ -206,7 +206,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy19calc_active_workersEmmm(i64 nounde
 
 28:                                               ; preds = %24, %8
   %.0.i = phi i64 [ %27, %24 ], [ %22, %8 ]
-  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %_ZN12WorkerPolicy27calc_default_active_workersEmmmm.exit, label %30
 
@@ -239,7 +239,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy24calc_active_conc_workersEmmm(i64 n
   %12 = tail call noundef i64 @llvm.umax.i64(i64 %11, i64 1)
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(104) %13) #5
   %18 = load i64, ptr @HeapSizePerGCThread, align 8
@@ -258,7 +258,7 @@ define hidden noundef i32 @_ZN12WorkerPolicy24calc_active_conc_workersEmmm(i64 n
 
 28:                                               ; preds = %24, %10
   %.0.i = phi i64 [ %27, %24 ], [ %22, %10 ]
-  %29 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %_ZN12WorkerPolicy27calc_default_active_workersEmmmm.exit, label %30
 

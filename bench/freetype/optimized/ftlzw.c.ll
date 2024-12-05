@@ -14,7 +14,7 @@ define i32 @FT_Stream_OpenLZW(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %or.cond, label %8, label %61
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   %11 = tail call i32 @FT_Stream_Seek(ptr noundef nonnull %1, i64 noundef 0) #8
@@ -29,7 +29,7 @@ define i32 @FT_Stream_OpenLZW(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 14:                                               ; preds = %12
   %15 = load i8, ptr %4, align 1
   %16 = icmp ne i8 %15, 31
-  %17 = getelementptr inbounds i8, ptr %4, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp ne i8 %18, -99
   %or.cond.i = select i1 %16, i1 true, i1 %19
@@ -44,7 +44,7 @@ ft_lzw_check_header.exit.thread:                  ; preds = %8, %12, %14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   store i32 0, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %10, ptr %21, align 8
   %22 = call ptr @ft_mem_qalloc(ptr noundef %10, i64 noundef 4360, ptr noundef nonnull %5) #8
   %23 = load i32, ptr %5, align 4
@@ -52,16 +52,16 @@ ft_lzw_check_header.exit.thread:                  ; preds = %8, %12, %14
   br i1 %.not22, label %24, label %56
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %0, ptr %25, align 8
   store ptr %1, ptr %22, align 8
   %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 4336
-  %29 = getelementptr inbounds i8, ptr %22, i64 4352
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 4336
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 4352
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 4344
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 4344
   store ptr %28, ptr %30, align 8
   store i64 0, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
@@ -77,7 +77,7 @@ ft_lzw_check_header.exit.thread:                  ; preds = %8, %12, %14
 34:                                               ; preds = %32
   %35 = load i8, ptr %3, align 1
   %36 = icmp ne i8 %35, 31
-  %37 = getelementptr inbounds i8, ptr %3, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp ne i8 %38, -99
   %or.cond.i.i = select i1 %36, i1 true, i1 %39
@@ -93,44 +93,44 @@ ft_lzw_check_header.exit.thread:                  ; preds = %8, %12, %14
 
 41:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
-  %42 = getelementptr inbounds i8, ptr %22, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %42, i8 0, i64 216, i1 false)
-  %43 = getelementptr inbounds i8, ptr %22, i64 224
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 224
   store ptr %1, ptr %43, align 8
   %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds i8, ptr %22, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 232
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %22, i64 112
-  %47 = getelementptr inbounds i8, ptr %22, i64 160
-  %48 = getelementptr inbounds i8, ptr %22, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %22, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store i64 64, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %22, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 28
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %22, i64 48
-  %52 = getelementptr inbounds i8, ptr %22, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %22, i64 144
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 144
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %22, i64 84
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %51, i8 0, i64 9, i1 false)
   store i32 9, ptr %54, align 4
   store i32 0, ptr %42, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %55, align 8
   br label %56
 
 56:                                               ; preds = %41, %20
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 2147483647, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %58, align 8
   store ptr null, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @ft_lzw_stream_io, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @ft_lzw_stream_close, ptr %60, align 8
   br label %61
 
@@ -148,18 +148,18 @@ declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @ft_lzw_stream_io(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4336
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4336
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %1, %8
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %4
   %11 = sub nuw i64 %8, %1
-  %12 = getelementptr inbounds i8, ptr %6, i64 4344
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4344
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -180,19 +180,19 @@ define internal i64 @ft_lzw_stream_io(ptr nocapture noundef readonly %0, i64 nou
   br i1 %.not.i.i, label %ft_lzw_file_reset.exit.thread.i, label %ft_lzw_file_io.exit
 
 ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %6, i64 24
-  %24 = getelementptr inbounds i8, ptr %6, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
-  %26 = getelementptr inbounds i8, ptr %6, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 84
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, i8 0, i64 9, i1 false)
   store i32 9, ptr %28, align 4
   store i32 0, ptr %23, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 4352
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 4352
   store ptr %7, ptr %29, align 8
   store ptr %7, ptr %12, align 8
   store i64 0, ptr %7, align 8
@@ -205,9 +205,9 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
 
 33:                                               ; preds = %30
   %34 = sub nuw i64 %1, %31
-  %35 = getelementptr inbounds i8, ptr %6, i64 4352
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4352
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 4344
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 4344
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %38 to i64
@@ -222,7 +222,7 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
   br i1 %.not2830.i.i, label %ft_lzw_file_skip_output.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %46
 
 46:                                               ; preds = %49, %.lr.ph.i.i
@@ -249,10 +249,10 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   br i1 %.old1.i, label %ft_lzw_file_io.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %54, %ft_lzw_file_skip_output.exit.i
-  %55 = getelementptr inbounds i8, ptr %6, i64 24
-  %56 = getelementptr inbounds i8, ptr %6, i64 240
-  %57 = getelementptr inbounds i8, ptr %6, i64 4352
-  %58 = getelementptr inbounds i8, ptr %6, i64 4344
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 4352
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 4344
   %.pre.i = load ptr, ptr %57, align 8
   %.pre62.i = load ptr, ptr %58, align 8
   br label %59
@@ -295,31 +295,31 @@ ft_lzw_file_io.exit:                              ; preds = %46, %59, %73, %20, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @ft_lzw_stream_close(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = getelementptr inbounds i8, ptr %3, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, i8 0, i64 9, i1 false)
   store i32 9, ptr %14, align 4
   store i32 0, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %.not.i.i = icmp eq ptr %16, %17
   br i1 %.not.i.i, label %ft_lzw_file_done.exit, label %18
 
@@ -329,7 +329,7 @@ define internal void @ft_lzw_stream_close(ptr nocapture noundef %0) #0 {
   br label %ft_lzw_file_done.exit
 
 ft_lzw_file_done.exit:                            ; preds = %4, %18
-  %19 = getelementptr inbounds i8, ptr %3, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %20 = load ptr, ptr %19, align 8
   tail call void @ft_mem_free(ptr noundef %9, ptr noundef %20) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, i8 0, i64 240, i1 false)
@@ -343,14 +343,14 @@ ft_lzw_file_done.exit:                            ; preds = %4, %18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @ft_lzwstate_reset(ptr nocapture noundef writeonly initializes((0, 8), (24, 33), (40, 48), (60, 64), (120, 124)) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %3, i8 0, i64 9, i1 false)
   store i32 9, ptr %6, align 4
   store i32 0, ptr %0, align 8
@@ -360,27 +360,27 @@ define hidden void @ft_lzwstate_reset(ptr nocapture noundef writeonly initialize
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @ft_lzwstate_init(ptr noundef initializes((0, 216)) %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 64, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %12, i8 0, i64 9, i1 false)
   store i32 9, ptr %15, align 4
   store i32 0, ptr %0, align 8
@@ -389,22 +389,22 @@ define hidden void @ft_lzwstate_init(ptr noundef initializes((0, 216)) %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ft_lzwstate_done(ptr noundef initializes((0, 8), (24, 33), (40, 48), (60, 64), (120, 124)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   store i32 9, ptr %8, align 4
   store i32 0, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.not = icmp eq ptr %10, %11
   br i1 %.not, label %13, label %12
 
@@ -414,7 +414,7 @@ define hidden void @ft_lzwstate_done(ptr noundef initializes((0, 8), (24, 33), (
   br label %13
 
 13:                                               ; preds = %1, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   tail call void @ft_mem_free(ptr noundef %3, ptr noundef %15) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
@@ -428,11 +428,11 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 76
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i64 %2, 0
   br i1 %15, label %.loopexit, label %16
@@ -446,7 +446,7 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   ]
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @FT_Stream_Seek(ptr noundef %20, i64 noundef 2) #8
   %.not = icmp eq i32 %21, 0
@@ -462,30 +462,30 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   %26 = load i8, ptr %8, align 1
   %27 = and i8 %26, 31
   %28 = zext nneg i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %28, ptr %29, align 8
   %30 = and i8 %26, -128
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %31, ptr %32, align 4
   %33 = shl nuw i32 1, %28
   %34 = add i32 %33, -256
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %34, ptr %35, align 8
   %36 = icmp samesign ugt i8 %27, 16
   br i1 %36, label %.loopexit168, label %37
 
 37:                                               ; preds = %25
-  %38 = getelementptr inbounds i8, ptr %0, i64 60
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 9, ptr %38, align 4
   %.lobit = lshr i8 %26, 7
   %39 = zext nneg i8 %.lobit to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %39, ptr %40, align 8
   %41 = icmp samesign ugt i8 %27, 9
   %42 = add i32 %33, -255
   %spec.select = select i1 %41, i32 256, i32 %42
-  %43 = getelementptr inbounds i8, ptr %0, i64 68
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %spec.select, ptr %43, align 4
   %44 = call fastcc i32 @ft_lzwstate_get_code(ptr noundef nonnull %0)
   %or.cond = icmp ugt i32 %44, 255
@@ -522,9 +522,9 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   br i1 %51, label %.loopexit168, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %52 = getelementptr inbounds i8, ptr %0, i64 52
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %55
 
 55:                                               ; preds = %.lr.ph, %60
@@ -561,24 +561,24 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly %1, i64 
   br i1 %68, label %.loopexit168, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 120
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %0, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %74 = load i64, ptr %73, align 8
   %.not136 = icmp ugt i64 %74, %72
   br i1 %.not136, label %96, label %75
 
 75:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %76 = getelementptr inbounds i8, ptr %0, i64 208
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %77 = load ptr, ptr %76, align 8
   %78 = lshr i64 %74, 1
   %79 = add nuw nsw i64 %78, %74
   %80 = add nuw nsw i64 %79, 4
-  %81 = getelementptr inbounds i8, ptr %0, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 136
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %84 = icmp eq ptr %82, %83
   br i1 %84, label %.thread.i, label %85
 
@@ -629,24 +629,24 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
   %.pre-phi221 = phi i64 [ %.pre220, %ft_lzwstate_stack_grow.exit ], [ %72, %69 ]
   %97 = phi i32 [ %.pre, %ft_lzwstate_stack_grow.exit ], [ %71, %69 ]
   %98 = trunc i32 %.4108185 to i8
-  %99 = getelementptr inbounds i8, ptr %0, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %100 = load ptr, ptr %99, align 8
   %101 = add i32 %97, 1
   store i32 %101, ptr %70, align 8
-  %102 = getelementptr inbounds i8, ptr %100, i64 %.pre-phi221
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 %.pre-phi221
   store i8 %98, ptr %102, align 1
   %103 = icmp ugt i32 %.4118184, 255
   br i1 %103, label %.lr.ph188, label %.loopexit167
 
 .lr.ph188:                                        ; preds = %.thread, %96
   %.1224 = phi i32 [ %.4118184, %96 ], [ %56, %.thread ]
-  %104 = getelementptr inbounds i8, ptr %0, i64 88
-  %105 = getelementptr inbounds i8, ptr %0, i64 120
-  %106 = getelementptr inbounds i8, ptr %0, i64 128
-  %107 = getelementptr inbounds i8, ptr %0, i64 208
-  %108 = getelementptr inbounds i8, ptr %0, i64 112
-  %109 = getelementptr inbounds i8, ptr %0, i64 136
-  %110 = getelementptr inbounds i8, ptr %0, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre210 = load ptr, ptr %104, align 8
   br label %111
 
@@ -725,14 +725,14 @@ ft_lzwstate_stack_grow.exit151:                   ; preds = %131, %133
   %137 = load ptr, ptr %110, align 8
   %138 = add i32 %.2187, -256
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds i8, ptr %137, i64 %139
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 %139
   %141 = load i8, ptr %140, align 1
   %142 = add i32 %135, 1
   store i32 %142, ptr %105, align 8
-  %143 = getelementptr inbounds i8, ptr %136, i64 %.pre-phi
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 %.pre-phi
   store i8 %141, ptr %143, align 1
   %144 = load ptr, ptr %104, align 8
-  %145 = getelementptr inbounds i16, ptr %144, i64 %139
+  %145 = getelementptr inbounds nuw i16, ptr %144, i64 %139
   %146 = load i16, ptr %145, align 2
   %147 = zext i16 %146 to i32
   %148 = icmp ugt i16 %146, 255
@@ -740,24 +740,24 @@ ft_lzwstate_stack_grow.exit151:                   ; preds = %131, %133
 
 .loopexit167:                                     ; preds = %134, %96, %63
   %.0 = phi i32 [ %56, %63 ], [ %.4118184, %96 ], [ %147, %134 ]
-  %149 = getelementptr inbounds i8, ptr %0, i64 120
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %150 = load i32, ptr %149, align 8
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds i8, ptr %0, i64 128
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %153 = load i64, ptr %152, align 8
   %.not137 = icmp ugt i64 %153, %151
   br i1 %.not137, label %175, label %154
 
 154:                                              ; preds = %.loopexit167
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %155 = getelementptr inbounds i8, ptr %0, i64 208
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %156 = load ptr, ptr %155, align 8
   %157 = lshr i64 %153, 1
   %158 = add nuw nsw i64 %157, %153
   %159 = add nuw nsw i64 %158, 4
-  %160 = getelementptr inbounds i8, ptr %0, i64 112
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 136
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %163 = icmp eq ptr %161, %162
   br i1 %163, label %.thread.i158, label %164
 
@@ -808,11 +808,11 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
   %.pre-phi219 = phi i64 [ %.pre218, %ft_lzwstate_stack_grow.exit160 ], [ %151, %.loopexit167 ]
   %176 = phi i32 [ %.pre214, %ft_lzwstate_stack_grow.exit160 ], [ %150, %.loopexit167 ]
   %177 = trunc nuw i32 %.0 to i8
-  %178 = getelementptr inbounds i8, ptr %0, i64 112
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %179 = load ptr, ptr %178, align 8
   %180 = add i32 %176, 1
   store i32 %180, ptr %149, align 8
-  %181 = getelementptr inbounds i8, ptr %179, i64 %.pre-phi219
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 %.pre-phi219
   store i8 %177, ptr %181, align 1
   store i32 2, ptr %0, align 8
   br label %182
@@ -822,9 +822,9 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
   %.2111 = phi i32 [ %14, %16 ], [ %56, %175 ]
   %.2106 = phi i32 [ %10, %16 ], [ %.0, %175 ]
   %.2103 = phi i64 [ 0, %16 ], [ %.4.ph, %175 ]
-  %183 = getelementptr inbounds i8, ptr %0, i64 120
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not140 = icmp eq ptr %1, null
-  %184 = getelementptr inbounds i8, ptr %0, i64 112
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br i1 %.not140, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %182
@@ -855,7 +855,7 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
   store i32 %193, ptr %183, align 8
   %194 = load ptr, ptr %184, align 8
   %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds i8, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 %195
   %197 = load i8, ptr %196, align 1
   %198 = getelementptr inbounds i8, ptr %1, i64 %.5
   store i8 %197, ptr %198, align 1
@@ -865,22 +865,22 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
 
 .split191.us:                                     ; preds = %.split, %185
   %.us-phi = phi i64 [ %.5.us, %185 ], [ %.5, %.split ]
-  %201 = getelementptr inbounds i8, ptr %0, i64 64
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %202 = load i32, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 56
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %204 = load i32, ptr %203, align 8
   %205 = icmp ult i32 %202, %204
   br i1 %205, label %206, label %.preheader.sink.split
 
 206:                                              ; preds = %.split191.us
-  %207 = getelementptr inbounds i8, ptr %0, i64 104
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %208 = load i32, ptr %207, align 8
   %.not139 = icmp ult i32 %202, %208
   br i1 %.not139, label %224, label %209
 
 209:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %210 = getelementptr inbounds i8, ptr %0, i64 208
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq i32 %208, 0
   %213 = lshr i32 %208, 2
@@ -888,7 +888,7 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %172, %174
   %.020.i = select i1 %212, i32 512, i32 %214
   %215 = zext i32 %208 to i64
   %216 = zext i32 %.020.i to i64
-  %217 = getelementptr inbounds i8, ptr %0, i64 88
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %218 = load ptr, ptr %217, align 8
   %219 = call ptr @ft_mem_realloc(ptr noundef %211, i64 noundef 3, i64 noundef %215, i64 noundef %216, ptr noundef %218, ptr noundef nonnull %4) #8
   store ptr %219, ptr %217, align 8
@@ -901,10 +901,10 @@ ft_lzwstate_prefix_grow.exit.thread:              ; preds = %209
   br label %.loopexit168
 
 ft_lzwstate_prefix_grow.exit:                     ; preds = %209
-  %221 = getelementptr inbounds i16, ptr %219, i64 %216
-  %222 = getelementptr inbounds i8, ptr %0, i64 96
+  %221 = getelementptr inbounds nuw i16, ptr %219, i64 %216
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %221, ptr %222, align 8
-  %223 = getelementptr inbounds i16, ptr %219, i64 %215
+  %223 = getelementptr inbounds nuw i16, ptr %219, i64 %215
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %221, ptr align 2 %223, i64 %215, i1 false)
   store i32 %.020.i, ptr %207, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -914,17 +914,17 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %209
 224:                                              ; preds = %ft_lzwstate_prefix_grow.exit, %206
   %225 = phi i32 [ %.pre215, %ft_lzwstate_prefix_grow.exit ], [ %202, %206 ]
   %226 = trunc i32 %.2116 to i16
-  %227 = getelementptr inbounds i8, ptr %0, i64 88
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %228 = load ptr, ptr %227, align 8
   %229 = zext i32 %225 to i64
-  %230 = getelementptr inbounds i16, ptr %228, i64 %229
+  %230 = getelementptr inbounds nuw i16, ptr %228, i64 %229
   store i16 %226, ptr %230, align 2
   %231 = trunc i32 %.2106 to i8
-  %232 = getelementptr inbounds i8, ptr %0, i64 96
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %233 = load ptr, ptr %232, align 8
   %234 = load i32, ptr %201, align 8
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds i8, ptr %233, i64 %235
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 %235
   store i8 %231, ptr %236, align 1
   %237 = load i32, ptr %201, align 8
   %238 = add i32 %237, 1
@@ -956,33 +956,33 @@ declare hidden i64 @FT_Stream_TryRead(ptr noundef, ptr noundef, i64 noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %.not56 = icmp ult i32 %5, %10
   br i1 %.not56, label %11, label %16
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %15 = load i32, ptr %14, align 4
   %.not57 = icmp ult i32 %13, %15
   br i1 %.not57, label %64, label %16
 
 16:                                               ; preds = %11, %8, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %20 = load i32, ptr %19, align 4
   %.not58 = icmp ult i32 %18, %20
   br i1 %.not58, label %39, label %21
@@ -994,7 +994,7 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
   br i1 %23, label %ft_lzwstate_refill.exit.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = icmp ult i32 %22, %26
   br i1 %27, label %28, label %33
@@ -1007,7 +1007,7 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
   br label %37
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, 1
   br label %37
@@ -1029,20 +1029,20 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
 
 41:                                               ; preds = %40, %39
   %42 = phi i32 [ 9, %40 ], [ %.150, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = load i32, ptr %43, align 4
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %45, label %ft_lzwstate_refill.exit.thread
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 200
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = zext i32 %42 to i64
   %50 = tail call i64 @FT_Stream_TryRead(ptr noundef %47, ptr noundef nonnull %48, i64 noundef %49) #8
   %51 = trunc i64 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %0, i64 28
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %50
   store i64 %55, ptr %53, align 8
@@ -1069,12 +1069,12 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   %.047 = phi i32 [ %5, %11 ], [ 0, %ft_lzwstate_refill.exit ]
   %65 = add i32 %.047, %.049
   store i32 %65, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = lshr i32 %.047, 3
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds [16 x i8], ptr %66, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 0, i64 %68
   %70 = and i32 %.047, 7
-  %71 = getelementptr inbounds i8, ptr %69, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 1
   %72 = load i8, ptr %69, align 1
   %73 = zext i8 %72 to i32
   %74 = lshr i32 %73, %70
@@ -1084,7 +1084,7 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %64
-  %79 = getelementptr inbounds i8, ptr %69, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %80 = load i8, ptr %71, align 1
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, %75

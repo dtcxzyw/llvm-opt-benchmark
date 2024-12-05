@@ -69,8 +69,8 @@ if.end.i:                                         ; preds = %sw.default
   br i1 %cmp1.i, label %getStringToken.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %fLength71.i = getelementptr inbounds i8, ptr %token, i64 8
-  %arrayidx115.i = getelementptr inbounds i8, ptr %target.i, i64 2
+  %fLength71.i = getelementptr inbounds nuw i8, ptr %token, i64 8
+  %arrayidx115.i = getelementptr inbounds nuw i8, ptr %target.i, i64 2
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end193.i, %for.cond.preheader.i

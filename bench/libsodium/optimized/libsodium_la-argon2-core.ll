@@ -20,15 +20,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %instance, align 8
-  %memory = getelementptr inbounds i8, ptr %0, i64 8
+  %memory = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %memory, align 8
-  %lane_length = getelementptr inbounds i8, ptr %instance, i64 32
+  %lane_length = getelementptr inbounds nuw i8, ptr %instance, i64 32
   %2 = load i32, ptr %lane_length, align 8
   %idx.ext = zext i32 %2 to i64
   %add.ptr = getelementptr %struct.block_, ptr %1, i64 %idx.ext
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 -1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %blockhash, ptr noundef nonnull readonly align 8 dereferenceable(1024) %add.ptr2, i64 1024, i1 false)
-  %lanes = getelementptr inbounds i8, ptr %instance, i64 36
+  %lanes = getelementptr inbounds nuw i8, ptr %instance, i64 36
   %3 = load i32, ptr %lanes, align 4
   %cmp318 = icmp ugt i32 %3, 1
   br i1 %cmp318, label %for.body.lr.ph, label %for.body.i13.preheader
@@ -41,13 +41,13 @@ for.body.lr.ph:                                   ; preds = %if.then
 for.body.i13.preheader:                           ; preds = %xor_block.exit, %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blockhash_bytes, ptr noundef nonnull align 8 dereferenceable(1024) %blockhash, i64 1024, i1 false)
   %4 = load ptr, ptr %context, align 8
-  %outlen = getelementptr inbounds i8, ptr %context, i64 8
+  %outlen = getelementptr inbounds nuw i8, ptr %context, i64 8
   %5 = load i32, ptr %outlen, align 8
   %conv = zext i32 %5 to i64
   %call = call i32 @_sodium_blake2b_long(ptr noundef %4, i64 noundef %conv, ptr noundef nonnull %blockhash_bytes, i64 noundef 1024) #9
   call void @sodium_memzero(ptr noundef nonnull %blockhash, i64 noundef 1024) #9
   call void @sodium_memzero(ptr noundef nonnull %blockhash_bytes, i64 noundef 1024) #9
-  %pseudo_rands.i = getelementptr inbounds i8, ptr %instance, i64 8
+  %pseudo_rands.i = getelementptr inbounds nuw i8, ptr %instance, i64 8
   %6 = load ptr, ptr %pseudo_rands.i, align 8
   call void @free(ptr noundef %6) #9
   store ptr null, ptr %pseudo_rands.i, align 8
@@ -87,7 +87,7 @@ land.lhs.true.i.i:                                ; preds = %for.body.i13.prehea
   br i1 %cmp1.not.i.i, label %if.end4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %size.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load i64, ptr %size.i.i, align 8
   %call.i.i = call i32 @munmap(ptr noundef nonnull %11, i64 noundef %12) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -116,7 +116,7 @@ entry:
   br i1 %cmp, label %for.end11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %lanes = getelementptr inbounds i8, ptr %instance, i64 36
+  %lanes = getelementptr inbounds nuw i8, ptr %instance, i64 36
   %0 = load i32, ptr %lanes, align 4
   %cmp1 = icmp eq i32 %0, 0
   br i1 %cmp1, label %for.end11, label %for.body.preheader
@@ -165,28 +165,28 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %outlen = getelementptr inbounds i8, ptr %context, i64 8
+  %outlen = getelementptr inbounds nuw i8, ptr %context, i64 8
   %1 = load i32, ptr %outlen, align 8
   %cmp4 = icmp ult i32 %1, 16
   br i1 %cmp4, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end3
-  %pwd = getelementptr inbounds i8, ptr %context, i64 16
+  %pwd = getelementptr inbounds nuw i8, ptr %context, i64 16
   %2 = load ptr, ptr %pwd, align 8
   %cmp11 = icmp eq ptr %2, null
   br i1 %cmp11, label %if.then12, label %if.end24
 
 if.then12:                                        ; preds = %if.end10
-  %pwdlen = getelementptr inbounds i8, ptr %context, i64 24
+  %pwdlen = getelementptr inbounds nuw i8, ptr %context, i64 24
   %3 = load i32, ptr %pwdlen, align 8
   %cmp13.not = icmp eq i32 %3, 0
   br i1 %cmp13.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.then12, %if.end10
-  %salt = getelementptr inbounds i8, ptr %context, i64 32
+  %salt = getelementptr inbounds nuw i8, ptr %context, i64 32
   %4 = load ptr, ptr %salt, align 8
   %cmp25 = icmp eq ptr %4, null
-  %saltlen = getelementptr inbounds i8, ptr %context, i64 40
+  %saltlen = getelementptr inbounds nuw i8, ptr %context, i64 40
   %5 = load i32, ptr %saltlen, align 8
   br i1 %cmp25, label %if.then26, label %if.end30
 
@@ -200,31 +200,31 @@ if.end30:                                         ; preds = %if.end24
   br i1 %6, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.end30
-  %secret = getelementptr inbounds i8, ptr %context, i64 48
+  %secret = getelementptr inbounds nuw i8, ptr %context, i64 48
   %7 = load ptr, ptr %secret, align 8
   %cmp39 = icmp eq ptr %7, null
   br i1 %cmp39, label %if.then40, label %if.end52
 
 if.then40:                                        ; preds = %if.end38
-  %secretlen = getelementptr inbounds i8, ptr %context, i64 56
+  %secretlen = getelementptr inbounds nuw i8, ptr %context, i64 56
   %8 = load i32, ptr %secretlen, align 8
   %cmp41.not = icmp eq i32 %8, 0
   br i1 %cmp41.not, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.end38, %if.then40
-  %ad = getelementptr inbounds i8, ptr %context, i64 64
+  %ad = getelementptr inbounds nuw i8, ptr %context, i64 64
   %9 = load ptr, ptr %ad, align 8
   %cmp53 = icmp eq ptr %9, null
   br i1 %cmp53, label %if.then54, label %if.end67
 
 if.then54:                                        ; preds = %if.end52
-  %adlen = getelementptr inbounds i8, ptr %context, i64 72
+  %adlen = getelementptr inbounds nuw i8, ptr %context, i64 72
   %10 = load i32, ptr %adlen, align 8
   %cmp55.not = icmp eq i32 %10, 0
   br i1 %cmp55.not, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.end52, %if.then54
-  %lanes = getelementptr inbounds i8, ptr %context, i64 84
+  %lanes = getelementptr inbounds nuw i8, ptr %context, i64 84
   %11 = load i32, ptr %lanes, align 4
   %cmp68 = icmp eq i32 %11, 0
   br i1 %cmp68, label %return, label %if.end70
@@ -234,7 +234,7 @@ if.end70:                                         ; preds = %if.end67
   br i1 %cmp72, label %return, label %if.end74
 
 if.end74:                                         ; preds = %if.end70
-  %m_cost = getelementptr inbounds i8, ptr %context, i64 80
+  %m_cost = getelementptr inbounds nuw i8, ptr %context, i64 80
   %12 = load i32, ptr %m_cost, align 8
   %cmp75 = icmp ult i32 %12, 8
   %mul = shl nuw nsw i32 %11, 3
@@ -243,13 +243,13 @@ if.end74:                                         ; preds = %if.end70
   br i1 %or.cond, label %return, label %if.end88
 
 if.end88:                                         ; preds = %if.end74
-  %t_cost = getelementptr inbounds i8, ptr %context, i64 76
+  %t_cost = getelementptr inbounds nuw i8, ptr %context, i64 76
   %13 = load i32, ptr %t_cost, align 4
   %cmp89 = icmp eq i32 %13, 0
   br i1 %cmp89, label %return, label %if.end97
 
 if.end97:                                         ; preds = %if.end88
-  %threads = getelementptr inbounds i8, ptr %context, i64 88
+  %threads = getelementptr inbounds nuw i8, ptr %context, i64 88
   %14 = load i32, ptr %threads, align 8
   %cmp98 = icmp eq i32 %14, 0
   br i1 %cmp98, label %return, label %if.end101
@@ -277,18 +277,18 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %segment_length = getelementptr inbounds i8, ptr %instance, i64 28
+  %segment_length = getelementptr inbounds nuw i8, ptr %instance, i64 28
   %0 = load i32, ptr %segment_length, align 4
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call = tail call noalias ptr @malloc(i64 noundef %mul) #10
-  %pseudo_rands = getelementptr inbounds i8, ptr %instance, i64 8
+  %pseudo_rands = getelementptr inbounds nuw i8, ptr %instance, i64 8
   store ptr %call, ptr %pseudo_rands, align 8
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %memory_blocks = getelementptr inbounds i8, ptr %instance, i64 24
+  %memory_blocks = getelementptr inbounds nuw i8, ptr %instance, i64 24
   %1 = load i32, ptr %memory_blocks, align 8
   %conv.i = zext i32 %1 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 10
@@ -331,7 +331,7 @@ land.lhs.true.i.i:                                ; preds = %if.then9
   br i1 %cmp1.not.i.i, label %if.end4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %size.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %size.i.i, align 8
   %call.i.i = tail call i32 @munmap(ptr noundef nonnull %5, i64 noundef %6) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -349,29 +349,29 @@ if.end10:                                         ; preds = %if.end11.i
   %7 = load ptr, ptr %instance, align 8
   store ptr %call14.i, ptr %7, align 8
   %8 = load ptr, ptr %instance, align 8
-  %memory24.i = getelementptr inbounds i8, ptr %8, i64 8
+  %memory24.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call14.i, ptr %memory24.i, align 8
   %9 = load ptr, ptr %instance, align 8
-  %size.i = getelementptr inbounds i8, ptr %9, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %mul.i, ptr %size.i, align 8
-  %type = getelementptr inbounds i8, ptr %instance, i64 44
+  %type = getelementptr inbounds nuw i8, ptr %instance, i64 44
   %10 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %BlakeHash.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %call.i11 = call i32 @crypto_generichash_blake2b_init(ptr noundef nonnull %BlakeHash.i, ptr noundef null, i64 noundef 0, i64 noundef 64) #9
-  %lanes.i = getelementptr inbounds i8, ptr %context, i64 84
+  %lanes.i = getelementptr inbounds nuw i8, ptr %context, i64 84
   %11 = load i32, ptr %lanes.i, align 4
   store i32 %11, ptr %value.i, align 4
   %call3.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %outlen.i = getelementptr inbounds i8, ptr %context, i64 8
+  %outlen.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %12 = load i32, ptr %outlen.i, align 8
   store i32 %12, ptr %value.i, align 4
   %call6.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %m_cost.i = getelementptr inbounds i8, ptr %context, i64 80
+  %m_cost.i = getelementptr inbounds nuw i8, ptr %context, i64 80
   %13 = load i32, ptr %m_cost.i, align 8
   store i32 %13, ptr %value.i, align 4
   %call9.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %t_cost.i = getelementptr inbounds i8, ptr %context, i64 76
+  %t_cost.i = getelementptr inbounds nuw i8, ptr %context, i64 76
   %14 = load i32, ptr %t_cost.i, align 4
   store i32 %14, ptr %value.i, align 4
   %call12.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
@@ -379,11 +379,11 @@ if.end10:                                         ; preds = %if.end11.i
   %call15.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
   store i32 %10, ptr %value.i, align 4
   %call18.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %pwdlen.i = getelementptr inbounds i8, ptr %context, i64 24
+  %pwdlen.i = getelementptr inbounds nuw i8, ptr %context, i64 24
   %15 = load i32, ptr %pwdlen.i, align 8
   store i32 %15, ptr %value.i, align 4
   %call21.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %pwd.i = getelementptr inbounds i8, ptr %context, i64 16
+  %pwd.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   %16 = load ptr, ptr %pwd.i, align 8
   %cmp22.not.i = icmp eq ptr %16, null
   br i1 %cmp22.not.i, label %if.end33.i, label %if.then23.i
@@ -392,7 +392,7 @@ if.then23.i:                                      ; preds = %if.end10
   %17 = load i32, ptr %pwdlen.i, align 8
   %conv.i12 = zext i32 %17 to i64
   %call26.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %16, i64 noundef %conv.i12) #9
-  %flags.i = getelementptr inbounds i8, ptr %context, i64 92
+  %flags.i = getelementptr inbounds nuw i8, ptr %context, i64 92
   %18 = load i32, ptr %flags.i, align 4
   %and.i = and i32 %18, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -407,11 +407,11 @@ if.then27.i:                                      ; preds = %if.then23.i
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then27.i, %if.then23.i, %if.end10
-  %saltlen.i = getelementptr inbounds i8, ptr %context, i64 40
+  %saltlen.i = getelementptr inbounds nuw i8, ptr %context, i64 40
   %21 = load i32, ptr %saltlen.i, align 8
   store i32 %21, ptr %value.i, align 4
   %call36.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %salt.i = getelementptr inbounds i8, ptr %context, i64 32
+  %salt.i = getelementptr inbounds nuw i8, ptr %context, i64 32
   %22 = load ptr, ptr %salt.i, align 8
   %cmp37.not.i = icmp eq ptr %22, null
   br i1 %cmp37.not.i, label %if.end44.i, label %if.then39.i
@@ -423,11 +423,11 @@ if.then39.i:                                      ; preds = %if.end33.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then39.i, %if.end33.i
-  %secretlen.i = getelementptr inbounds i8, ptr %context, i64 56
+  %secretlen.i = getelementptr inbounds nuw i8, ptr %context, i64 56
   %24 = load i32, ptr %secretlen.i, align 8
   store i32 %24, ptr %value.i, align 4
   %call47.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %secret.i = getelementptr inbounds i8, ptr %context, i64 48
+  %secret.i = getelementptr inbounds nuw i8, ptr %context, i64 48
   %25 = load ptr, ptr %secret.i, align 8
   %cmp48.not.i = icmp eq ptr %25, null
   br i1 %cmp48.not.i, label %if.end64.i, label %if.then50.i
@@ -436,7 +436,7 @@ if.then50.i:                                      ; preds = %if.end44.i
   %26 = load i32, ptr %secretlen.i, align 8
   %conv53.i = zext i32 %26 to i64
   %call54.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %25, i64 noundef %conv53.i) #9
-  %flags55.i = getelementptr inbounds i8, ptr %context, i64 92
+  %flags55.i = getelementptr inbounds nuw i8, ptr %context, i64 92
   %27 = load i32, ptr %flags55.i, align 4
   %and56.i = and i32 %27, 2
   %tobool57.not.i = icmp eq i32 %and56.i, 0
@@ -451,11 +451,11 @@ if.then58.i:                                      ; preds = %if.then50.i
   br label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.then58.i, %if.then50.i, %if.end44.i
-  %adlen.i = getelementptr inbounds i8, ptr %context, i64 72
+  %adlen.i = getelementptr inbounds nuw i8, ptr %context, i64 72
   %30 = load i32, ptr %adlen.i, align 8
   store i32 %30, ptr %value.i, align 4
   %call67.i = call i32 @crypto_generichash_blake2b_update(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %value.i, i64 noundef 4) #9
-  %ad.i = getelementptr inbounds i8, ptr %context, i64 64
+  %ad.i = getelementptr inbounds nuw i8, ptr %context, i64 64
   %31 = load ptr, ptr %ad.i, align 8
   %cmp68.not.i = icmp eq ptr %31, null
   br i1 %cmp68.not.i, label %argon2_initial_hash.exit, label %if.then70.i
@@ -470,17 +470,17 @@ argon2_initial_hash.exit:                         ; preds = %if.end64.i, %if.the
   %call76.i = call i32 @crypto_generichash_blake2b_final(ptr noundef nonnull %BlakeHash.i, ptr noundef nonnull %blockhash, i64 noundef 64) #9
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %BlakeHash.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.i)
-  %add.ptr = getelementptr inbounds i8, ptr %blockhash, i64 64
+  %add.ptr = getelementptr inbounds nuw i8, ptr %blockhash, i64 64
   call void @sodium_memzero(ptr noundef nonnull %add.ptr, i64 noundef 8) #9
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %blockhash_bytes.i)
-  %lanes.i13 = getelementptr inbounds i8, ptr %instance, i64 36
+  %lanes.i13 = getelementptr inbounds nuw i8, ptr %instance, i64 36
   %33 = load i32, ptr %lanes.i13, align 4
   %cmp22.not.i14 = icmp eq i32 %33, 0
   br i1 %cmp22.not.i14, label %argon2_fill_first_blocks.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %argon2_initial_hash.exit
-  %add.ptr2.i = getelementptr inbounds i8, ptr %blockhash, i64 68
-  %lane_length.i = getelementptr inbounds i8, ptr %instance, i64 32
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %blockhash, i64 68
+  %lane_length.i = getelementptr inbounds nuw i8, ptr %instance, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %load_block.exit21.i, %for.body.lr.ph.i
@@ -489,7 +489,7 @@ for.body.i:                                       ; preds = %load_block.exit21.i
   store i32 %l.023.i, ptr %add.ptr2.i, align 4
   %call.i15 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72) #9
   %34 = load ptr, ptr %instance, align 8
-  %memory.i = getelementptr inbounds i8, ptr %34, i64 8
+  %memory.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %35 = load ptr, ptr %memory.i, align 8
   %36 = load i32, ptr %lane_length.i, align 8
   %mul.i16 = mul i32 %36, %l.023.i
@@ -512,7 +512,7 @@ load_block.exit.i:                                ; preds = %for.body.i.i
   store i32 1, ptr %add.ptr, align 16
   %call6.i17 = call i32 @_sodium_blake2b_long(ptr noundef nonnull %blockhash_bytes.i, i64 noundef 1024, ptr noundef nonnull %blockhash, i64 noundef 72) #9
   %37 = load ptr, ptr %instance, align 8
-  %memory8.i = getelementptr inbounds i8, ptr %37, i64 8
+  %memory8.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %38 = load ptr, ptr %memory8.i, align 8
   %39 = load i32, ptr %lane_length.i, align 8
   %mul10.i = mul i32 %39, %l.023.i

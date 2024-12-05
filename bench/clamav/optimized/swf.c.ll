@@ -163,17 +163,17 @@ define i32 @cli_scanswf(ptr noundef %0) local_unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca %struct.swf_file_hdr, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load i64, ptr %16, align 8
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %fmap_readn.exit.thread, label %18
 
 18:                                               ; preds = %1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 8)
-  %19 = getelementptr inbounds i8, ptr %15, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %15, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #8
   %.not26.i = icmp eq ptr %21, null
@@ -189,8 +189,8 @@ fmap_readn.exit.thread:                           ; preds = %18, %1, %fmap_readn
   br label %.loopexit
 
 22:                                               ; preds = %fmap_readn.exit
-  %23 = getelementptr inbounds i8, ptr %13, i64 4
-  %24 = getelementptr inbounds i8, ptr %13, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i32 noundef %26) #8
@@ -208,7 +208,7 @@ fmap_readn.exit.thread:                           ; preds = %18, %1, %fmap_readn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %29 = load ptr, ptr %14, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @cli_gentempfd(ptr noundef %31, ptr noundef nonnull %11, ptr noundef nonnull %12) #8
   %.not.i253 = icmp eq i32 %32, 0
@@ -239,13 +239,13 @@ fmap_readn.exit.thread:                           ; preds = %18, %1, %fmap_readn
   br label %scancws.exit
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %45, align 8
   store ptr %9, ptr %8, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %10, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 64
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   store i32 8192, ptr %48, align 8
   %49 = call i32 @inflateInit_(ptr noundef nonnull %8, ptr noundef nonnull @.str.33, i32 noundef 112) #8
@@ -253,8 +253,8 @@ fmap_readn.exit.thread:                           ; preds = %18, %1, %fmap_readn
   br i1 %.not53.i, label %.preheader.i, label %52
 
 .preheader.i:                                     ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %29, i64 88
-  %51 = getelementptr inbounds i8, ptr %29, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 104
   br label %58
 
 52:                                               ; preds = %44
@@ -407,9 +407,9 @@ fmap_readn.exit.thread66.i:                       ; preds = %97, %83, %61
   %119 = call i32 @cli_magic_scan_desc(i32 noundef %117, ptr noundef %118, ptr noundef %0, ptr noundef null, i32 noundef 0) #8
   %120 = load i32, ptr %12, align 4
   %121 = call i32 @close(i32 noundef %120) #8
-  %122 = getelementptr inbounds i8, ptr %0, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load i32, ptr %124, align 8
   %.not59.i = icmp eq i32 %125, 0
   br i1 %.not59.i, label %126, label %131
@@ -453,7 +453,7 @@ scancws.exit:                                     ; preds = %33, %37, %52, %fmap
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %135 = load ptr, ptr %14, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 @cli_gentempfd(ptr noundef %137, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %.not.i255 = icmp eq i32 %138, 0
@@ -484,7 +484,7 @@ scancws.exit:                                     ; preds = %33, %37, %52, %fmap
   br label %scanzws.exit
 
 150:                                              ; preds = %140
-  %151 = getelementptr inbounds i8, ptr %135, i64 88
+  %151 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %152 = load i64, ptr %151, align 8
   %or.cond.i259 = icmp ult i64 %152, 9
   br i1 %or.cond.i259, label %fmap_readn.exit.thread.i262, label %153
@@ -492,7 +492,7 @@ scancws.exit:                                     ; preds = %33, %37, %52, %fmap
 153:                                              ; preds = %150
   %154 = add i64 %152, -8
   %spec.select.i.i260 = call i64 @llvm.umin.i64(i64 %154, i64 4)
-  %155 = getelementptr inbounds i8, ptr %135, i64 104
+  %155 = getelementptr inbounds nuw i8, ptr %135, i64 104
   %156 = load ptr, ptr %155, align 8
   %157 = call ptr %156(ptr noundef nonnull %135, i64 noundef 8, i64 noundef %spec.select.i.i260, i32 noundef 0) #8
   %.not26.i.i261 = icmp eq ptr %157, null
@@ -551,13 +551,13 @@ fmap_readn.exit.thread.i262:                      ; preds = %fmap_readn.exit.i, 
 fmap_readn.exit86.i:                              ; preds = %173
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %176, i64 %spec.select.i83.i, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %2, i8 0, i64 168, i1 false)
-  %177 = getelementptr inbounds i8, ptr %2, i64 168
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store ptr %3, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %2, i64 176
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %4, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %2, i64 184
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i64 %spec.select.i83.i, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %2, i64 192
+  %180 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i64 8192, ptr %180, align 8
   %181 = load i32, ptr %23, align 4
   %182 = zext i32 %181 to i64
@@ -744,9 +744,9 @@ fmap_readn.exit91.thread.i:                       ; preds = %208, %206
   %258 = call i32 @cli_magic_scan_desc(i32 noundef %256, ptr noundef %257, ptr noundef %0, ptr noundef null, i32 noundef 0) #8
   %259 = load i32, ptr %7, align 4
   %260 = call i32 @close(i32 noundef %259) #8
-  %261 = getelementptr inbounds i8, ptr %0, i64 48
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 40
   %264 = load i32, ptr %263, align 8
   %.not73.i = icmp eq i32 %264, 0
   br i1 %.not73.i, label %265, label %270
@@ -1208,12 +1208,12 @@ fmap_readn.exit338.thread:                        ; preds = %430, %fmap_readn.ex
 .lr.ph531:                                        ; preds = %.lr.ph531.preheader, %443
   %indvars.iv.i529 = phi i64 [ %indvars.iv.next.i, %443 ], [ 0, %.lr.ph531.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i529, 1
-  %442 = getelementptr inbounds [83 x %struct.tag_names_s], ptr @tag_names, i64 0, i64 %indvars.iv.next.i
+  %442 = getelementptr inbounds nuw [83 x %struct.tag_names_s], ptr @tag_names, i64 0, i64 %indvars.iv.next.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 82
   br i1 %exitcond.i, label %tagname.exit, label %443
 
 443:                                              ; preds = %.lr.ph531
-  %444 = getelementptr inbounds i8, ptr %442, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %442, i64 8
   %445 = load i32, ptr %444, align 8
   %446 = icmp eq i32 %445, %402
   br i1 %446, label %tagname.exit, label %.lr.ph531

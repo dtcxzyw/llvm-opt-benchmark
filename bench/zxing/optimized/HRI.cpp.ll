@@ -20,16 +20,16 @@ $_ZNK5ZXing6AiInfo6aiSizeEv = comdat any
 define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %6, align 8, !tbaa !8
   store i8 0, ptr %5, align 8, !tbaa !11
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %8, label %.preheader
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !3
   br label %128
 
@@ -41,25 +41,25 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 10:                                               ; preds = %27, %.preheader
   %11 = phi i64 [ %29, %27 ], [ 48, %.preheader ]
   %12 = phi i64 [ %28, %27 ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr @_ZN5ZXingL7aiInfosE, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %12
   %14 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull %13) #11
   br i1 %14, label %37, label %15
 
 15:                                               ; preds = %10
   %16 = or disjoint i64 %12, 6
-  %17 = getelementptr inbounds i8, ptr @_ZN5ZXingL7aiInfosE, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %16
   %18 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull %17) #11
   br i1 %18, label %37, label %19
 
 19:                                               ; preds = %15
   %20 = add nuw nsw i64 %12, 12
-  %21 = getelementptr inbounds i8, ptr @_ZN5ZXingL7aiInfosE, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %20
   %22 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull %21) #11
   br i1 %22, label %37, label %23
 
 23:                                               ; preds = %19
   %24 = add nuw nsw i64 %12, 18
-  %25 = getelementptr inbounds i8, ptr @_ZN5ZXingL7aiInfosE, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL7aiInfosE, i64 %24
   %26 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEE3$_1EclIPKNS2_6AiInfoEEEbT_"(i64 %.sroa.0.0, ptr %.sroa.18.0, ptr noundef nonnull %25) #11
   br i1 %26, label %40, label %27
 
@@ -91,9 +91,9 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %35, %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %43, ptr %0, align 8, !tbaa !3
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %138
 
 45:                                               ; preds = %31, %33, %35, %40, %37
@@ -107,9 +107,9 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %52, ptr %0, align 8, !tbaa !3
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %138
 
 54:                                               ; preds = %61, %56, %45
@@ -134,7 +134,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 62:                                               ; preds = %61
   %63 = getelementptr inbounds i8, ptr %.sroa.18.0, i64 %58
   %64 = sub i64 %.sroa.0.0, %58
-  %65 = getelementptr inbounds i8, ptr %46, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 5
   %66 = load i8, ptr %65, align 1, !tbaa !14
   %67 = call i8 @llvm.abs.i8(i8 %66, i1 false)
   %68 = zext i8 %67 to i32
@@ -176,9 +176,9 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %0, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %94, ptr %0, align 8, !tbaa !3
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %138
 
 96:                                               ; preds = %87
@@ -200,7 +200,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
   br i1 %107, label %108, label %113
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %101, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 1
   %110 = add i64 %102, -1
   br label %113
 
@@ -237,7 +237,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 
 124:                                              ; preds = %113
   %125 = load ptr, ptr %4, align 8, !tbaa !17
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %126, ptr %0, align 8, !tbaa !3
   %127 = icmp eq ptr %125, %5
   %.pre = load i64, ptr %6, align 8, !tbaa !8
@@ -260,7 +260,7 @@ define void @_ZN5ZXing10HRIFromGS1B5cxx11ESt17basic_string_viewIcSt11char_traits
 
 135:                                              ; preds = %133, %128
   %136 = phi i64 [ %129, %128 ], [ %.pre, %133 ]
-  %137 = getelementptr inbounds i8, ptr %0, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %136, ptr %137, align 8, !tbaa !8
   store ptr %5, ptr %4, align 8, !tbaa !17
   br label %138
@@ -304,7 +304,7 @@ define linkonce_odr noundef i32 @_ZNK5ZXing6AiInfo6aiSizeEv(ptr noundef nonnull 
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !11
   %7 = sext i8 %6 to i32
   %8 = tail call ptr @memchr(ptr nonnull dereferenceable(1) @.str.1, i32 %7, i64 8)
@@ -340,9 +340,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress optsize uwtable
 define void @_ZN5ZXing15HRIFromISO15434B5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8, !tbaa !8
   store i8 0, ptr %4, align 8, !tbaa !11
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) #11
@@ -384,7 +384,7 @@ define void @_ZN5ZXing15HRIFromISO15434B5cxx11ESt17basic_string_viewIcSt11char_t
           to label %23 unwind label %18
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %11, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %25 = icmp eq ptr %24, %7
   br i1 %25, label %.loopexit, label %.preheader
 

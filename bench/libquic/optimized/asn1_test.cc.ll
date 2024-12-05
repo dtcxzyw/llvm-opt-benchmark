@@ -77,14 +77,14 @@ lor.lhs.false.i:                                  ; preds = %_ZNSt10unique_ptrI1
   br i1 %cmp.not.i, label %lor.lhs.false20.i, label %if.then27.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false.i
-  %value.i = getelementptr inbounds i8, ptr %call16.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %call16.i, i64 8
   %2 = load ptr, ptr %value.i, align 8
   %3 = load i32, ptr %2, align 8
   %cmp22.not.i = icmp eq i32 %3, 1
   br i1 %cmp22.not.i, label %lor.lhs.false23.i, label %if.then27.i
 
 lor.lhs.false23.i:                                ; preds = %lor.lhs.false20.i
-  %data.i = getelementptr inbounds i8, ptr %2, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %5 = load i8, ptr %4, align 1
   %cmp26.not.i = icmp eq i8 %5, 0

@@ -144,14 +144,14 @@ define dso_local ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef %1, ptr
   br i1 %11, label %.loopexit4, label %12
 
 12:                                               ; preds = %.preheader3
-  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i16, ptr %13, align 4
   %15 = and i16 %14, 146
   %16 = icmp eq i16 %15, 0
   br i1 %16, label %36, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = tail call zeroext i1 @is_module_address(i64 noundef %20) #5
@@ -214,8 +214,8 @@ define dso_local ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef %1, ptr
 
 .loopexit:                                        ; preds = %.preheader, %42, %.thread, %.loopexit4
   %51 = phi i64 [ 0, %.loopexit4 ], [ 0, %.thread ], [ %49, %42 ], [ %49, %.preheader ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 176
-  %53 = tail call ptr @__register_sysctl_table(ptr noundef %52, ptr noundef %1, ptr noundef %2, i64 noundef %51) #5
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %53 = tail call ptr @__register_sysctl_table(ptr noundef nonnull %52, ptr noundef %1, ptr noundef %2, i64 noundef %51) #5
   ret ptr %53
 }
 
@@ -230,15 +230,15 @@ define dso_local void @unregister_net_sysctl_table(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @sysctl_net_init(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @setup_sysctl_set(ptr noundef %2, ptr noundef nonnull @net_sysctl_root, ptr noundef nonnull @is_seen) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @setup_sysctl_set(ptr noundef nonnull %2, ptr noundef nonnull @net_sysctl_root, ptr noundef nonnull @is_seen) #5
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @sysctl_net_exit(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @retire_sysctl_set(ptr noundef %2) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @retire_sysctl_set(ptr noundef nonnull %2) #5
   ret void
 }
 
@@ -249,11 +249,11 @@ declare dso_local void @setup_sysctl_set(ptr noundef, ptr noundef, ptr noundef) 
 define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone %0) #3 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1872
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = icmp eq ptr %8, %0
   %10 = zext i1 %9 to i32
   ret i32 %10
@@ -263,11 +263,11 @@ define internal range(i32 0, 2) i32 @is_seen(ptr noundef readnone %0) #3 align 1
 define internal ptr @net_ctl_header_lookup(ptr nocapture readnone %0) #3 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !14
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1872
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1872
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   ret ptr %8
 }
 
@@ -280,12 +280,12 @@ define internal void @net_ctl_set_ownership(ptr nocapture readonly %0, ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 65536) i32 @net_ctl_permissions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -96
   %6 = load ptr, ptr %5, align 16
   %7 = tail call zeroext i1 @ns_capable_noaudit(ptr noundef %6, i32 noundef 12) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i16, ptr %8, align 4
   %10 = lshr i16 %9, 6
   %11 = and i16 %10, 7

@@ -245,7 +245,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 56:                                               ; preds = %54, %52
   %.2 = phi i32 [ %55, %54 ], [ %.050.ph206, %52 ]
   store ptr @merge_callback, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %57, align 8
   %58 = load i32, ptr %3, align 4
   %59 = load i32, ptr @ws_optind, align 4
@@ -290,7 +290,7 @@ sub_0:                                            ; preds = %71, %72
   br i1 %.not102, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %79 = getelementptr inbounds i8, ptr %.048.ph210, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.048.ph210, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %82, label %.tail.thread
@@ -491,7 +491,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #4 {
   %1 = load ptr, ptr @stderr, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 66, i64 1, ptr %1) #10
   %3 = tail call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0) #8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -590,7 +590,7 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
   %6 = load ptr, ptr @stderr, align 8
   %7 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv38
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @wtap_file_type_subtype(ptr noundef %10) #8
   %12 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %11) #8
@@ -604,7 +604,7 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %15, label %16, label %.loopexit28
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @wtap_file_encap(ptr noundef %18) #8
   %20 = icmp ugt i32 %3, 1
@@ -622,7 +622,7 @@ define internal noundef i32 @merge_callback(i32 noundef %0, i32 noundef %1, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @wtap_file_encap(ptr noundef %24) #8
   %.not = icmp eq i32 %19, %25

@@ -43,7 +43,7 @@ define i32 @SzFolder_Decode(ptr nocapture noundef readonly %0, ptr noundef reado
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, -5
   %or.cond.i.i = icmp ult i32 %30, -4
@@ -51,7 +51,7 @@ define i32 @SzFolder_Decode(ptr nocapture noundef readonly %0, ptr noundef reado
 
 31:                                               ; preds = %7
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 116459265
   br i1 %35, label %SzFolder_Decode2.exit, label %36
@@ -62,7 +62,7 @@ define i32 @SzFolder_Decode(ptr nocapture noundef readonly %0, ptr noundef reado
   br i1 %38, label %39, label %SzFolder_Decode2.exit
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %32, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 1
   %43 = icmp ult i64 %34, 4294967296
@@ -86,70 +86,70 @@ IS_SUPPORTED_CODER.exit.i.i:                      ; preds = %44, %44, %44, %44
   ]
 
 46:                                               ; preds = %IS_SUPPORTED_CODER.exit.i.i
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %.not61.i.i = icmp eq i32 %48, 1
   br i1 %.not61.i.i, label %49, label %SzFolder_Decode2.exit
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 4
   %.not62.i.i = icmp eq i32 %52, 0
   br i1 %.not62.i.i, label %53, label %SzFolder_Decode2.exit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %55 = load i32, ptr %54, align 4
   %.not63.i.i = icmp eq i32 %55, 0
   br i1 %.not63.i.i, label %.lr.ph.i, label %SzFolder_Decode2.exit
 
 56:                                               ; preds = %IS_SUPPORTED_CODER.exit.i.i
-  %57 = getelementptr inbounds i8, ptr %32, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %58 = load i64, ptr %57, align 8
   %59 = icmp ugt i64 %58, 4294967295
   br i1 %59, label %SzFolder_Decode2.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %32, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %62 = load i32, ptr %61, align 8
   %.not54.i.i = icmp eq i32 %62, 1
   br i1 %.not54.i.i, label %63, label %SzFolder_Decode2.exit
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %32, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %65 = load i32, ptr %64, align 4
   %.not55.i.i = icmp eq i32 %65, 1
   br i1 %.not55.i.i, label %66, label %SzFolder_Decode2.exit
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load i32, ptr %67, align 8
   %.not56.i.i = icmp eq i32 %68, 1
   br i1 %.not56.i.i, label %69, label %SzFolder_Decode2.exit
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 4
   %.not57.i.i = icmp eq i32 %72, 0
   br i1 %.not57.i.i, label %73, label %SzFolder_Decode2.exit
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %75 = load i32, ptr %74, align 4
   %.not58.i.i = icmp eq i32 %75, 1
   br i1 %.not58.i.i, label %76, label %SzFolder_Decode2.exit
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %78, align 4
   %.not59.i.i = icmp eq i32 %79, 1
   br i1 %.not59.i.i, label %80, label %SzFolder_Decode2.exit
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %78, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %82 = load i32, ptr %81, align 4
   %.not60.i.i = icmp eq i32 %82, 0
   br i1 %.not60.i.i, label %83, label %SzFolder_Decode2.exit
@@ -162,19 +162,19 @@ IS_SUPPORTED_CODER.exit.i.i:                      ; preds = %44, %44, %44, %44
   ]
 
 84:                                               ; preds = %IS_SUPPORTED_CODER.exit.i.i
-  %85 = getelementptr inbounds i8, ptr %32, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, 1
   br i1 %87, label %88, label %SzFolder_Decode2.exit
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %32, i64 36
+  %89 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, 1
   br i1 %91, label %92, label %SzFolder_Decode2.exit
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %32, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %94 = load i64, ptr %93, align 8
   %95 = icmp ult i64 %94, 4294967296
   br i1 %95, label %96, label %SzFolder_Decode2.exit
@@ -189,19 +189,19 @@ IS_SUPPORTED_CODER.exit.i.i:                      ; preds = %44, %44, %44, %44
   ]
 
 IS_SUPPORTED_CODER.exit65.i.i:                    ; preds = %96, %96, %96, %96
-  %98 = getelementptr inbounds i8, ptr %32, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %99, 1
   br i1 %100, label %101, label %SzFolder_Decode2.exit
 
 101:                                              ; preds = %IS_SUPPORTED_CODER.exit65.i.i
-  %102 = getelementptr inbounds i8, ptr %32, i64 68
+  %102 = getelementptr inbounds nuw i8, ptr %32, i64 68
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 1
   br i1 %104, label %105, label %SzFolder_Decode2.exit
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %32, i64 72
+  %106 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %107 = load i64, ptr %106, align 8
   %108 = icmp ult i64 %107, 4294967296
   br i1 %108, label %109, label %SzFolder_Decode2.exit
@@ -216,121 +216,121 @@ IS_SUPPORTED_CODER.exit65.i.i:                    ; preds = %96, %96, %96, %96
   ]
 
 IS_SUPPORTED_CODER.exit66.i.i:                    ; preds = %109, %109, %109, %109
-  %111 = getelementptr inbounds i8, ptr %32, i64 104
+  %111 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %112 = load i64, ptr %111, align 8
   %113 = icmp eq i64 %112, 50528539
   br i1 %113, label %114, label %SzFolder_Decode2.exit
 
 114:                                              ; preds = %IS_SUPPORTED_CODER.exit66.i.i
-  %115 = getelementptr inbounds i8, ptr %32, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 4
   br i1 %117, label %118, label %SzFolder_Decode2.exit
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %32, i64 100
+  %119 = getelementptr inbounds nuw i8, ptr %32, i64 100
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 1
   br i1 %121, label %122, label %SzFolder_Decode2.exit
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %0, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %124 = load i32, ptr %123, align 8
   %.not42.i.i = icmp eq i32 %124, 4
   br i1 %.not42.i.i, label %125, label %SzFolder_Decode2.exit
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = load i32, ptr %127, align 4
   %.not43.i.i = icmp eq i32 %128, 2
   br i1 %.not43.i.i, label %129, label %SzFolder_Decode2.exit
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %127, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %131 = load i32, ptr %130, align 4
   %.not44.i.i = icmp eq i32 %131, 6
   br i1 %.not44.i.i, label %132, label %SzFolder_Decode2.exit
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %127, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %134 = load i32, ptr %133, align 4
   %.not45.i.i = icmp eq i32 %134, 1
   br i1 %.not45.i.i, label %135, label %SzFolder_Decode2.exit
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %127, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %137 = load i32, ptr %136, align 4
   %.not46.i.i = icmp eq i32 %137, 0
   br i1 %.not46.i.i, label %138, label %SzFolder_Decode2.exit
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %0, i64 36
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %140 = load i32, ptr %139, align 4
   %.not47.i.i = icmp eq i32 %140, 3
   br i1 %.not47.i.i, label %141, label %SzFolder_Decode2.exit
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %0, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = load i32, ptr %143, align 4
   %.not48.i.i = icmp eq i32 %144, 5
   br i1 %.not48.i.i, label %145, label %SzFolder_Decode2.exit
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %143, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %147 = load i32, ptr %146, align 4
   %.not49.i.i = icmp eq i32 %147, 0
   br i1 %.not49.i.i, label %148, label %SzFolder_Decode2.exit
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %143, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %150 = load i32, ptr %149, align 4
   %.not50.i.i = icmp eq i32 %150, 4
   br i1 %.not50.i.i, label %151, label %SzFolder_Decode2.exit
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %143, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %143, i64 12
   %153 = load i32, ptr %152, align 4
   %.not51.i.i = icmp eq i32 %153, 1
   br i1 %.not51.i.i, label %154, label %SzFolder_Decode2.exit
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %143, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %156 = load i32, ptr %155, align 4
   %.not52.i.i = icmp eq i32 %156, 3
   br i1 %.not52.i.i, label %157, label %SzFolder_Decode2.exit
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %143, i64 20
+  %158 = getelementptr inbounds nuw i8, ptr %143, i64 20
   %159 = load i32, ptr %158, align 4
   %.not53.i.i = icmp eq i32 %159, 2
   br i1 %.not53.i.i, label %.lr.ph.i, label %SzFolder_Decode2.exit
 
 .lr.ph.i:                                         ; preds = %157, %83, %83, %53
   %.not150213.i = icmp eq ptr %1, null
-  %160 = getelementptr inbounds i8, ptr %0, i64 24
-  %161 = getelementptr inbounds i8, ptr %13, i64 24
-  %162 = getelementptr inbounds i8, ptr %13, i64 16
-  %163 = getelementptr inbounds i8, ptr %13, i64 56
-  %164 = getelementptr inbounds i8, ptr %13, i64 48
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
-  %166 = getelementptr inbounds i8, ptr %18, i64 16
-  %167 = getelementptr inbounds i8, ptr %18, i64 24
-  %168 = getelementptr inbounds i8, ptr %18, i64 56
-  %169 = getelementptr inbounds i8, ptr %18, i64 48
-  %170 = getelementptr inbounds i8, ptr %11, i64 48
-  %171 = getelementptr inbounds i8, ptr %11, i64 8
-  %172 = getelementptr inbounds i8, ptr %11, i64 24
-  %173 = getelementptr inbounds i8, ptr %11, i64 40
-  %174 = getelementptr inbounds i8, ptr %11, i64 32
-  %175 = getelementptr inbounds i8, ptr %12, i64 32
-  %176 = getelementptr inbounds i8, ptr %12, i64 28
-  %177 = getelementptr inbounds i8, ptr %1, i64 8
-  %178 = getelementptr inbounds i8, ptr %25, i64 16
-  %179 = getelementptr inbounds i8, ptr %27, i64 16
-  %180 = getelementptr inbounds i8, ptr %27, i64 8
-  %181 = getelementptr inbounds i8, ptr %25, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %164 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %171 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %182
 
 182:                                              ; preds = %386, %.lr.ph.i
@@ -339,8 +339,8 @@ IS_SUPPORTED_CODER.exit66.i.i:                    ; preds = %109, %109, %109, %1
   %.0122269.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %386 ]
   %.0123268.i = phi ptr [ null, %.lr.ph.i ], [ %.2125.i, %386 ]
   %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds %struct.CSzCoderInfo, ptr %184, i64 %indvars.iv.i
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %185 = getelementptr inbounds nuw %struct.CSzCoderInfo, ptr %184, i64 %indvars.iv.i
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i64, ptr %186, align 8
   %188 = trunc i64 %187 to i32
   switch i32 %188, label %348 [
@@ -356,9 +356,9 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
 
 190:                                              ; preds = %IS_MAIN_METHOD.exit.i
   %191 = load ptr, ptr %160, align 8
-  %192 = getelementptr inbounds i64, ptr %191, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw i64, ptr %191, i64 %indvars.iv.i
   %193 = load i64, ptr %192, align 8
-  %194 = getelementptr inbounds [3 x i32], ptr @__const.SzFolder_Decode2.indices, i64 0, i64 %indvars.iv.i
+  %194 = getelementptr inbounds nuw [3 x i32], ptr @__const.SzFolder_Decode2.indices, i64 0, i64 %indvars.iv.i
   %195 = load i32, ptr %194, align 4
   %196 = icmp samesign ult i64 %indvars.iv.i, 2
   br i1 %196, label %197, label %202
@@ -381,9 +381,9 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
 
 206:                                              ; preds = %197
   %207 = sub nuw nsw i64 1, %indvars.iv.i
-  %208 = getelementptr inbounds ptr, ptr %27, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %27, i64 %207
   store ptr %199, ptr %208, align 8
-  %209 = getelementptr inbounds [3 x i64], ptr %25, i64 0, i64 %207
+  %209 = getelementptr inbounds nuw [3 x i64], ptr %25, i64 0, i64 %207
   store i64 %193, ptr %209, align 8
   br i1 %.not150213.i, label %SzFolder_Decode2.exit, label %.lr.ph.preheader.i.i
 
@@ -402,7 +402,7 @@ IS_MAIN_METHOD.exit.i:                            ; preds = %182, %182, %182, %1
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %214, %.lr.ph.i.i ]
-  %212 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
+  %212 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i
   %213 = load i64, ptr %212, align 8
   %214 = add i64 %213, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -416,7 +416,7 @@ GetSum.exit.i:                                    ; preds = %.lr.ph.i.i, %.threa
   %.1124217227.i = phi ptr [ %.0123268.i, %.thread.i ], [ %211, %.thread307.i ], [ %.0123268.i, %.lr.ph.i.i ]
   %.1218226.i = phi i64 [ %.0122269.i, %.thread.i ], [ %193, %.thread307.i ], [ %.0122269.i, %.lr.ph.i.i ]
   %.06.lcssa.i.i = phi i64 [ 0, %.thread.i ], [ 0, %.thread307.i ], [ %214, %.lr.ph.i.i ]
-  %215 = getelementptr inbounds i64, ptr %1, i64 %.0126216228.i
+  %215 = getelementptr inbounds nuw i64, ptr %1, i64 %.0126216228.i
   %216 = load i64, ptr %215, align 8
   %217 = add i64 %.06.lcssa.i.i, %3
   %218 = call i32 @LookInStream_SeekTo(ptr noundef %2, i64 noundef %217) #6
@@ -589,14 +589,14 @@ SzDecodeLzma.exit.i:                              ; preds = %261
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  %269 = getelementptr inbounds i8, ptr %185, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %185, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   %270 = load i64, ptr %269, align 8
   %.not.i168.i = icmp eq i64 %270, 1
   br i1 %.not.i168.i, label %271, label %SzDecodeLzma2.exit.thread.i
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %185, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %273 = load ptr, ptr %272, align 8
   %274 = load i8, ptr %273, align 1
   %275 = call i32 @Lzma2Dec_AllocateProbs(ptr noundef nonnull %13, i8 noundef zeroext %274, ptr noundef %6) #6
@@ -693,18 +693,18 @@ SzDecodeLzma2.exit.i:                             ; preds = %293, %289
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   store ptr @ReadByte, ptr %11, align 8
   store ptr %2, ptr %170, align 8
-  %304 = getelementptr inbounds i8, ptr %185, i64 24
+  %304 = getelementptr inbounds nuw i8, ptr %185, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %171, i8 0, i64 40, i1 false)
   %305 = load i64, ptr %304, align 8
   %.not.i178.i = icmp eq i64 %305, 5
   br i1 %.not.i178.i, label %306, label %SzDecodePpmd.exit.thread.i
 
 306:                                              ; preds = %303
-  %307 = getelementptr inbounds i8, ptr %185, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %308 = load ptr, ptr %307, align 8
   %309 = load i8, ptr %308, align 1
   %310 = zext i8 %309 to i32
-  %311 = getelementptr inbounds i8, ptr %308, i64 1
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 1
   %312 = load i32, ptr %311, align 1
   %313 = add i8 %309, -65
   %or.cond.i180.i = icmp ult i8 %313, -63
@@ -737,7 +737,7 @@ SzDecodeLzma2.exit.i:                             ; preds = %293, %289
   br i1 %.not49.i181.i, label %._crit_edge.i.i, label %.lr.ph.i182.i
 
 322:                                              ; preds = %320
-  %323 = getelementptr inbounds i8, ptr %11, i64 44
+  %323 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %324 = load i32, ptr %323, align 4
   %325 = call i32 @llvm.umax.i32(i32 %324, i32 1)
   br label %SzDecodePpmd.exit.thread247.i
@@ -765,7 +765,7 @@ SzDecodeLzma2.exit.i:                             ; preds = %293, %289
   br i1 %.not41.i.i, label %SzDecodePpmd.exit.i, label %334
 
 334:                                              ; preds = %._crit_edge.i.i
-  %335 = getelementptr inbounds i8, ptr %11, i64 44
+  %335 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %336 = load i32, ptr %335, align 4
   %337 = call i32 @llvm.umax.i32(i32 %336, i32 1)
   br label %SzDecodePpmd.exit.thread247.i
@@ -912,13 +912,13 @@ SzFolder_Decode2.exit:                            ; preds = %197, %202, %204, %2
   %.0.i = phi i32 [ %.0.i161.ph.i, %SzDecodeCopy.exit.thread.i ], [ %240, %SzDecodeLzma.exit.thread.i ], [ %.026.i.ph.i, %SzDecodeLzma.exit.thread235.i ], [ %.0.i169.ph.i, %SzDecodeLzma2.exit.thread.i ], [ %.026.i175.ph.i, %SzDecodeLzma2.exit.thread241.i ], [ %.0.i179.ph.i, %SzDecodePpmd.exit.thread.i ], [ %.034.i.ph.i, %SzDecodePpmd.exit.thread247.i ], [ %.0.i199.ph.i, %SzDecodeCopy.exit201.thread.i ], [ 4, %109 ], [ 4, %IS_SUPPORTED_CODER.exit65.i.i ], [ 4, %101 ], [ 4, %105 ], [ 4, %96 ], [ 4, %84 ], [ 4, %88 ], [ 4, %92 ], [ 4, %44 ], [ 4, %36 ], [ 4, %39 ], [ 4, %157 ], [ 4, %53 ], [ 4, %IS_SUPPORTED_CODER.exit.i.i ], [ 4, %122 ], [ 4, %125 ], [ 4, %129 ], [ 4, %132 ], [ 4, %135 ], [ 4, %138 ], [ 4, %141 ], [ 4, %145 ], [ 4, %148 ], [ 4, %151 ], [ 4, %154 ], [ 4, %IS_SUPPORTED_CODER.exit66.i.i ], [ 4, %114 ], [ 4, %118 ], [ 4, %83 ], [ 4, %56 ], [ 4, %60 ], [ 4, %63 ], [ 4, %66 ], [ 4, %69 ], [ 4, %73 ], [ 4, %76 ], [ 4, %80 ], [ 4, %46 ], [ 4, %49 ], [ 18, %31 ], [ 4, %7 ], [ 1, %SzDecodeLzma.exit.i ], [ 11, %.thread.i ], [ 0, %386 ], [ 4, %381 ], [ 4, %380 ], [ %379, %374 ], [ 2, %355 ], [ %354, %351 ], [ 4, %.lr.ph.i186.preheader.i ], [ 1, %SzDecodePpmd.exit.i ], [ 1, %SzDecodeLzma2.exit.i ], [ 1, %221 ], [ %218, %GetSum.exit.i ], [ 11, %206 ], [ 4, %202 ], [ 5, %204 ], [ 2, %197 ], [ 11, %.thread307.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  %390 = getelementptr inbounds i8, ptr %6, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %391
 
 391:                                              ; preds = %SzFolder_Decode2.exit, %391
   %indvars.iv = phi i64 [ 0, %SzFolder_Decode2.exit ], [ %indvars.iv.next, %391 ]
   %392 = load ptr, ptr %390, align 8
-  %393 = getelementptr inbounds [3 x ptr], ptr %27, i64 0, i64 %indvars.iv
+  %393 = getelementptr inbounds nuw [3 x ptr], ptr %27, i64 0, i64 %indvars.iv
   %394 = load ptr, ptr %393, align 8
   call void %392(ptr noundef %6, ptr noundef %394) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -960,38 +960,38 @@ declare i32 @Lzma2Dec_DecodeToDic(ptr noundef, i64 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal zeroext i8 @ReadByte(ptr noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %8, ptr %3, align 8
   %9 = load i8, ptr %4, align 1
   br label %39
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %37
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %4 to i64
   %18 = ptrtoint ptr %16 to i64
   %19 = sub i64 %17, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef %24, i64 noundef %19) #6
   store i32 %27, ptr %11, align 4
@@ -1009,13 +1009,13 @@ define internal zeroext i8 @ReadByte(ptr noundef %0) #0 {
   br i1 %.not22, label %37, label %34
 
 34:                                               ; preds = %14
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %35, ptr %3, align 8
   %36 = load i8, ptr %31, align 1
   br label %39
 
 37:                                               ; preds = %14, %10
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %38, align 8
   br label %39
 

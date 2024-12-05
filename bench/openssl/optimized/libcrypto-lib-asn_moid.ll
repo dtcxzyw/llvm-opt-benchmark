@@ -38,9 +38,9 @@ for.cond:                                         ; preds = %do_create.exit
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.011 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.011) #5
-  %value = getelementptr inbounds i8, ptr %call6, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds i8, ptr %call6, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %1 = load ptr, ptr %name, align 8
   %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 44) #6
   %cmp.i = icmp eq ptr %call.i, null
@@ -48,7 +48,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 if.else.i:                                        ; preds = %for.body
   %cmp1.i = icmp eq ptr %call.i, %0
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   br i1 %cmp1.i, label %do_create.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i
@@ -62,7 +62,7 @@ while.cond.i:                                     ; preds = %if.else3.i, %while.
   %conv8.i = sext i8 %3 to i32
   %call9.i = tail call i32 @ossl_ctype_check(i32 noundef %conv8.i, i32 noundef 8) #5
   %tobool.not.i = icmp eq i32 %call9.i, 0
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ostr.1.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %ostr.1.i, i64 1
   br i1 %tobool.not.i, label %while.cond10.i, label %while.cond.i, !llvm.loop !6
 
 while.cond10.i:                                   ; preds = %while.cond.i, %while.cond10.i
@@ -71,7 +71,7 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   %conv11.i = sext i8 %4 to i32
   %call12.i = tail call i32 @ossl_ctype_check(i32 noundef %conv11.i, i32 noundef 8) #5
   %tobool13.not.i = icmp eq i32 %call12.i, 0
-  %incdec.ptr15.i = getelementptr inbounds i8, ptr %ln.1.i, i64 1
+  %incdec.ptr15.i = getelementptr inbounds nuw i8, ptr %ln.1.i, i64 1
   br i1 %tobool13.not.i, label %while.cond18.i, label %while.cond10.i, !llvm.loop !7
 
 while.cond18.i:                                   ; preds = %while.cond10.i, %while.body22.i

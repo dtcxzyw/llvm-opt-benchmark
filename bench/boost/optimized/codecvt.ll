@@ -92,7 +92,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i: ; preds = %31
   %33 = load ptr, ptr %32, align 8, !tbaa !13
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32) #9
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit
@@ -116,7 +116,7 @@ _ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2
 
 _ZNKSt14default_deleteIN5boost6locale4util14base_converterEEclEPS3_.exit.i17: ; preds = %38
   %41 = load ptr, ptr %40, align 8, !tbaa !13
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(8) %40) #9
   br label %_ZNSt10unique_ptrIN5boost6locale4util14base_converterESt14default_deleteIS3_EED2Ev.exit18

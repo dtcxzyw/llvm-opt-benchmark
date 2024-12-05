@@ -4602,7 +4602,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #8
   store ptr null, ptr %5, align 8
   %20 = load i32, ptr @hf_marc_leader_length, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef 0, ptr noundef %22, ptr noundef nonnull %5) #8
   %24 = load ptr, ptr %5, align 8
@@ -4904,9 +4904,9 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %183 = zext i32 %.0290348 to i64
   %184 = getelementptr %struct.marc_directory_entry, ptr %121, i64 %183
   store i32 %.0294, ptr %184, align 4
-  %185 = getelementptr inbounds i8, ptr %184, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store i32 %.0295, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %184, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i32 %.0296, ptr %186, align 4
   %187 = add i32 %.0290348, 1
   %188 = icmp ult i32 %165, %115
@@ -4935,7 +4935,7 @@ define internal noundef i32 @dissect_marc_record(ptr noundef %0, ptr noundef %1,
   %.1293349 = phi i32 [ %191, %.lr.ph352.preheader ], [ %.4, %246 ]
   %197 = load i32, ptr @hf_marc_field, align 4
   %198 = getelementptr %struct.marc_directory_entry, ptr %121, i64 %indvars.iv
-  %199 = getelementptr inbounds i8, ptr %198, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %197, ptr noundef %0, i32 noundef %.1293349, i32 noundef %200, i32 noundef 0) #8
   %202 = load i32, ptr @ett_marc_field, align 4
@@ -5044,10 +5044,10 @@ define internal i32 @get_z3950_pdu_len(ptr nocapture readnone %0, ptr noundef %1
   %9 = alloca %struct.except_catch, align 8
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @get_z3950_pdu_len.catch_spec, i64 noundef 1) #8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = call i32 @_setjmp(ptr noundef nonnull %10) #9
   %.not = icmp eq i32 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not, ptr null, ptr %12
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -5095,7 +5095,7 @@ define internal i32 @get_z3950_pdu_len(ptr nocapture readnone %0, ptr noundef %1
 
 30:                                               ; preds = %29
   %.0..0..0..0.9 = load volatile ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %32 = load volatile i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 3
   br i1 %33, label %34, label %36
@@ -5124,7 +5124,7 @@ define internal i32 @get_z3950_pdu_len(ptr nocapture readnone %0, ptr noundef %1
   unreachable
 
 40:                                               ; preds = %38, %36
-  %41 = getelementptr inbounds i8, ptr %9, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %42 = load volatile ptr, ptr %41, align 8
   call void @except_free(ptr noundef %42) #8
   %43 = call ptr @except_pop() #8
@@ -5137,7 +5137,7 @@ define internal i32 @dissect_z3950(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.1702) #8
   %9 = load i32, ptr @proto_z3950, align 4
@@ -5152,12 +5152,12 @@ define internal i32 @dissect_z3950(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %16, label %17, label %dissect_z3950_PDU.exit
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %15 to i64
   %21 = getelementptr [24 x %struct._ber_choice_t], ptr @PDU_choice, i64 0, i64 %20, i32 3
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str_const(i32 noundef %22, ptr noundef nonnull @z3950_PDU_vals, ptr noundef nonnull @.str.2002) #8
   call void @col_set_str(ptr noundef %24, i32 noundef 25, ptr noundef %25) #8
@@ -5632,10 +5632,10 @@ define internal i32 @dissect_z3950_AttributeSetId(i1 noundef zeroext %0, ptr nou
   br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #8
-  %14 = getelementptr inbounds i8, ptr %12, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = call ptr @tvb_get_ptr(ptr noundef %16, i32 noundef 0, i32 noundef %13) #8
@@ -5668,9 +5668,9 @@ define internal i32 @dissect_z3950_AttributeSetId(i1 noundef zeroext %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_z3950_RPNStructure(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 2
   store i32 %11, ptr %9, align 8
@@ -5679,7 +5679,7 @@ define internal i32 @dissect_z3950_RPNStructure(i1 zeroext %0, ptr noundef %1, i
   %13 = load i32, ptr @ett_z3950_RPNStructure, align 4
   %14 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @RPNStructure_choice, i32 noundef %5, i32 noundef %13, ptr noundef null) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -2
   store i32 %18, ptr %16, align 8
@@ -5776,10 +5776,10 @@ define internal i32 @dissect_z3950_AttributeElement(i1 noundef zeroext %0, ptr n
 define internal i32 @dissect_z3950_T_attributeElement_attributeType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #8
-  %11 = getelementptr inbounds i8, ptr %9, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_z3950, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %9, i32 noundef %13, i32 noundef 1) #8
@@ -5792,13 +5792,13 @@ define internal i32 @dissect_z3950_T_attributeElement_attributeType(i1 noundef z
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %7, align 4
   %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @z3950_bib1_att_types, ptr noundef nonnull @.str.2004) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.2003, ptr noundef %22) #8
   %23 = load i32, ptr %7, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %23, ptr %24, align 4
   br label %25
 
@@ -5821,10 +5821,10 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 define internal i32 @dissect_z3950_T_attributeValue_numeric(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #8
-  %11 = getelementptr inbounds i8, ptr %9, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_z3950, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %9, i32 noundef %13, i32 noundef 1) #8
@@ -5837,7 +5837,7 @@ define internal i32 @dissect_z3950_T_attributeValue_numeric(i1 noundef zeroext %
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %14, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4
   %switch.tableidx = add i32 %20, -1
   %21 = icmp ult i32 %switch.tableidx, 6
@@ -5845,9 +5845,9 @@ define internal i32 @dissect_z3950_T_attributeValue_numeric(i1 noundef zeroext %
 
 switch.lookup:                                    ; preds = %18
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_z3950_T_attributeValue_numeric, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_z3950_T_attributeValue_numeric, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %7, align 4
   %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.2011) #8
@@ -6044,10 +6044,10 @@ define internal i32 @dissect_z3950_T_diagnosticSetId(i1 noundef zeroext %0, ptr 
   br i1 %.not, label %31, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #8
-  %14 = getelementptr inbounds i8, ptr %12, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = call ptr @tvb_get_ptr(ptr noundef %16, i32 noundef 0, i32 noundef %13) #8
@@ -6082,10 +6082,10 @@ define internal i32 @dissect_z3950_T_diagnosticSetId(i1 noundef zeroext %0, ptr 
 define internal i32 @dissect_z3950_T_condition(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #8
-  %11 = getelementptr inbounds i8, ptr %9, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_z3950, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %9, i32 noundef %13, i32 noundef 2) #8
@@ -6098,13 +6098,13 @@ define internal i32 @dissect_z3950_T_condition(i1 noundef zeroext %0, ptr nounde
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %7, align 4
   %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @z3950_bib1_diagconditions, ptr noundef nonnull @.str.2339) #8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.2003, ptr noundef %22) #8
   %23 = load i32, ptr %7, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %23, ptr %24, align 4
   br label %25
 
@@ -6954,9 +6954,9 @@ define internal i32 @dissect_z3950_T_tagTypeMapping_item(i1 noundef zeroext %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_z3950_ElementInfo(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 3
   store i32 %11, ptr %9, align 8
@@ -6965,7 +6965,7 @@ define internal i32 @dissect_z3950_ElementInfo(i1 noundef zeroext %0, ptr nounde
   %13 = load i32, ptr @ett_z3950_ElementInfo, align 4
   %14 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ElementInfo_sequence, i32 noundef %5, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -3
   store i32 %18, ptr %16, align 8
@@ -7412,9 +7412,9 @@ define internal i32 @dissect_z3950_FormatSpec(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_z3950_TaggedElement(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 3
   store i32 %11, ptr %9, align 8
@@ -7423,7 +7423,7 @@ define internal i32 @dissect_z3950_TaggedElement(i1 noundef zeroext %0, ptr noun
   %13 = load i32, ptr @ett_z3950_TaggedElement, align 4
   %14 = tail call i32 @dissect_ber_sequence(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @TaggedElement_sequence, i32 noundef %5, i32 noundef %13) #8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -3
   store i32 %18, ptr %16, align 8

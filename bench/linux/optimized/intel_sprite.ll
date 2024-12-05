@@ -44,16 +44,16 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @vlv_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 856
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4329
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4329
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 127
-  %8 = getelementptr inbounds i8, ptr %1, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 6
   %13 = load i8, ptr %12, align 2
   %14 = zext nneg i8 %7 to i32
   %15 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %14) #9, !srcloc !6
@@ -110,15 +110,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @ivb_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 856
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %10 = load i8, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4329
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4329
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 127
   %14 = zext nneg i8 %13 to i32
@@ -156,15 +156,15 @@ define dso_local i32 @ivb_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @hsw_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 856
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %10 = load i8, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4329
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4329
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 127
   %14 = zext nneg i8 %13 to i32
@@ -185,9 +185,9 @@ define dso_local i32 @hsw_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 define dso_local noundef range(i32 -22, 1) i32 @chv_plane_check_rotation(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 196
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 7184
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 16777216
   %9 = icmp eq i32 %8, 0
@@ -201,7 +201,7 @@ define dso_local noundef range(i32 -22, 1) i32 @chv_plane_check_rotation(ptr noc
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -225,26 +225,26 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
   br i1 %5, label %89, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 7184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 18874368
   %10 = icmp eq i32 %9, 0
-  %11 = getelementptr inbounds i8, ptr %4, i64 1416
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1416
   br i1 %10, label %26, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 1392
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1392
   store ptr @vlv_sprite_update_noarm, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 1400
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1400
   store ptr @vlv_sprite_update_arm, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 1408
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1408
   store ptr @vlv_sprite_disable_arm, ptr %15, align 8
   store ptr @vlv_sprite_get_hw_state, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 1424
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1424
   store ptr @vlv_sprite_check, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 1384
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1384
   store ptr @i965_plane_max_stride, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 1432
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1432
   store ptr @vlv_plane_min_cdclk, ptr %18, align 8
   %19 = load i32, ptr %7, align 4
   %20 = and i32 %19, 16777216
@@ -256,13 +256,13 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
   br label %51
 
 26:                                               ; preds = %6
-  %27 = getelementptr inbounds i8, ptr %0, i64 2632
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %28 = load i16, ptr %27, align 8
   %29 = icmp ugt i16 %28, 6
-  %30 = getelementptr inbounds i8, ptr %4, i64 1392
-  %31 = getelementptr inbounds i8, ptr %4, i64 1400
-  %32 = getelementptr inbounds i8, ptr %4, i64 1408
-  %33 = getelementptr inbounds i8, ptr %4, i64 1424
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 1392
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 1400
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1408
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 1424
   br i1 %29, label %34, label %42
 
 34:                                               ; preds = %26
@@ -274,8 +274,8 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
   %35 = load i32, ptr %7, align 4
   %36 = and i32 %35, 12582912
   %37 = icmp eq i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %4, i64 1384
-  %39 = getelementptr inbounds i8, ptr %4, i64 1432
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 1384
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 1432
   br i1 %37, label %41, label %40
 
 40:                                               ; preds = %34
@@ -294,9 +294,9 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
   store ptr @g4x_sprite_disable_arm, ptr %32, align 8
   store ptr @g4x_sprite_get_hw_state, ptr %11, align 8
   store ptr @g4x_sprite_check, ptr %33, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 1384
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 1384
   store ptr @g4x_sprite_max_stride, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 1432
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 1432
   store ptr @g4x_sprite_min_cdclk, ptr %44, align 8
   %45 = load i32, ptr %7, align 4
   %46 = and i32 %45, 524288
@@ -311,20 +311,20 @@ define dso_local ptr @intel_sprite_plane_create(ptr noundef %0, i32 noundef %1, 
   %53 = phi ptr [ %24, %12 ], [ @snb_sprite_formats, %41 ], [ @snb_sprite_formats, %40 ], [ %49, %42 ]
   %54 = phi i32 [ %25, %12 ], [ 10, %41 ], [ 10, %40 ], [ %50, %42 ]
   %55 = load i32, ptr %7, align 4
-  %56 = getelementptr inbounds i8, ptr %4, i64 1328
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 1328
   store i32 %1, ptr %56, align 8
   %57 = add i32 %2, 1
-  %58 = getelementptr inbounds i8, ptr %4, i64 1324
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 1324
   store i32 %57, ptr %58, align 4
   %59 = shl i32 %1, 3
   %60 = add i32 %57, %59
   %61 = zext nneg i32 %60 to i64
   %62 = shl nuw i64 1, %61
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %4, i64 1336
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 1336
   store i32 %63, ptr %64, align 8
   %65 = tail call ptr @intel_fb_plane_get_modifiers(ptr noundef %0, i8 noundef zeroext 8) #10
-  %66 = getelementptr inbounds i8, ptr %0, i64 2642
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %67 = sext i32 %1 to i64
   %68 = getelementptr [4 x i8], ptr %66, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
@@ -367,24 +367,24 @@ declare dso_local ptr @intel_plane_alloc() local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1324
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 124
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
   %18 = shl i32 %6, 9
   %19 = shl i32 %8, 8
   %20 = add i32 %19, %18
   %21 = add i32 %20, 2039944
-  %22 = getelementptr inbounds i8, ptr %2, i64 308
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 308
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -407,7 +407,7 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %36, i1 noundef zeroext true, i32 %21, i64 noundef %24, i32 noundef 4, i1 noundef zeroext true) #10
   br label %38
@@ -431,14 +431,14 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %4, i64 7404
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, %21
   br label %51
 
 51:                                               ; preds = %47, %45
   %52 = phi i32 [ %50, %47 ], [ %21, %45 ]
-  %53 = getelementptr inbounds i8, ptr %4, i64 7368
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %52 to i64
   %56 = getelementptr i8, ptr %54, i64 %55
@@ -468,7 +468,7 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %73, i1 noundef zeroext true, i32 %57, i64 noundef %61, i32 noundef 4, i1 noundef zeroext true) #10
   br label %75
@@ -492,7 +492,7 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %4, i64 7404
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, %57
   br label %88
@@ -531,7 +531,7 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %111, i1 noundef zeroext true, i32 %93, i64 noundef %99, i32 noundef 4, i1 noundef zeroext true) #10
   br label %113
@@ -555,7 +555,7 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %4, i64 7404
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %124 = load i32, ptr %123, align 4
   %125 = add i32 %124, %93
   br label %126
@@ -573,24 +573,24 @@ define internal void @vlv_sprite_update_noarm(ptr nocapture noundef readonly %0,
 define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
   %4 = alloca [8 x i16], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1324
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 300
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 300
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 380
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 4752
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4752
   %19 = load i8, ptr %18, align 8, !range !17, !noundef !18
   %20 = icmp eq i8 %19, 0
   %21 = select i1 %20, i32 0, i32 1073741824
   %22 = tail call i32 @intel_fb_xy_to_linear(i32 noundef %13, i32 noundef %15, ptr noundef %2, i32 noundef 0) #10
-  %23 = getelementptr inbounds i8, ptr %5, i64 7184
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 7184
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 16777216
   %26 = icmp ne i32 %25, 0
@@ -601,21 +601,21 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
 29:                                               ; preds = %3
   %30 = load ptr, ptr %2, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 21
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 21
   %37 = load i8, ptr %36, align 1, !range !17, !noundef !18
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %544, label %39
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %2, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = getelementptr [2 x [9 x i16]], ptr @chv_sprite_update_csc.csc_matrix, i64 0, i64 %42
-  %44 = getelementptr inbounds i8, ptr %30, i64 1324
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 1324
   %45 = load i32, ptr %44, align 4
   %46 = shl i32 %45, 12
   %47 = add i32 %46, 2017536
@@ -639,7 +639,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %59, i1 noundef zeroext true, i32 %47, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %61
@@ -663,14 +663,14 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %31, i64 7404
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, %47
   br label %74
 
 74:                                               ; preds = %70, %68
   %75 = phi i32 [ %73, %70 ], [ %47, %68 ]
-  %76 = getelementptr inbounds i8, ptr %31, i64 7368
+  %76 = getelementptr inbounds nuw i8, ptr %31, i64 7368
   %77 = load ptr, ptr %76, align 8
   %78 = zext i32 %75 to i64
   %79 = getelementptr i8, ptr %77, i64 %78
@@ -696,7 +696,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %92, i1 noundef zeroext true, i32 %80, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %94
@@ -720,7 +720,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %31, i64 7404
+  %104 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, %80
   br label %107
@@ -752,7 +752,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %121, label %126, label %122
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %120, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %124, i1 noundef zeroext true, i32 %112, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %126
@@ -776,7 +776,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %31, i64 7404
+  %136 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, %112
   br label %139
@@ -818,7 +818,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %163, label %168, label %164
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %162, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %166, i1 noundef zeroext true, i32 %144, i64 noundef %154, i32 noundef 4, i1 noundef zeroext true) #10
   br label %168
@@ -842,7 +842,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %176, label %177, label %181
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds i8, ptr %31, i64 7404
+  %178 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %179 = load i32, ptr %178, align 4
   %180 = add i32 %179, %144
   br label %181
@@ -885,7 +885,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %205, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %209, i1 noundef zeroext true, i32 %186, i64 noundef %197, i32 noundef 4, i1 noundef zeroext true) #10
   br label %211
@@ -909,7 +909,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %219, label %220, label %224
 
 220:                                              ; preds = %218
-  %221 = getelementptr inbounds i8, ptr %31, i64 7404
+  %221 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, %186
   br label %224
@@ -952,7 +952,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %249, label %254, label %250
 
 250:                                              ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %248, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %252 = load ptr, ptr %251, align 8
   %253 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %252, i1 noundef zeroext true, i32 %229, i64 noundef %240, i32 noundef 4, i1 noundef zeroext true) #10
   br label %254
@@ -976,7 +976,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %262, label %263, label %267
 
 263:                                              ; preds = %261
-  %264 = getelementptr inbounds i8, ptr %31, i64 7404
+  %264 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %265 = load i32, ptr %264, align 4
   %266 = add i32 %265, %229
   br label %267
@@ -1019,7 +1019,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %292, label %297, label %293
 
 293:                                              ; preds = %290
-  %294 = getelementptr inbounds i8, ptr %291, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %295 = load ptr, ptr %294, align 8
   %296 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %295, i1 noundef zeroext true, i32 %272, i64 noundef %283, i32 noundef 4, i1 noundef zeroext true) #10
   br label %297
@@ -1043,7 +1043,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %305, label %306, label %310
 
 306:                                              ; preds = %304
-  %307 = getelementptr inbounds i8, ptr %31, i64 7404
+  %307 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %308 = load i32, ptr %307, align 4
   %309 = add i32 %308, %272
   br label %310
@@ -1080,7 +1080,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %329, label %334, label %330
 
 330:                                              ; preds = %327
-  %331 = getelementptr inbounds i8, ptr %328, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %332 = load ptr, ptr %331, align 8
   %333 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %332, i1 noundef zeroext true, i32 %315, i64 noundef %320, i32 noundef 4, i1 noundef zeroext true) #10
   br label %334
@@ -1104,7 +1104,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %342, label %343, label %347
 
 343:                                              ; preds = %341
-  %344 = getelementptr inbounds i8, ptr %31, i64 7404
+  %344 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %345 = load i32, ptr %344, align 4
   %346 = add i32 %345, %315
   br label %347
@@ -1136,7 +1136,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %361, label %366, label %362
 
 362:                                              ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %360, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %364 = load ptr, ptr %363, align 8
   %365 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %364, i1 noundef zeroext true, i32 %352, i64 noundef 67043328, i32 noundef 4, i1 noundef zeroext true) #10
   br label %366
@@ -1160,7 +1160,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %374, label %375, label %379
 
 375:                                              ; preds = %373
-  %376 = getelementptr inbounds i8, ptr %31, i64 7404
+  %376 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %377 = load i32, ptr %376, align 4
   %378 = add i32 %377, %352
   br label %379
@@ -1192,7 +1192,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %393, label %398, label %394
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %392, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %392, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %396, i1 noundef zeroext true, i32 %384, i64 noundef 33555968, i32 noundef 4, i1 noundef zeroext true) #10
   br label %398
@@ -1216,7 +1216,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %406, label %407, label %411
 
 407:                                              ; preds = %405
-  %408 = getelementptr inbounds i8, ptr %31, i64 7404
+  %408 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %409 = load i32, ptr %408, align 4
   %410 = add i32 %409, %384
   br label %411
@@ -1248,7 +1248,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %425, label %430, label %426
 
 426:                                              ; preds = %423
-  %427 = getelementptr inbounds i8, ptr %424, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %428 = load ptr, ptr %427, align 8
   %429 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %428, i1 noundef zeroext true, i32 %416, i64 noundef 33555968, i32 noundef 4, i1 noundef zeroext true) #10
   br label %430
@@ -1272,7 +1272,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %438, label %439, label %443
 
 439:                                              ; preds = %437
-  %440 = getelementptr inbounds i8, ptr %31, i64 7404
+  %440 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %441 = load i32, ptr %440, align 4
   %442 = add i32 %441, %416
   br label %443
@@ -1304,7 +1304,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %457, label %462, label %458
 
 458:                                              ; preds = %455
-  %459 = getelementptr inbounds i8, ptr %456, i64 8
+  %459 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %460 = load ptr, ptr %459, align 8
   %461 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %460, i1 noundef zeroext true, i32 %448, i64 noundef 67043328, i32 noundef 4, i1 noundef zeroext true) #10
   br label %462
@@ -1328,7 +1328,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %470, label %471, label %475
 
 471:                                              ; preds = %469
-  %472 = getelementptr inbounds i8, ptr %31, i64 7404
+  %472 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %473 = load i32, ptr %472, align 4
   %474 = add i32 %473, %448
   br label %475
@@ -1360,7 +1360,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %489, label %494, label %490
 
 490:                                              ; preds = %487
-  %491 = getelementptr inbounds i8, ptr %488, i64 8
+  %491 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %492 = load ptr, ptr %491, align 8
   %493 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %492, i1 noundef zeroext true, i32 %480, i64 noundef 67043328, i32 noundef 4, i1 noundef zeroext true) #10
   br label %494
@@ -1384,7 +1384,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %502, label %503, label %507
 
 503:                                              ; preds = %501
-  %504 = getelementptr inbounds i8, ptr %31, i64 7404
+  %504 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %505 = load i32, ptr %504, align 4
   %506 = add i32 %505, %480
   br label %507
@@ -1416,7 +1416,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %521, label %526, label %522
 
 522:                                              ; preds = %519
-  %523 = getelementptr inbounds i8, ptr %520, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %520, i64 8
   %524 = load ptr, ptr %523, align 8
   %525 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %524, i1 noundef zeroext true, i32 %512, i64 noundef 67043328, i32 noundef 4, i1 noundef zeroext true) #10
   br label %526
@@ -1440,7 +1440,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %534, label %535, label %539
 
 535:                                              ; preds = %533
-  %536 = getelementptr inbounds i8, ptr %31, i64 7404
+  %536 = getelementptr inbounds nuw i8, ptr %31, i64 7404
   %537 = load i32, ptr %536, align 4
   %538 = add i32 %537, %512
   br label %539
@@ -1454,7 +1454,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br label %544
 
 544:                                              ; preds = %539, %29, %3
-  %545 = getelementptr inbounds i8, ptr %2, i64 428
+  %545 = getelementptr inbounds nuw i8, ptr %2, i64 428
   %546 = load i32, ptr %545, align 4
   %547 = icmp eq i32 %546, 0
   %.pre = shl i32 %7, 9
@@ -1464,7 +1464,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
 
 548:                                              ; preds = %544
   %549 = add i32 %.pre75, 2039956
-  %550 = getelementptr inbounds i8, ptr %2, i64 416
+  %550 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %551 = load i32, ptr %550, align 4
   %552 = zext i32 %551 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -1487,7 +1487,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %561, label %566, label %562
 
 562:                                              ; preds = %559
-  %563 = getelementptr inbounds i8, ptr %560, i64 8
+  %563 = getelementptr inbounds nuw i8, ptr %560, i64 8
   %564 = load ptr, ptr %563, align 8
   %565 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %564, i1 noundef zeroext true, i32 %549, i64 noundef %552, i32 noundef 4, i1 noundef zeroext true) #10
   br label %566
@@ -1511,20 +1511,20 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %574, label %575, label %579
 
 575:                                              ; preds = %573
-  %576 = getelementptr inbounds i8, ptr %5, i64 7404
+  %576 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %577 = load i32, ptr %576, align 4
   %578 = add i32 %577, %549
   br label %579
 
 579:                                              ; preds = %575, %573
   %580 = phi i32 [ %578, %575 ], [ %549, %573 ]
-  %581 = getelementptr inbounds i8, ptr %5, i64 7368
+  %581 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %582 = load ptr, ptr %581, align 8
   %583 = zext i32 %580 to i64
   %584 = getelementptr i8, ptr %582, i64 %583
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %551, ptr elementtype(i32) %584) #10, !srcloc !16
   %585 = add i32 %.pre75, 2039960
-  %586 = getelementptr inbounds i8, ptr %2, i64 420
+  %586 = getelementptr inbounds nuw i8, ptr %2, i64 420
   %587 = load i32, ptr %586, align 4
   %588 = zext i32 %587 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -1547,7 +1547,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %597, label %602, label %598
 
 598:                                              ; preds = %595
-  %599 = getelementptr inbounds i8, ptr %596, i64 8
+  %599 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %600 = load ptr, ptr %599, align 8
   %601 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %600, i1 noundef zeroext true, i32 %585, i64 noundef %588, i32 noundef 4, i1 noundef zeroext true) #10
   br label %602
@@ -1571,7 +1571,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %610, label %611, label %615
 
 611:                                              ; preds = %609
-  %612 = getelementptr inbounds i8, ptr %5, i64 7404
+  %612 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %613 = load i32, ptr %612, align 4
   %614 = add i32 %613, %585
   br label %615
@@ -1583,7 +1583,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %619 = getelementptr i8, ptr %617, i64 %618
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %587, ptr elementtype(i32) %619) #10, !srcloc !16
   %620 = add i32 %.pre75, 2039968
-  %621 = getelementptr inbounds i8, ptr %2, i64 424
+  %621 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %622 = load i32, ptr %621, align 4
   %623 = zext i32 %622 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -1606,7 +1606,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %632, label %637, label %633
 
 633:                                              ; preds = %630
-  %634 = getelementptr inbounds i8, ptr %631, i64 8
+  %634 = getelementptr inbounds nuw i8, ptr %631, i64 8
   %635 = load ptr, ptr %634, align 8
   %636 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %635, i1 noundef zeroext true, i32 %620, i64 noundef %623, i32 noundef 4, i1 noundef zeroext true) #10
   br label %637
@@ -1630,7 +1630,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %645, label %646, label %650
 
 646:                                              ; preds = %644
-  %647 = getelementptr inbounds i8, ptr %5, i64 7404
+  %647 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %648 = load i32, ptr %647, align 4
   %649 = add i32 %648, %620
   br label %650
@@ -1666,7 +1666,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %665, label %670, label %666
 
 666:                                              ; preds = %663
-  %667 = getelementptr inbounds i8, ptr %664, i64 8
+  %667 = getelementptr inbounds nuw i8, ptr %664, i64 8
   %668 = load ptr, ptr %667, align 8
   %669 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %668, i1 noundef zeroext true, i32 %656, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %670
@@ -1690,14 +1690,14 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %678, label %679, label %683
 
 679:                                              ; preds = %677
-  %680 = getelementptr inbounds i8, ptr %5, i64 7404
+  %680 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %681 = load i32, ptr %680, align 4
   %682 = add i32 %681, %656
   br label %683
 
 683:                                              ; preds = %679, %677
   %684 = phi i32 [ %682, %679 ], [ %656, %677 ]
-  %685 = getelementptr inbounds i8, ptr %5, i64 7368
+  %685 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %686 = load ptr, ptr %685, align 8
   %687 = zext i32 %684 to i64
   %688 = getelementptr i8, ptr %686, i64 %687
@@ -1724,7 +1724,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %699, label %704, label %700
 
 700:                                              ; preds = %697
-  %701 = getelementptr inbounds i8, ptr %698, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %698, i64 8
   %702 = load ptr, ptr %701, align 8
   %703 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %702, i1 noundef zeroext true, i32 %689, i64 noundef %690, i32 noundef 4, i1 noundef zeroext true) #10
   br label %704
@@ -1748,7 +1748,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %712, label %713, label %717
 
 713:                                              ; preds = %711
-  %714 = getelementptr inbounds i8, ptr %5, i64 7404
+  %714 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %715 = load i32, ptr %714, align 4
   %716 = add i32 %715, %689
   br label %717
@@ -1784,7 +1784,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %735, label %740, label %736
 
 736:                                              ; preds = %733
-  %737 = getelementptr inbounds i8, ptr %734, i64 8
+  %737 = getelementptr inbounds nuw i8, ptr %734, i64 8
   %738 = load ptr, ptr %737, align 8
   %739 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %738, i1 noundef zeroext true, i32 %722, i64 noundef %726, i32 noundef 4, i1 noundef zeroext true) #10
   br label %740
@@ -1808,7 +1808,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %748, label %749, label %753
 
 749:                                              ; preds = %747
-  %750 = getelementptr inbounds i8, ptr %5, i64 7404
+  %750 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %751 = load i32, ptr %750, align 4
   %752 = add i32 %751, %722
   br label %753
@@ -1841,7 +1841,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %768, label %773, label %769
 
 769:                                              ; preds = %766
-  %770 = getelementptr inbounds i8, ptr %767, i64 8
+  %770 = getelementptr inbounds nuw i8, ptr %767, i64 8
   %771 = load ptr, ptr %770, align 8
   %772 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %771, i1 noundef zeroext true, i32 %758, i64 noundef %759, i32 noundef 4, i1 noundef zeroext true) #10
   br label %773
@@ -1865,7 +1865,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %781, label %782, label %786
 
 782:                                              ; preds = %780
-  %783 = getelementptr inbounds i8, ptr %5, i64 7404
+  %783 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %784 = load i32, ptr %783, align 4
   %785 = add i32 %784, %758
   br label %786
@@ -1877,11 +1877,11 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %790 = getelementptr i8, ptr %788, i64 %789
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %655, ptr elementtype(i32) %790) #10, !srcloc !16
   %791 = add i32 %.pre75, 2039964
-  %792 = getelementptr inbounds i8, ptr %2, i64 216
+  %792 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %793 = load ptr, ptr %792, align 8
-  %794 = getelementptr inbounds i8, ptr %793, i64 8
+  %794 = getelementptr inbounds nuw i8, ptr %793, i64 8
   %795 = load i64, ptr %794, align 8
-  %796 = getelementptr inbounds i8, ptr %793, i64 248
+  %796 = getelementptr inbounds nuw i8, ptr %793, i64 248
   %797 = load i32, ptr %796, align 8
   %798 = trunc i64 %795 to i32
   %799 = add i32 %11, %798
@@ -1907,7 +1907,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %810, label %815, label %811
 
 811:                                              ; preds = %808
-  %812 = getelementptr inbounds i8, ptr %809, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %809, i64 8
   %813 = load ptr, ptr %812, align 8
   %814 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %813, i1 noundef zeroext true, i32 %791, i64 noundef %801, i32 noundef 4, i1 noundef zeroext true) #10
   br label %815
@@ -1931,7 +1931,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %823, label %824, label %828
 
 824:                                              ; preds = %822
-  %825 = getelementptr inbounds i8, ptr %5, i64 7404
+  %825 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %826 = load i32, ptr %825, align 4
   %827 = add i32 %826, %791
   br label %828
@@ -1944,21 +1944,21 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %800, ptr elementtype(i32) %832) #10, !srcloc !16
   %833 = load ptr, ptr %2, align 8
   %834 = load ptr, ptr %833, align 8
-  %835 = getelementptr inbounds i8, ptr %2, i64 184
+  %835 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %836 = load ptr, ptr %835, align 8
-  %837 = getelementptr inbounds i8, ptr %833, i64 1328
+  %837 = getelementptr inbounds nuw i8, ptr %833, i64 1328
   %838 = load i32, ptr %837, align 8
-  %839 = getelementptr inbounds i8, ptr %833, i64 1324
+  %839 = getelementptr inbounds nuw i8, ptr %833, i64 1324
   %840 = load i32, ptr %839, align 4
-  %841 = getelementptr inbounds i8, ptr %836, i64 72
+  %841 = getelementptr inbounds nuw i8, ptr %836, i64 72
   %842 = load ptr, ptr %841, align 8
-  %843 = getelementptr inbounds i8, ptr %842, i64 21
+  %843 = getelementptr inbounds nuw i8, ptr %842, i64 21
   %844 = load i8, ptr %843, align 1, !range !17, !noundef !18
   %845 = icmp eq i8 %844, 0
   br i1 %845, label %850, label %846
 
 846:                                              ; preds = %828
-  %847 = getelementptr inbounds i8, ptr %2, i64 204
+  %847 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %848 = load i32, ptr %847, align 4
   %849 = icmp eq i32 %848, 0
   br i1 %849, label %851, label %850
@@ -1994,7 +1994,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %867, label %872, label %868
 
 868:                                              ; preds = %865
-  %869 = getelementptr inbounds i8, ptr %866, i64 8
+  %869 = getelementptr inbounds nuw i8, ptr %866, i64 8
   %870 = load ptr, ptr %869, align 8
   %871 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %870, i1 noundef zeroext true, i32 %857, i64 noundef %858, i32 noundef 4, i1 noundef zeroext true) #10
   br label %872
@@ -2018,14 +2018,14 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %880, label %881, label %885
 
 881:                                              ; preds = %879
-  %882 = getelementptr inbounds i8, ptr %834, i64 7404
+  %882 = getelementptr inbounds nuw i8, ptr %834, i64 7404
   %883 = load i32, ptr %882, align 4
   %884 = add i32 %883, %857
   br label %885
 
 885:                                              ; preds = %881, %879
   %886 = phi i32 [ %884, %881 ], [ %857, %879 ]
-  %887 = getelementptr inbounds i8, ptr %834, i64 7368
+  %887 = getelementptr inbounds nuw i8, ptr %834, i64 7368
   %888 = load ptr, ptr %887, align 8
   %889 = zext i32 %886 to i64
   %890 = getelementptr i8, ptr %888, i64 %889
@@ -2052,7 +2052,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %901, label %906, label %902
 
 902:                                              ; preds = %899
-  %903 = getelementptr inbounds i8, ptr %900, i64 8
+  %903 = getelementptr inbounds nuw i8, ptr %900, i64 8
   %904 = load ptr, ptr %903, align 8
   %905 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %904, i1 noundef zeroext true, i32 %891, i64 noundef %892, i32 noundef 4, i1 noundef zeroext true) #10
   br label %906
@@ -2076,7 +2076,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %914, label %915, label %919
 
 915:                                              ; preds = %913
-  %916 = getelementptr inbounds i8, ptr %834, i64 7404
+  %916 = getelementptr inbounds nuw i8, ptr %834, i64 7404
   %917 = load i32, ptr %916, align 4
   %918 = add i32 %917, %891
   br label %919
@@ -2090,15 +2090,15 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %924 = load ptr, ptr %2, align 8
   %925 = load ptr, ptr %924, align 8
   %926 = load ptr, ptr %835, align 8
-  %927 = getelementptr inbounds i8, ptr %924, i64 1328
+  %927 = getelementptr inbounds nuw i8, ptr %924, i64 1328
   %928 = load i32, ptr %927, align 8
-  %929 = getelementptr inbounds i8, ptr %924, i64 1324
+  %929 = getelementptr inbounds nuw i8, ptr %924, i64 1324
   %930 = load i32, ptr %929, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !19
-  %931 = getelementptr inbounds i8, ptr %926, i64 72
+  %931 = getelementptr inbounds nuw i8, ptr %926, i64 72
   %932 = load ptr, ptr %931, align 8
-  %933 = getelementptr inbounds i8, ptr %932, i64 21
+  %933 = getelementptr inbounds nuw i8, ptr %932, i64 21
   %934 = load i8, ptr %933, align 1, !range !17, !noundef !18
   %935 = icmp eq i8 %934, 0
   br i1 %935, label %.loopexit, label %.preheader
@@ -2120,8 +2120,8 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %946 = shl i32 %930, 8
   %947 = add i32 %945, 2040056
   %948 = add i32 %947, %946
-  %949 = getelementptr inbounds i8, ptr %925, i64 7404
-  %950 = getelementptr inbounds i8, ptr %925, i64 7368
+  %949 = getelementptr inbounds nuw i8, ptr %925, i64 7404
+  %950 = getelementptr inbounds nuw i8, ptr %925, i64 7368
   %951 = zext i32 %948 to i64
   br label %952
 
@@ -2157,7 +2157,7 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %972, label %978, label %973
 
 973:                                              ; preds = %970
-  %974 = getelementptr inbounds i8, ptr %971, i64 8
+  %974 = getelementptr inbounds nuw i8, ptr %971, i64 8
   %975 = load ptr, ptr %974, align 8
   %976 = trunc nuw i64 %955 to i32
   %977 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %975, i1 noundef zeroext true, i32 %976, i64 noundef %963, i32 noundef 4, i1 noundef zeroext true) #10
@@ -2205,9 +2205,9 @@ define internal void @vlv_sprite_update_arm(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1324
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %5, 9
   %9 = shl i32 %7, 8
@@ -2233,7 +2233,7 @@ define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %23, i1 noundef zeroext true, i32 %11, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %25
@@ -2257,14 +2257,14 @@ define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %3, i64 7404
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, %11
   br label %38
 
 38:                                               ; preds = %34, %32
   %39 = phi i32 [ %37, %34 ], [ %11, %32 ]
-  %40 = getelementptr inbounds i8, ptr %3, i64 7368
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %41 = load ptr, ptr %40, align 8
   %42 = zext i32 %39 to i64
   %43 = getelementptr i8, ptr %41, i64 %42
@@ -2290,7 +2290,7 @@ define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %56, i1 noundef zeroext true, i32 %44, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %58
@@ -2314,7 +2314,7 @@ define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %3, i64 7404
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, %44
   br label %71
@@ -2331,9 +2331,9 @@ define internal void @vlv_sprite_disable_arm(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @vlv_sprite_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1324
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   %9 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %8) #10
@@ -2346,10 +2346,10 @@ define internal zeroext i1 @vlv_sprite_get_hw_state(ptr nocapture noundef readon
   %14 = shl i32 %5, 8
   %15 = add i32 %14, 2039936
   %16 = add i32 %15, %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 7368
-  %18 = getelementptr inbounds i8, ptr %3, i64 7512
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %17, i32 %16, i1 noundef zeroext true) #10
+  %20 = tail call i32 %19(ptr noundef nonnull %17, i32 %16, i1 noundef zeroext true) #10
   %21 = icmp slt i32 %20, 0
   %22 = load i32, ptr %6, align 8
   store i32 %22, ptr %1, align 4
@@ -2365,9 +2365,9 @@ define internal zeroext i1 @vlv_sprite_get_hw_state(ptr nocapture noundef readon
 define internal i32 @vlv_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 196
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 7184
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 16777216
   %10 = icmp eq i32 %9, 0
@@ -2381,7 +2381,7 @@ define internal i32 @vlv_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -2401,7 +2401,7 @@ define internal i32 @vlv_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %26, label %27, label %37
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 140
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %29 = load i8, ptr %28, align 4, !range !17, !noundef !18
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %37, label %31
@@ -2413,7 +2413,7 @@ define internal i32 @vlv_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
 
 34:                                               ; preds = %31
   %35 = tail call fastcc i32 @vlv_sprite_ctl(ptr noundef %1)
-  %36 = getelementptr inbounds i8, ptr %1, i64 380
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 380
   store i32 %35, ptr %36, align 4
   br label %37
 
@@ -2428,27 +2428,27 @@ declare dso_local i32 @i965_plane_max_stride(ptr noundef, i32 noundef, i64 nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 124
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 132
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %12, %8
-  %14 = getelementptr inbounds i8, ptr %2, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 %15, %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 108
-  %18 = getelementptr inbounds i8, ptr %2, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %17, align 4
   %21 = sub i32 %19, %20
   %22 = ashr i32 %21, 16
-  %23 = getelementptr inbounds i8, ptr %2, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 %24, %26
   %28 = ashr i32 %27, 16
@@ -2470,7 +2470,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   %40 = phi i32 [ %38, %32 ], [ 0, %3 ]
   %41 = shl i32 %6, 12
   %42 = add i32 %41, 459400
-  %43 = getelementptr inbounds i8, ptr %2, i64 308
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 308
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -2493,7 +2493,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %57, i1 noundef zeroext true, i32 %42, i64 noundef %45, i32 noundef 4, i1 noundef zeroext true) #10
   br label %59
@@ -2517,14 +2517,14 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %4, i64 7404
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, %42
   br label %72
 
 72:                                               ; preds = %68, %66
   %73 = phi i32 [ %71, %68 ], [ %42, %66 ]
-  %74 = getelementptr inbounds i8, ptr %4, i64 7368
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %75 = load ptr, ptr %74, align 8
   %76 = zext i32 %73 to i64
   %77 = getelementptr i8, ptr %75, i64 %76
@@ -2554,7 +2554,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %94, i1 noundef zeroext true, i32 %78, i64 noundef %82, i32 noundef 4, i1 noundef zeroext true) #10
   br label %96
@@ -2578,7 +2578,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %4, i64 7404
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, %78
   br label %109
@@ -2616,7 +2616,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %129, label %134, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %132, i1 noundef zeroext true, i32 %114, i64 noundef %120, i32 noundef 4, i1 noundef zeroext true) #10
   br label %134
@@ -2640,7 +2640,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %142, label %143, label %147
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %4, i64 7404
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %145 = load i32, ptr %144, align 4
   %146 = add i32 %145, %114
   br label %147
@@ -2651,7 +2651,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   %150 = zext i32 %148 to i64
   %151 = getelementptr i8, ptr %149, i64 %150
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %119, ptr elementtype(i32) %151) #10, !srcloc !16
-  %152 = getelementptr inbounds i8, ptr %4, i64 7184
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, 1048576
   %155 = icmp eq i32 %154, 0
@@ -2680,7 +2680,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %167, label %172, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %166, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %170, i1 noundef zeroext true, i32 %157, i64 noundef %158, i32 noundef 4, i1 noundef zeroext true) #10
   br label %172
@@ -2704,7 +2704,7 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %4, i64 7404
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %183 = load i32, ptr %182, align 4
   %184 = add i32 %183, %157
   br label %185
@@ -2725,27 +2725,27 @@ define internal void @ivb_sprite_update_noarm(ptr nocapture noundef readonly %0,
 define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #2 align 16 {
   %4 = alloca [18 x i16], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 300
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 300
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 304
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 380
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4752
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4752
   %17 = load i8, ptr %16, align 8, !range !17, !noundef !18
   %18 = icmp eq i8 %17, 0
   %19 = select i1 %18, i32 0, i32 1073741824
-  %20 = getelementptr inbounds i8, ptr %1, i64 4753
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4753
   %21 = load i8, ptr %20, align 1, !range !17, !noundef !18
   %22 = icmp eq i8 %21, 0
   %23 = or disjoint i32 %19, 16777216
   %24 = select i1 %22, i32 %19, i32 %23
   %25 = tail call i32 @intel_fb_xy_to_linear(i32 noundef %11, i32 noundef %13, ptr noundef %2, i32 noundef 0) #10
-  %26 = getelementptr inbounds i8, ptr %2, i64 428
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 428
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   %.pre = shl i32 %7, 12
@@ -2753,7 +2753,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
 
 29:                                               ; preds = %3
   %30 = add i32 %.pre, 459412
-  %31 = getelementptr inbounds i8, ptr %2, i64 416
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -2776,7 +2776,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %45, i1 noundef zeroext true, i32 %30, i64 noundef %33, i32 noundef 4, i1 noundef zeroext true) #10
   br label %47
@@ -2800,20 +2800,20 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %5, i64 7404
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, %30
   br label %60
 
 60:                                               ; preds = %56, %54
   %61 = phi i32 [ %59, %56 ], [ %30, %54 ]
-  %62 = getelementptr inbounds i8, ptr %5, i64 7368
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %63 = load ptr, ptr %62, align 8
   %64 = zext i32 %61 to i64
   %65 = getelementptr i8, ptr %63, i64 %64
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %32, ptr elementtype(i32) %65) #10, !srcloc !16
   %66 = add i32 %.pre, 459416
-  %67 = getelementptr inbounds i8, ptr %2, i64 420
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 420
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -2836,7 +2836,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %81, i1 noundef zeroext true, i32 %66, i64 noundef %69, i32 noundef 4, i1 noundef zeroext true) #10
   br label %83
@@ -2860,7 +2860,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %5, i64 7404
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %94 = load i32, ptr %93, align 4
   %95 = add i32 %94, %66
   br label %96
@@ -2872,7 +2872,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %100 = getelementptr i8, ptr %98, i64 %99
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %100) #10, !srcloc !16
   %101 = add i32 %.pre, 459424
-  %102 = getelementptr inbounds i8, ptr %2, i64 424
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %103 = load i32, ptr %102, align 4
   %104 = zext i32 %103 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -2895,7 +2895,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %113, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %116, i1 noundef zeroext true, i32 %101, i64 noundef %104, i32 noundef 4, i1 noundef zeroext true) #10
   br label %118
@@ -2919,7 +2919,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %5, i64 7404
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, %101
   br label %131
@@ -2933,7 +2933,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %131
-  %136 = getelementptr inbounds i8, ptr %5, i64 7184
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 7184
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 12582912
   %139 = icmp eq i32 %138, 0
@@ -2965,7 +2965,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %154, label %159, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %153, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %157, i1 noundef zeroext true, i32 %141, i64 noundef %145, i32 noundef 4, i1 noundef zeroext true) #10
   br label %159
@@ -2989,14 +2989,14 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %166
-  %169 = getelementptr inbounds i8, ptr %5, i64 7404
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, %141
   br label %172
 
 172:                                              ; preds = %168, %166
   %173 = phi i32 [ %171, %168 ], [ %141, %166 ]
-  %174 = getelementptr inbounds i8, ptr %5, i64 7368
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %175 = load ptr, ptr %174, align 8
   %176 = zext i32 %173 to i64
   %177 = getelementptr i8, ptr %175, i64 %176
@@ -3026,7 +3026,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %189, label %194, label %190
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %188, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %192, i1 noundef zeroext true, i32 %179, i64 noundef %180, i32 noundef 4, i1 noundef zeroext true) #10
   br label %194
@@ -3050,14 +3050,14 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %202, label %203, label %207
 
 203:                                              ; preds = %201
-  %204 = getelementptr inbounds i8, ptr %5, i64 7404
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %205 = load i32, ptr %204, align 4
   %206 = add i32 %205, %179
   br label %207
 
 207:                                              ; preds = %203, %201
   %208 = phi i32 [ %206, %203 ], [ %179, %201 ]
-  %209 = getelementptr inbounds i8, ptr %5, i64 7368
+  %209 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %210 = load ptr, ptr %209, align 8
   %211 = zext i32 %208 to i64
   %212 = getelementptr i8, ptr %210, i64 %211
@@ -3087,7 +3087,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %226, label %231, label %227
 
 227:                                              ; preds = %224
-  %228 = getelementptr inbounds i8, ptr %225, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %229, i1 noundef zeroext true, i32 %213, i64 noundef %217, i32 noundef 4, i1 noundef zeroext true) #10
   br label %231
@@ -3111,7 +3111,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %239, label %240, label %244
 
 240:                                              ; preds = %238
-  %241 = getelementptr inbounds i8, ptr %5, i64 7404
+  %241 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %242 = load i32, ptr %241, align 4
   %243 = add i32 %242, %213
   br label %244
@@ -3148,7 +3148,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %261, label %266, label %262
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %260, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %264, i1 noundef zeroext true, i32 %251, i64 noundef %252, i32 noundef 4, i1 noundef zeroext true) #10
   br label %266
@@ -3172,24 +3172,24 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %274, label %275, label %279
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %5, i64 7404
+  %276 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %277 = load i32, ptr %276, align 4
   %278 = add i32 %277, %251
   br label %279
 
 279:                                              ; preds = %275, %273
   %280 = phi i32 [ %278, %275 ], [ %251, %273 ]
-  %281 = getelementptr inbounds i8, ptr %5, i64 7368
+  %281 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %282 = load ptr, ptr %281, align 8
   %283 = zext i32 %280 to i64
   %284 = getelementptr i8, ptr %282, i64 %283
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %250, ptr elementtype(i32) %284) #10, !srcloc !16
   %285 = add i32 %.pre, 459420
-  %286 = getelementptr inbounds i8, ptr %2, i64 216
+  %286 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = load i64, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %287, i64 248
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 248
   %291 = load i32, ptr %290, align 8
   %292 = trunc i64 %289 to i32
   %293 = add i32 %9, %292
@@ -3215,7 +3215,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %304, label %309, label %305
 
 305:                                              ; preds = %302
-  %306 = getelementptr inbounds i8, ptr %303, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %307 = load ptr, ptr %306, align 8
   %308 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %307, i1 noundef zeroext true, i32 %285, i64 noundef %295, i32 noundef 4, i1 noundef zeroext true) #10
   br label %309
@@ -3239,7 +3239,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %317, label %318, label %322
 
 318:                                              ; preds = %316
-  %319 = getelementptr inbounds i8, ptr %5, i64 7404
+  %319 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %320 = load i32, ptr %319, align 4
   %321 = add i32 %320, %285
   br label %322
@@ -3252,21 +3252,21 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %294, ptr elementtype(i32) %326) #10, !srcloc !16
   %327 = load ptr, ptr %2, align 8
   %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds i8, ptr %327, i64 1328
+  %329 = getelementptr inbounds nuw i8, ptr %327, i64 1328
   %330 = load i32, ptr %329, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %4, i8 0, i64 32, i1 false), !annotation !19
-  %331 = getelementptr inbounds i8, ptr %2, i64 184
+  %331 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 72
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 6
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 6
   %336 = load i8, ptr %335, align 2
   %337 = icmp eq i8 %336, 8
   br i1 %337, label %338, label %593
 
 338:                                              ; preds = %322
-  %339 = getelementptr inbounds i8, ptr %328, i64 7184
+  %339 = getelementptr inbounds nuw i8, ptr %328, i64 7184
   %340 = load i32, ptr %339, align 4
   %341 = and i32 %340, 5242880
   %342 = icmp eq i32 %341, 0
@@ -3285,14 +3285,14 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %350, label %351, label %.preheader, !llvm.loop !24
 
 351:                                              ; preds = %.preheader
-  %352 = getelementptr inbounds i8, ptr %4, i64 32
+  %352 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 1024, ptr %352, align 16
-  %353 = getelementptr inbounds i8, ptr %4, i64 34
+  %353 = getelementptr inbounds nuw i8, ptr %4, i64 34
   store i16 3072, ptr %353, align 2
   %354 = shl i32 %330, 12
   %355 = add i32 %354, 459776
-  %356 = getelementptr inbounds i8, ptr %328, i64 7404
-  %357 = getelementptr inbounds i8, ptr %328, i64 7368
+  %356 = getelementptr inbounds nuw i8, ptr %328, i64 7404
+  %357 = getelementptr inbounds nuw i8, ptr %328, i64 7368
   %358 = zext i32 %355 to i64
   br label %359
 
@@ -3328,7 +3328,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %379, label %385, label %380
 
 380:                                              ; preds = %377
-  %381 = getelementptr inbounds i8, ptr %378, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %382 = load ptr, ptr %381, align 8
   %383 = trunc i64 %362 to i32
   %384 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %382, i1 noundef zeroext true, i32 %383, i64 noundef %370, i32 noundef 4, i1 noundef zeroext true) #10
@@ -3391,7 +3391,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %416, label %421, label %417
 
 417:                                              ; preds = %414
-  %418 = getelementptr inbounds i8, ptr %415, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %419 = load ptr, ptr %418, align 8
   %420 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %419, i1 noundef zeroext true, i32 %407, i64 noundef 1024, i32 noundef 4, i1 noundef zeroext true) #10
   br label %421
@@ -3446,7 +3446,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %447, label %452, label %448
 
 448:                                              ; preds = %445
-  %449 = getelementptr inbounds i8, ptr %446, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %450 = load ptr, ptr %449, align 8
   %451 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %450, i1 noundef zeroext true, i32 %438, i64 noundef 1024, i32 noundef 4, i1 noundef zeroext true) #10
   br label %452
@@ -3501,7 +3501,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %478, label %483, label %479
 
 479:                                              ; preds = %476
-  %480 = getelementptr inbounds i8, ptr %477, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %481 = load ptr, ptr %480, align 8
   %482 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %481, i1 noundef zeroext true, i32 %469, i64 noundef 1024, i32 noundef 4, i1 noundef zeroext true) #10
   br label %483
@@ -3556,7 +3556,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %509, label %514, label %510
 
 510:                                              ; preds = %507
-  %511 = getelementptr inbounds i8, ptr %508, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %512 = load ptr, ptr %511, align 8
   %513 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %512, i1 noundef zeroext true, i32 %500, i64 noundef 3072, i32 noundef 4, i1 noundef zeroext true) #10
   br label %514
@@ -3611,7 +3611,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %540, label %545, label %541
 
 541:                                              ; preds = %538
-  %542 = getelementptr inbounds i8, ptr %539, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %539, i64 8
   %543 = load ptr, ptr %542, align 8
   %544 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %543, i1 noundef zeroext true, i32 %531, i64 noundef 3072, i32 noundef 4, i1 noundef zeroext true) #10
   br label %545
@@ -3666,7 +3666,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %571, label %576, label %572
 
 572:                                              ; preds = %569
-  %573 = getelementptr inbounds i8, ptr %570, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %574 = load ptr, ptr %573, align 8
   %575 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %574, i1 noundef zeroext true, i32 %562, i64 noundef 3072, i32 noundef 4, i1 noundef zeroext true) #10
   br label %576
@@ -3710,7 +3710,7 @@ define internal void @ivb_sprite_update_arm(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 12
   %7 = add i32 %6, 459392
@@ -3734,7 +3734,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %19, i1 noundef zeroext true, i32 %7, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %21
@@ -3758,19 +3758,19 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %3, i64 7404
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %7
   br label %34
 
 34:                                               ; preds = %30, %28
   %35 = phi i32 [ %33, %30 ], [ %7, %28 ]
-  %36 = getelementptr inbounds i8, ptr %3, i64 7368
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %35 to i64
   %39 = getelementptr i8, ptr %37, i64 %38
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %39) #10, !srcloc !16
-  %40 = getelementptr inbounds i8, ptr %3, i64 7184
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 1048576
   %43 = icmp eq i32 %42, 0
@@ -3798,7 +3798,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %57, i1 noundef zeroext true, i32 %45, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %59
@@ -3822,7 +3822,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %3, i64 7404
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, %45
   br label %72
@@ -3857,7 +3857,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %87, label %92, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %90, i1 noundef zeroext true, i32 %78, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %92
@@ -3881,7 +3881,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %3, i64 7404
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, %78
   br label %105
@@ -3898,7 +3898,7 @@ define internal void @ivb_sprite_disable_arm(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @ivb_sprite_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   %7 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %6) #10
@@ -3909,10 +3909,10 @@ define internal zeroext i1 @ivb_sprite_get_hw_state(ptr nocapture noundef readon
   %10 = load i32, ptr %4, align 8
   %11 = shl i32 %10, 12
   %12 = add i32 %11, 459392
-  %13 = getelementptr inbounds i8, ptr %3, i64 7368
-  %14 = getelementptr inbounds i8, ptr %3, i64 7512
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %13, i32 %12, i1 noundef zeroext true) #10
+  %16 = tail call i32 %15(ptr noundef nonnull %13, i32 %12, i1 noundef zeroext true) #10
   %17 = icmp slt i32 %16, 0
   %18 = load i32, ptr %4, align 8
   store i32 %18, ptr %1, align 4
@@ -3928,13 +3928,13 @@ define internal zeroext i1 @ivb_sprite_get_hw_state(ptr nocapture noundef readon
 define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %12 [
@@ -3946,13 +3946,13 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   ]
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 2632
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %14 = load i16, ptr %13, align 8
   %15 = icmp ult i16 %14, 7
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 7184
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 1048576
   %20 = icmp eq i32 %19, 0
@@ -3973,7 +3973,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 140
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %33 = load i8, ptr %32, align 4, !range !17, !noundef !18
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.thread, label %35
@@ -3987,33 +3987,33 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   %39 = load ptr, ptr %1, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 108
-  %43 = getelementptr inbounds i8, ptr %1, i64 124
-  %44 = getelementptr inbounds i8, ptr %1, i64 308
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 6
   %49 = load i8, ptr %48, align 2
   %50 = zext i8 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %1, i64 132
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %43, align 4
   %54 = sub i32 %52, %53
-  %55 = getelementptr inbounds i8, ptr %1, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %58 = load i32, ptr %57, align 4
   %59 = sub i32 %56, %58
   %60 = load i32, ptr %42, align 4
   %61 = lshr i32 %60, 16
-  %62 = getelementptr inbounds i8, ptr %1, i64 116
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %63 = load i32, ptr %62, align 4
   %64 = sub i32 %63, %60
   %65 = ashr i32 %64, 16
-  %66 = getelementptr inbounds i8, ptr %1, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %1, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %69 = load i32, ptr %68, align 4
   %70 = sub i32 %67, %69
   %71 = ashr i32 %70, 16
@@ -4023,7 +4023,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %74, label %128, label %75
 
 75:                                               ; preds = %38
-  %76 = getelementptr inbounds i8, ptr %0, i64 632
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 16
   %79 = icmp eq i32 %78, 0
@@ -4039,7 +4039,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %40, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %87 = load ptr, ptr %86, align 8
   br label %88
 
@@ -4070,7 +4070,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %104, label %108, label %105
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %40, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %107 = load ptr, ptr %106, align 8
   br label %108
 
@@ -4088,7 +4088,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %113, label %117, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %40, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %116 = load ptr, ptr %115, align 8
   br label %117
 
@@ -4106,7 +4106,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br i1 %122, label %126, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %40, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %125 = load ptr, ptr %124, align 8
   br label %126
 
@@ -4116,10 +4116,10 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
   br label %.thread
 
 128:                                              ; preds = %38, %119
-  %129 = getelementptr inbounds i8, ptr %4, i64 2632
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %130 = load i16, ptr %129, align 8
   %131 = icmp ugt i16 %130, 6
-  %132 = getelementptr inbounds i8, ptr %1, i64 380
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 380
   br i1 %131, label %133, label %135
 
 133:                                              ; preds = %128
@@ -4143,7 +4143,7 @@ define internal i32 @g4x_sprite_check(ptr noundef %0, ptr noundef %1) #2 align 1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 16385) i32 @hsw_sprite_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 %2, i32 %3) #2 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %7 = load i8, ptr %6, align 2
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 13
@@ -4158,7 +4158,7 @@ define internal range(i32 0, 16385) i32 @g4x_sprite_max_stride(ptr nocapture rea
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 12
@@ -4172,25 +4172,25 @@ define internal range(i32 0, 16385) i32 @g4x_sprite_max_stride(ptr nocapture rea
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal i32 @ivb_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 856
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 108
-  %6 = getelementptr inbounds i8, ptr %1, i64 116
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %5, align 4
   %9 = sub i32 %7, %8
   %10 = ashr i32 %9, 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 124
-  %12 = getelementptr inbounds i8, ptr %1, i64 132
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %11, align 4
   %15 = sub i32 %13, %14
   %16 = icmp eq i32 %10, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 6
   %22 = load i8, ptr %21, align 2
   br i1 %16, label %27, label %23
 
@@ -4211,7 +4211,7 @@ define internal i32 @ivb_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr
   br label %41
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 4329
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4329
   %29 = load i8, ptr %28, align 1
   %30 = and i8 %29, 127
   %31 = zext nneg i8 %30 to i32
@@ -4257,27 +4257,27 @@ define internal i32 @ivb_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1328
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 124
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 132
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %12, %8
-  %14 = getelementptr inbounds i8, ptr %2, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 %15, %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 108
-  %18 = getelementptr inbounds i8, ptr %2, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %17, align 4
   %21 = sub i32 %19, %20
   %22 = ashr i32 %21, 16
-  %23 = getelementptr inbounds i8, ptr %2, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %26 = load i32, ptr %25, align 4
   %27 = sub i32 %24, %26
   %28 = ashr i32 %27, 16
@@ -4299,7 +4299,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   %40 = phi i32 [ %38, %32 ], [ 0, %3 ]
   %41 = shl i32 %6, 12
   %42 = add i32 %41, 467336
-  %43 = getelementptr inbounds i8, ptr %2, i64 308
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 308
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -4322,7 +4322,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %57, i1 noundef zeroext true, i32 %42, i64 noundef %45, i32 noundef 4, i1 noundef zeroext true) #10
   br label %59
@@ -4346,14 +4346,14 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %4, i64 7404
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, %42
   br label %72
 
 72:                                               ; preds = %68, %66
   %73 = phi i32 [ %71, %68 ], [ %42, %66 ]
-  %74 = getelementptr inbounds i8, ptr %4, i64 7368
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %75 = load ptr, ptr %74, align 8
   %76 = zext i32 %73 to i64
   %77 = getelementptr i8, ptr %75, i64 %76
@@ -4383,7 +4383,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %94, i1 noundef zeroext true, i32 %78, i64 noundef %82, i32 noundef 4, i1 noundef zeroext true) #10
   br label %96
@@ -4407,7 +4407,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %4, i64 7404
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, %78
   br label %109
@@ -4445,7 +4445,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %129, label %134, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %132, i1 noundef zeroext true, i32 %114, i64 noundef %120, i32 noundef 4, i1 noundef zeroext true) #10
   br label %134
@@ -4469,7 +4469,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %142, label %143, label %147
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %4, i64 7404
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %145 = load i32, ptr %144, align 4
   %146 = add i32 %145, %114
   br label %147
@@ -4502,7 +4502,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %162, label %167, label %163
 
 163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %161, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %165, i1 noundef zeroext true, i32 %152, i64 noundef %153, i32 noundef 4, i1 noundef zeroext true) #10
   br label %167
@@ -4526,7 +4526,7 @@ define internal void @g4x_sprite_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %175, label %176, label %180
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds i8, ptr %4, i64 7404
+  %177 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %178 = load i32, ptr %177, align 4
   %179 = add i32 %178, %152
   br label %180
@@ -4545,28 +4545,28 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %4 = alloca [17 x i16], align 16
   %5 = alloca [8 x i16], align 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1328
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 296
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 300
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 300
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 304
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 380
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 4752
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4752
   %18 = load i8, ptr %17, align 8, !range !17, !noundef !18
   %19 = icmp eq i8 %18, 0
   %20 = select i1 %19, i32 0, i32 1073741824
-  %21 = getelementptr inbounds i8, ptr %1, i64 4753
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4753
   %22 = load i8, ptr %21, align 1, !range !17, !noundef !18
   %23 = icmp eq i8 %22, 0
   %24 = or disjoint i32 %20, 16777216
   %25 = select i1 %23, i32 %20, i32 %24
   %26 = or i32 %25, %16
   %27 = tail call i32 @intel_fb_xy_to_linear(i32 noundef %12, i32 noundef %14, ptr noundef %2, i32 noundef 0) #10
-  %28 = getelementptr inbounds i8, ptr %2, i64 428
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 428
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %.pre = shl i32 %8, 12
@@ -4574,7 +4574,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
 
 31:                                               ; preds = %3
   %32 = add i32 %.pre, 467348
-  %33 = getelementptr inbounds i8, ptr %2, i64 416
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 416
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -4597,7 +4597,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %47, i1 noundef zeroext true, i32 %32, i64 noundef %35, i32 noundef 4, i1 noundef zeroext true) #10
   br label %49
@@ -4621,20 +4621,20 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %6, i64 7404
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, %32
   br label %62
 
 62:                                               ; preds = %58, %56
   %63 = phi i32 [ %61, %58 ], [ %32, %56 ]
-  %64 = getelementptr inbounds i8, ptr %6, i64 7368
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 7368
   %65 = load ptr, ptr %64, align 8
   %66 = zext i32 %63 to i64
   %67 = getelementptr i8, ptr %65, i64 %66
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, ptr elementtype(i32) %67) #10, !srcloc !16
   %68 = add i32 %.pre, 467352
-  %69 = getelementptr inbounds i8, ptr %2, i64 420
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 420
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -4657,7 +4657,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %83, i1 noundef zeroext true, i32 %68, i64 noundef %71, i32 noundef 4, i1 noundef zeroext true) #10
   br label %85
@@ -4681,7 +4681,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %6, i64 7404
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, %68
   br label %98
@@ -4693,7 +4693,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %102 = getelementptr i8, ptr %100, i64 %101
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %70, ptr elementtype(i32) %102) #10, !srcloc !16
   %103 = add i32 %.pre, 467360
-  %104 = getelementptr inbounds i8, ptr %2, i64 424
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #10
@@ -4716,7 +4716,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %115, label %120, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %114, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %118, i1 noundef zeroext true, i32 %103, i64 noundef %106, i32 noundef 4, i1 noundef zeroext true) #10
   br label %120
@@ -4740,7 +4740,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %6, i64 7404
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, %103
   br label %133
@@ -4776,7 +4776,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %148, label %153, label %149
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %147, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %151, i1 noundef zeroext true, i32 %138, i64 noundef %139, i32 noundef 4, i1 noundef zeroext true) #10
   br label %153
@@ -4800,14 +4800,14 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %161, label %162, label %166
 
 162:                                              ; preds = %160
-  %163 = getelementptr inbounds i8, ptr %6, i64 7404
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %164 = load i32, ptr %163, align 4
   %165 = add i32 %164, %138
   br label %166
 
 166:                                              ; preds = %162, %160
   %167 = phi i32 [ %165, %162 ], [ %138, %160 ]
-  %168 = getelementptr inbounds i8, ptr %6, i64 7368
+  %168 = getelementptr inbounds nuw i8, ptr %6, i64 7368
   %169 = load ptr, ptr %168, align 8
   %170 = zext i32 %167 to i64
   %171 = getelementptr i8, ptr %169, i64 %170
@@ -4837,7 +4837,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %185, label %190, label %186
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %184, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %188, i1 noundef zeroext true, i32 %172, i64 noundef %176, i32 noundef 4, i1 noundef zeroext true) #10
   br label %190
@@ -4861,7 +4861,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %198, label %199, label %203
 
 199:                                              ; preds = %197
-  %200 = getelementptr inbounds i8, ptr %6, i64 7404
+  %200 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, %172
   br label %203
@@ -4894,7 +4894,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %218, label %223, label %219
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %217, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %221, i1 noundef zeroext true, i32 %208, i64 noundef %209, i32 noundef 4, i1 noundef zeroext true) #10
   br label %223
@@ -4918,7 +4918,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %231, label %232, label %236
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %6, i64 7404
+  %233 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %234 = load i32, ptr %233, align 4
   %235 = add i32 %234, %208
   br label %236
@@ -4930,11 +4930,11 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %240 = getelementptr i8, ptr %238, i64 %239
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %26, ptr elementtype(i32) %240) #10, !srcloc !16
   %241 = add i32 %.pre, 467356
-  %242 = getelementptr inbounds i8, ptr %2, i64 216
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i64, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %243, i64 248
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 248
   %247 = load i32, ptr %246, align 8
   %248 = trunc i64 %245 to i32
   %249 = add i32 %10, %248
@@ -4960,7 +4960,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %260, label %265, label %261
 
 261:                                              ; preds = %258
-  %262 = getelementptr inbounds i8, ptr %259, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %263 = load ptr, ptr %262, align 8
   %264 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %263, i1 noundef zeroext true, i32 %241, i64 noundef %251, i32 noundef 4, i1 noundef zeroext true) #10
   br label %265
@@ -4984,7 +4984,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %273, label %274, label %278
 
 274:                                              ; preds = %272
-  %275 = getelementptr inbounds i8, ptr %6, i64 7404
+  %275 = getelementptr inbounds nuw i8, ptr %6, i64 7404
   %276 = load i32, ptr %275, align 4
   %277 = add i32 %276, %241
   br label %278
@@ -4995,24 +4995,24 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   %281 = zext i32 %279 to i64
   %282 = getelementptr i8, ptr %280, i64 %281
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %250, ptr elementtype(i32) %282) #10, !srcloc !16
-  %283 = getelementptr inbounds i8, ptr %6, i64 7184
+  %283 = getelementptr inbounds nuw i8, ptr %6, i64 7184
   %284 = load i32, ptr %283, align 4
   %285 = and i32 %284, 196608
   %286 = icmp eq i32 %285, 0
   %287 = load ptr, ptr %2, align 8
   %288 = load ptr, ptr %287, align 8
-  %289 = getelementptr inbounds i8, ptr %2, i64 184
+  %289 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %287, i64 1328
+  %291 = getelementptr inbounds nuw i8, ptr %287, i64 1328
   %292 = load i32, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %290, i64 72
+  %293 = getelementptr inbounds nuw i8, ptr %290, i64 72
   br i1 %286, label %357, label %294
 
 294:                                              ; preds = %278
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !19
   %295 = load ptr, ptr %293, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 21
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 21
   %297 = load i8, ptr %296, align 1, !range !17, !noundef !18
   %298 = icmp eq i8 %297, 0
   br i1 %298, label %.loopexit, label %.preheader35
@@ -5031,8 +5031,8 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
 
 307:                                              ; preds = %.preheader35
   %308 = shl i32 %292, 12
-  %309 = getelementptr inbounds i8, ptr %288, i64 7404
-  %310 = getelementptr inbounds i8, ptr %288, i64 7368
+  %309 = getelementptr inbounds nuw i8, ptr %288, i64 7404
+  %310 = getelementptr inbounds nuw i8, ptr %288, i64 7368
   br label %311
 
 311:                                              ; preds = %350, %307
@@ -5069,7 +5069,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %333, label %338, label %334
 
 334:                                              ; preds = %331
-  %335 = getelementptr inbounds i8, ptr %332, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %336 = load ptr, ptr %335, align 8
   %337 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %336, i1 noundef zeroext true, i32 %316, i64 noundef %324, i32 noundef 4, i1 noundef zeroext true) #10
   br label %338
@@ -5115,7 +5115,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(34) %4, i8 0, i64 34, i1 false), !annotation !19
   %358 = load ptr, ptr %293, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 21
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 21
   %360 = load i8, ptr %359, align 1, !range !17, !noundef !18
   %361 = icmp eq i8 %360, 0
   br i1 %361, label %519, label %.preheader
@@ -5133,8 +5133,8 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
 368:                                              ; preds = %.preheader
   %369 = shl i32 %292, 12
   %370 = add i32 %369, 467712
-  %371 = getelementptr inbounds i8, ptr %288, i64 7404
-  %372 = getelementptr inbounds i8, ptr %288, i64 7368
+  %371 = getelementptr inbounds nuw i8, ptr %288, i64 7404
+  %372 = getelementptr inbounds nuw i8, ptr %288, i64 7368
   %373 = zext i32 %370 to i64
   br label %374
 
@@ -5170,7 +5170,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %394, label %400, label %395
 
 395:                                              ; preds = %392
-  %396 = getelementptr inbounds i8, ptr %393, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %397 = load ptr, ptr %396, align 8
   %398 = trunc i64 %377 to i32
   %399 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %397, i1 noundef zeroext true, i32 %398, i64 noundef %385, i32 noundef 4, i1 noundef zeroext true) #10
@@ -5213,7 +5213,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
 
 421:                                              ; preds = %414
   %422 = add i32 %369, 467776
-  %423 = getelementptr inbounds i8, ptr %4, i64 32
+  %423 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %424 = load i16, ptr %423, align 16
   %425 = zext i16 %424 to i32
   %426 = zext i16 %424 to i64
@@ -5237,7 +5237,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %435, label %440, label %436
 
 436:                                              ; preds = %433
-  %437 = getelementptr inbounds i8, ptr %434, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %438 = load ptr, ptr %437, align 8
   %439 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %438, i1 noundef zeroext true, i32 %422, i64 noundef %426, i32 noundef 4, i1 noundef zeroext true) #10
   br label %440
@@ -5292,7 +5292,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %466, label %471, label %467
 
 467:                                              ; preds = %464
-  %468 = getelementptr inbounds i8, ptr %465, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %465, i64 8
   %469 = load ptr, ptr %468, align 8
   %470 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %469, i1 noundef zeroext true, i32 %457, i64 noundef %426, i32 noundef 4, i1 noundef zeroext true) #10
   br label %471
@@ -5347,7 +5347,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %497, label %502, label %498
 
 498:                                              ; preds = %495
-  %499 = getelementptr inbounds i8, ptr %496, i64 8
+  %499 = getelementptr inbounds nuw i8, ptr %496, i64 8
   %500 = load ptr, ptr %499, align 8
   %501 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %500, i1 noundef zeroext true, i32 %488, i64 noundef %426, i32 noundef 4, i1 noundef zeroext true) #10
   br label %502
@@ -5394,7 +5394,7 @@ define internal void @g4x_sprite_update_arm(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 12
   %7 = add i32 %6, 467328
@@ -5418,7 +5418,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %19, i1 noundef zeroext true, i32 %7, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %21
@@ -5442,14 +5442,14 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %3, i64 7404
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, %7
   br label %34
 
 34:                                               ; preds = %30, %28
   %35 = phi i32 [ %33, %30 ], [ %7, %28 ]
-  %36 = getelementptr inbounds i8, ptr %3, i64 7368
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %35 to i64
   %39 = getelementptr i8, ptr %37, i64 %38
@@ -5475,7 +5475,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %52, i1 noundef zeroext true, i32 %40, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %54
@@ -5499,7 +5499,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %3, i64 7404
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, %40
   br label %67
@@ -5531,7 +5531,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %84, i1 noundef zeroext true, i32 %72, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #10
   br label %86
@@ -5555,7 +5555,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %3, i64 7404
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %72
   br label %99
@@ -5572,7 +5572,7 @@ define internal void @g4x_sprite_disable_arm(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @g4x_sprite_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   %7 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %6) #10
@@ -5583,10 +5583,10 @@ define internal zeroext i1 @g4x_sprite_get_hw_state(ptr nocapture noundef readon
   %10 = load i32, ptr %4, align 8
   %11 = shl i32 %10, 12
   %12 = add i32 %11, 467328
-  %13 = getelementptr inbounds i8, ptr %3, i64 7368
-  %14 = getelementptr inbounds i8, ptr %3, i64 7512
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %13, i32 %12, i1 noundef zeroext true) #10
+  %16 = tail call i32 %15(ptr noundef nonnull %13, i32 %12, i1 noundef zeroext true) #10
   %17 = icmp slt i32 %16, 0
   %18 = load i32, ptr %4, align 8
   store i32 %18, ptr %1, align 4
@@ -5600,19 +5600,19 @@ define internal zeroext i1 @g4x_sprite_get_hw_state(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @g4x_sprite_min_cdclk(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 856
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 108
-  %8 = getelementptr inbounds i8, ptr %1, i64 124
-  %9 = tail call i32 @drm_rect_calc_hscale(ptr noundef %7, ptr noundef %8, i32 noundef 0, i32 noundef 2147483647) #10
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %9 = tail call i32 @drm_rect_calc_hscale(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2147483647) #10
   %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 65536)
   %11 = lshr i32 %10, 16
   %12 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #11, !srcloc !29
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 21
   %16 = load i8, ptr %15, align 1, !range !17, !noundef !18
   %17 = icmp eq i8 %16, 0
   %18 = select i1 %17, i32 8, i32 9
@@ -5690,11 +5690,11 @@ declare dso_local i32 @intel_plane_check_src_coordinates(ptr noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @vlv_sprite_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 196
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %22 [
@@ -5767,12 +5767,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vlv_sprite_ctl(ptr nocaptu
 
 26:                                               ; preds = %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %1
   %27 = phi i32 [ -1140850688, %21 ], [ -1207959552, %20 ], [ -1409286144, %19 ], [ -1476395008, %18 ], [ -1543503872, %17 ], [ -1610612736, %16 ], [ -1677721600, %15 ], [ -1744830464, %14 ], [ -1811939328, %13 ], [ -2013265920, %12 ], [ -2147287040, %11 ], [ -2147418112, %10 ], [ -2147352576, %9 ], [ -2147483648, %1 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 1
   %31 = or disjoint i32 %27, 262144
   %32 = select i1 %30, i32 %31, i32 %27
-  %33 = getelementptr inbounds i8, ptr %3, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 72057594037927937
   %36 = or disjoint i32 %32, 1024
@@ -5781,7 +5781,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vlv_sprite_ctl(ptr nocaptu
   %39 = and i32 %38, 32768
   %40 = shl i32 %5, 4
   %41 = and i32 %40, 256
-  %42 = getelementptr inbounds i8, ptr %0, i64 428
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %43 = load i32, ptr %42, align 4
   %44 = shl i32 %43, 20
   %45 = and i32 %44, 4194304
@@ -5854,17 +5854,17 @@ declare dso_local zeroext i1 @intel_fb_plane_supports_modifier(ptr noundef, i64 
 define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 196
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 7184
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = and i64 %10, 1048576
   %12 = icmp ne i64 %11, 0
   %13 = select i1 %12, i32 -2147467264, i32 -2147483648
-  %14 = getelementptr inbounds i8, ptr %5, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %35 [
@@ -5930,7 +5930,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocaptu
 
 39:                                               ; preds = %33, %31, %29, %27, %25, %23, %21, %19, %17, %1
   %40 = phi i32 [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ], [ %13, %1 ]
-  %41 = getelementptr inbounds i8, ptr %15, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %42 = load i8, ptr %41, align 2
   %43 = icmp ne i8 %42, 8
   %brmerge = select i1 %43, i1 true, i1 %12
@@ -5946,17 +5946,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocaptu
   %48 = phi i1 [ %not., %39 ], [ %46, %44 ]
   %49 = or i32 %40, 8192
   %50 = select i1 %48, i32 %40, i32 %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 200
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 1
   %54 = or i32 %50, 262144
   %55 = select i1 %53, i32 %54, i32 %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 204
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 1
   %59 = or i32 %55, 268435456
   %60 = select i1 %58, i32 %59, i32 %55
-  %61 = getelementptr inbounds i8, ptr %5, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 72057594037927937
   %64 = or i32 %60, 1024
@@ -5964,7 +5964,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocaptu
   %66 = shl i32 %7, 13
   %67 = and i32 %66, 32768
   %68 = or i32 %65, %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 428
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 2
   %72 = icmp eq i32 %71, 0
@@ -5989,16 +5989,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ivb_sprite_ctl(ptr nocaptu
 define internal fastcc range(i32 -2147483648, 1) i32 @g4x_sprite_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 196
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 7184
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 524288
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 -2147483648, i32 -2147467264
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %34 [
@@ -6064,17 +6064,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @g4x_sprite_ctl(ptr nocaptu
 
 38:                                               ; preds = %32, %30, %28, %26, %24, %22, %20, %18, %16, %1
   %39 = phi i32 [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %12, %1 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 1
   %43 = or i32 %39, 262144
   %44 = select i1 %42, i32 %43, i32 %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 204
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, 1
   %48 = or i32 %44, 134217728
   %49 = select i1 %47, i32 %48, i32 %44
-  %50 = getelementptr inbounds i8, ptr %5, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 72057594037927937
   %53 = or i32 %49, 1024
@@ -6082,7 +6082,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @g4x_sprite_ctl(ptr nocaptu
   %55 = shl i32 %7, 13
   %56 = and i32 %55, 32768
   %57 = or i32 %54, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 428
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 2
   %61 = icmp eq i32 %60, 0

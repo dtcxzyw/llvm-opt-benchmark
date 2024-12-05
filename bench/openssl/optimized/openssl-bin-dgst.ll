@@ -246,7 +246,7 @@ sw.bb8:                                           ; preds = %while.cond
   %call9 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.69) #6
   %4 = load ptr, ptr @bio_out, align 8
   store ptr %4, ptr %dec, align 8
-  %n = getelementptr inbounds i8, ptr %dec, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %dec, i64 8
   store i32 0, ptr %n, align 8
   call void @OBJ_NAME_do_all_sorted(i32 noundef 1, ptr noundef nonnull @show_digests, ptr noundef nonnull %dec) #6
   %5 = load ptr, ptr @bio_out, align 8
@@ -794,7 +794,7 @@ for.body337.preheader:                            ; preds = %if.end333
 for.body337:                                      ; preds = %for.body337.preheader, %for.inc356
   %indvars.iv = phi i64 [ 0, %for.body337.preheader ], [ %indvars.iv.next, %for.inc356 ]
   %ret.1260 = phi i32 [ 0, %for.body337.preheader ], [ %ret.2, %for.inc356 ]
-  %arrayidx338 = getelementptr inbounds ptr, ptr %call87, i64 %indvars.iv
+  %arrayidx338 = getelementptr inbounds nuw ptr, ptr %call87, i64 %indvars.iv
   %42 = load ptr, ptr %arrayidx338, align 8
   %call339 = call i64 @BIO_ctrl(ptr noundef %call114, i32 noundef 108, i64 noundef 3, ptr noundef %42) #6
   %conv340 = trunc i64 %call339 to i32
@@ -881,7 +881,7 @@ declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal void @show_digests(ptr nocapture noundef readonly %name, ptr nocapture noundef %arg) #0 {
 entry:
-  %name1 = getelementptr inbounds i8, ptr %name, i64 8
+  %name1 = getelementptr inbounds nuw i8, ptr %name, i64 8
   %0 = load ptr, ptr %name1, align 8
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.109) #7
   %cmp.not = icmp eq ptr %call, null
@@ -897,7 +897,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %1 = load ptr, ptr %call5, align 8
   %2 = load i8, ptr %0, align 1
   %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %1, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %4 = and i16 %3, 512
   %tobool.not = icmp eq i16 %4, 0
@@ -921,7 +921,7 @@ if.end23:                                         ; preds = %if.then16, %if.end9
   %7 = load ptr, ptr %arg, align 8
   %8 = load ptr, ptr %name1, align 8
   %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.111, ptr noundef %8) #6
-  %n = getelementptr inbounds i8, ptr %arg, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %9 = load i32, ptr %n, align 8
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %n, align 8
@@ -1219,7 +1219,7 @@ if.end89:                                         ; preds = %if.then87, %if.then
 
 for.body:                                         ; preds = %if.end89, %for.body
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %for.body ], [ 0, %if.end89 ]
-  %arrayidx = getelementptr inbounds i8, ptr %buf.addr.1, i64 %indvars.iv67
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf.addr.1, i64 %indvars.iv67
   %16 = load i8, ptr %arrayidx, align 1
   %conv93 = zext i8 %16 to i32
   %call94 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.103, i32 noundef %conv93) #6
@@ -1276,7 +1276,7 @@ for.body120.lr.ph:                                ; preds = %if.end115
 
 for.body120.us:                                   ; preds = %for.body120.lr.ph, %for.body120.us
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %for.body120.us ], [ 0, %for.body120.lr.ph ]
-  %arrayidx128.us = getelementptr inbounds i8, ptr %buf.addr.1, i64 %indvars.iv64
+  %arrayidx128.us = getelementptr inbounds nuw i8, ptr %buf.addr.1, i64 %indvars.iv64
   %20 = load i8, ptr %arrayidx128.us, align 1
   %conv129.us = zext i8 %20 to i32
   %call130.us = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.103, i32 noundef %conv129.us) #6
@@ -1297,7 +1297,7 @@ if.then124:                                       ; preds = %for.body120
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %for.body120
-  %arrayidx128 = getelementptr inbounds i8, ptr %buf.addr.1, i64 %indvars.iv
+  %arrayidx128 = getelementptr inbounds nuw i8, ptr %buf.addr.1, i64 %indvars.iv
   %23 = load i8, ptr %arrayidx128, align 1
   %conv129 = zext i8 %23 to i32
   %call130 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.103, i32 noundef %conv129) #6

@@ -26,20 +26,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__intel_wakeref_get_first(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8928
-  %5 = tail call i64 @intel_runtime_pm_get(ptr noundef %4) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @mutex_lock(ptr noundef %6) #6
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8928
+  %5 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %4) #6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @mutex_lock(ptr noundef nonnull %6) #6
   %7 = load volatile i32, ptr %0, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0) #6
@@ -47,8 +47,8 @@ define dso_local i32 @__intel_wakeref_get_first(ptr noundef %0) local_unnamed_ad
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %9
-  %17 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 0, ptr elementtype(i64) %10) #6, !srcloc !5
-  tail call void @wake_up_var(ptr noundef %10) #6
+  %17 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %10, i64 0, ptr nonnull elementtype(i64) %10) #6, !srcloc !5
+  tail call void @wake_up_var(ptr noundef nonnull %10) #6
   br label %20
 
 18:                                               ; preds = %9, %1
@@ -59,14 +59,14 @@ define dso_local i32 @__intel_wakeref_get_first(ptr noundef %0) local_unnamed_ad
 20:                                               ; preds = %18, %16
   %21 = phi i32 [ 0, %18 ], [ %14, %16 ]
   %22 = phi i64 [ %19, %18 ], [ %17, %16 ]
-  tail call void @mutex_unlock(ptr noundef %6) #6
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #6
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %27, label %24, !prof !7
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8928
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %26) #6
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8928
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %26) #6
   br label %27
 
 27:                                               ; preds = %24, %20
@@ -98,19 +98,19 @@ define dso_local void @__intel_wakeref_put_last(ptr noundef %0, i64 noundef %1) 
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = tail call i32 @mutex_trylock(ptr noundef %6) #6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = tail call i32 @mutex_trylock(ptr noundef nonnull %6) #6
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8096
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8096
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = lshr i64 %1, 1
-  %16 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %13, ptr noundef %14, i64 noundef %15) #6
+  %16 = tail call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %13, ptr noundef nonnull %14, i64 noundef %15) #6
   br label %37
 
 17:                                               ; preds = %5
@@ -121,31 +121,31 @@ define dso_local void @__intel_wakeref_put_last(ptr noundef %0, i64 noundef %1) 
   br i1 %20, label %36, label %21, !prof !9
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %0) #6
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %36, !prof !7
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %29, i64 0, ptr elementtype(i64) %29) #6, !srcloc !10
-  tail call void @wake_up_var(ptr noundef %29) #6
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %29, i64 0, ptr nonnull elementtype(i64) %29) #6, !srcloc !10
+  tail call void @wake_up_var(ptr noundef nonnull %29) #6
   %31 = icmp eq i64 %30, 0
-  tail call void @mutex_unlock(ptr noundef %6) #6
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #6
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8928
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %35) #6
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8928
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %35) #6
   br label %37
 
 36:                                               ; preds = %21, %17
-  tail call void @mutex_unlock(ptr noundef %6) #6
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #6
   br label %37
 
 37:                                               ; preds = %36, %32, %28, %9
@@ -157,25 +157,25 @@ declare dso_local i32 @mutex_trylock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__intel_wakeref_init(ptr noundef initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @__mutex_init(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef %3) #6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @__mutex_init(ptr noundef nonnull %8, ptr noundef nonnull @.str, ptr noundef %3) #6
   store volatile i32 0, ptr %0, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 68719476704, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store volatile ptr %11, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store volatile ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @__intel_wakeref_put_work, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @init_timer_key(ptr noundef %14, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @init_timer_key(ptr noundef nonnull %14, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #6
   ret void
 }
 
@@ -216,7 +216,7 @@ define internal void @__intel_wakeref_put_work(ptr noundef %0) #0 align 16 {
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr i8, ptr %0, i64 -8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %2) #6
   %24 = icmp eq i32 %23, 0
@@ -233,8 +233,8 @@ define internal void @__intel_wakeref_put_work(ptr noundef %0) #0 align 16 {
 29:                                               ; preds = %25
   %30 = getelementptr i8, ptr %0, i64 -16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8928
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %32) #6
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8928
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %32) #6
   br label %.loopexit
 
 33:                                               ; preds = %18, %._crit_edge
@@ -256,18 +256,18 @@ define dso_local i32 @intel_wakeref_wait_for_idle(ptr noundef %0) local_unnamed_
   %2 = alloca %struct.wait_bit_queue_entry, align 8
   %3 = tail call i32 @__SCT__might_resched() #6
   %4 = tail call i32 @__SCT__might_resched() #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load volatile i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.thread3, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @__var_waitqueue(ptr noundef %5) #6
+  %9 = tail call ptr @__var_waitqueue(ptr noundef nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !annotation !17
-  call void @init_wait_var_entry(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 0) #6
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
-  %11 = call i64 @prepare_to_wait_event(ptr noundef %9, ptr noundef %10, i32 noundef 258) #6
+  call void @init_wait_var_entry(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef 0) #6
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %11 = call i64 @prepare_to_wait_event(ptr noundef %9, ptr noundef nonnull %10, i32 noundef 258) #6
   %12 = load volatile i64, ptr %5, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %.thread2.thread, label %.lr.ph
@@ -279,13 +279,13 @@ define dso_local i32 @intel_wakeref_wait_for_idle(ptr noundef %0) local_unnamed_
 
 16:                                               ; preds = %.lr.ph
   call void @schedule() #6
-  %17 = call i64 @prepare_to_wait_event(ptr noundef %9, ptr noundef %10, i32 noundef 258) #6
+  %17 = call i64 @prepare_to_wait_event(ptr noundef %9, ptr noundef nonnull %10, i32 noundef 258) #6
   %18 = load volatile i64, ptr %5, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %.thread2.thread, label %.lr.ph
 
 .thread2.thread:                                  ; preds = %16, %8
-  call void @finish_wait(ptr noundef %9, ptr noundef %10) #6
+  call void @finish_wait(ptr noundef %9, ptr noundef nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
   br label %.thread3
 
@@ -296,11 +296,11 @@ define dso_local i32 @intel_wakeref_wait_for_idle(ptr noundef %0) local_unnamed_
   br i1 %21, label %.thread3, label %25
 
 .thread3:                                         ; preds = %.thread2.thread, %1, %.thread2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @mutex_lock(ptr noundef %22) #6
-  call void @mutex_unlock(ptr noundef %22) #6
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
-  %24 = call zeroext i1 @flush_delayed_work(ptr noundef %23) #6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @mutex_lock(ptr noundef nonnull %22) #6
+  call void @mutex_unlock(ptr noundef nonnull %22) #6
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %24 = call zeroext i1 @flush_delayed_work(ptr noundef nonnull %23) #6
   br label %25
 
 25:                                               ; preds = %.thread3, %.thread2
@@ -328,13 +328,13 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_wakeref_auto_init(ptr noundef initializes((56, 60)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @init_timer_key(ptr noundef %4, ptr noundef nonnull @wakeref_auto_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @init_timer_key(ptr noundef nonnull %4, ptr noundef nonnull @wakeref_auto_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store volatile i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %6, align 8
   store ptr %1, ptr %0, align 8
   ret void
@@ -357,8 +357,8 @@ define internal void @wakeref_auto_timeout(ptr noundef %0) #0 align 16 {
   %9 = load i64, ptr %2, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %9) #6
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %11) #6
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %11) #6
   br label %12
 
 12:                                               ; preds = %6, %1
@@ -374,8 +374,8 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call i32 @timer_delete_sync(ptr noundef %7) #6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = tail call i32 @timer_delete_sync(ptr noundef nonnull %7) #6
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %107, label %10
 
@@ -393,8 +393,8 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   %16 = load i64, ptr %4, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %16) #6
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %18) #6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %18) #6
   br label %19
 
 19:                                               ; preds = %14, %10
@@ -403,17 +403,17 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8928
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8928
   %23 = load volatile i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %21, i64 8936
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8936
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 452
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 452
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %20
-  %30 = getelementptr inbounds i8, ptr %25, i64 440
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 440
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, 7
   %33 = icmp ne i16 %32, 0
@@ -465,7 +465,7 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   br label %47
 
 47:                                               ; preds = %46, %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 60
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %49 = load volatile i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.thread6, label %.preheader9
@@ -473,7 +473,7 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
 .preheader9:                                      ; preds = %47, %56
   %51 = phi i32 [ %57, %56 ], [ %49, %47 ]
   %52 = add i32 %51, 1
-  %53 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 %52, ptr elementtype(i32) %48, i32 %51) #6, !srcloc !12
+  %53 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 %52, ptr nonnull elementtype(i32) %48, i32 %51) #6, !srcloc !12
   %54 = extractvalue { i8, i32 } %53, 0
   %55 = icmp ult i8 %54, 2
   tail call void @llvm.assume(i1 %55)
@@ -493,7 +493,7 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   br i1 %62, label %64, label %63, !prof !7
 
 63:                                               ; preds = %.thread6
-  tail call void @refcount_warn_saturate(ptr noundef %48, i32 noundef 0) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %48, i32 noundef 0) #6
   br label %64
 
 64:                                               ; preds = %63, %.thread6
@@ -501,8 +501,8 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   br i1 %65, label %66, label %92
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %0, i64 56
-  %68 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %67) #6
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %68 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %67) #6
   %69 = load volatile i32, ptr %48, align 4
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %.thread7, label %.preheader
@@ -510,7 +510,7 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
 .preheader:                                       ; preds = %66, %76
   %71 = phi i32 [ %77, %76 ], [ %69, %66 ]
   %72 = add i32 %71, 1
-  %73 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 %72, ptr elementtype(i32) %48, i32 %71) #6, !srcloc !12
+  %73 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 %72, ptr nonnull elementtype(i32) %48, i32 %71) #6, !srcloc !12
   %74 = extractvalue { i8, i32 } %73, 0
   %75 = icmp ult i8 %74, 2
   tail call void @llvm.assume(i1 %75)
@@ -530,7 +530,7 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   br i1 %82, label %84, label %83, !prof !7
 
 83:                                               ; preds = %.thread7
-  tail call void @refcount_warn_saturate(ptr noundef %48, i32 noundef 0) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %48, i32 noundef 0) #6
   br label %84
 
 84:                                               ; preds = %83, %.thread7
@@ -539,22 +539,22 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
 
 86:                                               ; preds = %84
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8928
-  %89 = tail call i64 @intel_runtime_pm_get_if_in_use(ptr noundef %88) #6
-  %90 = getelementptr inbounds i8, ptr %0, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8928
+  %89 = tail call i64 @intel_runtime_pm_get_if_in_use(ptr noundef nonnull %88) #6
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %89, ptr %90, align 8
   store volatile i32 1, ptr %48, align 4
   br label %91
 
 91:                                               ; preds = %86, %84
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %67, i64 noundef %68) #6
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %67, i64 noundef %68) #6
   br label %92
 
 92:                                               ; preds = %91, %64
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load volatile i64, ptr @jiffies, align 64
   %95 = add i64 %94, %1
-  %96 = tail call i32 @mod_timer(ptr noundef %93, i64 noundef %95) #6
+  %96 = tail call i32 @mod_timer(ptr noundef nonnull %93, i64 noundef %95) #6
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %107, label %98
 
@@ -562,7 +562,7 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8, !annotation !17
   %99 = getelementptr i8, ptr %0, i64 56
-  %100 = call zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef %48, ptr noundef %99, ptr noundef nonnull %3) #6
+  %100 = call zeroext i1 @refcount_dec_and_lock_irqsave(ptr noundef nonnull %48, ptr noundef %99, ptr noundef nonnull %3) #6
   br i1 %100, label %101, label %106
 
 101:                                              ; preds = %98
@@ -571,8 +571,8 @@ define dso_local void @intel_wakeref_auto(ptr noundef %0, i64 noundef %1) local_
   %103 = load i64, ptr %3, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %99, i64 noundef %103) #6
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %105) #6
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %105) #6
   br label %106
 
 106:                                              ; preds = %101, %98
@@ -595,8 +595,8 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_wakeref_auto_fini(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = tail call i32 @timer_delete_sync(ptr noundef %3) #6
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = tail call i32 @timer_delete_sync(ptr noundef nonnull %3) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %6
 
@@ -614,8 +614,8 @@ define dso_local void @intel_wakeref_auto_fini(ptr noundef %0) local_unnamed_add
   %12 = load i64, ptr %2, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %8, i64 noundef %12) #6
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8928
-  call void @intel_runtime_pm_put_unchecked(ptr noundef %14) #6
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8928
+  call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %14) #6
   br label %15
 
 15:                                               ; preds = %10, %6

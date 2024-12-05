@@ -10,23 +10,23 @@ define ptr @cs_spalloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
   br i1 %.not, label %33, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %9, align 8
   %10 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   store i32 %10, ptr %6, align 8
   %.not26 = icmp eq i32 %4, 0
   %11 = sext i1 %.not26 to i32
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %11, ptr %12, align 8
   %13 = add nsw i32 %1, 1
   %14 = select i1 %.not26, i32 %13, i32 %10
   %15 = tail call ptr @cs_malloc(i32 noundef %14, i64 noundef 4) #3
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %15, ptr %16, align 8
   %17 = tail call ptr @cs_malloc(i32 noundef %10, i64 noundef 4) #3
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %17, ptr %18, align 8
   %.not27 = icmp ne i32 %3, 0
   br i1 %.not27, label %19, label %21
@@ -37,7 +37,7 @@ define ptr @cs_spalloc(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nound
 
 21:                                               ; preds = %7, %19
   %22 = phi ptr [ %20, %19 ], [ null, %7 ]
-  %23 = getelementptr inbounds i8, ptr %6, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %22, ptr %23, align 8
   %24 = load ptr, ptr %16, align 8
   %.not28 = icmp eq ptr %24, null
@@ -75,13 +75,13 @@ define ptr @cs_spfree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %13, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @cs_free(ptr noundef %4) #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @cs_free(ptr noundef %7) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @cs_free(ptr noundef %10) #3
   %12 = tail call ptr @cs_free(ptr noundef nonnull %0) #3
@@ -107,15 +107,15 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef %0, i32 noundef %1) local_u
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i32, ptr %14, i64 %17
@@ -124,24 +124,24 @@ define range(i32 0, 2) i32 @cs_sprealloc(ptr noundef %0, i32 noundef %1) local_u
 
 19:                                               ; preds = %12, %8, %6
   %.024 = phi i32 [ %1, %6 ], [ %.pre, %12 ], [ %10, %8 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @cs_realloc(ptr noundef %21, i32 noundef %.024, i64 noundef 4, ptr noundef nonnull %3) #3
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @cs_realloc(ptr noundef %28, i32 noundef %.024, i64 noundef 4, ptr noundef nonnull %4) #3
   store ptr %29, ptr %27, align 8
   br label %30
 
 30:                                               ; preds = %26, %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not28 = icmp eq ptr %32, null
   br i1 %.not28, label %36, label %33
@@ -187,42 +187,42 @@ define ptr @cs_nfree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %cs_spfree.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @cs_free(ptr noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @cs_free(ptr noundef %9) #3
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @cs_free(ptr noundef %12) #3
   %14 = tail call ptr @cs_free(ptr noundef nonnull %3) #3
   br label %cs_spfree.exit
 
 cs_spfree.exit:                                   ; preds = %2, %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i8 = icmp eq ptr %16, null
   br i1 %.not.i8, label %cs_spfree.exit10, label %17
 
 17:                                               ; preds = %cs_spfree.exit
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @cs_free(ptr noundef %19) #3
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @cs_free(ptr noundef %22) #3
-  %24 = getelementptr inbounds i8, ptr %16, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @cs_free(ptr noundef %25) #3
   %27 = tail call ptr @cs_free(ptr noundef nonnull %16) #3
   br label %cs_spfree.exit10
 
 cs_spfree.exit10:                                 ; preds = %cs_spfree.exit, %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @cs_free(ptr noundef %29) #3
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @cs_free(ptr noundef %32) #3
   %34 = tail call ptr @cs_free(ptr noundef nonnull %0) #3
@@ -241,16 +241,16 @@ define ptr @cs_sfree(ptr noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @cs_free(ptr noundef %3) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @cs_free(ptr noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @cs_free(ptr noundef %9) #3
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @cs_free(ptr noundef %12) #3
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @cs_free(ptr noundef %15) #3
   %17 = tail call ptr @cs_free(ptr noundef nonnull %0) #3
@@ -272,14 +272,14 @@ define ptr @cs_dalloc(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store ptr %5, ptr %3, align 8
   %6 = add nsw i32 %0, 6
   %7 = tail call ptr @cs_malloc(i32 noundef %6, i64 noundef 4) #3
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @cs_malloc(i32 noundef %1, i64 noundef 4) #3
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %11 = add nsw i32 %1, 6
   %12 = tail call ptr @cs_malloc(i32 noundef %11, i64 noundef 4) #3
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %3, align 8
   %.not16 = icmp eq ptr %14, null
@@ -321,13 +321,13 @@ define ptr @cs_dfree(ptr noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @cs_free(ptr noundef %3) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @cs_free(ptr noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @cs_free(ptr noundef %9) #3
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @cs_free(ptr noundef %12) #3
   %14 = tail call ptr @cs_free(ptr noundef nonnull %0) #3
@@ -350,13 +350,13 @@ define ptr @cs_done(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 
   br i1 %.not.i, label %cs_spfree.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @cs_free(ptr noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cs_free(ptr noundef %13) #3
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @cs_free(ptr noundef %16) #3
   %18 = tail call ptr @cs_free(ptr noundef nonnull %0) #3
@@ -373,13 +373,13 @@ define ptr @cs_idone(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not.i, label %cs_spfree.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @cs_free(ptr noundef %7) #3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @cs_free(ptr noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cs_free(ptr noundef %13) #3
   %15 = tail call ptr @cs_free(ptr noundef nonnull %1) #3
@@ -405,13 +405,13 @@ define ptr @cs_ndone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not.i, label %cs_spfree.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @cs_free(ptr noundef %8) #3
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @cs_free(ptr noundef %11) #3
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @cs_free(ptr noundef %14) #3
   %16 = tail call ptr @cs_free(ptr noundef nonnull %1) #3
@@ -438,13 +438,13 @@ define ptr @cs_ddone(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not.i, label %cs_spfree.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @cs_free(ptr noundef %7) #3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @cs_free(ptr noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cs_free(ptr noundef %13) #3
   %15 = tail call ptr @cs_free(ptr noundef nonnull %1) #3
@@ -462,13 +462,13 @@ cs_spfree.exit:                                   ; preds = %4, %5
 18:                                               ; preds = %17
   %19 = load ptr, ptr %0, align 8
   %20 = tail call ptr @cs_free(ptr noundef %19) #3
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @cs_free(ptr noundef %22) #3
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @cs_free(ptr noundef %25) #3
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @cs_free(ptr noundef %28) #3
   %30 = tail call ptr @cs_free(ptr noundef nonnull %0) #3

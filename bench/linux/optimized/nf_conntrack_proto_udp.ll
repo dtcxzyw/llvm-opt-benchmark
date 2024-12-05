@@ -20,11 +20,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.udphdr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %8 = load i32, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   store i64 0, ptr %6, align 8, !annotation !5
-  %9 = getelementptr inbounds i8, ptr %1, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %2, %10
   %12 = sub i32 %8, %11
@@ -41,7 +41,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
   br i1 %18, label %.thread, label %.thread2, !prof !7
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %1, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %2 to i64
   %23 = getelementptr i8, ptr %21, i64 %22
@@ -51,7 +51,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
 .thread2:                                         ; preds = %16, %19
   %25 = phi ptr [ %23, %19 ], [ %6, %16 ]
   %26 = sub i32 %8, %2
-  %27 = getelementptr inbounds i8, ptr %25, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load i16, ptr %27, align 2
   %29 = call i16 @llvm.bswap.i16(i16 %28)
   %30 = zext i16 %29 to i32
@@ -61,7 +61,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
   br i1 %33, label %.thread, label %34
 
 34:                                               ; preds = %.thread2
-  %35 = getelementptr inbounds i8, ptr %25, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %53, label %38
@@ -72,15 +72,15 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
   br i1 %40, label %41, label %53
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 2436
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2436
   %45 = load i8, ptr %44, align 4
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %4, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i16
   %51 = call zeroext i16 @nf_checksum(ptr noundef %1, i32 noundef 0, i32 noundef %2, i8 noundef zeroext 17, i16 noundef zeroext %50) #7
@@ -89,10 +89,10 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
 
 53:                                               ; preds = %47, %41, %38, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  %54 = getelementptr inbounds i8, ptr %0, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 2520
-  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 2520
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %58 = load volatile i64, ptr %57, align 8
   %59 = and i64 %58, 8
   %60 = icmp eq i64 %59, 0
@@ -101,7 +101,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
 61:                                               ; preds = %53
   %62 = load volatile i64, ptr @jiffies, align 64
   %63 = add i64 %62, 2000
-  %64 = getelementptr inbounds i8, ptr %0, i64 184
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 %63, ptr %64, align 8
   br label %65
 
@@ -112,7 +112,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
   br i1 %67, label %89, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %0, i64 184
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %71 = load i64, ptr %70, align 8
   %72 = load volatile i64, ptr @jiffies, align 64
   %73 = sub i64 %71, %72
@@ -136,7 +136,7 @@ define dso_local noundef range(i32 -1, 2) i32 @nf_conntrack_udp_packet(ptr nound
   br i1 %85, label %91, label %86, !prof !8
 
 86:                                               ; preds = %80
-  %87 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %57, i64 2, ptr elementtype(i64) %57) #7, !srcloc !9
+  %87 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %57, i64 2, ptr nonnull elementtype(i64) %57) #7, !srcloc !9
   %88 = icmp ult i8 %87, 2
   call void @llvm.assume(i1 %88)
   br label %91
@@ -164,7 +164,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @nf_conntrack_udp_init_net(ptr nocapture noundef writeonly initializes((2520, 2528)) %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2520
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   store i64 515396075550000, ptr %2, align 4
   ret void
 }

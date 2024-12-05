@@ -81,7 +81,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 47:                                               ; preds = %46
   store ptr %41, ptr %33, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
   invoke void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h004d73e7f6440055E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %6, ptr nonnull align 8 %48)
           to label %.thread unwind label %50
 
@@ -97,12 +97,12 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 .thread:                                          ; preds = %47
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %.sink.split
 
 52:                                               ; preds = %69
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %70, ptr %53, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   %54 = load ptr, ptr %36, align 8, !noundef !4
@@ -128,7 +128,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 61:                                               ; preds = %49
   store ptr %28, ptr %29, align 8
-  %62 = getelementptr inbounds i8, ptr %29, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h6ec4853450d97d01E", ptr %62, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %30, ptr nonnull align 8 @anon.385a0747e02c0652ea63f0d45b238093.2, i64 2, ptr nonnull align 8 %29, i64 1)
           to label %65 unwind label %63
@@ -166,7 +166,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
   %.sink74 = phi i64 [ 40, %.thread ], [ 72, %.thread61 ]
   %.sink73 = phi ptr [ %41, %.thread ], [ %101, %.thread61 ]
   %.sink.ph = phi ptr [ %35, %.thread ], [ %26, %.thread61 ]
-  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink74
+  %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink74
   store ptr %.sink73, ptr %.sroa.2.sroa.2.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   br label %72
 
@@ -213,22 +213,22 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 82:                                               ; preds = %81
   store ptr %79, ptr %23, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !nonnull !4, !align !5, !noundef !4
   invoke void @"_ZN62_$LT$proc_macro2..imp..Ident$u20$as$u20$core..clone..Clone$GT$5clone17h004d73e7f6440055E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr nonnull align 8 %79)
           to label %88 unwind label %121
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %3, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %86, ptr %12, align 8
-  %87 = getelementptr inbounds i8, ptr %12, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN54_$LT$proc_macro2..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17he666bf40bed39058E", ptr %87, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %13, ptr nonnull align 8 @anon.385a0747e02c0652ea63f0d45b238093.7, i64 1, ptr nonnull align 8 %12, i64 1)
           to label %114 unwind label %121
 
 88:                                               ; preds = %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
-  %89 = getelementptr inbounds i8, ptr %3, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %90 = load i32, ptr %89, align 8, !noundef !4
   %91 = invoke { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5235955ca6c14b8bE"(ptr nonnull align 8 %84, ptr nonnull align 8 %22, i32 %90)
           to label %92 unwind label %121
@@ -242,11 +242,11 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
   %96 = extractvalue { i32, i32 } %91, 1
   store i32 %96, ptr %21, align 4
   store ptr %23, ptr %18, align 8
-  %97 = getelementptr inbounds i8, ptr %18, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h19f38c427fd6ad82E", ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %18, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %21, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %18, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr @"_ZN54_$LT$proc_macro2..Span$u20$as$u20$core..fmt..Debug$GT$3fmt17he666bf40bed39058E", ptr %99, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %19, ptr nonnull align 8 @anon.385a0747e02c0652ea63f0d45b238093.5, i64 2, ptr nonnull align 8 %18, i64 2)
           to label %102 unwind label %121
@@ -262,7 +262,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
           to label %.invoke unwind label %121
 
 103:                                              ; preds = %.invoke
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %116, ptr %104, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..NamedType$GT$$GT$17h4f1146973eef8dcbE"(ptr nonnull align 8 %24)
@@ -290,13 +290,13 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 .thread61:                                        ; preds = %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.012, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
-  %.sroa.012.48..sroa_idx = getelementptr inbounds i8, ptr %.sroa.012, i64 48
+  %.sroa.012.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.012, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.012, i64 72, i1 false)
   br label %.sink.split
 
 111:                                              ; preds = %131
-  %112 = getelementptr inbounds i8, ptr %0, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %132, ptr %112, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   %113 = load ptr, ptr %27, align 8, !noundef !4
@@ -332,7 +332,7 @@ define hidden void @"_ZN15wiggle_generate16codegen_settings14ErrorTransform3new2
 
 123:                                              ; preds = %80
   store ptr %7, ptr %8, align 8
-  %124 = getelementptr inbounds i8, ptr %8, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h6ec4853450d97d01E", ptr %124, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 @anon.385a0747e02c0652ea63f0d45b238093.2, i64 2, ptr nonnull align 8 %8, i64 1)
           to label %127 unwind label %125
@@ -376,8 +376,8 @@ define hidden zeroext i1 @"_ZN15wiggle_generate16codegen_settings14ErrorTransfor
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = tail call align 8 ptr @_ZN15wiggle_generate16codegen_settings9ErrorType8abi_type17h501f12174fec36b7E(ptr nonnull align 8 %3)
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h14b22823970ec9c1E"(ptr nonnull align 8 %6, ptr nonnull align 8 %7)
   ret i1 %8
 }

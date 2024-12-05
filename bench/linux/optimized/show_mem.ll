@@ -69,7 +69,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @si_mem_available() #0 a
   %4 = phi ptr [ %11, %.preheader ], [ %1, %0 ]
   %5 = getelementptr i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i64, ptr %7, align 32
   %9 = add i64 %6, %3
   %10 = add i64 %9, %8
@@ -120,22 +120,22 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @si_meminfo(ptr nocapture noundef writeonly initializes((32, 64), (88, 108)) %0) #0 align 16 {
   %2 = load volatile i64, ptr @_totalram_pages, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %3, align 8
   %4 = load volatile i64, ptr getelementptr inbounds (i8, ptr @vm_node_stat, i64 184), align 8
   %5 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %5, ptr %6, align 8
   %7 = load volatile i64, ptr @vm_zone_stat, align 16
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %8, ptr %9, align 8
   %10 = tail call i64 @nr_blockdev_pages() #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 4096, ptr %13, align 8
   ret void
 }
@@ -161,17 +161,17 @@ define dso_local void @si_meminfo_node(ptr nocapture noundef writeonly %0, i32 n
   br i1 %13, label %14, label %6, !llvm.loop !8
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %15, align 8
   %16 = tail call i64 @node_page_state(ptr noundef %5, i32 noundef 23) #8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %16, ptr %17, align 8
   %18 = tail call i64 @sum_zone_node_page_state(i32 noundef %1, i32 noundef 0) #8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i32 4096, ptr %21, align 8
   ret void
 }
@@ -202,13 +202,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 15:                                               ; preds = %.thread, %10
   %16 = phi i64 [ 0, %10 ], [ %71, %.thread ]
   %17 = phi ptr [ %8, %10 ], [ %72, %.thread ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %17, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %17 to i64
   %25 = ptrtoint ptr %23 to i64
@@ -218,7 +218,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %17, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %31 = load i32, ptr %30, align 16
   br i1 %13, label %43, label %32
 
@@ -228,13 +228,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 33:                                               ; preds = %32
   %34 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !9
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 2248
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2248
   br label %37
 
 37:                                               ; preds = %33, %32
   %38 = phi ptr [ %1, %32 ], [ %36, %33 ]
   %39 = sext i32 %31 to i64
-  %40 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %38, i64 %39) #8, !srcloc !10
+  %40 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %38, i64 %39) #8, !srcloc !10
   %41 = icmp ult i8 %40, 2
   tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i8 %40, 0
@@ -242,7 +242,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 43:                                               ; preds = %37, %29
   %44 = load i64, ptr @__cpu_online_mask, align 8
-  %45 = getelementptr inbounds i8, ptr %17, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 96
   br label %46
 
 46:                                               ; preds = %43, %56
@@ -267,7 +267,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %58
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
   %67 = add i64 %48, %66
@@ -336,7 +336,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 121:                                              ; preds = %.loopexit37, %116
   %122 = phi ptr [ %114, %116 ], [ %183, %.loopexit37 ]
-  %123 = getelementptr inbounds i8, ptr %122, i64 13120
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 13120
   %124 = load i32, ptr %123, align 64
   br i1 %118, label %136, label %125
 
@@ -346,13 +346,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 126:                                              ; preds = %125
   %127 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !9
   %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr inbounds i8, ptr %128, i64 2248
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 2248
   br label %130
 
 130:                                              ; preds = %126, %125
   %131 = phi ptr [ %1, %125 ], [ %129, %126 ]
   %132 = sext i32 %124 to i64
-  %133 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %131, i64 %132) #8, !srcloc !10
+  %133 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %131, i64 %132) #8, !srcloc !10
   %134 = icmp ult i8 %133, 2
   tail call void @llvm.assume(i1 %134)
   %135 = icmp eq i8 %133, 0
@@ -412,7 +412,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %175 = shl i64 %174, 2
   %176 = tail call i64 @node_page_state(ptr noundef nonnull %122, i32 noundef 39) #8
   %177 = shl i64 %176, 2
-  %178 = getelementptr inbounds i8, ptr %122, i64 13304
+  %178 = getelementptr inbounds nuw i8, ptr %122, i64 13304
   %179 = load i32, ptr %178, align 8
   %180 = icmp sgt i32 %179, 15
   %181 = select i1 %180, ptr @.str.6, ptr @.str.7
@@ -438,13 +438,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 192:                                              ; preds = %330, %187
   %193 = phi ptr [ %185, %187 ], [ %331, %330 ]
-  %194 = getelementptr inbounds i8, ptr %193, i64 152
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 152
   %195 = load i64, ptr %194, align 8
   %196 = icmp eq i64 %195, 0
   br i1 %196, label %330, label %197
 
 197:                                              ; preds = %192
-  %198 = getelementptr inbounds i8, ptr %193, i64 88
+  %198 = getelementptr inbounds nuw i8, ptr %193, i64 88
   %199 = load ptr, ptr %198, align 8
   %200 = ptrtoint ptr %193 to i64
   %201 = ptrtoint ptr %199 to i64
@@ -454,7 +454,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %204, label %330, label %205
 
 205:                                              ; preds = %197
-  %206 = getelementptr inbounds i8, ptr %193, i64 80
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 80
   %207 = load i32, ptr %206, align 16
   br i1 %190, label %219, label %208
 
@@ -464,13 +464,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 209:                                              ; preds = %208
   %210 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !9
   %211 = inttoptr i64 %210 to ptr
-  %212 = getelementptr inbounds i8, ptr %211, i64 2248
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 2248
   br label %213
 
 213:                                              ; preds = %209, %208
   %214 = phi ptr [ %1, %208 ], [ %212, %209 ]
   %215 = sext i32 %207 to i64
-  %216 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %214, i64 %215) #8, !srcloc !10
+  %216 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %214, i64 %215) #8, !srcloc !10
   %217 = icmp ult i8 %216, 2
   tail call void @llvm.assume(i1 %217)
   %218 = icmp eq i8 %216, 0
@@ -478,7 +478,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 219:                                              ; preds = %213, %205
   %220 = load i64, ptr @__cpu_online_mask, align 8
-  %221 = getelementptr inbounds i8, ptr %193, i64 96
+  %221 = getelementptr inbounds nuw i8, ptr %193, i64 96
   br label %222
 
 222:                                              ; preds = %219, %232
@@ -503,7 +503,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %237 = load i64, ptr %236, align 8
   %238 = add i64 %237, %234
   %239 = inttoptr i64 %238 to ptr
-  %240 = getelementptr inbounds i8, ptr %239, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 4
   %241 = load i32, ptr %240, align 4
   %242 = sext i32 %241 to i64
   %243 = add i64 %224, %242
@@ -516,13 +516,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %.lcssa44 = phi i64 [ %224, %222 ], [ %243, %232 ], [ %224, %228 ]
   %247 = load i32, ptr %206, align 16
   %248 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %247) #9
-  %249 = getelementptr inbounds i8, ptr %193, i64 160
+  %249 = getelementptr inbounds nuw i8, ptr %193, i64 160
   %250 = load ptr, ptr %249, align 32
-  %251 = getelementptr inbounds i8, ptr %193, i64 1088
+  %251 = getelementptr inbounds nuw i8, ptr %193, i64 1088
   %252 = load volatile i64, ptr %251, align 8
   %253 = tail call i64 @llvm.smax.i64(i64 %252, i64 0)
   %254 = shl i64 %253, 2
-  %255 = getelementptr inbounds i8, ptr %193, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %256 = load i64, ptr %255, align 32
   %257 = shl i64 %256, 2
   %258 = load i64, ptr %193, align 64
@@ -536,7 +536,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %266 = load i64, ptr %265, align 16
   %267 = add i64 %266, %256
   %268 = shl i64 %267, 2
-  %269 = getelementptr inbounds i8, ptr %193, i64 40
+  %269 = getelementptr inbounds nuw i8, ptr %193, i64 40
   %270 = load i64, ptr %269, align 8
   %271 = shl i64 %270, 2
   %272 = getelementptr i8, ptr %193, i64 1104
@@ -565,7 +565,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %295 = shl i64 %294, 2
   %296 = load i64, ptr %194, align 8
   %297 = shl i64 %296, 2
-  %298 = getelementptr inbounds i8, ptr %193, i64 136
+  %298 = getelementptr inbounds nuw i8, ptr %193, i64 136
   %299 = load volatile i64, ptr %298, align 8
   %300 = shl i64 %299, 2
   %301 = getelementptr i8, ptr %193, i64 1144
@@ -578,8 +578,8 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %308 = shl i64 %307, 2
   %309 = shl i64 %.lcssa44, 2
   %310 = load ptr, ptr %221, align 32
-  %311 = getelementptr inbounds i8, ptr %310, i64 4
-  %312 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %311) #8, !srcloc !18
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 4
+  %312 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %311) #8, !srcloc !18
   %313 = shl i32 %312, 2
   %314 = getelementptr i8, ptr %193, i64 1160
   %315 = load volatile i64, ptr %314, align 8
@@ -587,7 +587,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %317 = shl i64 %316, 2
   %318 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %250, i64 noundef %254, i64 noundef %257, i64 noundef %260, i64 noundef %264, i64 noundef %268, i64 noundef %271, i64 noundef %275, i64 noundef %279, i64 noundef %283, i64 noundef %287, i64 noundef %291, i64 noundef %295, i64 noundef %297, i64 noundef %300, i64 noundef %304, i64 noundef %308, i64 noundef %309, i32 noundef %313, i64 noundef %317) #9
   %319 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9) #9
-  %320 = getelementptr inbounds i8, ptr %193, i64 48
+  %320 = getelementptr inbounds nuw i8, ptr %193, i64 48
   br label %321
 
 321:                                              ; preds = %321, %.thread30
@@ -622,7 +622,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 340:                                              ; preds = %440, %335
   %341 = phi ptr [ %333, %335 ], [ %441, %440 ]
-  %342 = getelementptr inbounds i8, ptr %341, i64 152
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 152
   %343 = load i64, ptr %342, align 8
   %344 = icmp eq i64 %343, 0
   br i1 %344, label %440, label %345
@@ -632,7 +632,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %5, i8 0, i64 88, i1 false), !annotation !21
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %6, i8 0, i64 11, i1 false), !annotation !21
-  %346 = getelementptr inbounds i8, ptr %341, i64 88
+  %346 = getelementptr inbounds nuw i8, ptr %341, i64 88
   %347 = load ptr, ptr %346, align 8
   %348 = ptrtoint ptr %341 to i64
   %349 = ptrtoint ptr %347 to i64
@@ -642,7 +642,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %352, label %439, label %353
 
 353:                                              ; preds = %345
-  %354 = getelementptr inbounds i8, ptr %341, i64 80
+  %354 = getelementptr inbounds nuw i8, ptr %341, i64 80
   %355 = load i32, ptr %354, align 16
   br i1 %338, label %367, label %356
 
@@ -652,13 +652,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 357:                                              ; preds = %356
   %358 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !9
   %359 = inttoptr i64 %358 to ptr
-  %360 = getelementptr inbounds i8, ptr %359, i64 2248
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 2248
   br label %361
 
 361:                                              ; preds = %357, %356
   %362 = phi ptr [ %1, %356 ], [ %360, %357 ]
   %363 = sext i32 %355 to i64
-  %364 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %362, i64 %363) #8, !srcloc !10
+  %364 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %362, i64 %363) #8, !srcloc !10
   %365 = icmp ult i8 %364, 2
   call void @llvm.assume(i1 %365)
   %366 = icmp eq i8 %364, 0
@@ -671,19 +671,19 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 367:                                              ; preds = %._crit_edge, %353
   %368 = phi i32 [ %.pre, %._crit_edge ], [ %355, %353 ]
   %369 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %368) #9
-  %370 = getelementptr inbounds i8, ptr %341, i64 160
+  %370 = getelementptr inbounds nuw i8, ptr %341, i64 160
   %371 = load ptr, ptr %370, align 32
   %372 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %371) #9
-  %373 = getelementptr inbounds i8, ptr %341, i64 992
-  %374 = call i64 @_raw_spin_lock_irqsave(ptr noundef %373) #8
-  %375 = getelementptr inbounds i8, ptr %341, i64 192
+  %373 = getelementptr inbounds nuw i8, ptr %341, i64 992
+  %374 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %373) #8
+  %375 = getelementptr inbounds nuw i8, ptr %341, i64 192
   br label %376
 
 376:                                              ; preds = %399, %367
   %377 = phi i64 [ 0, %367 ], [ %402, %399 ]
   %378 = phi i64 [ 0, %367 ], [ %401, %399 ]
   %379 = getelementptr [11 x %struct.free_area], ptr %375, i64 0, i64 %377
-  %380 = getelementptr inbounds i8, ptr %379, i64 64
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 64
   %381 = load i64, ptr %380, align 8
   %382 = getelementptr [11 x i64], ptr %5, i64 0, i64 %377
   store i64 %381, ptr %382, align 8
@@ -721,7 +721,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %403, label %404, label %376, !llvm.loop !23
 
 404:                                              ; preds = %399
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %373, i64 noundef %374) #8
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %373, i64 noundef %374) #8
   br label %405
 
 405:                                              ; preds = %433, %404
@@ -834,13 +834,13 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 467:                                              ; preds = %.split
   %468 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !9
   %469 = inttoptr i64 %468 to ptr
-  %470 = getelementptr inbounds i8, ptr %469, i64 2248
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 2248
   br label %471
 
 471:                                              ; preds = %467, %.split
   %472 = phi ptr [ %1, %.split ], [ %470, %467 ]
   %473 = zext nneg i32 %466 to i64
-  %474 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %472, i64 %473) #8, !srcloc !10
+  %474 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %472, i64 %473) #8, !srcloc !10
   %475 = icmp ult i8 %474, 2
   call void @llvm.assume(i1 %475)
   %476 = icmp eq i8 %474, 0
@@ -882,14 +882,14 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %496 = phi i64 [ %510, %508 ], [ 0, %.thread31 ]
   %497 = phi i64 [ %509, %508 ], [ 0, %.thread31 ]
   %498 = phi ptr [ %511, %508 ], [ %494, %.thread31 ]
-  %499 = getelementptr inbounds i8, ptr %498, i64 152
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 152
   %500 = load i64, ptr %499, align 8
   %501 = icmp eq i64 %500, 0
   br i1 %501, label %508, label %502
 
 502:                                              ; preds = %.preheader
   %503 = add i64 %500, %496
-  %504 = getelementptr inbounds i8, ptr %498, i64 136
+  %504 = getelementptr inbounds nuw i8, ptr %498, i64 136
   %505 = load volatile i64, ptr %504, align 8
   %506 = add i64 %500, %497
   %507 = sub i64 %506, %505

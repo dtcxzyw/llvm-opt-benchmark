@@ -54,7 +54,7 @@ define ptr @PMPI_Win_f2c(i32 noundef %0) #0 {
   %18 = phi i8 [ %13, %12 ], [ %.pre.i, %15 ]
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_windows, i64 112), align 8
   %20 = zext nneg i32 %0 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = trunc i8 %18 to i1
   br i1 %23, label %24, label %opal_pointer_array_get_item.exit

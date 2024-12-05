@@ -93,7 +93,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z24VMPageSizeConstraintFuncmb(i64 no
 
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_ZN12JVMFlagLimit17last_checked_flagEv() #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, 10
   br i1 %9, label %switch.lookup, label %10
@@ -106,10 +106,10 @@ define hidden noundef range(i32 0, 7) i32 @_Z24VMPageSizeConstraintFuncmb(i64 no
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._Z24VMPageSizeConstraintFuncmb, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._Z24VMPageSizeConstraintFuncmb, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = tail call noundef ptr @_ZN12JVMFlagLimit17last_checked_flagEv() #4
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (i1, ptr, ...) @_ZN7JVMFlag10printErrorEbPKcz(i1 noundef zeroext %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %switch.load, ptr noundef %15, i64 noundef %0, i64 noundef %3, i64 noundef -1) #4
   br label %16

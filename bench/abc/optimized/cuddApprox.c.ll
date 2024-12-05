@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_UnderApprox(ptr noundef initializes((448, 452)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %8
 
 8:                                                ; preds = %8, %6
@@ -33,7 +33,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 616
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %11)
   br label %209
@@ -52,18 +52,18 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 616
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %24)
-  %26 = getelementptr inbounds i8, ptr %0, i64 624
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %26, align 8
   br label %209
 
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %28 = getelementptr inbounds i8, ptr %0, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = tail call ptr @cuddLevelQueueInit(i32 noundef %29, i32 noundef 40, i32 noundef %31) #10
   %33 = icmp eq ptr %32, null
@@ -71,7 +71,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 
 34:                                               ; preds = %27
   %35 = load i32, ptr %28, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %37 = load i32, ptr %36, align 8
   %38 = tail call ptr @cuddLevelQueueInit(i32 noundef %35, i32 noundef 32, i32 noundef %37) #10
   %39 = icmp eq ptr %38, null
@@ -87,10 +87,10 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8
   %47 = zext i32 %42 to i64
-  %48 = getelementptr inbounds i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4
   br label %50
 
@@ -110,19 +110,19 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %.not.i = icmp eq i64 %56, 0
   %.sink113.i = select i1 %.not.i, double 1.000000e+00, double 0.000000e+00
   %.sink.i = select i1 %.not.i, double 0.000000e+00, double 1.000000e+00
-  %57 = getelementptr inbounds i8, ptr %52, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store double %.sink113.i, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %52, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store double %.sink.i, ptr %58, align 8
   %59 = load ptr, ptr %32, align 8
   %.not107111.i = icmp eq ptr %59, null
   br i1 %.not107111.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %20, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %.not109.i = icmp eq i32 %4, 0
-  %61 = getelementptr inbounds i8, ptr %0, i64 312
-  %62 = getelementptr inbounds i8, ptr %20, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %62 = getelementptr inbounds nuw i8, ptr %20, i64 56
   br label %63
 
 63:                                               ; preds = %.backedge.i, %.lr.ph.i
@@ -132,7 +132,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not108.i, label %66, label %.loopexit
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %64, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, -2
@@ -143,7 +143,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not109.i, label %89, label %74
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %.pre.i, i64 22
+  %75 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 22
   %76 = load i16, ptr %75, align 2
   %77 = icmp eq i16 %76, 3
   br i1 %77, label %78, label %89
@@ -156,7 +156,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %61, align 8
   %83 = zext i32 %79 to i64
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4
   br label %86
 
@@ -171,12 +171,12 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not107.i, label %.loopexit, label %63, !llvm.loop !6
 
 89:                                               ; preds = %74, %66
-  %90 = getelementptr inbounds i8, ptr %64, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %64, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %93 = load double, ptr %92, align 8
   %94 = load double, ptr %.pre.i, align 8
-  %95 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %96 = load double, ptr %95, align 8
   %97 = fmul double %93, %96
   %98 = call double @llvm.fmuladd.f64(double %94, double %91, double %97)
@@ -197,7 +197,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %61, align 8
   %107 = zext i32 %103 to i64
-  %108 = getelementptr inbounds i32, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
   %109 = load i32, ptr %108, align 4
   br label %110
 
@@ -218,7 +218,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 
 122:                                              ; preds = %110
   %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 21
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 21
   store i8 1, ptr %124, align 1
   %125 = load i32, ptr %30, align 8
   %126 = sub nsw i32 %125, %99
@@ -230,7 +230,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %.backedge.i
 
 129:                                              ; preds = %110
-  %130 = getelementptr inbounds i8, ptr %71, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr %131, align 8
   %133 = icmp eq i32 %132, 2147483647
@@ -239,23 +239,23 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 134:                                              ; preds = %129
   %135 = load ptr, ptr %61, align 8
   %136 = zext i32 %132 to i64
-  %137 = getelementptr inbounds i32, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %32, ptr noundef nonnull %131, i32 noundef %138) #10
   %140 = fmul double %91, 5.000000e-01
-  %141 = getelementptr inbounds i8, ptr %139, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %142 = load double, ptr %141, align 8
   %143 = fadd double %140, %142
   store double %143, ptr %141, align 8
   %144 = fmul double %93, 5.000000e-01
-  %145 = getelementptr inbounds i8, ptr %139, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %146 = load double, ptr %145, align 8
   %147 = fadd double %144, %146
   store double %147, ptr %145, align 8
   br label %148
 
 148:                                              ; preds = %134, %129
-  %149 = getelementptr inbounds i8, ptr %71, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %150 = load ptr, ptr %149, align 8
   %151 = ptrtoint ptr %150 to i64
   %152 = and i64 %151, -2
@@ -267,16 +267,16 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 156:                                              ; preds = %148
   %157 = load ptr, ptr %61, align 8
   %158 = zext i32 %154 to i64
-  %159 = getelementptr inbounds i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %32, ptr noundef nonnull %153, i32 noundef %160) #10
   %162 = load ptr, ptr %149, align 8
   %163 = ptrtoint ptr %162 to i64
   %164 = and i64 %163, 1
   %.not110.i = icmp eq i64 %164, 0
-  %165 = getelementptr inbounds i8, ptr %161, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %166 = load double, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %161, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 32
   br i1 %.not110.i, label %174, label %168
 
 168:                                              ; preds = %156
@@ -301,10 +301,10 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 
 180:                                              ; preds = %40, %54, %101, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %181 = getelementptr inbounds i8, ptr %0, i64 616
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %182 = load ptr, ptr %181, align 8
   %183 = call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %182)
-  %184 = getelementptr inbounds i8, ptr %20, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %185 = load ptr, ptr %184, align 8
   %.not48 = icmp eq ptr %185, null
   br i1 %.not48, label %187, label %186
@@ -315,11 +315,11 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %187
 
 187:                                              ; preds = %180, %186
-  %188 = getelementptr inbounds i8, ptr %20, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %189 = load ptr, ptr %188, align 8
   call void @st__free_table(ptr noundef %189) #10
   call void @free(ptr noundef nonnull %20) #10
-  %190 = getelementptr inbounds i8, ptr %0, i64 624
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %190, align 8
   br label %209
 
@@ -338,7 +338,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %195, label %196, label %202
 
 196:                                              ; preds = %192
-  %197 = getelementptr inbounds i8, ptr %0, i64 616
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %198 = load ptr, ptr %197, align 8
   %199 = load i32, ptr %30, align 8
   %200 = call i32 @Cudd_DagSize(ptr noundef nonnull %191) #10
@@ -346,7 +346,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %202
 
 202:                                              ; preds = %196, %192, %.loopexit
-  %203 = getelementptr inbounds i8, ptr %20, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %204 = load ptr, ptr %203, align 8
   %.not47 = icmp eq ptr %204, null
   br i1 %.not47, label %206, label %205
@@ -357,7 +357,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %206
 
 206:                                              ; preds = %202, %205
-  %207 = getelementptr inbounds i8, ptr %20, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %208 = load ptr, ptr %207, align 8
   call void @st__free_table(ptr noundef %208) #10
   call void @free(ptr noundef nonnull %20) #10
@@ -373,7 +373,7 @@ define ptr @Cudd_OverApprox(ptr noundef initializes((448, 452)) %0, ptr noundef 
   %7 = ptrtoint ptr %1 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 448
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %11
 
 11:                                               ; preds = %11, %6
@@ -394,7 +394,7 @@ define ptr @Cudd_OverApprox(ptr noundef initializes((448, 452)) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_RemapUnderApprox(ptr noundef initializes((448, 452)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %5
@@ -418,10 +418,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 616
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %13)
-  %15 = getelementptr inbounds i8, ptr %0, i64 624
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 4, ptr %15, align 8
   br label %424
 
@@ -439,10 +439,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 616
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %27)
-  %29 = getelementptr inbounds i8, ptr %0, i64 624
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %29, align 8
   br label %424
 
@@ -451,9 +451,9 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %31 = getelementptr inbounds i8, ptr %0, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %23, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = tail call ptr @cuddLevelQueueInit(i32 noundef %32, i32 noundef 40, i32 noundef %34) #10
   %36 = icmp eq ptr %35, null
@@ -461,7 +461,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 37:                                               ; preds = %30
   %38 = load i32, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 272
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %40 = load i32, ptr %39, align 8
   %41 = tail call ptr @cuddLevelQueueInit(i32 noundef %38, i32 noundef 32, i32 noundef %40) #10
   %42 = icmp eq ptr %41, null
@@ -477,10 +477,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 312
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %49 = load ptr, ptr %48, align 8
   %50 = zext i32 %45 to i64
-  %51 = getelementptr inbounds i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %53
 
@@ -500,18 +500,18 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.not.i = icmp eq i64 %59, 0
   %.sink311.i = select i1 %.not.i, double 1.000000e+00, double 0.000000e+00
   %.sink.i = select i1 %.not.i, double 0.000000e+00, double 1.000000e+00
-  %60 = getelementptr inbounds i8, ptr %55, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store double %.sink311.i, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %55, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store double %.sink.i, ptr %61, align 8
   %62 = load ptr, ptr %35, align 8
   %.not280309.i = icmp eq ptr %62, null
   br i1 %.not280309.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %23, i64 24
-  %64 = getelementptr inbounds i8, ptr %0, i64 312
-  %65 = getelementptr inbounds i8, ptr %23, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 56
   br label %66
 
 66:                                               ; preds = %.backedge.i, %.lr.ph.i
@@ -521,7 +521,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not281.i, label %69, label %.loopexit
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %63, align 8
   %73 = call i32 @st__lookup(ptr noundef %72, ptr noundef %71, ptr noundef nonnull %6) #10
@@ -535,7 +535,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 22
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 22
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, 3
   br i1 %79, label %80, label %91
@@ -548,7 +548,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 83:                                               ; preds = %80
   %84 = load ptr, ptr %64, align 8
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
   %87 = load i32, ptr %86, align 4
   br label %88
 
@@ -563,13 +563,13 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not280.i, label %.loopexit, label %66, !llvm.loop !9
 
 91:                                               ; preds = %75
-  %92 = getelementptr inbounds i8, ptr %71, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %71, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %67, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %97 = load double, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %67, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %99 = load double, ptr %98, align 8
   %100 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %93, ptr noundef %95) #10
   %.not283.i = icmp eq i32 %100, 0
@@ -581,7 +581,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %104 = load ptr, ptr %63, align 8
   %105 = call i32 @st__lookup(ptr noundef %104, ptr noundef %95, ptr noundef nonnull %8) #10
   %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 22
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 22
   %108 = load i16, ptr %107, align 2
   %109 = icmp eq i16 %108, 1
   br i1 %109, label %110, label %132
@@ -594,7 +594,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %115 = load double, ptr %114, align 8
   %116 = fmul double %115, 5.000000e-01
   %117 = fsub double %113, %116
-  %118 = getelementptr inbounds i8, ptr %111, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %119 = load i32, ptr %118, align 8
   %120 = icmp eq i32 %119, 1
   br i1 %120, label %121, label %156
@@ -620,15 +620,15 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 132:                                              ; preds = %101
   %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load double, ptr %134, align 8
   %136 = fmul double %135, 5.000000e-01
   %137 = load ptr, ptr %8, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load double, ptr %138, align 8
   %140 = fmul double %139, 5.000000e-01
   %141 = fsub double %136, %140
-  %142 = getelementptr inbounds i8, ptr %133, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %143 = load i32, ptr %142, align 8
   %144 = icmp eq i32 %143, 1
   br i1 %144, label %145, label %156
@@ -674,7 +674,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %166 = load ptr, ptr %63, align 8
   %167 = call i32 @st__lookup(ptr noundef %166, ptr noundef %162, ptr noundef nonnull %8) #10
   %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 22
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 22
   %170 = load i16, ptr %169, align 2
   %171 = icmp eq i16 %170, 1
   br i1 %171, label %172, label %195
@@ -686,11 +686,11 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %176 = icmp eq ptr %95, %162
   %177 = load ptr, ptr %8, align 8
   %.in287.idx.i = select i1 %176, i64 0, i64 8
-  %.in287.i = getelementptr inbounds i8, ptr %177, i64 %.in287.idx.i
+  %.in287.i = getelementptr inbounds nuw i8, ptr %177, i64 %.in287.idx.i
   %178 = load double, ptr %.in287.i, align 8
   %179 = fmul double %178, 5.000000e-01
   %180 = fsub double %175, %179
-  %181 = getelementptr inbounds i8, ptr %173, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %182 = load i32, ptr %181, align 8
   %183 = icmp eq i32 %182, 1
   br i1 %183, label %184, label %216
@@ -718,15 +718,15 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %196 = icmp eq ptr %95, %162
   %197 = load ptr, ptr %8, align 8
   %.in.idx.i = select i1 %196, i64 8, i64 0
-  %.in.i = getelementptr inbounds i8, ptr %197, i64 %.in.idx.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %197, i64 %.in.idx.i
   %198 = load double, ptr %.in.i, align 8
   %199 = fmul double %198, 5.000000e-01
   %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load double, ptr %201, align 8
   %203 = fmul double %202, 5.000000e-01
   %204 = fsub double %199, %203
-  %205 = getelementptr inbounds i8, ptr %197, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %206 = load i32, ptr %205, align 8
   %207 = icmp eq i32 %206, 1
   br i1 %207, label %208, label %216
@@ -763,9 +763,9 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %222, label %223, label %241
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds i8, ptr %93, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %162, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %227 = load ptr, ptr %226, align 8
   %228 = ptrtoint ptr %227 to i64
   %229 = xor i64 %219, %228
@@ -774,9 +774,9 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %231, label %242, label %232
 
 232:                                              ; preds = %223
-  %233 = getelementptr inbounds i8, ptr %93, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %162, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %236 = load ptr, ptr %235, align 8
   %237 = ptrtoint ptr %236 to i64
   %238 = xor i64 %219, %237
@@ -792,7 +792,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.1.i = phi ptr [ null, %241 ], [ %225, %223 ], [ %234, %232 ]
   %243 = load ptr, ptr %6, align 8
   %244 = load double, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %243, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %246 = load double, ptr %245, align 8
   %247 = fmul double %99, %246
   %248 = call double @llvm.fmuladd.f64(double %244, double %97, double %247)
@@ -810,8 +810,8 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %257 = shl i64 %252, 3
   %258 = and i64 %257, 8
   %.sink320.in.i.idx = xor i64 %258, 8
-  %.sink320.in.i = getelementptr inbounds i8, ptr %256, i64 %.sink320.in.i.idx
-  %.sink318.in.i = getelementptr inbounds i8, ptr %256, i64 %258
+  %.sink320.in.i = getelementptr inbounds nuw i8, ptr %256, i64 %.sink320.in.i.idx
+  %.sink318.in.i = getelementptr inbounds nuw i8, ptr %256, i64 %258
   %.sink318.i = load double, ptr %.sink318.in.i, align 8
   %.sink320.i = load double, ptr %.sink320.in.i, align 8
   %259 = fmul double %99, %.sink320.i
@@ -833,7 +833,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 265:                                              ; preds = %262
   %266 = load ptr, ptr %64, align 8
   %267 = zext i32 %263 to i64
-  %268 = getelementptr inbounds i32, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw i32, ptr %266, i64 %267
   %269 = load i32, ptr %268, align 4
   br label %270
 
@@ -855,7 +855,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 282:                                              ; preds = %270
   %283 = trunc nuw nsw i32 %.1253.i to i8
   %284 = load ptr, ptr %6, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 21
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 21
   store i8 %283, ptr %285, align 1
   %286 = load i32, ptr %33, align 8
   %287 = sub nsw i32 %286, %.3257.i
@@ -899,14 +899,14 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .thread297.i:                                     ; preds = %.thread290.thread.i.thread
   %298 = load ptr, ptr %64, align 8
   %299 = zext i32 %296 to i64
-  %300 = getelementptr inbounds i32, ptr %298, i64 %299
+  %300 = getelementptr inbounds nuw i32, ptr %298, i64 %299
   %301 = load i32, ptr %300, align 4
   %302 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %295, i32 noundef %301) #10
-  %303 = getelementptr inbounds i8, ptr %302, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %304 = load double, ptr %303, align 8
   %305 = fadd double %97, %304
   store double %305, ptr %303, align 8
-  %306 = getelementptr inbounds i8, ptr %302, i64 32
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 32
   %307 = load double, ptr %306, align 8
   %308 = fadd double %99, %307
   store double %308, ptr %306, align 8
@@ -915,16 +915,16 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .thread293.i:                                     ; preds = %.thread290.thread.i
   %309 = load ptr, ptr %64, align 8
   %310 = zext i32 %293 to i64
-  %311 = getelementptr inbounds i32, ptr %309, i64 %310
+  %311 = getelementptr inbounds nuw i32, ptr %309, i64 %310
   %312 = load i32, ptr %311, align 4
   %313 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %292, i32 noundef %312) #10
   %314 = fmul double %97, 5.000000e-01
-  %315 = getelementptr inbounds i8, ptr %313, i64 24
+  %315 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %316 = load double, ptr %315, align 8
   %317 = fadd double %314, %316
   store double %317, ptr %315, align 8
   %318 = fmul double %99, 5.000000e-01
-  %319 = getelementptr inbounds i8, ptr %313, i64 32
+  %319 = getelementptr inbounds nuw i8, ptr %313, i64 32
   %320 = load double, ptr %319, align 8
   %321 = fadd double %318, %320
   store double %321, ptr %319, align 8
@@ -942,7 +942,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 328:                                              ; preds = %.thread290.i
   %329 = load ptr, ptr %64, align 8
   %330 = zext i32 %326 to i64
-  %331 = getelementptr inbounds i32, ptr %329, i64 %330
+  %331 = getelementptr inbounds nuw i32, ptr %329, i64 %330
   %332 = load i32, ptr %331, align 4
   %333 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %325, i32 noundef %332) #10
   %334 = load ptr, ptr %94, align 8
@@ -955,11 +955,11 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %281, label %338, label %345
 
 338:                                              ; preds = %337
-  %339 = getelementptr inbounds i8, ptr %333, i64 24
+  %339 = getelementptr inbounds nuw i8, ptr %333, i64 24
   %340 = load double, ptr %339, align 8
   %341 = fadd double %99, %340
   store double %341, ptr %339, align 8
-  %342 = getelementptr inbounds i8, ptr %333, i64 32
+  %342 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %343 = load double, ptr %342, align 8
   %344 = fadd double %97, %343
   store double %344, ptr %342, align 8
@@ -967,12 +967,12 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 345:                                              ; preds = %337
   %346 = fmul double %99, 5.000000e-01
-  %347 = getelementptr inbounds i8, ptr %333, i64 24
+  %347 = getelementptr inbounds nuw i8, ptr %333, i64 24
   %348 = load double, ptr %347, align 8
   %349 = fadd double %346, %348
   store double %349, ptr %347, align 8
   %350 = fmul double %97, 5.000000e-01
-  %351 = getelementptr inbounds i8, ptr %333, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %352 = load double, ptr %351, align 8
   %353 = fadd double %350, %352
   store double %353, ptr %351, align 8
@@ -982,11 +982,11 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %281, label %355, label %362
 
 355:                                              ; preds = %354
-  %356 = getelementptr inbounds i8, ptr %333, i64 24
+  %356 = getelementptr inbounds nuw i8, ptr %333, i64 24
   %357 = load double, ptr %356, align 8
   %358 = fadd double %97, %357
   store double %358, ptr %356, align 8
-  %359 = getelementptr inbounds i8, ptr %333, i64 32
+  %359 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %360 = load double, ptr %359, align 8
   %361 = fadd double %99, %360
   store double %361, ptr %359, align 8
@@ -994,12 +994,12 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 362:                                              ; preds = %354
   %363 = fmul double %97, 5.000000e-01
-  %364 = getelementptr inbounds i8, ptr %333, i64 24
+  %364 = getelementptr inbounds nuw i8, ptr %333, i64 24
   %365 = load double, ptr %364, align 8
   %366 = fadd double %363, %365
   store double %366, ptr %364, align 8
   %367 = fmul double %99, 5.000000e-01
-  %368 = getelementptr inbounds i8, ptr %333, i64 32
+  %368 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %369 = load double, ptr %368, align 8
   %370 = fadd double %367, %369
   store double %370, ptr %368, align 8
@@ -1016,14 +1016,14 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 377:                                              ; preds = %371
   %378 = load ptr, ptr %64, align 8
   %379 = zext i32 %375 to i64
-  %380 = getelementptr inbounds i32, ptr %378, i64 %379
+  %380 = getelementptr inbounds nuw i32, ptr %378, i64 %379
   %381 = load i32, ptr %380, align 4
   %382 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %374, i32 noundef %381) #10
   %383 = and i64 %372, 1
   %.not289.i = icmp eq i64 %383, 0
-  %384 = getelementptr inbounds i8, ptr %382, i64 24
+  %384 = getelementptr inbounds nuw i8, ptr %382, i64 24
   %385 = load double, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %382, i64 32
+  %386 = getelementptr inbounds nuw i8, ptr %382, i64 32
   br i1 %.not289.i, label %391, label %387
 
 387:                                              ; preds = %377
@@ -1047,10 +1047,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %396 = getelementptr inbounds i8, ptr %0, i64 616
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %397 = load ptr, ptr %396, align 8
   %398 = call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %397)
-  %399 = getelementptr inbounds i8, ptr %23, i64 16
+  %399 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %400 = load ptr, ptr %399, align 8
   %.not47 = icmp eq ptr %400, null
   br i1 %.not47, label %402, label %401
@@ -1061,11 +1061,11 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %402
 
 402:                                              ; preds = %395, %401
-  %403 = getelementptr inbounds i8, ptr %23, i64 24
+  %403 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %404 = load ptr, ptr %403, align 8
   call void @st__free_table(ptr noundef %404) #10
   call void @free(ptr noundef nonnull %23) #10
-  %405 = getelementptr inbounds i8, ptr %0, i64 624
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %405, align 8
   br label %424
 
@@ -1087,7 +1087,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %410, label %411, label %417
 
 411:                                              ; preds = %407
-  %412 = getelementptr inbounds i8, ptr %0, i64 616
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %413 = load ptr, ptr %412, align 8
   %414 = load i32, ptr %33, align 8
   %415 = call i32 @Cudd_DagSize(ptr noundef nonnull %406) #10
@@ -1095,7 +1095,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %417
 
 417:                                              ; preds = %411, %407, %.loopexit
-  %418 = getelementptr inbounds i8, ptr %23, i64 16
+  %418 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %419 = load ptr, ptr %418, align 8
   %.not46 = icmp eq ptr %419, null
   br i1 %.not46, label %421, label %420
@@ -1106,7 +1106,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %421
 
 421:                                              ; preds = %417, %420
-  %422 = getelementptr inbounds i8, ptr %23, i64 24
+  %422 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %423 = load ptr, ptr %422, align 8
   call void @st__free_table(ptr noundef %423) #10
   call void @free(ptr noundef nonnull %23) #10
@@ -1122,7 +1122,7 @@ define ptr @Cudd_RemapOverApprox(ptr noundef initializes((448, 452)) %0, ptr nou
   %6 = ptrtoint ptr %1 to i64
   %7 = xor i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %0, i64 448
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %10
 
 10:                                               ; preds = %10, %5
@@ -1143,7 +1143,7 @@ define ptr @Cudd_RemapOverApprox(ptr noundef initializes((448, 452)) %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_BiasedUnderApprox(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 448
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -1167,10 +1167,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 616
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %15)
-  %17 = getelementptr inbounds i8, ptr %0, i64 624
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 4, ptr %17, align 8
   br label %449
 
@@ -1188,10 +1188,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 616
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %29)
-  %31 = getelementptr inbounds i8, ptr %0, i64 624
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %31, align 8
   br label %449
 
@@ -1202,11 +1202,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 616
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %38)
   tail call void @cuddHashTableQuit(ptr noundef %33) #10
-  %40 = getelementptr inbounds i8, ptr %25, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not67 = icmp eq ptr %41, null
   br i1 %.not67, label %43, label %42
@@ -1217,11 +1217,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %43
 
 43:                                               ; preds = %36, %42
-  %44 = getelementptr inbounds i8, ptr %25, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void @st__free_table(ptr noundef %45) #10
   tail call void @free(ptr noundef nonnull %25) #10
-  %46 = getelementptr inbounds i8, ptr %0, i64 624
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %46, align 8
   br label %449
 
@@ -1231,9 +1231,9 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %25, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %51 = load i32, ptr %50, align 8
   %52 = tail call ptr @cuddLevelQueueInit(i32 noundef %49, i32 noundef 40, i32 noundef %51) #10
   %53 = icmp eq ptr %52, null
@@ -1241,7 +1241,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 54:                                               ; preds = %47
   %55 = load i32, ptr %48, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 272
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %57 = load i32, ptr %56, align 8
   %58 = tail call ptr @cuddLevelQueueInit(i32 noundef %55, i32 noundef 32, i32 noundef %57) #10
   %59 = icmp eq ptr %58, null
@@ -1257,10 +1257,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %63, label %70, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 312
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %66 = load ptr, ptr %65, align 8
   %67 = zext i32 %62 to i64
-  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4
   br label %70
 
@@ -1280,18 +1280,18 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not.i = icmp eq i64 %76, 0
   %.sink324.i = select i1 %.not.i, double 1.000000e+00, double 0.000000e+00
   %.sink.i = select i1 %.not.i, double 0.000000e+00, double 1.000000e+00
-  %77 = getelementptr inbounds i8, ptr %72, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store double %.sink324.i, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %72, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store double %.sink.i, ptr %78, align 8
   %79 = load ptr, ptr %52, align 8
   %.not292322.i = icmp eq ptr %79, null
   br i1 %.not292322.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %25, i64 24
-  %81 = getelementptr inbounds i8, ptr %0, i64 312
-  %82 = getelementptr inbounds i8, ptr %25, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %82 = getelementptr inbounds nuw i8, ptr %25, i64 56
   br label %83
 
 83:                                               ; preds = %.backedge.i, %.lr.ph.i
@@ -1301,7 +1301,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not293.i, label %86, label %.loopexit
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %84, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %80, align 8
   %90 = call i32 @st__lookup(ptr noundef %89, ptr noundef %88, ptr noundef nonnull %8) #10
@@ -1315,11 +1315,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 20
   %95 = load i8, ptr %94, align 4
   %.not295.i = icmp eq i8 %95, 0
   %96 = select i1 %.not295.i, double %6, double %5
-  %97 = getelementptr inbounds i8, ptr %93, i64 22
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 22
   %98 = load i16, ptr %97, align 2
   %99 = icmp eq i16 %98, 3
   br i1 %99, label %100, label %111
@@ -1332,7 +1332,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 103:                                              ; preds = %100
   %104 = load ptr, ptr %81, align 8
   %105 = zext i32 %101 to i64
-  %106 = getelementptr inbounds i32, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %105
   %107 = load i32, ptr %106, align 4
   br label %108
 
@@ -1347,13 +1347,13 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not292.i, label %.loopexit, label %83, !llvm.loop !12
 
 111:                                              ; preds = %92
-  %112 = getelementptr inbounds i8, ptr %88, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %88, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %84, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %117 = load double, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %84, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %119 = load double, ptr %118, align 8
   %120 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %113, ptr noundef %115) #10
   %.not296.i = icmp eq i32 %120, 0
@@ -1365,7 +1365,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %124 = load ptr, ptr %80, align 8
   %125 = call i32 @st__lookup(ptr noundef %124, ptr noundef %115, ptr noundef nonnull %10) #10
   %126 = load ptr, ptr %8, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 22
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 22
   %128 = load i16, ptr %127, align 2
   %129 = icmp eq i16 %128, 1
   br i1 %129, label %130, label %152
@@ -1378,7 +1378,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %135 = load double, ptr %134, align 8
   %136 = fmul double %135, 5.000000e-01
   %137 = fsub double %133, %136
-  %138 = getelementptr inbounds i8, ptr %131, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, 1
   br i1 %140, label %141, label %176
@@ -1404,15 +1404,15 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 152:                                              ; preds = %121
   %153 = load ptr, ptr %9, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load double, ptr %154, align 8
   %156 = fmul double %155, 5.000000e-01
   %157 = load ptr, ptr %10, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load double, ptr %158, align 8
   %160 = fmul double %159, 5.000000e-01
   %161 = fsub double %156, %160
-  %162 = getelementptr inbounds i8, ptr %153, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %163 = load i32, ptr %162, align 8
   %164 = icmp eq i32 %163, 1
   br i1 %164, label %165, label %176
@@ -1458,7 +1458,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %186 = load ptr, ptr %80, align 8
   %187 = call i32 @st__lookup(ptr noundef %186, ptr noundef %182, ptr noundef nonnull %10) #10
   %188 = load ptr, ptr %8, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 22
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 22
   %190 = load i16, ptr %189, align 2
   %191 = icmp eq i16 %190, 1
   br i1 %191, label %192, label %215
@@ -1470,11 +1470,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %196 = icmp eq ptr %115, %182
   %197 = load ptr, ptr %10, align 8
   %.in300.idx.i = select i1 %196, i64 0, i64 8
-  %.in300.i = getelementptr inbounds i8, ptr %197, i64 %.in300.idx.i
+  %.in300.i = getelementptr inbounds nuw i8, ptr %197, i64 %.in300.idx.i
   %198 = load double, ptr %.in300.i, align 8
   %199 = fmul double %198, 5.000000e-01
   %200 = fsub double %195, %199
-  %201 = getelementptr inbounds i8, ptr %193, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %202 = load i32, ptr %201, align 8
   %203 = icmp eq i32 %202, 1
   br i1 %203, label %204, label %236
@@ -1502,15 +1502,15 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %216 = icmp eq ptr %115, %182
   %217 = load ptr, ptr %10, align 8
   %.in.idx.i = select i1 %216, i64 8, i64 0
-  %.in.i = getelementptr inbounds i8, ptr %217, i64 %.in.idx.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %217, i64 %.in.idx.i
   %218 = load double, ptr %.in.i, align 8
   %219 = fmul double %218, 5.000000e-01
   %220 = load ptr, ptr %9, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load double, ptr %221, align 8
   %223 = fmul double %222, 5.000000e-01
   %224 = fsub double %219, %223
-  %225 = getelementptr inbounds i8, ptr %217, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %226 = load i32, ptr %225, align 8
   %227 = icmp eq i32 %226, 1
   br i1 %227, label %228, label %236
@@ -1547,9 +1547,9 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %242, label %243, label %261
 
 243:                                              ; preds = %238
-  %244 = getelementptr inbounds i8, ptr %113, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %182, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %247 = load ptr, ptr %246, align 8
   %248 = ptrtoint ptr %247 to i64
   %249 = xor i64 %239, %248
@@ -1558,9 +1558,9 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %251, label %262, label %252
 
 252:                                              ; preds = %243
-  %253 = getelementptr inbounds i8, ptr %113, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %182, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %256 = load ptr, ptr %255, align 8
   %257 = ptrtoint ptr %256 to i64
   %258 = xor i64 %239, %257
@@ -1576,7 +1576,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.1.i = phi ptr [ null, %261 ], [ %245, %243 ], [ %254, %252 ]
   %263 = load ptr, ptr %8, align 8
   %264 = load double, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %263, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %266 = load double, ptr %265, align 8
   %267 = fmul double %119, %266
   %268 = call double @llvm.fmuladd.f64(double %264, double %117, double %267)
@@ -1594,8 +1594,8 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %277 = shl i64 %272, 3
   %278 = and i64 %277, 8
   %.sink333.in.i.idx = xor i64 %278, 8
-  %.sink333.in.i = getelementptr inbounds i8, ptr %276, i64 %.sink333.in.i.idx
-  %.sink331.in.i = getelementptr inbounds i8, ptr %276, i64 %278
+  %.sink333.in.i = getelementptr inbounds nuw i8, ptr %276, i64 %.sink333.in.i.idx
+  %.sink331.in.i = getelementptr inbounds nuw i8, ptr %276, i64 %278
   %.sink331.i = load double, ptr %.sink331.in.i, align 8
   %.sink333.i = load double, ptr %.sink333.in.i, align 8
   %279 = fmul double %119, %.sink333.i
@@ -1617,7 +1617,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 285:                                              ; preds = %282
   %286 = load ptr, ptr %81, align 8
   %287 = zext i32 %283 to i64
-  %288 = getelementptr inbounds i32, ptr %286, i64 %287
+  %288 = getelementptr inbounds nuw i32, ptr %286, i64 %287
   %289 = load i32, ptr %288, align 4
   br label %290
 
@@ -1639,7 +1639,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 302:                                              ; preds = %290
   %303 = trunc nuw nsw i32 %.1265.i to i8
   %304 = load ptr, ptr %8, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 21
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 21
   store i8 %303, ptr %305, align 1
   %306 = load i32, ptr %50, align 8
   %307 = sub nsw i32 %306, %.3269.i
@@ -1677,14 +1677,14 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .thread310.i:                                     ; preds = %.thread303.thread.i.thread
   %316 = load ptr, ptr %81, align 8
   %317 = zext i32 %314 to i64
-  %318 = getelementptr inbounds i32, ptr %316, i64 %317
+  %318 = getelementptr inbounds nuw i32, ptr %316, i64 %317
   %319 = load i32, ptr %318, align 4
   %320 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %313, i32 noundef %319) #10
-  %321 = getelementptr inbounds i8, ptr %320, i64 24
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 24
   %322 = load double, ptr %321, align 8
   %323 = fadd double %117, %322
   store double %323, ptr %321, align 8
-  %324 = getelementptr inbounds i8, ptr %320, i64 32
+  %324 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %325 = load double, ptr %324, align 8
   %326 = fadd double %119, %325
   store double %326, ptr %324, align 8
@@ -1693,16 +1693,16 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .thread306.i:                                     ; preds = %.thread303.thread.i
   %327 = load ptr, ptr %81, align 8
   %328 = zext i32 %311 to i64
-  %329 = getelementptr inbounds i32, ptr %327, i64 %328
+  %329 = getelementptr inbounds nuw i32, ptr %327, i64 %328
   %330 = load i32, ptr %329, align 4
   %331 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %310, i32 noundef %330) #10
   %332 = fmul double %117, 5.000000e-01
-  %333 = getelementptr inbounds i8, ptr %331, i64 24
+  %333 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %334 = load double, ptr %333, align 8
   %335 = fadd double %332, %334
   store double %335, ptr %333, align 8
   %336 = fmul double %119, 5.000000e-01
-  %337 = getelementptr inbounds i8, ptr %331, i64 32
+  %337 = getelementptr inbounds nuw i8, ptr %331, i64 32
   %338 = load double, ptr %337, align 8
   %339 = fadd double %336, %338
   store double %339, ptr %337, align 8
@@ -1720,7 +1720,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 346:                                              ; preds = %.thread303.i
   %347 = load ptr, ptr %81, align 8
   %348 = zext i32 %344 to i64
-  %349 = getelementptr inbounds i32, ptr %347, i64 %348
+  %349 = getelementptr inbounds nuw i32, ptr %347, i64 %348
   %350 = load i32, ptr %349, align 4
   %351 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %343, i32 noundef %350) #10
   %352 = load ptr, ptr %114, align 8
@@ -1733,11 +1733,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %301, label %356, label %363
 
 356:                                              ; preds = %355
-  %357 = getelementptr inbounds i8, ptr %351, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %358 = load double, ptr %357, align 8
   %359 = fadd double %119, %358
   store double %359, ptr %357, align 8
-  %360 = getelementptr inbounds i8, ptr %351, i64 32
+  %360 = getelementptr inbounds nuw i8, ptr %351, i64 32
   %361 = load double, ptr %360, align 8
   %362 = fadd double %117, %361
   store double %362, ptr %360, align 8
@@ -1745,12 +1745,12 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 363:                                              ; preds = %355
   %364 = fmul double %119, 5.000000e-01
-  %365 = getelementptr inbounds i8, ptr %351, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %366 = load double, ptr %365, align 8
   %367 = fadd double %364, %366
   store double %367, ptr %365, align 8
   %368 = fmul double %117, 5.000000e-01
-  %369 = getelementptr inbounds i8, ptr %351, i64 32
+  %369 = getelementptr inbounds nuw i8, ptr %351, i64 32
   %370 = load double, ptr %369, align 8
   %371 = fadd double %368, %370
   store double %371, ptr %369, align 8
@@ -1760,11 +1760,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %301, label %373, label %380
 
 373:                                              ; preds = %372
-  %374 = getelementptr inbounds i8, ptr %351, i64 24
+  %374 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %375 = load double, ptr %374, align 8
   %376 = fadd double %117, %375
   store double %376, ptr %374, align 8
-  %377 = getelementptr inbounds i8, ptr %351, i64 32
+  %377 = getelementptr inbounds nuw i8, ptr %351, i64 32
   %378 = load double, ptr %377, align 8
   %379 = fadd double %119, %378
   store double %379, ptr %377, align 8
@@ -1772,12 +1772,12 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 380:                                              ; preds = %372
   %381 = fmul double %117, 5.000000e-01
-  %382 = getelementptr inbounds i8, ptr %351, i64 24
+  %382 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %383 = load double, ptr %382, align 8
   %384 = fadd double %381, %383
   store double %384, ptr %382, align 8
   %385 = fmul double %119, 5.000000e-01
-  %386 = getelementptr inbounds i8, ptr %351, i64 32
+  %386 = getelementptr inbounds nuw i8, ptr %351, i64 32
   %387 = load double, ptr %386, align 8
   %388 = fadd double %385, %387
   store double %388, ptr %386, align 8
@@ -1800,14 +1800,14 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 398:                                              ; preds = %392
   %399 = load ptr, ptr %81, align 8
   %400 = zext i32 %396 to i64
-  %401 = getelementptr inbounds i32, ptr %399, i64 %400
+  %401 = getelementptr inbounds nuw i32, ptr %399, i64 %400
   %402 = load i32, ptr %401, align 4
   %403 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %395, i32 noundef %402) #10
   %404 = and i64 %393, 1
   %.not302.i = icmp eq i64 %404, 0
-  %405 = getelementptr inbounds i8, ptr %403, i64 24
+  %405 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %406 = load double, ptr %405, align 8
-  %407 = getelementptr inbounds i8, ptr %403, i64 32
+  %407 = getelementptr inbounds nuw i8, ptr %403, i64 32
   br i1 %.not302.i, label %414, label %408
 
 408:                                              ; preds = %398
@@ -1835,10 +1835,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %421 = getelementptr inbounds i8, ptr %0, i64 616
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %422 = load ptr, ptr %421, align 8
   %423 = call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %422)
-  %424 = getelementptr inbounds i8, ptr %25, i64 16
+  %424 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %425 = load ptr, ptr %424, align 8
   %.not66 = icmp eq ptr %425, null
   br i1 %.not66, label %427, label %426
@@ -1849,11 +1849,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %427
 
 427:                                              ; preds = %420, %426
-  %428 = getelementptr inbounds i8, ptr %25, i64 24
+  %428 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %429 = load ptr, ptr %428, align 8
   call void @st__free_table(ptr noundef %429) #10
   call void @free(ptr noundef nonnull %25) #10
-  %430 = getelementptr inbounds i8, ptr %0, i64 624
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %430, align 8
   br label %449
 
@@ -1875,7 +1875,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %435, label %436, label %442
 
 436:                                              ; preds = %432
-  %437 = getelementptr inbounds i8, ptr %0, i64 616
+  %437 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %438 = load ptr, ptr %437, align 8
   %439 = load i32, ptr %50, align 8
   %440 = call i32 @Cudd_DagSize(ptr noundef nonnull %431) #10
@@ -1883,7 +1883,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %442
 
 442:                                              ; preds = %436, %432, %.loopexit
-  %443 = getelementptr inbounds i8, ptr %25, i64 16
+  %443 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %444 = load ptr, ptr %443, align 8
   %.not65 = icmp eq ptr %444, null
   br i1 %.not65, label %446, label %445
@@ -1894,7 +1894,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %446
 
 446:                                              ; preds = %442, %445
-  %447 = getelementptr inbounds i8, ptr %25, i64 24
+  %447 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %448 = load ptr, ptr %447, align 8
   call void @st__free_table(ptr noundef %448) #10
   call void @free(ptr noundef nonnull %25) #10
@@ -1910,7 +1910,7 @@ define ptr @Cudd_BiasedOverApprox(ptr noundef initializes((448, 452)) %0, ptr no
   %8 = ptrtoint ptr %1 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %0, i64 448
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %12
 
 12:                                               ; preds = %12, %7
@@ -1939,7 +1939,7 @@ define internal fastcc noundef ptr @gatherInfo(ptr nocapture noundef %0, ptr nou
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 624
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %8, align 8
   br label %50
 
@@ -1947,36 +1947,36 @@ define internal fastcc noundef ptr @gatherInfo(ptr nocapture noundef %0, ptr nou
   %10 = icmp eq i32 %2, 0
   %spec.store.select = select i1 %10, i32 1023, i32 %2
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #10
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %ldexp, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %5, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %16, ptr %17, align 8
   %18 = tail call i32 @Cudd_DagSize(ptr noundef nonnull %1) #10
-  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %18, ptr %19, align 8
   %20 = sext i32 %18 to i64
   %21 = mul nsw i64 %20, 40
   %calloc = tail call ptr @calloc(i64 1, i64 %21)
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %calloc, ptr %22, align 8
   %23 = icmp eq ptr %calloc, null
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %0, i64 624
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %25, align 8
   tail call void @free(ptr noundef nonnull %5) #10
   br label %50
 
 26:                                               ; preds = %9
   %27 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #10
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %27, ptr %28, align 8
   %29 = icmp eq ptr %27, null
   br i1 %29, label %30, label %31
@@ -2000,7 +2000,7 @@ define internal fastcc noundef ptr @gatherInfo(ptr nocapture noundef %0, ptr nou
 
 36:                                               ; preds = %31
   store double %ldexp, ptr %calloc, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 1, ptr %37, align 8
   %38 = tail call fastcc ptr @gatherInfoAux(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %3)
   %39 = icmp eq ptr %38, null
@@ -2026,11 +2026,11 @@ define internal fastcc noundef ptr @gatherInfo(ptr nocapture noundef %0, ptr nou
   %46 = ptrtoint ptr %1 to i64
   %47 = shl i64 %46, 3
   %spec.select.idx = and i64 %47, 8
-  %spec.select = getelementptr inbounds i8, ptr %38, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx
   %.sink = load double, ptr %spec.select, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %.sink, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %38, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 1, ptr %49, align 8
   br label %50
 
@@ -2055,7 +2055,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %9, label %98, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @st__lookup(ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %13, 0
@@ -2063,13 +2063,13 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 21
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 21
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %98
 
@@ -2078,33 +2078,33 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %15, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not74 = icmp eq ptr %26, null
   br i1 %.not74, label %35, label %98
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %15, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not73 = icmp eq ptr %29, null
   br i1 %.not73, label %35, label %98
 
 30:                                               ; preds = %10
-  %31 = getelementptr inbounds i8, ptr %0, i64 616
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %32 = load ptr, ptr %31, align 8
   %33 = call i64 @fwrite(ptr nonnull @.str.3, i64 46, i64 1, ptr %32)
-  %34 = getelementptr inbounds i8, ptr %0, i64 624
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %34, align 8
   br label %98
 
 35:                                               ; preds = %24, %27
-  %36 = getelementptr inbounds i8, ptr %7, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %5, 1
   %40 = xor i64 %39, %38
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %7, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = call fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %41, ptr noundef %2)
   %45 = icmp eq ptr %44, null
@@ -2117,7 +2117,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %50 = ptrtoint ptr %44 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
@@ -2133,7 +2133,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %60 = ptrtoint ptr %56 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -2187,11 +2187,11 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %.pre-phi86 = phi ptr [ %52, %80 ], [ %62, %82 ], [ %.pre85, %.thread ]
   %.pre-phi80 = phi ptr [ %52, %80 ], [ %52, %82 ], [ %.pre79, %.thread ]
   %.0 = phi ptr [ %44, %80 ], [ %84, %82 ], [ %79, %.thread ]
-  %87 = getelementptr inbounds i8, ptr %.pre-phi80, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.pre-phi80, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, -1
   store i32 %89, ptr %87, align 4
-  %90 = getelementptr inbounds i8, ptr %.pre-phi86, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.pre-phi86, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, -1
   store i32 %92, ptr %90, align 4
@@ -2199,12 +2199,12 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %23, label %94, label %96
 
 94:                                               ; preds = %.thread76
-  %95 = getelementptr inbounds i8, ptr %93, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store ptr %.0, ptr %95, align 8
   br label %98
 
 96:                                               ; preds = %.thread76
-  %97 = getelementptr inbounds i8, ptr %93, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr %.0, ptr %97, align 8
   br label %98
 
@@ -2226,18 +2226,18 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %9, label %179, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %5, 1
   %15 = xor i64 %14, %13
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = xor i64 %14, %19
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @st__lookup(ptr noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %24, 0
@@ -2249,19 +2249,19 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %26, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not154 = icmp eq ptr %30, null
   br i1 %.not154, label %34, label %179
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %27, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not153 = icmp eq ptr %33, null
   br i1 %.not153, label %34, label %179
 
 34:                                               ; preds = %31, %28
-  %35 = getelementptr inbounds i8, ptr %27, i64 21
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 21
   %36 = load i8, ptr %35, align 1
   switch i8 %36, label %127 [
     i8 1, label %37
@@ -2280,19 +2280,19 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br label %179
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   br label %179
 
 44:                                               ; preds = %34
   %45 = load ptr, ptr %11, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = xor i64 %14, %48
   %50 = inttoptr i64 %49 to ptr
   %51 = load i32, ptr %45, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %50, ptr noundef %2)
   %55 = icmp eq ptr %54, null
@@ -2302,7 +2302,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %57 = ptrtoint ptr %54 to i64
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4
@@ -2352,7 +2352,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %83 = ptrtoint ptr %.0127 to i64
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = add i32 %87, -1
   store i32 %88, ptr %86, align 4
@@ -2360,7 +2360,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 
 89:                                               ; preds = %34
   %90 = load ptr, ptr %11, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = ptrtoint ptr %92 to i64
   %94 = xor i64 %14, %93
@@ -2375,7 +2375,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %101 = ptrtoint ptr %98 to i64
   %102 = and i64 %101, -2
   %103 = inttoptr i64 %102 to ptr
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 4
@@ -2407,10 +2407,10 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br label %179
 
 122:                                              ; preds = %10
-  %123 = getelementptr inbounds i8, ptr %0, i64 616
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %124 = load ptr, ptr %123, align 8
   %125 = call i64 @fwrite(ptr nonnull @.str.3, i64 46, i64 1, ptr %124)
-  %126 = getelementptr inbounds i8, ptr %0, i64 624
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 5, ptr %126, align 8
   br label %179
 
@@ -2423,7 +2423,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %131 = ptrtoint ptr %128 to i64
   %132 = and i64 %131, -2
   %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds i8, ptr %133, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4
@@ -2439,7 +2439,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %141 = ptrtoint ptr %137 to i64
   %142 = and i64 %141, -2
   %143 = inttoptr i64 %142 to ptr
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = add i32 %145, 1
   store i32 %146, ptr %144, align 4
@@ -2493,11 +2493,11 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %.pre-phi169 = phi ptr [ %133, %161 ], [ %143, %163 ], [ %.pre168, %.thread158 ]
   %.pre-phi163 = phi ptr [ %133, %161 ], [ %133, %163 ], [ %.pre162, %.thread158 ]
   %.1130 = phi ptr [ %128, %161 ], [ %165, %163 ], [ %160, %.thread158 ]
-  %168 = getelementptr inbounds i8, ptr %.pre-phi163, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %.pre-phi163, i64 4
   %169 = load i32, ptr %168, align 4
   %170 = add i32 %169, -1
   store i32 %170, ptr %168, align 4
-  %171 = getelementptr inbounds i8, ptr %.pre-phi169, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %.pre-phi169, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = add i32 %172, -1
   store i32 %173, ptr %171, align 4
@@ -2505,12 +2505,12 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %26, label %175, label %177
 
 175:                                              ; preds = %.thread159
-  %176 = getelementptr inbounds i8, ptr %174, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store ptr %.1130, ptr %176, align 8
   br label %179
 
 177:                                              ; preds = %.thread159
-  %178 = getelementptr inbounds i8, ptr %174, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store ptr %.1130, ptr %178, align 8
   br label %179
 
@@ -2524,12 +2524,12 @@ declare ptr @cuddHashTableInit(ptr noundef, i32 noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @st__lookup(ptr noundef %13, ptr noundef %1, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %14, 0
@@ -2542,7 +2542,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 17:                                               ; preds = %15
   %18 = icmp eq ptr %2, %11
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i8, ptr %20, align 4
   br i1 %18, label %22, label %24
 
@@ -2555,7 +2555,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br i1 %25, label %117, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4
   %.not72 = icmp eq i32 %28, 1
   br i1 %.not72, label %29, label %35
@@ -2564,7 +2564,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %30 = ptrtoint ptr %2 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %.not73 = icmp eq i32 %34, 1
   br i1 %.not73, label %56, label %35
@@ -2581,20 +2581,20 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br label %56
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %4, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 236
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 236
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
   %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 192
   %49 = load i32, ptr %48, align 8
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 8
@@ -2602,7 +2602,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 51:                                               ; preds = %41, %37
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 20
   %54 = load i8, ptr %53, align 4
   %55 = sext i8 %54 to i32
   br label %117
@@ -2610,11 +2610,11 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 56:                                               ; preds = %._crit_edge83, %29
   %.pre-phi88 = phi ptr [ %.pre87, %._crit_edge83 ], [ %32, %29 ]
   %.pre-phi = phi i64 [ %.pre84, %._crit_edge83 ], [ %30, %29 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 312
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %1, align 8
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %.pre-phi88, align 8
   %64 = icmp eq i32 %63, 2147483647
@@ -2622,7 +2622,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 65:                                               ; preds = %56
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds i32, ptr %58, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %58, i64 %66
   %68 = load i32, ptr %67, align 4
   br label %69
 
@@ -2632,9 +2632,9 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br i1 %.not75, label %76, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %1, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load ptr, ptr %74, align 8
   br label %76
 
@@ -2645,9 +2645,9 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br i1 %.not76, label %90, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %.pre-phi88, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.pre-phi88, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %.pre-phi88, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.pre-phi88, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = and i64 %.pre-phi, 1
   %.not77 = icmp eq i64 %82, 0
@@ -2682,12 +2682,12 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %101 = icmp eq i32 %97, 2
   %or.cond = and i1 %100, %101
   %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 20
   %. = select i1 %or.cond, i8 2, i8 1
   store i8 %., ptr %103, align 4
   %104 = load i32, ptr %27, align 4
   %.not78 = icmp eq i32 %104, 1
-  %105 = getelementptr inbounds i8, ptr %.pre-phi88, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %.pre-phi88, i64 4
   %106 = load i32, ptr %105, align 4
   %.not79 = icmp eq i32 %106, 1
   %or.cond89 = select i1 %.not78, i1 %.not79, i1 false
@@ -2708,7 +2708,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 112:                                              ; preds = %99, %._crit_edge81
   %113 = phi ptr [ %.pre82, %._crit_edge81 ], [ %102, %99 ]
-  %114 = getelementptr inbounds i8, ptr %113, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 20
   %115 = load i8, ptr %114, align 4
   %116 = sext i8 %115 to i32
   br label %117
@@ -2737,7 +2737,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @st__lookup(ptr noundef %9, ptr noundef %7, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %10, 0
@@ -2759,14 +2759,14 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   br label %88
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = icmp ne ptr %0, %7
   %23 = zext i1 %22 to i64
   %24 = xor i64 %21, %23
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, %23
@@ -2781,17 +2781,17 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   br i1 %35, label %88, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %34, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %45, align 8
@@ -2800,7 +2800,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   store ptr %49, ptr %4, align 8
   %50 = trunc i64 %5 to i16
   %51 = and i16 %50, 1
-  %52 = getelementptr inbounds i8, ptr %49, i64 22
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 22
   %53 = load i16, ptr %52, align 2
   %54 = add nuw nsw i16 %51, 1
   %55 = or i16 %53, %54
@@ -2809,11 +2809,11 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %57 = fmul double %56, 5.000000e-01
   %58 = load ptr, ptr %4, align 8
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %30, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %60 = load double, ptr %59, align 8
   %61 = fmul double %60, 5.000000e-01
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store double %61, ptr %63, align 8
   %64 = xor i64 %29, %5
   %65 = and i64 %64, 1
@@ -2821,7 +2821,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   br i1 %.not38, label %72, label %66
 
 66:                                               ; preds = %36
-  %67 = getelementptr inbounds i8, ptr %34, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %68 = load double, ptr %67, align 8
   %69 = fmul double %68, 5.000000e-01
   %70 = load double, ptr %62, align 8
@@ -2835,7 +2835,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %75 = load double, ptr %62, align 8
   %76 = fadd double %75, %74
   store double %76, ptr %62, align 8
-  %77 = getelementptr inbounds i8, ptr %34, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %78
 
 78:                                               ; preds = %72, %66
@@ -2843,7 +2843,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %.sink = load double, ptr %.sink.in, align 8
   %79 = fmul double %.sink, 5.000000e-01
   %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load double, ptr %81, align 8
   %83 = fadd double %79, %82
   store double %83, ptr %81, align 8
@@ -2864,7 +2864,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @updateParity(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @st__lookup(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %7, 0
@@ -2872,7 +2872,7 @@ define internal fastcc void @updateParity(ptr noundef %0, ptr noundef nonnull %1
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = and i32 %2, %12
@@ -2891,10 +2891,10 @@ define internal fastcc void @updateParity(ptr noundef %0, ptr noundef nonnull %1
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   call fastcc void @updateParity(ptr noundef %24, ptr noundef %1, i32 noundef %2)
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 1
@@ -2941,10 +2941,10 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %13 to i64
-  %19 = getelementptr inbounds i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   br label %21
 
@@ -2955,20 +2955,20 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @st__lookup(ptr noundef %27, ptr noundef nonnull %9, ptr noundef nonnull %6) #10
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i32 %31, ptr %32, align 8
   %33 = load ptr, ptr %4, align 8
   %.not5961 = icmp eq ptr %33, null
   br i1 %.not5961, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 312
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -2978,7 +2978,7 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 
 36:                                               ; preds = %.lr.ph, %.backedge
   %37 = phi ptr [ %35, %.lr.ph ], [ %50, %.backedge ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 2147483647
@@ -2987,7 +2987,7 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 42:                                               ; preds = %36
   %43 = load ptr, ptr %34, align 8
   %44 = zext i32 %40 to i64
-  %45 = getelementptr inbounds i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   br label %47
 
@@ -3005,17 +3005,17 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 51:                                               ; preds = %47
   %52 = load ptr, ptr %26, align 8
   %53 = call i32 @st__lookup(ptr noundef %52, ptr noundef nonnull %39, ptr noundef nonnull %6) #10
-  %54 = getelementptr inbounds i8, ptr %37, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
   %.not56 = icmp eq i32 %55, %58
   br i1 %.not56, label %59, label %.backedge
 
 59:                                               ; preds = %51
   %60 = add nuw nsw i32 %.0.ph62, 1
-  %61 = getelementptr inbounds i8, ptr %39, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 2147483647
@@ -3024,21 +3024,21 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 65:                                               ; preds = %59
   %66 = load ptr, ptr %34, align 8
   %67 = zext i32 %63 to i64
-  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %69) #10
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.loopexit, label %72
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %70, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %74 = load i32, ptr %73, align 8
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %73, align 8
   br label %76
 
 76:                                               ; preds = %72, %59
-  %77 = getelementptr inbounds i8, ptr %39, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = and i64 %79, -2
@@ -3050,14 +3050,14 @@ define internal fastcc i32 @computeSavings(ptr nocapture noundef readonly %0, pt
 84:                                               ; preds = %76
   %85 = load ptr, ptr %34, align 8
   %86 = zext i32 %82 to i64
-  %87 = getelementptr inbounds i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %81, i32 noundef %88) #10
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.loopexit, label %91
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %89, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %93 = load i32, ptr %92, align 8
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %92, align 8
@@ -3084,10 +3084,10 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %10 to i64
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -3098,11 +3098,11 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 @st__lookup(ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %6) #10
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %27, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %38, label %28
@@ -3114,14 +3114,14 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   %32 = load ptr, ptr %23, align 8
   %33 = call i32 @st__lookup(ptr noundef %32, ptr noundef %31, ptr noundef nonnull %6) #10
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 8
   br label %38
 
 38:                                               ; preds = %28, %22
-  %39 = getelementptr inbounds i8, ptr %0, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %38
@@ -3130,7 +3130,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not54, label %.loopexit, label %41
 
 41:                                               ; preds = %.outer
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2147483647
@@ -3139,7 +3139,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
 46:                                               ; preds = %41
   %47 = load ptr, ptr %39, align 8
   %48 = zext i32 %44 to i64
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4
   br label %51
 
@@ -3149,7 +3149,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   %53 = load ptr, ptr %23, align 8
   %54 = call i32 @st__lookup(ptr noundef %53, ptr noundef nonnull %43, ptr noundef nonnull %6) #10
   %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i32, ptr %56, align 8
   %.not55 = icmp eq i32 %57, 0
   br i1 %.not55, label %58, label %.outer.backedge
@@ -3158,7 +3158,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   br label %.outer, !llvm.loop !15
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %43, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 2147483647
@@ -3167,7 +3167,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
 63:                                               ; preds = %58
   %64 = load ptr, ptr %39, align 8
   %65 = zext i32 %61 to i64
-  %66 = getelementptr inbounds i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %60, i32 noundef %67) #10
   %69 = icmp eq ptr %68, null
@@ -3178,14 +3178,14 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   %72 = load ptr, ptr %59, align 8
   %73 = call i32 @st__lookup(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %6) #10
   %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = add nsw i32 %76, -1
   store i32 %77, ptr %75, align 8
   br label %78
 
 78:                                               ; preds = %70, %58
-  %79 = getelementptr inbounds i8, ptr %43, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = and i64 %81, -2
@@ -3197,7 +3197,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
 86:                                               ; preds = %78
   %87 = load ptr, ptr %39, align 8
   %88 = zext i32 %84 to i64
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %83, i32 noundef %90) #10
   %92 = icmp eq ptr %91, null
@@ -3211,7 +3211,7 @@ define internal fastcc void @updateRefs(ptr nocapture noundef readonly %0, ptr n
   %98 = inttoptr i64 %97 to ptr
   %99 = call i32 @st__lookup(ptr noundef %94, ptr noundef %98, ptr noundef nonnull %6) #10
   %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = add nsw i32 %102, -1
   store i32 %103, ptr %101, align 8

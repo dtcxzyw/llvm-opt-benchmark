@@ -110,7 +110,7 @@ define { ptr, i64 } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIt
 define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f47aecaE(ptr align 4 %0, i32 %1, i32 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
   %6 = invoke i32 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9ffd049715efd290E"(i32 %2, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.3)
           to label %9 unwind label %7
@@ -140,7 +140,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17h3d3614f83f
 define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork4miss17ha474bec5964925b1E(ptr align 4 %0, i32 %1, i32 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
   %6 = invoke i32 @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hff71eeffce0ee670E"(i32 %2, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.3)
           to label %9 unwind label %7
@@ -173,7 +173,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc6
   %8 = extractvalue { i8, i8 } %7, 0
   %9 = extractvalue { i8, i8 } %7, 1
   store i8 %8, ptr %6, align 1
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %9, ptr %10, align 1
   %11 = call { i1, i8 } @"_ZN93_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f4f6669fe50ce3E"(ptr nonnull align 1 %6)
   %12 = extractvalue { i1, i8 } %11, 0
@@ -187,7 +187,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork10add_branch17h9a6dba12fc6
   %14 = extractvalue { i1, i8 } %13, 1
   %15 = zext i8 %14 to i64
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds [256 x i32], ptr %16, i64 0, i64 %15
+  %17 = getelementptr inbounds nuw [256 x i32], ptr %16, i64 0, i64 %15
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   %.not5 = icmp eq i32 %18, %3
@@ -212,9 +212,9 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E
   %6 = alloca [56 x i8], align 8
   %7 = alloca [16 x i8], align 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %14, label %12
@@ -228,8 +228,8 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5merge17h91ad695d05c85aa4E
   %.sroa.0.0 = phi i32 [ %10, %12 ], [ %20, %._crit_edge ], [ %2, %4 ]
   store i32 %.sroa.0.0, ptr %9, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1024
-  %18 = getelementptr inbounds i8, ptr %15, i64 1024
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1024
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1024
   invoke void @_ZN4core4iter6traits8iterator8Iterator3zip17h3eed03fbe8f1b6a4E(ptr nonnull sret([56 x i8]) align 8 %6, ptr %16, ptr nonnull %17, ptr %15, ptr nonnull %18)
           to label %22 unwind label %.loopexit.split-lp
 
@@ -317,7 +317,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   %7 = extractvalue { i8, i8 } %6, 0
   %8 = extractvalue { i8, i8 } %6, 1
   store i8 %7, ptr %5, align 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %8, ptr %9, align 1
   %10 = call { i1, i8 } @"_ZN93_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06f4f6669fe50ce3E"(ptr nonnull align 1 %5)
   %11 = extractvalue { i1, i8 } %10, 0
@@ -331,7 +331,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   %13 = extractvalue { i1, i8 } %10, 1
   %14 = zext i8 %13 to i64
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds [256 x i32], ptr %15, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %14
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %19
@@ -340,7 +340,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
   %20 = load i8, ptr %5, align 1
   %21 = load i8, ptr %9, align 1
   store i8 %20, ptr %4, align 1
-  %22 = getelementptr inbounds i8, ptr %4, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %21, ptr %22, align 1
   br label %23
 
@@ -352,7 +352,7 @@ define hidden i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2
 26:                                               ; preds = %23
   %27 = extractvalue { i1, i8 } %24, 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds [256 x i32], ptr %15, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [256 x i32], ptr %15, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %17, %30
   br i1 %.not, label %23, label %.loopexit
@@ -364,7 +364,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
   %7 = alloca [2 x i8], align 1
   %8 = alloca [16 x i8], align 8
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %9, align 8
   %10 = invoke { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8bb22f44fbb60feaE"(i8 %2, i8 %3, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.9)
           to label %12 unwind label %.loopexit.split-lp
@@ -388,7 +388,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
   %13 = extractvalue { i8, i8 } %10, 0
   %14 = extractvalue { i8, i8 } %10, 1
   store i8 %13, ptr %7, align 1
-  %15 = getelementptr inbounds i8, ptr %7, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %14, ptr %15, align 1
   br label %16
 
@@ -408,7 +408,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
 23:                                               ; preds = %18
   %24 = extractvalue { i1, i8 } %17, 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds [256 x i32], ptr %0, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %25
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, 0
   %.not5 = icmp eq i32 %27, %4
@@ -424,13 +424,13 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
 
 30:                                               ; preds = %23
   store ptr @anon.33164be75a3287a3b2008a53950c9b90.12, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %34, align 8
   invoke void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.33164be75a3287a3b2008a53950c9b90.13) #12
           to label %28 unwind label %.loopexit.split-lp
@@ -448,7 +448,7 @@ define hidden { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork6branch17hd9705e15
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [16 x i8], align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
@@ -463,7 +463,7 @@ define hidden void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE
   %13 = extractvalue { ptr, i64 } %12, 0
   %14 = extractvalue { ptr, i64 } %12, 1
   store ptr %13, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %14, ptr %15, align 8
   %16 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
   %17 = icmp ult i64 %16, 4294967296
@@ -565,19 +565,19 @@ define void @"_ZN13logos_codegen5graph5impls79_$LT$impl$u20$core..hash..Hash$u20
   %6 = extractvalue { ptr, i64 } %5, 0
   %7 = extractvalue { ptr, i64 } %5, 1
   store ptr %6, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %7, ptr %8, align 8
   %9 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %4)
   %10 = icmp ult i64 %9, 4294967296
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 1
+  %.sroa.2.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %16
 
 ._crit_edge:                                      ; preds = %16, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i64

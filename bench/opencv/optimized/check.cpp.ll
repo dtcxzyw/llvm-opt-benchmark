@@ -74,7 +74,7 @@ define noundef nonnull ptr @_ZN2cv13depthToStringEi(i32 noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %_ZN2cv6detail14depthToString_Ei.exit
 
@@ -92,7 +92,7 @@ define noundef ptr @_ZN2cv6detail14depthToString_Ei(i32 noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -110,7 +110,7 @@ define void @_ZN2cv12typeToStringB5cxx11Ei(ptr dead_on_unwind noalias writable s
   %7 = add nuw nsw i32 %6, 1
   %8 = and i32 %1, 7
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8, !noalias !4
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.10, ptr noundef %11, i32 noundef %7)
   %12 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
@@ -174,7 +174,7 @@ define void @_ZN2cv6detail13typeToString_B5cxx11Ei(ptr dead_on_unwind noalias wr
   %5 = add nuw nsw i32 %4, 1
   %6 = and i32 %1, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.10, ptr noundef %9, i32 noundef %5)
   ret void
@@ -220,8 +220,8 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiiRKNS0_12CheckContextE(i32 no
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
           to label %10 unwind label %78
@@ -231,7 +231,7 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiiRKNS0_12CheckContextE(i32 no
           to label %12 unwind label %78
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %14)
           to label %16 unwind label %78
@@ -241,14 +241,14 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiiRKNS0_12CheckContextE(i32 no
           to label %18 unwind label %78
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %2, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 7
   br i1 %21, label %22, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -262,7 +262,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %18, %22
           to label %30 unwind label %78
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %2, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %32)
           to label %34 unwind label %78
@@ -302,7 +302,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %18, %22
 
 50:                                               ; preds = %49
   %51 = zext nneg i32 %0 to i64
-  %52 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %54
 
@@ -339,7 +339,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %18, %22
 
 70:                                               ; preds = %67
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -384,7 +384,7 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %67, %70
 
 92:                                               ; preds = %91
   %93 = zext nneg i32 %1 to i64
-  %94 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %93
   %95 = load ptr, ptr %94, align 8
   br label %96
 
@@ -405,9 +405,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %67, %70
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr %2, align 8
-  %105 = getelementptr inbounds i8, ptr %2, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %2, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %108 = load i32, ptr %107, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %104, ptr noundef %106, i32 noundef %108) #8
           to label %109 unwind label %110
@@ -452,8 +452,8 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 nou
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
           to label %12 unwind label %74
@@ -463,7 +463,7 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 nou
           to label %14 unwind label %74
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %16)
           to label %18 unwind label %74
@@ -473,14 +473,14 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 nou
           to label %20 unwind label %74
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %2, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 7
   br i1 %23, label %24, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 24:                                               ; preds = %20
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -494,7 +494,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %20, %24
           to label %32 unwind label %74
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %2, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %34)
           to label %36 unwind label %74
@@ -563,7 +563,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %20, %24
 
 66:                                               ; preds = %63
   %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -627,9 +627,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %63, %66
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %2, align 8
-  %97 = getelementptr inbounds i8, ptr %2, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %2, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %100 = load i32, ptr %99, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %96, ptr noundef %98, i32 noundef %100) #8
           to label %101 unwind label %104
@@ -668,8 +668,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_S4_RKNS0
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %63
@@ -679,7 +679,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_S4_RKNS0
           to label %10 unwind label %63
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
           to label %14 unwind label %63
@@ -689,14 +689,14 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_S4_RKNS0
           to label %16 unwind label %63
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, 7
   br i1 %19, label %20, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -710,7 +710,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
           to label %28 unwind label %63
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %63
@@ -762,7 +762,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
 
 55:                                               ; preds = %52
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -803,9 +803,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %52, %55
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %76, ptr noundef %78, i32 noundef %80) #8
           to label %81 unwind label %82
@@ -838,8 +838,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IbEEvRKT_S4_RKNS0
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %64
@@ -849,7 +849,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IbEEvRKT_S4_RKNS0
           to label %10 unwind label %64
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
           to label %14 unwind label %64
@@ -859,14 +859,14 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IbEEvRKT_S4_RKNS0
           to label %16 unwind label %64
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, 7
   br i1 %19, label %20, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -880,7 +880,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
           to label %28 unwind label %64
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %64
@@ -933,7 +933,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
 
 56:                                               ; preds = %53
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %57
   %59 = load ptr, ptr %58, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -975,9 +975,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %53, %56
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load i32, ptr %81, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %78, ptr noundef %80, i32 noundef %82) #8
           to label %83 unwind label %84
@@ -1014,8 +1014,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_S4_RKNS0
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %63
@@ -1025,7 +1025,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_S4_RKNS0
           to label %10 unwind label %63
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
           to label %14 unwind label %63
@@ -1035,14 +1035,14 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_S4_RKNS0
           to label %16 unwind label %63
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, 7
   br i1 %19, label %20, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -1056,7 +1056,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
           to label %28 unwind label %63
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %63
@@ -1108,7 +1108,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
 
 55:                                               ; preds = %52
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1149,9 +1149,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %52, %55
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %76, ptr noundef %78, i32 noundef %80) #8
           to label %81 unwind label %82
@@ -1182,8 +1182,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_S4_RKNS0
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %63
@@ -1193,7 +1193,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_S4_RKNS0
           to label %10 unwind label %63
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
           to label %14 unwind label %63
@@ -1203,14 +1203,14 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_S4_RKNS0
           to label %16 unwind label %63
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, 7
   br i1 %19, label %20, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -1224,7 +1224,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
           to label %28 unwind label %63
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %63
@@ -1276,7 +1276,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
 
 55:                                               ; preds = %52
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1317,9 +1317,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %52, %55
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %76, ptr noundef %78, i32 noundef %80) #8
           to label %81 unwind label %82
@@ -1350,8 +1350,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_S4_RKNS0
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %63
@@ -1361,7 +1361,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_S4_RKNS0
           to label %10 unwind label %63
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
           to label %14 unwind label %63
@@ -1371,14 +1371,14 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_S4_RKNS0
           to label %16 unwind label %63
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, 7
   br i1 %19, label %20, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 20:                                               ; preds = %16
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -1392,7 +1392,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
           to label %28 unwind label %63
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %63
@@ -1444,7 +1444,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %16, %20
 
 55:                                               ; preds = %52
   %56 = zext nneg i32 %53 to i64
-  %57 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1485,9 +1485,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %52, %55
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %79, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %76, ptr noundef %78, i32 noundef %80) #8
           to label %81 unwind label %82
@@ -1522,8 +1522,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
           to label %10 unwind label %65
@@ -1533,7 +1533,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
           to label %12 unwind label %65
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %14)
           to label %16 unwind label %65
@@ -1543,14 +1543,14 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
           to label %18 unwind label %65
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %2, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 7
   br i1 %21, label %22, label %_ZN2cv6detailL13getTestOpMathEj.exit
 
 22:                                               ; preds = %18
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL13getTestOpMathEjE6_names, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   br label %_ZN2cv6detailL13getTestOpMathEj.exit
 
@@ -1564,7 +1564,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %18, %22
           to label %30 unwind label %65
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %2, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %32)
           to label %34 unwind label %65
@@ -1616,7 +1616,7 @@ _ZN2cv6detailL13getTestOpMathEj.exit:             ; preds = %18, %22
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [7 x ptr], ptr @_ZZN2cv6detailL18getTestOpPhraseStrEjE6_names, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
   br label %_ZN2cv6detailL18getTestOpPhraseStrEj.exit
 
@@ -1657,9 +1657,9 @@ _ZN2cv6detailL18getTestOpPhraseStrEj.exit:        ; preds = %54, %57
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %82 = load i32, ptr %81, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %78, ptr noundef %80, i32 noundef %82) #8
           to label %83 unwind label %84
@@ -1684,8 +1684,8 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 nou
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
           to label %9 unwind label %58
@@ -1703,7 +1703,7 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 nou
           to label %15 unwind label %58
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %17)
           to label %19 unwind label %58
@@ -1729,7 +1729,7 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 nou
           to label %29 unwind label %58
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %31)
           to label %33 unwind label %58
@@ -1752,7 +1752,7 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 nou
 
 40:                                               ; preds = %39
   %41 = zext nneg i32 %0 to i64
-  %42 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cv6detail14depthToString_EiE10depthNames, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   br label %44
 
@@ -1773,9 +1773,9 @@ define void @_ZN2cv6detail21check_failed_MatDepthEiRKNS0_12CheckContextE(i32 nou
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load i32, ptr %55, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %52, ptr noundef %54, i32 noundef %56) #8
           to label %57 unwind label %60
@@ -1806,8 +1806,8 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noun
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8)
           to label %10 unwind label %53
@@ -1825,7 +1825,7 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noun
           to label %16 unwind label %53
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %18)
           to label %20 unwind label %53
@@ -1851,7 +1851,7 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noun
           to label %30 unwind label %53
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %32)
           to label %34 unwind label %53
@@ -1887,9 +1887,9 @@ define void @_ZN2cv6detail20check_failed_MatTypeEiRKNS0_12CheckContextE(i32 noun
 
 46:                                               ; preds = %45
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i32, ptr %50, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %47, ptr noundef %49, i32 noundef %51) #8
           to label %52 unwind label %57
@@ -1931,8 +1931,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_RKNS0_12
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %44
@@ -1950,7 +1950,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_RKNS0_12
           to label %14 unwind label %44
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %16)
           to label %18 unwind label %44
@@ -1976,7 +1976,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_RKNS0_12
           to label %28 unwind label %44
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %44
@@ -1995,9 +1995,9 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IiEEvRKT_RKNS0_12
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %38, ptr noundef %40, i32 noundef %42) #8
           to label %43 unwind label %46
@@ -2027,8 +2027,8 @@ define void @_ZN2cv6detail17check_failed_trueEbRKNS0_12CheckContextE(i1 noundef 
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
           to label %9 unwind label %29
@@ -2046,7 +2046,7 @@ define void @_ZN2cv6detail17check_failed_trueEbRKNS0_12CheckContextE(i1 noundef 
           to label %15 unwind label %29
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %17)
           to label %19 unwind label %29
@@ -2061,9 +2061,9 @@ define void @_ZN2cv6detail17check_failed_trueEbRKNS0_12CheckContextE(i1 noundef 
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i32, ptr %26, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %23, ptr noundef %25, i32 noundef %27) #8
           to label %28 unwind label %31
@@ -2093,8 +2093,8 @@ define void @_ZN2cv6detail18check_failed_falseEbRKNS0_12CheckContextE(i1 noundef
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
           to label %9 unwind label %29
@@ -2112,7 +2112,7 @@ define void @_ZN2cv6detail18check_failed_falseEbRKNS0_12CheckContextE(i1 noundef
           to label %15 unwind label %29
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %17)
           to label %19 unwind label %29
@@ -2127,9 +2127,9 @@ define void @_ZN2cv6detail18check_failed_falseEbRKNS0_12CheckContextE(i1 noundef
 
 22:                                               ; preds = %21
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i32, ptr %26, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %23, ptr noundef %25, i32 noundef %27) #8
           to label %28 unwind label %31
@@ -2171,8 +2171,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_RKNS0_12
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %44
@@ -2190,7 +2190,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_RKNS0_12
           to label %14 unwind label %44
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %16)
           to label %18 unwind label %44
@@ -2216,7 +2216,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_RKNS0_12
           to label %28 unwind label %44
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %44
@@ -2235,9 +2235,9 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_ImEEvRKT_RKNS0_12
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %38, ptr noundef %40, i32 noundef %42) #8
           to label %43 unwind label %46
@@ -2273,8 +2273,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_RKNS0_12
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %44
@@ -2292,7 +2292,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_RKNS0_12
           to label %14 unwind label %44
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %16)
           to label %18 unwind label %44
@@ -2318,7 +2318,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_RKNS0_12
           to label %28 unwind label %44
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %44
@@ -2337,9 +2337,9 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IfEEvRKT_RKNS0_12
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %38, ptr noundef %40, i32 noundef %42) #8
           to label %43 unwind label %46
@@ -2375,8 +2375,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_RKNS0_12
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %6)
           to label %8 unwind label %44
@@ -2394,7 +2394,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_RKNS0_12
           to label %14 unwind label %44
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %16)
           to label %18 unwind label %44
@@ -2420,7 +2420,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_RKNS0_12
           to label %28 unwind label %44
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %30)
           to label %32 unwind label %44
@@ -2439,9 +2439,9 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_IdEEvRKT_RKNS0_12
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %38, ptr noundef %40, i32 noundef %42) #8
           to label %43 unwind label %46
@@ -2479,8 +2479,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
           to label %9 unwind label %45
@@ -2498,7 +2498,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
           to label %15 unwind label %45
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %17)
           to label %19 unwind label %45
@@ -2524,7 +2524,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
           to label %29 unwind label %45
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %31)
           to label %33 unwind label %45
@@ -2543,9 +2543,9 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INS_5Size_IiEEEEv
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i32, ptr %42, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %39, ptr noundef %41, i32 noundef %43) #8
           to label %44 unwind label %47
@@ -2581,8 +2581,8 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INSt7__cxx1112bas
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %7)
           to label %9 unwind label %45
@@ -2600,7 +2600,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INSt7__cxx1112bas
           to label %15 unwind label %45
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %17)
           to label %19 unwind label %45
@@ -2626,7 +2626,7 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INSt7__cxx1112bas
           to label %29 unwind label %45
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %31)
           to label %33 unwind label %45
@@ -2645,9 +2645,9 @@ define internal fastcc void @_ZN2cv6detailL18check_failed_auto_INSt7__cxx1112bas
 
 38:                                               ; preds = %37
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i32, ptr %42, align 8
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %39, ptr noundef %41, i32 noundef %43) #8
           to label %44 unwind label %47
@@ -2686,7 +2686,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsI
   %4 = load i32, ptr %1, align 4
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.39)
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.40)

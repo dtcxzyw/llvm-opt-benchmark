@@ -391,13 +391,13 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %49
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 1
@@ -454,7 +454,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %445
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %45, i32 noundef 34, ptr noundef nonnull @.str.163) #2
   %46 = load ptr, ptr %44, align 8
@@ -464,7 +464,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %445
 
 49:                                               ; preds = %30, %9, %14, %18, %22, %26, %4
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8
   tail call void @col_set_str(ptr noundef %51, i32 noundef 34, ptr noundef nonnull @.str.140) #2
   %52 = load ptr, ptr %50, align 8
@@ -487,7 +487,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   %62 = zext nneg i16 %60 to i32
   %.0450 = select i1 %.not, i32 0, i32 %62
   %.0449 = select i1 %.not, i16 %58, i16 %61
-  %63 = getelementptr inbounds i8, ptr %1, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @tvb_address_to_str(ptr noundef %64, ptr noundef %0, i32 noundef 1, i32 noundef 7) #2
   %66 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 13) #2
@@ -608,7 +608,7 @@ define internal fastcc void @dissect_bpdu(ptr noundef %0, ptr noundef %1, ptr no
   %121 = zext nneg i16 %119 to i32
   %.0455 = select i1 %.not474, i32 0, i32 %121
   %.0454 = select i1 %.not474, i16 %117, i16 %120
-  %122 = getelementptr inbounds i8, ptr %1, i64 408
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %123 = load ptr, ptr %122, align 8
   %124 = tail call ptr @tvb_address_to_str(ptr noundef %123, ptr noundef %0, i32 noundef 1, i32 noundef 19) #2
   %125 = icmp eq i8 %53, 2

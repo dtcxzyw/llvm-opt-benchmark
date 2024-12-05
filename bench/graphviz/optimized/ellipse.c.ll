@@ -288,21 +288,21 @@ lineTo.exit.i:                                    ; preds = %188
   %204 = tail call double @llvm.fmuladd.f64(double %202, double 0.000000e+00, double %203)
   store ptr %193, ptr %84, align 8
   store double %0, ptr %193, align 8
-  %205 = getelementptr inbounds i8, ptr %193, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store double %1, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %84, i64 8
-  %207 = getelementptr inbounds i8, ptr %193, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store double %0, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %193, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store double %1, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %193, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %193, i64 32
   store double %204, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %193, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %193, i64 40
   store double %201, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %193, i64 48
+  %211 = getelementptr inbounds nuw i8, ptr %193, i64 48
   store double %204, ptr %211, align 8
   store i32 4, ptr %206, align 8
-  %212 = getelementptr inbounds i8, ptr %193, i64 56
+  %212 = getelementptr inbounds nuw i8, ptr %193, i64 56
   store double %201, ptr %212, align 8
   %213 = fmul double %190, 5.000000e-01
   %214 = tail call double @tan(double noundef %213) #8
@@ -376,19 +376,19 @@ lineTo.exit._crit_edge.i:                         ; preds = %lineTo.exit.i
 curveTo.exit.i:                                   ; preds = %254, %230
   %259 = phi i32 [ %255, %254 ], [ %252, %230 ]
   %260 = phi ptr [ %258, %254 ], [ %231, %230 ]
-  %261 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %indvars.iv.i
+  %261 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %indvars.iv.i
   store double %248, ptr %261, align 8
   %262 = add nuw nsw i64 %indvars.iv.i, 1
-  %263 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %indvars.iv.i, i32 1
+  %263 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %indvars.iv.i, i32 1
   store double %249, ptr %263, align 8
-  %264 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %262
+  %264 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %262
   store double %250, ptr %264, align 8
   %265 = add nuw nsw i64 %indvars.iv.i, 2
-  %266 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %262, i32 1
+  %266 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %262, i32 1
   store double %251, ptr %266, align 8
-  %267 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %265
+  %267 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %265
   store double %240, ptr %267, align 8
-  %268 = getelementptr inbounds %struct.pointf_s, ptr %260, i64 %265, i32 1
+  %268 = getelementptr inbounds nuw %struct.pointf_s, ptr %260, i64 %265, i32 1
   store double %242, ptr %268, align 8
   %269 = add nuw nsw i32 %.1136.i, 1
   %exitcond.not.i = icmp eq i32 %269, %186
@@ -405,7 +405,7 @@ curveTo.exit.i:                                   ; preds = %254, %230
   %273 = phi i32 [ %270, %._crit_edge.i ], [ 4, %lineTo.exit._crit_edge.i ]
   %274 = phi ptr [ %260, %._crit_edge.i ], [ %193, %lineTo.exit._crit_edge.i ]
   %.sroa.0.0.copyload.i125.i = load double, ptr %274, align 8
-  %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds i8, ptr %274, i64 8
+  %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds nuw i8, ptr %274, i64 8
   %.sroa.2.0.copyload.i127.i = load double, ptr %.sroa.2.0..sroa_idx.i126.i, align 8
   %275 = sext i32 %273 to i64
   %276 = getelementptr %struct.pointf_s, ptr %274, i64 %275

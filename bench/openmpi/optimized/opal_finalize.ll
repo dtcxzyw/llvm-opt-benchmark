@@ -34,7 +34,7 @@ define range(i32 -1, 1) i32 @opal_finalize() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   tail call void @opal_finalize_cleanup_domain(ptr noundef nonnull @opal_init_domain) #3
   %6 = load ptr, ptr @opal_init_domain, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %.not1.i = icmp eq ptr %9, null
@@ -44,7 +44,7 @@ define range(i32 -1, 1) i32 @opal_finalize() local_unnamed_addr #0 {
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
   %.02.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %5 ]
   tail call void %10(ptr noundef nonnull @opal_init_domain) #3
-  %11 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -101,7 +101,7 @@ define internal void @warn_fork_cb() #0 {
   %4 = load ptr, ptr @opal_show_help, align 8
   %5 = load ptr, ptr @opal_process_name_print, align 8
   %6 = tail call ptr @opal_proc_local_get() #3
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr %5(i64 %8) #3
   %10 = tail call i32 @getpid() #3

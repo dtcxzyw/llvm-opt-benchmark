@@ -11,13 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN15pme_spline_workC2Ei(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(192) %0, i32 noundef %1) unnamed_addr #0 align 2 {
 .preheader34.preheader:
   %2 = alloca [8 x float], align 32
-  %.ptr28 = getelementptr inbounds i8, ptr %0, i64 96
+  %.ptr28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = icmp slt i32 %1, 9
   br i1 %3, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %.preheader34.preheader
   %4 = sub i32 9, %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = sext i32 %1 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -34,7 +34,7 @@ define void @_ZN15pme_spline_workC2Ei(ptr nocapture noundef nonnull writeonly al
   %9 = icmp slt i64 %indvars.iv, %7
   %10 = select i1 %9, float -1.000000e+00, float 1.000000e+00
   %11 = select i1 %.not, float 1.000000e+00, float %10
-  %12 = getelementptr inbounds [8 x float], ptr %2, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x float], ptr %2, i64 0, i64 %indvars.iv
   store float %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -45,11 +45,11 @@ define void @_ZN15pme_spline_workC2Ei(ptr nocapture noundef nonnull writeonly al
   %.val29 = load <4 x float>, ptr %5, align 16
   %14 = fcmp olt <4 x float> %.val, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
-  %16 = getelementptr inbounds [6 x %"class.gmx::Simd4FBool"], ptr %0, i64 0, i64 %indvars.iv38
+  %16 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %0, i64 0, i64 %indvars.iv38
   store <4 x i32> %15, ptr %16, align 16
   %17 = fcmp olt <4 x float> %.val29, zeroinitializer
   %18 = sext <4 x i1> %17 to <4 x i32>
-  %19 = getelementptr inbounds [6 x %"class.gmx::Simd4FBool"], ptr %.ptr28, i64 0, i64 %indvars.iv38
+  %19 = getelementptr inbounds nuw [6 x %"class.gmx::Simd4FBool"], ptr %.ptr28, i64 0, i64 %indvars.iv38
   store <4 x i32> %18, ptr %19, align 16
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count

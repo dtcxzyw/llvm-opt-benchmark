@@ -20,7 +20,7 @@ define hidden ptr @WebPGetLinePairConverter(i32 noundef %0) local_unnamed_addr #
   tail call void @WebPInitUpsamplers()
   %.not = icmp eq i32 %0, 0
   %2 = select i1 %.not, i64 4, i64 3
-  %3 = getelementptr inbounds [13 x ptr], ptr @WebPUpsamplers, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [13 x ptr], ptr @WebPUpsamplers, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -92,14 +92,14 @@ define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = shl nsw i64 %indvars.iv, 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = zext i8 %8 to i32
   %16 = zext i8 %10 to i32
   %17 = zext i8 %12 to i32
@@ -129,7 +129,7 @@ define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr no
   %40 = select i1 %39, i32 0, i32 255
   %41 = select i1 %37, i32 %38, i32 %40
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %14, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %42, ptr %43, align 1
   %44 = mul nuw nsw i32 %16, 33050
   %45 = lshr i32 %44, 8
@@ -141,9 +141,9 @@ define hidden void @WebPYuv444ToRgba_C(ptr nocapture noundef readonly %0, ptr no
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds i8, ptr %14, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %14, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 3
   store i8 -1, ptr %55, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -164,14 +164,14 @@ define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = shl nsw i64 %indvars.iv, 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   %15 = zext i8 %8 to i32
   %16 = zext i8 %10 to i32
   %17 = zext i8 %12 to i32
@@ -201,7 +201,7 @@ define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr no
   %40 = select i1 %39, i32 0, i32 255
   %41 = select i1 %37, i32 %38, i32 %40
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %14, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i8 %42, ptr %43, align 1
   %44 = mul nuw nsw i32 %17, 26149
   %45 = lshr i32 %44, 8
@@ -213,9 +213,9 @@ define hidden void @WebPYuv444ToBgra_C(ptr nocapture noundef readonly %0, ptr no
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds i8, ptr %14, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %14, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 3
   store i8 -1, ptr %55, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -236,17 +236,17 @@ define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i64 %indvars.iv, 3
-  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %18 = mul nuw nsw i32 %9, 19077
   %19 = lshr i32 %18, 8
   %20 = mul nuw nsw i32 %15, 26149
@@ -273,7 +273,7 @@ define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr noc
   %40 = select i1 %39, i32 0, i32 255
   %41 = select i1 %37, i32 %38, i32 %40
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %17, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %42, ptr %43, align 1
   %44 = mul nuw nsw i32 %12, 33050
   %45 = lshr i32 %44, 8
@@ -285,7 +285,7 @@ define hidden void @WebPYuv444ToRgb_C(ptr nocapture noundef readonly %0, ptr noc
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds i8, ptr %17, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -306,17 +306,17 @@ define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i64 %indvars.iv, 3
-  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %18 = mul nuw nsw i32 %9, 19077
   %19 = lshr i32 %18, 8
   %20 = mul nuw nsw i32 %12, 33050
@@ -343,7 +343,7 @@ define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr noc
   %40 = select i1 %39, i32 0, i32 255
   %41 = select i1 %37, i32 %38, i32 %40
   %42 = trunc i32 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %17, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %42, ptr %43, align 1
   %44 = mul nuw nsw i32 %15, 26149
   %45 = lshr i32 %44, 8
@@ -355,7 +355,7 @@ define hidden void @WebPYuv444ToBgr_C(ptr nocapture noundef readonly %0, ptr noc
   %51 = select i1 %50, i32 0, i32 255
   %52 = select i1 %48, i32 %49, i32 %51
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds i8, ptr %17, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %53, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -376,19 +376,19 @@ define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = shl nsw i64 %indvars.iv, 2
-  %14 = getelementptr inbounds i8, ptr %3, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
   store i8 -1, ptr %14, align 1
   %15 = zext i8 %8 to i32
   %16 = zext i8 %10 to i32
   %17 = zext i8 %12 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %19 = mul nuw nsw i32 %15, 19077
   %20 = lshr i32 %19, 8
   %21 = mul nuw nsw i32 %17, 26149
@@ -415,7 +415,7 @@ define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr no
   %41 = select i1 %40, i32 0, i32 255
   %42 = select i1 %38, i32 %39, i32 %41
   %43 = trunc i32 %42 to i8
-  %44 = getelementptr inbounds i8, ptr %14, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i8 %43, ptr %44, align 1
   %45 = mul nuw nsw i32 %16, 33050
   %46 = lshr i32 %45, 8
@@ -427,7 +427,7 @@ define hidden void @WebPYuv444ToArgb_C(ptr nocapture noundef readonly %0, ptr no
   %52 = select i1 %51, i32 0, i32 255
   %53 = select i1 %49, i32 %50, i32 %52
   %54 = trunc i32 %53 to i8
-  %55 = getelementptr inbounds i8, ptr %14, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 3
   store i8 %54, ptr %55, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -448,17 +448,17 @@ define hidden void @WebPYuv444ToRgba4444_C(ptr nocapture noundef readonly %0, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %18 = mul nuw nsw i32 %9, 19077
   %19 = lshr i32 %18, 8
   %20 = mul nuw nsw i32 %15, 26149
@@ -497,7 +497,7 @@ define hidden void @WebPYuv444ToRgba4444_C(ptr nocapture noundef readonly %0, pt
   store i8 %52, ptr %17, align 1
   %53 = trunc i32 %48 to i8
   %54 = or i8 %53, 15
-  %55 = getelementptr inbounds i8, ptr %17, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %54, ptr %55, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -518,17 +518,17 @@ define hidden void @WebPYuv444ToRgb565_C(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %16
   %18 = mul nuw nsw i32 %9, 19077
   %19 = lshr i32 %18, 8
   %20 = mul nuw nsw i32 %15, 26149
@@ -570,7 +570,7 @@ define hidden void @WebPYuv444ToRgb565_C(ptr nocapture noundef readonly %0, ptr 
   %56 = trunc i32 %52 to i8
   store i8 %56, ptr %17, align 1
   %57 = trunc i32 %55 to i8
-  %58 = getelementptr inbounds i8, ptr %17, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %57, ptr %58, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -697,7 +697,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %55 = select i1 %54, i32 0, i32 255
   %56 = select i1 %52, i32 %53, i32 %55
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %6, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %57, ptr %58, align 1
   %59 = mul nuw nsw i32 %31, 33050
   %60 = lshr i32 %59, 8
@@ -709,9 +709,9 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %66 = select i1 %65, i32 0, i32 255
   %67 = select i1 %63, i32 %64, i32 %66
   %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds i8, ptr %6, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %6, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 -1, ptr %70, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %119, label %71
@@ -752,7 +752,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %103 = select i1 %102, i32 0, i32 255
   %104 = select i1 %100, i32 %101, i32 %103
   %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %7, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %105, ptr %106, align 1
   %107 = mul nuw nsw i32 %79, 33050
   %108 = lshr i32 %107, 8
@@ -764,9 +764,9 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %114 = select i1 %113, i32 0, i32 255
   %115 = select i1 %111, i32 %112, i32 %114
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %7, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %7, i64 3
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 -1, ptr %118, align 1
   br label %119
 
@@ -783,18 +783,18 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %342 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %128, %342 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %136, %342 ]
-  %121 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 %126, 16
   %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = shl nuw nsw i32 %134, 16
@@ -851,7 +851,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %185 = select i1 %184, i32 0, i32 255
   %186 = select i1 %182, i32 %183, i32 %185
   %187 = trunc i32 %186 to i8
-  %188 = getelementptr inbounds i8, ptr %159, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %159, i64 1
   store i8 %187, ptr %188, align 1
   %189 = mul nuw nsw i32 %161, 33050
   %190 = lshr i32 %189, 8
@@ -863,15 +863,15 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %196 = select i1 %195, i32 0, i32 255
   %197 = select i1 %193, i32 %194, i32 %196
   %198 = trunc i32 %197 to i8
-  %199 = getelementptr inbounds i8, ptr %159, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %159, i64 2
   store i8 %198, ptr %199, align 1
-  %200 = getelementptr inbounds i8, ptr %159, i64 3
+  %200 = getelementptr inbounds nuw i8, ptr %159, i64 3
   store i8 -1, ptr %200, align 1
-  %201 = getelementptr inbounds i8, ptr %0, i64 %153
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 %153
   %202 = load i8, ptr %201, align 1
   %203 = lshr i32 %151, 17
   %204 = shl nsw i64 %indvars.iv, 3
-  %205 = getelementptr inbounds i8, ptr %6, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 %204
   %206 = zext i8 %202 to i32
   %207 = and i32 %152, 255
   %208 = and i32 %203, 255
@@ -901,7 +901,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %231 = select i1 %230, i32 0, i32 255
   %232 = select i1 %228, i32 %229, i32 %231
   %233 = trunc i32 %232 to i8
-  %234 = getelementptr inbounds i8, ptr %205, i64 1
+  %234 = getelementptr inbounds nuw i8, ptr %205, i64 1
   store i8 %233, ptr %234, align 1
   %235 = mul nuw nsw i32 %207, 33050
   %236 = lshr i32 %235, 8
@@ -913,9 +913,9 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %242 = select i1 %241, i32 0, i32 255
   %243 = select i1 %239, i32 %240, i32 %242
   %244 = trunc i32 %243 to i8
-  %245 = getelementptr inbounds i8, ptr %205, i64 2
+  %245 = getelementptr inbounds nuw i8, ptr %205, i64 2
   store i8 %244, ptr %245, align 1
-  %246 = getelementptr inbounds i8, ptr %205, i64 3
+  %246 = getelementptr inbounds nuw i8, ptr %205, i64 3
   store i8 -1, ptr %246, align 1
   br i1 %.not, label %342, label %247
 
@@ -957,7 +957,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %281 = select i1 %280, i32 0, i32 255
   %282 = select i1 %278, i32 %279, i32 %281
   %283 = trunc i32 %282 to i8
-  %284 = getelementptr inbounds i8, ptr %255, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %255, i64 1
   store i8 %283, ptr %284, align 1
   %285 = mul nuw nsw i32 %257, 33050
   %286 = lshr i32 %285, 8
@@ -969,14 +969,14 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %292 = select i1 %291, i32 0, i32 255
   %293 = select i1 %289, i32 %290, i32 %292
   %294 = trunc i32 %293 to i8
-  %295 = getelementptr inbounds i8, ptr %255, i64 2
+  %295 = getelementptr inbounds nuw i8, ptr %255, i64 2
   store i8 %294, ptr %295, align 1
-  %296 = getelementptr inbounds i8, ptr %255, i64 3
+  %296 = getelementptr inbounds nuw i8, ptr %255, i64 3
   store i8 -1, ptr %296, align 1
-  %297 = getelementptr inbounds i8, ptr %1, i64 %153
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 %153
   %298 = load i8, ptr %297, align 1
   %299 = lshr i32 %250, 17
-  %300 = getelementptr inbounds i8, ptr %7, i64 %204
+  %300 = getelementptr inbounds nuw i8, ptr %7, i64 %204
   %301 = zext i8 %298 to i32
   %302 = and i32 %251, 255
   %303 = and i32 %299, 255
@@ -1006,7 +1006,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %326 = select i1 %325, i32 0, i32 255
   %327 = select i1 %323, i32 %324, i32 %326
   %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds i8, ptr %300, i64 1
+  %329 = getelementptr inbounds nuw i8, ptr %300, i64 1
   store i8 %328, ptr %329, align 1
   %330 = mul nuw nsw i32 %302, 33050
   %331 = lshr i32 %330, 8
@@ -1018,9 +1018,9 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %337 = select i1 %336, i32 0, i32 255
   %338 = select i1 %334, i32 %335, i32 %337
   %339 = trunc i32 %338 to i8
-  %340 = getelementptr inbounds i8, ptr %300, i64 2
+  %340 = getelementptr inbounds nuw i8, ptr %300, i64 2
   store i8 %339, ptr %340, align 1
-  %341 = getelementptr inbounds i8, ptr %300, i64 3
+  %341 = getelementptr inbounds nuw i8, ptr %300, i64 3
   store i8 -1, ptr %341, align 1
   br label %342
 
@@ -1077,7 +1077,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %381 = select i1 %380, i32 0, i32 255
   %382 = select i1 %378, i32 %379, i32 %381
   %383 = trunc i32 %382 to i8
-  %384 = getelementptr inbounds i8, ptr %355, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %355, i64 1
   store i8 %383, ptr %384, align 1
   %385 = mul nuw nsw i32 %357, 33050
   %386 = lshr i32 %385, 8
@@ -1089,9 +1089,9 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %392 = select i1 %391, i32 0, i32 255
   %393 = select i1 %389, i32 %390, i32 %392
   %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds i8, ptr %355, i64 2
+  %395 = getelementptr inbounds nuw i8, ptr %355, i64 2
   store i8 %394, ptr %395, align 1
-  %396 = getelementptr inbounds i8, ptr %355, i64 3
+  %396 = getelementptr inbounds nuw i8, ptr %355, i64 3
   store i8 -1, ptr %396, align 1
   br i1 %.not, label %447, label %397
 
@@ -1133,7 +1133,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %431 = select i1 %430, i32 0, i32 255
   %432 = select i1 %428, i32 %429, i32 %431
   %433 = trunc i32 %432 to i8
-  %434 = getelementptr inbounds i8, ptr %405, i64 1
+  %434 = getelementptr inbounds nuw i8, ptr %405, i64 1
   store i8 %433, ptr %434, align 1
   %435 = mul nuw nsw i32 %407, 33050
   %436 = lshr i32 %435, 8
@@ -1145,9 +1145,9 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
   %442 = select i1 %441, i32 0, i32 255
   %443 = select i1 %439, i32 %440, i32 %442
   %444 = trunc i32 %443 to i8
-  %445 = getelementptr inbounds i8, ptr %405, i64 2
+  %445 = getelementptr inbounds nuw i8, ptr %405, i64 2
   store i8 %444, ptr %445, align 1
-  %446 = getelementptr inbounds i8, ptr %405, i64 3
+  %446 = getelementptr inbounds nuw i8, ptr %405, i64 3
   store i8 -1, ptr %446, align 1
   br label %447
 
@@ -1206,7 +1206,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %55 = select i1 %54, i32 0, i32 255
   %56 = select i1 %52, i32 %53, i32 %55
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %6, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %57, ptr %58, align 1
   %59 = mul nuw nsw i32 %32, 26149
   %60 = lshr i32 %59, 8
@@ -1218,9 +1218,9 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %66 = select i1 %65, i32 0, i32 255
   %67 = select i1 %63, i32 %64, i32 %66
   %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds i8, ptr %6, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %68, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %6, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 -1, ptr %70, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %119, label %71
@@ -1261,7 +1261,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %103 = select i1 %102, i32 0, i32 255
   %104 = select i1 %100, i32 %101, i32 %103
   %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %7, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %105, ptr %106, align 1
   %107 = mul nuw nsw i32 %80, 26149
   %108 = lshr i32 %107, 8
@@ -1273,9 +1273,9 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %114 = select i1 %113, i32 0, i32 255
   %115 = select i1 %111, i32 %112, i32 %114
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %7, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %7, i64 3
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 -1, ptr %118, align 1
   br label %119
 
@@ -1292,18 +1292,18 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %342 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %128, %342 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %136, %342 ]
-  %121 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 %126, 16
   %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = shl nuw nsw i32 %134, 16
@@ -1360,7 +1360,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %185 = select i1 %184, i32 0, i32 255
   %186 = select i1 %182, i32 %183, i32 %185
   %187 = trunc i32 %186 to i8
-  %188 = getelementptr inbounds i8, ptr %159, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %159, i64 1
   store i8 %187, ptr %188, align 1
   %189 = mul nuw nsw i32 %162, 26149
   %190 = lshr i32 %189, 8
@@ -1372,15 +1372,15 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %196 = select i1 %195, i32 0, i32 255
   %197 = select i1 %193, i32 %194, i32 %196
   %198 = trunc i32 %197 to i8
-  %199 = getelementptr inbounds i8, ptr %159, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %159, i64 2
   store i8 %198, ptr %199, align 1
-  %200 = getelementptr inbounds i8, ptr %159, i64 3
+  %200 = getelementptr inbounds nuw i8, ptr %159, i64 3
   store i8 -1, ptr %200, align 1
-  %201 = getelementptr inbounds i8, ptr %0, i64 %153
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 %153
   %202 = load i8, ptr %201, align 1
   %203 = lshr i32 %151, 17
   %204 = shl nsw i64 %indvars.iv, 3
-  %205 = getelementptr inbounds i8, ptr %6, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 %204
   %206 = zext i8 %202 to i32
   %207 = and i32 %152, 255
   %208 = and i32 %203, 255
@@ -1410,7 +1410,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %231 = select i1 %230, i32 0, i32 255
   %232 = select i1 %228, i32 %229, i32 %231
   %233 = trunc i32 %232 to i8
-  %234 = getelementptr inbounds i8, ptr %205, i64 1
+  %234 = getelementptr inbounds nuw i8, ptr %205, i64 1
   store i8 %233, ptr %234, align 1
   %235 = mul nuw nsw i32 %208, 26149
   %236 = lshr i32 %235, 8
@@ -1422,9 +1422,9 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %242 = select i1 %241, i32 0, i32 255
   %243 = select i1 %239, i32 %240, i32 %242
   %244 = trunc i32 %243 to i8
-  %245 = getelementptr inbounds i8, ptr %205, i64 2
+  %245 = getelementptr inbounds nuw i8, ptr %205, i64 2
   store i8 %244, ptr %245, align 1
-  %246 = getelementptr inbounds i8, ptr %205, i64 3
+  %246 = getelementptr inbounds nuw i8, ptr %205, i64 3
   store i8 -1, ptr %246, align 1
   br i1 %.not, label %342, label %247
 
@@ -1466,7 +1466,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %281 = select i1 %280, i32 0, i32 255
   %282 = select i1 %278, i32 %279, i32 %281
   %283 = trunc i32 %282 to i8
-  %284 = getelementptr inbounds i8, ptr %255, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %255, i64 1
   store i8 %283, ptr %284, align 1
   %285 = mul nuw nsw i32 %258, 26149
   %286 = lshr i32 %285, 8
@@ -1478,14 +1478,14 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %292 = select i1 %291, i32 0, i32 255
   %293 = select i1 %289, i32 %290, i32 %292
   %294 = trunc i32 %293 to i8
-  %295 = getelementptr inbounds i8, ptr %255, i64 2
+  %295 = getelementptr inbounds nuw i8, ptr %255, i64 2
   store i8 %294, ptr %295, align 1
-  %296 = getelementptr inbounds i8, ptr %255, i64 3
+  %296 = getelementptr inbounds nuw i8, ptr %255, i64 3
   store i8 -1, ptr %296, align 1
-  %297 = getelementptr inbounds i8, ptr %1, i64 %153
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 %153
   %298 = load i8, ptr %297, align 1
   %299 = lshr i32 %250, 17
-  %300 = getelementptr inbounds i8, ptr %7, i64 %204
+  %300 = getelementptr inbounds nuw i8, ptr %7, i64 %204
   %301 = zext i8 %298 to i32
   %302 = and i32 %251, 255
   %303 = and i32 %299, 255
@@ -1515,7 +1515,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %326 = select i1 %325, i32 0, i32 255
   %327 = select i1 %323, i32 %324, i32 %326
   %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds i8, ptr %300, i64 1
+  %329 = getelementptr inbounds nuw i8, ptr %300, i64 1
   store i8 %328, ptr %329, align 1
   %330 = mul nuw nsw i32 %303, 26149
   %331 = lshr i32 %330, 8
@@ -1527,9 +1527,9 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %337 = select i1 %336, i32 0, i32 255
   %338 = select i1 %334, i32 %335, i32 %337
   %339 = trunc i32 %338 to i8
-  %340 = getelementptr inbounds i8, ptr %300, i64 2
+  %340 = getelementptr inbounds nuw i8, ptr %300, i64 2
   store i8 %339, ptr %340, align 1
-  %341 = getelementptr inbounds i8, ptr %300, i64 3
+  %341 = getelementptr inbounds nuw i8, ptr %300, i64 3
   store i8 -1, ptr %341, align 1
   br label %342
 
@@ -1586,7 +1586,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %381 = select i1 %380, i32 0, i32 255
   %382 = select i1 %378, i32 %379, i32 %381
   %383 = trunc i32 %382 to i8
-  %384 = getelementptr inbounds i8, ptr %355, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %355, i64 1
   store i8 %383, ptr %384, align 1
   %385 = mul nuw nsw i32 %358, 26149
   %386 = lshr i32 %385, 8
@@ -1598,9 +1598,9 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %392 = select i1 %391, i32 0, i32 255
   %393 = select i1 %389, i32 %390, i32 %392
   %394 = trunc i32 %393 to i8
-  %395 = getelementptr inbounds i8, ptr %355, i64 2
+  %395 = getelementptr inbounds nuw i8, ptr %355, i64 2
   store i8 %394, ptr %395, align 1
-  %396 = getelementptr inbounds i8, ptr %355, i64 3
+  %396 = getelementptr inbounds nuw i8, ptr %355, i64 3
   store i8 -1, ptr %396, align 1
   br i1 %.not, label %447, label %397
 
@@ -1642,7 +1642,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %431 = select i1 %430, i32 0, i32 255
   %432 = select i1 %428, i32 %429, i32 %431
   %433 = trunc i32 %432 to i8
-  %434 = getelementptr inbounds i8, ptr %405, i64 1
+  %434 = getelementptr inbounds nuw i8, ptr %405, i64 1
   store i8 %433, ptr %434, align 1
   %435 = mul nuw nsw i32 %408, 26149
   %436 = lshr i32 %435, 8
@@ -1654,9 +1654,9 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
   %442 = select i1 %441, i32 0, i32 255
   %443 = select i1 %439, i32 %440, i32 %442
   %444 = trunc i32 %443 to i8
-  %445 = getelementptr inbounds i8, ptr %405, i64 2
+  %445 = getelementptr inbounds nuw i8, ptr %405, i64 2
   store i8 %444, ptr %445, align 1
-  %446 = getelementptr inbounds i8, ptr %405, i64 3
+  %446 = getelementptr inbounds nuw i8, ptr %405, i64 3
   store i8 -1, ptr %446, align 1
   br label %447
 
@@ -1714,7 +1714,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %54 = select i1 %53, i32 0, i32 255
   %55 = select i1 %51, i32 %52, i32 %54
   %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds i8, ptr %6, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %56, ptr %57, align 1
   %58 = mul nuw nsw i32 %30, 33050
   %59 = lshr i32 %58, 8
@@ -1726,7 +1726,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %65 = select i1 %64, i32 0, i32 255
   %66 = select i1 %62, i32 %63, i32 %65
   %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds i8, ptr %6, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %67, ptr %68, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %115, label %69
@@ -1766,7 +1766,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %100 = select i1 %99, i32 0, i32 255
   %101 = select i1 %97, i32 %98, i32 %100
   %102 = trunc i32 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %7, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %102, ptr %103, align 1
   %104 = mul nuw nsw i32 %76, 33050
   %105 = lshr i32 %104, 8
@@ -1778,7 +1778,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %111 = select i1 %110, i32 0, i32 255
   %112 = select i1 %108, i32 %109, i32 %111
   %113 = trunc i32 %112 to i8
-  %114 = getelementptr inbounds i8, ptr %7, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %113, ptr %114, align 1
   br label %115
 
@@ -1795,18 +1795,18 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %330 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %124, %330 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %132, %330 ]
-  %117 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 16
   %124 = or disjoint i32 %123, %119
-  %125 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 16
@@ -1835,7 +1835,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %154 = and i32 %146, 255
   %155 = lshr i32 %145, 17
   %156 = mul nuw nsw i64 %150, 3
-  %157 = getelementptr inbounds i8, ptr %6, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 %156
   %158 = mul nuw nsw i32 %153, 19077
   %159 = lshr i32 %158, 8
   %160 = mul nuw nsw i32 %155, 26149
@@ -1862,7 +1862,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %180 = select i1 %179, i32 0, i32 255
   %181 = select i1 %177, i32 %178, i32 %180
   %182 = trunc i32 %181 to i8
-  %183 = getelementptr inbounds i8, ptr %157, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %157, i64 1
   store i8 %182, ptr %183, align 1
   %184 = mul nuw nsw i32 %154, 33050
   %185 = lshr i32 %184, 8
@@ -1874,15 +1874,15 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %191 = select i1 %190, i32 0, i32 255
   %192 = select i1 %188, i32 %189, i32 %191
   %193 = trunc i32 %192 to i8
-  %194 = getelementptr inbounds i8, ptr %157, i64 2
+  %194 = getelementptr inbounds nuw i8, ptr %157, i64 2
   store i8 %193, ptr %194, align 1
-  %195 = getelementptr inbounds i8, ptr %0, i64 %149
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 %149
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = and i32 %148, 255
   %199 = lshr i32 %147, 17
   %200 = mul nuw nsw i64 %indvars.iv, 6
-  %201 = getelementptr inbounds i8, ptr %6, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 %200
   %202 = mul nuw nsw i32 %197, 19077
   %203 = lshr i32 %202, 8
   %204 = mul nuw nsw i32 %199, 26149
@@ -1909,7 +1909,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %224 = select i1 %223, i32 0, i32 255
   %225 = select i1 %221, i32 %222, i32 %224
   %226 = trunc i32 %225 to i8
-  %227 = getelementptr inbounds i8, ptr %201, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %201, i64 1
   store i8 %226, ptr %227, align 1
   %228 = mul nuw nsw i32 %198, 33050
   %229 = lshr i32 %228, 8
@@ -1921,7 +1921,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %235 = select i1 %234, i32 0, i32 255
   %236 = select i1 %232, i32 %233, i32 %235
   %237 = trunc i32 %236 to i8
-  %238 = getelementptr inbounds i8, ptr %201, i64 2
+  %238 = getelementptr inbounds nuw i8, ptr %201, i64 2
   store i8 %237, ptr %238, align 1
   br i1 %.not, label %330, label %239
 
@@ -1935,7 +1935,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %246 = zext i8 %245 to i32
   %247 = and i32 %241, 255
   %248 = lshr i32 %240, 17
-  %249 = getelementptr inbounds i8, ptr %7, i64 %156
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 %156
   %250 = mul nuw nsw i32 %246, 19077
   %251 = lshr i32 %250, 8
   %252 = mul nuw nsw i32 %248, 26149
@@ -1962,7 +1962,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %272 = select i1 %271, i32 0, i32 255
   %273 = select i1 %269, i32 %270, i32 %272
   %274 = trunc i32 %273 to i8
-  %275 = getelementptr inbounds i8, ptr %249, i64 1
+  %275 = getelementptr inbounds nuw i8, ptr %249, i64 1
   store i8 %274, ptr %275, align 1
   %276 = mul nuw nsw i32 %247, 33050
   %277 = lshr i32 %276, 8
@@ -1974,14 +1974,14 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %283 = select i1 %282, i32 0, i32 255
   %284 = select i1 %280, i32 %281, i32 %283
   %285 = trunc i32 %284 to i8
-  %286 = getelementptr inbounds i8, ptr %249, i64 2
+  %286 = getelementptr inbounds nuw i8, ptr %249, i64 2
   store i8 %285, ptr %286, align 1
-  %287 = getelementptr inbounds i8, ptr %1, i64 %149
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 %149
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i32
   %290 = and i32 %243, 255
   %291 = lshr i32 %242, 17
-  %292 = getelementptr inbounds i8, ptr %7, i64 %200
+  %292 = getelementptr inbounds nuw i8, ptr %7, i64 %200
   %293 = mul nuw nsw i32 %289, 19077
   %294 = lshr i32 %293, 8
   %295 = mul nuw nsw i32 %291, 26149
@@ -2008,7 +2008,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %315 = select i1 %314, i32 0, i32 255
   %316 = select i1 %312, i32 %313, i32 %315
   %317 = trunc i32 %316 to i8
-  %318 = getelementptr inbounds i8, ptr %292, i64 1
+  %318 = getelementptr inbounds nuw i8, ptr %292, i64 1
   store i8 %317, ptr %318, align 1
   %319 = mul nuw nsw i32 %290, 33050
   %320 = lshr i32 %319, 8
@@ -2020,7 +2020,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %326 = select i1 %325, i32 0, i32 255
   %327 = select i1 %323, i32 %324, i32 %326
   %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds i8, ptr %292, i64 2
+  %329 = getelementptr inbounds nuw i8, ptr %292, i64 2
   store i8 %328, ptr %329, align 1
   br label %330
 
@@ -2076,7 +2076,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %368 = select i1 %367, i32 0, i32 255
   %369 = select i1 %365, i32 %366, i32 %368
   %370 = trunc i32 %369 to i8
-  %371 = getelementptr inbounds i8, ptr %345, i64 1
+  %371 = getelementptr inbounds nuw i8, ptr %345, i64 1
   store i8 %370, ptr %371, align 1
   %372 = mul nuw nsw i32 %341, 33050
   %373 = lshr i32 %372, 8
@@ -2088,7 +2088,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %379 = select i1 %378, i32 0, i32 255
   %380 = select i1 %376, i32 %377, i32 %379
   %381 = trunc i32 %380 to i8
-  %382 = getelementptr inbounds i8, ptr %345, i64 2
+  %382 = getelementptr inbounds nuw i8, ptr %345, i64 2
   store i8 %381, ptr %382, align 1
   br i1 %.not, label %431, label %383
 
@@ -2129,7 +2129,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %416 = select i1 %415, i32 0, i32 255
   %417 = select i1 %413, i32 %414, i32 %416
   %418 = trunc i32 %417 to i8
-  %419 = getelementptr inbounds i8, ptr %393, i64 1
+  %419 = getelementptr inbounds nuw i8, ptr %393, i64 1
   store i8 %418, ptr %419, align 1
   %420 = mul nuw nsw i32 %391, 33050
   %421 = lshr i32 %420, 8
@@ -2141,7 +2141,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
   %427 = select i1 %426, i32 0, i32 255
   %428 = select i1 %424, i32 %425, i32 %427
   %429 = trunc i32 %428 to i8
-  %430 = getelementptr inbounds i8, ptr %393, i64 2
+  %430 = getelementptr inbounds nuw i8, ptr %393, i64 2
   store i8 %429, ptr %430, align 1
   br label %431
 
@@ -2199,7 +2199,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %54 = select i1 %53, i32 0, i32 255
   %55 = select i1 %51, i32 %52, i32 %54
   %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds i8, ptr %6, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %56, ptr %57, align 1
   %58 = mul nuw nsw i32 %31, 26149
   %59 = lshr i32 %58, 8
@@ -2211,7 +2211,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %65 = select i1 %64, i32 0, i32 255
   %66 = select i1 %62, i32 %63, i32 %65
   %67 = trunc i32 %66 to i8
-  %68 = getelementptr inbounds i8, ptr %6, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %67, ptr %68, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %115, label %69
@@ -2251,7 +2251,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %100 = select i1 %99, i32 0, i32 255
   %101 = select i1 %97, i32 %98, i32 %100
   %102 = trunc i32 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %7, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %102, ptr %103, align 1
   %104 = mul nuw nsw i32 %77, 26149
   %105 = lshr i32 %104, 8
@@ -2263,7 +2263,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %111 = select i1 %110, i32 0, i32 255
   %112 = select i1 %108, i32 %109, i32 %111
   %113 = trunc i32 %112 to i8
-  %114 = getelementptr inbounds i8, ptr %7, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %113, ptr %114, align 1
   br label %115
 
@@ -2280,18 +2280,18 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %330 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %124, %330 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %132, %330 ]
-  %117 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 16
   %124 = or disjoint i32 %123, %119
-  %125 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 16
@@ -2320,7 +2320,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %154 = and i32 %146, 255
   %155 = lshr i32 %145, 17
   %156 = mul nuw nsw i64 %150, 3
-  %157 = getelementptr inbounds i8, ptr %6, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 %156
   %158 = mul nuw nsw i32 %153, 19077
   %159 = lshr i32 %158, 8
   %160 = mul nuw nsw i32 %154, 33050
@@ -2347,7 +2347,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %180 = select i1 %179, i32 0, i32 255
   %181 = select i1 %177, i32 %178, i32 %180
   %182 = trunc i32 %181 to i8
-  %183 = getelementptr inbounds i8, ptr %157, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %157, i64 1
   store i8 %182, ptr %183, align 1
   %184 = mul nuw nsw i32 %155, 26149
   %185 = lshr i32 %184, 8
@@ -2359,15 +2359,15 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %191 = select i1 %190, i32 0, i32 255
   %192 = select i1 %188, i32 %189, i32 %191
   %193 = trunc i32 %192 to i8
-  %194 = getelementptr inbounds i8, ptr %157, i64 2
+  %194 = getelementptr inbounds nuw i8, ptr %157, i64 2
   store i8 %193, ptr %194, align 1
-  %195 = getelementptr inbounds i8, ptr %0, i64 %149
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 %149
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   %198 = and i32 %148, 255
   %199 = lshr i32 %147, 17
   %200 = mul nuw nsw i64 %indvars.iv, 6
-  %201 = getelementptr inbounds i8, ptr %6, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr %6, i64 %200
   %202 = mul nuw nsw i32 %197, 19077
   %203 = lshr i32 %202, 8
   %204 = mul nuw nsw i32 %198, 33050
@@ -2394,7 +2394,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %224 = select i1 %223, i32 0, i32 255
   %225 = select i1 %221, i32 %222, i32 %224
   %226 = trunc i32 %225 to i8
-  %227 = getelementptr inbounds i8, ptr %201, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %201, i64 1
   store i8 %226, ptr %227, align 1
   %228 = mul nuw nsw i32 %199, 26149
   %229 = lshr i32 %228, 8
@@ -2406,7 +2406,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %235 = select i1 %234, i32 0, i32 255
   %236 = select i1 %232, i32 %233, i32 %235
   %237 = trunc i32 %236 to i8
-  %238 = getelementptr inbounds i8, ptr %201, i64 2
+  %238 = getelementptr inbounds nuw i8, ptr %201, i64 2
   store i8 %237, ptr %238, align 1
   br i1 %.not, label %330, label %239
 
@@ -2420,7 +2420,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %246 = zext i8 %245 to i32
   %247 = and i32 %241, 255
   %248 = lshr i32 %240, 17
-  %249 = getelementptr inbounds i8, ptr %7, i64 %156
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 %156
   %250 = mul nuw nsw i32 %246, 19077
   %251 = lshr i32 %250, 8
   %252 = mul nuw nsw i32 %247, 33050
@@ -2447,7 +2447,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %272 = select i1 %271, i32 0, i32 255
   %273 = select i1 %269, i32 %270, i32 %272
   %274 = trunc i32 %273 to i8
-  %275 = getelementptr inbounds i8, ptr %249, i64 1
+  %275 = getelementptr inbounds nuw i8, ptr %249, i64 1
   store i8 %274, ptr %275, align 1
   %276 = mul nuw nsw i32 %248, 26149
   %277 = lshr i32 %276, 8
@@ -2459,14 +2459,14 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %283 = select i1 %282, i32 0, i32 255
   %284 = select i1 %280, i32 %281, i32 %283
   %285 = trunc i32 %284 to i8
-  %286 = getelementptr inbounds i8, ptr %249, i64 2
+  %286 = getelementptr inbounds nuw i8, ptr %249, i64 2
   store i8 %285, ptr %286, align 1
-  %287 = getelementptr inbounds i8, ptr %1, i64 %149
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 %149
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i32
   %290 = and i32 %243, 255
   %291 = lshr i32 %242, 17
-  %292 = getelementptr inbounds i8, ptr %7, i64 %200
+  %292 = getelementptr inbounds nuw i8, ptr %7, i64 %200
   %293 = mul nuw nsw i32 %289, 19077
   %294 = lshr i32 %293, 8
   %295 = mul nuw nsw i32 %290, 33050
@@ -2493,7 +2493,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %315 = select i1 %314, i32 0, i32 255
   %316 = select i1 %312, i32 %313, i32 %315
   %317 = trunc i32 %316 to i8
-  %318 = getelementptr inbounds i8, ptr %292, i64 1
+  %318 = getelementptr inbounds nuw i8, ptr %292, i64 1
   store i8 %317, ptr %318, align 1
   %319 = mul nuw nsw i32 %291, 26149
   %320 = lshr i32 %319, 8
@@ -2505,7 +2505,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %326 = select i1 %325, i32 0, i32 255
   %327 = select i1 %323, i32 %324, i32 %326
   %328 = trunc i32 %327 to i8
-  %329 = getelementptr inbounds i8, ptr %292, i64 2
+  %329 = getelementptr inbounds nuw i8, ptr %292, i64 2
   store i8 %328, ptr %329, align 1
   br label %330
 
@@ -2561,7 +2561,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %368 = select i1 %367, i32 0, i32 255
   %369 = select i1 %365, i32 %366, i32 %368
   %370 = trunc i32 %369 to i8
-  %371 = getelementptr inbounds i8, ptr %345, i64 1
+  %371 = getelementptr inbounds nuw i8, ptr %345, i64 1
   store i8 %370, ptr %371, align 1
   %372 = mul nuw nsw i32 %342, 26149
   %373 = lshr i32 %372, 8
@@ -2573,7 +2573,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %379 = select i1 %378, i32 0, i32 255
   %380 = select i1 %376, i32 %377, i32 %379
   %381 = trunc i32 %380 to i8
-  %382 = getelementptr inbounds i8, ptr %345, i64 2
+  %382 = getelementptr inbounds nuw i8, ptr %345, i64 2
   store i8 %381, ptr %382, align 1
   br i1 %.not, label %431, label %383
 
@@ -2614,7 +2614,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %416 = select i1 %415, i32 0, i32 255
   %417 = select i1 %413, i32 %414, i32 %416
   %418 = trunc i32 %417 to i8
-  %419 = getelementptr inbounds i8, ptr %393, i64 1
+  %419 = getelementptr inbounds nuw i8, ptr %393, i64 1
   store i8 %418, ptr %419, align 1
   %420 = mul nuw nsw i32 %392, 26149
   %421 = lshr i32 %420, 8
@@ -2626,7 +2626,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
   %427 = select i1 %426, i32 0, i32 255
   %428 = select i1 %424, i32 %425, i32 %427
   %429 = trunc i32 %428 to i8
-  %430 = getelementptr inbounds i8, ptr %393, i64 2
+  %430 = getelementptr inbounds nuw i8, ptr %393, i64 2
   store i8 %429, ptr %430, align 1
   br label %431
 
@@ -2660,7 +2660,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %30 = zext i8 %28 to i32
   %31 = and i32 %27, 255
   %32 = and i32 %29, 255
-  %33 = getelementptr inbounds i8, ptr %6, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %34 = mul nuw nsw i32 %30, 19077
   %35 = lshr i32 %34, 8
   %36 = mul nuw nsw i32 %32, 26149
@@ -2687,7 +2687,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %56 = select i1 %55, i32 0, i32 255
   %57 = select i1 %53, i32 %54, i32 %56
   %58 = trunc i32 %57 to i8
-  %59 = getelementptr inbounds i8, ptr %6, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %58, ptr %59, align 1
   %60 = mul nuw nsw i32 %31, 33050
   %61 = lshr i32 %60, 8
@@ -2699,7 +2699,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %67 = select i1 %66, i32 0, i32 255
   %68 = select i1 %64, i32 %65, i32 %67
   %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds i8, ptr %6, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 %69, ptr %70, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %119, label %71
@@ -2715,7 +2715,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %78 = zext i8 %76 to i32
   %79 = and i32 %75, 255
   %80 = and i32 %77, 255
-  %81 = getelementptr inbounds i8, ptr %7, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %82 = mul nuw nsw i32 %78, 19077
   %83 = lshr i32 %82, 8
   %84 = mul nuw nsw i32 %80, 26149
@@ -2742,7 +2742,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %104 = select i1 %103, i32 0, i32 255
   %105 = select i1 %101, i32 %102, i32 %104
   %106 = trunc i32 %105 to i8
-  %107 = getelementptr inbounds i8, ptr %7, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %106, ptr %107, align 1
   %108 = mul nuw nsw i32 %79, 33050
   %109 = lshr i32 %108, 8
@@ -2754,7 +2754,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %115 = select i1 %114, i32 0, i32 255
   %116 = select i1 %112, i32 %113, i32 %115
   %117 = trunc i32 %116 to i8
-  %118 = getelementptr inbounds i8, ptr %7, i64 3
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %117, ptr %118, align 1
   br label %119
 
@@ -2771,18 +2771,18 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %342 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %128, %342 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %136, %342 ]
-  %121 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 %126, 16
   %128 = or disjoint i32 %127, %123
-  %129 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = shl nuw nsw i32 %134, 16
@@ -2814,7 +2814,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %160 = zext i8 %156 to i32
   %161 = and i32 %150, 255
   %162 = and i32 %157, 255
-  %163 = getelementptr inbounds i8, ptr %159, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %164 = mul nuw nsw i32 %160, 19077
   %165 = lshr i32 %164, 8
   %166 = mul nuw nsw i32 %162, 26149
@@ -2841,7 +2841,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %186 = select i1 %185, i32 0, i32 255
   %187 = select i1 %183, i32 %184, i32 %186
   %188 = trunc i32 %187 to i8
-  %189 = getelementptr inbounds i8, ptr %159, i64 2
+  %189 = getelementptr inbounds nuw i8, ptr %159, i64 2
   store i8 %188, ptr %189, align 1
   %190 = mul nuw nsw i32 %161, 33050
   %191 = lshr i32 %190, 8
@@ -2853,18 +2853,18 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %197 = select i1 %196, i32 0, i32 255
   %198 = select i1 %194, i32 %195, i32 %197
   %199 = trunc i32 %198 to i8
-  %200 = getelementptr inbounds i8, ptr %159, i64 3
+  %200 = getelementptr inbounds nuw i8, ptr %159, i64 3
   store i8 %199, ptr %200, align 1
-  %201 = getelementptr inbounds i8, ptr %0, i64 %153
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 %153
   %202 = load i8, ptr %201, align 1
   %203 = lshr i32 %151, 17
   %204 = shl nsw i64 %indvars.iv, 3
-  %205 = getelementptr inbounds i8, ptr %6, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %6, i64 %204
   store i8 -1, ptr %205, align 1
   %206 = zext i8 %202 to i32
   %207 = and i32 %152, 255
   %208 = and i32 %203, 255
-  %209 = getelementptr inbounds i8, ptr %205, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 1
   %210 = mul nuw nsw i32 %206, 19077
   %211 = lshr i32 %210, 8
   %212 = mul nuw nsw i32 %208, 26149
@@ -2891,7 +2891,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %232 = select i1 %231, i32 0, i32 255
   %233 = select i1 %229, i32 %230, i32 %232
   %234 = trunc i32 %233 to i8
-  %235 = getelementptr inbounds i8, ptr %205, i64 2
+  %235 = getelementptr inbounds nuw i8, ptr %205, i64 2
   store i8 %234, ptr %235, align 1
   %236 = mul nuw nsw i32 %207, 33050
   %237 = lshr i32 %236, 8
@@ -2903,7 +2903,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %243 = select i1 %242, i32 0, i32 255
   %244 = select i1 %240, i32 %241, i32 %243
   %245 = trunc i32 %244 to i8
-  %246 = getelementptr inbounds i8, ptr %205, i64 3
+  %246 = getelementptr inbounds nuw i8, ptr %205, i64 3
   store i8 %245, ptr %246, align 1
   br i1 %.not, label %342, label %247
 
@@ -2920,7 +2920,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %256 = zext i8 %253 to i32
   %257 = and i32 %249, 255
   %258 = and i32 %254, 255
-  %259 = getelementptr inbounds i8, ptr %255, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %255, i64 1
   %260 = mul nuw nsw i32 %256, 19077
   %261 = lshr i32 %260, 8
   %262 = mul nuw nsw i32 %258, 26149
@@ -2947,7 +2947,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %282 = select i1 %281, i32 0, i32 255
   %283 = select i1 %279, i32 %280, i32 %282
   %284 = trunc i32 %283 to i8
-  %285 = getelementptr inbounds i8, ptr %255, i64 2
+  %285 = getelementptr inbounds nuw i8, ptr %255, i64 2
   store i8 %284, ptr %285, align 1
   %286 = mul nuw nsw i32 %257, 33050
   %287 = lshr i32 %286, 8
@@ -2959,17 +2959,17 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %293 = select i1 %292, i32 0, i32 255
   %294 = select i1 %290, i32 %291, i32 %293
   %295 = trunc i32 %294 to i8
-  %296 = getelementptr inbounds i8, ptr %255, i64 3
+  %296 = getelementptr inbounds nuw i8, ptr %255, i64 3
   store i8 %295, ptr %296, align 1
-  %297 = getelementptr inbounds i8, ptr %1, i64 %153
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 %153
   %298 = load i8, ptr %297, align 1
   %299 = lshr i32 %250, 17
-  %300 = getelementptr inbounds i8, ptr %7, i64 %204
+  %300 = getelementptr inbounds nuw i8, ptr %7, i64 %204
   store i8 -1, ptr %300, align 1
   %301 = zext i8 %298 to i32
   %302 = and i32 %251, 255
   %303 = and i32 %299, 255
-  %304 = getelementptr inbounds i8, ptr %300, i64 1
+  %304 = getelementptr inbounds nuw i8, ptr %300, i64 1
   %305 = mul nuw nsw i32 %301, 19077
   %306 = lshr i32 %305, 8
   %307 = mul nuw nsw i32 %303, 26149
@@ -2996,7 +2996,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %327 = select i1 %326, i32 0, i32 255
   %328 = select i1 %324, i32 %325, i32 %327
   %329 = trunc i32 %328 to i8
-  %330 = getelementptr inbounds i8, ptr %300, i64 2
+  %330 = getelementptr inbounds nuw i8, ptr %300, i64 2
   store i8 %329, ptr %330, align 1
   %331 = mul nuw nsw i32 %302, 33050
   %332 = lshr i32 %331, 8
@@ -3008,7 +3008,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %338 = select i1 %337, i32 0, i32 255
   %339 = select i1 %335, i32 %336, i32 %338
   %340 = trunc i32 %339 to i8
-  %341 = getelementptr inbounds i8, ptr %300, i64 3
+  %341 = getelementptr inbounds nuw i8, ptr %300, i64 3
   store i8 %340, ptr %341, align 1
   br label %342
 
@@ -3040,7 +3040,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %356 = zext i8 %351 to i32
   %357 = and i32 %348, 255
   %358 = and i32 %352, 255
-  %359 = getelementptr inbounds i8, ptr %355, i64 1
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 1
   %360 = mul nuw nsw i32 %356, 19077
   %361 = lshr i32 %360, 8
   %362 = mul nuw nsw i32 %358, 26149
@@ -3067,7 +3067,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %382 = select i1 %381, i32 0, i32 255
   %383 = select i1 %379, i32 %380, i32 %382
   %384 = trunc i32 %383 to i8
-  %385 = getelementptr inbounds i8, ptr %355, i64 2
+  %385 = getelementptr inbounds nuw i8, ptr %355, i64 2
   store i8 %384, ptr %385, align 1
   %386 = mul nuw nsw i32 %357, 33050
   %387 = lshr i32 %386, 8
@@ -3079,7 +3079,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %393 = select i1 %392, i32 0, i32 255
   %394 = select i1 %390, i32 %391, i32 %393
   %395 = trunc i32 %394 to i8
-  %396 = getelementptr inbounds i8, ptr %355, i64 3
+  %396 = getelementptr inbounds nuw i8, ptr %355, i64 3
   store i8 %395, ptr %396, align 1
   br i1 %.not, label %447, label %397
 
@@ -3096,7 +3096,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %406 = zext i8 %403 to i32
   %407 = and i32 %401, 255
   %408 = and i32 %404, 255
-  %409 = getelementptr inbounds i8, ptr %405, i64 1
+  %409 = getelementptr inbounds nuw i8, ptr %405, i64 1
   %410 = mul nuw nsw i32 %406, 19077
   %411 = lshr i32 %410, 8
   %412 = mul nuw nsw i32 %408, 26149
@@ -3123,7 +3123,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %432 = select i1 %431, i32 0, i32 255
   %433 = select i1 %429, i32 %430, i32 %432
   %434 = trunc i32 %433 to i8
-  %435 = getelementptr inbounds i8, ptr %405, i64 2
+  %435 = getelementptr inbounds nuw i8, ptr %405, i64 2
   store i8 %434, ptr %435, align 1
   %436 = mul nuw nsw i32 %407, 33050
   %437 = lshr i32 %436, 8
@@ -3135,7 +3135,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
   %443 = select i1 %442, i32 0, i32 255
   %444 = select i1 %440, i32 %441, i32 %443
   %445 = trunc i32 %444 to i8
-  %446 = getelementptr inbounds i8, ptr %405, i64 3
+  %446 = getelementptr inbounds nuw i8, ptr %405, i64 3
   store i8 %445, ptr %446, align 1
   br label %447
 
@@ -3205,7 +3205,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %66, ptr %6, align 1
   %67 = trunc i32 %62 to i8
   %68 = or i8 %67, 15
-  %69 = getelementptr inbounds i8, ptr %6, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %68, ptr %69, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %117, label %70
@@ -3257,7 +3257,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %113, ptr %7, align 1
   %114 = trunc i32 %109 to i8
   %115 = or i8 %114, 15
-  %116 = getelementptr inbounds i8, ptr %7, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %115, ptr %116, align 1
   br label %117
 
@@ -3274,18 +3274,18 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %336 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %126, %336 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %134, %336 ]
-  %119 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = shl nuw nsw i32 %124, 16
   %126 = or disjoint i32 %125, %121
-  %127 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
-  %130 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i32
   %133 = shl nuw nsw i32 %132, 16
@@ -3353,15 +3353,15 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %194, ptr %159, align 1
   %195 = trunc i32 %190 to i8
   %196 = or i8 %195, 15
-  %197 = getelementptr inbounds i8, ptr %159, i64 1
+  %197 = getelementptr inbounds nuw i8, ptr %159, i64 1
   store i8 %196, ptr %197, align 1
-  %198 = getelementptr inbounds i8, ptr %0, i64 %151
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 %151
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i32
   %201 = and i32 %150, 255
   %202 = lshr i32 %149, 17
   %203 = shl nsw i64 %indvars.iv, 2
-  %204 = getelementptr inbounds i8, ptr %6, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %6, i64 %203
   %205 = mul nuw nsw i32 %200, 19077
   %206 = lshr i32 %205, 8
   %207 = mul nuw nsw i32 %202, 26149
@@ -3400,7 +3400,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %239, ptr %204, align 1
   %240 = trunc i32 %235 to i8
   %241 = or i8 %240, 15
-  %242 = getelementptr inbounds i8, ptr %204, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %204, i64 1
   store i8 %241, ptr %242, align 1
   br i1 %.not, label %336, label %243
 
@@ -3453,14 +3453,14 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %288, ptr %253, align 1
   %289 = trunc i32 %284 to i8
   %290 = or i8 %289, 15
-  %291 = getelementptr inbounds i8, ptr %253, i64 1
+  %291 = getelementptr inbounds nuw i8, ptr %253, i64 1
   store i8 %290, ptr %291, align 1
-  %292 = getelementptr inbounds i8, ptr %1, i64 %151
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 %151
   %293 = load i8, ptr %292, align 1
   %294 = zext i8 %293 to i32
   %295 = and i32 %247, 255
   %296 = lshr i32 %246, 17
-  %297 = getelementptr inbounds i8, ptr %7, i64 %203
+  %297 = getelementptr inbounds nuw i8, ptr %7, i64 %203
   %298 = mul nuw nsw i32 %294, 19077
   %299 = lshr i32 %298, 8
   %300 = mul nuw nsw i32 %296, 26149
@@ -3499,7 +3499,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %332, ptr %297, align 1
   %333 = trunc i32 %328 to i8
   %334 = or i8 %333, 15
-  %335 = getelementptr inbounds i8, ptr %297, i64 1
+  %335 = getelementptr inbounds nuw i8, ptr %297, i64 1
   store i8 %334, ptr %335, align 1
   br label %336
 
@@ -3567,7 +3567,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %386, ptr %351, align 1
   %387 = trunc i32 %382 to i8
   %388 = or i8 %387, 15
-  %389 = getelementptr inbounds i8, ptr %351, i64 1
+  %389 = getelementptr inbounds nuw i8, ptr %351, i64 1
   store i8 %388, ptr %389, align 1
   br i1 %.not, label %439, label %390
 
@@ -3620,7 +3620,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
   store i8 %435, ptr %400, align 1
   %436 = trunc i32 %431 to i8
   %437 = or i8 %436, 15
-  %438 = getelementptr inbounds i8, ptr %400, i64 1
+  %438 = getelementptr inbounds nuw i8, ptr %400, i64 1
   store i8 %437, ptr %438, align 1
   br label %439
 
@@ -3693,7 +3693,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %70 = trunc i32 %66 to i8
   store i8 %70, ptr %6, align 1
   %71 = trunc i32 %69 to i8
-  %72 = getelementptr inbounds i8, ptr %6, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %71, ptr %72, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %123, label %73
@@ -3748,7 +3748,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %120 = trunc i32 %116 to i8
   store i8 %120, ptr %7, align 1
   %121 = trunc i32 %119 to i8
-  %122 = getelementptr inbounds i8, ptr %7, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %121, ptr %122, align 1
   br label %123
 
@@ -3765,18 +3765,18 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %354 ]
   %.091121 = phi i32 [ %17, %.lr.ph.preheader ], [ %132, %354 ]
   %.092120 = phi i32 [ %23, %.lr.ph.preheader ], [ %140, %354 ]
-  %125 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = shl nuw nsw i32 %130, 16
   %132 = or disjoint i32 %131, %127
-  %133 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i32
   %139 = shl nuw nsw i32 %138, 16
@@ -3847,15 +3847,15 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %204 = trunc i32 %200 to i8
   store i8 %204, ptr %165, align 1
   %205 = trunc i32 %203 to i8
-  %206 = getelementptr inbounds i8, ptr %165, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %165, i64 1
   store i8 %205, ptr %206, align 1
-  %207 = getelementptr inbounds i8, ptr %0, i64 %157
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 %157
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
   %210 = and i32 %156, 255
   %211 = lshr i32 %155, 17
   %212 = shl nsw i64 %indvars.iv, 2
-  %213 = getelementptr inbounds i8, ptr %6, i64 %212
+  %213 = getelementptr inbounds nuw i8, ptr %6, i64 %212
   %214 = mul nuw nsw i32 %209, 19077
   %215 = lshr i32 %214, 8
   %216 = mul nuw nsw i32 %211, 26149
@@ -3897,7 +3897,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %252 = trunc i32 %248 to i8
   store i8 %252, ptr %213, align 1
   %253 = trunc i32 %251 to i8
-  %254 = getelementptr inbounds i8, ptr %213, i64 1
+  %254 = getelementptr inbounds nuw i8, ptr %213, i64 1
   store i8 %253, ptr %254, align 1
   br i1 %.not, label %354, label %255
 
@@ -3953,14 +3953,14 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %304 = trunc i32 %300 to i8
   store i8 %304, ptr %265, align 1
   %305 = trunc i32 %303 to i8
-  %306 = getelementptr inbounds i8, ptr %265, i64 1
+  %306 = getelementptr inbounds nuw i8, ptr %265, i64 1
   store i8 %305, ptr %306, align 1
-  %307 = getelementptr inbounds i8, ptr %1, i64 %157
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 %157
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
   %310 = and i32 %259, 255
   %311 = lshr i32 %258, 17
-  %312 = getelementptr inbounds i8, ptr %7, i64 %212
+  %312 = getelementptr inbounds nuw i8, ptr %7, i64 %212
   %313 = mul nuw nsw i32 %309, 19077
   %314 = lshr i32 %313, 8
   %315 = mul nuw nsw i32 %311, 26149
@@ -4002,7 +4002,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %351 = trunc i32 %347 to i8
   store i8 %351, ptr %312, align 1
   %352 = trunc i32 %350 to i8
-  %353 = getelementptr inbounds i8, ptr %312, i64 1
+  %353 = getelementptr inbounds nuw i8, ptr %312, i64 1
   store i8 %352, ptr %353, align 1
   br label %354
 
@@ -4073,7 +4073,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %408 = trunc i32 %404 to i8
   store i8 %408, ptr %369, align 1
   %409 = trunc i32 %407 to i8
-  %410 = getelementptr inbounds i8, ptr %369, i64 1
+  %410 = getelementptr inbounds nuw i8, ptr %369, i64 1
   store i8 %409, ptr %410, align 1
   br i1 %.not, label %463, label %411
 
@@ -4129,7 +4129,7 @@ define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0
   %460 = trunc i32 %456 to i8
   store i8 %460, ptr %421, align 1
   %461 = trunc i32 %459 to i8
-  %462 = getelementptr inbounds i8, ptr %421, i64 1
+  %462 = getelementptr inbounds nuw i8, ptr %421, i64 1
   store i8 %461, ptr %462, align 1
   br label %463
 

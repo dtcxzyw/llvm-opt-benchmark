@@ -80,7 +80,7 @@ define void @_ZN5boost4urls11parse_queryENS_4core17basic_string_viewIcEE(ptr dea
 
 _ZN5boost6system6resultINS_4urls19params_encoded_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i: ; preds = %20
   %23 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !21, !noalias !18
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8, !noalias !18
   %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 4) #7, !noalias !18
   %spec.select.i = select i1 %26, i64 3, i64 2
@@ -90,7 +90,7 @@ _ZN5boost6system6resultINS_4urls19params_encoded_viewENS0_10error_codeEEC2INS2_7
   %27 = phi i64 [ %spec.select.i, %_ZN5boost6system6resultINS_4urls19params_encoded_viewENS0_10error_codeEEC2INS2_7grammar5errorEvTnNSt9enable_ifIXaasr3std14is_convertibleIT_S4_EE5valuentsr3std14is_convertibleISA_S3_EE5valueEiE4typeELi0EEEOSA_.exit.i ], [ 3, %20 ]
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 4, ptr %7, align 8, !alias.scope !8
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !23, !alias.scope !8
   store i64 %27, ptr %28, align 8, !tbaa !24, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #7, !noalias !8

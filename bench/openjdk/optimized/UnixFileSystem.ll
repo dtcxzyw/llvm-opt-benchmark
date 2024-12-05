@@ -131,7 +131,7 @@ define void @Java_sun_nio_fs_UnixFileSystem_bufferedCopy0(ptr noundef %0, ptr no
 throwUnixException.exit.sink.split:               ; preds = %.critedge2, %41, %.thread
   %.sink = phi ptr [ %38, %.thread ], [ %42, %41 ], [ %51, %.critedge2 ]
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 104
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #4
   br label %throwUnixException.exit

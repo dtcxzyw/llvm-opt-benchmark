@@ -189,13 +189,13 @@ sub_0:                                            ; preds = %26
   br i1 %.not, label %sub_1, label %.tail53.thread
 
 sub_1:                                            ; preds = %sub_0
-  %32 = getelementptr inbounds i8, ptr %28, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %33 = load i8, ptr %32, align 1
   %.not130 = icmp eq i8 %33, 63
   br i1 %.not130, label %.tail, label %sub_155
 
 .tail:                                            ; preds = %sub_1
-  %34 = getelementptr inbounds i8, ptr %28, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %sub_155
@@ -206,13 +206,13 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 sub_155:                                          ; preds = %.tail, %sub_1
-  %38 = getelementptr inbounds i8, ptr %28, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %39 = load i8, ptr %38, align 1
   %.not132 = icmp eq i8 %39, 86
   br i1 %.not132, label %.tail53, label %.tail53.thread
 
 .tail53:                                          ; preds = %sub_155
-  %40 = getelementptr inbounds i8, ptr %28, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %45, label %.tail53.thread
@@ -485,7 +485,7 @@ sub_155:                                          ; preds = %.tail, %sub_1
   unreachable
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds i8, ptr %18, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %144 = load i32, ptr %143, align 8
   store i32 %144, ptr @compresslevel, align 4
   %145 = load i32, ptr @compression_algorithm, align 4
@@ -610,21 +610,21 @@ sub_155:                                          ; preds = %.tail, %sub_1
   br i1 %194, label %.preheader, label %210
 
 .preheader:                                       ; preds = %192
-  %195 = getelementptr inbounds i8, ptr %12, i64 8
-  %196 = getelementptr inbounds i8, ptr %6, i64 48
-  %197 = getelementptr inbounds i8, ptr %8, i64 3
-  %198 = getelementptr inbounds i8, ptr %8, i64 2
-  %199 = getelementptr inbounds i8, ptr %8, i64 1
-  %200 = getelementptr inbounds i8, ptr %12, i64 32
-  %201 = getelementptr inbounds i8, ptr %12, i64 40
-  %202 = getelementptr inbounds i8, ptr %12, i64 24
-  %203 = getelementptr inbounds i8, ptr %12, i64 28
-  %204 = getelementptr inbounds i8, ptr %12, i64 30
-  %205 = getelementptr inbounds i8, ptr %12, i64 29
-  %206 = getelementptr inbounds i8, ptr %12, i64 48
-  %207 = getelementptr inbounds i8, ptr %12, i64 56
-  %208 = getelementptr inbounds i8, ptr %12, i64 64
-  %209 = getelementptr inbounds i8, ptr %12, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %197 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %198 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %202 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %204 = getelementptr inbounds nuw i8, ptr %12, i64 30
+  %205 = getelementptr inbounds nuw i8, ptr %12, i64 29
+  %206 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %208 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %209 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %211
 
 210:                                              ; preds = %192
@@ -690,7 +690,7 @@ get_destination_dir.exit.preheader.i.i:           ; preds = %223
 
 230:                                              ; preds = %.lr.ph.i.i, %get_destination_dir.exit.backedge.i.i
   %231 = phi ptr [ %338, %.lr.ph.i.i ], [ %275, %get_destination_dir.exit.backedge.i.i ]
-  %232 = getelementptr inbounds i8, ptr %231, i64 19
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 19
   %233 = call i64 @strspn(ptr noundef nonnull readonly %232, ptr noundef nonnull @.str.95) #13
   %.not.i.i.i = icmp eq i64 %233, 24
   br i1 %.not.i.i.i, label %234, label %get_destination_dir.exit.backedge.i.i
@@ -1048,7 +1048,7 @@ FindStreamingStart.exit.i:                        ; preds = %close_destination_d
   %390 = call zeroext i1 @ReceiveXlogStream(ptr noundef %389, ptr noundef nonnull %12) #12
   %391 = load ptr, ptr %206, align 8
   %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 56
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 56
   %394 = load ptr, ptr %393, align 8
   %395 = call zeroext i1 %394(ptr noundef nonnull %391) #12
   br i1 %395, label %397, label %396
@@ -1063,7 +1063,7 @@ FindStreamingStart.exit.i:                        ; preds = %close_destination_d
   store ptr null, ptr @conn, align 8
   %399 = load ptr, ptr %206, align 8
   %400 = load ptr, ptr %399, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 64
+  %401 = getelementptr inbounds nuw i8, ptr %400, i64 64
   %402 = load ptr, ptr %401, align 8
   call void %402(ptr noundef nonnull %399) #12
   br label %StreamLog.exit

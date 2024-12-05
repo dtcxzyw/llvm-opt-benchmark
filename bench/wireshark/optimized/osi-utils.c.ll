@@ -565,9 +565,9 @@ declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @osi_address_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   tail call fastcc void @print_nsap_net_buf(ptr noundef %5, i32 noundef %7, ptr noundef %1, i32 noundef %2)
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7

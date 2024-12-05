@@ -106,7 +106,7 @@ define ptr @ossl_evp_get_cipherbyname(i64 noundef %0) local_unnamed_addr #0 {
   %15 = load i64, ptr %14, align 8, !noalias !6
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %11
@@ -158,7 +158,7 @@ define i64 @ossl_cipher_new(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %3 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %4, ptr %9, align 8
   %10 = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %4, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef -1) #9
   %.not5 = icmp eq i32 %10, 1
@@ -297,7 +297,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %8, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %18, ptr %22, align 8
   br label %23
 
@@ -362,7 +362,7 @@ define internal noundef i64 @ossl_cipher_initialize(i64 noundef returned %0, i64
 
 12:                                               ; preds = %8
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %9, ptr %14, align 8
   %15 = call ptr @EVP_get_cipherbyname(ptr noundef %4) #9
   %.not10 = icmp eq ptr %15, null
@@ -443,7 +443,7 @@ define internal noundef i64 @ossl_cipher_pkcs5_keyivgen(i32 noundef %0, ptr noun
   %15 = call i64 @rb_string_value(ptr noundef nonnull %5) #9
   %16 = load i64, ptr %5, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %.not = icmp eq i64 %19, 8
   br i1 %.not, label %22, label %20
@@ -457,7 +457,7 @@ define internal noundef i64 @ossl_cipher_pkcs5_keyivgen(i32 noundef %0, ptr noun
   %23 = load i64, ptr %17, align 8, !noalias !9
   %24 = and i64 %23, 8192
   %.not.i.i = icmp eq i64 %24, 0
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %26
 
 26:                                               ; preds = %22
@@ -526,7 +526,7 @@ RSTRING_PTR.exit:                                 ; preds = %26, %22, %3
   %56 = load i64, ptr %55, align 8, !noalias !12
   %57 = and i64 %56, 8192
   %.not.i.i14 = icmp eq i64 %57, 0
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   br i1 %.not.i.i14, label %RSTRING_PTR.exit17, label %59
 
 59:                                               ; preds = %52
@@ -535,7 +535,7 @@ RSTRING_PTR.exit:                                 ; preds = %26, %22, %3
 
 RSTRING_PTR.exit17:                               ; preds = %52, %59
   %.sroa.2.0.i16 = phi ptr [ %.sroa.2.0.copyload.i15, %59 ], [ %58, %52 ]
-  %60 = getelementptr inbounds i8, ptr %55, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, 2147483648
   %.not.i.i18 = icmp ult i64 %62, 4294967296
@@ -589,7 +589,7 @@ define internal i64 @ossl_cipher_update(i32 noundef %0, ptr noundef %1, i64 noun
   %17 = load i64, ptr %16, align 8, !noalias !15
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %20
 
 20:                                               ; preds = %13
@@ -598,7 +598,7 @@ define internal i64 @ossl_cipher_update(i32 noundef %0, ptr noundef %1, i64 noun
 
 RSTRING_PTR.exit:                                 ; preds = %13, %20
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %20 ], [ %19, %13 ]
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_cipher_type) #9
   %.not = icmp eq ptr %23, null
@@ -644,7 +644,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %20
   %45 = load i64, ptr %44, align 8, !noalias !19
   %46 = and i64 %45, 8192
   %.not.i.i12 = icmp eq i64 %46, 0
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br i1 %.not.i.i12, label %RSTRING_PTR.exit15.thread, label %RSTRING_PTR.exit15
 
 RSTRING_PTR.exit15.thread:                        ; preds = %42
@@ -739,7 +739,7 @@ define internal i64 @ossl_cipher_final(i64 noundef %0) #0 {
   %11 = load i64, ptr %10, align 8, !noalias !24
   %12 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %14
 
 14:                                               ; preds = %6
@@ -800,7 +800,7 @@ define internal i64 @ossl_cipher_set_key(i64 noundef %0, i64 noundef %1) #0 {
   %9 = call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef nonnull %5) #9
   %10 = load i64, ptr %3, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = sext i32 %9 to i64
   %.not6 = icmp eq i64 %13, %14
@@ -815,7 +815,7 @@ define internal i64 @ossl_cipher_set_key(i64 noundef %0, i64 noundef %1) #0 {
   %18 = load i64, ptr %11, align 8, !noalias !27
   %19 = and i64 %18, 8192
   %.not.i.i = icmp eq i64 %19, 0
-  %20 = getelementptr inbounds i8, ptr %11, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %21
 
 21:                                               ; preds = %17
@@ -851,7 +851,7 @@ define internal i64 @ossl_cipher_set_auth_data(i64 noundef %0, i64 noundef %1) #
   %8 = load i64, ptr %7, align 8, !noalias !30
   %9 = and i64 %8, 8192
   %.not.i.i = icmp eq i64 %9, 0
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %11
 
 11:                                               ; preds = %2
@@ -860,7 +860,7 @@ define internal i64 @ossl_cipher_set_auth_data(i64 noundef %0, i64 noundef %1) #
 
 RSTRING_PTR.exit:                                 ; preds = %2, %11
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %11 ], [ %10, %2 ]
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #9
   %.not = icmp eq ptr %14, null
@@ -926,7 +926,7 @@ define internal i64 @ossl_cipher_set_auth_tag(i64 noundef %0, i64 noundef %1) #0
   %7 = load i64, ptr %6, align 8, !noalias !33
   %8 = and i64 %7, 8192
   %.not.i.i = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %10
 
 10:                                               ; preds = %2
@@ -935,7 +935,7 @@ define internal i64 @ossl_cipher_set_auth_tag(i64 noundef %0, i64 noundef %1) #0
 
 RSTRING_PTR.exit:                                 ; preds = %2, %10
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %10 ], [ %9, %2 ]
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 2147483648
   %.not.i.i7 = icmp ult i64 %13, 4294967296
@@ -1047,7 +1047,7 @@ rb_num2int_inline.exit:                           ; preds = %14, %16
   %33 = load i64, ptr %32, align 8, !noalias !36
   %34 = and i64 %33, 8192
   %.not.i.i = icmp eq i64 %34, 0
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %36
 
 36:                                               ; preds = %29
@@ -1241,7 +1241,7 @@ define internal i64 @ossl_cipher_set_iv(i64 noundef %0, i64 noundef %1) #0 {
   %.1 = phi i32 [ %15, %12 ], [ %16, %.thread ]
   %18 = load i64, ptr %3, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = sext i32 %.1 to i64
   %.not11 = icmp eq i64 %21, %22
@@ -1256,7 +1256,7 @@ define internal i64 @ossl_cipher_set_iv(i64 noundef %0, i64 noundef %1) #0 {
   %26 = load i64, ptr %19, align 8, !noalias !39
   %27 = and i64 %26, 8192
   %.not.i.i = icmp eq i64 %27, 0
-  %28 = getelementptr inbounds i8, ptr %19, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %29
 
 29:                                               ; preds = %25
@@ -1497,7 +1497,7 @@ declare void @OBJ_NAME_do_all_sorted(i32 noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal void @add_cipher_name_to_ary(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @rb_str_new_cstr(ptr noundef %5) #9
   %7 = tail call i64 @rb_ary_push(i64 noundef %3, i64 noundef %6) #9
@@ -1545,7 +1545,7 @@ define internal fastcc noundef i64 @ossl_cipher_init(i32 noundef %0, ptr noundef
   %23 = call i64 @rb_string_value(ptr noundef nonnull %8) #9
   %24 = load i64, ptr %8, align 8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = icmp slt i64 %27, 16
   br i1 %28, label %29, label %34
@@ -1555,7 +1555,7 @@ define internal fastcc noundef i64 @ossl_cipher_init(i32 noundef %0, ptr noundef
   %30 = load i64, ptr %25, align 8, !noalias !42
   %31 = and i64 %30, 8192
   %.not.i.i = icmp eq i64 %31, 0
-  %32 = getelementptr inbounds i8, ptr %25, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %33
 
 33:                                               ; preds = %29
@@ -1571,7 +1571,7 @@ RSTRING_PTR.exit:                                 ; preds = %29, %33
   %35 = load i64, ptr %25, align 8, !noalias !45
   %36 = and i64 %35, 8192
   %.not.i.i24 = icmp eq i64 %36, 0
-  %37 = getelementptr inbounds i8, ptr %25, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br i1 %.not.i.i24, label %RSTRING_PTR.exit27, label %38
 
 38:                                               ; preds = %34
@@ -1591,7 +1591,7 @@ RSTRING_PTR.exit27:                               ; preds = %34, %38
   %44 = load i64, ptr %43, align 8, !noalias !48
   %45 = and i64 %44, 8192
   %.not.i.i28 = icmp eq i64 %45, 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br i1 %.not.i.i28, label %RSTRING_PTR.exit31, label %47
 
 47:                                               ; preds = %39
@@ -1600,7 +1600,7 @@ RSTRING_PTR.exit27:                               ; preds = %34, %38
 
 RSTRING_PTR.exit31:                               ; preds = %39, %47
   %.sroa.2.0.i30 = phi ptr [ %.sroa.2.0.copyload.i29, %47 ], [ %46, %39 ]
-  %48 = getelementptr inbounds i8, ptr %43, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, 2147483648
   %.not.i.i32 = icmp ult i64 %50, 4294967296

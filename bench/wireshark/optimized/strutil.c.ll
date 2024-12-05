@@ -155,14 +155,14 @@ define range(i32 0, 2) i32 @hex_str_to_bytes(ptr noundef readonly %0, ptr nounde
 
 .lr.ph:                                           ; preds = %11
   %14 = load ptr, ptr @g_ascii_table, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 1
-  %16 = getelementptr inbounds i8, ptr %5, i64 2
-  %17 = getelementptr inbounds i8, ptr %6, i64 1
-  %18 = getelementptr inbounds i8, ptr %6, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %.not75 = icmp eq i32 %2, 0
-  %19 = getelementptr inbounds i8, ptr %7, i64 1
-  %20 = getelementptr inbounds i8, ptr %7, i64 2
-  %21 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.backedge
@@ -552,13 +552,13 @@ define range(i32 0, 2) i32 @uri_to_bytes(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %9 = icmp ult ptr %0, %6
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = load ptr, ptr @g_ascii_table, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %12
 
 12:                                               ; preds = %.lr.ph, %41
@@ -643,7 +643,7 @@ define noundef ptr @byte_array_dup(ptr noundef readonly %0) local_unnamed_addr #
 2:                                                ; preds = %1
   %3 = tail call ptr @g_byte_array_new() #13
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = tail call ptr @g_byte_array_append(ptr noundef %3, ptr noundef %4, i32 noundef %6) #13
   br label %8
@@ -762,7 +762,7 @@ define range(i32 0, 2) i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr no
 .preheader.lr.ph:                                 ; preds = %36
   %38 = select i1 %.not61, i32 2, i32 0
   %39 = load ptr, ptr @g_ascii_table, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
@@ -871,9 +871,9 @@ define range(i32 0, 2) i32 @byte_array_equal(ptr noundef readonly %0, ptr nounde
   br i1 %or.cond, label %5, label %14
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %10, label %14
@@ -900,8 +900,8 @@ define ptr @xml_escape(ptr nocapture noundef readonly %0) local_unnamed_addr #3 
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr @g_ascii_table, align 8
   br label %7
 

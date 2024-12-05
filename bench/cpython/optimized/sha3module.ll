@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %sha3_256_type = getelementptr inbounds i8, ptr %call.i, i64 8
+  %sha3_256_type = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %sha3_256_type, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -119,7 +119,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %sha3_384_type = getelementptr inbounds i8, ptr %call.i, i64 16
+  %sha3_384_type = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %sha3_384_type, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -130,7 +130,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %sha3_512_type = getelementptr inbounds i8, ptr %call.i, i64 24
+  %sha3_512_type = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %sha3_512_type, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -141,7 +141,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %shake_128_type = getelementptr inbounds i8, ptr %call.i, i64 32
+  %shake_128_type = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %shake_128_type, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -152,7 +152,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %shake_256_type = getelementptr inbounds i8, ptr %call.i, i64 40
+  %shake_256_type = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %5 = load ptr, ptr %shake_256_type, align 8
   %tobool51.not = icmp eq ptr %5, null
   br i1 %tobool51.not, label %do.end60, label %if.then52
@@ -196,7 +196,7 @@ if.then1.i78:                                     ; preds = %if.end.i75
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i75, %if.then1.i78, %if.then, %entry
-  %sha3_256_type = getelementptr inbounds i8, ptr %call.i, i64 8
+  %sha3_256_type = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %sha3_256_type, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -219,7 +219,7 @@ if.then1.i69:                                     ; preds = %if.end.i66
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i66, %if.then1.i69, %if.then5, %do.body1
-  %sha3_384_type = getelementptr inbounds i8, ptr %call.i, i64 16
+  %sha3_384_type = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %sha3_384_type, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -242,7 +242,7 @@ if.then1.i60:                                     ; preds = %if.end.i57
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i57, %if.then1.i60, %if.then12, %do.body8
-  %sha3_512_type = getelementptr inbounds i8, ptr %call.i, i64 24
+  %sha3_512_type = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %sha3_512_type, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -265,7 +265,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i48, %if.then1.i51, %if.then19, %do.body15
-  %shake_128_type = getelementptr inbounds i8, ptr %call.i, i64 32
+  %shake_128_type = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %shake_128_type, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -288,7 +288,7 @@ if.then1.i42:                                     ; preds = %if.end.i39
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i39, %if.then1.i42, %if.then26, %do.body22
-  %shake_256_type = getelementptr inbounds i8, ptr %call.i, i64 40
+  %shake_256_type = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %15 = load ptr, ptr %shake_256_type, align 8
   %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %do.end35, label %if.then33
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %entry
 
 do.body8:                                         ; preds = %if.end
   %call9 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @sha3_256_spec, ptr noundef null) #4
-  %sha3_256_type = getelementptr inbounds i8, ptr %call.i, i64 8
+  %sha3_256_type = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call9, ptr %sha3_256_type, align 8
   %cmp11 = icmp eq ptr %call9, null
   br i1 %cmp11, label %return, label %if.end13
@@ -349,7 +349,7 @@ if.end13:                                         ; preds = %do.body8
 
 do.body20:                                        ; preds = %if.end13
   %call21 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @sha3_384_spec, ptr noundef null) #4
-  %sha3_384_type = getelementptr inbounds i8, ptr %call.i, i64 16
+  %sha3_384_type = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call21, ptr %sha3_384_type, align 8
   %cmp23 = icmp eq ptr %call21, null
   br i1 %cmp23, label %return, label %if.end25
@@ -361,7 +361,7 @@ if.end25:                                         ; preds = %do.body20
 
 do.body32:                                        ; preds = %if.end25
   %call33 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @sha3_512_spec, ptr noundef null) #4
-  %sha3_512_type = getelementptr inbounds i8, ptr %call.i, i64 24
+  %sha3_512_type = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call33, ptr %sha3_512_type, align 8
   %cmp35 = icmp eq ptr %call33, null
   br i1 %cmp35, label %return, label %if.end37
@@ -373,7 +373,7 @@ if.end37:                                         ; preds = %do.body32
 
 do.body44:                                        ; preds = %if.end37
   %call45 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @SHAKE128_spec, ptr noundef null) #4
-  %shake_128_type = getelementptr inbounds i8, ptr %call.i, i64 32
+  %shake_128_type = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %call45, ptr %shake_128_type, align 8
   %cmp47 = icmp eq ptr %call45, null
   br i1 %cmp47, label %return, label %if.end49
@@ -385,7 +385,7 @@ if.end49:                                         ; preds = %do.body44
 
 do.body56:                                        ; preds = %if.end49
   %call57 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @SHAKE256_spec, ptr noundef null) #4
-  %shake_256_type = getelementptr inbounds i8, ptr %call.i, i64 40
+  %shake_256_type = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %call57, ptr %shake_256_type, align 8
   %cmp59 = icmp eq ptr %call57, null
   br i1 %cmp59, label %return, label %if.end61
@@ -416,7 +416,7 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @SHA3_dealloc(ptr noundef %self) #0 {
 entry:
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
   tail call void @Hacl_Streaming_Keccak_free(ptr noundef %0) #4
   %1 = getelementptr i8, ptr %self, i64 8
@@ -455,12 +455,12 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add18 = add i64 %kwargs.val, %args.val
-  %ob_item20 = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item20 = getelementptr inbounds nuw i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %2 = icmp ult i64 %args.val, 2
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br i1 %2, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -506,40 +506,40 @@ skip_optional_kwonly:                             ; preds = %if.end23, %skip_opt
   br i1 %cond31.i, label %if.end67.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %skip_optional_kwonly
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 17
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i8 0, ptr %use_mutex.i.i, align 8
   %7 = load ptr, ptr %type.val.val.i, align 8
   %cmp2.i = icmp eq ptr %type, %7
   br i1 %cmp2.i, label %if.end35.i, label %if.else.i
 
 if.else.i:                                        ; preds = %do.body.i.i
-  %sha3_256_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 8
+  %sha3_256_type.i = getelementptr inbounds nuw i8, ptr %type.val.val.i, i64 8
   %8 = load ptr, ptr %sha3_256_type.i, align 8
   %cmp5.i = icmp eq ptr %type, %8
   br i1 %cmp5.i, label %if.end35.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.else.i
-  %sha3_384_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 16
+  %sha3_384_type.i = getelementptr inbounds nuw i8, ptr %type.val.val.i, i64 16
   %9 = load ptr, ptr %sha3_384_type.i, align 8
   %cmp10.i = icmp eq ptr %type, %9
   br i1 %cmp10.i, label %if.end35.i, label %if.else14.i
 
 if.else14.i:                                      ; preds = %if.else9.i
-  %sha3_512_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 24
+  %sha3_512_type.i = getelementptr inbounds nuw i8, ptr %type.val.val.i, i64 24
   %10 = load ptr, ptr %sha3_512_type.i, align 8
   %cmp15.i = icmp eq ptr %type, %10
   br i1 %cmp15.i, label %if.end35.i, label %if.else19.i
 
 if.else19.i:                                      ; preds = %if.else14.i
-  %shake_128_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 32
+  %shake_128_type.i = getelementptr inbounds nuw i8, ptr %type.val.val.i, i64 32
   %11 = load ptr, ptr %shake_128_type.i, align 8
   %cmp20.i = icmp eq ptr %type, %11
   br i1 %cmp20.i, label %if.end35.i, label %if.else24.i
 
 if.else24.i:                                      ; preds = %if.else19.i
-  %shake_256_type.i = getelementptr inbounds i8, ptr %type.val.val.i, i64 40
+  %shake_256_type.i = getelementptr inbounds nuw i8, ptr %type.val.val.i, i64 40
   %12 = load ptr, ptr %shake_256_type.i, align 8
   %cmp25.i = icmp eq ptr %type, %12
   br i1 %cmp25.i, label %if.end35.i, label %error.i
@@ -547,7 +547,7 @@ if.else24.i:                                      ; preds = %if.else19.i
 if.end35.i:                                       ; preds = %if.else24.i, %if.else19.i, %if.else14.i, %if.else9.i, %if.else.i, %do.body.i.i
   %.sink.i = phi i8 [ 9, %do.body.i.i ], [ 8, %if.else.i ], [ 10, %if.else9.i ], [ 11, %if.else14.i ], [ 12, %if.else19.i ], [ 13, %if.else24.i ]
   %call7.i = call ptr @Hacl_Streaming_Keccak_malloc(i8 noundef zeroext %.sink.i) #4
-  %hash_state8.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %hash_state8.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store ptr %call7.i, ptr %hash_state8.i, align 8
   %tobool.not.i = icmp eq ptr %data.0, null
   br i1 %tobool.not.i, label %return.sink.split.i, label %do.body.i
@@ -582,7 +582,7 @@ if.end45.i:                                       ; preds = %if.end41.i
   br i1 %cmp47.i, label %if.then66.i, label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.end45.i
-  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
+  %ndim.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 36
   %18 = load i32, ptr %ndim.i, align 4
   %cmp50.i = icmp sgt i32 %18, 1
   br i1 %cmp50.i, label %if.then51.i, label %do.end.i
@@ -594,7 +594,7 @@ if.then51.i:                                      ; preds = %if.end49.i
   br label %if.then66.i
 
 do.end.i:                                         ; preds = %if.end49.i
-  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %20 = load i64, ptr %len.i, align 8
   %cmp53.i = icmp sgt i64 %20, 2047
   br i1 %cmp53.i, label %if.then54.i, label %if.else59.i
@@ -636,7 +636,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 
 if.end67.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.then66.i, %skip_optional_kwonly
   %tobool68.i = icmp ne ptr %data.0, null
-  %obj.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %obj.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   %28 = load ptr, ptr %obj.i, align 8
   %tobool69.i = icmp ne ptr %28, null
   %or.cond.i = select i1 %tobool68.i, i1 %tobool69.i, i1 false
@@ -673,17 +673,17 @@ entry:
   br i1 %cmp.i.i, label %_sha3_sha3_224_copy_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 17
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i8 0, ptr %use_mutex.i.i, align 8
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i8, ptr %use_mutex.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end3.i, label %if.then.i.i
@@ -693,17 +693,17 @@ if.then.i.i:                                      ; preds = %if.then2.i
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
-  %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %4 = load ptr, ptr %hash_state.i, align 8
   %call4.i = tail call ptr @Hacl_Streaming_Keccak_copy(ptr noundef %4) #4
-  %hash_state5.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %hash_state5.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store ptr %call4.i, ptr %hash_state5.i, align 8
   %5 = load i8, ptr %use_mutex.i, align 8
   %tobool7.i = trunc i8 %5 to i1
   br i1 %tobool7.i, label %if.then8.i, label %_sha3_sha3_224_copy_impl.exit
 
 if.then8.i:                                       ; preds = %if.end3.i
-  %mutex9.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex9.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %6 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %_sha3_sha3_224_copy_impl.exit, label %if.then.i7.i
@@ -721,13 +721,13 @@ define internal ptr @_sha3_sha3_224_digest(ptr noundef %self, ptr nocapture read
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i8, ptr %use_mutex.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
   br i1 %2, label %if.end.i, label %if.then.i.i
@@ -737,7 +737,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %3 = load ptr, ptr %hash_state.i, align 8
   %call.i = call zeroext i8 @Hacl_Streaming_Keccak_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #4
   %4 = load i8, ptr %use_mutex.i, align 8
@@ -745,7 +745,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.i, label %if.then3.i, label %_sha3_sha3_224_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %_sha3_sha3_224_digest_impl.exit, label %if.then.i6.i
@@ -768,13 +768,13 @@ define internal ptr @_sha3_sha3_224_hexdigest(ptr noundef %self, ptr nocapture r
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i8, ptr %use_mutex.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
   br i1 %2, label %if.end.i, label %if.then.i.i
@@ -784,7 +784,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %3 = load ptr, ptr %hash_state.i, align 8
   %call.i = call zeroext i8 @Hacl_Streaming_Keccak_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #4
   %4 = load i8, ptr %use_mutex.i, align 8
@@ -792,7 +792,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.i, label %if.then3.i, label %_sha3_sha3_224_hexdigest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %_sha3_sha3_224_hexdigest_impl.exit, label %if.then.i6.i
@@ -843,7 +843,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds i8, ptr %buf, i64 36
+  %ndim = getelementptr inbounds nuw i8, ptr %buf, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -855,10 +855,10 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load i8, ptr %use_mutex, align 8
   %tobool12 = trunc i8 %7 to i1
-  %len = getelementptr inbounds i8, ptr %buf, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %8 = load i64, ptr %len, align 8
   %cmp13 = icmp slt i64 %8, 2048
   %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
@@ -874,7 +874,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #4
-  %mutex = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex = getelementptr inbounds nuw i8, ptr %self, i64 17
   %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
@@ -884,7 +884,7 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %11 = load ptr, ptr %hash_state, align 8
   %12 = load ptr, ptr %buf, align 8
   %13 = load i64, ptr %len, align 8
@@ -918,7 +918,7 @@ PyMutex_Unlock.exit:                              ; preds = %sha3_update.exit, %
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
-  %hash_state24 = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state24 = getelementptr inbounds nuw i8, ptr %self, i64 24
   %16 = load ptr, ptr %hash_state24, align 8
   %17 = load ptr, ptr %buf, align 8
   %cmp6.i11 = icmp sgt i64 %8, 4294967295
@@ -1005,7 +1005,7 @@ declare zeroext i8 @Hacl_Streaming_Keccak_update(ptr noundef, ptr noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA3_get_block_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
   %call = tail call i32 @Hacl_Streaming_Keccak_block_len(ptr noundef %0) #4
   %conv = zext i32 %call to i64
@@ -1031,7 +1031,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %sha3_256_type = getelementptr inbounds i8, ptr %call.val.val, i64 8
+  %sha3_256_type = getelementptr inbounds nuw i8, ptr %call.val.val, i64 8
   %4 = load ptr, ptr %sha3_256_type, align 8
   %cmp3 = icmp eq ptr %self.val, %4
   br i1 %cmp3, label %if.then4, label %if.else6
@@ -1041,7 +1041,7 @@ if.then4:                                         ; preds = %if.else
   br label %return
 
 if.else6:                                         ; preds = %if.else
-  %sha3_384_type = getelementptr inbounds i8, ptr %call.val.val, i64 16
+  %sha3_384_type = getelementptr inbounds nuw i8, ptr %call.val.val, i64 16
   %5 = load ptr, ptr %sha3_384_type, align 8
   %cmp7 = icmp eq ptr %self.val, %5
   br i1 %cmp7, label %if.then8, label %if.else10
@@ -1051,7 +1051,7 @@ if.then8:                                         ; preds = %if.else6
   br label %return
 
 if.else10:                                        ; preds = %if.else6
-  %sha3_512_type = getelementptr inbounds i8, ptr %call.val.val, i64 24
+  %sha3_512_type = getelementptr inbounds nuw i8, ptr %call.val.val, i64 24
   %6 = load ptr, ptr %sha3_512_type, align 8
   %cmp11 = icmp eq ptr %self.val, %6
   br i1 %cmp11, label %if.then12, label %if.else14
@@ -1061,7 +1061,7 @@ if.then12:                                        ; preds = %if.else10
   br label %return
 
 if.else14:                                        ; preds = %if.else10
-  %shake_128_type = getelementptr inbounds i8, ptr %call.val.val, i64 32
+  %shake_128_type = getelementptr inbounds nuw i8, ptr %call.val.val, i64 32
   %7 = load ptr, ptr %shake_128_type, align 8
   %cmp15 = icmp eq ptr %self.val, %7
   br i1 %cmp15, label %if.then16, label %if.else18
@@ -1071,7 +1071,7 @@ if.then16:                                        ; preds = %if.else14
   br label %return
 
 if.else18:                                        ; preds = %if.else14
-  %shake_256_type = getelementptr inbounds i8, ptr %call.val.val, i64 40
+  %shake_256_type = getelementptr inbounds nuw i8, ptr %call.val.val, i64 40
   %8 = load ptr, ptr %shake_256_type, align 8
   %cmp19 = icmp eq ptr %self.val, %8
   br i1 %cmp19, label %if.then20, label %if.else22
@@ -1092,7 +1092,7 @@ return:                                           ; preds = %if.else22, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA3_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
   %call = tail call zeroext i1 @Hacl_Streaming_Keccak_is_shake(ptr noundef %0) #4
   br i1 %call, label %return, label %if.else
@@ -1112,7 +1112,7 @@ return:                                           ; preds = %entry, %if.else
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA3_get_capacity_bits(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
   %call = tail call i32 @Hacl_Streaming_Keccak_block_len(ptr noundef %0) #4
   %mul = shl i32 %call, 3
@@ -1125,7 +1125,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA3_get_rate_bits(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %hash_state, align 8
   %call = tail call i32 @Hacl_Streaming_Keccak_block_len(ptr noundef %0) #4
   %mul = shl i32 %call, 3
@@ -1194,7 +1194,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
-  %hash_state.i.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %2 = load ptr, ptr %hash_state.i.i, align 8
   %conv.i.i = trunc nuw nsw i64 %0 to i32
   %call7.i.i = call zeroext i8 @Hacl_Streaming_Keccak_squeeze(ptr noundef %2, ptr noundef nonnull %call.i.i, i32 noundef %conv.i.i) #4
@@ -1242,7 +1242,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp5.not.i.i, label %if.end8.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
-  %hash_state.i.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %2 = load ptr, ptr %hash_state.i.i, align 8
   %conv.i.i = trunc nuw nsw i64 %0 to i32
   %call7.i.i = call zeroext i8 @Hacl_Streaming_Keccak_squeeze(ptr noundef %2, ptr noundef nonnull %call.i.i, i32 noundef %conv.i.i) #4

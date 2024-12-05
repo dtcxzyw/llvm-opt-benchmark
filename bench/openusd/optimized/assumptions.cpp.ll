@@ -21,7 +21,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__24Arch_ValidateAssumpti
   %3 = load i8, ptr %2, align 1, !noalias !4
   %4 = icmp eq i8 %3, 42
   %.idx.i.i = zext i1 %4 to i64
-  %5 = getelementptr inbounds i8, ptr %2, i64 %.idx.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1, ptr noundef nonnull %5)
   %6 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str) #3
   %.not4 = icmp eq i32 %6, 0

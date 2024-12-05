@@ -122,7 +122,7 @@ define hidden zeroext range(i8 0, 2) i8 @eventHandlerRestricted_iterator(i32 nou
 getHandlerChain.exit:                             ; preds = %3, %5
   %8 = add i32 %0, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @getEnv() #6
   %13 = icmp eq ptr %1, null
@@ -146,7 +146,7 @@ getHandlerChain.exit:                             ; preds = %3, %5
   br i1 %.not10, label %19, label %._crit_edge
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.0912, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0912, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -174,7 +174,7 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   %11 = icmp ne ptr %5, null
@@ -194,13 +194,13 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
   tail call void @convertSignatureToClassname(ptr noundef %17) #6
   %19 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %19) #6
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @__handlers, i64 56), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__handlers, i64 56), align 8
   %.not2732 = icmp eq ptr %20, null
   br i1 %.not2732, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %freeHandler.exit
   %.033 = phi ptr [ %22, %freeHandler.exit ], [ %20, %13 ]
-  %21 = getelementptr inbounds i8, ptr %.033, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.033, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = call zeroext i8 @eventFilterRestricted_passesUnloadFilter(ptr noundef %1, ptr noundef %17, ptr noundef nonnull %.033, ptr noundef nonnull %3) #6
   %.not29 = icmp eq i8 %23, 0
@@ -222,13 +222,13 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
   br i1 %.not30, label %freeHandler.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.033, i64 9
+  %34 = getelementptr inbounds nuw i8, ptr %.033, i64 9
   %35 = load i8, ptr %34, align 1
   %.not6.i = icmp eq i8 %35, 0
   br i1 %.not6.i, label %36, label %freeHandler.exit
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.033, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.033, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %deinsert.exit.i, label %40
@@ -245,12 +245,12 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
 
 44:                                               ; preds = %43, %40
   %.not.i.i = icmp eq ptr %.pre.i.i, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.033, i64 24
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.033, i64 24
   %.pre16.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.pre.i.i, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 24
   store ptr %.pre16.i.i, ptr %46, align 8
   br label %._crit_edge.i.i
 
@@ -260,7 +260,7 @@ define hidden noundef zeroext i8 @eventHandler_synthesizeUnloadEvent(ptr noundef
 
 47:                                               ; preds = %._crit_edge.i.i
   %48 = load ptr, ptr %21, align 8
-  %49 = getelementptr inbounds i8, ptr %.pre16.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.pre16.i.i, i64 16
   store ptr %48, ptr %49, align 8
   br label %50
 
@@ -378,14 +378,14 @@ define hidden i32 @eventHandler_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %freeHandler.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
   %.not6.i = icmp eq i8 %5, 0
   br i1 %.not6.i, label %6, label %freeHandler.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %deinsert.exit.i, label %11
@@ -402,12 +402,12 @@ define hidden i32 @eventHandler_free(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %14, %11
   %.not.i.i = icmp eq ptr %.pre.i.i, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre16.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %.pre.i.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 24
   store ptr %.pre16.i.i, ptr %17, align 8
   br label %._crit_edge.i.i
 
@@ -417,7 +417,7 @@ define hidden i32 @eventHandler_free(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %._crit_edge.i.i
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %.pre16.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.pre16.i.i, i64 16
   store ptr %19, ptr %20, align 8
   br label %21
 
@@ -455,27 +455,27 @@ define hidden i32 @eventHandler_freeAll(i32 noundef %0) local_unnamed_addr #0 {
 getHandlerChain.exit:                             ; preds = %1, %4
   %7 = add i32 %0, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %freeHandler.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %getHandlerChain.exit, %freeHandler.exit.thread
   %.0715 = phi ptr [ %12, %freeHandler.exit.thread ], [ %10, %getHandlerChain.exit ]
-  %11 = getelementptr inbounds i8, ptr %.0715, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0715, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %.0715, align 4
   %.not10 = icmp eq i32 %13, 0
   br i1 %.not10, label %freeHandler.exit.thread, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.0715, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %.0715, i64 9
   %16 = load i8, ptr %15, align 1
   %.not6.i = icmp eq i8 %16, 0
   br i1 %.not6.i, label %17, label %freeHandler.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.0715, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.0715, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %freeHandler.exit, label %21
@@ -491,12 +491,12 @@ getHandlerChain.exit:                             ; preds = %1, %4
 
 25:                                               ; preds = %24, %21
   %.not.i.i = icmp eq ptr %12, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.0715, i64 24
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.0715, i64 24
   %.pre16.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %12, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.pre16.i.i, ptr %27, align 8
   br label %._crit_edge.i.i
 
@@ -506,7 +506,7 @@ getHandlerChain.exit:                             ; preds = %1, %4
 
 28:                                               ; preds = %._crit_edge.i.i
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %.pre16.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.pre16.i.i, i64 16
   store ptr %29, ptr %30, align 8
   br label %31
 
@@ -536,26 +536,26 @@ define hidden void @eventHandler_freeClassBreakpoints(ptr noundef %0) local_unna
   %2 = tail call ptr @getEnv() #6
   %3 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %3) #6
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @__handlers, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__handlers, i64 8), align 8
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %freeHandler.exit
   %.09 = phi ptr [ %6, %freeHandler.exit ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.09, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 @eventFilterRestricted_isBreakpointInClass(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %.09) #6
   %.not7 = icmp eq i8 %7, 0
   br i1 %.not7, label %freeHandler.exit, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.09, i64 9
+  %9 = getelementptr inbounds nuw i8, ptr %.09, i64 9
   %10 = load i8, ptr %9, align 1
   %.not6.i = icmp eq i8 %10, 0
   br i1 %.not6.i, label %11, label %freeHandler.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.09, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %deinsert.exit.i, label %15
@@ -572,12 +572,12 @@ define hidden void @eventHandler_freeClassBreakpoints(ptr noundef %0) local_unna
 
 19:                                               ; preds = %18, %15
   %.not.i.i = icmp eq ptr %.pre.i.i, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.09, i64 24
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %.pre16.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br i1 %.not.i.i, label %._crit_edge.i.i, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.pre.i.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 24
   store ptr %.pre16.i.i, ptr %21, align 8
   br label %._crit_edge.i.i
 
@@ -587,7 +587,7 @@ define hidden void @eventHandler_freeClassBreakpoints(ptr noundef %0) local_unna
 
 22:                                               ; preds = %._crit_edge.i.i
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %.pre16.i.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.pre16.i.i, i64 16
   store ptr %23, ptr %24, align 8
   br label %25
 
@@ -630,7 +630,7 @@ define hidden i32 @eventHandler_freeByID(i32 noundef %0, i32 noundef %1) local_u
 getHandlerChain.exit.i:                           ; preds = %5, %2
   %8 = add i32 %0, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %9
   %.07.i.i = load ptr, ptr %10, align 8
   %.not8.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not8.i.i, label %freeHandler.exit, label %.lr.ph.i.i
@@ -642,20 +642,20 @@ getHandlerChain.exit.i:                           ; preds = %5, %2
   br i1 %12, label %find.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   %.0.i.i = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %freeHandler.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 find.exit:                                        ; preds = %.lr.ph.i.i
-  %15 = getelementptr inbounds i8, ptr %.09.i.i, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 9
   %16 = load i8, ptr %15, align 1
   %.not6.i = icmp eq i8 %16, 0
   br i1 %.not6.i, label %17, label %freeHandler.exit
 
 17:                                               ; preds = %find.exit
-  %18 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
-  %19 = getelementptr inbounds i8, ptr %.09.i.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %deinsert.exit.i, label %22
@@ -672,12 +672,12 @@ find.exit:                                        ; preds = %.lr.ph.i.i
 
 26:                                               ; preds = %25, %22
   %.not.i.i5 = icmp eq ptr %.pre.i.i, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 24
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 24
   %.pre16.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br i1 %.not.i.i5, label %._crit_edge.i.i, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.pre.i.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 24
   store ptr %.pre16.i.i, ptr %28, align 8
   br label %._crit_edge.i.i
 
@@ -687,7 +687,7 @@ find.exit:                                        ; preds = %.lr.ph.i.i
 
 29:                                               ; preds = %._crit_edge.i.i
   %30 = load ptr, ptr %18, align 8
-  %31 = getelementptr inbounds i8, ptr %.pre16.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.pre16.i.i, i64 16
   store ptr %30, ptr %31, align 8
   br label %32
 
@@ -769,7 +769,7 @@ define hidden void @eventHandler_initialize(i8 noundef signext %0) local_unnamed
 
 24:                                               ; preds = %21, %19
   %25 = load ptr, ptr @gdata, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 528
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 528
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not48 = icmp eq i32 %28, 0
@@ -785,7 +785,7 @@ define hidden void @eventHandler_initialize(i8 noundef signext %0) local_unnamed
   %31 = phi ptr [ %25, %24 ], [ %.pre, %29 ]
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 (ptr, i32, i32, ptr, ...) %35(ptr noundef nonnull %32, i32 noundef 1, i32 noundef 82, ptr noundef null) #6
   %.not49 = icmp eq i32 %36, 0
@@ -800,13 +800,13 @@ define hidden void @eventHandler_initialize(i8 noundef signext %0) local_unnamed
 
 40:                                               ; preds = %37, %30
   %41 = load ptr, ptr @gdata, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 19
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 19
   %43 = load i8, ptr %42, align 1
   %.not50 = icmp eq i8 %43, 0
   br i1 %.not50, label %57, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %41, i64 21
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 21
   %46 = load i8, ptr %45, align 1
   %.not51 = icmp eq i8 %46, 0
   br i1 %.not51, label %57, label %47
@@ -837,53 +837,53 @@ define hidden void @eventHandler_initialize(i8 noundef signext %0) local_unnamed
 
 57:                                               ; preds = %52, %54, %44, %40
   %58 = load ptr, ptr @gdata, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 160
-  %60 = getelementptr inbounds i8, ptr %58, i64 192
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %60, i8 0, i64 264, i1 false)
-  %61 = getelementptr inbounds i8, ptr %58, i64 240
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 240
   store ptr @cbSingleStep, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 256
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 256
   store ptr @cbBreakpoint, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 248
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 248
   store ptr @cbFramePop, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 224
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 224
   store ptr @cbException, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %58, i64 176
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 176
   store ptr @cbThreadStart, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 184
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 184
   store ptr @cbThreadEnd, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %58, i64 208
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 208
   store ptr @cbClassPrepare, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 200
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 200
   store ptr @cbClassLoad, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %58, i64 264
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 264
   store ptr @cbFieldAccess, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %58, i64 272
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 272
   store ptr @cbFieldModification, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %58, i64 232
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 232
   store ptr @cbExceptionCatch, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %58, i64 280
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 280
   store ptr @cbMethodEntry, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %58, i64 288
+  %73 = getelementptr inbounds nuw i8, ptr %58, i64 288
   store ptr @cbMethodExit, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %58, i64 360
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 360
   store ptr @cbMonitorContendedEnter, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %58, i64 368
+  %75 = getelementptr inbounds nuw i8, ptr %58, i64 368
   store ptr @cbMonitorContendedEntered, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %58, i64 344
+  %76 = getelementptr inbounds nuw i8, ptr %58, i64 344
   store ptr @cbMonitorWait, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %58, i64 352
+  %77 = getelementptr inbounds nuw i8, ptr %58, i64 352
   store ptr @cbMonitorWaited, ptr %77, align 8
   store ptr @cbVMInit, ptr %59, align 8
-  %78 = getelementptr inbounds i8, ptr %58, i64 168
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 168
   store ptr @cbVMDeath, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %58, i64 416
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 416
   store ptr @cbGarbageCollectionFinish, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %58, i64 456
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 456
   store ptr @cbVThreadStart, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %58, i64 464
+  %81 = getelementptr inbounds nuw i8, ptr %58, i64 464
   store ptr @cbVThreadEnd, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %58, i64 528
+  %82 = getelementptr inbounds nuw i8, ptr %58, i64 528
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 4
   %.not54 = icmp eq i32 %84, 0
@@ -899,9 +899,9 @@ define hidden void @eventHandler_initialize(i8 noundef signext %0) local_unnamed
   %87 = phi ptr [ %58, %57 ], [ %.pre58, %85 ]
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 968
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 968
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %87, i64 160
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 160
   %93 = tail call i32 %91(ptr noundef nonnull %88, ptr noundef nonnull %92, i32 noundef 312) #6
   %.not55 = icmp eq i32 %93, 0
   br i1 %.not55, label %97, label %94
@@ -935,7 +935,7 @@ define internal void @cbSingleStep(ptr nocapture readnone %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = alloca %struct.EventInfo, align 8
   %8 = load ptr, ptr @gdata, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 64
   %.not = icmp eq i32 %11, 0
@@ -969,7 +969,7 @@ define internal void @cbSingleStep(ptr nocapture readnone %0, ptr noundef %1, pt
   tail call void @debugMonitorExit(ptr noundef %21) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   store i32 1, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
@@ -995,11 +995,11 @@ define internal void @cbSingleStep(ptr nocapture readnone %0, ptr noundef %1, pt
 getMethodClass.exit:                              ; preds = %18, %26, %29
   %.0.i = phi ptr [ null, %26 ], [ %30, %29 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %4, ptr %33, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %7)
   %34 = load ptr, ptr @callbackLock, align 8
@@ -1055,7 +1055,7 @@ getMethodClass.exit:                              ; preds = %18, %26, %29
 
 56:                                               ; preds = %.thread, %47, %54
   %57 = load ptr, ptr @gdata, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 528
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 8
   %.not9 = icmp eq i32 %60, 0
@@ -1075,7 +1075,7 @@ define internal void @cbBreakpoint(ptr nocapture readnone %0, ptr noundef %1, pt
   %6 = alloca ptr, align 8
   %7 = alloca %struct.EventInfo, align 8
   %8 = load ptr, ptr @gdata, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 64
   %.not = icmp eq i32 %11, 0
@@ -1109,7 +1109,7 @@ define internal void @cbBreakpoint(ptr nocapture readnone %0, ptr noundef %1, pt
   tail call void @debugMonitorExit(ptr noundef %21) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   store i32 2, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
@@ -1135,11 +1135,11 @@ define internal void @cbBreakpoint(ptr nocapture readnone %0, ptr noundef %1, pt
 getMethodClass.exit:                              ; preds = %18, %26, %29
   %.0.i = phi ptr [ null, %26 ], [ %30, %29 ], [ null, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %4, ptr %33, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %7)
   %34 = load ptr, ptr @callbackLock, align 8
@@ -1195,7 +1195,7 @@ getMethodClass.exit:                              ; preds = %18, %26, %29
 
 56:                                               ; preds = %.thread, %47, %54
   %57 = load ptr, ptr @gdata, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 528
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 8
   %.not9 = icmp eq i32 %60, 0
@@ -1219,7 +1219,7 @@ define internal void @cbFramePop(ptr nocapture readnone %0, ptr noundef %1, ptr 
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @gdata, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 64
   %.not8 = icmp eq i32 %12, 0
@@ -1253,7 +1253,7 @@ define internal void @cbFramePop(ptr nocapture readnone %0, ptr noundef %1, ptr 
   tail call void @debugMonitorExit(ptr noundef %22) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   store i32 3, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
@@ -1279,9 +1279,9 @@ define internal void @cbFramePop(ptr nocapture readnone %0, ptr noundef %1, ptr 
 getMethodClass.exit:                              ; preds = %19, %27, %30
   %.0.i = phi ptr [ null, %27 ], [ %31, %30 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.0.i, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %33, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %7)
   %34 = load ptr, ptr @callbackLock, align 8
@@ -1337,7 +1337,7 @@ getMethodClass.exit:                              ; preds = %19, %27, %30
 
 56:                                               ; preds = %.thread, %47, %54
   %57 = load ptr, ptr @gdata, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 528
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 8
   %.not10 = icmp eq i32 %60, 0
@@ -1358,7 +1358,7 @@ define internal void @cbException(ptr nocapture readnone %0, ptr noundef %1, ptr
   %10 = alloca ptr, align 8
   %11 = alloca %struct.EventInfo, align 8
   %12 = load ptr, ptr @gdata, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 528
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 528
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 64
   %.not = icmp eq i32 %15, 0
@@ -1392,7 +1392,7 @@ define internal void @cbException(ptr nocapture readnone %0, ptr noundef %1, ptr
   tail call void @debugMonitorExit(ptr noundef %25) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, i8 0, i64 88, i1 false)
   store i32 4, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %2, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
@@ -1418,13 +1418,13 @@ define internal void @cbException(ptr nocapture readnone %0, ptr noundef %1, ptr
 getMethodClass.exit:                              ; preds = %22, %30, %33
   %.0.i = phi ptr [ null, %30 ], [ %34, %33 ], [ null, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %35 = getelementptr inbounds i8, ptr %11, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %3, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %5, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -1450,11 +1450,11 @@ getMethodClass.exit:                              ; preds = %22, %30, %33
 getMethodClass.exit17:                            ; preds = %getMethodClass.exit, %42, %45
   %.0.i16 = phi ptr [ null, %42 ], [ %46, %45 ], [ null, %getMethodClass.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %47 = getelementptr inbounds i8, ptr %11, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %.0.i16, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr %6, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %11, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i64 %7, ptr %49, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %11)
   %50 = load ptr, ptr @callbackLock, align 8
@@ -1510,7 +1510,7 @@ getMethodClass.exit17:                            ; preds = %getMethodClass.exit
 
 72:                                               ; preds = %.thread, %63, %70
   %73 = load ptr, ptr @gdata, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 528
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 528
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 8
   %.not14 = icmp eq i32 %76, 0
@@ -1529,7 +1529,7 @@ getMethodClass.exit17:                            ; preds = %getMethodClass.exit
 define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 64
   %.not = icmp eq i32 %8, 0
@@ -1563,7 +1563,7 @@ define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, p
   tail call void @debugMonitorExit(ptr noundef %18) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 5, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %19, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %20 = load ptr, ptr @callbackLock, align 8
@@ -1619,7 +1619,7 @@ define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, p
 
 42:                                               ; preds = %.thread, %33, %40
   %43 = load ptr, ptr @gdata, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 528
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 528
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 8
   %.not5 = icmp eq i32 %46, 0
@@ -1638,7 +1638,7 @@ define internal void @cbThreadStart(ptr nocapture readnone %0, ptr noundef %1, p
 define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 64
   %.not = icmp eq i32 %8, 0
@@ -1672,7 +1672,7 @@ define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr
   tail call void @debugMonitorExit(ptr noundef %18) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 6, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %19, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %20 = load ptr, ptr @callbackLock, align 8
@@ -1728,7 +1728,7 @@ define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr
 
 42:                                               ; preds = %.thread, %33, %40
   %43 = load ptr, ptr @gdata, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 528
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 528
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 8
   %.not5 = icmp eq i32 %46, 0
@@ -1747,7 +1747,7 @@ define internal void @cbThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr
 define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.EventInfo, align 8
   %6 = load ptr, ptr @gdata, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 64
   %.not = icmp eq i32 %9, 0
@@ -1781,9 +1781,9 @@ define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, 
   tail call void @debugMonitorExit(ptr noundef %19) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   store i32 7, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %21, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %5)
   %22 = load ptr, ptr @callbackLock, align 8
@@ -1839,7 +1839,7 @@ define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, 
 
 44:                                               ; preds = %.thread, %35, %42
   %45 = load ptr, ptr @gdata, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 528
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 528
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 8
   %.not6 = icmp eq i32 %48, 0
@@ -1858,7 +1858,7 @@ define internal void @cbClassPrepare(ptr nocapture readnone %0, ptr noundef %1, 
 define internal void @cbClassLoad(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.EventInfo, align 8
   %6 = load ptr, ptr @gdata, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 64
   %.not = icmp eq i32 %9, 0
@@ -1892,9 +1892,9 @@ define internal void @cbClassLoad(ptr nocapture readnone %0, ptr noundef %1, ptr
   tail call void @debugMonitorExit(ptr noundef %19) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   store i32 9, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %21, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %5)
   %22 = load ptr, ptr @callbackLock, align 8
@@ -1950,7 +1950,7 @@ define internal void @cbClassLoad(ptr nocapture readnone %0, ptr noundef %1, ptr
 
 44:                                               ; preds = %.thread, %35, %42
   %45 = load ptr, ptr @gdata, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 528
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 528
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 8
   %.not6 = icmp eq i32 %48, 0
@@ -1970,7 +1970,7 @@ define internal void @cbFieldAccess(ptr nocapture readnone %0, ptr noundef %1, p
   %9 = alloca ptr, align 8
   %10 = alloca %struct.EventInfo, align 8
   %11 = load ptr, ptr @gdata, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 528
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 528
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 64
   %.not = icmp eq i32 %14, 0
@@ -2004,7 +2004,7 @@ define internal void @cbFieldAccess(ptr nocapture readnone %0, ptr noundef %1, p
   tail call void @debugMonitorExit(ptr noundef %24) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, i8 0, i64 88, i1 false)
   store i32 10, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -2030,17 +2030,17 @@ define internal void @cbFieldAccess(ptr nocapture readnone %0, ptr noundef %1, p
 getMethodClass.exit:                              ; preds = %21, %29, %32
   %.0.i = phi ptr [ null, %29 ], [ %33, %32 ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %34 = getelementptr inbounds i8, ptr %10, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %.0.i, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %3, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %4, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %10, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %5, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %10, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %6, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr %7, ptr %39, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %10)
   %40 = load ptr, ptr @callbackLock, align 8
@@ -2096,7 +2096,7 @@ getMethodClass.exit:                              ; preds = %21, %29, %32
 
 62:                                               ; preds = %.thread, %53, %60
   %63 = load ptr, ptr @gdata, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 528
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 528
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 8
   %.not12 = icmp eq i32 %66, 0
@@ -2116,7 +2116,7 @@ define internal void @cbFieldModification(ptr nocapture readnone %0, ptr noundef
   %11 = alloca ptr, align 8
   %12 = alloca %struct.EventInfo, align 8
   %13 = load ptr, ptr @gdata, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 528
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 528
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 64
   %.not = icmp eq i32 %16, 0
@@ -2150,7 +2150,7 @@ define internal void @cbFieldModification(ptr nocapture readnone %0, ptr noundef
   tail call void @debugMonitorExit(ptr noundef %26) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, i8 0, i64 80, i1 false)
   store i32 11, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
@@ -2176,21 +2176,21 @@ define internal void @cbFieldModification(ptr nocapture readnone %0, ptr noundef
 getMethodClass.exit:                              ; preds = %23, %31, %34
   %.0.i = phi ptr [ null, %31 ], [ %35, %34 ], [ null, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %36 = getelementptr inbounds i8, ptr %12, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.0.i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %3, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %12, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 %4, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %12, i64 56
-  %40 = getelementptr inbounds i8, ptr %12, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %7, ptr %40, align 8
   store ptr %5, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %6, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store i8 %8, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %12, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store i64 %9, ptr %43, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %12)
   %44 = load ptr, ptr @callbackLock, align 8
@@ -2246,7 +2246,7 @@ getMethodClass.exit:                              ; preds = %23, %31, %34
 
 66:                                               ; preds = %.thread, %57, %64
   %67 = load ptr, ptr @gdata, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 528
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 528
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 8
   %.not13 = icmp eq i32 %70, 0
@@ -2266,7 +2266,7 @@ define internal void @cbExceptionCatch(ptr nocapture readnone %0, ptr noundef %1
   %7 = alloca ptr, align 8
   %8 = alloca %struct.EventInfo, align 8
   %9 = load ptr, ptr @gdata, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 64
   %.not = icmp eq i32 %12, 0
@@ -2300,7 +2300,7 @@ define internal void @cbExceptionCatch(ptr nocapture readnone %0, ptr noundef %1
   tail call void @debugMonitorExit(ptr noundef %22) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
   store i32 12, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
@@ -2326,13 +2326,13 @@ define internal void @cbExceptionCatch(ptr nocapture readnone %0, ptr noundef %1
 getMethodClass.exit:                              ; preds = %19, %27, %30
   %.0.i = phi ptr [ null, %27 ], [ %31, %30 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.0.i, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %3, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %4, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %5, ptr %35, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %8)
   %36 = load ptr, ptr @callbackLock, align 8
@@ -2388,7 +2388,7 @@ getMethodClass.exit:                              ; preds = %19, %27, %30
 
 58:                                               ; preds = %.thread, %49, %56
   %59 = load ptr, ptr @gdata, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 528
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 528
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 8
   %.not10 = icmp eq i32 %62, 0
@@ -2408,7 +2408,7 @@ define internal void @cbMethodEntry(ptr nocapture readnone %0, ptr noundef %1, p
   %5 = alloca ptr, align 8
   %6 = alloca %struct.EventInfo, align 8
   %7 = load ptr, ptr @gdata, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 64
   %.not = icmp eq i32 %10, 0
@@ -2442,7 +2442,7 @@ define internal void @cbMethodEntry(ptr nocapture readnone %0, ptr noundef %1, p
   tail call void @debugMonitorExit(ptr noundef %20) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 13, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -2468,9 +2468,9 @@ define internal void @cbMethodEntry(ptr nocapture readnone %0, ptr noundef %1, p
 getMethodClass.exit:                              ; preds = %17, %25, %28
   %.0.i = phi ptr [ null, %25 ], [ %29, %28 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %30 = getelementptr inbounds i8, ptr %6, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %3, ptr %31, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %32 = load ptr, ptr @callbackLock, align 8
@@ -2526,7 +2526,7 @@ getMethodClass.exit:                              ; preds = %17, %25, %28
 
 54:                                               ; preds = %.thread, %45, %52
   %55 = load ptr, ptr @gdata, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 528
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 528
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 8
   %.not8 = icmp eq i32 %58, 0
@@ -2550,7 +2550,7 @@ define internal void @cbMethodExit(ptr nocapture readnone %0, ptr noundef %1, pt
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @gdata, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 64
   %.not8 = icmp eq i32 %13, 0
@@ -2584,7 +2584,7 @@ define internal void @cbMethodExit(ptr nocapture readnone %0, ptr noundef %1, pt
   tail call void @debugMonitorExit(ptr noundef %23) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %8, i8 0, i64 88, i1 false)
   store i32 14, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
@@ -2610,11 +2610,11 @@ define internal void @cbMethodExit(ptr nocapture readnone %0, ptr noundef %1, pt
 getMethodClass.exit:                              ; preds = %20, %28, %31
   %.0.i = phi ptr [ null, %28 ], [ %32, %31 ], [ null, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %33 = getelementptr inbounds i8, ptr %8, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.0.i, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %3, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %5, ptr %35, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %8)
   %36 = load ptr, ptr @callbackLock, align 8
@@ -2670,7 +2670,7 @@ getMethodClass.exit:                              ; preds = %20, %28, %31
 
 58:                                               ; preds = %.thread, %49, %56
   %59 = load ptr, ptr @gdata, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 528
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 528
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 8
   %.not10 = icmp eq i32 %62, 0
@@ -2692,7 +2692,7 @@ define internal void @cbMonitorContendedEnter(ptr nocapture readnone %0, ptr nou
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = load ptr, ptr @gdata, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 64
   %.not = icmp eq i32 %12, 0
@@ -2726,12 +2726,12 @@ define internal void @cbMonitorContendedEnter(ptr nocapture readnone %0, ptr nou
   tail call void @debugMonitorExit(ptr noundef %22) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 15, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %24, align 8
   %25 = load ptr, ptr @gdata, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 528
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 528
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not9 = icmp eq i32 %28, 0
@@ -2747,7 +2747,7 @@ define internal void @cbMonitorContendedEnter(ptr nocapture readnone %0, ptr nou
   %31 = phi ptr [ %25, %19 ], [ %.pre, %29 ]
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 144
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 %35(ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %37 = icmp eq i32 %36, 0
@@ -2755,10 +2755,10 @@ define internal void @cbMonitorContendedEnter(ptr nocapture readnone %0, ptr nou
 
 38:                                               ; preds = %30
   %39 = load i64, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %39, ptr %40, align 8
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %41, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -2784,12 +2784,12 @@ define internal void @cbMonitorContendedEnter(ptr nocapture readnone %0, ptr nou
 getMethodClass.exit:                              ; preds = %38, %46, %49
   %.0.i = phi ptr [ null, %46 ], [ %50, %49 ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %51 = getelementptr inbounds i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %51, align 8
   br label %54
 
 52:                                               ; preds = %30
-  %53 = getelementptr inbounds i8, ptr %6, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 -1, ptr %53, align 8
   br label %54
 
@@ -2848,7 +2848,7 @@ getMethodClass.exit:                              ; preds = %38, %46, %49
 
 77:                                               ; preds = %.thread, %68, %75
   %78 = load ptr, ptr @gdata, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 528
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 528
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 8
   %.not10 = icmp eq i32 %81, 0
@@ -2870,7 +2870,7 @@ define internal void @cbMonitorContendedEntered(ptr nocapture readnone %0, ptr n
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = load ptr, ptr @gdata, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 64
   %.not = icmp eq i32 %12, 0
@@ -2904,12 +2904,12 @@ define internal void @cbMonitorContendedEntered(ptr nocapture readnone %0, ptr n
   tail call void @debugMonitorExit(ptr noundef %22) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 16, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %24, align 8
   %25 = load ptr, ptr @gdata, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 528
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 528
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not9 = icmp eq i32 %28, 0
@@ -2925,7 +2925,7 @@ define internal void @cbMonitorContendedEntered(ptr nocapture readnone %0, ptr n
   %31 = phi ptr [ %25, %19 ], [ %.pre, %29 ]
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 144
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 %35(ptr noundef nonnull %32, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %37 = icmp eq i32 %36, 0
@@ -2933,10 +2933,10 @@ define internal void @cbMonitorContendedEntered(ptr nocapture readnone %0, ptr n
 
 38:                                               ; preds = %30
   %39 = load i64, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %39, ptr %40, align 8
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %41, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -2962,12 +2962,12 @@ define internal void @cbMonitorContendedEntered(ptr nocapture readnone %0, ptr n
 getMethodClass.exit:                              ; preds = %38, %46, %49
   %.0.i = phi ptr [ null, %46 ], [ %50, %49 ], [ null, %38 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %51 = getelementptr inbounds i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %.0.i, ptr %51, align 8
   br label %54
 
 52:                                               ; preds = %30
-  %53 = getelementptr inbounds i8, ptr %6, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 -1, ptr %53, align 8
   br label %54
 
@@ -3026,7 +3026,7 @@ getMethodClass.exit:                              ; preds = %38, %46, %49
 
 77:                                               ; preds = %.thread, %68, %75
   %78 = load ptr, ptr @gdata, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 528
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 528
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, 8
   %.not10 = icmp eq i32 %81, 0
@@ -3047,7 +3047,7 @@ define internal void @cbMonitorWait(ptr nocapture readnone %0, ptr noundef %1, p
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = load ptr, ptr @gdata, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 64
   %.not = icmp eq i32 %12, 0
@@ -3081,13 +3081,13 @@ define internal void @cbMonitorWait(ptr nocapture readnone %0, ptr noundef %1, p
   tail call void @debugMonitorExit(ptr noundef %22) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 17, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %24, align 8
   %25 = tail call ptr @getEnv() #6
   %26 = load ptr, ptr @gdata, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 528
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 528
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 2
   %.not.i = icmp eq i32 %29, 0
@@ -3100,15 +3100,15 @@ define internal void @cbMonitorWait(ptr nocapture readnone %0, ptr noundef %1, p
 
 getObjectClass.exit:                              ; preds = %19, %30
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 248
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %25, ptr noundef %3) #6
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %4, ptr %36, align 8
   %37 = load ptr, ptr @gdata, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 528
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 528
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 4
   %.not10 = icmp eq i32 %40, 0
@@ -3124,7 +3124,7 @@ getObjectClass.exit:                              ; preds = %19, %30
   %43 = phi ptr [ %37, %getObjectClass.exit ], [ %.pre, %41 ]
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 144
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 %47(ptr noundef nonnull %44, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %49 = icmp eq i32 %48, 0
@@ -3133,13 +3133,13 @@ getObjectClass.exit:                              ; preds = %19, %30
 50:                                               ; preds = %42
   %51 = load i64, ptr %8, align 8
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %52, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %42, %50
   %.sink = phi i64 [ %51, %50 ], [ -1, %42 ]
-  %55 = getelementptr inbounds i8, ptr %6, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %.sink, ptr %55, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %56 = load ptr, ptr @callbackLock, align 8
@@ -3195,7 +3195,7 @@ getObjectClass.exit:                              ; preds = %19, %30
 
 78:                                               ; preds = %.thread, %69, %76
   %79 = load ptr, ptr @gdata, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 528
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 528
   %81 = load i32, ptr %80, align 8
   %82 = and i32 %81, 8
   %.not11 = icmp eq i32 %82, 0
@@ -3216,7 +3216,7 @@ define internal void @cbMonitorWaited(ptr nocapture readnone %0, ptr noundef %1,
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = load ptr, ptr @gdata, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 64
   %.not = icmp eq i32 %12, 0
@@ -3250,13 +3250,13 @@ define internal void @cbMonitorWaited(ptr nocapture readnone %0, ptr noundef %1,
   tail call void @debugMonitorExit(ptr noundef %22) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i32 18, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %24, align 8
   %25 = tail call ptr @getEnv() #6
   %26 = load ptr, ptr @gdata, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 528
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 528
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 2
   %.not.i = icmp eq i32 %29, 0
@@ -3269,15 +3269,15 @@ define internal void @cbMonitorWaited(ptr nocapture readnone %0, ptr noundef %1,
 
 getObjectClass.exit:                              ; preds = %19, %30
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 248
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %25, ptr noundef %3) #6
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 %4, ptr %36, align 8
   %37 = load ptr, ptr @gdata, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 528
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 528
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 4
   %.not10 = icmp eq i32 %40, 0
@@ -3293,7 +3293,7 @@ getObjectClass.exit:                              ; preds = %19, %30
   %43 = phi ptr [ %37, %getObjectClass.exit ], [ %.pre, %41 ]
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 144
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 %47(ptr noundef nonnull %44, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %49 = icmp eq i32 %48, 0
@@ -3302,13 +3302,13 @@ getObjectClass.exit:                              ; preds = %19, %30
 50:                                               ; preds = %42
   %51 = load i64, ptr %8, align 8
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %52, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %42, %50
   %.sink = phi i64 [ %51, %50 ], [ -1, %42 ]
-  %55 = getelementptr inbounds i8, ptr %6, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %.sink, ptr %55, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %6)
   %56 = load ptr, ptr @callbackLock, align 8
@@ -3364,7 +3364,7 @@ getObjectClass.exit:                              ; preds = %19, %30
 
 78:                                               ; preds = %.thread, %69, %76
   %79 = load ptr, ptr @gdata, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 528
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 528
   %81 = load i32, ptr %80, align 8
   %82 = and i32 %81, 8
   %.not11 = icmp eq i32 %82, 0
@@ -3383,7 +3383,7 @@ getObjectClass.exit:                              ; preds = %19, %30
 define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 64
   %.not = icmp eq i32 %8, 0
@@ -3417,7 +3417,7 @@ define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr no
   tail call void @debugMonitorExit(ptr noundef %18) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 19, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %19, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %20 = load ptr, ptr @callbackLock, align 8
@@ -3473,7 +3473,7 @@ define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr no
 
 42:                                               ; preds = %.thread, %33, %40
   %43 = load ptr, ptr @gdata, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 528
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 528
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 8
   %.not4 = icmp eq i32 %46, 0
@@ -3492,7 +3492,7 @@ define internal void @cbVMInit(ptr nocapture readnone %0, ptr noundef %1, ptr no
 define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = alloca %struct.EventInfo, align 8
   %4 = load ptr, ptr @gdata, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 64
   %.not = icmp eq i32 %7, 0
@@ -3506,11 +3506,11 @@ define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
 
 9:                                                ; preds = %2, %8
   %10 = phi ptr [ %4, %2 ], [ %.pre, %8 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 577
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 577
   store volatile i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %10, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %12, i8 0, i64 312, i1 false)
-  %13 = getelementptr inbounds i8, ptr %10, i64 528
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 4
   %.not4 = icmp eq i32 %15, 0
@@ -3526,9 +3526,9 @@ define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %18 = phi ptr [ %10, %9 ], [ %.pre7, %16 ]
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 968
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 968
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %24 = tail call i32 %22(ptr noundef nonnull %19, ptr noundef nonnull %23, i32 noundef 312) #6
   %.not5 = icmp eq i32 %24, 0
   br i1 %.not5, label %28, label %25
@@ -3569,7 +3569,7 @@ define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
   call void @commandLoop_sync() #6
   call void @debugLoop_sync() #6
   %39 = load ptr, ptr @gdata, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 528
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 528
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 8
   %.not6 = icmp eq i32 %42, 0
@@ -3587,7 +3587,7 @@ define internal void @cbVMDeath(ptr nocapture readnone %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @cbGarbageCollectionFinish(ptr nocapture readnone %0) #0 {
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 64
   %.not = icmp eq i32 %5, 0
@@ -3597,7 +3597,7 @@ define internal void @cbGarbageCollectionFinish(ptr nocapture readnone %0) #0 {
   tail call void @log_message_begin(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.4, i32 noundef 934) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.78) #6
   %.pre = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 528
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 528
   %.pre2 = load i32, ptr %.phi.trans.insert, align 8
   br label %7
 
@@ -3623,7 +3623,7 @@ define internal void @cbGarbageCollectionFinish(ptr nocapture readnone %0) #0 {
 define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 64
   %.not = icmp eq i32 %8, 0
@@ -3638,13 +3638,13 @@ define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %3, %9
   %10 = phi ptr [ %.pr, %9 ], [ %5, %3 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %12 = load i8, ptr %11, align 1
   %.not6 = icmp eq i8 %12, 0
   br i1 %.not6, label %17, label %13
 
 13:                                               ; preds = %.thread
-  %14 = getelementptr inbounds i8, ptr %10, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %15 = load i8, ptr %14, align 1
   %.not7 = icmp eq i8 %15, 0
   br i1 %.not7, label %16, label %17
@@ -3676,7 +3676,7 @@ define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, 
   tail call void @debugMonitorExit(ptr noundef %25) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 5, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %26, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %27 = load ptr, ptr @callbackLock, align 8
@@ -3732,7 +3732,7 @@ define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, 
 
 49:                                               ; preds = %.thread11, %40, %47
   %50 = load ptr, ptr @gdata, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 528
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 528
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 8
   %.not9 = icmp eq i32 %53, 0
@@ -3751,7 +3751,7 @@ define internal void @cbVThreadStart(ptr nocapture readnone %0, ptr noundef %1, 
 define internal void @cbVThreadEnd(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.EventInfo, align 8
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 64
   %.not = icmp eq i32 %8, 0
@@ -3766,13 +3766,13 @@ define internal void @cbVThreadEnd(ptr nocapture readnone %0, ptr noundef %1, pt
 
 .thread:                                          ; preds = %3, %9
   %10 = phi ptr [ %.pr, %9 ], [ %5, %3 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %12 = load i8, ptr %11, align 1
   %.not6 = icmp eq i8 %12, 0
   br i1 %.not6, label %17, label %13
 
 13:                                               ; preds = %.thread
-  %14 = getelementptr inbounds i8, ptr %10, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %15 = load i8, ptr %14, align 1
   %.not7 = icmp eq i8 %15, 0
   br i1 %.not7, label %16, label %17
@@ -3804,7 +3804,7 @@ define internal void @cbVThreadEnd(ptr nocapture readnone %0, ptr noundef %1, pt
   tail call void @debugMonitorExit(ptr noundef %25) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 88, i1 false)
   store i32 6, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %26, align 8
   call fastcc void @event_callback(ptr noundef %1, ptr noundef %4)
   %27 = load ptr, ptr @callbackLock, align 8
@@ -3860,7 +3860,7 @@ define internal void @cbVThreadEnd(ptr nocapture readnone %0, ptr noundef %1, pt
 
 49:                                               ; preds = %.thread11, %40, %47
   %50 = load ptr, ptr @gdata, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 528
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 528
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 8
   %.not9 = icmp eq i32 %53, 0
@@ -3884,13 +3884,13 @@ define hidden void @eventHandler_onConnect() local_unnamed_addr #0 {
   %1 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %1) #6
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 19
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 19
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %2, i64 21
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 21
   %7 = load i8, ptr %6, align 1
   %.not9 = icmp eq i8 %7, 0
   br i1 %.not9, label %8, label %18
@@ -3931,13 +3931,13 @@ define hidden void @eventHandler_reset(i8 noundef signext %0) local_unnamed_addr
   tail call void @debugMonitorEnter(ptr noundef %2) #6
   tail call void @threadControl_detachInvokes() #6
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 19
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 19
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %adjust_jvmti_error.exit19.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 21
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %8 = load i8, ptr %7, align 1
   %.not13 = icmp eq i8 %8, 0
   br i1 %.not13, label %9, label %adjust_jvmti_error.exit19.thread
@@ -3951,7 +3951,7 @@ define hidden void @eventHandler_reset(i8 noundef signext %0) local_unnamed_addr
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @gdata, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load volatile i8, ptr %13, align 8
   %.not.i = icmp eq i8 %14, 0
   br i1 %.not.i, label %adjust_jvmti_error.exit.thread23, label %adjust_jvmti_error.exit.thread
@@ -3972,7 +3972,7 @@ adjust_jvmti_error.exit.thread:                   ; preds = %9, %11, %adjust_jvm
 
 18:                                               ; preds = %adjust_jvmti_error.exit.thread
   %19 = load ptr, ptr @gdata, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load volatile i8, ptr %20, align 8
   %.not.i17 = icmp eq i8 %21, 0
   br i1 %.not.i17, label %adjust_jvmti_error.exit19.thread29, label %adjust_jvmti_error.exit19.thread
@@ -3991,22 +3991,22 @@ adjust_jvmti_error.exit19.thread:                 ; preds = %adjust_jvmti_error.
 getHandlerChain.exit:                             ; preds = %adjust_jvmti_error.exit19.thread, %freeHandlerChain.exit
   %indvars.iv = phi i64 [ 1, %adjust_jvmti_error.exit19.thread ], [ %indvars.iv.next, %freeHandlerChain.exit ]
   %24 = add nsw i64 %indvars.iv, -1
-  %25 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %24
   %.val = load ptr, ptr %25, align 8
   %.not4.i = icmp eq ptr %.val, null
   br i1 %.not4.i, label %freeHandlerChain.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %getHandlerChain.exit, %freeHandler.exit.thread.i
   %.06.i = phi ptr [ %27, %freeHandler.exit.thread.i ], [ %.val, %getHandlerChain.exit ]
-  %26 = getelementptr inbounds i8, ptr %.06.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.06.i, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %.06.i, i64 9
   %29 = load i8, ptr %28, align 1
   %.not6.i.i = icmp eq i8 %29, 0
   br i1 %.not6.i.i, label %30, label %freeHandler.exit.thread.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds i8, ptr %.06.i, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %freeHandler.exit.i, label %34
@@ -4022,12 +4022,12 @@ getHandlerChain.exit:                             ; preds = %adjust_jvmti_error.
 
 38:                                               ; preds = %37, %34
   %.not.i.i.i = icmp eq ptr %27, null
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.06.i, i64 24
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
   %.pre16.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %27, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %.pre16.i.i.i, ptr %40, align 8
   br label %._crit_edge.i.i.i
 
@@ -4037,7 +4037,7 @@ getHandlerChain.exit:                             ; preds = %adjust_jvmti_error.
 
 41:                                               ; preds = %._crit_edge.i.i.i
   %42 = load ptr, ptr %26, align 8
-  %43 = getelementptr inbounds i8, ptr %.pre16.i.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.pre16.i.i.i, i64 16
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -4115,11 +4115,11 @@ define hidden ptr @eventHandler_alloc(i32 noundef %0, i32 noundef %1, i8 noundef
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 0, ptr %8, align 1
   br label %9
 
@@ -4159,11 +4159,11 @@ define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %eventHandler_alloc.exit.thread, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 9
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %6, ptr %17, align 1
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %18
@@ -4196,8 +4196,8 @@ define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr n
   br i1 %.not6.i.i, label %29, label %eventHandler_free.exit
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %13, i64 16
-  %31 = getelementptr inbounds i8, ptr %13, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %deinsert.exit.i.i, label %34
@@ -4214,12 +4214,12 @@ define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr n
 
 38:                                               ; preds = %37, %34
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.pre16.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 24
   store ptr %.pre16.i.i.i, ptr %40, align 8
   br label %._crit_edge.i.i.i
 
@@ -4229,7 +4229,7 @@ define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr n
 
 41:                                               ; preds = %._crit_edge.i.i.i
   %42 = load ptr, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %.pre16.i.i.i, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.pre16.i.i.i, i64 16
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -4266,7 +4266,7 @@ define hidden ptr @eventHandler_createInternalBreakpoint(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @eventHandler_installExternal(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @standardHandlers_defaultHandler(i32 noundef %3) #6
   %5 = tail call fastcc i32 @installHandler(ptr noundef %0, ptr noundef %4, i8 noundef zeroext 1)
@@ -4281,7 +4281,7 @@ define internal fastcc i32 @installHandler(ptr noundef %0, ptr noundef %1, i8 no
 5:                                                ; preds = %3
   %6 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %6) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %7, align 8
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %11, label %8
@@ -4300,7 +4300,7 @@ define internal fastcc i32 @installHandler(ptr noundef %0, ptr noundef %1, i8 no
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, -23
   %or.cond.i = icmp ult i32 %18, -22
@@ -4316,19 +4316,19 @@ define internal fastcc i32 @installHandler(ptr noundef %0, ptr noundef %1, i8 no
 getHandlerChain.exit:                             ; preds = %15, %19
   %22 = add i32 %17, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %24, ptr %28, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %insert.exit, label %29
 
 29:                                               ; preds = %getHandlerChain.exit
-  %30 = getelementptr inbounds i8, ptr %25, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %0, ptr %30, align 8
   br label %insert.exit
 
@@ -4388,7 +4388,7 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
   %6 = load i8, ptr @currentSessionID, align 1
   %7 = load i32, ptr %1, align 8
   %8 = load ptr, ptr @gdata, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 8
   %.not = icmp eq i32 %11, 0
@@ -4401,15 +4401,15 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
   br label %14
 
 14:                                               ; preds = %2, %12
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
   tail call void @log_debugee_location(ptr noundef nonnull @.str.33, ptr noundef %16, ptr noundef %18, i64 noundef %20) #6
   %21 = load ptr, ptr @gdata, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 528
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 528
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 2
   %.not43 = icmp eq i32 %24, 0
@@ -4422,11 +4422,11 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
 
 26:                                               ; preds = %14, %25
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0) #6
   %31 = load ptr, ptr @gdata, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 528
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 528
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 2
   %.not44 = icmp eq i32 %34, 0
@@ -4439,7 +4439,7 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
 
 36:                                               ; preds = %26, %35
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 136
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %0) #6
   %40 = load i32, ptr @garbageCollected, align 4
@@ -4458,14 +4458,14 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @gdata, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 19
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 19
   %47 = load i8, ptr %46, align 1
   %.not47 = icmp eq i8 %47, 0
   br i1 %.not47, label %51, label %48
 
 48:                                               ; preds = %44
   %49 = tail call zeroext i8 @isVThread(ptr noundef nonnull %43) #6
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 %49, ptr %50, align 8
   br label %51
 
@@ -4508,9 +4508,9 @@ define internal fastcc void @event_callback(ptr noundef %0, ptr noundef nonnull 
 getHandlerChain.exit.i:                           ; preds = %61, %58
   %64 = add i32 %7, -1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [22 x %struct.HandlerChain_], ptr @__handlers, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @getClassname(ptr noundef %69) #6
   %.not33.i = icmp eq ptr %67, null
@@ -4518,14 +4518,14 @@ getHandlerChain.exit.i:                           ; preds = %61, %58
 
 .lr.ph.i:                                         ; preds = %getHandlerChain.exit.i, %freeHandler.exit.i
   %.034.i = phi ptr [ %72, %freeHandler.exit.i ], [ %67, %getHandlerChain.exit.i ]
-  %71 = getelementptr inbounds i8, ptr %.034.i, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = call zeroext i8 @eventFilterRestricted_passesFilter(ptr noundef nonnull %0, ptr noundef %70, ptr noundef nonnull %1, ptr noundef nonnull %.034.i, ptr noundef nonnull %5) #6
   %.not28.i = icmp eq i8 %73, 0
   br i1 %.not28.i, label %82, label %74
 
 74:                                               ; preds = %.lr.ph.i
-  %75 = getelementptr inbounds i8, ptr %.034.i, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %.034.i, i64 40
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %81
@@ -4547,13 +4547,13 @@ getHandlerChain.exit.i:                           ; preds = %61, %58
   br i1 %.not29.i, label %freeHandler.exit.i, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.034.i, i64 9
+  %85 = getelementptr inbounds nuw i8, ptr %.034.i, i64 9
   %86 = load i8, ptr %85, align 1
   %.not6.i.i = icmp eq i8 %86, 0
   br i1 %.not6.i.i, label %87, label %freeHandler.exit.i
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %.034.i, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %.034.i, i64 32
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %deinsert.exit.i.i, label %91
@@ -4570,12 +4570,12 @@ getHandlerChain.exit.i:                           ; preds = %61, %58
 
 95:                                               ; preds = %94, %91
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.034.i, i64 24
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.034.i, i64 24
   %.pre16.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %96
 
 96:                                               ; preds = %95
-  %97 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 24
   store ptr %.pre16.i.i.i, ptr %97, align 8
   br label %._crit_edge.i.i.i
 
@@ -4585,7 +4585,7 @@ getHandlerChain.exit.i:                           ; preds = %61, %58
 
 98:                                               ; preds = %._crit_edge.i.i.i
   %99 = load ptr, ptr %71, align 8
-  %100 = getelementptr inbounds i8, ptr %.pre16.i.i.i, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.pre16.i.i.i, i64 16
   store ptr %99, ptr %100, align 8
   br label %101
 
@@ -4645,7 +4645,7 @@ freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, 
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr @gdata, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 528
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 528
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, 8
   %.not14.i.i.i = icmp eq i32 %124, 0
@@ -4660,7 +4660,7 @@ freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, 
 127:                                              ; preds = %125, %120
   call void @threadControl_clearCLEInfo(ptr noundef nonnull %0, ptr noundef nonnull %105) #6
   %128 = load ptr, ptr @gdata, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 528
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 528
   %130 = load i32, ptr %129, align 8
   %131 = and i32 %130, 8
   %.not39.i.i = icmp eq i32 %131, 0
@@ -4703,13 +4703,13 @@ freeHandler.exit.i:                               ; preds = %deinsert.exit.i.i, 
 
 144:                                              ; preds = %141
   %145 = call ptr @threadControl_getStepRequest(ptr noundef nonnull %105) #6
-  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i8, ptr %146, align 8
   %.not31.i.i.i = icmp eq i8 %147, 0
   br i1 %.not31.i.i.i, label %.critedge.i.i.i, label %148
 
 148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %145, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %150 = load i32, ptr %149, align 4
   %.not35.i.i.i = icmp eq i32 %150, 0
   br i1 %.not35.i.i.i, label %deferEventReport.exit.i.i, label %.critedge.i.i.i
@@ -4773,7 +4773,7 @@ filterAndHandleEvent.exit:                        ; preds = %._crit_edge.i, %104
 
 164:                                              ; preds = %filterAndHandleEvent.exit
   %165 = load ptr, ptr @gdata, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store volatile i8 1, ptr %166, align 8
   br label %167
 
@@ -4787,7 +4787,7 @@ filterAndHandleEvent.exit:                        ; preds = %._crit_edge.i, %104
 169:                                              ; preds = %168, %167
   %.not48 = icmp eq ptr %30, null
   %170 = load ptr, ptr @gdata, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 528
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 528
   %172 = load i32, ptr %171, align 8
   %173 = and i32 %172, 2
   %.not49 = icmp eq i32 %173, 0
@@ -4803,7 +4803,7 @@ filterAndHandleEvent.exit:                        ; preds = %._crit_edge.i, %104
 
 176:                                              ; preds = %174, %175
   %177 = load ptr, ptr %0, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 104
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 104
   %179 = load ptr, ptr %178, align 8
   %180 = call i32 %179(ptr noundef nonnull %0, ptr noundef nonnull %30) #6
   br label %187
@@ -4818,7 +4818,7 @@ filterAndHandleEvent.exit:                        ; preds = %._crit_edge.i, %104
 
 183:                                              ; preds = %181, %182
   %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 136
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 136
   %186 = load ptr, ptr %185, align 8
   call void %186(ptr noundef nonnull %0) #6
   br label %187

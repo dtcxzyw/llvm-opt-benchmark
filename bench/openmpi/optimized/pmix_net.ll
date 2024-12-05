@@ -86,7 +86,7 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
   %.032 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %47 ]
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %20 = load i32, ptr %1, align 4
@@ -123,10 +123,10 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
   %41 = or disjoint i32 %40, %26
   %42 = call i32 @htonl(i32 noundef %41) #15
   %43 = load ptr, ptr @private_ipv4, align 8
-  %44 = getelementptr inbounds %struct.private_ipv4_t, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %43, i64 %indvars.iv
   store i32 %42, ptr %44, align 4
   %45 = load i32, ptr %5, align 4
-  %46 = getelementptr inbounds %struct.private_ipv4_t, ptr %43, i64 %indvars.iv, i32 1
+  %46 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %43, i64 %indvars.iv, i32 1
   store i32 %45, ptr %46, align 4
   br label %47
 
@@ -144,9 +144,9 @@ define i32 @pmix_net_init() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
   %49 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %13, %.preheader ]
   %.025.lcssa = phi i64 [ %48, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %50 = getelementptr inbounds %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa
+  %50 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa
   store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa, i32 1
+  %51 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %49, i64 %.025.lcssa, i32 1
   store i32 0, ptr %51, align 4
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #13
   br label %52
@@ -220,7 +220,7 @@ define zeroext i1 @pmix_net_islocalhost(ptr nocapture noundef readonly %0) local
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @ntohl(i32 noundef %5) #15
   %7 = and i32 %6, 2130706432
@@ -228,25 +228,25 @@ define zeroext i1 @pmix_net_islocalhost(ptr nocapture noundef readonly %0) local
   br label %28
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @htonl(i32 noundef 1) #15
   %25 = icmp eq i32 %23, %24
@@ -282,9 +282,9 @@ define zeroext i1 @pmix_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
 6:                                                ; preds = %5
   %7 = icmp eq i32 %2, 0
   %. = select i1 %7, i32 32, i32 %2
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 4
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 4
   %notmask.i = shl nsw i32 -1, %.
   %8 = xor i32 %notmask.i, -1
@@ -297,13 +297,13 @@ define zeroext i1 @pmix_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
   br label %20
 
 15:                                               ; preds = %5
-  %.sroa.1.0..sroa_idx28 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.1.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.1.0.copyload29 = load i32, ptr %.sroa.1.0..sroa_idx28, align 8
-  %.sroa.2.0..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.2.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.2.0.copyload31 = load i32, ptr %.sroa.2.0..sroa_idx30, align 4
-  %.sroa.133.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.133.0.copyload = load i32, ptr %.sroa.133.0..sroa_idx, align 8
-  %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.234.0.copyload = load i32, ptr %.sroa.234.0..sroa_idx, align 4
   %16 = and i32 %2, -65
   %.1 = icmp eq i32 %16, 0
@@ -356,13 +356,13 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr nocapture noundef read
   br i1 %.not10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   br label %12
 
 9:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds %struct.private_ipv4_t, ptr %4, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !6
@@ -370,7 +370,7 @@ define noundef zeroext i1 @pmix_net_addr_isipv4public(ptr nocapture noundef read
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %13 = phi i32 [ %6, %.lr.ph ], [ %11, %9 ]
-  %14 = getelementptr inbounds %struct.private_ipv4_t, ptr %4, i64 %indvars.iv, i32 1
+  %14 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv, i32 1
   %15 = load i32, ptr %14, align 4
   %notmask.i = shl nsw i32 -1, %15
   %16 = xor i32 %notmask.i, -1
@@ -473,7 +473,7 @@ define range(i32 -1, 65536) i32 @pmix_net_get_port(ptr nocapture noundef readonl
   ]
 
 .sink.split:                                      ; preds = %1, %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = tail call zeroext i16 @ntohs(i16 noundef zeroext %4) #15
   %6 = zext i16 %5 to i32

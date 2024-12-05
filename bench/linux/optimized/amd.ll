@@ -334,7 +334,7 @@ declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp ult i32 %3, -2147483640
   br i1 %4, label %25, label %5
@@ -345,7 +345,7 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
   %8 = trunc i32 %7 to i16
   %9 = and i16 %8, 255
   %10 = add nuw nsw i16 %9, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i16 %10, ptr %11, align 8
   %12 = lshr i32 %7, 12
   %13 = and i32 %12, 15
@@ -366,7 +366,7 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
 .loopexit:                                        ; preds = %17, %5
   %22 = phi i32 [ %13, %5 ], [ %18, %17 ]
   %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %0, i64 30
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 %23, ptr %24, align 2
   br label %25
 
@@ -396,9 +396,9 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
 
 38:                                               ; preds = %33, %30
   %39 = trunc i64 %32 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 308
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 276
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 256
   %44 = icmp eq i32 %43, 0
@@ -476,7 +476,7 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
   br i1 %81, label %82, label %88
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %0, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %84 = load i8, ptr %83, align 2
   %85 = icmp ult i8 %84, 16
   br i1 %85, label %86, label %88
@@ -520,7 +520,7 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
   %108 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483617, i32 0) #12, !srcloc !21
   %109 = extractvalue { i32, i32, i32, i32 } %108, 1
   %110 = lshr i32 %109, 6
-  %111 = getelementptr inbounds i8, ptr %0, i64 29
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %112 = load i8, ptr %111, align 1
   %113 = trunc i32 %110 to i8
   %114 = and i8 %113, 63
@@ -559,7 +559,7 @@ define internal void @early_init_amd(ptr noundef %0) #2 align 16 {
   br i1 %129, label %130, label %158
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %0, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %132 = load i8, ptr %131, align 2
   %133 = add i8 %132, -16
   %134 = icmp ult i8 %133, 96
@@ -698,7 +698,7 @@ define internal void @bsp_init_amd(ptr noundef %0) #2 align 16 {
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 2
   %14 = icmp ugt i8 %13, 1
   br i1 %14, label %15, label %27
@@ -887,7 +887,7 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
   ]
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %108 = load i8, ptr %107, align 2
   switch i8 %108, label %123 [
     i8 80, label %109
@@ -1049,7 +1049,7 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
   br label %131
 
 111:                                              ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %0, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %113 = load i8, ptr %112, align 2
   switch i8 %113, label %116 [
     i8 32, label %114
@@ -1166,7 +1166,7 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
   br i1 %118, label %115, label %123
 
 119:                                              ; preds = %104
-  %120 = getelementptr inbounds i8, ptr %0, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %121 = load i8, ptr %120, align 2
   switch i8 %121, label %123 [
     i8 112, label %122
@@ -1249,7 +1249,7 @@ thread-pre-split1:                                ; preds = %75, %79, %100, %102
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #12, !srcloc !28
   %126 = load i8, ptr %0, align 8
   %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %0, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %129 = load i8, ptr %128, align 2
   %130 = zext i8 %129 to i32
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7, i32 noundef %127, i32 noundef %130) #12
@@ -1279,7 +1279,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = getelementptr i8, ptr %0, i64 112
   %11 = load volatile i64, ptr %10, align 8
   %12 = and i64 %11, 16
@@ -1294,10 +1294,10 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 16:                                               ; preds = %14, %8
   %17 = tail call i32 @__SCT__apic_call_read(i32 noundef 32) #12
   %18 = load ptr, ptr @apic, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 200
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(i32 noundef %17) #12
-  %22 = getelementptr inbounds i8, ptr %0, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %21, ptr %22, align 8
   %23 = load i8, ptr %0, align 8
   %24 = icmp ult i8 %23, 6
@@ -1333,7 +1333,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br label %37
 
 37:                                               ; preds = %35, %28
-  %38 = getelementptr inbounds i8, ptr %0, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %39 = load i8, ptr %38, align 2
   %40 = icmp ult i8 %39, 20
   br i1 %40, label %41, label %72
@@ -1366,13 +1366,13 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br label %52
 
 52:                                               ; preds = %51, %46
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 -1073672179, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %3, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 -1671815110, ptr %54, align 4
   %55 = call i32 @rdmsr_safe_regs(ptr noundef nonnull %3) #12
   %56 = load i32, ptr %3, align 16
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load i32, ptr %57, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #12
   %59 = icmp eq i32 %55, 0
@@ -1400,24 +1400,24 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 
 67:                                               ; preds = %66, %60
   store i32 %56, ptr %2, align 16
-  %68 = getelementptr inbounds i8, ptr %2, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1073672179, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %2, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %61, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 -1671815110, ptr %70, align 4
   %71 = call i32 @wrmsr_safe_regs(ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
   br label %72
 
 72:                                               ; preds = %67, %52, %41, %37
-  %73 = getelementptr inbounds i8, ptr %0, i64 152
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %74 = load i8, ptr %73, align 8
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %76, label %77
 
 76:                                               ; preds = %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(7) %73, ptr noundef nonnull align 1 dereferenceable(7) @.str.9, i64 7, i1 false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %73, ptr noundef nonnull align 1 dereferenceable(7) @.str.9, i64 7, i1 false) #12
   br label %77
 
 77:                                               ; preds = %76, %72
@@ -1433,7 +1433,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br i1 %83, label %84, label %177
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %86 = load i8, ptr %85, align 1
   %87 = icmp ugt i8 %86, 1
   br i1 %87, label %88, label %177
@@ -1457,7 +1457,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   %94 = tail call i32 @msr_clear_bit(i32 noundef -1073672150, i8 noundef zeroext 24) #12
   %95 = getelementptr i8, ptr %0, i64 124
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %95, i32 8, ptr elementtype(i8) %95) #12, !srcloc !25
-  %96 = getelementptr inbounds i8, ptr %0, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %97 = load i8, ptr %96, align 2
   %98 = icmp ugt i8 %97, 2
   br i1 %98, label %105, label %99
@@ -1467,7 +1467,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br i1 %100, label %101, label %177
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %0, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 0
   br i1 %104, label %177, label %105
@@ -1482,7 +1482,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br label %177
 
 108:                                              ; preds = %26
-  %109 = getelementptr inbounds i8, ptr %0, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %110 = load i8, ptr %109, align 2
   %111 = add i8 %110, -2
   %112 = icmp ult i8 %111, 30
@@ -1775,22 +1775,22 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 
 268:                                              ; preds = %266, %261, %258
   call void @cpu_detect_cache_sizes(ptr noundef %0) #12
-  %269 = getelementptr inbounds i8, ptr %0, i64 30
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %270 = load i8, ptr %269, align 2
   %271 = zext i8 %270 to i32
-  %272 = getelementptr inbounds i8, ptr %0, i64 220
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %273 = load i32, ptr %272, align 4
   %274 = shl nsw i32 -1, %271
   %275 = xor i32 %274, -1
   %276 = and i32 %273, %275
-  %277 = getelementptr inbounds i8, ptr %0, i64 236
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %276, ptr %277, align 4
   %278 = lshr i32 %273, %271
-  %279 = getelementptr inbounds i8, ptr %0, i64 224
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %278, ptr %279, align 8
-  %280 = getelementptr inbounds i8, ptr %0, i64 228
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %278, ptr %280, align 4
-  %281 = getelementptr inbounds i8, ptr %0, i64 248
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %278, ptr %281, align 8
   %282 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 64), align 8
   %283 = and i64 %282, 4194304
@@ -1809,7 +1809,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
 
 .thread:                                          ; preds = %285
   %292 = and i32 %287, 255
-  %293 = getelementptr inbounds i8, ptr %0, i64 232
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 %292, ptr %293, align 8
   br label %306
 
@@ -1825,7 +1825,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br i1 %299, label %300, label %306
 
 300:                                              ; preds = %296
-  %301 = getelementptr inbounds i8, ptr %0, i64 296
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %302 = load i16, ptr %301, align 8
   %303 = zext i16 %302 to i32
   %304 = udiv i32 %303, %298
@@ -1839,7 +1839,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br i1 %308, label %309, label %321
 
 309:                                              ; preds = %306
-  %310 = getelementptr inbounds i8, ptr %0, i64 296
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %311 = load i16, ptr %310, align 8
   %312 = icmp eq i16 %311, 0
   br i1 %312, label %319, label %313
@@ -1901,7 +1901,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br i1 %343, label %352, label %344
 
 344:                                              ; preds = %340
-  %345 = getelementptr inbounds i8, ptr %0, i64 296
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %346 = load i16, ptr %345, align 8
   %347 = zext i16 %346 to i32
   %348 = load i32, ptr @nodes_per_socket, align 4
@@ -2137,7 +2137,7 @@ define internal void @init_amd(ptr noundef %0) #2 align 16 {
   br i1 %485, label %492, label %486
 
 486:                                              ; preds = %483
-  %487 = getelementptr inbounds i8, ptr %0, i64 2
+  %487 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %488 = load i8, ptr %487, align 2
   %489 = icmp ugt i8 %488, 47
   br i1 %489, label %490, label %492
@@ -2182,7 +2182,7 @@ define internal void @cpu_detect_tlb_amd(ptr nocapture noundef readonly %0) #2 a
   br i1 %3, label %57, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %6, -2147483642
   br i1 %7, label %57, label %8
@@ -2241,7 +2241,7 @@ define internal void @cpu_detect_tlb_amd(ptr nocapture noundef readonly %0) #2 a
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %45 = load i8, ptr %44, align 2
   %46 = icmp ult i8 %45, 32
   br i1 %46, label %54, label %47

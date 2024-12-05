@@ -32,7 +32,7 @@ entry:
   store ptr %extlist, ptr %extlist.addr, align 8
   %0 = load i32, ptr %bcons, align 8
   %call = call i32 @X509V3_add_value_bool(ptr noundef nonnull @.str.3, i32 noundef %0, ptr noundef nonnull %extlist.addr) #4
-  %pathlen = getelementptr inbounds i8, ptr %bcons, i64 8
+  %pathlen = getelementptr inbounds nuw i8, ptr %bcons, i64 8
   %1 = load ptr, ptr %pathlen, align 8
   %call1 = call i32 @X509V3_add_value_int(ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %extlist.addr) #4
   %2 = load ptr, ptr %extlist.addr, align 8
@@ -52,7 +52,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp316, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %pathlen = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %pathlen = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -64,20 +64,20 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.017 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.017) #4
-  %name = getelementptr inbounds i8, ptr %call5, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 67
   br i1 %.not, label %sub_1, label %if.else
 
 sub_1:                                            ; preds = %for.body
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not18 = icmp eq i8 %3, 65
   br i1 %.not18, label %for.body.tail, label %if.else
 
 for.body.tail:                                    ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %if.then8, label %if.else
@@ -98,12 +98,12 @@ if.then15:                                        ; preds = %if.else
   br i1 %tobool17.not, label %err, label %for.inc
 
 if.else20:                                        ; preds = %if.else
-  %name.le = getelementptr inbounds i8, ptr %call5, i64 8
+  %name.le = getelementptr inbounds nuw i8, ptr %call5, i64 8
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 76, ptr noundef nonnull @__func__.v2i_BASIC_CONSTRAINTS) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 106, ptr noundef null) #4
   %7 = load ptr, ptr %name.le, align 8
-  %value = getelementptr inbounds i8, ptr %call5, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call5, i64 16
   %8 = load ptr, ptr %value, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.5, ptr noundef %7, ptr noundef nonnull @.str.6, ptr noundef %8) #4
   br label %err

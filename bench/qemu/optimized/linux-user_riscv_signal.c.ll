@@ -69,7 +69,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i64 noundef range(i64 -1, -15) %retval.0.i) #6
   br label %trace_user_setup_rt_frame.exit
@@ -85,23 +85,23 @@ trace_user_setup_rt_frame.exit:                   ; preds = %get_sigframe.exit, 
   br i1 %tobool.not, label %badframe, label %if.end
 
 if.end:                                           ; preds = %trace_user_setup_rt_frame.exit
-  %uc = getelementptr inbounds i8, ptr %call1, i64 128
-  %uc_stack.i = getelementptr inbounds i8, ptr %call1, i64 144
+  %uc = getelementptr inbounds nuw i8, ptr %call1, i64 128
+  %uc_stack.i = getelementptr inbounds nuw i8, ptr %call1, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %uc, i8 0, i64 16, i1 false)
   tail call void @target_save_altstack(ptr noundef nonnull %uc_stack.i, ptr noundef nonnull %env) #6
-  %uc_sigmask.i = getelementptr inbounds i8, ptr %call1, i64 168
+  %uc_sigmask.i = getelementptr inbounds nuw i8, ptr %call1, i64 168
   %8 = load i64, ptr %set, align 8
   store i64 %8, ptr %uc_sigmask.i, align 1
-  %uc_mcontext.i = getelementptr inbounds i8, ptr %call1, i64 304
-  %pc1.i.i = getelementptr inbounds i8, ptr %env, i64 4656
+  %uc_mcontext.i = getelementptr inbounds nuw i8, ptr %call1, i64 304
+  %pc1.i.i = getelementptr inbounds nuw i8, ptr %env, i64 4656
   %9 = load i64, ptr %pc1.i.i, align 16
   store i64 %9, ptr %uc_mcontext.i, align 1
-  %gpr.i.i = getelementptr inbounds i8, ptr %call1, i64 312
+  %gpr.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 312
   br label %do.body2.i.i
 
 for.cond7.preheader.i.i:                          ; preds = %do.body2.i.i
-  %fpr.i.i = getelementptr inbounds i8, ptr %call1, i64 560
-  %fpr13.i.i = getelementptr inbounds i8, ptr %env, i64 4680
+  %fpr.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 560
+  %fpr13.i.i = getelementptr inbounds nuw i8, ptr %env, i64 4680
   br label %do.body10.i.i
 
 do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.end
@@ -132,7 +132,7 @@ setup_ucontext.exit:                              ; preds = %do.body10.i.i
   %13 = load i64, ptr %val.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i.i)
   %conv.i.i = trunc i64 %13 to i32
-  %fcsr21.i.i = getelementptr inbounds i8, ptr %call1, i64 816
+  %fcsr21.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 816
   store i32 %conv.i.i, ptr %fcsr21.i.i, align 1
   call void @tswap_siginfo(ptr noundef nonnull %call1, ptr noundef %info) #6
   %14 = load i64, ptr %ka, align 8
@@ -204,7 +204,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %env, i64 noundef %0) #6
   br label %trace_user_do_sigreturn.exit
@@ -222,21 +222,21 @@ trace_user_do_sigreturn.exit:                     ; preds = %entry, %land.lhs.tr
 if.end:                                           ; preds = %trace_user_do_sigreturn.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %blocked.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %target_set.i)
-  %uc_sigmask.i = getelementptr inbounds i8, ptr %call, i64 168
+  %uc_sigmask.i = getelementptr inbounds nuw i8, ptr %call, i64 168
   %uc_sigmask.val.i = load i64, ptr %uc_sigmask.i, align 1
   store i64 %uc_sigmask.val.i, ptr %target_set.i, align 8
   call void @target_to_host_sigset_internal(ptr noundef nonnull %blocked.i, ptr noundef nonnull %target_set.i) #6
   call void @set_sigmask(ptr noundef nonnull %blocked.i) #6
-  %uc_mcontext.i = getelementptr inbounds i8, ptr %call, i64 304
+  %uc_mcontext.i = getelementptr inbounds nuw i8, ptr %call, i64 304
   %sc.val.i.i = load i64, ptr %uc_mcontext.i, align 1
-  %pc1.i.i = getelementptr inbounds i8, ptr %env, i64 4656
+  %pc1.i.i = getelementptr inbounds nuw i8, ptr %env, i64 4656
   store i64 %sc.val.i.i, ptr %pc1.i.i, align 16
-  %gpr.i.i = getelementptr inbounds i8, ptr %call, i64 312
+  %gpr.i.i = getelementptr inbounds nuw i8, ptr %call, i64 312
   br label %do.body2.i.i
 
 for.cond8.preheader.i.i:                          ; preds = %do.body2.i.i
-  %fpr.i.i = getelementptr inbounds i8, ptr %call, i64 560
-  %fpr15.i.i = getelementptr inbounds i8, ptr %env, i64 4680
+  %fpr.i.i = getelementptr inbounds nuw i8, ptr %call, i64 560
+  %fpr15.i.i = getelementptr inbounds nuw i8, ptr %env, i64 4680
   br label %do.body11.i.i
 
 do.body2.i.i:                                     ; preds = %do.body2.i.i, %if.end
@@ -261,13 +261,13 @@ do.body11.i.i:                                    ; preds = %do.body11.i.i, %for
   br i1 %exitcond21.not.i.i, label %restore_ucontext.exit, label %do.body11.i.i, !llvm.loop !9
 
 restore_ucontext.exit:                            ; preds = %do.body11.i.i
-  %fcsr23.i.i = getelementptr inbounds i8, ptr %call, i64 816
+  %fcsr23.i.i = getelementptr inbounds nuw i8, ptr %call, i64 816
   %fcsr23.val.i.i = load i32, ptr %fcsr23.i.i, align 1
   %conv.i.i = zext i32 %fcsr23.val.i.i to i64
   %call.i.i.i = call i32 @riscv_csrrw(ptr noundef nonnull %env, i32 noundef 3, ptr noundef null, i64 noundef range(i64 0, 4294967296) %conv.i.i, i64 noundef -1) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %blocked.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %target_set.i)
-  %uc_stack = getelementptr inbounds i8, ptr %call, i64 144
+  %uc_stack = getelementptr inbounds nuw i8, ptr %call, i64 144
   %call2 = call i64 @target_restore_altstack(ptr noundef nonnull %uc_stack, ptr noundef nonnull %env) #6
   br label %return
 

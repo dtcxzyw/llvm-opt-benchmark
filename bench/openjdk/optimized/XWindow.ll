@@ -57,7 +57,7 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv17 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv17, 1
-  %8 = getelementptr inbounds [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 8
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -68,7 +68,7 @@ define hidden i64 @awt_getX11KeySym(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ @keymapTable, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %12 = load i64, ptr %11, align 8
   br label %.loopexit
 
@@ -110,7 +110,7 @@ define hidden i64 @keycodeToKeysym(ptr noundef %0, i8 noundef zeroext %1, i32 no
 
 20:                                               ; preds = %17
   %21 = zext nneg i32 %2 to i64
-  %22 = getelementptr inbounds i64, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %21
   %23 = load i64, ptr %22, align 8
   br label %.sink.split
 
@@ -185,20 +185,20 @@ define i32 @Java_sun_awt_X11_XWindow_getAWTKeyCodeForKeySym(ptr nocapture nounde
   br i1 %.not1620.i, label %keysymToAWTKeyCode.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @keymapTable, i64 8), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @keymapTable, i64 8), align 8
   %11 = icmp eq i64 %10, %4
   br i1 %11, label %keysymToAWTKeyCode.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i1 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i1, 1
-  %12 = getelementptr inbounds [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
   %13 = load i32, ptr %12, align 8
   %.not16.i = icmp eq i32 %13, 0
   br i1 %.not16.i, label %keysymToAWTKeyCode.exit, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %4
   br i1 %16, label %keysymToAWTKeyCode.exit, label %.lr.ph, !llvm.loop !8
@@ -221,14 +221,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XWindow_x11inputMethodLookupS
   %5 = alloca i64, align 8
   %6 = alloca [2 x i64], align 16
   store i64 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %7, align 8
   %8 = inttoptr i64 %2 to ptr
   %9 = call signext i8 @awt_x11inputmethod_lookupString(ptr noundef %8, ptr noundef nonnull %5) #6
   %10 = load i64, ptr %5, align 8
   store i64 %10, ptr %6, align 16
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1696
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1696
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %6) #6
   %.not = icmp ne i8 %9, 0
@@ -240,7 +240,7 @@ declare signext i8 @awt_x11inputmethod_lookupString(ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define hidden void @syncTopLevelPos(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %5
 
 5:                                                ; preds = %10, %3
@@ -274,16 +274,16 @@ define void @Java_sun_awt_X11_XWindow_setSizeHints(ptr nocapture noundef readnon
   %8 = tail call ptr @XAllocSizeHints() #6
   store i64 13, ptr %8, align 8
   %9 = trunc i64 %3 to i32
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %9, ptr %10, align 8
   %11 = trunc i64 %4 to i32
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %11, ptr %12, align 4
   %13 = trunc i64 %5 to i32
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %13, ptr %14, align 8
   %15 = trunc i64 %6 to i32
-  %16 = getelementptr inbounds i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %15, ptr %16, align 4
   %17 = load ptr, ptr @awt_display, align 8
   tail call void @XSetWMNormalHints(ptr noundef %17, i64 noundef %2, ptr noundef nonnull %8) #6
@@ -298,7 +298,7 @@ declare void @XSetWMNormalHints(ptr noundef, i64 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_X11_XWindow_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
   store ptr %6, ptr @windowID, align 8
@@ -307,7 +307,7 @@ define void @Java_sun_awt_X11_XWindow_initIDs(ptr noundef %0, ptr noundef %1) lo
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #6
   store ptr %12, ptr @targetID, align 8
@@ -316,7 +316,7 @@ define void @Java_sun_awt_X11_XWindow_initIDs(ptr noundef %0, ptr noundef %1) lo
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #6
   store ptr %18, ptr @graphicsConfigID, align 8
@@ -325,7 +325,7 @@ define void @Java_sun_awt_X11_XWindow_initIDs(ptr noundef %0, ptr noundef %1) lo
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #6
   store ptr %24, ptr @drawStateID, align 8
@@ -389,7 +389,7 @@ define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr nocapture nounde
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i2 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i2, 1
-  %10 = getelementptr inbounds [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
+  %10 = getelementptr inbounds nuw [264 x %struct.KEYMAP_ENTRY], ptr @keymapTable, i64 0, i64 %indvars.iv.next.i
   %11 = load i32, ptr %10, align 8
   %.not9.i = icmp eq i32 %11, 0
   br i1 %.not9.i, label %awt_getX11KeySym.exit, label %.lr.ph.i, !llvm.loop !6
@@ -400,7 +400,7 @@ define i32 @Java_sun_awt_X11_XWindow_getKeySymForAWTKeyCode(ptr nocapture nounde
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ @keymapTable, %.lr.ph.i.preheader ], [ %10, %.lr.ph.i ]
-  %13 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
   br label %awt_getX11KeySym.exit
@@ -445,7 +445,7 @@ define internal fastcc signext range(i8 0, 2) i8 @keyboardHasKanaLockKey() unnam
   %.014 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %6 ]
   %.0813 = phi i32 [ %27, %.lr.ph ], [ 0, %6 ]
   %.01012 = phi ptr [ %22, %.lr.ph ], [ %14, %6 ]
-  %22 = getelementptr inbounds i8, ptr %.01012, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01012, i64 8
   %23 = load i64, ptr %.01012, align 8
   %24 = and i64 %23, 65280
   %25 = icmp eq i64 %24, 1024

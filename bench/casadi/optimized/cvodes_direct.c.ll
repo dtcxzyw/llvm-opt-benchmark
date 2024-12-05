@@ -44,7 +44,7 @@ define range(i32 -2, 1) i32 @CVDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) 
   br label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -55,12 +55,12 @@ define range(i32 -2, 1) i32 @CVDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1) 
 
 10:                                               ; preds = %5
   %.not = icmp eq ptr %1, null
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
   store i32 0, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %1, ptr %13, align 8
   br label %15
 
@@ -85,7 +85,7 @@ define range(i32 -2, 1) i32 @CVDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) l
   br label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -96,12 +96,12 @@ define range(i32 -2, 1) i32 @CVDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) l
 
 10:                                               ; preds = %5
   %.not = icmp eq ptr %1, null
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
   store i32 0, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %1, ptr %13, align 8
   br label %15
 
@@ -124,7 +124,7 @@ define range(i32 -2, 1) i32 @CVDlsGetWorkSpace(ptr noundef %0, ptr nocapture nou
   br label %34
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1696
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -141,7 +141,7 @@ define range(i32 -2, 1) i32 @CVDlsGetWorkSpace(ptr noundef %0, ptr nocapture nou
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = shl nsw i64 %15, 1
   %17 = mul nsw i64 %16, %15
@@ -151,13 +151,13 @@ define range(i32 -2, 1) i32 @CVDlsGetWorkSpace(ptr noundef %0, ptr nocapture nou
   br label %34
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = shl nsw i64 %27, 1
   %29 = add i64 %23, 2
@@ -184,7 +184,7 @@ define range(i32 -2, 1) i32 @CVDlsGetNumJacEvals(ptr noundef %0, ptr nocapture n
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -194,7 +194,7 @@ define range(i32 -2, 1) i32 @CVDlsGetNumJacEvals(ptr noundef %0, ptr nocapture n
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -214,7 +214,7 @@ define range(i32 -2, 1) i32 @CVDlsGetNumRhsEvals(ptr noundef %0, ptr nocapture n
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -224,7 +224,7 @@ define range(i32 -2, 1) i32 @CVDlsGetNumRhsEvals(ptr noundef %0, ptr nocapture n
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -296,7 +296,7 @@ define range(i32 -2, 1) i32 @CVDlsGetLastFlag(ptr noundef %0, ptr nocapture noun
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -306,7 +306,7 @@ define range(i32 -2, 1) i32 @CVDlsGetLastFlag(ptr noundef %0, ptr nocapture noun
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -318,10 +318,10 @@ define range(i32 -2, 1) i32 @CVDlsGetLastFlag(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @cvDlsDenseDQJac(i64 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %5, i64 1696
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1696
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @N_VGetArrayPointer(ptr noundef %7) #6
-  %13 = getelementptr inbounds i8, ptr %5, i64 424
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 424
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @N_VGetArrayPointer(ptr noundef %14) #6
   %16 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #6
@@ -333,7 +333,7 @@ define i32 @cvDlsDenseDQJac(i64 noundef %0, double noundef %1, ptr noundef %2, p
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %5, i64 944
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 944
   %24 = load double, ptr %23, align 8
   %25 = tail call double @SUNRabs(double noundef %24) #6
   %26 = fmul double %25, 1.000000e+03
@@ -350,23 +350,23 @@ define i32 @cvDlsDenseDQJac(i64 noundef %0, double noundef %1, ptr noundef %2, p
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %4, i64 72
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
-  %38 = getelementptr inbounds i8, ptr %11, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 120
   br label %39
 
 39:                                               ; preds = %.lr.ph, %63
   %.062 = phi i64 [ 0, %.lr.ph ], [ %69, %63 ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %.062
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.062
   %42 = load ptr, ptr %41, align 8
   tail call void @N_VSetArrayPointer(ptr noundef %42, ptr noundef %7) #6
-  %43 = getelementptr inbounds double, ptr %16, i64 %.062
+  %43 = getelementptr inbounds nuw double, ptr %16, i64 %.062
   %44 = load double, ptr %43, align 8
   %45 = tail call double @SUNRabs(double noundef %44) #6
   %46 = fmul double %18, %45
-  %47 = getelementptr inbounds double, ptr %15, i64 %.062
+  %47 = getelementptr inbounds nuw double, ptr %15, i64 %.062
   %48 = load double, ptr %47, align 8
   %49 = fdiv double %33, %48
   %50 = fcmp ogt double %46, %49
@@ -398,7 +398,7 @@ define i32 @cvDlsDenseDQJac(i64 noundef %0, double noundef %1, ptr noundef %2, p
   tail call void @N_VLinearSum(double noundef %64, ptr noundef %6, double noundef %65, ptr noundef %3, ptr noundef %7) #6
   %66 = tail call ptr @N_VGetArrayPointer(ptr noundef %7) #6
   %67 = load ptr, ptr %35, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %.062
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.062
   store ptr %66, ptr %68, align 8
   %69 = add nuw nsw i64 %.062, 1
   %exitcond.not = icmp eq i64 %69, %0
@@ -424,9 +424,9 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef readnone %10) local_unnamed_addr #0 {
-  %12 = getelementptr inbounds i8, ptr %7, i64 1696
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 1696
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 424
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @N_VGetArrayPointer(ptr noundef %15) #6
   %17 = tail call ptr @N_VGetArrayPointer(ptr noundef %5) #6
@@ -442,7 +442,7 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
   br i1 %25, label %26, label %36
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds i8, ptr %7, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 944
   %28 = load double, ptr %27, align 8
   %29 = tail call double @SUNRabs(double noundef %28) #6
   %30 = fmul double %29, 1.000000e+03
@@ -458,16 +458,16 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
   %38 = add i64 %1, 1
   %39 = add i64 %38, %2
   %40 = tail call i64 @llvm.smin.i64(i64 %39, i64 %0)
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not125 = icmp slt i64 %40, 1
   br i1 %.not125, label %._crit_edge129, label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %7, i64 984
-  %43 = getelementptr inbounds i8, ptr %7, i64 16
-  %44 = getelementptr inbounds i8, ptr %13, i64 120
-  %45 = getelementptr inbounds i8, ptr %6, i64 72
-  %46 = getelementptr inbounds i8, ptr %6, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 984
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %47 = add nsw i64 %0, -1
   br label %.lr.ph.preheader
 
@@ -552,9 +552,9 @@ define i32 @cvDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, doubl
 
 .lr.ph120:                                        ; preds = %92, %.lr.ph120
   %.0103118 = phi i64 [ %106, %.lr.ph120 ], [ %96, %92 ]
-  %98 = getelementptr inbounds double, ptr %18, i64 %.0103118
+  %98 = getelementptr inbounds nuw double, ptr %18, i64 %.0103118
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds double, ptr %17, i64 %.0103118
+  %100 = getelementptr inbounds nuw double, ptr %17, i64 %.0103118
   %101 = load double, ptr %100, align 8
   %102 = fsub double %99, %101
   %103 = fmul double %94, %102
@@ -592,7 +592,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 2200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -602,9 +602,9 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
@@ -614,7 +614,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
@@ -622,13 +622,13 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -638,7 +638,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %2, ptr %29, align 8
   %.not29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %23, null
@@ -652,7 +652,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %23, i64 1696
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
@@ -662,9 +662,9 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr @cvDlsDenseJacBWrapper, ptr %40, align 8
   br label %CVDlsSetDenseJacFn.exit
 
@@ -676,7 +676,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %23, i64 1696
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
@@ -686,7 +686,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnB(ptr noundef %0, i32 noundef %
   br label %CVDlsSetDenseJacFn.exit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 1, ptr %49, align 8
   br label %CVDlsSetDenseJacFn.exit
 
@@ -697,15 +697,15 @@ CVDlsSetDenseJacFn.exit:                          ; preds = %48, %47, %42, %38, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvDlsDenseJacBWrapper(i64 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %5, i64 2192
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2192
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 480
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 480
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %17(ptr noundef %5, double noundef %1, ptr noundef %19, ptr noundef null) #6
   %.not = icmp eq i32 %20, 0
@@ -716,10 +716,10 @@ define internal i32 @cvDlsDenseJacBWrapper(i64 noundef %0, double noundef %1, pt
   br label %29
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %24(i64 noundef %0, double noundef %1, ptr noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %27, ptr noundef %6, ptr noundef %7, ptr noundef %8) #6
   br label %29
@@ -739,7 +739,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 2200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -749,9 +749,9 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
@@ -761,7 +761,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
@@ -769,13 +769,13 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -785,7 +785,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %25, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %2, ptr %29, align 8
   %.not29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %23, null
@@ -799,7 +799,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %23, i64 1696
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
@@ -809,9 +809,9 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr @cvDlsDenseJacBSWrapper, ptr %40, align 8
   br label %CVDlsSetDenseJacFn.exit
 
@@ -823,7 +823,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %23, i64 1696
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
@@ -833,7 +833,7 @@ define range(i32 -102, 1) i32 @CVDlsSetDenseJacFnBS(ptr noundef %0, i32 noundef 
   br label %CVDlsSetDenseJacFn.exit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 1, ptr %49, align 8
   br label %CVDlsSetDenseJacFn.exit
 
@@ -844,23 +844,23 @@ CVDlsSetDenseJacFn.exit:                          ; preds = %48, %47, %42, %38, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvDlsDenseJacBSWrapper(i64 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %5, i64 2192
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2192
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 164
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 164
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 0
-  %18 = getelementptr inbounds i8, ptr %11, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 480
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 480
   %21 = load ptr, ptr %20, align 8
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %11, i64 488
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 488
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -875,13 +875,13 @@ define internal i32 @cvDlsDenseJacBSWrapper(i64 noundef %0, double noundef %1, p
   br label %38
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %15, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %11, i64 480
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 480
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %11, i64 488
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 488
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 %30(i64 noundef %0, double noundef %1, ptr noundef %32, ptr noundef %34, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %36, ptr noundef %6, ptr noundef %7, ptr noundef %8) #6
   br label %38
@@ -901,7 +901,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 2200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -911,9 +911,9 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
@@ -923,7 +923,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
@@ -931,13 +931,13 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -947,7 +947,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %25, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %2, ptr %29, align 8
   %.not29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %23, null
@@ -961,7 +961,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %23, i64 1696
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
@@ -971,9 +971,9 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store ptr @cvDlsBandJacBWrapper, ptr %40, align 8
   br label %CVDlsSetBandJacFn.exit
 
@@ -985,7 +985,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %23, i64 1696
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
@@ -995,7 +995,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnB(ptr noundef %0, i32 noundef %1
   br label %CVDlsSetBandJacFn.exit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 1, ptr %49, align 8
   br label %CVDlsSetBandJacFn.exit
 
@@ -1006,15 +1006,15 @@ CVDlsSetBandJacFn.exit:                           ; preds = %48, %47, %42, %38, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvDlsBandJacBWrapper(i64 noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
-  %12 = getelementptr inbounds i8, ptr %7, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 2192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 480
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 480
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %19(ptr noundef %7, double noundef %3, ptr noundef %21, ptr noundef null) #6
   %.not = icmp eq i32 %22, 0
@@ -1025,10 +1025,10 @@ define internal i32 @cvDlsBandJacBWrapper(i64 noundef %0, i64 noundef %1, i64 no
   br label %31
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i8, ptr %15, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %26(i64 noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3, ptr noundef %27, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %29, ptr noundef %8, ptr noundef %9, ptr noundef %10) #6
   br label %31
@@ -1048,7 +1048,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 2200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
@@ -1058,9 +1058,9 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
@@ -1070,7 +1070,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
@@ -1078,13 +1078,13 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !10, !noundef !10
   %19 = load i32, ptr %.024.sink, align 8
   %20 = icmp eq i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %.024.sink, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.024.sink, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.024.sink, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -1094,7 +1094,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %25, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %2, ptr %29, align 8
   %.not29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %23, null
@@ -1108,7 +1108,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %23, i64 1696
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
@@ -1118,9 +1118,9 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store ptr @cvDlsBandJacBSWrapper, ptr %40, align 8
   br label %CVDlsSetBandJacFn.exit
 
@@ -1132,7 +1132,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %23, i64 1696
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 1696
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
@@ -1142,7 +1142,7 @@ define range(i32 -102, 1) i32 @CVDlsSetBandJacFnBS(ptr noundef %0, i32 noundef %
   br label %CVDlsSetBandJacFn.exit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 1, ptr %49, align 8
   br label %CVDlsSetBandJacFn.exit
 
@@ -1153,23 +1153,23 @@ CVDlsSetBandJacFn.exit:                           ; preds = %48, %47, %42, %38, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvDlsBandJacBSWrapper(i64 noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #0 {
-  %12 = getelementptr inbounds i8, ptr %7, i64 2192
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 2192
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 164
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 164
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %13, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 480
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 480
   %23 = load ptr, ptr %22, align 8
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %13, i64 488
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 488
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -1184,13 +1184,13 @@ define internal i32 @cvDlsBandJacBSWrapper(i64 noundef %0, i64 noundef %1, i64 n
   br label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %17, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %13, i64 480
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 480
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 488
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 488
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %15, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 %32(i64 noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3, ptr noundef %34, ptr noundef %36, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %38, ptr noundef %8, ptr noundef %9, ptr noundef %10) #6
   br label %40

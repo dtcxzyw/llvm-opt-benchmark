@@ -14631,7 +14631,7 @@ define weak_odr noundef ptr @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE7getListEPNS_8FunctionE(ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
@@ -14666,7 +14666,7 @@ define weak_odr void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE13addNo
   br i1 %.not9, label %11, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -14693,7 +14693,7 @@ define weak_odr void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE18remov
   br i1 %.not6, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -14718,10 +14718,10 @@ define weak_odr void @_ZN4llvm21SymbolTableListTraitsINS_10BasicBlockEJEE21trans
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %.fr50 = freeze ptr %9
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %.fr = freeze ptr %11
   %.not = icmp eq ptr %.fr50, %.fr
@@ -14879,7 +14879,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #27
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -15499,7 +15499,7 @@ _ZL23getMemoryParamAllocTypeN4llvm12AttributeSetE.exit: ; preds = %17
   %.not.i7 = sub i64 0, %27
   %30 = and i64 %29, %.not.i7
   store i64 %30, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %23, ptr %.sroa.2.0..sroa_idx, align 8
   %31 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #27
   br label %32
@@ -16385,7 +16385,7 @@ define dso_local noundef ptr @_ZN4llvm8Function21createWithDefaultAttrEPNS_12Fun
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %11, ptr noundef nonnull %12, i64 noundef 8) #27
   %13 = call noundef i32 @_ZNK4llvm6Module10getUwtableEv(ptr noundef nonnull align 8 dereferenceable(857) %4) #27
   %.not = icmp eq i32 %13, 0
@@ -16721,7 +16721,7 @@ define dso_local void @_ZN4llvm8Function16removeFromParentEv(ptr noundef nonnull
   br i1 %.not6.i.i.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE6removeERKNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE6removeERKNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit, label %10
@@ -16732,8 +16732,8 @@ define dso_local void @_ZN4llvm8Function16removeFromParentEv(ptr noundef nonnull
   br label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE6removeERKNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit
 
 _ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE6removeERKNS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit: ; preds = %1, %7, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %13, align 8
   store ptr %14, ptr %15, align 8
@@ -16755,7 +16755,7 @@ define dso_local void @_ZN4llvm8Function15eraseFromParentEv(ptr noundef nonnull 
   br i1 %.not6.i.i.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit, label %10
@@ -16766,8 +16766,8 @@ define dso_local void @_ZN4llvm8Function15eraseFromParentEv(ptr noundef nonnull 
   br label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit
 
 _ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit: ; preds = %1, %7, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %12, align 8
   %15 = load ptr, ptr %13, align 8
   store ptr %14, ptr %15, align 8
@@ -16815,12 +16815,12 @@ define dso_local ptr @_ZN4llvm8Function5eraseENS_14ilist_iteratorINS_12ilist_det
   br i1 %.not4.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_10BasicBlockEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEESB_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %5
 
 5:                                                ; preds = %_ZN4llvm11iplist_implINS_12simple_ilistINS_10BasicBlockEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit.i, %.lr.ph.i
   %.sroa.03.05.i = phi ptr [ %1, %.lr.ph.i ], [ %7, %_ZN4llvm11iplist_implINS_12simple_ilistINS_10BasicBlockEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit.i ]
-  %6 = getelementptr inbounds i8, ptr %.sroa.03.05.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %.sroa.03.05.i, null
   %9 = getelementptr inbounds i8, ptr %.sroa.03.05.i, i64 -24
@@ -16902,7 +16902,7 @@ _ZL16computeAddrSpacejPN4llvm6ModuleE.exit:       ; preds = %6, %8, %9
   %27 = load i32, ptr %17, align 8
   %28 = and i32 %27, 131071
   store i32 %28, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %30, ptr %30, align 8
@@ -16934,7 +16934,7 @@ _ZL16computeAddrSpacejPN4llvm6ModuleE.exit:       ; preds = %6, %8, %9
 
 48:                                               ; preds = %_ZL16computeAddrSpacejPN4llvm6ModuleE.exit
   %49 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31, !noalias !16
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 128), align 8, !noalias !16
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 128), align 8, !noalias !16
   tail call void @_ZN4llvm13StringMapImplC2Ejj(ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 0, i32 noundef 16) #27, !noalias !16
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 %50, ptr %51, align 8, !noalias !16
@@ -16973,7 +16973,7 @@ _ZNSt10unique_ptrIN4llvm16ValueSymbolTableESt14default_deleteIS1_EED2Ev.exit: ; 
   br i1 %.not9.i.i.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE9push_backEPS2_.exit, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %5, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %64 = load ptr, ptr %63, align 8
   %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE9push_backEPS2_.exit, label %65
@@ -16984,7 +16984,7 @@ _ZNSt10unique_ptrIN4llvm16ValueSymbolTableESt14default_deleteIS1_EED2Ev.exit: ; 
 
 _ZN4llvm11iplist_implINS_12simple_ilistINS_8FunctionEJEEENS_21SymbolTableListTraitsIS2_JEEEE9push_backEPS2_.exit: ; preds = %58, %62, %65
   %66 = load ptr, ptr %59, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %59, ptr %67, align 8
   store ptr %66, ptr %29, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -17038,373 +17038,373 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [20 x %"struct.std::pair"], align 16
-  %.sink4911.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4912 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4913 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4914 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4915 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4916 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4917 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4918 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4919 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4920 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4921 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4922 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4923 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4924 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4925 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep4926 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4927 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep4928 = getelementptr inbounds i8, ptr %3, i64 104
-  %.sink4911.sroa.gep4929 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4930 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4931 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4932 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4933 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4934 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4935 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4936 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4937 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4938 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4939 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4940 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4941 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4942 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4943 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4944 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4945 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4946 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4947 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4948 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4949 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4950 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4951 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4952 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4953 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4954 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4955 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4956 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4957 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4958 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4959 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4960 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4961 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4962 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4963 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4964 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4965 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4966 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4967 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4968 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4969 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4970 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4971 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4972 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4973 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep4974 = getelementptr inbounds i8, ptr %3, i64 104
-  %.sink4911.sroa.gep4975 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4976 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4977 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4978 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep4979 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4980 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4981 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4982 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4983 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4984 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4985 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4986 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4987 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4988 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4989 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep4990 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4991 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4992 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4993 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4994 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4995 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep4996 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4997 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep4998 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep4999 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5000 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5001 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5002 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5003 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5004 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5005 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5006 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5007 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5008 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5009 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5010 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5011 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5012 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5013 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5014 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5015 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5016 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5017 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5018 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5019 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5020 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5021 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5022 = getelementptr inbounds i8, ptr %3, i64 104
-  %.sink4911.sroa.gep5023 = getelementptr inbounds i8, ptr %3, i64 120
-  %.sink4911.sroa.gep5024 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep5025 = getelementptr inbounds i8, ptr %3, i64 104
-  %.sink4911.sroa.gep5026 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5027 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5028 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5029 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5030 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5031 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5032 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5033 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5034 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep5035 = getelementptr inbounds i8, ptr %3, i64 88
-  %.sink4911.sroa.gep5036 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5037 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5038 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5039 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5040 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5041 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5042 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5043 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5044 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5045 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5046 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5047 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5048 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5049 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5050 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5051 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5052 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5053 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5054 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5055 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5056 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5057 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5058 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5059 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5060 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5061 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5062 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5063 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5064 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5065 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5066 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5067 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5068 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5069 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5070 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5071 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5072 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5073 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5074 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5075 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5076 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5077 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5078 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5079 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5080 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5081 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5082 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5083 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5084 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5085 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5086 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5087 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5088 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5089 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5090 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5091 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5092 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5093 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5094 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5095 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5096 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5097 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5098 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5099 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5100 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5101 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5102 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5103 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5104 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5105 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5106 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5107 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5108 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5109 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5110 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5111 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5112 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5113 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5114 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5115 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5116 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5117 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5118 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5119 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5120 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5121 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5122 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5123 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5124 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5125 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5126 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5127 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5128 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5129 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5130 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5131 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5132 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5133 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5134 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5135 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5136 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5137 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5138 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5139 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5140 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5141 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5142 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5143 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5144 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5145 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5146 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5147 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5148 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5149 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5150 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5151 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5152 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5153 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5154 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5155 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5156 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5157 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5158 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5159 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5160 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5161 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5162 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5163 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5164 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5165 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5166 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5167 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5168 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5169 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5170 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5171 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5172 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5173 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5174 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5175 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5176 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5177 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5178 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5179 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5180 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5181 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5182 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5183 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5184 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5185 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5186 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5187 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5188 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5189 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5190 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5191 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5192 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5193 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5194 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5195 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5196 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5197 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5198 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5199 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5200 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5201 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5202 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5203 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5204 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5205 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5206 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5207 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5208 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5209 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5210 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5211 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5212 = getelementptr inbounds i8, ptr %3, i64 72
-  %.sink4911.sroa.gep5213 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5214 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5215 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5216 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5217 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5218 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5219 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5220 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5221 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5222 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5223 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5224 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5225 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5226 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5227 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5228 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5229 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5230 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5231 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5232 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5233 = getelementptr inbounds i8, ptr %3, i64 264
-  %.sink4911.sroa.gep5234 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5235 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5236 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5237 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5238 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5239 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5240 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5241 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5242 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5243 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5244 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5245 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5246 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5247 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5248 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink4911.sroa.gep5249 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5250 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5251 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5252 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5253 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5254 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5255 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5256 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5257 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5258 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5259 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5260 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5261 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5262 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5263 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5264 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5265 = getelementptr inbounds i8, ptr %3, i64 56
-  %.sink4911.sroa.gep5266 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5267 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5268 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5269 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5270 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink4911.sroa.gep5271 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink4911.sroa.gep5272 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink4911.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4912 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4913 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4914 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4915 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4916 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4917 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4918 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4919 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4920 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4921 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4922 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4923 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4924 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4925 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep4926 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4927 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep4928 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.sink4911.sroa.gep4929 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4930 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4931 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4932 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4933 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4934 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4935 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4936 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4937 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4938 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4939 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4940 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4941 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4942 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4943 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4944 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4945 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4946 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4947 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4948 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4949 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4950 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4951 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4952 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4953 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4954 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4955 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4956 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4957 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4958 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4959 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4960 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4961 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4962 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4963 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4964 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4965 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4966 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4967 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4968 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4969 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4970 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4971 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4972 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4973 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep4974 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.sink4911.sroa.gep4975 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4976 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4977 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4978 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep4979 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4980 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4981 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4982 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4983 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4984 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4985 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4986 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4987 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4988 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4989 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep4990 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4991 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4992 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4993 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4994 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4995 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep4996 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4997 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep4998 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep4999 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5000 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5001 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5002 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5003 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5004 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5005 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5006 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5007 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5008 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5009 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5010 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5011 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5012 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5013 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5014 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5015 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5016 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5017 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5018 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5019 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5020 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5021 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5022 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.sink4911.sroa.gep5023 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %.sink4911.sroa.gep5024 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep5025 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %.sink4911.sroa.gep5026 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5027 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5028 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5029 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5030 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5031 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5032 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5033 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5034 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep5035 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.sink4911.sroa.gep5036 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5037 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5038 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5039 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5040 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5041 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5042 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5043 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5044 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5045 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5046 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5047 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5048 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5049 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5050 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5051 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5052 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5053 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5054 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5055 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5056 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5057 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5058 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5059 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5060 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5061 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5062 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5063 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5064 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5065 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5066 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5067 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5068 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5069 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5070 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5071 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5072 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5073 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5074 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5075 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5076 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5077 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5078 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5079 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5080 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5081 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5082 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5083 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5084 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5085 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5086 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5087 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5088 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5089 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5090 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5091 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5092 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5093 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5094 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5095 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5096 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5097 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5098 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5099 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5100 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5101 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5102 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5103 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5104 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5105 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5106 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5107 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5108 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5109 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5110 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5111 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5112 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5113 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5114 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5115 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5116 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5117 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5118 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5119 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5120 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5121 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5122 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5123 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5124 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5125 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5126 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5127 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5128 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5129 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5130 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5131 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5132 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5133 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5134 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5135 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5136 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5137 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5138 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5139 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5140 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5141 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5142 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5143 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5144 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5145 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5146 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5147 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5148 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5149 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5150 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5151 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5152 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5153 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5154 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5155 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5156 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5157 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5158 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5159 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5160 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5161 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5162 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5163 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5164 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5165 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5166 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5167 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5168 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5169 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5170 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5171 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5172 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5173 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5174 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5175 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5176 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5177 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5178 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5179 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5180 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5181 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5182 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5183 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5184 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5185 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5186 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5187 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5188 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5189 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5190 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5191 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5192 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5193 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5194 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5195 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5196 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5197 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5198 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5199 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5200 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5201 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5202 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5203 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5204 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5205 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5206 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5207 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5208 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5209 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5210 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5211 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5212 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %.sink4911.sroa.gep5213 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5214 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5215 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5216 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5217 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5218 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5219 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5220 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5221 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5222 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5223 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5224 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5225 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5226 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5227 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5228 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5229 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5230 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5231 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5232 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5233 = getelementptr inbounds nuw i8, ptr %3, i64 264
+  %.sink4911.sroa.gep5234 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5235 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5236 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5237 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5238 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5239 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5240 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5241 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5242 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5243 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5244 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5245 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5246 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5247 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5248 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink4911.sroa.gep5249 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5250 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5251 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5252 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5253 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5254 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5255 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5256 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5257 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5258 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5259 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5260 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5261 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5262 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5263 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5264 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5265 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %.sink4911.sroa.gep5266 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5267 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5268 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5269 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5270 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink4911.sroa.gep5271 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink4911.sroa.gep5272 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %4
 
 4:                                                ; preds = %4, %2
   %.idx = phi i64 [ 0, %2 ], [ %.add, %4 ]
-  %.ptr = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   store i32 0, ptr %.ptr, align 16
   %5 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
   store ptr null, ptr %5, align 8
@@ -17419,7 +17419,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
 8:                                                ; preds = %7
   %9 = add i32 %1, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds [14277 x i16], ptr @_ZZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEjE25IntrinsicsToAttributesMap, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [14277 x i16], ptr @_ZZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEjE25IntrinsicsToAttributesMap, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2
   switch i16 %12, label %13 [
     i16 12, label %14
@@ -17802,7 +17802,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %18, ptr %19, align 8
   %20 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %21, align 16
   br label %.sink.split
 
@@ -17813,7 +17813,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %24, ptr %25, align 8
   %26 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %27, align 16
   br label %.sink.split
 
@@ -17825,12 +17825,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %30, ptr %31, align 8
   %32 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %33 = ptrtoint ptr %32 to i64
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %33, ptr %35, align 8
   %36 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %37 = getelementptr inbounds i8, ptr %3, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %37, align 16
   br label %.sink.split
 
@@ -17841,7 +17841,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %40, ptr %41, align 8
   %42 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %43, align 16
   br label %.sink.split
 
@@ -17852,7 +17852,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %46, ptr %47, align 8
   %48 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %49, align 16
   br label %.sink.split
 
@@ -17864,12 +17864,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %52, ptr %53, align 8
   %54 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %55 = ptrtoint ptr %54 to i64
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %56, align 16
-  %57 = getelementptr inbounds i8, ptr %3, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %55, ptr %57, align 8
   %58 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %59 = getelementptr inbounds i8, ptr %3, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %59, align 16
   br label %.sink.split
 
@@ -17880,7 +17880,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %62, ptr %63, align 8
   %64 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %65 = getelementptr inbounds i8, ptr %3, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %65, align 16
   br label %.sink.split
 
@@ -17892,12 +17892,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %68, ptr %69, align 8
   %70 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
   %71 = ptrtoint ptr %70 to i64
-  %72 = getelementptr inbounds i8, ptr %3, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %72, align 16
-  %73 = getelementptr inbounds i8, ptr %3, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %71, ptr %73, align 8
   %74 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %75 = getelementptr inbounds i8, ptr %3, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %75, align 16
   br label %.sink.split
 
@@ -17908,7 +17908,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %78, ptr %79, align 8
   %80 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %81 = getelementptr inbounds i8, ptr %3, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %81, align 16
   br label %.sink.split
 
@@ -17919,7 +17919,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %84, ptr %85, align 8
   %86 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %87 = getelementptr inbounds i8, ptr %3, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %87, align 16
   br label %.sink.split
 
@@ -17931,12 +17931,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %90, ptr %91, align 8
   %92 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %93 = ptrtoint ptr %92 to i64
-  %94 = getelementptr inbounds i8, ptr %3, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %3, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %93, ptr %95, align 8
   %96 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %97 = getelementptr inbounds i8, ptr %3, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %97, align 16
   br label %.sink.split
 
@@ -17948,12 +17948,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %100, ptr %101, align 8
   %102 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %103 = ptrtoint ptr %102 to i64
-  %104 = getelementptr inbounds i8, ptr %3, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %104, align 16
-  %105 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %103, ptr %105, align 8
   %106 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %107 = getelementptr inbounds i8, ptr %3, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %107, align 16
   br label %.sink.split
 
@@ -17965,18 +17965,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %110, ptr %111, align 8
   %112 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %113 = ptrtoint ptr %112 to i64
-  %114 = getelementptr inbounds i8, ptr %3, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %114, align 16
-  %115 = getelementptr inbounds i8, ptr %3, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %113, ptr %115, align 8
   %116 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %117 = ptrtoint ptr %116 to i64
-  %118 = getelementptr inbounds i8, ptr %3, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %118, align 16
-  %119 = getelementptr inbounds i8, ptr %3, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %117, ptr %119, align 8
   %120 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %121 = getelementptr inbounds i8, ptr %3, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %121, align 16
   br label %.sink.split
 
@@ -17988,30 +17988,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %124, ptr %125, align 8
   %126 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %127 = ptrtoint ptr %126 to i64
-  %128 = getelementptr inbounds i8, ptr %3, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %128, align 16
-  %129 = getelementptr inbounds i8, ptr %3, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %127, ptr %129, align 8
   %130 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %131 = ptrtoint ptr %130 to i64
-  %132 = getelementptr inbounds i8, ptr %3, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %132, align 16
-  %133 = getelementptr inbounds i8, ptr %3, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %131, ptr %133, align 8
   %134 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %135 = ptrtoint ptr %134 to i64
-  %136 = getelementptr inbounds i8, ptr %3, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %136, align 16
-  %137 = getelementptr inbounds i8, ptr %3, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %135, ptr %137, align 8
   %138 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %139 = ptrtoint ptr %138 to i64
-  %140 = getelementptr inbounds i8, ptr %3, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 6, ptr %140, align 16
-  %141 = getelementptr inbounds i8, ptr %3, i64 72
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %139, ptr %141, align 8
   %142 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %143 = getelementptr inbounds i8, ptr %3, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %143, align 16
   br label %.sink.split
 
@@ -18023,18 +18023,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %146, ptr %147, align 8
   %148 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %149 = ptrtoint ptr %148 to i64
-  %150 = getelementptr inbounds i8, ptr %3, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %150, align 16
-  %151 = getelementptr inbounds i8, ptr %3, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %149, ptr %151, align 8
   %152 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %153 = ptrtoint ptr %152 to i64
-  %154 = getelementptr inbounds i8, ptr %3, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %154, align 16
-  %155 = getelementptr inbounds i8, ptr %3, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %153, ptr %155, align 8
   %156 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %157 = getelementptr inbounds i8, ptr %3, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %157, align 16
   br label %.sink.split
 
@@ -18046,30 +18046,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %160, ptr %161, align 8
   %162 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %163 = ptrtoint ptr %162 to i64
-  %164 = getelementptr inbounds i8, ptr %3, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %164, align 16
-  %165 = getelementptr inbounds i8, ptr %3, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %163, ptr %165, align 8
   %166 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %167 = ptrtoint ptr %166 to i64
-  %168 = getelementptr inbounds i8, ptr %3, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %168, align 16
-  %169 = getelementptr inbounds i8, ptr %3, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %167, ptr %169, align 8
   %170 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %171 = ptrtoint ptr %170 to i64
-  %172 = getelementptr inbounds i8, ptr %3, i64 48
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %172, align 16
-  %173 = getelementptr inbounds i8, ptr %3, i64 56
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %171, ptr %173, align 8
   %174 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %175 = ptrtoint ptr %174 to i64
-  %176 = getelementptr inbounds i8, ptr %3, i64 64
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 5, ptr %176, align 16
-  %177 = getelementptr inbounds i8, ptr %3, i64 72
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %175, ptr %177, align 8
   %178 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %179 = getelementptr inbounds i8, ptr %3, i64 80
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %179, align 16
   br label %.sink.split
 
@@ -18081,36 +18081,36 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %182, ptr %183, align 8
   %184 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %185 = ptrtoint ptr %184 to i64
-  %186 = getelementptr inbounds i8, ptr %3, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %186, align 16
-  %187 = getelementptr inbounds i8, ptr %3, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %185, ptr %187, align 8
   %188 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %189 = ptrtoint ptr %188 to i64
-  %190 = getelementptr inbounds i8, ptr %3, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %190, align 16
-  %191 = getelementptr inbounds i8, ptr %3, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %189, ptr %191, align 8
   %192 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %193 = ptrtoint ptr %192 to i64
-  %194 = getelementptr inbounds i8, ptr %3, i64 48
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %194, align 16
-  %195 = getelementptr inbounds i8, ptr %3, i64 56
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %193, ptr %195, align 8
   %196 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %197 = ptrtoint ptr %196 to i64
-  %198 = getelementptr inbounds i8, ptr %3, i64 64
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 5, ptr %198, align 16
-  %199 = getelementptr inbounds i8, ptr %3, i64 72
+  %199 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %197, ptr %199, align 8
   %200 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %201 = ptrtoint ptr %200 to i64
-  %202 = getelementptr inbounds i8, ptr %3, i64 80
+  %202 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 6, ptr %202, align 16
-  %203 = getelementptr inbounds i8, ptr %3, i64 88
+  %203 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %201, ptr %203, align 8
   %204 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
-  %205 = getelementptr inbounds i8, ptr %3, i64 96
+  %205 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 -1, ptr %205, align 16
   br label %.sink.split
 
@@ -18126,7 +18126,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %210, ptr %211, align 8
   %212 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 32)
-  %213 = getelementptr inbounds i8, ptr %3, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %213, align 16
   br label %.sink.split
 
@@ -18137,7 +18137,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %216, ptr %217, align 8
   %218 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 32)
-  %219 = getelementptr inbounds i8, ptr %3, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %219, align 16
   br label %.sink.split
 
@@ -18168,7 +18168,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %231 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %230, ptr %231, align 8
   %232 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %233 = getelementptr inbounds i8, ptr %3, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %233, align 16
   br label %.sink.split
 
@@ -18180,12 +18180,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %236, ptr %237, align 8
   %238 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
   %239 = ptrtoint ptr %238 to i64
-  %240 = getelementptr inbounds i8, ptr %3, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %240, align 16
-  %241 = getelementptr inbounds i8, ptr %3, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %239, ptr %241, align 8
   %242 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %243 = getelementptr inbounds i8, ptr %3, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %243, align 16
   br label %.sink.split
 
@@ -18196,7 +18196,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %246, ptr %247, align 8
   %248 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %249 = getelementptr inbounds i8, ptr %3, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %249, align 16
   br label %.sink.split
 
@@ -18208,12 +18208,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %252, ptr %253, align 8
   %254 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %255 = ptrtoint ptr %254 to i64
-  %256 = getelementptr inbounds i8, ptr %3, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %256, align 16
-  %257 = getelementptr inbounds i8, ptr %3, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %255, ptr %257, align 8
   %258 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %259 = getelementptr inbounds i8, ptr %3, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %259, align 16
   br label %.sink.split
 
@@ -18225,12 +18225,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %262, ptr %263, align 8
   %264 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %265 = ptrtoint ptr %264 to i64
-  %266 = getelementptr inbounds i8, ptr %3, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %266, align 16
-  %267 = getelementptr inbounds i8, ptr %3, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %265, ptr %267, align 8
   %268 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %269 = getelementptr inbounds i8, ptr %3, i64 32
+  %269 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %269, align 16
   br label %.sink.split
 
@@ -18242,12 +18242,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %272, ptr %273, align 8
   %274 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %275 = ptrtoint ptr %274 to i64
-  %276 = getelementptr inbounds i8, ptr %3, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %276, align 16
-  %277 = getelementptr inbounds i8, ptr %3, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %275, ptr %277, align 8
   %278 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %279 = getelementptr inbounds i8, ptr %3, i64 32
+  %279 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %279, align 16
   br label %.sink.split
 
@@ -18258,7 +18258,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %283 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %282, ptr %283, align 8
   %284 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 10)
-  %285 = getelementptr inbounds i8, ptr %3, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %285, align 16
   br label %.sink.split
 
@@ -18274,7 +18274,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %290, ptr %291, align 8
   %292 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63)
-  %293 = getelementptr inbounds i8, ptr %3, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %293, align 16
   br label %.sink.split
 
@@ -18285,7 +18285,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %297 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %296, ptr %297, align 8
   %298 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63)
-  %299 = getelementptr inbounds i8, ptr %3, i64 16
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %299, align 16
   br label %.sink.split
 
@@ -18297,12 +18297,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %302, ptr %303, align 8
   %304 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %305 = ptrtoint ptr %304 to i64
-  %306 = getelementptr inbounds i8, ptr %3, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %306, align 16
-  %307 = getelementptr inbounds i8, ptr %3, i64 24
+  %307 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %305, ptr %307, align 8
   %308 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63)
-  %309 = getelementptr inbounds i8, ptr %3, i64 32
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %309, align 16
   br label %.sink.split
 
@@ -18318,7 +18318,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %315 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %314, ptr %315, align 8
   %316 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 11)
-  %317 = getelementptr inbounds i8, ptr %3, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %317, align 16
   br label %.sink.split
 
@@ -18329,7 +18329,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %321 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %320, ptr %321, align 8
   %322 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 11)
-  %323 = getelementptr inbounds i8, ptr %3, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %323, align 16
   br label %.sink.split
 
@@ -18345,7 +18345,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %329 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %328, ptr %329, align 8
   %330 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %331 = getelementptr inbounds i8, ptr %3, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %331, align 16
   br label %.sink.split
 
@@ -18356,7 +18356,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %335 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %334, ptr %335, align 8
   %336 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %337 = getelementptr inbounds i8, ptr %3, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %337, align 16
   br label %.sink.split
 
@@ -18367,7 +18367,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %341 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %340, ptr %341, align 8
   %342 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %343 = getelementptr inbounds i8, ptr %3, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %343, align 16
   br label %.sink.split
 
@@ -18379,12 +18379,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %346, ptr %347, align 8
   %348 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %349 = ptrtoint ptr %348 to i64
-  %350 = getelementptr inbounds i8, ptr %3, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %350, align 16
-  %351 = getelementptr inbounds i8, ptr %3, i64 24
+  %351 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %349, ptr %351, align 8
   %352 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %353 = getelementptr inbounds i8, ptr %3, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %353, align 16
   br label %.sink.split
 
@@ -18396,12 +18396,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %356, ptr %357, align 8
   %358 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %359 = ptrtoint ptr %358 to i64
-  %360 = getelementptr inbounds i8, ptr %3, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %360, align 16
-  %361 = getelementptr inbounds i8, ptr %3, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %359, ptr %361, align 8
   %362 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %363 = getelementptr inbounds i8, ptr %3, i64 32
+  %363 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %363, align 16
   br label %.sink.split
 
@@ -18412,7 +18412,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %367 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %366, ptr %367, align 8
   %368 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %369 = getelementptr inbounds i8, ptr %3, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %369, align 16
   br label %.sink.split
 
@@ -18423,7 +18423,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %373 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %372, ptr %373, align 8
   %374 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %375 = getelementptr inbounds i8, ptr %3, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %375, align 16
   br label %.sink.split
 
@@ -18435,12 +18435,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %378, ptr %379, align 8
   %380 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %381 = ptrtoint ptr %380 to i64
-  %382 = getelementptr inbounds i8, ptr %3, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %382, align 16
-  %383 = getelementptr inbounds i8, ptr %3, i64 24
+  %383 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %381, ptr %383, align 8
   %384 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %385 = getelementptr inbounds i8, ptr %3, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %385, align 16
   br label %.sink.split
 
@@ -18452,12 +18452,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %388, ptr %389, align 8
   %390 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %391 = ptrtoint ptr %390 to i64
-  %392 = getelementptr inbounds i8, ptr %3, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %392, align 16
-  %393 = getelementptr inbounds i8, ptr %3, i64 24
+  %393 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %391, ptr %393, align 8
   %394 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %395 = getelementptr inbounds i8, ptr %3, i64 32
+  %395 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %395, align 16
   br label %.sink.split
 
@@ -18469,12 +18469,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %398, ptr %399, align 8
   %400 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %401 = ptrtoint ptr %400 to i64
-  %402 = getelementptr inbounds i8, ptr %3, i64 16
+  %402 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %402, align 16
-  %403 = getelementptr inbounds i8, ptr %3, i64 24
+  %403 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %401, ptr %403, align 8
   %404 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %405 = getelementptr inbounds i8, ptr %3, i64 32
+  %405 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %405, align 16
   br label %.sink.split
 
@@ -18486,18 +18486,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %408, ptr %409, align 8
   %410 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %411 = ptrtoint ptr %410 to i64
-  %412 = getelementptr inbounds i8, ptr %3, i64 16
+  %412 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %412, align 16
-  %413 = getelementptr inbounds i8, ptr %3, i64 24
+  %413 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %411, ptr %413, align 8
   %414 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %415 = ptrtoint ptr %414 to i64
-  %416 = getelementptr inbounds i8, ptr %3, i64 32
+  %416 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %416, align 16
-  %417 = getelementptr inbounds i8, ptr %3, i64 40
+  %417 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %415, ptr %417, align 8
   %418 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
-  %419 = getelementptr inbounds i8, ptr %3, i64 48
+  %419 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %419, align 16
   br label %.sink.split
 
@@ -18513,7 +18513,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %425 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %424, ptr %425, align 8
   %426 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 90)
-  %427 = getelementptr inbounds i8, ptr %3, i64 16
+  %427 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %427, align 16
   br label %.sink.split
 
@@ -18524,7 +18524,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %431 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %430, ptr %431, align 8
   %432 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 89)
-  %433 = getelementptr inbounds i8, ptr %3, i64 16
+  %433 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %433, align 16
   br label %.sink.split
 
@@ -18545,7 +18545,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %441 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %440, ptr %441, align 8
   %442 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %443 = getelementptr inbounds i8, ptr %3, i64 16
+  %443 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %443, align 16
   br label %.sink.split
 
@@ -18557,12 +18557,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %446, ptr %447, align 8
   %448 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %449 = ptrtoint ptr %448 to i64
-  %450 = getelementptr inbounds i8, ptr %3, i64 16
+  %450 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %450, align 16
-  %451 = getelementptr inbounds i8, ptr %3, i64 24
+  %451 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %449, ptr %451, align 8
   %452 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %453 = getelementptr inbounds i8, ptr %3, i64 32
+  %453 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %453, align 16
   br label %.sink.split
 
@@ -18574,12 +18574,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %456, ptr %457, align 8
   %458 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %459 = ptrtoint ptr %458 to i64
-  %460 = getelementptr inbounds i8, ptr %3, i64 16
+  %460 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %460, align 16
-  %461 = getelementptr inbounds i8, ptr %3, i64 24
+  %461 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %459, ptr %461, align 8
   %462 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %463 = getelementptr inbounds i8, ptr %3, i64 32
+  %463 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %463, align 16
   br label %.sink.split
 
@@ -18591,12 +18591,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %466, ptr %467, align 8
   %468 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %469 = ptrtoint ptr %468 to i64
-  %470 = getelementptr inbounds i8, ptr %3, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %470, align 16
-  %471 = getelementptr inbounds i8, ptr %3, i64 24
+  %471 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %469, ptr %471, align 8
   %472 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %473 = getelementptr inbounds i8, ptr %3, i64 32
+  %473 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %473, align 16
   br label %.sink.split
 
@@ -18608,18 +18608,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %476, ptr %477, align 8
   %478 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %479 = ptrtoint ptr %478 to i64
-  %480 = getelementptr inbounds i8, ptr %3, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %480, align 16
-  %481 = getelementptr inbounds i8, ptr %3, i64 24
+  %481 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %479, ptr %481, align 8
   %482 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %483 = ptrtoint ptr %482 to i64
-  %484 = getelementptr inbounds i8, ptr %3, i64 32
+  %484 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %484, align 16
-  %485 = getelementptr inbounds i8, ptr %3, i64 40
+  %485 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %483, ptr %485, align 8
   %486 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %487 = getelementptr inbounds i8, ptr %3, i64 48
+  %487 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %487, align 16
   br label %.sink.split
 
@@ -18631,18 +18631,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %490, ptr %491, align 8
   %492 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %493 = ptrtoint ptr %492 to i64
-  %494 = getelementptr inbounds i8, ptr %3, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %494, align 16
-  %495 = getelementptr inbounds i8, ptr %3, i64 24
+  %495 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %493, ptr %495, align 8
   %496 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %497 = ptrtoint ptr %496 to i64
-  %498 = getelementptr inbounds i8, ptr %3, i64 32
+  %498 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %498, align 16
-  %499 = getelementptr inbounds i8, ptr %3, i64 40
+  %499 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %497, ptr %499, align 8
   %500 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %501 = getelementptr inbounds i8, ptr %3, i64 48
+  %501 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %501, align 16
   br label %.sink.split
 
@@ -18654,30 +18654,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %504, ptr %505, align 8
   %506 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %507 = ptrtoint ptr %506 to i64
-  %508 = getelementptr inbounds i8, ptr %3, i64 16
+  %508 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %508, align 16
-  %509 = getelementptr inbounds i8, ptr %3, i64 24
+  %509 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %507, ptr %509, align 8
   %510 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %511 = ptrtoint ptr %510 to i64
-  %512 = getelementptr inbounds i8, ptr %3, i64 32
+  %512 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %512, align 16
-  %513 = getelementptr inbounds i8, ptr %3, i64 40
+  %513 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %511, ptr %513, align 8
   %514 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %515 = ptrtoint ptr %514 to i64
-  %516 = getelementptr inbounds i8, ptr %3, i64 48
+  %516 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %516, align 16
-  %517 = getelementptr inbounds i8, ptr %3, i64 56
+  %517 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %515, ptr %517, align 8
   %518 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %519 = ptrtoint ptr %518 to i64
-  %520 = getelementptr inbounds i8, ptr %3, i64 64
+  %520 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 6, ptr %520, align 16
-  %521 = getelementptr inbounds i8, ptr %3, i64 72
+  %521 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %519, ptr %521, align 8
   %522 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %523 = getelementptr inbounds i8, ptr %3, i64 80
+  %523 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %523, align 16
   br label %.sink.split
 
@@ -18689,36 +18689,36 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %526, ptr %527, align 8
   %528 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %529 = ptrtoint ptr %528 to i64
-  %530 = getelementptr inbounds i8, ptr %3, i64 16
+  %530 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %530, align 16
-  %531 = getelementptr inbounds i8, ptr %3, i64 24
+  %531 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %529, ptr %531, align 8
   %532 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %533 = ptrtoint ptr %532 to i64
-  %534 = getelementptr inbounds i8, ptr %3, i64 32
+  %534 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %534, align 16
-  %535 = getelementptr inbounds i8, ptr %3, i64 40
+  %535 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %533, ptr %535, align 8
   %536 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %537 = ptrtoint ptr %536 to i64
-  %538 = getelementptr inbounds i8, ptr %3, i64 48
+  %538 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %538, align 16
-  %539 = getelementptr inbounds i8, ptr %3, i64 56
+  %539 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %537, ptr %539, align 8
   %540 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %541 = ptrtoint ptr %540 to i64
-  %542 = getelementptr inbounds i8, ptr %3, i64 64
+  %542 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 5, ptr %542, align 16
-  %543 = getelementptr inbounds i8, ptr %3, i64 72
+  %543 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %541, ptr %543, align 8
   %544 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %545 = ptrtoint ptr %544 to i64
-  %546 = getelementptr inbounds i8, ptr %3, i64 80
+  %546 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 6, ptr %546, align 16
-  %547 = getelementptr inbounds i8, ptr %3, i64 88
+  %547 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %545, ptr %547, align 8
   %548 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 55)
-  %549 = getelementptr inbounds i8, ptr %3, i64 96
+  %549 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 -1, ptr %549, align 16
   br label %.sink.split
 
@@ -18734,7 +18734,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %555 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %554, ptr %555, align 8
   %556 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 38)
-  %557 = getelementptr inbounds i8, ptr %3, i64 16
+  %557 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %557, align 16
   br label %.sink.split
 
@@ -18751,30 +18751,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %562, ptr %563, align 8
   %564 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %565 = ptrtoint ptr %564 to i64
-  %566 = getelementptr inbounds i8, ptr %3, i64 16
+  %566 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %566, align 16
-  %567 = getelementptr inbounds i8, ptr %3, i64 24
+  %567 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %565, ptr %567, align 8
   %568 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %569 = ptrtoint ptr %568 to i64
-  %570 = getelementptr inbounds i8, ptr %3, i64 32
+  %570 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %570, align 16
-  %571 = getelementptr inbounds i8, ptr %3, i64 40
+  %571 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %569, ptr %571, align 8
   %572 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %573 = ptrtoint ptr %572 to i64
-  %574 = getelementptr inbounds i8, ptr %3, i64 48
+  %574 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %574, align 16
-  %575 = getelementptr inbounds i8, ptr %3, i64 56
+  %575 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %573, ptr %575, align 8
   %576 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %577 = ptrtoint ptr %576 to i64
-  %578 = getelementptr inbounds i8, ptr %3, i64 64
+  %578 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 5, ptr %578, align 16
-  %579 = getelementptr inbounds i8, ptr %3, i64 72
+  %579 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %577, ptr %579, align 8
   %580 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 36)
-  %581 = getelementptr inbounds i8, ptr %3, i64 80
+  %581 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %581, align 16
   br label %.sink.split
 
@@ -18786,12 +18786,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %584, ptr %585, align 8
   %586 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
   %587 = ptrtoint ptr %586 to i64
-  %588 = getelementptr inbounds i8, ptr %3, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %588, align 16
-  %589 = getelementptr inbounds i8, ptr %3, i64 24
+  %589 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %587, ptr %589, align 8
   %590 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 87)
-  %591 = getelementptr inbounds i8, ptr %3, i64 32
+  %591 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %591, align 16
   br label %.sink.split
 
@@ -18817,7 +18817,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %601 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %600, ptr %601, align 8
   %602 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 84)
-  %603 = getelementptr inbounds i8, ptr %3, i64 16
+  %603 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %603, align 16
   br label %.sink.split
 
@@ -18828,7 +18828,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %607 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %606, ptr %607, align 8
   %608 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 84)
-  %609 = getelementptr inbounds i8, ptr %3, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %609, align 16
   br label %.sink.split
 
@@ -18850,18 +18850,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %616, ptr %617, align 8
   %618 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %619 = ptrtoint ptr %618 to i64
-  %620 = getelementptr inbounds i8, ptr %3, i64 16
+  %620 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %620, align 16
-  %621 = getelementptr inbounds i8, ptr %3, i64 24
+  %621 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %619, ptr %621, align 8
   %622 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %623 = ptrtoint ptr %622 to i64
-  %624 = getelementptr inbounds i8, ptr %3, i64 32
+  %624 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %624, align 16
-  %625 = getelementptr inbounds i8, ptr %3, i64 40
+  %625 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %623, ptr %625, align 8
   %626 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 57)
-  %627 = getelementptr inbounds i8, ptr %3, i64 48
+  %627 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %627, align 16
   br label %.sink.split
 
@@ -18878,18 +18878,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %632, ptr %633, align 8
   %634 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
   %635 = ptrtoint ptr %634 to i64
-  %636 = getelementptr inbounds i8, ptr %3, i64 16
+  %636 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %636, align 16
-  %637 = getelementptr inbounds i8, ptr %3, i64 24
+  %637 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %635, ptr %637, align 8
   %638 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %639 = ptrtoint ptr %638 to i64
-  %640 = getelementptr inbounds i8, ptr %3, i64 32
+  %640 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %640, align 16
-  %641 = getelementptr inbounds i8, ptr %3, i64 40
+  %641 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %639, ptr %641, align 8
   %642 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23)
-  %643 = getelementptr inbounds i8, ptr %3, i64 48
+  %643 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %643, align 16
   br label %.sink.split
 
@@ -18901,12 +18901,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %646, ptr %647, align 8
   %648 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %649 = ptrtoint ptr %648 to i64
-  %650 = getelementptr inbounds i8, ptr %3, i64 16
+  %650 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %650, align 16
-  %651 = getelementptr inbounds i8, ptr %3, i64 24
+  %651 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %649, ptr %651, align 8
   %652 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 25)
-  %653 = getelementptr inbounds i8, ptr %3, i64 32
+  %653 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %653, align 16
   br label %.sink.split
 
@@ -18922,7 +18922,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %659 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %658, ptr %659, align 8
   %660 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 78)
-  %661 = getelementptr inbounds i8, ptr %3, i64 16
+  %661 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %661, align 16
   br label %.sink.split
 
@@ -18933,7 +18933,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %665 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %664, ptr %665, align 8
   %666 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 66)
-  %667 = getelementptr inbounds i8, ptr %3, i64 16
+  %667 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %667, align 16
   br label %.sink.split
 
@@ -18944,7 +18944,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %671 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %670, ptr %671, align 8
   %672 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 66)
-  %673 = getelementptr inbounds i8, ptr %3, i64 16
+  %673 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %673, align 16
   br label %.sink.split
 
@@ -18956,12 +18956,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %676, ptr %677, align 8
   %678 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
   %679 = ptrtoint ptr %678 to i64
-  %680 = getelementptr inbounds i8, ptr %3, i64 16
+  %680 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %680, align 16
-  %681 = getelementptr inbounds i8, ptr %3, i64 24
+  %681 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %679, ptr %681, align 8
   %682 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 66)
-  %683 = getelementptr inbounds i8, ptr %3, i64 32
+  %683 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %683, align 16
   br label %.sink.split
 
@@ -18972,7 +18972,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %687 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %686, ptr %687, align 8
   %688 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 79)
-  %689 = getelementptr inbounds i8, ptr %3, i64 16
+  %689 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %689, align 16
   br label %.sink.split
 
@@ -18983,7 +18983,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %693 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %692, ptr %693, align 8
   %694 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72)
-  %695 = getelementptr inbounds i8, ptr %3, i64 16
+  %695 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %695, align 16
   br label %.sink.split
 
@@ -19014,7 +19014,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %707 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %706, ptr %707, align 8
   %708 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 74)
-  %709 = getelementptr inbounds i8, ptr %3, i64 16
+  %709 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %709, align 16
   br label %.sink.split
 
@@ -19035,7 +19035,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %717 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %716, ptr %717, align 8
   %718 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 71)
-  %719 = getelementptr inbounds i8, ptr %3, i64 16
+  %719 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %719, align 16
   br label %.sink.split
 
@@ -19046,7 +19046,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %723 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %722, ptr %723, align 8
   %724 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 71)
-  %725 = getelementptr inbounds i8, ptr %3, i64 16
+  %725 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %725, align 16
   br label %.sink.split
 
@@ -19078,12 +19078,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %736, ptr %737, align 8
   %738 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %739 = ptrtoint ptr %738 to i64
-  %740 = getelementptr inbounds i8, ptr %3, i64 16
+  %740 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 9, ptr %740, align 16
-  %741 = getelementptr inbounds i8, ptr %3, i64 24
+  %741 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %739, ptr %741, align 8
   %742 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %743 = getelementptr inbounds i8, ptr %3, i64 32
+  %743 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %743, align 16
   br label %.sink.split
 
@@ -19094,7 +19094,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %747 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %746, ptr %747, align 8
   %748 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %749 = getelementptr inbounds i8, ptr %3, i64 16
+  %749 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %749, align 16
   br label %.sink.split
 
@@ -19106,12 +19106,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %752, ptr %753, align 8
   %754 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %755 = ptrtoint ptr %754 to i64
-  %756 = getelementptr inbounds i8, ptr %3, i64 16
+  %756 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 8, ptr %756, align 16
-  %757 = getelementptr inbounds i8, ptr %3, i64 24
+  %757 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %755, ptr %757, align 8
   %758 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %759 = getelementptr inbounds i8, ptr %3, i64 32
+  %759 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %759, align 16
   br label %.sink.split
 
@@ -19122,7 +19122,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %763 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %762, ptr %763, align 8
   %764 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %765 = getelementptr inbounds i8, ptr %3, i64 16
+  %765 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %765, align 16
   br label %.sink.split
 
@@ -19134,12 +19134,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %768, ptr %769, align 8
   %770 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %771 = ptrtoint ptr %770 to i64
-  %772 = getelementptr inbounds i8, ptr %3, i64 16
+  %772 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %772, align 16
-  %773 = getelementptr inbounds i8, ptr %3, i64 24
+  %773 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %771, ptr %773, align 8
   %774 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %775 = getelementptr inbounds i8, ptr %3, i64 32
+  %775 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %775, align 16
   br label %.sink.split
 
@@ -19150,7 +19150,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %779 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %778, ptr %779, align 8
   %780 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %781 = getelementptr inbounds i8, ptr %3, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %781, align 16
   br label %.sink.split
 
@@ -19162,12 +19162,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %784, ptr %785, align 8
   %786 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %787 = ptrtoint ptr %786 to i64
-  %788 = getelementptr inbounds i8, ptr %3, i64 16
+  %788 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %788, align 16
-  %789 = getelementptr inbounds i8, ptr %3, i64 24
+  %789 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %787, ptr %789, align 8
   %790 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %791 = getelementptr inbounds i8, ptr %3, i64 32
+  %791 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %791, align 16
   br label %.sink.split
 
@@ -19178,7 +19178,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %795 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %794, ptr %795, align 8
   %796 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %797 = getelementptr inbounds i8, ptr %3, i64 16
+  %797 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %797, align 16
   br label %.sink.split
 
@@ -19190,12 +19190,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %800, ptr %801, align 8
   %802 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %803 = ptrtoint ptr %802 to i64
-  %804 = getelementptr inbounds i8, ptr %3, i64 16
+  %804 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %804, align 16
-  %805 = getelementptr inbounds i8, ptr %3, i64 24
+  %805 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %803, ptr %805, align 8
   %806 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %807 = getelementptr inbounds i8, ptr %3, i64 32
+  %807 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %807, align 16
   br label %.sink.split
 
@@ -19207,24 +19207,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %810, ptr %811, align 8
   %812 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %813 = ptrtoint ptr %812 to i64
-  %814 = getelementptr inbounds i8, ptr %3, i64 16
+  %814 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %814, align 16
-  %815 = getelementptr inbounds i8, ptr %3, i64 24
+  %815 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %813, ptr %815, align 8
   %816 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %817 = ptrtoint ptr %816 to i64
-  %818 = getelementptr inbounds i8, ptr %3, i64 32
+  %818 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %818, align 16
-  %819 = getelementptr inbounds i8, ptr %3, i64 40
+  %819 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %817, ptr %819, align 8
   %820 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %821 = ptrtoint ptr %820 to i64
-  %822 = getelementptr inbounds i8, ptr %3, i64 48
+  %822 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 8, ptr %822, align 16
-  %823 = getelementptr inbounds i8, ptr %3, i64 56
+  %823 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %821, ptr %823, align 8
   %824 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %825 = getelementptr inbounds i8, ptr %3, i64 64
+  %825 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %825, align 16
   br label %.sink.split
 
@@ -19236,24 +19236,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %828, ptr %829, align 8
   %830 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %831 = ptrtoint ptr %830 to i64
-  %832 = getelementptr inbounds i8, ptr %3, i64 16
+  %832 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %832, align 16
-  %833 = getelementptr inbounds i8, ptr %3, i64 24
+  %833 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %831, ptr %833, align 8
   %834 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %835 = ptrtoint ptr %834 to i64
-  %836 = getelementptr inbounds i8, ptr %3, i64 32
+  %836 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %836, align 16
-  %837 = getelementptr inbounds i8, ptr %3, i64 40
+  %837 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %835, ptr %837, align 8
   %838 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %839 = ptrtoint ptr %838 to i64
-  %840 = getelementptr inbounds i8, ptr %3, i64 48
+  %840 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 7, ptr %840, align 16
-  %841 = getelementptr inbounds i8, ptr %3, i64 56
+  %841 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %839, ptr %841, align 8
   %842 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %843 = getelementptr inbounds i8, ptr %3, i64 64
+  %843 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %843, align 16
   br label %.sink.split
 
@@ -19265,36 +19265,36 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %846, ptr %847, align 8
   %848 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %849 = ptrtoint ptr %848 to i64
-  %850 = getelementptr inbounds i8, ptr %3, i64 16
+  %850 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %850, align 16
-  %851 = getelementptr inbounds i8, ptr %3, i64 24
+  %851 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %849, ptr %851, align 8
   %852 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %853 = ptrtoint ptr %852 to i64
-  %854 = getelementptr inbounds i8, ptr %3, i64 32
+  %854 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %854, align 16
-  %855 = getelementptr inbounds i8, ptr %3, i64 40
+  %855 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %853, ptr %855, align 8
   %856 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %857 = ptrtoint ptr %856 to i64
-  %858 = getelementptr inbounds i8, ptr %3, i64 48
+  %858 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %858, align 16
-  %859 = getelementptr inbounds i8, ptr %3, i64 56
+  %859 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %857, ptr %859, align 8
   %860 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %861 = ptrtoint ptr %860 to i64
-  %862 = getelementptr inbounds i8, ptr %3, i64 64
+  %862 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 6, ptr %862, align 16
-  %863 = getelementptr inbounds i8, ptr %3, i64 72
+  %863 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %861, ptr %863, align 8
   %864 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %865 = ptrtoint ptr %864 to i64
-  %866 = getelementptr inbounds i8, ptr %3, i64 80
+  %866 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 7, ptr %866, align 16
-  %867 = getelementptr inbounds i8, ptr %3, i64 88
+  %867 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %865, ptr %867, align 8
   %868 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %869 = getelementptr inbounds i8, ptr %3, i64 96
+  %869 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 -1, ptr %869, align 16
   br label %.sink.split
 
@@ -19306,42 +19306,42 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %872, ptr %873, align 8
   %874 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %875 = ptrtoint ptr %874 to i64
-  %876 = getelementptr inbounds i8, ptr %3, i64 16
+  %876 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %876, align 16
-  %877 = getelementptr inbounds i8, ptr %3, i64 24
+  %877 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %875, ptr %877, align 8
   %878 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %879 = ptrtoint ptr %878 to i64
-  %880 = getelementptr inbounds i8, ptr %3, i64 32
+  %880 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %880, align 16
-  %881 = getelementptr inbounds i8, ptr %3, i64 40
+  %881 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %879, ptr %881, align 8
   %882 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %883 = ptrtoint ptr %882 to i64
-  %884 = getelementptr inbounds i8, ptr %3, i64 48
+  %884 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %884, align 16
-  %885 = getelementptr inbounds i8, ptr %3, i64 56
+  %885 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %883, ptr %885, align 8
   %886 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %887 = ptrtoint ptr %886 to i64
-  %888 = getelementptr inbounds i8, ptr %3, i64 64
+  %888 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 6, ptr %888, align 16
-  %889 = getelementptr inbounds i8, ptr %3, i64 72
+  %889 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %887, ptr %889, align 8
   %890 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %891 = ptrtoint ptr %890 to i64
-  %892 = getelementptr inbounds i8, ptr %3, i64 80
+  %892 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 7, ptr %892, align 16
-  %893 = getelementptr inbounds i8, ptr %3, i64 88
+  %893 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %891, ptr %893, align 8
   %894 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %895 = ptrtoint ptr %894 to i64
-  %896 = getelementptr inbounds i8, ptr %3, i64 96
+  %896 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 8, ptr %896, align 16
-  %897 = getelementptr inbounds i8, ptr %3, i64 104
+  %897 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %895, ptr %897, align 8
   %898 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %899 = getelementptr inbounds i8, ptr %3, i64 112
+  %899 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i32 -1, ptr %899, align 16
   br label %.sink.split
 
@@ -19353,30 +19353,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %902, ptr %903, align 8
   %904 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
   %905 = ptrtoint ptr %904 to i64
-  %906 = getelementptr inbounds i8, ptr %3, i64 16
+  %906 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %906, align 16
-  %907 = getelementptr inbounds i8, ptr %3, i64 24
+  %907 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %905, ptr %907, align 8
   %908 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %909 = ptrtoint ptr %908 to i64
-  %910 = getelementptr inbounds i8, ptr %3, i64 32
+  %910 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %910, align 16
-  %911 = getelementptr inbounds i8, ptr %3, i64 40
+  %911 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %909, ptr %911, align 8
   %912 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %913 = ptrtoint ptr %912 to i64
-  %914 = getelementptr inbounds i8, ptr %3, i64 48
+  %914 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %914, align 16
-  %915 = getelementptr inbounds i8, ptr %3, i64 56
+  %915 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %913, ptr %915, align 8
   %916 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %917 = ptrtoint ptr %916 to i64
-  %918 = getelementptr inbounds i8, ptr %3, i64 64
+  %918 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 5, ptr %918, align 16
-  %919 = getelementptr inbounds i8, ptr %3, i64 72
+  %919 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %917, ptr %919, align 8
   %920 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %921 = getelementptr inbounds i8, ptr %3, i64 80
+  %921 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %921, align 16
   br label %.sink.split
 
@@ -19388,36 +19388,36 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %924, ptr %925, align 8
   %926 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %927 = ptrtoint ptr %926 to i64
-  %928 = getelementptr inbounds i8, ptr %3, i64 16
+  %928 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %928, align 16
-  %929 = getelementptr inbounds i8, ptr %3, i64 24
+  %929 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %927, ptr %929, align 8
   %930 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %931 = ptrtoint ptr %930 to i64
-  %932 = getelementptr inbounds i8, ptr %3, i64 32
+  %932 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %932, align 16
-  %933 = getelementptr inbounds i8, ptr %3, i64 40
+  %933 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %931, ptr %933, align 8
   %934 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %935 = ptrtoint ptr %934 to i64
-  %936 = getelementptr inbounds i8, ptr %3, i64 48
+  %936 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %936, align 16
-  %937 = getelementptr inbounds i8, ptr %3, i64 56
+  %937 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %935, ptr %937, align 8
   %938 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %939 = ptrtoint ptr %938 to i64
-  %940 = getelementptr inbounds i8, ptr %3, i64 64
+  %940 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 5, ptr %940, align 16
-  %941 = getelementptr inbounds i8, ptr %3, i64 72
+  %941 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %939, ptr %941, align 8
   %942 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %943 = ptrtoint ptr %942 to i64
-  %944 = getelementptr inbounds i8, ptr %3, i64 80
+  %944 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 6, ptr %944, align 16
-  %945 = getelementptr inbounds i8, ptr %3, i64 88
+  %945 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %943, ptr %945, align 8
   %946 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 44)
-  %947 = getelementptr inbounds i8, ptr %3, i64 96
+  %947 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 -1, ptr %947, align 16
   br label %.sink.split
 
@@ -19429,12 +19429,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %950, ptr %951, align 8
   %952 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %953 = ptrtoint ptr %952 to i64
-  %954 = getelementptr inbounds i8, ptr %3, i64 16
+  %954 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %954, align 16
-  %955 = getelementptr inbounds i8, ptr %3, i64 24
+  %955 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %953, ptr %955, align 8
   %956 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %957 = getelementptr inbounds i8, ptr %3, i64 32
+  %957 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %957, align 16
   br label %.sink.split
 
@@ -19446,12 +19446,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %960, ptr %961, align 8
   %962 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %963 = ptrtoint ptr %962 to i64
-  %964 = getelementptr inbounds i8, ptr %3, i64 16
+  %964 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %964, align 16
-  %965 = getelementptr inbounds i8, ptr %3, i64 24
+  %965 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %963, ptr %965, align 8
   %966 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %967 = getelementptr inbounds i8, ptr %3, i64 32
+  %967 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %967, align 16
   br label %.sink.split
 
@@ -19463,12 +19463,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %970, ptr %971, align 8
   %972 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %973 = ptrtoint ptr %972 to i64
-  %974 = getelementptr inbounds i8, ptr %3, i64 16
+  %974 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %974, align 16
-  %975 = getelementptr inbounds i8, ptr %3, i64 24
+  %975 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %973, ptr %975, align 8
   %976 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %977 = getelementptr inbounds i8, ptr %3, i64 32
+  %977 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %977, align 16
   br label %.sink.split
 
@@ -19480,12 +19480,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %980, ptr %981, align 8
   %982 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %983 = ptrtoint ptr %982 to i64
-  %984 = getelementptr inbounds i8, ptr %3, i64 16
+  %984 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %984, align 16
-  %985 = getelementptr inbounds i8, ptr %3, i64 24
+  %985 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %983, ptr %985, align 8
   %986 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %987 = getelementptr inbounds i8, ptr %3, i64 32
+  %987 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %987, align 16
   br label %.sink.split
 
@@ -19496,7 +19496,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %991 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %990, ptr %991, align 8
   %992 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %993 = getelementptr inbounds i8, ptr %3, i64 16
+  %993 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %993, align 16
   br label %.sink.split
 
@@ -19508,12 +19508,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %996, ptr %997, align 8
   %998 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %999 = ptrtoint ptr %998 to i64
-  %1000 = getelementptr inbounds i8, ptr %3, i64 16
+  %1000 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1000, align 16
-  %1001 = getelementptr inbounds i8, ptr %3, i64 24
+  %1001 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %999, ptr %1001, align 8
   %1002 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %1003 = getelementptr inbounds i8, ptr %3, i64 32
+  %1003 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1003, align 16
   br label %.sink.split
 
@@ -19525,12 +19525,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1006, ptr %1007, align 8
   %1008 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1009 = ptrtoint ptr %1008 to i64
-  %1010 = getelementptr inbounds i8, ptr %3, i64 16
+  %1010 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %1010, align 16
-  %1011 = getelementptr inbounds i8, ptr %3, i64 24
+  %1011 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1009, ptr %1011, align 8
   %1012 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %1013 = getelementptr inbounds i8, ptr %3, i64 32
+  %1013 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1013, align 16
   br label %.sink.split
 
@@ -19542,18 +19542,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1016, ptr %1017, align 8
   %1018 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9)
   %1019 = ptrtoint ptr %1018 to i64
-  %1020 = getelementptr inbounds i8, ptr %3, i64 16
+  %1020 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %1020, align 16
-  %1021 = getelementptr inbounds i8, ptr %3, i64 24
+  %1021 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1019, ptr %1021, align 8
   %1022 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1023 = ptrtoint ptr %1022 to i64
-  %1024 = getelementptr inbounds i8, ptr %3, i64 32
+  %1024 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %1024, align 16
-  %1025 = getelementptr inbounds i8, ptr %3, i64 40
+  %1025 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1023, ptr %1025, align 8
   %1026 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %1027 = getelementptr inbounds i8, ptr %3, i64 48
+  %1027 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1027, align 16
   br label %.sink.split
 
@@ -19565,30 +19565,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1030, ptr %1031, align 8
   %1032 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 7)
   %1033 = ptrtoint ptr %1032 to i64
-  %1034 = getelementptr inbounds i8, ptr %3, i64 16
+  %1034 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %1034, align 16
-  %1035 = getelementptr inbounds i8, ptr %3, i64 24
+  %1035 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1033, ptr %1035, align 8
   %1036 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1037 = ptrtoint ptr %1036 to i64
-  %1038 = getelementptr inbounds i8, ptr %3, i64 32
+  %1038 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %1038, align 16
-  %1039 = getelementptr inbounds i8, ptr %3, i64 40
+  %1039 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1037, ptr %1039, align 8
   %1040 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1041 = ptrtoint ptr %1040 to i64
-  %1042 = getelementptr inbounds i8, ptr %3, i64 48
+  %1042 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 7, ptr %1042, align 16
-  %1043 = getelementptr inbounds i8, ptr %3, i64 56
+  %1043 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1041, ptr %1043, align 8
   %1044 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1045 = ptrtoint ptr %1044 to i64
-  %1046 = getelementptr inbounds i8, ptr %3, i64 64
+  %1046 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 8, ptr %1046, align 16
-  %1047 = getelementptr inbounds i8, ptr %3, i64 72
+  %1047 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %1045, ptr %1047, align 8
   %1048 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %1049 = getelementptr inbounds i8, ptr %3, i64 80
+  %1049 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %1049, align 16
   br label %.sink.split
 
@@ -19600,30 +19600,30 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1052, ptr %1053, align 8
   %1054 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 7)
   %1055 = ptrtoint ptr %1054 to i64
-  %1056 = getelementptr inbounds i8, ptr %3, i64 16
+  %1056 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %1056, align 16
-  %1057 = getelementptr inbounds i8, ptr %3, i64 24
+  %1057 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1055, ptr %1057, align 8
   %1058 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1059 = ptrtoint ptr %1058 to i64
-  %1060 = getelementptr inbounds i8, ptr %3, i64 32
+  %1060 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %1060, align 16
-  %1061 = getelementptr inbounds i8, ptr %3, i64 40
+  %1061 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1059, ptr %1061, align 8
   %1062 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1063 = ptrtoint ptr %1062 to i64
-  %1064 = getelementptr inbounds i8, ptr %3, i64 48
+  %1064 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 6, ptr %1064, align 16
-  %1065 = getelementptr inbounds i8, ptr %3, i64 56
+  %1065 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1063, ptr %1065, align 8
   %1066 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1067 = ptrtoint ptr %1066 to i64
-  %1068 = getelementptr inbounds i8, ptr %3, i64 64
+  %1068 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 7, ptr %1068, align 16
-  %1069 = getelementptr inbounds i8, ptr %3, i64 72
+  %1069 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %1067, ptr %1069, align 8
   %1070 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %1071 = getelementptr inbounds i8, ptr %3, i64 80
+  %1071 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 -1, ptr %1071, align 16
   br label %.sink.split
 
@@ -19635,18 +19635,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1074, ptr %1075, align 8
   %1076 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
   %1077 = ptrtoint ptr %1076 to i64
-  %1078 = getelementptr inbounds i8, ptr %3, i64 16
+  %1078 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %1078, align 16
-  %1079 = getelementptr inbounds i8, ptr %3, i64 24
+  %1079 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1077, ptr %1079, align 8
   %1080 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1081 = ptrtoint ptr %1080 to i64
-  %1082 = getelementptr inbounds i8, ptr %3, i64 32
+  %1082 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %1082, align 16
-  %1083 = getelementptr inbounds i8, ptr %3, i64 40
+  %1083 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1081, ptr %1083, align 8
   %1084 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 22)
-  %1085 = getelementptr inbounds i8, ptr %3, i64 48
+  %1085 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1085, align 16
   br label %.sink.split
 
@@ -19658,12 +19658,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1088, ptr %1089, align 8
   %1090 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1091 = ptrtoint ptr %1090 to i64
-  %1092 = getelementptr inbounds i8, ptr %3, i64 16
+  %1092 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %1092, align 16
-  %1093 = getelementptr inbounds i8, ptr %3, i64 24
+  %1093 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1091, ptr %1093, align 8
   %1094 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24)
-  %1095 = getelementptr inbounds i8, ptr %3, i64 32
+  %1095 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1095, align 16
   br label %.sink.split
 
@@ -19679,7 +19679,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1100, ptr %1101, align 8
   %1102 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 42)
-  %1103 = getelementptr inbounds i8, ptr %3, i64 16
+  %1103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1103, align 16
   br label %.sink.split
 
@@ -19695,7 +19695,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1109 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1108, ptr %1109, align 8
   %1110 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 54)
-  %1111 = getelementptr inbounds i8, ptr %3, i64 16
+  %1111 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1111, align 16
   br label %.sink.split
 
@@ -19706,7 +19706,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1115 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1114, ptr %1115, align 8
   %1116 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 54)
-  %1117 = getelementptr inbounds i8, ptr %3, i64 16
+  %1117 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1117, align 16
   br label %.sink.split
 
@@ -19722,7 +19722,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1123 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1122, ptr %1123, align 8
   %1124 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 48)
-  %1125 = getelementptr inbounds i8, ptr %3, i64 16
+  %1125 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1125, align 16
   br label %.sink.split
 
@@ -19744,12 +19744,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1132, ptr %1133, align 8
   %1134 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1135 = ptrtoint ptr %1134 to i64
-  %1136 = getelementptr inbounds i8, ptr %3, i64 16
+  %1136 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %1136, align 16
-  %1137 = getelementptr inbounds i8, ptr %3, i64 24
+  %1137 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1135, ptr %1137, align 8
   %1138 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 43)
-  %1139 = getelementptr inbounds i8, ptr %3, i64 32
+  %1139 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1139, align 16
   br label %.sink.split
 
@@ -19766,12 +19766,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1144, ptr %1145, align 8
   %1146 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1147 = ptrtoint ptr %1146 to i64
-  %1148 = getelementptr inbounds i8, ptr %3, i64 16
+  %1148 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1148, align 16
-  %1149 = getelementptr inbounds i8, ptr %3, i64 24
+  %1149 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1147, ptr %1149, align 8
   %1150 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1151 = getelementptr inbounds i8, ptr %3, i64 32
+  %1151 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1151, align 16
   br label %.sink.split
 
@@ -19782,7 +19782,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1155 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1154, ptr %1155, align 8
   %1156 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1157 = getelementptr inbounds i8, ptr %3, i64 16
+  %1157 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1157, align 16
   br label %.sink.split
 
@@ -19794,12 +19794,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1160, ptr %1161, align 8
   %1162 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1163 = ptrtoint ptr %1162 to i64
-  %1164 = getelementptr inbounds i8, ptr %3, i64 16
+  %1164 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1164, align 16
-  %1165 = getelementptr inbounds i8, ptr %3, i64 24
+  %1165 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1163, ptr %1165, align 8
   %1166 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1167 = getelementptr inbounds i8, ptr %3, i64 32
+  %1167 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1167, align 16
   br label %.sink.split
 
@@ -19810,7 +19810,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1171 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1170, ptr %1171, align 8
   %1172 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1173 = getelementptr inbounds i8, ptr %3, i64 16
+  %1173 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1173, align 16
   br label %.sink.split
 
@@ -19822,24 +19822,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1176, ptr %1177, align 8
   %1178 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1179 = ptrtoint ptr %1178 to i64
-  %1180 = getelementptr inbounds i8, ptr %3, i64 16
+  %1180 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %1180, align 16
-  %1181 = getelementptr inbounds i8, ptr %3, i64 24
+  %1181 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1179, ptr %1181, align 8
   %1182 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1183 = ptrtoint ptr %1182 to i64
-  %1184 = getelementptr inbounds i8, ptr %3, i64 32
+  %1184 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %1184, align 16
-  %1185 = getelementptr inbounds i8, ptr %3, i64 40
+  %1185 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1183, ptr %1185, align 8
   %1186 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1187 = ptrtoint ptr %1186 to i64
-  %1188 = getelementptr inbounds i8, ptr %3, i64 48
+  %1188 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 6, ptr %1188, align 16
-  %1189 = getelementptr inbounds i8, ptr %3, i64 56
+  %1189 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1187, ptr %1189, align 8
   %1190 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1191 = getelementptr inbounds i8, ptr %3, i64 64
+  %1191 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1191, align 16
   br label %.sink.split
 
@@ -19850,7 +19850,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1195 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1194, ptr %1195, align 8
   %1196 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1197 = getelementptr inbounds i8, ptr %3, i64 16
+  %1197 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1197, align 16
   br label %.sink.split
 
@@ -19862,24 +19862,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1200, ptr %1201, align 8
   %1202 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1203 = ptrtoint ptr %1202 to i64
-  %1204 = getelementptr inbounds i8, ptr %3, i64 16
+  %1204 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %1204, align 16
-  %1205 = getelementptr inbounds i8, ptr %3, i64 24
+  %1205 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1203, ptr %1205, align 8
   %1206 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1207 = ptrtoint ptr %1206 to i64
-  %1208 = getelementptr inbounds i8, ptr %3, i64 32
+  %1208 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %1208, align 16
-  %1209 = getelementptr inbounds i8, ptr %3, i64 40
+  %1209 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1207, ptr %1209, align 8
   %1210 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1211 = ptrtoint ptr %1210 to i64
-  %1212 = getelementptr inbounds i8, ptr %3, i64 48
+  %1212 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %1212, align 16
-  %1213 = getelementptr inbounds i8, ptr %3, i64 56
+  %1213 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1211, ptr %1213, align 8
   %1214 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1215 = getelementptr inbounds i8, ptr %3, i64 64
+  %1215 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1215, align 16
   br label %.sink.split
 
@@ -19891,18 +19891,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1218, ptr %1219, align 8
   %1220 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1221 = ptrtoint ptr %1220 to i64
-  %1222 = getelementptr inbounds i8, ptr %3, i64 16
+  %1222 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %1222, align 16
-  %1223 = getelementptr inbounds i8, ptr %3, i64 24
+  %1223 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1221, ptr %1223, align 8
   %1224 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1225 = ptrtoint ptr %1224 to i64
-  %1226 = getelementptr inbounds i8, ptr %3, i64 32
+  %1226 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %1226, align 16
-  %1227 = getelementptr inbounds i8, ptr %3, i64 40
+  %1227 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1225, ptr %1227, align 8
   %1228 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 40)
-  %1229 = getelementptr inbounds i8, ptr %3, i64 48
+  %1229 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1229, align 16
   br label %.sink.split
 
@@ -19918,7 +19918,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1235 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1234, ptr %1235, align 8
   %1236 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 50)
-  %1237 = getelementptr inbounds i8, ptr %3, i64 16
+  %1237 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1237, align 16
   br label %.sink.split
 
@@ -19929,7 +19929,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1241 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1240, ptr %1241, align 8
   %1242 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 50)
-  %1243 = getelementptr inbounds i8, ptr %3, i64 16
+  %1243 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1243, align 16
   br label %.sink.split
 
@@ -19941,18 +19941,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1246, ptr %1247, align 8
   %1248 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1249 = ptrtoint ptr %1248 to i64
-  %1250 = getelementptr inbounds i8, ptr %3, i64 16
+  %1250 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %1250, align 16
-  %1251 = getelementptr inbounds i8, ptr %3, i64 24
+  %1251 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1249, ptr %1251, align 8
   %1252 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1253 = ptrtoint ptr %1252 to i64
-  %1254 = getelementptr inbounds i8, ptr %3, i64 32
+  %1254 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %1254, align 16
-  %1255 = getelementptr inbounds i8, ptr %3, i64 40
+  %1255 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1253, ptr %1255, align 8
   %1256 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 50)
-  %1257 = getelementptr inbounds i8, ptr %3, i64 48
+  %1257 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1257, align 16
   br label %.sink.split
 
@@ -19973,7 +19973,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1265 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1264, ptr %1265, align 8
   %1266 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1267 = getelementptr inbounds i8, ptr %3, i64 16
+  %1267 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1267, align 16
   br label %.sink.split
 
@@ -19984,7 +19984,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1271 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1270, ptr %1271, align 8
   %1272 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1273 = getelementptr inbounds i8, ptr %3, i64 16
+  %1273 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1273, align 16
   br label %.sink.split
 
@@ -19995,7 +19995,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1277 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1276, ptr %1277, align 8
   %1278 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1279 = getelementptr inbounds i8, ptr %3, i64 16
+  %1279 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1279, align 16
   br label %.sink.split
 
@@ -20006,7 +20006,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1283 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1282, ptr %1283, align 8
   %1284 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1285 = getelementptr inbounds i8, ptr %3, i64 16
+  %1285 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1285, align 16
   br label %.sink.split
 
@@ -20017,7 +20017,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1289 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1288, ptr %1289, align 8
   %1290 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1291 = getelementptr inbounds i8, ptr %3, i64 16
+  %1291 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1291, align 16
   br label %.sink.split
 
@@ -20029,12 +20029,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1294, ptr %1295, align 8
   %1296 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1297 = ptrtoint ptr %1296 to i64
-  %1298 = getelementptr inbounds i8, ptr %3, i64 16
+  %1298 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1298, align 16
-  %1299 = getelementptr inbounds i8, ptr %3, i64 24
+  %1299 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1297, ptr %1299, align 8
   %1300 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1301 = getelementptr inbounds i8, ptr %3, i64 32
+  %1301 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1301, align 16
   br label %.sink.split
 
@@ -20046,18 +20046,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1304, ptr %1305, align 8
   %1306 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1307 = ptrtoint ptr %1306 to i64
-  %1308 = getelementptr inbounds i8, ptr %3, i64 16
+  %1308 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1308, align 16
-  %1309 = getelementptr inbounds i8, ptr %3, i64 24
+  %1309 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1307, ptr %1309, align 8
   %1310 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1311 = ptrtoint ptr %1310 to i64
-  %1312 = getelementptr inbounds i8, ptr %3, i64 32
+  %1312 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %1312, align 16
-  %1313 = getelementptr inbounds i8, ptr %3, i64 40
+  %1313 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1311, ptr %1313, align 8
   %1314 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1315 = getelementptr inbounds i8, ptr %3, i64 48
+  %1315 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1315, align 16
   br label %.sink.split
 
@@ -20069,12 +20069,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1318, ptr %1319, align 8
   %1320 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1321 = ptrtoint ptr %1320 to i64
-  %1322 = getelementptr inbounds i8, ptr %3, i64 16
+  %1322 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %1322, align 16
-  %1323 = getelementptr inbounds i8, ptr %3, i64 24
+  %1323 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1321, ptr %1323, align 8
   %1324 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1325 = getelementptr inbounds i8, ptr %3, i64 32
+  %1325 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1325, align 16
   br label %.sink.split
 
@@ -20085,7 +20085,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1329 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1328, ptr %1329, align 8
   %1330 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1331 = getelementptr inbounds i8, ptr %3, i64 16
+  %1331 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1331, align 16
   br label %.sink.split
 
@@ -20097,24 +20097,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1334, ptr %1335, align 8
   %1336 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1337 = ptrtoint ptr %1336 to i64
-  %1338 = getelementptr inbounds i8, ptr %3, i64 16
+  %1338 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 16, ptr %1338, align 16
-  %1339 = getelementptr inbounds i8, ptr %3, i64 24
+  %1339 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1337, ptr %1339, align 8
   %1340 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1341 = ptrtoint ptr %1340 to i64
-  %1342 = getelementptr inbounds i8, ptr %3, i64 32
+  %1342 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 17, ptr %1342, align 16
-  %1343 = getelementptr inbounds i8, ptr %3, i64 40
+  %1343 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1341, ptr %1343, align 8
   %1344 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1345 = ptrtoint ptr %1344 to i64
-  %1346 = getelementptr inbounds i8, ptr %3, i64 48
+  %1346 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 18, ptr %1346, align 16
-  %1347 = getelementptr inbounds i8, ptr %3, i64 56
+  %1347 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1345, ptr %1347, align 8
   %1348 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1349 = getelementptr inbounds i8, ptr %3, i64 64
+  %1349 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1349, align 16
   br label %.sink.split
 
@@ -20126,24 +20126,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1352, ptr %1353, align 8
   %1354 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1355 = ptrtoint ptr %1354 to i64
-  %1356 = getelementptr inbounds i8, ptr %3, i64 16
+  %1356 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 15, ptr %1356, align 16
-  %1357 = getelementptr inbounds i8, ptr %3, i64 24
+  %1357 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1355, ptr %1357, align 8
   %1358 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1359 = ptrtoint ptr %1358 to i64
-  %1360 = getelementptr inbounds i8, ptr %3, i64 32
+  %1360 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 16, ptr %1360, align 16
-  %1361 = getelementptr inbounds i8, ptr %3, i64 40
+  %1361 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1359, ptr %1361, align 8
   %1362 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1363 = ptrtoint ptr %1362 to i64
-  %1364 = getelementptr inbounds i8, ptr %3, i64 48
+  %1364 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 17, ptr %1364, align 16
-  %1365 = getelementptr inbounds i8, ptr %3, i64 56
+  %1365 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1363, ptr %1365, align 8
   %1366 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1367 = getelementptr inbounds i8, ptr %3, i64 64
+  %1367 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1367, align 16
   br label %.sink.split
 
@@ -20155,24 +20155,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1370, ptr %1371, align 8
   %1372 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1373 = ptrtoint ptr %1372 to i64
-  %1374 = getelementptr inbounds i8, ptr %3, i64 16
+  %1374 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 14, ptr %1374, align 16
-  %1375 = getelementptr inbounds i8, ptr %3, i64 24
+  %1375 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1373, ptr %1375, align 8
   %1376 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1377 = ptrtoint ptr %1376 to i64
-  %1378 = getelementptr inbounds i8, ptr %3, i64 32
+  %1378 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 15, ptr %1378, align 16
-  %1379 = getelementptr inbounds i8, ptr %3, i64 40
+  %1379 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1377, ptr %1379, align 8
   %1380 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1381 = ptrtoint ptr %1380 to i64
-  %1382 = getelementptr inbounds i8, ptr %3, i64 48
+  %1382 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 16, ptr %1382, align 16
-  %1383 = getelementptr inbounds i8, ptr %3, i64 56
+  %1383 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1381, ptr %1383, align 8
   %1384 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1385 = getelementptr inbounds i8, ptr %3, i64 64
+  %1385 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1385, align 16
   br label %.sink.split
 
@@ -20184,24 +20184,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1388, ptr %1389, align 8
   %1390 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1391 = ptrtoint ptr %1390 to i64
-  %1392 = getelementptr inbounds i8, ptr %3, i64 16
+  %1392 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 13, ptr %1392, align 16
-  %1393 = getelementptr inbounds i8, ptr %3, i64 24
+  %1393 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1391, ptr %1393, align 8
   %1394 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1395 = ptrtoint ptr %1394 to i64
-  %1396 = getelementptr inbounds i8, ptr %3, i64 32
+  %1396 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 14, ptr %1396, align 16
-  %1397 = getelementptr inbounds i8, ptr %3, i64 40
+  %1397 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1395, ptr %1397, align 8
   %1398 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1399 = ptrtoint ptr %1398 to i64
-  %1400 = getelementptr inbounds i8, ptr %3, i64 48
+  %1400 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 15, ptr %1400, align 16
-  %1401 = getelementptr inbounds i8, ptr %3, i64 56
+  %1401 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1399, ptr %1401, align 8
   %1402 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1403 = getelementptr inbounds i8, ptr %3, i64 64
+  %1403 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1403, align 16
   br label %.sink.split
 
@@ -20213,24 +20213,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1406, ptr %1407, align 8
   %1408 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1409 = ptrtoint ptr %1408 to i64
-  %1410 = getelementptr inbounds i8, ptr %3, i64 16
+  %1410 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 12, ptr %1410, align 16
-  %1411 = getelementptr inbounds i8, ptr %3, i64 24
+  %1411 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1409, ptr %1411, align 8
   %1412 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1413 = ptrtoint ptr %1412 to i64
-  %1414 = getelementptr inbounds i8, ptr %3, i64 32
+  %1414 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 13, ptr %1414, align 16
-  %1415 = getelementptr inbounds i8, ptr %3, i64 40
+  %1415 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1413, ptr %1415, align 8
   %1416 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1417 = ptrtoint ptr %1416 to i64
-  %1418 = getelementptr inbounds i8, ptr %3, i64 48
+  %1418 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 14, ptr %1418, align 16
-  %1419 = getelementptr inbounds i8, ptr %3, i64 56
+  %1419 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1417, ptr %1419, align 8
   %1420 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1421 = getelementptr inbounds i8, ptr %3, i64 64
+  %1421 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1421, align 16
   br label %.sink.split
 
@@ -20242,24 +20242,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1424, ptr %1425, align 8
   %1426 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1427 = ptrtoint ptr %1426 to i64
-  %1428 = getelementptr inbounds i8, ptr %3, i64 16
+  %1428 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 11, ptr %1428, align 16
-  %1429 = getelementptr inbounds i8, ptr %3, i64 24
+  %1429 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1427, ptr %1429, align 8
   %1430 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1431 = ptrtoint ptr %1430 to i64
-  %1432 = getelementptr inbounds i8, ptr %3, i64 32
+  %1432 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 12, ptr %1432, align 16
-  %1433 = getelementptr inbounds i8, ptr %3, i64 40
+  %1433 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1431, ptr %1433, align 8
   %1434 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1435 = ptrtoint ptr %1434 to i64
-  %1436 = getelementptr inbounds i8, ptr %3, i64 48
+  %1436 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 13, ptr %1436, align 16
-  %1437 = getelementptr inbounds i8, ptr %3, i64 56
+  %1437 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1435, ptr %1437, align 8
   %1438 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1439 = getelementptr inbounds i8, ptr %3, i64 64
+  %1439 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1439, align 16
   br label %.sink.split
 
@@ -20271,24 +20271,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1442, ptr %1443, align 8
   %1444 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1445 = ptrtoint ptr %1444 to i64
-  %1446 = getelementptr inbounds i8, ptr %3, i64 16
+  %1446 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 10, ptr %1446, align 16
-  %1447 = getelementptr inbounds i8, ptr %3, i64 24
+  %1447 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1445, ptr %1447, align 8
   %1448 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1449 = ptrtoint ptr %1448 to i64
-  %1450 = getelementptr inbounds i8, ptr %3, i64 32
+  %1450 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 11, ptr %1450, align 16
-  %1451 = getelementptr inbounds i8, ptr %3, i64 40
+  %1451 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1449, ptr %1451, align 8
   %1452 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1453 = ptrtoint ptr %1452 to i64
-  %1454 = getelementptr inbounds i8, ptr %3, i64 48
+  %1454 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 12, ptr %1454, align 16
-  %1455 = getelementptr inbounds i8, ptr %3, i64 56
+  %1455 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1453, ptr %1455, align 8
   %1456 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1457 = getelementptr inbounds i8, ptr %3, i64 64
+  %1457 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1457, align 16
   br label %.sink.split
 
@@ -20300,24 +20300,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1460, ptr %1461, align 8
   %1462 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1463 = ptrtoint ptr %1462 to i64
-  %1464 = getelementptr inbounds i8, ptr %3, i64 16
+  %1464 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 9, ptr %1464, align 16
-  %1465 = getelementptr inbounds i8, ptr %3, i64 24
+  %1465 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1463, ptr %1465, align 8
   %1466 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1467 = ptrtoint ptr %1466 to i64
-  %1468 = getelementptr inbounds i8, ptr %3, i64 32
+  %1468 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 10, ptr %1468, align 16
-  %1469 = getelementptr inbounds i8, ptr %3, i64 40
+  %1469 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1467, ptr %1469, align 8
   %1470 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1471 = ptrtoint ptr %1470 to i64
-  %1472 = getelementptr inbounds i8, ptr %3, i64 48
+  %1472 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 11, ptr %1472, align 16
-  %1473 = getelementptr inbounds i8, ptr %3, i64 56
+  %1473 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1471, ptr %1473, align 8
   %1474 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1475 = getelementptr inbounds i8, ptr %3, i64 64
+  %1475 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1475, align 16
   br label %.sink.split
 
@@ -20329,24 +20329,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1478, ptr %1479, align 8
   %1480 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1481 = ptrtoint ptr %1480 to i64
-  %1482 = getelementptr inbounds i8, ptr %3, i64 16
+  %1482 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 8, ptr %1482, align 16
-  %1483 = getelementptr inbounds i8, ptr %3, i64 24
+  %1483 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1481, ptr %1483, align 8
   %1484 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1485 = ptrtoint ptr %1484 to i64
-  %1486 = getelementptr inbounds i8, ptr %3, i64 32
+  %1486 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 9, ptr %1486, align 16
-  %1487 = getelementptr inbounds i8, ptr %3, i64 40
+  %1487 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1485, ptr %1487, align 8
   %1488 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1489 = ptrtoint ptr %1488 to i64
-  %1490 = getelementptr inbounds i8, ptr %3, i64 48
+  %1490 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 10, ptr %1490, align 16
-  %1491 = getelementptr inbounds i8, ptr %3, i64 56
+  %1491 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1489, ptr %1491, align 8
   %1492 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1493 = getelementptr inbounds i8, ptr %3, i64 64
+  %1493 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1493, align 16
   br label %.sink.split
 
@@ -20358,24 +20358,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1496, ptr %1497, align 8
   %1498 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1499 = ptrtoint ptr %1498 to i64
-  %1500 = getelementptr inbounds i8, ptr %3, i64 16
+  %1500 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %1500, align 16
-  %1501 = getelementptr inbounds i8, ptr %3, i64 24
+  %1501 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1499, ptr %1501, align 8
   %1502 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1503 = ptrtoint ptr %1502 to i64
-  %1504 = getelementptr inbounds i8, ptr %3, i64 32
+  %1504 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 8, ptr %1504, align 16
-  %1505 = getelementptr inbounds i8, ptr %3, i64 40
+  %1505 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1503, ptr %1505, align 8
   %1506 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1507 = ptrtoint ptr %1506 to i64
-  %1508 = getelementptr inbounds i8, ptr %3, i64 48
+  %1508 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 9, ptr %1508, align 16
-  %1509 = getelementptr inbounds i8, ptr %3, i64 56
+  %1509 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1507, ptr %1509, align 8
   %1510 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1511 = getelementptr inbounds i8, ptr %3, i64 64
+  %1511 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1511, align 16
   br label %.sink.split
 
@@ -20387,24 +20387,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1514, ptr %1515, align 8
   %1516 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1517 = ptrtoint ptr %1516 to i64
-  %1518 = getelementptr inbounds i8, ptr %3, i64 16
+  %1518 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1518, align 16
-  %1519 = getelementptr inbounds i8, ptr %3, i64 24
+  %1519 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1517, ptr %1519, align 8
   %1520 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1521 = ptrtoint ptr %1520 to i64
-  %1522 = getelementptr inbounds i8, ptr %3, i64 32
+  %1522 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %1522, align 16
-  %1523 = getelementptr inbounds i8, ptr %3, i64 40
+  %1523 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1521, ptr %1523, align 8
   %1524 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1525 = ptrtoint ptr %1524 to i64
-  %1526 = getelementptr inbounds i8, ptr %3, i64 48
+  %1526 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 8, ptr %1526, align 16
-  %1527 = getelementptr inbounds i8, ptr %3, i64 56
+  %1527 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1525, ptr %1527, align 8
   %1528 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1529 = getelementptr inbounds i8, ptr %3, i64 64
+  %1529 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1529, align 16
   br label %.sink.split
 
@@ -20416,24 +20416,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1532, ptr %1533, align 8
   %1534 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1535 = ptrtoint ptr %1534 to i64
-  %1536 = getelementptr inbounds i8, ptr %3, i64 16
+  %1536 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1536, align 16
-  %1537 = getelementptr inbounds i8, ptr %3, i64 24
+  %1537 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1535, ptr %1537, align 8
   %1538 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1539 = ptrtoint ptr %1538 to i64
-  %1540 = getelementptr inbounds i8, ptr %3, i64 32
+  %1540 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %1540, align 16
-  %1541 = getelementptr inbounds i8, ptr %3, i64 40
+  %1541 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1539, ptr %1541, align 8
   %1542 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1543 = ptrtoint ptr %1542 to i64
-  %1544 = getelementptr inbounds i8, ptr %3, i64 48
+  %1544 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 7, ptr %1544, align 16
-  %1545 = getelementptr inbounds i8, ptr %3, i64 56
+  %1545 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1543, ptr %1545, align 8
   %1546 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6)
-  %1547 = getelementptr inbounds i8, ptr %3, i64 64
+  %1547 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1547, align 16
   br label %.sink.split
 
@@ -20449,7 +20449,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1553 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1552, ptr %1553, align 8
   %1554 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1555 = getelementptr inbounds i8, ptr %3, i64 16
+  %1555 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1555, align 16
   br label %.sink.split
 
@@ -20460,7 +20460,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1559 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1558, ptr %1559, align 8
   %1560 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1561 = getelementptr inbounds i8, ptr %3, i64 16
+  %1561 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1561, align 16
   br label %.sink.split
 
@@ -20471,7 +20471,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1565 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1564, ptr %1565, align 8
   %1566 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1567 = getelementptr inbounds i8, ptr %3, i64 16
+  %1567 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1567, align 16
   br label %.sink.split
 
@@ -20482,7 +20482,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1571 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1570, ptr %1571, align 8
   %1572 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1573 = getelementptr inbounds i8, ptr %3, i64 16
+  %1573 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1573, align 16
   br label %.sink.split
 
@@ -20493,7 +20493,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1577 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1576, ptr %1577, align 8
   %1578 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1579 = getelementptr inbounds i8, ptr %3, i64 16
+  %1579 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1579, align 16
   br label %.sink.split
 
@@ -20505,12 +20505,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1582, ptr %1583, align 8
   %1584 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1585 = ptrtoint ptr %1584 to i64
-  %1586 = getelementptr inbounds i8, ptr %3, i64 16
+  %1586 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %1586, align 16
-  %1587 = getelementptr inbounds i8, ptr %3, i64 24
+  %1587 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1585, ptr %1587, align 8
   %1588 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1589 = getelementptr inbounds i8, ptr %3, i64 32
+  %1589 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1589, align 16
   br label %.sink.split
 
@@ -20521,7 +20521,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1593 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1592, ptr %1593, align 8
   %1594 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1595 = getelementptr inbounds i8, ptr %3, i64 16
+  %1595 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1595, align 16
   br label %.sink.split
 
@@ -20532,7 +20532,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1599 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1598, ptr %1599, align 8
   %1600 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1601 = getelementptr inbounds i8, ptr %3, i64 16
+  %1601 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1601, align 16
   br label %.sink.split
 
@@ -20544,12 +20544,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1604, ptr %1605, align 8
   %1606 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1607 = ptrtoint ptr %1606 to i64
-  %1608 = getelementptr inbounds i8, ptr %3, i64 16
+  %1608 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1608, align 16
-  %1609 = getelementptr inbounds i8, ptr %3, i64 24
+  %1609 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1607, ptr %1609, align 8
   %1610 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1611 = getelementptr inbounds i8, ptr %3, i64 32
+  %1611 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1611, align 16
   br label %.sink.split
 
@@ -20560,7 +20560,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1615 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1614, ptr %1615, align 8
   %1616 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1617 = getelementptr inbounds i8, ptr %3, i64 16
+  %1617 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1617, align 16
   br label %.sink.split
 
@@ -20571,7 +20571,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1621 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1620, ptr %1621, align 8
   %1622 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1623 = getelementptr inbounds i8, ptr %3, i64 16
+  %1623 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1623, align 16
   br label %.sink.split
 
@@ -20582,7 +20582,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1627 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1626, ptr %1627, align 8
   %1628 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1629 = getelementptr inbounds i8, ptr %3, i64 16
+  %1629 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1629, align 16
   br label %.sink.split
 
@@ -20593,7 +20593,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1633 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1632, ptr %1633, align 8
   %1634 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1635 = getelementptr inbounds i8, ptr %3, i64 16
+  %1635 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1635, align 16
   br label %.sink.split
 
@@ -20604,7 +20604,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1639 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1638, ptr %1639, align 8
   %1640 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1641 = getelementptr inbounds i8, ptr %3, i64 16
+  %1641 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1641, align 16
   br label %.sink.split
 
@@ -20616,12 +20616,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1644, ptr %1645, align 8
   %1646 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1647 = ptrtoint ptr %1646 to i64
-  %1648 = getelementptr inbounds i8, ptr %3, i64 16
+  %1648 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1648, align 16
-  %1649 = getelementptr inbounds i8, ptr %3, i64 24
+  %1649 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1647, ptr %1649, align 8
   %1650 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1651 = getelementptr inbounds i8, ptr %3, i64 32
+  %1651 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1651, align 16
   br label %.sink.split
 
@@ -20633,12 +20633,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1654, ptr %1655, align 8
   %1656 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1657 = ptrtoint ptr %1656 to i64
-  %1658 = getelementptr inbounds i8, ptr %3, i64 16
+  %1658 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1658, align 16
-  %1659 = getelementptr inbounds i8, ptr %3, i64 24
+  %1659 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1657, ptr %1659, align 8
   %1660 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1661 = getelementptr inbounds i8, ptr %3, i64 32
+  %1661 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1661, align 16
   br label %.sink.split
 
@@ -20650,18 +20650,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1664, ptr %1665, align 8
   %1666 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1667 = ptrtoint ptr %1666 to i64
-  %1668 = getelementptr inbounds i8, ptr %3, i64 16
+  %1668 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 8, ptr %1668, align 16
-  %1669 = getelementptr inbounds i8, ptr %3, i64 24
+  %1669 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1667, ptr %1669, align 8
   %1670 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1671 = ptrtoint ptr %1670 to i64
-  %1672 = getelementptr inbounds i8, ptr %3, i64 32
+  %1672 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 9, ptr %1672, align 16
-  %1673 = getelementptr inbounds i8, ptr %3, i64 40
+  %1673 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1671, ptr %1673, align 8
   %1674 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1675 = getelementptr inbounds i8, ptr %3, i64 48
+  %1675 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1675, align 16
   br label %.sink.split
 
@@ -20673,18 +20673,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1678, ptr %1679, align 8
   %1680 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1681 = ptrtoint ptr %1680 to i64
-  %1682 = getelementptr inbounds i8, ptr %3, i64 16
+  %1682 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %1682, align 16
-  %1683 = getelementptr inbounds i8, ptr %3, i64 24
+  %1683 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1681, ptr %1683, align 8
   %1684 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1685 = ptrtoint ptr %1684 to i64
-  %1686 = getelementptr inbounds i8, ptr %3, i64 32
+  %1686 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 8, ptr %1686, align 16
-  %1687 = getelementptr inbounds i8, ptr %3, i64 40
+  %1687 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1685, ptr %1687, align 8
   %1688 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1689 = getelementptr inbounds i8, ptr %3, i64 48
+  %1689 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1689, align 16
   br label %.sink.split
 
@@ -20696,18 +20696,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1692, ptr %1693, align 8
   %1694 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1695 = ptrtoint ptr %1694 to i64
-  %1696 = getelementptr inbounds i8, ptr %3, i64 16
+  %1696 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1696, align 16
-  %1697 = getelementptr inbounds i8, ptr %3, i64 24
+  %1697 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1695, ptr %1697, align 8
   %1698 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1699 = ptrtoint ptr %1698 to i64
-  %1700 = getelementptr inbounds i8, ptr %3, i64 32
+  %1700 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %1700, align 16
-  %1701 = getelementptr inbounds i8, ptr %3, i64 40
+  %1701 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1699, ptr %1701, align 8
   %1702 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1703 = getelementptr inbounds i8, ptr %3, i64 48
+  %1703 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1703, align 16
   br label %.sink.split
 
@@ -20719,18 +20719,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1706, ptr %1707, align 8
   %1708 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1709 = ptrtoint ptr %1708 to i64
-  %1710 = getelementptr inbounds i8, ptr %3, i64 16
+  %1710 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1710, align 16
-  %1711 = getelementptr inbounds i8, ptr %3, i64 24
+  %1711 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1709, ptr %1711, align 8
   %1712 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1713 = ptrtoint ptr %1712 to i64
-  %1714 = getelementptr inbounds i8, ptr %3, i64 32
+  %1714 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %1714, align 16
-  %1715 = getelementptr inbounds i8, ptr %3, i64 40
+  %1715 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1713, ptr %1715, align 8
   %1716 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1717 = getelementptr inbounds i8, ptr %3, i64 48
+  %1717 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1717, align 16
   br label %.sink.split
 
@@ -20741,7 +20741,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1721 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1720, ptr %1721, align 8
   %1722 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21)
-  %1723 = getelementptr inbounds i8, ptr %3, i64 16
+  %1723 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1723, align 16
   br label %.sink.split
 
@@ -20757,7 +20757,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1729 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1728, ptr %1729, align 8
   %1730 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1731 = getelementptr inbounds i8, ptr %3, i64 16
+  %1731 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1731, align 16
   br label %.sink.split
 
@@ -20769,12 +20769,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1734, ptr %1735, align 8
   %1736 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1737 = ptrtoint ptr %1736 to i64
-  %1738 = getelementptr inbounds i8, ptr %3, i64 16
+  %1738 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1738, align 16
-  %1739 = getelementptr inbounds i8, ptr %3, i64 24
+  %1739 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1737, ptr %1739, align 8
   %1740 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1741 = getelementptr inbounds i8, ptr %3, i64 32
+  %1741 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1741, align 16
   br label %.sink.split
 
@@ -20785,7 +20785,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1745 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1744, ptr %1745, align 8
   %1746 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1747 = getelementptr inbounds i8, ptr %3, i64 16
+  %1747 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1747, align 16
   br label %.sink.split
 
@@ -20797,12 +20797,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1750, ptr %1751, align 8
   %1752 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1753 = ptrtoint ptr %1752 to i64
-  %1754 = getelementptr inbounds i8, ptr %3, i64 16
+  %1754 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1754, align 16
-  %1755 = getelementptr inbounds i8, ptr %3, i64 24
+  %1755 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1753, ptr %1755, align 8
   %1756 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1757 = getelementptr inbounds i8, ptr %3, i64 32
+  %1757 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1757, align 16
   br label %.sink.split
 
@@ -20813,7 +20813,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1761 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1760, ptr %1761, align 8
   %1762 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1763 = getelementptr inbounds i8, ptr %3, i64 16
+  %1763 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1763, align 16
   br label %.sink.split
 
@@ -20825,12 +20825,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1766, ptr %1767, align 8
   %1768 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1769 = ptrtoint ptr %1768 to i64
-  %1770 = getelementptr inbounds i8, ptr %3, i64 16
+  %1770 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1770, align 16
-  %1771 = getelementptr inbounds i8, ptr %3, i64 24
+  %1771 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1769, ptr %1771, align 8
   %1772 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1773 = getelementptr inbounds i8, ptr %3, i64 32
+  %1773 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1773, align 16
   br label %.sink.split
 
@@ -20842,18 +20842,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1776, ptr %1777, align 8
   %1778 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1779 = ptrtoint ptr %1778 to i64
-  %1780 = getelementptr inbounds i8, ptr %3, i64 16
+  %1780 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %1780, align 16
-  %1781 = getelementptr inbounds i8, ptr %3, i64 24
+  %1781 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1779, ptr %1781, align 8
   %1782 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1783 = ptrtoint ptr %1782 to i64
-  %1784 = getelementptr inbounds i8, ptr %3, i64 32
+  %1784 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %1784, align 16
-  %1785 = getelementptr inbounds i8, ptr %3, i64 40
+  %1785 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1783, ptr %1785, align 8
   %1786 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1787 = getelementptr inbounds i8, ptr %3, i64 48
+  %1787 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1787, align 16
   br label %.sink.split
 
@@ -20865,12 +20865,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1790, ptr %1791, align 8
   %1792 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1793 = ptrtoint ptr %1792 to i64
-  %1794 = getelementptr inbounds i8, ptr %3, i64 16
+  %1794 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %1794, align 16
-  %1795 = getelementptr inbounds i8, ptr %3, i64 24
+  %1795 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1793, ptr %1795, align 8
   %1796 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1797 = getelementptr inbounds i8, ptr %3, i64 32
+  %1797 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %1797, align 16
   br label %.sink.split
 
@@ -20881,7 +20881,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1801 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1800, ptr %1801, align 8
   %1802 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1803 = getelementptr inbounds i8, ptr %3, i64 16
+  %1803 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1803, align 16
   br label %.sink.split
 
@@ -20892,7 +20892,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1807 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1806, ptr %1807, align 8
   %1808 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1809 = getelementptr inbounds i8, ptr %3, i64 16
+  %1809 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1809, align 16
   br label %.sink.split
 
@@ -20903,7 +20903,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %1813 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1812, ptr %1813, align 8
   %1814 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1815 = getelementptr inbounds i8, ptr %3, i64 16
+  %1815 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %1815, align 16
   br label %.sink.split
 
@@ -20915,24 +20915,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1818, ptr %1819, align 8
   %1820 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1821 = ptrtoint ptr %1820 to i64
-  %1822 = getelementptr inbounds i8, ptr %3, i64 16
+  %1822 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 16, ptr %1822, align 16
-  %1823 = getelementptr inbounds i8, ptr %3, i64 24
+  %1823 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1821, ptr %1823, align 8
   %1824 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1825 = ptrtoint ptr %1824 to i64
-  %1826 = getelementptr inbounds i8, ptr %3, i64 32
+  %1826 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 17, ptr %1826, align 16
-  %1827 = getelementptr inbounds i8, ptr %3, i64 40
+  %1827 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1825, ptr %1827, align 8
   %1828 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1829 = ptrtoint ptr %1828 to i64
-  %1830 = getelementptr inbounds i8, ptr %3, i64 48
+  %1830 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 18, ptr %1830, align 16
-  %1831 = getelementptr inbounds i8, ptr %3, i64 56
+  %1831 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1829, ptr %1831, align 8
   %1832 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1833 = getelementptr inbounds i8, ptr %3, i64 64
+  %1833 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1833, align 16
   br label %.sink.split
 
@@ -20944,24 +20944,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1836, ptr %1837, align 8
   %1838 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1839 = ptrtoint ptr %1838 to i64
-  %1840 = getelementptr inbounds i8, ptr %3, i64 16
+  %1840 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 15, ptr %1840, align 16
-  %1841 = getelementptr inbounds i8, ptr %3, i64 24
+  %1841 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1839, ptr %1841, align 8
   %1842 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1843 = ptrtoint ptr %1842 to i64
-  %1844 = getelementptr inbounds i8, ptr %3, i64 32
+  %1844 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 16, ptr %1844, align 16
-  %1845 = getelementptr inbounds i8, ptr %3, i64 40
+  %1845 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1843, ptr %1845, align 8
   %1846 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1847 = ptrtoint ptr %1846 to i64
-  %1848 = getelementptr inbounds i8, ptr %3, i64 48
+  %1848 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 17, ptr %1848, align 16
-  %1849 = getelementptr inbounds i8, ptr %3, i64 56
+  %1849 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1847, ptr %1849, align 8
   %1850 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1851 = getelementptr inbounds i8, ptr %3, i64 64
+  %1851 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1851, align 16
   br label %.sink.split
 
@@ -20973,24 +20973,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1854, ptr %1855, align 8
   %1856 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1857 = ptrtoint ptr %1856 to i64
-  %1858 = getelementptr inbounds i8, ptr %3, i64 16
+  %1858 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 14, ptr %1858, align 16
-  %1859 = getelementptr inbounds i8, ptr %3, i64 24
+  %1859 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1857, ptr %1859, align 8
   %1860 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1861 = ptrtoint ptr %1860 to i64
-  %1862 = getelementptr inbounds i8, ptr %3, i64 32
+  %1862 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 15, ptr %1862, align 16
-  %1863 = getelementptr inbounds i8, ptr %3, i64 40
+  %1863 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1861, ptr %1863, align 8
   %1864 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1865 = ptrtoint ptr %1864 to i64
-  %1866 = getelementptr inbounds i8, ptr %3, i64 48
+  %1866 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 16, ptr %1866, align 16
-  %1867 = getelementptr inbounds i8, ptr %3, i64 56
+  %1867 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1865, ptr %1867, align 8
   %1868 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1869 = getelementptr inbounds i8, ptr %3, i64 64
+  %1869 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1869, align 16
   br label %.sink.split
 
@@ -21002,24 +21002,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1872, ptr %1873, align 8
   %1874 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1875 = ptrtoint ptr %1874 to i64
-  %1876 = getelementptr inbounds i8, ptr %3, i64 16
+  %1876 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 13, ptr %1876, align 16
-  %1877 = getelementptr inbounds i8, ptr %3, i64 24
+  %1877 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1875, ptr %1877, align 8
   %1878 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1879 = ptrtoint ptr %1878 to i64
-  %1880 = getelementptr inbounds i8, ptr %3, i64 32
+  %1880 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 14, ptr %1880, align 16
-  %1881 = getelementptr inbounds i8, ptr %3, i64 40
+  %1881 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1879, ptr %1881, align 8
   %1882 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1883 = ptrtoint ptr %1882 to i64
-  %1884 = getelementptr inbounds i8, ptr %3, i64 48
+  %1884 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 15, ptr %1884, align 16
-  %1885 = getelementptr inbounds i8, ptr %3, i64 56
+  %1885 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1883, ptr %1885, align 8
   %1886 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1887 = getelementptr inbounds i8, ptr %3, i64 64
+  %1887 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1887, align 16
   br label %.sink.split
 
@@ -21031,24 +21031,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1890, ptr %1891, align 8
   %1892 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1893 = ptrtoint ptr %1892 to i64
-  %1894 = getelementptr inbounds i8, ptr %3, i64 16
+  %1894 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 12, ptr %1894, align 16
-  %1895 = getelementptr inbounds i8, ptr %3, i64 24
+  %1895 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1893, ptr %1895, align 8
   %1896 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1897 = ptrtoint ptr %1896 to i64
-  %1898 = getelementptr inbounds i8, ptr %3, i64 32
+  %1898 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 13, ptr %1898, align 16
-  %1899 = getelementptr inbounds i8, ptr %3, i64 40
+  %1899 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1897, ptr %1899, align 8
   %1900 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1901 = ptrtoint ptr %1900 to i64
-  %1902 = getelementptr inbounds i8, ptr %3, i64 48
+  %1902 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 14, ptr %1902, align 16
-  %1903 = getelementptr inbounds i8, ptr %3, i64 56
+  %1903 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1901, ptr %1903, align 8
   %1904 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1905 = getelementptr inbounds i8, ptr %3, i64 64
+  %1905 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1905, align 16
   br label %.sink.split
 
@@ -21060,24 +21060,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1908, ptr %1909, align 8
   %1910 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1911 = ptrtoint ptr %1910 to i64
-  %1912 = getelementptr inbounds i8, ptr %3, i64 16
+  %1912 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 11, ptr %1912, align 16
-  %1913 = getelementptr inbounds i8, ptr %3, i64 24
+  %1913 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1911, ptr %1913, align 8
   %1914 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1915 = ptrtoint ptr %1914 to i64
-  %1916 = getelementptr inbounds i8, ptr %3, i64 32
+  %1916 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 12, ptr %1916, align 16
-  %1917 = getelementptr inbounds i8, ptr %3, i64 40
+  %1917 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1915, ptr %1917, align 8
   %1918 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1919 = ptrtoint ptr %1918 to i64
-  %1920 = getelementptr inbounds i8, ptr %3, i64 48
+  %1920 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 13, ptr %1920, align 16
-  %1921 = getelementptr inbounds i8, ptr %3, i64 56
+  %1921 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1919, ptr %1921, align 8
   %1922 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1923 = getelementptr inbounds i8, ptr %3, i64 64
+  %1923 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1923, align 16
   br label %.sink.split
 
@@ -21089,24 +21089,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1926, ptr %1927, align 8
   %1928 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1929 = ptrtoint ptr %1928 to i64
-  %1930 = getelementptr inbounds i8, ptr %3, i64 16
+  %1930 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 10, ptr %1930, align 16
-  %1931 = getelementptr inbounds i8, ptr %3, i64 24
+  %1931 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1929, ptr %1931, align 8
   %1932 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1933 = ptrtoint ptr %1932 to i64
-  %1934 = getelementptr inbounds i8, ptr %3, i64 32
+  %1934 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 11, ptr %1934, align 16
-  %1935 = getelementptr inbounds i8, ptr %3, i64 40
+  %1935 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1933, ptr %1935, align 8
   %1936 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1937 = ptrtoint ptr %1936 to i64
-  %1938 = getelementptr inbounds i8, ptr %3, i64 48
+  %1938 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 12, ptr %1938, align 16
-  %1939 = getelementptr inbounds i8, ptr %3, i64 56
+  %1939 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1937, ptr %1939, align 8
   %1940 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1941 = getelementptr inbounds i8, ptr %3, i64 64
+  %1941 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1941, align 16
   br label %.sink.split
 
@@ -21118,24 +21118,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1944, ptr %1945, align 8
   %1946 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1947 = ptrtoint ptr %1946 to i64
-  %1948 = getelementptr inbounds i8, ptr %3, i64 16
+  %1948 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 9, ptr %1948, align 16
-  %1949 = getelementptr inbounds i8, ptr %3, i64 24
+  %1949 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1947, ptr %1949, align 8
   %1950 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1951 = ptrtoint ptr %1950 to i64
-  %1952 = getelementptr inbounds i8, ptr %3, i64 32
+  %1952 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 10, ptr %1952, align 16
-  %1953 = getelementptr inbounds i8, ptr %3, i64 40
+  %1953 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1951, ptr %1953, align 8
   %1954 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1955 = ptrtoint ptr %1954 to i64
-  %1956 = getelementptr inbounds i8, ptr %3, i64 48
+  %1956 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 11, ptr %1956, align 16
-  %1957 = getelementptr inbounds i8, ptr %3, i64 56
+  %1957 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1955, ptr %1957, align 8
   %1958 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1959 = getelementptr inbounds i8, ptr %3, i64 64
+  %1959 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1959, align 16
   br label %.sink.split
 
@@ -21147,24 +21147,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1962, ptr %1963, align 8
   %1964 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1965 = ptrtoint ptr %1964 to i64
-  %1966 = getelementptr inbounds i8, ptr %3, i64 16
+  %1966 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 8, ptr %1966, align 16
-  %1967 = getelementptr inbounds i8, ptr %3, i64 24
+  %1967 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1965, ptr %1967, align 8
   %1968 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1969 = ptrtoint ptr %1968 to i64
-  %1970 = getelementptr inbounds i8, ptr %3, i64 32
+  %1970 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 9, ptr %1970, align 16
-  %1971 = getelementptr inbounds i8, ptr %3, i64 40
+  %1971 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1969, ptr %1971, align 8
   %1972 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1973 = ptrtoint ptr %1972 to i64
-  %1974 = getelementptr inbounds i8, ptr %3, i64 48
+  %1974 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 10, ptr %1974, align 16
-  %1975 = getelementptr inbounds i8, ptr %3, i64 56
+  %1975 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1973, ptr %1975, align 8
   %1976 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1977 = getelementptr inbounds i8, ptr %3, i64 64
+  %1977 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %1977, align 16
   br label %.sink.split
 
@@ -21176,18 +21176,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1980, ptr %1981, align 8
   %1982 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1983 = ptrtoint ptr %1982 to i64
-  %1984 = getelementptr inbounds i8, ptr %3, i64 16
+  %1984 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %1984, align 16
-  %1985 = getelementptr inbounds i8, ptr %3, i64 24
+  %1985 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1983, ptr %1985, align 8
   %1986 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1987 = ptrtoint ptr %1986 to i64
-  %1988 = getelementptr inbounds i8, ptr %3, i64 32
+  %1988 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 8, ptr %1988, align 16
-  %1989 = getelementptr inbounds i8, ptr %3, i64 40
+  %1989 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %1987, ptr %1989, align 8
   %1990 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %1991 = getelementptr inbounds i8, ptr %3, i64 48
+  %1991 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %1991, align 16
   br label %.sink.split
 
@@ -21199,24 +21199,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %1994, ptr %1995, align 8
   %1996 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %1997 = ptrtoint ptr %1996 to i64
-  %1998 = getelementptr inbounds i8, ptr %3, i64 16
+  %1998 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %1998, align 16
-  %1999 = getelementptr inbounds i8, ptr %3, i64 24
+  %1999 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %1997, ptr %1999, align 8
   %2000 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2001 = ptrtoint ptr %2000 to i64
-  %2002 = getelementptr inbounds i8, ptr %3, i64 32
+  %2002 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 8, ptr %2002, align 16
-  %2003 = getelementptr inbounds i8, ptr %3, i64 40
+  %2003 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2001, ptr %2003, align 8
   %2004 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2005 = ptrtoint ptr %2004 to i64
-  %2006 = getelementptr inbounds i8, ptr %3, i64 48
+  %2006 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 9, ptr %2006, align 16
-  %2007 = getelementptr inbounds i8, ptr %3, i64 56
+  %2007 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2005, ptr %2007, align 8
   %2008 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2009 = getelementptr inbounds i8, ptr %3, i64 64
+  %2009 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2009, align 16
   br label %.sink.split
 
@@ -21228,18 +21228,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2012, ptr %2013, align 8
   %2014 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2015 = ptrtoint ptr %2014 to i64
-  %2016 = getelementptr inbounds i8, ptr %3, i64 16
+  %2016 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2016, align 16
-  %2017 = getelementptr inbounds i8, ptr %3, i64 24
+  %2017 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2015, ptr %2017, align 8
   %2018 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2019 = ptrtoint ptr %2018 to i64
-  %2020 = getelementptr inbounds i8, ptr %3, i64 32
+  %2020 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %2020, align 16
-  %2021 = getelementptr inbounds i8, ptr %3, i64 40
+  %2021 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2019, ptr %2021, align 8
   %2022 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2023 = getelementptr inbounds i8, ptr %3, i64 48
+  %2023 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2023, align 16
   br label %.sink.split
 
@@ -21251,24 +21251,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2026, ptr %2027, align 8
   %2028 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2029 = ptrtoint ptr %2028 to i64
-  %2030 = getelementptr inbounds i8, ptr %3, i64 16
+  %2030 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2030, align 16
-  %2031 = getelementptr inbounds i8, ptr %3, i64 24
+  %2031 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2029, ptr %2031, align 8
   %2032 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2033 = ptrtoint ptr %2032 to i64
-  %2034 = getelementptr inbounds i8, ptr %3, i64 32
+  %2034 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %2034, align 16
-  %2035 = getelementptr inbounds i8, ptr %3, i64 40
+  %2035 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2033, ptr %2035, align 8
   %2036 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2037 = ptrtoint ptr %2036 to i64
-  %2038 = getelementptr inbounds i8, ptr %3, i64 48
+  %2038 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 8, ptr %2038, align 16
-  %2039 = getelementptr inbounds i8, ptr %3, i64 56
+  %2039 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2037, ptr %2039, align 8
   %2040 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2041 = getelementptr inbounds i8, ptr %3, i64 64
+  %2041 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2041, align 16
   br label %.sink.split
 
@@ -21280,18 +21280,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2044, ptr %2045, align 8
   %2046 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2047 = ptrtoint ptr %2046 to i64
-  %2048 = getelementptr inbounds i8, ptr %3, i64 16
+  %2048 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2048, align 16
-  %2049 = getelementptr inbounds i8, ptr %3, i64 24
+  %2049 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2047, ptr %2049, align 8
   %2050 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2051 = ptrtoint ptr %2050 to i64
-  %2052 = getelementptr inbounds i8, ptr %3, i64 32
+  %2052 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %2052, align 16
-  %2053 = getelementptr inbounds i8, ptr %3, i64 40
+  %2053 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2051, ptr %2053, align 8
   %2054 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2055 = getelementptr inbounds i8, ptr %3, i64 48
+  %2055 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2055, align 16
   br label %.sink.split
 
@@ -21303,24 +21303,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2058, ptr %2059, align 8
   %2060 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2061 = ptrtoint ptr %2060 to i64
-  %2062 = getelementptr inbounds i8, ptr %3, i64 16
+  %2062 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2062, align 16
-  %2063 = getelementptr inbounds i8, ptr %3, i64 24
+  %2063 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2061, ptr %2063, align 8
   %2064 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2065 = ptrtoint ptr %2064 to i64
-  %2066 = getelementptr inbounds i8, ptr %3, i64 32
+  %2066 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %2066, align 16
-  %2067 = getelementptr inbounds i8, ptr %3, i64 40
+  %2067 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2065, ptr %2067, align 8
   %2068 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2069 = ptrtoint ptr %2068 to i64
-  %2070 = getelementptr inbounds i8, ptr %3, i64 48
+  %2070 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 7, ptr %2070, align 16
-  %2071 = getelementptr inbounds i8, ptr %3, i64 56
+  %2071 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2069, ptr %2071, align 8
   %2072 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2073 = getelementptr inbounds i8, ptr %3, i64 64
+  %2073 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2073, align 16
   br label %.sink.split
 
@@ -21332,18 +21332,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2076, ptr %2077, align 8
   %2078 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2079 = ptrtoint ptr %2078 to i64
-  %2080 = getelementptr inbounds i8, ptr %3, i64 16
+  %2080 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2080, align 16
-  %2081 = getelementptr inbounds i8, ptr %3, i64 24
+  %2081 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2079, ptr %2081, align 8
   %2082 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2083 = ptrtoint ptr %2082 to i64
-  %2084 = getelementptr inbounds i8, ptr %3, i64 32
+  %2084 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2084, align 16
-  %2085 = getelementptr inbounds i8, ptr %3, i64 40
+  %2085 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2083, ptr %2085, align 8
   %2086 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2087 = getelementptr inbounds i8, ptr %3, i64 48
+  %2087 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2087, align 16
   br label %.sink.split
 
@@ -21355,12 +21355,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2090, ptr %2091, align 8
   %2092 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2093 = ptrtoint ptr %2092 to i64
-  %2094 = getelementptr inbounds i8, ptr %3, i64 16
+  %2094 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2094, align 16
-  %2095 = getelementptr inbounds i8, ptr %3, i64 24
+  %2095 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2093, ptr %2095, align 8
   %2096 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 20)
-  %2097 = getelementptr inbounds i8, ptr %3, i64 32
+  %2097 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2097, align 16
   br label %.sink.split
 
@@ -21376,7 +21376,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2103 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2102, ptr %2103, align 8
   %2104 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26)
-  %2105 = getelementptr inbounds i8, ptr %3, i64 16
+  %2105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2105, align 16
   br label %.sink.split
 
@@ -21388,12 +21388,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2108, ptr %2109, align 8
   %2110 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2111 = ptrtoint ptr %2110 to i64
-  %2112 = getelementptr inbounds i8, ptr %3, i64 16
+  %2112 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2112, align 16
-  %2113 = getelementptr inbounds i8, ptr %3, i64 24
+  %2113 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2111, ptr %2113, align 8
   %2114 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26)
-  %2115 = getelementptr inbounds i8, ptr %3, i64 32
+  %2115 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2115, align 16
   br label %.sink.split
 
@@ -21405,24 +21405,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2118, ptr %2119, align 8
   %2120 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2121 = ptrtoint ptr %2120 to i64
-  %2122 = getelementptr inbounds i8, ptr %3, i64 16
+  %2122 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2122, align 16
-  %2123 = getelementptr inbounds i8, ptr %3, i64 24
+  %2123 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2121, ptr %2123, align 8
   %2124 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2125 = ptrtoint ptr %2124 to i64
-  %2126 = getelementptr inbounds i8, ptr %3, i64 32
+  %2126 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %2126, align 16
-  %2127 = getelementptr inbounds i8, ptr %3, i64 40
+  %2127 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2125, ptr %2127, align 8
   %2128 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2129 = ptrtoint ptr %2128 to i64
-  %2130 = getelementptr inbounds i8, ptr %3, i64 48
+  %2130 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 4, ptr %2130, align 16
-  %2131 = getelementptr inbounds i8, ptr %3, i64 56
+  %2131 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2129, ptr %2131, align 8
   %2132 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26)
-  %2133 = getelementptr inbounds i8, ptr %3, i64 64
+  %2133 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2133, align 16
   br label %.sink.split
 
@@ -21438,7 +21438,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2138, ptr %2139, align 8
   %2140 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 4)
-  %2141 = getelementptr inbounds i8, ptr %3, i64 16
+  %2141 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2141, align 16
   br label %.sink.split
 
@@ -21454,7 +21454,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2147 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2146, ptr %2147, align 8
   %2148 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
-  %2149 = getelementptr inbounds i8, ptr %3, i64 16
+  %2149 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2149, align 16
   br label %.sink.split
 
@@ -21466,18 +21466,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2152, ptr %2153, align 8
   %2154 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2155 = ptrtoint ptr %2154 to i64
-  %2156 = getelementptr inbounds i8, ptr %3, i64 16
+  %2156 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2156, align 16
-  %2157 = getelementptr inbounds i8, ptr %3, i64 24
+  %2157 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2155, ptr %2157, align 8
   %2158 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2159 = ptrtoint ptr %2158 to i64
-  %2160 = getelementptr inbounds i8, ptr %3, i64 32
+  %2160 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %2160, align 16
-  %2161 = getelementptr inbounds i8, ptr %3, i64 40
+  %2161 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2159, ptr %2161, align 8
   %2162 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
-  %2163 = getelementptr inbounds i8, ptr %3, i64 48
+  %2163 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2163, align 16
   br label %.sink.split
 
@@ -21489,24 +21489,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2166, ptr %2167, align 8
   %2168 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2169 = ptrtoint ptr %2168 to i64
-  %2170 = getelementptr inbounds i8, ptr %3, i64 16
+  %2170 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2170, align 16
-  %2171 = getelementptr inbounds i8, ptr %3, i64 24
+  %2171 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2169, ptr %2171, align 8
   %2172 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2173 = ptrtoint ptr %2172 to i64
-  %2174 = getelementptr inbounds i8, ptr %3, i64 32
+  %2174 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %2174, align 16
-  %2175 = getelementptr inbounds i8, ptr %3, i64 40
+  %2175 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2173, ptr %2175, align 8
   %2176 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2177 = ptrtoint ptr %2176 to i64
-  %2178 = getelementptr inbounds i8, ptr %3, i64 48
+  %2178 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 8, ptr %2178, align 16
-  %2179 = getelementptr inbounds i8, ptr %3, i64 56
+  %2179 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2177, ptr %2179, align 8
   %2180 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
-  %2181 = getelementptr inbounds i8, ptr %3, i64 64
+  %2181 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2181, align 16
   br label %.sink.split
 
@@ -21518,24 +21518,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2184, ptr %2185, align 8
   %2186 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2187 = ptrtoint ptr %2186 to i64
-  %2188 = getelementptr inbounds i8, ptr %3, i64 16
+  %2188 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2188, align 16
-  %2189 = getelementptr inbounds i8, ptr %3, i64 24
+  %2189 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2187, ptr %2189, align 8
   %2190 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2191 = ptrtoint ptr %2190 to i64
-  %2192 = getelementptr inbounds i8, ptr %3, i64 32
+  %2192 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2192, align 16
-  %2193 = getelementptr inbounds i8, ptr %3, i64 40
+  %2193 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2191, ptr %2193, align 8
   %2194 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2195 = ptrtoint ptr %2194 to i64
-  %2196 = getelementptr inbounds i8, ptr %3, i64 48
+  %2196 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 6, ptr %2196, align 16
-  %2197 = getelementptr inbounds i8, ptr %3, i64 56
+  %2197 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2195, ptr %2197, align 8
   %2198 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
-  %2199 = getelementptr inbounds i8, ptr %3, i64 64
+  %2199 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2199, align 16
   br label %.sink.split
 
@@ -21546,7 +21546,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2203 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2202, ptr %2203, align 8
   %2204 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
-  %2205 = getelementptr inbounds i8, ptr %3, i64 16
+  %2205 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2205, align 16
   br label %.sink.split
 
@@ -21558,12 +21558,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2208, ptr %2209, align 8
   %2210 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2211 = ptrtoint ptr %2210 to i64
-  %2212 = getelementptr inbounds i8, ptr %3, i64 16
+  %2212 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %2212, align 16
-  %2213 = getelementptr inbounds i8, ptr %3, i64 24
+  %2213 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2211, ptr %2213, align 8
   %2214 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
-  %2215 = getelementptr inbounds i8, ptr %3, i64 32
+  %2215 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2215, align 16
   br label %.sink.split
 
@@ -21579,7 +21579,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2221 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2220, ptr %2221, align 8
   %2222 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37)
-  %2223 = getelementptr inbounds i8, ptr %3, i64 16
+  %2223 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2223, align 16
   br label %.sink.split
 
@@ -21595,7 +21595,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2229 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2228, ptr %2229, align 8
   %2230 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2231 = getelementptr inbounds i8, ptr %3, i64 16
+  %2231 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2231, align 16
   br label %.sink.split
 
@@ -21606,7 +21606,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2235 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2234, ptr %2235, align 8
   %2236 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2237 = getelementptr inbounds i8, ptr %3, i64 16
+  %2237 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2237, align 16
   br label %.sink.split
 
@@ -21617,7 +21617,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2241 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2240, ptr %2241, align 8
   %2242 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2243 = getelementptr inbounds i8, ptr %3, i64 16
+  %2243 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2243, align 16
   br label %.sink.split
 
@@ -21628,7 +21628,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2247 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2246, ptr %2247, align 8
   %2248 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2249 = getelementptr inbounds i8, ptr %3, i64 16
+  %2249 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2249, align 16
   br label %.sink.split
 
@@ -21639,7 +21639,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2253 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2252, ptr %2253, align 8
   %2254 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2255 = getelementptr inbounds i8, ptr %3, i64 16
+  %2255 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2255, align 16
   br label %.sink.split
 
@@ -21650,7 +21650,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2259 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2258, ptr %2259, align 8
   %2260 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2261 = getelementptr inbounds i8, ptr %3, i64 16
+  %2261 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2261, align 16
   br label %.sink.split
 
@@ -21662,12 +21662,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2264, ptr %2265, align 8
   %2266 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
   %2267 = ptrtoint ptr %2266 to i64
-  %2268 = getelementptr inbounds i8, ptr %3, i64 16
+  %2268 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2268, align 16
-  %2269 = getelementptr inbounds i8, ptr %3, i64 24
+  %2269 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2267, ptr %2269, align 8
   %2270 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2271 = getelementptr inbounds i8, ptr %3, i64 32
+  %2271 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2271, align 16
   br label %.sink.split
 
@@ -21678,7 +21678,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2275 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2274, ptr %2275, align 8
   %2276 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2277 = getelementptr inbounds i8, ptr %3, i64 16
+  %2277 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2277, align 16
   br label %.sink.split
 
@@ -21689,7 +21689,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2281 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2280, ptr %2281, align 8
   %2282 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2283 = getelementptr inbounds i8, ptr %3, i64 16
+  %2283 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2283, align 16
   br label %.sink.split
 
@@ -21701,12 +21701,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2286, ptr %2287, align 8
   %2288 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
   %2289 = ptrtoint ptr %2288 to i64
-  %2290 = getelementptr inbounds i8, ptr %3, i64 16
+  %2290 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2290, align 16
-  %2291 = getelementptr inbounds i8, ptr %3, i64 24
+  %2291 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2289, ptr %2291, align 8
   %2292 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2293 = getelementptr inbounds i8, ptr %3, i64 32
+  %2293 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2293, align 16
   br label %.sink.split
 
@@ -21718,18 +21718,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2296, ptr %2297, align 8
   %2298 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 4)
   %2299 = ptrtoint ptr %2298 to i64
-  %2300 = getelementptr inbounds i8, ptr %3, i64 16
+  %2300 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2300, align 16
-  %2301 = getelementptr inbounds i8, ptr %3, i64 24
+  %2301 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2299, ptr %2301, align 8
   %2302 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 4)
   %2303 = ptrtoint ptr %2302 to i64
-  %2304 = getelementptr inbounds i8, ptr %3, i64 32
+  %2304 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %2304, align 16
-  %2305 = getelementptr inbounds i8, ptr %3, i64 40
+  %2305 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2303, ptr %2305, align 8
   %2306 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2307 = getelementptr inbounds i8, ptr %3, i64 48
+  %2307 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2307, align 16
   br label %.sink.split
 
@@ -21741,12 +21741,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2310, ptr %2311, align 8
   %2312 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5)
   %2313 = ptrtoint ptr %2312 to i64
-  %2314 = getelementptr inbounds i8, ptr %3, i64 16
+  %2314 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2314, align 16
-  %2315 = getelementptr inbounds i8, ptr %3, i64 24
+  %2315 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2313, ptr %2315, align 8
   %2316 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 16)
-  %2317 = getelementptr inbounds i8, ptr %3, i64 32
+  %2317 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2317, align 16
   br label %.sink.split
 
@@ -21762,7 +21762,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2323 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2322, ptr %2323, align 8
   %2324 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2325 = getelementptr inbounds i8, ptr %3, i64 16
+  %2325 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2325, align 16
   br label %.sink.split
 
@@ -21774,12 +21774,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2328, ptr %2329, align 8
   %2330 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2331 = ptrtoint ptr %2330 to i64
-  %2332 = getelementptr inbounds i8, ptr %3, i64 16
+  %2332 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2332, align 16
-  %2333 = getelementptr inbounds i8, ptr %3, i64 24
+  %2333 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2331, ptr %2333, align 8
   %2334 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2335 = getelementptr inbounds i8, ptr %3, i64 32
+  %2335 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2335, align 16
   br label %.sink.split
 
@@ -21791,12 +21791,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2338, ptr %2339, align 8
   %2340 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2341 = ptrtoint ptr %2340 to i64
-  %2342 = getelementptr inbounds i8, ptr %3, i64 16
+  %2342 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2342, align 16
-  %2343 = getelementptr inbounds i8, ptr %3, i64 24
+  %2343 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2341, ptr %2343, align 8
   %2344 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2345 = getelementptr inbounds i8, ptr %3, i64 32
+  %2345 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2345, align 16
   br label %.sink.split
 
@@ -21808,12 +21808,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2348, ptr %2349, align 8
   %2350 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2351 = ptrtoint ptr %2350 to i64
-  %2352 = getelementptr inbounds i8, ptr %3, i64 16
+  %2352 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2352, align 16
-  %2353 = getelementptr inbounds i8, ptr %3, i64 24
+  %2353 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2351, ptr %2353, align 8
   %2354 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2355 = getelementptr inbounds i8, ptr %3, i64 32
+  %2355 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2355, align 16
   br label %.sink.split
 
@@ -21825,12 +21825,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2358, ptr %2359, align 8
   %2360 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2361 = ptrtoint ptr %2360 to i64
-  %2362 = getelementptr inbounds i8, ptr %3, i64 16
+  %2362 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2362, align 16
-  %2363 = getelementptr inbounds i8, ptr %3, i64 24
+  %2363 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2361, ptr %2363, align 8
   %2364 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2365 = getelementptr inbounds i8, ptr %3, i64 32
+  %2365 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2365, align 16
   br label %.sink.split
 
@@ -21842,18 +21842,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2368, ptr %2369, align 8
   %2370 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2371 = ptrtoint ptr %2370 to i64
-  %2372 = getelementptr inbounds i8, ptr %3, i64 16
+  %2372 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2372, align 16
-  %2373 = getelementptr inbounds i8, ptr %3, i64 24
+  %2373 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2371, ptr %2373, align 8
   %2374 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2375 = ptrtoint ptr %2374 to i64
-  %2376 = getelementptr inbounds i8, ptr %3, i64 32
+  %2376 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %2376, align 16
-  %2377 = getelementptr inbounds i8, ptr %3, i64 40
+  %2377 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2375, ptr %2377, align 8
   %2378 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2379 = getelementptr inbounds i8, ptr %3, i64 48
+  %2379 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2379, align 16
   br label %.sink.split
 
@@ -21865,12 +21865,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2382, ptr %2383, align 8
   %2384 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2385 = ptrtoint ptr %2384 to i64
-  %2386 = getelementptr inbounds i8, ptr %3, i64 16
+  %2386 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2386, align 16
-  %2387 = getelementptr inbounds i8, ptr %3, i64 24
+  %2387 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2385, ptr %2387, align 8
   %2388 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2389 = getelementptr inbounds i8, ptr %3, i64 32
+  %2389 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2389, align 16
   br label %.sink.split
 
@@ -21882,18 +21882,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2392, ptr %2393, align 8
   %2394 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2395 = ptrtoint ptr %2394 to i64
-  %2396 = getelementptr inbounds i8, ptr %3, i64 16
+  %2396 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2396, align 16
-  %2397 = getelementptr inbounds i8, ptr %3, i64 24
+  %2397 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2395, ptr %2397, align 8
   %2398 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2399 = ptrtoint ptr %2398 to i64
-  %2400 = getelementptr inbounds i8, ptr %3, i64 32
+  %2400 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %2400, align 16
-  %2401 = getelementptr inbounds i8, ptr %3, i64 40
+  %2401 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2399, ptr %2401, align 8
   %2402 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2403 = getelementptr inbounds i8, ptr %3, i64 48
+  %2403 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2403, align 16
   br label %.sink.split
 
@@ -21905,24 +21905,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2406, ptr %2407, align 8
   %2408 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2409 = ptrtoint ptr %2408 to i64
-  %2410 = getelementptr inbounds i8, ptr %3, i64 16
+  %2410 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2410, align 16
-  %2411 = getelementptr inbounds i8, ptr %3, i64 24
+  %2411 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2409, ptr %2411, align 8
   %2412 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2413 = ptrtoint ptr %2412 to i64
-  %2414 = getelementptr inbounds i8, ptr %3, i64 32
+  %2414 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2414, align 16
-  %2415 = getelementptr inbounds i8, ptr %3, i64 40
+  %2415 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2413, ptr %2415, align 8
   %2416 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2417 = ptrtoint ptr %2416 to i64
-  %2418 = getelementptr inbounds i8, ptr %3, i64 48
+  %2418 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 6, ptr %2418, align 16
-  %2419 = getelementptr inbounds i8, ptr %3, i64 56
+  %2419 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2417, ptr %2419, align 8
   %2420 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2421 = getelementptr inbounds i8, ptr %3, i64 64
+  %2421 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2421, align 16
   br label %.sink.split
 
@@ -21933,7 +21933,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2425 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2424, ptr %2425, align 8
   %2426 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 17)
-  %2427 = getelementptr inbounds i8, ptr %3, i64 16
+  %2427 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2427, align 16
   br label %.sink.split
 
@@ -21949,7 +21949,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2433 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2432, ptr %2433, align 8
   %2434 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2435 = getelementptr inbounds i8, ptr %3, i64 16
+  %2435 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2435, align 16
   br label %.sink.split
 
@@ -21961,12 +21961,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2438, ptr %2439, align 8
   %2440 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2441 = ptrtoint ptr %2440 to i64
-  %2442 = getelementptr inbounds i8, ptr %3, i64 16
+  %2442 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2442, align 16
-  %2443 = getelementptr inbounds i8, ptr %3, i64 24
+  %2443 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2441, ptr %2443, align 8
   %2444 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2445 = getelementptr inbounds i8, ptr %3, i64 32
+  %2445 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2445, align 16
   br label %.sink.split
 
@@ -21978,18 +21978,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2448, ptr %2449, align 8
   %2450 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2451 = ptrtoint ptr %2450 to i64
-  %2452 = getelementptr inbounds i8, ptr %3, i64 16
+  %2452 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2452, align 16
-  %2453 = getelementptr inbounds i8, ptr %3, i64 24
+  %2453 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2451, ptr %2453, align 8
   %2454 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2455 = ptrtoint ptr %2454 to i64
-  %2456 = getelementptr inbounds i8, ptr %3, i64 32
+  %2456 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %2456, align 16
-  %2457 = getelementptr inbounds i8, ptr %3, i64 40
+  %2457 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2455, ptr %2457, align 8
   %2458 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2459 = getelementptr inbounds i8, ptr %3, i64 48
+  %2459 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2459, align 16
   br label %.sink.split
 
@@ -22001,12 +22001,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2462, ptr %2463, align 8
   %2464 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2465 = ptrtoint ptr %2464 to i64
-  %2466 = getelementptr inbounds i8, ptr %3, i64 16
+  %2466 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2466, align 16
-  %2467 = getelementptr inbounds i8, ptr %3, i64 24
+  %2467 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2465, ptr %2467, align 8
   %2468 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2469 = getelementptr inbounds i8, ptr %3, i64 32
+  %2469 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2469, align 16
   br label %.sink.split
 
@@ -22018,12 +22018,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2472, ptr %2473, align 8
   %2474 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2475 = ptrtoint ptr %2474 to i64
-  %2476 = getelementptr inbounds i8, ptr %3, i64 16
+  %2476 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2476, align 16
-  %2477 = getelementptr inbounds i8, ptr %3, i64 24
+  %2477 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2475, ptr %2477, align 8
   %2478 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2479 = getelementptr inbounds i8, ptr %3, i64 32
+  %2479 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2479, align 16
   br label %.sink.split
 
@@ -22035,12 +22035,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2482, ptr %2483, align 8
   %2484 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 3)
   %2485 = ptrtoint ptr %2484 to i64
-  %2486 = getelementptr inbounds i8, ptr %3, i64 16
+  %2486 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2486, align 16
-  %2487 = getelementptr inbounds i8, ptr %3, i64 24
+  %2487 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2485, ptr %2487, align 8
   %2488 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2489 = getelementptr inbounds i8, ptr %3, i64 32
+  %2489 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2489, align 16
   br label %.sink.split
 
@@ -22051,7 +22051,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2493 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2492, ptr %2493, align 8
   %2494 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2495 = getelementptr inbounds i8, ptr %3, i64 16
+  %2495 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2495, align 16
   br label %.sink.split
 
@@ -22062,7 +22062,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2499 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2498, ptr %2499, align 8
   %2500 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2501 = getelementptr inbounds i8, ptr %3, i64 16
+  %2501 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2501, align 16
   br label %.sink.split
 
@@ -22074,24 +22074,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2504, ptr %2505, align 8
   %2506 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2507 = ptrtoint ptr %2506 to i64
-  %2508 = getelementptr inbounds i8, ptr %3, i64 16
+  %2508 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2508, align 16
-  %2509 = getelementptr inbounds i8, ptr %3, i64 24
+  %2509 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2507, ptr %2509, align 8
   %2510 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2511 = ptrtoint ptr %2510 to i64
-  %2512 = getelementptr inbounds i8, ptr %3, i64 32
+  %2512 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %2512, align 16
-  %2513 = getelementptr inbounds i8, ptr %3, i64 40
+  %2513 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2511, ptr %2513, align 8
   %2514 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2515 = ptrtoint ptr %2514 to i64
-  %2516 = getelementptr inbounds i8, ptr %3, i64 48
+  %2516 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %2516, align 16
-  %2517 = getelementptr inbounds i8, ptr %3, i64 56
+  %2517 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2515, ptr %2517, align 8
   %2518 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2519 = getelementptr inbounds i8, ptr %3, i64 64
+  %2519 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2519, align 16
   br label %.sink.split
 
@@ -22103,12 +22103,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2522, ptr %2523, align 8
   %2524 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2525 = ptrtoint ptr %2524 to i64
-  %2526 = getelementptr inbounds i8, ptr %3, i64 16
+  %2526 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2526, align 16
-  %2527 = getelementptr inbounds i8, ptr %3, i64 24
+  %2527 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2525, ptr %2527, align 8
   %2528 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2529 = getelementptr inbounds i8, ptr %3, i64 32
+  %2529 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2529, align 16
   br label %.sink.split
 
@@ -22119,7 +22119,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2533 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2532, ptr %2533, align 8
   %2534 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2535 = getelementptr inbounds i8, ptr %3, i64 16
+  %2535 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2535, align 16
   br label %.sink.split
 
@@ -22131,12 +22131,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2538, ptr %2539, align 8
   %2540 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2541 = ptrtoint ptr %2540 to i64
-  %2542 = getelementptr inbounds i8, ptr %3, i64 16
+  %2542 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2542, align 16
-  %2543 = getelementptr inbounds i8, ptr %3, i64 24
+  %2543 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2541, ptr %2543, align 8
   %2544 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2545 = getelementptr inbounds i8, ptr %3, i64 32
+  %2545 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2545, align 16
   br label %.sink.split
 
@@ -22148,18 +22148,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2548, ptr %2549, align 8
   %2550 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2551 = ptrtoint ptr %2550 to i64
-  %2552 = getelementptr inbounds i8, ptr %3, i64 16
+  %2552 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2552, align 16
-  %2553 = getelementptr inbounds i8, ptr %3, i64 24
+  %2553 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2551, ptr %2553, align 8
   %2554 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2555 = ptrtoint ptr %2554 to i64
-  %2556 = getelementptr inbounds i8, ptr %3, i64 32
+  %2556 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %2556, align 16
-  %2557 = getelementptr inbounds i8, ptr %3, i64 40
+  %2557 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2555, ptr %2557, align 8
   %2558 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2559 = getelementptr inbounds i8, ptr %3, i64 48
+  %2559 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2559, align 16
   br label %.sink.split
 
@@ -22171,12 +22171,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2562, ptr %2563, align 8
   %2564 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2565 = ptrtoint ptr %2564 to i64
-  %2566 = getelementptr inbounds i8, ptr %3, i64 16
+  %2566 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2566, align 16
-  %2567 = getelementptr inbounds i8, ptr %3, i64 24
+  %2567 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2565, ptr %2567, align 8
   %2568 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2569 = getelementptr inbounds i8, ptr %3, i64 32
+  %2569 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2569, align 16
   br label %.sink.split
 
@@ -22188,18 +22188,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2572, ptr %2573, align 8
   %2574 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2575 = ptrtoint ptr %2574 to i64
-  %2576 = getelementptr inbounds i8, ptr %3, i64 16
+  %2576 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2576, align 16
-  %2577 = getelementptr inbounds i8, ptr %3, i64 24
+  %2577 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2575, ptr %2577, align 8
   %2578 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2579 = ptrtoint ptr %2578 to i64
-  %2580 = getelementptr inbounds i8, ptr %3, i64 32
+  %2580 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2580, align 16
-  %2581 = getelementptr inbounds i8, ptr %3, i64 40
+  %2581 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2579, ptr %2581, align 8
   %2582 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 2)
-  %2583 = getelementptr inbounds i8, ptr %3, i64 48
+  %2583 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2583, align 16
   br label %.sink.split
 
@@ -22215,7 +22215,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2589 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2588, ptr %2589, align 8
   %2590 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2591 = getelementptr inbounds i8, ptr %3, i64 16
+  %2591 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2591, align 16
   br label %.sink.split
 
@@ -22226,7 +22226,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2595 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2594, ptr %2595, align 8
   %2596 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2597 = getelementptr inbounds i8, ptr %3, i64 16
+  %2597 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2597, align 16
   br label %.sink.split
 
@@ -22238,12 +22238,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2600, ptr %2601, align 8
   %2602 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2603 = ptrtoint ptr %2602 to i64
-  %2604 = getelementptr inbounds i8, ptr %3, i64 16
+  %2604 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %2604, align 16
-  %2605 = getelementptr inbounds i8, ptr %3, i64 24
+  %2605 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2603, ptr %2605, align 8
   %2606 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2607 = getelementptr inbounds i8, ptr %3, i64 32
+  %2607 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2607, align 16
   br label %.sink.split
 
@@ -22255,12 +22255,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2610, ptr %2611, align 8
   %2612 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2613 = ptrtoint ptr %2612 to i64
-  %2614 = getelementptr inbounds i8, ptr %3, i64 16
+  %2614 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2614, align 16
-  %2615 = getelementptr inbounds i8, ptr %3, i64 24
+  %2615 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2613, ptr %2615, align 8
   %2616 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2617 = getelementptr inbounds i8, ptr %3, i64 32
+  %2617 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2617, align 16
   br label %.sink.split
 
@@ -22271,7 +22271,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2621 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2620, ptr %2621, align 8
   %2622 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2623 = getelementptr inbounds i8, ptr %3, i64 16
+  %2623 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2623, align 16
   br label %.sink.split
 
@@ -22283,12 +22283,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2626, ptr %2627, align 8
   %2628 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2629 = ptrtoint ptr %2628 to i64
-  %2630 = getelementptr inbounds i8, ptr %3, i64 16
+  %2630 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2630, align 16
-  %2631 = getelementptr inbounds i8, ptr %3, i64 24
+  %2631 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2629, ptr %2631, align 8
   %2632 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2633 = getelementptr inbounds i8, ptr %3, i64 32
+  %2633 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2633, align 16
   br label %.sink.split
 
@@ -22300,12 +22300,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2636, ptr %2637, align 8
   %2638 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2639 = ptrtoint ptr %2638 to i64
-  %2640 = getelementptr inbounds i8, ptr %3, i64 16
+  %2640 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2640, align 16
-  %2641 = getelementptr inbounds i8, ptr %3, i64 24
+  %2641 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2639, ptr %2641, align 8
   %2642 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2643 = getelementptr inbounds i8, ptr %3, i64 32
+  %2643 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2643, align 16
   br label %.sink.split
 
@@ -22316,7 +22316,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2647 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2646, ptr %2647, align 8
   %2648 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2649 = getelementptr inbounds i8, ptr %3, i64 16
+  %2649 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2649, align 16
   br label %.sink.split
 
@@ -22328,12 +22328,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2652, ptr %2653, align 8
   %2654 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2655 = ptrtoint ptr %2654 to i64
-  %2656 = getelementptr inbounds i8, ptr %3, i64 16
+  %2656 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2656, align 16
-  %2657 = getelementptr inbounds i8, ptr %3, i64 24
+  %2657 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2655, ptr %2657, align 8
   %2658 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2659 = getelementptr inbounds i8, ptr %3, i64 32
+  %2659 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2659, align 16
   br label %.sink.split
 
@@ -22345,12 +22345,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2662, ptr %2663, align 8
   %2664 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2665 = ptrtoint ptr %2664 to i64
-  %2666 = getelementptr inbounds i8, ptr %3, i64 16
+  %2666 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2666, align 16
-  %2667 = getelementptr inbounds i8, ptr %3, i64 24
+  %2667 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2665, ptr %2667, align 8
   %2668 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2669 = getelementptr inbounds i8, ptr %3, i64 32
+  %2669 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2669, align 16
   br label %.sink.split
 
@@ -22362,12 +22362,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2672, ptr %2673, align 8
   %2674 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2675 = ptrtoint ptr %2674 to i64
-  %2676 = getelementptr inbounds i8, ptr %3, i64 16
+  %2676 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2676, align 16
-  %2677 = getelementptr inbounds i8, ptr %3, i64 24
+  %2677 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2675, ptr %2677, align 8
   %2678 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2679 = getelementptr inbounds i8, ptr %3, i64 32
+  %2679 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2679, align 16
   br label %.sink.split
 
@@ -22378,7 +22378,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2683 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2682, ptr %2683, align 8
   %2684 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2685 = getelementptr inbounds i8, ptr %3, i64 16
+  %2685 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2685, align 16
   br label %.sink.split
 
@@ -22390,12 +22390,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2688, ptr %2689, align 8
   %2690 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2691 = ptrtoint ptr %2690 to i64
-  %2692 = getelementptr inbounds i8, ptr %3, i64 16
+  %2692 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2692, align 16
-  %2693 = getelementptr inbounds i8, ptr %3, i64 24
+  %2693 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2691, ptr %2693, align 8
   %2694 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2695 = getelementptr inbounds i8, ptr %3, i64 32
+  %2695 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2695, align 16
   br label %.sink.split
 
@@ -22407,12 +22407,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2698, ptr %2699, align 8
   %2700 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2701 = ptrtoint ptr %2700 to i64
-  %2702 = getelementptr inbounds i8, ptr %3, i64 16
+  %2702 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2702, align 16
-  %2703 = getelementptr inbounds i8, ptr %3, i64 24
+  %2703 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2701, ptr %2703, align 8
   %2704 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2705 = getelementptr inbounds i8, ptr %3, i64 32
+  %2705 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2705, align 16
   br label %.sink.split
 
@@ -22423,7 +22423,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2709 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2708, ptr %2709, align 8
   %2710 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2711 = getelementptr inbounds i8, ptr %3, i64 16
+  %2711 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2711, align 16
   br label %.sink.split
 
@@ -22434,7 +22434,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2715 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2714, ptr %2715, align 8
   %2716 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2717 = getelementptr inbounds i8, ptr %3, i64 16
+  %2717 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2717, align 16
   br label %.sink.split
 
@@ -22445,7 +22445,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2721 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2720, ptr %2721, align 8
   %2722 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2723 = getelementptr inbounds i8, ptr %3, i64 16
+  %2723 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2723, align 16
   br label %.sink.split
 
@@ -22457,24 +22457,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2726, ptr %2727, align 8
   %2728 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2729 = ptrtoint ptr %2728 to i64
-  %2730 = getelementptr inbounds i8, ptr %3, i64 16
+  %2730 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 7, ptr %2730, align 16
-  %2731 = getelementptr inbounds i8, ptr %3, i64 24
+  %2731 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2729, ptr %2731, align 8
   %2732 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2733 = ptrtoint ptr %2732 to i64
-  %2734 = getelementptr inbounds i8, ptr %3, i64 32
+  %2734 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 8, ptr %2734, align 16
-  %2735 = getelementptr inbounds i8, ptr %3, i64 40
+  %2735 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2733, ptr %2735, align 8
   %2736 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2737 = ptrtoint ptr %2736 to i64
-  %2738 = getelementptr inbounds i8, ptr %3, i64 48
+  %2738 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 9, ptr %2738, align 16
-  %2739 = getelementptr inbounds i8, ptr %3, i64 56
+  %2739 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2737, ptr %2739, align 8
   %2740 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2741 = getelementptr inbounds i8, ptr %3, i64 64
+  %2741 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2741, align 16
   br label %.sink.split
 
@@ -22486,12 +22486,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2744, ptr %2745, align 8
   %2746 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2747 = ptrtoint ptr %2746 to i64
-  %2748 = getelementptr inbounds i8, ptr %3, i64 16
+  %2748 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2748, align 16
-  %2749 = getelementptr inbounds i8, ptr %3, i64 24
+  %2749 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2747, ptr %2749, align 8
   %2750 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2751 = getelementptr inbounds i8, ptr %3, i64 32
+  %2751 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2751, align 16
   br label %.sink.split
 
@@ -22503,24 +22503,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2754, ptr %2755, align 8
   %2756 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2757 = ptrtoint ptr %2756 to i64
-  %2758 = getelementptr inbounds i8, ptr %3, i64 16
+  %2758 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %2758, align 16
-  %2759 = getelementptr inbounds i8, ptr %3, i64 24
+  %2759 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2757, ptr %2759, align 8
   %2760 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2761 = ptrtoint ptr %2760 to i64
-  %2762 = getelementptr inbounds i8, ptr %3, i64 32
+  %2762 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 7, ptr %2762, align 16
-  %2763 = getelementptr inbounds i8, ptr %3, i64 40
+  %2763 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2761, ptr %2763, align 8
   %2764 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2765 = ptrtoint ptr %2764 to i64
-  %2766 = getelementptr inbounds i8, ptr %3, i64 48
+  %2766 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 8, ptr %2766, align 16
-  %2767 = getelementptr inbounds i8, ptr %3, i64 56
+  %2767 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2765, ptr %2767, align 8
   %2768 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2769 = getelementptr inbounds i8, ptr %3, i64 64
+  %2769 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2769, align 16
   br label %.sink.split
 
@@ -22532,12 +22532,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2772, ptr %2773, align 8
   %2774 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2775 = ptrtoint ptr %2774 to i64
-  %2776 = getelementptr inbounds i8, ptr %3, i64 16
+  %2776 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2776, align 16
-  %2777 = getelementptr inbounds i8, ptr %3, i64 24
+  %2777 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2775, ptr %2777, align 8
   %2778 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2779 = getelementptr inbounds i8, ptr %3, i64 32
+  %2779 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2779, align 16
   br label %.sink.split
 
@@ -22549,24 +22549,24 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2782, ptr %2783, align 8
   %2784 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2785 = ptrtoint ptr %2784 to i64
-  %2786 = getelementptr inbounds i8, ptr %3, i64 16
+  %2786 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %2786, align 16
-  %2787 = getelementptr inbounds i8, ptr %3, i64 24
+  %2787 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2785, ptr %2787, align 8
   %2788 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2789 = ptrtoint ptr %2788 to i64
-  %2790 = getelementptr inbounds i8, ptr %3, i64 32
+  %2790 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %2790, align 16
-  %2791 = getelementptr inbounds i8, ptr %3, i64 40
+  %2791 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2789, ptr %2791, align 8
   %2792 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2793 = ptrtoint ptr %2792 to i64
-  %2794 = getelementptr inbounds i8, ptr %3, i64 48
+  %2794 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 7, ptr %2794, align 16
-  %2795 = getelementptr inbounds i8, ptr %3, i64 56
+  %2795 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2793, ptr %2795, align 8
   %2796 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2797 = getelementptr inbounds i8, ptr %3, i64 64
+  %2797 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 -1, ptr %2797, align 16
   br label %.sink.split
 
@@ -22578,12 +22578,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2800, ptr %2801, align 8
   %2802 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2803 = ptrtoint ptr %2802 to i64
-  %2804 = getelementptr inbounds i8, ptr %3, i64 16
+  %2804 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2804, align 16
-  %2805 = getelementptr inbounds i8, ptr %3, i64 24
+  %2805 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2803, ptr %2805, align 8
   %2806 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2807 = getelementptr inbounds i8, ptr %3, i64 32
+  %2807 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2807, align 16
   br label %.sink.split
 
@@ -22595,18 +22595,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2810, ptr %2811, align 8
   %2812 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2813 = ptrtoint ptr %2812 to i64
-  %2814 = getelementptr inbounds i8, ptr %3, i64 16
+  %2814 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2814, align 16
-  %2815 = getelementptr inbounds i8, ptr %3, i64 24
+  %2815 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2813, ptr %2815, align 8
   %2816 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2817 = ptrtoint ptr %2816 to i64
-  %2818 = getelementptr inbounds i8, ptr %3, i64 32
+  %2818 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2818, align 16
-  %2819 = getelementptr inbounds i8, ptr %3, i64 40
+  %2819 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2817, ptr %2819, align 8
   %2820 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2821 = getelementptr inbounds i8, ptr %3, i64 48
+  %2821 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2821, align 16
   br label %.sink.split
 
@@ -22618,12 +22618,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2824, ptr %2825, align 8
   %2826 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2827 = ptrtoint ptr %2826 to i64
-  %2828 = getelementptr inbounds i8, ptr %3, i64 16
+  %2828 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %2828, align 16
-  %2829 = getelementptr inbounds i8, ptr %3, i64 24
+  %2829 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2827, ptr %2829, align 8
   %2830 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2831 = getelementptr inbounds i8, ptr %3, i64 32
+  %2831 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2831, align 16
   br label %.sink.split
 
@@ -22635,12 +22635,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2834, ptr %2835, align 8
   %2836 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2837 = ptrtoint ptr %2836 to i64
-  %2838 = getelementptr inbounds i8, ptr %3, i64 16
+  %2838 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2838, align 16
-  %2839 = getelementptr inbounds i8, ptr %3, i64 24
+  %2839 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2837, ptr %2839, align 8
   %2840 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1)
-  %2841 = getelementptr inbounds i8, ptr %3, i64 32
+  %2841 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2841, align 16
   br label %.sink.split
 
@@ -22661,7 +22661,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2849 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2848, ptr %2849, align 8
   %2850 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 81)
-  %2851 = getelementptr inbounds i8, ptr %3, i64 16
+  %2851 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2851, align 16
   br label %.sink.split
 
@@ -22682,7 +22682,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2859 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2858, ptr %2859, align 8
   %2860 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 35)
-  %2861 = getelementptr inbounds i8, ptr %3, i64 16
+  %2861 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2861, align 16
   br label %.sink.split
 
@@ -22693,7 +22693,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2865 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2864, ptr %2865, align 8
   %2866 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 35)
-  %2867 = getelementptr inbounds i8, ptr %3, i64 16
+  %2867 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2867, align 16
   br label %.sink.split
 
@@ -22705,12 +22705,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2870, ptr %2871, align 8
   %2872 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2873 = ptrtoint ptr %2872 to i64
-  %2874 = getelementptr inbounds i8, ptr %3, i64 16
+  %2874 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %2874, align 16
-  %2875 = getelementptr inbounds i8, ptr %3, i64 24
+  %2875 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2873, ptr %2875, align 8
   %2876 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 35)
-  %2877 = getelementptr inbounds i8, ptr %3, i64 32
+  %2877 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2877, align 16
   br label %.sink.split
 
@@ -22731,7 +22731,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2885 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2884, ptr %2885, align 8
   %2886 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 18)
-  %2887 = getelementptr inbounds i8, ptr %3, i64 16
+  %2887 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2887, align 16
   br label %.sink.split
 
@@ -22747,7 +22747,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2893 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2892, ptr %2893, align 8
   %2894 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %2895 = getelementptr inbounds i8, ptr %3, i64 16
+  %2895 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2895, align 16
   br label %.sink.split
 
@@ -22758,7 +22758,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2899 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2898, ptr %2899, align 8
   %2900 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %2901 = getelementptr inbounds i8, ptr %3, i64 16
+  %2901 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2901, align 16
   br label %.sink.split
 
@@ -22770,12 +22770,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2904, ptr %2905, align 8
   %2906 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2907 = ptrtoint ptr %2906 to i64
-  %2908 = getelementptr inbounds i8, ptr %3, i64 16
+  %2908 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2908, align 16
-  %2909 = getelementptr inbounds i8, ptr %3, i64 24
+  %2909 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2907, ptr %2909, align 8
   %2910 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %2911 = getelementptr inbounds i8, ptr %3, i64 32
+  %2911 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %2911, align 16
   br label %.sink.split
 
@@ -22787,18 +22787,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2914, ptr %2915, align 8
   %2916 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2917 = ptrtoint ptr %2916 to i64
-  %2918 = getelementptr inbounds i8, ptr %3, i64 16
+  %2918 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2918, align 16
-  %2919 = getelementptr inbounds i8, ptr %3, i64 24
+  %2919 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2917, ptr %2919, align 8
   %2920 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2921 = ptrtoint ptr %2920 to i64
-  %2922 = getelementptr inbounds i8, ptr %3, i64 32
+  %2922 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2922, align 16
-  %2923 = getelementptr inbounds i8, ptr %3, i64 40
+  %2923 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2921, ptr %2923, align 8
   %2924 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %2925 = getelementptr inbounds i8, ptr %3, i64 48
+  %2925 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %2925, align 16
   br label %.sink.split
 
@@ -22810,96 +22810,96 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %2928, ptr %2929, align 8
   %2930 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2931 = ptrtoint ptr %2930 to i64
-  %2932 = getelementptr inbounds i8, ptr %3, i64 16
+  %2932 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 4, ptr %2932, align 16
-  %2933 = getelementptr inbounds i8, ptr %3, i64 24
+  %2933 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2931, ptr %2933, align 8
   %2934 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2935 = ptrtoint ptr %2934 to i64
-  %2936 = getelementptr inbounds i8, ptr %3, i64 32
+  %2936 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 5, ptr %2936, align 16
-  %2937 = getelementptr inbounds i8, ptr %3, i64 40
+  %2937 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2935, ptr %2937, align 8
   %2938 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2939 = ptrtoint ptr %2938 to i64
-  %2940 = getelementptr inbounds i8, ptr %3, i64 48
+  %2940 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 6, ptr %2940, align 16
-  %2941 = getelementptr inbounds i8, ptr %3, i64 56
+  %2941 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %2939, ptr %2941, align 8
   %2942 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2943 = ptrtoint ptr %2942 to i64
-  %2944 = getelementptr inbounds i8, ptr %3, i64 64
+  %2944 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 7, ptr %2944, align 16
-  %2945 = getelementptr inbounds i8, ptr %3, i64 72
+  %2945 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %2943, ptr %2945, align 8
   %2946 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2947 = ptrtoint ptr %2946 to i64
-  %2948 = getelementptr inbounds i8, ptr %3, i64 80
+  %2948 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 8, ptr %2948, align 16
-  %2949 = getelementptr inbounds i8, ptr %3, i64 88
+  %2949 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %2947, ptr %2949, align 8
   %2950 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2951 = ptrtoint ptr %2950 to i64
-  %2952 = getelementptr inbounds i8, ptr %3, i64 96
+  %2952 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i32 9, ptr %2952, align 16
-  %2953 = getelementptr inbounds i8, ptr %3, i64 104
+  %2953 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %2951, ptr %2953, align 8
   %2954 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2955 = ptrtoint ptr %2954 to i64
-  %2956 = getelementptr inbounds i8, ptr %3, i64 112
+  %2956 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i32 10, ptr %2956, align 16
-  %2957 = getelementptr inbounds i8, ptr %3, i64 120
+  %2957 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %2955, ptr %2957, align 8
   %2958 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2959 = ptrtoint ptr %2958 to i64
-  %2960 = getelementptr inbounds i8, ptr %3, i64 128
+  %2960 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 11, ptr %2960, align 16
-  %2961 = getelementptr inbounds i8, ptr %3, i64 136
+  %2961 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 %2959, ptr %2961, align 8
   %2962 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2963 = ptrtoint ptr %2962 to i64
-  %2964 = getelementptr inbounds i8, ptr %3, i64 144
+  %2964 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 12, ptr %2964, align 16
-  %2965 = getelementptr inbounds i8, ptr %3, i64 152
+  %2965 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i64 %2963, ptr %2965, align 8
   %2966 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2967 = ptrtoint ptr %2966 to i64
-  %2968 = getelementptr inbounds i8, ptr %3, i64 160
+  %2968 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i32 13, ptr %2968, align 16
-  %2969 = getelementptr inbounds i8, ptr %3, i64 168
+  %2969 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store i64 %2967, ptr %2969, align 8
   %2970 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2971 = ptrtoint ptr %2970 to i64
-  %2972 = getelementptr inbounds i8, ptr %3, i64 176
+  %2972 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store i32 14, ptr %2972, align 16
-  %2973 = getelementptr inbounds i8, ptr %3, i64 184
+  %2973 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store i64 %2971, ptr %2973, align 8
   %2974 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2975 = ptrtoint ptr %2974 to i64
-  %2976 = getelementptr inbounds i8, ptr %3, i64 192
+  %2976 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store i32 15, ptr %2976, align 16
-  %2977 = getelementptr inbounds i8, ptr %3, i64 200
+  %2977 = getelementptr inbounds nuw i8, ptr %3, i64 200
   store i64 %2975, ptr %2977, align 8
   %2978 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2979 = ptrtoint ptr %2978 to i64
-  %2980 = getelementptr inbounds i8, ptr %3, i64 208
+  %2980 = getelementptr inbounds nuw i8, ptr %3, i64 208
   store i32 16, ptr %2980, align 16
-  %2981 = getelementptr inbounds i8, ptr %3, i64 216
+  %2981 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i64 %2979, ptr %2981, align 8
   %2982 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2983 = ptrtoint ptr %2982 to i64
-  %2984 = getelementptr inbounds i8, ptr %3, i64 224
+  %2984 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i32 17, ptr %2984, align 16
-  %2985 = getelementptr inbounds i8, ptr %3, i64 232
+  %2985 = getelementptr inbounds nuw i8, ptr %3, i64 232
   store i64 %2983, ptr %2985, align 8
   %2986 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %2987 = ptrtoint ptr %2986 to i64
-  %2988 = getelementptr inbounds i8, ptr %3, i64 240
+  %2988 = getelementptr inbounds nuw i8, ptr %3, i64 240
   store i32 18, ptr %2988, align 16
-  %2989 = getelementptr inbounds i8, ptr %3, i64 248
+  %2989 = getelementptr inbounds nuw i8, ptr %3, i64 248
   store i64 %2987, ptr %2989, align 8
   %2990 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %2991 = getelementptr inbounds i8, ptr %3, i64 256
+  %2991 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store i32 -1, ptr %2991, align 16
   br label %.sink.split
 
@@ -22910,7 +22910,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %2995 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %2994, ptr %2995, align 8
   %2996 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %2997 = getelementptr inbounds i8, ptr %3, i64 16
+  %2997 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %2997, align 16
   br label %.sink.split
 
@@ -22922,12 +22922,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3000, ptr %3001, align 8
   %3002 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3003 = ptrtoint ptr %3002 to i64
-  %3004 = getelementptr inbounds i8, ptr %3, i64 16
+  %3004 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %3004, align 16
-  %3005 = getelementptr inbounds i8, ptr %3, i64 24
+  %3005 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3003, ptr %3005, align 8
   %3006 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3007 = getelementptr inbounds i8, ptr %3, i64 32
+  %3007 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %3007, align 16
   br label %.sink.split
 
@@ -22939,18 +22939,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3010, ptr %3011, align 8
   %3012 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3013 = ptrtoint ptr %3012 to i64
-  %3014 = getelementptr inbounds i8, ptr %3, i64 16
+  %3014 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %3014, align 16
-  %3015 = getelementptr inbounds i8, ptr %3, i64 24
+  %3015 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3013, ptr %3015, align 8
   %3016 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3017 = ptrtoint ptr %3016 to i64
-  %3018 = getelementptr inbounds i8, ptr %3, i64 32
+  %3018 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %3018, align 16
-  %3019 = getelementptr inbounds i8, ptr %3, i64 40
+  %3019 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %3017, ptr %3019, align 8
   %3020 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3021 = getelementptr inbounds i8, ptr %3, i64 48
+  %3021 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %3021, align 16
   br label %.sink.split
 
@@ -22961,7 +22961,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3025 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3024, ptr %3025, align 8
   %3026 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3027 = getelementptr inbounds i8, ptr %3, i64 16
+  %3027 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3027, align 16
   br label %.sink.split
 
@@ -22972,7 +22972,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3031 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3030, ptr %3031, align 8
   %3032 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3033 = getelementptr inbounds i8, ptr %3, i64 16
+  %3033 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3033, align 16
   br label %.sink.split
 
@@ -22984,18 +22984,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3036, ptr %3037, align 8
   %3038 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3039 = ptrtoint ptr %3038 to i64
-  %3040 = getelementptr inbounds i8, ptr %3, i64 16
+  %3040 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %3040, align 16
-  %3041 = getelementptr inbounds i8, ptr %3, i64 24
+  %3041 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3039, ptr %3041, align 8
   %3042 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3043 = ptrtoint ptr %3042 to i64
-  %3044 = getelementptr inbounds i8, ptr %3, i64 32
+  %3044 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %3044, align 16
-  %3045 = getelementptr inbounds i8, ptr %3, i64 40
+  %3045 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %3043, ptr %3045, align 8
   %3046 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3047 = getelementptr inbounds i8, ptr %3, i64 48
+  %3047 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %3047, align 16
   br label %.sink.split
 
@@ -23007,12 +23007,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3050, ptr %3051, align 8
   %3052 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3053 = ptrtoint ptr %3052 to i64
-  %3054 = getelementptr inbounds i8, ptr %3, i64 16
+  %3054 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %3054, align 16
-  %3055 = getelementptr inbounds i8, ptr %3, i64 24
+  %3055 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3053, ptr %3055, align 8
   %3056 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3057 = getelementptr inbounds i8, ptr %3, i64 32
+  %3057 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %3057, align 16
   br label %.sink.split
 
@@ -23024,18 +23024,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3060, ptr %3061, align 8
   %3062 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3063 = ptrtoint ptr %3062 to i64
-  %3064 = getelementptr inbounds i8, ptr %3, i64 16
+  %3064 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %3064, align 16
-  %3065 = getelementptr inbounds i8, ptr %3, i64 24
+  %3065 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3063, ptr %3065, align 8
   %3066 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3067 = ptrtoint ptr %3066 to i64
-  %3068 = getelementptr inbounds i8, ptr %3, i64 32
+  %3068 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 3, ptr %3068, align 16
-  %3069 = getelementptr inbounds i8, ptr %3, i64 40
+  %3069 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %3067, ptr %3069, align 8
   %3070 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3071 = getelementptr inbounds i8, ptr %3, i64 48
+  %3071 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %3071, align 16
   br label %.sink.split
 
@@ -23046,7 +23046,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3075 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3074, ptr %3075, align 8
   %3076 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3077 = getelementptr inbounds i8, ptr %3, i64 16
+  %3077 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3077, align 16
   br label %.sink.split
 
@@ -23057,7 +23057,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3081 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3080, ptr %3081, align 8
   %3082 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3083 = getelementptr inbounds i8, ptr %3, i64 16
+  %3083 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3083, align 16
   br label %.sink.split
 
@@ -23068,7 +23068,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3087 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3086, ptr %3087, align 8
   %3088 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3089 = getelementptr inbounds i8, ptr %3, i64 16
+  %3089 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3089, align 16
   br label %.sink.split
 
@@ -23080,12 +23080,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3092, ptr %3093, align 8
   %3094 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 11)
   %3095 = ptrtoint ptr %3094 to i64
-  %3096 = getelementptr inbounds i8, ptr %3, i64 16
+  %3096 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %3096, align 16
-  %3097 = getelementptr inbounds i8, ptr %3, i64 24
+  %3097 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3095, ptr %3097, align 8
   %3098 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3099 = getelementptr inbounds i8, ptr %3, i64 32
+  %3099 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %3099, align 16
   br label %.sink.split
 
@@ -23107,12 +23107,12 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3106, ptr %3107, align 8
   %3108 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3109 = ptrtoint ptr %3108 to i64
-  %3110 = getelementptr inbounds i8, ptr %3, i64 16
+  %3110 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %3110, align 16
-  %3111 = getelementptr inbounds i8, ptr %3, i64 24
+  %3111 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3109, ptr %3111, align 8
   %3112 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 14)
-  %3113 = getelementptr inbounds i8, ptr %3, i64 32
+  %3113 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %3113, align 16
   br label %.sink.split
 
@@ -23124,18 +23124,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3116, ptr %3117, align 8
   %3118 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3119 = ptrtoint ptr %3118 to i64
-  %3120 = getelementptr inbounds i8, ptr %3, i64 16
+  %3120 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %3120, align 16
-  %3121 = getelementptr inbounds i8, ptr %3, i64 24
+  %3121 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3119, ptr %3121, align 8
   %3122 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3123 = ptrtoint ptr %3122 to i64
-  %3124 = getelementptr inbounds i8, ptr %3, i64 32
+  %3124 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 6, ptr %3124, align 16
-  %3125 = getelementptr inbounds i8, ptr %3, i64 40
+  %3125 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %3123, ptr %3125, align 8
   %3126 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 14)
-  %3127 = getelementptr inbounds i8, ptr %3, i64 48
+  %3127 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 -1, ptr %3127, align 16
   br label %.sink.split
 
@@ -23151,7 +23151,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3133 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3132, ptr %3133, align 8
   %3134 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 76)
-  %3135 = getelementptr inbounds i8, ptr %3, i64 16
+  %3135 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3135, align 16
   br label %.sink.split
 
@@ -23167,7 +23167,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3140, ptr %3141, align 8
   %3142 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 41)
-  %3143 = getelementptr inbounds i8, ptr %3, i64 16
+  %3143 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3143, align 16
   br label %.sink.split
 
@@ -23183,7 +23183,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3149 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3148, ptr %3149, align 8
   %3150 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 30)
-  %3151 = getelementptr inbounds i8, ptr %3, i64 16
+  %3151 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3151, align 16
   br label %.sink.split
 
@@ -23199,7 +23199,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3157 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3156, ptr %3157, align 8
   %3158 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 33)
-  %3159 = getelementptr inbounds i8, ptr %3, i64 16
+  %3159 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3159, align 16
   br label %.sink.split
 
@@ -23246,18 +23246,18 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   store i64 %3176, ptr %3177, align 8
   %3178 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3179 = ptrtoint ptr %3178 to i64
-  %3180 = getelementptr inbounds i8, ptr %3, i64 16
+  %3180 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2, ptr %3180, align 16
-  %3181 = getelementptr inbounds i8, ptr %3, i64 24
+  %3181 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %3179, ptr %3181, align 8
   %3182 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
   %3183 = ptrtoint ptr %3182 to i64
-  %3184 = getelementptr inbounds i8, ptr %3, i64 32
+  %3184 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 4, ptr %3184, align 16
-  %3185 = getelementptr inbounds i8, ptr %3, i64 40
+  %3185 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %3183, ptr %3185, align 8
   %3186 = tail call fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 0)
-  %3187 = getelementptr inbounds i8, ptr %3, i64 48
+  %3187 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 5, ptr %3187, align 16
   br label %.sink.split
 
@@ -23278,7 +23278,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3195 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3194, ptr %3195, align 8
   %3196 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 61)
-  %3197 = getelementptr inbounds i8, ptr %3, i64 16
+  %3197 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3197, align 16
   br label %.sink.split
 
@@ -23289,7 +23289,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3201 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3200, ptr %3201, align 8
   %3202 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 61)
-  %3203 = getelementptr inbounds i8, ptr %3, i64 16
+  %3203 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3203, align 16
   br label %.sink.split
 
@@ -23305,7 +23305,7 @@ define dso_local ptr @_ZN4llvm9Intrinsic13getAttributesERNS_11LLVMContextEj(ptr 
   %3209 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %3208, ptr %3209, align 8
   %3210 = tail call fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 91)
-  %3211 = getelementptr inbounds i8, ptr %3, i64 16
+  %3211 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 -1, ptr %3211, align 16
   br label %.sink.split
 
@@ -23358,7 +23358,7 @@ define dso_local void @_ZN4llvm8FunctionD2Ev(ptr noundef nonnull align 8 derefer
   store i16 257, ptr %9, align 8
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %.011.i, ptr noundef nonnull align 8 dereferenceable(34) %2) #27
   call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.011.i) #27
-  %11 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.011.i, i64 40
   %.not.i = icmp eq ptr %11, %8
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %10
 
@@ -23432,7 +23432,7 @@ define dso_local void @_ZN4llvm8Function14clearArgumentsEv(ptr nocapture noundef
   store i16 257, ptr %8, align 8
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %.011, ptr noundef nonnull align 8 dereferenceable(34) %2) #27
   call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.011) #27
-  %10 = getelementptr inbounds i8, ptr %.011, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.011, i64 40
   %.not = icmp eq ptr %10, %7
   br i1 %.not, label %._crit_edge.loopexit, label %9
 
@@ -23520,10 +23520,10 @@ _ZNSt15__new_allocatorIN4llvm8ArgumentEE8allocateEmPKv.exit: ; preds = %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds %"class.llvm::Argument", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %24, i64 %indvars.iv
   %26 = trunc nuw i64 %indvars.iv to i32
   store i16 257, ptr %18, align 8
   call void @_ZN4llvm8ArgumentC1EPNS_4TypeERKNS_5TwineEPNS_8FunctionEj(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull %0, i32 noundef %26) #27
@@ -23585,7 +23585,7 @@ define dso_local void @_ZN4llvm8Function21stealArgumentListFromERS0_(ptr noundef
   store i16 257, ptr %16, align 8
   call void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24) %.011.i, ptr noundef nonnull align 8 dereferenceable(34) %3) #27
   call void @_ZN4llvm5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.011.i) #27
-  %18 = getelementptr inbounds i8, ptr %.011.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.011.i, i64 40
   %.not.i = icmp eq ptr %18, %15
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %17
 
@@ -23627,7 +23627,7 @@ _ZN4llvm8Function14clearArgumentsEv.exit:         ; preds = %10, %._crit_edge.lo
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -23690,7 +23690,7 @@ _ZN4llvm8Function14clearArgumentsEv.exit:         ; preds = %10, %._crit_edge.lo
   br label %_ZN4llvm11SmallStringILj128EED2Ev.exit
 
 _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %61, %65
-  %66 = getelementptr inbounds i8, ptr %.022, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.022, i64 40
   %.not = icmp eq ptr %66, %35
   br i1 %.not, label %._crit_edge, label %42
 
@@ -23777,7 +23777,7 @@ define dso_local void @_ZN4llvm8Function14deleteBodyImplEb(ptr noundef nonnull a
 _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %30, %27
   %34 = phi ptr [ %29, %27 ], [ %33, %30 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %27 ], [ %31, %30 ]
-  %35 = getelementptr inbounds %"class.llvm::Use", ptr %34, i64 %.pre-phi2.i.i.i
+  %35 = getelementptr inbounds nuw %"class.llvm::Use", ptr %34, i64 %.pre-phi2.i.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm4User8operandsEv.exit.i, %_ZN4llvm3Use3setEPNS_5ValueE.exit.i
@@ -23803,7 +23803,7 @@ _ZN4llvm4User8operandsEv.exit.i:                  ; preds = %30, %27
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit.i:              ; preds = %42, %37, %.lr.ph.i
   store ptr null, ptr %.09.i, align 8
-  %45 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %.not.i = icmp eq ptr %45, %35
   br i1 %.not.i, label %_ZN4llvm4User17dropAllReferencesEv.exit, label %.lr.ph.i
 
@@ -23866,15 +23866,15 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i:           ; preds = %69, %65
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i
   %72 = load ptr, ptr %54, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not.i10 = icmp eq ptr %74, null
   br i1 %.not.i10, label %_ZN4llvm3Use14removeFromListEv.exit.i12, label %75
 
 75:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit
-  %76 = getelementptr inbounds i8, ptr %72, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %72, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %79 = load ptr, ptr %78, align 8
   store ptr %77, ptr %79, align 8
   %.not.i.i11 = icmp eq ptr %77, null
@@ -23893,7 +23893,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i12:          ; preds = %80, %75, %_ZN4llvm3
 83:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i12
   %84 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %72, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %72, i64 40
   store ptr %85, ptr %86, align 8
   %.not.i.i.i14 = icmp eq ptr %85, null
   br i1 %.not.i.i.i14, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i15, label %87
@@ -23904,22 +23904,22 @@ _ZN4llvm3Use14removeFromListEv.exit.i12:          ; preds = %80, %75, %_ZN4llvm3
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i15
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i15:         ; preds = %87, %83
-  %89 = getelementptr inbounds i8, ptr %72, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store ptr %84, ptr %89, align 8
   store ptr %73, ptr %84, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit16
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit16:              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i12, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i15
   %90 = load ptr, ptr %54, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %92 = load ptr, ptr %91, align 8
   %.not.i17 = icmp eq ptr %92, null
   br i1 %.not.i17, label %_ZN4llvm3Use14removeFromListEv.exit.i19, label %93
 
 93:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit16
-  %94 = getelementptr inbounds i8, ptr %90, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 72
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %90, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %97 = load ptr, ptr %96, align 8
   store ptr %95, ptr %97, align 8
   %.not.i.i18 = icmp eq ptr %95, null
@@ -23938,7 +23938,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i19:          ; preds = %98, %93, %_ZN4llvm3
 101:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i19
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %90, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %90, i64 72
   store ptr %103, ptr %104, align 8
   %.not.i.i.i21 = icmp eq ptr %103, null
   br i1 %.not.i.i.i21, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i22, label %105
@@ -23949,7 +23949,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i19:          ; preds = %98, %93, %_ZN4llvm3
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i22
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i22:         ; preds = %105, %101
-  %107 = getelementptr inbounds i8, ptr %90, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %90, i64 80
   store ptr %102, ptr %107, align 8
   store ptr %91, ptr %102, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit23
@@ -24009,7 +24009,7 @@ define dso_local void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %.sroa.23.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %4, ptr %.sroa.23.0..sroa_idx.i, align 8
   %11 = tail call ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS_9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %10, i32 noundef -1, ptr %1, i64 %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -24661,7 +24661,7 @@ _ZN4llvm8Function7clearGCEv.exit:                 ; preds = %29, %27, %16
 46:                                               ; preds = %43
   %47 = getelementptr inbounds i8, ptr %1, i64 -8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
   call void @_ZN4llvm8Function17setHungoffOperandILi1EEEvPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %50)
   %.not.i15 = icmp eq ptr %50, null
@@ -24682,7 +24682,7 @@ _ZN4llvm8Function7clearGCEv.exit:                 ; preds = %29, %27, %16
 56:                                               ; preds = %53
   %57 = getelementptr inbounds i8, ptr %1, i64 -8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
   call void @_ZN4llvm8Function17setHungoffOperandILi2EEEvPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %60)
   %.not.i18 = icmp eq ptr %60, null
@@ -24739,7 +24739,7 @@ define dso_local void @_ZN4llvm8Function13setPrefixDataEPNS_8ConstantE(ptr nound
 define dso_local noundef ptr @_ZNK4llvm8Function13getPrefixDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -24761,7 +24761,7 @@ define dso_local void @_ZN4llvm8Function15setPrologueDataEPNS_8ConstantE(ptr nou
 define dso_local noundef ptr @_ZNK4llvm8Function15getPrologueDataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -25044,7 +25044,7 @@ define dso_local noundef i32 @_ZN4llvm8Function17lookupIntrinsicIDENS_9StringRef
   %4 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %.sroa.speculated5.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 5)
-  %5 = getelementptr inbounds i8, ptr %0, i64 %.sroa.speculated5.i.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.speculated5.i.i.i
   %6 = sub i64 %1, %.sroa.speculated5.i.i.i
   store ptr %5, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -25064,7 +25064,7 @@ _ZSt7advanceIPK19IntrinsicTargetInfolEvRT_T0_.exit.i.i.i: ; preds = %"_ZZL18find
   %.019.i.i.i = phi ptr [ %.1.i.i.i, %"_ZZL18findTargetSubtableN4llvm9StringRefEENK3$_0clERK19IntrinsicTargetInfo.exit.i.i.i" ], [ @_ZL11TargetInfos, %2 ]
   %.01018.i.i.i = phi i64 [ %.111.i.i.i, %"_ZZL18findTargetSubtableN4llvm9StringRefEENK3$_0clERK19IntrinsicTargetInfo.exit.i.i.i" ], [ 19, %2 ]
   %11 = lshr i64 %.01018.i.i.i, 1
-  %12 = getelementptr inbounds %struct.IntrinsicTargetInfo, ptr %.019.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw %struct.IntrinsicTargetInfo, ptr %.019.i.i.i, i64 %11
   %13 = getelementptr i8, ptr %12, i64 8
   %.val14.i.i.i = load i64, ptr %13, align 8
   %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %.sroa.3.0.i, i64 %.val14.i.i.i)
@@ -25087,7 +25087,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_Z
 
 "_ZZL18findTargetSubtableN4llvm9StringRefEENK3$_0clERK19IntrinsicTargetInfo.exit.i.i.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i, %16
   %.0.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i, %16 ], [ %17, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i ]
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = xor i64 %11, -1
   %20 = add nsw i64 %.01018.i.i.i, %19
   %.111.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %20, i64 %11
@@ -25101,7 +25101,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i: ; preds = %_Z
 
 22:                                               ; preds = %"_ZN4llvm15partition_pointIRNS_8ArrayRefI19IntrinsicTargetInfoEEZL18findTargetSubtableNS_9StringRefEE3$_0RKS2_EEDaOT_T0_.exit.i"
   %.sroa.01.0.copyload.i = load ptr, ptr %.1.i.i.i, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.sroa.3.0.i
   br i1 %.not.i.i, label %23, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
@@ -25146,7 +25146,7 @@ _ZL18findTargetSubtableN4llvm9StringRefE.exit:    ; preds = %23, %_ZN4llvmeqENS_
 45:                                               ; preds = %34
   %46 = lshr i32 %39, 3
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds [1785 x i8], ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [1785 x i8], ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = and i32 %39, 7
@@ -25172,7 +25172,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic12isOverloadedEj(i32 noundef %0) local_unnamed_addr #4 {
   %2 = lshr i32 %0, 3
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr inbounds [1785 x i8], ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [1785 x i8], ptr @_ZZN4llvm9Intrinsic12isOverloadedEjE6OTable, i64 0, i64 %3
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = and i32 %0, 7
@@ -25222,7 +25222,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm9Intrinsic11getBaseNameEj(i32 noundef %0) local_unnamed_addr #13 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %5
@@ -25241,7 +25241,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %1, %5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm9Intrinsic7getNameEj(i32 noundef %0) local_unnamed_addr #13 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN4llvm9Intrinsic11getBaseNameEj.exit, label %5
@@ -25273,7 +25273,7 @@ define internal fastcc void @_ZL20getIntrinsicNameImplB5cxx11jN4llvm8ArrayRefIPN
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   store i8 0, ptr %8, align 1
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZN4llvm9Intrinsic11getBaseNameEj.exit, label %16
@@ -25309,7 +25309,7 @@ _ZN4llvm9Intrinsic11getBaseNameEj.exit:           ; preds = %6, %16
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
-  %29 = getelementptr inbounds i8, ptr %.01322, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
   %.not = icmp eq ptr %29, %25
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -25355,9 +25355,9 @@ define dso_local void @_ZN4llvm9Intrinsic28getIntrinsicInfoTableEntriesEjRNS_15S
   %4 = alloca i32, align 4
   %5 = add i32 %0, -1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds [14278 x i32], ptr @_ZL9IIT_Table, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [14278 x i32], ptr @_ZL9IIT_Table, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %9, i64 noundef 8) #27
   %.not = icmp sgt i32 %8, -1
   br i1 %.not, label %.preheader, label %10
@@ -25410,7 +25410,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit: ; preds = %.preheader
 
 .lr.ph:                                           ; preds = %27, %33
   %30 = phi i64 [ %35, %33 ], [ %29, %27 ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.016.0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.016.0, i64 %30
   %32 = load i8, ptr %31, align 1
   %.not11 = icmp eq i8 %32, 0
   br i1 %.not11, label %.critedge, label %33
@@ -25454,20 +25454,20 @@ define internal fastcc void @_ZL13DecodeIITTypeRjN4llvm8ArrayRefIhEE8IIT_InfoRNS
   %.sroa.03.i = alloca [9 x i8], align 8
   %6 = icmp eq i32 %3, 43
   %7 = select i1 %6, i64 4294967296, i64 0
-  %.sroa.03.i839.4.i839.4.i839.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i839, i64 4
-  %.sroa.03.i832.4.i832.4.i832.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i832, i64 4
-  %.sroa.03.i825.4.i825.4.i825.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i825, i64 4
-  %.sroa.03.i818.4.i818.4.i818.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i818, i64 4
-  %.sroa.03.i811.4.i811.4.i811.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i811, i64 4
-  %.sroa.03.i804.4.i804.4.i804.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i804, i64 4
-  %.sroa.03.i797.4.i797.4.i797.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i797, i64 4
-  %.sroa.03.i790.4.i790.4.i790.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i790, i64 4
-  %.sroa.03.i783.4.i783.4.i783.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i783, i64 4
-  %.sroa.03.i776.4.i776.4.i776.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i776, i64 4
-  %.sroa.03.i769.4.i769.4.i769.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i769, i64 4
-  %.sroa.03.i762.4.i762.4.i762.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i762, i64 4
-  %.sroa.03.i755.4.i755.4.i755.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i755, i64 4
-  %.sroa.03.i.4.i.4.i.4..sroa_idx = getelementptr inbounds i8, ptr %.sroa.03.i, i64 4
+  %.sroa.03.i839.4.i839.4.i839.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i839, i64 4
+  %.sroa.03.i832.4.i832.4.i832.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i832, i64 4
+  %.sroa.03.i825.4.i825.4.i825.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i825, i64 4
+  %.sroa.03.i818.4.i818.4.i818.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i818, i64 4
+  %.sroa.03.i811.4.i811.4.i811.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i811, i64 4
+  %.sroa.03.i804.4.i804.4.i804.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i804, i64 4
+  %.sroa.03.i797.4.i797.4.i797.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i797, i64 4
+  %.sroa.03.i790.4.i790.4.i790.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i790, i64 4
+  %.sroa.03.i783.4.i783.4.i783.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i783, i64 4
+  %.sroa.03.i776.4.i776.4.i776.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i776, i64 4
+  %.sroa.03.i769.4.i769.4.i769.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i769, i64 4
+  %.sroa.03.i762.4.i762.4.i762.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i762, i64 4
+  %.sroa.03.i755.4.i755.4.i755.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i755, i64 4
+  %.sroa.03.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.03.i, i64 4
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %5
@@ -25476,7 +25476,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %9 = add i32 %8, 1
   store i32 %9, ptr %0, align 4
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %224 [
     i8 0, label %.loopexit.sink.split.loopexit
@@ -25793,7 +25793,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
   %91 = add i32 %8, 2
   store i32 %91, ptr %0, align 4
   %92 = zext i32 %9 to i64
-  %93 = getelementptr inbounds i8, ptr %1, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 %92
   %94 = load i8, ptr %93, align 1
   %.sroa.23.0.insert.ext.i = zext i8 %94 to i64
   %.sroa.23.0.insert.shift.i = shl nuw nsw i64 %.sroa.23.0.insert.ext.i, 32
@@ -25808,7 +25808,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 98:                                               ; preds = %95
   %99 = add i32 %8, 2
   store i32 %99, ptr %0, align 4
-  %100 = getelementptr inbounds i8, ptr %1, i64 %96
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 %96
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i64
   %103 = shl nuw nsw i64 %102, 32
@@ -25823,7 +25823,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 108:                                              ; preds = %105
   %109 = add i32 %8, 2
   store i32 %109, ptr %0, align 4
-  %110 = getelementptr inbounds i8, ptr %1, i64 %106
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 %106
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i64
   %113 = shl nuw nsw i64 %112, 32
@@ -25838,7 +25838,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 118:                                              ; preds = %115
   %119 = add i32 %8, 2
   store i32 %119, ptr %0, align 4
-  %120 = getelementptr inbounds i8, ptr %1, i64 %116
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 %116
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i64
   %123 = shl nuw nsw i64 %122, 32
@@ -25853,7 +25853,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 128:                                              ; preds = %125
   %129 = add i32 %8, 2
   store i32 %129, ptr %0, align 4
-  %130 = getelementptr inbounds i8, ptr %1, i64 %126
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 %126
   %131 = load i8, ptr %130, align 1
   %132 = zext i8 %131 to i64
   %133 = shl nuw nsw i64 %132, 32
@@ -25868,7 +25868,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 138:                                              ; preds = %135
   %139 = add i32 %8, 2
   store i32 %139, ptr %0, align 4
-  %140 = getelementptr inbounds i8, ptr %1, i64 %136
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 %136
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i64
   %143 = shl nuw nsw i64 %142, 32
@@ -25883,7 +25883,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 148:                                              ; preds = %145
   %149 = add i32 %8, 2
   store i32 %149, ptr %0, align 4
-  %150 = getelementptr inbounds i8, ptr %1, i64 %146
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 %146
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i64
   %153 = shl nuw nsw i64 %152, 48
@@ -25901,7 +25901,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 158:                                              ; preds = %155
   %159 = add i32 %156, 1
   store i32 %159, ptr %0, align 4
-  %160 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i64
   %163 = shl nuw nsw i64 %162, 32
@@ -25949,7 +25949,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
   br i1 %.not.i.i.i, label %175, label %_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES2_.exit
 
 175:                                              ; preds = %170
-  %176 = getelementptr inbounds i8, ptr %4, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %176, i64 noundef %173, i64 noundef 12) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES2_.exit
 
@@ -25978,7 +25978,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES
 187:                                              ; preds = %184
   %188 = add i32 %8, 2
   store i32 %188, ptr %0, align 4
-  %189 = getelementptr inbounds i8, ptr %1, i64 %185
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 %185
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
   %192 = shl nuw nsw i64 %191, 32
@@ -25993,7 +25993,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES
 197:                                              ; preds = %194
   %198 = add i32 %8, 2
   store i32 %198, ptr %0, align 4
-  %199 = getelementptr inbounds i8, ptr %1, i64 %195
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 %195
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i64
   %202 = shl nuw nsw i64 %201, 32
@@ -26008,7 +26008,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES
 207:                                              ; preds = %204
   %208 = add i32 %8, 2
   store i32 %208, ptr %0, align 4
-  %209 = getelementptr inbounds i8, ptr %1, i64 %205
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 %205
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i64
   %212 = shl nuw nsw i64 %211, 32
@@ -26023,7 +26023,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES
 217:                                              ; preds = %214
   %218 = add i32 %8, 2
   store i32 %218, ptr %0, align 4
-  %219 = getelementptr inbounds i8, ptr %1, i64 %215
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 %215
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i64
   %222 = shl nuw nsw i64 %221, 32
@@ -26053,7 +26053,7 @@ define dso_local noundef ptr @_ZN4llvm9Intrinsic7getTypeERNS_11LLVMContextEjNS_8
   %5 = alloca %"class.llvm::SmallVector.154", align 8
   %6 = alloca %"class.llvm::ArrayRef.156", align 8
   %7 = alloca %"class.llvm::SmallVector.157", align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef nonnull %8, i64 noundef 8) #27
   call void @_ZN4llvm9Intrinsic28getIntrinsicInfoTableEntriesEjRNS_15SmallVectorImplINS0_13IITDescriptorEEE(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %9 = load ptr, ptr %5, align 8
@@ -26062,7 +26062,7 @@ define dso_local noundef ptr @_ZN4llvm9Intrinsic7getTypeERNS_11LLVMContextEjNS_8
   %11 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #27
   store i64 %11, ptr %10, align 8
   %12 = call fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Intrinsic13IITDescriptorEEENS0_IPNS_4TypeEEERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %2, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull %13, i64 noundef 8) #27
   %14 = load i64, ptr %10, align 8
   %15 = icmp eq i64 %14, 0
@@ -26150,12 +26150,12 @@ define internal fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Int
   %6 = alloca %"class.llvm::SmallVector.157", align 8
   %7 = load ptr, ptr %0, align 8
   %.sroa.086.0.copyload = load i32, ptr %7, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, -1
-  %11 = getelementptr inbounds i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store ptr %11, ptr %0, align 8
   store i64 %10, ptr %8, align 8
   switch i32 %.sroa.086.0.copyload, label %205 [
@@ -26262,7 +26262,7 @@ common.ret1:                                      ; preds = %66, %._crit_edge, %
   br label %common.ret1
 
 46:                                               ; preds = %3
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull %47, i64 noundef 8) #27
   %.sroa.3.4.extract.trunc = trunc i64 %.sroa.3.0.copyload to i32
   %.not66125 = icmp eq i32 %.sroa.3.4.extract.trunc, 0
@@ -26310,14 +26310,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 67:                                               ; preds = %3
   %68 = lshr i64 %.sroa.3.0.copyload, 3
   %69 = and i64 %68, 536870911
-  %70 = getelementptr inbounds ptr, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw ptr, ptr %1, i64 %69
   %71 = load ptr, ptr %70, align 8
   br label %common.ret1
 
 72:                                               ; preds = %3
   %73 = lshr i64 %.sroa.3.0.copyload, 3
   %74 = and i64 %73, 536870911
-  %75 = getelementptr inbounds ptr, ptr %1, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %1, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 8
@@ -26355,7 +26355,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 98:                                               ; preds = %3
   %99 = lshr i64 %.sroa.3.0.copyload, 3
   %100 = and i64 %99, 536870911
-  %101 = getelementptr inbounds ptr, ptr %1, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr %1, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8
@@ -26378,7 +26378,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 112:                                              ; preds = %3, %3
   %113 = lshr i64 %.sroa.3.0.copyload, 3
   %114 = and i64 %113, 536870911
-  %115 = getelementptr inbounds ptr, ptr %1, i64 %114
+  %115 = getelementptr inbounds nuw ptr, ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8
@@ -26414,7 +26414,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 135:                                              ; preds = %3
   %136 = lshr i64 %.sroa.3.0.copyload, 3
   %137 = and i64 %136, 536870911
-  %138 = getelementptr inbounds ptr, ptr %1, i64 %137
+  %138 = getelementptr inbounds nuw ptr, ptr %1, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load i32, ptr %140, align 8
@@ -26435,7 +26435,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %151 = tail call fastcc noundef ptr @_ZL15DecodeFixedTypeRN4llvm8ArrayRefINS_9Intrinsic13IITDescriptorEEENS0_IPNS_4TypeEEERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %152 = lshr i64 %.sroa.3.0.copyload, 3
   %153 = and i64 %152, 536870911
-  %154 = getelementptr inbounds ptr, ptr %1, i64 %153
+  %154 = getelementptr inbounds nuw ptr, ptr %1, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i32, ptr %156, align 8
@@ -26459,7 +26459,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 165:                                              ; preds = %3
   %166 = lshr i64 %.sroa.3.0.copyload, 3
   %167 = and i64 %166, 536870911
-  %168 = getelementptr inbounds ptr, ptr %1, i64 %167
+  %168 = getelementptr inbounds nuw ptr, ptr %1, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i32, ptr %170, align 8
@@ -26476,7 +26476,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 177:                                              ; preds = %3
   %178 = lshr i64 %.sroa.3.0.copyload, 3
   %179 = and i64 %178, 536870911
-  %180 = getelementptr inbounds ptr, ptr %1, i64 %179
+  %180 = getelementptr inbounds nuw ptr, ptr %1, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load i32, ptr %182, align 8
@@ -26491,7 +26491,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %.fca.0.extract.i = extractvalue { i64, i8 } %188, 0
   %.fca.1.extract.i = extractvalue { i64, i8 } %188, 1
   store i64 %.fca.0.extract.i, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.fca.1.extract.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %189 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #27
   %190 = trunc i64 %189 to i32
@@ -26513,7 +26513,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
 200:                                              ; preds = %3
   %201 = lshr i64 %.sroa.3.0.copyload, 16
   %202 = and i64 %201, 65535
-  %203 = getelementptr inbounds ptr, ptr %1, i64 %202
+  %203 = getelementptr inbounds nuw ptr, ptr %1, i64 %202
   %204 = load ptr, ptr %203, align 8
   br label %common.ret1
 
@@ -26530,7 +26530,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1
   br i1 %.not.i.i, label %6, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %4, i64 noundef 8) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE28reserveForParamAndGetAddressERS2_m.exit
 
@@ -26749,22 +26749,22 @@ default.unreachable1106:                          ; preds = %2
 97:                                               ; preds = %2
   %98 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %98, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %100 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %100, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %3, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %102 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %102, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %104 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %104, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %106 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %106, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %3, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %108 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %108, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %110 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %110, ptr %109, align 8
   %111 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %3, i64 7) #27
@@ -26773,19 +26773,19 @@ default.unreachable1106:                          ; preds = %2
 112:                                              ; preds = %2
   %113 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %113, ptr %4, align 8
-  %114 = getelementptr inbounds i8, ptr %4, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %115 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %115, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %4, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %117 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %117, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %4, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %119 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %119, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %4, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %121 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %121, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %4, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %123 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %123, ptr %122, align 8
   %124 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %4, i64 6) #27
@@ -26794,19 +26794,19 @@ default.unreachable1106:                          ; preds = %2
 125:                                              ; preds = %2
   %126 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %126, ptr %5, align 8
-  %127 = getelementptr inbounds i8, ptr %5, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %128 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %128, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %5, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %130 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %130, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %5, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %132 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %132, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %5, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %134 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %134, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %5, i64 40
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %136 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 1) #27
   store ptr %136, ptr %135, align 8
   %137 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %5, i64 6) #27
@@ -26815,19 +26815,19 @@ default.unreachable1106:                          ; preds = %2
 138:                                              ; preds = %2
   %139 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %139, ptr %6, align 8
-  %140 = getelementptr inbounds i8, ptr %6, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %141 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %141, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %6, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %143 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %143, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %6, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %145 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %145, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %6, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %147 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %147, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %6, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %149 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 8) #27
   store ptr %149, ptr %148, align 8
   %150 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %6, i64 6) #27
@@ -26836,19 +26836,19 @@ default.unreachable1106:                          ; preds = %2
 151:                                              ; preds = %2
   %152 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %152, ptr %7, align 8
-  %153 = getelementptr inbounds i8, ptr %7, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %154 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %154, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %7, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %156 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %156, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %7, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %158 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %158, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %7, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %160 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %160, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %7, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %162 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %162, ptr %161, align 8
   %163 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %7, i64 6) #27
@@ -26863,16 +26863,16 @@ default.unreachable1106:                          ; preds = %2
 167:                                              ; preds = %2
   %168 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %168, ptr %9, align 8
-  %169 = getelementptr inbounds i8, ptr %9, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %170 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %170, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %9, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %172 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %172, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %9, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %174 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %174, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %9, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %176 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %176, ptr %175, align 8
   %177 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %9, i64 5) #27
@@ -26881,7 +26881,7 @@ default.unreachable1106:                          ; preds = %2
 178:                                              ; preds = %2
   %179 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %179, ptr %10, align 8
-  %180 = getelementptr inbounds i8, ptr %10, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %181 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 30, i64 noundef 0) #27
   store ptr %181, ptr %180, align 8
   %182 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %10, i64 2) #27
@@ -26890,22 +26890,22 @@ default.unreachable1106:                          ; preds = %2
 183:                                              ; preds = %2
   %184 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %184, ptr %11, align 8
-  %185 = getelementptr inbounds i8, ptr %11, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %186 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %186, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %11, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %188 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %188, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %11, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %190 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %190, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %11, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %192 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %192, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %11, i64 40
+  %193 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %194 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26, i64 noundef 0) #27
   store ptr %194, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %11, i64 48
+  %195 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %196 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %196, ptr %195, align 8
   %197 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %11, i64 7) #27
@@ -26914,7 +26914,7 @@ default.unreachable1106:                          ; preds = %2
 198:                                              ; preds = %2
   %199 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %199, ptr %12, align 8
-  %200 = getelementptr inbounds i8, ptr %12, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %201 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %201, ptr %200, align 8
   %202 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %12, i64 2) #27
@@ -26923,7 +26923,7 @@ default.unreachable1106:                          ; preds = %2
 203:                                              ; preds = %2
   %204 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %204, ptr %13, align 8
-  %205 = getelementptr inbounds i8, ptr %13, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %206 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %206, ptr %205, align 8
   %207 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %13, i64 2) #27
@@ -26932,7 +26932,7 @@ default.unreachable1106:                          ; preds = %2
 208:                                              ; preds = %2
   %209 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %209, ptr %14, align 8
-  %210 = getelementptr inbounds i8, ptr %14, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %211 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 1) #27
   store ptr %211, ptr %210, align 8
   %212 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %14, i64 2) #27
@@ -26941,7 +26941,7 @@ default.unreachable1106:                          ; preds = %2
 213:                                              ; preds = %2
   %214 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %214, ptr %15, align 8
-  %215 = getelementptr inbounds i8, ptr %15, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %216 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %216, ptr %215, align 8
   %217 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %15, i64 2) #27
@@ -26950,22 +26950,22 @@ default.unreachable1106:                          ; preds = %2
 218:                                              ; preds = %2
   %219 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %219, ptr %16, align 8
-  %220 = getelementptr inbounds i8, ptr %16, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %221 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %221, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %16, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %223 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %223, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %16, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %225 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %225, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %16, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %227 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %227, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %16, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %229 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 68, i64 noundef 0) #27
   store ptr %229, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %16, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %231 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %231, ptr %230, align 8
   %232 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %16, i64 7) #27
@@ -26974,22 +26974,22 @@ default.unreachable1106:                          ; preds = %2
 233:                                              ; preds = %2
   %234 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %234, ptr %17, align 8
-  %235 = getelementptr inbounds i8, ptr %17, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %236 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %236, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %17, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %238 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %238, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %17, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %240 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %240, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %17, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %242 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %242, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %17, i64 40
+  %243 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %244 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %244, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %17, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %246 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %246, ptr %245, align 8
   %247 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %17, i64 7) #27
@@ -26998,13 +26998,13 @@ default.unreachable1106:                          ; preds = %2
 248:                                              ; preds = %2
   %249 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %249, ptr %18, align 8
-  %250 = getelementptr inbounds i8, ptr %18, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %251 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %251, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %18, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %253 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %253, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %18, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %255 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %255, ptr %254, align 8
   %256 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %18, i64 4) #27
@@ -27013,19 +27013,19 @@ default.unreachable1106:                          ; preds = %2
 257:                                              ; preds = %2
   %258 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %258, ptr %19, align 8
-  %259 = getelementptr inbounds i8, ptr %19, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %260 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %260, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %19, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %262 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %262, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %19, i64 24
+  %263 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %264 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %264, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %19, i64 32
+  %265 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %266 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %266, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %19, i64 40
+  %267 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %268 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %268, ptr %267, align 8
   %269 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %19, i64 6) #27
@@ -27034,19 +27034,19 @@ default.unreachable1106:                          ; preds = %2
 270:                                              ; preds = %2
   %271 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %271, ptr %20, align 8
-  %272 = getelementptr inbounds i8, ptr %20, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %273 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %273, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %20, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %275 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %275, ptr %274, align 8
-  %276 = getelementptr inbounds i8, ptr %20, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %277 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %277, ptr %276, align 8
-  %278 = getelementptr inbounds i8, ptr %20, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %279 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %279, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %20, i64 40
+  %280 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %281 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %281, ptr %280, align 8
   %282 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %20, i64 6) #27
@@ -27055,22 +27055,22 @@ default.unreachable1106:                          ; preds = %2
 283:                                              ; preds = %2
   %284 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %284, ptr %21, align 8
-  %285 = getelementptr inbounds i8, ptr %21, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %286 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %286, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %21, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %288 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %288, ptr %287, align 8
-  %289 = getelementptr inbounds i8, ptr %21, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %290 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %290, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %21, i64 32
+  %291 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %292 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %292, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %21, i64 40
+  %293 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %294 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %294, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %21, i64 48
+  %295 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %296 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %296, ptr %295, align 8
   %297 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %21, i64 7) #27
@@ -27079,19 +27079,19 @@ default.unreachable1106:                          ; preds = %2
 298:                                              ; preds = %2
   %299 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %299, ptr %22, align 8
-  %300 = getelementptr inbounds i8, ptr %22, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %301 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %301, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %22, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %303 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %303, ptr %302, align 8
-  %304 = getelementptr inbounds i8, ptr %22, i64 24
+  %304 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %305 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %305, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %22, i64 32
+  %306 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %307 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %307, ptr %306, align 8
-  %308 = getelementptr inbounds i8, ptr %22, i64 40
+  %308 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %309 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26, i64 noundef 0) #27
   store ptr %309, ptr %308, align 8
   %310 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %22, i64 6) #27
@@ -27100,19 +27100,19 @@ default.unreachable1106:                          ; preds = %2
 311:                                              ; preds = %2
   %312 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %312, ptr %23, align 8
-  %313 = getelementptr inbounds i8, ptr %23, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %314 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %314, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %23, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %316 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %316, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %23, i64 24
+  %317 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %318 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %318, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %23, i64 32
+  %319 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %320 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %320, ptr %319, align 8
-  %321 = getelementptr inbounds i8, ptr %23, i64 40
+  %321 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %322 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 21) #27
   store ptr %322, ptr %321, align 8
   %323 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %23, i64 6) #27
@@ -27121,19 +27121,19 @@ default.unreachable1106:                          ; preds = %2
 324:                                              ; preds = %2
   %325 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %325, ptr %24, align 8
-  %326 = getelementptr inbounds i8, ptr %24, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %327 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %327, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %24, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %329 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %329, ptr %328, align 8
-  %330 = getelementptr inbounds i8, ptr %24, i64 24
+  %330 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %331 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %331, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %24, i64 32
+  %332 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %333 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %333, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %24, i64 40
+  %334 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %335 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 42) #27
   store ptr %335, ptr %334, align 8
   %336 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %24, i64 6) #27
@@ -27142,16 +27142,16 @@ default.unreachable1106:                          ; preds = %2
 337:                                              ; preds = %2
   %338 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %338, ptr %25, align 8
-  %339 = getelementptr inbounds i8, ptr %25, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %340 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %340, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %25, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %342 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %342, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %25, i64 24
+  %343 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %344 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %344, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %25, i64 32
+  %345 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %346 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %346, ptr %345, align 8
   %347 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %25, i64 5) #27
@@ -27160,13 +27160,13 @@ default.unreachable1106:                          ; preds = %2
 348:                                              ; preds = %2
   %349 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %349, ptr %26, align 8
-  %350 = getelementptr inbounds i8, ptr %26, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %351 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %351, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %26, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %353 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %353, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %26, i64 24
+  %354 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %355 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %355, ptr %354, align 8
   %356 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %26, i64 4) #27
@@ -27175,16 +27175,16 @@ default.unreachable1106:                          ; preds = %2
 357:                                              ; preds = %2
   %358 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %358, ptr %27, align 8
-  %359 = getelementptr inbounds i8, ptr %27, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %360 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %360, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %27, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %362 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %362, ptr %361, align 8
-  %363 = getelementptr inbounds i8, ptr %27, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %364 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %364, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %27, i64 32
+  %365 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %366 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %366, ptr %365, align 8
   %367 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %27, i64 5) #27
@@ -27193,13 +27193,13 @@ default.unreachable1106:                          ; preds = %2
 368:                                              ; preds = %2
   %369 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %369, ptr %28, align 8
-  %370 = getelementptr inbounds i8, ptr %28, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %371 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %371, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %28, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %373 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %373, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %28, i64 24
+  %374 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %375 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %375, ptr %374, align 8
   %376 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %28, i64 4) #27
@@ -27208,19 +27208,19 @@ default.unreachable1106:                          ; preds = %2
 377:                                              ; preds = %2
   %378 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %378, ptr %29, align 8
-  %379 = getelementptr inbounds i8, ptr %29, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %380 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %380, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %29, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %382 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %382, ptr %381, align 8
-  %383 = getelementptr inbounds i8, ptr %29, i64 24
+  %383 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %384 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %384, ptr %383, align 8
-  %385 = getelementptr inbounds i8, ptr %29, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %386 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %386, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %29, i64 40
+  %387 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %388 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 15) #27
   store ptr %388, ptr %387, align 8
   %389 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %29, i64 6) #27
@@ -27235,10 +27235,10 @@ default.unreachable1106:                          ; preds = %2
 393:                                              ; preds = %2
   %394 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %394, ptr %31, align 8
-  %395 = getelementptr inbounds i8, ptr %31, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %396 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %396, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %31, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %398 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 42) #27
   store ptr %398, ptr %397, align 8
   %399 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %31, i64 3) #27
@@ -27247,13 +27247,13 @@ default.unreachable1106:                          ; preds = %2
 400:                                              ; preds = %2
   %401 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %401, ptr %32, align 8
-  %402 = getelementptr inbounds i8, ptr %32, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %403 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %403, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %32, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %405 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, i64 noundef 0) #27
   store ptr %405, ptr %404, align 8
-  %406 = getelementptr inbounds i8, ptr %32, i64 24
+  %406 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %407 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 8) #27
   store ptr %407, ptr %406, align 8
   %408 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %32, i64 4) #27
@@ -27262,10 +27262,10 @@ default.unreachable1106:                          ; preds = %2
 409:                                              ; preds = %2
   %410 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %410, ptr %33, align 8
-  %411 = getelementptr inbounds i8, ptr %33, i64 8
+  %411 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %412 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %412, ptr %411, align 8
-  %413 = getelementptr inbounds i8, ptr %33, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %414 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, i64 noundef 0) #27
   store ptr %414, ptr %413, align 8
   %415 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %33, i64 3) #27
@@ -27274,7 +27274,7 @@ default.unreachable1106:                          ; preds = %2
 416:                                              ; preds = %2
   %417 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %417, ptr %34, align 8
-  %418 = getelementptr inbounds i8, ptr %34, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %419 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %419, ptr %418, align 8
   %420 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %34, i64 2) #27
@@ -27283,7 +27283,7 @@ default.unreachable1106:                          ; preds = %2
 421:                                              ; preds = %2
   %422 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %422, ptr %35, align 8
-  %423 = getelementptr inbounds i8, ptr %35, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %424 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 42) #27
   store ptr %424, ptr %423, align 8
   %425 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %35, i64 2) #27
@@ -27292,10 +27292,10 @@ default.unreachable1106:                          ; preds = %2
 426:                                              ; preds = %2
   %427 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %427, ptr %36, align 8
-  %428 = getelementptr inbounds i8, ptr %36, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %429 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %429, ptr %428, align 8
-  %430 = getelementptr inbounds i8, ptr %36, i64 16
+  %430 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %431 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, i64 noundef 0) #27
   store ptr %431, ptr %430, align 8
   %432 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %36, i64 3) #27
@@ -27304,10 +27304,10 @@ default.unreachable1106:                          ; preds = %2
 433:                                              ; preds = %2
   %434 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %434, ptr %37, align 8
-  %435 = getelementptr inbounds i8, ptr %37, i64 8
+  %435 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %436 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %436, ptr %435, align 8
-  %437 = getelementptr inbounds i8, ptr %37, i64 16
+  %437 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %438 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %438, ptr %437, align 8
   %439 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %37, i64 3) #27
@@ -27316,16 +27316,16 @@ default.unreachable1106:                          ; preds = %2
 440:                                              ; preds = %2
   %441 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %441, ptr %38, align 8
-  %442 = getelementptr inbounds i8, ptr %38, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %443 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %443, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %38, i64 16
+  %444 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %445 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %445, ptr %444, align 8
-  %446 = getelementptr inbounds i8, ptr %38, i64 24
+  %446 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %447 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %447, ptr %446, align 8
-  %448 = getelementptr inbounds i8, ptr %38, i64 32
+  %448 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %449 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %449, ptr %448, align 8
   %450 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %38, i64 5) #27
@@ -27334,10 +27334,10 @@ default.unreachable1106:                          ; preds = %2
 451:                                              ; preds = %2
   %452 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %452, ptr %39, align 8
-  %453 = getelementptr inbounds i8, ptr %39, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %454 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %454, ptr %453, align 8
-  %455 = getelementptr inbounds i8, ptr %39, i64 16
+  %455 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %456 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 15) #27
   store ptr %456, ptr %455, align 8
   %457 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %39, i64 3) #27
@@ -27346,19 +27346,19 @@ default.unreachable1106:                          ; preds = %2
 458:                                              ; preds = %2
   %459 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %459, ptr %40, align 8
-  %460 = getelementptr inbounds i8, ptr %40, i64 8
+  %460 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %461 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %461, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %40, i64 16
+  %462 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %463 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %463, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %40, i64 24
+  %464 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %465 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %465, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %40, i64 32
+  %466 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %467 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %467, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %40, i64 40
+  %468 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %469 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 4) #27
   store ptr %469, ptr %468, align 8
   %470 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %40, i64 6) #27
@@ -27367,7 +27367,7 @@ default.unreachable1106:                          ; preds = %2
 471:                                              ; preds = %2
   %472 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %472, ptr %41, align 8
-  %473 = getelementptr inbounds i8, ptr %41, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %474 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %474, ptr %473, align 8
   %475 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %41, i64 2) #27
@@ -27376,7 +27376,7 @@ default.unreachable1106:                          ; preds = %2
 476:                                              ; preds = %2
   %477 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %477, ptr %42, align 8
-  %478 = getelementptr inbounds i8, ptr %42, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %479 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %479, ptr %478, align 8
   %480 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %42, i64 2) #27
@@ -27385,19 +27385,19 @@ default.unreachable1106:                          ; preds = %2
 481:                                              ; preds = %2
   %482 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %482, ptr %43, align 8
-  %483 = getelementptr inbounds i8, ptr %43, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %484 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %484, ptr %483, align 8
-  %485 = getelementptr inbounds i8, ptr %43, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %486 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %486, ptr %485, align 8
-  %487 = getelementptr inbounds i8, ptr %43, i64 24
+  %487 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %488 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %488, ptr %487, align 8
-  %489 = getelementptr inbounds i8, ptr %43, i64 32
+  %489 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %490 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %490, ptr %489, align 8
-  %491 = getelementptr inbounds i8, ptr %43, i64 40
+  %491 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %492 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %492, ptr %491, align 8
   %493 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %43, i64 6) #27
@@ -27406,10 +27406,10 @@ default.unreachable1106:                          ; preds = %2
 494:                                              ; preds = %2
   %495 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %495, ptr %44, align 8
-  %496 = getelementptr inbounds i8, ptr %44, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %497 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %497, ptr %496, align 8
-  %498 = getelementptr inbounds i8, ptr %44, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %499 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %499, ptr %498, align 8
   %500 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %44, i64 3) #27
@@ -27418,13 +27418,13 @@ default.unreachable1106:                          ; preds = %2
 501:                                              ; preds = %2
   %502 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %502, ptr %45, align 8
-  %503 = getelementptr inbounds i8, ptr %45, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %504 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %504, ptr %503, align 8
-  %505 = getelementptr inbounds i8, ptr %45, i64 16
+  %505 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %506 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %506, ptr %505, align 8
-  %507 = getelementptr inbounds i8, ptr %45, i64 24
+  %507 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %508 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %508, ptr %507, align 8
   %509 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %45, i64 4) #27
@@ -27433,19 +27433,19 @@ default.unreachable1106:                          ; preds = %2
 510:                                              ; preds = %2
   %511 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %511, ptr %46, align 8
-  %512 = getelementptr inbounds i8, ptr %46, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %513 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %513, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %46, i64 16
+  %514 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %515 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %515, ptr %514, align 8
-  %516 = getelementptr inbounds i8, ptr %46, i64 24
+  %516 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %517 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %517, ptr %516, align 8
-  %518 = getelementptr inbounds i8, ptr %46, i64 32
+  %518 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %519 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %519, ptr %518, align 8
-  %520 = getelementptr inbounds i8, ptr %46, i64 40
+  %520 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %521 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %521, ptr %520, align 8
   %522 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %46, i64 6) #27
@@ -27454,13 +27454,13 @@ default.unreachable1106:                          ; preds = %2
 523:                                              ; preds = %2
   %524 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %524, ptr %47, align 8
-  %525 = getelementptr inbounds i8, ptr %47, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %526 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %526, ptr %525, align 8
-  %527 = getelementptr inbounds i8, ptr %47, i64 16
+  %527 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %528 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %528, ptr %527, align 8
-  %529 = getelementptr inbounds i8, ptr %47, i64 24
+  %529 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %530 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %530, ptr %529, align 8
   %531 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %47, i64 4) #27
@@ -27469,19 +27469,19 @@ default.unreachable1106:                          ; preds = %2
 532:                                              ; preds = %2
   %533 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %533, ptr %48, align 8
-  %534 = getelementptr inbounds i8, ptr %48, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %535 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %535, ptr %534, align 8
-  %536 = getelementptr inbounds i8, ptr %48, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %537 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %537, ptr %536, align 8
-  %538 = getelementptr inbounds i8, ptr %48, i64 24
+  %538 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %539 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %539, ptr %538, align 8
-  %540 = getelementptr inbounds i8, ptr %48, i64 32
+  %540 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %541 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %541, ptr %540, align 8
-  %542 = getelementptr inbounds i8, ptr %48, i64 40
+  %542 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %543 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %543, ptr %542, align 8
   %544 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %48, i64 6) #27
@@ -27490,19 +27490,19 @@ default.unreachable1106:                          ; preds = %2
 545:                                              ; preds = %2
   %546 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %546, ptr %49, align 8
-  %547 = getelementptr inbounds i8, ptr %49, i64 8
+  %547 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %548 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %548, ptr %547, align 8
-  %549 = getelementptr inbounds i8, ptr %49, i64 16
+  %549 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %550 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %550, ptr %549, align 8
-  %551 = getelementptr inbounds i8, ptr %49, i64 24
+  %551 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %552 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %552, ptr %551, align 8
-  %553 = getelementptr inbounds i8, ptr %49, i64 32
+  %553 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %554 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %554, ptr %553, align 8
-  %555 = getelementptr inbounds i8, ptr %49, i64 40
+  %555 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %556 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 8) #27
   store ptr %556, ptr %555, align 8
   %557 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %49, i64 6) #27
@@ -27511,19 +27511,19 @@ default.unreachable1106:                          ; preds = %2
 558:                                              ; preds = %2
   %559 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %559, ptr %50, align 8
-  %560 = getelementptr inbounds i8, ptr %50, i64 8
+  %560 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %561 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %561, ptr %560, align 8
-  %562 = getelementptr inbounds i8, ptr %50, i64 16
+  %562 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %563 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %563, ptr %562, align 8
-  %564 = getelementptr inbounds i8, ptr %50, i64 24
+  %564 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %565 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %565, ptr %564, align 8
-  %566 = getelementptr inbounds i8, ptr %50, i64 32
+  %566 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %567 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 5, i64 noundef 0) #27
   store ptr %567, ptr %566, align 8
-  %568 = getelementptr inbounds i8, ptr %50, i64 40
+  %568 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %569 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %569, ptr %568, align 8
   %570 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %50, i64 6) #27
@@ -27532,19 +27532,19 @@ default.unreachable1106:                          ; preds = %2
 571:                                              ; preds = %2
   %572 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %572, ptr %51, align 8
-  %573 = getelementptr inbounds i8, ptr %51, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %574 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %574, ptr %573, align 8
-  %575 = getelementptr inbounds i8, ptr %51, i64 16
+  %575 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %576 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %576, ptr %575, align 8
-  %577 = getelementptr inbounds i8, ptr %51, i64 24
+  %577 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %578 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %578, ptr %577, align 8
-  %579 = getelementptr inbounds i8, ptr %51, i64 32
+  %579 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %580 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %580, ptr %579, align 8
-  %581 = getelementptr inbounds i8, ptr %51, i64 40
+  %581 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %582 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 21) #27
   store ptr %582, ptr %581, align 8
   %583 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %51, i64 6) #27
@@ -27553,16 +27553,16 @@ default.unreachable1106:                          ; preds = %2
 584:                                              ; preds = %2
   %585 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %585, ptr %52, align 8
-  %586 = getelementptr inbounds i8, ptr %52, i64 8
+  %586 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %587 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %587, ptr %586, align 8
-  %588 = getelementptr inbounds i8, ptr %52, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %589 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %589, ptr %588, align 8
-  %590 = getelementptr inbounds i8, ptr %52, i64 24
+  %590 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %591 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %591, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %52, i64 32
+  %592 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %593 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %593, ptr %592, align 8
   %594 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %52, i64 5) #27
@@ -27571,16 +27571,16 @@ default.unreachable1106:                          ; preds = %2
 595:                                              ; preds = %2
   %596 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %596, ptr %53, align 8
-  %597 = getelementptr inbounds i8, ptr %53, i64 8
+  %597 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %598 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %598, ptr %597, align 8
-  %599 = getelementptr inbounds i8, ptr %53, i64 16
+  %599 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %600 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %600, ptr %599, align 8
-  %601 = getelementptr inbounds i8, ptr %53, i64 24
+  %601 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %602 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %602, ptr %601, align 8
-  %603 = getelementptr inbounds i8, ptr %53, i64 32
+  %603 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %604 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %604, ptr %603, align 8
   %605 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %53, i64 5) #27
@@ -27589,10 +27589,10 @@ default.unreachable1106:                          ; preds = %2
 606:                                              ; preds = %2
   %607 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %607, ptr %54, align 8
-  %608 = getelementptr inbounds i8, ptr %54, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %609 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %609, ptr %608, align 8
-  %610 = getelementptr inbounds i8, ptr %54, i64 16
+  %610 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %611 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %611, ptr %610, align 8
   %612 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %54, i64 3) #27
@@ -27601,22 +27601,22 @@ default.unreachable1106:                          ; preds = %2
 613:                                              ; preds = %2
   %614 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %614, ptr %55, align 8
-  %615 = getelementptr inbounds i8, ptr %55, i64 8
+  %615 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %616 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %616, ptr %615, align 8
-  %617 = getelementptr inbounds i8, ptr %55, i64 16
+  %617 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %618 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %618, ptr %617, align 8
-  %619 = getelementptr inbounds i8, ptr %55, i64 24
+  %619 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %620 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %620, ptr %619, align 8
-  %621 = getelementptr inbounds i8, ptr %55, i64 32
+  %621 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %622 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %622, ptr %621, align 8
-  %623 = getelementptr inbounds i8, ptr %55, i64 40
+  %623 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %624 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %624, ptr %623, align 8
-  %625 = getelementptr inbounds i8, ptr %55, i64 48
+  %625 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %626 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 21) #27
   store ptr %626, ptr %625, align 8
   %627 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %55, i64 7) #27
@@ -27625,19 +27625,19 @@ default.unreachable1106:                          ; preds = %2
 628:                                              ; preds = %2
   %629 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %629, ptr %56, align 8
-  %630 = getelementptr inbounds i8, ptr %56, i64 8
+  %630 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %631 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %631, ptr %630, align 8
-  %632 = getelementptr inbounds i8, ptr %56, i64 16
+  %632 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %633 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %633, ptr %632, align 8
-  %634 = getelementptr inbounds i8, ptr %56, i64 24
+  %634 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %635 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %635, ptr %634, align 8
-  %636 = getelementptr inbounds i8, ptr %56, i64 32
+  %636 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %637 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %637, ptr %636, align 8
-  %638 = getelementptr inbounds i8, ptr %56, i64 40
+  %638 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %639 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %639, ptr %638, align 8
   %640 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %56, i64 6) #27
@@ -27646,13 +27646,13 @@ default.unreachable1106:                          ; preds = %2
 641:                                              ; preds = %2
   %642 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %642, ptr %57, align 8
-  %643 = getelementptr inbounds i8, ptr %57, i64 8
+  %643 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %644 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %644, ptr %643, align 8
-  %645 = getelementptr inbounds i8, ptr %57, i64 16
+  %645 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %646 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %646, ptr %645, align 8
-  %647 = getelementptr inbounds i8, ptr %57, i64 24
+  %647 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %648 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %648, ptr %647, align 8
   %649 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %57, i64 4) #27
@@ -27667,22 +27667,22 @@ default.unreachable1106:                          ; preds = %2
 653:                                              ; preds = %2
   %654 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %654, ptr %59, align 8
-  %655 = getelementptr inbounds i8, ptr %59, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %656 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %656, ptr %655, align 8
-  %657 = getelementptr inbounds i8, ptr %59, i64 16
+  %657 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %658 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %658, ptr %657, align 8
-  %659 = getelementptr inbounds i8, ptr %59, i64 24
+  %659 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %660 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %660, ptr %659, align 8
-  %661 = getelementptr inbounds i8, ptr %59, i64 32
+  %661 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %662 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %662, ptr %661, align 8
-  %663 = getelementptr inbounds i8, ptr %59, i64 40
+  %663 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %664 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %664, ptr %663, align 8
-  %665 = getelementptr inbounds i8, ptr %59, i64 48
+  %665 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %666 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %666, ptr %665, align 8
   %667 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %59, i64 7) #27
@@ -27691,13 +27691,13 @@ default.unreachable1106:                          ; preds = %2
 668:                                              ; preds = %2
   %669 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %669, ptr %60, align 8
-  %670 = getelementptr inbounds i8, ptr %60, i64 8
+  %670 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %671 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %671, ptr %670, align 8
-  %672 = getelementptr inbounds i8, ptr %60, i64 16
+  %672 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %673 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %673, ptr %672, align 8
-  %674 = getelementptr inbounds i8, ptr %60, i64 24
+  %674 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %675 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %675, ptr %674, align 8
   %676 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %60, i64 4) #27
@@ -27706,13 +27706,13 @@ default.unreachable1106:                          ; preds = %2
 677:                                              ; preds = %2
   %678 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %678, ptr %61, align 8
-  %679 = getelementptr inbounds i8, ptr %61, i64 8
+  %679 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %680 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %680, ptr %679, align 8
-  %681 = getelementptr inbounds i8, ptr %61, i64 16
+  %681 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %682 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %682, ptr %681, align 8
-  %683 = getelementptr inbounds i8, ptr %61, i64 24
+  %683 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %684 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %684, ptr %683, align 8
   %685 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %61, i64 4) #27
@@ -27721,13 +27721,13 @@ default.unreachable1106:                          ; preds = %2
 686:                                              ; preds = %2
   %687 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %687, ptr %62, align 8
-  %688 = getelementptr inbounds i8, ptr %62, i64 8
+  %688 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %689 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %689, ptr %688, align 8
-  %690 = getelementptr inbounds i8, ptr %62, i64 16
+  %690 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %691 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %691, ptr %690, align 8
-  %692 = getelementptr inbounds i8, ptr %62, i64 24
+  %692 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %693 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 8) #27
   store ptr %693, ptr %692, align 8
   %694 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %62, i64 4) #27
@@ -27736,10 +27736,10 @@ default.unreachable1106:                          ; preds = %2
 695:                                              ; preds = %2
   %696 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %696, ptr %63, align 8
-  %697 = getelementptr inbounds i8, ptr %63, i64 8
+  %697 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %698 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %698, ptr %697, align 8
-  %699 = getelementptr inbounds i8, ptr %63, i64 16
+  %699 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %700 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %700, ptr %699, align 8
   %701 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %63, i64 3) #27
@@ -27748,16 +27748,16 @@ default.unreachable1106:                          ; preds = %2
 702:                                              ; preds = %2
   %703 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %703, ptr %64, align 8
-  %704 = getelementptr inbounds i8, ptr %64, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %705 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %705, ptr %704, align 8
-  %706 = getelementptr inbounds i8, ptr %64, i64 16
+  %706 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %707 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %707, ptr %706, align 8
-  %708 = getelementptr inbounds i8, ptr %64, i64 24
+  %708 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %709 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %709, ptr %708, align 8
-  %710 = getelementptr inbounds i8, ptr %64, i64 32
+  %710 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %711 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %711, ptr %710, align 8
   %712 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %64, i64 5) #27
@@ -27766,19 +27766,19 @@ default.unreachable1106:                          ; preds = %2
 713:                                              ; preds = %2
   %714 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %714, ptr %65, align 8
-  %715 = getelementptr inbounds i8, ptr %65, i64 8
+  %715 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %716 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %716, ptr %715, align 8
-  %717 = getelementptr inbounds i8, ptr %65, i64 16
+  %717 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %718 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %718, ptr %717, align 8
-  %719 = getelementptr inbounds i8, ptr %65, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %720 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %720, ptr %719, align 8
-  %721 = getelementptr inbounds i8, ptr %65, i64 32
+  %721 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %722 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %722, ptr %721, align 8
-  %723 = getelementptr inbounds i8, ptr %65, i64 40
+  %723 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %724 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %724, ptr %723, align 8
   %725 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %65, i64 6) #27
@@ -27787,7 +27787,7 @@ default.unreachable1106:                          ; preds = %2
 726:                                              ; preds = %2
   %727 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %727, ptr %66, align 8
-  %728 = getelementptr inbounds i8, ptr %66, i64 8
+  %728 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %729 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %729, ptr %728, align 8
   %730 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %66, i64 2) #27
@@ -27796,7 +27796,7 @@ default.unreachable1106:                          ; preds = %2
 731:                                              ; preds = %2
   %732 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %732, ptr %67, align 8
-  %733 = getelementptr inbounds i8, ptr %67, i64 8
+  %733 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %734 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 21) #27
   store ptr %734, ptr %733, align 8
   %735 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %67, i64 2) #27
@@ -27805,13 +27805,13 @@ default.unreachable1106:                          ; preds = %2
 736:                                              ; preds = %2
   %737 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %737, ptr %68, align 8
-  %738 = getelementptr inbounds i8, ptr %68, i64 8
+  %738 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %739 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %739, ptr %738, align 8
-  %740 = getelementptr inbounds i8, ptr %68, i64 16
+  %740 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %741 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %741, ptr %740, align 8
-  %742 = getelementptr inbounds i8, ptr %68, i64 24
+  %742 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %743 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %743, ptr %742, align 8
   %744 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %68, i64 4) #27
@@ -27820,10 +27820,10 @@ default.unreachable1106:                          ; preds = %2
 745:                                              ; preds = %2
   %746 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %746, ptr %69, align 8
-  %747 = getelementptr inbounds i8, ptr %69, i64 8
+  %747 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %748 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %748, ptr %747, align 8
-  %749 = getelementptr inbounds i8, ptr %69, i64 16
+  %749 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %750 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %750, ptr %749, align 8
   %751 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %69, i64 3) #27
@@ -27832,10 +27832,10 @@ default.unreachable1106:                          ; preds = %2
 752:                                              ; preds = %2
   %753 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %753, ptr %70, align 8
-  %754 = getelementptr inbounds i8, ptr %70, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %755 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %755, ptr %754, align 8
-  %756 = getelementptr inbounds i8, ptr %70, i64 16
+  %756 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %757 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %757, ptr %756, align 8
   %758 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %70, i64 3) #27
@@ -27844,10 +27844,10 @@ default.unreachable1106:                          ; preds = %2
 759:                                              ; preds = %2
   %760 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %760, ptr %71, align 8
-  %761 = getelementptr inbounds i8, ptr %71, i64 8
+  %761 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %762 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %762, ptr %761, align 8
-  %763 = getelementptr inbounds i8, ptr %71, i64 16
+  %763 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %764 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %764, ptr %763, align 8
   %765 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %71, i64 3) #27
@@ -27856,22 +27856,22 @@ default.unreachable1106:                          ; preds = %2
 766:                                              ; preds = %2
   %767 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %767, ptr %72, align 8
-  %768 = getelementptr inbounds i8, ptr %72, i64 8
+  %768 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %769 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %769, ptr %768, align 8
-  %770 = getelementptr inbounds i8, ptr %72, i64 16
+  %770 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %771 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %771, ptr %770, align 8
-  %772 = getelementptr inbounds i8, ptr %72, i64 24
+  %772 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %773 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %773, ptr %772, align 8
-  %774 = getelementptr inbounds i8, ptr %72, i64 32
+  %774 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %775 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %775, ptr %774, align 8
-  %776 = getelementptr inbounds i8, ptr %72, i64 40
+  %776 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %777 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %777, ptr %776, align 8
-  %778 = getelementptr inbounds i8, ptr %72, i64 48
+  %778 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %779 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %779, ptr %778, align 8
   %780 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %72, i64 7) #27
@@ -27880,13 +27880,13 @@ default.unreachable1106:                          ; preds = %2
 781:                                              ; preds = %2
   %782 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %782, ptr %73, align 8
-  %783 = getelementptr inbounds i8, ptr %73, i64 8
+  %783 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %784 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %784, ptr %783, align 8
-  %785 = getelementptr inbounds i8, ptr %73, i64 16
+  %785 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %786 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %786, ptr %785, align 8
-  %787 = getelementptr inbounds i8, ptr %73, i64 24
+  %787 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %788 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %788, ptr %787, align 8
   %789 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %73, i64 4) #27
@@ -27895,13 +27895,13 @@ default.unreachable1106:                          ; preds = %2
 790:                                              ; preds = %2
   %791 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %791, ptr %74, align 8
-  %792 = getelementptr inbounds i8, ptr %74, i64 8
+  %792 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %793 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %793, ptr %792, align 8
-  %794 = getelementptr inbounds i8, ptr %74, i64 16
+  %794 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %795 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %795, ptr %794, align 8
-  %796 = getelementptr inbounds i8, ptr %74, i64 24
+  %796 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %797 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 1) #27
   store ptr %797, ptr %796, align 8
   %798 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %74, i64 4) #27
@@ -27910,10 +27910,10 @@ default.unreachable1106:                          ; preds = %2
 799:                                              ; preds = %2
   %800 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %800, ptr %75, align 8
-  %801 = getelementptr inbounds i8, ptr %75, i64 8
+  %801 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %802 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %802, ptr %801, align 8
-  %803 = getelementptr inbounds i8, ptr %75, i64 16
+  %803 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %804 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 1) #27
   store ptr %804, ptr %803, align 8
   %805 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %75, i64 3) #27
@@ -27922,13 +27922,13 @@ default.unreachable1106:                          ; preds = %2
 806:                                              ; preds = %2
   %807 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %807, ptr %76, align 8
-  %808 = getelementptr inbounds i8, ptr %76, i64 8
+  %808 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %809 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %809, ptr %808, align 8
-  %810 = getelementptr inbounds i8, ptr %76, i64 16
+  %810 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %811 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %811, ptr %810, align 8
-  %812 = getelementptr inbounds i8, ptr %76, i64 24
+  %812 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %813 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %813, ptr %812, align 8
   %814 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %76, i64 4) #27
@@ -27937,13 +27937,13 @@ default.unreachable1106:                          ; preds = %2
 815:                                              ; preds = %2
   %816 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %816, ptr %77, align 8
-  %817 = getelementptr inbounds i8, ptr %77, i64 8
+  %817 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %818 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %818, ptr %817, align 8
-  %819 = getelementptr inbounds i8, ptr %77, i64 16
+  %819 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %820 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %820, ptr %819, align 8
-  %821 = getelementptr inbounds i8, ptr %77, i64 24
+  %821 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %822 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %822, ptr %821, align 8
   %823 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %77, i64 4) #27
@@ -27952,13 +27952,13 @@ default.unreachable1106:                          ; preds = %2
 824:                                              ; preds = %2
   %825 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %825, ptr %78, align 8
-  %826 = getelementptr inbounds i8, ptr %78, i64 8
+  %826 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %827 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %827, ptr %826, align 8
-  %828 = getelementptr inbounds i8, ptr %78, i64 16
+  %828 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %829 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %829, ptr %828, align 8
-  %830 = getelementptr inbounds i8, ptr %78, i64 24
+  %830 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %831 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %831, ptr %830, align 8
   %832 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %78, i64 4) #27
@@ -27967,19 +27967,19 @@ default.unreachable1106:                          ; preds = %2
 833:                                              ; preds = %2
   %834 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %834, ptr %79, align 8
-  %835 = getelementptr inbounds i8, ptr %79, i64 8
+  %835 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %836 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %836, ptr %835, align 8
-  %837 = getelementptr inbounds i8, ptr %79, i64 16
+  %837 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %838 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %838, ptr %837, align 8
-  %839 = getelementptr inbounds i8, ptr %79, i64 24
+  %839 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %840 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %840, ptr %839, align 8
-  %841 = getelementptr inbounds i8, ptr %79, i64 32
+  %841 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %842 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %842, ptr %841, align 8
-  %843 = getelementptr inbounds i8, ptr %79, i64 40
+  %843 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %844 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %844, ptr %843, align 8
   %845 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %79, i64 6) #27
@@ -27988,13 +27988,13 @@ default.unreachable1106:                          ; preds = %2
 846:                                              ; preds = %2
   %847 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %847, ptr %80, align 8
-  %848 = getelementptr inbounds i8, ptr %80, i64 8
+  %848 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %849 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %849, ptr %848, align 8
-  %850 = getelementptr inbounds i8, ptr %80, i64 16
+  %850 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %851 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %851, ptr %850, align 8
-  %852 = getelementptr inbounds i8, ptr %80, i64 24
+  %852 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %853 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %853, ptr %852, align 8
   %854 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %80, i64 4) #27
@@ -28003,10 +28003,10 @@ default.unreachable1106:                          ; preds = %2
 855:                                              ; preds = %2
   %856 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %856, ptr %81, align 8
-  %857 = getelementptr inbounds i8, ptr %81, i64 8
+  %857 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %858 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %858, ptr %857, align 8
-  %859 = getelementptr inbounds i8, ptr %81, i64 16
+  %859 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %860 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %860, ptr %859, align 8
   %861 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %81, i64 3) #27
@@ -28015,10 +28015,10 @@ default.unreachable1106:                          ; preds = %2
 862:                                              ; preds = %2
   %863 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %863, ptr %82, align 8
-  %864 = getelementptr inbounds i8, ptr %82, i64 8
+  %864 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %865 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %865, ptr %864, align 8
-  %866 = getelementptr inbounds i8, ptr %82, i64 16
+  %866 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %867 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %867, ptr %866, align 8
   %868 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %82, i64 3) #27
@@ -28027,19 +28027,19 @@ default.unreachable1106:                          ; preds = %2
 869:                                              ; preds = %2
   %870 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %870, ptr %83, align 8
-  %871 = getelementptr inbounds i8, ptr %83, i64 8
+  %871 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %872 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %872, ptr %871, align 8
-  %873 = getelementptr inbounds i8, ptr %83, i64 16
+  %873 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %874 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %874, ptr %873, align 8
-  %875 = getelementptr inbounds i8, ptr %83, i64 24
+  %875 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %876 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %876, ptr %875, align 8
-  %877 = getelementptr inbounds i8, ptr %83, i64 32
+  %877 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %878 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %878, ptr %877, align 8
-  %879 = getelementptr inbounds i8, ptr %83, i64 40
+  %879 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %880 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 30, i64 noundef 0) #27
   store ptr %880, ptr %879, align 8
   %881 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %83, i64 6) #27
@@ -28048,16 +28048,16 @@ default.unreachable1106:                          ; preds = %2
 882:                                              ; preds = %2
   %883 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %883, ptr %84, align 8
-  %884 = getelementptr inbounds i8, ptr %84, i64 8
+  %884 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %885 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 23, i64 noundef 0) #27
   store ptr %885, ptr %884, align 8
-  %886 = getelementptr inbounds i8, ptr %84, i64 16
+  %886 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %887 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 37, i64 noundef 0) #27
   store ptr %887, ptr %886, align 8
-  %888 = getelementptr inbounds i8, ptr %84, i64 24
+  %888 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %889 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 27, i64 noundef 0) #27
   store ptr %889, ptr %888, align 8
-  %890 = getelementptr inbounds i8, ptr %84, i64 32
+  %890 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %891 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %891, ptr %890, align 8
   %892 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %84, i64 5) #27
@@ -28066,10 +28066,10 @@ default.unreachable1106:                          ; preds = %2
 893:                                              ; preds = %2
   %894 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %894, ptr %85, align 8
-  %895 = getelementptr inbounds i8, ptr %85, i64 8
+  %895 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %896 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26, i64 noundef 0) #27
   store ptr %896, ptr %895, align 8
-  %897 = getelementptr inbounds i8, ptr %85, i64 16
+  %897 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %898 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %898, ptr %897, align 8
   %899 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %85, i64 3) #27
@@ -28078,10 +28078,10 @@ default.unreachable1106:                          ; preds = %2
 900:                                              ; preds = %2
   %901 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %901, ptr %86, align 8
-  %902 = getelementptr inbounds i8, ptr %86, i64 8
+  %902 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %903 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %903, ptr %902, align 8
-  %904 = getelementptr inbounds i8, ptr %86, i64 16
+  %904 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %905 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 6, i64 noundef 0) #27
   store ptr %905, ptr %904, align 8
   %906 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %86, i64 3) #27
@@ -28090,13 +28090,13 @@ default.unreachable1106:                          ; preds = %2
 907:                                              ; preds = %2
   %908 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %908, ptr %87, align 8
-  %909 = getelementptr inbounds i8, ptr %87, i64 8
+  %909 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %910 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %910, ptr %909, align 8
-  %911 = getelementptr inbounds i8, ptr %87, i64 16
+  %911 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %912 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 63, i64 noundef 0) #27
   store ptr %912, ptr %911, align 8
-  %913 = getelementptr inbounds i8, ptr %87, i64 24
+  %913 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %914 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 0) #27
   store ptr %914, ptr %913, align 8
   %915 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %87, i64 4) #27
@@ -28105,7 +28105,7 @@ default.unreachable1106:                          ; preds = %2
 916:                                              ; preds = %2
   %917 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 34, i64 noundef 0) #27
   store ptr %917, ptr %88, align 8
-  %918 = getelementptr inbounds i8, ptr %88, i64 8
+  %918 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %919 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 42) #27
   store ptr %919, ptr %918, align 8
   %920 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %88, i64 2) #27
@@ -28114,10 +28114,10 @@ default.unreachable1106:                          ; preds = %2
 921:                                              ; preds = %2
   %922 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %922, ptr %89, align 8
-  %923 = getelementptr inbounds i8, ptr %89, i64 8
+  %923 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %924 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 26, i64 noundef 0) #27
   store ptr %924, ptr %923, align 8
-  %925 = getelementptr inbounds i8, ptr %89, i64 16
+  %925 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %926 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 42) #27
   store ptr %926, ptr %925, align 8
   %927 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %89, i64 3) #27
@@ -28126,10 +28126,10 @@ default.unreachable1106:                          ; preds = %2
 928:                                              ; preds = %2
   %929 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %929, ptr %90, align 8
-  %930 = getelementptr inbounds i8, ptr %90, i64 8
+  %930 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %931 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 72, i64 noundef 0) #27
   store ptr %931, ptr %930, align 8
-  %932 = getelementptr inbounds i8, ptr %90, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %933 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 3) #27
   store ptr %933, ptr %932, align 8
   %934 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %90, i64 3) #27
@@ -28138,7 +28138,7 @@ default.unreachable1106:                          ; preds = %2
 935:                                              ; preds = %2
   %936 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %936, ptr %91, align 8
-  %937 = getelementptr inbounds i8, ptr %91, i64 8
+  %937 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %938 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 15) #27
   store ptr %938, ptr %937, align 8
   %939 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %91, i64 2) #27
@@ -28147,7 +28147,7 @@ default.unreachable1106:                          ; preds = %2
 940:                                              ; preds = %2
   %941 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %941, ptr %92, align 8
-  %942 = getelementptr inbounds i8, ptr %92, i64 8
+  %942 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %943 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %943, ptr %942, align 8
   %944 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %92, i64 2) #27
@@ -28156,7 +28156,7 @@ default.unreachable1106:                          ; preds = %2
 945:                                              ; preds = %2
   %946 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %946, ptr %93, align 8
-  %947 = getelementptr inbounds i8, ptr %93, i64 8
+  %947 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %948 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 15) #27
   store ptr %948, ptr %947, align 8
   %949 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %93, i64 2) #27
@@ -28171,7 +28171,7 @@ default.unreachable1106:                          ; preds = %2
 953:                                              ; preds = %2
   %954 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %954, ptr %95, align 8
-  %955 = getelementptr inbounds i8, ptr %95, i64 8
+  %955 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %956 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 2) #27
   store ptr %956, ptr %955, align 8
   %957 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %95, i64 2) #27
@@ -28180,7 +28180,7 @@ default.unreachable1106:                          ; preds = %2
 958:                                              ; preds = %2
   %959 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 39, i64 noundef 0) #27
   store ptr %959, ptr %96, align 8
-  %960 = getelementptr inbounds i8, ptr %96, i64 8
+  %960 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %961 = tail call ptr @_ZN4llvm9Attribute20getWithMemoryEffectsERNS_11LLVMContextENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 12) #27
   store ptr %961, ptr %960, align 8
   %962 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %96, i64 2) #27
@@ -28254,7 +28254,7 @@ default.unreachable145:                           ; preds = %2
 29:                                               ; preds = %2
   %30 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24, i64 noundef 0) #27
   store ptr %30, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 49, i64 noundef 0) #27
   store ptr %32, ptr %31, align 8
   %33 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %6, i64 2) #27
@@ -28275,7 +28275,7 @@ default.unreachable145:                           ; preds = %2
 40:                                               ; preds = %2
   %41 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24, i64 noundef 0) #27
   store ptr %41, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %43 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 48, i64 noundef 0) #27
   store ptr %43, ptr %42, align 8
   %44 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %9, i64 2) #27
@@ -28284,7 +28284,7 @@ default.unreachable145:                           ; preds = %2
 45:                                               ; preds = %2
   %46 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24, i64 noundef 0) #27
   store ptr %46, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %48 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 74, i64 noundef 0) #27
   store ptr %48, ptr %47, align 8
   %49 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %10, i64 2) #27
@@ -28293,10 +28293,10 @@ default.unreachable145:                           ; preds = %2
 50:                                               ; preds = %2
   %51 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24, i64 noundef 0) #27
   store ptr %51, ptr %11, align 8
-  %52 = getelementptr inbounds i8, ptr %11, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %53 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21, i64 noundef 0) #27
   store ptr %53, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %55 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 74, i64 noundef 0) #27
   store ptr %55, ptr %54, align 8
   %56 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %11, i64 3) #27
@@ -28305,10 +28305,10 @@ default.unreachable145:                           ; preds = %2
 57:                                               ; preds = %2
   %58 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 24, i64 noundef 0) #27
   store ptr %58, ptr %12, align 8
-  %59 = getelementptr inbounds i8, ptr %12, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %60 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21, i64 noundef 0) #27
   store ptr %60, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %62 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 49, i64 noundef 0) #27
   store ptr %62, ptr %61, align 8
   %63 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %12, i64 3) #27
@@ -28335,10 +28335,10 @@ default.unreachable145:                           ; preds = %2
 73:                                               ; preds = %2
   %74 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 38, i64 noundef 0) #27
   store ptr %74, ptr %16, align 8
-  %75 = getelementptr inbounds i8, ptr %16, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %76 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 41, i64 noundef 0) #27
   store ptr %76, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %16, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %78 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 82, i64 noundef 4) #27
   store ptr %78, ptr %77, align 8
   %79 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %16, i64 3) #27
@@ -28347,7 +28347,7 @@ default.unreachable145:                           ; preds = %2
 80:                                               ; preds = %2
   %81 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 38, i64 noundef 0) #27
   store ptr %81, ptr %17, align 8
-  %82 = getelementptr inbounds i8, ptr %17, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %83 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 82, i64 noundef 4) #27
   store ptr %83, ptr %82, align 8
   %84 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %17, i64 2) #27
@@ -28356,7 +28356,7 @@ default.unreachable145:                           ; preds = %2
 85:                                               ; preds = %2
   %86 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21, i64 noundef 0) #27
   store ptr %86, ptr %18, align 8
-  %87 = getelementptr inbounds i8, ptr %18, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %88 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 74, i64 noundef 0) #27
   store ptr %88, ptr %87, align 8
   %89 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %18, i64 2) #27
@@ -28365,7 +28365,7 @@ default.unreachable145:                           ; preds = %2
 90:                                               ; preds = %2
   %91 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 21, i64 noundef 0) #27
   store ptr %91, ptr %19, align 8
-  %92 = getelementptr inbounds i8, ptr %19, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %93 = tail call ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS0_8AttrKindEm(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 49, i64 noundef 0) #27
   store ptr %93, ptr %92, align 8
   %94 = call ptr @_ZN4llvm12AttributeSet3getERNS_11LLVMContextENS_8ArrayRefINS_9AttributeEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nonnull %19, i64 2) #27
@@ -28391,7 +28391,7 @@ define dso_local noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS
 
 9:                                                ; preds = %4
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [14278 x ptr], ptr @_ZL18IntrinsicNameTable, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %.thread, label %13
@@ -28432,7 +28432,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   br i1 %5, label %6, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.preheader
 
 6:                                                ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %7 = getelementptr inbounds i8, ptr %2, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %8 = add i64 %3, -10
   br label %.lr.ph.i.i.i
 
@@ -28440,14 +28440,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %4
   %.04.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E5Names, %6 ]
   %.0113.i.i.i = phi i64 [ %.112.i.i.i, %.lr.ph.i.i.i ], [ 10, %6 ]
   %9 = lshr i64 %.0113.i.i.i, 1
-  %10 = getelementptr inbounds %struct.BuiltinEntry, ptr %.04.i.i.i, i64 %9
+  %10 = getelementptr inbounds nuw %struct.BuiltinEntry, ptr %.04.i.i.i, i64 %9
   %11 = getelementptr i8, ptr %10, i64 4
   %.val.i.i.i = load i32, ptr %11, align 4
   %12 = zext i32 %.val.i.i.i to i64
-  %13 = getelementptr inbounds [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %12
   %14 = tail call i32 @strncmp(ptr noundef nonnull %13, ptr noundef nonnull readonly %7, i64 noundef %8) #29
   %15 = icmp slt i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = xor i64 %9, -1
   %18 = add nsw i64 %.0113.i.i.i, %17
   %.112.i.i.i = select i1 %15, i64 %18, i64 %9
@@ -28463,7 +28463,7 @@ _ZN4llvm11lower_boundIRA10_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9Stri
   %21 = getelementptr i8, ptr %.1.i.i.i, i64 4
   %.val = load i32, ptr %21, align 4
   %22 = zext i32 %.val to i64
-  %23 = getelementptr inbounds [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %22
   %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #27
   %.not.i = icmp eq i64 %24, %8
   br i1 %.not.i, label %25, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.preheader
@@ -28484,7 +28484,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %_ZN4llvm9StringRef
   %.04.i.i.i33 = phi ptr [ %.1.i.i.i39, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i ], [ @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E11TargetTable, %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.preheader ]
   %.0113.i.i.i34 = phi i64 [ %.112.i.i.i38, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i ], [ 17, %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.preheader ]
   %28 = lshr i64 %.0113.i.i.i34, 1
-  %29 = getelementptr inbounds %struct.TargetEntry, ptr %.04.i.i.i33, i64 %28
+  %29 = getelementptr inbounds nuw %struct.TargetEntry, ptr %.04.i.i.i33, i64 %28
   %30 = getelementptr i8, ptr %29, i64 8
   %.val13.i.i.i = load i64, ptr %30, align 8
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.val13.i.i.i)
@@ -28507,7 +28507,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %33
   %.0.i.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i.i, %33 ], [ %34, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
-  %35 = getelementptr inbounds i8, ptr %29, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %36 = xor i64 %28, -1
   %37 = add nsw i64 %.0113.i.i.i34, %36
   %.112.i.i.i38 = select i1 %.0.i.i.i.i.i.i.i, i64 %37, i64 %28
@@ -28521,7 +28521,7 @@ _ZN4llvm11lower_boundIRA17_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9Stri
 
 40:                                               ; preds = %_ZN4llvm11lower_boundIRA17_KZNS_9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit
   %.sroa.07.0.copyload = load ptr, ptr %.1.i.i.i39, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i.i.i39, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i.i.i39, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8
   %.not.i.i40 = icmp eq i64 %.sroa.28.0.copyload, %1
   br i1 %.not.i.i40, label %41, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
@@ -28538,7 +28538,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %41
 _ZN4llvmneENS_9StringRefES0_.exit.thread80:       ; preds = %41, %_ZN4llvmneENS_9StringRefES0_.exit
   %43 = getelementptr inbounds nuw i8, ptr %.1.i.i.i39, i64 32
   %.sroa.03.0.copyload = load ptr, ptr %43, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i.i.i39, i64 40
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i.i.i39, i64 40
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %.not.i.i42 = icmp ult i64 %3, %.sroa.24.0.copyload
   br i1 %.not.i.i42, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %44
@@ -28566,14 +28566,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i44:    ; preds = %44
   %.04.i.i.i49 = phi ptr [ %.1.i.i.i55, %.lr.ph.i.i.i48 ], [ %.val29, %47 ]
   %.0113.i.i.i50 = phi i64 [ %.112.i.i.i54, %.lr.ph.i.i.i48 ], [ %.val30, %47 ]
   %53 = lshr i64 %.0113.i.i.i50, 1
-  %54 = getelementptr inbounds %struct.BuiltinEntry, ptr %.04.i.i.i49, i64 %53
+  %54 = getelementptr inbounds nuw %struct.BuiltinEntry, ptr %.04.i.i.i49, i64 %53
   %55 = getelementptr i8, ptr %54, i64 4
   %.val.i.i.i53 = load i32, ptr %55, align 4
   %56 = zext i32 %.val.i.i.i53 to i64
-  %57 = getelementptr inbounds [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %56
   %58 = tail call i32 @strncmp(ptr noundef nonnull %57, ptr noundef readonly %48, i64 noundef %49) #29
   %59 = icmp slt i32 %58, 0
-  %60 = getelementptr inbounds i8, ptr %54, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %61 = xor i64 %53, -1
   %62 = add nsw i64 %.0113.i.i.i50, %61
   %.112.i.i.i54 = select i1 %59, i64 %62, i64 %53
@@ -28591,7 +28591,7 @@ _ZN4llvm11lower_boundIRKNS_8ArrayRefIZNS_9Intrinsic27getIntrinsicForClangBuiltin
   %67 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 4
   %.val22 = load i32, ptr %67, align 4
   %68 = zext i32 %.val22 to i64
-  %69 = getelementptr inbounds [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [137321 x i8], ptr @_ZZN4llvm9Intrinsic27getIntrinsicForClangBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %68
   %70 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #27
   %.not.i.i57 = icmp eq i64 %70, %49
   br i1 %.not.i.i57, label %71, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
@@ -28623,7 +28623,7 @@ define dso_local noundef i32 @_ZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9S
   %.04.i.i.i = phi ptr [ @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E11TargetTable, %4 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i ]
   %.0113.i.i.i = phi i64 [ 2, %4 ], [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i ]
   %6 = lshr i64 %.0113.i.i.i, 1
-  %7 = getelementptr inbounds %struct.TargetEntry.165, ptr %.04.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw %struct.TargetEntry.165, ptr %.04.i.i.i, i64 %6
   %8 = getelementptr i8, ptr %7, i64 8
   %.val13.i.i.i = load i64, ptr %8, align 8
   %.sroa.speculated.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.val13.i.i.i)
@@ -28646,7 +28646,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS3_9StringRefES5_E11TargetEntryKS5_EEbT_RT0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %11
   %.0.i.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i.i, %11 ], [ %12, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %14 = xor i64 %6, -1
   %15 = add nsw i64 %.0113.i.i.i, %14
   %.112.i.i.i = select i1 %.0.i.i.i.i.i.i.i, i64 %15, i64 %6
@@ -28660,7 +28660,7 @@ _ZN4llvm11lower_boundIRA2_KZNS_9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRe
 
 18:                                               ; preds = %_ZN4llvm11lower_boundIRA2_KZNS_9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES2_E11TargetEntryRS2_EEDaOT_OT0_.exit
   %.sroa.07.0.copyload = load ptr, ptr %.1.i.i.i, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i.i.i, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   %.sroa.28.0.copyload = load i64, ptr %.sroa.28.0..sroa_idx, align 8
   %.not.i.i = icmp eq i64 %.sroa.28.0.copyload, %1
   br i1 %.not.i.i, label %19, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
@@ -28677,7 +28677,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %19
 _ZN4llvmneENS_9StringRefES0_.exit.thread43:       ; preds = %19, %_ZN4llvmneENS_9StringRefES0_.exit
   %21 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 32
   %.sroa.03.0.copyload = load ptr, ptr %21, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i.i.i, i64 40
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 40
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %.not.i.i24 = icmp ult i64 %3, %.sroa.24.0.copyload
   br i1 %.not.i.i24, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %22
@@ -28705,14 +28705,14 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %22
   %.04.i.i.i26 = phi ptr [ %.1.i.i.i32, %.lr.ph.i.i.i ], [ %.val20, %25 ]
   %.0113.i.i.i27 = phi i64 [ %.112.i.i.i31, %.lr.ph.i.i.i ], [ %.val21, %25 ]
   %31 = lshr i64 %.0113.i.i.i27, 1
-  %32 = getelementptr inbounds %struct.BuiltinEntry.164, ptr %.04.i.i.i26, i64 %31
+  %32 = getelementptr inbounds nuw %struct.BuiltinEntry.164, ptr %.04.i.i.i26, i64 %31
   %33 = getelementptr i8, ptr %32, i64 4
   %.val.i.i.i30 = load i32, ptr %33, align 4
   %34 = zext i32 %.val.i.i.i30 to i64
-  %35 = getelementptr inbounds [70 x i8], ptr @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [70 x i8], ptr @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %34
   %36 = tail call i32 @strncmp(ptr noundef nonnull %35, ptr noundef readonly %26, i64 noundef %27) #29
   %37 = icmp slt i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %32, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %39 = xor i64 %31, -1
   %40 = add nsw i64 %.0113.i.i.i27, %39
   %.112.i.i.i31 = select i1 %37, i64 %40, i64 %31
@@ -28730,7 +28730,7 @@ _ZN4llvm11lower_boundIRKNS_8ArrayRefIZNS_9Intrinsic24getIntrinsicForMSBuiltinENS
   %45 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 4
   %.val19 = load i32, ptr %45, align 4
   %46 = zext i32 %.val19 to i64
-  %47 = getelementptr inbounds [70 x i8], ptr @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [70 x i8], ptr @_ZZN4llvm9Intrinsic24getIntrinsicForMSBuiltinENS_9StringRefES1_E12BuiltinNames, i64 0, i64 %46
   %48 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #27
   %.not.i.i33 = icmp eq i64 %48, %27
   br i1 %.not.i.i33, label %49, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
@@ -28767,7 +28767,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic35hasConstrainedFPRoundin
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm9Intrinsic23matchIntrinsicSignatureEPNS_12FunctionTypeERNS_8ArrayRefINS0_13IITDescriptorEEERNS_15SmallVectorImplIPNS_4TypeEEE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.167", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %5, i64 noundef 2) #27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -28788,7 +28788,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm9Intrinsic23matchIntrinsic
 
 18:                                               ; preds = %19, %10
   %.pn = phi ptr [ %13, %10 ], [ %.023, %19 ]
-  %.023 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.023 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.not = icmp eq ptr %.023, %17
   br i1 %.not, label %22, label %19
 
@@ -28810,7 +28810,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm9Intrinsic23matchIntrinsic
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %"struct.std::pair.172", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"struct.std::pair.172", ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = call fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeERNS_8ArrayRefINS_9Intrinsic13IITDescriptorEEERNS_15SmallVectorImplIS1_EERNS7_ISt4pairIS1_S5_EEEb(ptr noundef %28, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext true)
@@ -28865,12 +28865,12 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %20 = load ptr, ptr %1, align 8
   %.sroa.0236.0.copyload = load i32, ptr %20, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.28.0.copyload = load i8, ptr %.sroa.28.0..sroa_idx, align 4
   %21 = add i64 %19, -1
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store ptr %22, ptr %1, align 8
   store i64 %21, ptr %16, align 8
   switch i32 %.sroa.0236.0.copyload, label %402 [
@@ -29008,7 +29008,7 @@ define internal fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeER
   br i1 %93, label %94, label %.critedge
 
 94:                                               ; preds = %89
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.tr424, i64 32
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.tr424, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i64 %.sroa.2.0.copyload.i, 15
   br i1 %.not.i.i, label %95, label %.critedge
@@ -29093,7 +29093,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 129:                                              ; preds = %129, %.lr.ph431
   %indvars.iv = phi i64 [ 0, %.lr.ph431 ], [ %indvars.iv.next, %129 ]
   %130 = load ptr, ptr %127, align 8
-  %131 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv
   %132 = load ptr, ptr %131, align 8
   %133 = tail call fastcc noundef zeroext i1 @_ZL18matchIntrinsicTypePN4llvm4TypeERNS_8ArrayRefINS_9Intrinsic13IITDescriptorEEERNS_15SmallVectorImplIS1_EERNS7_ISt4pairIS1_S5_EEEb(ptr noundef %132, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -29110,7 +29110,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 
 139:                                              ; preds = %134
   %140 = load ptr, ptr %2, align 8
-  %141 = getelementptr inbounds ptr, ptr %140, i64 %136
+  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %136
   %142 = load ptr, ptr %141, align 8
   %143 = icmp ne ptr %.tr424, %142
   br label %.critedge
@@ -29231,7 +29231,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 194:                                              ; preds = %187
   %195 = load ptr, ptr %2, align 8
-  %196 = getelementptr inbounds ptr, ptr %195, i64 %189
+  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %189
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i32, ptr %198, align 8
@@ -29281,7 +29281,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 219:                                              ; preds = %212
   %220 = load ptr, ptr %2, align 8
-  %221 = getelementptr inbounds ptr, ptr %220, i64 %214
+  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %214
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %224 = load i32, ptr %223, align 8
@@ -29331,7 +29331,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 244:                                              ; preds = %237
   %245 = load ptr, ptr %2, align 8
-  %246 = getelementptr inbounds ptr, ptr %245, i64 %239
+  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %239
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load i32, ptr %248, align 8
@@ -29356,7 +29356,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
   %260 = load i64, ptr %16, align 8
   %261 = add i64 %260, -1
   %262 = load ptr, ptr %1, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 12
   store ptr %263, ptr %1, align 8
   store i64 %261, ptr %16, align 8
   br i1 %4, label %.critedge, label %264
@@ -29370,7 +29370,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 266:                                              ; preds = %255
   %267 = load ptr, ptr %2, align 8
-  %268 = getelementptr inbounds ptr, ptr %267, i64 %257
+  %268 = getelementptr inbounds nuw ptr, ptr %267, i64 %257
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load i32, ptr %270, align 8
@@ -29437,7 +29437,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 304:                                              ; preds = %303, %302
   %305 = load ptr, ptr %2, align 8
-  %306 = getelementptr inbounds ptr, ptr %305, i64 %297
+  %306 = getelementptr inbounds nuw ptr, ptr %305, i64 %297
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i32, ptr %308, align 8
@@ -29502,7 +29502,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 346:                                              ; preds = %339
   %347 = load ptr, ptr %2, align 8
-  %348 = getelementptr inbounds ptr, ptr %347, i64 %341
+  %348 = getelementptr inbounds nuw ptr, ptr %347, i64 %341
   %349 = load ptr, ptr %348, align 8
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = load i32, ptr %350, align 8
@@ -29538,7 +29538,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 365:                                              ; preds = %358
   %366 = load ptr, ptr %2, align 8
-  %367 = getelementptr inbounds ptr, ptr %366, i64 %360
+  %367 = getelementptr inbounds nuw ptr, ptr %366, i64 %360
   %368 = load ptr, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %370 = load i32, ptr %369, align 8
@@ -29575,7 +29575,7 @@ _ZNK4llvm4Type14isIEEELikeFPTyEv.exit.i.i:        ; preds = %switch.hole_check, 
 
 385:                                              ; preds = %378
   %386 = load ptr, ptr %2, align 8
-  %387 = getelementptr inbounds ptr, ptr %386, i64 %380
+  %387 = getelementptr inbounds nuw ptr, ptr %386, i64 %380
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %390 = load i32, ptr %389, align 8
@@ -29626,7 +29626,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic20matchIntrinsicVarArgEbR
 5:                                                ; preds = %2
   %6 = load ptr, ptr %1, align 8
   %.sroa.01.0.copyload = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store ptr %7, ptr %1, align 8
   store i64 0, ptr %3, align 8
   %8 = icmp ne i32 %.sroa.01.0.copyload, 1
@@ -29650,7 +29650,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic21getIntrinsicSignatureEj
   br i1 %.not, label %_ZN4llvm11SmallVectorINS_9Intrinsic13IITDescriptorELj8EED2Ev.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull %7, i64 noundef 8) #27
   call void @_ZN4llvm9Intrinsic28getIntrinsicInfoTableEntriesEjRNS_15SmallVectorImplINS0_13IITDescriptorEEE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %8 = load ptr, ptr %4, align 8
@@ -29719,7 +29719,7 @@ define dso_local { ptr, i8 } @_ZN4llvm9Intrinsic25remangleIntrinsicFunctionEPNS_
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::SmallVector.185", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %6, i64 noundef 4) #27
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
@@ -29842,7 +29842,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm8Function15hasAddressTakenEPPKNS_4
 
 .lr.ph:                                           ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %13
 
@@ -30513,15 +30513,15 @@ define linkonce_odr void @_ZN4llvm8Function17setHungoffOperandILi1EEEvPNS_8Const
   tail call void @_ZN4llvm8Function19allocHungoffUselistEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %12 = load ptr, ptr %11, align 8
   store ptr %10, ptr %12, align 8
   %.not.i.i = icmp eq ptr %10, null
@@ -30537,7 +30537,7 @@ define linkonce_odr void @_ZN4llvm8Function17setHungoffOperandILi1EEEvPNS_8Const
   store ptr %1, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %18, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %20
@@ -30548,7 +30548,7 @@ define linkonce_odr void @_ZN4llvm8Function17setHungoffOperandILi1EEEvPNS_8Const
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %16, %20
-  %22 = getelementptr inbounds i8, ptr %5, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %17, ptr %22, align 8
   store ptr %6, ptr %17, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit10
@@ -30563,7 +30563,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %16, %20
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 -8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
@@ -30574,9 +30574,9 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %16, %20
   br i1 %.not.i4, label %_ZN4llvm3Use14removeFromListEv.exit.i6, label %37
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %29, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %41 = load ptr, ptr %40, align 8
   store ptr %39, ptr %41, align 8
   %.not.i.i5 = icmp eq ptr %39, null
@@ -30596,7 +30596,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i6:           ; preds = %42, %37, %27
 45:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i6
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %29, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %47, ptr %48, align 8
   %.not.i.i.i8 = icmp eq ptr %47, null
   br i1 %.not.i.i.i8, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9, label %49
@@ -30607,7 +30607,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i6:           ; preds = %42, %37, %27
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i9:          ; preds = %49, %45
-  %51 = getelementptr inbounds i8, ptr %29, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store ptr %46, ptr %51, align 8
   store ptr %30, ptr %46, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit10
@@ -30625,15 +30625,15 @@ define linkonce_odr void @_ZN4llvm8Function17setHungoffOperandILi2EEEvPNS_8Const
   tail call void @_ZN4llvm8Function19allocHungoffUselistEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %12 = load ptr, ptr %11, align 8
   store ptr %10, ptr %12, align 8
   %.not.i.i = icmp eq ptr %10, null
@@ -30649,7 +30649,7 @@ define linkonce_odr void @_ZN4llvm8Function17setHungoffOperandILi2EEEvPNS_8Const
   store ptr %1, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %18, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZN4llvm3Use3setEPNS_5ValueE.exit, label %20
@@ -30660,7 +30660,7 @@ define linkonce_odr void @_ZN4llvm8Function17setHungoffOperandILi2EEEvPNS_8Const
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %16, %20
-  %22 = getelementptr inbounds i8, ptr %5, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %17, ptr %22, align 8
   store ptr %6, ptr %17, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit10
@@ -30675,7 +30675,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %16, %20
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %0, i64 -8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
@@ -30686,9 +30686,9 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %16, %20
   br i1 %.not.i4, label %_ZN4llvm3Use14removeFromListEv.exit.i6, label %37
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %29, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %41 = load ptr, ptr %40, align 8
   store ptr %39, ptr %41, align 8
   %.not.i.i5 = icmp eq ptr %39, null
@@ -30708,7 +30708,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i6:           ; preds = %42, %37, %27
 45:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i6
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %29, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %47, ptr %48, align 8
   %.not.i.i.i8 = icmp eq ptr %47, null
   br i1 %.not.i.i.i8, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9, label %49
@@ -30719,7 +30719,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i6:           ; preds = %42, %37, %27
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i9:          ; preds = %49, %45
-  %51 = getelementptr inbounds i8, ptr %29, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %29, i64 80
   store ptr %46, ptr %51, align 8
   store ptr %30, ptr %46, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit10
@@ -30794,15 +30794,15 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i:           ; preds = %29, %25
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i
   %32 = load ptr, ptr %14, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not.i4 = icmp eq ptr %34, null
   br i1 %.not.i4, label %_ZN4llvm3Use14removeFromListEv.exit.i6, label %35
 
 35:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit
-  %36 = getelementptr inbounds i8, ptr %32, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %39 = load ptr, ptr %38, align 8
   store ptr %37, ptr %39, align 8
   %.not.i.i5 = icmp eq ptr %37, null
@@ -30821,7 +30821,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i6:           ; preds = %40, %35, %_ZN4llvm3
 43:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i6
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %32, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store ptr %45, ptr %46, align 8
   %.not.i.i.i8 = icmp eq ptr %45, null
   br i1 %.not.i.i.i8, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9, label %47
@@ -30832,22 +30832,22 @@ _ZN4llvm3Use14removeFromListEv.exit.i6:           ; preds = %40, %35, %_ZN4llvm3
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i9:          ; preds = %47, %43
-  %49 = getelementptr inbounds i8, ptr %32, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store ptr %44, ptr %49, align 8
   store ptr %33, ptr %44, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit10
 
 _ZN4llvm3Use3setEPNS_5ValueE.exit10:              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i6, %_ZN4llvm5Value6addUseERNS_3UseE.exit.i9
   %50 = load ptr, ptr %14, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   %.not.i11 = icmp eq ptr %52, null
   br i1 %.not.i11, label %_ZN4llvm3Use14removeFromListEv.exit.i13, label %53
 
 53:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit10
-  %54 = getelementptr inbounds i8, ptr %50, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 72
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %50, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %57 = load ptr, ptr %56, align 8
   store ptr %55, ptr %57, align 8
   %.not.i.i12 = icmp eq ptr %55, null
@@ -30866,7 +30866,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i13:          ; preds = %58, %53, %_ZN4llvm3
 61:                                               ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i13
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %50, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 72
   store ptr %63, ptr %64, align 8
   %.not.i.i.i15 = icmp eq ptr %63, null
   br i1 %.not.i.i.i15, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i16, label %65
@@ -30877,7 +30877,7 @@ _ZN4llvm3Use14removeFromListEv.exit.i13:          ; preds = %58, %53, %_ZN4llvm3
   br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i16
 
 _ZN4llvm5Value6addUseERNS_3UseE.exit.i16:         ; preds = %65, %61
-  %67 = getelementptr inbounds i8, ptr %50, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store ptr %62, ptr %67, align 8
   store ptr %51, ptr %62, align 8
   br label %_ZN4llvm3Use3setEPNS_5ValueE.exit17
@@ -31016,7 +31016,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %33, %36
 
 _ZNK4llvm6MDNode10getOperandEj.exit18:            ; preds = %43, %46
   %.sroa.0.0.i.i17 = phi ptr [ %50, %46 ], [ %44, %43 ]
-  %51 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i17, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i17, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
   %54 = load ptr, ptr %53, align 8
@@ -31041,7 +31041,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit18:            ; preds = %43, %46
   %68 = add i32 %61, -1
   %.02532.i.i.i.i = and i32 %68, %67
   %69 = zext i32 %.02532.i.i.i.i to i64
-  %70 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %60, i64 %69
+  %70 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %60, i64 %69
   %71 = load i64, ptr %70, align 8, !noalias !72
   %72 = icmp eq i64 %.0.i19, %71
   br i1 %72, label %_ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E6insertEOm.exit, label %.lr.ph.i.i.i.i
@@ -31069,7 +31069,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit18:            ; preds = %43, %46
   %82 = add i32 %.02434.i.i.i.i, %.02535.i.i.i.i
   %.025.i.i.i.i = and i32 %82, %68
   %83 = zext i32 %.025.i.i.i.i to i64
-  %84 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %60, i64 %83
+  %84 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %60, i64 %83
   %85 = load i64, ptr %84, align 8, !noalias !72
   %86 = icmp eq i64 %.0.i19, %85
   br i1 %86, label %_ZN4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E6insertEOm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !77
@@ -31222,7 +31222,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit27:            ; preds = %43, %47
   %.sroa.0.0.i.i26 = phi ptr [ %51, %47 ], [ %45, %43 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i26, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i26, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 128
   %55 = load ptr, ptr %54, align 8
@@ -31272,7 +31272,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit32.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZNK4llvm6MDNode10getOperandEj.exit35:            ; preds = %69, %73
   %.sroa.0.0.i.i34 = phi ptr [ %77, %73 ], [ %71, %69 ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i34, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i34, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
   %81 = load ptr, ptr %80, align 8
@@ -31289,7 +31289,7 @@ _ZNK4llvm5Value11getMetadataEj.exit.thread.sink.split: ; preds = %_ZNK4llvm6MDNo
   %.0.i37.sink = phi i64 [ %.0.i37, %_ZNK4llvm6MDNode10getOperandEj.exit35 ], [ %.0.i28, %_ZNK4llvm6MDNode10getOperandEj.exit27 ]
   %.sink56 = phi i32 [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit35 ], [ 0, %_ZNK4llvm6MDNode10getOperandEj.exit27 ]
   store i64 %.0.i37.sink, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink56, ptr %.sroa.2.0..sroa_idx, align 8
   br label %_ZNK4llvm5Value11getMetadataEj.exit.thread
 
@@ -31351,13 +31351,13 @@ _ZNK4llvm5Value11getMetadataEj.exit:              ; preds = %2
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %11, %15
   %.sroa.0.0.i.i = phi ptr [ %19, %15 ], [ %13, %11 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #27
   %23 = extractvalue { ptr, i64 } %22, 0
   %24 = extractvalue { ptr, i64 } %22, 1
   store ptr %23, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %24, ptr %.sroa.2.0..sroa_idx, align 8
   br label %_ZNK4llvm5Value11getMetadataEj.exit.thread
 
@@ -31456,7 +31456,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 32:                                               ; preds = %2
   %33 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1) #27
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %33, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %34 = shl i64 %.sroa.0.0.copyload1.i.i.i.i, 3
   br label %58
@@ -31570,12 +31570,12 @@ define linkonce_odr hidden void @_ZN4llvm11iplist_implINS_12simple_ilistINS_10Ba
   br i1 %.not4.i, label %_ZN4llvm11iplist_implINS_12simple_ilistINS_10BasicBlockEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEESB_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %5
 
 5:                                                ; preds = %_ZN4llvm11iplist_implINS_12simple_ilistINS_10BasicBlockEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit.i, %.lr.ph.i
   %.sroa.03.05.i = phi ptr [ %3, %.lr.ph.i ], [ %7, %_ZN4llvm11iplist_implINS_12simple_ilistINS_10BasicBlockEJEEENS_21SymbolTableListTraitsIS2_JEEEE5eraseENS_14ilist_iteratorINS_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEE.exit.i ]
-  %6 = getelementptr inbounds i8, ptr %.sroa.03.05.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %.sroa.03.05.i, null
   %9 = getelementptr inbounds i8, ptr %.sroa.03.05.i, i64 -24
@@ -31714,7 +31714,7 @@ define internal fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %35 = getelementptr inbounds i8, ptr %8, i64 21
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %36 = icmp ult i32 %31, 256
   br i1 %36, label %.thread.i, label %.lr.ph.i.preheader
 
@@ -31724,7 +31724,7 @@ define internal fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr de
   br label %.lr.ph.i
 
 .thread.i:                                        ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %8, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i8 48, ptr %39, align 4, !noalias !79
   br label %_ZN4llvm6utostrB5cxx11Emb.exit
 
@@ -31769,12 +31769,12 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %.lr.ph.i, %.thread.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %54 = getelementptr inbounds i8, ptr %6, i64 21
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %55 = icmp eq i64 %53, 0
   br i1 %55, label %.thread.i89, label %.lr.ph.i84
 
 .thread.i89:                                      ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %6, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 48, ptr %56, align 4, !noalias !86
   br label %_ZN4llvm6utostrB5cxx11Emb.exit90
 
@@ -31871,7 +31871,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr %96, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr %96, i64 %99
   %.not82127 = icmp eq i32 %98, 0
   br i1 %.not82127, label %.loopexit, label %.lr.ph
 
@@ -31881,7 +31881,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %101, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #27
-  %103 = getelementptr inbounds i8, ptr %.0128, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   %.not82 = icmp eq ptr %103, %100
   br i1 %.not82, label %.loopexit, label %.lr.ph
 
@@ -31913,7 +31913,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %.065129 = phi i64 [ %116, %.lr.ph130 ], [ 0, %107 ]
   %115 = load ptr, ptr %108, align 8
   %116 = add nuw nsw i64 %.065129, 1
-  %117 = getelementptr inbounds ptr, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8
   call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %118, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19) #27
@@ -31978,7 +31978,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %147 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14351) #27
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load ptr, ptr %148, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.0.0.copyload.i, i64 noundef %.sroa.2.0.copyload.i) #27
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -31986,7 +31986,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
   %.not80131 = icmp eq i32 %153, 0
   br i1 %.not80131, label %._crit_edge135, label %.lr.ph134
 
@@ -31999,7 +31999,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %24) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #27
-  %159 = getelementptr inbounds i8, ptr %.066132, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.066132, i64 8
   %.not80 = icmp eq ptr %159, %155
   br i1 %.not80, label %._crit_edge135, label %.lr.ph134
 
@@ -32009,13 +32009,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %162 = load i32, ptr %30, align 8
   %163 = lshr i32 %162, 8
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds i32, ptr %161, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %161, i64 %164
   %.not81136 = icmp ult i32 %162, 256
   br i1 %.not81136, label %._crit_edge140, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %._crit_edge135
-  %166 = getelementptr inbounds i8, ptr %4, i64 21
-  %167 = getelementptr inbounds i8, ptr %4, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 21
+  %167 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %168 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %169
 
@@ -32063,7 +32063,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit108:                ; preds = %.lr.ph.i102, %.thre
   %180 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %26) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #27
-  %181 = getelementptr inbounds i8, ptr %.064137, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %.064137, i64 4
   %.not81 = icmp eq ptr %181, %165
   br i1 %.not81, label %._crit_edge140, label %169
 
@@ -32166,12 +32166,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define linkonce_odr hidden void @_ZN4llvm6utostrB5cxx11Emb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat {
   %4 = alloca [21 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
-  %6 = getelementptr inbounds i8, ptr %4, i64 21
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 48, ptr %8, align 4
   br label %._crit_edge
 
@@ -32307,7 +32307,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic
   br i1 %.not.i.i, label %7, label %_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE28reserveForParamAndGetAddressERS2_m.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %8, i64 noundef %5, i64 noundef 12) #27
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE28reserveForParamAndGetAddressERS2_m.exit
 
@@ -32316,7 +32316,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE28reserveFor
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   %11 = getelementptr inbounds %"struct.llvm::Intrinsic::IITDescriptor", ptr %9, i64 %10
   store i64 %1, ptr %11, align 1
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 %2, ptr %.sroa.2.0..sroa_idx2, align 1
   %12 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   %13 = add i64 %12, 1
@@ -32421,7 +32421,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %1, %1, %1, %1, %1, 
   %.fca.0.extract = extractvalue { i64, i8 } %15, 0
   %.fca.1.extract = extractvalue { i64, i8 } %15, 1
   store i64 %.fca.0.extract, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %16 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #27
   %17 = trunc i64 %16 to i32
@@ -32503,7 +32503,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm10VectorType10getIntegerEPS0_(pt
   %.fca.0.extract = extractvalue { i64, i8 } %5, 0
   %.fca.1.extract = extractvalue { i64, i8 } %5, 1
   store i64 %.fca.0.extract, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %6 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #27
   %7 = trunc i64 %6 to i32
@@ -32606,7 +32606,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4
   br i1 %spec.select.i.i.i.i, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %12, i64 noundef %4, i64 noundef 24) #27
   %.pre = load ptr, ptr %0, align 8
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4TypeENS_8ArrayRefINS_9Intrinsic13IITDescriptorEEEELb1EE28reserveForParamAndGetAddressERKS8_m.exit
@@ -32616,7 +32616,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4
   %15 = ptrtoint ptr %1 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %4, i64 noundef 24) #27
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
@@ -32668,7 +32668,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #27
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -32803,7 +32803,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #27
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
@@ -32861,7 +32861,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_
   %23 = add i32 %15, -1
   %.02532.i.i = and i32 %23, %22
   %24 = zext i32 %.02532.i.i to i64
-  %25 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %14, i64 %24
+  %25 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %14, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %18, %26
   br i1 %27, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit, label %.lr.ph.i.i
@@ -32889,7 +32889,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_
   %37 = add i32 %.02434.i.i, %.02535.i.i
   %.025.i.i = and i32 %37, %23
   %38 = zext i32 %.025.i.i to i64
-  %39 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %14, i64 %38
+  %39 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %14, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %18, %40
   br i1 %41, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit, label %.lr.ph.i.i, !llvm.loop !77
@@ -32920,7 +32920,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_
   %57 = add i32 %49, -1
   %.02532.i.i10 = and i32 %57, %56
   %58 = zext i32 %.02532.i.i10 to i64
-  %59 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %48, i64 %58
+  %59 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %48, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %52, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit, label %.lr.ph.i.i11
@@ -32948,7 +32948,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_
   %71 = add i32 %.02434.i.i13, %.02535.i.i12
   %.025.i.i17 = and i32 %71, %57
   %72 = zext i32 %.025.i.i17 to i64
-  %73 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %48, i64 %72
+  %73 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %48, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %52, %74
   br i1 %75, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit, label %.lr.ph.i.i11, !llvm.loop !77
@@ -33019,7 +33019,7 @@ _ZN4llvm8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS1_12DenseSe
 
 28:                                               ; preds = %_ZN4llvm8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS1_12DenseSetPairImEEE15allocateBucketsEj.exit
   %29 = zext i32 %3 to i64
-  %30 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %4, i64 %29
+  %30 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -33056,7 +33056,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %45 = add i32 %39, -1
   %.02532.i.i.i = and i32 %45, %44
   %46 = zext i32 %.02532.i.i.i to i64
-  %47 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %38, i64 %46
+  %47 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %38, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %36, %48
   br i1 %49, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit.i, label %.lr.ph.i.i.i
@@ -33084,7 +33084,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %59 = add i32 %.02434.i.i.i, %.02535.i.i.i
   %.025.i.i.i = and i32 %59, %45
   %60 = zext i32 %.025.i.i.i to i64
-  %61 = getelementptr inbounds %"class.llvm::detail::DenseSetPair", ptr %38, i64 %60
+  %61 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %38, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %36, %62
   br i1 %63, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !77
@@ -33098,7 +33098,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br label %66
 
 66:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit.i, %.lr.ph.i
-  %67 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %.not.i = icmp eq ptr %67, %30
   br i1 %.not.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E18moveFromOldBucketsEPS7_SA_.exit, label %.lr.ph.i, !llvm.loop !114
 
@@ -33117,9 +33117,9 @@ define internal void @_GLOBAL__sub_I_Function.cpp() #21 section ".text.startup" 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 1024, ptr %1, align 4
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL25NonGlobalValueMaxNameSize, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIiEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIiLb0ENS0_6parserIiEEEE, i64 16), ptr @_ZL25NonGlobalValueMaxNameSize, align 8
   tail call void @_ZN4llvm2cl12basic_parserIiEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL25NonGlobalValueMaxNameSize) #27
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIiEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 152), align 8
@@ -33133,7 +33133,7 @@ define internal void @_GLOBAL__sub_I_Function.cpp() #21 section ".text.startup" 
   store i16 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 10), align 2
   call void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEE15setInitialValueERKi(ptr noundef nonnull align 8 dereferenceable(192) @_ZL25NonGlobalValueMaxNameSize, ptr noundef nonnull align 4 dereferenceable(4) %1) #27
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 32), align 8
-  store i64 47, ptr getelementptr inbounds (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 40), align 8
+  store i64 47, ptr getelementptr inbounds nuw (i8, ptr @_ZL25NonGlobalValueMaxNameSize, i64 40), align 8
   call void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL25NonGlobalValueMaxNameSize) #27
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEED2Ev, ptr nonnull @_ZL25NonGlobalValueMaxNameSize, ptr nonnull @__dso_handle) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)

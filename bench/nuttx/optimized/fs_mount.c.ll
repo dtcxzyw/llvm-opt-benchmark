@@ -42,8 +42,8 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %18
   store ptr %1, ptr %8, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %22, i8 0, i64 41, i1 false)
   %24 = call i32 @inode_find(ptr noundef nonnull %8) #5
   %25 = icmp sgt i32 %24, -1
@@ -52,7 +52,7 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
 26:                                               ; preds = %21
   %27 = load ptr, ptr %22, align 8
   store ptr %27, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 26
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 15
   %31 = icmp eq i16 %30, 0
@@ -68,7 +68,7 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
   br i1 %35, label %54, label %36
 
 36:                                               ; preds = %33, %26
-  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @g_procfs_operations, i64 136), align 8
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @g_procfs_operations, i64 136), align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %._crit_edge, label %39
 
@@ -83,15 +83,15 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
   br i1 %41, label %51, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %.pre35, i64 26
+  %43 = getelementptr inbounds nuw i8, ptr %.pre35, i64 26
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, -16
   %46 = or disjoint i16 %45, 3
   store i16 %46, ptr %43, align 2
-  %47 = getelementptr inbounds i8, ptr %.pre35, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.pre35, i64 32
   store ptr @g_procfs_operations, ptr %47, align 8
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %.pre35, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.pre35, i64 48
   store ptr %48, ptr %49, align 8
   call void @inode_unlock() #5
   %50 = load ptr, ptr %23, align 8

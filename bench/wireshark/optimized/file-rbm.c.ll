@@ -219,7 +219,7 @@ define hidden void @dissect_rbm_inline(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %9, 1
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %8 to i32
   %15 = zext i8 %11 to i32
@@ -313,7 +313,7 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
 
 30:                                               ; preds = %29, %28, %27
   %31 = phi ptr [ @.str.47, %29 ], [ @.str.47, %28 ], [ @.str.46, %27 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @col_get_text(ptr noundef %33, i32 noundef 25) #4
   %.not.i.i = icmp eq ptr %34, null
@@ -363,7 +363,7 @@ define internal fastcc void @dissect_rbm_object(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %48 = load i32, ptr %3, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @col_get_text(ptr noundef %50, i32 noundef 25) #4
   %.not.i113 = icmp eq ptr %51, null
@@ -411,7 +411,7 @@ dissect_rbm_array.exit:                           ; preds = %.lr.ph, %rbm_set_in
   %71 = load i32, ptr %3, align 4
   %72 = sub i32 %71, %48
   tail call void @proto_item_set_len(ptr noundef %63, i32 noundef %72) #4
-  %73 = getelementptr inbounds i8, ptr %1, i64 408
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %74, ptr noundef nonnull @.str.54, i32 noundef %59) #4
   store ptr %75, ptr %16, align 8
@@ -441,10 +441,10 @@ dissect_rbm_array.exit:                           ; preds = %.lr.ph, %rbm_set_in
 
 80:                                               ; preds = %78, %77
   %.0.i106 = phi ptr [ @.str.58, %78 ], [ @.str.30, %77 ]
-  %81 = getelementptr inbounds i8, ptr %1, i64 408
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %82, ptr noundef nonnull @.str.63, ptr noundef nonnull %.0.i106) #4
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = tail call ptr @col_get_text(ptr noundef %85, i32 noundef 25) #4
   %.not.i.i107 = icmp eq ptr %86, null
@@ -485,7 +485,7 @@ dissect_rbm_link.exit:                            ; preds = %87, %88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr @col_get_text(ptr noundef %102, i32 noundef 25) #4
   %.not.i.i110 = icmp eq ptr %103, null
@@ -512,7 +512,7 @@ dissect_rbm_double.exit:                          ; preds = %104, %105
   %113 = load i32, ptr %3, align 4
   %114 = add i32 %113, %110
   store i32 %114, ptr %3, align 4
-  %115 = getelementptr inbounds i8, ptr %1, i64 408
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %116 = load ptr, ptr %115, align 8
   %117 = tail call ptr @tvb_get_string_enc(ptr noundef %116, ptr noundef %0, i32 noundef %114, i32 noundef %111, i32 noundef 0) #4
   %118 = tail call double @g_ascii_strtod(ptr noundef %117, ptr noundef null) #4
@@ -553,7 +553,7 @@ dissect_rbm_double.exit:                          ; preds = %104, %105
   %132 = load i32, ptr %3, align 4
   %133 = add i32 %132, 1
   store i32 %133, ptr %3, align 4
-  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = tail call ptr @col_get_text(ptr noundef %135, i32 noundef 25) #4
   %.not.i.i115 = icmp eq ptr %136, null
@@ -581,7 +581,7 @@ rbm_set_info.exit.i:                              ; preds = %138, %137
   %147 = load i32, ptr %3, align 4
   %148 = add i32 %146, %147
   store i32 %148, ptr %3, align 4
-  %149 = getelementptr inbounds i8, ptr %1, i64 408
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %150 = load ptr, ptr %149, align 8
   %151 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %150, ptr noundef nonnull @.str.54, i32 noundef %144) #4
   store ptr %151, ptr %16, align 8
@@ -627,7 +627,7 @@ dissect_rbm_struct_data.exit:                     ; preds = %128, %rbm_set_info.
   %166 = load i32, ptr %3, align 4
   %167 = load i32, ptr @ett_variable, align 4
   %168 = tail call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %0, i32 noundef %166, i32 noundef 0, i32 noundef %167, ptr noundef null, ptr noundef nonnull @.str.40) #4
-  %169 = getelementptr inbounds i8, ptr %1, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call ptr @col_get_text(ptr noundef %170, i32 noundef 25) #4
   %.not.i118 = icmp eq ptr %171, null
@@ -667,7 +667,7 @@ dissect_rbm_rubyobject.exit:                      ; preds = %.lr.ph132, %rbm_set
 
 181:                                              ; preds = %6
   store ptr @.str.41, ptr %15, align 8
-  %182 = getelementptr inbounds i8, ptr %1, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %183 = load ptr, ptr %182, align 8
   %184 = tail call ptr @col_get_text(ptr noundef %183, i32 noundef 25) #4
   %.not.i122 = icmp eq ptr %184, null
@@ -692,7 +692,7 @@ rbm_set_info.exit125:                             ; preds = %185, %186
   %189 = load i32, ptr %3, align 4
   %190 = load i32, ptr @ett_variable, align 4
   %191 = tail call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %0, i32 noundef %189, i32 noundef 0, i32 noundef %190, ptr noundef null, ptr noundef nonnull @.str.68) #4
-  %192 = getelementptr inbounds i8, ptr %1, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = tail call ptr @col_get_text(ptr noundef %193, i32 noundef 25) #4
   %.not.i126 = icmp eq ptr %194, null
@@ -798,7 +798,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_rbm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.22) #4
   %8 = load ptr, ptr %6, align 8
@@ -839,7 +839,7 @@ define internal fastcc void @dissect_rbm_integer(ptr noundef %0, ptr nocapture n
   %7 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @col_get_text(ptr noundef %9, i32 noundef 25) #4
   %.not.i = icmp eq ptr %10, null
@@ -870,7 +870,7 @@ rbm_set_info.exit:                                ; preds = %11, %12
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %rbm_set_info.exit
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %24, ptr noundef nonnull @.str.54, i32 noundef %18) #4
   store ptr %25, ptr %4, align 8
@@ -889,7 +889,7 @@ define internal fastcc void @dissect_rbm_hash(ptr noundef %0, ptr noundef %1, pt
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %10 = load i32, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @col_get_text(ptr noundef %12, i32 noundef 25) #4
   %.not.i = icmp eq ptr %13, null
@@ -951,7 +951,7 @@ rbm_set_info.exit:                                ; preds = %14, %15
   br i1 %.not, label %47, label %43
 
 43:                                               ; preds = %._crit_edge
-  %44 = getelementptr inbounds i8, ptr %1, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.54, i32 noundef %21) #4
   store ptr %46, ptr %4, align 8
@@ -984,7 +984,7 @@ define internal fastcc void @dissect_rbm_string_data_trailer(ptr noundef %0, ptr
   %10 = alloca i32, align 4
   store i32 0, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @col_get_text(ptr noundef %12, i32 noundef 25) #4
   %.not.i = icmp eq ptr %13, null
@@ -1011,7 +1011,7 @@ rbm_set_info.exit:                                ; preds = %14, %15
   %23 = load i32, ptr %3, align 4
   %24 = add i32 %23, %20
   store i32 %24, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @tvb_get_string_enc(ptr noundef %26, ptr noundef %0, i32 noundef %24, i32 noundef %21, i32 noundef 0) #4
   %28 = load i32, ptr @hf_rbm_string, align 4

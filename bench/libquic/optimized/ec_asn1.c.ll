@@ -108,10 +108,10 @@ if.end39:                                         ; preds = %lor.lhs.false35
   %call40 = call ptr @CBS_data(ptr noundef nonnull %private_key) #7
   %call41 = call i64 @CBS_len(ptr noundef nonnull %private_key) #7
   %call42 = call ptr @BN_bin2bn(ptr noundef %call40, i64 noundef %call41, ptr noundef null) #7
-  %priv_key = getelementptr inbounds i8, ptr %call33, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %call33, i64 16
   store ptr %call42, ptr %priv_key, align 8
   %call43 = call ptr @EC_POINT_new(ptr noundef nonnull %group.addr.031) #7
-  %pub_key = getelementptr inbounds i8, ptr %call33, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %call33, i64 8
   store ptr %call43, ptr %pub_key, align 8
   %1 = load ptr, ptr %priv_key, align 8
   %cmp45 = icmp eq ptr %1, null
@@ -179,7 +179,7 @@ if.end87:                                         ; preds = %lor.lhs.false82
   %4 = load i8, ptr %call88, align 1
   %5 = and i8 %4, -2
   %and = zext i8 %5 to i32
-  %conv_form = getelementptr inbounds i8, ptr %call33, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %call33, i64 28
   store i32 %and, ptr %conv_form, align 4
   br label %if.end97
 
@@ -191,7 +191,7 @@ if.else90:                                        ; preds = %if.end56
   br i1 %tobool94.not, label %err, label %if.end96
 
 if.end96:                                         ; preds = %if.else90
-  %enc_flag = getelementptr inbounds i8, ptr %call33, i64 24
+  %enc_flag = getelementptr inbounds nuw i8, ptr %call33, i64 24
   %8 = load i32, ptr %enc_flag, align 8
   %or = or i32 %8, 2
   store i32 %or, ptr %enc_flag, align 8
@@ -393,7 +393,7 @@ parse_explicit_prime_curve.exit:                  ; preds = %if.end50.i
   %call57.i = call ptr @CBS_data(ptr noundef nonnull %base.i) #7
   call void @CBS_init(ptr noundef nonnull %base_x, ptr noundef %call57.i, i64 noundef %div6.i) #7
   %call58.i = call ptr @CBS_data(ptr noundef nonnull %base.i) #7
-  %add.ptr.i = getelementptr inbounds i8, ptr %call58.i, i64 %div6.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call58.i, i64 %div6.i
   call void @CBS_init(ptr noundef nonnull %base_y, ptr noundef %add.ptr.i, i64 noundef %div6.i) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %params.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %field_id.i)
@@ -410,12 +410,12 @@ for.body:                                         ; preds = %parse_explicit_prim
   %3 = phi i32 [ %18, %for.inc ], [ %2, %parse_explicit_prime_curve.exit ]
   %arrayidx160 = phi ptr [ %arrayidx, %for.inc ], [ @OPENSSL_built_in_curves, %parse_explicit_prime_curve.exit ]
   %i.0159 = phi i32 [ %inc, %for.inc ], [ 0, %parse_explicit_prime_curve.exit ]
-  %data = getelementptr inbounds i8, ptr %arrayidx160, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx160, i64 16
   %4 = load ptr, ptr %data, align 8
-  %param_len8 = getelementptr inbounds i8, ptr %4, i64 8
+  %param_len8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i8, ptr %param_len8, align 8
   %conv = zext i8 %5 to i32
-  %data10 = getelementptr inbounds i8, ptr %4, i64 10
+  %data10 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %conv11 = zext i8 %5 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %prime, i64 16, i1 false)
@@ -451,7 +451,7 @@ land.rhs8.i:                                      ; preds = %while.body14.i, %la
   br i1 %cmp11.i, label %while.body14.i, label %integers_equal.exit
 
 while.body14.i:                                   ; preds = %land.rhs8.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %b.addr.08.i, i64 1
   %dec.i = add nsw i64 %b_len.addr.09.i, -1
   %cmp6.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp6.not.i, label %integers_equal.exit, label %land.rhs8.i, !llvm.loop !9
@@ -465,7 +465,7 @@ integers_equal.exit:                              ; preds = %land.rhs8.i, %while
   br i1 %tobool13.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %integers_equal.exit
-  %add.ptr = getelementptr inbounds i8, ptr %data10, i64 %conv11
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data10, i64 %conv11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i25)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i25, ptr noundef nonnull readonly align 8 dereferenceable(16) %a, i64 16, i1 false)
   %call5.i26 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i25) #7
@@ -499,7 +499,7 @@ land.rhs8.i35:                                    ; preds = %while.body14.i42, %
   br i1 %cmp11.i38, label %while.body14.i42, label %integers_equal.exit50
 
 while.body14.i42:                                 ; preds = %land.rhs8.i35
-  %incdec.ptr.i43 = getelementptr inbounds i8, ptr %b.addr.08.i37, i64 1
+  %incdec.ptr.i43 = getelementptr inbounds nuw i8, ptr %b.addr.08.i37, i64 1
   %dec.i44 = add nsw i64 %b_len.addr.09.i36, -1
   %cmp6.not.i45 = icmp eq i64 %dec.i44, 0
   br i1 %cmp6.not.i45, label %integers_equal.exit50, label %land.rhs8.i35, !llvm.loop !9
@@ -515,7 +515,7 @@ integers_equal.exit50:                            ; preds = %land.rhs8.i35, %whi
 land.lhs.true20:                                  ; preds = %integers_equal.exit50
   %mul = shl nuw nsw i32 %conv, 1
   %idx.ext24 = zext nneg i32 %mul to i64
-  %add.ptr25 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext24
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %data10, i64 %idx.ext24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i51)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i51, ptr noundef nonnull readonly align 8 dereferenceable(16) %b, i64 16, i1 false)
   %call5.i52 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i51) #7
@@ -549,7 +549,7 @@ land.rhs8.i61:                                    ; preds = %while.body14.i68, %
   br i1 %cmp11.i64, label %while.body14.i68, label %integers_equal.exit76
 
 while.body14.i68:                                 ; preds = %land.rhs8.i61
-  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %b.addr.08.i63, i64 1
+  %incdec.ptr.i69 = getelementptr inbounds nuw i8, ptr %b.addr.08.i63, i64 1
   %dec.i70 = add nsw i64 %b_len.addr.09.i62, -1
   %cmp6.not.i71 = icmp eq i64 %dec.i70, 0
   br i1 %cmp6.not.i71, label %integers_equal.exit76, label %land.rhs8.i61, !llvm.loop !9
@@ -565,7 +565,7 @@ integers_equal.exit76:                            ; preds = %land.rhs8.i61, %whi
 land.lhs.true29:                                  ; preds = %integers_equal.exit76
   %mul33 = mul nuw nsw i32 %conv, 3
   %idx.ext34 = zext nneg i32 %mul33 to i64
-  %add.ptr35 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext34
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %data10, i64 %idx.ext34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i77)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i77, ptr noundef nonnull readonly align 8 dereferenceable(16) %base_x, i64 16, i1 false)
   %call5.i78 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i77) #7
@@ -599,7 +599,7 @@ land.rhs8.i87:                                    ; preds = %while.body14.i94, %
   br i1 %cmp11.i90, label %while.body14.i94, label %integers_equal.exit102
 
 while.body14.i94:                                 ; preds = %land.rhs8.i87
-  %incdec.ptr.i95 = getelementptr inbounds i8, ptr %b.addr.08.i89, i64 1
+  %incdec.ptr.i95 = getelementptr inbounds nuw i8, ptr %b.addr.08.i89, i64 1
   %dec.i96 = add nsw i64 %b_len.addr.09.i88, -1
   %cmp6.not.i97 = icmp eq i64 %dec.i96, 0
   br i1 %cmp6.not.i97, label %integers_equal.exit102, label %land.rhs8.i87, !llvm.loop !9
@@ -615,7 +615,7 @@ integers_equal.exit102:                           ; preds = %land.rhs8.i87, %whi
 land.lhs.true39:                                  ; preds = %integers_equal.exit102
   %mul43 = shl nuw nsw i32 %conv, 2
   %idx.ext44 = zext nneg i32 %mul43 to i64
-  %add.ptr45 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext44
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %data10, i64 %idx.ext44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i103)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i103, ptr noundef nonnull readonly align 8 dereferenceable(16) %base_y, i64 16, i1 false)
   %call5.i104 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i103) #7
@@ -649,7 +649,7 @@ land.rhs8.i113:                                   ; preds = %while.body14.i120, 
   br i1 %cmp11.i116, label %while.body14.i120, label %integers_equal.exit128
 
 while.body14.i120:                                ; preds = %land.rhs8.i113
-  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %b.addr.08.i115, i64 1
+  %incdec.ptr.i121 = getelementptr inbounds nuw i8, ptr %b.addr.08.i115, i64 1
   %dec.i122 = add nsw i64 %b_len.addr.09.i114, -1
   %cmp6.not.i123 = icmp eq i64 %dec.i122, 0
   br i1 %cmp6.not.i123, label %integers_equal.exit128, label %land.rhs8.i113, !llvm.loop !9
@@ -665,7 +665,7 @@ integers_equal.exit128:                           ; preds = %land.rhs8.i113, %wh
 land.lhs.true49:                                  ; preds = %integers_equal.exit128
   %mul53 = mul nuw nsw i32 %conv, 5
   %idx.ext54 = zext nneg i32 %mul53 to i64
-  %add.ptr55 = getelementptr inbounds i8, ptr %data10, i64 %idx.ext54
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %data10, i64 %idx.ext54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %a_copy.i129)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a_copy.i129, ptr noundef nonnull readonly align 8 dereferenceable(16) %order, i64 16, i1 false)
   %call5.i130 = call i64 @CBS_len(ptr noundef nonnull %a_copy.i129) #7
@@ -699,7 +699,7 @@ land.rhs8.i139:                                   ; preds = %while.body14.i146, 
   br i1 %cmp11.i142, label %while.body14.i146, label %integers_equal.exit154
 
 while.body14.i146:                                ; preds = %land.rhs8.i139
-  %incdec.ptr.i147 = getelementptr inbounds i8, ptr %b.addr.08.i141, i64 1
+  %incdec.ptr.i147 = getelementptr inbounds nuw i8, ptr %b.addr.08.i141, i64 1
   %dec.i148 = add nsw i64 %b_len.addr.09.i140, -1
   %cmp6.not.i149 = icmp eq i64 %dec.i148, 0
   br i1 %cmp6.not.i149, label %integers_equal.exit154, label %land.rhs8.i139, !llvm.loop !9
@@ -719,7 +719,7 @@ if.then59:                                        ; preds = %integers_equal.exit
 for.inc:                                          ; preds = %integers_equal.exit, %integers_equal.exit50, %integers_equal.exit76, %integers_equal.exit102, %integers_equal.exit128, %integers_equal.exit154
   %inc = add i32 %i.0159, 1
   %idxprom = zext i32 %inc to i64
-  %arrayidx = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
   %18 = load i32, ptr %arrayidx, align 8
   %cmp.not = icmp eq i32 %18, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10
@@ -780,7 +780,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %priv_key = getelementptr inbounds i8, ptr %key, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %key, i64 16
   %1 = load ptr, ptr %priv_key, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -849,7 +849,7 @@ if.end32:                                         ; preds = %lor.lhs.false27, %i
   br i1 %tobool34.not, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %if.end32
-  %pub_key = getelementptr inbounds i8, ptr %key, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %key, i64 8
   %5 = load ptr, ptr %pub_key, align 8
   %cmp35.not = icmp eq ptr %5, null
   br i1 %cmp35.not, label %if.end57, label %if.then37
@@ -872,7 +872,7 @@ lor.lhs.false44:                                  ; preds = %lor.lhs.false41
 lor.lhs.false47:                                  ; preds = %lor.lhs.false44
   %6 = load ptr, ptr %key, align 8
   %7 = load ptr, ptr %pub_key, align 8
-  %conv_form = getelementptr inbounds i8, ptr %key, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %key, i64 28
   %8 = load i32, ptr %conv_form, align 4
   %call50 = call i32 @EC_POINT_point2cbb(ptr noundef nonnull %public_key, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef null) #7
   %tobool51.not = icmp eq i32 %call50, 0
@@ -934,7 +934,7 @@ for.cond:                                         ; preds = %for.body.preheader,
   %i.0915 = phi i32 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %inc = add i32 %i.0915, 1
   %idxprom = zext i32 %inc to i64
-  %arrayidx = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 8
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !11
@@ -950,8 +950,8 @@ if.then7:                                         ; preds = %for.body, %for.body
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then7
-  %oid = getelementptr inbounds i8, ptr %arrayidx10.lcssa, i64 4
-  %oid_len = getelementptr inbounds i8, ptr %arrayidx10.lcssa, i64 12
+  %oid = getelementptr inbounds nuw i8, ptr %arrayidx10.lcssa, i64 4
+  %oid_len = getelementptr inbounds nuw i8, ptr %arrayidx10.lcssa, i64 12
   %2 = load i8, ptr %oid_len, align 4
   %conv = zext i8 %2 to i64
   %call9 = call i32 @CBB_add_bytes(ptr noundef nonnull %child, ptr noundef nonnull %oid, i64 noundef %conv) #7
@@ -1001,7 +1001,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %arrayidx9 = phi ptr [ %arrayidx, %for.inc ], [ @OPENSSL_built_in_curves, %for.cond.preheader ]
   %i.08 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call3 = call i64 @CBS_len(ptr noundef nonnull %named_curve) #7
-  %oid_len = getelementptr inbounds i8, ptr %arrayidx9, i64 12
+  %oid_len = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 12
   %2 = load i8, ptr %oid_len, align 4
   %conv = zext i8 %2 to i64
   %cmp4 = icmp eq i64 %call3, %conv
@@ -1009,7 +1009,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 land.lhs.true:                                    ; preds = %for.body
   %call6 = call ptr @CBS_data(ptr noundef nonnull %named_curve) #7
-  %oid = getelementptr inbounds i8, ptr %arrayidx9, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 4
   %bcmp = call i32 @bcmp(ptr %call6, ptr nonnull %oid, i64 %call3)
   %cmp10 = icmp eq i32 %bcmp, 0
   br i1 %cmp10, label %if.then12, label %for.inc
@@ -1021,7 +1021,7 @@ if.then12:                                        ; preds = %land.lhs.true
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %inc = add i32 %i.08, 1
   %idxprom = zext i32 %inc to i64
-  %arrayidx = getelementptr inbounds [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx, align 8
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !12
@@ -1242,7 +1242,7 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %pub_key = getelementptr inbounds i8, ptr %0, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %pub_key, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %land.lhs.true, label %if.end9
@@ -1278,7 +1278,7 @@ if.end14:                                         ; preds = %if.end9
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -2
   %and = zext i8 %8 to i32
-  %conv_form = getelementptr inbounds i8, ptr %0, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %and, ptr %conv_form, align 4
   %9 = load ptr, ptr %inp, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %len
@@ -1302,9 +1302,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %key, align 8
-  %pub_key = getelementptr inbounds i8, ptr %key, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %key, i64 8
   %1 = load ptr, ptr %pub_key, align 8
-  %conv_form = getelementptr inbounds i8, ptr %key, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %key, i64 28
   %2 = load i32, ptr %conv_form, align 4
   %call = tail call i64 @EC_POINT_point2oct(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef null) #7
   %cmp1 = icmp eq ptr %outp, null
@@ -1400,7 +1400,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
   %call9 = tail call ptr @CBS_data(ptr noundef nonnull %cbs) #7
-  %arrayidx10 = getelementptr inbounds i8, ptr %call9, i64 1
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %call9, i64 1
   %1 = load i8, ptr %arrayidx10, align 1
   %cmp13 = icmp sgt i8 %1, -1
   br i1 %cmp13, label %return, label %if.end16

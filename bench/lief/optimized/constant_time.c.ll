@@ -275,9 +275,9 @@ define hidden i32 @mbedtls_ct_hmac(ptr noundef %0, ptr noundef %1, i64 noundef %
   %12 = tail call i32 @mbedtls_md_get_type(ptr noundef %11) #9
   %13 = icmp eq i32 %12, 5
   %14 = select i1 %13, i64 128, i64 64
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %14
   %18 = load ptr, ptr %0, align 8
   %19 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %18) #9
   %.fr = freeze i8 %19
@@ -428,7 +428,7 @@ declare void @mbedtls_md_free(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = zext i8 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call i32 @mbedtls_mpi_grow(ptr noundef %0, i64 noundef %6) #9
   %.not = icmp eq i32 %7, 0
@@ -448,9 +448,9 @@ define hidden i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr nocapture no
   %19 = add i32 %18, %16
   store i32 %19, ptr %0, align 8
   %20 = load i64, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = sub nsw i64 0, %4
   %.not.i = icmp eq i64 %20, 0
@@ -480,7 +480,7 @@ mbedtls_ct_mpi_uint_cond_assign.exit.loopexit:    ; preds = %27
 
 mbedtls_ct_mpi_uint_cond_assign.exit:             ; preds = %mbedtls_ct_mpi_uint_cond_assign.exit.loopexit, %8
   %36 = phi i64 [ %.pre, %mbedtls_ct_mpi_uint_cond_assign.exit.loopexit ], [ 0, %8 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp uge i64 %36, %38
   %40 = icmp eq i8 %2, 0
@@ -510,14 +510,14 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
 
 5:                                                ; preds = %3
   %.not44 = icmp eq i8 %2, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @mbedtls_mpi_grow(ptr noundef %0, i64 noundef %7) #9
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 @mbedtls_mpi_grow(ptr noundef nonnull %1, i64 noundef %11) #9
   %.not43 = icmp eq i32 %12, 0
@@ -548,8 +548,8 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
   br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not44, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -576,9 +576,9 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %5, %7
   br i1 %.not, label %8, label %.loopexit
@@ -597,8 +597,8 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr nocapture noundef 
   br i1 %.not3536, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -659,7 +659,7 @@ define hidden range(i32 -17408, 1) i32 @mbedtls_ct_rsaes_pkcs1_v15_unpadding(ptr
   %6 = add i64 %1, -11
   %7 = tail call i64 @llvm.umin.i64(i64 %3, i64 %6)
   %8 = load i8, ptr %0, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = xor i8 %10, 2
   %12 = or i8 %11, %8

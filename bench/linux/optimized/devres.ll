@@ -64,7 +64,7 @@ declare dso_local void @iounmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_ioremap(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioremap_release, i64 noundef 8, i32 noundef 3264, i32 noundef %5, ptr noundef nonnull @.str.5) #5
   %7 = icmp eq ptr %6, null
@@ -91,7 +91,7 @@ define dso_local ptr @devm_ioremap(ptr noundef %0, i64 noundef %1, i64 noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_ioremap_uc(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioremap_release, i64 noundef 8, i32 noundef 3264, i32 noundef %5, ptr noundef nonnull @.str.5) #5
   %7 = icmp eq ptr %6, null
@@ -118,7 +118,7 @@ define dso_local ptr @devm_ioremap_uc(ptr noundef %0, i64 noundef %1, i64 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_ioremap_wc(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioremap_release, i64 noundef 8, i32 noundef 3264, i32 noundef %5, ptr noundef nonnull @.str.5) #5
   %7 = icmp eq ptr %6, null
@@ -192,7 +192,7 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 7936
   %12 = icmp eq i64 %11, 512
@@ -208,15 +208,15 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
   %17 = icmp eq i64 %16, 0
   %18 = select i1 %17, i32 0, i32 3
   %19 = select i1 %15, i32 %18, i32 %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %1, align 8
   %23 = add i64 %21, 1
   %24 = sub i64 %23, %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %27, label %37, label %31
@@ -266,7 +266,7 @@ define internal fastcc ptr @__devm_ioremap_resource(ptr noundef %0, ptr noundef 
 
 52:                                               ; preds = %47
   %53 = load i64, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 640
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %55 = load i32, ptr %54, align 8
   %56 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioremap_release, i64 noundef 8, i32 noundef 3264, i32 noundef %55, ptr noundef nonnull @.str.5) #5
   %57 = icmp eq ptr %56, null
@@ -333,7 +333,7 @@ define dso_local noundef nonnull ptr @devm_of_iomap(ptr nocapture readnone %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @devm_ioport_map(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_ioport_map_release, i64 noundef 8, i32 noundef 3264, i32 noundef %5, ptr noundef nonnull @.str.1) #5
   %7 = icmp eq ptr %6, null
@@ -407,20 +407,20 @@ define internal range(i32 0, 2) i32 @devm_ioport_map_match(ptr nocapture readnon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pcim_iomap_table(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
-  %3 = tail call ptr @devres_find(ptr noundef %2, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %3 = tail call ptr @devres_find(ptr noundef nonnull %2, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 824
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @pcim_iomap_release, i64 noundef 48, i32 noundef 3264, i32 noundef %7, ptr noundef nonnull @.str.2) #5
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @devres_get(ptr noundef %2, ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #5
+  %11 = tail call ptr @devres_get(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null, ptr noundef null) #5
   br label %12
 
 12:                                               ; preds = %10, %5, %1
@@ -470,20 +470,20 @@ define dso_local ptr @pcim_iomap(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  %8 = tail call ptr @devres_find(ptr noundef %7, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %8 = tail call ptr @devres_find(ptr noundef nonnull %7, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %.thread4
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 824
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %12 = load i32, ptr %11, align 8
   %13 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @pcim_iomap_release, i64 noundef 48, i32 noundef 3264, i32 noundef %12, ptr noundef nonnull @.str.2) #5
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @devres_get(ptr noundef %7, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #5
+  %16 = tail call ptr @devres_get(ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #5
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %.thread4
 
@@ -511,20 +511,20 @@ declare dso_local ptr @pci_iomap(ptr noundef, i32 noundef, i64 noundef) local_un
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcim_iounmap(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @pci_iounmap(ptr noundef %0, ptr noundef %1) #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = tail call ptr @devres_find(ptr noundef %3, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %4 = tail call ptr @devres_find(ptr noundef nonnull %3, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.preheader.preheader
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 824
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %8 = load i32, ptr %7, align 8
   %9 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @pcim_iomap_release, i64 noundef 48, i32 noundef 3264, i32 noundef %8, ptr noundef nonnull @.str.2) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @devres_get(ptr noundef %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null) #5
+  %12 = tail call ptr @devres_get(ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null) #5
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %.preheader.preheader, !prof !20
 
@@ -569,26 +569,26 @@ declare dso_local void @pci_iounmap(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pcim_iomap_regions(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
-  %5 = tail call ptr @devres_find(ptr noundef %4, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %5 = tail call ptr @devres_find(ptr noundef nonnull %4, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 824
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %9 = load i32, ptr %8, align 8
   %10 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @pcim_iomap_release, i64 noundef 48, i32 noundef 3264, i32 noundef %9, ptr noundef nonnull @.str.2) #5
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @devres_get(ptr noundef %4, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #5
+  %13 = tail call ptr @devres_get(ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef null, ptr noundef null) #5
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %.thread7
 
 .thread7:                                         ; preds = %3, %12
   %15 = phi ptr [ %13, %12 ], [ %5, %3 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 920
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %17
 
 17:                                               ; preds = %38, %.thread7
@@ -601,7 +601,7 @@ define dso_local i32 @pcim_iomap_regions(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %17
   %24 = getelementptr [11 x %struct.resource], ptr %16, i64 0, i64 %18
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %.critedge.thread, label %28
@@ -702,20 +702,20 @@ declare dso_local void @pci_release_selected_regions(ptr noundef, i32 noundef) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcim_iounmap_regions(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  %4 = tail call ptr @devres_find(ptr noundef %3, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %4 = tail call ptr @devres_find(ptr noundef nonnull %3, ptr noundef nonnull @pcim_iomap_release, ptr noundef null, ptr noundef null) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.preheader.preheader
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 824
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %8 = load i32, ptr %7, align 8
   %9 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @pcim_iomap_release, i64 noundef 48, i32 noundef 3264, i32 noundef %8, ptr noundef nonnull @.str.2) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @devres_get(ptr noundef %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null) #5
+  %12 = tail call ptr @devres_get(ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null) #5
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %.preheader.preheader
 
@@ -749,7 +749,7 @@ define dso_local void @pcim_iounmap_regions(ptr noundef %0, i32 noundef %1) #0 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @devm_arch_phys_wc_add(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_arch_phys_ac_add_release, i64 noundef 4, i32 noundef 3264, i32 noundef %5, ptr noundef nonnull @.str.3) #5
   %7 = icmp eq ptr %6, null
@@ -786,7 +786,7 @@ declare dso_local i32 @arch_phys_wc_add(i64 noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @devm_arch_io_reserve_memtype_wc(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 640
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %5 = load i32, ptr %4, align 8
   %6 = tail call noalias ptr @__devres_alloc_node(ptr noundef nonnull @devm_arch_io_free_memtype_wc_release, i64 noundef 16, i32 noundef 3264, i32 noundef %5, ptr noundef nonnull @.str.4) #5
   %7 = icmp eq ptr %6, null
@@ -803,7 +803,7 @@ define dso_local i32 @devm_arch_io_reserve_memtype_wc(ptr noundef %0, i64 nounde
 
 12:                                               ; preds = %8
   store i64 %1, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %13, align 8
   tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %6) #5
   br label %14
@@ -816,7 +816,7 @@ define dso_local i32 @devm_arch_io_reserve_memtype_wc(ptr noundef %0, i64 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devm_arch_io_free_memtype_wc_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   tail call void @arch_io_free_memtype_wc(i64 noundef %3, i64 noundef %5) #5
   ret void

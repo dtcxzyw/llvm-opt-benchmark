@@ -53,7 +53,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
 
 23:                                               ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 -1, i64 256, i1 false)
-  %24 = getelementptr inbounds i8, ptr %4, i64 43
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %24, ptr noundef nonnull align 16 dereferenceable(80) @decodetable, i64 80, i1 false)
   %.not101 = icmp eq i64 %17, 0
   br i1 %.not101, label %._crit_edge, label %.preheader80
@@ -71,14 +71,14 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
   %.16690 = phi ptr [ %.06595, %.preheader80 ], [ %33, %31 ]
   %26 = load i8, ptr %.16690, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, -1
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %25
   %32 = zext i8 %29 to i32
-  %33 = getelementptr inbounds i8, ptr %.16690, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.16690, i64 1
   %34 = shl i32 %.06491, 6
   %35 = or i32 %34, %32
   %36 = add nuw nsw i32 %.06392, 1
@@ -87,16 +87,16 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
 
 37:                                               ; preds = %31
   %38 = trunc i32 %35 to i8
-  %39 = getelementptr inbounds i8, ptr %.06794, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.06794, i64 2
   store i8 %38, ptr %39, align 1
   %40 = lshr i32 %34, 8
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %.06794, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.06794, i64 1
   store i8 %41, ptr %42, align 1
   %43 = lshr i32 %34, 16
   %44 = trunc i32 %43 to i8
   store i8 %44, ptr %.06794, align 1
-  %45 = getelementptr inbounds i8, ptr %.06794, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.06794, i64 3
   %46 = add nuw i64 %.07093, 1
   %exitcond108.not = icmp eq i64 %46, %17
   br i1 %exitcond108.not, label %._crit_edge, label %.preheader80, !llvm.loop !8
@@ -123,7 +123,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
 
 53:                                               ; preds = %.preheader
   %54 = zext i8 %47 to i64
-  %55 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, -1
   br i1 %57, label %.loopexit, label %58
@@ -137,7 +137,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
 62:                                               ; preds = %58, %49
   %.161 = phi i32 [ %50, %49 ], [ %61, %58 ]
   %.1 = phi i64 [ %51, %49 ], [ %.0100, %58 ]
-  %.3 = getelementptr inbounds i8, ptr %.297, i64 1
+  %.3 = getelementptr inbounds nuw i8, ptr %.297, i64 1
   %63 = add nuw nsw i32 %.05999, 1
   %exitcond109.not = icmp eq i32 %63, 4
   br i1 %exitcond109.not, label %64, label %.preheader, !llvm.loop !9
@@ -149,7 +149,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
 66:                                               ; preds = %64
   %67 = lshr i32 %.161, 8
   %68 = trunc i32 %67 to i8
-  %69 = getelementptr inbounds i8, ptr %.067.lcssa, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.067.lcssa, i64 1
   store i8 %68, ptr %69, align 1
   br label %70
 
@@ -158,7 +158,7 @@ define dso_local range(i32 0, 62) i32 @Curl_base64_decode(ptr nocapture noundef 
   %72 = trunc i32 %71 to i8
   store i8 %72, ptr %.067.lcssa, align 1
   %73 = sub nuw nsw i64 3, %.069
-  %74 = getelementptr inbounds i8, ptr %.067.lcssa, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %.067.lcssa, i64 %73
   br label %75
 
 75:                                               ; preds = %70, %._crit_edge
@@ -195,7 +195,7 @@ define dso_local range(i32 0, 28) i32 @Curl_base64_encode(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
   %.not = icmp eq i64 %2, 0
@@ -227,43 +227,43 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef
   %17 = load i8, ptr %.05468, align 1
   %18 = lshr i8 %17, 2
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %.05666, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.05666, i64 1
   store i8 %21, ptr %.05666, align 1
   %23 = load i8, ptr %.05468, align 1
   %24 = shl i8 %23, 4
   %25 = and i8 %24, 48
-  %26 = getelementptr inbounds i8, ptr %.05468, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.05468, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = lshr i8 %27, 4
   %29 = or disjoint i8 %25, %28
   %30 = zext nneg i8 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %.05666, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.05666, i64 2
   store i8 %32, ptr %22, align 1
   %34 = load i8, ptr %26, align 1
   %35 = shl i8 %34, 2
   %36 = and i8 %35, 60
-  %37 = getelementptr inbounds i8, ptr %.05468, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.05468, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = lshr i8 %38, 6
   %40 = or disjoint i8 %36, %39
   %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
   %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %.05666, i64 3
+  %44 = getelementptr inbounds nuw i8, ptr %.05666, i64 3
   store i8 %43, ptr %33, align 1
   %45 = load i8, ptr %37, align 1
   %46 = and i8 %45, 63
   %47 = zext nneg i8 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = load i8, ptr %48, align 1
-  %50 = getelementptr inbounds i8, ptr %.05666, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.05666, i64 4
   store i8 %49, ptr %44, align 1
   %51 = add i64 %.167, -3
-  %52 = getelementptr inbounds i8, ptr %.05468, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.05468, i64 3
   %53 = icmp ugt i64 %51, 2
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
@@ -278,9 +278,9 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef
   %55 = load i8, ptr %.054.lcssa, align 1
   %56 = lshr i8 %55, 2
   %57 = zext nneg i8 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
   %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %.056.lcssa, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 1
   store i8 %59, ptr %.056.lcssa, align 1
   %61 = icmp eq i64 %.1.lcssa, 1
   %62 = load i8, ptr %.054.lcssa, align 1
@@ -290,46 +290,46 @@ define internal fastcc range(i32 0, 28) i32 @base64_encode(ptr nocapture noundef
 
 65:                                               ; preds = %54
   %66 = zext nneg i8 %64 to i64
-  %67 = getelementptr inbounds i8, ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %66
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.056.lcssa, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 2
   store i8 %68, ptr %60, align 1
   %70 = load i8, ptr %6, align 1
   %.not65 = icmp eq i8 %70, 0
   br i1 %.not65, label %94, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %.056.lcssa, i64 3
+  %72 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 3
   store i8 %70, ptr %69, align 1
   %73 = load i8, ptr %6, align 1
-  %74 = getelementptr inbounds i8, ptr %.056.lcssa, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 4
   store i8 %73, ptr %72, align 1
   br label %94
 
 75:                                               ; preds = %54
-  %76 = getelementptr inbounds i8, ptr %.054.lcssa, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = lshr i8 %77, 4
   %79 = or disjoint i8 %64, %78
   %80 = zext nneg i8 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %0, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %80
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.056.lcssa, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 2
   store i8 %82, ptr %60, align 1
   %84 = load i8, ptr %76, align 1
   %85 = shl i8 %84, 2
   %86 = and i8 %85, 60
   %87 = zext nneg i8 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 %87
   %89 = load i8, ptr %88, align 1
-  %90 = getelementptr inbounds i8, ptr %.056.lcssa, i64 3
+  %90 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 3
   store i8 %89, ptr %83, align 1
   %91 = load i8, ptr %6, align 1
   %.not64 = icmp eq i8 %91, 0
   br i1 %.not64, label %94, label %92
 
 92:                                               ; preds = %75
-  %93 = getelementptr inbounds i8, ptr %.056.lcssa, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.056.lcssa, i64 4
   store i8 %91, ptr %90, align 1
   br label %94
 

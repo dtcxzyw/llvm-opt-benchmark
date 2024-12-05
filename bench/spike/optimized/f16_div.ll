@@ -94,9 +94,9 @@ define i16 @f16_div(i16 %0, i16 %1) local_unnamed_addr #0 {
   %.1 = shl i64 %38, %.1.v
   %41 = lshr i64 %.076, 6
   %42 = and i64 %41, 15
-  %43 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecip_1k0s, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecip_1k0s, i64 0, i64 %42
   %44 = load i16, ptr %43, align 2
-  %45 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecip_1k1s, i64 0, i64 %42
+  %45 = getelementptr inbounds nuw [16 x i16], ptr @softfloat_approxRecip_1k1s, i64 0, i64 %42
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i64
   %48 = and i64 %.076, 63

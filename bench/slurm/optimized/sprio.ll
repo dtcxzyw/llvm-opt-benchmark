@@ -86,28 +86,28 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 872
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 872
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr @weight_age, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 876
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 876
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr @weight_assoc, align 4
-  %25 = getelementptr inbounds i8, ptr %20, i64 880
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 880
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr @weight_fs, align 4
-  %27 = getelementptr inbounds i8, ptr %20, i64 884
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 884
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr @weight_js, align 4
-  %29 = getelementptr inbounds i8, ptr %20, i64 888
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 888
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr @weight_part, align 4
-  %31 = getelementptr inbounds i8, ptr %20, i64 892
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 892
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr @weight_qos, align 4
-  %33 = getelementptr inbounds i8, ptr %20, i64 896
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 896
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr @weight_tres, align 8
-  %35 = getelementptr inbounds i8, ptr %20, i64 864
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 864
   %36 = load ptr, ptr %35, align 8
   call void @slurm_free_ctl_conf(ptr noundef %20) #6
   br label %46

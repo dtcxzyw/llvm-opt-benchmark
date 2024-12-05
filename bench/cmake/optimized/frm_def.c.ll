@@ -27,10 +27,10 @@ define dso_local noundef ptr @new_form(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %7, label %Associate_Fields.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 26
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %9 = load i16, ptr %8, align 2
   %10 = icmp sgt i16 %9, 0
-  %11 = getelementptr inbounds i8, ptr %2, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 28
   br i1 %10, label %12, label %14
 
 12:                                               ; preds = %7
@@ -40,7 +40,7 @@ define dso_local noundef ptr @new_form(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %7
   store i16 -1, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr null, ptr %15, align 8
   br label %38
 
@@ -51,7 +51,7 @@ Associate_Fields.exit:                            ; preds = %3
   br i1 %.not8.i, label %18, label %free_form.exit
 
 18:                                               ; preds = %Associate_Fields.exit
-  %19 = getelementptr inbounds i8, ptr %2, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %Disconnect_Fields.exit.i, label %.preheader.i.i
@@ -64,7 +64,7 @@ Associate_Fields.exit:                            ; preds = %3
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %27
   %22 = phi ptr [ %29, %27 ], [ %21, %.preheader.i.i ]
   %.021.i.i = phi ptr [ %28, %27 ], [ %20, %.preheader.i.i ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %2, %24
   br i1 %25, label %26, label %27
@@ -74,28 +74,28 @@ Associate_Fields.exit:                            ; preds = %3
   br label %27
 
 27:                                               ; preds = %26, %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not18.i.i = icmp eq ptr %29, null
   br i1 %.not18.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %27, %.preheader.i.i
-  %30 = getelementptr inbounds i8, ptr %2, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %2, i64 26
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 26
   store i16 -1, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i16 -1, ptr %33, align 8
   store ptr null, ptr %19, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %35 = load ptr, ptr %34, align 8
   %.not19.i.i = icmp eq ptr %35, null
   br i1 %.not19.i.i, label %Disconnect_Fields.exit.thread.i, label %Disconnect_Fields.exit.thread.sink.split.i
 
 Disconnect_Fields.exit.i:                         ; preds = %18
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 80
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
   br i1 %.not9.i, label %Disconnect_Fields.exit.thread.i, label %Disconnect_Fields.exit.thread.sink.split.i
@@ -144,7 +144,7 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_a
   br i1 %.not8, label %5, label %23
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %Disconnect_Fields.exit, label %.preheader.i
@@ -157,7 +157,7 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_a
 .lr.ph.i:                                         ; preds = %.preheader.i, %14
   %9 = phi ptr [ %16, %14 ], [ %8, %.preheader.i ]
   %.021.i = phi ptr [ %15, %14 ], [ %7, %.preheader.i ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %0, %11
   br i1 %12, label %13, label %14
@@ -167,28 +167,28 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_a
   br label %14
 
 14:                                               ; preds = %13, %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not18.i = icmp eq ptr %16, null
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %14, %.preheader.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %0, i64 26
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 -1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 -1, ptr %20, align 8
   store ptr null, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %.not19.i = icmp eq ptr %22, null
   br i1 %.not19.i, label %Disconnect_Fields.exit.thread, label %Disconnect_Fields.exit.thread.sink.split
 
 Disconnect_Fields.exit:                           ; preds = %5
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not9 = icmp eq ptr %.pre, null
   br i1 %.not9, label %Disconnect_Fields.exit.thread, label %Disconnect_Fields.exit.thread.sink.split
@@ -227,7 +227,7 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   br i1 %.not10, label %6, label %Associate_Fields.exit.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Disconnect_Fields.exit, label %.preheader.i
@@ -240,7 +240,7 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
 .lr.ph.i:                                         ; preds = %.preheader.i, %15
   %10 = phi ptr [ %17, %15 ], [ %9, %.preheader.i ]
   %.021.i = phi ptr [ %16, %15 ], [ %8, %.preheader.i ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %0, %12
   br i1 %13, label %14, label %15
@@ -250,22 +250,22 @@ define dso_local range(i32 -4, 1) i32 @set_form_fields(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %14, %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %.021.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not18.i = icmp eq ptr %17, null
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %15, %.preheader.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 26
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 -1, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 -1, ptr %21, align 8
   store ptr null, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %.not19.i = icmp eq ptr %23, null
   br i1 %.not19.i, label %25, label %24
@@ -284,10 +284,10 @@ Disconnect_Fields.exit:                           ; preds = %6, %25
   br i1 %27, label %28, label %Associate_Fields.exit
 
 28:                                               ; preds = %Disconnect_Fields.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 26
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %30 = load i16, ptr %29, align 2
   %31 = icmp sgt i16 %30, 0
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br i1 %31, label %33, label %35
 
 33:                                               ; preds = %28
@@ -297,7 +297,7 @@ Disconnect_Fields.exit:                           ; preds = %6, %25
 
 35:                                               ; preds = %28
   store i16 -1, ptr %32, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %36, align 8
   br label %Associate_Fields.exit.thread
 
@@ -314,11 +314,11 @@ Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.ex
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull initializes((24, 28), (64, 72)) %0, ptr noundef %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 26
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i16 0, ptr %5, align 2
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.preheader
@@ -332,7 +332,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader ]
   %7 = phi ptr [ %19, %17 ], [ %6, %.preheader ]
   %.083101 = phi i32 [ %.184, %17 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not96 = icmp eq ptr %9, null
   br i1 %.not96, label %10, label %._crit_edge.thread
@@ -355,7 +355,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   %.184 = phi i32 [ %16, %15 ], [ %.083101, %12 ]
   store ptr %0, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8
   %.not92 = icmp eq ptr %19, null
   br i1 %.not92, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -368,10 +368,10 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br i1 %.not93, label %._crit_edge.thread, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 2
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %27
 
@@ -386,7 +386,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv120
+  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv120
   %32 = load ptr, ptr %31, align 8
   %33 = load i16, ptr %32, align 8
   %34 = and i16 %33, 4
@@ -396,27 +396,27 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 35:                                               ; preds = %30
   %36 = trunc i64 %indvars.iv120 to i16
   %37 = add i16 %36, -1
-  %38 = getelementptr inbounds i8, ptr %.080105, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.080105, i64 2
   store i16 %37, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %.080105, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.080105, i64 8
   store i16 %36, ptr %39, align 2
   br label %40
 
 40:                                               ; preds = %30, %35, %29
   %.1 = phi ptr [ %.080105, %29 ], [ %39, %35 ], [ %.080105, %30 ]
-  %41 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv120
+  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv120
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 6
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %42, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 2
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %48, %45
-  %50 = getelementptr inbounds i8, ptr %42, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %51 = load i16, ptr %50, align 8
   %52 = sext i16 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %42, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %54 = load i16, ptr %53, align 4
   %55 = sext i16 %54 to i32
   %56 = add nsw i32 %55, %52
@@ -449,7 +449,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 69:                                               ; preds = %68
   %70 = trunc i64 %indvars.iv.next to i16
   %71 = add i16 %70, -1
-  %72 = getelementptr inbounds i8, ptr %.1, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i16 %71, ptr %72, align 2
   store i16 %70, ptr %4, align 8
   %73 = trunc i32 %.184 to i16
@@ -460,9 +460,9 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 .lr.ph116:                                        ; preds = %69, %._crit_edge111
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %._crit_edge111 ], [ 0, %69 ]
   %75 = load ptr, ptr %24, align 8
-  %76 = getelementptr inbounds %struct._PAGE, ptr %75, i64 %indvars.iv126
+  %76 = getelementptr inbounds nuw %struct._PAGE, ptr %75, i64 %indvars.iv126
   %77 = load i16, ptr %76, align 2
-  %78 = getelementptr inbounds %struct._PAGE, ptr %75, i64 %indvars.iv126, i32 1
+  %78 = getelementptr inbounds nuw %struct._PAGE, ptr %75, i64 %indvars.iv126, i32 1
   %79 = load i16, ptr %78, align 2
   %.not94106 = icmp sle i16 %77, %79
   tail call void @llvm.assume(i1 %.not94106)
@@ -476,31 +476,31 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   %83 = trunc i64 %indvars.iv123 to i16
   %84 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv123
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 34
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 34
   store i16 %83, ptr %86, align 2
   %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 32
   store i16 %80, ptr %88, align 8
   %89 = load ptr, ptr %84, align 8
   %.not.i = icmp eq ptr %.0108, null
   br i1 %.not.i, label %93, label %.preheader.i
 
 .preheader.i:                                     ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %89, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 6
   %91 = load i16, ptr %90, align 2
-  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   br label %96
 
 93:                                               ; preds = %82
-  %94 = getelementptr inbounds i8, ptr %89, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 64
   store ptr %89, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 56
   store ptr %89, ptr %95, align 8
   br label %Insert_Field_By_Position.exit
 
 96:                                               ; preds = %.critedge.i, %.preheader.i
   %.028.i = phi ptr [ %108, %.critedge.i ], [ %.0108, %.preheader.i ]
-  %97 = getelementptr inbounds i8, ptr %.028.i, i64 6
+  %97 = getelementptr inbounds nuw i8, ptr %.028.i, i64 6
   %98 = load i16, ptr %97, align 2
   %99 = icmp slt i16 %98, %91
   br i1 %99, label %.critedge.i, label %100
@@ -510,14 +510,14 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br i1 %101, label %102, label %.critedge2.i
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %.028.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %104 = load i16, ptr %103, align 8
   %105 = load i16, ptr %92, align 8
   %106 = icmp slt i16 %104, %105
   br i1 %106, label %.critedge.i, label %.critedge2.i
 
 .critedge.i:                                      ; preds = %102, %96
-  %107 = getelementptr inbounds i8, ptr %.028.i, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %.028.i, i64 56
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %.0108
   br i1 %109, label %.critedge2.i, label %96, !llvm.loop !9
@@ -525,15 +525,15 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 .critedge2.i:                                     ; preds = %.critedge.i, %102, %100
   %.029.i = phi ptr [ %.0108, %102 ], [ %.0108, %100 ], [ null, %.critedge.i ]
   %.1.i = phi ptr [ %.028.i, %102 ], [ %.028.i, %100 ], [ %108, %.critedge.i ]
-  %110 = getelementptr inbounds i8, ptr %89, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %89, i64 56
   store ptr %.1.i, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %.1.i, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %89, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %89, i64 64
   store ptr %112, ptr %113, align 8
   store ptr %89, ptr %111, align 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store ptr %89, ptr %115, align 8
   %116 = icmp eq ptr %.1.i, %.029.i
   %spec.select.i = select i1 %116, ptr %89, ptr %.0108
@@ -543,24 +543,24 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
   %.0.i = phi ptr [ %89, %93 ], [ %spec.select.i, %.critedge2.i ]
   %indvars.iv.next124 = add nsw i64 %indvars.iv123, 1
   %117 = load ptr, ptr %24, align 8
-  %118 = getelementptr inbounds %struct._PAGE, ptr %117, i64 %indvars.iv126
-  %119 = getelementptr inbounds i8, ptr %118, i64 2
+  %118 = getelementptr inbounds nuw %struct._PAGE, ptr %117, i64 %indvars.iv126
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 2
   %120 = load i16, ptr %119, align 2
   %121 = sext i16 %120 to i64
   %.not94.not = icmp slt i64 %indvars.iv123, %121
   br i1 %.not94.not, label %82, label %._crit_edge111, !llvm.loop !10
 
 ._crit_edge111:                                   ; preds = %Insert_Field_By_Position.exit
-  %122 = getelementptr inbounds i8, ptr %.0.i, i64 34
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i, i64 34
   %123 = load i16, ptr %122, align 2
-  %124 = getelementptr inbounds i8, ptr %118, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i16 %123, ptr %124, align 2
-  %125 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 34
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 34
   %128 = load i16, ptr %127, align 2
   %129 = load ptr, ptr %24, align 8
-  %130 = getelementptr inbounds %struct._PAGE, ptr %129, i64 %indvars.iv126, i32 3
+  %130 = getelementptr inbounds nuw %struct._PAGE, ptr %129, i64 %indvars.iv126, i32 3
   store i16 %128, ptr %130, align 2
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %131 = load i16, ptr %5, align 2
@@ -580,7 +580,7 @@ define dso_local ptr @form_fields(ptr noundef readonly %0) local_unnamed_addr #6
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -590,7 +590,7 @@ define dso_local range(i32 -32768, 32768) i32 @field_count(ptr noundef readonly 
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i16, ptr %4, align 8
   %6 = sext i16 %5 to i32
   ret i32 %6

@@ -1372,7 +1372,7 @@ switch.hole_check:                                ; preds = %70
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %634 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [21 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi, i64 0, i64 %634
+  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi, i64 0, i64 %634
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %645
 
@@ -1384,7 +1384,7 @@ switch.hole_check535:                             ; preds = %78
 
 switch.lookup536:                                 ; preds = %switch.hole_check535
   %635 = zext nneg i32 %switch.tableidx534 to i64
-  %switch.gep539 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.1, i64 0, i64 %635
+  %switch.gep539 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.1, i64 0, i64 %635
   %switch.load540 = load i32, ptr %switch.gep539, align 4
   br label %645
 
@@ -1396,7 +1396,7 @@ switch.hole_check543:                             ; preds = %100
 
 switch.lookup544:                                 ; preds = %switch.hole_check543
   %636 = zext nneg i32 %switch.tableidx542 to i64
-  %switch.gep548 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.2, i64 0, i64 %636
+  %switch.gep548 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.2, i64 0, i64 %636
   %switch.load549 = load i32, ptr %switch.gep548, align 4
   br label %645
 
@@ -1408,7 +1408,7 @@ switch.hole_check552:                             ; preds = %138
 
 switch.lookup553:                                 ; preds = %switch.hole_check552
   %637 = zext nneg i32 %switch.tableidx551 to i64
-  %switch.gep557 = getelementptr inbounds [12 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.3, i64 0, i64 %637
+  %switch.gep557 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.3, i64 0, i64 %637
   %switch.load558 = load i32, ptr %switch.gep557, align 4
   br label %645
 
@@ -1420,19 +1420,19 @@ switch.hole_check561:                             ; preds = %195
 
 switch.lookup562:                                 ; preds = %switch.hole_check561
   %638 = zext nneg i32 %switch.tableidx560 to i64
-  %switch.gep566 = getelementptr inbounds [11 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.4, i64 0, i64 %638
+  %switch.gep566 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.4, i64 0, i64 %638
   %switch.load567 = load i32, ptr %switch.gep566, align 4
   br label %645
 
 switch.lookup568:                                 ; preds = %263
   %639 = zext nneg i32 %switch.tableidx569 to i64
-  %switch.gep570 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.5, i64 0, i64 %639
+  %switch.gep570 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.5, i64 0, i64 %639
   %switch.load571 = load i32, ptr %switch.gep570, align 4
   br label %645
 
 switch.lookup572:                                 ; preds = %271
   %640 = zext nneg i32 %switch.tableidx573 to i64
-  %switch.gep574 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.6, i64 0, i64 %640
+  %switch.gep574 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.6, i64 0, i64 %640
   %switch.load575 = load i32, ptr %switch.gep574, align 4
   br label %645
 
@@ -1444,13 +1444,13 @@ switch.hole_check578:                             ; preds = %438
 
 switch.lookup579:                                 ; preds = %switch.hole_check578
   %641 = zext nneg i32 %switch.tableidx577 to i64
-  %switch.gep583 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.7, i64 0, i64 %641
+  %switch.gep583 = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.7, i64 0, i64 %641
   %switch.load584 = load i32, ptr %switch.gep583, align 4
   br label %645
 
 switch.lookup585:                                 ; preds = %446
   %642 = zext nneg i32 %switch.tableidx586 to i64
-  %switch.gep587 = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.8, i64 0, i64 %642
+  %switch.gep587 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.8, i64 0, i64 %642
   %switch.load588 = load i32, ptr %switch.gep587, align 4
   br label %645
 
@@ -1462,13 +1462,13 @@ switch.hole_check591:                             ; preds = %532
 
 switch.lookup592:                                 ; preds = %switch.hole_check591
   %643 = zext nneg i32 %switch.tableidx590 to i64
-  %switch.gep596 = getelementptr inbounds [10 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.9, i64 0, i64 %643
+  %switch.gep596 = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.9, i64 0, i64 %643
   %switch.load597 = load i32, ptr %switch.gep596, align 4
   br label %645
 
 switch.lookup598:                                 ; preds = %540
   %644 = zext nneg i32 %switch.tableidx599 to i64
-  %switch.gep600 = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.10, i64 0, i64 %644
+  %switch.gep600 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._ZN4llvm3sys7unicode14foldCharSimpleEi.10, i64 0, i64 %644
   %switch.load601 = load i32, ptr %switch.gep600, align 4
   br label %645
 

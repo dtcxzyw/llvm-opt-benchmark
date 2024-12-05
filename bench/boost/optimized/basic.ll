@@ -782,9 +782,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %57 = ptrtoint ptr %2 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %6, ptr noundef nonnull align 1 dereferenceable(19) @__const._ZN5boost10stacktrace6detail12to_hex_arrayImEESt5arrayIcLm19EET_.ret, i64 18, i1 false)
-  %58 = getelementptr inbounds i8, ptr %6, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i8 0, ptr %58, align 1, !tbaa !16, !alias.scope !34
-  %59 = getelementptr inbounds i8, ptr %6, i64 17
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 17
   br label %60
 
 60:                                               ; preds = %60, %56
@@ -792,13 +792,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.0912.i.i = phi i64 [ 0, %56 ], [ %71, %60 ]
   %.01011.i.i = phi ptr [ %59, %56 ], [ %69, %60 ]
   %61 = and i64 %.013.i.i, 15
-  %62 = getelementptr inbounds [17 x i8], ptr @_ZN5boost10stacktrace6detailL18to_hex_array_bytesE, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [17 x i8], ptr @_ZN5boost10stacktrace6detailL18to_hex_array_bytesE, i64 0, i64 %61
   %63 = load i8, ptr %62, align 1, !tbaa !16, !noalias !34
   store i8 %63, ptr %.01011.i.i, align 1, !tbaa !16, !alias.scope !34
   %64 = getelementptr inbounds i8, ptr %.01011.i.i, i64 -1
   %65 = lshr i64 %.013.i.i, 4
   %66 = and i64 %65, 15
-  %67 = getelementptr inbounds [17 x i8], ptr @_ZN5boost10stacktrace6detailL18to_hex_array_bytesE, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [17 x i8], ptr @_ZN5boost10stacktrace6detailL18to_hex_array_bytesE, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !16, !noalias !34
   store i8 %68, ptr %64, align 1, !tbaa !16, !alias.scope !34
   %69 = getelementptr inbounds i8, ptr %.01011.i.i, i64 -2

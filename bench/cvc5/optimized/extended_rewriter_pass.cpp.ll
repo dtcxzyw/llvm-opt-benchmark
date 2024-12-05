@@ -112,8 +112,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp3 = alloca %"class.cvc5::internal::NodeTemplate.8", align 8
-  %d_nodes.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 32
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 40
+  %d_nodes.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 32
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 40
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %d_nodes.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -125,7 +125,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %d_conflict.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 160
+  %d_conflict.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 160
   %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
   br label %for.body
 
@@ -137,13 +137,13 @@ for.cond:                                         ; preds = %_ZN4cvc58internal12
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %3 = load ptr, ptr %d_nodes.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %4, ptr %agg.tmp3, align 8
   %call6 = call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %smt = getelementptr inbounds i8, ptr %call6, i64 352
+  %smt = getelementptr inbounds nuw i8, ptr %call6, i64 352
   %5 = load ptr, ptr %smt, align 8
-  %extRewPrep = getelementptr inbounds i8, ptr %5, i64 60
+  %extRewPrep = getelementptr inbounds nuw i8, ptr %5, i64 60
   %6 = load i32, ptr %extRewPrep, align 4
   %cmp7 = icmp eq i32 %6, 2
   call void @_ZNK4cvc58internal6EnvObj15extendedRewriteENS0_12NodeTemplateILb0EEEb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %agg.tmp3, i1 noundef zeroext %cmp7)

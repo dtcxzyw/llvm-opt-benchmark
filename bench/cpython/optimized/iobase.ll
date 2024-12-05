@@ -1286,7 +1286,7 @@ if.end5:                                          ; preds = %_PyIOBase_finalize.
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %7 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %6, align 8
-  %_gc_prev.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_gc_prev.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %8, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1295,7 +1295,7 @@ if.end5:                                          ; preds = %_PyIOBase_finalize.
   %9 = load i64, ptr %5, align 8
   %and.i = and i64 %9, 1
   store i64 %and.i, ptr %5, align 8
-  %weakreflist = getelementptr inbounds i8, ptr %self, i64 24
+  %weakreflist = getelementptr inbounds nuw i8, ptr %self, i64 24
   %10 = load ptr, ptr %weakreflist, align 8
   %cmp7.not = icmp eq ptr %10, null
   br i1 %cmp7.not, label %do.body, label %if.then8
@@ -1305,7 +1305,7 @@ if.then8:                                         ; preds = %if.end5
   br label %do.body
 
 do.body:                                          ; preds = %if.end5, %if.then8
-  %dict = getelementptr inbounds i8, ptr %self, i64 16
+  %dict = getelementptr inbounds nuw i8, ptr %self, i64 16
   %11 = load ptr, ptr %dict, align 8
   %cmp10.not = icmp eq ptr %11, null
   br i1 %cmp10.not, label %do.end, label %if.then11
@@ -1328,7 +1328,7 @@ if.then1.i19:                                     ; preds = %if.end.i16
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then11, %if.then1.i19, %if.end.i16
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %14 = load ptr, ptr %tp_free, align 8
   tail call void %14(ptr noundef nonnull %self) #6
   %15 = load i64, ptr %self.val, align 8
@@ -1364,7 +1364,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %dict = getelementptr inbounds i8, ptr %self, i64 16
+  %dict = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load ptr, ptr %dict, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -1385,7 +1385,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @iobase_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %dict = getelementptr inbounds i8, ptr %self, i64 16
+  %dict = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %dict, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2150,7 +2150,7 @@ while.cond.preheader.i:                           ; preds = %if.end.i
   %cmp5.i = icmp slt i64 %1, 0
   %2 = getelementptr i8, ptr %call1.i, i64 16
   %cmp29.i = icmp sgt i64 %1, -1
-  %ob_start.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %ob_start.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   br label %while.cond.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -2204,7 +2204,7 @@ if.end17.i:                                       ; preds = %if.then9.i
 
 if.then21.i:                                      ; preds = %if.end17.i
   %10 = load ptr, ptr @PyExc_OSError, align 8
-  %tp_name.i = getelementptr inbounds i8, ptr %call11.val57.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %call11.val57.i, i64 24
   %11 = load ptr, ptr %tp_name.i, align 8
   %call23.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.29, ptr noundef %11) #6
   %12 = load i64, ptr %call11.i, align 8
@@ -2225,7 +2225,7 @@ if.end24.i:                                       ; preds = %if.end17.i
   br i1 %cmp26.i, label %if.then27.i, label %if.end56.i
 
 if.then27.i:                                      ; preds = %if.end24.i
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %call11.i, i64 32
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %call11.i, i64 32
   br i1 %cmp29.i, label %do.body.preheader.i, label %do.body40.i
 
 do.body.preheader.i:                              ; preds = %if.then27.i
@@ -2295,7 +2295,7 @@ if.end66.i:                                       ; preds = %if.end57.i
 
 if.then70.i:                                      ; preds = %if.end66.i
   %23 = load ptr, ptr @PyExc_OSError, align 8
-  %tp_name72.i = getelementptr inbounds i8, ptr %call58.val56.i, i64 24
+  %tp_name72.i = getelementptr inbounds nuw i8, ptr %call58.val56.i, i64 24
   %24 = load ptr, ptr %tp_name72.i, align 8
   %call73.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.31, ptr noundef %24) #6
   %25 = load i64, ptr %call58.i, align 8
@@ -2362,7 +2362,7 @@ if.then.i69.i:                                    ; preds = %if.end86.i
 PyByteArray_AS_STRING.exit.i:                     ; preds = %if.then.i69.i, %if.end86.i
   %retval.0.i.i = phi ptr [ %32, %if.then.i69.i ], [ @_PyByteArray_empty_string, %if.end86.i ]
   %add.ptr.i = getelementptr i8, ptr %retval.0.i.i, i64 %call1.val64.i
-  %ob_sval.i70.i = getelementptr inbounds i8, ptr %call58.i, i64 32
+  %ob_sval.i70.i = getelementptr inbounds nuw i8, ptr %call58.i, i64 32
   %call58.val63.i = load i64, ptr %27, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %ob_sval.i70.i, i64 %call58.val63.i, i1 false)
   %33 = load i64, ptr %call58.i, align 8

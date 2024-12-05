@@ -40,13 +40,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h5f1e75fee7
   unreachable
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds [0 x { ptr, i64 }], ptr %8, i64 0, i64 %.012.i
+  %19 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %8, i64 0, i64 %.012.i
   %20 = getelementptr inbounds [0 x { ptr, i64 }], ptr %11, i64 0, i64 %15
   %21 = load ptr, ptr %19, align 8, !nonnull !5, !align !6, !noundef !5
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !5
   %24 = load ptr, ptr %20, align 8, !nonnull !5, !align !6, !noundef !5
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load i64, ptr %25, align 8, !noundef !5
   store ptr %24, ptr %19, align 8
   store i64 %26, ptr %22, align 8
@@ -97,10 +97,10 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6a
   %18 = getelementptr inbounds [0 x { ptr, i64 }], ptr %7, i64 0, i64 %.012
   %19 = getelementptr inbounds [0 x { ptr, i64 }], ptr %10, i64 0, i64 %14
   %20 = load ptr, ptr %18, align 8, !nonnull !5, !align !6, !noundef !5
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !5
   %23 = load ptr, ptr %19, align 8, !nonnull !5, !align !6, !noundef !5
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load i64, ptr %24, align 8, !noundef !5
   store ptr %23, ptr %18, align 8
   store i64 %25, ptr %21, align 8
@@ -148,10 +148,10 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h88
   %18 = getelementptr inbounds [0 x { ptr, ptr }], ptr %7, i64 0, i64 %.012
   %19 = getelementptr inbounds [0 x { ptr, ptr }], ptr %10, i64 0, i64 %14
   %20 = load ptr, ptr %18, align 8, !nonnull !5, !align !7, !noundef !5
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !7, !noundef !5
   %23 = load ptr, ptr %19, align 8, !nonnull !5, !align !7, !noundef !5
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8, !nonnull !5, !align !7, !noundef !5
   store ptr %23, ptr %18, align 8
   store ptr %25, ptr %21, align 8

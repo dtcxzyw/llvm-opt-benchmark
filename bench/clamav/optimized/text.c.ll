@@ -28,7 +28,7 @@ define void @textDestroy(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %7
   %.010 = phi ptr [ %3, %7 ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.010, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %.010, align 8
   %.not8 = icmp eq ptr %4, null
@@ -88,7 +88,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %13, label %17, label %15
 
 15:                                               ; preds = %.preheader.i
-  %16 = getelementptr inbounds i8, ptr %.029.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 8
   store ptr %14, ptr %16, align 8
   br label %17
 
@@ -104,7 +104,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph.i.i.i:                                     ; preds = %19, %25
   %.010.i.i.i = phi ptr [ %21, %25 ], [ %.118.i.i, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.010.i.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %.010.i.i.i, align 8
   %.not8.i.i.i = icmp eq ptr %22, null
@@ -120,7 +120,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not.i.i.i, label %textAdd.exit, label %.lr.ph.i.i.i
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %14, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %27, align 8
   %28 = load ptr, ptr %.01927.i.i, align 8
   %.not23.i.i = icmp eq ptr %28, null
@@ -133,7 +133,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 31:                                               ; preds = %29, %26
   %storemerge.i.i = phi ptr [ %30, %29 ], [ null, %26 ]
   store ptr %storemerge.i.i, ptr %14, align 8
-  %32 = getelementptr inbounds i8, ptr %.01927.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.01927.i.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %34, label %.preheader.i
@@ -143,7 +143,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not22.i.i, label %textAdd.exit, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %14, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %36, align 8
   br label %textAdd.exit
 
@@ -153,7 +153,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 .preheader33.i:                                   ; preds = %37, %.preheader33.i
   %.023.i = phi ptr [ %39, %.preheader33.i ], [ %0, %37 ]
   %.0.i = phi i32 [ %40, %.preheader33.i ], [ 0, %37 ]
-  %38 = getelementptr inbounds i8, ptr %.023.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
   %40 = add nuw nsw i32 %.0.i, 1
@@ -167,7 +167,7 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %.02237.i = phi ptr [ %9, %41 ], [ %52, %50 ]
   %.136.i = phi ptr [ %.023.i, %41 ], [ %43, %50 ]
   %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
-  %44 = getelementptr inbounds i8, ptr %.136.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.136.i, i64 8
   store ptr %43, ptr %44, align 8
   %.not31.i = icmp eq ptr %43, null
   br i1 %.not31.i, label %45, label %46
@@ -188,13 +188,13 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 50:                                               ; preds = %48, %46
   %storemerge.i = phi ptr [ %49, %48 ], [ null, %46 ]
   store ptr %storemerge.i, ptr %43, align 8
-  %51 = getelementptr inbounds i8, ptr %.02237.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.02237.i, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not30.i = icmp eq ptr %52, null
   br i1 %.not30.i, label %53, label %42
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %43, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr null, ptr %54, align 8
   br label %textAdd.exit
 
@@ -208,13 +208,13 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .preheader.i15:                                   ; preds = %57, %.preheader.i15
   %.029.i = phi ptr [ %60, %.preheader.i15 ], [ %0, %57 ]
-  %59 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i16 = icmp eq ptr %60, null
   br i1 %.not.i16, label %61, label %.preheader.i15
 
 61:                                               ; preds = %.preheader.i15
-  %62 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %63 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   store ptr %63, ptr %62, align 8
   %64 = icmp eq ptr %63, null
@@ -235,9 +235,9 @@ define ptr @textAddMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 69:                                               ; preds = %68, %66
   store ptr %67, ptr %63, align 8
-  %70 = getelementptr inbounds i8, ptr %56, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %63, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %71, ptr %72, align 8
   br label %textMove.exit
 
@@ -285,9 +285,9 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %1, align 8
   store ptr %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %14, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %31
@@ -297,13 +297,13 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 .preheader:                                       ; preds = %16, %.preheader
   %.029 = phi ptr [ %18, %.preheader ], [ %0, %16 ]
-  %17 = getelementptr inbounds i8, ptr %.029, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %.preheader
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.029, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   store ptr %21, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -324,9 +324,9 @@ define noundef ptr @textMove(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 27:                                               ; preds = %24, %26
   store ptr %25, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %29, ptr %30, align 8
   store ptr null, ptr %28, align 8
   br label %31
@@ -366,7 +366,7 @@ define noundef ptr @textToBlob(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 
 getLength.exit:                                   ; preds = %6, %11
   %storemerge.i = phi i64 [ %12, %11 ], [ %10, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.121.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.121.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
@@ -426,7 +426,7 @@ addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
   br label %35
 
 35:                                               ; preds = %33, %addToBlob.exit33
-  %36 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not16.i = icmp eq ptr %37, null
   br i1 %.not16.i, label %textIterate.exit28, label %.preheader18.i
@@ -445,7 +445,7 @@ addToBlob.exit33:                                 ; preds = %.preheader18.i, %27
 
 addToBlob.exit:                                   ; preds = %.preheader.i25, %39
   %43 = tail call i32 @blobAddData(ptr noundef nonnull %.018, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %44 = getelementptr inbounds i8, ptr %.121.i26, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.121.i26, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not15.i27 = icmp eq ptr %45, null
   br i1 %.not15.i27, label %textIterate.exit28, label %.preheader.i25
@@ -454,14 +454,14 @@ textIterate.exit28:                               ; preds = %35, %addToBlob.exit
   br i1 %.not.i, label %55, label %46
 
 46:                                               ; preds = %textIterate.exit28
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not24 = icmp eq ptr %48, null
   br i1 %.not24, label %55, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46, %54
   %.010.i = phi ptr [ %50, %54 ], [ %48, %46 ]
-  %49 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %.010.i, align 8
   %.not8.i = icmp eq ptr %51, null
@@ -519,7 +519,7 @@ define nonnull ptr @textToFileblob(ptr noundef %0, ptr noundef returned %1, i32 
 7:                                                ; preds = %5
   %8 = tail call ptr @fileblobGetFilename(ptr noundef nonnull %1) #7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, ptr noundef %8, i32 noundef %2) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %9, align 8
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %.preheader.i, label %.preheader18.i
@@ -548,7 +548,7 @@ addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
   br label %19
 
 19:                                               ; preds = %17, %addToFileblob.exit27
-  %20 = getelementptr inbounds i8, ptr %.020.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.020.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %textIterate.exit, label %.preheader18.i
@@ -567,7 +567,7 @@ addToFileblob.exit27:                             ; preds = %.preheader18.i, %11
 
 addToFileblob.exit:                               ; preds = %.preheader.i, %23
   %27 = tail call i32 @fileblobAddData(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 1) #7
-  %28 = getelementptr inbounds i8, ptr %.121.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.121.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not15.i = icmp eq ptr %29, null
   br i1 %.not15.i, label %textIterate.exit, label %.preheader.i
@@ -576,14 +576,14 @@ textIterate.exit:                                 ; preds = %19, %addToFileblob.
   br i1 %.not.i, label %39, label %30
 
 30:                                               ; preds = %textIterate.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not23 = icmp eq ptr %32, null
   br i1 %.not23, label %39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %38
   %.010.i = phi ptr [ %34, %38 ], [ %32, %30 ]
-  %33 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %.010.i, align 8
   %.not8.i = icmp eq ptr %35, null

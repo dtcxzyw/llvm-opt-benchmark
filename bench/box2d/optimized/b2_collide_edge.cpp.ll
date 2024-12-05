@@ -13,15 +13,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z22b2CollideEdgeAndCircleP10b2ManifoldPK11b2EdgeShapeRK11b2TransformPK13b2CircleShapeS6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %edgeA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %circleB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
 entry:
-  %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
+  %pointCount = getelementptr inbounds nuw i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
-  %m_p = getelementptr inbounds i8, ptr %circleB, i64 16
-  %q.i = getelementptr inbounds i8, ptr %xfB, i64 8
-  %c.i = getelementptr inbounds i8, ptr %xfB, i64 12
+  %m_p = getelementptr inbounds nuw i8, ptr %circleB, i64 16
+  %q.i = getelementptr inbounds nuw i8, ptr %xfB, i64 8
+  %c.i = getelementptr inbounds nuw i8, ptr %xfB, i64 12
   %0 = load float, ptr %c.i, align 4
   %1 = load float, ptr %m_p, align 4
   %2 = load float, ptr %q.i, align 4
-  %y.i = getelementptr inbounds i8, ptr %circleB, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %circleB, i64 20
   %3 = load float, ptr %y.i, align 4
   %4 = fneg float %3
   %neg.i = fmul float %2, %4
@@ -30,16 +30,16 @@ entry:
   %add.i = fadd float %6, %5
   %mul12.i = fmul float %0, %3
   %7 = tail call float @llvm.fmuladd.f32(float %2, float %1, float %mul12.i)
-  %y14.i = getelementptr inbounds i8, ptr %xfB, i64 4
+  %y14.i = getelementptr inbounds nuw i8, ptr %xfB, i64 4
   %8 = load float, ptr %y14.i, align 4
   %add15.i = fadd float %7, %8
   %9 = load float, ptr %xfA, align 4
   %sub.i = fsub float %add.i, %9
-  %y3.i = getelementptr inbounds i8, ptr %xfA, i64 4
+  %y3.i = getelementptr inbounds nuw i8, ptr %xfA, i64 4
   %10 = load float, ptr %y3.i, align 4
   %sub4.i = fsub float %add15.i, %10
-  %q.i50 = getelementptr inbounds i8, ptr %xfA, i64 8
-  %c.i51 = getelementptr inbounds i8, ptr %xfA, i64 12
+  %q.i50 = getelementptr inbounds nuw i8, ptr %xfA, i64 8
+  %c.i51 = getelementptr inbounds nuw i8, ptr %xfA, i64 12
   %11 = load float, ptr %c.i51, align 4
   %12 = load float, ptr %q.i50, align 4
   %mul7.i = fmul float %sub4.i, %12
@@ -47,15 +47,15 @@ entry:
   %fneg.i = fneg float %12
   %mul13.i = fmul float %11, %sub4.i
   %14 = tail call float @llvm.fmuladd.f32(float %fneg.i, float %sub.i, float %mul13.i)
-  %m_vertex1 = getelementptr inbounds i8, ptr %edgeA, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %edgeA, i64 16
   %15 = load i32, ptr %m_vertex1, align 8
-  %m_vertex1.sroa_idx = getelementptr inbounds i8, ptr %edgeA, i64 20
+  %m_vertex1.sroa_idx = getelementptr inbounds nuw i8, ptr %edgeA, i64 20
   %16 = load i32, ptr %m_vertex1.sroa_idx, align 4
   %17 = bitcast i32 %15 to float
   %18 = bitcast i32 %16 to float
-  %m_vertex2 = getelementptr inbounds i8, ptr %edgeA, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %edgeA, i64 24
   %19 = load i32, ptr %m_vertex2, align 8
-  %m_vertex2.sroa_idx = getelementptr inbounds i8, ptr %edgeA, i64 28
+  %m_vertex2.sroa_idx = getelementptr inbounds nuw i8, ptr %edgeA, i64 28
   %20 = load i32, ptr %m_vertex2.sroa_idx, align 4
   %21 = bitcast i32 %19 to float
   %22 = bitcast i32 %20 to float
@@ -66,7 +66,7 @@ entry:
   %sub3.i62 = fsub float %14, %18
   %mul3.i = fmul float %sub3.i62, %fneg
   %23 = tail call noundef float @llvm.fmuladd.f32(float %sub3.i, float %sub.i59, float %mul3.i)
-  %m_oneSided = getelementptr inbounds i8, ptr %edgeA, i64 48
+  %m_oneSided = getelementptr inbounds nuw i8, ptr %edgeA, i64 48
   %24 = load i8, ptr %m_oneSided, align 8
   %tobool = trunc i8 %24 to i1
   %cmp = fcmp olt float %23, 0.000000e+00
@@ -80,9 +80,9 @@ if.end:                                           ; preds = %entry
   %25 = tail call noundef float @llvm.fmuladd.f32(float %sub.i54, float %sub.i67, float %mul3.i75)
   %mul3.i84 = fmul float %sub3.i62, %sub3.i
   %26 = tail call noundef float @llvm.fmuladd.f32(float %sub.i54, float %sub.i59, float %mul3.i84)
-  %m_radius = getelementptr inbounds i8, ptr %edgeA, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %edgeA, i64 12
   %27 = load float, ptr %m_radius, align 4
-  %m_radius13 = getelementptr inbounds i8, ptr %circleB, i64 12
+  %m_radius13 = getelementptr inbounds nuw i8, ptr %circleB, i64 12
   %28 = load float, ptr %m_radius13, align 4
   %add = fadd float %27, %28
   %cmp14 = fcmp ugt float %26, 0.000000e+00
@@ -99,9 +99,9 @@ if.end20:                                         ; preds = %if.then15
   br i1 %tobool, label %if.then23, label %return.sink.split
 
 if.then23:                                        ; preds = %if.end20
-  %m_vertex0 = getelementptr inbounds i8, ptr %edgeA, i64 32
+  %m_vertex0 = getelementptr inbounds nuw i8, ptr %edgeA, i64 32
   %30 = load float, ptr %m_vertex0, align 8
-  %m_vertex0.sroa_idx = getelementptr inbounds i8, ptr %edgeA, i64 36
+  %m_vertex0.sroa_idx = getelementptr inbounds nuw i8, ptr %edgeA, i64 36
   %31 = load float, ptr %m_vertex0.sroa_idx, align 4
   %sub.i94 = fsub float %17, %30
   %sub3.i97 = fsub float %18, %31
@@ -129,9 +129,9 @@ if.end51:                                         ; preds = %if.then42
   br i1 %tobool, label %if.then54, label %return.sink.split
 
 if.then54:                                        ; preds = %if.end51
-  %m_vertex3 = getelementptr inbounds i8, ptr %edgeA, i64 40
+  %m_vertex3 = getelementptr inbounds nuw i8, ptr %edgeA, i64 40
   %34 = load float, ptr %m_vertex3, align 8
-  %m_vertex3.sroa_idx = getelementptr inbounds i8, ptr %edgeA, i64 44
+  %m_vertex3.sroa_idx = getelementptr inbounds nuw i8, ptr %edgeA, i64 44
   %35 = load float, ptr %m_vertex3.sroa_idx, align 4
   %sub.i119 = fsub float %34, %21
   %sub3.i122 = fsub float %35, %22
@@ -183,17 +183,17 @@ return.sink.split:                                ; preds = %if.end51, %if.then5
   %.sink254 = phi i32 [ %16, %if.end96 ], [ %16, %if.then23 ], [ %16, %if.end20 ], [ %20, %if.then54 ], [ %20, %if.end51 ]
   %.sink = phi i32 [ 65536, %if.end96 ], [ 0, %if.then23 ], [ 0, %if.end20 ], [ 1, %if.then54 ], [ 1, %if.end51 ]
   store i32 1, ptr %pointCount, align 4
-  %type = getelementptr inbounds i8, ptr %manifold, i64 56
+  %type = getelementptr inbounds nuw i8, ptr %manifold, i64 56
   store i32 %.sink258, ptr %type, align 4
-  %localNormal = getelementptr inbounds i8, ptr %manifold, i64 40
+  %localNormal = getelementptr inbounds nuw i8, ptr %manifold, i64 40
   store float %.sink257, ptr %localNormal, align 4
-  %y.i109 = getelementptr inbounds i8, ptr %manifold, i64 44
+  %y.i109 = getelementptr inbounds nuw i8, ptr %manifold, i64 44
   store float %.sink256, ptr %y.i109, align 4
-  %localPoint = getelementptr inbounds i8, ptr %manifold, i64 48
+  %localPoint = getelementptr inbounds nuw i8, ptr %manifold, i64 48
   store i32 %.sink255, ptr %localPoint, align 4
-  %localPoint.sroa_idx = getelementptr inbounds i8, ptr %manifold, i64 52
+  %localPoint.sroa_idx = getelementptr inbounds nuw i8, ptr %manifold, i64 52
   store i32 %.sink254, ptr %localPoint.sroa_idx, align 4
-  %id = getelementptr inbounds i8, ptr %manifold, i64 16
+  %id = getelementptr inbounds nuw i8, ptr %manifold, i64 16
   store i32 %.sink, ptr %id, align 4
   %40 = load i64, ptr %m_p, align 8
   store i64 %40, ptr %manifold, align 4
@@ -212,15 +212,15 @@ entry:
   %ref = alloca %struct.b2ReferenceFace, align 4
   %clipPoints1 = alloca [2 x %struct.b2ClipVertex], align 16
   %clipPoints2 = alloca [2 x %struct.b2ClipVertex], align 16
-  %pointCount = getelementptr inbounds i8, ptr %manifold, i64 60
+  %pointCount = getelementptr inbounds nuw i8, ptr %manifold, i64 60
   store i32 0, ptr %pointCount, align 4
-  %q.i = getelementptr inbounds i8, ptr %xfA, i64 8
-  %q1.i = getelementptr inbounds i8, ptr %xfB, i64 8
-  %c.i.i = getelementptr inbounds i8, ptr %xfA, i64 12
+  %q.i = getelementptr inbounds nuw i8, ptr %xfA, i64 8
+  %q1.i = getelementptr inbounds nuw i8, ptr %xfB, i64 8
+  %c.i.i = getelementptr inbounds nuw i8, ptr %xfA, i64 12
   %0 = load float, ptr %c.i.i, align 4
   %1 = load float, ptr %q1.i, align 4
   %2 = load float, ptr %q.i, align 4
-  %c2.i.i = getelementptr inbounds i8, ptr %xfB, i64 12
+  %c2.i.i = getelementptr inbounds nuw i8, ptr %xfB, i64 12
   %3 = load float, ptr %c2.i.i, align 4
   %4 = fneg float %3
   %neg.i.i = fmul float %2, %4
@@ -230,9 +230,9 @@ entry:
   %7 = load float, ptr %xfB, align 4
   %8 = load float, ptr %xfA, align 4
   %sub.i.i = fsub float %7, %8
-  %y.i.i = getelementptr inbounds i8, ptr %xfB, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %xfB, i64 4
   %9 = load float, ptr %y.i.i, align 4
-  %y2.i.i = getelementptr inbounds i8, ptr %xfA, i64 4
+  %y2.i.i = getelementptr inbounds nuw i8, ptr %xfA, i64 4
   %10 = load float, ptr %y2.i.i, align 4
   %sub3.i.i = fsub float %9, %10
   %mul1.i.i = fmul float %2, %sub3.i.i
@@ -240,9 +240,9 @@ entry:
   %fneg.i.i = fneg float %2
   %mul6.i.i = fmul float %0, %sub3.i.i
   %12 = tail call float @llvm.fmuladd.f32(float %fneg.i.i, float %sub.i.i, float %mul6.i.i)
-  %m_centroid = getelementptr inbounds i8, ptr %polygonB, i64 16
+  %m_centroid = getelementptr inbounds nuw i8, ptr %polygonB, i64 16
   %13 = load float, ptr %m_centroid, align 4
-  %y.i = getelementptr inbounds i8, ptr %polygonB, i64 20
+  %y.i = getelementptr inbounds nuw i8, ptr %polygonB, i64 20
   %14 = load float, ptr %y.i, align 4
   %15 = fneg float %14
   %neg.i = fmul float %5, %15
@@ -251,15 +251,15 @@ entry:
   %mul12.i = fmul float %6, %14
   %17 = tail call float @llvm.fmuladd.f32(float %5, float %13, float %mul12.i)
   %add15.i = fadd float %12, %17
-  %m_vertex1 = getelementptr inbounds i8, ptr %edgeA, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %edgeA, i64 16
   %18 = load i32, ptr %m_vertex1, align 8
-  %m_vertex1.sroa_idx = getelementptr inbounds i8, ptr %edgeA, i64 20
+  %m_vertex1.sroa_idx = getelementptr inbounds nuw i8, ptr %edgeA, i64 20
   %19 = load i32, ptr %m_vertex1.sroa_idx, align 4
   %20 = bitcast i32 %18 to float
   %21 = bitcast i32 %19 to float
-  %m_vertex2 = getelementptr inbounds i8, ptr %edgeA, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %edgeA, i64 24
   %22 = load i32, ptr %m_vertex2, align 8
-  %m_vertex2.sroa_idx = getelementptr inbounds i8, ptr %edgeA, i64 28
+  %m_vertex2.sroa_idx = getelementptr inbounds nuw i8, ptr %edgeA, i64 28
   %23 = load i32, ptr %m_vertex2.sroa_idx, align 4
   %24 = bitcast i32 %22 to float
   %25 = bitcast i32 %23 to float
@@ -271,8 +271,8 @@ entry:
   %26 = tail call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul4.i.i)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %26)
   %cmp.i = fcmp olt float %sqrt.i.i, 0x3E80000000000000
-  %indvars.iv.i.sroa.gep = getelementptr inbounds i8, ptr %axes.i, i64 8
-  %indvars.iv345.sroa.gep361 = getelementptr inbounds i8, ptr %clipPoints2, i64 12
+  %indvars.iv.i.sroa.gep = getelementptr inbounds nuw i8, ptr %axes.i, i64 8
+  %indvars.iv345.sroa.gep361 = getelementptr inbounds nuw i8, ptr %clipPoints2, i64 12
   br i1 %cmp.i, label %_ZN6b2Vec29NormalizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -292,7 +292,7 @@ _ZN6b2Vec29NormalizeEv.exit:                      ; preds = %entry, %if.end.i
   %sub3.i71 = fsub float %add15.i, %21
   %mul3.i = fmul float %sub3.i71, %fneg
   %27 = tail call noundef float @llvm.fmuladd.f32(float %edge1.sroa.0.4.vec.extract, float %sub.i68, float %mul3.i)
-  %m_oneSided = getelementptr inbounds i8, ptr %edgeA, i64 48
+  %m_oneSided = getelementptr inbounds nuw i8, ptr %edgeA, i64 48
   %28 = load i8, ptr %m_oneSided, align 8
   %tobool = trunc i8 %28 to i1
   %cmp = fcmp olt float %27, 0.000000e+00
@@ -300,25 +300,25 @@ _ZN6b2Vec29NormalizeEv.exit:                      ; preds = %entry, %if.end.i
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6b2Vec29NormalizeEv.exit
-  %m_count = getelementptr inbounds i8, ptr %polygonB, i64 152
+  %m_count = getelementptr inbounds nuw i8, ptr %polygonB, i64 152
   %29 = load i32, ptr %m_count, align 8
-  %count = getelementptr inbounds i8, ptr %tempPolygonB, i64 128
+  %count = getelementptr inbounds nuw i8, ptr %tempPolygonB, i64 128
   store i32 %29, ptr %count, align 4
   %cmp8330 = icmp sgt i32 %29, 0
   br i1 %cmp8330, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %m_vertices = getelementptr inbounds i8, ptr %polygonB, i64 24
-  %m_normals = getelementptr inbounds i8, ptr %polygonB, i64 88
-  %normals = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
+  %m_vertices = getelementptr inbounds nuw i8, ptr %polygonB, i64 24
+  %m_normals = getelementptr inbounds nuw i8, ptr %polygonB, i64 88
+  %normals = getelementptr inbounds nuw i8, ptr %tempPolygonB, i64 64
   %wide.trip.count = zext nneg i32 %29 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_vertices, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %m_vertices, i64 0, i64 %indvars.iv
   %30 = load float, ptr %arrayidx, align 4
-  %y.i78 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %y.i78 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %31 = load float, ptr %y.i78, align 4
   %32 = fneg float %31
   %neg.i79 = fmul float %5, %32
@@ -329,11 +329,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add15.i83 = fadd float %12, %34
   %retval.sroa.0.0.vec.insert.i84 = insertelement <2 x float> poison, float %add.i80, i64 0
   %retval.sroa.0.4.vec.insert.i85 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i84, float %add15.i83, i64 1
-  %arrayidx12 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv
   store <2 x float> %retval.sroa.0.4.vec.insert.i85, ptr %arrayidx12, align 4
-  %arrayidx15 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_normals, i64 0, i64 %indvars.iv
+  %arrayidx15 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %m_normals, i64 0, i64 %indvars.iv
   %35 = load float, ptr %arrayidx15, align 4
-  %y.i87 = getelementptr inbounds i8, ptr %arrayidx15, i64 4
+  %y.i87 = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 4
   %36 = load float, ptr %y.i87, align 4
   %37 = fneg float %36
   %neg.i88 = fmul float %5, %37
@@ -342,7 +342,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %39 = tail call float @llvm.fmuladd.f32(float %5, float %35, float %mul6.i)
   %retval.sroa.0.0.vec.insert.i89 = insertelement <2 x float> poison, float %38, i64 0
   %retval.sroa.0.4.vec.insert.i90 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i89, float %39, i64 1
-  %arrayidx18 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %normals, i64 0, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %normals, i64 0, i64 %indvars.iv
   store <2 x float> %retval.sroa.0.4.vec.insert.i90, ptr %arrayidx18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -354,9 +354,9 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %40 = phi i32 [ %.pre, %for.end.loopexit ], [ %29, %if.end ]
-  %m_radius = getelementptr inbounds i8, ptr %polygonB, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %polygonB, i64 12
   %41 = load float, ptr %m_radius, align 4
-  %m_radius19 = getelementptr inbounds i8, ptr %edgeA, i64 12
+  %m_radius19 = getelementptr inbounds nuw i8, ptr %edgeA, i64 12
   %42 = load float, ptr %m_radius19, align 4
   %add = fadd float %41, %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %axes.i)
@@ -388,7 +388,7 @@ for.cond1.preheader.us.i:                         ; preds = %for.inc18.us.i, %fo
   %indvars.iv10.i = phi i32 [ 0, %for.cond1.preheader.us.preheader.i ], [ 1, %for.inc18.us.i ]
   %45 = phi float [ 0xC7EFFFFFE0000000, %for.cond1.preheader.us.preheader.i ], [ %48, %for.inc18.us.i ]
   %46 = load float, ptr %indvars.iv10.i.sroa.phi, align 4, !noalias !6
-  %y.i16.us.i = getelementptr inbounds i8, ptr %indvars.iv10.i.sroa.phi, i64 4
+  %y.i16.us.i = getelementptr inbounds nuw i8, ptr %indvars.iv10.i.sroa.phi, i64 4
   %47 = load float, ptr %y.i16.us.i, align 4, !noalias !6
   br label %for.body3.us.i
 
@@ -406,10 +406,10 @@ for.inc18.us.i:                                   ; preds = %for.cond1.for.end_c
 for.body3.us.i:                                   ; preds = %for.body3.us.i, %for.cond1.preheader.us.i
   %indvars.iv7.i = phi i64 [ 0, %for.cond1.preheader.us.i ], [ %indvars.iv.next8.i, %for.body3.us.i ]
   %sj.02.us.i = phi float [ 0x47EFFFFFE0000000, %for.cond1.preheader.us.i ], [ %sj.1.us.i, %for.body3.us.i ]
-  %arrayidx5.us.i = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv7.i
+  %arrayidx5.us.i = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv7.i
   %49 = load float, ptr %arrayidx5.us.i, align 4, !noalias !6
   %sub.i.us.i = fsub float %49, %20
-  %y.i13.us.i = getelementptr inbounds i8, ptr %arrayidx5.us.i, i64 4
+  %y.i13.us.i = getelementptr inbounds nuw i8, ptr %arrayidx5.us.i, i64 4
   %50 = load float, ptr %y.i13.us.i, align 4, !noalias !6
   %sub3.i.us.i = fsub float %50, %21
   %mul3.i.us.i = fmul float %47, %sub3.i.us.i
@@ -438,7 +438,7 @@ for.cond1.preheader.i:                            ; preds = %for.end, %for.inc18
 
 if.then11.i:                                      ; preds = %for.cond1.preheader.i
   %53 = load float, ptr %indvars.iv.i.sroa.phi, align 8
-  %arrayidx15.i.sroa_idx = getelementptr inbounds i8, ptr %indvars.iv.i.sroa.phi, i64 4
+  %arrayidx15.i.sroa_idx = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 4
   %54 = load float, ptr %arrayidx15.i.sroa_idx, align 4
   br label %for.inc18.i
 
@@ -463,7 +463,7 @@ if.end22:                                         ; preds = %_ZL23b2ComputeEdgeS
   br i1 %cmp21.i, label %for.body.lr.ph.i, label %_ZL26b2ComputePolygonSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end22
-  %normals.i = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
+  %normals.i = getelementptr inbounds nuw i8, ptr %tempPolygonB, i64 64
   %wide.trip.count.i101 = zext nneg i32 %40 to i64
   br label %for.body.i
 
@@ -474,16 +474,16 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %polygonAxis.sroa.0.0 = phi <2 x float> [ zeroinitializer, %for.body.lr.ph.i ], [ %polygonAxis.sroa.0.1, %for.inc.i ]
   %indvars.iv.i102 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %56 = phi float [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ], [ %64, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [8 x %struct.b2Vec2], ptr %normals.i, i64 0, i64 %indvars.iv.i102
+  %arrayidx.i = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %normals.i, i64 0, i64 %indvars.iv.i102
   %57 = load float, ptr %arrayidx.i, align 4, !noalias !11
   %fneg.i.i103 = fneg float %57
-  %y.i10.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %y.i10.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %58 = load float, ptr %y.i10.i, align 4, !noalias !11
   %fneg2.i.i104 = fneg float %58
-  %arrayidx2.i = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv.i102
+  %arrayidx2.i = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %indvars.iv.i102
   %59 = load float, ptr %arrayidx2.i, align 4, !noalias !11
   %sub.i.i105 = fsub float %59, %20
-  %y.i11.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 4
+  %y.i11.i = getelementptr inbounds nuw i8, ptr %arrayidx2.i, i64 4
   %60 = load float, ptr %y.i11.i, align 4, !noalias !11
   %sub3.i.i106 = fsub float %60, %21
   %mul3.i.i = fmul float %sub3.i.i106, %fneg2.i.i104
@@ -545,10 +545,10 @@ if.end32:                                         ; preds = %if.end26, %if.then3
   br i1 %tobool, label %if.then34, label %if.end76
 
 if.then34:                                        ; preds = %if.end32
-  %m_vertex0 = getelementptr inbounds i8, ptr %edgeA, i64 32
+  %m_vertex0 = getelementptr inbounds nuw i8, ptr %edgeA, i64 32
   %67 = load float, ptr %m_vertex0, align 4
   %sub.i110 = fsub float %20, %67
-  %y2.i112 = getelementptr inbounds i8, ptr %edgeA, i64 36
+  %y2.i112 = getelementptr inbounds nuw i8, ptr %edgeA, i64 36
   %68 = load float, ptr %y2.i112, align 4
   %sub3.i113 = fsub float %21, %68
   %retval.sroa.0.0.vec.insert.i114 = insertelement <2 x float> poison, float %sub.i110, i64 0
@@ -574,10 +574,10 @@ _ZN6b2Vec29NormalizeEv.exit125:                   ; preds = %if.then34, %if.end.
   %fneg39 = fneg float %edge0.sroa.0.0.vec.extract
   %neg.i128 = fmul float %edge0.sroa.0.4.vec.extract, %fneg
   %70 = tail call noundef float @llvm.fmuladd.f32(float %edge0.sroa.0.0.vec.extract, float %edge1.sroa.0.4.vec.extract, float %neg.i128)
-  %m_vertex3 = getelementptr inbounds i8, ptr %edgeA, i64 40
+  %m_vertex3 = getelementptr inbounds nuw i8, ptr %edgeA, i64 40
   %71 = load float, ptr %m_vertex3, align 4
   %sub.i129 = fsub float %71, %24
-  %y.i130 = getelementptr inbounds i8, ptr %edgeA, i64 44
+  %y.i130 = getelementptr inbounds nuw i8, ptr %edgeA, i64 44
   %72 = load float, ptr %y.i130, align 4
   %sub3.i132 = fsub float %72, %25
   %retval.sroa.0.0.vec.insert.i133 = insertelement <2 x float> poison, float %sub.i129, i64 0
@@ -635,15 +635,15 @@ if.end76:                                         ; preds = %if.then57, %if.then
 if.then78:                                        ; preds = %if.else65, %if.then55, %if.end76
   %primaryAxis.sroa.0.1326 = phi float [ %primaryAxis.sroa.0.0, %if.end76 ], [ %edgeAxis.sroa.0.4, %if.then55 ], [ %edgeAxis.sroa.0.4, %if.else65 ]
   %primaryAxis.sroa.10.1325 = phi float [ %primaryAxis.sroa.10.0, %if.end76 ], [ %edgeAxis.sroa.6.4, %if.then55 ], [ %edgeAxis.sroa.6.4, %if.else65 ]
-  %type79 = getelementptr inbounds i8, ptr %manifold, i64 56
+  %type79 = getelementptr inbounds nuw i8, ptr %manifold, i64 56
   store i32 1, ptr %type79, align 4
-  %normals81 = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
+  %normals81 = getelementptr inbounds nuw i8, ptr %tempPolygonB, i64 64
   %cmp87332 = icmp sgt i32 %40, 1
   br i1 %cmp87332, label %for.body88.preheader, label %for.end99
 
 for.body88.preheader:                             ; preds = %if.then78
   %79 = load float, ptr %normals81, align 4
-  %y2.i159 = getelementptr inbounds i8, ptr %tempPolygonB, i64 68
+  %y2.i159 = getelementptr inbounds nuw i8, ptr %tempPolygonB, i64 68
   %80 = load float, ptr %y2.i159, align 4
   %mul3.i160 = fmul float %primaryAxis.sroa.10.1325, %80
   %81 = tail call noundef float @llvm.fmuladd.f32(float %primaryAxis.sroa.0.1326, float %79, float %mul3.i160)
@@ -654,9 +654,9 @@ for.body88:                                       ; preds = %for.body88.preheade
   %indvars.iv340 = phi i64 [ 1, %for.body88.preheader ], [ %indvars.iv.next341, %for.body88 ]
   %bestIndex.0335 = phi i32 [ 0, %for.body88.preheader ], [ %bestIndex.1, %for.body88 ]
   %bestValue.0334 = phi float [ %81, %for.body88.preheader ], [ %bestValue.1, %for.body88 ]
-  %arrayidx92 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %normals81, i64 0, i64 %indvars.iv340
+  %arrayidx92 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %normals81, i64 0, i64 %indvars.iv340
   %82 = load float, ptr %arrayidx92, align 4
-  %y2.i162 = getelementptr inbounds i8, ptr %arrayidx92, i64 4
+  %y2.i162 = getelementptr inbounds nuw i8, ptr %arrayidx92, i64 4
   %83 = load float, ptr %y2.i162, align 4
   %mul3.i163 = fmul float %primaryAxis.sroa.10.1325, %83
   %84 = tail call noundef float @llvm.fmuladd.f32(float %primaryAxis.sroa.0.1326, float %82, float %mul3.i163)
@@ -674,106 +674,106 @@ for.end99:                                        ; preds = %for.body88, %if.the
   %cmp102 = icmp slt i32 %add100, %40
   %cond = select i1 %cmp102, i32 %add100, i32 0
   %idxprom105 = zext nneg i32 %bestIndex.0.lcssa to i64
-  %arrayidx106 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom105
+  %arrayidx106 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom105
   %86 = load i64, ptr %arrayidx106, align 4
   store i64 %86, ptr %clipPoints, align 16
-  %id = getelementptr inbounds i8, ptr %clipPoints, i64 8
+  %id = getelementptr inbounds nuw i8, ptr %clipPoints, i64 8
   store i8 0, ptr %id, align 8
   %conv = trunc i32 %bestIndex.0.lcssa to i8
-  %indexB = getelementptr inbounds i8, ptr %clipPoints, i64 9
+  %indexB = getelementptr inbounds nuw i8, ptr %clipPoints, i64 9
   store i8 %conv, ptr %indexB, align 1
-  %typeA = getelementptr inbounds i8, ptr %clipPoints, i64 10
+  %typeA = getelementptr inbounds nuw i8, ptr %clipPoints, i64 10
   store i8 1, ptr %typeA, align 2
-  %typeB = getelementptr inbounds i8, ptr %clipPoints, i64 11
+  %typeB = getelementptr inbounds nuw i8, ptr %clipPoints, i64 11
   store i8 0, ptr %typeB, align 1
   %idxprom116 = zext nneg i32 %cond to i64
-  %arrayidx117 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom116
-  %arrayidx118 = getelementptr inbounds i8, ptr %clipPoints, i64 12
+  %arrayidx117 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom116
+  %arrayidx118 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 12
   %87 = load i64, ptr %arrayidx117, align 4
   store i64 %87, ptr %arrayidx118, align 4
-  %id121 = getelementptr inbounds i8, ptr %clipPoints, i64 20
+  %id121 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 20
   store i8 0, ptr %id121, align 4
   %conv123 = trunc i32 %cond to i8
-  %indexB126 = getelementptr inbounds i8, ptr %clipPoints, i64 21
+  %indexB126 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 21
   store i8 %conv123, ptr %indexB126, align 1
-  %typeA129 = getelementptr inbounds i8, ptr %clipPoints, i64 22
+  %typeA129 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 22
   store i8 1, ptr %typeA129, align 2
-  %typeB132 = getelementptr inbounds i8, ptr %clipPoints, i64 23
+  %typeB132 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 23
   store i8 0, ptr %typeB132, align 1
   store i32 0, ptr %ref, align 4
-  %i2134 = getelementptr inbounds i8, ptr %ref, i64 4
+  %i2134 = getelementptr inbounds nuw i8, ptr %ref, i64 4
   store i32 1, ptr %i2134, align 4
-  %v1135 = getelementptr inbounds i8, ptr %ref, i64 8
+  %v1135 = getelementptr inbounds nuw i8, ptr %ref, i64 8
   store i32 %18, ptr %v1135, align 4
-  %v1135.sroa_idx = getelementptr inbounds i8, ptr %ref, i64 12
+  %v1135.sroa_idx = getelementptr inbounds nuw i8, ptr %ref, i64 12
   store i32 %19, ptr %v1135.sroa_idx, align 4
-  %v2136 = getelementptr inbounds i8, ptr %ref, i64 16
+  %v2136 = getelementptr inbounds nuw i8, ptr %ref, i64 16
   store i32 %22, ptr %v2136, align 4
-  %v2136.sroa_idx = getelementptr inbounds i8, ptr %ref, i64 20
+  %v2136.sroa_idx = getelementptr inbounds nuw i8, ptr %ref, i64 20
   store i32 %23, ptr %v2136.sroa_idx, align 4
-  %normal138 = getelementptr inbounds i8, ptr %ref, i64 24
+  %normal138 = getelementptr inbounds nuw i8, ptr %ref, i64 24
   store float %primaryAxis.sroa.0.1326, ptr %normal138, align 4
-  %normal138.sroa_idx = getelementptr inbounds i8, ptr %ref, i64 28
+  %normal138.sroa_idx = getelementptr inbounds nuw i8, ptr %ref, i64 28
   store float %primaryAxis.sroa.10.1325, ptr %normal138.sroa_idx, align 4
   %retval.sroa.0.0.vec.insert.i165 = insertelement <2 x float> poison, float %fneg, i64 0
   %retval.sroa.0.4.vec.insert.i166 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i165, float %fneg.i.i92, i64 1
-  %sideNormal1 = getelementptr inbounds i8, ptr %ref, i64 32
+  %sideNormal1 = getelementptr inbounds nuw i8, ptr %ref, i64 32
   store <2 x float> %retval.sroa.0.4.vec.insert.i166, ptr %sideNormal1, align 4
-  %sideNormal2 = getelementptr inbounds i8, ptr %ref, i64 44
+  %sideNormal2 = getelementptr inbounds nuw i8, ptr %ref, i64 44
   store <2 x float> %edge1.sroa.0.0, ptr %sideNormal2, align 4
   %88 = extractelement <2 x float> %edge1.sroa.0.0, i64 0
   %89 = extractelement <2 x float> %edge1.sroa.0.0, i64 1
   br label %if.end212
 
 if.else141:                                       ; preds = %if.end76
-  %type142 = getelementptr inbounds i8, ptr %manifold, i64 56
+  %type142 = getelementptr inbounds nuw i8, ptr %manifold, i64 56
   store i32 2, ptr %type142, align 4
   store i32 %22, ptr %clipPoints, align 16
-  %clipPoints.sroa_idx = getelementptr inbounds i8, ptr %clipPoints, i64 4
+  %clipPoints.sroa_idx = getelementptr inbounds nuw i8, ptr %clipPoints, i64 4
   store i32 %23, ptr %clipPoints.sroa_idx, align 4
-  %id146 = getelementptr inbounds i8, ptr %clipPoints, i64 8
+  %id146 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 8
   store i8 1, ptr %id146, align 8
   %conv148 = trunc i32 %primaryAxis.sroa.19.0 to i8
-  %indexB151 = getelementptr inbounds i8, ptr %clipPoints, i64 9
+  %indexB151 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 9
   store i8 %conv148, ptr %indexB151, align 1
-  %typeA154 = getelementptr inbounds i8, ptr %clipPoints, i64 10
+  %typeA154 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 10
   store i8 0, ptr %typeA154, align 2
-  %typeB157 = getelementptr inbounds i8, ptr %clipPoints, i64 11
+  %typeB157 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 11
   store i8 1, ptr %typeB157, align 1
-  %arrayidx158 = getelementptr inbounds i8, ptr %clipPoints, i64 12
+  %arrayidx158 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 12
   store i32 %18, ptr %arrayidx158, align 4
-  %arrayidx158.sroa_idx = getelementptr inbounds i8, ptr %clipPoints, i64 16
+  %arrayidx158.sroa_idx = getelementptr inbounds nuw i8, ptr %clipPoints, i64 16
   store i32 %19, ptr %arrayidx158.sroa_idx, align 16
-  %id161 = getelementptr inbounds i8, ptr %clipPoints, i64 20
+  %id161 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 20
   store i8 0, ptr %id161, align 4
-  %indexB167 = getelementptr inbounds i8, ptr %clipPoints, i64 21
+  %indexB167 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 21
   store i8 %conv148, ptr %indexB167, align 1
-  %typeA170 = getelementptr inbounds i8, ptr %clipPoints, i64 22
+  %typeA170 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 22
   store i8 0, ptr %typeA170, align 2
-  %typeB173 = getelementptr inbounds i8, ptr %clipPoints, i64 23
+  %typeB173 = getelementptr inbounds nuw i8, ptr %clipPoints, i64 23
   store i8 1, ptr %typeB173, align 1
   store i32 %primaryAxis.sroa.19.0, ptr %ref, align 4
   %add177 = add nsw i32 %primaryAxis.sroa.19.0, 1
   %cmp179 = icmp slt i32 %add177, %40
   %cond185 = select i1 %cmp179, i32 %add177, i32 0
-  %i2186 = getelementptr inbounds i8, ptr %ref, i64 4
+  %i2186 = getelementptr inbounds nuw i8, ptr %ref, i64 4
   store i32 %cond185, ptr %i2186, align 4
   %idxprom189 = sext i32 %primaryAxis.sroa.19.0 to i64
   %arrayidx190 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom189
-  %v1191 = getelementptr inbounds i8, ptr %ref, i64 8
+  %v1191 = getelementptr inbounds nuw i8, ptr %ref, i64 8
   %90 = load i64, ptr %arrayidx190, align 4
   store i64 %90, ptr %v1191, align 4
   %idxprom194 = sext i32 %cond185 to i64
   %arrayidx195 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom194
-  %v2196 = getelementptr inbounds i8, ptr %ref, i64 16
+  %v2196 = getelementptr inbounds nuw i8, ptr %ref, i64 16
   %91 = load i64, ptr %arrayidx195, align 4
   store i64 %91, ptr %v2196, align 4
-  %normals197 = getelementptr inbounds i8, ptr %tempPolygonB, i64 64
+  %normals197 = getelementptr inbounds nuw i8, ptr %tempPolygonB, i64 64
   %arrayidx200 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %normals197, i64 0, i64 %idxprom189
-  %normal201 = getelementptr inbounds i8, ptr %ref, i64 24
+  %normal201 = getelementptr inbounds nuw i8, ptr %ref, i64 24
   %92 = load i64, ptr %arrayidx200, align 4
   store i64 %92, ptr %normal201, align 4
-  %sideNormal1202 = getelementptr inbounds i8, ptr %ref, i64 32
+  %sideNormal1202 = getelementptr inbounds nuw i8, ptr %ref, i64 32
   %93 = lshr i64 %92, 32
   %94 = trunc nuw i64 %93 to i32
   %95 = bitcast i32 %94 to float
@@ -781,12 +781,12 @@ if.else141:                                       ; preds = %if.end76
   %97 = bitcast i32 %96 to float
   %fneg207 = fneg float %97
   store i32 %94, ptr %sideNormal1202, align 4
-  %y.i167 = getelementptr inbounds i8, ptr %ref, i64 36
+  %y.i167 = getelementptr inbounds nuw i8, ptr %ref, i64 36
   store float %fneg207, ptr %y.i167, align 4
   %fneg.i168 = fneg float %95
   %retval.sroa.0.0.vec.insert.i171 = insertelement <2 x float> poison, float %fneg.i168, i64 0
   %retval.sroa.0.4.vec.insert.i172 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i171, float %97, i64 1
-  %sideNormal2211 = getelementptr inbounds i8, ptr %ref, i64 44
+  %sideNormal2211 = getelementptr inbounds nuw i8, ptr %ref, i64 44
   store <2 x float> %retval.sroa.0.4.vec.insert.i172, ptr %sideNormal2211, align 4
   %98 = trunc i64 %90 to i32
   %99 = bitcast i32 %98 to float
@@ -812,25 +812,25 @@ if.end212:                                        ; preds = %if.else141, %for.en
   %116 = phi float [ %99, %if.else141 ], [ %20, %for.end99 ]
   %117 = phi float [ %95, %if.else141 ], [ %fneg, %for.end99 ]
   %cmp77327 = phi i1 [ false, %if.else141 ], [ true, %for.end99 ]
-  %sideNormal1213 = getelementptr inbounds i8, ptr %ref, i64 32
-  %v1214 = getelementptr inbounds i8, ptr %ref, i64 8
-  %y2.i174 = getelementptr inbounds i8, ptr %ref, i64 12
+  %sideNormal1213 = getelementptr inbounds nuw i8, ptr %ref, i64 32
+  %v1214 = getelementptr inbounds nuw i8, ptr %ref, i64 8
+  %y2.i174 = getelementptr inbounds nuw i8, ptr %ref, i64 12
   %mul3.i175 = fmul float %115, %114
   %118 = tail call noundef float @llvm.fmuladd.f32(float %117, float %116, float %mul3.i175)
-  %sideOffset1 = getelementptr inbounds i8, ptr %ref, i64 40
+  %sideOffset1 = getelementptr inbounds nuw i8, ptr %ref, i64 40
   store float %118, ptr %sideOffset1, align 4
   %mul3.i178 = fmul float %111, %110
   %119 = tail call noundef float @llvm.fmuladd.f32(float %113, float %112, float %mul3.i178)
-  %sideOffset2 = getelementptr inbounds i8, ptr %ref, i64 52
+  %sideOffset2 = getelementptr inbounds nuw i8, ptr %ref, i64 52
   store float %119, ptr %sideOffset2, align 4
   %call223 = call noundef i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr noundef nonnull %clipPoints1, ptr noundef nonnull %clipPoints, ptr noundef nonnull align 4 dereferenceable(8) %sideNormal1213, float noundef %118, i32 noundef %109)
   %cmp224 = icmp slt i32 %call223, 2
   br i1 %cmp224, label %return, label %if.end226
 
 if.end226:                                        ; preds = %if.end212
-  %sideNormal2216 = getelementptr inbounds i8, ptr %ref, i64 44
+  %sideNormal2216 = getelementptr inbounds nuw i8, ptr %ref, i64 44
   %120 = load float, ptr %sideOffset2, align 4
-  %i2231 = getelementptr inbounds i8, ptr %ref, i64 4
+  %i2231 = getelementptr inbounds nuw i8, ptr %ref, i64 4
   %121 = load i32, ptr %i2231, align 4
   %call232 = call noundef i32 @_Z19b2ClipSegmentToLineP12b2ClipVertexPKS_RK6b2Vec2fi(ptr noundef nonnull %clipPoints2, ptr noundef nonnull %clipPoints1, ptr noundef nonnull align 4 dereferenceable(8) %sideNormal2216, float noundef %120, i32 noundef %121)
   %cmp233 = icmp slt i32 %call232, 2
@@ -840,8 +840,8 @@ if.end235:                                        ; preds = %if.end226
   br i1 %cmp77327, label %if.then238, label %if.else241
 
 if.then238:                                       ; preds = %if.end235
-  %normal239 = getelementptr inbounds i8, ptr %ref, i64 24
-  %localNormal = getelementptr inbounds i8, ptr %manifold, i64 40
+  %normal239 = getelementptr inbounds nuw i8, ptr %ref, i64 24
+  %localNormal = getelementptr inbounds nuw i8, ptr %manifold, i64 40
   %122 = load i64, ptr %normal239, align 4
   store i64 %122, ptr %localNormal, align 4
   %123 = load i64, ptr %v1214, align 4
@@ -858,21 +858,21 @@ if.then238:                                       ; preds = %if.end235
   br label %if.end252
 
 if.else241:                                       ; preds = %if.end235
-  %m_normals242 = getelementptr inbounds i8, ptr %polygonB, i64 88
+  %m_normals242 = getelementptr inbounds nuw i8, ptr %polygonB, i64 88
   %134 = load i32, ptr %ref, align 4
   %idxprom244 = sext i32 %134 to i64
   %arrayidx245 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_normals242, i64 0, i64 %idxprom244
-  %localNormal246 = getelementptr inbounds i8, ptr %manifold, i64 40
+  %localNormal246 = getelementptr inbounds nuw i8, ptr %manifold, i64 40
   %135 = load i64, ptr %arrayidx245, align 8
   store i64 %135, ptr %localNormal246, align 4
-  %m_vertices247 = getelementptr inbounds i8, ptr %polygonB, i64 24
+  %m_vertices247 = getelementptr inbounds nuw i8, ptr %polygonB, i64 24
   %arrayidx250 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_vertices247, i64 0, i64 %idxprom244
   %136 = load i64, ptr %arrayidx250, align 8
   %.pre349 = load float, ptr %v1214, align 4
   %.pre350 = load float, ptr %y2.i174, align 4
-  %normal259.phi.trans.insert = getelementptr inbounds i8, ptr %ref, i64 24
+  %normal259.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref, i64 24
   %.pre351 = load float, ptr %normal259.phi.trans.insert, align 4
-  %y.i185.phi.trans.insert = getelementptr inbounds i8, ptr %ref, i64 28
+  %y.i185.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref, i64 28
   %.pre352 = load float, ptr %y.i185.phi.trans.insert, align 4
   br label %if.end252
 
@@ -882,7 +882,7 @@ if.end252:                                        ; preds = %if.else241, %if.the
   %139 = phi float [ %128, %if.then238 ], [ %.pre350, %if.else241 ]
   %140 = phi float [ %125, %if.then238 ], [ %.pre349, %if.else241 ]
   %.sink = phi i64 [ %123, %if.then238 ], [ %136, %if.else241 ]
-  %141 = getelementptr inbounds i8, ptr %manifold, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %manifold, i64 48
   store i64 %.sink, ptr %141, align 4
   %fneg.i192 = fneg float %5
   br label %for.body257
@@ -893,7 +893,7 @@ for.body257:                                      ; preds = %if.end252, %for.inc
   %pointCount253.0336 = phi i32 [ 0, %if.end252 ], [ %pointCount253.1, %for.inc315 ]
   %142 = load float, ptr %indvars.iv345.sroa.phi, align 4
   %sub.i179 = fsub float %142, %140
-  %y.i180 = getelementptr inbounds i8, ptr %indvars.iv345.sroa.phi, i64 4
+  %y.i180 = getelementptr inbounds nuw i8, ptr %indvars.iv345.sroa.phi, i64 4
   %143 = load float, ptr %y.i180, align 4
   %sub3.i182 = fsub float %143, %139
   %mul3.i187 = fmul float %sub3.i182, %137
@@ -916,29 +916,29 @@ if.then272:                                       ; preds = %if.then268
   %retval.sroa.0.0.vec.insert.i193 = insertelement <2 x float> poison, float %145, i64 0
   %retval.sroa.0.4.vec.insert.i194 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i193, float %146, i64 1
   %147 = bitcast <2 x float> %retval.sroa.0.4.vec.insert.i194 to i64
-  %id281 = getelementptr inbounds i8, ptr %indvars.iv345.sroa.phi, i64 8
-  %id282 = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %id281 = getelementptr inbounds nuw i8, ptr %indvars.iv345.sroa.phi, i64 8
+  %id282 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %148 = load i32, ptr %id281, align 4
   store i32 %148, ptr %id282, align 4
   br label %if.end312
 
 if.else283:                                       ; preds = %if.then268
   %149 = load i64, ptr %indvars.iv345.sroa.phi, align 4
-  %id290 = getelementptr inbounds i8, ptr %indvars.iv345.sroa.phi, i64 8
-  %typeB291 = getelementptr inbounds i8, ptr %indvars.iv345.sroa.phi, i64 11
+  %id290 = getelementptr inbounds nuw i8, ptr %indvars.iv345.sroa.phi, i64 8
+  %typeB291 = getelementptr inbounds nuw i8, ptr %indvars.iv345.sroa.phi, i64 11
   %150 = load i8, ptr %typeB291, align 1
-  %id292 = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %typeA293 = getelementptr inbounds i8, ptr %add.ptr, i64 18
+  %id292 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
+  %typeA293 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 18
   store i8 %150, ptr %typeA293, align 2
-  %typeA297 = getelementptr inbounds i8, ptr %indvars.iv345.sroa.phi, i64 10
+  %typeA297 = getelementptr inbounds nuw i8, ptr %indvars.iv345.sroa.phi, i64 10
   %151 = load i8, ptr %typeA297, align 2
-  %typeB299 = getelementptr inbounds i8, ptr %add.ptr, i64 19
+  %typeB299 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 19
   store i8 %151, ptr %typeB299, align 1
-  %indexB303 = getelementptr inbounds i8, ptr %indvars.iv345.sroa.phi, i64 9
+  %indexB303 = getelementptr inbounds nuw i8, ptr %indvars.iv345.sroa.phi, i64 9
   %152 = load i8, ptr %indexB303, align 1
   store i8 %152, ptr %id292, align 4
   %153 = load i8, ptr %id290, align 4
-  %indexB311 = getelementptr inbounds i8, ptr %add.ptr, i64 17
+  %indexB311 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 17
   store i8 %153, ptr %indexB311, align 1
   br label %if.end312
 

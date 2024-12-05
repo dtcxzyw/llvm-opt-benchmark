@@ -22,25 +22,25 @@ define hidden void @_ZN19ICacheStubGenerator21generate_icache_flushEPPFiPhiiE(pt
   %5 = alloca %class.Label, align 8
   %6 = alloca %class.Address, align 8
   call void @_ZN12StubCodeMarkC1EP17StubCodeGeneratorPKcS3_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   store i32 -1, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %15, align 8
   store i32 -1, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %18, align 8
   call void @_ZN9Assembler5testlE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 6, i32 6) #3
   %19 = load ptr, ptr %7, align 8
@@ -51,21 +51,21 @@ define hidden void @_ZN19ICacheStubGenerator21generate_icache_flushEPPFiPhiiE(pt
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(33) %4) #3
   %22 = load ptr, ptr %7, align 8
   store i32 7, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %30, align 8
   call void @_ZN9Assembler7clflushE7Address(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull %6) #3
   %31 = load ptr, ptr %7, align 8

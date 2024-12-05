@@ -70,7 +70,7 @@ define dso_local i64 @pg_create_physical_replication_slot(ptr noundef %0) local_
   %2 = alloca [2 x i64], align 16
   %3 = alloca [2 x i8], align 1
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
@@ -102,9 +102,9 @@ define dso_local i64 @pg_create_physical_replication_slot(ptr noundef %0) local_
   call void @ReplicationSlotMarkDirty() #11
   call void @ReplicationSlotSave() #11
   %19 = load ptr, ptr @MyReplicationSlot, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8
   br label %25
 
@@ -115,11 +115,11 @@ define dso_local i64 @pg_create_physical_replication_slot(ptr noundef %0) local_
 25:                                               ; preds = %23, %18
   %.pn = phi ptr [ %24, %23 ], [ %19, %18 ]
   %.sink = phi i8 [ 1, %23 ], [ 0, %18 ]
-  %.sink11.in = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.sink11.in = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %.sink11 = ptrtoint ptr %.sink11.in to i64
   store i64 %.sink11, ptr %2, align 16
   store i8 0, ptr %3, align 1
-  %26 = getelementptr inbounds i8, ptr %3, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %.sink, ptr %26, align 1
   %27 = load ptr, ptr %4, align 8
   %28 = call ptr @heap_form_tuple(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
@@ -153,7 +153,7 @@ define dso_local i64 @pg_create_logical_replication_slot(ptr noundef %0) local_u
   %3 = alloca ptr, align 8
   %4 = alloca [2 x i64], align 16
   %5 = alloca [2 x i8], align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
@@ -186,21 +186,21 @@ define dso_local i64 @pg_create_logical_replication_slot(ptr noundef %0) local_u
   %25 = select i1 %.not13, i32 1, i32 2
   call void @ReplicationSlotCreate(ptr noundef %24, i1 noundef zeroext true, i32 noundef %25, i1 noundef zeroext %22, i1 noundef zeroext %21, i1 noundef zeroext false) #11
   store ptr @read_local_xlog_page, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wal_segment_open, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @wal_segment_close, ptr %27, align 8
   %28 = call ptr @CreateInitDecodingContext(ptr noundef %23, ptr noundef null, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #11
   call void @DecodingContextFindStartpoint(ptr noundef %28) #11
   call void @FreeDecodingContext(ptr noundef %28) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %29 = load ptr, ptr @MyReplicationSlot, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = ptrtoint ptr %30 to i64
   store i64 %31, ptr %4, align 16
-  %32 = getelementptr inbounds i8, ptr %29, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %33, ptr %34, align 8
   store i16 0, ptr %5, align 2
   %35 = load ptr, ptr %3, align 8
@@ -228,7 +228,7 @@ declare void @ReplicationSlotPersist() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_drop_replication_slot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void @CheckSlotPermissions() #11
@@ -244,7 +244,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %2 = alloca %struct.ReplicationSlot, align 8
   %3 = alloca [17 x i64], align 16
   %4 = alloca [17 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #11
   %7 = tail call i64 @GetXLogWriteRecPtr() #11
@@ -256,42 +256,42 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds i8, ptr %2, i64 88
-  %16 = getelementptr inbounds i8, ptr %2, i64 137
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 137
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
-  %22 = getelementptr inbounds i8, ptr %4, i64 3
-  %23 = getelementptr inbounds i8, ptr %2, i64 92
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %2, i64 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 40
-  %27 = getelementptr inbounds i8, ptr %3, i64 48
-  %28 = getelementptr inbounds i8, ptr %4, i64 6
-  %29 = getelementptr inbounds i8, ptr %2, i64 96
-  %30 = getelementptr inbounds i8, ptr %3, i64 56
-  %31 = getelementptr inbounds i8, ptr %4, i64 7
-  %32 = getelementptr inbounds i8, ptr %2, i64 100
-  %33 = getelementptr inbounds i8, ptr %3, i64 64
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 104
-  %36 = getelementptr inbounds i8, ptr %3, i64 72
-  %37 = getelementptr inbounds i8, ptr %4, i64 9
-  %38 = getelementptr inbounds i8, ptr %2, i64 120
-  %39 = getelementptr inbounds i8, ptr %3, i64 80
-  %40 = getelementptr inbounds i8, ptr %4, i64 10
-  %41 = getelementptr inbounds i8, ptr %2, i64 112
-  %42 = getelementptr inbounds i8, ptr %3, i64 88
-  %43 = getelementptr inbounds i8, ptr %4, i64 11
-  %44 = getelementptr inbounds i8, ptr %2, i64 136
-  %45 = getelementptr inbounds i8, ptr %2, i64 202
-  %46 = getelementptr inbounds i8, ptr %2, i64 201
-  %47 = getelementptr inbounds i8, ptr %6, i64 40
-  %48 = getelementptr inbounds i8, ptr %6, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 202
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 201
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %.pre92 = load ptr, ptr @ReplicationSlotCtl, align 8
   br label %49
 
@@ -300,7 +300,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %51 = phi ptr [ %.pre92, %.lr.ph ], [ %195, %193 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
   %52 = getelementptr [1 x %struct.ReplicationSlot], ptr %51, i64 0, i64 %indvars.iv
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %193
@@ -482,9 +482,9 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br label %120
 
 120:                                              ; preds = %116, %118
-  %121 = getelementptr inbounds i8, ptr %52, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %52, i64 104
+  %123 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %124 = load i64, ptr %123, align 8
   store i64 %124, ptr %35, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
@@ -640,7 +640,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   %2 = alloca ptr, align 8
   %3 = alloca [2 x i64], align 16
   %4 = alloca [2 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %0, i64 48
@@ -694,7 +694,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   %.0 = phi i64 [ %25, %24 ], [ %9, %21 ], [ %30, %29 ], [ %9, %26 ]
   call void @ReplicationSlotAcquire(ptr noundef %7, i1 noundef zeroext true) #11
   %32 = load ptr, ptr @MyReplicationSlot, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %41
@@ -709,7 +709,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   unreachable
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %32, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %43 = load i32, ptr %42, align 8
   %.not24 = icmp eq i32 %43, 0
   br i1 %.not24, label %44, label %.thread
@@ -719,7 +719,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   br i1 %45, label %49, label %61
 
 .thread:                                          ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %32, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %47 = load i64, ptr %46, align 8
   %48 = icmp ult i64 %.0, %47
   br i1 %48, label %49, label %59
@@ -759,7 +759,7 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
 
 68:                                               ; preds = %65, %63
   %69 = load ptr, ptr @MyReplicationSlot, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store i64 %.0, ptr %70, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %71 = load ptr, ptr @MyReplicationSlot, align 8
@@ -770,16 +770,16 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
 pg_physical_replication_slot_advance.exit:        ; preds = %68, %61, %59
   %.020 = phi i64 [ %60, %59 ], [ %.0, %68 ], [ %34, %61 ]
   %72 = load ptr, ptr @MyReplicationSlot, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = ptrtoint ptr %73 to i64
   store i64 %74, ptr %3, align 16
   store i8 0, ptr %4, align 1
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #11
   call void @ReplicationSlotsComputeRequiredLSN() #11
   call void @ReplicationSlotRelease() #11
-  %75 = getelementptr inbounds i8, ptr %3, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.020, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %76, align 1
   %77 = load ptr, ptr %2, align 8
   %78 = call ptr @heap_form_tuple(ptr noundef %77, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
@@ -818,20 +818,20 @@ define internal fastcc i64 @pg_logical_replication_slot_advance(i64 noundef %0) 
 10:                                               ; preds = %1
   store ptr %2, ptr @PG_exception_stack, align 8
   store ptr @read_local_xlog_page, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @wal_segment_open, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @wal_segment_close, ptr %12, align 8
   %13 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @MyReplicationSlot, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load i64, ptr %17, align 8
   call void @XLogBeginRead(ptr noundef %15, i64 noundef %18) #11
   call void @InvalidateSystemCaches() #11
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %21, %0
   br i1 %22, label %.lr.ph, label %._crit_edge
@@ -872,7 +872,7 @@ define internal fastcc i64 @pg_logical_replication_slot_advance(i64 noundef %0) 
 
 36:                                               ; preds = %33, %35
   %37 = load ptr, ptr %14, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load i64, ptr %38, align 8
   %40 = icmp ult i64 %39, %0
   br i1 %40, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !11
@@ -893,7 +893,7 @@ define internal fastcc i64 @pg_logical_replication_slot_advance(i64 noundef %0) 
 
 42:                                               ; preds = %41, %._crit_edge
   %43 = load ptr, ptr @MyReplicationSlot, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 120
   %45 = load i64, ptr %44, align 8
   call void @FreeDecodingContext(ptr noundef nonnull %13) #11
   call void @InvalidateSystemCaches() #11
@@ -927,7 +927,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %6 = alloca [2 x i64], align 16
   %7 = alloca [2 x i8], align 1
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr i8, ptr %0, i64 48
@@ -983,13 +983,13 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 34:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %35 = getelementptr [1 x %struct.ReplicationSlot], ptr %28, i64 0, i64 %indvars.iv
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %11) #15
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %47
@@ -1015,15 +1015,15 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %49 = load ptr, ptr @MainLWLockArray, align 8
   %50 = getelementptr i8, ptr %49, i64 4736
   call void @LWLockRelease(ptr noundef %50) #11
-  %51 = getelementptr inbounds i8, ptr %4, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %52 = load i32, ptr %51, align 8
   %53 = icmp ne i32 %52, 0
-  %54 = getelementptr inbounds i8, ptr %4, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 92
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 92
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 2
-  %59 = getelementptr inbounds i8, ptr %4, i64 137
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 137
   %60 = select i1 %1, ptr %59, ptr null
   %61 = xor i1 %1, %53
   br i1 %61, label %62, label %66
@@ -1050,7 +1050,7 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   unreachable
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %0, i64 30
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %74 = load i16, ptr %73, align 2
   %75 = icmp sgt i16 %74, 2
   br i1 %75, label %76, label %.thread76
@@ -1078,9 +1078,9 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   %85 = select i1 %.061.in78, i32 2, i32 1
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext true, i32 noundef %85, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #11
   store ptr @read_local_xlog_page, ptr %3, align 8
-  %86 = getelementptr inbounds i8, ptr %3, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @wal_segment_open, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @wal_segment_close, ptr %87, align 8
   %88 = call ptr @CreateInitDecodingContext(ptr noundef %.062, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #11
   call void @FreeDecodingContext(ptr noundef %88) #11
@@ -1091,7 +1091,7 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   %89 = select i1 %.061.in78, i32 2, i32 0
   call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext false, i32 noundef %89, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %90 = load ptr, ptr @MyReplicationSlot, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 104
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 104
   store i64 %55, ptr %91, align 8
   call void @ReplicationSlotMarkDirty() #11
   call void @ReplicationSlotSave() #11
@@ -1110,24 +1110,24 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %35, i64 272, i1 true)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   store i8 0, ptr %35, align 8
-  %97 = getelementptr inbounds i8, ptr %5, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %5, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %5, i64 24
-  %102 = getelementptr inbounds i8, ptr %5, i64 96
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %5, i64 100
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %5, i64 104
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %5, i64 120
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %109 = load i64, ptr %108, align 8
   %110 = icmp ult i64 %107, %55
   br i1 %110, label %117, label %111
 
 111:                                              ; preds = %96
-  %112 = getelementptr inbounds i8, ptr %5, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %113 = load i32, ptr %112, align 8
   %114 = icmp eq i32 %113, 0
   %.not71 = xor i1 %53, %114
@@ -1173,17 +1173,17 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
 
 134:                                              ; preds = %128, %131
   %135 = load ptr, ptr @MyReplicationSlot, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 12
   store i32 %98, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %135, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i32 %100, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %135, i64 96
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 96
   store i32 %103, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %135, i64 100
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 100
   store i32 %105, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %135, i64 104
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 104
   store i64 %107, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %135, i64 120
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 120
   store i64 %109, ptr %141, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   %142 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1204,19 +1204,19 @@ create_physical_replication_slot.exit:            ; preds = %.thread76
   store i64 %13, ptr %6, align 16
   store i8 0, ptr %7, align 1
   %145 = load ptr, ptr @MyReplicationSlot, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 120
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 120
   %147 = load i64, ptr %146, align 8
   %148 = icmp eq i64 %147, 0
   br i1 %148, label %151, label %149
 
 149:                                              ; preds = %144
-  %150 = getelementptr inbounds i8, ptr %6, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %147, ptr %150, align 8
   br label %151
 
 151:                                              ; preds = %144, %149
   %.sink = phi i8 [ 0, %149 ], [ 1, %144 ]
-  %152 = getelementptr inbounds i8, ptr %7, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %.sink, ptr %152, align 1
   %153 = load ptr, ptr %8, align 8
   %154 = call ptr @heap_form_tuple(ptr noundef %153, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
@@ -1308,7 +1308,7 @@ define dso_local noundef i64 @pg_sync_replication_slots(ptr nocapture noundef re
 28:                                               ; preds = %16
   call void @SyncReplicationSlots(ptr noundef nonnull %21) #11
   %29 = load ptr, ptr @WalReceiverFunctions, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull %21) #11
   ret i64 0

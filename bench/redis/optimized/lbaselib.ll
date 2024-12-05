@@ -704,11 +704,11 @@ while.cond:                                       ; preds = %while.cond, %while.
   %incdec.ptr43 = phi ptr [ %1, %while.cond.preheader ], [ %incdec.ptr, %while.cond ]
   %3 = load i8, ptr %incdec.ptr43, align 1, !tbaa !15
   %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %4 = load i16, ptr %arrayidx, align 2, !tbaa !16
   %5 = and i16 %4, 8192
   %tobool19.not = icmp eq i16 %5, 0
-  %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr43, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr43, i64 1
   br i1 %tobool19.not, label %while.end, label %while.cond, !llvm.loop !18
 
 while.end:                                        ; preds = %while.cond
@@ -1295,7 +1295,7 @@ if.end:                                           ; preds = %if.then, %costatus.
 
 if.then3:                                         ; preds = %if.end
   %idxprom = zext nneg i32 %retval.1.i to i64
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr @statnames, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr @statnames, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !10
   %call4 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.74, ptr noundef %0) #8
   br label %cleanup

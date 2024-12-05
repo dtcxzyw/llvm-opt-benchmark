@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i64 3221225472, 4294959105) i64 @task_size_32bit() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1240
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1240
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 134217728
   %6 = icmp eq i32 %5, 0
@@ -60,7 +60,7 @@ define dso_local range(i64 0, -4095) i64 @arch_mmap_rnd() local_unnamed_addr #1 
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
   %3 = load volatile i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 4194304
   %7 = icmp eq i32 %6, 0
@@ -89,19 +89,19 @@ define dso_local range(i64 0, -4095) i64 @arch_mmap_rnd() local_unnamed_addr #1 
 define dso_local void @arch_pick_mmap_layout(ptr nocapture noundef writeonly initializes((80, 120)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1240
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1240
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 2097152
   %8 = icmp eq i32 %7, 0
   %9 = load i32, ptr @sysctl_legacy_va_layout, align 4
   %10 = icmp eq i32 %9, 0
   %11 = select i1 %8, i1 %10, i1 false
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = select i1 %11, ptr @arch_get_unmapped_area_topdown, ptr @arch_get_unmapped_area
   store ptr %13, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = getelementptr inbounds i8, ptr %4, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 4194304
   %19 = icmp eq i32 %18, 0
@@ -150,7 +150,7 @@ define dso_local void @arch_pick_mmap_layout(ptr nocapture noundef writeonly ini
 52:                                               ; preds = %37, %28
   %53 = phi i64 [ %51, %37 ], [ %31, %28 ]
   store i64 %53, ptr %14, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %55 = load i32, ptr %16, align 4
   %56 = and i32 %55, 4194304
   %57 = icmp eq i32 %56, 0
@@ -216,7 +216,7 @@ define dso_local void @arch_pick_mmap_layout(ptr nocapture noundef writeonly ini
 
 105:                                              ; preds = %82, %66
   %106 = phi i64 [ %104, %82 ], [ %76, %66 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %106, ptr %107, align 8
   ret void
 }
@@ -231,9 +231,9 @@ declare dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef, i64 noundef, 
 define dso_local i64 @get_mmap_base(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1192
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %9 = icmp eq i32 %8, 0
@@ -241,7 +241,7 @@ define dso_local i64 @get_mmap_base(i32 noundef %0) local_unnamed_addr #0 align 
   %11 = select i1 %10, i64 104, i64 112
   %12 = select i1 %10, i64 88, i64 96
   %13 = select i1 %9, i64 %12, i64 %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
   %15 = load i64, ptr %14, align 8
   ret i64 %15
 }
@@ -261,7 +261,7 @@ define dso_local noundef zeroext i1 @mmap_address_hint_valid(i64 noundef %0, i64
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 1240
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 1240
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 134217728
   %12 = icmp eq i32 %11, 0
@@ -414,12 +414,12 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %36, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %54 = load volatile ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = lshr i64 %0, 9
   %57 = and i64 %56, 63
-  %58 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %55, i64 %57) #10, !srcloc !15
+  %58 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %55, i64 %57) #10, !srcloc !15
   %59 = icmp ult i8 %58, 2
   tail call void @llvm.assume(i1 %59)
   %60 = zext nneg i8 %58 to i32

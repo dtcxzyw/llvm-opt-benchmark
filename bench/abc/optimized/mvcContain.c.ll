@@ -18,37 +18,37 @@ define range(i32 0, 2) i32 @Mvc_CoverContain(ptr noundef %0) local_unnamed_addr 
   br i1 %.not.i, label %Mvc_CoverRemoveDuplicates.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %10
 
 10:                                               ; preds = %.thread.i, %.lr.ph.i
   %.056.i = phi ptr [ %6, %.lr.ph.i ], [ %.1.i, %.thread.i ]
   %.04054.i = phi ptr [ %7, %.lr.ph.i ], [ %.03955.i, %.thread.i ]
   %.03955.i = load ptr, ptr %.04054.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.056.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.056.i, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 16777215
-  %14 = getelementptr inbounds i8, ptr %.056.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.056.i, i64 16
   switch i32 %13, label %.preheader.i [
     i32 0, label %16
     i32 1, label %21
   ]
 
 .preheader.i:                                     ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.04054.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.04054.i, i64 16
   br label %29
 
 16:                                               ; preds = %10
   %17 = load i32, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %.04054.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.04054.i, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %.thread49.i, label %.thread.i
 
 21:                                               ; preds = %10
   %22 = load i32, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %.04054.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.04054.i, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %22, %24
   br i1 %25, label %35, label %.thread.i
@@ -61,17 +61,17 @@ define range(i32 0, 2) i32 @Mvc_CoverContain(ptr noundef %0) local_unnamed_addr 
 29:                                               ; preds = %26, %.preheader.i
   %.03752.i = phi i32 [ %13, %.preheader.i ], [ %27, %26 ]
   %30 = zext nneg i32 %.03752.i to i64
-  %31 = getelementptr inbounds [1 x i32], ptr %14, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [1 x i32], ptr %14, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds [1 x i32], ptr %15, i64 0, i64 %30
+  %33 = getelementptr inbounds nuw [1 x i32], ptr %15, i64 0, i64 %30
   %34 = load i32, ptr %33, align 4
   %.not44.i = icmp eq i32 %32, %34
   br i1 %.not44.i, label %26, label %.thread.i
 
 35:                                               ; preds = %21
-  %36 = getelementptr inbounds i8, ptr %.056.i, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %.056.i, i64 20
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %.04054.i, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %.04054.i, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %37, %39
   br i1 %40, label %.thread49.i, label %.thread.i
@@ -100,14 +100,14 @@ define range(i32 0, 2) i32 @Mvc_CoverContain(ptr noundef %0) local_unnamed_addr 
 
 Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   %47 = tail call ptr @Mvc_CoverReadCubeHead(ptr noundef %0) #2
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %51
 
 51:                                               ; preds = %._crit_edge89.i, %Mvc_CoverRemoveDuplicates.exit
   %.0.i = phi ptr [ %47, %Mvc_CoverRemoveDuplicates.exit ], [ %109, %._crit_edge89.i ]
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %53 = load i32, ptr %52, align 4
   br label %54
 
@@ -118,7 +118,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   br i1 %cond.i, label %Mvc_CoverRemoveContained.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %.059.i, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.059.i, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %53, %57
   br i1 %58, label %54, label %.preheader78.i, !llvm.loop !7
@@ -134,18 +134,18 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   br i1 %.not66.i, label %._crit_edge.i, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph88.i
-  %60 = getelementptr inbounds i8, ptr %.06187.i, i64 16
-  %61 = getelementptr inbounds i8, ptr %.06187.i, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %.06187.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.06187.i, i64 20
   br label %62
 
 62:                                               ; preds = %.thread.i12, %.lr.ph.i11
   %.05785.i = phi ptr [ %.056.i10, %.lr.ph.i11 ], [ %.1.i13, %.thread.i12 ]
   %.16083.i = phi ptr [ %59, %.lr.ph.i11 ], [ %.05884.i, %.thread.i12 ]
   %.05884.i = load ptr, ptr %.16083.i, align 8
-  %63 = getelementptr inbounds i8, ptr %.16083.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.16083.i, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 16777215
-  %66 = getelementptr inbounds i8, ptr %.16083.i, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.16083.i, i64 16
   switch i32 %65, label %.preheader.i14 [
     i32 0, label %67
     i32 1, label %72
@@ -167,7 +167,7 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
   br i1 %.not70.i, label %77, label %.thread.i12
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %.16083.i, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %.16083.i, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %61, align 4
   %81 = xor i32 %80, -1
@@ -184,9 +184,9 @@ Mvc_CoverRemoveDuplicates.exit:                   ; preds = %.thread.i, %4
 .preheader.i14:                                   ; preds = %62, %85
   %.05481.i = phi i32 [ %86, %85 ], [ %65, %62 ]
   %88 = zext nneg i32 %.05481.i to i64
-  %89 = getelementptr inbounds [1 x i32], ptr %66, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [1 x i32], ptr %66, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds [1 x i32], ptr %60, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw [1 x i32], ptr %60, i64 0, i64 %88
   %92 = load i32, ptr %91, align 4
   %93 = xor i32 %92, -1
   %94 = and i32 %90, %93

@@ -12,35 +12,35 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr nocapture noundef wri
 entry:
   %sorted = alloca [18 x i32], align 16
   %offset = alloca [6 x i32], align 16
-  %arrayidx = getelementptr inbounds i8, ptr %count, i64 2
+  %arrayidx = getelementptr inbounds nuw i8, ptr %count, i64 2
   %0 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %0 to i32
   %add = add nsw i32 %conv, -1
-  %arrayidx2 = getelementptr inbounds i8, ptr %offset, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %offset, i64 4
   store i32 %add, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %count, i64 4
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %count, i64 4
   %1 = load i16, ptr %arrayidx4, align 2
   %conv5 = zext i16 %1 to i32
   %add6 = add nsw i32 %add, %conv5
-  %arrayidx8 = getelementptr inbounds i8, ptr %offset, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %offset, i64 8
   store i32 %add6, ptr %arrayidx8, align 8
-  %arrayidx11 = getelementptr inbounds i8, ptr %count, i64 6
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %count, i64 6
   %2 = load i16, ptr %arrayidx11, align 2
   %conv12 = zext i16 %2 to i32
   %add13 = add nsw i32 %add6, %conv12
-  %arrayidx15 = getelementptr inbounds i8, ptr %offset, i64 12
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %offset, i64 12
   store i32 %add13, ptr %arrayidx15, align 4
-  %arrayidx18 = getelementptr inbounds i8, ptr %count, i64 8
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %count, i64 8
   %3 = load i16, ptr %arrayidx18, align 2
   %conv19 = zext i16 %3 to i32
   %add20 = add nsw i32 %add13, %conv19
-  %arrayidx22 = getelementptr inbounds i8, ptr %offset, i64 16
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %offset, i64 16
   store i32 %add20, ptr %arrayidx22, align 16
-  %arrayidx25 = getelementptr inbounds i8, ptr %count, i64 10
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %count, i64 10
   %4 = load i16, ptr %arrayidx25, align 2
   %conv26 = zext i16 %4 to i32
   %add27 = add nsw i32 %add20, %conv26
-  %arrayidx29 = getelementptr inbounds i8, ptr %offset, i64 20
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %offset, i64 20
   store i32 %add27, ptr %arrayidx29, align 4
   store i32 17, ptr %offset, align 16
   br label %do.body
@@ -51,7 +51,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx33 = getelementptr inbounds i8, ptr %code_lengths, i64 %5
   %6 = load i8, ptr %arrayidx33, align 1
   %idxprom34 = zext i8 %6 to i64
-  %arrayidx35 = getelementptr inbounds [6 x i32], ptr %offset, i64 0, i64 %idxprom34
+  %arrayidx35 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom34
   %7 = load i32, ptr %arrayidx35, align 4
   %dec36 = add nsw i32 %7, -1
   store i32 %dec36, ptr %arrayidx35, align 4
@@ -63,7 +63,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx41 = getelementptr inbounds i8, ptr %code_lengths, i64 %9
   %10 = load i8, ptr %arrayidx41, align 1
   %idxprom42 = zext i8 %10 to i64
-  %arrayidx43 = getelementptr inbounds [6 x i32], ptr %offset, i64 0, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom42
   %11 = load i32, ptr %arrayidx43, align 4
   %dec44 = add nsw i32 %11, -1
   store i32 %dec44, ptr %arrayidx43, align 4
@@ -75,7 +75,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx49 = getelementptr inbounds i8, ptr %code_lengths, i64 %13
   %14 = load i8, ptr %arrayidx49, align 1
   %idxprom50 = zext i8 %14 to i64
-  %arrayidx51 = getelementptr inbounds [6 x i32], ptr %offset, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom50
   %15 = load i32, ptr %arrayidx51, align 4
   %dec52 = add nsw i32 %15, -1
   store i32 %dec52, ptr %arrayidx51, align 4
@@ -87,7 +87,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx57 = getelementptr inbounds i8, ptr %code_lengths, i64 %17
   %18 = load i8, ptr %arrayidx57, align 1
   %idxprom58 = zext i8 %18 to i64
-  %arrayidx59 = getelementptr inbounds [6 x i32], ptr %offset, i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom58
   %19 = load i32, ptr %arrayidx59, align 4
   %dec60 = add nsw i32 %19, -1
   store i32 %dec60, ptr %arrayidx59, align 4
@@ -99,7 +99,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx65 = getelementptr inbounds i8, ptr %code_lengths, i64 %21
   %22 = load i8, ptr %arrayidx65, align 1
   %idxprom66 = zext i8 %22 to i64
-  %arrayidx67 = getelementptr inbounds [6 x i32], ptr %offset, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom66
   %23 = load i32, ptr %arrayidx67, align 4
   %dec68 = add nsw i32 %23, -1
   store i32 %dec68, ptr %arrayidx67, align 4
@@ -111,7 +111,7 @@ do.body:                                          ; preds = %do.body, %entry
   %arrayidx73 = getelementptr inbounds i8, ptr %code_lengths, i64 %indvars.iv.next
   %25 = load i8, ptr %arrayidx73, align 1
   %idxprom74 = zext i8 %25 to i64
-  %arrayidx75 = getelementptr inbounds [6 x i32], ptr %offset, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds nuw [6 x i32], ptr %offset, i64 0, i64 %idxprom74
   %26 = load i32, ptr %arrayidx75, align 4
   %dec76 = add nsw i32 %26, -1
   store i32 %dec76, ptr %arrayidx75, align 4
@@ -134,7 +134,7 @@ if.then:                                          ; preds = %do.end
 
 for.body:                                         ; preds = %if.then, %for.body
   %key.076 = phi i64 [ 0, %if.then ], [ %inc89, %for.body ]
-  %arrayidx88 = getelementptr inbounds %struct.HuffmanCode, ptr %table, i64 %key.076
+  %arrayidx88 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %key.076
   store i32 %retval.i116.sroa.267.0.insert.ext, ptr %arrayidx88, align 2
   %inc89 = add nuw nsw i64 %key.076, 1
   %exitcond95.not = icmp eq i64 %inc89, 32
@@ -146,7 +146,7 @@ do.body90:                                        ; preds = %do.end, %for.end110
   %key_step.0 = phi i64 [ %shr, %for.end110 ], [ 128, %do.end ]
   %step.0 = phi i32 [ %shl, %for.end110 ], [ 2, %do.end ]
   %symbol.1 = phi i32 [ %symbol.2.lcssa, %for.end110 ], [ 0, %do.end ]
-  %arrayidx92 = getelementptr inbounds i16, ptr %count, i64 %indvars.iv91
+  %arrayidx92 = getelementptr inbounds nuw i16, ptr %count, i64 %indvars.iv91
   %30 = load i16, ptr %arrayidx92, align 2
   %cmp95.not71 = icmp eq i16 %30, 0
   br i1 %cmp95.not71, label %for.end110, label %for.body97.lr.ph
@@ -171,7 +171,7 @@ for.body97:                                       ; preds = %for.body97.lr.ph, %
   %arrayidx.i120 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.272
   %37 = load i8, ptr %arrayidx.i120, align 1
   %conv.i = zext i8 %37 to i64
-  %arrayidx106 = getelementptr inbounds %struct.HuffmanCode, ptr %table, i64 %conv.i
+  %arrayidx106 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %conv.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %for.body97
@@ -241,7 +241,7 @@ do.body:                                          ; preds = %for.end, %while.end
   %key.0 = phi i64 [ %key.1.lcssa, %for.end ], [ 0, %while.end ]
   %key_step.0 = phi i64 [ %shr, %for.end ], [ 128, %while.end ]
   %step.0 = phi i32 [ %shl19, %for.end ], [ 2, %while.end ]
-  %arrayidx6 = getelementptr inbounds i16, ptr %count, i64 %indvars.iv124
+  %arrayidx6 = getelementptr inbounds nuw i16, ptr %count, i64 %indvars.iv124
   %3 = load i16, ptr %arrayidx6, align 2
   %cmp8.not80 = icmp eq i16 %3, 0
   br i1 %cmp8.not80, label %for.end, label %for.body.lr.ph
@@ -266,7 +266,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Re
   %arrayidx.i107 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %key.182
   %8 = load i8, ptr %arrayidx.i107, align 1
   %conv.i108 = zext i8 %8 to i64
-  %arrayidx16 = getelementptr inbounds %struct.HuffmanCode, ptr %root_table, i64 %conv.i108
+  %arrayidx16 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i108
   br label %do.body.i96
 
 do.body.i96:                                      ; preds = %do.body.i96, %for.body
@@ -394,7 +394,7 @@ NextTableBitSize.exit.us:                         ; preds = %if.end.i.us, %NextT
   %18 = load i8, ptr %arrayidx.i104.us, align 1
   %conv.i105.us = zext i8 %18 to i64
   %add54.us = add i64 %key.395.us, %shr33
-  %arrayidx55.us = getelementptr inbounds %struct.HuffmanCode, ptr %root_table, i64 %conv.i105.us
+  %arrayidx55.us = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i105.us
   %sub.ptr.lhs.cast.us = ptrtoint ptr %add.ptr.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast.us, %sub.ptr.rhs.cast
   %sub.ptr.div.us = lshr exact i64 %sub.ptr.sub.us, 2
@@ -421,7 +421,7 @@ if.end62.us:                                      ; preds = %NextTableBitSize.ex
   %arrayidx.i102.us = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2.us
   %20 = load i8, ptr %arrayidx.i102.us, align 1
   %conv.i.us = zext i8 %20 to i64
-  %arrayidx72.us = getelementptr inbounds %struct.HuffmanCode, ptr %table.2.us, i64 %conv.i.us
+  %arrayidx72.us = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table.2.us, i64 %conv.i.us
   br label %do.body.i.us
 
 do.body.i.us:                                     ; preds = %do.body.i.us, %if.end62.us
@@ -465,7 +465,7 @@ if.then49:                                        ; preds = %for.body46
   %24 = load i8, ptr %arrayidx.i104, align 1
   %conv.i105 = zext i8 %24 to i64
   %add54 = add i64 %key.395, %shr33
-  %arrayidx55 = getelementptr inbounds %struct.HuffmanCode, ptr %root_table, i64 %conv.i105
+  %arrayidx55 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %root_table, i64 %conv.i105
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 2
@@ -491,7 +491,7 @@ if.end62:                                         ; preds = %if.then49, %for.bod
   %arrayidx.i102 = getelementptr inbounds [256 x i8], ptr @kReverseBits, i64 0, i64 %sub_key.2
   %26 = load i8, ptr %arrayidx.i102, align 1
   %conv.i = zext i8 %26 to i64
-  %arrayidx72 = getelementptr inbounds %struct.HuffmanCode, ptr %table.2, i64 %conv.i
+  %arrayidx72 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table.2, i64 %conv.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end62
@@ -547,11 +547,11 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %arrayidx3 = getelementptr inbounds i8, ptr %val, i64 2
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %val, i64 2
   %1 = load i16, ptr %arrayidx3, align 2
   %2 = load i16, ptr %val, align 2
   %cmp = icmp ugt i16 %1, %2
-  %arrayidx11 = getelementptr inbounds i8, ptr %table, i64 4
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %table, i64 4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.bb2
@@ -584,19 +584,19 @@ sw.bb23:                                          ; preds = %entry
   %retval.i217.sroa.293.0.insert.shift = shl nuw i32 %retval.i217.sroa.293.0.insert.ext, 16
   %retval.i217.sroa.0.0.insert.insert = or disjoint i32 %retval.i217.sroa.293.0.insert.shift, 1
   store i32 %retval.i217.sroa.0.0.insert.insert, ptr %table, align 2
-  %arrayidx28 = getelementptr inbounds i8, ptr %table, i64 8
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %table, i64 8
   %6 = load i16, ptr %val, align 2
   %retval.i213.sroa.292.0.insert.ext = zext i16 %6 to i32
   %retval.i213.sroa.292.0.insert.shift = shl nuw i32 %retval.i213.sroa.292.0.insert.ext, 16
   %retval.i213.sroa.0.0.insert.insert = or disjoint i32 %retval.i213.sroa.292.0.insert.shift, 1
   store i32 %retval.i213.sroa.0.0.insert.insert, ptr %arrayidx28, align 2
-  %arrayidx32 = getelementptr inbounds i8, ptr %val, i64 4
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %val, i64 4
   %7 = load i16, ptr %arrayidx32, align 2
-  %arrayidx34 = getelementptr inbounds i8, ptr %val, i64 2
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %val, i64 2
   %8 = load i16, ptr %arrayidx34, align 2
   %cmp36 = icmp ugt i16 %7, %8
-  %arrayidx39 = getelementptr inbounds i8, ptr %table, i64 4
-  %arrayidx43 = getelementptr inbounds i8, ptr %table, i64 12
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %table, i64 4
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %table, i64 12
   br i1 %cmp36, label %if.then38, label %if.else47
 
 if.then38:                                        ; preds = %sw.bb23
@@ -632,14 +632,14 @@ for.body63.lr.ph:                                 ; preds = %entry, %for.cond.lo
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %for.cond.loopexit ], [ 0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond.loopexit ], [ 1, %entry ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %arrayidx67 = getelementptr inbounds i16, ptr %val, i64 %indvars.iv107
+  %arrayidx67 = getelementptr inbounds nuw i16, ptr %val, i64 %indvars.iv107
   %.pre = load i16, ptr %arrayidx67, align 2
   br label %for.body63
 
 for.body63:                                       ; preds = %for.body63.lr.ph, %for.inc
   %11 = phi i16 [ %.pre, %for.body63.lr.ph ], [ %13, %for.inc ]
   %indvars.iv104 = phi i64 [ %indvars.iv, %for.body63.lr.ph ], [ %indvars.iv.next105, %for.inc ]
-  %arrayidx64 = getelementptr inbounds i16, ptr %val, i64 %indvars.iv104
+  %arrayidx64 = getelementptr inbounds nuw i16, ptr %val, i64 %indvars.iv104
   %12 = load i16, ptr %arrayidx64, align 2
   %cmp69 = icmp ult i16 %12, %11
   br i1 %cmp69, label %if.then71, label %for.inc
@@ -661,22 +661,22 @@ for.end83:                                        ; preds = %for.cond.loopexit
   %retval.i193.sroa.287.0.insert.shift = shl nuw i32 %retval.i193.sroa.287.0.insert.ext, 16
   %retval.i193.sroa.0.0.insert.insert = or disjoint i32 %retval.i193.sroa.287.0.insert.shift, 2
   store i32 %retval.i193.sroa.0.0.insert.insert, ptr %table, align 2
-  %arrayidx88 = getelementptr inbounds i8, ptr %table, i64 8
-  %arrayidx90 = getelementptr inbounds i8, ptr %val, i64 2
+  %arrayidx88 = getelementptr inbounds nuw i8, ptr %table, i64 8
+  %arrayidx90 = getelementptr inbounds nuw i8, ptr %val, i64 2
   %15 = load i16, ptr %arrayidx90, align 2
   %retval.i189.sroa.286.0.insert.ext = zext i16 %15 to i32
   %retval.i189.sroa.286.0.insert.shift = shl nuw i32 %retval.i189.sroa.286.0.insert.ext, 16
   %retval.i189.sroa.0.0.insert.insert = or disjoint i32 %retval.i189.sroa.286.0.insert.shift, 2
   store i32 %retval.i189.sroa.0.0.insert.insert, ptr %arrayidx88, align 2
-  %arrayidx92 = getelementptr inbounds i8, ptr %table, i64 4
-  %arrayidx94 = getelementptr inbounds i8, ptr %val, i64 4
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %table, i64 4
+  %arrayidx94 = getelementptr inbounds nuw i8, ptr %val, i64 4
   %16 = load i16, ptr %arrayidx94, align 2
   %retval.i185.sroa.285.0.insert.ext = zext i16 %16 to i32
   %retval.i185.sroa.285.0.insert.shift = shl nuw i32 %retval.i185.sroa.285.0.insert.ext, 16
   %retval.i185.sroa.0.0.insert.insert = or disjoint i32 %retval.i185.sroa.285.0.insert.shift, 2
   store i32 %retval.i185.sroa.0.0.insert.insert, ptr %arrayidx92, align 2
-  %arrayidx96 = getelementptr inbounds i8, ptr %table, i64 12
-  %arrayidx98 = getelementptr inbounds i8, ptr %val, i64 6
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %table, i64 12
+  %arrayidx98 = getelementptr inbounds nuw i8, ptr %val, i64 6
   %17 = load i16, ptr %arrayidx98, align 2
   %retval.i181.sroa.284.0.insert.ext = zext i16 %17 to i32
   %retval.i181.sroa.284.0.insert.shift = shl nuw i32 %retval.i181.sroa.284.0.insert.ext, 16
@@ -685,9 +685,9 @@ for.end83:                                        ; preds = %for.cond.loopexit
   br label %sw.epilog
 
 sw.bb100:                                         ; preds = %entry
-  %arrayidx101 = getelementptr inbounds i8, ptr %val, i64 6
+  %arrayidx101 = getelementptr inbounds nuw i8, ptr %val, i64 6
   %18 = load i16, ptr %arrayidx101, align 2
-  %arrayidx103 = getelementptr inbounds i8, ptr %val, i64 4
+  %arrayidx103 = getelementptr inbounds nuw i8, ptr %val, i64 4
   %19 = load i16, ptr %arrayidx103, align 2
   %cmp105 = icmp ult i16 %18, %19
   br i1 %cmp105, label %if.then107, label %if.end113
@@ -703,44 +703,44 @@ if.end113:                                        ; preds = %if.then107, %sw.bb1
   %retval.i177.sroa.283.0.insert.shift = shl nuw i32 %retval.i177.sroa.283.0.insert.ext, 16
   %retval.i177.sroa.0.0.insert.insert = or disjoint i32 %retval.i177.sroa.283.0.insert.shift, 1
   store i32 %retval.i177.sroa.0.0.insert.insert, ptr %table, align 2
-  %arrayidx118 = getelementptr inbounds i8, ptr %table, i64 4
-  %arrayidx120 = getelementptr inbounds i8, ptr %val, i64 2
+  %arrayidx118 = getelementptr inbounds nuw i8, ptr %table, i64 4
+  %arrayidx120 = getelementptr inbounds nuw i8, ptr %val, i64 2
   %21 = load i16, ptr %arrayidx120, align 2
   %retval.i173.sroa.282.0.insert.ext = zext i16 %21 to i32
   %retval.i173.sroa.282.0.insert.shift = shl nuw i32 %retval.i173.sroa.282.0.insert.ext, 16
   %retval.i173.sroa.0.0.insert.insert = or disjoint i32 %retval.i173.sroa.282.0.insert.shift, 2
   store i32 %retval.i173.sroa.0.0.insert.insert, ptr %arrayidx118, align 2
-  %arrayidx122 = getelementptr inbounds i8, ptr %table, i64 8
+  %arrayidx122 = getelementptr inbounds nuw i8, ptr %table, i64 8
   %22 = load i16, ptr %val, align 2
   %retval.i169.sroa.281.0.insert.ext = zext i16 %22 to i32
   %retval.i169.sroa.281.0.insert.shift = shl nuw i32 %retval.i169.sroa.281.0.insert.ext, 16
   %retval.i169.sroa.0.0.insert.insert = or disjoint i32 %retval.i169.sroa.281.0.insert.shift, 1
   store i32 %retval.i169.sroa.0.0.insert.insert, ptr %arrayidx122, align 2
-  %arrayidx126 = getelementptr inbounds i8, ptr %table, i64 12
+  %arrayidx126 = getelementptr inbounds nuw i8, ptr %table, i64 12
   %23 = load i16, ptr %arrayidx103, align 2
   %retval.i165.sroa.280.0.insert.ext = zext i16 %23 to i32
   %retval.i165.sroa.280.0.insert.shift = shl nuw i32 %retval.i165.sroa.280.0.insert.ext, 16
   %retval.i165.sroa.0.0.insert.insert = or disjoint i32 %retval.i165.sroa.280.0.insert.shift, 3
   store i32 %retval.i165.sroa.0.0.insert.insert, ptr %arrayidx126, align 2
-  %arrayidx130 = getelementptr inbounds i8, ptr %table, i64 16
+  %arrayidx130 = getelementptr inbounds nuw i8, ptr %table, i64 16
   %24 = load i16, ptr %val, align 2
   %retval.i161.sroa.279.0.insert.ext = zext i16 %24 to i32
   %retval.i161.sroa.279.0.insert.shift = shl nuw i32 %retval.i161.sroa.279.0.insert.ext, 16
   %retval.i161.sroa.0.0.insert.insert = or disjoint i32 %retval.i161.sroa.279.0.insert.shift, 1
   store i32 %retval.i161.sroa.0.0.insert.insert, ptr %arrayidx130, align 2
-  %arrayidx134 = getelementptr inbounds i8, ptr %table, i64 20
+  %arrayidx134 = getelementptr inbounds nuw i8, ptr %table, i64 20
   %25 = load i16, ptr %arrayidx120, align 2
   %retval.i157.sroa.278.0.insert.ext = zext i16 %25 to i32
   %retval.i157.sroa.278.0.insert.shift = shl nuw i32 %retval.i157.sroa.278.0.insert.ext, 16
   %retval.i157.sroa.0.0.insert.insert = or disjoint i32 %retval.i157.sroa.278.0.insert.shift, 2
   store i32 %retval.i157.sroa.0.0.insert.insert, ptr %arrayidx134, align 2
-  %arrayidx138 = getelementptr inbounds i8, ptr %table, i64 24
+  %arrayidx138 = getelementptr inbounds nuw i8, ptr %table, i64 24
   %26 = load i16, ptr %val, align 2
   %retval.i153.sroa.277.0.insert.ext = zext i16 %26 to i32
   %retval.i153.sroa.277.0.insert.shift = shl nuw i32 %retval.i153.sroa.277.0.insert.ext, 16
   %retval.i153.sroa.0.0.insert.insert = or disjoint i32 %retval.i153.sroa.277.0.insert.shift, 1
   store i32 %retval.i153.sroa.0.0.insert.insert, ptr %arrayidx138, align 2
-  %arrayidx142 = getelementptr inbounds i8, ptr %table, i64 28
+  %arrayidx142 = getelementptr inbounds nuw i8, ptr %table, i64 28
   %27 = load i16, ptr %arrayidx101, align 2
   %retval.i.sroa.276.0.insert.ext = zext i16 %27 to i32
   %retval.i.sroa.276.0.insert.shift = shl nuw i32 %retval.i.sroa.276.0.insert.ext, 16
@@ -756,7 +756,7 @@ sw.epilog:                                        ; preds = %if.then38, %if.else
 while.body:                                       ; preds = %sw.epilog, %while.body
   %table_size.1103 = phi i32 [ %shl152, %while.body ], [ %table_size.0, %sw.epilog ]
   %idxprom148 = zext i32 %table_size.1103 to i64
-  %arrayidx149 = getelementptr inbounds %struct.HuffmanCode, ptr %table, i64 %idxprom148
+  %arrayidx149 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %table, i64 %idxprom148
   %mul = shl nuw nsw i64 %idxprom148, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %arrayidx149, ptr align 2 %table, i64 %mul, i1 false)
   %shl152 = shl i32 %table_size.1103, 1

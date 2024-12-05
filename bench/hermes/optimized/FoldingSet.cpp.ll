@@ -38,7 +38,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 define hidden noundef i32 @_ZNK4llvh19FoldingSetNodeIDRef11ComputeHashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Size = getelementptr inbounds i8, ptr %this, i64 8
+  %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %Size, align 8
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %1
   %call.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr)
@@ -49,7 +49,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh19FoldingSetNodeIDRefeqES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size = getelementptr inbounds i8, ptr %this, i64 8
+  %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %Size, align 8
   %cmp.not = icmp eq i64 %0, %RHS.coerce1
   br i1 %cmp.not, label %if.end, label %return
@@ -72,7 +72,7 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh19FoldingSetNodeIDRefltES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size = getelementptr inbounds i8, ptr %this, i64 8
+  %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %Size, align 8
   %cmp.not = icmp eq i64 %0, %RHS.coerce1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -98,15 +98,15 @@ define hidden void @_ZN4llvh16FoldingSetNodeID10AddPointerEPKv(ptr noundef nonnu
 entry:
   %0 = ptrtoint ptr %Ptr to i64
   %conv.i.i = trunc i64 %0 to i32
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %1, %2
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i
@@ -115,7 +115,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %if.then.i.i.i.i, %
   %3 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %1, %entry ]
   %4 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %4, i64 %conv.i3.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %conv.i3.i.i.i.i
   store i32 %conv.i.i, ptr %add.ptr.i.i.i.i.i, align 1
   %5 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i.i.i = add i32 %5, 1
@@ -125,7 +125,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %if.then.i.i.i.i, %
   br i1 %cmp.not.i.i4.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i
-  %add.ptr.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i6.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i7.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit
@@ -136,7 +136,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i.i = trunc nuw i64 %shr.i.i to i32
   %8 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i.i = zext i32 %7 to i64
-  %add.ptr.i.i.i9.i.i = getelementptr inbounds i32, ptr %8, i64 %conv.i3.i.i8.i.i
+  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw i32, ptr %8, i64 %conv.i3.i.i8.i.i
   store i32 %conv2.i.i, ptr %add.ptr.i.i.i9.i.i, align 1
   %9 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i10.i.i = add i32 %9, 1
@@ -148,15 +148,15 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i = trunc i64 %I to i32
-  %Size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i.i, align 8
-  %Capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i
@@ -165,7 +165,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i:  ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i.i
   store i32 %conv.i, ptr %add.ptr.i.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i.i = add i32 %4, 1
@@ -175,7 +175,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i:  ; preds = %if.then.i.i.i, %ent
   br i1 %cmp.not.i.i4.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i
-  %add.ptr.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i6.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i7.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit
@@ -186,7 +186,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i = trunc nuw i64 %shr.i to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i = zext i32 %6 to i64
-  %add.ptr.i.i.i9.i = getelementptr inbounds i32, ptr %7, i64 %conv.i3.i.i8.i
+  %add.ptr.i.i.i9.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8.i
   store i32 %conv2.i, ptr %add.ptr.i.i.i9.i, align 1
   %8 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i10.i = add i32 %8, 1
@@ -197,15 +197,15 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEi(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit
@@ -214,7 +214,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i
   store i32 %I, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -225,15 +225,15 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit
@@ -242,7 +242,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i
   store i32 %I, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -254,15 +254,15 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEl(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i.i = trunc i64 %I to i32
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i.i.i, align 8
-  %Capacity.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i
@@ -271,7 +271,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %if.then.i.i.i.i, %
   %2 = phi i32 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i.i.i
   store i32 %conv.i.i, ptr %add.ptr.i.i.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i.i.i = add i32 %4, 1
@@ -281,7 +281,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %if.then.i.i.i.i, %
   br i1 %cmp.not.i.i4.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i.i
-  %add.ptr.i.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i6.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i7.i.i = load i32, ptr %Size.i.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit
@@ -292,7 +292,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i.i = trunc nuw i64 %shr.i.i to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i.i = zext i32 %6 to i64
-  %add.ptr.i.i.i9.i.i = getelementptr inbounds i32, ptr %7, i64 %conv.i3.i.i8.i.i
+  %add.ptr.i.i.i9.i.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8.i.i
   store i32 %conv2.i.i, ptr %add.ptr.i.i.i9.i.i, align 1
   %8 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i.i10.i.i = add i32 %8, 1
@@ -304,15 +304,15 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEy(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv = trunc i64 %I to i32
-  %Size.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i, align 8
-  %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit
@@ -321,7 +321,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %entry, %if.then.i.i
   %2 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i
   store i32 %conv, ptr %add.ptr.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i = add i32 %4, 1
@@ -331,7 +331,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %entry, %if.then.i.i
   br i1 %cmp.not.i.i4, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit11, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit
-  %add.ptr.i.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i6, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i7 = load i32, ptr %Size.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit11
@@ -342,7 +342,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit11:  ; preds = %_ZN4llvh16FoldingSe
   %conv2 = trunc nuw i64 %shr to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8 = zext i32 %6 to i64
-  %add.ptr.i.i.i9 = getelementptr inbounds i32, ptr %7, i64 %conv.i3.i.i8
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8
   store i32 %conv2, ptr %add.ptr.i.i.i9, align 1
   %8 = load i32, ptr %Size.i.i.i, align 8
   %add.i.i10 = add i32 %8, 1
@@ -354,15 +354,15 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit11:  ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID10AddIntegerEx(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %I) local_unnamed_addr #0 align 2 {
 entry:
   %conv.i = trunc i64 %I to i32
-  %Size.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i.i.i, align 8
-  %Capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i.i.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i
@@ -371,7 +371,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i:  ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %.pre.i.i.i, %if.then.i.i.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i.i.i
   store i32 %conv.i, ptr %add.ptr.i.i.i.i, align 1
   %4 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i.i = add i32 %4, 1
@@ -381,7 +381,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i:  ; preds = %if.then.i.i.i, %ent
   br i1 %cmp.not.i.i4.i, label %_ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZN4llvh16FoldingSetNodeID10AddIntegerEj.exit.i
-  %add.ptr.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull %add.ptr.i.i.i.i.i6.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i.i7.i = load i32, ptr %Size.i.i.i.i, align 8
   br label %_ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit
@@ -392,7 +392,7 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
   %conv2.i = trunc nuw i64 %shr.i to i32
   %7 = load ptr, ptr %this, align 8
   %conv.i3.i.i8.i = zext i32 %6 to i64
-  %add.ptr.i.i.i9.i = getelementptr inbounds i32, ptr %7, i64 %conv.i3.i.i8.i
+  %add.ptr.i.i.i9.i = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i3.i.i8.i
   store i32 %conv2.i, ptr %add.ptr.i.i.i9.i, align 1
   %8 = load i32, ptr %Size.i.i.i.i, align 8
   %add.i.i10.i = add i32 %8, 1
@@ -404,15 +404,15 @@ _ZN4llvh16FoldingSetNodeID10AddIntegerEy.exit:    ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr %String.coerce0, i64 %String.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %conv = trunc i64 %String.coerce1 to i32
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 4) #22
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit
@@ -421,7 +421,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit: ; preds = %entry, %
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
   %3 = load ptr, ptr %this, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %conv.i3.i
   store i32 %conv, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %4, 1
@@ -440,7 +440,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp.not62, label %if.end28, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %add.ptr.i.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body
 
 if.then4:                                         ; preds = %if.end
@@ -456,7 +456,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end.i.thread:                                  ; preds = %if.then4
   %add.i17 = add nuw nsw i64 %idx.ext, %conv.i5.i
-  %add.ptr.i.i.i.i18 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i18, i64 noundef %add.i17, i64 noundef 4) #22
   %.pre13.pre.i = load i32, ptr %Size.i.i, align 8
   br label %if.then.i.i
@@ -469,7 +469,7 @@ if.then.i.i:                                      ; preds = %if.end.i.thread, %i
   %.pre13.i66 = phi i32 [ %.pre13.pre.i, %if.end.i.thread ], [ %add.i, %if.end.i ]
   %7 = load ptr, ptr %this, align 8
   %conv.i9.i = zext i32 %.pre13.i66 to i64
-  %add.ptr.i.i14 = getelementptr inbounds i32, ptr %7, i64 %conv.i9.i
+  %add.ptr.i.i14 = getelementptr inbounds nuw i32, ptr %7, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i14, ptr align 4 %String.coerce0, i64 %add.ptr.idx, i1 false)
   %.pre.i15 = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
@@ -488,27 +488,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %Pos.163 = phi i32 [ 4, %for.body.lr.ph ], [ %add27, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32 ]
   %sub = add i32 %Pos.163, -1
   %conv7 = zext i32 %sub to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv7
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv7
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv9 = zext i8 %11 to i32
   %shl = shl nuw i32 %conv9, 24
   %sub10 = add i32 %Pos.163, -2
   %conv11 = zext i32 %sub10 to i64
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv11
+  %arrayidx.i19 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv11
   %12 = load i8, ptr %arrayidx.i19, align 1
   %conv13 = zext i8 %12 to i32
   %shl14 = shl nuw nsw i32 %conv13, 16
   %or = or disjoint i32 %shl14, %shl
   %sub15 = add i32 %Pos.163, -3
   %conv16 = zext i32 %sub15 to i64
-  %arrayidx.i20 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv16
+  %arrayidx.i20 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv16
   %13 = load i8, ptr %arrayidx.i20, align 1
   %conv18 = zext i8 %13 to i32
   %shl19 = shl nuw nsw i32 %conv18, 8
   %or20 = or disjoint i32 %or, %shl19
   %sub21 = add i32 %Pos.163, -4
   %conv22 = zext i32 %sub21 to i64
-  %arrayidx.i21 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv22
+  %arrayidx.i21 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv22
   %14 = load i8, ptr %arrayidx.i21, align 1
   %conv24 = zext i8 %14 to i32
   %or25 = or disjoint i32 %or20, %conv24
@@ -525,7 +525,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit32: ; preds = %for.bo
   %16 = phi i32 [ %.pre.i27, %if.then.i25 ], [ %10, %for.body ]
   %17 = load ptr, ptr %this, align 8
   %conv.i3.i29 = zext i32 %16 to i64
-  %add.ptr.i.i30 = getelementptr inbounds i32, ptr %17, i64 %conv.i3.i29
+  %add.ptr.i.i30 = getelementptr inbounds nuw i32, ptr %17, i64 %conv.i3.i29
   store i32 %or25, ptr %add.ptr.i.i30, align 1
   %18 = load i32, ptr %Size.i.i, align 8
   %add.i31 = add i32 %18, 1
@@ -547,7 +547,7 @@ if.end28:                                         ; preds = %_ZN4llvh23SmallVect
 sw.bb:                                            ; preds = %if.end28
   %sub32 = add i64 %String.coerce1, 4294967293
   %conv33 = and i64 %sub32, 4294967295
-  %arrayidx.i33 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv33
+  %arrayidx.i33 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv33
   %20 = load i8, ptr %arrayidx.i33, align 1
   %conv35 = zext i8 %20 to i32
   %21 = shl nuw nsw i32 %conv35, 8
@@ -557,7 +557,7 @@ sw.bb37:                                          ; preds = %sw.bb, %if.end28
   %V29.0 = phi i32 [ 0, %if.end28 ], [ %21, %sw.bb ]
   %sub39 = add i64 %String.coerce1, 4294967294
   %conv40 = and i64 %sub39, 4294967295
-  %arrayidx.i34 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv40
+  %arrayidx.i34 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv40
   %22 = load i8, ptr %arrayidx.i34, align 1
   %conv42 = zext i8 %22 to i32
   %or43 = or disjoint i32 %V29.0, %conv42
@@ -568,7 +568,7 @@ sw.bb44:                                          ; preds = %sw.bb37, %if.end28
   %V29.1 = phi i32 [ 0, %if.end28 ], [ %23, %sw.bb37 ]
   %sub46 = add i64 %String.coerce1, 4294967295
   %conv47 = and i64 %sub46, 4294967295
-  %arrayidx.i35 = getelementptr inbounds i8, ptr %String.coerce0, i64 %conv47
+  %arrayidx.i35 = getelementptr inbounds nuw i8, ptr %String.coerce0, i64 %conv47
   %24 = load i8, ptr %arrayidx.i35, align 1
   %conv49 = zext i8 %24 to i32
   %or50 = or disjoint i32 %V29.1, %conv49
@@ -577,7 +577,7 @@ sw.bb44:                                          ; preds = %sw.bb37, %if.end28
   br i1 %cmp.not.i38, label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit46, label %if.then.i39
 
 if.then.i39:                                      ; preds = %sw.bb44
-  %add.ptr.i.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i40, i64 noundef 0, i64 noundef 4) #22
   %.pre.i41 = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit46
@@ -586,7 +586,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE9push_backERKj.exit46: ; preds = %sw.bb4
   %26 = phi i32 [ %.pre.i41, %if.then.i39 ], [ %19, %sw.bb44 ]
   %27 = load ptr, ptr %this, align 8
   %conv.i3.i43 = zext i32 %26 to i64
-  %add.ptr.i.i44 = getelementptr inbounds i32, ptr %27, i64 %conv.i3.i43
+  %add.ptr.i.i44 = getelementptr inbounds nuw i32, ptr %27, i64 %conv.i3.i43
   store i32 %or50, ptr %add.ptr.i.i44, align 1
   %28 = load i32, ptr %Size.i.i, align 8
   %add.i45 = add i32 %28, 1
@@ -601,14 +601,14 @@ return:                                           ; preds = %if.end28, %_ZN4llvh
 define hidden void @_ZN4llvh16FoldingSetNodeID9AddNodeIDERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %ID) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %ID, align 8
-  %Size.i = getelementptr inbounds i8, ptr %ID, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %ID, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i.idx = shl nuw nsw i64 %conv.i, 2
-  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %Size.i.i, align 8
   %conv.i5.i = zext i32 %3 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i5.i
@@ -617,7 +617,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %add.i = add nuw nsw i64 %conv.i5.i, %conv.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef %add.i, i64 noundef 4) #22
   %.pre13.pre.i = load i32, ptr %Size.i.i, align 8
   br label %if.end.i
@@ -630,7 +630,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then.i.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %this, align 8
   %conv.i9.i = zext i32 %.pre13.i to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %4, i64 %conv.i9.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 4 %0, i64 %add.ptr.i.idx, i1 false)
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
@@ -646,10 +646,10 @@ _ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit: ; preds = %if.end.i, %if.
 define hidden noundef i32 @_ZNK4llvh16FoldingSetNodeID11ComputeHashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %0, i64 %conv.i
   %call.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr.i)
   %conv.i3 = trunc i64 %call.i.i to i32
   ret i32 %conv.i3
@@ -658,9 +658,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %RHS) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %0 = load i32, ptr %Size.i, align 8
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE.exit
@@ -682,7 +682,7 @@ _ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDeqENS_19FoldingSetNodeIDRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
   %cmp.not.i = icmp eq i64 %RHS.coerce1, %conv.i
@@ -706,9 +706,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDltERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %RHS) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %0 = load i32, ptr %Size.i, align 8
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %0, %1
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -734,7 +734,7 @@ _ZNK4llvh16FoldingSetNodeIDltENS_19FoldingSetNodeIDRefE.exit: ; preds = %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4llvh16FoldingSetNodeIDltENS_19FoldingSetNodeIDRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture readonly %RHS.coerce0, i64 %RHS.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
   %cmp.not.i = icmp eq i64 %RHS.coerce1, %conv.i
@@ -759,7 +759,7 @@ _ZNK4llvh19FoldingSetNodeIDRefltES0_.exit:        ; preds = %if.then.i, %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i64 } @_ZNK4llvh16FoldingSetNodeID6InternERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(97) %Allocator) local_unnamed_addr #0 align 2 {
 entry:
-  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %0 to i64
   %mul.i = shl nuw nsw i64 %conv.i, 2
@@ -792,7 +792,7 @@ define hidden void @_ZN4llvh14FoldingSetBaseC2Ej(ptr nocapture noundef nonnull w
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 16), ptr %this, align 8
   %shl = shl nuw i32 1, %Log2InitSize
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %shl, ptr %NumBuckets, align 8
   %add.i = add nuw i32 %shl, 1
   %conv.i = zext i32 %add.i to i64
@@ -806,11 +806,11 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   %idxprom.i = zext i32 %shl to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %idxprom.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i, ptr %Buckets, align 8
-  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
   ret void
 }
@@ -819,16 +819,16 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
 define hidden void @_ZN4llvh14FoldingSetBaseC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Arg) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 16), ptr %this, align 8
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
-  %Buckets2 = getelementptr inbounds i8, ptr %Arg, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %Buckets2 = getelementptr inbounds nuw i8, ptr %Arg, i64 8
   %0 = load ptr, ptr %Buckets2, align 8
   store ptr %0, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
-  %NumBuckets3 = getelementptr inbounds i8, ptr %Arg, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %NumBuckets3 = getelementptr inbounds nuw i8, ptr %Arg, i64 16
   %1 = load i32, ptr %NumBuckets3, align 8
   store i32 %1, ptr %NumBuckets, align 8
-  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
-  %NumNodes4 = getelementptr inbounds i8, ptr %Arg, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %NumNodes4 = getelementptr inbounds nuw i8, ptr %Arg, i64 20
   %2 = load i32, ptr %NumNodes4, align 4
   store i32 %2, ptr %NumNodes, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Buckets2, i8 0, i64 16, i1 false)
@@ -838,19 +838,19 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvh14FoldingSetBaseaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((16, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %RHS) local_unnamed_addr #6 align 2 {
 entry:
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
   tail call void @free(ptr noundef %0) #22
-  %Buckets2 = getelementptr inbounds i8, ptr %RHS, i64 8
+  %Buckets2 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %1 = load ptr, ptr %Buckets2, align 8
   store ptr %1, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %RHS, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %2 = load i32, ptr %NumBuckets, align 8
-  %NumBuckets4 = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %2, ptr %NumBuckets4, align 8
-  %NumNodes = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %3 = load i32, ptr %NumNodes, align 4
-  %NumNodes5 = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes5 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %3, ptr %NumNodes5, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Buckets2, i8 0, i64 16, i1 false)
   ret ptr %this
@@ -863,7 +863,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 define hidden void @_ZN4llvh14FoldingSetBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 16), ptr %this, align 8
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
   tail call void @free(ptr noundef %0) #22
   ret void
@@ -872,9 +872,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh14FoldingSetBase5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 3
@@ -882,9 +882,9 @@ entry:
   %2 = load ptr, ptr %Buckets, align 8
   %3 = load i32, ptr %NumBuckets, align 8
   %idxprom = zext i32 %3 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx, align 8
-  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
   ret void
 }
@@ -897,9 +897,9 @@ define hidden void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonn
 entry:
   %TempID.i = alloca %"class.llvh::FoldingSetNodeID", align 8
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets, align 8
   %add.i = add i32 %NewBucketCount, 1
   %conv.i = zext i32 %add.i to i64
@@ -913,31 +913,31 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
   %idxprom.i = zext i32 %NewBucketCount to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %idxprom.i
   store ptr inttoptr (i64 -1 to ptr), ptr %arrayidx.i, align 8
   store ptr %call.i.i, ptr %Buckets, align 8
   store i32 %NewBucketCount, ptr %NumBuckets, align 8
-  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 0, ptr %NumNodes, align 4
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TempID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 8
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 12
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not31 = icmp eq i32 %1, 0
   br i1 %cmp.not31, label %_ZN4llvh16FoldingSetNodeIDD2Ev.exit.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZL15AllocateBucketsj.exit
-  %add.ptr.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %TempID.i, i64 16
-  %Size.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %TempID.i, i64 8
-  %Capacity2.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %TempID.i, i64 12
+  %add.ptr.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %TempID.i, i64 16
+  %Size.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %TempID.i, i64 8
+  %Capacity2.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %TempID.i, i64 12
   %2 = zext i32 %1 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %3, null
   %4 = ptrtoint ptr %3 to i64
@@ -951,7 +951,7 @@ while.body:                                       ; preds = %for.body, %_ZN4llvh
   %5 = load ptr, ptr %Probe.030, align 8
   store ptr null, ptr %Probe.030, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   %call7 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.030, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
   %7 = load ptr, ptr %Buckets, align 8
@@ -959,7 +959,7 @@ while.body:                                       ; preds = %for.body, %_ZN4llvh
   %sub.i = add i32 %8, -1
   %and.i10 = and i32 %sub.i, %call7
   %idx.ext.i = zext i32 %and.i10 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i)
   %9 = load i32, ptr %NumNodes, align 4
   %add.i11 = add i32 %9, 1
@@ -973,7 +973,7 @@ if.then.i:                                        ; preds = %while.body
   store i32 0, ptr %Size.i.i.i.i.i.i22, align 8
   store i32 32, ptr %Capacity2.i.i.i.i.i.i23, align 4
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %10 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.030, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
   %11 = load ptr, ptr %Buckets, align 8
@@ -981,7 +981,7 @@ if.then.i:                                        ; preds = %while.body
   %sub.i17 = add i32 %12, -1
   %and.i18 = and i32 %sub.i17, %call2.i
   %idx.ext.i19 = zext i32 %and.i18 to i64
-  %add.ptr.i20 = getelementptr inbounds ptr, ptr %11, i64 %idx.ext.i19
+  %add.ptr.i20 = getelementptr inbounds nuw ptr, ptr %11, i64 %idx.ext.i19
   %13 = load ptr, ptr %TempID.i, align 8
   %cmp.i.i.i.i14 = icmp eq ptr %13, %add.ptr.i.i.i.i.i.i21
   br i1 %cmp.i.i.i.i14, label %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit, label %if.then.i.i.i15
@@ -1036,10 +1036,10 @@ _ZN4llvh16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvh16FoldingSe
 define hidden void @_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef %InsertPos) local_unnamed_addr #0 align 2 {
 entry:
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
-  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %NumNodes, align 4
   %add = add i32 %0, 1
-  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i, align 8
   %mul.i = shl i32 %1, 1
   %cmp = icmp ugt i32 %add, %mul.i
@@ -1047,23 +1047,23 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %mul.i)
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TempID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 8
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 12
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call2 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %Buckets, align 8
   %4 = load i32, ptr %NumBuckets.i, align 8
   %sub.i = add i32 %4, -1
   %and.i = and i32 %sub.i, %call2
   %idx.ext.i = zext i32 %and.i to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idx.ext.i
   %5 = load ptr, ptr %TempID, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %if.end, label %if.then.i.i.i
@@ -1091,7 +1091,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14FoldingSetBase13GrowHashTableEv(ptr noundef nonnull align 8 dereferenceable(24) initializes((20, 24)) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %mul = shl i32 %0, 1
   tail call void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %mul)
@@ -1101,7 +1101,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14FoldingSetBase7reserveEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %EltCount) local_unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
   %mul.i = shl i32 %0, 1
   %cmp = icmp ult i32 %EltCount, %mul.i
@@ -1126,27 +1126,27 @@ define hidden noundef ptr @_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16
 entry:
   %TempID = alloca %"class.llvh::FoldingSetNodeID", align 8
   %0 = load ptr, ptr %ID, align 8
-  %Size.i.i = getelementptr inbounds i8, ptr %ID, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %ID, i64 8
   %1 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %0, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %0, i64 %conv.i.i
   %call.i.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %0, ptr noundef %add.ptr.i.i)
   %conv.i3.i = trunc i64 %call.i.i.i to i32
-  %Buckets = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Buckets, align 8
-  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %NumBuckets, align 8
   %sub.i = add i32 %3, -1
   %and.i = and i32 %sub.i, %conv.i3.i
   %idx.ext.i = zext i32 %and.i to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %2, i64 %idx.ext.i
   %4 = load ptr, ptr %add.ptr.i, align 8
   store ptr null, ptr %InsertPos, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %TempID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 8
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID, i64 12
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %5 = ptrtoint ptr %4 to i64
   %and.i811 = and i64 %5, 1
@@ -1158,7 +1158,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %Probe.015 = phi ptr [ %7, %if.end ], [ %4, %entry ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
   %call4 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.015, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID) #22
   br i1 %call4, label %cleanup, label %if.end
@@ -1199,7 +1199,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %NumNodes = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes = getelementptr inbounds nuw i8, ptr %this, i64 20
   %1 = load i32, ptr %NumNodes, align 4
   %dec = add i32 %1, -1
   store i32 %dec, ptr %NumNodes, align 4
@@ -1246,37 +1246,37 @@ entry:
   %TempID.i4 = alloca %"class.llvh::FoldingSetNodeID", align 8
   %TempID.i = alloca %"class.llvh::FoldingSetNodeID", align 8
   %ID = alloca %"class.llvh::FoldingSetNodeID", align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ID, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ID, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %ID, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ID, i64 8
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ID, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ID, i64 12
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ID, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %ID) #22
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i)
   %1 = load ptr, ptr %ID, align 8
   %2 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i.i = zext i32 %2 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %1, i64 %conv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv.i.i.i
   %call.i.i.i.i = call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %1, ptr noundef %add.ptr.i.i.i)
   %conv.i3.i.i = trunc i64 %call.i.i.i.i to i32
-  %Buckets.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Buckets.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %Buckets.i, align 8
-  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
+  %NumBuckets.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i32, ptr %NumBuckets.i, align 8
   %sub.i.i = add i32 %4, -1
   %and.i.i = and i32 %sub.i.i, %conv.i3.i.i
   %idx.ext.i.i = zext i32 %and.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idx.ext.i.i
   %5 = load ptr, ptr %add.ptr.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID.i, i64 16
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %TempID.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID.i, i64 8
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %TempID.i, i64 12
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %TempID.i, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %6 = ptrtoint ptr %5 to i64
   %and.i811.i = and i64 %6, 1
@@ -1292,7 +1292,7 @@ _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.t
 while.body.i:                                     ; preds = %entry, %if.end.i
   %Probe.015.i = phi ptr [ %8, %if.end.i ], [ %5, %entry ]
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call4.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %Probe.015.i, ptr noundef nonnull align 8 dereferenceable(144) %ID, i32 noundef %conv.i3.i.i, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i) #22
   br i1 %call4.i, label %cleanup.i, label %if.end.i
@@ -1326,7 +1326,7 @@ _ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit: 
 if.end:                                           ; preds = %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit
   %IP.02227 = phi ptr [ %add.ptr.i.i, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit.thread ], [ %IP.0.ph, %_ZN4llvh14FoldingSetBase19FindNodeOrInsertPosERKNS_16FoldingSetNodeIDERPv.exit ]
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %TempID.i4)
-  %NumNodes.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNodes.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %10 = load i32, ptr %NumNodes.i, align 4
   %add.i = add i32 %10, 1
   %11 = load i32, ptr %NumBuckets.i, align 8
@@ -1336,14 +1336,14 @@ if.end:                                           ; preds = %_ZN4llvh14FoldingSe
 
 if.then.i:                                        ; preds = %if.end
   call void @_ZN4llvh14FoldingSetBase15GrowBucketCountEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %mul.i.i)
-  %add.ptr.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %TempID.i4, i64 16
+  %add.ptr.i.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %TempID.i4, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i7, ptr %TempID.i4, align 8
-  %Size.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %TempID.i4, i64 8
+  %Size.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %TempID.i4, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i8, align 8
-  %Capacity2.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %TempID.i4, i64 12
+  %Capacity2.i.i.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %TempID.i4, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i.i9, align 4
   %vtable.i10 = load ptr, ptr %this, align 8
-  %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 24
+  %vfn.i11 = getelementptr inbounds nuw i8, ptr %vtable.i10, i64 24
   %12 = load ptr, ptr %vfn.i11, align 8
   %call2.i = call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %N, ptr noundef nonnull align 8 dereferenceable(144) %TempID.i4) #22
   %13 = load ptr, ptr %Buckets.i, align 8
@@ -1351,7 +1351,7 @@ if.then.i:                                        ; preds = %if.end
   %sub.i.i13 = add i32 %14, -1
   %and.i.i14 = and i32 %sub.i.i13, %call2.i
   %idx.ext.i.i15 = zext i32 %and.i.i14 to i64
-  %add.ptr.i.i16 = getelementptr inbounds ptr, ptr %13, i64 %idx.ext.i.i15
+  %add.ptr.i.i16 = getelementptr inbounds nuw ptr, ptr %13, i64 %idx.ext.i.i15
   %15 = load ptr, ptr %TempID.i4, align 8
   %cmp.i.i.i.i.i17 = icmp eq ptr %15, %add.ptr.i.i.i.i.i.i.i7
   br i1 %cmp.i.i.i.i.i17, label %_ZN4llvh14FoldingSetBase10InsertNodeEPNS0_4NodeEPv.exit, label %if.then.i.i.i.i18
@@ -1412,7 +1412,7 @@ lor.rhs:                                          ; preds = %while.cond
   br i1 %tobool2.not, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond, %lor.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %Bucket.addr.0, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %Bucket.addr.0, i64 8
   br label %while.cond, !llvm.loop !10
 
 while.end:                                        ; preds = %while.cond, %lor.rhs
@@ -1439,7 +1439,7 @@ if.else:                                          ; preds = %entry
 
 do.body:                                          ; preds = %do.body.backedge, %if.else
   %Bucket.0 = phi ptr [ %3, %if.else ], [ %incdec.ptr, %do.body.backedge ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %Bucket.0, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %Bucket.0, i64 8
   %4 = load ptr, ptr %incdec.ptr, align 8
   %magicptr = ptrtoint ptr %4 to i64
   switch i64 %magicptr, label %lor.rhs [
@@ -1546,19 +1546,19 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %xor5.i13.i = xor i64 %shr4.i12.i, %mul3.i11.i
   %mul6.i14.i = mul i64 %xor5.i13.i, -7070675565921424023
   %add2.i.i = add i64 %cond.i.i, %3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %first, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %result.0.copyload.i.i.i = load i64, ptr %add.ptr.i.i, align 1, !noalias !13
   %add3.i.i = add i64 %add2.i.i, %result.0.copyload.i.i.i
   %cond.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i.i, i64 %add3.i.i, i64 27)
   %mul.i15.i = mul i64 %cond.i.i.i, -5435081209227447693
   %add7.i.i = mul i64 %3, -5435081209227447692
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %first, i64 48
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %first, i64 48
   %result.0.copyload.i6.i.i = load i64, ptr %add.ptr8.i.i, align 1, !noalias !13
   %add10.i.i = add i64 %result.0.copyload.i6.i.i, %add7.i.i
   %cond.i7.i.i = tail call i64 @llvm.fshl.i64(i64 %add10.i.i, i64 %add10.i.i, i64 22)
   %mul12.i.i = mul i64 %cond.i7.i.i, -5435081209227447693
   %xor.i16.i = xor i64 %mul.i15.i, %mul6.i14.i
-  %add.ptr16.i.i = getelementptr inbounds i8, ptr %first, i64 40
+  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %first, i64 40
   %result.0.copyload.i8.i.i = load i64, ptr %add.ptr16.i.i, align 1, !noalias !13
   %add18.i.i = add i64 %result.0.copyload.i8.i.i, %cond.i.i
   %add20.i.i = add i64 %add18.i.i, %mul12.i.i
@@ -1569,12 +1569,12 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %add30.i.i = add i64 %xor.i16.i, %xor.i6.i
   %result.0.copyload.i.i.i.i = load i64, ptr %first, align 1, !noalias !13
   %add.i.i.i = add i64 %result.0.copyload.i.i.i.i, %mul26.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %first, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %first, i64 24
   %result.0.copyload.i12.i.i.i = load i64, ptr %add.ptr.i.i.i, align 1, !noalias !13
   %add2.i.i.i = add i64 %add30.i.i, %add.i.i.i
   %add3.i.i.i = add i64 %add2.i.i.i, %result.0.copyload.i12.i.i.i
   %cond.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i.i.i, i64 %add3.i.i.i, i64 43)
-  %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %first, i64 16
+  %add.ptr7.i.i.i = getelementptr inbounds nuw i8, ptr %first, i64 16
   %result.0.copyload.i14.i.i.i = load i64, ptr %add.ptr7.i.i.i, align 1, !noalias !13
   %add9.i.i.i = add i64 %add.i.i.i, %result.0.copyload.i.i.i
   %add10.i.i.i = add i64 %add9.i.i.i, %result.0.copyload.i14.i.i.i
@@ -1584,10 +1584,10 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   %add14.i.i.i = add i64 %add10.i.i.i, %result.0.copyload.i12.i.i.i
   %add36.i.i = add i64 %mul6.i14.i, %mul23.i.i
   %add41.i.i = add i64 %add20.i.i, %result.0.copyload.i14.i.i.i
-  %add.ptr43.i.i = getelementptr inbounds i8, ptr %first, i64 32
+  %add.ptr43.i.i = getelementptr inbounds nuw i8, ptr %first, i64 32
   %result.0.copyload.i.i11.i.i = load i64, ptr %add.ptr43.i.i, align 1, !noalias !13
   %add.i12.i.i = add i64 %add36.i.i, %result.0.copyload.i.i11.i.i
-  %add.ptr.i13.i.i = getelementptr inbounds i8, ptr %first, i64 56
+  %add.ptr.i13.i.i = getelementptr inbounds nuw i8, ptr %first, i64 56
   %result.0.copyload.i12.i14.i.i = load i64, ptr %add.ptr.i13.i.i, align 1, !noalias !13
   %add2.i15.i.i = add i64 %add41.i.i, %add.i12.i.i
   %add3.i16.i.i = add i64 %add2.i15.i.i, %result.0.copyload.i12.i14.i.i
@@ -1602,7 +1602,7 @@ if.end:                                           ; preds = %_ZN4llvh7hashing6de
   br i1 %cmp4.not126, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %s_begin.0125 = getelementptr inbounds i8, ptr %first, i64 64
+  %s_begin.0125 = getelementptr inbounds nuw i8, ptr %first, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -1615,7 +1615,7 @@ while.body:                                       ; preds = %while.body.preheade
   %state.sroa.36.0129 = phi i64 [ %add13.i.i, %while.body ], [ %add13.i.i.i, %while.body.preheader ]
   %state.sroa.46.0128 = phi i64 [ %add14.i27.i, %while.body ], [ %add14.i27.i.i, %while.body.preheader ]
   %state.sroa.56.0127 = phi i64 [ %add13.i26.i, %while.body ], [ %add13.i26.i.i, %while.body.preheader ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %first.pn134, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 72
   %result.0.copyload.i.i = load i64, ptr %add.ptr.i, align 1
   %add.i = add i64 %state.sroa.10.0132, %state.sroa.26.0130
   %add2.i = add i64 %add.i, %state.sroa.0.0133
@@ -1623,13 +1623,13 @@ while.body:                                       ; preds = %while.body.preheade
   %cond.i.i16 = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 27)
   %mul.i17 = mul i64 %cond.i.i16, -5435081209227447693
   %add7.i = add i64 %state.sroa.10.0132, %state.sroa.36.0129
-  %add.ptr8.i = getelementptr inbounds i8, ptr %first.pn134, i64 112
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 112
   %result.0.copyload.i6.i = load i64, ptr %add.ptr8.i, align 1
   %add10.i = add i64 %add7.i, %result.0.copyload.i6.i
   %cond.i7.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 22)
   %mul12.i = mul i64 %cond.i7.i, -5435081209227447693
   %xor.i = xor i64 %mul.i17, %state.sroa.56.0127
-  %add.ptr16.i = getelementptr inbounds i8, ptr %first.pn134, i64 104
+  %add.ptr16.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 104
   %result.0.copyload.i8.i = load i64, ptr %add.ptr16.i, align 1
   %add18.i = add i64 %result.0.copyload.i8.i, %state.sroa.26.0130
   %add20.i = add i64 %add18.i, %mul12.i
@@ -1640,12 +1640,12 @@ while.body:                                       ; preds = %while.body.preheade
   %add30.i = add i64 %xor.i, %state.sroa.46.0128
   %result.0.copyload.i.i.i22 = load i64, ptr %s_begin.0135, align 1
   %add.i.i = add i64 %result.0.copyload.i.i.i22, %mul26.i
-  %add.ptr.i.i23 = getelementptr inbounds i8, ptr %first.pn134, i64 88
+  %add.ptr.i.i23 = getelementptr inbounds nuw i8, ptr %first.pn134, i64 88
   %result.0.copyload.i12.i.i = load i64, ptr %add.ptr.i.i23, align 1
   %add2.i.i24 = add i64 %add30.i, %add.i.i
   %add3.i.i25 = add i64 %add2.i.i24, %result.0.copyload.i12.i.i
   %cond.i.i.i26 = tail call i64 @llvm.fshl.i64(i64 %add3.i.i25, i64 %add3.i.i25, i64 43)
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %first.pn134, i64 80
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 80
   %result.0.copyload.i14.i.i = load i64, ptr %add.ptr7.i.i, align 1
   %add9.i.i = add i64 %add.i.i, %result.0.copyload.i.i
   %add10.i.i27 = add i64 %add9.i.i, %result.0.copyload.i14.i.i
@@ -1655,10 +1655,10 @@ while.body:                                       ; preds = %while.body.preheade
   %add14.i.i = add i64 %add10.i.i27, %result.0.copyload.i12.i.i
   %add36.i = add i64 %mul23.i, %state.sroa.56.0127
   %add41.i = add i64 %add20.i, %result.0.copyload.i14.i.i
-  %add.ptr43.i = getelementptr inbounds i8, ptr %first.pn134, i64 96
+  %add.ptr43.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 96
   %result.0.copyload.i.i11.i = load i64, ptr %add.ptr43.i, align 1
   %add.i12.i = add i64 %add36.i, %result.0.copyload.i.i11.i
-  %add.ptr.i13.i = getelementptr inbounds i8, ptr %first.pn134, i64 120
+  %add.ptr.i13.i = getelementptr inbounds nuw i8, ptr %first.pn134, i64 120
   %result.0.copyload.i12.i14.i = load i64, ptr %add.ptr.i13.i, align 1
   %add2.i15.i = add i64 %add41.i, %add.i12.i
   %add3.i16.i = add i64 %add2.i15.i, %result.0.copyload.i12.i14.i
@@ -1669,7 +1669,7 @@ while.body:                                       ; preds = %while.body.preheade
   %add12.i25.i = add i64 %cond.i.i17.i, %add.i12.i
   %add13.i26.i = add i64 %add12.i25.i, %cond.i15.i24.i
   %add14.i27.i = add i64 %add10.i23.i, %result.0.copyload.i12.i14.i
-  %s_begin.0 = getelementptr inbounds i8, ptr %s_begin.0135, i64 64
+  %s_begin.0 = getelementptr inbounds nuw i8, ptr %s_begin.0135, i64 64
   %cmp4.not = icmp eq ptr %s_begin.0, %add.ptr
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !16
 
@@ -1807,7 +1807,7 @@ if.then:                                          ; preds = %entry
   %conv.i = zext i32 %result.0.copyload.i.i to i64
   %shl.i = shl nuw nsw i64 %conv.i, 3
   %add.i = add nuw nsw i64 %shl.i, %length
-  %add.ptr.i = getelementptr inbounds i8, ptr %s, i64 %length
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %s, i64 %length
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -4
   %result.0.copyload.i3.i = load i32, ptr %add.ptr1.i, align 1
   %conv3.i = zext i32 %result.0.copyload.i3.i to i64
@@ -1830,7 +1830,7 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %result.0.copyload.i.i24 = load i64, ptr %s, align 1
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %s, i64 %length
+  %add.ptr.i25 = getelementptr inbounds nuw i8, ptr %s, i64 %length
   %add.ptr1.i26 = getelementptr inbounds i8, ptr %add.ptr.i25, i64 -8
   %result.0.copyload.i5.i = load i64, ptr %add.ptr1.i26, align 1
   %xor.i27 = xor i64 %result.0.copyload.i.i24, %seed
@@ -1856,9 +1856,9 @@ if.end7:                                          ; preds = %if.end
 if.then11:                                        ; preds = %if.end7
   %result.0.copyload.i.i37 = load i64, ptr %s, align 1
   %mul.i = mul i64 %result.0.copyload.i.i37, -5435081209227447693
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %s, i64 8
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %result.0.copyload.i10.i = load i64, ptr %add.ptr.i38, align 1
-  %add.ptr2.i = getelementptr inbounds i8, ptr %s, i64 %length
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %s, i64 %length
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 -8
   %result.0.copyload.i11.i = load i64, ptr %add.ptr3.i, align 1
   %mul5.i = mul i64 %result.0.copyload.i11.i, -7286425919675154353
@@ -1893,7 +1893,7 @@ if.end13:                                         ; preds = %if.end7
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end13
-  %add.ptr.i50 = getelementptr inbounds i8, ptr %s, i64 24
+  %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %s, i64 24
   %result.0.copyload.i.i51 = load i64, ptr %add.ptr.i50, align 1
   %result.0.copyload.i36.i = load i64, ptr %s, align 1
   %add.ptr2.i52 = getelementptr inbounds i8, ptr %s, i64 %length
@@ -1905,11 +1905,11 @@ if.then15:                                        ; preds = %if.end13
   %add6.i = add i64 %add5.i, %result.0.copyload.i.i51
   %cond.i.i56 = tail call i64 @llvm.fshl.i64(i64 %add6.i, i64 %add6.i, i64 12)
   %cond.i38.i = tail call i64 @llvm.fshl.i64(i64 %add5.i, i64 %add5.i, i64 27)
-  %add.ptr9.i = getelementptr inbounds i8, ptr %s, i64 8
+  %add.ptr9.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %result.0.copyload.i39.i = load i64, ptr %add.ptr9.i, align 1
   %add11.i = add i64 %add5.i, %result.0.copyload.i39.i
   %cond.i40.i = tail call i64 @llvm.fshl.i64(i64 %add11.i, i64 %add11.i, i64 57)
-  %add.ptr14.i = getelementptr inbounds i8, ptr %s, i64 16
+  %add.ptr14.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   %result.0.copyload.i41.i = load i64, ptr %add.ptr14.i, align 1
   %add16.i = add i64 %add11.i, %result.0.copyload.i41.i
   %cond.i42.i = tail call i64 @llvm.fshl.i64(i64 %add16.i, i64 %add16.i, i64 33)
@@ -1957,7 +1957,7 @@ if.end17:                                         ; preds = %if.end13
 if.then19:                                        ; preds = %if.end17
   %6 = load i8, ptr %s, align 1
   %shr.i = lshr i64 %length, 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %s, i64 %shr.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %s, i64 %shr.i
   %7 = load i8, ptr %arrayidx1.i, align 1
   %8 = getelementptr i8, ptr %s, i64 %length
   %arrayidx2.i = getelementptr i8, ptr %8, i64 -1
@@ -1998,7 +1998,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noalias noundef nonnull ptr @_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(97) %this, i64 noundef %Size, i64 noundef %Alignment) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %BytesAllocated = getelementptr inbounds i8, ptr %this, i64 80
+  %BytesAllocated = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i64, ptr %BytesAllocated, align 8
   %add = add i64 %0, %Size
   store i64 %add, ptr %BytesAllocated, align 8
@@ -2010,7 +2010,7 @@ entry:
   %and.i.i = and i64 %sub.i.i, %not.i.i
   %sub.i = sub i64 %and.i.i, %2
   %add2 = add i64 %sub.i, %Size
-  %End = getelementptr inbounds i8, ptr %this, i64 8
+  %End = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %End, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %2
@@ -2038,10 +2038,10 @@ if.then.i.i:                                      ; preds = %if.then9
   br label %_ZN4llvh15MallocAllocator8AllocateEmm.exit
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit:       ; preds = %if.then9, %if.then.i.i
-  %CustomSizedSlabs = getelementptr inbounds i8, ptr %this, i64 64
-  %Size.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %CustomSizedSlabs = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 76
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %5 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit, label %if.then.i
@@ -2055,9 +2055,9 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit: ; pred
   %6 = phi i32 [ %.pre.i, %if.then.i ], [ %4, %_ZN4llvh15MallocAllocator8AllocateEmm.exit ]
   %7 = load ptr, ptr %CustomSizedSlabs, align 8
   %conv.i3.i = zext i32 %6 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %7, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i64 %conv.i3.i
   store ptr %call.i.i, ptr %add.ptr.i.i, align 1
-  %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i64 %sub, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
   %8 = load i32, ptr %Size.i.i, align 8
   %add.i = add i32 %8, 1
@@ -2069,8 +2069,8 @@ _ZN4llvh23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backERKS3_.exit: ; pred
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
-  %Size.i.i13 = getelementptr inbounds i8, ptr %this, i64 24
+  %Slabs.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %Size.i.i13 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load i32, ptr %Size.i.i13, align 8
   %div1.i.i = lshr i32 %11, 7
   %12 = tail call i32 @llvm.umin.i32(i32 %div1.i.i, i32 30)
@@ -2087,13 +2087,13 @@ if.then.i.i.i:                                    ; preds = %if.end14
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i:     ; preds = %if.then.i.i.i, %if.end14
   %13 = phi i32 [ %11, %if.end14 ], [ %.pre.i16, %if.then.i.i.i ]
-  %Capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %Capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %14 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %13, %14
   br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Slabs.i, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #22
   %.pre.i.i = load i32, ptr %Size.i.i13, align 8
   br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit
@@ -2102,13 +2102,13 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   %15 = phi i32 [ %.pre.i.i, %if.then.i.i14 ], [ %13, %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i ]
   %16 = load ptr, ptr %Slabs.i, align 8
   %conv.i3.i.i = zext i32 %15 to i64
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %conv.i3.i.i
   %17 = ptrtoint ptr %call.i.i.i to i64
   store i64 %17, ptr %add.ptr.i.i.i, align 1
   %18 = load i32, ptr %Size.i.i13, align 8
   %add.i.i15 = add i32 %18, 1
   store i32 %add.i.i15, ptr %Size.i.i13, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %mul.i.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %mul.i.i
   store ptr %add.ptr.i, ptr %End, align 8
   %sub.i18 = add i64 %add.i.i, %17
   %and.i20 = and i64 %sub.i18, %not.i.i

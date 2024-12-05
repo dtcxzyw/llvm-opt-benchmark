@@ -61,86 +61,86 @@ entry:
 define dso_local void @_ZN21btSimpleDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %constraintSolver, ptr noundef %collisionConfiguration) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %dispatcher, ptr noundef %pairCache, ptr noundef %collisionConfiguration)
-  %m_internalTickCallback.i = getelementptr inbounds i8, ptr %this, i64 128
-  %m_solverInfo.i = getelementptr inbounds i8, ptr %this, i64 152
+  %m_internalTickCallback.i = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_solverInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_internalTickCallback.i, i8 0, i64 24, i1 false)
   store float 0x3FE3333340000000, ptr %m_solverInfo.i, align 8
-  %m_damping.i.i = getelementptr inbounds i8, ptr %this, i64 156
+  %m_damping.i.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   store float 1.000000e+00, ptr %m_damping.i.i, align 4
-  %m_friction.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %m_friction.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store float 0x3FD3333340000000, ptr %m_friction.i.i, align 8
-  %m_timeStep.i.i = getelementptr inbounds i8, ptr %this, i64 164
+  %m_timeStep.i.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   store float 0x3F91111120000000, ptr %m_timeStep.i.i, align 4
-  %m_restitution.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %m_restitution.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   store float 0.000000e+00, ptr %m_restitution.i.i, align 8
-  %m_maxErrorReduction.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %m_maxErrorReduction.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   store float 2.000000e+01, ptr %m_maxErrorReduction.i.i, align 8
-  %m_numIterations.i.i = getelementptr inbounds i8, ptr %this, i64 172
+  %m_numIterations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 172
   store i32 10, ptr %m_numIterations.i.i, align 4
-  %m_erp.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %m_erp.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   store float 0x3FC99999A0000000, ptr %m_erp.i.i, align 8
-  %m_erp2.i.i = getelementptr inbounds i8, ptr %this, i64 188
+  %m_erp2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 188
   store float 0x3FC99999A0000000, ptr %m_erp2.i.i, align 4
-  %m_deformable_erp.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %m_deformable_erp.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   store float 0x3FAEB851E0000000, ptr %m_deformable_erp.i.i, align 8
-  %m_deformable_cfm.i.i = getelementptr inbounds i8, ptr %this, i64 196
+  %m_deformable_cfm.i.i = getelementptr inbounds nuw i8, ptr %this, i64 196
   store float 0x3F847AE140000000, ptr %m_deformable_cfm.i.i, align 4
-  %m_deformable_maxErrorReduction.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  %m_deformable_maxErrorReduction.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
   store float 0x3FB99999A0000000, ptr %m_deformable_maxErrorReduction.i.i, align 8
-  %m_globalCfm.i.i = getelementptr inbounds i8, ptr %this, i64 204
+  %m_globalCfm.i.i = getelementptr inbounds nuw i8, ptr %this, i64 204
   store float 0.000000e+00, ptr %m_globalCfm.i.i, align 4
-  %m_frictionERP.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %m_frictionERP.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   store float 0x3FC99999A0000000, ptr %m_frictionERP.i.i, align 8
-  %m_frictionCFM.i.i = getelementptr inbounds i8, ptr %this, i64 212
+  %m_frictionCFM.i.i = getelementptr inbounds nuw i8, ptr %this, i64 212
   store float 0.000000e+00, ptr %m_frictionCFM.i.i, align 4
-  %m_sor.i.i = getelementptr inbounds i8, ptr %this, i64 180
+  %m_sor.i.i = getelementptr inbounds nuw i8, ptr %this, i64 180
   store float 1.000000e+00, ptr %m_sor.i.i, align 4
-  %m_splitImpulse.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %m_splitImpulse.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i32 1, ptr %m_splitImpulse.i.i, align 8
-  %m_splitImpulsePenetrationThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 220
+  %m_splitImpulsePenetrationThreshold.i.i = getelementptr inbounds nuw i8, ptr %this, i64 220
   store float 0xBFA47AE140000000, ptr %m_splitImpulsePenetrationThreshold.i.i, align 4
-  %m_splitImpulseTurnErp.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %m_splitImpulseTurnErp.i.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   store float 0x3FB99999A0000000, ptr %m_splitImpulseTurnErp.i.i, align 8
-  %m_linearSlop.i.i = getelementptr inbounds i8, ptr %this, i64 228
+  %m_linearSlop.i.i = getelementptr inbounds nuw i8, ptr %this, i64 228
   store float 0.000000e+00, ptr %m_linearSlop.i.i, align 4
-  %m_warmstartingFactor.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %m_warmstartingFactor.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   store float 0x3FEB333340000000, ptr %m_warmstartingFactor.i.i, align 8
-  %m_articulatedWarmstartingFactor.i.i = getelementptr inbounds i8, ptr %this, i64 236
+  %m_articulatedWarmstartingFactor.i.i = getelementptr inbounds nuw i8, ptr %this, i64 236
   store float 0x3FEB333340000000, ptr %m_articulatedWarmstartingFactor.i.i, align 4
-  %m_solverMode.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %m_solverMode.i.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   store i32 260, ptr %m_solverMode.i.i, align 8
-  %m_restingContactRestitutionThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 244
+  %m_restingContactRestitutionThreshold.i.i = getelementptr inbounds nuw i8, ptr %this, i64 244
   store i32 2, ptr %m_restingContactRestitutionThreshold.i.i, align 4
-  %m_minimumSolverBatchSize.i.i = getelementptr inbounds i8, ptr %this, i64 248
+  %m_minimumSolverBatchSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   store i32 128, ptr %m_minimumSolverBatchSize.i.i, align 8
-  %m_maxGyroscopicForce.i.i = getelementptr inbounds i8, ptr %this, i64 252
+  %m_maxGyroscopicForce.i.i = getelementptr inbounds nuw i8, ptr %this, i64 252
   store float 1.000000e+02, ptr %m_maxGyroscopicForce.i.i, align 4
-  %m_singleAxisRollingFrictionThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 256
+  %m_singleAxisRollingFrictionThreshold.i.i = getelementptr inbounds nuw i8, ptr %this, i64 256
   store float 0x46293E5940000000, ptr %m_singleAxisRollingFrictionThreshold.i.i, align 8
-  %m_leastSquaresResidualThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 260
+  %m_leastSquaresResidualThreshold.i.i = getelementptr inbounds nuw i8, ptr %this, i64 260
   store float 0.000000e+00, ptr %m_leastSquaresResidualThreshold.i.i, align 4
-  %m_restitutionVelocityThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %m_restitutionVelocityThreshold.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   store float 0x3FC99999A0000000, ptr %m_restitutionVelocityThreshold.i.i, align 8
-  %m_jointFeedbackInWorldSpace.i.i = getelementptr inbounds i8, ptr %this, i64 268
+  %m_jointFeedbackInWorldSpace.i.i = getelementptr inbounds nuw i8, ptr %this, i64 268
   store i8 0, ptr %m_jointFeedbackInWorldSpace.i.i, align 4
-  %m_jointFeedbackInJointFrame.i.i = getelementptr inbounds i8, ptr %this, i64 269
+  %m_jointFeedbackInJointFrame.i.i = getelementptr inbounds nuw i8, ptr %this, i64 269
   store i8 0, ptr %m_jointFeedbackInJointFrame.i.i, align 1
-  %m_reportSolverAnalytics.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %m_reportSolverAnalytics.i.i = getelementptr inbounds nuw i8, ptr %this, i64 272
   store i32 0, ptr %m_reportSolverAnalytics.i.i, align 8
-  %m_numNonContactInnerIterations.i.i = getelementptr inbounds i8, ptr %this, i64 276
+  %m_numNonContactInnerIterations.i.i = getelementptr inbounds nuw i8, ptr %this, i64 276
   store i32 1, ptr %m_numNonContactInnerIterations.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
-  %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 280
   store ptr %constraintSolver, ptr %m_constraintSolver, align 8
-  %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
+  %m_ownsConstraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 288
   store i8 0, ptr %m_ownsConstraintSolver, align 8
-  %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
+  %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 292
   store float 0.000000e+00, ptr %m_gravity, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 296
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   store float 0.000000e+00, ptr %arrayidx3.i, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 300
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 300
   store float -1.000000e+01, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 304
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   store float 0.000000e+00, ptr %arrayidx7.i, align 8
   ret void
 }
@@ -151,13 +151,13 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN21btSimpleDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
-  %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
+  %m_ownsConstraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load ptr, ptr %m_constraintSolver, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
           to label %if.end unwind label %terminate.lpad
@@ -192,13 +192,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 define dso_local void @_ZN21btSimpleDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
-  %m_ownsConstraintSolver.i = getelementptr inbounds i8, ptr %this, i64 288
+  %m_ownsConstraintSolver.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZN21btSimpleDynamicsWorldD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_constraintSolver.i = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load ptr, ptr %m_constraintSolver.i, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
           to label %_ZN21btSimpleDynamicsWorldD2Ev.exit unwind label %terminate.lpad.i
@@ -224,22 +224,22 @@ define dso_local noundef i32 @_ZN21btSimpleDynamicsWorld14stepSimulationEfif(ptr
 entry:
   %predictedTrans.i = alloca %class.btTransform, align 4
   %infoGlobal = alloca %struct.btContactSolverInfo, align 4
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp14.i = icmp sgt i32 %0, 0
   br i1 %cmp14.i, label %for.body.lr.ph.i, label %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %1 = phi i32 [ %0, %for.body.lr.ph.i ], [ %7, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %2 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i.i, align 8
-  %m_internalType.i.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i.i, align 8
   %and.i.i = and i32 %4, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -248,14 +248,14 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m_collisionFlags.i.i = getelementptr inbounds i8, ptr %3, i64 224
+  %m_collisionFlags.i.i = getelementptr inbounds nuw i8, ptr %3, i64 224
   %5 = load i32, ptr %m_collisionFlags.i.i, align 8
   %and.i12.i = and i32 %5, 1
   %cmp.i.not.i = icmp eq i32 %and.i12.i, 0
   br i1 %cmp.i.not.i, label %if.then6.i, label %for.inc.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %m_activationState1.i.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %6 = load i32, ptr %m_activationState1.i.i.i, align 8
   switch i32 %6, label %if.then8.i [
     i32 6, label %for.inc.i
@@ -267,7 +267,7 @@ if.then8.i:                                       ; preds = %if.then6.i
   tail call void @_ZN11btRigidBody12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(744) %3)
   tail call void @_ZN11btRigidBody19integrateVelocitiesEf(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep)
   tail call void @_ZN11btRigidBody12applyDampingEf(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep)
-  %m_interpolationWorldTransform.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %m_interpolationWorldTransform.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   tail call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i.i)
   %.pre.i = load i32, ptr %m_size.i.i, align 4
   br label %for.inc.i
@@ -280,24 +280,24 @@ for.inc.i:                                        ; preds = %if.then8.i, %if.the
   br i1 %cmp.i, label %for.body.i, label %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit, !llvm.loop !5
 
 _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %for.inc.i, %entry
-  %m_dispatchInfo.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_dispatchInfo.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store float %timeStep, ptr %m_dispatchInfo.i, align 8
-  %m_stepCount = getelementptr inbounds i8, ptr %this, i64 52
+  %m_stepCount = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 0, ptr %m_stepCount, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %9 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(121) %this)
-  %m_debugDraw = getelementptr inbounds i8, ptr %this, i64 72
+  %m_debugDraw = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call2, ptr %m_debugDraw, align 8
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 96
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 96
   %10 = load ptr, ptr %vfn4, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(121) %this)
-  %m_dispatcher1 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_dispatcher1 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load ptr, ptr %m_dispatcher1, align 8
   %vtable5 = load ptr, ptr %11, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 72
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 72
   %12 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %tobool.not = icmp eq i32 %call7, 0
@@ -306,95 +306,95 @@ _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %for.inc
 if.then:                                          ; preds = %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit
   %13 = load ptr, ptr %m_dispatcher1, align 8
   %vtable9 = load ptr, ptr %13, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 88
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 88
   %14 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(20816) %13)
   store float 0x3FE3333340000000, ptr %infoGlobal, align 4
-  %m_damping.i = getelementptr inbounds i8, ptr %infoGlobal, i64 4
+  %m_damping.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 4
   store float 1.000000e+00, ptr %m_damping.i, align 4
-  %m_friction.i = getelementptr inbounds i8, ptr %infoGlobal, i64 8
+  %m_friction.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 8
   store float 0x3FD3333340000000, ptr %m_friction.i, align 4
-  %m_timeStep.i = getelementptr inbounds i8, ptr %infoGlobal, i64 12
-  %m_restitution.i = getelementptr inbounds i8, ptr %infoGlobal, i64 16
+  %m_timeStep.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 12
+  %m_restitution.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 16
   store float 0.000000e+00, ptr %m_restitution.i, align 4
-  %m_maxErrorReduction.i = getelementptr inbounds i8, ptr %infoGlobal, i64 24
+  %m_maxErrorReduction.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 24
   store float 2.000000e+01, ptr %m_maxErrorReduction.i, align 4
-  %m_numIterations.i = getelementptr inbounds i8, ptr %infoGlobal, i64 20
+  %m_numIterations.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 20
   store i32 10, ptr %m_numIterations.i, align 4
-  %m_erp.i = getelementptr inbounds i8, ptr %infoGlobal, i64 32
+  %m_erp.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 32
   store float 0x3FC99999A0000000, ptr %m_erp.i, align 4
-  %m_erp2.i = getelementptr inbounds i8, ptr %infoGlobal, i64 36
+  %m_erp2.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 36
   store float 0x3FC99999A0000000, ptr %m_erp2.i, align 4
-  %m_deformable_erp.i = getelementptr inbounds i8, ptr %infoGlobal, i64 40
+  %m_deformable_erp.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 40
   store float 0x3FAEB851E0000000, ptr %m_deformable_erp.i, align 4
-  %m_deformable_cfm.i = getelementptr inbounds i8, ptr %infoGlobal, i64 44
+  %m_deformable_cfm.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 44
   store float 0x3F847AE140000000, ptr %m_deformable_cfm.i, align 4
-  %m_deformable_maxErrorReduction.i = getelementptr inbounds i8, ptr %infoGlobal, i64 48
+  %m_deformable_maxErrorReduction.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 48
   store float 0x3FB99999A0000000, ptr %m_deformable_maxErrorReduction.i, align 4
-  %m_globalCfm.i = getelementptr inbounds i8, ptr %infoGlobal, i64 52
+  %m_globalCfm.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 52
   store float 0.000000e+00, ptr %m_globalCfm.i, align 4
-  %m_frictionERP.i = getelementptr inbounds i8, ptr %infoGlobal, i64 56
+  %m_frictionERP.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 56
   store float 0x3FC99999A0000000, ptr %m_frictionERP.i, align 4
-  %m_frictionCFM.i = getelementptr inbounds i8, ptr %infoGlobal, i64 60
+  %m_frictionCFM.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 60
   store float 0.000000e+00, ptr %m_frictionCFM.i, align 4
-  %m_sor.i = getelementptr inbounds i8, ptr %infoGlobal, i64 28
+  %m_sor.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 28
   store float 1.000000e+00, ptr %m_sor.i, align 4
-  %m_splitImpulse.i = getelementptr inbounds i8, ptr %infoGlobal, i64 64
+  %m_splitImpulse.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 64
   store i32 1, ptr %m_splitImpulse.i, align 4
-  %m_splitImpulsePenetrationThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 68
+  %m_splitImpulsePenetrationThreshold.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 68
   store float 0xBFA47AE140000000, ptr %m_splitImpulsePenetrationThreshold.i, align 4
-  %m_splitImpulseTurnErp.i = getelementptr inbounds i8, ptr %infoGlobal, i64 72
+  %m_splitImpulseTurnErp.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 72
   store float 0x3FB99999A0000000, ptr %m_splitImpulseTurnErp.i, align 4
-  %m_linearSlop.i = getelementptr inbounds i8, ptr %infoGlobal, i64 76
+  %m_linearSlop.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 76
   store float 0.000000e+00, ptr %m_linearSlop.i, align 4
-  %m_warmstartingFactor.i = getelementptr inbounds i8, ptr %infoGlobal, i64 80
+  %m_warmstartingFactor.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 80
   store float 0x3FEB333340000000, ptr %m_warmstartingFactor.i, align 4
-  %m_articulatedWarmstartingFactor.i = getelementptr inbounds i8, ptr %infoGlobal, i64 84
+  %m_articulatedWarmstartingFactor.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 84
   store float 0x3FEB333340000000, ptr %m_articulatedWarmstartingFactor.i, align 4
-  %m_solverMode.i = getelementptr inbounds i8, ptr %infoGlobal, i64 88
+  %m_solverMode.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 88
   store i32 260, ptr %m_solverMode.i, align 4
-  %m_restingContactRestitutionThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 92
+  %m_restingContactRestitutionThreshold.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 92
   store i32 2, ptr %m_restingContactRestitutionThreshold.i, align 4
-  %m_minimumSolverBatchSize.i = getelementptr inbounds i8, ptr %infoGlobal, i64 96
+  %m_minimumSolverBatchSize.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 96
   store i32 128, ptr %m_minimumSolverBatchSize.i, align 4
-  %m_maxGyroscopicForce.i = getelementptr inbounds i8, ptr %infoGlobal, i64 100
+  %m_maxGyroscopicForce.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 100
   store float 1.000000e+02, ptr %m_maxGyroscopicForce.i, align 4
-  %m_singleAxisRollingFrictionThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 104
+  %m_singleAxisRollingFrictionThreshold.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 104
   store float 0x46293E5940000000, ptr %m_singleAxisRollingFrictionThreshold.i, align 4
-  %m_leastSquaresResidualThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 108
+  %m_leastSquaresResidualThreshold.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 108
   store float 0.000000e+00, ptr %m_leastSquaresResidualThreshold.i, align 4
-  %m_restitutionVelocityThreshold.i = getelementptr inbounds i8, ptr %infoGlobal, i64 112
+  %m_restitutionVelocityThreshold.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 112
   store float 0x3FC99999A0000000, ptr %m_restitutionVelocityThreshold.i, align 4
-  %m_jointFeedbackInWorldSpace.i = getelementptr inbounds i8, ptr %infoGlobal, i64 116
+  %m_jointFeedbackInWorldSpace.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 116
   store i8 0, ptr %m_jointFeedbackInWorldSpace.i, align 4
-  %m_jointFeedbackInJointFrame.i = getelementptr inbounds i8, ptr %infoGlobal, i64 117
+  %m_jointFeedbackInJointFrame.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 117
   store i8 0, ptr %m_jointFeedbackInJointFrame.i, align 1
-  %m_reportSolverAnalytics.i = getelementptr inbounds i8, ptr %infoGlobal, i64 120
+  %m_reportSolverAnalytics.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 120
   store i32 0, ptr %m_reportSolverAnalytics.i, align 4
-  %m_numNonContactInnerIterations.i = getelementptr inbounds i8, ptr %infoGlobal, i64 124
+  %m_numNonContactInnerIterations.i = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 124
   store i32 1, ptr %m_numNonContactInnerIterations.i, align 4
   store float %timeStep, ptr %m_timeStep.i, align 4
-  %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 280
   %15 = load ptr, ptr %m_constraintSolver, align 8
   %vtable13 = load ptr, ptr %15, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 16
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 16
   %16 = load ptr, ptr %vfn14, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 0, i32 noundef %call7)
   %17 = load ptr, ptr %m_constraintSolver, align 8
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %18 = load ptr, ptr %m_data.i, align 8
   %19 = load i32, ptr %m_size.i.i, align 4
-  %m_debugDrawer = getelementptr inbounds i8, ptr %this, i64 112
+  %m_debugDrawer = getelementptr inbounds nuw i8, ptr %this, i64 112
   %20 = load ptr, ptr %m_debugDrawer, align 8
   %21 = load ptr, ptr %m_dispatcher1, align 8
   %vtable20 = load ptr, ptr %17, align 8
-  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 24
+  %vfn21 = getelementptr inbounds nuw i8, ptr %vtable20, i64 24
   %22 = load ptr, ptr %vfn21, align 8
   %call22 = call noundef float %22(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %18, i32 noundef %19, ptr noundef %call11, i32 noundef %call7, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %20, ptr noundef %21)
   %23 = load ptr, ptr %m_constraintSolver, align 8
   %24 = load ptr, ptr %m_debugDrawer, align 8
   %vtable25 = load ptr, ptr %23, align 8
-  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 32
+  %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 32
   %25 = load ptr, ptr %vfn26, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, ptr noundef %24)
   br label %if.end
@@ -406,16 +406,16 @@ if.end:                                           ; preds = %if.then, %_ZN21btSi
   br i1 %cmp9.i, label %for.body.lr.ph.i10, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit
 
 for.body.lr.ph.i10:                               ; preds = %if.end
-  %m_data.i.i11 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body.i12
 
 for.body.i12:                                     ; preds = %for.inc.i21, %for.body.lr.ph.i10
   %27 = phi i32 [ %26, %for.body.lr.ph.i10 ], [ %33, %for.inc.i21 ]
   %indvars.iv.i13 = phi i64 [ 0, %for.body.lr.ph.i10 ], [ %indvars.iv.next.i22, %for.inc.i21 ]
   %28 = load ptr, ptr %m_data.i.i11, align 8
-  %arrayidx.i.i14 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i13
+  %arrayidx.i.i14 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i13
   %29 = load ptr, ptr %arrayidx.i.i14, align 8
-  %m_internalType.i.i.i15 = getelementptr inbounds i8, ptr %29, i64 272
+  %m_internalType.i.i.i15 = getelementptr inbounds nuw i8, ptr %29, i64 272
   %30 = load i32, ptr %m_internalType.i.i.i15, align 8
   %and.i.i16 = and i32 %30, 2
   %tobool.not.i.i17 = icmp eq i32 %and.i.i16, 0
@@ -424,7 +424,7 @@ for.body.i12:                                     ; preds = %for.inc.i21, %for.b
   br i1 %tobool.not.i18, label %for.inc.i21, label %if.then.i19
 
 if.then.i19:                                      ; preds = %for.body.i12
-  %m_activationState1.i.i.i20 = getelementptr inbounds i8, ptr %29, i64 240
+  %m_activationState1.i.i.i20 = getelementptr inbounds nuw i8, ptr %29, i64 240
   %31 = load i32, ptr %m_activationState1.i.i.i20, align 8
   switch i32 %31, label %land.lhs.true.i [
     i32 6, label %for.inc.i21
@@ -433,7 +433,7 @@ if.then.i19:                                      ; preds = %for.body.i12
   ]
 
 land.lhs.true.i:                                  ; preds = %if.then.i19
-  %m_collisionFlags.i.i24 = getelementptr inbounds i8, ptr %29, i64 224
+  %m_collisionFlags.i.i24 = getelementptr inbounds nuw i8, ptr %29, i64 224
   %32 = load i32, ptr %m_collisionFlags.i.i24, align 8
   %and.i7.i = and i32 %32, 1
   %cmp.i.not.i25 = icmp eq i32 %and.i7.i, 0
@@ -455,15 +455,15 @@ for.inc.i21:                                      ; preds = %if.then7.i, %land.l
 _ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit: ; preds = %for.inc.i21, %if.end
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %predictedTrans.i)
   %vtable27 = load ptr, ptr %this, align 8
-  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 16
+  %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 16
   %35 = load ptr, ptr %vfn28, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %vtable29 = load ptr, ptr %this, align 8
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 168
+  %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 168
   %36 = load ptr, ptr %vfn30, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(308) %this)
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 248
+  %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 248
   %37 = load ptr, ptr %vfn32, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(308) %this)
   ret i32 1
@@ -472,22 +472,22 @@ _ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit: ; preds = %for.inc.i21, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %timeStep) local_unnamed_addr #1 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp14 = icmp sgt i32 %0, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %7, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -496,14 +496,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %m_collisionFlags.i = getelementptr inbounds i8, ptr %3, i64 224
+  %m_collisionFlags.i = getelementptr inbounds nuw i8, ptr %3, i64 224
   %5 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i12 = and i32 %5, 1
   %cmp.i.not = icmp eq i32 %and.i12, 0
   br i1 %cmp.i.not, label %if.then6, label %for.inc
 
 if.then6:                                         ; preds = %if.then
-  %m_activationState1.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %6 = load i32, ptr %m_activationState1.i.i, align 8
   switch i32 %6, label %if.then8 [
     i32 6, label %for.inc
@@ -515,7 +515,7 @@ if.then8:                                         ; preds = %if.then6
   tail call void @_ZN11btRigidBody12applyGravityEv(ptr noundef nonnull align 8 dereferenceable(744) %3)
   tail call void @_ZN11btRigidBody19integrateVelocitiesEf(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep)
   tail call void @_ZN11btRigidBody12applyDampingEf(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep)
-  %m_interpolationWorldTransform.i = getelementptr inbounds i8, ptr %3, i64 72
+  %m_interpolationWorldTransform.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   tail call void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744) %3, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(64) %m_interpolationWorldTransform.i)
   %.pre = load i32, ptr %m_size.i, align 4
   br label %for.inc
@@ -535,22 +535,22 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @_ZN21btSimpleDynamicsWorld19integrateTransformsEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %timeStep) local_unnamed_addr #1 align 2 {
 entry:
   %predictedTrans = alloca %class.btTransform, align 4
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp9 = icmp sgt i32 %0, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %7, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -559,7 +559,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %m_activationState1.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %5 = load i32, ptr %m_activationState1.i.i, align 8
   switch i32 %5, label %land.lhs.true [
     i32 6, label %for.inc
@@ -568,7 +568,7 @@ if.then:                                          ; preds = %for.body
   ]
 
 land.lhs.true:                                    ; preds = %if.then
-  %m_collisionFlags.i = getelementptr inbounds i8, ptr %3, i64 224
+  %m_collisionFlags.i = getelementptr inbounds nuw i8, ptr %3, i64 224
   %6 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i7 = and i32 %6, 1
   %cmp.i.not = icmp eq i32 %and.i7, 0
@@ -594,22 +594,22 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld11clearForcesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #7 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %5, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -618,7 +618,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %m_totalForce.i = getelementptr inbounds i8, ptr %3, i64 520
+  %m_totalForce.i = getelementptr inbounds nuw i8, ptr %3, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_totalForce.i, i8 0, i64 32, i1 false)
   %.pre = load i32, ptr %m_size.i, align 4
   br label %for.inc
@@ -637,24 +637,24 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld10setGravityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(308) initializes((292, 308)) %this, ptr noundef nonnull align 4 dereferenceable(16) %gravity) unnamed_addr #1 align 2 {
 entry:
-  %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
+  %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_gravity, ptr noundef nonnull align 4 dereferenceable(16) %gravity, i64 16, i1 false)
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp6 = icmp sgt i32 %0, 0
   br i1 %cmp6, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %5, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -686,9 +686,9 @@ declare void @_ZN11btRigidBody10setGravityERK9btVector3(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK21btSimpleDynamicsWorld10getGravityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
+  %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 292
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %m_gravity, align 4
-  %retval.sroa.2.0.m_gravity.sroa_idx = getelementptr inbounds i8, ptr %this, i64 300
+  %retval.sroa.2.0.m_gravity.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 300
   %retval.sroa.2.0.copyload = load <2 x float>, ptr %retval.sroa.2.0.m_gravity.sroa_idx, align 4
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.2.0.copyload, 1
@@ -707,7 +707,7 @@ declare void @_ZN16btCollisionWorld21removeCollisionObjectEP17btCollisionObject(
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld21removeCollisionObjectEP17btCollisionObject(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %collisionObject) unnamed_addr #1 align 2 {
 entry:
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %collisionObject, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %collisionObject, i64 272
   %0 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -717,7 +717,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %collisionObject)
   br label %if.end
@@ -733,16 +733,16 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld12addRigidBodyEP11btRigidBody(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %body) unnamed_addr #1 align 2 {
 entry:
-  %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
+  %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 292
   tail call void @_ZN11btRigidBody10setGravityERK9btVector3(ptr noundef nonnull align 8 dereferenceable(744) %body, ptr noundef nonnull align 4 dereferenceable(16) %m_gravity)
-  %m_collisionShape.i = getelementptr inbounds i8, ptr %body, i64 200
+  %m_collisionShape.i = getelementptr inbounds nuw i8, ptr %body, i64 200
   %0 = load ptr, ptr %m_collisionShape.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef nonnull %body, i32 noundef 1, i32 noundef -1)
   br label %if.end
@@ -754,16 +754,16 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld12addRigidBodyEP11btRigidBodyii(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull %body, i32 noundef %group, i32 noundef %mask) unnamed_addr #1 align 2 {
 entry:
-  %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
+  %m_gravity = getelementptr inbounds nuw i8, ptr %this, i64 292
   tail call void @_ZN11btRigidBody10setGravityERK9btVector3(ptr noundef nonnull align 8 dereferenceable(744) %body, ptr noundef nonnull align 4 dereferenceable(16) %m_gravity)
-  %m_collisionShape.i = getelementptr inbounds i8, ptr %body, i64 200
+  %m_collisionShape.i = getelementptr inbounds nuw i8, ptr %body, i64 200
   %0 = load ptr, ptr %m_collisionShape.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef nonnull %body, i32 noundef %group, i32 noundef %mask)
   br label %if.end
@@ -795,24 +795,24 @@ define dso_local void @_ZN21btSimpleDynamicsWorld11updateAabbsEv(ptr nocapture n
 entry:
   %minAabb = alloca %class.btVector3, align 4
   %maxAabb = alloca %class.btVector3, align 4
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp10 = icmp sgt i32 %0, 0
   br i1 %cmp10, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_broadphasePairCache.i = getelementptr inbounds i8, ptr %this, i64 104
-  %m_dispatcher1 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_broadphasePairCache.i = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %m_dispatcher1 = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %13, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -821,7 +821,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %m_activationState1.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %5 = load i32, ptr %m_activationState1.i.i, align 8
   switch i32 %5, label %land.lhs.true [
     i32 6, label %for.inc
@@ -830,26 +830,26 @@ if.then:                                          ; preds = %for.body
   ]
 
 land.lhs.true:                                    ; preds = %if.then
-  %m_collisionFlags.i = getelementptr inbounds i8, ptr %3, i64 224
+  %m_collisionFlags.i = getelementptr inbounds nuw i8, ptr %3, i64 224
   %6 = load i32, ptr %m_collisionFlags.i, align 8
   %and.i8 = and i32 %6, 1
   %cmp.i.not = icmp eq i32 %and.i8, 0
   br i1 %cmp.i.not, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %land.lhs.true
-  %m_collisionShape.i = getelementptr inbounds i8, ptr %3, i64 200
+  %m_collisionShape.i = getelementptr inbounds nuw i8, ptr %3, i64 200
   %7 = load ptr, ptr %m_collisionShape.i, align 8
-  %m_worldTransform.i = getelementptr inbounds i8, ptr %3, i64 8
+  %m_worldTransform.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i, ptr noundef nonnull align 4 dereferenceable(16) %minAabb, ptr noundef nonnull align 4 dereferenceable(16) %maxAabb)
   %9 = load ptr, ptr %m_broadphasePairCache.i, align 8
-  %m_broadphaseHandle.i = getelementptr inbounds i8, ptr %3, i64 192
+  %m_broadphaseHandle.i = getelementptr inbounds nuw i8, ptr %3, i64 192
   %10 = load ptr, ptr %m_broadphaseHandle.i, align 8
   %11 = load ptr, ptr %m_dispatcher1, align 8
   %vtable12 = load ptr, ptr %9, align 8
-  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 32
+  %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 32
   %12 = load ptr, ptr %vfn13, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef nonnull align 4 dereferenceable(16) %minAabb, ptr noundef nonnull align 4 dereferenceable(16) %maxAabb, ptr noundef %11)
   %.pre = load i32, ptr %m_size.i, align 4
@@ -879,22 +879,22 @@ declare void @_ZN11btRigidBody12applyDampingEf(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld23synchronizeMotionStatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #1 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
   %cmp9 = icmp sgt i32 %0, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %8, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_internalType.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %m_internalType.i.i = getelementptr inbounds nuw i8, ptr %3, i64 272
   %4 = load i32, ptr %m_internalType.i.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -903,21 +903,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %m_optionalMotionState.i = getelementptr inbounds i8, ptr %3, i64 592
+  %m_optionalMotionState.i = getelementptr inbounds nuw i8, ptr %3, i64 592
   %5 = load ptr, ptr %m_optionalMotionState.i, align 8
   %tobool6.not = icmp eq ptr %5, null
   br i1 %tobool6.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %m_activationState1.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %6 = load i32, ptr %m_activationState1.i, align 8
   %cmp8.not = icmp eq i32 %6, 2
   br i1 %cmp8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %if.then
-  %m_worldTransform.i = getelementptr inbounds i8, ptr %3, i64 8
+  %m_worldTransform.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(64) %m_worldTransform.i)
   %.pre = load i32, ptr %m_size.i, align 4
@@ -937,20 +937,20 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld19setConstraintSolverEP18btConstraintSolver(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %solver) unnamed_addr #1 align 2 {
 entry:
-  %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
+  %m_ownsConstraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i8, ptr %m_ownsConstraintSolver, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load ptr, ptr %m_constraintSolver, align 8
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   store i8 0, ptr %m_ownsConstraintSolver, align 8
-  %m_constraintSolver3 = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver3 = getelementptr inbounds nuw i8, ptr %this, i64 280
   store ptr %solver, ptr %m_constraintSolver3, align 8
   ret void
 }
@@ -958,7 +958,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN21btSimpleDynamicsWorld19getConstraintSolverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_constraintSolver = getelementptr inbounds i8, ptr %this, i64 280
+  %m_constraintSolver = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_constraintSolver, align 8
   ret ptr %0
 }
@@ -968,7 +968,7 @@ declare void @_ZN16btCollisionWorld23computeOverlappingPairsEv(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btCollisionWorld14setDebugDrawerEP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr noundef %debugDrawer) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_debugDrawer = getelementptr inbounds i8, ptr %this, i64 112
+  %m_debugDrawer = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %debugDrawer, ptr %m_debugDrawer, align 8
   ret void
 }
@@ -976,7 +976,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN16btCollisionWorld14getDebugDrawerEv(ptr noundef nonnull align 8 dereferenceable(121) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %m_debugDrawer = getelementptr inbounds i8, ptr %this, i64 112
+  %m_debugDrawer = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_debugDrawer, align 8
   ret ptr %0
 }

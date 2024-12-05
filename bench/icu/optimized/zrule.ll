@@ -20,7 +20,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %rule, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %rule) #6
   br label %delete.end
@@ -33,7 +33,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define signext range(i8 0, 2) i8 @zrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
 entry:
   %vtable = load ptr, ptr %rule1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %rule1, ptr noundef nonnull align 8 dereferenceable(80) %rule2)
   %conv = zext i1 %call to i8
@@ -62,9 +62,9 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad1
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  %fUnion.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %1 = load i16, ptr %fUnion.i.i, align 8
-  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %3 = and i16 %1, 17
   %tobool.not.i = icmp eq i16 %3, 0
@@ -76,11 +76,11 @@ if.else.i:                                        ; preds = %invoke.cont5
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %s, i64 10
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %s, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
+  %fArray.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %5 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -215,7 +215,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %rule, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(80) %rule) #6
   br label %delete.end
@@ -237,7 +237,7 @@ declare noundef ptr @_ZNK6icu_7519InitialTimeZoneRule5cloneEv(ptr noundef nonnul
 define signext range(i8 0, 2) i8 @izrule_equals_75(ptr noundef %rule1, ptr noundef %rule2) local_unnamed_addr #1 {
 entry:
   %vtable = load ptr, ptr %rule1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(80) %rule1, ptr noundef nonnull align 8 dereferenceable(80) %rule2)
   %conv = zext i1 %call to i8
@@ -249,7 +249,7 @@ define void @izrule_getName_75(ptr noundef nonnull %rule, ptr nocapture noundef 
 entry:
   %s = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %s, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %s, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512TimeZoneRule7getNameERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %rule, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %invoke.cont1 unwind label %lpad
@@ -259,7 +259,7 @@ invoke.cont1:                                     ; preds = %entry
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %s, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   store i32 %cond.i, ptr %nameLength, align 4
@@ -280,11 +280,11 @@ if.else.i:                                        ; preds = %invoke.cont3
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %s, i64 10
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %s, i64 10
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %s, i64 24
+  %fArray.i = getelementptr inbounds nuw i8, ptr %s, i64 24
   %6 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 

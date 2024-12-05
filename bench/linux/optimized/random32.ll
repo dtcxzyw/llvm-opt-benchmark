@@ -26,7 +26,7 @@ define dso_local i32 @prandom_u32_state(ptr nocapture noundef %0) #0 align 16 {
   %7 = lshr i32 %6, 13
   %8 = or disjoint i32 %7, %4
   store i32 %8, ptr %0, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %10, 2
   %12 = and i32 %11, -32
@@ -34,7 +34,7 @@ define dso_local i32 @prandom_u32_state(ptr nocapture noundef %0) #0 align 16 {
   %14 = lshr i32 %13, 27
   %15 = or disjoint i32 %14, %12
   store i32 %15, ptr %9, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = shl i32 %17, 7
   %19 = and i32 %18, -2048
@@ -43,7 +43,7 @@ define dso_local i32 @prandom_u32_state(ptr nocapture noundef %0) #0 align 16 {
   %22 = lshr i32 %21, 21
   %23 = or disjoint i32 %22, %19
   store i32 %23, ptr %16, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %25, 13
   %27 = and i32 %26, -1048576
@@ -64,9 +64,9 @@ define dso_local void @prandom_bytes_state(ptr nocapture noundef %0, ptr nocaptu
   br i1 %4, label %5, label %.loopexit3
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %9
 
 9:                                                ; preds = %9, %5
@@ -127,7 +127,7 @@ define dso_local void @prandom_bytes_state(ptr nocapture noundef %0, ptr nocaptu
   %54 = lshr i32 %53, 13
   %55 = or disjoint i32 %54, %51
   store i32 %55, ptr %0, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = shl i32 %57, 2
   %59 = and i32 %58, -32
@@ -135,7 +135,7 @@ define dso_local void @prandom_bytes_state(ptr nocapture noundef %0, ptr nocaptu
   %61 = lshr i32 %60, 27
   %62 = or disjoint i32 %61, %59
   store i32 %62, ptr %56, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i32, ptr %63, align 4
   %65 = shl i32 %64, 7
   %66 = and i32 %65, -2048
@@ -144,7 +144,7 @@ define dso_local void @prandom_bytes_state(ptr nocapture noundef %0, ptr nocaptu
   %69 = lshr i32 %68, 21
   %70 = or disjoint i32 %69, %66
   store i32 %70, ptr %63, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = shl i32 %72, 13
   %74 = and i32 %73, -1048576
@@ -184,9 +184,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
   %2 = alloca [4 x i32], align 16
   %3 = ptrtoint ptr %0 to i64
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %7
 
 7:                                                ; preds = %1, %17
@@ -221,19 +221,19 @@ define dso_local void @prandom_seed_full_state(ptr noundef %0) #3 align 16 {
   %28 = icmp ult i32 %27, 8
   %29 = select i1 %28, i32 8, i32 0
   %30 = add i32 %29, %27
-  %31 = getelementptr inbounds i8, ptr %22, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %30, ptr %31, align 4
   %32 = load i32, ptr %5, align 8
   %33 = icmp ult i32 %32, 16
   %34 = select i1 %33, i32 16, i32 0
   %35 = add i32 %34, %32
-  %36 = getelementptr inbounds i8, ptr %22, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %35, ptr %36, align 4
   %37 = load i32, ptr %6, align 4
   %38 = icmp ult i32 %37, 128
   %39 = select i1 %38, i32 128, i32 0
   %40 = add i32 %39, %37
-  %41 = getelementptr inbounds i8, ptr %22, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %42 = shl i32 %26, 18
   %43 = and i32 %42, -524288
   %44 = shl i32 %26, 6

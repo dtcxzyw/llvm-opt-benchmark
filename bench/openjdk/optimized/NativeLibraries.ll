@@ -27,7 +27,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_NativeLibraries_load(
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #6
   %16 = icmp eq ptr %15, null
@@ -35,7 +35,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_NativeLibraries_load(
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 752
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 752
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #6
   store ptr %21, ptr @handleID, align 8
@@ -44,7 +44,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_NativeLibraries_load(
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 752
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 752
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #6
   store ptr %27, ptr @jniVersionID, align 8
@@ -108,7 +108,7 @@ findJniFunction.exit:                             ; preds = %.thread
 
 52:                                               ; preds = %findJniFunction.exit
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1752
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1752
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %7) #6
   %57 = load ptr, ptr %7, align 8
@@ -118,7 +118,7 @@ findJniFunction.exit:                             ; preds = %.thread
 findJniFunction.exit.thread:                      ; preds = %50, %43, %findJniFunction.exit, %52
   %.059 = phi i32 [ %58, %52 ], [ 65537, %findJniFunction.exit ], [ 65537, %43 ], [ 65537, %50 ]
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef nonnull %0) #6
   %.not68 = icmp eq ptr %62, null
@@ -126,11 +126,11 @@ findJniFunction.exit.thread:                      ; preds = %50, %43, %findJniFu
 
 63:                                               ; preds = %findJniFunction.exit.thread
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 136
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull %0) #6
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 104
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %62) #6
   %.not71 = icmp eq i8 %4, 0
@@ -160,12 +160,12 @@ findJniFunction.exit.thread:                      ; preds = %50, %43, %findJniFu
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 872
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 872
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @jniVersionID, align 8
   call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i32 noundef %.059) #6
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 880
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 880
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr @handleID, align 8
   %87 = ptrtoint ptr %40 to i64
@@ -174,7 +174,7 @@ findJniFunction.exit.thread:                      ; preds = %50, %43, %findJniFu
 
 88:                                               ; preds = %39
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 120
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr %91(ptr noundef nonnull %0) #6
   %.not66 = icmp eq ptr %92, null
@@ -182,16 +182,16 @@ findJniFunction.exit.thread:                      ; preds = %50, %43, %findJniFu
 
 93:                                               ; preds = %88
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
   %96 = load ptr, ptr %95, align 8
   tail call void %96(ptr noundef nonnull %0) #6
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 880
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 880
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr @handleID, align 8
   tail call void %99(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %100, i64 noundef 0) #6
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 104
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 104
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 %103(ptr noundef nonnull %0, ptr noundef nonnull %92) #6
   br label %105
@@ -229,7 +229,7 @@ define void @Java_jdk_internal_loader_NativeLibraries_unload(ptr noundef %0, ptr
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #6
   %14 = icmp eq ptr %13, null
@@ -237,7 +237,7 @@ define void @Java_jdk_internal_loader_NativeLibraries_unload(ptr noundef %0, ptr
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 752
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 752
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #6
   store ptr %19, ptr @handleID, align 8
@@ -246,7 +246,7 @@ define void @Java_jdk_internal_loader_NativeLibraries_unload(ptr noundef %0, ptr
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 752
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 752
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #6
   store ptr %25, ptr @jniVersionID, align 8
@@ -294,7 +294,7 @@ findJniFunction.exit:                             ; preds = %.thread
 
 43:                                               ; preds = %findJniFunction.exit
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1752
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1752
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
   %48 = load ptr, ptr %6, align 8
@@ -319,7 +319,7 @@ initIDs.exit.thread:                              ; preds = %21, %15, %9, %initI
 ; Function Attrs: nounwind uwtable
 define i64 @Java_jdk_internal_loader_NativeLibrary_findEntry0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1352
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #6
   %9 = icmp eq ptr %8, null
@@ -330,7 +330,7 @@ define i64 @Java_jdk_internal_loader_NativeLibrary_findEntry0(ptr noundef %0, pt
   %12 = tail call ptr @JVM_FindLibraryEntry(ptr noundef %11, ptr noundef nonnull %8) #6
   %13 = ptrtoint ptr %12 to i64
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1360
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1360
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %8) #6
   br label %17
@@ -379,7 +379,7 @@ define ptr @Java_jdk_internal_loader_NativeLibraries_findBuiltinLib(ptr noundef 
   br label %36
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %21 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %20) #6
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %8) #6
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #7

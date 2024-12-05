@@ -63,7 +63,7 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483648, 1) i32 @cloop_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #10
   br i1 %call, label %do.end, label %if.else
@@ -86,9 +86,9 @@ if.end3:                                          ; preds = %do.end
 
 if.end7:                                          ; preds = %if.end3
   tail call void @bdrv_graph_rdlock_main_loop() #10
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
-  %block_size = getelementptr inbounds i8, ptr %0, i64 48
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 48
   %call9 = tail call i32 @bdrv_pread(ptr noundef %1, i64 noundef 128, i64 noundef 4, ptr noundef nonnull %block_size, i32 noundef 0) #10
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end12
@@ -123,7 +123,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end28:                                         ; preds = %if.end23
   %4 = load ptr, ptr %file, align 8
-  %n_blocks = getelementptr inbounds i8, ptr %0, i64 52
+  %n_blocks = getelementptr inbounds nuw i8, ptr %0, i64 52
   %call30 = tail call i32 @bdrv_pread(ptr noundef %4, i64 noundef 132, i64 noundef 4, ptr noundef nonnull %n_blocks, i32 noundef 0) #10
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end33
@@ -152,7 +152,7 @@ if.then48:                                        ; preds = %if.end42
 if.end49:                                         ; preds = %if.end42
   %conv50 = zext nneg i32 %mul to i64
   %call51 = tail call noalias ptr @g_try_malloc(i64 noundef %conv50) #12
-  %offsets = getelementptr inbounds i8, ptr %0, i64 56
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %call51, ptr %offsets, align 8
   %cmp53 = icmp eq ptr %call51, null
   br i1 %cmp53, label %if.then55, label %if.end56
@@ -232,7 +232,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %max_compressed_block_size.0.lcssa = phi i64 [ 2, %for.cond.preheader ], [ %21, %for.end.loopexit ]
   %call108 = tail call noalias ptr @g_try_malloc(i64 noundef %max_compressed_block_size.0.lcssa) #12
-  %compressed_block = getelementptr inbounds i8, ptr %0, i64 72
+  %compressed_block = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %call108, ptr %compressed_block, align 8
   %cmp110 = icmp eq ptr %call108, null
   br i1 %cmp110, label %if.then112, label %if.end113
@@ -245,7 +245,7 @@ if.end113:                                        ; preds = %for.end
   %22 = load i32, ptr %block_size, align 8
   %conv115 = zext i32 %22 to i64
   %call116 = tail call noalias ptr @g_try_malloc(i64 noundef %conv115) #12
-  %uncompressed_block = getelementptr inbounds i8, ptr %0, i64 80
+  %uncompressed_block = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %call116, ptr %uncompressed_block, align 8
   %cmp118 = icmp eq ptr %call116, null
   br i1 %cmp118, label %if.then120, label %if.end121
@@ -255,22 +255,22 @@ if.then120:                                       ; preds = %if.end113
   br label %fail
 
 if.end121:                                        ; preds = %if.end113
-  %zstream = getelementptr inbounds i8, ptr %0, i64 88
+  %zstream = getelementptr inbounds nuw i8, ptr %0, i64 88
   %call122 = tail call i32 @inflateInit_(ptr noundef nonnull %zstream, ptr noundef nonnull @.str.14, i32 noundef 112) #10
   %cmp123.not = icmp eq i32 %call122, 0
   br i1 %cmp123.not, label %if.end126, label %fail
 
 if.end126:                                        ; preds = %if.end121
   %23 = load i32, ptr %n_blocks, align 4
-  %current_block = getelementptr inbounds i8, ptr %0, i64 68
+  %current_block = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %23, ptr %current_block, align 4
   %24 = load i32, ptr %block_size, align 8
   %div82 = lshr i32 %24, 9
-  %sectors_per_block = getelementptr inbounds i8, ptr %0, i64 64
+  %sectors_per_block = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %div82, ptr %sectors_per_block, align 8
   %mul131 = mul i32 %div82, %23
   %conv132 = zext i32 %mul131 to i64
-  %total_sectors = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   store i64 %conv132, ptr %total_sectors, align 8
   tail call void @qemu_co_mutex_init(ptr noundef nonnull %0) #10
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -279,10 +279,10 @@ fail:                                             ; preds = %if.end121, %if.end5
   %ret.0 = phi i32 [ %call60, %if.end56 ], [ -22, %if.then86 ], [ -22, %if.then98 ], [ -12, %if.then112 ], [ -12, %if.then120 ], [ -22, %if.end121 ]
   %25 = load ptr, ptr %offsets, align 8
   tail call void @g_free(ptr noundef %25) #10
-  %compressed_block134 = getelementptr inbounds i8, ptr %0, i64 72
+  %compressed_block134 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %compressed_block134, align 8
   tail call void @g_free(ptr noundef %26) #10
-  %uncompressed_block135 = getelementptr inbounds i8, ptr %0, i64 80
+  %uncompressed_block135 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %uncompressed_block135, align 8
   tail call void @g_free(ptr noundef %27) #10
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
@@ -300,18 +300,18 @@ return:                                           ; preds = %if.end3, %do.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cloop_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %offsets = getelementptr inbounds i8, ptr %0, i64 56
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %offsets, align 8
   tail call void @g_free(ptr noundef %1) #10
-  %compressed_block = getelementptr inbounds i8, ptr %0, i64 72
+  %compressed_block = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2 = load ptr, ptr %compressed_block, align 8
   tail call void @g_free(ptr noundef %2) #10
-  %uncompressed_block = getelementptr inbounds i8, ptr %0, i64 80
+  %uncompressed_block = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %uncompressed_block, align 8
   tail call void @g_free(ptr noundef %3) #10
-  %zstream = getelementptr inbounds i8, ptr %0, i64 88
+  %zstream = getelementptr inbounds nuw i8, ptr %0, i64 88
   %call = tail call i32 @inflateEnd(ptr noundef nonnull %zstream) #10
   ret void
 }
@@ -319,7 +319,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @cloop_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
 entry:
-  %bl = getelementptr inbounds i8, ptr %bs, i64 16464
+  %bl = getelementptr inbounds nuw i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8
   ret void
 }
@@ -340,7 +340,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -5, 1) i32 @cloop_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %shr = ashr i64 %offset, 9
   %shr1 = lshr i64 %bytes, 9
@@ -368,8 +368,8 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp913, label %for.body.lr.ph, label %fail
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %sectors_per_block = getelementptr inbounds i8, ptr %0, i64 64
-  %uncompressed_block = getelementptr inbounds i8, ptr %0, i64 80
+  %sectors_per_block = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %uncompressed_block = getelementptr inbounds nuw i8, ptr %0, i64 80
   %wide.trip.count = and i64 %shr1, 2147483647
   br label %for.body
 
@@ -444,15 +444,15 @@ declare void @qemu_co_mutex_lock(ptr noundef) #1
 define internal range(i32 -1, 1) i32 @cloop_read_block(ptr nocapture noundef readonly %bs, i32 noundef %block_num) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %current_block = getelementptr inbounds i8, ptr %0, i64 68
+  %current_block = getelementptr inbounds nuw i8, ptr %0, i64 68
   %1 = load i32, ptr %current_block, align 4
   %cmp.not = icmp eq i32 %1, %block_num
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %offsets = getelementptr inbounds i8, ptr %0, i64 56
+  %offsets = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2 = load ptr, ptr %offsets, align 8
   %add = add i32 %block_num, 1
   %idxprom = sext i32 %add to i64
@@ -462,20 +462,20 @@ if.then:                                          ; preds = %entry
   %arrayidx3 = getelementptr i64, ptr %2, i64 %idxprom2
   %4 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 %3, %4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %5 = load ptr, ptr %file, align 8
   %conv7 = and i64 %sub, 4294967295
-  %compressed_block = getelementptr inbounds i8, ptr %0, i64 72
+  %compressed_block = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %compressed_block, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %7 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %7, align 8
   store ptr %6, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 %conv7, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #10
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %5, i64 noundef %4, i64 noundef %conv7, ptr noundef nonnull %qiov.i, i32 noundef 0) #10
@@ -486,17 +486,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %conv = trunc i64 %sub to i32
   %8 = load ptr, ptr %compressed_block, align 8
-  %zstream = getelementptr inbounds i8, ptr %0, i64 88
+  %zstream = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %8, ptr %zstream, align 8
-  %avail_in = getelementptr inbounds i8, ptr %0, i64 96
+  %avail_in = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %conv, ptr %avail_in, align 8
-  %uncompressed_block = getelementptr inbounds i8, ptr %0, i64 80
+  %uncompressed_block = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %uncompressed_block, align 8
-  %next_out = getelementptr inbounds i8, ptr %0, i64 112
+  %next_out = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %9, ptr %next_out, align 8
-  %block_size = getelementptr inbounds i8, ptr %0, i64 48
+  %block_size = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i32, ptr %block_size, align 8
-  %avail_out = getelementptr inbounds i8, ptr %0, i64 120
+  %avail_out = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %10, ptr %avail_out, align 8
   %call16 = call i32 @inflateReset(ptr noundef nonnull %zstream) #10
   %cmp17.not = icmp eq i32 %call16, 0
@@ -508,7 +508,7 @@ if.end20:                                         ; preds = %if.end
   br i1 %cmp23.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.end20
-  %total_out = getelementptr inbounds i8, ptr %0, i64 128
+  %total_out = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i64, ptr %total_out, align 8
   %12 = load i32, ptr %block_size, align 8
   %conv27 = zext i32 %12 to i64
@@ -532,14 +532,14 @@ declare void @qemu_co_mutex_unlock(ptr noundef) #1
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
-  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
+  %iov_len = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #10
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #10

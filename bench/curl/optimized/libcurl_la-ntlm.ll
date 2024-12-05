@@ -37,7 +37,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3.not, label %lor.lhs.false4, label %do.body
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %bcmp18 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %add.ptr, ptr noundef nonnull dereferenceable(4) @Curl_auth_decode_ntlm_type2_message.type2_marker, i64 4)
   %cmp6.not = icmp eq i32 %bcmp18, 0
   br i1 %cmp6.not, label %if.end9, label %do.body
@@ -47,7 +47,7 @@ do.body:                                          ; preds = %entry, %lor.lhs.fal
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %verbose = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %0 = and i64 %bf.load, 536870912
   %tobool7.not = icmp eq i64 %0, 0
@@ -58,11 +58,11 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false4
-  %arrayidx = getelementptr inbounds i8, ptr %call, i64 20
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call, i64 20
   %call10 = tail call i32 @Curl_read32_le(ptr noundef nonnull %arrayidx) #7
   store i32 %call10, ptr %ntlm, align 8
-  %nonce = getelementptr inbounds i8, ptr %ntlm, i64 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %call, i64 24
+  %nonce = getelementptr inbounds nuw i8, ptr %ntlm, i64 4
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load i64, ptr %arrayidx12, align 1
   store i64 %1, ptr %nonce, align 4
   %and = and i32 %call10, 8388608
@@ -76,9 +76,9 @@ if.then15:                                        ; preds = %if.end9
   br i1 %cmp.i, label %if.then.i, label %ntlm_decode_type2_target.exit
 
 if.then.i:                                        ; preds = %if.then15
-  %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %call2.i = tail call zeroext i16 @Curl_read16_le(ptr noundef nonnull %arrayidx.i) #7
-  %arrayidx3.i = getelementptr inbounds i8, ptr %call.i, i64 44
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 44
   %call4.i = tail call i32 @Curl_read32_le(ptr noundef nonnull %arrayidx3.i) #7
   %conv.i = zext i16 %call2.i to i32
   %cmp5.not.i = icmp eq i16 %call2.i, 0
@@ -102,7 +102,7 @@ do.body.i:                                        ; preds = %lor.lhs.false.i, %i
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %do.body.i
-  %verbose.i = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose.i = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load.i = load i64, ptr %verbose.i, align 2
   %2 = and i64 %bf.load.i, 536870912
   %tobool19.not.i = icmp eq i64 %2, 0
@@ -114,10 +114,10 @@ if.then20.i:                                      ; preds = %land.lhs.true.i
 
 if.end21.i:                                       ; preds = %lor.lhs.false.i
   %3 = load ptr, ptr @Curl_cfree, align 8
-  %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
+  %target_info.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 16
   %4 = load ptr, ptr %target_info.i, align 8
   tail call void %3(ptr noundef %4) #7
-  %arrayidx22.i = getelementptr inbounds i8, ptr %call.i, i64 %conv8.i
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %conv8.i
   %conv23.i = zext i16 %call2.i to i64
   %call24.i = tail call ptr @Curl_memdup(ptr noundef %arrayidx22.i, i64 noundef %conv23.i) #7
   store ptr %call24.i, ptr %target_info.i, align 8
@@ -127,7 +127,7 @@ if.end21.i:                                       ; preds = %lor.lhs.false.i
 ntlm_decode_type2_target.exit:                    ; preds = %if.then15, %if.then.i, %if.end21.i
   %target_info_len.0.i = phi i16 [ %call2.i, %if.end21.i ], [ 0, %if.then.i ], [ 0, %if.then15 ]
   %conv32.i = zext i16 %target_info_len.0.i to i32
-  %target_info_len33.i = getelementptr inbounds i8, ptr %ntlm, i64 12
+  %target_info_len33.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 12
   store i32 %conv32.i, ptr %target_info_len33.i, align 4
   br label %return
 
@@ -137,7 +137,7 @@ do.body19:                                        ; preds = %if.end21.i
 
 land.lhs.true21:                                  ; preds = %if.then20.i, %land.lhs.true.i, %do.body19
   %retval.0.i.ph24 = phi i32 [ 27, %do.body19 ], [ 61, %land.lhs.true.i ], [ 61, %if.then20.i ]
-  %verbose23 = getelementptr inbounds i8, ptr %data, i64 2706
+  %verbose23 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load24 = load i64, ptr %verbose23, align 2
   %5 = and i64 %bf.load24, 536870912
   %tobool28.not = icmp eq i64 %5, 0
@@ -167,11 +167,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef initializes((12, 16)) %ntlm, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
+  %target_info.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 16
   %1 = load ptr, ptr %target_info.i, align 8
   tail call void %0(ptr noundef %1) #7
   store ptr null, ptr %target_info.i, align 8
-  %target_info_len.i = getelementptr inbounds i8, ptr %ntlm, i64 12
+  %target_info_len.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 12
   store i32 0, ptr %target_info_len.i, align 4
   %call = tail call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 6, i32 noundef 130, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #7
   %tobool.not = icmp eq ptr %call, null
@@ -190,11 +190,11 @@ return:                                           ; preds = %entry, %if.end
 define hidden void @Curl_auth_cleanup_ntlm(ptr nocapture noundef initializes((12, 16)) %ntlm) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
-  %target_info = getelementptr inbounds i8, ptr %ntlm, i64 16
+  %target_info = getelementptr inbounds nuw i8, ptr %ntlm, i64 16
   %1 = load ptr, ptr %target_info, align 8
   tail call void %0(ptr noundef %1) #7
   store ptr null, ptr %target_info, align 8
-  %target_info_len = getelementptr inbounds i8, ptr %ntlm, i64 12
+  %target_info_len = getelementptr inbounds nuw i8, ptr %ntlm, i64 12
   store i32 0, ptr %target_info_len, align 4
   ret void
 }
@@ -241,7 +241,7 @@ if.end:                                           ; preds = %if.then, %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %user.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %userp to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %incdec.ptr = getelementptr inbounds i8, ptr %user.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %user.0, i64 1
   %user.1 = select i1 %tobool5.not, ptr %userp, ptr %incdec.ptr
   %domain.0 = select i1 %tobool5.not, ptr @.str.2, ptr %userp
   %domlen.0 = select i1 %tobool5.not, i64 0, i64 %sub.ptr.sub
@@ -268,7 +268,7 @@ if.end24:                                         ; preds = %if.end19
   br i1 %tobool28.not, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end24
-  %nonce = getelementptr inbounds i8, ptr %ntlm, i64 4
+  %nonce = getelementptr inbounds nuw i8, ptr %ntlm, i64 4
   %call35 = call i32 @Curl_ntlm_core_mk_lmv2_resp(ptr noundef nonnull %ntlmv2hash, ptr noundef nonnull %entropy, ptr noundef nonnull %nonce, ptr noundef nonnull %lmresp) #7
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %if.end38, label %return
@@ -290,7 +290,7 @@ if.else45:                                        ; preds = %if.end
   br i1 %tobool49.not, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.else45
-  %nonce53 = getelementptr inbounds i8, ptr %ntlm, i64 4
+  %nonce53 = getelementptr inbounds nuw i8, ptr %ntlm, i64 4
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %ntbuffer46, ptr noundef nonnull %nonce53, ptr noundef nonnull %ntresp) #7
   %call57 = call i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %passwdp, ptr noundef nonnull %lmbuffer) #7
   %tobool58.not = icmp eq i32 %call57, 0
@@ -350,7 +350,7 @@ if.end67:                                         ; preds = %if.end60, %if.end44
   br i1 %cmp, label %if.then149, label %do.end155
 
 if.then149:                                       ; preds = %if.end67
-  %arrayidx150 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %conv145
+  %arrayidx150 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %conv145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %arrayidx150, ptr noundef nonnull align 16 dereferenceable(24) %lmresp, i64 24, i1 false)
   %add152 = add nuw nsw i64 %conv145, 24
   br label %do.end155
@@ -384,7 +384,7 @@ if.then177:                                       ; preds = %do.end163
   br label %return
 
 do.end180:                                        ; preds = %do.end163
-  %arrayidx185 = getelementptr inbounds [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add157
+  %arrayidx185 = getelementptr inbounds nuw [1024 x i8], ptr %ntlmbuf, i64 0, i64 %add157
   br i1 %tobool.not, label %if.end186.thread, label %if.then182
 
 if.then182:                                       ; preds = %do.end180
@@ -394,7 +394,7 @@ if.then182:                                       ; preds = %do.end180
 
 for.body.i:                                       ; preds = %if.then182, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then182 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %domain.0, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %domain.0, i64 %i.07.i
   %18 = load i8, ptr %arrayidx.i, align 1
   %mul.i = shl nuw i64 %i.07.i, 1
   %arrayidx1.i = getelementptr inbounds i8, ptr %arrayidx185, i64 %mul.i
@@ -429,7 +429,7 @@ if.then191:                                       ; preds = %if.then182, %if.end
 
 for.body.i103:                                    ; preds = %if.then191, %for.body.i103
   %i.07.i104 = phi i64 [ %inc.i110, %for.body.i103 ], [ 0, %if.then191 ]
-  %arrayidx.i105 = getelementptr inbounds i8, ptr %user.1, i64 %i.07.i104
+  %arrayidx.i105 = getelementptr inbounds nuw i8, ptr %user.1, i64 %i.07.i104
   %19 = load i8, ptr %arrayidx.i105, align 1
   %mul.i106 = shl nuw i64 %i.07.i104, 1
   %arrayidx1.i107 = getelementptr inbounds i8, ptr %arrayidx192, i64 %mul.i106
@@ -452,7 +452,7 @@ if.then201:                                       ; preds = %if.then191, %if.end
 
 for.body.i114:                                    ; preds = %if.then201, %for.body.i114
   %i.07.i115 = phi i64 [ %inc.i121, %for.body.i114 ], [ 0, %if.then201 ]
-  %arrayidx.i116 = getelementptr inbounds i8, ptr %host, i64 %i.07.i115
+  %arrayidx.i116 = getelementptr inbounds nuw i8, ptr %host, i64 %i.07.i115
   %20 = load i8, ptr %arrayidx.i116, align 1
   %mul.i117 = shl nuw i64 %i.07.i115, 1
   %arrayidx1.i118 = getelementptr inbounds i8, ptr %arrayidx202, i64 %mul.i117
@@ -469,11 +469,11 @@ if.end208:                                        ; preds = %for.body.i114, %if.
   %add209 = add i64 %add197132, %hostlen.0
   %call211 = call i32 @Curl_bufref_memdup(ptr noundef %out, ptr noundef nonnull %ntlmbuf, i64 noundef %add209) #7
   %21 = load ptr, ptr @Curl_cfree, align 8
-  %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
+  %target_info.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 16
   %22 = load ptr, ptr %target_info.i, align 8
   call void %21(ptr noundef %22) #7
   store ptr null, ptr %target_info.i, align 8
-  %target_info_len.i = getelementptr inbounds i8, ptr %ntlm, i64 12
+  %target_info_len.i = getelementptr inbounds nuw i8, ptr %ntlm, i64 12
   store i32 0, ptr %target_info_len.i, align 4
   br label %return
 

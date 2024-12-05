@@ -45,9 +45,9 @@ _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds 
   %.017.i.i = phi ptr [ %22, %20 ], [ %0, %5 ]
   %.01116.i.i = phi i64 [ %21, %20 ], [ %1, %5 ]
   %8 = lshr i64 %.01116.i.i, 1
-  %9 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %.017.i.i, i64 %8
+  %9 = getelementptr inbounds nuw %"struct.google::protobuf::internal::EnumEntry", ptr %.017.i.i, i64 %8
   %.sroa.01.0.copyload.i = load ptr, ptr %9, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %spec.select.i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.22.0.copyload.i, i64 %3)
   %10 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i, ptr noundef %2, i64 noundef %spec.select.i.i) #13
@@ -55,7 +55,7 @@ _ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i: ; preds 
   br i1 %11, label %.thread, label %_ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES5_.exit
 
 .thread:                                          ; preds = %_ZSt7advanceIPKN6google8protobuf8internal9EnumEntryElEvRT_T0_.exit.i.i
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = xor i64 %8, -1
   %14 = add nsw i64 %.01116.i.i, %13
   br label %20
@@ -65,7 +65,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_117EnumCompareByNameERKNS1_9EnumEntryES
   %16 = icmp eq i32 %10, 0
   %spec.select9.i.i = and i1 %15, %16
   %cond.fr = freeze i1 %spec.select9.i.i
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %18 = xor i64 %8, -1
   %19 = add nsw i64 %.01116.i.i, %18
   %spec.select = select i1 %cond.fr, i64 %19, i64 %8
@@ -85,7 +85,7 @@ _ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_
 
 24:                                               ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal9EnumEntryES3_PFbRS4_S6_EET_S9_S9_RKT0_T1_.exit
   %.sroa.01.0.copyload = load ptr, ptr %.0.lcssa.i.i, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %.not.i = icmp eq i64 %.sroa.22.0.copyload, %3
   br i1 %.not.i, label %25, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
@@ -102,7 +102,7 @@ _ZN6google8protobufeqENS0_11StringPieceES1_.exit: ; preds = %25
   br i1 %28, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread, label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
 
 _ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread: ; preds = %25, %_ZN6google8protobufeqENS0_11StringPieceES1_.exit
-  %29 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %4, align 4
   br label %_ZN6google8protobufeqENS0_11StringPieceES1_.exit.thread18
@@ -123,7 +123,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %"_ZN9__gnu_cxx5
   %.05.i.i = phi ptr [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %1, %4 ]
   %.0114.i.i = phi i64 [ %.112.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i" ], [ %2, %4 ]
   %8 = lshr i64 %.0114.i.i, 1
-  %9 = getelementptr inbounds i32, ptr %.05.i.i, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %.05.i.i, i64 %8
   %.val14.i.i = load i32, ptr %9, align 4
   %10 = icmp eq i32 %.val14.i.i, -1
   br i1 %10, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i", label %11
@@ -137,7 +137,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %4, %"_ZN9__gnu_cxx5
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6google8protobuf8internal14LookUpEnumNameEPKNS4_9EnumEntryEPKimiE3$_0EclIS9_S8_EEbT_RT0_.exit.i.i": ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, %11
   %.0.i.i.i.i.i = phi i32 [ %14, %11 ], [ %3, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ]
   %15 = icmp slt i32 %.0.i.i.i.i.i, %3
-  %16 = getelementptr inbounds i8, ptr %9, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %17 = xor i64 %8, -1
   %18 = add nsw i64 %.0114.i.i, %17
   %.112.i.i = select i1 %15, i64 %18, i64 %8
@@ -177,8 +177,8 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal21InitializeEnumStringsEP
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds %"class.google::protobuf::internal::ExplicitlyConstructed", ptr %3, i64 %indvars.iv
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %"class.google::protobuf::internal::ExplicitlyConstructed", ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds %"struct.google::protobuf::internal::EnumEntry", ptr %0, i64 %8
@@ -232,7 +232,7 @@ define linkonce_odr void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(pt
   br label %.body
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)

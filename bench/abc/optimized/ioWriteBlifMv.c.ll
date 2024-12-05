@@ -38,18 +38,18 @@ define void @Io_WriteBlifMv(ptr noundef readonly %0, ptr nocapture noundef reado
   br label %35
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr (...) @Extra_TimeStamp() #9
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %10, ptr noundef %11) #9
   tail call fastcc void @Io_NtkWriteBlifMv(ptr noundef %3, ptr noundef %0)
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 4
   %.val20 = load i32, ptr %17, align 4
@@ -62,7 +62,7 @@ define void @Io_WriteBlifMv(ptr noundef readonly %0, ptr nocapture noundef reado
   %20 = phi ptr [ %30, %27 ], [ %16, %.preheader ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val19 = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds ptr, ptr %.val19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %27, label %25
@@ -76,7 +76,7 @@ define void @Io_WriteBlifMv(ptr noundef readonly %0, ptr nocapture noundef reado
 27:                                               ; preds = %.lr.ph, %25
   %28 = phi ptr [ %19, %.lr.ph ], [ %.pre, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 4
   %.val = load i32, ptr %31, align 4
@@ -120,7 +120,7 @@ define internal fastcc void @Io_NtkWriteBlifMv(ptr nocapture noundef nonnull %0,
   %.01623.i.i = phi i32 [ %30, %27 ], [ 7, %2 ]
   %9 = getelementptr i8, ptr %.val26.i.i, i64 8
   %.val18.val.i.i = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val18.val.i.i, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw ptr, ptr %.val18.val.i.i, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   %.val19.i.i = load ptr, ptr %11, align 8
   %12 = getelementptr i8, ptr %11, i64 48
@@ -181,7 +181,7 @@ Io_NtkWriteBlifMvPis.exit.i:                      ; preds = %27, %2
   %.01623.i118.i = phi i32 [ %60, %57 ], [ 8, %Io_NtkWriteBlifMvPis.exit.i ]
   %39 = getelementptr i8, ptr %.val26.i116.i, i64 8
   %.val18.val.i119.i = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds ptr, ptr %.val18.val.i119.i, i64 %indvars.iv.i115.i
+  %40 = getelementptr inbounds nuw ptr, ptr %.val18.val.i119.i, i64 %indvars.iv.i115.i
   %41 = load ptr, ptr %40, align 8
   %.val19.i120.i = load ptr, ptr %41, align 8
   %42 = getelementptr i8, ptr %41, i64 32
@@ -248,7 +248,7 @@ Io_NtkWriteBlifMvPos.exit.i:                      ; preds = %57, %Io_NtkWriteBli
   %.val97193.i = phi ptr [ %.val97.i, %Abc_ObjMvVarNum.exit.thread.i ], [ %.val97190.i, %Io_NtkWriteBlifMvPos.exit.i ]
   %71 = getelementptr i8, ptr %.val97193.i, i64 8
   %.val98.val.i = load ptr, ptr %71, align 8
-  %72 = getelementptr inbounds ptr, ptr %.val98.val.i, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw ptr, ptr %.val98.val.i, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8
   %.val85.i = load ptr, ptr %73, align 8
   %74 = getelementptr i8, ptr %73, i64 48
@@ -343,7 +343,7 @@ Abc_ObjMvVarNum.exit.thread.i:                    ; preds = %Abc_ObjMvVarNum.exi
   %.val99197.i = phi ptr [ %.val99.i, %Abc_ObjMvVarNum.exit145.thread.i ], [ %.val99194.i, %.critedge.preheader.i ]
   %115 = getelementptr i8, ptr %.val99197.i, i64 8
   %.val100.val.i = load ptr, ptr %115, align 8
-  %116 = getelementptr inbounds ptr, ptr %.val100.val.i, i64 %indvars.iv211.i
+  %116 = getelementptr inbounds nuw ptr, ptr %.val100.val.i, i64 %indvars.iv211.i
   %117 = load ptr, ptr %116, align 8
   %.val91.i = load ptr, ptr %117, align 8
   %118 = getelementptr i8, ptr %117, i64 32
@@ -451,7 +451,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
 
 164:                                              ; preds = %162
   %fputc76.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  %165 = getelementptr inbounds i8, ptr %1, i64 80
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr i8, ptr %166, i64 4
   %.val84199.i = load i32, ptr %167, align 4
@@ -463,7 +463,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   %indvars.iv214.i = phi i64 [ %indvars.iv.next215.i, %210 ], [ 0, %164 ]
   %170 = getelementptr i8, ptr %169, i64 8
   %.val103.val.i = load ptr, ptr %170, align 8
-  %171 = getelementptr inbounds ptr, ptr %.val103.val.i, i64 %indvars.iv214.i
+  %171 = getelementptr inbounds nuw ptr, ptr %.val103.val.i, i64 %indvars.iv214.i
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr i8, ptr %172, i64 20
   %.val105.i = load i32, ptr %173, align 4
@@ -555,7 +555,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
 
 221:                                              ; preds = %218, %215
   %fputc79.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  %222 = getelementptr inbounds i8, ptr %1, i64 80
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr i8, ptr %223, i64 4
   %.val83202.i = load i32, ptr %224, align 4
@@ -567,7 +567,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   %indvars.iv217.i = phi i64 [ %indvars.iv.next218.i, %375 ], [ 0, %221 ]
   %227 = getelementptr i8, ptr %226, i64 8
   %.val104.val.i = load ptr, ptr %227, align 8
-  %228 = getelementptr inbounds ptr, ptr %.val104.val.i, i64 %indvars.iv217.i
+  %228 = getelementptr inbounds nuw ptr, ptr %.val104.val.i, i64 %indvars.iv217.i
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr i8, ptr %229, i64 20
   %.val106.i = load i32, ptr %230, align 4
@@ -576,7 +576,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not187.i, label %375, label %232
 
 232:                                              ; preds = %.lr.ph204.i
-  %233 = getelementptr inbounds i8, ptr %229, i64 56
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %234 = load ptr, ptr %233, align 8
   %fputc.i157.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %235 = getelementptr i8, ptr %229, i64 28
@@ -606,7 +606,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   %.val65.val.i.i = load ptr, ptr %242, align 8
   %243 = getelementptr i8, ptr %.val65.val.i.i, i64 8
   %.val65.val.val.i.i = load ptr, ptr %243, align 8
-  %244 = getelementptr inbounds i32, ptr %.val66.i.i, i64 %indvars.iv.i160.i
+  %244 = getelementptr inbounds nuw i32, ptr %.val66.i.i, i64 %indvars.iv.i160.i
   %245 = load i32, ptr %244, align 4
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds ptr, ptr %.val65.val.val.i.i, i64 %246
@@ -674,7 +674,7 @@ Abc_ObjMvVarNum.exit.thread.i.i:                  ; preds = %Abc_ObjMvVarNum.exi
   %.val70.val.i.i = load ptr, ptr %274, align 8
   %275 = getelementptr i8, ptr %.val70.val.i.i, i64 8
   %.val70.val.val.i.i = load ptr, ptr %275, align 8
-  %276 = getelementptr inbounds i32, ptr %.val71.i.i, i64 %indvars.iv108.i.i
+  %276 = getelementptr inbounds nuw i32, ptr %.val71.i.i, i64 %indvars.iv108.i.i
   %277 = load i32, ptr %276, align 4
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds ptr, ptr %.val70.val.val.i.i, i64 %278
@@ -767,7 +767,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %.val52100.i.i = phi ptr [ %.val5297.i.i, %.lr.ph101.i.i ], [ %.val52.i.i, %316 ]
   %317 = getelementptr i8, ptr %.val52100.i.i, i64 8
   %.val53.val.i.i = load ptr, ptr %317, align 8
-  %318 = getelementptr inbounds ptr, ptr %.val53.val.i.i, i64 %indvars.iv111.i.i
+  %318 = getelementptr inbounds nuw ptr, ptr %.val53.val.i.i, i64 %indvars.iv111.i.i
   %319 = load ptr, ptr %318, align 8
   %.val56.i.i = load ptr, ptr %319, align 8
   %320 = getelementptr i8, ptr %319, i64 48
@@ -788,7 +788,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %.val67.val.i.i = load ptr, ptr %328, align 8
   %329 = getelementptr i8, ptr %.val67.val.i.i, i64 8
   %.val67.val.val.i.i = load ptr, ptr %329, align 8
-  %330 = getelementptr inbounds i32, ptr %.val68.i.i, i64 %indvars.iv111.i.i
+  %330 = getelementptr inbounds nuw i32, ptr %.val68.i.i, i64 %indvars.iv111.i.i
   %331 = load i32, ptr %330, align 4
   %332 = sext i32 %331 to i64
   %333 = getelementptr inbounds ptr, ptr %.val67.val.val.i.i, i64 %332
@@ -819,7 +819,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %.val58105.i.i = phi ptr [ %.val58102.i.i, %.lr.ph106.i.i ], [ %.val58.i.i, %.critedge4.i.i ]
   %346 = getelementptr i8, ptr %.val58105.i.i, i64 8
   %.val59.val.i.i = load ptr, ptr %346, align 8
-  %347 = getelementptr inbounds ptr, ptr %.val59.val.i.i, i64 %indvars.iv114.i.i
+  %347 = getelementptr inbounds nuw ptr, ptr %.val59.val.i.i, i64 %indvars.iv114.i.i
   %348 = load ptr, ptr %347, align 8
   %.val60.i.i = load ptr, ptr %348, align 8
   %349 = getelementptr i8, ptr %348, i64 32
@@ -840,7 +840,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %.val72.val.i.i = load ptr, ptr %357, align 8
   %358 = getelementptr i8, ptr %.val72.val.i.i, i64 8
   %.val72.val.val.i.i = load ptr, ptr %358, align 8
-  %359 = getelementptr inbounds i32, ptr %.val73.i.i, i64 %indvars.iv114.i.i
+  %359 = getelementptr inbounds nuw i32, ptr %.val73.i.i, i64 %indvars.iv114.i.i
   %360 = load i32, ptr %359, align 4
   %361 = sext i32 %360 to i64
   %362 = getelementptr inbounds ptr, ptr %.val72.val.val.i.i, i64 %361
@@ -906,7 +906,7 @@ Io_NtkWriteBlifMvSubckt.exit.i:                   ; preds = %.critedge4.i.i, %.c
   %389 = phi ptr [ %385, %.lr.ph208.i ], [ %527, %Io_NtkWriteBlifMvNode.exit.i ]
   %390 = getelementptr i8, ptr %389, i64 8
   %.val110.val.i = load ptr, ptr %390, align 8
-  %391 = getelementptr inbounds ptr, ptr %.val110.val.i, i64 %indvars.iv220.i
+  %391 = getelementptr inbounds nuw ptr, ptr %.val110.val.i, i64 %indvars.iv220.i
   %392 = load ptr, ptr %391, align 8
   %393 = icmp eq ptr %392, null
   br i1 %393, label %Io_NtkWriteBlifMvNode.exit.i, label %394
@@ -951,7 +951,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %402, %398
   %.val53.val.i175.i = load ptr, ptr %408, align 8
   %409 = getelementptr i8, ptr %.val53.val.i175.i, i64 8
   %.val53.val.val.i.i = load ptr, ptr %409, align 8
-  %410 = getelementptr inbounds i32, ptr %.val54.i174.i, i64 %indvars.iv.i173.i
+  %410 = getelementptr inbounds nuw i32, ptr %.val54.i174.i, i64 %indvars.iv.i173.i
   %411 = load i32, ptr %410, align 4
   %412 = sext i32 %411 to i64
   %413 = getelementptr inbounds ptr, ptr %.val53.val.val.i.i, i64 %412
@@ -1057,7 +1057,7 @@ Abc_ObjMvVarNum.exit62.thread.i.i:                ; preds = %444, %Abc_ObjMvVarN
   %.val29.val.i.i.i = load ptr, ptr %456, align 8
   %457 = getelementptr i8, ptr %.val29.val.i.i.i, i64 8
   %.val29.val.val.i.i.i = load ptr, ptr %457, align 8
-  %458 = getelementptr inbounds i32, ptr %.val30.i.i.i, i64 %indvars.iv.i.i.i
+  %458 = getelementptr inbounds nuw i32, ptr %.val30.i.i.i, i64 %indvars.iv.i.i.i
   %459 = load i32, ptr %458, align 4
   %460 = sext i32 %459 to i64
   %461 = getelementptr inbounds ptr, ptr %.val29.val.val.i.i.i, i64 %460
@@ -1133,7 +1133,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
 
 497:                                              ; preds = %Io_NtkWriteBlifMvNodeFanins.exit.i.i
   %498 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 9, i64 1, ptr nonnull %0)
-  %499 = getelementptr inbounds i8, ptr %.val51.i.i, i64 1
+  %499 = getelementptr inbounds nuw i8, ptr %.val51.i.i, i64 1
   %.pre.i.i = load i8, ptr %499, align 1
   br label %500
 
@@ -1157,7 +1157,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
   br i1 %.not45.i.i, label %507, label %524
 
 507:                                              ; preds = %503
-  %508 = getelementptr inbounds i8, ptr %.171.i.i, i64 1
+  %508 = getelementptr inbounds nuw i8, ptr %.171.i.i, i64 1
   %509 = tail call i32 @atoi(ptr nocapture noundef nonnull %508) #10
   %.val55.i165.i = load ptr, ptr %392, align 8
   %.val56.i166.i = load ptr, ptr %502, align 8
@@ -1184,7 +1184,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
   ]
 
 521:                                              ; preds = %519
-  %522 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
+  %522 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 1
   br label %519, !llvm.loop !18
 
 .critedge2.i168.i:                                ; preds = %519, %519
@@ -1193,7 +1193,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
 
 524:                                              ; preds = %.critedge2.i168.i, %503
   %.2.i.i = phi ptr [ %.171.i.i, %503 ], [ %523, %.critedge2.i168.i ]
-  %525 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %525 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   %526 = load i8, ptr %525, align 1
   %.not.i164.i = icmp eq i8 %526, 0
   br i1 %.not.i164.i, label %Io_NtkWriteBlifMvNode.exit.i, label %503, !llvm.loop !19
@@ -1251,7 +1251,7 @@ define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unna
   br i1 %.not, label %Vec_AttEntry.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %.val3.val.val, align 8
   %.not.i = icmp slt i32 %8, %9
@@ -1266,7 +1266,7 @@ define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unna
   br i1 %.not.i.i, label %15, label %Vec_AttGrow.exit.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %.val3.val.val, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.val3.val.val, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   %18 = sext i32 %14 to i64
@@ -1296,7 +1296,7 @@ define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unna
   br label %Vec_AttGrow.exit.i
 
 Vec_AttGrow.exit.i:                               ; preds = %24, %10, %6
-  %32 = getelementptr inbounds i8, ptr %.val3.val.val, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.val3.val.val, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %8 to i64
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
@@ -1305,13 +1305,13 @@ Vec_AttGrow.exit.i:                               ; preds = %24, %10, %6
   br i1 %37, label %38, label %Vec_AttEntry.exit
 
 38:                                               ; preds = %Vec_AttGrow.exit.i
-  %39 = getelementptr inbounds i8, ptr %.val3.val.val, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.val3.val.val, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not18.i = icmp eq ptr %40, null
   br i1 %.not18.i, label %Vec_AttEntry.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.val3.val.val, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.val3.val.val, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr %40(ptr noundef %43) #9
   %45 = load ptr, ptr %32, align 8

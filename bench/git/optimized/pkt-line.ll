@@ -125,7 +125,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %cmp.i, label %if.then3.i, label %if.end19
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %sub.i = add i32 %len, -1
   tail call void @trace_verbatim(ptr noundef nonnull @trace_pack, ptr noundef nonnull %add.ptr.i, i32 noundef %sub.i) #15
   br label %return
@@ -157,7 +157,7 @@ if.else.i21:                                      ; preds = %if.then13
   br i1 %tobool1.not.i22, label %if.end19, label %if.then3.i26
 
 if.then3.i26:                                     ; preds = %if.else.i21
-  %add.ptr.i27 = getelementptr inbounds i8, ptr %buf, i64 1
+  %add.ptr.i27 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %sub.i28 = add i32 %len, -1
   tail call void @trace_verbatim(ptr noundef nonnull @trace_pack, ptr noundef nonnull %add.ptr.i27, i32 noundef %sub.i28) #15
   br label %if.end19
@@ -184,14 +184,14 @@ if.end23:                                         ; preds = %if.end19
   br i1 %cmp2753.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end23
-  %len.i.i = getelementptr inbounds i8, ptr %out, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %out, i64 16
+  %len.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %out, i64 16
   %wide.trip.count = zext i32 %len.addr.0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %buf.addr.0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf.addr.0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %cmp30 = icmp eq i8 %4, 10
   br i1 %cmp30, label %for.inc, label %if.end33
@@ -247,7 +247,7 @@ for.end:                                          ; preds = %for.inc, %if.end23
   br i1 %tobool.not.i.i34, label %if.then.i44, label %strbuf_avail.exit.i35
 
 strbuf_avail.exit.i35:                            ; preds = %for.end
-  %len.i.i36 = getelementptr inbounds i8, ptr %out, i64 8
+  %len.i.i36 = getelementptr inbounds nuw i8, ptr %out, i64 8
   %13 = load i64, ptr %len.i.i36, align 8
   %.neg.i37 = add i64 %13, 1
   %tobool.not.i38 = icmp eq i64 %12, %.neg.i37
@@ -255,7 +255,7 @@ strbuf_avail.exit.i35:                            ; preds = %for.end
 
 if.then.i44:                                      ; preds = %strbuf_avail.exit.i35, %for.end
   call void @strbuf_grow(ptr noundef nonnull %out, i64 noundef 1) #15
-  %len.phi.trans.insert.i45 = getelementptr inbounds i8, ptr %out, i64 8
+  %len.phi.trans.insert.i45 = getelementptr inbounds nuw i8, ptr %out, i64 8
   %.pre.i46 = load i64, ptr %len.phi.trans.insert.i45, align 8
   %.pre8.i47 = add i64 %.pre.i46, 1
   br label %strbuf_addch.exit48
@@ -263,9 +263,9 @@ if.then.i44:                                      ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit48:                              ; preds = %strbuf_avail.exit.i35, %if.then.i44
   %inc.pre-phi.i39 = phi i64 [ %.pre8.i47, %if.then.i44 ], [ %.neg.i37, %strbuf_avail.exit.i35 ]
   %14 = phi i64 [ %.pre.i46, %if.then.i44 ], [ %13, %strbuf_avail.exit.i35 ]
-  %buf.i40 = getelementptr inbounds i8, ptr %out, i64 16
+  %buf.i40 = getelementptr inbounds nuw i8, ptr %out, i64 16
   %15 = load ptr, ptr %buf.i40, align 8
-  %len.i41 = getelementptr inbounds i8, ptr %out, i64 8
+  %len.i41 = getelementptr inbounds nuw i8, ptr %out, i64 8
   store i64 %inc.pre-phi.i39, ptr %len.i41, align 8
   %arrayidx.i42 = getelementptr inbounds i8, ptr %15, i64 %14
   store i8 10, ptr %arrayidx.i42, align 1
@@ -406,28 +406,28 @@ entry:
   %shr = lshr i32 %size, 12
   %and = and i32 %shr, 15
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   store i8 %0, ptr %buf, align 1
   %shr2 = lshr i32 %size, 8
   %and3 = and i32 %shr2, 15
   %idxprom4 = zext nneg i32 %and3 to i64
-  %arrayidx5 = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom4
   %1 = load i8, ptr %arrayidx5, align 1
-  %arrayidx6 = getelementptr inbounds i8, ptr %buf, i64 1
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 %1, ptr %arrayidx6, align 1
   %shr7 = lshr i32 %size, 4
   %and8 = and i32 %shr7, 15
   %idxprom9 = zext nneg i32 %and8 to i64
-  %arrayidx10 = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom9
   %2 = load i8, ptr %arrayidx10, align 1
-  %arrayidx11 = getelementptr inbounds i8, ptr %buf, i64 2
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %buf, i64 2
   store i8 %2, ptr %arrayidx11, align 1
   %and12 = and i32 %size, 15
   %idxprom13 = zext nneg i32 %and12 to i64
-  %arrayidx14 = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom13
   %3 = load i8, ptr %arrayidx14, align 1
-  %arrayidx15 = getelementptr inbounds i8, ptr %buf, i64 3
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %buf, i64 3
   store i8 %3, ptr %arrayidx15, align 1
   ret void
 }
@@ -437,8 +437,8 @@ define dso_local void @packet_write_fmt(i32 noundef %fd, ptr noundef %fmt, ...) 
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -472,8 +472,8 @@ define dso_local range(i32 -1, 1) i32 @packet_write_fmt_gently(i32 noundef %fd, 
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
-  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -519,7 +519,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buf1 = getelementptr inbounds i8, ptr %err, i64 16
+  %buf1 = getelementptr inbounds nuw i8, ptr %err, i64 16
   %0 = load ptr, ptr %buf1, align 8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.8, ptr noundef %0) #16
   unreachable
@@ -559,28 +559,28 @@ if.end:                                           ; preds = %entry
   %conv1 = add nuw nsw i32 %conv, 4
   %shr.i = lshr i32 %conv1, 12
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   store i8 %1, ptr %header, align 1
   %shr2.i = lshr i32 %conv1, 8
   %and3.i = and i32 %shr2.i, 15
   %idxprom4.i = zext nneg i32 %and3.i to i64
-  %arrayidx5.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom4.i
   %2 = load i8, ptr %arrayidx5.i, align 1
-  %arrayidx6.i = getelementptr inbounds i8, ptr %header, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %header, i64 1
   store i8 %2, ptr %arrayidx6.i, align 1
   %shr7.i = lshr i32 %conv1, 4
   %and8.i = and i32 %shr7.i, 15
   %idxprom9.i = zext nneg i32 %and8.i to i64
-  %arrayidx10.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom9.i
   %3 = load i8, ptr %arrayidx10.i, align 1
-  %arrayidx11.i = getelementptr inbounds i8, ptr %header, i64 2
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %header, i64 2
   store i8 %3, ptr %arrayidx11.i, align 1
   %and12.i = and i32 %conv1, 15
   %idxprom13.i = zext nneg i32 %and12.i to i64
-  %arrayidx14.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom13.i
   %4 = load i8, ptr %arrayidx14.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %header, i64 3
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %header, i64 3
   store i8 %4, ptr %arrayidx15.i, align 1
   %call3 = call i64 @write_in_full(i32 noundef %fd_out, ptr noundef nonnull %header, i64 noundef 4) #15
   %cmp4 = icmp slt i64 %call3, 0
@@ -634,28 +634,28 @@ if.end:                                           ; preds = %entry
   %conv1 = add nuw nsw i32 %conv, 4
   %shr.i = lshr i32 %conv1, 12
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom.i
   %0 = load i8, ptr %arrayidx.i, align 1
   store i8 %0, ptr %header, align 1
   %shr2.i = lshr i32 %conv1, 8
   %and3.i = and i32 %shr2.i, 15
   %idxprom4.i = zext nneg i32 %and3.i to i64
-  %arrayidx5.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom4.i
   %1 = load i8, ptr %arrayidx5.i, align 1
-  %arrayidx6.i = getelementptr inbounds i8, ptr %header, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %header, i64 1
   store i8 %1, ptr %arrayidx6.i, align 1
   %shr7.i = lshr i32 %conv1, 4
   %and8.i = and i32 %shr7.i, 15
   %idxprom9.i = zext nneg i32 %and8.i to i64
-  %arrayidx10.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom9.i
   %2 = load i8, ptr %arrayidx10.i, align 1
-  %arrayidx11.i = getelementptr inbounds i8, ptr %header, i64 2
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %header, i64 2
   store i8 %2, ptr %arrayidx11.i, align 1
   %and12.i = and i32 %conv1, 15
   %idxprom13.i = zext nneg i32 %and12.i to i64
-  %arrayidx14.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %idxprom13.i
   %3 = load i8, ptr %arrayidx14.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %header, i64 3
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %header, i64 3
   store i8 %3, ptr %arrayidx15.i, align 1
   call void @fwrite_or_die(ptr noundef %f, ptr noundef nonnull %header, i64 noundef 4) #15
   call void @fwrite_or_die(ptr noundef %f, ptr noundef %buf, i64 noundef %size) #15
@@ -668,8 +668,8 @@ declare void @fwrite_or_die(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define dso_local void @packet_fwrite_fmt(ptr noundef %fh, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_fwrite_fmt.buf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @packet_fwrite_fmt.buf, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @packet_fwrite_fmt.buf, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -690,7 +690,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @format_packet(ptr noundef %out, ptr noundef %prefix, ptr noundef %fmt, ptr noundef nonnull %args) unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %out, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %out, i64 8
   %0 = load i64, ptr %len, align 8
   tail call void @strbuf_add(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef 4) #15
   %call.i11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prefix) #18
@@ -707,34 +707,34 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %out, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %out, i64 16
   %2 = load ptr, ptr %buf, align 8
   %arrayidx = getelementptr inbounds i8, ptr %2, i64 %0
   %conv = trunc nuw nsw i64 %sub to i32
   %shr.i = lshr i64 %sub, 12
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %shr.i
   %3 = load i8, ptr %arrayidx.i, align 1
   store i8 %3, ptr %arrayidx, align 1
   %shr2.i = lshr i64 %sub, 8
   %and3.i = and i64 %shr2.i, 15
-  %arrayidx5.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %and3.i
+  %arrayidx5.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %and3.i
   %4 = load i8, ptr %arrayidx5.i, align 1
-  %arrayidx6.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   store i8 %4, ptr %arrayidx6.i, align 1
   %shr7.i = lshr i64 %sub, 4
   %and8.i = and i64 %shr7.i, 15
-  %arrayidx10.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %and8.i
+  %arrayidx10.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %and8.i
   %5 = load i8, ptr %arrayidx10.i, align 1
-  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   store i8 %5, ptr %arrayidx11.i, align 1
   %and12.i = and i64 %sub, 15
-  %arrayidx14.i = getelementptr inbounds [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %and12.i
+  %arrayidx14.i = getelementptr inbounds nuw [17 x i8], ptr @set_packet_header.hexchar, i64 0, i64 %and12.i
   %6 = load i8, ptr %arrayidx14.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %arrayidx, i64 3
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
   store i8 %6, ptr %arrayidx15.i, align 1
   %7 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %0
-  %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %conv5 = add nsw i32 %conv, -4
   tail call fastcc void @packet_trace(ptr noundef nonnull %add.ptr3, i32 noundef %conv5, i32 noundef 1)
   ret void
@@ -766,7 +766,7 @@ define dso_local range(i32 -2, 1) i32 @write_packetized_from_fd_no_flush(i32 nou
 entry:
   %err.i = alloca %struct.strbuf, align 8
   %call = tail call ptr @xmalloc(i64 noundef 65516) #15
-  %buf1.i = getelementptr inbounds i8, ptr %err.i, i64 16
+  %buf1.i = getelementptr inbounds nuw i8, ptr %err.i, i64 16
   %call110 = tail call i64 @xread(i32 noundef %fd_in, ptr noundef %call, i64 noundef 65516) #15
   %cmp11 = icmp slt i64 %call110, 0
   br i1 %cmp11, label %return, label %if.end
@@ -813,7 +813,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 define dso_local range(i32 -1, 1) i32 @write_packetized_from_buf_no_flush_count(ptr noundef %src_in, i64 noundef %len, i32 noundef %fd_out, ptr noundef %packet_counter) local_unnamed_addr #0 {
 entry:
   %err.i = alloca %struct.strbuf, align 8
-  %buf1.i = getelementptr inbounds i8, ptr %err.i, i64 16
+  %buf1.i = getelementptr inbounds nuw i8, ptr %err.i, i64 16
   %tobool5.not = icmp eq ptr %packet_counter, null
   %cmp2.us17 = icmp eq i64 %len, 0
   br i1 %tobool5.not, label %entry.split.us, label %entry.split
@@ -906,30 +906,30 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %lenbuf_hex, align 1
   %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = sext i8 %1 to i32
   %shl = shl nsw i32 %conv.i, 12
-  %arrayidx1 = getelementptr inbounds i8, ptr %lenbuf_hex, i64 1
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %lenbuf_hex, i64 1
   %2 = load i8, ptr %arrayidx1, align 1
   %idxprom.i4 = zext i8 %2 to i64
-  %arrayidx.i5 = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4
+  %arrayidx.i5 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4
   %3 = load i8, ptr %arrayidx.i5, align 1
   %conv.i6 = sext i8 %3 to i32
   %shl3 = shl nsw i32 %conv.i6, 8
   %or = or i32 %shl3, %shl
-  %arrayidx4 = getelementptr inbounds i8, ptr %lenbuf_hex, i64 2
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %lenbuf_hex, i64 2
   %4 = load i8, ptr %arrayidx4, align 1
   %idxprom.i7 = zext i8 %4 to i64
-  %arrayidx.i8 = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i7
+  %arrayidx.i8 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i7
   %5 = load i8, ptr %arrayidx.i8, align 1
   %conv.i9 = sext i8 %5 to i32
   %shl6 = shl nsw i32 %conv.i9, 4
   %or7 = or i32 %or, %shl6
-  %arrayidx8 = getelementptr inbounds i8, ptr %lenbuf_hex, i64 3
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %lenbuf_hex, i64 3
   %6 = load i8, ptr %arrayidx8, align 1
   %idxprom.i10 = zext i8 %6 to i64
-  %arrayidx.i11 = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i10
+  %arrayidx.i11 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i10
   %7 = load i8, ptr %arrayidx.i11, align 1
   %conv.i12 = sext i8 %7 to i32
   %or10 = or i32 %or7, %conv.i12
@@ -955,30 +955,30 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load i8, ptr %linelen, align 1
   %idxprom.i.i = zext i8 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
   %1 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = sext i8 %1 to i32
   %shl.i = shl nsw i32 %conv.i.i, 12
-  %arrayidx1.i = getelementptr inbounds i8, ptr %linelen, i64 1
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %linelen, i64 1
   %2 = load i8, ptr %arrayidx1.i, align 1
   %idxprom.i4.i = zext i8 %2 to i64
-  %arrayidx.i5.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
   %3 = load i8, ptr %arrayidx.i5.i, align 1
   %conv.i6.i = sext i8 %3 to i32
   %shl3.i = shl nsw i32 %conv.i6.i, 8
   %or.i = or i32 %shl3.i, %shl.i
-  %arrayidx4.i = getelementptr inbounds i8, ptr %linelen, i64 2
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %linelen, i64 2
   %4 = load i8, ptr %arrayidx4.i, align 1
   %idxprom.i7.i = zext i8 %4 to i64
-  %arrayidx.i8.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i7.i
+  %arrayidx.i8.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i7.i
   %5 = load i8, ptr %arrayidx.i8.i, align 1
   %conv.i9.i = sext i8 %5 to i32
   %shl6.i = shl nsw i32 %conv.i9.i, 4
   %or7.i = or i32 %or.i, %shl6.i
-  %arrayidx8.i = getelementptr inbounds i8, ptr %linelen, i64 3
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %linelen, i64 3
   %6 = load i8, ptr %arrayidx8.i, align 1
   %idxprom.i10.i = zext i8 %6 to i64
-  %arrayidx.i11.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i10.i
+  %arrayidx.i11.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i10.i
   %7 = load i8, ptr %arrayidx.i11.i, align 1
   %conv.i12.i = sext i8 %7 to i32
   %or10.i = or i32 %or7.i, %conv.i12.i
@@ -1131,7 +1131,7 @@ if.else66:                                        ; preds = %if.then59
 if.end69:                                         ; preds = %if.then62, %if.else66, %land.lhs.true55, %if.end51
   %len.0 = phi i32 [ %dec67, %if.else66 ], [ %sub, %land.lhs.true55 ], [ %sub, %if.end51 ], [ %spec.select, %if.then62 ]
   %idxprom70 = zext nneg i32 %len.0 to i64
-  %arrayidx71 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom70
   store i8 0, ptr %arrayidx71, align 1
   %and72 = and i32 %options, 16
   %tobool73.not = icmp eq i32 %and72, 0
@@ -1150,9 +1150,9 @@ if.then77:                                        ; preds = %land.lhs.true74
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call75) #18
   call void @strbuf_splice(ptr noundef nonnull %tracebuf, i64 noundef %sub.ptr.sub, i64 noundef %call79, ptr noundef nonnull @.str.14, i64 noundef 10) #15
-  %buf = getelementptr inbounds i8, ptr %tracebuf, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %tracebuf, i64 16
   %15 = load ptr, ptr %buf, align 8
-  %len81 = getelementptr inbounds i8, ptr %tracebuf, i64 8
+  %len81 = getelementptr inbounds nuw i8, ptr %tracebuf, i64 8
   %16 = load i64, ptr %len81, align 8
   %conv82 = trunc i64 %16 to i32
   call fastcc void @packet_trace(ptr noundef %15, i32 noundef %conv82, i32 noundef 0)
@@ -1175,7 +1175,7 @@ land.lhs.true87:                                  ; preds = %if.end84
 
 if.then90:                                        ; preds = %land.lhs.true87
   %call91 = call fastcc ptr @_(ptr noundef nonnull @.str.16)
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 4
   call void (ptr, ...) @die(ptr noundef %call91, ptr noundef nonnull %add.ptr) #16
   unreachable
 
@@ -1219,7 +1219,7 @@ if.then6:                                         ; preds = %land.lhs.true4
   %conv. = tail call i64 @llvm.umin.i64(i64 %1, i64 %conv)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst, ptr nonnull align 1 %.pr, i64 %conv., i1 false)
   %2 = load ptr, ptr %src_buf, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %conv.
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %conv.
   store ptr %add.ptr, ptr %src_buf, align 8
   %3 = load i64, ptr %src_size, align 8
   %sub = sub i64 %3, %conv.
@@ -1299,7 +1299,7 @@ return:                                           ; preds = %if.end22, %if.then2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @find_packfile_uri_path(ptr noundef readonly %buffer) unnamed_addr #6 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 1
   %call = tail call i64 @strspn(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.38) #18
   %conv = trunc i64 %call to i32
   switch i32 %conv, label %return [
@@ -1309,25 +1309,25 @@ entry:
 
 lor.lhs.false4:                                   ; preds = %entry, %entry
   %idxprom = and i64 %call, 104
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %cmp6.not = icmp eq i8 %0, 32
   br i1 %cmp6.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %add.ptr9 = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %add.ptr9 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %call10 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr9, ptr noundef nonnull dereferenceable(1) @.str.37) #18
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end
-  %add.ptr14 = getelementptr inbounds i8, ptr %call10, i64 3
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %call10, i64 3
   %call15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr14, i32 noundef 47) #18
   %tobool16.not = icmp eq ptr %call15, null
   br i1 %tobool16.not, label %return, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %if.end12
-  %add.ptr18 = getelementptr inbounds i8, ptr %call15, i64 1
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %call15, i64 1
   %1 = load i8, ptr %add.ptr18, align 1
   %tobool19.not = icmp eq i8 %1, 0
   %spec.select = select i1 %tobool19.not, ptr null, ptr %add.ptr18
@@ -1415,10 +1415,10 @@ if.end3:                                          ; preds = %if.then2, %if.end
 define dso_local i64 @read_packetized_to_strbuf(i32 noundef %fd_in, ptr noundef %sb_out, i32 noundef %options) local_unnamed_addr #0 {
 entry:
   %pktlen.i = alloca i32, align 4
-  %len = getelementptr inbounds i8, ptr %sb_out, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %sb_out, i64 8
   %0 = load i64, ptr %len, align 8
   %1 = load i64, ptr %sb_out, align 8
-  %buf = getelementptr inbounds i8, ptr %sb_out, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %sb_out, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end, %entry
@@ -1498,7 +1498,7 @@ entry:
   %scratch = alloca %struct.strbuf, align 8
   %sideband_type = alloca i32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scratch, ptr noundef nonnull align 8 dereferenceable(24) @__const.packet_write_gently.err, i64 24, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -1523,13 +1523,13 @@ while.body.backedge:                              ; preds = %sw.bb, %while.body
   br label %while.body
 
 sw.default:                                       ; preds = %if.end
-  %len4 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %len4 = getelementptr inbounds nuw i8, ptr %scratch, i64 8
   %2 = load i64, ptr %len4, align 8
   %cmp.not = icmp eq i64 %2, 0
   br i1 %cmp.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %sw.default
-  %buf7 = getelementptr inbounds i8, ptr %scratch, i64 16
+  %buf7 = getelementptr inbounds nuw i8, ptr %scratch, i64 16
   %3 = load ptr, ptr %buf7, align 8
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.10, i32 noundef 599, ptr noundef nonnull @.str.17, ptr noundef %3) #16
   unreachable
@@ -1547,21 +1547,21 @@ define dso_local void @packet_reader_init(ptr noundef initializes((0, 104)) %rea
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %reader, i8 0, i64 104, i1 false)
   store i32 %fd, ptr %reader, align 8
-  %src_buffer2 = getelementptr inbounds i8, ptr %reader, i64 8
+  %src_buffer2 = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store ptr %src_buffer, ptr %src_buffer2, align 8
-  %src_len3 = getelementptr inbounds i8, ptr %reader, i64 16
+  %src_len3 = getelementptr inbounds nuw i8, ptr %reader, i64 16
   store i64 %src_len, ptr %src_len3, align 8
-  %buffer = getelementptr inbounds i8, ptr %reader, i64 24
+  %buffer = getelementptr inbounds nuw i8, ptr %reader, i64 24
   store ptr @packet_buffer, ptr %buffer, align 8
-  %buffer_size = getelementptr inbounds i8, ptr %reader, i64 32
+  %buffer_size = getelementptr inbounds nuw i8, ptr %reader, i64 32
   store i32 65520, ptr %buffer_size, align 8
-  %options4 = getelementptr inbounds i8, ptr %reader, i64 36
+  %options4 = getelementptr inbounds nuw i8, ptr %reader, i64 36
   store i32 %options, ptr %options4, align 4
-  %me = getelementptr inbounds i8, ptr %reader, i64 64
+  %me = getelementptr inbounds nuw i8, ptr %reader, i64 64
   store ptr @.str.18, ptr %me, align 8
-  %hash_algo = getelementptr inbounds i8, ptr %reader, i64 72
+  %hash_algo = getelementptr inbounds nuw i8, ptr %reader, i64 72
   store ptr getelementptr inbounds (i8, ptr @hash_algos, i64 104), ptr %hash_algo, align 8
-  %scratch = getelementptr inbounds i8, ptr %reader, i64 80
+  %scratch = getelementptr inbounds nuw i8, ptr %reader, i64 80
   tail call void @strbuf_init(ptr noundef nonnull %scratch, i64 noundef 0) #15
   ret void
 }
@@ -1575,41 +1575,41 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local i32 @packet_reader_read(ptr noundef %reader) local_unnamed_addr #0 {
 entry:
   %sideband_type = alloca i32, align 4
-  %line_peeked = getelementptr inbounds i8, ptr %reader, i64 56
+  %line_peeked = getelementptr inbounds nuw i8, ptr %reader, i64 56
   %0 = load i32, ptr %line_peeked, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 0, ptr %line_peeked, align 8
-  %status = getelementptr inbounds i8, ptr %reader, i64 40
+  %status = getelementptr inbounds nuw i8, ptr %reader, i64 40
   %retval.0.pre = load i32, ptr %status, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %use_sideband = getelementptr inbounds i8, ptr %reader, i64 60
+  %use_sideband = getelementptr inbounds nuw i8, ptr %reader, i64 60
   %bf.load = load i8, ptr %use_sideband, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %options = getelementptr inbounds i8, ptr %reader, i64 36
+  %options = getelementptr inbounds nuw i8, ptr %reader, i64 36
   %1 = load i32, ptr %options, align 4
   %or = or i32 %1, 32
   store i32 %or, ptr %options, align 4
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %src_buffer = getelementptr inbounds i8, ptr %reader, i64 8
-  %src_len = getelementptr inbounds i8, ptr %reader, i64 16
-  %buffer = getelementptr inbounds i8, ptr %reader, i64 24
-  %buffer_size = getelementptr inbounds i8, ptr %reader, i64 32
-  %pktlen = getelementptr inbounds i8, ptr %reader, i64 44
-  %options5 = getelementptr inbounds i8, ptr %reader, i64 36
-  %status6 = getelementptr inbounds i8, ptr %reader, i64 40
-  %me = getelementptr inbounds i8, ptr %reader, i64 64
-  %scratch = getelementptr inbounds i8, ptr %reader, i64 80
+  %src_buffer = getelementptr inbounds nuw i8, ptr %reader, i64 8
+  %src_len = getelementptr inbounds nuw i8, ptr %reader, i64 16
+  %buffer = getelementptr inbounds nuw i8, ptr %reader, i64 24
+  %buffer_size = getelementptr inbounds nuw i8, ptr %reader, i64 32
+  %pktlen = getelementptr inbounds nuw i8, ptr %reader, i64 44
+  %options5 = getelementptr inbounds nuw i8, ptr %reader, i64 36
+  %status6 = getelementptr inbounds nuw i8, ptr %reader, i64 40
+  %me = getelementptr inbounds nuw i8, ptr %reader, i64 64
+  %scratch = getelementptr inbounds nuw i8, ptr %reader, i64 80
   br label %while.body
 
 while.body:                                       ; preds = %if.end13, %if.end4
@@ -1646,13 +1646,13 @@ if.then22:                                        ; preds = %while.end
   %bf.clear25 = and i8 %bf.load24, 1
   %10 = load ptr, ptr %buffer, align 8
   %cond.idx = zext nneg i8 %bf.clear25 to i64
-  %cond = getelementptr inbounds i8, ptr %10, i64 %cond.idx
-  %line = getelementptr inbounds i8, ptr %reader, i64 48
+  %cond = getelementptr inbounds nuw i8, ptr %10, i64 %cond.idx
+  %line = getelementptr inbounds nuw i8, ptr %reader, i64 48
   store ptr %cond, ptr %line, align 8
   br label %return
 
 if.else:                                          ; preds = %while.end
-  %line30 = getelementptr inbounds i8, ptr %reader, i64 48
+  %line30 = getelementptr inbounds nuw i8, ptr %reader, i64 48
   store ptr null, ptr %line30, align 8
   br label %return
 
@@ -1664,7 +1664,7 @@ return:                                           ; preds = %if.then22, %if.else
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @packet_reader_peek(ptr noundef %reader) local_unnamed_addr #0 {
 entry:
-  %line_peeked = getelementptr inbounds i8, ptr %reader, i64 56
+  %line_peeked = getelementptr inbounds nuw i8, ptr %reader, i64 56
   %0 = load i32, ptr %line_peeked, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -1675,7 +1675,7 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.0.in = getelementptr inbounds i8, ptr %reader, i64 40
+  %retval.0.in = getelementptr inbounds nuw i8, ptr %reader, i64 40
   %retval.0 = load i32, ptr %retval.0.in, align 8
   ret i32 %retval.0
 }
@@ -1684,7 +1684,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @packet_writer_init(ptr nocapture noundef initializes((0, 4)) %writer, i32 noundef %dest_fd) local_unnamed_addr #9 {
 entry:
   store i32 %dest_fd, ptr %writer, align 4
-  %use_sideband = getelementptr inbounds i8, ptr %writer, i64 4
+  %use_sideband = getelementptr inbounds nuw i8, ptr %writer, i64 4
   %bf.load = load i8, ptr %use_sideband, align 4
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %use_sideband, align 4
@@ -1697,13 +1697,13 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load i32, ptr %writer, align 4
-  %use_sideband = getelementptr inbounds i8, ptr %writer, i64 4
+  %use_sideband = getelementptr inbounds nuw i8, ptr %writer, i64 4
   %bf.load = load i8, ptr %use_sideband, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   %cond = select i1 %tobool.not, ptr @.str.7, ptr @.str.19
-  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 
@@ -1738,13 +1738,13 @@ entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load i32, ptr %writer, align 4
-  %use_sideband = getelementptr inbounds i8, ptr %writer, i64 4
+  %use_sideband = getelementptr inbounds nuw i8, ptr %writer, i64 4
   %bf.load = load i8, ptr %use_sideband, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   %cond = select i1 %tobool.not, ptr @.str.15, ptr @.str.20
-  store i64 0, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @packet_write_fmt_1.buf, i64 16), align 8
   %cmp3.not.i.i = icmp eq ptr %1, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %strbuf_setlen.exit.i, label %if.then4.i.i
 

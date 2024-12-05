@@ -20,92 +20,92 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4absl15random_internal11RandenHwAes6AbsorbEPKvPv(ptr nocapture noundef readonly %seed_void, ptr nocapture noundef %state_void) local_unnamed_addr #1 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %state_void, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %state_void, i64 16
   %add.ptr.val = load <2 x i64>, ptr %add.ptr, align 16
   %seed_void.val = load <2 x i64>, ptr %seed_void, align 16
   %xor.i.i = xor <2 x i64> %seed_void.val, %add.ptr.val
   store <2 x i64> %xor.i.i, ptr %add.ptr, align 16
-  %add.ptr6 = getelementptr inbounds i8, ptr %state_void, i64 32
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %state_void, i64 32
   %add.ptr6.val = load <2 x i64>, ptr %add.ptr6, align 16
-  %add.ptr10 = getelementptr inbounds i8, ptr %seed_void, i64 16
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %seed_void, i64 16
   %add.ptr10.val = load <2 x i64>, ptr %add.ptr10, align 16
   %xor.i.i44 = xor <2 x i64> %add.ptr10.val, %add.ptr6.val
   store <2 x i64> %xor.i.i44, ptr %add.ptr6, align 16
-  %add.ptr15 = getelementptr inbounds i8, ptr %state_void, i64 48
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %state_void, i64 48
   %add.ptr15.val = load <2 x i64>, ptr %add.ptr15, align 16
-  %add.ptr19 = getelementptr inbounds i8, ptr %seed_void, i64 32
+  %add.ptr19 = getelementptr inbounds nuw i8, ptr %seed_void, i64 32
   %add.ptr19.val = load <2 x i64>, ptr %add.ptr19, align 16
   %xor.i.i45 = xor <2 x i64> %add.ptr19.val, %add.ptr15.val
   store <2 x i64> %xor.i.i45, ptr %add.ptr15, align 16
-  %add.ptr24 = getelementptr inbounds i8, ptr %state_void, i64 64
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %state_void, i64 64
   %add.ptr24.val = load <2 x i64>, ptr %add.ptr24, align 16
-  %add.ptr28 = getelementptr inbounds i8, ptr %seed_void, i64 48
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %seed_void, i64 48
   %add.ptr28.val = load <2 x i64>, ptr %add.ptr28, align 16
   %xor.i.i46 = xor <2 x i64> %add.ptr28.val, %add.ptr24.val
   store <2 x i64> %xor.i.i46, ptr %add.ptr24, align 16
-  %add.ptr33 = getelementptr inbounds i8, ptr %state_void, i64 80
+  %add.ptr33 = getelementptr inbounds nuw i8, ptr %state_void, i64 80
   %add.ptr33.val = load <2 x i64>, ptr %add.ptr33, align 16
-  %add.ptr37 = getelementptr inbounds i8, ptr %seed_void, i64 64
+  %add.ptr37 = getelementptr inbounds nuw i8, ptr %seed_void, i64 64
   %add.ptr37.val = load <2 x i64>, ptr %add.ptr37, align 16
   %xor.i.i47 = xor <2 x i64> %add.ptr37.val, %add.ptr33.val
   store <2 x i64> %xor.i.i47, ptr %add.ptr33, align 16
-  %add.ptr42 = getelementptr inbounds i8, ptr %state_void, i64 96
+  %add.ptr42 = getelementptr inbounds nuw i8, ptr %state_void, i64 96
   %add.ptr42.val = load <2 x i64>, ptr %add.ptr42, align 16
-  %add.ptr46 = getelementptr inbounds i8, ptr %seed_void, i64 80
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %seed_void, i64 80
   %add.ptr46.val = load <2 x i64>, ptr %add.ptr46, align 16
   %xor.i.i48 = xor <2 x i64> %add.ptr46.val, %add.ptr42.val
   store <2 x i64> %xor.i.i48, ptr %add.ptr42, align 16
-  %add.ptr51 = getelementptr inbounds i8, ptr %state_void, i64 112
+  %add.ptr51 = getelementptr inbounds nuw i8, ptr %state_void, i64 112
   %add.ptr51.val = load <2 x i64>, ptr %add.ptr51, align 16
-  %add.ptr55 = getelementptr inbounds i8, ptr %seed_void, i64 96
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %seed_void, i64 96
   %add.ptr55.val = load <2 x i64>, ptr %add.ptr55, align 16
   %xor.i.i49 = xor <2 x i64> %add.ptr55.val, %add.ptr51.val
   store <2 x i64> %xor.i.i49, ptr %add.ptr51, align 16
-  %add.ptr60 = getelementptr inbounds i8, ptr %state_void, i64 128
+  %add.ptr60 = getelementptr inbounds nuw i8, ptr %state_void, i64 128
   %add.ptr60.val = load <2 x i64>, ptr %add.ptr60, align 16
-  %add.ptr64 = getelementptr inbounds i8, ptr %seed_void, i64 112
+  %add.ptr64 = getelementptr inbounds nuw i8, ptr %seed_void, i64 112
   %add.ptr64.val = load <2 x i64>, ptr %add.ptr64, align 16
   %xor.i.i50 = xor <2 x i64> %add.ptr64.val, %add.ptr60.val
   store <2 x i64> %xor.i.i50, ptr %add.ptr60, align 16
-  %add.ptr69 = getelementptr inbounds i8, ptr %state_void, i64 144
+  %add.ptr69 = getelementptr inbounds nuw i8, ptr %state_void, i64 144
   %add.ptr69.val = load <2 x i64>, ptr %add.ptr69, align 16
-  %add.ptr73 = getelementptr inbounds i8, ptr %seed_void, i64 128
+  %add.ptr73 = getelementptr inbounds nuw i8, ptr %seed_void, i64 128
   %add.ptr73.val = load <2 x i64>, ptr %add.ptr73, align 16
   %xor.i.i51 = xor <2 x i64> %add.ptr73.val, %add.ptr69.val
   store <2 x i64> %xor.i.i51, ptr %add.ptr69, align 16
-  %add.ptr78 = getelementptr inbounds i8, ptr %state_void, i64 160
+  %add.ptr78 = getelementptr inbounds nuw i8, ptr %state_void, i64 160
   %add.ptr78.val = load <2 x i64>, ptr %add.ptr78, align 16
-  %add.ptr82 = getelementptr inbounds i8, ptr %seed_void, i64 144
+  %add.ptr82 = getelementptr inbounds nuw i8, ptr %seed_void, i64 144
   %add.ptr82.val = load <2 x i64>, ptr %add.ptr82, align 16
   %xor.i.i52 = xor <2 x i64> %add.ptr82.val, %add.ptr78.val
   store <2 x i64> %xor.i.i52, ptr %add.ptr78, align 16
-  %add.ptr87 = getelementptr inbounds i8, ptr %state_void, i64 176
+  %add.ptr87 = getelementptr inbounds nuw i8, ptr %state_void, i64 176
   %add.ptr87.val = load <2 x i64>, ptr %add.ptr87, align 16
-  %add.ptr91 = getelementptr inbounds i8, ptr %seed_void, i64 160
+  %add.ptr91 = getelementptr inbounds nuw i8, ptr %seed_void, i64 160
   %add.ptr91.val = load <2 x i64>, ptr %add.ptr91, align 16
   %xor.i.i53 = xor <2 x i64> %add.ptr91.val, %add.ptr87.val
   store <2 x i64> %xor.i.i53, ptr %add.ptr87, align 16
-  %add.ptr96 = getelementptr inbounds i8, ptr %state_void, i64 192
+  %add.ptr96 = getelementptr inbounds nuw i8, ptr %state_void, i64 192
   %add.ptr96.val = load <2 x i64>, ptr %add.ptr96, align 16
-  %add.ptr100 = getelementptr inbounds i8, ptr %seed_void, i64 176
+  %add.ptr100 = getelementptr inbounds nuw i8, ptr %seed_void, i64 176
   %add.ptr100.val = load <2 x i64>, ptr %add.ptr100, align 16
   %xor.i.i54 = xor <2 x i64> %add.ptr100.val, %add.ptr96.val
   store <2 x i64> %xor.i.i54, ptr %add.ptr96, align 16
-  %add.ptr105 = getelementptr inbounds i8, ptr %state_void, i64 208
+  %add.ptr105 = getelementptr inbounds nuw i8, ptr %state_void, i64 208
   %add.ptr105.val = load <2 x i64>, ptr %add.ptr105, align 16
-  %add.ptr109 = getelementptr inbounds i8, ptr %seed_void, i64 192
+  %add.ptr109 = getelementptr inbounds nuw i8, ptr %seed_void, i64 192
   %add.ptr109.val = load <2 x i64>, ptr %add.ptr109, align 16
   %xor.i.i55 = xor <2 x i64> %add.ptr109.val, %add.ptr105.val
   store <2 x i64> %xor.i.i55, ptr %add.ptr105, align 16
-  %add.ptr114 = getelementptr inbounds i8, ptr %state_void, i64 224
+  %add.ptr114 = getelementptr inbounds nuw i8, ptr %state_void, i64 224
   %add.ptr114.val = load <2 x i64>, ptr %add.ptr114, align 16
-  %add.ptr118 = getelementptr inbounds i8, ptr %seed_void, i64 208
+  %add.ptr118 = getelementptr inbounds nuw i8, ptr %seed_void, i64 208
   %add.ptr118.val = load <2 x i64>, ptr %add.ptr118, align 16
   %xor.i.i56 = xor <2 x i64> %add.ptr118.val, %add.ptr114.val
   store <2 x i64> %xor.i.i56, ptr %add.ptr114, align 16
-  %add.ptr123 = getelementptr inbounds i8, ptr %state_void, i64 240
+  %add.ptr123 = getelementptr inbounds nuw i8, ptr %state_void, i64 240
   %add.ptr123.val = load <2 x i64>, ptr %add.ptr123, align 16
-  %add.ptr127 = getelementptr inbounds i8, ptr %seed_void, i64 224
+  %add.ptr127 = getelementptr inbounds nuw i8, ptr %seed_void, i64 224
   %add.ptr127.val = load <2 x i64>, ptr %add.ptr127, align 16
   %xor.i.i57 = xor <2 x i64> %add.ptr127.val, %add.ptr123.val
   store <2 x i64> %xor.i.i57, ptr %add.ptr123, align 16
@@ -117,21 +117,21 @@ define dso_local void @_ZN4absl15random_internal11RandenHwAes8GenerateEPKvPv(ptr
 entry:
   %state_void.val6 = load <2 x i64>, ptr %state_void, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %add.ptr1.i.i = getelementptr inbounds i8, ptr %state_void, i64 16
-  %add.ptr4.i.i = getelementptr inbounds i8, ptr %state_void, i64 32
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %state_void, i64 48
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %state_void, i64 64
-  %add.ptr13.i.i = getelementptr inbounds i8, ptr %state_void, i64 80
-  %add.ptr16.i.i = getelementptr inbounds i8, ptr %state_void, i64 96
-  %add.ptr19.i.i = getelementptr inbounds i8, ptr %state_void, i64 112
-  %add.ptr22.i.i = getelementptr inbounds i8, ptr %state_void, i64 128
-  %add.ptr25.i.i = getelementptr inbounds i8, ptr %state_void, i64 144
-  %add.ptr28.i.i = getelementptr inbounds i8, ptr %state_void, i64 160
-  %add.ptr31.i.i = getelementptr inbounds i8, ptr %state_void, i64 176
-  %add.ptr34.i.i = getelementptr inbounds i8, ptr %state_void, i64 192
-  %add.ptr37.i.i = getelementptr inbounds i8, ptr %state_void, i64 208
-  %add.ptr40.i.i = getelementptr inbounds i8, ptr %state_void, i64 224
-  %add.ptr43.i.i = getelementptr inbounds i8, ptr %state_void, i64 240
+  %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 16
+  %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 32
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 48
+  %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 64
+  %add.ptr13.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 80
+  %add.ptr16.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 96
+  %add.ptr19.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 112
+  %add.ptr22.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 128
+  %add.ptr25.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 144
+  %add.ptr28.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 160
+  %add.ptr31.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 176
+  %add.ptr34.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 192
+  %add.ptr37.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 208
+  %add.ptr40.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 224
+  %add.ptr43.i.i = getelementptr inbounds nuw i8, ptr %state_void, i64 240
   %add.ptr1.i.promoted.i = load <2 x i64>, ptr %add.ptr1.i.i, align 16, !noalias !5
   %add.ptr4.i.promoted.i = load <2 x i64>, ptr %add.ptr4.i.i, align 16, !noalias !5
   %add.ptr7.i.promoted.i = load <2 x i64>, ptr %add.ptr7.i.i, align 16, !noalias !5
@@ -170,25 +170,25 @@ for.body.i:                                       ; preds = %for.body.i.1, %entr
   %11 = phi <2 x i64> [ %add.ptr43.i.promoted.i, %entry ], [ %20, %for.body.i.1 ]
   %keys.val.i.i = load <2 x i64>, ptr %keys.addr.029.i, align 16, !alias.scope !8
   %12 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %0, <2 x i64> %keys.val.i.i)
-  %add.ptr52.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 16
+  %add.ptr52.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 16
   %add.ptr52.val.i.i = load <2 x i64>, ptr %add.ptr52.i.i, align 16, !alias.scope !8
   %13 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %1, <2 x i64> %add.ptr52.val.i.i)
-  %add.ptr58.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 32
+  %add.ptr58.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 32
   %add.ptr58.val.i.i = load <2 x i64>, ptr %add.ptr58.i.i, align 16, !alias.scope !8
   %14 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %2, <2 x i64> %add.ptr58.val.i.i)
-  %add.ptr64.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 48
+  %add.ptr64.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 48
   %add.ptr64.val.i.i = load <2 x i64>, ptr %add.ptr64.i.i, align 16, !alias.scope !8
   %15 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %3, <2 x i64> %add.ptr64.val.i.i)
-  %add.ptr70.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 64
+  %add.ptr70.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 64
   %add.ptr70.val.i.i = load <2 x i64>, ptr %add.ptr70.i.i, align 16, !alias.scope !8
   %16 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %5, <2 x i64> %add.ptr70.val.i.i)
-  %add.ptr76.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 80
+  %add.ptr76.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 80
   %add.ptr76.val.i.i = load <2 x i64>, ptr %add.ptr76.i.i, align 16, !alias.scope !8
   %17 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %7, <2 x i64> %add.ptr76.val.i.i)
-  %add.ptr82.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 96
+  %add.ptr82.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 96
   %add.ptr82.val.i.i = load <2 x i64>, ptr %add.ptr82.i.i, align 16, !alias.scope !8
   %18 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %9, <2 x i64> %add.ptr82.val.i.i)
-  %add.ptr88.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 112
+  %add.ptr88.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 112
   %add.ptr88.val.i.i = load <2 x i64>, ptr %add.ptr88.i.i, align 16, !alias.scope !8
   %19 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %10, <2 x i64> %add.ptr88.val.i.i)
   %20 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %12, <2 x i64> %add.ptr4.val.i1028.i)
@@ -203,28 +203,28 @@ for.body.i:                                       ; preds = %for.body.i.1, %entr
   br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17PermuteEPN4absl7uint128EPKS1_.exit, label %for.body.i.1, !llvm.loop !11
 
 for.body.i.1:                                     ; preds = %for.body.i
-  %add.ptr117.i.i = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 128
+  %add.ptr117.i.i = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 128
   %keys.val.i.i.1 = load <2 x i64>, ptr %add.ptr117.i.i, align 16, !alias.scope !8
   %28 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %23, <2 x i64> %keys.val.i.i.1)
-  %add.ptr52.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 144
+  %add.ptr52.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 144
   %add.ptr52.val.i.i.1 = load <2 x i64>, ptr %add.ptr52.i.i.1, align 16, !alias.scope !8
   %29 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %26, <2 x i64> %add.ptr52.val.i.i.1)
-  %add.ptr58.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 160
+  %add.ptr58.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 160
   %add.ptr58.val.i.i.1 = load <2 x i64>, ptr %add.ptr58.i.i.1, align 16, !alias.scope !8
   %30 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %25, <2 x i64> %add.ptr58.val.i.i.1)
-  %add.ptr64.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 176
+  %add.ptr64.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 176
   %add.ptr64.val.i.i.1 = load <2 x i64>, ptr %add.ptr64.i.i.1, align 16, !alias.scope !8
   %31 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %21, <2 x i64> %add.ptr64.val.i.i.1)
-  %add.ptr70.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 192
+  %add.ptr70.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 192
   %add.ptr70.val.i.i.1 = load <2 x i64>, ptr %add.ptr70.i.i.1, align 16, !alias.scope !8
   %32 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %27, <2 x i64> %add.ptr70.val.i.i.1)
-  %add.ptr76.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 208
+  %add.ptr76.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 208
   %add.ptr76.val.i.i.1 = load <2 x i64>, ptr %add.ptr76.i.i.1, align 16, !alias.scope !8
   %33 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %24, <2 x i64> %add.ptr76.val.i.i.1)
-  %add.ptr82.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 224
+  %add.ptr82.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 224
   %add.ptr82.val.i.i.1 = load <2 x i64>, ptr %add.ptr82.i.i.1, align 16, !alias.scope !8
   %34 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %20, <2 x i64> %add.ptr82.val.i.i.1)
-  %add.ptr88.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 240
+  %add.ptr88.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 240
   %add.ptr88.val.i.i.1 = load <2 x i64>, ptr %add.ptr88.i.i.1, align 16, !alias.scope !8
   %35 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %22, <2 x i64> %add.ptr88.val.i.i.1)
   %36 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %28, <2 x i64> %1)
@@ -235,7 +235,7 @@ for.body.i.1:                                     ; preds = %for.body.i
   %41 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %33, <2 x i64> %7)
   %42 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %34, <2 x i64> %10)
   %43 = tail call noundef <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %35, <2 x i64> %9)
-  %add.ptr117.i.i.1 = getelementptr inbounds i8, ptr %keys.addr.029.i, i64 256
+  %add.ptr117.i.i.1 = getelementptr inbounds nuw i8, ptr %keys.addr.029.i, i64 256
   %inc.i.1 = add nuw nsw i64 %round.030.i, 2
   br label %for.body.i, !llvm.loop !14
 

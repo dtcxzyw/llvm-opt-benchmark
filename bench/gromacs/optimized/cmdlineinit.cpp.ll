@@ -38,7 +38,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx25CommandLineProgramContextESt1
 
 _ZNKSt14default_deleteIN3gmx25CommandLineProgramContextEEclEPS1_.exit: ; preds = %1
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   br label %6
@@ -130,7 +130,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
 .lr.ph.split.us.i:                                ; preds = %16, %.lr.ph.split.us.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.lr.ph.split.us.i ], [ 0, %16 ]
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv17.i
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv17.i
   %25 = load ptr, ptr %24, align 8
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
   %27 = trunc i64 %26 to i32
@@ -140,7 +140,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %30 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %3, i32 noundef 4, ptr noundef %10, i32 noundef 0, ptr noundef %29)
   %31 = load i32, ptr %3, align 4
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv17.i
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv17.i
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %36 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef %34, i32 noundef %31, ptr noundef %10, i32 noundef 0, ptr noundef %35)
@@ -155,14 +155,14 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx18initForCommandL
   %40 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %41 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %3, i32 noundef 4, ptr noundef %10, i32 noundef 0, ptr noundef %40)
   %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %3, align 4
   %45 = sext i32 %44 to i64
   %46 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, i32 noundef 123, i64 noundef range(i64 -2147483648, 2147483648) %45, i64 noundef 1)
   store ptr %46, ptr %43, align 8
   %47 = load i32, ptr %3, align 4
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %52 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef %50, i32 noundef %47, ptr noundef %10, i32 noundef 0, ptr noundef %51)
@@ -198,7 +198,7 @@ _ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUn
 
 _ZNKSt14default_deleteIN3gmx25CommandLineProgramContextEEclEPS1_.exit.i.i.i.i: ; preds = %_ZSt11make_uniqueIN3gmx25CommandLineProgramContextEJRiRPPcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %61) #17
   %.pre = load ptr, ptr @_ZN3gmx12_GLOBAL__N_120g_commandLineContextE, align 8
@@ -356,7 +356,7 @@ _ZNSt10unique_ptrIN3gmx14DataFileFinderESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNKSt14default_deleteIN3gmx25CommandLineProgramContextEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN3gmx14DataFileFinderESt14default_deleteIS1_EE5resetEPS1_.exit
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #17
   br label %_ZNSt10unique_ptrIN3gmx25CommandLineProgramContextESt14default_deleteIS1_EE5resetEPS1_.exit
@@ -391,7 +391,7 @@ _ZNSt10unique_ptrIN3gmx14DataFileFinderESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNKSt14default_deleteIN3gmx25CommandLineProgramContextEEclEPS1_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN3gmx14DataFileFinderESt14default_deleteIS1_EE5resetEPS1_.exit.i
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
   br label %_ZN3gmx22finalizeForCommandLineEv.exit
@@ -411,18 +411,18 @@ declare noundef i32 @_ZN3gmx24CommandLineModuleManager21runAsMainSingleModuleEiP
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3gmx20runCommandLineModuleEiPPcPKcS3_St8functionIFSt10unique_ptrINS_25ICommandLineOptionsModuleESt14default_deleteIS6_EEvEE(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::function", align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.not.i = icmp eq ptr %11, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 16, i1 false)
   store ptr %11, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -433,7 +433,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
           to label %15 unwind label %23
 
 15:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit, label %18
@@ -455,7 +455,7 @@ _ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_dele
 23:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEEC2EOS7_.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not.i.i5 = icmp eq ptr %26, null
   br i1 %.not.i.i5, label %_ZNSt8functionIFSt10unique_ptrIN3gmx25ICommandLineOptionsModuleESt14default_deleteIS2_EEvEED2Ev.exit6, label %27

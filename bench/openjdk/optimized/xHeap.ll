@@ -177,16 +177,16 @@ declare void @_ZN12XStatCounterC1EPKcS1_PFv15LogTargetHandleRK12XStatSamplerRK19
 define hidden void @_ZN5XHeapC2Ev(ptr noundef nonnull align 64 dereferenceable(4088) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.XPageAllocatorStats, align 8
   tail call void @_ZN8XWorkersC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZN16XObjectAllocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i64, ptr @MinHeapSize, align 8
   %6 = load i64, ptr @InitialHeapSize, align 8
   %7 = load i64, ptr @MaxHeapSize, align 8
   tail call void @_ZN14XPageAllocatorC1EP8XWorkersmmm(ptr noundef nonnull align 8 dereferenceable(609) %4, ptr noundef nonnull %0, i64 noundef %5, i64 noundef %6, i64 noundef %7) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   tail call void @_ZN10XPageTableC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 808
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %10 = load i64, ptr @XAddressOffsetMax, align 8
   %11 = lshr i64 %10, 21
   store i64 %11, ptr %9, align 8
@@ -205,22 +205,22 @@ define hidden void @_ZN5XHeapC2Ev(ptr noundef nonnull align 64 dereferenceable(4
   unreachable
 
 _ZN16XForwardingTableC2Ev.exit:                   ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 816
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 816
   tail call void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef nonnull %18, i64 noundef %17, i1 noundef zeroext false, ptr noundef nonnull @.str.24) #12
   store ptr %18, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 832
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 832
   tail call void @_ZN5XMarkC1EP8XWorkersP10XPageTable(ptr noundef nonnull align 64 dereferenceable(2492) %22, ptr noundef nonnull %0, ptr noundef nonnull %8) #12
-  %23 = getelementptr inbounds i8, ptr %0, i64 3328
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   tail call void @_ZN19XReferenceProcessorC1EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull %0) #12
-  %24 = getelementptr inbounds i8, ptr %0, i64 3400
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 3400
   tail call void @_ZN19XWeakRootsProcessorC1EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %0) #12
-  %25 = getelementptr inbounds i8, ptr %0, i64 3408
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 3408
   tail call void @_ZN9XRelocateC1EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %0) #12
-  %26 = getelementptr inbounds i8, ptr %0, i64 3416
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   tail call void @_ZN14XRelocationSetC1EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull %0) #12
-  %27 = getelementptr inbounds i8, ptr %0, i64 3464
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   tail call void @_ZN7XUnloadC1EP8XWorkers(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %0) #12
-  %28 = getelementptr inbounds i8, ptr %0, i64 3472
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %29 = tail call noundef i64 @_ZNK14XPageAllocator12min_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %4) #12
   %30 = tail call noundef i64 @_ZNK14XPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %4) #12
   tail call void @_ZN15XServiceabilityC1Emm(ptr noundef nonnull align 8 dereferenceable(616) %28, i64 noundef %29, i64 noundef %30) #12
@@ -252,14 +252,14 @@ declare void @_ZN7XUnloadC1EP8XWorkers(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap12min_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator12min_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap12max_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
@@ -272,12 +272,12 @@ declare void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind writable sret(%cla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK5XHeap14is_initializedEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef zeroext i1 @_ZNK14XPageAllocator14is_initializedEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 832
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %6 = tail call noundef zeroext i1 @_ZNK5XMark14is_initializedEv(ptr noundef nonnull align 64 dereferenceable(2492) %5) #12
   br label %7
 
@@ -296,7 +296,7 @@ declare noundef i64 @_ZNK14XPageAllocator12max_capacityEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap17soft_max_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator17soft_max_capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
@@ -305,7 +305,7 @@ declare noundef i64 @_ZNK14XPageAllocator17soft_max_capacityEv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap8capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
@@ -314,7 +314,7 @@ declare noundef i64 @_ZNK14XPageAllocator8capacityEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap4usedEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
@@ -323,7 +323,7 @@ declare noundef i64 @_ZNK14XPageAllocator4usedEv(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap6unusedEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator6unusedEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
@@ -332,14 +332,14 @@ declare noundef i64 @_ZNK14XPageAllocator6unusedEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap13tlab_capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i64 @_ZNK14XPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %2) #12
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK5XHeap9tlab_usedEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = tail call noundef i64 @_ZNK16XObjectAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
   ret i64 %3
 }
@@ -353,7 +353,7 @@ define hidden noundef i64 @_ZNK5XHeap13max_tlab_sizeEv(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i64 0, 262145) i64 @_ZNK5XHeap21unsafe_max_tlab_allocEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = tail call noundef i64 @_ZNK16XObjectAllocator9remainingEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #12
   %4 = load i64, ptr @MinTLABSize, align 8
   %5 = icmp ult i64 %3, %4
@@ -385,21 +385,21 @@ _ZN8XAddress5is_inEm.exit:                        ; preds = %2
 12:                                               ; preds = %_ZN8XAddress5is_inEm.exit
   %13 = and i64 %3, %1
   %14 = lshr i64 %13, 21
-  %15 = getelementptr inbounds i8, ptr %0, i64 800
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %16 = load ptr, ptr %15, align 32
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZNK5XPage5is_inEm.exit, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8
   %.not.i = icmp ult i64 %13, %21
   br i1 %.not.i, label %_ZNK5XPage5is_inEm.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = load volatile i64, ptr %23, align 8
   %25 = icmp ult i64 %13, %24
   br label %_ZNK5XPage5is_inEm.exit
@@ -427,7 +427,7 @@ declare void @_ZN8XWorkers18set_active_workersEj(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5XHeap10threads_doEP13ThreadClosure(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZNK14XPageAllocator10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(609) %3, ptr noundef %1) #12
   tail call void @_ZNK8XWorkers10threads_doEP13ThreadClosure(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) #12
   ret void
@@ -441,25 +441,25 @@ declare void @_ZNK8XWorkers10threads_doEP13ThreadClosure(ptr noundef nonnull ali
 define hidden void @_ZN5XHeap13out_of_memoryEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i64, ptr %12, align 8
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL19XCounterOutOfMemory, i64 noundef 1) #12
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr %2, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(888) %16) #12
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %20)
@@ -503,13 +503,13 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XHeap10alloc_pageEhm16XAllocationFlags(ptr noundef nonnull align 64 dereferenceable(4088) %0, i8 noundef zeroext %1, i64 noundef %2, i8 %3) local_unnamed_addr #1 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = tail call noundef ptr @_ZN14XPageAllocator10alloc_pageEhm16XAllocationFlags(ptr noundef nonnull align 8 dereferenceable(609) %5, i8 noundef zeroext %1, i64 noundef %2, i8 %3) #12
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   tail call void @_ZN10XPageTable6insertEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %6) #12
   br label %9
 
@@ -524,7 +524,7 @@ declare void @_ZN10XPageTable6insertEP5XPage(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap15undo_alloc_pageEP5XPage(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL26XCounterUndoPageAllocation, i64 noundef 1) #12
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
 
@@ -543,8 +543,8 @@ _ZN7XThread2idEv.exit:                            ; preds = %4, %8
   %10 = load i64, ptr %9, align 8
   %11 = tail call noundef ptr @_ZN7XThread4nameEv() #12
   %12 = ptrtoint ptr %1 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %13, align 8
   %17 = sub i64 %15, %16
@@ -552,9 +552,9 @@ _ZN7XThread2idEv.exit:                            ; preds = %4, %8
   br label %18
 
 18:                                               ; preds = %2, %_ZN7XThread2idEv.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 792
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 792
   tail call void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %1) #12
-  %20 = getelementptr inbounds i8, ptr %0, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN14XPageAllocator9free_pageEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %20, ptr noundef %1, i1 noundef zeroext false) #12
   ret void
 }
@@ -572,9 +572,9 @@ declare noundef ptr @_ZN7XThread4nameEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap9free_pageEP5XPageb(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   tail call void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %1) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN14XPageAllocator9free_pageEP5XPageb(ptr noundef nonnull align 8 dereferenceable(609) %5, ptr noundef %1, i1 noundef zeroext %2) #12
   ret void
 }
@@ -590,23 +590,23 @@ define hidden void @_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLA
   br i1 %5, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %4 to i64
   %9 = getelementptr inbounds ptr, ptr %7, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 792
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 792
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %.sroa.0.09 = phi ptr [ %7, %.lr.ph ], [ %13, %11 ]
   %12 = load ptr, ptr %.sroa.0.09, align 8
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.09, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 8
   tail call void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %12) #12
   %.not = icmp eq ptr %13, %9
   br i1 %.not, label %_ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit, label %11, !llvm.loop !6
 
 _ZN18XArrayIteratorImplIP5XPageLb0EE4nextEPS1_.exit: ; preds = %11, %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN14XPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb(ptr noundef nonnull align 8 dereferenceable(609) %14, ptr noundef nonnull %1, i1 noundef zeroext %2) #12
   ret void
 }
@@ -616,7 +616,7 @@ declare void @_ZN14XPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5XPageL8ME
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap14flip_to_markedEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.XVerifyViewsFlip, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZN16XVerifyViewsFlipC1EPK14XPageAllocator(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #12
   call void @_ZN8XAddress14flip_to_markedEv() #12
   call void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
@@ -633,7 +633,7 @@ declare void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap16flip_to_remappedEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.XVerifyViewsFlip, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZN16XVerifyViewsFlipC1EPK14XPageAllocator(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %3) #12
   call void @_ZN8XAddress16flip_to_remappedEv() #12
   call void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
@@ -648,30 +648,30 @@ define hidden void @_ZN5XHeap10mark_startEv(ptr noundef nonnull align 64 derefer
   %3 = alloca %class.XPageAllocatorStats, align 8
   tail call void @_ZN20ClassLoaderDataGraph28verify_claimed_marks_clearedEi(i32 noundef 3) #12
   %4 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = tail call noundef zeroext i1 @_ZNK14XPageAllocator17has_alloc_stalledEv(ptr noundef nonnull align 8 dereferenceable(609) %5) #12
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 3328
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 3328
   tail call void @_ZN19XReferenceProcessor25set_soft_reference_policyEb(ptr noundef nonnull align 8 dereferenceable(72) %9, i1 noundef zeroext true) #12
   br label %10
 
 10:                                               ; preds = %7, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %11 = getelementptr inbounds i8, ptr %0, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZN16XVerifyViewsFlipC1EPK14XPageAllocator(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %11) #12
   call void @_ZN8XAddress14flip_to_markedEv() #12
   call void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @_ZN16XObjectAllocator12retire_pagesEv(ptr noundef nonnull align 8 dereferenceable(56) %12) #12
   call void @_ZN14XPageAllocator16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(609) %11) #12
-  %13 = getelementptr inbounds i8, ptr %0, i64 3328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   call void @_ZN19XReferenceProcessor16reset_statisticsEv(ptr noundef nonnull align 8 dereferenceable(72) %13) #12
   store i32 0, ptr @XGlobalPhase, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 832
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 832
   call void @_ZN5XMark5startEv(ptr noundef nonnull align 64 dereferenceable(2492) %14) #12
   call void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind nonnull writable sret(%class.XPageAllocatorStats) align 8 %3, ptr noundef nonnull align 8 dereferenceable(609) %11) #12
   call void @_ZN9XStatHeap17set_at_mark_startERK19XPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(72) %3) #12
@@ -682,7 +682,7 @@ declare void @_ZN20ClassLoaderDataGraph28verify_claimed_marks_clearedEi(i32 noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap25set_soft_reference_policyEb(ptr noundef nonnull align 64 dereferenceable(4088) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 3328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   tail call void @_ZN19XReferenceProcessor25set_soft_reference_policyEb(ptr noundef nonnull align 8 dereferenceable(72) %3, i1 noundef zeroext %1) #12
   ret void
 }
@@ -699,7 +699,7 @@ declare void @_ZN9XStatHeap17set_at_mark_startERK19XPageAllocatorStats(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap4markEb(ptr noundef nonnull align 64 dereferenceable(4088) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 832
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   tail call void @_ZN5XMark4markEb(ptr noundef nonnull align 64 dereferenceable(2492) %3, i1 noundef zeroext %1) #12
   ret void
 }
@@ -708,7 +708,7 @@ declare void @_ZN5XMark4markEb(ptr noundef nonnull align 64 dereferenceable(2492
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap19mark_flush_and_freeEP6Thread(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 832
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %4 = tail call noundef zeroext i1 @_ZN5XMark14flush_and_freeEP6Thread(ptr noundef nonnull align 64 dereferenceable(2492) %3, ptr noundef %1) #12
   ret void
 }
@@ -718,18 +718,18 @@ declare noundef zeroext i1 @_ZN5XMark14flush_and_freeEP6Thread(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN5XHeap8mark_endEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.XPageAllocatorStats, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 832
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %4 = tail call noundef zeroext i1 @_ZN5XMark3endEv(ptr noundef nonnull align 64 dereferenceable(2492) %3) #12
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   store i32 1, ptr @XGlobalPhase, align 4
   tail call void @_ZN7XVerify10after_markEv() #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind nonnull writable sret(%class.XPageAllocatorStats) align 8 %2, ptr noundef nonnull align 8 dereferenceable(609) %6) #12
   call void @_ZN9XStatHeap15set_at_mark_endERK19XPageAllocatorStats(ptr noundef nonnull align 8 dereferenceable(72) %2) #12
   call void @_ZN13XResurrection5blockEv() #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 3464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   call void @_ZN7XUnload7prepareEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
   call void @_ZN11JvmtiTagMap18set_needs_cleaningEv() #12
   br label %8
@@ -752,7 +752,7 @@ declare void @_ZN11JvmtiTagMap18set_needs_cleaningEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap9mark_freeEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   tail call void @_ZN5XMark4freeEv(ptr noundef nonnull align 64 dereferenceable(2492) %2) #12
   ret void
 }
@@ -780,15 +780,15 @@ declare void @_ZN19XReferenceProcessor25set_soft_reference_policyEb(ptr noundef 
 define hidden void @_ZN5XHeap29process_non_strong_referencesEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ClassUnloadingContext, align 8
   %3 = alloca %class.XRendezvousClosure, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 3328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   tail call void @_ZN19XReferenceProcessor18process_referencesEv(ptr noundef nonnull align 8 dereferenceable(72) %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 3400
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3400
   tail call void @_ZN19XWeakRootsProcessor18process_weak_rootsEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   %6 = tail call noundef i32 @_ZNK8XWorkers14active_workersEv(ptr noundef nonnull align 8 dereferenceable(120) %0) #12
   call void @_ZN21ClassUnloadingContextC1Ejbb(ptr noundef nonnull align 8 dereferenceable(26) %2, i32 noundef %6, i1 noundef zeroext true, i1 noundef zeroext true) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 3464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   call void @_ZN7XUnload6unlinkEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.25, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV18XRendezvousClosure, i64 16), ptr %3, align 8
   call void @_ZN9Handshake7executeEP16HandshakeClosure(ptr noundef nonnull %3) #12
@@ -828,7 +828,7 @@ declare void @_ZN21ClassUnloadingContextD1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 336
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp sge i32 %5, %2
   %6 = icmp ne i32 %5, 0
@@ -836,23 +836,23 @@ define hidden void @_ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori(ptr n
   br i1 %spec.select.i, label %.lr.ph.i, label %16
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 344
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %5 to i64
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 792
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 792
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.sroa.0.09.i = phi ptr [ %8, %.lr.ph.i ], [ %14, %12 ]
   %13 = load ptr, ptr %.sroa.0.09.i, align 8
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.09.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 8
   tail call void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %13) #12
   %.not.i4 = icmp eq ptr %14, %10
   br i1 %.not.i4, label %_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit, label %12, !llvm.loop !6
 
 _ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit: ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN14XPageAllocator10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb(ptr noundef nonnull align 8 dereferenceable(609) %15, ptr noundef nonnull %4, i1 noundef zeroext true) #12
   store i32 0, ptr %4, align 4
   br label %16
@@ -866,30 +866,30 @@ define hidden void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align
   %2 = alloca %class.XRelocationSetSelector, align 8
   %3 = alloca %class.XRelocationSetSelectorStats, align 8
   %4 = alloca %class.XRelocationSetSelectorStats, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZNK14XPageAllocator22enable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(609) %5) #12
   call void @_ZN22XRelocationSetSelectorC1Ev(ptr noundef nonnull align 8 dereferenceable(352) %2) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 792
-  %7 = getelementptr inbounds i8, ptr %0, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %8 = load ptr, ptr %7, align 32
   %9 = load i64, ptr %6, align 8
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
-  %.sink10.i.sroa.gep = getelementptr inbounds i8, ptr %2, i64 176
-  %.sink10.i.sroa.gep15 = getelementptr inbounds i8, ptr %2, i64 288
-  %.sink10.i.sroa.gep16 = getelementptr inbounds i8, ptr %2, i64 64
-  %.sink7.i.sroa.gep = getelementptr inbounds i8, ptr %2, i64 184
-  %.sink7.i.sroa.gep17 = getelementptr inbounds i8, ptr %2, i64 296
-  %.sink7.i.sroa.gep18 = getelementptr inbounds i8, ptr %2, i64 72
-  %.sink4.i.sroa.gep = getelementptr inbounds i8, ptr %2, i64 200
-  %.sink4.i.sroa.gep19 = getelementptr inbounds i8, ptr %2, i64 312
-  %.sink4.i.sroa.gep20 = getelementptr inbounds i8, ptr %2, i64 88
+  %.sink10.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %.sink10.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %2, i64 288
+  %.sink10.i.sroa.gep16 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %.sink7.i.sroa.gep17 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  %.sink7.i.sroa.gep18 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %.sink4.i.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %.sink4.i.sroa.gep19 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %.sink4.i.sroa.gep20 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.not10.i35 = icmp eq i64 %9, 0
   br i1 %.not10.i35, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %2, i64 336
-  %12 = getelementptr inbounds i8, ptr %2, i64 340
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 336
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 340
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 344
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.lr.ph, %.backedge
@@ -900,7 +900,7 @@ define hidden void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %16
   %13 = phi ptr [ %15, %16 ], [ %.sroa.014.036, %.lr.ph.i.preheader ]
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.not.i = icmp eq ptr %14, null
   %.not4.i = icmp eq ptr %14, %.sroa.5.037
   %or.cond.i = or i1 %.not.i, %.not4.i
@@ -911,14 +911,14 @@ define hidden void @_ZN5XHeap21select_relocation_setEv(ptr noundef nonnull align
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr @XGlobalSeqNum, align 4
   %20 = icmp ult i32 %18, %19
   br i1 %20, label %21, label %.backedge
 
 21:                                               ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit
-  %22 = getelementptr inbounds i8, ptr %14, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %23 = load volatile i32, ptr %22, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %24 = load i32, ptr @XGlobalSeqNum, align 4
@@ -931,8 +931,8 @@ _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
 
 27:                                               ; preds = %21
   %28 = load i8, ptr %14, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %29, align 8
   switch i8 %28, label %34 [
@@ -1001,9 +1001,9 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
 
 .lr.ph.i.i.i:                                     ; preds = %45, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %45 ]
-  %60 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i.i.i
+  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i.i.i
   %61 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i.i
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %60, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1019,7 +1019,7 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
 
 .lr.ph18.i.i.i:                                   ; preds = %.lr.ph18.i.i.i, %.lr.ph18.preheader.i.i.i
   %indvars.iv20.i.i.i = phi i64 [ %59, %.lr.ph18.preheader.i.i.i ], [ %indvars.iv.next21.i.i.i, %.lr.ph18.i.i.i ]
-  %68 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv20.i.i.i
+  %68 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv20.i.i.i
   store ptr null, ptr %68, align 8
   %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
   %69 = load i32, ptr %12, align 4
@@ -1051,13 +1051,13 @@ _ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6ap
 .lr.ph.i.i:                                       ; preds = %_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_.exit
   %79 = load ptr, ptr %.phi.trans.insert.i, align 8
   %80 = zext nneg i32 %78 to i64
-  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
   br label %82
 
 82:                                               ; preds = %82, %.lr.ph.i.i
   %.sroa.0.09.i.i = phi ptr [ %79, %.lr.ph.i.i ], [ %84, %82 ]
   %83 = load ptr, ptr %.sroa.0.09.i.i, align 8
-  %84 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 8
   call void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %83) #12
   %.not.i4.i = icmp eq ptr %84, %81
   br i1 %.not.i4.i, label %_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i, label %82, !llvm.loop !6
@@ -1072,22 +1072,22 @@ _ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i: ; pre
   br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.backedge, %16, %1
-  %85 = getelementptr inbounds i8, ptr %2, i64 336
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %86 = load i32, ptr %85, align 8
   %spec.select.i.i = icmp sgt i32 %86, 0
   br i1 %spec.select.i.i, label %.lr.ph.i.i2, label %_ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit6
 
 .lr.ph.i.i2:                                      ; preds = %.loopexit
-  %87 = getelementptr inbounds i8, ptr %2, i64 344
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %88 = load ptr, ptr %87, align 8
   %89 = zext nneg i32 %86 to i64
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %89
   br label %91
 
 91:                                               ; preds = %91, %.lr.ph.i.i2
   %.sroa.0.09.i.i3 = phi ptr [ %88, %.lr.ph.i.i2 ], [ %93, %91 ]
   %92 = load ptr, ptr %.sroa.0.09.i.i3, align 8
-  %93 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i3, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i3, i64 8
   call void @_ZN10XPageTable6removeEP5XPage(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %92) #12
   %.not.i4.i4 = icmp eq ptr %93, %90
   br i1 %.not.i4.i4, label %_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i5, label %91, !llvm.loop !6
@@ -1100,26 +1100,26 @@ _ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i5: ; pr
 _ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit6: ; preds = %.loopexit, %_ZN5XHeap10free_pagesEPK18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EEb.exit.i5
   call void @_ZNK14XPageAllocator23disable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(609) %5) #12
   call void @_ZN22XRelocationSetSelector6selectEv(ptr noundef nonnull align 8 dereferenceable(352) %2) #12
-  %94 = getelementptr inbounds i8, ptr %0, i64 3416
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   call void @_ZN14XRelocationSet7installEPK22XRelocationSetSelector(ptr noundef nonnull align 8 dereferenceable(48) %94, ptr noundef nonnull %2) #12
-  %95 = getelementptr inbounds i8, ptr %0, i64 3448
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 3448
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 3456
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 3456
   %98 = load i64, ptr %97, align 64
   %99 = getelementptr inbounds ptr, ptr %96, i64 %98
   %.not38 = icmp eq i64 %98, 0
   br i1 %.not38, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit6
-  %100 = getelementptr inbounds i8, ptr %0, i64 816
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br label %101
 
 101:                                              ; preds = %.lr.ph, %_ZN16XForwardingTable6insertEP11XForwarding.exit
   %.sroa.0.039 = phi ptr [ %96, %.lr.ph ], [ %103, %_ZN16XForwardingTable6insertEP11XForwarding.exit ]
   %102 = load ptr, ptr %.sroa.0.039, align 8
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.039, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 8
   %104 = load i64, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %106 = load i64, ptr %105, align 8
   %107 = sub i64 %106, %104
   %108 = lshr i64 %104, 21
@@ -1131,7 +1131,7 @@ _ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit6: ; preds = %.loopex
 .lr.ph.i.i8:                                      ; preds = %101, %.lr.ph.i.i8
   %.09.i.i = phi i64 [ %113, %.lr.ph.i.i8 ], [ %108, %101 ]
   %111 = load ptr, ptr %100, align 16
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %.09.i.i
+  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %.09.i.i
   store ptr %102, ptr %112, align 8
   %113 = add nuw nsw i64 %.09.i.i, 1
   %114 = icmp samesign ult i64 %113, %110
@@ -1147,13 +1147,13 @@ _ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit: ; preds = %_ZN16XFor
   call void @_ZNK22XRelocationSetSelector5statsEv(ptr dead_on_unwind nonnull writable sret(%class.XRelocationSetSelectorStats) align 8 %4, ptr noundef nonnull align 8 dereferenceable(352) %2) #12
   call void @_ZN9XStatHeap28set_at_select_relocation_setERK27XRelocationSetSelectorStats(ptr noundef nonnull align 8 dereferenceable(144) %4) #12
   store i32 0, ptr %85, align 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 340
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 340
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit.i, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit
-  %118 = getelementptr inbounds i8, ptr %2, i64 344
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %119 = load ptr, ptr %118, align 8
   store i32 0, ptr %115, align 4
   %.not.i.i.i.i = icmp eq ptr %119, null
@@ -1168,15 +1168,15 @@ _ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit: ; preds = %_ZN16XFor
   br label %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit.i
 
 _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit.i: ; preds = %120, %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit
-  %121 = getelementptr inbounds i8, ptr %2, i64 264
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 0, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %2, i64 268
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 268
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %_ZN27XRelocationSetSelectorGroupD2Ev.exit.i, label %.loopexit.i.i.i.i.i
 
 .loopexit.i.i.i.i.i:                              ; preds = %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit.i
-  %125 = getelementptr inbounds i8, ptr %2, i64 272
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %126 = load ptr, ptr %125, align 8
   store i32 0, ptr %122, align 4
   %.not.i.i.i.i.i = icmp eq ptr %126, null
@@ -1191,15 +1191,15 @@ _ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit.i: ; preds = %120, %_ZN18X
   br label %_ZN27XRelocationSetSelectorGroupD2Ev.exit.i
 
 _ZN27XRelocationSetSelectorGroupD2Ev.exit.i:      ; preds = %127, %_ZN18GrowableArrayCHeapIP5XPageL8MEMFLAGS5EED2Ev.exit.i
-  %128 = getelementptr inbounds i8, ptr %2, i64 152
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 0, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %2, i64 156
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %130 = load i32, ptr %129, align 4
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %_ZN27XRelocationSetSelectorGroupD2Ev.exit4.i, label %.loopexit.i.i.i.i1.i
 
 .loopexit.i.i.i.i1.i:                             ; preds = %_ZN27XRelocationSetSelectorGroupD2Ev.exit.i
-  %132 = getelementptr inbounds i8, ptr %2, i64 160
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %133 = load ptr, ptr %132, align 8
   store i32 0, ptr %129, align 4
   %.not.i.i.i.i2.i = icmp eq ptr %133, null
@@ -1214,15 +1214,15 @@ _ZN27XRelocationSetSelectorGroupD2Ev.exit.i:      ; preds = %127, %_ZN18Growable
   br label %_ZN27XRelocationSetSelectorGroupD2Ev.exit4.i
 
 _ZN27XRelocationSetSelectorGroupD2Ev.exit4.i:     ; preds = %134, %_ZN27XRelocationSetSelectorGroupD2Ev.exit.i
-  %135 = getelementptr inbounds i8, ptr %2, i64 40
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 0, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %2, i64 44
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %_ZN22XRelocationSetSelectorD2Ev.exit, label %.loopexit.i.i.i.i5.i
 
 .loopexit.i.i.i.i5.i:                             ; preds = %_ZN27XRelocationSetSelectorGroupD2Ev.exit4.i
-  %139 = getelementptr inbounds i8, ptr %2, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %140 = load ptr, ptr %139, align 8
   store i32 0, ptr %136, align 4
   %.not.i.i.i.i6.i = icmp eq ptr %140, null
@@ -1246,9 +1246,9 @@ define linkonce_odr hidden void @_ZN22XRelocationSetSelector18register_live_page
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = load i8, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   switch i8 %6, label %52 [
     i8 0, label %10
     i8 1, label %31
@@ -1262,26 +1262,26 @@ define linkonce_odr hidden void @_ZN22XRelocationSetSelector18register_live_page
   %13 = sub i64 %11, %12
   %14 = load volatile i64, ptr %9, align 8
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %15, %17
   br i1 %18, label %19, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit
 
 _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit: ; preds = %10, %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %13
   store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %14
   store i64 %30, ptr %28, align 8
@@ -1296,26 +1296,26 @@ _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit: ; preds = %10
   %34 = sub i64 %32, %33
   %35 = load volatile i64, ptr %9, align 8
   %36 = sub i64 %34, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %38 = load i64, ptr %37, align 8
   %39 = icmp ugt i64 %36, %38
   br i1 %39, label %40, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %0, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %42 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6
 
 _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6: ; preds = %31, %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, 1
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %34
   store i64 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 192
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %35
   store i64 %51, ptr %49, align 8
@@ -1330,26 +1330,26 @@ _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit6: ; preds = %3
   %55 = sub i64 %53, %54
   %56 = load volatile i64, ptr %9, align 8
   %57 = sub i64 %55, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 256
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %59 = load i64, ptr %58, align 8
   %60 = icmp ugt i64 %57, %59
   br i1 %60, label %61, label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7
 
 61:                                               ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %0, i64 264
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %63 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %_ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7
 
 _ZN27XRelocationSetSelectorGroup18register_live_pageEP5XPage.exit7: ; preds = %52, %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 288
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 296
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, %55
   store i64 %69, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 304
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, %56
   store i64 %72, ptr %70, align 8
@@ -1374,24 +1374,24 @@ declare void @_ZN9XStatHeap28set_at_select_relocation_setERK27XRelocationSetSele
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3448
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3448
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 3456
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3456
   %5 = load i64, ptr %4, align 64
   %6 = getelementptr inbounds ptr, ptr %3, i64 %5
   %.not6 = icmp eq i64 %5, 0
   br i1 %.not6, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 816
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN16XForwardingTable6removeEP11XForwarding.exit
   %.sroa.0.07 = phi ptr [ %3, %.lr.ph ], [ %10, %_ZN16XForwardingTable6removeEP11XForwarding.exit ]
   %9 = load ptr, ptr %.sroa.0.07, align 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 8
   %11 = load i64, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %13, %11
   %15 = lshr i64 %11, 21
@@ -1403,7 +1403,7 @@ define hidden void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %20, %.lr.ph.i.i ], [ %15, %8 ]
   %18 = load ptr, ptr %7, align 16
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %.09.i.i
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.09.i.i
   store ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %.09.i.i, 1
   %21 = icmp samesign ult i64 %20, %17
@@ -1414,7 +1414,7 @@ _ZN16XForwardingTable6removeEP11XForwarding.exit: ; preds = %.lr.ph.i.i, %8
   br i1 %.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit, label %8, !llvm.loop !15
 
 _ZN18XArrayIteratorImplIP11XForwardingLb0EE4nextEPS1_.exit: ; preds = %_ZN16XForwardingTable6removeEP11XForwarding.exit, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 3416
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   tail call void @_ZN14XRelocationSet5resetEv(ptr noundef nonnull align 8 dereferenceable(48) %22) #12
   ret void
 }
@@ -1425,10 +1425,10 @@ declare void @_ZN14XRelocationSet5resetEv(ptr noundef nonnull align 8 dereferenc
 define hidden void @_ZN5XHeap14relocate_startEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.XVerifyViewsFlip, align 8
   %3 = alloca %class.XPageAllocatorStats, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 3464
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3464
   tail call void @_ZN7XUnload6finishEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZN16XVerifyViewsFlipC1EPK14XPageAllocator(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5) #12
   call void @_ZN8XAddress16flip_to_remappedEv() #12
   call void @_ZN16XVerifyViewsFlipD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
@@ -1446,12 +1446,12 @@ declare void @_ZN9XStatHeap21set_at_relocate_startERK19XPageAllocatorStats(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap8relocateEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.XPageAllocatorStats, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 3408
-  %4 = getelementptr inbounds i8, ptr %0, i64 3416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3408
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3416
   tail call void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @_ZNK14XPageAllocator5statsEv(ptr dead_on_unwind nonnull writable sret(%class.XPageAllocatorStats) align 8 %2, ptr noundef nonnull align 8 dereferenceable(609) %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = call noundef i64 @_ZNK16XObjectAllocator9relocatedEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #12
   call void @_ZN9XStatHeap19set_at_relocate_endERK19XPageAllocatorStatsm(ptr noundef nonnull align 8 dereferenceable(72) %2, i64 noundef %7) #12
   ret void
@@ -1468,11 +1468,11 @@ define hidden noundef zeroext i1 @_ZNK5XHeap13is_allocatingEm(ptr nocapture noun
   %3 = load i64, ptr @XAddressOffsetMask, align 8
   %4 = and i64 %3, %1
   %5 = lshr i64 %4, 21
-  %6 = getelementptr inbounds i8, ptr %0, i64 800
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %7 = load ptr, ptr %6, align 32
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @XGlobalSeqNum, align 4
   %13 = icmp eq i32 %11, %12
@@ -1504,8 +1504,8 @@ define hidden noundef ptr @_ZN5XHeap24parallel_object_iteratorEjb(ptr nocapture 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap8pages_doEP12XPageClosure(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 792
-  %4 = getelementptr inbounds i8, ptr %0, i64 800
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %5 = load ptr, ptr %4, align 32
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
@@ -1520,7 +1520,7 @@ define hidden void @_ZN5XHeap8pages_doEP12XPageClosure(ptr noundef nonnull align
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %11
   %8 = phi ptr [ %10, %11 ], [ %.sroa.0.012, %.lr.ph.i.preheader ]
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.not.i = icmp eq ptr %9, null
   %.not4.i = icmp eq ptr %9, %.sroa.5.011
   %or.cond.i = or i1 %.not.i, %.not4.i
@@ -1538,7 +1538,7 @@ _ZN18XPageTableIterator4nextEPP5XPage.exit:       ; preds = %.lr.ph.i
   br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN18XPageTableIterator4nextEPP5XPage.exit, %11, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZNK14XPageAllocator8pages_doEP12XPageClosure(ptr noundef nonnull align 8 dereferenceable(609) %14, ptr noundef %1) #12
   ret void
 }
@@ -1547,7 +1547,7 @@ declare void @_ZNK14XPageAllocator8pages_doEP12XPageClosure(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XHeap25serviceability_initializeEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   tail call void @_ZN15XServiceability10initializeEv(ptr noundef nonnull align 8 dereferenceable(616) %2) #12
   ret void
 }
@@ -1556,7 +1556,7 @@ declare void @_ZN15XServiceability10initializeEv(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XHeap35serviceability_cycle_memory_managerEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %3 = tail call noundef ptr @_ZN15XServiceability20cycle_memory_managerEv(ptr noundef nonnull align 8 dereferenceable(616) %2) #12
   ret ptr %3
 }
@@ -1565,7 +1565,7 @@ declare noundef ptr @_ZN15XServiceability20cycle_memory_managerEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XHeap35serviceability_pause_memory_managerEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %3 = tail call noundef ptr @_ZN15XServiceability20pause_memory_managerEv(ptr noundef nonnull align 8 dereferenceable(616) %2) #12
   ret ptr %3
 }
@@ -1574,7 +1574,7 @@ declare noundef ptr @_ZN15XServiceability20pause_memory_managerEv(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XHeap26serviceability_memory_poolEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %3 = tail call noundef ptr @_ZN15XServiceability11memory_poolEv(ptr noundef nonnull align 8 dereferenceable(616) %2) #12
   ret ptr %3
 }
@@ -1583,7 +1583,7 @@ declare noundef ptr @_ZN15XServiceability11memory_poolEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XHeap23serviceability_countersEv(ptr noundef nonnull align 64 dereferenceable(4088) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3472
   %3 = tail call noundef ptr @_ZN15XServiceability8countersEv(ptr noundef nonnull align 8 dereferenceable(616) %2) #12
   ret ptr %3
 }
@@ -1592,7 +1592,7 @@ declare noundef ptr @_ZN15XServiceability8countersEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5XHeap8print_onEP12outputStream(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = tail call noundef i64 @_ZNK14XPageAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12
   %5 = lshr i64 %4, 20
   %6 = tail call noundef i64 @_ZNK14XPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12
@@ -1610,7 +1610,7 @@ declare void @_ZN14MetaspaceUtils8print_onEP12outputStream(ptr noundef) local_un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef nonnull align 64 dereferenceable(4088) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = tail call noundef i64 @_ZNK14XPageAllocator4usedEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12
   %5 = lshr i64 %4, 20
   %6 = tail call noundef i64 @_ZNK14XPageAllocator8capacityEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12
@@ -1622,8 +1622,8 @@ define hidden void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef no
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
   tail call void @_ZNK14XPageAllocator22enable_deferred_deleteEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #12
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 792
-  %11 = getelementptr inbounds i8, ptr %0, i64 800
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %12 = load ptr, ptr %11, align 32
   %13 = load i64, ptr %10, align 8
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -1638,7 +1638,7 @@ define hidden void @_ZNK5XHeap17print_extended_onEP12outputStream(ptr noundef no
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %18
   %15 = phi ptr [ %17, %18 ], [ %.sroa.0.014, %.lr.ph.i.preheader ]
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.not.i = icmp eq ptr %16, null
   %.not4.i = icmp eq ptr %16, %.sroa.5.013
   %or.cond.i = or i1 %.not.i, %.not4.i
@@ -1848,13 +1848,13 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
   br label %38
 
@@ -1875,7 +1875,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %23
 
 .preheader15.loopexit.i.i:                        ; preds = %23
@@ -1894,9 +1894,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1906,14 +1906,14 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
   br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !10
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4

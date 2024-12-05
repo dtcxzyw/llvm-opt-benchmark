@@ -145,7 +145,7 @@ sub_0:                                            ; preds = %2
   br i1 %.not435, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = sub nsw i32 115, %9
@@ -153,7 +153,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not436, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = sub nsw i32 116, %13
@@ -174,7 +174,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not.i, label %.critedge.i, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i = icmp eq ptr %24, null
   br i1 %.not7.i, label %25, label %prelude_ast.exit
@@ -194,7 +194,7 @@ sub_0422:                                         ; preds = %.tail
   br i1 %.not437, label %sub_1423, label %.tail421
 
 sub_1423:                                         ; preds = %sub_0422
-  %28 = getelementptr inbounds i8, ptr %0, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sub nsw i32 105, %30
@@ -202,7 +202,7 @@ sub_1423:                                         ; preds = %sub_0422
   br i1 %.not438, label %sub_2424, label %.tail421
 
 sub_2424:                                         ; preds = %sub_1423
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = sub nsw i32 114, %34
@@ -223,7 +223,7 @@ sub_2424:                                         ; preds = %sub_1423
   br i1 %.not.i150, label %.critedge.i152, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not7.i151 = icmp eq ptr %45, null
   br i1 %.not7.i151, label %46, label %prelude_ast.exit
@@ -243,7 +243,7 @@ sub_0427:                                         ; preds = %2
   br i1 %.not, label %.tail426.thread, label %sub_0431
 
 .tail426.thread:                                  ; preds = %sub_0427
-  %49 = getelementptr inbounds i8, ptr %0, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 99
   br i1 %51, label %52, label %prelude_ast.exit
@@ -258,7 +258,7 @@ sub_0427:                                         ; preds = %2
   br i1 %.not.i154, label %.critedge.i156, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %59 = load ptr, ptr %58, align 8
   %.not7.i155 = icmp eq ptr %59, null
   br i1 %.not7.i155, label %60, label %prelude_ast.exit
@@ -291,7 +291,7 @@ sub_0431:                                         ; preds = %sub_0427
   br i1 %.not434, label %sub_1432, label %.tail430
 
 sub_1432:                                         ; preds = %sub_0431
-  %71 = getelementptr inbounds i8, ptr %0, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = sub nsw i32 111, %73
@@ -520,7 +520,7 @@ define internal fastcc nonnull ptr @prelude_ast(i64 noundef %0, i64 noundef %1, 
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %9, label %11
@@ -568,13 +568,13 @@ define internal fastcc ptr @builtin_iseq_load(ptr noundef %0, ptr noundef %1) un
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1328
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1328
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i64, ptr %3, align 8
   %11 = tail call ptr @rb_iseq_new_with_opt(ptr noundef nonnull %9, i64 noundef %10, i64 noundef %10, i64 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @builtin_iseq_load.optimization) #6
   %12 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1328
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1328
   store ptr null, ptr %13, align 8
   tail call void @rb_ast_dispose(ptr noundef nonnull %4) #6
   %14 = load ptr, ptr @loaded_builtin_table, align 8

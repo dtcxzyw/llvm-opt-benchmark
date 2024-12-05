@@ -24,11 +24,11 @@ entry:
   %oid.i = alloca %struct.object_id, align 4
   %size.i = alloca i64, align 8
   %type.i = alloca i32, align 4
-  %strdup_strings = getelementptr inbounds i8, ptr %map, i64 24
+  %strdup_strings = getelementptr inbounds nuw i8, ptr %map, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
-  %cmp = getelementptr inbounds i8, ptr %map, i64 32
+  %cmp = getelementptr inbounds nuw i8, ptr %map, i64 32
   store ptr @namemap_cmp, ptr %cmp, align 8
   %0 = load ptr, ptr @git_mailmap_blob, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -119,7 +119,7 @@ while.body.i.i:                                   ; preds = %if.end13.i, %if.end
   br i1 %tobool1.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 1
   store i8 0, ptr %call.i.i, align 1
   br label %if.end.i.i
 
@@ -217,7 +217,7 @@ return:                                           ; preds = %if.then5, %entry, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @clear_mailmap(ptr noundef %map) local_unnamed_addr #0 {
 entry:
-  %strdup_strings = getelementptr inbounds i8, ptr %map, i64 24
+  %strdup_strings = getelementptr inbounds nuw i8, ptr %map, i64 24
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
@@ -232,11 +232,11 @@ define internal void @free_mailmap_entry(ptr noundef %p, ptr nocapture readnone 
 entry:
   %0 = load ptr, ptr %p, align 8
   tail call void @free(ptr noundef %0) #11
-  %email = getelementptr inbounds i8, ptr %p, i64 8
+  %email = getelementptr inbounds nuw i8, ptr %p, i64 8
   %1 = load ptr, ptr %email, align 8
   tail call void @free(ptr noundef %1) #11
-  %namemap = getelementptr inbounds i8, ptr %p, i64 16
-  %strdup_strings = getelementptr inbounds i8, ptr %p, i64 40
+  %namemap = getelementptr inbounds nuw i8, ptr %p, i64 16
+  %strdup_strings = getelementptr inbounds nuw i8, ptr %p, i64 40
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %strdup_strings, align 8
@@ -273,7 +273,7 @@ if.end7.i:                                        ; preds = %if.else.i, %if.then
   br i1 %cmp821.not.i, label %return, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end7.i
-  %nr.i = getelementptr inbounds i8, ptr %map, i64 8
+  %nr.i = getelementptr inbounds nuw i8, ptr %map, i64 8
   %4 = load i64, ptr %nr.i, align 8
   %5 = zext nneg i32 %i.0.i to i64
   %6 = add nsw i64 %5, -1
@@ -287,7 +287,7 @@ land.rhs.i:                                       ; preds = %if.end33.i, %land.r
 
 while.body.i:                                     ; preds = %land.rhs.i
   %7 = load ptr, ptr %map, align 8
-  %arrayidx14.i = getelementptr inbounds %struct.string_list_item, ptr %7, i64 %indvars.iv.next.i
+  %arrayidx14.i = getelementptr inbounds nuw %struct.string_list_item, ptr %7, i64 %indvars.iv.next.i
   %8 = load ptr, ptr %arrayidx14.i, align 8
   %call16.i = tail call i32 @strncasecmp(ptr noundef %8, ptr noundef %0, i64 noundef %1) #12
   %cmp17.i = icmp slt i32 %call16.i, 0
@@ -310,21 +310,21 @@ if.end33.i:                                       ; preds = %land.lhs.true.i, %i
 lookup_prefix.exit:                               ; preds = %if.then.i
   %10 = load ptr, ptr %map, align 8
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx2.i = getelementptr inbounds %struct.string_list_item, ptr %10, i64 %idxprom.i
+  %arrayidx2.i = getelementptr inbounds nuw %struct.string_list_item, ptr %10, i64 %idxprom.i
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true.i, %lookup_prefix.exit
   %retval.0.i57 = phi ptr [ %arrayidx2.i, %lookup_prefix.exit ], [ %arrayidx14.i, %land.lhs.true.i ]
-  %util = getelementptr inbounds i8, ptr %retval.0.i57, i64 8
+  %util = getelementptr inbounds nuw i8, ptr %retval.0.i57, i64 8
   %11 = load ptr, ptr %util, align 8
-  %nr = getelementptr inbounds i8, ptr %11, i64 24
+  %nr = getelementptr inbounds nuw i8, ptr %11, i64 24
   %12 = load i64, ptr %nr, align 8
   %tobool1.not = icmp eq i64 %12, 0
   br i1 %tobool1.not, label %if.then10, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %namemap = getelementptr inbounds i8, ptr %11, i64 16
+  %namemap = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %name, align 8
   %14 = load i64, ptr %namelen, align 8
   %call.i18 = tail call i32 @string_list_find_insert_index(ptr noundef nonnull %namemap, ptr noundef %13, i32 noundef 1) #11
@@ -341,7 +341,7 @@ if.then.i44:                                      ; preds = %if.then2
 if.then1.i48:                                     ; preds = %if.then.i44
   %16 = load ptr, ptr %namemap, align 8
   %idxprom.i49 = zext nneg i32 %sub.i45 to i64
-  %arrayidx2.i50 = getelementptr inbounds %struct.string_list_item, ptr %16, i64 %idxprom.i49
+  %arrayidx2.i50 = getelementptr inbounds nuw %struct.string_list_item, ptr %16, i64 %idxprom.i49
   br label %if.end8
 
 if.else.i20:                                      ; preds = %if.then2
@@ -369,7 +369,7 @@ land.rhs.i28:                                     ; preds = %if.end33.i39, %land
 
 while.body.i33:                                   ; preds = %land.rhs.i28
   %21 = load ptr, ptr %namemap, align 8
-  %arrayidx14.i34 = getelementptr inbounds %struct.string_list_item, ptr %21, i64 %indvars.iv.next.i30
+  %arrayidx14.i34 = getelementptr inbounds nuw %struct.string_list_item, ptr %21, i64 %indvars.iv.next.i30
   %22 = load ptr, ptr %arrayidx14.i34, align 8
   %call16.i35 = tail call i32 @strncasecmp(ptr noundef %22, ptr noundef %13, i64 noundef %14) #12
   %cmp17.i36 = icmp slt i32 %call16.i35, 0
@@ -397,7 +397,7 @@ if.end8:                                          ; preds = %if.end33.i39, %land
   br i1 %tobool9.not, label %return, label %if.end8.if.then10_crit_edge
 
 if.end8.if.then10_crit_edge:                      ; preds = %if.end8
-  %util11.phi.trans.insert = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %util11.phi.trans.insert = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %.pre = load ptr, ptr %util11.phi.trans.insert, align 8
   br label %if.then10
 
@@ -405,7 +405,7 @@ if.then10:                                        ; preds = %if.end8.if.then10_c
   %24 = phi ptr [ %.pre, %if.end8.if.then10_crit_edge ], [ %11, %if.then ]
   %25 = load ptr, ptr %24, align 8
   %cmp = icmp eq ptr %25, null
-  %email13 = getelementptr inbounds i8, ptr %24, i64 8
+  %email13 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %email13, align 8
   %cmp14 = icmp eq ptr %26, null
   br i1 %cmp, label %land.lhs.true, label %if.end16
@@ -470,7 +470,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1
   %call1.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 62) #12
   %tobool2.not.i = icmp eq ptr %call1.i, null
   %cmp.i = icmp eq ptr %add.ptr.i, %call1.i
@@ -481,13 +481,13 @@ while.cond.i:                                     ; preds = %if.end.i, %while.co
   %nstart.0.i = phi ptr [ %incdec.ptr.i, %while.cond.i ], [ %buffer, %if.end.i ]
   %1 = load i8, ptr %nstart.0.i, align 1
   %idxprom.i = zext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = and i8 %2, 1
   %cmp9.i = icmp ne i8 %3, 0
   %cmp11.i = icmp ult ptr %nstart.0.i, %call.i
   %4 = and i1 %cmp11.i, %cmp9.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %nstart.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %nstart.0.i, i64 1
   br i1 %4, label %while.cond.i, label %while.cond14.i, !llvm.loop !9
 
 while.cond14.i:                                   ; preds = %while.cond.i, %land.rhs17.i
@@ -499,7 +499,7 @@ while.cond14.i:                                   ; preds = %while.cond.i, %land
 land.rhs17.i:                                     ; preds = %while.cond14.i
   %5 = load i8, ptr %nend.0.i, align 1
   %idxprom18.i = zext i8 %5 to i64
-  %arrayidx19.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom18.i
   %6 = load i8, ptr %arrayidx19.i, align 1
   %7 = and i8 %6, 1
   %cmp22.not.i = icmp eq i8 %7, 0
@@ -508,7 +508,7 @@ land.rhs17.i:                                     ; preds = %while.cond14.i
 while.end27.i:                                    ; preds = %land.rhs17.i, %while.cond14.i
   %cmp28.not.i = icmp ugt ptr %nstart.0.i, %nend.0.i
   store i8 0, ptr %call.pn.i, align 1
-  %incdec.ptr32.i = getelementptr inbounds i8, ptr %call1.i, i64 1
+  %incdec.ptr32.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 1
   store i8 0, ptr %call1.i, align 1
   %8 = load i8, ptr %incdec.ptr32.i, align 1
   %cmp34.i = icmp eq i8 %8, 0
@@ -520,7 +520,7 @@ if.then2:                                         ; preds = %while.end27.i
   br i1 %tobool.not.i3, label %if.then6, label %if.end.i4
 
 if.end.i4:                                        ; preds = %if.then2
-  %add.ptr.i5 = getelementptr inbounds i8, ptr %call.i2, i64 1
+  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %call.i2, i64 1
   %call1.i6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i5, i32 noundef 62) #12
   %tobool2.not.i7 = icmp eq ptr %call1.i6, null
   br i1 %tobool2.not.i7, label %if.then6, label %while.cond.i10
@@ -529,13 +529,13 @@ while.cond.i10:                                   ; preds = %if.end.i4, %while.c
   %nstart.0.i11 = phi ptr [ %incdec.ptr.i16, %while.cond.i10 ], [ %incdec.ptr32.i, %if.end.i4 ]
   %9 = load i8, ptr %nstart.0.i11, align 1
   %idxprom.i12 = zext i8 %9 to i64
-  %arrayidx.i13 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i12
+  %arrayidx.i13 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i12
   %10 = load i8, ptr %arrayidx.i13, align 1
   %11 = and i8 %10, 1
   %cmp9.i14 = icmp ne i8 %11, 0
   %cmp11.i15 = icmp ult ptr %nstart.0.i11, %call.i2
   %12 = and i1 %cmp11.i15, %cmp9.i14
-  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %nstart.0.i11, i64 1
+  %incdec.ptr.i16 = getelementptr inbounds nuw i8, ptr %nstart.0.i11, i64 1
   br i1 %12, label %while.cond.i10, label %while.cond14.i18, !llvm.loop !9
 
 while.cond14.i18:                                 ; preds = %while.cond.i10, %land.rhs17.i29
@@ -547,7 +547,7 @@ while.cond14.i18:                                 ; preds = %while.cond.i10, %la
 land.rhs17.i29:                                   ; preds = %while.cond14.i18
   %13 = load i8, ptr %nend.0.i20, align 1
   %idxprom18.i30 = zext i8 %13 to i64
-  %arrayidx19.i31 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom18.i30
+  %arrayidx19.i31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom18.i30
   %14 = load i8, ptr %arrayidx19.i31, align 1
   %15 = and i8 %14, 1
   %cmp22.not.i32 = icmp eq i8 %15, 0
@@ -566,18 +566,18 @@ if.then6:                                         ; preds = %while.end27.i22, %i
   %tobool.not.i34 = icmp eq ptr %email2.051, null
   %spec.select.i = select i1 %tobool.not.i34, ptr %add.ptr.i, ptr %email2.051
   %call.i35 = tail call ptr @string_list_insert(ptr noundef %map, ptr noundef nonnull %spec.select.i) #11
-  %util.i = getelementptr inbounds i8, ptr %call.i35, i64 8
+  %util.i = getelementptr inbounds nuw i8, ptr %call.i35, i64 8
   %16 = load ptr, ptr %util.i, align 8
   %tobool1.not.i = icmp eq ptr %16, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.end7.i
 
 if.else.i:                                        ; preds = %if.then6
   %call4.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #11
-  %strdup_strings.i = getelementptr inbounds i8, ptr %call4.i, i64 40
+  %strdup_strings.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 40
   %bf.load.i = load i8, ptr %strdup_strings.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %strdup_strings.i, align 8
-  %cmp.i36 = getelementptr inbounds i8, ptr %call4.i, i64 48
+  %cmp.i36 = getelementptr inbounds nuw i8, ptr %call4.i, i64 48
   store ptr @namemap_cmp, ptr %cmp.i36, align 8
   store ptr %call4.i, ptr %util.i, align 8
   br label %if.end7.i
@@ -601,7 +601,7 @@ if.end14.i:                                       ; preds = %if.then11.i, %if.th
   br i1 %tobool.not.i34, label %if.end7, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end14.i
-  %email.i = getelementptr inbounds i8, ptr %me.0.i, i64 8
+  %email.i = getelementptr inbounds nuw i8, ptr %me.0.i, i64 8
   %18 = load ptr, ptr %email.i, align 8
   tail call void @free(ptr noundef %18) #11
   %call17.i = tail call ptr @xstrdup(ptr noundef nonnull %add.ptr.i) #11
@@ -627,11 +627,11 @@ cond.true.i21.i:                                  ; preds = %xstrdup_or_null.exi
 
 xstrdup_or_null.exit24.i:                         ; preds = %cond.true.i21.i, %xstrdup_or_null.exit.i
   %cond.i23.i = phi ptr [ %call.i22.i, %cond.true.i21.i ], [ null, %xstrdup_or_null.exit.i ]
-  %email25.i = getelementptr inbounds i8, ptr %call21.i, i64 8
+  %email25.i = getelementptr inbounds nuw i8, ptr %call21.i, i64 8
   store ptr %cond.i23.i, ptr %email25.i, align 8
-  %namemap26.i = getelementptr inbounds i8, ptr %me.0.i, i64 16
+  %namemap26.i = getelementptr inbounds nuw i8, ptr %me.0.i, i64 16
   %call27.i = tail call ptr @string_list_insert(ptr noundef nonnull %namemap26.i, ptr noundef nonnull %name2.050) #11
-  %util28.i = getelementptr inbounds i8, ptr %call27.i, i64 8
+  %util28.i = getelementptr inbounds nuw i8, ptr %call27.i, i64 8
   store ptr %call21.i, ptr %util28.i, align 8
   br label %if.end7
 
@@ -668,7 +668,7 @@ define internal void @free_mailmap_info(ptr nocapture noundef %p, ptr nocapture 
 entry:
   %0 = load ptr, ptr %p, align 8
   tail call void @free(ptr noundef %0) #11
-  %email = getelementptr inbounds i8, ptr %p, i64 8
+  %email = getelementptr inbounds nuw i8, ptr %p, i64 8
   %1 = load ptr, ptr %email, align 8
   tail call void @free(ptr noundef %1) #11
   tail call void @free(ptr noundef %p) #11

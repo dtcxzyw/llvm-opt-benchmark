@@ -23,10 +23,10 @@ define hidden noundef i64 @_ZNK9metaspace13FreeChunkList24calc_committed_word_si
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi ptr [ %.0, %.lr.ph ], [ %.06, %1 ]
   %.058 = phi i64 [ %4, %.lr.ph ], [ 0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.09, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, %.058
-  %5 = getelementptr inbounds i8, ptr %.09, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -38,7 +38,7 @@ define hidden noundef i64 @_ZNK9metaspace13FreeChunkList24calc_committed_word_si
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9metaspace13FreeChunkList8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %.preheader
@@ -53,7 +53,7 @@ define hidden void @_ZNK9metaspace13FreeChunkList8print_onEP12outputStream(ptr n
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #6
   tail call void @_ZNK9metaspace9Metachunk8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(72) %.012, ptr noundef nonnull %1) #6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4) #6
-  %5 = getelementptr inbounds i8, ptr %.012, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %.012, i64 48
   %.0 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %.0, null
   br i1 %.not9, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
@@ -86,7 +86,7 @@ define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr n
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.067 = phi i64 [ 0, %1 ], [ %8, %2 ]
-  %3 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv, i32 2
+  %3 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv, i32 2
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = sub nuw nsw i64 21, %indvars.iv
@@ -107,7 +107,7 @@ define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_w
 2:                                                ; preds = %1, %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit ]
   %.056 = phi i64 [ 0, %1 ], [ %8, %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit ]
-  %3 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv
   %.06.i.i = load ptr, ptr %3, align 8
   %.not7.i.i = icmp eq ptr %.06.i.i, null
   br i1 %.not7.i.i, label %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit, label %.lr.ph.i.i
@@ -115,10 +115,10 @@ define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector24calc_committed_w
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.06.i.i, %2 ]
   %.058.i.i = phi i64 [ %6, %.lr.ph.i.i ], [ 0, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %.058.i.i
-  %7 = getelementptr inbounds i8, ptr %.09.i.i, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 48
   %.0.i.i = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %_ZNK9metaspace19FreeChunkListVector33calc_committed_word_size_at_levelEa.exit, label %.lr.ph.i.i, !llvm.loop !6
@@ -145,10 +145,10 @@ define hidden noundef i64 @_ZNK9metaspace19FreeChunkListVector33calc_committed_w
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.09.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.06.i, %2 ]
   %.058.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.09.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %.058.i
-  %8 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %.0.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %_ZNK9metaspace13FreeChunkList24calc_committed_word_sizeEv.exit, label %.lr.ph.i, !llvm.loop !6
@@ -165,7 +165,7 @@ define hidden noundef i32 @_ZNK9metaspace19FreeChunkListVector10num_chunksEv(ptr
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.056 = phi i32 [ 0, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv, i32 2
+  %3 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv, i32 2
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -191,7 +191,7 @@ define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_asce
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %11
   %.016.i = phi ptr [ %.0.i, %11 ], [ %.014.i, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %.016.i, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %8, %3
   br i1 %9, label %10, label %_ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit
@@ -201,21 +201,21 @@ define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector22search_chunk_asce
   br i1 %.not11.i, label %.loopexit, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.016.i, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
   %.0.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.016.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.016.i, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not.i15 = icmp eq ptr %14, null
   br i1 %.not.i15, label %19, label %17
 
 17:                                               ; preds = %_ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit
-  %18 = getelementptr inbounds i8, ptr %14, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %16, ptr %18, align 8
   br label %19
 
@@ -224,7 +224,7 @@ _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.
   br i1 %.not17.i, label %22, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %14, ptr %21, align 8
   br label %22
 
@@ -238,7 +238,7 @@ _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.
   br label %26
 
 26:                                               ; preds = %25, %22
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %.016.i
   br i1 %29, label %30, label %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit
@@ -248,7 +248,7 @@ _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.
   br label %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit
 
 _ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit: ; preds = %26, %30
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, -1
@@ -276,14 +276,14 @@ define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector23search_chunk_desc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.loopexit ]
-  %6 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv
   %.014.i = load ptr, ptr %6, align 8
   %.not15.i = icmp eq ptr %.014.i, null
   br i1 %.not15.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %11
   %.016.i = phi ptr [ %.0.i, %11 ], [ %.014.i, %.lr.ph ]
-  %7 = getelementptr inbounds i8, ptr %.016.i, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %8, %2
   br i1 %9, label %10, label %_ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit
@@ -293,21 +293,21 @@ define hidden noundef ptr @_ZN9metaspace19FreeChunkListVector23search_chunk_desc
   br i1 %.not11.i, label %.loopexit, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.016.i, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
   %.0.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.016.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.016.i, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.016.i, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %.016.i, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not.i13 = icmp eq ptr %14, null
   br i1 %.not.i13, label %19, label %17
 
 17:                                               ; preds = %_ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit
-  %18 = getelementptr inbounds i8, ptr %14, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %16, ptr %18, align 8
   br label %19
 
@@ -316,7 +316,7 @@ _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.
   br i1 %.not17.i, label %22, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %14, ptr %21, align 8
   br label %22
 
@@ -330,7 +330,7 @@ _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.
   br label %26
 
 26:                                               ; preds = %25, %22
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %.016.i
   br i1 %29, label %30, label %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit
@@ -340,7 +340,7 @@ _ZNK9metaspace13FreeChunkList25first_minimally_committedEm.exit: ; preds = %.lr.
   br label %_ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit
 
 _ZN9metaspace13FreeChunkList6removeEPNS_9MetachunkE.exit: ; preds = %26, %30
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, -1
@@ -365,8 +365,8 @@ define hidden void @_ZNK9metaspace19FreeChunkListVector8print_onEP12outputStream
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit ]
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, i32 noundef %4) #6
-  %5 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %5 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %10, label %.preheader.i
@@ -381,7 +381,7 @@ define hidden void @_ZNK9metaspace19FreeChunkListVector8print_onEP12outputStream
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #6
   tail call void @_ZNK9metaspace9Metachunk8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(72) %.012.i, ptr noundef nonnull %1) #6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4) #6
-  %8 = getelementptr inbounds i8, ptr %.012.i, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.012.i, i64 48
   %.0.i = load ptr, ptr %8, align 8
   %.not9.i = icmp eq ptr %.0.i, null
   br i1 %.not9.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
@@ -408,7 +408,7 @@ _ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit: ; preds = %._crit_e
 .preheader:                                       ; preds = %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit ]
   %.056.i = phi i32 [ %13, %.preheader ], [ 0, %_ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit ]
-  %11 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv.i, i32 2
+  %11 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv.i, i32 2
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -418,7 +418,7 @@ _ZNK9metaspace13FreeChunkList8print_onEP12outputStream.exit: ; preds = %._crit_e
 _ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit: ; preds = %.preheader, %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i10, %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit ], [ 0, %.preheader ]
   %.067.i = phi i64 [ %19, %_ZNK9metaspace19FreeChunkListVector10num_chunksEv.exit ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv.i9, i32 2
+  %14 = getelementptr inbounds nuw %"class.metaspace::FreeChunkList", ptr %0, i64 %indvars.iv.i9, i32 2
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = sub nuw nsw i64 21, %indvars.iv.i9

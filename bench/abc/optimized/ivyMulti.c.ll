@@ -50,20 +50,20 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.val129 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds ptr, ptr %.val129, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %.val129, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv
   store ptr %22, ptr %23, align 16
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = shl nuw i32 1, %24
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store i32 1, ptr %27, align 4
   %28 = ptrtoint ptr %22 to i64
   %29 = and i64 %28, -2
   %30 = inttoptr i64 %29 to ptr
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %24, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val125 = load i32, ptr %7, align 4
@@ -79,10 +79,10 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 36:                                               ; preds = %.lr.ph152, %.critedge
   %indvars.iv177 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next178, %.critedge ]
   %.val130 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val130, i64 %indvars.iv177
+  %37 = getelementptr inbounds nuw ptr, ptr %.val130, i64 %indvars.iv177
   %38 = load ptr, ptr %37, align 8
   %39 = add nuw nsw i64 %indvars.iv177, %19
-  %40 = getelementptr inbounds i8, ptr %38, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %41 = trunc nuw i64 %39 to i32
   store i32 %41, ptr %40, align 4
   %42 = getelementptr i8, ptr %38, i64 8
@@ -94,7 +94,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %45 = ptrtoint ptr %.val134 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %50, i32 1
@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %55 = ptrtoint ptr %.val136 to i64
   %56 = and i64 %55, -2
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %60, i32 1
@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 
 .critedge:                                        ; preds = %36, %53
   %.sink = phi i32 [ %63, %53 ], [ %52, %36 ]
-  %64 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %39, i32 1
+  %64 = getelementptr inbounds nuw [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %39, i32 1
   store i32 %.sink, ptr %64, align 8
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %.val126 = load i32, ptr %10, align 4
@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %.1111155 = phi i32 [ %.2112, %.critedge2 ], [ %.0110.lcssa, %.critedge2.preheader ]
   %.val131 = load ptr, ptr %34, align 8
-  %67 = getelementptr inbounds ptr, ptr %.val131, i64 %indvars.iv180
+  %67 = getelementptr inbounds nuw ptr, ptr %.val131, i64 %indvars.iv180
   %68 = load ptr, ptr %67, align 8
   %69 = add nsw i32 %.val127196, -1
   %70 = zext i32 %69 to i64
@@ -154,12 +154,12 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %79 = sext i32 %.1111155 to i64
   %80 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %79
   store ptr %68, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %68, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [128 x %struct.Ivy_Eva_t_], ptr @Ivy_MultiPlus.pEvals, i64 0, i64 %83, i32 1
   %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %80, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %85, ptr %86, align 8
   %87 = and i32 %85, 1431655765
   %88 = lshr i32 %85, 1
@@ -180,7 +180,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %103 = and i32 %102, 31
   %104 = lshr i32 %102, 16
   %105 = add nuw nsw i32 %103, %104
-  %106 = getelementptr inbounds i8, ptr %80, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %80, i64 12
   store i32 %105, ptr %106, align 4
   store i32 %.1111155, ptr %81, align 4
   %107 = add nsw i32 %.1111155, 1
@@ -202,28 +202,28 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   br i1 %110, label %.preheader141.lr.ph, label %.loopexit142
 
 .preheader141.lr.ph:                              ; preds = %.critedge4
-  %111 = getelementptr inbounds i8, ptr %0, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %112 = and i32 %3, 15
-  %113 = getelementptr inbounds i8, ptr %0, i64 56
-  %114 = getelementptr inbounds i8, ptr %0, i64 64
-  %115 = getelementptr inbounds i8, ptr %0, i64 40
-  %116 = getelementptr inbounds i8, ptr %1, i64 8
-  %117 = getelementptr inbounds i8, ptr %.3109, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.3109, i64 4
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %.preheader141
 
 .preheader141:                                    ; preds = %.preheader141.lr.ph, %198
   %indvars.iv191 = phi i64 [ 1, %.preheader141.lr.ph ], [ %indvars.iv.next192, %198 ]
   %.3113167 = phi i32 [ %.1111.lcssa, %.preheader141.lr.ph ], [ %.5, %198 ]
-  %118 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv191
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
-  %120 = getelementptr inbounds i8, ptr %118, i64 12
+  %118 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv191
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 12
   br label %121
 
 121:                                              ; preds = %.preheader141, %.loopexit
   %indvars.iv186 = phi i64 [ 0, %.preheader141 ], [ %indvars.iv.next187, %.loopexit ]
   %.4165 = phi i32 [ %.3113167, %.preheader141 ], [ %.5, %.loopexit ]
-  %122 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv186
+  %122 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv186
   %123 = load ptr, ptr %118, align 16
   %124 = load ptr, ptr %122, align 16
   %125 = load i32, ptr %111, align 8
@@ -266,7 +266,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   br i1 %140, label %.loopexit, label %141
 
 141:                                              ; preds = %Ivy_ObjCreateGhost.exit
-  %142 = getelementptr inbounds i8, ptr %139, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %143 = load i32, ptr %142, align 8
   %144 = and i32 %143, 32
   %.not118 = icmp eq i32 %144, 0
@@ -286,7 +286,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
 
 147:                                              ; preds = %.lr.ph164, %146
   %indvars.iv183 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next184, %146 ]
-  %148 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv183
+  %148 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv183
   %149 = load ptr, ptr %148, align 8
   %150 = ptrtoint ptr %149 to i64
   %151 = and i64 %150, -2
@@ -299,10 +299,10 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   %155 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %154
   store ptr %139, ptr %155, align 16
   %156 = load i32, ptr %119, align 8
-  %157 = getelementptr inbounds i8, ptr %122, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %158 = load i32, ptr %157, align 8
   %159 = or i32 %158, %156
-  %160 = getelementptr inbounds i8, ptr %155, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i32 %159, ptr %160, align 8
   %161 = load i32, ptr %119, align 8
   %162 = load i32, ptr %157, align 8
@@ -334,14 +334,14 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
 
 184:                                              ; preds = %.critedge123
   %185 = load i32, ptr %120, align 4
-  %186 = getelementptr inbounds i8, ptr %122, i64 12
+  %186 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %187 = load i32, ptr %186, align 4
   %188 = add nsw i32 %187, %185
   br label %189
 
 189:                                              ; preds = %184, %164
   %190 = phi i32 [ %183, %164 ], [ %188, %184 ]
-  %191 = getelementptr inbounds i8, ptr %155, i64 12
+  %191 = getelementptr inbounds nuw i8, ptr %155, i64 12
   store i32 %190, ptr %191, align 4
   store i32 %.4165, ptr %117, align 4
   %192 = add nsw i32 %.4165, 1
@@ -371,14 +371,14 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   %201 = icmp eq i32 %.val, 32
   %202 = xor i32 %notmask, -1
   %203 = select i1 %201, i32 -1, i32 %202
-  %204 = getelementptr inbounds i8, ptr %5, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %204, align 4
   %205 = icmp sgt i32 %4, 0
   br i1 %205, label %.preheader.lr.ph.i, label %Ivy_MultiCover.exit
 
 .preheader.lr.ph.i:                               ; preds = %.loopexit142
   %206 = icmp sgt i32 %.6, 0
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %207 = zext i32 %.6 to i64
   br label %.preheader.i
 
@@ -406,8 +406,8 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   %.1693.i = phi i32 [ %.06819.i, %.lr.ph.i ], [ %.270.i, %283 ]
   %.0712.i = phi i32 [ -1, %.lr.ph.i ], [ %.172.i, %283 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %212 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv.next.i
-  %213 = getelementptr inbounds i8, ptr %212, i64 8
+  %212 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv.next.i
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i32, ptr %213, align 8
   %215 = and i32 %214, %210
   %216 = icmp eq i32 %215, 0
@@ -416,7 +416,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
 217:                                              ; preds = %211
   %218 = icmp eq i32 %.0712.i, -1
   %219 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  %220 = getelementptr inbounds i8, ptr %212, i64 12
+  %220 = getelementptr inbounds nuw i8, ptr %212, i64 12
   %221 = load i32, ptr %220, align 4
   %222 = and i32 %214, %.07717.i
   %223 = icmp eq i32 %222, 0
@@ -523,7 +523,7 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
   br i1 %or.cond85.i, label %297, label %286
 
 286:                                              ; preds = %._crit_edge.i
-  %287 = getelementptr inbounds i8, ptr %.166.lcssa.i, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %.166.lcssa.i, i64 8
   %288 = load i32, ptr %287, align 8
   %289 = xor i32 %.07717.i, -1
   %290 = and i32 %288, %289
@@ -548,7 +548,7 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
 
 ._crit_edge13.i:                                  ; preds = %._crit_edge13.loopexit.i, %286
   %.175.lcssa.i = phi i64 [ 0, %286 ], [ %295, %._crit_edge13.loopexit.i ]
-  %296 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %.175.lcssa.i
+  %296 = getelementptr inbounds nuw %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %.175.lcssa.i
   br label %297
 
 297:                                              ; preds = %._crit_edge13.i, %._crit_edge.i
@@ -616,7 +616,7 @@ Vec_PtrPush.exit.i:                               ; preds = %320, %Vec_PtrGrow.e
   %325 = sext i32 %323 to i64
   %326 = getelementptr inbounds ptr, ptr %322, i64 %325
   store ptr %298, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %.3.i, i64 8
+  %327 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
   %328 = load i32, ptr %327, align 8
   %329 = or i32 %328, %.07717.i
   %330 = icmp eq i32 %329, %203

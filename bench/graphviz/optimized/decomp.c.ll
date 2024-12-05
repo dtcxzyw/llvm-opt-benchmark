@@ -19,12 +19,12 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %5 = add i64 %4, 1
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   store i64 %spec.store.select, ptr @Cmark, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 336
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 336
   store i64 0, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 312
   store i64 0, ptr %10, align 8
   %11 = tail call ptr @agfstnode(ptr noundef %0) #12
   %.not47 = icmp eq ptr %11, null
@@ -32,9 +32,9 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2
   %12 = icmp sgt i32 %1, 0
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
-  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %16
 
 16:                                               ; preds = %.lr.ph, %194
@@ -45,19 +45,19 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %12, label %17, label %32
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %.01751, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.01751, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 336
   %21 = load ptr, ptr %20, align 8
   %.not19 = icmp eq ptr %21, null
   br i1 %.not19, label %32, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 392
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 392
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 360
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 360
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
@@ -71,9 +71,9 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 34:                                               ; preds = %32, %22
   %.0 = phi ptr [ %31, %22 ], [ %.01751, %32 ]
-  %35 = getelementptr inbounds i8, ptr %.0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 224
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 224
   %38 = load i64, ptr %37, align 8
   %39 = load i64, ptr @Cmark, align 8
   %.not21 = icmp eq i64 %38, %39
@@ -81,13 +81,13 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 40:                                               ; preds = %34
   %.val = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %.val, i64 256
+  %41 = getelementptr inbounds nuw i8, ptr %.val, i64 256
   store ptr null, ptr %41, align 8
   store ptr null, ptr @Last_node, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %42 = add i64 %39, 1
   %43 = load ptr, ptr %35, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 224
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 224
   store i64 %42, ptr %44, align 8
   %45 = icmp eq i64 %.sroa.10.049, %.sroa.22.050
   br i1 %45, label %46, label %push.exit
@@ -142,9 +142,9 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   br i1 %.not.i, label %search_component.exit, label %69
 
 69:                                               ; preds = %pop.exit.i
-  %70 = getelementptr inbounds i8, ptr %67, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 224
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 224
   %73 = load i64, ptr %72, align 8
   %74 = load i64, ptr @Cmark, align 8
   %75 = icmp eq i64 %73, %74
@@ -159,47 +159,47 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
 
 77:                                               ; preds = %69
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 336
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 336
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, 1
   store i64 %81, ptr %79, align 8
   %82 = load ptr, ptr %70, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 224
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 224
   store i64 %74, ptr %83, align 8
   %84 = load ptr, ptr @Last_node, align 8
   %.not.i.i = icmp eq ptr %84, null
   %85 = load ptr, ptr %70, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 248
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 248
   br i1 %.not.i.i, label %91, label %87
 
 87:                                               ; preds = %77
   store ptr %84, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 240
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 240
   store ptr %67, ptr %90, align 8
   br label %add_to_component.exit.i
 
 91:                                               ; preds = %77
   store ptr null, ptr %86, align 8
   %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 256
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 256
   store ptr %67, ptr %93, align 8
   br label %add_to_component.exit.i
 
 add_to_component.exit.i:                          ; preds = %91, %87
   store ptr %67, ptr @Last_node, align 8
   %94 = load ptr, ptr %70, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 240
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 240
   store ptr null, ptr %95, align 8
   %96 = load ptr, ptr %70, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 272
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %97, i64 16, i1 false)
-  %98 = getelementptr inbounds i8, ptr %96, i64 256
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false)
-  %99 = getelementptr inbounds i8, ptr %96, i64 288
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %99, i64 16, i1 false)
-  %100 = getelementptr inbounds i8, ptr %96, i64 304
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %100, i64 16, i1 false)
   br label %101
 
@@ -208,13 +208,13 @@ add_to_component.exit.i:                          ; preds = %91, %87
   %.sroa.10.2 = phi i64 [ %68, %add_to_component.exit.i ], [ %.sroa.10.5, %.loopexit.i ]
   %.sroa.22.3 = phi i64 [ %.sroa.22.2, %add_to_component.exit.i ], [ %.sroa.22.6, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 3, %add_to_component.exit.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %102 = getelementptr inbounds [4 x %struct.elist], ptr %3, i64 0, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [4 x %struct.elist], ptr %3, i64 0, i64 %indvars.iv.i
   %103 = load ptr, ptr %102, align 16
   %.not39.i = icmp eq ptr %103, null
   br i1 %.not39.i, label %.loopexit.i, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %106 = load i64, ptr %105, align 8
   %.not40.i = icmp eq i64 %106, 0
   br i1 %.not40.i, label %.loopexit.i, label %107
@@ -236,7 +236,7 @@ add_to_component.exit.i:                          ; preds = %91, %87
   %114 = icmp eq i32 %113, 2
   %.idx.i = select i1 %114, i64 0, i64 -64
   %115 = getelementptr inbounds i8, ptr %111, i64 %.idx.i
-  %116 = getelementptr inbounds i8, ptr %115, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %67
   br i1 %118, label %119, label %124
@@ -244,16 +244,16 @@ add_to_component.exit.i:                          ; preds = %91, %87
 119:                                              ; preds = %110
   %120 = icmp eq i32 %113, 3
   %.idx42.i = select i1 %120, i64 0, i64 64
-  %121 = getelementptr inbounds i8, ptr %111, i64 %.idx42.i
-  %122 = getelementptr inbounds i8, ptr %121, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %111, i64 %.idx42.i
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %123 = load ptr, ptr %122, align 8
   br label %124
 
 124:                                              ; preds = %119, %110
   %.033.i = phi ptr [ %123, %119 ], [ %117, %110 ]
-  %125 = getelementptr inbounds i8, ptr %.033.i, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.033.i, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 224
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 224
   %128 = load i64, ptr %127, align 8
   %129 = load i64, ptr @Cmark, align 8
   %.not43.i = icmp eq i64 %128, %129
@@ -268,7 +268,7 @@ add_to_component.exit.i:                          ; preds = %91, %87
   %134 = load i64, ptr @Cmark, align 8
   %135 = add i64 %134, 1
   %136 = load ptr, ptr %125, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 224
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 224
   store i64 %135, ptr %137, align 8
   %138 = icmp eq i64 %.sroa.10.3, %.sroa.22.4
   br i1 %138, label %139, label %push.exit.i
@@ -333,14 +333,14 @@ search_component.exit:                            ; preds = %pop.exit.i, %.backe
   %.sroa.22.9 = phi i64 [ %.sroa.22.10, %push.exit ], [ %.sroa.22.7, %.backedge.i ], [ %.sroa.22.2, %pop.exit.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %160 = load ptr, ptr %6, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 312
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 312
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %162, 1
   store i64 %163, ptr %161, align 8
   %164 = load ptr, ptr %6, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 304
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 304
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %164, i64 312
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 312
   %168 = load i64, ptr %167, align 8
   %169 = icmp ugt i64 %168, 2305843009213693951
   br i1 %169, label %170, label %173
@@ -380,12 +380,12 @@ search_component.exit:                            ; preds = %pop.exit.i, %.backe
 end_component.exit:                               ; preds = %176, %183
   %.0.i.i.i = phi ptr [ null, %176 ], [ %178, %183 ]
   %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 304
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 304
   store ptr %.0.i.i.i, ptr %187, align 8
   %188 = load ptr, ptr %6, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 256
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 256
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %188, i64 304
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 304
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds ptr, ptr %192, i64 %162
   store ptr %190, ptr %193, align 8

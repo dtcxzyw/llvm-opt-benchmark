@@ -32,44 +32,44 @@ define dso_local noundef ptr @qvirtio_pci_virtqueue_setup_common(ptr noundef %d,
 entry:
   %call = tail call noalias dereferenceable_or_null(88) ptr @g_malloc0(i64 noundef 88) #6
   %0 = load ptr, ptr %d, align 8
-  %get_guest_features = getelementptr inbounds i8, ptr %0, i64 48
+  %get_guest_features = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %get_guest_features, align 8
   %call1 = tail call i64 %1(ptr noundef nonnull %d) #7
   %2 = load ptr, ptr %d, align 8
-  %queue_select = getelementptr inbounds i8, ptr %2, i64 88
+  %queue_select = getelementptr inbounds nuw i8, ptr %2, i64 88
   %3 = load ptr, ptr %queue_select, align 8
   tail call void %3(ptr noundef nonnull %d, i16 noundef zeroext %index) #7
   store ptr %d, ptr %call, align 8
-  %index4 = getelementptr inbounds i8, ptr %call, i64 32
+  %index4 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i16 %index, ptr %index4, align 8
   %4 = load ptr, ptr %d, align 8
-  %get_queue_size = getelementptr inbounds i8, ptr %4, i64 96
+  %get_queue_size = getelementptr inbounds nuw i8, ptr %4, i64 96
   %5 = load ptr, ptr %get_queue_size, align 8
   %call6 = tail call zeroext i16 %5(ptr noundef nonnull %d) #7
   %conv = zext i16 %call6 to i32
-  %size = getelementptr inbounds i8, ptr %call, i64 36
+  %size = getelementptr inbounds nuw i8, ptr %call, i64 36
   store i32 %conv, ptr %size, align 4
-  %free_head = getelementptr inbounds i8, ptr %call, i64 40
+  %free_head = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i32 0, ptr %free_head, align 8
-  %num_free = getelementptr inbounds i8, ptr %call, i64 44
+  %num_free = getelementptr inbounds nuw i8, ptr %call, i64 44
   store i32 %conv, ptr %num_free, align 4
-  %align = getelementptr inbounds i8, ptr %call, i64 48
+  %align = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i32 4096, ptr %align, align 8
-  %indirect = getelementptr inbounds i8, ptr %call, i64 54
+  %indirect = getelementptr inbounds nuw i8, ptr %call, i64 54
   %and = lshr i64 %call1, 28
   %6 = trunc i64 %and to i8
   %frombool = and i8 %6, 1
   store i8 %frombool, ptr %indirect, align 2
-  %event = getelementptr inbounds i8, ptr %call, i64 55
+  %event = getelementptr inbounds nuw i8, ptr %call, i64 55
   %and14 = lshr i64 %call1, 29
   %7 = trunc i64 %and14 to i8
   %frombool17 = and i8 %7, 1
   store i8 %frombool17, ptr %event, align 1
-  %msix_entry = getelementptr inbounds i8, ptr %call, i64 56
+  %msix_entry = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i16 -1, ptr %msix_entry, align 8
-  %msix_addr = getelementptr inbounds i8, ptr %call, i64 64
+  %msix_addr = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i64 0, ptr %msix_addr, align 8
-  %msix_data = getelementptr inbounds i8, ptr %call, i64 72
+  %msix_data = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i32 305419896, ptr %msix_data, align 8
   %cmp.not = icmp eq i16 %call6, 0
   br i1 %cmp.not, label %if.else, label %do.body24
@@ -101,11 +101,11 @@ do.end40:                                         ; preds = %if.else36, %do.body
   %pdev = getelementptr i8, ptr %d, i64 32
   %8 = load ptr, ptr %pdev, align 8
   %9 = load ptr, ptr %8, align 8
-  %qts = getelementptr inbounds i8, ptr %9, i64 128
+  %qts = getelementptr inbounds nuw i8, ptr %9, i64 128
   %10 = load ptr, ptr %qts, align 8
   tail call void @qvring_init(ptr noundef %10, ptr noundef %alloc, ptr noundef nonnull %call, i64 noundef %call45) #7
   %11 = load ptr, ptr %d, align 8
-  %set_queue_address = getelementptr inbounds i8, ptr %11, i64 104
+  %set_queue_address = getelementptr inbounds nuw i8, ptr %11, i64 104
   %12 = load ptr, ptr %set_queue_address, align 8
   tail call void %12(ptr noundef nonnull %d, ptr noundef nonnull %call) #7
   ret ptr %call
@@ -123,7 +123,7 @@ declare void @qvring_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) lo
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtio_pci_virtqueue_cleanup_common(ptr noundef %vq, ptr noundef %alloc) #0 {
 entry:
-  %desc = getelementptr inbounds i8, ptr %vq, i64 8
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   %0 = load i64, ptr %desc, align 8
   tail call void @guest_free(ptr noundef %alloc, i64 noundef %0) #7
   tail call void @g_free(ptr noundef %vq) #7
@@ -137,18 +137,18 @@ declare void @g_free(ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtio_pci_device_enable(ptr nocapture noundef initializes((80, 89)) %d) local_unnamed_addr #0 {
 entry:
-  %pdev = getelementptr inbounds i8, ptr %d, i64 72
+  %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
   tail call void @qpci_device_enable(ptr noundef %0) #7
-  %bar = getelementptr inbounds i8, ptr %d, i64 80
+  %bar = getelementptr inbounds nuw i8, ptr %d, i64 80
   %1 = load ptr, ptr %pdev, align 8
-  %bar_idx = getelementptr inbounds i8, ptr %d, i64 124
+  %bar_idx = getelementptr inbounds nuw i8, ptr %d, i64 124
   %2 = load i32, ptr %bar_idx, align 4
   %call = tail call { i64, i8 } @qpci_iomap(ptr noundef %1, i32 noundef %2, ptr noundef null) #7
   %3 = extractvalue { i64, i8 } %call, 0
   %4 = extractvalue { i64, i8 } %call, 1
   store i64 %3, ptr %bar, align 8
-  %tmp.sroa.2.0.bar.sroa_idx = getelementptr inbounds i8, ptr %d, i64 88
+  %tmp.sroa.2.0.bar.sroa_idx = getelementptr inbounds nuw i8, ptr %d, i64 88
   store i8 %4, ptr %tmp.sroa.2.0.bar.sroa_idx, align 8
   ret void
 }
@@ -160,11 +160,11 @@ declare { i64, i8 } @qpci_iomap(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtio_pci_device_disable(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %pdev = getelementptr inbounds i8, ptr %d, i64 72
+  %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
-  %bar = getelementptr inbounds i8, ptr %d, i64 80
+  %bar = getelementptr inbounds nuw i8, ptr %d, i64 80
   %1 = load i64, ptr %bar, align 8
-  %2 = getelementptr inbounds i8, ptr %d, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %d, i64 88
   %3 = load i8, ptr %2, align 8
   tail call void @qpci_iounmap(ptr noundef %0, i64 %1, i8 %3) #7
   ret void
@@ -175,9 +175,9 @@ declare void @qpci_iounmap(ptr noundef, i64, i8) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtqueue_pci_msix_setup(ptr noundef %d, ptr nocapture noundef %vqpci, ptr noundef %alloc, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
 entry:
-  %pdev = getelementptr inbounds i8, ptr %d, i64 72
+  %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -187,7 +187,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %msix_table_off = getelementptr inbounds i8, ptr %0, i64 48
+  %msix_table_off = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i64, ptr %msix_table_off, align 8
   %call = tail call zeroext i16 @qpci_msix_table_size(ptr noundef nonnull %0) #7
   %cmp19 = icmp ult i16 %entry1, %call
@@ -203,56 +203,56 @@ do.end26:                                         ; preds = %if.else22, %do.end
   %conv = zext i16 %entry1 to i64
   %mul = shl nuw nsw i64 %conv, 4
   %add = add i64 %2, %mul
-  %msix_entry = getelementptr inbounds i8, ptr %vqpci, i64 56
+  %msix_entry = getelementptr inbounds nuw i8, ptr %vqpci, i64 56
   store i16 %entry1, ptr %msix_entry, align 8
   %call27 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 4) #7
-  %msix_addr = getelementptr inbounds i8, ptr %vqpci, i64 64
+  %msix_addr = getelementptr inbounds nuw i8, ptr %vqpci, i64 64
   store i64 %call27, ptr %msix_addr, align 8
   %3 = load ptr, ptr %pdev, align 8
-  %msix_table_bar = getelementptr inbounds i8, ptr %3, i64 16
+  %msix_table_bar = getelementptr inbounds nuw i8, ptr %3, i64 16
   %conv32 = trunc i64 %call27 to i32
   %4 = load i64, ptr %msix_table_bar, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i8, ptr %5, align 8
   tail call void @qpci_io_writel(ptr noundef %3, i64 %4, i8 %6, i64 noundef %add, i32 noundef %conv32) #7
   %7 = load ptr, ptr %pdev, align 8
-  %msix_table_bar35 = getelementptr inbounds i8, ptr %7, i64 16
+  %msix_table_bar35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %add36 = add i64 %add, 4
   %8 = load i64, ptr %msix_addr, align 8
   %shr = lshr i64 %8, 32
   %conv39 = trunc nuw i64 %shr to i32
   %9 = load i64, ptr %msix_table_bar35, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i8, ptr %10, align 8
   tail call void @qpci_io_writel(ptr noundef %7, i64 %9, i8 %11, i64 noundef %add36, i32 noundef %conv39) #7
   %12 = load ptr, ptr %pdev, align 8
-  %msix_table_bar42 = getelementptr inbounds i8, ptr %12, i64 16
+  %msix_table_bar42 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %add43 = add i64 %add, 8
-  %msix_data = getelementptr inbounds i8, ptr %vqpci, i64 72
+  %msix_data = getelementptr inbounds nuw i8, ptr %vqpci, i64 72
   %13 = load i32, ptr %msix_data, align 8
   %14 = load i64, ptr %msix_table_bar42, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i8, ptr %15, align 8
   tail call void @qpci_io_writel(ptr noundef %12, i64 %14, i8 %16, i64 noundef %add43, i32 noundef %13) #7
   %17 = load ptr, ptr %pdev, align 8
-  %msix_table_bar46 = getelementptr inbounds i8, ptr %17, i64 16
+  %msix_table_bar46 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %add47 = add i64 %add, 12
   %18 = load i64, ptr %msix_table_bar46, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load i8, ptr %19, align 8
   %call48 = tail call i32 @qpci_io_readl(ptr noundef %17, i64 %18, i8 %20, i64 noundef %add47) #7
   %21 = load ptr, ptr %pdev, align 8
-  %msix_table_bar51 = getelementptr inbounds i8, ptr %21, i64 16
+  %msix_table_bar51 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %and53 = and i32 %call48, -2
   %22 = load i64, ptr %msix_table_bar51, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load i8, ptr %23, align 8
   tail call void @qpci_io_writel(ptr noundef %21, i64 %22, i8 %24, i64 noundef %add47, i32 noundef %and53) #7
-  %msix_ops = getelementptr inbounds i8, ptr %d, i64 96
+  %msix_ops = getelementptr inbounds nuw i8, ptr %d, i64 96
   %25 = load ptr, ptr %msix_ops, align 8
-  %set_queue_vector = getelementptr inbounds i8, ptr %25, i64 8
+  %set_queue_vector = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = load ptr, ptr %set_queue_vector, align 8
-  %index = getelementptr inbounds i8, ptr %vqpci, i64 32
+  %index = getelementptr inbounds nuw i8, ptr %vqpci, i64 32
   %27 = load i16, ptr %index, align 8
   tail call void %26(ptr noundef nonnull %d, i16 noundef zeroext %27, i16 noundef zeroext %entry1) #7
   ret void
@@ -270,9 +270,9 @@ declare i32 @qpci_io_readl(ptr noundef, i64, i8, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtio_pci_set_msix_configuration_vector(ptr noundef %d, ptr noundef %alloc, i16 noundef zeroext %entry1) local_unnamed_addr #0 {
 entry:
-  %pdev = getelementptr inbounds i8, ptr %d, i64 72
+  %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %do.end, label %if.else
@@ -282,7 +282,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %msix_table_off = getelementptr inbounds i8, ptr %0, i64 48
+  %msix_table_off = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load i64, ptr %msix_table_off, align 8
   %call = tail call zeroext i16 @qpci_msix_table_size(ptr noundef nonnull %0) #7
   %cmp19 = icmp ult i16 %entry1, %call
@@ -298,53 +298,53 @@ do.end26:                                         ; preds = %if.else22, %do.end
   %conv = zext i16 %entry1 to i64
   %mul = shl nuw nsw i64 %conv, 4
   %add = add i64 %2, %mul
-  %config_msix_entry = getelementptr inbounds i8, ptr %d, i64 104
+  %config_msix_entry = getelementptr inbounds nuw i8, ptr %d, i64 104
   store i16 %entry1, ptr %config_msix_entry, align 8
-  %config_msix_data = getelementptr inbounds i8, ptr %d, i64 120
+  %config_msix_data = getelementptr inbounds nuw i8, ptr %d, i64 120
   store i32 305419896, ptr %config_msix_data, align 8
   %call27 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 4) #7
-  %config_msix_addr = getelementptr inbounds i8, ptr %d, i64 112
+  %config_msix_addr = getelementptr inbounds nuw i8, ptr %d, i64 112
   store i64 %call27, ptr %config_msix_addr, align 8
   %3 = load ptr, ptr %pdev, align 8
-  %msix_table_bar = getelementptr inbounds i8, ptr %3, i64 16
+  %msix_table_bar = getelementptr inbounds nuw i8, ptr %3, i64 16
   %conv32 = trunc i64 %call27 to i32
   %4 = load i64, ptr %msix_table_bar, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i8, ptr %5, align 8
   tail call void @qpci_io_writel(ptr noundef %3, i64 %4, i8 %6, i64 noundef %add, i32 noundef %conv32) #7
   %7 = load ptr, ptr %pdev, align 8
-  %msix_table_bar35 = getelementptr inbounds i8, ptr %7, i64 16
+  %msix_table_bar35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %add36 = add i64 %add, 4
   %8 = load i64, ptr %config_msix_addr, align 8
   %shr = lshr i64 %8, 32
   %conv39 = trunc nuw i64 %shr to i32
   %9 = load i64, ptr %msix_table_bar35, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i8, ptr %10, align 8
   tail call void @qpci_io_writel(ptr noundef %7, i64 %9, i8 %11, i64 noundef %add36, i32 noundef %conv39) #7
   %12 = load ptr, ptr %pdev, align 8
-  %msix_table_bar42 = getelementptr inbounds i8, ptr %12, i64 16
+  %msix_table_bar42 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %add43 = add i64 %add, 8
   %13 = load i32, ptr %config_msix_data, align 8
   %14 = load i64, ptr %msix_table_bar42, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i8, ptr %15, align 8
   tail call void @qpci_io_writel(ptr noundef %12, i64 %14, i8 %16, i64 noundef %add43, i32 noundef %13) #7
   %17 = load ptr, ptr %pdev, align 8
-  %msix_table_bar47 = getelementptr inbounds i8, ptr %17, i64 16
+  %msix_table_bar47 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %add48 = add i64 %add, 12
   %18 = load i64, ptr %msix_table_bar47, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load i8, ptr %19, align 8
   %call49 = tail call i32 @qpci_io_readl(ptr noundef %17, i64 %18, i8 %20, i64 noundef %add48) #7
   %21 = load ptr, ptr %pdev, align 8
-  %msix_table_bar52 = getelementptr inbounds i8, ptr %21, i64 16
+  %msix_table_bar52 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %and54 = and i32 %call49, -2
   %22 = load i64, ptr %msix_table_bar52, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load i8, ptr %23, align 8
   tail call void @qpci_io_writel(ptr noundef %21, i64 %22, i8 %24, i64 noundef %add48, i32 noundef %and54) #7
-  %msix_ops = getelementptr inbounds i8, ptr %d, i64 96
+  %msix_ops = getelementptr inbounds nuw i8, ptr %d, i64 96
   %25 = load ptr, ptr %msix_ops, align 8
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %d, i16 noundef zeroext %entry1) #7
@@ -354,11 +354,11 @@ do.end26:                                         ; preds = %if.else22, %do.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtio_pci_destructor(ptr nocapture noundef readonly %obj) #0 {
 entry:
-  %pdev.i = getelementptr inbounds i8, ptr %obj, i64 72
+  %pdev.i = getelementptr inbounds nuw i8, ptr %obj, i64 72
   %0 = load ptr, ptr %pdev.i, align 8
-  %bar.i = getelementptr inbounds i8, ptr %obj, i64 80
+  %bar.i = getelementptr inbounds nuw i8, ptr %obj, i64 80
   %1 = load i64, ptr %bar.i, align 8
-  %2 = getelementptr inbounds i8, ptr %obj, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %obj, i64 88
   %3 = load i8, ptr %2, align 8
   tail call void @qpci_iounmap(ptr noundef %0, i64 %1, i8 %3) #7
   %4 = load ptr, ptr %pdev.i, align 8
@@ -369,20 +369,20 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qvirtio_pci_start_hw(ptr noundef initializes((80, 89)) %obj) #0 {
 entry:
-  %pdev.i = getelementptr inbounds i8, ptr %obj, i64 72
+  %pdev.i = getelementptr inbounds nuw i8, ptr %obj, i64 72
   %0 = load ptr, ptr %pdev.i, align 8
   tail call void @qpci_device_enable(ptr noundef %0) #7
-  %bar.i = getelementptr inbounds i8, ptr %obj, i64 80
+  %bar.i = getelementptr inbounds nuw i8, ptr %obj, i64 80
   %1 = load ptr, ptr %pdev.i, align 8
-  %bar_idx.i = getelementptr inbounds i8, ptr %obj, i64 124
+  %bar_idx.i = getelementptr inbounds nuw i8, ptr %obj, i64 124
   %2 = load i32, ptr %bar_idx.i, align 4
   %call.i = tail call { i64, i8 } @qpci_iomap(ptr noundef %1, i32 noundef %2, ptr noundef null) #7
   %3 = extractvalue { i64, i8 } %call.i, 0
   %4 = extractvalue { i64, i8 } %call.i, 1
   store i64 %3, ptr %bar.i, align 8
-  %tmp.sroa.2.0.bar.sroa_idx.i = getelementptr inbounds i8, ptr %obj, i64 88
+  %tmp.sroa.2.0.bar.sroa_idx.i = getelementptr inbounds nuw i8, ptr %obj, i64 88
   store i8 %4, ptr %tmp.sroa.2.0.bar.sroa_idx.i, align 8
-  %vdev = getelementptr inbounds i8, ptr %obj, i64 40
+  %vdev = getelementptr inbounds nuw i8, ptr %obj, i64 40
   tail call void @qvirtio_start_device(ptr noundef nonnull %vdev) #7
   ret void
 }
@@ -398,18 +398,18 @@ entry:
   br i1 %cmp.not, label %if.else, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  %pdev.i = getelementptr inbounds i8, ptr %dev, i64 72
+  %pdev.i = getelementptr inbounds nuw i8, ptr %dev, i64 72
   store ptr %call, ptr %pdev.i, align 8
-  %config_msix_entry.i = getelementptr inbounds i8, ptr %dev, i64 104
+  %config_msix_entry.i = getelementptr inbounds nuw i8, ptr %dev, i64 104
   store i16 -1, ptr %config_msix_entry.i, align 8
   %call.i = tail call zeroext i1 @qvirtio_pci_init_virtio_1(ptr noundef %dev) #7
   br i1 %call.i, label %do.end, label %do.end.sink.split
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 419, ptr noundef nonnull @__func__.virtio_pci_init, ptr noundef nonnull @.str.10) #7
-  %pdev.i2 = getelementptr inbounds i8, ptr %dev, i64 72
+  %pdev.i2 = getelementptr inbounds nuw i8, ptr %dev, i64 72
   store ptr null, ptr %pdev.i2, align 8
-  %config_msix_entry.i3 = getelementptr inbounds i8, ptr %dev, i64 104
+  %config_msix_entry.i3 = getelementptr inbounds nuw i8, ptr %dev, i64 104
   store i16 -1, ptr %config_msix_entry.i3, align 8
   %call.i4 = tail call zeroext i1 @qvirtio_pci_init_virtio_1(ptr noundef %dev) #7
   br i1 %call.i4, label %do.end, label %do.end.sink.split
@@ -418,29 +418,29 @@ do.end.sink.split:                                ; preds = %if.else, %entry.spl
   %.sink.in = phi ptr [ %pdev.i, %entry.split ], [ %pdev.i2, %if.else ]
   %.sink = load ptr, ptr %.sink.in, align 8
   %call.i.i = tail call zeroext i16 @qpci_config_readw(ptr noundef %.sink, i8 noundef zeroext 46) #7
-  %vdev.i.i = getelementptr inbounds i8, ptr %dev, i64 40
-  %device_type.i.i = getelementptr inbounds i8, ptr %dev, i64 48
+  %vdev.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 40
+  %device_type.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 48
   store i16 %call.i.i, ptr %device_type.i.i, align 8
-  %bar_idx.i.i = getelementptr inbounds i8, ptr %dev, i64 124
+  %bar_idx.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 124
   store i32 0, ptr %bar_idx.i.i, align 4
   store ptr @qvirtio_pci_legacy, ptr %vdev.i.i, align 8
-  %msix_ops.i.i = getelementptr inbounds i8, ptr %dev, i64 96
+  %msix_ops.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 96
   store ptr @qvirtio_pci_msix_ops_legacy, ptr %msix_ops.i.i, align 8
   %.sink18 = load ptr, ptr %.sink.in, align 8
   %1 = load ptr, ptr %.sink18, align 8
-  %qts.i.i11 = getelementptr inbounds i8, ptr %1, i64 128
+  %qts.i.i11 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %qts.i.i11, align 8
   %call4.i.i12 = tail call zeroext i1 @qtest_big_endian(ptr noundef %2) #7
-  %big_endian.i.i13 = getelementptr inbounds i8, ptr %dev, i64 64
+  %big_endian.i.i13 = getelementptr inbounds nuw i8, ptr %dev, i64 64
   %frombool.i.i14 = zext i1 %call4.i.i12 to i8
   store i8 %frombool.i.i14, ptr %big_endian.i.i13, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.end.sink.split, %if.else, %entry.split
   store ptr null, ptr %dev, align 8
-  %start_hw.i = getelementptr inbounds i8, ptr %dev, i64 16
+  %start_hw.i = getelementptr inbounds nuw i8, ptr %dev, i64 16
   store ptr @qvirtio_pci_start_hw, ptr %start_hw.i, align 8
-  %destructor.i = getelementptr inbounds i8, ptr %dev, i64 24
+  %destructor.i = getelementptr inbounds nuw i8, ptr %dev, i64 24
   store ptr @qvirtio_pci_destructor, ptr %destructor.i, align 8
   ret void
 }
@@ -459,9 +459,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(152) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 152) #9
-  %pdev.i = getelementptr inbounds i8, ptr %call1, i64 72
+  %pdev.i = getelementptr inbounds nuw i8, ptr %call1, i64 72
   store ptr %call, ptr %pdev.i, align 8
-  %config_msix_entry.i = getelementptr inbounds i8, ptr %call1, i64 104
+  %config_msix_entry.i = getelementptr inbounds nuw i8, ptr %call1, i64 104
   store i16 -1, ptr %config_msix_entry.i, align 8
   %call.i = tail call zeroext i1 @qvirtio_pci_init_virtio_1(ptr noundef %call1) #7
   br i1 %call.i, label %qvirtio_pci_init_from_pcidev.exit, label %if.then.i
@@ -469,31 +469,31 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   %1 = load ptr, ptr %pdev.i, align 8
   %call.i.i = tail call zeroext i16 @qpci_config_readw(ptr noundef %1, i8 noundef zeroext 46) #7
-  %vdev.i.i = getelementptr inbounds i8, ptr %call1, i64 40
-  %device_type.i.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %vdev.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
+  %device_type.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i16 %call.i.i, ptr %device_type.i.i, align 8
-  %bar_idx.i.i = getelementptr inbounds i8, ptr %call1, i64 124
+  %bar_idx.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 124
   store i32 0, ptr %bar_idx.i.i, align 4
   store ptr @qvirtio_pci_legacy, ptr %vdev.i.i, align 8
-  %msix_ops.i.i = getelementptr inbounds i8, ptr %call1, i64 96
+  %msix_ops.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 96
   store ptr @qvirtio_pci_msix_ops_legacy, ptr %msix_ops.i.i, align 8
   %2 = load ptr, ptr %pdev.i, align 8
   %3 = load ptr, ptr %2, align 8
-  %qts.i.i = getelementptr inbounds i8, ptr %3, i64 128
+  %qts.i.i = getelementptr inbounds nuw i8, ptr %3, i64 128
   %4 = load ptr, ptr %qts.i.i, align 8
   %call4.i.i = tail call zeroext i1 @qtest_big_endian(ptr noundef %4) #7
-  %big_endian.i.i = getelementptr inbounds i8, ptr %call1, i64 64
+  %big_endian.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 64
   %frombool.i.i = zext i1 %call4.i.i to i8
   store i8 %frombool.i.i, ptr %big_endian.i.i, align 8
   br label %qvirtio_pci_init_from_pcidev.exit
 
 qvirtio_pci_init_from_pcidev.exit:                ; preds = %if.end, %if.then.i
   store ptr null, ptr %call1, align 8
-  %start_hw.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %start_hw.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr @qvirtio_pci_start_hw, ptr %start_hw.i, align 8
-  %destructor.i = getelementptr inbounds i8, ptr %call1, i64 24
+  %destructor.i = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr @qvirtio_pci_destructor, ptr %destructor.i, align 8
-  %free = getelementptr inbounds i8, ptr %call1, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr @g_free, ptr %free, align 8
   br label %return
 
@@ -517,7 +517,7 @@ entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
   %bar = getelementptr i8, ptr %d, i64 40
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   %conv = select i1 %tobool, i64 24, i64 20
@@ -535,7 +535,7 @@ entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
   %bar = getelementptr i8, ptr %d, i64 40
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   %conv = select i1 %tobool, i64 24, i64 20
@@ -556,7 +556,7 @@ entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
   %bar = getelementptr i8, ptr %d, i64 40
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   %conv = select i1 %tobool, i64 24, i64 20
@@ -577,7 +577,7 @@ entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
   %bar = getelementptr i8, ptr %d, i64 40
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   %conv = select i1 %tobool, i64 24, i64 20
@@ -665,13 +665,13 @@ define internal zeroext i1 @qvirtio_pci_get_queue_isr_status(ptr nocapture nound
 entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
-  %msix_enabled = getelementptr inbounds i8, ptr %0, i64 12
+  %msix_enabled = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1 = load i8, ptr %msix_enabled, align 4
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %do.body, label %if.else22
 
 do.body:                                          ; preds = %entry
-  %msix_entry = getelementptr inbounds i8, ptr %vq, i64 56
+  %msix_entry = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %2 = load i16, ptr %msix_entry, align 8
   %call = tail call zeroext i1 @qpci_msix_masked(ptr noundef nonnull %0, i16 noundef zeroext %2) #7
   %3 = load ptr, ptr %pdev, align 8
@@ -684,12 +684,12 @@ if.then7:                                         ; preds = %do.body
 
 if.else11:                                        ; preds = %do.body
   %5 = load ptr, ptr %3, align 8
-  %qts = getelementptr inbounds i8, ptr %5, i64 128
+  %qts = getelementptr inbounds nuw i8, ptr %5, i64 128
   %6 = load ptr, ptr %qts, align 8
-  %msix_addr = getelementptr inbounds i8, ptr %vq, i64 64
+  %msix_addr = getelementptr inbounds nuw i8, ptr %vq, i64 64
   %7 = load i64, ptr %msix_addr, align 8
   %call13 = tail call i32 @qtest_readl(ptr noundef %6, i64 noundef %7) #7
-  %msix_data = getelementptr inbounds i8, ptr %vq, i64 72
+  %msix_data = getelementptr inbounds nuw i8, ptr %vq, i64 72
   %8 = load i32, ptr %msix_data, align 8
   %cmp14 = icmp eq i32 %call13, %8
   br i1 %cmp14, label %if.then16, label %return
@@ -697,7 +697,7 @@ if.else11:                                        ; preds = %do.body
 if.then16:                                        ; preds = %if.else11
   %9 = load ptr, ptr %pdev, align 8
   %10 = load ptr, ptr %9, align 8
-  %qts19 = getelementptr inbounds i8, ptr %10, i64 128
+  %qts19 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %11 = load ptr, ptr %qts19, align 8
   %12 = load i64, ptr %msix_addr, align 8
   tail call void @qtest_writel(ptr noundef %11, i64 noundef %12, i32 noundef 0) #7
@@ -743,11 +743,11 @@ if.else:                                          ; preds = %do.body.backedge, %
 do.end:                                           ; preds = %do.end.lr.ph, %do.body.backedge
   %1 = load ptr, ptr %pdev, align 8
   %2 = load ptr, ptr %1, align 8
-  %qts = getelementptr inbounds i8, ptr %2, i64 128
+  %qts = getelementptr inbounds nuw i8, ptr %2, i64 128
   %3 = load ptr, ptr %qts, align 8
   %call3 = tail call i64 @qtest_clock_step(ptr noundef %3, i64 noundef 100) #7
   %4 = load ptr, ptr %pdev, align 8
-  %msix_enabled.i = getelementptr inbounds i8, ptr %4, i64 12
+  %msix_enabled.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   %5 = load i8, ptr %msix_enabled.i, align 4
   %tobool.i = trunc i8 %5 to i1
   br i1 %tobool.i, label %do.body.i, label %if.else22.i
@@ -771,7 +771,7 @@ do.body.backedge:                                 ; preds = %if.then7.i, %if.els
 
 if.else11.i:                                      ; preds = %do.body.i
   %9 = load ptr, ptr %7, align 8
-  %qts.i = getelementptr inbounds i8, ptr %9, i64 128
+  %qts.i = getelementptr inbounds nuw i8, ptr %9, i64 128
   %10 = load ptr, ptr %qts.i, align 8
   %11 = load i64, ptr %config_msix_addr.i, align 8
   %call13.i = tail call i32 @qtest_readl(ptr noundef %10, i64 noundef %11) #7
@@ -782,7 +782,7 @@ if.else11.i:                                      ; preds = %do.body.i
 qvirtio_pci_get_config_isr_status.exit.thread:    ; preds = %if.else11.i
   %13 = load ptr, ptr %pdev, align 8
   %14 = load ptr, ptr %13, align 8
-  %qts19.i = getelementptr inbounds i8, ptr %14, i64 128
+  %qts19.i = getelementptr inbounds nuw i8, ptr %14, i64 128
   %15 = load ptr, ptr %qts19.i, align 8
   %16 = load i64, ptr %config_msix_addr.i, align 8
   tail call void @qtest_writel(ptr noundef %15, i64 noundef %16, i32 noundef 0) #7
@@ -830,7 +830,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_pci_set_queue_address(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
 entry:
-  %desc = getelementptr inbounds i8, ptr %vq, i64 8
+  %desc = getelementptr inbounds nuw i8, ptr %vq, i64 8
   %0 = load i64, ptr %desc, align 8
   %div2 = lshr i64 %0, 12
   %pdev = getelementptr i8, ptr %d, i64 32
@@ -850,7 +850,7 @@ entry:
   %pdev = getelementptr i8, ptr %d, i64 32
   %0 = load ptr, ptr %pdev, align 8
   %bar = getelementptr i8, ptr %d, i64 40
-  %index = getelementptr inbounds i8, ptr %vq, i64 32
+  %index = getelementptr inbounds nuw i8, ptr %vq, i64 32
   %1 = load i16, ptr %index, align 8
   %2 = load i64, ptr %bar, align 8
   %3 = getelementptr i8, ptr %d, i64 48
@@ -895,11 +895,11 @@ declare void @qpci_io_writew(ptr noundef, i64, i8, i64 noundef, i16 noundef zero
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_pci_set_config_vector(ptr nocapture noundef readonly %d, i16 noundef zeroext %entry1) #0 {
 entry:
-  %pdev = getelementptr inbounds i8, ptr %d, i64 72
+  %pdev = getelementptr inbounds nuw i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
-  %bar = getelementptr inbounds i8, ptr %d, i64 80
+  %bar = getelementptr inbounds nuw i8, ptr %d, i64 80
   %1 = load i64, ptr %bar, align 8
-  %2 = getelementptr inbounds i8, ptr %d, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %d, i64 88
   %3 = load i8, ptr %2, align 8
   tail call void @qpci_io_writew(ptr noundef %0, i64 %1, i8 %3, i64 noundef 20, i16 noundef zeroext %entry1) #7
   %4 = load ptr, ptr %pdev, align 8

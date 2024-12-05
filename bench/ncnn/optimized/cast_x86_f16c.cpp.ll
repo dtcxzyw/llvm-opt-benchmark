@@ -61,10 +61,10 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %.216.us.i = phi ptr [ %38, %.lr.ph17.us.i ], [ %.1.lcssa.us.i, %.preheader.us.i ]
   %.210115.us.i = phi i32 [ %42, %.lr.ph17.us.i ], [ %.1100.lcssa.us.i, %.preheader.us.i ]
   %.210414.us.i = phi ptr [ %41, %.lr.ph17.us.i ], [ %.1103.lcssa.us.i, %.preheader.us.i ]
-  %38 = getelementptr inbounds i8, ptr %.216.us.i, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.216.us.i, i64 4
   %39 = load float, ptr %.216.us.i, align 4
   %40 = tail call noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %39)
-  %41 = getelementptr inbounds i8, ptr %.210414.us.i, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.210414.us.i, i64 2
   store i16 %40, ptr %.210414.us.i, align 2
   %42 = add i32 %.210115.us.i, 1
   %exitcond67.not.i = icmp eq i32 %42, %16
@@ -79,8 +79,8 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %45 = bitcast <8 x i16> %44 to <2 x i64>
   %46 = extractelement <2 x i64> %45, i64 0
   store i64 %46, ptr %.11037.us.i, align 1
-  %47 = getelementptr inbounds i8, ptr %.19.us.i, i64 16
-  %48 = getelementptr inbounds i8, ptr %.11037.us.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.19.us.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.11037.us.i, i64 8
   %49 = add nuw nsw i32 %.11008.us.i, 4
   %50 = or disjoint i32 %49, 3
   %51 = icmp slt i32 %50, %16
@@ -93,8 +93,8 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %53 = load <8 x float>, ptr %.0984.us.i, align 1
   %54 = tail call <8 x i16> @llvm.x86.vcvtps2ph.256(<8 x float> %53, i32 8)
   store <8 x i16> %54, ptr %.01022.us.i, align 1
-  %55 = getelementptr inbounds i8, ptr %.0984.us.i, i64 32
-  %56 = getelementptr inbounds i8, ptr %.01022.us.i, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.0984.us.i, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.01022.us.i, i64 16
   %57 = add nuw nsw i32 %.0993.us.i, 8
   %58 = or disjoint i32 %57, 7
   %59 = icmp slt i32 %58, %16
@@ -145,8 +145,8 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %78 = bitcast <8 x i16> %77 to <2 x i64>
   %79 = extractelement <2 x i64> %78, i64 0
   store i64 %79, ptr %.11037.us29.i.us, align 1
-  %80 = getelementptr inbounds i8, ptr %.19.us27.i.us, i64 16
-  %81 = getelementptr inbounds i8, ptr %.11037.us29.i.us, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.19.us27.i.us, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.11037.us29.i.us, i64 8
   %82 = add nuw nsw i32 %.11008.us28.i.us, 4
   %83 = or disjoint i32 %82, 3
   %84 = icmp slt i32 %83, %16
@@ -182,10 +182,10 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %.216.us24.i = phi ptr [ %97, %.lr.ph17.us39.i ], [ %107, %102 ]
   %.210115.us25.i = phi i32 [ %101, %.lr.ph17.us39.i ], [ %62, %102 ]
   %.210414.us26.i = phi ptr [ %100, %.lr.ph17.us39.i ], [ %108, %102 ]
-  %97 = getelementptr inbounds i8, ptr %.216.us24.i, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.216.us24.i, i64 4
   %98 = load float, ptr %.216.us24.i, align 4
   %99 = tail call noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %98)
-  %100 = getelementptr inbounds i8, ptr %.210414.us26.i, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %.210414.us26.i, i64 2
   store i16 %99, ptr %.210414.us26.i, align 2
   %101 = add i32 %.210115.us25.i, 1
   %exitcond61.not.i = icmp eq i32 %101, %16
@@ -200,8 +200,8 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %105 = bitcast <8 x i16> %104 to <2 x i64>
   %106 = extractelement <2 x i64> %105, i64 0
   store i64 %106, ptr %.11037.us29.i, align 1
-  %107 = getelementptr inbounds i8, ptr %.19.us27.i, i64 16
-  %108 = getelementptr inbounds i8, ptr %.11037.us29.i, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.19.us27.i, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.11037.us29.i, i64 8
   %109 = add nuw nsw i32 %.11008.us28.i, 4
   %110 = or disjoint i32 %109, 3
   %111 = icmp slt i32 %110, %16
@@ -235,10 +235,10 @@ define hidden void @_ZN4ncnn26cast_fp32_to_fp16_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %.216.us43.i = phi ptr [ %118, %.preheader1.us41.i ], [ %126, %125 ]
   %.210115.us44.i = phi i32 [ 0, %.preheader1.us41.i ], [ %130, %125 ]
   %.210414.us45.i = phi ptr [ %124, %.preheader1.us41.i ], [ %129, %125 ]
-  %126 = getelementptr inbounds i8, ptr %.216.us43.i, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %.216.us43.i, i64 4
   %127 = load float, ptr %.216.us43.i, align 4
   %128 = tail call noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %127)
-  %129 = getelementptr inbounds i8, ptr %.210414.us45.i, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %.210414.us45.i, i64 2
   store i16 %128, ptr %.210414.us45.i, align 2
   %130 = add nuw nsw i32 %.210115.us44.i, 1
   %exitcond.not.i = icmp eq i32 %130, %16
@@ -311,10 +311,10 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %.216.us.i = phi ptr [ %38, %.lr.ph17.us.i ], [ %.1.lcssa.us.i, %.preheader.us.i ]
   %.210415.us.i = phi i32 [ %42, %.lr.ph17.us.i ], [ %.1103.lcssa.us.i, %.preheader.us.i ]
   %.210714.us.i = phi ptr [ %41, %.lr.ph17.us.i ], [ %.1106.lcssa.us.i, %.preheader.us.i ]
-  %38 = getelementptr inbounds i8, ptr %.216.us.i, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.216.us.i, i64 2
   %39 = load i16, ptr %.216.us.i, align 2
   %40 = tail call fast noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %39)
-  %41 = getelementptr inbounds i8, ptr %.210714.us.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.210714.us.i, i64 4
   store float %40, ptr %.210714.us.i, align 4
   %42 = add i32 %.210415.us.i, 1
   %exitcond67.not.i = icmp eq i32 %42, %16
@@ -327,8 +327,8 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %43 = load <4 x half>, ptr %.19.us.i, align 1
   %44 = fpext <4 x half> %43 to <4 x float>
   store <4 x float> %44, ptr %.11067.us.i, align 1
-  %45 = getelementptr inbounds i8, ptr %.19.us.i, i64 8
-  %46 = getelementptr inbounds i8, ptr %.11067.us.i, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.19.us.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.11067.us.i, i64 16
   %47 = add nuw nsw i32 %.11038.us.i, 4
   %48 = or disjoint i32 %47, 3
   %49 = icmp slt i32 %48, %16
@@ -341,8 +341,8 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %51 = load <8 x half>, ptr %.01014.us.i, align 1
   %52 = fpext <8 x half> %51 to <8 x float>
   store <8 x float> %52, ptr %.01052.us.i, align 1
-  %53 = getelementptr inbounds i8, ptr %.01014.us.i, i64 16
-  %54 = getelementptr inbounds i8, ptr %.01052.us.i, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.01014.us.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.01052.us.i, i64 32
   %55 = add nuw nsw i32 %.01023.us.i, 8
   %56 = or disjoint i32 %55, 7
   %57 = icmp slt i32 %56, %16
@@ -391,8 +391,8 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %74 = load <4 x half>, ptr %.19.us27.i.us, align 1
   %75 = fpext <4 x half> %74 to <4 x float>
   store <4 x float> %75, ptr %.11067.us29.i.us, align 1
-  %76 = getelementptr inbounds i8, ptr %.19.us27.i.us, i64 8
-  %77 = getelementptr inbounds i8, ptr %.11067.us29.i.us, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.19.us27.i.us, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.11067.us29.i.us, i64 16
   %78 = add nuw nsw i32 %.11038.us28.i.us, 4
   %79 = or disjoint i32 %78, 3
   %80 = icmp slt i32 %79, %16
@@ -428,10 +428,10 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %.216.us24.i = phi ptr [ %93, %.lr.ph17.us39.i ], [ %101, %98 ]
   %.210415.us25.i = phi i32 [ %97, %.lr.ph17.us39.i ], [ %60, %98 ]
   %.210714.us26.i = phi ptr [ %96, %.lr.ph17.us39.i ], [ %102, %98 ]
-  %93 = getelementptr inbounds i8, ptr %.216.us24.i, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.216.us24.i, i64 2
   %94 = load i16, ptr %.216.us24.i, align 2
   %95 = tail call fast noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %94)
-  %96 = getelementptr inbounds i8, ptr %.210714.us26.i, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.210714.us26.i, i64 4
   store float %95, ptr %.210714.us26.i, align 4
   %97 = add i32 %.210415.us25.i, 1
   %exitcond61.not.i = icmp eq i32 %97, %16
@@ -444,8 +444,8 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %99 = load <4 x half>, ptr %.19.us27.i, align 1
   %100 = fpext <4 x half> %99 to <4 x float>
   store <4 x float> %100, ptr %.11067.us29.i, align 1
-  %101 = getelementptr inbounds i8, ptr %.19.us27.i, i64 8
-  %102 = getelementptr inbounds i8, ptr %.11067.us29.i, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.19.us27.i, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.11067.us29.i, i64 16
   %103 = add nuw nsw i32 %.11038.us28.i, 4
   %104 = or disjoint i32 %103, 3
   %105 = icmp slt i32 %104, %16
@@ -479,10 +479,10 @@ define hidden void @_ZN4ncnn26cast_fp16_to_fp32_sse_f16cERKNS_3MatERS0_RKNS_6Opt
   %.216.us43.i = phi ptr [ %112, %.preheader1.us41.i ], [ %120, %119 ]
   %.210415.us44.i = phi i32 [ 0, %.preheader1.us41.i ], [ %124, %119 ]
   %.210714.us45.i = phi ptr [ %118, %.preheader1.us41.i ], [ %123, %119 ]
-  %120 = getelementptr inbounds i8, ptr %.216.us43.i, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %.216.us43.i, i64 2
   %121 = load i16, ptr %.216.us43.i, align 2
   %122 = tail call fast noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %121)
-  %123 = getelementptr inbounds i8, ptr %.210714.us45.i, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.210714.us45.i, i64 4
   store float %122, ptr %.210714.us45.i, align 4
   %124 = add nuw nsw i32 %.210415.us44.i, 1
   %exitcond.not.i = icmp eq i32 %124, %16

@@ -179,7 +179,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr %call, ptr %state, align 8
-  %found = getelementptr inbounds i8, ptr %state, i64 8
+  %found = getelementptr inbounds nuw i8, ptr %state, i64 8
   store i32 0, ptr %found, align 8
   call void @PyUnstable_GC_VisitObjects(ptr noundef nonnull @gc_visit_callback_basic, ptr noundef nonnull %state) #7
   %0 = load i64, ptr %call, align 8
@@ -262,9 +262,9 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then6:                                         ; preds = %if.end
   %sub = add nsw i64 %obj.val, -16384
   store i64 %sub, ptr %2, align 8
-  %tp_free = getelementptr inbounds i8, ptr %obj, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %obj, i64 320
   store ptr @PyObject_Free, ptr %tp_free, align 8
-  %tp_traverse = getelementptr inbounds i8, ptr %obj, i64 184
+  %tp_traverse = getelementptr inbounds nuw i8, ptr %obj, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tp_traverse, i8 0, i64 16, i1 false)
   br label %if.end7
 
@@ -324,7 +324,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %tp_del = getelementptr inbounds i8, ptr %0, i64 376
+  %tp_del = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr @slot_tp_del, ptr %tp_del, align 8
   %6 = load i32, ptr %0, align 8
   %add.i.i = add i32 %6, 1
@@ -360,7 +360,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %found = getelementptr inbounds i8, ptr %arg, i64 8
+  %found = getelementptr inbounds nuw i8, ptr %arg, i64 8
   store i32 1, ptr %found, align 8
   br label %return
 
@@ -537,7 +537,7 @@ entry:
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #7
   %self.val.i.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i.i = getelementptr inbounds i8, ptr %self.val.i.i, i64 32
+  %tp_basicsize.i.i = getelementptr inbounds nuw i8, ptr %self.val.i.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i.i, align 8
@@ -562,7 +562,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %obj_extra_data_clear.exit
 
 obj_extra_data_clear.exit:                        ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #7
   %6 = load i64, ptr %self.val, align 8
@@ -589,7 +589,7 @@ define internal i32 @obj_extra_data_traverse(ptr nocapture noundef readonly %sel
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
+  %tp_basicsize.i = getelementptr inbounds nuw i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
@@ -614,7 +614,7 @@ define internal noundef i32 @obj_extra_data_clear(ptr nocapture noundef %self) #
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
+  %tp_basicsize.i = getelementptr inbounds nuw i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
@@ -669,7 +669,7 @@ define internal ptr @obj_extra_data_get(ptr nocapture noundef readonly %self, pt
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
+  %tp_basicsize.i = getelementptr inbounds nuw i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8
@@ -696,7 +696,7 @@ define internal noundef i32 @obj_extra_data_set(ptr nocapture noundef %self, ptr
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_basicsize.i = getelementptr inbounds i8, ptr %self.val.i, i64 32
+  %tp_basicsize.i = getelementptr inbounds nuw i8, ptr %self.val.i, i64 32
   %1 = load i64, ptr %tp_basicsize.i, align 8
   %add.ptr.i = getelementptr i8, ptr %self, i64 %1
   %2 = load ptr, ptr %add.ptr.i, align 8

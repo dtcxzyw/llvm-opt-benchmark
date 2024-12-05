@@ -53,7 +53,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %15 = or i32 %10, %.05366.i
   %16 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %10, i1 true)
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds %struct.rhash_hash_info, ptr %7, i64 %17, i32 1
+  %18 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %7, i64 %17, i32 1
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 63
   %21 = and i64 %20, -64
@@ -71,17 +71,17 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
 
 29:                                               ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %27, i8 0, i64 %5, i1 false)
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %15, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store volatile i32 -1340228930, ptr %32, align 8
   %33 = trunc i64 %0 to i32
-  %34 = getelementptr inbounds i8, ptr %27, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 %33, ptr %34, align 16
   %35 = getelementptr inbounds i8, ptr %27, i64 %5
-  %36 = getelementptr inbounds i8, ptr %27, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 56
   br label %37
 
 37:                                               ; preds = %37, %29
@@ -92,17 +92,17 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
   %41 = load ptr, ptr @rhash_info_table, align 8
   %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds %struct.rhash_hash_info, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %41, i64 %42
   %44 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.167.i
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.05468.i, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, 63
   %49 = and i64 %48, -64
   %50 = getelementptr inbounds i8, ptr %.05468.i, i64 %49
-  %51 = getelementptr inbounds i8, ptr %43, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef %.05468.i) #15
   %53 = add nuw i64 %.167.i, 1
@@ -184,29 +184,29 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %21, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i32 -556882451, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %8
 
 8:                                                ; preds = %.lr.ph, %17
   %9 = phi i32 [ %6, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %10 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %7, i64 0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %13(ptr noundef %16) #15
   %.pre = load i32, ptr %5, align 8
@@ -232,36 +232,36 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i32 -1340228930, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not16 = icmp eq i32 %4, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %6
 
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %7 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %5, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %10(ptr noundef %13) #15
   br label %14
 
 14:                                               ; preds = %11, %6
-  %15 = getelementptr inbounds i8, ptr %8, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %16(ptr noundef %18) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -271,7 +271,7 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %21, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, -3
   store i32 %24, ptr %22, align 4
@@ -280,7 +280,7 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load volatile i32, ptr %4, align 8
   %.not = icmp eq i32 %5, -1340228930
   br i1 %.not, label %6, label %.loopexit
@@ -289,22 +289,22 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, %2
   store i64 %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not16 = icmp eq i32 %10, 0
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %11, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %11, i64 0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %16(ptr noundef %18, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -320,14 +320,14 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @rhash_final(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [130 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 3
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %25, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -335,17 +335,17 @@ define dso_local noundef i32 @rhash_final(ptr nocapture noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %8
   %.not = icmp eq ptr %1, null
   %11 = select i1 %.not, ptr %3, ptr %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.01516 = phi ptr [ %11, %.lr.ph ], [ %3, %13 ]
-  %14 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %12, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %12, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %17(ptr noundef %19, ptr noundef %.01516) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -384,9 +384,9 @@ define dso_local noalias noundef ptr @rhash_import(ptr nocapture noundef readnon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_set_callback(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %5, align 8
   ret void
 }
@@ -456,7 +456,7 @@ rhash_init.exit:                                  ; preds = %14, %26
   br i1 %28, label %86, label %29
 
 29:                                               ; preds = %rhash_init.exit
-  %30 = getelementptr inbounds i8, ptr %.07.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
   %31 = load volatile i32, ptr %30, align 8
   %.not.i = icmp eq i32 %31, -1340228930
   br i1 %.not.i, label %32, label %rhash_update.exit
@@ -465,22 +465,22 @@ rhash_init.exit:                                  ; preds = %14, %26
   %33 = load i64, ptr %.07.i, align 8
   %34 = add i64 %33, %2
   store i64 %34, ptr %.07.i, align 8
-  %35 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %36 = load i32, ptr %35, align 8
   %.not16.i = icmp eq i32 %36, 0
   br i1 %.not16.i, label %rhash_update.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.07.i, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
   br label %38
 
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %37, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %37, i64 0, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void %42(ptr noundef %44, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -491,14 +491,14 @@ rhash_init.exit:                                  ; preds = %14, %26
 
 rhash_update.exit:                                ; preds = %38, %29, %32
   call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %5)
-  %48 = getelementptr inbounds i8, ptr %.07.i, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 3
   %51 = icmp eq i32 %50, 3
   br i1 %51, label %69, label %52
 
 52:                                               ; preds = %rhash_update.exit
-  %53 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %54 = load i32, ptr %53, align 8
   %.not18.i = icmp eq i32 %54, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i10
@@ -506,17 +506,17 @@ rhash_update.exit:                                ; preds = %38, %29, %32
 .lr.ph.i10:                                       ; preds = %52
   %.not.i11 = icmp eq ptr %3, null
   %55 = select i1 %.not.i11, ptr %5, ptr %3
-  %56 = getelementptr inbounds i8, ptr %.07.i, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
   br label %57
 
 57:                                               ; preds = %57, %.lr.ph.i10
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %57 ]
   %.01516.i = phi ptr [ %55, %.lr.ph.i10 ], [ %5, %57 ]
-  %58 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %56, i64 0, i64 %indvars.iv.i12
+  %58 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %56, i64 0, i64 %indvars.iv.i12
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load ptr, ptr %62, align 8
   call void %61(ptr noundef %63, ptr noundef %.01516.i) #15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
@@ -538,27 +538,27 @@ rhash_update.exit:                                ; preds = %38, %29, %32
 69:                                               ; preds = %._crit_edge.i, %rhash_update.exit
   call void @llvm.lifetime.end.p0(i64 130, ptr nonnull %5)
   store volatile i32 -556882451, ptr %30, align 8
-  %70 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %71 = load i32, ptr %70, align 8
   %.not15.i = icmp eq i32 %71, 0
   br i1 %.not15.i, label %rhash_free.exit, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %.07.i, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
   br label %73
 
 73:                                               ; preds = %82, %.lr.ph.i14
   %74 = phi i32 [ %71, %.lr.ph.i14 ], [ %83, %82 ]
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i18, %82 ]
-  %75 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %72, i64 0, i64 %indvars.iv.i15
+  %75 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %72, i64 0, i64 %indvars.iv.i15
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8
   %.not.i16 = icmp eq ptr %78, null
   br i1 %.not.i16, label %82, label %79
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %75, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %81 = load ptr, ptr %80, align 8
   call void %78(ptr noundef %81) #15
   %.pre.i17 = load i32, ptr %70, align 8
@@ -582,7 +582,7 @@ rhash_free.exit:                                  ; preds = %82, %69
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load volatile i32, ptr %3, align 8
   %.not = icmp eq i32 %4, -1340228930
   br i1 %.not, label %5, label %39
@@ -598,10 +598,10 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr noc
   br i1 %.not2429, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %12
 
 12:                                               ; preds = %.lr.ph, %37
@@ -634,11 +634,11 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr noc
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
-  %24 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %9, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %9, i64 0, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void %27(ptr noundef %29, ptr noundef nonnull %6, i64 noundef %15) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -763,14 +763,14 @@ rhash_init.exit:                                  ; preds = %16, %28
 
 36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %4)
-  %37 = getelementptr inbounds i8, ptr %.07.i, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %.07.i, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 3
   %40 = icmp eq i32 %39, 3
   br i1 %40, label %rhash_final.exit, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %43 = load i32, ptr %42, align 8
   %.not18.i = icmp eq i32 %43, 0
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
@@ -778,17 +778,17 @@ rhash_init.exit:                                  ; preds = %16, %28
 .lr.ph.i:                                         ; preds = %41
   %.not.i = icmp eq ptr %2, null
   %44 = select i1 %.not.i, ptr %4, ptr %2
-  %45 = getelementptr inbounds i8, ptr %.07.i, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %.01516.i = phi ptr [ %44, %.lr.ph.i ], [ %4, %46 ]
-  %47 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %45, i64 0, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %45, i64 0, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8
   call void %50(ptr noundef %52, ptr noundef %.01516.i) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -812,29 +812,29 @@ rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
   br label %58
 
 58:                                               ; preds = %32, %rhash_final.exit
-  %59 = getelementptr inbounds i8, ptr %.07.i, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
   store volatile i32 -556882451, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %61 = load i32, ptr %60, align 8
   %.not15.i = icmp eq i32 %61, 0
   br i1 %.not15.i, label %rhash_free.exit, label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %.07.i, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.07.i, i64 56
   br label %63
 
 63:                                               ; preds = %72, %.lr.ph.i19
   %64 = phi i32 [ %61, %.lr.ph.i19 ], [ %73, %72 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %72 ]
-  %65 = getelementptr inbounds [0 x %struct.rhash_vector_item], ptr %62, i64 0, i64 %indvars.iv.i20
+  %65 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %62, i64 0, i64 %indvars.iv.i20
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   %.not.i21 = icmp eq ptr %68, null
   br i1 %.not.i21, label %72, label %69
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %65, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %71 = load ptr, ptr %70, align 8
   call void %68(ptr noundef %71) #15
   %.pre.i22 = load i32, ptr %60, align 8
@@ -873,9 +873,9 @@ define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #
   %5 = load ptr, ptr @rhash_info_table, align 8
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds %struct.rhash_hash_info, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   br label %13
@@ -895,11 +895,11 @@ define dso_local i32 @rhash_get_hash_length(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1
   %.not4 = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   br i1 %.not4, label %13, label %9
 
@@ -928,7 +928,7 @@ define dso_local ptr @rhash_get_name(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -944,7 +944,7 @@ define dso_local ptr @rhash_get_magnet_name(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %6
 

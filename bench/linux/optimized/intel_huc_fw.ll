@@ -17,17 +17,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -2392
-  %3 = getelementptr inbounds i8, ptr %0, i64 576
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %90, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %12 = load i32, ptr %11, align 8
   %13 = trunc i64 %10 to i32
   %14 = add i32 %12, %13
@@ -44,30 +44,30 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
 
 22:                                               ; preds = %6
   tail call void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr noundef %17, i8 noundef zeroext 17, i32 noundef 64, i64 noundef 0) #4
-  %23 = getelementptr inbounds i8, ptr %17, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i32 262147, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %17, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 63, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %17, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 44
   store i32 0, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %17, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 12, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store i64 %28, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 216
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 216
   %33 = load i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %17, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 60
   store i32 %34, ptr %35, align 1
   %36 = getelementptr i8, ptr %0, i64 -2344
   %37 = add nuw nsw i64 %15, 4096
   %38 = getelementptr i8, ptr %17, i64 4124
   %39 = getelementptr i8, ptr %17, i64 4112
-  %40 = getelementptr inbounds i8, ptr %17, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %41
 
 41:                                               ; preds = %58, %22
@@ -82,7 +82,7 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8
   br label %51
 
@@ -119,7 +119,7 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   br label %71
 
@@ -144,7 +144,7 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %83 = load ptr, ptr %82, align 8
   br label %84
 
@@ -157,8 +157,8 @@ define dso_local i32 @intel_huc_fw_auth_via_gsccs(ptr noundef %0) local_unnamed_
 
 .thread8:                                         ; preds = %58, %84, %75, %75, %71, %51
   %88 = phi i32 [ %43, %51 ], [ -71, %71 ], [ -5, %84 ], [ 0, %75 ], [ 0, %75 ], [ -16, %58 ]
-  %89 = getelementptr inbounds i8, ptr %8, i64 672
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %89, ptr elementtype(i32) %89) #4, !srcloc !8
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 672
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %89, ptr nonnull elementtype(i32) %89) #4, !srcloc !8
   br label %90
 
 90:                                               ; preds = %.thread8, %19, %1
@@ -186,7 +186,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %18
@@ -198,7 +198,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -220,7 +220,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -243,7 +243,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8
   br label %41
 
@@ -255,13 +255,13 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br label %.loopexit
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 2
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %1, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 1
   br i1 %52, label %68, label %53
@@ -273,7 +273,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   br label %60
 
@@ -282,14 +282,14 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   %62 = getelementptr i8, ptr %0, i64 2560
   %63 = load i32, ptr %62, align 8
   %64 = zext i8 %47 to i32
-  %65 = getelementptr inbounds i8, ptr %1, i64 9
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %61, ptr noundef nonnull @.str.6, i32 noundef %63, i32 noundef %64, i32 noundef %67) #5
   br label %.loopexit
 
 68:                                               ; preds = %49
-  %69 = getelementptr inbounds i8, ptr %1, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %70 = load i8, ptr %69, align 1
   %71 = icmp ult i8 %70, 20
   br i1 %71, label %72, label %84
@@ -301,7 +301,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %78 = load ptr, ptr %77, align 8
   br label %79
 
@@ -315,7 +315,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
 
 84:                                               ; preds = %68
   %85 = zext i8 %70 to i64
-  %86 = getelementptr inbounds i8, ptr %1, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %87 = load i32, ptr %86, align 1
   %88 = zext i32 %87 to i64
   %89 = mul nuw nsw i64 %88, 24
@@ -330,7 +330,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %95, label %99, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = load ptr, ptr %97, align 8
   br label %99
 
@@ -347,8 +347,8 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
 
 105:                                              ; preds = %103
   %106 = getelementptr i8, ptr %1, i64 %85
-  %107 = getelementptr inbounds i8, ptr %0, i64 40
-  %108 = getelementptr inbounds i8, ptr %0, i64 404
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 404
   br label %109
 
 109:                                              ; preds = %141, %105
@@ -359,12 +359,12 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds i8, ptr %111, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 12
   %116 = load i32, ptr %115, align 1
   %117 = and i32 %116, 33554431
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr i8, ptr %1, i64 %118
-  tail call void @intel_uc_fw_version_from_gsc_manifest(ptr noundef %107, ptr noundef %119) #4
+  tail call void @intel_uc_fw_version_from_gsc_manifest(ptr noundef nonnull %107, ptr noundef %119) #4
   br label %120
 
 120:                                              ; preds = %114, %109
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %122, label %123, label %141
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %111, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %111, i64 12
   %125 = load i32, ptr %124, align 1
   %126 = and i32 %125, 33554431
   %127 = zext nneg i32 %126 to i64
@@ -392,7 +392,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_huc_fw_get_binary_info(ptr
   br i1 %135, label %136, label %141
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %130, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %138 = load i32, ptr %137, align 1
   %139 = icmp eq i32 %138, 32902
   br i1 %139, label %140, label %141
@@ -421,13 +421,13 @@ declare dso_local void @intel_uc_fw_version_from_gsc_manifest(ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_huc_fw_load_and_auth_via_gsc(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 6
   br i1 %8, label %9, label %21
@@ -443,7 +443,7 @@ define dso_local i32 @intel_huc_fw_load_and_auth_via_gsc(ptr noundef %0) local_u
 12:                                               ; preds = %9
   %13 = getelementptr i8, ptr %0, i64 -2392
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 9368
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 9368
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @intel_pxp_huc_load_and_auth(ptr noundef %16) #4
   %18 = icmp eq i32 %17, 0
@@ -470,7 +470,7 @@ declare dso_local i32 @intel_huc_wait_for_auth_complete(ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_huc_fw_upload(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %7

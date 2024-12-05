@@ -177,7 +177,7 @@ cond.false4.i.i:                                  ; preds = %cond.end.i.i
   unreachable
 
 PyList_GET_SIZE.exit:                             ; preds = %cond.end.i.i
-  %ob_size.i.i = getelementptr inbounds i8, ptr %spec.store.select, i64 16
+  %ob_size.i.i = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
   %3 = load i64, ptr %ob_size.i.i, align 8
   %cmp2 = icmp eq i64 %3, -1
   %call4 = tail call ptr @PyErr_Occurred() #4
@@ -273,7 +273,7 @@ cond.false:                                       ; preds = %do.body
   unreachable
 
 cond.end:                                         ; preds = %do.body
-  %ob_item = getelementptr inbounds i8, ptr %0, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %ob_item, align 8
   %5 = load i64, ptr %i, align 8
   %arrayidx = getelementptr ptr, ptr %4, i64 %5
@@ -443,7 +443,7 @@ cond.false3.i:                                    ; preds = %cond.end.i
   unreachable
 
 cond.end4.i:                                      ; preds = %cond.end.i
-  %allocated.i = getelementptr inbounds i8, ptr %1, i64 32
+  %allocated.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i64, ptr %allocated.i, align 8
   %cmp5.i = icmp slt i64 %6, %11
   br i1 %cmp5.i, label %PyList_SET_ITEM.exit, label %cond.false7.i
@@ -453,7 +453,7 @@ cond.false7.i:                                    ; preds = %cond.end4.i
   unreachable
 
 PyList_SET_ITEM.exit:                             ; preds = %cond.end4.i
-  %ob_item.i = getelementptr inbounds i8, ptr %1, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %ob_item.i, align 8
   %arrayidx.i = getelementptr ptr, ptr %12, i64 %6
   store ptr %7, ptr %arrayidx.i, align 8

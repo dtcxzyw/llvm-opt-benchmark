@@ -224,7 +224,7 @@ define hidden noundef ptr @mbedtls_high_level_strerr(i32 noundef %0) local_unnam
 switch.lookup:                                    ; preds = %1
   %5 = lshr exact i32 %3, 7
   %6 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [223 x ptr], ptr @switch.table.mbedtls_high_level_strerr, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [223 x ptr], ptr @switch.table.mbedtls_high_level_strerr, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -243,7 +243,7 @@ define hidden noundef ptr @mbedtls_low_level_strerr(i32 noundef %0) local_unname
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [117 x ptr], ptr @switch.table.mbedtls_low_level_strerr, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [117 x ptr], ptr @switch.table.mbedtls_low_level_strerr, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

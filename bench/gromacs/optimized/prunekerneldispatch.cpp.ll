@@ -45,9 +45,9 @@ define void @_ZN12PairlistSets19dispatchPruneKernelEN3gmx19InteractionLocalityEP
   %8 = alloca float, align 4
   %9 = alloca i32, align 4
   %10 = icmp eq i32 %1, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %.0.i = select i1 %10, ptr %12, ptr %14
   %15 = ptrtoint ptr %4 to i64
@@ -60,12 +60,12 @@ define void @_ZN12PairlistSets19dispatchPruneKernelEN3gmx19InteractionLocalityEP
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %19 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %3, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %18, ptr %20, align 8
   store ptr %2, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %24 = load float, ptr %23, align 4
   store float %24, ptr %8, align 4
   %25 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
@@ -87,12 +87,12 @@ define void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_tN3gmx8Arr
   %8 = alloca i32, align 4
   %9 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %2, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %10, align 8
   store ptr %1, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load float, ptr %13, align 4
   store float %14, ptr %7, align 4
   %15 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
@@ -130,8 +130,8 @@ define internal void @_ZN11PairlistSet19dispatchPruneKernelEPK16nbnxn_atomdata_t
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %3, i64 72
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = sext i32 %19 to i64
   br label %23
 
@@ -277,16 +277,16 @@ define void @_ZNK18nonbonded_verlet_t22dispatchPruneKernelCpuEN3gmx19Interaction
   %7 = alloca float, align 4
   %8 = alloca i32, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %3 to i64
   %13 = ptrtoint ptr %2 to i64
   %14 = sub i64 %12, %13
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   %16 = icmp eq i32 %1, 0
-  %17 = getelementptr inbounds i8, ptr %9, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %20 = load ptr, ptr %19, align 8
   %.0.i.i = select i1 %16, ptr %18, ptr %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -295,12 +295,12 @@ define void @_ZNK18nonbonded_verlet_t22dispatchPruneKernelCpuEN3gmx19Interaction
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %21 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %2, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %15, ptr %22, align 8
   store ptr %11, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load float, ptr %25, align 4
   store float %26, ptr %7, align 4
   %27 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
@@ -316,7 +316,7 @@ define void @_ZNK18nonbonded_verlet_t22dispatchPruneKernelCpuEN3gmx19Interaction
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %6
@@ -330,17 +330,17 @@ define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr nocapture nou
   %11 = zext i32 %9 to i64
   %12 = shl nuw i64 %11, 32
   %13 = or disjoint i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 2248
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2248
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 2256
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2256
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %16, %18
   br i1 %19, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit, label %20
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %4, i64 2272
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2272
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 8
@@ -348,7 +348,7 @@ define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr nocapture nou
   br i1 %24, label %25, label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 2276
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 2276
   %27 = load i32, ptr %26, align 4
   %28 = mul nsw i32 %27, 52
   %29 = add nsw i32 %28, 9
@@ -357,7 +357,7 @@ define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr nocapture nou
   %32 = load i32, ptr %31, align 8
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 2280
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 2280
   %35 = load i64, ptr %34, align 8
   %36 = sub i64 %13, %35
   %37 = load ptr, ptr %15, align 8
@@ -368,7 +368,7 @@ define void @_ZN18nonbonded_verlet_t22dispatchPruneKernelGpuEl(ptr nocapture nou
   br label %_Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %6, %20, %25
-  %41 = getelementptr inbounds i8, ptr %4, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %42 = load i32, ptr %41, align 8
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr %41, align 8
@@ -385,8 +385,8 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %6
   %50 = zext i32 %48 to i64
   %51 = shl nuw i64 %50, 32
   %52 = or disjoint i64 %51, %49
-  %53 = getelementptr inbounds i8, ptr %.pre, i64 216
-  %54 = getelementptr inbounds i8, ptr %.pre, i64 232
+  %53 = getelementptr inbounds nuw i8, ptr %.pre, i64 216
+  %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 232
   %55 = load i64, ptr %54, align 8
   %.not.i = icmp ult i64 %52, %55
   br i1 %.not.i, label %58, label %56
@@ -396,28 +396,28 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %6
   br label %60
 
 58:                                               ; preds = %45
-  %59 = getelementptr inbounds i8, ptr %.pre, i64 2288
+  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 2288
   store i8 1, ptr %59, align 8
   br label %60
 
 60:                                               ; preds = %58, %56
   %.0.i = phi i64 [ %57, %56 ], [ 0, %58 ]
-  %61 = getelementptr inbounds i8, ptr %.pre, i64 224
+  %61 = getelementptr inbounds nuw i8, ptr %.pre, i64 224
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, %.0.i
   store i64 %63, ptr %61, align 8
   %64 = load i32, ptr %53, align 8
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %53, align 8
-  %66 = getelementptr inbounds i8, ptr %.pre, i64 2248
+  %66 = getelementptr inbounds nuw i8, ptr %.pre, i64 2248
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.pre, i64 2256
+  %68 = getelementptr inbounds nuw i8, ptr %.pre, i64 2256
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %67, %69
   br i1 %70, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %71
 
 71:                                               ; preds = %60
-  %72 = getelementptr inbounds i8, ptr %.pre, i64 2272
+  %72 = getelementptr inbounds nuw i8, ptr %.pre, i64 2272
   %73 = load i32, ptr %72, align 8
   %74 = add nsw i32 %73, -1
   store i32 %74, ptr %72, align 8
@@ -425,9 +425,9 @@ _Z23wallcycle_start_nocountP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %6
   br i1 %75, label %76, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %.pre, i64 2276
+  %77 = getelementptr inbounds nuw i8, ptr %.pre, i64 2276
   store i32 9, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %.pre, i64 2280
+  %78 = getelementptr inbounds nuw i8, ptr %.pre, i64 2280
   store i64 %52, ptr %78, align 8
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
 

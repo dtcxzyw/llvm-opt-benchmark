@@ -45,10 +45,10 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_connect(ptr noundef %0, pt
   br i1 %.not, label %26, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i16 0, ptr %9, align 2
   store i16 1, ptr %6, align 2
-  %10 = getelementptr inbounds i8, ptr %6, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %11 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %7, i64 noundef 107) #11
   %12 = call i32 @connect(i32 noundef %2, ptr nonnull %6, i32 noundef 110) #11
   %13 = icmp eq i32 %12, -1
@@ -164,7 +164,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_checkPermissions(ptr nound
   br i1 %16, label %.thread, label %37
 
 .thread:                                          ; preds = %9, %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp ne i32 %18, %10
   %20 = icmp ne i32 %10, 0
@@ -176,7 +176,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_checkPermissions(ptr nound
   br label %.critedge
 
 23:                                               ; preds = %.thread
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = icmp ne i32 %25, %11
   %or.cond3 = and i1 %20, %26
@@ -187,7 +187,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_checkPermissions(ptr nound
   br label %.critedge
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 54
   %.not35 = icmp eq i32 %32, 0
@@ -278,7 +278,7 @@ define noundef i32 @Java_sun_tools_attach_VirtualMachineImpl_read(ptr noundef %0
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1664
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1664
   %18 = load ptr, ptr %17, align 8
   %19 = trunc i64 %10 to i32
   call void %18(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull %7) #11
@@ -303,7 +303,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_write(ptr noundef %0, ptr 
   %.0 = phi i32 [ %4, %6 ], [ %24, %23 ]
   %spec.select = call i64 @llvm.umin.i64(i64 %.019, i64 128)
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1600
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1600
   %12 = load ptr, ptr %11, align 8
   %13 = trunc nuw nsw i64 %spec.select to i32
   call void %12(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.0, i32 noundef %13, ptr noundef nonnull %7) #11

@@ -95,13 +95,13 @@ thread-pre-split:                                 ; preds = %8, %11, %2
 
 30:                                               ; preds = %23
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i16, ptr %32, align 8
   %34 = or i16 %33, 512
   store i16 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 240
   %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 240
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 240
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %37) #5
   store ptr %3, ptr %5, align 8
   %39 = load ptr, ptr %4, align 8
@@ -150,7 +150,7 @@ thread-pre-split:                                 ; preds = %8, %11, %2
 58:                                               ; preds = %56, %.lr.ph.i
   %59 = phi i8 [ %52, %.lr.ph.i ], [ %.pre.i.i, %56 ]
   %60 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
   %63 = trunc i8 %59 to i1
   br i1 %63, label %64, label %opal_pointer_array_get_item.exit.i
@@ -162,13 +162,13 @@ thread-pre-split:                                 ; preds = %8, %11, %2
 
 opal_pointer_array_get_item.exit.i:               ; preds = %64, %58
   %66 = phi i8 [ %59, %58 ], [ %.pre.i, %64 ]
-  %67 = getelementptr inbounds i8, ptr %62, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, %43
   br i1 %69, label %70, label %48
 
 70:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %71 = getelementptr inbounds i8, ptr %62, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %72 = load i32, ptr %71, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

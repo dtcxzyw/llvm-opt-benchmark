@@ -35,13 +35,13 @@ if.end:                                           ; preds = %entry
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #4
   store i32 %operation, ptr %ctx, align 8
   %call = tail call i32 @ERR_set_mark() #4
-  %keymgmt = getelementptr inbounds i8, ptr %ctx, i64 32
+  %keymgmt = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %keymgmt, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %legacy, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %1 = load ptr, ptr %pkey, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then6, label %if.end8
@@ -54,7 +54,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.then138
 
 if.end8:                                          ; preds = %if.end4
-  %keymgmt10 = getelementptr inbounds i8, ptr %1, i64 96
+  %keymgmt10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2 = load ptr, ptr %keymgmt10, align 8
   %cmp11 = icmp eq ptr %2, null
   %cmp15 = icmp eq ptr %2, %0
@@ -74,8 +74,8 @@ if.end20:                                         ; preds = %if.end8
   br i1 %cmp23, label %if.then25, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end20
-  %propquery41 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %libctx = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propquery41 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
+  %libctx = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   br label %for.body
 
 if.then25:                                        ; preds = %if.end20
@@ -92,7 +92,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp.i, label %EVP_ASYM_CIPHER_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %refcnt.i = getelementptr inbounds i8, ptr %cipher.084, i64 32
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %cipher.084, i64 32
   %3 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
@@ -106,10 +106,10 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %if.end.i
   br i1 %cmp1.i, label %EVP_ASYM_CIPHER_free.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %CRYPTO_DOWN_REF.exit.i, %CRYPTO_DOWN_REF.exit.thread.i
-  %type_name.i = getelementptr inbounds i8, ptr %cipher.084, i64 8
+  %type_name.i = getelementptr inbounds nuw i8, ptr %cipher.084, i64 8
   %4 = load ptr, ptr %type_name.i, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 463) #4
-  %prov.i = getelementptr inbounds i8, ptr %cipher.084, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %cipher.084, i64 24
   %5 = load ptr, ptr %prov.i, align 8
   call void @ossl_provider_free(ptr noundef %5) #4
   call void @CRYPTO_free(ptr noundef nonnull %cipher.084, ptr noundef nonnull @.str, i32 noundef 466) #4
@@ -129,7 +129,7 @@ sw.bb:                                            ; preds = %EVP_ASYM_CIPHER_fre
   br i1 %cmp33.not, label %for.inc, label %if.then35
 
 if.then35:                                        ; preds = %sw.bb
-  %prov.i65 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov.i65 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %prov.i65, align 8
   br label %if.end50
 
@@ -184,15 +184,15 @@ if.then69:                                        ; preds = %for.end
 
 if.end70:                                         ; preds = %for.end
   %call71 = call i32 @ERR_pop_to_mark() #4
-  %op = getelementptr inbounds i8, ptr %ctx, i64 40
+  %op = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store ptr %cipher.171, ptr %op, align 8
-  %newctx = getelementptr inbounds i8, ptr %cipher.171, i64 40
+  %newctx = getelementptr inbounds nuw i8, ptr %cipher.171, i64 40
   %18 = load ptr, ptr %newctx, align 8
-  %prov = getelementptr inbounds i8, ptr %cipher.171, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %cipher.171, i64 24
   %19 = load ptr, ptr %prov, align 8
   %call73 = call ptr @ossl_provider_ctx(ptr noundef %19) #4
   %call74 = call ptr %18(ptr noundef %call73) #4
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store ptr %call74, ptr %algctx, align 8
   %cmp78 = icmp eq ptr %call74, null
   br i1 %cmp78, label %if.then80, label %if.end81
@@ -210,7 +210,7 @@ if.end81:                                         ; preds = %if.end70
   ]
 
 sw.bb82:                                          ; preds = %if.end81
-  %encrypt_init = getelementptr inbounds i8, ptr %cipher.171, i64 48
+  %encrypt_init = getelementptr inbounds nuw i8, ptr %cipher.171, i64 48
   %20 = load ptr, ptr %encrypt_init, align 8
   %cmp83 = icmp eq ptr %20, null
   br i1 %cmp83, label %if.then85, label %sw.epilog100
@@ -222,7 +222,7 @@ if.then85:                                        ; preds = %sw.bb82
   br label %if.then138
 
 sw.bb91:                                          ; preds = %if.end81
-  %decrypt_init = getelementptr inbounds i8, ptr %cipher.171, i64 64
+  %decrypt_init = getelementptr inbounds nuw i8, ptr %cipher.171, i64 64
   %21 = load ptr, ptr %decrypt_init, align 8
   %cmp92 = icmp eq ptr %21, null
   br i1 %cmp92, label %if.then94, label %sw.epilog100
@@ -255,13 +255,13 @@ legacy:                                           ; preds = %sw.bb38, %if.end, %
   %23 = load ptr, ptr %tmp_keymgmt, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %23) #4
   store ptr null, ptr %tmp_keymgmt, align 8
-  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
+  %pmeth = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %24 = load ptr, ptr %pmeth, align 8
   %cmp106 = icmp eq ptr %24, null
   br i1 %cmp106, label %if.then111, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %legacy
-  %encrypt = getelementptr inbounds i8, ptr %24, i64 152
+  %encrypt = getelementptr inbounds nuw i8, ptr %24, i64 152
   %25 = load ptr, ptr %encrypt, align 8
   %cmp109 = icmp eq ptr %25, null
   br i1 %cmp109, label %if.then111, label %if.end112
@@ -280,13 +280,13 @@ if.end112:                                        ; preds = %lor.lhs.false
   ]
 
 sw.bb114:                                         ; preds = %if.end112
-  %encrypt_init116 = getelementptr inbounds i8, ptr %24, i64 144
+  %encrypt_init116 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %27 = load ptr, ptr %encrypt_init116, align 8
   %cmp117 = icmp eq ptr %27, null
   br i1 %cmp117, label %return, label %err
 
 sw.bb124:                                         ; preds = %if.end112
-  %decrypt_init126 = getelementptr inbounds i8, ptr %24, i64 160
+  %decrypt_init126 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %28 = load ptr, ptr %decrypt_init126, align 8
   %cmp127 = icmp eq ptr %28, null
   br i1 %cmp127, label %return, label %err
@@ -351,15 +351,15 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %algctx, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %legacy, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %op = getelementptr inbounds i8, ptr %ctx, i64 40
+  %op = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %2 = load ptr, ptr %op, align 8
-  %encrypt = getelementptr inbounds i8, ptr %2, i64 56
+  %encrypt = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %encrypt, align 8
   %cmp10 = icmp eq ptr %out, null
   br i1 %cmp10, label %cond.end, label %cond.false
@@ -374,13 +374,13 @@ cond.end:                                         ; preds = %if.end6, %cond.fals
   br label %return
 
 legacy:                                           ; preds = %if.end3
-  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
+  %pmeth = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %5 = load ptr, ptr %pmeth, align 8
   %cmp11 = icmp eq ptr %5, null
   br i1 %cmp11, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %legacy
-  %encrypt13 = getelementptr inbounds i8, ptr %5, i64 152
+  %encrypt13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %6 = load ptr, ptr %encrypt13, align 8
   %cmp14 = icmp eq ptr %6, null
   br i1 %cmp14, label %if.then15, label %if.end16
@@ -392,14 +392,14 @@ if.then15:                                        ; preds = %lor.lhs.false, %leg
   br label %return
 
 if.end16:                                         ; preds = %lor.lhs.false
-  %flags = getelementptr inbounds i8, ptr %5, i64 4
+  %flags = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %flags, align 4
   %and = and i32 %7, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end32, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %8 = load ptr, ptr %pkey, align 8
   %call19 = tail call i32 @EVP_PKEY_get_size(ptr noundef %8) #4
   %conv = sext i32 %call19 to i64
@@ -427,7 +427,7 @@ if.end27:                                         ; preds = %if.end23
 
 if.end27.if.end32_crit_edge:                      ; preds = %if.end27
   %.pre = load ptr, ptr %pmeth, align 8
-  %encrypt34.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 152
+  %encrypt34.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 152
   %.pre23 = load ptr, ptr %encrypt34.phi.trans.insert, align 8
   br label %if.end32
 
@@ -493,15 +493,15 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 48
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %1 = load ptr, ptr %algctx, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %legacy, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
-  %op = getelementptr inbounds i8, ptr %ctx, i64 40
+  %op = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %2 = load ptr, ptr %op, align 8
-  %decrypt = getelementptr inbounds i8, ptr %2, i64 72
+  %decrypt = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3 = load ptr, ptr %decrypt, align 8
   %cmp10 = icmp eq ptr %out, null
   br i1 %cmp10, label %cond.end, label %cond.false
@@ -516,13 +516,13 @@ cond.end:                                         ; preds = %if.end6, %cond.fals
   br label %return
 
 legacy:                                           ; preds = %if.end3
-  %pmeth = getelementptr inbounds i8, ptr %ctx, i64 120
+  %pmeth = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %5 = load ptr, ptr %pmeth, align 8
   %cmp11 = icmp eq ptr %5, null
   br i1 %cmp11, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %legacy
-  %decrypt13 = getelementptr inbounds i8, ptr %5, i64 168
+  %decrypt13 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %6 = load ptr, ptr %decrypt13, align 8
   %cmp14 = icmp eq ptr %6, null
   br i1 %cmp14, label %if.then15, label %if.end16
@@ -534,14 +534,14 @@ if.then15:                                        ; preds = %lor.lhs.false, %leg
   br label %return
 
 if.end16:                                         ; preds = %lor.lhs.false
-  %flags = getelementptr inbounds i8, ptr %5, i64 4
+  %flags = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %flags, align 4
   %and = and i32 %7, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end32, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %pkey = getelementptr inbounds i8, ptr %ctx, i64 136
+  %pkey = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %8 = load ptr, ptr %pkey, align 8
   %call19 = tail call i32 @EVP_PKEY_get_size(ptr noundef %8) #4
   %conv = sext i32 %call19 to i64
@@ -569,7 +569,7 @@ if.end27:                                         ; preds = %if.end23
 
 if.end27.if.end32_crit_edge:                      ; preds = %if.end27
   %.pre = load ptr, ptr %pmeth, align 8
-  %decrypt34.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 168
+  %decrypt34.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 168
   %.pre23 = load ptr, ptr %decrypt34.phi.trans.insert, align 8
   br label %if.end32
 
@@ -645,7 +645,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds i8, ptr %cipher, i64 32
+  %refcnt = getelementptr inbounds nuw i8, ptr %cipher, i64 32
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -659,10 +659,10 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %type_name = getelementptr inbounds i8, ptr %cipher, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %1 = load ptr, ptr %type_name, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 463) #4
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %2 = load ptr, ptr %prov, align 8
   tail call void @ossl_provider_free(ptr noundef %2) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %cipher, ptr noundef nonnull @.str, i32 noundef 466) #4
@@ -679,7 +679,7 @@ declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @EVP_ASYM_CIPHER_up_ref(ptr nocapture noundef %cipher) #2 {
 entry:
-  %refcnt = getelementptr inbounds i8, ptr %cipher, i64 32
+  %refcnt = getelementptr inbounds nuw i8, ptr %cipher, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   ret i32 1
 }
@@ -687,7 +687,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_ASYM_CIPHER_get0_provider(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load ptr, ptr %prov, align 8
   ret ptr %0
 }
@@ -704,7 +704,7 @@ declare ptr @evp_generic_fetch(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @evp_asym_cipher_from_algorithm(i32 noundef %name_id, ptr noundef %algodef, ptr noundef %prov) #0 {
 entry:
-  %implementation = getelementptr inbounds i8, ptr %algodef, i64 16
+  %implementation = getelementptr inbounds nuw i8, ptr %algodef, i64 16
   %0 = load ptr, ptr %implementation, align 8
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 322) #4
   %cmp.i = icmp eq ptr %call.i, null
@@ -717,34 +717,34 @@ err.thread:                                       ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
-  %prov4.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %prov4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %prov, ptr %prov4.i, align 8
   %call5.i = tail call i32 @ossl_provider_up_ref(ptr noundef %prov) #4
   store i32 %name_id, ptr %call.i, align 8
   %call2 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %algodef) #4
-  %type_name = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call2, ptr %type_name, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.end.i74, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %algorithm_description = getelementptr inbounds i8, ptr %algodef, i64 24
+  %algorithm_description = getelementptr inbounds nuw i8, ptr %algodef, i64 24
   %1 = load ptr, ptr %algorithm_description, align 8
-  %description = getelementptr inbounds i8, ptr %call.i, i64 16
+  %description = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %1, ptr %description, align 8
-  %settable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 120
-  %set_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 112
-  %gettable_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 104
-  %get_ctx_params = getelementptr inbounds i8, ptr %call.i, i64 96
-  %dupctx = getelementptr inbounds i8, ptr %call.i, i64 88
-  %freectx = getelementptr inbounds i8, ptr %call.i, i64 80
-  %decrypt = getelementptr inbounds i8, ptr %call.i, i64 72
-  %decrypt_init = getelementptr inbounds i8, ptr %call.i, i64 64
-  %encrypt = getelementptr inbounds i8, ptr %call.i, i64 56
-  %encrypt_init = getelementptr inbounds i8, ptr %call.i, i64 48
-  %newctx = getelementptr inbounds i8, ptr %call.i, i64 40
+  %settable_ctx_params = getelementptr inbounds nuw i8, ptr %call.i, i64 120
+  %set_ctx_params = getelementptr inbounds nuw i8, ptr %call.i, i64 112
+  %gettable_ctx_params = getelementptr inbounds nuw i8, ptr %call.i, i64 104
+  %get_ctx_params = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %dupctx = getelementptr inbounds nuw i8, ptr %call.i, i64 88
+  %freectx = getelementptr inbounds nuw i8, ptr %call.i, i64 80
+  %decrypt = getelementptr inbounds nuw i8, ptr %call.i, i64 72
+  %decrypt_init = getelementptr inbounds nuw i8, ptr %call.i, i64 64
+  %encrypt = getelementptr inbounds nuw i8, ptr %call.i, i64 56
+  %encrypt_init = getelementptr inbounds nuw i8, ptr %call.i, i64 48
+  %newctx = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end5
@@ -907,7 +907,7 @@ for.inc:                                          ; preds = %for.cond, %if.end10
   %decfncnt.1 = phi i32 [ %decfncnt.0, %sw.bb75 ], [ %decfncnt.0, %if.end78 ], [ %decfncnt.0, %sw.bb68 ], [ %decfncnt.0, %if.end71 ], [ %decfncnt.0, %sw.bb61 ], [ %decfncnt.0, %if.end64 ], [ %decfncnt.0, %sw.bb54 ], [ %decfncnt.0, %if.end57 ], [ %decfncnt.0, %sw.bb48 ], [ %decfncnt.0, %if.end51 ], [ %decfncnt.0, %sw.bb41 ], [ %decfncnt.0, %if.end44 ], [ %decfncnt.0, %sw.bb34 ], [ %inc40, %if.end37 ], [ %decfncnt.0, %sw.bb27 ], [ %inc33, %if.end30 ], [ %decfncnt.0, %sw.bb20 ], [ %decfncnt.0, %if.end23 ], [ %decfncnt.0, %sw.bb13 ], [ %decfncnt.0, %if.end16 ], [ %decfncnt.0, %sw.bb ], [ %decfncnt.0, %if.end10 ], [ %decfncnt.0, %for.cond ]
   %gparamfncnt.1 = phi i32 [ %gparamfncnt.0, %sw.bb75 ], [ %gparamfncnt.0, %if.end78 ], [ %gparamfncnt.0, %sw.bb68 ], [ %gparamfncnt.0, %if.end71 ], [ %gparamfncnt.0, %sw.bb61 ], [ %inc67, %if.end64 ], [ %gparamfncnt.0, %sw.bb54 ], [ %inc60, %if.end57 ], [ %gparamfncnt.0, %sw.bb48 ], [ %gparamfncnt.0, %if.end51 ], [ %gparamfncnt.0, %sw.bb41 ], [ %gparamfncnt.0, %if.end44 ], [ %gparamfncnt.0, %sw.bb34 ], [ %gparamfncnt.0, %if.end37 ], [ %gparamfncnt.0, %sw.bb27 ], [ %gparamfncnt.0, %if.end30 ], [ %gparamfncnt.0, %sw.bb20 ], [ %gparamfncnt.0, %if.end23 ], [ %gparamfncnt.0, %sw.bb13 ], [ %gparamfncnt.0, %if.end16 ], [ %gparamfncnt.0, %sw.bb ], [ %gparamfncnt.0, %if.end10 ], [ %gparamfncnt.0, %for.cond ]
   %sparamfncnt.1 = phi i32 [ %sparamfncnt.0, %sw.bb75 ], [ %inc81, %if.end78 ], [ %sparamfncnt.0, %sw.bb68 ], [ %inc74, %if.end71 ], [ %sparamfncnt.0, %sw.bb61 ], [ %sparamfncnt.0, %if.end64 ], [ %sparamfncnt.0, %sw.bb54 ], [ %sparamfncnt.0, %if.end57 ], [ %sparamfncnt.0, %sw.bb48 ], [ %sparamfncnt.0, %if.end51 ], [ %sparamfncnt.0, %sw.bb41 ], [ %sparamfncnt.0, %if.end44 ], [ %sparamfncnt.0, %sw.bb34 ], [ %sparamfncnt.0, %if.end37 ], [ %sparamfncnt.0, %sw.bb27 ], [ %sparamfncnt.0, %if.end30 ], [ %sparamfncnt.0, %sw.bb20 ], [ %sparamfncnt.0, %if.end23 ], [ %sparamfncnt.0, %sw.bb13 ], [ %sparamfncnt.0, %if.end16 ], [ %sparamfncnt.0, %sw.bb ], [ %sparamfncnt.0, %if.end10 ], [ %sparamfncnt.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %fns.0, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %fns.0, i64 16
   br label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
@@ -983,7 +983,7 @@ declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_ASYM_CIPHER_is_a(ptr nocapture noundef readonly %cipher, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load ptr, ptr %prov, align 8
   %1 = load i32, ptr %cipher, align 8
   %call = tail call i32 @evp_is_a(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %name) #4
@@ -1002,7 +1002,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_ASYM_CIPHER_get0_name(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %type_name = getelementptr inbounds i8, ptr %cipher, i64 8
+  %type_name = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load ptr, ptr %type_name, align 8
   ret ptr %0
 }
@@ -1010,7 +1010,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_ASYM_CIPHER_get0_description(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %description = getelementptr inbounds i8, ptr %cipher, i64 16
+  %description = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load ptr, ptr %description, align 8
   ret ptr %0
 }
@@ -1027,7 +1027,7 @@ declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_ASYM_CIPHER_names_do_all(ptr nocapture noundef readonly %cipher, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 24
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %0 = load ptr, ptr %prov, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
@@ -1051,13 +1051,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %gettable_ctx_params = getelementptr inbounds i8, ptr %cip, i64 104
+  %gettable_ctx_params = getelementptr inbounds nuw i8, ptr %cip, i64 104
   %0 = load ptr, ptr %gettable_ctx_params, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %prov.i = getelementptr inbounds i8, ptr %cip, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %cip, i64 24
   %1 = load ptr, ptr %prov.i, align 8
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %1) #4
   %2 = load ptr, ptr %gettable_ctx_params, align 8
@@ -1078,13 +1078,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %settable_ctx_params = getelementptr inbounds i8, ptr %cip, i64 120
+  %settable_ctx_params = getelementptr inbounds nuw i8, ptr %cip, i64 120
   %0 = load ptr, ptr %settable_ctx_params, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %prov.i = getelementptr inbounds i8, ptr %cip, i64 24
+  %prov.i = getelementptr inbounds nuw i8, ptr %cip, i64 24
   %1 = load ptr, ptr %prov.i, align 8
   %call2 = tail call ptr @ossl_provider_ctx(ptr noundef %1) #4
   %2 = load ptr, ptr %settable_ctx_params, align 8

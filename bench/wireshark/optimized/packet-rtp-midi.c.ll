@@ -2163,7 +2163,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.591) #2
   %7 = load ptr, ptr %5, align 8
@@ -2244,7 +2244,7 @@ define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup411:                                 ; preds = %45
   %47 = zext nneg i32 %.0302.i to i64
-  %switch.gep412 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_rtp_midi.39, i64 0, i64 %47
+  %switch.gep412 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi.39, i64 0, i64 %47
   %switch.load413 = load ptr, ptr %switch.gep412, align 8
   %switch.offset414 = add nuw nsw i32 %.0302.i, 1
   %switch.offset415 = add nuw nsw i32 %.0302.i, 1
@@ -4286,7 +4286,7 @@ decode_sj_chapter_f.exit.i:                       ; preds = %1198, %1197, %decod
 
 switch.lookup:                                    ; preds = %1250
   %1252 = zext nneg i32 %.03.i.i to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_rtp_midi, i64 0, i64 %1252
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi, i64 0, i64 %1252
   %switch.load = load ptr, ptr %switch.gep, align 8
   %switch.offset = add nuw nsw i32 %.03.i.i, 1
   %1253 = load i32, ptr %switch.load, align 4

@@ -39,7 +39,7 @@ define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr nocapture n
   br i1 %.not.i, label %14, label %parse_map_line.exit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %10, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %16 = call i64 @strtoull(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 16) #6
   %17 = load ptr, ptr %4, align 8
   %18 = icmp eq ptr %17, %15
@@ -51,7 +51,7 @@ define range(i32 -1, 1) i32 @pmix_vmem_find_hole(i32 noundef %0, ptr nocapture n
   br i1 %.not19.i, label %21, label %parse_map_line.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %17, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %23 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 47) #7
   %.not20.i = icmp eq ptr %23, null
   br i1 %.not20.i, label %24, label %33

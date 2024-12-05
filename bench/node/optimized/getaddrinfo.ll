@@ -99,7 +99,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then4:                                         ; preds = %if.end
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %hostname) #12
   %add.ptr = getelementptr inbounds i8, ptr %hostname, i64 %call
-  %add.ptr6 = getelementptr inbounds i8, ptr %hostname_ascii, i64 256
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %hostname_ascii, i64 256
   %call7 = call i64 @uv__idna_toascii(ptr noundef nonnull %hostname, ptr noundef nonnull %add.ptr, ptr noundef nonnull %hostname_ascii, ptr noundef nonnull %add.ptr6) #13
   %cmp8 = icmp slt i64 %call7, 0
   br i1 %cmp8, label %if.then9, label %cond.true
@@ -134,21 +134,21 @@ cond.end19:                                       ; preds = %cond.end, %cond.tru
   br i1 %cmp26, label %return, label %do.body30
 
 do.body30:                                        ; preds = %cond.end19
-  %type = getelementptr inbounds i8, ptr %req, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i32 8, ptr %type, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %loop34 = getelementptr inbounds i8, ptr %req, i64 64
+  %loop34 = getelementptr inbounds nuw i8, ptr %req, i64 64
   store ptr %loop, ptr %loop34, align 8
-  %cb35 = getelementptr inbounds i8, ptr %req, i64 112
+  %cb35 = getelementptr inbounds nuw i8, ptr %req, i64 112
   store ptr %cb, ptr %cb35, align 8
-  %addrinfo = getelementptr inbounds i8, ptr %req, i64 144
-  %hints36 = getelementptr inbounds i8, ptr %req, i64 120
-  %service37 = getelementptr inbounds i8, ptr %req, i64 136
-  %hostname38 = getelementptr inbounds i8, ptr %req, i64 128
-  %retcode = getelementptr inbounds i8, ptr %req, i64 152
+  %addrinfo = getelementptr inbounds nuw i8, ptr %req, i64 144
+  %hints36 = getelementptr inbounds nuw i8, ptr %req, i64 120
+  %service37 = getelementptr inbounds nuw i8, ptr %req, i64 136
+  %hostname38 = getelementptr inbounds nuw i8, ptr %req, i64 128
+  %retcode = getelementptr inbounds nuw i8, ptr %req, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %hints36, i8 0, i64 36, i1 false)
   br i1 %tobool21.not, label %if.end44, label %if.then40
 
@@ -162,7 +162,7 @@ if.end44:                                         ; preds = %if.then40, %do.body
   br i1 %cmp2, label %if.end50, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
-  %add.ptr47 = getelementptr inbounds i8, ptr %call25, i64 %len.0
+  %add.ptr47 = getelementptr inbounds nuw i8, ptr %call25, i64 %len.0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr47, ptr nonnull align 1 %service, i64 %cond20, i1 false)
   store ptr %add.ptr47, ptr %service37, align 8
   %add49 = add i64 %len.0, %cond20
@@ -183,7 +183,7 @@ if.end55:                                         ; preds = %if.then52, %if.end5
   br i1 %tobool56.not, label %if.else, label %if.then57
 
 if.then57:                                        ; preds = %if.end55
-  %work_req = getelementptr inbounds i8, ptr %req, i64 72
+  %work_req = getelementptr inbounds nuw i8, ptr %req, i64 72
   call void @uv__work_submit(ptr noundef nonnull %loop, ptr noundef nonnull %work_req, i32 noundef 2, ptr noundef nonnull @uv__getaddrinfo_work, ptr noundef nonnull @uv__getaddrinfo_done) #13
   br label %return
 
@@ -195,7 +195,7 @@ if.else:                                          ; preds = %if.end55
   %call1.i = call i32 @uv__getaddrinfo_translate_error(i32 noundef %call.i)
   store i32 %call1.i, ptr %retcode, align 8
   %4 = load ptr, ptr %loop34, align 8
-  %active_reqs.i = getelementptr inbounds i8, ptr %4, i64 32
+  %active_reqs.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %5 = load i32, ptr %active_reqs.i, align 8
   %dec.i = add i32 %5, -1
   store i32 %dec.i, ptr %active_reqs.i, align 8
@@ -254,16 +254,16 @@ declare void @uv__work_submit(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal void @uv__getaddrinfo_work(ptr noundef %w) #3 {
 entry:
-  %hostname = getelementptr inbounds i8, ptr %w, i64 56
+  %hostname = getelementptr inbounds nuw i8, ptr %w, i64 56
   %0 = load ptr, ptr %hostname, align 8
-  %service = getelementptr inbounds i8, ptr %w, i64 64
+  %service = getelementptr inbounds nuw i8, ptr %w, i64 64
   %1 = load ptr, ptr %service, align 8
-  %hints = getelementptr inbounds i8, ptr %w, i64 48
+  %hints = getelementptr inbounds nuw i8, ptr %w, i64 48
   %2 = load ptr, ptr %hints, align 8
-  %addrinfo = getelementptr inbounds i8, ptr %w, i64 72
+  %addrinfo = getelementptr inbounds nuw i8, ptr %w, i64 72
   %call = tail call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %addrinfo) #13
   %call1 = tail call i32 @uv__getaddrinfo_translate_error(i32 noundef %call)
-  %retcode = getelementptr inbounds i8, ptr %w, i64 80
+  %retcode = getelementptr inbounds nuw i8, ptr %w, i64 80
   store i32 %call1, ptr %retcode, align 8
   ret void
 }
@@ -274,23 +274,23 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %w, i64 -72
   %loop = getelementptr inbounds i8, ptr %w, i64 -8
   %0 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %0, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %active_reqs, align 8
-  %hints = getelementptr inbounds i8, ptr %w, i64 48
+  %hints = getelementptr inbounds nuw i8, ptr %w, i64 48
   %2 = load ptr, ptr %hints, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.end11.sink.split
 
 if.else:                                          ; preds = %entry
-  %service = getelementptr inbounds i8, ptr %w, i64 64
+  %service = getelementptr inbounds nuw i8, ptr %w, i64 64
   %3 = load ptr, ptr %service, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.else5, label %if.end11.sink.split
 
 if.else5:                                         ; preds = %if.else
-  %hostname = getelementptr inbounds i8, ptr %w, i64 56
+  %hostname = getelementptr inbounds nuw i8, ptr %w, i64 56
   %4 = load ptr, ptr %hostname, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.end11, label %if.end11.sink.split
@@ -306,20 +306,20 @@ if.end11:                                         ; preds = %if.end11.sink.split
   br i1 %cmp, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end11
-  %retcode = getelementptr inbounds i8, ptr %w, i64 80
+  %retcode = getelementptr inbounds nuw i8, ptr %w, i64 80
   store i32 -3003, ptr %retcode, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %if.end11
-  %cb = getelementptr inbounds i8, ptr %w, i64 40
+  %cb = getelementptr inbounds nuw i8, ptr %w, i64 40
   %5 = load ptr, ptr %cb, align 8
   %tobool17.not = icmp eq ptr %5, null
   br i1 %tobool17.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %retcode20 = getelementptr inbounds i8, ptr %w, i64 80
+  %retcode20 = getelementptr inbounds nuw i8, ptr %w, i64 80
   %6 = load i32, ptr %retcode20, align 8
-  %addrinfo = getelementptr inbounds i8, ptr %w, i64 72
+  %addrinfo = getelementptr inbounds nuw i8, ptr %w, i64 72
   %7 = load ptr, ptr %addrinfo, align 8
   tail call void %5(ptr noundef nonnull %add.ptr, i32 noundef %6, ptr noundef %7) #13
   br label %if.end21

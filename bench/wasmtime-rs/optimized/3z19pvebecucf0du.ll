@@ -18,7 +18,7 @@ define noundef ptr @_ZN3std2io5Write9write_all17he0f022301607a4ebE(ptr align 1 %
   br i1 %5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %30
@@ -116,7 +116,7 @@ define noundef ptr @_ZN3std2io5Write9write_all17he0f022301607a4ebE(ptr align 1 %
 define noundef ptr @_ZN3std2io5Write9write_fmt17h6855c921d408601eE(ptr align 1 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
   %5 = invoke zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr nonnull align 1 %3, ptr nonnull align 8 @anon.edbd1d646fa8c17866091d363f4db76b.4, ptr align 8 %1)
           to label %8 unwind label %6

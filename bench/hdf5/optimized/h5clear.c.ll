@@ -355,7 +355,7 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
 117:                                              ; preds = %113
   %118 = load ptr, ptr @stdout, align 8
   %119 = load i64, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %5, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %121 = load i64, ptr %120, align 8
   %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %118, ptr noundef nonnull @.str.9, i64 noundef %119, i64 noundef %121) #10
   br label %123

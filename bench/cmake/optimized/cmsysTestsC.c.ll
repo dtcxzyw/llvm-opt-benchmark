@@ -59,7 +59,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 17:                                               ; preds = %12
   %18 = add nsw i32 %0, -1
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %20
 
 20:                                               ; preds = %17, %2
@@ -73,20 +73,20 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %or.cond, label %sub_0, label %89
 
 sub_0:                                            ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.072, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.072, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i8, ptr %25, align 1
   %.not136 = icmp eq i8 %26, 45
   br i1 %.not136, label %sub_1, label %.thread113
 
 sub_1:                                            ; preds = %sub_0
-  %27 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %28 = load i8, ptr %27, align 1
   %.not137 = icmp eq i8 %28, 82
   br i1 %.not137, label %.tail, label %sub_1120
 
 .tail:                                            ; preds = %sub_1
-  %29 = getelementptr inbounds i8, ptr %25, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   %32 = icmp samesign ult i32 %.071, 3
@@ -104,13 +104,13 @@ sub_0119.thread:                                  ; preds = %.tail
 sub_1120:                                         ; preds = %sub_1, %sub_0119.thread
   %35 = phi i32 [ %33, %sub_0119.thread ], [ 0, %sub_1 ]
   %36 = phi i1 [ %31, %sub_0119.thread ], [ false, %sub_1 ]
-  %37 = getelementptr inbounds i8, ptr %25, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %38 = load i8, ptr %37, align 1
   %.not139 = icmp eq i8 %38, 65
   br i1 %.not139, label %.tail118, label %.thread113
 
 .tail118:                                         ; preds = %sub_1120
-  %39 = getelementptr inbounds i8, ptr %25, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %.thread113
@@ -120,19 +120,19 @@ sub_1120:                                         ; preds = %sub_1, %sub_0119.th
   %43 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 2)
   %44 = icmp samesign ugt i32 %.071, 2
   %45 = add nsw i32 %.071, -2
-  %46 = getelementptr inbounds i8, ptr %.072, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.072, i64 16
   %wide.trip.count.i = zext nneg i32 %45 to i64
   br i1 %44, label %.split.us, label %isTestSkipped.exit.thread
 
 .split.us:                                        ; preds = %42, %58
   %indvars.iv152 = phi i64 [ %indvars.iv.next153.pre-phi, %58 ], [ 0, %42 ]
-  %47 = getelementptr inbounds [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv152
+  %47 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv152
   %48 = load ptr, ptr %47, align 16
   br label %49
 
 49:                                               ; preds = %54, %.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.split.us ], [ %indvars.iv.next.i.us, %54 ]
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i.us
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %51) #10
   %53 = icmp eq i32 %52, 0
@@ -156,7 +156,7 @@ isTestSkipped.exit.us:                            ; preds = %49
 
 isTestSkipped.exit.thread.loopexit.us:            ; preds = %54
   %60 = call i64 @clock() #11
-  %61 = getelementptr inbounds i8, ptr %47, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 %62(i32 noundef %.071, ptr noundef nonnull %.072) #11
   %64 = call i64 @clock() #11
@@ -173,10 +173,10 @@ isTestSkipped.exit.thread.loopexit.us:            ; preds = %54
 isTestSkipped.exit.thread:                        ; preds = %42, %isTestSkipped.exit.thread
   %73 = phi i1 [ false, %isTestSkipped.exit.thread ], [ true, %42 ]
   %indvars.iv149 = phi i64 [ 1, %isTestSkipped.exit.thread ], [ 0, %42 ]
-  %74 = getelementptr inbounds [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv149
+  %74 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv149
   %75 = load ptr, ptr %74, align 16
   %76 = call i64 @clock() #11
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 %78(i32 noundef %.071, ptr noundef %.072) #11
   %80 = call i64 @clock() #11
@@ -199,10 +199,10 @@ isTestSkipped.exit.thread:                        ; preds = %42, %isTestSkipped.
 
 .thread113:                                       ; preds = %sub_0, %sub_1120, %.tail118, %89
   %90 = phi i1 [ false, %89 ], [ %36, %.tail118 ], [ %36, %sub_1120 ], [ false, %sub_0 ]
-  %.078106110115 = phi i32 [ 0, %89 ], [ %35, %.tail118 ], [ %35, %sub_1120 ], [ 0, %sub_0 ]
-  %91 = add nuw nsw i32 %.078106110115, 1
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds ptr, ptr %.072, i64 %92
+  %.078106110116 = phi i32 [ 0, %89 ], [ %35, %.tail118 ], [ %35, %sub_1120 ], [ 0, %sub_0 ]
+  %91 = zext nneg i32 %.078106110116 to i64
+  %92 = getelementptr inbounds nuw ptr, ptr %.072, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %94) #10
   %96 = add i64 %95, 1
@@ -223,7 +223,7 @@ isTestSkipped.exit.thread:                        ; preds = %42, %isTestSkipped.
   %104 = call i32 @tolower(i32 noundef %103) #10
   %105 = trunc i32 %104 to i8
   store i8 %105, ptr %.01115.i, align 1
-  %106 = getelementptr inbounds i8, ptr %.01115.i, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.01115.i, i64 1
   %107 = load i8, ptr %106, align 1
   %.not.i = icmp eq i8 %107, 0
   br i1 %.not.i, label %lowercase.exit, label %.lr.ph.i, !llvm.loop !8
@@ -233,7 +233,7 @@ lowercase.exit:                                   ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %.thread113, %99, %lowercase.exit
   %.082162 = phi ptr [ %97, %lowercase.exit ], [ %97, %99 ], [ null, %.thread113 ]
-  %108 = icmp eq i32 %.078106110115, 0
+  %108 = icmp eq i32 %.078106110116, 0
   br label %109
 
 109:                                              ; preds = %.lr.ph, %139
@@ -241,7 +241,7 @@ lowercase.exit:                                   ; preds = %.lr.ph.i
   %indvars.iv143 = phi i64 [ 0, %.lr.ph ], [ 1, %139 ]
   %.1127 = phi i32 [ %.071, %.lr.ph ], [ %.2, %139 ]
   %.173126 = phi ptr [ %.072, %.lr.ph ], [ %.274, %139 ]
-  %111 = getelementptr inbounds [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv143
+  %111 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %indvars.iv143
   %112 = load ptr, ptr %111, align 16
   %113 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %112) #10
   %114 = add i64 %113, 1
@@ -262,7 +262,7 @@ lowercase.exit:                                   ; preds = %.lr.ph.i
   %122 = call i32 @tolower(i32 noundef %121) #10
   %123 = trunc i32 %122 to i8
   store i8 %123, ptr %.01115.i99, align 1
-  %124 = getelementptr inbounds i8, ptr %.01115.i99, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.01115.i99, i64 1
   %125 = load i8, ptr %124, align 1
   %.not.i100 = icmp eq i8 %125, 0
   br i1 %.not.i100, label %lowercase.exit101, label %.lr.ph.i98, !llvm.loop !8
@@ -278,7 +278,7 @@ lowercase.exit101:                                ; preds = %.lr.ph.i98, %109, %
 
 129:                                              ; preds = %127
   %130 = add nsw i32 %.1127, -2
-  %131 = getelementptr inbounds i8, ptr %.173126, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.173126, i64 16
   br label %139
 
 132:                                              ; preds = %127, %lowercase.exit101
@@ -291,7 +291,7 @@ lowercase.exit101:                                ; preds = %.lr.ph.i98, %109, %
 
 136:                                              ; preds = %133
   %137 = add nsw i32 %.1127, -1
-  %138 = getelementptr inbounds i8, ptr %.173126, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %.173126, i64 8
   br label %139
 
 139:                                              ; preds = %132, %133, %136, %129
@@ -325,7 +325,7 @@ lowercase.exit101:                                ; preds = %.lr.ph.i98, %109, %
 
 145:                                              ; preds = %142
   %146 = zext nneg i32 %.180.lcssa172 to i64
-  %147 = getelementptr inbounds [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %146, i32 1
+  %147 = getelementptr inbounds nuw [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %146, i32 1
   %148 = load ptr, ptr %147, align 8
   %149 = call i32 %148(i32 noundef %.1.lcssa174, ptr noundef %.173.lcssa173) #11
   br label %155
@@ -334,7 +334,7 @@ lowercase.exit101:                                ; preds = %.lr.ph.i98, %109, %
   %puts90 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 0, ptr noundef nonnull @.str.18)
   %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef 1, ptr noundef nonnull @.str.19)
-  %152 = getelementptr inbounds i8, ptr %.274, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.274, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %153)
   br label %155

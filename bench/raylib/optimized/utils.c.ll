@@ -394,23 +394,23 @@ define noundef zeroext i1 @ExportDataAsCode(ptr nocapture noundef readonly %0, i
   %7 = sext i32 %6 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 1) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %8, ptr noundef nonnull align 1 dereferenceable(90) @.str.19, i64 89, i1 false)
-  %9 = getelementptr inbounds i8, ptr %8, i64 89
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 89
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %9, ptr noundef nonnull align 1 dereferenceable(90) @.str.20, i64 89, i1 false)
-  %10 = getelementptr inbounds i8, ptr %8, i64 178
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 178
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %10, ptr noundef nonnull align 1 dereferenceable(90) @.str.21, i64 89, i1 false)
-  %11 = getelementptr inbounds i8, ptr %8, i64 267
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 267
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %11, ptr noundef nonnull align 1 dereferenceable(90) @.str.20, i64 89, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 356
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 356
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %12, ptr noundef nonnull align 1 dereferenceable(90) @.str.22, i64 89, i1 false)
-  %13 = getelementptr inbounds i8, ptr %8, i64 445
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 445
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %13, ptr noundef nonnull align 1 dereferenceable(90) @.str.23, i64 89, i1 false)
-  %14 = getelementptr inbounds i8, ptr %8, i64 534
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 534
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %14, ptr noundef nonnull align 1 dereferenceable(90) @.str.20, i64 89, i1 false)
-  %15 = getelementptr inbounds i8, ptr %8, i64 623
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 623
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %15, ptr noundef nonnull align 1 dereferenceable(90) @.str.24, i64 89, i1 false)
-  %16 = getelementptr inbounds i8, ptr %8, i64 712
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 712
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(90) %16, ptr noundef nonnull align 1 dereferenceable(90) @.str.20, i64 89, i1 false)
-  %17 = getelementptr inbounds i8, ptr %8, i64 801
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 801
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(91) %17, ptr noundef nonnull align 1 dereferenceable(91) @.str.25, i64 91, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, i8 0, i64 256, i1 false)
   %18 = tail call ptr @GetFileNameWithoutExt(ptr noundef %2) #17
@@ -447,13 +447,13 @@ define noundef zeroext i1 @ExportDataAsCode(ptr nocapture noundef readonly %0, i
 
 26:                                               ; preds = %.sink.split, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv.next
   %28 = load i8, ptr %27, align 1
   %.not = icmp eq i8 %28, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %26, %3
-  %29 = getelementptr inbounds i8, ptr %8, i64 891
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 891
   %30 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %4, i32 noundef %1) #17
   %31 = add nsw i32 %30, 891
   %32 = sext i32 %31 to i64
@@ -477,7 +477,7 @@ define noundef zeroext i1 @ExportDataAsCode(ptr nocapture noundef readonly %0, i
   %41 = urem i32 %40, 20
   %42 = icmp eq i32 %41, 0
   %43 = select i1 %42, ptr @.str.28, ptr @.str.29
-  %44 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv84
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv84
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %43, i32 noundef %46) #17
@@ -616,7 +616,7 @@ define ptr @LoadFileText(ptr noundef %0) local_unnamed_addr #1 {
 26:                                               ; preds = %22, %17
   %.026 = phi ptr [ %25, %22 ], [ %16, %17 ]
   %27 = and i64 %19, 4294967295
-  %28 = getelementptr inbounds i8, ptr %.026, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %.026, i64 %27
   store i8 0, ptr %28, align 1
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.34, ptr noundef nonnull %0)
   br label %31

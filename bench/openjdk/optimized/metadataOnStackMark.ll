@@ -55,7 +55,7 @@ declare void @_ZN7Threads19metadata_handles_doEPFvP8MetadataE(ptr noundef) local
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8Metadata13mark_on_stackEPS_(ptr noundef %0) #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, i1 noundef zeroext true) #4
   ret void
@@ -81,7 +81,7 @@ define hidden void @_ZN19MetadataOnStackMarkD2Ev(ptr nocapture nonnull readnone 
   br i1 %3, label %_ZN19MetadataOnStackMark21retire_current_bufferEv.exit, label %_ZN19MetadataOnStackMark21retire_current_bufferEv.exit.thread
 
 _ZN19MetadataOnStackMark21retire_current_bufferEv.exit.thread: ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 520
   store ptr %.pre, ptr %4, align 8
   store ptr %2, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
   store ptr null, ptr @_ZN19MetadataOnStackMark15_current_bufferE, align 8
@@ -97,7 +97,7 @@ _ZN19MetadataOnStackMark21retire_current_bufferEv.exit: ; preds = %1
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %._crit_edge
   %.016 = phi ptr [ %18, %._crit_edge ], [ %.016.ph, %.lr.ph17.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.016, i64 512
+  %5 = getelementptr inbounds nuw i8, ptr %.016, i64 512
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %.016 to i64
@@ -111,10 +111,10 @@ _ZN19MetadataOnStackMark21retire_current_bufferEv.exit: ; preds = %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01314 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds [64 x ptr], ptr %.016, i64 0, i64 %.01314
+  %11 = getelementptr inbounds nuw [64 x ptr], ptr %.016, i64 0, i64 %.01314
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext false) #4
   %16 = add nuw nsw i64 %.01314, 1
@@ -122,12 +122,12 @@ _ZN19MetadataOnStackMark21retire_current_bufferEv.exit: ; preds = %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph17
-  %17 = getelementptr inbounds i8, ptr %.016, i64 520
+  %17 = getelementptr inbounds nuw i8, ptr %.016, i64 520
   %18 = load ptr, ptr %17, align 8
   store ptr %.016, ptr %5, align 8
   store ptr null, ptr %17, align 8
   %19 = load ptr, ptr @_ZN19MetadataOnStackMark13_free_buffersE, align 8
-  %20 = getelementptr inbounds i8, ptr %.016, i64 528
+  %20 = getelementptr inbounds nuw i8, ptr %.016, i64 528
   store ptr %19, ptr %20, align 8
   store ptr %.016, ptr @_ZN19MetadataOnStackMark13_free_buffersE, align 8
   %.not = icmp eq ptr %18, null
@@ -146,7 +146,7 @@ define hidden void @_ZN19MetadataOnStackMark21retire_current_bufferEv() local_un
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 520
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store ptr %4, ptr %5, align 8
   store ptr %1, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
   br label %_ZN19MetadataOnStackMark13retire_bufferEP11ChunkedListIP8MetadataL8MEMFLAGS9EE.exit
@@ -163,7 +163,7 @@ define hidden void @_ZN19MetadataOnStackMark13retire_bufferEP11ChunkedListIP8Met
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 520
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %4, ptr %5, align 8
   store ptr %0, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
   br label %6
@@ -179,16 +179,16 @@ define hidden noundef ptr @_ZN19MetadataOnStackMark15allocate_bufferEv() local_u
   br i1 %cond, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr @_ZN19MetadataOnStackMark13_free_buffersE, align 8
   br label %9
 
 5:                                                ; preds = %0
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 9, i32 noundef 0) #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 512
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 512
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 520
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %9
 
@@ -204,14 +204,14 @@ define hidden void @_ZN19MetadataOnStackMark6recordEP8Metadata(ptr noundef %0) l
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 512
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 512
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
   br i1 %6, label %_ZN19MetadataOnStackMark13retire_bufferEP11ChunkedListIP8MetadataL8MEMFLAGS9EE.exit, label %18
 
 _ZN19MetadataOnStackMark13retire_bufferEP11ChunkedListIP8MetadataL8MEMFLAGS9EE.exit: ; preds = %3
   %7 = load ptr, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 520
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 520
   store ptr %7, ptr %8, align 8
   store ptr %2, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
   br label %9
@@ -222,18 +222,18 @@ _ZN19MetadataOnStackMark13retire_bufferEP11ChunkedListIP8MetadataL8MEMFLAGS9EE.e
   br i1 %cond.i, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 528
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr @_ZN19MetadataOnStackMark13_free_buffersE, align 8
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 512
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 512
   %.pre.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %_ZN19MetadataOnStackMark15allocate_bufferEv.exit
 
 14:                                               ; preds = %9
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 536, i8 noundef zeroext 9, i32 noundef 0) #4
-  %16 = getelementptr inbounds i8, ptr %15, i64 512
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 512
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 520
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %_ZN19MetadataOnStackMark15allocate_bufferEv.exit
 
@@ -246,10 +246,10 @@ _ZN19MetadataOnStackMark15allocate_bufferEv.exit: ; preds = %11, %14
 18:                                               ; preds = %3, %_ZN19MetadataOnStackMark15allocate_bufferEv.exit
   %19 = phi ptr [ %.pre, %_ZN19MetadataOnStackMark15allocate_bufferEv.exit ], [ %5, %3 ]
   %.1 = phi ptr [ %.0.i, %_ZN19MetadataOnStackMark15allocate_bufferEv.exit ], [ %2, %3 ]
-  %20 = getelementptr inbounds i8, ptr %.1, i64 512
+  %20 = getelementptr inbounds nuw i8, ptr %.1, i64 512
   store ptr %0, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %22, ptr %20, align 8
   ret void
 }
@@ -257,7 +257,7 @@ _ZN19MetadataOnStackMark15allocate_bufferEv.exit: ; preds = %11, %14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22MetadataOnStackClosure11do_metadataEP8Metadata(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext true) #4
   ret void

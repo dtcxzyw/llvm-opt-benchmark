@@ -19,8 +19,8 @@ define void @opal_string_copy(ptr nocapture noundef writeonly %0, ptr nocapture 
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw i64 %.01014, 1
-  %8 = getelementptr inbounds i8, ptr %.01113, i64 1
-  %9 = getelementptr inbounds i8, ptr %.015, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01113, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %exitcond.not = icmp eq i64 %7, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 

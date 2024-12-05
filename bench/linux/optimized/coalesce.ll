@@ -19,17 +19,17 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @coalesce_prepare_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %12, ptr %13, align 4
   %14 = tail call i32 @ethnl_ops_begin(ptr noundef %4) #5
   %15 = icmp slt i32 %14, 0
@@ -37,13 +37,13 @@ define internal i32 @coalesce_prepare_data(ptr nocapture readnone %0, ptr nounde
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 100
-  %22 = getelementptr inbounds i8, ptr %2, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %19(ptr noundef %4, ptr noundef %20, ptr noundef %21, ptr noundef %23) #5
+  %24 = tail call i32 %19(ptr noundef %4, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %23) #5
   tail call void @ethnl_ops_complete(ptr noundef %4) #5
   br label %25
 
@@ -83,10 +83,10 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   %25 = alloca i32, align 4
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 100
-  %29 = getelementptr inbounds i8, ptr %2, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 100
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   %34 = and i32 %30, 1
@@ -103,7 +103,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %39, label %40, label %281
 
 40:                                               ; preds = %37, %3
-  %41 = getelementptr inbounds i8, ptr %2, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
   %44 = and i32 %30, 2
@@ -120,7 +120,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %49, label %50, label %281
 
 50:                                               ; preds = %47, %40
-  %51 = getelementptr inbounds i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   %54 = and i32 %30, 4
@@ -137,7 +137,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %59, label %60, label %281
 
 60:                                               ; preds = %57, %50
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   %64 = and i32 %30, 8
@@ -154,7 +154,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %69, label %70, label %281
 
 70:                                               ; preds = %67, %60
-  %71 = getelementptr inbounds i8, ptr %2, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
   %74 = and i32 %30, 16
@@ -171,7 +171,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %79, label %80, label %281
 
 80:                                               ; preds = %77, %70
-  %81 = getelementptr inbounds i8, ptr %2, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 0
   %84 = and i32 %30, 32
@@ -188,7 +188,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %89, label %90, label %281
 
 90:                                               ; preds = %87, %80
-  %91 = getelementptr inbounds i8, ptr %2, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, 0
   %94 = and i32 %30, 64
@@ -205,7 +205,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %99, label %100, label %281
 
 100:                                              ; preds = %97, %90
-  %101 = getelementptr inbounds i8, ptr %2, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
   %104 = and i32 %30, 128
@@ -222,7 +222,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %109, label %110, label %281
 
 110:                                              ; preds = %107, %100
-  %111 = getelementptr inbounds i8, ptr %2, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, 0
   %114 = and i32 %30, 256
@@ -239,7 +239,7 @@ define internal range(i32 -90, 1) i32 @coalesce_fill_reply(ptr noundef %0, ptr n
   br i1 %119, label %120, label %281
 
 120:                                              ; preds = %117, %110
-  %121 = getelementptr inbounds i8, ptr %2, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %122 = load i32, ptr %121, align 4
   %123 = icmp ne i32 %122, 0
   %124 = and i32 %30, 512
@@ -257,13 +257,13 @@ coalesce_put_bool.exit:                           ; preds = %120
   br i1 %.not, label %coalesce_put_bool.exit.thread, label %281
 
 coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_bool.exit
-  %128 = getelementptr inbounds i8, ptr %2, i64 52
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %129 = load i32, ptr %128, align 4
   %130 = call fastcc zeroext i1 @coalesce_put_bool(ptr noundef %0, i16 noundef zeroext 12, i32 noundef %129, i32 noundef %30)
   br i1 %130, label %281, label %131
 
 131:                                              ; preds = %coalesce_put_bool.exit.thread
-  %132 = getelementptr inbounds i8, ptr %2, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 0
   %135 = and i32 %30, 2048
@@ -280,7 +280,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %140, label %141, label %281
 
 141:                                              ; preds = %138, %131
-  %142 = getelementptr inbounds i8, ptr %2, i64 60
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 0
   %145 = and i32 %30, 4096
@@ -297,7 +297,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %150, label %151, label %281
 
 151:                                              ; preds = %148, %141
-  %152 = getelementptr inbounds i8, ptr %2, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %153, 0
   %155 = and i32 %30, 8192
@@ -314,7 +314,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %160, label %161, label %281
 
 161:                                              ; preds = %158, %151
-  %162 = getelementptr inbounds i8, ptr %2, i64 68
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %163, 0
   %165 = and i32 %30, 16384
@@ -331,7 +331,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %170, label %171, label %281
 
 171:                                              ; preds = %168, %161
-  %172 = getelementptr inbounds i8, ptr %2, i64 72
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %173 = load i32, ptr %172, align 4
   %174 = icmp eq i32 %173, 0
   %175 = and i32 %30, 32768
@@ -348,7 +348,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %180, label %181, label %281
 
 181:                                              ; preds = %178, %171
-  %182 = getelementptr inbounds i8, ptr %2, i64 76
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %183 = load i32, ptr %182, align 4
   %184 = icmp eq i32 %183, 0
   %185 = and i32 %30, 65536
@@ -365,7 +365,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %190, label %191, label %281
 
 191:                                              ; preds = %188, %181
-  %192 = getelementptr inbounds i8, ptr %2, i64 80
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %193, 0
   %195 = and i32 %30, 131072
@@ -382,7 +382,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %200, label %201, label %281
 
 201:                                              ; preds = %198, %191
-  %202 = getelementptr inbounds i8, ptr %2, i64 84
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %203 = load i32, ptr %202, align 4
   %204 = icmp eq i32 %203, 0
   %205 = and i32 %30, 262144
@@ -399,7 +399,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %210, label %211, label %281
 
 211:                                              ; preds = %208, %201
-  %212 = getelementptr inbounds i8, ptr %2, i64 88
+  %212 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %213 = load i32, ptr %212, align 4
   %214 = icmp eq i32 %213, 0
   %215 = and i32 %30, 524288
@@ -416,7 +416,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %220, label %221, label %281
 
 221:                                              ; preds = %218, %211
-  %222 = getelementptr inbounds i8, ptr %2, i64 92
+  %222 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %223 = load i32, ptr %222, align 4
   %224 = icmp eq i32 %223, 0
   %225 = and i32 %30, 1048576
@@ -433,7 +433,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %230, label %231, label %281
 
 231:                                              ; preds = %228, %221
-  %232 = getelementptr inbounds i8, ptr %2, i64 96
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %233 = load i32, ptr %232, align 4
   %234 = icmp eq i32 %233, 0
   %235 = and i32 %30, 2097152
@@ -456,14 +456,14 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %244, label %281, label %245
 
 245:                                              ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %2, i64 101
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 101
   %247 = load i8, ptr %246, align 1
   %248 = zext i8 %247 to i32
   %249 = call fastcc zeroext i1 @coalesce_put_bool(ptr noundef %0, i16 noundef zeroext 25, i32 noundef %248, i32 noundef %30)
   br i1 %249, label %281, label %250
 
 250:                                              ; preds = %245
-  %251 = getelementptr inbounds i8, ptr %2, i64 104
+  %251 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %252, 0
   %254 = and i32 %30, 16777216
@@ -480,7 +480,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %259, label %260, label %281
 
 260:                                              ; preds = %257, %250
-  %261 = getelementptr inbounds i8, ptr %2, i64 108
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %262 = load i32, ptr %261, align 4
   %263 = icmp eq i32 %262, 0
   %264 = and i32 %30, 33554432
@@ -497,7 +497,7 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
   br i1 %269, label %270, label %281
 
 270:                                              ; preds = %267, %260
-  %271 = getelementptr inbounds i8, ptr %2, i64 112
+  %271 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %272 = load i32, ptr %271, align 4
   %273 = icmp eq i32 %272, 0
   %274 = and i32 %30, 67108864
@@ -522,23 +522,23 @@ coalesce_put_bool.exit.thread:                    ; preds = %120, %coalesce_put_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -95, 2) i32 @ethnl_set_coalesce_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -559,7 +559,7 @@ define internal noundef range(i32 -95, 2) i32 @ethnl_set_coalesce_validate(ptr n
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @ethnl_set_coalesce_validate.__msg) #5
   %33 = icmp eq ptr %32, null
@@ -569,9 +569,9 @@ define internal noundef range(i32 -95, 2) i32 @ethnl_set_coalesce_validate(ptr n
   %35 = getelementptr ptr, ptr %7, i64 %19
   store ptr @ethnl_set_coalesce_validate.__msg, ptr %32, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr null, ptr %38, align 8
   br label %.loopexit
 
@@ -674,20 +674,20 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %4, i8 0, i64 92, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.0.val, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 760
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %10(ptr noundef %.0.val, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %12) #5
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %359, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %17 = getelementptr i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -706,7 +706,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 26:                                               ; preds = %25, %20, %15
   %27 = phi i8 [ 0, %15 ], [ 0, %20 ], [ 1, %25 ]
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = getelementptr i8, ptr %6, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -725,7 +725,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 38:                                               ; preds = %37, %32, %26
   %39 = phi i8 [ %27, %26 ], [ %27, %32 ], [ 1, %37 ]
-  %40 = getelementptr inbounds i8, ptr %4, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %41 = getelementptr i8, ptr %6, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -744,7 +744,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 50:                                               ; preds = %49, %44, %38
   %51 = phi i8 [ %39, %38 ], [ %39, %44 ], [ 1, %49 ]
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = getelementptr i8, ptr %6, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
@@ -763,7 +763,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 62:                                               ; preds = %61, %56, %50
   %63 = phi i8 [ %51, %50 ], [ %51, %56 ], [ 1, %61 ]
-  %64 = getelementptr inbounds i8, ptr %4, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %65 = getelementptr i8, ptr %6, i64 48
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
@@ -782,7 +782,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 74:                                               ; preds = %73, %68, %62
   %75 = phi i8 [ %63, %62 ], [ %63, %68 ], [ 1, %73 ]
-  %76 = getelementptr inbounds i8, ptr %4, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %77 = getelementptr i8, ptr %6, i64 56
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
@@ -801,7 +801,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 86:                                               ; preds = %85, %80, %74
   %87 = phi i8 [ %75, %74 ], [ %75, %80 ], [ 1, %85 ]
-  %88 = getelementptr inbounds i8, ptr %4, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %89 = getelementptr i8, ptr %6, i64 64
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
@@ -820,7 +820,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 98:                                               ; preds = %97, %92, %86
   %99 = phi i8 [ %87, %86 ], [ %87, %92 ], [ 1, %97 ]
-  %100 = getelementptr inbounds i8, ptr %4, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %101 = getelementptr i8, ptr %6, i64 72
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
@@ -839,7 +839,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 110:                                              ; preds = %109, %104, %98
   %111 = phi i8 [ %99, %98 ], [ %99, %104 ], [ 1, %109 ]
-  %112 = getelementptr inbounds i8, ptr %4, i64 36
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %113 = getelementptr i8, ptr %6, i64 80
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
@@ -858,7 +858,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 122:                                              ; preds = %121, %116, %110
   %123 = phi i8 [ %111, %110 ], [ %111, %116 ], [ 1, %121 ]
-  %124 = getelementptr inbounds i8, ptr %4, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %125 = getelementptr i8, ptr %6, i64 104
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
@@ -877,7 +877,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 134:                                              ; preds = %133, %128, %122
   %135 = phi i8 [ %123, %122 ], [ %123, %128 ], [ 1, %133 ]
-  %136 = getelementptr inbounds i8, ptr %4, i64 52
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %137 = getelementptr i8, ptr %6, i64 112
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %138, null
@@ -896,7 +896,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 146:                                              ; preds = %145, %140, %134
   %147 = phi i8 [ %135, %134 ], [ %135, %140 ], [ 1, %145 ]
-  %148 = getelementptr inbounds i8, ptr %4, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %149 = getelementptr i8, ptr %6, i64 120
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
@@ -915,7 +915,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 158:                                              ; preds = %157, %152, %146
   %159 = phi i8 [ %147, %146 ], [ %147, %152 ], [ 1, %157 ]
-  %160 = getelementptr inbounds i8, ptr %4, i64 60
+  %160 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %161 = getelementptr i8, ptr %6, i64 128
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
@@ -934,7 +934,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 170:                                              ; preds = %169, %164, %158
   %171 = phi i8 [ %159, %158 ], [ %159, %164 ], [ 1, %169 ]
-  %172 = getelementptr inbounds i8, ptr %4, i64 64
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %173 = getelementptr i8, ptr %6, i64 136
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, null
@@ -953,7 +953,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 182:                                              ; preds = %181, %176, %170
   %183 = phi i8 [ %171, %170 ], [ %171, %176 ], [ 1, %181 ]
-  %184 = getelementptr inbounds i8, ptr %4, i64 68
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %185 = getelementptr i8, ptr %6, i64 144
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
@@ -972,7 +972,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 194:                                              ; preds = %193, %188, %182
   %195 = phi i8 [ %183, %182 ], [ %183, %188 ], [ 1, %193 ]
-  %196 = getelementptr inbounds i8, ptr %4, i64 72
+  %196 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %197 = getelementptr i8, ptr %6, i64 152
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
@@ -991,7 +991,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 206:                                              ; preds = %205, %200, %194
   %207 = phi i8 [ %195, %194 ], [ %195, %200 ], [ 1, %205 ]
-  %208 = getelementptr inbounds i8, ptr %4, i64 76
+  %208 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %209 = getelementptr i8, ptr %6, i64 160
   %210 = load ptr, ptr %209, align 8
   %211 = icmp eq ptr %210, null
@@ -1010,7 +1010,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 218:                                              ; preds = %217, %212, %206
   %219 = phi i8 [ %207, %206 ], [ %207, %212 ], [ 1, %217 ]
-  %220 = getelementptr inbounds i8, ptr %4, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %221 = getelementptr i8, ptr %6, i64 168
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, null
@@ -1029,7 +1029,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 230:                                              ; preds = %229, %224, %218
   %231 = phi i8 [ %219, %218 ], [ %219, %224 ], [ 1, %229 ]
-  %232 = getelementptr inbounds i8, ptr %4, i64 84
+  %232 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %233 = getelementptr i8, ptr %6, i64 176
   %234 = load ptr, ptr %233, align 8
   %235 = icmp eq ptr %234, null
@@ -1048,7 +1048,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 242:                                              ; preds = %241, %236, %230
   %243 = phi i8 [ %231, %230 ], [ %231, %236 ], [ 1, %241 ]
-  %244 = getelementptr inbounds i8, ptr %4, i64 88
+  %244 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %245 = getelementptr i8, ptr %6, i64 184
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, null
@@ -1067,7 +1067,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 254:                                              ; preds = %253, %248, %242
   %255 = phi i8 [ %243, %242 ], [ %243, %248 ], [ 1, %253 ]
-  %256 = getelementptr inbounds i8, ptr %3, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %257 = getelementptr i8, ptr %6, i64 208
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
@@ -1086,7 +1086,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 266:                                              ; preds = %265, %260, %254
   %267 = phi i8 [ %255, %254 ], [ %255, %260 ], [ 1, %265 ]
-  %268 = getelementptr inbounds i8, ptr %3, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %269 = getelementptr i8, ptr %6, i64 216
   %270 = load ptr, ptr %269, align 8
   %271 = icmp eq ptr %270, null
@@ -1105,7 +1105,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 278:                                              ; preds = %277, %272, %266
   %279 = phi i8 [ %267, %266 ], [ %267, %272 ], [ 1, %277 ]
-  %280 = getelementptr inbounds i8, ptr %3, i64 12
+  %280 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %281 = getelementptr i8, ptr %6, i64 224
   %282 = load ptr, ptr %281, align 8
   %283 = icmp eq ptr %282, null
@@ -1124,7 +1124,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 290:                                              ; preds = %289, %284, %278
   %291 = phi i8 [ %279, %278 ], [ %279, %284 ], [ 1, %289 ]
-  %292 = getelementptr inbounds i8, ptr %4, i64 40
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %293 = getelementptr i8, ptr %6, i64 88
   %294 = load ptr, ptr %293, align 8
   %295 = icmp eq ptr %294, null
@@ -1146,7 +1146,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 305:                                              ; preds = %303, %296, %290
   %306 = phi i8 [ 0, %290 ], [ 0, %296 ], [ 1, %303 ]
-  %307 = getelementptr inbounds i8, ptr %4, i64 44
+  %307 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %308 = getelementptr i8, ptr %6, i64 96
   %309 = load ptr, ptr %308, align 8
   %310 = icmp eq ptr %309, null
@@ -1186,7 +1186,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 331:                                              ; preds = %330, %325, %320
   %332 = phi i8 [ %321, %320 ], [ %321, %325 ], [ 1, %330 ]
-  %333 = getelementptr inbounds i8, ptr %3, i64 1
+  %333 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %334 = getelementptr i8, ptr %6, i64 200
   %335 = load ptr, ptr %334, align 8
   %336 = icmp eq ptr %335, null
@@ -1216,7 +1216,7 @@ define internal fastcc i32 @__ethnl_set_coalesce(ptr %.0.val, ptr nocapture noun
 
 351:                                              ; preds = %343
   %352 = load ptr, ptr %7, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 136
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 136
   %354 = load ptr, ptr %353, align 8
   %355 = load ptr, ptr %11, align 8
   %356 = call i32 %354(ptr noundef %.0.val, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %355) #5

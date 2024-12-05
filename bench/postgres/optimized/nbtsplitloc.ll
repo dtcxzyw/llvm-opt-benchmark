@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i64
   %10 = getelementptr i8, ptr %1, i64 %9
@@ -29,13 +29,13 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %18 = and i16 %.val82, -256
   %19 = zext i16 %18 to i32
   %20 = add nsw i32 %19, -40
-  %21 = getelementptr inbounds i8, ptr %10, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i32, ptr %25, align 4
   %27 = lshr i32 %26, 17
   %narrow = add nuw nsw i32 %27, 7
@@ -49,13 +49,13 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %31 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %1) #7
   %32 = trunc i64 %31 to i32
   %33 = sub i32 %.072, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %40, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sitofp i32 %38 to double
   br label %40
@@ -63,7 +63,7 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
 40:                                               ; preds = %30, %36
   %41 = phi double [ %39, %36 ], [ 9.000000e+01, %30 ]
   %42 = add i64 %3, 4
-  %43 = getelementptr inbounds i8, ptr %10, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %44 = load i16, ptr %43, align 4
   %.fr560 = freeze i16 %44
   %45 = trunc i16 %.fr560 to i1
@@ -79,7 +79,7 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   br i1 %.not80599, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %40
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = trunc i64 %42 to i32
   %56 = add i32 %55, 65524
   %57 = trunc i64 %3 to i32
@@ -114,7 +114,7 @@ define dso_local zeroext i16 @_bt_findsplitloc(ptr noundef %0, ptr noundef %1, i
   %73 = and i32 %64, 32767
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr i8, ptr %1, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 8192
   %79 = icmp eq i16 %78, 0
@@ -187,7 +187,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %70
   %102 = and i32 %64, 32767
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr i8, ptr %1, i64 %103
-  %105 = getelementptr inbounds i8, ptr %104, i64 6
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 6
   %106 = load i16, ptr %105, align 2
   %107 = and i16 %106, 8192
   %108 = icmp eq i16 %107, 0
@@ -294,7 +294,7 @@ _bt_recsplitloc.exit156:                          ; preds = %131, %136
   %146 = and i32 %.val.i181, 32767
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr i8, ptr %1, i64 %147
-  %149 = getelementptr inbounds i8, ptr %148, i64 6
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 6
   %150 = load i16, ptr %149, align 2
   %151 = and i16 %150, 8192
   %152 = icmp eq i16 %151, 0
@@ -438,9 +438,9 @@ _bt_recsplitloc.exit226:                          ; preds = %190, %183, %._crit_
 199:                                              ; preds = %_bt_recsplitloc.exit226
   %200 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %200)
-  %201 = getelementptr inbounds i8, ptr %0, i64 56
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %204 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %203) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 262, ptr noundef nonnull @__func__._bt_findsplitloc) #7
   unreachable
@@ -456,9 +456,9 @@ _bt_recsplitloc.exit226:                          ; preds = %190, %183, %._crit_
   br label %.loopexit
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %0, i64 320
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 10
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 10
   %213 = load i16, ptr %212, align 2
   %214 = sext i16 %213 to i32
   %215 = icmp ne i16 %213, 1
@@ -481,7 +481,7 @@ _bt_recsplitloc.exit226:                          ; preds = %190, %183, %._crit_
   br i1 %182, label %223, label %231
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds i8, ptr %1, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %225 = getelementptr [0 x %struct.ItemIdData], ptr %224, i64 0, i64 %218
   %.val.i232 = load i32, ptr %225, align 4
   %226 = and i32 %.val.i232, 32767
@@ -499,7 +499,7 @@ _bt_recsplitloc.exit226:                          ; preds = %190, %183, %._crit_
 
 231:                                              ; preds = %222
   %232 = add nsw i16 %2, -1
-  %233 = getelementptr inbounds i8, ptr %1, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %234 = zext i16 %232 to i64
   %235 = add nsw i64 %234, -1
   %236 = getelementptr [0 x %struct.ItemIdData], ptr %233, i64 0, i64 %235
@@ -507,7 +507,7 @@ _bt_recsplitloc.exit226:                          ; preds = %190, %183, %._crit_
   %237 = and i32 %.val51.i, 32767
   %238 = zext nneg i32 %237 to i64
   %239 = getelementptr i8, ptr %1, i64 %238
-  %240 = getelementptr inbounds i8, ptr %239, i64 6
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 6
   %241 = load i16, ptr %240, align 2
   %242 = and i16 %241, 8192
   %243 = icmp eq i16 %242, 0
@@ -576,13 +576,13 @@ _bt_afternewitemoff.exit:                         ; preds = %263
 .lr.ph611:                                        ; preds = %.lr.ph611.preheader, %282
   %indvars.iv = phi i64 [ 0, %.lr.ph611.preheader ], [ %indvars.iv.next, %282 ]
   %273 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv
-  %274 = getelementptr inbounds i8, ptr %273, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load i8, ptr %274, align 2
   %276 = trunc i8 %275 to i1
   br i1 %276, label %277, label %282
 
 277:                                              ; preds = %.lr.ph611
-  %278 = getelementptr inbounds i8, ptr %273, i64 6
+  %278 = getelementptr inbounds nuw i8, ptr %273, i64 6
   %279 = load i16, ptr %278, align 2
   %280 = icmp eq i16 %2, %279
   br i1 %280, label %281, label %282
@@ -600,16 +600,16 @@ _bt_afternewitemoff.exit:                         ; preds = %263
 .loopexit:                                        ; preds = %282, %_bt_afternewitemoff.exit, %._bt_afternewitemoff.exit.thread518_crit_edge, %.preheader, %205, %260, %257, %263, %BTreeTupleIsPosting.exit.i229, %223, %217, %209, %207
   %.0463 = phi i1 [ true, %207 ], [ false, %209 ], [ false, %217 ], [ false, %223 ], [ false, %BTreeTupleIsPosting.exit.i229 ], [ false, %263 ], [ false, %257 ], [ false, %260 ], [ %47, %205 ], [ false, %.preheader ], [ true, %._bt_afternewitemoff.exit.thread518_crit_edge ], [ true, %_bt_afternewitemoff.exit ], [ false, %282 ]
   %.071 = phi double [ %208, %207 ], [ 5.000000e-01, %209 ], [ 5.000000e-01, %217 ], [ 5.000000e-01, %223 ], [ 5.000000e-01, %BTreeTupleIsPosting.exit.i229 ], [ 5.000000e-01, %263 ], [ 5.000000e-01, %257 ], [ 5.000000e-01, %260 ], [ 0x3FE6666666666666, %205 ], [ 5.000000e-01, %.preheader ], [ %.pre623, %._bt_afternewitemoff.exit.thread518_crit_edge ], [ %270, %_bt_afternewitemoff.exit ], [ 5.000000e-01, %282 ]
-  %.sroa.1269.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 6
+  %.sroa.1269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 6
   %.sroa.1269.0.copyload = load i16, ptr %.sroa.1269.0..sroa_idx, align 2
-  %.sroa.2270.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 8
+  %.sroa.2270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.2270.0.copyload = load i8, ptr %.sroa.2270.0..sroa_idx, align 2
   %283 = add i32 %.sroa.136.2, -1
   %284 = sext i32 %283 to i64
   %285 = getelementptr %struct.SplitPoint, ptr %50, i64 %284
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %285, i64 6
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %285, i64 6
   %.sroa.1.0.copyload = load i16, ptr %.sroa.1.0..sroa_idx, align 2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %285, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %285, i64 8
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 2
   %286 = icmp sgt i32 %.sroa.136.2, 0
   br i1 %286, label %.lr.ph.i, label %.._crit_edge_crit_edge.i
@@ -626,10 +626,10 @@ _bt_afternewitemoff.exit:                         ; preds = %263
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %289 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv25.i
-  %290 = getelementptr inbounds i8, ptr %289, i64 2
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 2
   %291 = load i16, ptr %290, align 2
   %292 = sitofp i16 %291 to double
-  %293 = getelementptr inbounds i8, ptr %289, i64 4
+  %293 = getelementptr inbounds nuw i8, ptr %289, i64 4
   %294 = load i16, ptr %293, align 2
   %295 = sitofp i16 %294 to double
   %296 = fneg double %295
@@ -645,9 +645,9 @@ _bt_afternewitemoff.exit:                         ; preds = %263
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %300 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv.i
-  %301 = getelementptr inbounds i8, ptr %300, i64 2
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 2
   %302 = load i16, ptr %301, align 2
-  %303 = getelementptr inbounds i8, ptr %300, i64 4
+  %303 = getelementptr inbounds nuw i8, ptr %300, i64 4
   %304 = load i16, ptr %303, align 2
   %305 = sub i16 %302, %304
   %spec.select.i = tail call i16 @llvm.abs.i16(i16 %305, i1 false)
@@ -663,10 +663,10 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
   %..i = select i1 %45, double 5.000000e-02, double 0x3FB3333333333333
   %307 = fmul double %..i, %306
   %.028.i = fptosi double %307 to i16
-  %308 = getelementptr inbounds i8, ptr %50, i64 2
+  %308 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %309 = load i16, ptr %308, align 2
   %310 = sub i16 %309, %.028.i
-  %311 = getelementptr inbounds i8, ptr %50, i64 4
+  %311 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %312 = load i16, ptr %311, align 2
   %313 = sub i16 %312, %.028.i
   %314 = add i16 %309, %.028.i
@@ -681,13 +681,13 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
 .lr.ph.i236:                                      ; preds = %327, %.lr.ph.preheader.i
   %indvars.iv.i237 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i239, %327 ]
   %317 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv.i237
-  %318 = getelementptr inbounds i8, ptr %317, i64 2
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 2
   %319 = load i16, ptr %318, align 2
   %320 = icmp slt i16 %319, %310
   br i1 %320, label %._crit_edge.loopexit.split.loop.exit39.i, label %321
 
 321:                                              ; preds = %.lr.ph.i236
-  %322 = getelementptr inbounds i8, ptr %317, i64 4
+  %322 = getelementptr inbounds nuw i8, ptr %317, i64 4
   %323 = load i16, ptr %322, align 2
   %324 = icmp slt i16 %323, %313
   %325 = icmp sgt i16 %319, %314
@@ -711,9 +711,9 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
 
 _bt_defaultinterval.exit:                         ; preds = %327, %_bt_deltasortsplits.exit, %._crit_edge.loopexit.split.loop.exit39.i, %._crit_edge.loopexit.split.loop.exit41.i
   %.0.i235 = phi i32 [ %.sroa.136.2, %_bt_deltasortsplits.exit ], [ %328, %._crit_edge.loopexit.split.loop.exit39.i ], [ %329, %._crit_edge.loopexit.split.loop.exit41.i ], [ %.sroa.136.2, %327 ]
-  %330 = getelementptr inbounds i8, ptr %0, i64 320
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 10
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 10
   %333 = load i16, ptr %332, align 2
   %334 = sext i16 %333 to i32
   br i1 %45, label %.lr.ph.i.i, label %_bt_strategy.exit.thread532
@@ -730,7 +730,7 @@ _bt_defaultinterval.exit:                         ; preds = %327, %_bt_deltasort
   %.047.i.i = phi i32 [ %.046.i.i, %.lr.ph.i.i ], [ %.047.i.i.be, %.backedge.i.i.backedge ]
   %336 = zext nneg i32 %.047.i.i to i64
   %337 = getelementptr %struct.SplitPoint, ptr %50, i64 %336
-  %338 = getelementptr inbounds i8, ptr %337, i64 6
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 6
   %339 = load i16, ptr %338, align 2
   %340 = icmp ult i16 %339, %335
   br i1 %340, label %341, label %343
@@ -748,7 +748,7 @@ _bt_defaultinterval.exit:                         ; preds = %327, %_bt_deltasort
   br i1 %346, label %thread-pre-split.sink.split.i.i, label %thread-pre-split.i.i
 
 347:                                              ; preds = %343
-  %348 = getelementptr inbounds i8, ptr %337, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %349 = load i8, ptr %348, align 2
   %350 = trunc i8 %349 to i1
   %351 = load i8, ptr %.sroa.2270.0..sroa_idx, align 2
@@ -805,10 +805,10 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.si
   br label %.backedge.i.i, !llvm.loop !10
 
 _bt_interval_edges.exit.i:                        ; preds = %.thread44.i.i
-  %363 = getelementptr inbounds i8, ptr %.517.i, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %.517.i, i64 8
   %364 = load i8, ptr %363, align 2
   %365 = trunc i8 %364 to i1
-  %366 = getelementptr inbounds i8, ptr %.517.i, i64 6
+  %366 = getelementptr inbounds nuw i8, ptr %.517.i, i64 6
   %367 = load i16, ptr %366, align 2
   %368 = icmp eq i16 %367, %2
   %or.cond550 = select i1 %365, i1 %368, i1 false
@@ -816,7 +816,7 @@ _bt_interval_edges.exit.i:                        ; preds = %.thread44.i.i
 
 ._crit_edge.i43.i:                                ; preds = %_bt_interval_edges.exit.i
   %369 = add i16 %367, -1
-  %370 = getelementptr inbounds i8, ptr %1, i64 24
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %371 = zext i16 %369 to i64
   %372 = add nsw i64 %371, -1
   %373 = getelementptr [0 x %struct.ItemIdData], ptr %370, i64 0, i64 %372
@@ -828,17 +828,17 @@ _bt_interval_edges.exit.i:                        ; preds = %.thread44.i.i
 
 _bt_split_lastleft.exit.i:                        ; preds = %_bt_interval_edges.exit.i, %._crit_edge.i43.i
   %.0.i44.i = phi ptr [ %376, %._crit_edge.i43.i ], [ %4, %_bt_interval_edges.exit.i ]
-  %377 = getelementptr inbounds i8, ptr %.3.i, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
   %378 = load i8, ptr %377, align 2
   %379 = trunc i8 %378 to i1
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.3.i, i64 6
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 6
   %.pre.i45.i = load i16, ptr %.phi.trans.insert.i.i, align 2
   %380 = icmp ne i16 %.pre.i45.i, %2
   %or.cond552.not = select i1 %379, i1 true, i1 %380
   br i1 %or.cond552.not, label %._crit_edge.i46.i, label %_bt_split_firstright.exit.i
 
 ._crit_edge.i46.i:                                ; preds = %_bt_split_lastleft.exit.i
-  %381 = getelementptr inbounds i8, ptr %1, i64 24
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %382 = zext i16 %.pre.i45.i to i64
   %383 = add nsw i64 %382, -1
   %384 = getelementptr [0 x %struct.ItemIdData], ptr %381, i64 0, i64 %383
@@ -862,7 +862,7 @@ _bt_split_firstright.exit.i:                      ; preds = %_bt_split_lastleft.
 
 ._crit_edge.i49.i:                                ; preds = %389
   %392 = add i16 %.sroa.1269.0.copyload, -1
-  %393 = getelementptr inbounds i8, ptr %1, i64 24
+  %393 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %394 = zext i16 %392 to i64
   %395 = add nsw i64 %394, -1
   %396 = getelementptr [0 x %struct.ItemIdData], ptr %393, i64 0, i64 %395
@@ -880,7 +880,7 @@ _bt_split_lastleft.exit52.i:                      ; preds = %389, %._crit_edge.i
   br i1 %or.cond555.not, label %._crit_edge.i55.i, label %_bt_split_firstright.exit58.i
 
 ._crit_edge.i55.i:                                ; preds = %_bt_split_lastleft.exit52.i
-  %402 = getelementptr inbounds i8, ptr %1, i64 24
+  %402 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %403 = zext i16 %.sroa.1.0.copyload to i64
   %404 = add nsw i64 %403, -1
   %405 = getelementptr [0 x %struct.ItemIdData], ptr %402, i64 0, i64 %404
@@ -900,7 +900,7 @@ _bt_split_firstright.exit58.i:                    ; preds = %_bt_split_lastleft.
   br i1 %47, label %417, label %411
 
 411:                                              ; preds = %410
-  %412 = getelementptr inbounds i8, ptr %1, i64 24
+  %412 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val.i244 = load i32, ptr %412, align 4
   %413 = and i32 %.val.i244, 32767
   %414 = zext nneg i32 %413 to i64
@@ -924,10 +924,10 @@ _bt_split_firstright.exit58.i:                    ; preds = %_bt_split_lastleft.
 .lr.ph.split.us.i249:                             ; preds = %.lr.ph.split.us.i249.preheader, %.lr.ph.split.us.i249
   %indvars.iv25.i250 = phi i64 [ %indvars.iv.next26.i252, %.lr.ph.split.us.i249 ], [ 0, %.lr.ph.split.us.i249.preheader ]
   %419 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv25.i250
-  %420 = getelementptr inbounds i8, ptr %419, i64 2
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 2
   %421 = load i16, ptr %420, align 2
   %422 = sitofp i16 %421 to double
-  %423 = getelementptr inbounds i8, ptr %419, i64 4
+  %423 = getelementptr inbounds nuw i8, ptr %419, i64 4
   %424 = load i16, ptr %423, align 2
   %425 = sitofp i16 %424 to double
   %426 = fmul double %425, 0xBFA47AE147AE1480
@@ -960,13 +960,13 @@ _bt_strategy.exit.thread532:                      ; preds = %_bt_defaultinterval
 
 .lr.ph.split.preheader.i:                         ; preds = %_bt_strategy.exit
   %wide.trip.count54.i = zext nneg i32 %..i254 to i64
-  %432 = getelementptr inbounds i8, ptr %1, i64 24
+  %432 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %453
 
 .lr.ph.split.us.i257:                             ; preds = %_bt_strategy.exit.thread532
   %wide.trip.count.i258 = zext nneg i32 %..i254536 to i64
   %433 = trunc i64 %42 to i32
-  %434 = getelementptr inbounds i8, ptr %1, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %435
 
 435:                                              ; preds = %452, %.lr.ph.split.us.i257
@@ -974,10 +974,10 @@ _bt_strategy.exit.thread532:                      ; preds = %_bt_defaultinterval
   %.046.us.i = phi i32 [ %spec.select39.us.i, %452 ], [ 2147483647, %.lr.ph.split.us.i257 ]
   %.03144.us.i = phi i32 [ %spec.select.us.i260, %452 ], [ 0, %.lr.ph.split.us.i257 ]
   %436 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv.i259
-  %437 = getelementptr inbounds i8, ptr %436, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load i8, ptr %437, align 2
   %439 = trunc i8 %438 to i1
-  %440 = getelementptr inbounds i8, ptr %436, i64 6
+  %440 = getelementptr inbounds nuw i8, ptr %436, i64 6
   %441 = load i16, ptr %440, align 2
   %442 = icmp ne i16 %441, %2
   %or.cond557.not = select i1 %439, i1 true, i1 %442
@@ -1013,10 +1013,10 @@ _bt_split_penalty.exit.us.i:                      ; preds = %435, %._crit_edge.i
   %.046.i = phi i32 [ 2147483647, %.lr.ph.split.preheader.i ], [ %spec.select39.i, %487 ]
   %.03144.i = phi i32 [ 0, %.lr.ph.split.preheader.i ], [ %spec.select.i266, %487 ]
   %454 = getelementptr %struct.SplitPoint, ptr %50, i64 %indvars.iv51.i
-  %455 = getelementptr inbounds i8, ptr %454, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load i8, ptr %455, align 2
   %457 = trunc i8 %456 to i1
-  %458 = getelementptr inbounds i8, ptr %454, i64 6
+  %458 = getelementptr inbounds nuw i8, ptr %454, i64 6
   %459 = load i16, ptr %458, align 2
   br i1 %457, label %460, label %469
 
@@ -1089,13 +1089,13 @@ _bt_split_penalty.exit._crit_edge.i:              ; preds = %_bt_split_penalty.e
   br i1 %brmerge, label %_bt_bestsplitloc.exit, label %492
 
 492:                                              ; preds = %_bt_split_penalty.exit._crit_edge.i
-  %493 = getelementptr inbounds i8, ptr %491, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %491, i64 8
   %494 = load i8, ptr %493, align 2
   %495 = trunc i8 %494 to i1
   br i1 %495, label %_bt_bestsplitloc.exit, label %496
 
 496:                                              ; preds = %492
-  %497 = getelementptr inbounds i8, ptr %491, i64 6
+  %497 = getelementptr inbounds nuw i8, ptr %491, i64 6
   %498 = load i16, ptr %497, align 2
   %.not38.i = icmp uge i16 %498, %2
   %499 = zext i16 %2 to i32
@@ -1108,11 +1108,11 @@ _bt_split_penalty.exit._crit_edge.i:              ; preds = %_bt_split_penalty.e
 
 _bt_bestsplitloc.exit:                            ; preds = %_bt_split_penalty.exit._crit_edge.i.thread, %_bt_split_penalty.exit._crit_edge.i, %_bt_strategy.exit.thread532, %492, %496
   %.030.i = phi ptr [ %491, %492 ], [ %491, %_bt_split_penalty.exit._crit_edge.i ], [ %spec.select43.i, %496 ], [ %50, %_bt_strategy.exit.thread532 ], [ %489, %_bt_split_penalty.exit._crit_edge.i.thread ]
-  %503 = getelementptr inbounds i8, ptr %.030.i, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
   %504 = load i8, ptr %503, align 2
   %505 = and i8 %504, 1
   store i8 %505, ptr %5, align 1
-  %506 = getelementptr inbounds i8, ptr %.030.i, i64 6
+  %506 = getelementptr inbounds nuw i8, ptr %.030.i, i64 6
   %507 = load i16, ptr %506, align 2
   tail call void @pfree(ptr noundef nonnull %50) #7
   br label %508

@@ -98,10 +98,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @i915_pci_resource_valid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp ne i64 %7, 0
   %9 = and i64 %7, 536870912
@@ -110,7 +110,7 @@ define dso_local zeroext i1 @i915_pci_resource_valid(ptr nocapture noundef reado
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %20, label %16
@@ -146,41 +146,41 @@ declare dso_local void @pci_unregister_driver(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, 4
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 62
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %12 = load i16, ptr %11, align 2
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @i915_modparams, i64 64), align 8
   %14 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %12, ptr noundef %13, i1 noundef zeroext false)
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = load i16, ptr %11, align 2
   %18 = zext i16 %17 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.62, i32 noundef %18, i32 noundef %18, i32 noundef %18) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %16, ptr noundef nonnull @.str.62, i32 noundef %18, i32 noundef %18, i32 noundef %18) #6
   br label %66
 
 19:                                               ; preds = %10, %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 62
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %21 = load i16, ptr %20, align 2
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @i915_modparams, i64 64), align 8
   %23 = tail call fastcc zeroext i1 @device_id_in_list(i16 noundef zeroext %21, ptr noundef %22, i1 noundef zeroext true)
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %26 = load i16, ptr %20, align 2
   %27 = zext i16 %26 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.63, i32 noundef %27) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %25, ptr noundef nonnull @.str.63, i32 noundef %27) #6
   br label %66
 
 28:                                               ; preds = %19
@@ -190,28 +190,28 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load i16, ptr %20, align 2
   %35 = zext i16 %34 to i32
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %33, ptr noundef nonnull @.str.64, i32 noundef %35) #6
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %33, ptr noundef nonnull @.str.64, i32 noundef %35) #6
   tail call void @add_taint(i32 noundef 6, i32 noundef 0) #5
   br label %36
 
 36:                                               ; preds = %32, %28
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 7
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %66
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %5, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %43 = load i8, ptr %42, align 4
   %44 = icmp eq i8 %43, 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 920
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %46 = zext i1 %44 to i64
   %47 = getelementptr [11 x %struct.resource], ptr %45, i64 0, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = icmp ne i64 %49, 0
   %51 = and i64 %49, 536870912
@@ -220,7 +220,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %53, label %54, label %66
 
 54:                                               ; preds = %41
-  %55 = getelementptr inbounds i8, ptr %47, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %66, label %58
@@ -246,7 +246,7 @@ define internal i32 @i915_pci_probe(ptr noundef %0, ptr noundef %1) #1 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_pci_remove(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -262,7 +262,7 @@ define internal void @i915_pci_remove(ptr nocapture noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_pci_shutdown(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   tail call void @i915_driver_shutdown(ptr noundef %3) #5
   ret void
@@ -307,13 +307,13 @@ sub_0:                                            ; preds = %10
   br i1 %.not11, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   %.not12 = icmp eq i8 %12, 42
   br i1 %.not12, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %46, label %.tail.thread
@@ -323,7 +323,7 @@ sub_05:                                           ; preds = %10
   br i1 %.not, label %.tail4, label %.tail.thread
 
 .tail4:                                           ; preds = %sub_05
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %46, label %.tail.thread

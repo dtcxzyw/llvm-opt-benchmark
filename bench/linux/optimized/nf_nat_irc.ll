@@ -81,17 +81,17 @@ define internal noundef range(i32 0, 2) i32 @help(ptr noundef %0, i32 noundef %1
   %7 = alloca [17 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %7) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %7, i8 0, i64 17, i1 false), !annotation !8
-  %8 = getelementptr inbounds i8, ptr %5, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 108
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %13 = load i16, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store i16 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 188
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 188
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr @nf_nat_follow_master, ptr %16, align 8
   %17 = tail call i16 @llvm.bswap.i16(i16 %13)
   %18 = tail call zeroext i16 @nf_nat_exp_find_port(ptr noundef %5, i16 noundef zeroext %17) #10

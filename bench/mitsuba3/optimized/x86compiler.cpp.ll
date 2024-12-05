@@ -36,7 +36,7 @@ $_ZTIN6asmjit9_abi_1_103x8616EmitterExplicitTINS1_8CompilerEEE = comdat any
 define dso_local void @_ZN6asmjit9_abi_1_103x868CompilerC2EPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6asmjit9_abi_1_1012BaseCompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) #8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_103x868CompilerE, i64 16), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 6, ptr %3, align 8, !tbaa !6
   invoke void @_ZN6asmjit9_abi_1_103x8618assignEmitterFuncsEPNS0_11BaseEmitterE(ptr noundef nonnull %0)
           to label %4 unwind label %9
@@ -108,13 +108,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x868Compiler8onAttachEPNS0_10
   br i1 %4, label %5, label %35
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = ptrtoint ptr %7 to i64
   %9 = add i64 %8, 7
   %10 = and i64 %9, -8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = icmp ule ptr %13, %11
   %15 = ptrtoint ptr %13 to i64
@@ -128,7 +128,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x868Compiler8onAttachEPNS0_10
   br label %23
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %11, i64 968
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 968
   store ptr %22, ptr %6, align 8, !tbaa !28
   br label %23
 
@@ -148,7 +148,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x868Compiler8onAttachEPNS0_10
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %0, align 8, !tbaa !3
-  %32 = getelementptr inbounds i8, ptr %31, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1) #8
   br label %35
@@ -185,16 +185,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x868Compiler8finalizeEv(ptr n
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %2) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !33
   call void @_ZN6asmjit9_abi_1_103x869AssemblerC1EPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef %7) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !34
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !35
   %12 = or i32 %11, %9
   store i32 %12, ptr %10, align 8, !tbaa !35
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !36
   call void @_ZN6asmjit9_abi_1_1011BaseEmitter20addDiagnosticOptionsENS0_17DiagnosticOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %2, i32 noundef %14) #8
   %15 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS0_11BaseEmitterE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull %2)

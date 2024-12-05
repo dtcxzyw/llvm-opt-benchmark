@@ -429,9 +429,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit245: ;
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit250: ; preds = %.noexc247
-  %138 = getelementptr inbounds i8, ptr %12, i64 16
-  %139 = getelementptr inbounds i8, ptr %12, i64 24
-  %140 = getelementptr inbounds i8, ptr %12, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %140, align 8
   store ptr @_Z11cmIfCommandRKSt6vectorI18cmListFileArgumentSaIS0_EER17cmExecutionStatus, ptr %12, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEPS8_E9_M_invokeERKSt9_Any_dataS5_S7_, ptr %139, align 8
@@ -527,9 +527,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit260: ;
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit265: ; preds = %.noexc262
-  %159 = getelementptr inbounds i8, ptr %19, i64 16
-  %160 = getelementptr inbounds i8, ptr %19, i64 24
-  %161 = getelementptr inbounds i8, ptr %19, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %161, align 8
   store ptr @_Z14cmWhileCommandRKSt6vectorI18cmListFileArgumentSaIS0_EER17cmExecutionStatus, ptr %19, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEPS8_E9_M_invokeERKSt9_Any_dataS5_S7_, ptr %160, align 8
@@ -600,9 +600,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit272: ;
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit277: ; preds = %.noexc274
-  %176 = getelementptr inbounds i8, ptr %24, i64 16
-  %177 = getelementptr inbounds i8, ptr %24, i64 24
-  %178 = getelementptr inbounds i8, ptr %24, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %178, align 8
   store ptr @_Z22cmCMakeLanguageCommandRKSt6vectorI18cmListFileArgumentSaIS0_EER17cmExecutionStatus, ptr %24, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEPS8_E9_M_invokeERKSt9_Any_dataS5_S7_, ptr %177, align 8

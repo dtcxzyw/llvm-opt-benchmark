@@ -117,7 +117,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL17init_data_compareiP18gmx_ana_selparam_t(i32 %0, ptr nocapture noundef writeonly initializes((112, 120)) %1) #0 {
   %3 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 271, i64 noundef 1, i64 noundef 64)
-  %4 = getelementptr inbounds i8, ptr %1, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %3, ptr %4, align 8
   ret ptr %3
 }
@@ -127,9 +127,9 @@ define internal void @_ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
   %5 = alloca %"class.gmx::InternalError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.gmx::ExceptionInfo", align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %.not.i = icmp eq i32 %11, 0
@@ -145,16 +145,16 @@ define internal void @_ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
   %17 = or disjoint i32 %.lobit25.i, %14
   %18 = xor i32 %17, 1
   store i32 %18, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %22, ptr %23, align 8
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %2, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not20.i = icmp eq i32 %27, 0
@@ -170,25 +170,25 @@ define internal void @_ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
   %33 = or disjoint i32 %.lobit.i, %30
   %34 = xor i32 %33, 5
   store i32 %34, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %38, ptr %39, align 8
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit
 
 40:                                               ; preds = %24
-  %41 = getelementptr inbounds i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit
 
 _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit: ; preds = %12, %28, %40
   %42 = phi i32 [ %18, %12 ], [ %34, %28 ], [ 0, %40 ]
   %.0.i = phi i32 [ %20, %12 ], [ %36, %28 ], [ 0, %40 ]
-  %43 = getelementptr inbounds i8, ptr %3, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 184
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not.i57 = icmp eq i32 %46, 0
@@ -204,16 +204,16 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit: ; preds 
   %52 = or disjoint i32 %.lobit25.i58, %49
   %53 = xor i32 %52, 1
   store i32 %53, ptr %43, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 156
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %3, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %57, ptr %58, align 8
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
 
 59:                                               ; preds = %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit
-  %60 = getelementptr inbounds i8, ptr %2, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 1
   %.not20.i60 = icmp eq i32 %62, 0
@@ -229,16 +229,16 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit: ; preds 
   %68 = or disjoint i32 %.lobit.i61, %65
   %69 = xor i32 %68, 5
   store i32 %69, ptr %43, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 204
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %2, i64 208
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %3, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %73, ptr %74, align 8
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
 
 75:                                               ; preds = %59
-  %76 = getelementptr inbounds i8, ptr %3, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
   br label %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
 
@@ -255,33 +255,33 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62: ; pred
   ]
 
 80:                                               ; preds = %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
-  %81 = getelementptr inbounds i8, ptr %78, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %82, 61
   %84 = select i1 %83, i32 2, i32 1
   br label %select.unfold
 
 85:                                               ; preds = %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
-  %86 = getelementptr inbounds i8, ptr %78, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 61
   %89 = select i1 %88, i32 4, i32 3
   br label %select.unfold
 
 90:                                               ; preds = %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
-  %91 = getelementptr inbounds i8, ptr %78, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 61
   br i1 %93, label %select.unfold, label %98
 
 94:                                               ; preds = %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62
-  %95 = getelementptr inbounds i8, ptr %78, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %96, 61
   br i1 %97, label %select.unfold, label %98
 
 98:                                               ; preds = %_ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62, %94, %90
-  %99 = getelementptr inbounds i8, ptr %3, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %99, align 8
   %100 = tail call ptr @__cxa_allocate_exception(i64 24) #18
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull @.str.8)
@@ -294,11 +294,11 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62: ; pred
 102:                                              ; preds = %101
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %7, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL12init_comparePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %103, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.7, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 419, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %100, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %104 unwind label %107
@@ -334,7 +334,7 @@ _ZL21init_comparison_valueP15t_compare_valueP18gmx_ana_selparam_t.exit62: ; pred
 
 select.unfold:                                    ; preds = %90, %94, %85, %80
   %.0.i63.ph = phi i32 [ %84, %80 ], [ %89, %85 ], [ 6, %94 ], [ 5, %90 ]
-  %110 = getelementptr inbounds i8, ptr %3, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i63.ph, ptr %110, align 8
   %111 = and i32 %42, 4
   %.not = icmp eq i32 %111, 0
@@ -363,24 +363,24 @@ select.unfold:                                    ; preds = %90, %94, %85, %80
   br i1 %122, label %.lr.ph.i, label %_ZL16convert_int_realiP15t_compare_value.exit
 
 .lr.ph.i:                                         ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %3, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %wide.trip.count.i = zext nneg i32 %.0.i59 to i64
   br label %124
 
 124:                                              ; preds = %124, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %124 ]
   %125 = load ptr, ptr %123, align 8
-  %126 = getelementptr inbounds i32, ptr %125, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i
   %127 = load i32, ptr %126, align 4
   %128 = sitofp i32 %127 to float
-  %129 = getelementptr inbounds float, ptr %121, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv.i
   store float %128, ptr %129, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL16convert_int_realiP15t_compare_value.exit, label %124, !llvm.loop !5
 
 _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %124, %119
-  %130 = getelementptr inbounds i8, ptr %3, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %131 = load ptr, ptr %130, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.7, i32 noundef 349, ptr noundef %131)
   store ptr %121, ptr %130, align 8
@@ -403,14 +403,14 @@ _ZL16convert_int_realiP15t_compare_value.exit:    ; preds = %124, %119
   br i1 %.not53, label %148, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %3, i64 56
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %3, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %141, ptr %142, align 8
   store ptr null, ptr %140, align 8
-  %143 = getelementptr inbounds i8, ptr %3, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %3, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %144, ptr %145, align 8
   store ptr null, ptr %143, align 8
   store i32 %77, ptr %8, align 8
@@ -441,24 +441,24 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %139, %switch.looku
   br i1 %152, label %.lr.ph.i65, label %_ZL16convert_int_realiP15t_compare_value.exit70
 
 .lr.ph.i65:                                       ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %3, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %wide.trip.count.i66 = zext nneg i32 %.0.i to i64
   br label %154
 
 154:                                              ; preds = %154, %.lr.ph.i65
   %indvars.iv.i67 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i68, %154 ]
   %155 = load ptr, ptr %153, align 8
-  %156 = getelementptr inbounds i32, ptr %155, i64 %indvars.iv.i67
+  %156 = getelementptr inbounds nuw i32, ptr %155, i64 %indvars.iv.i67
   %157 = load i32, ptr %156, align 4
   %158 = sitofp i32 %157 to float
-  %159 = getelementptr inbounds float, ptr %151, i64 %indvars.iv.i67
+  %159 = getelementptr inbounds nuw float, ptr %151, i64 %indvars.iv.i67
   store float %158, ptr %159, align 4
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i66
   br i1 %exitcond.not.i69, label %_ZL16convert_int_realiP15t_compare_value.exit70, label %154, !llvm.loop !5
 
 _ZL16convert_int_realiP15t_compare_value.exit70:  ; preds = %154, %149
-  %160 = getelementptr inbounds i8, ptr %3, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %161 = load ptr, ptr %160, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.7, i32 noundef 349, ptr noundef %161)
   store ptr %151, ptr %160, align 8
@@ -486,14 +486,14 @@ _ZL16convert_int_realiP15t_compare_value.exit70:  ; preds = %154, %149
 define internal void @_ZL17free_data_comparePv(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.7, i32 noundef 477, ptr noundef %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 16
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.7, i32 noundef 480, ptr noundef %8)
   %.pre = load i32, ptr %3, align 8
@@ -506,20 +506,20 @@ define internal void @_ZL17free_data_comparePv(ptr noundef %0) #0 {
   br i1 %.not11, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.7, i32 noundef 484, ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %12, %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 16
   %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.7, i32 noundef 488, ptr noundef %21)
   %.pre14 = load i32, ptr %16, align 8
@@ -532,7 +532,7 @@ define internal void @_ZL17free_data_comparePv(ptr noundef %0) #0 {
   br i1 %.not13, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.7, i32 noundef 492, ptr noundef %27)
   br label %28
@@ -544,9 +544,9 @@ define internal void @_ZL17free_data_comparePv(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = or i32 %8, %6
   %10 = and i32 %9, 4
@@ -559,11 +559,11 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   br i1 %12, label %.lr.ph.i, label %_ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit
 
 .lr.ph.i:                                         ; preds = %13
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %3, i64 48
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %19
 
 19:                                               ; preds = %.critedge.i, %.lr.ph.i
@@ -618,10 +618,10 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 41:                                               ; preds = %40, %38, %37, %35, %34, %32
   %42 = load ptr, ptr %17, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %18, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = add nsw i32 %.03342.i, 1
   %49 = sext i32 %.03342.i to i64
@@ -652,12 +652,12 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
   br i1 %12, label %.lr.ph.i9, label %_ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit
 
 .lr.ph.i9:                                        ; preds = %60
-  %61 = getelementptr inbounds i8, ptr %3, i64 32
-  %62 = getelementptr inbounds i8, ptr %3, i64 56
-  %63 = getelementptr inbounds i8, ptr %3, i64 48
-  %64 = getelementptr inbounds i8, ptr %3, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %67
 
 67:                                               ; preds = %.critedge.i12, %.lr.ph.i9
@@ -730,10 +730,10 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 103:                                              ; preds = %99, %95, %93, %91, %89, %87
   %104 = load ptr, ptr %65, align 8
-  %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.i11
+  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i11
   %106 = load i32, ptr %105, align 4
   %107 = load ptr, ptr %66, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = add nsw i32 %.03643.i, 1
   %111 = sext i32 %.03643.i to i64
@@ -759,7 +759,7 @@ define internal void @_ZL16evaluate_compareRKN3gmx20SelMethodEvalContextEP15gmx_
 
 _ZL20evaluate_compare_intP15gmx_ana_index_tP18gmx_ana_selvalue_tPv.exit: ; preds = %.critedge.i12, %.critedge.i, %60, %13
   %.036.lcssa.i.sink = phi i32 [ 0, %13 ], [ 0, %60 ], [ %.134.i, %.critedge.i ], [ %.137.i, %.critedge.i12 ]
-  %122 = getelementptr inbounds i8, ptr %2, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %123 = load ptr, ptr %122, align 8
   store i32 %.036.lcssa.i.sink, ptr %123, align 8
   ret void
@@ -777,8 +777,8 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -792,7 +792,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -806,7 +806,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -817,12 +817,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -867,7 +867,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -887,13 +887,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx16GromacsExceptionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -901,10 +901,10 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -930,10 +930,10 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -955,7 +955,7 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
@@ -976,9 +976,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -994,7 +994,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
@@ -1035,7 +1035,7 @@ define internal fastcc void @_ZL16convert_real_intiP15t_compare_value14e_compari
 
 switch.lookup:                                    ; preds = %11
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL23reverse_comparison_type14e_comparison_t.exit
 
@@ -1047,7 +1047,7 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZL23reverse_comparison_type14e_comparison_t.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   switch i32 %.032, label %._crit_edge [
     i32 5, label %32
     i32 6, label %32
@@ -1065,11 +1065,11 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 18:                                               ; preds = %18, %.lr.ph.split.split.us
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %18 ], [ 0, %.lr.ph.split.split.us ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds float, ptr %19, i64 %indvars.iv66
+  %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv66
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.ceil.f32(float %21)
   %23 = fptosi float %22 to i32
-  %24 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv66
+  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv66
   store i32 %23, ptr %24, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count70
@@ -1082,11 +1082,11 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 25:                                               ; preds = %25, %.lr.ph.split.split.us61
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.lr.ph.split.split.us61 ]
   %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds float, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
   %28 = load float, ptr %27, align 4
   %29 = tail call noundef float @llvm.floor.f32(float %28)
   %30 = fptosi float %29 to i32
-  %31 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1105,11 +1105,11 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 35:                                               ; preds = %34
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, ptr %36, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.7, ptr %.sroa.240.0..sroa_idx, align 8
-  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 394, ptr %.sroa.341.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %33, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %37 unwind label %40
@@ -1151,11 +1151,11 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
 45:                                               ; preds = %44
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %10, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL16convert_real_intiP15t_compare_value14e_comparison_tb, ptr %46, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @.str.7, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 397, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %43, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %47 unwind label %50
@@ -1185,7 +1185,7 @@ _ZL23reverse_comparison_type14e_comparison_t.exit: ; preds = %11, %switch.lookup
   br i1 %.0, label %.sink.split, label %57
 
 ._crit_edge:                                      ; preds = %25, %18, %.lr.ph, %_ZL23reverse_comparison_type14e_comparison_t.exit
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7, i32 noundef 401, ptr noundef %53)
   store ptr %15, ptr %52, align 8
@@ -1369,8 +1369,8 @@ define linkonce_odr void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoL
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -1384,7 +1384,7 @@ define linkonce_odr void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoL
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -1398,7 +1398,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -1409,12 +1409,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -1426,13 +1426,13 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN3gmx8APIErrorD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1440,10 +1440,10 @@ define linkonce_odr void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull a
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -1469,10 +1469,10 @@ define linkonce_odr void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull a
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
@@ -1494,7 +1494,7 @@ define linkonce_odr void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull a
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN3gmx8APIErrorD2Ev.exit
@@ -1515,7 +1515,7 @@ declare noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef, double noundef
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z31_gmx_selelem_print_compare_infoP8_IO_FILEPv(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 2, i64 1, ptr %0)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 3
   %or.cond = icmp eq i32 %6, 1
@@ -1527,7 +1527,7 @@ define void @_Z31_gmx_selelem_print_compare_infoP8_IO_FILEPv(ptr nocapture nound
   br i1 %.not23, label %15, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
@@ -1535,14 +1535,14 @@ define void @_Z31_gmx_selelem_print_compare_infoP8_IO_FILEPv(ptr nocapture nound
   br label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %18) #18
   br label %20
 
 20:                                               ; preds = %9, %15, %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %_ZL19comparison_type_str14e_comparison_t.exit [
     i32 0, label %29
@@ -1579,7 +1579,7 @@ define void @_Z31_gmx_selelem_print_compare_infoP8_IO_FILEPv(ptr nocapture nound
 _ZL19comparison_type_str14e_comparison_t.exit:    ; preds = %28, %27, %26, %25, %24, %23, %20, %29
   %.sink = phi ptr [ %30, %29 ], [ @.str.34, %28 ], [ @.str.33, %27 ], [ @.str.32, %26 ], [ @.str.31, %25 ], [ @.str.30, %24 ], [ @.str.29, %23 ], [ null, %20 ]
   %fputs = tail call i32 @fputs(ptr %.sink, ptr %0)
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 3
   %or.cond29 = icmp eq i32 %33, 1
@@ -1591,7 +1591,7 @@ _ZL19comparison_type_str14e_comparison_t.exit:    ; preds = %28, %27, %26, %25, 
   br i1 %.not28, label %42, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %1, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = load float, ptr %38, align 4
   %40 = fpext float %39 to double
@@ -1599,7 +1599,7 @@ _ZL19comparison_type_str14e_comparison_t.exit:    ; preds = %28, %27, %26, %25, 
   br label %47
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %45) #18

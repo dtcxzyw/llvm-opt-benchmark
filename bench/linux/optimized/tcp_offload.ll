@@ -16,13 +16,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_gro_comp
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 178
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i16, ptr %9, align 4
   %11 = lshr i16 %10, 2
   %12 = and i16 %11, 60
@@ -31,9 +31,9 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %14, label %380, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = sub i32 %17, %19
   %21 = icmp ult i32 %20, %13
@@ -69,17 +69,17 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   unreachable
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i16 %12 to i64
   %39 = getelementptr i8, ptr %37, i64 %38
   store ptr %39, ptr %36, align 8
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 188
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
   %44 = getelementptr i8, ptr %40, i64 %43
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i16, ptr %45, align 4
   %47 = zext i16 %46 to i32
   %48 = icmp ugt i32 %32, %47
@@ -87,7 +87,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 
 49:                                               ; preds = %35
   %50 = or i64 %1, 131072
-  %51 = getelementptr inbounds i8, ptr %44, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = shl nsw i64 %53, 16
@@ -96,7 +96,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %56, label %57, label %70
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %44, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   %61 = and i64 %1, 64
@@ -109,16 +109,16 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %66 = add i32 %65, %47
   %67 = udiv i32 %66, %47
   %68 = trunc i32 %67 to i16
-  %69 = getelementptr inbounds i8, ptr %44, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 %68, ptr %69, align 2
   br label %380
 
 70:                                               ; preds = %57, %49
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %72 = load ptr, ptr %71, align 8
   %.fr19 = freeze ptr %72
   %73 = icmp eq ptr %.fr19, @tcp_wfree
-  %74 = getelementptr inbounds i8, ptr %0, i64 128
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %75 = load i8, ptr %74, align 8
   %76 = and i8 %75, 127
   store i8 %76, ptr %74, align 8
@@ -128,24 +128,24 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 
 79:                                               ; preds = %70
   %80 = and i8 %75, -128
-  %81 = getelementptr inbounds i8, ptr %77, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 128
   %82 = load i8, ptr %81, align 8
   %83 = and i8 %82, 127
   %84 = or disjoint i8 %83, %80
   store i8 %84, ptr %81, align 8
-  %85 = getelementptr inbounds i8, ptr %77, i64 192
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 192
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %77, i64 188
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 188
   %88 = load i32, ptr %87, align 4
   %89 = zext i32 %88 to i64
   %90 = getelementptr i8, ptr %86, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i16, ptr %91, align 4
   %93 = icmp eq i16 %92, 0
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %79
-  %95 = getelementptr inbounds i8, ptr %90, i64 6
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   %98 = mul nuw i32 %97, %47
@@ -156,25 +156,25 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %101 = add i32 %31, %13
   %102 = add i32 %101, %100
   %103 = tail call i32 @llvm.bswap.i32(i32 %102)
-  %104 = getelementptr inbounds i8, ptr %77, i64 178
+  %104 = getelementptr inbounds nuw i8, ptr %77, i64 178
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i64
   %107 = getelementptr i8, ptr %86, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = tail call i32 @llvm.bswap.i32(i32 %109)
   %111 = load ptr, ptr %3, align 8
   %112 = load i32, ptr %41, align 4
   %113 = zext i32 %112 to i64
   %114 = getelementptr i8, ptr %111, i64 %113
-  %115 = getelementptr inbounds i8, ptr %114, i64 3
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 3
   %116 = load i8, ptr %115, align 1
   %117 = and i8 %116, 2
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %.loopexit12, label %119, !prof !8
 
 119:                                              ; preds = %99
-  %120 = getelementptr inbounds i8, ptr %114, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq ptr %77, null
   br i1 %122, label %.loopexit12, label %.preheader
@@ -188,13 +188,13 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %127, label %128, label %143
 
 128:                                              ; preds = %.preheader
-  %129 = getelementptr inbounds i8, ptr %123, i64 192
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 192
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %123, i64 188
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 188
   %132 = load i32, ptr %131, align 4
   %133 = zext i32 %132 to i64
   %134 = getelementptr i8, ptr %130, i64 %133
-  %135 = getelementptr inbounds i8, ptr %134, i64 3
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 3
   %136 = load i8, ptr %135, align 1
   %137 = or i8 %136, 2
   store i8 %137, ptr %135, align 1
@@ -202,7 +202,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %139 = load i32, ptr %131, align 4
   %140 = zext i32 %139 to i64
   %141 = getelementptr i8, ptr %138, i64 %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 28
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 28
   store i32 %121, ptr %142, align 4
   br label %.loopexit12
 
@@ -212,7 +212,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %145, label %.loopexit12, label %.preheader, !llvm.loop !9
 
 .loopexit12:                                      ; preds = %143, %128, %119, %99
-  %146 = getelementptr inbounds i8, ptr %107, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %147 = load i16, ptr %146, align 4
   %148 = zext i16 %147 to i32
   %149 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %148, i32 %103) #8, !srcloc !12
@@ -230,8 +230,8 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 159:                                              ; preds = %.loopexit12
   %160 = zext i16 %156 to i32
   %161 = xor i32 %160, -1
-  %162 = getelementptr inbounds i8, ptr %0, i64 24
-  %.phi.trans.insert29 = getelementptr inbounds i8, ptr %107, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %.pre30 = load i16, ptr %.phi.trans.insert29, align 4
   br i1 %73, label %.split.us, label %.split
 
@@ -241,21 +241,21 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %165 = phi i32 [ %213, %205 ], [ 0, %159 ]
   %166 = phi ptr [ %220, %205 ], [ %107, %159 ]
   %167 = phi i32 [ %206, %205 ], [ %110, %159 ]
-  %168 = getelementptr inbounds i8, ptr %166, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 12
   %169 = and i16 %163, -2305
   store i16 %169, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %166, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 16
   store i16 %156, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %164, i64 128
+  %171 = getelementptr inbounds nuw i8, ptr %164, i64 128
   %172 = load i8, ptr %171, align 8
   %173 = and i8 %172, 96
   %174 = icmp eq i8 %173, 96
   br i1 %174, label %195, label %175
 
 175:                                              ; preds = %.split.us
-  %176 = getelementptr inbounds i8, ptr %164, i64 192
+  %176 = getelementptr inbounds nuw i8, ptr %164, i64 192
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %164, i64 178
+  %178 = getelementptr inbounds nuw i8, ptr %164, i64 178
   %179 = load i16, ptr %178, align 2
   %180 = zext i16 %179 to i64
   %181 = getelementptr i8, ptr %177, i64 %180
@@ -279,7 +279,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br label %205
 
 195:                                              ; preds = %.split.us
-  %196 = getelementptr inbounds i8, ptr %164, i64 129
+  %196 = getelementptr inbounds nuw i8, ptr %164, i64 129
   %197 = load i24, ptr %196, align 1
   %198 = and i24 %197, 8
   %199 = icmp eq i24 %198, 0
@@ -288,7 +288,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 200:                                              ; preds = %195
   %201 = getelementptr i8, ptr %164, i64 80
   store i32 %161, ptr %201, align 4
-  %202 = getelementptr inbounds i8, ptr %164, i64 136
+  %202 = getelementptr inbounds nuw i8, ptr %164, i64 136
   %203 = load i16, ptr %202, align 8
   %204 = getelementptr i8, ptr %164, i64 84
   store i16 %203, ptr %204, align 4
@@ -297,25 +297,25 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 205:                                              ; preds = %200, %195, %175
   %206 = add i32 %167, %100
   %207 = load ptr, ptr %71, align 8
-  %208 = getelementptr inbounds i8, ptr %164, i64 96
+  %208 = getelementptr inbounds nuw i8, ptr %164, i64 96
   store ptr %207, ptr %208, align 8
   %209 = load ptr, ptr %162, align 8
-  %210 = getelementptr inbounds i8, ptr %164, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %164, i64 24
   store ptr %209, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %164, i64 208
+  %211 = getelementptr inbounds nuw i8, ptr %164, i64 208
   %212 = load i32, ptr %211, align 8
   %213 = add i32 %212, %165
   %214 = load ptr, ptr %164, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 192
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 192
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %214, i64 178
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 178
   %218 = load i16, ptr %217, align 2
   %219 = zext i16 %218 to i64
   %220 = getelementptr i8, ptr %216, i64 %219
   %221 = tail call i32 @llvm.bswap.i32(i32 %206)
-  %222 = getelementptr inbounds i8, ptr %220, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 4
   store i32 %221, ptr %222, align 4
-  %223 = getelementptr inbounds i8, ptr %220, i64 12
+  %223 = getelementptr inbounds nuw i8, ptr %220, i64 12
   %224 = load i16, ptr %223, align 4
   %225 = and i16 %224, 32767
   store i16 %225, ptr %223, align 4
@@ -328,19 +328,19 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %229 = phi ptr [ %271, %269 ], [ %77, %159 ]
   %230 = phi ptr [ %277, %269 ], [ %107, %159 ]
   %231 = phi i32 [ %270, %269 ], [ %110, %159 ]
-  %232 = getelementptr inbounds i8, ptr %230, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 12
   %233 = and i16 %228, -2305
   store i16 %233, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %230, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store i16 %156, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %229, i64 128
+  %235 = getelementptr inbounds nuw i8, ptr %229, i64 128
   %236 = load i8, ptr %235, align 8
   %237 = and i8 %236, 96
   %238 = icmp eq i8 %237, 96
   br i1 %238, label %239, label %249
 
 239:                                              ; preds = %.split
-  %240 = getelementptr inbounds i8, ptr %229, i64 129
+  %240 = getelementptr inbounds nuw i8, ptr %229, i64 129
   %241 = load i24, ptr %240, align 1
   %242 = and i24 %241, 8
   %243 = icmp eq i24 %242, 0
@@ -349,16 +349,16 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 244:                                              ; preds = %239
   %245 = getelementptr i8, ptr %229, i64 80
   store i32 %161, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %229, i64 136
+  %246 = getelementptr inbounds nuw i8, ptr %229, i64 136
   %247 = load i16, ptr %246, align 8
   %248 = getelementptr i8, ptr %229, i64 84
   store i16 %247, ptr %248, align 4
   br label %269
 
 249:                                              ; preds = %.split
-  %250 = getelementptr inbounds i8, ptr %229, i64 192
+  %250 = getelementptr inbounds nuw i8, ptr %229, i64 192
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %229, i64 178
+  %252 = getelementptr inbounds nuw i8, ptr %229, i64 178
   %253 = load i16, ptr %252, align 2
   %254 = zext i16 %253 to i64
   %255 = getelementptr i8, ptr %251, i64 %254
@@ -384,16 +384,16 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 269:                                              ; preds = %249, %244, %239
   %270 = add i32 %231, %100
   %271 = load ptr, ptr %229, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 192
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 192
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %271, i64 178
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 178
   %275 = load i16, ptr %274, align 2
   %276 = zext i16 %275 to i64
   %277 = getelementptr i8, ptr %273, i64 %276
   %278 = tail call i32 @llvm.bswap.i32(i32 %270)
-  %279 = getelementptr inbounds i8, ptr %277, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 4
   store i32 %278, ptr %279, align 4
-  %280 = getelementptr inbounds i8, ptr %277, i64 12
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 12
   %281 = load i16, ptr %280, align 4
   %282 = and i16 %281, 32767
   store i16 %282, ptr %280, align 4
@@ -408,21 +408,21 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %73, label %288, label %320
 
 288:                                              ; preds = %.loopexit
-  %289 = getelementptr inbounds i8, ptr %0, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %287, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %287, i64 24
   %292 = load ptr, ptr %291, align 8
   store ptr %292, ptr %289, align 8
   store ptr %290, ptr %291, align 8
   %293 = load ptr, ptr %71, align 8
-  %294 = getelementptr inbounds i8, ptr %287, i64 96
+  %294 = getelementptr inbounds nuw i8, ptr %287, i64 96
   %295 = load ptr, ptr %294, align 8
   store ptr %295, ptr %71, align 8
   store ptr %293, ptr %294, align 8
-  %296 = getelementptr inbounds i8, ptr %287, i64 208
+  %296 = getelementptr inbounds nuw i8, ptr %287, i64 208
   %297 = load i32, ptr %296, align 8
   %298 = add i32 %297, %286
-  %299 = getelementptr inbounds i8, ptr %0, i64 208
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %300 = load i32, ptr %299, align 8
   %301 = sub i32 %298, %300
   %302 = icmp sgt i32 %301, -1
@@ -430,13 +430,13 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 
 303:                                              ; preds = %288
   %304 = load ptr, ptr %291, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 340
-  %306 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %305, i32 %301, ptr elementtype(i32) %305) #7, !srcloc !15
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 340
+  %306 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %305, i32 %301, ptr nonnull elementtype(i32) %305) #7, !srcloc !15
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %308, label %309, !prof !5
 
 308:                                              ; preds = %303
-  tail call void @refcount_warn_saturate(ptr noundef %305, i32 noundef 2) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %305, i32 noundef 2) #7
   br label %320
 
 309:                                              ; preds = %303
@@ -446,14 +446,14 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %312, label %320, label %313, !prof !8
 
 313:                                              ; preds = %309
-  tail call void @refcount_warn_saturate(ptr noundef %305, i32 noundef 1) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %305, i32 noundef 1) #7
   br label %320
 
 314:                                              ; preds = %288
   %315 = sub i32 0, %301
   %316 = load ptr, ptr %291, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 340
-  %318 = tail call fastcc zeroext i1 @refcount_sub_and_test(i32 noundef %315, ptr noundef %317)
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 340
+  %318 = tail call fastcc zeroext i1 @refcount_sub_and_test(i32 noundef %315, ptr noundef nonnull %317)
   br i1 %318, label %319, label %320, !prof !5
 
 319:                                              ; preds = %314
@@ -463,18 +463,18 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br label %320
 
 320:                                              ; preds = %319, %314, %313, %309, %308, %.loopexit
-  %321 = getelementptr inbounds i8, ptr %287, i64 184
+  %321 = getelementptr inbounds nuw i8, ptr %287, i64 184
   %322 = load i32, ptr %321, align 8
-  %323 = getelementptr inbounds i8, ptr %287, i64 178
+  %323 = getelementptr inbounds nuw i8, ptr %287, i64 178
   %324 = load i16, ptr %323, align 2
   %325 = zext i16 %324 to i32
-  %326 = getelementptr inbounds i8, ptr %287, i64 116
+  %326 = getelementptr inbounds nuw i8, ptr %287, i64 116
   %327 = load i32, ptr %326, align 4
   %328 = add i32 %322, %31
   %329 = sub i32 %328, %325
   %330 = add i32 %329, %327
   %331 = tail call i32 @llvm.bswap.i32(i32 %330)
-  %332 = getelementptr inbounds i8, ptr %285, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %333 = load i16, ptr %332, align 4
   %334 = zext i16 %333 to i32
   %335 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %334, i32 %331) #8, !srcloc !12
@@ -486,14 +486,14 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %341 = trunc nuw i32 %340 to i16
   %342 = xor i16 %341, -1
   store i16 %342, ptr %332, align 4
-  %343 = getelementptr inbounds i8, ptr %287, i64 128
+  %343 = getelementptr inbounds nuw i8, ptr %287, i64 128
   %344 = load i8, ptr %343, align 8
   %345 = and i8 %344, 96
   %346 = icmp eq i8 %345, 96
   br i1 %346, label %347, label %359
 
 347:                                              ; preds = %320
-  %348 = getelementptr inbounds i8, ptr %287, i64 129
+  %348 = getelementptr inbounds nuw i8, ptr %287, i64 129
   %349 = load i24, ptr %348, align 1
   %350 = and i24 %349, 8
   %351 = icmp eq i24 %350, 0
@@ -504,14 +504,14 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %354 = xor i32 %353, -1
   %355 = getelementptr i8, ptr %287, i64 80
   store i32 %354, ptr %355, align 4
-  %356 = getelementptr inbounds i8, ptr %287, i64 136
+  %356 = getelementptr inbounds nuw i8, ptr %287, i64 136
   %357 = load i16, ptr %356, align 8
   %358 = getelementptr i8, ptr %287, i64 84
   store i16 %357, ptr %358, align 4
   br label %380
 
 359:                                              ; preds = %320
-  %360 = getelementptr inbounds i8, ptr %287, i64 192
+  %360 = getelementptr inbounds nuw i8, ptr %287, i64 192
   %361 = zext i16 %342 to i32
   %362 = xor i32 %361, -1
   %363 = load ptr, ptr %360, align 8
@@ -578,20 +578,20 @@ define internal fastcc noundef zeroext i1 @refcount_sub_and_test(i32 noundef ran
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 20
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, %5
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 %13, %15
   %17 = icmp ult i32 %16, %5
@@ -610,7 +610,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 24:                                               ; preds = %20, %11
   store ptr null, ptr %6, align 8
   store i32 0, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 200
   br label %26
 
 26:                                               ; preds = %24, %2
@@ -622,7 +622,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %29, label %.thread, label %30, !prof !21
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i16, ptr %31, align 4
   %33 = lshr i16 %32, 2
   %34 = and i16 %33, 60
@@ -636,9 +636,9 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %39, label %40, label %58
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 116
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %44 = load i32, ptr %43, align 4
   %45 = sub i32 %42, %44
   %46 = icmp ult i32 %45, %38
@@ -657,7 +657,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 53:                                               ; preds = %40, %49
   store ptr null, ptr %6, align 8
   store i32 0, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 200
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i8, ptr %55, i64 %7
   %57 = icmp eq ptr %56, null
@@ -668,7 +668,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   %60 = load i32, ptr %3, align 8
   %61 = add i32 %60, %35
   store i32 %61, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %63 = load i32, ptr %62, align 8
   %64 = sub i32 %63, %61
   %65 = getelementptr i8, ptr %59, i64 12
@@ -679,16 +679,16 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 
 .preheader:                                       ; preds = %58, %86
   %69 = phi ptr [ %87, %86 ], [ %67, %58 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 70
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 70
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 1
   %73 = icmp eq i16 %72, 0
   br i1 %73, label %86, label %74
 
 74:                                               ; preds = %.preheader
-  %75 = getelementptr inbounds i8, ptr %69, i64 192
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 192
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %69, i64 178
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 178
   %78 = load i16, ptr %77, align 2
   %79 = zext i16 %78 to i64
   %80 = getelementptr i8, ptr %76, i64 %79
@@ -709,7 +709,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 
 89:                                               ; preds = %74
   %90 = getelementptr i8, ptr %76, i64 %79
-  %91 = getelementptr inbounds i8, ptr %69, i64 60
+  %91 = getelementptr inbounds nuw i8, ptr %69, i64 60
   %92 = load i16, ptr %91, align 4
   %93 = zext i16 %92 to i32
   %94 = and i32 %66, 32768
@@ -719,9 +719,9 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   %98 = xor i32 %97, %66
   %99 = and i32 %98, -35073
   %100 = or i32 %95, %99
-  %101 = getelementptr inbounds i8, ptr %59, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %90, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %104 = load i32, ptr %103, align 4
   %105 = xor i32 %104, %102
   %106 = or i32 %100, %105
@@ -747,13 +747,13 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 
 .loopexit:                                        ; preds = %110, %89
   %121 = phi i32 [ %106, %89 ], [ %118, %110 ]
-  %122 = getelementptr inbounds i8, ptr %69, i64 62
+  %122 = getelementptr inbounds nuw i8, ptr %69, i64 62
   %123 = load i16, ptr %122, align 2
   %124 = icmp eq i16 %123, 1
   br i1 %124, label %125, label %132
 
 125:                                              ; preds = %.loopexit
-  %126 = getelementptr inbounds i8, ptr %69, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %127 = load i16, ptr %126, align 8
   %128 = icmp ne i16 %127, 1
   %129 = and i16 %71, 1024
@@ -773,20 +773,20 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 
 137:                                              ; preds = %135, %132
   %138 = phi i32 [ %134, %132 ], [ %121, %135 ]
-  %139 = getelementptr inbounds i8, ptr %69, i64 188
+  %139 = getelementptr inbounds nuw i8, ptr %69, i64 188
   %140 = load i32, ptr %139, align 4
   %141 = zext i32 %140 to i64
   %142 = getelementptr i8, ptr %76, i64 %141
-  %143 = getelementptr inbounds i8, ptr %142, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i16, ptr %143, align 4
   %145 = zext i16 %144 to i32
-  %146 = getelementptr inbounds i8, ptr %1, i64 192
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %1, i64 188
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %149 = load i32, ptr %148, align 4
   %150 = zext i32 %149 to i64
   %151 = getelementptr i8, ptr %147, i64 %150
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i16, ptr %152, align 4
   %154 = icmp eq i16 %153, 0
   br i1 %154, label %157, label %155, !prof !8
@@ -804,16 +804,16 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   %161 = phi i1 [ %156, %155 ], [ %159, %157 ]
   %162 = zext i1 %161 to i32
   %163 = or i32 %138, %162
-  %164 = getelementptr inbounds i8, ptr %90, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = tail call i32 @llvm.bswap.i32(i32 %165)
-  %167 = getelementptr inbounds i8, ptr %69, i64 112
+  %167 = getelementptr inbounds nuw i8, ptr %69, i64 112
   %168 = load i32, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %69, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %170 = load i32, ptr %169, align 8
   %171 = add i32 %166, %168
   %172 = sub i32 %171, %170
-  %173 = getelementptr inbounds i8, ptr %59, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %174 = load i32, ptr %173, align 4
   %175 = tail call i32 @llvm.bswap.i32(i32 %174)
   %176 = xor i32 %175, %172
@@ -836,19 +836,19 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
 .loopexit14:                                      ; preds = %86, %182, %179, %160, %58
   %186 = phi i32 [ %145, %182 ], [ 1, %179 ], [ 1, %160 ], [ 1, %58 ], [ 1, %86 ]
   %187 = phi ptr [ %69, %182 ], [ %69, %179 ], [ %69, %160 ], [ null, %58 ], [ null, %86 ]
-  %188 = getelementptr inbounds i8, ptr %1, i64 192
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %1, i64 188
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %191 = load i32, ptr %190, align 4
   %192 = zext i32 %191 to i64
   %193 = getelementptr i8, ptr %189, i64 %192
-  %194 = getelementptr inbounds i8, ptr %193, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %195 = load i16, ptr %194, align 4
   %196 = icmp eq i16 %195, 0
   br i1 %196, label %204, label %197, !prof !8
 
 197:                                              ; preds = %.loopexit14
-  %198 = getelementptr inbounds i8, ptr %1, i64 64
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %199 = load i16, ptr %198, align 8
   %200 = zext i16 %199 to i32
   %201 = zext i16 %195 to i32
@@ -869,7 +869,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %211, label %.thread, label %212
 
 212:                                              ; preds = %206
-  %213 = getelementptr inbounds i8, ptr %1, i64 70
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %214 = load i16, ptr %213, align 2
   %215 = and i16 %214, 1
   %216 = icmp eq i16 %215, 0
@@ -882,7 +882,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly %0, ptr noundef %1) l
   %220 = phi i32 [ 1, %26 ], [ 1, %30 ], [ 1, %53 ], [ %210, %206 ], [ %210, %212 ], [ 1, %20 ], [ 1, %18 ], [ 1, %49 ], [ 1, %47 ]
   %221 = phi ptr [ null, %26 ], [ null, %30 ], [ null, %53 ], [ null, %206 ], [ %219, %212 ], [ null, %20 ], [ null, %18 ], [ null, %49 ], [ null, %47 ]
   %222 = icmp ne i32 %220, 0
-  %223 = getelementptr inbounds i8, ptr %1, i64 60
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %224 = load i16, ptr %223, align 4
   %225 = zext i1 %222 to i16
   %226 = or i16 %224, %225
@@ -895,29 +895,29 @@ declare dso_local i32 @skb_gro_receive(ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @tcp_gro_complete(ptr nocapture noundef initializes((136, 140)) %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 178
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i16 %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 138
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 138
   store i16 16, ptr %10, align 2
   %11 = load i8, ptr %8, align 8
   %12 = or i8 %11, 96
   store i8 %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i16, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 188
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
   %18 = getelementptr i8, ptr %3, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 6
   store i16 %14, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %7, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %21 = load i16, ptr %20, align 4
   %22 = icmp sgt i16 %21, -1
   br i1 %22, label %31, label %23
@@ -927,14 +927,14 @@ define dso_local void @tcp_gro_complete(ptr nocapture noundef initializes((136, 
   %25 = load i32, ptr %15, align 4
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %24, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = or i32 %29, 4
   store i32 %30, ptr %28, align 8
   br label %31
 
 31:                                               ; preds = %23, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 129
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %33 = load i24, ptr %32, align 1
   %34 = and i24 %33, 8192
   %35 = icmp eq i24 %34, 0
@@ -942,7 +942,7 @@ define dso_local void @tcp_gro_complete(ptr nocapture noundef initializes((136, 
 
 36:                                               ; preds = %31
   %37 = load i16, ptr %4, align 2
-  %38 = getelementptr inbounds i8, ptr %0, i64 170
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 170
   store i16 %37, ptr %38, align 2
   br label %39
 
@@ -952,66 +952,66 @@ define dso_local void @tcp_gro_complete(ptr nocapture noundef initializes((136, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %6, label %113
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 96
   %10 = icmp eq i8 %9, 96
   br i1 %10, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %27
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %20, %19
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load i32, ptr %24, align 8
   %26 = icmp ult i32 %23, %25
   br i1 %26, label %27, label %80
 
 27:                                               ; preds = %._crit_edge, %11
   %28 = phi i32 [ %.pre, %._crit_edge ], [ %25, %11 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i32
   %32 = icmp eq i32 %28, %31
   br i1 %32, label %80, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 70
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 56
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %80
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  %42 = getelementptr inbounds i8, ptr %1, i64 200
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %43 = load ptr, ptr %42, align 8
   %. = select i1 %41, ptr %43, ptr %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 192
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 180
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %47 = load i16, ptr %46, align 4
   %48 = zext i16 %47 to i64
   %49 = getelementptr i8, ptr %45, i64 %48
@@ -1021,11 +1021,11 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %53 = shl i64 %52, 32
   %54 = ashr exact i64 %53, 32
   %55 = getelementptr i8, ptr %., i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %55, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %61 = load i32, ptr %60, align 8
   %62 = sub i32 %61, %28
   %63 = shl i32 %62, 8
@@ -1036,7 +1036,7 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %67, label %76, label %68
 
 68:                                               ; preds = %38
-  %69 = getelementptr inbounds i8, ptr %1, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %70 = load i32, ptr %69, align 8
   %71 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %65, i32 %70) #8, !srcloc !12
   %72 = shl i32 %71, 16
@@ -1046,14 +1046,14 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %68, %38
-  %77 = getelementptr inbounds i8, ptr %1, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %65, ptr %77, align 8
   %78 = tail call zeroext i16 @__skb_gro_checksum_complete(ptr noundef %1) #7
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %80, label %112
 
 80:                                               ; preds = %76, %68, %33, %27, %11
-  %81 = getelementptr inbounds i8, ptr %1, i64 70
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %82 = load i16, ptr %81, align 2
   %83 = and i16 %82, 56
   %84 = icmp eq i16 %83, 0
@@ -1077,7 +1077,7 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   ]
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %1, i64 129
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %96 = load i24, ptr %95, align 1
   %97 = trunc i24 %96 to i8
   %98 = and i8 %97, 96
@@ -1097,7 +1097,7 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %107 = and i8 %91, -97
   %108 = or disjoint i8 %107, 32
   store i8 %108, ptr %7, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 129
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 129
   %110 = load i24, ptr %109, align 1
   %111 = and i24 %110, -97
   store i24 %111, ptr %109, align 1
@@ -1118,22 +1118,22 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
 define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initializes((136, 140)) %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 180
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 178
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = getelementptr i8, ptr %4, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
   %15 = sub i32 %14, %1
-  %16 = getelementptr inbounds i8, ptr %8, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load i32, ptr %18, align 4
   %20 = shl i32 %15, 8
   %21 = add i32 %20, 1536
@@ -1145,18 +1145,18 @@ define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initialize
   %27 = lshr i32 %26, 16
   %28 = trunc nuw i32 %27 to i16
   %29 = xor i16 %28, -1
-  %30 = getelementptr inbounds i8, ptr %12, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i16 %29, ptr %30, align 4
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 188
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = or i32 %37, 1
   store i32 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 70
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 1024
   %42 = icmp eq i16 %41, 0
@@ -1167,7 +1167,7 @@ define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initialize
   %45 = load i32, ptr %32, align 4
   %46 = zext i32 %45 to i64
   %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
   %50 = or i32 %49, 8
   store i32 %50, ptr %48, align 8
@@ -1178,22 +1178,22 @@ define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initialize
   %53 = load i16, ptr %9, align 2
   %54 = zext i16 %53 to i64
   %55 = getelementptr i8, ptr %52, i64 %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 128
-  %57 = getelementptr inbounds i8, ptr %0, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i16 %53, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 138
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 138
   store i16 16, ptr %58, align 2
   %59 = load i8, ptr %56, align 8
   %60 = or i8 %59, 96
   store i8 %60, ptr %56, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %62 = load i16, ptr %61, align 8
   %63 = load i32, ptr %32, align 4
   %64 = zext i32 %63 to i64
   %65 = getelementptr i8, ptr %52, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 6
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 6
   store i16 %62, ptr %66, align 2
-  %67 = getelementptr inbounds i8, ptr %55, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %68 = load i16, ptr %67, align 4
   %69 = icmp sgt i16 %68, -1
   br i1 %69, label %78, label %70
@@ -1203,14 +1203,14 @@ define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initialize
   %72 = load i32, ptr %32, align 4
   %73 = zext i32 %72 to i64
   %74 = getelementptr i8, ptr %71, i64 %73
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = or i32 %76, 4
   store i32 %77, ptr %75, align 8
   br label %78
 
 78:                                               ; preds = %70, %51
-  %79 = getelementptr inbounds i8, ptr %0, i64 129
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %80 = load i24, ptr %79, align 1
   %81 = and i24 %80, 8192
   %82 = icmp eq i24 %81, 0
@@ -1218,7 +1218,7 @@ define dso_local noundef i32 @tcp4_gro_complete(ptr nocapture noundef initialize
 
 83:                                               ; preds = %78
   %84 = load i16, ptr %9, align 2
-  %85 = getelementptr inbounds i8, ptr %0, i64 170
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 170
   store i16 %84, ptr %85, align 2
   br label %86
 
@@ -1249,22 +1249,22 @@ declare dso_local zeroext i16 @__skb_gro_checksum_complete(ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @tcp4_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 188
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %50, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 116
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %17 = load i32, ptr %16, align 4
   %18 = sub i32 %15, %17
   %19 = icmp ult i32 %18, 20
@@ -1281,7 +1281,7 @@ define internal ptr @tcp4_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
   br i1 %25, label %50, label %26
 
 26:                                               ; preds = %22, %13
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 96
   %30 = icmp eq i8 %29, 96
@@ -1289,22 +1289,22 @@ define internal ptr @tcp4_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 1
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 180
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %34 = load i16, ptr %33, align 4
   %35 = zext i16 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 178
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
   %40 = getelementptr i8, ptr %32, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i16 0, ptr %41, align 4
   %42 = load i8, ptr %27, align 8
   %43 = or i8 %42, 96
   store i8 %43, ptr %27, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %36, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %47 = load i32, ptr %46, align 4
   tail call void @__tcp_v4_send_check(ptr noundef %0, i32 noundef %45, i32 noundef %47) #7
   br label %48

@@ -116,7 +116,7 @@ define internal ptr @H5O__stab_decode(ptr noundef %0, ptr nocapture readnone %1,
   br label %56
 
 54:                                               ; preds = %39, %34
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @H5F_addr_decode(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %55) #5
   br label %.thread
 
@@ -135,7 +135,7 @@ define internal noundef i32 @H5O__stab_encode(ptr noundef %0, i1 zeroext %1, i64
   store ptr %3, ptr %6, align 8
   %7 = load i64, ptr %4, align 8
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %7) #5
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %9) #5
   ret i32 0
@@ -213,7 +213,7 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef r
   br label %.thread
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = call i32 @H5HL_get_size(ptr noundef %0, i64 noundef %18, ptr noundef nonnull %8) #5
   %20 = icmp slt i32 %19, 0
@@ -242,14 +242,14 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef r
   br label %41
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %35, align 8
   %36 = load i64, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %10, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %39, ptr %40, align 8
   br label %.thread
 
@@ -265,20 +265,20 @@ define internal ptr @H5O__stab_copy_file(ptr noundef %0, ptr nocapture noundef r
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
   %7 = alloca %struct.H5G_bt_it_cpy_t, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %.not = icmp slt i32 %13, %9
   br i1 %.not, label %14, label %.thread
 
 14:                                               ; preds = %11, %6
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call ptr @H5HL_protect(ptr noundef %15, i64 noundef %17, i32 noundef 128) #5
   %19 = icmp eq ptr %18, null
@@ -292,17 +292,17 @@ define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, p
 
 24:                                               ; preds = %14
   store ptr %0, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %18, ptr %25, align 8
   %26 = tail call i64 @H5HL_heap_get_size(ptr noundef nonnull %18) #5
-  %27 = getelementptr inbounds i8, ptr %7, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %26, ptr %27, align 8
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %5, ptr %31, align 8
   %32 = load ptr, ptr %0, align 8
   %33 = load i64, ptr %1, align 8
@@ -337,7 +337,7 @@ define internal range(i32 -1, 1) i32 @H5O__stab_post_copy_file(ptr noundef %0, p
 define internal noundef i32 @H5O__stab_debug(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #1 {
   %6 = load i64, ptr %1, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.13, i64 noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.12, i32 noundef %4, ptr noundef nonnull @.str.14, i64 noundef %9) #5
   ret i32 0

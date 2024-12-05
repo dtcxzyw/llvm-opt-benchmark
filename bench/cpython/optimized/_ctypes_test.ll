@@ -97,9 +97,9 @@ entry:
 define void @_testfunc_large_struct_update_value(ptr noundef byval(%struct.Test) align 8 %in) local_unnamed_addr #1 {
 entry:
   store volatile i64 195948557, ptr %in, align 8
-  %second = getelementptr inbounds i8, ptr %in, i64 8
+  %second = getelementptr inbounds nuw i8, ptr %in, i64 8
   store volatile i64 195948557, ptr %second, align 8
-  %third = getelementptr inbounds i8, ptr %in, i64 16
+  %third = getelementptr inbounds nuw i8, ptr %in, i64 16
   store volatile i64 195948557, ptr %third, align 8
   ret void
 }
@@ -127,7 +127,7 @@ define i32 @_testfunc_array_in_struct2(i64 %in.coerce0, i64 %in.coerce1) local_u
 entry:
   %in = alloca %struct.Test2, align 8
   store i64 %in.coerce0, ptr %in, align 8
-  %0 = getelementptr inbounds i8, ptr %in, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %in, i64 8
   store i64 %in.coerce1, ptr %0, align 8
   br label %for.body
 
@@ -154,9 +154,9 @@ define double @_testfunc_array_in_struct3A(<2 x float> %in.coerce0, <2 x float> 
 entry:
   %in = alloca %struct.Test3A, align 8
   store <2 x float> %in.coerce0, ptr %in, align 8
-  %0 = getelementptr inbounds i8, ptr %in, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %in, i64 8
   store <2 x float> %in.coerce1, ptr %0, align 8
-  %indvars.iv.sroa.gep15 = getelementptr inbounds i8, ptr %in, i64 4
+  %indvars.iv.sroa.gep15 = getelementptr inbounds nuw i8, ptr %in, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -333,7 +333,7 @@ entry:
 define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_value2(ptr nocapture noundef readonly byval(%struct.Test5) align 8 %in) local_unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %in, align 8
-  %nested = getelementptr inbounds i8, ptr %in, i64 8
+  %nested = getelementptr inbounds nuw i8, ptr %in, i64 8
   %1 = load i32, ptr %nested, align 8
   %add = add i32 %1, %0
   %conv = sext i32 %add to i64
@@ -352,7 +352,7 @@ entry:
 define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference2(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %in, align 8
-  %another_int = getelementptr inbounds i8, ptr %in, i64 4
+  %another_int = getelementptr inbounds nuw i8, ptr %in, i64 4
   %1 = load i32, ptr %another_int, align 4
   %add = add i32 %1, %0
   %conv = sext i32 %add to i64
@@ -364,10 +364,10 @@ entry:
 define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr nocapture noundef initializes((4, 8), (12, 24), (28, 32)) %in) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %in, align 8
-  %nested = getelementptr inbounds i8, ptr %in, i64 8
+  %nested = getelementptr inbounds nuw i8, ptr %in, i64 8
   %1 = load i32, ptr %nested, align 8
   %add = add i32 %1, %0
-  %another_int = getelementptr inbounds i8, ptr %in, i64 24
+  %another_int = getelementptr inbounds nuw i8, ptr %in, i64 24
   %2 = load i32, ptr %another_int, align 8
   %add2 = add i32 %add, %2
   %conv = sext i32 %add2 to i64
@@ -730,7 +730,7 @@ define noundef i32 @_testfunc_callfuncp(ptr nocapture noundef readonly %fp) loca
 entry:
   %0 = load ptr, ptr %fp, align 8
   %call = tail call i32 %0(i32 noundef 1, i32 noundef 2) #33
-  %s = getelementptr inbounds i8, ptr %fp, i64 8
+  %s = getelementptr inbounds nuw i8, ptr %fp, i64 8
   %1 = load ptr, ptr %s, align 8
   %call1 = tail call i32 %1(i32 noundef 3, i32 noundef 4) #33
   ret i32 0
@@ -848,7 +848,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 %in.sroa.0.0.extract.trunc, ptr %pout, align 4
-  %y2 = getelementptr inbounds i8, ptr %pout, i64 4
+  %y2 = getelementptr inbounds nuw i8, ptr %pout, i64 4
   store i32 %in.sroa.3.0.extract.trunc, ptr %y2, align 4
   br label %if.end
 
@@ -1011,7 +1011,7 @@ sw.bb21:                                          ; preds = %entry
   br label %return
 
 sw.bb25:                                          ; preds = %entry
-  %H = getelementptr inbounds i8, ptr %bits, i64 4
+  %H = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load26 = load i64, ptr %H, align 4
   %bf.shl27 = shl i64 %bf.load26, 56
   %bf.ashr28 = ashr exact i64 %bf.shl27, 56
@@ -1019,7 +1019,7 @@ sw.bb25:                                          ; preds = %entry
   br label %return
 
 sw.bb29:                                          ; preds = %entry
-  %I = getelementptr inbounds i8, ptr %bits, i64 4
+  %I = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load30 = load i64, ptr %I, align 4
   %bf.shl31 = shl i64 %bf.load30, 47
   %bf.ashr32 = ashr i64 %bf.shl31, 55
@@ -1027,7 +1027,7 @@ sw.bb29:                                          ; preds = %entry
   br label %return
 
 sw.bb34:                                          ; preds = %entry
-  %M = getelementptr inbounds i8, ptr %bits, i64 4
+  %M = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load35 = load i64, ptr %M, align 4
   %bf.shl36 = shl i64 %bf.load35, 46
   %bf.ashr37 = ashr i64 %bf.shl36, 63
@@ -1035,7 +1035,7 @@ sw.bb34:                                          ; preds = %entry
   br label %return
 
 sw.bb40:                                          ; preds = %entry
-  %N = getelementptr inbounds i8, ptr %bits, i64 4
+  %N = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load41 = load i64, ptr %N, align 4
   %bf.shl42 = shl i64 %bf.load41, 44
   %bf.ashr43 = ashr i64 %bf.shl42, 62
@@ -1043,7 +1043,7 @@ sw.bb40:                                          ; preds = %entry
   br label %return
 
 sw.bb46:                                          ; preds = %entry
-  %O = getelementptr inbounds i8, ptr %bits, i64 4
+  %O = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load47 = load i64, ptr %O, align 4
   %bf.shl48 = shl i64 %bf.load47, 41
   %bf.ashr49 = ashr i64 %bf.shl48, 61
@@ -1051,7 +1051,7 @@ sw.bb46:                                          ; preds = %entry
   br label %return
 
 sw.bb52:                                          ; preds = %entry
-  %P = getelementptr inbounds i8, ptr %bits, i64 4
+  %P = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load53 = load i64, ptr %P, align 4
   %bf.shl54 = shl i64 %bf.load53, 37
   %bf.ashr55 = ashr i64 %bf.shl54, 60
@@ -1059,7 +1059,7 @@ sw.bb52:                                          ; preds = %entry
   br label %return
 
 sw.bb58:                                          ; preds = %entry
-  %Q = getelementptr inbounds i8, ptr %bits, i64 4
+  %Q = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load59 = load i64, ptr %Q, align 4
   %bf.shl60 = shl i64 %bf.load59, 32
   %bf.ashr61 = ashr i64 %bf.shl60, 59
@@ -1067,7 +1067,7 @@ sw.bb58:                                          ; preds = %entry
   br label %return
 
 sw.bb64:                                          ; preds = %entry
-  %R = getelementptr inbounds i8, ptr %bits, i64 4
+  %R = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load65 = load i64, ptr %R, align 4
   %bf.shl66 = shl i64 %bf.load65, 26
   %bf.ashr67 = ashr i64 %bf.shl66, 58
@@ -1075,7 +1075,7 @@ sw.bb64:                                          ; preds = %entry
   br label %return
 
 sw.bb70:                                          ; preds = %entry
-  %S = getelementptr inbounds i8, ptr %bits, i64 4
+  %S = getelementptr inbounds nuw i8, ptr %bits, i64 4
   %bf.load71 = load i64, ptr %S, align 4
   %bf.shl72 = shl i64 %bf.load71, 19
   %bf.ashr73 = ashr i64 %bf.shl72, 57
@@ -1329,19 +1329,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %prc, i64 16
+  %right = getelementptr inbounds nuw i8, ptr %prc, i64 16
   %1 = load i64, ptr %right, align 8
   %cmp2 = icmp sgt i64 %pt.coerce0, %1
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %top = getelementptr inbounds i8, ptr %prc, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %prc, i64 8
   %2 = load i64, ptr %top, align 8
   %cmp5 = icmp slt i64 %pt.coerce1, %2
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %bottom = getelementptr inbounds i8, ptr %prc, i64 24
+  %bottom = getelementptr inbounds nuw i8, ptr %prc, i64 24
   %3 = load i64, ptr %bottom, align 8
   %cmp9 = icmp sle i64 %pt.coerce1, %3
   %. = zext i1 %cmp9 to i32
@@ -1374,18 +1374,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %ar, i64 16
+  %right = getelementptr inbounds nuw i8, ptr %ar, i64 16
   %6 = load i64, ptr %right, align 8
-  %right9 = getelementptr inbounds i8, ptr %br, i64 16
+  %right9 = getelementptr inbounds nuw i8, ptr %br, i64 16
   %7 = load i64, ptr %right9, align 8
   %add10 = add i64 %7, %6
-  %right11 = getelementptr inbounds i8, ptr %dr, i64 16
+  %right11 = getelementptr inbounds nuw i8, ptr %dr, i64 16
   %8 = load i64, ptr %right11, align 8
   %add12 = add i64 %add10, %8
-  %right13 = getelementptr inbounds i8, ptr %er, i64 16
+  %right13 = getelementptr inbounds nuw i8, ptr %er, i64 16
   %9 = load i64, ptr %right13, align 8
   %add14 = add i64 %add12, %9
-  %right15 = getelementptr inbounds i8, ptr %gr, i64 16
+  %right15 = getelementptr inbounds nuw i8, ptr %gr, i64 16
   %10 = load i64, ptr %right15, align 8
   %add16 = add i64 %add14, %10
   %11 = load i64, ptr @right, align 8
@@ -1407,7 +1407,7 @@ if.then24:                                        ; preds = %if.end21
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end21
-  %y27 = getelementptr inbounds i8, ptr %fp, i64 8
+  %y27 = getelementptr inbounds nuw i8, ptr %fp, i64 8
   %13 = load i64, ptr %y27, align 8
   %cmp28.not = icmp eq i64 %cp.coerce1, %13
   br i1 %cmp28.not, label %if.end31, label %if.then29
@@ -1451,31 +1451,31 @@ entry:
   %0 = load i32, ptr %inp, align 8
   %mul = shl i32 %0, 1
   store i32 %mul, ptr %inp, align 8
-  %b = getelementptr inbounds i8, ptr %inp, i64 4
+  %b = getelementptr inbounds nuw i8, ptr %inp, i64 4
   %1 = load i32, ptr %b, align 4
   %mul1 = mul i32 %1, 3
   store i32 %mul1, ptr %b, align 4
-  %c = getelementptr inbounds i8, ptr %inp, i64 8
+  %c = getelementptr inbounds nuw i8, ptr %inp, i64 8
   %2 = load i32, ptr %c, align 8
   %mul2 = shl i32 %2, 2
   store i32 %mul2, ptr %c, align 8
-  %d = getelementptr inbounds i8, ptr %inp, i64 12
+  %d = getelementptr inbounds nuw i8, ptr %inp, i64 12
   %3 = load i32, ptr %d, align 4
   %mul3 = mul i32 %3, 5
   store i32 %mul3, ptr %d, align 4
-  %e = getelementptr inbounds i8, ptr %inp, i64 16
+  %e = getelementptr inbounds nuw i8, ptr %inp, i64 16
   %4 = load i32, ptr %e, align 8
   %mul4 = mul i32 %4, 6
   store i32 %mul4, ptr %e, align 8
-  %f = getelementptr inbounds i8, ptr %inp, i64 20
+  %f = getelementptr inbounds nuw i8, ptr %inp, i64 20
   %5 = load i32, ptr %f, align 4
   %mul5 = mul i32 %5, 7
   store i32 %mul5, ptr %f, align 4
-  %g = getelementptr inbounds i8, ptr %inp, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %inp, i64 24
   %6 = load i32, ptr %g, align 8
   %mul6 = shl i32 %6, 3
   store i32 %mul6, ptr %g, align 8
-  %h = getelementptr inbounds i8, ptr %inp, i64 28
+  %h = getelementptr inbounds nuw i8, ptr %inp, i64 28
   %7 = load i32, ptr %h, align 4
   %mul7 = mul i32 %7, 9
   store i32 %mul7, ptr %h, align 4
@@ -1494,15 +1494,15 @@ if.end:                                           ; preds = %entry
   store i64 %conv, ptr %prect, align 8
   %add = add i32 %flag, 1
   %conv1 = sext i32 %add to i64
-  %top = getelementptr inbounds i8, ptr %prect, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %prect, i64 8
   store i64 %conv1, ptr %top, align 8
   %add2 = add i32 %flag, 2
   %conv3 = sext i32 %add2 to i64
-  %right = getelementptr inbounds i8, ptr %prect, i64 16
+  %right = getelementptr inbounds nuw i8, ptr %prect, i64 16
   store i64 %conv3, ptr %right, align 8
   %add4 = add i32 %flag, 3
   %conv5 = sext i32 %add4 to i64
-  %bottom = getelementptr inbounds i8, ptr %prect, i64 24
+  %bottom = getelementptr inbounds nuw i8, ptr %prect, i64 24
   store i64 %conv5, ptr %bottom, align 8
   br label %return
 

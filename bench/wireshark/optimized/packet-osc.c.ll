@@ -465,7 +465,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %51, %.lr.ph.i
@@ -478,9 +478,9 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 332
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.03910.i, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 336
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %17, align 8
   %18 = add i32 %11, %.03910.i
   br label %dissect_osc_tcp_1_1.exit
@@ -632,10 +632,10 @@ define internal range(i32 0, 2) i32 @dissect_osc_heur_udp(ptr noundef %0, ptr no
   store volatile i32 0, ptr %5, align 4
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_osc_heur_udp.catch_spec, i64 noundef 1) #5
-  %15 = getelementptr inbounds i8, ptr %9, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %16 = call i32 @_setjmp(ptr noundef nonnull %15) #7
   %.not37 = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not37, ptr null, ptr %17
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -759,7 +759,7 @@ is_valid_path.exit.thread:                        ; preds = %38, %34, %47, %is_v
   unreachable
 
 58:                                               ; preds = %56, %54
-  %59 = getelementptr inbounds i8, ptr %9, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %60 = load volatile ptr, ptr %59, align 8
   call void @except_free(ptr noundef %60) #5
   %61 = call ptr @except_pop() #5
@@ -803,7 +803,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.116) #5
   %8 = load ptr, ptr %6, align 8

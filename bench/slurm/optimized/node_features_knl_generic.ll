@@ -410,7 +410,7 @@ _knl_numa_bits_cnt.exit:                          ; preds = %63
 .preheader.i:                                     ; preds = %75, %81
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %75 ]
   %.0.i = phi i32 [ %.1.i, %81 ], [ 0, %75 ]
-  %77 = getelementptr inbounds i8, ptr %76, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv.i
   %78 = load i8, ptr %77, align 1
   switch i8 %78, label %81 [
     i8 0, label %82
@@ -641,7 +641,7 @@ _knl_numa_bits_cnt.exit104:                       ; preds = %127
 
 select.unfold.i:                                  ; preds = %154, %152, %150, %148, %146
   %.0.i.ph.i = phi i32 [ 8, %152 ], [ 4, %150 ], [ 2, %148 ], [ 1, %146 ], [ 16, %154 ]
-  %156 = getelementptr inbounds i8, ptr %145, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 1
   %157 = call i32 @xlate_cpu_bind_str(ptr noundef nonnull %156, ptr noundef nonnull %5) #15
   %.not29.i = icmp eq i32 %157, 0
   br i1 %.not29.i, label %.preheader35.i, label %_knl_numa_token.exit.i
@@ -660,7 +660,7 @@ select.unfold.i:                                  ; preds = %154, %152, %150, %1
 162:                                              ; preds = %.preheader35.i
   %163 = load i32, ptr %5, align 4
   %164 = zext nneg i32 %.138.i to i64
-  %165 = getelementptr inbounds [5 x i32], ptr @cpu_bind, i64 0, i64 %164
+  %165 = getelementptr inbounds nuw [5 x i32], ptr @cpu_bind, i64 0, i64 %164
   store i32 %163, ptr %165, align 4
   br label %.loopexit36.i
 
@@ -687,7 +687,7 @@ _knl_numa_token.exit.i:                           ; preds = %select.unfold.i, %1
 
 .preheader.i107:                                  ; preds = %169, %186
   %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %186 ], [ 0, %169 ]
-  %172 = getelementptr inbounds [5 x i32], ptr @cpu_bind, i64 0, i64 %indvars.iv.i108
+  %172 = getelementptr inbounds nuw [5 x i32], ptr @cpu_bind, i64 0, i64 %indvars.iv.i108
   %173 = load i32, ptr %172, align 4
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %186, label %175
@@ -873,7 +873,7 @@ _config_make_tbl.exit.thread:                     ; preds = %34, %29, %0
 .lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i
   %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i117, %.lr.ph.i115 ]
   %.0810.i = phi ptr [ @.str.49, %.lr.ph.preheader.i ], [ @.str.3, %.lr.ph.i115 ]
-  %243 = getelementptr inbounds i32, ptr %237, i64 %indvars.iv.i116
+  %243 = getelementptr inbounds nuw i32, ptr %237, i64 %indvars.iv.i116
   %244 = load i32, ptr %243, align 4
   %245 = call ptr @uid_to_string(i32 noundef %244) #15
   store ptr %245, ptr %1, align 8
@@ -1421,7 +1421,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 
 .preheader.lr.ph:                                 ; preds = %36
   %38 = icmp sgt i64 %indvars.iv, 0
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %38, label %.preheader.us.preheader, label %.preheader.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -1463,18 +1463,18 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %69 ]
   %.03743.us = phi i32 [ 0, %.preheader.us ], [ %.138.us, %69 ]
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv53
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv53
   %58 = load i32, ptr %57, align 4
   %59 = call i64 @lseek(i32 noundef %58, i64 noundef 0, i32 noundef 0) #15
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv53
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv53
   %62 = load i32, ptr %61, align 4
   %63 = call i64 @read(i32 noundef %62, ptr noundef nonnull %4, i64 noundef 7) #15
   %64 = icmp slt i64 %63, 1
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %55
-  %66 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %63
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %63
   store i8 0, ptr %66, align 1
   %67 = call i32 @atoi(ptr nocapture noundef nonnull %4) #17
   %68 = add nsw i32 %67, %.03743.us
@@ -1516,7 +1516,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next59, %.lr.ph ]
   %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv58
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv58
   %82 = load i32, ptr %81, align 4
   %83 = call i32 @close(i32 noundef %82) #15
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -1624,14 +1624,14 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   %or.cond = and i1 %10, %9
   %11 = icmp ne ptr %1, null
   %or.cond4 = and i1 %11, %or.cond
-  %.sink124.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink124.sroa.gep130 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink125.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink125.sroa.gep131 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink127.sroa.gep = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink127.sroa.gep132 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink128.sroa.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink128.sroa.gep133 = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink124.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink124.sroa.gep130 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink125.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink125.sroa.gep131 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink127.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink127.sroa.gep132 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink128.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink128.sroa.gep133 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %or.cond4, label %12, label %198
 
 12:                                               ; preds = %2
@@ -1678,9 +1678,9 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 29:                                               ; preds = %27
   store ptr @.str.51, ptr %6, align 16
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.52, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.53, ptr %31, align 16
   br label %35
 
@@ -1746,7 +1746,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not67, label %66, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 %.1
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 %.1
   %56 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.61, i64 noundef 3) #15
   %.not68 = icmp eq i32 %56, 0
   br i1 %.not68, label %.sink.split, label %57
@@ -1785,11 +1785,11 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 67:                                               ; preds = %66
   store ptr @.str.51, ptr %6, align 16
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.71, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.55, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %6, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %70, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   %71 = load ptr, ptr @syscfg_path, align 8
@@ -1890,9 +1890,9 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 106:                                              ; preds = %104
   store ptr @.str.51, ptr %6, align 16
-  %107 = getelementptr inbounds i8, ptr %6, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.52, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %6, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.53, ptr %108, align 16
   br label %.sink.split126
 
@@ -1956,7 +1956,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not80, label %143, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 %.2
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 %.2
   %132 = call i32 @xstrncasecmp(ptr noundef nonnull %131, ptr noundef nonnull @.str.78, i64 noundef 3) #15
   %.not81 = icmp eq i32 %132, 0
   br i1 %.not81, label %.sink.split129, label %133
@@ -1998,11 +1998,11 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 144:                                              ; preds = %143
   store ptr @.str.51, ptr %6, align 16
-  %145 = getelementptr inbounds i8, ptr %6, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.71, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %6, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @.str.75, ptr %146, align 16
-  %147 = getelementptr inbounds i8, ptr %6, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %147, align 8
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   %148 = load ptr, ptr @syscfg_path, align 8
@@ -2175,7 +2175,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
 22:                                               ; preds = %19
   %23 = call i64 @sysconf(i32 noundef 4) #15
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %6, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = call i32 @dup2(i32 noundef %26, i32 noundef 2) #15
   %28 = load i32, ptr %25, align 4
@@ -2207,7 +2207,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
 
 39:                                               ; preds = %19
   %40 = icmp slt i32 %20, 0
-  %41 = getelementptr inbounds i8, ptr %6, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %40, label %42, label %48
 
 42:                                               ; preds = %39
@@ -2229,12 +2229,12 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
   br i1 %.not475455, label %.lr.ph.lr.ph, label %.outer._crit_edge
 
 .lr.ph.lr.ph:                                     ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %7, i64 4
-  %55 = getelementptr inbounds i8, ptr %7, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %.val = load i64, ptr %8, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.val49 = load i64, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -2246,7 +2246,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
   br label %64
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %48
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.144, ptr noundef nonnull @__func__._run_script, ptr noundef %62) #15
   br label %.loopexit
@@ -2274,7 +2274,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
   br i1 %73, label %74, label %79
 
 74:                                               ; preds = %64
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr @syscfg_timeout, align 4
   %78 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._run_script, ptr noundef %76, i32 noundef %77) #15
@@ -2296,7 +2296,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._run_script, ptr noundef %88) #15
   br label %.loopexit
@@ -2310,7 +2310,7 @@ define internal fastcc ptr @_run_script(ptr noundef %0, ptr noundef nonnull %1, 
 94:                                               ; preds = %90
   %95 = load i32, ptr %6, align 8
   %96 = load ptr, ptr %5, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 %58
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %58
   %98 = call i64 @read(i32 noundef %95, ptr noundef %97, i64 noundef %60) #15
   %99 = trunc i64 %98 to i32
   %100 = icmp eq i32 %99, 0
@@ -2386,7 +2386,7 @@ define internal fastcc void @_log_script_argv(ptr nocapture noundef nonnull read
   br i1 %.not12, label %10, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.148) #15
   %.pre = load ptr, ptr %9, align 8
   br label %10
@@ -2395,7 +2395,7 @@ define internal fastcc void @_log_script_argv(ptr nocapture noundef nonnull read
   %11 = phi ptr [ %.pre, %8 ], [ %7, %.lr.ph ]
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef %11) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
   %.not9 = icmp eq ptr %13, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -2469,8 +2469,8 @@ define range(i32 0, 8002) i32 @node_features_p_job_valid(ptr noundef %0, ptr noc
   %.02341 = phi i32 [ %.02341.be, %.lr.ph.backedge ], [ 0, %11 ]
   %.02440 = phi i32 [ %.02440.be, %.lr.ph.backedge ], [ 0, %11 ]
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #17
-  %15 = add i64 %14, -1
-  %16 = getelementptr inbounds i8, ptr %.042, i64 %15
+  %15 = getelementptr i8, ptr %.042, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -2726,22 +2726,22 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %8 = icmp eq ptr %0, null
-  %.sink53.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink53.sroa.gep73 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink54.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink54.sroa.gep74 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink56.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink56.sroa.gep75 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sink59.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink59.sroa.gep76 = getelementptr inbounds i8, ptr %3, i64 40
-  %.sink62.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink62.sroa.gep77 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink64.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink64.sroa.gep78 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink69.sroa.gep = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink69.sroa.gep79 = getelementptr inbounds i8, ptr %3, i64 48
-  %.sink72.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink72.sroa.gep80 = getelementptr inbounds i8, ptr %3, i64 40
+  %.sink53.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink53.sroa.gep73 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink54.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink54.sroa.gep74 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink56.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink56.sroa.gep75 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sink59.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink59.sroa.gep76 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %.sink62.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink62.sroa.gep77 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink64.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink64.sroa.gep78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink69.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink69.sroa.gep79 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sink72.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink72.sroa.gep80 = getelementptr inbounds nuw i8, ptr %3, i64 40
   br i1 %8, label %144, label %9
 
 9:                                                ; preds = %1
@@ -2789,9 +2789,9 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 29:                                               ; preds = %27
   store ptr @.str.51, ptr %3, align 16
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.52, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.53, ptr %31, align 16
   br label %35
 
@@ -2900,13 +2900,13 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 68:                                               ; preds = %66
   store ptr @.str.51, ptr %3, align 16
-  %69 = getelementptr inbounds i8, ptr %3, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.96, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.49, ptr %70, align 16
-  %71 = getelementptr inbounds i8, ptr %3, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.53, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %3, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @.str.54, ptr %72, align 16
   br label %.sink.split
 
@@ -2956,9 +2956,9 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 85:                                               ; preds = %.thread
   store ptr @.str.51, ptr %3, align 16
-  %86 = getelementptr inbounds i8, ptr %3, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.52, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %3, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.53, ptr %87, align 16
   br label %.sink.split60
 
@@ -3083,13 +3083,13 @@ thread-pre-split:                                 ; preds = %103, %109, %111, %1
 
 127:                                              ; preds = %125
   store ptr @.str.51, ptr %3, align 16
-  %128 = getelementptr inbounds i8, ptr %3, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.96, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %3, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.49, ptr %129, align 16
-  %130 = getelementptr inbounds i8, ptr %3, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.53, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %3, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @.str.74, ptr %131, align 16
   br label %.sink.split67
 
@@ -3149,7 +3149,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly %0, ptr noundef %
 5:                                                ; preds = %2
   %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.151) #17
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 15
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %.025 = select i1 %.not, ptr %1, ptr %7
   %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.025, ptr noundef nonnull dereferenceable(1) %0) #17
   %.not34 = icmp eq ptr %8, null
@@ -3166,7 +3166,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly %0, ptr noundef %
 
 .preheader:                                       ; preds = %.preheader.preheader, %12
   %.026.pn = phi ptr [ %.1, %12 ], [ %10, %.preheader.preheader ]
-  %.1 = getelementptr inbounds i8, ptr %.026.pn, i64 1
+  %.1 = getelementptr inbounds nuw i8, ptr %.026.pn, i64 1
   %11 = load i8, ptr %.1, align 1
   %.not36 = icmp eq i8 %11, 0
   br i1 %.not36, label %.critedge, label %12
@@ -3195,7 +3195,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly %0, ptr noundef %
 
 23:                                               ; preds = %.critedge
   %24 = tail call ptr @xstrdup(ptr noundef nonnull %.1) #15
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %.not3945 = icmp eq i8 %26, 0
   br i1 %.not3945, label %.thread, label %.lr.ph
@@ -3206,7 +3206,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly %0, ptr noundef %
 
 28:                                               ; preds = %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.next
   %30 = load i8, ptr %29, align 1
   %.not39 = icmp eq i8 %30, 0
   br i1 %.not39, label %.thread, label %31, !llvm.loop !26
@@ -3222,7 +3222,7 @@ define internal fastcc ptr @_find_key_val(ptr noundef readonly %0, ptr noundef %
   br i1 %.not40, label %37, label %28
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   store i8 0, ptr %38, align 1
   br label %.thread
 
@@ -3298,7 +3298,7 @@ define noundef i32 @node_features_p_node_update(ptr noundef %0, ptr noundef %1) 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %15 = load ptr, ptr @mcdram_per_node, align 8
-  %16 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
   store i64 17179869184, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr @node_record_count, align 4
@@ -3399,7 +3399,7 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
 
 49:                                               ; preds = %48
   %50 = zext nneg i32 %storemerge36 to i64
-  %51 = getelementptr inbounds [5 x i32], ptr @mcdram_pct, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [5 x i32], ptr @mcdram_pct, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, -1
   %spec.select = select i1 %53, i32 -1, i32 %storemerge36
@@ -3416,10 +3416,10 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
 .lr.ph55:                                         ; preds = %55
   %57 = icmp sgt i32 %.024, -1
   %58 = zext nneg i32 %.024 to i64
-  %59 = getelementptr inbounds [5 x i32], ptr @cpu_bind, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [5 x i32], ptr @cpu_bind, i64 0, i64 %58
   %60 = icmp sgt i32 %.227, -1
   %61 = zext nneg i32 %.227 to i64
-  %62 = getelementptr inbounds [5 x i32], ptr @mcdram_pct, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [5 x i32], ptr @mcdram_pct, i64 0, i64 %61
   br i1 %60, label %.lr.ph55.split, label %.lr.ph55.split.us
 
 .lr.ph55.split.us:                                ; preds = %.lr.ph55
@@ -3432,7 +3432,7 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
   br i1 %.not39.us.us, label %67, label %65
 
 65:                                               ; preds = %.lr.ph55.split.us.split.us
-  %66 = getelementptr inbounds i8, ptr %63, i64 76
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 76
   store i32 %64, ptr %66, align 4
   br label %67
 
@@ -3462,7 +3462,7 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
   br i1 %.not39, label %79, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %74, i64 76
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 76
   store i32 %76, ptr %78, align 4
   br label %79
 
@@ -3481,24 +3481,24 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
   %88 = sext i32 %87 to i64
   %89 = mul i64 %85, %88
   %90 = udiv i64 %89, 100
-  %91 = getelementptr inbounds i8, ptr %74, i64 176
+  %91 = getelementptr inbounds nuw i8, ptr %74, i64 176
   %92 = load ptr, ptr %91, align 8
   %.not40 = icmp eq ptr %92, null
   br i1 %.not40, label %93, label %99
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds i8, ptr %74, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %74, i64 64
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = call ptr @xstrdup(ptr noundef %97) #15
   store ptr %98, ptr %91, align 8
   br label %99
 
 99:                                               ; preds = %93, %81
-  %100 = getelementptr inbounds i8, ptr %74, i64 256
+  %100 = getelementptr inbounds nuw i8, ptr %74, i64 256
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %74, i64 184
+  %102 = getelementptr inbounds nuw i8, ptr %74, i64 184
   call void @gres_node_feature(ptr noundef %101, ptr noundef nonnull @.str.39, i64 noundef %90, ptr noundef nonnull %91, ptr noundef nonnull %102) #15
   br label %103
 
@@ -3525,19 +3525,19 @@ define noundef zeroext i1 @node_features_p_node_update_valid(ptr nocapture nound
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not48 = icmp eq ptr %9, null
   br i1 %.not48, label %94, label %10
 
 10:                                               ; preds = %7, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = load ptr, ptr %11, align 8
   %.not49 = icmp eq ptr %12, null
   br i1 %.not49, label %.critedge, label %13
@@ -3659,13 +3659,13 @@ _knl_numa_token.exit73.thread:                    ; preds = %43, %41, %39, %37, 
 
 48:                                               ; preds = %_knl_numa_token.exit73.thread
   %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 256
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %51 = load ptr, ptr %50, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.101, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_update_valid, ptr noundef %49, ptr noundef %51) #15
   br label %94
 
 52:                                               ; preds = %._crit_edge, %.critedge
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load ptr, ptr %53, align 8
   %.not58 = icmp eq ptr %54, null
   br i1 %.not58, label %76, label %55
@@ -3725,7 +3725,7 @@ _knl_numa_token.exit81:                           ; preds = %67
 
 72:                                               ; preds = %.thread92
   %73 = load ptr, ptr %53, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 256
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %75 = load ptr, ptr %74, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.102, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_update_valid, ptr noundef %73, ptr noundef %75) #15
   br label %94
@@ -3763,7 +3763,7 @@ _knl_numa_token.exit81:                           ; preds = %67
 89:                                               ; preds = %86
   %90 = load ptr, ptr %5, align 8
   %91 = load ptr, ptr %53, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 256
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %93 = load ptr, ptr %92, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.103, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_features_p_node_update_valid, ptr noundef %90, ptr noundef %91, ptr noundef %93) #15
   br label %94
@@ -4410,7 +4410,7 @@ define noundef zeroext i1 @node_features_p_user_update(i32 noundef %0) local_unn
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %0
   br i1 %18, label %.loopexit, label %14
@@ -4446,14 +4446,14 @@ define void @node_features_p_get_config(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   tail call void @_xstrcat(ptr noundef %0, ptr noundef nonnull @plugin_type) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2019, ptr noundef nonnull @__func__.node_features_p_get_config) #15
   %7 = tail call ptr @xstrdup(ptr noundef nonnull @.str.2) #15
   store ptr %7, ptr %6, align 8
   %8 = load i16, ptr @allow_mcdram, align 2
   %9 = tail call fastcc ptr @_knl_mcdram_str(i16 noundef zeroext %8)
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %6) #15
   %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2024, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4461,7 +4461,7 @@ define void @node_features_p_get_config(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %12, ptr %11, align 8
   %13 = load i16, ptr @allow_numa, align 2
   %14 = tail call fastcc ptr @_knl_numa_str(i16 noundef zeroext %13)
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %14, ptr %15, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %11) #15
   %16 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2029, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4491,7 +4491,7 @@ define void @node_features_p_get_config(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0810.i = phi ptr [ @.str.49, %.lr.ph.preheader.i ], [ @.str.3, %.lr.ph.i ]
-  %24 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4
   %26 = call ptr @uid_to_string(i32 noundef %25) #15
   store ptr %26, ptr %2, align 8
@@ -4510,7 +4510,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   %.09.i = phi ptr [ %23, %22 ], [ %.pre.i, %._crit_edge.loopexit.i ], [ null, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %28 = getelementptr inbounds i8, ptr %16, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %.09.i, ptr %28, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %16) #15
   %29 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2034, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4518,7 +4518,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %30, ptr %29, align 8
   %31 = load i32, ptr @boot_time, align 4
   %32 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.111, i32 noundef %31) #15
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %32, ptr %33, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %29) #15
   %34 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2039, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4526,7 +4526,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %35, ptr %34, align 8
   %36 = load i16, ptr @default_mcdram, align 2
   %37 = call fastcc ptr @_knl_mcdram_str(i16 noundef zeroext %36)
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %37, ptr %38, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %34) #15
   %39 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2044, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4534,7 +4534,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %40, ptr %39, align 8
   %41 = load i16, ptr @default_numa, align 2
   %42 = call fastcc ptr @_knl_numa_str(i16 noundef zeroext %41)
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %42, ptr %43, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %39) #15
   %44 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2049, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4542,7 +4542,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %45, ptr %44, align 8
   %46 = load i32, ptr @force_load, align 4
   %47 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.111, i32 noundef %46) #15
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %47, ptr %48, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %44) #15
   %49 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2054, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4550,7 +4550,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %50, ptr %49, align 8
   %51 = load ptr, ptr @mc_path, align 8
   %52 = call ptr @xstrdup(ptr noundef %51) #15
-  %53 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %52, ptr %53, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %49) #15
   %54 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2059, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4558,7 +4558,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %55, ptr %54, align 8
   %56 = load ptr, ptr @syscfg_path, align 8
   %57 = call ptr @xstrdup(ptr noundef %56) #15
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %57, ptr %58, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %54) #15
   %59 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2064, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4566,7 +4566,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %60, ptr %59, align 8
   %61 = load i32, ptr @syscfg_timeout, align 4
   %62 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.111, i32 noundef %61) #15
-  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %62, ptr %63, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %59) #15
   %64 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2069, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4578,7 +4578,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   %switch.selectcmp1.i = icmp eq i32 %66, 1
   %switch.select2.i = select i1 %switch.selectcmp1.i, ptr @.str.133, ptr %switch.select.i
   %67 = call ptr @xstrdup(ptr noundef nonnull %switch.select2.i) #15
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %67, ptr %68, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %64) #15
   %69 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 2074, ptr noundef nonnull @__func__.node_features_p_get_config) #15
@@ -4586,7 +4586,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %22, 
   store ptr %70, ptr %69, align 8
   %71 = load i32, ptr @ume_check_interval, align 4
   %72 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.111, i32 noundef %71) #15
-  %73 = getelementptr inbounds i8, ptr %69, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %72, ptr %73, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %69) #15
   call void @list_sort(ptr noundef %5, ptr noundef nonnull @sort_key_pairs) #15

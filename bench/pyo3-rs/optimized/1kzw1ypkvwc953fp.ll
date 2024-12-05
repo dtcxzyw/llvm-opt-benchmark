@@ -12,7 +12,7 @@ define void @_ZN3syn5token5Paren8surround17h4e4025c2476a4907E(ptr nocapture read
           to label %6 unwind label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
@@ -52,7 +52,7 @@ define void @_ZN3syn5token7Bracket8surround17hbbaf0ca12f4796b0E(ptr nocapture re
           to label %6 unwind label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9

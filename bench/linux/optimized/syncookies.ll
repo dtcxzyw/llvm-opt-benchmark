@@ -61,25 +61,25 @@ define dso_local i32 @__cookie_v6_init_sequence(ptr nocapture noundef readonly %
   %21 = getelementptr [4 x i16], ptr @msstab, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   store i16 %22, ptr %2, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i16, ptr %1, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %27 = load i16, ptr %26, align 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = load volatile i64, ptr @jiffies, align 64
   %31 = udiv i64 %30, 60000
   %32 = trunc i64 %31 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef align 4 dereferenceable(16) %23, i64 16, i1 false)
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
-  %34 = getelementptr inbounds i8, ptr %6, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %33, ptr noundef align 4 dereferenceable(16) %24, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %6, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i16 %25, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 38
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 38
   store i16 %27, ptr %36, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
           to label %41 [label %37], !srcloc !8
@@ -103,14 +103,14 @@ define dso_local i32 @__cookie_v6_init_sequence(ptr nocapture noundef readonly %
   %42 = call i64 @__siphash_unaligned(ptr noundef nonnull %6, i64 noundef 40, ptr noundef nonnull @syncookie6_secret) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef align 4 dereferenceable(16) %23, i64 16, i1 false)
-  %43 = getelementptr inbounds i8, ptr %4, i64 16
-  %44 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %43, ptr noundef align 4 dereferenceable(16) %24, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
   store i32 %32, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i16 %25, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 38
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 38
   store i16 %27, ptr %46, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
           to label %51 [label %47], !srcloc !8
@@ -156,13 +156,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cookie_v6_init_sequence(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 180
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i64
   %8 = getelementptr i8, ptr %4, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 178
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 178
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = getelementptr i8, ptr %4, i64 %11
@@ -176,29 +176,29 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr nocapture nounde
   %4 = alloca i64, align 8
   %5 = alloca %struct.anon.68, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i16, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = load volatile i64, ptr @jiffies, align 64
   %19 = udiv i64 %18, 60000
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef align 4 dereferenceable(16) %13, i64 16, i1 false)
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 0, ptr %22, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %21, ptr noundef align 4 dereferenceable(16) %14, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %5, i64 36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i16 %15, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 38
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i16 %17, ptr %24, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
           to label %29 [label %25], !srcloc !8
@@ -233,14 +233,14 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr nocapture nounde
 38:                                               ; preds = %29
   %39 = sub i32 %20, %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 4 dereferenceable(16) %13, i64 16, i1 false)
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
-  %41 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %40, ptr noundef align 4 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false)
   store i32 %39, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i16 %15, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %3, i64 38
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 38
   store i16 %17, ptr %43, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
           to label %48 [label %44], !srcloc !8
@@ -287,13 +287,13 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %4 = alloca i8, align 1
   %5 = alloca %struct.in6_addr, align 4
   %6 = alloca %struct.flowi6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 178
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 178
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %14 = load volatile i8, ptr %13, align 2
   %15 = zext nneg i8 %14 to i32
   %16 = shl nuw i32 1, %15
@@ -302,23 +302,23 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 744
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %19, %2
   %23 = phi ptr [ %21, %19 ], [ null, %2 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
   store i8 0, ptr %4, align 1, !annotation !9
-  %26 = getelementptr inbounds i8, ptr %25, i64 1151
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1151
   %27 = load volatile i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %260, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %12, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %31 = load i16, ptr %30, align 4
   %32 = and i16 %31, 5120
   %33 = icmp eq i16 %32, 4096
@@ -328,20 +328,20 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
   %35 = load volatile i64, ptr @jiffies, align 64
   %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %0, i64 19
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %38, 16
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 720
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.thread, label %50, !prof !10
 
 .thread:                                          ; preds = %41, %34
-  %45 = getelementptr inbounds i8, ptr %0, i64 1700
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1700
   %46 = load volatile i32, ptr %45, align 4
   %47 = add i32 %36, 1000
   %48 = sub i32 %47, %46
@@ -349,7 +349,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %49, label %.thread9, label %56
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %43, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %52 = load volatile i32, ptr %51, align 8
   %53 = add i32 %36, 1000
   %54 = sub i32 %53, %52
@@ -357,13 +357,13 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %55, label %.thread9, label %56
 
 56:                                               ; preds = %.thread, %50
-  %57 = getelementptr inbounds i8, ptr %1, i64 180
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 180
   %58 = load i16, ptr %57, align 4
   %59 = zext i16 %58 to i64
   %60 = getelementptr i8, ptr %8, i64 %59
   %61 = tail call i32 @__cookie_v6_check(ptr noundef %60, ptr noundef %12), !range !11
   %62 = icmp eq i32 %61, 0
-  %63 = getelementptr inbounds i8, ptr %25, i64 432
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 432
   %64 = load ptr, ptr %63, align 8
   br i1 %62, label %65, label %67
 
@@ -377,11 +377,11 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %68, ptr elementtype(i64) %68) #6, !srcloc !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @tcp_parse_options(ptr noundef %25, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #6
-  %69 = getelementptr inbounds i8, ptr %3, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %70 = load i24, ptr %69, align 4
   %71 = and i24 %70, 1
   %72 = icmp ne i24 %71, 0
-  %73 = getelementptr inbounds i8, ptr %3, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = icmp ne i32 %74, 0
   %76 = select i1 %72, i1 %75, i1 false
@@ -392,9 +392,9 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %79 = load i16, ptr %57, align 4
   %80 = zext i16 %79 to i64
   %81 = getelementptr i8, ptr %78, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
-  %84 = call i32 @secure_tcpv6_ts_off(ptr noundef %25, ptr noundef %82, ptr noundef %83) #6
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %84 = call i32 @secure_tcpv6_ts_off(ptr noundef %25, ptr noundef nonnull %82, ptr noundef nonnull %83) #6
   %85 = load i32, ptr %73, align 4
   %86 = sub i32 %85, %84
   store i32 %86, ptr %73, align 4
@@ -420,39 +420,39 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %94, label %260, label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %91, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %97 = load ptr, ptr %7, align 8
   %98 = load i16, ptr %57, align 4
   %99 = zext i16 %98 to i64
   %100 = getelementptr i8, ptr %97, i64 %99
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %96, ptr noundef align 4 dereferenceable(16) %101, i64 16, i1 false)
-  %102 = getelementptr inbounds i8, ptr %91, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, ptr noundef nonnull align 4 dereferenceable(16) %101, i64 16, i1 false)
+  %102 = getelementptr inbounds nuw i8, ptr %91, i64 72
   %103 = load ptr, ptr %7, align 8
   %104 = load i16, ptr %57, align 4
   %105 = zext i16 %104 to i64
   %106 = getelementptr i8, ptr %103, i64 %105
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %102, ptr noundef align 4 dereferenceable(16) %107, i64 16, i1 false)
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 4 dereferenceable(16) %107, i64 16, i1 false)
   %108 = call i32 @security_inet_conn_request(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %91) #6
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %234
 
 110:                                              ; preds = %95
-  %111 = getelementptr inbounds i8, ptr %1, i64 64
-  %112 = call zeroext i1 @ipv6_opt_accepted(ptr noundef %0, ptr noundef %1, ptr noundef %111) #6
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %112 = call zeroext i1 @ipv6_opt_accepted(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %111) #6
   br i1 %112, label %118, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %23, i64 68
+  %114 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %115 = load i16, ptr %114, align 4
   %116 = and i16 %115, 60
   %117 = icmp eq i16 %116, 0
   br i1 %117, label %130, label %118
 
 118:                                              ; preds = %113, %110
-  %119 = getelementptr inbounds i8, ptr %1, i64 212
-  %120 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %119, i32 1, ptr elementtype(i32) %119) #6, !srcloc !14
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %120 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, i32 1, ptr nonnull elementtype(i32) %119) #6, !srcloc !14
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %126, label %122, !prof !10
 
@@ -464,29 +464,29 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
 
 126:                                              ; preds = %122, %118
   %127 = phi i32 [ 2, %118 ], [ 1, %122 ]
-  call void @refcount_warn_saturate(ptr noundef %119, i32 noundef %127) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %119, i32 noundef %127) #6
   br label %128
 
 128:                                              ; preds = %126, %122
-  %129 = getelementptr inbounds i8, ptr %91, i64 248
+  %129 = getelementptr inbounds nuw i8, ptr %91, i64 248
   store ptr %1, ptr %129, align 8
   br label %130
 
 130:                                              ; preds = %128, %113
-  %131 = getelementptr inbounds i8, ptr %0, i64 20
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %132 = load i32, ptr %131, align 4
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %141
 
 134:                                              ; preds = %130
-  %135 = call i32 @__ipv6_addr_type(ptr noundef %96) #6
+  %135 = call i32 @__ipv6_addr_type(ptr noundef nonnull %96) #6
   %136 = and i32 %135, 32
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %141, label %138
 
 138:                                              ; preds = %134
   %139 = load i32, ptr %111, align 8
-  %140 = getelementptr inbounds i8, ptr %91, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %91, i64 20
   store i32 %139, ptr %140, align 4
   br label %141
 
@@ -494,33 +494,33 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #6
-  %142 = getelementptr inbounds i8, ptr %6, i64 18
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
   store i8 6, ptr %142, align 2
-  %143 = getelementptr inbounds i8, ptr %6, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %143, ptr noundef align 8 dereferenceable(16) %96, i64 16, i1 false)
-  %144 = getelementptr inbounds i8, ptr %23, i64 112
+  %143 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false)
+  %144 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %145 = load volatile ptr, ptr %144, align 8
   %146 = call ptr @fl6_update_dst(ptr noundef nonnull %6, ptr noundef %145, ptr noundef nonnull %5) #6
-  %147 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %147, ptr noundef align 8 dereferenceable(16) %102, i64 16, i1 false)
-  %148 = getelementptr inbounds i8, ptr %91, i64 20
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
+  %148 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %149 = load i32, ptr %148, align 4
   store i32 %149, ptr %6, align 8
-  %150 = getelementptr inbounds i8, ptr %91, i64 236
+  %150 = getelementptr inbounds nuw i8, ptr %91, i64 236
   %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %6, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %151, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %91, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %154 = load i16, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %6, i64 76
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i16 %154, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %0, i64 766
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 766
   %157 = load i16, ptr %156, align 2
-  %158 = getelementptr inbounds i8, ptr %6, i64 78
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 78
   store i16 %157, ptr %158, align 2
-  %159 = getelementptr inbounds i8, ptr %6, i64 24
-  %160 = getelementptr inbounds i8, ptr %0, i64 560
+  %159 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %161 = load i32, ptr %160, align 8
   store i32 %161, ptr %159, align 8
   call void @security_req_classify_flow(ptr noundef nonnull %91, ptr noundef nonnull %6) #6
@@ -531,13 +531,13 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %163, label %234, label %164
 
 164:                                              ; preds = %141
-  %165 = getelementptr inbounds i8, ptr %0, i64 1668
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %175
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %162, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %170 = load i64, ptr %169, align 8
   %171 = and i64 %170, -4
   %172 = inttoptr i64 %171 to ptr
@@ -547,18 +547,18 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
 
 175:                                              ; preds = %168, %164
   %176 = phi i32 [ %174, %168 ], [ %166, %164 ]
-  %177 = getelementptr inbounds i8, ptr %91, i64 132
+  %177 = getelementptr inbounds nuw i8, ptr %91, i64 132
   store i32 %176, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %0, i64 280
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %179 = load volatile i32, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %0, i64 1438
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1438
   %181 = load i8, ptr %180, align 2
   %182 = sext i32 %179 to i64
   %183 = zext i8 %181 to i64
   %184 = mul nsw i64 %183, %182
   %185 = lshr i64 %184, 8
   %186 = trunc i64 %185 to i32
-  %187 = getelementptr inbounds i8, ptr %0, i64 512
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %188 = load i8, ptr %187, align 8
   %189 = and i8 %188, 32
   %190 = icmp eq i8 %189, 0
@@ -572,22 +572,22 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br label %195
 
 195:                                              ; preds = %194, %175
-  %196 = getelementptr inbounds i8, ptr %91, i64 144
+  %196 = getelementptr inbounds nuw i8, ptr %91, i64 144
   %197 = load i16, ptr %196, align 8
   %198 = zext i16 %197 to i32
-  %199 = getelementptr inbounds i8, ptr %91, i64 124
-  %200 = getelementptr inbounds i8, ptr %91, i64 232
+  %199 = getelementptr inbounds nuw i8, ptr %91, i64 124
+  %200 = getelementptr inbounds nuw i8, ptr %91, i64 232
   %201 = load i16, ptr %200, align 8
   %202 = lshr i16 %201, 10
   %203 = and i16 %202, 1
   %204 = zext nneg i16 %203 to i32
-  %205 = getelementptr inbounds i8, ptr %162, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %206 = load i64, ptr %205, align 8
   %207 = and i64 %206, -4
   %208 = inttoptr i64 %207 to ptr
   %209 = getelementptr i8, ptr %208, i64 52
   %210 = load i32, ptr %209, align 4
-  call void @tcp_select_initial_window(ptr noundef %0, i32 noundef %186, i32 noundef %198, ptr noundef %199, ptr noundef %177, i32 noundef %204, ptr noundef nonnull %4, i32 noundef %210) #6
+  call void @tcp_select_initial_window(ptr noundef %0, i32 noundef %186, i32 noundef %198, ptr noundef nonnull %199, ptr noundef nonnull %177, i32 noundef %204, ptr noundef nonnull %4, i32 noundef %210) #6
   %211 = load i8, ptr %4, align 1
   %212 = load i16, ptr %200, align 8
   %213 = shl i8 %211, 4
@@ -595,7 +595,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %215 = and i16 %212, -241
   %216 = or disjoint i16 %215, %214
   store i16 %216, ptr %200, align 8
-  %217 = getelementptr inbounds i8, ptr %25, i64 1108
+  %217 = getelementptr inbounds nuw i8, ptr %25, i64 1108
   %218 = load volatile i8, ptr %217, align 4
   %219 = icmp eq i8 %218, 0
   br i1 %219, label %221, label %.thread10
@@ -626,7 +626,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br label %260
 
 234:                                              ; preds = %141, %95
-  %235 = getelementptr inbounds i8, ptr %91, i64 128
+  %235 = getelementptr inbounds nuw i8, ptr %91, i64 128
   %236 = load volatile i32, ptr %235, align 4
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %239, label %238, !prof !15
@@ -638,19 +638,19 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br label %239
 
 239:                                              ; preds = %238, %234
-  %240 = getelementptr inbounds i8, ptr %91, i64 192
+  %240 = getelementptr inbounds nuw i8, ptr %91, i64 192
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 48
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 48
   %243 = load ptr, ptr %242, align 8
   call void %243(ptr noundef nonnull %91) #6
-  %244 = getelementptr inbounds i8, ptr %91, i64 96
+  %244 = getelementptr inbounds nuw i8, ptr %91, i64 96
   %245 = load ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, null
   br i1 %246, label %.thread13, label %247
 
 247:                                              ; preds = %239
-  %248 = getelementptr inbounds i8, ptr %245, i64 128
-  %249 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %248, i32 -1, ptr elementtype(i32) %248) #6, !srcloc !19
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 128
+  %249 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %248, i32 -1, ptr nonnull elementtype(i32) %248) #6, !srcloc !19
   %250 = icmp eq i32 %249, 1
   br i1 %250, label %254, label %251
 
@@ -659,7 +659,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %252, label %.thread13, label %253, !prof !15
 
 253:                                              ; preds = %251
-  call void @refcount_warn_saturate(ptr noundef %248, i32 noundef 3) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %248, i32 noundef 3) #6
   br label %.thread13
 
 254:                                              ; preds = %247
@@ -668,11 +668,11 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   br label %.thread13
 
 .thread13:                                        ; preds = %251, %253, %254, %239
-  %255 = getelementptr inbounds i8, ptr %91, i64 208
+  %255 = getelementptr inbounds nuw i8, ptr %91, i64 208
   %256 = load ptr, ptr %255, align 8
   call void @kfree(ptr noundef %256) #6
   %257 = load ptr, ptr %240, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8
   call void @kmem_cache_free(ptr noundef %259, ptr noundef nonnull %91) #6
   br label %260

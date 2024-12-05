@@ -14,20 +14,20 @@ define range(i32 -1, 2) i32 @Cgt_CheckImplication(ptr nocapture noundef %0, ptr 
   %8 = alloca %struct.timespec, align 8
   %9 = alloca [2 x i32], align 4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 124
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %1 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %19, i64 %25
@@ -37,13 +37,13 @@ define range(i32 -1, 2) i32 @Cgt_CheckImplication(ptr nocapture noundef %0, ptr 
   %30 = shl nsw i32 %27, 1
   %31 = or disjoint i32 %30, %29
   store i32 %31, ptr %9, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %19, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = shl nsw i32 %36, 1
-  %38 = getelementptr inbounds i8, ptr %9, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %37, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %39 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #4
@@ -53,7 +53,7 @@ define range(i32 -1, 2) i32 @Cgt_CheckImplication(ptr nocapture noundef %0, ptr 
 41:                                               ; preds = %3
   %42 = load i64, ptr %8, align 8
   %.neg33 = mul i64 %42, -1000000
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %44 = load i64, ptr %43, align 8
   %.neg = sdiv i64 %44, -1000
   %.neg34 = add i64 %.neg, %.neg33
@@ -62,9 +62,9 @@ define range(i32 -1, 2) i32 @Cgt_CheckImplication(ptr nocapture noundef %0, ptr 
 Abc_Clock.exit:                                   ; preds = %3, %41
   %.0.i.neg35 = phi i64 [ %.neg34, %41 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %45 = getelementptr inbounds i8, ptr %0, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = sext i32 %12 to i64
   %49 = call i32 @sat_solver_solve(ptr noundef %46, ptr noundef nonnull %9, ptr noundef nonnull %47, i64 noundef %48, i64 noundef 0, i64 noundef 0, i64 noundef 0) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -75,7 +75,7 @@ Abc_Clock.exit:                                   ; preds = %3, %41
 52:                                               ; preds = %Abc_Clock.exit
   %53 = load i64, ptr %7, align 8
   %54 = mul nsw i64 %53, 1000000
-  %55 = getelementptr inbounds i8, ptr %7, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = sdiv i64 %56, 1000
   %58 = add nsw i64 %57, %54
@@ -85,7 +85,7 @@ Abc_Clock.exit26:                                 ; preds = %Abc_Clock.exit, %52
   %.0.i25 = phi i64 [ %58, %52 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %59 = add i64 %.0.i25, %.0.i.neg35
-  %60 = getelementptr inbounds i8, ptr %0, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %61 = load i64, ptr %60, align 8
   %62 = add nsw i64 %59, %61
   store i64 %62, ptr %60, align 8
@@ -103,7 +103,7 @@ Abc_Clock.exit26:                                 ; preds = %Abc_Clock.exit, %52
 66:                                               ; preds = %63
   %67 = load i64, ptr %6, align 8
   %68 = mul nsw i64 %67, 1000000
-  %69 = getelementptr inbounds i8, ptr %6, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = sdiv i64 %70, 1000
   %72 = add nsw i64 %71, %68
@@ -113,7 +113,7 @@ Abc_Clock.exit28:                                 ; preds = %63, %66
   %.0.i27 = phi i64 [ %72, %66 ], [ -1, %63 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %73 = add i64 %.0.i27, %.0.i.neg35
-  %74 = getelementptr inbounds i8, ptr %0, i64 176
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load i64, ptr %74, align 8
   %76 = add nsw i64 %73, %75
   store i64 %76, ptr %74, align 8
@@ -126,9 +126,9 @@ Abc_Clock.exit28:                                 ; preds = %63, %66
   %81 = load ptr, ptr %45, align 8
   %82 = call i32 @sat_solver_addclause(ptr noundef %81, ptr noundef nonnull %9, ptr noundef nonnull %47) #4
   %83 = load ptr, ptr %45, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %87 = load i32, ptr %86, align 8
   %.not.i = icmp eq i32 %85, %87
   br i1 %.not.i, label %sat_solver_compress.exit, label %88
@@ -138,7 +138,7 @@ Abc_Clock.exit28:                                 ; preds = %63, %66
   br label %sat_solver_compress.exit
 
 sat_solver_compress.exit:                         ; preds = %Abc_Clock.exit28, %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 132
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %91 = load i32, ptr %90, align 4
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 4
@@ -153,7 +153,7 @@ sat_solver_compress.exit:                         ; preds = %Abc_Clock.exit28, %
 96:                                               ; preds = %93
   %97 = load i64, ptr %5, align 8
   %98 = mul nsw i64 %97, 1000000
-  %99 = getelementptr inbounds i8, ptr %5, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = sdiv i64 %100, 1000
   %102 = add nsw i64 %101, %98
@@ -163,11 +163,11 @@ Abc_Clock.exit30:                                 ; preds = %93, %96
   %.0.i29 = phi i64 [ %102, %96 ], [ -1, %93 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %103 = add i64 %.0.i29, %.0.i.neg35
-  %104 = getelementptr inbounds i8, ptr %0, i64 168
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %105 = load i64, ptr %104, align 8
   %106 = add nsw i64 %103, %105
   store i64 %106, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 128
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %108 = load i32, ptr %107, align 8
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 8
@@ -182,7 +182,7 @@ Abc_Clock.exit30:                                 ; preds = %93, %96
 113:                                              ; preds = %110
   %114 = load i64, ptr %4, align 8
   %115 = mul nsw i64 %114, 1000000
-  %116 = getelementptr inbounds i8, ptr %4, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %117 = load i64, ptr %116, align 8
   %118 = sdiv i64 %117, 1000
   %119 = add nsw i64 %118, %115
@@ -192,11 +192,11 @@ Abc_Clock.exit32:                                 ; preds = %110, %113
   %.0.i31 = phi i64 [ %119, %113 ], [ -1, %110 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %120 = add i64 %.0.i31, %.0.i.neg35
-  %121 = getelementptr inbounds i8, ptr %0, i64 184
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %122 = load i64, ptr %121, align 8
   %123 = add nsw i64 %120, %122
   store i64 %123, ptr %121, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %125 = load i32, ptr %124, align 8
   %126 = add nsw i32 %125, 1
   store i32 %126, ptr %124, align 8

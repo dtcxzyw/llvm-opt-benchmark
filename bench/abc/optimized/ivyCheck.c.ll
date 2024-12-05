@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ivy_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val145 = load i32, ptr %4, align 4
@@ -33,7 +33,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Ivy_ObjFaninId1.exit110.thread
@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %8 = phi ptr [ %3, %.lr.ph ], [ %108, %Ivy_ObjFaninId1.exit110.thread ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val82 = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val82, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val82, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Ivy_ObjFaninId1.exit110.thread, label %13
@@ -213,15 +213,15 @@ Ivy_ObjFaninId1.exit116:                          ; preds = %Ivy_ObjFaninId0.exi
 76:                                               ; preds = %Ivy_ObjFaninId1.exit116
   %77 = lshr i32 %.val84, 11
   %78 = icmp eq i32 %22, 6
-  %79 = getelementptr inbounds i8, ptr %61, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = lshr i32 %80, 11
-  %82 = getelementptr inbounds i8, ptr %66, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %83 = load i32, ptr %82, align 8
   %84 = lshr i32 %83, 11
   %85 = icmp samesign ugt i32 %81, %84
   %spec.select.i = select i1 %85, ptr %61, ptr %66
-  %.in.in.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %.in.in.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
   %.in.i = load i32, ptr %.in.in.i, align 8
   %86 = lshr i32 %.in.i, 11
   %87 = select i1 %78, i32 2, i32 1
@@ -321,7 +321,7 @@ declare i32 @Ivy_ManIsAcyclic(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @Ivy_ManCheckFanoutNums(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %4, align 4
@@ -337,7 +337,7 @@ define i32 @Ivy_ManCheckFanoutNums(ptr nocapture noundef readonly %0) local_unna
 7:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.018 = phi i32 [ 0, %.lr.ph ], [ %.1, %20 ]
-  %8 = getelementptr inbounds ptr, ptr %.val14, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
@@ -379,20 +379,20 @@ define i32 @Ivy_ManCheckFanoutNums(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %132, label %4
 
 4:                                                ; preds = %1
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   store i32 100, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %.val127167 = load i32, ptr %11, align 4
@@ -409,7 +409,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %.0169 = phi i32 [ %.1, %95 ], [ 1, %4 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val132 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val132, i64 %indvars.iv190
+  %16 = getelementptr inbounds nuw ptr, ptr %.val132, i64 %indvars.iv190
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %95, label %19
@@ -436,7 +436,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 
 27:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %28 = getelementptr inbounds ptr, ptr %.val131, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %.val131, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %.not109 = icmp eq ptr %29, null
   %30 = icmp eq ptr %29, %17
@@ -486,7 +486,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 
 45:                                               ; preds = %.lr.ph161, %49
   %indvars.iv185 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next186, %49 ]
-  %46 = getelementptr inbounds ptr, ptr %.val130, i64 %indvars.iv185
+  %46 = getelementptr inbounds nuw ptr, ptr %.val130, i64 %indvars.iv185
   %47 = load ptr, ptr %46, align 8
   %.not110 = icmp eq ptr %47, null
   %48 = icmp eq ptr %47, %17
@@ -515,7 +515,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 
 55:                                               ; preds = %.critedge4.thread, %.critedge4
   %.3 = phi i32 [ 0, %.critedge4.thread ], [ %.2, %.critedge4 ]
-  %56 = getelementptr inbounds i8, ptr %17, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %57 = load ptr, ptr %56, align 8
   %.not111 = icmp eq ptr %57, null
   br i1 %.not111, label %75, label %58
@@ -556,7 +556,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
 
 75:                                               ; preds = %58, %64, %67, %71, %55
   %.4 = phi i32 [ 0, %71 ], [ %.3, %67 ], [ %.3, %64 ], [ %.3, %58 ], [ %.3, %55 ]
-  %76 = getelementptr inbounds i8, ptr %17, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %77 = load ptr, ptr %76, align 8
   %.not116 = icmp eq ptr %77, null
   br i1 %.not116, label %95, label %78
@@ -611,7 +611,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %.5181 = phi i32 [ %.8, %.critedge8 ], [ %.1, %.critedge.preheader ]
   %101 = getelementptr i8, ptr %100, i64 8
   %.val129 = load ptr, ptr %101, align 8
-  %102 = getelementptr inbounds ptr, ptr %.val129, i64 %indvars.iv196
+  %102 = getelementptr inbounds nuw ptr, ptr %.val129, i64 %indvars.iv196
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.critedge8, label %105
@@ -627,7 +627,7 @@ define range(i32 0, 2) i32 @Ivy_ManCheckFanouts(ptr noundef %0) local_unnamed_ad
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %123 ], [ 0, %105 ]
   %.6174 = phi i32 [ %.7, %123 ], [ %.5181, %105 ]
   %.val128 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds ptr, ptr %.val128, i64 %indvars.iv193
+  %107 = getelementptr inbounds nuw ptr, ptr %.val128, i64 %indvars.iv193
   %108 = load ptr, ptr %107, align 8
   %.not106 = icmp eq ptr %108, null
   br i1 %.not106, label %.critedge8, label %109
@@ -698,9 +698,9 @@ declare void @Ivy_ObjCollectFanouts(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val21 = load i32, ptr %6, align 4
@@ -713,7 +713,7 @@ define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local
   %9 = phi ptr [ %40, %.loopexit ], [ %5, %1 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val17 = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val17, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val17, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
@@ -725,7 +725,7 @@ define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
   %21 = icmp ne ptr %19, %12
@@ -746,7 +746,7 @@ define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local
   br label %29
 
 29:                                               ; preds = %.lr.ph, %25
-  %30 = getelementptr inbounds i8, ptr %.01520, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %.01520, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -2
@@ -763,7 +763,7 @@ define noundef i32 @Ivy_ManCheckChoices(ptr nocapture noundef readonly %0) local
 .loopexit:                                        ; preds = %.loopexit.loopexit, %17, %.lr.ph23, %14
   %38 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %8, %17 ], [ %8, %.lr.ph23 ], [ %8, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 4
   %.val = load i32, ptr %41, align 4

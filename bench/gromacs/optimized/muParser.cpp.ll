@@ -253,7 +253,7 @@ define void @_ZN2mu6Parser7InitFunEv(ptr noundef nonnull align 8 dereferenceable
           to label %82 unwind label %84
 
 82:                                               ; preds = %.noexc
-  %83 = getelementptr inbounds i8, ptr %0, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef %81)
           to label %86 unwind label %84
 
@@ -1621,28 +1621,28 @@ define void @_ZN2mu6ParserC2Ev(ptr noundef nonnull align 8 dereferenceable(596) 
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %6 unwind label %19
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %10 unwind label %19
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %14 unwind label %19
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %18 unwind label %19
@@ -1853,7 +1853,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3SumEPKdi(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01014 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %12 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fadd double %.01014, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1912,7 +1912,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3AvgEPKdi(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01115 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %12 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fadd double %.01115, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1974,7 +1974,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3MinEPKdi(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01214 = phi double [ %12, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
-  %14 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %15, %.01214
   %.sroa.speculated = select i1 %16, double %15, double %.01214
@@ -2035,7 +2035,7 @@ define linkonce_odr noundef double @_ZN2mu8MathImplIdE3MaxEPKdi(ptr noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01214 = phi double [ %12, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
-  %14 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %.01214, %15
   %.sroa.speculated = select i1 %16, double %15, double %.01214

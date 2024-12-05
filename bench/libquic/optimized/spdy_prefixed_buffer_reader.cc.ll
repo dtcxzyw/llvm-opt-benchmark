@@ -9,11 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %prefix, i64 noundef %prefix_length, ptr noundef %suffix, i64 noundef %suffix_length) unnamed_addr #0 align 2 {
 entry:
   store ptr %prefix, ptr %this, align 8
-  %suffix_ = getelementptr inbounds i8, ptr %this, i64 8
+  %suffix_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %suffix, ptr %suffix_, align 8
-  %prefix_length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %prefix_length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %prefix_length, ptr %prefix_length_, align 8
-  %suffix_length_ = getelementptr inbounds i8, ptr %this, i64 24
+  %suffix_length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %suffix_length, ptr %suffix_length_, align 8
   ret void
 }
@@ -21,9 +21,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZN3net24SpdyPrefixedBufferReader9AvailableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %prefix_length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %prefix_length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %prefix_length_, align 8
-  %suffix_length_ = getelementptr inbounds i8, ptr %this, i64 24
+  %suffix_length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %suffix_length_, align 8
   %add = add i64 %1, %0
   ret i64 %add
@@ -32,9 +32,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %count, ptr nocapture noundef writeonly %out) local_unnamed_addr #2 align 2 {
 entry:
-  %prefix_length_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefix_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %prefix_length_.i, align 8
-  %suffix_length_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %suffix_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %suffix_length_.i, align 8
   %add.i = add i64 %1, %0
   %cmp = icmp uge i64 %add.i, %count
@@ -68,7 +68,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp10.not, label %if.end21.thread, label %if.end21
 
 if.end21.thread:                                  ; preds = %if.else
-  %suffix_27 = getelementptr inbounds i8, ptr %this, i64 8
+  %suffix_27 = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %if.then.i.i.i.i.i22
 
 if.end21:                                         ; preds = %if.else
@@ -78,7 +78,7 @@ if.end21:                                         ; preds = %if.else
   %6 = load i64, ptr %prefix_length_.i, align 8
   %sub18 = sub i64 %count, %6
   store i64 0, ptr %prefix_length_.i, align 8
-  %suffix_ = getelementptr inbounds i8, ptr %this, i64 8
+  %suffix_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i.i.i.i.i21 = icmp eq i64 %sub18, 0
   br i1 %tobool.not.i.i.i.i.i21, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit24, label %if.then.i.i.i.i.i22
 
@@ -108,16 +108,16 @@ return:                                           ; preds = %entry, %_ZSt4copyIP
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net24SpdyPrefixedBufferReader5ReadNEmPNS_23SpdyPinnableBufferPieceE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %count, ptr nocapture noundef %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %prefix_length_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %prefix_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %prefix_length_.i, align 8
-  %suffix_length_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %suffix_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %suffix_length_.i, align 8
   %add.i = add i64 %1, %0
   %cmp = icmp uge i64 %add.i, %count
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %storage_ = getelementptr inbounds i8, ptr %out, i64 16
+  %storage_ = getelementptr inbounds nuw i8, ptr %out, i64 16
   %2 = load ptr, ptr %storage_, align 8
   store ptr null, ptr %storage_, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
@@ -128,7 +128,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetEDn.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetEDn.exit: ; preds = %if.end, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
-  %length_ = getelementptr inbounds i8, ptr %out, i64 8
+  %length_ = getelementptr inbounds nuw i8, ptr %out, i64 8
   store i64 %count, ptr %length_, align 8
   %3 = load i64, ptr %prefix_length_.i, align 8
   %cmp2.not = icmp ult i64 %3, %count
@@ -189,7 +189,7 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %cmp10.not.i, label %if.end21.thread.i, label %if.end21.i
 
 if.end21.thread.i:                                ; preds = %if.else.i
-  %suffix_27.i = getelementptr inbounds i8, ptr %this, i64 8
+  %suffix_27.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %if.then.i.i.i.i.i22.i
 
 if.end21.i:                                       ; preds = %if.else.i
@@ -199,7 +199,7 @@ if.end21.i:                                       ; preds = %if.else.i
   %13 = load i64, ptr %prefix_length_.i, align 8
   %sub18.i = sub i64 %count, %13
   store i64 0, ptr %prefix_length_.i, align 8
-  %suffix_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %suffix_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %tobool.not.i.i.i.i.i21.i = icmp eq i64 %sub18.i, 0
   br i1 %tobool.not.i.i.i.i.i21.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit24.i, label %if.then.i.i.i.i.i22.i
 
@@ -223,7 +223,7 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit24.i:             ; preds = %if.then.i.i.i.i.i22
   br label %return
 
 if.else17:                                        ; preds = %if.else
-  %suffix_ = getelementptr inbounds i8, ptr %this, i64 8
+  %suffix_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %17 = load ptr, ptr %suffix_, align 8
   store ptr %17, ptr %out, align 8
   %add.ptr20 = getelementptr inbounds i8, ptr %17, i64 %count

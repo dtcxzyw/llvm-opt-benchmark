@@ -78,7 +78,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false17.i
   br i1 %cmp.i3, label %fixed_random.exit.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %lor.lhs.false
-  %arrayidx2.i = getelementptr inbounds i8, ptr %priority.i1, i64 7
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %priority.i1, i64 7
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i4
@@ -88,7 +88,7 @@ for.cond.i:                                       ; preds = %lor.lhs.false.i4
 
 for.body.i:                                       ; preds = %for.cond.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [10 x i32], ptr %ordering.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [10 x i32], ptr %ordering.i, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %conv.i = trunc i32 %0 to i8
   store i8 %conv.i, ptr %arrayidx2.i, align 1
@@ -103,7 +103,7 @@ lor.lhs.false.i4:                                 ; preds = %for.body.i
 
 for.body16.i:                                     ; preds = %for.cond.i, %if.end32.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %if.end32.i ], [ 0, %for.cond.i ]
-  %arrayidx18.i = getelementptr inbounds [10 x i32], ptr %ordering.i, i64 0, i64 %indvars.iv28.i
+  %arrayidx18.i = getelementptr inbounds nuw [10 x i32], ptr %ordering.i, i64 0, i64 %indvars.iv28.i
   %1 = load i32, ptr %arrayidx18.i, align 4
   %conv19.i = trunc i32 %1 to i8
   store i8 %conv19.i, ptr %arrayidx2.i, align 1
@@ -141,9 +141,9 @@ while.body.i:                                     ; preds = %if.end40.i, %if.end
   br i1 %cmp48.i, label %if.end, label %if.end51.i
 
 if.end51.i:                                       ; preds = %while.body.i
-  %data.i6 = getelementptr inbounds i8, ptr %curr.0.i, i64 8
+  %data.i6 = getelementptr inbounds nuw i8, ptr %curr.0.i, i64 8
   %2 = load ptr, ptr %data.i6, align 8
-  %data52.i = getelementptr inbounds i8, ptr %call47.i, i64 8
+  %data52.i = getelementptr inbounds nuw i8, ptr %call47.i, i64 8
   %3 = load ptr, ptr %data52.i, align 8
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr %3, align 4

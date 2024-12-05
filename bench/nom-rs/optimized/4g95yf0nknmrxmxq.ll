@@ -6,14 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h66ca9551c026260aE"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
   store i64 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %8, align 8
   ret void
 }
@@ -23,7 +23,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$a
   %.val = load i64, ptr %1, align 8, !alias.scope !5, !noalias !8, !noundef !4
   %3 = load i64, ptr %0, align 8, !alias.scope !10, !noalias !15, !noundef !4
   %.not.i = icmp ule i64 %3, %.val
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !17
   %6 = icmp ult i64 %.val, %5
   %.014.i = select i1 %.not.i, i1 %6, i1 false
@@ -33,7 +33,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$11is_inverted17h4cfeb67d42f13952E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp uge i64 %2, %4
   ret i1 %5
@@ -41,7 +41,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$15saturating_iter17h52485af1a1782f27E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
   %4 = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %spec.select, 1
@@ -50,7 +50,7 @@ define { i64, i64 } @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$12bounded_iter17h2d614c883adc4ae4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 1)
   %4 = insertvalue { i64, i64 } { i64 0, i64 undef }, i64 %spec.select, 1
@@ -60,14 +60,14 @@ define { i64, i64 } @"_ZN91_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17he3137bbdadea453eE"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
   store i64 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %8, align 8
   ret void
 }
@@ -80,9 +80,9 @@ define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize
   br i1 %.not.i, label %_ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !30, !alias.scope !31, !noundef !4
-  %.sroa.3.0.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %switch.not.not.i = icmp eq i8 %6, 0
   %7 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !34, !noalias !4, !noundef !4
   br i1 %switch.not.not.i, label %8, label %10
@@ -104,9 +104,9 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit: ; preds = %2,
 define noundef zeroext i1 @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$11is_inverted17h5fe079571de6d9c8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
 _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
   %.val = load i64, ptr %0, align 8, !alias.scope !18, !noalias !21, !noundef !4
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i8, ptr %1, align 8, !range !30, !alias.scope !35, !noundef !4
-  %.sroa.3.0.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %switch.not.not.i = icmp eq i8 %2, 0
   %3 = load i64, ptr %.sroa.3.0.i.i, align 8, !alias.scope !40, !noalias !4, !noundef !4
   %4 = icmp uge i64 %.val, %3
@@ -117,7 +117,7 @@ _ZN4core3ops5range11RangeBounds8contains17h02c24056aa5a3a0bE.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$15saturating_iter17h50600627b911eefcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %3, 1
   ret { i64, i64 } %4
@@ -125,7 +125,7 @@ define { i64, i64 } @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$12bounded_iter17hebef2c7d424be7bcE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %3, 1
   ret { i64, i64 } %4
@@ -135,9 +135,9 @@ define { i64, i64 } @"_ZN100_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u
 define void @"_ZN95_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h369e8ec4b17aaa67E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   store i64 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %5, align 8
   ret void
 }
@@ -169,9 +169,9 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$
 define void @"_ZN93_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h3fd617da62be34a8E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 8), (16, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   store i64 2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %5, align 8
   ret void
 }
@@ -209,9 +209,9 @@ define { i64, i64 } @"_ZN93_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u2
 define void @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h16ed4c3e725a265aE"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 8), (16, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   store i64 2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %5, align 8
   ret void
 }
@@ -246,7 +246,7 @@ define { i64, i64 } @"_ZN102_$LT$core..ops..range..RangeToInclusive$LT$usize$GT$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN82_$LT$core..ops..range..RangeFull$u20$as$u20$nom..traits..NomRange$LT$usize$GT$$GT$6bounds17h42c396e03aa15e7bE"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #3 {
   store i64 2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 2, ptr %3, align 8
   ret void
 }

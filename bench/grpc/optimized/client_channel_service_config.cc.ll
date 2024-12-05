@@ -405,15 +405,15 @@ invoke.cont2:                                     ; preds = %init.check
 
 invoke.cont3:                                     ; preds = %invoke.cont2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigELm1EvEE, i64 16), ptr %call.i1, align 8
-  %elements_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
+  %elements_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE6value_E, ptr %elements_.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 16
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   store i16 0, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 18
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 24
+  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 24
   store ptr @.str, ptr %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 32
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 32
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx, align 8
   store ptr %call.i1, ptr @_ZZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #14
@@ -459,25 +459,25 @@ invoke.cont4:                                     ; preds = %init.check
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelGlobalParsedConfigELm2EvEE, i64 16), ptr %call.i1, align 8
-  %elements_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
+  %elements_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %elements_.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 16
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   store i16 16, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 18
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 24
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 24
   store ptr @.str.1, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 32
+  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 32
   store ptr null, ptr %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 40
+  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigEEEE6value_E, ptr %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 48
+  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 48
   store i16 48, ptr %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 50
+  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 50
   store i8 1, ptr %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 56
+  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 56
   store ptr @.str.2, ptr %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 64
+  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 64
   store ptr null, ptr %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx, align 8
   store ptr %call.i1, ptr @_ZZN9grpc_core8internal31ClientChannelGlobalParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal31ClientChannelGlobalParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #14
@@ -522,10 +522,10 @@ if.end.i:                                         ; preds = %entry
 
 _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %lb_policy_registry_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 656
+  %lb_policy_registry_.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 656
   store ptr %errors, ptr %field, align 8
   tail call void @_ZN9grpc_core16ValidationErrors9PushFieldESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 20, ptr nonnull @.str.3)
-  %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 48
+  %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 48
   %2 = load i8, ptr %_M_index.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i8 %2, 4
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
@@ -534,7 +534,7 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core17Core
   %cmp.i.not.i.i.i.i = icmp eq i8 %2, -1
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
-  %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
+  %_M_reason.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i, i64 8
   br i1 %cmp.i.not.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -565,16 +565,16 @@ lpad.i:                                           ; preds = %.noexc17
   br label %ehcleanup
 
 invoke.cont6:                                     ; preds = %.noexc17
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %json, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 16
   %4 = load ptr, ptr %_M_parent.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %json, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 8
   %cmp.not6.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not6.i.i.i, label %invoke.cont8, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %invoke.cont6, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %4, %invoke.cont6 ]
   %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i, %invoke.cont6 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.08.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -589,7 +589,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %cmp.i.i.i.i.i = icmp slt i32 %call.i.i.i.i.i, 0
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.07.i.i.i, ptr %__x.addr.08.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
+  %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.08.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i18 = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i18, label %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, label %while.body.i.i.i, !llvm.loop !5
@@ -599,7 +599,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br i1 %cmp.i.i.i, label %invoke.cont8, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i, i64 32
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i3.i.i)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i unwind label %terminate.lpad.i.i.i.i
 
@@ -627,7 +627,7 @@ if.then.i.i.i21:                                  ; preds = %invoke.cont8
   %cmp.i.not.i.i.i.i22 = icmp eq i8 %9, -1
   %exception.i.i.i.i.i23 = call ptr @__cxa_allocate_exception(i64 16) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i23, align 8
-  %_M_reason.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %exception.i.i.i.i.i23, i64 8
+  %_M_reason.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %exception.i.i.i.i.i23, i64 8
   br i1 %cmp.i.not.i.i.i.i22, label %if.then.i.i.i.i26, label %if.else.i.i.i.i25
 
 if.then.i.i.i.i26:                                ; preds = %if.then.i.i.i21
@@ -651,7 +651,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   br i1 %cmp.i.not, label %if.end32, label %if.then
 
 if.then:                                          ; preds = %invoke.cont11
-  %second = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 64
+  %second = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 64
   invoke void @_ZNK9grpc_core27LoadBalancingPolicyRegistry24ParseLoadBalancingConfigERKNS_12experimental4JsonE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %config, ptr noundef nonnull align 8 dereferenceable(48) %lb_policy_registry_.i, ptr noundef nonnull align 8 dereferenceable(56) %second)
           to label %invoke.cont19 unwind label %lpad
 
@@ -668,7 +668,7 @@ if.then21:                                        ; preds = %invoke.cont19
 cond.true.i:                                      ; preds = %if.then21
   %sub.i.i = add nsw i64 %11, -1
   %12 = inttoptr i64 %sub.i.i to ptr
-  %message.i = getelementptr inbounds i8, ptr %12, i64 8
+  %message.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %call4.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #14
   br label %invoke.cont25
 
@@ -710,8 +710,8 @@ lpad18:                                           ; preds = %invoke.cont25
   br label %eh.resume
 
 invoke.cont28:                                    ; preds = %invoke.cont19
-  %21 = getelementptr inbounds i8, ptr %config, i64 8
-  %parsed_lb_config_ = getelementptr inbounds i8, ptr %this, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %config, i64 8
+  %parsed_lb_config_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr null, ptr %21, align 8
   %23 = load ptr, ptr %parsed_lb_config_, align 8
@@ -720,14 +720,14 @@ invoke.cont28:                                    ; preds = %invoke.cont19
   br i1 %cmp.not.i.i, label %if.end, label %if.then.i.i33
 
 if.then.i.i33:                                    ; preds = %invoke.cont28
-  %refs_.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i34 = icmp eq i64 %24, 1
   br i1 %cmp.i.i.i.i34, label %if.then.i.i.i35, label %if.end
 
 if.then.i.i.i35:                                  ; preds = %if.then.i.i33
   %vtable.i.i.i.i = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %25 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
   br label %if.end
@@ -738,20 +738,20 @@ if.end:                                           ; preds = %if.then.i.i.i35, %i
   br i1 %cmp.i.i.i.i36, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %if.end
-  %27 = getelementptr inbounds i8, ptr %config, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %config, i64 8
   %28 = load ptr, ptr %27, align 8
   %cmp.not.i.i.i37 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i37, label %if.end32, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
-  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  %refs_.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %29 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i.i = icmp eq i64 %29, 1
   br i1 %cmp.i.i.i1.i.i, label %if.then.i.i2.i.i, label %if.end32
 
 if.then.i.i2.i.i:                                 ; preds = %if.then.i.i.i38
   %vtable.i.i.i.i.i = load ptr, ptr %28, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %30 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %28) #14
   br label %if.end32
@@ -789,7 +789,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %if.end32, %if.then.i
-  %parsed_deprecated_lb_policy_ = getelementptr inbounds i8, ptr %this, i64 16
+  %parsed_deprecated_lb_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call34 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_) #14
   br i1 %call34, label %if.end80, label %if.then35
 
@@ -812,16 +812,16 @@ invoke.cont44:                                    ; preds = %invoke.cont40
 
 invoke.cont55:                                    ; preds = %invoke.cont44
   store i64 19, ptr %ref.tmp49, align 8
-  %38 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %ref.tmp49, i64 8
   store ptr @.str.6, ptr %38, align 8
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_) #14
   %39 = extractvalue { i64, ptr } %call.i, 0
   store i64 %39, ptr %ref.tmp51, align 8
-  %40 = getelementptr inbounds i8, ptr %ref.tmp51, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 8
   %41 = extractvalue { i64, ptr } %call.i, 1
   store ptr %41, ptr %40, align 8
   store i64 1, ptr %ref.tmp54, align 8
-  %42 = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %ref.tmp54, i64 8
   store ptr @.str.7, ptr %42, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp54)
           to label %invoke.cont56 unwind label %lpad39
@@ -851,16 +851,16 @@ if.else61:                                        ; preds = %invoke.cont44
 
 invoke.cont71:                                    ; preds = %if.else61
   store i64 11, ptr %ref.tmp65, align 8
-  %48 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %ref.tmp65, i64 8
   store ptr @.str.8, ptr %48, align 8
   %call.i49 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_) #14
   %49 = extractvalue { i64, ptr } %call.i49, 0
   store i64 %49, ptr %ref.tmp67, align 8
-  %50 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %ref.tmp67, i64 8
   %51 = extractvalue { i64, ptr } %call.i49, 1
   store ptr %51, ptr %50, align 8
   store i64 60, ptr %ref.tmp70, align 8
-  %52 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 8
   store ptr @.str.9, ptr %52, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp70)
           to label %invoke.cont72 unwind label %lpad39
@@ -930,20 +930,20 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_19LoadBalancingPolicy6ConfigEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i
-  %refs_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i1.i = icmp eq i64 %3, 1
   br i1 %cmp.i.i.i1.i, label %if.then.i.i2.i, label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_19LoadBalancingPolicy6ConfigEEEED2Ev.exit
 
 if.then.i.i2.i:                                   ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core13RefCountedPtrINS3_19LoadBalancingPolicy6ConfigEEEED2Ev.exit
@@ -1020,25 +1020,25 @@ invoke.cont4:                                     ; preds = %init.check
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelMethodParsedConfigELm2EvEE, i64 16), ptr %call.i1, align 8
-  %elements_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
+  %elements_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %elements_.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 16
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   store i16 8, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 18
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 24
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 24
   store ptr @.str.10, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 32
+  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 32
   store ptr null, ptr %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 40
+  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIbEEEE6value_E, ptr %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 48
+  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 48
   store i16 16, ptr %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 50
+  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 50
   store i8 1, ptr %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx, align 2
-  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 56
+  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 56
   store ptr @.str.11, ptr %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i1, i64 64
+  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i1, i64 64
   store ptr null, ptr %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx, align 8
   store ptr %call.i1, ptr @_ZZN9grpc_core8internal31ClientChannelMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal31ClientChannelMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #14
@@ -1069,7 +1069,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %entry, %if.end.i
   %retval.0.i = phi ptr [ %call1.i, %if.end.i ], [ %atomic-temp.i.0.i.i, %entry ]
-  %service_config_parser_.i = getelementptr inbounds i8, ptr %retval.0.i, i64 552
+  %service_config_parser_.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 552
   %call3 = tail call noundef i64 @_ZNK9grpc_core19ServiceConfigParser14GetParserIndexESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %service_config_parser_.i, i64 14, ptr nonnull @.str.24)
   ret i64 %call3
 }
@@ -1080,7 +1080,7 @@ declare noundef i64 @_ZNK9grpc_core19ServiceConfigParser14GetParserIndexESt17bas
 define void @_ZN9grpc_core8internal32ClientChannelServiceConfigParser8RegisterEPNS_17CoreConfiguration7BuilderE(ptr noundef %builder) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %service_config_parser_.i = getelementptr inbounds i8, ptr %builder, i64 656
+  %service_config_parser_.i = getelementptr inbounds nuw i8, ptr %builder, i64 656
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15, !noalias !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal32ClientChannelServiceConfigParserE, i64 16), ptr %call.i, align 8, !noalias !7
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -1094,7 +1094,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   br label %_ZNSt10unique_ptrIN9grpc_core8internal32ClientChannelServiceConfigParserESt14default_deleteIS2_EED2Ev.exit
@@ -1111,7 +1111,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser6ParserEEclEPS2_.exit.i5: ; preds = %lpad
   %vtable.i.i6 = load ptr, ptr %3, align 8
-  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 8
+  %vfn.i.i7 = getelementptr inbounds nuw i8, ptr %vtable.i.i6, i64 8
   %4 = load ptr, ptr %vfn.i.i7, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   br label %_ZNSt10unique_ptrIN9grpc_core8internal32ClientChannelServiceConfigParserESt14default_deleteIS2_EED2Ev.exit13
@@ -1144,7 +1144,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core8internal31ClientChannelGlobalParsedConfigEEclEPS2_.exit.i.i: ; preds = %lpad.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(88) %3) #14
   br label %_ZNSt10unique_ptrIN9grpc_core8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS2_EED2Ev.exit.i
@@ -1189,7 +1189,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZNKSt14default_deleteIN9grpc_core8internal31ClientChannelMethodParsedConfigEEclEPS2_.exit.i.i: ; preds = %lpad.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(18) %3) #14
   br label %_ZNSt10unique_ptrIN9grpc_core8internal31ClientChannelMethodParsedConfigESt14default_deleteIS2_EED2Ev.exit.i
@@ -1421,7 +1421,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_reason = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }
@@ -1556,7 +1556,7 @@ declare void @_ZNK9grpc_core11json_detail11LoadWrapped8LoadIntoERKNS_12experimen
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7EmplaceEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOS9_.exit
@@ -1575,7 +1575,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7emplaceIJEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5ResetEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5resetEv.exit
@@ -1604,7 +1604,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigELm1EvE8LoadIntoERKNS_12experimental4JsonERKNS_8JsonArgsEPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %dst, ptr noundef %errors) unnamed_addr #3 comdat align 2 {
 entry:
-  %elements_ = getelementptr inbounds i8, ptr %this, i64 8
+  %elements_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core11json_detail10LoadObjectERKNS_12experimental4JsonERKNS_8JsonArgsEPKNS0_7ElementEmPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %elements_, i64 noundef 1, ptr noundef %dst, ptr noundef %errors)
   ret void
 }
@@ -1629,15 +1629,15 @@ invoke.cont2.i:                                   ; preds = %init.check.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont2.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigELm1EvEE, i64 16), ptr %call.i1.i, align 8
-  %elements_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
+  %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE6value_E, ptr %elements_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
   store i16 0, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 18
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i, align 2
-  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 24
+  %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 24
   store ptr @.str, ptr %ref.tmp.sroa.42.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 32
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 32
   store ptr null, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #14
@@ -1660,7 +1660,7 @@ _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfig10Json
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelGlobalParsedConfigELm2EvE8LoadIntoERKNS_12experimental4JsonERKNS_8JsonArgsEPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %dst, ptr noundef %errors) unnamed_addr #3 comdat align 2 {
 entry:
-  %elements_ = getelementptr inbounds i8, ptr %this, i64 8
+  %elements_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core11json_detail10LoadObjectERKNS_12experimental4JsonERKNS_8JsonArgsEPKNS0_7ElementEmPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %elements_, i64 noundef 2, ptr noundef %dst, ptr noundef %errors)
   br i1 %call4, label %if.then, label %if.end
 
@@ -1683,7 +1683,7 @@ declare void @_ZNK9grpc_core11json_detail8LoadBool8LoadIntoERKNS_12experimental4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalIbEE7EmplaceEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 1
+  %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 1
   store i8 0, ptr %dst, align 1
   store i8 1, ptr %_M_engaged.i.i.i, align 1
   ret ptr %dst
@@ -1692,7 +1692,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderISt8optionalIbEE5ResetEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %dst, i64 1
+  %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 1
   %0 = load i8, ptr %_M_engaged.i.i.i, align 1
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then.i.i.i, label %_ZNSt8optionalIbE5resetEv.exit
@@ -1714,7 +1714,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelMethodParsedConfigELm2EvE8LoadIntoERKNS_12experimental4JsonERKNS_8JsonArgsEPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef %dst, ptr noundef %errors) unnamed_addr #3 comdat align 2 {
 entry:
-  %elements_ = getelementptr inbounds i8, ptr %this, i64 8
+  %elements_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core11json_detail10LoadObjectERKNS_12experimental4JsonERKNS_8JsonArgsEPKNS0_7ElementEmPvPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull %elements_, i64 noundef 2, ptr noundef %dst, ptr noundef %errors)
   ret void
 }
@@ -1737,25 +1737,25 @@ invoke.cont4.i:                                   ; preds = %init.check.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelGlobalParsedConfigELm2EvEE, i64 16), ptr %call.i1.i, align 8
-  %elements_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
+  %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %elements_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
   store i16 16, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 18
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i, align 2
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 24
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 24
   store ptr @.str.1, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 32
+  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 32
   store ptr null, ptr %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40
+  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigEEEE6value_E, ptr %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 48
+  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 48
   store i16 48, ptr %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 50
+  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 50
   store i8 1, ptr %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx.i, align 2
-  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 56
+  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 56
   store ptr @.str.2, ptr %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 64
+  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 64
   store ptr null, ptr %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core8internal31ClientChannelGlobalParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal31ClientChannelGlobalParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #14
@@ -1779,13 +1779,13 @@ _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig10JsonLoaderERKNS_8JsonAr
 define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS4_EEE7EmplaceEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #15, !noalias !16
-  %0 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %0, i8 0, i64 72, i1 false), !noalias !16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelGlobalParsedConfigE, i64 16), ptr %call.i, align 8, !noalias !16
-  %parsed_lb_config_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %parsed_lb_config_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr null, ptr %parsed_lb_config_.i.i, align 8, !noalias !16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14, !noalias !16
-  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8, !noalias !16
   %1 = load ptr, ptr %dst, align 8
   store ptr %call.i, ptr %dst, align 8
@@ -1794,7 +1794,7 @@ entry:
 
 _ZNKSt14default_deleteIN9grpc_core8internal31ClientChannelGlobalParsedConfigEEclEPS2_.exit.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(88) %1) #14
   %.pre = load ptr, ptr %dst, align 8
@@ -1815,7 +1815,7 @@ entry:
 
 _ZNKSt14default_deleteIN9grpc_core8internal31ClientChannelGlobalParsedConfigEEclEPS2_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(88) %0) #14
   br label %_ZNSt10unique_ptrIN9grpc_core8internal31ClientChannelGlobalParsedConfigESt14default_deleteIS2_EE5resetEPS2_.exit
@@ -1834,34 +1834,34 @@ entry:
 define linkonce_odr void @_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelGlobalParsedConfigE, i64 16), ptr %this, align 8
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %health_check_config_ = getelementptr inbounds i8, ptr %this, i64 48
+  %health_check_config_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %health_check_config_) #14
   br label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit
 
 _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  %parsed_deprecated_lb_policy_ = getelementptr inbounds i8, ptr %this, i64 16
+  %parsed_deprecated_lb_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_) #14
-  %parsed_lb_config_ = getelementptr inbounds i8, ptr %this, i64 8
+  %parsed_lb_config_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %parsed_lb_config_, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit
-  %refs_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %refs_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit
@@ -1874,34 +1874,34 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit: ; preds
 define linkonce_odr void @_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelGlobalParsedConfigE, i64 16), ptr %this, align 8
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %health_check_config_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %health_check_config_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %health_check_config_.i) #14
   br label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i
 
 _ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %entry
-  %parsed_deprecated_lb_policy_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %parsed_deprecated_lb_policy_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parsed_deprecated_lb_policy_.i) #14
-  %parsed_lb_config_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %parsed_lb_config_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %parsed_lb_config_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfig17HealthCheckConfigD2Ev.exit.i
-  %refs_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1) #14
   br label %_ZN9grpc_core8internal31ClientChannelGlobalParsedConfigD2Ev.exit
@@ -1929,25 +1929,25 @@ invoke.cont4.i:                                   ; preds = %init.check.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont4.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11json_detail24FinishedJsonObjectLoaderINS_8internal31ClientChannelMethodParsedConfigELm2EvEE, i64 16), ptr %call.i1.i, align 8
-  %elements_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
+  %elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %elements_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
+  %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 16
   store i16 8, ptr %ref.tmp.sroa.2.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 18
+  %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 18
   store i8 1, ptr %ref.tmp.sroa.3.0.elements_.i.i.sroa_idx.i, align 2
-  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 24
+  %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 24
   store ptr @.str.10, ptr %ref.tmp.sroa.5.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 32
+  %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 32
   store ptr null, ptr %ref.tmp.sroa.6.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40
+  %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt8optionalIbEEEE6value_E, ptr %ref.tmp.sroa.7.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 48
+  %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 48
   store i16 16, ptr %ref.tmp.sroa.8.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 50
+  %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 50
   store i8 1, ptr %ref.tmp.sroa.9.0.elements_.i.i.sroa_idx.i, align 2
-  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 56
+  %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 56
   store ptr @.str.11, ptr %ref.tmp.sroa.103.0.elements_.i.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i1.i, i64 64
+  %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 64
   store ptr null, ptr %ref.tmp.sroa.11.0.elements_.i.i.sroa_idx.i, align 8
   store ptr %call.i1.i, ptr @_ZZN9grpc_core8internal31ClientChannelMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN9grpc_core8internal31ClientChannelMethodParsedConfig10JsonLoaderERKNS_8JsonArgsEE6loader) #14
@@ -1971,10 +1971,10 @@ _ZN9grpc_core8internal31ClientChannelMethodParsedConfig10JsonLoaderERKNS_8JsonAr
 define linkonce_odr noundef ptr @_ZNK9grpc_core11json_detail10AutoLoaderISt10unique_ptrINS_8internal31ClientChannelMethodParsedConfigESt14default_deleteIS4_EEE7EmplaceEPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %dst) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15, !noalias !19
-  %0 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 0, ptr %0, align 16, !noalias !19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8internal31ClientChannelMethodParsedConfigE, i64 16), ptr %call.i, align 8, !noalias !19
-  %timeout_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %timeout_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 0, ptr %timeout_.i.i, align 8, !noalias !19
   %1 = load ptr, ptr %dst, align 8
   store ptr %call.i, ptr %dst, align 8
@@ -1983,7 +1983,7 @@ entry:
 
 _ZNKSt14default_deleteIN9grpc_core8internal31ClientChannelMethodParsedConfigEEclEPS2_.exit.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(18) %1) #14
   %.pre = load ptr, ptr %dst, align 8
@@ -2004,7 +2004,7 @@ entry:
 
 _ZNKSt14default_deleteIN9grpc_core8internal31ClientChannelMethodParsedConfigEEclEPS2_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(18) %0) #14
   br label %_ZNSt10unique_ptrIN9grpc_core8internal31ClientChannelMethodParsedConfigESt14default_deleteIS2_EE5resetEPS2_.exit

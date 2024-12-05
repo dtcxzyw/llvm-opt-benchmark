@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @intel_hdcp_gsc_cs_required(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2632
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %3 = load i16, ptr %2, align 8
   %4 = icmp ugt i16 %3, 13
   ret i1 %4
@@ -30,13 +30,13 @@ define dso_local zeroext i1 @intel_hdcp_gsc_cs_required(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @intel_hdcp_gsc_check_status(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 9328
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 10
   br i1 %8, label %16, label %9
@@ -46,7 +46,7 @@ define dso_local noundef zeroext i1 @intel_hdcp_gsc_check_status(ptr noundef rea
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -78,14 +78,14 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   br i1 %5, label %129, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 2560
-  %8 = getelementptr inbounds i8, ptr %0, i64 2584
-  tail call void @mutex_lock(ptr noundef %8) #8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2560
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2584
+  tail call void @mutex_lock(ptr noundef nonnull %8) #8
   store ptr %4, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @gsc_hdcp_ops, ptr %11, align 8
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef 3520, i64 noundef 24) #9
@@ -93,9 +93,9 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   br i1 %14, label %127, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 2576
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2576
   store ptr %13, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 9328
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @i915_gem_object_create_shmem(ptr noundef %0, i64 noundef 8192) #8
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
@@ -139,7 +139,7 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
 
 41:                                               ; preds = %29
   %42 = getelementptr i8, ptr %31, i64 4096
-  %43 = getelementptr inbounds i8, ptr %18, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @i915_vma_instance(ptr noundef %19, ptr noundef %44, ptr noundef null) #8
   %46 = icmp ugt ptr %45, inttoptr (i64 -4096 to ptr)
@@ -154,18 +154,18 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false), !annotation !5
   call void @i915_gem_ww_ctx_init(ptr noundef nonnull %2, i1 noundef zeroext true) #8
-  %51 = getelementptr inbounds i8, ptr %45, i64 184
-  %52 = getelementptr inbounds i8, ptr %2, i64 48
-  %53 = getelementptr inbounds i8, ptr %2, i64 24
-  %54 = getelementptr inbounds i8, ptr %2, i64 32
-  %55 = getelementptr inbounds i8, ptr %2, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %56
 
 56:                                               ; preds = %99, %50
   %57 = load ptr, ptr %51, align 8
   %58 = load i8, ptr %52, align 8, !range !6, !noundef !7
   %59 = icmp eq i8 %58, 0
-  %60 = getelementptr inbounds i8, ptr %57, i64 248
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 248
   %61 = load ptr, ptr %60, align 8
   br i1 %59, label %64, label %62
 
@@ -199,11 +199,11 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   br label %78
 
 78:                                               ; preds = %76, %72
-  %79 = getelementptr inbounds i8, ptr %57, i64 528
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 528
   %80 = load ptr, ptr %54, align 8
   store ptr %79, ptr %54, align 8
   store ptr %53, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %57, i64 536
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 536
   store ptr %80, ptr %81, align 8
   store volatile ptr %79, ptr %80, align 8
   br label %82
@@ -262,20 +262,20 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
   br i1 %103, label %.thread18, label %108
 
 .thread18:                                        ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %19, i64 216
+  %104 = getelementptr inbounds nuw i8, ptr %19, i64 216
   %105 = load i64, ptr %104, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %105, i1 false)
-  %106 = getelementptr inbounds i8, ptr %13, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %31, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %13, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %42, ptr %107, align 8
   store ptr %45, ptr %13, align 8
   br label %127
 
 108:                                              ; preds = %.thread16, %102, %47
   %109 = phi i32 [ %49, %47 ], [ %97, %102 ], [ %100, %.thread16 ]
-  %110 = getelementptr inbounds i8, ptr %19, i64 672
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %110, ptr elementtype(i32) %110) #8, !srcloc !11
+  %110 = getelementptr inbounds nuw i8, ptr %19, i64 672
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %110, ptr nonnull elementtype(i32) %110) #8, !srcloc !11
   br label %111
 
 111:                                              ; preds = %108, %37
@@ -317,7 +317,7 @@ define dso_local i32 @intel_hdcp_gsc_init(ptr noundef %0) local_unnamed_addr #1 
 
 127:                                              ; preds = %.thread18, %125, %.thread17, %6
   %128 = phi i32 [ -12, %6 ], [ %119, %125 ], [ 0, %.thread17 ], [ 0, %.thread18 ]
-  call void @mutex_unlock(ptr noundef %8) #8
+  call void @mutex_unlock(ptr noundef nonnull %8) #8
   br label %129
 
 129:                                              ; preds = %127, %1
@@ -333,13 +333,13 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_hdcp_gsc_fini(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2576
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2576
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @i915_vma_unpin_and_release(ptr noundef %3, i32 noundef 1) #8
   tail call void @kfree(ptr noundef %3) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2560
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2560
   %6 = load ptr, ptr %5, align 8
   tail call void @kfree(ptr noundef %6) #8
   ret void
@@ -351,10 +351,10 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 9328
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  %9 = getelementptr inbounds i8, ptr %8, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %121
@@ -370,16 +370,16 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   %17 = trunc nuw nsw i64 %2 to i32
   %18 = add nuw nsw i32 %17, 36
   %19 = add nuw nsw i64 %4, 36
-  %20 = getelementptr inbounds i8, ptr %0, i64 2576
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2576
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 248
   %30 = load i32, ptr %29, align 8
   %31 = trunc i64 %28 to i32
   %32 = add i32 %30, %31
@@ -394,23 +394,23 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   %37 = load ptr, ptr %22, align 8
   %38 = getelementptr i8, ptr %37, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %1, i64 %2, i1 false)
-  %39 = getelementptr inbounds i8, ptr %23, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %40 = trunc nuw nsw i64 %4 to i32
   %41 = add nuw nsw i32 %40, 36
   %42 = icmp eq ptr %0, null
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = getelementptr inbounds i8, ptr %25, i64 32
-  %45 = getelementptr inbounds i8, ptr %25, i64 28
-  %46 = getelementptr inbounds i8, ptr %25, i64 16
-  %47 = getelementptr inbounds i8, ptr %23, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 16
   br i1 %42, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %16, %66
   %48 = phi i32 [ %67, %66 ], [ 0, %16 ]
   %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load i32, ptr %39, align 1
-  %52 = call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef %50, i64 noundef %33, i32 noundef %51, i64 noundef %34, i32 noundef %41) #8
+  %52 = call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef nonnull %50, i64 noundef %33, i32 noundef %51, i64 noundef %34, i32 noundef %41) #8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %55, label %54
 
@@ -449,9 +449,9 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
 .split:                                           ; preds = %16, %96
   %69 = phi i32 [ %97, %96 ], [ 0, %16 ]
   %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load i32, ptr %39, align 1
-  %73 = call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef %71, i64 noundef %33, i32 noundef %72, i64 noundef %34, i32 noundef %41) #8
+  %73 = call i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr noundef nonnull %71, i64 noundef %33, i32 noundef %72, i64 noundef %34, i32 noundef %41) #8
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %77, label %75
 
@@ -514,7 +514,7 @@ define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_
   br i1 %98, label %.thread, label %.split, !llvm.loop !14
 
 .thread8:                                         ; preds = %91, %61
-  %99 = getelementptr inbounds i8, ptr %25, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %100 = load i32, ptr %99, align 1
   %101 = add i32 %100, -36
   %102 = zext i32 %101 to i64

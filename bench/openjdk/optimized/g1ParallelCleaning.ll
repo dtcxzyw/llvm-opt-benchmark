@@ -70,19 +70,19 @@ declare void @_ZN5JVMCI12do_unloadingEb(i1 noundef zeroext) local_unnamed_addr #
 define hidden void @_ZN22G1ParallelCleaningTaskC2Ejb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 21)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #3
   store i32 %7, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22G1ParallelCleaningTask, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %4, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN22CodeCacheUnloadingTaskC1Ejb(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef %1, i1 noundef zeroext %2) #3
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17KlassCleaningTaskC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #3
   ret void
 }
@@ -93,8 +93,8 @@ declare void @_ZN17KlassCleaningTaskC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1ParallelCleaningTask4workEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN17JVMCICleaningTask4workEb.exit
@@ -119,14 +119,14 @@ _ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i: ; preds = %10
   br label %_ZN17JVMCICleaningTask4workEb.exit
 
 _ZN17JVMCICleaningTask4workEb.exit:               ; preds = %2, %7, %10, %_ZN17JVMCICleaningTask19claim_cleaning_taskEv.exit.i, %15
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %1) #3
   %17 = load i8, ptr %4, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZN17JVMCICleaningTask4workEb.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #3
   br label %21
 

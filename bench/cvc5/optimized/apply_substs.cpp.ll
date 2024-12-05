@@ -118,11 +118,11 @@ cond.end:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal6EnvObj7verboseEl(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef 2)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @.str.1)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  %d_preprocContext = getelementptr inbounds i8, ptr %this, i64 16
+  %d_preprocContext = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_preprocContext, align 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(608) ptr @_ZNK4cvc58internal13preprocessing24PreprocessingPassContext24getTopLevelSubstitutionsEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
-  %d_nodes.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 32
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 40
+  %d_nodes.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 32
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %d_nodes.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -134,11 +134,11 @@ cond.end:
 
 for.body.lr.ph:                                   ; preds = %cond.end
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %d_storeSubstsInAsserts.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 120
-  %d_substsIndex.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 128
-  %d_env = getelementptr inbounds i8, ptr %this, i64 8
-  %d_proven.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %d_conflict.i = getelementptr inbounds i8, ptr %assertionsToPreprocess, i64 160
+  %d_storeSubstsInAsserts.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 120
+  %d_substsIndex.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 128
+  %d_env = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %d_proven.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %d_conflict.i = getelementptr inbounds nuw i8, ptr %assertionsToPreprocess, i64 160
   %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
   br label %for.body
 
@@ -155,7 +155,7 @@ cond.end25:                                       ; preds = %for.body
   %7 = load ptr, ptr %d_preprocContext, align 8
   call void @_ZN4cvc58internal13preprocessing24PreprocessingPassContext13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(168) %7, i32 noundef 10)
   %8 = load ptr, ptr %d_nodes.i, align 8
-  %add.ptr.i.i123 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %8, i64 %indvars.iv
+  %add.ptr.i.i123 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %add.ptr.i.i123, align 8
   store ptr %9, ptr %agg.tmp28, align 8
   %bf.load.i.i = load i64, ptr %9, align 8
@@ -302,7 +302,7 @@ declare noundef ptr @_ZN4cvc58internal3Env11getRewriterEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_proven = getelementptr inbounds i8, ptr %this, i64 8
+  %d_proven = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_proven, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200

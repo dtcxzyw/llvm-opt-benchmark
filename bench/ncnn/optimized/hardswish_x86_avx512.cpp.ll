@@ -87,7 +87,7 @@ define hidden noundef i32 @_ZNK4ncnn20HardSwish_x86_avx51215forward_inplaceERNS_
   %43 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %42, <16 x float> splat (float 1.000000e+00), i32 4)
   %44 = fmul fast <16 x float> %43, %35
   store <16 x float> %44, ptr %.0249280, align 1
-  %45 = getelementptr inbounds i8, ptr %.0249280, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %.0249280, i64 64
   %46 = add nuw nsw i32 %.0250279, 16
   %47 = or disjoint i32 %46, 15
   %48 = icmp slt i32 %47, %16
@@ -114,7 +114,7 @@ define hidden noundef i32 @_ZNK4ncnn20HardSwish_x86_avx51215forward_inplaceERNS_
   %59 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %58, <8 x float> splat (float 1.000000e+00))
   %60 = fmul fast <8 x float> %59, %51
   store <8 x float> %60, ptr %.1283, align 1
-  %61 = getelementptr inbounds i8, ptr %.1283, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.1283, i64 32
   %62 = add nuw nsw i32 %.1251282, 8
   %63 = or disjoint i32 %62, 7
   %64 = icmp slt i32 %63, %16
@@ -141,7 +141,7 @@ define hidden noundef i32 @_ZNK4ncnn20HardSwish_x86_avx51215forward_inplaceERNS_
   %75 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %74, <4 x float> splat (float 1.000000e+00))
   %76 = fmul fast <4 x float> %75, %66
   store <4 x float> %76, ptr %.2288, align 16
-  %77 = getelementptr inbounds i8, ptr %.2288, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.2288, i64 16
   %78 = add nuw nsw i32 %.2252287, 4
   %79 = or disjoint i32 %78, 3
   %80 = icmp slt i32 %79, %16
@@ -174,7 +174,7 @@ define hidden noundef i32 @_ZNK4ncnn20HardSwish_x86_avx51215forward_inplaceERNS_
   br label %93
 
 93:                                               ; preds = %.sink.split, %84
-  %94 = getelementptr inbounds i8, ptr %.3293, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.3293, i64 4
   %95 = add nuw nsw i32 %.3253292, 1
   %exitcond.not = icmp eq i32 %95, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph294, !llvm.loop !8

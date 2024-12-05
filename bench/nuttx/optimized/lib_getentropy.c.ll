@@ -31,7 +31,7 @@ define range(i32 -2147483648, 1) i32 @getentropy(ptr noundef %0, i64 noundef %1)
 
 .outer:                                           ; preds = %.outer.split
   %13 = and i64 %6, 2147483647
-  %14 = getelementptr inbounds i8, ptr %.011.ph29, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %.011.ph29, i64 %13
   %15 = sub i64 %.012.ph28, %13
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %.loopexit.split, label %.outer.split.preheader, !llvm.loop !6

@@ -17,8 +17,8 @@ define noundef ptr @wcsncpy(ptr noundef returned %0, ptr nocapture noundef reado
   br i1 %.not11, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.0913, i64 4
-  %7 = getelementptr inbounds i8, ptr %.015, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.0913, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   store i32 %4, ptr %.015, align 4
   %8 = add i64 %.0814, -1
   %.not = icmp eq i64 %8, 0

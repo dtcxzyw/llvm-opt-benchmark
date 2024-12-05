@@ -37,33 +37,33 @@ define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef re
   br i1 %4, label %5, label %43
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -16
   %9 = icmp eq i8 %8, -96
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = icmp slt i8 %12, -64
   br i1 %13, label %14, label %.thread.thread
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, -19
   br i1 %17, label %18, label %.thread.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, -16
   %22 = icmp eq i8 %21, -80
   br i1 %22, label %_ZN4UTF826is_supplementary_characterEPKh.exit, label %.thread.thread
 
 _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = icmp slt i8 %24, -64
   br i1 %25, label %26, label %.thread.thread
@@ -85,7 +85,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   %40 = zext nneg i8 %39 to i32
   %41 = or disjoint i32 %38, %40
   store i32 %41, ptr %1, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 6
   br label %78
 
 43:                                               ; preds = %2
@@ -102,7 +102,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   ]
 
 ..thread_crit_edge:                               ; preds = %43
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.thread
 
@@ -111,7 +111,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 47:                                               ; preds = %43, %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp slt i8 %49, -64
   br i1 %50, label %51, label %74
@@ -132,7 +132,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
 
 .thread.thread:                                   ; preds = %_ZN4UTF826is_supplementary_characterEPKh.exit, %18, %14, %10, %.thread
   %60 = phi i8 [ %58, %.thread ], [ %7, %10 ], [ %7, %14 ], [ %7, %18 ], [ %7, %_ZN4UTF826is_supplementary_characterEPKh.exit ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = icmp slt i8 %62, -64
   br i1 %63, label %64, label %74
@@ -156,7 +156,7 @@ _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %18
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %45, %51, %64, %74
   %.025.sink.i = phi i32 [ %75, %74 ], [ %46, %45 ], [ %73, %64 ], [ %57, %51 ]
   %.024.sink.i = phi i64 [ 1, %74 ], [ 1, %45 ], [ 3, %64 ], [ 2, %51 ]
-  %76 = getelementptr inbounds i8, ptr %0, i64 %.024.sink.i
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink.i
   %77 = and i32 %.025.sink.i, 65535
   store i32 %77, ptr %1, align 4
   br label %78
@@ -173,33 +173,33 @@ define hidden noundef zeroext i1 @_ZN4UTF826is_supplementary_characterEPKh(ptr n
   br i1 %3, label %4, label %26
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, -16
   %8 = icmp eq i8 %7, -96
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp slt i8 %11, -64
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, -19
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, -16
   %21 = icmp eq i8 %20, -80
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = icmp slt i8 %24, -64
   br label %26
@@ -211,25 +211,25 @@ define hidden noundef zeroext i1 @_ZN4UTF826is_supplementary_characterEPKh(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 65536, 1114112) i32 @_ZN4UTF827get_supplementary_characterEPKh(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 15
   %5 = zext nneg i8 %4 to i32
   %6 = shl nuw nsw i32 %5, 16
   %7 = add nuw nsw i32 %6, 65536
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 63
   %11 = zext nneg i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 10
   %13 = or disjoint i32 %7, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 15
   %17 = zext nneg i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 6
   %19 = or disjoint i32 %13, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 63
   %23 = zext nneg i8 %22 to i32
@@ -257,7 +257,7 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   br label %38
 
 7:                                                ; preds = %2, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp slt i8 %9, -64
   br i1 %10, label %11, label %36
@@ -272,13 +272,13 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   br label %38
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp slt i8 %20, -64
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp slt i8 %24, -64
   br i1 %25, label %26, label %36
@@ -303,7 +303,7 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
   %.025.sink = phi i16 [ %37, %36 ], [ %6, %5 ], [ %35, %26 ], [ %17, %11 ]
   %.024.sink = phi i64 [ 1, %36 ], [ 1, %5 ], [ 3, %26 ], [ 2, %11 ]
   store i16 %.025.sink, ptr %1, align 2
-  %39 = getelementptr inbounds i8, ptr %0, i64 %.024.sink
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
   ret ptr %39
 }
 
@@ -322,7 +322,7 @@ define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr nocapture noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
   %.018 = phi i32 [ %1, %.lr.ph.preheader ], [ %.1, %14 ]
   %.01516 = phi i8 [ 0, %.lr.ph.preheader ], [ %7, %14 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = icmp slt i8 %7, -64
   br i1 %8, label %9, label %14
@@ -382,7 +382,7 @@ define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr nocapture nound
 
 12:                                               ; preds = %7, %9, %10
   %.1 = phi i32 [ %.018, %9 ], [ %.018, %7 ], [ %11, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.01217, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01217, i64 1
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -403,7 +403,7 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, pt
   ]
 
 5:                                                ; preds = %2, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp slt i8 %7, -64
   br i1 %8, label %9, label %25
@@ -415,13 +415,13 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, pt
   br label %25
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, -64
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp slt i8 %19, -64
   br i1 %20, label %21, label %25
@@ -436,7 +436,7 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextIaEEPcPKcPT_(ptr noundef %0, pt
   %.025.sink = phi i8 [ %3, %17 ], [ %3, %13 ], [ %3, %5 ], [ %24, %21 ], [ %12, %9 ], [ %3, %2 ]
   %.024.sink = phi i64 [ 1, %17 ], [ 1, %13 ], [ 1, %5 ], [ 3, %21 ], [ 2, %9 ], [ 1, %2 ]
   store i8 %.025.sink, ptr %1, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 %.024.sink
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.024.sink
   ret ptr %26
 }
 
@@ -458,9 +458,9 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
 
 7:                                                ; preds = %.lr.ph
   %8 = zext nneg i8 %5 to i16
-  %9 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   store i16 %8, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge27, label %.lr.ph, !llvm.loop !9
@@ -482,7 +482,7 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
 .lr.ph26:                                         ; preds = %.lr.ph26.preheader, %_ZN4UTF84nextItEEPcPKcPT_.exit
   %indvars.iv29 = phi i64 [ %13, %.lr.ph26.preheader ], [ %indvars.iv.next30, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
   %.11522 = phi ptr [ %.014.lcssa, %.lr.ph26.preheader ], [ %50, %_ZN4UTF84nextItEEPcPKcPT_.exit ]
-  %14 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv29
+  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv29
   %15 = load i8, ptr %.11522, align 1
   %16 = lshr i8 %15, 4
   switch i8 %16, label %17 [
@@ -501,7 +501,7 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 19:                                               ; preds = %.lr.ph26, %.lr.ph26
-  %20 = getelementptr inbounds i8, ptr %.11522, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp slt i8 %21, -64
   br i1 %22, label %23, label %48
@@ -516,13 +516,13 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 30:                                               ; preds = %.lr.ph26
-  %31 = getelementptr inbounds i8, ptr %.11522, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp slt i8 %32, -64
   br i1 %33, label %34, label %48
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.11522, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.11522, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = icmp slt i8 %36, -64
   br i1 %37, label %38, label %48
@@ -547,7 +547,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %17, %23, %38, %48
   %.025.sink.i = phi i16 [ %49, %48 ], [ %18, %17 ], [ %47, %38 ], [ %29, %23 ]
   %.024.sink.i = phi i64 [ 1, %48 ], [ 1, %17 ], [ 3, %38 ], [ 2, %23 ]
   store i16 %.025.sink.i, ptr %14, align 2
-  %50 = getelementptr inbounds i8, ptr %.11522, i64 %.024.sink.i
+  %50 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %51 = trunc nuw i64 %indvars.iv.next30 to i32
   %52 = icmp sgt i32 %2, %51
@@ -574,9 +574,9 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
   br i1 %6, label %._crit_edge.loopexit, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %5, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %.01416, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01416, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge26, label %.lr.ph, !llvm.loop !11
@@ -598,7 +598,7 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
 .lr.ph25:                                         ; preds = %.lr.ph25.preheader, %_ZN4UTF84nextIaEEPcPKcPT_.exit
   %indvars.iv28 = phi i64 [ %12, %.lr.ph25.preheader ], [ %indvars.iv.next29, %_ZN4UTF84nextIaEEPcPKcPT_.exit ]
   %.11522 = phi ptr [ %.014.lcssa, %.lr.ph25.preheader ], [ %36, %_ZN4UTF84nextIaEEPcPKcPT_.exit ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv28
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv28
   %14 = load i8, ptr %.11522, align 1
   %15 = lshr i8 %14, 4
   switch i8 %15, label %_ZN4UTF84nextIaEEPcPKcPT_.exit [
@@ -608,7 +608,7 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
   ]
 
 16:                                               ; preds = %.lr.ph25, %.lr.ph25
-  %17 = getelementptr inbounds i8, ptr %.11522, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp slt i8 %18, -64
   br i1 %19, label %20, label %_ZN4UTF84nextIaEEPcPKcPT_.exit
@@ -620,13 +620,13 @@ define weak_odr hidden void @_ZN4UTF818convert_to_unicodeIaEEvPKcPT_i(ptr nounde
   br label %_ZN4UTF84nextIaEEPcPKcPT_.exit
 
 24:                                               ; preds = %.lr.ph25
-  %25 = getelementptr inbounds i8, ptr %.11522, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp slt i8 %26, -64
   br i1 %27, label %28, label %_ZN4UTF84nextIaEEPcPKcPT_.exit
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.11522, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.11522, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp slt i8 %30, -64
   br i1 %31, label %32, label %_ZN4UTF84nextIaEEPcPKcPT_.exit
@@ -641,7 +641,7 @@ _ZN4UTF84nextIaEEPcPKcPT_.exit:                   ; preds = %.lr.ph25, %16, %20,
   %.025.sink.i = phi i8 [ %14, %28 ], [ %14, %24 ], [ %14, %16 ], [ %35, %32 ], [ %23, %20 ], [ %14, %.lr.ph25 ]
   %.024.sink.i = phi i64 [ 1, %28 ], [ 1, %24 ], [ 1, %16 ], [ 3, %32 ], [ 2, %20 ], [ 1, %.lr.ph25 ]
   store i8 %.025.sink.i, ptr %13, align 1
-  %36 = getelementptr inbounds i8, ptr %.11522, i64 %.024.sink.i
+  %36 = getelementptr inbounds nuw i8, ptr %.11522, i64 %.024.sink.i
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %37 = trunc nuw i64 %indvars.iv.next29 to i32
   %38 = icmp sgt i32 %2, %37
@@ -679,7 +679,7 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 10:                                               ; preds = %.lr.ph, %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp slt i8 %12, -64
   br i1 %13, label %14, label %39
@@ -694,13 +694,13 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.01011, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01011, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp slt i8 %23, -64
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %.01011, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.01011, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp slt i8 %27, -64
   br i1 %28, label %29, label %39
@@ -724,7 +724,7 @@ define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readon
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %8, %14, %29, %39
   %.025.sink.i = phi i16 [ %40, %39 ], [ %9, %8 ], [ %38, %29 ], [ %20, %14 ]
   %.024.sink.i = phi i64 [ 1, %39 ], [ 1, %8 ], [ 3, %29 ], [ 2, %14 ]
-  %41 = getelementptr inbounds i8, ptr %.01011, i64 %.024.sink.i
+  %41 = getelementptr inbounds nuw i8, ptr %.01011, i64 %.024.sink.i
   %42 = add i16 %.025.sink.i, -32
   %or.cond = icmp ult i16 %42, 95
   %.1.v = select i1 %or.cond, i32 1, i32 6
@@ -767,7 +767,7 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly %0, i
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 14:                                               ; preds = %.lr.ph, %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.023, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp slt i8 %16, -64
   br i1 %17, label %18, label %43
@@ -782,13 +782,13 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly %0, i
   br label %_ZN4UTF84nextItEEPcPKcPT_.exit
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.023, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp slt i8 %27, -64
   br i1 %28, label %29, label %43
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.023, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp slt i8 %31, -64
   br i1 %32, label %33, label %43
@@ -812,14 +812,14 @@ define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly %0, i
 _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %43
   %.025.sink.i = phi i16 [ %44, %43 ], [ %13, %12 ], [ %42, %33 ], [ %24, %18 ]
   %.024.sink.i = phi i64 [ 1, %43 ], [ 1, %12 ], [ 3, %33 ], [ 2, %18 ]
-  %45 = getelementptr inbounds i8, ptr %.023, i64 %.024.sink.i
+  %45 = getelementptr inbounds nuw i8, ptr %.023, i64 %.024.sink.i
   %46 = zext i16 %.025.sink.i to i32
   %47 = add i16 %.025.sink.i, -32
   %or.cond = icmp ult i16 %47, 95
   br i1 %or.cond, label %48, label %52
 
 48:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit
-  %49 = getelementptr inbounds i8, ptr %.01822, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.01822, i64 1
   %.not21 = icmp ult ptr %49, %8
   br i1 %.not21, label %50, label %._crit_edge
 
@@ -829,7 +829,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %43
   br label %56
 
 52:                                               ; preds = %_ZN4UTF84nextItEEPcPKcPT_.exit
-  %53 = getelementptr inbounds i8, ptr %.01822, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.01822, i64 6
   %.not = icmp ult ptr %53, %8
   br i1 %.not, label %54, label %._crit_edge
 
@@ -865,9 +865,9 @@ define hidden noundef zeroext i1 @_ZN4UTF85equalEPKaiS1_i(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %.not11 = icmp eq i8 %7, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -893,16 +893,16 @@ define hidden noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr nocapture no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %.07684 = phi i32 [ 0, %.lr.ph.preheader ], [ %31, %30 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = or disjoint i64 %indvars.iv, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = or disjoint i64 %indvars.iv, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = or disjoint i64 %indvars.iv, 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = add i8 %8, -1
   %19 = add i8 %11, -1
@@ -953,33 +953,33 @@ define hidden noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr nocapture no
   br i1 %or.cond82, label %43, label %_ZN4UTF826is_supplementary_characterEPKh.exit.thread
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %34, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, -16
   %47 = icmp eq i8 %46, -96
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %34, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = icmp slt i8 %50, -64
   br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %34, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 3
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, -19
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %34, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, -16
   %60 = icmp eq i8 %59, -80
   br i1 %60, label %_ZN4UTF826is_supplementary_characterEPKh.exit, label %.thread
 
 _ZN4UTF826is_supplementary_characterEPKh.exit:    ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %34, i64 5
+  %61 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %62 = load i8, ptr %61, align 1
   %63 = icmp slt i8 %62, -64
   br i1 %63, label %102, label %.thread
@@ -1085,7 +1085,7 @@ define hidden noundef zeroext i1 @_ZN7UNICODE9is_latin1EPKti(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2
   %6 = icmp ult i16 %5, 256
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1128,7 +1128,7 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr nocapture noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL10utf8_writePht.exit ]
   %.018 = phi i32 [ %3, %.lr.ph.preheader ], [ %10, %_ZL10utf8_writePht.exit ]
   %.01316 = phi ptr [ %2, %.lr.ph.preheader ], [ %37, %_ZL10utf8_writePht.exit ]
-  %6 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %8 = add i16 %7, -1
   %or.cond.i = icmp ult i16 %8, 127
@@ -1158,7 +1158,7 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr nocapture noundef rea
   %20 = trunc i16 %7 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %23 = getelementptr inbounds i8, ptr %.01316, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01316, i64 1
   store i8 %22, ptr %23, align 1
   br label %_ZL10utf8_writePht.exit
 
@@ -1171,18 +1171,18 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr nocapture noundef rea
   %29 = trunc i16 %26 to i8
   %30 = and i8 %29, 63
   %31 = or disjoint i8 %30, -128
-  %32 = getelementptr inbounds i8, ptr %.01316, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.01316, i64 1
   store i8 %31, ptr %32, align 1
   %33 = trunc i16 %7 to i8
   %34 = and i8 %33, 63
   %35 = or disjoint i8 %34, -128
-  %36 = getelementptr inbounds i8, ptr %.01316, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.01316, i64 2
   store i8 %35, ptr %36, align 1
   br label %_ZL10utf8_writePht.exit
 
 _ZL10utf8_writePht.exit:                          ; preds = %13, %16, %24
   %.sink.i = phi i64 [ 3, %24 ], [ 2, %16 ], [ 1, %13 ]
-  %37 = getelementptr inbounds i8, ptr %.01316, i64 %.sink.i
+  %37 = getelementptr inbounds nuw i8, ptr %.01316, i64 %.sink.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -1206,7 +1206,7 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr nocapture noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.021 = phi i32 [ %3, %.lr.ph.preheader ], [ %9, %17 ]
   %.01620 = phi ptr [ %2, %.lr.ph.preheader ], [ %18, %17 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = icmp sgt i8 %7, 0
   %..i.neg = select i1 %8, i32 -1, i32 -2
@@ -1222,14 +1222,14 @@ _ZL10utf8_writePht.exit:                          ; preds = %11
   %13 = or disjoint i8 %12, -64
   %14 = and i8 %7, 63
   %15 = or disjoint i8 %14, -128
-  %16 = getelementptr inbounds i8, ptr %.01620, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01620, i64 1
   store i8 %15, ptr %16, align 1
   br label %17
 
 17:                                               ; preds = %11, %_ZL10utf8_writePht.exit
   %.sink25 = phi i64 [ 2, %_ZL10utf8_writePht.exit ], [ 1, %11 ]
   %.sink = phi i8 [ %13, %_ZL10utf8_writePht.exit ], [ %7, %11 ]
-  %18 = getelementptr inbounds i8, ptr %.01620, i64 %.sink25
+  %18 = getelementptr inbounds nuw i8, ptr %.01620, i64 %.sink25
   store i8 %.sink, ptr %.01620, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1253,7 +1253,7 @@ define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr nocapture noundef re
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL10utf8_writePht.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL10utf8_writePht.exit ]
   %.067 = phi ptr [ %2, %.lr.ph.preheader ], [ %33, %_ZL10utf8_writePht.exit ]
-  %5 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2
   %7 = add i16 %6, -1
   %or.cond.i = icmp ult i16 %7, 127
@@ -1276,7 +1276,7 @@ define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr nocapture noundef re
   %16 = trunc i16 %6 to i8
   %17 = and i8 %16, 63
   %18 = or disjoint i8 %17, -128
-  %19 = getelementptr inbounds i8, ptr %.067, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.067, i64 1
   store i8 %18, ptr %19, align 1
   br label %_ZL10utf8_writePht.exit
 
@@ -1289,18 +1289,18 @@ define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr nocapture noundef re
   %25 = trunc i16 %22 to i8
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
-  %28 = getelementptr inbounds i8, ptr %.067, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.067, i64 1
   store i8 %27, ptr %28, align 1
   %29 = trunc i16 %6 to i8
   %30 = and i8 %29, 63
   %31 = or disjoint i8 %30, -128
-  %32 = getelementptr inbounds i8, ptr %.067, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.067, i64 2
   store i8 %31, ptr %32, align 1
   br label %_ZL10utf8_writePht.exit
 
 _ZL10utf8_writePht.exit:                          ; preds = %8, %12, %20
   %.sink.i = phi i64 [ 3, %20 ], [ 2, %12 ], [ 1, %8 ]
-  %33 = getelementptr inbounds i8, ptr %.067, i64 %.sink.i
+  %33 = getelementptr inbounds nuw i8, ptr %.067, i64 %.sink.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -1323,7 +1323,7 @@ define weak_odr hidden noundef i32 @_ZN7UNICODE11utf8_lengthIaEEiPKT_i(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.09 = phi i32 [ 0, %.lr.ph.preheader ], [ %7, %.lr.ph ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = icmp sgt i8 %5, 0
   %..i = select i1 %6, i32 1, i32 2
@@ -1349,7 +1349,7 @@ define weak_odr hidden noundef i32 @_ZN7UNICODE11utf8_lengthItEEiPKT_i(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.09 = phi i32 [ 0, %.lr.ph.preheader ], [ %8, %.lr.ph ]
-  %4 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2
   %6 = add i16 %5, -1
   %or.cond.i = icmp ult i16 %6, 127
@@ -1379,7 +1379,7 @@ define weak_odr hidden noundef ptr @_ZN7UNICODE7as_utf8IaEEPcPKT_Ri(ptr noundef 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.09.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %8, %.lr.ph.i ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1
   %7 = icmp sgt i8 %6, 0
   %..i.i = select i1 %7, i32 1, i32 2
@@ -1405,7 +1405,7 @@ _ZN7UNICODE11utf8_lengthIaEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.preheader.i9 ], [ %indvars.iv.next.i13, %25 ]
   %.021.i = phi i32 [ %9, %.lr.ph.preheader.i9 ], [ %17, %25 ]
   %.01620.i = phi ptr [ %11, %.lr.ph.preheader.i9 ], [ %26, %25 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i12
   %15 = load i8, ptr %14, align 1
   %16 = icmp sgt i8 %15, 0
   %..i.neg.i = select i1 %16, i32 -1, i32 -2
@@ -1421,14 +1421,14 @@ _ZL10utf8_writePht.exit.i:                        ; preds = %19
   %21 = or disjoint i8 %20, -64
   %22 = and i8 %15, 63
   %23 = or disjoint i8 %22, -128
-  %24 = getelementptr inbounds i8, ptr %.01620.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 1
   store i8 %23, ptr %24, align 1
   br label %25
 
 25:                                               ; preds = %_ZL10utf8_writePht.exit.i, %19
   %.sink25.i = phi i64 [ 2, %_ZL10utf8_writePht.exit.i ], [ 1, %19 ]
   %.sink.i = phi i8 [ %21, %_ZL10utf8_writePht.exit.i ], [ %15, %19 ]
-  %26 = getelementptr inbounds i8, ptr %.01620.i, i64 %.sink25.i
+  %26 = getelementptr inbounds nuw i8, ptr %.01620.i, i64 %.sink25.i
   store i8 %.sink.i, ptr %.01620.i, align 1
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i14 = icmp eq i64 %indvars.iv.next.i13, %wide.trip.count.i10
@@ -1456,7 +1456,7 @@ define weak_odr hidden noundef ptr @_ZN7UNICODE7as_utf8ItEEPcPKT_Ri(ptr noundef 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.09.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %9, %.lr.ph.i ]
-  %5 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
   %6 = load i16, ptr %5, align 2
   %7 = add i16 %6, -1
   %or.cond.i.i = icmp ult i16 %7, 127
@@ -1485,7 +1485,7 @@ _ZN7UNICODE11utf8_lengthItEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.preheader.i9 ], [ %indvars.iv.next.i14, %_ZL10utf8_writePht.exit.i ]
   %.018.i = phi i32 [ %10, %.lr.ph.preheader.i9 ], [ %19, %_ZL10utf8_writePht.exit.i ]
   %.01316.i = phi ptr [ %12, %.lr.ph.preheader.i9 ], [ %46, %_ZL10utf8_writePht.exit.i ]
-  %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i12
+  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i12
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %16, -1
   %or.cond.i.i13 = icmp ult i16 %17, 127
@@ -1515,7 +1515,7 @@ _ZN7UNICODE11utf8_lengthItEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   %29 = trunc i16 %16 to i8
   %30 = and i8 %29, 63
   %31 = or disjoint i8 %30, -128
-  %32 = getelementptr inbounds i8, ptr %.01316.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 1
   store i8 %31, ptr %32, align 1
   br label %_ZL10utf8_writePht.exit.i
 
@@ -1528,18 +1528,18 @@ _ZN7UNICODE11utf8_lengthItEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   %38 = trunc i16 %35 to i8
   %39 = and i8 %38, 63
   %40 = or disjoint i8 %39, -128
-  %41 = getelementptr inbounds i8, ptr %.01316.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 1
   store i8 %40, ptr %41, align 1
   %42 = trunc i16 %16 to i8
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
-  %45 = getelementptr inbounds i8, ptr %.01316.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 2
   store i8 %44, ptr %45, align 1
   br label %_ZL10utf8_writePht.exit.i
 
 _ZL10utf8_writePht.exit.i:                        ; preds = %33, %25, %22
   %.sink.i.i = phi i64 [ 3, %33 ], [ 2, %25 ], [ 1, %22 ]
-  %46 = getelementptr inbounds i8, ptr %.01316.i, i64 %.sink.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 %.sink.i.i
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i10
   br i1 %exitcond.not.i15, label %_ZN7UNICODE7as_utf8EPKtiPci.exit, label %.lr.ph.i11, !llvm.loop !19
@@ -1563,7 +1563,7 @@ define weak_odr hidden noundef i32 @_ZN7UNICODE19quoted_ascii_lengthIaEEiPKT_i(p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.013 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = add i8 %5, -32
   %or.cond = icmp ult i8 %6, 95
@@ -1590,7 +1590,7 @@ define weak_odr hidden noundef i32 @_ZN7UNICODE19quoted_ascii_lengthItEEiPKT_i(p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.013 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
-  %4 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2
   %6 = add i16 %5, -32
   %or.cond = icmp ult i16 %6, 95
@@ -1619,7 +1619,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiIaEEvPKT_iPci(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.026 = phi ptr [ %2, %.lr.ph.preheader ], [ %.1, %19 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = add i8 %9, -32
@@ -1627,7 +1627,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiIaEEvPKT_iPci(ptr nound
   br i1 %or.cond, label %12, label %15
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.026, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %.not24 = icmp ult ptr %13, %6
   br i1 %.not24, label %14, label %._crit_edge
 
@@ -1636,7 +1636,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiIaEEvPKT_iPci(ptr nound
   br label %19
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.026, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %.026, i64 6
   %.not = icmp ult ptr %16, %6
   br i1 %.not, label %17, label %._crit_edge
 
@@ -1670,7 +1670,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %.026 = phi ptr [ %2, %.lr.ph.preheader ], [ %.1, %20 ]
-  %8 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
   %11 = add i16 %9, -32
@@ -1678,7 +1678,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci(ptr nound
   br i1 %or.cond, label %12, label %16
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.026, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %.not24 = icmp ult ptr %13, %6
   br i1 %.not24, label %14, label %._crit_edge
 
@@ -1688,7 +1688,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci(ptr nound
   br label %20
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.026, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %.026, i64 6
   %.not = icmp ult ptr %17, %6
   br i1 %.not, label %18, label %._crit_edge
 

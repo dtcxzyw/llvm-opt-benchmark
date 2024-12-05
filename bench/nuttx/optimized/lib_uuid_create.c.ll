@@ -24,7 +24,7 @@ define void @uuid_create(ptr noundef %0, ptr noundef writeonly %1) local_unnamed
   br i1 %9, label %3, label %uuid_getrandom.exit, !llvm.loop !6
 
 .outer.i:                                         ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %.011.ph16.i, i64 %4
+  %10 = getelementptr inbounds nuw i8, ptr %.011.ph16.i, i64 %4
   %11 = sub i64 %.012.ph15.i, %4
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %.critedge, label %.outer.split.i, !llvm.loop !6
@@ -51,7 +51,7 @@ uuid_getrandom.exit:                              ; preds = %6
   br i1 %19, label %13, label %uuid_getrandom.exit25, !llvm.loop !6
 
 .outer.i22:                                       ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.011.ph16.i20, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %.011.ph16.i20, i64 %14
   %21 = sub i64 %.012.ph15.i21, %14
   %.not.i23 = icmp eq i64 %21, 0
   br i1 %.not.i23, label %.critedge, label %.outer.split.i19, !llvm.loop !6
@@ -65,19 +65,19 @@ uuid_getrandom.exit25:                            ; preds = %16
   %23 = tail call i32 @rand() #2
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %0, align 8
-  %.016.ptr.c = getelementptr inbounds i8, ptr %0, i64 8
+  %.016.ptr.c = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = tail call i32 @rand() #2
   %26 = sext i32 %25 to i64
   store i64 %26, ptr %.016.ptr.c, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.outer.i, %.outer.i22, %.preheader, %uuid_getrandom.exit, %uuid_getrandom.exit25
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 63
   %30 = or disjoint i8 %29, -128
   store i8 %30, ptr %27, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 4095
   %34 = or disjoint i16 %33, 16384

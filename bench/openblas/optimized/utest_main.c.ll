@@ -443,7 +443,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !7
   store ptr %10, ptr @suite_name, align 8, !tbaa !7
   br label %11
@@ -452,7 +452,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   %12 = phi i64 [ 16, %8 ], [ 8, %2 ]
   %13 = phi ptr [ @test_name, %8 ], [ @suite_name, %2 ]
   %14 = phi ptr [ @suite_test_filter, %8 ], [ @suite_filter, %2 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 %12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %16 = load ptr, ptr %15, align 8, !tbaa !7
   store ptr %16, ptr %13, align 8, !tbaa !7
   store ptr %14, ptr @ctest_main.filter, align 8, !tbaa !7
@@ -464,7 +464,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   %19 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %20 = load i64, ptr %4, align 8, !tbaa !15
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   br label %23
@@ -487,13 +487,13 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 .preheader15:                                     ; preds = %.preheader15.preheader, %36
   %32 = phi ptr [ %33, %36 ], [ @__ctest_suite_test_pointer, %.preheader15.preheader ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !7
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %.preheader15
-  %37 = getelementptr inbounds i8, ptr %32, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !7
   %39 = icmp eq ptr %38, inttoptr (i64 3735928559 to ptr)
   br i1 %39, label %.preheader15, label %.thread
@@ -513,9 +513,9 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 .preheader13:                                     ; preds = %.preheader13.preheader, %.preheader13
   %43 = phi ptr [ %46, %.preheader13 ], [ %.pre, %.preheader13.preheader ]
   %44 = phi ptr [ %45, %.preheader13 ], [ %24, %.preheader13.preheader ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !7
-  %47 = getelementptr inbounds i8, ptr %43, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 56
   store ptr %46, ptr %47, align 8, !tbaa !18
   %48 = icmp eq ptr %45, %32
   br i1 %48, label %.loopexit14, label %.preheader13, !llvm.loop !20
@@ -523,7 +523,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 .loopexit14:                                      ; preds = %.preheader13, %41
   %49 = phi ptr [ %24, %41 ], [ %32, %.preheader13 ]
   %50 = load ptr, ptr %49, align 8, !tbaa !7
-  %51 = getelementptr inbounds i8, ptr %50, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr null, ptr %51, align 8, !tbaa !18
   br label %52
 
@@ -557,7 +557,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 64:                                               ; preds = %61, %57, %.preheader11
   %65 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %66 = getelementptr inbounds i8, ptr %65, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load ptr, ptr %66, align 8, !tbaa !7
   store ptr %67, ptr @ctest_main.test, align 8, !tbaa !7
   %68 = icmp eq ptr %67, null
@@ -589,13 +589,13 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   %77 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
   %78 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
   %79 = load ptr, ptr %.pre24, align 8, !tbaa !23
-  %80 = getelementptr inbounds i8, ptr %.pre24, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.pre24, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !24
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %77, i32 noundef %78, ptr noundef %79, ptr noundef %81)
   %83 = load ptr, ptr @stdout, align 8, !tbaa !7
   %84 = call i32 @fflush(ptr noundef %83)
   %85 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load i32, ptr %86, align 8, !tbaa !25
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %99, label %89
@@ -626,13 +626,13 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %104 = getelementptr inbounds i8, ptr %103, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
   %105 = load ptr, ptr %104, align 8, !tbaa !26
   %106 = icmp eq ptr %105, null
   br i1 %106, label %110, label %107
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %103, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !27
   call void %105(ptr noundef %109) #14
   %.pre22 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
@@ -640,10 +640,10 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 110:                                              ; preds = %107, %102
   %111 = phi ptr [ %.pre22, %107 ], [ %103, %102 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %113 = load ptr, ptr %112, align 8, !tbaa !27
   %114 = icmp eq ptr %113, null
-  %115 = getelementptr inbounds i8, ptr %111, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %116 = load ptr, ptr %115, align 8, !tbaa !28
   br i1 %114, label %118, label %117
 
@@ -657,13 +657,13 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 119:                                              ; preds = %118, %117
   %120 = load ptr, ptr @ctest_main.test, align 8, !tbaa !7
-  %121 = getelementptr inbounds i8, ptr %120, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
   %122 = load ptr, ptr %121, align 8, !tbaa !29
   %123 = icmp eq ptr %122, null
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %119
-  %125 = getelementptr inbounds i8, ptr %120, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %126 = load ptr, ptr %125, align 8, !tbaa !27
   call void %122(ptr noundef %126) #14
   br label %127
@@ -707,7 +707,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
 
 147:                                              ; preds = %144, %72, %.preheader
   %148 = phi ptr [ %.pre23, %144 ], [ %.pre24, %72 ], [ @__ctest_suite_test, %.preheader ]
-  %149 = getelementptr inbounds i8, ptr %148, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 56
   %150 = load ptr, ptr %149, align 8, !tbaa !7
   store ptr %150, ptr @ctest_main.test, align 8, !tbaa !7
   %151 = icmp eq ptr %150, null
@@ -717,7 +717,7 @@ define i32 @ctest_main(i32 noundef %0, ptr nocapture noundef readonly %1) local_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   %152 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %153 = load i64, ptr %3, align 8, !tbaa !15
-  %154 = getelementptr inbounds i8, ptr %3, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %155 = load i64, ptr %154, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   %156 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
@@ -804,7 +804,7 @@ define internal range(i32 0, 2) i32 @suite_test_filter(ptr nocapture noundef rea
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   %5 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %3, i64 noundef %4) #16
   %6 = load ptr, ptr @test_name, align 8, !tbaa !7
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #16
   %10 = tail call i32 @strncmp(ptr noundef %6, ptr noundef %8, i64 noundef %9) #16

@@ -63,7 +63,7 @@ $_ZTV17LogStreamImplBase = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK11G1NUMAStats4Stat4rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %11, label %5
@@ -85,12 +85,12 @@ define hidden noundef double @_ZNK11G1NUMAStats4Stat4rateEv(ptr nocapture nounde
 define hidden void @_ZN11G1NUMAStats13NodeDataArrayC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = add i32 %1, 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %4, align 4
   %5 = zext i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 3
   %7 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %6, i8 noundef zeroext 5, i32 noundef 0) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
   %9 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %9, 0
@@ -103,7 +103,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayC2Ej(ptr nocapture noundef no
   %12 = shl nuw nsw i64 %11, 3
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %12, i8 noundef zeroext 5, i32 noundef 0) #11
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   store ptr %13, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %4, align 4
@@ -118,7 +118,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayC2Ej(ptr nocapture noundef no
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %._crit_edge ]
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
@@ -138,19 +138,19 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11G1NUMAStats13NodeDataArray5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %0, align 8
   %10 = zext i32 %9 to i64
@@ -168,19 +168,19 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray5clearEv(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NUMAStats13NodeDataArrayD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %8) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -190,7 +190,7 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArrayD2Ev(ptr nocapture noundef no
   br i1 %11, label %5, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %5, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %13) #11
   ret void
@@ -200,7 +200,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
   %.not = icmp eq i32 %4, 0
@@ -210,7 +210,7 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %6 = load i32, ptr %0, align 8
   %7 = zext i32 %6 to i64
   %.not31 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   br i1 %.not31, label %._crit_edge27, label %.preheader.us
 
@@ -218,7 +218,7 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %.01626.us = phi i64 [ %19, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %.01725.us = phi i64 [ %spec.select.us, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
   %.01824.us = phi i64 [ %15, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %.01626.us
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01626.us
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -226,7 +226,7 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %.022.us = phi i64 [ 0, %.preheader.us ], [ %18, %12 ]
   %.121.us = phi i64 [ %.01725.us, %.preheader.us ], [ %spec.select.us, %12 ]
   %.11920.us = phi i64 [ %.01824.us, %.preheader.us ], [ %15, %12 ]
-  %13 = getelementptr inbounds i64, ptr %11, i64 %.022.us
+  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %.022.us
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %.11920.us
   %16 = icmp eq i64 %.01626.us, %.022.us
@@ -245,19 +245,19 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
   %.018.lcssa = phi i64 [ 0, %2 ], [ 0, %.preheader.lr.ph ], [ %15, %._crit_edge.us ]
   %.017.lcssa = phi i64 [ 0, %2 ], [ 0, %.preheader.lr.ph ], [ %spec.select.us, %._crit_edge.us ]
   store i64 %.017.lcssa, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.018.lcssa, ptr %20, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i64, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %6
   %10 = load i64, ptr %9, align 8
   %11 = load i32, ptr %0, align 8
   %12 = zext i32 %11 to i64
@@ -267,7 +267,7 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.013 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
   %.01112 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
-  %13 = getelementptr inbounds i64, ptr %8, i64 %.013
+  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %.013
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %.01112
   %16 = add nuw nsw i64 %.013, 1
@@ -277,7 +277,7 @@ define hidden void @_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.011.lcssa = phi i64 [ 0, %3 ], [ %15, %.lr.ph ]
   store i64 %10, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.011.lcssa, ptr %17, align 8
   ret void
 }
@@ -290,17 +290,17 @@ define hidden noundef i64 @_ZNK11G1NUMAStats13NodeDataArray3sumEj(ptr nocapture 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %.08 = phi i64 [ 0, %.lr.ph ], [ %14, %10 ]
   %.067 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
-  %11 = getelementptr inbounds i64, ptr %9, i64 %.08
+  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.08
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %.067
   %14 = add nuw nsw i64 %.08, 1
@@ -314,13 +314,13 @@ define hidden noundef i64 @_ZNK11G1NUMAStats13NodeDataArray3sumEj(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11G1NUMAStats13NodeDataArray8increaseEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
@@ -332,13 +332,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN11G1NUMAStats13NodeDataArray3getEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds i64, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw i64, ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8
   ret i64 %11
 }
@@ -350,18 +350,18 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray4copyEjPm(ptr nocapture nound
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %1 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %9
   store i64 %15, ptr %13, align 8
@@ -378,9 +378,9 @@ define hidden void @_ZN11G1NUMAStats13NodeDataArray4copyEjPm(ptr nocapture nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br label %6
 
@@ -391,12 +391,12 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 
   %9 = load i32, ptr %4, align 8
   store i32 %9, ptr %8, align 8
   %10 = add i32 %9, 1
-  %11 = getelementptr inbounds i8, ptr %8, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %10, ptr %11, align 4
   %12 = zext i32 %10 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %13, i8 noundef zeroext 5, i32 noundef 0) #11
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %14, ptr %15, align 8
   %16 = load i32, ptr %11, align 4
   %.not.i = icmp eq i32 %16, 0
@@ -409,7 +409,7 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 
   %19 = shl nuw nsw i64 %18, 3
   %20 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i8 noundef zeroext 5, i32 noundef 0) #11
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   store ptr %20, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load i32, ptr %11, align 4
@@ -424,7 +424,7 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
   %27 = load ptr, ptr %15, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %8, align 8
   %31 = zext i32 %30 to i64
@@ -437,7 +437,7 @@ define hidden void @_ZN11G1NUMAStatsC2EPKjj(ptr nocapture noundef nonnull align 
   br i1 %35, label %.lr.ph.i.i, label %_ZN11G1NUMAStats13NodeDataArrayC2Ej.exit, !llvm.loop !8
 
 _ZN11G1NUMAStats13NodeDataArrayC2Ej.exit:         ; preds = %.lr.ph.i.i, %6, %._crit_edge.i
-  %36 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %8, ptr %36, align 8
   br i1 %7, label %6, label %37, !llvm.loop !15
 
@@ -447,31 +447,31 @@ _ZN11G1NUMAStats13NodeDataArrayC2Ej.exit:         ; preds = %.lr.ph.i.i, %6, %._
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NUMAStatsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %21
   %4 = phi i1 [ true, %1 ], [ false, %21 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ 1, %21 ]
-  %5 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN11G1NUMAStats13NodeDataArrayD2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %15) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -481,7 +481,7 @@ define hidden void @_ZN11G1NUMAStatsD2Ev(ptr nocapture noundef nonnull readonly 
   br i1 %18, label %12, label %_ZN11G1NUMAStats13NodeDataArrayD2Ev.exit, !llvm.loop !9
 
 _ZN11G1NUMAStats13NodeDataArrayD2Ev.exit:         ; preds = %12, %8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %20) #11
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %6) #11
@@ -496,23 +496,23 @@ _ZN11G1NUMAStats13NodeDataArrayD2Ev.exit:         ; preds = %12, %8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11G1NUMAStats5clearENS_13NodeDataItemsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZN11G1NUMAStats13NodeDataArray5clearEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %6, align 8
   %15 = zext i32 %14 to i64
@@ -530,17 +530,17 @@ _ZN11G1NUMAStats13NodeDataArray5clearEv.exit:     ; preds = %10, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11G1NUMAStats6updateENS_13NodeDataItemsEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %2 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
@@ -549,27 +549,27 @@ define hidden void @_ZN11G1NUMAStats6updateENS_13NodeDataItemsEjj(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11G1NUMAStats4copyENS_13NodeDataItemsEjPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = zext i32 %2 to i64
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
   %14 = load i64, ptr %13, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %11
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %14
   store i64 %20, ptr %18, align 8
@@ -586,27 +586,27 @@ _ZN11G1NUMAStats13NodeDataArray4copyEjPm.exit:    ; preds = %12, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.LogStream, align 8
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not41 = icmp eq ptr %4, null
   br i1 %.not41, label %76, label %5
 
 5:                                                ; preds = %2
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #11
-  %7 = getelementptr inbounds i8, ptr %3, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 3, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds [2 x ptr], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [2 x ptr], ptr %10, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %.not.i = icmp eq i32 %15, 0
@@ -616,7 +616,7 @@ define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr nocaptu
   %17 = load i32, ptr %13, align 8
   %18 = zext i32 %17 to i64
   %.not31.i = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8
   br i1 %.not31.i, label %_ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatE.exit.thread, label %.preheader.us.i
 
@@ -624,7 +624,7 @@ define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr nocaptu
   %.01626.us.i = phi i64 [ %30, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
   %.01725.us.i = phi i64 [ %spec.select.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
   %.01824.us.i = phi i64 [ %26, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %.01626.us.i
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01626.us.i
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -632,7 +632,7 @@ define hidden void @_ZN11G1NUMAStats10print_infoENS_13NodeDataItemsE(ptr nocaptu
   %.022.us.i = phi i64 [ 0, %.preheader.us.i ], [ %29, %23 ]
   %.121.us.i = phi i64 [ %.01725.us.i, %.preheader.us.i ], [ %spec.select.us.i, %23 ]
   %.11920.us.i = phi i64 [ %.01824.us.i, %.preheader.us.i ], [ %26, %23 ]
-  %24 = getelementptr inbounds i64, ptr %22, i64 %.022.us.i
+  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %.022.us.i
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %.11920.us.i
   %27 = icmp eq i64 %.01626.us.i, %.022.us.i
@@ -689,7 +689,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
 
 .split:                                           ; preds = %.lr.ph
   %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = load i64, ptr %41, align 8
@@ -701,7 +701,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.013.i = phi i64 [ %48, %.lr.ph.i ], [ 0, %.split ]
   %.01112.i = phi i64 [ %47, %.lr.ph.i ], [ 0, %.split ]
-  %45 = getelementptr inbounds i64, ptr %41, i64 %.013.i
+  %45 = getelementptr inbounds nuw i64, ptr %41, i64 %.013.i
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, %.01112.i
   %48 = add nuw nsw i64 %.013.i, 1
@@ -711,11 +711,11 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
 .split10:                                         ; preds = %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.4) #11
   %49 = load ptr, ptr %12, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
   %56 = load i32, ptr %49, align 8
   %57 = zext i32 %56 to i64
@@ -725,7 +725,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
 .lr.ph.i15:                                       ; preds = %.split10, %.lr.ph.i15
   %.013.i16 = phi i64 [ %61, %.lr.ph.i15 ], [ 0, %.split10 ]
   %.01112.i17 = phi i64 [ %60, %.lr.ph.i15 ], [ 0, %.split10 ]
-  %58 = getelementptr inbounds i64, ptr %53, i64 %.013.i16
+  %58 = getelementptr inbounds nuw i64, ptr %53, i64 %.013.i16
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %.01112.i17
   %61 = add nuw nsw i64 %.013.i16, 1
@@ -735,7 +735,7 @@ _ZNK11G1NUMAStats4Stat4rateEv.exit:               ; preds = %_ZNK11G1NUMAStats13
 _ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit.thread: ; preds = %.split, %.split10
   %.sroa.0.0.ph = phi i64 [ %55, %.split10 ], [ %42, %.split ]
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4
   br label %_ZNK11G1NUMAStats4Stat4rateEv.exit21
 
@@ -743,7 +743,7 @@ _ZNK11G1NUMAStats13NodeDataArray15create_hit_rateEPNS_4StatEj.exit: ; preds = %.
   %.sroa.7.0 = phi i64 [ %47, %.lr.ph.i ], [ %60, %.lr.ph.i15 ]
   %.sroa.0.0 = phi i64 [ %42, %.lr.ph.i ], [ %55, %.lr.ph.i15 ]
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i64 %.sroa.7.0, 0
   br i1 %68, label %_ZNK11G1NUMAStats4Stat4rateEv.exit21, label %69
@@ -787,21 +787,21 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.LogStream, align 8
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %62, label %4
 
 4:                                                ; preds = %1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #11
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #11
-  %6 = getelementptr inbounds i8, ptr %2, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 2, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_97ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.7) #11
   %.not42 = icmp eq i32 %8, 0
@@ -814,7 +814,7 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.8, i32 noundef %11) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -824,7 +824,7 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocap
 ._crit_edge:                                      ; preds = %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.9) #11
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.10) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count55 = zext i32 %8 to i64
   br label %13
 
@@ -837,7 +837,7 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocap
 13:                                               ; preds = %._crit_edge, %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit
   %indvars.iv52 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next53, %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit ]
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv52
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv52
   %16 = load i32, ptr %15, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.11, i32 noundef %16) #11
   br label %17
@@ -845,11 +845,11 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocap
 17:                                               ; preds = %13, %17
   %indvars.iv47 = phi i64 [ 0, %13 ], [ %indvars.iv.next48, %17 ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv52
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv52
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv47
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv47
   %24 = load i64, ptr %23, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, i64 noundef %24) #11
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
@@ -864,16 +864,16 @@ define hidden void @_ZN11G1NUMAStats30print_mutator_alloc_stat_debugEv(ptr nocap
   br i1 %.not.i, label %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv52
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
   %32 = load ptr, ptr %31, align 8
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %33 ]
   %.067.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %33 ]
-  %34 = getelementptr inbounds i64, ptr %32, i64 %.08.i
+  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %.08.i
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %.067.i
   %37 = add nuw nsw i64 %.08.i, 1
@@ -891,18 +891,18 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
 
 ._crit_edge37:                                    ; preds = %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15) #11
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = zext i32 %8 to i64
   br label %40
 
 40:                                               ; preds = %._crit_edge37, %40
   %indvars.iv57 = phi i64 [ 0, %._crit_edge37 ], [ %indvars.iv.next58, %40 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %39
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i64, ptr %45, i64 %indvars.iv57
+  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %indvars.iv57
   %47 = load i64, ptr %46, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.12, i64 noundef %47) #11
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
@@ -910,7 +910,7 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   br i1 %exitcond61.not, label %._crit_edge41, label %40, !llvm.loop !21
 
 ._crit_edge41:                                    ; preds = %40, %._crit_edge37.thread.critedge
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
@@ -918,17 +918,17 @@ _ZNK11G1NUMAStats13NodeDataArray3sumEj.exit:      ; preds = %33, %25
   br i1 %.not.i24, label %_ZNK11G1NUMAStats13NodeDataArray3sumEj.exit30, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %._crit_edge41
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = zext i32 %8 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8
   br label %57
 
 57:                                               ; preds = %57, %.lr.ph.i25
   %.08.i26 = phi i64 [ 0, %.lr.ph.i25 ], [ %61, %57 ]
   %.067.i27 = phi i64 [ 0, %.lr.ph.i25 ], [ %60, %57 ]
-  %58 = getelementptr inbounds i64, ptr %56, i64 %.08.i26
+  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %.08.i26
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %.067.i27
   %61 = add nuw nsw i64 %.08.i26, 1
@@ -1010,7 +1010,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #11
   ret void
 }

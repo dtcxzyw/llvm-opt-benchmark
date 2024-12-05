@@ -62,13 +62,13 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load i32, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %3 to i64
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds [3 x [11 x i8]], ptr %5, i64 %6, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds [3 x ptr], ptr %11, i64 %6, i64 %7
   %13 = load ptr, ptr %12, align 8
@@ -78,21 +78,21 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
 15:                                               ; preds = %2
   %.pn.in.i = xor i8 %9, -1
   %.pn.i = zext i8 %.pn.in.i to i64
-  %.in.in.i = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i
+  %.in.in.i = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i
   %.in.i = load i16, ptr %.in.in.i, align 2
   %16 = zext i16 %.in.i to i32
   br label %17
 
 17:                                               ; preds = %2, %15
   %18 = phi i32 [ %16, %15 ], [ 0, %2 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %25, label %.preheader
 
 .preheader:                                       ; preds = %17
   %22 = icmp slt i32 %3, %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -102,7 +102,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
 
 25:                                               ; preds = %17
   %.pn.i43 = zext i8 %9 to i64
-  %.in.in.i44 = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i43
+  %.in.in.i44 = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i43
   %.in.i45 = load i16, ptr %.in.in.i44, align 2
   %26 = zext i16 %.in.i45 to i32
   br label %72
@@ -115,12 +115,12 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
   %29 = load i16, ptr %28, align 2
   %30 = tail call i16 @llvm.abs.i16(i16 %29, i1 false)
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = tail call i16 @llvm.umin.i16(i16 %30, i16 67)
   %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %.04051, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr %.04051, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
   %40 = add nuw nsw i32 %.04150, %34
@@ -142,12 +142,12 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
   %46 = load i16, ptr %45, align 2
   %47 = tail call i16 @llvm.abs.i16(i16 %46, i1 false)
   %48 = zext i16 %47 to i64
-  %49 = getelementptr inbounds [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [2048 x i16], ptr @VP8LevelFixedCosts, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = tail call i16 @llvm.umin.i16(i16 %47, i16 67)
   %53 = zext nneg i16 %52 to i64
-  %54 = getelementptr inbounds i16, ptr %.040.lcssa, i64 %53
+  %54 = getelementptr inbounds nuw i16, ptr %.040.lcssa, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %.041.lcssa, %51
@@ -163,10 +163,10 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
   %65 = icmp eq i16 %47, 1
   %66 = zext i8 %64 to i64
   %67 = select i1 %65, i64 1, i64 2
-  %68 = getelementptr inbounds [3 x [11 x i8]], ptr %5, i64 %66, i64 %67
+  %68 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %66, i64 %67
   %69 = load i8, ptr %68, align 1
   %.pn.i47 = zext i8 %69 to i64
-  %.in.in.i48 = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i47
+  %.in.in.i48 = getelementptr inbounds nuw [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i47
   %.in.i49 = load i16, ptr %.in.in.i48, align 2
   %70 = zext i16 %.in.i49 to i32
   %71 = add nuw nsw i32 %58, %70
@@ -179,14 +179,14 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 8)) %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 -1, ptr %3, align 4
   br label %4
 
 4:                                                ; preds = %2, %9
   %.09 = phi i32 [ 15, %2 ], [ %10, %9 ]
   %5 = zext nneg i32 %.09 to i64
-  %6 = getelementptr inbounds i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
   %7 = load i16, ptr %6, align 2
   %.not = icmp eq i16 %7, 0
   br i1 %.not, label %9, label %8
@@ -201,7 +201,7 @@ define internal void @SetResidualCoeffs_C(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not11, label %.loopexit, label %4, !llvm.loop !6
 
 .loopexit:                                        ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %11, align 8
   ret void
 }

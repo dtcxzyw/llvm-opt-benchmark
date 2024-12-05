@@ -65,35 +65,35 @@ define hidden void @_ZN12GCInitLogger9print_allEv(ptr noundef nonnull align 8 de
   %3 = load ptr, ptr %2, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %0) #7
   ret void
@@ -111,7 +111,7 @@ define hidden void @_ZN12GCInitLogger5printEv() local_unnamed_addr #0 align 2 {
   %8 = alloca %class.GCLogPreciousHandle, align 8
   %9 = alloca %class.GCLogPreciousHandle, align 8
   %10 = alloca %class.GCLogPreciousHandle, align 8
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN12GCInitLogger13print_versionEv.exit, label %12
 
@@ -124,7 +124,7 @@ define hidden void @_ZN12GCInitLogger5printEv() local_unnamed_addr #0 align 2 {
 _ZN12GCInitLogger13print_versionEv.exit:          ; preds = %0, %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store i32 3, ptr %10, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   %15 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %16 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
@@ -133,7 +133,7 @@ _ZN12GCInitLogger13print_versionEv.exit:          ; preds = %0, %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %17 = call noundef i64 @_ZN2os15physical_memoryEv() #7
   store i32 3, ptr %9, align 8
-  %.sroa.21.0..sroa_idx.i.i1 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.21.0..sroa_idx.i.i1 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i1, align 8
   %18 = icmp ugt i64 %17, 107374182399
   br i1 %18, label %_Z24byte_size_in_proper_unitImET_S0_.exit.i, label %19
@@ -164,7 +164,7 @@ _ZN12GCInitLogger12print_memoryEv.exit:           ; preds = %.thread.i, %_Z24byt
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 3, ptr %8, align 8
-  %.sroa.21.0..sroa_idx.i.i2 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.21.0..sroa_idx.i.i2 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i2, align 8
   %26 = load i8, ptr @UseLargePages, align 1
   %27 = trunc i8 %26 to i1
@@ -183,11 +183,11 @@ _ZN12GCInitLogger12print_memoryEv.exit:           ; preds = %.thread.i, %_Z24byt
 
 32:                                               ; preds = %_ZN12GCInitLogger12print_memoryEv.exit
   store i32 3, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i.i3 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i.i3 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i3, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.7)
   store i32 3, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i5.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i5.i, align 8
   %33 = call noundef i64 @_ZN2os19numa_get_groups_numEv() #7
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.8, i64 noundef %33)
@@ -195,7 +195,7 @@ _ZN12GCInitLogger12print_memoryEv.exit:           ; preds = %.thread.i, %_Z24byt
 
 34:                                               ; preds = %_ZN12GCInitLogger12print_memoryEv.exit
   store i32 3, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i6.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.21.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i6.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.9)
   br label %_ZN12GCInitLogger10print_numaEv.exit
@@ -212,7 +212,7 @@ _ZN12GCInitLogger10print_numaEv.exit:             ; preds = %32, %34
 
 37:                                               ; preds = %_ZN12GCInitLogger10print_numaEv.exit
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i.i4 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i4, align 8
   %38 = call noundef i32 @_ZN14CompressedOops4modeEv() #7
   %39 = call noundef ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE(i32 noundef %38) #7
@@ -221,7 +221,7 @@ _ZN12GCInitLogger10print_numaEv.exit:             ; preds = %32, %34
 
 40:                                               ; preds = %_ZN12GCInitLogger10print_numaEv.exit
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i3.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i3.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i3.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.11)
   br label %_ZN12GCInitLogger21print_compressed_oopsEv.exit
@@ -238,7 +238,7 @@ _ZN12GCInitLogger21print_compressed_oopsEv.exit:  ; preds = %37, %40
 
 42:                                               ; preds = %_ZN12GCInitLogger21print_compressed_oopsEv.exit
   store i32 3, ptr %1, align 8
-  %.sroa.21.0..sroa_idx.i.i6 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.21.0..sroa_idx.i.i6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i6, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.18, i32 noundef %41)
   br label %43
@@ -250,7 +250,7 @@ _ZN12GCInitLogger21print_compressed_oopsEv.exit:  ; preds = %37, %40
 
 45:                                               ; preds = %43
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i4.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.19, i32 noundef %44)
   br label %_ZN12GCInitLogger13print_workersEv.exit
@@ -263,7 +263,7 @@ _ZN12GCInitLogger13print_workersEv.exit:          ; preds = %43, %45
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12GCInitLogger13print_versionEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %3
 
@@ -294,7 +294,7 @@ declare noundef ptr @_ZN19Abstract_VM_Version15jdk_debug_levelEv() local_unnamed
 define hidden void @_ZN12GCInitLogger9print_cpuEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %3 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %4 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
@@ -307,7 +307,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #7
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -319,7 +319,7 @@ define hidden void @_ZN12GCInitLogger12print_memoryEv(ptr nocapture nonnull read
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = tail call noundef i64 @_ZN2os15physical_memoryEv() #7
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %4 = icmp ugt i64 %3, 107374182399
   br i1 %4, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %5
@@ -356,7 +356,7 @@ declare noundef i64 @_ZN2os15physical_memoryEv() local_unnamed_addr #1
 define hidden void @_ZN12GCInitLogger17print_large_pagesEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %3 = load i8, ptr @UseLargePages, align 1
   %4 = trunc i8 %3 to i1
@@ -390,11 +390,11 @@ define hidden void @_ZN12GCInitLogger10print_numaEv(ptr nocapture nonnull readno
 
 7:                                                ; preds = %1
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.7)
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i5, align 8
   %8 = call noundef i64 @_ZN2os19numa_get_groups_numEv() #7
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.8, i64 noundef %8)
@@ -402,7 +402,7 @@ define hidden void @_ZN12GCInitLogger10print_numaEv(ptr nocapture nonnull readno
 
 9:                                                ; preds = %1
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i6 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i6, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.9)
   br label %10
@@ -423,7 +423,7 @@ define hidden void @_ZN12GCInitLogger21print_compressed_oopsEv(ptr nocapture non
 
 6:                                                ; preds = %1
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %7 = tail call noundef i32 @_ZN14CompressedOops4modeEv() #7
   %8 = tail call noundef ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE(i32 noundef %7) #7
@@ -432,7 +432,7 @@ define hidden void @_ZN12GCInitLogger21print_compressed_oopsEv(ptr nocapture non
 
 9:                                                ; preds = %1
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i3, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.11)
   br label %10
@@ -452,7 +452,7 @@ define hidden void @_ZN12GCInitLogger10print_heapEv(ptr nocapture nonnull readno
   %4 = alloca %class.GCLogPreciousHandle, align 8
   %5 = alloca %class.GCLogPreciousHandle, align 8
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %6 = load i64, ptr @MinHeapSize, align 8
   %7 = icmp ugt i64 %6, 1073741823
@@ -495,7 +495,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
   %.0.i9 = phi ptr [ @.str.23, %_Z23byte_size_in_exact_unitm.exit ], [ %spec.select.i8, %16 ], [ @.str.24, %.thread ]
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.12, i64 noundef %.0.i39, ptr noundef nonnull %.0.i9)
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i10, align 8
   %24 = load i64, ptr @InitialHeapSize, align 8
   %25 = icmp ugt i64 %24, 1073741823
@@ -538,7 +538,7 @@ _Z24exact_unit_for_byte_sizem.exit22:             ; preds = %.thread47, %_Z23byt
   %.0.i21 = phi ptr [ @.str.23, %_Z23byte_size_in_exact_unitm.exit16 ], [ %spec.select.i20, %34 ], [ @.str.24, %.thread47 ]
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.13, i64 noundef %.0.i1542, ptr noundef nonnull %.0.i21)
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i23 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i23, align 8
   %42 = load i64, ptr @MaxHeapSize, align 8
   %43 = icmp ugt i64 %42, 1073741823
@@ -581,7 +581,7 @@ _Z24exact_unit_for_byte_sizem.exit35:             ; preds = %.thread49, %_Z23byt
   %.0.i34 = phi ptr [ @.str.23, %_Z23byte_size_in_exact_unitm.exit29 ], [ %spec.select.i33, %52 ], [ @.str.24, %.thread49 ]
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.14, i64 noundef %.0.i2845, ptr noundef nonnull %.0.i34)
   store i32 3, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i36, align 8
   %60 = load i8, ptr @AlwaysPreTouch, align 1
   %61 = trunc i8 %60 to i1
@@ -600,7 +600,7 @@ define hidden void @_ZN12GCInitLogger13print_workersEv(ptr nocapture nonnull rea
 
 5:                                                ; preds = %1
   store i32 3, ptr %2, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.18, i32 noundef %4)
   br label %6
@@ -612,7 +612,7 @@ define hidden void @_ZN12GCInitLogger13print_workersEv(ptr nocapture nonnull rea
 
 8:                                                ; preds = %6
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i4, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.19, i32 noundef %7)
   br label %9

@@ -277,7 +277,7 @@ entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load double, ptr %sigma_, align 8, !tbaa !10
   %div = fdiv double %sub, %1
-  %2 = getelementptr inbounds i8, ptr %this, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %mul = fmul double %div, 0x3FE6A09E667F3BCD
   %call = tail call noundef double @_ZNK8QuantLib13ErrorFunctionclEd(ptr noundef nonnull align 1 dereferenceable(1) %2, double noundef %mul)
   %add = fadd double %call, 1.000000e+00
@@ -697,7 +697,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -710,7 +710,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1612,7 +1612,7 @@ invoke.cont2:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !27
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -1678,12 +1678,12 @@ if.else.i.i:                                      ; preds = %invoke.cont6
 invoke.cont8:                                     ; preds = %if.else.i.i, %if.then.i.i
   %9 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %9, ptr %ss, align 8, !tbaa !27
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %9, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %10, ptr %add.ptr.i.i, align 8, !tbaa !27
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %11, ptr %add.ptr, align 8, !tbaa !27
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !27
@@ -1710,16 +1710,16 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !27
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %16, ptr %ss, align 8, !tbaa !27
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %16, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
   store ptr %17, ptr %add.ptr.i.i.i.i, align 8, !tbaa !27
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !62
-  %18 = getelementptr inbounds i8, ptr %ss, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %ss, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %18) #26
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss) #26
   ret void
@@ -1777,14 +1777,14 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 define linkonce_odr void @_ZN5boost10wrapexceptISt12domain_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !27
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #26
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %throw_line_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %throw_line_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %throw_line_.i, align 8, !tbaa !64
-  %throw_column_.i = getelementptr inbounds i8, ptr %this, i64 60
+  %throw_column_.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 -1, ptr %throw_column_.i, align 4, !tbaa !67
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 16), ptr %this, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 64), ptr %0, align 8, !tbaa !27
@@ -1795,16 +1795,16 @@ invoke.cont:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt12domain_errorED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !68
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i1.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1824,7 +1824,7 @@ terminate.lpad.i.i:                               ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %entry, %call.i.noexc.i.i, %if.then.i.i.i
-  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   ret void
 }
@@ -1837,14 +1837,14 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt12domain_errorE5cloneE
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %call, align 8, !tbaa !27
-  %0 = getelementptr inbounds i8, ptr %call, i64 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #26
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12domain_error, i64 16), ptr %0, align 8, !tbaa !27
-  %1 = getelementptr inbounds i8, ptr %call, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %1, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  %data_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %data_2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_2.i.i, align 8, !tbaa !68
   store ptr %2, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
@@ -1852,7 +1852,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad.i
@@ -1865,13 +1865,13 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %entry
-  %throw_function_.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %throw_function_3.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %throw_function_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %throw_function_3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %throw_function_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %throw_function_3.i.i, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 16), ptr %call, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 64), ptr %0, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 104), ptr %1, align 8, !tbaa !27
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr2)
           to label %_ZN5boost10wrapexceptISt12domain_errorE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt12domain_errorE7deleterD2Ev.exit8
 
@@ -1882,7 +1882,7 @@ _ZN5boost10wrapexceptISt12domain_errorE7deleterD2Ev.exit8: ; preds = %invoke.con
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i6 = load ptr, ptr %call, align 8, !tbaa !27
-  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
+  %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #26
   br label %ehcleanup
@@ -1913,16 +1913,16 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt12domain_errorED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost10wrapexceptISt12domain_errorED2Ev.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -1942,7 +1942,7 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
-  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt12domain_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #28
   ret void
@@ -1951,16 +1951,16 @@ _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noex
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt12domain_errorED1Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost10wrapexceptISt12domain_errorED2Ev.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -1987,16 +1987,16 @@ _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noex
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt12domain_errorED0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost10wrapexceptISt12domain_errorED0Ev.exit, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2029,14 +2029,14 @@ declare noundef ptr @_ZNKSt11logic_error4whatEv(ptr noundef nonnull align 8 dere
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt12domain_errorED1Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %this, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost10wrapexceptISt12domain_errorED2Ev.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -2065,14 +2065,14 @@ _ZN5boost10wrapexceptISt12domain_errorED2Ev.exit: ; preds = %entry, %call.i.noex
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt12domain_errorED0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %this, align 8, !tbaa !27
-  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost10wrapexceptISt12domain_errorED0Ev.exit, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2127,14 +2127,14 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 define linkonce_odr void @_ZN5boost10wrapexceptISt12domain_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !27
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #26
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt12domain_error, i64 16), ptr %1, align 8, !tbaa !27
-  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !27
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %data_2.i = getelementptr inbounds i8, ptr %0, i64 32
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %data_2.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %data_2.i, align 8, !tbaa !68
   store ptr %3, ptr %data_.i, align 8, !tbaa !68
   %tobool.not.i.i.i = icmp eq ptr %3, null
@@ -2142,14 +2142,14 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %3, align 8, !tbaa !27
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i.i.i
-  %throw_function_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %throw_function_3.i = getelementptr inbounds i8, ptr %0, i64 40
+  %throw_function_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %throw_function_3.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %throw_function_.i, ptr noundef nonnull align 8 dereferenceable(24) %throw_function_3.i, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 16), ptr %this, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt12domain_errorEE, i64 64), ptr %1, align 8, !tbaa !27
@@ -2175,7 +2175,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
   %vtable = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr dead_on_unwind nonnull writable sret(%"class.boost::exception_detail::refcount_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i unwind label %lpad1
@@ -2187,7 +2187,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 if.then.i2.i.i:                                   ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i
   %vtable.i3.i.i = load ptr, ptr %2, align 8, !tbaa !27
-  %vfn.i4.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 24
+  %vfn.i4.i.i = getelementptr inbounds nuw i8, ptr %vtable.i3.i.i, i64 24
   %3 = load ptr, ptr %vfn.i4.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont4 unwind label %lpad3
@@ -2199,7 +2199,7 @@ invoke.cont4:                                     ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i:                                ; preds = %invoke.cont4
   %vtable.i.i = load ptr, ptr %.pr, align 8, !tbaa !27
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call.i1.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit unwind label %terminate.lpad.i
@@ -2229,7 +2229,7 @@ lpad3:                                            ; preds = %if.then.i2.i.i
 
 land.lhs.true.i.i15:                              ; preds = %lpad3
   %vtable.i.i16 = load ptr, ptr %9, align 8, !tbaa !27
-  %vfn.i.i17 = getelementptr inbounds i8, ptr %vtable.i.i16, i64 32
+  %vfn.i.i17 = getelementptr inbounds nuw i8, ptr %vtable.i.i16, i64 32
   %10 = load ptr, ptr %vfn.i.i17, align 8
   %call.i1.i18 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %ehcleanup unwind label %terminate.lpad.i19
@@ -2272,7 +2272,7 @@ if.end:                                           ; preds = %_ZN5boost16exceptio
 
 land.lhs.true.i.i.i24:                            ; preds = %if.end
   %vtable.i.i.i25 = load ptr, ptr %17, align 8, !tbaa !27
-  %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 32
+  %vfn.i.i.i26 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i25, i64 32
   %18 = load ptr, ptr %vfn.i.i.i26, align 8
   %call.i.i.i33 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i27 unwind label %lpad12
@@ -2284,14 +2284,14 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 if.then.i2.i.i29:                                 ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i27
   %vtable.i3.i.i30 = load ptr, ptr %data.sroa.0.0, align 8, !tbaa !27
-  %vfn.i4.i.i31 = getelementptr inbounds i8, ptr %vtable.i3.i.i30, i64 24
+  %vfn.i4.i.i31 = getelementptr inbounds nuw i8, ptr %vtable.i3.i.i30, i64 24
   %19 = load ptr, ptr %vfn.i4.i.i31, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.0)
           to label %land.lhs.true.i.i37 unwind label %lpad12
 
 land.lhs.true.i.i37:                              ; preds = %if.then.i2.i.i29
   %vtable.i.i38 = load ptr, ptr %data.sroa.0.0, align 8, !tbaa !27
-  %vfn.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i38, i64 32
+  %vfn.i.i39 = getelementptr inbounds nuw i8, ptr %vtable.i.i38, i64 32
   %20 = load ptr, ptr %vfn.i.i39, align 8
   %call.i1.i40 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.0)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit44 unwind label %terminate.lpad.i41
@@ -2319,7 +2319,7 @@ ehcleanup15:                                      ; preds = %lpad12, %ehcleanup
 
 land.lhs.true.i.i46:                              ; preds = %ehcleanup15
   %vtable.i.i47 = load ptr, ptr %data.sroa.0.3, align 8, !tbaa !27
-  %vfn.i.i48 = getelementptr inbounds i8, ptr %vtable.i.i47, i64 32
+  %vfn.i.i48 = getelementptr inbounds nuw i8, ptr %vtable.i.i47, i64 32
   %24 = load ptr, ptr %vfn.i.i48, align 8
   %call.i1.i49 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(8) %data.sroa.0.3)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit53 unwind label %terminate.lpad.i50
@@ -2868,14 +2868,14 @@ declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferencea
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !27
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #26
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %throw_line_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %throw_line_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %throw_line_.i, align 8, !tbaa !64
-  %throw_column_.i = getelementptr inbounds i8, ptr %this, i64 60
+  %throw_column_.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 -1, ptr %throw_column_.i, align 4, !tbaa !67
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 16), ptr %this, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 64), ptr %0, align 8, !tbaa !27
@@ -2886,16 +2886,16 @@ invoke.cont:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !68
   %tobool.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i1.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i unwind label %terminate.lpad.i.i
@@ -2915,7 +2915,7 @@ terminate.lpad.i.i:                               ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %entry, %call.i.noexc.i.i, %if.then.i.i.i
-  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   ret void
 }
@@ -2928,14 +2928,14 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt14overflow_errorE5clon
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %call, align 8, !tbaa !27
-  %0 = getelementptr inbounds i8, ptr %call, i64 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #26
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt14overflow_error, i64 16), ptr %0, align 8, !tbaa !27
-  %1 = getelementptr inbounds i8, ptr %call, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %1, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  %data_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %data_2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_2.i.i, align 8, !tbaa !68
   store ptr %2, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
@@ -2943,7 +2943,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont unwind label %lpad.i
@@ -2956,13 +2956,13 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %entry
-  %throw_function_.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %throw_function_3.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %throw_function_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %throw_function_3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %throw_function_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %throw_function_3.i.i, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 16), ptr %call, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 64), ptr %0, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 104), ptr %1, align 8, !tbaa !27
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr2)
           to label %_ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit8
 
@@ -2973,7 +2973,7 @@ _ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit8: ; preds = %invoke.c
   %5 = landingpad { ptr, i32 }
           cleanup
   %vtable.i6 = load ptr, ptr %call, align 8, !tbaa !27
-  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
+  %vfn.i7 = getelementptr inbounds nuw i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %call) #26
   br label %ehcleanup
@@ -3004,16 +3004,16 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -3033,7 +3033,7 @@ terminate.lpad.i.i.i:                             ; preds = %land.lhs.true.i.i.i
   unreachable
 
 _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.noexc.i.i.i, %if.then.i.i.i.i
-  %5 = getelementptr inbounds i8, ptr %this, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 64) #28
   ret void
@@ -3042,16 +3042,16 @@ _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.no
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt14overflow_errorED1Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -3078,16 +3078,16 @@ _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.no
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt14overflow_errorED0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !27
-  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !27
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 32
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -3120,14 +3120,14 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt14overflow_errorED1Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %this, align 8, !tbaa !27
-  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i1.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -3156,14 +3156,14 @@ _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %entry, %call.i.no
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt14overflow_errorED0Ev(ptr noundef %this) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %this, align 8, !tbaa !27
-  %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !68
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit, label %land.lhs.true.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !27
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i1.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %call.i.noexc.i.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -3197,14 +3197,14 @@ declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenc
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %this, align 8, !tbaa !27
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #26
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt14overflow_error, i64 16), ptr %1, align 8, !tbaa !27
-  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !27
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %data_2.i = getelementptr inbounds i8, ptr %0, i64 32
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %data_2.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %data_2.i, align 8, !tbaa !68
   store ptr %3, ptr %data_.i, align 8, !tbaa !68
   %tobool.not.i.i.i = icmp eq ptr %3, null
@@ -3212,14 +3212,14 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %3, align 8, !tbaa !27
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i.i.i
-  %throw_function_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %throw_function_3.i = getelementptr inbounds i8, ptr %0, i64 40
+  %throw_function_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %throw_function_3.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %throw_function_.i, ptr noundef nonnull align 8 dereferenceable(24) %throw_function_3.i, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 16), ptr %this, align 8, !tbaa !27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 64), ptr %1, align 8, !tbaa !27
@@ -3241,27 +3241,27 @@ define linkonce_odr noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialI
 entry:
   %0 = load x86_fp80, ptr %val, align 16, !tbaa !71
   %mul.i = fmul x86_fp80 %0, %0
-  %arrayidx.i = getelementptr inbounds i8, ptr %a, i64 112
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %a, i64 112
   %1 = load x86_fp80, ptr %arrayidx.i, align 16, !tbaa !71
-  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 80
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %a, i64 80
   %2 = load x86_fp80, ptr %arrayidx2.i, align 16, !tbaa !71
   %3 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %1, x86_fp80 %mul.i, x86_fp80 %2)
-  %arrayidx4.i = getelementptr inbounds i8, ptr %a, i64 96
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %a, i64 96
   %4 = load x86_fp80, ptr %arrayidx4.i, align 16, !tbaa !71
-  %arrayidx6.i = getelementptr inbounds i8, ptr %a, i64 64
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %a, i64 64
   %5 = load x86_fp80, ptr %arrayidx6.i, align 16, !tbaa !71
   %6 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %4, x86_fp80 %mul.i, x86_fp80 %5)
   %mul9.i = fmul x86_fp80 %mul.i, %3
   %mul11.i = fmul x86_fp80 %mul.i, %6
-  %arrayidx12.i = getelementptr inbounds i8, ptr %a, i64 48
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %a, i64 48
   %7 = load x86_fp80, ptr %arrayidx12.i, align 16, !tbaa !71
   %add.i = fadd x86_fp80 %mul9.i, %7
-  %arrayidx14.i = getelementptr inbounds i8, ptr %a, i64 32
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %8 = load x86_fp80, ptr %arrayidx14.i, align 16, !tbaa !71
   %add16.i = fadd x86_fp80 %mul11.i, %8
   %mul18.i = fmul x86_fp80 %mul.i, %add.i
   %mul20.i = fmul x86_fp80 %mul.i, %add16.i
-  %arrayidx21.i = getelementptr inbounds i8, ptr %a, i64 16
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %9 = load x86_fp80, ptr %arrayidx21.i, align 16, !tbaa !71
   %add23.i = fadd x86_fp80 %mul18.i, %9
   %10 = load x86_fp80, ptr %a, align 16, !tbaa !71
@@ -3279,22 +3279,22 @@ define linkonce_odr noundef x86_fp80 @_ZN5boost4math5tools19evaluate_polynomialI
 entry:
   %0 = load x86_fp80, ptr %val, align 16, !tbaa !71
   %mul.i = fmul x86_fp80 %0, %0
-  %arrayidx.i = getelementptr inbounds i8, ptr %a, i64 96
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %a, i64 96
   %1 = load x86_fp80, ptr %arrayidx.i, align 16, !tbaa !71
-  %arrayidx2.i = getelementptr inbounds i8, ptr %a, i64 64
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %a, i64 64
   %2 = load x86_fp80, ptr %arrayidx2.i, align 16, !tbaa !71
   %3 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %1, x86_fp80 %mul.i, x86_fp80 %2)
-  %arrayidx4.i = getelementptr inbounds i8, ptr %a, i64 80
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %a, i64 80
   %4 = load x86_fp80, ptr %arrayidx4.i, align 16, !tbaa !71
-  %arrayidx6.i = getelementptr inbounds i8, ptr %a, i64 48
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %a, i64 48
   %5 = load x86_fp80, ptr %arrayidx6.i, align 16, !tbaa !71
   %6 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %4, x86_fp80 %mul.i, x86_fp80 %5)
   %mul9.i = fmul x86_fp80 %mul.i, %3
   %mul11.i = fmul x86_fp80 %mul.i, %6
-  %arrayidx12.i = getelementptr inbounds i8, ptr %a, i64 32
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %7 = load x86_fp80, ptr %arrayidx12.i, align 16, !tbaa !71
   %add.i = fadd x86_fp80 %mul9.i, %7
-  %arrayidx14.i = getelementptr inbounds i8, ptr %a, i64 16
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %a, i64 16
   %8 = load x86_fp80, ptr %arrayidx14.i, align 16, !tbaa !71
   %add16.i = fadd x86_fp80 %mul11.i, %8
   %mul18.i = fmul x86_fp80 %mul.i, %add.i
@@ -3888,7 +3888,7 @@ invoke.cont:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss) #26
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !27
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -3954,12 +3954,12 @@ if.else.i.i:                                      ; preds = %invoke.cont5
 invoke.cont7:                                     ; preds = %if.else.i.i, %if.then.i.i
   %9 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %9, ptr %ss, align 8, !tbaa !27
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %9, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i
   store ptr %10, ptr %add.ptr.i.i, align 8, !tbaa !27
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %11, ptr %add.ptr, align 8, !tbaa !27
   %_M_stringbuf.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 24
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !27
@@ -3986,16 +3986,16 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %_M_stringbuf.i.i, align 8, !tbaa !27
   %_M_buf_locale.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %16, ptr %ss, align 8, !tbaa !27
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %vbase.offset.ptr.i.i.i.i = getelementptr i8, ptr %16, i64 -24
   %vbase.offset.i.i.i.i = load i64, ptr %vbase.offset.ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 %vbase.offset.i.i.i.i
   store ptr %17, ptr %add.ptr.i.i.i.i, align 8, !tbaa !27
   %_M_gcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %ss, i64 8
   store i64 0, ptr %_M_gcount.i.i.i.i, align 8, !tbaa !62
-  %18 = getelementptr inbounds i8, ptr %ss, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %ss, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %18) #26
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss) #26
   ret void

@@ -17,10 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @nghttp2_map_init(ptr nocapture noundef writeonly initializes((0, 32)) %map, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds i8, ptr %map, i64 8
+  %mem1 = getelementptr inbounds nuw i8, ptr %map, i64 8
   store ptr %mem, ptr %mem1, align 8
   store ptr null, ptr %map, align 8
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size, i8 0, i64 16, i1 false)
   ret void
 }
@@ -32,7 +32,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mem = getelementptr inbounds i8, ptr %map, i64 8
+  %mem = getelementptr inbounds nuw i8, ptr %map, i64 8
   %0 = load ptr, ptr %mem, align 8
   %1 = load ptr, ptr %map, align 8
   tail call void @nghttp2_mem_free(ptr noundef %0, ptr noundef %1) #12
@@ -47,7 +47,7 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_map_each_free(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %func, ptr noundef %ptr) local_unnamed_addr #1 {
 entry:
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %0 = load i32, ptr %tablelen, align 8
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -56,7 +56,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = phi i32 [ %4, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %2 = load ptr, ptr %map, align 8
-  %data = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %2, i64 %indvars.iv, i32 2
+  %data = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %2, i64 %indvars.iv, i32 2
   %3 = load ptr, ptr %data, align 8
   %cmp1 = icmp eq ptr %3, null
   br i1 %cmp1, label %for.inc, label %if.end
@@ -80,13 +80,13 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nghttp2_map_each(ptr nocapture noundef readonly %map, ptr nocapture noundef readonly %func, ptr noundef %ptr) local_unnamed_addr #1 {
 entry:
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %1 = load i32, ptr %tablelen, align 8
   %cmp17.not = icmp eq i32 %1, 0
   br i1 %cmp17.not, label %return, label %for.body
@@ -95,7 +95,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %2 = phi i32 [ %5, %for.inc ], [ %1, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %3 = load ptr, ptr %map, align 8
-  %data = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %3, i64 %indvars.iv, i32 2
+  %data = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %3, i64 %indvars.iv, i32 2
   %4 = load ptr, ptr %data, align 8
   %cmp2 = icmp eq ptr %4, null
   br i1 %cmp2, label %for.inc, label %if.end4
@@ -124,20 +124,20 @@ return:                                           ; preds = %if.end4, %for.inc, 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @nghttp2_map_print_distance(ptr nocapture noundef readonly %map) local_unnamed_addr #3 {
 entry:
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %0 = load i32, ptr %tablelen, align 8
   %cmp16.not = icmp eq i32 %0, 0
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tablelenbits = getelementptr inbounds i8, ptr %map, i64 28
+  %tablelenbits = getelementptr inbounds nuw i8, ptr %map, i64 28
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %map, align 8
-  %arrayidx = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %1, i64 %indvars.iv
-  %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %1, i64 %indvars.iv
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp1 = icmp eq ptr %2, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -155,7 +155,7 @@ if.end:                                           ; preds = %for.body
   %shr.i = lshr i32 %5, %sub.i
   %conv.i = zext i32 %shr.i to i64
   %7 = load ptr, ptr @stderr, align 8
-  %key = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %key = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %8 = load i32, ptr %key, align 4
   %9 = trunc nuw i64 %indvars.iv to i32
   %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %5, i32 noundef %8, i64 noundef %conv.i, i64 noundef 0) #13
@@ -186,11 +186,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 8
   %add = shl i64 %0, 2
   %mul = add i64 %add, 4
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %1 = load i32, ptr %tablelen, align 8
   %mul1 = mul i32 %1, 3
   %conv = zext i32 %mul1 to i64
@@ -203,7 +203,7 @@ if.then3:                                         ; preds = %if.end
 
 if.then6:                                         ; preds = %if.then3
   %mul8 = shl i32 %1, 1
-  %tablelenbits = getelementptr inbounds i8, ptr %map, i64 28
+  %tablelenbits = getelementptr inbounds nuw i8, ptr %map, i64 28
   %2 = load i32, ptr %tablelenbits, align 4
   %add9 = add i32 %2, 1
   %call = tail call fastcc i32 @map_resize(ptr noundef nonnull %map, i32 noundef %mul8, i32 noundef %add9)
@@ -217,14 +217,14 @@ if.else14:                                        ; preds = %if.then3
 
 if.end21:                                         ; preds = %if.then6, %if.else14, %if.end
   %3 = load ptr, ptr %map, align 8
-  %tablelenbits23 = getelementptr inbounds i8, ptr %map, i64 28
+  %tablelenbits23 = getelementptr inbounds nuw i8, ptr %map, i64 28
   %4 = load i32, ptr %tablelenbits23, align 4
   %mul.i = mul i32 %key, -1640531527
   %sub.i.i = sub i32 32, %4
   %shr.i.i = lshr i32 %mul.i, %sub.i.i
   %conv.i.i = zext i32 %shr.i.i to i64
-  %arrayidx22.i = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %3, i64 %conv.i.i
-  %data123.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 8
+  %arrayidx22.i = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %3, i64 %conv.i.i
+  %data123.i = getelementptr inbounds nuw i8, ptr %arrayidx22.i, i64 8
   %5 = load ptr, ptr %data123.i, align 8
   %cmp24.i = icmp eq ptr %5, null
   br i1 %cmp24.i, label %if.end29, label %if.end.lr.ph.i
@@ -250,7 +250,7 @@ if.end.i:                                         ; preds = %if.end9.i, %if.end.
   %sub.i11.i = sub nsw i64 %idx.029.i, %conv.i.i.i
   %and.i.i = and i64 %sub.i11.i, %conv.i12.i
   %cmp3.i = icmp ugt i64 %d.028.i, %and.i.i
-  %key1.i.i = getelementptr inbounds i8, ptr %arrayidx30.i, i64 4
+  %key1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx30.i, i64 4
   %8 = load i32, ptr %key1.i.i, align 4
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
@@ -272,8 +272,8 @@ if.end9.i:                                        ; preds = %if.else.i, %if.then
   %inc.i = add nuw nsw i64 %d.1.i, 1
   %add.i = add nuw nsw i64 %idx.029.i, 1
   %and.i = and i64 %add.i, %conv.i12.i
-  %arrayidx.i = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %3, i64 %and.i
-  %data1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %3, i64 %and.i
+  %data1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %9 = load ptr, ptr %data1.i, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %if.end29, label %if.end.i
@@ -285,7 +285,7 @@ if.end29:                                         ; preds = %if.end9.i, %if.end2
   %arrayidx.lcssa.i = phi ptr [ %arrayidx22.i, %if.end21 ], [ %arrayidx.i, %if.end9.i ]
   %data1.lcssa.i = phi ptr [ %data123.i, %if.end21 ], [ %data1.i, %if.end9.i ]
   store i32 %hash.addr.0.lcssa.i, ptr %arrayidx.lcssa.i, align 8
-  %key2.i.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.i, i64 4
+  %key2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.lcssa.i, i64 4
   store i32 %key.addr.0.lcssa.i, ptr %key2.i.i, align 4
   store ptr %data.addr.0.lcssa.i, ptr %data1.lcssa.i, align 8
   %10 = load i64, ptr %size, align 8
@@ -304,7 +304,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -901, 1) i32 @map_resize(ptr nocapture noundef %map, i32 noundef %new_tablelen, i32 noundef %new_tablelenbits) unnamed_addr #1 {
 entry:
-  %mem = getelementptr inbounds i8, ptr %map, i64 8
+  %mem = getelementptr inbounds nuw i8, ptr %map, i64 8
   %0 = load ptr, ptr %mem, align 8
   %conv = zext i32 %new_tablelen to i64
   %call = tail call ptr @nghttp2_mem_calloc(ptr noundef %0, i64 noundef %conv, i64 noundef 16) #12
@@ -312,7 +312,7 @@ entry:
   br i1 %cmp, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %1 = load i32, ptr %tablelen, align 8
   %cmp221.not = icmp eq i32 %1, 0
   br i1 %cmp221.not, label %for.end, label %for.body.lr.ph
@@ -327,20 +327,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = phi i32 [ %1, %for.body.lr.ph ], [ %11, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %map, align 8
-  %arrayidx = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %3, i64 %indvars.iv
-  %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %3, i64 %indvars.iv
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %4, null
   br i1 %cmp4, label %for.inc, label %if.end7
 
 if.end7:                                          ; preds = %for.body
   %5 = load i32, ptr %arrayidx, align 8
-  %key = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %key = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %6 = load i32, ptr %key, align 4
   %shr.i.i = lshr i32 %5, %sub.i.i
   %conv.i.i = zext i32 %shr.i.i to i64
-  %arrayidx22.i = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %call, i64 %conv.i.i
-  %data123.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 8
+  %arrayidx22.i = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %call, i64 %conv.i.i
+  %data123.i = getelementptr inbounds nuw i8, ptr %arrayidx22.i, i64 8
   %7 = load ptr, ptr %data123.i, align 8
   %cmp24.i = icmp eq ptr %7, null
   br i1 %cmp24.i, label %insert.exit.thread, label %if.end.i
@@ -352,7 +352,7 @@ insert.exit.thread:                               ; preds = %if.end9.i, %if.end7
   %arrayidx.lcssa.i = phi ptr [ %arrayidx22.i, %if.end7 ], [ %arrayidx.i, %if.end9.i ]
   %data1.lcssa.i = phi ptr [ %data123.i, %if.end7 ], [ %data1.i, %if.end9.i ]
   store i32 %hash.addr.0.lcssa.i, ptr %arrayidx.lcssa.i, align 8
-  %key2.i.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.i, i64 4
+  %key2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.lcssa.i, i64 4
   store i32 %key.addr.0.lcssa.i, ptr %key2.i.i, align 4
   store ptr %data.addr.0.lcssa.i, ptr %data1.lcssa.i, align 8
   %.pre = load i32, ptr %tablelen, align 8
@@ -373,7 +373,7 @@ if.end.i:                                         ; preds = %if.end7, %if.end9.i
   %sub.i11.i = sub nsw i64 %idx.029.i, %conv.i.i.i
   %and.i.i = and i64 %sub.i11.i, %conv.i12.i
   %cmp3.i = icmp ugt i64 %d.028.i, %and.i.i
-  %key1.i.i = getelementptr inbounds i8, ptr %arrayidx30.i, i64 4
+  %key1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx30.i, i64 4
   %9 = load i32, ptr %key1.i.i, align 4
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i
 
@@ -395,8 +395,8 @@ if.end9.i:                                        ; preds = %if.else.i, %if.then
   %inc.i = add nuw nsw i64 %d.1.i, 1
   %add.i = add nuw nsw i64 %idx.029.i, 1
   %and.i = and i64 %add.i, %conv.i12.i
-  %arrayidx.i = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %call, i64 %and.i
-  %data1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %call, i64 %and.i
+  %data1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %10 = load ptr, ptr %data1.i, align 8
   %cmp.i = icmp eq ptr %10, null
   br i1 %cmp.i, label %insert.exit.thread, label %if.end.i
@@ -417,7 +417,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %14 = load ptr, ptr %map, align 8
   tail call void @nghttp2_mem_free(ptr noundef %13, ptr noundef %14) #12
   store i32 %new_tablelen, ptr %tablelen, align 8
-  %tablelenbits = getelementptr inbounds i8, ptr %map, i64 28
+  %tablelenbits = getelementptr inbounds nuw i8, ptr %map, i64 28
   store i32 %new_tablelenbits, ptr %tablelenbits, align 4
   store ptr %call, ptr %map, align 8
   br label %return
@@ -430,26 +430,26 @@ return:                                           ; preds = %entry, %for.end
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @nghttp2_map_find(ptr nocapture noundef readonly %map, i32 noundef %key) local_unnamed_addr #6 {
 entry:
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %mul.i = mul i32 %key, -1640531527
-  %tablelenbits = getelementptr inbounds i8, ptr %map, i64 28
+  %tablelenbits = getelementptr inbounds nuw i8, ptr %map, i64 28
   %1 = load i32, ptr %tablelenbits, align 4
   %sub.i = sub i32 32, %1
   %shr.i = lshr i32 %mul.i, %sub.i
   %conv.i = zext i32 %shr.i to i64
   %2 = load ptr, ptr %map, align 8
-  %data16 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %2, i64 %conv.i, i32 2
+  %data16 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %2, i64 %conv.i, i32 2
   %3 = load ptr, ptr %data16, align 8
   %cmp217 = icmp eq ptr %3, null
   br i1 %cmp217, label %return, label %lor.lhs.false.lr.ph
 
 lor.lhs.false.lr.ph:                              ; preds = %if.end
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %4 = load i32, ptr %tablelen, align 8
   %sub1.i = add i32 %4, -1
   %conv.i14 = zext i32 %sub1.i to i64
@@ -469,7 +469,7 @@ if.end7:                                          ; preds = %lor.lhs.false.lr.ph
   %idx.01830 = phi i64 [ %conv.i, %lor.lhs.false.lr.ph ], [ %and, %lor.lhs.false ]
   %d.01929 = phi i64 [ 0, %lor.lhs.false.lr.ph ], [ %inc, %lor.lhs.false ]
   %5 = phi ptr [ %3, %lor.lhs.false.lr.ph ], [ %7, %lor.lhs.false ]
-  %key8 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %2, i64 %idx.01830, i32 1
+  %key8 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %2, i64 %idx.01830, i32 1
   %6 = load i32, ptr %key8, align 4
   %cmp9 = icmp eq i32 %6, %key
   br i1 %cmp9, label %return, label %if.end12
@@ -477,8 +477,8 @@ if.end7:                                          ; preds = %lor.lhs.false.lr.ph
 if.end12:                                         ; preds = %if.end7
   %add = add nuw nsw i64 %idx.01830, 1
   %and = and i64 %add, %conv.i14
-  %arrayidx = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %2, i64 %and
-  %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %2, i64 %and
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %data, align 8
   %cmp2 = icmp eq ptr %7, null
   br i1 %cmp2, label %return, label %lor.lhs.false
@@ -491,27 +491,27 @@ return:                                           ; preds = %lor.lhs.false, %if.
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture noundef %map, i32 noundef %key) local_unnamed_addr #7 {
 entry:
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %mul.i = mul i32 %key, -1640531527
-  %tablelenbits = getelementptr inbounds i8, ptr %map, i64 28
+  %tablelenbits = getelementptr inbounds nuw i8, ptr %map, i64 28
   %1 = load i32, ptr %tablelenbits, align 4
   %sub.i = sub i32 32, %1
   %shr.i = lshr i32 %mul.i, %sub.i
   %conv.i = zext i32 %shr.i to i64
   %2 = load ptr, ptr %map, align 8
-  %arrayidx45 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %2, i64 %conv.i
-  %data46 = getelementptr inbounds i8, ptr %arrayidx45, i64 8
+  %arrayidx45 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %2, i64 %conv.i
+  %data46 = getelementptr inbounds nuw i8, ptr %arrayidx45, i64 8
   %3 = load ptr, ptr %data46, align 8
   %cmp247 = icmp eq ptr %3, null
   br i1 %cmp247, label %return, label %lor.lhs.false.lr.ph
 
 lor.lhs.false.lr.ph:                              ; preds = %if.end
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %4 = load i32, ptr %tablelen, align 8
   %sub1.i = add i32 %4, -1
   %conv.i31 = zext i32 %sub1.i to i64
@@ -530,7 +530,7 @@ lor.lhs.false:                                    ; preds = %lor.lhs.false.lr.ph
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %key8 = getelementptr inbounds i8, ptr %arrayidx50, i64 4
+  %key8 = getelementptr inbounds nuw i8, ptr %arrayidx50, i64 4
   %5 = load i32, ptr %key8, align 4
   %cmp9 = icmp eq i32 %5, %key
   br i1 %cmp9, label %if.then10, label %if.end34
@@ -543,8 +543,8 @@ if.then10:                                        ; preds = %if.end7
   %conv = zext i32 %sub to i64
   %and = and i64 %add, %conv
   %7 = load ptr, ptr %map, align 8
-  %arrayidx1451 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %7, i64 %and
-  %data1552 = getelementptr inbounds i8, ptr %arrayidx1451, i64 8
+  %arrayidx1451 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %7, i64 %and
+  %data1552 = getelementptr inbounds nuw i8, ptr %arrayidx1451, i64 8
   %8 = load ptr, ptr %data1552, align 8
   %cmp1653 = icmp eq ptr %8, null
   br i1 %cmp1653, label %for.end, label %lor.lhs.false18
@@ -572,7 +572,7 @@ if.end25:                                         ; preds = %lor.lhs.false18
   %arrayidx27 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %10, i64 %didx.055
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx27, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx1456, i64 16, i1 false)
   store i32 0, ptr %arrayidx1456, align 8
-  %key2.i39 = getelementptr inbounds i8, ptr %arrayidx1456, i64 4
+  %key2.i39 = getelementptr inbounds nuw i8, ptr %arrayidx1456, i64 4
   store i32 0, ptr %key2.i39, align 4
   store ptr null, ptr %data1557, align 8
   %add28 = add nuw nsw i64 %idx.154, 1
@@ -581,8 +581,8 @@ if.end25:                                         ; preds = %lor.lhs.false18
   %conv31 = zext i32 %sub30 to i64
   %and32 = and i64 %add28, %conv31
   %13 = load ptr, ptr %map, align 8
-  %arrayidx14 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %13, i64 %and32
-  %data15 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
+  %arrayidx14 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %13, i64 %and32
+  %data15 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
   %14 = load ptr, ptr %data15, align 8
   %cmp16 = icmp eq ptr %14, null
   br i1 %cmp16, label %for.end, label %lor.lhs.false18
@@ -597,8 +597,8 @@ if.end34:                                         ; preds = %if.end7
   %inc = add nuw nsw i64 %d.049, 1
   %add35 = add nuw nsw i64 %idx.048, 1
   %and39 = and i64 %add35, %conv.i31
-  %arrayidx = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %2, i64 %and39
-  %data = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %2, i64 %and39
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %16 = load ptr, ptr %data, align 8
   %cmp2 = icmp eq ptr %16, null
   br i1 %cmp2, label %return, label %lor.lhs.false
@@ -614,7 +614,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @nghttp2_map_clear(ptr nocapture noundef %map) local_unnamed_addr #9 {
 entry:
-  %tablelen = getelementptr inbounds i8, ptr %map, i64 24
+  %tablelen = getelementptr inbounds nuw i8, ptr %map, i64 24
   %0 = load i32, ptr %tablelen, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -624,7 +624,7 @@ if.end:                                           ; preds = %entry
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 4
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %mul, i1 false)
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   store i64 0, ptr %size, align 8
   br label %return
 
@@ -638,7 +638,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @nghttp2_map_size(ptr nocapture noundef readonly %map) local_unnamed_addr #11 {
 entry:
-  %size = getelementptr inbounds i8, ptr %map, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %map, i64 16
   %0 = load i64, ptr %size, align 8
   ret i64 %0
 }

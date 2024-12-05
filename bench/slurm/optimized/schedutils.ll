@@ -19,7 +19,7 @@ define i32 @str_to_cnt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str, i64 2)
   %.not = icmp eq i32 %bcmp, 0
   %spec.select.idx = select i1 %.not, i64 2, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %0, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   br label %8
 
 8:                                                ; preds = %7, %1

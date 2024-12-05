@@ -184,12 +184,12 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv(
   br i1 %13, label %18, label %29
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %15, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 18
   %20 = load i16, ptr %19, align 2
-  %21 = getelementptr inbounds i8, ptr %15, i64 30
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 30
   %22 = load i16, ptr %21, align 2
   %23 = or i16 %20, %22
-  %24 = getelementptr inbounds i8, ptr %15, i64 42
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %25 = load i16, ptr %24, align 2
   %26 = or i16 %23, %25
   %27 = or i16 %26, %17
@@ -201,13 +201,13 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv(
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %15, i64 18
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 18
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, 6
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %15, i64 30
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 30
   %37 = load i16, ptr %36, align 2
   %38 = icmp eq i16 %37, 6
   br label %.loopexit
@@ -232,7 +232,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface9isRegularEv(
 
 51:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %52 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %50, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %50, i64 %indvars.iv
   %53 = load i16, ptr %52, align 4
   %54 = and i16 %53, 2
   %.not20 = icmp eq i16 %54, 0
@@ -383,9 +383,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %36 = phi ptr [ %52, %_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface36sharpenBySdcVtxBoundaryInterpolationEPNS1_16FaceVertexSubsetERKNS1_10FaceVertexE.exit ], [ %32, %_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %40, i64 %indvars.iv
   %42 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetVertexSubsetEPNS1_16FaceVertexSubsetE(ptr noundef nonnull align 8 dereferenceable(224) %39, ptr noundef %41)
   %43 = load i16, ptr %41, align 4
   %44 = and i16 %43, 3
@@ -573,11 +573,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface13preInitializeERKNS1_12FaceTopologyEPKi.
   %.029 = phi ptr [ %2, %.lr.ph ], [ %80, %_ZNK10OpenSubdiv6v3_6_03Bfr16FaceVertexSubset20ShapeMatchesSupersetERKS2_.exit.thread ]
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %37, align 8
-  %44 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %45, i64 %indvars.iv
   %47 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr noundef nonnull align 8 dereferenceable(224) %42, ptr noundef %46, ptr noundef %.029, ptr noundef nonnull align 4 dereferenceable(12) %44)
   %48 = load i16, ptr %46, align 4
   %49 = and i16 %48, 3
@@ -899,7 +899,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit.us: ; pr
 45:                                               ; preds = %44
   %46 = shl nuw nsw i64 %indvars.iv93, 1
   %47 = or disjoint i64 %46, 1
-  %48 = getelementptr inbounds i16, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw i16, ptr %32, i64 %47
   %49 = load i16, ptr %48, align 2
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
@@ -1094,7 +1094,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20GetFaceIndexAtCornerEiPKi.exit: ; preds
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit: ; preds = %122
   %124 = shl nuw nsw i64 %indvars.iv, 1
   %125 = or disjoint i64 %124, 1
-  %126 = getelementptr inbounds i16, ptr %32, i64 %125
+  %126 = getelementptr inbounds nuw i16, ptr %32, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = icmp slt i16 %127, 0
   br i1 %128, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex24FaceIndicesMatchAtCornerEiiPKi.exit.thread.i
@@ -1403,8 +1403,8 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit40.preheader: ; p
   br i1 %or.cond26.us, label %126, label %122
 
 122:                                              ; preds = %.lr.ph.split.us
-  %.idx = shl nsw i64 %indvars.iv73, 3
-  %123 = getelementptr inbounds i8, ptr %114, i64 %.idx
+  %.idx = shl nuw nsw i64 %indvars.iv73, 3
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx
   %124 = load float, ptr %123, align 4
   %125 = fcmp olt float %.04369.us, %124
   %.sroa.speculated.us = select i1 %125, float %124, float %.04369.us
@@ -1420,7 +1420,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit40: ; preds = %_Z
   %indvars.iv = phi i64 [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit40.preheader ], [ %indvars.iv.next, %135 ]
   %.04369 = phi float [ 0.000000e+00, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit40.preheader ], [ %.1, %135 ]
   %127 = shl nuw nsw i64 %indvars.iv, 1
-  %128 = getelementptr inbounds i16, ptr %109, i64 %127
+  %128 = getelementptr inbounds nuw i16, ptr %109, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = icmp slt i16 %129, 0
   %.not24 = icmp eq i64 %indvars.iv, %116
@@ -1431,7 +1431,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit40: ; preds = %_Z
   br i1 %or.cond26, label %135, label %131
 
 131:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit40
-  %132 = getelementptr inbounds float, ptr %114, i64 %127
+  %132 = getelementptr inbounds nuw float, ptr %114, i64 %127
   %133 = load float, ptr %132, align 4
   %134 = fcmp olt float %.04369, %133
   %.sroa.speculated = select i1 %134, float %133, float %.04369
@@ -1535,9 +1535,9 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface5printEb(ptr nocapture noun
   %.03457 = phi ptr [ %55, %.lr.ph59 ], [ %119, %._crit_edge55 ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %60, i64 %indvars.iv64
+  %61 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %60, i64 %indvars.iv64
   %62 = load ptr, ptr %56, align 8
-  %63 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %62, i64 %indvars.iv64
+  %63 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %62, i64 %indvars.iv64
   %64 = trunc nuw nsw i64 %indvars.iv64 to i32
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %64)
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 2

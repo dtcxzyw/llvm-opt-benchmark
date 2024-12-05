@@ -86,7 +86,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
   br i1 %11, label %180, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(i64 noundef %0, i64 noundef %1, i32 noundef %2) #8
   %16 = icmp eq i32 %15, 0
@@ -110,7 +110,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
   br i1 %25, label %42, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %24, i64 60
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 60
   %28 = load i16, ptr %27, align 4
   switch i16 %28, label %41 [
     i16 4454, label %29
@@ -118,19 +118,19 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
   ]
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %24, i64 62
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 62
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, 9
   br i1 %32, label %33, label %41
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %24, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %35 = load i8, ptr %34, align 8
   %36 = icmp ult i8 %35, 6
   br i1 %36, label %50, label %41
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %24, i64 62
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 62
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %39, -31542
   br i1 %40, label %50, label %41
@@ -141,7 +141,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
 
 42:                                               ; preds = %41, %23
   %43 = load ptr, ptr @mtrr_if, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %53, label %47
@@ -205,7 +205,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
   %79 = phi i32 [ 0, %74 ], [ %144, %142 ]
   %80 = phi i32 [ -1, %74 ], [ %143, %142 ]
   %81 = load ptr, ptr @mtrr_if, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   call void %83(i32 noundef %79, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %84 = load i64, ptr %8, align 8
@@ -303,7 +303,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
 .loopexit:                                        ; preds = %142, %71
   %147 = phi i32 [ -1, %71 ], [ %143, %142 ]
   %148 = load ptr, ptr @mtrr_if, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
   %151 = call i32 %150(i64 noundef %0, i64 noundef %1, i32 noundef %147) #8
   %152 = icmp sgt i32 %151, -1
@@ -312,14 +312,14 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
 153:                                              ; preds = %.loopexit
   %154 = trunc nuw nsw i32 %2 to i8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  %155 = getelementptr inbounds i8, ptr %6, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %155, align 8, !annotation !5
   store i64 %0, ptr %6, align 8
-  %156 = getelementptr inbounds i8, ptr %6, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %6, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %151, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %6, i64 20
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 %154, ptr %158, align 4
   %159 = call i32 @stop_machine_cpuslocked(ptr noundef nonnull @mtrr_rendezvous_handler, ptr noundef nonnull %6, ptr noundef nonnull @__cpu_online_mask) #8
   call void @generic_rebuild_map() #8
@@ -347,7 +347,7 @@ define dso_local i32 @mtrr_add_page(i64 noundef %0, i64 noundef %1, i32 noundef 
 
 173:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  %174 = getelementptr inbounds i8, ptr %5, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %147, ptr %174, align 8
   %175 = call i32 @stop_machine_cpuslocked(ptr noundef nonnull @mtrr_rendezvous_handler, ptr noundef nonnull %5, ptr noundef nonnull @__cpu_online_mask) #8
@@ -465,7 +465,7 @@ define dso_local noundef range(i32 -22, 2147483647) i32 @mtrr_del_page(i32 nound
 .preheader:                                       ; preds = %13, %24
   %15 = phi i32 [ %25, %24 ], [ 0, %13 ]
   %16 = load ptr, ptr @mtrr_if, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   call void %18(i32 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %19 = load i64, ptr %6, align 8
@@ -500,7 +500,7 @@ define dso_local noundef range(i32 -22, 2147483647) i32 @mtrr_del_page(i32 nound
 
 35:                                               ; preds = %.thread6
   %36 = load ptr, ptr @mtrr_if, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   call void %38(i32 noundef %31, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #8
   %39 = load i64, ptr %7, align 8
@@ -530,7 +530,7 @@ define dso_local noundef range(i32 -22, 2147483647) i32 @mtrr_del_page(i32 nound
 
 53:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  %54 = getelementptr inbounds i8, ptr %4, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 %31, ptr %54, align 8
   %55 = call i32 @stop_machine_cpuslocked(ptr noundef nonnull @mtrr_rendezvous_handler, ptr noundef nonnull %4, ptr noundef nonnull @__cpu_online_mask) #8
@@ -897,14 +897,14 @@ declare dso_local i32 @stop_machine_cpuslocked(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @mtrr_rendezvous_handler(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr @mtrr_if, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i8, ptr %10, align 4
   tail call void %4(i32 noundef %6, i64 noundef %7, i64 noundef %9, i8 noundef zeroext %11) #8
   ret i32 0

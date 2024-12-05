@@ -50,7 +50,7 @@ GifBitSize.exit:                                  ; preds = %3
 10:                                               ; preds = %7
   %11 = zext nneg i32 %0 to i64
   %12 = tail call noalias ptr @calloc(i64 noundef %11, i64 noundef 3) #13
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %16
@@ -73,9 +73,9 @@ GifBitSize.exit:                                  ; preds = %3
   br i1 %or.cond.i23, label %17, label %GifBitSize.exit24, !llvm.loop !6
 
 GifBitSize.exit24:                                ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.0.i21, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 0, ptr %22, align 8
   %.not20 = icmp eq ptr %1, null
   br i1 %.not20, label %25, label %23
@@ -108,7 +108,7 @@ define hidden void @GifFreeMapObject(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #14
   tail call void @free(ptr noundef nonnull %0) #14
@@ -147,7 +147,7 @@ GifBitSize.exit.i:                                ; preds = %7
 14:                                               ; preds = %11
   %15 = zext nneg i32 %6 to i64
   %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 3) #13
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %19, label %20
@@ -170,12 +170,12 @@ GifBitSize.exit.i:                                ; preds = %7
   br i1 %or.cond.i23.i, label %21, label %GifMakeMapObject.exit, !llvm.loop !6
 
 GifMakeMapObject.exit:                            ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %12, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %.0.i21.i, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 0, ptr %26, align 8
   %27 = icmp sgt i32 %4, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %28, align 8
   br i1 %27, label %.lr.ph, label %GifMakeMapObject.exit..preheader91_crit_edge
 
@@ -189,7 +189,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 
 .preheader91:                                     ; preds = %35, %GifMakeMapObject.exit..preheader91_crit_edge
   %.pre-phi = phi i64 [ %.pre136, %GifMakeMapObject.exit..preheader91_crit_edge ], [ %29, %35 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = getelementptr %struct.GifColorType, ptr %.pre, i64 %.pre-phi
   %32 = getelementptr i8, ptr %31, i64 -3
   %33 = load i8, ptr %32, align 1
@@ -198,8 +198,8 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds %struct.GifColorType, ptr %16, i64 %indvars.iv
-  %37 = getelementptr inbounds %struct.GifColorType, ptr %.pre, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.GifColorType, ptr %16, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %struct.GifColorType, ptr %.pre, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) %37, i64 3, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = icmp samesign ult i64 %indvars.iv.next, %29
@@ -240,7 +240,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
   br i1 %54, label %.preheader90.lr.ph, label %._crit_edge108
 
 .preheader90.lr.ph:                               ; preds = %.critedge
-  %55 = getelementptr inbounds i8, ptr %1, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.preheader90
 
 .preheader90:                                     ; preds = %.preheader90.lr.ph, %71
@@ -253,13 +253,13 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 
 .lr.ph105:                                        ; preds = %.preheader90
   %58 = load ptr, ptr %30, align 8
-  %59 = getelementptr inbounds %struct.GifColorType, ptr %.pre135, i64 %indvars.iv125
+  %59 = getelementptr inbounds nuw %struct.GifColorType, ptr %.pre135, i64 %indvars.iv125
   %wide.trip.count = zext nneg i32 %56 to i64
   br label %60
 
 60:                                               ; preds = %.lr.ph105, %63
   %indvars.iv121 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next122, %63 ]
-  %61 = getelementptr inbounds %struct.GifColorType, ptr %58, i64 %indvars.iv121
+  %61 = getelementptr inbounds nuw %struct.GifColorType, ptr %58, i64 %indvars.iv121
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %61, ptr noundef nonnull dereferenceable(3) %59, i64 3)
   %62 = icmp eq i32 %bcmp, 0
   br i1 %62, label %64, label %63
@@ -276,7 +276,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 ._crit_edge:                                      ; preds = %63, %.preheader90
   %66 = sext i32 %.177106 to i64
   %67 = getelementptr inbounds %struct.GifColorType, ptr %16, i64 %66
-  %68 = getelementptr inbounds %struct.GifColorType, ptr %.pre135, i64 %indvars.iv125
+  %68 = getelementptr inbounds nuw %struct.GifColorType, ptr %.pre135, i64 %indvars.iv125
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %67, ptr noundef nonnull align 1 dereferenceable(3) %68, i64 3, i1 false)
   %69 = add nsw i32 %.177106, 1
   %70 = trunc i32 %.177106 to i8
@@ -285,7 +285,7 @@ GifMakeMapObject.exit..preheader91_crit_edge:     ; preds = %GifMakeMapObject.ex
 71:                                               ; preds = %64, %._crit_edge
   %.sink = phi i8 [ %65, %64 ], [ %70, %._crit_edge ]
   %.2 = phi i32 [ %.177106, %64 ], [ %69, %._crit_edge ]
-  %72 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv125
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv125
   store i8 %.sink, ptr %72, align 1
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %73 = load i32, ptr %1, align 8
@@ -367,26 +367,26 @@ declare ptr @openbsd_reallocarray(ptr noundef, i64 noundef, i64 noundef) local_u
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @GifApplyTranslation(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = mul nsw i32 %6, %4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
   %16 = load i8, ptr %15, align 1
   store i8 %16, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -428,12 +428,12 @@ define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr nocapture noundef %0
   store i32 %19, ptr %0, align 4
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds %struct.ExtensionBlock, ptr %storemerge27, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %2, ptr %22, align 8
   store i32 %3, ptr %21, align 8
   %23 = sext i32 %3 to i64
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #12
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
   br i1 %26, label %30, label %27
@@ -465,10 +465,10 @@ define hidden void @GifFreeExtensions(ptr nocapture noundef %0, ptr nocapture no
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.011 = phi ptr [ %9, %.lr.ph ], [ %3, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.011, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #14
-  %9 = getelementptr inbounds i8, ptr %.011, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %10 = load ptr, ptr %1, align 8
   %11 = load i32, ptr %0, align 4
   %12 = sext i32 %11 to i64
@@ -493,25 +493,25 @@ define hidden void @FreeLastSavedImage(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %GifFreeExtensions.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %GifFreeExtensions.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.SavedImage, ptr %5, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %17, label %GifFreeMapObject.exit
 
 GifFreeMapObject.exit:                            ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #14
   tail call void @free(ptr noundef nonnull %14) #14
@@ -519,7 +519,7 @@ GifFreeMapObject.exit:                            ; preds = %7
   br label %17
 
 17:                                               ; preds = %GifFreeMapObject.exit, %7
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not14 = icmp eq ptr %19, null
   br i1 %.not14, label %21, label %20
@@ -529,8 +529,8 @@ GifFreeMapObject.exit:                            ; preds = %7
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = getelementptr inbounds i8, ptr %12, i64 40
-  %23 = getelementptr inbounds i8, ptr %12, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %GifFreeExtensions.exit, label %.preheader.i
@@ -542,10 +542,10 @@ GifFreeMapObject.exit:                            ; preds = %7
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi ptr [ %30, %.lr.ph.i ], [ %24, %.preheader.i ]
-  %28 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #14
-  %30 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %31 = load ptr, ptr %23, align 8
   %32 = load i32, ptr %22, align 4
   %33 = sext i32 %32 to i64
@@ -566,13 +566,13 @@ GifFreeExtensions.exit:                           ; preds = %._crit_edge.i, %21,
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @GifMakeSavedImage(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 1
   %10 = sext i32 %9 to i64
@@ -592,7 +592,7 @@ define hidden ptr @GifMakeSavedImage(ptr noundef %0, ptr noundef readonly %1) lo
 
 16:                                               ; preds = %.thread, %13
   %storemerge49 = phi ptr [ %11, %.thread ], [ %14, %13 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 8
@@ -603,14 +603,14 @@ define hidden ptr @GifMakeSavedImage(ptr noundef %0, ptr noundef readonly %1) lo
 
 22:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not46 = icmp eq ptr %24, null
   br i1 %.not46, label %54, label %25
 
 25:                                               ; preds = %22
   %26 = load i32, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
   br label %29
 
@@ -635,7 +635,7 @@ GifBitSize.exit.i:                                ; preds = %29
 36:                                               ; preds = %33
   %37 = zext nneg i32 %26 to i64
   %38 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 3) #13
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %41, label %42
@@ -658,9 +658,9 @@ GifBitSize.exit.i:                                ; preds = %29
   br i1 %or.cond.i23.i, label %43, label %GifBitSize.exit24.i, !llvm.loop !6
 
 GifBitSize.exit24.i:                              ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %34, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %.0.i21.i, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %34, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %48, align 8
   %.not20.i = icmp eq ptr %28, null
   br i1 %.not20.i, label %GifMakeMapObject.exit, label %49
@@ -671,25 +671,25 @@ GifBitSize.exit24.i:                              ; preds = %43
   br label %GifMakeMapObject.exit
 
 GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i, %49
-  %51 = getelementptr inbounds i8, ptr %21, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %34, ptr %51, align 8
   br label %54
 
 52:                                               ; preds = %41, %GifBitSize.exit.i, %33
-  %53 = getelementptr inbounds i8, ptr %21, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr null, ptr %53, align 8
   tail call void @FreeLastSavedImage(ptr noundef %0)
   br label %89
 
 54:                                               ; preds = %GifMakeMapObject.exit, %22
-  %55 = getelementptr inbounds i8, ptr %1, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = mul nsw i32 %58, %56
   %60 = sext i32 %59 to i64
   %61 = tail call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %60, i64 noundef 1) #14
-  %62 = getelementptr inbounds i8, ptr %21, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %61, ptr %62, align 8
   %63 = icmp eq ptr %61, null
   br i1 %63, label %64, label %65
@@ -699,7 +699,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   br label %89
 
 65:                                               ; preds = %54
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %55, align 4
   %69 = sext i32 %68 to i64
@@ -707,17 +707,17 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   %71 = sext i32 %70 to i64
   %72 = mul nsw i64 %71, %69
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %67, i64 %72, i1 false)
-  %73 = getelementptr inbounds i8, ptr %1, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %74 = load ptr, ptr %73, align 8
   %.not47 = icmp eq ptr %74, null
   br i1 %.not47, label %89, label %75
 
 75:                                               ; preds = %65
-  %76 = getelementptr inbounds i8, ptr %1, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %77 = load i32, ptr %76, align 8
   %78 = sext i32 %77 to i64
   %79 = tail call ptr @openbsd_reallocarray(ptr noundef null, i64 noundef %78, i64 noundef 24) #14
-  %80 = getelementptr inbounds i8, ptr %21, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %79, ptr %80, align 8
   %81 = icmp eq ptr %79, null
   br i1 %81, label %82, label %83
@@ -752,26 +752,26 @@ define hidden void @GifFreeSavedImages(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %39, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %39, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %GifFreeExtensions.exit
   %.022 = phi ptr [ %33, %GifFreeExtensions.exit ], [ %5, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.022, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %GifFreeMapObject.exit
 
 GifFreeMapObject.exit:                            ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #14
   tail call void @free(ptr noundef nonnull %11) #14
@@ -779,7 +779,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   br label %14
 
 14:                                               ; preds = %GifFreeMapObject.exit, %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.022, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %18, label %17
@@ -789,8 +789,8 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = getelementptr inbounds i8, ptr %.022, i64 40
-  %20 = getelementptr inbounds i8, ptr %.022, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.022, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.022, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %GifFreeExtensions.exit, label %.preheader.i
@@ -802,10 +802,10 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.011.i = phi ptr [ %27, %.lr.ph.i ], [ %21, %.preheader.i ]
-  %25 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #14
-  %27 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %28 = load ptr, ptr %20, align 8
   %29 = load i32, ptr %19, align 4
   %30 = sext i32 %29 to i64
@@ -821,7 +821,7 @@ GifFreeMapObject.exit:                            ; preds = %.lr.ph
   br label %GifFreeExtensions.exit
 
 GifFreeExtensions.exit:                           ; preds = %18, %._crit_edge.i
-  %33 = getelementptr inbounds i8, ptr %.022, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.022, i64 56
   %34 = load ptr, ptr %4, align 8
   %35 = load i32, ptr %7, align 8
   %36 = sext i32 %35 to i64

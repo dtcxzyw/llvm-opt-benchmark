@@ -35,17 +35,17 @@ define void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 dereferenceable(
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 8
   store i32 %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %8, ptr %9, align 4
   %10 = load i32, ptr %6, align 8
   %11 = icmp ugt i32 %8, %10
   br i1 %11, label %12, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -70,17 +70,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %17, %4
   br i1 %.not.i.i, label %_ZN11BigUnsignedaSERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %24
 
 24:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds i64, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.i
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds i64, ptr %28, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i.i
   store i64 %27, ptr %29, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %30 = load i32, ptr %9, align 4
@@ -94,24 +94,24 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %24, %_ZN15Numberlik
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %2, ptr %6, align 4
   %7 = zext i32 %2 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %_ZN11BigUnsignedC2EPKmj.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %4 ]
-  %11 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i
   %12 = load i64, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i
   store i64 %12, ptr %14, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %15 = load i32, ptr %6, align 4
@@ -131,7 +131,7 @@ _ZN15NumberlikeArrayImEC2EPKmj.exit.i:            ; preds = %.lr.ph.i.i
   %indvars.iv.i3.i = phi i64 [ %16, %.lr.ph.i2.i ], [ %indvars.iv.next.i4.i, %24 ]
   %indvars.iv.next.i4.i = add nsw i64 %indvars.iv.i3.i, -1
   %20 = and i64 %indvars.iv.next.i4.i, 4294967295
-  %21 = getelementptr inbounds i64, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %_ZN11BigUnsignedC2EPKmj.exit
@@ -196,31 +196,31 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %5, align 4
   store i32 %7, ptr %4, align 8
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN11BigUnsignedC2ERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i.i
   store i64 %16, ptr %18, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %19 = load i32, ptr %5, align 4
@@ -279,9 +279,9 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %25, %29
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Em(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -293,9 +293,9 @@ declare void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsignedC1Ej(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -307,9 +307,9 @@ declare void @_ZN11BigUnsignedC1Ej(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10BigIntegerC2Et(ptr noundef nonnull align 8 dereferenceable(24) %0, i16 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(16) %3, i16 noundef zeroext %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -323,7 +323,7 @@ declare void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(1
 define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %1, i64 0)
   store i32 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.abs.i64(i64 %1, i1 true)
   tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
   ret void
@@ -336,7 +336,7 @@ define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24)
   %4 = select i1 %.inv.i, i32 -1, i32 1
   %5 = select i1 %3, i32 0, i32 %4
   store i32 %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
   %8 = zext nneg i32 %7 to i64
   tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %8)
@@ -347,7 +347,7 @@ define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24)
 define void @_ZN10BigIntegerC2Es(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, i16 noundef signext %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %1, i16 0)
   store i32 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.v.i = tail call i16 @llvm.abs.i16(i16 %1, i1 false)
   %5 = zext i16 %.v.i to i64
   tail call void @_ZN11BigUnsignedC1Em(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
@@ -367,7 +367,7 @@ define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr nocapture noundef non
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %13 [
     i32 0, label %_ZNK10BigInteger26convertToUnsignedPrimitiveImEET_v.exit
@@ -375,7 +375,7 @@ define noundef i64 @_ZNK10BigInteger14toUnsignedLongEv(ptr nocapture noundef non
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %11, align 8
   br label %_ZNK10BigInteger26convertToUnsignedPrimitiveImEET_v.exit
@@ -404,7 +404,7 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr nocapture noundef nonn
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %16 [
     i32 0, label %_ZNK10BigInteger26convertToUnsignedPrimitiveIjEET_v.exit
@@ -412,7 +412,7 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr nocapture noundef nonn
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, 4294967296
@@ -446,7 +446,7 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr nocapture no
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %16 [
     i32 0, label %_ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit
@@ -454,7 +454,7 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr nocapture no
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, 65536
@@ -482,13 +482,13 @@ define noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZNK10
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIlmEET_v.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %_ZNK11BigUnsigned8getBlockEj.exit.i, label %17
 
 _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i32 %2, 1
@@ -521,13 +521,13 @@ define noundef i32 @_ZNK10BigInteger5toIntEv(ptr nocapture noundef nonnull reado
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIijEET_v.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %_ZNK11BigUnsigned8getBlockEj.exit.i, label %18
 
 _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i32 %2, 1
@@ -563,13 +563,13 @@ define noundef signext i16 @_ZNK10BigInteger7toShortEv(ptr nocapture noundef non
   br i1 %3, label %_ZNK10BigInteger24convertToSignedPrimitiveIstEET_v.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %_ZNK11BigUnsigned8getBlockEj.exit.i, label %18
 
 _ZNK11BigUnsigned8getBlockEj.exit.i:              ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i32 %2, 1
@@ -617,14 +617,14 @@ define noundef i32 @_ZNK10BigInteger9compareToERKS_(ptr noundef nonnull align 8 
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = tail call noundef i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %20
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = tail call noundef i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
   %17 = sub nsw i32 0, %16
   br label %20
@@ -653,7 +653,7 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
 
 8:                                                ; preds = %3
   store i32 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   invoke void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %10 unwind label %45
@@ -665,17 +665,17 @@ define void @_ZN10BigInteger3addERKS_S1_(ptr noundef nonnull align 8 dereference
 12:                                               ; preds = %10
   %13 = load i32, ptr %4, align 8
   store i32 %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %14, align 8
   %19 = icmp ugt i32 %16, %18
   br i1 %19, label %20, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -703,17 +703,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   br i1 %.not.i.i.i, label %_ZN10BigIntegeraSERKS_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv.i.i.i
   store i64 %35, ptr %37, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %38 = load i32, ptr %17, align 4
@@ -722,7 +722,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   br i1 %40, label %32, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %10
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_ZN10BigIntegerD2Ev.exit, label %44
@@ -734,7 +734,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
 45:                                               ; preds = %25, %8
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN10BigIntegerD2Ev.exit31, label %_ZN10BigIntegerD2Ev.exit31.sink.split
@@ -747,17 +747,17 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
 
 54:                                               ; preds = %50
   store i32 %53, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %57, ptr %58, align 4
   %59 = load i32, ptr %55, align 8
   %60 = icmp ugt i32 %57, %59
   br i1 %60, label %61, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %66, label %65
@@ -782,17 +782,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %66, %54
   br i1 %.not.i.i.i33, label %_ZN10BigIntegerD2Ev.exit, label %.lr.ph.i.i.i34
 
 .lr.ph.i.i.i34:                                   ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32
-  %71 = getelementptr inbounds i8, ptr %2, i64 16
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %73
 
 73:                                               ; preds = %73, %.lr.ph.i.i.i34
   %indvars.iv.i.i.i35 = phi i64 [ 0, %.lr.ph.i.i.i34 ], [ %indvars.iv.next.i.i.i36, %73 ]
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds i64, ptr %74, i64 %indvars.iv.i.i.i35
+  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv.i.i.i35
   %76 = load i64, ptr %75, align 8
   %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv.i.i.i35
+  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv.i.i.i35
   store i64 %76, ptr %78, align 8
   %indvars.iv.next.i.i.i36 = add nuw nsw i64 %indvars.iv.i.i.i35, 1
   %79 = load i32, ptr %58, align 4
@@ -806,17 +806,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i32:  ; preds = %66, %54
 
 84:                                               ; preds = %82
   store i32 %51, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %87, ptr %88, align 4
   %89 = load i32, ptr %85, align 8
   %90 = icmp ugt i32 %87, %89
   br i1 %90, label %91, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %96, label %95
@@ -841,17 +841,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
   br i1 %.not.i.i.i41, label %_ZN10BigIntegerD2Ev.exit, label %.lr.ph.i.i.i42
 
 .lr.ph.i.i.i42:                                   ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40
-  %101 = getelementptr inbounds i8, ptr %1, i64 16
-  %102 = getelementptr inbounds i8, ptr %0, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %103
 
 103:                                              ; preds = %103, %.lr.ph.i.i.i42
   %indvars.iv.i.i.i43 = phi i64 [ 0, %.lr.ph.i.i.i42 ], [ %indvars.iv.next.i.i.i44, %103 ]
   %104 = load ptr, ptr %101, align 8
-  %105 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv.i.i.i43
+  %105 = getelementptr inbounds nuw i64, ptr %104, i64 %indvars.iv.i.i.i43
   %106 = load i64, ptr %105, align 8
   %107 = load ptr, ptr %102, align 8
-  %108 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv.i.i.i43
+  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv.i.i.i43
   store i64 %106, ptr %108, align 8
   %indvars.iv.next.i.i.i44 = add nuw nsw i64 %indvars.iv.i.i.i43, 1
   %109 = load i32, ptr %88, align 4
@@ -865,15 +865,15 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
 
 114:                                              ; preds = %112
   store i32 %51, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 8
-  %117 = getelementptr inbounds i8, ptr %2, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %117)
   br label %_ZN10BigIntegerD2Ev.exit
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %1, i64 8
-  %120 = getelementptr inbounds i8, ptr %2, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %121 = tail call noundef i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %120)
   switch i32 %121, label %_ZN10BigIntegerD2Ev.exit [
     i32 0, label %122
@@ -883,21 +883,21 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i40:  ; preds = %96, %84
 
 122:                                              ; preds = %118
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = icmp eq ptr %123, %5
   br i1 %124, label %_ZN11BigUnsignedaSERKS_.exit, label %125
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %5, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %0, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %127, ptr %128, align 4
   %129 = load i32, ptr %123, align 8
   %130 = icmp ugt i32 %127, %129
   br i1 %130, label %131, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 131:                                              ; preds = %125
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %136, label %135
@@ -925,17 +925,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc48, %125
   br i1 %.not.i.i, label %_ZN11BigUnsignedaSERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
-  %141 = getelementptr inbounds i8, ptr %5, i64 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %143
 
 143:                                              ; preds = %143, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %143 ]
   %144 = load ptr, ptr %141, align 8
-  %145 = getelementptr inbounds i64, ptr %144, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv.i.i
   %146 = load i64, ptr %145, align 8
   %147 = load ptr, ptr %142, align 8
-  %148 = getelementptr inbounds i64, ptr %147, i64 %indvars.iv.i.i
+  %148 = getelementptr inbounds nuw i64, ptr %147, i64 %indvars.iv.i.i
   store i64 %146, ptr %148, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %149 = load i32, ptr %128, align 4
@@ -944,7 +944,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc48, %125
   br i1 %151, label %143, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %143, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %122
-  %152 = getelementptr inbounds i8, ptr %5, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %_ZN11BigUnsignedD2Ev.exit, label %155
@@ -960,7 +960,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
 156:                                              ; preds = %136
   %157 = landingpad { ptr, i32 }
           cleanup
-  %158 = getelementptr inbounds i8, ptr %5, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, null
   br i1 %160, label %_ZN10BigIntegerD2Ev.exit31, label %_ZN10BigIntegerD2Ev.exit31.sink.split
@@ -968,14 +968,14 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
 161:                                              ; preds = %118
   %162 = load i32, ptr %1, align 8
   store i32 %162, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %163, ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %120)
   br label %_ZN10BigIntegerD2Ev.exit
 
 164:                                              ; preds = %118
   %165 = load i32, ptr %2, align 8
   store i32 %165, ptr %0, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(16) %119)
   br label %_ZN10BigIntegerD2Ev.exit
 
@@ -1010,7 +1010,7 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
 
 8:                                                ; preds = %3
   store i32 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   invoke void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %10 unwind label %45
@@ -1022,17 +1022,17 @@ define void @_ZN10BigInteger8subtractERKS_S1_(ptr noundef nonnull align 8 derefe
 12:                                               ; preds = %10
   %13 = load i32, ptr %4, align 8
   store i32 %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %14, align 8
   %19 = icmp ugt i32 %16, %18
   br i1 %19, label %20, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -1060,17 +1060,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   br i1 %.not.i.i.i, label %_ZN10BigIntegeraSERKS_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv.i.i.i
   store i64 %35, ptr %37, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %38 = load i32, ptr %17, align 4
@@ -1079,7 +1079,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   br i1 %40, label %32, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %10
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_ZN10BigIntegerD2Ev.exit, label %44
@@ -1091,7 +1091,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
 45:                                               ; preds = %25, %8
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN10BigIntegerD2Ev.exit32, label %_ZN10BigIntegerD2Ev.exit32.sink.split
@@ -1102,17 +1102,17 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
   br i1 %52, label %53, label %83
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %56, ptr %57, align 4
   %58 = load i32, ptr %54, align 8
   %59 = icmp ugt i32 %56, %58
   br i1 %59, label %60, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %65, label %64
@@ -1137,17 +1137,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %65, %53
   br i1 %.not.i.i, label %_ZN11BigUnsignedaSERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
-  %70 = getelementptr inbounds i8, ptr %2, i64 16
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %72 ]
   %73 = load ptr, ptr %70, align 8
-  %74 = getelementptr inbounds i64, ptr %73, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %indvars.iv.i.i
   %75 = load i64, ptr %74, align 8
   %76 = load ptr, ptr %71, align 8
-  %77 = getelementptr inbounds i64, ptr %76, i64 %indvars.iv.i.i
+  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv.i.i
   store i64 %75, ptr %77, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %78 = load i32, ptr %57, align 4
@@ -1168,17 +1168,17 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %72, %_ZN15Numberlik
 
 86:                                               ; preds = %83
   store i32 %51, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %0, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %89, ptr %90, align 4
   %91 = load i32, ptr %87, align 8
   %92 = icmp ugt i32 %89, %91
   br i1 %92, label %93, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %0, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %98, label %97
@@ -1203,17 +1203,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
   br i1 %.not.i.i.i34, label %_ZN10BigIntegerD2Ev.exit, label %.lr.ph.i.i.i35
 
 .lr.ph.i.i.i35:                                   ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33
-  %103 = getelementptr inbounds i8, ptr %1, i64 16
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %105
 
 105:                                              ; preds = %105, %.lr.ph.i.i.i35
   %indvars.iv.i.i.i36 = phi i64 [ 0, %.lr.ph.i.i.i35 ], [ %indvars.iv.next.i.i.i37, %105 ]
   %106 = load ptr, ptr %103, align 8
-  %107 = getelementptr inbounds i64, ptr %106, i64 %indvars.iv.i.i.i36
+  %107 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv.i.i.i36
   %108 = load i64, ptr %107, align 8
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr inbounds i64, ptr %109, i64 %indvars.iv.i.i.i36
+  %110 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv.i.i.i36
   store i64 %108, ptr %110, align 8
   %indvars.iv.next.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i36, 1
   %111 = load i32, ptr %90, align 4
@@ -1227,15 +1227,15 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
 
 115:                                              ; preds = %114
   store i32 %51, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
-  %118 = getelementptr inbounds i8, ptr %2, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN11BigUnsigned3addERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %118)
   br label %_ZN10BigIntegerD2Ev.exit
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %1, i64 8
-  %121 = getelementptr inbounds i8, ptr %2, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %122 = tail call noundef i32 @_ZNK11BigUnsigned9compareToERKS_(ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(16) %121)
   switch i32 %122, label %_ZN10BigIntegerD2Ev.exit [
     i32 0, label %123
@@ -1245,21 +1245,21 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i33:  ; preds = %98, %86
 
 123:                                              ; preds = %119
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %125 = icmp eq ptr %124, %5
   br i1 %125, label %_ZN11BigUnsignedaSERKS_.exit49, label %126
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %5, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %128, ptr %129, align 4
   %130 = load i32, ptr %124, align 8
   %131 = icmp ugt i32 %128, %130
   br i1 %131, label %132, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i41
 
 132:                                              ; preds = %126
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %137, label %136
@@ -1287,17 +1287,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i41:    ; preds = %.noexc48, %126
   br i1 %.not.i.i42, label %_ZN11BigUnsignedaSERKS_.exit49, label %.lr.ph.i.i43
 
 .lr.ph.i.i43:                                     ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i41
-  %142 = getelementptr inbounds i8, ptr %5, i64 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %144
 
 144:                                              ; preds = %144, %.lr.ph.i.i43
   %indvars.iv.i.i44 = phi i64 [ 0, %.lr.ph.i.i43 ], [ %indvars.iv.next.i.i45, %144 ]
   %145 = load ptr, ptr %142, align 8
-  %146 = getelementptr inbounds i64, ptr %145, i64 %indvars.iv.i.i44
+  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %indvars.iv.i.i44
   %147 = load i64, ptr %146, align 8
   %148 = load ptr, ptr %143, align 8
-  %149 = getelementptr inbounds i64, ptr %148, i64 %indvars.iv.i.i44
+  %149 = getelementptr inbounds nuw i64, ptr %148, i64 %indvars.iv.i.i44
   store i64 %147, ptr %149, align 8
   %indvars.iv.next.i.i45 = add nuw nsw i64 %indvars.iv.i.i44, 1
   %150 = load i32, ptr %129, align 4
@@ -1306,7 +1306,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i41:    ; preds = %.noexc48, %126
   br i1 %152, label %144, label %_ZN11BigUnsignedaSERKS_.exit49, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit49:                   ; preds = %144, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i41, %123
-  %153 = getelementptr inbounds i8, ptr %5, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %_ZN11BigUnsignedD2Ev.exit, label %156
@@ -1322,7 +1322,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
 157:                                              ; preds = %137
   %158 = landingpad { ptr, i32 }
           cleanup
-  %159 = getelementptr inbounds i8, ptr %5, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %_ZN10BigIntegerD2Ev.exit32, label %_ZN10BigIntegerD2Ev.exit32.sink.split
@@ -1330,7 +1330,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
 162:                                              ; preds = %119
   %163 = load i32, ptr %1, align 8
   store i32 %163, ptr %0, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %120, ptr noundef nonnull align 8 dereferenceable(16) %121)
   br label %_ZN10BigIntegerD2Ev.exit
 
@@ -1338,7 +1338,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
   %166 = load i32, ptr %2, align 8
   %167 = sub nsw i32 0, %166
   store i32 %167, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsigned8subtractERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %120)
   br label %_ZN10BigIntegerD2Ev.exit
 
@@ -1367,7 +1367,7 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
 
 8:                                                ; preds = %3
   store i32 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   invoke void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %10 unwind label %45
@@ -1379,17 +1379,17 @@ define void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 derefe
 12:                                               ; preds = %10
   %13 = load i32, ptr %4, align 8
   store i32 %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 4
   %18 = load i32, ptr %14, align 8
   %19 = icmp ugt i32 %16, %18
   br i1 %19, label %20, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -1417,17 +1417,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   br i1 %.not.i.i.i, label %_ZN10BigIntegeraSERKS_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv.i.i.i
   store i64 %35, ptr %37, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %38 = load i32, ptr %17, align 4
@@ -1436,7 +1436,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %12
   br i1 %40, label %32, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %10
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %_ZN10BigIntegerD2Ev.exit, label %44
@@ -1448,7 +1448,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
 45:                                               ; preds = %25, %8
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN10BigIntegerD2Ev.exit20, label %_ZN10BigIntegerD2Ev.exit20.sink.split
@@ -1466,21 +1466,21 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %32, %_ZN15Numberlik
 56:                                               ; preds = %53, %50
   store i32 0, ptr %0, align 8
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = icmp eq ptr %57, %5
   br i1 %58, label %_ZN11BigUnsignedaSERKS_.exit, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %5, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %61, ptr %62, align 4
   %63 = load i32, ptr %57, align 8
   %64 = icmp ugt i32 %61, %63
   br i1 %64, label %65, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %70, label %69
@@ -1508,17 +1508,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc21, %59
   br i1 %.not.i.i, label %_ZN11BigUnsignedaSERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %77
 
 77:                                               ; preds = %77, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %77 ]
   %78 = load ptr, ptr %75, align 8
-  %79 = getelementptr inbounds i64, ptr %78, i64 %indvars.iv.i.i
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv.i.i
   %80 = load i64, ptr %79, align 8
   %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds i64, ptr %81, i64 %indvars.iv.i.i
+  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv.i.i
   store i64 %80, ptr %82, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %83 = load i32, ptr %62, align 4
@@ -1527,7 +1527,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc21, %59
   br i1 %85, label %77, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %77, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %56
-  %86 = getelementptr inbounds i8, ptr %5, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %_ZN10BigIntegerD2Ev.exit, label %89
@@ -1539,7 +1539,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %77, %_ZN15Numberlik
 90:                                               ; preds = %70
   %91 = landingpad { ptr, i32 }
           cleanup
-  %92 = getelementptr inbounds i8, ptr %5, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %_ZN10BigIntegerD2Ev.exit20, label %_ZN10BigIntegerD2Ev.exit20.sink.split
@@ -1548,9 +1548,9 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %77, %_ZN15Numberlik
   %96 = icmp eq i32 %51, %54
   %97 = select i1 %96, i32 1, i32 -1
   store i32 %97, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
-  %100 = getelementptr inbounds i8, ptr %2, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN11BigUnsigned8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(16) %100)
   br label %_ZN10BigIntegerD2Ev.exit
 
@@ -1593,30 +1593,30 @@ define void @_ZN10BigInteger19divideWithRemainderERKS_RS_(ptr noundef nonnull al
 
 14:                                               ; preds = %10
   store i32 %13, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 12
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
   store i32 %18, ptr %15, align 8
   %19 = zext i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 3
   %21 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #9
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %22, align 8
   %.not.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i, label %_ZN10BigIntegerC2ERKS_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   br label %25
 
 25:                                               ; preds = %25, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %25 ]
-  %26 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.i.i.i
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv.i.i.i
   store i64 %27, ptr %28, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %29 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %19
@@ -1648,21 +1648,21 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %25, %14
 
 40:                                               ; preds = %38
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = icmp eq ptr %41, %5
   br i1 %42, label %_ZN11BigUnsignedaSERKS_.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %5, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %2, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr %41, align 8
   %48 = icmp ugt i32 %45, %47
   br i1 %48, label %49, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %2, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -1690,17 +1690,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc, %43
   br i1 %.not.i.i, label %_ZN11BigUnsignedaSERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %61
 
 61:                                               ; preds = %61, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %61 ]
   %62 = load ptr, ptr %59, align 8
-  %63 = getelementptr inbounds i64, ptr %62, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv.i.i
   %64 = load i64, ptr %63, align 8
   %65 = load ptr, ptr %60, align 8
-  %66 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv.i.i
   store i64 %64, ptr %66, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %67 = load i32, ptr %46, align 4
@@ -1709,7 +1709,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %.noexc, %43
   br i1 %69, label %61, label %_ZN11BigUnsignedaSERKS_.exit, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %61, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i, %40
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %_ZN11BigUnsignedD2Ev.exit, label %73
@@ -1725,7 +1725,7 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
 74:                                               ; preds = %54
   %75 = landingpad { ptr, i32 }
           cleanup
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %_ZN10BigIntegerD2Ev.exit31, label %_ZN10BigIntegerD2Ev.exit31.sink.split
@@ -1737,21 +1737,21 @@ _ZN11BigUnsignedD2Ev.exit:                        ; preds = %_ZN11BigUnsignedaSE
 
 82:                                               ; preds = %79
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
-  %83 = getelementptr inbounds i8, ptr %2, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %84 = icmp eq ptr %83, %6
   br i1 %84, label %_ZN11BigUnsignedaSERKS_.exit41, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %6, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %2, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %87, ptr %88, align 4
   %89 = load i32, ptr %83, align 8
   %90 = icmp ugt i32 %87, %89
   br i1 %90, label %91, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i33
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %2, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %96, label %95
@@ -1779,17 +1779,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i33:    ; preds = %.noexc40, %85
   br i1 %.not.i.i34, label %_ZN11BigUnsignedaSERKS_.exit41, label %.lr.ph.i.i35
 
 .lr.ph.i.i35:                                     ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i33
-  %101 = getelementptr inbounds i8, ptr %6, i64 8
-  %102 = getelementptr inbounds i8, ptr %2, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %103
 
 103:                                              ; preds = %103, %.lr.ph.i.i35
   %indvars.iv.i.i36 = phi i64 [ 0, %.lr.ph.i.i35 ], [ %indvars.iv.next.i.i37, %103 ]
   %104 = load ptr, ptr %101, align 8
-  %105 = getelementptr inbounds i64, ptr %104, i64 %indvars.iv.i.i36
+  %105 = getelementptr inbounds nuw i64, ptr %104, i64 %indvars.iv.i.i36
   %106 = load i64, ptr %105, align 8
   %107 = load ptr, ptr %102, align 8
-  %108 = getelementptr inbounds i64, ptr %107, i64 %indvars.iv.i.i36
+  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv.i.i36
   store i64 %106, ptr %108, align 8
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %109 = load i32, ptr %88, align 4
@@ -1798,7 +1798,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i33:    ; preds = %.noexc40, %85
   br i1 %111, label %103, label %_ZN11BigUnsignedaSERKS_.exit41, !llvm.loop !6
 
 _ZN11BigUnsignedaSERKS_.exit41:                   ; preds = %103, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i33, %82
-  %112 = getelementptr inbounds i8, ptr %6, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %_ZN11BigUnsignedD2Ev.exit42, label %115
@@ -1814,7 +1814,7 @@ _ZN11BigUnsignedD2Ev.exit42:                      ; preds = %_ZN11BigUnsignedaSE
 116:                                              ; preds = %96
   %117 = landingpad { ptr, i32 }
           cleanup
-  %118 = getelementptr inbounds i8, ptr %6, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %_ZN10BigIntegerD2Ev.exit31, label %_ZN10BigIntegerD2Ev.exit31.sink.split
@@ -1829,14 +1829,14 @@ _ZN11BigUnsignedD2Ev.exit42:                      ; preds = %_ZN11BigUnsignedaSE
 
 124:                                              ; preds = %121
   store i32 -1, ptr %2, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %125, i32 noundef 0)
   br label %126
 
 126:                                              ; preds = %124, %123
-  %127 = getelementptr inbounds i8, ptr %0, i64 8
-  %128 = getelementptr inbounds i8, ptr %1, i64 8
-  %129 = getelementptr inbounds i8, ptr %2, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %129)
   %130 = load i32, ptr %0, align 8
   %131 = load i32, ptr %1, align 8
@@ -1852,12 +1852,12 @@ _ZN11BigUnsignedD2Ev.exit42:                      ; preds = %_ZN11BigUnsignedaSE
 
 133:                                              ; preds = %132, %126
   %134 = phi i32 [ %.pre, %132 ], [ %130, %126 ]
-  %135 = getelementptr inbounds i8, ptr %0, i64 12
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %136, 0
   %spec.store.select = select i1 %137, i32 0, i32 %134
   store i32 %spec.store.select, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %2, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %_ZN10BigIntegerD2Ev.exit
@@ -1894,7 +1894,7 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
 
 5:                                                ; preds = %2
   store i32 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   invoke void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %7 unwind label %42
@@ -1906,17 +1906,17 @@ define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereference
 9:                                                ; preds = %7
   %10 = load i32, ptr %3, align 8
   store i32 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %13, ptr %14, align 4
   %15 = load i32, ptr %11, align 8
   %16 = icmp ugt i32 %13, %15
   br i1 %16, label %17, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -1944,17 +1944,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %9
   br i1 %.not.i.i.i, label %_ZN10BigIntegeraSERKS_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %29 ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv.i.i.i
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i.i.i
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i.i.i
   store i64 %32, ptr %34, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %35 = load i32, ptr %14, align 4
@@ -1963,7 +1963,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i:    ; preds = %.noexc, %9
   br i1 %37, label %29, label %_ZN10BigIntegeraSERKS_.exit, !llvm.loop !6
 
 _ZN10BigIntegeraSERKS_.exit:                      ; preds = %29, %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i.i, %7
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZN10BigIntegerD2Ev.exit, label %41
@@ -1975,7 +1975,7 @@ _ZN10BigIntegeraSERKS_.exit:                      ; preds = %29, %_ZN15Numberlik
 42:                                               ; preds = %22, %5
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_ZN10BigIntegerD2Ev.exit8, label %47
@@ -1988,17 +1988,17 @@ _ZN10BigIntegerD2Ev.exit8:                        ; preds = %42, %47
   resume { ptr, i32 } %43
 
 48:                                               ; preds = %2
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %51, ptr %52, align 4
   %53 = load i32, ptr %49, align 8
   %54 = icmp ugt i32 %51, %53
   br i1 %54, label %55, label %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %60, label %59
@@ -2023,17 +2023,17 @@ _ZN15NumberlikeArrayImE8allocateEj.exit.i.i:      ; preds = %60, %48
   br i1 %.not.i.i, label %_ZN11BigUnsignedaSERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN15NumberlikeArrayImE8allocateEj.exit.i.i
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %67 ]
   %68 = load ptr, ptr %65, align 8
-  %69 = getelementptr inbounds i64, ptr %68, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i.i
   %70 = load i64, ptr %69, align 8
   %71 = load ptr, ptr %66, align 8
-  %72 = getelementptr inbounds i64, ptr %71, i64 %indvars.iv.i.i
+  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv.i.i
   store i64 %70, ptr %72, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %73 = load i32, ptr %52, align 4
@@ -2056,15 +2056,15 @@ define void @_ZN10BigIntegerppEv(ptr noundef nonnull align 8 dereferenceable(24)
   %2 = alloca %class.BigUnsigned, align 8
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, -1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %6, label %24
 
 6:                                                ; preds = %1
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %.not.i.i = icmp eq i32 %8, %10
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZNK11BigUnsignedeqERKS_.exit
@@ -2074,18 +2074,18 @@ define void @_ZN10BigIntegerppEv(ptr noundef nonnull align 8 dereferenceable(24)
   br i1 %.not12.i.i, label %_ZNK11BigUnsignedeqERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %wide.trip.count.i.i = zext i32 %8 to i64
   br label %15
 
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i.i
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i
   %19 = load i64, ptr %18, align 8
   %.not8.i.i = icmp eq i64 %17, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2095,7 +2095,7 @@ define void @_ZN10BigIntegerppEv(ptr noundef nonnull align 8 dereferenceable(24)
 
 _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i, %6
   %.07.i.i = phi i1 [ false, %6 ], [ true, %.preheader.i.i ], [ %.not8.i.i, %15 ]
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZN11BigUnsignedD2Ev.exit, label %23
@@ -2126,15 +2126,15 @@ define void @_ZN10BigIntegerppEi(ptr noundef nonnull align 8 dereferenceable(24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %5, label %7, label %25
 
 7:                                                ; preds = %2
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %.not.i.i.i = icmp eq i32 %9, %11
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZNK11BigUnsignedeqERKS_.exit.i
@@ -2144,18 +2144,18 @@ define void @_ZN10BigIntegerppEi(ptr noundef nonnull align 8 dereferenceable(24)
   br i1 %.not12.i.i.i, label %_ZNK11BigUnsignedeqERKS_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   %wide.trip.count.i.i.i = zext i32 %9 to i64
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %17 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i.i
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i.i
   %20 = load i64, ptr %19, align 8
   %.not8.i.i.i = icmp eq i64 %18, %20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2165,7 +2165,7 @@ define void @_ZN10BigIntegerppEi(ptr noundef nonnull align 8 dereferenceable(24)
 
 _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i.i, %7
   %.07.i.i.i = phi i1 [ false, %7 ], [ true, %.preheader.i.i.i ], [ %.not8.i.i.i, %16 ]
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN11BigUnsignedD2Ev.exit.i, label %24
@@ -2196,15 +2196,15 @@ define void @_ZN10BigIntegermmEv(ptr noundef nonnull align 8 dereferenceable(24)
   %2 = alloca %class.BigUnsigned, align 8
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %6, label %24
 
 6:                                                ; preds = %1
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 0)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 0)
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %.not.i.i = icmp eq i32 %8, %10
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZNK11BigUnsignedeqERKS_.exit
@@ -2214,18 +2214,18 @@ define void @_ZN10BigIntegermmEv(ptr noundef nonnull align 8 dereferenceable(24)
   br i1 %.not12.i.i, label %_ZNK11BigUnsignedeqERKS_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %wide.trip.count.i.i = zext i32 %8 to i64
   br label %15
 
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i.i
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv.i.i
   %19 = load i64, ptr %18, align 8
   %.not8.i.i = icmp eq i64 %17, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2235,7 +2235,7 @@ define void @_ZN10BigIntegermmEv(ptr noundef nonnull align 8 dereferenceable(24)
 
 _ZNK11BigUnsignedeqERKS_.exit:                    ; preds = %15, %.preheader.i.i, %6
   %.07.i.i = phi i1 [ false, %6 ], [ true, %.preheader.i.i ], [ %.not8.i.i, %15 ]
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %_ZN11BigUnsignedD2Ev.exit, label %23
@@ -2266,15 +2266,15 @@ define void @_ZN10BigIntegermmEi(ptr noundef nonnull align 8 dereferenceable(24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %5, label %7, label %25
 
 7:                                                ; preds = %2
   tail call void @_ZN11BigUnsignedmmEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
   call void @_ZN11BigUnsignedC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i32, ptr %10, align 4
   %.not.i.i.i = icmp eq i32 %9, %11
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZNK11BigUnsignedeqERKS_.exit.i
@@ -2284,18 +2284,18 @@ define void @_ZN10BigIntegermmEi(ptr noundef nonnull align 8 dereferenceable(24)
   br i1 %.not12.i.i.i, label %_ZNK11BigUnsignedeqERKS_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   %wide.trip.count.i.i.i = zext i32 %9 to i64
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %17 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i.i
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i.i.i
   %20 = load i64, ptr %19, align 8
   %.not8.i.i.i = icmp eq i64 %18, %20
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2305,7 +2305,7 @@ define void @_ZN10BigIntegermmEi(ptr noundef nonnull align 8 dereferenceable(24)
 
 _ZNK11BigUnsignedeqERKS_.exit.i:                  ; preds = %16, %.preheader.i.i.i, %7
   %.07.i.i.i = phi i1 [ false, %7 ], [ true, %.preheader.i.i.i ], [ %.not8.i.i.i, %16 ]
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN11BigUnsignedD2Ev.exit.i, label %24

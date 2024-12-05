@@ -11,12 +11,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh19SmallPtrSetImplBase16shrink_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 20)) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %CurArray = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray, align 8
   tail call void @free(ptr noundef %0) #13
-  %NumNonEmpty.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %1 = load i32, ptr %NumNonEmpty.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %NumTombstones.i, align 8
   %sub.i = sub i32 %1, %2
   %cmp = icmp ugt i32 %sub.i, 16
@@ -31,7 +31,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %shl, %cond.true ], [ 32, %entry ]
-  %CurArraySize = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %cond, ptr %CurArraySize, align 8
   store i32 0, ptr %NumTombstones.i, align 8
   store i32 0, ptr %NumNonEmpty.i, align 4
@@ -64,13 +64,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %Ptr) local_unnamed_addr #0 align 2 {
 entry:
-  %NumNonEmpty.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %NumNonEmpty.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %NumTombstones.i, align 8
   %sub.i = sub i32 %0, %1
   %mul = shl i32 %sub.i, 2
-  %CurArraySize = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %CurArraySize, align 8
   %mul2 = mul i32 %2, 3
   %cmp.not = icmp ult i32 %mul, %mul2
@@ -100,11 +100,11 @@ if.end12:                                         ; preds = %if.end12.sink.split
   %xor.i.i = xor i32 %shr.i.i, %shr2.i.i
   %5 = load i32, ptr %CurArraySize, align 8
   %sub.i5 = add i32 %5, -1
-  %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %CurArray.i, align 8
   %Bucket.017.i = and i32 %sub.i5, %xor.i.i
   %idxprom18.i = zext nneg i32 %Bucket.017.i to i64
-  %arrayidx19.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom18.i
   %7 = load ptr, ptr %arrayidx19.i, align 8
   %cmp20.i = icmp eq ptr %7, inttoptr (i64 -1 to ptr)
   br i1 %cmp20.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i
@@ -127,7 +127,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %add.i = add i32 %ProbeAmt.021.i, %Bucket.023.i
   %Bucket.0.i = and i32 %add.i, %sub.i5
   %idxprom.i = zext i32 %Bucket.0.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %6, i64 %idxprom.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %9, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i, label %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit, label %if.end.i, !llvm.loop !4
@@ -172,17 +172,17 @@ return:                                           ; preds = %if.end.i, %_ZNK4llv
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh19SmallPtrSetImplBase4GrowEj(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %NewSize) local_unnamed_addr #0 align 2 {
 entry:
-  %CurArray = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %0, %1
-  %NumNonEmpty.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load i32, ptr %NumNonEmpty.i, align 4
-  %CurArraySize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %CurArraySize.i, align 8
   %cond.v.v.i = select i1 %cmp.i.i, i32 %2, i32 %3
   %cond.v.i = zext i32 %cond.v.v.i to i64
-  %cond.i = getelementptr inbounds ptr, ptr %0, i64 %cond.v.i
+  %cond.i = getelementptr inbounds nuw ptr, ptr %0, i64 %cond.v.i
   %conv = zext i32 %NewSize to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call.i = tail call noalias ptr @malloc(i64 noundef %mul) #14
@@ -217,7 +217,7 @@ if.then:                                          ; preds = %for.body
   %7 = load ptr, ptr %CurArray, align 8
   %Bucket.017.i = and i32 %sub.i, %xor.i.i
   %idxprom18.i = zext nneg i32 %Bucket.017.i to i64
-  %arrayidx19.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idxprom18.i
   %8 = load ptr, ptr %arrayidx19.i, align 8
   %cmp20.i = icmp eq ptr %8, inttoptr (i64 -1 to ptr)
   br i1 %cmp20.i, label %if.then.i13, label %if.end.i
@@ -247,7 +247,7 @@ if.end10.i:                                       ; preds = %if.end.i
   %add.i = add i32 %ProbeAmt.021.i, %Bucket.023.i
   %Bucket.0.i = and i32 %add.i, %sub.i
   %idxprom.i = zext i32 %Bucket.0.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %7, i64 %idxprom.i
   %10 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i12 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i12, label %if.then.i13, label %if.end.i, !llvm.loop !4
@@ -258,7 +258,7 @@ _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end.i, %if
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit
-  %incdec.ptr = getelementptr inbounds i8, ptr %BucketPtr.017, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %BucketPtr.017, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %cond.i
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -270,7 +270,7 @@ if.then13:                                        ; preds = %for.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %for.end
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 24
   %11 = load i32, ptr %NumTombstones, align 8
   %12 = load i32, ptr %NumNonEmpty.i, align 4
   %sub = sub i32 %12, %11
@@ -287,14 +287,14 @@ entry:
   %shr.i = lshr i32 %conv.i, 4
   %shr2.i = lshr i32 %conv.i, 9
   %xor.i = xor i32 %shr.i, %shr2.i
-  %CurArraySize = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %CurArraySize, align 8
   %sub = add i32 %1, -1
-  %CurArray = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %CurArray, align 8
   %Bucket.017 = and i32 %xor.i, %sub
   %idxprom18 = zext nneg i32 %Bucket.017 to i64
-  %arrayidx19 = getelementptr inbounds ptr, ptr %2, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom18
   %3 = load ptr, ptr %arrayidx19, align 8
   %cmp20 = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
   br i1 %cmp20, label %if.then, label %if.end
@@ -324,7 +324,7 @@ if.end10:                                         ; preds = %if.end
   %add = add i32 %Bucket.023, %ProbeAmt.021
   %Bucket.0 = and i32 %add, %sub
   %idxprom = zext i32 %Bucket.0 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
   br i1 %cmp, label %if.then, label %if.end, !llvm.loop !4
@@ -338,14 +338,14 @@ return:                                           ; preds = %if.end, %if.then
 define hidden void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %SmallStorage, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %that) unnamed_addr #0 align 2 {
 entry:
   store ptr %SmallStorage, ptr %this, align 8
-  %CurArray.i = getelementptr inbounds i8, ptr %that, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
   %1 = load ptr, ptr %that, align 8
   %cmp.i = icmp eq ptr %0, %1
   br i1 %cmp.i, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %CurArraySize = getelementptr inbounds i8, ptr %that, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %that, i64 16
   %2 = load i32, ptr %CurArraySize, align 8
   %conv = zext i32 %2 to i64
   %mul = shl nuw nsw i64 %conv, 3
@@ -359,16 +359,16 @@ if.then.i:                                        ; preds = %if.else
 
 if.end:                                           ; preds = %if.then.i, %if.else, %entry
   %call.i.sink = phi ptr [ %SmallStorage, %entry ], [ %call.i, %if.else ], [ %call.i, %if.then.i ]
-  %CurArray4 = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.sink, ptr %CurArray4, align 8
-  %CurArraySize.i = getelementptr inbounds i8, ptr %that, i64 16
+  %CurArraySize.i = getelementptr inbounds nuw i8, ptr %that, i64 16
   %3 = load i32, ptr %CurArraySize.i, align 8
-  %CurArraySize2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %3, ptr %CurArraySize2.i, align 8
   %4 = load ptr, ptr %CurArray.i, align 8
   %5 = load ptr, ptr %that, align 8
   %cmp.i.i.i = icmp eq ptr %4, %5
-  %NumNonEmpty.i.i = getelementptr inbounds i8, ptr %that, i64 20
+  %NumNonEmpty.i.i = getelementptr inbounds nuw i8, ptr %that, i64 20
   %6 = load i32, ptr %NumNonEmpty.i.i, align 4
   %cond.v.v.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %3
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %cond.v.v.i.i, 0
@@ -383,11 +383,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end
 
 _ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %if.end, %if.then.i.i.i.i.i.i
   %7 = phi i32 [ %6, %if.end ], [ %.pre.i, %if.then.i.i.i.i.i.i ]
-  %NumNonEmpty5.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty5.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %7, ptr %NumNonEmpty5.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %that, i64 24
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %that, i64 24
   %8 = load i32, ptr %NumTombstones.i, align 8
-  %NumTombstones6.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %8, ptr %NumTombstones6.i, align 8
   ret void
 }
@@ -395,15 +395,15 @@ _ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %if.end, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %RHS) local_unnamed_addr #4 align 2 {
 entry:
-  %CurArraySize = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %0 = load i32, ptr %CurArraySize, align 8
-  %CurArraySize2 = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %0, ptr %CurArraySize2, align 8
-  %CurArray = getelementptr inbounds i8, ptr %RHS, i64 8
+  %CurArray = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %1 = load ptr, ptr %CurArray, align 8
   %2 = load ptr, ptr %RHS, align 8
   %cmp.i.i = icmp eq ptr %1, %2
-  %NumNonEmpty.i = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty.i = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %3 = load i32, ptr %NumNonEmpty.i, align 4
   %cond.v.v.i = select i1 %cmp.i.i, i32 %3, i32 %0
   %tobool.not.i.i.i.i.i = icmp eq i32 %cond.v.v.i, 0
@@ -412,7 +412,7 @@ entry:
 if.then.i.i.i.i.i:                                ; preds = %entry
   %cond.v.i = zext i32 %cond.v.v.i to i64
   %cond.i.idx = shl nuw nsw i64 %cond.v.i, 3
-  %CurArray3 = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %CurArray3, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %4, ptr align 8 %1, i64 %cond.i.idx, i1 false)
   %.pre = load i32, ptr %NumNonEmpty.i, align 4
@@ -420,11 +420,11 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %entry, %if.then.i.i.i.i.i
   %5 = phi i32 [ %3, %entry ], [ %.pre, %if.then.i.i.i.i.i ]
-  %NumNonEmpty5 = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty5 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %5, ptr %NumNonEmpty5, align 4
-  %NumTombstones = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %6 = load i32, ptr %NumTombstones, align 8
-  %NumTombstones6 = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %6, ptr %NumTombstones6, align 8
   ret void
 }
@@ -433,16 +433,16 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %entry, %if.then.i.i
 define hidden void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %SmallStorage, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %that) unnamed_addr #4 align 2 {
 entry:
   store ptr %SmallStorage, ptr %this, align 8
-  %CurArray.i.i = getelementptr inbounds i8, ptr %that, i64 8
+  %CurArray.i.i = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load ptr, ptr %CurArray.i.i, align 8
   %1 = load ptr, ptr %that, align 8
   %cmp.i.i = icmp eq ptr %0, %1
-  %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   store ptr %SmallStorage, ptr %CurArray.i, align 8
-  %NumNonEmpty.i = getelementptr inbounds i8, ptr %that, i64 20
+  %NumNonEmpty.i = getelementptr inbounds nuw i8, ptr %that, i64 20
   %2 = load i32, ptr %NumNonEmpty.i, align 4
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit, label %if.then.i.i.i.i.i.i
@@ -461,17 +461,17 @@ if.else.i:                                        ; preds = %entry
   br label %_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit
 
 _ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit: ; preds = %if.then.i, %if.then.i.i.i.i.i.i, %if.else.i
-  %CurArraySize.i = getelementptr inbounds i8, ptr %that, i64 16
+  %CurArraySize.i = getelementptr inbounds nuw i8, ptr %that, i64 16
   %5 = load i32, ptr %CurArraySize.i, align 8
-  %CurArraySize10.i = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize10.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %5, ptr %CurArraySize10.i, align 8
-  %NumNonEmpty11.i = getelementptr inbounds i8, ptr %that, i64 20
+  %NumNonEmpty11.i = getelementptr inbounds nuw i8, ptr %that, i64 20
   %6 = load i32, ptr %NumNonEmpty11.i, align 4
-  %NumNonEmpty12.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty12.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %6, ptr %NumNonEmpty12.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %that, i64 24
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %that, i64 24
   %7 = load i32, ptr %NumTombstones.i, align 8
-  %NumTombstones13.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones13.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %7, ptr %NumTombstones13.i, align 8
   store i32 %SmallSize, ptr %CurArraySize.i, align 8
   store i32 0, ptr %NumNonEmpty11.i, align 4
@@ -482,7 +482,7 @@ _ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit: ; preds = %if.then.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %this, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #4 align 2 {
 entry:
-  %CurArray.i = getelementptr inbounds i8, ptr %RHS, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
   %1 = load ptr, ptr %RHS, align 8
   %cmp.i = icmp eq ptr %0, %1
@@ -490,9 +490,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %CurArray = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %2, ptr %CurArray, align 8
-  %NumNonEmpty = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %3 = load i32, ptr %NumNonEmpty, align 4
   %tobool.not.i.i.i.i.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i.i.i.i.i, label %if.end, label %if.then.i.i.i.i.i
@@ -505,24 +505,24 @@ if.then.i.i.i.i.i:                                ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %CurArray7 = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %0, ptr %CurArray7, align 8
   %5 = load ptr, ptr %RHS, align 8
   store ptr %5, ptr %CurArray.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i.i.i.i, %if.then, %if.else
-  %CurArraySize = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %6 = load i32, ptr %CurArraySize, align 8
-  %CurArraySize10 = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize10 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %6, ptr %CurArraySize10, align 8
-  %NumNonEmpty11 = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty11 = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %7 = load i32, ptr %NumNonEmpty11, align 4
-  %NumNonEmpty12 = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty12 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %7, ptr %NumNonEmpty12, align 4
-  %NumTombstones = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %8 = load i32, ptr %NumTombstones, align 8
-  %NumTombstones13 = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones13 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %8, ptr %NumTombstones13, align 8
   store i32 %SmallSize, ptr %CurArraySize, align 8
   store i32 0, ptr %NumNonEmpty11, align 4
@@ -533,11 +533,11 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh19SmallPtrSetImplBase8CopyFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((20, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %RHS) local_unnamed_addr #0 align 2 {
 entry:
-  %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %1
-  %CurArray.i8 = getelementptr inbounds i8, ptr %RHS, i64 8
+  %CurArray.i8 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %2 = load ptr, ptr %CurArray.i8, align 8
   %3 = load ptr, ptr %RHS, align 8
   %cmp.i9 = icmp eq ptr %2, %3
@@ -555,17 +555,17 @@ if.then6:                                         ; preds = %if.end.thread
   br label %if.end25.sink.split
 
 if.else:                                          ; preds = %if.end
-  %CurArraySize = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i32, ptr %CurArraySize, align 8
-  %CurArraySize9 = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize9 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %5 = load i32, ptr %CurArraySize9, align 8
   %cmp.not = icmp eq i32 %4, %5
   br i1 %cmp.not, label %if.end25, label %if.then12
 
 if.else.thread:                                   ; preds = %if.end.thread
-  %CurArraySize28 = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize28 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load i32, ptr %CurArraySize28, align 8
-  %CurArraySize929 = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize929 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %7 = load i32, ptr %CurArraySize929, align 8
   %cmp.not30 = icmp eq i32 %6, %7
   br i1 %cmp.not30, label %if.end25, label %if.else16
@@ -599,14 +599,14 @@ if.end25.sink.split:                              ; preds = %if.then.i17, %if.el
 
 if.end25:                                         ; preds = %if.end25.sink.split, %if.else.thread, %if.else
   %8 = phi ptr [ %0, %if.else ], [ %0, %if.else.thread ], [ %call.i15.sink, %if.end25.sink.split ]
-  %CurArraySize.i = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize.i = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %9 = load i32, ptr %CurArraySize.i, align 8
-  %CurArraySize2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %9, ptr %CurArraySize2.i, align 8
   %10 = load ptr, ptr %CurArray.i8, align 8
   %11 = load ptr, ptr %RHS, align 8
   %cmp.i.i.i = icmp eq ptr %10, %11
-  %NumNonEmpty.i.i = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty.i.i = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %12 = load i32, ptr %NumNonEmpty.i.i, align 4
   %cond.v.v.i.i = select i1 %cmp.i.i.i, i32 %12, i32 %9
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %cond.v.v.i.i, 0
@@ -621,11 +621,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end25
 
 _ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %if.end25, %if.then.i.i.i.i.i.i
   %13 = phi i32 [ %12, %if.end25 ], [ %.pre.i, %if.then.i.i.i.i.i.i ]
-  %NumNonEmpty5.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty5.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %13, ptr %NumNonEmpty5.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %14 = load i32, ptr %NumTombstones.i, align 8
-  %NumTombstones6.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones6.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %14, ptr %NumTombstones6.i, align 8
   ret void
 }
@@ -633,7 +633,7 @@ _ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %if.end25, %if.t
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @_ZN4llvh19SmallPtrSetImplBase8MoveFromEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %this, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #5 align 2 {
 entry:
-  %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %1
@@ -644,7 +644,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %CurArray.i.i = getelementptr inbounds i8, ptr %RHS, i64 8
+  %CurArray.i.i = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %2 = load ptr, ptr %CurArray.i.i, align 8
   %3 = load ptr, ptr %RHS, align 8
   %cmp.i.i = icmp eq ptr %2, %3
@@ -653,7 +653,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then.i:                                        ; preds = %if.end
   %4 = load ptr, ptr %this, align 8
   store ptr %4, ptr %CurArray.i, align 8
-  %NumNonEmpty.i = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty.i = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %5 = load i32, ptr %NumNonEmpty.i, align 4
   %tobool.not.i.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit, label %if.then.i.i.i.i.i.i
@@ -672,17 +672,17 @@ if.else.i:                                        ; preds = %if.end
   br label %_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit
 
 _ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit: ; preds = %if.then.i, %if.then.i.i.i.i.i.i, %if.else.i
-  %CurArraySize.i = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize.i = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %8 = load i32, ptr %CurArraySize.i, align 8
-  %CurArraySize10.i = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize10.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %8, ptr %CurArraySize10.i, align 8
-  %NumNonEmpty11.i = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty11.i = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %9 = load i32, ptr %NumNonEmpty11.i, align 4
-  %NumNonEmpty12.i = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty12.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %9, ptr %NumNonEmpty12.i, align 4
-  %NumTombstones.i = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones.i = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %10 = load i32, ptr %NumTombstones.i, align 8
-  %NumTombstones13.i = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones13.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %10, ptr %NumTombstones13.i, align 8
   store i32 %SmallSize, ptr %CurArraySize.i, align 8
   store i32 0, ptr %NumNonEmpty11.i, align 4
@@ -697,11 +697,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurArray.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %1
-  %CurArray.i43 = getelementptr inbounds i8, ptr %RHS, i64 8
+  %CurArray.i43 = getelementptr inbounds nuw i8, ptr %RHS, i64 8
   %2 = load ptr, ptr %CurArray.i43, align 8
   %3 = load ptr, ptr %RHS, align 8
   %cmp.i44 = icmp eq ptr %2, %3
@@ -713,20 +713,20 @@ land.lhs.true:                                    ; preds = %if.end
 if.then3:                                         ; preds = %land.lhs.true
   store ptr %2, ptr %CurArray.i, align 8
   store ptr %0, ptr %CurArray.i43, align 8
-  %CurArraySize = getelementptr inbounds i8, ptr %this, i64 16
-  %CurArraySize5 = getelementptr inbounds i8, ptr %RHS, i64 16
+  %CurArraySize = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %CurArraySize5 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
   %4 = load i32, ptr %CurArraySize, align 8
   %5 = load i32, ptr %CurArraySize5, align 8
   store i32 %5, ptr %CurArraySize, align 8
   store i32 %4, ptr %CurArraySize5, align 8
-  %NumNonEmpty = getelementptr inbounds i8, ptr %this, i64 20
-  %NumNonEmpty6 = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %NumNonEmpty6 = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %6 = load i32, ptr %NumNonEmpty, align 4
   %7 = load i32, ptr %NumNonEmpty6, align 4
   store i32 %7, ptr %NumNonEmpty, align 4
   store i32 %6, ptr %NumNonEmpty6, align 4
-  %NumTombstones = getelementptr inbounds i8, ptr %this, i64 24
-  %NumTombstones7 = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %NumTombstones7 = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %8 = load i32, ptr %NumTombstones, align 8
   %9 = load i32, ptr %NumTombstones7, align 8
   store i32 %9, ptr %NumTombstones, align 8
@@ -734,7 +734,7 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %return
 
 if.then12:                                        ; preds = %land.lhs.true
-  %NumNonEmpty15 = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty15 = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %10 = load i32, ptr %NumNonEmpty15, align 4
   %tobool.not.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
@@ -746,19 +746,19 @@ if.then.i.i.i.i.i:                                ; preds = %if.then12
   br label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit
 
 _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %if.then12, %if.then.i.i.i.i.i
-  %CurArraySize17 = getelementptr inbounds i8, ptr %RHS, i64 16
-  %CurArraySize18 = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize17 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
+  %CurArraySize18 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load i32, ptr %CurArraySize17, align 8
   %12 = load i32, ptr %CurArraySize18, align 8
   store i32 %12, ptr %CurArraySize17, align 8
   store i32 %11, ptr %CurArraySize18, align 8
-  %NumNonEmpty19 = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty19 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %13 = load i32, ptr %NumNonEmpty19, align 4
   %14 = load i32, ptr %NumNonEmpty15, align 4
   store i32 %14, ptr %NumNonEmpty19, align 4
   store i32 %13, ptr %NumNonEmpty15, align 4
-  %NumTombstones21 = getelementptr inbounds i8, ptr %this, i64 24
-  %NumTombstones22 = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones21 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %NumTombstones22 = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %15 = load i32, ptr %NumTombstones21, align 8
   %16 = load i32, ptr %NumTombstones22, align 8
   store i32 %16, ptr %NumTombstones21, align 8
@@ -770,7 +770,7 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %if.then12, %if.then
   br label %return
 
 land.lhs.true29:                                  ; preds = %if.end
-  %NumNonEmpty50 = getelementptr inbounds i8, ptr %this, i64 20
+  %NumNonEmpty50 = getelementptr inbounds nuw i8, ptr %this, i64 20
   br i1 %cmp.i44, label %if.end49, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true29
@@ -785,19 +785,19 @@ if.then.i.i.i.i.i49:                              ; preds = %if.then31
   br label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit51
 
 _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit51:             ; preds = %if.then31, %if.then.i.i.i.i.i49
-  %CurArraySize39 = getelementptr inbounds i8, ptr %RHS, i64 16
-  %CurArraySize40 = getelementptr inbounds i8, ptr %this, i64 16
+  %CurArraySize39 = getelementptr inbounds nuw i8, ptr %RHS, i64 16
+  %CurArraySize40 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %20 = load i32, ptr %CurArraySize39, align 8
   %21 = load i32, ptr %CurArraySize40, align 8
   store i32 %21, ptr %CurArraySize39, align 8
   store i32 %20, ptr %CurArraySize40, align 8
-  %NumNonEmpty41 = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty41 = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %22 = load i32, ptr %NumNonEmpty41, align 4
   %23 = load i32, ptr %NumNonEmpty50, align 4
   store i32 %23, ptr %NumNonEmpty41, align 4
   store i32 %22, ptr %NumNonEmpty50, align 4
-  %NumTombstones43 = getelementptr inbounds i8, ptr %RHS, i64 24
-  %NumTombstones44 = getelementptr inbounds i8, ptr %this, i64 24
+  %NumTombstones43 = getelementptr inbounds nuw i8, ptr %RHS, i64 24
+  %NumTombstones44 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %24 = load i32, ptr %NumTombstones43, align 8
   %25 = load i32, ptr %NumTombstones44, align 8
   store i32 %25, ptr %NumTombstones43, align 8
@@ -809,12 +809,12 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit51:             ; preds = %if.then31, %if.then
   br label %return
 
 if.end49:                                         ; preds = %land.lhs.true29
-  %NumNonEmpty51 = getelementptr inbounds i8, ptr %RHS, i64 20
+  %NumNonEmpty51 = getelementptr inbounds nuw i8, ptr %RHS, i64 20
   %28 = load i32, ptr %NumNonEmpty51, align 4
   %29 = load i32, ptr %NumNonEmpty50, align 4
   %30 = tail call i32 @llvm.umin.i32(i32 %28, i32 %29)
   %idx.ext55 = zext i32 %30 to i64
-  %add.ptr56 = getelementptr inbounds ptr, ptr %1, i64 %idx.ext55
+  %add.ptr56 = getelementptr inbounds nuw ptr, ptr %1, i64 %idx.ext55
   %cmp.not5.i = icmp eq i32 %30, 0
   br i1 %cmp.not5.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %for.body.i
 
@@ -825,8 +825,8 @@ for.body.i:                                       ; preds = %if.end49, %for.body
   %32 = load ptr, ptr %__first2.addr.07.i, align 8
   store ptr %32, ptr %__first1.addr.06.i, align 8
   store ptr %31, ptr %__first2.addr.07.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.06.i, i64 8
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.07.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i, i64 8
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr56
   br i1 %cmp.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, label %for.body.i, !llvm.loop !7
 
@@ -842,12 +842,12 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIP
 
 if.then.i.i.i.i.i57:                              ; preds = %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit
   %34 = load ptr, ptr %this, align 8
-  %add.ptr64 = getelementptr inbounds i8, ptr %34, i64 %add.ptr64.idx
+  %add.ptr64 = getelementptr inbounds nuw i8, ptr %34, i64 %add.ptr64.idx
   %narrow = sub nuw i32 %33, %30
   %35 = zext i32 %narrow to i64
   %gepdiff69 = shl nuw nsw i64 %35, 3
   %36 = load ptr, ptr %RHS, align 8
-  %add.ptr71 = getelementptr inbounds ptr, ptr %36, i64 %idx.ext55
+  %add.ptr71 = getelementptr inbounds nuw ptr, ptr %36, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr71, ptr align 8 %add.ptr64, i64 %gepdiff69, i1 false)
   br label %if.end84
 
@@ -860,10 +860,10 @@ if.else:                                          ; preds = %_ZSt11swap_rangesIP
 
 if.then.i.i.i.i.i64:                              ; preds = %if.else
   %38 = load ptr, ptr %RHS, align 8
-  %add.ptr75 = getelementptr inbounds i8, ptr %38, i64 %add.ptr64.idx
+  %add.ptr75 = getelementptr inbounds nuw i8, ptr %38, i64 %add.ptr64.idx
   %gepdiff = sub nsw i64 %add.ptr79.idx, %add.ptr64.idx
   %39 = load ptr, ptr %this, align 8
-  %add.ptr82 = getelementptr inbounds ptr, ptr %39, i64 %idx.ext55
+  %add.ptr82 = getelementptr inbounds nuw ptr, ptr %39, i64 %idx.ext55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr82, ptr align 8 %add.ptr75, i64 %gepdiff, i1 false)
   br label %if.end84
 
@@ -872,8 +872,8 @@ if.end84:                                         ; preds = %if.then.i.i.i.i.i64
   %41 = load i32, ptr %NumNonEmpty51, align 4
   store i32 %41, ptr %NumNonEmpty50, align 4
   store i32 %40, ptr %NumNonEmpty51, align 4
-  %NumTombstones87 = getelementptr inbounds i8, ptr %this, i64 24
-  %NumTombstones88 = getelementptr inbounds i8, ptr %RHS, i64 24
+  %NumTombstones87 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %NumTombstones88 = getelementptr inbounds nuw i8, ptr %RHS, i64 24
   %42 = load i32, ptr %NumTombstones87, align 8
   %43 = load i32, ptr %NumTombstones88, align 8
   store i32 %43, ptr %NumTombstones87, align 8

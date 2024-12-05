@@ -50,7 +50,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %idxprom = zext nneg i32 %idx to i64
-  %arrayidx = getelementptr inbounds [16 x ptr], ptr @standard_methods, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x ptr], ptr @standard_methods, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -114,14 +114,14 @@ pkey_asn1_find.exit:                              ; preds = %if.then1.i, %lor.lh
   br i1 %tobool.not, label %for.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %pkey_asn1_find.exit
-  %pkey_flags = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %3 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %3, 1
   %tobool1.not = icmp eq i64 %and, 0
   br i1 %tobool1.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %pkey_base_id = getelementptr inbounds i8, ptr %retval.0.i, i64 4
+  %pkey_base_id = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 4
   %4 = load i32, ptr %pkey_base_id, align 4
   br label %for.cond
 
@@ -214,7 +214,7 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   br i1 %cmp1.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds [16 x ptr], ptr @standard_methods, i64 0, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds nuw [16 x ptr], ptr @standard_methods, i64 0, i64 %indvars.iv.next
   %5 = load ptr, ptr %arrayidx.i, align 8
   br label %EVP_PKEY_asn1_get0.exit
 
@@ -227,14 +227,14 @@ if.end3.i:                                        ; preds = %if.end.i
 
 EVP_PKEY_asn1_get0.exit:                          ; preds = %if.then2.i, %if.end3.i
   %retval.0.i = phi ptr [ %5, %if.then2.i ], [ %call.i.i14, %if.end3.i ]
-  %pkey_flags = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %9 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %9, 1
   %tobool16.not = icmp eq i64 %and, 0
   br i1 %tobool16.not, label %if.end18, label %for.cond.backedge
 
 if.end18:                                         ; preds = %EVP_PKEY_asn1_get0.exit
-  %pem_str = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %pem_str = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %10 = load ptr, ptr %pem_str, align 8
   %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #11
   %conv20 = trunc i64 %call19 to i32
@@ -271,10 +271,10 @@ define range(i32 0, 2) i32 @EVP_PKEY_asn1_add0(ptr noundef %ameth) local_unnamed
 entry:
   %tmp = alloca %struct.evp_pkey_asn1_method_st, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %tmp, i8 0, i64 320, i1 false)
-  %pem_str = getelementptr inbounds i8, ptr %ameth, i64 16
+  %pem_str = getelementptr inbounds nuw i8, ptr %ameth, i64 16
   %0 = load ptr, ptr %pem_str, align 8
   %cmp = icmp eq ptr %0, null
-  %pkey_flags = getelementptr inbounds i8, ptr %ameth, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %ameth, i64 8
   %1 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %1, 1
   %cmp1.not = icmp eq i64 %and, 0
@@ -357,8 +357,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %from, ptr %call.i, align 8
-  %pkey_base_id.i = getelementptr inbounds i8, ptr %call.i, i64 4
-  %pkey_flags.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %pkey_base_id.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
+  %pkey_flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 3, ptr %pkey_flags.i, align 8
   store i32 %to, ptr %pkey_base_id.i, align 4
   %call1 = tail call i32 @EVP_PKEY_asn1_add0(ptr noundef nonnull %call.i)
@@ -372,10 +372,10 @@ land.lhs.true.i:                                  ; preds = %if.end
   br i1 %tobool1.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %pem_str.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %pem_str.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %pem_str.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 273) #10
-  %info.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %info.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %2 = load ptr, ptr %info.i, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 274) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 275) #10
@@ -395,18 +395,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 %id, ptr %call, align 8
-  %pkey_base_id = getelementptr inbounds i8, ptr %call, i64 4
+  %pkey_base_id = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %id, ptr %pkey_base_id, align 4
   %or = or i32 %flags, 2
   %conv = sext i32 %or to i64
-  %pkey_flags = getelementptr inbounds i8, ptr %call, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %conv, ptr %pkey_flags, align 8
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %if.end9, label %if.then1
 
 if.then1:                                         ; preds = %if.end
   %call2 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %info, ptr noundef nonnull @.str, i32 noundef 233) #10
-  %info3 = getelementptr inbounds i8, ptr %call, i64 24
+  %info3 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call2, ptr %info3, align 8
   %cmp5 = icmp eq ptr %call2, null
   br i1 %cmp5, label %if.then.i, label %if.end9
@@ -417,16 +417,16 @@ if.end9:                                          ; preds = %if.then1, %if.end
 
 if.then11:                                        ; preds = %if.end9
   %call12 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %pem_str, ptr noundef nonnull @.str, i32 noundef 239) #10
-  %pem_str13 = getelementptr inbounds i8, ptr %call, i64 16
+  %pem_str13 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call12, ptr %pem_str13, align 8
   %cmp15 = icmp eq ptr %call12, null
   br i1 %cmp15, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then11, %if.then1
-  %pem_str.i = getelementptr inbounds i8, ptr %call, i64 16
+  %pem_str.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %pem_str.i, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 273) #10
-  %info.i = getelementptr inbounds i8, ptr %call, i64 24
+  %info.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load ptr, ptr %info.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 274) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 275) #10
@@ -444,17 +444,17 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pkey_flags = getelementptr inbounds i8, ptr %ameth, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %ameth, i64 8
   %0 = load i64, ptr %pkey_flags, align 8
   %and = and i64 %0, 2
   %tobool1.not = icmp eq i64 %and, 0
   br i1 %tobool1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %pem_str = getelementptr inbounds i8, ptr %ameth, i64 16
+  %pem_str = getelementptr inbounds nuw i8, ptr %ameth, i64 16
   %1 = load ptr, ptr %pem_str, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 273) #10
-  %info = getelementptr inbounds i8, ptr %ameth, i64 24
+  %info = getelementptr inbounds nuw i8, ptr %ameth, i64 24
   %2 = load ptr, ptr %info, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 274) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %ameth, ptr noundef nonnull @.str, i32 noundef 275) #10
@@ -484,7 +484,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %pkey_base_id = getelementptr inbounds i8, ptr %ameth, i64 4
+  %pkey_base_id = getelementptr inbounds nuw i8, ptr %ameth, i64 4
   %1 = load i32, ptr %pkey_base_id, align 4
   store i32 %1, ptr %ppkey_base_id, align 4
   br label %if.end6
@@ -494,7 +494,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %pkey_flags = getelementptr inbounds i8, ptr %ameth, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %ameth, i64 8
   %2 = load i64, ptr %pkey_flags, align 8
   %conv = trunc i64 %2 to i32
   store i32 %conv, ptr %ppkey_flags, align 4
@@ -505,7 +505,7 @@ if.end9:                                          ; preds = %if.then8, %if.end6
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %info = getelementptr inbounds i8, ptr %ameth, i64 24
+  %info = getelementptr inbounds nuw i8, ptr %ameth, i64 24
   %3 = load ptr, ptr %info, align 8
   store ptr %3, ptr %pinfo, align 8
   br label %if.end12
@@ -515,7 +515,7 @@ if.end12:                                         ; preds = %if.then11, %if.end9
   br i1 %tobool13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %pem_str = getelementptr inbounds i8, ptr %ameth, i64 16
+  %pem_str = getelementptr inbounds nuw i8, ptr %ameth, i64 16
   %4 = load ptr, ptr %pem_str, align 8
   store ptr %4, ptr %ppem_str, align 8
   br label %return
@@ -528,7 +528,7 @@ return:                                           ; preds = %if.end12, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_PKEY_get0_asn1(ptr nocapture noundef readonly %pkey) local_unnamed_addr #6 {
 entry:
-  %ameth = getelementptr inbounds i8, ptr %pkey, i64 8
+  %ameth = getelementptr inbounds nuw i8, ptr %pkey, i64 8
   %0 = load ptr, ptr %ameth, align 8
   ret ptr %0
 }
@@ -541,13 +541,13 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 define void @EVP_PKEY_asn1_copy(ptr nocapture noundef initializes((32, 320)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %dst, align 8
-  %pkey_base_id2 = getelementptr inbounds i8, ptr %dst, i64 4
+  %pkey_base_id2 = getelementptr inbounds nuw i8, ptr %dst, i64 4
   %1 = load i32, ptr %pkey_base_id2, align 4
-  %pkey_flags3 = getelementptr inbounds i8, ptr %dst, i64 8
+  %pkey_flags3 = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %2 = load i64, ptr %pkey_flags3, align 8
-  %pem_str4 = getelementptr inbounds i8, ptr %dst, i64 16
+  %pem_str4 = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %3 = load ptr, ptr %pem_str4, align 8
-  %info5 = getelementptr inbounds i8, ptr %dst, i64 24
+  %info5 = getelementptr inbounds nuw i8, ptr %dst, i64 24
   %4 = load ptr, ptr %info5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %dst, ptr noundef nonnull align 8 dereferenceable(320) %src, i64 320, i1 false)
   store i32 %0, ptr %dst, align 8
@@ -566,17 +566,17 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_public(ptr nocapture noundef writeonly initializes((32, 64), (88, 104)) %ameth, ptr noundef %pub_decode, ptr noundef %pub_encode, ptr noundef %pub_cmp, ptr noundef %pub_print, ptr noundef %pkey_size, ptr noundef %pkey_bits) local_unnamed_addr #8 {
 entry:
-  %pub_decode1 = getelementptr inbounds i8, ptr %ameth, i64 32
+  %pub_decode1 = getelementptr inbounds nuw i8, ptr %ameth, i64 32
   store ptr %pub_decode, ptr %pub_decode1, align 8
-  %pub_encode2 = getelementptr inbounds i8, ptr %ameth, i64 40
+  %pub_encode2 = getelementptr inbounds nuw i8, ptr %ameth, i64 40
   store ptr %pub_encode, ptr %pub_encode2, align 8
-  %pub_cmp3 = getelementptr inbounds i8, ptr %ameth, i64 48
+  %pub_cmp3 = getelementptr inbounds nuw i8, ptr %ameth, i64 48
   store ptr %pub_cmp, ptr %pub_cmp3, align 8
-  %pub_print4 = getelementptr inbounds i8, ptr %ameth, i64 56
+  %pub_print4 = getelementptr inbounds nuw i8, ptr %ameth, i64 56
   store ptr %pub_print, ptr %pub_print4, align 8
-  %pkey_size5 = getelementptr inbounds i8, ptr %ameth, i64 88
+  %pkey_size5 = getelementptr inbounds nuw i8, ptr %ameth, i64 88
   store ptr %pkey_size, ptr %pkey_size5, align 8
-  %pkey_bits6 = getelementptr inbounds i8, ptr %ameth, i64 96
+  %pkey_bits6 = getelementptr inbounds nuw i8, ptr %ameth, i64 96
   store ptr %pkey_bits, ptr %pkey_bits6, align 8
   ret void
 }
@@ -584,11 +584,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_private(ptr nocapture noundef writeonly initializes((64, 88)) %ameth, ptr noundef %priv_decode, ptr noundef %priv_encode, ptr noundef %priv_print) local_unnamed_addr #8 {
 entry:
-  %priv_decode1 = getelementptr inbounds i8, ptr %ameth, i64 64
+  %priv_decode1 = getelementptr inbounds nuw i8, ptr %ameth, i64 64
   store ptr %priv_decode, ptr %priv_decode1, align 8
-  %priv_encode2 = getelementptr inbounds i8, ptr %ameth, i64 72
+  %priv_encode2 = getelementptr inbounds nuw i8, ptr %ameth, i64 72
   store ptr %priv_encode, ptr %priv_encode2, align 8
-  %priv_print3 = getelementptr inbounds i8, ptr %ameth, i64 80
+  %priv_print3 = getelementptr inbounds nuw i8, ptr %ameth, i64 80
   store ptr %priv_print, ptr %priv_print3, align 8
   ret void
 }
@@ -596,17 +596,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_param(ptr nocapture noundef writeonly initializes((112, 160)) %ameth, ptr noundef %param_decode, ptr noundef %param_encode, ptr noundef %param_missing, ptr noundef %param_copy, ptr noundef %param_cmp, ptr noundef %param_print) local_unnamed_addr #8 {
 entry:
-  %param_decode1 = getelementptr inbounds i8, ptr %ameth, i64 112
+  %param_decode1 = getelementptr inbounds nuw i8, ptr %ameth, i64 112
   store ptr %param_decode, ptr %param_decode1, align 8
-  %param_encode2 = getelementptr inbounds i8, ptr %ameth, i64 120
+  %param_encode2 = getelementptr inbounds nuw i8, ptr %ameth, i64 120
   store ptr %param_encode, ptr %param_encode2, align 8
-  %param_missing3 = getelementptr inbounds i8, ptr %ameth, i64 128
+  %param_missing3 = getelementptr inbounds nuw i8, ptr %ameth, i64 128
   store ptr %param_missing, ptr %param_missing3, align 8
-  %param_copy4 = getelementptr inbounds i8, ptr %ameth, i64 136
+  %param_copy4 = getelementptr inbounds nuw i8, ptr %ameth, i64 136
   store ptr %param_copy, ptr %param_copy4, align 8
-  %param_cmp5 = getelementptr inbounds i8, ptr %ameth, i64 144
+  %param_cmp5 = getelementptr inbounds nuw i8, ptr %ameth, i64 144
   store ptr %param_cmp, ptr %param_cmp5, align 8
-  %param_print6 = getelementptr inbounds i8, ptr %ameth, i64 152
+  %param_print6 = getelementptr inbounds nuw i8, ptr %ameth, i64 152
   store ptr %param_print, ptr %param_print6, align 8
   ret void
 }
@@ -614,7 +614,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_free(ptr nocapture noundef writeonly initializes((168, 176)) %ameth, ptr noundef %pkey_free) local_unnamed_addr #8 {
 entry:
-  %pkey_free1 = getelementptr inbounds i8, ptr %ameth, i64 168
+  %pkey_free1 = getelementptr inbounds nuw i8, ptr %ameth, i64 168
   store ptr %pkey_free, ptr %pkey_free1, align 8
   ret void
 }
@@ -622,7 +622,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_ctrl(ptr nocapture noundef writeonly initializes((176, 184)) %ameth, ptr noundef %pkey_ctrl) local_unnamed_addr #8 {
 entry:
-  %pkey_ctrl1 = getelementptr inbounds i8, ptr %ameth, i64 176
+  %pkey_ctrl1 = getelementptr inbounds nuw i8, ptr %ameth, i64 176
   store ptr %pkey_ctrl, ptr %pkey_ctrl1, align 8
   ret void
 }
@@ -630,7 +630,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_security_bits(ptr nocapture noundef writeonly initializes((104, 112)) %ameth, ptr noundef %pkey_security_bits) local_unnamed_addr #8 {
 entry:
-  %pkey_security_bits1 = getelementptr inbounds i8, ptr %ameth, i64 104
+  %pkey_security_bits1 = getelementptr inbounds nuw i8, ptr %ameth, i64 104
   store ptr %pkey_security_bits, ptr %pkey_security_bits1, align 8
   ret void
 }
@@ -638,9 +638,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_item(ptr nocapture noundef writeonly initializes((200, 216)) %ameth, ptr noundef %item_verify, ptr noundef %item_sign) local_unnamed_addr #8 {
 entry:
-  %item_sign1 = getelementptr inbounds i8, ptr %ameth, i64 208
+  %item_sign1 = getelementptr inbounds nuw i8, ptr %ameth, i64 208
   store ptr %item_sign, ptr %item_sign1, align 8
-  %item_verify2 = getelementptr inbounds i8, ptr %ameth, i64 200
+  %item_verify2 = getelementptr inbounds nuw i8, ptr %ameth, i64 200
   store ptr %item_verify, ptr %item_verify2, align 8
   ret void
 }
@@ -648,7 +648,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_siginf(ptr nocapture noundef writeonly initializes((216, 224)) %ameth, ptr noundef %siginf_set) local_unnamed_addr #8 {
 entry:
-  %siginf_set1 = getelementptr inbounds i8, ptr %ameth, i64 216
+  %siginf_set1 = getelementptr inbounds nuw i8, ptr %ameth, i64 216
   store ptr %siginf_set, ptr %siginf_set1, align 8
   ret void
 }
@@ -656,7 +656,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_check(ptr nocapture noundef writeonly initializes((224, 232)) %ameth, ptr noundef %pkey_check) local_unnamed_addr #8 {
 entry:
-  %pkey_check1 = getelementptr inbounds i8, ptr %ameth, i64 224
+  %pkey_check1 = getelementptr inbounds nuw i8, ptr %ameth, i64 224
   store ptr %pkey_check, ptr %pkey_check1, align 8
   ret void
 }
@@ -664,7 +664,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_public_check(ptr nocapture noundef writeonly initializes((232, 240)) %ameth, ptr noundef %pkey_pub_check) local_unnamed_addr #8 {
 entry:
-  %pkey_public_check = getelementptr inbounds i8, ptr %ameth, i64 232
+  %pkey_public_check = getelementptr inbounds nuw i8, ptr %ameth, i64 232
   store ptr %pkey_pub_check, ptr %pkey_public_check, align 8
   ret void
 }
@@ -672,7 +672,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_param_check(ptr nocapture noundef writeonly initializes((240, 248)) %ameth, ptr noundef %pkey_param_check) local_unnamed_addr #8 {
 entry:
-  %pkey_param_check1 = getelementptr inbounds i8, ptr %ameth, i64 240
+  %pkey_param_check1 = getelementptr inbounds nuw i8, ptr %ameth, i64 240
   store ptr %pkey_param_check, ptr %pkey_param_check1, align 8
   ret void
 }
@@ -680,7 +680,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_set_priv_key(ptr nocapture noundef writeonly initializes((248, 256)) %ameth, ptr noundef %set_priv_key) local_unnamed_addr #8 {
 entry:
-  %set_priv_key1 = getelementptr inbounds i8, ptr %ameth, i64 248
+  %set_priv_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 248
   store ptr %set_priv_key, ptr %set_priv_key1, align 8
   ret void
 }
@@ -688,7 +688,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_set_pub_key(ptr nocapture noundef writeonly initializes((256, 264)) %ameth, ptr noundef %set_pub_key) local_unnamed_addr #8 {
 entry:
-  %set_pub_key1 = getelementptr inbounds i8, ptr %ameth, i64 256
+  %set_pub_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 256
   store ptr %set_pub_key, ptr %set_pub_key1, align 8
   ret void
 }
@@ -696,7 +696,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_get_priv_key(ptr nocapture noundef writeonly initializes((264, 272)) %ameth, ptr noundef %get_priv_key) local_unnamed_addr #8 {
 entry:
-  %get_priv_key1 = getelementptr inbounds i8, ptr %ameth, i64 264
+  %get_priv_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 264
   store ptr %get_priv_key, ptr %get_priv_key1, align 8
   ret void
 }
@@ -704,7 +704,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_PKEY_asn1_set_get_pub_key(ptr nocapture noundef writeonly initializes((272, 280)) %ameth, ptr noundef %get_pub_key) local_unnamed_addr #8 {
 entry:
-  %get_pub_key1 = getelementptr inbounds i8, ptr %ameth, i64 272
+  %get_pub_key1 = getelementptr inbounds nuw i8, ptr %ameth, i64 272
   store ptr %get_pub_key, ptr %get_pub_key1, align 8
   ret void
 }

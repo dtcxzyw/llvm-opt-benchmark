@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @ws_filter_list_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_list_free_full(ptr noundef %3, ptr noundef nonnull @free_filter_entry) #8
   tail call void @g_free(ptr noundef %0) #8
@@ -49,7 +49,7 @@ declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal void @free_filter_entry(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #8
   tail call void @g_free(ptr noundef nonnull %0) #8
@@ -62,7 +62,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define noalias nonnull ptr @ws_filter_list_read(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   store i32 %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   %4 = icmp ult i32 %0, 3
   br i1 %4, label %switch.lookup, label %5
@@ -73,10 +73,10 @@ define noalias nonnull ptr @ws_filter_list_read(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %0 to i64
-  %switch.gep318 = getelementptr inbounds [3 x ptr], ptr @switch.table.ws_filter_list_read.1, i64 0, i64 %7
+  %switch.gep318 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_read.1, i64 0, i64 %7
   %switch.load319 = load ptr, ptr %switch.gep318, align 8
   %8 = tail call ptr @get_persconffile_path(ptr noundef nonnull %switch.load, i1 noundef zeroext true) #8
   %9 = tail call noalias ptr @fopen(ptr noundef %8, ptr noundef nonnull @.str.9)
@@ -373,7 +373,7 @@ getc_crlf.exit169:                                ; preds = %88, %95, %95, %97
   %111 = tail call noalias ptr @g_strdup(ptr noundef %.5131) #8
   store ptr %111, ptr %110, align 8
   %112 = tail call noalias ptr @g_strdup(ptr noundef %.5125) #8
-  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %112, ptr %113, align 8
   %114 = tail call ptr @g_list_prepend(ptr noundef %.0137, ptr noundef nonnull %110) #8
   br label %.loopexit
@@ -459,13 +459,13 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @ws_filter_list_add(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   %7 = tail call noalias ptr @g_strdup(ptr noundef %1) #8
   store ptr %7, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %2) #8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @g_list_prepend(ptr noundef %5, ptr noundef nonnull %6) #8
   store ptr %10, ptr %4, align 8
@@ -474,7 +474,7 @@ define void @ws_filter_list_add(ptr nocapture noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define ptr @ws_filter_list_find(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_list_find_custom(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @compare_def) #8
   ret ptr %5
@@ -491,7 +491,7 @@ define internal i32 @compare_def(ptr nocapture noundef readonly %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ws_filter_list_remove(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_list_find_custom(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @compare_def) #8
   %6 = icmp ne ptr %5, null
@@ -502,7 +502,7 @@ define noundef zeroext i1 @ws_filter_list_remove(ptr nocapture noundef %0, ptr n
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #8
   tail call void @g_free(ptr noundef nonnull %9) #8
@@ -527,12 +527,12 @@ define void @ws_filter_list_write(ptr nocapture noundef readonly %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.ws_filter_list_write, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %3 to i64
-  %switch.gep59 = getelementptr inbounds [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
+  %switch.gep59 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.ws_filter_list_write.2, i64 0, i64 %7
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @create_persconffile_dir(ptr noundef nonnull %2) #8
   %11 = icmp eq i32 %10, -1
@@ -596,7 +596,7 @@ switch.lookup:                                    ; preds = %1
 40:                                               ; preds = %32
   %41 = call i32 @putc(i32 noundef 34, ptr noundef nonnull %21)
   %42 = call i32 @putc(i32 noundef 32, ptr noundef nonnull %21)
-  %43 = getelementptr inbounds i8, ptr %29, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %21, ptr noundef nonnull @.str.21, ptr noundef %44) #8
   %46 = call i32 @ferror(ptr noundef nonnull %21) #8
@@ -614,7 +614,7 @@ switch.lookup:                                    ; preds = %1
   br label %72
 
 53:                                               ; preds = %40
-  %54 = getelementptr inbounds i8, ptr %.05258, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.05258, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9

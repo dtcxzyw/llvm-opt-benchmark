@@ -76,7 +76,7 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 if.end12:                                         ; preds = %if.end9
-  %epfd13 = getelementptr inbounds i8, ptr %call10, i64 12
+  %epfd13 = getelementptr inbounds nuw i8, ptr %call10, i64 12
   store i32 %epfd.0, ptr %epfd13, align 4
   %call14 = tail call ptr @event_mm_calloc_(i64 noundef 32, i64 noundef 12) #5
   store ptr %call14, ptr %call10, align 8
@@ -89,9 +89,9 @@ if.then17:                                        ; preds = %if.end12
   br label %return
 
 if.end18:                                         ; preds = %if.end12
-  %nevents = getelementptr inbounds i8, ptr %call10, i64 8
+  %nevents = getelementptr inbounds nuw i8, ptr %call10, i64 8
   store i32 32, ptr %nevents, align 8
-  %flags = getelementptr inbounds i8, ptr %base, i64 984
+  %flags = getelementptr inbounds nuw i8, ptr %base, i64 984
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 16
   %cmp19.not = icmp eq i32 %and, 0
@@ -130,13 +130,13 @@ define internal range(i32 -1, 1) i32 @epoll_nochangelist_add(ptr nocapture nound
 entry:
   %ch = alloca %struct.event_change, align 4
   store i32 %fd, ptr %ch, align 4
-  %old_events = getelementptr inbounds i8, ptr %ch, i64 4
+  %old_events = getelementptr inbounds nuw i8, ptr %ch, i64 4
   store i16 %old, ptr %old_events, align 4
-  %close_change = getelementptr inbounds i8, ptr %ch, i64 8
+  %close_change = getelementptr inbounds nuw i8, ptr %ch, i64 8
   store i8 0, ptr %close_change, align 4
-  %write_change = getelementptr inbounds i8, ptr %ch, i64 7
+  %write_change = getelementptr inbounds nuw i8, ptr %ch, i64 7
   store i8 0, ptr %write_change, align 1
-  %read_change = getelementptr inbounds i8, ptr %ch, i64 6
+  %read_change = getelementptr inbounds nuw i8, ptr %ch, i64 6
   store i8 0, ptr %read_change, align 2
   %0 = and i16 %events, 4
   %tobool.not = icmp eq i16 %0, 0
@@ -174,7 +174,7 @@ if.then19:                                        ; preds = %if.end15
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end15
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %9 = load ptr, ptr %evbase, align 8
   %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %9, ptr noundef nonnull %ch)
   ret i32 %call
@@ -185,13 +185,13 @@ define internal range(i32 -1, 1) i32 @epoll_nochangelist_del(ptr nocapture nound
 entry:
   %ch = alloca %struct.event_change, align 4
   store i32 %fd, ptr %ch, align 4
-  %old_events = getelementptr inbounds i8, ptr %ch, i64 4
+  %old_events = getelementptr inbounds nuw i8, ptr %ch, i64 4
   store i16 %old, ptr %old_events, align 4
-  %close_change = getelementptr inbounds i8, ptr %ch, i64 8
+  %close_change = getelementptr inbounds nuw i8, ptr %ch, i64 8
   store i8 0, ptr %close_change, align 4
-  %write_change = getelementptr inbounds i8, ptr %ch, i64 7
+  %write_change = getelementptr inbounds nuw i8, ptr %ch, i64 7
   store i8 0, ptr %write_change, align 1
-  %read_change = getelementptr inbounds i8, ptr %ch, i64 6
+  %read_change = getelementptr inbounds nuw i8, ptr %ch, i64 6
   store i8 0, ptr %read_change, align 2
   %0 = and i16 %events, 4
   %tobool.not = icmp eq i16 %0, 0
@@ -228,7 +228,7 @@ if.then19:                                        ; preds = %if.end15
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end15
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %8 = load ptr, ptr %evbase, align 8
   %call = call fastcc i32 @epoll_apply_one_change(ptr noundef %8, ptr noundef nonnull %ch)
   ret i32 %call
@@ -238,7 +238,7 @@ if.end25:                                         ; preds = %if.then19, %if.end1
 define internal range(i32 -1, 1) i32 @epoll_dispatch(ptr noundef %base, ptr noundef readonly %tv) #0 {
 entry:
   %ts = alloca %struct.timespec, align 8
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   %1 = load ptr, ptr %0, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ts, i8 0, i64 16, i1 false)
@@ -248,16 +248,16 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %tv, align 8
   store i64 %2, ptr %ts, align 8
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %3 = load i64, ptr %tv_usec, align 8
   %mul = mul nsw i64 %3, 1000
-  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %changelist1.i = getelementptr inbounds i8, ptr %base, i64 16
-  %n_changes.i = getelementptr inbounds i8, ptr %base, i64 24
+  %changelist1.i = getelementptr inbounds nuw i8, ptr %base, i64 16
+  %n_changes.i = getelementptr inbounds nuw i8, ptr %base, i64 24
   %4 = load i32, ptr %n_changes.i, align 8
   %cmp6.i = icmp sgt i32 %4, 0
   br i1 %cmp6.i, label %for.body.i, label %epoll_apply_changes.exit
@@ -265,7 +265,7 @@ if.end:                                           ; preds = %if.then, %entry
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end ]
   %5 = load ptr, ptr %changelist1.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.event_change, ptr %5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.event_change, ptr %5, i64 %indvars.iv.i
   %call.i = tail call fastcc i32 @epoll_apply_one_change(ptr noundef nonnull %0, ptr noundef %arrayidx.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %6 = load i32, ptr %n_changes.i, align 8
@@ -275,7 +275,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
 
 epoll_apply_changes.exit:                         ; preds = %for.body.i, %if.end
   tail call void @event_changelist_remove_all_(ptr noundef nonnull %changelist1.i, ptr noundef nonnull %base) #5
-  %th_base_lock = getelementptr inbounds i8, ptr %base, i64 952
+  %th_base_lock = getelementptr inbounds nuw i8, ptr %base, i64 952
   %8 = load ptr, ptr %th_base_lock, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %do.end8, label %if.then4
@@ -286,9 +286,9 @@ if.then4:                                         ; preds = %epoll_apply_changes
   br label %do.end8
 
 do.end8:                                          ; preds = %if.then4, %epoll_apply_changes.exit
-  %epfd = getelementptr inbounds i8, ptr %0, i64 12
+  %epfd = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %epfd, align 4
-  %nevents = getelementptr inbounds i8, ptr %0, i64 8
+  %nevents = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %nevents, align 8
   %ts. = select i1 %cmp.not, ptr null, ptr %ts
   %call10 = call i32 @epoll_pwait2(i32 noundef %10, ptr noundef %1, i32 noundef %11, ptr noundef %ts., ptr noundef null) #5
@@ -334,7 +334,7 @@ for.body.preheader:                               ; preds = %do.end34
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.epoll_event, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.epoll_event, ptr %1, i64 %indvars.iv
   %16 = load i32, ptr %arrayidx, align 1
   %and = and i32 %16, 8
   %tobool37.not = icmp ne i32 %and, 0
@@ -360,7 +360,7 @@ if.end65:                                         ; preds = %if.else44
 
 if.end68:                                         ; preds = %if.else44, %for.body, %if.end65
   %ev.045 = phi i16 [ %ev.2, %if.end65 ], [ %21, %if.else44 ], [ 6, %for.body ]
-  %data = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %22 = load i32, ptr %data, align 1
   %23 = or i16 %ev.045, 32
   call void @evmap_io_active_(ptr noundef %base, i32 noundef %22, i16 noundef signext %23) #5
@@ -400,7 +400,7 @@ return:                                           ; preds = %for.end, %if.then89
 ; Function Attrs: nounwind uwtable
 define internal void @epoll_dealloc(ptr noundef %base) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   tail call void @evsig_dealloc_(ptr noundef %base) #5
   %1 = load ptr, ptr %0, align 8
@@ -412,7 +412,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %epfd = getelementptr inbounds i8, ptr %0, i64 12
+  %epfd = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %epfd, align 4
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.end4, label %if.then2
@@ -460,23 +460,23 @@ declare i32 @event_changelist_del_(ptr noundef, i32 noundef, i16 noundef signext
 define internal fastcc range(i32 -1, 1) i32 @epoll_apply_one_change(ptr nocapture noundef readonly %epollop, ptr nocapture noundef readonly %ch) unnamed_addr #0 {
 entry:
   %epev = alloca %struct.epoll_event, align 4
-  %close_change = getelementptr inbounds i8, ptr %ch, i64 8
+  %close_change = getelementptr inbounds nuw i8, ptr %ch, i64 8
   %0 = load i8, ptr %close_change, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 3
-  %read_change = getelementptr inbounds i8, ptr %ch, i64 6
+  %read_change = getelementptr inbounds nuw i8, ptr %ch, i64 6
   %1 = load i8, ptr %read_change, align 2
   %conv1 = zext i8 %1 to i32
   %and2 = shl nuw nsw i32 %conv1, 2
   %shl = and i32 %and2, 12
   %or = or disjoint i32 %shl, %and
-  %write_change = getelementptr inbounds i8, ptr %ch, i64 7
+  %write_change = getelementptr inbounds nuw i8, ptr %ch, i64 7
   %2 = load i8, ptr %write_change, align 1
   %conv3 = zext i8 %2 to i32
   %and4 = shl nuw nsw i32 %conv3, 4
   %shl5 = and i32 %and4, 48
   %or6 = or disjoint i32 %or, %shl5
-  %old_events = getelementptr inbounds i8, ptr %ch, i64 4
+  %old_events = getelementptr inbounds nuw i8, ptr %ch, i64 4
   %3 = load i16, ptr %old_events, align 4
   %conv7 = sext i16 %3 to i32
   %and8 = shl nsw i32 %conv7, 5
@@ -486,8 +486,8 @@ entry:
   %shl14 = and i32 %and13, 256
   %or15 = or disjoint i32 %or10, %shl14
   %idxprom = zext nneg i32 %or15 to i64
-  %arrayidx = getelementptr inbounds [512 x %struct.operation], ptr @epoll_op_table, i64 0, i64 %idxprom
-  %op16 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx = getelementptr inbounds nuw [512 x %struct.operation], ptr @epoll_op_table, i64 0, i64 %idxprom
+  %op16 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %4 = load i32, ptr %op16, align 4
   %5 = load i32, ptr %arrayidx, align 8
   %tobool.not = icmp eq i32 %5, 0
@@ -499,13 +499,13 @@ if.end:                                           ; preds = %entry
   %and28 = shl i32 %or27, 26
   %6 = and i32 %and28, -2147483648
   %spec.select = or i32 %6, %5
-  %7 = getelementptr inbounds i8, ptr %epev, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %epev, i64 8
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr %ch, align 4
-  %data = getelementptr inbounds i8, ptr %epev, i64 4
+  %data = getelementptr inbounds nuw i8, ptr %epev, i64 4
   store i32 %8, ptr %data, align 4
   store i32 %spec.select, ptr %epev, align 4
-  %epfd = getelementptr inbounds i8, ptr %epollop, i64 12
+  %epfd = getelementptr inbounds nuw i8, ptr %epollop, i64 12
   %9 = load i32, ptr %epfd, align 4
   %call = call i32 @epoll_ctl(i32 noundef %9, i32 noundef %4, i32 noundef %8, ptr noundef nonnull %epev) #5
   %cmp = icmp eq i32 %call, 0
@@ -531,19 +531,19 @@ if.then39:                                        ; preds = %do.body37
   %conv46 = zext i8 %14 to i32
   %and.i = and i32 %conv46, 3
   %15 = zext nneg i32 %and.i to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   %16 = load i8, ptr %write_change, align 1
   %conv51 = zext i8 %16 to i32
   %and.i42 = and i32 %conv51, 3
   %17 = zext nneg i32 %and.i42 to i64
-  %switch.gep7 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %17
+  %switch.gep7 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %17
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %18 = load i8, ptr %close_change, align 4
   %conv56 = zext i8 %18 to i32
   %and.i49 = and i32 %conv56, 3
   %19 = zext nneg i32 %and.i49 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %19
+  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %19
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.4, ptr noundef nonnull %cond7.i, i32 noundef %11, i32 noundef %12, i32 noundef %conv44, i32 noundef %conv46, ptr noundef nonnull %switch.load, i32 noundef %conv51, ptr noundef nonnull %switch.load8, i32 noundef %conv56, ptr noundef nonnull %switch.load2) #5
   br label %return
@@ -651,19 +651,19 @@ sw.epilog:                                        ; preds = %sw.bb105, %if.end62
   %conv133 = zext i8 %43 to i32
   %and.i62 = and i32 %conv133, 3
   %44 = zext nneg i32 %and.i62 to i64
-  %switch.gep3 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %44
+  %switch.gep3 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %44
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   %45 = load i8, ptr %write_change, align 1
   %conv138 = zext i8 %45 to i32
   %and.i69 = and i32 %conv138, 3
   %46 = zext nneg i32 %and.i69 to i64
-  %switch.gep9 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %46
+  %switch.gep9 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %46
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
   %47 = load i8, ptr %close_change, align 4
   %conv143 = zext i8 %47 to i32
   %and.i76 = and i32 %conv143, 3
   %48 = zext nneg i32 %and.i76 to i64
-  %switch.gep5 = getelementptr inbounds [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %48
+  %switch.gep5 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.epoll_apply_one_change.6, i64 0, i64 %48
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.10, ptr noundef nonnull %cond7.i61, i32 noundef %40, i32 noundef %41, i32 noundef %conv131, i32 noundef %conv133, ptr noundef nonnull %switch.load4, i32 noundef %conv138, ptr noundef nonnull %switch.load10, i32 noundef %conv143, ptr noundef nonnull %switch.load6) #5
   br label %return

@@ -86,7 +86,7 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx5127forwardERKNS_3MatERS1_R
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %34)
   br label %41
@@ -227,7 +227,7 @@ select.unfold:                                    ; preds = %93, %87, %90
 
 121:                                              ; preds = %117
   %122 = load ptr, ptr %119, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = load ptr, ptr %123, align 8
   tail call void %124(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef %120)
   br label %127
@@ -438,35 +438,35 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.017151990 = phi ptr [ %341, %.lr.ph ], [ %215, %178 ]
   %.017171989 = phi ptr [ %340, %.lr.ph ], [ %212, %178 ]
   %238 = load <16 x float>, ptr %.016492006, align 1
-  %239 = getelementptr inbounds i8, ptr %.016492006, i64 64
+  %239 = getelementptr inbounds nuw i8, ptr %.016492006, i64 64
   %240 = load <16 x float>, ptr %239, align 1
-  %241 = getelementptr inbounds i8, ptr %.016492006, i64 128
+  %241 = getelementptr inbounds nuw i8, ptr %.016492006, i64 128
   %242 = load <16 x float>, ptr %241, align 1
-  %243 = getelementptr inbounds i8, ptr %.016492006, i64 192
+  %243 = getelementptr inbounds nuw i8, ptr %.016492006, i64 192
   %244 = load <16 x float>, ptr %243, align 1
-  %245 = getelementptr inbounds i8, ptr %.016492006, i64 256
+  %245 = getelementptr inbounds nuw i8, ptr %.016492006, i64 256
   %246 = load <16 x float>, ptr %245, align 1
-  %247 = getelementptr inbounds i8, ptr %.016492006, i64 320
+  %247 = getelementptr inbounds nuw i8, ptr %.016492006, i64 320
   %248 = load <16 x float>, ptr %247, align 1
-  %249 = getelementptr inbounds i8, ptr %.016492006, i64 384
+  %249 = getelementptr inbounds nuw i8, ptr %.016492006, i64 384
   %250 = load <16 x float>, ptr %249, align 1
-  %251 = getelementptr inbounds i8, ptr %.016492006, i64 448
+  %251 = getelementptr inbounds nuw i8, ptr %.016492006, i64 448
   %252 = load <16 x float>, ptr %251, align 1
-  %253 = getelementptr inbounds i8, ptr %.016492006, i64 512
+  %253 = getelementptr inbounds nuw i8, ptr %.016492006, i64 512
   %254 = load <16 x float>, ptr %253, align 1
-  %255 = getelementptr inbounds i8, ptr %.016492006, i64 576
+  %255 = getelementptr inbounds nuw i8, ptr %.016492006, i64 576
   %256 = load <16 x float>, ptr %255, align 1
-  %257 = getelementptr inbounds i8, ptr %.016492006, i64 640
+  %257 = getelementptr inbounds nuw i8, ptr %.016492006, i64 640
   %258 = load <16 x float>, ptr %257, align 1
-  %259 = getelementptr inbounds i8, ptr %.016492006, i64 704
+  %259 = getelementptr inbounds nuw i8, ptr %.016492006, i64 704
   %260 = load <16 x float>, ptr %259, align 1
-  %261 = getelementptr inbounds i8, ptr %.016492006, i64 768
+  %261 = getelementptr inbounds nuw i8, ptr %.016492006, i64 768
   %262 = load <16 x float>, ptr %261, align 1
-  %263 = getelementptr inbounds i8, ptr %.016492006, i64 832
+  %263 = getelementptr inbounds nuw i8, ptr %.016492006, i64 832
   %264 = load <16 x float>, ptr %263, align 1
-  %265 = getelementptr inbounds i8, ptr %.016492006, i64 896
+  %265 = getelementptr inbounds nuw i8, ptr %.016492006, i64 896
   %266 = load <16 x float>, ptr %265, align 1
-  %267 = getelementptr inbounds i8, ptr %.016492006, i64 960
+  %267 = getelementptr inbounds nuw i8, ptr %.016492006, i64 960
   %268 = load <16 x float>, ptr %267, align 1
   %269 = shufflevector <16 x float> %238, <16 x float> %240, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %270 = shufflevector <16 x float> %238, <16 x float> %240, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -548,23 +548,23 @@ select.unfold:                                    ; preds = %93, %87, %90
   store <16 x float> %330, ptr %.017051995, align 1
   store <16 x float> %331, ptr %.017031996, align 1
   store <16 x float> %332, ptr %.017011997, align 1
-  %333 = getelementptr inbounds i8, ptr %.016512005, i64 64
-  %334 = getelementptr inbounds i8, ptr %.016532004, i64 64
-  %335 = getelementptr inbounds i8, ptr %.016552003, i64 64
-  %336 = getelementptr inbounds i8, ptr %.016572002, i64 64
-  %337 = getelementptr inbounds i8, ptr %.016592001, i64 64
-  %338 = getelementptr inbounds i8, ptr %.016612000, i64 64
-  %339 = getelementptr inbounds i8, ptr %.016631999, i64 64
-  %340 = getelementptr inbounds i8, ptr %.017171989, i64 64
-  %341 = getelementptr inbounds i8, ptr %.017151990, i64 64
-  %342 = getelementptr inbounds i8, ptr %.017131991, i64 64
-  %343 = getelementptr inbounds i8, ptr %.017111992, i64 64
-  %344 = getelementptr inbounds i8, ptr %.017091993, i64 64
-  %345 = getelementptr inbounds i8, ptr %.017071994, i64 64
-  %346 = getelementptr inbounds i8, ptr %.017051995, i64 64
-  %347 = getelementptr inbounds i8, ptr %.017031996, i64 64
-  %348 = getelementptr inbounds i8, ptr %.017011997, i64 64
-  %349 = getelementptr inbounds i8, ptr %.016492006, i64 1024
+  %333 = getelementptr inbounds nuw i8, ptr %.016512005, i64 64
+  %334 = getelementptr inbounds nuw i8, ptr %.016532004, i64 64
+  %335 = getelementptr inbounds nuw i8, ptr %.016552003, i64 64
+  %336 = getelementptr inbounds nuw i8, ptr %.016572002, i64 64
+  %337 = getelementptr inbounds nuw i8, ptr %.016592001, i64 64
+  %338 = getelementptr inbounds nuw i8, ptr %.016612000, i64 64
+  %339 = getelementptr inbounds nuw i8, ptr %.016631999, i64 64
+  %340 = getelementptr inbounds nuw i8, ptr %.017171989, i64 64
+  %341 = getelementptr inbounds nuw i8, ptr %.017151990, i64 64
+  %342 = getelementptr inbounds nuw i8, ptr %.017131991, i64 64
+  %343 = getelementptr inbounds nuw i8, ptr %.017111992, i64 64
+  %344 = getelementptr inbounds nuw i8, ptr %.017091993, i64 64
+  %345 = getelementptr inbounds nuw i8, ptr %.017071994, i64 64
+  %346 = getelementptr inbounds nuw i8, ptr %.017051995, i64 64
+  %347 = getelementptr inbounds nuw i8, ptr %.017031996, i64 64
+  %348 = getelementptr inbounds nuw i8, ptr %.017011997, i64 64
+  %349 = getelementptr inbounds nuw i8, ptr %.016492006, i64 1024
   %350 = add nuw nsw i32 %.016991998, 16
   %351 = or disjoint i32 %350, 15
   %352 = icmp slt i32 %351, %71
@@ -590,69 +590,69 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.117162025 = phi ptr [ %378, %.lr.ph2042 ], [ %.01715.lcssa, %.preheader1987 ]
   %.117182024 = phi ptr [ %375, %.lr.ph2042 ], [ %.01717.lcssa, %.preheader1987 ]
   %353 = load float, ptr %.116502041, align 4
-  %354 = getelementptr inbounds i8, ptr %.116522040, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %.116522040, i64 4
   store float %353, ptr %.116522040, align 4
-  %355 = getelementptr inbounds i8, ptr %.116502041, i64 4
+  %355 = getelementptr inbounds nuw i8, ptr %.116502041, i64 4
   %356 = load float, ptr %355, align 4
-  %357 = getelementptr inbounds i8, ptr %.116542039, i64 4
+  %357 = getelementptr inbounds nuw i8, ptr %.116542039, i64 4
   store float %356, ptr %.116542039, align 4
-  %358 = getelementptr inbounds i8, ptr %.116502041, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %.116502041, i64 8
   %359 = load float, ptr %358, align 4
-  %360 = getelementptr inbounds i8, ptr %.116562038, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %.116562038, i64 4
   store float %359, ptr %.116562038, align 4
-  %361 = getelementptr inbounds i8, ptr %.116502041, i64 12
+  %361 = getelementptr inbounds nuw i8, ptr %.116502041, i64 12
   %362 = load float, ptr %361, align 4
-  %363 = getelementptr inbounds i8, ptr %.116582037, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %.116582037, i64 4
   store float %362, ptr %.116582037, align 4
-  %364 = getelementptr inbounds i8, ptr %.116502041, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %.116502041, i64 16
   %365 = load float, ptr %364, align 4
-  %366 = getelementptr inbounds i8, ptr %.116602036, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %.116602036, i64 4
   store float %365, ptr %.116602036, align 4
-  %367 = getelementptr inbounds i8, ptr %.116502041, i64 20
+  %367 = getelementptr inbounds nuw i8, ptr %.116502041, i64 20
   %368 = load float, ptr %367, align 4
-  %369 = getelementptr inbounds i8, ptr %.116622035, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %.116622035, i64 4
   store float %368, ptr %.116622035, align 4
-  %370 = getelementptr inbounds i8, ptr %.116502041, i64 24
+  %370 = getelementptr inbounds nuw i8, ptr %.116502041, i64 24
   %371 = load float, ptr %370, align 4
-  %372 = getelementptr inbounds i8, ptr %.116642034, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %.116642034, i64 4
   store float %371, ptr %.116642034, align 4
-  %373 = getelementptr inbounds i8, ptr %.116502041, i64 28
+  %373 = getelementptr inbounds nuw i8, ptr %.116502041, i64 28
   %374 = load float, ptr %373, align 4
-  %375 = getelementptr inbounds i8, ptr %.117182024, i64 4
+  %375 = getelementptr inbounds nuw i8, ptr %.117182024, i64 4
   store float %374, ptr %.117182024, align 4
-  %376 = getelementptr inbounds i8, ptr %.116502041, i64 32
+  %376 = getelementptr inbounds nuw i8, ptr %.116502041, i64 32
   %377 = load float, ptr %376, align 4
-  %378 = getelementptr inbounds i8, ptr %.117162025, i64 4
+  %378 = getelementptr inbounds nuw i8, ptr %.117162025, i64 4
   store float %377, ptr %.117162025, align 4
-  %379 = getelementptr inbounds i8, ptr %.116502041, i64 36
+  %379 = getelementptr inbounds nuw i8, ptr %.116502041, i64 36
   %380 = load float, ptr %379, align 4
-  %381 = getelementptr inbounds i8, ptr %.117142026, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %.117142026, i64 4
   store float %380, ptr %.117142026, align 4
-  %382 = getelementptr inbounds i8, ptr %.116502041, i64 40
+  %382 = getelementptr inbounds nuw i8, ptr %.116502041, i64 40
   %383 = load float, ptr %382, align 4
-  %384 = getelementptr inbounds i8, ptr %.117122027, i64 4
+  %384 = getelementptr inbounds nuw i8, ptr %.117122027, i64 4
   store float %383, ptr %.117122027, align 4
-  %385 = getelementptr inbounds i8, ptr %.116502041, i64 44
+  %385 = getelementptr inbounds nuw i8, ptr %.116502041, i64 44
   %386 = load float, ptr %385, align 4
-  %387 = getelementptr inbounds i8, ptr %.117102028, i64 4
+  %387 = getelementptr inbounds nuw i8, ptr %.117102028, i64 4
   store float %386, ptr %.117102028, align 4
-  %388 = getelementptr inbounds i8, ptr %.116502041, i64 48
+  %388 = getelementptr inbounds nuw i8, ptr %.116502041, i64 48
   %389 = load float, ptr %388, align 4
-  %390 = getelementptr inbounds i8, ptr %.117082029, i64 4
+  %390 = getelementptr inbounds nuw i8, ptr %.117082029, i64 4
   store float %389, ptr %.117082029, align 4
-  %391 = getelementptr inbounds i8, ptr %.116502041, i64 52
+  %391 = getelementptr inbounds nuw i8, ptr %.116502041, i64 52
   %392 = load float, ptr %391, align 4
-  %393 = getelementptr inbounds i8, ptr %.117062030, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %.117062030, i64 4
   store float %392, ptr %.117062030, align 4
-  %394 = getelementptr inbounds i8, ptr %.116502041, i64 56
+  %394 = getelementptr inbounds nuw i8, ptr %.116502041, i64 56
   %395 = load float, ptr %394, align 4
-  %396 = getelementptr inbounds i8, ptr %.117042031, i64 4
+  %396 = getelementptr inbounds nuw i8, ptr %.117042031, i64 4
   store float %395, ptr %.117042031, align 4
-  %397 = getelementptr inbounds i8, ptr %.116502041, i64 60
+  %397 = getelementptr inbounds nuw i8, ptr %.116502041, i64 60
   %398 = load float, ptr %397, align 4
-  %399 = getelementptr inbounds i8, ptr %.117022032, i64 4
+  %399 = getelementptr inbounds nuw i8, ptr %.117022032, i64 4
   store float %398, ptr %.117022032, align 4
-  %400 = getelementptr inbounds i8, ptr %.116502041, i64 64
+  %400 = getelementptr inbounds nuw i8, ptr %.116502041, i64 64
   %401 = add nuw nsw i32 %.117002033, 1
   %exitcond.not = icmp eq i32 %401, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph2042, !llvm.loop !6
@@ -738,19 +738,19 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.016942047 = phi ptr [ %483, %.lr.ph2057 ], [ %420, %408 ]
   %.016962046 = phi ptr [ %491, %.lr.ph2057 ], [ %415, %408 ]
   %444 = load <8 x float>, ptr %.016962046, align 1
-  %445 = getelementptr inbounds i8, ptr %.016962046, i64 32
+  %445 = getelementptr inbounds nuw i8, ptr %.016962046, i64 32
   %446 = load <8 x float>, ptr %445, align 1
-  %447 = getelementptr inbounds i8, ptr %.016962046, i64 64
+  %447 = getelementptr inbounds nuw i8, ptr %.016962046, i64 64
   %448 = load <8 x float>, ptr %447, align 1
-  %449 = getelementptr inbounds i8, ptr %.016962046, i64 96
+  %449 = getelementptr inbounds nuw i8, ptr %.016962046, i64 96
   %450 = load <8 x float>, ptr %449, align 1
-  %451 = getelementptr inbounds i8, ptr %.016962046, i64 128
+  %451 = getelementptr inbounds nuw i8, ptr %.016962046, i64 128
   %452 = load <8 x float>, ptr %451, align 1
-  %453 = getelementptr inbounds i8, ptr %.016962046, i64 160
+  %453 = getelementptr inbounds nuw i8, ptr %.016962046, i64 160
   %454 = load <8 x float>, ptr %453, align 1
-  %455 = getelementptr inbounds i8, ptr %.016962046, i64 192
+  %455 = getelementptr inbounds nuw i8, ptr %.016962046, i64 192
   %456 = load <8 x float>, ptr %455, align 1
-  %457 = getelementptr inbounds i8, ptr %.016962046, i64 224
+  %457 = getelementptr inbounds nuw i8, ptr %.016962046, i64 224
   %458 = load <8 x float>, ptr %457, align 1
   %459 = shufflevector <8 x float> %444, <8 x float> %446, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %460 = shufflevector <8 x float> %444, <8 x float> %446, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
@@ -784,15 +784,15 @@ select.unfold:                                    ; preds = %93, %87, %90
   store <8 x float> %480, ptr %.016842052, align 1
   store <8 x float> %481, ptr %.016822053, align 1
   store <8 x float> %482, ptr %.016802054, align 1
-  %483 = getelementptr inbounds i8, ptr %.016942047, i64 32
-  %484 = getelementptr inbounds i8, ptr %.016922048, i64 32
-  %485 = getelementptr inbounds i8, ptr %.016902049, i64 32
-  %486 = getelementptr inbounds i8, ptr %.016882050, i64 32
-  %487 = getelementptr inbounds i8, ptr %.016862051, i64 32
-  %488 = getelementptr inbounds i8, ptr %.016842052, i64 32
-  %489 = getelementptr inbounds i8, ptr %.016822053, i64 32
-  %490 = getelementptr inbounds i8, ptr %.016802054, i64 32
-  %491 = getelementptr inbounds i8, ptr %.016962046, i64 256
+  %483 = getelementptr inbounds nuw i8, ptr %.016942047, i64 32
+  %484 = getelementptr inbounds nuw i8, ptr %.016922048, i64 32
+  %485 = getelementptr inbounds nuw i8, ptr %.016902049, i64 32
+  %486 = getelementptr inbounds nuw i8, ptr %.016882050, i64 32
+  %487 = getelementptr inbounds nuw i8, ptr %.016862051, i64 32
+  %488 = getelementptr inbounds nuw i8, ptr %.016842052, i64 32
+  %489 = getelementptr inbounds nuw i8, ptr %.016822053, i64 32
+  %490 = getelementptr inbounds nuw i8, ptr %.016802054, i64 32
+  %491 = getelementptr inbounds nuw i8, ptr %.016962046, i64 256
   %492 = add nuw nsw i32 %.016782055, 8
   %493 = or disjoint i32 %492, 7
   %494 = icmp slt i32 %493, %71
@@ -810,37 +810,37 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.116952069 = phi ptr [ %496, %.lr.ph2078 ], [ %.01694.lcssa, %.preheader1986 ]
   %.116972068 = phi ptr [ %518, %.lr.ph2078 ], [ %.01696.lcssa, %.preheader1986 ]
   %495 = load float, ptr %.116972068, align 4
-  %496 = getelementptr inbounds i8, ptr %.116952069, i64 4
+  %496 = getelementptr inbounds nuw i8, ptr %.116952069, i64 4
   store float %495, ptr %.116952069, align 4
-  %497 = getelementptr inbounds i8, ptr %.116972068, i64 4
+  %497 = getelementptr inbounds nuw i8, ptr %.116972068, i64 4
   %498 = load float, ptr %497, align 4
-  %499 = getelementptr inbounds i8, ptr %.116932070, i64 4
+  %499 = getelementptr inbounds nuw i8, ptr %.116932070, i64 4
   store float %498, ptr %.116932070, align 4
-  %500 = getelementptr inbounds i8, ptr %.116972068, i64 8
+  %500 = getelementptr inbounds nuw i8, ptr %.116972068, i64 8
   %501 = load float, ptr %500, align 4
-  %502 = getelementptr inbounds i8, ptr %.116912071, i64 4
+  %502 = getelementptr inbounds nuw i8, ptr %.116912071, i64 4
   store float %501, ptr %.116912071, align 4
-  %503 = getelementptr inbounds i8, ptr %.116972068, i64 12
+  %503 = getelementptr inbounds nuw i8, ptr %.116972068, i64 12
   %504 = load float, ptr %503, align 4
-  %505 = getelementptr inbounds i8, ptr %.116892072, i64 4
+  %505 = getelementptr inbounds nuw i8, ptr %.116892072, i64 4
   store float %504, ptr %.116892072, align 4
-  %506 = getelementptr inbounds i8, ptr %.116972068, i64 16
+  %506 = getelementptr inbounds nuw i8, ptr %.116972068, i64 16
   %507 = load float, ptr %506, align 4
-  %508 = getelementptr inbounds i8, ptr %.116872073, i64 4
+  %508 = getelementptr inbounds nuw i8, ptr %.116872073, i64 4
   store float %507, ptr %.116872073, align 4
-  %509 = getelementptr inbounds i8, ptr %.116972068, i64 20
+  %509 = getelementptr inbounds nuw i8, ptr %.116972068, i64 20
   %510 = load float, ptr %509, align 4
-  %511 = getelementptr inbounds i8, ptr %.116852074, i64 4
+  %511 = getelementptr inbounds nuw i8, ptr %.116852074, i64 4
   store float %510, ptr %.116852074, align 4
-  %512 = getelementptr inbounds i8, ptr %.116972068, i64 24
+  %512 = getelementptr inbounds nuw i8, ptr %.116972068, i64 24
   %513 = load float, ptr %512, align 4
-  %514 = getelementptr inbounds i8, ptr %.116832075, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %.116832075, i64 4
   store float %513, ptr %.116832075, align 4
-  %515 = getelementptr inbounds i8, ptr %.116972068, i64 28
+  %515 = getelementptr inbounds nuw i8, ptr %.116972068, i64 28
   %516 = load float, ptr %515, align 4
-  %517 = getelementptr inbounds i8, ptr %.116812076, i64 4
+  %517 = getelementptr inbounds nuw i8, ptr %.116812076, i64 4
   store float %516, ptr %.116812076, align 4
-  %518 = getelementptr inbounds i8, ptr %.116972068, i64 32
+  %518 = getelementptr inbounds nuw i8, ptr %.116972068, i64 32
   %519 = add nuw nsw i32 %.116792077, 1
   %exitcond2325.not = icmp eq i32 %519, %71
   br i1 %exitcond2325.not, label %._crit_edge2079, label %.lr.ph2078, !llvm.loop !9
@@ -910,11 +910,11 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.016732085 = phi ptr [ %566, %.lr.ph2091 ], [ %538, %526 ]
   %.016752084 = phi ptr [ %565, %.lr.ph2091 ], [ %533, %526 ]
   %550 = load <4 x float>, ptr %.016752084, align 1
-  %551 = getelementptr inbounds i8, ptr %.016752084, i64 16
+  %551 = getelementptr inbounds nuw i8, ptr %.016752084, i64 16
   %552 = load <4 x float>, ptr %551, align 1
-  %553 = getelementptr inbounds i8, ptr %.016752084, i64 32
+  %553 = getelementptr inbounds nuw i8, ptr %.016752084, i64 32
   %554 = load <4 x float>, ptr %553, align 1
-  %555 = getelementptr inbounds i8, ptr %.016752084, i64 48
+  %555 = getelementptr inbounds nuw i8, ptr %.016752084, i64 48
   %556 = load <4 x float>, ptr %555, align 1
   %557 = shufflevector <4 x float> %550, <4 x float> %552, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %558 = shufflevector <4 x float> %554, <4 x float> %556, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -928,11 +928,11 @@ select.unfold:                                    ; preds = %93, %87, %90
   store <4 x float> %562, ptr %.016712086, align 1
   store <4 x float> %563, ptr %.016692087, align 1
   store <4 x float> %564, ptr %.016672088, align 1
-  %565 = getelementptr inbounds i8, ptr %.016752084, i64 64
-  %566 = getelementptr inbounds i8, ptr %.016732085, i64 16
-  %567 = getelementptr inbounds i8, ptr %.016712086, i64 16
-  %568 = getelementptr inbounds i8, ptr %.016692087, i64 16
-  %569 = getelementptr inbounds i8, ptr %.016672088, i64 16
+  %565 = getelementptr inbounds nuw i8, ptr %.016752084, i64 64
+  %566 = getelementptr inbounds nuw i8, ptr %.016732085, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %.016712086, i64 16
+  %568 = getelementptr inbounds nuw i8, ptr %.016692087, i64 16
+  %569 = getelementptr inbounds nuw i8, ptr %.016672088, i64 16
   %570 = add nuw nsw i32 %.016652089, 4
   %571 = or disjoint i32 %570, 3
   %572 = icmp slt i32 %571, %71
@@ -946,21 +946,21 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.116742099 = phi ptr [ %574, %.lr.ph2104 ], [ %.01673.lcssa, %.preheader1984 ]
   %.116762098 = phi ptr [ %584, %.lr.ph2104 ], [ %.01675.lcssa, %.preheader1984 ]
   %573 = load float, ptr %.116762098, align 4
-  %574 = getelementptr inbounds i8, ptr %.116742099, i64 4
+  %574 = getelementptr inbounds nuw i8, ptr %.116742099, i64 4
   store float %573, ptr %.116742099, align 4
-  %575 = getelementptr inbounds i8, ptr %.116762098, i64 4
+  %575 = getelementptr inbounds nuw i8, ptr %.116762098, i64 4
   %576 = load float, ptr %575, align 4
-  %577 = getelementptr inbounds i8, ptr %.116722100, i64 4
+  %577 = getelementptr inbounds nuw i8, ptr %.116722100, i64 4
   store float %576, ptr %.116722100, align 4
-  %578 = getelementptr inbounds i8, ptr %.116762098, i64 8
+  %578 = getelementptr inbounds nuw i8, ptr %.116762098, i64 8
   %579 = load float, ptr %578, align 4
-  %580 = getelementptr inbounds i8, ptr %.116702101, i64 4
+  %580 = getelementptr inbounds nuw i8, ptr %.116702101, i64 4
   store float %579, ptr %.116702101, align 4
-  %581 = getelementptr inbounds i8, ptr %.116762098, i64 12
+  %581 = getelementptr inbounds nuw i8, ptr %.116762098, i64 12
   %582 = load float, ptr %581, align 4
-  %583 = getelementptr inbounds i8, ptr %.116682102, i64 4
+  %583 = getelementptr inbounds nuw i8, ptr %.116682102, i64 4
   store float %582, ptr %.116682102, align 4
-  %584 = getelementptr inbounds i8, ptr %.116762098, i64 16
+  %584 = getelementptr inbounds nuw i8, ptr %.116762098, i64 16
   %585 = add nuw nsw i32 %.116662103, 1
   %exitcond2331.not = icmp eq i32 %585, %71
   br i1 %exitcond2331.not, label %._crit_edge2105, label %.lr.ph2104, !llvm.loop !12
@@ -1098,35 +1098,35 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.016442110 = phi ptr [ %748, %.lr.ph2128 ], [ %605, %594 ]
   %.016462109 = phi ptr [ %764, %.lr.ph2128 ], [ %600, %594 ]
   %653 = load <16 x float>, ptr %.016462109, align 1
-  %654 = getelementptr inbounds i8, ptr %.016462109, i64 64
+  %654 = getelementptr inbounds nuw i8, ptr %.016462109, i64 64
   %655 = load <16 x float>, ptr %654, align 1
-  %656 = getelementptr inbounds i8, ptr %.016462109, i64 128
+  %656 = getelementptr inbounds nuw i8, ptr %.016462109, i64 128
   %657 = load <16 x float>, ptr %656, align 1
-  %658 = getelementptr inbounds i8, ptr %.016462109, i64 192
+  %658 = getelementptr inbounds nuw i8, ptr %.016462109, i64 192
   %659 = load <16 x float>, ptr %658, align 1
-  %660 = getelementptr inbounds i8, ptr %.016462109, i64 256
+  %660 = getelementptr inbounds nuw i8, ptr %.016462109, i64 256
   %661 = load <16 x float>, ptr %660, align 1
-  %662 = getelementptr inbounds i8, ptr %.016462109, i64 320
+  %662 = getelementptr inbounds nuw i8, ptr %.016462109, i64 320
   %663 = load <16 x float>, ptr %662, align 1
-  %664 = getelementptr inbounds i8, ptr %.016462109, i64 384
+  %664 = getelementptr inbounds nuw i8, ptr %.016462109, i64 384
   %665 = load <16 x float>, ptr %664, align 1
-  %666 = getelementptr inbounds i8, ptr %.016462109, i64 448
+  %666 = getelementptr inbounds nuw i8, ptr %.016462109, i64 448
   %667 = load <16 x float>, ptr %666, align 1
-  %668 = getelementptr inbounds i8, ptr %.016462109, i64 512
+  %668 = getelementptr inbounds nuw i8, ptr %.016462109, i64 512
   %669 = load <16 x float>, ptr %668, align 1
-  %670 = getelementptr inbounds i8, ptr %.016462109, i64 576
+  %670 = getelementptr inbounds nuw i8, ptr %.016462109, i64 576
   %671 = load <16 x float>, ptr %670, align 1
-  %672 = getelementptr inbounds i8, ptr %.016462109, i64 640
+  %672 = getelementptr inbounds nuw i8, ptr %.016462109, i64 640
   %673 = load <16 x float>, ptr %672, align 1
-  %674 = getelementptr inbounds i8, ptr %.016462109, i64 704
+  %674 = getelementptr inbounds nuw i8, ptr %.016462109, i64 704
   %675 = load <16 x float>, ptr %674, align 1
-  %676 = getelementptr inbounds i8, ptr %.016462109, i64 768
+  %676 = getelementptr inbounds nuw i8, ptr %.016462109, i64 768
   %677 = load <16 x float>, ptr %676, align 1
-  %678 = getelementptr inbounds i8, ptr %.016462109, i64 832
+  %678 = getelementptr inbounds nuw i8, ptr %.016462109, i64 832
   %679 = load <16 x float>, ptr %678, align 1
-  %680 = getelementptr inbounds i8, ptr %.016462109, i64 896
+  %680 = getelementptr inbounds nuw i8, ptr %.016462109, i64 896
   %681 = load <16 x float>, ptr %680, align 1
-  %682 = getelementptr inbounds i8, ptr %.016462109, i64 960
+  %682 = getelementptr inbounds nuw i8, ptr %.016462109, i64 960
   %683 = load <16 x float>, ptr %682, align 1
   %684 = shufflevector <16 x float> %653, <16 x float> %655, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %685 = shufflevector <16 x float> %653, <16 x float> %655, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
@@ -1208,23 +1208,23 @@ select.unfold:                                    ; preds = %93, %87, %90
   store <16 x float> %745, ptr %.016182123, align 1
   store <16 x float> %746, ptr %.016162124, align 1
   store <16 x float> %747, ptr %.016142125, align 1
-  %748 = getelementptr inbounds i8, ptr %.016442110, i64 64
-  %749 = getelementptr inbounds i8, ptr %.016422111, i64 64
-  %750 = getelementptr inbounds i8, ptr %.016402112, i64 64
-  %751 = getelementptr inbounds i8, ptr %.016382113, i64 64
-  %752 = getelementptr inbounds i8, ptr %.016362114, i64 64
-  %753 = getelementptr inbounds i8, ptr %.016342115, i64 64
-  %754 = getelementptr inbounds i8, ptr %.016322116, i64 64
-  %755 = getelementptr inbounds i8, ptr %.016302117, i64 64
-  %756 = getelementptr inbounds i8, ptr %.016282118, i64 64
-  %757 = getelementptr inbounds i8, ptr %.016262119, i64 64
-  %758 = getelementptr inbounds i8, ptr %.016242120, i64 64
-  %759 = getelementptr inbounds i8, ptr %.016222121, i64 64
-  %760 = getelementptr inbounds i8, ptr %.016202122, i64 64
-  %761 = getelementptr inbounds i8, ptr %.016182123, i64 64
-  %762 = getelementptr inbounds i8, ptr %.016162124, i64 64
-  %763 = getelementptr inbounds i8, ptr %.016142125, i64 64
-  %764 = getelementptr inbounds i8, ptr %.016462109, i64 1024
+  %748 = getelementptr inbounds nuw i8, ptr %.016442110, i64 64
+  %749 = getelementptr inbounds nuw i8, ptr %.016422111, i64 64
+  %750 = getelementptr inbounds nuw i8, ptr %.016402112, i64 64
+  %751 = getelementptr inbounds nuw i8, ptr %.016382113, i64 64
+  %752 = getelementptr inbounds nuw i8, ptr %.016362114, i64 64
+  %753 = getelementptr inbounds nuw i8, ptr %.016342115, i64 64
+  %754 = getelementptr inbounds nuw i8, ptr %.016322116, i64 64
+  %755 = getelementptr inbounds nuw i8, ptr %.016302117, i64 64
+  %756 = getelementptr inbounds nuw i8, ptr %.016282118, i64 64
+  %757 = getelementptr inbounds nuw i8, ptr %.016262119, i64 64
+  %758 = getelementptr inbounds nuw i8, ptr %.016242120, i64 64
+  %759 = getelementptr inbounds nuw i8, ptr %.016222121, i64 64
+  %760 = getelementptr inbounds nuw i8, ptr %.016202122, i64 64
+  %761 = getelementptr inbounds nuw i8, ptr %.016182123, i64 64
+  %762 = getelementptr inbounds nuw i8, ptr %.016162124, i64 64
+  %763 = getelementptr inbounds nuw i8, ptr %.016142125, i64 64
+  %764 = getelementptr inbounds nuw i8, ptr %.016462109, i64 1024
   %765 = add nuw nsw i32 %.016122126, 16
   %766 = or disjoint i32 %765, 15
   %767 = icmp slt i32 %766, %81
@@ -1250,69 +1250,69 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.116452148 = phi ptr [ %769, %.lr.ph2165 ], [ %.01644.lcssa, %.preheader1982 ]
   %.116472147 = phi ptr [ %815, %.lr.ph2165 ], [ %.01646.lcssa, %.preheader1982 ]
   %768 = load float, ptr %.116472147, align 4
-  %769 = getelementptr inbounds i8, ptr %.116452148, i64 4
+  %769 = getelementptr inbounds nuw i8, ptr %.116452148, i64 4
   store float %768, ptr %.116452148, align 4
-  %770 = getelementptr inbounds i8, ptr %.116472147, i64 4
+  %770 = getelementptr inbounds nuw i8, ptr %.116472147, i64 4
   %771 = load float, ptr %770, align 4
-  %772 = getelementptr inbounds i8, ptr %.116432149, i64 4
+  %772 = getelementptr inbounds nuw i8, ptr %.116432149, i64 4
   store float %771, ptr %.116432149, align 4
-  %773 = getelementptr inbounds i8, ptr %.116472147, i64 8
+  %773 = getelementptr inbounds nuw i8, ptr %.116472147, i64 8
   %774 = load float, ptr %773, align 4
-  %775 = getelementptr inbounds i8, ptr %.116412150, i64 4
+  %775 = getelementptr inbounds nuw i8, ptr %.116412150, i64 4
   store float %774, ptr %.116412150, align 4
-  %776 = getelementptr inbounds i8, ptr %.116472147, i64 12
+  %776 = getelementptr inbounds nuw i8, ptr %.116472147, i64 12
   %777 = load float, ptr %776, align 4
-  %778 = getelementptr inbounds i8, ptr %.116392151, i64 4
+  %778 = getelementptr inbounds nuw i8, ptr %.116392151, i64 4
   store float %777, ptr %.116392151, align 4
-  %779 = getelementptr inbounds i8, ptr %.116472147, i64 16
+  %779 = getelementptr inbounds nuw i8, ptr %.116472147, i64 16
   %780 = load float, ptr %779, align 4
-  %781 = getelementptr inbounds i8, ptr %.116372152, i64 4
+  %781 = getelementptr inbounds nuw i8, ptr %.116372152, i64 4
   store float %780, ptr %.116372152, align 4
-  %782 = getelementptr inbounds i8, ptr %.116472147, i64 20
+  %782 = getelementptr inbounds nuw i8, ptr %.116472147, i64 20
   %783 = load float, ptr %782, align 4
-  %784 = getelementptr inbounds i8, ptr %.116352153, i64 4
+  %784 = getelementptr inbounds nuw i8, ptr %.116352153, i64 4
   store float %783, ptr %.116352153, align 4
-  %785 = getelementptr inbounds i8, ptr %.116472147, i64 24
+  %785 = getelementptr inbounds nuw i8, ptr %.116472147, i64 24
   %786 = load float, ptr %785, align 4
-  %787 = getelementptr inbounds i8, ptr %.116332154, i64 4
+  %787 = getelementptr inbounds nuw i8, ptr %.116332154, i64 4
   store float %786, ptr %.116332154, align 4
-  %788 = getelementptr inbounds i8, ptr %.116472147, i64 28
+  %788 = getelementptr inbounds nuw i8, ptr %.116472147, i64 28
   %789 = load float, ptr %788, align 4
-  %790 = getelementptr inbounds i8, ptr %.116312155, i64 4
+  %790 = getelementptr inbounds nuw i8, ptr %.116312155, i64 4
   store float %789, ptr %.116312155, align 4
-  %791 = getelementptr inbounds i8, ptr %.116472147, i64 32
+  %791 = getelementptr inbounds nuw i8, ptr %.116472147, i64 32
   %792 = load float, ptr %791, align 4
-  %793 = getelementptr inbounds i8, ptr %.116292156, i64 4
+  %793 = getelementptr inbounds nuw i8, ptr %.116292156, i64 4
   store float %792, ptr %.116292156, align 4
-  %794 = getelementptr inbounds i8, ptr %.116472147, i64 36
+  %794 = getelementptr inbounds nuw i8, ptr %.116472147, i64 36
   %795 = load float, ptr %794, align 4
-  %796 = getelementptr inbounds i8, ptr %.116272157, i64 4
+  %796 = getelementptr inbounds nuw i8, ptr %.116272157, i64 4
   store float %795, ptr %.116272157, align 4
-  %797 = getelementptr inbounds i8, ptr %.116472147, i64 40
+  %797 = getelementptr inbounds nuw i8, ptr %.116472147, i64 40
   %798 = load float, ptr %797, align 4
-  %799 = getelementptr inbounds i8, ptr %.116252158, i64 4
+  %799 = getelementptr inbounds nuw i8, ptr %.116252158, i64 4
   store float %798, ptr %.116252158, align 4
-  %800 = getelementptr inbounds i8, ptr %.116472147, i64 44
+  %800 = getelementptr inbounds nuw i8, ptr %.116472147, i64 44
   %801 = load float, ptr %800, align 4
-  %802 = getelementptr inbounds i8, ptr %.116232159, i64 4
+  %802 = getelementptr inbounds nuw i8, ptr %.116232159, i64 4
   store float %801, ptr %.116232159, align 4
-  %803 = getelementptr inbounds i8, ptr %.116472147, i64 48
+  %803 = getelementptr inbounds nuw i8, ptr %.116472147, i64 48
   %804 = load float, ptr %803, align 4
-  %805 = getelementptr inbounds i8, ptr %.116212160, i64 4
+  %805 = getelementptr inbounds nuw i8, ptr %.116212160, i64 4
   store float %804, ptr %.116212160, align 4
-  %806 = getelementptr inbounds i8, ptr %.116472147, i64 52
+  %806 = getelementptr inbounds nuw i8, ptr %.116472147, i64 52
   %807 = load float, ptr %806, align 4
-  %808 = getelementptr inbounds i8, ptr %.116192161, i64 4
+  %808 = getelementptr inbounds nuw i8, ptr %.116192161, i64 4
   store float %807, ptr %.116192161, align 4
-  %809 = getelementptr inbounds i8, ptr %.116472147, i64 56
+  %809 = getelementptr inbounds nuw i8, ptr %.116472147, i64 56
   %810 = load float, ptr %809, align 4
-  %811 = getelementptr inbounds i8, ptr %.116172162, i64 4
+  %811 = getelementptr inbounds nuw i8, ptr %.116172162, i64 4
   store float %810, ptr %.116172162, align 4
-  %812 = getelementptr inbounds i8, ptr %.116472147, i64 60
+  %812 = getelementptr inbounds nuw i8, ptr %.116472147, i64 60
   %813 = load float, ptr %812, align 4
-  %814 = getelementptr inbounds i8, ptr %.116152163, i64 4
+  %814 = getelementptr inbounds nuw i8, ptr %.116152163, i64 4
   store float %813, ptr %.116152163, align 4
-  %815 = getelementptr inbounds i8, ptr %.116472147, i64 64
+  %815 = getelementptr inbounds nuw i8, ptr %.116472147, i64 64
   %816 = add nuw nsw i32 %.116132164, 1
   %exitcond2337.not = icmp eq i32 %816, %81
   br i1 %exitcond2337.not, label %._crit_edge2166, label %.lr.ph2165, !llvm.loop !15
@@ -1398,19 +1398,19 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.016072171 = phi ptr [ %898, %.lr.ph2181 ], [ %835, %824 ]
   %.016092170 = phi ptr [ %906, %.lr.ph2181 ], [ %830, %824 ]
   %859 = load <8 x float>, ptr %.016092170, align 1
-  %860 = getelementptr inbounds i8, ptr %.016092170, i64 32
+  %860 = getelementptr inbounds nuw i8, ptr %.016092170, i64 32
   %861 = load <8 x float>, ptr %860, align 1
-  %862 = getelementptr inbounds i8, ptr %.016092170, i64 64
+  %862 = getelementptr inbounds nuw i8, ptr %.016092170, i64 64
   %863 = load <8 x float>, ptr %862, align 1
-  %864 = getelementptr inbounds i8, ptr %.016092170, i64 96
+  %864 = getelementptr inbounds nuw i8, ptr %.016092170, i64 96
   %865 = load <8 x float>, ptr %864, align 1
-  %866 = getelementptr inbounds i8, ptr %.016092170, i64 128
+  %866 = getelementptr inbounds nuw i8, ptr %.016092170, i64 128
   %867 = load <8 x float>, ptr %866, align 1
-  %868 = getelementptr inbounds i8, ptr %.016092170, i64 160
+  %868 = getelementptr inbounds nuw i8, ptr %.016092170, i64 160
   %869 = load <8 x float>, ptr %868, align 1
-  %870 = getelementptr inbounds i8, ptr %.016092170, i64 192
+  %870 = getelementptr inbounds nuw i8, ptr %.016092170, i64 192
   %871 = load <8 x float>, ptr %870, align 1
-  %872 = getelementptr inbounds i8, ptr %.016092170, i64 224
+  %872 = getelementptr inbounds nuw i8, ptr %.016092170, i64 224
   %873 = load <8 x float>, ptr %872, align 1
   %874 = shufflevector <8 x float> %859, <8 x float> %861, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %875 = shufflevector <8 x float> %859, <8 x float> %861, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
@@ -1444,15 +1444,15 @@ select.unfold:                                    ; preds = %93, %87, %90
   store <8 x float> %895, ptr %.015972176, align 1
   store <8 x float> %896, ptr %.015952177, align 1
   store <8 x float> %897, ptr %.015932178, align 1
-  %898 = getelementptr inbounds i8, ptr %.016072171, i64 32
-  %899 = getelementptr inbounds i8, ptr %.016052172, i64 32
-  %900 = getelementptr inbounds i8, ptr %.016032173, i64 32
-  %901 = getelementptr inbounds i8, ptr %.016012174, i64 32
-  %902 = getelementptr inbounds i8, ptr %.015992175, i64 32
-  %903 = getelementptr inbounds i8, ptr %.015972176, i64 32
-  %904 = getelementptr inbounds i8, ptr %.015952177, i64 32
-  %905 = getelementptr inbounds i8, ptr %.015932178, i64 32
-  %906 = getelementptr inbounds i8, ptr %.016092170, i64 256
+  %898 = getelementptr inbounds nuw i8, ptr %.016072171, i64 32
+  %899 = getelementptr inbounds nuw i8, ptr %.016052172, i64 32
+  %900 = getelementptr inbounds nuw i8, ptr %.016032173, i64 32
+  %901 = getelementptr inbounds nuw i8, ptr %.016012174, i64 32
+  %902 = getelementptr inbounds nuw i8, ptr %.015992175, i64 32
+  %903 = getelementptr inbounds nuw i8, ptr %.015972176, i64 32
+  %904 = getelementptr inbounds nuw i8, ptr %.015952177, i64 32
+  %905 = getelementptr inbounds nuw i8, ptr %.015932178, i64 32
+  %906 = getelementptr inbounds nuw i8, ptr %.016092170, i64 256
   %907 = add nuw nsw i32 %.015912179, 8
   %908 = or disjoint i32 %907, 7
   %909 = icmp slt i32 %908, %81
@@ -1470,37 +1470,37 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.116082193 = phi ptr [ %911, %.lr.ph2202 ], [ %.01607.lcssa, %.preheader1981 ]
   %.116102192 = phi ptr [ %933, %.lr.ph2202 ], [ %.01609.lcssa, %.preheader1981 ]
   %910 = load float, ptr %.116102192, align 4
-  %911 = getelementptr inbounds i8, ptr %.116082193, i64 4
+  %911 = getelementptr inbounds nuw i8, ptr %.116082193, i64 4
   store float %910, ptr %.116082193, align 4
-  %912 = getelementptr inbounds i8, ptr %.116102192, i64 4
+  %912 = getelementptr inbounds nuw i8, ptr %.116102192, i64 4
   %913 = load float, ptr %912, align 4
-  %914 = getelementptr inbounds i8, ptr %.116062194, i64 4
+  %914 = getelementptr inbounds nuw i8, ptr %.116062194, i64 4
   store float %913, ptr %.116062194, align 4
-  %915 = getelementptr inbounds i8, ptr %.116102192, i64 8
+  %915 = getelementptr inbounds nuw i8, ptr %.116102192, i64 8
   %916 = load float, ptr %915, align 4
-  %917 = getelementptr inbounds i8, ptr %.116042195, i64 4
+  %917 = getelementptr inbounds nuw i8, ptr %.116042195, i64 4
   store float %916, ptr %.116042195, align 4
-  %918 = getelementptr inbounds i8, ptr %.116102192, i64 12
+  %918 = getelementptr inbounds nuw i8, ptr %.116102192, i64 12
   %919 = load float, ptr %918, align 4
-  %920 = getelementptr inbounds i8, ptr %.116022196, i64 4
+  %920 = getelementptr inbounds nuw i8, ptr %.116022196, i64 4
   store float %919, ptr %.116022196, align 4
-  %921 = getelementptr inbounds i8, ptr %.116102192, i64 16
+  %921 = getelementptr inbounds nuw i8, ptr %.116102192, i64 16
   %922 = load float, ptr %921, align 4
-  %923 = getelementptr inbounds i8, ptr %.116002197, i64 4
+  %923 = getelementptr inbounds nuw i8, ptr %.116002197, i64 4
   store float %922, ptr %.116002197, align 4
-  %924 = getelementptr inbounds i8, ptr %.116102192, i64 20
+  %924 = getelementptr inbounds nuw i8, ptr %.116102192, i64 20
   %925 = load float, ptr %924, align 4
-  %926 = getelementptr inbounds i8, ptr %.115982198, i64 4
+  %926 = getelementptr inbounds nuw i8, ptr %.115982198, i64 4
   store float %925, ptr %.115982198, align 4
-  %927 = getelementptr inbounds i8, ptr %.116102192, i64 24
+  %927 = getelementptr inbounds nuw i8, ptr %.116102192, i64 24
   %928 = load float, ptr %927, align 4
-  %929 = getelementptr inbounds i8, ptr %.115962199, i64 4
+  %929 = getelementptr inbounds nuw i8, ptr %.115962199, i64 4
   store float %928, ptr %.115962199, align 4
-  %930 = getelementptr inbounds i8, ptr %.116102192, i64 28
+  %930 = getelementptr inbounds nuw i8, ptr %.116102192, i64 28
   %931 = load float, ptr %930, align 4
-  %932 = getelementptr inbounds i8, ptr %.115942200, i64 4
+  %932 = getelementptr inbounds nuw i8, ptr %.115942200, i64 4
   store float %931, ptr %.115942200, align 4
-  %933 = getelementptr inbounds i8, ptr %.116102192, i64 32
+  %933 = getelementptr inbounds nuw i8, ptr %.116102192, i64 32
   %934 = add nuw nsw i32 %.115922201, 1
   %exitcond2343.not = icmp eq i32 %934, %81
   br i1 %exitcond2343.not, label %._crit_edge2203, label %.lr.ph2202, !llvm.loop !18
@@ -1570,11 +1570,11 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.015862209 = phi ptr [ %981, %.lr.ph2215 ], [ %953, %942 ]
   %.015882208 = phi ptr [ %980, %.lr.ph2215 ], [ %948, %942 ]
   %965 = load <4 x float>, ptr %.015882208, align 1
-  %966 = getelementptr inbounds i8, ptr %.015882208, i64 16
+  %966 = getelementptr inbounds nuw i8, ptr %.015882208, i64 16
   %967 = load <4 x float>, ptr %966, align 1
-  %968 = getelementptr inbounds i8, ptr %.015882208, i64 32
+  %968 = getelementptr inbounds nuw i8, ptr %.015882208, i64 32
   %969 = load <4 x float>, ptr %968, align 1
-  %970 = getelementptr inbounds i8, ptr %.015882208, i64 48
+  %970 = getelementptr inbounds nuw i8, ptr %.015882208, i64 48
   %971 = load <4 x float>, ptr %970, align 1
   %972 = shufflevector <4 x float> %965, <4 x float> %967, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %973 = shufflevector <4 x float> %969, <4 x float> %971, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -1588,11 +1588,11 @@ select.unfold:                                    ; preds = %93, %87, %90
   store <4 x float> %977, ptr %.015842210, align 1
   store <4 x float> %978, ptr %.015822211, align 1
   store <4 x float> %979, ptr %.015802212, align 1
-  %980 = getelementptr inbounds i8, ptr %.015882208, i64 64
-  %981 = getelementptr inbounds i8, ptr %.015862209, i64 16
-  %982 = getelementptr inbounds i8, ptr %.015842210, i64 16
-  %983 = getelementptr inbounds i8, ptr %.015822211, i64 16
-  %984 = getelementptr inbounds i8, ptr %.015802212, i64 16
+  %980 = getelementptr inbounds nuw i8, ptr %.015882208, i64 64
+  %981 = getelementptr inbounds nuw i8, ptr %.015862209, i64 16
+  %982 = getelementptr inbounds nuw i8, ptr %.015842210, i64 16
+  %983 = getelementptr inbounds nuw i8, ptr %.015822211, i64 16
+  %984 = getelementptr inbounds nuw i8, ptr %.015802212, i64 16
   %985 = add nuw nsw i32 %.015782213, 4
   %986 = or disjoint i32 %985, 3
   %987 = icmp slt i32 %986, %81
@@ -1606,21 +1606,21 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.115872223 = phi ptr [ %989, %.lr.ph2228 ], [ %.01586.lcssa, %.preheader1980 ]
   %.115892222 = phi ptr [ %999, %.lr.ph2228 ], [ %.01588.lcssa, %.preheader1980 ]
   %988 = load float, ptr %.115892222, align 4
-  %989 = getelementptr inbounds i8, ptr %.115872223, i64 4
+  %989 = getelementptr inbounds nuw i8, ptr %.115872223, i64 4
   store float %988, ptr %.115872223, align 4
-  %990 = getelementptr inbounds i8, ptr %.115892222, i64 4
+  %990 = getelementptr inbounds nuw i8, ptr %.115892222, i64 4
   %991 = load float, ptr %990, align 4
-  %992 = getelementptr inbounds i8, ptr %.115852224, i64 4
+  %992 = getelementptr inbounds nuw i8, ptr %.115852224, i64 4
   store float %991, ptr %.115852224, align 4
-  %993 = getelementptr inbounds i8, ptr %.115892222, i64 8
+  %993 = getelementptr inbounds nuw i8, ptr %.115892222, i64 8
   %994 = load float, ptr %993, align 4
-  %995 = getelementptr inbounds i8, ptr %.115832225, i64 4
+  %995 = getelementptr inbounds nuw i8, ptr %.115832225, i64 4
   store float %994, ptr %.115832225, align 4
-  %996 = getelementptr inbounds i8, ptr %.115892222, i64 12
+  %996 = getelementptr inbounds nuw i8, ptr %.115892222, i64 12
   %997 = load float, ptr %996, align 4
-  %998 = getelementptr inbounds i8, ptr %.115812226, i64 4
+  %998 = getelementptr inbounds nuw i8, ptr %.115812226, i64 4
   store float %997, ptr %.115812226, align 4
-  %999 = getelementptr inbounds i8, ptr %.115892222, i64 16
+  %999 = getelementptr inbounds nuw i8, ptr %.115892222, i64 16
   %1000 = add nuw nsw i32 %.115792227, 1
   %exitcond2349.not = icmp eq i32 %1000, %81
   br i1 %exitcond2349.not, label %._crit_edge2229, label %.lr.ph2228, !llvm.loop !21
@@ -1669,8 +1669,8 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.015722233 = phi ptr [ %1018, %.lr.ph2237 ], [ %1012, %1006 ]
   %1017 = load <8 x float>, ptr %.015722233, align 1
   store <8 x float> %1017, ptr %.015702234, align 1
-  %1018 = getelementptr inbounds i8, ptr %.015722233, i64 32
-  %1019 = getelementptr inbounds i8, ptr %.015702234, i64 32
+  %1018 = getelementptr inbounds nuw i8, ptr %.015722233, i64 32
+  %1019 = getelementptr inbounds nuw i8, ptr %.015702234, i64 32
   %1020 = add nuw nsw i32 %.02235, 8
   %1021 = or disjoint i32 %1020, 7
   %1022 = icmp slt i32 %1021, %81
@@ -1680,9 +1680,9 @@ select.unfold:                                    ; preds = %93, %87, %90
   %.12243 = phi i32 [ %1026, %.lr.ph2244 ], [ %.0.lcssa, %.preheader ]
   %.115712242 = phi ptr [ %1025, %.lr.ph2244 ], [ %.01570.lcssa, %.preheader ]
   %.115732241 = phi ptr [ %1023, %.lr.ph2244 ], [ %.01572.lcssa, %.preheader ]
-  %1023 = getelementptr inbounds i8, ptr %.115732241, i64 4
+  %1023 = getelementptr inbounds nuw i8, ptr %.115732241, i64 4
   %1024 = load float, ptr %.115732241, align 4
-  %1025 = getelementptr inbounds i8, ptr %.115712242, i64 4
+  %1025 = getelementptr inbounds nuw i8, ptr %.115712242, i64 4
   store float %1024, ptr %.115712242, align 4
   %1026 = add nuw nsw i32 %.12243, 1
   %exitcond2356.not = icmp eq i32 %1026, %81
@@ -1739,7 +1739,7 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %24)
   br label %31
@@ -1870,7 +1870,7 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %107, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef %108)
   br label %115
@@ -1989,25 +1989,25 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
   %177 = shl nsw i64 %indvars.iv, 3
   %178 = or disjoint i64 %177, 1
   %179 = mul nuw nsw i64 %178, %164
-  %180 = getelementptr inbounds i8, ptr %172, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr %172, i64 %179
   %181 = or disjoint i64 %177, 2
   %182 = mul nuw nsw i64 %181, %164
-  %183 = getelementptr inbounds i8, ptr %172, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr %172, i64 %182
   %184 = or disjoint i64 %177, 3
   %185 = mul nuw nsw i64 %184, %164
-  %186 = getelementptr inbounds i8, ptr %172, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %172, i64 %185
   %187 = or disjoint i64 %177, 4
   %188 = mul nuw nsw i64 %187, %164
-  %189 = getelementptr inbounds i8, ptr %172, i64 %188
+  %189 = getelementptr inbounds nuw i8, ptr %172, i64 %188
   %190 = or disjoint i64 %177, 5
   %191 = mul nuw nsw i64 %190, %164
-  %192 = getelementptr inbounds i8, ptr %172, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr %172, i64 %191
   %193 = or disjoint i64 %177, 6
   %194 = mul nuw nsw i64 %193, %164
-  %195 = getelementptr inbounds i8, ptr %172, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr %172, i64 %194
   %196 = or disjoint i64 %177, 7
   %197 = mul nuw nsw i64 %196, %164
-  %198 = getelementptr inbounds i8, ptr %172, i64 %197
+  %198 = getelementptr inbounds nuw i8, ptr %172, i64 %197
   br label %199
 
 199:                                              ; preds = %.lr.ph.us, %199
@@ -2022,37 +2022,37 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
   %.0309376.us = phi ptr [ %176, %.lr.ph.us ], [ %201, %199 ]
   %.0310375.us = phi ptr [ %171, %.lr.ph.us ], [ %223, %199 ]
   %200 = load i8, ptr %.0310375.us, align 1
-  %201 = getelementptr inbounds i8, ptr %.0309376.us, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.0309376.us, i64 1
   store i8 %200, ptr %.0309376.us, align 1
-  %202 = getelementptr inbounds i8, ptr %.0310375.us, i64 1
+  %202 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 1
   %203 = load i8, ptr %202, align 1
-  %204 = getelementptr inbounds i8, ptr %.0308377.us, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %.0308377.us, i64 1
   store i8 %203, ptr %.0308377.us, align 1
-  %205 = getelementptr inbounds i8, ptr %.0310375.us, i64 2
+  %205 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 2
   %206 = load i8, ptr %205, align 1
-  %207 = getelementptr inbounds i8, ptr %.0307378.us, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr %.0307378.us, i64 1
   store i8 %206, ptr %.0307378.us, align 1
-  %208 = getelementptr inbounds i8, ptr %.0310375.us, i64 3
+  %208 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 3
   %209 = load i8, ptr %208, align 1
-  %210 = getelementptr inbounds i8, ptr %.0306379.us, i64 1
+  %210 = getelementptr inbounds nuw i8, ptr %.0306379.us, i64 1
   store i8 %209, ptr %.0306379.us, align 1
-  %211 = getelementptr inbounds i8, ptr %.0310375.us, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 4
   %212 = load i8, ptr %211, align 1
-  %213 = getelementptr inbounds i8, ptr %.0305380.us, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.0305380.us, i64 1
   store i8 %212, ptr %.0305380.us, align 1
-  %214 = getelementptr inbounds i8, ptr %.0310375.us, i64 5
+  %214 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 5
   %215 = load i8, ptr %214, align 1
-  %216 = getelementptr inbounds i8, ptr %.0304381.us, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %.0304381.us, i64 1
   store i8 %215, ptr %.0304381.us, align 1
-  %217 = getelementptr inbounds i8, ptr %.0310375.us, i64 6
+  %217 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 6
   %218 = load i8, ptr %217, align 1
-  %219 = getelementptr inbounds i8, ptr %.0303382.us, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %.0303382.us, i64 1
   store i8 %218, ptr %.0303382.us, align 1
-  %220 = getelementptr inbounds i8, ptr %.0310375.us, i64 7
+  %220 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 7
   %221 = load i8, ptr %220, align 1
-  %222 = getelementptr inbounds i8, ptr %.0302383.us, i64 1
+  %222 = getelementptr inbounds nuw i8, ptr %.0302383.us, i64 1
   store i8 %221, ptr %.0302383.us, align 1
-  %223 = getelementptr inbounds i8, ptr %.0310375.us, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.0310375.us, i64 8
   %224 = add nuw nsw i32 %.0301384.us, 1
   %exitcond.not = icmp eq i32 %224, %62
   br i1 %exitcond.not, label %._crit_edge.us, label %199, !llvm.loop !26
@@ -2089,25 +2089,25 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
   %234 = shl nsw i64 %indvars.iv415, 3
   %235 = or disjoint i64 %234, 7
   %236 = mul nuw nsw i64 %235, %231
-  %237 = getelementptr inbounds i8, ptr %233, i64 %236
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 %236
   %238 = or disjoint i64 %234, 6
   %239 = mul nuw nsw i64 %238, %231
-  %240 = getelementptr inbounds i8, ptr %233, i64 %239
+  %240 = getelementptr inbounds nuw i8, ptr %233, i64 %239
   %241 = or disjoint i64 %234, 5
   %242 = mul nuw nsw i64 %241, %231
-  %243 = getelementptr inbounds i8, ptr %233, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr %233, i64 %242
   %244 = or disjoint i64 %234, 4
   %245 = mul nuw nsw i64 %244, %231
-  %246 = getelementptr inbounds i8, ptr %233, i64 %245
+  %246 = getelementptr inbounds nuw i8, ptr %233, i64 %245
   %247 = or disjoint i64 %234, 3
   %248 = mul nuw nsw i64 %247, %231
-  %249 = getelementptr inbounds i8, ptr %233, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr %233, i64 %248
   %250 = or disjoint i64 %234, 2
   %251 = mul nuw nsw i64 %250, %231
-  %252 = getelementptr inbounds i8, ptr %233, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr %233, i64 %251
   %253 = or disjoint i64 %234, 1
   %254 = mul nuw nsw i64 %253, %231
-  %255 = getelementptr inbounds i8, ptr %233, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr %233, i64 %254
   %256 = trunc nuw nsw i64 %indvars.iv415 to i32
   %257 = mul i32 %229, %256
   %258 = sext i32 %257 to i64
@@ -2132,37 +2132,37 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
   %.0298388 = phi ptr [ %267, %.lr.ph ], [ %259, %.lr.ph.preheader ]
   %.0299387 = phi ptr [ %289, %.lr.ph ], [ %265, %.lr.ph.preheader ]
   %266 = load i8, ptr %.0299387, align 1
-  %267 = getelementptr inbounds i8, ptr %.0298388, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %.0298388, i64 1
   store i8 %266, ptr %.0298388, align 1
-  %268 = getelementptr inbounds i8, ptr %.0299387, i64 1
+  %268 = getelementptr inbounds nuw i8, ptr %.0299387, i64 1
   %269 = load i8, ptr %268, align 1
-  %270 = getelementptr inbounds i8, ptr %.0297389, i64 1
+  %270 = getelementptr inbounds nuw i8, ptr %.0297389, i64 1
   store i8 %269, ptr %.0297389, align 1
-  %271 = getelementptr inbounds i8, ptr %.0299387, i64 2
+  %271 = getelementptr inbounds nuw i8, ptr %.0299387, i64 2
   %272 = load i8, ptr %271, align 1
-  %273 = getelementptr inbounds i8, ptr %.0296390, i64 1
+  %273 = getelementptr inbounds nuw i8, ptr %.0296390, i64 1
   store i8 %272, ptr %.0296390, align 1
-  %274 = getelementptr inbounds i8, ptr %.0299387, i64 3
+  %274 = getelementptr inbounds nuw i8, ptr %.0299387, i64 3
   %275 = load i8, ptr %274, align 1
-  %276 = getelementptr inbounds i8, ptr %.0295391, i64 1
+  %276 = getelementptr inbounds nuw i8, ptr %.0295391, i64 1
   store i8 %275, ptr %.0295391, align 1
-  %277 = getelementptr inbounds i8, ptr %.0299387, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %.0299387, i64 4
   %278 = load i8, ptr %277, align 1
-  %279 = getelementptr inbounds i8, ptr %.0294392, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.0294392, i64 1
   store i8 %278, ptr %.0294392, align 1
-  %280 = getelementptr inbounds i8, ptr %.0299387, i64 5
+  %280 = getelementptr inbounds nuw i8, ptr %.0299387, i64 5
   %281 = load i8, ptr %280, align 1
-  %282 = getelementptr inbounds i8, ptr %.0293393, i64 1
+  %282 = getelementptr inbounds nuw i8, ptr %.0293393, i64 1
   store i8 %281, ptr %.0293393, align 1
-  %283 = getelementptr inbounds i8, ptr %.0299387, i64 6
+  %283 = getelementptr inbounds nuw i8, ptr %.0299387, i64 6
   %284 = load i8, ptr %283, align 1
-  %285 = getelementptr inbounds i8, ptr %.0292394, i64 1
+  %285 = getelementptr inbounds nuw i8, ptr %.0292394, i64 1
   store i8 %284, ptr %.0292394, align 1
-  %286 = getelementptr inbounds i8, ptr %.0299387, i64 7
+  %286 = getelementptr inbounds nuw i8, ptr %.0299387, i64 7
   %287 = load i8, ptr %286, align 1
-  %288 = getelementptr inbounds i8, ptr %.0291395, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %.0291395, i64 1
   store i8 %287, ptr %.0291395, align 1
-  %289 = getelementptr inbounds i8, ptr %.0299387, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.0299387, i64 8
   %290 = add nuw nsw i32 %.0290396, 1
   %exitcond414.not = icmp eq i32 %290, %74
   br i1 %exitcond414.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
@@ -2196,16 +2196,16 @@ define hidden noundef i32 @_ZNK4ncnn18Flatten_x86_avx51212forward_int8ERKNS_3Mat
   %299 = getelementptr inbounds i8, ptr %294, i64 %298
   %300 = load ptr, ptr %2, align 8
   %301 = mul nuw nsw i64 %indvars.iv421, %293
-  %302 = getelementptr inbounds i8, ptr %300, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 %301
   br label %303
 
 303:                                              ; preds = %.lr.ph403.us, %303
   %.0401.us = phi i32 [ 0, %.lr.ph403.us ], [ %307, %303 ]
   %.0287400.us = phi ptr [ %302, %.lr.ph403.us ], [ %306, %303 ]
   %.0288399.us = phi ptr [ %299, %.lr.ph403.us ], [ %304, %303 ]
-  %304 = getelementptr inbounds i8, ptr %.0288399.us, i64 1
+  %304 = getelementptr inbounds nuw i8, ptr %.0288399.us, i64 1
   %305 = load i8, ptr %.0288399.us, align 1
-  %306 = getelementptr inbounds i8, ptr %.0287400.us, i64 1
+  %306 = getelementptr inbounds nuw i8, ptr %.0287400.us, i64 1
   store i8 %305, ptr %.0287400.us, align 1
   %307 = add nuw nsw i32 %.0401.us, 1
   %exitcond420.not = icmp eq i32 %307, %74

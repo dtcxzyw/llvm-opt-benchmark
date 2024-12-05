@@ -15,26 +15,26 @@ define i32 @pthread_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load volatile i16, ptr %6, align 8
   %8 = icmp slt i16 %7, 1
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @nxsched_gettid() #3
   %.not = icmp eq i32 %11, %12
   br i1 %.not, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 45
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 2
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 46
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %19 = load i16, ptr %18, align 2
   %20 = icmp sgt i16 %19, 1
   br i1 %20, label %21, label %23
@@ -46,7 +46,7 @@ define i32 @pthread_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %17, %13
   store i32 -1, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 46
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 46
   store i16 0, ptr %24, align 2
   %25 = call i32 @pthread_mutex_give(ptr noundef nonnull %0) #3
   br label %26

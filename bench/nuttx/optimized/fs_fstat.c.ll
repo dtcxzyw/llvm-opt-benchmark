@@ -8,26 +8,26 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.geometry, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %54, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 26
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 15
   %10 = icmp eq i16 %9, 3
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not20 = icmp eq ptr %13, null
   br i1 %.not20, label %54, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %16 = load ptr, ptr %15, align 8
   %.not21 = icmp eq ptr %16, null
   br i1 %.not21, label %54, label %17
@@ -42,13 +42,13 @@ define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %20, label %21, label %52
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %52, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not14.i = icmp eq ptr %26, null
   br i1 %.not14.i, label %52, label %27
@@ -61,16 +61,16 @@ define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 31:                                               ; preds = %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 24576, ptr %32, align 8
   %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not15.i = icmp eq ptr %35, null
   %spec.store.select.i = select i1 %.not15.i, i32 24576, i32 24868
   store i32 %spec.store.select.i, ptr %32, align 8
   %36 = load ptr, ptr %22, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not16.i = icmp eq ptr %38, null
   br i1 %.not16.i, label %41, label %39
@@ -86,13 +86,13 @@ define i32 @file_fstat(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %43, label %44, label %proxy_fstat.exit
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %3, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load i16, ptr %47, align 4
   %49 = sext i16 %48 to i32
   %50 = mul i32 %46, %49
-  %51 = getelementptr inbounds i8, ptr %1, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %50, ptr %51, align 4
   br label %proxy_fstat.exit
 

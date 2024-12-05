@@ -169,11 +169,11 @@ define weak_odr noundef zeroext i1 @_ZN5boost7archive6detail22archive_serializer
   br i1 %.not.i.i, label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE20get_mutable_instanceEv.exit, label %6
 
 6:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_13text_oarchiveEEEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t) #16
   br label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE20get_mutable_instanceEv.exit
@@ -202,11 +202,11 @@ define weak_odr void @_ZN5boost7archive6detail22archive_serializer_mapINS0_13tex
   br i1 %.not.i.i, label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE20get_mutable_instanceEv.exit, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_13text_oarchiveEEEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t) #16
   br label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE20get_mutable_instanceEv.exit
@@ -233,11 +233,11 @@ define weak_odr noundef ptr @_ZN5boost7archive6detail22archive_serializer_mapINS
   br i1 %.not.i.i, label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE18get_const_instanceEv.exit, label %6
 
 6:                                                ; preds = %4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_13text_oarchiveEEEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t) #16
   br label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE18get_const_instanceEv.exit
@@ -262,7 +262,7 @@ define weak_odr void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchive
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = getelementptr i8, ptr %9, i64 -24
@@ -300,7 +300,7 @@ _ZN5boost7archive21basic_text_oprimitiveISoE3putEc.exit: ; preds = %6
   br label %37
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !31
   %24 = load ptr, ptr %23, align 8, !tbaa !43
   %25 = getelementptr i8, ptr %24, i64 -24
@@ -354,7 +354,7 @@ define weak_odr void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchive
   store i32 1, ptr %4, align 8, !tbaa !20
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -583,7 +583,7 @@ _ZN5boost7archive6detail18interface_oarchiveINS0_13text_oarchiveEElsINSt7__cxx11
           to label %.noexc10 unwind label %48
 
 .noexc10:                                         ; preds = %.noexc9
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   %27 = getelementptr i8, ptr %26, i64 -24
@@ -711,7 +711,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   %4 = load i32, ptr %1, align 4, !tbaa !62
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -750,7 +750,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   %4 = load i32, ptr %1, align 4, !tbaa !64
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -790,7 +790,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -851,7 +851,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %4 = tail call i64 @wcslen(ptr noundef %1) #19
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -900,7 +900,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %5 = load i64, ptr %4, align 8, !tbaa !58
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr i8, ptr %8, i64 -24
@@ -945,7 +945,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %5 = load i64, ptr %4, align 8, !tbaa !66
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr i8, ptr %8, i64 -24
@@ -985,7 +985,7 @@ _ZN5boost7archive6detail18interface_oarchiveINS0_13text_oarchiveEElsImEERS3_RKT_
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveEEC2ERSoj(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #1 comdat($_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveEEC5ERSoj) align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = and i32 %2, 2
   %6 = icmp ne i32 %5, 0
   tail call void @_ZN5boost7archive21basic_text_oprimitiveISoEC2ERSob(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %6)
@@ -1013,7 +1013,7 @@ declare void @_ZN5boost7archive21basic_text_oprimitiveISoED2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 comdat($_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveEED5Ev) align 2 {
   tail call void @_ZN5boost7archive6detail14basic_oarchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) #16
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN5boost7archive21basic_text_oprimitiveISoED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #16
   ret void
 }
@@ -1028,7 +1028,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveEE11save_binaryEPKvm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::archive::archive_exception", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -1075,7 +1075,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %4 = load i32, ptr %1, align 4, !tbaa !62
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr i8, ptr %7, i64 -24
@@ -1120,7 +1120,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr i8, ptr %6, i64 -24
@@ -1160,7 +1160,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr i8, ptr %6, i64 -24
@@ -1204,7 +1204,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr i8, ptr %6, i64 -24
@@ -1249,7 +1249,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr i8, ptr %6, i64 -24
@@ -1302,11 +1302,11 @@ define internal void @__cxx_global_var_init() #7 section ".text.startup" comdat(
   br i1 %.not.i, label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEv.exit, label %8
 
 8:                                                ; preds = %6
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), align 8, !tbaa !4
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 16), align 8, !tbaa !12
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 24), align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 32), align 8, !tbaa !14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, i64 40), align 8, !tbaa !15
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_13text_oarchiveEEEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #16
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEvE1t) #16
   br label %_ZN5boost13serialization9singletonINS_7archive6detail12extra_detail3mapINS2_13text_oarchiveEEEE12get_instanceEv.exit
@@ -1348,7 +1348,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_13text_oarchiveEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperINS_7archive6detail12extra_detail3mapINS3_13text_oarchiveEEEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !16
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIPKN5boost7archive6detail16basic_serializerES5_St9_IdentityIS5_ENS2_20basic_serializer_map25type_info_pointer_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZN5boost7archive6detail20basic_serializer_mapD2Ev.exit unwind label %4

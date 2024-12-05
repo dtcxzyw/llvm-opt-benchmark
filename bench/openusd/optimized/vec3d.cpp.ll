@@ -43,11 +43,11 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %4 = load double, ptr %1, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %3, double %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.2)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %6, double %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.2)
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %10, double %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %13, i8 noundef signext 41)
@@ -69,18 +69,18 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKNS
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
   %13 = fcmp oeq double %9, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
   %20 = fcmp oeq double %16, %19
@@ -96,31 +96,31 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKNS
   %3 = load double, ptr %0, align 8
   %4 = load i16, ptr %1, align 2
   %5 = zext i16 %4 to i64
-  %6 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %5
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
   %9 = fcmp oeq double %3, %8
   br i1 %9, label %10, label %30
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %15
   %17 = load float, ptr %16, align 4
   %18 = fpext float %17 to double
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %25
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = fcmp oeq double %22, %28
@@ -140,18 +140,18 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3deqERKNS
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sitofp i32 %11 to double
   %13 = fcmp oeq double %9, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = sitofp i32 %18 to double
   %20 = fcmp oeq double %16, %19
@@ -171,14 +171,14 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3d18Orthog
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonalizeBasisEPNS_7GfVec3dES1_S1_bd(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, double noundef %4) local_unnamed_addr #4 {
   %6 = load double, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
   br i1 %3, label %9, label %49
 
 9:                                                ; preds = %5
   %10 = fmul double %8, %8
   %11 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %10)
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load double, ptr %12, align 8
   %14 = tail call noundef double @llvm.fmuladd.f64(double %13, double %13, double %11)
   %sqrt.i.i.i = tail call noundef double @llvm.sqrt.f64(double %14)
@@ -192,11 +192,11 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   %20 = fmul double %13, %17
   store double %20, ptr %12, align 8
   %21 = load double, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fmul double %23, %23
   %25 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %24)
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load double, ptr %26, align 8
   %28 = tail call noundef double @llvm.fmuladd.f64(double %27, double %27, double %25)
   %sqrt.i.i.i32 = tail call noundef double @llvm.sqrt.f64(double %28)
@@ -210,11 +210,11 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   %34 = fmul double %27, %31
   store double %34, ptr %26, align 8
   %35 = load double, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load double, ptr %36, align 8
   %38 = fmul double %37, %37
   %39 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %38)
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load double, ptr %40, align 8
   %42 = tail call noundef double @llvm.fmuladd.f64(double %41, double %41, double %39)
   %sqrt.i.i.i33 = tail call noundef double @llvm.sqrt.f64(double %42)
@@ -236,17 +236,17 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br label %77
 
 49:                                               ; preds = %5
-  %.sroa.23321.0..sroa_idx322 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.23321.0..sroa_idx322 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.23321.0.copyload323 = load double, ptr %.sroa.23321.0..sroa_idx322, align 8
   %.sroa.0261.0.copyload266 = load double, ptr %1, align 8
-  %.sroa.13268.0..sroa_idx269 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.13268.0..sroa_idx269 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.13268.0.copyload270 = load double, ptr %.sroa.13268.0..sroa_idx269, align 8
-  %.sroa.23277.0..sroa_idx278 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.23277.0..sroa_idx278 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.23277.0.copyload279 = load double, ptr %.sroa.23277.0..sroa_idx278, align 8
   %.sroa.0214.0.copyload220 = load double, ptr %2, align 8
-  %.sroa.13.0..sroa_idx222 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.13.0..sroa_idx222 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.13.0.copyload223 = load double, ptr %.sroa.13.0..sroa_idx222, align 8
-  %.sroa.23.0..sroa_idx231 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.23.0..sroa_idx231 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.23.0.copyload232 = load double, ptr %.sroa.23.0..sroa_idx231, align 8
   %50 = fmul double %8, %8
   %51 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %50)
@@ -330,12 +330,12 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__20GfOrthogonaliz
   br i1 %101, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %94
-  %.sroa.8297.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.15302.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.8251.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.15256.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.8297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.15302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.8251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.15256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %102
 
 102:                                              ; preds = %.preheader, %254
@@ -577,11 +577,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3d21BuildOrthonormalFra
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef initializes((0, 24)) %1, ptr nocapture noundef initializes((0, 24)) %2, double noundef %3) local_unnamed_addr #5 {
   %5 = load double, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fmul double %7, %7
   %9 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load double, ptr %10, align 8
   %12 = tail call noundef double @llvm.fmuladd.f64(double %11, double %11, double %9)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %12)
@@ -604,8 +604,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS
   %23 = tail call double @llvm.fmuladd.f64(double %17, double 0.000000e+00, double %22)
   %24 = fmul double %17, 0.000000e+00
   %25 = fsub double %18, %24
-  %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.331.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = fmul double %23, %23
   %27 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %26)
   %28 = tail call noundef double @llvm.fmuladd.f64(double %25, double %25, double %27)
@@ -648,9 +648,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS
   %53 = fmul double %18, %52
   %54 = tail call double @llvm.fmuladd.f64(double %17, double %44, double %53)
   store double %48, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %51, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %54, ptr %.sroa.3.0..sroa_idx, align 8
   %55 = fcmp olt double %sqrt.i, %3
   br i1 %55, label %56, label %70
@@ -685,15 +685,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS
 define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_7GfVec3dES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #6 {
   %5 = load double, ptr %2, align 8
   %6 = load double, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fmul double %8, %10
   %12 = tail call double @llvm.fmuladd.f64(double %5, double %6, double %11)
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef double @llvm.fmuladd.f64(double %14, double %16, double %12)
   %18 = fcmp olt double %17, -1.000000e+00
@@ -843,9 +843,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0
   %.sink68 = phi double [ %111, %95 ], [ %93, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit ], [ %32, %23 ]
   %.sink = phi double [ %112, %95 ], [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__23GfBuildOrthonormalFrameERKNS_7GfVec3dEPS0_S3_d.exit ], [ %33, %23 ]
   store double %.sink69, ptr %0, align 8
-  %.sroa.4.0..sroa_idx3.i54 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx3.i54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %.sink68, ptr %.sroa.4.0..sroa_idx3.i54, align 8
-  %.sroa.6.0..sroa_idx5.i55 = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx5.i55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sink, ptr %.sroa.6.0..sroa_idx5.i55, align 8
   ret void
 }

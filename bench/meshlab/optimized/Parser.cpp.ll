@@ -363,21 +363,21 @@ $_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser6SynErrEi(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
   tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %13, i32 noundef %15, i32 noundef %1)
   br label %16
@@ -934,7 +934,7 @@ define void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr nocapture noundef nonnull
   %.sink = phi ptr [ %222, %220 ], [ %219, %218 ], [ %217, %216 ], [ %215, %214 ], [ %213, %212 ], [ %211, %210 ], [ %209, %208 ], [ %207, %206 ], [ %205, %204 ], [ %203, %202 ], [ %201, %200 ], [ %199, %198 ], [ %197, %196 ], [ %195, %194 ], [ %193, %192 ], [ %191, %190 ], [ %189, %188 ], [ %187, %186 ], [ %185, %184 ], [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %157, %156 ], [ %155, %154 ], [ %153, %152 ], [ %151, %150 ], [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ]
   store ptr %.sink, ptr %5, align 8
   %224 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %1, i32 noundef %2, ptr noundef %.sink) #14
-  %225 = getelementptr inbounds i8, ptr %0, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %226, ptr noundef nonnull %7)
   store ptr %227, ptr %225, align 8
@@ -948,25 +948,25 @@ define void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr nocapture noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser6SemErrEPKw(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %5, %7
   br i1 %.not, label %23, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i32, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %17 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %14, i32 noundef %16, ptr noundef %1) #14
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %19, ptr noundef nonnull %3)
   store ptr %20, ptr %18, align 8
@@ -985,7 +985,7 @@ define void @_ZN14VrmlTranslator6Parser6SemErrEPKw(ptr nocapture noundef nonnull
 define void @_ZN14VrmlTranslator6Errors5ErrorEiiPKw(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [100 x i32], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %1, i32 noundef %2, ptr noundef %3) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %8, ptr noundef nonnull %5)
   store ptr %9, ptr %7, align 8
@@ -997,9 +997,9 @@ define void @_ZN14VrmlTranslator6Errors5ErrorEiiPKw(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser3GetEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((40, 48)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
@@ -1011,11 +1011,11 @@ define void @_ZN14VrmlTranslator6Parser3GetEv(ptr nocapture noundef nonnull alig
   br i1 %.not3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
 ._crit_edge:                                      ; preds = %45, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 8
@@ -1031,35 +1031,35 @@ define void @_ZN14VrmlTranslator6Parser3GetEv(ptr nocapture noundef nonnull alig
   %18 = load i32, ptr %16, align 8
   store i32 %18, ptr %15, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %21, ptr %23, align 4
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %26, ptr %28, align 8
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %10, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 %31, ptr %33, align 4
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %37)
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef %40)
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %41, ptr %43, align 8
   %44 = load ptr, ptr %10, align 8
   br label %45
@@ -1085,7 +1085,7 @@ declare noundef ptr @_Z18coco_string_createPKw(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser6ExpectEi(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %1
@@ -1096,19 +1096,19 @@ define void @_ZN14VrmlTranslator6Parser6ExpectEi(ptr nocapture noundef nonnull a
   br label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   %.not.i = icmp slt i32 %10, %12
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i32, ptr %18, align 8
   tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %15, i32 noundef %17, i32 noundef %19, i32 noundef %1)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
@@ -1123,7 +1123,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %8, %13
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser10ExpectWeakEii(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %1
@@ -1134,19 +1134,19 @@ define void @_ZN14VrmlTranslator6Parser10ExpectWeakEii(ptr nocapture noundef non
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp slt i32 %11, %13
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %18, i32 noundef %20, i32 noundef %1)
   %.pre = load ptr, ptr %4, align 8
@@ -1180,7 +1180,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %9, %14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN14VrmlTranslator6Parser7StartOfEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
@@ -1192,7 +1192,7 @@ define noundef zeroext i1 @_ZN14VrmlTranslator6Parser7StartOfEi(ptr nocapture no
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN14VrmlTranslator6Parser13WeakSeparatorEiii(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %1
@@ -1211,19 +1211,19 @@ define noundef zeroext i1 @_ZN14VrmlTranslator6Parser13WeakSeparatorEiii(ptr noc
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %.not.i = icmp slt i32 %18, %20
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load i32, ptr %26, align 8
   tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef %25, i32 noundef %27, i32 noundef %1)
   %.pre = load ptr, ptr %5, align 8
@@ -1276,7 +1276,7 @@ define void @_ZN14VrmlTranslator6Parser14VrmlTranslatorEv(ptr noundef nonnull al
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QDomNode, align 8
   %7 = alloca %class.QDomNode, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str, i32 noundef 3)
   store ptr %10, ptr %3, align 8
@@ -1347,7 +1347,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %19, %_ZN9QtPrivate8
           to label %25 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 7
@@ -1692,7 +1692,7 @@ define linkonce_odr void @_ZN14VrmlTranslator6Parser11InitX3dNodeEv(ptr noundef 
   %163 = alloca %class.QString, align 8
   %164 = alloca %class.QString, align 8
   %165 = alloca %class.QString, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 160
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %167 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.2, i32 noundef 5)
   store ptr %167, ptr %2, align 8
   %168 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %166, ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -7122,7 +7122,7 @@ define void @_ZN14VrmlTranslator6Parser15HeaderStatementEv(ptr nocapture noundef
   %5 = alloca [100 x i32], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [100 x i32], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 7
@@ -7133,26 +7133,26 @@ define void @_ZN14VrmlTranslator6Parser15HeaderStatementEv(ptr nocapture noundef
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %.not.i.i = icmp slt i32 %15, %17
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.203)
   store ptr %25, ptr %6, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %28, ptr noundef nonnull %7)
   store ptr %29, ptr %27, align 8
@@ -7199,26 +7199,26 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTrans
   br label %63
 
 44:                                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = load i32, ptr %47, align 4
   %.not.i = icmp slt i32 %46, %48
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %32, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %32, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %55 = load i32, ptr %54, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
   %56 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.282)
   store ptr %56, ptr %4, align 8
   %57 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %53, i32 noundef %55, ptr noundef %56) #14
-  %58 = getelementptr inbounds i8, ptr %51, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %59, ptr noundef nonnull %5)
   store ptr %60, ptr %58, align 8
@@ -7245,26 +7245,26 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %44, %49
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit3
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %72 = load i32, ptr %71, align 4
   %.not.i.i1 = icmp slt i32 %70, %72
   br i1 %.not.i.i1, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i2, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %64, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %64, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %79 = load i32, ptr %78, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %80 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.206)
   store ptr %80, ptr %2, align 8
   %81 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %77, i32 noundef %79, ptr noundef %80) #14
-  %82 = getelementptr inbounds i8, ptr %75, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %83, ptr noundef nonnull %3)
   store ptr %84, ptr %82, align 8
@@ -7298,7 +7298,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit3:        ; preds = %67, %_ZN14VrmlTrans
 define void @_ZN14VrmlTranslator6Parser16ProfileStatementEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 11
@@ -7309,26 +7309,26 @@ define void @_ZN14VrmlTranslator6Parser16ProfileStatementEv(ptr nocapture nounde
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.207)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -7351,7 +7351,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %8, %_ZN14VrmlTransl
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser19ComponentStatementsEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 12
@@ -7370,7 +7370,7 @@ define void @_ZN14VrmlTranslator6Parser19ComponentStatementsEv(ptr nocapture nou
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser14MetaStatementsEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 18
@@ -7389,7 +7389,7 @@ define void @_ZN14VrmlTranslator6Parser14MetaStatementsEv(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser10StatementsER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -7434,18 +7434,18 @@ declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02022.i = load ptr, ptr %3, align 8
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.02024.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.02022.i, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.02024.i, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
   %6 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   %.in.v.i = select i1 %6, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
@@ -7455,7 +7455,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %.019.lcssa28.i, %8
   br i1 %9, label %select.unfold, label %10
@@ -7467,7 +7467,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
 12:                                               ; preds = %10, %._crit_edge.i
   %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %10 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %11, %10 ], [ %.02024.i, %._crit_edge.i ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %1) #14
   br i1 %14, label %select.unfold, label %26
 
@@ -7477,19 +7477,19 @@ select.unfold:                                    ; preds = %12, %._crit_edge.th
   br i1 %15, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit, label %16
 
 16:                                               ; preds = %select.unfold
-  %17 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
   %18 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %17) #14
   br label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit
 
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSC_OT_RT0_.exit: ; preds = %select.unfold, %16
   %19 = phi i1 [ true, %select.unfold ], [ %18, %16 ]
   %20 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %1, align 8
   store ptr %22, ptr %21, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %1, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %20, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %23, align 8
@@ -7525,7 +7525,7 @@ declare void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 define void @_ZN14VrmlTranslator6Parser13ProfileNameIdEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -7536,26 +7536,26 @@ define void @_ZN14VrmlTranslator6Parser13ProfileNameIdEv(ptr nocapture noundef n
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -7581,7 +7581,7 @@ define void @_ZN14VrmlTranslator6Parser18ComponentStatementEv(ptr nocapture noun
   %3 = alloca [100 x i32], align 16
   %4 = alloca ptr, align 8
   %5 = alloca [100 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 12
@@ -7592,26 +7592,26 @@ define void @_ZN14VrmlTranslator6Parser18ComponentStatementEv(ptr nocapture noun
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %.not.i.i = icmp slt i32 %13, %15
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load i32, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
   %23 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.208)
   store ptr %23, ptr %4, align 8
   %24 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %20, i32 noundef %22, ptr noundef %23) #14
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %26, ptr noundef nonnull %5)
   store ptr %27, ptr %25, align 8
@@ -7639,26 +7639,26 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %10, %_ZN14VrmlTrans
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit3
 
 34:                                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %38 = load i32, ptr %37, align 4
   %.not.i.i1 = icmp slt i32 %36, %38
   br i1 %.not.i.i1, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i2, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %30, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %45 = load i32, ptr %44, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %46 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.209)
   store ptr %46, ptr %2, align 8
   %47 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %43, i32 noundef %45, ptr noundef %46) #14
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %49, ptr noundef nonnull %3)
   store ptr %50, ptr %48, align 8
@@ -7683,7 +7683,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit3:        ; preds = %33, %_ZN14VrmlTrans
 define void @_ZN14VrmlTranslator6Parser13MetaStatementEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 18
@@ -7694,26 +7694,26 @@ define void @_ZN14VrmlTranslator6Parser13MetaStatementEv(ptr nocapture noundef n
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.214)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -7739,7 +7739,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %8, %_ZN14VrmlTransl
 define void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
@@ -7782,26 +7782,26 @@ define void @_ZN14VrmlTranslator6Parser9StatementER11QDomElement(ptr noundef non
   br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i32, ptr %22, align 4
   %.not.i = icmp slt i32 %21, %23
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load i32, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %31 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.283)
   store ptr %31, ptr %3, align 8
   %32 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %28, i32 noundef %30, ptr noundef %31) #14
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %34, ptr noundef nonnull %4)
   store ptr %35, ptr %33, align 8
@@ -7825,7 +7825,7 @@ _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit: ; preds = %17, %
 define void @_ZN14VrmlTranslator6Parser15ComponentNameIdEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -7836,26 +7836,26 @@ define void @_ZN14VrmlTranslator6Parser15ComponentNameIdEv(ptr nocapture noundef
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -7879,7 +7879,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %8, %_ZN14VrmlTransl
 define void @_ZN14VrmlTranslator6Parser21ComponentSupportLevelEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 2
@@ -7890,26 +7890,26 @@ define void @_ZN14VrmlTranslator6Parser21ComponentSupportLevelEv(ptr nocapture n
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.198)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -7937,7 +7937,7 @@ define void @_ZN14VrmlTranslator6Parser15ExportStatementEv(ptr nocapture noundef
   %5 = alloca [100 x i32], align 16
   %6 = alloca %class.QString, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 14
@@ -7948,19 +7948,19 @@ define void @_ZN14VrmlTranslator6Parser15ExportStatementEv(ptr nocapture noundef
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %60
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i = icmp slt i32 %14, %16
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load i32, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
@@ -7970,7 +7970,7 @@ define void @_ZN14VrmlTranslator6Parser15ExportStatementEv(ptr nocapture noundef
 .noexc8:                                          ; preds = %17
   store ptr %24, ptr %4, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %21, i32 noundef %23, ptr noundef %24) #14
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %27, ptr noundef nonnull %5)
           to label %.noexc9 unwind label %60
@@ -8007,19 +8007,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit7 unwind label %60
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %40 = load i32, ptr %39, align 4
   %.not.i.i3 = icmp slt i32 %38, %40
   br i1 %.not.i.i3, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i4, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %32, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %47 = load i32, ptr %46, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
@@ -8029,7 +8029,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 .noexc11:                                         ; preds = %41
   store ptr %48, ptr %2, align 8
   %49 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %45, i32 noundef %47, ptr noundef %48) #14
-  %50 = getelementptr inbounds i8, ptr %43, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %51, ptr noundef nonnull %3)
           to label %.noexc12 unwind label %60
@@ -8091,7 +8091,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %55, %_ZN9QtPrivate8
 define void @_ZN14VrmlTranslator6Parser10NodeNameIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -8102,26 +8102,26 @@ define void @_ZN14VrmlTranslator6Parser10NodeNameIdER7QString(ptr nocapture noun
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -8138,9 +8138,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -8179,7 +8179,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2EPKc.e
 define void @_ZN14VrmlTranslator6Parser18ExportedNodeNameIdEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -8190,26 +8190,26 @@ define void @_ZN14VrmlTranslator6Parser18ExportedNodeNameIdEv(ptr nocapture noun
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -8241,7 +8241,7 @@ define void @_ZN14VrmlTranslator6Parser15ImportStatementEv(ptr nocapture noundef
   %7 = alloca [100 x i32], align 16
   %8 = alloca %class.QString, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 16
@@ -8252,19 +8252,19 @@ define void @_ZN14VrmlTranslator6Parser15ImportStatementEv(ptr nocapture noundef
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %86
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %.not.i.i = icmp slt i32 %16, %18
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load i32, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
@@ -8274,7 +8274,7 @@ define void @_ZN14VrmlTranslator6Parser15ImportStatementEv(ptr nocapture noundef
 .noexc13:                                         ; preds = %19
   store ptr %26, ptr %6, align 8
   %27 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %23, i32 noundef %25, ptr noundef %26) #14
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %29, ptr noundef nonnull %7)
           to label %.noexc14 unwind label %86
@@ -8311,19 +8311,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit7 unwind label %86
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %42 = load i32, ptr %41, align 4
   %.not.i.i3 = icmp slt i32 %40, %42
   br i1 %.not.i.i3, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i4, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %34, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %34, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %49 = load i32, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
@@ -8333,7 +8333,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 .noexc16:                                         ; preds = %43
   store ptr %50, ptr %4, align 8
   %51 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %47, i32 noundef %49, ptr noundef %50) #14
-  %52 = getelementptr inbounds i8, ptr %45, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %53, ptr noundef nonnull %5)
           to label %.noexc17 unwind label %86
@@ -8370,19 +8370,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 unwind label %86
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %66 = load i32, ptr %65, align 4
   %.not.i.i8 = icmp slt i32 %64, %66
   br i1 %.not.i.i8, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i9, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %58, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %58, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %73 = load i32, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
@@ -8392,7 +8392,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
 .noexc20:                                         ; preds = %67
   store ptr %74, ptr %2, align 8
   %75 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %71, i32 noundef %73, ptr noundef %74) #14
-  %76 = getelementptr inbounds i8, ptr %69, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %77, ptr noundef nonnull %3)
           to label %.noexc21 unwind label %86
@@ -8454,7 +8454,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %81, %_ZN9QtPrivate8
 define void @_ZN14VrmlTranslator6Parser16InlineNodeNameIdEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
@@ -8465,26 +8465,26 @@ define void @_ZN14VrmlTranslator6Parser16InlineNodeNameIdEv(ptr nocapture nounde
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -8508,7 +8508,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %8, %_ZN14VrmlTransl
 define void @_ZN14VrmlTranslator6Parser7MetakeyEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 4
@@ -8519,26 +8519,26 @@ define void @_ZN14VrmlTranslator6Parser7MetakeyEv(ptr nocapture noundef nonnull 
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -8562,7 +8562,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %8, %_ZN14VrmlTransl
 define void @_ZN14VrmlTranslator6Parser9MetavalueEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 4
@@ -8573,26 +8573,26 @@ define void @_ZN14VrmlTranslator6Parser9MetavalueEv(ptr nocapture noundef nonnul
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not.i.i = icmp slt i32 %11, %13
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %21 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
   store ptr %21, ptr %2, align 8
   %22 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %18, i32 noundef %20, ptr noundef %21) #14
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %24, ptr noundef nonnull %3)
   store ptr %25, ptr %23, align 8
@@ -8625,7 +8625,7 @@ define void @_ZN14VrmlTranslator6Parser13NodeStatementER11QDomElement(ptr nounde
   %11 = alloca %class.QDomNode, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %71 [
@@ -8738,20 +8738,20 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i11:  ; preds = %_ZN9QtPrivate8RefCo
           to label %44 unwind label %23
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not10.i.i.i = icmp eq ptr %46, null
   br i1 %.not10.i.i.i, label %_ZN7QStringD2Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %44, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %46, %44 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %47, %44 ]
-  %48 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %49 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   %.19.i.i.i = select i1 %49, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %49, i64 24, i64 16
-  %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
@@ -8761,14 +8761,14 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14
   br i1 %50, label %_ZN7QStringD2Ev.exit, label %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE4findERS4_.exit
 
 _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE4findERS4_.exit: ; preds = %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS3_EPSt18_Rb_tree_node_baseRS2_.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %52 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %51) #14
   br i1 %52, label %_ZN7QStringD2Ev.exit, label %53
 
 53:                                               ; preds = %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE4findERS4_.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   invoke void @_ZN12QDomDocument13createElementERK7QString(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %56)
           to label %57 unwind label %23
 
@@ -8829,19 +8829,19 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %60, %_ZN9QtPrivate8
   br label %98
 
 71:                                               ; preds = %2
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i32, ptr %74, align 4
   %.not.i24 = icmp slt i32 %73, %75
   br i1 %.not.i24, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %0, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %13, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %13, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %82 = load i32, ptr %81, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -8851,7 +8851,7 @@ _ZN7QStringD2Ev.exit23:                           ; preds = %60, %_ZN9QtPrivate8
 .noexc37:                                         ; preds = %76
   store ptr %83, ptr %3, align 8
   %84 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %80, i32 noundef %82, ptr noundef %83) #14
-  %85 = getelementptr inbounds i8, ptr %78, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %86, ptr noundef nonnull %4)
           to label %.noexc38 unwind label %23
@@ -8931,7 +8931,7 @@ _ZN7QStringD2Ev.exit36:                           ; preds = %_ZN7QStringD2Ev.exi
 define void @_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %10 [
@@ -8948,26 +8948,26 @@ define void @_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement(ptr nound
   br label %29
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.285)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -8999,7 +8999,7 @@ define void @_ZN14VrmlTranslator6Parser14RouteStatementEv(ptr nocapture noundef 
   %9 = alloca [100 x i32], align 16
   %10 = alloca %class.QString, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 35
@@ -9010,19 +9010,19 @@ define void @_ZN14VrmlTranslator6Parser14RouteStatementEv(ptr nocapture noundef 
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %112
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %.not.i.i = icmp slt i32 %18, %20
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load i32, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %9)
@@ -9032,7 +9032,7 @@ define void @_ZN14VrmlTranslator6Parser14RouteStatementEv(ptr nocapture noundef 
 .noexc18:                                         ; preds = %21
   store ptr %28, ptr %8, align 8
   %29 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %9, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %25, i32 noundef %27, ptr noundef %28) #14
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %31, ptr noundef nonnull %9)
           to label %.noexc19 unwind label %112
@@ -9069,19 +9069,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit7 unwind label %112
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.i3 = icmp slt i32 %42, %44
   br i1 %.not.i.i3, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i4, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %36, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %51 = load i32, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
@@ -9091,7 +9091,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 .noexc21:                                         ; preds = %45
   store ptr %52, ptr %6, align 8
   %53 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %49, i32 noundef %51, ptr noundef %52) #14
-  %54 = getelementptr inbounds i8, ptr %47, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %55, ptr noundef nonnull %7)
           to label %.noexc22 unwind label %112
@@ -9128,19 +9128,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 unwind label %112
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %68 = load i32, ptr %67, align 4
   %.not.i.i8 = icmp slt i32 %66, %68
   br i1 %.not.i.i8, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i9, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %60, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %60, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %75 = load i32, ptr %74, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
@@ -9150,7 +9150,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit7:        ; preds = %_ZN14VrmlTranslator
 .noexc25:                                         ; preds = %69
   store ptr %76, ptr %4, align 8
   %77 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %73, i32 noundef %75, ptr noundef %76) #14
-  %78 = getelementptr inbounds i8, ptr %71, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %79, ptr noundef nonnull %5)
           to label %.noexc26 unwind label %112
@@ -9187,19 +9187,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit17 unwind label %112
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %92 = load i32, ptr %91, align 4
   %.not.i.i13 = icmp slt i32 %90, %92
   br i1 %.not.i.i13, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i14, label %93
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %84, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %84, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %99 = load i32, ptr %98, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
@@ -9209,7 +9209,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit12:       ; preds = %_ZN14VrmlTranslator
 .noexc29:                                         ; preds = %93
   store ptr %100, ptr %2, align 8
   %101 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %97, i32 noundef %99, ptr noundef %100) #14
-  %102 = getelementptr inbounds i8, ptr %95, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %103, ptr noundef nonnull %3)
           to label %.noexc30 unwind label %112
@@ -9291,7 +9291,7 @@ define void @_ZN14VrmlTranslator6Parser4NodeER11QDomElementR7QStringS3_(ptr noun
   %24 = alloca %class.QString, align 8
   %25 = alloca %class.QDomNode, align 8
   call void @_ZN11QDomElementC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17)
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %226 [
@@ -9304,20 +9304,20 @@ define void @_ZN14VrmlTranslator6Parser4NodeER11QDomElementR7QStringS3_(ptr noun
           to label %30 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.not10.i.i.i = icmp eq ptr %32, null
   br i1 %.not10.i.i.i, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %32, %30 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %33, %30 ]
-  %34 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %35 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   %.19.i.i.i = select i1 %35, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %35, i64 24, i64 16
-  %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
@@ -9327,12 +9327,12 @@ _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundE
   br i1 %36, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
 
 _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit: ; preds = %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %38 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %37) #14
   br i1 %38, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %39
 
 39:                                               ; preds = %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.168, i32 noundef 13)
           to label %43 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9438,7 +9438,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i20:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.loopexit.split-lp
 
 _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %30, %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %66 = load ptr, ptr %65, align 8
   invoke void @_ZN12QDomDocument13createElementERK7QString(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %67 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9460,10 +9460,10 @@ _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread: ; preds = %30, %_
 _ZN7QStringD2Ev.exit25:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i20, %_ZN9QtPrivate8RefCount5derefEv.exit.i21, %53, %69
   %72 = phi i1 [ false, %69 ], [ true, %53 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.i21 ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i20 ]
   %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
-  %77 = getelementptr inbounds i8, ptr %73, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %76, i32 noundef %78, ptr noundef nonnull @.str.166, i32 noundef -1, i32 noundef 1)
           to label %80 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9504,23 +9504,23 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i27:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit32
 
 _ZN7QStringD2Ev.exit32:                           ; preds = %84, %_ZN9QtPrivate8RefCount5derefEv.exit.i28, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i27
-  %89 = getelementptr inbounds i8, ptr %0, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  %90 = getelementptr inbounds i8, ptr %0, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not10.i.i.i.i = icmp eq ptr %91, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit32, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %91, %_ZN7QStringD2Ev.exit32 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %92, %_ZN7QStringD2Ev.exit32 ]
-  %93 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %94 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   %.19.i.i.i.i = select i1 %94, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %94, i64 24, i64 16
-  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
@@ -9530,7 +9530,7 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
   br i1 %95, label %.critedge.i, label %96
 
 96:                                               ; preds = %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i
-  %97 = getelementptr inbounds i8, ptr %.19.i.i.i.i, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %98 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %97) #14
   br i1 %98, label %.critedge.i, label %100
 
@@ -9542,7 +9542,7 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
 
 100:                                              ; preds = %96, %.critedge.i
   %.sroa.05.0.i = phi ptr [ %.19.i.i.i.i, %96 ], [ %99, %.critedge.i ]
-  %101 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
@@ -9565,19 +9565,19 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
           to label %.noexc35.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %0, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %112 = load i32, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %114 = load i32, ptr %113, align 4
   %.not.i.i = icmp slt i32 %112, %114
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %115
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %106, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %106, i64 12
   %119 = load i32, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %106, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %121 = load i32, ptr %120, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %14)
@@ -9587,7 +9587,7 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEE11lower_boundERS4_.exit.i:
 .noexc62:                                         ; preds = %115
   store ptr %122, ptr %13, align 8
   %123 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %14, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %119, i32 noundef %121, ptr noundef %122) #14
-  %124 = getelementptr inbounds i8, ptr %117, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %125, ptr noundef nonnull %14)
           to label %.noexc63 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9634,19 +9634,19 @@ _ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit: ; preds = %.noexc35
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 138:                                              ; preds = %_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit
-  %139 = getelementptr inbounds i8, ptr %0, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load i32, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %142 = load i32, ptr %141, align 4
   %.not.i.i36 = icmp slt i32 %140, %142
   br i1 %.not.i.i36, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i37, label %143
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %0, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %129, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %129, i64 12
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %129, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %149 = load i32, ptr %148, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %12)
@@ -9656,7 +9656,7 @@ _ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb.exit: ; preds = %.noexc35
 .noexc65:                                         ; preds = %143
   store ptr %150, ptr %11, align 8
   %151 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %12, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %147, i32 noundef %149, ptr noundef %150) #14
-  %152 = getelementptr inbounds i8, ptr %145, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %153, ptr noundef nonnull %12)
           to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9693,19 +9693,19 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i37:     ; preds = %.noexc39, %138
           to label %.noexc46.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %0, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %165 = load i32, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %0, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %167 = load i32, ptr %166, align 4
   %.not.i.i41 = icmp slt i32 %165, %167
   br i1 %.not.i.i41, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i42, label %168
 
 168:                                              ; preds = %163
-  %169 = getelementptr inbounds i8, ptr %0, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %159, i64 12
+  %171 = getelementptr inbounds nuw i8, ptr %159, i64 12
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %159, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %174 = load i32, ptr %173, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
@@ -9715,7 +9715,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i37:     ; preds = %.noexc39, %138
 .noexc69:                                         ; preds = %168
   store ptr %175, ptr %9, align 8
   %176 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %172, i32 noundef %174, ptr noundef %175) #14
-  %177 = getelementptr inbounds i8, ptr %170, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %178, ptr noundef nonnull %10)
           to label %.noexc70 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9762,19 +9762,19 @@ _ZN14VrmlTranslator6Parser10ScriptBodyEv.exit:    ; preds = %.noexc46
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit51 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 191:                                              ; preds = %_ZN14VrmlTranslator6Parser10ScriptBodyEv.exit
-  %192 = getelementptr inbounds i8, ptr %0, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %193 = load i32, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 20
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %195 = load i32, ptr %194, align 4
   %.not.i.i47 = icmp slt i32 %193, %195
   br i1 %.not.i.i47, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i48, label %196
 
 196:                                              ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %0, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %182, i64 12
+  %199 = getelementptr inbounds nuw i8, ptr %182, i64 12
   %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds i8, ptr %182, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %202 = load i32, ptr %201, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
@@ -9784,7 +9784,7 @@ _ZN14VrmlTranslator6Parser10ScriptBodyEv.exit:    ; preds = %.noexc46
 .noexc73:                                         ; preds = %196
   store ptr %203, ptr %7, align 8
   %204 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %200, i32 noundef %202, ptr noundef %203) #14
-  %205 = getelementptr inbounds i8, ptr %198, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %206 = load ptr, ptr %205, align 8
   %207 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %206, ptr noundef nonnull %8)
           to label %.noexc74 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9807,7 +9807,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i48:     ; preds = %.noexc50, %191
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit51
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit51:       ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i48, %190
-  %210 = getelementptr inbounds i8, ptr %0, i64 56
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %211 = load ptr, ptr %210, align 8
   %212 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.171, i32 noundef 6)
           to label %213 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9861,19 +9861,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i54:  ; preds = %_ZN9QtPrivate8RefCo
   br label %.loopexit.split-lp
 
 226:                                              ; preds = %4
-  %227 = getelementptr inbounds i8, ptr %0, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = load i32, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %0, i64 20
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %230 = load i32, ptr %229, align 4
   %.not.i60 = icmp slt i32 %228, %230
   br i1 %.not.i60, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %231
 
 231:                                              ; preds = %226
-  %232 = getelementptr inbounds i8, ptr %0, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %27, i64 12
+  %234 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds i8, ptr %27, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %237 = load i32, ptr %236, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
@@ -9883,7 +9883,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i54:  ; preds = %_ZN9QtPrivate8RefCo
 .noexc77:                                         ; preds = %231
   store ptr %238, ptr %5, align 8
   %239 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %235, i32 noundef %237, ptr noundef %238) #14
-  %240 = getelementptr inbounds i8, ptr %233, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %241 = load ptr, ptr %240, align 8
   %242 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %241, ptr noundef nonnull %6)
           to label %.noexc78 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -9951,7 +9951,7 @@ define void @_ZN14VrmlTranslator6Parser5ProtoER11QDomElement(ptr noundef nonnull
           to label %25 unwind label %205
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 21
@@ -9962,19 +9962,19 @@ define void @_ZN14VrmlTranslator6Parser5ProtoER11QDomElement(ptr noundef nonnull
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %207
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %35 = load i32, ptr %34, align 4
   %.not.i.i = icmp slt i32 %33, %35
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %27, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %27, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %42 = load i32, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %12)
@@ -9984,7 +9984,7 @@ define void @_ZN14VrmlTranslator6Parser5ProtoER11QDomElement(ptr noundef nonnull
 .noexc69:                                         ; preds = %36
   store ptr %43, ptr %11, align 8
   %44 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %12, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %40, i32 noundef %42, ptr noundef %43) #14
-  %45 = getelementptr inbounds i8, ptr %38, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %46, ptr noundef nonnull %12)
           to label %.noexc70 unwind label %207
@@ -10011,7 +10011,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
           to label %50 unwind label %207
 
 50:                                               ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load ptr, ptr %51, align 8
   %53 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.172, i32 noundef 12)
           to label %54 unwind label %207
@@ -10080,7 +10080,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit21
 
 _ZN7QStringD2Ev.exit21:                           ; preds = %64, %_ZN9QtPrivate8RefCount5derefEv.exit.i17, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i16
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %70 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %71 unwind label %207
 
@@ -10095,19 +10095,19 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %64, %_ZN9QtPrivate8
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit27 unwind label %207
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %80 = load i32, ptr %79, align 4
   %.not.i.i23 = icmp slt i32 %78, %80
   br i1 %.not.i.i23, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i24, label %81
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %0, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %72, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %72, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %87 = load i32, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
@@ -10117,7 +10117,7 @@ _ZN7QStringD2Ev.exit21:                           ; preds = %64, %_ZN9QtPrivate8
 .noexc72:                                         ; preds = %81
   store ptr %88, ptr %9, align 8
   %89 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %85, i32 noundef %87, ptr noundef %88) #14
-  %90 = getelementptr inbounds i8, ptr %83, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %91, ptr noundef nonnull %10)
           to label %.noexc73 unwind label %207
@@ -10203,19 +10203,19 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit41 unwind label %.loopexit.split-lp100
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %119 = load i32, ptr %118, align 4
   %.not.i.i37 = icmp slt i32 %117, %119
   br i1 %.not.i.i37, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i38, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %0, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %111, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %111, i64 12
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %111, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %126 = load i32, ptr %125, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
@@ -10225,7 +10225,7 @@ _ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement.exit: ; preds =
 .noexc76:                                         ; preds = %120
   store ptr %127, ptr %7, align 8
   %128 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %124, i32 noundef %126, ptr noundef %127) #14
-  %129 = getelementptr inbounds i8, ptr %122, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %130, ptr noundef nonnull %8)
           to label %.noexc77 unwind label %.loopexit.split-lp100
@@ -10258,19 +10258,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit46 unwind label %.loopexit.split-lp100
 
 138:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit41
-  %139 = getelementptr inbounds i8, ptr %0, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load i32, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %142 = load i32, ptr %141, align 4
   %.not.i.i42 = icmp slt i32 %140, %142
   br i1 %.not.i.i42, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i43, label %143
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %0, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %134, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %134, i64 12
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %134, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %149 = load i32, ptr %148, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
@@ -10280,7 +10280,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit41:       ; preds = %_ZN14VrmlTranslator
 .noexc80:                                         ; preds = %143
   store ptr %150, ptr %5, align 8
   %151 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %147, i32 noundef %149, ptr noundef %150) #14
-  %152 = getelementptr inbounds i8, ptr %145, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %153, ptr noundef nonnull %6)
           to label %.noexc81 unwind label %.loopexit.split-lp100
@@ -10389,19 +10389,19 @@ _ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit: ; preds = %.noexc56
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit62 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 181:                                              ; preds = %176
-  %182 = getelementptr inbounds i8, ptr %0, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %183 = load i32, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %185 = load i32, ptr %184, align 4
   %.not.i.i58 = icmp slt i32 %183, %185
   br i1 %.not.i.i58, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i59, label %186
 
 186:                                              ; preds = %181
-  %187 = getelementptr inbounds i8, ptr %0, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %177, i64 12
+  %189 = getelementptr inbounds nuw i8, ptr %177, i64 12
   %190 = load i32, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %177, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %192 = load i32, ptr %191, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -10411,7 +10411,7 @@ _ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement.exit: ; preds = %.noexc56
 .noexc88:                                         ; preds = %186
   store ptr %193, ptr %3, align 8
   %194 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %190, i32 noundef %192, ptr noundef %193) #14
-  %195 = getelementptr inbounds i8, ptr %188, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %196, ptr noundef nonnull %4)
           to label %.noexc89 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -10573,7 +10573,7 @@ define void @_ZN14VrmlTranslator6Parser11ExternprotoER11QDomElement(ptr noundef 
   %15 = alloca %class.QDomNode, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %9, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.175, i32 noundef 18)
           to label %19 unwind label %134
@@ -10606,7 +10606,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 34
@@ -10617,19 +10617,19 @@ _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN9QtPrivate8
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %.loopexit.split-lp
 
 30:                                               ; preds = %_ZN7QStringD2Ev.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %32, %34
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %26, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %26, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %41 = load i32, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
@@ -10639,7 +10639,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %20, %_ZN9QtPrivate8
 .noexc48:                                         ; preds = %35
   store ptr %42, ptr %7, align 8
   %43 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %39, i32 noundef %41, ptr noundef %42) #14
-  %44 = getelementptr inbounds i8, ptr %37, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %45, ptr noundef nonnull %8)
           to label %.noexc49 unwind label %.loopexit.split-lp
@@ -10676,19 +10676,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit12 unwind label %.loopexit.split-lp
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %58 = load i32, ptr %57, align 4
   %.not.i.i8 = icmp slt i32 %56, %58
   br i1 %.not.i.i8, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i9, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %50, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %50, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %65 = load i32, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
@@ -10698,7 +10698,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 .noexc51:                                         ; preds = %59
   store ptr %66, ptr %5, align 8
   %67 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %63, i32 noundef %65, ptr noundef %66) #14
-  %68 = getelementptr inbounds i8, ptr %61, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %69, ptr noundef nonnull %6)
           to label %.noexc52 unwind label %.loopexit.split-lp
@@ -10753,19 +10753,19 @@ _ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; p
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit18 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %93 = load i32, ptr %92, align 4
   %.not.i.i14 = icmp slt i32 %91, %93
   br i1 %.not.i.i14, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i15, label %94
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %86, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %86, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %100 = load i32, ptr %99, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -10775,7 +10775,7 @@ _ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement.exit: ; p
 .noexc55:                                         ; preds = %94
   store ptr %101, ptr %3, align 8
   %102 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %98, i32 noundef %100, ptr noundef %101) #14
-  %103 = getelementptr inbounds i8, ptr %96, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %104, ptr noundef nonnull %4)
           to label %.noexc56 unwind label %.loopexit.split-lp
@@ -10802,20 +10802,20 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit18:       ; preds = %_ZN14VrmlTranslator
           to label %108 unwind label %.loopexit.split-lp
 
 108:                                              ; preds = %_ZN14VrmlTranslator6Parser6ExpectEi.exit18
-  %109 = getelementptr inbounds i8, ptr %0, i64 176
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 168
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.not10.i.i.i = icmp eq ptr %110, null
   br i1 %.not10.i.i.i, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %108, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %110, %108 ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %111, %108 ]
-  %112 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %113 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef nonnull align 8 dereferenceable(8) %9) #14
   %.19.i.i.i = select i1 %113, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %113, i64 24, i64 16
-  %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
@@ -10825,7 +10825,7 @@ _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundE
   br i1 %114, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit
 
 _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit: ; preds = %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS0_EPSt18_Rb_tree_node_baseRKS0_.exit.i.i
-  %115 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %116 = call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %115) #14
   br i1 %116, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE4findERKS0_.exit.thread, label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
 
@@ -10897,7 +10897,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %126, %_ZN9QtPrivate
 
 131:                                              ; preds = %_ZN7QStringD2Ev.exit34
   call void @_ZN8QDomNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #14
-  %132 = getelementptr inbounds i8, ptr %0, i64 112
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %133 = invoke { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EE6insertERKS0_.exit unwind label %.loopexit.split-lp
 
@@ -10998,7 +10998,7 @@ _ZN7QStringD2Ev.exit47:                           ; preds = %_ZN7QStringD2Ev.exi
 define void @_ZN14VrmlTranslator6Parser12OutputOnlyIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -11009,26 +11009,26 @@ define void @_ZN14VrmlTranslator6Parser12OutputOnlyIdER7QString(ptr nocapture no
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -11045,9 +11045,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -11086,7 +11086,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2EPKc.e
 define void @_ZN14VrmlTranslator6Parser11InputOnlyIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -11097,26 +11097,26 @@ define void @_ZN14VrmlTranslator6Parser11InputOnlyIdER7QString(ptr nocapture nou
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -11133,9 +11133,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -11176,7 +11176,7 @@ declare void @_ZN11QDomElementC1Ev(ptr noundef nonnull align 8 dereferenceable(8
 define void @_ZN14VrmlTranslator6Parser10NodeTypeIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -11187,26 +11187,26 @@ define void @_ZN14VrmlTranslator6Parser10NodeTypeIdER7QString(ptr nocapture noun
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -11223,9 +11223,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -11267,7 +11267,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
@@ -11292,7 +11292,7 @@ define void @_ZN14VrmlTranslator6Parser8NodeBodyER11QDomElementb(ptr noundef non
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser10ScriptBodyEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -11322,7 +11322,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS
   %6 = alloca %"struct.std::_Rb_tree<QString, std::pair<const QString, QString>, std::_Select1st<std::pair<const QString, QString>>, std::less<QString>>::_Auto_node", align 8
   store ptr %0, ptr %6, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %3, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = load ptr, ptr %10, align 8
@@ -11337,8 +11337,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS
   br label %16
 
 16:                                               ; preds = %14, %5
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN10QArrayData11shared_nullE, ptr %18, align 8
   store ptr %7, ptr %17, align 8
   %19 = invoke { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -11353,20 +11353,20 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS
 23:                                               ; preds = %20
   %24 = load ptr, ptr %6, align 8
   %.not.i.i = icmp ne ptr %21, null
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = icmp eq ptr %22, %25
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %26
   br i1 %or.cond.i.i, label %.thread, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %22, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %29 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %28) #14
   br label %.thread
 
 .thread:                                          ; preds = %23, %27
   %30 = phi i1 [ true, %23 ], [ %29, %27 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %30, ptr noundef nonnull %7, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(32) %25) #14
-  %31 = getelementptr inbounds i8, ptr %24, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, 1
   store i64 %33, ptr %31, align 8
@@ -11433,20 +11433,20 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br i1 %13, label %14, label %16
 
@@ -11455,17 +11455,17 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.02024.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.02022.i, %16 ]
-  %18 = getelementptr inbounds i8, ptr %.02024.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
   %19 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %18) #14
   %.in.v.i = select i1 %19, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
@@ -11475,7 +11475,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %.019.lcssa28.i, %21
   br i1 %22, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %23
@@ -11487,31 +11487,31 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
 25:                                               ; preds = %23, %._crit_edge.i
   %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %23 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %24, %23 ], [ %.02024.i, %._crit_edge.i ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 32
   %27 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   %spec.select.i = select i1 %27, ptr null, ptr %.sroa.05.0.i
   %spec.select21.i = select i1 %27, ptr %.019.lcssa29.i, ptr null
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %29) #14
   br i1 %30, label %31, label %54
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %1
   br i1 %34, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %35
 
 35:                                               ; preds = %31
   %36 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #16
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   %spec.select = select i1 %42, ptr null, ptr %1
@@ -11519,17 +11519,17 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %44, align 8
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %43, %.lr.ph.i12
   %.02024.i13 = phi ptr [ %.020.i16, %.lr.ph.i12 ], [ %.02022.i10, %43 ]
-  %45 = getelementptr inbounds i8, ptr %.02024.i13, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 32
   %46 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %45) #14
   %.in.v.i14 = select i1 %46, i64 16, i64 24
-  %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
+  %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
   br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !20
@@ -11550,7 +11550,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
 51:                                               ; preds = %49, %._crit_edge.i18
   %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %49 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %50, %49 ], [ %.02024.i13, %._crit_edge.i18 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.05.0.i20, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i20, i64 32
   %53 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   %spec.select.i21 = select i1 %53, ptr null, ptr %.sroa.05.0.i20
   %spec.select21.i22 = select i1 %53, ptr %.019.lcssa29.i19, ptr null
@@ -11561,19 +11561,19 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   br i1 %55, label %56, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %1
   br i1 %59, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %60
 
 60:                                               ; preds = %56
   %61 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #16
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %62) #14
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %1, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   %spec.select72 = select i1 %67, ptr null, ptr %61
@@ -11581,17 +11581,17 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
   br label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %69, align 8
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %68, %.lr.ph.i32
   %.02024.i33 = phi ptr [ %.020.i36, %.lr.ph.i32 ], [ %.02022.i30, %68 ]
-  %70 = getelementptr inbounds i8, ptr %.02024.i33, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 32
   %71 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %70) #14
   %.in.v.i34 = select i1 %71, i64 16, i64 24
-  %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
+  %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
   br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !20
@@ -11601,7 +11601,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %68
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %68 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.019.lcssa28.i48, %73
   br i1 %74, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24_M_get_insert_unique_posERS2_.exit, label %75
@@ -11613,7 +11613,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Se
 77:                                               ; preds = %75, %._crit_edge.i38
   %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %75 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %76, %75 ], [ %.02024.i33, %._crit_edge.i38 ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.05.0.i40, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i40, i64 32
   %79 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   %spec.select.i41 = select i1 %79, ptr null, ptr %.sroa.05.0.i40
   %spec.select21.i42 = select i1 %79, ptr %.019.lcssa29.i39, ptr null
@@ -11629,14 +11629,14 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load atomic i32, ptr %7 monotonic, align 4
   switch i32 %8, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i [
@@ -11701,7 +11701,7 @@ define void @_ZN14VrmlTranslator6Parser17RootNodeStatementER11QDomElement(ptr no
   %8 = alloca %class.QString, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %39 [
@@ -11805,19 +11805,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i7:   ; preds = %_ZN9QtPrivate8RefCo
   br label %66
 
 39:                                               ; preds = %2
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %43 = load i32, ptr %42, align 4
   %.not.i13 = icmp slt i32 %41, %43
   br i1 %.not.i13, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %10, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %50 = load i32, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -11827,7 +11827,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i7:   ; preds = %_ZN9QtPrivate8RefCo
 .noexc26:                                         ; preds = %44
   store ptr %51, ptr %3, align 8
   %52 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %48, i32 noundef %50, ptr noundef %51) #14
-  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %54, ptr noundef nonnull %4)
           to label %.noexc27 unwind label %20
@@ -11905,7 +11905,7 @@ _ZN7QStringD2Ev.exit25:                           ; preds = %_ZN7QStringD2Ev.exi
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -11930,7 +11930,7 @@ define void @_ZN14VrmlTranslator6Parser21InterfaceDeclarationsER11QDomElement(pt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser9ProtoBodyER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i
 
 _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i: ; preds = %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.i.backedge, %2
@@ -11978,18 +11978,18 @@ _ZN14VrmlTranslator6Parser10StatementsER11QDomElement.exit: ; preds = %.lr.ph.i,
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE16_M_insert_uniqueIRKS0_EESt4pairISt17_Rb_tree_iteratorIS0_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02022.i = load ptr, ptr %3, align 8
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.02024.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.02022.i, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.02024.i, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
   %6 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %5) #14
   %.in.v.i = select i1 %6, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
@@ -11999,7 +11999,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %.019.lcssa28.i, %8
   br i1 %9, label %select.unfold, label %10
@@ -12011,7 +12011,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4l
 12:                                               ; preds = %10, %._crit_edge.i
   %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %10 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %11, %10 ], [ %.02024.i, %._crit_edge.i ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.05.0.i, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i, i64 32
   %14 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %1) #14
   br i1 %14, label %select.unfold, label %31
 
@@ -12021,14 +12021,14 @@ select.unfold:                                    ; preds = %12, %._crit_edge.th
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %select.unfold
-  %17 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
   %18 = tail call noundef zeroext i1 @_ZltRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %17) #14
   br label %19
 
 19:                                               ; preds = %16, %select.unfold
   %20 = phi i1 [ true, %select.unfold ], [ %18, %16 ]
   %21 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %22, align 8
   %24 = load atomic i32, ptr %23 monotonic, align 4
@@ -12042,7 +12042,7 @@ select.unfold:                                    ; preds = %12, %._crit_edge.th
 
 _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit: ; preds = %19, %26
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %20, ptr noundef nonnull %21, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #14
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8
@@ -12058,7 +12058,7 @@ _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser27ExternInterfaceDeclarationsER11QDomElement(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
@@ -12089,7 +12089,7 @@ define void @_ZN14VrmlTranslator6Parser7URLListER7QString(ptr nocapture noundef 
   %6 = alloca [100 x i32], align 16
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %80 [
@@ -12099,9 +12099,9 @@ define void @_ZN14VrmlTranslator6Parser7URLListER7QString(ptr nocapture noundef 
 
 12:                                               ; preds = %2
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %16)
   %.not.i = icmp eq ptr %17, null
@@ -12134,7 +12134,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 26:                                               ; preds = %2
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %28
 
 28:                                               ; preds = %.backedge, %26
@@ -12148,7 +12148,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 31:                                               ; preds = %28
   call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -12252,26 +12252,26 @@ _ZN7QString6appendEPKc.exit12:                    ; preds = %49, %_ZN9QtPrivate8
   br label %_ZN7QStringD2Ev.exit
 
 61:                                               ; preds = %28
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %65 = load i32, ptr %64, align 4
   %.not.i.i13 = icmp slt i32 %63, %65
   br i1 %.not.i.i13, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %29, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %29, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %72 = load i32, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
   %73 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.219)
   store ptr %73, ptr %5, align 8
   %74 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %70, i32 noundef %72, ptr noundef %73) #14
-  %75 = getelementptr inbounds i8, ptr %68, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %76, ptr noundef nonnull %6)
   store ptr %77, ptr %75, align 8
@@ -12288,26 +12288,26 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %66, %61
   br label %_ZN7QStringD2Ev.exit
 
 80:                                               ; preds = %2
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %84 = load i32, ptr %83, align 4
   %.not.i14 = icmp slt i32 %82, %84
   br i1 %.not.i14, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %85
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %0, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %10, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %10, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %91 = load i32, ptr %90, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %92 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.292)
   store ptr %92, ptr %3, align 8
   %93 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %89, i32 noundef %91, ptr noundef %92) #14
-  %94 = getelementptr inbounds i8, ptr %87, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %95, ptr noundef nonnull %4)
   store ptr %96, ptr %94, align 8
@@ -12329,7 +12329,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN14VrmlTranslator
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser15ProtoStatementsER11QDomElement(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit
 
 _ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit: ; preds = %_ZN14VrmlTranslator6Parser14ProtoStatementER11QDomElement.exit.backedge, %2
@@ -12378,7 +12378,7 @@ define void @_ZN14VrmlTranslator6Parser20InterfaceDeclarationER11QDomElement(ptr
           to label %17 unwind label %26
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
@@ -12449,7 +12449,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %38, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.178, i32 noundef 5)
           to label %45 unwind label %28
@@ -12666,19 +12666,19 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %129
 
 97:                                               ; preds = %30
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %101 = load i32, ptr %100, align 4
   %.not.i50 = icmp slt i32 %99, %101
   br i1 %.not.i50, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %102
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %0, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %19, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %19, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %108 = load i32, ptr %107, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -12688,7 +12688,7 @@ _ZN7QStringD2Ev.exit49:                           ; preds = %_ZN7QStringD2Ev.exi
 .noexc69:                                         ; preds = %102
   store ptr %109, ptr %3, align 8
   %110 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %106, i32 noundef %108, ptr noundef %109) #14
-  %111 = getelementptr inbounds i8, ptr %104, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %112, ptr noundef nonnull %4)
           to label %.noexc70 unwind label %28
@@ -12815,7 +12815,7 @@ define void @_ZN14VrmlTranslator6Parser30RestrictedInterfaceDeclarationER11QDomE
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.178, i32 noundef 5)
           to label %23 unwind label %33
@@ -12848,7 +12848,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %24, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %112 [
@@ -13171,19 +13171,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60:  ; preds = %_ZN9QtPrivate8RefCo
   br label %162
 
 112:                                              ; preds = %_ZN7QStringD2Ev.exit
-  %113 = getelementptr inbounds i8, ptr %0, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %114 = load i32, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %116 = load i32, ptr %115, align 4
   %.not.i66 = icmp slt i32 %114, %116
   br i1 %.not.i66, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %0, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %30, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %30, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %123 = load i32, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -13193,7 +13193,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i60:  ; preds = %_ZN9QtPrivate8RefCo
 .noexc101:                                        ; preds = %117
   store ptr %124, ptr %3, align 8
   %125 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %121, i32 noundef %123, ptr noundef %124) #14
-  %126 = getelementptr inbounds i8, ptr %119, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %127, ptr noundef nonnull %4)
           to label %.noexc102 unwind label %37
@@ -13379,7 +13379,7 @@ _ZN7QStringD2Ev.exit100:                          ; preds = %_ZN7QStringD2Ev.exi
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Parser9FieldTypeER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %48 [
@@ -13596,19 +13596,19 @@ define void @_ZN14VrmlTranslator6Parser9FieldTypeER7QString(ptr nocapture nounde
   br label %60
 
 48:                                               ; preds = %2
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i32, ptr %51, align 4
   %.not.i = icmp slt i32 %50, %52
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %59 = load i32, ptr %58, align 8
   tail call void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef %57, i32 noundef %59, i32 noundef 94)
   br label %_ZN14VrmlTranslator6Parser6SynErrEi.exit
@@ -13618,9 +13618,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %48, %53
   br label %60
 
 60:                                               ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %64)
   %.not.i2 = icmp eq ptr %65, null
@@ -13659,7 +13659,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringC2EPKc.e
 define void @_ZN14VrmlTranslator6Parser7FieldIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -13670,26 +13670,26 @@ define void @_ZN14VrmlTranslator6Parser7FieldIdER7QString(ptr nocapture noundef 
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -13706,9 +13706,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -13749,7 +13749,7 @@ define void @_ZN14VrmlTranslator6Parser10FieldValueER11QDomElement7QStringb(ptr 
   %6 = alloca [100 x i32], align 16
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
@@ -13849,26 +13849,26 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i10:  ; preds = %_ZN9QtPrivate8RefCo
   br label %63
 
 44:                                               ; preds = %29
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = load i32, ptr %47, align 4
   %.not.i16 = icmp slt i32 %46, %48
   br i1 %.not.i16, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %10, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %10, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %55 = load i32, ptr %54, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
   %56 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.291)
   store ptr %56, ptr %5, align 8
   %57 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %53, i32 noundef %55, ptr noundef %56) #14
-  %58 = getelementptr inbounds i8, ptr %51, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %59, ptr noundef nonnull %6)
   store ptr %60, ptr %58, align 8
@@ -13898,7 +13898,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCo
 define void @_ZN14VrmlTranslator6Parser16InitializeOnlyIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -13909,26 +13909,26 @@ define void @_ZN14VrmlTranslator6Parser16InitializeOnlyIdER7QString(ptr nocaptur
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -13945,9 +13945,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -14012,7 +14012,7 @@ define void @_ZN14VrmlTranslator6Parser11SingleValueER11QDomElement7QStringb(ptr
   %30 = alloca %class.QDomElement, align 8
   %31 = alloca %class.QString, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.190, i32 noundef 3)
           to label %35 unwind label %78
@@ -14045,7 +14045,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %36, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
@@ -14067,9 +14067,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %36, %_ZN9QtPrivate8
           to label %50 unwind label %.loopexit.split-lp
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %54)
           to label %56 unwind label %.loopexit.split-lp
@@ -14185,9 +14185,9 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i28:  ; preds = %_ZN9QtPrivate8RefCo
           to label %85 unwind label %.loopexit.split-lp
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %0, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = invoke noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %89)
           to label %91 unwind label %.loopexit.split-lp
@@ -14305,7 +14305,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i46: ; preds = %_ZN9QtPrivate8RefC
 121:                                              ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i46, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i47, %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %122 = load ptr, ptr %86, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   %125 = invoke noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %124)
           to label %126 unwind label %.loopexit
@@ -14799,19 +14799,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i127: ; preds = %_ZN9QtPrivate8RefCo
   br label %.body
 
 248:                                              ; preds = %195
-  %249 = getelementptr inbounds i8, ptr %0, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %250 = load i32, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 20
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %252 = load i32, ptr %251, align 4
   %.not.i133 = icmp slt i32 %250, %252
   br i1 %.not.i133, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %253
 
 253:                                              ; preds = %248
-  %254 = getelementptr inbounds i8, ptr %0, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %42, i64 12
+  %256 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %257 = load i32, ptr %256, align 4
-  %258 = getelementptr inbounds i8, ptr %42, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %259 = load i32, ptr %258, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
@@ -14821,7 +14821,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i127: ; preds = %_ZN9QtPrivate8RefCo
 .noexc141:                                        ; preds = %253
   store ptr %260, ptr %5, align 8
   %261 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %257, i32 noundef %259, ptr noundef %260) #14
-  %262 = getelementptr inbounds i8, ptr %255, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %263 = load ptr, ptr %262, align 8
   %264 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %263, ptr noundef nonnull %6)
           to label %.noexc142 unwind label %.loopexit.split-lp
@@ -14909,7 +14909,7 @@ define void @_ZN14VrmlTranslator6Parser10MultiValueER11QDomElement7QStringb(ptr 
   %29 = alloca %class.QDomNode, align 8
   %30 = alloca %class.QDomNode, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %11, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.190, i32 noundef 3)
           to label %34 unwind label %72
@@ -14942,7 +14942,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 22
@@ -14953,19 +14953,19 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %.loopexit.split-lp99
 
 45:                                               ; preds = %_ZN7QStringD2Ev.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %49 = load i32, ptr %48, align 4
   %.not.i.i = icmp slt i32 %47, %49
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %41, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %41, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %56 = load i32, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %10)
@@ -14975,7 +14975,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
 .noexc87:                                         ; preds = %50
   store ptr %57, ptr %9, align 8
   %58 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %10, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %54, i32 noundef %56, ptr noundef %57) #14
-  %59 = getelementptr inbounds i8, ptr %52, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %60, ptr noundef nonnull %10)
           to label %.noexc88 unwind label %.loopexit.split-lp99
@@ -15483,19 +15483,19 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
   br label %235
 
 188:                                              ; preds = %113
-  %189 = getelementptr inbounds i8, ptr %0, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %190 = load i32, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 20
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %192 = load i32, ptr %191, align 4
   %.not.i74 = icmp slt i32 %190, %192
   br i1 %.not.i74, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %193
 
 193:                                              ; preds = %188
-  %194 = getelementptr inbounds i8, ptr %0, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %64, i64 12
+  %196 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %197 = load i32, ptr %196, align 4
-  %198 = getelementptr inbounds i8, ptr %64, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %199 = load i32, ptr %198, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8)
@@ -15505,7 +15505,7 @@ _ZNK12QDomNodeList2atEi.exit:                     ; preds = %162
 .noexc90:                                         ; preds = %193
   store ptr %200, ptr %7, align 8
   %201 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %8, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %197, i32 noundef %199, ptr noundef %200) #14
-  %202 = getelementptr inbounds i8, ptr %195, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %203, ptr noundef nonnull %8)
           to label %.noexc91 unwind label %.loopexit.split-lp99
@@ -15538,19 +15538,19 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit80 unwind label %.loopexit.split-lp99
 
 212:                                              ; preds = %207
-  %213 = getelementptr inbounds i8, ptr %0, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %214 = load i32, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %0, i64 20
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %216 = load i32, ptr %215, align 4
   %.not.i.i76 = icmp slt i32 %214, %216
   br i1 %.not.i.i76, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i77, label %217
 
 217:                                              ; preds = %212
-  %218 = getelementptr inbounds i8, ptr %0, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %208, i64 12
+  %220 = getelementptr inbounds nuw i8, ptr %208, i64 12
   %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds i8, ptr %208, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %223 = load i32, ptr %222, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %6)
@@ -15560,7 +15560,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %188, %.noexc75
 .noexc94:                                         ; preds = %217
   store ptr %224, ptr %5, align 8
   %225 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %221, i32 noundef %223, ptr noundef %224) #14
-  %226 = getelementptr inbounds i8, ptr %219, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %227, ptr noundef nonnull %6)
           to label %.noexc95 unwind label %.loopexit.split-lp99
@@ -15640,7 +15640,7 @@ define void @_ZN14VrmlTranslator6Parser26ExternInterfaceDeclarationER11QDomEleme
   %19 = alloca %class.QDomNode, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.178, i32 noundef 5)
           to label %23 unwind label %33
@@ -15673,7 +15673,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %24, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %126 [
@@ -16048,19 +16048,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i70:  ; preds = %_ZN9QtPrivate8RefCo
   br label %172
 
 126:                                              ; preds = %_ZN7QStringD2Ev.exit
-  %127 = getelementptr inbounds i8, ptr %0, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %128 = load i32, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 20
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %130 = load i32, ptr %129, align 4
   %.not.i76 = icmp slt i32 %128, %130
   br i1 %.not.i76, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %131
 
 131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %0, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %30, i64 12
+  %134 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %135 = load i32, ptr %134, align 4
-  %136 = getelementptr inbounds i8, ptr %30, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %137 = load i32, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
@@ -16070,7 +16070,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i70:  ; preds = %_ZN9QtPrivate8RefCo
 .noexc105:                                        ; preds = %131
   store ptr %138, ptr %3, align 8
   %139 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %135, i32 noundef %137, ptr noundef %138) #14
-  %140 = getelementptr inbounds i8, ptr %133, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %141, ptr noundef nonnull %4)
           to label %.noexc106 unwind label %37
@@ -16259,7 +16259,7 @@ define void @_ZN14VrmlTranslator6Parser15NodeBodyElementER11QDomElementb(ptr nou
           to label %20 unwind label %58
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %169 [
@@ -16274,9 +16274,9 @@ define void @_ZN14VrmlTranslator6Parser15NodeBodyElementER11QDomElementb(ptr nou
           to label %25 unwind label %60
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = invoke noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %29)
           to label %31 unwind label %60
@@ -16395,19 +16395,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i18:  ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %60
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %76 = load i32, ptr %75, align 4
   %.not.i.i = icmp slt i32 %74, %76
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %0, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %68, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %68, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %83 = load i32, ptr %82, align 8
   invoke void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %79, i32 noundef %81, i32 noundef %83, i32 noundef 1)
           to label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i unwind label %60
@@ -16418,7 +16418,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %77, %72
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, %71
   %84 = load ptr, ptr %26, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = invoke noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %86)
           to label %88 unwind label %60
@@ -16456,7 +16456,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i28:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit33
 
 _ZN7QStringD2Ev.exit33:                           ; preds = %_ZN7QStringC2EPKc.exit27, %_ZN9QtPrivate8RefCount5derefEv.exit.i29, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i28
-  %98 = getelementptr inbounds i8, ptr %0, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %99 = load ptr, ptr %98, align 8
   %100 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.186, i32 noundef 2)
           to label %101 unwind label %60
@@ -16646,19 +16646,19 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %126, %_ZN9QtPrivate
   br label %196
 
 147:                                              ; preds = %64
-  %148 = getelementptr inbounds i8, ptr %0, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %149 = load i32, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %151 = load i32, ptr %150, align 4
   %.not.i66 = icmp slt i32 %149, %151
   br i1 %.not.i66, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %152
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %0, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %41, i64 12
+  %155 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds i8, ptr %41, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %158 = load i32, ptr %157, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7)
@@ -16668,7 +16668,7 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %126, %_ZN9QtPrivate
 .noexc86:                                         ; preds = %152
   store ptr %159, ptr %6, align 8
   %160 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %7, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %156, i32 noundef %158, ptr noundef %159) #14
-  %161 = getelementptr inbounds i8, ptr %154, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %162, ptr noundef nonnull %7)
           to label %.noexc87 unwind label %60
@@ -16703,19 +16703,19 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %147, %.noexc67
           to label %_ZN7QStringD2Ev.exit23 unwind label %60
 
 169:                                              ; preds = %20
-  %170 = getelementptr inbounds i8, ptr %0, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %171 = load i32, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %0, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %173 = load i32, ptr %172, align 4
   %.not.i71 = icmp slt i32 %171, %173
   br i1 %.not.i71, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit73, label %174
 
 174:                                              ; preds = %169
-  %175 = getelementptr inbounds i8, ptr %0, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %22, i64 12
+  %177 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %22, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %180 = load i32, ptr %179, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
@@ -16725,7 +16725,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %147, %.noexc67
 .noexc92:                                         ; preds = %174
   store ptr %181, ptr %4, align 8
   %182 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %178, i32 noundef %180, ptr noundef %181) #14
-  %183 = getelementptr inbounds i8, ptr %176, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %184, ptr noundef nonnull %5)
           to label %.noexc93 unwind label %60
@@ -16821,7 +16821,7 @@ define void @_ZN14VrmlTranslator6Parser17ScriptBodyElementEv(ptr noundef nonnull
           to label %9 unwind label %18
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
@@ -16978,19 +16978,19 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
           to label %_ZN7QStringD2Ev.exit unwind label %20
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %68 = load i32, ptr %67, align 4
   %.not.i7 = icmp slt i32 %66, %68
   br i1 %.not.i7, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %45, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %45, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %75 = load i32, ptr %74, align 8
   invoke void @_ZN14VrmlTranslator6Errors6SynErrEiii(ptr noundef nonnull align 8 dereferenceable(16) %71, i32 noundef %73, i32 noundef %75, i32 noundef 100)
           to label %_ZN14VrmlTranslator6Parser6SynErrEi.exit unwind label %20
@@ -17022,19 +17022,19 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %69, %64
           to label %_ZN14VrmlTranslator6Parser6ExpectEi.exit unwind label %20
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %88 = load i32, ptr %87, align 4
   %.not.i.i = icmp slt i32 %86, %88
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %89
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %0, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %80, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %80, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %95 = load i32, ptr %94, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5)
@@ -17044,7 +17044,7 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %69, %64
 .noexc19:                                         ; preds = %89
   store ptr %96, ptr %4, align 8
   %97 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %5, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %93, i32 noundef %95, ptr noundef %96) #14
-  %98 = getelementptr inbounds i8, ptr %91, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %99, ptr noundef nonnull %5)
           to label %.noexc20 unwind label %20
@@ -17071,19 +17071,19 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
           to label %_ZN7QStringD2Ev.exit unwind label %20
 
 103:                                              ; preds = %22
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load i32, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %107 = load i32, ptr %106, align 4
   %.not.i10 = icmp slt i32 %105, %107
   br i1 %.not.i10, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit12, label %108
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %0, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %11, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %11, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %114 = load i32, ptr %113, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
@@ -17093,7 +17093,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %_ZN14VrmlTranslator
 .noexc22:                                         ; preds = %108
   store ptr %115, ptr %2, align 8
   %116 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %112, i32 noundef %114, ptr noundef %115) #14
-  %117 = getelementptr inbounds i8, ptr %110, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = invoke noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %118, ptr noundef nonnull %3)
           to label %.noexc23 unwind label %20
@@ -17156,7 +17156,7 @@ _ZN7QStringD2Ev.exit18:                           ; preds = %_ZN7QStringD2Ev.exi
 define void @_ZN14VrmlTranslator6Parser13InputOutputIdER7QString(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca [100 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
@@ -17167,26 +17167,26 @@ define void @_ZN14VrmlTranslator6Parser13InputOutputIdER7QString(ptr nocapture n
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp slt i32 %12, %14
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %22 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.197)
   store ptr %22, ptr %3, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %19, i32 noundef %21, ptr noundef %22) #14
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %25, ptr noundef nonnull %4)
   store ptr %26, ptr %24, align 8
@@ -17203,9 +17203,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %15, %10
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %9, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -17251,7 +17251,7 @@ define void @_ZN14VrmlTranslator6Parser11MultiNumberER7QString(ptr nocapture nou
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %13 [
@@ -17268,26 +17268,26 @@ define void @_ZN14VrmlTranslator6Parser11MultiNumberER7QString(ptr nocapture nou
   br label %32
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %.not.i = icmp slt i32 %15, %17
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.298)
   store ptr %25, ptr %3, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %28, ptr noundef nonnull %4)
   store ptr %29, ptr %27, align 8
@@ -17304,9 +17304,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   br label %32
 
 32:                                               ; preds = %12, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -17413,7 +17413,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %65 = load ptr, ptr %33, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %67)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -17488,7 +17488,7 @@ define void @_ZN14VrmlTranslator6Parser11MultiStringER7QString(ptr nocapture nou
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 4
@@ -17499,26 +17499,26 @@ define void @_ZN14VrmlTranslator6Parser11MultiStringER7QString(ptr nocapture nou
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %.not.i.i = icmp slt i32 %15, %17
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.200)
   store ptr %25, ptr %3, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %28, ptr noundef nonnull %4)
   store ptr %29, ptr %27, align 8
@@ -17535,9 +17535,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit.i:       ; preds = %18, %13
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %12, %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -17643,7 +17643,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i6: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QString6appendEPKc.exit11:                    ; preds = %57, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i7, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %64 = load ptr, ptr %32, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %66)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -17717,7 +17717,7 @@ define void @_ZN14VrmlTranslator6Parser9MultiBoolER7QString(ptr nocapture nounde
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %13 [
@@ -17734,26 +17734,26 @@ define void @_ZN14VrmlTranslator6Parser9MultiBoolER7QString(ptr nocapture nounde
   br label %32
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %.not.i = icmp slt i32 %15, %17
   br i1 %.not.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load i32, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %4)
   %25 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.299)
   store ptr %25, ptr %3, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %4, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %22, i32 noundef %24, ptr noundef %25) #14
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %28, ptr noundef nonnull %4)
   store ptr %29, ptr %27, align 8
@@ -17770,9 +17770,9 @@ _ZN14VrmlTranslator6Parser6SynErrEi.exit:         ; preds = %13, %18
   br label %32
 
 32:                                               ; preds = %12, %_ZN14VrmlTranslator6Parser6SynErrEi.exit, %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %36)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -17879,7 +17879,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QString6appendEPKc.exit12:                    ; preds = %58, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i8, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %65 = load ptr, ptr %33, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr @_Z23coco_string_create_charPKw(ptr noundef %67)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -17964,20 +17964,20 @@ declare void @_ZNK12QDomNodeList4itemEi(ptr dead_on_unwind writable sret(%class.
 define void @_ZN14VrmlTranslator6Parser5ParseEv(ptr noundef nonnull align 8 dereferenceable(208) initializes((40, 48)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   invoke void @_ZN14VrmlTranslator5TokenC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %6 unwind label %35
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %8, align 8
   %9 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.195)
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %9, ptr %11, align 8
   tail call void @_ZN14VrmlTranslator6Parser3GetEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   tail call void @_ZN14VrmlTranslator6Parser14VrmlTranslatorEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
@@ -17991,26 +17991,26 @@ define void @_ZN14VrmlTranslator6Parser5ParseEv(ptr noundef nonnull align 8 dere
   br label %_ZN14VrmlTranslator6Parser6ExpectEi.exit
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %.not.i.i = icmp slt i32 %18, %20
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Parser6SynErrEi.exit.i, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load i32, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3)
   %28 = tail call noundef ptr @_Z18coco_string_createPKw(ptr noundef nonnull @.str.196)
   store ptr %28, ptr %2, align 8
   %29 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %3, i64 noundef 100, ptr noundef nonnull @.str.301, i32 noundef %25, i32 noundef %27, ptr noundef %28) #14
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef ptr @_Z25coco_string_create_appendPKwS0_(ptr noundef %31, ptr noundef nonnull %3)
   store ptr %32, ptr %30, align 8
@@ -18040,46 +18040,46 @@ declare void @_ZN14VrmlTranslator5TokenC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6ParserC2EPNS_7ScannerE(ptr noundef nonnull align 8 dereferenceable(208) initializes((72, 76), (80, 88)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %13, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 0, ptr %17, align 8
   store i32 85, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 2, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %22, align 8
   %23 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
           to label %24 unwind label %27
@@ -18089,7 +18089,7 @@ define void @_ZN14VrmlTranslator6ParserC2EPNS_7ScannerE(ptr noundef nonnull alig
           to label %25 unwind label %29
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %23, ptr %26, align 8
   ret void
 
@@ -18106,9 +18106,9 @@ define void @_ZN14VrmlTranslator6ParserC2EPNS_7ScannerE(ptr noundef nonnull alig
 
 31:                                               ; preds = %29, %27
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %32) #14
   tail call void @_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %33) #14
   tail call void @_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
@@ -18117,7 +18117,7 @@ define void @_ZN14VrmlTranslator6ParserC2EPNS_7ScannerE(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EED2Ev.exit unwind label %4
@@ -18135,7 +18135,7 @@ _ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EED2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EED2Ev.exit unwind label %4
@@ -18158,12 +18158,12 @@ define linkonce_odr void @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_
 
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS0_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS0_E.exit ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = load atomic i32, ptr %8 monotonic, align 4
   switch i32 %9, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i [
@@ -18201,13 +18201,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stI
 
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS3_E.exit ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 32
-  %8 = getelementptr inbounds i8, ptr %.07, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load atomic i32, ptr %9 monotonic, align 4
   switch i32 %10, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i.i [
@@ -18262,7 +18262,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator6ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -18273,7 +18273,7 @@ define void @_ZN14VrmlTranslator6ParserD2Ev(ptr noundef nonnull align 8 derefere
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -18284,8 +18284,8 @@ define void @_ZN14VrmlTranslator6ParserD2Ev(ptr noundef nonnull align 8 derefere
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   invoke void @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %14)
           to label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev.exit unwind label %15
@@ -18298,8 +18298,8 @@ define void @_ZN14VrmlTranslator6ParserD2Ev(ptr noundef nonnull align 8 derefere
   unreachable
 
 _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev.exit:  ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   invoke void @_ZNSt8_Rb_treeI7QStringS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %20)
           to label %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev.exit2 unwind label %21
@@ -18312,8 +18312,8 @@ _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev.exit:  ; preds = %11
   unreachable
 
 _ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev.exit2: ; preds = %_ZNSt3setI7QStringSt4lessIS0_ESaIS0_EED2Ev.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   invoke void @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_S0_ESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %26)
           to label %_ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEED2Ev.exit unwind label %27
@@ -18335,14 +18335,14 @@ declare void @_ZN14VrmlTranslator5TokenD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN14VrmlTranslator6ErrorsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #11 align 2 {
   store i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator6ErrorsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

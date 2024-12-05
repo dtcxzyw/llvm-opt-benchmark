@@ -30,7 +30,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #10
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -114,7 +114,7 @@ land.lhs.true.i:                                  ; preds = %if.end10
 
 if.then.i11:                                      ; preds = %land.lhs.true.i
   %add.ptr.i12 = getelementptr inbounds i8, ptr %text.coerce1, i64 %pos
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i12, i64 1
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12, i64 1
   br label %return
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i
@@ -157,7 +157,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_trait
   br i1 %cmp16.i.i.i.i, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %if.end19.i.i.i.i
 
 if.end19.i.i.i.i:                                 ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 1
   %sub.ptr.rhs.cast21.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i.i to i64
   %sub.ptr.sub22.i.i.i.i = sub i64 %sub.ptr.lhs.cast20.i.i.i.i, %sub.ptr.rhs.cast21.i.i.i.i
   %cmp11.not.i.i.i.i = icmp ult i64 %sub.ptr.sub22.i.i.i.i, %2
@@ -248,7 +248,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #10
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -280,7 +280,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %add.ptr.i = getelementptr inbounds i8, ptr %text.coerce1, i64 %pos
-  %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   br label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_11AnyOfPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
 if.end.i:                                         ; preds = %entry

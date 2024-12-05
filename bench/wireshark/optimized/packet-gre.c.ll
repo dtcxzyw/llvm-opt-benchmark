@@ -279,7 +279,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #5
   store i16 %8, ptr %6, align 4
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.125) #5
   %12 = load ptr, ptr %10, align 8
@@ -356,7 +356,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not171, label %68, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %1, i64 272
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %60 = load i32, ptr %59, align 8
   %.not172 = icmp ne i32 %60, 0
   %.not173 = icmp ult i32 %56, %57
@@ -364,7 +364,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond183, label %68, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %7, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %57, ptr %62, align 8
   %63 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %57) #5
   store ptr %63, ptr %7, align 16
@@ -409,7 +409,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 87:                                               ; preds = %78
   %88 = load i32, ptr @hf_gre_key, align 4
-  %89 = getelementptr inbounds i8, ptr %6, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %88, ptr noundef %0, i32 noundef %.0164, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %89) #5
   %91 = add nuw nsw i32 %.0164, 4
   br label %92
@@ -619,7 +619,7 @@ dissect_gre_3gpp2_attribs.exit:                   ; preds = %206
 
 215:                                              ; preds = %212, %209
   %216 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.7) #5
-  %217 = getelementptr inbounds i8, ptr %1, i64 276
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %218 = load i8, ptr %217, align 4
   %219 = or i8 %218, 2
   store i8 %219, ptr %217, align 4

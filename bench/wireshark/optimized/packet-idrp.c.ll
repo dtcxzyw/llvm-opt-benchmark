@@ -385,7 +385,7 @@ define internal i32 @dissect_idrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %7, label %374
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.176) #3
   %10 = load ptr, ptr %8, align 8
@@ -898,7 +898,7 @@ dissect_BISPDU_OPEN.exit:                         ; preds = %.lr.ph127.i, %._cri
 
 switch.lookup:                                    ; preds = %314
   %319 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_idrp, i64 0, i64 %319
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_idrp, i64 0, i64 %319
   %switch.load = load ptr, ptr %switch.gep, align 8
   %320 = load i32, ptr %switch.load, align 4
   %321 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %320, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #3

@@ -132,9 +132,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 7168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 7168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i64, ptr %6, align 4
   %8 = and i64 %7, 536870912
   %9 = icmp eq i64 %8, 0
@@ -163,13 +163,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
 25:                                               ; preds = %22, %19
   %26 = phi ptr [ %24, %22 ], [ null, %19 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 4952
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %17 to i64
   %30 = inttoptr i64 %29 to ptr
@@ -178,9 +178,9 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
 
 31:                                               ; preds = %25, %16
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 7168
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 7168
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %36 = load i64, ptr %35, align 4
   %37 = and i64 %36, 1073741824
   %38 = icmp eq i64 %37, 0
@@ -209,13 +209,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %.pre20, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.pre20, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
 53:                                               ; preds = %50, %48
   %54 = phi ptr [ %52, %50 ], [ null, %48 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 4952
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %46 to i64
   %58 = inttoptr i64 %57 to ptr
@@ -225,7 +225,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
 
 59:                                               ; preds = %53, %45, %31
   %60 = phi ptr [ %.pre, %53 ], [ %.pre20, %45 ], [ %32, %31 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 7184
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 7184
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 18874368
   %64 = icmp eq i32 %63, 0
@@ -254,13 +254,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.pre22, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.pre22, i64 8
   %78 = load ptr, ptr %77, align 8
   br label %79
 
 79:                                               ; preds = %76, %74
   %80 = phi ptr [ %78, %76 ], [ null, %74 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 4952
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %72 to i64
   %84 = inttoptr i64 %83 to ptr
@@ -270,7 +270,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
 
 85:                                               ; preds = %79, %71, %59, %2
   %86 = phi ptr [ %.pre21, %79 ], [ %.pre22, %71 ], [ %60, %59 ], [ %3, %2 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 7176
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 7176
   %88 = load i8, ptr %87, align 8
   %89 = icmp ult i8 %88, 6
   br i1 %89, label %.thread, label %90
@@ -285,7 +285,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 7184
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 7184
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 18874368
   %101 = icmp eq i32 %100, 0
@@ -301,19 +301,19 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %106, label %107, label %121
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %0, i64 636
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, 4
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %0, i64 1897
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1897
   %113 = load i8, ptr %112, align 1, !range !5, !noundef !6
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %119, label %115
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %0, i64 1521
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1521
   %117 = load i8, ptr %116, align 1, !range !5, !noundef !6
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %119, label %121
@@ -334,13 +334,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %126, label %130, label %127
 
 127:                                              ; preds = %.thread19
-  %128 = getelementptr inbounds i8, ptr %125, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %129 = load ptr, ptr %128, align 8
   br label %130
 
 130:                                              ; preds = %127, %.thread19
   %131 = phi ptr [ %129, %127 ], [ null, %.thread19 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 4952
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %124 to i64
   %135 = inttoptr i64 %134 to ptr
@@ -362,13 +362,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %142, label %146, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %141, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %145 = load ptr, ptr %144, align 8
   br label %146
 
 146:                                              ; preds = %143, %140
   %147 = phi ptr [ %145, %143 ], [ null, %140 ]
-  %148 = getelementptr inbounds i8, ptr %0, i64 4952
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %149 = load i32, ptr %148, align 8
   %150 = sext i32 %138 to i64
   %151 = inttoptr i64 %150 to ptr
@@ -376,19 +376,19 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br label %152
 
 152:                                              ; preds = %146, %137
-  %153 = getelementptr inbounds i8, ptr %0, i64 636
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %154 = load i32, ptr %153, align 4
   %155 = icmp sgt i32 %154, 4
   br i1 %155, label %156, label %179
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %0, i64 1897
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1897
   %158 = load i8, ptr %157, align 1, !range !5, !noundef !6
   %159 = icmp eq i8 %158, 0
   br i1 %159, label %179, label %160
 
 160:                                              ; preds = %156
-  %161 = getelementptr inbounds i8, ptr %0, i64 1521
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 1521
   %162 = load i8, ptr %161, align 1, !range !5, !noundef !6
   %163 = icmp eq i8 %162, 0
   br i1 %163, label %179, label %164
@@ -404,13 +404,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %169, label %173, label %170
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %168, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %172 = load ptr, ptr %171, align 8
   br label %173
 
 173:                                              ; preds = %170, %167
   %174 = phi ptr [ %172, %170 ], [ null, %167 ]
-  %175 = getelementptr inbounds i8, ptr %0, i64 4952
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %176 = load i32, ptr %175, align 8
   %177 = sext i32 %165 to i64
   %178 = inttoptr i64 %177 to ptr
@@ -433,13 +433,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %187, label %191, label %188
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %186, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %190 = load ptr, ptr %189, align 8
   br label %191
 
 191:                                              ; preds = %188, %185
   %192 = phi ptr [ %190, %188 ], [ null, %185 ]
-  %193 = getelementptr inbounds i8, ptr %0, i64 4952
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %194 = load i32, ptr %193, align 8
   %195 = sext i32 %183 to i64
   %196 = inttoptr i64 %195 to ptr
@@ -448,9 +448,9 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
 
 197:                                              ; preds = %191, %182, %179
   %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 7168
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 7168
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 28
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 28
   %202 = load i64, ptr %201, align 4
   %203 = and i64 %202, 4194304
   %204 = icmp eq i64 %203, 0
@@ -462,13 +462,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %207, label %208, label %231
 
 208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %0, i64 1897
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1897
   %210 = load i8, ptr %209, align 1, !range !5, !noundef !6
   %211 = icmp eq i8 %210, 0
   br i1 %211, label %231, label %212
 
 212:                                              ; preds = %208
-  %213 = getelementptr inbounds i8, ptr %0, i64 1521
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1521
   %214 = load i8, ptr %213, align 1, !range !5, !noundef !6
   %215 = icmp eq i8 %214, 0
   br i1 %215, label %231, label %216
@@ -484,13 +484,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %221, label %225, label %222
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %220, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %224 = load ptr, ptr %223, align 8
   br label %225
 
 225:                                              ; preds = %222, %219
   %226 = phi ptr [ %224, %222 ], [ null, %219 ]
-  %227 = getelementptr inbounds i8, ptr %0, i64 4952
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %228 = load i32, ptr %227, align 8
   %229 = sext i32 %217 to i64
   %230 = inttoptr i64 %229 to ptr
@@ -498,7 +498,7 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br label %231
 
 231:                                              ; preds = %225, %216, %212, %208, %205, %197
-  %232 = getelementptr inbounds i8, ptr %0, i64 5256
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 5256
   %233 = load ptr, ptr %232, align 8
   %234 = tail call i32 @sysfs_create_files(ptr noundef %233, ptr noundef nonnull @rps_defaults_attrs) #5
   %235 = icmp eq i32 %234, 0
@@ -510,13 +510,13 @@ define dso_local void @intel_gt_sysfs_pm_init(ptr noundef %0, ptr noundef %1) lo
   br i1 %238, label %242, label %239
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %237, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %241 = load ptr, ptr %240, align 8
   br label %242
 
 242:                                              ; preds = %239, %236
   %243 = phi ptr [ %241, %239 ], [ null, %236 ]
-  %244 = getelementptr inbounds i8, ptr %0, i64 4952
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %245 = load i32, ptr %244, align 8
   %246 = sext i32 %234 to i64
   %247 = inttoptr i64 %246 to ptr
@@ -556,9 +556,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_show(ptr noun
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 7168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i64, ptr %9, align 4
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 29
@@ -587,7 +587,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %34, %5
@@ -600,19 +600,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
   br i1 %14, label %34, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef %23, i32 noundef 1) #5
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 1) #5
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
   %28 = add i64 %24, 500
@@ -632,19 +632,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
   %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef %46, i32 noundef 1) #5
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 1) #5
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
   %51 = add i64 %47, 500
@@ -676,9 +676,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @rc6_enable_dev_show(ptr 
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 7168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i64, ptr %9, align 4
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %11, 29
@@ -707,7 +707,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %34, %5
@@ -720,19 +720,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
   br i1 %14, label %34, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef %23, i32 noundef 2) #5
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 2) #5
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
   %28 = add i64 %24, 500
@@ -752,19 +752,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
   %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef %46, i32 noundef 2) #5
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 2) #5
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
   %51 = add i64 %47, 500
@@ -792,7 +792,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %34, %5
@@ -805,19 +805,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
   br i1 %14, label %34, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef %23, i32 noundef 3) #5
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 3) #5
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
   %28 = add i64 %24, 500
@@ -837,19 +837,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
   %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef %46, i32 noundef 3) #5
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 3) #5
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
   %51 = add i64 %47, 500
@@ -889,7 +889,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %34, %5
@@ -902,19 +902,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
   br i1 %14, label %34, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %13, i64 3592
-  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef %23, i32 noundef 2) #5
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 3592
+  %24 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %23, i32 noundef 2) #5
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %27) #5
   %28 = add i64 %24, 500
@@ -934,19 +934,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
 36:                                               ; preds = %3
   %37 = load ptr, ptr %1, align 8
   %38 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 @intel_runtime_pm_get(ptr noundef %42) #5
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr inbounds i8, ptr %38, i64 3592
-  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef %46, i32 noundef 2) #5
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 3592
+  %47 = tail call i64 @intel_rc6_residency_us(ptr noundef nonnull %46, i32 noundef 2) #5
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %50) #5
   %51 = add i64 %47, 500
@@ -974,7 +974,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -987,8 +987,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -999,8 +999,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %24) #5
   br label %act_freq_mhz_show_common.exit
 
 act_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1020,7 +1020,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1033,8 +1033,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1045,8 +1045,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %24) #5
   br label %cur_freq_mhz_show_common.exit
 
 cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1066,7 +1066,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1079,8 +1079,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1091,8 +1091,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %24) #5
   br label %boost_freq_mhz_show_common.exit
 
 boost_freq_mhz_show_common.exit:                  ; preds = %19, %21
@@ -1131,7 +1131,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 
 13:                                               ; preds = %10
   %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %15 = getelementptr inbounds i8, ptr %14, i64 9304
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 9304
   br label %16
 
 16:                                               ; preds = %27, %13
@@ -1143,8 +1143,8 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 3696
-  %24 = call i32 @intel_rps_set_boost_frequency(ptr noundef %23, i32 noundef %11) #5
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 3696
+  %24 = call i32 @intel_rps_set_boost_frequency(ptr noundef nonnull %23, i32 noundef %11) #5
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread4
 
@@ -1158,8 +1158,8 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noca
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
   %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #5
-  %31 = getelementptr inbounds i8, ptr %30, i64 3696
-  %32 = call i32 @intel_rps_set_boost_frequency(ptr noundef %31, i32 noundef %11) #5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3696
+  %32 = call i32 @intel_rps_set_boost_frequency(ptr noundef nonnull %31, i32 noundef %11) #5
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
@@ -1187,7 +1187,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1200,8 +1200,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1212,8 +1212,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %24) #5
   br label %max_freq_mhz_show_common.exit
 
 max_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1252,7 +1252,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 13:                                               ; preds = %10
   %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %15 = getelementptr inbounds i8, ptr %14, i64 9304
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 9304
   br label %16
 
 16:                                               ; preds = %27, %13
@@ -1264,8 +1264,8 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 3696
-  %24 = call i32 @intel_rps_set_max_frequency(ptr noundef %23, i32 noundef %11) #5
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 3696
+  %24 = call i32 @intel_rps_set_max_frequency(ptr noundef nonnull %23, i32 noundef %11) #5
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread4
 
@@ -1279,8 +1279,8 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
   %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #5
-  %31 = getelementptr inbounds i8, ptr %30, i64 3696
-  %32 = call i32 @intel_rps_set_max_frequency(ptr noundef %31, i32 noundef %11) #5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3696
+  %32 = call i32 @intel_rps_set_max_frequency(ptr noundef nonnull %31, i32 noundef %11) #5
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
@@ -1305,7 +1305,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1318,8 +1318,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1330,8 +1330,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %24) #5
   br label %min_freq_mhz_show_common.exit
 
 min_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1370,7 +1370,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 
 13:                                               ; preds = %10
   %14 = call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %15 = getelementptr inbounds i8, ptr %14, i64 9304
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 9304
   br label %16
 
 16:                                               ; preds = %27, %13
@@ -1382,8 +1382,8 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 3696
-  %24 = call i32 @intel_rps_set_min_frequency(ptr noundef %23, i32 noundef %11) #5
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 3696
+  %24 = call i32 @intel_rps_set_min_frequency(ptr noundef nonnull %23, i32 noundef %11) #5
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %.thread4
 
@@ -1397,8 +1397,8 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nocapt
 28:                                               ; preds = %10
   %29 = load ptr, ptr %1, align 8
   %30 = call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %29) #5
-  %31 = getelementptr inbounds i8, ptr %30, i64 3696
-  %32 = call i32 @intel_rps_set_min_frequency(ptr noundef %31, i32 noundef %11) #5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3696
+  %32 = call i32 @intel_rps_set_min_frequency(ptr noundef nonnull %31, i32 noundef %11) #5
   %.fr = freeze i32 %32
   %33 = icmp eq i32 %.fr, 0
   %34 = sext i32 %.fr to i64
@@ -1423,7 +1423,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1436,8 +1436,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1448,8 +1448,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %24) #5
   br label %RP0_freq_mhz_show_common.exit
 
 RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1469,7 +1469,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1482,8 +1482,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1494,8 +1494,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %24) #5
   br label %RP1_freq_mhz_show_common.exit
 
 RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1515,7 +1515,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1528,8 +1528,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1540,8 +1540,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %24) #5
   br label %RPn_freq_mhz_show_common.exit
 
 RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1561,7 +1561,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %22, %5
@@ -1574,11 +1574,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = getelementptr inbounds i8, ptr %13, i64 3840
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 3840
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
-  %20 = tail call i32 @intel_gpu_freq(ptr noundef %16, i32 noundef %19) #5
+  %20 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %16, i32 noundef %19) #5
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 %11)
   br label %22
 
@@ -1589,11 +1589,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
 24:                                               ; preds = %3
   %25 = load ptr, ptr %1, align 8
   %26 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %25) #5
-  %27 = getelementptr inbounds i8, ptr %26, i64 3696
-  %28 = getelementptr inbounds i8, ptr %26, i64 3840
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3696
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 3840
   %29 = load i8, ptr %28, align 8
   %30 = zext i8 %29 to i32
-  %31 = tail call i32 @intel_gpu_freq(ptr noundef %27, i32 noundef %30) #5
+  %31 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %27, i32 noundef %30) #5
   br label %vlv_rpe_freq_mhz_show_common.exit
 
 vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
@@ -1613,7 +1613,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1626,8 +1626,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1638,8 +1638,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_read_actual_frequency(ptr noundef nonnull %24) #5
   br label %act_freq_mhz_show_common.exit
 
 act_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1656,7 +1656,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1669,8 +1669,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1681,8 +1681,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_requested_frequency(ptr noundef nonnull %24) #5
   br label %cur_freq_mhz_show_common.exit
 
 cur_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1699,7 +1699,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1712,8 +1712,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1724,8 +1724,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_boost_frequency(ptr noundef nonnull %24) #5
   br label %boost_freq_mhz_show_common.exit
 
 boost_freq_mhz_show_common.exit:                  ; preds = %19, %21
@@ -1748,7 +1748,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1761,8 +1761,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1773,8 +1773,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_max_frequency(ptr noundef nonnull %24) #5
   br label %max_freq_mhz_show_common.exit
 
 max_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1797,7 +1797,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1810,8 +1810,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1822,8 +1822,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_min_frequency(ptr noundef nonnull %24) #5
   br label %min_freq_mhz_show_common.exit
 
 min_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1846,7 +1846,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1859,8 +1859,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1871,8 +1871,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_rp0_frequency(ptr noundef nonnull %24) #5
   br label %RP0_freq_mhz_show_common.exit
 
 RP0_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1889,7 +1889,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1902,8 +1902,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1914,8 +1914,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_rp1_frequency(ptr noundef nonnull %24) #5
   br label %RP1_freq_mhz_show_common.exit
 
 RP1_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1932,7 +1932,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %19, %5
@@ -1945,8 +1945,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef %16) #5
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %16) #5
   %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 %11)
   br label %19
 
@@ -1957,8 +1957,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
 21:                                               ; preds = %3
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 3696
-  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3696
+  %25 = tail call i32 @intel_rps_get_rpn_frequency(ptr noundef nonnull %24) #5
   br label %RPn_freq_mhz_show_common.exit
 
 RPn_freq_mhz_show_common.exit:                    ; preds = %19, %21
@@ -1975,7 +1975,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
 
 5:                                                ; preds = %3
   %6 = tail call ptr @kdev_minor_to_i915(ptr noundef %0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 9304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 9304
   br label %8
 
 8:                                                ; preds = %22, %5
@@ -1988,11 +1988,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %13, i64 3696
-  %17 = getelementptr inbounds i8, ptr %13, i64 3840
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 3696
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 3840
   %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
-  %20 = tail call i32 @intel_gpu_freq(ptr noundef %16, i32 noundef %19) #5
+  %20 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %16, i32 noundef %19) #5
   %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 %11)
   br label %22
 
@@ -2003,11 +2003,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
 24:                                               ; preds = %3
   %25 = load ptr, ptr %1, align 8
   %26 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %25) #5
-  %27 = getelementptr inbounds i8, ptr %26, i64 3696
-  %28 = getelementptr inbounds i8, ptr %26, i64 3840
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3696
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 3840
   %29 = load i8, ptr %28, align 8
   %30 = zext i8 %29 to i32
-  %31 = tail call i32 @intel_gpu_freq(ptr noundef %27, i32 noundef %30) #5
+  %31 = tail call i32 @intel_gpu_freq(ptr noundef nonnull %27, i32 noundef %30) #5
   br label %vlv_rpe_freq_mhz_show_common.exit
 
 vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
@@ -2021,8 +2021,8 @@ vlv_rpe_freq_mhz_show_common.exit:                ; preds = %22, %24
 define internal range(i64 -2147483648, 2147483648) i64 @rps_up_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 3696
-  %7 = tail call zeroext i8 @intel_rps_get_up_threshold(ptr noundef %6) #5
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
+  %7 = tail call zeroext i8 @intel_rps_get_up_threshold(ptr noundef nonnull %6) #5
   %8 = zext i8 %7 to i32
   %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
   %10 = sext i32 %9 to i64
@@ -2045,9 +2045,9 @@ define internal i64 @rps_up_threshold_pct_store(ptr noundef %0, ptr nocapture no
   br label %19
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 3696
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 3696
   %14 = load i8, ptr %5, align 1
-  %15 = call i32 @intel_rps_set_up_threshold(ptr noundef %13, i8 noundef zeroext %14) #5
+  %15 = call i32 @intel_rps_set_up_threshold(ptr noundef nonnull %13, i8 noundef zeroext %14) #5
   %16 = icmp eq i32 %15, 0
   %17 = sext i32 %15 to i64
   %18 = select i1 %16, i64 %3, i64 %17
@@ -2072,8 +2072,8 @@ declare dso_local i32 @intel_rps_set_up_threshold(ptr noundef, i8 noundef zeroex
 define internal range(i64 -2147483648, 2147483648) i64 @rps_down_threshold_pct_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 3696
-  %7 = tail call zeroext i8 @intel_rps_get_down_threshold(ptr noundef %6) #5
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
+  %7 = tail call zeroext i8 @intel_rps_get_down_threshold(ptr noundef nonnull %6) #5
   %8 = zext i8 %7 to i32
   %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
   %10 = sext i32 %9 to i64
@@ -2096,9 +2096,9 @@ define internal i64 @rps_down_threshold_pct_store(ptr noundef %0, ptr nocapture 
   br label %19
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 3696
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 3696
   %14 = load i8, ptr %5, align 1
-  %15 = call i32 @intel_rps_set_down_threshold(ptr noundef %13, i8 noundef zeroext %14) #5
+  %15 = call i32 @intel_rps_set_down_threshold(ptr noundef nonnull %13, i8 noundef zeroext %14) #5
   %16 = icmp eq i32 %15, 0
   %17 = sext i32 %15 to i64
   %18 = select i1 %16, i64 %3, i64 %17
@@ -2123,8 +2123,8 @@ declare dso_local i32 @sysfs_create_file_ns(ptr noundef, ptr noundef, ptr nounde
 define internal range(i64 -2147483648, 2147483648) i64 @punit_req_freq_mhz_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 3696
-  %7 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef %6) #5
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
+  %7 = tail call i32 @intel_rps_read_punit_req_frequency(ptr noundef nonnull %6) #5
   %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %7) #5
   %9 = sext i32 %8 to i64
   ret i64 %9
@@ -2137,7 +2137,7 @@ declare dso_local i32 @intel_rps_read_punit_req_frequency(ptr noundef) local_unn
 define internal range(i64 -2147483648, 2147483648) i64 @slpc_ignore_eff_freq_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 1548
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1548
   %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
   %8 = zext nneg i8 %7 to i32
   %9 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %8) #5
@@ -2161,10 +2161,10 @@ define internal i64 @slpc_ignore_eff_freq_store(ptr noundef %0, ptr nocapture no
   br label %20
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 1504
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1504
   %14 = load i32, ptr %5, align 4
   %15 = icmp ne i32 %14, 0
-  %16 = call i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef %13, i1 noundef zeroext %15) #5
+  %16 = call i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef nonnull %13, i1 noundef zeroext %15) #5
   %17 = icmp eq i32 %16, 0
   %18 = sext i32 %16 to i64
   %19 = select i1 %17, i64 %3, i64 %18
@@ -2183,13 +2183,13 @@ declare dso_local i32 @intel_guc_slpc_set_ignore_eff_freq(ptr noundef, i1 nounde
 define internal range(i64 -2147483648, 2147483648) i64 @throttle_reason_bool_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %4) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 3696
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 3696
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %5) #5
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
-  %12 = tail call zeroext i1 @rps_read_mask_mmio(ptr noundef %6, i32 %9, i32 noundef %11) #5
+  %12 = tail call zeroext i1 @rps_read_mask_mmio(ptr noundef nonnull %6, i32 %9, i32 noundef %11) #5
   %13 = zext i1 %12 to i32
   %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %13) #5
   %15 = sext i32 %14 to i64
@@ -2211,15 +2211,15 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(p
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 1552
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1552
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %35, label %15
 
 15:                                               ; preds = %11, %3
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @intel_runtime_pm_get(ptr noundef %19) #5
   %21 = icmp eq i64 %20, 0
@@ -2227,11 +2227,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_freq_factor_show(p
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %23, i32 40968, i1 noundef zeroext true) #5
   %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %29) #5
   %30 = and i32 %26, 8192
@@ -2257,7 +2257,7 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr nocapture nound
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %7, i64 1504
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1504
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   store i32 0, ptr %5, align 4, !annotation !11
   %9 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #5
@@ -2296,12 +2296,12 @@ define internal i64 @media_freq_factor_store(ptr noundef %0, ptr nocapture nound
   br i1 %26, label %.thread, label %.thread7
 
 .thread7:                                         ; preds = %.thread6, %25
-  %27 = call i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef %8, i32 noundef %17) #5
+  %27 = call i32 @intel_guc_slpc_set_media_ratio_mode(ptr noundef nonnull %8, i32 noundef %17) #5
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.thread7
-  %30 = getelementptr inbounds i8, ptr %7, i64 1552
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 1552
   store i32 %17, ptr %30, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.48, i32 noundef %17) #5
   br label %31
@@ -2337,7 +2337,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RP0_freq_mhz_show(
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   store i32 0, ptr %4, align 4, !annotation !11
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 0, i32 noundef 3, ptr noundef nonnull %4) #5
   %10 = icmp eq i32 %9, 0
@@ -2367,7 +2367,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(
   %6 = tail call ptr @intel_gt_sysfs_get_drvdata(ptr noundef %0, ptr noundef %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   store i32 0, ptr %4, align 4, !annotation !11
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @snb_pcode_read_p(ptr noundef %8, i32 noundef 110, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %4) #5
   %10 = icmp eq i32 %9, 0
@@ -2389,7 +2389,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @media_RPn_freq_mhz_show(
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @default_min_freq_mhz_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
@@ -2400,7 +2400,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_min_freq_mhz_sho
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @default_max_freq_mhz_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 68
   %7 = load i32, ptr %6, align 4
@@ -2411,7 +2411,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_max_freq_mhz_sho
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @default_rps_up_threshold_pct_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8
@@ -2423,7 +2423,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @default_rps_up_threshold
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @default_rps_down_threshold_pct_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1

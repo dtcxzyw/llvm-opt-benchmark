@@ -130,19 +130,19 @@ if.else:                                          ; preds = %entry
   %0 = load ptr, ptr %child, align 8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %child3 = getelementptr inbounds i8, ptr %s, i64 32
+  %child3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %child, ptr %child3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %flags6 = getelementptr inbounds i8, ptr %s, i64 56
+  %flags6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i32 %flags, ptr %flags6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pwrite_zeroes_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -167,19 +167,19 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal void @bdrv_co_pwrite_zeroes_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %child = getelementptr inbounds i8, ptr %opaque, i64 32
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %child, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 56
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i32, ptr %flags, align 8
   %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -197,7 +197,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %s, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   %1 = load ptr, ptr %co, align 8
   tail call void @aio_co_enter(ptr noundef %0, ptr noundef %1) #5
   %2 = load ptr, ptr %s, align 8
@@ -221,7 +221,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %call4.i, label %while.cond.preheader, label %if.else6
 
 while.cond.preheader:                             ; preds = %if.then3.i, %land.lhs.true
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   %4 = load i8, ptr %in_progress, align 8
   %tobool414 = trunc i8 %4 to i1
   br i1 %tobool414, label %while.body, label %if.end25
@@ -239,7 +239,7 @@ if.else6:                                         ; preds = %if.end.i, %if.then3
   br i1 %cmp, label %while.cond12.preheader, label %if.else10
 
 while.cond12.preheader:                           ; preds = %if.else6
-  %in_progress13 = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress13 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %6 = load i8, ptr %in_progress13, align 8
   %tobool1415 = trunc i8 %6 to i1
   br i1 %tobool1415, label %while.body15.lr.ph, label %if.end25
@@ -282,14 +282,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %0 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 %bytes, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #5
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i32 noundef %flags) #5
@@ -300,21 +300,21 @@ if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %child, align 8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %1) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %child3 = getelementptr inbounds i8, ptr %s, i64 32
+  %child3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %child, ptr %child3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %buf6 = getelementptr inbounds i8, ptr %s, i64 56
+  %buf6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %buf, ptr %buf6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pread_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -331,14 +331,14 @@ return:                                           ; preds = %if.else, %if.then
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
-  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
+  %iov_len = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #5
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #5
@@ -350,33 +350,33 @@ define internal void @bdrv_co_pread_entry(ptr nocapture noundef initializes((8, 
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   tail call void @bdrv_graph_co_rdlock() #5
-  %child = getelementptr inbounds i8, ptr %opaque, i64 32
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %child, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %buf, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %5 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %5, align 8
   store ptr %3, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 %2, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #5
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %qiov.i, i32 noundef %4) #5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call.i, ptr %ret, align 8
   call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   call void @aio_wait_kick() #5
   ret void
@@ -392,14 +392,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %0 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 %bytes, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #5
   %call.i = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.i, i32 noundef %flags) #5
@@ -410,21 +410,21 @@ if.else:                                          ; preds = %entry
   %1 = load ptr, ptr %child, align 8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %1) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %child3 = getelementptr inbounds i8, ptr %s, i64 32
+  %child3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %child, ptr %child3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %buf6 = getelementptr inbounds i8, ptr %s, i64 56
+  %buf6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %buf, ptr %buf6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pwrite_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -441,14 +441,14 @@ return:                                           ; preds = %if.else, %if.then
 define internal i32 @bdrv_co_pwrite(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
-  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
+  %iov_len = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #5
   %call = call i32 @bdrv_co_pwritev(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #5
@@ -460,33 +460,33 @@ define internal void @bdrv_co_pwrite_entry(ptr nocapture noundef initializes((8,
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   tail call void @bdrv_graph_co_rdlock() #5
-  %child = getelementptr inbounds i8, ptr %opaque, i64 32
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %child, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %buf, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %5 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %5, align 8
   store ptr %3, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 %2, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #5
   %call.i = call i32 @bdrv_co_pwritev(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %qiov.i, i32 noundef %4) #5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call.i, ptr %ret, align 8
   call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   call void @aio_wait_kick() #5
   ret void
@@ -507,21 +507,21 @@ if.else:                                          ; preds = %entry
   %0 = load ptr, ptr %child, align 8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %child3 = getelementptr inbounds i8, ptr %s, i64 32
+  %child3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %child, ptr %child3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %buf6 = getelementptr inbounds i8, ptr %s, i64 56
+  %buf6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %buf, ptr %buf6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pwrite_sync_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -540,21 +540,21 @@ declare i32 @bdrv_co_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noun
 define internal void @bdrv_co_pwrite_sync_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %child = getelementptr inbounds i8, ptr %opaque, i64 32
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %child, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %buf, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   %call = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -574,11 +574,11 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %co, i8 0, i64 16, i1 false)
   store ptr %bs, ptr %bs3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_getlength_entry, ptr noundef nonnull %s) #5
@@ -598,13 +598,13 @@ declare i64 @bdrv_co_getlength(ptr noundef) #1
 define internal void @bdrv_co_getlength_entry(ptr nocapture noundef initializes((8, 9), (24, 32)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i64 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -616,10 +616,10 @@ entry:
   %s = alloca %struct.BdrvGetAllocatedFileSize, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 32
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %co, i8 0, i64 16, i1 false)
   store ptr %bs, ptr %bs1, align 8
   %call2 = tail call zeroext i1 @qemu_in_coroutine() #5
@@ -630,7 +630,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   %call3 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_get_allocated_file_size_entry, ptr noundef nonnull %s) #5
   store ptr %call3, ptr %co, align 8
   call fastcc void @bdrv_poll_co(ptr noundef %s)
@@ -645,13 +645,13 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define internal void @bdrv_co_get_allocated_file_size_entry(ptr nocapture noundef initializes((8, 9), (24, 32)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
   %call = tail call i64 @bdrv_co_get_allocated_file_size(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i64 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -671,23 +671,23 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %pnum6 = getelementptr inbounds i8, ptr %s, i64 56
+  %pnum6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %pnum, ptr %pnum6, align 8
-  %map7 = getelementptr inbounds i8, ptr %s, i64 64
+  %map7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr %map, ptr %map7, align 8
-  %file8 = getelementptr inbounds i8, ptr %s, i64 72
+  %file8 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store ptr %file, ptr %file8, align 8
   %call9 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_block_status_entry, ptr noundef nonnull %s) #5
   store ptr %call9, ptr %co, align 8
@@ -706,23 +706,23 @@ declare i32 @bdrv_co_block_status(ptr noundef, i64 noundef, i64 noundef, ptr nou
 define internal void @bdrv_co_block_status_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %pnum = getelementptr inbounds i8, ptr %opaque, i64 56
+  %pnum = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %pnum, align 8
-  %map = getelementptr inbounds i8, ptr %opaque, i64 64
+  %map = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load ptr, ptr %map, align 8
-  %file = getelementptr inbounds i8, ptr %opaque, i64 72
+  %file = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %5 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_block_status(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -742,25 +742,25 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %base4 = getelementptr inbounds i8, ptr %s, i64 40
+  %base4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %base, ptr %base4, align 8
-  %offset5 = getelementptr inbounds i8, ptr %s, i64 48
+  %offset5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %offset, ptr %offset5, align 8
-  %bytes6 = getelementptr inbounds i8, ptr %s, i64 56
+  %bytes6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i64 %bytes, ptr %bytes6, align 8
-  %pnum7 = getelementptr inbounds i8, ptr %s, i64 64
+  %pnum7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr %pnum, ptr %pnum7, align 8
-  %map8 = getelementptr inbounds i8, ptr %s, i64 72
+  %map8 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store ptr %map, ptr %map8, align 8
-  %file9 = getelementptr inbounds i8, ptr %s, i64 80
+  %file9 = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr %file, ptr %file9, align 8
   %call10 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_block_status_above_entry, ptr noundef nonnull %s) #5
   store ptr %call10, ptr %co, align 8
@@ -779,25 +779,25 @@ declare i32 @bdrv_co_block_status_above(ptr noundef, ptr noundef, i64 noundef, i
 define internal void @bdrv_co_block_status_above_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %base = getelementptr inbounds i8, ptr %opaque, i64 40
+  %base = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %base, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 56
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i64, ptr %bytes, align 8
-  %pnum = getelementptr inbounds i8, ptr %opaque, i64 64
+  %pnum = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load ptr, ptr %pnum, align 8
-  %map = getelementptr inbounds i8, ptr %opaque, i64 72
+  %map = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %5 = load ptr, ptr %map, align 8
-  %file = getelementptr inbounds i8, ptr %opaque, i64 80
+  %file = getelementptr inbounds nuw i8, ptr %opaque, i64 80
   %6 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_block_status_above(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -817,19 +817,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %pnum6 = getelementptr inbounds i8, ptr %s, i64 56
+  %pnum6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %pnum, ptr %pnum6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_is_allocated_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -848,19 +848,19 @@ declare i32 @bdrv_co_is_allocated(ptr noundef, i64 noundef, i64 noundef, ptr nou
 define internal void @bdrv_co_is_allocated_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %pnum = getelementptr inbounds i8, ptr %opaque, i64 56
+  %pnum = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %pnum, align 8
   %call = tail call i32 @bdrv_co_is_allocated(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -881,23 +881,23 @@ if.else:                                          ; preds = %entry
   %frombool = zext i1 %include_base to i8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %base4 = getelementptr inbounds i8, ptr %s, i64 40
+  %base4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %base, ptr %base4, align 8
-  %include_base5 = getelementptr inbounds i8, ptr %s, i64 48
+  %include_base5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i8 %frombool, ptr %include_base5, align 8
-  %offset8 = getelementptr inbounds i8, ptr %s, i64 56
+  %offset8 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i64 %offset, ptr %offset8, align 8
-  %bytes9 = getelementptr inbounds i8, ptr %s, i64 64
+  %bytes9 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i64 %bytes, ptr %bytes9, align 8
-  %pnum10 = getelementptr inbounds i8, ptr %s, i64 72
+  %pnum10 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store ptr %pnum, ptr %pnum10, align 8
   %call11 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_is_allocated_above_entry, ptr noundef nonnull %s) #5
   store ptr %call11, ptr %co, align 8
@@ -916,24 +916,24 @@ declare i32 @bdrv_co_is_allocated_above(ptr noundef, ptr noundef, i1 noundef zer
 define internal void @bdrv_co_is_allocated_above_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %base = getelementptr inbounds i8, ptr %opaque, i64 40
+  %base = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %base, align 8
-  %include_base = getelementptr inbounds i8, ptr %opaque, i64 48
+  %include_base = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i8, ptr %include_base, align 8
   %tobool = trunc i8 %2 to i1
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 56
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 64
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i64, ptr %bytes, align 8
-  %pnum = getelementptr inbounds i8, ptr %opaque, i64 72
+  %pnum = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %5 = load ptr, ptr %pnum, align 8
   %call = tail call i32 @bdrv_co_is_allocated_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, i64 noundef %3, i64 noundef %4, ptr noundef %5) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -945,13 +945,13 @@ entry:
   %s = alloca %struct.BdrvIsInserted, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i8 0, ptr %ret, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs1, align 8
   %call2 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call2, label %if.else, label %if.end
@@ -973,14 +973,14 @@ if.end:                                           ; preds = %entry
 define internal void @bdrv_co_is_inserted_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
   %call = tail call zeroext i1 @bdrv_co_is_inserted(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1000,15 +1000,15 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %bdi4 = getelementptr inbounds i8, ptr %s, i64 40
+  %bdi4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %bdi, ptr %bdi4, align 8
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_get_info_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
@@ -1027,15 +1027,15 @@ declare i32 @bdrv_co_get_info(ptr noundef, ptr noundef) #1
 define internal void @bdrv_co_get_info_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %bdi = getelementptr inbounds i8, ptr %opaque, i64 40
+  %bdi = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %bdi, align 8
   %call = tail call i32 @bdrv_co_get_info(ptr noundef %0, ptr noundef %1) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1048,19 +1048,19 @@ entry:
   %frombool = zext i1 %warn to i8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs1, align 8
-  %backing_file2 = getelementptr inbounds i8, ptr %s, i64 40
+  %backing_file2 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %backing_file, ptr %backing_file2, align 8
-  %backing_fmt3 = getelementptr inbounds i8, ptr %s, i64 48
+  %backing_fmt3 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %backing_fmt, ptr %backing_fmt3, align 8
-  %warn4 = getelementptr inbounds i8, ptr %s, i64 56
+  %warn4 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i8 %frombool, ptr %warn4, align 8
   %call6 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call6, label %if.else, label %if.end
@@ -1081,20 +1081,20 @@ if.end:                                           ; preds = %entry
 define internal void @bdrv_co_change_backing_file_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %backing_file = getelementptr inbounds i8, ptr %opaque, i64 40
+  %backing_file = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %backing_file, align 8
-  %backing_fmt = getelementptr inbounds i8, ptr %opaque, i64 48
+  %backing_fmt = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %backing_fmt, align 8
-  %warn = getelementptr inbounds i8, ptr %opaque, i64 56
+  %warn = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i8, ptr %warn, align 8
   %tobool = trunc i8 %3 to i1
   %call = tail call i32 @bdrv_co_change_backing_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %tobool) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1114,13 +1114,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call1 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call1, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %bs2 = getelementptr inbounds i8, ptr %s, i64 24
+  %bs2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %bs, ptr %bs2, align 8
-  %event3 = getelementptr inbounds i8, ptr %s, i64 32
+  %event3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store i32 %event, ptr %event3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_debug_event_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
@@ -1137,13 +1137,13 @@ declare void @bdrv_co_debug_event(ptr noundef, i32 noundef) #1
 define internal void @bdrv_co_debug_event_entry(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 24
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %bs, align 8
-  %event = getelementptr inbounds i8, ptr %opaque, i64 32
+  %event = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %1 = load i32, ptr %event, align 8
   tail call void @bdrv_co_debug_event(ptr noundef %0, i32 noundef %1) #5
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1155,19 +1155,19 @@ entry:
   %s = alloca %struct.BdrvCanStoreNewDirtyBitmap, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i8 0, ptr %ret, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs1, align 8
-  %name2 = getelementptr inbounds i8, ptr %s, i64 40
+  %name2 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %name, ptr %name2, align 8
-  %granularity3 = getelementptr inbounds i8, ptr %s, i64 48
+  %granularity3 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i32 %granularity, ptr %granularity3, align 8
-  %errp4 = getelementptr inbounds i8, ptr %s, i64 56
+  %errp4 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %errp, ptr %errp4, align 8
   %call5 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call5, label %if.else, label %if.end
@@ -1189,20 +1189,20 @@ if.end:                                           ; preds = %entry
 define internal void @bdrv_co_can_store_new_dirty_bitmap_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %name = getelementptr inbounds i8, ptr %opaque, i64 40
+  %name = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %name, align 8
-  %granularity = getelementptr inbounds i8, ptr %opaque, i64 48
+  %granularity = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i32, ptr %granularity, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 56
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %errp, align 8
   %call = tail call zeroext i1 @bdrv_co_can_store_new_dirty_bitmap(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1224,23 +1224,23 @@ if.else:                                          ; preds = %entry
   %0 = load ptr, ptr %child, align 8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %child3 = getelementptr inbounds i8, ptr %s, i64 32
+  %child3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %child, ptr %child3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %exact5 = getelementptr inbounds i8, ptr %s, i64 48
+  %exact5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i8 %frombool, ptr %exact5, align 8
-  %prealloc8 = getelementptr inbounds i8, ptr %s, i64 52
+  %prealloc8 = getelementptr inbounds nuw i8, ptr %s, i64 52
   store i32 %prealloc, ptr %prealloc8, align 4
-  %flags9 = getelementptr inbounds i8, ptr %s, i64 56
+  %flags9 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i32 %flags, ptr %flags9, align 8
-  %errp10 = getelementptr inbounds i8, ptr %s, i64 64
+  %errp10 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr %errp, ptr %errp10, align 8
   %call11 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_truncate_entry, ptr noundef nonnull %s) #5
   store ptr %call11, ptr %co, align 8
@@ -1259,24 +1259,24 @@ declare i32 @bdrv_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 
 define internal void @bdrv_co_truncate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %child = getelementptr inbounds i8, ptr %opaque, i64 32
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %child, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %exact = getelementptr inbounds i8, ptr %opaque, i64 48
+  %exact = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i8, ptr %exact, align 8
   %tobool = trunc i8 %2 to i1
-  %prealloc = getelementptr inbounds i8, ptr %opaque, i64 52
+  %prealloc = getelementptr inbounds nuw i8, ptr %opaque, i64 52
   %3 = load i32, ptr %prealloc, align 4
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 56
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %4 = load i32, ptr %flags, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 64
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %5 = load ptr, ptr %errp, align 8
   %call = tail call i32 @bdrv_co_truncate(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool, i32 noundef %3, i32 noundef %4, ptr noundef %5) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1296,17 +1296,17 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %res4 = getelementptr inbounds i8, ptr %s, i64 40
+  %res4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %res, ptr %res4, align 8
-  %fix5 = getelementptr inbounds i8, ptr %s, i64 48
+  %fix5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i32 %fix, ptr %fix5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_check_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
@@ -1325,17 +1325,17 @@ declare i32 @bdrv_co_check(ptr noundef, ptr noundef, i32 noundef) #1
 define internal void @bdrv_co_check_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %res = getelementptr inbounds i8, ptr %opaque, i64 40
+  %res = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %res, align 8
-  %fix = getelementptr inbounds i8, ptr %opaque, i64 48
+  %fix = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i32, ptr %fix, align 8
   %call = tail call i32 @bdrv_co_check(ptr noundef %0, ptr noundef %1, i32 noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1355,15 +1355,15 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %errp4 = getelementptr inbounds i8, ptr %s, i64 40
+  %errp4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %errp, ptr %errp4, align 8
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_invalidate_cache_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
@@ -1382,15 +1382,15 @@ declare i32 @bdrv_co_invalidate_cache(ptr noundef, ptr noundef) #1
 define internal void @bdrv_co_invalidate_cache_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 40
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %errp, align 8
   %call = tail call i32 @bdrv_co_invalidate_cache(ptr noundef %0, ptr noundef %1) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1410,13 +1410,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_flush_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
@@ -1435,13 +1435,13 @@ declare i32 @bdrv_co_flush(ptr noundef) #1
 define internal void @bdrv_co_flush_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
   %call = tail call i32 @bdrv_co_flush(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1462,17 +1462,17 @@ if.else:                                          ; preds = %entry
   %0 = load ptr, ptr %child, align 8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %child3 = getelementptr inbounds i8, ptr %s, i64 32
+  %child3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %child, ptr %child3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_pdiscard_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
@@ -1491,17 +1491,17 @@ declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 define internal void @bdrv_co_pdiscard_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %child = getelementptr inbounds i8, ptr %opaque, i64 32
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %child, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
   %call = tail call i32 @bdrv_co_pdiscard(ptr noundef %0, i64 noundef %1, i64 noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1521,17 +1521,17 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %qiov4 = getelementptr inbounds i8, ptr %s, i64 40
+  %qiov4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %qiov, ptr %qiov4, align 8
-  %pos5 = getelementptr inbounds i8, ptr %s, i64 48
+  %pos5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %pos, ptr %pos5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_readv_vmstate_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
@@ -1550,17 +1550,17 @@ declare i32 @bdrv_co_readv_vmstate(ptr noundef, ptr noundef, i64 noundef) #1
 define internal void @bdrv_co_readv_vmstate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 40
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %qiov, align 8
-  %pos = getelementptr inbounds i8, ptr %opaque, i64 48
+  %pos = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %pos, align 8
   %call = tail call i32 @bdrv_co_readv_vmstate(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1580,17 +1580,17 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %qiov4 = getelementptr inbounds i8, ptr %s, i64 40
+  %qiov4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %qiov, ptr %qiov4, align 8
-  %pos5 = getelementptr inbounds i8, ptr %s, i64 48
+  %pos5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %pos, ptr %pos5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_writev_vmstate_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
@@ -1609,17 +1609,17 @@ declare i32 @bdrv_co_writev_vmstate(ptr noundef, ptr noundef, i64 noundef) #1
 define internal void @bdrv_co_writev_vmstate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 40
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %qiov, align 8
-  %pos = getelementptr inbounds i8, ptr %opaque, i64 48
+  %pos = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %pos, align 8
   %call = tail call i32 @bdrv_co_writev_vmstate(ptr noundef %0, ptr noundef %1, i64 noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1631,17 +1631,17 @@ entry:
   %s = alloca %struct.BdrvRemovePersistentDirtyBitmap, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs1, align 8
-  %name2 = getelementptr inbounds i8, ptr %s, i64 40
+  %name2 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %name, ptr %name2, align 8
-  %errp3 = getelementptr inbounds i8, ptr %s, i64 48
+  %errp3 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %errp, ptr %errp3, align 8
   %call4 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call4, label %if.else, label %if.end
@@ -1662,17 +1662,17 @@ if.end:                                           ; preds = %entry
 define internal void @bdrv_co_remove_persistent_dirty_bitmap_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %name = getelementptr inbounds i8, ptr %opaque, i64 40
+  %name = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %name, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 48
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %errp, align 8
   %call = tail call i32 @bdrv_co_remove_persistent_dirty_bitmap(ptr noundef %0, ptr noundef %1, ptr noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1692,15 +1692,15 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %hint4 = getelementptr inbounds i8, ptr %s, i64 40
+  %hint4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %hint, ptr %hint4, align 8
   %call5 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_refresh_total_sectors_entry, ptr noundef nonnull %s) #5
   store ptr %call5, ptr %co, align 8
@@ -1719,15 +1719,15 @@ declare i32 @bdrv_co_refresh_total_sectors(ptr noundef, i64 noundef) #1
 define internal void @bdrv_co_refresh_total_sectors_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %hint = getelementptr inbounds i8, ptr %opaque, i64 40
+  %hint = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %hint, align 8
   %call = tail call i32 @bdrv_co_refresh_total_sectors(ptr noundef %0, i64 noundef %1) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1739,19 +1739,19 @@ entry:
   %s = alloca %struct.BdrvCreate, align 8
   %call = tail call ptr @qemu_get_aio_context() #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %drv1 = getelementptr inbounds i8, ptr %s, i64 32
+  %drv1 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %drv, ptr %drv1, align 8
-  %filename2 = getelementptr inbounds i8, ptr %s, i64 40
+  %filename2 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %filename, ptr %filename2, align 8
-  %opts3 = getelementptr inbounds i8, ptr %s, i64 48
+  %opts3 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %opts, ptr %opts3, align 8
-  %errp4 = getelementptr inbounds i8, ptr %s, i64 56
+  %errp4 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %errp, ptr %errp4, align 8
   %call5 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call5, label %if.else, label %if.end
@@ -1773,18 +1773,18 @@ declare ptr @qemu_get_aio_context() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_co_create_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %drv = getelementptr inbounds i8, ptr %opaque, i64 32
+  %drv = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %drv, align 8
-  %filename = getelementptr inbounds i8, ptr %opaque, i64 40
+  %filename = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %filename, align 8
-  %opts = getelementptr inbounds i8, ptr %opaque, i64 48
+  %opts = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %opts, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 56
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %errp, align 8
   %call = tail call i32 @bdrv_co_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -1797,23 +1797,23 @@ entry:
   %frombool = zext i1 %allow_none to i8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr null, ptr %ret, align 8
-  %filename1 = getelementptr inbounds i8, ptr %s, i64 16
+  %filename1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %filename, ptr %filename1, align 8
-  %options2 = getelementptr inbounds i8, ptr %s, i64 24
+  %options2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %options, ptr %options2, align 8
-  %bdref_key3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bdref_key3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bdref_key, ptr %bdref_key3, align 8
-  %parent4 = getelementptr inbounds i8, ptr %s, i64 40
+  %parent4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %parent, ptr %parent4, align 8
-  %child_class5 = getelementptr inbounds i8, ptr %s, i64 48
+  %child_class5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %child_class, ptr %child_class5, align 8
-  %child_role6 = getelementptr inbounds i8, ptr %s, i64 56
+  %child_role6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i32 %child_role, ptr %child_role6, align 8
-  %allow_none7 = getelementptr inbounds i8, ptr %s, i64 60
+  %allow_none7 = getelementptr inbounds nuw i8, ptr %s, i64 60
   store i8 %frombool, ptr %allow_none7, align 4
-  %errp9 = getelementptr inbounds i8, ptr %s, i64 64
+  %errp9 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr %errp, ptr %errp9, align 8
   %call10 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call10, label %if.end, label %if.else
@@ -1839,25 +1839,25 @@ define internal void @bdrv_open_child_bh(ptr nocapture noundef initializes((8, 1
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
-  %filename = getelementptr inbounds i8, ptr %opaque, i64 16
+  %filename = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %filename, align 8
-  %options = getelementptr inbounds i8, ptr %opaque, i64 24
+  %options = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %options, align 8
-  %bdref_key = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bdref_key = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %2 = load ptr, ptr %bdref_key, align 8
-  %parent = getelementptr inbounds i8, ptr %opaque, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %3 = load ptr, ptr %parent, align 8
-  %child_class = getelementptr inbounds i8, ptr %opaque, i64 48
+  %child_class = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %4 = load ptr, ptr %child_class, align 8
-  %child_role = getelementptr inbounds i8, ptr %opaque, i64 56
+  %child_role = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %5 = load i32, ptr %child_role, align 8
-  %allow_none = getelementptr inbounds i8, ptr %opaque, i64 60
+  %allow_none = getelementptr inbounds nuw i8, ptr %opaque, i64 60
   %6 = load i8, ptr %allow_none, align 4
   %tobool = trunc i8 %6 to i1
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 64
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %7 = load ptr, ptr %errp, align 8
   %call1 = tail call ptr @bdrv_open_child(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %tobool, ptr noundef %7) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %call1, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
   %8 = load ptr, ptr %opaque, align 8
@@ -1873,11 +1873,11 @@ entry:
   %s = alloca %struct.BdrvCoOpenBlockdevRef, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr null, ptr %ret, align 8
-  %ref1 = getelementptr inbounds i8, ptr %s, i64 16
+  %ref1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %ref, ptr %ref1, align 8
-  %errp2 = getelementptr inbounds i8, ptr %s, i64 24
+  %errp2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %errp, ptr %errp2, align 8
   %call3 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call3, label %if.end, label %if.else
@@ -1899,12 +1899,12 @@ define internal void @bdrv_open_blockdev_ref_bh(ptr nocapture noundef initialize
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
-  %ref = getelementptr inbounds i8, ptr %opaque, i64 16
+  %ref = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %ref, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 24
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %errp, align 8
   %call1 = tail call ptr @bdrv_open_blockdev_ref(ptr noundef %0, ptr noundef %1) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %call1, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
   %2 = load ptr, ptr %opaque, align 8
@@ -1918,17 +1918,17 @@ entry:
   %s = alloca %struct.BdrvCoOpen, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr null, ptr %ret, align 8
-  %filename1 = getelementptr inbounds i8, ptr %s, i64 16
+  %filename1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %filename, ptr %filename1, align 8
-  %reference2 = getelementptr inbounds i8, ptr %s, i64 24
+  %reference2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %reference, ptr %reference2, align 8
-  %options3 = getelementptr inbounds i8, ptr %s, i64 32
+  %options3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %options, ptr %options3, align 8
-  %flags4 = getelementptr inbounds i8, ptr %s, i64 40
+  %flags4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %flags, ptr %flags4, align 8
-  %errp5 = getelementptr inbounds i8, ptr %s, i64 48
+  %errp5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %errp, ptr %errp5, align 8
   %call6 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call6, label %if.end, label %if.else
@@ -1950,18 +1950,18 @@ define internal void @bdrv_open_bh(ptr nocapture noundef initializes((8, 16)) %o
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
-  %filename = getelementptr inbounds i8, ptr %opaque, i64 16
+  %filename = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %filename, align 8
-  %reference = getelementptr inbounds i8, ptr %opaque, i64 24
+  %reference = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %reference, align 8
-  %options = getelementptr inbounds i8, ptr %opaque, i64 32
+  %options = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %2 = load ptr, ptr %options, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %3 = load i32, ptr %flags, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 48
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %4 = load ptr, ptr %errp, align 8
   %call1 = tail call ptr @bdrv_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %call1, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
   %5 = load ptr, ptr %opaque, align 8
@@ -1975,11 +1975,11 @@ entry:
   %s = alloca %struct.BdrvCoActivate, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i32 0, ptr %ret, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 16
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %bs, ptr %bs1, align 8
-  %errp2 = getelementptr inbounds i8, ptr %s, i64 24
+  %errp2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %errp, ptr %errp2, align 8
   %call3 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call3, label %if.end, label %if.else
@@ -1999,16 +1999,16 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_activate_bh(ptr nocapture noundef initializes((8, 12)) %opaque) #0 {
 entry:
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 16
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %bs, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   tail call void @bdrv_graph_rdlock_main_loop() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
   %1 = load ptr, ptr %bs, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 24
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %2 = load ptr, ptr %errp, align 8
   %call2 = tail call i32 @bdrv_activate(ptr noundef %1, ptr noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i32 %call2, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
   tail call void @bdrv_graph_rdunlock_main_loop() #5
@@ -2023,7 +2023,7 @@ entry:
   %s = alloca %struct.BdrvCoUnref, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 8
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %bs, ptr %bs1, align 8
   %call2 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call2, label %if.end, label %if.else
@@ -2042,7 +2042,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_unref_bh(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 8
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %bs, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
@@ -2060,9 +2060,9 @@ entry:
   %s = alloca %struct.BdrvCoUnrefChild, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %parent1 = getelementptr inbounds i8, ptr %s, i64 8
+  %parent1 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %parent, ptr %parent1, align 8
-  %child2 = getelementptr inbounds i8, ptr %s, i64 16
+  %child2 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %child, ptr %child2, align 8
   %call3 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call3, label %if.end, label %if.else
@@ -2081,13 +2081,13 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_unref_child_bh(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %parent = getelementptr inbounds i8, ptr %opaque, i64 8
+  %parent = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %parent, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   tail call void @bdrv_graph_wrlock(ptr noundef null) #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
   %1 = load ptr, ptr %parent, align 8
-  %child = getelementptr inbounds i8, ptr %opaque, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %child, align 8
   tail call void @bdrv_unref_child(ptr noundef %1, ptr noundef %2) #5
   tail call void @aio_context_release(ptr noundef %call) #5
@@ -2103,15 +2103,15 @@ entry:
   %s = alloca %struct.BlkCoNewWithBs, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr null, ptr %ret, align 8
-  %bs1 = getelementptr inbounds i8, ptr %s, i64 16
+  %bs1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %bs, ptr %bs1, align 8
-  %perm2 = getelementptr inbounds i8, ptr %s, i64 24
+  %perm2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i64 %perm, ptr %perm2, align 8
-  %shared_perm3 = getelementptr inbounds i8, ptr %s, i64 32
+  %shared_perm3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store i64 %shared_perm, ptr %shared_perm3, align 8
-  %errp4 = getelementptr inbounds i8, ptr %s, i64 40
+  %errp4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %errp, ptr %errp4, align 8
   %call5 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call5, label %if.end, label %if.else
@@ -2131,19 +2131,19 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_new_with_bs_bh(ptr nocapture noundef initializes((8, 16)) %opaque) #0 {
 entry:
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 16
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %bs, align 8
   %call = tail call ptr @bdrv_get_aio_context(ptr noundef %0) #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
   %1 = load ptr, ptr %bs, align 8
-  %perm = getelementptr inbounds i8, ptr %opaque, i64 24
+  %perm = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %2 = load i64, ptr %perm, align 8
-  %shared_perm = getelementptr inbounds i8, ptr %opaque, i64 32
+  %shared_perm = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %3 = load i64, ptr %shared_perm, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 40
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %4 = load ptr, ptr %errp, align 8
   %call2 = tail call ptr @blk_new_with_bs(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %call2, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
   %5 = load ptr, ptr %opaque, align 8
@@ -2157,17 +2157,17 @@ entry:
   %s = alloca %struct.BlkCoNewOpen, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr null, ptr %ret, align 8
-  %filename1 = getelementptr inbounds i8, ptr %s, i64 16
+  %filename1 = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr %filename, ptr %filename1, align 8
-  %reference2 = getelementptr inbounds i8, ptr %s, i64 24
+  %reference2 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %reference, ptr %reference2, align 8
-  %options3 = getelementptr inbounds i8, ptr %s, i64 32
+  %options3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %options, ptr %options3, align 8
-  %flags4 = getelementptr inbounds i8, ptr %s, i64 40
+  %flags4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %flags, ptr %flags4, align 8
-  %errp5 = getelementptr inbounds i8, ptr %s, i64 48
+  %errp5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %errp, ptr %errp5, align 8
   %call6 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call6, label %if.end, label %if.else
@@ -2189,18 +2189,18 @@ define internal void @blk_new_open_bh(ptr nocapture noundef initializes((8, 16))
 entry:
   %call = tail call ptr @qemu_get_aio_context() #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
-  %filename = getelementptr inbounds i8, ptr %opaque, i64 16
+  %filename = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %filename, align 8
-  %reference = getelementptr inbounds i8, ptr %opaque, i64 24
+  %reference = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %reference, align 8
-  %options = getelementptr inbounds i8, ptr %opaque, i64 32
+  %options = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %2 = load ptr, ptr %options, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %3 = load i32, ptr %flags, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 48
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %4 = load ptr, ptr %errp, align 8
   %call1 = tail call ptr @blk_new_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 8
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %call1, ptr %ret, align 8
   tail call void @aio_context_release(ptr noundef %call) #5
   %5 = load ptr, ptr %opaque, align 8
@@ -2214,7 +2214,7 @@ entry:
   %s = alloca %struct.BlkCoUnref, align 8
   %call = tail call ptr @qemu_coroutine_self() #5
   store ptr %call, ptr %s, align 8
-  %blk1 = getelementptr inbounds i8, ptr %s, i64 8
+  %blk1 = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %blk, ptr %blk1, align 8
   %call2 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call2, label %if.end, label %if.else
@@ -2233,7 +2233,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_unref_bh(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 8
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %blk, align 8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %0) #5
   tail call void @aio_context_acquire(ptr noundef %call) #5
@@ -2259,13 +2259,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i8 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_is_inserted_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
@@ -2287,14 +2287,14 @@ declare ptr @blk_get_aio_context(ptr noundef) local_unnamed_addr #1
 define internal void @blk_co_is_inserted_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
   %call = tail call zeroext i1 @blk_co_is_inserted(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2314,13 +2314,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i8 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_is_available_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
@@ -2340,14 +2340,14 @@ declare zeroext i1 @blk_co_is_available(ptr noundef) #1
 define internal void @blk_co_is_available_entry(ptr nocapture noundef initializes((8, 9), (24, 25)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
   %call = tail call zeroext i1 @blk_co_is_available(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2360,13 +2360,13 @@ entry:
   %frombool = zext i1 %locked to i8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %blk1 = getelementptr inbounds i8, ptr %s, i64 24
+  %blk1 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %blk, ptr %blk1, align 8
-  %locked2 = getelementptr inbounds i8, ptr %s, i64 32
+  %locked2 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store i8 %frombool, ptr %locked2, align 8
   %call4 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call4, label %if.else, label %if.end
@@ -2385,13 +2385,13 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_lock_medium_entry(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 24
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %blk, align 8
-  %locked = getelementptr inbounds i8, ptr %opaque, i64 32
+  %locked = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %1 = load i8, ptr %locked, align 8
   %tobool = trunc i8 %1 to i1
   tail call void @blk_co_lock_medium(ptr noundef %0, i1 noundef zeroext %tobool) #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2404,13 +2404,13 @@ entry:
   %frombool = zext i1 %eject_flag to i8
   %call = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %blk1 = getelementptr inbounds i8, ptr %s, i64 24
+  %blk1 = getelementptr inbounds nuw i8, ptr %s, i64 24
   store ptr %blk, ptr %blk1, align 8
-  %eject_flag2 = getelementptr inbounds i8, ptr %s, i64 32
+  %eject_flag2 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store i8 %frombool, ptr %eject_flag2, align 8
   %call4 = tail call zeroext i1 @qemu_in_coroutine() #5
   br i1 %call4, label %if.else, label %if.end
@@ -2429,13 +2429,13 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_eject_entry(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 24
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %blk, align 8
-  %eject_flag = getelementptr inbounds i8, ptr %opaque, i64 32
+  %eject_flag = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %1 = load i8, ptr %eject_flag, align 8
   %tobool = trunc i8 %1 to i1
   tail call void @blk_co_eject(ptr noundef %0, i1 noundef zeroext %tobool) #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2455,11 +2455,11 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %co, i8 0, i64 16, i1 false)
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_getlength_entry, ptr noundef nonnull %s) #5
@@ -2478,12 +2478,12 @@ declare i64 @blk_co_getlength(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_getlength_entry(ptr nocapture noundef initializes((8, 9), (24, 32)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
   %call = tail call i64 @blk_co_getlength(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i64 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2503,21 +2503,21 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %buf6 = getelementptr inbounds i8, ptr %s, i64 56
+  %buf6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %buf, ptr %buf6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pread_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -2535,20 +2535,20 @@ declare i32 @blk_co_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pread_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %buf, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_pread(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2568,21 +2568,21 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %qiov6 = getelementptr inbounds i8, ptr %s, i64 56
+  %qiov6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %qiov, ptr %qiov6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_preadv_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -2600,20 +2600,20 @@ declare i32 @blk_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_preadv_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 56
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %qiov, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_preadv(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2633,23 +2633,23 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %qiov6 = getelementptr inbounds i8, ptr %s, i64 56
+  %qiov6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %qiov, ptr %qiov6, align 8
-  %qiov_offset7 = getelementptr inbounds i8, ptr %s, i64 64
+  %qiov_offset7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i64 %qiov_offset, ptr %qiov_offset7, align 8
-  %flags8 = getelementptr inbounds i8, ptr %s, i64 72
+  %flags8 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store i32 %flags, ptr %flags8, align 8
   %call9 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_preadv_part_entry, ptr noundef nonnull %s) #5
   store ptr %call9, ptr %co, align 8
@@ -2667,22 +2667,22 @@ declare i32 @blk_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_preadv_part_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 56
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %qiov, align 8
-  %qiov_offset = getelementptr inbounds i8, ptr %opaque, i64 64
+  %qiov_offset = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i64, ptr %qiov_offset, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 72
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %5 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_preadv_part(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2702,21 +2702,21 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %buf6 = getelementptr inbounds i8, ptr %s, i64 56
+  %buf6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %buf, ptr %buf6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwrite_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -2734,20 +2734,20 @@ declare i32 @blk_co_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pwrite_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %buf, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_pwrite(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2767,21 +2767,21 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %qiov6 = getelementptr inbounds i8, ptr %s, i64 56
+  %qiov6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %qiov, ptr %qiov6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %s, i64 64
+  %flags7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i32 %flags, ptr %flags7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwritev_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -2799,20 +2799,20 @@ declare i32 @blk_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pwritev_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 56
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %qiov, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_pwritev(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2832,23 +2832,23 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %qiov6 = getelementptr inbounds i8, ptr %s, i64 56
+  %qiov6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %qiov, ptr %qiov6, align 8
-  %qiov_offset7 = getelementptr inbounds i8, ptr %s, i64 64
+  %qiov_offset7 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i64 %qiov_offset, ptr %qiov_offset7, align 8
-  %flags8 = getelementptr inbounds i8, ptr %s, i64 72
+  %flags8 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store i32 %flags, ptr %flags8, align 8
   %call9 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwritev_part_entry, ptr noundef nonnull %s) #5
   store ptr %call9, ptr %co, align 8
@@ -2866,22 +2866,22 @@ declare i32 @blk_co_pwritev_part(ptr noundef, i64 noundef, i64 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pwritev_part_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 56
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %qiov, align 8
-  %qiov_offset = getelementptr inbounds i8, ptr %opaque, i64 64
+  %qiov_offset = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %4 = load i64, ptr %qiov_offset, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 72
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %5 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_pwritev_part(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2901,19 +2901,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %buf6 = getelementptr inbounds i8, ptr %s, i64 56
+  %buf6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %buf, ptr %buf6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwrite_compressed_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -2931,18 +2931,18 @@ declare i32 @blk_co_pwrite_compressed(ptr noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pwrite_compressed_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %buf, align 8
   %call = tail call i32 @blk_co_pwrite_compressed(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -2962,19 +2962,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
-  %flags6 = getelementptr inbounds i8, ptr %s, i64 56
+  %flags6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i32 %flags, ptr %flags6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pwrite_zeroes_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -2992,18 +2992,18 @@ declare i32 @blk_co_pwrite_zeroes(ptr noundef, i64 noundef, i64 noundef, i32 nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pwrite_zeroes_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 56
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_pwrite_zeroes(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3023,19 +3023,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %nr_zones5 = getelementptr inbounds i8, ptr %s, i64 48
+  %nr_zones5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %nr_zones, ptr %nr_zones5, align 8
-  %zones6 = getelementptr inbounds i8, ptr %s, i64 56
+  %zones6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %zones, ptr %zones6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_zone_report_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -3053,18 +3053,18 @@ declare i32 @blk_co_zone_report(ptr noundef, i64 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_zone_report_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %nr_zones = getelementptr inbounds i8, ptr %opaque, i64 48
+  %nr_zones = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %nr_zones, align 8
-  %zones = getelementptr inbounds i8, ptr %opaque, i64 56
+  %zones = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %zones, align 8
   %call = tail call i32 @blk_co_zone_report(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3084,19 +3084,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %op4 = getelementptr inbounds i8, ptr %s, i64 40
+  %op4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i32 %op, ptr %op4, align 8
-  %offset5 = getelementptr inbounds i8, ptr %s, i64 48
+  %offset5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %offset, ptr %offset5, align 8
-  %len6 = getelementptr inbounds i8, ptr %s, i64 56
+  %len6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i64 %len, ptr %len6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_zone_mgmt_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -3114,18 +3114,18 @@ declare i32 @blk_co_zone_mgmt(ptr noundef, i32 noundef, i64 noundef, i64 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_zone_mgmt_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %op = getelementptr inbounds i8, ptr %opaque, i64 40
+  %op = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i32, ptr %op, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %offset, align 8
-  %len = getelementptr inbounds i8, ptr %opaque, i64 56
+  %len = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i64, ptr %len, align 8
   %call = tail call i32 @blk_co_zone_mgmt(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3145,19 +3145,19 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %offset, ptr %offset4, align 8
-  %qiov5 = getelementptr inbounds i8, ptr %s, i64 48
+  %qiov5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %qiov, ptr %qiov5, align 8
-  %flags6 = getelementptr inbounds i8, ptr %s, i64 56
+  %flags6 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i32 %flags, ptr %flags6, align 8
   %call7 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_zone_append_entry, ptr noundef nonnull %s) #5
   store ptr %call7, ptr %co, align 8
@@ -3175,18 +3175,18 @@ declare i32 @blk_co_zone_append(ptr noundef, ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_zone_append_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %offset, align 8
-  %qiov = getelementptr inbounds i8, ptr %opaque, i64 48
+  %qiov = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %qiov, align 8
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 56
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %3 = load i32, ptr %flags, align 8
   %call = tail call i32 @blk_co_zone_append(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3206,17 +3206,17 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %s, i64 48
+  %bytes5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i64 %bytes, ptr %bytes5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_pdiscard_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
@@ -3234,16 +3234,16 @@ declare i32 @blk_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_pdiscard_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i64, ptr %bytes, align 8
   %call = tail call i32 @blk_co_pdiscard(ptr noundef %0, i64 noundef %1, i64 noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3263,13 +3263,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
   %call4 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_flush_entry, ptr noundef nonnull %s) #5
   store ptr %call4, ptr %co, align 8
@@ -3287,12 +3287,12 @@ declare i32 @blk_co_flush(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_flush_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
   %call = tail call i32 @blk_co_flush(ptr noundef %0) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3312,17 +3312,17 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %req4 = getelementptr inbounds i8, ptr %s, i64 40
+  %req4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %req, ptr %req4, align 8
-  %buf5 = getelementptr inbounds i8, ptr %s, i64 48
+  %buf5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %buf, ptr %buf5, align 8
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_ioctl_entry, ptr noundef nonnull %s) #5
   store ptr %call6, ptr %co, align 8
@@ -3340,16 +3340,16 @@ declare i32 @blk_co_ioctl(ptr noundef, i64 noundef, ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_ioctl_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %req = getelementptr inbounds i8, ptr %opaque, i64 40
+  %req = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %req, align 8
-  %buf = getelementptr inbounds i8, ptr %opaque, i64 48
+  %buf = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %buf, align 8
   %call = tail call i32 @blk_co_ioctl(ptr noundef %0, i64 noundef %1, ptr noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3370,23 +3370,23 @@ if.else:                                          ; preds = %entry
   %frombool = zext i1 %exact to i8
   %call2 = tail call ptr @blk_get_aio_context(ptr noundef %blk) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %blk3 = getelementptr inbounds i8, ptr %s, i64 32
+  %blk3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %blk, ptr %blk3, align 8
-  %offset4 = getelementptr inbounds i8, ptr %s, i64 40
+  %offset4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i64 %offset, ptr %offset4, align 8
-  %exact5 = getelementptr inbounds i8, ptr %s, i64 48
+  %exact5 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i8 %frombool, ptr %exact5, align 8
-  %prealloc8 = getelementptr inbounds i8, ptr %s, i64 52
+  %prealloc8 = getelementptr inbounds nuw i8, ptr %s, i64 52
   store i32 %prealloc, ptr %prealloc8, align 4
-  %flags9 = getelementptr inbounds i8, ptr %s, i64 56
+  %flags9 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i32 %flags, ptr %flags9, align 8
-  %errp10 = getelementptr inbounds i8, ptr %s, i64 64
+  %errp10 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store ptr %errp, ptr %errp10, align 8
   %call11 = call ptr @qemu_coroutine_create(ptr noundef nonnull @blk_co_truncate_entry, ptr noundef nonnull %s) #5
   store ptr %call11, ptr %co, align 8
@@ -3404,23 +3404,23 @@ declare i32 @blk_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @blk_co_truncate_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %opaque, i64 32
+  %blk = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %blk, align 8
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 40
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i64, ptr %offset, align 8
-  %exact = getelementptr inbounds i8, ptr %opaque, i64 48
+  %exact = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i8, ptr %exact, align 8
   %tobool = trunc i8 %2 to i1
-  %prealloc = getelementptr inbounds i8, ptr %opaque, i64 52
+  %prealloc = getelementptr inbounds nuw i8, ptr %opaque, i64 52
   %3 = load i32, ptr %prealloc, align 4
-  %flags = getelementptr inbounds i8, ptr %opaque, i64 56
+  %flags = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %4 = load i32, ptr %flags, align 8
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 64
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %5 = load ptr, ptr %errp, align 8
   %call = tail call i32 @blk_co_truncate(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool, i32 noundef %3, i32 noundef %4, ptr noundef %5) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3442,31 +3442,31 @@ if.else:                                          ; preds = %entry
   %frombool = zext i1 %include_base to i8
   %call4 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call4, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs5 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs5 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs5, align 8
-  %base6 = getelementptr inbounds i8, ptr %s, i64 40
+  %base6 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store ptr %base, ptr %base6, align 8
-  %include_base7 = getelementptr inbounds i8, ptr %s, i64 48
+  %include_base7 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store i8 %frombool, ptr %include_base7, align 8
-  %want_zero10 = getelementptr inbounds i8, ptr %s, i64 49
+  %want_zero10 = getelementptr inbounds nuw i8, ptr %s, i64 49
   store i8 %frombool1, ptr %want_zero10, align 1
-  %offset13 = getelementptr inbounds i8, ptr %s, i64 56
+  %offset13 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store i64 %offset, ptr %offset13, align 8
-  %bytes14 = getelementptr inbounds i8, ptr %s, i64 64
+  %bytes14 = getelementptr inbounds nuw i8, ptr %s, i64 64
   store i64 %bytes, ptr %bytes14, align 8
-  %pnum15 = getelementptr inbounds i8, ptr %s, i64 72
+  %pnum15 = getelementptr inbounds nuw i8, ptr %s, i64 72
   store ptr %pnum, ptr %pnum15, align 8
-  %map16 = getelementptr inbounds i8, ptr %s, i64 80
+  %map16 = getelementptr inbounds nuw i8, ptr %s, i64 80
   store ptr %map, ptr %map16, align 8
-  %file17 = getelementptr inbounds i8, ptr %s, i64 88
+  %file17 = getelementptr inbounds nuw i8, ptr %s, i64 88
   store ptr %file, ptr %file17, align 8
-  %depth18 = getelementptr inbounds i8, ptr %s, i64 96
+  %depth18 = getelementptr inbounds nuw i8, ptr %s, i64 96
   store ptr %depth, ptr %depth18, align 8
   %call19 = call ptr @qemu_coroutine_create(ptr noundef nonnull @bdrv_co_common_block_status_above_entry, ptr noundef nonnull %s) #5
   store ptr %call19, ptr %co, align 8
@@ -3485,33 +3485,33 @@ declare i32 @bdrv_co_common_block_status_above(ptr noundef, ptr noundef, i1 noun
 define internal void @bdrv_co_common_block_status_above_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %base = getelementptr inbounds i8, ptr %opaque, i64 40
+  %base = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %base, align 8
-  %include_base = getelementptr inbounds i8, ptr %opaque, i64 48
+  %include_base = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load i8, ptr %include_base, align 8
   %tobool = trunc i8 %2 to i1
-  %want_zero = getelementptr inbounds i8, ptr %opaque, i64 49
+  %want_zero = getelementptr inbounds nuw i8, ptr %opaque, i64 49
   %3 = load i8, ptr %want_zero, align 1
   %tobool1 = trunc i8 %3 to i1
-  %offset = getelementptr inbounds i8, ptr %opaque, i64 56
+  %offset = getelementptr inbounds nuw i8, ptr %opaque, i64 56
   %4 = load i64, ptr %offset, align 8
-  %bytes = getelementptr inbounds i8, ptr %opaque, i64 64
+  %bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %5 = load i64, ptr %bytes, align 8
-  %pnum = getelementptr inbounds i8, ptr %opaque, i64 72
+  %pnum = getelementptr inbounds nuw i8, ptr %opaque, i64 72
   %6 = load ptr, ptr %pnum, align 8
-  %map = getelementptr inbounds i8, ptr %opaque, i64 80
+  %map = getelementptr inbounds nuw i8, ptr %opaque, i64 80
   %7 = load ptr, ptr %map, align 8
-  %file = getelementptr inbounds i8, ptr %opaque, i64 88
+  %file = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %8 = load ptr, ptr %file, align 8
-  %depth = getelementptr inbounds i8, ptr %opaque, i64 96
+  %depth = getelementptr inbounds nuw i8, ptr %opaque, i64 96
   %9 = load ptr, ptr %depth, align 8
   %call = tail call i32 @bdrv_co_common_block_status_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool1, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void
@@ -3532,17 +3532,17 @@ if.else:                                          ; preds = %entry
   %frombool = zext i1 %blocking to i8
   %call2 = tail call ptr @bdrv_get_aio_context(ptr noundef %bs) #5
   store ptr %call2, ptr %s, align 8
-  %in_progress = getelementptr inbounds i8, ptr %s, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %s, i64 8
   store i8 1, ptr %in_progress, align 8
-  %co = getelementptr inbounds i8, ptr %s, i64 16
+  %co = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %co, align 8
-  %ret = getelementptr inbounds i8, ptr %s, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %s, i64 24
   store i32 0, ptr %ret, align 8
-  %bs3 = getelementptr inbounds i8, ptr %s, i64 32
+  %bs3 = getelementptr inbounds nuw i8, ptr %s, i64 32
   store ptr %bs, ptr %bs3, align 8
-  %blocking4 = getelementptr inbounds i8, ptr %s, i64 40
+  %blocking4 = getelementptr inbounds nuw i8, ptr %s, i64 40
   store i8 %frombool, ptr %blocking4, align 8
-  %errp7 = getelementptr inbounds i8, ptr %s, i64 48
+  %errp7 = getelementptr inbounds nuw i8, ptr %s, i64 48
   store ptr %errp, ptr %errp7, align 8
   %call8 = call ptr @qemu_coroutine_create(ptr noundef nonnull @nbd_co_do_establish_connection_entry, ptr noundef nonnull %s) #5
   store ptr %call8, ptr %co, align 8
@@ -3561,18 +3561,18 @@ declare i32 @nbd_co_do_establish_connection(ptr noundef, i1 noundef zeroext, ptr
 define internal void @nbd_co_do_establish_connection_entry(ptr nocapture noundef initializes((8, 9), (24, 28)) %opaque) #0 {
 entry:
   tail call void @bdrv_graph_co_rdlock() #5
-  %bs = getelementptr inbounds i8, ptr %opaque, i64 32
+  %bs = getelementptr inbounds nuw i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %bs, align 8
-  %blocking = getelementptr inbounds i8, ptr %opaque, i64 40
+  %blocking = getelementptr inbounds nuw i8, ptr %opaque, i64 40
   %1 = load i8, ptr %blocking, align 8
   %tobool = trunc i8 %1 to i1
-  %errp = getelementptr inbounds i8, ptr %opaque, i64 48
+  %errp = getelementptr inbounds nuw i8, ptr %opaque, i64 48
   %2 = load ptr, ptr %errp, align 8
   %call = tail call i32 @nbd_co_do_establish_connection(ptr noundef %0, i1 noundef zeroext %tobool, ptr noundef %2) #5
-  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
+  %ret = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5
-  %in_progress = getelementptr inbounds i8, ptr %opaque, i64 8
+  %in_progress = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 0, ptr %in_progress, align 8
   tail call void @aio_wait_kick() #5
   ret void

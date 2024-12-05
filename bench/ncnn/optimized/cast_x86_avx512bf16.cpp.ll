@@ -60,14 +60,14 @@ define hidden void @_ZN4ncnn32cast_fp32_to_bf16_sse_avx512bf16ERKNS_3MatERS0_RKN
   %.01204.i = phi ptr [ %46, %.lr.ph.i ], [ %36, %24 ]
   %.01243.i = phi ptr [ %45, %.lr.ph.i ], [ %30, %24 ]
   %39 = load <16 x float>, ptr %.01243.i, align 1
-  %40 = getelementptr inbounds i8, ptr %.01243.i, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.01243.i, i64 64
   %41 = load <16 x float>, ptr %40, align 1
   %42 = tail call fast noundef <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> %39)
   %43 = tail call fast noundef <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> %41)
   %44 = shufflevector <16 x bfloat> %42, <16 x bfloat> %43, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   store <32 x bfloat> %44, ptr %.01204.i, align 1
-  %45 = getelementptr inbounds i8, ptr %.01243.i, i64 128
-  %46 = getelementptr inbounds i8, ptr %.01204.i, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %.01243.i, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %.01204.i, i64 64
   %47 = add nuw nsw i32 %.05.i, 32
   %48 = or disjoint i32 %47, 31
   %49 = icmp slt i32 %48, %16
@@ -88,8 +88,8 @@ define hidden void @_ZN4ncnn32cast_fp32_to_bf16_sse_avx512bf16ERKNS_3MatERS0_RKN
   %52 = load <16 x float>, ptr %.11258.i, align 1
   %53 = tail call fast noundef <16 x bfloat> @llvm.x86.avx512bf16.cvtneps2bf16.512(<16 x float> %52)
   store <16 x bfloat> %53, ptr %.11219.i, align 1
-  %54 = getelementptr inbounds i8, ptr %.11258.i, i64 64
-  %55 = getelementptr inbounds i8, ptr %.11219.i, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.11258.i, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %.11219.i, i64 32
   %56 = add nuw nsw i32 %.110.i, 16
   %57 = or disjoint i32 %56, 15
   %58 = icmp slt i32 %57, %16
@@ -109,8 +109,8 @@ define hidden void @_ZN4ncnn32cast_fp32_to_bf16_sse_avx512bf16ERKNS_3MatERS0_RKN
   %60 = load <8 x float>, ptr %.212615.i, align 1
   %61 = tail call fast <8 x bfloat> @llvm.x86.vcvtneps2bf16256(<8 x float> %60)
   store <8 x bfloat> %61, ptr %.212216.i, align 16
-  %62 = getelementptr inbounds i8, ptr %.212615.i, i64 32
-  %63 = getelementptr inbounds i8, ptr %.212216.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.212615.i, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.212216.i, i64 16
   %64 = add nuw nsw i32 %.217.i, 8
   %65 = or disjoint i32 %64, 7
   %66 = icmp slt i32 %65, %16
@@ -120,11 +120,11 @@ define hidden void @_ZN4ncnn32cast_fp32_to_bf16_sse_avx512bf16ERKNS_3MatERS0_RKN
   %.324.i = phi i32 [ %72, %.lr.ph25.i ], [ %.2.lcssa.i, %.preheader.i ]
   %.312323.i = phi ptr [ %71, %.lr.ph25.i ], [ %.2122.lcssa.i, %.preheader.i ]
   %.312722.i = phi ptr [ %67, %.lr.ph25.i ], [ %.2126.lcssa.i, %.preheader.i ]
-  %67 = getelementptr inbounds i8, ptr %.312722.i, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.312722.i, i64 4
   %68 = load i32, ptr %.312722.i, align 4
   %69 = lshr i32 %68, 16
   %70 = trunc nuw i32 %69 to i16
-  %71 = getelementptr inbounds i8, ptr %.312323.i, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.312323.i, i64 2
   store i16 %70, ptr %.312323.i, align 2
   %72 = add nuw nsw i32 %.324.i, 1
   %exitcond.not.i = icmp eq i32 %72, %16
@@ -199,8 +199,8 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %40 = zext <16 x i16> %39 to <16 x i32>
   %41 = shl nuw <16 x i32> %40, splat (i32 16)
   store <16 x i32> %41, ptr %.01284.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.01323.i, i64 32
-  %43 = getelementptr inbounds i8, ptr %.01284.i, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.01323.i, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.01284.i, i64 64
   %44 = add nuw nsw i32 %.05.i, 16
   %45 = or disjoint i32 %44, 15
   %46 = icmp slt i32 %45, %16
@@ -222,8 +222,8 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %50 = zext <8 x i16> %49 to <8 x i32>
   %51 = shl nuw <8 x i32> %50, splat (i32 16)
   store <8 x i32> %51, ptr %.11299.i, align 1
-  %52 = getelementptr inbounds i8, ptr %.11338.i, i64 16
-  %53 = getelementptr inbounds i8, ptr %.11299.i, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.11338.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.11299.i, i64 32
   %54 = add nuw nsw i32 %.110.i, 8
   %55 = or disjoint i32 %54, 7
   %56 = icmp slt i32 %55, %16
@@ -245,8 +245,8 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %60 = bitcast <2 x i64> %59 to <8 x i16>
   %61 = shufflevector <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i16> %60, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %61, ptr %.213016.i, align 1
-  %62 = getelementptr inbounds i8, ptr %.213415.i, i64 8
-  %63 = getelementptr inbounds i8, ptr %.213016.i, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.213415.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.213016.i, i64 16
   %64 = add nuw nsw i32 %.217.i, 4
   %65 = or disjoint i32 %64, 3
   %66 = icmp slt i32 %65, %16
@@ -256,11 +256,11 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %.324.i = phi i32 [ %72, %.lr.ph25.i ], [ %.2.lcssa.i, %.preheader.i ]
   %.313123.i = phi ptr [ %71, %.lr.ph25.i ], [ %.2130.lcssa.i, %.preheader.i ]
   %.313522.i = phi ptr [ %67, %.lr.ph25.i ], [ %.2134.lcssa.i, %.preheader.i ]
-  %67 = getelementptr inbounds i8, ptr %.313522.i, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.313522.i, i64 2
   %68 = load i16, ptr %.313522.i, align 2
   %69 = zext i16 %68 to i32
   %70 = shl nuw i32 %69, 16
-  %71 = getelementptr inbounds i8, ptr %.313123.i, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.313123.i, i64 4
   store i32 %70, ptr %.313123.i, align 4
   %72 = add nuw nsw i32 %.324.i, 1
   %exitcond.not.i = icmp eq i32 %72, %16

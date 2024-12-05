@@ -20,23 +20,23 @@ $_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE17_M_default_appendEm = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_Z14dd_pme_f_ratioPK12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2056
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2056
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load float, ptr %6, align 8
   %8 = fcmp ogt float %7, 0.000000e+00
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 2172
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2172
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %5, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %15 = load float, ptr %14, align 4
   %16 = fdiv float %15, %7
   br label %17
@@ -48,25 +48,25 @@ define noundef float @_Z14dd_pme_f_ratioPK12gmx_domdec_t(ptr nocapture noundef r
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z14set_dlb_limitsP12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 320
-  %6 = getelementptr inbounds i8, ptr %0, i64 164
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 164
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1408
-  %10 = getelementptr inbounds [3 x %struct.gmx_domdec_comm_dim_t], ptr %9, i64 0, i64 %indvars.iv
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1408
+  %10 = getelementptr inbounds nuw [3 x %struct.gmx_domdec_comm_dim_t], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %10, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %11, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -92,7 +92,7 @@ define void @_Z14set_dlb_limitsP12gmx_domdec_t(ptr nocapture noundef readonly %0
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %26, %_ZSt8_DestroyI16gmx_domdec_ind_tEvPT_.exit.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %31, %_ZSt8_DestroyI16gmx_domdec_ind_tEvPT_.exit.i.i.i.i.i ], [ %27, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyI16gmx_domdec_ind_tEvPT_.exit.i.i.i.i.i, label %30
@@ -102,7 +102,7 @@ define void @_Z14set_dlb_limitsP12gmx_domdec_t(ptr nocapture noundef readonly %0
   br label %_ZSt8_DestroyI16gmx_domdec_ind_tEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyI16gmx_domdec_ind_tEvPT_.exit.i.i.i.i.i: ; preds = %30, %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 104
   %.not.i.i.i.i.i = icmp eq ptr %31, %15
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIP16gmx_domdec_ind_tS0_EvT_S2_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !5
 
@@ -112,13 +112,13 @@ _ZSt8_DestroyIP16gmx_domdec_ind_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 
 _ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit: ; preds = %22, %24, %26, %_ZSt8_DestroyIP16gmx_domdec_ind_tS0_EvT_S2_RSaIT0_E.exit.i.i
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 568
-  %34 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 568
+  %34 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds [3 x float], ptr %33, i64 0, i64 %36
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %32, i64 556
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 556
   %40 = getelementptr inbounds [3 x float], ptr %39, i64 0, i64 %36
   store float %38, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -137,14 +137,14 @@ define linkonce_odr void @_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE17_M_default_ap
   br i1 %.not, label %45, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 104
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -190,24 +190,24 @@ _ZNKSt6vectorI16gmx_domdec_ind_tSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %.0911.i.i.i, i64 48, i1 false), !alias.scope !13
-  %29 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 48
-  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
   %31 = load ptr, ptr %30, align 8, !alias.scope !11, !noalias !8
   store ptr %31, ptr %29, align 8, !alias.scope !8, !noalias !11
-  %32 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 56
-  %33 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %34 = load ptr, ptr %33, align 8, !alias.scope !11, !noalias !8
   store ptr %34, ptr %32, align 8, !alias.scope !8, !noalias !11
-  %35 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 64
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 64
   %37 = load ptr, ptr %36, align 8, !alias.scope !11, !noalias !8
   store ptr %37, ptr %35, align 8, !alias.scope !8, !noalias !11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !alias.scope !11, !noalias !8
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !alias.scope !13
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 104
-  %41 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 104
   %.not.i.i.i = icmp eq ptr %40, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
@@ -223,7 +223,7 @@ _ZNSt12_Vector_baseI16gmx_domdec_ind_tSaIS0_EE13_M_deallocateEPS0_m.exit37: ; pr
   store ptr %26, ptr %0, align 8
   %43 = getelementptr inbounds %struct.gmx_domdec_ind_t, ptr %27, i64 %1
   store ptr %43, ptr %4, align 8
-  %44 = getelementptr inbounds %struct.gmx_domdec_ind_t, ptr %26, i64 %24
+  %44 = getelementptr inbounds nuw %struct.gmx_domdec_ind_t, ptr %26, i64 %24
   store ptr %44, ptr %11, align 8
   br label %45
 
@@ -250,25 +250,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %2
   %9 = zext i1 %1 to i8
-  %10 = getelementptr inbounds i8, ptr %4, i64 372
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 372
   store i8 %9, ptr %10, align 4
   br i1 %1, label %11, label %17
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 376
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 376
   store i32 %14, ptr %16, align 8
   br label %17
 
@@ -278,30 +278,30 @@ define void @_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z46dd_dlb_get_should_check_whether_to_turn_dlb_onP12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 2
   br i1 %.not, label %6, label %25
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %.not8 = icmp sgt i64 %8, %11
   br i1 %.not8, label %12, label %25
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 2156
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2156
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %25, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %3, i64 372
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 372
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
   br i1 %19, label %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit, label %20
@@ -311,7 +311,7 @@ _Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit: ; preds
   br label %25
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %3, i64 2212
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2212
   %22 = load i32, ptr %21, align 4
   %23 = srem i32 %22, 100
   %24 = icmp eq i32 %23, 99
@@ -324,9 +324,9 @@ _Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit: ; preds
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z12dd_dlb_is_onPK12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %.val = load i32, ptr %4, align 4
   %5 = and i32 %.val, -2
   %spec.select.i = icmp eq i32 %5, 4
@@ -335,9 +335,9 @@ define noundef zeroext i1 @_Z12dd_dlb_is_onPK12gmx_domdec_t(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_Z16dd_dlb_is_lockedPK12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 3
   ret i1 %6
@@ -345,9 +345,9 @@ define noundef zeroext i1 @_Z16dd_dlb_is_lockedPK12gmx_domdec_t(ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z11dd_dlb_lockP12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
   br i1 %6, label %7, label %8
@@ -362,9 +362,9 @@ define void @_Z11dd_dlb_lockP12gmx_domdec_t(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z13dd_dlb_unlockP12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %7, label %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit
@@ -372,19 +372,19 @@ define void @_Z13dd_dlb_unlockP12gmx_domdec_t(ptr nocapture noundef readonly %0)
 7:                                                ; preds = %1
   store i32 2, ptr %4, align 8
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 368
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 368
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %8, i64 372
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 372
   store i8 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 376
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 376
   store i32 %16, ptr %18, align 8
   br label %_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb.exit
 

@@ -30,7 +30,7 @@ define void @Io_WriteEqn(ptr nocapture noundef readonly %0, ptr noundef %1) loca
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val52.i = load i32, ptr %9, align 4
@@ -38,7 +38,7 @@ define void @Io_WriteEqn(ptr nocapture noundef readonly %0, ptr noundef %1) loca
   br i1 %10, label %.lr.ph55.i, label %.loopexit
 
 .lr.ph55.i:                                       ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %.loopexit.i, %.lr.ph55.i
@@ -46,7 +46,7 @@ define void @Io_WriteEqn(ptr nocapture noundef readonly %0, ptr noundef %1) loca
   %13 = phi ptr [ %8, %.lr.ph55.i ], [ %32, %.loopexit.i ]
   %14 = getelementptr i8, ptr %13, i64 8
   %.val39.val.i = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val39.val.i, i64 %indvars.iv62.i
+  %15 = getelementptr inbounds nuw ptr, ptr %.val39.val.i, i64 %indvars.iv62.i
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit.i, label %18
@@ -76,7 +76,7 @@ define void @Io_WriteEqn(ptr nocapture noundef readonly %0, ptr noundef %1) loca
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %31 ]
-  %29 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %31 [
     i8 40, label %Io_NtkWriteEqnCheck.exit
@@ -116,7 +116,7 @@ Io_NtkWriteEqnCheck.exit:                         ; preds = %23, %.lr.ph.i, %.lr
   br label %186
 
 42:                                               ; preds = %.loopexit
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr (...) @Extra_TimeStamp() #8
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %37, ptr noundef nonnull @.str.3, ptr noundef %44, ptr noundef %45) #8
@@ -135,7 +135,7 @@ Io_NtkWriteEqnCheck.exit:                         ; preds = %23, %.lr.ph.i, %.lr
   %.01623.i.i = phi i32 [ %72, %69 ], [ 9, %42 ]
   %51 = getelementptr i8, ptr %.val26.i.i, i64 8
   %.val18.val.i.i = load ptr, ptr %51, align 8
-  %52 = getelementptr inbounds ptr, ptr %.val18.val.i.i, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr %.val18.val.i.i, i64 %indvars.iv.i.i
   %53 = load ptr, ptr %52, align 8
   %.val19.i.i = load ptr, ptr %53, align 8
   %54 = getelementptr i8, ptr %53, i64 48
@@ -196,7 +196,7 @@ Io_NtkWriteEqnCis.exit.i:                         ; preds = %69, %42
   %.01623.i51.i = phi i32 [ %103, %100 ], [ 10, %Io_NtkWriteEqnCis.exit.i ]
   %82 = getelementptr i8, ptr %.val26.i49.i, i64 8
   %.val18.val.i52.i = load ptr, ptr %82, align 8
-  %83 = getelementptr inbounds ptr, ptr %.val18.val.i52.i, i64 %indvars.iv.i48.i
+  %83 = getelementptr inbounds nuw ptr, ptr %.val18.val.i52.i, i64 %indvars.iv.i48.i
   %84 = load ptr, ptr %83, align 8
   %.val19.i53.i = load ptr, ptr %84, align 8
   %85 = getelementptr i8, ptr %84, i64 32
@@ -243,11 +243,11 @@ Io_NtkWriteEqnCis.exit.i:                         ; preds = %69, %42
 Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEqnCis.exit.i
   %108 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr nonnull %37)
   %109 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 0, ptr %110, align 4
   store i32 10, ptr %109, align 8
   %111 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #10
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %111, ptr %112, align 8
   %113 = load ptr, ptr @stdout, align 8
   %.val40.i = load ptr, ptr %7, align 8
@@ -262,7 +262,7 @@ Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEq
 
 .lr.ph78.i:                                       ; preds = %Io_NtkWriteEqnCos.exit.i
   %.not.i64.i = icmp eq ptr %115, null
-  %119 = getelementptr inbounds i8, ptr %0, i64 256
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %120
 
 120:                                              ; preds = %168, %.lr.ph78.i
@@ -270,7 +270,7 @@ Io_NtkWriteEqnCos.exit.i:                         ; preds = %100, %Io_NtkWriteEq
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph78.i ], [ %indvars.iv.next81.i, %168 ]
   %122 = getelementptr i8, ptr %121, i64 8
   %.val37.val.i = load ptr, ptr %122, align 8
-  %123 = getelementptr inbounds ptr, ptr %.val37.val.i, i64 %indvars.iv80.i
+  %123 = getelementptr inbounds nuw ptr, ptr %.val37.val.i, i64 %indvars.iv80.i
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
   br i1 %125, label %168, label %126
@@ -312,7 +312,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %143 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %142, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
   %.not.i65.i = icmp eq i32 %143, 0
   %.idx.i.i = select i1 %.not.i65.i, i64 4, i64 0
-  %144 = getelementptr inbounds i8, ptr %142, i64 %.idx.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %.idx.i.i
   %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %37, ptr noundef nonnull @.str.9, ptr noundef %144) #8
   %146 = getelementptr i8, ptr %124, i64 28
   %.val4273.i = load i32, ptr %146, align 4
@@ -331,7 +331,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %.val43.val.i = load ptr, ptr %150, align 8
   %151 = getelementptr i8, ptr %.val43.val.i, i64 8
   %.val43.val.val.i = load ptr, ptr %151, align 8
-  %152 = getelementptr inbounds i32, ptr %.val44.i, i64 %indvars.iv.i14
+  %152 = getelementptr inbounds nuw i32, ptr %.val44.i, i64 %indvars.iv.i14
   %153 = load i32, ptr %152, align 4
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds ptr, ptr %.val43.val.val.i, i64 %154
@@ -340,7 +340,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %158 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %157, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
   %.not.i66.i = icmp eq i32 %158, 0
   %.idx.i67.i = select i1 %.not.i66.i, i64 4, i64 0
-  %159 = getelementptr inbounds i8, ptr %157, i64 %.idx.i67.i
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i67.i
   %160 = load ptr, ptr %119, align 8
   %161 = trunc nuw nsw i64 %indvars.iv.i14 to i32
   %162 = tail call ptr @Hop_IthVar(ptr noundef %160, i32 noundef %161) #8
@@ -352,7 +352,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   br i1 %164, label %149, label %.critedge2.i, !llvm.loop !9
 
 .critedge2.i:                                     ; preds = %149, %Extra_ProgressBarUpdate.exit.i
-  %165 = getelementptr inbounds i8, ptr %124, i64 56
+  %165 = getelementptr inbounds nuw i8, ptr %124, i64 56
   %166 = load ptr, ptr %165, align 8
   tail call void @Hop_ObjPrintEqn(ptr noundef nonnull %37, ptr noundef %166, ptr noundef nonnull %109, i32 noundef 0) #8
   %167 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr nonnull %37)
@@ -378,13 +378,13 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %134, %130
   %.val14.i.i = phi i32 [ %.val.i71.i, %180 ], [ %.val11.i.i, %.critedge.i ]
   %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i72.i, %180 ], [ 0, %.critedge.i ]
   %.val8.i.i = load ptr, ptr %112, align 8
-  %174 = getelementptr inbounds ptr, ptr %.val8.i.i, i64 %indvars.iv.i69.i
+  %174 = getelementptr inbounds nuw ptr, ptr %.val8.i.i, i64 %indvars.iv.i69.i
   %175 = load ptr, ptr %174, align 8
   %.not.i70.i = icmp eq ptr %175, null
   br i1 %.not.i70.i, label %180, label %176
 
 176:                                              ; preds = %.lr.ph.i68.i
-  %177 = getelementptr inbounds i8, ptr %175, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %178 = load ptr, ptr %177, align 8
   %.not.i.i.i = icmp eq ptr %178, null
   br i1 %.not.i.i.i, label %Vec_PtrFree.exit.i.i, label %179
@@ -443,7 +443,7 @@ define ptr @Io_NamePrepro(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.5, i64 noundef 4) #9
   %.not = icmp eq i32 %2, 0
   %.idx = select i1 %.not, i64 4, i64 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   ret ptr %3
 }
 

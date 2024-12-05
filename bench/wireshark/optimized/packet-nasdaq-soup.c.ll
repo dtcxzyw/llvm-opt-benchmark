@@ -99,8 +99,8 @@ define internal i32 @dissect_nasdaq_soup(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 328
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %dissect_nasdaq_soup_packet.exit
@@ -123,9 +123,9 @@ define internal i32 @dissect_nasdaq_soup(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 332
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.03340, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %21, align 8
   br label %._crit_edge
 

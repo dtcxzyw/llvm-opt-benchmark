@@ -47,14 +47,14 @@ define i32 @Psr_ManRangeSizeArray(ptr nocapture noundef readonly %0, ptr nocaptu
 22:                                               ; preds = %16
   %.val.i10 = load ptr, ptr %8, align 8
   %23 = tail call ptr @Abc_NamStr(ptr noundef %.val.i10, i32 noundef %20) #5
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = tail call i32 @atoi(ptr nocapture noundef nonnull %24) #6
   %strchr.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 61)
   %.not.i = icmp eq ptr %strchr.i, null
   br i1 %.not.i, label %29, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %strchr.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
   %28 = tail call i32 @atoi(ptr nocapture noundef nonnull %27) #6
   br label %29
 

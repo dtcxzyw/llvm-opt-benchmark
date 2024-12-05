@@ -363,7 +363,7 @@ define void @raknet_conversation_set_dissector(ptr noundef %0, ptr noundef %1) l
   %8 = tail call ptr @wmem_file_scope() #3
   %9 = tail call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 16) #3
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8
   %11 = load i32, ptr @proto_raknet, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %3, i32 noundef %11, ptr noundef nonnull %9) #3
@@ -371,7 +371,7 @@ define void @raknet_conversation_set_dissector(ptr noundef %0, ptr noundef %1) l
 
 raknet_get_session_state.exit:                    ; preds = %2, %7
   %.0.i = phi ptr [ %9, %7 ], [ %5, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %1, ptr %12, align 8
   ret void
 }
@@ -386,9 +386,9 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr [15 x %struct._value_string], ptr @raknet_offline_message_names, i64 0, i64 %indvars.iv.i
   store i32 %3, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 14
@@ -405,9 +405,9 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr [6 x %struct._value_string], ptr @raknet_system_message_names, i64 0, i64 %indvars.iv17.i
   store i32 %11, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %15, align 8
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 5
@@ -466,7 +466,7 @@ define internal i32 @dissect_raknet(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.146) #3
   %15 = load ptr, ptr %13, align 8
@@ -491,7 +491,7 @@ define internal i32 @dissect_raknet(ptr noundef %0, ptr noundef %1, ptr noundef 
   %26 = tail call ptr @wmem_file_scope() #3
   %27 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef 16) #3
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %28, align 8
   %29 = load i32, ptr @proto_raknet, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %21, i32 noundef %29, ptr noundef nonnull %27) #3
@@ -608,9 +608,9 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %89 = load ptr, ptr %13, align 8
   call void @col_set_fence(ptr noundef %89, i32 noundef 25) #3
   call void @proto_item_set_len(ptr noundef %78, i32 noundef 4) #3
-  %90 = getelementptr inbounds i8, ptr %1, i64 272
-  %91 = getelementptr inbounds i8, ptr %1, i64 408
-  %92 = getelementptr inbounds i8, ptr %1, i64 292
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 292
   br label %93
 
 93:                                               ; preds = %252, %76
@@ -820,7 +820,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %211 = call ptr @wmem_file_scope() #3
   %212 = call noalias ptr @wmem_alloc(ptr noundef %211, i64 noundef 16) #3
   store i32 0, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr null, ptr %213, align 8
   %214 = load i32, ptr @proto_raknet, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %206, i32 noundef %214, ptr noundef nonnull %212) #3
@@ -828,7 +828,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 raknet_get_session_state.exit.i.i:                ; preds = %210, %205
   %.0.i.i.i = phi ptr [ %212, %210 ], [ %208, %205 ]
-  %215 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %216 = load ptr, ptr %215, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.187, i32 noundef %186) #3
   %217 = load i32, ptr %12, align 4
@@ -957,7 +957,7 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = getelementptr [14 x %struct.raknet_handler_entry], ptr @raknet_offline_message_handlers, i64 0, i64 %indvars.iv
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_raknet, align 4
   %6 = tail call ptr @create_dissector_handle(ptr noundef %4, i32 noundef %5) #3
@@ -970,7 +970,7 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %1 ]
   %8 = getelementptr [5 x %struct.raknet_handler_entry], ptr @raknet_system_message_handlers, i64 0, i64 %indvars.iv14
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_raknet, align 4
   %12 = tail call ptr @create_dissector_handle(ptr noundef %10, i32 noundef %11) #3
@@ -1061,7 +1061,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i32 %.0.val) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq i32 %.0.val, 0
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.str.170..str.169 = select i1 %.not, ptr @.str.170, ptr @.str.169
   tail call void @col_add_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull %.str.170..str.169) #3
@@ -1072,7 +1072,7 @@ define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture no
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %41
@@ -1188,7 +1188,7 @@ define internal noundef i32 @raknet_dissect_unconnected_ping(ptr noundef %0, ptr
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1212,7 +1212,7 @@ define internal i32 @raknet_dissect_open_connection_request_1(ptr noundef %0, pt
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1237,7 +1237,7 @@ define internal range(i32 28, 97) i32 @raknet_dissect_open_connection_reply_1(pt
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1257,7 +1257,7 @@ define internal range(i32 28, 97) i32 @raknet_dissect_open_connection_reply_1(pt
   %25 = tail call ptr @wmem_file_scope() #3
   %26 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef 16) #3
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %27, align 8
   %28 = load i32, ptr @proto_raknet, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %20, i32 noundef %28, ptr noundef nonnull %26) #3
@@ -1300,7 +1300,7 @@ define internal noundef i32 @raknet_dissect_open_connection_request_2(ptr nounde
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %11 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %10 to i32
   %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1319,7 +1319,7 @@ define internal noundef i32 @raknet_dissect_open_connection_request_2(ptr nounde
   %24 = tail call ptr @wmem_file_scope() #3
   %25 = tail call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 16) #3
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %26, align 8
   %27 = load i32, ptr @proto_raknet, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %19, i32 noundef %27, ptr noundef nonnull %25) #3
@@ -1370,7 +1370,7 @@ define internal noundef i32 @raknet_dissect_open_connection_reply_2(ptr noundef 
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %11 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %10 to i32
   %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1414,7 +1414,7 @@ define internal noundef i32 @raknet_dissect_connection_failed(ptr noundef %0, pt
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1436,7 +1436,7 @@ define internal noundef i32 @raknet_dissect_incompatible_protocol_version(ptr no
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1461,7 +1461,7 @@ define internal i32 @raknet_dissect_unconnected_pong(ptr noundef %0, ptr nocaptu
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %11 = load i32, ptr @hf_raknet_offline_message_id, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %10 to i32
   %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
@@ -1511,13 +1511,13 @@ define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 n
   %21 = xor i32 %20, -1
   store i32 %21, ptr %6, align 4
   store i32 2, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 4, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @address_to_display(ptr noundef %26, ptr noundef nonnull %7) #3
   %28 = load i32, ptr @hf_raknet_ipv4_address, align 4
@@ -1540,7 +1540,7 @@ define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 n
   br label %59
 
 41:                                               ; preds = %5
-  %42 = getelementptr inbounds i8, ptr %2, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %3, i32 noundef 3, i32 noundef %18) #3
   %45 = load i32, ptr @hf_raknet_ipv6_address, align 4

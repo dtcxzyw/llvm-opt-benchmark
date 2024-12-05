@@ -190,7 +190,7 @@ define dso_local noundef zeroext i1 @nmi_cpu_backtrace(ptr noundef %0) #0 align 
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load i64, ptr %26, align 8
   %28 = call zeroext i1 @cpu_in_idle(i64 noundef %27) #7
   br i1 %28, label %30, label %.thread

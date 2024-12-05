@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Aig_ManRetimeMark_rec(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 32
   %.not = icmp eq i64 %5, 0
@@ -80,7 +80,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %.lr.ph, label %.critedge2.preheader
 
 .lr.ph:                                           ; preds = %.critedge.preheader
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.critedge
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
@@ -89,9 +89,9 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %5, label %.lr.ph84, label %.critedge6.preheader
 
 .lr.ph84:                                         ; preds = %.critedge2.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr i8, ptr %0, i64 140
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.critedge2
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge
@@ -99,9 +99,9 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr i8, ptr %9, i64 8
   %.val61 = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val61, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val61, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = or i64 %14, 32
   store i64 %15, ptr %13, align 8
@@ -114,7 +114,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %18, label %.critedge, label %.critedge2.preheader, !llvm.loop !4
 
 .critedge6.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %39
 
 .critedge2:                                       ; preds = %.lr.ph84, %.critedge2
@@ -155,7 +155,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph93:                                         ; preds = %.preheader
   %37 = getelementptr i8, ptr %0, i64 140
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %63
 
 39:                                               ; preds = %.critedge6.preheader, %.critedge6.loopexit
@@ -172,9 +172,9 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   %.15386 = phi i32 [ %.254, %58 ], [ 0, %39 ]
   %44 = getelementptr i8, ptr %43, i64 8
   %.val62 = load ptr, ptr %44, align 8
-  %45 = getelementptr inbounds ptr, ptr %.val62, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw ptr, ptr %.val62, i64 %indvars.iv95
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 32
   %.not56 = icmp eq i64 %49, 0
@@ -191,7 +191,7 @@ define void @Aig_ManRetimeMark(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not58, label %58, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %53, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %56 = load i64, ptr %55, align 8
   %57 = or i64 %56, 32
   store i64 %57, ptr %55, align 8
@@ -250,17 +250,17 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %4, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr i8, ptr %0, i64 140
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr i8, ptr %0, i64 136
   br label %16
 
 .critedge.preheader:                              ; preds = %16, %2
   %.val105138151 = phi i32 [ %.val106124, %2 ], [ %.val106, %16 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 148
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
@@ -287,7 +287,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %27 = sext i32 %25 to i64
   %28 = getelementptr inbounds ptr, ptr %.val.i114, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, 16
   store i64 %32, ptr %30, align 8
@@ -316,9 +316,9 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %38, label %.lr.ph142, label %.critedge4.preheader
 
 .lr.ph142:                                        ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = getelementptr i8, ptr %0, i64 140
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = getelementptr i8, ptr %0, i64 136
   br label %121
 
@@ -329,7 +329,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.184130 = phi i32 [ %.386, %112 ], [ %.083137, %.preheader123 ]
   %44 = getelementptr i8, ptr %43, i64 8
   %.val104 = load ptr, ptr %44, align 8
-  %45 = getelementptr inbounds ptr, ptr %.val104, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %.val104, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %112, label %48
@@ -359,7 +359,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %60 = ptrtoint ptr %57 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i64, ptr %63, align 8
   %65 = and i64 %64, 16
   %.not98 = icmp eq i64 %65, 0
@@ -369,7 +369,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %67 = ptrtoint ptr %59 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, 16
   %.not99 = icmp eq i64 %72, 0
@@ -392,12 +392,12 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %85 = xor i64 %84, %83
   %86 = inttoptr i64 %85 to ptr
   %87 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %80, ptr noundef %86) #3
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i64, ptr %88, align 8
   %90 = or i64 %89, 32
   store i64 %90, ptr %88, align 8
   %91 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #3
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i64, ptr %92, align 8
   %94 = or i64 %93, 16
   store i64 %94, ptr %92, align 8
@@ -471,7 +471,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %132 = sext i32 %130 to i64
   %133 = getelementptr inbounds ptr, ptr %.val.i120, i64 %132
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load i64, ptr %135, align 8
   %137 = and i64 %136, -17
   store i64 %137, ptr %135, align 8
@@ -487,13 +487,13 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %141 = getelementptr i8, ptr %140, i64 8
   %.val103 = load ptr, ptr %141, align 8
-  %142 = getelementptr inbounds ptr, ptr %.val103, i64 %indvars.iv147
+  %142 = getelementptr inbounds nuw ptr, ptr %.val103, i64 %indvars.iv147
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %.critedge4, label %145
 
 145:                                              ; preds = %.lr.ph145
-  %146 = getelementptr inbounds i8, ptr %143, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %147 = load i64, ptr %146, align 8
   %148 = and i64 %147, -33
   store i64 %148, ptr %146, align 8

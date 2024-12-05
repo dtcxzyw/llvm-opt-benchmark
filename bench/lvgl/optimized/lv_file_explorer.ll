@@ -481,7 +481,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 .lr.ph.lr.ph:                                     ; preds = %6
   %invariant.gep.i = getelementptr i8, ptr %3, i64 -1
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -519,7 +519,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   %27 = zext i16 %.031.i to i64
   %28 = add nuw nsw i64 %27, 4294967295
   %29 = and i64 %28, 4294967295
-  %30 = getelementptr inbounds i8, ptr @.str.16, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @.str.16, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !25
   %32 = zext i16 %.02230.i to i64
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %32
@@ -559,7 +559,7 @@ is_end_with.exit:                                 ; preds = %.lr.ph.i, %17
   %46 = zext i16 %.031.i54 to i64
   %47 = add nuw nsw i64 %46, 4294967295
   %48 = and i64 %47, 4294967295
-  %49 = getelementptr inbounds i8, ptr @.str.17, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !25
   %51 = zext i16 %.02230.i55 to i64
   %gep.i56 = getelementptr i8, ptr %invariant.gep.i, i64 %51
@@ -599,7 +599,7 @@ is_end_with.exit59:                               ; preds = %.lr.ph.i53, %is_end
   %65 = zext i16 %.031.i67 to i64
   %66 = add nuw nsw i64 %65, 4294967295
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds i8, ptr @.str.18, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr @.str.18, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !25
   %70 = zext i16 %.02230.i68 to i64
   %gep.i69 = getelementptr i8, ptr %invariant.gep.i, i64 %70
@@ -639,7 +639,7 @@ is_end_with.exit72:                               ; preds = %.lr.ph.i66, %is_end
   %84 = zext i16 %.031.i80 to i64
   %85 = add nuw nsw i64 %84, 4294967295
   %86 = and i64 %85, 4294967295
-  %87 = getelementptr inbounds i8, ptr @.str.19, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr @.str.19, i64 %86
   %88 = load i8, ptr %87, align 1, !tbaa !25
   %89 = zext i16 %.02230.i81 to i64
   %gep.i82 = getelementptr i8, ptr %invariant.gep.i, i64 %89
@@ -679,7 +679,7 @@ is_end_with.exit85:                               ; preds = %.lr.ph.i79, %is_end
   %103 = zext i16 %.031.i93 to i64
   %104 = add nuw nsw i64 %103, 4294967295
   %105 = and i64 %104, 4294967295
-  %106 = getelementptr inbounds i8, ptr @.str.20, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @.str.20, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !25
   %108 = zext i16 %.02230.i94 to i64
   %gep.i95 = getelementptr i8, ptr %invariant.gep.i, i64 %108
@@ -719,7 +719,7 @@ is_end_with.exit98:                               ; preds = %.lr.ph.i92, %is_end
   %122 = zext i16 %.031.i106 to i64
   %123 = add nuw nsw i64 %122, 4294967295
   %124 = and i64 %123, 4294967295
-  %125 = getelementptr inbounds i8, ptr @.str.21, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !25
   %127 = zext i16 %.02230.i107 to i64
   %gep.i108 = getelementptr i8, ptr %invariant.gep.i, i64 %127
@@ -759,7 +759,7 @@ is_end_with.exit111:                              ; preds = %.lr.ph.i105, %is_en
   %141 = zext i16 %.031.i119 to i64
   %142 = add nuw nsw i64 %141, 4294967295
   %143 = and i64 %142, 4294967295
-  %144 = getelementptr inbounds i8, ptr @.str.22, i64 %143
+  %144 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !25
   %146 = zext i16 %.02230.i120 to i64
   %gep.i121 = getelementptr i8, ptr %invariant.gep.i, i64 %146
@@ -799,7 +799,7 @@ is_end_with.exit124:                              ; preds = %.lr.ph.i118, %is_en
   %160 = zext i16 %.031.i132 to i64
   %161 = add nuw nsw i64 %160, 4294967295
   %162 = and i64 %161, 4294967295
-  %163 = getelementptr inbounds i8, ptr @.str.23, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr @.str.23, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !25
   %165 = zext i16 %.02230.i133 to i64
   %gep.i134 = getelementptr i8, ptr %invariant.gep.i, i64 %165
@@ -847,7 +847,7 @@ is_end_with.exit137:                              ; preds = %.lr.ph.i131, %is_en
   %182 = zext i16 %.031.i145 to i64
   %183 = add nuw nsw i64 %182, 4294967295
   %184 = and i64 %183, 4294967295
-  %185 = getelementptr inbounds i8, ptr @.str.26, i64 %184
+  %185 = getelementptr inbounds nuw i8, ptr @.str.26, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !25
   %187 = zext i16 %.02230.i146 to i64
   %gep.i147 = getelementptr i8, ptr %invariant.gep.i, i64 %187
@@ -1139,7 +1139,7 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   %12 = load i32, ptr %3, align 4, !tbaa !27
   %13 = load i32, ptr %4, align 4, !tbaa !27
   %14 = call ptr @lv_table_get_cell_value(ptr noundef %11, i32 noundef %12, i32 noundef %13) #7
-  %15 = getelementptr inbounds i8, ptr %14, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 5
   %16 = call i32 @lv_strcmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.10) #7
   %.not30 = icmp eq i32 %16, 0
   br i1 %.not30, label %.critedge, label %17
@@ -1150,7 +1150,7 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   br i1 %19, label %20, label %39
 
 20:                                               ; preds = %17
-  %.ptr39.ptr = getelementptr inbounds i8, ptr %7, i64 184
+  %.ptr39.ptr = getelementptr inbounds nuw i8, ptr %7, i64 184
   %21 = call i64 @lv_strlen(ptr noundef nonnull %.ptr39.ptr) #7
   %22 = icmp ugt i64 %21, 3
   br i1 %22, label %23, label %39
@@ -1189,7 +1189,7 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
 
 strip_ext.exit.sink.split:                        ; preds = %29, %.critedge.i
   %.0.lcssa.i.idx.sink = phi i64 [ %.0.lcssa.i.idx, %.critedge.i ], [ 185, %29 ]
-  %.0.lcssa.i.ptr = getelementptr inbounds i8, ptr %7, i64 %.0.lcssa.i.idx.sink
+  %.0.lcssa.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0.lcssa.i.idx.sink
   store i8 0, ptr %.0.lcssa.i.ptr, align 1, !tbaa !25
   br label %strip_ext.exit
 
@@ -1227,7 +1227,7 @@ strip_ext.exit:                                   ; preds = %strip_ext.exit.sink
 
 strip_ext.exit38.sink.split:                      ; preds = %36, %.critedge.i36
   %.0.lcssa.i37.idx.sink = phi i64 [ %.0.lcssa.i37.idx, %.critedge.i36 ], [ 185, %36 ]
-  %.0.lcssa.i37.ptr = getelementptr inbounds i8, ptr %7, i64 %.0.lcssa.i37.idx.sink
+  %.0.lcssa.i37.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0.lcssa.i37.idx.sink
   store i8 0, ptr %.0.lcssa.i37.ptr, align 1, !tbaa !25
   br label %strip_ext.exit38
 
@@ -1408,7 +1408,7 @@ define internal fastcc noundef zeroext i1 @is_end_with(ptr noundef nonnull %0, p
   %14 = zext i16 %.031 to i64
   %15 = add nuw nsw i64 %14, 4294967295
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !25
   %19 = zext i16 %.02230 to i64
   %gep = getelementptr i8, ptr %invariant.gep, i64 %19

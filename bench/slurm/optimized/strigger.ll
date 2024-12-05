@@ -64,17 +64,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not.i, label %38, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 1, ptr %22, align 8
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %20) #8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %8, ptr %24, align 8
   %25 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 19), align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %7, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 16
   store i32 %30, ptr %28, align 4
@@ -86,7 +86,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %33, label %34, label %53
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %7, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %36, 8
   store i32 %37, ptr %35, align 4
@@ -98,14 +98,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 6, ptr %42, align 8
   br label %53
 
 43:                                               ; preds = %38
   %44 = load i8, ptr @params, align 8
   %45 = trunc i8 %44 to i1
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %45, label %47, label %48
 
 47:                                               ; preds = %43
@@ -116,7 +116,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i16 2, ptr %46, align 8
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 48), align 8
   %.not2.i = icmp eq ptr %49, null
-  %50 = getelementptr inbounds i8, ptr %7, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %.not2.i, label %52, label %51
 
 51:                                               ; preds = %48
@@ -133,7 +133,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %7, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 1048576
   store i32 %59, ptr %57, align 4
@@ -145,7 +145,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %7, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %65, 2
   store i32 %66, ptr %64, align 4
@@ -157,7 +157,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %7, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, 256
   store i32 %73, ptr %71, align 4
@@ -169,7 +169,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %7, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = or i32 %79, 4
   store i32 %80, ptr %78, align 4
@@ -181,7 +181,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %7, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = or i32 %86, 128
   store i32 %87, ptr %85, align 4
@@ -193,7 +193,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %7, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = or i32 %93, 1
   store i32 %94, ptr %92, align 4
@@ -205,7 +205,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %7, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, 2097152
   store i32 %101, ptr %99, align 4
@@ -217,7 +217,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %7, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = or i32 %107, 4194304
   store i32 %108, ptr %106, align 4
@@ -229,7 +229,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %7, i64 28
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %114 = load i32, ptr %113, align 4
   %115 = or i32 %114, 32
   store i32 %115, ptr %113, align 4
@@ -241,11 +241,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %118, label %119, label %124
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %7, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 512
   store i32 %122, ptr %120, align 4
-  %123 = getelementptr inbounds i8, ptr %7, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %123, align 8
   br label %124
 
@@ -255,11 +255,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %126, label %127, label %132
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %7, i64 28
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %129 = load i32, ptr %128, align 4
   %130 = or i32 %129, 1024
   store i32 %130, ptr %128, align 4
-  %131 = getelementptr inbounds i8, ptr %7, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %131, align 8
   br label %132
 
@@ -269,11 +269,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %134, label %135, label %140
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %7, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %137 = load i32, ptr %136, align 4
   %138 = or i32 %137, 2048
   store i32 %138, ptr %136, align 4
-  %139 = getelementptr inbounds i8, ptr %7, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %139, align 8
   br label %140
 
@@ -283,11 +283,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %142, label %143, label %148
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %7, i64 28
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %145 = load i32, ptr %144, align 4
   %146 = or i32 %145, 4096
   store i32 %146, ptr %144, align 4
-  %147 = getelementptr inbounds i8, ptr %7, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %147, align 8
   br label %148
 
@@ -297,11 +297,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %7, i64 28
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %153 = load i32, ptr %152, align 4
   %154 = or i32 %153, 8192
   store i32 %154, ptr %152, align 4
-  %155 = getelementptr inbounds i8, ptr %7, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %155, align 8
   br label %156
 
@@ -311,11 +311,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %158, label %159, label %164
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %7, i64 28
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %161 = load i32, ptr %160, align 4
   %162 = or i32 %161, 16384
   store i32 %162, ptr %160, align 4
-  %163 = getelementptr inbounds i8, ptr %7, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %163, align 8
   br label %164
 
@@ -325,11 +325,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %166, label %167, label %172
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %7, i64 28
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %169 = load i32, ptr %168, align 4
   %170 = or i32 %169, 32768
   store i32 %170, ptr %168, align 4
-  %171 = getelementptr inbounds i8, ptr %7, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 3, ptr %171, align 8
   br label %172
 
@@ -339,11 +339,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %174, label %175, label %180
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %7, i64 28
+  %176 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %177 = load i32, ptr %176, align 4
   %178 = or i32 %177, 65536
   store i32 %178, ptr %176, align 4
-  %179 = getelementptr inbounds i8, ptr %7, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 4, ptr %179, align 8
   br label %180
 
@@ -353,11 +353,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %7, i64 28
+  %184 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %185 = load i32, ptr %184, align 4
   %186 = or i32 %185, 131072
   store i32 %186, ptr %184, align 4
-  %187 = getelementptr inbounds i8, ptr %7, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 4, ptr %187, align 8
   br label %188
 
@@ -367,11 +367,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %190, label %191, label %196
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %7, i64 28
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %193 = load i32, ptr %192, align 4
   %194 = or i32 %193, 262144
   store i32 %194, ptr %192, align 4
-  %195 = getelementptr inbounds i8, ptr %7, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 5, ptr %195, align 8
   br label %196
 
@@ -381,11 +381,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %198, label %199, label %204
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %7, i64 28
+  %200 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %201 = load i32, ptr %200, align 4
   %202 = or i32 %201, 524288
   store i32 %202, ptr %200, align 4
-  %203 = getelementptr inbounds i8, ptr %7, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 5, ptr %203, align 8
   br label %204
 
@@ -395,10 +395,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %206 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 60), align 4
   %207 = trunc i32 %206 to i16
   %208 = xor i16 %207, -32768
-  %209 = getelementptr inbounds i8, ptr %7, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i16 %208, ptr %209, align 8
   %210 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 64), align 8
-  %211 = getelementptr inbounds i8, ptr %7, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %210, ptr %211, align 8
   %212 = call i32 @slurm_set_trigger(ptr noundef nonnull %7) #8
   %.not35.i = icmp eq i32 %212, 0
@@ -478,9 +478,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %238, label %239, label %244
 
 239:                                              ; preds = %.lr.ph.i5
-  %240 = getelementptr inbounds i8, ptr %236, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds %struct.trigger_info, ptr %241, i64 %indvars.iv.i, i32 5
+  %242 = getelementptr inbounds nuw %struct.trigger_info, ptr %241, i64 %indvars.iv.i, i32 5
   %243 = load i32, ptr %242, align 4
   %.not68.i = icmp eq i32 %243, 1048576
   br i1 %.not68.i, label %244, label %558
@@ -491,9 +491,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %246, label %247, label %252
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %236, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds %struct.trigger_info, ptr %249, i64 %indvars.iv.i, i32 5
+  %250 = getelementptr inbounds nuw %struct.trigger_info, ptr %249, i64 %indvars.iv.i, i32 5
   %251 = load i32, ptr %250, align 4
   %.not69.i = icmp eq i32 %251, 16
   br i1 %.not69.i, label %252, label %558
@@ -504,16 +504,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not70.i, label %265, label %254
 
 254:                                              ; preds = %252
-  %255 = getelementptr inbounds i8, ptr %236, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds %struct.trigger_info, ptr %256, i64 %indvars.iv.i
-  %258 = getelementptr inbounds i8, ptr %257, i64 8
+  %257 = getelementptr inbounds nuw %struct.trigger_info, ptr %256, i64 %indvars.iv.i
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load i16, ptr %258, align 8
   %.not71.i = icmp eq i16 %259, 1
   br i1 %.not71.i, label %260, label %558
 
 260:                                              ; preds = %254
-  %261 = getelementptr inbounds i8, ptr %257, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %262 = load ptr, ptr %261, align 8
   %263 = call i64 @atol(ptr nocapture noundef %262) #9
   %264 = zext i32 %253 to i64
@@ -526,9 +526,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %267, label %268, label %276
 
 268:                                              ; preds = %265
-  %269 = getelementptr inbounds i8, ptr %236, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 2
+  %271 = getelementptr inbounds nuw %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 2
   %272 = load i16, ptr %271, align 8
   switch i16 %272, label %558 [
     i16 2, label %273
@@ -536,7 +536,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   ]
 
 273:                                              ; preds = %268, %268
-  %274 = getelementptr inbounds %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 5
+  %274 = getelementptr inbounds nuw %struct.trigger_info, ptr %270, i64 %indvars.iv.i, i32 5
   %275 = load i32, ptr %274, align 4
   %.not75.i = icmp eq i32 %275, 2
   br i1 %.not75.i, label %276, label %558
@@ -547,16 +547,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %278, label %279, label %288
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %236, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds %struct.trigger_info, ptr %281, i64 %indvars.iv.i
-  %283 = getelementptr inbounds i8, ptr %282, i64 8
+  %282 = getelementptr inbounds nuw %struct.trigger_info, ptr %281, i64 %indvars.iv.i
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load i16, ptr %283, align 8
   %.not76.i = icmp eq i16 %284, 2
   br i1 %.not76.i, label %285, label %558
 
 285:                                              ; preds = %279
-  %286 = getelementptr inbounds i8, ptr %282, i64 28
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 28
   %287 = load i32, ptr %286, align 4
   %.not77.i = icmp eq i32 %287, 256
   br i1 %.not77.i, label %288, label %558
@@ -567,16 +567,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %290, label %291, label %300
 
 291:                                              ; preds = %288
-  %292 = getelementptr inbounds i8, ptr %236, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds %struct.trigger_info, ptr %293, i64 %indvars.iv.i
-  %295 = getelementptr inbounds i8, ptr %294, i64 8
+  %294 = getelementptr inbounds nuw %struct.trigger_info, ptr %293, i64 %indvars.iv.i
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load i16, ptr %295, align 8
   %.not78.i = icmp eq i16 %296, 2
   br i1 %.not78.i, label %297, label %558
 
 297:                                              ; preds = %291
-  %298 = getelementptr inbounds i8, ptr %294, i64 28
+  %298 = getelementptr inbounds nuw i8, ptr %294, i64 28
   %299 = load i32, ptr %298, align 4
   %.not79.i = icmp eq i32 %299, 4
   br i1 %.not79.i, label %300, label %558
@@ -587,9 +587,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not80.i, label %307, label %302
 
 302:                                              ; preds = %300
-  %303 = getelementptr inbounds i8, ptr %236, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds %struct.trigger_info, ptr %304, i64 %indvars.iv.i, i32 2
+  %305 = getelementptr inbounds nuw %struct.trigger_info, ptr %304, i64 %indvars.iv.i, i32 2
   %306 = load i16, ptr %305, align 8
   %.not81.i = icmp eq i16 %306, 2
   br i1 %.not81.i, label %307, label %558
@@ -600,16 +600,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %309, label %310, label %319
 
 310:                                              ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %236, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %312 = load ptr, ptr %311, align 8
-  %313 = getelementptr inbounds %struct.trigger_info, ptr %312, i64 %indvars.iv.i
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %313 = getelementptr inbounds nuw %struct.trigger_info, ptr %312, i64 %indvars.iv.i
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load i16, ptr %314, align 8
   %.not82.i = icmp eq i16 %315, 2
   br i1 %.not82.i, label %316, label %558
 
 316:                                              ; preds = %310
-  %317 = getelementptr inbounds i8, ptr %313, i64 28
+  %317 = getelementptr inbounds nuw i8, ptr %313, i64 28
   %318 = load i32, ptr %317, align 4
   %.not83.i = icmp eq i32 %318, 128
   br i1 %.not83.i, label %319, label %558
@@ -620,9 +620,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %321, label %322, label %330
 
 322:                                              ; preds = %319
-  %323 = getelementptr inbounds i8, ptr %236, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %324 = load ptr, ptr %323, align 8
-  %325 = getelementptr inbounds %struct.trigger_info, ptr %324, i64 %indvars.iv.i, i32 2
+  %325 = getelementptr inbounds nuw %struct.trigger_info, ptr %324, i64 %indvars.iv.i, i32 2
   %326 = load i16, ptr %325, align 8
   switch i16 %326, label %558 [
     i16 2, label %327
@@ -630,7 +630,7 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   ]
 
 327:                                              ; preds = %322, %322
-  %328 = getelementptr inbounds %struct.trigger_info, ptr %324, i64 %indvars.iv.i, i32 5
+  %328 = getelementptr inbounds nuw %struct.trigger_info, ptr %324, i64 %indvars.iv.i, i32 5
   %329 = load i32, ptr %328, align 4
   %.not86.i = icmp eq i32 %329, 1
   br i1 %.not86.i, label %330, label %558
@@ -641,16 +641,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %332, label %333, label %342
 
 333:                                              ; preds = %330
-  %334 = getelementptr inbounds i8, ptr %236, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds %struct.trigger_info, ptr %335, i64 %indvars.iv.i
-  %337 = getelementptr inbounds i8, ptr %336, i64 8
+  %336 = getelementptr inbounds nuw %struct.trigger_info, ptr %335, i64 %indvars.iv.i
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %338 = load i16, ptr %337, align 8
   %.not87.i = icmp eq i16 %338, 2
   br i1 %.not87.i, label %339, label %558
 
 339:                                              ; preds = %333
-  %340 = getelementptr inbounds i8, ptr %336, i64 28
+  %340 = getelementptr inbounds nuw i8, ptr %336, i64 28
   %341 = load i32, ptr %340, align 4
   %.not88.i = icmp eq i32 %341, 2097152
   br i1 %.not88.i, label %342, label %558
@@ -661,16 +661,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %344, label %345, label %354
 
 345:                                              ; preds = %342
-  %346 = getelementptr inbounds i8, ptr %236, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds %struct.trigger_info, ptr %347, i64 %indvars.iv.i
-  %349 = getelementptr inbounds i8, ptr %348, i64 8
+  %348 = getelementptr inbounds nuw %struct.trigger_info, ptr %347, i64 %indvars.iv.i
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %350 = load i16, ptr %349, align 8
   %.not89.i = icmp eq i16 %350, 2
   br i1 %.not89.i, label %351, label %558
 
 351:                                              ; preds = %345
-  %352 = getelementptr inbounds i8, ptr %348, i64 28
+  %352 = getelementptr inbounds nuw i8, ptr %348, i64 28
   %353 = load i32, ptr %352, align 4
   %.not90.i = icmp eq i32 %353, 4194304
   br i1 %.not90.i, label %354, label %558
@@ -681,16 +681,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %356, label %357, label %366
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %236, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds %struct.trigger_info, ptr %359, i64 %indvars.iv.i
-  %361 = getelementptr inbounds i8, ptr %360, i64 8
+  %360 = getelementptr inbounds nuw %struct.trigger_info, ptr %359, i64 %indvars.iv.i
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %362 = load i16, ptr %361, align 8
   %.not91.i = icmp eq i16 %362, 1
   br i1 %.not91.i, label %363, label %558
 
 363:                                              ; preds = %357
-  %364 = getelementptr inbounds i8, ptr %360, i64 28
+  %364 = getelementptr inbounds nuw i8, ptr %360, i64 28
   %365 = load i32, ptr %364, align 4
   %.not92.i = icmp eq i32 %365, 8
   br i1 %.not92.i, label %366, label %558
@@ -701,9 +701,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not93.i, label %373, label %368
 
 368:                                              ; preds = %366
-  %369 = getelementptr inbounds i8, ptr %236, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %370 = load ptr, ptr %369, align 8
-  %371 = getelementptr inbounds %struct.trigger_info, ptr %370, i64 %indvars.iv.i, i32 1
+  %371 = getelementptr inbounds nuw %struct.trigger_info, ptr %370, i64 %indvars.iv.i, i32 1
   %372 = load i32, ptr %371, align 4
   %.not94.i = icmp eq i32 %367, %372
   br i1 %.not94.i, label %373, label %558
@@ -714,9 +714,9 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not95.i, label %380, label %375
 
 375:                                              ; preds = %373
-  %376 = getelementptr inbounds i8, ptr %236, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds %struct.trigger_info, ptr %377, i64 %indvars.iv.i, i32 7
+  %378 = getelementptr inbounds nuw %struct.trigger_info, ptr %377, i64 %indvars.iv.i, i32 7
   %379 = load i32, ptr %378, align 4
   %.not96.i = icmp eq i32 %374, %379
   br i1 %.not96.i, label %380, label %558
@@ -727,16 +727,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %382, label %383, label %392
 
 383:                                              ; preds = %380
-  %384 = getelementptr inbounds i8, ptr %236, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds %struct.trigger_info, ptr %385, i64 %indvars.iv.i
-  %387 = getelementptr inbounds i8, ptr %386, i64 8
+  %386 = getelementptr inbounds nuw %struct.trigger_info, ptr %385, i64 %indvars.iv.i
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load i16, ptr %387, align 8
   %.not97.i = icmp eq i16 %388, 3
   br i1 %.not97.i, label %389, label %558
 
 389:                                              ; preds = %383
-  %390 = getelementptr inbounds i8, ptr %386, i64 28
+  %390 = getelementptr inbounds nuw i8, ptr %386, i64 28
   %391 = load i32, ptr %390, align 4
   %.not98.i = icmp eq i32 %391, 512
   br i1 %.not98.i, label %392, label %558
@@ -747,16 +747,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %394, label %395, label %404
 
 395:                                              ; preds = %392
-  %396 = getelementptr inbounds i8, ptr %236, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds %struct.trigger_info, ptr %397, i64 %indvars.iv.i
-  %399 = getelementptr inbounds i8, ptr %398, i64 8
+  %398 = getelementptr inbounds nuw %struct.trigger_info, ptr %397, i64 %indvars.iv.i
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load i16, ptr %399, align 8
   %.not99.i = icmp eq i16 %400, 3
   br i1 %.not99.i, label %401, label %558
 
 401:                                              ; preds = %395
-  %402 = getelementptr inbounds i8, ptr %398, i64 28
+  %402 = getelementptr inbounds nuw i8, ptr %398, i64 28
   %403 = load i32, ptr %402, align 4
   %.not100.i = icmp eq i32 %403, 1024
   br i1 %.not100.i, label %404, label %558
@@ -767,16 +767,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %406, label %407, label %416
 
 407:                                              ; preds = %404
-  %408 = getelementptr inbounds i8, ptr %236, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %409 = load ptr, ptr %408, align 8
-  %410 = getelementptr inbounds %struct.trigger_info, ptr %409, i64 %indvars.iv.i
-  %411 = getelementptr inbounds i8, ptr %410, i64 8
+  %410 = getelementptr inbounds nuw %struct.trigger_info, ptr %409, i64 %indvars.iv.i
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
   %412 = load i16, ptr %411, align 8
   %.not101.i = icmp eq i16 %412, 3
   br i1 %.not101.i, label %413, label %558
 
 413:                                              ; preds = %407
-  %414 = getelementptr inbounds i8, ptr %410, i64 28
+  %414 = getelementptr inbounds nuw i8, ptr %410, i64 28
   %415 = load i32, ptr %414, align 4
   %.not102.i = icmp eq i32 %415, 2048
   br i1 %.not102.i, label %416, label %558
@@ -787,16 +787,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %418, label %419, label %428
 
 419:                                              ; preds = %416
-  %420 = getelementptr inbounds i8, ptr %236, i64 8
+  %420 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds %struct.trigger_info, ptr %421, i64 %indvars.iv.i
-  %423 = getelementptr inbounds i8, ptr %422, i64 8
+  %422 = getelementptr inbounds nuw %struct.trigger_info, ptr %421, i64 %indvars.iv.i
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load i16, ptr %423, align 8
   %.not103.i = icmp eq i16 %424, 3
   br i1 %.not103.i, label %425, label %558
 
 425:                                              ; preds = %419
-  %426 = getelementptr inbounds i8, ptr %422, i64 28
+  %426 = getelementptr inbounds nuw i8, ptr %422, i64 28
   %427 = load i32, ptr %426, align 4
   %.not104.i = icmp eq i32 %427, 4096
   br i1 %.not104.i, label %428, label %558
@@ -807,16 +807,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %430, label %431, label %440
 
 431:                                              ; preds = %428
-  %432 = getelementptr inbounds i8, ptr %236, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds %struct.trigger_info, ptr %433, i64 %indvars.iv.i
-  %435 = getelementptr inbounds i8, ptr %434, i64 8
+  %434 = getelementptr inbounds nuw %struct.trigger_info, ptr %433, i64 %indvars.iv.i
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %436 = load i16, ptr %435, align 8
   %.not105.i = icmp eq i16 %436, 3
   br i1 %.not105.i, label %437, label %558
 
 437:                                              ; preds = %431
-  %438 = getelementptr inbounds i8, ptr %434, i64 28
+  %438 = getelementptr inbounds nuw i8, ptr %434, i64 28
   %439 = load i32, ptr %438, align 4
   %.not106.i = icmp eq i32 %439, 8192
   br i1 %.not106.i, label %440, label %558
@@ -827,16 +827,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %442, label %443, label %452
 
 443:                                              ; preds = %440
-  %444 = getelementptr inbounds i8, ptr %236, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %445 = load ptr, ptr %444, align 8
-  %446 = getelementptr inbounds %struct.trigger_info, ptr %445, i64 %indvars.iv.i
-  %447 = getelementptr inbounds i8, ptr %446, i64 8
+  %446 = getelementptr inbounds nuw %struct.trigger_info, ptr %445, i64 %indvars.iv.i
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %448 = load i16, ptr %447, align 8
   %.not107.i = icmp eq i16 %448, 3
   br i1 %.not107.i, label %449, label %558
 
 449:                                              ; preds = %443
-  %450 = getelementptr inbounds i8, ptr %446, i64 28
+  %450 = getelementptr inbounds nuw i8, ptr %446, i64 28
   %451 = load i32, ptr %450, align 4
   %.not108.i = icmp eq i32 %451, 16384
   br i1 %.not108.i, label %452, label %558
@@ -847,16 +847,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %454, label %455, label %464
 
 455:                                              ; preds = %452
-  %456 = getelementptr inbounds i8, ptr %236, i64 8
+  %456 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %457 = load ptr, ptr %456, align 8
-  %458 = getelementptr inbounds %struct.trigger_info, ptr %457, i64 %indvars.iv.i
-  %459 = getelementptr inbounds i8, ptr %458, i64 8
+  %458 = getelementptr inbounds nuw %struct.trigger_info, ptr %457, i64 %indvars.iv.i
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load i16, ptr %459, align 8
   %.not109.i = icmp eq i16 %460, 3
   br i1 %.not109.i, label %461, label %558
 
 461:                                              ; preds = %455
-  %462 = getelementptr inbounds i8, ptr %458, i64 28
+  %462 = getelementptr inbounds nuw i8, ptr %458, i64 28
   %463 = load i32, ptr %462, align 4
   %.not110.i = icmp eq i32 %463, 32768
   br i1 %.not110.i, label %464, label %558
@@ -867,16 +867,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %466, label %467, label %476
 
 467:                                              ; preds = %464
-  %468 = getelementptr inbounds i8, ptr %236, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds %struct.trigger_info, ptr %469, i64 %indvars.iv.i
-  %471 = getelementptr inbounds i8, ptr %470, i64 8
+  %470 = getelementptr inbounds nuw %struct.trigger_info, ptr %469, i64 %indvars.iv.i
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %472 = load i16, ptr %471, align 8
   %.not111.i = icmp eq i16 %472, 4
   br i1 %.not111.i, label %473, label %558
 
 473:                                              ; preds = %467
-  %474 = getelementptr inbounds i8, ptr %470, i64 28
+  %474 = getelementptr inbounds nuw i8, ptr %470, i64 28
   %475 = load i32, ptr %474, align 4
   %.not112.i = icmp eq i32 %475, 65536
   br i1 %.not112.i, label %476, label %558
@@ -887,16 +887,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %478, label %479, label %488
 
 479:                                              ; preds = %476
-  %480 = getelementptr inbounds i8, ptr %236, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %481 = load ptr, ptr %480, align 8
-  %482 = getelementptr inbounds %struct.trigger_info, ptr %481, i64 %indvars.iv.i
-  %483 = getelementptr inbounds i8, ptr %482, i64 8
+  %482 = getelementptr inbounds nuw %struct.trigger_info, ptr %481, i64 %indvars.iv.i
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %484 = load i16, ptr %483, align 8
   %.not113.i = icmp eq i16 %484, 4
   br i1 %.not113.i, label %485, label %558
 
 485:                                              ; preds = %479
-  %486 = getelementptr inbounds i8, ptr %482, i64 28
+  %486 = getelementptr inbounds nuw i8, ptr %482, i64 28
   %487 = load i32, ptr %486, align 4
   %.not114.i = icmp eq i32 %487, 131072
   br i1 %.not114.i, label %488, label %558
@@ -907,16 +907,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %490, label %491, label %500
 
 491:                                              ; preds = %488
-  %492 = getelementptr inbounds i8, ptr %236, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds %struct.trigger_info, ptr %493, i64 %indvars.iv.i
-  %495 = getelementptr inbounds i8, ptr %494, i64 8
+  %494 = getelementptr inbounds nuw %struct.trigger_info, ptr %493, i64 %indvars.iv.i
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %496 = load i16, ptr %495, align 8
   %.not115.i = icmp eq i16 %496, 5
   br i1 %.not115.i, label %497, label %558
 
 497:                                              ; preds = %491
-  %498 = getelementptr inbounds i8, ptr %494, i64 28
+  %498 = getelementptr inbounds nuw i8, ptr %494, i64 28
   %499 = load i32, ptr %498, align 4
   %.not116.i = icmp eq i32 %499, 262144
   br i1 %.not116.i, label %500, label %558
@@ -927,16 +927,16 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %502, label %503, label %512
 
 503:                                              ; preds = %500
-  %504 = getelementptr inbounds i8, ptr %236, i64 8
+  %504 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %505 = load ptr, ptr %504, align 8
-  %506 = getelementptr inbounds %struct.trigger_info, ptr %505, i64 %indvars.iv.i
-  %507 = getelementptr inbounds i8, ptr %506, i64 8
+  %506 = getelementptr inbounds nuw %struct.trigger_info, ptr %505, i64 %indvars.iv.i
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 8
   %508 = load i16, ptr %507, align 8
   %.not117.i = icmp eq i16 %508, 5
   br i1 %.not117.i, label %509, label %558
 
 509:                                              ; preds = %503
-  %510 = getelementptr inbounds i8, ptr %506, i64 28
+  %510 = getelementptr inbounds nuw i8, ptr %506, i64 28
   %511 = load i32, ptr %510, align 4
   %.not118.i = icmp eq i32 %511, 524288
   br i1 %.not118.i, label %512, label %558
@@ -958,44 +958,44 @@ _set_trigger.exit:                                ; preds = %.lr.ph.i, %._crit_e
 518:                                              ; preds = %517, %514, %512
   %519 = phi ptr [ %.pre125.i, %517 ], [ %236, %514 ], [ %236, %512 ]
   %520 = add nsw i32 %.062119.i, 1
-  %521 = getelementptr inbounds i8, ptr %519, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds %struct.trigger_info, ptr %522, i64 %indvars.iv.i, i32 7
+  %523 = getelementptr inbounds nuw %struct.trigger_info, ptr %522, i64 %indvars.iv.i, i32 7
   %524 = load i32, ptr %523, align 4
   %525 = call ptr @uid_to_string(i32 noundef %524) #8
   store ptr %525, ptr %6, align 8
   %526 = load ptr, ptr %5, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr inbounds %struct.trigger_info, ptr %528, i64 %indvars.iv.i
-  %530 = getelementptr inbounds i8, ptr %529, i64 4
+  %529 = getelementptr inbounds nuw %struct.trigger_info, ptr %528, i64 %indvars.iv.i
+  %530 = getelementptr inbounds nuw i8, ptr %529, i64 4
   %531 = load i32, ptr %530, align 4
-  %532 = getelementptr inbounds i8, ptr %529, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %529, i64 8
   %533 = load i16, ptr %532, align 8
   %534 = call ptr @trigger_res_type(i16 noundef zeroext %533) #8
   %535 = load ptr, ptr %5, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %537 = load ptr, ptr %536, align 8
-  %538 = getelementptr inbounds %struct.trigger_info, ptr %537, i64 %indvars.iv.i
-  %539 = getelementptr inbounds i8, ptr %538, i64 16
+  %538 = getelementptr inbounds nuw %struct.trigger_info, ptr %537, i64 %indvars.iv.i
+  %539 = getelementptr inbounds nuw i8, ptr %538, i64 16
   %540 = load ptr, ptr %539, align 8
-  %541 = getelementptr inbounds i8, ptr %538, i64 28
+  %541 = getelementptr inbounds nuw i8, ptr %538, i64 28
   %542 = load i32, ptr %541, align 4
   %543 = call ptr @trigger_type(i32 noundef %542) #8
   %544 = load ptr, ptr %5, align 8
-  %545 = getelementptr inbounds i8, ptr %544, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   %546 = load ptr, ptr %545, align 8
-  %547 = getelementptr inbounds %struct.trigger_info, ptr %546, i64 %indvars.iv.i, i32 6
+  %547 = getelementptr inbounds nuw %struct.trigger_info, ptr %546, i64 %indvars.iv.i, i32 6
   %548 = load i16, ptr %547, align 8
   %549 = zext i16 %548 to i32
   %550 = add nsw i32 %549, -32768
   %551 = load ptr, ptr %6, align 8
-  %552 = getelementptr inbounds %struct.trigger_info, ptr %546, i64 %indvars.iv.i
+  %552 = getelementptr inbounds nuw %struct.trigger_info, ptr %546, i64 %indvars.iv.i
   %553 = load i16, ptr %552, align 8
   %554 = and i16 %553, 1
   %.not.i.i = icmp eq i16 %554, 0
   %.str.15..str.14.i.i = select i1 %.not.i.i, ptr @.str.15, ptr @.str.14
-  %555 = getelementptr inbounds %struct.trigger_info, ptr %546, i64 %indvars.iv.i, i32 8
+  %555 = getelementptr inbounds nuw %struct.trigger_info, ptr %546, i64 %indvars.iv.i, i32 8
   %556 = load ptr, ptr %555, align 8
   %557 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %531, ptr noundef %534, ptr noundef %540, ptr noundef %543, i32 noundef %550, ptr noundef %551, ptr noundef nonnull %.str.15..str.14.i.i, ptr noundef %556)
   call void @slurm_xfree(ptr noundef nonnull %6) #8
@@ -1035,20 +1035,20 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @slurm_init_trigger_msg(ptr noundef nonnull %3) #8
   %568 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 76), align 4
-  %569 = getelementptr inbounds i8, ptr %3, i64 4
+  %569 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %568, ptr %569, align 4
   %570 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 80), align 8
-  %571 = getelementptr inbounds i8, ptr %3, i64 36
+  %571 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %570, ptr %571, align 4
   %572 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
   %.not.i7 = icmp eq i32 %572, 0
   br i1 %.not.i7, label %577, label %573
 
 573:                                              ; preds = %567
-  %574 = getelementptr inbounds i8, ptr %3, i64 8
+  %574 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 1, ptr %574, align 8
   %575 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %572) #8
-  %576 = getelementptr inbounds i8, ptr %3, i64 16
+  %576 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %576, align 8
   br label %577
 
@@ -1077,7 +1077,7 @@ _get_trigger.exit:                                ; preds = %225, %._crit_edge.i
   br i1 %587, label %588, label %_clear_trigger.exit
 
 588:                                              ; preds = %585
-  %589 = getelementptr inbounds i8, ptr %3, i64 16
+  %589 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %590 = load ptr, ptr %589, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %590) #8
   br label %_clear_trigger.exit

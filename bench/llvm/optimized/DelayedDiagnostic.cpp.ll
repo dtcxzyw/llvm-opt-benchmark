@@ -98,7 +98,7 @@ define dso_local void @_ZN5clang4sema17DelayedDiagnostic7DestroyEv(ptr nocapture
 
 9:                                                ; preds = %6
   %10 = icmp uge ptr %5, %8
-  %11 = getelementptr inbounds i8, ptr %8, i64 14848
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 14848
   %12 = icmp ule ptr %5, %11
   %or.cond.i.i.i.i.i.i = select i1 %10, i1 %12, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %13, label %19
@@ -109,7 +109,7 @@ define dso_local void @_ZN5clang4sema17DelayedDiagnostic7DestroyEv(ptr nocapture
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds [16 x ptr], ptr %11, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x ptr], ptr %11, i64 0, i64 %17
   store ptr %5, ptr %18, align 8
   br label %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i.i
 
@@ -171,7 +171,7 @@ define linkonce_odr hidden void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef no
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i: ; preds = %.lr.ph.i.i, %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 544
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit, label %11
 
@@ -183,7 +183,7 @@ _ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit: ; preds = %_ZN4llvm23Sma
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %12) #8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 432
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.preheader, label %17
 

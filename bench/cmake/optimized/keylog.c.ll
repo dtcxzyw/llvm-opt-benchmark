@@ -104,7 +104,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write_line(ptr noundef read
 
 13:                                               ; preds = %9
   %14 = add nuw nsw i64 %7, 1
-  %15 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %7
+  %15 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %7
   store i8 10, ptr %15, align 1
   br label %16
 
@@ -146,7 +146,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
 
 12:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %0, i64 %8, i1 false)
-  %13 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %8
+  %13 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %8
   store i8 32, ptr %13, align 1
   %.03441 = add nuw nsw i64 %8, 1
   br label %14
@@ -155,18 +155,18 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   %.03444 = phi i64 [ %.03441, %12 ], [ %.034, %14 ]
   %.043 = phi i64 [ 0, %12 ], [ %28, %14 ]
   %.034.in42 = phi i64 [ %8, %12 ], [ %21, %14 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 %.043
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.043
   %16 = load i8, ptr %15, align 1
   %17 = lshr i8 %16, 4
   %18 = zext nneg i8 %17 to i64
-  %19 = getelementptr inbounds i8, ptr @.str.2, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = add i64 %.034.in42, 2
   %22 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.03444
   store i8 %20, ptr %22, align 1
   %23 = and i8 %16, 15
   %24 = zext nneg i8 %23 to i64
-  %25 = getelementptr inbounds i8, ptr @.str.2, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %21
   store i8 %26, ptr %27, align 1
@@ -186,18 +186,18 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write(ptr nocapture noundef
   %.13548 = phi i64 [ %.135, %.lr.ph ], [ %.13545, %29 ]
   %.147 = phi i64 [ %44, %.lr.ph ], [ 0, %29 ]
   %.135.in46 = phi i64 [ %.13548, %.lr.ph ], [ %21, %29 ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 %.147
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %.147
   %32 = load i8, ptr %31, align 1
   %33 = lshr i8 %32, 4
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds i8, ptr @.str.2, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = add i64 %.135.in46, 3
   %38 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %.13548
   store i8 %36, ptr %38, align 1
   %39 = and i8 %32, 15
   %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr inbounds i8, ptr @.str.2, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = getelementptr inbounds [195 x i8], ptr %5, i64 0, i64 %37
   store i8 %42, ptr %43, align 1

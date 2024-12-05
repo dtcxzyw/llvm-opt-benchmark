@@ -12,9 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #6
   store i32 21522, ptr %3, align 4
-  %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %.sroa.244.0..sroa_idx, align 4
-  %.sroa.345.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 10277, ptr %.sroa.345.0..sroa_idx, align 4
   %4 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #6
           to label %.preheader.lr.ph.us.preheader.i unwind label %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26
@@ -38,11 +38,11 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   %15 = tail call noundef i32 @llvm.bitreverse.i32(i32 %14)
   %16 = lshr exact i32 %15, 17
   store i32 %0, ptr %4, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %11, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %16, ptr %.sroa.4.0..sroa_idx, align 4
   br label %.preheader.lr.ph.us.i
 
@@ -52,7 +52,7 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   %.sroa.08.028.us.i = phi i32 [ %.sroa.08.3.us.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.us.preheader.i ]
   %.sroa.3.027.us.i = phi i8 [ %.sroa.3.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
   %.sroa.5.026.us.i = phi i8 [ %.sroa.5.3.us.i, %._crit_edge.us.i ], [ -1, %.preheader.lr.ph.us.preheader.i ]
-  %.sroa.05.029.us.i.ptr = getelementptr inbounds i8, ptr %3, i64 %.sroa.05.029.us.i.idx
+  %.sroa.05.029.us.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.05.029.us.i.idx
   %17 = load i32, ptr %.sroa.05.029.us.i.ptr, align 4
   %invariant.op52 = xor i32 %17, 21522
   br label %.preheader.us.i
@@ -63,7 +63,7 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   %.sroa.08.213.us.i = phi i32 [ %.sroa.08.119.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %28 ]
   %.sroa.3.212.us.i = phi i8 [ %.sroa.3.118.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %28 ]
   %.sroa.5.211.us.i = phi i8 [ %.sroa.5.117.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %28 ]
-  %.021.ptr.us.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx15.us.i
+  %.021.ptr.us.i = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx15.us.i
   %19 = load i32, ptr %.021.ptr.us.i, align 4
   %.reass.us.reass.i.reass.reass = xor i32 %19, %invariant.op.reass
   %20 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
@@ -98,7 +98,7 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i26:         ; preds = %2
   %.sroa.08.119.us.i = phi i32 [ %.sroa.08.028.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.08.3.us.i, %29 ]
   %.sroa.3.118.us.i = phi i8 [ %.sroa.3.027.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.3.3.us.i, %29 ]
   %.sroa.5.117.us.i = phi i8 [ %.sroa.5.026.us.i, %.preheader.lr.ph.us.i ], [ %.sroa.5.3.us.i, %29 ]
-  %30 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4
   %32 = trunc i64 %indvars.iv.i to i8
   %invariant.op.reass = xor i32 %31, %invariant.op52
@@ -149,7 +149,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %2 = tail call noundef i32 @llvm.bitreverse.i32(i32 %0)
   %3 = lshr i32 %2, 17
   store i32 %0, ptr %1, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %.sroa.2.0..sroa_idx, align 4
   br label %.preheader.us.i
 
@@ -159,7 +159,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.sroa.08.213.us.i = phi i32 [ %.sroa.08.119.us.i, %.preheader.us.i ], [ %.sroa.08.3.us.i, %14 ]
   %.sroa.3.212.us.i = phi i8 [ %.sroa.3.118.us.i, %.preheader.us.i ], [ %.sroa.3.3.us.i, %14 ]
   %.sroa.5.211.us.i = phi i8 [ %.sroa.5.117.us.i, %.preheader.us.i ], [ %.sroa.5.3.us.i, %14 ]
-  %.021.ptr.us.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx15.us.i
+  %.021.ptr.us.i = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL18FindBestFormatInfoERKSt6vectorIjSaIjEES5_.MODEL2_MASKED_PATTERNS, i64 %.021.idx15.us.i
   %5 = load i32, ptr %.021.ptr.us.i, align 4
   %.reass.us.reass.i.reass.reass = xor i32 %5, %invariant.op
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.reass.us.reass.i.reass.reass)
@@ -194,7 +194,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.sroa.08.119.us.i = phi i32 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.08.3.us.i, %15 ]
   %.sroa.3.118.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.3.3.us.i, %15 ]
   %.sroa.5.117.us.i = phi i8 [ -1, %.preheader.lr.ph.us.preheader.i ], [ %.sroa.5.3.us.i, %15 ]
-  %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %17 = load i32, ptr %16, align 4
   %18 = trunc i64 %indvars.iv.i to i8
   %invariant.op = xor i32 %17, 4183
@@ -217,7 +217,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %29 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %28, i1 noundef zeroext true)
   %.sroa.7.8.insert.ext = and i64 %23, 3
   %30 = and i64 %sum.shift, 7
-  %31 = getelementptr inbounds [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %.sroa.8.3.us.i, 1
   %.sroa.6.0.insert.shift = select i1 %33, i64 72057594037927936, i64 0
@@ -246,7 +246,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %.sroa.0.2.i = phi i32 [ %.sroa.0.3.i, %14 ], [ 0, %2 ]
   %3 = phi i8 [ %15, %14 ], [ -1, %2 ]
   %.021.idx1.i.i = phi i64 [ %.021.add.i.i, %14 ], [ 0, %2 ]
-  %.021.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx1.i.i
+  %.021.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx1.i.i
   %4 = load i32, ptr %.021.ptr.i.i, align 4
   %5 = xor i32 %4, %0
   %6 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %5)
@@ -278,7 +278,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %.sroa.0.6.i = phi i32 [ %.sroa.0.7.i, %27 ], [ %.sroa.0.3.i, %14 ]
   %16 = phi i8 [ %28, %27 ], [ %.sroa.7.3.i, %14 ]
   %.021.idx1.i10.i = phi i64 [ %.021.add.i13.i, %27 ], [ 0, %14 ]
-  %.021.ptr.i11.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS_SUB, i64 %.021.idx1.i10.i
+  %.021.ptr.i11.i = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS_SUB, i64 %.021.idx1.i10.i
   %17 = load i32, ptr %.021.ptr.i11.i, align 4
   %18 = xor i32 %17, %1
   %19 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
@@ -310,7 +310,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %.sroa.0.2.i103 = phi i32 [ %.sroa.0.3.i110, %40 ], [ 0, %2 ]
   %29 = phi i8 [ %41, %40 ], [ -1, %2 ]
   %.021.idx1.i.i105 = phi i64 [ %.021.add.i.i112, %40 ], [ 0, %2 ]
-  %.021.ptr.i.i106 = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx1.i.i105
+  %.021.ptr.i.i106 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx1.i.i105
   %30 = load i32, ptr %.021.ptr.i.i106, align 4
   %31 = xor i32 %30, %0
   %32 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %31)

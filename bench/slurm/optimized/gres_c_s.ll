@@ -110,7 +110,7 @@ define noundef i32 @gres_c_s_init_share_devices(ptr noundef %0, ptr noundef %1, 
   br i1 %25, label %_build_sharing_list.exit.thread, label %27
 
 _build_sharing_list.exit.thread:                  ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %_build_shared_list.exit
 
 27:                                               ; preds = %24
@@ -127,14 +127,14 @@ _build_sharing_list.exit.thread:                  ; preds = %24
 
 32:                                               ; preds = %.backedge.i, %.lr.ph58.i
   %33 = phi ptr [ %31, %.lr.ph58.i ], [ %49, %.backedge.i ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @slurm_xstrcmp(ptr noundef %35, ptr noundef %3) #7
   %.not50.i = icmp eq i32 %36, 0
   br i1 %.not50.i, label %37, label %.backedge.i
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %33, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %39 = load ptr, ptr %38, align 8
   %.not51.i = icmp eq ptr %39, null
   br i1 %.not51.i, label %40, label %44
@@ -174,13 +174,13 @@ _build_sharing_list.exit.thread:                  ; preds = %24
   br i1 %.not5356.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %33, i64 64
-  %54 = getelementptr inbounds i8, ptr %33, i64 16
-  %55 = getelementptr inbounds i8, ptr %33, i64 24
-  %56 = getelementptr inbounds i8, ptr %33, i64 32
-  %57 = getelementptr inbounds i8, ptr %33, i64 48
-  %58 = getelementptr inbounds i8, ptr %33, i64 80
-  %59 = getelementptr inbounds i8, ptr %33, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %33, i64 72
   br label %60
 
 60:                                               ; preds = %78, %.lr.ph.i
@@ -198,14 +198,14 @@ _build_sharing_list.exit.thread:                  ; preds = %24
   br label %67
 
 67:                                               ; preds = %65, %60
-  %68 = getelementptr inbounds i8, ptr %62, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 1, ptr %68, align 8
   %69 = load i32, ptr %54, align 8
-  %70 = getelementptr inbounds i8, ptr %62, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i32 %69, ptr %70, align 8
   %71 = load ptr, ptr %55, align 8
   %72 = tail call ptr @slurm_xstrdup(ptr noundef %71) #7
-  %73 = getelementptr inbounds i8, ptr %62, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %72, ptr %73, align 8
   %74 = load ptr, ptr %56, align 8
   %.not55.i = icmp eq ptr %74, null
@@ -213,32 +213,32 @@ _build_sharing_list.exit.thread:                  ; preds = %24
 
 75:                                               ; preds = %67
   %76 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %74) #7
-  %77 = getelementptr inbounds i8, ptr %62, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %76, ptr %77, align 8
   br label %78
 
 78:                                               ; preds = %75, %67
   %79 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %61) #7
-  %80 = getelementptr inbounds i8, ptr %62, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store ptr %79, ptr %80, align 8
   %81 = load ptr, ptr %57, align 8
   %82 = tail call ptr @slurm_xstrdup(ptr noundef %81) #7
-  %83 = getelementptr inbounds i8, ptr %62, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %62, i64 48
   store ptr %82, ptr %83, align 8
   %84 = load ptr, ptr %34, align 8
   %85 = tail call ptr @slurm_xstrdup(ptr noundef %84) #7
-  %86 = getelementptr inbounds i8, ptr %62, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 56
   store ptr %85, ptr %86, align 8
   %87 = load i32, ptr %58, align 8
-  %88 = getelementptr inbounds i8, ptr %62, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %62, i64 80
   store i32 %87, ptr %88, align 8
   %89 = load ptr, ptr %53, align 8
   %90 = tail call ptr @slurm_xstrdup(ptr noundef %89) #7
-  %91 = getelementptr inbounds i8, ptr %62, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %62, i64 64
   store ptr %90, ptr %91, align 8
   %92 = load ptr, ptr %59, align 8
   %93 = tail call ptr @slurm_xstrdup(ptr noundef %92) #7
-  %94 = getelementptr inbounds i8, ptr %62, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %62, i64 72
   store ptr %93, ptr %94, align 8
   tail call void @slurm_list_append(ptr noundef %28, ptr noundef nonnull %62) #7
   tail call void @free(ptr noundef nonnull %61) #7
@@ -253,7 +253,7 @@ _build_sharing_list.exit.thread:                  ; preds = %24
 
 _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedge.i, %27
   tail call void @slurm_list_iterator_destroy(ptr noundef %29) #7
-  %97 = getelementptr inbounds i8, ptr %2, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = tail call ptr @slurm_list_create(ptr noundef nonnull @slurm_destroy_gres_slurmd_conf) #7
   %100 = tail call ptr @slurm_list_iterator_create(ptr noundef nonnull %0) #7
@@ -270,15 +270,15 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   br i1 %.not.i48, label %204, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %102, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %105 = load ptr, ptr %104, align 8
   %106 = tail call i32 @slurm_xstrcmp(ptr noundef %105, ptr noundef %98) #7
   %.not77.i = icmp eq i32 %106, 0
   br i1 %.not77.i, label %107, label %101, !llvm.loop !9
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %102, i64 56
-  %109 = getelementptr inbounds i8, ptr %102, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 40
   %110 = load ptr, ptr %109, align 8
   %.not78.i = icmp eq ptr %110, null
   br i1 %.not78.i, label %111, label %152
@@ -303,7 +303,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   %116 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 374, ptr noundef nonnull @__func__._build_shared_list) #7
   %117 = load i32, ptr %102, align 8
   store i32 %117, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %102, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %102, i64 64
   %119 = load ptr, ptr %118, align 8
   %.not81.i = icmp eq ptr %119, null
   br i1 %.not81.i, label %122, label %120
@@ -314,47 +314,47 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   br label %122
 
 122:                                              ; preds = %120, %115
-  %123 = getelementptr inbounds i8, ptr %102, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %116, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i64 %124, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %102, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %127 = load i32, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %116, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i32 %127, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %102, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr @slurm_xstrdup(ptr noundef %130) #7
-  %132 = getelementptr inbounds i8, ptr %116, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store ptr %131, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %102, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %134 = load ptr, ptr %133, align 8
   %.not82.i = icmp eq ptr %134, null
   br i1 %.not82.i, label %138, label %135
 
 135:                                              ; preds = %122
   %136 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %134) #7
-  %137 = getelementptr inbounds i8, ptr %116, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr %136, ptr %137, align 8
   br label %138
 
 138:                                              ; preds = %135, %122
   %139 = load ptr, ptr %108, align 8
   %140 = tail call ptr @slurm_xstrdup(ptr noundef %139) #7
-  %141 = getelementptr inbounds i8, ptr %116, i64 56
+  %141 = getelementptr inbounds nuw i8, ptr %116, i64 56
   store ptr %140, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %102, i64 80
+  %142 = getelementptr inbounds nuw i8, ptr %102, i64 80
   %143 = load i32, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %116, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %116, i64 80
   store i32 %143, ptr %144, align 8
   %145 = load ptr, ptr %118, align 8
   %146 = tail call ptr @slurm_xstrdup(ptr noundef %145) #7
-  %147 = getelementptr inbounds i8, ptr %116, i64 64
+  %147 = getelementptr inbounds nuw i8, ptr %116, i64 64
   store ptr %146, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %102, i64 72
+  %148 = getelementptr inbounds nuw i8, ptr %102, i64 72
   %149 = load ptr, ptr %148, align 8
   %150 = tail call ptr @slurm_xstrdup(ptr noundef %149) #7
-  %151 = getelementptr inbounds i8, ptr %116, i64 72
+  %151 = getelementptr inbounds nuw i8, ptr %116, i64 72
   store ptr %150, ptr %151, align 8
   tail call void @slurm_list_append(ptr noundef %99, ptr noundef nonnull %116) #7
   br label %202
@@ -370,7 +370,7 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
 
 155:                                              ; preds = %152
   %156 = tail call ptr @slurm_hostlist_create(ptr noundef nonnull %110) #7
-  %157 = getelementptr inbounds i8, ptr %102, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %158 = load i64, ptr %157, align 8
   %159 = tail call i32 @slurm_hostlist_count(ptr noundef %156) #7
   %160 = sext i32 %159 to i64
@@ -380,12 +380,12 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   br i1 %.not8489.i, label %._crit_edge.i50, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %155
-  %163 = getelementptr inbounds i8, ptr %102, i64 64
-  %164 = getelementptr inbounds i8, ptr %102, i64 16
-  %165 = getelementptr inbounds i8, ptr %102, i64 24
-  %166 = getelementptr inbounds i8, ptr %102, i64 32
-  %167 = getelementptr inbounds i8, ptr %102, i64 80
-  %168 = getelementptr inbounds i8, ptr %102, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  %164 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %102, i64 80
+  %168 = getelementptr inbounds nuw i8, ptr %102, i64 72
   br label %169
 
 169:                                              ; preds = %187, %.lr.ph.i49
@@ -403,14 +403,14 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
   br label %176
 
 176:                                              ; preds = %174, %169
-  %177 = getelementptr inbounds i8, ptr %171, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i64 %161, ptr %177, align 8
   %178 = load i32, ptr %164, align 8
-  %179 = getelementptr inbounds i8, ptr %171, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store i32 %178, ptr %179, align 8
   %180 = load ptr, ptr %165, align 8
   %181 = tail call ptr @slurm_xstrdup(ptr noundef %180) #7
-  %182 = getelementptr inbounds i8, ptr %171, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store ptr %181, ptr %182, align 8
   %183 = load ptr, ptr %166, align 8
   %.not86.i = icmp eq ptr %183, null
@@ -418,28 +418,28 @@ _build_sharing_list.exit.thread65:                ; preds = %.outer.i, %.backedg
 
 184:                                              ; preds = %176
   %185 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %183) #7
-  %186 = getelementptr inbounds i8, ptr %171, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %171, i64 32
   store ptr %185, ptr %186, align 8
   br label %187
 
 187:                                              ; preds = %184, %176
   %188 = tail call ptr @slurm_xstrdup(ptr noundef nonnull %170) #7
-  %189 = getelementptr inbounds i8, ptr %171, i64 40
+  %189 = getelementptr inbounds nuw i8, ptr %171, i64 40
   store ptr %188, ptr %189, align 8
   %190 = load ptr, ptr %108, align 8
   %191 = tail call ptr @slurm_xstrdup(ptr noundef %190) #7
-  %192 = getelementptr inbounds i8, ptr %171, i64 56
+  %192 = getelementptr inbounds nuw i8, ptr %171, i64 56
   store ptr %191, ptr %192, align 8
   %193 = load i32, ptr %167, align 8
-  %194 = getelementptr inbounds i8, ptr %171, i64 80
+  %194 = getelementptr inbounds nuw i8, ptr %171, i64 80
   store i32 %193, ptr %194, align 8
   %195 = load ptr, ptr %163, align 8
   %196 = tail call ptr @slurm_xstrdup(ptr noundef %195) #7
-  %197 = getelementptr inbounds i8, ptr %171, i64 64
+  %197 = getelementptr inbounds nuw i8, ptr %171, i64 64
   store ptr %196, ptr %197, align 8
   %198 = load ptr, ptr %168, align 8
   %199 = tail call ptr @slurm_xstrdup(ptr noundef %198) #7
-  %200 = getelementptr inbounds i8, ptr %171, i64 72
+  %200 = getelementptr inbounds nuw i8, ptr %171, i64 72
   store ptr %199, ptr %200, align 8
   tail call void @slurm_list_append(ptr noundef %99, ptr noundef nonnull %171) #7
   tail call void @free(ptr noundef nonnull %170) #7
@@ -486,13 +486,13 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
 
 215:                                              ; preds = %212
   %216 = tail call ptr @slurm_list_peek(ptr noundef %.070.i) #7
-  %217 = getelementptr inbounds i8, ptr %216, i64 40
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 40
   %218 = load ptr, ptr %217, align 8
   %.not47.i = icmp eq ptr %218, null
   br i1 %.not47.i, label %219, label %235
 
 219:                                              ; preds = %215
-  %220 = getelementptr inbounds i8, ptr %216, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %221 = load i64, ptr %220, align 8
   %222 = tail call i32 @slurm_list_count(ptr noundef %.044.i64) #7
   %223 = tail call ptr @slurm_list_pop(ptr noundef %.044.i64) #7
@@ -500,7 +500,7 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
   br i1 %.not16.i.i, label %_distribute_count.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %216, i64 56
+  %224 = getelementptr inbounds nuw i8, ptr %216, i64 56
   %225 = sext i32 %222 to i64
   br label %226
 
@@ -511,7 +511,7 @@ _build_shared_list.exit:                          ; preds = %_build_sharing_list
   %228 = load ptr, ptr %224, align 8
   %229 = tail call fastcc ptr @_create_shared_rec(ptr noundef %227, ptr noundef %228, ptr noundef nonnull %216)
   %230 = udiv i64 %.01417.i.i, %indvars.iv.i.i
-  %231 = getelementptr inbounds i8, ptr %229, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i64 %230, ptr %231, align 8
   %232 = sub i64 %.01417.i.i, %230
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
@@ -537,7 +537,7 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   br i1 %.not49.i, label %273, label %239
 
 239:                                              ; preds = %.lr.ph.i52
-  %240 = getelementptr inbounds i8, ptr %237, i64 64
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 64
   %241 = load ptr, ptr %240, align 8
   %.not50.i53 = icmp eq ptr %241, null
   br i1 %.not50.i53, label %245, label %242
@@ -549,13 +549,13 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   br label %245
 
 245:                                              ; preds = %242, %239
-  %246 = getelementptr inbounds i8, ptr %237, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %247 = load ptr, ptr %246, align 8
   %.not51.i54 = icmp eq ptr %247, null
   br i1 %.not51.i54, label %252, label %248
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %238, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %238, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %249) #7
   %250 = load ptr, ptr %246, align 8
   %251 = tail call ptr @slurm_xstrdup(ptr noundef %250) #7
@@ -563,17 +563,17 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   br label %252
 
 252:                                              ; preds = %248, %245
-  %253 = getelementptr inbounds i8, ptr %237, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %237, i64 32
   %254 = load ptr, ptr %253, align 8
   %.not52.i55 = icmp eq ptr %254, null
   br i1 %.not52.i55, label %265, label %255
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds i8, ptr %237, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %257 = load i32, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %238, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %238, i64 16
   store i32 %257, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %238, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %238, i64 32
   %260 = load ptr, ptr %259, align 8
   %.not53.i56 = icmp eq ptr %260, null
   br i1 %.not53.i56, label %262, label %261
@@ -590,14 +590,14 @@ _distribute_count.exit.i:                         ; preds = %226, %219
   br label %265
 
 265:                                              ; preds = %262, %252
-  %266 = getelementptr inbounds i8, ptr %238, i64 64
+  %266 = getelementptr inbounds nuw i8, ptr %238, i64 64
   tail call void @slurm_xfree(ptr noundef nonnull %266) #7
   %267 = load ptr, ptr %240, align 8
   %268 = tail call ptr @slurm_xstrdup(ptr noundef %267) #7
   store ptr %268, ptr %266, align 8
-  %269 = getelementptr inbounds i8, ptr %238, i64 72
+  %269 = getelementptr inbounds nuw i8, ptr %238, i64 72
   tail call void @slurm_xfree(ptr noundef nonnull %269) #7
-  %270 = getelementptr inbounds i8, ptr %237, i64 72
+  %270 = getelementptr inbounds nuw i8, ptr %237, i64 72
   %271 = load ptr, ptr %270, align 8
   %272 = tail call ptr @slurm_xstrdup(ptr noundef %271) #7
   store ptr %272, ptr %269, align 8
@@ -605,7 +605,7 @@ _distribute_count.exit.i:                         ; preds = %226, %219
 
 273:                                              ; preds = %.lr.ph.i52
   %274 = tail call fastcc ptr @_create_shared_rec(ptr noundef %237, ptr noundef %206, ptr noundef null)
-  %275 = getelementptr inbounds i8, ptr %274, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i64 0, ptr %275, align 8
   br label %276
 
@@ -686,10 +686,10 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
 
 298:                                              ; preds = %295
   %299 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 240, ptr noundef nonnull @__func__._build_shared_dev_info) #7
-  %300 = getelementptr inbounds i8, ptr %294, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %301 = load i64, ptr %300, align 8
   store i64 %301, ptr %299, align 8
-  %302 = getelementptr inbounds i8, ptr %294, i64 40
+  %302 = getelementptr inbounds nuw i8, ptr %294, i64 40
   %303 = load ptr, ptr %302, align 8
   %.not.i.i61 = icmp eq ptr %303, null
   br i1 %.not.i.i61, label %_compute_local_id.exit.i, label %304
@@ -706,7 +706,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
   %.022.i.i = phi i32 [ %317, %312 ], [ 1, %304 ]
   %.01521.i.i = phi i32 [ %316, %312 ], [ -1, %304 ]
   %308 = zext nneg i32 %.01623.i.i to i64
-  %309 = getelementptr inbounds i8, ptr %303, i64 %308
+  %309 = getelementptr inbounds nuw i8, ptr %303, i64 %308
   %310 = load i8, ptr %309, align 1
   %311 = add i8 %310, -58
   %or.cond.i.i = icmp ult i8 %311, -10
@@ -726,7 +726,7 @@ _merge_lists.exit:                                ; preds = %210, %_distribute_c
 
 _compute_local_id.exit.i:                         ; preds = %312, %.lr.ph.i.i62, %304, %298
   %.017.i.i = phi i32 [ -1, %298 ], [ -1, %304 ], [ %.01521.i.i, %.lr.ph.i.i62 ], [ %316, %312 ]
-  %319 = getelementptr inbounds i8, ptr %299, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store i32 %.017.i.i, ptr %319, align 8
   %320 = load ptr, ptr @shared_info, align 8
   tail call void @slurm_list_append(ptr noundef %320, ptr noundef nonnull %299) #7
@@ -792,7 +792,7 @@ declare i32 @slurm_list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_remove_shared_recs(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @slurm_xstrcmp(ptr noundef %4, ptr noundef %1) #7
   %.not = icmp eq i32 %5, 0
@@ -825,7 +825,7 @@ define void @gres_c_s_send_stepd(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi ptr [ %14, %.lr.ph ], [ %8, %4 ]
   %10 = load i64, ptr %9, align 8
   tail call void @slurm_pack64(i64 noundef %10, ptr noundef %0) #7
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   tail call void @slurm_pack64(i64 noundef %13, ptr noundef %0) #7
@@ -903,7 +903,7 @@ define void @gres_c_s_recv_stepd(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %16
   %20 = load i64, ptr %3, align 8
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %21, ptr %22, align 8
   %23 = load ptr, ptr @shared_info, align 8
   call void @slurm_list_append(ptr noundef %23, ptr noundef nonnull %14) #7
@@ -970,9 +970,9 @@ declare ptr @slurm_list_remove_first(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_find_matching_file_gres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @slurm_xstrcmp(ptr noundef %4, ptr noundef %6) #7
   %.not = icmp eq i32 %7, 0
@@ -1020,49 +1020,49 @@ define internal fastcc noundef ptr @_create_shared_rec(ptr nocapture noundef non
   br label %19
 
 19:                                               ; preds = %.sink.split, %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @slurm_xstrdup(ptr noundef %24) #7
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not27 = icmp eq ptr %28, null
   br i1 %.not27, label %32, label %29
 
 29:                                               ; preds = %19
   %30 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %28) #7
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %30, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %29, %19
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @slurm_xstrdup(ptr noundef %34) #7
-  %36 = getelementptr inbounds i8, ptr %4, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %35, ptr %36, align 8
   %37 = tail call ptr @slurm_xstrdup(ptr noundef %1) #7
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %37, ptr %38, align 8
   %39 = tail call i32 @gres_build_id(ptr noundef %1) #7
-  %40 = getelementptr inbounds i8, ptr %4, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @slurm_xstrdup(ptr noundef %42) #7
-  %44 = getelementptr inbounds i8, ptr %4, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %43, ptr %44, align 8
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_delete_leftovers(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14, ptr noundef %4) #7
   ret i32 1

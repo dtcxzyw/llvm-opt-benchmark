@@ -62,7 +62,7 @@ thread-pre-split:                                 ; preds = %1
   br i1 %17, label %ompi_request_cancel.exit.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %ompi_request_cancel.exit.thread, label %ompi_request_cancel.exit
@@ -110,7 +110,7 @@ ompi_request_cancel.exit:                         ; preds = %18
 36:                                               ; preds = %34, %.lr.ph.i
   %37 = phi i8 [ %30, %.lr.ph.i ], [ %.pre.i.i, %34 ]
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = trunc i8 %37 to i1
   br i1 %41, label %42, label %opal_pointer_array_get_item.exit.i
@@ -122,13 +122,13 @@ ompi_request_cancel.exit:                         ; preds = %18
 
 opal_pointer_array_get_item.exit.i:               ; preds = %42, %36
   %44 = phi i8 [ %37, %36 ], [ %.pre.i, %42 ]
-  %45 = getelementptr inbounds i8, ptr %40, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %21
   br i1 %47, label %48, label %26
 
 48:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %49 = getelementptr inbounds i8, ptr %40, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %50 = load i32, ptr %49, align 4
   br label %ompi_request_cancel.exit.thread.sink.split
 

@@ -115,7 +115,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @vga_ioport_invalid(ptr nocapture noundef readonly %s, i32 noundef %addr) local_unnamed_addr #0 {
 entry:
-  %msr = getelementptr inbounds i8, ptr %s, i64 1645
+  %msr = getelementptr inbounds nuw i8, ptr %s, i64 1645
   %0 = load i8, ptr %msr, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -130,7 +130,7 @@ entry:
 define dso_local range(i32 0, 256) i32 @vga_ioport_read(ptr noundef %opaque, i32 noundef %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %msr.i = getelementptr inbounds i8, ptr %opaque, i64 1645
+  %msr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1645
   %0 = load i8, ptr %msr.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -162,43 +162,43 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.else
-  %ar_flip_flop = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   %3 = load i32, ptr %ar_flip_flop, align 8
   %cmp = icmp eq i32 %3, 0
   br i1 %cmp, label %if.then1, label %if.end62
 
 if.then1:                                         ; preds = %sw.bb
-  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %4 = load i8, ptr %ar_index, align 2
   br label %if.end62
 
 sw.bb3:                                           ; preds = %if.else
-  %ar_index4 = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index4 = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %5 = load i8, ptr %ar_index4, align 2
   %6 = and i8 %5, 31
   %cmp6 = icmp samesign ult i8 %6, 21
   br i1 %cmp6, label %if.then8, label %if.end62
 
 if.then8:                                         ; preds = %sw.bb3
-  %ar = getelementptr inbounds i8, ptr %opaque, i64 1363
+  %ar = getelementptr inbounds nuw i8, ptr %opaque, i64 1363
   %idxprom = zext nneg i8 %6 to i64
   %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %idxprom
   %7 = load i8, ptr %arrayidx, align 1
   br label %if.end62
 
 sw.bb12:                                          ; preds = %if.else
-  %st00 = getelementptr inbounds i8, ptr %opaque, i64 1647
+  %st00 = getelementptr inbounds nuw i8, ptr %opaque, i64 1647
   %8 = load i8, ptr %st00, align 1
   br label %if.end62
 
 sw.bb14:                                          ; preds = %if.else
-  %sr_index = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   %9 = load i8, ptr %sr_index, align 16
   br label %if.end62
 
 sw.bb16:                                          ; preds = %if.else
-  %sr = getelementptr inbounds i8, ptr %opaque, i64 593
-  %sr_index17 = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr = getelementptr inbounds nuw i8, ptr %opaque, i64 593
+  %sr_index17 = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   %10 = load i8, ptr %sr_index17, align 16
   %idxprom18 = zext i8 %10 to i64
   %arrayidx19 = getelementptr [256 x i8], ptr %sr, i64 0, i64 %idxprom18
@@ -206,22 +206,22 @@ sw.bb16:                                          ; preds = %if.else
   br label %if.end62
 
 sw.bb21:                                          ; preds = %if.else
-  %dac_state = getelementptr inbounds i8, ptr %opaque, i64 1649
+  %dac_state = getelementptr inbounds nuw i8, ptr %opaque, i64 1649
   %12 = load i8, ptr %dac_state, align 1
   br label %if.end62
 
 sw.bb23:                                          ; preds = %if.else
-  %dac_write_index = getelementptr inbounds i8, ptr %opaque, i64 1652
+  %dac_write_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1652
   %13 = load i8, ptr %dac_write_index, align 4
   br label %if.end62
 
 sw.bb25:                                          ; preds = %if.else
-  %palette = getelementptr inbounds i8, ptr %opaque, i64 1660
-  %dac_read_index = getelementptr inbounds i8, ptr %opaque, i64 1651
+  %palette = getelementptr inbounds nuw i8, ptr %opaque, i64 1660
+  %dac_read_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1651
   %14 = load i8, ptr %dac_read_index, align 1
   %conv26 = zext i8 %14 to i64
   %mul = mul nuw nsw i64 %conv26, 3
-  %dac_sub_index = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_sub_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   %15 = load i8, ptr %dac_sub_index, align 2
   %conv27 = zext i8 %15 to i64
   %add = add nuw nsw i64 %mul, %conv27
@@ -239,7 +239,7 @@ if.then35:                                        ; preds = %sw.bb25
   br label %if.end62
 
 sw.bb40:                                          ; preds = %if.else
-  %fcr = getelementptr inbounds i8, ptr %opaque, i64 1646
+  %fcr = getelementptr inbounds nuw i8, ptr %opaque, i64 1646
   %17 = load i8, ptr %fcr, align 2
   br label %if.end62
 
@@ -247,13 +247,13 @@ sw.bb42:                                          ; preds = %if.else
   br label %if.end62
 
 sw.bb44:                                          ; preds = %if.else
-  %gr_index = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   %18 = load i8, ptr %gr_index, align 1
   br label %if.end62
 
 sw.bb46:                                          ; preds = %if.else
-  %gr = getelementptr inbounds i8, ptr %opaque, i64 1106
-  %gr_index47 = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr = getelementptr inbounds nuw i8, ptr %opaque, i64 1106
+  %gr_index47 = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   %19 = load i8, ptr %gr_index47, align 1
   %idxprom48 = zext i8 %19 to i64
   %arrayidx49 = getelementptr [256 x i8], ptr %gr, i64 0, i64 %idxprom48
@@ -261,13 +261,13 @@ sw.bb46:                                          ; preds = %if.else
   br label %if.end62
 
 sw.bb51:                                          ; preds = %if.else, %if.else
-  %cr_index = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   %21 = load i8, ptr %cr_index, align 4
   br label %if.end62
 
 sw.bb53:                                          ; preds = %if.else, %if.else
-  %cr = getelementptr inbounds i8, ptr %opaque, i64 1389
-  %cr_index54 = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr = getelementptr inbounds nuw i8, ptr %opaque, i64 1389
+  %cr_index54 = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   %22 = load i8, ptr %cr_index54, align 4
   %idxprom55 = zext i8 %22 to i64
   %arrayidx56 = getelementptr [256 x i8], ptr %cr, i64 0, i64 %idxprom55
@@ -275,12 +275,12 @@ sw.bb53:                                          ; preds = %if.else, %if.else
   br label %if.end62
 
 sw.bb58:                                          ; preds = %if.else, %if.else
-  %retrace = getelementptr inbounds i8, ptr %opaque, i64 68040
+  %retrace = getelementptr inbounds nuw i8, ptr %opaque, i64 68040
   %24 = load ptr, ptr %retrace, align 8
   %call59 = tail call zeroext i8 %24(ptr noundef nonnull %opaque) #17
-  %st01 = getelementptr inbounds i8, ptr %opaque, i64 1648
+  %st01 = getelementptr inbounds nuw i8, ptr %opaque, i64 1648
   store i8 %call59, ptr %st01, align 16
-  %ar_flip_flop61 = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop61 = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   store i32 0, ptr %ar_flip_flop61, align 8
   br label %if.end62
 
@@ -310,7 +310,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %29 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %30 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %29, i64 noundef %30, i32 noundef %addr, i32 noundef range(i32 0, 256) %val.0) #17
   br label %trace_vga_std_read_io.exit
@@ -328,7 +328,7 @@ trace_vga_std_read_io.exit:                       ; preds = %if.end62, %land.lhs
 define dso_local void @vga_ioport_write(ptr noundef %opaque, i32 noundef %addr, i32 noundef %val) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %msr.i = getelementptr inbounds i8, ptr %opaque, i64 1645
+  %msr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1645
   %0 = load i8, ptr %msr.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -361,7 +361,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %addr, i32 noundef %val) #17
   br label %trace_vga_std_write_io.exit
@@ -391,7 +391,7 @@ trace_vga_std_write_io.exit:                      ; preds = %if.end, %land.lhs.t
   ]
 
 sw.bb:                                            ; preds = %trace_vga_std_write_io.exit
-  %ar_flip_flop = getelementptr inbounds i8, ptr %opaque, i64 1384
+  %ar_flip_flop = getelementptr inbounds nuw i8, ptr %opaque, i64 1384
   %9 = load i32, ptr %ar_flip_flop, align 8
   %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then1, label %if.else
@@ -399,12 +399,12 @@ sw.bb:                                            ; preds = %trace_vga_std_write
 if.then1:                                         ; preds = %sw.bb
   %10 = trunc i32 %val to i8
   %conv = and i8 %10, 63
-  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   store i8 %conv, ptr %ar_index, align 2
   br label %if.end37
 
 if.else:                                          ; preds = %sw.bb
-  %ar_index2 = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index2 = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %11 = load i8, ptr %ar_index2, align 2
   %12 = and i8 %11, 31
   switch i8 %12, label %if.end37 [
@@ -434,7 +434,7 @@ if.else:                                          ; preds = %sw.bb
 sw.bb5:                                           ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
   %13 = trunc i32 %val to i8
   %conv7 = and i8 %13, 63
-  %ar = getelementptr inbounds i8, ptr %opaque, i64 1363
+  %ar = getelementptr inbounds nuw i8, ptr %opaque, i64 1363
   %idxprom = zext nneg i8 %12 to i64
   %arrayidx = getelementptr [21 x i8], ptr %ar, i64 0, i64 %idxprom
   store i8 %conv7, ptr %arrayidx, align 1
@@ -485,7 +485,7 @@ sw.bb39:                                          ; preds = %trace_vga_std_write
   %19 = trunc i32 %val to i8
   %conv41 = and i8 %19, -17
   store i8 %conv41, ptr %msr.i, align 1
-  %update_retrace_info = getelementptr inbounds i8, ptr %opaque, i64 68048
+  %update_retrace_info = getelementptr inbounds nuw i8, ptr %opaque, i64 68048
   %20 = load ptr, ptr %update_retrace_info, align 16
   tail call void %20(ptr noundef nonnull %opaque) #17
   br label %sw.epilog140
@@ -493,26 +493,26 @@ sw.bb39:                                          ; preds = %trace_vga_std_write
 sw.bb42:                                          ; preds = %trace_vga_std_write_io.exit
   %21 = trunc i32 %val to i8
   %conv44 = and i8 %21, 7
-  %sr_index = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   store i8 %conv44, ptr %sr_index, align 16
   br label %sw.epilog140
 
 sw.bb45:                                          ; preds = %trace_vga_std_write_io.exit
-  %sr_index46 = getelementptr inbounds i8, ptr %opaque, i64 592
+  %sr_index46 = getelementptr inbounds nuw i8, ptr %opaque, i64 592
   %22 = load i8, ptr %sr_index46, align 16
   %idxprom47 = zext i8 %22 to i64
   %arrayidx48 = getelementptr [8 x i8], ptr @sr_mask, i64 0, i64 %idxprom47
   %23 = load i8, ptr %arrayidx48, align 1
   %24 = trunc i32 %val to i8
   %conv51 = and i8 %23, %24
-  %sr = getelementptr inbounds i8, ptr %opaque, i64 593
+  %sr = getelementptr inbounds nuw i8, ptr %opaque, i64 593
   %arrayidx54 = getelementptr [256 x i8], ptr %sr, i64 0, i64 %idxprom47
   store i8 %conv51, ptr %arrayidx54, align 1
   %cmp57 = icmp eq i8 %22, 1
   br i1 %cmp57, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %sw.bb45
-  %update_retrace_info60 = getelementptr inbounds i8, ptr %opaque, i64 68048
+  %update_retrace_info60 = getelementptr inbounds nuw i8, ptr %opaque, i64 68048
   %25 = load ptr, ptr %update_retrace_info60, align 16
   tail call void %25(ptr noundef nonnull %opaque) #17
   br label %if.end61
@@ -523,28 +523,28 @@ if.end61:                                         ; preds = %if.then59, %sw.bb45
 
 sw.bb62:                                          ; preds = %trace_vga_std_write_io.exit
   %conv63 = trunc i32 %val to i8
-  %dac_read_index = getelementptr inbounds i8, ptr %opaque, i64 1651
+  %dac_read_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1651
   store i8 %conv63, ptr %dac_read_index, align 1
-  %dac_sub_index = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_sub_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   store i8 0, ptr %dac_sub_index, align 2
-  %dac_state = getelementptr inbounds i8, ptr %opaque, i64 1649
+  %dac_state = getelementptr inbounds nuw i8, ptr %opaque, i64 1649
   store i8 3, ptr %dac_state, align 1
   br label %sw.epilog140
 
 sw.bb64:                                          ; preds = %trace_vga_std_write_io.exit
   %conv65 = trunc i32 %val to i8
-  %dac_write_index = getelementptr inbounds i8, ptr %opaque, i64 1652
+  %dac_write_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1652
   store i8 %conv65, ptr %dac_write_index, align 4
-  %dac_sub_index66 = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_sub_index66 = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   store i8 0, ptr %dac_sub_index66, align 2
-  %dac_state67 = getelementptr inbounds i8, ptr %opaque, i64 1649
+  %dac_state67 = getelementptr inbounds nuw i8, ptr %opaque, i64 1649
   store i8 0, ptr %dac_state67, align 1
   br label %sw.epilog140
 
 sw.bb68:                                          ; preds = %trace_vga_std_write_io.exit
   %conv69 = trunc i32 %val to i8
-  %dac_cache = getelementptr inbounds i8, ptr %opaque, i64 1653
-  %dac_sub_index70 = getelementptr inbounds i8, ptr %opaque, i64 1650
+  %dac_cache = getelementptr inbounds nuw i8, ptr %opaque, i64 1653
+  %dac_sub_index70 = getelementptr inbounds nuw i8, ptr %opaque, i64 1650
   %26 = load i8, ptr %dac_sub_index70, align 2
   %idxprom71 = zext i8 %26 to i64
   %arrayidx72 = getelementptr [3 x i8], ptr %dac_cache, i64 0, i64 %idxprom71
@@ -555,8 +555,8 @@ sw.bb68:                                          ; preds = %trace_vga_std_write
   br i1 %cmp75, label %if.then77, label %sw.epilog140
 
 if.then77:                                        ; preds = %sw.bb68
-  %palette = getelementptr inbounds i8, ptr %opaque, i64 1660
-  %dac_write_index78 = getelementptr inbounds i8, ptr %opaque, i64 1652
+  %palette = getelementptr inbounds nuw i8, ptr %opaque, i64 1660
+  %dac_write_index78 = getelementptr inbounds nuw i8, ptr %opaque, i64 1652
   %27 = load i8, ptr %dac_write_index78, align 4
   %conv79 = zext i8 %27 to i64
   %mul = mul nuw nsw i64 %conv79, 3
@@ -570,19 +570,19 @@ if.then77:                                        ; preds = %sw.bb68
 sw.bb87:                                          ; preds = %trace_vga_std_write_io.exit
   %28 = trunc i32 %val to i8
   %conv89 = and i8 %28, 15
-  %gr_index = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   store i8 %conv89, ptr %gr_index, align 1
   br label %sw.epilog140
 
 sw.bb90:                                          ; preds = %trace_vga_std_write_io.exit
-  %gr_index91 = getelementptr inbounds i8, ptr %opaque, i64 1105
+  %gr_index91 = getelementptr inbounds nuw i8, ptr %opaque, i64 1105
   %29 = load i8, ptr %gr_index91, align 1
   %idxprom92 = zext i8 %29 to i64
   %arrayidx93 = getelementptr [16 x i8], ptr @gr_mask, i64 0, i64 %idxprom92
   %30 = load i8, ptr %arrayidx93, align 1
   %31 = trunc i32 %val to i8
   %conv96 = and i8 %30, %31
-  %gr = getelementptr inbounds i8, ptr %opaque, i64 1106
+  %gr = getelementptr inbounds nuw i8, ptr %opaque, i64 1106
   %arrayidx99 = getelementptr [256 x i8], ptr %gr, i64 0, i64 %idxprom92
   store i8 %conv96, ptr %arrayidx99, align 1
   %32 = getelementptr i8, ptr %opaque, i64 2594
@@ -601,7 +601,7 @@ if.end.i:                                         ; preds = %sw.bb90
   %37 = load i8, ptr %arrayidx5.i, align 1
   %38 = or i8 %37, 3
   store i8 %38, ptr %arrayidx5.i, align 1
-  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
+  %vbe_line_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2612
   %39 = load i32, ptr %vbe_line_offset.i, align 4
   %shr.i = lshr i32 %39, 3
   %conv9.i = trunc i32 %shr.i to i8
@@ -679,7 +679,7 @@ vbe_update_vgaregs.exit:                          ; preds = %sw.bb90, %if.end69.
 
 sw.bb100:                                         ; preds = %trace_vga_std_write_io.exit, %trace_vga_std_write_io.exit
   %conv101 = trunc i32 %val to i8
-  %cr_index = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   store i8 %conv101, ptr %cr_index, align 4
   br label %sw.epilog140
 
@@ -687,7 +687,7 @@ sw.bb102:                                         ; preds = %trace_vga_std_write
   %arrayidx103 = getelementptr i8, ptr %opaque, i64 1406
   %57 = load i8, ptr %arrayidx103, align 1
   %tobool106.not = icmp slt i8 %57, 0
-  %cr_index129.phi.trans.insert = getelementptr inbounds i8, ptr %opaque, i64 1388
+  %cr_index129.phi.trans.insert = getelementptr inbounds nuw i8, ptr %opaque, i64 1388
   %.pre = load i8, ptr %cr_index129.phi.trans.insert, align 4
   %cmp109 = icmp ult i8 %.pre, 8
   %or.cond = select i1 %tobool106.not, i1 %cmp109, i1 false
@@ -709,7 +709,7 @@ if.then116:                                       ; preds = %if.then111
   br label %sw.epilog140
 
 if.end126:                                        ; preds = %sw.bb102
-  %cr = getelementptr inbounds i8, ptr %opaque, i64 1389
+  %cr = getelementptr inbounds nuw i8, ptr %opaque, i64 1389
   %conv127 = trunc i32 %val to i8
   %idxprom130 = zext i8 %.pre to i64
   %arrayidx131 = getelementptr [256 x i8], ptr %cr, i64 0, i64 %idxprom130
@@ -730,7 +730,7 @@ if.end.i86:                                       ; preds = %if.end126
   %67 = load i8, ptr %arrayidx5.i88, align 1
   %68 = or i8 %67, 3
   store i8 %68, ptr %arrayidx5.i88, align 1
-  %vbe_line_offset.i89 = getelementptr inbounds i8, ptr %opaque, i64 2612
+  %vbe_line_offset.i89 = getelementptr inbounds nuw i8, ptr %opaque, i64 2612
   %69 = load i32, ptr %vbe_line_offset.i89, align 4
   %shr.i90 = lshr i32 %69, 3
   %conv9.i91 = trunc i32 %shr.i90 to i8
@@ -814,7 +814,7 @@ vbe_update_vgaregs.exit125:                       ; preds = %if.end126, %if.end6
   ]
 
 sw.bb134:                                         ; preds = %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125, %vbe_update_vgaregs.exit125
-  %update_retrace_info135 = getelementptr inbounds i8, ptr %opaque, i64 68048
+  %update_retrace_info135 = getelementptr inbounds nuw i8, ptr %opaque, i64 68048
   %87 = load ptr, ptr %update_retrace_info135, align 16
   tail call void %87(ptr noundef nonnull %opaque) #17
   br label %sw.epilog140
@@ -822,7 +822,7 @@ sw.bb134:                                         ; preds = %vbe_update_vgaregs.
 sw.bb137:                                         ; preds = %trace_vga_std_write_io.exit, %trace_vga_std_write_io.exit
   %88 = trunc i32 %val to i8
   %conv139 = and i8 %88, 16
-  %fcr = getelementptr inbounds i8, ptr %opaque, i64 1646
+  %fcr = getelementptr inbounds nuw i8, ptr %opaque, i64 1646
   store i8 %conv139, ptr %fcr, align 2
   br label %sw.epilog140
 
@@ -838,17 +838,17 @@ entry:
   br i1 %cmp, label %if.end30, label %if.end
 
 if.end:                                           ; preds = %entry
-  %has_chain4_alias = getelementptr inbounds i8, ptr %s, i64 308
+  %has_chain4_alias = getelementptr inbounds nuw i8, ptr %s, i64 308
   %1 = load i8, ptr %has_chain4_alias, align 4
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %chain4_alias = getelementptr inbounds i8, ptr %s, i64 320
+  %chain4_alias = getelementptr inbounds nuw i8, ptr %s, i64 320
   tail call void @memory_region_del_subregion(ptr noundef nonnull %0, ptr noundef nonnull %chain4_alias) #17
   tail call void @object_unparent(ptr noundef nonnull %chain4_alias) #17
   store i8 0, ptr %has_chain4_alias, align 4
-  %plane_updated = getelementptr inbounds i8, ptr %s, i64 2660
+  %plane_updated = getelementptr inbounds nuw i8, ptr %s, i64 2660
   store i32 15, ptr %plane_updated, align 4
   br label %if.end5
 
@@ -885,7 +885,7 @@ if.then12:                                        ; preds = %land.lhs.true
   ]
 
 sw.bb15:                                          ; preds = %if.then12
-  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
+  %bank_offset = getelementptr inbounds nuw i8, ptr %s, i64 2428
   %9 = load i32, ptr %bank_offset, align 4
   %conv16 = sext i32 %9 to i64
   br label %sw.epilog
@@ -904,7 +904,7 @@ sw.epilog:                                        ; preds = %if.then12, %sw.defa
   %offset.0 = phi i64 [ 0, %sw.default ], [ 0, %sw.bb17 ], [ %conv16, %sw.bb15 ], [ 0, %if.then12 ]
   %size.0 = phi i64 [ 32768, %sw.default ], [ 32768, %sw.bb17 ], [ 65536, %sw.bb15 ], [ 131072, %if.then12 ]
   %add = add nsw i64 %size.0, %offset.0
-  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size = getelementptr inbounds nuw i8, ptr %s, i64 288
   %10 = load i32, ptr %vram_size, align 16
   %conv19 = zext i32 %10 to i64
   %cmp20.not = icmp ugt i64 %add, %conv19
@@ -915,8 +915,8 @@ if.else:                                          ; preds = %sw.epilog
   unreachable
 
 if.end23:                                         ; preds = %sw.epilog
-  %chain4_alias24 = getelementptr inbounds i8, ptr %s, i64 320
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %chain4_alias24 = getelementptr inbounds nuw i8, ptr %s, i64 320
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   %call25 = tail call ptr @memory_region_owner(ptr noundef nonnull %vram) #17
   tail call void @memory_region_init_alias(ptr noundef nonnull %chain4_alias24, ptr noundef %call25, ptr noundef nonnull @.str.41, ptr noundef nonnull %vram, i64 noundef %offset.0, i64 noundef %size.0) #17
   %11 = load ptr, ptr %s, align 16
@@ -950,7 +950,7 @@ if.end:                                           ; preds = %entry
   %5 = load i8, ptr %arrayidx5, align 1
   %6 = or i8 %5, 3
   store i8 %6, ptr %arrayidx5, align 1
-  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
+  %vbe_line_offset = getelementptr inbounds nuw i8, ptr %s, i64 2612
   %7 = load i32, ptr %vbe_line_offset, align 4
   %shr = lshr i32 %7, 3
   %conv9 = trunc i32 %shr to i8
@@ -1030,13 +1030,13 @@ return:                                           ; preds = %entry, %if.end69
 define dso_local range(i32 0, 65536) i32 @vbe_ioport_read_data(ptr nocapture noundef readonly %opaque, i32 %addr) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
+  %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
   %cmp = icmp ult i16 %0, 10
   br i1 %cmp, label %if.then, label %if.else17
 
 if.then:                                          ; preds = %entry
-  %vbe_regs = getelementptr inbounds i8, ptr %opaque, i64 2586
+  %vbe_regs = getelementptr inbounds nuw i8, ptr %opaque, i64 2586
   %arrayidx = getelementptr i8, ptr %opaque, i64 2594
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 2
@@ -1067,14 +1067,14 @@ if.else17:                                        ; preds = %entry
   br i1 %cmp20, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.else17
-  %vbe_size = getelementptr inbounds i8, ptr %opaque, i64 296
+  %vbe_size = getelementptr inbounds nuw i8, ptr %opaque, i64 296
   %6 = load i32, ptr %vbe_size, align 8
   %7 = lshr i32 %6, 16
   br label %if.end27
 
 switch.lookup:                                    ; preds = %if.then3
   %8 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.vbe_ioport_read_data, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.vbe_ioport_read_data, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end27
 
@@ -1104,7 +1104,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef range(i32 0, 65536) %conv29, i32 noundef range(i32 0, 65536) %val.0) #17
   br label %trace_vga_vbe_read.exit
@@ -1122,7 +1122,7 @@ trace_vga_vbe_read.exit:                          ; preds = %if.end27, %land.lhs
 define dso_local void @vbe_ioport_write_index(ptr nocapture noundef writeonly initializes((2584, 2586)) %opaque, i32 %addr, i32 noundef %val) #4 {
 entry:
   %conv = trunc i32 %val to i16
-  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
+  %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
   store i16 %conv, ptr %vbe_index, align 8
   ret void
 }
@@ -1131,7 +1131,7 @@ entry:
 define dso_local void @vbe_ioport_write_data(ptr noundef %opaque, i32 %addr, i32 noundef %val) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
+  %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
   %cmp = icmp ult i16 %0, 11
   br i1 %cmp, label %if.then, label %if.end73
@@ -1161,7 +1161,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 11) %conv, i32 noundef %val) #17
   br label %trace_vga_vbe_write.exit
@@ -1192,13 +1192,13 @@ sw.bb:                                            ; preds = %trace_vga_vbe_write
 
 if.then22:                                        ; preds = %sw.bb
   %conv23 = trunc nuw i32 %val to i16
-  %vbe_regs = getelementptr inbounds i8, ptr %opaque, i64 2586
+  %vbe_regs = getelementptr inbounds nuw i8, ptr %opaque, i64 2586
   store i16 %conv23, ptr %vbe_regs, align 2
   br label %if.end73
 
 sw.bb25:                                          ; preds = %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit, %trace_vga_vbe_write.exit
   %conv26 = trunc i32 %val to i16
-  %vbe_regs27 = getelementptr inbounds i8, ptr %opaque, i64 2586
+  %vbe_regs27 = getelementptr inbounds nuw i8, ptr %opaque, i64 2586
   %idxprom29 = zext nneg i16 %7 to i64
   %arrayidx30 = getelementptr [10 x i16], ptr %vbe_regs27, i64 0, i64 %idxprom29
   store i16 %conv26, ptr %arrayidx30, align 2
@@ -1219,7 +1219,7 @@ if.end.i:                                         ; preds = %sw.bb25
   %13 = load i8, ptr %arrayidx5.i, align 1
   %14 = or i8 %13, 3
   store i8 %14, ptr %arrayidx5.i, align 1
-  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
+  %vbe_line_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2612
   %15 = load i32, ptr %vbe_line_offset.i, align 4
   %shr.i = lshr i32 %15, 3
   %conv9.i = trunc i32 %shr.i to i8
@@ -1292,14 +1292,14 @@ if.end69.i:                                       ; preds = %if.else.i, %if.then
   br label %if.end73
 
 sw.bb31:                                          ; preds = %trace_vga_vbe_write.exit
-  %vbe_bank_mask = getelementptr inbounds i8, ptr %opaque, i64 2616
+  %vbe_bank_mask = getelementptr inbounds nuw i8, ptr %opaque, i64 2616
   %33 = load i32, ptr %vbe_bank_mask, align 8
   %and = and i32 %33, %val
   %conv32 = trunc i32 %and to i16
   %arrayidx36 = getelementptr i8, ptr %opaque, i64 2596
   store i16 %conv32, ptr %arrayidx36, align 2
   %shl = shl i32 %and, 16
-  %bank_offset = getelementptr inbounds i8, ptr %opaque, i64 2428
+  %bank_offset = getelementptr inbounds nuw i8, ptr %opaque, i64 2428
   store i32 %shl, ptr %bank_offset, align 4
   tail call fastcc void @vga_update_memory_access(ptr noundef nonnull %opaque)
   br label %if.end73
@@ -1332,12 +1332,12 @@ if.then44:                                        ; preds = %land.lhs.true
   br i1 %tobool56.not, label %if.then57, label %if.end64
 
 if.then57:                                        ; preds = %if.then44
-  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %37 = load ptr, ptr %vram_ptr, align 8
   %arrayidx59 = getelementptr i8, ptr %opaque, i64 2590
   %38 = load i16, ptr %arrayidx59, align 2
   %conv60 = zext i16 %38 to i32
-  %vbe_line_offset = getelementptr inbounds i8, ptr %opaque, i64 2612
+  %vbe_line_offset = getelementptr inbounds nuw i8, ptr %opaque, i64 2612
   %39 = load i32, ptr %vbe_line_offset, align 4
   %mul = mul i32 %39, %conv60
   %conv61 = zext i32 %mul to i64
@@ -1345,17 +1345,17 @@ if.then57:                                        ; preds = %if.then44
   br label %if.end64
 
 if.else:                                          ; preds = %land.lhs.true, %sw.bb37
-  %bank_offset63 = getelementptr inbounds i8, ptr %opaque, i64 2428
+  %bank_offset63 = getelementptr inbounds nuw i8, ptr %opaque, i64 2428
   store i32 0, ptr %bank_offset63, align 4
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then44, %if.then57, %if.else
   %and65 = lshr i32 %val, 5
   %and65.lobit = and i32 %and65, 1
-  %dac_8bit = getelementptr inbounds i8, ptr %opaque, i64 1656
+  %dac_8bit = getelementptr inbounds nuw i8, ptr %opaque, i64 1656
   store i32 %and65.lobit, ptr %dac_8bit, align 8
   %conv68 = trunc i32 %val to i16
-  %vbe_regs69 = getelementptr inbounds i8, ptr %opaque, i64 2586
+  %vbe_regs69 = getelementptr inbounds nuw i8, ptr %opaque, i64 2586
   %40 = load i16, ptr %vbe_index, align 8
   %idxprom71 = zext i16 %40 to i64
   %arrayidx72 = getelementptr [10 x i16], ptr %vbe_regs69, i64 0, i64 %idxprom71
@@ -1414,7 +1414,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.default
   %conv43 = zext nneg i16 %spec.store.select to i32
   %mul = mul nuw nsw i32 %bits.0, %conv43
   %div53 = lshr exact i32 %mul, 3
-  %vbe_size = getelementptr inbounds i8, ptr %s, i64 296
+  %vbe_size = getelementptr inbounds nuw i8, ptr %s, i64 296
   %8 = load i32, ptr %vbe_size, align 8
   %div44 = udiv i32 %8, %div53
   %arrayidx45 = getelementptr i8, ptr %s, i64 2590
@@ -1493,10 +1493,10 @@ if.end111:                                        ; preds = %if.then95, %if.then
   %conv112 = trunc i32 %div44 to i16
   %arrayidx113 = getelementptr i8, ptr %s, i64 2600
   store i16 %conv112, ptr %arrayidx113, align 2
-  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
+  %vbe_line_offset = getelementptr inbounds nuw i8, ptr %s, i64 2612
   store i32 %div53, ptr %vbe_line_offset, align 4
   %div11456 = lshr i32 %offset.0, 2
-  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 2608
+  %vbe_start_addr = getelementptr inbounds nuw i8, ptr %s, i64 2608
   store i32 %div11456, ptr %vbe_start_addr, align 16
   br label %return
 
@@ -1527,7 +1527,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
-  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
+  %bank_offset = getelementptr inbounds nuw i8, ptr %s, i64 2428
   %3 = load i32, ptr %bank_offset, align 4
   %conv4 = sext i32 %3 to i64
   %add = add nsw i64 %and1, %conv4
@@ -1560,7 +1560,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %sw.bb5, %
   br i1 %tobool.not, label %if.else26, label %if.then18
 
 if.then18:                                        ; preds = %sw.epilog
-  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size = getelementptr inbounds nuw i8, ptr %s, i64 288
   %7 = load i32, ptr %vram_size, align 16
   %conv19 = zext i32 %7 to i64
   %cmp20 = icmp ult i64 %addr.addr.0, %conv19
@@ -1571,7 +1571,7 @@ if.else:                                          ; preds = %if.then18
   unreachable
 
 if.end23:                                         ; preds = %if.then18
-  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %s, i64 8
   %8 = load ptr, ptr %vram_ptr, align 8
   %arrayidx24 = getelementptr i8, ptr %8, i64 %addr.addr.0
   %9 = load i8, ptr %arrayidx24, align 1
@@ -1595,14 +1595,14 @@ if.then32:                                        ; preds = %if.else26
   %shl = and i64 %and40, -4
   %or = or disjoint i64 %shl, %and38
   %or42 = or disjoint i64 %or, %conv37
-  %vram_size43 = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size43 = getelementptr inbounds nuw i8, ptr %s, i64 288
   %14 = load i32, ptr %vram_size43, align 16
   %conv44 = zext i32 %14 to i64
   %cmp45.not = icmp ult i64 %or42, %conv44
   br i1 %cmp45.not, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then32
-  %vram_ptr49 = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr49 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %15 = load ptr, ptr %vram_ptr49, align 8
   %arrayidx50 = getelementptr i8, ptr %15, i64 %or42
   %16 = load i8, ptr %arrayidx50, align 1
@@ -1611,18 +1611,18 @@ if.end48:                                         ; preds = %if.then32
 
 if.else52:                                        ; preds = %if.else26
   %mul = shl nsw i64 %addr.addr.0, 2
-  %vram_size53 = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size53 = getelementptr inbounds nuw i8, ptr %s, i64 288
   %17 = load i32, ptr %vram_size53, align 16
   %conv54 = zext i32 %17 to i64
   %cmp55.not = icmp ult i64 %mul, %conv54
   br i1 %cmp55.not, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.else52
-  %vram_ptr59 = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr59 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %18 = load ptr, ptr %vram_ptr59, align 8
   %arrayidx60 = getelementptr i32, ptr %18, i64 %addr.addr.0
   %19 = load i32, ptr %arrayidx60, align 4
-  %latch = getelementptr inbounds i8, ptr %s, i64 304
+  %latch = getelementptr inbounds nuw i8, ptr %s, i64 304
   store i32 %19, ptr %latch, align 16
   %20 = and i8 %10, 8
   %tobool65.not = icmp eq i8 %20, 0
@@ -1669,7 +1669,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_mem_writeb(ptr noundef %s, i64 noundef %addr, i32 noundef %val) local_unnamed_addr #1 {
 entry:
-  %gr = getelementptr inbounds i8, ptr %s, i64 1106
+  %gr = getelementptr inbounds nuw i8, ptr %s, i64 1106
   %arrayidx = getelementptr i8, ptr %s, i64 1112
   %0 = load i8, ptr %arrayidx, align 2
   %1 = lshr i8 %0, 2
@@ -1687,7 +1687,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp, label %if.end178, label %if.end
 
 if.end:                                           ; preds = %sw.bb2
-  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
+  %bank_offset = getelementptr inbounds nuw i8, ptr %s, i64 2428
   %3 = load i32, ptr %bank_offset, align 4
   %conv4 = sext i32 %3 to i64
   %add = add nsw i64 %and1, %conv4
@@ -1732,7 +1732,7 @@ if.then18:                                        ; preds = %sw.epilog
   br i1 %tobool24.not, label %if.end178, label %if.then25
 
 if.then25:                                        ; preds = %if.then18
-  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size = getelementptr inbounds nuw i8, ptr %s, i64 288
   %8 = load i32, ptr %vram_size, align 16
   %conv26 = zext i32 %8 to i64
   %cmp27 = icmp ult i64 %addr.addr.0, %conv26
@@ -1744,15 +1744,15 @@ if.else:                                          ; preds = %if.then25
 
 if.end30:                                         ; preds = %if.then25
   %conv31 = trunc i32 %val to i8
-  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %s, i64 8
   %9 = load ptr, ptr %vram_ptr, align 8
   %arrayidx32 = getelementptr i8, ptr %9, i64 %addr.addr.0
   store i8 %conv31, ptr %arrayidx32, align 1
-  %plane_updated = getelementptr inbounds i8, ptr %s, i64 2660
+  %plane_updated = getelementptr inbounds nuw i8, ptr %s, i64 2660
   %10 = load i32, ptr %plane_updated, align 4
   %or = or i32 %10, %shl
   store i32 %or, ptr %plane_updated, align 4
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram, i64 noundef %addr.addr.0, i64 noundef 1) #17
   br label %if.end178
 
@@ -1785,7 +1785,7 @@ if.then54:                                        ; preds = %if.then40
   %and55 = shl nsw i64 %addr.addr.0, 1
   %shl56 = and i64 %and55, -4
   %or58 = or disjoint i64 %or47, %shl56
-  %vram_size59 = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size59 = getelementptr inbounds nuw i8, ptr %s, i64 288
   %14 = load i32, ptr %vram_size59, align 16
   %conv60 = zext i32 %14 to i64
   %cmp61.not = icmp ult i64 %or58, %conv60
@@ -1793,15 +1793,15 @@ if.then54:                                        ; preds = %if.then40
 
 if.end64:                                         ; preds = %if.then54
   %conv65 = trunc i32 %val to i8
-  %vram_ptr66 = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr66 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %15 = load ptr, ptr %vram_ptr66, align 8
   %arrayidx67 = getelementptr i8, ptr %15, i64 %or58
   store i8 %conv65, ptr %arrayidx67, align 1
-  %plane_updated68 = getelementptr inbounds i8, ptr %s, i64 2660
+  %plane_updated68 = getelementptr inbounds nuw i8, ptr %s, i64 2660
   %16 = load i32, ptr %plane_updated68, align 4
   %or69 = or i32 %16, %shl49
   store i32 %or69, ptr %plane_updated68, align 4
-  %vram70 = getelementptr inbounds i8, ptr %s, i64 16
+  %vram70 = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram70, i64 noundef %or58, i64 noundef 1) #17
   br label %if.end178
 
@@ -1844,7 +1844,7 @@ sw.bb78:                                          ; preds = %if.else72
   br label %sw.epilog130
 
 sw.bb105:                                         ; preds = %if.else72
-  %latch = getelementptr inbounds i8, ptr %s, i64 304
+  %latch = getelementptr inbounds nuw i8, ptr %s, i64 304
   %24 = load i32, ptr %latch, align 16
   br label %do_write
 
@@ -1884,7 +1884,7 @@ sw.epilog130:                                     ; preds = %sw.bb113, %sw.bb106
   %val.addr.0 = phi i32 [ %or101, %sw.bb78 ], [ %25, %sw.bb106 ], [ %31, %sw.bb113 ]
   %bit_mask.0 = phi i32 [ %conv104, %sw.bb78 ], [ %conv112, %sw.bb106 ], [ %and125, %sw.bb113 ]
   %33 = lshr i8 %32, 3
-  %latch151.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 304
+  %latch151.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 304
   %.pre113 = load i32, ptr %latch151.phi.trans.insert, align 16
   switch i8 %33, label %sw.epilog145 [
     i8 3, label %sw.bb143
@@ -1922,12 +1922,12 @@ do_write:                                         ; preds = %sw.epilog145, %sw.b
   %cond.in.in.i111 = getelementptr i8, ptr %s, i64 %cond.in.in.i111.v
   %cond.in4.i112 = load i8, ptr %cond.in.in.i111, align 1
   %conv156 = zext i8 %cond.in4.i112 to i32
-  %plane_updated157 = getelementptr inbounds i8, ptr %s, i64 2660
+  %plane_updated157 = getelementptr inbounds nuw i8, ptr %s, i64 2660
   %34 = load i32, ptr %plane_updated157, align 4
   %or158 = or i32 %34, %conv156
   store i32 %or158, ptr %plane_updated157, align 4
   %mul = shl nsw i64 %addr.addr.0, 2
-  %vram_size161 = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size161 = getelementptr inbounds nuw i8, ptr %s, i64 288
   %35 = load i32, ptr %vram_size161, align 16
   %conv162 = zext i32 %35 to i64
   %cmp163.not = icmp ult i64 %mul, %conv162
@@ -1937,7 +1937,7 @@ if.end166:                                        ; preds = %do_write
   %idxprom159 = zext i8 %cond.in4.i112 to i64
   %arrayidx160 = getelementptr [16 x i32], ptr @mask16, i64 0, i64 %idxprom159
   %36 = load i32, ptr %arrayidx160, align 4
-  %vram_ptr167 = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr167 = getelementptr inbounds nuw i8, ptr %s, i64 8
   %37 = load ptr, ptr %vram_ptr167, align 8
   %arrayidx168 = getelementptr i32, ptr %37, i64 %addr.addr.0
   %38 = load i32, ptr %arrayidx168, align 4
@@ -1946,7 +1946,7 @@ if.end166:                                        ; preds = %do_write
   %and171 = and i32 %36, %val.addr.1
   %or172 = or i32 %and170, %and171
   store i32 %or172, ptr %arrayidx168, align 4
-  %vram175 = getelementptr inbounds i8, ptr %s, i64 16
+  %vram175 = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_set_dirty(ptr noundef nonnull %vram175, i64 noundef %mul, i64 noundef 4) #17
   br label %if.end178
 
@@ -1968,7 +1968,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp46, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %invalidated_y_table = getelementptr inbounds i8, ptr %s, i64 2736
+  %invalidated_y_table = getelementptr inbounds nuw i8, ptr %s, i64 2736
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1992,7 +1992,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_dirty_log_start(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #17
   ret void
 }
@@ -2002,7 +2002,7 @@ declare void @memory_region_set_log(ptr noundef, i1 noundef zeroext, i32 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_dirty_log_stop(ptr noundef %s) local_unnamed_addr #1 {
 entry:
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext false, i32 noundef 0) #17
   ret void
 }
@@ -2010,59 +2010,59 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vga_common_reset(ptr noundef initializes((592, 2432), (2584, 2606), (2608, 2620), (2632, 2646), (2648, 2664), (2668, 2670), (2672, 2688), (2694, 2696), (2712, 2716), (2730, 2731), (2736, 2992), (3016, 68040)) %s) local_unnamed_addr #1 {
 entry:
-  %sr_index = getelementptr inbounds i8, ptr %s, i64 592
-  %vbe_index = getelementptr inbounds i8, ptr %s, i64 2584
-  %vbe_regs = getelementptr inbounds i8, ptr %s, i64 2586
+  %sr_index = getelementptr inbounds nuw i8, ptr %s, i64 592
+  %vbe_index = getelementptr inbounds nuw i8, ptr %s, i64 2584
+  %vbe_regs = getelementptr inbounds nuw i8, ptr %s, i64 2586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1840) %sr_index, i8 0, i64 1840, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %vbe_index, i8 0, i64 22, i1 false)
   store i16 -20283, ptr %vbe_regs, align 2
-  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 2608
+  %vbe_start_addr = getelementptr inbounds nuw i8, ptr %s, i64 2608
   store i32 0, ptr %vbe_start_addr, align 16
-  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
+  %vbe_line_offset = getelementptr inbounds nuw i8, ptr %s, i64 2612
   store i32 0, ptr %vbe_line_offset, align 4
-  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size = getelementptr inbounds nuw i8, ptr %s, i64 288
   %0 = load i32, ptr %vram_size, align 16
   %shr = lshr i32 %0, 16
   %sub = add nsw i32 %shr, -1
-  %vbe_bank_mask = getelementptr inbounds i8, ptr %s, i64 2616
+  %vbe_bank_mask = getelementptr inbounds nuw i8, ptr %s, i64 2616
   store i32 %sub, ptr %vbe_bank_mask, align 8
-  %font_offsets = getelementptr inbounds i8, ptr %s, i64 2632
+  %font_offsets = getelementptr inbounds nuw i8, ptr %s, i64 2632
   store i64 0, ptr %font_offsets, align 8
-  %graphic_mode = getelementptr inbounds i8, ptr %s, i64 2640
+  %graphic_mode = getelementptr inbounds nuw i8, ptr %s, i64 2640
   store i32 -1, ptr %graphic_mode, align 16
-  %shift_control = getelementptr inbounds i8, ptr %s, i64 2644
+  %shift_control = getelementptr inbounds nuw i8, ptr %s, i64 2644
   store i8 0, ptr %shift_control, align 4
-  %double_scan = getelementptr inbounds i8, ptr %s, i64 2645
+  %double_scan = getelementptr inbounds nuw i8, ptr %s, i64 2645
   store i8 0, ptr %double_scan, align 1
-  %line_offset = getelementptr inbounds i8, ptr %s, i64 2648
-  %last_cw = getelementptr inbounds i8, ptr %s, i64 2668
+  %line_offset = getelementptr inbounds nuw i8, ptr %s, i64 2648
+  %last_cw = getelementptr inbounds nuw i8, ptr %s, i64 2668
   store i8 0, ptr %last_cw, align 4
-  %last_ch = getelementptr inbounds i8, ptr %s, i64 2669
+  %last_ch = getelementptr inbounds nuw i8, ptr %s, i64 2669
   store i8 0, ptr %last_ch, align 1
-  %last_width = getelementptr inbounds i8, ptr %s, i64 2672
-  %cursor_start = getelementptr inbounds i8, ptr %s, i64 2694
+  %last_width = getelementptr inbounds nuw i8, ptr %s, i64 2672
+  %cursor_start = getelementptr inbounds nuw i8, ptr %s, i64 2694
   store i8 0, ptr %cursor_start, align 2
-  %cursor_end = getelementptr inbounds i8, ptr %s, i64 2695
+  %cursor_end = getelementptr inbounds nuw i8, ptr %s, i64 2695
   store i8 0, ptr %cursor_end, align 1
-  %cursor_offset = getelementptr inbounds i8, ptr %s, i64 2712
+  %cursor_offset = getelementptr inbounds nuw i8, ptr %s, i64 2712
   store i32 0, ptr %cursor_offset, align 8
-  %default_endian_fb = getelementptr inbounds i8, ptr %s, i64 2731
+  %default_endian_fb = getelementptr inbounds nuw i8, ptr %s, i64 2731
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %line_offset, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %last_width, i8 0, i64 16, i1 false)
   %1 = load i8, ptr %default_endian_fb, align 1
-  %big_endian_fb = getelementptr inbounds i8, ptr %s, i64 2730
+  %big_endian_fb = getelementptr inbounds nuw i8, ptr %s, i64 2730
   %frombool = and i8 %1, 1
   store i8 %frombool, ptr %big_endian_fb, align 2
-  %invalidated_y_table = getelementptr inbounds i8, ptr %s, i64 2736
+  %invalidated_y_table = getelementptr inbounds nuw i8, ptr %s, i64 2736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table, i8 0, i64 256, i1 false)
-  %last_palette = getelementptr inbounds i8, ptr %s, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %s, i64 3016
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65024) %last_palette, i8 0, i64 65024, i1 false)
   %2 = load i32, ptr @vga_retrace_method, align 4
   %cond = icmp eq i32 %2, 1
   br i1 %cond, label %sw.bb13, label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %retrace_info = getelementptr inbounds i8, ptr %s, i64 68056
+  %retrace_info = getelementptr inbounds nuw i8, ptr %s, i64 68056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %retrace_info, i8 0, i64 40, i1 false)
   br label %sw.epilog
 
@@ -2090,7 +2090,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @vga_common_post_load(ptr noundef initializes((2640, 2644)) %opaque, i32 %version_id) #1 {
 entry:
-  %graphic_mode = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %graphic_mode = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   store i32 -1, ptr %graphic_mode, align 16
   %0 = getelementptr i8, ptr %opaque, i64 2594
   %s.val.i = load i16, ptr %0, align 2
@@ -2108,7 +2108,7 @@ if.end.i:                                         ; preds = %entry
   %5 = load i8, ptr %arrayidx5.i, align 1
   %6 = or i8 %5, 3
   store i8 %6, ptr %arrayidx5.i, align 1
-  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
+  %vbe_line_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2612
   %7 = load i32, ptr %vbe_line_offset.i, align 4
   %shr.i = lshr i32 %7, 3
   %conv9.i = trunc i32 %shr.i to i8
@@ -2264,7 +2264,7 @@ for.end39:                                        ; preds = %for.body28
   br i1 %exitcond75.not, label %for.end45, label %for.cond25.preheader, !llvm.loop !11
 
 for.end45:                                        ; preds = %for.end39
-  %vram_size_mb = getelementptr inbounds i8, ptr %s, i64 292
+  %vram_size_mb = getelementptr inbounds nuw i8, ptr %s, i64 292
   %3 = load i32, ptr %vram_size_mb, align 4
   %cmp.i = icmp eq i32 %3, 0
   %.val.i = tail call i32 @llvm.umin.i32(i32 %3, i32 512)
@@ -2278,9 +2278,9 @@ for.end45:                                        ; preds = %for.end39
   %conv50 = trunc i64 %shr.i to i32
   store i32 %conv50, ptr %vram_size_mb, align 4
   %conv55 = shl i32 %conv50, 20
-  %vram_size = getelementptr inbounds i8, ptr %s, i64 288
+  %vram_size = getelementptr inbounds nuw i8, ptr %s, i64 288
   store i32 %conv55, ptr %vram_size, align 16
-  %vbe_size = getelementptr inbounds i8, ptr %s, i64 296
+  %vbe_size = getelementptr inbounds nuw i8, ptr %s, i64 296
   %5 = load i32, ptr %vbe_size, align 8
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2292,11 +2292,11 @@ if.then:                                          ; preds = %for.end45
 if.end:                                           ; preds = %if.then, %for.end45
   %6 = phi i32 [ %conv55, %if.then ], [ %5, %for.end45 ]
   %sub = add i32 %6, -1
-  %vbe_size_mask = getelementptr inbounds i8, ptr %s, i64 300
+  %vbe_size_mask = getelementptr inbounds nuw i8, ptr %s, i64 300
   store i32 %sub, ptr %vbe_size_mask, align 4
-  %is_vbe_vmstate = getelementptr inbounds i8, ptr %s, i64 68096
+  %is_vbe_vmstate = getelementptr inbounds nuw i8, ptr %s, i64 68096
   store i8 1, ptr %is_vbe_vmstate, align 16
-  %global_vmstate = getelementptr inbounds i8, ptr %s, i64 2732
+  %global_vmstate = getelementptr inbounds nuw i8, ptr %s, i64 2732
   %7 = load i8, ptr %global_vmstate, align 4
   %tobool59 = trunc i8 %7 to i1
   br i1 %tobool59, label %land.lhs.true, label %if.end64
@@ -2316,7 +2316,7 @@ if.then63:                                        ; preds = %land.lhs.true
 
 if.end64:                                         ; preds = %land.lhs.true.if.end64_crit_edge, %if.end
   %8 = phi i32 [ %.pre, %land.lhs.true.if.end64_crit_edge ], [ %conv55, %if.end ]
-  %vram = getelementptr inbounds i8, ptr %s, i64 16
+  %vram = getelementptr inbounds nuw i8, ptr %s, i64 16
   %conv66 = zext i32 %8 to i64
   call void @memory_region_init_ram_nomigrate(ptr noundef nonnull %vram, ptr noundef %obj, ptr noundef nonnull @.str.31, i64 noundef %conv66, ptr noundef nonnull %local_err) #17
   %9 = load ptr, ptr %local_err, align 8
@@ -2341,15 +2341,15 @@ cond.end:                                         ; preds = %if.end69, %cond.fal
   call void @vmstate_register_ram(ptr noundef nonnull %vram, ptr noundef %cond) #17
   call void @xen_register_framebuffer(ptr noundef nonnull %vram) #17
   %call77 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %vram) #17
-  %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %s, i64 8
   store ptr %call77, ptr %vram_ptr, align 8
-  %get_bpp = getelementptr inbounds i8, ptr %s, i64 2432
+  %get_bpp = getelementptr inbounds nuw i8, ptr %s, i64 2432
   store ptr @vga_get_bpp, ptr %get_bpp, align 16
-  %get_offsets = getelementptr inbounds i8, ptr %s, i64 2440
+  %get_offsets = getelementptr inbounds nuw i8, ptr %s, i64 2440
   store ptr @vga_get_offsets, ptr %get_offsets, align 8
-  %get_resolution = getelementptr inbounds i8, ptr %s, i64 2448
+  %get_resolution = getelementptr inbounds nuw i8, ptr %s, i64 2448
   store ptr @vga_get_resolution, ptr %get_resolution, align 16
-  %hw_ops = getelementptr inbounds i8, ptr %s, i64 2720
+  %hw_ops = getelementptr inbounds nuw i8, ptr %s, i64 2720
   store ptr @vga_ops, ptr %hw_ops, align 16
   %11 = load i32, ptr @vga_retrace_method, align 4
   switch i32 %11, label %sw.epilog [
@@ -2363,15 +2363,15 @@ sw.bb78:                                          ; preds = %cond.end
 sw.epilog.sink.split:                             ; preds = %cond.end, %sw.bb78
   %vga_precise_retrace.sink = phi ptr [ @vga_precise_retrace, %sw.bb78 ], [ @vga_dumb_retrace, %cond.end ]
   %vga_precise_update_retrace_info.sink = phi ptr [ @vga_precise_update_retrace_info, %sw.bb78 ], [ @vga_dumb_update_retrace_info, %cond.end ]
-  %retrace79 = getelementptr inbounds i8, ptr %s, i64 68040
+  %retrace79 = getelementptr inbounds nuw i8, ptr %s, i64 68040
   store ptr %vga_precise_retrace.sink, ptr %retrace79, align 8
-  %update_retrace_info80 = getelementptr inbounds i8, ptr %s, i64 68048
+  %update_retrace_info80 = getelementptr inbounds nuw i8, ptr %s, i64 68048
   store ptr %vga_precise_update_retrace_info.sink, ptr %update_retrace_info80, align 16
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %cond.end
   %call81 = call zeroext i1 @target_words_bigendian() #17
-  %default_endian_fb = getelementptr inbounds i8, ptr %s, i64 2731
+  %default_endian_fb = getelementptr inbounds nuw i8, ptr %s, i64 2731
   %frombool = zext i1 %call81 to i8
   store i8 %frombool, ptr %default_endian_fb, align 1
   call void @memory_region_set_log(ptr noundef nonnull %vram, i1 noundef zeroext true, i32 noundef 0) #17
@@ -2426,9 +2426,9 @@ entry:
   br i1 %tobool.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %vbe_line_offset = getelementptr inbounds i8, ptr %s, i64 2612
+  %vbe_line_offset = getelementptr inbounds nuw i8, ptr %s, i64 2612
   %2 = load i32, ptr %vbe_line_offset, align 4
-  %vbe_start_addr = getelementptr inbounds i8, ptr %s, i64 2608
+  %vbe_start_addr = getelementptr inbounds nuw i8, ptr %s, i64 2608
   %3 = load i32, ptr %vbe_start_addr, align 16
   br label %if.end
 
@@ -2522,7 +2522,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i8 @vga_dumb_retrace(ptr nocapture noundef readonly %s) #0 {
 entry:
-  %st01 = getelementptr inbounds i8, ptr %s, i64 1648
+  %st01 = getelementptr inbounds nuw i8, ptr %s, i64 1648
   %0 = load i8, ptr %st01, align 16
   %1 = xor i8 %0, 9
   ret i8 %1
@@ -2537,33 +2537,33 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i8 @vga_precise_retrace(ptr nocapture noundef readonly %s) #1 {
 entry:
-  %st01 = getelementptr inbounds i8, ptr %s, i64 1648
+  %st01 = getelementptr inbounds nuw i8, ptr %s, i64 1648
   %0 = load i8, ptr %st01, align 16
   %and = and i8 %0, -10
-  %total_chars = getelementptr inbounds i8, ptr %s, i64 68064
+  %total_chars = getelementptr inbounds nuw i8, ptr %s, i64 68064
   %1 = load i64, ptr %total_chars, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.else23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %retrace_info = getelementptr inbounds i8, ptr %s, i64 68056
+  %retrace_info = getelementptr inbounds nuw i8, ptr %s, i64 68056
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
   %2 = load i64, ptr %retrace_info, align 8
   %div = sdiv i64 %call, %2
   %3 = load i64, ptr %total_chars, align 8
   %rem = srem i64 %div, %3
   %conv3 = trunc i64 %rem to i32
-  %htotal = getelementptr inbounds i8, ptr %s, i64 68072
+  %htotal = getelementptr inbounds nuw i8, ptr %s, i64 68072
   %4 = load i32, ptr %htotal, align 8
   %div4 = sdiv i32 %conv3, %4
   %rem12 = srem i32 %conv3, %4
-  %vstart = getelementptr inbounds i8, ptr %s, i64 68084
+  %vstart = getelementptr inbounds nuw i8, ptr %s, i64 68084
   %5 = load i32, ptr %vstart, align 4
   %cmp.not = icmp slt i32 %div4, %5
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %vend = getelementptr inbounds i8, ptr %s, i64 68088
+  %vend = getelementptr inbounds nuw i8, ptr %s, i64 68088
   %6 = load i32, ptr %vend, align 8
   %cmp6.not = icmp sgt i32 %div4, %6
   br i1 %cmp6.not, label %if.else, label %if.then8
@@ -2573,13 +2573,13 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
-  %hstart = getelementptr inbounds i8, ptr %s, i64 68076
+  %hstart = getelementptr inbounds nuw i8, ptr %s, i64 68076
   %8 = load i32, ptr %hstart, align 4
   %cmp13.not = icmp slt i32 %rem12, %8
   br i1 %cmp13.not, label %return, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.else
-  %hend = getelementptr inbounds i8, ptr %s, i64 68080
+  %hend = getelementptr inbounds nuw i8, ptr %s, i64 68080
   %9 = load i32, ptr %hend, align 8
   %cmp16.not = icmp sle i32 %rem12, %9
   %10 = zext i1 %cmp16.not to i8
@@ -2598,7 +2598,7 @@ return:                                           ; preds = %land.lhs.true15, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @vga_precise_update_retrace_info(ptr nocapture noundef %s) #3 {
 entry:
-  %cr = getelementptr inbounds i8, ptr %s, i64 1389
+  %cr = getelementptr inbounds nuw i8, ptr %s, i64 1389
   %0 = load i8, ptr %cr, align 1
   %conv = zext i8 %0 to i32
   %add = add nuw nsw i32 %conv, 5
@@ -2633,7 +2633,7 @@ entry:
   %9 = lshr i8 %cond.in4.i, 3
   %10 = and i8 %9, 1
   %and47 = zext nneg i8 %10 to i32
-  %msr = getelementptr inbounds i8, ptr %s, i64 1645
+  %msr = getelementptr inbounds nuw i8, ptr %s, i64 1645
   %11 = load i8, ptr %msr, align 1
   %conv48 = zext i8 %11 to i32
   %shr49 = lshr i32 %conv48, 2
@@ -2644,9 +2644,9 @@ entry:
   %shl56 = shl nuw nsw i32 %add, %and47
   %mul = mul nuw nsw i32 %shl56, %add24
   %conv57 = zext nneg i32 %mul to i64
-  %total_chars = getelementptr inbounds i8, ptr %s, i64 68064
+  %total_chars = getelementptr inbounds nuw i8, ptr %s, i64 68064
   store i64 %conv57, ptr %total_chars, align 8
-  %freq = getelementptr inbounds i8, ptr %s, i64 68092
+  %freq = getelementptr inbounds nuw i8, ptr %s, i64 68092
   %13 = load i32, ptr %freq, align 4
   %tobool58.not = icmp eq i32 %13, 0
   br i1 %tobool58.not, label %if.else, label %if.then
@@ -2665,7 +2665,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %conv55.pn = phi i64 [ %conv55, %if.else ], [ %mul62, %if.then ]
-  %retrace_info = getelementptr inbounds i8, ptr %s, i64 68056
+  %retrace_info = getelementptr inbounds nuw i8, ptr %s, i64 68056
   %storemerge = sdiv i64 1000000000, %conv55.pn
   store i64 %storemerge, ptr %retrace_info, align 8
   %14 = and i8 %6, 15
@@ -2682,21 +2682,21 @@ if.end:                                           ; preds = %if.else, %if.then
   %shr = lshr i32 %conv6, 5
   %and = and i32 %shr, 3
   %conv3 = zext i8 %1 to i32
-  %vstart = getelementptr inbounds i8, ptr %s, i64 68084
+  %vstart = getelementptr inbounds nuw i8, ptr %s, i64 68084
   store i32 %or40, ptr %vstart, align 4
   %narrow = add nuw nsw i8 %14, 1
   %add67 = zext nneg i8 %narrow to i32
   %add68 = add nuw nsw i32 %or40, %add67
-  %vend = getelementptr inbounds i8, ptr %s, i64 68088
+  %vend = getelementptr inbounds nuw i8, ptr %s, i64 68088
   store i32 %add68, ptr %vend, align 8
   %add69 = add nuw nsw i32 %and, %conv3
-  %hstart = getelementptr inbounds i8, ptr %s, i64 68076
+  %hstart = getelementptr inbounds nuw i8, ptr %s, i64 68076
   store i32 %add69, ptr %hstart, align 4
   %add71 = add nuw nsw i32 %and10, 1
   %add72 = add nuw nsw i32 %add71, %add69
-  %hend = getelementptr inbounds i8, ptr %s, i64 68080
+  %hend = getelementptr inbounds nuw i8, ptr %s, i64 68080
   store i32 %add72, ptr %hend, align 8
-  %htotal = getelementptr inbounds i8, ptr %s, i64 68072
+  %htotal = getelementptr inbounds nuw i8, ptr %s, i64 68072
   store i32 %shl56, ptr %htotal, align 8
   ret void
 }
@@ -2734,7 +2734,7 @@ declare void @memory_region_set_flush_coalesced(ptr noundef) local_unnamed_addr 
 define dso_local void @vga_init(ptr noundef %s, ptr noundef %obj, ptr noundef %address_space, ptr noundef %address_space_io, i1 noundef zeroext %init_vga_ports) local_unnamed_addr #1 {
 entry:
   tail call void @qemu_register_reset(ptr noundef nonnull @vga_reset, ptr noundef %s) #17
-  %bank_offset = getelementptr inbounds i8, ptr %s, i64 2428
+  %bank_offset = getelementptr inbounds nuw i8, ptr %s, i64 2428
   store i32 0, ptr %bank_offset, align 4
   store ptr %address_space, ptr %s, align 16
   %call.i = tail call ptr @qdev_get_machine() #17
@@ -2748,7 +2748,7 @@ entry:
   br i1 %init_vga_ports, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %vga_port_list = getelementptr inbounds i8, ptr %s, i64 2456
+  %vga_port_list = getelementptr inbounds nuw i8, ptr %s, i64 2456
   tail call void @portio_list_init(ptr noundef nonnull %vga_port_list, ptr noundef %obj, ptr noundef nonnull @vga_portio_list, ptr noundef nonnull %s, ptr noundef nonnull @.str.2) #17
   tail call void @portio_list_set_flush_coalesced(ptr noundef nonnull %vga_port_list) #17
   tail call void @portio_list_add(ptr noundef nonnull %vga_port_list, ptr noundef %address_space_io, i32 noundef 944) #17
@@ -2757,7 +2757,7 @@ if.then:                                          ; preds = %entry
 if.end6:                                          ; preds = %if.then, %entry
   %tobool.not.i = icmp eq ptr %call2.i, null
   %vbe_portio_list_no_x86.vbe_portio_list_x86.i = select i1 %tobool.not.i, ptr @vbe_portio_list_no_x86, ptr @vbe_portio_list_x86
-  %vbe_port_list = getelementptr inbounds i8, ptr %s, i64 2520
+  %vbe_port_list = getelementptr inbounds nuw i8, ptr %s, i64 2520
   tail call void @portio_list_init(ptr noundef nonnull %vbe_port_list, ptr noundef %obj, ptr noundef nonnull %vbe_portio_list_no_x86.vbe_portio_list_x86.i, ptr noundef nonnull %s, ptr noundef nonnull @.str.35) #17
   tail call void @portio_list_add(ptr noundef nonnull %vbe_port_list, ptr noundef %address_space_io, i32 noundef 462) #17
   ret void
@@ -2768,59 +2768,59 @@ declare void @qemu_register_reset(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vga_reset(ptr noundef initializes((592, 2432), (2584, 2606), (2608, 2620), (2632, 2646), (2648, 2664), (2668, 2670), (2672, 2688), (2694, 2696), (2712, 2716), (2730, 2731), (2736, 2992), (3016, 68040)) %opaque) #1 {
 entry:
-  %sr_index.i = getelementptr inbounds i8, ptr %opaque, i64 592
-  %vbe_index.i = getelementptr inbounds i8, ptr %opaque, i64 2584
-  %vbe_regs.i = getelementptr inbounds i8, ptr %opaque, i64 2586
+  %sr_index.i = getelementptr inbounds nuw i8, ptr %opaque, i64 592
+  %vbe_index.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
+  %vbe_regs.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1840) %sr_index.i, i8 0, i64 1840, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %vbe_index.i, i8 0, i64 22, i1 false)
   store i16 -20283, ptr %vbe_regs.i, align 2
-  %vbe_start_addr.i = getelementptr inbounds i8, ptr %opaque, i64 2608
+  %vbe_start_addr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2608
   store i32 0, ptr %vbe_start_addr.i, align 16
-  %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
+  %vbe_line_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2612
   store i32 0, ptr %vbe_line_offset.i, align 4
-  %vram_size.i = getelementptr inbounds i8, ptr %opaque, i64 288
+  %vram_size.i = getelementptr inbounds nuw i8, ptr %opaque, i64 288
   %0 = load i32, ptr %vram_size.i, align 16
   %shr.i = lshr i32 %0, 16
   %sub.i = add nsw i32 %shr.i, -1
-  %vbe_bank_mask.i = getelementptr inbounds i8, ptr %opaque, i64 2616
+  %vbe_bank_mask.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2616
   store i32 %sub.i, ptr %vbe_bank_mask.i, align 8
-  %font_offsets.i = getelementptr inbounds i8, ptr %opaque, i64 2632
+  %font_offsets.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2632
   store i64 0, ptr %font_offsets.i, align 8
-  %graphic_mode.i = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %graphic_mode.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   store i32 -1, ptr %graphic_mode.i, align 16
-  %shift_control.i = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %shift_control.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   store i8 0, ptr %shift_control.i, align 4
-  %double_scan.i = getelementptr inbounds i8, ptr %opaque, i64 2645
+  %double_scan.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2645
   store i8 0, ptr %double_scan.i, align 1
-  %line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2648
-  %last_cw.i = getelementptr inbounds i8, ptr %opaque, i64 2668
+  %line_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
+  %last_cw.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2668
   store i8 0, ptr %last_cw.i, align 4
-  %last_ch.i = getelementptr inbounds i8, ptr %opaque, i64 2669
+  %last_ch.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2669
   store i8 0, ptr %last_ch.i, align 1
-  %last_width.i = getelementptr inbounds i8, ptr %opaque, i64 2672
-  %cursor_start.i = getelementptr inbounds i8, ptr %opaque, i64 2694
+  %last_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
+  %cursor_start.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2694
   store i8 0, ptr %cursor_start.i, align 2
-  %cursor_end.i = getelementptr inbounds i8, ptr %opaque, i64 2695
+  %cursor_end.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2695
   store i8 0, ptr %cursor_end.i, align 1
-  %cursor_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2712
+  %cursor_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2712
   store i32 0, ptr %cursor_offset.i, align 8
-  %default_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 2731
+  %default_endian_fb.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2731
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %line_offset.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %last_width.i, i8 0, i64 16, i1 false)
   %1 = load i8, ptr %default_endian_fb.i, align 1
-  %big_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 2730
+  %big_endian_fb.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2730
   %frombool.i = and i8 %1, 1
   store i8 %frombool.i, ptr %big_endian_fb.i, align 2
-  %invalidated_y_table.i = getelementptr inbounds i8, ptr %opaque, i64 2736
+  %invalidated_y_table.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table.i, i8 0, i64 256, i1 false)
-  %last_palette.i = getelementptr inbounds i8, ptr %opaque, i64 3016
+  %last_palette.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3016
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65024) %last_palette.i, i8 0, i64 65024, i1 false)
   %2 = load i32, ptr @vga_retrace_method, align 4
   %cond.i = icmp eq i32 %2, 1
   br i1 %cond.i, label %sw.bb13.i, label %vga_common_reset.exit
 
 sw.bb13.i:                                        ; preds = %entry
-  %retrace_info.i = getelementptr inbounds i8, ptr %opaque, i64 68056
+  %retrace_info.i = getelementptr inbounds nuw i8, ptr %opaque, i64 68056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %retrace_info.i, i8 0, i64 40, i1 false)
   br label %vga_common_reset.exit
 
@@ -2857,9 +2857,9 @@ declare ptr @memory_region_owner(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @vga_endian_state_needed(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %default_endian_fb = getelementptr inbounds i8, ptr %opaque, i64 2731
+  %default_endian_fb = getelementptr inbounds nuw i8, ptr %opaque, i64 2731
   %0 = load i8, ptr %default_endian_fb, align 1
-  %big_endian_fb = getelementptr inbounds i8, ptr %opaque, i64 2730
+  %big_endian_fb = getelementptr inbounds nuw i8, ptr %opaque, i64 2730
   %1 = load i8, ptr %big_endian_fb, align 2
   %2 = xor i8 %1, %0
   %3 = and i8 %2, 1
@@ -2875,9 +2875,9 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @vga_invalidate_display(ptr nocapture noundef writeonly initializes((2672, 2680)) %opaque) #4 {
 entry:
-  %last_width = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %last_width = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
   store i32 -1, ptr %last_width, align 16
-  %last_height = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   store i32 -1, ptr %last_height, align 4
   ret void
 }
@@ -2894,7 +2894,7 @@ entry:
   %line_offset.i.i = alloca i32, align 4
   %line_compare.i.i = alloca i32, align 4
   %font_base.i = alloca [2 x ptr], align 16
-  %con = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %con = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %0 = load ptr, ptr %con, align 16
   %call = tail call ptr @qemu_console_surface(ptr noundef %0) #17
   tail call void @qemu_flush_coalesced_mmio_buffer() #17
@@ -2906,7 +2906,7 @@ entry:
   br i1 %cmp, label %if.end15, label %if.else
 
 if.else:                                          ; preds = %entry
-  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %1 = load i8, ptr %ar_index, align 2
   %2 = and i8 %1, 32
   %tobool.not = icmp eq i8 %2, 0
@@ -2921,7 +2921,7 @@ if.else3:                                         ; preds = %if.else
 
 if.end:                                           ; preds = %if.else, %if.else3
   %graphic_mode.0 = phi i32 [ %and5, %if.else3 ], [ 2, %if.else ]
-  %graphic_mode6 = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %graphic_mode6 = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   %5 = load i32, ptr %graphic_mode6, align 16
   %cmp7.not = icmp eq i32 %graphic_mode.0, %5
   br i1 %cmp7.not, label %if.end12, label %if.then9
@@ -2930,7 +2930,7 @@ if.then9:                                         ; preds = %if.end
   store i32 %graphic_mode.0, ptr %graphic_mode6, align 16
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #17
   %div.i = sdiv i64 %call.i, 1000000
-  %cursor_blink_time = getelementptr inbounds i8, ptr %opaque, i64 2704
+  %cursor_blink_time = getelementptr inbounds nuw i8, ptr %opaque, i64 2704
   store i64 %div.i, ptr %cursor_blink_time, align 16
   br label %if.end12
 
@@ -2962,7 +2962,7 @@ sw.bb:                                            ; preds = %if.end12
   %or.i = or disjoint i32 %and.i, %and3.i17
   %mul4.i = shl nuw nsw i32 %or.i, 15
   %add.i = or disjoint i32 %mul4.i, 2
-  %font_offsets.i = getelementptr inbounds i8, ptr %opaque, i64 2632
+  %font_offsets.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2632
   %9 = load i32, ptr %font_offsets.i, align 8
   %cmp.not.i = icmp eq i32 %add.i, %9
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -2973,7 +2973,7 @@ if.then.i:                                        ; preds = %sw.bb
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb
   %full_update.addr.0.i = phi i32 [ 1, %if.then.i ], [ %full_update.0, %sw.bb ]
-  %vram_ptr.i = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %10 = load ptr, ptr %vram_ptr.i, align 8
   %idx.ext.i = zext nneg i32 %add.i to i64
   %add.ptr.i = getelementptr i8, ptr %10, i64 %idx.ext.i
@@ -2987,7 +2987,7 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb
   %add16.i = or disjoint i32 %mul15.i, 2
   %idx.ext18.i = zext nneg i32 %add16.i to i64
   %add.ptr19.i = getelementptr i8, ptr %10, i64 %idx.ext18.i
-  %arrayidx20.i = getelementptr inbounds i8, ptr %font_base.i, i64 8
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %font_base.i, i64 8
   store ptr %add.ptr19.i, ptr %arrayidx20.i, align 8
   %arrayidx22.i = getelementptr i8, ptr %opaque, i64 2636
   %11 = load i32, ptr %arrayidx22.i, align 4
@@ -3000,14 +3000,14 @@ if.then25.i:                                      ; preds = %if.end.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end.i
   %full_update.addr.1.i = phi i32 [ 1, %if.then25.i ], [ %full_update.addr.0.i, %if.end.i ]
-  %plane_updated.i = getelementptr inbounds i8, ptr %opaque, i64 2660
+  %plane_updated.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2660
   %12 = load i32, ptr %plane_updated.i, align 4
   %and29.i = and i32 %12, 4
   %tobool.not.i = icmp eq i32 %and29.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then32.i
 
 lor.lhs.false.i:                                  ; preds = %if.end28.i
-  %has_chain4_alias.i = getelementptr inbounds i8, ptr %opaque, i64 308
+  %has_chain4_alias.i = getelementptr inbounds nuw i8, ptr %opaque, i64 308
   %13 = load i8, ptr %has_chain4_alias.i, align 4
   %tobool30.i = trunc i8 %13 to i1
   br i1 %tobool30.i, label %if.then32.i, label %if.end34.i
@@ -3021,11 +3021,11 @@ if.end34.i:                                       ; preds = %if.then32.i, %lor.l
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_addr.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_offset.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i.i)
-  %get_offsets.i.i = getelementptr inbounds i8, ptr %opaque, i64 2440
+  %get_offsets.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2440
   %14 = load ptr, ptr %get_offsets.i.i, align 8
   call void %14(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i, ptr noundef nonnull %start_addr.i.i, ptr noundef nonnull %line_compare.i.i) #17
   %15 = load i32, ptr %line_offset.i.i, align 4
-  %line_offset1.i.i = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %line_offset1.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   %16 = load i32, ptr %line_offset1.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %15, %16
   %.pre.i.i = load i32, ptr %start_addr.i.i, align 4
@@ -3036,14 +3036,14 @@ entry.if.then_crit_edge.i.i:                      ; preds = %if.end34.i
   br label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end34.i
-  %start_addr2.i.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr2.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %17 = load i32, ptr %start_addr2.i.i, align 16
   %cmp3.not.i.i = icmp eq i32 %.pre.i.i, %17
   %.pre9.i.i = load i32, ptr %line_compare.i.i, align 4
   br i1 %cmp3.not.i.i, label %lor.lhs.false4.i.i, label %if.then.i.i
 
 lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
-  %line_compare5.i.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare5.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   %18 = load i32, ptr %line_compare5.i.i, align 4
   %cmp6.not.i.i = icmp eq i32 %.pre9.i.i, %18
   br i1 %cmp6.not.i.i, label %update_basic_params.exit.i, label %if.then.i.i
@@ -3051,9 +3051,9 @@ lor.lhs.false4.i.i:                               ; preds = %lor.lhs.false.i.i
 if.then.i.i:                                      ; preds = %lor.lhs.false4.i.i, %lor.lhs.false.i.i, %entry.if.then_crit_edge.i.i
   %19 = phi i32 [ %.pre8.i.i, %entry.if.then_crit_edge.i.i ], [ %.pre9.i.i, %lor.lhs.false4.i.i ], [ %.pre9.i.i, %lor.lhs.false.i.i ]
   store i32 %15, ptr %line_offset1.i.i, align 8
-  %start_addr8.i.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr8.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   store i32 %.pre.i.i, ptr %start_addr8.i.i, align 16
-  %line_compare9.i.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare9.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   store i32 %19, ptr %line_compare9.i.i, align 4
   br label %update_basic_params.exit.i
 
@@ -3116,42 +3116,42 @@ vga_get_text_resolution.exit.i:                   ; preds = %if.else.i.i, %updat
   br i1 %or.cond158.i, label %vga_draw_text.exit, label %if.end47.i
 
 if.end47.i:                                       ; preds = %vga_get_text_resolution.exit.i
-  %last_width.i = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %last_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
   %30 = load i32, ptr %last_width.i, align 16
   %cmp48.not.i = icmp eq i32 %add12.i.i, %30
   br i1 %cmp48.not.i, label %lor.lhs.false50.i, label %if.then63.i
 
 lor.lhs.false50.i:                                ; preds = %if.end47.i
-  %last_height.i = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   %31 = load i32, ptr %last_height.i, align 4
   %cmp51.not.i = icmp eq i32 %height.0.i.i, %31
   br i1 %cmp51.not.i, label %lor.lhs.false53.i, label %if.then63.i
 
 lor.lhs.false53.i:                                ; preds = %lor.lhs.false50.i
-  %last_cw.i = getelementptr inbounds i8, ptr %opaque, i64 2668
+  %last_cw.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2668
   %32 = load i8, ptr %last_cw.i, align 4
   %conv54.i = zext i8 %32 to i32
   %cmp55.not.i = icmp eq i32 %cwidth.1.i.i, %conv54.i
   br i1 %cmp55.not.i, label %lor.lhs.false57.i, label %if.then63.i
 
 lor.lhs.false57.i:                                ; preds = %lor.lhs.false53.i
-  %last_ch.i = getelementptr inbounds i8, ptr %opaque, i64 2669
+  %last_ch.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2669
   %33 = load i8, ptr %last_ch.i, align 1
   %cmp59.not.i = icmp eq i8 %narrow.i.i, %33
   br i1 %cmp59.not.i, label %lor.lhs.false61.i, label %if.then63.i
 
 lor.lhs.false61.i:                                ; preds = %lor.lhs.false57.i
-  %last_depth.i = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %last_depth.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2688
   %34 = load i32, ptr %last_depth.i, align 16
   %tobool62.not.i = icmp eq i32 %34, 0
   br i1 %tobool62.not.i, label %if.end79.i, label %if.then63.i
 
 if.then63.i:                                      ; preds = %lor.lhs.false61.i, %lor.lhs.false57.i, %lor.lhs.false53.i, %lor.lhs.false50.i, %if.end47.i
   %mul64.i = mul nuw nsw i32 %cwidth.1.i.i, %add12.i.i
-  %last_scr_width.i = getelementptr inbounds i8, ptr %opaque, i64 2680
+  %last_scr_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2680
   store i32 %mul64.i, ptr %last_scr_width.i, align 8
   %mul65.i = mul nuw nsw i32 %height.0.i.i, %add.i.i
-  %last_scr_height.i = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %last_scr_height.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2684
   store i32 %mul65.i, ptr %last_scr_height.i, align 4
   %35 = load ptr, ptr %con, align 16
   call void @qemu_console_resize(ptr noundef %35, i32 noundef %mul64.i, i32 noundef %mul65.i) #17
@@ -3159,15 +3159,15 @@ if.then63.i:                                      ; preds = %lor.lhs.false61.i, 
   %call70.i = call ptr @qemu_console_surface(ptr noundef %36) #17
   %37 = load ptr, ptr %con, align 16
   call void @dpy_text_resize(ptr noundef %37, i32 noundef %add12.i.i, i32 noundef %height.0.i.i) #17
-  %last_depth72.i = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %last_depth72.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2688
   store i32 0, ptr %last_depth72.i, align 16
   store i32 %add12.i.i, ptr %last_width.i, align 16
-  %last_height74.i = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height74.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   store i32 %height.0.i.i, ptr %last_height74.i, align 4
-  %last_ch76.i = getelementptr inbounds i8, ptr %opaque, i64 2669
+  %last_ch76.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2669
   store i8 %narrow.i.i, ptr %last_ch76.i, align 1
   %conv77.i = trunc nuw nsw i32 %cwidth.1.i.i to i8
-  %last_cw78.i = getelementptr inbounds i8, ptr %opaque, i64 2668
+  %last_cw78.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2668
   store i8 %conv77.i, ptr %last_cw78.i, align 4
   br label %if.end79.i
 
@@ -3176,7 +3176,7 @@ if.end79.i:                                       ; preds = %if.then63.i, %lor.l
   %full_update.addr.3.i = phi i32 [ 1, %if.then63.i ], [ %or36.i, %lor.lhs.false61.i ]
   %call80.i = call fastcc i32 @update_palette16(ptr noundef nonnull %opaque)
   %or81.i = or i32 %call80.i, %full_update.addr.3.i
-  %last_palette.i = getelementptr inbounds i8, ptr %opaque, i64 3016
+  %last_palette.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3016
   %s.val3.i.i = load ptr, ptr %surface.0.i, align 8
   %call.i.i.i = call i32 @pixman_image_get_format(ptr noundef %s.val3.i.i) #17
   %shr.i.i = lshr i32 %call.i.i.i, 24
@@ -3192,12 +3192,12 @@ if.end79.i:                                       ; preds = %if.then63.i, %lor.l
   br i1 %tobool84.not.i, label %if.end86.i, label %if.then85.i
 
 if.then85.i:                                      ; preds = %if.end79.i
-  %full_update_text.i = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %full_update_text.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   store i8 1, ptr %full_update_text.i, align 8
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then85.i, %if.end79.i
-  %full_update_gfx.i = getelementptr inbounds i8, ptr %opaque, i64 2729
+  %full_update_gfx.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2729
   %38 = load i8, ptr %full_update_gfx.i, align 1
   %tobool87.i = trunc i8 %38 to i1
   br i1 %tobool87.i, label %if.then88.i, label %if.end91.i
@@ -3216,10 +3216,10 @@ if.end91.i:                                       ; preds = %if.then88.i, %if.en
   %40 = load i8, ptr %arrayidx96.i, align 1
   %conv97.i = zext i8 %40 to i32
   %or98.i = or disjoint i32 %shl94.i, %conv97.i
-  %start_addr.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %41 = load i32, ptr %start_addr.i, align 16
   %sub.i = sub i32 %or98.i, %41
-  %cursor_offset99.i = getelementptr inbounds i8, ptr %opaque, i64 2712
+  %cursor_offset99.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2712
   %42 = load i32, ptr %cursor_offset99.i, align 8
   %cmp100.not.i = icmp eq i32 %sub.i, %42
   br i1 %cmp100.not.i, label %lor.lhs.false102.i, label %if.then116.i
@@ -3227,7 +3227,7 @@ if.end91.i:                                       ; preds = %if.then88.i, %if.en
 lor.lhs.false102.i:                               ; preds = %if.end91.i
   %arrayidx104.i = getelementptr i8, ptr %opaque, i64 1399
   %43 = load i8, ptr %arrayidx104.i, align 1
-  %cursor_start.i = getelementptr inbounds i8, ptr %opaque, i64 2694
+  %cursor_start.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2694
   %44 = load i8, ptr %cursor_start.i, align 2
   %cmp107.not.i = icmp eq i8 %43, %44
   br i1 %cmp107.not.i, label %lor.lhs.false109.i, label %if.then116.i
@@ -3235,7 +3235,7 @@ lor.lhs.false102.i:                               ; preds = %if.end91.i
 lor.lhs.false109.i:                               ; preds = %lor.lhs.false102.i
   %arrayidx111.i = getelementptr i8, ptr %opaque, i64 1400
   %45 = load i8, ptr %arrayidx111.i, align 1
-  %cursor_end.i = getelementptr inbounds i8, ptr %opaque, i64 2695
+  %cursor_end.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2695
   %46 = load i8, ptr %cursor_end.i, align 1
   %cmp114.not.i = icmp eq i8 %45, %46
   br i1 %cmp114.not.i, label %if.end138.i, label %if.then116.i
@@ -3245,7 +3245,7 @@ if.then116.i:                                     ; preds = %lor.lhs.false109.i,
   br i1 %cmp118.i, label %if.then120.i, label %if.end123.i
 
 if.then120.i:                                     ; preds = %if.then116.i
-  %last_ch_attr.i = getelementptr inbounds i8, ptr %opaque, i64 4040
+  %last_ch_attr.i = getelementptr inbounds nuw i8, ptr %opaque, i64 4040
   %idxprom.i = zext nneg i32 %42 to i64
   %arrayidx122.i = getelementptr [16000 x i32], ptr %last_ch_attr.i, i64 0, i64 %idxprom.i
   store i32 -1, ptr %arrayidx122.i, align 4
@@ -3256,7 +3256,7 @@ if.end123.i:                                      ; preds = %if.then120.i, %if.t
   br i1 %cmp124.i, label %if.then126.i, label %if.end130.i
 
 if.then126.i:                                     ; preds = %if.end123.i
-  %last_ch_attr127.i = getelementptr inbounds i8, ptr %opaque, i64 4040
+  %last_ch_attr127.i = getelementptr inbounds nuw i8, ptr %opaque, i64 4040
   %idxprom128.i = zext nneg i32 %sub.i to i64
   %arrayidx129.i = getelementptr [16000 x i32], ptr %last_ch_attr127.i, i64 0, i64 %idxprom128.i
   store i32 -1, ptr %arrayidx129.i, align 4
@@ -3266,11 +3266,11 @@ if.end130.i:                                      ; preds = %if.then126.i, %if.e
   store i32 %sub.i, ptr %cursor_offset99.i, align 8
   %arrayidx133.i = getelementptr i8, ptr %opaque, i64 1399
   %47 = load i8, ptr %arrayidx133.i, align 1
-  %cursor_start134.i = getelementptr inbounds i8, ptr %opaque, i64 2694
+  %cursor_start134.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2694
   store i8 %47, ptr %cursor_start134.i, align 2
   %arrayidx136.i = getelementptr i8, ptr %opaque, i64 1400
   %48 = load i8, ptr %arrayidx136.i, align 1
-  %cursor_end137.i = getelementptr inbounds i8, ptr %opaque, i64 2695
+  %cursor_end137.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2695
   store i8 %48, ptr %cursor_end137.i, align 1
   br label %if.end138.i
 
@@ -3279,7 +3279,7 @@ if.end138.i:                                      ; preds = %if.end130.i, %lor.l
   %mul142.i = shl nuw nsw i32 %or98.i, 2
   %idx.ext143.i = zext nneg i32 %mul142.i to i64
   %add.ptr144.i = getelementptr i8, ptr %49, i64 %idx.ext143.i
-  %cursor_blink_time.i = getelementptr inbounds i8, ptr %opaque, i64 2704
+  %cursor_blink_time.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2704
   %50 = load i64, ptr %cursor_blink_time.i, align 16
   %cmp145.not.i = icmp slt i64 %div.i.i, %50
   br i1 %cmp145.not.i, label %if.end152.i, label %if.then147.i
@@ -3287,7 +3287,7 @@ if.end138.i:                                      ; preds = %if.end130.i, %lor.l
 if.then147.i:                                     ; preds = %if.end138.i
   %add148.i = add nsw i64 %div.i.i, 266
   store i64 %add148.i, ptr %cursor_blink_time.i, align 16
-  %cursor_visible_phase.i = getelementptr inbounds i8, ptr %opaque, i64 2696
+  %cursor_visible_phase.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2696
   %51 = load i8, ptr %cursor_visible_phase.i, align 8
   %lnot.i = and i8 %51, 1
   %frombool.i = xor i8 %lnot.i, 1
@@ -3305,18 +3305,18 @@ if.end152.i:                                      ; preds = %if.then147.i, %if.e
 for.body.lr.ph.i:                                 ; preds = %if.end152.i
   %52 = load i32, ptr %start_addr.i, align 16
   %mul158.i = shl i32 %52, 2
-  %last_ch_attr155.i = getelementptr inbounds i8, ptr %opaque, i64 4040
-  %vram_size.i = getelementptr inbounds i8, ptr %opaque, i64 288
+  %last_ch_attr155.i = getelementptr inbounds nuw i8, ptr %opaque, i64 4040
+  %vram_size.i = getelementptr inbounds nuw i8, ptr %opaque, i64 288
   %tobool177.not.i = icmp eq i32 %full_update.addr.4.i, 0
   %arrayidx220.i = getelementptr i8, ptr %opaque, i64 1379
   %idx.ext.i215.i = sext i32 %call.i169.i to i64
   %arrayidx232.i = getelementptr i8, ptr %opaque, i64 1399
-  %cursor_visible_phase237.i = getelementptr inbounds i8, ptr %opaque, i64 2696
+  %cursor_visible_phase237.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2696
   %arrayidx246.i = getelementptr i8, ptr %opaque, i64 1400
   %idx.ext279.i = zext nneg i32 %mul83.i to i64
   %mul292.i = mul i32 %call.i169.i, %add.i.i
   %idx.ext293.i = sext i32 %mul292.i to i64
-  %line_compare.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end291.i, %for.body.lr.ph.i
@@ -3970,18 +3970,18 @@ sw.bb13:                                          ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %height.i)
   %92 = load ptr, ptr %con, align 16
   %call.i22 = tail call ptr @qemu_console_surface(ptr noundef %92) #17
-  %big_endian_fb.i = getelementptr inbounds i8, ptr %opaque, i64 2730
+  %big_endian_fb.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2730
   %93 = load i8, ptr %big_endian_fb.i, align 2
   %tobool.i = trunc i8 %93 to i1
   %frombool.i23 = and i8 %93, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_addr.i.i18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_offset.i.i19)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i.i20)
-  %get_offsets.i.i24 = getelementptr inbounds i8, ptr %opaque, i64 2440
+  %get_offsets.i.i24 = getelementptr inbounds nuw i8, ptr %opaque, i64 2440
   %94 = load ptr, ptr %get_offsets.i.i24, align 8
   call void %94(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i.i19, ptr noundef nonnull %start_addr.i.i18, ptr noundef nonnull %line_compare.i.i20) #17
   %95 = load i32, ptr %line_offset.i.i19, align 4
-  %line_offset1.i.i25 = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %line_offset1.i.i25 = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   %96 = load i32, ptr %line_offset1.i.i25, align 8
   %cmp.not.i.i26 = icmp eq i32 %95, %96
   %.pre.i.i27 = load i32, ptr %start_addr.i.i18, align 4
@@ -3992,14 +3992,14 @@ entry.if.then_crit_edge.i.i28:                    ; preds = %sw.bb13
   br label %if.then.i.i30
 
 lor.lhs.false.i.i77:                              ; preds = %sw.bb13
-  %start_addr2.i.i78 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr2.i.i78 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %97 = load i32, ptr %start_addr2.i.i78, align 16
   %cmp3.not.i.i79 = icmp eq i32 %.pre.i.i27, %97
   %.pre9.i.i80 = load i32, ptr %line_compare.i.i20, align 4
   br i1 %cmp3.not.i.i79, label %lor.lhs.false4.i.i81, label %if.then.i.i30
 
 lor.lhs.false4.i.i81:                             ; preds = %lor.lhs.false.i.i77
-  %line_compare5.i.i82 = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare5.i.i82 = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   %98 = load i32, ptr %line_compare5.i.i82, align 4
   %cmp6.not.i.i83 = icmp eq i32 %.pre9.i.i80, %98
   br i1 %cmp6.not.i.i83, label %update_basic_params.exit.i33, label %if.then.i.i30
@@ -4007,9 +4007,9 @@ lor.lhs.false4.i.i81:                             ; preds = %lor.lhs.false.i.i77
 if.then.i.i30:                                    ; preds = %lor.lhs.false4.i.i81, %lor.lhs.false.i.i77, %entry.if.then_crit_edge.i.i28
   %99 = phi i32 [ %.pre8.i.i29, %entry.if.then_crit_edge.i.i28 ], [ %.pre9.i.i80, %lor.lhs.false4.i.i81 ], [ %.pre9.i.i80, %lor.lhs.false.i.i77 ]
   store i32 %95, ptr %line_offset1.i.i25, align 8
-  %start_addr8.i.i31 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr8.i.i31 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   store i32 %.pre.i.i27, ptr %start_addr8.i.i31, align 16
-  %line_compare9.i.i32 = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare9.i.i32 = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   store i32 %99, ptr %line_compare9.i.i32, align 4
   br label %update_basic_params.exit.i33
 
@@ -4019,14 +4019,14 @@ update_basic_params.exit.i33:                     ; preds = %if.then.i.i30, %lor
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_offset.i.i19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %line_compare.i.i20)
   %or.i35 = or i32 %full_update.0.i.i34, %full_update.0
-  %get_resolution.i = getelementptr inbounds i8, ptr %opaque, i64 2448
+  %get_resolution.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2448
   %100 = load ptr, ptr %get_resolution.i, align 16
   call void %100(ptr noundef nonnull %opaque, ptr noundef nonnull %width.i, ptr noundef nonnull %height.i) #17
   %101 = load i32, ptr %width.i, align 4
-  %get_bpp.i = getelementptr inbounds i8, ptr %opaque, i64 2432
+  %get_bpp.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2432
   %102 = load ptr, ptr %get_bpp.i, align 16
   %call2.i = call i32 %102(ptr noundef nonnull %opaque) #17
-  %start_addr.i36 = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr.i36 = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %103 = load i32, ptr %start_addr.i36, align 16
   %mul.i = shl i32 %103, 2
   %conv.i37 = zext i32 %mul.i to i64
@@ -4042,7 +4042,7 @@ update_basic_params.exit.i33:                     ; preds = %if.then.i.i30, %lor
   %add.i39 = sub nsw i64 %conv.i37, %conv3.i
   %add8.i = add i64 %add.i39, %mul5.i
   %sub.i40 = add i64 %add8.i, %conv7.i
-  %vbe_size.i = getelementptr inbounds i8, ptr %opaque, i64 296
+  %vbe_size.i = getelementptr inbounds nuw i8, ptr %opaque, i64 296
   %107 = load i32, ptr %vbe_size.i, align 8
   %conv11.i = zext i32 %107 to i64
   %cmp.i = icmp ule i64 %sub.i40, %conv11.i
@@ -4082,13 +4082,13 @@ if.end.i42:                                       ; preds = %if.then.i41, %switc
   %shl.i43 = shl nuw nsw i32 %add34.i, %shr23.i
   %sub35.i = add nsw i32 %shl.i43, -1
   %multi_scan.0.i = select i1 %tobool28.not.i, i32 %shr23.i, i32 %sub35.i
-  %shift_control37.i = getelementptr inbounds i8, ptr %opaque, i64 2644
+  %shift_control37.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2644
   %116 = load i8, ptr %shift_control37.i, align 4
   %cmp39.not.i = icmp eq i8 %112, %116
   br i1 %cmp39.not.i, label %lor.lhs.false41.i, label %if.then46.i
 
 lor.lhs.false41.i:                                ; preds = %if.end.i42
-  %double_scan42.i = getelementptr inbounds i8, ptr %opaque, i64 2645
+  %double_scan42.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2645
   %117 = load i8, ptr %double_scan42.i, align 1
   %conv43.i = zext i8 %117 to i32
   %cmp44.not.i = icmp eq i32 %shr23.i, %conv43.i
@@ -4097,7 +4097,7 @@ lor.lhs.false41.i:                                ; preds = %if.end.i42
 if.then46.i:                                      ; preds = %lor.lhs.false41.i, %if.end.i42
   store i8 %112, ptr %shift_control37.i, align 4
   %conv49.i = trunc nuw nsw i32 %shr23.i to i8
-  %double_scan50.i = getelementptr inbounds i8, ptr %opaque, i64 2645
+  %double_scan50.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2645
   store i8 %conv49.i, ptr %double_scan50.i, align 1
   br label %if.end51.i
 
@@ -4133,7 +4133,7 @@ if.then78.i:                                      ; preds = %if.end74.i
   br i1 %call80.i46, label %land.lhs.true.i, label %if.end88.i
 
 land.lhs.true.i:                                  ; preds = %if.then78.i
-  %force_shadow82.i = getelementptr inbounds i8, ptr %opaque, i64 2693
+  %force_shadow82.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2693
   %124 = load i8, ptr %force_shadow82.i, align 1
   %tobool83.i = trunc i8 %124 to i1
   %not.tobool83.i = xor i1 %tobool83.i, true
@@ -4143,7 +4143,7 @@ land.lhs.true.i:                                  ; preds = %if.then78.i
 if.end88.i:                                       ; preds = %land.lhs.true.i, %if.then78.i, %if.end74.i
   %share_surface.0.i = phi i1 [ false, %if.then78.i ], [ %spec.select174.i, %land.lhs.true.i ], [ false, %if.end74.i ]
   %125 = load i32, ptr %line_offset1.i.i25, align 8
-  %last_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2664
+  %last_line_offset.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2664
   %126 = load i32, ptr %last_line_offset.i, align 8
   %cmp90.not.i = icmp eq i32 %125, %126
   br i1 %cmp90.not.i, label %lor.lhs.false92.i, label %if.end88.if.then114_crit_edge.i
@@ -4153,26 +4153,26 @@ if.end88.if.then114_crit_edge.i:                  ; preds = %if.end88.i
   br label %if.then114.i
 
 lor.lhs.false92.i:                                ; preds = %if.end88.i
-  %last_width.i74 = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %last_width.i74 = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
   %127 = load i32, ptr %last_width.i74, align 16
   %cmp93.not.i = icmp eq i32 %disp_width.0.i, %127
   %.pre303.i = load i32, ptr %height.i, align 4
   br i1 %cmp93.not.i, label %lor.lhs.false95.i, label %if.then114.i
 
 lor.lhs.false95.i:                                ; preds = %lor.lhs.false92.i
-  %last_height.i75 = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height.i75 = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   %128 = load i32, ptr %last_height.i75, align 4
   %cmp96.not.i = icmp eq i32 %.pre303.i, %128
   br i1 %cmp96.not.i, label %lor.lhs.false98.i, label %if.then114.i
 
 lor.lhs.false98.i:                                ; preds = %lor.lhs.false95.i
-  %last_depth.i76 = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %last_depth.i76 = getelementptr inbounds nuw i8, ptr %opaque, i64 2688
   %129 = load i32, ptr %last_depth.i76, align 16
   %cmp99.not.i = icmp eq i32 %129, %call2.i
   br i1 %cmp99.not.i, label %lor.lhs.false101.i, label %if.then114.i
 
 lor.lhs.false101.i:                               ; preds = %lor.lhs.false98.i
-  %last_byteswap.i = getelementptr inbounds i8, ptr %opaque, i64 2692
+  %last_byteswap.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2692
   %130 = load i8, ptr %last_byteswap.i, align 4
   %131 = xor i8 %130, %93
   %132 = and i8 %131, 1
@@ -4188,18 +4188,18 @@ lor.lhs.false108.i:                               ; preds = %lor.lhs.false101.i
 
 if.then114.i:                                     ; preds = %lor.lhs.false108.i, %lor.lhs.false101.i, %lor.lhs.false98.i, %lor.lhs.false95.i, %lor.lhs.false92.i, %if.end88.if.then114_crit_edge.i
   %136 = phi i32 [ %.pre.i, %if.end88.if.then114_crit_edge.i ], [ %.pre303.i, %lor.lhs.false108.i ], [ %.pre303.i, %lor.lhs.false101.i ], [ %.pre303.i, %lor.lhs.false98.i ], [ %.pre303.i, %lor.lhs.false95.i ], [ %.pre303.i, %lor.lhs.false92.i ]
-  %last_scr_width.i47 = getelementptr inbounds i8, ptr %opaque, i64 2680
+  %last_scr_width.i47 = getelementptr inbounds nuw i8, ptr %opaque, i64 2680
   store i32 %disp_width.0.i, ptr %last_scr_width.i47, align 8
-  %last_scr_height.i48 = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %last_scr_height.i48 = getelementptr inbounds nuw i8, ptr %opaque, i64 2684
   store i32 %136, ptr %last_scr_height.i48, align 4
-  %last_width115.i = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %last_width115.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
   store i32 %disp_width.0.i, ptr %last_width115.i, align 16
-  %last_height116.i = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height116.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   store i32 %136, ptr %last_height116.i, align 4
   store i32 %125, ptr %last_line_offset.i, align 8
-  %last_depth119.i = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %last_depth119.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2688
   store i32 %call2.i, ptr %last_depth119.i, align 16
-  %last_byteswap121.i = getelementptr inbounds i8, ptr %opaque, i64 2692
+  %last_byteswap121.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2692
   store i8 %frombool.i23, ptr %last_byteswap121.i, align 4
   br label %if.end123.i49
 
@@ -4207,7 +4207,7 @@ if.end123.i49:                                    ; preds = %if.then114.i, %lor.
   %full_update.addr.1.i50 = phi i32 [ 1, %if.then114.i ], [ %full_update.addr.0.i44, %lor.lhs.false108.i ]
   %call.val.i = load ptr, ptr %call.i22, align 8
   %call.i.i51 = call ptr @pixman_image_get_data(ptr noundef %call.val.i) #17
-  %vram_ptr.i52 = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr.i52 = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %137 = load ptr, ptr %vram_ptr.i52, align 8
   %138 = load i32, ptr %start_addr.i36, align 16
   %mul126.i = shl i32 %138, 2
@@ -4298,11 +4298,11 @@ if.else177.i:                                     ; preds = %if.end151.i
   ]
 
 sw.bb.i:                                          ; preds = %if.else177.i
-  %last_palette.i.i = getelementptr inbounds i8, ptr %opaque, i64 3016
-  %dac_8bit.i.i = getelementptr inbounds i8, ptr %opaque, i64 1656
+  %last_palette.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3016
+  %dac_8bit.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1656
   %154 = load i32, ptr %dac_8bit.i.i, align 8
   %tobool.not.i.i70 = icmp eq i32 %154, 0
-  %palette1.i.i = getelementptr inbounds i8, ptr %opaque, i64 1660
+  %palette1.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1660
   br i1 %tobool.not.i.i70, label %for.body.us.i.i, label %for.body.i.i
 
 for.body.us.i.i:                                  ; preds = %sw.bb.i, %if.end36.us.i.i
@@ -4399,11 +4399,11 @@ update_palette256.exit.i:                         ; preds = %if.end36.i.i, %if.e
   br label %if.end205.i
 
 sw.bb182.i:                                       ; preds = %if.else177.i
-  %last_palette.i212.i = getelementptr inbounds i8, ptr %opaque, i64 3016
-  %dac_8bit.i213.i = getelementptr inbounds i8, ptr %opaque, i64 1656
+  %last_palette.i212.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3016
+  %dac_8bit.i213.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1656
   %167 = load i32, ptr %dac_8bit.i213.i, align 8
   %tobool.not.i214.i = icmp eq i32 %167, 0
-  %palette1.i215.i = getelementptr inbounds i8, ptr %opaque, i64 1660
+  %palette1.i215.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1660
   br i1 %tobool.not.i214.i, label %for.body.us.i239.i, label %for.body.i216.i
 
 for.body.us.i239.i:                               ; preds = %sw.bb182.i, %if.end36.us.i274.i
@@ -4536,7 +4536,7 @@ if.end205.i:                                      ; preds = %sw.bb199.i, %sw.bb1
   br i1 %tobool208.not.not.i, label %if.end213.i, label %land.lhs.true209.i
 
 land.lhs.true209.i:                               ; preds = %if.end205.i
-  %cursor_invalidate.i = getelementptr inbounds i8, ptr %opaque, i64 3000
+  %cursor_invalidate.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3000
   %187 = load ptr, ptr %cursor_invalidate.i, align 8
   %tobool210.not.i = icmp eq ptr %187, null
   br i1 %tobool210.not.i, label %if.end213.i, label %if.then211.i
@@ -4560,12 +4560,12 @@ if.end213.i:                                      ; preds = %if.then211.i, %land
   br i1 %tobool222.not.i, label %if.then223.i, label %if.end230.i
 
 if.then223.i:                                     ; preds = %if.end213.i
-  %line_compare.i69 = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare.i69 = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   %190 = load i32, ptr %line_compare.i69, align 4
   %191 = load i32, ptr %height.i, align 4
   %cmp224.i = icmp ult i32 %190, %191
   %spec.select177.i = select i1 %cmp224.i, i64 0, i64 %region_start.0.i
-  %vram.i = getelementptr inbounds i8, ptr %opaque, i64 16
+  %vram.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %sub228.i = sub nsw i64 %region_end.0.i, %spec.select177.i
   %call229.i = call ptr @memory_region_snapshot_and_clear_dirty(ptr noundef nonnull %vram.i, i64 noundef %spec.select177.i, i64 noundef %sub228.i, i32 noundef 0) #17
   br label %if.end230.i
@@ -4577,12 +4577,12 @@ if.end230.i:                                      ; preds = %if.then223.i, %if.e
   br i1 %cmp231293.i, label %for.body.lr.ph.i59, label %vga_draw_graphic.exit
 
 for.body.lr.ph.i59:                               ; preds = %if.end230.i
-  %vbe_size_mask.i = getelementptr inbounds i8, ptr %opaque, i64 300
+  %vbe_size_mask.i = getelementptr inbounds nuw i8, ptr %opaque, i64 300
   %add264.i = add nsw i32 %div219.i, -1
-  %vram290.i = getelementptr inbounds i8, ptr %opaque, i64 16
-  %invalidated_y_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 2736
-  %cursor_draw_line.i = getelementptr inbounds i8, ptr %opaque, i64 3008
-  %line_compare336.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %vram290.i = getelementptr inbounds nuw i8, ptr %opaque, i64 16
+  %invalidated_y_table.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2736
+  %cursor_draw_line.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3008
+  %line_compare336.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   %idx.ext341.i = sext i32 %call.i282.i to i64
   br label %for.body.i60
 
@@ -4760,7 +4760,7 @@ if.then346.i:                                     ; preds = %for.end.i66
 
 vga_draw_graphic.exit:                            ; preds = %if.end230.i, %for.end.i66, %if.then346.i
   call void @g_free(ptr noundef %snap.0.i) #17
-  %invalidated_y_table.i = getelementptr inbounds i8, ptr %opaque, i64 2736
+  %invalidated_y_table.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2736
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %invalidated_y_table.i, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %width.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %height.i)
@@ -4772,13 +4772,13 @@ sw.default:                                       ; preds = %if.end12
   br i1 %cmp7.not, label %if.end15, label %if.end.i87
 
 if.end.i87:                                       ; preds = %sw.default
-  %last_scr_width.i88 = getelementptr inbounds i8, ptr %opaque, i64 2680
+  %last_scr_width.i88 = getelementptr inbounds nuw i8, ptr %opaque, i64 2680
   %211 = load i32, ptr %last_scr_width.i88, align 8
   %cmp.i89 = icmp eq i32 %211, 0
   br i1 %cmp.i89, label %if.end15, label %lor.lhs.false.i90
 
 lor.lhs.false.i90:                                ; preds = %if.end.i87
-  %last_scr_height.i91 = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %last_scr_height.i91 = getelementptr inbounds nuw i8, ptr %opaque, i64 2684
   %212 = load i32, ptr %last_scr_height.i91, align 4
   %cmp1.i = icmp eq i32 %212, 0
   br i1 %cmp1.i, label %if.end15, label %if.end3.i
@@ -4837,7 +4837,7 @@ entry:
   %height = alloca i32, align 4
   %msg_buffer = alloca [80 x i8], align 16
   tail call void @qemu_flush_coalesced_mmio_buffer() #17
-  %ar_index = getelementptr inbounds i8, ptr %opaque, i64 1362
+  %ar_index = getelementptr inbounds nuw i8, ptr %opaque, i64 1362
   %0 = load i8, ptr %ar_index, align 2
   %1 = and i8 %0, 32
   %tobool.not = icmp eq i8 %1, 0
@@ -4852,7 +4852,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.else
   %graphic_mode.0 = phi i32 [ %and2, %if.else ], [ 2, %entry ]
-  %graphic_mode3 = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %graphic_mode3 = getelementptr inbounds nuw i8, ptr %opaque, i64 2640
   %4 = load i32, ptr %graphic_mode3, align 16
   %cmp.not = icmp eq i32 %graphic_mode.0, %4
   br i1 %cmp.not, label %if.end7, label %if.then5
@@ -4863,7 +4863,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then5, %if.end
   %full_update.0 = phi i32 [ 1, %if.then5 ], [ 0, %if.end ]
-  %last_width = getelementptr inbounds i8, ptr %opaque, i64 2672
+  %last_width = getelementptr inbounds nuw i8, ptr %opaque, i64 2672
   %5 = load i32, ptr %last_width, align 16
   %cmp8 = icmp eq i32 %5, -1
   br i1 %cmp8, label %if.then10, label %if.end12
@@ -4883,11 +4883,11 @@ sw.bb:                                            ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %start_addr.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_offset.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %line_compare.i)
-  %get_offsets.i = getelementptr inbounds i8, ptr %opaque, i64 2440
+  %get_offsets.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2440
   %6 = load ptr, ptr %get_offsets.i, align 8
   call void %6(ptr noundef nonnull %opaque, ptr noundef nonnull %line_offset.i, ptr noundef nonnull %start_addr.i, ptr noundef nonnull %line_compare.i) #17
   %7 = load i32, ptr %line_offset.i, align 4
-  %line_offset1.i = getelementptr inbounds i8, ptr %opaque, i64 2648
+  %line_offset1.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2648
   %8 = load i32, ptr %line_offset1.i, align 8
   %cmp.not.i = icmp eq i32 %7, %8
   %.pre.i = load i32, ptr %start_addr.i, align 4
@@ -4898,14 +4898,14 @@ entry.if.then_crit_edge.i:                        ; preds = %sw.bb
   br label %if.then.i
 
 lor.lhs.false.i:                                  ; preds = %sw.bb
-  %start_addr2.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr2.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %9 = load i32, ptr %start_addr2.i, align 16
   %cmp3.not.i = icmp eq i32 %.pre.i, %9
   %.pre9.i = load i32, ptr %line_compare.i, align 4
   br i1 %cmp3.not.i, label %lor.lhs.false4.i, label %if.then.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %line_compare5.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare5.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   %10 = load i32, ptr %line_compare5.i, align 4
   %cmp6.not.i = icmp eq i32 %.pre9.i, %10
   br i1 %cmp6.not.i, label %update_basic_params.exit, label %if.then.i
@@ -4913,9 +4913,9 @@ lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
 if.then.i:                                        ; preds = %lor.lhs.false4.i, %lor.lhs.false.i, %entry.if.then_crit_edge.i
   %11 = phi i32 [ %.pre8.i, %entry.if.then_crit_edge.i ], [ %.pre9.i, %lor.lhs.false4.i ], [ %.pre9.i, %lor.lhs.false.i ]
   store i32 %7, ptr %line_offset1.i, align 8
-  %start_addr8.i = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr8.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   store i32 %.pre.i, ptr %start_addr8.i, align 16
-  %line_compare9.i = getelementptr inbounds i8, ptr %opaque, i64 2652
+  %line_compare9.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2652
   store i32 %11, ptr %line_compare9.i, align 4
   br label %update_basic_params.exit
 
@@ -4993,45 +4993,45 @@ if.end62:                                         ; preds = %if.end54
   br i1 %cmp64.not, label %lor.lhs.false, label %if.end88.thread
 
 lor.lhs.false:                                    ; preds = %if.end62
-  %last_height = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   %24 = load i32, ptr %last_height, align 4
   %cmp66.not = icmp eq i32 %22, %24
   br i1 %cmp66.not, label %lor.lhs.false68, label %if.end88.thread
 
 lor.lhs.false68:                                  ; preds = %lor.lhs.false
-  %last_cw = getelementptr inbounds i8, ptr %opaque, i64 2668
+  %last_cw = getelementptr inbounds nuw i8, ptr %opaque, i64 2668
   %25 = load i8, ptr %last_cw, align 4
   %conv69 = zext i8 %25 to i32
   %cmp70.not = icmp eq i32 %cw.1, %conv69
   br i1 %cmp70.not, label %lor.lhs.false72, label %if.end88.thread
 
 lor.lhs.false72:                                  ; preds = %lor.lhs.false68
-  %last_ch = getelementptr inbounds i8, ptr %opaque, i64 2669
+  %last_ch = getelementptr inbounds nuw i8, ptr %opaque, i64 2669
   %26 = load i8, ptr %last_ch, align 1
   %cmp74.not = icmp eq i8 %narrow, %26
   br i1 %cmp74.not, label %if.end88, label %if.end88.thread
 
 if.end88.thread:                                  ; preds = %if.end62, %lor.lhs.false, %lor.lhs.false68, %lor.lhs.false72
   %mul77 = mul nuw nsw i32 %cw.1, %add31
-  %last_scr_width = getelementptr inbounds i8, ptr %opaque, i64 2680
+  %last_scr_width = getelementptr inbounds nuw i8, ptr %opaque, i64 2680
   store i32 %mul77, ptr %last_scr_width, align 8
   %mul78 = mul nuw nsw i32 %22, %add
-  %last_scr_height = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %last_scr_height = getelementptr inbounds nuw i8, ptr %opaque, i64 2684
   store i32 %mul78, ptr %last_scr_height, align 4
-  %con = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %con = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %27 = load ptr, ptr %con, align 16
   call void @qemu_console_resize(ptr noundef %27, i32 noundef %mul77, i32 noundef %mul78) #17
   %28 = load ptr, ptr %con, align 16
   call void @dpy_text_resize(ptr noundef %28, i32 noundef %add31, i32 noundef %22) #17
-  %last_depth = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %last_depth = getelementptr inbounds nuw i8, ptr %opaque, i64 2688
   store i32 0, ptr %last_depth, align 16
   store i32 %add31, ptr %last_width, align 16
-  %last_height83 = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height83 = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   store i32 %22, ptr %last_height83, align 4
-  %last_ch85 = getelementptr inbounds i8, ptr %opaque, i64 2669
+  %last_ch85 = getelementptr inbounds nuw i8, ptr %opaque, i64 2669
   store i8 %narrow, ptr %last_ch85, align 1
   %conv86 = trunc nuw nsw i32 %cw.1 to i8
-  %last_cw87 = getelementptr inbounds i8, ptr %opaque, i64 2668
+  %last_cw87 = getelementptr inbounds nuw i8, ptr %opaque, i64 2668
   store i8 %conv86, ptr %last_cw87, align 4
   br label %if.then90
 
@@ -5040,13 +5040,13 @@ if.end88:                                         ; preds = %lor.lhs.false72
   br i1 %tobool89.not, label %if.end91, label %if.then90
 
 if.then90:                                        ; preds = %if.end88.thread, %if.end88
-  %full_update_gfx = getelementptr inbounds i8, ptr %opaque, i64 2729
+  %full_update_gfx = getelementptr inbounds nuw i8, ptr %opaque, i64 2729
   store i8 1, ptr %full_update_gfx, align 1
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then90, %if.end88
   %full_update.2144 = phi i32 [ 1, %if.then90 ], [ 0, %if.end88 ]
-  %full_update_text = getelementptr inbounds i8, ptr %opaque, i64 2728
+  %full_update_text = getelementptr inbounds nuw i8, ptr %opaque, i64 2728
   %29 = load i8, ptr %full_update_text, align 8
   %tobool92 = trunc i8 %29 to i1
   br i1 %tobool92, label %if.then93, label %if.end96
@@ -5065,10 +5065,10 @@ if.end96:                                         ; preds = %if.then93, %if.end9
   %31 = load i8, ptr %arrayidx102, align 1
   %conv103 = zext i8 %31 to i32
   %or104 = or disjoint i32 %shl100, %conv103
-  %start_addr = getelementptr inbounds i8, ptr %opaque, i64 2656
+  %start_addr = getelementptr inbounds nuw i8, ptr %opaque, i64 2656
   %32 = load i32, ptr %start_addr, align 16
   %sub = sub i32 %or104, %32
-  %cursor_offset105 = getelementptr inbounds i8, ptr %opaque, i64 2712
+  %cursor_offset105 = getelementptr inbounds nuw i8, ptr %opaque, i64 2712
   %33 = load i32, ptr %cursor_offset105, align 8
   %cmp106.not = icmp eq i32 %sub, %33
   %arrayidx110 = getelementptr i8, ptr %opaque, i64 1399
@@ -5076,7 +5076,7 @@ if.end96:                                         ; preds = %if.then93, %if.end9
   br i1 %cmp106.not, label %lor.lhs.false108, label %if.then124
 
 lor.lhs.false108:                                 ; preds = %if.end96
-  %cursor_start = getelementptr inbounds i8, ptr %opaque, i64 2694
+  %cursor_start = getelementptr inbounds nuw i8, ptr %opaque, i64 2694
   %35 = load i8, ptr %cursor_start, align 2
   %cmp113.not = icmp eq i8 %34, %35
   br i1 %cmp113.not, label %lor.lhs.false115, label %if.then124
@@ -5084,7 +5084,7 @@ lor.lhs.false108:                                 ; preds = %if.end96
 lor.lhs.false115:                                 ; preds = %lor.lhs.false108
   %arrayidx117 = getelementptr i8, ptr %opaque, i64 1400
   %36 = load i8, ptr %arrayidx117, align 1
-  %cursor_end = getelementptr inbounds i8, ptr %opaque, i64 2695
+  %cursor_end = getelementptr inbounds nuw i8, ptr %opaque, i64 2695
   %37 = load i8, ptr %cursor_end, align 1
   %cmp120 = icmp ne i8 %36, %37
   %tobool123 = icmp ne i32 %full_update.3, 0
@@ -5092,7 +5092,7 @@ lor.lhs.false115:                                 ; preds = %lor.lhs.false108
   br i1 %or.cond, label %if.then124, label %if.end149.thread
 
 if.end149.thread:                                 ; preds = %lor.lhs.false115
-  %vram_ptr189 = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr189 = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %38 = load ptr, ptr %vram_ptr189, align 8
   %idx.ext190 = zext i32 %32 to i64
   %add.ptr191 = getelementptr i32, ptr %38, i64 %idx.ext190
@@ -5104,7 +5104,7 @@ if.then124:                                       ; preds = %if.end96, %lor.lhs.
   %tobool129.not = icmp eq i8 %39, 0
   %or.cond1 = icmp ult i32 %sub, %mul
   %or.cond146 = and i1 %or.cond1, %tobool129.not
-  %con137 = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %con137 = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %40 = load ptr, ptr %con137, align 16
   br i1 %or.cond146, label %if.then136, label %if.else139
 
@@ -5127,14 +5127,14 @@ if.else139:                                       ; preds = %if.then124
 if.end149:                                        ; preds = %if.then136, %if.else139
   store i32 %sub, ptr %cursor_offset105, align 8
   %41 = load i8, ptr %arrayidx126, align 1
-  %cursor_start145 = getelementptr inbounds i8, ptr %opaque, i64 2694
+  %cursor_start145 = getelementptr inbounds nuw i8, ptr %opaque, i64 2694
   store i8 %41, ptr %cursor_start145, align 2
   %arrayidx147 = getelementptr i8, ptr %opaque, i64 1400
   %42 = load i8, ptr %arrayidx147, align 1
-  %cursor_end148 = getelementptr inbounds i8, ptr %opaque, i64 2695
+  %cursor_end148 = getelementptr inbounds nuw i8, ptr %opaque, i64 2695
   store i8 %42, ptr %cursor_end148, align 1
   %.pre187 = load i32, ptr %start_addr, align 16
-  %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
+  %vram_ptr = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   %43 = load ptr, ptr %vram_ptr, align 8
   %idx.ext = zext i32 %.pre187 to i64
   %add.ptr = getelementptr i32, ptr %43, i64 %idx.ext
@@ -5170,7 +5170,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %con165 = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %con165 = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %45 = load ptr, ptr %con165, align 16
   call void @dpy_text_update(ptr noundef %45, i32 noundef 0, i32 noundef 0, i32 noundef %add31, i32 noundef %22) #17
   br label %return
@@ -5247,7 +5247,7 @@ for.end212:                                       ; preds = %for.inc185, %for.in
 if.then215:                                       ; preds = %for.end212
   %50 = load i32, ptr %width, align 4
   %div216 = sdiv i32 %i.1153199, %50
-  %con217 = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %con217 = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %51 = load ptr, ptr %con217, align 16
   %div218 = sdiv i32 %c_max.1.lcssa, %50
   %reass.sub = sub i32 %div218, %div216
@@ -5260,7 +5260,7 @@ sw.bb223:                                         ; preds = %if.end12
   br i1 %tobool224.not, label %return, label %if.end226
 
 if.end226:                                        ; preds = %sw.bb223
-  %get_resolution = getelementptr inbounds i8, ptr %opaque, i64 2448
+  %get_resolution = getelementptr inbounds nuw i8, ptr %opaque, i64 2448
   %52 = load ptr, ptr %get_resolution, align 16
   call void %52(ptr noundef nonnull %opaque, ptr noundef nonnull %width, ptr noundef nonnull %height) #17
   %53 = load i32, ptr %width, align 4
@@ -5279,9 +5279,9 @@ if.end232:                                        ; preds = %sw.default
 sw.epilog:                                        ; preds = %if.end232, %if.end226, %if.end60
   store i32 60, ptr %last_width, align 16
   store i32 3, ptr %height, align 4
-  %last_height236 = getelementptr inbounds i8, ptr %opaque, i64 2676
+  %last_height236 = getelementptr inbounds nuw i8, ptr %opaque, i64 2676
   store i32 3, ptr %last_height236, align 4
-  %con237 = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %con237 = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %55 = load ptr, ptr %con237, align 16
   call void @dpy_text_cursor(ptr noundef %55, i32 noundef -1, i32 noundef -1) #17
   %56 = load ptr, ptr %con237, align 16
@@ -5365,12 +5365,12 @@ declare void @dpy_text_resize(ptr noundef, i32 noundef, i32 noundef) local_unnam
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 2) i32 @update_palette16(ptr nocapture noundef %s) unnamed_addr #8 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %s, i64 3016
-  %ar = getelementptr inbounds i8, ptr %s, i64 1363
+  %last_palette = getelementptr inbounds nuw i8, ptr %s, i64 3016
+  %ar = getelementptr inbounds nuw i8, ptr %s, i64 1363
   %arrayidx2 = getelementptr i8, ptr %s, i64 1379
   %0 = load i8, ptr %arrayidx2, align 1
   %tobool.not = icmp sgt i8 %0, -1
-  %palette16 = getelementptr inbounds i8, ptr %s, i64 1660
+  %palette16 = getelementptr inbounds nuw i8, ptr %s, i64 1660
   %arrayidx10 = getelementptr i8, ptr %s, i64 1383
   %1 = load i8, ptr %arrayidx10, align 1
   %2 = shl i8 %1, 4
@@ -5528,7 +5528,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
@@ -5646,7 +5646,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line2d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
@@ -5780,7 +5780,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line4(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
@@ -5898,7 +5898,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line4d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %arrayidx = getelementptr i8, ptr %vga, i64 1381
   %0 = load i8, ptr %arrayidx, align 1
   %1 = and i8 %0, 15
@@ -6032,7 +6032,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line8d2(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %shr = ashr i32 %width, 3
   %cmp38 = icmp sgt i32 %shr, 0
   br i1 %cmp38, label %for.body.lr.ph, label %for.end
@@ -6113,7 +6113,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @vga_draw_line8(ptr nocapture noundef readonly %vga, ptr nocapture noundef writeonly %d, i32 noundef %addr, i32 noundef %width) #13 {
 entry:
-  %last_palette = getelementptr inbounds i8, ptr %vga, i64 3016
+  %last_palette = getelementptr inbounds nuw i8, ptr %vga, i64 3016
   %shr = ashr i32 %width, 3
   %cmp70 = icmp sgt i32 %shr, 0
   br i1 %cmp70, label %for.body.lr.ph, label %for.end
@@ -6584,7 +6584,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @vbe_ioport_read_index(ptr nocapture noundef readonly %opaque, i32 %addr) #0 {
 entry:
-  %vbe_index = getelementptr inbounds i8, ptr %opaque, i64 2584
+  %vbe_index = getelementptr inbounds nuw i8, ptr %opaque, i64 2584
   %0 = load i16, ptr %vbe_index, align 8
   %conv = zext i16 %0 to i32
   ret i32 %conv

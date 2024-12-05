@@ -79,14 +79,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN17grpc_event_engine12experimental14BasicWorkQueueC2EPv(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 96)) %this, ptr noundef %owner) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental14BasicWorkQueueE, i64 16), ptr %this, align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
-  %q_ = getelementptr inbounds i8, ptr %this, i64 16
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %q_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mu_, i8 0, i64 88, i1 false)
   invoke void @_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %q_, i64 noundef 0)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %entry
-  %owner_ = getelementptr inbounds i8, ptr %this, i64 96
+  %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %owner, ptr %owner_, align 8
   ret void
 
@@ -105,10 +105,10 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK17grpc_event_engine12experimental14BasicWorkQueue5EmptyEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
@@ -129,18 +129,18 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK17grpc_event_engine12experimental14BasicWorkQueue4SizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %_M_first.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
@@ -178,17 +178,17 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN17grpc_event_engine12experimental14BasicWorkQueue13PopMostRecentEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_first3.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_first3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !4
   %cmp.i.i1 = icmp eq ptr %0, %2
   br i1 %cmp.i.i1, label %if.else.i, label %if.then.i
@@ -199,11 +199,11 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE8pop_backEv.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %4 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i, align 8
-  %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %5, i64 504
+  %incdec.ptr.i.i5 = getelementptr inbounds nuw i8, ptr %5, i64 504
   %6 = load ptr, ptr %incdec.ptr.i.i5, align 8
   tail call void @_ZdlPv(ptr noundef %2) #17
   %7 = load ptr, ptr %_M_node5.i.i.i, align 8
@@ -211,10 +211,10 @@ if.else.i:                                        ; preds = %if.end
   store ptr %add.ptr.i.i3, ptr %_M_node5.i.i.i, align 8
   %8 = load ptr, ptr %add.ptr.i.i3, align 8
   store ptr %8, ptr %_M_first3.i.i.i, align 8
-  %add.ptr.i.i.i4 = getelementptr inbounds i8, ptr %8, i64 512
-  %_M_last.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i4 = getelementptr inbounds nuw i8, ptr %8, i64 512
+  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i4, ptr %_M_last.i.i.i, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %8, i64 504
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %8, i64 504
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE8pop_backEv.exit
 
 _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE8pop_backEv.exit: ; preds = %if.then.i, %if.else.i
@@ -242,10 +242,10 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN17grpc_event_engine12experimental14BasicWorkQueue9PopOldestEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %_M_start.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
@@ -253,27 +253,27 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 -8
   %cmp.not.i = icmp eq ptr %1, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE9pop_frontEv.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load ptr, ptr %_M_first.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #17
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %add.ptr.i.i, ptr %_M_node.i.i, align 8
   %6 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %6, ptr %_M_first.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 512
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 512
   store ptr %add.ptr.i.i.i, ptr %_M_last.i, align 8
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE9pop_frontEv.exit
 
@@ -303,11 +303,11 @@ define void @_ZN17grpc_event_engine12experimental14BasicWorkQueue3AddEPNS0_11Eve
 entry:
   %closure.addr = alloca ptr, align 8
   store ptr %closure, ptr %closure.addr, align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cmp.not.i = icmp eq ptr %0, %add.ptr.i
@@ -316,12 +316,12 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %closure, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
-  %q_ = getelementptr inbounds i8, ptr %this, i64 16
+  %q_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q_, ptr noundef nonnull align 8 dereferenceable(8) %closure.addr)
           to label %invoke.cont unwind label %lpad
 
@@ -362,17 +362,17 @@ entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %ref.tmp = alloca ptr, align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %manager_.i.i.i = getelementptr inbounds i8, ptr %invocable, i64 16
+  %manager_.i.i.i = getelementptr inbounds nuw i8, ptr %invocable, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
   call void %0(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %invocable, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp) #15
   %1 = load ptr, ptr %manager_.i.i.i, align 16
-  %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %manager_5.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store ptr %1, ptr %manager_5.i.i.i, align 16
-  %invoker_.i.i.i = getelementptr inbounds i8, ptr %invocable, i64 24
+  %invoker_.i.i.i = getelementptr inbounds nuw i8, ptr %invocable, i64 24
   %2 = load ptr, ptr %invoker_.i.i.i, align 8
-  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %invoker_6.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   store ptr %2, ptr %invoker_6.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
@@ -383,31 +383,31 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void %1(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp.i) #15
   %3 = load ptr, ptr %manager_5.i.i.i, align 16
-  %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %manager_5.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 16
   store ptr %3, ptr %manager_5.i.i.i.i, align 16
   %4 = load ptr, ptr %invoker_6.i.i.i, align 8
-  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  %invoker_6.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 24
   store ptr %4, ptr %invoker_6.i.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i, align 16
   store ptr null, ptr %invoker_6.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 16), ptr %call.i1, align 16
-  %cb_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
+  %cb_.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 16
   call void %3(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 16 dereferenceable(32) %cb_.i.i) #15
   %5 = load ptr, ptr %manager_5.i.i.i.i, align 16
-  %manager_5.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 32
+  %manager_5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 32
   store ptr %5, ptr %manager_5.i.i.i.i.i, align 16
   %6 = load ptr, ptr %invoker_6.i.i.i.i, align 8
-  %invoker_6.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 40
+  %invoker_6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 40
   store ptr %6, ptr %invoker_6.i.i.i.i.i, align 8
-  %manager_5.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i1, i64 64
+  %manager_5.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 64
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i2.i.i, align 16
-  %invoker_6.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 72
+  %invoker_6.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %call.i1, i64 72
   store ptr null, ptr %invoker_6.i.i.i4.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   store ptr %call.i1, ptr %ref.tmp, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %8 = load ptr, ptr %_M_last.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %cmp.not.i.i = icmp eq ptr %7, %add.ptr.i.i
@@ -416,12 +416,12 @@ invoke.cont:                                      ; preds = %entry
 if.then.i.i:                                      ; preds = %invoke.cont
   store ptr %call.i1, ptr %7, align 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont2
 
 if.else.i.i:                                      ; preds = %invoke.cont
-  %q_ = getelementptr inbounds i8, ptr %this, i64 16
+  %q_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_push_back_auxIJS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %q_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont2 unwind label %lpad
 
@@ -464,17 +464,17 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit5:       ; preds = %lpad
 define linkonce_odr void @_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental14BasicWorkQueueE, i64 16), ptr %this, align 8
-  %q_ = getelementptr inbounds i8, ptr %this, i64 16
+  %q_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %q_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_node5.i.i6.i = getelementptr inbounds i8, ptr %this, i64 88
-  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_node5.i.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_M_node5.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_node5.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp3.i.i.i = icmp ult ptr %1, %add.ptr.i.i
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
 
@@ -482,7 +482,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   %__n.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %if.then.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #17
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i, !llvm.loop !7
 
@@ -496,7 +496,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit
 
 _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #15
   ret void
 }
@@ -505,17 +505,17 @@ _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2E
 define linkonce_odr void @_ZN17grpc_event_engine12experimental14BasicWorkQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental14BasicWorkQueueE, i64 16), ptr %this, align 8
-  %q_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %q_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %q_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_node5.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_node5.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %1, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
 
@@ -523,7 +523,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %if.then.i.i.i ]
   %3 = load ptr, ptr %__n.04.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %3) #17
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %2
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !7
 
@@ -537,7 +537,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   br label %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit
 
 _ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i
-  %mu_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mu_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
@@ -546,7 +546,7 @@ _ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit: ; preds = %entry,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN17grpc_event_engine12experimental14BasicWorkQueue5ownerEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %owner_ = getelementptr inbounds i8, ptr %this, i64 96
+  %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %owner_, align 8
   ret ptr %0
 }
@@ -558,15 +558,15 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div137
-  %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %invoke.cont.i
@@ -576,7 +576,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !9
 
@@ -592,7 +592,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #17
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i, !llvm.loop !7
 
@@ -632,28 +632,28 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_start = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 48
   %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
-  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node.i10 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i11 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
-  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
-  %add.ptr36 = getelementptr inbounds ptr, ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw ptr, ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -713,8 +713,8 @@ entry:
 define linkonce_odr void @_ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev(ptr noundef nonnull align 16 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 16), ptr %this, align 16
-  %dest_cb_ = getelementptr inbounds i8, ptr %this, i64 48
-  %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %dest_cb_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %invoker_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %invoker_.i.i, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
@@ -724,11 +724,11 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %manager_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %manager_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %1(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_) #15
-  %cb_ = getelementptr inbounds i8, ptr %this, i64 16
-  %manager_.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
+  %cb_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %manager_.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %manager_.i.i.i2, align 16
   tail call void %2(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %cb_, ptr noundef nonnull align 16 dereferenceable(32) %cb_) #15
   ret void
@@ -745,8 +745,8 @@ terminate.lpad:                                   ; preds = %if.then
 define linkonce_odr void @_ZN17grpc_event_engine12experimental19SelfDeletingClosureD0Ev(ptr noundef nonnull align 16 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental19SelfDeletingClosureE, i64 16), ptr %this, align 16
-  %dest_cb_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %invoker_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %dest_cb_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %invoker_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %invoker_.i.i.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit, label %if.then.i
@@ -763,11 +763,11 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit: ; preds = %entry, %if.then.i
-  %manager_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %manager_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %manager_.i.i.i.i, align 16
   tail call void %3(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_.i, ptr noundef nonnull align 16 dereferenceable(32) %dest_cb_.i) #15
-  %cb_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %manager_.i.i.i2.i = getelementptr inbounds i8, ptr %this, i64 32
+  %cb_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %manager_.i.i.i2.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %manager_.i.i.i2.i, align 16
   tail call void %4(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %cb_.i, ptr noundef nonnull align 16 dereferenceable(32) %cb_.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
@@ -777,12 +777,12 @@ _ZN17grpc_event_engine12experimental19SelfDeletingClosureD2Ev.exit: ; preds = %e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental19SelfDeletingClosure3RunEv(ptr noundef nonnull align 16 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %cb_ = getelementptr inbounds i8, ptr %this, i64 16
-  %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %cb_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %invoker_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %invoker_.i.i, align 8
   tail call void %0(ptr noundef nonnull align 16 dereferenceable(32) %cb_)
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 16 dereferenceable(80) %this) #15
   ret void
@@ -791,11 +791,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_push_back_auxIJRKS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -806,14 +806,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -829,7 +829,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -847,18 +847,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #18
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %__args, align 8
   store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void
@@ -870,9 +870,9 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node3 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -880,7 +880,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -890,11 +890,11 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -944,10 +944,10 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #18
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPPN17grpc_event_engine12experimental11EventEngine7ClosureES6_ET0_T_S8_S7_.exit30, label %if.then.i.i.i.i.i28
 
@@ -968,19 +968,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPPN17grpc_event_engine12experimental11EventEngine7ClosureES6_ET0_T_S8_S7_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %6, i64 512
-  %_M_last.i34 = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
   ret void
 }
@@ -991,11 +991,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_push_back_auxIJS4_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1006,14 +1006,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = shl nsw i64 %sub.i.i, 6
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 3
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -1029,7 +1029,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_map_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -1047,18 +1047,18 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #18
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load ptr, ptr %__args, align 8
   store ptr %10, ptr %9, align 8
   %11 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %11, i64 8
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %add.ptr12, ptr %_M_node.i.i, align 8
   %12 = load ptr, ptr %add.ptr12, align 8
   store ptr %12, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
-  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %12, ptr %_M_finish.i, align 8
   ret void

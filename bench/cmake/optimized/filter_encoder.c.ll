@@ -14,7 +14,7 @@ define dso_local zeroext range(i8 0, 2) i8 @lzma_filter_encoder_is_supported(i64
 
 2:                                                ; preds = %2, %1
   %.07.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07.i
+  %3 = getelementptr inbounds nuw [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07.i
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, %0
   %6 = add nuw nsw i64 %.07.i, 1
@@ -33,7 +33,7 @@ define internal noundef ptr @encoder_find(i64 noundef %0) #1 {
 
 2:                                                ; preds = %1, %6
   %.07 = phi i64 [ 0, %1 ], [ %7, %6 ]
-  %3 = getelementptr inbounds [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07
+  %3 = getelementptr inbounds nuw [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, %0
   br i1 %5, label %.loopexit, label %6
@@ -51,9 +51,9 @@ define internal noundef ptr @encoder_find(i64 noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lzma_filters_update(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca [5 x %struct.lzma_filter], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %28, label %9
@@ -90,10 +90,10 @@ define dso_local i32 @lzma_filters_update(ptr nocapture noundef readonly %0, ptr
   %20 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %3, i64 0, i64 %.017
   store i64 -1, ptr %20, align 16
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 %23(ptr noundef %24, ptr noundef %26, ptr noundef nonnull %1, ptr noundef nonnull %3) #9
   br label %28
@@ -127,9 +127,9 @@ define dso_local i32 @lzma_raw_encoder(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not, label %4, label %18
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @lzma_raw_coder_init(ptr noundef %6, ptr noundef %8, ptr noundef %1, ptr noundef nonnull @encoder_find, i1 noundef zeroext true) #9
   %.not14 = icmp eq i32 %9, 0
@@ -141,13 +141,13 @@ define dso_local i32 @lzma_raw_encoder(ptr noundef %0, ptr noundef %1) local_unn
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i8 1, ptr %13, align 8
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 89
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 89
   store i8 1, ptr %15, align 1
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 91
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 91
   store i8 1, ptr %17, align 1
   br label %18
 
@@ -181,14 +181,14 @@ define dso_local i64 @lzma_mt_block_size(ptr nocapture noundef readonly %0) loca
   %5 = add nuw nsw i64 %.07.i20, 1
   %exitcond.not.i = icmp ne i64 %5, 9
   tail call void @llvm.assume(i1 %exitcond.not.i)
-  %6 = getelementptr inbounds [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, %3
   br i1 %8, label %encoder_find.exit, label %.lr.ph
 
 encoder_find.exit:                                ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ @encoders, %.preheader ], [ %6, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %17, label %11
@@ -224,7 +224,7 @@ define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr nocapture noundef
 
 4:                                                ; preds = %8, %2
   %.07.i = phi i64 [ 0, %2 ], [ %9, %8 ]
-  %5 = getelementptr inbounds [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07.i
+  %5 = getelementptr inbounds nuw [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07.i
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, %3
   br i1 %7, label %encoder_find.exit, label %8
@@ -240,19 +240,19 @@ define dso_local i32 @lzma_properties_size(ptr noundef %0, ptr nocapture noundef
   br label %23
 
 encoder_find.exit:                                ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %encoder_find.exit
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %0, align 4
   br label %23
 
 19:                                               ; preds = %encoder_find.exit
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %14(ptr noundef %0, ptr noundef %21) #9
   br label %23
@@ -269,7 +269,7 @@ define dso_local i32 @lzma_properties_encode(ptr nocapture noundef readonly %0, 
 
 4:                                                ; preds = %8, %2
   %.07.i = phi i64 [ 0, %2 ], [ %9, %8 ]
-  %5 = getelementptr inbounds [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07.i
+  %5 = getelementptr inbounds nuw [9 x %struct.lzma_filter_encoder], ptr @encoders, i64 0, i64 %.07.i
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, %3
   br i1 %7, label %encoder_find.exit, label %8
@@ -280,13 +280,13 @@ define dso_local i32 @lzma_properties_encode(ptr nocapture noundef readonly %0, 
   br i1 %exitcond.not.i, label %encoder_find.exit.thread, label %4, !llvm.loop !5
 
 encoder_find.exit:                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %5, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %encoder_find.exit.thread, label %13
 
 13:                                               ; preds = %encoder_find.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %11(ptr noundef %15, ptr noundef %1) #9
   br label %encoder_find.exit.thread

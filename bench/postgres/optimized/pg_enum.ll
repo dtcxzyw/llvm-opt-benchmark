@@ -35,7 +35,7 @@ define dso_local void @EnumValuesCreate(i32 noundef %0, ptr noundef readonly %1)
   br i1 %.not.i, label %list_length.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   br label %list_length.exit
 
@@ -80,7 +80,7 @@ list_length.exit:                                 ; preds = %2, %3
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %7, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %umax = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
   %wide.trip.count109 = zext nneg i32 %umax to i64
   br label %28
@@ -89,8 +89,8 @@ list_length.exit:                                 ; preds = %2, %3
   br i1 %.not.i, label %._crit_edge96.thread, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = zext i32 %0 to i64
   %26 = load i32, ptr %23, align 4
   %27 = icmp sgt i32 %26, 0
@@ -112,7 +112,7 @@ list_length.exit:                                 ; preds = %2, %3
   %32 = load ptr, ptr %24, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv111127
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @palloc0(i64 noundef 64) #10
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #11
@@ -132,15 +132,15 @@ list_length.exit:                                 ; preds = %2, %3
   %46 = sext i32 %.07593128 to i64
   %47 = getelementptr ptr, ptr %21, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef %48) #10
   %53 = load ptr, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
@@ -149,11 +149,11 @@ list_length.exit:                                 ; preds = %2, %3
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = load ptr, ptr %47, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
   store i64 %62, ptr %65, align 8
   %66 = load ptr, ptr %47, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %68, i64 8
   store i64 %25, ptr %69, align 8
@@ -163,14 +163,14 @@ list_length.exit:                                 ; preds = %2, %3
   %72 = bitcast float %71 to i32
   %73 = sext i32 %72 to i64
   %74 = load ptr, ptr %47, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 16
   store i64 %73, ptr %77, align 8
   tail call void @namestrcpy(ptr noundef %37, ptr noundef %36) #10
   %78 = ptrtoint ptr %37 to i64
   %79 = load ptr, ptr %47, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr i8, ptr %81, i64 24
   store i64 %78, ptr %82, align 8
@@ -286,7 +286,7 @@ define dso_local void @EnumValuesDelete(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %7 = phi ptr [ %9, %.lr.ph ], [ %6, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %8) #10
   %9 = call ptr @systable_getnext(ptr noundef %5) #10
   %.not = icmp eq ptr %9, null
@@ -364,7 +364,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %35 = icmp eq ptr %2, null
   %.097.v = select i1 %3, i32 1, i32 -1
   %36 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 3
@@ -388,13 +388,13 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %44 = getelementptr ptr, ptr %41, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 22
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 22
   %50 = load i8, ptr %49, align 2
   %51 = zext i8 %50 to i64
   %52 = getelementptr i8, ptr %48, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load float, ptr %53, align 4
   %55 = fadd float %54, 1.000000e+00
   br label %156
@@ -403,7 +403,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv174 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next175, %56 ]
   %57 = getelementptr [0 x ptr], ptr %61, i64 0, i64 %indvars.iv174
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = getelementptr ptr, ptr %41, i64 %indvars.iv174
   store ptr %59, ptr %60, align 8
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
@@ -411,7 +411,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %exitcond178.not, label %._crit_edge.us, label %56, !llvm.loop !11
 
 .lr.ph.us:                                        ; preds = %.split.us
-  %61 = getelementptr inbounds i8, ptr %36, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %wide.trip.count177 = zext nneg i32 %38 to i64
   br label %56
 
@@ -426,7 +426,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %63 = phi i64 [ %151, %RenumberEnumType.exit ], [ %39, %.split.preheader ]
   %64 = phi i32 [ %150, %RenumberEnumType.exit ], [ %38, %.split.preheader ]
   %65 = phi ptr [ %148, %RenumberEnumType.exit ], [ %36, %.split.preheader ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
   %wide.trip.count = zext nneg i32 %64 to i64
   br label %67
 
@@ -434,7 +434,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %68 = getelementptr [0 x ptr], ptr %66, i64 0, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = getelementptr ptr, ptr %62, i64 %indvars.iv
   store ptr %70, ptr %71, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -450,13 +450,13 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv169 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next170, %83 ]
   %72 = getelementptr ptr, ptr %62, i64 %indvars.iv169
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 22
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 22
   %77 = load i8, ptr %76, align 2
   %78 = zext i8 %77 to i64
   %79 = getelementptr i8, ptr %75, i64 %78
-  %80 = getelementptr inbounds i8, ptr %79, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) %2) #11
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %87, label %83
@@ -480,9 +480,9 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %89 = ashr exact i64 %sext, 29
   %90 = getelementptr i8, ptr %62, i64 %89
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 22
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 22
   %95 = load i8, ptr %94, align 2
   %96 = zext i8 %95 to i64
   %97 = getelementptr i8, ptr %93, i64 %96
@@ -491,7 +491,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %87
-  %100 = getelementptr inbounds i8, ptr %97, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %101 = load float, ptr %100, align 4
   %102 = fadd float %101, -1.000000e+00
   br label %156
@@ -501,7 +501,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not103, label %108, label %104
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds i8, ptr %97, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %106 = load float, ptr %105, align 4
   %107 = fadd float %106, 1.000000e+00
   br label %156
@@ -510,15 +510,15 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %109 = zext nneg i32 %.097 to i64
   %110 = getelementptr ptr, ptr %62, i64 %109
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 22
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 22
   %115 = load i8, ptr %114, align 2
   %116 = zext i8 %115 to i64
   %117 = getelementptr i8, ptr %113, i64 %116
-  %118 = getelementptr inbounds i8, ptr %97, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %119 = load float, ptr %118, align 4
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %121 = load float, ptr %120, align 4
   %122 = fadd float %119, %121
   %123 = fmul float %122, 5.000000e-01
@@ -543,22 +543,22 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %130 = getelementptr ptr, ptr %62, i64 %indvars.iv.next.i
   %131 = load ptr, ptr %130, align 8
   %132 = tail call ptr @heap_copytuple(ptr noundef %131) #10
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 22
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 22
   %136 = load i8, ptr %135, align 2
   %137 = zext i8 %136 to i64
   %138 = getelementptr i8, ptr %134, i64 %137
   %139 = trunc nuw nsw i64 %indvars.iv.i to i32
   %140 = uitofp nneg i32 %139 to float
-  %141 = getelementptr inbounds i8, ptr %138, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %142 = load float, ptr %141, align 4
   %143 = fcmp une float %142, %140
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %129
   store float %140, ptr %141, align 4
-  %145 = getelementptr inbounds i8, ptr %132, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %132, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %145, ptr noundef nonnull %132) #10
   br label %146
 
@@ -572,7 +572,7 @@ RenumberEnumType.exit:                            ; preds = %146
   tail call void @pfree(ptr noundef nonnull %62) #10
   tail call void @ReleaseCatCacheList(ptr noundef %65) #10
   %148 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
-  %149 = getelementptr inbounds i8, ptr %148, i64 64
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 64
   %150 = load i32, ptr %149, align 8
   %151 = sext i32 %150 to i64
   %152 = shl nsw i64 %151, 3
@@ -611,9 +611,9 @@ RenumberEnumType.exit:                            ; preds = %146
   %indvars.iv179 = phi i64 [ 0, %.lr.ph147.us ], [ %indvars.iv.next180, %182 ]
   %164 = getelementptr ptr, ptr %159, i64 %indvars.iv179
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 22
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 22
   %169 = load i8, ptr %168, align 2
   %170 = zext i8 %169 to i64
   %171 = getelementptr i8, ptr %167, i64 %170
@@ -623,7 +623,7 @@ RenumberEnumType.exit:                            ; preds = %146
   br i1 %.not104.us, label %174, label %182
 
 174:                                              ; preds = %163
-  %175 = getelementptr inbounds i8, ptr %171, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %176 = load float, ptr %175, align 4
   %177 = fcmp olt float %176, %.0
   br i1 %177, label %179, label %178
@@ -700,17 +700,17 @@ RenumberEnumType.exit:                            ; preds = %146
   store i32 0, ptr %9, align 4
   %201 = zext i32 %200 to i64
   store i64 %201, ptr %8, align 16
-  %202 = getelementptr inbounds i8, ptr %8, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %20, ptr %202, align 8
   %203 = bitcast float %.0 to i32
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr %8, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %204, ptr %205, align 16
   call void @namestrcpy(ptr noundef nonnull %10, ptr noundef %1) #10
   %206 = ptrtoint ptr %10 to i64
-  %207 = getelementptr inbounds i8, ptr %8, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %206, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %34, i64 64
+  %208 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %209 = load ptr, ptr %208, align 8
   %210 = call ptr @heap_form_tuple(ptr noundef %209, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   call void @CatalogTupleInsert(ptr noundef %34, ptr noundef %210) #10
@@ -722,12 +722,12 @@ RenumberEnumType.exit:                            ; preds = %146
 
 213:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
-  %214 = getelementptr inbounds i8, ptr %6, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 4, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %6, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 4, ptr %215, align 8
   %216 = load ptr, ptr @TopTransactionContext, align 8
-  %217 = getelementptr inbounds i8, ptr %6, i64 80
+  %217 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %216, ptr %217, align 8
   %218 = call ptr @hash_create(ptr noundef nonnull @.str.8, i64 noundef 32, ptr noundef nonnull %6, i32 noundef 1064) #10
   store ptr %218, ptr @uncommitted_enums, align 8
@@ -755,21 +755,21 @@ declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 nound
 define internal range(i32 -1, 2) i32 @sort_order_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 22
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load float, ptr %19, align 4
   %21 = fcmp olt float %18, %20
   %22 = fcmp ogt float %18, %20
@@ -811,13 +811,13 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %12 = tail call ptr @table_open(i32 noundef 3501, i32 noundef 3) #10
   %13 = zext i32 %0 to i64
   %14 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %13, i64 noundef 0, i64 noundef 0) #10
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %14, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %19
 
@@ -827,16 +827,16 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %.03234 = phi ptr [ null, %.lr.ph ], [ %spec.select, %19 ]
   %20 = getelementptr [0 x ptr], ptr %18, i64 0, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 22
   %25 = load i8, ptr %24, align 2
   %26 = zext i8 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %1) #11
   %30 = icmp eq i32 %29, 0
-  %31 = getelementptr inbounds i8, ptr %21, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %spec.select = select i1 %30, ptr %31, ptr %.03234
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %2) #11
   %33 = icmp eq i32 %32, 0
@@ -870,16 +870,16 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
 
 42:                                               ; preds = %37
   %43 = tail call ptr @heap_copytuple(ptr noundef nonnull %spec.select) #10
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 22
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 22
   %47 = load i8, ptr %46, align 2
   %48 = zext i8 %47 to i64
   %49 = getelementptr i8, ptr %45, i64 %48
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %14) #10
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   tail call void @namestrcpy(ptr noundef nonnull %50, ptr noundef %2) #10
-  %51 = getelementptr inbounds i8, ptr %43, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %51, ptr noundef %43) #10
   tail call void @heap_freetuple(ptr noundef %43) #10
   tail call void @table_close(ptr noundef %12, i32 noundef 3) #10
@@ -977,12 +977,12 @@ define dso_local void @RestoreUncommittedEnums(ptr noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %5 = getelementptr inbounds i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 4, ptr %6, align 8
   %7 = load ptr, ptr @TopTransactionContext, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %7, ptr %8, align 8
   %9 = call ptr @hash_create(ptr noundef nonnull @.str.8, i64 noundef 32, ptr noundef nonnull %2, i32 noundef 1064) #10
   store ptr %9, ptr @uncommitted_enums, align 8

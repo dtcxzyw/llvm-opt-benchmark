@@ -129,7 +129,7 @@ define hidden noundef i32 @_ZNK4ncnn15TanH_x86_avx51215forward_inplaceERNS_3MatE
   %72 = fdiv fast <16 x float> splat (float 1.000000e+00), %71
   %73 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %72, <16 x float> splat (float 2.000000e+00), <16 x float> splat (float -1.000000e+00))
   store <16 x float> %73, ptr %.0516598, align 1
-  %74 = getelementptr inbounds i8, ptr %.0516598, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %.0516598, i64 64
   %75 = add nuw nsw i32 %.0517597, 16
   %76 = or disjoint i32 %75, 15
   %77 = icmp slt i32 %76, %16
@@ -174,7 +174,7 @@ define hidden noundef i32 @_ZNK4ncnn15TanH_x86_avx51215forward_inplaceERNS_3MatE
   %106 = fdiv fast <8 x float> splat (float 1.000000e+00), %105
   %107 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %106, <8 x float> splat (float 2.000000e+00), <8 x float> splat (float -1.000000e+00))
   store <8 x float> %107, ptr %.1601, align 1
-  %108 = getelementptr inbounds i8, ptr %.1601, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %.1601, i64 32
   %109 = add nuw nsw i32 %.1518600, 8
   %110 = or disjoint i32 %109, 7
   %111 = icmp slt i32 %110, %16
@@ -220,7 +220,7 @@ define hidden noundef i32 @_ZNK4ncnn15TanH_x86_avx51215forward_inplaceERNS_3MatE
   %141 = fdiv fast <4 x float> splat (float 2.000000e+00), %140
   %142 = fadd fast <4 x float> %141, splat (float -1.000000e+00)
   store <4 x float> %142, ptr %.2606, align 1
-  %143 = getelementptr inbounds i8, ptr %.2606, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %.2606, i64 16
   %144 = add nuw nsw i32 %.2519605, 4
   %145 = or disjoint i32 %144, 3
   %146 = icmp slt i32 %145, %16
@@ -232,7 +232,7 @@ define hidden noundef i32 @_ZNK4ncnn15TanH_x86_avx51215forward_inplaceERNS_3MatE
   %147 = load float, ptr %.3611, align 4
   %148 = tail call fast float @llvm.tanh.f32(float %147)
   store float %148, ptr %.3611, align 4
-  %149 = getelementptr inbounds i8, ptr %.3611, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %.3611, i64 4
   %150 = add nuw nsw i32 %.3520610, 1
   %exitcond.not = icmp eq i32 %150, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph612, !llvm.loop !8

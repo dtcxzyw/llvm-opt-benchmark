@@ -9,10 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -2147483648, 1) i32 @nx_unlink(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.inode_search_s, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   store i8 1, ptr %6, align 8
   %7 = call i32 @inode_find(ptr noundef nonnull %2) #4
@@ -21,20 +21,20 @@ define range(i32 -2147483648, 1) i32 @nx_unlink(ptr noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 26
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 15
   %14 = icmp eq i16 %13, 3
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %25, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 160
   %20 = load ptr, ptr %19, align 8
   %.not47 = icmp eq ptr %20, null
   br i1 %.not47, label %.thread, label %21
@@ -46,7 +46,7 @@ define range(i32 -2147483648, 1) i32 @nx_unlink(ptr noundef %0) local_unnamed_ad
   br i1 %24, label %.thread, label %52
 
 25:                                               ; preds = %15, %9
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not44 = icmp eq ptr %27, null
   br i1 %.not44, label %28, label %.thread
@@ -61,14 +61,14 @@ define range(i32 -2147483648, 1) i32 @nx_unlink(ptr noundef %0) local_unnamed_ad
   ]
 
 ._crit_edge:                                      ; preds = %28
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %38
 
 29:                                               ; preds = %28, %28, %28
-  %30 = getelementptr inbounds i8, ptr %10, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
   %.not45 = icmp eq ptr %33, null
   br i1 %.not45, label %37, label %34
@@ -84,7 +84,7 @@ define range(i32 -2147483648, 1) i32 @nx_unlink(ptr noundef %0) local_unnamed_ad
 
 38:                                               ; preds = %37, %._crit_edge
   %39 = phi ptr [ %.pre, %._crit_edge ], [ %31, %37 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %.not46 = icmp eq ptr %41, null
   br i1 %.not46, label %.thread, label %42

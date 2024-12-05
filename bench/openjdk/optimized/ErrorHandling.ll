@@ -52,7 +52,7 @@ define hidden void @_Z11reportErrorRK13SourceCodePosRKSt13runtime_error(ptr noca
 
 _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(376) %4, ptr noundef %9)
@@ -102,9 +102,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_111reportErrorERK13SourceCodePosRKN
   %.val = load ptr, ptr %0, align 8
   call fastcc void @_ZN12_GLOBAL__N_111getFilenameB5cxx11ERK13SourceCodePos(ptr dead_on_unwind noalias writable align 8 %3, ptr %.val)
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -219,7 +219,7 @@ define hidden void @_Z11makeMessageB5cxx11RKSt13runtime_errorRK13SourceCodePos(p
           to label %10 unwind label %32
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %12)
           to label %14 unwind label %32
@@ -229,7 +229,7 @@ define hidden void @_Z11makeMessageB5cxx11RKSt13runtime_errorRK13SourceCodePos(p
           to label %16 unwind label %32
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %18)
           to label %20 unwind label %32
@@ -240,7 +240,7 @@ define hidden void @_Z11makeMessageB5cxx11RKSt13runtime_errorRK13SourceCodePos(p
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %26)
@@ -555,7 +555,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br i1 %21, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit, label %22
 
 22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = call i32 @isspace(i32 noundef %25) #8
@@ -563,7 +563,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br i1 %27, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = call i32 @isspace(i32 noundef %31) #8
@@ -571,7 +571,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br i1 %33, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = call i32 @isspace(i32 noundef %37) #8
@@ -579,7 +579,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br i1 %39, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82, label %40
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 4
   %42 = add nsw i64 %.052.i.i.i, -1
   %43 = icmp sgt i64 %.052.i.i.i, 1
   br i1 %43, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !6
@@ -606,7 +606,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br i1 %49, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i, i64 1
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i.i.i
@@ -618,7 +618,7 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br i1 %56, label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i, i64 1
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i
@@ -631,15 +631,15 @@ define internal fastcc noundef i64 @_ZN12_GLOBAL__N_123printWithoutWhitespacesER
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit: ; preds = %22
-  %64 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 1
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80: ; preds = %28
-  %65 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 2
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82: ; preds = %34
-  %66 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i, i64 3
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 3
   br label %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit
 
 _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit80, %_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPFbiEET_SD_SD_T0_.exit.loopexit.split.loop.exit82, %._crit_edge.i.i.i, %45, %52, %59

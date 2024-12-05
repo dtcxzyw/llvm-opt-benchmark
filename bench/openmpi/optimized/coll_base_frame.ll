@@ -46,20 +46,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @coll_base_module_construct(ptr nocapture noundef writeonly initializes((16, 592)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(576) %2, i8 0, i64 576, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @coll_base_module_destruct(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 584
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr @opal_uses_threads, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
@@ -84,7 +84,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %8, %11
 16:                                               ; preds = %opal_thread_add_fetch_32.exit
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i = icmp eq ptr %21, null
@@ -94,7 +94,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %8, %11
   %22 = phi ptr [ %24, %.lr.ph.i ], [ %21, %16 ]
   %.07.i = phi ptr [ %23, %.lr.ph.i ], [ %20, %16 ]
   tail call void %22(ptr noundef nonnull %17) #6
-  %23 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -115,20 +115,20 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @coll_base_comm_construct(ptr nocapture noundef writeonly initializes((16, 152)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @coll_base_comm_destruct(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
@@ -139,20 +139,20 @@ define internal void @coll_base_comm_destruct(ptr noundef %0) #1 {
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %24 ]
-  %8 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, @ompi_request_null
   br i1 %.not.i, label %24, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %9, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %12 = load i32, ptr %11, align 8
   %.off.i = add i32 %12, -75
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %13, label %20
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %16
@@ -167,7 +167,7 @@ ompi_request_cancel.exit.i:                       ; preds = %16, %13
   br label %24
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %9, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %8) #6
   br label %24
@@ -189,7 +189,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %26
 
 26:                                               ; preds = %ompi_coll_base_free_reqs.exit, %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not22 = icmp eq ptr %28, null
   br i1 %.not22, label %31, label %29
@@ -199,7 +199,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %31
 
 31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   %.not23 = icmp eq ptr %33, null
   br i1 %.not23, label %36, label %34
@@ -209,7 +209,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %36
 
 36:                                               ; preds = %34, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
   %.not24 = icmp eq ptr %38, null
   br i1 %.not24, label %41, label %39
@@ -219,7 +219,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %41
 
 41:                                               ; preds = %39, %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load ptr, ptr %42, align 8
   %.not25 = icmp eq ptr %43, null
   br i1 %.not25, label %46, label %44
@@ -229,7 +229,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %46
 
 46:                                               ; preds = %44, %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %48 = load ptr, ptr %47, align 8
   %.not26 = icmp eq ptr %48, null
   br i1 %.not26, label %51, label %49
@@ -239,7 +239,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %51
 
 51:                                               ; preds = %49, %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr %52, align 8
   %.not27 = icmp eq ptr %53, null
   br i1 %.not27, label %56, label %54
@@ -249,7 +249,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %56
 
 56:                                               ; preds = %54, %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %58 = load ptr, ptr %57, align 8
   %.not28 = icmp eq ptr %58, null
   br i1 %.not28, label %61, label %59
@@ -259,7 +259,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %ompi_coll_base_free
   br label %61
 
 61:                                               ; preds = %59, %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %63 = load ptr, ptr %62, align 8
   %.not29 = icmp eq ptr %63, null
   br i1 %.not29, label %66, label %64
@@ -278,13 +278,13 @@ define ptr @ompi_coll_base_comm_get_reqs(ptr nocapture noundef %0, i32 noundef %
   br i1 %3, label %23, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, %1
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = shl nsw i64 %11, 3
@@ -317,7 +317,7 @@ define ptr @ompi_coll_base_comm_get_reqs(ptr nocapture noundef %0, i32 noundef %
   br label %20
 
 20:                                               ; preds = %.sink.split, %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   br label %23
 

@@ -95,7 +95,7 @@ define hidden noundef i64 @_ZN11StringDedup6Config9good_sizeEm(i64 noundef %0) l
 
 4:                                                ; preds = %1, %2
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08
+  %5 = getelementptr inbounds nuw [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08
   %6 = load i64, ptr %5, align 8
   %.not = icmp ugt i64 %0, %6
   br i1 %.not, label %2, label %7
@@ -166,7 +166,7 @@ define hidden noundef i64 @_ZN11StringDedup6Config18desired_table_sizeEm(i64 nou
 
 8:                                                ; preds = %6, %1
   %.08.i = phi i64 [ 0, %1 ], [ %7, %6 ]
-  %9 = getelementptr inbounds [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08.i
+  %9 = getelementptr inbounds nuw [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08.i
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp ult i64 %10, %5
   br i1 %.not.i, label %6, label %_ZN11StringDedup6Config9good_sizeEm.exit
@@ -209,7 +209,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup6Config15ergo_initializeEv() l
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %21
 
@@ -273,7 +273,7 @@ define hidden void @_ZN11StringDedup6Config10initializeEv() local_unnamed_addr #
 
 4:                                                ; preds = %2, %0
   %.08.i = phi i64 [ 0, %0 ], [ %3, %2 ]
-  %5 = getelementptr inbounds [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08.i
+  %5 = getelementptr inbounds nuw [44 x i64], ptr @_ZN11StringDedup6Config10good_sizesE, i64 0, i64 %.08.i
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp ugt i64 %1, %6
   br i1 %.not.i, label %2, label %_ZN11StringDedup6Config9good_sizeEm.exit

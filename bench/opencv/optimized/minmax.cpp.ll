@@ -205,7 +205,7 @@ define void @_ZN2cv9minMaxIdxERKNS_11_InputArrayEPdS3_PiS4_S2_(ptr noundef nonnu
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.noexc
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8, !noalias !4
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %58)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %43
@@ -223,7 +223,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %56, %59
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %.noexc104
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = load ptr, ptr %63, align 8, !noalias !7
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %64)
           to label %_ZNK2cv11_InputArray6getMatEi.exit107 unwind label %69
@@ -233,7 +233,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %56, %59
           to label %_ZNK2cv11_InputArray6getMatEi.exit107 unwind label %69
 
 _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
-  %66 = getelementptr inbounds i8, ptr %10, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = icmp slt i32 %67, 3
   br i1 %68, label %76, label %71
@@ -265,7 +265,7 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
 
 76:                                               ; preds = %74, %_ZNK2cv11_InputArray6getMatEi.exit107, %71
   %77 = zext nneg i32 %27 to i64
-  %78 = getelementptr inbounds [8 x ptr], ptr @_ZZN2cvL12getMinmaxTabEiE9minmaxTab, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [8 x ptr], ptr @_ZZN2cvL12getMinmaxTabEiE9minmaxTab, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8
   %.not90 = icmp eq i32 %27, 7
   br i1 %.not90, label %80, label %88
@@ -300,9 +300,9 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
 
 88:                                               ; preds = %76
   store ptr %10, ptr %14, align 16
-  %89 = getelementptr inbounds i8, ptr %14, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %14, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %90, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef -1)
@@ -317,7 +317,7 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
   store float 0xFFF0000000000000, ptr %22, align 4
   store double 0x7FF0000000000000, ptr %23, align 8
   store double 0xFFF0000000000000, ptr %24, align 8
-  %92 = getelementptr inbounds i8, ptr %16, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %93 = load i64, ptr %92, align 8
   %94 = trunc i64 %93 to i32
   %95 = mul nsw i32 %30, %94
@@ -327,13 +327,13 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
   %spec.select101 = select i1 %97, ptr %24, ptr %20
   %.066 = select i1 %96, ptr %21, ptr %spec.select
   %.065 = select i1 %96, ptr %22, ptr %spec.select101
-  %98 = getelementptr inbounds i8, ptr %16, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %99 = load i64, ptr %98, align 8
   %.not136 = icmp eq i64 %99, 0
   br i1 %.not136, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91
-  %100 = getelementptr inbounds i8, ptr %15, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %101 = sext i32 %95 to i64
   br label %102
 
@@ -472,7 +472,7 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
 
 .lr.ph.i117:                                      ; preds = %156
   %157 = add i64 %144, -1
-  %158 = getelementptr inbounds i8, ptr %10, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %159 = zext nneg i32 %152 to i64
   %160 = load ptr, ptr %158, align 8
   br label %161
@@ -481,12 +481,12 @@ _ZNK2cv11_InputArray6getMatEi.exit107:            ; preds = %62, %65
   %indvars.iv.i118 = phi i64 [ %159, %.lr.ph.i117 ], [ %indvars.iv.next.i120, %161 ]
   %.022.i119 = phi i64 [ %157, %.lr.ph.i117 ], [ %168, %161 ]
   %indvars.iv.next.i120 = add nsw i64 %indvars.iv.i118, -1
-  %162 = getelementptr inbounds i32, ptr %160, i64 %indvars.iv.next.i120
+  %162 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv.next.i120
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
   %165 = urem i64 %.022.i119, %164
   %166 = trunc i64 %165 to i32
-  %167 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i120
+  %167 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i120
   store i32 %166, ptr %167, align 4
   %168 = udiv i64 %.022.i119, %164
   %169 = icmp samesign ugt i64 %indvars.iv.i118, 1
@@ -517,7 +517,7 @@ _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123:            ; preds = %161, %156, %.lr.ph2
 
 .lr.ph.i125:                                      ; preds = %176
   %177 = add i64 %171, -1
-  %178 = getelementptr inbounds i8, ptr %10, i64 64
+  %178 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %179 = zext nneg i32 %172 to i64
   %180 = load ptr, ptr %178, align 8
   br label %181
@@ -526,12 +526,12 @@ _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123:            ; preds = %161, %156, %.lr.ph2
   %indvars.iv.i126 = phi i64 [ %179, %.lr.ph.i125 ], [ %indvars.iv.next.i128, %181 ]
   %.022.i127 = phi i64 [ %177, %.lr.ph.i125 ], [ %188, %181 ]
   %indvars.iv.next.i128 = add nsw i64 %indvars.iv.i126, -1
-  %182 = getelementptr inbounds i32, ptr %180, i64 %indvars.iv.next.i128
+  %182 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.next.i128
   %183 = load i32, ptr %182, align 4
   %184 = sext i32 %183 to i64
   %185 = urem i64 %.022.i127, %184
   %186 = trunc i64 %185 to i32
-  %187 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.next.i128
+  %187 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i128
   store i32 %186, ptr %187, align 4
   %188 = udiv i64 %.022.i127, %184
   %189 = icmp samesign ugt i64 %indvars.iv.i126, 1
@@ -540,7 +540,7 @@ _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123:            ; preds = %161, %156, %.lr.ph2
 _ZN2cvL7ofs2idxERKNS_3MatEmPi.exit131:            ; preds = %181, %176, %.lr.ph24.preheader.i130, %.preheader.i129, %_ZN2cvL7ofs2idxERKNS_3MatEmPi.exit123
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
-  %190 = getelementptr inbounds i8, ptr %7, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %191 = load i32, ptr %190, align 8
   %.not.i132 = icmp eq i32 %191, 0
   br i1 %.not.i132, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %192
@@ -613,7 +613,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -667,7 +667,7 @@ define void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr 
 
 17:                                               ; preds = %16
   %18 = icmp eq i32 %8, 2
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %18, label %.thread, label %20
 
 20:                                               ; preds = %17
@@ -691,7 +691,7 @@ define void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr 
   br i1 %25, label %.thread24, label %29
 
 .thread24:                                        ; preds = %.thread, %24
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %27 = load i32, ptr %4, align 4
   %28 = load i32, ptr %26, align 4
   store i32 %28, ptr %4, align 4
@@ -699,12 +699,12 @@ define void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr 
   br label %31
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %4, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %30, align 4
   br label %31
 
 31:                                               ; preds = %.thread, %.thread24, %29, %21
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = load i32, ptr %32, align 8
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %34
@@ -758,7 +758,7 @@ define internal fastcc void @_ZL12reduceMinMaxRKN2cv11_InputArrayERKNS_12_Output
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %.noexc
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !13
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %20)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %31
@@ -768,7 +768,7 @@ define internal fastcc void @_ZL12reduceMinMaxRKN2cv11_InputArrayERKNS_12_Output
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %31
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %18, %21
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %3
   %25 = srem i32 %24, %23
@@ -831,11 +831,11 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc25
   br label %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
-  %48 = getelementptr inbounds i8, ptr %8, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %49 = load ptr, ptr %48, align 8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %44, ptr align 4 %49, i64 %43, i1 false)
   %50 = zext nneg i32 %25 to i64
-  %51 = getelementptr inbounds i32, ptr %44, i64 %50
+  %51 = getelementptr inbounds nuw i32, ptr %44, i64 %50
   store i32 1, ptr %51, align 4
   invoke void @_ZNK2cv12_OutputArray6createEiPKiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %23, ptr noundef nonnull %44, i32 noundef 4, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %52 unwind label %74
@@ -849,7 +849,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %.noexc26
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !noalias !16
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %57)
           to label %59 unwind label %74
@@ -859,10 +859,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %59 unwind label %74
 
 59:                                               ; preds = %55, %58
-  %60 = getelementptr inbounds i8, ptr %12, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %12, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %61, align 8
   store i64 17179869185, ptr %60, align 8
   %62 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
@@ -1168,7 +1168,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %138, %137
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #14
   call void @_ZdlPv(ptr noundef nonnull %44) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #14
-  %139 = getelementptr inbounds i8, ptr %7, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %140 = load i32, ptr %139, align 8
   %.not.i = icmp eq i32 %140, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %141
@@ -1251,7 +1251,7 @@ define internal void @_ZN2cvL12minMaxIdx_8uEPKhS1_PiS2_PmS3_im(ptr nocapture nou
   %.04788.i = phi i32 [ %10, %.lr.ph90.preheader.i ], [ %.148.i, %.lr.ph90.i ]
   %.05386.i = phi i64 [ %12, %.lr.ph90.preheader.i ], [ %.154.i, %.lr.ph90.i ]
   %.05885.i = phi i64 [ %11, %.lr.ph90.preheader.i ], [ %spec.select.i, %.lr.ph90.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv97.i
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv97.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = icmp sgt i32 %.089.i, %16
@@ -1271,9 +1271,9 @@ define internal void @_ZN2cvL12minMaxIdx_8uEPKhS1_PiS2_PmS3_im(ptr nocapture nou
   %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = zext i8 %21 to i32
@@ -1334,7 +1334,7 @@ define internal void @_ZN2cvL12minMaxIdx_8sEPKaPKhPiS4_PmS5_im(ptr nocapture nou
   %.04788.i = phi i32 [ %10, %.lr.ph90.preheader.i ], [ %.148.i, %.lr.ph90.i ]
   %.05386.i = phi i64 [ %12, %.lr.ph90.preheader.i ], [ %.154.i, %.lr.ph90.i ]
   %.05885.i = phi i64 [ %11, %.lr.ph90.preheader.i ], [ %spec.select.i, %.lr.ph90.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv97.i
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv97.i
   %15 = load i8, ptr %14, align 1
   %16 = sext i8 %15 to i32
   %17 = icmp sgt i32 %.089.i, %16
@@ -1354,9 +1354,9 @@ define internal void @_ZN2cvL12minMaxIdx_8sEPKaPKhPiS4_PmS5_im(ptr nocapture nou
   %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = sext i8 %21 to i32
@@ -1417,7 +1417,7 @@ define internal void @_ZN2cvL13minMaxIdx_16uEPKtPKhPiS4_PmS5_im(ptr nocapture no
   %.04788.i = phi i32 [ %10, %.lr.ph90.preheader.i ], [ %.148.i, %.lr.ph90.i ]
   %.05386.i = phi i64 [ %12, %.lr.ph90.preheader.i ], [ %.154.i, %.lr.ph90.i ]
   %.05885.i = phi i64 [ %11, %.lr.ph90.preheader.i ], [ %spec.select.i, %.lr.ph90.i ]
-  %14 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv97.i
+  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv97.i
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = icmp sgt i32 %.089.i, %16
@@ -1437,9 +1437,9 @@ define internal void @_ZN2cvL13minMaxIdx_16uEPKtPKhPiS4_PmS5_im(ptr nocapture no
   %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = zext i16 %21 to i32
@@ -1500,7 +1500,7 @@ define internal void @_ZN2cvL13minMaxIdx_16sEPKsPKhPiS4_PmS5_im(ptr nocapture no
   %.04788.i = phi i32 [ %10, %.lr.ph90.preheader.i ], [ %.148.i, %.lr.ph90.i ]
   %.05386.i = phi i64 [ %12, %.lr.ph90.preheader.i ], [ %.154.i, %.lr.ph90.i ]
   %.05885.i = phi i64 [ %11, %.lr.ph90.preheader.i ], [ %spec.select.i, %.lr.ph90.i ]
-  %14 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv97.i
+  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv97.i
   %15 = load i16, ptr %14, align 2
   %16 = sext i16 %15 to i32
   %17 = icmp sgt i32 %.089.i, %16
@@ -1520,9 +1520,9 @@ define internal void @_ZN2cvL13minMaxIdx_16sEPKsPKhPiS4_PmS5_im(ptr nocapture no
   %.35079.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35678.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36177.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1
   %.not68.i = icmp eq i8 %23, 0
   %24 = sext i16 %21 to i32
@@ -1583,7 +1583,7 @@ define internal void @_ZN2cvL13minMaxIdx_32sEPKiPKhPiS4_PmS5_im(ptr nocapture no
   %.04785.i = phi i32 [ %10, %.lr.ph87.preheader.i ], [ %.148.i, %.lr.ph87.i ]
   %.05383.i = phi i64 [ %12, %.lr.ph87.preheader.i ], [ %.154.i, %.lr.ph87.i ]
   %.05882.i = phi i64 [ %11, %.lr.ph87.preheader.i ], [ %spec.select.i, %.lr.ph87.i ]
-  %14 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv94.i
+  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv94.i
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, %.086.i
   %17 = add i64 %indvars.iv94.i, %7
@@ -1602,9 +1602,9 @@ define internal void @_ZN2cvL13minMaxIdx_32sEPKiPKhPiS4_PmS5_im(ptr nocapture no
   %.35076.i = phi i32 [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35675.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36174.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %.not68.i = icmp ne i8 %22, 0
   %23 = icmp slt i32 %20, %.378.i
@@ -1662,7 +1662,7 @@ define internal void @_ZN2cvL13minMaxIdx_32fEPKfPKhPfS4_PmS5_im(ptr nocapture no
   %.04784.i = phi float [ %10, %.lr.ph86.preheader.i ], [ %.148.i, %.lr.ph86.i ]
   %.05382.i = phi i64 [ %12, %.lr.ph86.preheader.i ], [ %.154.i, %.lr.ph86.i ]
   %.05881.i = phi i64 [ %11, %.lr.ph86.preheader.i ], [ %.159.i, %.lr.ph86.i ]
-  %14 = getelementptr inbounds float, ptr %0, i64 %indvars.iv93.i
+  %14 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv93.i
   %15 = load float, ptr %14, align 4
   %16 = fcmp olt float %15, %.085.i
   %17 = add i64 %indvars.iv93.i, %7
@@ -1681,9 +1681,9 @@ define internal void @_ZN2cvL13minMaxIdx_32fEPKfPKhPfS4_PmS5_im(ptr nocapture no
   %.35075.i = phi float [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35674.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36173.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %.not68.i = icmp ne i8 %22, 0
   %23 = fcmp olt float %20, %.377.i
@@ -1741,7 +1741,7 @@ define internal void @_ZN2cvL13minMaxIdx_64fEPKdPKhPdS4_PmS5_im(ptr nocapture no
   %.04784.i = phi double [ %10, %.lr.ph86.preheader.i ], [ %.148.i, %.lr.ph86.i ]
   %.05382.i = phi i64 [ %12, %.lr.ph86.preheader.i ], [ %.154.i, %.lr.ph86.i ]
   %.05881.i = phi i64 [ %11, %.lr.ph86.preheader.i ], [ %.159.i, %.lr.ph86.i ]
-  %14 = getelementptr inbounds double, ptr %0, i64 %indvars.iv93.i
+  %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv93.i
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %15, %.085.i
   %17 = add i64 %indvars.iv93.i, %7
@@ -1760,9 +1760,9 @@ define internal void @_ZN2cvL13minMaxIdx_64fEPKdPKhPdS4_PmS5_im(ptr nocapture no
   %.35075.i = phi double [ %10, %.lr.ph.preheader.i ], [ %.451.i, %.lr.ph.i ]
   %.35674.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %.457.i, %.lr.ph.i ]
   %.36173.i = phi i64 [ %11, %.lr.ph.preheader.i ], [ %.462.i, %.lr.ph.i ]
-  %19 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %.not68.i = icmp ne i8 %22, 0
   %23 = fcmp olt double %20, %.377.i
@@ -1827,12 +1827,12 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -1903,12 +1903,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -1979,12 +1979,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2055,12 +2055,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIhE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2133,12 +2133,12 @@ declare noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2209,12 +2209,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2285,12 +2285,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2361,12 +2361,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2437,12 +2437,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIaE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2513,12 +2513,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2589,12 +2589,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2665,12 +2665,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2741,12 +2741,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplItE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2817,12 +2817,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2893,12 +2893,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -2969,12 +2969,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3045,12 +3045,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIsE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3121,12 +3121,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3197,12 +3197,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3273,12 +3273,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3349,12 +3349,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIiE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3425,12 +3425,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3501,12 +3501,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3577,12 +3577,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3653,12 +3653,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIfE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt4lessEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3729,12 +3729,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt10less_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3805,12 +3805,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt7greaterEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
@@ -3881,12 +3881,12 @@ define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK2cv3Mat5totalEii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0, i32 noundef %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11

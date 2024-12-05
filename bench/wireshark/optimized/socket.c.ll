@@ -139,12 +139,12 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, 
   br i1 %37, label %59, label %63
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %60, i8 0, i64 24, i1 false)
   store i16 10, ptr %0, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.044, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   br label %70
 
@@ -152,12 +152,12 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr nocapture noundef writeonly %0, 
   br i1 %38, label %64, label %69
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %65, align 4
   store i16 2, ptr %0, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.044, ptr %66, align 2
-  %67 = getelementptr inbounds i8, ptr %0, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %68 = load i32, ptr %4, align 4
   store i32 %68, ptr %67, align 4
   br label %70

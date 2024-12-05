@@ -49,7 +49,7 @@ define hidden void @log_message_begin(ptr noundef %0, ptr noundef %1, i32 nounde
   %10 = icmp ugt ptr %8, %9
   %11 = select i1 %10, ptr %8, ptr %9
   %.not.i.i = icmp eq ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %spec.select.i.i = select i1 %.not.i.i, ptr %1, ptr %12
   br label %fill_location_stamp.exit
 
@@ -119,7 +119,7 @@ define hidden void @log_message_end(ptr nocapture noundef readonly %0, ...) loca
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 345, ptr noundef nonnull @.str.5, ptr noundef nonnull @location_stamp, i32 noundef %24, i32 noundef %25) #8
   call void @llvm.va_start.p0(ptr nonnull %7)
   %27 = call i32 @vsnprintf(ptr noundef nonnull %10, i64 noundef 257, ptr noundef %0, ptr noundef nonnull %7) #8
-  %28 = getelementptr inbounds i8, ptr %10, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 256
   store i8 0, ptr %28, align 16
   call void @llvm.va_end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
@@ -129,7 +129,7 @@ define hidden void @log_message_end(ptr nocapture noundef readonly %0, ...) loca
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6)
   store i64 0, ptr %4, align 8
   %29 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = call i64 @time(ptr noundef nonnull %4) #8
   %33 = icmp eq i64 %32, -1
@@ -194,7 +194,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 define hidden void @setup_logging(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i1 false, ptr @logging, align 4
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   store i32 0, ptr %4, align 8
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i32 %1, 0
@@ -207,7 +207,7 @@ define hidden void @setup_logging(ptr noundef %0, i32 noundef %1) local_unnamed_
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @logging_filename, i64 noundef 263, ptr noundef nonnull @.str.6, ptr noundef nonnull %0, i32 noundef %8) #8
   store i1 true, ptr @logging, align 4
   %10 = load ptr, ptr @gdata, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 528
   store i32 %1, ptr %11, align 8
   br label %12
 

@@ -38,11 +38,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParame
   %24 = tail call float @llvm.fmuladd.f32(float %23, float 2.000000e+00, float %22)
   %25 = fpext float %24 to double
   store double %12, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %16, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %21, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %25, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = tail call noundef float @_ZNK32pxrInternal_v0_24__pxrReserved__8GfCamera14GetFieldOfViewENS0_12FOVDirectionE(ptr noundef nonnull align 8 dereferenceable(192) %1, i32 noundef %2)
@@ -107,11 +107,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParame
 
 62:                                               ; preds = %60
   store double 1.000000e+00, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double 1.000000e+00, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double -1.000000e+00, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double 1.000000e+00, ptr %65, align 8
   %66 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalERKNS_7GfVec4dE(ptr noundef nonnull align 8 dereferenceable(128) @_ZZN32pxrInternal_v0_24__pxrReserved__32CameraUtilScreenWindowParametersC1ERKNS_8GfCameraENS1_12FOVDirectionEE5zFlip, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_7GfVec4dE.exit unwind label %70

@@ -19,9 +19,9 @@ define hidden noundef ptr @_ZN18CompiledDirectCall19emit_to_interp_stubEP14Macro
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -32,16 +32,16 @@ define hidden noundef ptr @_ZN18CompiledDirectCall19emit_to_interp_stubEP14Macro
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %14, align 8, !alias.scope !6
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 5, ptr %15, align 8, !alias.scope !6
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV22static_stub_Relocation, i64 16), ptr %3, align 8, !alias.scope !6
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.010, ptr %16, align 8, !alias.scope !6
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0) #4
   call void @_ZN14MacroAssembler21emit_static_call_stubEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4
@@ -89,22 +89,22 @@ define hidden void @_ZN18CompiledDirectCall18set_to_interpretedERK12methodHandle
   %8 = load i8, ptr %4, align 1
   %9 = icmp eq i8 %8, -43
   %10 = select i1 %9, i64 11, i64 10
-  %11 = getelementptr inbounds i8, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = load ptr, ptr %1, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = select i1 %9, i32 3, i32 2
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %15
   store i64 %13, ptr %16, align 8
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef %14) #4
-  %17 = getelementptr inbounds i8, ptr %11, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 5
   %18 = ptrtoint ptr %2 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
   %21 = icmp eq ptr %2, inttoptr (i64 -1 to ptr)
   %22 = trunc i64 %20 to i32
   %23 = select i1 %21, i32 -5, i32 %22
-  %24 = getelementptr inbounds i8, ptr %11, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i32 %23, ptr %24, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %11, i32 noundef 1) #4
   %25 = load ptr, ptr %0, align 8
@@ -119,22 +119,22 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18CompiledDirectCall17set_stub_to_cleanEP22static_stub_Relocation(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, -43
   %8 = select i1 %7, i32 3, i32 2
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 %9
   store i64 0, ptr %10, align 8
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %8) #4
   %11 = load i8, ptr %5, align 1
   %12 = icmp eq i8 %11, -43
   %13 = select i1 %12, i64 11, i64 10
-  %14 = getelementptr inbounds i8, ptr %5, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i32 -5, ptr %15, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %14, i32 noundef 1) #4
   ret void

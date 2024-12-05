@@ -9,13 +9,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @ossl_blake2s_param_init(ptr nocapture noundef writeonly initializes((0, 32)) %P) local_unnamed_addr #0 {
 entry:
   store i8 32, ptr %P, align 1
-  %key_length = getelementptr inbounds i8, ptr %P, i64 1
+  %key_length = getelementptr inbounds nuw i8, ptr %P, i64 1
   store i8 0, ptr %key_length, align 1
-  %fanout = getelementptr inbounds i8, ptr %P, i64 2
+  %fanout = getelementptr inbounds nuw i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 1
-  %depth = getelementptr inbounds i8, ptr %P, i64 3
+  %depth = getelementptr inbounds nuw i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
+  %leaf_length = getelementptr inbounds nuw i8, ptr %P, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   ret void
 }
@@ -33,7 +33,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_blake2s_param_set_key_length(ptr nocapture noundef writeonly initializes((1, 2)) %P, i8 noundef zeroext %keylen) local_unnamed_addr #0 {
 entry:
-  %key_length = getelementptr inbounds i8, ptr %P, i64 1
+  %key_length = getelementptr inbounds nuw i8, ptr %P, i64 1
   store i8 %keylen, ptr %key_length, align 1
   ret void
 }
@@ -41,7 +41,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_blake2s_param_set_personal(ptr nocapture noundef writeonly %P, ptr nocapture noundef readonly %personal, i64 noundef %len) local_unnamed_addr #2 {
 entry:
-  %personal1 = getelementptr inbounds i8, ptr %P, i64 24
+  %personal1 = getelementptr inbounds nuw i8, ptr %P, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %personal1, ptr align 1 %personal, i64 %len, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %personal1, i64 %len
   %sub = sub i64 8, %len
@@ -55,7 +55,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_blake2s_param_set_salt(ptr nocapture noundef writeonly %P, ptr nocapture noundef readonly %salt, i64 noundef %len) local_unnamed_addr #2 {
 entry:
-  %salt1 = getelementptr inbounds i8, ptr %P, i64 16
+  %salt1 = getelementptr inbounds nuw i8, ptr %P, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %salt1, ptr align 1 %salt, i64 %len, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %salt1, i64 %len
   %sub = sub i64 8, %len
@@ -71,16 +71,16 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   %1 = load i8, ptr %P, align 1
   %conv.i = zext i8 %1 to i64
-  %outlen.i = getelementptr inbounds i8, ptr %c, i64 120
+  %outlen.i = getelementptr inbounds nuw i8, ptr %c, i64 120
   store i64 %conv.i, ptr %outlen.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.07.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %mul.i = shl nuw nsw i64 %i.07.i, 2
-  %arrayidx.i = getelementptr inbounds i8, ptr %P, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %P, i64 %mul.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %i.07.i
+  %arrayidx2.i = getelementptr inbounds nuw [8 x i32], ptr %c, i64 0, i64 %i.07.i
   %2 = load i32, ptr %arrayidx2.i, align 4
   %xor.i = xor i32 %2, %arrayidx.val.i
   store i32 %xor.i, ptr %arrayidx2.i, align 4
@@ -101,16 +101,16 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   %1 = load i8, ptr %P, align 1
   %conv.i = zext i8 %1 to i64
-  %outlen.i = getelementptr inbounds i8, ptr %c, i64 120
+  %outlen.i = getelementptr inbounds nuw i8, ptr %c, i64 120
   store i64 %conv.i, ptr %outlen.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.07.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %mul.i = shl nuw nsw i64 %i.07.i, 2
-  %arrayidx.i = getelementptr inbounds i8, ptr %P, i64 %mul.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %P, i64 %mul.i
   %arrayidx.val.i = load i32, ptr %arrayidx.i, align 1
-  %arrayidx2.i = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %i.07.i
+  %arrayidx2.i = getelementptr inbounds nuw [8 x i32], ptr %c, i64 0, i64 %i.07.i
   %2 = load i32, ptr %arrayidx2.i, align 4
   %xor.i = xor i32 %2, %arrayidx.val.i
   store i32 %xor.i, ptr %arrayidx2.i, align 4
@@ -120,11 +120,11 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 blake2s_init_param.exit:                          ; preds = %for.body.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block, i8 0, i64 64, i1 false)
-  %key_length = getelementptr inbounds i8, ptr %P, i64 1
+  %key_length = getelementptr inbounds nuw i8, ptr %P, i64 1
   %3 = load i8, ptr %key_length, align 1
   %conv = zext i8 %3 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv, i1 false)
-  %buflen.i = getelementptr inbounds i8, ptr %c, i64 112
+  %buflen.i = getelementptr inbounds nuw i8, ptr %c, i64 112
   %4 = load i64, ptr %buflen.i, align 8
   %sub.i = sub i64 64, %4
   %cmp.i = icmp ult i64 %sub.i, 64
@@ -135,12 +135,12 @@ if.then.i:                                        ; preds = %blake2s_init_param.
   br i1 %tobool.not.i, label %ossl_blake2s_update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %buf.i = getelementptr inbounds i8, ptr %c, i64 48
+  %buf.i = getelementptr inbounds nuw i8, ptr %c, i64 48
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 16 %block, i64 %sub.i, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 64)
   store i64 0, ptr %buflen.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %block, i64 %sub.i
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %block, i64 %sub.i
   %cmp9.i = icmp ugt i64 %4, 64
   br i1 %cmp9.i, label %if.then10.i, label %ossl_blake2s_update.exit
 
@@ -158,7 +158,7 @@ ossl_blake2s_update.exit:                         ; preds = %if.then.i, %blake2s
   %5 = phi i64 [ %.pre.i, %if.then10.i ], [ 0, %if.end.i ], [ %4, %blake2s_init_param.exit ], [ 0, %if.then.i ]
   %in.0.i = phi ptr [ %add.ptr13.i, %if.then10.i ], [ %add.ptr7.i, %if.end.i ], [ %block, %blake2s_init_param.exit ], [ %block, %if.then.i ]
   %datalen.addr.0.i = phi i64 [ %cond.i, %if.then10.i ], [ %4, %if.end.i ], [ 64, %blake2s_init_param.exit ], [ 64, %if.then.i ]
-  %buf16.i = getelementptr inbounds i8, ptr %c, i64 48
+  %buf16.i = getelementptr inbounds nuw i8, ptr %c, i64 48
   %add.ptr19.i = getelementptr inbounds i8, ptr %buf16.i, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr nonnull align 1 %in.0.i, i64 %datalen.addr.0.i, i1 false)
   %6 = load i64, ptr %buflen.i, align 8
@@ -171,7 +171,7 @@ ossl_blake2s_update.exit:                         ; preds = %if.then.i, %blake2s
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i32 @ossl_blake2s_update(ptr nocapture noundef %c, ptr nocapture noundef readonly %data, i64 noundef %datalen) local_unnamed_addr #4 {
 entry:
-  %buflen = getelementptr inbounds i8, ptr %c, i64 112
+  %buflen = getelementptr inbounds nuw i8, ptr %c, i64 112
   %0 = load i64, ptr %buflen, align 8
   %sub = sub i64 64, %0
   %cmp = icmp ugt i64 %datalen, %sub
@@ -182,7 +182,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %buf = getelementptr inbounds i8, ptr %c, i64 48
+  %buf = getelementptr inbounds nuw i8, ptr %c, i64 48
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %data, i64 %sub, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf, i64 noundef 64)
@@ -211,7 +211,7 @@ if.end15:                                         ; preds = %if.end, %if.then10,
   %1 = phi i64 [ %.pre, %if.then10 ], [ 0, %if.end ], [ %0, %entry ]
   %in.0 = phi ptr [ %add.ptr13, %if.then10 ], [ %in.1, %if.end ], [ %data, %entry ]
   %datalen.addr.0 = phi i64 [ %cond, %if.then10 ], [ %datalen.addr.1, %if.end ], [ %datalen, %entry ]
-  %buf16 = getelementptr inbounds i8, ptr %c, i64 48
+  %buf16 = getelementptr inbounds nuw i8, ptr %c, i64 48
   %add.ptr19 = getelementptr inbounds i8, ptr %buf16, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19, ptr align 1 %in.0, i64 %datalen.addr.0, i1 false)
   %2 = load i64, ptr %buflen, align 8
@@ -228,61 +228,61 @@ entry:
   %v = alloca [16 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v, ptr noundef nonnull align 4 dereferenceable(32) %S, i64 32, i1 false)
   %cond = tail call i64 @llvm.umin.i64(i64 %len, i64 64)
-  %t = getelementptr inbounds i8, ptr %S, i64 32
+  %t = getelementptr inbounds nuw i8, ptr %S, i64 32
   %0 = trunc nuw nsw i64 %cond to i32
-  %arrayidx18 = getelementptr inbounds i8, ptr %S, i64 36
-  %arrayidx20 = getelementptr inbounds i8, ptr %v, i64 32
-  %arrayidx21 = getelementptr inbounds i8, ptr %v, i64 36
-  %arrayidx22 = getelementptr inbounds i8, ptr %v, i64 40
-  %arrayidx23 = getelementptr inbounds i8, ptr %v, i64 44
-  %arrayidx26 = getelementptr inbounds i8, ptr %v, i64 48
-  %arrayidx30 = getelementptr inbounds i8, ptr %v, i64 52
-  %f = getelementptr inbounds i8, ptr %S, i64 40
-  %arrayidx33 = getelementptr inbounds i8, ptr %v, i64 56
-  %arrayidx35 = getelementptr inbounds i8, ptr %S, i64 44
-  %arrayidx37 = getelementptr inbounds i8, ptr %v, i64 60
-  %arrayidx41 = getelementptr inbounds i8, ptr %v, i64 16
-  %arrayidx82 = getelementptr inbounds i8, ptr %v, i64 4
-  %arrayidx83 = getelementptr inbounds i8, ptr %v, i64 20
-  %arrayidx126 = getelementptr inbounds i8, ptr %v, i64 8
-  %arrayidx127 = getelementptr inbounds i8, ptr %v, i64 24
-  %arrayidx170 = getelementptr inbounds i8, ptr %v, i64 12
-  %arrayidx171 = getelementptr inbounds i8, ptr %v, i64 28
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %S, i64 36
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %v, i64 32
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %v, i64 36
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %v, i64 40
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %v, i64 44
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %v, i64 48
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %v, i64 52
+  %f = getelementptr inbounds nuw i8, ptr %S, i64 40
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %v, i64 56
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %S, i64 44
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %v, i64 60
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %v, i64 16
+  %arrayidx82 = getelementptr inbounds nuw i8, ptr %v, i64 4
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %v, i64 20
+  %arrayidx126 = getelementptr inbounds nuw i8, ptr %v, i64 8
+  %arrayidx127 = getelementptr inbounds nuw i8, ptr %v, i64 24
+  %arrayidx170 = getelementptr inbounds nuw i8, ptr %v, i64 12
+  %arrayidx171 = getelementptr inbounds nuw i8, ptr %v, i64 28
   br label %do.body
 
 do.body:                                          ; preds = %entry, %for.end3591
   %len.addr.0 = phi i64 [ %sub, %for.end3591 ], [ %len, %entry ]
   %blocks.addr.0 = phi ptr [ %add.ptr3592, %for.end3591 ], [ %blocks, %entry ]
   %m.sroa.0.0.copyload = load i32, ptr %blocks.addr.0, align 1
-  %m.sroa.8.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 4
+  %m.sroa.8.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 4
   %m.sroa.8.0.copyload = load i32, ptr %m.sroa.8.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.15.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 8
+  %m.sroa.15.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 8
   %m.sroa.15.0.copyload = load i32, ptr %m.sroa.15.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.22.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 12
+  %m.sroa.22.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 12
   %m.sroa.22.0.copyload = load i32, ptr %m.sroa.22.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.29.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 16
+  %m.sroa.29.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 16
   %m.sroa.29.0.copyload = load i32, ptr %m.sroa.29.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.36.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 20
+  %m.sroa.36.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 20
   %m.sroa.36.0.copyload = load i32, ptr %m.sroa.36.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.44.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 24
+  %m.sroa.44.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 24
   %m.sroa.44.0.copyload = load i32, ptr %m.sroa.44.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.51.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 28
+  %m.sroa.51.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 28
   %m.sroa.51.0.copyload = load i32, ptr %m.sroa.51.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.58.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 32
+  %m.sroa.58.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 32
   %m.sroa.58.0.copyload = load i32, ptr %m.sroa.58.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.65.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 36
+  %m.sroa.65.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 36
   %m.sroa.65.0.copyload = load i32, ptr %m.sroa.65.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.72.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 40
+  %m.sroa.72.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 40
   %m.sroa.72.0.copyload = load i32, ptr %m.sroa.72.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.79.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 44
+  %m.sroa.79.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 44
   %m.sroa.79.0.copyload = load i32, ptr %m.sroa.79.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.86.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 48
+  %m.sroa.86.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 48
   %m.sroa.86.0.copyload = load i32, ptr %m.sroa.86.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.93.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 52
+  %m.sroa.93.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 52
   %m.sroa.93.0.copyload = load i32, ptr %m.sroa.93.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.100.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 56
+  %m.sroa.100.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 56
   %m.sroa.100.0.copyload = load i32, ptr %m.sroa.100.0.blocks.addr.0.sroa_idx, align 1
-  %m.sroa.107.0.blocks.addr.0.sroa_idx = getelementptr inbounds i8, ptr %blocks.addr.0, i64 60
+  %m.sroa.107.0.blocks.addr.0.sroa_idx = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 60
   %m.sroa.107.0.copyload = load i32, ptr %m.sroa.107.0.blocks.addr.0.sroa_idx, align 1
   %1 = load i32, ptr %t, align 8
   %conv11 = add i32 %1, %0
@@ -1540,12 +1540,12 @@ do.body:                                          ; preds = %entry, %for.end3591
 for.body3579:                                     ; preds = %do.body, %for.body3579
   %i.2351 = phi i64 [ 0, %do.body ], [ %inc3590, %for.body3579 ]
   %add3580 = or disjoint i64 %i.2351, 8
-  %arrayidx3581 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 %add3580
+  %arrayidx3581 = getelementptr inbounds nuw [16 x i32], ptr %v, i64 0, i64 %add3580
   %63 = load i32, ptr %arrayidx3581, align 4
-  %arrayidx3583 = getelementptr inbounds [8 x i32], ptr %S, i64 0, i64 %i.2351
+  %arrayidx3583 = getelementptr inbounds nuw [8 x i32], ptr %S, i64 0, i64 %i.2351
   %64 = load i32, ptr %arrayidx3583, align 4
   %xor3584 = xor i32 %64, %63
-  %arrayidx3585 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 %i.2351
+  %arrayidx3585 = getelementptr inbounds nuw [16 x i32], ptr %v, i64 0, i64 %i.2351
   %65 = load i32, ptr %arrayidx3585, align 4
   %xor3586 = xor i32 %xor3584, %65
   store i32 %xor3586, ptr %arrayidx3585, align 4
@@ -1555,7 +1555,7 @@ for.body3579:                                     ; preds = %do.body, %for.body3
   br i1 %exitcond.not, label %for.end3591, label %for.body3579, !llvm.loop !6
 
 for.end3591:                                      ; preds = %for.body3579
-  %add.ptr3592 = getelementptr inbounds i8, ptr %blocks.addr.0, i64 %cond
+  %add.ptr3592 = getelementptr inbounds nuw i8, ptr %blocks.addr.0, i64 %cond
   %sub = sub i64 %len.addr.0, %cond
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %do.end3593, label %do.body, !llvm.loop !7
@@ -1569,7 +1569,7 @@ define noundef i32 @ossl_blake2s_final(ptr noundef %md, ptr noundef initializes(
 entry:
   %outbuffer = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %outbuffer, i8 0, i64 32, i1 false)
-  %outlen = getelementptr inbounds i8, ptr %c, i64 120
+  %outlen = getelementptr inbounds nuw i8, ptr %c, i64 120
   %0 = load i64, ptr %outlen, align 8
   %add = add i64 %0, 3
   %div19 = lshr i64 %add, 2
@@ -1577,10 +1577,10 @@ entry:
   %rem = and i64 %0, 3
   %cmp = icmp eq i64 %rem, 0
   %spec.select = select i1 %cmp, ptr %md, ptr %outbuffer
-  %f.i = getelementptr inbounds i8, ptr %c, i64 40
+  %f.i = getelementptr inbounds nuw i8, ptr %c, i64 40
   store i32 -1, ptr %f.i, align 8
-  %buf = getelementptr inbounds i8, ptr %c, i64 48
-  %buflen = getelementptr inbounds i8, ptr %c, i64 112
+  %buf = getelementptr inbounds nuw i8, ptr %c, i64 48
+  %buflen = getelementptr inbounds nuw i8, ptr %c, i64 112
   %1 = load i64, ptr %buflen, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %1
   %sub = sub i64 64, %1
@@ -1597,8 +1597,8 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %mul = shl nuw nsw i64 %indvars.iv, 2
-  %add.ptr11 = getelementptr inbounds i8, ptr %spec.select, i64 %mul
-  %arrayidx = getelementptr inbounds [8 x i32], ptr %c, i64 0, i64 %indvars.iv
+  %add.ptr11 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %mul
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr %c, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
   store i32 %3, ptr %add.ptr11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

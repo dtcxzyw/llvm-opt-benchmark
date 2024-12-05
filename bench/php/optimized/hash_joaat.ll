@@ -55,9 +55,9 @@ define void @PHP_JOAATFinal(ptr nocapture noundef writeonly %0, ptr nocapture no
 9:                                                ; preds = %2, %9
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %9 ]
   %10 = sub nuw nsw i64 3, %indvars.iv
-  %11 = getelementptr inbounds i8, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %12, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

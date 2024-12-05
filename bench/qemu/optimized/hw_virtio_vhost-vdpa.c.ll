@@ -201,25 +201,25 @@ define dso_local range(i32 -5, 1) i32 @vhost_vdpa_dma_map(ptr noundef %v, i32 no
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %msg = alloca %struct.vhost_msg_v2, align 8
-  %0 = getelementptr inbounds i8, ptr %msg, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %msg, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 40, i1 false)
   %1 = load i32, ptr %v, align 16
-  %msg_type = getelementptr inbounds i8, ptr %v, i64 8
+  %msg_type = getelementptr inbounds nuw i8, ptr %v, i64 8
   %2 = load i32, ptr %msg_type, align 8
   store i32 %2, ptr %msg, align 8
-  %asid1 = getelementptr inbounds i8, ptr %msg, i64 4
+  %asid1 = getelementptr inbounds nuw i8, ptr %msg, i64 4
   store i32 %asid, ptr %asid1, align 4
-  %3 = getelementptr inbounds i8, ptr %msg, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i64 %iova, ptr %3, align 8
-  %size3 = getelementptr inbounds i8, ptr %msg, i64 16
+  %size3 = getelementptr inbounds nuw i8, ptr %msg, i64 16
   store i64 %size, ptr %size3, align 8
   %4 = ptrtoint ptr %vaddr to i64
-  %uaddr = getelementptr inbounds i8, ptr %msg, i64 24
+  %uaddr = getelementptr inbounds nuw i8, ptr %msg, i64 24
   store i64 %4, ptr %uaddr, align 8
   %conv = select i1 %readonly, i8 1, i8 3
-  %perm = getelementptr inbounds i8, ptr %msg, i64 32
+  %perm = getelementptr inbounds nuw i8, ptr %msg, i64 32
   store i8 %conv, ptr %perm, align 8
-  %type4 = getelementptr inbounds i8, ptr %msg, i64 33
+  %type4 = getelementptr inbounds nuw i8, ptr %msg, i64 33
   store i8 2, ptr %type4, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -244,7 +244,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %conv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.1, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %v, i32 noundef %1, i32 noundef %2, i32 noundef %asid, i64 noundef %iova, i64 noundef %size, i64 noundef %4, i32 noundef %conv11.i.i, i32 noundef 2) #12
@@ -292,19 +292,19 @@ define dso_local range(i32 -5, 1) i32 @vhost_vdpa_dma_unmap(ptr noundef %v, i32 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %msg = alloca %struct.vhost_msg_v2, align 8
-  %0 = getelementptr inbounds i8, ptr %msg, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %msg, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 48, i1 false)
   %1 = load i32, ptr %v, align 16
-  %msg_type = getelementptr inbounds i8, ptr %v, i64 8
+  %msg_type = getelementptr inbounds nuw i8, ptr %v, i64 8
   %2 = load i32, ptr %msg_type, align 8
   store i32 %2, ptr %msg, align 8
-  %asid1 = getelementptr inbounds i8, ptr %msg, i64 4
+  %asid1 = getelementptr inbounds nuw i8, ptr %msg, i64 4
   store i32 %asid, ptr %asid1, align 4
-  %3 = getelementptr inbounds i8, ptr %msg, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i64 %iova, ptr %3, align 8
-  %size3 = getelementptr inbounds i8, ptr %msg, i64 16
+  %size3 = getelementptr inbounds nuw i8, ptr %msg, i64 16
   store i64 %size, ptr %size3, align 8
-  %type4 = getelementptr inbounds i8, ptr %msg, i64 33
+  %type4 = getelementptr inbounds nuw i8, ptr %msg, i64 33
   store i8 3, ptr %type4, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -329,7 +329,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %v, i32 noundef %1, i32 noundef %2, i32 noundef %asid, i64 noundef %iova, i64 noundef %size, i32 noundef 3) #12
   br label %trace_vhost_vdpa_dma_unmap.exit
@@ -382,12 +382,12 @@ define dso_local i32 @vhost_vdpa_set_vring_ready(ptr nocapture noundef readonly 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %state = alloca %struct.vhost_vring_state, align 4
-  %dev1 = getelementptr inbounds i8, ptr %v, i64 280
+  %dev1 = getelementptr inbounds nuw i8, ptr %v, i64 280
   %0 = load ptr, ptr %dev1, align 8
   store i32 %idx, ptr %state, align 4
-  %num = getelementptr inbounds i8, ptr %state, i64 4
+  %num = getelementptr inbounds nuw i8, ptr %state, i64 4
   store i32 1, ptr %num, align 4
-  %vhost_ops.i = getelementptr inbounds i8, ptr %0, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %0, i64 528
   %1 = load ptr, ptr %vhost_ops.i, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 3
@@ -398,7 +398,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds i8, ptr %0, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %opaque.i, align 8
   %4 = load i32, ptr %3, align 16
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %4, i64 noundef 1074311029, ptr noundef nonnull %state) #12
@@ -436,7 +436,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = call i32 @qemu_get_thread_id() #12
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %0, i32 noundef %idx, i32 noundef %cond.i) #12
   br label %trace_vhost_vdpa_set_vring_ready.exit
@@ -455,7 +455,7 @@ define internal i32 @vhost_vdpa_init(ptr noundef %dev, ptr noundef %opaque, ptr 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %features = alloca i64, align 8
-  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp eq i32 %1, 3
@@ -489,7 +489,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %dev, ptr noundef %opaque) #12
   br label %trace_vhost_vdpa_init.exit
@@ -500,15 +500,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_init.exit:                       ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %dev1 = getelementptr inbounds i8, ptr %opaque, i64 280
+  %dev1 = getelementptr inbounds nuw i8, ptr %opaque, i64 280
   store ptr %dev, ptr %dev1, align 8
-  %opaque2 = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque2 = getelementptr inbounds nuw i8, ptr %dev, i64 536
   store ptr %opaque, ptr %opaque2, align 8
-  %listener = getelementptr inbounds i8, ptr %opaque, i64 24
+  %listener = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %listener, ptr noundef nonnull align 8 dereferenceable(192) @vhost_vdpa_memory_listener, i64 192, i1 false)
-  %msg_type = getelementptr inbounds i8, ptr %opaque, i64 8
+  %msg_type = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i32 2, ptr %msg_type, align 8
-  %nvqs.i = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs.i = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %8 = load i32, ptr %nvqs.i, align 8
   %call.i = tail call ptr @g_ptr_array_new_full(i32 noundef %8, ptr noundef nonnull @vhost_svq_free) #12
   %9 = load i32, ptr %nvqs.i, align 8
@@ -516,8 +516,8 @@ trace_vhost_vdpa_init.exit:                       ; preds = %if.end, %land.lhs.t
   br i1 %cmp6.not.i, label %vhost_vdpa_init_svq.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %trace_vhost_vdpa_init.exit
-  %shadow_vq_ops.i = getelementptr inbounds i8, ptr %opaque, i64 264
-  %shadow_vq_ops_opaque.i = getelementptr inbounds i8, ptr %opaque, i64 272
+  %shadow_vq_ops.i = getelementptr inbounds nuw i8, ptr %opaque, i64 264
+  %shadow_vq_ops_opaque.i = getelementptr inbounds nuw i8, ptr %opaque, i64 272
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -532,10 +532,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %vhost_vdpa_init_svq.exit, !llvm.loop !5
 
 vhost_vdpa_init_svq.exit:                         ; preds = %for.body.i, %trace_vhost_vdpa_init.exit
-  %shadow_vqs4.i = getelementptr inbounds i8, ptr %opaque, i64 256
+  %shadow_vqs4.i = getelementptr inbounds nuw i8, ptr %opaque, i64 256
   store ptr %call.i, ptr %shadow_vqs4.i, align 16
-  %migration_blocker = getelementptr inbounds i8, ptr %dev, i64 520
-  %migration_blocker3 = getelementptr inbounds i8, ptr %opaque, i64 288
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %dev, i64 520
+  %migration_blocker3 = getelementptr inbounds nuw i8, ptr %opaque, i64 288
   %13 = load ptr, ptr %migration_blocker3, align 16
   tail call void @error_propagate(ptr noundef nonnull %migration_blocker, ptr noundef %13) #12
   %dev.val = load ptr, ptr %opaque2, align 8
@@ -550,7 +550,7 @@ if.end5:                                          ; preds = %vhost_vdpa_init_svq
   br i1 %cmp7, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end5
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %opaque, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %opaque, i64 240
   %16 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %16 to i1
   br i1 %tobool, label %if.end17, label %if.then8
@@ -592,7 +592,7 @@ return:                                           ; preds = %vhost_vdpa_init_svq
 define internal noundef i32 @vhost_vdpa_cleanup(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp eq i32 %1, 3
@@ -603,7 +603,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -628,7 +628,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %dev, ptr noundef %2) #12
   br label %trace_vhost_vdpa_cleanup.exit
@@ -650,15 +650,15 @@ if.then1:                                         ; preds = %trace_vhost_vdpa_cl
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %trace_vhost_vdpa_cleanup.exit
-  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %10 = load i32, ptr %nvqs, align 8
   tail call fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef nonnull %dev, i32 noundef %10)
-  %listener = getelementptr inbounds i8, ptr %2, i64 24
+  %listener = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @memory_listener_unregister(ptr noundef nonnull %listener) #12
   %dev.val9 = load ptr, ptr %opaque, align 8
-  %shadow_vqs.i = getelementptr inbounds i8, ptr %dev.val9, i64 256
+  %shadow_vqs.i = getelementptr inbounds nuw i8, ptr %dev.val9, i64 256
   %11 = load ptr, ptr %shadow_vqs.i, align 16
-  %len1.i = getelementptr inbounds i8, ptr %11, i64 8
+  %len1.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load i32, ptr %len1.i, align 8
   %cmp3.not.i = icmp eq i32 %12, 0
   br i1 %cmp3.not.i, label %vhost_vdpa_svq_cleanup.exit, label %for.body.i
@@ -672,7 +672,7 @@ for.body.i:                                       ; preds = %if.end3, %for.body.
   tail call void @vhost_svq_stop(ptr noundef %15) #12
   %inc.i = add nuw nsw i64 %idx.04.i, 1
   %16 = load ptr, ptr %shadow_vqs.i, align 16
-  %len.i = getelementptr inbounds i8, ptr %16, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load i32, ptr %len.i, align 8
   %conv.i = zext i32 %17 to i64
   %cmp.i10 = icmp samesign ult i64 %inc.i, %conv.i
@@ -712,7 +712,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %dev, i32 noundef 2147483647) #12
   br label %trace_vhost_vdpa_memslots_limit.exit
@@ -732,9 +732,9 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %base.addr = alloca i64, align 8
   store i64 %base, ptr %base.addr, align 8
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %1 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %return, label %lor.lhs.false
@@ -747,11 +747,11 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %3 = load i64, ptr %log, align 8
-  %refcnt = getelementptr inbounds i8, ptr %log, i64 8
+  %refcnt = getelementptr inbounds nuw i8, ptr %log, i64 8
   %4 = load i32, ptr %refcnt, align 8
-  %fd = getelementptr inbounds i8, ptr %log, i64 12
+  %fd = getelementptr inbounds nuw i8, ptr %log, i64 12
   %5 = load i32, ptr %fd, align 4
-  %log1 = getelementptr inbounds i8, ptr %log, i64 16
+  %log1 = getelementptr inbounds nuw i8, ptr %log, i64 16
   %6 = load ptr, ptr %log1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -776,7 +776,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %dev, i64 noundef %base, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #12
   br label %trace_vhost_vdpa_set_log_base.exit
@@ -787,7 +787,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_log_base.exit:               ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %13 = load ptr, ptr %vhost_ops.i, align 8
   %14 = load i32, ptr %13, align 8
   %cmp.i7 = icmp eq i32 %14, 3
@@ -829,7 +829,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load i32, ptr %mem, align 8
-  %padding = getelementptr inbounds i8, ptr %mem, i64 4
+  %padding = getelementptr inbounds nuw i8, ptr %mem, i64 4
   %3 = load i32, ptr %padding, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -854,7 +854,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %dev, i32 noundef %2, i32 noundef %3) #12
   br label %trace_vhost_vdpa_set_mem_table.exit
@@ -881,8 +881,8 @@ for.cond.preheader:                               ; preds = %trace_vhost_vdpa_se
   br i1 %cmp33.not, label %if.end28, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %regions = getelementptr inbounds i8, ptr %mem, i64 8
-  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %regions = getelementptr inbounds nuw i8, ptr %mem, i64 8
+  %tv_usec.i.i31 = getelementptr inbounds nuw i8, ptr %_now.i.i18, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_vhost_vdpa_dump_regions.exit
@@ -890,11 +890,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %tr
   %idxprom = sext i32 %i.034 to i64
   %arrayidx = getelementptr [0 x %struct.vhost_memory_region], ptr %regions, i64 0, i64 %idxprom
   %14 = load i64, ptr %arrayidx, align 8
-  %memory_size = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %memory_size = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %15 = load i64, ptr %memory_size, align 8
-  %userspace_addr = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %userspace_addr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %16 = load i64, ptr %userspace_addr, align 8
-  %flags_padding = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %flags_padding = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %17 = load i64, ptr %flags_padding, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i18)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
@@ -948,9 +948,9 @@ return:                                           ; preds = %if.end28, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_vdpa_set_vring_addr(ptr noundef %dev, ptr noundef %addr) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %1 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %return, label %if.end
@@ -969,7 +969,7 @@ define internal i32 @vhost_vdpa_set_vring_num(ptr noundef %dev, ptr noundef %rin
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %ring, align 4
-  %num = getelementptr inbounds i8, ptr %ring, i64 4
+  %num = getelementptr inbounds nuw i8, ptr %ring, i64 4
   %1 = load i32, ptr %num, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -994,7 +994,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %dev, i32 noundef %0, i32 noundef %1) #12
   br label %trace_vhost_vdpa_set_vring_num.exit
@@ -1005,7 +1005,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_vring_num.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %8 = load ptr, ptr %vhost_ops.i, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.i = icmp eq i32 %9, 3
@@ -1016,7 +1016,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_se
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_set_vring_num.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %10 = load ptr, ptr %opaque.i, align 8
   %11 = load i32, ptr %10, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %11, i64 noundef 1074310928, ptr noundef nonnull %ring) #12
@@ -1037,9 +1037,9 @@ vhost_vdpa_call.exit:                             ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_vdpa_set_vring_base(ptr noundef %dev, ptr noundef %ring) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %1 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %return, label %if.end
@@ -1057,9 +1057,9 @@ return:                                           ; preds = %entry, %if.end
 define internal i32 @vhost_vdpa_get_vring_base(ptr noundef %dev, ptr noundef %ring) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %1 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -1068,18 +1068,18 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %dev, align 8
   %3 = load i32, ptr %ring, align 4
   %call = tail call i32 @virtio_queue_get_last_avail_idx(ptr noundef %2, i32 noundef %3) #12
-  %num = getelementptr inbounds i8, ptr %ring, i64 4
+  %num = getelementptr inbounds nuw i8, ptr %ring, i64 4
   store i32 %call, ptr %num, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %suspended = getelementptr inbounds i8, ptr %0, i64 242
+  %suspended = getelementptr inbounds nuw i8, ptr %0, i64 242
   %4 = load i8, ptr %suspended, align 2
   %tobool1 = trunc i8 %4 to i1
   br i1 %tobool1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %5 = load ptr, ptr %vhost_ops.i, align 8
   %6 = load i32, ptr %5, align 8
   %cmp.i = icmp eq i32 %6, 3
@@ -1104,7 +1104,7 @@ cond.true.i:                                      ; preds = %if.end.i
 vhost_vdpa_call.exit:                             ; preds = %if.end.i, %cond.true.i
   %cond.i = phi i32 [ %sub.i, %cond.true.i ], [ %call.i, %if.end.i ]
   %9 = load i32, ptr %ring, align 4
-  %num6 = getelementptr inbounds i8, ptr %ring, i64 4
+  %num6 = getelementptr inbounds nuw i8, ptr %ring, i64 4
   %10 = load i32, ptr %num6, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1129,7 +1129,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %dev, i32 noundef %9, i32 noundef %10) #12
   br label %trace_vhost_vdpa_get_vring_base.exit
@@ -1150,25 +1150,25 @@ return:                                           ; preds = %if.end, %trace_vhos
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_vdpa_set_vring_kick(ptr noundef %dev, ptr noundef %file) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %1 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %2 = load i32, ptr %file, align 4
-  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %3 = load i32, ptr %vq_index, align 4
   %sub = sub i32 %2, %3
-  %shadow_vqs = getelementptr inbounds i8, ptr %0, i64 256
+  %shadow_vqs = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %shadow_vqs, align 16
   %5 = load ptr, ptr %4, align 8
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
   %6 = load ptr, ptr %arrayidx, align 8
-  %fd = getelementptr inbounds i8, ptr %file, i64 4
+  %fd = getelementptr inbounds nuw i8, ptr %file, i64 4
   %7 = load i32, ptr %fd, align 4
   tail call void @vhost_svq_set_svq_kick_fd(ptr noundef %6, i32 noundef %7) #12
   br label %return
@@ -1185,22 +1185,22 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @vhost_vdpa_set_vring_call(ptr noundef %dev, ptr noundef %file) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i32, ptr %file, align 4
-  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %2 = load i32, ptr %vq_index, align 4
   %sub = sub i32 %1, %2
-  %shadow_vqs = getelementptr inbounds i8, ptr %0, i64 256
+  %shadow_vqs = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %shadow_vqs, align 16
   %4 = load ptr, ptr %3, align 8
   %idxprom = sext i32 %sub to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %fd = getelementptr inbounds i8, ptr %file, i64 4
+  %fd = getelementptr inbounds nuw i8, ptr %file, i64 4
   %6 = load i32, ptr %fd, align 4
   tail call void @vhost_svq_set_svq_call_fd(ptr noundef %5, i32 noundef %6) #12
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %return, label %if.end
@@ -1220,7 +1220,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %features.addr = alloca i64, align 8
   store i64 %features, ptr %features.addr, align 8
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
   %1 = getelementptr i8, ptr %0, i64 4
   %dev.val.val = load i32, ptr %1, align 4
@@ -1228,13 +1228,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %2 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then1, label %if.end6
 
 if.then1:                                         ; preds = %if.end
-  %acked_features = getelementptr inbounds i8, ptr %0, i64 232
+  %acked_features = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i64, ptr %acked_features, align 8
   %xor = xor i64 %3, %features
   %cmp = icmp eq i64 %xor, 67108864
@@ -1271,7 +1271,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %dev, i64 noundef %4) #12
   br label %trace_vhost_vdpa_set_features.exit
@@ -1282,7 +1282,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_features.exit:               ; preds = %if.end6, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %11 = load ptr, ptr %vhost_ops.i, align 8
   %12 = load i32, ptr %11, align 8
   %cmp.i9 = icmp eq i32 %12, 3
@@ -1340,7 +1340,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal range(i32 -14, 1) i32 @vhost_vdpa_set_backend_cap(ptr nocapture noundef %dev) #0 {
 entry:
   %features = alloca i64, align 8
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 3
@@ -1351,7 +1351,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = load i32, ptr %2, align 16
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %3, i64 noundef 2148052774, ptr noundef nonnull %features) #12
@@ -1412,7 +1412,7 @@ vhost_vdpa_call.exit16.if.end7_crit_edge:         ; preds = %vhost_vdpa_call.exi
 
 if.end7:                                          ; preds = %vhost_vdpa_call.exit16.if.end7_crit_edge, %if.end
   %11 = phi i64 [ %.pre, %vhost_vdpa_call.exit16.if.end7_crit_edge ], [ %and, %if.end ]
-  %backend_cap = getelementptr inbounds i8, ptr %dev, i64 496
+  %backend_cap = getelementptr inbounds nuw i8, ptr %dev, i64 496
   store i64 %11, ptr %backend_cap, align 8
   br label %return
 
@@ -1456,7 +1456,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %dev) #12
   br label %trace_vhost_vdpa_set_owner.exit
@@ -1467,7 +1467,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_owner.exit:                  ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %8 = load ptr, ptr %vhost_ops.i, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.i3 = icmp eq i32 %9, 3
@@ -1500,10 +1500,10 @@ define internal i32 @vhost_vdpa_reset_device(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %status = alloca i8, align 1
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
   store i8 0, ptr %status, align 1
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %1 = load ptr, ptr %vhost_ops.i, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 3
@@ -1550,7 +1550,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = call i32 @qemu_get_thread_id() #12
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %dev) #12
   br label %trace_vhost_vdpa_reset_device.exit
@@ -1561,7 +1561,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_reset_device.exit:               ; preds = %vhost_vdpa_call.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %suspended = getelementptr inbounds i8, ptr %0, i64 242
+  %suspended = getelementptr inbounds nuw i8, ptr %0, i64 242
   store i8 0, ptr %suspended, align 2
   ret i32 %cond.i
 }
@@ -1570,13 +1570,13 @@ trace_vhost_vdpa_reset_device.exit:               ; preds = %vhost_vdpa_call.exi
 define internal range(i32 0, -1) i32 @vhost_vdpa_get_vq_index(ptr noundef %dev, i32 noundef returned %idx) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
   %cmp.not = icmp slt i32 %idx, %0
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %1 = load i32, ptr %nvqs, align 8
   %add = add i32 %1, %0
   %cmp2 = icmp ult i32 %idx, %add
@@ -1610,7 +1610,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %dev, i32 noundef %idx, i32 noundef %idx) #12
   br label %trace_vhost_vdpa_get_vq_index.exit
@@ -1651,7 +1651,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.77, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %dev, ptr noundef %config, i32 noundef %config_len) #12
   br label %trace_vhost_vdpa_get_config.exit
@@ -1665,10 +1665,10 @@ trace_vhost_vdpa_get_config.exit:                 ; preds = %entry, %land.lhs.tr
   %conv = zext i32 %config_len to i64
   %add = add nuw nsw i64 %conv, 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %add) #15
-  %len = getelementptr inbounds i8, ptr %call, i64 4
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %config_len, ptr %len, align 4
   store i32 0, ptr %call, align 4
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %6 = load ptr, ptr %vhost_ops.i, align 8
   %7 = load i32, ptr %6, align 8
   %cmp.i = icmp eq i32 %7, 3
@@ -1679,7 +1679,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_ge
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_get_config.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %8 = load ptr, ptr %opaque.i, align 8
   %9 = load i32, ptr %8, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 2148052851, ptr noundef nonnull %call) #12
@@ -1694,7 +1694,7 @@ cond.true.i:                                      ; preds = %if.end.i
 
 vhost_vdpa_call.exit:                             ; preds = %if.end.i, %cond.true.i
   %cond.i = phi i32 [ %sub.i, %cond.true.i ], [ %call.i, %if.end.i ]
-  %buf = getelementptr inbounds i8, ptr %call, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 4 %buf, i64 %conv, i1 false)
   tail call void @g_free(ptr noundef nonnull %call) #12
   %11 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1742,7 +1742,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.81, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %dev, i32 noundef %offset, i32 noundef %size, i32 noundef %flags) #12
   br label %trace_vhost_vdpa_set_config.exit
@@ -1757,9 +1757,9 @@ trace_vhost_vdpa_set_config.exit:                 ; preds = %entry, %land.lhs.tr
   %add = add nuw nsw i64 %conv, 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %add) #15
   store i32 %offset, ptr %call, align 4
-  %len = getelementptr inbounds i8, ptr %call, i64 4
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %size, ptr %len, align 4
-  %buf = getelementptr inbounds i8, ptr %call, i64 8
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %buf, ptr align 1 %data, i64 %conv, i1 false)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool = icmp eq i32 %6, 0
@@ -1776,7 +1776,7 @@ if.then:                                          ; preds = %trace_vhost_vdpa_se
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %trace_vhost_vdpa_set_config.exit
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %9 = load ptr, ptr %vhost_ops.i, align 8
   %10 = load i32, ptr %9, align 8
   %cmp.i = icmp eq i32 %10, 3
@@ -1787,7 +1787,7 @@ if.else.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i:                                         ; preds = %if.end
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %11 = load ptr, ptr %opaque.i, align 8
   %12 = load i32, ptr %11, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 1074311028, ptr noundef nonnull %call) #12
@@ -1821,7 +1821,7 @@ entry:
   %err.i = alloca ptr, align 8
   %addr.i = alloca %struct.vhost_vring_addr, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %0 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1846,7 +1846,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %started to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %dev, i32 noundef %conv12.i.i) #12
@@ -1863,16 +1863,16 @@ trace_vhost_vdpa_dev_start.exit:                  ; preds = %entry, %land.lhs.tr
   br i1 %started, label %if.then, label %if.else
 
 if.then:                                          ; preds = %trace_vhost_vdpa_dev_start.exit
-  %shadow_vqs_enabled.i = getelementptr inbounds i8, ptr %7, i64 240
+  %shadow_vqs_enabled.i = getelementptr inbounds nuw i8, ptr %7, i64 240
   %8 = load i8, ptr %shadow_vqs_enabled.i, align 16
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %vhost_vdpa_host_notifiers_init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
   tail call void @memory_region_transaction_begin() #12
-  %vq_index.i = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index.i = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %9 = load i32, ptr %vq_index.i, align 4
-  %nvqs.i = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs.i = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %10 = load i32, ptr %nvqs.i, align 8
   %add19.i = add i32 %10, %9
   %cmp20.i = icmp ult i32 %9, %add19.i
@@ -1888,10 +1888,10 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %dev.val.i = load ptr, ptr %dev, align 8
   %dev.val10.i = load ptr, ptr %opaque, align 8
   %11 = load i32, ptr %dev.val10.i, align 16
-  %notifier.i.i.i = getelementptr inbounds i8, ptr %dev.val10.i, i64 304
+  %notifier.i.i.i = getelementptr inbounds nuw i8, ptr %dev.val10.i, i64 304
   %idxprom.i.i.i = sext i32 %i.021.i to i64
   %arrayidx.i.i.i = getelementptr [1024 x %struct.VhostVDPAHostNotifier], ptr %notifier.i.i.i, i64 0, i64 %idxprom.i.i.i
-  %addr.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 272
+  %addr.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 272
   %12 = load ptr, ptr %addr.i.i.i, align 16
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %vhost_vdpa_host_notifier_uninit.exit.i.i, label %if.then.i.i.i
@@ -1941,7 +1941,7 @@ for.inc.i:                                        ; preds = %if.end.i.i
 for.end.i:                                        ; preds = %for.inc.i, %if.then3.i, %if.end.i
   tail call void @memory_region_transaction_commit() #12
   %.pre = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled.i19.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 240
+  %shadow_vqs_enabled.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 240
   %.pre214 = load i8, ptr %shadow_vqs_enabled.i19.phi.trans.insert, align 16
   br label %vhost_vdpa_host_notifiers_init.exit
 
@@ -1955,30 +1955,30 @@ vhost_vdpa_host_notifiers_init.exit:              ; preds = %if.then, %for.end.i
   br i1 %tobool.i20, label %for.cond.preheader.i, label %vhost_vdpa_svqs_start.exit.thread
 
 for.cond.preheader.i:                             ; preds = %vhost_vdpa_host_notifiers_init.exit
-  %shadow_vqs.i = getelementptr inbounds i8, ptr %18, i64 256
+  %shadow_vqs.i = getelementptr inbounds nuw i8, ptr %18, i64 256
   %19 = load ptr, ptr %shadow_vqs.i, align 16
-  %len128.i = getelementptr inbounds i8, ptr %19, i64 8
+  %len128.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load i32, ptr %len128.i, align 8
   %cmp129.not.i = icmp eq i32 %20, 0
   br i1 %cmp129.not.i, label %vhost_vdpa_svqs_start.exit.thread, label %for.body.lr.ph.i21
 
 for.body.lr.ph.i21:                               ; preds = %for.cond.preheader.i
-  %vq_index.i22 = getelementptr inbounds i8, ptr %dev, i64 444
-  %num.i.i = getelementptr inbounds i8, ptr %s.i.i, i64 4
-  %fd.i.i.i = getelementptr inbounds i8, ptr %file.i.i.i, i64 4
-  %iova_tree.i = getelementptr inbounds i8, ptr %18, i64 248
-  %desc_user_addr.i.i = getelementptr inbounds i8, ptr %svq_addr.i.i, i64 8
-  %.compoundliteral.sroa.2.0.driver_region.sroa_idx.i.i = getelementptr inbounds i8, ptr %driver_region.i.i, i64 8
-  %.compoundliteral.sroa.3.0.driver_region.sroa_idx.i.i = getelementptr inbounds i8, ptr %driver_region.i.i, i64 16
-  %.compoundliteral.sroa.4.0.driver_region.sroa_idx.i.i = getelementptr inbounds i8, ptr %driver_region.i.i, i64 24
-  %desc_user_addr12.i.i = getelementptr inbounds i8, ptr %addr.i, i64 8
-  %avail_user_addr.i.i = getelementptr inbounds i8, ptr %svq_addr.i.i, i64 24
-  %avail_user_addr16.i.i = getelementptr inbounds i8, ptr %addr.i, i64 24
-  %used_user_addr.i.i = getelementptr inbounds i8, ptr %svq_addr.i.i, i64 16
-  %.compoundliteral17.sroa.2.0.device_region.sroa_idx.i.i = getelementptr inbounds i8, ptr %device_region.i.i, i64 8
-  %.compoundliteral17.sroa.3.0.device_region.sroa_idx.i.i = getelementptr inbounds i8, ptr %device_region.i.i, i64 16
-  %.compoundliteral17.sroa.4.0.device_region.sroa_idx.i.i = getelementptr inbounds i8, ptr %device_region.i.i, i64 24
-  %used_user_addr38.i49.i = getelementptr inbounds i8, ptr %addr.i, i64 16
+  %vq_index.i22 = getelementptr inbounds nuw i8, ptr %dev, i64 444
+  %num.i.i = getelementptr inbounds nuw i8, ptr %s.i.i, i64 4
+  %fd.i.i.i = getelementptr inbounds nuw i8, ptr %file.i.i.i, i64 4
+  %iova_tree.i = getelementptr inbounds nuw i8, ptr %18, i64 248
+  %desc_user_addr.i.i = getelementptr inbounds nuw i8, ptr %svq_addr.i.i, i64 8
+  %.compoundliteral.sroa.2.0.driver_region.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %driver_region.i.i, i64 8
+  %.compoundliteral.sroa.3.0.driver_region.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %driver_region.i.i, i64 16
+  %.compoundliteral.sroa.4.0.driver_region.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %driver_region.i.i, i64 24
+  %desc_user_addr12.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 8
+  %avail_user_addr.i.i = getelementptr inbounds nuw i8, ptr %svq_addr.i.i, i64 24
+  %avail_user_addr16.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 24
+  %used_user_addr.i.i = getelementptr inbounds nuw i8, ptr %svq_addr.i.i, i64 16
+  %.compoundliteral17.sroa.2.0.device_region.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %device_region.i.i, i64 8
+  %.compoundliteral17.sroa.3.0.device_region.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %device_region.i.i, i64 16
+  %.compoundliteral17.sroa.4.0.device_region.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %device_region.i.i, i64 24
+  %used_user_addr38.i49.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 16
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %for.inc.i33, %for.body.lr.ph.i21
@@ -2016,7 +2016,7 @@ if.end.i.i26:                                     ; preds = %for.body.i23
   %add.i.i.i = add i32 %28, %23
   store i32 %add.i.i.i, ptr %file.i.i.i, align 4
   store i32 0, ptr %fd.i.i.i, align 4
-  %hdev_kick.i.i.i = getelementptr inbounds i8, ptr %26, i64 32
+  %hdev_kick.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 32
   %call.i.i.i27 = call i32 @event_notifier_init(ptr noundef nonnull %hdev_kick.i.i.i, i32 noundef 0) #12
   %cmp.not.i.i.i = icmp eq i32 %call.i.i.i27, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i28
@@ -2027,7 +2027,7 @@ if.then.i.i.i28:                                  ; preds = %if.end.i.i26
   br label %vhost_vdpa_svq_setup.exit.thread45.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i26
-  %hdev_call.i.i.i = getelementptr inbounds i8, ptr %26, i64 44
+  %hdev_call.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 44
   %call2.i.i.i29 = call i32 @event_notifier_init(ptr noundef nonnull %hdev_call.i.i.i, i32 noundef 0) #12
   %cmp3.not.i.i.i = icmp eq i32 %call2.i.i.i29, 0
   br i1 %cmp3.not.i.i.i, label %if.end6.i.i.i, label %if.then4.i.i.i
@@ -2154,10 +2154,10 @@ if.then34.i:                                      ; preds = %if.end24.i
   %dev.val32.i = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %svq_addr.i38.i)
   call void @vhost_svq_get_vring_addr(ptr noundef %41, ptr noundef nonnull %svq_addr.i38.i) #12
-  %desc_user_addr.i39.i = getelementptr inbounds i8, ptr %svq_addr.i38.i, i64 8
+  %desc_user_addr.i39.i = getelementptr inbounds nuw i8, ptr %svq_addr.i38.i, i64 8
   %42 = load i64, ptr %desc_user_addr.i39.i, align 8
   call fastcc void @vhost_vdpa_svq_unmap_ring(ptr noundef %dev.val32.i, i64 noundef %42)
-  %used_user_addr.i40.i = getelementptr inbounds i8, ptr %svq_addr.i38.i, i64 16
+  %used_user_addr.i40.i = getelementptr inbounds nuw i8, ptr %svq_addr.i38.i, i64 16
   %43 = load i64, ptr %used_user_addr.i40.i, align 8
   call fastcc void @vhost_vdpa_svq_unmap_ring(ptr noundef %dev.val32.i, i64 noundef %43)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %svq_addr.i38.i)
@@ -2166,7 +2166,7 @@ if.then34.i:                                      ; preds = %if.end24.i
 for.inc.i33:                                      ; preds = %if.end24.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load ptr, ptr %shadow_vqs.i, align 16
-  %len.i = getelementptr inbounds i8, ptr %44, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   %45 = load i32, ptr %len.i, align 8
   %46 = zext i32 %45 to i64
   %cmp.i34 = icmp samesign ult i64 %indvars.iv.next.i, %46
@@ -2187,8 +2187,8 @@ err44.i:                                          ; preds = %err_map.i, %vhost_v
   br i1 %cmp46131.not.i, label %vhost_vdpa_svqs_start.exit, label %for.body48.lr.ph.i
 
 for.body48.lr.ph.i:                               ; preds = %err44.i
-  %desc_user_addr.i42.i = getelementptr inbounds i8, ptr %svq_addr.i41.i, i64 8
-  %used_user_addr.i43.i = getelementptr inbounds i8, ptr %svq_addr.i41.i, i64 16
+  %desc_user_addr.i42.i = getelementptr inbounds nuw i8, ptr %svq_addr.i41.i, i64 8
+  %used_user_addr.i43.i = getelementptr inbounds nuw i8, ptr %svq_addr.i41.i, i64 16
   br label %for.body48.i
 
 for.body48.i:                                     ; preds = %for.body48.i, %for.body48.lr.ph.i
@@ -2227,7 +2227,7 @@ if.else:                                          ; preds = %trace_vhost_vdpa_de
   br i1 %cmp.i.i36, label %if.end.i37, label %vhost_vdpa_suspend.exit
 
 if.end.i37:                                       ; preds = %if.else
-  %backend_cap.i = getelementptr inbounds i8, ptr %dev, i64 496
+  %backend_cap.i = getelementptr inbounds nuw i8, ptr %dev, i64 496
   %57 = load i64, ptr %backend_cap.i, align 8
   %and.i = and i64 %57, 16
   %tobool.not.i = icmp eq i64 %and.i, 0
@@ -2257,7 +2257,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i38
   %call9.i.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %62 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %63 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %call10.i.i.i, i64 noundef %62, i64 noundef %63, ptr noundef nonnull %dev) #12
   br label %trace_vhost_vdpa_suspend.exit.i
@@ -2281,7 +2281,7 @@ if.then6.i:                                       ; preds = %trace_vhost_vdpa_su
   br label %if.end11.i
 
 if.else.i:                                        ; preds = %trace_vhost_vdpa_suspend.exit.i
-  %suspended.i = getelementptr inbounds i8, ptr %7, i64 242
+  %suspended.i = getelementptr inbounds nuw i8, ptr %7, i64 242
   store i8 1, ptr %suspended.i, align 2
   br label %vhost_vdpa_suspend.exit
 
@@ -2291,22 +2291,22 @@ if.end11.i:                                       ; preds = %if.then6.i, %if.end
 
 vhost_vdpa_suspend.exit:                          ; preds = %if.else, %if.else.i, %if.end11.i
   %66 = load ptr, ptr %opaque, align 8
-  %shadow_vqs_enabled.i42 = getelementptr inbounds i8, ptr %66, i64 240
+  %shadow_vqs_enabled.i42 = getelementptr inbounds nuw i8, ptr %66, i64 240
   %67 = load i8, ptr %shadow_vqs_enabled.i42, align 16
   %tobool.i43 = trunc i8 %67 to i1
   br i1 %tobool.i43, label %for.cond.preheader.i45, label %vhost_vdpa_svqs_stop.exit
 
 for.cond.preheader.i45:                           ; preds = %vhost_vdpa_suspend.exit
-  %shadow_vqs.i46 = getelementptr inbounds i8, ptr %66, i64 256
+  %shadow_vqs.i46 = getelementptr inbounds nuw i8, ptr %66, i64 256
   %68 = load ptr, ptr %shadow_vqs.i46, align 16
-  %len9.i = getelementptr inbounds i8, ptr %68, i64 8
+  %len9.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   %69 = load i32, ptr %len9.i, align 8
   %cmp10.not.i = icmp eq i32 %69, 0
   br i1 %cmp10.not.i, label %vhost_vdpa_svqs_stop.exit, label %for.body.lr.ph.i47
 
 for.body.lr.ph.i47:                               ; preds = %for.cond.preheader.i45
-  %desc_user_addr.i.i48 = getelementptr inbounds i8, ptr %svq_addr.i.i40, i64 8
-  %used_user_addr.i.i49 = getelementptr inbounds i8, ptr %svq_addr.i.i40, i64 16
+  %desc_user_addr.i.i48 = getelementptr inbounds nuw i8, ptr %svq_addr.i.i40, i64 8
+  %used_user_addr.i.i49 = getelementptr inbounds nuw i8, ptr %svq_addr.i.i40, i64 16
   br label %for.body.i50
 
 for.body.i50:                                     ; preds = %for.body.i50, %for.body.lr.ph.i47
@@ -2324,31 +2324,31 @@ for.body.i50:                                     ; preds = %for.body.i50, %for.
   %74 = load i64, ptr %used_user_addr.i.i49, align 8
   call fastcc void @vhost_vdpa_svq_unmap_ring(ptr noundef %dev.val.i53, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %svq_addr.i.i40)
-  %hdev_kick.i = getelementptr inbounds i8, ptr %72, i64 32
+  %hdev_kick.i = getelementptr inbounds nuw i8, ptr %72, i64 32
   call void @event_notifier_cleanup(ptr noundef nonnull %hdev_kick.i) #12
-  %hdev_call.i = getelementptr inbounds i8, ptr %72, i64 44
+  %hdev_call.i = getelementptr inbounds nuw i8, ptr %72, i64 44
   call void @event_notifier_cleanup(ptr noundef nonnull %hdev_call.i) #12
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i51, 1
   %75 = load ptr, ptr %shadow_vqs.i46, align 16
-  %len.i55 = getelementptr inbounds i8, ptr %75, i64 8
+  %len.i55 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %76 = load i32, ptr %len.i55, align 8
   %77 = zext i32 %76 to i64
   %cmp.i56 = icmp samesign ult i64 %indvars.iv.next.i54, %77
   br i1 %cmp.i56, label %for.body.i50, label %vhost_vdpa_svqs_stop.exit, !llvm.loop !12
 
 vhost_vdpa_svqs_stop.exit:                        ; preds = %for.body.i50, %vhost_vdpa_suspend.exit, %for.cond.preheader.i45
-  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %78 = load i32, ptr %nvqs, align 8
   call fastcc void @vhost_vdpa_host_notifiers_uninit(ptr noundef nonnull %dev, i32 noundef %78)
   br label %if.end8
 
 if.end8:                                          ; preds = %vhost_vdpa_svqs_start.exit.thread, %vhost_vdpa_svqs_stop.exit
-  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %79 = load i32, ptr %vq_index, align 4
-  %nvqs9 = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs9 = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %80 = load i32, ptr %nvqs9, align 8
   %add = add i32 %80, %79
-  %vq_index_end = getelementptr inbounds i8, ptr %dev, i64 448
+  %vq_index_end = getelementptr inbounds nuw i8, ptr %dev, i64 448
   %81 = load i32, ptr %vq_index_end, align 8
   %cmp.not = icmp eq i32 %add, %81
   %brmerge.not = and i1 %started, %cmp.not
@@ -2359,7 +2359,7 @@ if.then14:                                        ; preds = %if.end8
   br i1 %call15, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.then14
-  %shadow_vqs_enabled = getelementptr inbounds i8, ptr %0, i64 240
+  %shadow_vqs_enabled = getelementptr inbounds nuw i8, ptr %0, i64 240
   %82 = load i8, ptr %shadow_vqs_enabled, align 16
   %tobool17 = trunc i8 %82 to i1
   br i1 %tobool17, label %if.then19, label %if.end20
@@ -2369,9 +2369,9 @@ if.then19:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end20:                                         ; preds = %land.lhs.true, %if.then14
-  %listener = getelementptr inbounds i8, ptr %0, i64 24
+  %listener = getelementptr inbounds nuw i8, ptr %0, i64 24
   %83 = load ptr, ptr %dev, align 8
-  %dma_as = getelementptr inbounds i8, ptr %83, i64 472
+  %dma_as = getelementptr inbounds nuw i8, ptr %83, i64 472
   %84 = load ptr, ptr %dma_as, align 8
   call void @memory_listener_register(ptr noundef nonnull %listener, ptr noundef %84) #12
   %call21 = call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 4)
@@ -2386,7 +2386,7 @@ return:                                           ; preds = %vhost_vdpa_svqs_sta
 define internal noundef i32 @vhost_vdpa_vq_get_addr(ptr noundef %dev, ptr nocapture noundef writeonly %addr, ptr noundef %vq) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp eq i32 %1, 3
@@ -2397,17 +2397,17 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %desc_phys = getelementptr inbounds i8, ptr %vq, i64 40
+  %desc_phys = getelementptr inbounds nuw i8, ptr %vq, i64 40
   %2 = load i64, ptr %desc_phys, align 8
-  %desc_user_addr = getelementptr inbounds i8, ptr %addr, i64 8
+  %desc_user_addr = getelementptr inbounds nuw i8, ptr %addr, i64 8
   store i64 %2, ptr %desc_user_addr, align 8
-  %avail_phys = getelementptr inbounds i8, ptr %vq, i64 56
+  %avail_phys = getelementptr inbounds nuw i8, ptr %vq, i64 56
   %3 = load i64, ptr %avail_phys, align 8
-  %avail_user_addr = getelementptr inbounds i8, ptr %addr, i64 24
+  %avail_user_addr = getelementptr inbounds nuw i8, ptr %addr, i64 24
   store i64 %3, ptr %avail_user_addr, align 8
-  %used_phys = getelementptr inbounds i8, ptr %vq, i64 72
+  %used_phys = getelementptr inbounds nuw i8, ptr %vq, i64 72
   %4 = load i64, ptr %used_phys, align 8
-  %used_user_addr = getelementptr inbounds i8, ptr %addr, i64 16
+  %used_user_addr = getelementptr inbounds nuw i8, ptr %addr, i64 16
   store i64 %4, ptr %used_user_addr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2432,7 +2432,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.103, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %dev, ptr noundef nonnull %vq, i64 noundef %2, i64 noundef %3, i64 noundef %4) #12
   br label %trace_vhost_vdpa_vq_get_addr.exit
@@ -2450,7 +2450,7 @@ trace_vhost_vdpa_vq_get_addr.exit:                ; preds = %if.end, %land.lhs.t
 define internal i32 @vhost_vdpa_get_device_id(ptr noundef %dev, ptr noundef %device_id) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 3
@@ -2461,7 +2461,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = load i32, ptr %2, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %3, i64 noundef 2147790704, ptr noundef %device_id) #12
@@ -2500,7 +2500,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %dev, i32 noundef %5) #12
   br label %trace_vhost_vdpa_get_device_id.exit
@@ -2549,7 +2549,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.107, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %dev, i32 noundef %fd) #12
   br label %trace_vhost_vdpa_set_config_call.exit
@@ -2560,7 +2560,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_config_call.exit:            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %6 = load ptr, ptr %vhost_ops.i, align 8
   %7 = load i32, ptr %6, align 8
   %cmp.i = icmp eq i32 %7, 3
@@ -2571,7 +2571,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_se
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_set_config_call.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %8 = load ptr, ptr %opaque.i, align 8
   %9 = load i32, ptr %8, align 16
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 1074048887, ptr noundef nonnull %fd.addr) #12
@@ -2592,22 +2592,22 @@ vhost_vdpa_call.exit:                             ; preds = %if.end.i, %cond.tru
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vhost_vdpa_reset_status(ptr noundef %dev) #0 {
 entry:
-  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
-  %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %dev, i64 440
   %1 = load i32, ptr %nvqs, align 8
   %add = add i32 %1, %0
-  %vq_index_end = getelementptr inbounds i8, ptr %dev, i64 448
+  %vq_index_end = getelementptr inbounds nuw i8, ptr %dev, i64 448
   %2 = load i32, ptr %vq_index_end, align 8
   %cmp.not = icmp eq i32 %add, %2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %opaque = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %3 = load ptr, ptr %opaque, align 8
   %call = tail call i32 @vhost_vdpa_reset_device(ptr noundef nonnull %dev)
   %call1 = tail call fastcc i32 @vhost_vdpa_add_status(ptr noundef nonnull %dev, i8 noundef zeroext 3)
-  %listener = getelementptr inbounds i8, ptr %3, i64 24
+  %listener = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @memory_listener_unregister(ptr noundef nonnull %listener) #12
   br label %return
 
@@ -2634,7 +2634,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal fastcc i32 @vhost_vdpa_get_dev_features(ptr noundef %dev, ptr noundef %features) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %0 = load ptr, ptr %vhost_ops.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp.i = icmp eq i32 %1, 3
@@ -2645,7 +2645,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = load i32, ptr %2, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %3, i64 noundef 2148052736, ptr noundef %features) #12
@@ -2684,7 +2684,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.42, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %dev, i64 noundef %5) #12
   br label %trace_vhost_vdpa_get_features.exit
@@ -2732,7 +2732,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext nneg i8 %status to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %dev, i32 noundef %conv11.i.i) #12
@@ -2745,7 +2745,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_add_status.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %6 = load ptr, ptr %vhost_ops.i, align 8
   %7 = load i32, ptr %6, align 8
   %cmp.i = icmp eq i32 %7, 3
@@ -2756,7 +2756,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_ad
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_add_status.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %8 = load ptr, ptr %opaque.i, align 8
   %9 = load i32, ptr %8, align 16
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %9, i64 noundef 2147594097, ptr noundef nonnull %s) #12
@@ -2843,7 +2843,7 @@ entry:
   %0 = load ptr, ptr %dev1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %msg, i8 0, i64 72, i1 false)
   %1 = load i32, ptr %add.ptr, align 16
-  %backend_cap = getelementptr inbounds i8, ptr %0, i64 496
+  %backend_cap = getelementptr inbounds nuw i8, ptr %0, i64 496
   %2 = load i64, ptr %backend_cap, align 8
   %and = and i64 %2, 4
   %tobool.not = icmp eq i64 %and, 0
@@ -2859,7 +2859,7 @@ if.end4:                                          ; preds = %if.end
   %msg_type = getelementptr i8, ptr %listener, i64 -16
   %4 = load i32, ptr %msg_type, align 8
   store i32 %4, ptr %msg, align 8
-  %type5 = getelementptr inbounds i8, ptr %msg, i64 33
+  %type5 = getelementptr inbounds nuw i8, ptr %msg, i64 33
   store i8 6, ptr %type5, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2884,7 +2884,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %add.ptr, i32 noundef %1, i32 noundef %4, i32 noundef 6) #12
   br label %trace_vhost_vdpa_listener_commit.exit
@@ -2933,19 +2933,19 @@ entry:
   br i1 %call2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mr = getelementptr inbounds i8, ptr %section, i64 16
+  %mr = getelementptr inbounds nuw i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %if.end
   %mr.tr.i = phi ptr [ %2, %if.end ], [ %3, %tailrecurse.i ]
-  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
+  %alias.i = getelementptr inbounds nuw i8, ptr %mr.tr.i, i64 160
   %3 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
+  %is_iommu.i = getelementptr inbounds nuw i8, ptr %mr.tr.i, i64 49
   %4 = load i8, ptr %is_iommu.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.then5, label %if.end6
@@ -2953,7 +2953,7 @@ memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
 if.then5:                                         ; preds = %memory_region_get_iommu.exit
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 44, ptr noundef nonnull @__func__.IOMMU_MEMORY_REGION) #12
   %call1.i = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0(i64 noundef 96) #15
-  %offset_within_region.i = getelementptr inbounds i8, ptr %section, i64 32
+  %offset_within_region.i = getelementptr inbounds nuw i8, ptr %section, i64 32
   %5 = load i64, ptr %offset_within_region.i, align 16
   %6 = load i128, ptr %section, align 16
   %coerce4.sroa.2.0.extract.shift.i = lshr i128 %6, 64
@@ -2970,9 +2970,9 @@ if.then5:                                         ; preds = %memory_region_get_i
   %a.sroa.0.0.insert.insert.i37.i = add nsw i128 %a.sroa.0.0.insert.ext.i36.i, -1
   %sub.i.i = add i128 %a.sroa.2.0.insert.shift.i.i, %a.sroa.0.0.insert.insert.i37.i
   %call40.i = tail call i32 @memory_region_iommu_attrs_to_index(ptr noundef %call.i.i, i32 1) #12
-  %iommu_mr41.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %iommu_mr41.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   store ptr %call.i.i, ptr %iommu_mr41.i, align 8
-  %n.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %n.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %cmp.i.i = icmp ult i128 %sub.i.i, 18446744073709551616
   br i1 %cmp.i.i, label %int128_get64.exit.i, label %if.else.i.i
 
@@ -2984,18 +2984,18 @@ int128_get64.exit.i:                              ; preds = %if.then5
   %8 = load i64, ptr %offset_within_region.i, align 16
   %retval.sroa.0.0.extract.trunc.i38.i = trunc i128 %a.sroa.0.0.insert.insert.i37.i to i64
   store ptr @vhost_vdpa_iommu_map_notify, ptr %n.i, align 8
-  %notifier_flags.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %notifier_flags.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   store i32 3, ptr %notifier_flags.i.i, align 8
-  %start1.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %start1.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   store i64 %8, ptr %start1.i.i, align 8
-  %end2.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %end2.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   store i64 %retval.sroa.0.0.extract.trunc.i38.i, ptr %end2.i.i, align 8
-  %iommu_idx3.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
+  %iommu_idx3.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 56
   store i32 %call40.i, ptr %iommu_idx3.i.i, align 8
-  %offset_within_address_space.i = getelementptr inbounds i8, ptr %section, i64 40
+  %offset_within_address_space.i = getelementptr inbounds nuw i8, ptr %section, i64 40
   %9 = load i64, ptr %offset_within_address_space.i, align 8
   %sub.i = sub i64 %9, %8
-  %iommu_offset.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %iommu_offset.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   store i64 %sub.i, ptr %iommu_offset.i, align 8
   store ptr %add.ptr, ptr %call1.i, align 8
   %10 = load ptr, ptr %mr, align 16
@@ -3010,39 +3010,39 @@ if.then.i:                                        ; preds = %int128_get64.exit.i
 do.body.i:                                        ; preds = %int128_get64.exit.i
   %iommu_list.i = getelementptr i8, ptr %listener, i64 295192
   %11 = load ptr, ptr %iommu_list.i, align 16
-  %iommu_next.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %iommu_next.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   store ptr %11, ptr %iommu_next.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %if.end55.i, label %if.then49.i
 
 if.then49.i:                                      ; preds = %do.body.i
-  %le_prev.i = getelementptr inbounds i8, ptr %11, i64 88
+  %le_prev.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   store ptr %iommu_next.i, ptr %le_prev.i, align 8
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.then49.i, %do.body.i
   store ptr %call1.i, ptr %iommu_list.i, align 16
-  %le_prev61.i = getelementptr inbounds i8, ptr %call1.i, i64 88
+  %le_prev61.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 88
   store ptr %iommu_list.i, ptr %le_prev61.i, align 8
   %12 = load ptr, ptr %iommu_mr41.i, align 8
   tail call void @memory_region_iommu_replay(ptr noundef %12, ptr noundef nonnull %n.i) #12
   br label %return
 
 if.end6:                                          ; preds = %memory_region_get_iommu.exit
-  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
+  %offset_within_address_space = getelementptr inbounds nuw i8, ptr %section, i64 40
   %13 = load i64, ptr %offset_within_address_space, align 8
   %not = shl i64 %call, 32
   %sext = add i64 %not, -4294967296
   %conv7 = ashr exact i64 %sext, 32
   %and = and i64 %13, %conv7
-  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
+  %offset_within_region = getelementptr inbounds nuw i8, ptr %section, i64 32
   %14 = load i64, ptr %offset_within_region, align 16
   %and10 = and i64 %14, %conv7
   %cmp11.not = icmp eq i64 %and, %and10
   br i1 %cmp11.not, label %if.end25, label %if.then15
 
 if.then15:                                        ; preds = %if.end6
-  %name = getelementptr inbounds i8, ptr %2, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %2, i64 232
   %15 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %16 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3067,7 +3067,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %20 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, ptr noundef %add.ptr, ptr noundef %15, i64 noundef %and, i64 noundef %and10) #12
   br label %trace_vhost_vdpa_listener_region_add_unaligned.exit
@@ -3131,7 +3131,7 @@ if.else.i:                                        ; preds = %if.end39
   unreachable
 
 int128_get64.exit:                                ; preds = %if.end39
-  %readonly = getelementptr inbounds i8, ptr %section, i64 48
+  %readonly = getelementptr inbounds nuw i8, ptr %section, i64 48
   %27 = load i8, ptr %readonly, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i56)
   %28 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3156,7 +3156,7 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i63
   %call9.i.i67 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56, ptr noundef null) #12
   %call10.i.i68 = tail call i32 @qemu_get_thread_id() #12
   %32 = load i64, ptr %_now.i.i56, align 8
-  %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
+  %tv_usec.i.i69 = getelementptr inbounds nuw i8, ptr %_now.i.i56, i64 8
   %33 = load i64, ptr %tv_usec.i.i69, align 8
   %34 = and i8 %27, 1
   %conv12.i.i = zext nneg i8 %34 to i32
@@ -3182,7 +3182,7 @@ trace_vhost_vdpa_listener_region_add.exit:        ; preds = %int128_get64.exit, 
 
 if.then58:                                        ; preds = %trace_vhost_vdpa_listener_region_add.exit
   %36 = ptrtoint ptr %add.ptr47 to i64
-  %translated_addr = getelementptr inbounds i8, ptr %mem_region, i64 8
+  %translated_addr = getelementptr inbounds nuw i8, ptr %mem_region, i64 8
   store i64 %36, ptr %translated_addr, align 8
   %cmp.i77 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i, 0
   br i1 %cmp.i77, label %int128_get64.exit79, label %if.else.i78
@@ -3193,12 +3193,12 @@ if.else.i78:                                      ; preds = %if.then58
 
 int128_get64.exit79:                              ; preds = %if.then58
   %sub61 = add i64 %retval.sroa.0.0.extract.trunc.i, -1
-  %size = getelementptr inbounds i8, ptr %mem_region, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %mem_region, i64 16
   store i64 %sub61, ptr %size, align 8
   %37 = load i8, ptr %readonly, align 16
   %tobool63 = trunc i8 %37 to i1
   %or = select i1 %tobool63, i32 3, i32 1
-  %perm = getelementptr inbounds i8, ptr %mem_region, i64 24
+  %perm = getelementptr inbounds nuw i8, ptr %mem_region, i64 24
   store i32 %or, ptr %perm, align 8
   %iova_tree = getelementptr i8, ptr %listener, i64 224
   %38 = load ptr, ptr %iova_tree, align 8
@@ -3271,19 +3271,19 @@ entry:
   br i1 %call2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mr = getelementptr inbounds i8, ptr %section, i64 16
+  %mr = getelementptr inbounds nuw i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i, %if.end
   %mr.tr.i = phi ptr [ %2, %if.end ], [ %3, %tailrecurse.i ]
-  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
+  %alias.i = getelementptr inbounds nuw i8, ptr %mr.tr.i, i64 160
   %3 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
+  %is_iommu.i = getelementptr inbounds nuw i8, ptr %mr.tr.i, i64 49
   %4 = load i8, ptr %is_iommu.i, align 1
   %tobool2.i = trunc i8 %4 to i1
   br i1 %tobool2.i, label %if.then5, label %if.end6
@@ -3295,12 +3295,12 @@ if.then5:                                         ; preds = %memory_region_get_i
   br i1 %tobool.not18.i, label %if.end6, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then5
-  %offset_within_region.i = getelementptr inbounds i8, ptr %section, i64 32
+  %offset_within_region.i = getelementptr inbounds nuw i8, ptr %section, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %iommu.019.i = phi ptr [ %iommu.017.i, %for.body.lr.ph.i ], [ %iommu.0.i, %for.inc.i ]
-  %iommu_mr.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 8
+  %iommu_mr.i = getelementptr inbounds nuw i8, ptr %iommu.019.i, i64 8
   %5 = load ptr, ptr %iommu_mr.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %5, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.22, i32 noundef 39, ptr noundef nonnull @__func__.MEMORY_REGION) #12
   %6 = load ptr, ptr %mr, align 16
@@ -3308,24 +3308,24 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %start.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 40
+  %start.i = getelementptr inbounds nuw i8, ptr %iommu.019.i, i64 40
   %7 = load i64, ptr %start.i, align 8
   %8 = load i64, ptr %offset_within_region.i, align 16
   %cmp1.i = icmp eq i64 %7, %8
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %n.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 24
+  %n.i = getelementptr inbounds nuw i8, ptr %iommu.019.i, i64 24
   tail call void @memory_region_unregister_iommu_notifier(ptr noundef %6, ptr noundef nonnull %n.i) #12
-  %iommu_next.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 80
+  %iommu_next.i = getelementptr inbounds nuw i8, ptr %iommu.019.i, i64 80
   %9 = load ptr, ptr %iommu_next.i, align 8
   %cmp4.not.i = icmp eq ptr %9, null
-  %le_prev14.phi.trans.insert.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 88
+  %le_prev14.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %iommu.019.i, i64 88
   %.pre22.i = load ptr, ptr %le_prev14.phi.trans.insert.i, align 8
   br i1 %cmp4.not.i, label %if.end.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.then.i
-  %le_prev10.i = getelementptr inbounds i8, ptr %9, i64 88
+  %le_prev10.i = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %.pre22.i, ptr %le_prev10.i, align 8
   %.pre.i = load ptr, ptr %iommu_next.i, align 8
   br label %if.end.i
@@ -3338,19 +3338,19 @@ if.end.i:                                         ; preds = %if.then5.i, %if.the
   br label %if.end6
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %iommu_next20.i = getelementptr inbounds i8, ptr %iommu.019.i, i64 80
+  %iommu_next20.i = getelementptr inbounds nuw i8, ptr %iommu.019.i, i64 80
   %iommu.0.i = load ptr, ptr %iommu_next20.i, align 8
   %tobool.not.i61 = icmp eq ptr %iommu.0.i, null
   br i1 %tobool.not.i61, label %if.end6, label %for.body.i, !llvm.loop !13
 
 if.end6:                                          ; preds = %for.inc.i, %if.end.i, %if.then5, %memory_region_get_iommu.exit
-  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
+  %offset_within_address_space = getelementptr inbounds nuw i8, ptr %section, i64 40
   %11 = load i64, ptr %offset_within_address_space, align 8
   %not = shl i64 %call, 32
   %sext = add i64 %not, -4294967296
   %conv7 = ashr exact i64 %sext, 32
   %and = and i64 %11, %conv7
-  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
+  %offset_within_region = getelementptr inbounds nuw i8, ptr %section, i64 32
   %12 = load i64, ptr %offset_within_region, align 16
   %and10 = and i64 %12, %conv7
   %cmp11.not = icmp eq i64 %and, %and10
@@ -3358,7 +3358,7 @@ if.end6:                                          ; preds = %for.inc.i, %if.end.
 
 if.then15:                                        ; preds = %if.end6
   %13 = load ptr, ptr %mr, align 16
-  %name = getelementptr inbounds i8, ptr %13, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %13, i64 232
   %14 = load ptr, ptr %name, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %15 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3383,7 +3383,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20, ptr noundef %add.ptr, ptr noundef %14, i64 noundef %and, i64 noundef %and10) #12
   br label %trace_vhost_vdpa_listener_region_del_unaligned.exit
@@ -3453,7 +3453,7 @@ if.then8.i.i74:                                   ; preds = %if.then.i.i71
   %call9.i.i75 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i64, ptr noundef null) #12
   %call10.i.i76 = tail call i32 @qemu_get_thread_id() #12
   %29 = load i64, ptr %_now.i.i64, align 8
-  %tv_usec.i.i77 = getelementptr inbounds i8, ptr %_now.i.i64, i64 8
+  %tv_usec.i.i77 = getelementptr inbounds nuw i8, ptr %_now.i.i64, i64 8
   %30 = load i64, ptr %tv_usec.i.i77, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i76, i64 noundef %29, i64 noundef %30, ptr noundef %add.ptr, i64 noundef %and31, i64 noundef %retval.sroa.0.0.extract.trunc.i) #12
   br label %trace_vhost_vdpa_listener_region_del.exit
@@ -3487,7 +3487,7 @@ if.then55:                                        ; preds = %if.end47
   %sub61 = sub i64 %and31, %34
   %add.ptr62 = getelementptr i8, ptr %add.ptr59, i64 %sub61
   store i64 0, ptr %mem_region, align 8
-  %translated_addr = getelementptr inbounds i8, ptr %mem_region, i64 8
+  %translated_addr = getelementptr inbounds nuw i8, ptr %mem_region, i64 8
   %35 = ptrtoint ptr %add.ptr62 to i64
   store i64 %35, ptr %translated_addr, align 8
   %cmp.i95 = icmp eq i64 %retval.sroa.2.0.extract.trunc.i92, 0
@@ -3498,10 +3498,10 @@ if.else.i96:                                      ; preds = %if.then55
   unreachable
 
 int128_get64.exit98:                              ; preds = %if.then55
-  %size = getelementptr inbounds i8, ptr %mem_region, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %mem_region, i64 16
   %sub66 = add i64 %retval.sroa.0.0.extract.trunc.i90, -1
   store i64 %sub66, ptr %size, align 8
-  %perm = getelementptr inbounds i8, ptr %mem_region, i64 24
+  %perm = getelementptr inbounds nuw i8, ptr %mem_region, i64 24
   store i32 0, ptr %perm, align 8
   %iova_tree = getelementptr i8, ptr %listener, i64 224
   %36 = load ptr, ptr %iova_tree, align 8
@@ -3570,7 +3570,7 @@ declare i64 @qemu_target_page_size() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @vhost_vdpa_listener_skipped_section(ptr nocapture noundef readonly %section, i64 noundef %iova_min, i64 noundef %iova_max, i32 noundef %page_mask) unnamed_addr #0 {
 entry:
-  %mr = getelementptr inbounds i8, ptr %section, i64 16
+  %mr = getelementptr inbounds nuw i8, ptr %section, i64 16
   %0 = load ptr, ptr %mr, align 16
   %1 = getelementptr i8, ptr %0, i64 41
   %.val = load i8, ptr %1, align 1
@@ -3579,13 +3579,13 @@ entry:
 
 tailrecurse.i:                                    ; preds = %entry, %tailrecurse.i
   %mr.tr.i = phi ptr [ %2, %tailrecurse.i ], [ %0, %entry ]
-  %alias.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 160
+  %alias.i = getelementptr inbounds nuw i8, ptr %mr.tr.i, i64 160
   %2 = load ptr, ptr %alias.i, align 16
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %memory_region_get_iommu.exit, label %tailrecurse.i
 
 memory_region_get_iommu.exit:                     ; preds = %tailrecurse.i
-  %is_iommu.i = getelementptr inbounds i8, ptr %mr.tr.i, i64 49
+  %is_iommu.i = getelementptr inbounds nuw i8, ptr %mr.tr.i, i64 49
   %3 = load i8, ptr %is_iommu.i, align 1
   %tobool2.i = trunc i8 %3 to i1
   br i1 %tobool2.i, label %lor.lhs.false, label %return
@@ -3600,7 +3600,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br i1 %call7, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
+  %offset_within_address_space = getelementptr inbounds nuw i8, ptr %section, i64 40
   %5 = load i64, ptr %offset_within_address_space, align 8
   %cmp8 = icmp ult i64 %5, %iova_min
   br i1 %cmp8, label %if.then9, label %if.end11
@@ -3615,13 +3615,13 @@ if.end11:                                         ; preds = %if.end
 
 tailrecurse.i12:                                  ; preds = %tailrecurse.i12, %if.end11
   %mr.tr.i13 = phi ptr [ %6, %if.end11 ], [ %7, %tailrecurse.i12 ]
-  %alias.i14 = getelementptr inbounds i8, ptr %mr.tr.i13, i64 160
+  %alias.i14 = getelementptr inbounds nuw i8, ptr %mr.tr.i13, i64 160
   %7 = load ptr, ptr %alias.i14, align 16
   %tobool.not.i15 = icmp eq ptr %7, null
   br i1 %tobool.not.i15, label %memory_region_get_iommu.exit19, label %tailrecurse.i12
 
 memory_region_get_iommu.exit19:                   ; preds = %tailrecurse.i12
-  %is_iommu.i16 = getelementptr inbounds i8, ptr %mr.tr.i13, i64 49
+  %is_iommu.i16 = getelementptr inbounds nuw i8, ptr %mr.tr.i13, i64 49
   %8 = load i8, ptr %is_iommu.i16, align 1
   %tobool2.i17 = trunc i8 %8 to i1
   br i1 %tobool2.i17, label %return, label %if.then15
@@ -3683,16 +3683,16 @@ define internal fastcc void @vhost_vdpa_iotlb_batch_begin_once(ptr noundef %v) u
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %msg.i = alloca %struct.vhost_msg_v2, align 8
-  %dev = getelementptr inbounds i8, ptr %v, i64 280
+  %dev = getelementptr inbounds nuw i8, ptr %v, i64 280
   %0 = load ptr, ptr %dev, align 8
-  %backend_cap = getelementptr inbounds i8, ptr %0, i64 496
+  %backend_cap = getelementptr inbounds nuw i8, ptr %0, i64 496
   %1 = load i64, ptr %backend_cap, align 8
   %and = and i64 %1, 4
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %iotlb_batch_begin_sent = getelementptr inbounds i8, ptr %v, i64 12
+  %iotlb_batch_begin_sent = getelementptr inbounds nuw i8, ptr %v, i64 12
   %2 = load i8, ptr %iotlb_batch_begin_sent, align 4
   %tobool1 = trunc i8 %2 to i1
   br i1 %tobool1, label %if.end, label %if.then
@@ -3701,10 +3701,10 @@ if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %msg.i)
   %3 = load i32, ptr %v, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %msg.i, i8 0, i64 72, i1 false)
-  %msg_type.i = getelementptr inbounds i8, ptr %v, i64 8
+  %msg_type.i = getelementptr inbounds nuw i8, ptr %v, i64 8
   %4 = load i32, ptr %msg_type.i, align 8
   store i32 %4, ptr %msg.i, align 8
-  %type1.i = getelementptr inbounds i8, ptr %msg.i, i64 33
+  %type1.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 33
   store i8 5, ptr %type1.i, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3729,7 +3729,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %9 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %v, i32 noundef %3, i32 noundef %4, i32 noundef 5) #12
   br label %trace_vhost_vdpa_listener_begin_batch.exit.i
@@ -3756,7 +3756,7 @@ vhost_vdpa_listener_begin_batch.exit:             ; preds = %trace_vhost_vdpa_li
   br label %if.end
 
 if.end:                                           ; preds = %vhost_vdpa_listener_begin_batch.exit, %land.lhs.true, %entry
-  %iotlb_batch_begin_sent2 = getelementptr inbounds i8, ptr %v, i64 12
+  %iotlb_batch_begin_sent2 = getelementptr inbounds nuw i8, ptr %v, i64 12
   store i8 1, ptr %iotlb_batch_begin_sent2, align 4
   ret void
 }
@@ -3778,7 +3778,7 @@ entry:
   %vaddr = alloca ptr, align 8
   %read_only = alloca i8, align 1
   %add.ptr = getelementptr i8, ptr %n, i64 -24
-  %iova1 = getelementptr inbounds i8, ptr %iotlb, i64 8
+  %iova1 = getelementptr inbounds nuw i8, ptr %iotlb, i64 8
   %0 = load i64, ptr %iova1, align 8
   %iommu_offset = getelementptr i8, ptr %n, i64 -8
   %1 = load i64, ptr %iommu_offset, align 8
@@ -3789,7 +3789,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %3, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %4, null
   %spec.select = select i1 %tobool.not, ptr @.str.24, ptr %4
@@ -3798,7 +3798,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #12
-  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %depth.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   %5 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %5, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -3814,7 +3814,7 @@ while.end.i.i:                                    ; preds = %if.end
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
-  %addr_mask = getelementptr inbounds i8, ptr %iotlb, i64 24
+  %addr_mask = getelementptr inbounds nuw i8, ptr %iotlb, i64 24
   %7 = load i64, ptr %addr_mask, align 8
   %8 = ashr i64 %7, 63
   %9 = ashr i64 %add, 63
@@ -3826,7 +3826,7 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
   %.tr = trunc nuw nsw i128 %10 to i64
   %.narrow = add nsw i64 %8, %.tr
   %.narrow.i = add nsw i64 %9, %.narrow
-  %last = getelementptr inbounds i8, ptr %2, i64 224
+  %last = getelementptr inbounds nuw i8, ptr %2, i64 224
   %11 = load i64, ptr %last, align 8
   %a.sroa.2.0.insert.ext.i32 = zext i64 %.narrow.i to i128
   %a.sroa.2.0.insert.shift.i33 = shl nuw i128 %a.sroa.2.0.insert.ext.i32, 64
@@ -3849,7 +3849,7 @@ int128_get64.exit:                                ; preds = %if.then17
   br label %if.then.i.i
 
 if.end22:                                         ; preds = %rcu_read_auto_lock.exit
-  %perm = getelementptr inbounds i8, ptr %iotlb, i64 32
+  %perm = getelementptr inbounds nuw i8, ptr %iotlb, i64 32
   %12 = load i32, ptr %perm, align 8
   %and = and i32 %12, 3
   %cmp23.not = icmp eq i32 %and, 0
@@ -3890,7 +3890,7 @@ if.then41:                                        ; preds = %if.else
 
 if.then.i.i:                                      ; preds = %int128_get64.exit, %if.then24, %if.else, %if.then41, %if.end27, %if.then33
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #12
-  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %depth.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   %19 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %19, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -3909,7 +3909,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %waiting.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %20 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %20 to i1
   br i1 %tobool.i.i.i.i, label %while.end21.i.i.i.i, label %cleanup.cont
@@ -3955,14 +3955,14 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal fastcc void @vhost_vdpa_host_notifiers_uninit(ptr nocapture noundef readonly %dev, i32 noundef %n) unnamed_addr #0 {
 entry:
   tail call void @memory_region_transaction_begin() #12
-  %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %dev, i64 444
   %0 = load i32, ptr %vq_index, align 4
   %add5 = add i32 %0, %n
   %cmp6 = icmp slt i32 %0, %add5
   br i1 %cmp6, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %1 = sext i32 %0 to i64
   br label %for.body
 
@@ -3970,9 +3970,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %vh
   %2 = phi i32 [ %0, %for.body.lr.ph ], [ %8, %vhost_vdpa_host_notifier_uninit.exit ]
   %indvars.iv = phi i64 [ %1, %for.body.lr.ph ], [ %indvars.iv.next, %vhost_vdpa_host_notifier_uninit.exit ]
   %3 = load ptr, ptr %opaque.i, align 8
-  %notifier.i = getelementptr inbounds i8, ptr %3, i64 304
+  %notifier.i = getelementptr inbounds nuw i8, ptr %3, i64 304
   %arrayidx.i = getelementptr [1024 x %struct.VhostVDPAHostNotifier], ptr %notifier.i, i64 0, i64 %indvars.iv
-  %addr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 272
+  %addr.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 272
   %4 = load ptr, ptr %addr.i, align 16
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %vhost_vdpa_host_notifier_uninit.exit, label %if.then.i
@@ -4028,15 +4028,15 @@ define internal fastcc i32 @vhost_vdpa_set_vring_dev_addr(ptr noundef %dev, ptr 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %addr, align 8
-  %flags = getelementptr inbounds i8, ptr %addr, i64 4
+  %flags = getelementptr inbounds nuw i8, ptr %addr, i64 4
   %1 = load i32, ptr %flags, align 4
-  %desc_user_addr = getelementptr inbounds i8, ptr %addr, i64 8
+  %desc_user_addr = getelementptr inbounds nuw i8, ptr %addr, i64 8
   %2 = load i64, ptr %desc_user_addr, align 8
-  %used_user_addr = getelementptr inbounds i8, ptr %addr, i64 16
+  %used_user_addr = getelementptr inbounds nuw i8, ptr %addr, i64 16
   %3 = load i64, ptr %used_user_addr, align 8
-  %avail_user_addr = getelementptr inbounds i8, ptr %addr, i64 24
+  %avail_user_addr = getelementptr inbounds nuw i8, ptr %addr, i64 24
   %4 = load i64, ptr %avail_user_addr, align 8
-  %log_guest_addr = getelementptr inbounds i8, ptr %addr, i64 32
+  %log_guest_addr = getelementptr inbounds nuw i8, ptr %addr, i64 32
   %5 = load i64, ptr %log_guest_addr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4061,7 +4061,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %dev, i32 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #12
   br label %trace_vhost_vdpa_set_vring_addr.exit
@@ -4072,7 +4072,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_vring_addr.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %12 = load ptr, ptr %vhost_ops.i, align 8
   %13 = load i32, ptr %12, align 8
   %cmp.i = icmp eq i32 %13, 3
@@ -4083,7 +4083,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_se
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_set_vring_addr.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %14 = load ptr, ptr %opaque.i, align 8
   %15 = load i32, ptr %14, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %15, i64 noundef 1076408081, ptr noundef nonnull %addr) #12
@@ -4106,7 +4106,7 @@ define internal fastcc i32 @vhost_vdpa_set_dev_vring_base(ptr noundef %dev, ptr 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %ring, align 4
-  %num = getelementptr inbounds i8, ptr %ring, i64 4
+  %num = getelementptr inbounds nuw i8, ptr %ring, i64 4
   %1 = load i32, ptr %num, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4131,7 +4131,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %dev, i32 noundef %0, i32 noundef %1) #12
   br label %trace_vhost_vdpa_set_vring_base.exit
@@ -4142,7 +4142,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_vring_base.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %8 = load ptr, ptr %vhost_ops.i, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.i = icmp eq i32 %9, 3
@@ -4153,7 +4153,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_se
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_set_vring_base.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %10 = load ptr, ptr %opaque.i, align 8
   %11 = load i32, ptr %10, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %11, i64 noundef 1074310930, ptr noundef nonnull %ring) #12
@@ -4180,7 +4180,7 @@ define internal fastcc i32 @vhost_vdpa_set_vring_dev_kick(ptr noundef %dev, ptr 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %file, align 4
-  %fd = getelementptr inbounds i8, ptr %file, i64 4
+  %fd = getelementptr inbounds nuw i8, ptr %file, i64 4
   %1 = load i32, ptr %fd, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4205,7 +4205,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %dev, i32 noundef %0, i32 noundef %1) #12
   br label %trace_vhost_vdpa_set_vring_kick.exit
@@ -4216,7 +4216,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_vring_kick.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %8 = load ptr, ptr %vhost_ops.i, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.i = icmp eq i32 %9, 3
@@ -4227,7 +4227,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_se
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_set_vring_kick.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %10 = load ptr, ptr %opaque.i, align 8
   %11 = load i32, ptr %10, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %11, i64 noundef 1074310944, ptr noundef nonnull %file) #12
@@ -4252,7 +4252,7 @@ define internal fastcc i32 @vhost_vdpa_set_vring_dev_call(ptr noundef %dev, ptr 
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load i32, ptr %file, align 4
-  %fd = getelementptr inbounds i8, ptr %file, i64 4
+  %fd = getelementptr inbounds nuw i8, ptr %file, i64 4
   %1 = load i32, ptr %fd, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4277,7 +4277,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %dev, i32 noundef %0, i32 noundef %1) #12
   br label %trace_vhost_vdpa_set_vring_call.exit
@@ -4288,7 +4288,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_vhost_vdpa_set_vring_call.exit:             ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %vhost_ops.i = getelementptr inbounds i8, ptr %dev, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %dev, i64 528
   %8 = load ptr, ptr %vhost_ops.i, align 8
   %9 = load i32, ptr %8, align 8
   %cmp.i = icmp eq i32 %9, 3
@@ -4299,7 +4299,7 @@ if.else.i:                                        ; preds = %trace_vhost_vdpa_se
   unreachable
 
 if.end.i:                                         ; preds = %trace_vhost_vdpa_set_vring_call.exit
-  %opaque.i = getelementptr inbounds i8, ptr %dev, i64 536
+  %opaque.i = getelementptr inbounds nuw i8, ptr %dev, i64 536
   %10 = load ptr, ptr %opaque.i, align 8
   %11 = load i32, ptr %10, align 16
   %call.i = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %11, i64 noundef 1074310945, ptr noundef nonnull %file) #12
@@ -4329,7 +4329,7 @@ entry:
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_vhost_vdpa_dump_config.exit
@@ -4414,7 +4414,7 @@ declare void @vhost_svq_get_vring_addr(ptr noundef, ptr noundef) local_unnamed_a
 define internal fastcc noundef zeroext i1 @vhost_vdpa_svq_map_ring(ptr noundef %v, ptr noundef nonnull %needle, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %byval-temp = alloca %struct.DMAMap, align 8
-  %iova_tree = getelementptr inbounds i8, ptr %v, i64 248
+  %iova_tree = getelementptr inbounds nuw i8, ptr %v, i64 248
   %0 = load ptr, ptr %iova_tree, align 8
   %call = tail call i32 @vhost_iova_tree_map_alloc(ptr noundef %0, ptr noundef nonnull %needle) #12
   %cmp.not = icmp eq i32 %call, 0
@@ -4425,16 +4425,16 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %address_space_id = getelementptr inbounds i8, ptr %v, i64 16
+  %address_space_id = getelementptr inbounds nuw i8, ptr %v, i64 16
   %1 = load i32, ptr %address_space_id, align 16
   %2 = load i64, ptr %needle, align 1
-  %size = getelementptr inbounds i8, ptr %needle, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %needle, i64 16
   %3 = load i64, ptr %size, align 1
   %add = add i64 %3, 1
-  %translated_addr = getelementptr inbounds i8, ptr %needle, i64 8
+  %translated_addr = getelementptr inbounds nuw i8, ptr %needle, i64 8
   %4 = load i64, ptr %translated_addr, align 1
   %5 = inttoptr i64 %4 to ptr
-  %perm = getelementptr inbounds i8, ptr %needle, i64 24
+  %perm = getelementptr inbounds nuw i8, ptr %needle, i64 24
   %6 = load i32, ptr %perm, align 1
   %cmp2 = icmp eq i32 %6, 1
   %call4 = tail call i32 @vhost_vdpa_dma_map(ptr noundef nonnull %v, i32 noundef %1, i64 noundef %2, i64 noundef %add, ptr noundef %5, i1 noundef zeroext %cmp2)
@@ -4462,13 +4462,13 @@ entry:
   %needle = alloca %struct.DMAMap, align 8
   %byval-temp = alloca %struct.DMAMap, align 8
   store i64 0, ptr %needle, align 8
-  %translated_addr = getelementptr inbounds i8, ptr %needle, i64 8
+  %translated_addr = getelementptr inbounds nuw i8, ptr %needle, i64 8
   store i64 %addr, ptr %translated_addr, align 8
-  %size = getelementptr inbounds i8, ptr %needle, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %needle, i64 16
   store i64 0, ptr %size, align 8
-  %perm = getelementptr inbounds i8, ptr %needle, i64 24
+  %perm = getelementptr inbounds nuw i8, ptr %needle, i64 24
   store i32 0, ptr %perm, align 8
-  %iova_tree = getelementptr inbounds i8, ptr %v, i64 248
+  %iova_tree = getelementptr inbounds nuw i8, ptr %v, i64 248
   %0 = load ptr, ptr %iova_tree, align 8
   %call = call ptr @vhost_iova_tree_find_iova(ptr noundef %0, ptr noundef nonnull %needle) #12
   %tobool.not = icmp eq ptr %call, null
@@ -4479,7 +4479,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %size5 = getelementptr inbounds i8, ptr %call, i64 16
+  %size5 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load i64, ptr %size5, align 1
   %call.i = tail call i32 @getpagesize() #13
   %conv.i = sext i32 %call.i to i64
@@ -4487,7 +4487,7 @@ if.end:                                           ; preds = %entry
   %sub = add i64 %add, %conv.i
   %sub8 = sub nsw i64 0, %conv.i
   %and = and i64 %sub, %sub8
-  %address_space_id = getelementptr inbounds i8, ptr %v, i64 16
+  %address_space_id = getelementptr inbounds nuw i8, ptr %v, i64 16
   %2 = load i32, ptr %address_space_id, align 16
   %3 = load i64, ptr %call, align 1
   %call10 = call i32 @vhost_vdpa_dma_unmap(ptr noundef nonnull %v, i32 noundef %2, i64 noundef %3, i64 noundef %and)

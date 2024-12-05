@@ -95,160 +95,160 @@ define dso_local void @_ZN10Vmycpu_topC2EP16VerilatedContextPKc(ptr noundef nonn
   tail call void @_ZN14VerilatedModelC2ER16VerilatedContext(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(608) %1)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
   %4 = tail call noalias noundef nonnull align 64 dereferenceable(19520) ptr @_ZnwmSt11align_val_t(i64 noundef 19520, i64 noundef 64) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   invoke void @_ZN16Vmycpu_top__SymsC1EP16VerilatedContextPKcP10Vmycpu_top(ptr noundef nonnull align 64 dereferenceable(19520) %4, ptr noundef %6, ptr noundef %2, ptr noundef nonnull %0)
           to label %7 unwind label %108
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %4, i64 201
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 201
   store ptr %12, ptr %11, align 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = getelementptr inbounds i8, ptr %4, i64 202
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 202
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %4, i64 203
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 203
   store ptr %16, ptr %15, align 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  %18 = getelementptr inbounds i8, ptr %4, i64 204
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 204
   store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
-  %20 = getelementptr inbounds i8, ptr %4, i64 205
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 205
   store ptr %20, ptr %19, align 64
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
-  %22 = getelementptr inbounds i8, ptr %4, i64 206
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 206
   store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
-  %24 = getelementptr inbounds i8, ptr %4, i64 207
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 207
   store ptr %24, ptr %23, align 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
-  %26 = getelementptr inbounds i8, ptr %4, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = getelementptr inbounds i8, ptr %4, i64 209
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 209
   store ptr %28, ptr %27, align 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
-  %30 = getelementptr inbounds i8, ptr %4, i64 210
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 210
   store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
-  %32 = getelementptr inbounds i8, ptr %4, i64 211
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 211
   store ptr %32, ptr %31, align 16
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
-  %34 = getelementptr inbounds i8, ptr %4, i64 212
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 212
   store ptr %34, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 128
-  %36 = getelementptr inbounds i8, ptr %4, i64 213
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 213
   store ptr %36, ptr %35, align 64
-  %37 = getelementptr inbounds i8, ptr %0, i64 136
-  %38 = getelementptr inbounds i8, ptr %4, i64 214
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 214
   store ptr %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 144
-  %40 = getelementptr inbounds i8, ptr %4, i64 215
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 215
   store ptr %40, ptr %39, align 16
-  %41 = getelementptr inbounds i8, ptr %0, i64 152
-  %42 = getelementptr inbounds i8, ptr %4, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr %42, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 160
-  %44 = getelementptr inbounds i8, ptr %4, i64 217
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 217
   store ptr %44, ptr %43, align 32
-  %45 = getelementptr inbounds i8, ptr %0, i64 168
-  %46 = getelementptr inbounds i8, ptr %4, i64 218
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 218
   store ptr %46, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 176
-  %48 = getelementptr inbounds i8, ptr %4, i64 219
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 219
   store ptr %48, ptr %47, align 16
-  %49 = getelementptr inbounds i8, ptr %0, i64 184
-  %50 = getelementptr inbounds i8, ptr %4, i64 220
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 220
   store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 192
-  %52 = getelementptr inbounds i8, ptr %4, i64 221
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 221
   store ptr %52, ptr %51, align 64
-  %53 = getelementptr inbounds i8, ptr %0, i64 200
-  %54 = getelementptr inbounds i8, ptr %4, i64 222
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 222
   store ptr %54, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 208
-  %56 = getelementptr inbounds i8, ptr %4, i64 223
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 223
   store ptr %56, ptr %55, align 16
-  %57 = getelementptr inbounds i8, ptr %0, i64 216
-  %58 = getelementptr inbounds i8, ptr %4, i64 224
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr %58, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 224
-  %60 = getelementptr inbounds i8, ptr %4, i64 225
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 225
   store ptr %60, ptr %59, align 32
-  %61 = getelementptr inbounds i8, ptr %0, i64 232
-  %62 = getelementptr inbounds i8, ptr %4, i64 226
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 226
   store ptr %62, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 240
-  %64 = getelementptr inbounds i8, ptr %4, i64 227
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 227
   store ptr %64, ptr %63, align 16
-  %65 = getelementptr inbounds i8, ptr %0, i64 248
-  %66 = getelementptr inbounds i8, ptr %4, i64 228
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 228
   store ptr %66, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 256
-  %68 = getelementptr inbounds i8, ptr %4, i64 229
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 229
   store ptr %68, ptr %67, align 64
-  %69 = getelementptr inbounds i8, ptr %0, i64 264
-  %70 = getelementptr inbounds i8, ptr %4, i64 230
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 230
   store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 272
-  %72 = getelementptr inbounds i8, ptr %4, i64 231
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 231
   store ptr %72, ptr %71, align 16
-  %73 = getelementptr inbounds i8, ptr %0, i64 280
-  %74 = getelementptr inbounds i8, ptr %4, i64 232
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store ptr %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 288
-  %76 = getelementptr inbounds i8, ptr %4, i64 233
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 233
   store ptr %76, ptr %75, align 32
-  %77 = getelementptr inbounds i8, ptr %0, i64 296
-  %78 = getelementptr inbounds i8, ptr %4, i64 234
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 234
   store ptr %78, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 304
-  %80 = getelementptr inbounds i8, ptr %4, i64 235
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 235
   store ptr %80, ptr %79, align 16
-  %81 = getelementptr inbounds i8, ptr %0, i64 312
-  %82 = getelementptr inbounds i8, ptr %4, i64 236
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 236
   store ptr %82, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 320
-  %84 = getelementptr inbounds i8, ptr %4, i64 237
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 237
   store ptr %84, ptr %83, align 64
-  %85 = getelementptr inbounds i8, ptr %0, i64 328
-  %86 = getelementptr inbounds i8, ptr %4, i64 238
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 238
   store ptr %86, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 336
-  %88 = getelementptr inbounds i8, ptr %4, i64 440
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 440
   store ptr %88, ptr %87, align 16
-  %89 = getelementptr inbounds i8, ptr %0, i64 344
-  %90 = getelementptr inbounds i8, ptr %4, i64 444
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 444
   store ptr %90, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 352
-  %92 = getelementptr inbounds i8, ptr %4, i64 448
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 448
   store ptr %92, ptr %91, align 32
-  %93 = getelementptr inbounds i8, ptr %0, i64 360
-  %94 = getelementptr inbounds i8, ptr %4, i64 452
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 452
   store ptr %94, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 368
-  %96 = getelementptr inbounds i8, ptr %4, i64 456
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 456
   store ptr %96, ptr %95, align 16
-  %97 = getelementptr inbounds i8, ptr %0, i64 376
-  %98 = getelementptr inbounds i8, ptr %4, i64 460
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 460
   store ptr %98, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 384
-  %100 = getelementptr inbounds i8, ptr %4, i64 464
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 464
   store ptr %100, ptr %99, align 64
-  %101 = getelementptr inbounds i8, ptr %0, i64 392
-  %102 = getelementptr inbounds i8, ptr %4, i64 468
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 468
   store ptr %102, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 400
-  %104 = getelementptr inbounds i8, ptr %4, i64 472
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 472
   store ptr %104, ptr %103, align 16
-  %105 = getelementptr inbounds i8, ptr %0, i64 408
-  %106 = getelementptr inbounds i8, ptr %4, i64 192
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %106, ptr %105, align 8
   %107 = load ptr, ptr %5, align 8
   tail call void @_ZN16VerilatedContext8addModelEP14VerilatedModel(ptr noundef nonnull align 8 dereferenceable(608) %107, ptr noundef nonnull %0)
@@ -270,7 +270,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK14VerilatedModel8contextpEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -367,7 +367,7 @@ _ZTWN9Verilated3t_sE.exit5:                       ; preds = %18, %20
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10Vmycpu_topD2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -390,7 +390,7 @@ declare void @_ZdlPvmSt11align_val_t(ptr noundef, i64 noundef, i64 noundef) loca
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN10Vmycpu_topD0Ev(ptr noundef nonnull align 64 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV10Vmycpu_top, i64 16), ptr %0, align 64
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN10Vmycpu_topD2Ev.exit, label %5
@@ -407,12 +407,12 @@ _ZN10Vmycpu_topD2Ev.exit:                         ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10Vmycpu_top9eval_stepEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN9VlDeleter9deleteAllEv(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %5 = load ptr, ptr %2, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %16, label %9
@@ -420,23 +420,23 @@ define dso_local void @_ZN10Vmycpu_top9eval_stepEv(ptr nocapture noundef nonnull
 9:                                                ; preds = %1
   store i8 1, ptr %6, align 8
   %10 = load ptr, ptr %2, align 16
-  %11 = getelementptr inbounds i8, ptr %10, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   tail call void @_Z34Vmycpu_top___024root___eval_staticP20Vmycpu_top___024root(ptr noundef nonnull %11)
   %12 = load ptr, ptr %2, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 192
   tail call void @_Z35Vmycpu_top___024root___eval_initialP20Vmycpu_top___024root(ptr noundef nonnull %13)
   %14 = load ptr, ptr %2, align 16
-  %15 = getelementptr inbounds i8, ptr %14, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 192
   tail call void @_Z34Vmycpu_top___024root___eval_settleP20Vmycpu_top___024root(ptr noundef nonnull %15)
   %.pre = load ptr, ptr %2, align 16
   br label %16
 
 16:                                               ; preds = %9, %1
   %17 = phi ptr [ %.pre, %9 ], [ %5, %1 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 192
   tail call void @_Z27Vmycpu_top___024root___evalP20Vmycpu_top___024root(ptr noundef nonnull %18)
   %19 = load ptr, ptr %2, align 16
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @_ZN9Verilated9endOfEvalEP21VerilatedEvalMsgQueue(ptr noundef %21)
   ret void
@@ -469,18 +469,18 @@ declare void @_Z11VL_FATAL_MTPKciS0_S0_(ptr noundef, i32 noundef, ptr noundef, p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK10Vmycpu_top4nameEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
 ; Function Attrs: cold mustprogress uwtable
 define dso_local void @_ZN10Vmycpu_top5finalEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   tail call void @_Z33Vmycpu_top___024root___eval_finalP20Vmycpu_top___024root(ptr noundef nonnull %4)
   ret void
 }
@@ -489,9 +489,9 @@ declare void @_Z33Vmycpu_top___024root___eval_finalP20Vmycpu_top___024root(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK10Vmycpu_top8hierNameEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -508,7 +508,7 @@ define dso_local noundef i32 @_ZNK10Vmycpu_top7threadsEv(ptr nocapture nonnull r
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK10Vmycpu_top12prepareCloneEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN16VerilatedContext12prepareCloneEv(ptr noundef nonnull align 8 dereferenceable(608) %3)
   ret void
@@ -518,7 +518,7 @@ declare void @_ZN16VerilatedContext12prepareCloneEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK10Vmycpu_top7atCloneEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(416) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN16VerilatedContext18threadPoolpOnCloneEv(ptr noundef nonnull align 8 dereferenceable(608) %3)
   ret void

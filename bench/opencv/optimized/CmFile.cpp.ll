@@ -31,7 +31,7 @@ define hidden noundef zeroext i1 @_ZN2cv8saliency6CmFile5MkDirERNSt7__cxx1112bas
 
 7:                                                ; preds = %12, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %4 ]
-  %8 = getelementptr inbounds [1024 x i8], ptr @_ZZN2cv8saliency6CmFile5MkDirERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6buffer, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [1024 x i8], ptr @_ZZN2cv8saliency6CmFile5MkDirERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6buffer, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %12 [
     i8 0, label %13

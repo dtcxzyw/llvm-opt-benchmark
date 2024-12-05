@@ -42,9 +42,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_UTF85matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %input, ptr noundef %results) unnamed_addr #3 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds i8, ptr %input, i64 40
+  %fRawInput = getelementptr inbounds nuw i8, ptr %input, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds i8, ptr %input, i64 48
+  %fRawLength = getelementptr inbounds nuw i8, ptr %input, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %cmp = icmp sgt i32 %1, 2
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -55,13 +55,13 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2, label %land.lhs.true3, label %for.body.preheader
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %arrayidx4 = getelementptr inbounds i8, ptr %0, i64 1
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %arrayidx4, align 1
   %cmp6 = icmp eq i8 %3, -69
   br i1 %cmp6, label %land.lhs.true7, label %for.body.preheader
 
 land.lhs.true7:                                   ; preds = %land.lhs.true3
-  %arrayidx8 = getelementptr inbounds i8, ptr %0, i64 2
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i8, ptr %arrayidx8, align 1
   %cmp10 = icmp eq i8 %4, -65
   br label %for.body.preheader

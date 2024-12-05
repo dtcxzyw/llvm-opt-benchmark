@@ -368,10 +368,10 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef non
   br i1 %15, label %16, label %hex_to_bin.exit
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 16
   %19 = call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #11
-  %20 = getelementptr inbounds i8, ptr %5, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #11
   %23 = shl i64 %19, 32
@@ -382,7 +382,7 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef non
   br i1 %27, label %thread-pre-split, label %28
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
   %.not29 = icmp eq i64 %25, %30
   br i1 %.not29, label %thread-pre-split.thread, label %thread-pre-split
@@ -390,7 +390,7 @@ define internal fastcc void @opcua_keylog_process_line(ptr nocapture noundef non
 thread-pre-split:                                 ; preds = %16, %28
   %31 = call ptr @ua_keysets_add() #11
   store ptr %31, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %25, ptr %32, align 8
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %hex_to_bin.exit, label %thread-pre-split.thread
@@ -404,26 +404,26 @@ thread-pre-split.thread:                          ; preds = %28, %thread-pre-spl
   br i1 %36, label %sub_0, label %67
 
 sub_0:                                            ; preds = %thread-pre-split.thread
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load i8, ptr %38, align 1
   %.not41 = icmp eq i8 %39, 105
   br i1 %.not41, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %40 = getelementptr inbounds i8, ptr %38, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %41 = load i8, ptr %40, align 1
   %.not42 = icmp eq i8 %41, 118
   br i1 %.not42, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %42 = getelementptr inbounds i8, ptr %38, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %.tail.thread
 
 45:                                               ; preds = %.tail
-  %46 = getelementptr inbounds i8, ptr %33, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %47 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #10
   %48 = trunc i64 %47 to i32
   %.not.i = icmp ult i32 %48, 2
@@ -451,9 +451,9 @@ sub_1:                                            ; preds = %sub_0
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %.tail.thread
-  %57 = getelementptr inbounds i8, ptr %33, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %58 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %57, i32 noundef 32)
-  %59 = getelementptr inbounds i8, ptr %33, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %33, i64 104
   store i32 %58, ptr %59, align 8
   br label %hex_to_bin.exit
 
@@ -465,7 +465,7 @@ sub_1:                                            ; preds = %sub_0
 63:                                               ; preds = %60
   %64 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #11
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %33, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %33, i64 112
   store i32 %65, ptr %66, align 8
   br label %hex_to_bin.exit
 
@@ -475,26 +475,26 @@ sub_1:                                            ; preds = %sub_0
   br i1 %69, label %sub_032, label %hex_to_bin.exit
 
 sub_032:                                          ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = load i8, ptr %71, align 1
   %.not39 = icmp eq i8 %72, 105
   br i1 %.not39, label %sub_133, label %.tail31.thread
 
 sub_133:                                          ; preds = %sub_032
-  %73 = getelementptr inbounds i8, ptr %71, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %74 = load i8, ptr %73, align 1
   %.not40 = icmp eq i8 %74, 118
   br i1 %.not40, label %.tail31, label %.tail31.thread
 
 .tail31:                                          ; preds = %sub_133
-  %75 = getelementptr inbounds i8, ptr %71, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %.tail31.thread
 
 78:                                               ; preds = %.tail31
-  %79 = getelementptr inbounds i8, ptr %33, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %80 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %79, i32 noundef 16)
   br label %hex_to_bin.exit
 
@@ -504,9 +504,9 @@ sub_133:                                          ; preds = %sub_032
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %.tail31.thread
-  %84 = getelementptr inbounds i8, ptr %33, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %85 = call i32 @hex_to_bin(ptr noundef nonnull %4, ptr noundef nonnull %84, i32 noundef 32)
-  %86 = getelementptr inbounds i8, ptr %33, i64 108
+  %86 = getelementptr inbounds nuw i8, ptr %33, i64 108
   store i32 %85, ptr %86, align 4
   br label %hex_to_bin.exit
 
@@ -518,7 +518,7 @@ sub_133:                                          ; preds = %sub_032
 90:                                               ; preds = %87
   %91 = call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #11
   %92 = trunc i64 %91 to i32
-  %93 = getelementptr inbounds i8, ptr %33, i64 116
+  %93 = getelementptr inbounds nuw i8, ptr %33, i64 116
   store i32 %92, ptr %93, align 4
   br label %hex_to_bin.exit
 
@@ -558,7 +558,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %7 = alloca i8, align 1
   %8 = alloca %struct.ua_metadata, align 1
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %11 = load i32, ptr %10, align 4
   store i32 1, ptr %6, align 4
   store i8 0, ptr %7, align 1
@@ -580,7 +580,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %.0166 = phi i1 [ false, %14 ], [ true, %4 ], [ %.not188, %16 ]
   store i8 0, ptr %8, align 1
   call void @get_encryption_info(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.22) #11
   %21 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.40, i64 noundef 3) #11
@@ -679,7 +679,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %74 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12) #11
   %75 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef 16) #11
   %76 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 16, i32 noundef %75) #11
-  %77 = getelementptr inbounds i8, ptr %1, i64 408
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %78 = load ptr, ptr %77, align 8
   %79 = zext i32 %75 to i64
   %80 = call noalias ptr @wmem_alloc(ptr noundef %78, i64 noundef %79) #11
@@ -697,10 +697,10 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %.48.i = select i1 %.0166, i64 108, i64 104
   %.49.i = select i1 %.0166, i64 72, i64 40
   %.50.i = select i1 %.0166, i64 116, i64 112
-  %88 = getelementptr inbounds i8, ptr %85, i64 %..i
-  %89 = getelementptr inbounds i8, ptr %85, i64 %.48.i
-  %90 = getelementptr inbounds i8, ptr %85, i64 %.49.i
-  %91 = getelementptr inbounds i8, ptr %85, i64 %.50.i
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %..i
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 %.48.i
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 %.49.i
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 %.50.i
   %.042.i = load i32, ptr %89, align 4
   %storemerge.in.i = load i32, ptr %91, align 4
   %storemerge.i = trunc i32 %storemerge.in.i to i8
@@ -769,7 +769,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
 
 .sink.split.i:                                    ; preds = %117
   %.sink8.in.i.v = select i1 %.0166, i64 116, i64 112
-  %.sink8.in.i = getelementptr inbounds i8, ptr %125, i64 %.sink8.in.i.v
+  %.sink8.in.i = getelementptr inbounds nuw i8, ptr %125, i64 %.sink8.in.i.v
   %.sink8.i = load i32, ptr %.sink8.in.i, align 4
   %126 = trunc i32 %.sink8.i to i8
   store i8 %126, ptr %7, align 1
@@ -826,7 +826,7 @@ opcua_get_footer_info.exit:                       ; preds = %.opcua_get_footer_i
 
 .thread:                                          ; preds = %145, %148
   %.0178201 = phi ptr [ %149, %148 ], [ %146, %145 ]
-  %152 = getelementptr inbounds i8, ptr %1, i64 272
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %153 = load i32, ptr %152, align 8
   store i32 1, ptr %152, align 8
   %154 = icmp eq ptr %.0178201, null

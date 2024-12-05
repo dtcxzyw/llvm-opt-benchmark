@@ -67,7 +67,7 @@ define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_11CompressionEEC2ERKS1_(ptr
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TypedAttributeINS_11CompressionEEE, i64 16), ptr %this, align 8
-  %_value = getelementptr inbounds i8, ptr %this, i64 8
+  %_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %value, align 4
   store i32 %0, ptr %_value, align 8
   ret void
@@ -99,14 +99,14 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_214TypedAttributeINS_11CompressionEE5valueEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %this, i64 8
+  %_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %_value
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttributeINS_11CompressionEE5valueEv(ptr noundef nonnull align 8 dereferenceable(12) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %_value = getelementptr inbounds i8, ptr %this, i64 8
+  %_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %_value
 }
 
@@ -183,9 +183,9 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   br label %common.resume
 
 _ZN7Imf_3_214TypedAttributeINS_11CompressionEE13copyValueFromERKNS_9AttributeE.exit: ; preds = %invoke.cont
-  %_value.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %_value.i, align 8
-  %_value2.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_value2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 %2, ptr %_value2.i, align 8
   ret ptr %call
 
@@ -219,9 +219,9 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %1
 
 _ZN7Imf_3_214TypedAttributeINS_11CompressionEE4castERKNS_9AttributeE.exit: ; preds = %entry
-  %_value = getelementptr inbounds i8, ptr %0, i64 8
+  %_value = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %_value, align 8
-  %_value2 = getelementptr inbounds i8, ptr %this, i64 8
+  %_value2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %_value2, align 8
   ret void
 }
@@ -375,13 +375,13 @@ declare void @_ZN7Imf_3_29Attribute23unRegisterAttributeTypeEPKc(ptr noundef) lo
 define void @_ZNK7Imf_3_214TypedAttributeINS_11CompressionEE12writeValueToERNS_7OStreamEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(40) %os, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %v.addr.i = alloca i8, align 1
-  %_value = getelementptr inbounds i8, ptr %this, i64 8
+  %_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %_value, align 8
   %conv = trunc i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %v.addr.i)
   store i8 %conv, ptr %v.addr.i, align 1
   %vtable.i.i.i = load ptr, ptr %os, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(40) %os, ptr noundef nonnull %v.addr.i, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %v.addr.i)
@@ -393,13 +393,13 @@ define void @_ZN7Imf_3_214TypedAttributeINS_11CompressionEE13readValueFromERNS_7
 entry:
   %tmp = alloca i8, align 1
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 1 dereferenceable(1) %tmp, i32 noundef 1)
   %1 = load i8, ptr %tmp, align 1
   %spec.select = call i8 @llvm.umin.i8(i8 %1, i8 10)
   %conv28 = zext nneg i8 %spec.select to i32
-  %_value = getelementptr inbounds i8, ptr %this, i64 8
+  %_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %conv28, ptr %_value, align 8
   ret void
 }

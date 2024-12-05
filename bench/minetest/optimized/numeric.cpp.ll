@@ -104,7 +104,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.body.prol:                                  ; preds = %while.body.preheader
   %k.0.copyload.prol = load i64, ptr %key, align 1
-  %add.ptr3.prol = getelementptr inbounds i8, ptr %key, i64 8
+  %add.ptr3.prol = getelementptr inbounds nuw i8, ptr %key, i64 8
   %mul4.prol = mul i64 %k.0.copyload.prol, -4132994306676758123
   %shr.prol = lshr i64 %mul4.prol, 47
   %xor5.prol = xor i64 %shr.prol, %mul4.prol
@@ -124,7 +124,7 @@ while.body:                                       ; preds = %while.body.prol.loo
   %h.079 = phi i64 [ %mul8.1, %while.body ], [ %h.079.unr, %while.body.prol.loopexit ]
   %data.078 = phi ptr [ %add.ptr3.1, %while.body ], [ %data.078.unr, %while.body.prol.loopexit ]
   %k.0.copyload = load i64, ptr %data.078, align 1
-  %add.ptr3 = getelementptr inbounds i8, ptr %data.078, i64 8
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %data.078, i64 8
   %mul4 = mul i64 %k.0.copyload, -4132994306676758123
   %shr = lshr i64 %mul4, 47
   %xor5 = xor i64 %shr, %mul4
@@ -132,7 +132,7 @@ while.body:                                       ; preds = %while.body.prol.loo
   %xor7 = xor i64 %mul6, %h.079
   %mul8 = mul i64 %xor7, -4132994306676758123
   %k.0.copyload.1 = load i64, ptr %add.ptr3, align 1
-  %add.ptr3.1 = getelementptr inbounds i8, ptr %data.078, i64 16
+  %add.ptr3.1 = getelementptr inbounds nuw i8, ptr %data.078, i64 16
   %mul4.1 = mul i64 %k.0.copyload.1, -4132994306676758123
   %shr.1 = lshr i64 %mul4.1, 47
   %xor5.1 = xor i64 %shr.1, %mul4.1
@@ -158,7 +158,7 @@ while.end:                                        ; preds = %while.body, %while.
   ]
 
 sw.bb:                                            ; preds = %while.end
-  %arrayidx = getelementptr inbounds i8, ptr %data.0.lcssa, i64 6
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 6
   %3 = load i8, ptr %arrayidx, align 1, !tbaa !6
   %conv9 = zext i8 %3 to i64
   %shl = shl nuw nsw i64 %conv9, 48
@@ -167,7 +167,7 @@ sw.bb:                                            ; preds = %while.end
 
 sw.bb11:                                          ; preds = %while.end, %sw.bb
   %h.1 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor10, %sw.bb ]
-  %arrayidx12 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 5
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 5
   %4 = load i8, ptr %arrayidx12, align 1, !tbaa !6
   %conv13 = zext i8 %4 to i64
   %shl14 = shl nuw nsw i64 %conv13, 40
@@ -176,7 +176,7 @@ sw.bb11:                                          ; preds = %while.end, %sw.bb
 
 sw.bb16:                                          ; preds = %while.end, %sw.bb11
   %h.2 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor15, %sw.bb11 ]
-  %arrayidx17 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 4
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 4
   %5 = load i8, ptr %arrayidx17, align 1, !tbaa !6
   %conv18 = zext i8 %5 to i64
   %shl19 = shl nuw nsw i64 %conv18, 32
@@ -185,7 +185,7 @@ sw.bb16:                                          ; preds = %while.end, %sw.bb11
 
 sw.bb21:                                          ; preds = %while.end, %sw.bb16
   %h.3 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor20, %sw.bb16 ]
-  %arrayidx22 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 3
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 3
   %6 = load i8, ptr %arrayidx22, align 1, !tbaa !6
   %conv23 = zext i8 %6 to i64
   %shl24 = shl nuw nsw i64 %conv23, 24
@@ -194,7 +194,7 @@ sw.bb21:                                          ; preds = %while.end, %sw.bb16
 
 sw.bb26:                                          ; preds = %while.end, %sw.bb21
   %h.4 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor25, %sw.bb21 ]
-  %arrayidx27 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 2
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 2
   %7 = load i8, ptr %arrayidx27, align 1, !tbaa !6
   %conv28 = zext i8 %7 to i64
   %shl29 = shl nuw nsw i64 %conv28, 16
@@ -203,7 +203,7 @@ sw.bb26:                                          ; preds = %while.end, %sw.bb21
 
 sw.bb31:                                          ; preds = %while.end, %sw.bb26
   %h.5 = phi i64 [ %h.0.lcssa, %while.end ], [ %xor30, %sw.bb26 ]
-  %arrayidx32 = getelementptr inbounds i8, ptr %data.0.lcssa, i64 1
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %data.0.lcssa, i64 1
   %8 = load i8, ptr %arrayidx32, align 1, !tbaa !6
   %conv33 = zext i8 %8 to i64
   %shl34 = shl nuw nsw i64 %conv33, 8
@@ -368,13 +368,13 @@ entry:
   %neg = fmul nsz double %5, %10
   %11 = tail call nsz double @llvm.fmuladd.f64(double %mul, double %4, double %neg)
   %conv12 = fptrunc double %11 to float
-  %arrayidx13 = getelementptr inbounds i8, ptr %m, i64 8
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %m, i64 8
   store float %conv12, ptr %arrayidx13, align 4, !tbaa !9
   %mul14 = fmul nsz double %0, %3
   %12 = fneg nsz double %1
   %neg17 = fmul nsz double %4, %12
   %13 = tail call nsz double @llvm.fmuladd.f64(double %mul14, double %5, double %neg17)
-  %arrayidx19 = getelementptr inbounds i8, ptr %m, i64 16
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %mul20 = fmul nsz double %0, %2
   %14 = insertelement <2 x double> poison, double %13, i64 0
   %15 = insertelement <2 x double> %14, double %mul20, i64 1
@@ -383,19 +383,19 @@ entry:
   %mul25 = fmul nsz double %1, %5
   %17 = tail call nsz double @llvm.fmuladd.f64(double %mul14, double %4, double %mul25)
   %conv26 = fptrunc double %17 to float
-  %arrayidx27 = getelementptr inbounds i8, ptr %m, i64 24
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %m, i64 24
   store float %conv26, ptr %arrayidx27, align 4, !tbaa !9
   %mul28 = fmul nsz double %2, %5
   %conv29 = fptrunc double %mul28 to float
-  %arrayidx30 = getelementptr inbounds i8, ptr %m, i64 32
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %m, i64 32
   store float %conv29, ptr %arrayidx30, align 4, !tbaa !9
   %18 = fptrunc double %3 to float
   %conv31 = fneg nsz float %18
-  %arrayidx32 = getelementptr inbounds i8, ptr %m, i64 36
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %m, i64 36
   store float %conv31, ptr %arrayidx32, align 4, !tbaa !9
   %mul33 = fmul nsz double %2, %4
   %conv34 = fptrunc double %mul33 to float
-  %arrayidx35 = getelementptr inbounds i8, ptr %m, i64 40
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %m, i64 40
   store float %conv34, ptr %arrayidx35, align 4, !tbaa !9
   ret void
 }
@@ -409,33 +409,33 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { <2 x float>, float } @_Z18getPitchYawRollRadRKN3irr4core8CMatrix4IfEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %m) local_unnamed_addr #8 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %m, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %m, i64 4
   %0 = load float, ptr %arrayidx, align 4, !tbaa !9
   %conv = fpext float %0 to double
-  %arrayidx1 = getelementptr inbounds i8, ptr %m, i64 20
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %m, i64 20
   %1 = load float, ptr %arrayidx1, align 4, !tbaa !9
   %conv2 = fpext float %1 to double
   %call3 = tail call nsz double @atan2(double noundef %conv, double noundef %conv2) #11
-  %arrayidx4 = getelementptr inbounds i8, ptr %m, i64 40
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %m, i64 40
   %2 = load float, ptr %arrayidx4, align 4, !tbaa !9
   %conv5 = fpext float %2 to double
-  %arrayidx8 = getelementptr inbounds i8, ptr %m, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %m, i64 32
   %3 = load float, ptr %arrayidx8, align 4, !tbaa !9
   %conv9 = fpext float %3 to double
   %mul12 = fmul nsz double %conv9, %conv9
   %4 = tail call nsz double @llvm.fmuladd.f64(double %conv5, double %conv5, double %mul12)
   %5 = tail call nsz double @llvm.sqrt.f64(double %4)
   %conv13 = fptrunc double %5 to float
-  %arrayidx14 = getelementptr inbounds i8, ptr %m, i64 36
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %m, i64 36
   %6 = load float, ptr %arrayidx14, align 4, !tbaa !9
   %fneg = fneg nsz float %6
   %call15 = tail call nsz float @atan2f(float noundef %fneg, float noundef %conv13) #11
   %7 = tail call nsz double @llvm.cos.f64(double %call3)
   %8 = tail call nsz double @llvm.sin.f64(double %call3)
-  %arrayidx16 = getelementptr inbounds i8, ptr %m, i64 24
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %m, i64 24
   %9 = load float, ptr %arrayidx16, align 4, !tbaa !9
   %conv17 = fpext float %9 to double
-  %arrayidx18 = getelementptr inbounds i8, ptr %m, i64 8
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %m, i64 8
   %10 = load float, ptr %arrayidx18, align 4, !tbaa !9
   %conv19 = fpext float %10 to double
   %11 = fneg nsz double %7
@@ -444,7 +444,7 @@ entry:
   %conv21 = fptrunc double %12 to float
   %13 = load float, ptr %m, align 4, !tbaa !9
   %conv23 = fpext float %13 to double
-  %arrayidx24 = getelementptr inbounds i8, ptr %m, i64 16
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %14 = load float, ptr %arrayidx24, align 4, !tbaa !9
   %conv25 = fpext float %14 to double
   %15 = fneg nsz double %8

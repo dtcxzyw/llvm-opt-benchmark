@@ -68,9 +68,9 @@ define hidden void @debugLoop_run() local_unnamed_addr #0 {
   tail call void @standardHandlers_onConnect() #3
   tail call void @threadControl_onConnect() #3
   tail call void (...) @eventHandler_onConnect() #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 9
-  %10 = getelementptr inbounds i8, ptr %1, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %.backedge24
 
 .backedge24:                                      ; preds = %.backedge24.backedge, %0
@@ -102,7 +102,7 @@ dequeue.exit.thread:                              ; preds = %._crit_edge.i
   br label %.loopexit
 
 18:                                               ; preds = %._crit_edge.i
-  %19 = getelementptr inbounds i8, ptr %.lcssa.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 24
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr @cmdQueue, align 8
   %21 = load ptr, ptr @cmdQueueLock, align 8
@@ -128,7 +128,7 @@ dequeue.exit.thread:                              ; preds = %._crit_edge.i
   %29 = sext i8 %28 to i32
   %30 = call ptr @debugDispatch_getHandler(i32 noundef %27, i32 noundef %29, ptr noundef nonnull %4, ptr noundef nonnull %5) #3
   %31 = load ptr, ptr @gdata, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 528
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 528
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 8
   %.not15 = icmp eq i32 %34, 0
@@ -151,7 +151,7 @@ dequeue.exit.thread:                              ; preds = %._crit_edge.i
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr @gdata, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load volatile i8, ptr %46, align 8
   %.not16 = icmp eq i8 %47, 0
   %48 = load i8, ptr %9, align 1
@@ -204,7 +204,7 @@ dequeue.exit.thread:                              ; preds = %._crit_edge.i
   %60 = load ptr, ptr @cmdQueueLock, align 8
   call void @debugMonitorDestroy(ptr noundef %60) #3
   %61 = load ptr, ptr @gdata, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load volatile i8, ptr %62, align 8
   %.not13 = icmp eq i8 %63, 0
   br i1 %.not13, label %64, label %66
@@ -224,7 +224,7 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr @gdata, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 528
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 8
   %.not = icmp eq i32 %10, 0
@@ -236,9 +236,9 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
   br label %12
 
 12:                                               ; preds = %3, %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 9
-  %15 = getelementptr inbounds i8, ptr %4, i64 10
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 10
   br label %16
 
 16:                                               ; preds = %12, %67
@@ -256,7 +256,7 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @gdata, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 528
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 528
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 128
   %.not16 = icmp eq i32 %26, 0
@@ -283,7 +283,7 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
   %37 = sext i8 %36 to i32
   %38 = call ptr @debugDispatch_getHandler(i32 noundef %35, i32 noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
   %39 = load ptr, ptr @gdata, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 528
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 528
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 8
   %.not14 = icmp eq i32 %42, 0
@@ -314,7 +314,7 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
 
 56:                                               ; preds = %53, %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %57 = getelementptr inbounds i8, ptr %51, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr null, ptr %57, align 8
   %58 = load ptr, ptr @cmdQueueLock, align 8
   call void @debugMonitorEnter(ptr noundef %58) #3
@@ -330,13 +330,13 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
 
 .preheader.i:                                     ; preds = %56, %.preheader.i
   %.0.i = phi ptr [ %64, %.preheader.i ], [ %59, %56 ]
-  %63 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %65, label %.preheader.i, !llvm.loop !9
 
 65:                                               ; preds = %.preheader.i
-  %66 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %51, ptr %66, align 8
   br label %67
 
@@ -364,7 +364,7 @@ define internal void @reader(ptr nocapture readnone %0, ptr nocapture readnone %
 
 .thread:                                          ; preds = %67, %.thread.sink.split
   %74 = load ptr, ptr @gdata, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 528
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 528
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 8
   %.not11 = icmp eq i32 %77, 0

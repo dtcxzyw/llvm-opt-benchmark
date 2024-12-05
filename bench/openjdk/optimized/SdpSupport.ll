@@ -129,7 +129,7 @@ create.exit:                                      ; preds = %9
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr %50(ptr noundef nonnull %0) #4
   %.not = icmp eq ptr %51, null

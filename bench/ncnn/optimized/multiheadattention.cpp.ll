@@ -125,7 +125,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
   %15 = sdiv i32 %12, %14
   %16 = mul nsw i32 %15, %14
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %16, i32 noundef 0)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -162,7 +162,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %34)
           to label %41 unwind label %101
@@ -237,7 +237,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
   invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef %78)
           to label %85 unwind label %90
@@ -298,7 +298,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %109, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   invoke void %114(ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef %110)
           to label %851 unwind label %116
@@ -317,7 +317,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 119:                                              ; preds = %93
   %120 = load i32, ptr %13, align 8
   %121 = load ptr, ptr %1, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %120, i32 noundef 1)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -354,7 +354,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 139:                                              ; preds = %135
   %140 = load ptr, ptr %137, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8
   invoke void %142(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef %138)
           to label %145 unwind label %205
@@ -429,7 +429,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 183:                                              ; preds = %179
   %184 = load ptr, ptr %181, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
   invoke void %186(ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef %182)
           to label %189 unwind label %194
@@ -490,7 +490,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 215:                                              ; preds = %211
   %216 = load ptr, ptr %213, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
   invoke void %218(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef %214)
           to label %851 unwind label %220
@@ -512,7 +512,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
   %226 = load i32, ptr %225, align 4
   %227 = mul nsw i32 %226, %224
   %228 = load ptr, ptr %1, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load ptr, ptr %229, align 8
   call void %230(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %227, i32 noundef 0)
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -549,7 +549,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 246:                                              ; preds = %242
   %247 = load ptr, ptr %244, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 24
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   %249 = load ptr, ptr %248, align 8
   invoke void %249(ptr noundef nonnull align 8 dereferenceable(8) %244, ptr noundef %245)
           to label %252 unwind label %312
@@ -624,7 +624,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 290:                                              ; preds = %286
   %291 = load ptr, ptr %288, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 24
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %293 = load ptr, ptr %292, align 8
   invoke void %293(ptr noundef nonnull align 8 dereferenceable(8) %288, ptr noundef %289)
           to label %296 unwind label %301
@@ -685,7 +685,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 322:                                              ; preds = %318
   %323 = load ptr, ptr %320, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 24
   %325 = load ptr, ptr %324, align 8
   invoke void %325(ptr noundef nonnull align 8 dereferenceable(8) %320, ptr noundef %321)
           to label %851 unwind label %327
@@ -704,7 +704,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 330:                                              ; preds = %304
   %331 = load i32, ptr %13, align 8
   %332 = load ptr, ptr %1, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load ptr, ptr %333, align 8
   call void %334(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %331, i32 noundef 1)
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -741,7 +741,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 350:                                              ; preds = %346
   %351 = load ptr, ptr %348, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 24
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %353 = load ptr, ptr %352, align 8
   invoke void %353(ptr noundef nonnull align 8 dereferenceable(8) %348, ptr noundef %349)
           to label %356 unwind label %416
@@ -816,7 +816,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 394:                                              ; preds = %390
   %395 = load ptr, ptr %392, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 24
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %397 = load ptr, ptr %396, align 8
   invoke void %397(ptr noundef nonnull align 8 dereferenceable(8) %392, ptr noundef %393)
           to label %400 unwind label %405
@@ -877,7 +877,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 426:                                              ; preds = %422
   %427 = load ptr, ptr %424, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 24
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 24
   %429 = load ptr, ptr %428, align 8
   invoke void %429(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef %425)
           to label %851 unwind label %431
@@ -899,7 +899,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
   %437 = load i32, ptr %436, align 8
   %438 = mul nsw i32 %437, %435
   %439 = load ptr, ptr %1, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %441 = load ptr, ptr %440, align 8
   call void %441(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %438, i32 noundef 0)
   %442 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -936,7 +936,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 457:                                              ; preds = %453
   %458 = load ptr, ptr %455, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 24
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %460 = load ptr, ptr %459, align 8
   invoke void %460(ptr noundef nonnull align 8 dereferenceable(8) %455, ptr noundef %456)
           to label %463 unwind label %523
@@ -1011,7 +1011,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 501:                                              ; preds = %497
   %502 = load ptr, ptr %499, align 8
-  %503 = getelementptr inbounds i8, ptr %502, i64 24
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 24
   %504 = load ptr, ptr %503, align 8
   invoke void %504(ptr noundef nonnull align 8 dereferenceable(8) %499, ptr noundef %500)
           to label %507 unwind label %512
@@ -1072,7 +1072,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 533:                                              ; preds = %529
   %534 = load ptr, ptr %531, align 8
-  %535 = getelementptr inbounds i8, ptr %534, i64 24
+  %535 = getelementptr inbounds nuw i8, ptr %534, i64 24
   %536 = load ptr, ptr %535, align 8
   invoke void %536(ptr noundef nonnull align 8 dereferenceable(8) %531, ptr noundef %532)
           to label %851 unwind label %538
@@ -1091,7 +1091,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 541:                                              ; preds = %515
   %542 = load i32, ptr %13, align 8
   %543 = load ptr, ptr %1, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 16
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 16
   %545 = load ptr, ptr %544, align 8
   call void %545(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %542, i32 noundef 1)
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 600
@@ -1128,7 +1128,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 561:                                              ; preds = %557
   %562 = load ptr, ptr %559, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 24
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 24
   %564 = load ptr, ptr %563, align 8
   invoke void %564(ptr noundef nonnull align 8 dereferenceable(8) %559, ptr noundef %560)
           to label %567 unwind label %627
@@ -1203,7 +1203,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 605:                                              ; preds = %601
   %606 = load ptr, ptr %603, align 8
-  %607 = getelementptr inbounds i8, ptr %606, i64 24
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 24
   %608 = load ptr, ptr %607, align 8
   invoke void %608(ptr noundef nonnull align 8 dereferenceable(8) %603, ptr noundef %604)
           to label %611 unwind label %616
@@ -1264,7 +1264,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 637:                                              ; preds = %633
   %638 = load ptr, ptr %635, align 8
-  %639 = getelementptr inbounds i8, ptr %638, i64 24
+  %639 = getelementptr inbounds nuw i8, ptr %638, i64 24
   %640 = load ptr, ptr %639, align 8
   invoke void %640(ptr noundef nonnull align 8 dereferenceable(8) %635, ptr noundef %636)
           to label %851 unwind label %642
@@ -1284,7 +1284,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
   %646 = load i32, ptr %13, align 8
   %647 = mul nsw i32 %646, %15
   %648 = load ptr, ptr %1, align 8
-  %649 = getelementptr inbounds i8, ptr %648, i64 16
+  %649 = getelementptr inbounds nuw i8, ptr %648, i64 16
   %650 = load ptr, ptr %649, align 8
   call void %650(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %647, i32 noundef 0)
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -1321,7 +1321,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 666:                                              ; preds = %662
   %667 = load ptr, ptr %664, align 8
-  %668 = getelementptr inbounds i8, ptr %667, i64 24
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 24
   %669 = load ptr, ptr %668, align 8
   invoke void %669(ptr noundef nonnull align 8 dereferenceable(8) %664, ptr noundef %665)
           to label %672 unwind label %732
@@ -1396,7 +1396,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 710:                                              ; preds = %706
   %711 = load ptr, ptr %708, align 8
-  %712 = getelementptr inbounds i8, ptr %711, i64 24
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 24
   %713 = load ptr, ptr %712, align 8
   invoke void %713(ptr noundef nonnull align 8 dereferenceable(8) %708, ptr noundef %709)
           to label %716 unwind label %721
@@ -1457,7 +1457,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 742:                                              ; preds = %738
   %743 = load ptr, ptr %740, align 8
-  %744 = getelementptr inbounds i8, ptr %743, i64 24
+  %744 = getelementptr inbounds nuw i8, ptr %743, i64 24
   %745 = load ptr, ptr %744, align 8
   invoke void %745(ptr noundef nonnull align 8 dereferenceable(8) %740, ptr noundef %741)
           to label %851 unwind label %747
@@ -1475,7 +1475,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 750:                                              ; preds = %724
   %751 = load ptr, ptr %1, align 8
-  %752 = getelementptr inbounds i8, ptr %751, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
   %753 = load ptr, ptr %752, align 8
   call void %753(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %15, i32 noundef 1)
   %754 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1512,7 +1512,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 769:                                              ; preds = %765
   %770 = load ptr, ptr %767, align 8
-  %771 = getelementptr inbounds i8, ptr %770, i64 24
+  %771 = getelementptr inbounds nuw i8, ptr %770, i64 24
   %772 = load ptr, ptr %771, align 8
   invoke void %772(ptr noundef nonnull align 8 dereferenceable(8) %767, ptr noundef %768)
           to label %775 unwind label %833
@@ -1587,7 +1587,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 813:                                              ; preds = %809
   %814 = load ptr, ptr %811, align 8
-  %815 = getelementptr inbounds i8, ptr %814, i64 24
+  %815 = getelementptr inbounds nuw i8, ptr %814, i64 24
   %816 = load ptr, ptr %815, align 8
   invoke void %816(ptr noundef nonnull align 8 dereferenceable(8) %811, ptr noundef %812)
           to label %819 unwind label %822
@@ -1644,7 +1644,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn18MultiHeadAttention10load
 
 843:                                              ; preds = %839
   %844 = load ptr, ptr %841, align 8
-  %845 = getelementptr inbounds i8, ptr %844, i64 24
+  %845 = getelementptr inbounds nuw i8, ptr %844, i64 24
   %846 = load ptr, ptr %845, align 8
   invoke void %846(ptr noundef nonnull align 8 dereferenceable(8) %841, ptr noundef %842)
           to label %851 unwind label %848
@@ -1709,11 +1709,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   br label %30
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %10, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %24 = icmp ne i64 %15, 216
   %or.cond1241 = select i1 %24, i1 true, i1 %.not
   %or.cond1253 = select i1 %18, i1 %or.cond1241, i1 false
-  %25 = getelementptr inbounds i8, ptr %10, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %spec.select = select i1 %or.cond1253, ptr %25, ptr %23
   br label %.thread1250
 
@@ -2044,7 +2044,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %indvars.iv1484 = phi i64 [ 0, %.lr.ph1369.us ], [ %indvars.iv.next1485, %._crit_edge1365.us ]
   %232 = load i32, ptr %59, align 8
   %233 = load ptr, ptr %223, align 8
-  %234 = getelementptr inbounds float, ptr %233, i64 %indvars.iv1484
+  %234 = getelementptr inbounds nuw float, ptr %233, i64 %indvars.iv1484
   %235 = load float, ptr %234, align 4
   %236 = icmp sgt i32 %232, 0
   br i1 %236, label %.lr.ph1364.us.preheader, label %._crit_edge1365.us
@@ -2065,7 +2065,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 ._crit_edge1365.us:                               ; preds = %.lr.ph1364.us, %231
   %.0751.lcssa.us = phi float [ %235, %231 ], [ %254, %.lr.ph1364.us ]
-  %248 = getelementptr inbounds float, ptr %230, i64 %indvars.iv1484
+  %248 = getelementptr inbounds nuw float, ptr %230, i64 %indvars.iv1484
   store float %.0751.lcssa.us, ptr %248, align 4
   %indvars.iv.next1485 = add nuw nsw i64 %indvars.iv1484, 1
   %exitcond1488.not = icmp eq i64 %indvars.iv.next1485, %wide.trip.count1487
@@ -2076,9 +2076,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %.07511361.us = phi float [ %254, %.lr.ph1364.us ], [ %235, %.lr.ph1364.us.preheader ]
   %.07521360.us = phi ptr [ %251, %.lr.ph1364.us ], [ %241, %.lr.ph1364.us.preheader ]
   %.07531359.us = phi ptr [ %249, %.lr.ph1364.us ], [ %247, %.lr.ph1364.us.preheader ]
-  %249 = getelementptr inbounds i8, ptr %.07531359.us, i64 4
+  %249 = getelementptr inbounds nuw i8, ptr %.07531359.us, i64 4
   %250 = load float, ptr %.07531359.us, align 4
-  %251 = getelementptr inbounds i8, ptr %.07521360.us, i64 4
+  %251 = getelementptr inbounds nuw i8, ptr %.07521360.us, i64 4
   %252 = load float, ptr %.07521360.us, align 4
   %253 = fmul fast float %252, %250
   %254 = fadd fast float %253, %.07511361.us
@@ -2131,9 +2131,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %276 = load ptr, ptr %194, align 8
   %277 = add nuw nsw i64 %indvars.iv1392, %266
   %278 = mul nuw nsw i64 %277, %213
-  %279 = getelementptr inbounds float, ptr %276, i64 %278
+  %279 = getelementptr inbounds nuw float, ptr %276, i64 %278
   %280 = load ptr, ptr %195, align 8
-  %281 = getelementptr inbounds float, ptr %280, i64 %277
+  %281 = getelementptr inbounds nuw float, ptr %280, i64 %277
   %282 = load float, ptr %281, align 4
   br label %283
 
@@ -2142,9 +2142,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %.07881260.us.us.us = phi float [ %282, %.lr.ph.us.us.us ], [ %289, %283 ]
   %.07891259.us.us.us = phi ptr [ %279, %.lr.ph.us.us.us ], [ %286, %283 ]
   %.07901258.us.us.us = phi ptr [ %275, %.lr.ph.us.us.us ], [ %284, %283 ]
-  %284 = getelementptr inbounds i8, ptr %.07901258.us.us.us, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %.07901258.us.us.us, i64 4
   %285 = load float, ptr %.07901258.us.us.us, align 4
-  %286 = getelementptr inbounds i8, ptr %.07891259.us.us.us, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %.07891259.us.us.us, i64 4
   %287 = load float, ptr %.07891259.us.us.us, align 4
   %288 = fmul fast float %287, %285
   %289 = fadd fast float %288, %.07881260.us.us.us
@@ -2155,7 +2155,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 ._crit_edge.us.us.us:                             ; preds = %283
   %291 = load float, ptr %197, align 8
   %292 = fmul fast float %291, %289
-  %293 = getelementptr inbounds float, ptr %268, i64 %indvars.iv1392
+  %293 = getelementptr inbounds nuw float, ptr %268, i64 %indvars.iv1392
   store float %292, ptr %293, align 4
   %indvars.iv.next1393 = add nuw nsw i64 %indvars.iv1392, 1
   %exitcond1396.not = icmp eq i64 %indvars.iv.next1393, %216
@@ -2175,12 +2175,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 296:                                              ; preds = %.lr.ph1264.us, %296
   %indvars.iv = phi i64 [ 0, %.lr.ph1264.us ], [ %indvars.iv.next, %296 ]
   %297 = load ptr, ptr %195, align 8
-  %298 = getelementptr inbounds float, ptr %297, i64 %indvars.iv
-  %299 = getelementptr inbounds float, ptr %298, i64 %266
+  %298 = getelementptr inbounds nuw float, ptr %297, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw float, ptr %298, i64 %266
   %300 = load float, ptr %299, align 4
   %301 = load float, ptr %197, align 8
   %302 = fmul fast float %301, %300
-  %303 = getelementptr inbounds float, ptr %295, i64 %indvars.iv
+  %303 = getelementptr inbounds nuw float, ptr %295, i64 %indvars.iv
   store float %302, ptr %303, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %216
@@ -2220,7 +2220,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %319 = load i32, ptr %202, align 4
   %320 = add nuw nsw i64 %indvars.iv1403, %315
   %321 = load ptr, ptr %203, align 8
-  %322 = getelementptr inbounds float, ptr %321, i64 %320
+  %322 = getelementptr inbounds nuw float, ptr %321, i64 %320
   %323 = load float, ptr %322, align 4
   %324 = icmp sgt i32 %319, 0
   br i1 %324, label %.lr.ph1275.preheader, label %._crit_edge1276
@@ -2245,9 +2245,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %.07821272 = phi float [ %342, %.lr.ph1275 ], [ %323, %.lr.ph1275.preheader ]
   %.07831271 = phi ptr [ %339, %.lr.ph1275 ], [ %329, %.lr.ph1275.preheader ]
   %.07841270 = phi ptr [ %337, %.lr.ph1275 ], [ %336, %.lr.ph1275.preheader ]
-  %337 = getelementptr inbounds i8, ptr %.07841270, i64 4
+  %337 = getelementptr inbounds nuw i8, ptr %.07841270, i64 4
   %338 = load float, ptr %.07841270, align 4
-  %339 = getelementptr inbounds i8, ptr %.07831271, i64 4
+  %339 = getelementptr inbounds nuw i8, ptr %.07831271, i64 4
   %340 = load float, ptr %.07831271, align 4
   %341 = fmul fast float %340, %338
   %342 = fadd fast float %341, %.07821272
@@ -2257,7 +2257,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 ._crit_edge1276:                                  ; preds = %.lr.ph1275, %.lr.ph1279
   %.0782.lcssa = phi float [ %323, %.lr.ph1279 ], [ %342, %.lr.ph1275 ]
-  %344 = getelementptr inbounds float, ptr %318, i64 %indvars.iv1403
+  %344 = getelementptr inbounds nuw float, ptr %318, i64 %indvars.iv1403
   store float %.0782.lcssa, ptr %344, align 4
   %indvars.iv.next1404 = add nuw nsw i64 %indvars.iv1403, 1
   %exitcond1407.not = icmp eq i64 %indvars.iv.next1404, %216
@@ -2296,7 +2296,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %indvars.iv1414 = phi i64 [ 0, %.preheader1256.us ], [ %indvars.iv.next1415, %._crit_edge1291.us ]
   %360 = load i32, ptr %207, align 8
   %361 = load ptr, ptr %208, align 8
-  %362 = getelementptr inbounds float, ptr %361, i64 %355
+  %362 = getelementptr inbounds nuw float, ptr %361, i64 %355
   %363 = load float, ptr %362, align 4
   %364 = icmp sgt i32 %360, 0
   br i1 %364, label %.lr.ph1290.us.preheader, label %._crit_edge1291.us
@@ -2317,7 +2317,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 ._crit_edge1291.us:                               ; preds = %.lr.ph1290.us, %359
   %.0776.lcssa.us = phi float [ %363, %359 ], [ %382, %.lr.ph1290.us ]
-  %376 = getelementptr inbounds float, ptr %357, i64 %indvars.iv1414
+  %376 = getelementptr inbounds nuw float, ptr %357, i64 %indvars.iv1414
   store float %.0776.lcssa.us, ptr %376, align 4
   %indvars.iv.next1415 = add nuw nsw i64 %indvars.iv1414, 1
   %exitcond1418.not = icmp eq i64 %indvars.iv.next1415, %214
@@ -2328,9 +2328,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %.07761287.us = phi float [ %382, %.lr.ph1290.us ], [ %363, %.lr.ph1290.us.preheader ]
   %.07771286.us = phi ptr [ %379, %.lr.ph1290.us ], [ %368, %.lr.ph1290.us.preheader ]
   %.07781285.us = phi ptr [ %377, %.lr.ph1290.us ], [ %375, %.lr.ph1290.us.preheader ]
-  %377 = getelementptr inbounds i8, ptr %.07781285.us, i64 4
+  %377 = getelementptr inbounds nuw i8, ptr %.07781285.us, i64 4
   %378 = load float, ptr %.07781285.us, align 4
-  %379 = getelementptr inbounds i8, ptr %.07771286.us, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %.07771286.us, i64 4
   %380 = load float, ptr %.07771286.us, align 4
   %381 = fmul fast float %380, %378
   %382 = fadd fast float %381, %.07761287.us
@@ -2404,9 +2404,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %.07701300.us = phi float [ 0.000000e+00, %.lr.ph1303.us ], [ %423, %417 ]
   %.07711299.us = phi ptr [ %416, %.lr.ph1303.us ], [ %420, %417 ]
   %.07721298.us = phi ptr [ %414, %.lr.ph1303.us ], [ %418, %417 ]
-  %418 = getelementptr inbounds i8, ptr %.07721298.us, i64 4
+  %418 = getelementptr inbounds nuw i8, ptr %.07721298.us, i64 4
   %419 = load float, ptr %.07721298.us, align 4
-  %420 = getelementptr inbounds i8, ptr %.07711299.us, i64 4
+  %420 = getelementptr inbounds nuw i8, ptr %.07711299.us, i64 4
   %421 = load float, ptr %.07711299.us, align 4
   %422 = fmul fast float %421, %419
   %423 = fadd fast float %422, %.07701300.us
@@ -2415,7 +2415,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   br i1 %exitcond1427.not, label %._crit_edge1304.us, label %417, !llvm.loop !17
 
 ._crit_edge1304.us:                               ; preds = %417
-  %425 = getelementptr inbounds float, ptr %413, i64 %indvars.iv1428
+  %425 = getelementptr inbounds nuw float, ptr %413, i64 %indvars.iv1428
   store float %423, ptr %425, align 4
   %indvars.iv.next1429 = add nuw nsw i64 %indvars.iv1428, 1
   %exitcond1432.not = icmp eq i64 %indvars.iv.next1429, %214
@@ -2473,9 +2473,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 .lr.ph1317:                                       ; preds = %444, %.lr.ph1317
   %indvars.iv1436 = phi i64 [ %indvars.iv.next1437, %.lr.ph1317 ], [ 0, %444 ]
-  %449 = getelementptr inbounds float, ptr %446, i64 %indvars.iv1436
+  %449 = getelementptr inbounds nuw float, ptr %446, i64 %indvars.iv1436
   %450 = load float, ptr %449, align 4
-  %451 = getelementptr inbounds float, ptr %448, i64 %indvars.iv1436
+  %451 = getelementptr inbounds nuw float, ptr %448, i64 %indvars.iv1436
   %452 = load float, ptr %451, align 4
   %453 = fadd fast float %452, %450
   store float %453, ptr %451, align 4
@@ -2502,7 +2502,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 458:                                              ; preds = %457
   %459 = load ptr, ptr %.sroa.34.0, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 24
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 24
   %461 = load ptr, ptr %460, align 8
   invoke void %461(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.34.0, ptr noundef %.sroa.01102.0)
           to label %467 unwind label %464
@@ -2546,7 +2546,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 .lr.ph1326:                                       ; preds = %477, %.lr.ph1326
   %indvars.iv1446 = phi i64 [ %indvars.iv.next1447, %.lr.ph1326 ], [ 0, %477 ]
   %.012431323 = phi float [ %.sroa.speculated, %.lr.ph1326 ], [ 0xC7EFFFFFE0000000, %477 ]
-  %480 = getelementptr inbounds float, ptr %479, i64 %indvars.iv1446
+  %480 = getelementptr inbounds nuw float, ptr %479, i64 %indvars.iv1446
   %481 = load float, ptr %480, align 4
   %482 = fcmp fast olt float %.012431323, %481
   %.sroa.speculated = select i1 %482, float %481, float %.012431323
@@ -2557,7 +2557,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 .lr.ph1330:                                       ; preds = %.lr.ph1326, %.lr.ph1330
   %indvars.iv1451 = phi i64 [ %indvars.iv.next1452, %.lr.ph1330 ], [ 0, %.lr.ph1326 ]
   %.07641328 = phi float [ %487, %.lr.ph1330 ], [ 0.000000e+00, %.lr.ph1326 ]
-  %483 = getelementptr inbounds float, ptr %479, i64 %indvars.iv1451
+  %483 = getelementptr inbounds nuw float, ptr %479, i64 %indvars.iv1451
   %484 = load float, ptr %483, align 4
   %485 = fsub fast float %484, %.sroa.speculated
   %486 = call fast float @llvm.exp.f32(float %485)
@@ -2573,7 +2573,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 .lr.ph1333:                                       ; preds = %.lr.ph1333.preheader, %.lr.ph1333
   %indvars.iv1456 = phi i64 [ %indvars.iv.next1457, %.lr.ph1333 ], [ 0, %.lr.ph1333.preheader ]
-  %489 = getelementptr inbounds float, ptr %479, i64 %indvars.iv1456
+  %489 = getelementptr inbounds nuw float, ptr %479, i64 %indvars.iv1456
   %490 = load float, ptr %489, align 4
   %491 = fmul fast float %490, %488
   store float %491, ptr %489, align 4
@@ -2642,9 +2642,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   %.07571341.us = phi float [ 0.000000e+00, %.lr.ph1344.us ], [ %525, %519 ]
   %.07581340.us = phi ptr [ %518, %.lr.ph1344.us ], [ %522, %519 ]
   %.07591339.us = phi ptr [ %516, %.lr.ph1344.us ], [ %520, %519 ]
-  %520 = getelementptr inbounds i8, ptr %.07591339.us, i64 4
+  %520 = getelementptr inbounds nuw i8, ptr %.07591339.us, i64 4
   %521 = load float, ptr %.07591339.us, align 4
-  %522 = getelementptr inbounds i8, ptr %.07581340.us, i64 4
+  %522 = getelementptr inbounds nuw i8, ptr %.07581340.us, i64 4
   %523 = load float, ptr %.07581340.us, align 4
   %524 = fmul fast float %523, %521
   %525 = fadd fast float %524, %.07571341.us
@@ -2653,7 +2653,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
   br i1 %exitcond1469.not, label %._crit_edge1345.us, label %519, !llvm.loop !26
 
 ._crit_edge1345.us:                               ; preds = %519
-  %527 = getelementptr inbounds float, ptr %515, i64 %indvars.iv1470
+  %527 = getelementptr inbounds nuw float, ptr %515, i64 %indvars.iv1470
   store float %525, ptr %527, align 4
   %indvars.iv.next1471 = add nuw nsw i64 %indvars.iv1470, 1
   %exitcond1474.not = icmp eq i64 %indvars.iv.next1471, %216
@@ -2690,7 +2690,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 538:                                              ; preds = %535
   %539 = load ptr, ptr %536, align 8
-  %540 = getelementptr inbounds i8, ptr %539, i64 24
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 24
   %541 = load ptr, ptr %540, align 8
   invoke void %541(ptr noundef nonnull align 8 dereferenceable(8) %536, ptr noundef %537)
           to label %544 unwind label %545
@@ -2735,7 +2735,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 555:                                              ; preds = %552
   %556 = load ptr, ptr %553, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 24
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 24
   %558 = load ptr, ptr %557, align 8
   invoke void %558(ptr noundef nonnull align 8 dereferenceable(8) %553, ptr noundef %554)
           to label %561 unwind label %562
@@ -2774,7 +2774,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 571:                                              ; preds = %568
   %572 = load ptr, ptr %569, align 8
-  %573 = getelementptr inbounds i8, ptr %572, i64 24
+  %573 = getelementptr inbounds nuw i8, ptr %572, i64 24
   %574 = load ptr, ptr %573, align 8
   invoke void %574(ptr noundef nonnull align 8 dereferenceable(8) %569, ptr noundef %570)
           to label %577 unwind label %578
@@ -2819,7 +2819,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 588:                                              ; preds = %585
   %589 = load ptr, ptr %586, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 24
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 24
   %591 = load ptr, ptr %590, align 8
   invoke void %591(ptr noundef nonnull align 8 dereferenceable(8) %586, ptr noundef %587)
           to label %594 unwind label %595
@@ -2864,7 +2864,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 606:                                              ; preds = %603
   %607 = load ptr, ptr %604, align 8
-  %608 = getelementptr inbounds i8, ptr %607, i64 24
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 24
   %609 = load ptr, ptr %608, align 8
   invoke void %609(ptr noundef nonnull align 8 dereferenceable(8) %604, ptr noundef %605)
           to label %612 unwind label %613
@@ -2909,7 +2909,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 623:                                              ; preds = %620
   %624 = load ptr, ptr %621, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 24
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 24
   %626 = load ptr, ptr %625, align 8
   invoke void %626(ptr noundef nonnull align 8 dereferenceable(8) %621, ptr noundef %622)
           to label %629 unwind label %630
@@ -2954,7 +2954,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 641:                                              ; preds = %638
   %642 = load ptr, ptr %639, align 8
-  %643 = getelementptr inbounds i8, ptr %642, i64 24
+  %643 = getelementptr inbounds nuw i8, ptr %642, i64 24
   %644 = load ptr, ptr %643, align 8
   invoke void %644(ptr noundef nonnull align 8 dereferenceable(8) %639, ptr noundef %640)
           to label %647 unwind label %648
@@ -2999,7 +2999,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 658:                                              ; preds = %655
   %659 = load ptr, ptr %656, align 8
-  %660 = getelementptr inbounds i8, ptr %659, i64 24
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 24
   %661 = load ptr, ptr %660, align 8
   invoke void %661(ptr noundef nonnull align 8 dereferenceable(8) %656, ptr noundef %657)
           to label %664 unwind label %665
@@ -3044,7 +3044,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 676:                                              ; preds = %673
   %677 = load ptr, ptr %674, align 8
-  %678 = getelementptr inbounds i8, ptr %677, i64 24
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 24
   %679 = load ptr, ptr %678, align 8
   invoke void %679(ptr noundef nonnull align 8 dereferenceable(8) %674, ptr noundef %675)
           to label %682 unwind label %683
@@ -3086,7 +3086,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 690:                                              ; preds = %689
   %691 = load ptr, ptr %.sroa.34.0, align 8
-  %692 = getelementptr inbounds i8, ptr %691, i64 24
+  %692 = getelementptr inbounds nuw i8, ptr %691, i64 24
   %693 = load ptr, ptr %692, align 8
   invoke void %693(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.34.0, ptr noundef %.sroa.01070.0)
           to label %696 unwind label %697
@@ -3125,7 +3125,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn18MultiHeadAttention7forw
 
 705:                                              ; preds = %704
   %706 = load ptr, ptr %.sroa.34.0, align 8
-  %707 = getelementptr inbounds i8, ptr %706, i64 24
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 24
   %708 = load ptr, ptr %707, align 8
   invoke void %708(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.34.0, ptr noundef %.sroa.01070.0)
           to label %711 unwind label %712
@@ -3177,7 +3177,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -3223,7 +3223,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %46
@@ -3269,7 +3269,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %62 unwind label %68
@@ -3315,7 +3315,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %77)
           to label %84 unwind label %90
@@ -3361,7 +3361,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
   invoke void %103(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef %99)
           to label %106 unwind label %112
@@ -3407,7 +3407,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 122:                                              ; preds = %118
   %123 = load ptr, ptr %120, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
   invoke void %125(ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef %121)
           to label %128 unwind label %134
@@ -3453,7 +3453,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 144:                                              ; preds = %140
   %145 = load ptr, ptr %142, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   invoke void %147(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef %143)
           to label %150 unwind label %156
@@ -3499,7 +3499,7 @@ define linkonce_odr hidden void @_ZN4ncnn18MultiHeadAttentionD2Ev(ptr noundef no
 
 166:                                              ; preds = %162
   %167 = load ptr, ptr %164, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load ptr, ptr %168, align 8
   invoke void %169(ptr noundef nonnull align 8 dereferenceable(8) %164, ptr noundef %165)
           to label %172 unwind label %175

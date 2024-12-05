@@ -273,20 +273,20 @@ define hidden range(i32 0, 2) i32 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noun
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %11 = getelementptr inbounds i8, ptr %1, i64 208
-  %12 = getelementptr inbounds i8, ptr %1, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.loopexit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %16 = load ptr, ptr %15, align 8
   %.not52.i = icmp eq ptr %16, null
   br i1 %.not52.i, label %.loopexit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %19 = load i32, ptr %18, align 8
   %.not53.i = icmp eq i32 %19, 1
   br i1 %.not53.i, label %20, label %.loopexit
@@ -298,18 +298,18 @@ define hidden range(i32 0, 2) i32 @dissect_CSF_SDU_heur(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) %16, i64 6, i1 false)
-  %23 = getelementptr inbounds i8, ptr %5, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 1 dereferenceable(6) %13, i64 6, i1 false)
-  %24 = getelementptr inbounds i8, ptr %5, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 -120, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 13
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 -110, ptr %25, align 1
   %26 = trunc i64 %6 to i8
-  %27 = getelementptr inbounds i8, ptr %5, i64 15
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 %26, ptr %27, align 1
   %28 = lshr i64 %6, 8
   %29 = trunc i64 %28 to i8
-  %30 = getelementptr inbounds i8, ptr %5, i64 14
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i8 %29, ptr %30, align 2
   %31 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext 0, ptr noundef nonnull %5, i64 noundef 16) #7
   %32 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #7
@@ -490,10 +490,10 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i8 %4 to i32
   %7 = and i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 112
-  %11 = getelementptr inbounds i8, ptr %3, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %12 = tail call ptr @find_conversation(i32 noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 3, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %addresses_equal.exit198.thread209.thread, label %13
@@ -510,8 +510,8 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %.not179, label %addresses_equal.exit198.thread209.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %3, i64 232
-  %20 = getelementptr inbounds i8, ptr %12, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @conversation_key_addr1(ptr noundef %21) #7
   %23 = load i32, ptr %19, align 8
@@ -520,9 +520,9 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %25, label %26, label %addresses_equal.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %3, i64 236
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 236
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %22, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %28, %30
   br i1 %31, label %32, label %addresses_equal.exit
@@ -532,9 +532,9 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %3, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %22, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %28 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %36, ptr %38, i64 %39)
@@ -542,7 +542,7 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %40, label %41, label %addresses_equal.exit
 
 41:                                               ; preds = %34, %32
-  %42 = getelementptr inbounds i8, ptr %3, i64 208
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %43 = load ptr, ptr %20, align 8
   %44 = tail call ptr @conversation_key_addr2(ptr noundef %43) #7
   %45 = load i32, ptr %42, align 8
@@ -551,9 +551,9 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %47, label %48, label %addresses_equal.exit
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %3, i64 212
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 212
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %44, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %50, %52
   br i1 %53, label %54, label %addresses_equal.exit
@@ -563,9 +563,9 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %55, label %addresses_equal.exit195.thread, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %3, i64 216
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %44, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %50 to i64
   %bcmp.i194 = tail call i32 @bcmp(ptr %58, ptr %60, i64 %61)
@@ -577,7 +577,7 @@ addresses_equal.exit195.thread:                   ; preds = %56, %54
 
 addresses_equal.exit:                             ; preds = %addresses_equal.exit195.thread, %56, %48, %41, %34, %26, %18
   %.not185 = phi i1 [ true, %18 ], [ true, %26 ], [ true, %34 ], [ false, %addresses_equal.exit195.thread ], [ true, %56 ], [ true, %48 ], [ true, %41 ]
-  %63 = getelementptr inbounds i8, ptr %3, i64 208
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %64 = load ptr, ptr %20, align 8
   %65 = tail call ptr @conversation_key_addr1(ptr noundef %64) #7
   %66 = load i32, ptr %63, align 8
@@ -586,9 +586,9 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br i1 %68, label %69, label %addresses_equal.exit198.thread209
 
 69:                                               ; preds = %addresses_equal.exit
-  %70 = getelementptr inbounds i8, ptr %3, i64 212
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 212
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %65, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %71, %73
   br i1 %74, label %75, label %addresses_equal.exit198.thread209
@@ -598,9 +598,9 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %3, i64 216
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %65, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = sext i32 %71 to i64
   %bcmp.i197 = tail call i32 @bcmp(ptr %79, ptr %81, i64 %82)
@@ -616,9 +616,9 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br i1 %89, label %90, label %addresses_equal.exit198.thread209
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %3, i64 236
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 236
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %86, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %92, %94
   br i1 %95, label %96, label %addresses_equal.exit198.thread209
@@ -628,9 +628,9 @@ addresses_equal.exit:                             ; preds = %addresses_equal.exi
   br i1 %97, label %105, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %3, i64 240
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %86, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = sext i32 %92 to i64
   %bcmp.i200 = tail call i32 @bcmp(ptr %100, ptr %102, i64 %103)
@@ -763,7 +763,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [100 x i8], align 16
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.68) #7
   %9 = load ptr, ptr %7, align 8
@@ -777,10 +777,10 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %163
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 112
-  %18 = getelementptr inbounds i8, ptr %1, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %19 = tail call ptr @find_conversation(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %26, label %20
@@ -864,7 +864,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 288
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 34962
   %.str.139..str.141 = select i1 %61, ptr @.str.139, ptr @.str.141
@@ -877,7 +877,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %1, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 34962
   %.str.139..str.141187 = select i1 %67, ptr @.str.139, ptr @.str.141
@@ -1178,7 +1178,7 @@ define internal range(i32 0, 2) i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr n
   %34 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #7
   %35 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #7
   %36 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %12, i32 noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef %34, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.183, i32 noundef %35) #7
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #7
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.184, i32 noundef %39) #7
@@ -1208,7 +1208,7 @@ define internal range(i32 0, 2) i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr n
 
 50:                                               ; preds = %48
   %51 = and i32 %6, 15
-  %52 = getelementptr inbounds i8, ptr %1, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = shl i32 %53, 2
   %55 = or i32 %54, %51
@@ -1229,7 +1229,7 @@ define internal range(i32 0, 2) i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr n
 
 .thread:                                          ; preds = %58
   %64 = load ptr, ptr @reassembled_frag_table, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = zext i32 %66 to i64
   %68 = inttoptr i64 %67 to ptr
@@ -1242,7 +1242,7 @@ define internal range(i32 0, 2) i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr n
 
 71:                                               ; preds = %.thread, %70
   %72 = load ptr, ptr @reassembled_frag_table, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
   %76 = inttoptr i64 %75 to ptr
@@ -1251,7 +1251,7 @@ define internal range(i32 0, 2) i32 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr n
   br i1 %.not101, label %89, label %78
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %77, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 56
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %80) #7
   tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %81, ptr noundef nonnull @.str.186) #7

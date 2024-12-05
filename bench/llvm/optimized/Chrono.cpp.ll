@@ -92,7 +92,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %20, %22, %23
 
 31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
-  %33 = getelementptr inbounds i8, ptr %26, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %33, ptr %32, align 8
   store i8 46, ptr %26, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -166,7 +166,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %4
   %29 = phi i64 [ 0, %4 ], [ %66, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %.012.i = phi i32 [ 0, %4 ], [ %65, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
-  %30 = getelementptr inbounds i8, ptr %spec.select.i, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 37
   br i1 %32, label %33, label %58
@@ -178,7 +178,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
   br i1 %36, label %37, label %58
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %spec.select.i, i64 %35
+  %38 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %35
   %39 = load i8, ptr %38, align 1
   switch i8 %39, label %58 [
     i8 76, label %40
@@ -224,7 +224,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
 55:                                               ; preds = %46
   store i16 9509, ptr %48, align 1
   %56 = load ptr, ptr %21, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
   store ptr %57, ptr %21, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
@@ -239,7 +239,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS_3sys8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %59, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %64, ptr %21, align 8
   store i8 %31, ptr %59, align 1
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
@@ -359,7 +359,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
 32:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %4
   %33 = phi i64 [ 0, %4 ], [ %70, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %.012.i = phi i32 [ 0, %4 ], [ %69, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
-  %34 = getelementptr inbounds i8, ptr %spec.select.i, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 37
   br i1 %36, label %37, label %62
@@ -371,7 +371,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   br i1 %40, label %41, label %62
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %spec.select.i, i64 %39
+  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %39
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %62 [
     i8 76, label %44
@@ -417,7 +417,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
 59:                                               ; preds = %50
   store i16 9509, ptr %52, align 1
   %60 = load ptr, ptr %23, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 2
   store ptr %61, ptr %23, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
@@ -432,7 +432,7 @@ define dso_local void @_ZN4llvm15format_providerINSt6chrono10time_pointINS1_3_V2
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %63, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %68, ptr %23, align 8
   store i8 %35, ptr %63, align 1
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i

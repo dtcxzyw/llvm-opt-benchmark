@@ -127,7 +127,7 @@ define void @_ZN7Minisat11limitMemoryEm(i64 noundef %0) local_unnamed_addr #2 {
 3:                                                ; preds = %1
   %4 = shl i64 %0, 20
   %5 = call i32 @getrlimit(i32 noundef 9, ptr noundef nonnull %2) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %4, %7
   br i1 %8, label %9, label %13
@@ -160,7 +160,7 @@ define void @_ZN7Minisat9limitTimeEj(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = call i32 @getrlimit(i32 noundef 0, ptr noundef nonnull %2) #9
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = zext i32 %0 to i64
   %8 = icmp ugt i64 %6, %7

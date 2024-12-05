@@ -18,16 +18,16 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br i1 %8, label %.lr.ph73, label %.loopexit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i64, ptr %3, i64 %.055
+  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.055
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i64, ptr %4, i64 %.055
+  %11 = getelementptr inbounds nuw i64, ptr %4, i64 %.055
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i64, ptr %5, i64 %.055
+  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %.055
   store i64 -1, ptr %12, align 8
-  %13 = getelementptr inbounds i64, ptr %1, i64 %.055
+  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %.055
   %14 = load i64, ptr %13, align 8
   %15 = add nuw i64 %.055, 1
-  %16 = getelementptr inbounds i64, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %14, %17
   br i1 %18, label %.loopexit, label %7, !llvm.loop !4
@@ -38,12 +38,12 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
 
 .lr.ph73:                                         ; preds = %.preheader64, %.loopexit62
   %.05472 = phi i64 [ %22, %.loopexit62 ], [ 0, %.preheader64 ]
-  %19 = getelementptr inbounds i64, ptr %3, i64 %.05472
+  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %.05472
   store i64 %.05472, ptr %19, align 8
-  %20 = getelementptr inbounds i64, ptr %1, i64 %.05472
+  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %.05472
   %21 = load i64, ptr %20, align 8
   %22 = add nuw nsw i64 %.05472, 1
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %21, %24
   br i1 %25, label %.lr.ph71, label %.loopexit62
@@ -99,7 +99,7 @@ define i64 @QDLDL_etree(i64 noundef %0, ptr nocapture noundef readonly %1, ptr n
 .lr.ph76:                                         ; preds = %.loopexit62, %51
   %.275 = phi i64 [ %53, %51 ], [ 0, %.loopexit62 ]
   %.05674 = phi i64 [ %52, %51 ], [ 0, %.loopexit62 ]
-  %47 = getelementptr inbounds i64, ptr %4, i64 %.275
+  %47 = getelementptr inbounds nuw i64, ptr %4, i64 %.275
   %48 = load i64, ptr %47, align 8
   %49 = sub nsw i64 9223372036854775807, %48
   %50 = icmp sgt i64 %.05674, %49
@@ -127,22 +127,22 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.0133150 = phi i64 [ %23, %.lr.ph ], [ 0, %14 ]
-  %18 = getelementptr inbounds i64, ptr %4, i64 %.0133150
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %.0133150
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i64, ptr %9, i64 %.0133150
+  %20 = getelementptr inbounds nuw i64, ptr %9, i64 %.0133150
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %21, %19
   %23 = add nuw nsw i64 %.0133150, 1
-  %24 = getelementptr inbounds i64, ptr %4, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %4, i64 %23
   store i64 %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 %.0133150
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 %.0133150
   store i8 0, ptr %25, align 1
-  %26 = getelementptr inbounds double, ptr %13, i64 %.0133150
+  %26 = getelementptr inbounds nuw double, ptr %13, i64 %.0133150
   store double 0.000000e+00, ptr %26, align 8
-  %27 = getelementptr inbounds double, ptr %7, i64 %.0133150
+  %27 = getelementptr inbounds nuw double, ptr %7, i64 %.0133150
   store double 0.000000e+00, ptr %27, align 8
   %28 = load i64, ptr %18, align 8
-  %29 = getelementptr inbounds i64, ptr %16, i64 %.0133150
+  %29 = getelementptr inbounds nuw i64, ptr %16, i64 %.0133150
   store i64 %28, ptr %29, align 8
   %exitcond.not = icmp eq i64 %23, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -165,15 +165,15 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   %.1176 = phi i64 [ %.2, %110 ], [ %.0, %32 ]
   %.0137175 = phi i64 [ %36, %110 ], [ 1, %32 ]
   %36 = add nuw nsw i64 %.0137175, 1
-  %37 = getelementptr inbounds i64, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %36
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i64, ptr %1, i64 %.0137175
+  %39 = getelementptr inbounds nuw i64, ptr %1, i64 %.0137175
   %40 = load i64, ptr %39, align 8
   %41 = icmp slt i64 %40, %38
   br i1 %41, label %.lr.ph165, label %._crit_edge174
 
 .lr.ph165:                                        ; preds = %.lr.ph178
-  %42 = getelementptr inbounds double, ptr %7, i64 %.0137175
+  %42 = getelementptr inbounds nuw double, ptr %7, i64 %.0137175
   br label %45
 
 .preheader:                                       ; preds = %.loopexit
@@ -181,7 +181,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br i1 %43, label %.lr.ph173, label %._crit_edge174
 
 .lr.ph173:                                        ; preds = %.preheader
-  %44 = getelementptr inbounds double, ptr %7, i64 %.0137175
+  %44 = getelementptr inbounds nuw double, ptr %7, i64 %.0137175
   br label %76
 
 45:                                               ; preds = %.lr.ph165, %.loopexit
@@ -226,7 +226,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 64:                                               ; preds = %.lr.ph156
   store i8 1, ptr %61, align 1
-  %65 = getelementptr inbounds i64, ptr %15, i64 %.0142153
+  %65 = getelementptr inbounds nuw i64, ptr %15, i64 %.0142153
   store i64 %.0141154, ptr %65, align 8
   %66 = add nuw nsw i64 %.0142153, 1
   %.0141.in = getelementptr inbounds i64, ptr %10, i64 %.0141154
@@ -309,7 +309,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br i1 %106, label %76, label %._crit_edge174, !llvm.loop !15
 
 ._crit_edge174:                                   ; preds = %._crit_edge170, %.lr.ph178, %.preheader
-  %107 = getelementptr inbounds double, ptr %7, i64 %.0137175
+  %107 = getelementptr inbounds nuw double, ptr %7, i64 %.0137175
   %108 = load double, ptr %107, align 8
   %109 = fcmp oeq double %108, 0.000000e+00
   br i1 %109, label %.loopexit149, label %110
@@ -319,7 +319,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   %112 = zext i1 %111 to i64
   %.2 = add nuw nsw i64 %.1176, %112
   %113 = fdiv double 1.000000e+00, %108
-  %114 = getelementptr inbounds double, ptr %8, i64 %.0137175
+  %114 = getelementptr inbounds nuw double, ptr %8, i64 %.0137175
   store double %113, ptr %114, align 8
   %exitcond184.not = icmp eq i64 %36, %0
   br i1 %exitcond184.not, label %.loopexit149, label %.lr.ph178, !llvm.loop !16
@@ -349,10 +349,10 @@ define void @QDLDL_Lsolve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.loopexit
   %8 = phi i64 [ %7, %.loopexit ], [ %.pre, %.lr.ph19.preheader ]
   %.018 = phi i64 [ %11, %.loopexit ], [ 0, %.lr.ph19.preheader ]
-  %9 = getelementptr inbounds double, ptr %4, i64 %.018
+  %9 = getelementptr inbounds nuw double, ptr %4, i64 %.018
   %10 = load double, ptr %9, align 8
   %11 = add nuw nsw i64 %.018, 1
-  %12 = getelementptr inbounds i64, ptr %1, i64 %11
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp slt i64 %8, %13
   br i1 %14, label %.lr.ph, label %.loopexit
@@ -389,7 +389,7 @@ define void @QDLDL_Ltsolve(i64 noundef %0, ptr nocapture noundef readonly %1, pt
   %8 = load double, ptr %7, align 8
   %9 = getelementptr inbounds i64, ptr %1, i64 %.02025
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i64, ptr %1, i64 %.020.in24
+  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %.020.in24
   %12 = load i64, ptr %11, align 8
   %13 = icmp slt i64 %10, %12
   br i1 %13, label %.lr.ph, label %._crit_edge
@@ -436,10 +436,10 @@ define void @QDLDL_solve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 .lr.ph19.i:                                       ; preds = %.loopexit.i, %.lr.ph19.preheader.i
   %9 = phi i64 [ %8, %.loopexit.i ], [ %.pre.i, %.lr.ph19.preheader.i ]
   %.018.i = phi i64 [ %12, %.loopexit.i ], [ 0, %.lr.ph19.preheader.i ]
-  %10 = getelementptr inbounds double, ptr %5, i64 %.018.i
+  %10 = getelementptr inbounds nuw double, ptr %5, i64 %.018.i
   %11 = load double, ptr %10, align 8
   %12 = add nuw nsw i64 %.018.i, 1
-  %13 = getelementptr inbounds i64, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp slt i64 %9, %14
   br i1 %15, label %.lr.ph.i, label %.loopexit.i
@@ -462,9 +462,9 @@ define void @QDLDL_solve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 
 .lr.ph:                                           ; preds = %.loopexit.i, %.lr.ph
   %.020 = phi i64 [ %32, %.lr.ph ], [ 0, %.loopexit.i ]
-  %27 = getelementptr inbounds double, ptr %4, i64 %.020
+  %27 = getelementptr inbounds nuw double, ptr %4, i64 %.020
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %5, i64 %.020
+  %29 = getelementptr inbounds nuw double, ptr %5, i64 %.020
   %30 = load double, ptr %29, align 8
   %31 = fmul double %28, %30
   store double %31, ptr %29, align 8
@@ -479,7 +479,7 @@ define void @QDLDL_solve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
   %34 = load double, ptr %33, align 8
   %35 = getelementptr inbounds i64, ptr %1, i64 %.02025.i
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i64, ptr %1, i64 %.020.in24.i
+  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %.020.in24.i
   %38 = load i64, ptr %37, align 8
   %39 = icmp slt i64 %36, %38
   br i1 %39, label %.lr.ph.i17, label %._crit_edge.i

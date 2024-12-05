@@ -194,7 +194,7 @@ declare i32 @ossl_param_build_set_bn(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_dh_is_foreign(ptr noundef %dh) local_unnamed_addr #0 {
 entry:
-  %engine = getelementptr inbounds i8, ptr %dh, i64 168
+  %engine = getelementptr inbounds nuw i8, ptr %dh, i64 168
   %0 = load ptr, ptr %engine, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.lhs.false, label %return
@@ -218,7 +218,7 @@ declare ptr @DH_OpenSSL() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_dh_dup(ptr noundef %dh, i32 noundef %selection) local_unnamed_addr #0 {
 entry:
-  %engine.i = getelementptr inbounds i8, ptr %dh, i64 168
+  %engine.i = getelementptr inbounds nuw i8, ptr %dh, i64 168
   %0 = load ptr, ptr %engine.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %ossl_dh_is_foreign.exit, label %return
@@ -230,7 +230,7 @@ ossl_dh_is_foreign.exit:                          ; preds = %entry
   br i1 %cmp2.not.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %ossl_dh_is_foreign.exit
-  %libctx = getelementptr inbounds i8, ptr %dh, i64 176
+  %libctx = getelementptr inbounds nuw i8, ptr %dh, i64 176
   %1 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_dh_new_ex(ptr noundef %1) #2
   %cmp = icmp eq ptr %call1, null
@@ -239,45 +239,45 @@ if.end:                                           ; preds = %ossl_dh_is_foreign.
 if.end3:                                          ; preds = %if.end
   %call4 = tail call i64 @DH_get_length(ptr noundef nonnull %dh) #2
   %conv = trunc i64 %call4 to i32
-  %length = getelementptr inbounds i8, ptr %call1, i64 104
+  %length = getelementptr inbounds nuw i8, ptr %call1, i64 104
   store i32 %conv, ptr %length, align 8
   %and = and i32 %selection, 4
   %cmp5.not = icmp eq i32 %and, 0
   br i1 %cmp5.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %params = getelementptr inbounds i8, ptr %call1, i64 8
-  %params7 = getelementptr inbounds i8, ptr %dh, i64 8
+  %params = getelementptr inbounds nuw i8, ptr %call1, i64 8
+  %params7 = getelementptr inbounds nuw i8, ptr %dh, i64 8
   %call8 = tail call i32 @ossl_ffc_params_copy(ptr noundef nonnull %params, ptr noundef nonnull %params7) #2
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %err, label %if.end11.thread
 
 if.end11:                                         ; preds = %if.end3
-  %flags = getelementptr inbounds i8, ptr %dh, i64 128
+  %flags = getelementptr inbounds nuw i8, ptr %dh, i64 128
   %2 = load i32, ptr %flags, align 8
-  %flags12 = getelementptr inbounds i8, ptr %call1, i64 128
+  %flags12 = getelementptr inbounds nuw i8, ptr %call1, i64 128
   store i32 %2, ptr %flags12, align 8
   %3 = and i32 %selection, 3
   %or.cond = icmp eq i32 %3, 0
   br i1 %or.cond, label %if.end37, label %err
 
 if.end11.thread:                                  ; preds = %land.lhs.true
-  %flags31 = getelementptr inbounds i8, ptr %dh, i64 128
+  %flags31 = getelementptr inbounds nuw i8, ptr %dh, i64 128
   %4 = load i32, ptr %flags31, align 8
-  %flags1232 = getelementptr inbounds i8, ptr %call1, i64 128
+  %flags1232 = getelementptr inbounds nuw i8, ptr %call1, i64 128
   store i32 %4, ptr %flags1232, align 8
   %and1333 = and i32 %selection, 2
   %cmp14.not34 = icmp eq i32 %and1333, 0
   br i1 %cmp14.not34, label %if.end24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11.thread
-  %pub_key20 = getelementptr inbounds i8, ptr %dh, i64 112
+  %pub_key20 = getelementptr inbounds nuw i8, ptr %dh, i64 112
   %5 = load ptr, ptr %pub_key20, align 8
   %cmp.not.i19 = icmp eq ptr %5, null
   br i1 %cmp.not.i19, label %if.end24, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false
-  %pub_key = getelementptr inbounds i8, ptr %call1, i64 112
+  %pub_key = getelementptr inbounds nuw i8, ptr %call1, i64 112
   %call.i20 = tail call ptr @BN_dup(ptr noundef nonnull %5) #2
   store ptr %call.i20, ptr %pub_key, align 8
   %cmp1.i = icmp eq ptr %call.i20, null
@@ -289,21 +289,21 @@ if.end24:                                         ; preds = %land.lhs.true.i, %l
   br i1 %cmp26.not, label %if.end37, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %if.end24
-  %priv_key33 = getelementptr inbounds i8, ptr %dh, i64 120
+  %priv_key33 = getelementptr inbounds nuw i8, ptr %dh, i64 120
   %6 = load ptr, ptr %priv_key33, align 8
   %cmp.not.i22 = icmp eq ptr %6, null
   br i1 %cmp.not.i22, label %if.end37, label %land.lhs.true.i23
 
 land.lhs.true.i23:                                ; preds = %lor.lhs.false32
-  %priv_key = getelementptr inbounds i8, ptr %call1, i64 120
+  %priv_key = getelementptr inbounds nuw i8, ptr %call1, i64 120
   %call.i24 = tail call ptr @BN_dup(ptr noundef nonnull %6) #2
   store ptr %call.i24, ptr %priv_key, align 8
   %cmp1.i25 = icmp eq ptr %call.i24, null
   br i1 %cmp1.i25, label %err, label %if.end37
 
 if.end37:                                         ; preds = %if.end11, %land.lhs.true.i23, %lor.lhs.false32, %if.end24
-  %ex_data = getelementptr inbounds i8, ptr %call1, i64 152
-  %ex_data38 = getelementptr inbounds i8, ptr %dh, i64 152
+  %ex_data = getelementptr inbounds nuw i8, ptr %call1, i64 152
+  %ex_data38 = getelementptr inbounds nuw i8, ptr %dh, i64 152
   %call39 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 6, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data38) #2
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %return
@@ -354,7 +354,7 @@ if.end2:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end2
   %3 = load ptr, ptr %pval, align 8
-  %data = getelementptr inbounds i8, ptr %3, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   store ptr %4, ptr %pm, align 8
   %5 = load i32, ptr %3, align 8

@@ -68,7 +68,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr nocapture 
   br i1 %.not26, label %20, label %62
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %18, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %62, label %24
@@ -81,7 +81,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr nocapture 
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %62, label %32
@@ -89,7 +89,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr nocapture 
 32:                                               ; preds = %24, %28, %6
   %33 = phi i8 [ %7, %6 ], [ %26, %28 ], [ %26, %24 ]
   %34 = phi ptr [ %4, %6 ], [ %21, %28 ], [ %21, %24 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %35, ptr @pScanStr, align 8
   %36 = sext i8 %33 to i32
   %37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %36) #14
@@ -105,7 +105,7 @@ define range(i32 -128, 128) i32 @Extra_UtilGetopt(i32 noundef %0, ptr nocapture 
   br label %62
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %37, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 58
   br i1 %47, label %48, label %62
@@ -216,7 +216,7 @@ sub_0:
   br i1 %.not, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, ptr @.str.4, ptr %1
@@ -263,7 +263,7 @@ define noundef ptr @Extra_UtilFileSearch(ptr noundef %0, ptr noundef readonly %1
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #17
   %12 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %.029) #16
   %13 = icmp eq ptr %0, null
-  %14 = getelementptr inbounds i8, ptr %2, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %15
 
 15:                                               ; preds = %49, %8
@@ -282,7 +282,7 @@ sub_0:                                            ; preds = %17, %15
   br i1 %.not50, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %.130, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.130, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %.tail.thread
@@ -351,7 +351,7 @@ sub_1.i:                                          ; preds = %Extra_UtilTildeExpa
   br label %49
 
 49:                                               ; preds = %47, %48
-  %50 = getelementptr inbounds i8, ptr %16, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 1
   br i1 %.not.not, label %51, label %15
 
 51:                                               ; preds = %49
@@ -399,7 +399,7 @@ define i64 @Extra_CpuTime() local_unnamed_addr #8 {
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8
   %6 = mul nsw i64 %5, 1000000
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sdiv i64 %8, 1000
   %10 = add nsw i64 %9, %6
@@ -421,7 +421,7 @@ define double @Extra_CpuTimeDouble() local_unnamed_addr #8 {
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8
   %6 = sitofp i64 %5 to double
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sitofp i64 %8 to double
   %10 = fdiv double %9, 1.000000e+09

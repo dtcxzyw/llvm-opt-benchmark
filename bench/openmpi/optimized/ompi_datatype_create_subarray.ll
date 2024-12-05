@@ -51,9 +51,9 @@ define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture 
   %29 = getelementptr inbounds i32, ptr %2, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = zext nneg i32 %.061 to i64
-  %32 = getelementptr inbounds i32, ptr %2, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %1, i64 %31
+  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %31
   %35 = load i32, ptr %34, align 4
   %36 = tail call i32 @ompi_datatype_create_vector(i32 noundef %30, i32 noundef %33, i32 noundef %35, ptr noundef nonnull %5, ptr noundef %6) #2
   %37 = load ptr, ptr %6, align 8
@@ -64,7 +64,7 @@ define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture 
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, %39
-  %44 = getelementptr inbounds i32, ptr %3, i64 %31
+  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %31
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %3, i64 %28
@@ -112,7 +112,7 @@ define noundef i32 @ompi_datatype_create_subarray(i32 noundef %0, ptr nocapture 
   %73 = phi ptr [ %.pre, %17 ], [ %37, %24 ], [ %71, %.lr.ph ]
   %.057 = phi i64 [ %21, %17 ], [ %43, %24 ], [ %70, %.lr.ph ]
   %.0 = phi i64 [ %23, %17 ], [ %51, %24 ], [ %66, %.lr.ph ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 152
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 152
   %75 = load i64, ptr %74, align 8
   %76 = trunc i64 %75 to i32
   %77 = call ptr @ompi_datatype_create(i32 noundef %76) #2

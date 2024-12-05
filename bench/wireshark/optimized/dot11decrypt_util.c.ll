@@ -35,15 +35,15 @@ define hidden void @dot11decrypt_construct_aad(ptr nocapture noundef readonly %0
   %14 = getelementptr i8, ptr %1, i64 1
   store i8 %.sink, ptr %14, align 1
   %15 = getelementptr i8, ptr %1, i64 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %15, ptr noundef nonnull align 1 dereferenceable(6) %16, i64 6, i1 false)
   %17 = getelementptr i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %17, ptr noundef nonnull align 1 dereferenceable(6) %18, i64 6, i1 false)
   %19 = getelementptr i8, ptr %1, i64 14
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %19, ptr noundef nonnull align 1 dereferenceable(6) %20, i64 6, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 15
   %24 = getelementptr i8, ptr %1, i64 20
@@ -58,7 +58,7 @@ define hidden void @dot11decrypt_construct_aad(ptr nocapture noundef readonly %0
 
 30:                                               ; preds = %3
   %31 = getelementptr i8, ptr %1, i64 22
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %31, ptr noundef nonnull align 1 dereferenceable(6) %32, i64 6, i1 false)
   %33 = load i8, ptr %0, align 1
   %34 = and i8 %33, -116
@@ -75,7 +75,7 @@ define hidden void @dot11decrypt_construct_aad(ptr nocapture noundef readonly %0
   %.sink45 = phi i64 [ 30, %30 ], [ 24, %36 ]
   %.sink42 = phi i64 [ 28, %30 ], [ 22, %36 ]
   %.sink39 = phi i64 [ 29, %30 ], [ 23, %36 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 %.sink45
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink45
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 15
   %43 = getelementptr i8, ptr %1, i64 %.sink42
@@ -203,7 +203,7 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %9, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %31, ptr nonnull align 1 %2, i64 %11, i1 false)
   %32 = getelementptr i8, ptr %9, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %3, i64 %4, i1 false)
@@ -274,7 +274,7 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   %33 = add i64 %3, 3
   %34 = trunc i64 %3 to i8
   store i8 %34, ptr %14, align 16
-  %35 = getelementptr inbounds i8, ptr %14, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %2, i64 %3, i1 false)
   %36 = getelementptr i8, ptr %14, i64 %3
   %37 = getelementptr i8, ptr %36, i64 1
@@ -293,7 +293,7 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 16 %15, i64 %45, i1 false)
   store i64 %45, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, i64 6, i1 false)
-  %46 = getelementptr inbounds i8, ptr %14, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %47 = getelementptr i8, ptr %15, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %46, ptr noundef nonnull align 1 dereferenceable(16) %47, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -351,14 +351,14 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r1(ptr noundef %0, i64
   %22 = zext i32 %21 to i64
   store i64 %22, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %11, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %23 = getelementptr inbounds i8, ptr %11, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %23, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
   %24 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, i64 noundef 12, i32 noundef %5, ptr noundef nonnull %6, i64 noundef %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %11, ptr noundef nonnull align 1 dereferenceable(6) @.str.6, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %23, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
-  %25 = getelementptr inbounds i8, ptr %11, i64 22
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %25, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %26 = getelementptr inbounds i8, ptr %11, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %27 = call i32 @gcry_md_open(ptr noundef nonnull %10, i32 noundef 8, i32 noundef 0) #7
@@ -394,11 +394,11 @@ sha256.exit.thread:                               ; preds = %20, %28
 define hidden noundef zeroext i1 @dot11decrypt_derive_ft_ptk(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, ptr nocapture noundef readnone %10) local_unnamed_addr #2 {
   %12 = alloca [76 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 1 dereferenceable(32) %3, i64 32, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 1 dereferenceable(32) %4, i64 32, i1 false)
-  %14 = getelementptr inbounds i8, ptr %12, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %14, ptr noundef nonnull align 1 dereferenceable(6) %5, i64 6, i1 false)
-  %15 = getelementptr inbounds i8, ptr %12, i64 70
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 1 dereferenceable(6) %6, i64 6, i1 false)
   %16 = call zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %12, i64 noundef 76, i32 noundef %7, ptr noundef %8, i64 noundef %9)
   ret i1 true

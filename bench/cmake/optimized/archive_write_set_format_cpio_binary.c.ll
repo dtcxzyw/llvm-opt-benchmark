@@ -36,7 +36,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_pwb(ptr no
   br i1 %3, label %archive_write_set_format_cpio_binary.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %9, label %7
@@ -55,24 +55,24 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_pwb(ptr no
   br label %archive_write_set_format_cpio_binary.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @.str.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @archive_write_binary_options, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @archive_write_binary_header, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @archive_write_binary_data, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @archive_write_binary_finish_entry, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @archive_write_binary_close, ptr %20, align 8
   store ptr @archive_write_binary_free, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 65543, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.3, ptr %22, align 8
   br label %archive_write_set_format_cpio_binary.exit
 
@@ -88,7 +88,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_bin(ptr no
   br i1 %3, label %archive_write_set_format_cpio_binary.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %9, label %7
@@ -107,24 +107,24 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_cpio_bin(ptr no
   br label %archive_write_set_format_cpio_binary.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @.str.2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @archive_write_binary_options, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @archive_write_binary_header, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @archive_write_binary_data, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @archive_write_binary_finish_entry, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @archive_write_binary_close, ptr %20, align 8
   store ptr @archive_write_binary_free, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 65538, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.4, ptr %22, align 8
   br label %archive_write_set_format_cpio_binary.exit
 
@@ -142,7 +142,7 @@ declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_write_binary_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.6) #11
   %7 = icmp eq i32 %6, 0
@@ -158,14 +158,14 @@ define internal range(i32 -30, 1) i32 @archive_write_binary_options(ptr noundef 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10, %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.7, ptr noundef %15) #9
   br label %19
 
 16:                                               ; preds = %10
   %17 = tail call ptr @archive_string_conversion_to_charset(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0) #9
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %17, ptr %18, align 8
   %.not = icmp eq ptr %17, null
   %. = select i1 %.not, i32 -30, i32 0
@@ -194,27 +194,27 @@ define internal range(i32 -30, 1) i32 @archive_write_binary_header(ptr noundef %
   br label %46
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %get_sconv.exit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %19 = load i32, ptr %18, align 8
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %20, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %13, i64 48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %get_sconv.exit
 
 20:                                               ; preds = %17
   %21 = tail call ptr @archive_string_default_conversion_for_write(ptr noundef nonnull %0) #9
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %21, ptr %22, align 8
   store i32 1, ptr %18, align 8
   br label %get_sconv.exit
@@ -277,7 +277,7 @@ get_sconv.exit:                                   ; preds = %11, %._crit_edge.i,
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @archive_write_binary_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
@@ -293,7 +293,7 @@ define internal i64 @archive_write_binary_data(ptr noundef %0, ptr noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @archive_write_binary_finish_entry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @__archive_write_nulls(ptr noundef %0, i64 noundef %4) #9
@@ -313,9 +313,9 @@ define internal range(i32 -30, 1) i32 @archive_write_binary_close(ptr noundef %0
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @archive_write_binary_free(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #9
   tail call void @free(ptr noundef %3) #9
@@ -347,27 +347,27 @@ define internal fastcc range(i32 -30, 1) i32 @write_header(ptr noundef %0, ptr n
   %4 = alloca ptr, align 8
   %5 = alloca %struct.cpio_binary_header, align 2
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %get_sconv.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %8, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %12
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %8, i64 48
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %get_sconv.exit
 
 15:                                               ; preds = %12
   %16 = tail call ptr @archive_string_default_conversion_for_write(ptr noundef nonnull %0) #9
-  %17 = getelementptr inbounds i8, ptr %8, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %16, ptr %17, align 8
   store i32 1, ptr %13, align 8
   br label %get_sconv.exit
@@ -402,7 +402,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   store i16 29127, ptr %5, align 2
   %31 = call i64 @archive_entry_dev(ptr noundef %1) #9
   %32 = trunc i64 %31 to i16
-  %33 = getelementptr inbounds i8, ptr %5, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %32, ptr %33, align 2
   %34 = call i64 @archive_entry_ino64(ptr noundef %1) #9
   %35 = icmp eq i64 %34, 0
@@ -414,18 +414,18 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %38, label %43, label %.preheader.i
 
 .preheader.i:                                     ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %8, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %40 = load i64, ptr %39, align 8
   %.not41.i = icmp eq i64 %40, 0
   br i1 %.not41.i, label %._crit_edge.i89, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %41 = getelementptr inbounds i8, ptr %8, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %42 = load ptr, ptr %41, align 8
   br label %50
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %8, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = add nsw i64 %45, 1
   store i64 %46, ptr %44, align 8
@@ -445,23 +445,23 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br i1 %53, label %54, label %48
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %56 = load i32, ptr %55, align 8
   br label %synthesize_ino_value.exit
 
 ._crit_edge.i89:                                  ; preds = %48, %.preheader.i
-  %57 = getelementptr inbounds i8, ptr %8, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = add nsw i64 %58, 1
   store i64 %59, ptr %57, align 8
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %8, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %62 = load i64, ptr %61, align 8
   %.not.i90 = icmp ugt i64 %62, %40
   br i1 %.not.i90, label %._crit_edge._crit_edge.i, label %63
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i89
-  %.phi.trans.insert.i92 = getelementptr inbounds i8, ptr %8, i64 16
+  %.phi.trans.insert.i92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.pre.i93 = load ptr, ptr %.phi.trans.insert.i92, align 8
   br label %72
 
@@ -469,7 +469,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %64 = icmp ult i64 %62, 512
   %65 = shl i64 %62, 1
   %spec.select.i = select i1 %64, i64 512, i64 %65
-  %66 = getelementptr inbounds i8, ptr %8, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = shl i64 %spec.select.i, 4
   %69 = call ptr @realloc(ptr noundef %67, i64 noundef %68) #13
@@ -485,7 +485,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
 72:                                               ; preds = %71, %._crit_edge._crit_edge.i
   %73 = phi i64 [ %40, %._crit_edge._crit_edge.i ], [ %.pre43.i, %71 ]
   %74 = phi ptr [ %.pre.i93, %._crit_edge._crit_edge.i ], [ %69, %71 ]
-  %75 = getelementptr inbounds i8, ptr %8, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %76 = getelementptr inbounds %struct.anon, ptr %74, i64 %73
   store i64 %34, ptr %76, align 8
   %77 = load ptr, ptr %75, align 8
@@ -517,11 +517,11 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
 .thread:                                          ; preds = %27, %83
   %.0.i9199101 = phi i32 [ %.0.i91, %83 ], [ 0, %27 ]
   %86 = trunc nuw i32 %.0.i9199101 to i16
-  %87 = getelementptr inbounds i8, ptr %5, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %86, ptr %87, align 2
   %88 = call i32 @archive_entry_mode(ptr noundef %1) #9
   %89 = trunc i32 %88 to i16
-  %90 = getelementptr inbounds i8, ptr %5, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %89, ptr %90, align 2
   %91 = and i32 %88, 61440
   %trunc = trunc nuw i32 %91 to i16
@@ -535,7 +535,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   br label %.critedge87
 
 93:                                               ; preds = %.thread
-  %94 = getelementptr inbounds i8, ptr %0, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 65543
   %97 = icmp eq i32 %91, 40960
@@ -549,15 +549,15 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
 99:                                               ; preds = %93
   %100 = call i64 @archive_entry_uid(ptr noundef %1) #9
   %101 = trunc i64 %100 to i16
-  %102 = getelementptr inbounds i8, ptr %5, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 %101, ptr %102, align 2
   %103 = call i64 @archive_entry_gid(ptr noundef %1) #9
   %104 = trunc i64 %103 to i16
-  %105 = getelementptr inbounds i8, ptr %5, i64 10
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %104, ptr %105, align 2
   %106 = call i32 @archive_entry_nlink(ptr noundef %1) #9
   %107 = trunc i32 %106 to i16
-  %108 = getelementptr inbounds i8, ptr %5, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 %107, ptr %108, align 2
   %109 = call i32 @archive_entry_filetype(ptr noundef %1) #9
   %110 = icmp eq i32 %109, 24576
@@ -575,15 +575,15 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
 
 117:                                              ; preds = %111, %114
   %.sink = phi i16 [ %116, %114 ], [ 0, %111 ]
-  %118 = getelementptr inbounds i8, ptr %5, i64 14
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i16 %.sink, ptr %118, align 2
   %119 = call i64 @archive_entry_mtime(ptr noundef %1) #9
   %120 = trunc i64 %119 to i32
   %.sroa.0.0.insert.insert.i = call noundef i32 @llvm.fshl.i32(i32 %120, i32 %120, i32 16)
-  %121 = getelementptr inbounds i8, ptr %5, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.sroa.0.0.insert.insert.i, ptr %121, align 2
   %122 = trunc i32 %30 to i16
-  %123 = getelementptr inbounds i8, ptr %5, i64 20
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 %122, ptr %123, align 2
   %124 = call i32 @archive_entry_filetype(ptr noundef %1) #9
   %.not74 = icmp eq i32 %124, 32768
@@ -672,7 +672,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
   %.sink115 = phi i64 [ %161, %160 ], [ %148, %147 ]
   %163 = trunc i64 %.sink115 to i32
   %.sroa.0.0.insert.insert.i95 = call noundef i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 16)
-  %164 = getelementptr inbounds i8, ptr %5, i64 22
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 22
   store i32 %.sroa.0.0.insert.insert.i95, ptr %164, align 2
   %165 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 26) #9
   %.not77 = icmp eq i32 %165, 0

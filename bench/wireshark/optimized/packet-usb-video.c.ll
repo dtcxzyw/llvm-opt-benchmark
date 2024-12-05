@@ -834,7 +834,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 284
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1
   %8 = zext i1 %7 to i32
@@ -842,13 +842,13 @@ define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 29
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 29
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 1
   br i1 %16, label %._crit_edge, label %.lr.ph
@@ -868,7 +868,7 @@ define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr
 
 ._crit_edge:                                      ; preds = %19, %.preheader
   %.lcssa = phi ptr [ @dissect_usb_vid_get_set, %.preheader ], [ %18, %19 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.409) #4
   %25 = load ptr, ptr %23, align 8
@@ -948,7 +948,7 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
   br i1 %.not, label %.critedge, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %3, i64 38
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %35 = load i16, ptr %34, align 2
   switch i16 %35, label %.critedge [
     i16 1, label %36
@@ -1210,10 +1210,10 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
   br i1 %45, label %dissect_usb_video_control_interface_descriptor.exit, label %188
 
 188:                                              ; preds = %187
-  %189 = getelementptr inbounds i8, ptr %3, i64 42
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 42
   %190 = load i8, ptr %189, align 2
   %191 = call ptr @get_usb_iface_conv_info(ptr noundef %1, i8 noundef zeroext %190) #4
-  %192 = getelementptr inbounds i8, ptr %191, i64 72
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 72
   %193 = load ptr, ptr %192, align 8
   %.not146.i = icmp eq ptr %193, null
   br i1 %.not146.i, label %194, label %200
@@ -1225,12 +1225,12 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
   %198 = call noalias ptr @wmem_tree_new(ptr noundef %197) #4
   store ptr %198, ptr %196, align 8
   store ptr %196, ptr %192, align 8
-  %199 = getelementptr inbounds i8, ptr %191, i64 80
+  %199 = getelementptr inbounds nuw i8, ptr %191, i64 80
   store i32 3, ptr %199, align 8
   br label %203
 
 200:                                              ; preds = %188
-  %201 = getelementptr inbounds i8, ptr %191, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %191, i64 80
   %202 = load i32, ptr %201, align 8
   %.not147.i = icmp eq i32 %202, 3
   br i1 %.not147.i, label %._crit_edge.i, label %dissect_usb_video_control_interface_descriptor.exit
@@ -1250,9 +1250,9 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
   %207 = call ptr @wmem_file_scope() #4
   %208 = call noalias ptr @wmem_alloc(ptr noundef %207, i64 noundef 4) #4
   store i8 %.0134.i, ptr %208, align 2
-  %209 = getelementptr inbounds i8, ptr %208, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 1
   store i8 %37, ptr %209, align 1
-  %210 = getelementptr inbounds i8, ptr %208, i64 2
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 2
   store i16 %.0133.i, ptr %210, align 2
   %211 = load ptr, ptr %.0131.i, align 8
   call void @wmem_tree_insert32(ptr noundef %211, i32 noundef %184, ptr noundef nonnull %208) #4
@@ -1515,7 +1515,7 @@ dissect_usb_video_streaming_input_header.exit.i:  ; preds = %353, %.lr.ph.i.i, %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.409) #4
   %8 = icmp sgt i32 %5, 0
@@ -1540,7 +1540,7 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr nocapture nou
   br i1 %22, label %get_control_selector_name.exit, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %3, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %.thread.i.i, label %26
@@ -1557,7 +1557,7 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr nocapture nou
   br i1 %31, label %32, label %get_control_selector_name.exit
 
 32:                                               ; preds = %.thread.i.i, %26
-  %33 = getelementptr inbounds i8, ptr %3, i64 38
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %34 = load i16, ptr %33, align 2
   switch i16 %34, label %get_control_selector_name.exit [
     i16 1, label %get_control_selector_values.exit.thread10.i
@@ -1569,7 +1569,7 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr nocapture nou
   br i1 %.not15.i.i, label %get_control_selector_name.exit, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %29, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %38 = load i8, ptr %37, align 1
   switch i8 %38, label %get_control_selector_name.exit [
     i8 2, label %39
@@ -1578,7 +1578,7 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr nocapture nou
   ]
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %29, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %41 = load i16, ptr %40, align 2
   %42 = icmp eq i16 %41, 513
   br i1 %42, label %get_control_selector_values.exit.thread10.i, label %get_control_selector_name.exit
@@ -1667,21 +1667,21 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_usb_vid_get_set(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr noundef readonly %6) #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load i16, ptr %8, align 4
   %10 = lshr i16 %9, 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 30
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 30
   %12 = load i16, ptr %11, align 2
   %13 = lshr i16 %12, 8
   %14 = zext nneg i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_append_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.536) #4
   %17 = icmp eq ptr %6, null
   br i1 %17, label %get_control_selector_name.exit.thread, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %6, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.thread.i.i, label %21
@@ -1698,7 +1698,7 @@ define internal i32 @dissect_usb_vid_get_set(ptr nocapture noundef readonly %0, 
   br i1 %26, label %27, label %get_control_selector_name.exit.thread.thread
 
 27:                                               ; preds = %.thread.i.i, %21
-  %28 = getelementptr inbounds i8, ptr %6, i64 38
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 38
   %29 = load i16, ptr %28, align 2
   switch i16 %29, label %get_control_selector_name.exit.thread.thread131 [
     i16 1, label %get_control_selector_name.exit
@@ -1710,7 +1710,7 @@ define internal i32 @dissect_usb_vid_get_set(ptr nocapture noundef readonly %0, 
   br i1 %.not15.i.i, label %get_control_selector_name.exit.thread.thread, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %24, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %33 = load i8, ptr %32, align 1
   switch i8 %33, label %get_control_selector_name.exit.thread.thread [
     i8 2, label %34
@@ -1719,7 +1719,7 @@ define internal i32 @dissect_usb_vid_get_set(ptr nocapture noundef readonly %0, 
   ]
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %24, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, 513
   br i1 %37, label %get_control_selector_name.exit, label %get_control_selector_name.exit.thread.thread
@@ -1747,7 +1747,7 @@ get_control_selector_name.exit.thread:            ; preds = %7, %get_control_sel
 
 get_control_selector_name.exit.thread.thread131:  ; preds = %27, %get_control_selector_name.exit.thread
   %43 = load ptr, ptr %15, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 42
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 42
   %45 = load i8, ptr %44, align 2
   %46 = zext i8 %45 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.537, i32 noundef %46, i32 noundef %14) #4
@@ -1778,13 +1778,13 @@ get_control_selector_name.exit.thread.thread:     ; preds = %31, %30, %34, %.thr
   br i1 %.not.i, label %proto_item_set_generated.exit, label %58
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %57, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not5.i = icmp eq ptr %60, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %60, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %63 = load i32, ptr %62, align 4
   %64 = or i32 %63, 2
   store i32 %64, ptr %62, align 4
@@ -1798,13 +1798,13 @@ proto_item_set_generated.exit:                    ; preds = %52, %58, %61
   br i1 %.not.i118, label %proto_item_set_generated.exit120, label %68
 
 68:                                               ; preds = %proto_item_set_generated.exit
-  %69 = getelementptr inbounds i8, ptr %67, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %70 = load ptr, ptr %69, align 8
   %.not5.i119 = icmp eq ptr %70, null
   br i1 %.not5.i119, label %proto_item_set_generated.exit120, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = or i32 %73, 2
   store i32 %74, ptr %72, align 4
@@ -1817,13 +1817,13 @@ proto_item_set_generated.exit120:                 ; preds = %proto_item_set_gene
   br i1 %.not.i121, label %proto_item_set_generated.exit123.thread, label %77
 
 77:                                               ; preds = %proto_item_set_generated.exit120
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not5.i122 = icmp eq ptr %79, null
   br i1 %.not5.i122, label %proto_item_set_generated.exit123.thread, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = or i32 %82, 2
   store i32 %83, ptr %81, align 4
@@ -1843,7 +1843,7 @@ proto_item_set_generated.exit120:                 ; preds = %proto_item_set_gene
   %95 = load i32, ptr @hf_usb_vid_length, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %95, ptr noundef %2, i32 noundef %94, i32 noundef 2, i32 noundef -2147483648) #4
   %97 = add i32 %3, 6
-  %98 = getelementptr inbounds i8, ptr %5, i64 29
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 29
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 1
   br i1 %100, label %proto_item_set_generated.exit123.thread, label %200
@@ -1859,7 +1859,7 @@ proto_item_set_generated.exit123.thread:          ; preds = %proto_item_set_gene
   br i1 %103, label %104, label %167
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %6, i64 38
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 38
   %106 = load i16, ptr %105, align 2
   %107 = icmp eq i16 %106, 2
   br i1 %107, label %108, label %167
@@ -1936,7 +1936,7 @@ dissect_usb_vid_probe.exit:                       ; preds = %110, %149
   br label %194
 
 167:                                              ; preds = %104, %102
-  %168 = getelementptr inbounds i8, ptr %5, i64 29
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 29
   %169 = load i8, ptr %168, align 1
   switch i8 %169, label %181 [
     i8 -122, label %170
@@ -1964,7 +1964,7 @@ dissect_usb_vid_probe.exit:                       ; preds = %110, %149
   br i1 %or.cond5, label %183, label %.thread
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds i8, ptr %6, i64 38
+  %184 = getelementptr inbounds nuw i8, ptr %6, i64 38
   %185 = load i16, ptr %184, align 2
   %186 = icmp eq i16 %185, 1
   %187 = icmp eq i16 %13, 2
@@ -2052,7 +2052,7 @@ define internal fastcc void @dissect_usb_vid_control_value(ptr noundef %0, ptr n
 
 12:                                               ; preds = %10
   %13 = tail call ptr @proto_registrar_get_nth(i32 noundef %.035) #4
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %16 [
     i32 12, label %17

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @rb_shape_get_root_shape() local_unnamed_addr #0 {
   %1 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -39,9 +39,9 @@ define dso_local i32 @rb_shape_id(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_shape_each_shape(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
   %9 = zext i32 %7 to i64
@@ -71,7 +71,7 @@ define dso_local ptr @rb_shape_get_shape_by_id(i32 noundef %0) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @rb_shape_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %5 = load ptr, ptr %4, align 8
@@ -102,7 +102,7 @@ define dso_local i32 @rb_shape_get_shape_id(i64 noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @rb_shape_depth(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %.not4 = icmp eq i32 %3, -1
   br i1 %.not4, label %._crit_edge, label %.lr.ph
@@ -152,7 +152,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 2
   %5 = zext i1 %4 to i32
@@ -163,7 +163,7 @@ define hidden range(i32 0, 2) i32 @rb_shape_frozen_shape_p(ptr nocapture noundef
 define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 4
   br i1 %9, label %73, label %10
@@ -175,7 +175,7 @@ define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noun
   br i1 %.not, label %73, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 4
   br i1 %15, label %73, label %16
@@ -192,14 +192,14 @@ define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noun
   ]
 
 21:                                               ; preds = %16, %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %23 = load ptr, ptr %22, align 8
   br label %ROBJECT_IVPTR.exit
 
 24:                                               ; preds = %16
   %25 = and i64 %18, 8192
   %.not.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br i1 %.not.i, label %27, label %ROBJECT_IVPTR.exit
 
 27:                                               ; preds = %24
@@ -209,13 +209,13 @@ define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noun
 29:                                               ; preds = %16
   %30 = call i32 @rb_gen_ivtbl_get(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %6) #13
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br label %ROBJECT_IVPTR.exit
 
 ROBJECT_IVPTR.exit:                               ; preds = %27, %24, %29, %21
   %.0 = phi ptr [ %32, %29 ], [ %23, %21 ], [ %28, %27 ], [ %26, %24 ]
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
@@ -228,7 +228,7 @@ ROBJECT_IVPTR.exit:                               ; preds = %27, %24, %29, %21
   %43 = getelementptr i64, ptr %.0, i64 %42
   %44 = zext i32 %40 to i64
   %45 = getelementptr i64, ptr %.0, i64 %44
-  %46 = getelementptr inbounds i8, ptr %11, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %47 = load i32, ptr %46, align 8
   %reass.sub = sub i32 %47, %40
   %48 = add i32 %reass.sub, 1
@@ -258,7 +258,7 @@ ROBJECT_IVPTR.exit32:                             ; preds = %53
 60:                                               ; preds = %ROBJECT_IVPTR.exit32
   %61 = zext i32 %59 to i64
   %62 = shl nuw nsw i64 %61, 3
-  %63 = getelementptr inbounds i8, ptr %17, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %.0, i64 range(i64 0, 34359738361) %62, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
@@ -285,19 +285,19 @@ ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %38, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 1
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %1
   br i1 %15, label %16, label %22
@@ -321,13 +321,13 @@ define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %
   br i1 %.not, label %38, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load i8, ptr %29, align 8
   %31 = icmp eq i8 %30, 4
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load i8, ptr %9, align 8
   %36 = zext i8 %35 to i32
@@ -388,7 +388,7 @@ rb_shape_get_shape.exit.thread:                   ; preds = %1
   %15 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr %struct.rb_shape, ptr %16, i64 %14
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i8, ptr %18, align 8
   %.not11 = icmp eq i8 %19, 2
   br i1 %.not11, label %34, label %rb_shape_obj_too_complex.exit
@@ -404,7 +404,7 @@ rb_shape_obj_too_complex.exit.thread:             ; preds = %rb_shape_get_shape.
   %23 = phi ptr [ %15, %rb_shape_obj_too_complex.exit ], [ %7, %rb_shape_get_shape.exit ]
   %24 = phi ptr [ %16, %rb_shape_obj_too_complex.exit ], [ %8, %rb_shape_get_shape.exit ]
   %25 = phi ptr [ %17, %rb_shape_obj_too_complex.exit ], [ %9, %rb_shape_get_shape.exit ]
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %25, %27
   br i1 %28, label %29, label %31
@@ -470,7 +470,7 @@ rb_vm_lock_enter.exit:                            ; preds = %5, %9
 14:                                               ; preds = %11
   %15 = and i64 %12, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %1
   br i1 %19, label %.thread38, label %.thread
@@ -489,7 +489,7 @@ rb_vm_lock_enter.exit:                            ; preds = %5, %9
   br i1 %4, label %24, label %28
 
 24:                                               ; preds = %.thread
-  %25 = getelementptr inbounds i8, ptr %.pre42, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.pre42, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp ugt i32 %26, 524287
   br i1 %27, label %28, label %rb_shape_alloc.exit.i
@@ -510,23 +510,23 @@ rb_shape_alloc.exit.i:                            ; preds = %24
   %37 = trunc i64 %36 to i32
   %38 = zext nneg i32 %26 to i64
   %39 = getelementptr %struct.rb_shape, ptr %31, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 28
   store i32 %37, ptr %42, align 4
   store ptr null, ptr %39, align 8
   %43 = trunc nuw i32 %2 to i8
-  %44 = getelementptr inbounds i8, ptr %39, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i8 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 25
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %39, i64 25
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 %46, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %39, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 %49, ptr %50, align 4
   store ptr null, ptr %39, align 8
   switch i8 %43, label %rb_shape_alloc_new_child.exit [
@@ -538,7 +538,7 @@ rb_shape_alloc.exit.i:                            ; preds = %24
   ]
 
 51:                                               ; preds = %rb_shape_alloc.exit.i
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = load i32, ptr %48, align 4
   %.not.i = icmp ult i32 %53, %54
@@ -564,7 +564,7 @@ rb_shape_alloc.exit.i:                            ; preds = %24
   br label %rb_shape_alloc_new_child.exit
 
 65:                                               ; preds = %rb_shape_alloc.exit.i, %rb_shape_alloc.exit.i
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i32, ptr %66, align 8
   store i32 %67, ptr %41, align 8
   br label %rb_shape_alloc_new_child.exit
@@ -596,7 +596,7 @@ rb_shape_alloc_new_child.exit:                    ; preds = %rb_shape_alloc.exit
   %79 = inttoptr i64 %78 to ptr
   %80 = call ptr @rb_id_table_create(i64 noundef 2) #13
   store ptr %80, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = call i32 @rb_id_table_insert(ptr noundef %80, i64 noundef %82, i64 noundef %78) #13
   %.pre = load ptr, ptr %0, align 8
@@ -634,7 +634,7 @@ define hidden ptr @rb_shape_get_next_iv_shape(ptr noundef %0, i64 noundef %1) lo
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 4
   br i1 %7, label %46, label %8
@@ -649,7 +649,7 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
 13:                                               ; preds = %8
   %14 = tail call i64 @rb_obj_class(i64 noundef %1) #13
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 148
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 148
   %17 = load i8, ptr %16, align 4
   %18 = icmp ult i8 %17, 8
   br label %19
@@ -665,10 +665,10 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
 
 24:                                               ; preds = %19
   %25 = tail call i64 @rb_obj_class(i64 noundef %1) #13
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = inttoptr i64 %25 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %30 = load i32, ptr %29, align 8
   %31 = icmp ugt i32 %27, %30
   br i1 %31, label %32, label %33
@@ -683,7 +683,7 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %35, label %36, label %46
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %28, i64 148
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = add i8 %38, 1
   store i8 %39, ptr %37, align 4
@@ -727,20 +727,20 @@ define hidden noundef zeroext i1 @rb_shape_get_iv_index_with_hint(i32 noundef %0
 
 12:                                               ; preds = %4
   store i32 %0, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.loopexit.i, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, 9
   br i1 %18, label %.lr.ph.i.i.i, label %.loopexit.i
 
 .lr.ph.i.i.i:                                     ; preds = %15
   %19 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %21
 
 21:                                               ; preds = %tailrecurse.backedge.i.i.i, %.lr.ph.i.i.i
@@ -783,7 +783,7 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
   br label %shape_get_iv_index.exit.sink.split.i
 
 .loopexit.i:                                      ; preds = %34, %tailrecurse.backedge.i.i.i, %26, %15, %12
-  %41 = getelementptr inbounds i8, ptr %9, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %42 = load i32, ptr %41, align 4
   %.not11.i.i = icmp eq i32 %42, -1
   br i1 %.not11.i.i, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i
@@ -795,13 +795,13 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
 44:                                               ; preds = %53, %.lr.ph.i.i
   %45 = phi i32 [ %42, %.lr.ph.i.i ], [ %58, %53 ]
   %.0812.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %56, %53 ]
-  %46 = getelementptr inbounds i8, ptr %.0812.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0812.i.i, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, %1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.0812.i.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.0812.i.i, i64 24
   %51 = load i8, ptr %50, align 8
   switch i8 %51, label %53 [
     i8 1, label %shape_get_iv_index.exit.sink.split.i
@@ -819,14 +819,14 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
   %54 = load ptr, ptr %43, align 8
   %55 = zext i32 %45 to i64
   %56 = getelementptr %struct.rb_shape, ptr %54, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4
   %.not.i6.i = icmp eq i32 %58, -1
   br i1 %.not.i6.i, label %rb_shape_get_iv_index.exit, label %44, !llvm.loop !10
 
 shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_get_iv_index.exit.i
   %.0812.i.lcssa.sink.i = phi ptr [ %40, %shape_cache_get_iv_index.exit.i ], [ %.0812.i.i, %49 ]
-  %59 = getelementptr inbounds i8, ptr %.0812.i.lcssa.sink.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0812.i.lcssa.sink.i, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = add i32 %60, -1
   store i32 %61, ptr %2, align 4
@@ -835,13 +835,13 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
 62:                                               ; preds = %4
   %63 = zext i32 %10 to i64
   %64 = getelementptr %struct.rb_shape, ptr %7, i64 %63
-  %65 = getelementptr inbounds i8, ptr %9, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not = icmp eq ptr %66, null
   br i1 %.not, label %.preheader125, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %9, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = icmp ugt i32 %69, 9
   %spec.select = select i1 %70, i32 2, i32 2147483647
@@ -855,24 +855,24 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   %.181 = phi i32 [ %110, %105 ], [ %.181.ph, %.preheader125 ]
   %.04080 = phi ptr [ %.141.lcssa, %105 ], [ %64, %.preheader125 ]
   %.04379 = phi ptr [ %109, %105 ], [ %9, %.preheader125 ]
-  %72 = getelementptr inbounds i8, ptr %.04379, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.04379, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp ugt i32 %73, %5
   br i1 %74, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %.04080, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.04080, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = icmp ugt i32 %76, %73
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.14178 = phi ptr [ %81, %.lr.ph ], [ %.04080, %.preheader ]
-  %78 = getelementptr inbounds i8, ptr %.14178, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %.14178, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = getelementptr %struct.rb_shape, ptr %7, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = icmp ugt i32 %83, %73
   br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !11
@@ -892,7 +892,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   br label %rb_shape_get_iv_index.exit
 
 92:                                               ; preds = %._crit_edge
-  %93 = getelementptr inbounds i8, ptr %.04379, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.04379, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = icmp eq i64 %94, %1
   br i1 %95, label %96, label %105
@@ -911,7 +911,7 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
   br label %rb_shape_get_iv_index.exit
 
 105:                                              ; preds = %92
-  %106 = getelementptr inbounds i8, ptr %.04379, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %.04379, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = getelementptr %struct.rb_shape, ptr %7, i64 %108
@@ -921,26 +921,26 @@ shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_ge
 
 .critedge:                                        ; preds = %105, %71
   %.043.lcssa = phi ptr [ %109, %105 ], [ %.04379, %71 ]
-  %112 = getelementptr inbounds i8, ptr %.043.lcssa, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %.043.lcssa, i64 32
   %113 = load ptr, ptr %112, align 8
   %.not46 = icmp eq ptr %113, null
   %spec.select48 = select i1 %.not, ptr %.043.lcssa, ptr %9
   %spec.select67 = select i1 %.not46, ptr %spec.select48, ptr %.043.lcssa
   store i32 %0, ptr %3, align 4
-  %114 = getelementptr inbounds i8, ptr %spec.select67, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %spec.select67, i64 32
   %115 = load ptr, ptr %114, align 8
   %.not.i.i49 = icmp eq ptr %115, null
   br i1 %.not.i.i49, label %.loopexit.i50, label %116
 
 116:                                              ; preds = %.critedge
-  %117 = getelementptr inbounds i8, ptr %spec.select67, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %spec.select67, i64 16
   %118 = load i32, ptr %117, align 8
   %119 = icmp ugt i32 %118, 9
   br i1 %119, label %.lr.ph.i.i.i58, label %.loopexit.i50
 
 .lr.ph.i.i.i58:                                   ; preds = %116
   %120 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   br label %122
 
 122:                                              ; preds = %tailrecurse.backedge.i.i.i61, %.lr.ph.i.i.i58
@@ -983,7 +983,7 @@ shape_cache_get_iv_index.exit.i64:                ; preds = %122
   br label %shape_get_iv_index.exit.sink.split.i56
 
 .loopexit.i50:                                    ; preds = %135, %tailrecurse.backedge.i.i.i61, %127, %116, %.critedge
-  %142 = getelementptr inbounds i8, ptr %spec.select67, i64 28
+  %142 = getelementptr inbounds nuw i8, ptr %spec.select67, i64 28
   %143 = load i32, ptr %142, align 4
   %.not11.i.i51 = icmp eq i32 %143, -1
   br i1 %.not11.i.i51, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i52
@@ -995,13 +995,13 @@ shape_cache_get_iv_index.exit.i64:                ; preds = %122
 145:                                              ; preds = %154, %.lr.ph.i.i52
   %146 = phi i32 [ %143, %.lr.ph.i.i52 ], [ %159, %154 ]
   %.0812.i.i53 = phi ptr [ %spec.select67, %.lr.ph.i.i52 ], [ %157, %154 ]
-  %147 = getelementptr inbounds i8, ptr %.0812.i.i53, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.0812.i.i53, i64 8
   %148 = load i64, ptr %147, align 8
   %149 = icmp eq i64 %148, %1
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %145
-  %151 = getelementptr inbounds i8, ptr %.0812.i.i53, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %.0812.i.i53, i64 24
   %152 = load i8, ptr %151, align 8
   switch i8 %152, label %154 [
     i8 1, label %shape_get_iv_index.exit.sink.split.i56
@@ -1019,14 +1019,14 @@ shape_cache_get_iv_index.exit.i64:                ; preds = %122
   %155 = load ptr, ptr %144, align 8
   %156 = zext i32 %146 to i64
   %157 = getelementptr %struct.rb_shape, ptr %155, i64 %156
-  %158 = getelementptr inbounds i8, ptr %157, i64 28
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 28
   %159 = load i32, ptr %158, align 4
   %.not.i6.i54 = icmp eq i32 %159, -1
   br i1 %.not.i6.i54, label %rb_shape_get_iv_index.exit, label %145, !llvm.loop !10
 
 shape_get_iv_index.exit.sink.split.i56:           ; preds = %150, %shape_cache_get_iv_index.exit.i64
   %.0812.i.lcssa.sink.i57 = phi ptr [ %141, %shape_cache_get_iv_index.exit.i64 ], [ %.0812.i.i53, %150 ]
-  %160 = getelementptr inbounds i8, ptr %.0812.i.lcssa.sink.i57, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %.0812.i.lcssa.sink.i57, i64 16
   %161 = load i32, ptr %160, align 8
   %162 = add i32 %161, -1
   store i32 %162, ptr %2, align 4
@@ -1039,20 +1039,20 @@ rb_shape_get_iv_index.exit:                       ; preds = %154, %150, %150, %5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden noundef zeroext i1 @rb_shape_get_iv_index(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp ugt i32 %8, 9
   br i1 %9, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %6
   %10 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %12
 
 12:                                               ; preds = %tailrecurse.backedge.i.i, %.lr.ph.i.i
@@ -1095,7 +1095,7 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
   br label %shape_get_iv_index.exit.sink.split
 
 .loopexit:                                        ; preds = %25, %17, %tailrecurse.backedge.i.i, %6, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
   %.not11.i = icmp eq i32 %33, -1
   br i1 %.not11.i, label %shape_get_iv_index.exit, label %.lr.ph.i
@@ -1107,13 +1107,13 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
 35:                                               ; preds = %44, %.lr.ph.i
   %36 = phi i32 [ %33, %.lr.ph.i ], [ %49, %44 ]
   %.0812.i = phi ptr [ %0, %.lr.ph.i ], [ %47, %44 ]
-  %37 = getelementptr inbounds i8, ptr %.0812.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0812.i, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, %1
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %.0812.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0812.i, i64 24
   %42 = load i8, ptr %41, align 8
   switch i8 %42, label %44 [
     i8 1, label %shape_get_iv_index.exit.sink.split
@@ -1131,14 +1131,14 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
   %45 = load ptr, ptr %34, align 8
   %46 = zext i32 %36 to i64
   %47 = getelementptr %struct.rb_shape, ptr %45, i64 %46
-  %48 = getelementptr inbounds i8, ptr %47, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %49 = load i32, ptr %48, align 4
   %.not.i6 = icmp eq i32 %49, -1
   br i1 %.not.i6, label %shape_get_iv_index.exit, label %35, !llvm.loop !10
 
 shape_get_iv_index.exit.sink.split:               ; preds = %40, %shape_cache_get_iv_index.exit
   %.0812.i.lcssa.sink = phi ptr [ %31, %shape_cache_get_iv_index.exit ], [ %.0812.i, %40 ]
-  %50 = getelementptr inbounds i8, ptr %.0812.i.lcssa.sink, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.0812.i.lcssa.sink, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 4
@@ -1159,15 +1159,15 @@ define hidden noundef i32 @rb_shape_id_offset() local_unnamed_addr #7 {
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_shape_traverse_from_new_root(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %5, %7
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %12 = load ptr, ptr %11, align 8
@@ -1204,16 +1204,16 @@ thread-pre-split:                                 ; preds = %8
 23:                                               ; preds = %20
   %24 = and i64 %21, -2
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %27, %29
   %. = select i1 %30, ptr %25, ptr null
   br label %39
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = call i32 @rb_id_table_lookup(ptr noundef nonnull %19, i64 noundef %33, ptr noundef nonnull %3) #13
   %.not23 = icmp eq i32 %34, 0
@@ -1241,15 +1241,15 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #8
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_shape_rebuild_shape(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %5, %7
   br i1 %.not, label %24, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %12 = load ptr, ptr %11, align 8
@@ -1279,7 +1279,7 @@ thread-pre-split:                                 ; preds = %8
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %29 = call fastcc ptr @get_next_shape_internal(ptr noundef %.0, i64 noundef %28, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
@@ -1381,9 +1381,9 @@ define hidden void @Init_default_shapes() local_unnamed_addr #1 {
   %19 = tail call i64 @rb_size_mul_or_raise(i64 noundef 16777216, i64 noundef 24, i64 noundef %18) #13
   %20 = tail call ptr @mmap(ptr noundef null, i64 noundef %19, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #13
   %21 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i32 0, ptr %23, align 8
   %24 = icmp eq ptr %20, inttoptr (i64 -1 to ptr)
   br i1 %24, label %25, label %.preheader36
@@ -1405,7 +1405,7 @@ define hidden void @Init_default_shapes() local_unnamed_addr #1 {
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 8
@@ -1420,28 +1420,28 @@ rb_shape_alloc_with_parent_id.exit:               ; preds = %29
   %36 = load ptr, ptr %30, align 8
   %37 = zext i32 %32 to i64
   %38 = getelementptr %struct.rb_shape, ptr %36, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 28
   store i32 -1, ptr %41, align 4
   store ptr null, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %38, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i8 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 25
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 25
   store i8 0, ptr %44, align 1
   %45 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %38, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %rb_shape_alloc_with_parent_id.exit, %rb_shape_alloc_with_parent_id.exit27
   %.02530 = phi i32 [ 1, %rb_shape_alloc_with_parent_id.exit ], [ %64, %rb_shape_alloc_with_parent_id.exit27 ]
   %48 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 8
@@ -1456,19 +1456,19 @@ rb_shape_alloc_with_parent_id.exit27:             ; preds = %47
   %54 = load ptr, ptr %48, align 8
   %55 = zext i32 %50 to i64
   %56 = getelementptr %struct.rb_shape, ptr %54, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i32 -1, ptr %59, align 4
   store ptr null, ptr %56, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i8 0, ptr %60, align 8
   %61 = trunc nuw i32 %.02530 to i8
-  %62 = getelementptr inbounds i8, ptr %56, i64 25
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 25
   store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %56, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store ptr null, ptr %63, align 8
   %64 = add nuw nsw i32 %.02530, 1
   %exitcond32.not = icmp eq i32 %64, 5
@@ -1486,11 +1486,11 @@ rb_shape_alloc_with_parent_id.exit27:             ; preds = %47
   %72 = add i64 %71, 34359738352
   %73 = lshr i64 %72, 3
   %74 = trunc i64 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %69, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 20
   store i32 %74, ptr %75, align 4
   %76 = tail call ptr @rb_id_table_create(i64 noundef 0) #13
   store ptr %76, ptr %69, align 8
-  %77 = getelementptr inbounds i8, ptr %69, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr null, ptr %77, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next, 5
@@ -1500,7 +1500,7 @@ rb_shape_alloc_with_parent_id.exit27:             ; preds = %47
   %79 = load i64, ptr @id_frozen, align 8
   %80 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %38, i64 noundef %79, i32 noundef 2, ptr noundef %2, i1 noundef zeroext true)
   %81 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 8
@@ -1515,12 +1515,12 @@ rb_shape_alloc_with_parent_id.exit28:             ; preds = %78
   %87 = load ptr, ptr %81, align 8
   %88 = zext i32 %83 to i64
   %89 = getelementptr %struct.rb_shape, ptr %87, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 28
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 28
   store i32 0, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %89, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %89, i8 0, i64 20, i1 false)
   store i8 4, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 25
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 25
   store i8 0, ptr %92, align 1
   ret void
 }
@@ -1560,13 +1560,13 @@ declare i64 @rb_malloc_grow_capa(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @redblack_cache_ancestors(ptr noundef %0) unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %28
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %28, label %8
@@ -1577,13 +1577,13 @@ define internal fastcc ptr @redblack_cache_ancestors(ptr noundef %0) unnamed_add
   %11 = zext i32 %6 to i64
   %12 = getelementptr %struct.rb_shape, ptr %10, i64 %11
   %13 = tail call fastcc ptr @redblack_cache_ancestors(ptr noundef %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 1
   br i1 %16, label %17, label %.sink.split
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = tail call fastcc ptr @redblack_insert_aux(ptr noundef %13, i64 noundef %19, ptr noundef nonnull %0)
   %.not.i.i.i = icmp eq ptr %20, null
@@ -1620,14 +1620,14 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0,
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -16777215
   %10 = icmp ult i32 %9, -16777216
   br i1 %10, label %redblack_new.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = add nsw i32 %8, 1
   store i32 %14, ptr %7, align 8
@@ -1637,9 +1637,9 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0,
   %17 = ptrtoint ptr %2 to i64
   %18 = or i64 %17, 1
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %21, align 8
   br label %redblack_new.exit.sink.split
 
@@ -1656,7 +1656,7 @@ define internal fastcc noundef ptr @redblack_insert_aux(ptr noundef readonly %0,
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = add i32 %.val, -1
   %33 = zext i32 %32 to i64
@@ -1673,7 +1673,7 @@ redblack_left.exit:                               ; preds = %25, %28
 
 38:                                               ; preds = %redblack_left.exit
   %39 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = add i32 %.val27, -1
   %43 = zext i32 %42 to i64
@@ -1692,7 +1692,7 @@ redblack_left.exit:                               ; preds = %25, %28
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = add i32 %.val26, -1
   %55 = zext i32 %54 to i64
@@ -1708,7 +1708,7 @@ redblack_left.exit33:                             ; preds = %47, %50
 
 59:                                               ; preds = %redblack_left.exit33
   %60 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = add i32 %.val28, -1
   %64 = zext i32 %63 to i64
@@ -1723,7 +1723,7 @@ redblack_right.exit35:                            ; preds = %redblack_left.exit3
 redblack_color.exit:                              ; preds = %38, %redblack_left.exit, %redblack_right.exit35
   %.021 = phi ptr [ %.0.i32, %redblack_right.exit35 ], [ %35, %redblack_left.exit ], [ %35, %38 ]
   %.0 = phi ptr [ %66, %redblack_right.exit35 ], [ null, %redblack_left.exit ], [ %44, %38 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = load i64, ptr %0, align 8
@@ -1753,7 +1753,7 @@ redblack_red_p.exit.i:                            ; preds = %75
 
 redblack_left.exit.i:                             ; preds = %80
   %83 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = add i32 %.val93.i, -1
   %87 = zext i32 %86 to i64
@@ -1762,7 +1762,7 @@ redblack_left.exit.i:                             ; preds = %80
   br i1 %.not.i.i118.i, label %113, label %redblack_red_p.exit119.i
 
 redblack_red_p.exit119.i:                         ; preds = %redblack_left.exit.i
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
@@ -1807,7 +1807,7 @@ redblack_left.exit126.i:                          ; preds = %redblack_red_p.exit
 
 redblack_right.exit136.i:                         ; preds = %113
   %116 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = add i32 %.val107.i, -1
   %120 = zext i32 %119 to i64
@@ -1816,7 +1816,7 @@ redblack_right.exit136.i:                         ; preds = %113
   br i1 %.not.i.i137.i, label %redblack_red_p.exit134.thread.i, label %redblack_red_p.exit138.i
 
 redblack_red_p.exit138.i:                         ; preds = %redblack_right.exit136.i
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = and i64 %124, 1
@@ -1870,7 +1870,7 @@ redblack_red_p.exit154.i:                         ; preds = %redblack_red_p.exit
 
 redblack_left.exit156.i:                          ; preds = %148
   %151 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
   %154 = add i32 %.val85.i, -1
   %155 = zext i32 %154 to i64
@@ -1879,7 +1879,7 @@ redblack_left.exit156.i:                          ; preds = %148
   br i1 %.not.i.i157.i, label %181, label %redblack_red_p.exit158.i
 
 redblack_red_p.exit158.i:                         ; preds = %redblack_left.exit156.i
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
   %160 = and i64 %159, 1
@@ -1924,7 +1924,7 @@ redblack_left.exit166.i:                          ; preds = %redblack_red_p.exit
 
 redblack_right.exit176.i:                         ; preds = %181
   %184 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = add i32 %.val99.i, -1
   %188 = zext i32 %187 to i64
@@ -1933,7 +1933,7 @@ redblack_right.exit176.i:                         ; preds = %181
   br i1 %.not.i.i177.i, label %redblack_red_p.exit174.thread.i, label %redblack_red_p.exit178.i
 
 redblack_red_p.exit178.i:                         ; preds = %redblack_right.exit176.i
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   %192 = ptrtoint ptr %191 to i64
   %193 = and i64 %192, 1
@@ -1969,27 +1969,27 @@ redblack_right.exit186.i:                         ; preds = %redblack_red_p.exit
 
 redblack_red_p.exit174.thread.i:                  ; preds = %redblack_red_p.exit178.i, %redblack_right.exit176.i, %181, %redblack_red_p.exit154.i, %redblack_red_p.exit134.thread.i
   %212 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %214 = load i32, ptr %213, align 8
   %215 = add i32 %214, -16777215
   %216 = icmp ult i32 %215, -16777216
   br i1 %216, label %redblack_new.exit, label %217
 
 217:                                              ; preds = %redblack_red_p.exit174.thread.i
-  %218 = getelementptr inbounds i8, ptr %212, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %219 = load ptr, ptr %218, align 8
   %220 = add nsw i32 %214, 1
   store i32 %220, ptr %213, align 8
   %221 = zext i32 %214 to i64
   %222 = getelementptr %struct.redblack_node, ptr %219, i64 %221
   store i64 %70, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr %72, ptr %223, align 8
   br i1 %.not.i.i.i, label %redblack_id_for.exit.i.i, label %224
 
 224:                                              ; preds = %217
   %225 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 24
   %227 = load ptr, ptr %226, align 8
   %228 = ptrtoint ptr %.021 to i64
   %229 = ptrtoint ptr %227 to i64
@@ -2001,7 +2001,7 @@ redblack_red_p.exit174.thread.i:                  ; preds = %redblack_red_p.exit
 
 redblack_id_for.exit.i.i:                         ; preds = %224, %217
   %.0.i.i.i = phi i32 [ %233, %224 ], [ 0, %217 ]
-  %234 = getelementptr inbounds i8, ptr %222, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %222, i64 16
   store i32 %.0.i.i.i, ptr %234, align 8
   br i1 %.not.i.i153.i, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
 
@@ -2018,7 +2018,7 @@ redblack_right.exit132.i:                         ; preds = %208, %redblack_righ
   %.070.i = phi ptr [ %.0.i179.i, %208 ], [ %.0.i179.i, %redblack_right.exit186.i ], [ %.0.i167.i, %177 ], [ %.0.i167.i, %redblack_left.exit166.i ], [ %.0.i147.i, %140 ], [ %.0.i147.i, %redblack_right.exit146.i ], [ %112, %109 ], [ null, %redblack_left.exit126.i ]
   %.069.i = phi ptr [ %.0.i187.i, %208 ], [ %.0.i187.i, %redblack_right.exit186.i ], [ %180, %177 ], [ null, %redblack_left.exit166.i ], [ %143, %140 ], [ null, %redblack_right.exit146.i ], [ %.0.i120.i, %109 ], [ %.0.i120.i, %redblack_left.exit126.i ]
   %.0.i37 = phi ptr [ %211, %208 ], [ null, %redblack_right.exit186.i ], [ %.0.i159.i, %177 ], [ %.0.i159.i, %redblack_left.exit166.i ], [ %.0, %140 ], [ %.0, %redblack_right.exit146.i ], [ %.0, %109 ], [ %.0, %redblack_left.exit126.i ]
-  %237 = getelementptr inbounds i8, ptr %236, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 32
   %238 = load i32, ptr %237, align 8
   %239 = add i32 %238, -16777215
   %240 = icmp ult i32 %239, -16777216
@@ -2030,14 +2030,14 @@ redblack_right.exit132.i:                         ; preds = %208, %redblack_righ
   %243 = zext i32 %238 to i64
   %244 = getelementptr %struct.redblack_node, ptr %235, i64 %243
   store i64 %.076.i, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr %.073.i, ptr %245, align 8
   %246 = icmp eq ptr %.071.i, null
   br i1 %246, label %redblack_id_for.exit.i194.i, label %247
 
 247:                                              ; preds = %241
   %248 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = load ptr, ptr %249, align 8
   %251 = ptrtoint ptr %.071.i to i64
   %252 = ptrtoint ptr %250 to i64
@@ -2049,14 +2049,14 @@ redblack_right.exit132.i:                         ; preds = %208, %redblack_righ
 
 redblack_id_for.exit.i194.i:                      ; preds = %247, %241
   %.0.i.i195.i = phi i32 [ %256, %247 ], [ 0, %241 ]
-  %257 = getelementptr inbounds i8, ptr %244, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store i32 %.0.i.i195.i, ptr %257, align 8
   %258 = icmp eq ptr %.070.i, null
   br i1 %258, label %redblack_new.exit199.i, label %259
 
 259:                                              ; preds = %redblack_id_for.exit.i194.i
   %260 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %262 = load ptr, ptr %261, align 8
   %263 = ptrtoint ptr %.070.i to i64
   %264 = ptrtoint ptr %262 to i64
@@ -2068,31 +2068,31 @@ redblack_id_for.exit.i194.i:                      ; preds = %247, %241
 
 redblack_new.exit199.i:                           ; preds = %259, %redblack_id_for.exit.i194.i
   %.0.i11.i197.i = phi i32 [ %268, %259 ], [ 0, %redblack_id_for.exit.i194.i ]
-  %269 = getelementptr inbounds i8, ptr %244, i64 20
+  %269 = getelementptr inbounds nuw i8, ptr %244, i64 20
   store i32 %.0.i11.i197.i, ptr %269, align 4
   %.pre.i = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
   %.pre235.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.pre239.i = add i32 %.pre235.i, -16777215
   %270 = icmp ult i32 %.pre239.i, -16777216
   br i1 %270, label %redblack_new.exit, label %271
 
 271:                                              ; preds = %redblack_new.exit199.i
-  %272 = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 24
   %273 = load ptr, ptr %272, align 8
   %274 = add nsw i32 %.pre235.i, 1
   store i32 %274, ptr %.phi.trans.insert.i, align 8
   %275 = zext i32 %.pre235.i to i64
   %276 = getelementptr %struct.redblack_node, ptr %273, i64 %275
   store i64 %.075.i, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store ptr %.072.i, ptr %277, align 8
   %278 = icmp eq ptr %.069.i, null
   br i1 %278, label %redblack_id_for.exit.i200.i, label %279
 
 279:                                              ; preds = %271
   %280 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %282 = load ptr, ptr %281, align 8
   %283 = ptrtoint ptr %.069.i to i64
   %284 = ptrtoint ptr %282 to i64
@@ -2104,14 +2104,14 @@ redblack_new.exit199.i:                           ; preds = %259, %redblack_id_f
 
 redblack_id_for.exit.i200.i:                      ; preds = %279, %271
   %.0.i.i201.i = phi i32 [ %288, %279 ], [ 0, %271 ]
-  %289 = getelementptr inbounds i8, ptr %276, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %276, i64 16
   store i32 %.0.i.i201.i, ptr %289, align 8
   %290 = icmp eq ptr %.0.i37, null
   br i1 %290, label %redblack_new.exit205.i, label %291
 
 291:                                              ; preds = %redblack_id_for.exit.i200.i
   %292 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 24
   %294 = load ptr, ptr %293, align 8
   %295 = ptrtoint ptr %.0.i37 to i64
   %296 = ptrtoint ptr %294 to i64
@@ -2123,27 +2123,27 @@ redblack_id_for.exit.i200.i:                      ; preds = %279, %271
 
 redblack_new.exit205.i:                           ; preds = %291, %redblack_id_for.exit.i200.i
   %.0.i11.i203.i = phi i32 [ %300, %291 ], [ 0, %redblack_id_for.exit.i200.i ]
-  %301 = getelementptr inbounds i8, ptr %276, i64 20
+  %301 = getelementptr inbounds nuw i8, ptr %276, i64 20
   store i32 %.0.i11.i203.i, ptr %301, align 4
   %.pre236.i = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %.phi.trans.insert237.i = getelementptr inbounds i8, ptr %.pre236.i, i64 32
+  %.phi.trans.insert237.i = getelementptr inbounds nuw i8, ptr %.pre236.i, i64 32
   %.pre238.i = load i32, ptr %.phi.trans.insert237.i, align 8
   %.pre240.i = add i32 %.pre238.i, -16777215
   %302 = icmp ult i32 %.pre240.i, -16777216
   br i1 %302, label %redblack_new.exit, label %303
 
 303:                                              ; preds = %redblack_new.exit205.i
-  %304 = getelementptr inbounds i8, ptr %.pre236.i, i64 24
+  %304 = getelementptr inbounds nuw i8, ptr %.pre236.i, i64 24
   %305 = load ptr, ptr %304, align 8
   %306 = add nsw i32 %.pre238.i, 1
   store i32 %306, ptr %.phi.trans.insert237.i, align 8
   %307 = zext i32 %.pre238.i to i64
   %308 = getelementptr %struct.redblack_node, ptr %305, i64 %307
   store i64 %.077.i, ptr %308, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store ptr %.074.in.in.pre-phi.i, ptr %309, align 8
   %310 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 24
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %312 = load ptr, ptr %311, align 8
   %313 = ptrtoint ptr %244 to i64
   %314 = ptrtoint ptr %312 to i64
@@ -2151,34 +2151,34 @@ redblack_new.exit205.i:                           ; preds = %291, %redblack_id_f
   %316 = sdiv exact i64 %315, 24
   %317 = trunc i64 %316 to i32
   %318 = add i32 %317, 1
-  %319 = getelementptr inbounds i8, ptr %308, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %308, i64 16
   store i32 %318, ptr %319, align 8
   br label %redblack_new.exit.sink.split.sink.split.i
 
 320:                                              ; preds = %redblack_color.exit
   %321 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 32
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
   %323 = load i32, ptr %322, align 8
   %324 = add i32 %323, -16777215
   %325 = icmp ult i32 %324, -16777216
   br i1 %325, label %redblack_new.exit, label %326
 
 326:                                              ; preds = %320
-  %327 = getelementptr inbounds i8, ptr %321, i64 24
+  %327 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %328 = load ptr, ptr %327, align 8
   %329 = add nsw i32 %323, 1
   store i32 %329, ptr %322, align 8
   %330 = zext i32 %323 to i64
   %331 = getelementptr %struct.redblack_node, ptr %328, i64 %330
   store i64 %70, ptr %331, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store ptr %68, ptr %332, align 8
   %333 = icmp eq ptr %.021, null
   br i1 %333, label %redblack_id_for.exit.i212.i, label %334
 
 334:                                              ; preds = %326
   %335 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 24
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %337 = load ptr, ptr %336, align 8
   %338 = ptrtoint ptr %.021 to i64
   %339 = ptrtoint ptr %337 to i64
@@ -2190,7 +2190,7 @@ redblack_new.exit205.i:                           ; preds = %291, %redblack_id_f
 
 redblack_id_for.exit.i212.i:                      ; preds = %334, %326
   %.0.i.i213.i = phi i32 [ %343, %334 ], [ 0, %326 ]
-  %344 = getelementptr inbounds i8, ptr %331, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %331, i64 16
   store i32 %.0.i.i213.i, ptr %344, align 8
   %345 = icmp eq ptr %.0, null
   br i1 %345, label %redblack_new.exit.sink.split, label %redblack_new.exit.sink.split.sink.split.i
@@ -2199,7 +2199,7 @@ redblack_new.exit.sink.split.sink.split.i:        ; preds = %redblack_id_for.exi
   %.sink255.i = phi ptr [ %.0, %redblack_id_for.exit.i.i ], [ %276, %303 ], [ %.0, %redblack_id_for.exit.i212.i ]
   %.sink251.ph.i = phi ptr [ %222, %redblack_id_for.exit.i.i ], [ %308, %303 ], [ %331, %redblack_id_for.exit.i212.i ]
   %346 = load ptr, ptr @rb_shape_tree_ptr, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 24
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 24
   %348 = load ptr, ptr %347, align 8
   %349 = ptrtoint ptr %.sink255.i to i64
   %350 = ptrtoint ptr %348 to i64
@@ -2212,7 +2212,7 @@ redblack_new.exit.sink.split.sink.split.i:        ; preds = %redblack_id_for.exi
 redblack_new.exit.sink.split:                     ; preds = %redblack_id_for.exit.i.i, %redblack_id_for.exit.i212.i, %redblack_new.exit.sink.split.sink.split.i, %11
   %.sink251.i.sink = phi ptr [ %16, %11 ], [ %222, %redblack_id_for.exit.i.i ], [ %331, %redblack_id_for.exit.i212.i ], [ %.sink251.ph.i, %redblack_new.exit.sink.split.sink.split.i ]
   %.0.i11.i215.sink.i.sink = phi i32 [ 0, %11 ], [ 0, %redblack_id_for.exit.i.i ], [ 0, %redblack_id_for.exit.i212.i ], [ %354, %redblack_new.exit.sink.split.sink.split.i ]
-  %355 = getelementptr inbounds i8, ptr %.sink251.i.sink, i64 20
+  %355 = getelementptr inbounds nuw i8, ptr %.sink251.i.sink, i64 20
   store i32 %.0.i11.i215.sink.i.sink, ptr %355, align 4
   br label %redblack_new.exit
 

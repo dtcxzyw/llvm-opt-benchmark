@@ -17,7 +17,7 @@ define range(i32 -22, 1) i32 @nxsig_procmask(i32 noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %2, align 4
   br label %10
@@ -39,17 +39,17 @@ define range(i32 -22, 1) i32 @nxsig_procmask(i32 noundef %0, ptr noundef %1, ptr
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %15 = call i32 @sigorset(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %1) #3
   br label %22
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %5, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %18 = call i32 @nxsig_nandset(ptr noundef nonnull %17, ptr noundef nonnull %17, ptr noundef nonnull %1) #3
   br label %22
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %5, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %21 = load i64, ptr %1, align 4
   store i64 %21, ptr %20, align 8
   br label %22

@@ -12,11 +12,11 @@ define dso_local i32 @lzma_index_decoder(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not, label %5, label %45
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8
   %.not.i = icmp eq i64 %11, ptrtoint (ptr @index_decoder_init to i64)
   br i1 %.not.i, label %13, label %12
@@ -42,29 +42,29 @@ define dso_local i32 @lzma_index_decoder(ptr noundef %0, ptr noundef %1, i64 nou
 
 21:                                               ; preds = %18
   store ptr %19, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @index_decode, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @index_decoder_end, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr @index_decoder_memconfig, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %25, align 8
   br label %29
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %16, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void @lzma_index_end(ptr noundef %28, ptr noundef %9) #5
   br label %29
 
 29:                                               ; preds = %26, %21
   %.0.i = phi ptr [ %19, %21 ], [ %16, %26 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr %1, ptr %30, align 8
   store ptr null, ptr %1, align 8
   %31 = tail call ptr @lzma_index_init(ptr noundef %9) #5
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %35
@@ -77,19 +77,19 @@ define dso_local i32 @lzma_index_decoder(ptr noundef %0, ptr noundef %1, i64 nou
 35:                                               ; preds = %29
   store i32 0, ptr %.0.i, align 8
   %36 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i64 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   store i64 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   store i32 0, ptr %40, align 8
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
   store i8 1, ptr %42, align 8
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 91
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 91
   store i8 1, ptr %44, align 1
   br label %45
 
@@ -102,7 +102,7 @@ declare i32 @lzma_strm_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 12) i32 @index_decoder_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, ptrtoint (ptr @index_decoder_init to i64)
   br i1 %.not, label %8, label %7
@@ -128,29 +128,29 @@ define internal range(i32 0, 12) i32 @index_decoder_init(ptr noundef %0, ptr nou
 
 16:                                               ; preds = %13
   store ptr %14, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @index_decode, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @index_decoder_end, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @index_decoder_memconfig, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %20, align 8
   br label %24
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %11, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @lzma_index_end(ptr noundef %23, ptr noundef %1) #5
   br label %24
 
 24:                                               ; preds = %21, %16
   %.0 = phi ptr [ %14, %16 ], [ %11, %21 ]
-  %25 = getelementptr inbounds i8, ptr %.0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %2, ptr %25, align 8
   store ptr null, ptr %2, align 8
   %26 = tail call ptr @lzma_index_init(ptr noundef %1) #5
-  %27 = getelementptr inbounds i8, ptr %.0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
   br i1 %28, label %index_decoder_reset.exit, label %29
@@ -158,13 +158,13 @@ define internal range(i32 0, 12) i32 @index_decoder_init(ptr noundef %0, ptr nou
 29:                                               ; preds = %24
   store i32 0, ptr %.0, align 8
   %30 = tail call i64 @llvm.umax.i64(i64 %3, i64 1)
-  %31 = getelementptr inbounds i8, ptr %.0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i64 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   store i32 0, ptr %34, align 8
   br label %index_decoder_reset.exit
 
@@ -195,11 +195,11 @@ define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef %1, p
 
 15:                                               ; preds = %12
   %16 = load i64, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %17, align 8
   store ptr null, ptr %0, align 8
   %18 = tail call ptr @lzma_index_init(ptr noundef %2) #5
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
   br i1 %20, label %index_decoder_reset.exit, label %21
@@ -207,13 +207,13 @@ define dso_local i32 @lzma_index_buffer_decode(ptr noundef %0, ptr noundef %1, p
 21:                                               ; preds = %15
   store i32 0, ptr %7, align 8
   %22 = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %26, align 8
   %27 = load i64, ptr %4, align 8
   %28 = call i32 @index_decode(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5, ptr poison, ptr poison, i64 poison, i32 poison)
@@ -250,12 +250,12 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %0, align 8
   br label %18
 
@@ -374,7 +374,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %72 = getelementptr inbounds i8, ptr %2, i64 %10
   %73 = load i64, ptr %3, align 8
   %74 = sub i64 %73, %10
-  %75 = getelementptr inbounds i8, ptr %0, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %76 = load i32, ptr %75, align 8
   %77 = tail call i32 @lzma_crc32(ptr noundef %72, i64 noundef %74, i32 noundef %76) #6
   store i32 %77, ptr %75, align 8
@@ -383,7 +383,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 
 .loopexit92:                                      ; preds = %18, %71
   %.promoted = phi i64 [ %73, %71 ], [ %20, %18 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %79
 
 79:                                               ; preds = %91, %.loopexit92
@@ -413,7 +413,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %97 = load ptr, ptr %96, align 8
   store ptr %95, ptr %97, align 8
   store ptr null, ptr %12, align 8
@@ -440,7 +440,7 @@ define internal i32 @index_decode(ptr noundef %0, ptr noundef %1, ptr noalias no
   %.2 = phi i32 [ 0, %9 ], [ %.2.ph, %._crit_edge.loopexit ]
   %103 = getelementptr inbounds i8, ptr %2, i64 %10
   %104 = sub i64 %102, %10
-  %105 = getelementptr inbounds i8, ptr %0, i64 64
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %106 = load i32, ptr %105, align 8
   %107 = tail call i32 @lzma_crc32(ptr noundef %103, i64 noundef %104, i32 noundef %106) #6
   store i32 %107, ptr %105, align 8
@@ -463,7 +463,7 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @index_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @lzma_index_end(ptr noundef %4, ptr noundef %1) #5
   tail call void @lzma_free(ptr noundef %0, ptr noundef %1) #5
@@ -472,11 +472,11 @@ define internal void @index_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 7) i32 @index_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @lzma_index_memusage(i64 noundef 1, i64 noundef %6) #5
   store i64 %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %2, align 8
   %.not = icmp eq i64 %3, 0

@@ -40,7 +40,7 @@ define internal void @zm_info_ctype(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -51,23 +51,23 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -79,22 +79,22 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -116,7 +116,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   %43 = tail call i32 @isalnum(i32 noundef %42) #4
   %.not19.i = icmp eq i32 %43, 0
   %44 = select i1 %.not19.i, i32 2, i32 3
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %44, ptr %45, align 8
   br label %ctype_fallback.exit
 
@@ -130,12 +130,12 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   %50 = tail call i32 @isalnum(i32 noundef %49) #4
   %.not.i = icmp eq i32 %50, 0
   %51 = select i1 %.not.i, i32 2, i32 3
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %51, ptr %52, align 8
   br label %ctype_fallback.exit
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %40, label %55, label %56
 
 55:                                               ; preds = %53
@@ -147,7 +147,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 57:                                               ; preds = %34
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8
   br label %ctype_fallback.exit
 
@@ -167,7 +167,7 @@ declare i32 @isalnum(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -178,23 +178,23 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -206,22 +206,22 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 1024
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -242,7 +242,7 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @isalpha(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -256,17 +256,17 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @isalpha(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -279,7 +279,7 @@ declare i32 @isalpha(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -290,23 +290,23 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -318,22 +318,22 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 2
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -354,7 +354,7 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @iscntrl(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -368,17 +368,17 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @iscntrl(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -391,7 +391,7 @@ declare i32 @iscntrl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -402,23 +402,23 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -430,22 +430,22 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 2048
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -467,13 +467,13 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeo
   %43 = add nsw i32 %42, -58
   %isdigit61 = icmp ult i32 %43, -10
   %44 = select i1 %isdigit61, i32 2, i32 3
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %44, ptr %45, align 8
   br label %ctype_fallback.exit
 
 46:                                               ; preds = %38
   %or.cond20.i = icmp ugt i64 %39, -129
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %or.cond20.i, label %48, label %49
 
 48:                                               ; preds = %46
@@ -492,7 +492,7 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %34
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
@@ -502,7 +502,7 @@ ctype_fallback.exit:                              ; preds = %52, %51, %50, %48, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -513,23 +513,23 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -541,22 +541,22 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 512
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -577,7 +577,7 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @islower(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -591,17 +591,17 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @islower(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -614,7 +614,7 @@ declare i32 @islower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -625,23 +625,23 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -653,21 +653,21 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %.not55 = icmp sgt i16 %28, -1
   br i1 %.not55, label %29, label %.preheader
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %30, align 8
   br label %ctype_fallback.exit
 
 31:                                               ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %32, align 8
   br label %ctype_fallback.exit
 
@@ -688,7 +688,7 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
   %41 = tail call i32 @isgraph(i32 noundef %40) #4
   %.not19.i = icmp eq i32 %41, 0
   %42 = select i1 %.not19.i, i32 2, i32 3
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %42, ptr %43, align 8
   br label %ctype_fallback.exit
 
@@ -702,17 +702,17 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr nocapture noundef writeo
   %48 = tail call i32 @isgraph(i32 noundef %47) #4
   %.not.i = icmp eq i32 %48, 0
   %49 = select i1 %.not.i, i32 2, i32 3
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %49, ptr %50, align 8
   br label %ctype_fallback.exit
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %52, align 8
   br label %ctype_fallback.exit
 
 53:                                               ; preds = %33
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %54, align 8
   br label %ctype_fallback.exit
 
@@ -725,7 +725,7 @@ declare i32 @isgraph(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -736,23 +736,23 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -764,22 +764,22 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 16384
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -800,7 +800,7 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @isprint(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -814,17 +814,17 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @isprint(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -837,7 +837,7 @@ declare i32 @isprint(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -848,23 +848,23 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -876,22 +876,22 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 4
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -912,7 +912,7 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @ispunct(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -926,17 +926,17 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @ispunct(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -949,7 +949,7 @@ declare i32 @ispunct(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -960,23 +960,23 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -988,22 +988,22 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8192
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -1024,7 +1024,7 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @isspace(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -1038,17 +1038,17 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @isspace(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -1061,7 +1061,7 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -1072,23 +1072,23 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -1100,22 +1100,22 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 256
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -1136,7 +1136,7 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
   %42 = tail call i32 @isupper(i32 noundef %41) #4
   %.not19.i = icmp eq i32 %42, 0
   %43 = select i1 %.not19.i, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %ctype_fallback.exit
 
@@ -1150,17 +1150,17 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr nocapture noundef writeo
   %49 = tail call i32 @isupper(i32 noundef %48) #4
   %.not.i = icmp eq i32 %49, 0
   %50 = select i1 %.not.i, i32 2, i32 3
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %50, ptr %51, align 8
   br label %ctype_fallback.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %53, align 8
   br label %ctype_fallback.exit
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %55, align 8
   br label %ctype_fallback.exit
 
@@ -1173,7 +1173,7 @@ declare i32 @isupper(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -1184,23 +1184,23 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   br label %ctype_fallback.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %ctype_fallback.exit
 
@@ -1212,22 +1212,22 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
 21:                                               ; preds = %.preheader
   %22 = tail call ptr @__ctype_b_loc() #5
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %25 = load i8, ptr %.044, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 4096
   %.not55 = icmp eq i16 %29, 0
   br i1 %.not55, label %30, label %.preheader
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %31, align 8
   br label %ctype_fallback.exit
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %ctype_fallback.exit
 
@@ -1249,7 +1249,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   %43 = tail call i32 @isxdigit(i32 noundef %42) #4
   %.not19.i = icmp eq i32 %43, 0
   %44 = select i1 %.not19.i, i32 2, i32 3
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %44, ptr %45, align 8
   br label %ctype_fallback.exit
 
@@ -1263,12 +1263,12 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   %50 = tail call i32 @isxdigit(i32 noundef %49) #4
   %.not.i = icmp eq i32 %50, 0
   %51 = select i1 %.not.i, i32 2, i32 3
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %51, ptr %52, align 8
   br label %ctype_fallback.exit
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %40, label %55, label %56
 
 55:                                               ; preds = %53
@@ -1280,7 +1280,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr nocapture noundef write
   br label %ctype_fallback.exit
 
 57:                                               ; preds = %34
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %58, align 8
   br label %ctype_fallback.exit
 

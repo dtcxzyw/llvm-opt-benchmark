@@ -102,20 +102,20 @@ define hidden i32 @os_getParentPidAndTimings(ptr nocapture noundef readnone %0, 
 
 18:                                               ; preds = %14
   %19 = and i64 %15, 2147483647
-  %20 = getelementptr inbounds [2048 x i8], ptr %5, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [2048 x i8], ptr %5, i64 0, i64 %19
   store i8 0, ptr %20, align 1
   %21 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 40) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %43, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %21, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %25 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %24, i32 noundef 41) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %43, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %25, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %28, ptr noundef nonnull @.str.2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #13
   %.not18 = icmp eq i32 %29, 4
   br i1 %.not18, label %30, label %43
@@ -173,11 +173,11 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %11 = load i32, ptr %10, align 4
   tail call void @unix_getUserInfo(ptr noundef %0, ptr noundef %1, i32 noundef %11) #13
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1824
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 %14(ptr noundef nonnull %0) #13
   %.not = icmp eq i8 %15, 0
@@ -209,11 +209,11 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
 
 34:                                               ; preds = %29
   %35 = and i64 %31, 2147483647
-  %36 = getelementptr inbounds i8, ptr %27, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 %35
   store i8 0, ptr %36, align 1
   %37 = call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %27) #13
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 136
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull %0) #13
   br label %41
@@ -234,7 +234,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   %.06797 = phi i32 [ %49, %.lr.ph ], [ 0, %41 ]
   %49 = add nuw nsw i32 %47, %.06797
   %50 = and i64 %48, 2147483647
-  %51 = getelementptr inbounds i8, ptr %.098, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %.098, i64 %50
   %52 = load i32, ptr @pageSize, align 4
   %53 = sub nsw i32 %52, %49
   %54 = sext i32 %53 to i64
@@ -251,7 +251,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
 
 59:                                               ; preds = %._crit_edge
   %60 = zext i32 %.067.lcssa to i64
-  %61 = getelementptr inbounds i8, ptr %27, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %27, i64 %60
   store i8 0, ptr %61, align 1
   %62 = load i32, ptr @pageSize, align 4
   %63 = icmp eq i32 %.067.lcssa, %62
@@ -292,7 +292,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %84
   %indvars.iv = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next, %84 ]
-  %80 = getelementptr inbounds i8, ptr %77, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %83, label %84
@@ -327,8 +327,8 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   %91 = ptrtoint ptr %.1104 to i64
   %92 = sub i64 %89, %91
   %93 = call i64 @strnlen(ptr noundef nonnull %.1104, i64 noundef %92) #14
-  %94 = add i64 %93, 1
-  %95 = getelementptr inbounds i8, ptr %.1104, i64 %94
+  %94 = getelementptr i8, ptr %.1104, i64 %93
+  %95 = getelementptr i8, ptr %94, i64 1
   %96 = add nuw nsw i32 %.2103, 1
   %97 = load i8, ptr %95, align 1
   %98 = icmp ne i8 %97, 0

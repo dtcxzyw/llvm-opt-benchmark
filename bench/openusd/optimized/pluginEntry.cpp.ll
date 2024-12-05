@@ -102,7 +102,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntryD2Ev(ptr nound
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %14) #11
   br label %.critedge
@@ -404,7 +404,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry11DecRefCountE
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18) #11
   br label %24
@@ -515,7 +515,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryC2ERSt8functionIFP
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseEEclEPS2_.exit.i: ; preds = %25
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %26) #11
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryESt14default_deleteIS2_EED2Ev.exit
@@ -532,7 +532,7 @@ _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__14Hf_PluginEntry8_FactoryES
 
 _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseEEclEPS2_.exit.i7: ; preds = %30
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32) #11
   br label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__6TfType11FactoryBaseESt14default_deleteIS2_EED2Ev.exit8

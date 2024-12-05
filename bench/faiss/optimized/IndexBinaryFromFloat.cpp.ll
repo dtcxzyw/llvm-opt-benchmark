@@ -36,7 +36,7 @@ define void @_ZN5faiss20IndexBinaryFromFloatD0Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss20IndexBinaryFromFloat5trainElPKh(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = mul nsw i64 %1, %6
@@ -48,21 +48,21 @@ define void @_ZN5faiss20IndexBinaryFromFloat5trainElPKh(ptr nocapture noundef no
           to label %12 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit8
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(36) %14, i64 noundef %1, ptr noundef nonnull %11)
           to label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit8
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %18, align 1
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %21, ptr %22, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %11) #11
   ret void
@@ -76,7 +76,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit8: ; preds = %12, %3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss20IndexBinaryFromFloat3addElPKh(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = icmp slt i32 %5, 0
@@ -87,8 +87,8 @@ define void @_ZN5faiss20IndexBinaryFromFloat3addElPKh(ptr nocapture noundef nonn
   br i1 %11, label %.lr.ph, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit14
 
 .lr.ph:                                           ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %28
@@ -108,7 +108,7 @@ define void @_ZN5faiss20IndexBinaryFromFloat3addElPKh(ptr nocapture noundef nonn
 23:                                               ; preds = %14
   %24 = load ptr, ptr %13, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(36) %24, i64 noundef %.sroa.speculated, ptr noundef nonnull %10)
           to label %28 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -125,11 +125,11 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %23, %14
   resume { ptr, i32 } %31
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit14: ; preds = %28, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %35, ptr %36, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %10) #11
   ret void
@@ -227,7 +227,7 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   br label %92
 
 44:                                               ; preds = %26
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
   %48 = icmp slt i32 %46, 0
@@ -246,8 +246,8 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   br i1 %56, label %.lr.ph67, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit50
 
 .lr.ph67:                                         ; preds = %.preheader64
-  %57 = getelementptr inbounds i8, ptr %0, i64 12
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %59
 
 59:                                               ; preds = %.lr.ph67, %._crit_edge
@@ -270,9 +270,9 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
 69:                                               ; preds = %59
   %70 = load ptr, ptr %58, align 8
   %71 = mul nuw nsw i64 %.03066, %3
-  %72 = getelementptr inbounds i64, ptr %5, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %5, i64 %71
   %73 = load ptr, ptr %70, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8
   invoke void %75(ptr noundef nonnull align 8 dereferenceable(36) %70, i64 noundef %.sroa.speculated, ptr noundef nonnull %51, i64 noundef %3, ptr noundef nonnull %55, ptr noundef %72, ptr noundef null)
           to label %.preheader unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
@@ -283,18 +283,18 @@ define void @_ZNK5faiss20IndexBinaryFromFloat6searchElPKhlPiPlPKNS_16SearchParam
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %78 = getelementptr inbounds i32, ptr %4, i64 %71
+  %78 = getelementptr inbounds nuw i32, ptr %4, i64 %71
   br label %79
 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds float, ptr %55, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
   %81 = load float, ptr %80, align 4
   %82 = fpext float %81 to double
   %83 = fmul double %82, 2.500000e-01
   %84 = tail call double @llvm.round.f64(double %83)
   %85 = fptosi double %84 to i32
-  %86 = getelementptr inbounds i32, ptr %78, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv
   store i32 %85, ptr %86, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %60
@@ -339,16 +339,16 @@ declare void @_ZNK5faiss11IndexBinary12range_searchElPKhiPNS_17RangeSearchResult
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss20IndexBinaryFromFloat5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((16, 24)) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(36) %3)
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %10, align 8
   ret void
 }
@@ -369,9 +369,9 @@ declare void @_ZNK5faiss11IndexBinary26check_compatible_for_mergeERKS0_(ptr noun
 define void @_ZN5faiss20IndexBinaryFromFloatC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %3, align 8
   ret void
 }
@@ -380,23 +380,23 @@ declare void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss20IndexBinaryFromFloatC2EPNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   tail call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i32 noundef 1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 25
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 25
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %11 = and i8 %9, 1
   store i8 %11, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8
   ret void
 }
@@ -404,20 +404,20 @@ define void @_ZN5faiss20IndexBinaryFromFloatC2EPNS_5IndexE(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5faiss20IndexBinaryFromFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(36) %7) #10
   br label %13
@@ -465,7 +465,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #10
   ret void

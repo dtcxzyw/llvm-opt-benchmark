@@ -47,63 +47,63 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @InitArchiveFmt_Directory(ptr noundef initializes((216, 360), (368, 408), (592, 600), (632, 640), (648, 656)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @_ArchiveEntry, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @_StartData, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr @_WriteData, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr @_EndData, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr @_WriteByte, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @_ReadByte, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr @_WriteBuf, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @_ReadBuf, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @_CloseArchive, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @_ReopenArchive, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr @_PrintTocData, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @_ReadExtraToc, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @_WriteExtraToc, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 312
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr @_PrintExtraToc, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr @_StartLOs, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 344
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr @_StartLO, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 352
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr @_EndLO, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr @_EndLOs, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 384
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr @_PrepParallelRestore, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 392
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr @_Clone, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 400
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @_DeClone, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 376
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr @_WorkerJobRestoreDirectory, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 368
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr @_WorkerJobDumpDirectory, ptr %26, align 8
   %27 = tail call ptr @pg_malloc0(i64 noundef 32) #14
-  %28 = getelementptr inbounds i8, ptr %0, i64 592
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 648
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store i64 16384, ptr %30, align 8
   %31 = tail call ptr @pg_malloc(i64 noundef 16384) #14
-  %32 = getelementptr inbounds i8, ptr %0, i64 632
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 480
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %37, label %35
@@ -120,7 +120,7 @@ define dso_local void @InitArchiveFmt_Directory(ptr noundef initializes((216, 36
 
 38:                                               ; preds = %35
   store ptr %34, ptr %27, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 584
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %81
@@ -131,7 +131,7 @@ define dso_local void @InitArchiveFmt_Directory(ptr noundef initializes((216, 36
   br i1 %44, label %45, label %.critedge
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %2, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 61440
   %49 = icmp eq i32 %48, 16384
@@ -152,25 +152,25 @@ define dso_local void @InitArchiveFmt_Directory(ptr noundef initializes((216, 36
 
 sub_0:                                            ; preds = %.preheader, %66
   %55 = phi ptr [ %67, %66 ], [ %54, %.preheader ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 19
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 19
   %57 = load i8, ptr %56, align 1
   %.not74 = icmp eq i8 %57, 46
   br i1 %.not74, label %.tail, label %.tail65._crit_edge
 
 .tail:                                            ; preds = %sub_0
-  %58 = getelementptr inbounds i8, ptr %55, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %66, label %sub_167
 
 sub_167:                                          ; preds = %.tail
-  %61 = getelementptr inbounds i8, ptr %55, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %62 = load i8, ptr %61, align 1
   %.not76 = icmp eq i8 %62, 46
   br i1 %.not76, label %.tail65, label %.tail65._crit_edge
 
 .tail65:                                          ; preds = %sub_167
-  %63 = getelementptr inbounds i8, ptr %55, i64 21
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 21
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %66, label %.tail65._crit_edge
@@ -234,7 +234,7 @@ sub_167:                                          ; preds = %.tail
 
 85:                                               ; preds = %81
   store ptr %82, ptr %29, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 144
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 3, ptr %86, align 8
   call void @ReadHead(ptr noundef nonnull %0) #14
   store i32 5, ptr %86, align 8
@@ -259,7 +259,7 @@ sub_167:                                          ; preds = %.tail
 define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture noundef initializes((144, 152)) %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = tail call ptr @pg_malloc0(i64 noundef 8) #14
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(6) @.str.11) #17
   %8 = icmp eq i32 %7, 0
@@ -270,13 +270,13 @@ define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture nou
   br label %19
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.13, i32 noundef %16) #14
   %18 = call ptr @pg_strdup(ptr noundef nonnull %3) #14
@@ -285,7 +285,7 @@ define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture nou
 19:                                               ; preds = %11, %14, %9
   %.sink = phi ptr [ %18, %14 ], [ %10, %9 ], [ null, %11 ]
   store ptr %.sink, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %4, ptr %20, align 8
   ret void
 }
@@ -293,18 +293,18 @@ define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 592
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.val.val = load ptr, ptr %7, align 8
   call fastcc void @setFilePath(ptr %.val.val, ptr noundef %3, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %0, i64 544
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %10 = call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %9) #14
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i1 %13(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef %10) #14
   br i1 %14, label %16, label %15
@@ -320,9 +320,9 @@ define internal void @_StartData(ptr noundef %0, ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4
@@ -330,7 +330,7 @@ define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %.not, label %21, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 %11(ptr noundef %1, i64 noundef %2, ptr noundef %7) #14
   br i1 %12, label %21, label %13
@@ -345,7 +345,7 @@ define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr noundef 
   br label %17
 
 17:                                               ; preds = %13, %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %7) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %20) #14
@@ -358,9 +358,9 @@ define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_EndData(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @EndCompressFileHandle(ptr noundef %6) #14
   br i1 %7, label %9, label %8
@@ -380,13 +380,13 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @__errno_location() #16
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call zeroext i1 %11(ptr noundef nonnull %3, i64 noundef 1, ptr noundef %8) #14
   br i1 %12, label %21, label %13
@@ -401,7 +401,7 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
   br label %17
 
 17:                                               ; preds = %13, %16
-  %18 = getelementptr inbounds i8, ptr %8, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr %19(ptr noundef nonnull %8) #14
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %20) #14
@@ -414,11 +414,11 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 592
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %5) #14
   ret i32 %8
@@ -426,13 +426,13 @@ define internal i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i1 %10(ptr noundef %1, i64 noundef %2, ptr noundef %7) #14
   br i1 %11, label %20, label %12
@@ -447,7 +447,7 @@ define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr noundef %
   br label %16
 
 16:                                               ; preds = %12, %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %7) #14
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %19) #14
@@ -460,11 +460,11 @@ define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @_ReadBuf(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i1 %9(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %7) #14
   br i1 %10, label %12, label %11
@@ -482,9 +482,9 @@ define internal void @_ReadBuf(ptr nocapture noundef readonly %0, ptr noundef %1
 define internal void @_CloseArchive(ptr noundef %0) #0 {
   %2 = alloca %struct.pg_compress_specification, align 8
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 584
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %32
@@ -494,11 +494,11 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   %.val.val = load ptr, ptr %5, align 8
   call fastcc void @setFilePath(ptr %.val.val, ptr noundef %3, ptr noundef nonnull @.str.7)
   %10 = call ptr @ParallelBackupStart(ptr noundef nonnull %0) #14
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %10, ptr %11, align 8
   store i32 0, ptr %2, align 8
   %12 = call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %2) #14
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call zeroext i1 %14(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, ptr noundef %12) #14
   br i1 %15, label %17, label %16
@@ -509,9 +509,9 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   unreachable
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %12, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 3, ptr %19, align 8
   call void @WriteHead(ptr noundef nonnull %0) #14
   store i32 5, ptr %19, align 8
@@ -529,20 +529,20 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
   call void @WriteDataChunks(ptr noundef nonnull %0, ptr noundef %23) #14
   %24 = load ptr, ptr %11, align 8
   call void @ParallelBackupEnd(ptr noundef nonnull %0, ptr noundef %24) #14
-  %25 = getelementptr inbounds i8, ptr %0, i64 576
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 580
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 580
   %31 = load i32, ptr %30, align 4
   call void @sync_dir_recurse(ptr noundef %29, i32 noundef %31) #14
   br label %32
 
 32:                                               ; preds = %22, %28, %1
-  %33 = getelementptr inbounds i8, ptr %0, i64 488
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr null, ptr %33, align 8
   ret void
 }
@@ -560,14 +560,14 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   %6 = alloca [1025 x i8], align 16
   %7 = alloca [1024 x i8], align 16
   %8 = alloca [1024 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %52, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.11) #17
   %16 = icmp eq i32 %15, 0
@@ -579,27 +579,27 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  %18 = getelementptr inbounds i8, ptr %0, i64 592
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %19 = load ptr, ptr %18, align 8
   tail call void @StartRestoreLOs(ptr noundef %0) #14
   %.val.i = load ptr, ptr %18, align 8
   %.val.val.i = load ptr, ptr %.val.i, align 8
   call fastcc void @setFilePath(ptr %.val.val.i, ptr noundef %4, ptr noundef nonnull @.str.12)
   %20 = call ptr @InitDiscoverCompressFileHandle(ptr noundef nonnull %4, ptr noundef nonnull @.str.8) #14
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %27, label %.preheader.i
 
 .preheader.i:                                     ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %20, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr %24(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %20) #14
   %.not18.i = icmp eq ptr %25, null
   br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %28
 
 27:                                               ; preds = %17
@@ -620,7 +620,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
 31:                                               ; preds = %28
   %32 = load i32, ptr %3, align 4
   %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = icmp ne i32 %35, 0
   call void @StartRestoreLO(ptr noundef nonnull %0, i32 noundef %32, i1 noundef zeroext %36) #14
@@ -635,7 +635,7 @@ define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not.i, label %._crit_edge.i, label %28, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %31, %.preheader.i
-  %42 = getelementptr inbounds i8, ptr %20, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = call zeroext i1 %43(ptr noundef nonnull %20) #14
   br i1 %44, label %46, label %45
@@ -679,7 +679,7 @@ _LoadLOs.exit:                                    ; preds = %46
 
 ; Function Attrs: nounwind uwtable
 define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
@@ -708,7 +708,7 @@ define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @_WriteExtraToc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -719,13 +719,13 @@ define internal void @_WriteExtraToc(ptr noundef %0, ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal void @_PrintExtraToc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %.not5 = icmp eq ptr %8, null
@@ -743,16 +743,16 @@ define internal void @_PrintExtraToc(ptr noundef %0, ptr nocapture noundef reado
 define internal void @_StartLOs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca %struct.pg_compress_specification, align 8
   %4 = alloca [1024 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %.val.val = load ptr, ptr %6, align 8
   call fastcc void @setFilePath(ptr %.val.val, ptr noundef %4, ptr noundef nonnull @.str.12)
   store i32 0, ptr %3, align 8
   %7 = call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #14
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call zeroext i1 %10(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, ptr noundef %7) #14
   br i1 %11, label %13, label %12
@@ -769,15 +769,15 @@ define internal void @_StartLOs(ptr nocapture noundef readonly %0, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define internal void @_StartLO(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
   %4 = alloca [1024 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.28, ptr noundef %7, i32 noundef %2) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 544
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %10 = call ptr @InitCompressFileHandle(ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %9) #14
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i1 %13(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef %10) #14
   br i1 %14, label %16, label %15
@@ -794,11 +794,11 @@ define internal void @_StartLO(ptr noundef %0, ptr nocapture readnone %1, i32 no
 ; Function Attrs: nounwind uwtable
 define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
   %4 = alloca [50 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i1 @EndCompressFileHandle(ptr noundef %10) #14
   br i1 %11, label %13, label %12
@@ -811,7 +811,7 @@ define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture re
 13:                                               ; preds = %3
   store ptr null, ptr %9, align 8
   %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 50, ptr noundef nonnull @.str.30, i32 noundef %2, i32 noundef %2) #14
-  %15 = getelementptr inbounds i8, ptr %8, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %14 to i64
   %18 = call zeroext i1 %16(ptr noundef nonnull %4, i64 noundef %17, ptr noundef %8) #14
@@ -828,7 +828,7 @@ define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture re
   br label %24
 
 24:                                               ; preds = %19, %23
-  %25 = getelementptr inbounds i8, ptr %8, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %8) #14
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef %27) #14
@@ -841,9 +841,9 @@ define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture re
 
 ; Function Attrs: nounwind uwtable
 define internal void @_EndLOs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @EndCompressFileHandle(ptr noundef %6) #14
   br i1 %7, label %9, label %8
@@ -862,29 +862,29 @@ define internal void @_EndLOs(ptr nocapture noundef readonly %0, ptr nocapture r
 define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %5 = load ptr, ptr %4, align 8
-  %.0.in20 = getelementptr inbounds i8, ptr %5, i64 8
+  %.0.in20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.021 = load ptr, ptr %.0.in20, align 8
   %.not22 = icmp eq ptr %.021, %5
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 592
-  %7 = getelementptr inbounds i8, ptr %0, i64 544
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %9
 
 9:                                                ; preds = %.lr.ph, %41
   %.023 = phi ptr [ %.021, %.lr.ph ], [ %.0, %41 ]
-  %10 = getelementptr inbounds i8, ptr %.023, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %.023, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %41, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.023, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %.023, i64 160
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %18 = icmp eq i32 %17, 0
@@ -925,26 +925,26 @@ define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0
 
 .sink.split24:                                    ; preds = %27, %19
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %.023, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %.023, i64 152
   store i64 %30, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %.sink.split24, %22, %27
-  %33 = getelementptr inbounds i8, ptr %.023, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %.023, i64 80
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.11) #17
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.023, i64 152
+  %38 = getelementptr inbounds nuw i8, ptr %.023, i64 152
   %39 = load i64, ptr %38, align 8
   %40 = shl i64 %39, 10
   store i64 %40, ptr %38, align 8
   br label %41
 
 41:                                               ; preds = %32, %37, %14, %9
-  %.0.in = getelementptr inbounds i8, ptr %.023, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %42 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, %42
@@ -956,7 +956,7 @@ define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @_Clone(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 592
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @pg_malloc(i64 noundef 32) #14
   store ptr %4, ptr %2, align 8
@@ -966,7 +966,7 @@ define internal void @_Clone(ptr nocapture noundef %0) #0 {
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @_DeClone(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 592
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
   ret void
@@ -1077,7 +1077,7 @@ define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef nonnull 
 
 6:                                                ; preds = %2
   %7 = tail call ptr @pg_malloc(i64 noundef 4096) #14
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call zeroext i1 %9(ptr noundef %7, i64 noundef 4096, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
   %11 = load i64, ptr %3, align 8

@@ -71,7 +71,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN17WiresharkMimeData14allowPlainTextEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
   invoke void @_ZN9QMimeData7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -125,15 +125,15 @@ define void @_ZN20ToolbarEntryMimeDataC2E7QStringi(ptr noundef nonnull align 8 d
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN9QMimeDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV20ToolbarEntryMimeData, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -144,9 +144,9 @@ define void @_ZN20ToolbarEntryMimeDataC2E7QStringi(ptr noundef nonnull align 8 d
   br label %_ZN7QStringC2ERKS_.exit
 
 _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %2, ptr %15, align 8
   ret void
 }
@@ -156,15 +156,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK20ToolbarEntryMimeData7elementEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -186,16 +186,16 @@ define void @_ZNK20ToolbarEntryMimeData9labelTextEv(ptr dead_on_unwind noalias w
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 2, ptr nonnull @.str.7)
   %5 = load ptr, ptr %3, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 0, i16 32)
           to label %13 unwind label %18
 
@@ -242,14 +242,14 @@ declare void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%cla
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK20ToolbarEntryMimeData8positionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20ToolbarEntryMimeData9setFilterE7QString(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1) #11
   ret void
 }
@@ -259,15 +259,15 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK20ToolbarEntryMimeData6filterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -344,48 +344,48 @@ define internal void @_GLOBAL__sub_I_wireshark_mime_data.cpp() #9 section ".text
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i64 39, ptr nonnull @.str)
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, i64 8), align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, i64 8), align 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, i64 16), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %10 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData21ColoringRulesMimeTypeE, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 36, ptr nonnull @.str.2)
   %11 = load ptr, ptr %3, align 8
   store ptr %11, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, i64 8), align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, i64 8), align 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, i64 16), align 8
+  store i64 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData18ColumnListMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData18ColumnListMimeTypeE, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %2, i64 36, ptr nonnull @.str.4)
   %17 = load ptr, ptr %2, align 8
   store ptr %17, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, i64 8), align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, i64 8), align 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i64, ptr %20, align 8
-  store i64 %21, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, i64 16), align 8
+  store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData18FilterListMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %22 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData18FilterListMimeTypeE, ptr nonnull @__dso_handle) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %1, i64 39, ptr nonnull @.str.6)
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, i64 8), align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, i64 8), align 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8
-  store i64 %27, ptr getelementptr inbounds (i8, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, i64 16), align 8
+  store i64 %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, i64 16), align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
   %28 = call i32 @__cxa_atexit(ptr nonnull @_ZN7QStringD2Ev, ptr nonnull @_ZN17WiresharkMimeData21DisplayFilterMimeTypeE, ptr nonnull @__dso_handle) #11
   ret void

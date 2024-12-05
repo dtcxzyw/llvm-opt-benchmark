@@ -3491,7 +3491,7 @@ look_up_tlv.exit:                                 ; preds = %3, %8, %13, %18
   br i1 %.not, label %look_up_tlv.exit.thread, label %21
 
 21:                                               ; preds = %look_up_tlv.exit
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %look_up_tlv.exit.thread
 
@@ -3617,7 +3617,7 @@ define internal i32 @dissect_nfapi(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %6, label %30, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.1578) #7
   %10 = load ptr, ptr %8, align 8
@@ -3762,7 +3762,7 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #7
   call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %10 = getelementptr inbounds i8, ptr %1, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %11 = load i32, ptr %10, align 8
   %12 = load i8, ptr %5, align 1
   %13 = icmp eq i8 %12, 1
@@ -3795,7 +3795,7 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
 30:                                               ; preds = %20
   %31 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %1, ptr noundef nonnull @.str.2647, ptr noundef nonnull %28, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %2) #7
   %.not = icmp eq ptr %31, null
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %6, align 1
   %35 = zext i8 %34 to i32
@@ -3819,7 +3819,7 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %switch, label %40, label %47
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @ptvcursor_new(ptr noundef %42, ptr noundef %2, ptr noundef %.042, i32 noundef %.043) #7
   %44 = load i32, ptr @hf_nfapi_sfn_sf, align 4
@@ -3845,7 +3845,7 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #7
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #7
   call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %10 = getelementptr inbounds i8, ptr %1, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %11 = load i32, ptr %10, align 8
   %12 = load i8, ptr %5, align 1
   %13 = icmp eq i8 %12, 1
@@ -3878,7 +3878,7 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
 30:                                               ; preds = %20
   %31 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 16, ptr noundef nonnull %1, ptr noundef nonnull @.str.2651, ptr noundef nonnull %28, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %2) #7
   %.not = icmp eq ptr %31, null
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %6, align 1
   %35 = zext i8 %34 to i32
@@ -3907,7 +3907,7 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 40:                                               ; preds = %38, %38, %38, %38, %38, %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @ptvcursor_new(ptr noundef %42, ptr noundef %2, ptr noundef %.042, i32 noundef %.043) #7
   %44 = load i32, ptr @hf_nfapi_sfn_sf, align 4
@@ -3950,7 +3950,7 @@ define internal i32 @dissect_p45_header_with_list(ptr noundef %0, ptr noundef %1
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #7
   %13 = load i32, ptr @hf_nfapi_p4_p5_message_header_spare, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #7
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @ptvcursor_new(ptr noundef %16, ptr noundef %2, ptr noundef %0, i32 noundef 8) #7
   %18 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -4008,7 +4008,7 @@ define internal i32 @dissect_p45_header_with_error_and_list(ptr noundef %0, ptr 
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #7
   %15 = load i32, ptr @hf_nfapi_error_code, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ptvcursor_new(ptr noundef %18, ptr noundef %2, ptr noundef %0, i32 noundef 12) #7
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -4032,7 +4032,7 @@ define internal i32 @dissect_p45_header_with_p4_error_and_list(ptr noundef %0, p
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #7
   %15 = load i32, ptr @hf_nfapi_p4_error_code, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ptvcursor_new(ptr noundef %18, ptr noundef %2, ptr noundef %0, i32 noundef 12) #7
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -4056,7 +4056,7 @@ define internal i32 @dissect_p45_header_with_rat_type_list(ptr noundef %0, ptr n
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #7
   %15 = load i32, ptr @hf_nfapi_rat_type, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ptvcursor_new(ptr noundef %18, ptr noundef %2, ptr noundef %0, i32 noundef 9) #7
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -4080,7 +4080,7 @@ define internal i32 @dissect_p45_config_request_msg_id(ptr noundef %0, ptr nound
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %13, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #7
   %15 = load i32, ptr @hf_nfapi_num_tlv, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #7
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @ptvcursor_new(ptr noundef %18, ptr noundef %2, ptr noundef %0, i32 noundef 9) #7
   %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -4106,7 +4106,7 @@ define internal i32 @dissect_p45_param_response_msg_id(ptr noundef %0, ptr nound
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #7
   %17 = load i32, ptr @hf_nfapi_num_tlv, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #7
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @ptvcursor_new(ptr noundef %20, ptr noundef %2, ptr noundef %0, i32 noundef 10) #7
   %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -9855,7 +9855,7 @@ define internal void @dissect_rx_indication_body_value(ptr noundef %0, ptr nound
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %7 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr @wmem_array_new(ptr noundef %9, i64 noundef 2) #7
   %11 = load i32, ptr @hf_nfapi_number_pdus, align 4
@@ -9957,7 +9957,7 @@ look_up_tlv.exit:                                 ; preds = %49, %44, %39, %34
 57:                                               ; preds = %look_up_tlv.exit.thread82, %look_up_tlv.exit
   %.187 = phi i32 [ %56, %look_up_tlv.exit.thread82 ], [ %.089, %look_up_tlv.exit ]
   %phi.call86 = phi ptr [ getelementptr inbounds (i8, ptr @p7_tags, i64 1344), %look_up_tlv.exit.thread82 ], [ %phi.call, %look_up_tlv.exit ]
-  %58 = getelementptr inbounds i8, ptr %phi.call86, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %phi.call86, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not74 = icmp eq ptr %59, null
   br i1 %.not74, label %look_up_tlv.exit.thread, label %60
@@ -10720,7 +10720,7 @@ define internal void @dissect_rx_cqi_indication_body_value(ptr noundef %0, ptr n
   br i1 %.not, label %._crit_edge52, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = shl i32 %9, 1
   %14 = zext i32 %13 to i64
@@ -13726,7 +13726,7 @@ define internal fastcc void @dissect_tlv_list(ptr noundef %0, ptr noundef %1, i3
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %7
 
 7:                                                ; preds = %.lr.ph, %74
@@ -13782,7 +13782,7 @@ look_up_tlv.exit:                                 ; preds = %16, %21, %26, %31
   br i1 %.not, label %look_up_tlv.exit.thread, label %34
 
 34:                                               ; preds = %look_up_tlv.exit
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not43 = icmp eq ptr %36, null
   br i1 %.not43, label %look_up_tlv.exit.thread, label %37
@@ -13807,7 +13807,7 @@ look_up_tlv.exit:                                 ; preds = %16, %21, %26, %31
   br i1 %.not44, label %74, label %50
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not45 = icmp eq ptr %52, null
   br i1 %.not45, label %.sink.split, label %53

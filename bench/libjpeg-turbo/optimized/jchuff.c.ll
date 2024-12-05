@@ -19,10 +19,10 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 50, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 %2, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
@@ -31,10 +31,10 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 14:                                               ; preds = %4, %7
   %.not = icmp eq i32 %1, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = sext i32 %2 to i64
   %17 = getelementptr inbounds [4 x ptr], ptr %15, i64 0, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = getelementptr inbounds [4 x ptr], ptr %18, i64 0, i64 %16
   %.in = select i1 %.not, ptr %19, ptr %17
   %20 = load ptr, ptr %.in, align 8
@@ -43,10 +43,10 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 22:                                               ; preds = %14
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 50, ptr %24, align 8
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   store i32 %2, ptr %26, align 4
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %27, align 8
@@ -59,7 +59,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef %0, i32 noundef 1, i64 noundef 1280) #6
@@ -73,7 +73,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 39:                                               ; preds = %37, %._crit_edge
   %indvars.iv = phi i64 [ 1, %37 ], [ %indvars.iv.next, %._crit_edge ]
   %.07489 = phi i32 [ 0, %37 ], [ %.175.lcssa, %._crit_edge ]
-  %40 = getelementptr inbounds [17 x i8], ptr %20, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [17 x i8], ptr %20, i64 0, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = add nsw i32 %.07489, %42
@@ -82,7 +82,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i32 8, ptr %47, align 8
   %48 = load ptr, ptr %0, align 8
   %49 = load ptr, ptr %48, align 8
@@ -161,7 +161,7 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
 
 74:                                               ; preds = %._crit_edge93
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   store i32 8, ptr %76, align 8
   %77 = load ptr, ptr %0, align 8
   %78 = load ptr, ptr %77, align 8
@@ -178,14 +178,14 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not80, label %._crit_edge100, label %.preheader, !llvm.loop !7
 
 ._crit_edge100:                                   ; preds = %79, %55
-  %85 = getelementptr inbounds i8, ptr %38, i64 1024
+  %85 = getelementptr inbounds nuw i8, ptr %38, i64 1024
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1280) %38, i8 0, i64 1280, i1 false)
   br i1 %.not, label %92, label %86
 
 86:                                               ; preds = %._crit_edge100
-  %87 = getelementptr inbounds i8, ptr %0, i64 432
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load i32, ptr %89, align 8
   %.not81 = icmp eq i32 %90, 0
   %91 = select i1 %.not81, i32 15, i32 16
@@ -197,13 +197,13 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %94, label %.lr.ph103, label %._crit_edge104
 
 .lr.ph103:                                        ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %20, i64 17
+  %95 = getelementptr inbounds nuw i8, ptr %20, i64 17
   %wide.trip.count = zext nneg i32 %.175.lcssa to i64
   br label %96
 
 96:                                               ; preds = %.lr.ph103, %108
   %indvars.iv112 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next113, %108 ]
-  %97 = getelementptr inbounds [256 x i8], ptr %95, i64 0, i64 %indvars.iv112
+  %97 = getelementptr inbounds nuw [256 x i8], ptr %95, i64 0, i64 %indvars.iv112
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = icmp samesign ult i32 %93, %99
@@ -211,14 +211,14 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %100, label %._crit_edge116, label %101
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds [256 x i8], ptr %85, i64 0, i64 %.pre117
+  %102 = getelementptr inbounds nuw [256 x i8], ptr %85, i64 0, i64 %.pre117
   %103 = load i8, ptr %102, align 1
   %.not82 = icmp eq i8 %103, 0
   br i1 %.not82, label %108, label %._crit_edge116
 
 ._crit_edge116:                                   ; preds = %96, %101
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store i32 8, ptr %105, align 8
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %106, align 8
@@ -226,13 +226,13 @@ define void @jpeg_make_c_derived_tbl(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %108
 
 108:                                              ; preds = %._crit_edge116, %101
-  %109 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv112
+  %109 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv112
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds [256 x i32], ptr %38, i64 0, i64 %.pre117
+  %111 = getelementptr inbounds nuw [256 x i32], ptr %38, i64 0, i64 %.pre117
   store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %indvars.iv112
+  %112 = getelementptr inbounds nuw [257 x i8], ptr %5, i64 0, i64 %indvars.iv112
   %113 = load i8, ptr %112, align 1
-  %114 = getelementptr inbounds [256 x i8], ptr %85, i64 0, i64 %.pre117
+  %114 = getelementptr inbounds nuw [256 x i8], ptr %85, i64 0, i64 %.pre117
   store i8 %113, ptr %114, align 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
@@ -255,7 +255,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %4, i8 0, i64 33, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1028) %6, i8 0, i64 1028, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1028) %8, i8 -1, i64 1028, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 2048
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   store i64 1, ptr %9, align 8
   br label %11
 
@@ -267,7 +267,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 11:                                               ; preds = %3, %20
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %20 ]
   %.086114 = phi i32 [ 0, %3 ], [ %.187, %20 ]
-  %12 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %.not103 = icmp eq i64 %13, 0
   br i1 %.not103, label %20, label %14
@@ -294,7 +294,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %.084118 = phi i64 [ %.084118.be, %.lr.ph.backedge ], [ 1000000000, %.preheader108 ]
   %.092116 = phi i32 [ %.092116.be, %.lr.ph.backedge ], [ -1, %.preheader108 ]
   %.095115 = phi i32 [ %.095115.be, %.lr.ph.backedge ], [ -1, %.preheader108 ]
-  %21 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv148
+  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv148
   %22 = load i64, ptr %21, align 8
   %.not101 = icmp sgt i64 %22, %.0119
   br i1 %.not101, label %25, label %23
@@ -336,7 +336,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 27:                                               ; preds = %._crit_edge
   %28 = sext i32 %.196 to i64
   %29 = zext nneg i32 %.193 to i64
-  %30 = getelementptr inbounds i64, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %2, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = getelementptr inbounds i64, ptr %2, i64 %28
   %33 = load i64, ptr %32, align 8
@@ -355,11 +355,11 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 .lr.ph123:                                        ; preds = %27, %.lr.ph123
   %41 = phi i32 [ %47, %.lr.ph123 ], [ %39, %27 ]
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %43, align 4
-  %46 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %42
+  %46 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %42
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, -1
   br i1 %48, label %.lr.ph123, label %._crit_edge124, !llvm.loop !11
@@ -368,11 +368,11 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   %.lcssa121 = phi i64 [ %28, %27 ], [ %42, %.lr.ph123 ]
   %49 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %.lcssa121
   store i32 %.193, ptr %49, align 4
-  %50 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %29
+  %50 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %29
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr %50, align 4
-  %53 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %29
+  %53 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %29
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %.lr.ph127, label %.lr.ph.backedge
@@ -380,25 +380,25 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 .lr.ph127:                                        ; preds = %._crit_edge124, %.lr.ph127
   %56 = phi i32 [ %62, %.lr.ph127 ], [ %54, %._crit_edge124 ]
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 4
-  %61 = getelementptr inbounds [257 x i32], ptr %8, i64 0, i64 %57
+  %61 = getelementptr inbounds nuw [257 x i32], ptr %8, i64 0, i64 %57
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, -1
   br i1 %63, label %.lr.ph127, label %.lr.ph.backedge, !llvm.loop !12
 
 .lr.ph129:                                        ; preds = %.lr.ph129.preheader, %72
   %indvars.iv153 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next154, %72 ]
-  %64 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv153
+  %64 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv153
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, 32
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %.lr.ph129
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   store i32 39, ptr %69, align 8
   %70 = load ptr, ptr %0, align 8
   %71 = load ptr, ptr %70, align 8
@@ -421,9 +421,9 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 .preheader106:                                    ; preds = %.preheader106.preheader, %.preheader106
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.preheader106 ], [ 1, %.preheader106.preheader ]
   %.091130 = phi i32 [ %81, %.preheader106 ], [ 0, %.preheader106.preheader ]
-  %77 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %indvars.iv159
+  %77 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %indvars.iv159
   store i32 %.091130, ptr %77, align 4
-  %78 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv159
+  %78 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv159
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = add nuw nsw i32 %.091130, %80
@@ -434,7 +434,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 .preheader104:                                    ; preds = %.preheader106, %._crit_edge135
   %indvars.iv168 = phi i64 [ %.pre, %._crit_edge135 ], [ 32, %.preheader106 ]
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge135 ], [ 30, %.preheader106 ]
-  %82 = getelementptr inbounds [33 x i8], ptr %4, i64 0, i64 %indvars.iv168
+  %82 = getelementptr inbounds nuw [33 x i8], ptr %4, i64 0, i64 %indvars.iv168
   %83 = load i8, ptr %82, align 1
   %.not133 = icmp eq i8 %83, 0
   %.pre = add nsw i64 %indvars.iv168, -1
@@ -500,16 +500,16 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
 
 .lr.ph140:                                        ; preds = %108
   %112 = add nsw i32 %.187, -1
-  %113 = getelementptr inbounds i8, ptr %1, i64 17
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %wide.trip.count177 = zext nneg i32 %112 to i64
   br label %114
 
 114:                                              ; preds = %.lr.ph140, %114
   %indvars.iv174 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next175, %114 ]
-  %115 = getelementptr inbounds [257 x i32], ptr %7, i64 0, i64 %indvars.iv174
+  %115 = getelementptr inbounds nuw [257 x i32], ptr %7, i64 0, i64 %indvars.iv174
   %116 = load i32, ptr %115, align 4
   %117 = trunc i32 %116 to i8
-  %118 = getelementptr inbounds [257 x i32], ptr %6, i64 0, i64 %indvars.iv174
+  %118 = getelementptr inbounds nuw [257 x i32], ptr %6, i64 0, i64 %indvars.iv174
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds [33 x i32], ptr %5, i64 0, i64 %120
@@ -524,7 +524,7 @@ define void @jpeg_gen_optimal_table(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %exitcond178.not, label %._crit_edge141, label %114, !llvm.loop !19
 
 ._crit_edge141:                                   ; preds = %114, %108
-  %126 = getelementptr inbounds i8, ptr %1, i64 276
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 276
   store i32 0, ptr %126, align 4
   ret void
 }
@@ -534,27 +534,27 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define void @jinit_huff_encoder(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef %0, i32 noundef 1, i64 noundef 208) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %5, ptr %6, align 8
   store ptr @start_pass_huff, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 104
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
-  %9 = getelementptr inbounds i8, ptr %5, i64 168
-  %10 = getelementptr inbounds i8, ptr %5, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   br label %11
 
 11:                                               ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds [4 x ptr], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv
   store ptr null, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -566,40 +566,40 @@ define void @jinit_huff_encoder(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 496
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
   %spec.select = select i1 %.not, ptr @encode_mcu_huff, ptr @encode_mcu_gather
   %spec.select73 = select i1 %.not, ptr @finish_pass_huff, ptr @finish_pass_gather
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %spec.select, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %spec.select73, ptr %6, align 8
   %7 = tail call i32 @jsimd_can_huff_encode_one_block() #6
-  %8 = getelementptr inbounds i8, ptr %4, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 324
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 328
-  %13 = getelementptr inbounds i8, ptr %4, i64 136
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 168
-  %16 = getelementptr inbounds i8, ptr %4, i64 72
-  %17 = getelementptr inbounds i8, ptr %4, i64 104
-  %18 = getelementptr inbounds i8, ptr %4, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 44
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %indvars.iv69
+  %19 = getelementptr inbounds nuw [4 x ptr], ptr %12, i64 0, i64 %indvars.iv69
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds [4 x ptr], ptr %16, i64 0, i64 %25
@@ -607,7 +607,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds [4 x ptr], ptr %17, i64 0, i64 %27
   tail call void @jpeg_make_c_derived_tbl(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %24, ptr noundef nonnull %28)
-  %29 = getelementptr inbounds [4 x i32], ptr %18, i64 0, i64 %indvars.iv69
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv69
   store i32 0, ptr %29, align 4
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %30 = load i32, ptr %9, align 4
@@ -617,21 +617,21 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
-  %33 = getelementptr inbounds [4 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x ptr], ptr %12, i64 0, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load i32, ptr %37, align 8
   %or.cond = icmp ugt i32 %36, 3
   br i1 %or.cond, label %39, label %46
 
 39:                                               ; preds = %.lr.ph.split
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 50, ptr %41, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 44
   store i32 %36, ptr %43, align 4
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %44, align 8
@@ -644,10 +644,10 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 
 47:                                               ; preds = %46
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i32 50, ptr %49, align 8
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
   store i32 %38, ptr %51, align 4
   %52 = load ptr, ptr %0, align 8
   %53 = load ptr, ptr %52, align 8
@@ -687,7 +687,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 73:                                               ; preds = %69, %63
   %74 = phi ptr [ %72, %69 ], [ %67, %63 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2056) %74, i8 0, i64 2056, i1 false)
-  %75 = getelementptr inbounds [4 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv
   store i32 0, ptr %75, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %9, align 4
@@ -696,47 +696,47 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %73, %.lr.ph.split.us, %2
-  %79 = getelementptr inbounds i8, ptr %4, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 64, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 280
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %4, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %4, i64 68
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 0, ptr %84, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 496
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.preheader, label %._crit_edge
 
 .preheader:                                       ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 324
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %4, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 44
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv
   store i32 0, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %11, align 4
@@ -755,37 +755,37 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
   br label %22
 
 22:                                               ; preds = %._crit_edge, %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 368
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph36, label %._crit_edge37
 
 .lr.ph36:                                         ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 372
-  %27 = getelementptr inbounds i8, ptr %0, i64 328
-  %28 = getelementptr inbounds i8, ptr %4, i64 44
-  %29 = getelementptr inbounds i8, ptr %4, i64 136
-  %30 = getelementptr inbounds i8, ptr %4, i64 168
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %32
 
 32:                                               ; preds = %.lr.ph36, %htest_one_block.exit
   %indvars.iv41 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next42, %htest_one_block.exit ]
-  %33 = getelementptr inbounds [10 x i32], ptr %26, i64 0, i64 %indvars.iv41
+  %33 = getelementptr inbounds nuw [10 x i32], ptr %26, i64 0, i64 %indvars.iv41
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds [4 x ptr], ptr %27, i64 0, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv41
+  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv41
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %35
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds [4 x ptr], ptr %29, i64 0, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %37, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds [4 x ptr], ptr %30, i64 0, i64 %49
@@ -818,7 +818,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
 
 61:                                               ; preds = %._crit_edge.i
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store i32 6, ptr %63, align 8
   %64 = load ptr, ptr %0, align 8
   %65 = load ptr, ptr %64, align 8
@@ -827,17 +827,17 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
 
 66:                                               ; preds = %61, %._crit_edge.i
   %67 = zext nneg i32 %.040.lcssa.i to i64
-  %68 = getelementptr inbounds i64, ptr %46, i64 %67
+  %68 = getelementptr inbounds nuw i64, ptr %46, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = add nsw i64 %69, 1
   store i64 %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %51, i64 1920
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 1920
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %66
   %indvars.iv.i = phi i64 [ 1, %66 ], [ %indvars.iv.i.be, %.backedge.i.backedge ]
   %.03664.i = phi i32 [ 0, %66 ], [ %.03664.i.be, %.backedge.i.backedge ]
-  %72 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv.i
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i16, ptr %39, i64 %74
@@ -888,7 +888,7 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture nou
 
 92:                                               ; preds = %._crit_edge61.i
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
   store i32 6, ptr %94, align 8
   %95 = load ptr, ptr %0, align 8
   %96 = load ptr, ptr %95, align 8
@@ -947,30 +947,30 @@ htest_one_block.exit:                             ; preds = %.thread.i, %105, %1
 define internal void @finish_pass_gather(ptr noundef %0) #0 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca [4 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 496
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %5 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 324
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 328
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
-  %11 = getelementptr inbounds i8, ptr %5, i64 136
-  %12 = getelementptr inbounds i8, ptr %0, i64 160
-  %13 = getelementptr inbounds i8, ptr %5, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 168
   br label %14
 
 14:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %15 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %18 to i64
   %22 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %21
@@ -1039,41 +1039,41 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocaptu
   %3 = alloca [512 x i8], align 16
   %4 = alloca [512 x i8], align 16
   %5 = alloca %struct.working_state, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  %16 = getelementptr inbounds i8, ptr %5, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %emit_restart.exit, label %22
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %emit_restart.exit
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %7, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %28 = load i32, ptr %27, align 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  %.pn.in.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.pn.in.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pn.i.i = load i32, ptr %.pn.in.i.i, align 8
   %.057.i.i = sub i32 64, %.pn.i.i
   %.058.i.i = load i64, ptr %14, align 8
@@ -1093,11 +1093,11 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocaptu
   %32 = lshr i64 %.058.i.i, %indvars.iv.next.i.i
   %33 = trunc i64 %32 to i8
   store i8 %33, ptr %.16076.i.i, align 1
-  %34 = getelementptr inbounds i8, ptr %.16076.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.16076.i.i, i64 1
   store i8 0, ptr %34, align 1
   %35 = and i64 %32, 255
   %.not69.i.i = icmp eq i64 %35, 255
-  %.sroa.gep.i.i = getelementptr inbounds i8, ptr %.16076.i.i, i64 2
+  %.sroa.gep.i.i = getelementptr inbounds nuw i8, ptr %.16076.i.i, i64 2
   %.neg70.sroa.sel.i.i = select i1 %.not69.i.i, ptr %.sroa.gep.i.i, ptr %34
   %36 = icmp samesign ugt i64 %indvars.iv.i.i, 15
   br i1 %36, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !28
@@ -1121,11 +1121,11 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocaptu
   %44 = or i64 %41, %43
   %45 = trunc i64 %44 to i8
   store i8 %45, ptr %.160.lcssa.i.i, align 1
-  %46 = getelementptr inbounds i8, ptr %.160.lcssa.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.160.lcssa.i.i, i64 1
   store i8 0, ptr %46, align 1
   %47 = and i64 %44, 255
   %.not63.i.i = icmp eq i64 %47, 255
-  %.sroa.gep72.i.i = getelementptr inbounds i8, ptr %.160.lcssa.i.i, i64 2
+  %.sroa.gep72.i.i = getelementptr inbounds nuw i8, ptr %.160.lcssa.i.i, i64 2
   %.neg.sroa.sel.i.i = select i1 %.not63.i.i, ptr %.sroa.gep72.i.i, ptr %46
   br label %48
 
@@ -1166,9 +1166,9 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocaptu
 
 61:                                               ; preds = %.lr.ph83.i.i
   %62 = load ptr, ptr %16, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = call i32 %66(ptr noundef %62) #6
   %.not.i.i.i = icmp eq i32 %67, 0
@@ -1177,7 +1177,7 @@ define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocaptu
 dump_buffer.exit.i.i:                             ; preds = %61
   %68 = load ptr, ptr %64, align 8
   store ptr %68, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %13, align 8
   br label %71
@@ -1206,7 +1206,7 @@ flush_bits.exit.i:                                ; preds = %61
 .loopexit.i:                                      ; preds = %71, %75, %49
   %81 = phi ptr [ %.2.i.i, %75 ], [ %.pre.i, %49 ], [ %72, %71 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
-  %82 = getelementptr inbounds i8, ptr %81, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store ptr %82, ptr %5, align 8
   store i8 -1, ptr %81, align 1
   %83 = load i64, ptr %13, align 8
@@ -1216,16 +1216,16 @@ flush_bits.exit.i:                                ; preds = %61
   br i1 %85, label %87, label %.loopexit._crit_edge.i
 
 87:                                               ; preds = %.loopexit.i
-  %88 = getelementptr inbounds i8, ptr %86, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %91(ptr noundef %86) #6
   %.not.i.i = icmp eq i32 %92, 0
   br i1 %.not.i.i, label %emit_restart.exit.thread, label %dump_buffer.exit.i
 
 dump_buffer.exit.i:                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %94 = load i64, ptr %93, align 8
   br label %.loopexit._crit_edge.i
 
@@ -1235,7 +1235,7 @@ dump_buffer.exit.i:                               ; preds = %87
   %96 = load ptr, ptr %.in, align 8
   %97 = trunc i32 %28 to i8
   %98 = add i8 %97, -48
-  %99 = getelementptr inbounds i8, ptr %96, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 1
   store ptr %99, ptr %5, align 8
   store i8 %98, ptr %96, align 1
   %100 = add i64 %95, -1
@@ -1244,9 +1244,9 @@ dump_buffer.exit.i:                               ; preds = %87
   br i1 %101, label %102, label %111
 
 102:                                              ; preds = %.loopexit._crit_edge.i
-  %103 = getelementptr inbounds i8, ptr %86, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = call i32 %106(ptr noundef %86) #6
   %.not.i17.i = icmp eq i32 %107, 0
@@ -1255,28 +1255,28 @@ dump_buffer.exit.i:                               ; preds = %87
 dump_buffer.exit19.i:                             ; preds = %102
   %108 = load ptr, ptr %104, align 8
   store ptr %108, ptr %5, align 8
-  %109 = getelementptr inbounds i8, ptr %104, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %110 = load i64, ptr %109, align 8
   store i64 %110, ptr %13, align 8
   br label %111
 
 111:                                              ; preds = %dump_buffer.exit19.i, %.loopexit._crit_edge.i
-  %112 = getelementptr inbounds i8, ptr %86, i64 324
+  %112 = getelementptr inbounds nuw i8, ptr %86, i64 324
   %113 = load i32, ptr %112, align 4
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %.lr.ph.i, label %emit_restart.exit
 
 .lr.ph.i:                                         ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %5, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 28
   br label %116
 
 116:                                              ; preds = %116, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %116 ]
-  %117 = getelementptr inbounds [4 x i32], ptr %115, i64 0, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [4 x i32], ptr %115, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %117, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %118 = load ptr, ptr %16, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 324
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 324
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next.i, %121
@@ -1285,7 +1285,7 @@ dump_buffer.exit19.i:                             ; preds = %102
 emit_restart.exit:                                ; preds = %116, %111, %22, %2
   %123 = load i32, ptr %17, align 8
   %.not57 = icmp eq i32 %123, 0
-  %124 = getelementptr inbounds i8, ptr %0, i64 368
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %125 = load i32, ptr %124, align 8
   %126 = icmp sgt i32 %125, 0
   br i1 %.not57, label %.preheader, label %.preheader71
@@ -1294,11 +1294,11 @@ emit_restart.exit:                                ; preds = %116, %111, %22, %2
   br i1 %126, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader71
-  %127 = getelementptr inbounds i8, ptr %0, i64 372
-  %128 = getelementptr inbounds i8, ptr %0, i64 328
-  %129 = getelementptr inbounds i8, ptr %5, i64 28
-  %130 = getelementptr inbounds i8, ptr %7, i64 72
-  %131 = getelementptr inbounds i8, ptr %7, i64 104
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %132 = ptrtoint ptr %3 to i64
   br label %138
 
@@ -1306,30 +1306,30 @@ emit_restart.exit:                                ; preds = %116, %111, %22, %2
   br i1 %126, label %.lr.ph75, label %.loopexit
 
 .lr.ph75:                                         ; preds = %.preheader
-  %133 = getelementptr inbounds i8, ptr %0, i64 372
-  %134 = getelementptr inbounds i8, ptr %0, i64 328
-  %135 = getelementptr inbounds i8, ptr %5, i64 28
-  %136 = getelementptr inbounds i8, ptr %7, i64 72
-  %137 = getelementptr inbounds i8, ptr %7, i64 104
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 104
   br label %200
 
 138:                                              ; preds = %.lr.ph, %.loopexit70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit70 ]
-  %139 = getelementptr inbounds [10 x i32], ptr %127, i64 0, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [10 x i32], ptr %127, i64 0, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds [4 x ptr], ptr %128, i64 0, i64 %141
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds [4 x i32], ptr %129, i64 0, i64 %141
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %143, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 20
   %149 = load i32, ptr %148, align 4
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds [4 x ptr], ptr %130, i64 0, i64 %150
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %143, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %154 = load i32, ptr %153, align 8
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds [4 x ptr], ptr %131, i64 0, i64 %155
@@ -1370,9 +1370,9 @@ emit_restart.exit:                                ; preds = %116, %111, %22, %2
 
 172:                                              ; preds = %.lr.ph.i62
   %173 = load ptr, ptr %16, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 40
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
   %177 = load ptr, ptr %176, align 8
   %178 = call i32 %177(ptr noundef %173) #6
   %.not.i.i63 = icmp eq i32 %178, 0
@@ -1381,7 +1381,7 @@ emit_restart.exit:                                ; preds = %116, %111, %22, %2
 dump_buffer.exit.i64:                             ; preds = %172
   %179 = load ptr, ptr %175, align 8
   store ptr %179, ptr %5, align 8
-  %180 = getelementptr inbounds i8, ptr %175, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %181 = load i64, ptr %180, align 8
   store i64 %181, ptr %13, align 8
   br label %182
@@ -1424,21 +1424,21 @@ encode_one_block_simd.exit:                       ; preds = %172
 
 200:                                              ; preds = %.lr.ph75, %221
   %indvars.iv78 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next79, %221 ]
-  %201 = getelementptr inbounds [10 x i32], ptr %133, i64 0, i64 %indvars.iv78
+  %201 = getelementptr inbounds nuw [10 x i32], ptr %133, i64 0, i64 %indvars.iv78
   %202 = load i32, ptr %201, align 4
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds [4 x ptr], ptr %134, i64 0, i64 %203
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv78
+  %206 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv78
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds [4 x i32], ptr %135, i64 0, i64 %203
   %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds i8, ptr %205, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %205, i64 20
   %211 = load i32, ptr %210, align 4
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds [4 x ptr], ptr %136, i64 0, i64 %212
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %205, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %216 = load i32, ptr %215, align 8
   %217 = sext i32 %216 to i64
   %218 = getelementptr inbounds [4 x ptr], ptr %137, i64 0, i64 %217
@@ -1464,7 +1464,7 @@ encode_one_block_simd.exit:                       ; preds = %172
   store ptr %228, ptr %229, align 8
   %230 = load i64, ptr %13, align 8
   %231 = load ptr, ptr %8, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i64 %230, ptr %232, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %233 = load i32, ptr %20, align 8
@@ -1472,13 +1472,13 @@ encode_one_block_simd.exit:                       ; preds = %172
   br i1 %.not59, label %emit_restart.exit.thread, label %234
 
 234:                                              ; preds = %.loopexit
-  %235 = getelementptr inbounds i8, ptr %7, i64 64
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %236 = load i32, ptr %235, align 8
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %243
 
 238:                                              ; preds = %234
-  %239 = getelementptr inbounds i8, ptr %7, i64 68
+  %239 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %240 = load i32, ptr %239, align 4
   %241 = add nsw i32 %240, 1
   %242 = and i32 %241, 7
@@ -1500,18 +1500,18 @@ emit_restart.exit.thread:                         ; preds = %200, %102, %87, %fl
 define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %2 = alloca [512 x i8], align 16
   %.sroa.24 = alloca [20 x i8], align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 496
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.18.16.copyload19 = load i64, ptr %10, align 8
-  %.sroa.22.16..sroa_idx20 = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.22.16..sroa_idx20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sroa.22.16.copyload21 = load i32, ptr %.sroa.22.16..sroa_idx20, align 8
-  %.sroa.24.16..sroa_idx22 = getelementptr inbounds i8, ptr %4, i64 44
+  %.sroa.24.16..sroa_idx22 = getelementptr inbounds nuw i8, ptr %4, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.24, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.24.16..sroa_idx22, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2)
   %.057.i = sub i32 64, %.sroa.22.16.copyload21
@@ -1531,11 +1531,11 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %14 = lshr i64 %.sroa.18.16.copyload19, %indvars.iv.next.i
   %15 = trunc i64 %14 to i8
   store i8 %15, ptr %.16076.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.16076.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.16076.i, i64 1
   store i8 0, ptr %16, align 1
   %17 = and i64 %14, 255
   %.not69.i = icmp eq i64 %17, 255
-  %.sroa.gep.i = getelementptr inbounds i8, ptr %.16076.i, i64 2
+  %.sroa.gep.i = getelementptr inbounds nuw i8, ptr %.16076.i, i64 2
   %.neg70.sroa.sel.i = select i1 %.not69.i, ptr %.sroa.gep.i, ptr %16
   %18 = icmp samesign ugt i64 %indvars.iv.i, 15
   br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !28
@@ -1559,11 +1559,11 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
   %26 = or i64 %23, %25
   %27 = trunc i64 %26 to i8
   store i8 %27, ptr %.160.lcssa.i, align 1
-  %28 = getelementptr inbounds i8, ptr %.160.lcssa.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.160.lcssa.i, i64 1
   store i8 0, ptr %28, align 1
   %29 = and i64 %26, 255
   %.not63.i = icmp eq i64 %29, 255
-  %.sroa.gep72.i = getelementptr inbounds i8, ptr %.160.lcssa.i, i64 2
+  %.sroa.gep72.i = getelementptr inbounds nuw i8, ptr %.160.lcssa.i, i64 2
   %.neg.sroa.sel.i = select i1 %.not63.i, ptr %.sroa.gep72.i, ptr %28
   br label %30
 
@@ -1593,7 +1593,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
 
 38:                                               ; preds = %.lr.ph83.i
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 %41(ptr noundef %0) #6
   %.not.i.i = icmp eq i32 %42, 0
@@ -1601,7 +1601,7 @@ define internal void @finish_pass_huff(ptr noundef %0) #0 {
 
 dump_buffer.exit.i:                               ; preds = %38
   %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %45 = load i64, ptr %44, align 8
   br label %46
 
@@ -1627,7 +1627,7 @@ flush_bits.exit.thread:                           ; preds = %46, %48, %32
 51:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %2)
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store i32 24, ptr %53, align 8
   %54 = load ptr, ptr %0, align 8
   %55 = load ptr, ptr %54, align 8
@@ -1640,7 +1640,7 @@ flush_bits.exit.thread:                           ; preds = %46, %48, %32
   %57 = load ptr, ptr %5, align 8
   store ptr %.sroa.0.229, ptr %57, align 8
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %.sroa.9.228, ptr %59, align 8
   store i64 0, ptr %10, align 8
   store i32 64, ptr %.sroa.22.16..sroa_idx20, align 8
@@ -1655,16 +1655,16 @@ declare ptr @jpeg_alloc_huff_table(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [512 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %10, 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = load i64, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %17, 511
   br i1 %18, label %19, label %21
@@ -1691,7 +1691,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 
 34:                                               ; preds = %21
   %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 6, ptr %36, align 8
   %37 = load ptr, ptr %7, align 8
   %38 = load ptr, ptr %37, align 8
@@ -1705,12 +1705,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %42 = trunc i64 %notmask to i32
   %43 = xor i32 %42, -1
   %44 = and i32 %26, %43
-  %45 = getelementptr inbounds [256 x i32], ptr %3, i64 0, i64 %41
+  %45 = getelementptr inbounds nuw [256 x i32], ptr %3, i64 0, i64 %41
   %46 = load i32, ptr %45, align 4
   %47 = shl i32 %46, %31
   %48 = or i32 %47, %44
-  %49 = getelementptr inbounds i8, ptr %3, i64 1024
-  %50 = getelementptr inbounds [256 x i8], ptr %49, i64 0, i64 %41
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 1024
+  %50 = getelementptr inbounds nuw [256 x i8], ptr %49, i64 0, i64 %41
   %51 = load i8, ptr %50, align 1
   %52 = sext i8 %51 to i32
   %53 = add nsw i32 %52, %31
@@ -1735,108 +1735,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not, label %97, label %68
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds i8, ptr %.010914, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.010914, i64 1
   store i8 0, ptr %69, align 1
   %.not11868 = icmp eq i64 %66, 255
-  %.sroa.gep = getelementptr inbounds i8, ptr %.010914, i64 2
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %.010914, i64 2
   %.neg.sroa.sel = select i1 %.not11868, ptr %.sroa.gep, ptr %69
   %70 = lshr i64 %62, 48
   %71 = trunc i64 %70 to i8
   store i8 %71, ptr %.neg.sroa.sel, align 1
-  %.sroa.gep16197 = getelementptr inbounds i8, ptr %.010914, i64 3
+  %.sroa.gep16197 = getelementptr inbounds nuw i8, ptr %.010914, i64 3
   %.neg.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11868, ptr %.sroa.gep16197, ptr %.sroa.gep
   store i8 0, ptr %.neg.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %72 = and i64 %62, 71776119061217280
   %.not11869 = icmp eq i64 %72, 71776119061217280
   %.neg11870 = select i1 %.not11869, i64 2, i64 1
-  %73 = getelementptr inbounds i8, ptr %.neg.sroa.sel, i64 %.neg11870
+  %73 = getelementptr inbounds nuw i8, ptr %.neg.sroa.sel, i64 %.neg11870
   %74 = lshr i64 %62, 40
   %75 = trunc i64 %74 to i8
   store i8 %75, ptr %73, align 1
-  %76 = getelementptr inbounds i8, ptr %73, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store i8 0, ptr %76, align 1
   %77 = and i64 %62, 280375465082880
   %.not11871 = icmp eq i64 %77, 280375465082880
-  %.sroa.gep13838 = getelementptr inbounds i8, ptr %73, i64 2
+  %.sroa.gep13838 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %.neg11872.sroa.sel = select i1 %.not11871, ptr %.sroa.gep13838, ptr %76
   %78 = lshr i64 %62, 32
   %79 = trunc i64 %78 to i8
   store i8 %79, ptr %.neg11872.sroa.sel, align 1
-  %.sroa.gep15307 = getelementptr inbounds i8, ptr %73, i64 3
+  %.sroa.gep15307 = getelementptr inbounds nuw i8, ptr %73, i64 3
   %.neg11872.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11871, ptr %.sroa.gep15307, ptr %.sroa.gep13838
   store i8 0, ptr %.neg11872.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %80 = and i64 %62, 1095216660480
   %.not11873 = icmp eq i64 %80, 1095216660480
   %.neg11874 = select i1 %.not11873, i64 2, i64 1
-  %81 = getelementptr inbounds i8, ptr %.neg11872.sroa.sel, i64 %.neg11874
+  %81 = getelementptr inbounds nuw i8, ptr %.neg11872.sroa.sel, i64 %.neg11874
   %82 = lshr i64 %62, 24
   %83 = trunc i64 %82 to i8
   store i8 %83, ptr %81, align 1
-  %84 = getelementptr inbounds i8, ptr %81, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store i8 0, ptr %84, align 1
   %85 = and i64 %62, 4278190080
   %.not11875 = icmp eq i64 %85, 4278190080
-  %.sroa.gep13840 = getelementptr inbounds i8, ptr %81, i64 2
+  %.sroa.gep13840 = getelementptr inbounds nuw i8, ptr %81, i64 2
   %.neg11876.sroa.sel = select i1 %.not11875, ptr %.sroa.gep13840, ptr %84
   %86 = lshr i64 %62, 16
   %87 = trunc i64 %86 to i8
   store i8 %87, ptr %.neg11876.sroa.sel, align 1
-  %.sroa.gep15305 = getelementptr inbounds i8, ptr %81, i64 3
+  %.sroa.gep15305 = getelementptr inbounds nuw i8, ptr %81, i64 3
   %.neg11876.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11875, ptr %.sroa.gep15305, ptr %.sroa.gep13840
   store i8 0, ptr %.neg11876.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %88 = and i64 %62, 16711680
   %.not11877 = icmp eq i64 %88, 16711680
   %.neg11878 = select i1 %.not11877, i64 2, i64 1
-  %89 = getelementptr inbounds i8, ptr %.neg11876.sroa.sel, i64 %.neg11878
+  %89 = getelementptr inbounds nuw i8, ptr %.neg11876.sroa.sel, i64 %.neg11878
   %90 = lshr i64 %62, 8
   %91 = trunc i64 %90 to i8
   store i8 %91, ptr %89, align 1
-  %92 = getelementptr inbounds i8, ptr %89, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 1
   store i8 0, ptr %92, align 1
   %93 = and i64 %62, 65280
   %.not11879 = icmp eq i64 %93, 65280
-  %.sroa.gep13842 = getelementptr inbounds i8, ptr %89, i64 2
+  %.sroa.gep13842 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %.neg11880.sroa.sel = select i1 %.not11879, ptr %.sroa.gep13842, ptr %92
   %94 = trunc i64 %62 to i8
   store i8 %94, ptr %.neg11880.sroa.sel, align 1
-  %.sroa.gep15303 = getelementptr inbounds i8, ptr %89, i64 3
+  %.sroa.gep15303 = getelementptr inbounds nuw i8, ptr %89, i64 3
   %.neg11880.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11879, ptr %.sroa.gep15303, ptr %.sroa.gep13842
   store i8 0, ptr %.neg11880.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %95 = and i64 %62, 255
   %.not11881 = icmp eq i64 %95, 255
   %.neg11882 = select i1 %.not11881, i64 2, i64 1
-  %96 = getelementptr inbounds i8, ptr %.neg11880.sroa.sel, i64 %.neg11882
+  %96 = getelementptr inbounds nuw i8, ptr %.neg11880.sroa.sel, i64 %.neg11882
   br label %119
 
 97:                                               ; preds = %56
   %98 = lshr i64 %62, 48
   %99 = trunc i64 %98 to i8
-  %100 = getelementptr inbounds i8, ptr %.010914, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.010914, i64 1
   store i8 %99, ptr %100, align 1
   %101 = lshr i64 %62, 40
   %102 = trunc i64 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %.010914, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.010914, i64 2
   store i8 %102, ptr %103, align 1
   %104 = lshr i64 %62, 32
   %105 = trunc i64 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %.010914, i64 3
+  %106 = getelementptr inbounds nuw i8, ptr %.010914, i64 3
   store i8 %105, ptr %106, align 1
   %107 = lshr i64 %62, 24
   %108 = trunc i64 %107 to i8
-  %109 = getelementptr inbounds i8, ptr %.010914, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.010914, i64 4
   store i8 %108, ptr %109, align 1
   %110 = lshr i64 %62, 16
   %111 = trunc i64 %110 to i8
-  %112 = getelementptr inbounds i8, ptr %.010914, i64 5
+  %112 = getelementptr inbounds nuw i8, ptr %.010914, i64 5
   store i8 %111, ptr %112, align 1
   %113 = lshr i64 %62, 8
   %114 = trunc i64 %113 to i8
-  %115 = getelementptr inbounds i8, ptr %.010914, i64 6
+  %115 = getelementptr inbounds nuw i8, ptr %.010914, i64 6
   store i8 %114, ptr %115, align 1
   %116 = trunc i64 %62 to i8
-  %117 = getelementptr inbounds i8, ptr %.010914, i64 7
+  %117 = getelementptr inbounds nuw i8, ptr %.010914, i64 7
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %.010914, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.010914, i64 8
   br label %119
 
 119:                                              ; preds = %97, %68
@@ -1856,7 +1856,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.011294 = phi i32 [ %120, %119 ], [ %54, %122 ]
   %.011040 = phi i64 [ %121, %119 ], [ %126, %122 ]
   %.210916 = phi ptr [ %.110915, %119 ], [ %.010914, %122 ]
-  %128 = getelementptr inbounds i8, ptr %1, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %129 = load i16, ptr %128, align 2
   %130 = icmp eq i16 %129, 0
   br i1 %130, label %235, label %131
@@ -1876,7 +1876,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 141:                                              ; preds = %131
   %142 = load ptr, ptr %7, align 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
   store i32 6, ptr %144, align 8
   %145 = load ptr, ptr %7, align 8
   %146 = load ptr, ptr %145, align 8
@@ -1890,12 +1890,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %150 = trunc i64 %notmask11883 to i32
   %151 = xor i32 %150, -1
   %152 = and i32 %134, %151
-  %153 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %149
+  %153 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %149
   %154 = load i32, ptr %153, align 4
   %155 = shl i32 %154, %139
   %156 = or i32 %155, %152
-  %157 = getelementptr inbounds i8, ptr %4, i64 1024
-  %158 = getelementptr inbounds [256 x i8], ptr %157, i64 0, i64 %149
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %158 = getelementptr inbounds nuw [256 x i8], ptr %157, i64 0, i64 %149
   %159 = load i8, ptr %158, align 1
   %160 = sext i8 %159 to i32
   %161 = add nsw i32 %160, %139
@@ -1920,108 +1920,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11884, label %205, label %176
 
 176:                                              ; preds = %164
-  %177 = getelementptr inbounds i8, ptr %.210916, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %.210916, i64 1
   store i8 0, ptr %177, align 1
   %.not11885 = icmp eq i64 %174, 255
-  %.sroa.gep13844 = getelementptr inbounds i8, ptr %.210916, i64 2
+  %.sroa.gep13844 = getelementptr inbounds nuw i8, ptr %.210916, i64 2
   %.neg11886.sroa.sel = select i1 %.not11885, ptr %.sroa.gep13844, ptr %177
   %178 = lshr i64 %170, 48
   %179 = trunc i64 %178 to i8
   store i8 %179, ptr %.neg11886.sroa.sel, align 1
-  %.sroa.gep16195 = getelementptr inbounds i8, ptr %.210916, i64 3
+  %.sroa.gep16195 = getelementptr inbounds nuw i8, ptr %.210916, i64 3
   %.neg11886.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11885, ptr %.sroa.gep16195, ptr %.sroa.gep13844
   store i8 0, ptr %.neg11886.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %180 = and i64 %170, 71776119061217280
   %.not11887 = icmp eq i64 %180, 71776119061217280
   %.neg11888 = select i1 %.not11887, i64 2, i64 1
-  %181 = getelementptr inbounds i8, ptr %.neg11886.sroa.sel, i64 %.neg11888
+  %181 = getelementptr inbounds nuw i8, ptr %.neg11886.sroa.sel, i64 %.neg11888
   %182 = lshr i64 %170, 40
   %183 = trunc i64 %182 to i8
   store i8 %183, ptr %181, align 1
-  %184 = getelementptr inbounds i8, ptr %181, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 1
   store i8 0, ptr %184, align 1
   %185 = and i64 %170, 280375465082880
   %.not11889 = icmp eq i64 %185, 280375465082880
-  %.sroa.gep13846 = getelementptr inbounds i8, ptr %181, i64 2
+  %.sroa.gep13846 = getelementptr inbounds nuw i8, ptr %181, i64 2
   %.neg11890.sroa.sel = select i1 %.not11889, ptr %.sroa.gep13846, ptr %184
   %186 = lshr i64 %170, 32
   %187 = trunc i64 %186 to i8
   store i8 %187, ptr %.neg11890.sroa.sel, align 1
-  %.sroa.gep15313 = getelementptr inbounds i8, ptr %181, i64 3
+  %.sroa.gep15313 = getelementptr inbounds nuw i8, ptr %181, i64 3
   %.neg11890.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11889, ptr %.sroa.gep15313, ptr %.sroa.gep13846
   store i8 0, ptr %.neg11890.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %188 = and i64 %170, 1095216660480
   %.not11891 = icmp eq i64 %188, 1095216660480
   %.neg11892 = select i1 %.not11891, i64 2, i64 1
-  %189 = getelementptr inbounds i8, ptr %.neg11890.sroa.sel, i64 %.neg11892
+  %189 = getelementptr inbounds nuw i8, ptr %.neg11890.sroa.sel, i64 %.neg11892
   %190 = lshr i64 %170, 24
   %191 = trunc i64 %190 to i8
   store i8 %191, ptr %189, align 1
-  %192 = getelementptr inbounds i8, ptr %189, i64 1
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 1
   store i8 0, ptr %192, align 1
   %193 = and i64 %170, 4278190080
   %.not11893 = icmp eq i64 %193, 4278190080
-  %.sroa.gep13848 = getelementptr inbounds i8, ptr %189, i64 2
+  %.sroa.gep13848 = getelementptr inbounds nuw i8, ptr %189, i64 2
   %.neg11894.sroa.sel = select i1 %.not11893, ptr %.sroa.gep13848, ptr %192
   %194 = lshr i64 %170, 16
   %195 = trunc i64 %194 to i8
   store i8 %195, ptr %.neg11894.sroa.sel, align 1
-  %.sroa.gep15311 = getelementptr inbounds i8, ptr %189, i64 3
+  %.sroa.gep15311 = getelementptr inbounds nuw i8, ptr %189, i64 3
   %.neg11894.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11893, ptr %.sroa.gep15311, ptr %.sroa.gep13848
   store i8 0, ptr %.neg11894.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %196 = and i64 %170, 16711680
   %.not11895 = icmp eq i64 %196, 16711680
   %.neg11896 = select i1 %.not11895, i64 2, i64 1
-  %197 = getelementptr inbounds i8, ptr %.neg11894.sroa.sel, i64 %.neg11896
+  %197 = getelementptr inbounds nuw i8, ptr %.neg11894.sroa.sel, i64 %.neg11896
   %198 = lshr i64 %170, 8
   %199 = trunc i64 %198 to i8
   store i8 %199, ptr %197, align 1
-  %200 = getelementptr inbounds i8, ptr %197, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 1
   store i8 0, ptr %200, align 1
   %201 = and i64 %170, 65280
   %.not11897 = icmp eq i64 %201, 65280
-  %.sroa.gep13850 = getelementptr inbounds i8, ptr %197, i64 2
+  %.sroa.gep13850 = getelementptr inbounds nuw i8, ptr %197, i64 2
   %.neg11898.sroa.sel = select i1 %.not11897, ptr %.sroa.gep13850, ptr %200
   %202 = trunc i64 %170 to i8
   store i8 %202, ptr %.neg11898.sroa.sel, align 1
-  %.sroa.gep15309 = getelementptr inbounds i8, ptr %197, i64 3
+  %.sroa.gep15309 = getelementptr inbounds nuw i8, ptr %197, i64 3
   %.neg11898.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11897, ptr %.sroa.gep15309, ptr %.sroa.gep13850
   store i8 0, ptr %.neg11898.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %203 = and i64 %170, 255
   %.not11899 = icmp eq i64 %203, 255
   %.neg11900 = select i1 %.not11899, i64 2, i64 1
-  %204 = getelementptr inbounds i8, ptr %.neg11898.sroa.sel, i64 %.neg11900
+  %204 = getelementptr inbounds nuw i8, ptr %.neg11898.sroa.sel, i64 %.neg11900
   br label %227
 
 205:                                              ; preds = %164
   %206 = lshr i64 %170, 48
   %207 = trunc i64 %206 to i8
-  %208 = getelementptr inbounds i8, ptr %.210916, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %.210916, i64 1
   store i8 %207, ptr %208, align 1
   %209 = lshr i64 %170, 40
   %210 = trunc i64 %209 to i8
-  %211 = getelementptr inbounds i8, ptr %.210916, i64 2
+  %211 = getelementptr inbounds nuw i8, ptr %.210916, i64 2
   store i8 %210, ptr %211, align 1
   %212 = lshr i64 %170, 32
   %213 = trunc i64 %212 to i8
-  %214 = getelementptr inbounds i8, ptr %.210916, i64 3
+  %214 = getelementptr inbounds nuw i8, ptr %.210916, i64 3
   store i8 %213, ptr %214, align 1
   %215 = lshr i64 %170, 24
   %216 = trunc i64 %215 to i8
-  %217 = getelementptr inbounds i8, ptr %.210916, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %.210916, i64 4
   store i8 %216, ptr %217, align 1
   %218 = lshr i64 %170, 16
   %219 = trunc i64 %218 to i8
-  %220 = getelementptr inbounds i8, ptr %.210916, i64 5
+  %220 = getelementptr inbounds nuw i8, ptr %.210916, i64 5
   store i8 %219, ptr %220, align 1
   %221 = lshr i64 %170, 8
   %222 = trunc i64 %221 to i8
-  %223 = getelementptr inbounds i8, ptr %.210916, i64 6
+  %223 = getelementptr inbounds nuw i8, ptr %.210916, i64 6
   store i8 %222, ptr %223, align 1
   %224 = trunc i64 %170 to i8
-  %225 = getelementptr inbounds i8, ptr %.210916, i64 7
+  %225 = getelementptr inbounds nuw i8, ptr %.210916, i64 7
   store i8 %224, ptr %225, align 1
-  %226 = getelementptr inbounds i8, ptr %.210916, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %.210916, i64 8
   br label %227
 
 227:                                              ; preds = %205, %176
@@ -2042,7 +2042,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.111041 = phi i64 [ %.011040, %127 ], [ %229, %227 ], [ %234, %230 ]
   %.310917 = phi ptr [ %.210916, %127 ], [ %.710921, %227 ], [ %.210916, %230 ]
   %.010912 = phi i32 [ 16, %127 ], [ 0, %227 ], [ 0, %230 ]
-  %236 = getelementptr inbounds i8, ptr %1, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %237 = load i16, ptr %236, align 2
   %238 = icmp eq i16 %237, 0
   br i1 %238, label %239, label %241
@@ -2066,7 +2066,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 251:                                              ; preds = %241
   %252 = load ptr, ptr %7, align 8
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 40
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 40
   store i32 6, ptr %254, align 8
   %255 = load ptr, ptr %7, align 8
   %256 = load ptr, ptr %255, align 8
@@ -2082,12 +2082,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %262 = xor i32 %261, -1
   %263 = and i32 %244, %262
   %264 = zext nneg i32 %259 to i64
-  %265 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %264
+  %265 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %264
   %266 = load i32, ptr %265, align 4
   %267 = shl i32 %266, %249
   %268 = or i32 %267, %263
-  %269 = getelementptr inbounds i8, ptr %4, i64 1024
-  %270 = getelementptr inbounds [256 x i8], ptr %269, i64 0, i64 %264
+  %269 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %270 = getelementptr inbounds nuw [256 x i8], ptr %269, i64 0, i64 %264
   %271 = load i8, ptr %270, align 1
   %272 = sext i8 %271 to i32
   %273 = add nsw i32 %272, %249
@@ -2112,108 +2112,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11902, label %317, label %288
 
 288:                                              ; preds = %276
-  %289 = getelementptr inbounds i8, ptr %.310917, i64 1
+  %289 = getelementptr inbounds nuw i8, ptr %.310917, i64 1
   store i8 0, ptr %289, align 1
   %.not11903 = icmp eq i64 %286, 255
-  %.sroa.gep13852 = getelementptr inbounds i8, ptr %.310917, i64 2
+  %.sroa.gep13852 = getelementptr inbounds nuw i8, ptr %.310917, i64 2
   %.neg11904.sroa.sel = select i1 %.not11903, ptr %.sroa.gep13852, ptr %289
   %290 = lshr i64 %282, 48
   %291 = trunc i64 %290 to i8
   store i8 %291, ptr %.neg11904.sroa.sel, align 1
-  %.sroa.gep16193 = getelementptr inbounds i8, ptr %.310917, i64 3
+  %.sroa.gep16193 = getelementptr inbounds nuw i8, ptr %.310917, i64 3
   %.neg11904.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11903, ptr %.sroa.gep16193, ptr %.sroa.gep13852
   store i8 0, ptr %.neg11904.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %292 = and i64 %282, 71776119061217280
   %.not11905 = icmp eq i64 %292, 71776119061217280
   %.neg11906 = select i1 %.not11905, i64 2, i64 1
-  %293 = getelementptr inbounds i8, ptr %.neg11904.sroa.sel, i64 %.neg11906
+  %293 = getelementptr inbounds nuw i8, ptr %.neg11904.sroa.sel, i64 %.neg11906
   %294 = lshr i64 %282, 40
   %295 = trunc i64 %294 to i8
   store i8 %295, ptr %293, align 1
-  %296 = getelementptr inbounds i8, ptr %293, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 1
   store i8 0, ptr %296, align 1
   %297 = and i64 %282, 280375465082880
   %.not11907 = icmp eq i64 %297, 280375465082880
-  %.sroa.gep13854 = getelementptr inbounds i8, ptr %293, i64 2
+  %.sroa.gep13854 = getelementptr inbounds nuw i8, ptr %293, i64 2
   %.neg11908.sroa.sel = select i1 %.not11907, ptr %.sroa.gep13854, ptr %296
   %298 = lshr i64 %282, 32
   %299 = trunc i64 %298 to i8
   store i8 %299, ptr %.neg11908.sroa.sel, align 1
-  %.sroa.gep15319 = getelementptr inbounds i8, ptr %293, i64 3
+  %.sroa.gep15319 = getelementptr inbounds nuw i8, ptr %293, i64 3
   %.neg11908.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11907, ptr %.sroa.gep15319, ptr %.sroa.gep13854
   store i8 0, ptr %.neg11908.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %300 = and i64 %282, 1095216660480
   %.not11909 = icmp eq i64 %300, 1095216660480
   %.neg11910 = select i1 %.not11909, i64 2, i64 1
-  %301 = getelementptr inbounds i8, ptr %.neg11908.sroa.sel, i64 %.neg11910
+  %301 = getelementptr inbounds nuw i8, ptr %.neg11908.sroa.sel, i64 %.neg11910
   %302 = lshr i64 %282, 24
   %303 = trunc i64 %302 to i8
   store i8 %303, ptr %301, align 1
-  %304 = getelementptr inbounds i8, ptr %301, i64 1
+  %304 = getelementptr inbounds nuw i8, ptr %301, i64 1
   store i8 0, ptr %304, align 1
   %305 = and i64 %282, 4278190080
   %.not11911 = icmp eq i64 %305, 4278190080
-  %.sroa.gep13856 = getelementptr inbounds i8, ptr %301, i64 2
+  %.sroa.gep13856 = getelementptr inbounds nuw i8, ptr %301, i64 2
   %.neg11912.sroa.sel = select i1 %.not11911, ptr %.sroa.gep13856, ptr %304
   %306 = lshr i64 %282, 16
   %307 = trunc i64 %306 to i8
   store i8 %307, ptr %.neg11912.sroa.sel, align 1
-  %.sroa.gep15317 = getelementptr inbounds i8, ptr %301, i64 3
+  %.sroa.gep15317 = getelementptr inbounds nuw i8, ptr %301, i64 3
   %.neg11912.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11911, ptr %.sroa.gep15317, ptr %.sroa.gep13856
   store i8 0, ptr %.neg11912.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %308 = and i64 %282, 16711680
   %.not11913 = icmp eq i64 %308, 16711680
   %.neg11914 = select i1 %.not11913, i64 2, i64 1
-  %309 = getelementptr inbounds i8, ptr %.neg11912.sroa.sel, i64 %.neg11914
+  %309 = getelementptr inbounds nuw i8, ptr %.neg11912.sroa.sel, i64 %.neg11914
   %310 = lshr i64 %282, 8
   %311 = trunc i64 %310 to i8
   store i8 %311, ptr %309, align 1
-  %312 = getelementptr inbounds i8, ptr %309, i64 1
+  %312 = getelementptr inbounds nuw i8, ptr %309, i64 1
   store i8 0, ptr %312, align 1
   %313 = and i64 %282, 65280
   %.not11915 = icmp eq i64 %313, 65280
-  %.sroa.gep13858 = getelementptr inbounds i8, ptr %309, i64 2
+  %.sroa.gep13858 = getelementptr inbounds nuw i8, ptr %309, i64 2
   %.neg11916.sroa.sel = select i1 %.not11915, ptr %.sroa.gep13858, ptr %312
   %314 = trunc i64 %282 to i8
   store i8 %314, ptr %.neg11916.sroa.sel, align 1
-  %.sroa.gep15315 = getelementptr inbounds i8, ptr %309, i64 3
+  %.sroa.gep15315 = getelementptr inbounds nuw i8, ptr %309, i64 3
   %.neg11916.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11915, ptr %.sroa.gep15315, ptr %.sroa.gep13858
   store i8 0, ptr %.neg11916.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %315 = and i64 %282, 255
   %.not11917 = icmp eq i64 %315, 255
   %.neg11918 = select i1 %.not11917, i64 2, i64 1
-  %316 = getelementptr inbounds i8, ptr %.neg11916.sroa.sel, i64 %.neg11918
+  %316 = getelementptr inbounds nuw i8, ptr %.neg11916.sroa.sel, i64 %.neg11918
   br label %339
 
 317:                                              ; preds = %276
   %318 = lshr i64 %282, 48
   %319 = trunc i64 %318 to i8
-  %320 = getelementptr inbounds i8, ptr %.310917, i64 1
+  %320 = getelementptr inbounds nuw i8, ptr %.310917, i64 1
   store i8 %319, ptr %320, align 1
   %321 = lshr i64 %282, 40
   %322 = trunc i64 %321 to i8
-  %323 = getelementptr inbounds i8, ptr %.310917, i64 2
+  %323 = getelementptr inbounds nuw i8, ptr %.310917, i64 2
   store i8 %322, ptr %323, align 1
   %324 = lshr i64 %282, 32
   %325 = trunc i64 %324 to i8
-  %326 = getelementptr inbounds i8, ptr %.310917, i64 3
+  %326 = getelementptr inbounds nuw i8, ptr %.310917, i64 3
   store i8 %325, ptr %326, align 1
   %327 = lshr i64 %282, 24
   %328 = trunc i64 %327 to i8
-  %329 = getelementptr inbounds i8, ptr %.310917, i64 4
+  %329 = getelementptr inbounds nuw i8, ptr %.310917, i64 4
   store i8 %328, ptr %329, align 1
   %330 = lshr i64 %282, 16
   %331 = trunc i64 %330 to i8
-  %332 = getelementptr inbounds i8, ptr %.310917, i64 5
+  %332 = getelementptr inbounds nuw i8, ptr %.310917, i64 5
   store i8 %331, ptr %332, align 1
   %333 = lshr i64 %282, 8
   %334 = trunc i64 %333 to i8
-  %335 = getelementptr inbounds i8, ptr %.310917, i64 6
+  %335 = getelementptr inbounds nuw i8, ptr %.310917, i64 6
   store i8 %334, ptr %335, align 1
   %336 = trunc i64 %282 to i8
-  %337 = getelementptr inbounds i8, ptr %.310917, i64 7
+  %337 = getelementptr inbounds nuw i8, ptr %.310917, i64 7
   store i8 %336, ptr %337, align 1
-  %338 = getelementptr inbounds i8, ptr %.310917, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %.310917, i64 8
   br label %339
 
 339:                                              ; preds = %317, %288
@@ -2234,7 +2234,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.511045 = phi i64 [ %.111041, %239 ], [ %341, %339 ], [ %346, %342 ]
   %.910923 = phi ptr [ %.310917, %239 ], [ %.1310927, %339 ], [ %.310917, %342 ]
   %.2 = phi i32 [ %240, %239 ], [ 0, %339 ], [ 0, %342 ]
-  %348 = getelementptr inbounds i8, ptr %1, i64 32
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %349 = load i16, ptr %348, align 2
   %350 = icmp eq i16 %349, 0
   br i1 %350, label %351, label %353
@@ -2258,7 +2258,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 363:                                              ; preds = %353
   %364 = load ptr, ptr %7, align 8
   %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 40
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 40
   store i32 6, ptr %366, align 8
   %367 = load ptr, ptr %7, align 8
   %368 = load ptr, ptr %367, align 8
@@ -2274,12 +2274,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %374 = xor i32 %373, -1
   %375 = and i32 %356, %374
   %376 = zext nneg i32 %371 to i64
-  %377 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %376
+  %377 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %376
   %378 = load i32, ptr %377, align 4
   %379 = shl i32 %378, %361
   %380 = or i32 %379, %375
-  %381 = getelementptr inbounds i8, ptr %4, i64 1024
-  %382 = getelementptr inbounds [256 x i8], ptr %381, i64 0, i64 %376
+  %381 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %382 = getelementptr inbounds nuw [256 x i8], ptr %381, i64 0, i64 %376
   %383 = load i8, ptr %382, align 1
   %384 = sext i8 %383 to i32
   %385 = add nsw i32 %384, %361
@@ -2304,108 +2304,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11920, label %429, label %400
 
 400:                                              ; preds = %388
-  %401 = getelementptr inbounds i8, ptr %.910923, i64 1
+  %401 = getelementptr inbounds nuw i8, ptr %.910923, i64 1
   store i8 0, ptr %401, align 1
   %.not11921 = icmp eq i64 %398, 255
-  %.sroa.gep13860 = getelementptr inbounds i8, ptr %.910923, i64 2
+  %.sroa.gep13860 = getelementptr inbounds nuw i8, ptr %.910923, i64 2
   %.neg11922.sroa.sel = select i1 %.not11921, ptr %.sroa.gep13860, ptr %401
   %402 = lshr i64 %394, 48
   %403 = trunc i64 %402 to i8
   store i8 %403, ptr %.neg11922.sroa.sel, align 1
-  %.sroa.gep16191 = getelementptr inbounds i8, ptr %.910923, i64 3
+  %.sroa.gep16191 = getelementptr inbounds nuw i8, ptr %.910923, i64 3
   %.neg11922.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11921, ptr %.sroa.gep16191, ptr %.sroa.gep13860
   store i8 0, ptr %.neg11922.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %404 = and i64 %394, 71776119061217280
   %.not11923 = icmp eq i64 %404, 71776119061217280
   %.neg11924 = select i1 %.not11923, i64 2, i64 1
-  %405 = getelementptr inbounds i8, ptr %.neg11922.sroa.sel, i64 %.neg11924
+  %405 = getelementptr inbounds nuw i8, ptr %.neg11922.sroa.sel, i64 %.neg11924
   %406 = lshr i64 %394, 40
   %407 = trunc i64 %406 to i8
   store i8 %407, ptr %405, align 1
-  %408 = getelementptr inbounds i8, ptr %405, i64 1
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 1
   store i8 0, ptr %408, align 1
   %409 = and i64 %394, 280375465082880
   %.not11925 = icmp eq i64 %409, 280375465082880
-  %.sroa.gep13862 = getelementptr inbounds i8, ptr %405, i64 2
+  %.sroa.gep13862 = getelementptr inbounds nuw i8, ptr %405, i64 2
   %.neg11926.sroa.sel = select i1 %.not11925, ptr %.sroa.gep13862, ptr %408
   %410 = lshr i64 %394, 32
   %411 = trunc i64 %410 to i8
   store i8 %411, ptr %.neg11926.sroa.sel, align 1
-  %.sroa.gep15325 = getelementptr inbounds i8, ptr %405, i64 3
+  %.sroa.gep15325 = getelementptr inbounds nuw i8, ptr %405, i64 3
   %.neg11926.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11925, ptr %.sroa.gep15325, ptr %.sroa.gep13862
   store i8 0, ptr %.neg11926.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %412 = and i64 %394, 1095216660480
   %.not11927 = icmp eq i64 %412, 1095216660480
   %.neg11928 = select i1 %.not11927, i64 2, i64 1
-  %413 = getelementptr inbounds i8, ptr %.neg11926.sroa.sel, i64 %.neg11928
+  %413 = getelementptr inbounds nuw i8, ptr %.neg11926.sroa.sel, i64 %.neg11928
   %414 = lshr i64 %394, 24
   %415 = trunc i64 %414 to i8
   store i8 %415, ptr %413, align 1
-  %416 = getelementptr inbounds i8, ptr %413, i64 1
+  %416 = getelementptr inbounds nuw i8, ptr %413, i64 1
   store i8 0, ptr %416, align 1
   %417 = and i64 %394, 4278190080
   %.not11929 = icmp eq i64 %417, 4278190080
-  %.sroa.gep13864 = getelementptr inbounds i8, ptr %413, i64 2
+  %.sroa.gep13864 = getelementptr inbounds nuw i8, ptr %413, i64 2
   %.neg11930.sroa.sel = select i1 %.not11929, ptr %.sroa.gep13864, ptr %416
   %418 = lshr i64 %394, 16
   %419 = trunc i64 %418 to i8
   store i8 %419, ptr %.neg11930.sroa.sel, align 1
-  %.sroa.gep15323 = getelementptr inbounds i8, ptr %413, i64 3
+  %.sroa.gep15323 = getelementptr inbounds nuw i8, ptr %413, i64 3
   %.neg11930.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11929, ptr %.sroa.gep15323, ptr %.sroa.gep13864
   store i8 0, ptr %.neg11930.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %420 = and i64 %394, 16711680
   %.not11931 = icmp eq i64 %420, 16711680
   %.neg11932 = select i1 %.not11931, i64 2, i64 1
-  %421 = getelementptr inbounds i8, ptr %.neg11930.sroa.sel, i64 %.neg11932
+  %421 = getelementptr inbounds nuw i8, ptr %.neg11930.sroa.sel, i64 %.neg11932
   %422 = lshr i64 %394, 8
   %423 = trunc i64 %422 to i8
   store i8 %423, ptr %421, align 1
-  %424 = getelementptr inbounds i8, ptr %421, i64 1
+  %424 = getelementptr inbounds nuw i8, ptr %421, i64 1
   store i8 0, ptr %424, align 1
   %425 = and i64 %394, 65280
   %.not11933 = icmp eq i64 %425, 65280
-  %.sroa.gep13866 = getelementptr inbounds i8, ptr %421, i64 2
+  %.sroa.gep13866 = getelementptr inbounds nuw i8, ptr %421, i64 2
   %.neg11934.sroa.sel = select i1 %.not11933, ptr %.sroa.gep13866, ptr %424
   %426 = trunc i64 %394 to i8
   store i8 %426, ptr %.neg11934.sroa.sel, align 1
-  %.sroa.gep15321 = getelementptr inbounds i8, ptr %421, i64 3
+  %.sroa.gep15321 = getelementptr inbounds nuw i8, ptr %421, i64 3
   %.neg11934.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11933, ptr %.sroa.gep15321, ptr %.sroa.gep13866
   store i8 0, ptr %.neg11934.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %427 = and i64 %394, 255
   %.not11935 = icmp eq i64 %427, 255
   %.neg11936 = select i1 %.not11935, i64 2, i64 1
-  %428 = getelementptr inbounds i8, ptr %.neg11934.sroa.sel, i64 %.neg11936
+  %428 = getelementptr inbounds nuw i8, ptr %.neg11934.sroa.sel, i64 %.neg11936
   br label %451
 
 429:                                              ; preds = %388
   %430 = lshr i64 %394, 48
   %431 = trunc i64 %430 to i8
-  %432 = getelementptr inbounds i8, ptr %.910923, i64 1
+  %432 = getelementptr inbounds nuw i8, ptr %.910923, i64 1
   store i8 %431, ptr %432, align 1
   %433 = lshr i64 %394, 40
   %434 = trunc i64 %433 to i8
-  %435 = getelementptr inbounds i8, ptr %.910923, i64 2
+  %435 = getelementptr inbounds nuw i8, ptr %.910923, i64 2
   store i8 %434, ptr %435, align 1
   %436 = lshr i64 %394, 32
   %437 = trunc i64 %436 to i8
-  %438 = getelementptr inbounds i8, ptr %.910923, i64 3
+  %438 = getelementptr inbounds nuw i8, ptr %.910923, i64 3
   store i8 %437, ptr %438, align 1
   %439 = lshr i64 %394, 24
   %440 = trunc i64 %439 to i8
-  %441 = getelementptr inbounds i8, ptr %.910923, i64 4
+  %441 = getelementptr inbounds nuw i8, ptr %.910923, i64 4
   store i8 %440, ptr %441, align 1
   %442 = lshr i64 %394, 16
   %443 = trunc i64 %442 to i8
-  %444 = getelementptr inbounds i8, ptr %.910923, i64 5
+  %444 = getelementptr inbounds nuw i8, ptr %.910923, i64 5
   store i8 %443, ptr %444, align 1
   %445 = lshr i64 %394, 8
   %446 = trunc i64 %445 to i8
-  %447 = getelementptr inbounds i8, ptr %.910923, i64 6
+  %447 = getelementptr inbounds nuw i8, ptr %.910923, i64 6
   store i8 %446, ptr %447, align 1
   %448 = trunc i64 %394 to i8
-  %449 = getelementptr inbounds i8, ptr %.910923, i64 7
+  %449 = getelementptr inbounds nuw i8, ptr %.910923, i64 7
   store i8 %448, ptr %449, align 1
-  %450 = getelementptr inbounds i8, ptr %.910923, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %.910923, i64 8
   br label %451
 
 451:                                              ; preds = %429, %400
@@ -2426,7 +2426,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.911049 = phi i64 [ %.511045, %351 ], [ %453, %451 ], [ %458, %454 ]
   %.1510929 = phi ptr [ %.910923, %351 ], [ %.1910933, %451 ], [ %.910923, %454 ]
   %.4 = phi i32 [ %352, %351 ], [ 0, %451 ], [ 0, %454 ]
-  %460 = getelementptr inbounds i8, ptr %1, i64 18
+  %460 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %461 = load i16, ptr %460, align 2
   %462 = icmp eq i16 %461, 0
   br i1 %462, label %463, label %465
@@ -2450,7 +2450,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 475:                                              ; preds = %465
   %476 = load ptr, ptr %7, align 8
   %477 = load ptr, ptr %476, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 40
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 40
   store i32 6, ptr %478, align 8
   %479 = load ptr, ptr %7, align 8
   %480 = load ptr, ptr %479, align 8
@@ -2466,12 +2466,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %486 = xor i32 %485, -1
   %487 = and i32 %468, %486
   %488 = zext nneg i32 %483 to i64
-  %489 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %488
+  %489 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %488
   %490 = load i32, ptr %489, align 4
   %491 = shl i32 %490, %473
   %492 = or i32 %491, %487
-  %493 = getelementptr inbounds i8, ptr %4, i64 1024
-  %494 = getelementptr inbounds [256 x i8], ptr %493, i64 0, i64 %488
+  %493 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %494 = getelementptr inbounds nuw [256 x i8], ptr %493, i64 0, i64 %488
   %495 = load i8, ptr %494, align 1
   %496 = sext i8 %495 to i32
   %497 = add nsw i32 %496, %473
@@ -2496,108 +2496,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11938, label %541, label %512
 
 512:                                              ; preds = %500
-  %513 = getelementptr inbounds i8, ptr %.1510929, i64 1
+  %513 = getelementptr inbounds nuw i8, ptr %.1510929, i64 1
   store i8 0, ptr %513, align 1
   %.not11939 = icmp eq i64 %510, 255
-  %.sroa.gep13868 = getelementptr inbounds i8, ptr %.1510929, i64 2
+  %.sroa.gep13868 = getelementptr inbounds nuw i8, ptr %.1510929, i64 2
   %.neg11940.sroa.sel = select i1 %.not11939, ptr %.sroa.gep13868, ptr %513
   %514 = lshr i64 %506, 48
   %515 = trunc i64 %514 to i8
   store i8 %515, ptr %.neg11940.sroa.sel, align 1
-  %.sroa.gep16189 = getelementptr inbounds i8, ptr %.1510929, i64 3
+  %.sroa.gep16189 = getelementptr inbounds nuw i8, ptr %.1510929, i64 3
   %.neg11940.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11939, ptr %.sroa.gep16189, ptr %.sroa.gep13868
   store i8 0, ptr %.neg11940.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %516 = and i64 %506, 71776119061217280
   %.not11941 = icmp eq i64 %516, 71776119061217280
   %.neg11942 = select i1 %.not11941, i64 2, i64 1
-  %517 = getelementptr inbounds i8, ptr %.neg11940.sroa.sel, i64 %.neg11942
+  %517 = getelementptr inbounds nuw i8, ptr %.neg11940.sroa.sel, i64 %.neg11942
   %518 = lshr i64 %506, 40
   %519 = trunc i64 %518 to i8
   store i8 %519, ptr %517, align 1
-  %520 = getelementptr inbounds i8, ptr %517, i64 1
+  %520 = getelementptr inbounds nuw i8, ptr %517, i64 1
   store i8 0, ptr %520, align 1
   %521 = and i64 %506, 280375465082880
   %.not11943 = icmp eq i64 %521, 280375465082880
-  %.sroa.gep13870 = getelementptr inbounds i8, ptr %517, i64 2
+  %.sroa.gep13870 = getelementptr inbounds nuw i8, ptr %517, i64 2
   %.neg11944.sroa.sel = select i1 %.not11943, ptr %.sroa.gep13870, ptr %520
   %522 = lshr i64 %506, 32
   %523 = trunc i64 %522 to i8
   store i8 %523, ptr %.neg11944.sroa.sel, align 1
-  %.sroa.gep15331 = getelementptr inbounds i8, ptr %517, i64 3
+  %.sroa.gep15331 = getelementptr inbounds nuw i8, ptr %517, i64 3
   %.neg11944.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11943, ptr %.sroa.gep15331, ptr %.sroa.gep13870
   store i8 0, ptr %.neg11944.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %524 = and i64 %506, 1095216660480
   %.not11945 = icmp eq i64 %524, 1095216660480
   %.neg11946 = select i1 %.not11945, i64 2, i64 1
-  %525 = getelementptr inbounds i8, ptr %.neg11944.sroa.sel, i64 %.neg11946
+  %525 = getelementptr inbounds nuw i8, ptr %.neg11944.sroa.sel, i64 %.neg11946
   %526 = lshr i64 %506, 24
   %527 = trunc i64 %526 to i8
   store i8 %527, ptr %525, align 1
-  %528 = getelementptr inbounds i8, ptr %525, i64 1
+  %528 = getelementptr inbounds nuw i8, ptr %525, i64 1
   store i8 0, ptr %528, align 1
   %529 = and i64 %506, 4278190080
   %.not11947 = icmp eq i64 %529, 4278190080
-  %.sroa.gep13872 = getelementptr inbounds i8, ptr %525, i64 2
+  %.sroa.gep13872 = getelementptr inbounds nuw i8, ptr %525, i64 2
   %.neg11948.sroa.sel = select i1 %.not11947, ptr %.sroa.gep13872, ptr %528
   %530 = lshr i64 %506, 16
   %531 = trunc i64 %530 to i8
   store i8 %531, ptr %.neg11948.sroa.sel, align 1
-  %.sroa.gep15329 = getelementptr inbounds i8, ptr %525, i64 3
+  %.sroa.gep15329 = getelementptr inbounds nuw i8, ptr %525, i64 3
   %.neg11948.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11947, ptr %.sroa.gep15329, ptr %.sroa.gep13872
   store i8 0, ptr %.neg11948.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %532 = and i64 %506, 16711680
   %.not11949 = icmp eq i64 %532, 16711680
   %.neg11950 = select i1 %.not11949, i64 2, i64 1
-  %533 = getelementptr inbounds i8, ptr %.neg11948.sroa.sel, i64 %.neg11950
+  %533 = getelementptr inbounds nuw i8, ptr %.neg11948.sroa.sel, i64 %.neg11950
   %534 = lshr i64 %506, 8
   %535 = trunc i64 %534 to i8
   store i8 %535, ptr %533, align 1
-  %536 = getelementptr inbounds i8, ptr %533, i64 1
+  %536 = getelementptr inbounds nuw i8, ptr %533, i64 1
   store i8 0, ptr %536, align 1
   %537 = and i64 %506, 65280
   %.not11951 = icmp eq i64 %537, 65280
-  %.sroa.gep13874 = getelementptr inbounds i8, ptr %533, i64 2
+  %.sroa.gep13874 = getelementptr inbounds nuw i8, ptr %533, i64 2
   %.neg11952.sroa.sel = select i1 %.not11951, ptr %.sroa.gep13874, ptr %536
   %538 = trunc i64 %506 to i8
   store i8 %538, ptr %.neg11952.sroa.sel, align 1
-  %.sroa.gep15327 = getelementptr inbounds i8, ptr %533, i64 3
+  %.sroa.gep15327 = getelementptr inbounds nuw i8, ptr %533, i64 3
   %.neg11952.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11951, ptr %.sroa.gep15327, ptr %.sroa.gep13874
   store i8 0, ptr %.neg11952.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %539 = and i64 %506, 255
   %.not11953 = icmp eq i64 %539, 255
   %.neg11954 = select i1 %.not11953, i64 2, i64 1
-  %540 = getelementptr inbounds i8, ptr %.neg11952.sroa.sel, i64 %.neg11954
+  %540 = getelementptr inbounds nuw i8, ptr %.neg11952.sroa.sel, i64 %.neg11954
   br label %563
 
 541:                                              ; preds = %500
   %542 = lshr i64 %506, 48
   %543 = trunc i64 %542 to i8
-  %544 = getelementptr inbounds i8, ptr %.1510929, i64 1
+  %544 = getelementptr inbounds nuw i8, ptr %.1510929, i64 1
   store i8 %543, ptr %544, align 1
   %545 = lshr i64 %506, 40
   %546 = trunc i64 %545 to i8
-  %547 = getelementptr inbounds i8, ptr %.1510929, i64 2
+  %547 = getelementptr inbounds nuw i8, ptr %.1510929, i64 2
   store i8 %546, ptr %547, align 1
   %548 = lshr i64 %506, 32
   %549 = trunc i64 %548 to i8
-  %550 = getelementptr inbounds i8, ptr %.1510929, i64 3
+  %550 = getelementptr inbounds nuw i8, ptr %.1510929, i64 3
   store i8 %549, ptr %550, align 1
   %551 = lshr i64 %506, 24
   %552 = trunc i64 %551 to i8
-  %553 = getelementptr inbounds i8, ptr %.1510929, i64 4
+  %553 = getelementptr inbounds nuw i8, ptr %.1510929, i64 4
   store i8 %552, ptr %553, align 1
   %554 = lshr i64 %506, 16
   %555 = trunc i64 %554 to i8
-  %556 = getelementptr inbounds i8, ptr %.1510929, i64 5
+  %556 = getelementptr inbounds nuw i8, ptr %.1510929, i64 5
   store i8 %555, ptr %556, align 1
   %557 = lshr i64 %506, 8
   %558 = trunc i64 %557 to i8
-  %559 = getelementptr inbounds i8, ptr %.1510929, i64 6
+  %559 = getelementptr inbounds nuw i8, ptr %.1510929, i64 6
   store i8 %558, ptr %559, align 1
   %560 = trunc i64 %506 to i8
-  %561 = getelementptr inbounds i8, ptr %.1510929, i64 7
+  %561 = getelementptr inbounds nuw i8, ptr %.1510929, i64 7
   store i8 %560, ptr %561, align 1
-  %562 = getelementptr inbounds i8, ptr %.1510929, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %.1510929, i64 8
   br label %563
 
 563:                                              ; preds = %541, %512
@@ -2618,7 +2618,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.1311053 = phi i64 [ %.911049, %463 ], [ %565, %563 ], [ %570, %566 ]
   %.2110935 = phi ptr [ %.1510929, %463 ], [ %.2510939, %563 ], [ %.1510929, %566 ]
   %.6 = phi i32 [ %464, %463 ], [ 0, %563 ], [ 0, %566 ]
-  %572 = getelementptr inbounds i8, ptr %1, i64 4
+  %572 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %573 = load i16, ptr %572, align 2
   %574 = icmp eq i16 %573, 0
   br i1 %574, label %575, label %577
@@ -2642,7 +2642,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 587:                                              ; preds = %577
   %588 = load ptr, ptr %7, align 8
   %589 = load ptr, ptr %588, align 8
-  %590 = getelementptr inbounds i8, ptr %589, i64 40
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 40
   store i32 6, ptr %590, align 8
   %591 = load ptr, ptr %7, align 8
   %592 = load ptr, ptr %591, align 8
@@ -2658,12 +2658,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %598 = xor i32 %597, -1
   %599 = and i32 %580, %598
   %600 = zext nneg i32 %595 to i64
-  %601 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %600
   %602 = load i32, ptr %601, align 4
   %603 = shl i32 %602, %585
   %604 = or i32 %603, %599
-  %605 = getelementptr inbounds i8, ptr %4, i64 1024
-  %606 = getelementptr inbounds [256 x i8], ptr %605, i64 0, i64 %600
+  %605 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %606 = getelementptr inbounds nuw [256 x i8], ptr %605, i64 0, i64 %600
   %607 = load i8, ptr %606, align 1
   %608 = sext i8 %607 to i32
   %609 = add nsw i32 %608, %585
@@ -2688,108 +2688,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11956, label %653, label %624
 
 624:                                              ; preds = %612
-  %625 = getelementptr inbounds i8, ptr %.2110935, i64 1
+  %625 = getelementptr inbounds nuw i8, ptr %.2110935, i64 1
   store i8 0, ptr %625, align 1
   %.not11957 = icmp eq i64 %622, 255
-  %.sroa.gep13876 = getelementptr inbounds i8, ptr %.2110935, i64 2
+  %.sroa.gep13876 = getelementptr inbounds nuw i8, ptr %.2110935, i64 2
   %.neg11958.sroa.sel = select i1 %.not11957, ptr %.sroa.gep13876, ptr %625
   %626 = lshr i64 %618, 48
   %627 = trunc i64 %626 to i8
   store i8 %627, ptr %.neg11958.sroa.sel, align 1
-  %.sroa.gep16187 = getelementptr inbounds i8, ptr %.2110935, i64 3
+  %.sroa.gep16187 = getelementptr inbounds nuw i8, ptr %.2110935, i64 3
   %.neg11958.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11957, ptr %.sroa.gep16187, ptr %.sroa.gep13876
   store i8 0, ptr %.neg11958.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %628 = and i64 %618, 71776119061217280
   %.not11959 = icmp eq i64 %628, 71776119061217280
   %.neg11960 = select i1 %.not11959, i64 2, i64 1
-  %629 = getelementptr inbounds i8, ptr %.neg11958.sroa.sel, i64 %.neg11960
+  %629 = getelementptr inbounds nuw i8, ptr %.neg11958.sroa.sel, i64 %.neg11960
   %630 = lshr i64 %618, 40
   %631 = trunc i64 %630 to i8
   store i8 %631, ptr %629, align 1
-  %632 = getelementptr inbounds i8, ptr %629, i64 1
+  %632 = getelementptr inbounds nuw i8, ptr %629, i64 1
   store i8 0, ptr %632, align 1
   %633 = and i64 %618, 280375465082880
   %.not11961 = icmp eq i64 %633, 280375465082880
-  %.sroa.gep13878 = getelementptr inbounds i8, ptr %629, i64 2
+  %.sroa.gep13878 = getelementptr inbounds nuw i8, ptr %629, i64 2
   %.neg11962.sroa.sel = select i1 %.not11961, ptr %.sroa.gep13878, ptr %632
   %634 = lshr i64 %618, 32
   %635 = trunc i64 %634 to i8
   store i8 %635, ptr %.neg11962.sroa.sel, align 1
-  %.sroa.gep15337 = getelementptr inbounds i8, ptr %629, i64 3
+  %.sroa.gep15337 = getelementptr inbounds nuw i8, ptr %629, i64 3
   %.neg11962.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11961, ptr %.sroa.gep15337, ptr %.sroa.gep13878
   store i8 0, ptr %.neg11962.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %636 = and i64 %618, 1095216660480
   %.not11963 = icmp eq i64 %636, 1095216660480
   %.neg11964 = select i1 %.not11963, i64 2, i64 1
-  %637 = getelementptr inbounds i8, ptr %.neg11962.sroa.sel, i64 %.neg11964
+  %637 = getelementptr inbounds nuw i8, ptr %.neg11962.sroa.sel, i64 %.neg11964
   %638 = lshr i64 %618, 24
   %639 = trunc i64 %638 to i8
   store i8 %639, ptr %637, align 1
-  %640 = getelementptr inbounds i8, ptr %637, i64 1
+  %640 = getelementptr inbounds nuw i8, ptr %637, i64 1
   store i8 0, ptr %640, align 1
   %641 = and i64 %618, 4278190080
   %.not11965 = icmp eq i64 %641, 4278190080
-  %.sroa.gep13880 = getelementptr inbounds i8, ptr %637, i64 2
+  %.sroa.gep13880 = getelementptr inbounds nuw i8, ptr %637, i64 2
   %.neg11966.sroa.sel = select i1 %.not11965, ptr %.sroa.gep13880, ptr %640
   %642 = lshr i64 %618, 16
   %643 = trunc i64 %642 to i8
   store i8 %643, ptr %.neg11966.sroa.sel, align 1
-  %.sroa.gep15335 = getelementptr inbounds i8, ptr %637, i64 3
+  %.sroa.gep15335 = getelementptr inbounds nuw i8, ptr %637, i64 3
   %.neg11966.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11965, ptr %.sroa.gep15335, ptr %.sroa.gep13880
   store i8 0, ptr %.neg11966.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %644 = and i64 %618, 16711680
   %.not11967 = icmp eq i64 %644, 16711680
   %.neg11968 = select i1 %.not11967, i64 2, i64 1
-  %645 = getelementptr inbounds i8, ptr %.neg11966.sroa.sel, i64 %.neg11968
+  %645 = getelementptr inbounds nuw i8, ptr %.neg11966.sroa.sel, i64 %.neg11968
   %646 = lshr i64 %618, 8
   %647 = trunc i64 %646 to i8
   store i8 %647, ptr %645, align 1
-  %648 = getelementptr inbounds i8, ptr %645, i64 1
+  %648 = getelementptr inbounds nuw i8, ptr %645, i64 1
   store i8 0, ptr %648, align 1
   %649 = and i64 %618, 65280
   %.not11969 = icmp eq i64 %649, 65280
-  %.sroa.gep13882 = getelementptr inbounds i8, ptr %645, i64 2
+  %.sroa.gep13882 = getelementptr inbounds nuw i8, ptr %645, i64 2
   %.neg11970.sroa.sel = select i1 %.not11969, ptr %.sroa.gep13882, ptr %648
   %650 = trunc i64 %618 to i8
   store i8 %650, ptr %.neg11970.sroa.sel, align 1
-  %.sroa.gep15333 = getelementptr inbounds i8, ptr %645, i64 3
+  %.sroa.gep15333 = getelementptr inbounds nuw i8, ptr %645, i64 3
   %.neg11970.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11969, ptr %.sroa.gep15333, ptr %.sroa.gep13882
   store i8 0, ptr %.neg11970.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %651 = and i64 %618, 255
   %.not11971 = icmp eq i64 %651, 255
   %.neg11972 = select i1 %.not11971, i64 2, i64 1
-  %652 = getelementptr inbounds i8, ptr %.neg11970.sroa.sel, i64 %.neg11972
+  %652 = getelementptr inbounds nuw i8, ptr %.neg11970.sroa.sel, i64 %.neg11972
   br label %675
 
 653:                                              ; preds = %612
   %654 = lshr i64 %618, 48
   %655 = trunc i64 %654 to i8
-  %656 = getelementptr inbounds i8, ptr %.2110935, i64 1
+  %656 = getelementptr inbounds nuw i8, ptr %.2110935, i64 1
   store i8 %655, ptr %656, align 1
   %657 = lshr i64 %618, 40
   %658 = trunc i64 %657 to i8
-  %659 = getelementptr inbounds i8, ptr %.2110935, i64 2
+  %659 = getelementptr inbounds nuw i8, ptr %.2110935, i64 2
   store i8 %658, ptr %659, align 1
   %660 = lshr i64 %618, 32
   %661 = trunc i64 %660 to i8
-  %662 = getelementptr inbounds i8, ptr %.2110935, i64 3
+  %662 = getelementptr inbounds nuw i8, ptr %.2110935, i64 3
   store i8 %661, ptr %662, align 1
   %663 = lshr i64 %618, 24
   %664 = trunc i64 %663 to i8
-  %665 = getelementptr inbounds i8, ptr %.2110935, i64 4
+  %665 = getelementptr inbounds nuw i8, ptr %.2110935, i64 4
   store i8 %664, ptr %665, align 1
   %666 = lshr i64 %618, 16
   %667 = trunc i64 %666 to i8
-  %668 = getelementptr inbounds i8, ptr %.2110935, i64 5
+  %668 = getelementptr inbounds nuw i8, ptr %.2110935, i64 5
   store i8 %667, ptr %668, align 1
   %669 = lshr i64 %618, 8
   %670 = trunc i64 %669 to i8
-  %671 = getelementptr inbounds i8, ptr %.2110935, i64 6
+  %671 = getelementptr inbounds nuw i8, ptr %.2110935, i64 6
   store i8 %670, ptr %671, align 1
   %672 = trunc i64 %618 to i8
-  %673 = getelementptr inbounds i8, ptr %.2110935, i64 7
+  %673 = getelementptr inbounds nuw i8, ptr %.2110935, i64 7
   store i8 %672, ptr %673, align 1
-  %674 = getelementptr inbounds i8, ptr %.2110935, i64 8
+  %674 = getelementptr inbounds nuw i8, ptr %.2110935, i64 8
   br label %675
 
 675:                                              ; preds = %653, %624
@@ -2810,7 +2810,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.1711057 = phi i64 [ %.1311053, %575 ], [ %677, %675 ], [ %682, %678 ]
   %.2710941 = phi ptr [ %.2110935, %575 ], [ %.3110945, %675 ], [ %.2110935, %678 ]
   %.8 = phi i32 [ %576, %575 ], [ 0, %675 ], [ 0, %678 ]
-  %684 = getelementptr inbounds i8, ptr %1, i64 6
+  %684 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %685 = load i16, ptr %684, align 2
   %686 = icmp eq i16 %685, 0
   br i1 %686, label %687, label %689
@@ -2834,7 +2834,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 699:                                              ; preds = %689
   %700 = load ptr, ptr %7, align 8
   %701 = load ptr, ptr %700, align 8
-  %702 = getelementptr inbounds i8, ptr %701, i64 40
+  %702 = getelementptr inbounds nuw i8, ptr %701, i64 40
   store i32 6, ptr %702, align 8
   %703 = load ptr, ptr %7, align 8
   %704 = load ptr, ptr %703, align 8
@@ -2850,12 +2850,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %710 = xor i32 %709, -1
   %711 = and i32 %692, %710
   %712 = zext nneg i32 %707 to i64
-  %713 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %712
+  %713 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %712
   %714 = load i32, ptr %713, align 4
   %715 = shl i32 %714, %697
   %716 = or i32 %715, %711
-  %717 = getelementptr inbounds i8, ptr %4, i64 1024
-  %718 = getelementptr inbounds [256 x i8], ptr %717, i64 0, i64 %712
+  %717 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %718 = getelementptr inbounds nuw [256 x i8], ptr %717, i64 0, i64 %712
   %719 = load i8, ptr %718, align 1
   %720 = sext i8 %719 to i32
   %721 = add nsw i32 %720, %697
@@ -2880,108 +2880,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11974, label %765, label %736
 
 736:                                              ; preds = %724
-  %737 = getelementptr inbounds i8, ptr %.2710941, i64 1
+  %737 = getelementptr inbounds nuw i8, ptr %.2710941, i64 1
   store i8 0, ptr %737, align 1
   %.not11975 = icmp eq i64 %734, 255
-  %.sroa.gep13884 = getelementptr inbounds i8, ptr %.2710941, i64 2
+  %.sroa.gep13884 = getelementptr inbounds nuw i8, ptr %.2710941, i64 2
   %.neg11976.sroa.sel = select i1 %.not11975, ptr %.sroa.gep13884, ptr %737
   %738 = lshr i64 %730, 48
   %739 = trunc i64 %738 to i8
   store i8 %739, ptr %.neg11976.sroa.sel, align 1
-  %.sroa.gep16185 = getelementptr inbounds i8, ptr %.2710941, i64 3
+  %.sroa.gep16185 = getelementptr inbounds nuw i8, ptr %.2710941, i64 3
   %.neg11976.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11975, ptr %.sroa.gep16185, ptr %.sroa.gep13884
   store i8 0, ptr %.neg11976.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %740 = and i64 %730, 71776119061217280
   %.not11977 = icmp eq i64 %740, 71776119061217280
   %.neg11978 = select i1 %.not11977, i64 2, i64 1
-  %741 = getelementptr inbounds i8, ptr %.neg11976.sroa.sel, i64 %.neg11978
+  %741 = getelementptr inbounds nuw i8, ptr %.neg11976.sroa.sel, i64 %.neg11978
   %742 = lshr i64 %730, 40
   %743 = trunc i64 %742 to i8
   store i8 %743, ptr %741, align 1
-  %744 = getelementptr inbounds i8, ptr %741, i64 1
+  %744 = getelementptr inbounds nuw i8, ptr %741, i64 1
   store i8 0, ptr %744, align 1
   %745 = and i64 %730, 280375465082880
   %.not11979 = icmp eq i64 %745, 280375465082880
-  %.sroa.gep13886 = getelementptr inbounds i8, ptr %741, i64 2
+  %.sroa.gep13886 = getelementptr inbounds nuw i8, ptr %741, i64 2
   %.neg11980.sroa.sel = select i1 %.not11979, ptr %.sroa.gep13886, ptr %744
   %746 = lshr i64 %730, 32
   %747 = trunc i64 %746 to i8
   store i8 %747, ptr %.neg11980.sroa.sel, align 1
-  %.sroa.gep15343 = getelementptr inbounds i8, ptr %741, i64 3
+  %.sroa.gep15343 = getelementptr inbounds nuw i8, ptr %741, i64 3
   %.neg11980.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11979, ptr %.sroa.gep15343, ptr %.sroa.gep13886
   store i8 0, ptr %.neg11980.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %748 = and i64 %730, 1095216660480
   %.not11981 = icmp eq i64 %748, 1095216660480
   %.neg11982 = select i1 %.not11981, i64 2, i64 1
-  %749 = getelementptr inbounds i8, ptr %.neg11980.sroa.sel, i64 %.neg11982
+  %749 = getelementptr inbounds nuw i8, ptr %.neg11980.sroa.sel, i64 %.neg11982
   %750 = lshr i64 %730, 24
   %751 = trunc i64 %750 to i8
   store i8 %751, ptr %749, align 1
-  %752 = getelementptr inbounds i8, ptr %749, i64 1
+  %752 = getelementptr inbounds nuw i8, ptr %749, i64 1
   store i8 0, ptr %752, align 1
   %753 = and i64 %730, 4278190080
   %.not11983 = icmp eq i64 %753, 4278190080
-  %.sroa.gep13888 = getelementptr inbounds i8, ptr %749, i64 2
+  %.sroa.gep13888 = getelementptr inbounds nuw i8, ptr %749, i64 2
   %.neg11984.sroa.sel = select i1 %.not11983, ptr %.sroa.gep13888, ptr %752
   %754 = lshr i64 %730, 16
   %755 = trunc i64 %754 to i8
   store i8 %755, ptr %.neg11984.sroa.sel, align 1
-  %.sroa.gep15341 = getelementptr inbounds i8, ptr %749, i64 3
+  %.sroa.gep15341 = getelementptr inbounds nuw i8, ptr %749, i64 3
   %.neg11984.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11983, ptr %.sroa.gep15341, ptr %.sroa.gep13888
   store i8 0, ptr %.neg11984.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %756 = and i64 %730, 16711680
   %.not11985 = icmp eq i64 %756, 16711680
   %.neg11986 = select i1 %.not11985, i64 2, i64 1
-  %757 = getelementptr inbounds i8, ptr %.neg11984.sroa.sel, i64 %.neg11986
+  %757 = getelementptr inbounds nuw i8, ptr %.neg11984.sroa.sel, i64 %.neg11986
   %758 = lshr i64 %730, 8
   %759 = trunc i64 %758 to i8
   store i8 %759, ptr %757, align 1
-  %760 = getelementptr inbounds i8, ptr %757, i64 1
+  %760 = getelementptr inbounds nuw i8, ptr %757, i64 1
   store i8 0, ptr %760, align 1
   %761 = and i64 %730, 65280
   %.not11987 = icmp eq i64 %761, 65280
-  %.sroa.gep13890 = getelementptr inbounds i8, ptr %757, i64 2
+  %.sroa.gep13890 = getelementptr inbounds nuw i8, ptr %757, i64 2
   %.neg11988.sroa.sel = select i1 %.not11987, ptr %.sroa.gep13890, ptr %760
   %762 = trunc i64 %730 to i8
   store i8 %762, ptr %.neg11988.sroa.sel, align 1
-  %.sroa.gep15339 = getelementptr inbounds i8, ptr %757, i64 3
+  %.sroa.gep15339 = getelementptr inbounds nuw i8, ptr %757, i64 3
   %.neg11988.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11987, ptr %.sroa.gep15339, ptr %.sroa.gep13890
   store i8 0, ptr %.neg11988.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %763 = and i64 %730, 255
   %.not11989 = icmp eq i64 %763, 255
   %.neg11990 = select i1 %.not11989, i64 2, i64 1
-  %764 = getelementptr inbounds i8, ptr %.neg11988.sroa.sel, i64 %.neg11990
+  %764 = getelementptr inbounds nuw i8, ptr %.neg11988.sroa.sel, i64 %.neg11990
   br label %787
 
 765:                                              ; preds = %724
   %766 = lshr i64 %730, 48
   %767 = trunc i64 %766 to i8
-  %768 = getelementptr inbounds i8, ptr %.2710941, i64 1
+  %768 = getelementptr inbounds nuw i8, ptr %.2710941, i64 1
   store i8 %767, ptr %768, align 1
   %769 = lshr i64 %730, 40
   %770 = trunc i64 %769 to i8
-  %771 = getelementptr inbounds i8, ptr %.2710941, i64 2
+  %771 = getelementptr inbounds nuw i8, ptr %.2710941, i64 2
   store i8 %770, ptr %771, align 1
   %772 = lshr i64 %730, 32
   %773 = trunc i64 %772 to i8
-  %774 = getelementptr inbounds i8, ptr %.2710941, i64 3
+  %774 = getelementptr inbounds nuw i8, ptr %.2710941, i64 3
   store i8 %773, ptr %774, align 1
   %775 = lshr i64 %730, 24
   %776 = trunc i64 %775 to i8
-  %777 = getelementptr inbounds i8, ptr %.2710941, i64 4
+  %777 = getelementptr inbounds nuw i8, ptr %.2710941, i64 4
   store i8 %776, ptr %777, align 1
   %778 = lshr i64 %730, 16
   %779 = trunc i64 %778 to i8
-  %780 = getelementptr inbounds i8, ptr %.2710941, i64 5
+  %780 = getelementptr inbounds nuw i8, ptr %.2710941, i64 5
   store i8 %779, ptr %780, align 1
   %781 = lshr i64 %730, 8
   %782 = trunc i64 %781 to i8
-  %783 = getelementptr inbounds i8, ptr %.2710941, i64 6
+  %783 = getelementptr inbounds nuw i8, ptr %.2710941, i64 6
   store i8 %782, ptr %783, align 1
   %784 = trunc i64 %730 to i8
-  %785 = getelementptr inbounds i8, ptr %.2710941, i64 7
+  %785 = getelementptr inbounds nuw i8, ptr %.2710941, i64 7
   store i8 %784, ptr %785, align 1
-  %786 = getelementptr inbounds i8, ptr %.2710941, i64 8
+  %786 = getelementptr inbounds nuw i8, ptr %.2710941, i64 8
   br label %787
 
 787:                                              ; preds = %765, %736
@@ -3002,7 +3002,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.2111061 = phi i64 [ %.1711057, %687 ], [ %789, %787 ], [ %794, %790 ]
   %.3310947 = phi ptr [ %.2710941, %687 ], [ %.3710951, %787 ], [ %.2710941, %790 ]
   %.10 = phi i32 [ %688, %687 ], [ 0, %787 ], [ 0, %790 ]
-  %796 = getelementptr inbounds i8, ptr %1, i64 20
+  %796 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %797 = load i16, ptr %796, align 2
   %798 = icmp eq i16 %797, 0
   br i1 %798, label %799, label %801
@@ -3026,7 +3026,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 811:                                              ; preds = %801
   %812 = load ptr, ptr %7, align 8
   %813 = load ptr, ptr %812, align 8
-  %814 = getelementptr inbounds i8, ptr %813, i64 40
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 40
   store i32 6, ptr %814, align 8
   %815 = load ptr, ptr %7, align 8
   %816 = load ptr, ptr %815, align 8
@@ -3042,12 +3042,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %822 = xor i32 %821, -1
   %823 = and i32 %804, %822
   %824 = zext nneg i32 %819 to i64
-  %825 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %824
+  %825 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %824
   %826 = load i32, ptr %825, align 4
   %827 = shl i32 %826, %809
   %828 = or i32 %827, %823
-  %829 = getelementptr inbounds i8, ptr %4, i64 1024
-  %830 = getelementptr inbounds [256 x i8], ptr %829, i64 0, i64 %824
+  %829 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %830 = getelementptr inbounds nuw [256 x i8], ptr %829, i64 0, i64 %824
   %831 = load i8, ptr %830, align 1
   %832 = sext i8 %831 to i32
   %833 = add nsw i32 %832, %809
@@ -3072,108 +3072,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not11992, label %877, label %848
 
 848:                                              ; preds = %836
-  %849 = getelementptr inbounds i8, ptr %.3310947, i64 1
+  %849 = getelementptr inbounds nuw i8, ptr %.3310947, i64 1
   store i8 0, ptr %849, align 1
   %.not11993 = icmp eq i64 %846, 255
-  %.sroa.gep13892 = getelementptr inbounds i8, ptr %.3310947, i64 2
+  %.sroa.gep13892 = getelementptr inbounds nuw i8, ptr %.3310947, i64 2
   %.neg11994.sroa.sel = select i1 %.not11993, ptr %.sroa.gep13892, ptr %849
   %850 = lshr i64 %842, 48
   %851 = trunc i64 %850 to i8
   store i8 %851, ptr %.neg11994.sroa.sel, align 1
-  %.sroa.gep16183 = getelementptr inbounds i8, ptr %.3310947, i64 3
+  %.sroa.gep16183 = getelementptr inbounds nuw i8, ptr %.3310947, i64 3
   %.neg11994.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11993, ptr %.sroa.gep16183, ptr %.sroa.gep13892
   store i8 0, ptr %.neg11994.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %852 = and i64 %842, 71776119061217280
   %.not11995 = icmp eq i64 %852, 71776119061217280
   %.neg11996 = select i1 %.not11995, i64 2, i64 1
-  %853 = getelementptr inbounds i8, ptr %.neg11994.sroa.sel, i64 %.neg11996
+  %853 = getelementptr inbounds nuw i8, ptr %.neg11994.sroa.sel, i64 %.neg11996
   %854 = lshr i64 %842, 40
   %855 = trunc i64 %854 to i8
   store i8 %855, ptr %853, align 1
-  %856 = getelementptr inbounds i8, ptr %853, i64 1
+  %856 = getelementptr inbounds nuw i8, ptr %853, i64 1
   store i8 0, ptr %856, align 1
   %857 = and i64 %842, 280375465082880
   %.not11997 = icmp eq i64 %857, 280375465082880
-  %.sroa.gep13894 = getelementptr inbounds i8, ptr %853, i64 2
+  %.sroa.gep13894 = getelementptr inbounds nuw i8, ptr %853, i64 2
   %.neg11998.sroa.sel = select i1 %.not11997, ptr %.sroa.gep13894, ptr %856
   %858 = lshr i64 %842, 32
   %859 = trunc i64 %858 to i8
   store i8 %859, ptr %.neg11998.sroa.sel, align 1
-  %.sroa.gep15349 = getelementptr inbounds i8, ptr %853, i64 3
+  %.sroa.gep15349 = getelementptr inbounds nuw i8, ptr %853, i64 3
   %.neg11998.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not11997, ptr %.sroa.gep15349, ptr %.sroa.gep13894
   store i8 0, ptr %.neg11998.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %860 = and i64 %842, 1095216660480
   %.not11999 = icmp eq i64 %860, 1095216660480
   %.neg12000 = select i1 %.not11999, i64 2, i64 1
-  %861 = getelementptr inbounds i8, ptr %.neg11998.sroa.sel, i64 %.neg12000
+  %861 = getelementptr inbounds nuw i8, ptr %.neg11998.sroa.sel, i64 %.neg12000
   %862 = lshr i64 %842, 24
   %863 = trunc i64 %862 to i8
   store i8 %863, ptr %861, align 1
-  %864 = getelementptr inbounds i8, ptr %861, i64 1
+  %864 = getelementptr inbounds nuw i8, ptr %861, i64 1
   store i8 0, ptr %864, align 1
   %865 = and i64 %842, 4278190080
   %.not12001 = icmp eq i64 %865, 4278190080
-  %.sroa.gep13896 = getelementptr inbounds i8, ptr %861, i64 2
+  %.sroa.gep13896 = getelementptr inbounds nuw i8, ptr %861, i64 2
   %.neg12002.sroa.sel = select i1 %.not12001, ptr %.sroa.gep13896, ptr %864
   %866 = lshr i64 %842, 16
   %867 = trunc i64 %866 to i8
   store i8 %867, ptr %.neg12002.sroa.sel, align 1
-  %.sroa.gep15347 = getelementptr inbounds i8, ptr %861, i64 3
+  %.sroa.gep15347 = getelementptr inbounds nuw i8, ptr %861, i64 3
   %.neg12002.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12001, ptr %.sroa.gep15347, ptr %.sroa.gep13896
   store i8 0, ptr %.neg12002.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %868 = and i64 %842, 16711680
   %.not12003 = icmp eq i64 %868, 16711680
   %.neg12004 = select i1 %.not12003, i64 2, i64 1
-  %869 = getelementptr inbounds i8, ptr %.neg12002.sroa.sel, i64 %.neg12004
+  %869 = getelementptr inbounds nuw i8, ptr %.neg12002.sroa.sel, i64 %.neg12004
   %870 = lshr i64 %842, 8
   %871 = trunc i64 %870 to i8
   store i8 %871, ptr %869, align 1
-  %872 = getelementptr inbounds i8, ptr %869, i64 1
+  %872 = getelementptr inbounds nuw i8, ptr %869, i64 1
   store i8 0, ptr %872, align 1
   %873 = and i64 %842, 65280
   %.not12005 = icmp eq i64 %873, 65280
-  %.sroa.gep13898 = getelementptr inbounds i8, ptr %869, i64 2
+  %.sroa.gep13898 = getelementptr inbounds nuw i8, ptr %869, i64 2
   %.neg12006.sroa.sel = select i1 %.not12005, ptr %.sroa.gep13898, ptr %872
   %874 = trunc i64 %842 to i8
   store i8 %874, ptr %.neg12006.sroa.sel, align 1
-  %.sroa.gep15345 = getelementptr inbounds i8, ptr %869, i64 3
+  %.sroa.gep15345 = getelementptr inbounds nuw i8, ptr %869, i64 3
   %.neg12006.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12005, ptr %.sroa.gep15345, ptr %.sroa.gep13898
   store i8 0, ptr %.neg12006.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %875 = and i64 %842, 255
   %.not12007 = icmp eq i64 %875, 255
   %.neg12008 = select i1 %.not12007, i64 2, i64 1
-  %876 = getelementptr inbounds i8, ptr %.neg12006.sroa.sel, i64 %.neg12008
+  %876 = getelementptr inbounds nuw i8, ptr %.neg12006.sroa.sel, i64 %.neg12008
   br label %899
 
 877:                                              ; preds = %836
   %878 = lshr i64 %842, 48
   %879 = trunc i64 %878 to i8
-  %880 = getelementptr inbounds i8, ptr %.3310947, i64 1
+  %880 = getelementptr inbounds nuw i8, ptr %.3310947, i64 1
   store i8 %879, ptr %880, align 1
   %881 = lshr i64 %842, 40
   %882 = trunc i64 %881 to i8
-  %883 = getelementptr inbounds i8, ptr %.3310947, i64 2
+  %883 = getelementptr inbounds nuw i8, ptr %.3310947, i64 2
   store i8 %882, ptr %883, align 1
   %884 = lshr i64 %842, 32
   %885 = trunc i64 %884 to i8
-  %886 = getelementptr inbounds i8, ptr %.3310947, i64 3
+  %886 = getelementptr inbounds nuw i8, ptr %.3310947, i64 3
   store i8 %885, ptr %886, align 1
   %887 = lshr i64 %842, 24
   %888 = trunc i64 %887 to i8
-  %889 = getelementptr inbounds i8, ptr %.3310947, i64 4
+  %889 = getelementptr inbounds nuw i8, ptr %.3310947, i64 4
   store i8 %888, ptr %889, align 1
   %890 = lshr i64 %842, 16
   %891 = trunc i64 %890 to i8
-  %892 = getelementptr inbounds i8, ptr %.3310947, i64 5
+  %892 = getelementptr inbounds nuw i8, ptr %.3310947, i64 5
   store i8 %891, ptr %892, align 1
   %893 = lshr i64 %842, 8
   %894 = trunc i64 %893 to i8
-  %895 = getelementptr inbounds i8, ptr %.3310947, i64 6
+  %895 = getelementptr inbounds nuw i8, ptr %.3310947, i64 6
   store i8 %894, ptr %895, align 1
   %896 = trunc i64 %842 to i8
-  %897 = getelementptr inbounds i8, ptr %.3310947, i64 7
+  %897 = getelementptr inbounds nuw i8, ptr %.3310947, i64 7
   store i8 %896, ptr %897, align 1
-  %898 = getelementptr inbounds i8, ptr %.3310947, i64 8
+  %898 = getelementptr inbounds nuw i8, ptr %.3310947, i64 8
   br label %899
 
 899:                                              ; preds = %877, %848
@@ -3194,7 +3194,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.2511065 = phi i64 [ %.2111061, %799 ], [ %901, %899 ], [ %906, %902 ]
   %.3910953 = phi ptr [ %.3310947, %799 ], [ %.4310957, %899 ], [ %.3310947, %902 ]
   %.12 = phi i32 [ %800, %799 ], [ 0, %899 ], [ 0, %902 ]
-  %908 = getelementptr inbounds i8, ptr %1, i64 34
+  %908 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %909 = load i16, ptr %908, align 2
   %910 = icmp eq i16 %909, 0
   br i1 %910, label %911, label %913
@@ -3218,7 +3218,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 923:                                              ; preds = %913
   %924 = load ptr, ptr %7, align 8
   %925 = load ptr, ptr %924, align 8
-  %926 = getelementptr inbounds i8, ptr %925, i64 40
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 40
   store i32 6, ptr %926, align 8
   %927 = load ptr, ptr %7, align 8
   %928 = load ptr, ptr %927, align 8
@@ -3234,12 +3234,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %934 = xor i32 %933, -1
   %935 = and i32 %916, %934
   %936 = zext nneg i32 %931 to i64
-  %937 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %936
+  %937 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %936
   %938 = load i32, ptr %937, align 4
   %939 = shl i32 %938, %921
   %940 = or i32 %939, %935
-  %941 = getelementptr inbounds i8, ptr %4, i64 1024
-  %942 = getelementptr inbounds [256 x i8], ptr %941, i64 0, i64 %936
+  %941 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %942 = getelementptr inbounds nuw [256 x i8], ptr %941, i64 0, i64 %936
   %943 = load i8, ptr %942, align 1
   %944 = sext i8 %943 to i32
   %945 = add nsw i32 %944, %921
@@ -3264,108 +3264,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12010, label %989, label %960
 
 960:                                              ; preds = %948
-  %961 = getelementptr inbounds i8, ptr %.3910953, i64 1
+  %961 = getelementptr inbounds nuw i8, ptr %.3910953, i64 1
   store i8 0, ptr %961, align 1
   %.not12011 = icmp eq i64 %958, 255
-  %.sroa.gep13900 = getelementptr inbounds i8, ptr %.3910953, i64 2
+  %.sroa.gep13900 = getelementptr inbounds nuw i8, ptr %.3910953, i64 2
   %.neg12012.sroa.sel = select i1 %.not12011, ptr %.sroa.gep13900, ptr %961
   %962 = lshr i64 %954, 48
   %963 = trunc i64 %962 to i8
   store i8 %963, ptr %.neg12012.sroa.sel, align 1
-  %.sroa.gep16181 = getelementptr inbounds i8, ptr %.3910953, i64 3
+  %.sroa.gep16181 = getelementptr inbounds nuw i8, ptr %.3910953, i64 3
   %.neg12012.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12011, ptr %.sroa.gep16181, ptr %.sroa.gep13900
   store i8 0, ptr %.neg12012.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %964 = and i64 %954, 71776119061217280
   %.not12013 = icmp eq i64 %964, 71776119061217280
   %.neg12014 = select i1 %.not12013, i64 2, i64 1
-  %965 = getelementptr inbounds i8, ptr %.neg12012.sroa.sel, i64 %.neg12014
+  %965 = getelementptr inbounds nuw i8, ptr %.neg12012.sroa.sel, i64 %.neg12014
   %966 = lshr i64 %954, 40
   %967 = trunc i64 %966 to i8
   store i8 %967, ptr %965, align 1
-  %968 = getelementptr inbounds i8, ptr %965, i64 1
+  %968 = getelementptr inbounds nuw i8, ptr %965, i64 1
   store i8 0, ptr %968, align 1
   %969 = and i64 %954, 280375465082880
   %.not12015 = icmp eq i64 %969, 280375465082880
-  %.sroa.gep13902 = getelementptr inbounds i8, ptr %965, i64 2
+  %.sroa.gep13902 = getelementptr inbounds nuw i8, ptr %965, i64 2
   %.neg12016.sroa.sel = select i1 %.not12015, ptr %.sroa.gep13902, ptr %968
   %970 = lshr i64 %954, 32
   %971 = trunc i64 %970 to i8
   store i8 %971, ptr %.neg12016.sroa.sel, align 1
-  %.sroa.gep15355 = getelementptr inbounds i8, ptr %965, i64 3
+  %.sroa.gep15355 = getelementptr inbounds nuw i8, ptr %965, i64 3
   %.neg12016.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12015, ptr %.sroa.gep15355, ptr %.sroa.gep13902
   store i8 0, ptr %.neg12016.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %972 = and i64 %954, 1095216660480
   %.not12017 = icmp eq i64 %972, 1095216660480
   %.neg12018 = select i1 %.not12017, i64 2, i64 1
-  %973 = getelementptr inbounds i8, ptr %.neg12016.sroa.sel, i64 %.neg12018
+  %973 = getelementptr inbounds nuw i8, ptr %.neg12016.sroa.sel, i64 %.neg12018
   %974 = lshr i64 %954, 24
   %975 = trunc i64 %974 to i8
   store i8 %975, ptr %973, align 1
-  %976 = getelementptr inbounds i8, ptr %973, i64 1
+  %976 = getelementptr inbounds nuw i8, ptr %973, i64 1
   store i8 0, ptr %976, align 1
   %977 = and i64 %954, 4278190080
   %.not12019 = icmp eq i64 %977, 4278190080
-  %.sroa.gep13904 = getelementptr inbounds i8, ptr %973, i64 2
+  %.sroa.gep13904 = getelementptr inbounds nuw i8, ptr %973, i64 2
   %.neg12020.sroa.sel = select i1 %.not12019, ptr %.sroa.gep13904, ptr %976
   %978 = lshr i64 %954, 16
   %979 = trunc i64 %978 to i8
   store i8 %979, ptr %.neg12020.sroa.sel, align 1
-  %.sroa.gep15353 = getelementptr inbounds i8, ptr %973, i64 3
+  %.sroa.gep15353 = getelementptr inbounds nuw i8, ptr %973, i64 3
   %.neg12020.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12019, ptr %.sroa.gep15353, ptr %.sroa.gep13904
   store i8 0, ptr %.neg12020.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %980 = and i64 %954, 16711680
   %.not12021 = icmp eq i64 %980, 16711680
   %.neg12022 = select i1 %.not12021, i64 2, i64 1
-  %981 = getelementptr inbounds i8, ptr %.neg12020.sroa.sel, i64 %.neg12022
+  %981 = getelementptr inbounds nuw i8, ptr %.neg12020.sroa.sel, i64 %.neg12022
   %982 = lshr i64 %954, 8
   %983 = trunc i64 %982 to i8
   store i8 %983, ptr %981, align 1
-  %984 = getelementptr inbounds i8, ptr %981, i64 1
+  %984 = getelementptr inbounds nuw i8, ptr %981, i64 1
   store i8 0, ptr %984, align 1
   %985 = and i64 %954, 65280
   %.not12023 = icmp eq i64 %985, 65280
-  %.sroa.gep13906 = getelementptr inbounds i8, ptr %981, i64 2
+  %.sroa.gep13906 = getelementptr inbounds nuw i8, ptr %981, i64 2
   %.neg12024.sroa.sel = select i1 %.not12023, ptr %.sroa.gep13906, ptr %984
   %986 = trunc i64 %954 to i8
   store i8 %986, ptr %.neg12024.sroa.sel, align 1
-  %.sroa.gep15351 = getelementptr inbounds i8, ptr %981, i64 3
+  %.sroa.gep15351 = getelementptr inbounds nuw i8, ptr %981, i64 3
   %.neg12024.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12023, ptr %.sroa.gep15351, ptr %.sroa.gep13906
   store i8 0, ptr %.neg12024.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %987 = and i64 %954, 255
   %.not12025 = icmp eq i64 %987, 255
   %.neg12026 = select i1 %.not12025, i64 2, i64 1
-  %988 = getelementptr inbounds i8, ptr %.neg12024.sroa.sel, i64 %.neg12026
+  %988 = getelementptr inbounds nuw i8, ptr %.neg12024.sroa.sel, i64 %.neg12026
   br label %1011
 
 989:                                              ; preds = %948
   %990 = lshr i64 %954, 48
   %991 = trunc i64 %990 to i8
-  %992 = getelementptr inbounds i8, ptr %.3910953, i64 1
+  %992 = getelementptr inbounds nuw i8, ptr %.3910953, i64 1
   store i8 %991, ptr %992, align 1
   %993 = lshr i64 %954, 40
   %994 = trunc i64 %993 to i8
-  %995 = getelementptr inbounds i8, ptr %.3910953, i64 2
+  %995 = getelementptr inbounds nuw i8, ptr %.3910953, i64 2
   store i8 %994, ptr %995, align 1
   %996 = lshr i64 %954, 32
   %997 = trunc i64 %996 to i8
-  %998 = getelementptr inbounds i8, ptr %.3910953, i64 3
+  %998 = getelementptr inbounds nuw i8, ptr %.3910953, i64 3
   store i8 %997, ptr %998, align 1
   %999 = lshr i64 %954, 24
   %1000 = trunc i64 %999 to i8
-  %1001 = getelementptr inbounds i8, ptr %.3910953, i64 4
+  %1001 = getelementptr inbounds nuw i8, ptr %.3910953, i64 4
   store i8 %1000, ptr %1001, align 1
   %1002 = lshr i64 %954, 16
   %1003 = trunc i64 %1002 to i8
-  %1004 = getelementptr inbounds i8, ptr %.3910953, i64 5
+  %1004 = getelementptr inbounds nuw i8, ptr %.3910953, i64 5
   store i8 %1003, ptr %1004, align 1
   %1005 = lshr i64 %954, 8
   %1006 = trunc i64 %1005 to i8
-  %1007 = getelementptr inbounds i8, ptr %.3910953, i64 6
+  %1007 = getelementptr inbounds nuw i8, ptr %.3910953, i64 6
   store i8 %1006, ptr %1007, align 1
   %1008 = trunc i64 %954 to i8
-  %1009 = getelementptr inbounds i8, ptr %.3910953, i64 7
+  %1009 = getelementptr inbounds nuw i8, ptr %.3910953, i64 7
   store i8 %1008, ptr %1009, align 1
-  %1010 = getelementptr inbounds i8, ptr %.3910953, i64 8
+  %1010 = getelementptr inbounds nuw i8, ptr %.3910953, i64 8
   br label %1011
 
 1011:                                             ; preds = %989, %960
@@ -3386,7 +3386,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.2911069 = phi i64 [ %.2511065, %911 ], [ %1013, %1011 ], [ %1018, %1014 ]
   %.4510959 = phi ptr [ %.3910953, %911 ], [ %.4910963, %1011 ], [ %.3910953, %1014 ]
   %.14 = phi i32 [ %912, %911 ], [ 0, %1011 ], [ 0, %1014 ]
-  %1020 = getelementptr inbounds i8, ptr %1, i64 48
+  %1020 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1021 = load i16, ptr %1020, align 2
   %1022 = icmp eq i16 %1021, 0
   br i1 %1022, label %1023, label %1025
@@ -3410,7 +3410,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1035:                                             ; preds = %1025
   %1036 = load ptr, ptr %7, align 8
   %1037 = load ptr, ptr %1036, align 8
-  %1038 = getelementptr inbounds i8, ptr %1037, i64 40
+  %1038 = getelementptr inbounds nuw i8, ptr %1037, i64 40
   store i32 6, ptr %1038, align 8
   %1039 = load ptr, ptr %7, align 8
   %1040 = load ptr, ptr %1039, align 8
@@ -3426,12 +3426,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1046 = xor i32 %1045, -1
   %1047 = and i32 %1028, %1046
   %1048 = zext nneg i32 %1043 to i64
-  %1049 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1048
+  %1049 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1048
   %1050 = load i32, ptr %1049, align 4
   %1051 = shl i32 %1050, %1033
   %1052 = or i32 %1051, %1047
-  %1053 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1054 = getelementptr inbounds [256 x i8], ptr %1053, i64 0, i64 %1048
+  %1053 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1054 = getelementptr inbounds nuw [256 x i8], ptr %1053, i64 0, i64 %1048
   %1055 = load i8, ptr %1054, align 1
   %1056 = sext i8 %1055 to i32
   %1057 = add nsw i32 %1056, %1033
@@ -3456,108 +3456,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12028, label %1101, label %1072
 
 1072:                                             ; preds = %1060
-  %1073 = getelementptr inbounds i8, ptr %.4510959, i64 1
+  %1073 = getelementptr inbounds nuw i8, ptr %.4510959, i64 1
   store i8 0, ptr %1073, align 1
   %.not12029 = icmp eq i64 %1070, 255
-  %.sroa.gep13908 = getelementptr inbounds i8, ptr %.4510959, i64 2
+  %.sroa.gep13908 = getelementptr inbounds nuw i8, ptr %.4510959, i64 2
   %.neg12030.sroa.sel = select i1 %.not12029, ptr %.sroa.gep13908, ptr %1073
   %1074 = lshr i64 %1066, 48
   %1075 = trunc i64 %1074 to i8
   store i8 %1075, ptr %.neg12030.sroa.sel, align 1
-  %.sroa.gep16179 = getelementptr inbounds i8, ptr %.4510959, i64 3
+  %.sroa.gep16179 = getelementptr inbounds nuw i8, ptr %.4510959, i64 3
   %.neg12030.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12029, ptr %.sroa.gep16179, ptr %.sroa.gep13908
   store i8 0, ptr %.neg12030.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1076 = and i64 %1066, 71776119061217280
   %.not12031 = icmp eq i64 %1076, 71776119061217280
   %.neg12032 = select i1 %.not12031, i64 2, i64 1
-  %1077 = getelementptr inbounds i8, ptr %.neg12030.sroa.sel, i64 %.neg12032
+  %1077 = getelementptr inbounds nuw i8, ptr %.neg12030.sroa.sel, i64 %.neg12032
   %1078 = lshr i64 %1066, 40
   %1079 = trunc i64 %1078 to i8
   store i8 %1079, ptr %1077, align 1
-  %1080 = getelementptr inbounds i8, ptr %1077, i64 1
+  %1080 = getelementptr inbounds nuw i8, ptr %1077, i64 1
   store i8 0, ptr %1080, align 1
   %1081 = and i64 %1066, 280375465082880
   %.not12033 = icmp eq i64 %1081, 280375465082880
-  %.sroa.gep13910 = getelementptr inbounds i8, ptr %1077, i64 2
+  %.sroa.gep13910 = getelementptr inbounds nuw i8, ptr %1077, i64 2
   %.neg12034.sroa.sel = select i1 %.not12033, ptr %.sroa.gep13910, ptr %1080
   %1082 = lshr i64 %1066, 32
   %1083 = trunc i64 %1082 to i8
   store i8 %1083, ptr %.neg12034.sroa.sel, align 1
-  %.sroa.gep15361 = getelementptr inbounds i8, ptr %1077, i64 3
+  %.sroa.gep15361 = getelementptr inbounds nuw i8, ptr %1077, i64 3
   %.neg12034.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12033, ptr %.sroa.gep15361, ptr %.sroa.gep13910
   store i8 0, ptr %.neg12034.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1084 = and i64 %1066, 1095216660480
   %.not12035 = icmp eq i64 %1084, 1095216660480
   %.neg12036 = select i1 %.not12035, i64 2, i64 1
-  %1085 = getelementptr inbounds i8, ptr %.neg12034.sroa.sel, i64 %.neg12036
+  %1085 = getelementptr inbounds nuw i8, ptr %.neg12034.sroa.sel, i64 %.neg12036
   %1086 = lshr i64 %1066, 24
   %1087 = trunc i64 %1086 to i8
   store i8 %1087, ptr %1085, align 1
-  %1088 = getelementptr inbounds i8, ptr %1085, i64 1
+  %1088 = getelementptr inbounds nuw i8, ptr %1085, i64 1
   store i8 0, ptr %1088, align 1
   %1089 = and i64 %1066, 4278190080
   %.not12037 = icmp eq i64 %1089, 4278190080
-  %.sroa.gep13912 = getelementptr inbounds i8, ptr %1085, i64 2
+  %.sroa.gep13912 = getelementptr inbounds nuw i8, ptr %1085, i64 2
   %.neg12038.sroa.sel = select i1 %.not12037, ptr %.sroa.gep13912, ptr %1088
   %1090 = lshr i64 %1066, 16
   %1091 = trunc i64 %1090 to i8
   store i8 %1091, ptr %.neg12038.sroa.sel, align 1
-  %.sroa.gep15359 = getelementptr inbounds i8, ptr %1085, i64 3
+  %.sroa.gep15359 = getelementptr inbounds nuw i8, ptr %1085, i64 3
   %.neg12038.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12037, ptr %.sroa.gep15359, ptr %.sroa.gep13912
   store i8 0, ptr %.neg12038.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1092 = and i64 %1066, 16711680
   %.not12039 = icmp eq i64 %1092, 16711680
   %.neg12040 = select i1 %.not12039, i64 2, i64 1
-  %1093 = getelementptr inbounds i8, ptr %.neg12038.sroa.sel, i64 %.neg12040
+  %1093 = getelementptr inbounds nuw i8, ptr %.neg12038.sroa.sel, i64 %.neg12040
   %1094 = lshr i64 %1066, 8
   %1095 = trunc i64 %1094 to i8
   store i8 %1095, ptr %1093, align 1
-  %1096 = getelementptr inbounds i8, ptr %1093, i64 1
+  %1096 = getelementptr inbounds nuw i8, ptr %1093, i64 1
   store i8 0, ptr %1096, align 1
   %1097 = and i64 %1066, 65280
   %.not12041 = icmp eq i64 %1097, 65280
-  %.sroa.gep13914 = getelementptr inbounds i8, ptr %1093, i64 2
+  %.sroa.gep13914 = getelementptr inbounds nuw i8, ptr %1093, i64 2
   %.neg12042.sroa.sel = select i1 %.not12041, ptr %.sroa.gep13914, ptr %1096
   %1098 = trunc i64 %1066 to i8
   store i8 %1098, ptr %.neg12042.sroa.sel, align 1
-  %.sroa.gep15357 = getelementptr inbounds i8, ptr %1093, i64 3
+  %.sroa.gep15357 = getelementptr inbounds nuw i8, ptr %1093, i64 3
   %.neg12042.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12041, ptr %.sroa.gep15357, ptr %.sroa.gep13914
   store i8 0, ptr %.neg12042.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1099 = and i64 %1066, 255
   %.not12043 = icmp eq i64 %1099, 255
   %.neg12044 = select i1 %.not12043, i64 2, i64 1
-  %1100 = getelementptr inbounds i8, ptr %.neg12042.sroa.sel, i64 %.neg12044
+  %1100 = getelementptr inbounds nuw i8, ptr %.neg12042.sroa.sel, i64 %.neg12044
   br label %1123
 
 1101:                                             ; preds = %1060
   %1102 = lshr i64 %1066, 48
   %1103 = trunc i64 %1102 to i8
-  %1104 = getelementptr inbounds i8, ptr %.4510959, i64 1
+  %1104 = getelementptr inbounds nuw i8, ptr %.4510959, i64 1
   store i8 %1103, ptr %1104, align 1
   %1105 = lshr i64 %1066, 40
   %1106 = trunc i64 %1105 to i8
-  %1107 = getelementptr inbounds i8, ptr %.4510959, i64 2
+  %1107 = getelementptr inbounds nuw i8, ptr %.4510959, i64 2
   store i8 %1106, ptr %1107, align 1
   %1108 = lshr i64 %1066, 32
   %1109 = trunc i64 %1108 to i8
-  %1110 = getelementptr inbounds i8, ptr %.4510959, i64 3
+  %1110 = getelementptr inbounds nuw i8, ptr %.4510959, i64 3
   store i8 %1109, ptr %1110, align 1
   %1111 = lshr i64 %1066, 24
   %1112 = trunc i64 %1111 to i8
-  %1113 = getelementptr inbounds i8, ptr %.4510959, i64 4
+  %1113 = getelementptr inbounds nuw i8, ptr %.4510959, i64 4
   store i8 %1112, ptr %1113, align 1
   %1114 = lshr i64 %1066, 16
   %1115 = trunc i64 %1114 to i8
-  %1116 = getelementptr inbounds i8, ptr %.4510959, i64 5
+  %1116 = getelementptr inbounds nuw i8, ptr %.4510959, i64 5
   store i8 %1115, ptr %1116, align 1
   %1117 = lshr i64 %1066, 8
   %1118 = trunc i64 %1117 to i8
-  %1119 = getelementptr inbounds i8, ptr %.4510959, i64 6
+  %1119 = getelementptr inbounds nuw i8, ptr %.4510959, i64 6
   store i8 %1118, ptr %1119, align 1
   %1120 = trunc i64 %1066 to i8
-  %1121 = getelementptr inbounds i8, ptr %.4510959, i64 7
+  %1121 = getelementptr inbounds nuw i8, ptr %.4510959, i64 7
   store i8 %1120, ptr %1121, align 1
-  %1122 = getelementptr inbounds i8, ptr %.4510959, i64 8
+  %1122 = getelementptr inbounds nuw i8, ptr %.4510959, i64 8
   br label %1123
 
 1123:                                             ; preds = %1101, %1072
@@ -3578,7 +3578,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.3311073 = phi i64 [ %.2911069, %1023 ], [ %1125, %1123 ], [ %1130, %1126 ]
   %.5110965 = phi ptr [ %.4510959, %1023 ], [ %.5510969, %1123 ], [ %.4510959, %1126 ]
   %.16 = phi i32 [ %1024, %1023 ], [ 0, %1123 ], [ 0, %1126 ]
-  %1132 = getelementptr inbounds i8, ptr %1, i64 64
+  %1132 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %1133 = load i16, ptr %1132, align 2
   %1134 = icmp eq i16 %1133, 0
   br i1 %1134, label %1135, label %1137
@@ -3602,7 +3602,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1147:                                             ; preds = %1137
   %1148 = load ptr, ptr %7, align 8
   %1149 = load ptr, ptr %1148, align 8
-  %1150 = getelementptr inbounds i8, ptr %1149, i64 40
+  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 40
   store i32 6, ptr %1150, align 8
   %1151 = load ptr, ptr %7, align 8
   %1152 = load ptr, ptr %1151, align 8
@@ -3618,12 +3618,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1158 = xor i32 %1157, -1
   %1159 = and i32 %1140, %1158
   %1160 = zext nneg i32 %1155 to i64
-  %1161 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1160
+  %1161 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1160
   %1162 = load i32, ptr %1161, align 4
   %1163 = shl i32 %1162, %1145
   %1164 = or i32 %1163, %1159
-  %1165 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1166 = getelementptr inbounds [256 x i8], ptr %1165, i64 0, i64 %1160
+  %1165 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1166 = getelementptr inbounds nuw [256 x i8], ptr %1165, i64 0, i64 %1160
   %1167 = load i8, ptr %1166, align 1
   %1168 = sext i8 %1167 to i32
   %1169 = add nsw i32 %1168, %1145
@@ -3648,108 +3648,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12046, label %1213, label %1184
 
 1184:                                             ; preds = %1172
-  %1185 = getelementptr inbounds i8, ptr %.5110965, i64 1
+  %1185 = getelementptr inbounds nuw i8, ptr %.5110965, i64 1
   store i8 0, ptr %1185, align 1
   %.not12047 = icmp eq i64 %1182, 255
-  %.sroa.gep13916 = getelementptr inbounds i8, ptr %.5110965, i64 2
+  %.sroa.gep13916 = getelementptr inbounds nuw i8, ptr %.5110965, i64 2
   %.neg12048.sroa.sel = select i1 %.not12047, ptr %.sroa.gep13916, ptr %1185
   %1186 = lshr i64 %1178, 48
   %1187 = trunc i64 %1186 to i8
   store i8 %1187, ptr %.neg12048.sroa.sel, align 1
-  %.sroa.gep16177 = getelementptr inbounds i8, ptr %.5110965, i64 3
+  %.sroa.gep16177 = getelementptr inbounds nuw i8, ptr %.5110965, i64 3
   %.neg12048.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12047, ptr %.sroa.gep16177, ptr %.sroa.gep13916
   store i8 0, ptr %.neg12048.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1188 = and i64 %1178, 71776119061217280
   %.not12049 = icmp eq i64 %1188, 71776119061217280
   %.neg12050 = select i1 %.not12049, i64 2, i64 1
-  %1189 = getelementptr inbounds i8, ptr %.neg12048.sroa.sel, i64 %.neg12050
+  %1189 = getelementptr inbounds nuw i8, ptr %.neg12048.sroa.sel, i64 %.neg12050
   %1190 = lshr i64 %1178, 40
   %1191 = trunc i64 %1190 to i8
   store i8 %1191, ptr %1189, align 1
-  %1192 = getelementptr inbounds i8, ptr %1189, i64 1
+  %1192 = getelementptr inbounds nuw i8, ptr %1189, i64 1
   store i8 0, ptr %1192, align 1
   %1193 = and i64 %1178, 280375465082880
   %.not12051 = icmp eq i64 %1193, 280375465082880
-  %.sroa.gep13918 = getelementptr inbounds i8, ptr %1189, i64 2
+  %.sroa.gep13918 = getelementptr inbounds nuw i8, ptr %1189, i64 2
   %.neg12052.sroa.sel = select i1 %.not12051, ptr %.sroa.gep13918, ptr %1192
   %1194 = lshr i64 %1178, 32
   %1195 = trunc i64 %1194 to i8
   store i8 %1195, ptr %.neg12052.sroa.sel, align 1
-  %.sroa.gep15367 = getelementptr inbounds i8, ptr %1189, i64 3
+  %.sroa.gep15367 = getelementptr inbounds nuw i8, ptr %1189, i64 3
   %.neg12052.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12051, ptr %.sroa.gep15367, ptr %.sroa.gep13918
   store i8 0, ptr %.neg12052.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1196 = and i64 %1178, 1095216660480
   %.not12053 = icmp eq i64 %1196, 1095216660480
   %.neg12054 = select i1 %.not12053, i64 2, i64 1
-  %1197 = getelementptr inbounds i8, ptr %.neg12052.sroa.sel, i64 %.neg12054
+  %1197 = getelementptr inbounds nuw i8, ptr %.neg12052.sroa.sel, i64 %.neg12054
   %1198 = lshr i64 %1178, 24
   %1199 = trunc i64 %1198 to i8
   store i8 %1199, ptr %1197, align 1
-  %1200 = getelementptr inbounds i8, ptr %1197, i64 1
+  %1200 = getelementptr inbounds nuw i8, ptr %1197, i64 1
   store i8 0, ptr %1200, align 1
   %1201 = and i64 %1178, 4278190080
   %.not12055 = icmp eq i64 %1201, 4278190080
-  %.sroa.gep13920 = getelementptr inbounds i8, ptr %1197, i64 2
+  %.sroa.gep13920 = getelementptr inbounds nuw i8, ptr %1197, i64 2
   %.neg12056.sroa.sel = select i1 %.not12055, ptr %.sroa.gep13920, ptr %1200
   %1202 = lshr i64 %1178, 16
   %1203 = trunc i64 %1202 to i8
   store i8 %1203, ptr %.neg12056.sroa.sel, align 1
-  %.sroa.gep15365 = getelementptr inbounds i8, ptr %1197, i64 3
+  %.sroa.gep15365 = getelementptr inbounds nuw i8, ptr %1197, i64 3
   %.neg12056.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12055, ptr %.sroa.gep15365, ptr %.sroa.gep13920
   store i8 0, ptr %.neg12056.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1204 = and i64 %1178, 16711680
   %.not12057 = icmp eq i64 %1204, 16711680
   %.neg12058 = select i1 %.not12057, i64 2, i64 1
-  %1205 = getelementptr inbounds i8, ptr %.neg12056.sroa.sel, i64 %.neg12058
+  %1205 = getelementptr inbounds nuw i8, ptr %.neg12056.sroa.sel, i64 %.neg12058
   %1206 = lshr i64 %1178, 8
   %1207 = trunc i64 %1206 to i8
   store i8 %1207, ptr %1205, align 1
-  %1208 = getelementptr inbounds i8, ptr %1205, i64 1
+  %1208 = getelementptr inbounds nuw i8, ptr %1205, i64 1
   store i8 0, ptr %1208, align 1
   %1209 = and i64 %1178, 65280
   %.not12059 = icmp eq i64 %1209, 65280
-  %.sroa.gep13922 = getelementptr inbounds i8, ptr %1205, i64 2
+  %.sroa.gep13922 = getelementptr inbounds nuw i8, ptr %1205, i64 2
   %.neg12060.sroa.sel = select i1 %.not12059, ptr %.sroa.gep13922, ptr %1208
   %1210 = trunc i64 %1178 to i8
   store i8 %1210, ptr %.neg12060.sroa.sel, align 1
-  %.sroa.gep15363 = getelementptr inbounds i8, ptr %1205, i64 3
+  %.sroa.gep15363 = getelementptr inbounds nuw i8, ptr %1205, i64 3
   %.neg12060.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12059, ptr %.sroa.gep15363, ptr %.sroa.gep13922
   store i8 0, ptr %.neg12060.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1211 = and i64 %1178, 255
   %.not12061 = icmp eq i64 %1211, 255
   %.neg12062 = select i1 %.not12061, i64 2, i64 1
-  %1212 = getelementptr inbounds i8, ptr %.neg12060.sroa.sel, i64 %.neg12062
+  %1212 = getelementptr inbounds nuw i8, ptr %.neg12060.sroa.sel, i64 %.neg12062
   br label %1235
 
 1213:                                             ; preds = %1172
   %1214 = lshr i64 %1178, 48
   %1215 = trunc i64 %1214 to i8
-  %1216 = getelementptr inbounds i8, ptr %.5110965, i64 1
+  %1216 = getelementptr inbounds nuw i8, ptr %.5110965, i64 1
   store i8 %1215, ptr %1216, align 1
   %1217 = lshr i64 %1178, 40
   %1218 = trunc i64 %1217 to i8
-  %1219 = getelementptr inbounds i8, ptr %.5110965, i64 2
+  %1219 = getelementptr inbounds nuw i8, ptr %.5110965, i64 2
   store i8 %1218, ptr %1219, align 1
   %1220 = lshr i64 %1178, 32
   %1221 = trunc i64 %1220 to i8
-  %1222 = getelementptr inbounds i8, ptr %.5110965, i64 3
+  %1222 = getelementptr inbounds nuw i8, ptr %.5110965, i64 3
   store i8 %1221, ptr %1222, align 1
   %1223 = lshr i64 %1178, 24
   %1224 = trunc i64 %1223 to i8
-  %1225 = getelementptr inbounds i8, ptr %.5110965, i64 4
+  %1225 = getelementptr inbounds nuw i8, ptr %.5110965, i64 4
   store i8 %1224, ptr %1225, align 1
   %1226 = lshr i64 %1178, 16
   %1227 = trunc i64 %1226 to i8
-  %1228 = getelementptr inbounds i8, ptr %.5110965, i64 5
+  %1228 = getelementptr inbounds nuw i8, ptr %.5110965, i64 5
   store i8 %1227, ptr %1228, align 1
   %1229 = lshr i64 %1178, 8
   %1230 = trunc i64 %1229 to i8
-  %1231 = getelementptr inbounds i8, ptr %.5110965, i64 6
+  %1231 = getelementptr inbounds nuw i8, ptr %.5110965, i64 6
   store i8 %1230, ptr %1231, align 1
   %1232 = trunc i64 %1178 to i8
-  %1233 = getelementptr inbounds i8, ptr %.5110965, i64 7
+  %1233 = getelementptr inbounds nuw i8, ptr %.5110965, i64 7
   store i8 %1232, ptr %1233, align 1
-  %1234 = getelementptr inbounds i8, ptr %.5110965, i64 8
+  %1234 = getelementptr inbounds nuw i8, ptr %.5110965, i64 8
   br label %1235
 
 1235:                                             ; preds = %1213, %1184
@@ -3770,7 +3770,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.3711077 = phi i64 [ %.3311073, %1135 ], [ %1237, %1235 ], [ %1242, %1238 ]
   %.5710971 = phi ptr [ %.5110965, %1135 ], [ %.6110975, %1235 ], [ %.5110965, %1238 ]
   %.18 = phi i32 [ %1136, %1135 ], [ 0, %1235 ], [ 0, %1238 ]
-  %1244 = getelementptr inbounds i8, ptr %1, i64 50
+  %1244 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %1245 = load i16, ptr %1244, align 2
   %1246 = icmp eq i16 %1245, 0
   br i1 %1246, label %1247, label %1249
@@ -3794,7 +3794,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1259:                                             ; preds = %1249
   %1260 = load ptr, ptr %7, align 8
   %1261 = load ptr, ptr %1260, align 8
-  %1262 = getelementptr inbounds i8, ptr %1261, i64 40
+  %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 40
   store i32 6, ptr %1262, align 8
   %1263 = load ptr, ptr %7, align 8
   %1264 = load ptr, ptr %1263, align 8
@@ -3810,12 +3810,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1270 = xor i32 %1269, -1
   %1271 = and i32 %1252, %1270
   %1272 = zext nneg i32 %1267 to i64
-  %1273 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1272
+  %1273 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1272
   %1274 = load i32, ptr %1273, align 4
   %1275 = shl i32 %1274, %1257
   %1276 = or i32 %1275, %1271
-  %1277 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1278 = getelementptr inbounds [256 x i8], ptr %1277, i64 0, i64 %1272
+  %1277 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1278 = getelementptr inbounds nuw [256 x i8], ptr %1277, i64 0, i64 %1272
   %1279 = load i8, ptr %1278, align 1
   %1280 = sext i8 %1279 to i32
   %1281 = add nsw i32 %1280, %1257
@@ -3840,108 +3840,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12064, label %1325, label %1296
 
 1296:                                             ; preds = %1284
-  %1297 = getelementptr inbounds i8, ptr %.5710971, i64 1
+  %1297 = getelementptr inbounds nuw i8, ptr %.5710971, i64 1
   store i8 0, ptr %1297, align 1
   %.not12065 = icmp eq i64 %1294, 255
-  %.sroa.gep13924 = getelementptr inbounds i8, ptr %.5710971, i64 2
+  %.sroa.gep13924 = getelementptr inbounds nuw i8, ptr %.5710971, i64 2
   %.neg12066.sroa.sel = select i1 %.not12065, ptr %.sroa.gep13924, ptr %1297
   %1298 = lshr i64 %1290, 48
   %1299 = trunc i64 %1298 to i8
   store i8 %1299, ptr %.neg12066.sroa.sel, align 1
-  %.sroa.gep16175 = getelementptr inbounds i8, ptr %.5710971, i64 3
+  %.sroa.gep16175 = getelementptr inbounds nuw i8, ptr %.5710971, i64 3
   %.neg12066.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12065, ptr %.sroa.gep16175, ptr %.sroa.gep13924
   store i8 0, ptr %.neg12066.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1300 = and i64 %1290, 71776119061217280
   %.not12067 = icmp eq i64 %1300, 71776119061217280
   %.neg12068 = select i1 %.not12067, i64 2, i64 1
-  %1301 = getelementptr inbounds i8, ptr %.neg12066.sroa.sel, i64 %.neg12068
+  %1301 = getelementptr inbounds nuw i8, ptr %.neg12066.sroa.sel, i64 %.neg12068
   %1302 = lshr i64 %1290, 40
   %1303 = trunc i64 %1302 to i8
   store i8 %1303, ptr %1301, align 1
-  %1304 = getelementptr inbounds i8, ptr %1301, i64 1
+  %1304 = getelementptr inbounds nuw i8, ptr %1301, i64 1
   store i8 0, ptr %1304, align 1
   %1305 = and i64 %1290, 280375465082880
   %.not12069 = icmp eq i64 %1305, 280375465082880
-  %.sroa.gep13926 = getelementptr inbounds i8, ptr %1301, i64 2
+  %.sroa.gep13926 = getelementptr inbounds nuw i8, ptr %1301, i64 2
   %.neg12070.sroa.sel = select i1 %.not12069, ptr %.sroa.gep13926, ptr %1304
   %1306 = lshr i64 %1290, 32
   %1307 = trunc i64 %1306 to i8
   store i8 %1307, ptr %.neg12070.sroa.sel, align 1
-  %.sroa.gep15373 = getelementptr inbounds i8, ptr %1301, i64 3
+  %.sroa.gep15373 = getelementptr inbounds nuw i8, ptr %1301, i64 3
   %.neg12070.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12069, ptr %.sroa.gep15373, ptr %.sroa.gep13926
   store i8 0, ptr %.neg12070.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1308 = and i64 %1290, 1095216660480
   %.not12071 = icmp eq i64 %1308, 1095216660480
   %.neg12072 = select i1 %.not12071, i64 2, i64 1
-  %1309 = getelementptr inbounds i8, ptr %.neg12070.sroa.sel, i64 %.neg12072
+  %1309 = getelementptr inbounds nuw i8, ptr %.neg12070.sroa.sel, i64 %.neg12072
   %1310 = lshr i64 %1290, 24
   %1311 = trunc i64 %1310 to i8
   store i8 %1311, ptr %1309, align 1
-  %1312 = getelementptr inbounds i8, ptr %1309, i64 1
+  %1312 = getelementptr inbounds nuw i8, ptr %1309, i64 1
   store i8 0, ptr %1312, align 1
   %1313 = and i64 %1290, 4278190080
   %.not12073 = icmp eq i64 %1313, 4278190080
-  %.sroa.gep13928 = getelementptr inbounds i8, ptr %1309, i64 2
+  %.sroa.gep13928 = getelementptr inbounds nuw i8, ptr %1309, i64 2
   %.neg12074.sroa.sel = select i1 %.not12073, ptr %.sroa.gep13928, ptr %1312
   %1314 = lshr i64 %1290, 16
   %1315 = trunc i64 %1314 to i8
   store i8 %1315, ptr %.neg12074.sroa.sel, align 1
-  %.sroa.gep15371 = getelementptr inbounds i8, ptr %1309, i64 3
+  %.sroa.gep15371 = getelementptr inbounds nuw i8, ptr %1309, i64 3
   %.neg12074.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12073, ptr %.sroa.gep15371, ptr %.sroa.gep13928
   store i8 0, ptr %.neg12074.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1316 = and i64 %1290, 16711680
   %.not12075 = icmp eq i64 %1316, 16711680
   %.neg12076 = select i1 %.not12075, i64 2, i64 1
-  %1317 = getelementptr inbounds i8, ptr %.neg12074.sroa.sel, i64 %.neg12076
+  %1317 = getelementptr inbounds nuw i8, ptr %.neg12074.sroa.sel, i64 %.neg12076
   %1318 = lshr i64 %1290, 8
   %1319 = trunc i64 %1318 to i8
   store i8 %1319, ptr %1317, align 1
-  %1320 = getelementptr inbounds i8, ptr %1317, i64 1
+  %1320 = getelementptr inbounds nuw i8, ptr %1317, i64 1
   store i8 0, ptr %1320, align 1
   %1321 = and i64 %1290, 65280
   %.not12077 = icmp eq i64 %1321, 65280
-  %.sroa.gep13930 = getelementptr inbounds i8, ptr %1317, i64 2
+  %.sroa.gep13930 = getelementptr inbounds nuw i8, ptr %1317, i64 2
   %.neg12078.sroa.sel = select i1 %.not12077, ptr %.sroa.gep13930, ptr %1320
   %1322 = trunc i64 %1290 to i8
   store i8 %1322, ptr %.neg12078.sroa.sel, align 1
-  %.sroa.gep15369 = getelementptr inbounds i8, ptr %1317, i64 3
+  %.sroa.gep15369 = getelementptr inbounds nuw i8, ptr %1317, i64 3
   %.neg12078.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12077, ptr %.sroa.gep15369, ptr %.sroa.gep13930
   store i8 0, ptr %.neg12078.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1323 = and i64 %1290, 255
   %.not12079 = icmp eq i64 %1323, 255
   %.neg12080 = select i1 %.not12079, i64 2, i64 1
-  %1324 = getelementptr inbounds i8, ptr %.neg12078.sroa.sel, i64 %.neg12080
+  %1324 = getelementptr inbounds nuw i8, ptr %.neg12078.sroa.sel, i64 %.neg12080
   br label %1347
 
 1325:                                             ; preds = %1284
   %1326 = lshr i64 %1290, 48
   %1327 = trunc i64 %1326 to i8
-  %1328 = getelementptr inbounds i8, ptr %.5710971, i64 1
+  %1328 = getelementptr inbounds nuw i8, ptr %.5710971, i64 1
   store i8 %1327, ptr %1328, align 1
   %1329 = lshr i64 %1290, 40
   %1330 = trunc i64 %1329 to i8
-  %1331 = getelementptr inbounds i8, ptr %.5710971, i64 2
+  %1331 = getelementptr inbounds nuw i8, ptr %.5710971, i64 2
   store i8 %1330, ptr %1331, align 1
   %1332 = lshr i64 %1290, 32
   %1333 = trunc i64 %1332 to i8
-  %1334 = getelementptr inbounds i8, ptr %.5710971, i64 3
+  %1334 = getelementptr inbounds nuw i8, ptr %.5710971, i64 3
   store i8 %1333, ptr %1334, align 1
   %1335 = lshr i64 %1290, 24
   %1336 = trunc i64 %1335 to i8
-  %1337 = getelementptr inbounds i8, ptr %.5710971, i64 4
+  %1337 = getelementptr inbounds nuw i8, ptr %.5710971, i64 4
   store i8 %1336, ptr %1337, align 1
   %1338 = lshr i64 %1290, 16
   %1339 = trunc i64 %1338 to i8
-  %1340 = getelementptr inbounds i8, ptr %.5710971, i64 5
+  %1340 = getelementptr inbounds nuw i8, ptr %.5710971, i64 5
   store i8 %1339, ptr %1340, align 1
   %1341 = lshr i64 %1290, 8
   %1342 = trunc i64 %1341 to i8
-  %1343 = getelementptr inbounds i8, ptr %.5710971, i64 6
+  %1343 = getelementptr inbounds nuw i8, ptr %.5710971, i64 6
   store i8 %1342, ptr %1343, align 1
   %1344 = trunc i64 %1290 to i8
-  %1345 = getelementptr inbounds i8, ptr %.5710971, i64 7
+  %1345 = getelementptr inbounds nuw i8, ptr %.5710971, i64 7
   store i8 %1344, ptr %1345, align 1
-  %1346 = getelementptr inbounds i8, ptr %.5710971, i64 8
+  %1346 = getelementptr inbounds nuw i8, ptr %.5710971, i64 8
   br label %1347
 
 1347:                                             ; preds = %1325, %1296
@@ -3962,7 +3962,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.4111081 = phi i64 [ %.3711077, %1247 ], [ %1349, %1347 ], [ %1354, %1350 ]
   %.6310977 = phi ptr [ %.5710971, %1247 ], [ %.6710981, %1347 ], [ %.5710971, %1350 ]
   %.20 = phi i32 [ %1248, %1247 ], [ 0, %1347 ], [ 0, %1350 ]
-  %1356 = getelementptr inbounds i8, ptr %1, i64 36
+  %1356 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %1357 = load i16, ptr %1356, align 2
   %1358 = icmp eq i16 %1357, 0
   br i1 %1358, label %1359, label %1361
@@ -3986,7 +3986,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1371:                                             ; preds = %1361
   %1372 = load ptr, ptr %7, align 8
   %1373 = load ptr, ptr %1372, align 8
-  %1374 = getelementptr inbounds i8, ptr %1373, i64 40
+  %1374 = getelementptr inbounds nuw i8, ptr %1373, i64 40
   store i32 6, ptr %1374, align 8
   %1375 = load ptr, ptr %7, align 8
   %1376 = load ptr, ptr %1375, align 8
@@ -4002,12 +4002,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1382 = xor i32 %1381, -1
   %1383 = and i32 %1364, %1382
   %1384 = zext nneg i32 %1379 to i64
-  %1385 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1384
+  %1385 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1384
   %1386 = load i32, ptr %1385, align 4
   %1387 = shl i32 %1386, %1369
   %1388 = or i32 %1387, %1383
-  %1389 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1390 = getelementptr inbounds [256 x i8], ptr %1389, i64 0, i64 %1384
+  %1389 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1390 = getelementptr inbounds nuw [256 x i8], ptr %1389, i64 0, i64 %1384
   %1391 = load i8, ptr %1390, align 1
   %1392 = sext i8 %1391 to i32
   %1393 = add nsw i32 %1392, %1369
@@ -4032,108 +4032,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12082, label %1437, label %1408
 
 1408:                                             ; preds = %1396
-  %1409 = getelementptr inbounds i8, ptr %.6310977, i64 1
+  %1409 = getelementptr inbounds nuw i8, ptr %.6310977, i64 1
   store i8 0, ptr %1409, align 1
   %.not12083 = icmp eq i64 %1406, 255
-  %.sroa.gep13932 = getelementptr inbounds i8, ptr %.6310977, i64 2
+  %.sroa.gep13932 = getelementptr inbounds nuw i8, ptr %.6310977, i64 2
   %.neg12084.sroa.sel = select i1 %.not12083, ptr %.sroa.gep13932, ptr %1409
   %1410 = lshr i64 %1402, 48
   %1411 = trunc i64 %1410 to i8
   store i8 %1411, ptr %.neg12084.sroa.sel, align 1
-  %.sroa.gep16173 = getelementptr inbounds i8, ptr %.6310977, i64 3
+  %.sroa.gep16173 = getelementptr inbounds nuw i8, ptr %.6310977, i64 3
   %.neg12084.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12083, ptr %.sroa.gep16173, ptr %.sroa.gep13932
   store i8 0, ptr %.neg12084.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1412 = and i64 %1402, 71776119061217280
   %.not12085 = icmp eq i64 %1412, 71776119061217280
   %.neg12086 = select i1 %.not12085, i64 2, i64 1
-  %1413 = getelementptr inbounds i8, ptr %.neg12084.sroa.sel, i64 %.neg12086
+  %1413 = getelementptr inbounds nuw i8, ptr %.neg12084.sroa.sel, i64 %.neg12086
   %1414 = lshr i64 %1402, 40
   %1415 = trunc i64 %1414 to i8
   store i8 %1415, ptr %1413, align 1
-  %1416 = getelementptr inbounds i8, ptr %1413, i64 1
+  %1416 = getelementptr inbounds nuw i8, ptr %1413, i64 1
   store i8 0, ptr %1416, align 1
   %1417 = and i64 %1402, 280375465082880
   %.not12087 = icmp eq i64 %1417, 280375465082880
-  %.sroa.gep13934 = getelementptr inbounds i8, ptr %1413, i64 2
+  %.sroa.gep13934 = getelementptr inbounds nuw i8, ptr %1413, i64 2
   %.neg12088.sroa.sel = select i1 %.not12087, ptr %.sroa.gep13934, ptr %1416
   %1418 = lshr i64 %1402, 32
   %1419 = trunc i64 %1418 to i8
   store i8 %1419, ptr %.neg12088.sroa.sel, align 1
-  %.sroa.gep15379 = getelementptr inbounds i8, ptr %1413, i64 3
+  %.sroa.gep15379 = getelementptr inbounds nuw i8, ptr %1413, i64 3
   %.neg12088.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12087, ptr %.sroa.gep15379, ptr %.sroa.gep13934
   store i8 0, ptr %.neg12088.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1420 = and i64 %1402, 1095216660480
   %.not12089 = icmp eq i64 %1420, 1095216660480
   %.neg12090 = select i1 %.not12089, i64 2, i64 1
-  %1421 = getelementptr inbounds i8, ptr %.neg12088.sroa.sel, i64 %.neg12090
+  %1421 = getelementptr inbounds nuw i8, ptr %.neg12088.sroa.sel, i64 %.neg12090
   %1422 = lshr i64 %1402, 24
   %1423 = trunc i64 %1422 to i8
   store i8 %1423, ptr %1421, align 1
-  %1424 = getelementptr inbounds i8, ptr %1421, i64 1
+  %1424 = getelementptr inbounds nuw i8, ptr %1421, i64 1
   store i8 0, ptr %1424, align 1
   %1425 = and i64 %1402, 4278190080
   %.not12091 = icmp eq i64 %1425, 4278190080
-  %.sroa.gep13936 = getelementptr inbounds i8, ptr %1421, i64 2
+  %.sroa.gep13936 = getelementptr inbounds nuw i8, ptr %1421, i64 2
   %.neg12092.sroa.sel = select i1 %.not12091, ptr %.sroa.gep13936, ptr %1424
   %1426 = lshr i64 %1402, 16
   %1427 = trunc i64 %1426 to i8
   store i8 %1427, ptr %.neg12092.sroa.sel, align 1
-  %.sroa.gep15377 = getelementptr inbounds i8, ptr %1421, i64 3
+  %.sroa.gep15377 = getelementptr inbounds nuw i8, ptr %1421, i64 3
   %.neg12092.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12091, ptr %.sroa.gep15377, ptr %.sroa.gep13936
   store i8 0, ptr %.neg12092.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1428 = and i64 %1402, 16711680
   %.not12093 = icmp eq i64 %1428, 16711680
   %.neg12094 = select i1 %.not12093, i64 2, i64 1
-  %1429 = getelementptr inbounds i8, ptr %.neg12092.sroa.sel, i64 %.neg12094
+  %1429 = getelementptr inbounds nuw i8, ptr %.neg12092.sroa.sel, i64 %.neg12094
   %1430 = lshr i64 %1402, 8
   %1431 = trunc i64 %1430 to i8
   store i8 %1431, ptr %1429, align 1
-  %1432 = getelementptr inbounds i8, ptr %1429, i64 1
+  %1432 = getelementptr inbounds nuw i8, ptr %1429, i64 1
   store i8 0, ptr %1432, align 1
   %1433 = and i64 %1402, 65280
   %.not12095 = icmp eq i64 %1433, 65280
-  %.sroa.gep13938 = getelementptr inbounds i8, ptr %1429, i64 2
+  %.sroa.gep13938 = getelementptr inbounds nuw i8, ptr %1429, i64 2
   %.neg12096.sroa.sel = select i1 %.not12095, ptr %.sroa.gep13938, ptr %1432
   %1434 = trunc i64 %1402 to i8
   store i8 %1434, ptr %.neg12096.sroa.sel, align 1
-  %.sroa.gep15375 = getelementptr inbounds i8, ptr %1429, i64 3
+  %.sroa.gep15375 = getelementptr inbounds nuw i8, ptr %1429, i64 3
   %.neg12096.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12095, ptr %.sroa.gep15375, ptr %.sroa.gep13938
   store i8 0, ptr %.neg12096.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1435 = and i64 %1402, 255
   %.not12097 = icmp eq i64 %1435, 255
   %.neg12098 = select i1 %.not12097, i64 2, i64 1
-  %1436 = getelementptr inbounds i8, ptr %.neg12096.sroa.sel, i64 %.neg12098
+  %1436 = getelementptr inbounds nuw i8, ptr %.neg12096.sroa.sel, i64 %.neg12098
   br label %1459
 
 1437:                                             ; preds = %1396
   %1438 = lshr i64 %1402, 48
   %1439 = trunc i64 %1438 to i8
-  %1440 = getelementptr inbounds i8, ptr %.6310977, i64 1
+  %1440 = getelementptr inbounds nuw i8, ptr %.6310977, i64 1
   store i8 %1439, ptr %1440, align 1
   %1441 = lshr i64 %1402, 40
   %1442 = trunc i64 %1441 to i8
-  %1443 = getelementptr inbounds i8, ptr %.6310977, i64 2
+  %1443 = getelementptr inbounds nuw i8, ptr %.6310977, i64 2
   store i8 %1442, ptr %1443, align 1
   %1444 = lshr i64 %1402, 32
   %1445 = trunc i64 %1444 to i8
-  %1446 = getelementptr inbounds i8, ptr %.6310977, i64 3
+  %1446 = getelementptr inbounds nuw i8, ptr %.6310977, i64 3
   store i8 %1445, ptr %1446, align 1
   %1447 = lshr i64 %1402, 24
   %1448 = trunc i64 %1447 to i8
-  %1449 = getelementptr inbounds i8, ptr %.6310977, i64 4
+  %1449 = getelementptr inbounds nuw i8, ptr %.6310977, i64 4
   store i8 %1448, ptr %1449, align 1
   %1450 = lshr i64 %1402, 16
   %1451 = trunc i64 %1450 to i8
-  %1452 = getelementptr inbounds i8, ptr %.6310977, i64 5
+  %1452 = getelementptr inbounds nuw i8, ptr %.6310977, i64 5
   store i8 %1451, ptr %1452, align 1
   %1453 = lshr i64 %1402, 8
   %1454 = trunc i64 %1453 to i8
-  %1455 = getelementptr inbounds i8, ptr %.6310977, i64 6
+  %1455 = getelementptr inbounds nuw i8, ptr %.6310977, i64 6
   store i8 %1454, ptr %1455, align 1
   %1456 = trunc i64 %1402 to i8
-  %1457 = getelementptr inbounds i8, ptr %.6310977, i64 7
+  %1457 = getelementptr inbounds nuw i8, ptr %.6310977, i64 7
   store i8 %1456, ptr %1457, align 1
-  %1458 = getelementptr inbounds i8, ptr %.6310977, i64 8
+  %1458 = getelementptr inbounds nuw i8, ptr %.6310977, i64 8
   br label %1459
 
 1459:                                             ; preds = %1437, %1408
@@ -4154,7 +4154,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.4511085 = phi i64 [ %.4111081, %1359 ], [ %1461, %1459 ], [ %1466, %1462 ]
   %.6910983 = phi ptr [ %.6310977, %1359 ], [ %.7310987, %1459 ], [ %.6310977, %1462 ]
   %.22 = phi i32 [ %1360, %1359 ], [ 0, %1459 ], [ 0, %1462 ]
-  %1468 = getelementptr inbounds i8, ptr %1, i64 22
+  %1468 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %1469 = load i16, ptr %1468, align 2
   %1470 = icmp eq i16 %1469, 0
   br i1 %1470, label %1471, label %1473
@@ -4178,7 +4178,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1483:                                             ; preds = %1473
   %1484 = load ptr, ptr %7, align 8
   %1485 = load ptr, ptr %1484, align 8
-  %1486 = getelementptr inbounds i8, ptr %1485, i64 40
+  %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 40
   store i32 6, ptr %1486, align 8
   %1487 = load ptr, ptr %7, align 8
   %1488 = load ptr, ptr %1487, align 8
@@ -4194,12 +4194,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1494 = xor i32 %1493, -1
   %1495 = and i32 %1476, %1494
   %1496 = zext nneg i32 %1491 to i64
-  %1497 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1496
+  %1497 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1496
   %1498 = load i32, ptr %1497, align 4
   %1499 = shl i32 %1498, %1481
   %1500 = or i32 %1499, %1495
-  %1501 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1502 = getelementptr inbounds [256 x i8], ptr %1501, i64 0, i64 %1496
+  %1501 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1502 = getelementptr inbounds nuw [256 x i8], ptr %1501, i64 0, i64 %1496
   %1503 = load i8, ptr %1502, align 1
   %1504 = sext i8 %1503 to i32
   %1505 = add nsw i32 %1504, %1481
@@ -4224,108 +4224,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12100, label %1549, label %1520
 
 1520:                                             ; preds = %1508
-  %1521 = getelementptr inbounds i8, ptr %.6910983, i64 1
+  %1521 = getelementptr inbounds nuw i8, ptr %.6910983, i64 1
   store i8 0, ptr %1521, align 1
   %.not12101 = icmp eq i64 %1518, 255
-  %.sroa.gep13940 = getelementptr inbounds i8, ptr %.6910983, i64 2
+  %.sroa.gep13940 = getelementptr inbounds nuw i8, ptr %.6910983, i64 2
   %.neg12102.sroa.sel = select i1 %.not12101, ptr %.sroa.gep13940, ptr %1521
   %1522 = lshr i64 %1514, 48
   %1523 = trunc i64 %1522 to i8
   store i8 %1523, ptr %.neg12102.sroa.sel, align 1
-  %.sroa.gep16171 = getelementptr inbounds i8, ptr %.6910983, i64 3
+  %.sroa.gep16171 = getelementptr inbounds nuw i8, ptr %.6910983, i64 3
   %.neg12102.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12101, ptr %.sroa.gep16171, ptr %.sroa.gep13940
   store i8 0, ptr %.neg12102.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1524 = and i64 %1514, 71776119061217280
   %.not12103 = icmp eq i64 %1524, 71776119061217280
   %.neg12104 = select i1 %.not12103, i64 2, i64 1
-  %1525 = getelementptr inbounds i8, ptr %.neg12102.sroa.sel, i64 %.neg12104
+  %1525 = getelementptr inbounds nuw i8, ptr %.neg12102.sroa.sel, i64 %.neg12104
   %1526 = lshr i64 %1514, 40
   %1527 = trunc i64 %1526 to i8
   store i8 %1527, ptr %1525, align 1
-  %1528 = getelementptr inbounds i8, ptr %1525, i64 1
+  %1528 = getelementptr inbounds nuw i8, ptr %1525, i64 1
   store i8 0, ptr %1528, align 1
   %1529 = and i64 %1514, 280375465082880
   %.not12105 = icmp eq i64 %1529, 280375465082880
-  %.sroa.gep13942 = getelementptr inbounds i8, ptr %1525, i64 2
+  %.sroa.gep13942 = getelementptr inbounds nuw i8, ptr %1525, i64 2
   %.neg12106.sroa.sel = select i1 %.not12105, ptr %.sroa.gep13942, ptr %1528
   %1530 = lshr i64 %1514, 32
   %1531 = trunc i64 %1530 to i8
   store i8 %1531, ptr %.neg12106.sroa.sel, align 1
-  %.sroa.gep15385 = getelementptr inbounds i8, ptr %1525, i64 3
+  %.sroa.gep15385 = getelementptr inbounds nuw i8, ptr %1525, i64 3
   %.neg12106.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12105, ptr %.sroa.gep15385, ptr %.sroa.gep13942
   store i8 0, ptr %.neg12106.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1532 = and i64 %1514, 1095216660480
   %.not12107 = icmp eq i64 %1532, 1095216660480
   %.neg12108 = select i1 %.not12107, i64 2, i64 1
-  %1533 = getelementptr inbounds i8, ptr %.neg12106.sroa.sel, i64 %.neg12108
+  %1533 = getelementptr inbounds nuw i8, ptr %.neg12106.sroa.sel, i64 %.neg12108
   %1534 = lshr i64 %1514, 24
   %1535 = trunc i64 %1534 to i8
   store i8 %1535, ptr %1533, align 1
-  %1536 = getelementptr inbounds i8, ptr %1533, i64 1
+  %1536 = getelementptr inbounds nuw i8, ptr %1533, i64 1
   store i8 0, ptr %1536, align 1
   %1537 = and i64 %1514, 4278190080
   %.not12109 = icmp eq i64 %1537, 4278190080
-  %.sroa.gep13944 = getelementptr inbounds i8, ptr %1533, i64 2
+  %.sroa.gep13944 = getelementptr inbounds nuw i8, ptr %1533, i64 2
   %.neg12110.sroa.sel = select i1 %.not12109, ptr %.sroa.gep13944, ptr %1536
   %1538 = lshr i64 %1514, 16
   %1539 = trunc i64 %1538 to i8
   store i8 %1539, ptr %.neg12110.sroa.sel, align 1
-  %.sroa.gep15383 = getelementptr inbounds i8, ptr %1533, i64 3
+  %.sroa.gep15383 = getelementptr inbounds nuw i8, ptr %1533, i64 3
   %.neg12110.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12109, ptr %.sroa.gep15383, ptr %.sroa.gep13944
   store i8 0, ptr %.neg12110.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1540 = and i64 %1514, 16711680
   %.not12111 = icmp eq i64 %1540, 16711680
   %.neg12112 = select i1 %.not12111, i64 2, i64 1
-  %1541 = getelementptr inbounds i8, ptr %.neg12110.sroa.sel, i64 %.neg12112
+  %1541 = getelementptr inbounds nuw i8, ptr %.neg12110.sroa.sel, i64 %.neg12112
   %1542 = lshr i64 %1514, 8
   %1543 = trunc i64 %1542 to i8
   store i8 %1543, ptr %1541, align 1
-  %1544 = getelementptr inbounds i8, ptr %1541, i64 1
+  %1544 = getelementptr inbounds nuw i8, ptr %1541, i64 1
   store i8 0, ptr %1544, align 1
   %1545 = and i64 %1514, 65280
   %.not12113 = icmp eq i64 %1545, 65280
-  %.sroa.gep13946 = getelementptr inbounds i8, ptr %1541, i64 2
+  %.sroa.gep13946 = getelementptr inbounds nuw i8, ptr %1541, i64 2
   %.neg12114.sroa.sel = select i1 %.not12113, ptr %.sroa.gep13946, ptr %1544
   %1546 = trunc i64 %1514 to i8
   store i8 %1546, ptr %.neg12114.sroa.sel, align 1
-  %.sroa.gep15381 = getelementptr inbounds i8, ptr %1541, i64 3
+  %.sroa.gep15381 = getelementptr inbounds nuw i8, ptr %1541, i64 3
   %.neg12114.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12113, ptr %.sroa.gep15381, ptr %.sroa.gep13946
   store i8 0, ptr %.neg12114.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1547 = and i64 %1514, 255
   %.not12115 = icmp eq i64 %1547, 255
   %.neg12116 = select i1 %.not12115, i64 2, i64 1
-  %1548 = getelementptr inbounds i8, ptr %.neg12114.sroa.sel, i64 %.neg12116
+  %1548 = getelementptr inbounds nuw i8, ptr %.neg12114.sroa.sel, i64 %.neg12116
   br label %1571
 
 1549:                                             ; preds = %1508
   %1550 = lshr i64 %1514, 48
   %1551 = trunc i64 %1550 to i8
-  %1552 = getelementptr inbounds i8, ptr %.6910983, i64 1
+  %1552 = getelementptr inbounds nuw i8, ptr %.6910983, i64 1
   store i8 %1551, ptr %1552, align 1
   %1553 = lshr i64 %1514, 40
   %1554 = trunc i64 %1553 to i8
-  %1555 = getelementptr inbounds i8, ptr %.6910983, i64 2
+  %1555 = getelementptr inbounds nuw i8, ptr %.6910983, i64 2
   store i8 %1554, ptr %1555, align 1
   %1556 = lshr i64 %1514, 32
   %1557 = trunc i64 %1556 to i8
-  %1558 = getelementptr inbounds i8, ptr %.6910983, i64 3
+  %1558 = getelementptr inbounds nuw i8, ptr %.6910983, i64 3
   store i8 %1557, ptr %1558, align 1
   %1559 = lshr i64 %1514, 24
   %1560 = trunc i64 %1559 to i8
-  %1561 = getelementptr inbounds i8, ptr %.6910983, i64 4
+  %1561 = getelementptr inbounds nuw i8, ptr %.6910983, i64 4
   store i8 %1560, ptr %1561, align 1
   %1562 = lshr i64 %1514, 16
   %1563 = trunc i64 %1562 to i8
-  %1564 = getelementptr inbounds i8, ptr %.6910983, i64 5
+  %1564 = getelementptr inbounds nuw i8, ptr %.6910983, i64 5
   store i8 %1563, ptr %1564, align 1
   %1565 = lshr i64 %1514, 8
   %1566 = trunc i64 %1565 to i8
-  %1567 = getelementptr inbounds i8, ptr %.6910983, i64 6
+  %1567 = getelementptr inbounds nuw i8, ptr %.6910983, i64 6
   store i8 %1566, ptr %1567, align 1
   %1568 = trunc i64 %1514 to i8
-  %1569 = getelementptr inbounds i8, ptr %.6910983, i64 7
+  %1569 = getelementptr inbounds nuw i8, ptr %.6910983, i64 7
   store i8 %1568, ptr %1569, align 1
-  %1570 = getelementptr inbounds i8, ptr %.6910983, i64 8
+  %1570 = getelementptr inbounds nuw i8, ptr %.6910983, i64 8
   br label %1571
 
 1571:                                             ; preds = %1549, %1520
@@ -4346,7 +4346,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.4911089 = phi i64 [ %.4511085, %1471 ], [ %1573, %1571 ], [ %1578, %1574 ]
   %.7510989 = phi ptr [ %.6910983, %1471 ], [ %.7910993, %1571 ], [ %.6910983, %1574 ]
   %.24 = phi i32 [ %1472, %1471 ], [ 0, %1571 ], [ 0, %1574 ]
-  %1580 = getelementptr inbounds i8, ptr %1, i64 8
+  %1580 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1581 = load i16, ptr %1580, align 2
   %1582 = icmp eq i16 %1581, 0
   br i1 %1582, label %1583, label %1585
@@ -4370,7 +4370,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1595:                                             ; preds = %1585
   %1596 = load ptr, ptr %7, align 8
   %1597 = load ptr, ptr %1596, align 8
-  %1598 = getelementptr inbounds i8, ptr %1597, i64 40
+  %1598 = getelementptr inbounds nuw i8, ptr %1597, i64 40
   store i32 6, ptr %1598, align 8
   %1599 = load ptr, ptr %7, align 8
   %1600 = load ptr, ptr %1599, align 8
@@ -4386,12 +4386,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1606 = xor i32 %1605, -1
   %1607 = and i32 %1588, %1606
   %1608 = zext nneg i32 %1603 to i64
-  %1609 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1608
+  %1609 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1608
   %1610 = load i32, ptr %1609, align 4
   %1611 = shl i32 %1610, %1593
   %1612 = or i32 %1611, %1607
-  %1613 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1614 = getelementptr inbounds [256 x i8], ptr %1613, i64 0, i64 %1608
+  %1613 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1614 = getelementptr inbounds nuw [256 x i8], ptr %1613, i64 0, i64 %1608
   %1615 = load i8, ptr %1614, align 1
   %1616 = sext i8 %1615 to i32
   %1617 = add nsw i32 %1616, %1593
@@ -4416,108 +4416,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12118, label %1661, label %1632
 
 1632:                                             ; preds = %1620
-  %1633 = getelementptr inbounds i8, ptr %.7510989, i64 1
+  %1633 = getelementptr inbounds nuw i8, ptr %.7510989, i64 1
   store i8 0, ptr %1633, align 1
   %.not12119 = icmp eq i64 %1630, 255
-  %.sroa.gep13948 = getelementptr inbounds i8, ptr %.7510989, i64 2
+  %.sroa.gep13948 = getelementptr inbounds nuw i8, ptr %.7510989, i64 2
   %.neg12120.sroa.sel = select i1 %.not12119, ptr %.sroa.gep13948, ptr %1633
   %1634 = lshr i64 %1626, 48
   %1635 = trunc i64 %1634 to i8
   store i8 %1635, ptr %.neg12120.sroa.sel, align 1
-  %.sroa.gep16169 = getelementptr inbounds i8, ptr %.7510989, i64 3
+  %.sroa.gep16169 = getelementptr inbounds nuw i8, ptr %.7510989, i64 3
   %.neg12120.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12119, ptr %.sroa.gep16169, ptr %.sroa.gep13948
   store i8 0, ptr %.neg12120.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1636 = and i64 %1626, 71776119061217280
   %.not12121 = icmp eq i64 %1636, 71776119061217280
   %.neg12122 = select i1 %.not12121, i64 2, i64 1
-  %1637 = getelementptr inbounds i8, ptr %.neg12120.sroa.sel, i64 %.neg12122
+  %1637 = getelementptr inbounds nuw i8, ptr %.neg12120.sroa.sel, i64 %.neg12122
   %1638 = lshr i64 %1626, 40
   %1639 = trunc i64 %1638 to i8
   store i8 %1639, ptr %1637, align 1
-  %1640 = getelementptr inbounds i8, ptr %1637, i64 1
+  %1640 = getelementptr inbounds nuw i8, ptr %1637, i64 1
   store i8 0, ptr %1640, align 1
   %1641 = and i64 %1626, 280375465082880
   %.not12123 = icmp eq i64 %1641, 280375465082880
-  %.sroa.gep13950 = getelementptr inbounds i8, ptr %1637, i64 2
+  %.sroa.gep13950 = getelementptr inbounds nuw i8, ptr %1637, i64 2
   %.neg12124.sroa.sel = select i1 %.not12123, ptr %.sroa.gep13950, ptr %1640
   %1642 = lshr i64 %1626, 32
   %1643 = trunc i64 %1642 to i8
   store i8 %1643, ptr %.neg12124.sroa.sel, align 1
-  %.sroa.gep15391 = getelementptr inbounds i8, ptr %1637, i64 3
+  %.sroa.gep15391 = getelementptr inbounds nuw i8, ptr %1637, i64 3
   %.neg12124.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12123, ptr %.sroa.gep15391, ptr %.sroa.gep13950
   store i8 0, ptr %.neg12124.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1644 = and i64 %1626, 1095216660480
   %.not12125 = icmp eq i64 %1644, 1095216660480
   %.neg12126 = select i1 %.not12125, i64 2, i64 1
-  %1645 = getelementptr inbounds i8, ptr %.neg12124.sroa.sel, i64 %.neg12126
+  %1645 = getelementptr inbounds nuw i8, ptr %.neg12124.sroa.sel, i64 %.neg12126
   %1646 = lshr i64 %1626, 24
   %1647 = trunc i64 %1646 to i8
   store i8 %1647, ptr %1645, align 1
-  %1648 = getelementptr inbounds i8, ptr %1645, i64 1
+  %1648 = getelementptr inbounds nuw i8, ptr %1645, i64 1
   store i8 0, ptr %1648, align 1
   %1649 = and i64 %1626, 4278190080
   %.not12127 = icmp eq i64 %1649, 4278190080
-  %.sroa.gep13952 = getelementptr inbounds i8, ptr %1645, i64 2
+  %.sroa.gep13952 = getelementptr inbounds nuw i8, ptr %1645, i64 2
   %.neg12128.sroa.sel = select i1 %.not12127, ptr %.sroa.gep13952, ptr %1648
   %1650 = lshr i64 %1626, 16
   %1651 = trunc i64 %1650 to i8
   store i8 %1651, ptr %.neg12128.sroa.sel, align 1
-  %.sroa.gep15389 = getelementptr inbounds i8, ptr %1645, i64 3
+  %.sroa.gep15389 = getelementptr inbounds nuw i8, ptr %1645, i64 3
   %.neg12128.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12127, ptr %.sroa.gep15389, ptr %.sroa.gep13952
   store i8 0, ptr %.neg12128.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1652 = and i64 %1626, 16711680
   %.not12129 = icmp eq i64 %1652, 16711680
   %.neg12130 = select i1 %.not12129, i64 2, i64 1
-  %1653 = getelementptr inbounds i8, ptr %.neg12128.sroa.sel, i64 %.neg12130
+  %1653 = getelementptr inbounds nuw i8, ptr %.neg12128.sroa.sel, i64 %.neg12130
   %1654 = lshr i64 %1626, 8
   %1655 = trunc i64 %1654 to i8
   store i8 %1655, ptr %1653, align 1
-  %1656 = getelementptr inbounds i8, ptr %1653, i64 1
+  %1656 = getelementptr inbounds nuw i8, ptr %1653, i64 1
   store i8 0, ptr %1656, align 1
   %1657 = and i64 %1626, 65280
   %.not12131 = icmp eq i64 %1657, 65280
-  %.sroa.gep13954 = getelementptr inbounds i8, ptr %1653, i64 2
+  %.sroa.gep13954 = getelementptr inbounds nuw i8, ptr %1653, i64 2
   %.neg12132.sroa.sel = select i1 %.not12131, ptr %.sroa.gep13954, ptr %1656
   %1658 = trunc i64 %1626 to i8
   store i8 %1658, ptr %.neg12132.sroa.sel, align 1
-  %.sroa.gep15387 = getelementptr inbounds i8, ptr %1653, i64 3
+  %.sroa.gep15387 = getelementptr inbounds nuw i8, ptr %1653, i64 3
   %.neg12132.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12131, ptr %.sroa.gep15387, ptr %.sroa.gep13954
   store i8 0, ptr %.neg12132.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1659 = and i64 %1626, 255
   %.not12133 = icmp eq i64 %1659, 255
   %.neg12134 = select i1 %.not12133, i64 2, i64 1
-  %1660 = getelementptr inbounds i8, ptr %.neg12132.sroa.sel, i64 %.neg12134
+  %1660 = getelementptr inbounds nuw i8, ptr %.neg12132.sroa.sel, i64 %.neg12134
   br label %1683
 
 1661:                                             ; preds = %1620
   %1662 = lshr i64 %1626, 48
   %1663 = trunc i64 %1662 to i8
-  %1664 = getelementptr inbounds i8, ptr %.7510989, i64 1
+  %1664 = getelementptr inbounds nuw i8, ptr %.7510989, i64 1
   store i8 %1663, ptr %1664, align 1
   %1665 = lshr i64 %1626, 40
   %1666 = trunc i64 %1665 to i8
-  %1667 = getelementptr inbounds i8, ptr %.7510989, i64 2
+  %1667 = getelementptr inbounds nuw i8, ptr %.7510989, i64 2
   store i8 %1666, ptr %1667, align 1
   %1668 = lshr i64 %1626, 32
   %1669 = trunc i64 %1668 to i8
-  %1670 = getelementptr inbounds i8, ptr %.7510989, i64 3
+  %1670 = getelementptr inbounds nuw i8, ptr %.7510989, i64 3
   store i8 %1669, ptr %1670, align 1
   %1671 = lshr i64 %1626, 24
   %1672 = trunc i64 %1671 to i8
-  %1673 = getelementptr inbounds i8, ptr %.7510989, i64 4
+  %1673 = getelementptr inbounds nuw i8, ptr %.7510989, i64 4
   store i8 %1672, ptr %1673, align 1
   %1674 = lshr i64 %1626, 16
   %1675 = trunc i64 %1674 to i8
-  %1676 = getelementptr inbounds i8, ptr %.7510989, i64 5
+  %1676 = getelementptr inbounds nuw i8, ptr %.7510989, i64 5
   store i8 %1675, ptr %1676, align 1
   %1677 = lshr i64 %1626, 8
   %1678 = trunc i64 %1677 to i8
-  %1679 = getelementptr inbounds i8, ptr %.7510989, i64 6
+  %1679 = getelementptr inbounds nuw i8, ptr %.7510989, i64 6
   store i8 %1678, ptr %1679, align 1
   %1680 = trunc i64 %1626 to i8
-  %1681 = getelementptr inbounds i8, ptr %.7510989, i64 7
+  %1681 = getelementptr inbounds nuw i8, ptr %.7510989, i64 7
   store i8 %1680, ptr %1681, align 1
-  %1682 = getelementptr inbounds i8, ptr %.7510989, i64 8
+  %1682 = getelementptr inbounds nuw i8, ptr %.7510989, i64 8
   br label %1683
 
 1683:                                             ; preds = %1661, %1632
@@ -4538,7 +4538,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.5311093 = phi i64 [ %.4911089, %1583 ], [ %1685, %1683 ], [ %1690, %1686 ]
   %.8110995 = phi ptr [ %.7510989, %1583 ], [ %.8510999, %1683 ], [ %.7510989, %1686 ]
   %.26 = phi i32 [ %1584, %1583 ], [ 0, %1683 ], [ 0, %1686 ]
-  %1692 = getelementptr inbounds i8, ptr %1, i64 10
+  %1692 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %1693 = load i16, ptr %1692, align 2
   %1694 = icmp eq i16 %1693, 0
   br i1 %1694, label %1695, label %1697
@@ -4562,7 +4562,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1707:                                             ; preds = %1697
   %1708 = load ptr, ptr %7, align 8
   %1709 = load ptr, ptr %1708, align 8
-  %1710 = getelementptr inbounds i8, ptr %1709, i64 40
+  %1710 = getelementptr inbounds nuw i8, ptr %1709, i64 40
   store i32 6, ptr %1710, align 8
   %1711 = load ptr, ptr %7, align 8
   %1712 = load ptr, ptr %1711, align 8
@@ -4578,12 +4578,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1718 = xor i32 %1717, -1
   %1719 = and i32 %1700, %1718
   %1720 = zext nneg i32 %1715 to i64
-  %1721 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1720
+  %1721 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1720
   %1722 = load i32, ptr %1721, align 4
   %1723 = shl i32 %1722, %1705
   %1724 = or i32 %1723, %1719
-  %1725 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1726 = getelementptr inbounds [256 x i8], ptr %1725, i64 0, i64 %1720
+  %1725 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1726 = getelementptr inbounds nuw [256 x i8], ptr %1725, i64 0, i64 %1720
   %1727 = load i8, ptr %1726, align 1
   %1728 = sext i8 %1727 to i32
   %1729 = add nsw i32 %1728, %1705
@@ -4608,108 +4608,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12136, label %1773, label %1744
 
 1744:                                             ; preds = %1732
-  %1745 = getelementptr inbounds i8, ptr %.8110995, i64 1
+  %1745 = getelementptr inbounds nuw i8, ptr %.8110995, i64 1
   store i8 0, ptr %1745, align 1
   %.not12137 = icmp eq i64 %1742, 255
-  %.sroa.gep13956 = getelementptr inbounds i8, ptr %.8110995, i64 2
+  %.sroa.gep13956 = getelementptr inbounds nuw i8, ptr %.8110995, i64 2
   %.neg12138.sroa.sel = select i1 %.not12137, ptr %.sroa.gep13956, ptr %1745
   %1746 = lshr i64 %1738, 48
   %1747 = trunc i64 %1746 to i8
   store i8 %1747, ptr %.neg12138.sroa.sel, align 1
-  %.sroa.gep16167 = getelementptr inbounds i8, ptr %.8110995, i64 3
+  %.sroa.gep16167 = getelementptr inbounds nuw i8, ptr %.8110995, i64 3
   %.neg12138.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12137, ptr %.sroa.gep16167, ptr %.sroa.gep13956
   store i8 0, ptr %.neg12138.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1748 = and i64 %1738, 71776119061217280
   %.not12139 = icmp eq i64 %1748, 71776119061217280
   %.neg12140 = select i1 %.not12139, i64 2, i64 1
-  %1749 = getelementptr inbounds i8, ptr %.neg12138.sroa.sel, i64 %.neg12140
+  %1749 = getelementptr inbounds nuw i8, ptr %.neg12138.sroa.sel, i64 %.neg12140
   %1750 = lshr i64 %1738, 40
   %1751 = trunc i64 %1750 to i8
   store i8 %1751, ptr %1749, align 1
-  %1752 = getelementptr inbounds i8, ptr %1749, i64 1
+  %1752 = getelementptr inbounds nuw i8, ptr %1749, i64 1
   store i8 0, ptr %1752, align 1
   %1753 = and i64 %1738, 280375465082880
   %.not12141 = icmp eq i64 %1753, 280375465082880
-  %.sroa.gep13958 = getelementptr inbounds i8, ptr %1749, i64 2
+  %.sroa.gep13958 = getelementptr inbounds nuw i8, ptr %1749, i64 2
   %.neg12142.sroa.sel = select i1 %.not12141, ptr %.sroa.gep13958, ptr %1752
   %1754 = lshr i64 %1738, 32
   %1755 = trunc i64 %1754 to i8
   store i8 %1755, ptr %.neg12142.sroa.sel, align 1
-  %.sroa.gep15397 = getelementptr inbounds i8, ptr %1749, i64 3
+  %.sroa.gep15397 = getelementptr inbounds nuw i8, ptr %1749, i64 3
   %.neg12142.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12141, ptr %.sroa.gep15397, ptr %.sroa.gep13958
   store i8 0, ptr %.neg12142.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1756 = and i64 %1738, 1095216660480
   %.not12143 = icmp eq i64 %1756, 1095216660480
   %.neg12144 = select i1 %.not12143, i64 2, i64 1
-  %1757 = getelementptr inbounds i8, ptr %.neg12142.sroa.sel, i64 %.neg12144
+  %1757 = getelementptr inbounds nuw i8, ptr %.neg12142.sroa.sel, i64 %.neg12144
   %1758 = lshr i64 %1738, 24
   %1759 = trunc i64 %1758 to i8
   store i8 %1759, ptr %1757, align 1
-  %1760 = getelementptr inbounds i8, ptr %1757, i64 1
+  %1760 = getelementptr inbounds nuw i8, ptr %1757, i64 1
   store i8 0, ptr %1760, align 1
   %1761 = and i64 %1738, 4278190080
   %.not12145 = icmp eq i64 %1761, 4278190080
-  %.sroa.gep13960 = getelementptr inbounds i8, ptr %1757, i64 2
+  %.sroa.gep13960 = getelementptr inbounds nuw i8, ptr %1757, i64 2
   %.neg12146.sroa.sel = select i1 %.not12145, ptr %.sroa.gep13960, ptr %1760
   %1762 = lshr i64 %1738, 16
   %1763 = trunc i64 %1762 to i8
   store i8 %1763, ptr %.neg12146.sroa.sel, align 1
-  %.sroa.gep15395 = getelementptr inbounds i8, ptr %1757, i64 3
+  %.sroa.gep15395 = getelementptr inbounds nuw i8, ptr %1757, i64 3
   %.neg12146.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12145, ptr %.sroa.gep15395, ptr %.sroa.gep13960
   store i8 0, ptr %.neg12146.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1764 = and i64 %1738, 16711680
   %.not12147 = icmp eq i64 %1764, 16711680
   %.neg12148 = select i1 %.not12147, i64 2, i64 1
-  %1765 = getelementptr inbounds i8, ptr %.neg12146.sroa.sel, i64 %.neg12148
+  %1765 = getelementptr inbounds nuw i8, ptr %.neg12146.sroa.sel, i64 %.neg12148
   %1766 = lshr i64 %1738, 8
   %1767 = trunc i64 %1766 to i8
   store i8 %1767, ptr %1765, align 1
-  %1768 = getelementptr inbounds i8, ptr %1765, i64 1
+  %1768 = getelementptr inbounds nuw i8, ptr %1765, i64 1
   store i8 0, ptr %1768, align 1
   %1769 = and i64 %1738, 65280
   %.not12149 = icmp eq i64 %1769, 65280
-  %.sroa.gep13962 = getelementptr inbounds i8, ptr %1765, i64 2
+  %.sroa.gep13962 = getelementptr inbounds nuw i8, ptr %1765, i64 2
   %.neg12150.sroa.sel = select i1 %.not12149, ptr %.sroa.gep13962, ptr %1768
   %1770 = trunc i64 %1738 to i8
   store i8 %1770, ptr %.neg12150.sroa.sel, align 1
-  %.sroa.gep15393 = getelementptr inbounds i8, ptr %1765, i64 3
+  %.sroa.gep15393 = getelementptr inbounds nuw i8, ptr %1765, i64 3
   %.neg12150.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12149, ptr %.sroa.gep15393, ptr %.sroa.gep13962
   store i8 0, ptr %.neg12150.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1771 = and i64 %1738, 255
   %.not12151 = icmp eq i64 %1771, 255
   %.neg12152 = select i1 %.not12151, i64 2, i64 1
-  %1772 = getelementptr inbounds i8, ptr %.neg12150.sroa.sel, i64 %.neg12152
+  %1772 = getelementptr inbounds nuw i8, ptr %.neg12150.sroa.sel, i64 %.neg12152
   br label %1795
 
 1773:                                             ; preds = %1732
   %1774 = lshr i64 %1738, 48
   %1775 = trunc i64 %1774 to i8
-  %1776 = getelementptr inbounds i8, ptr %.8110995, i64 1
+  %1776 = getelementptr inbounds nuw i8, ptr %.8110995, i64 1
   store i8 %1775, ptr %1776, align 1
   %1777 = lshr i64 %1738, 40
   %1778 = trunc i64 %1777 to i8
-  %1779 = getelementptr inbounds i8, ptr %.8110995, i64 2
+  %1779 = getelementptr inbounds nuw i8, ptr %.8110995, i64 2
   store i8 %1778, ptr %1779, align 1
   %1780 = lshr i64 %1738, 32
   %1781 = trunc i64 %1780 to i8
-  %1782 = getelementptr inbounds i8, ptr %.8110995, i64 3
+  %1782 = getelementptr inbounds nuw i8, ptr %.8110995, i64 3
   store i8 %1781, ptr %1782, align 1
   %1783 = lshr i64 %1738, 24
   %1784 = trunc i64 %1783 to i8
-  %1785 = getelementptr inbounds i8, ptr %.8110995, i64 4
+  %1785 = getelementptr inbounds nuw i8, ptr %.8110995, i64 4
   store i8 %1784, ptr %1785, align 1
   %1786 = lshr i64 %1738, 16
   %1787 = trunc i64 %1786 to i8
-  %1788 = getelementptr inbounds i8, ptr %.8110995, i64 5
+  %1788 = getelementptr inbounds nuw i8, ptr %.8110995, i64 5
   store i8 %1787, ptr %1788, align 1
   %1789 = lshr i64 %1738, 8
   %1790 = trunc i64 %1789 to i8
-  %1791 = getelementptr inbounds i8, ptr %.8110995, i64 6
+  %1791 = getelementptr inbounds nuw i8, ptr %.8110995, i64 6
   store i8 %1790, ptr %1791, align 1
   %1792 = trunc i64 %1738 to i8
-  %1793 = getelementptr inbounds i8, ptr %.8110995, i64 7
+  %1793 = getelementptr inbounds nuw i8, ptr %.8110995, i64 7
   store i8 %1792, ptr %1793, align 1
-  %1794 = getelementptr inbounds i8, ptr %.8110995, i64 8
+  %1794 = getelementptr inbounds nuw i8, ptr %.8110995, i64 8
   br label %1795
 
 1795:                                             ; preds = %1773, %1744
@@ -4730,7 +4730,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.5711097 = phi i64 [ %.5311093, %1695 ], [ %1797, %1795 ], [ %1802, %1798 ]
   %.8711001 = phi ptr [ %.8110995, %1695 ], [ %.9111005, %1795 ], [ %.8110995, %1798 ]
   %.28 = phi i32 [ %1696, %1695 ], [ 0, %1795 ], [ 0, %1798 ]
-  %1804 = getelementptr inbounds i8, ptr %1, i64 24
+  %1804 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1805 = load i16, ptr %1804, align 2
   %1806 = icmp eq i16 %1805, 0
   br i1 %1806, label %1807, label %1809
@@ -4754,7 +4754,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1819:                                             ; preds = %1809
   %1820 = load ptr, ptr %7, align 8
   %1821 = load ptr, ptr %1820, align 8
-  %1822 = getelementptr inbounds i8, ptr %1821, i64 40
+  %1822 = getelementptr inbounds nuw i8, ptr %1821, i64 40
   store i32 6, ptr %1822, align 8
   %1823 = load ptr, ptr %7, align 8
   %1824 = load ptr, ptr %1823, align 8
@@ -4770,12 +4770,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %1830 = xor i32 %1829, -1
   %1831 = and i32 %1812, %1830
   %1832 = zext nneg i32 %1827 to i64
-  %1833 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %1832
+  %1833 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %1832
   %1834 = load i32, ptr %1833, align 4
   %1835 = shl i32 %1834, %1817
   %1836 = or i32 %1835, %1831
-  %1837 = getelementptr inbounds i8, ptr %4, i64 1024
-  %1838 = getelementptr inbounds [256 x i8], ptr %1837, i64 0, i64 %1832
+  %1837 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %1838 = getelementptr inbounds nuw [256 x i8], ptr %1837, i64 0, i64 %1832
   %1839 = load i8, ptr %1838, align 1
   %1840 = sext i8 %1839 to i32
   %1841 = add nsw i32 %1840, %1817
@@ -4800,108 +4800,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12154, label %1885, label %1856
 
 1856:                                             ; preds = %1844
-  %1857 = getelementptr inbounds i8, ptr %.8711001, i64 1
+  %1857 = getelementptr inbounds nuw i8, ptr %.8711001, i64 1
   store i8 0, ptr %1857, align 1
   %.not12155 = icmp eq i64 %1854, 255
-  %.sroa.gep13964 = getelementptr inbounds i8, ptr %.8711001, i64 2
+  %.sroa.gep13964 = getelementptr inbounds nuw i8, ptr %.8711001, i64 2
   %.neg12156.sroa.sel = select i1 %.not12155, ptr %.sroa.gep13964, ptr %1857
   %1858 = lshr i64 %1850, 48
   %1859 = trunc i64 %1858 to i8
   store i8 %1859, ptr %.neg12156.sroa.sel, align 1
-  %.sroa.gep16165 = getelementptr inbounds i8, ptr %.8711001, i64 3
+  %.sroa.gep16165 = getelementptr inbounds nuw i8, ptr %.8711001, i64 3
   %.neg12156.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12155, ptr %.sroa.gep16165, ptr %.sroa.gep13964
   store i8 0, ptr %.neg12156.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1860 = and i64 %1850, 71776119061217280
   %.not12157 = icmp eq i64 %1860, 71776119061217280
   %.neg12158 = select i1 %.not12157, i64 2, i64 1
-  %1861 = getelementptr inbounds i8, ptr %.neg12156.sroa.sel, i64 %.neg12158
+  %1861 = getelementptr inbounds nuw i8, ptr %.neg12156.sroa.sel, i64 %.neg12158
   %1862 = lshr i64 %1850, 40
   %1863 = trunc i64 %1862 to i8
   store i8 %1863, ptr %1861, align 1
-  %1864 = getelementptr inbounds i8, ptr %1861, i64 1
+  %1864 = getelementptr inbounds nuw i8, ptr %1861, i64 1
   store i8 0, ptr %1864, align 1
   %1865 = and i64 %1850, 280375465082880
   %.not12159 = icmp eq i64 %1865, 280375465082880
-  %.sroa.gep13966 = getelementptr inbounds i8, ptr %1861, i64 2
+  %.sroa.gep13966 = getelementptr inbounds nuw i8, ptr %1861, i64 2
   %.neg12160.sroa.sel = select i1 %.not12159, ptr %.sroa.gep13966, ptr %1864
   %1866 = lshr i64 %1850, 32
   %1867 = trunc i64 %1866 to i8
   store i8 %1867, ptr %.neg12160.sroa.sel, align 1
-  %.sroa.gep15403 = getelementptr inbounds i8, ptr %1861, i64 3
+  %.sroa.gep15403 = getelementptr inbounds nuw i8, ptr %1861, i64 3
   %.neg12160.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12159, ptr %.sroa.gep15403, ptr %.sroa.gep13966
   store i8 0, ptr %.neg12160.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1868 = and i64 %1850, 1095216660480
   %.not12161 = icmp eq i64 %1868, 1095216660480
   %.neg12162 = select i1 %.not12161, i64 2, i64 1
-  %1869 = getelementptr inbounds i8, ptr %.neg12160.sroa.sel, i64 %.neg12162
+  %1869 = getelementptr inbounds nuw i8, ptr %.neg12160.sroa.sel, i64 %.neg12162
   %1870 = lshr i64 %1850, 24
   %1871 = trunc i64 %1870 to i8
   store i8 %1871, ptr %1869, align 1
-  %1872 = getelementptr inbounds i8, ptr %1869, i64 1
+  %1872 = getelementptr inbounds nuw i8, ptr %1869, i64 1
   store i8 0, ptr %1872, align 1
   %1873 = and i64 %1850, 4278190080
   %.not12163 = icmp eq i64 %1873, 4278190080
-  %.sroa.gep13968 = getelementptr inbounds i8, ptr %1869, i64 2
+  %.sroa.gep13968 = getelementptr inbounds nuw i8, ptr %1869, i64 2
   %.neg12164.sroa.sel = select i1 %.not12163, ptr %.sroa.gep13968, ptr %1872
   %1874 = lshr i64 %1850, 16
   %1875 = trunc i64 %1874 to i8
   store i8 %1875, ptr %.neg12164.sroa.sel, align 1
-  %.sroa.gep15401 = getelementptr inbounds i8, ptr %1869, i64 3
+  %.sroa.gep15401 = getelementptr inbounds nuw i8, ptr %1869, i64 3
   %.neg12164.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12163, ptr %.sroa.gep15401, ptr %.sroa.gep13968
   store i8 0, ptr %.neg12164.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1876 = and i64 %1850, 16711680
   %.not12165 = icmp eq i64 %1876, 16711680
   %.neg12166 = select i1 %.not12165, i64 2, i64 1
-  %1877 = getelementptr inbounds i8, ptr %.neg12164.sroa.sel, i64 %.neg12166
+  %1877 = getelementptr inbounds nuw i8, ptr %.neg12164.sroa.sel, i64 %.neg12166
   %1878 = lshr i64 %1850, 8
   %1879 = trunc i64 %1878 to i8
   store i8 %1879, ptr %1877, align 1
-  %1880 = getelementptr inbounds i8, ptr %1877, i64 1
+  %1880 = getelementptr inbounds nuw i8, ptr %1877, i64 1
   store i8 0, ptr %1880, align 1
   %1881 = and i64 %1850, 65280
   %.not12167 = icmp eq i64 %1881, 65280
-  %.sroa.gep13970 = getelementptr inbounds i8, ptr %1877, i64 2
+  %.sroa.gep13970 = getelementptr inbounds nuw i8, ptr %1877, i64 2
   %.neg12168.sroa.sel = select i1 %.not12167, ptr %.sroa.gep13970, ptr %1880
   %1882 = trunc i64 %1850 to i8
   store i8 %1882, ptr %.neg12168.sroa.sel, align 1
-  %.sroa.gep15399 = getelementptr inbounds i8, ptr %1877, i64 3
+  %.sroa.gep15399 = getelementptr inbounds nuw i8, ptr %1877, i64 3
   %.neg12168.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12167, ptr %.sroa.gep15399, ptr %.sroa.gep13970
   store i8 0, ptr %.neg12168.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1883 = and i64 %1850, 255
   %.not12169 = icmp eq i64 %1883, 255
   %.neg12170 = select i1 %.not12169, i64 2, i64 1
-  %1884 = getelementptr inbounds i8, ptr %.neg12168.sroa.sel, i64 %.neg12170
+  %1884 = getelementptr inbounds nuw i8, ptr %.neg12168.sroa.sel, i64 %.neg12170
   br label %1907
 
 1885:                                             ; preds = %1844
   %1886 = lshr i64 %1850, 48
   %1887 = trunc i64 %1886 to i8
-  %1888 = getelementptr inbounds i8, ptr %.8711001, i64 1
+  %1888 = getelementptr inbounds nuw i8, ptr %.8711001, i64 1
   store i8 %1887, ptr %1888, align 1
   %1889 = lshr i64 %1850, 40
   %1890 = trunc i64 %1889 to i8
-  %1891 = getelementptr inbounds i8, ptr %.8711001, i64 2
+  %1891 = getelementptr inbounds nuw i8, ptr %.8711001, i64 2
   store i8 %1890, ptr %1891, align 1
   %1892 = lshr i64 %1850, 32
   %1893 = trunc i64 %1892 to i8
-  %1894 = getelementptr inbounds i8, ptr %.8711001, i64 3
+  %1894 = getelementptr inbounds nuw i8, ptr %.8711001, i64 3
   store i8 %1893, ptr %1894, align 1
   %1895 = lshr i64 %1850, 24
   %1896 = trunc i64 %1895 to i8
-  %1897 = getelementptr inbounds i8, ptr %.8711001, i64 4
+  %1897 = getelementptr inbounds nuw i8, ptr %.8711001, i64 4
   store i8 %1896, ptr %1897, align 1
   %1898 = lshr i64 %1850, 16
   %1899 = trunc i64 %1898 to i8
-  %1900 = getelementptr inbounds i8, ptr %.8711001, i64 5
+  %1900 = getelementptr inbounds nuw i8, ptr %.8711001, i64 5
   store i8 %1899, ptr %1900, align 1
   %1901 = lshr i64 %1850, 8
   %1902 = trunc i64 %1901 to i8
-  %1903 = getelementptr inbounds i8, ptr %.8711001, i64 6
+  %1903 = getelementptr inbounds nuw i8, ptr %.8711001, i64 6
   store i8 %1902, ptr %1903, align 1
   %1904 = trunc i64 %1850 to i8
-  %1905 = getelementptr inbounds i8, ptr %.8711001, i64 7
+  %1905 = getelementptr inbounds nuw i8, ptr %.8711001, i64 7
   store i8 %1904, ptr %1905, align 1
-  %1906 = getelementptr inbounds i8, ptr %.8711001, i64 8
+  %1906 = getelementptr inbounds nuw i8, ptr %.8711001, i64 8
   br label %1907
 
 1907:                                             ; preds = %1885, %1856
@@ -4922,7 +4922,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.6111101 = phi i64 [ %.5711097, %1807 ], [ %1909, %1907 ], [ %1914, %1910 ]
   %.9311007 = phi ptr [ %.8711001, %1807 ], [ %.9711011, %1907 ], [ %.8711001, %1910 ]
   %.30 = phi i32 [ %1808, %1807 ], [ 0, %1907 ], [ 0, %1910 ]
-  %1916 = getelementptr inbounds i8, ptr %1, i64 38
+  %1916 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %1917 = load i16, ptr %1916, align 2
   %1918 = icmp eq i16 %1917, 0
   br i1 %1918, label %1919, label %1921
@@ -4946,7 +4946,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 1931:                                             ; preds = %1921
   %1932 = load ptr, ptr %7, align 8
   %1933 = load ptr, ptr %1932, align 8
-  %1934 = getelementptr inbounds i8, ptr %1933, i64 40
+  %1934 = getelementptr inbounds nuw i8, ptr %1933, i64 40
   store i32 6, ptr %1934, align 8
   %1935 = load ptr, ptr %7, align 8
   %1936 = load ptr, ptr %1935, align 8
@@ -4959,8 +4959,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %1939, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1938
-  %1940 = getelementptr inbounds i8, ptr %4, i64 1264
-  %1941 = getelementptr inbounds i8, ptr %4, i64 960
+  %1940 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %1941 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %1942 = load i8, ptr %1940, align 4
   %1943 = sext i8 %1942 to i32
   %1944 = sub nsw i32 %.6111355, %1943
@@ -4985,108 +4985,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12189, label %1988, label %1959
 
 1959:                                             ; preds = %1947
-  %1960 = getelementptr inbounds i8, ptr %.9311007, i64 1
+  %1960 = getelementptr inbounds nuw i8, ptr %.9311007, i64 1
   store i8 0, ptr %1960, align 1
   %.not12190 = icmp eq i64 %1957, 255
-  %.sroa.gep13972 = getelementptr inbounds i8, ptr %.9311007, i64 2
+  %.sroa.gep13972 = getelementptr inbounds nuw i8, ptr %.9311007, i64 2
   %.neg12191.sroa.sel = select i1 %.not12190, ptr %.sroa.gep13972, ptr %1960
   %1961 = lshr i64 %1949, 48
   %1962 = trunc i64 %1961 to i8
   store i8 %1962, ptr %.neg12191.sroa.sel, align 1
-  %.sroa.gep16163 = getelementptr inbounds i8, ptr %.9311007, i64 3
+  %.sroa.gep16163 = getelementptr inbounds nuw i8, ptr %.9311007, i64 3
   %.neg12191.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12190, ptr %.sroa.gep16163, ptr %.sroa.gep13972
   store i8 0, ptr %.neg12191.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1963 = and i64 %1949, 71776119061217280
   %.not12192 = icmp eq i64 %1963, 71776119061217280
   %.neg12193 = select i1 %.not12192, i64 2, i64 1
-  %1964 = getelementptr inbounds i8, ptr %.neg12191.sroa.sel, i64 %.neg12193
+  %1964 = getelementptr inbounds nuw i8, ptr %.neg12191.sroa.sel, i64 %.neg12193
   %1965 = lshr i64 %1949, 40
   %1966 = trunc i64 %1965 to i8
   store i8 %1966, ptr %1964, align 1
-  %1967 = getelementptr inbounds i8, ptr %1964, i64 1
+  %1967 = getelementptr inbounds nuw i8, ptr %1964, i64 1
   store i8 0, ptr %1967, align 1
   %1968 = and i64 %1949, 280375465082880
   %.not12194 = icmp eq i64 %1968, 280375465082880
-  %.sroa.gep13974 = getelementptr inbounds i8, ptr %1964, i64 2
+  %.sroa.gep13974 = getelementptr inbounds nuw i8, ptr %1964, i64 2
   %.neg12195.sroa.sel = select i1 %.not12194, ptr %.sroa.gep13974, ptr %1967
   %1969 = lshr i64 %1949, 32
   %1970 = trunc i64 %1969 to i8
   store i8 %1970, ptr %.neg12195.sroa.sel, align 1
-  %.sroa.gep16161 = getelementptr inbounds i8, ptr %1964, i64 3
+  %.sroa.gep16161 = getelementptr inbounds nuw i8, ptr %1964, i64 3
   %.neg12195.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12194, ptr %.sroa.gep16161, ptr %.sroa.gep13974
   store i8 0, ptr %.neg12195.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1971 = and i64 %1949, 1095216660480
   %.not12196 = icmp eq i64 %1971, 1095216660480
   %.neg12197 = select i1 %.not12196, i64 2, i64 1
-  %1972 = getelementptr inbounds i8, ptr %.neg12195.sroa.sel, i64 %.neg12197
+  %1972 = getelementptr inbounds nuw i8, ptr %.neg12195.sroa.sel, i64 %.neg12197
   %1973 = lshr i64 %1953, 24
   %1974 = trunc i64 %1973 to i8
   store i8 %1974, ptr %1972, align 1
-  %1975 = getelementptr inbounds i8, ptr %1972, i64 1
+  %1975 = getelementptr inbounds nuw i8, ptr %1972, i64 1
   store i8 0, ptr %1975, align 1
   %1976 = and i64 %1953, 4278190080
   %.not12198 = icmp eq i64 %1976, 4278190080
-  %.sroa.gep13976 = getelementptr inbounds i8, ptr %1972, i64 2
+  %.sroa.gep13976 = getelementptr inbounds nuw i8, ptr %1972, i64 2
   %.neg12199.sroa.sel = select i1 %.not12198, ptr %.sroa.gep13976, ptr %1975
   %1977 = lshr i64 %1953, 16
   %1978 = trunc i64 %1977 to i8
   store i8 %1978, ptr %.neg12199.sroa.sel, align 1
-  %.sroa.gep16159 = getelementptr inbounds i8, ptr %1972, i64 3
+  %.sroa.gep16159 = getelementptr inbounds nuw i8, ptr %1972, i64 3
   %.neg12199.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12198, ptr %.sroa.gep16159, ptr %.sroa.gep13976
   store i8 0, ptr %.neg12199.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1979 = and i64 %1953, 16711680
   %.not12200 = icmp eq i64 %1979, 16711680
   %.neg12201 = select i1 %.not12200, i64 2, i64 1
-  %1980 = getelementptr inbounds i8, ptr %.neg12199.sroa.sel, i64 %.neg12201
+  %1980 = getelementptr inbounds nuw i8, ptr %.neg12199.sroa.sel, i64 %.neg12201
   %1981 = lshr i64 %1953, 8
   %1982 = trunc i64 %1981 to i8
   store i8 %1982, ptr %1980, align 1
-  %1983 = getelementptr inbounds i8, ptr %1980, i64 1
+  %1983 = getelementptr inbounds nuw i8, ptr %1980, i64 1
   store i8 0, ptr %1983, align 1
   %1984 = and i64 %1953, 65280
   %.not12202 = icmp eq i64 %1984, 65280
-  %.sroa.gep13978 = getelementptr inbounds i8, ptr %1980, i64 2
+  %.sroa.gep13978 = getelementptr inbounds nuw i8, ptr %1980, i64 2
   %.neg12203.sroa.sel = select i1 %.not12202, ptr %.sroa.gep13978, ptr %1983
   %1985 = trunc i64 %1953 to i8
   store i8 %1985, ptr %.neg12203.sroa.sel, align 1
-  %.sroa.gep16157 = getelementptr inbounds i8, ptr %1980, i64 3
+  %.sroa.gep16157 = getelementptr inbounds nuw i8, ptr %1980, i64 3
   %.neg12203.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12202, ptr %.sroa.gep16157, ptr %.sroa.gep13978
   store i8 0, ptr %.neg12203.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %1986 = and i64 %1953, 255
   %.not12204 = icmp eq i64 %1986, 255
   %.neg12205 = select i1 %.not12204, i64 2, i64 1
-  %1987 = getelementptr inbounds i8, ptr %.neg12203.sroa.sel, i64 %.neg12205
+  %1987 = getelementptr inbounds nuw i8, ptr %.neg12203.sroa.sel, i64 %.neg12205
   br label %2010
 
 1988:                                             ; preds = %1947
   %1989 = lshr i64 %1949, 48
   %1990 = trunc i64 %1989 to i8
-  %1991 = getelementptr inbounds i8, ptr %.9311007, i64 1
+  %1991 = getelementptr inbounds nuw i8, ptr %.9311007, i64 1
   store i8 %1990, ptr %1991, align 1
   %1992 = lshr i64 %1949, 40
   %1993 = trunc i64 %1992 to i8
-  %1994 = getelementptr inbounds i8, ptr %.9311007, i64 2
+  %1994 = getelementptr inbounds nuw i8, ptr %.9311007, i64 2
   store i8 %1993, ptr %1994, align 1
   %1995 = lshr i64 %1949, 32
   %1996 = trunc i64 %1995 to i8
-  %1997 = getelementptr inbounds i8, ptr %.9311007, i64 3
+  %1997 = getelementptr inbounds nuw i8, ptr %.9311007, i64 3
   store i8 %1996, ptr %1997, align 1
   %1998 = lshr i64 %1953, 24
   %1999 = trunc i64 %1998 to i8
-  %2000 = getelementptr inbounds i8, ptr %.9311007, i64 4
+  %2000 = getelementptr inbounds nuw i8, ptr %.9311007, i64 4
   store i8 %1999, ptr %2000, align 1
   %2001 = lshr i64 %1953, 16
   %2002 = trunc i64 %2001 to i8
-  %2003 = getelementptr inbounds i8, ptr %.9311007, i64 5
+  %2003 = getelementptr inbounds nuw i8, ptr %.9311007, i64 5
   store i8 %2002, ptr %2003, align 1
   %2004 = lshr i64 %1953, 8
   %2005 = trunc i64 %2004 to i8
-  %2006 = getelementptr inbounds i8, ptr %.9311007, i64 6
+  %2006 = getelementptr inbounds nuw i8, ptr %.9311007, i64 6
   store i8 %2005, ptr %2006, align 1
   %2007 = trunc i64 %1953 to i8
-  %2008 = getelementptr inbounds i8, ptr %.9311007, i64 7
+  %2008 = getelementptr inbounds nuw i8, ptr %.9311007, i64 7
   store i8 %2007, ptr %2008, align 1
-  %2009 = getelementptr inbounds i8, ptr %.9311007, i64 8
+  %2009 = getelementptr inbounds nuw i8, ptr %.9311007, i64 8
   br label %2010
 
 2010:                                             ; preds = %1988, %1959
@@ -5115,12 +5115,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2022 = xor i32 %2021, -1
   %2023 = and i32 %1924, %2022
   %2024 = zext nneg i32 %2019 to i64
-  %2025 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %2024
+  %2025 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %2024
   %2026 = load i32, ptr %2025, align 4
   %2027 = shl i32 %2026, %1929
   %2028 = or i32 %2027, %2023
-  %2029 = getelementptr inbounds i8, ptr %4, i64 1024
-  %2030 = getelementptr inbounds [256 x i8], ptr %2029, i64 0, i64 %2024
+  %2029 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %2030 = getelementptr inbounds nuw [256 x i8], ptr %2029, i64 0, i64 %2024
   %2031 = load i8, ptr %2030, align 1
   %2032 = sext i8 %2031 to i32
   %2033 = add nsw i32 %2032, %1929
@@ -5145,108 +5145,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12172, label %2077, label %2048
 
 2048:                                             ; preds = %2036
-  %2049 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 1
+  %2049 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 1
   store i8 0, ptr %2049, align 1
   %.not12173 = icmp eq i64 %2046, 255
-  %.sroa.gep13980 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 2
+  %.sroa.gep13980 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 2
   %.neg12174.sroa.sel = select i1 %.not12173, ptr %.sroa.gep13980, ptr %2049
   %2050 = lshr i64 %2042, 48
   %2051 = trunc i64 %2050 to i8
   store i8 %2051, ptr %.neg12174.sroa.sel, align 1
-  %.sroa.gep16149 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 3
+  %.sroa.gep16149 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 3
   %.neg12174.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12173, ptr %.sroa.gep16149, ptr %.sroa.gep13980
   store i8 0, ptr %.neg12174.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2052 = and i64 %2042, 71776119061217280
   %.not12175 = icmp eq i64 %2052, 71776119061217280
   %.neg12176 = select i1 %.not12175, i64 2, i64 1
-  %2053 = getelementptr inbounds i8, ptr %.neg12174.sroa.sel, i64 %.neg12176
+  %2053 = getelementptr inbounds nuw i8, ptr %.neg12174.sroa.sel, i64 %.neg12176
   %2054 = lshr i64 %2042, 40
   %2055 = trunc i64 %2054 to i8
   store i8 %2055, ptr %2053, align 1
-  %2056 = getelementptr inbounds i8, ptr %2053, i64 1
+  %2056 = getelementptr inbounds nuw i8, ptr %2053, i64 1
   store i8 0, ptr %2056, align 1
   %2057 = and i64 %2042, 280375465082880
   %.not12177 = icmp eq i64 %2057, 280375465082880
-  %.sroa.gep13982 = getelementptr inbounds i8, ptr %2053, i64 2
+  %.sroa.gep13982 = getelementptr inbounds nuw i8, ptr %2053, i64 2
   %.neg12178.sroa.sel = select i1 %.not12177, ptr %.sroa.gep13982, ptr %2056
   %2058 = lshr i64 %2042, 32
   %2059 = trunc i64 %2058 to i8
   store i8 %2059, ptr %.neg12178.sroa.sel, align 1
-  %.sroa.gep16155 = getelementptr inbounds i8, ptr %2053, i64 3
+  %.sroa.gep16155 = getelementptr inbounds nuw i8, ptr %2053, i64 3
   %.neg12178.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12177, ptr %.sroa.gep16155, ptr %.sroa.gep13982
   store i8 0, ptr %.neg12178.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2060 = and i64 %2042, 1095216660480
   %.not12179 = icmp eq i64 %2060, 1095216660480
   %.neg12180 = select i1 %.not12179, i64 2, i64 1
-  %2061 = getelementptr inbounds i8, ptr %.neg12178.sroa.sel, i64 %.neg12180
+  %2061 = getelementptr inbounds nuw i8, ptr %.neg12178.sroa.sel, i64 %.neg12180
   %2062 = lshr i64 %2042, 24
   %2063 = trunc i64 %2062 to i8
   store i8 %2063, ptr %2061, align 1
-  %2064 = getelementptr inbounds i8, ptr %2061, i64 1
+  %2064 = getelementptr inbounds nuw i8, ptr %2061, i64 1
   store i8 0, ptr %2064, align 1
   %2065 = and i64 %2042, 4278190080
   %.not12181 = icmp eq i64 %2065, 4278190080
-  %.sroa.gep13984 = getelementptr inbounds i8, ptr %2061, i64 2
+  %.sroa.gep13984 = getelementptr inbounds nuw i8, ptr %2061, i64 2
   %.neg12182.sroa.sel = select i1 %.not12181, ptr %.sroa.gep13984, ptr %2064
   %2066 = lshr i64 %2042, 16
   %2067 = trunc i64 %2066 to i8
   store i8 %2067, ptr %.neg12182.sroa.sel, align 1
-  %.sroa.gep16153 = getelementptr inbounds i8, ptr %2061, i64 3
+  %.sroa.gep16153 = getelementptr inbounds nuw i8, ptr %2061, i64 3
   %.neg12182.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12181, ptr %.sroa.gep16153, ptr %.sroa.gep13984
   store i8 0, ptr %.neg12182.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2068 = and i64 %2042, 16711680
   %.not12183 = icmp eq i64 %2068, 16711680
   %.neg12184 = select i1 %.not12183, i64 2, i64 1
-  %2069 = getelementptr inbounds i8, ptr %.neg12182.sroa.sel, i64 %.neg12184
+  %2069 = getelementptr inbounds nuw i8, ptr %.neg12182.sroa.sel, i64 %.neg12184
   %2070 = lshr i64 %2042, 8
   %2071 = trunc i64 %2070 to i8
   store i8 %2071, ptr %2069, align 1
-  %2072 = getelementptr inbounds i8, ptr %2069, i64 1
+  %2072 = getelementptr inbounds nuw i8, ptr %2069, i64 1
   store i8 0, ptr %2072, align 1
   %2073 = and i64 %2042, 65280
   %.not12185 = icmp eq i64 %2073, 65280
-  %.sroa.gep13986 = getelementptr inbounds i8, ptr %2069, i64 2
+  %.sroa.gep13986 = getelementptr inbounds nuw i8, ptr %2069, i64 2
   %.neg12186.sroa.sel = select i1 %.not12185, ptr %.sroa.gep13986, ptr %2072
   %2074 = trunc i64 %2042 to i8
   store i8 %2074, ptr %.neg12186.sroa.sel, align 1
-  %.sroa.gep16151 = getelementptr inbounds i8, ptr %2069, i64 3
+  %.sroa.gep16151 = getelementptr inbounds nuw i8, ptr %2069, i64 3
   %.neg12186.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12185, ptr %.sroa.gep16151, ptr %.sroa.gep13986
   store i8 0, ptr %.neg12186.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2075 = and i64 %2042, 255
   %.not12187 = icmp eq i64 %2075, 255
   %.neg12188 = select i1 %.not12187, i64 2, i64 1
-  %2076 = getelementptr inbounds i8, ptr %.neg12186.sroa.sel, i64 %.neg12188
+  %2076 = getelementptr inbounds nuw i8, ptr %.neg12186.sroa.sel, i64 %.neg12188
   br label %2099
 
 2077:                                             ; preds = %2036
   %2078 = lshr i64 %2042, 48
   %2079 = trunc i64 %2078 to i8
-  %2080 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 1
+  %2080 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 1
   store i8 %2079, ptr %2080, align 1
   %2081 = lshr i64 %2042, 40
   %2082 = trunc i64 %2081 to i8
-  %2083 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 2
+  %2083 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 2
   store i8 %2082, ptr %2083, align 1
   %2084 = lshr i64 %2042, 32
   %2085 = trunc i64 %2084 to i8
-  %2086 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 3
+  %2086 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 3
   store i8 %2085, ptr %2086, align 1
   %2087 = lshr i64 %2042, 24
   %2088 = trunc i64 %2087 to i8
-  %2089 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 4
+  %2089 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 4
   store i8 %2088, ptr %2089, align 1
   %2090 = lshr i64 %2042, 16
   %2091 = trunc i64 %2090 to i8
-  %2092 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 5
+  %2092 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 5
   store i8 %2091, ptr %2092, align 1
   %2093 = lshr i64 %2042, 8
   %2094 = trunc i64 %2093 to i8
-  %2095 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 6
+  %2095 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 6
   store i8 %2094, ptr %2095, align 1
   %2096 = trunc i64 %2042 to i8
-  %2097 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 7
+  %2097 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 7
   store i8 %2096, ptr %2097, align 1
-  %2098 = getelementptr inbounds i8, ptr %.10011014.lcssa, i64 8
+  %2098 = getelementptr inbounds nuw i8, ptr %.10011014.lcssa, i64 8
   br label %2099
 
 2099:                                             ; preds = %2077, %2048
@@ -5267,7 +5267,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.6511105 = phi i64 [ %.6111101, %1919 ], [ %2101, %2099 ], [ %2106, %2102 ]
   %.9911013 = phi ptr [ %.9311007, %1919 ], [ %.10311017, %2099 ], [ %.10011014.lcssa, %2102 ]
   %.32 = phi i32 [ %1920, %1919 ], [ 0, %2099 ], [ 0, %2102 ]
-  %2108 = getelementptr inbounds i8, ptr %1, i64 52
+  %2108 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %2109 = load i16, ptr %2108, align 2
   %2110 = icmp eq i16 %2109, 0
   br i1 %2110, label %2111, label %2113
@@ -5291,7 +5291,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 2123:                                             ; preds = %2113
   %2124 = load ptr, ptr %7, align 8
   %2125 = load ptr, ptr %2124, align 8
-  %2126 = getelementptr inbounds i8, ptr %2125, i64 40
+  %2126 = getelementptr inbounds nuw i8, ptr %2125, i64 40
   store i32 6, ptr %2126, align 8
   %2127 = load ptr, ptr %7, align 8
   %2128 = load ptr, ptr %2127, align 8
@@ -5304,8 +5304,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %2131, label %.lr.ph14749, label %._crit_edge14750
 
 .lr.ph14749:                                      ; preds = %2130
-  %2132 = getelementptr inbounds i8, ptr %4, i64 1264
-  %2133 = getelementptr inbounds i8, ptr %4, i64 960
+  %2132 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %2133 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %2134 = load i8, ptr %2132, align 4
   %2135 = sext i8 %2134 to i32
   %2136 = sub nsw i32 %.6511359, %2135
@@ -5330,108 +5330,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12224, label %2180, label %2151
 
 2151:                                             ; preds = %2139
-  %2152 = getelementptr inbounds i8, ptr %.9911013, i64 1
+  %2152 = getelementptr inbounds nuw i8, ptr %.9911013, i64 1
   store i8 0, ptr %2152, align 1
   %.not12225 = icmp eq i64 %2149, 255
-  %.sroa.gep13988 = getelementptr inbounds i8, ptr %.9911013, i64 2
+  %.sroa.gep13988 = getelementptr inbounds nuw i8, ptr %.9911013, i64 2
   %.neg12226.sroa.sel = select i1 %.not12225, ptr %.sroa.gep13988, ptr %2152
   %2153 = lshr i64 %2141, 48
   %2154 = trunc i64 %2153 to i8
   store i8 %2154, ptr %.neg12226.sroa.sel, align 1
-  %.sroa.gep16147 = getelementptr inbounds i8, ptr %.9911013, i64 3
+  %.sroa.gep16147 = getelementptr inbounds nuw i8, ptr %.9911013, i64 3
   %.neg12226.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12225, ptr %.sroa.gep16147, ptr %.sroa.gep13988
   store i8 0, ptr %.neg12226.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2155 = and i64 %2141, 71776119061217280
   %.not12227 = icmp eq i64 %2155, 71776119061217280
   %.neg12228 = select i1 %.not12227, i64 2, i64 1
-  %2156 = getelementptr inbounds i8, ptr %.neg12226.sroa.sel, i64 %.neg12228
+  %2156 = getelementptr inbounds nuw i8, ptr %.neg12226.sroa.sel, i64 %.neg12228
   %2157 = lshr i64 %2141, 40
   %2158 = trunc i64 %2157 to i8
   store i8 %2158, ptr %2156, align 1
-  %2159 = getelementptr inbounds i8, ptr %2156, i64 1
+  %2159 = getelementptr inbounds nuw i8, ptr %2156, i64 1
   store i8 0, ptr %2159, align 1
   %2160 = and i64 %2141, 280375465082880
   %.not12229 = icmp eq i64 %2160, 280375465082880
-  %.sroa.gep13990 = getelementptr inbounds i8, ptr %2156, i64 2
+  %.sroa.gep13990 = getelementptr inbounds nuw i8, ptr %2156, i64 2
   %.neg12230.sroa.sel = select i1 %.not12229, ptr %.sroa.gep13990, ptr %2159
   %2161 = lshr i64 %2141, 32
   %2162 = trunc i64 %2161 to i8
   store i8 %2162, ptr %.neg12230.sroa.sel, align 1
-  %.sroa.gep16145 = getelementptr inbounds i8, ptr %2156, i64 3
+  %.sroa.gep16145 = getelementptr inbounds nuw i8, ptr %2156, i64 3
   %.neg12230.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12229, ptr %.sroa.gep16145, ptr %.sroa.gep13990
   store i8 0, ptr %.neg12230.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2163 = and i64 %2141, 1095216660480
   %.not12231 = icmp eq i64 %2163, 1095216660480
   %.neg12232 = select i1 %.not12231, i64 2, i64 1
-  %2164 = getelementptr inbounds i8, ptr %.neg12230.sroa.sel, i64 %.neg12232
+  %2164 = getelementptr inbounds nuw i8, ptr %.neg12230.sroa.sel, i64 %.neg12232
   %2165 = lshr i64 %2145, 24
   %2166 = trunc i64 %2165 to i8
   store i8 %2166, ptr %2164, align 1
-  %2167 = getelementptr inbounds i8, ptr %2164, i64 1
+  %2167 = getelementptr inbounds nuw i8, ptr %2164, i64 1
   store i8 0, ptr %2167, align 1
   %2168 = and i64 %2145, 4278190080
   %.not12233 = icmp eq i64 %2168, 4278190080
-  %.sroa.gep13992 = getelementptr inbounds i8, ptr %2164, i64 2
+  %.sroa.gep13992 = getelementptr inbounds nuw i8, ptr %2164, i64 2
   %.neg12234.sroa.sel = select i1 %.not12233, ptr %.sroa.gep13992, ptr %2167
   %2169 = lshr i64 %2145, 16
   %2170 = trunc i64 %2169 to i8
   store i8 %2170, ptr %.neg12234.sroa.sel, align 1
-  %.sroa.gep16143 = getelementptr inbounds i8, ptr %2164, i64 3
+  %.sroa.gep16143 = getelementptr inbounds nuw i8, ptr %2164, i64 3
   %.neg12234.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12233, ptr %.sroa.gep16143, ptr %.sroa.gep13992
   store i8 0, ptr %.neg12234.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2171 = and i64 %2145, 16711680
   %.not12235 = icmp eq i64 %2171, 16711680
   %.neg12236 = select i1 %.not12235, i64 2, i64 1
-  %2172 = getelementptr inbounds i8, ptr %.neg12234.sroa.sel, i64 %.neg12236
+  %2172 = getelementptr inbounds nuw i8, ptr %.neg12234.sroa.sel, i64 %.neg12236
   %2173 = lshr i64 %2145, 8
   %2174 = trunc i64 %2173 to i8
   store i8 %2174, ptr %2172, align 1
-  %2175 = getelementptr inbounds i8, ptr %2172, i64 1
+  %2175 = getelementptr inbounds nuw i8, ptr %2172, i64 1
   store i8 0, ptr %2175, align 1
   %2176 = and i64 %2145, 65280
   %.not12237 = icmp eq i64 %2176, 65280
-  %.sroa.gep13994 = getelementptr inbounds i8, ptr %2172, i64 2
+  %.sroa.gep13994 = getelementptr inbounds nuw i8, ptr %2172, i64 2
   %.neg12238.sroa.sel = select i1 %.not12237, ptr %.sroa.gep13994, ptr %2175
   %2177 = trunc i64 %2145 to i8
   store i8 %2177, ptr %.neg12238.sroa.sel, align 1
-  %.sroa.gep16141 = getelementptr inbounds i8, ptr %2172, i64 3
+  %.sroa.gep16141 = getelementptr inbounds nuw i8, ptr %2172, i64 3
   %.neg12238.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12237, ptr %.sroa.gep16141, ptr %.sroa.gep13994
   store i8 0, ptr %.neg12238.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2178 = and i64 %2145, 255
   %.not12239 = icmp eq i64 %2178, 255
   %.neg12240 = select i1 %.not12239, i64 2, i64 1
-  %2179 = getelementptr inbounds i8, ptr %.neg12238.sroa.sel, i64 %.neg12240
+  %2179 = getelementptr inbounds nuw i8, ptr %.neg12238.sroa.sel, i64 %.neg12240
   br label %2202
 
 2180:                                             ; preds = %2139
   %2181 = lshr i64 %2141, 48
   %2182 = trunc i64 %2181 to i8
-  %2183 = getelementptr inbounds i8, ptr %.9911013, i64 1
+  %2183 = getelementptr inbounds nuw i8, ptr %.9911013, i64 1
   store i8 %2182, ptr %2183, align 1
   %2184 = lshr i64 %2141, 40
   %2185 = trunc i64 %2184 to i8
-  %2186 = getelementptr inbounds i8, ptr %.9911013, i64 2
+  %2186 = getelementptr inbounds nuw i8, ptr %.9911013, i64 2
   store i8 %2185, ptr %2186, align 1
   %2187 = lshr i64 %2141, 32
   %2188 = trunc i64 %2187 to i8
-  %2189 = getelementptr inbounds i8, ptr %.9911013, i64 3
+  %2189 = getelementptr inbounds nuw i8, ptr %.9911013, i64 3
   store i8 %2188, ptr %2189, align 1
   %2190 = lshr i64 %2145, 24
   %2191 = trunc i64 %2190 to i8
-  %2192 = getelementptr inbounds i8, ptr %.9911013, i64 4
+  %2192 = getelementptr inbounds nuw i8, ptr %.9911013, i64 4
   store i8 %2191, ptr %2192, align 1
   %2193 = lshr i64 %2145, 16
   %2194 = trunc i64 %2193 to i8
-  %2195 = getelementptr inbounds i8, ptr %.9911013, i64 5
+  %2195 = getelementptr inbounds nuw i8, ptr %.9911013, i64 5
   store i8 %2194, ptr %2195, align 1
   %2196 = lshr i64 %2145, 8
   %2197 = trunc i64 %2196 to i8
-  %2198 = getelementptr inbounds i8, ptr %.9911013, i64 6
+  %2198 = getelementptr inbounds nuw i8, ptr %.9911013, i64 6
   store i8 %2197, ptr %2198, align 1
   %2199 = trunc i64 %2145 to i8
-  %2200 = getelementptr inbounds i8, ptr %.9911013, i64 7
+  %2200 = getelementptr inbounds nuw i8, ptr %.9911013, i64 7
   store i8 %2199, ptr %2200, align 1
-  %2201 = getelementptr inbounds i8, ptr %.9911013, i64 8
+  %2201 = getelementptr inbounds nuw i8, ptr %.9911013, i64 8
   br label %2202
 
 2202:                                             ; preds = %2180, %2151
@@ -5467,12 +5467,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2215 = xor i32 %2214, -1
   %2216 = and i32 %2116, %2215
   %2217 = zext nneg i32 %2212 to i64
-  %2218 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %2217
+  %2218 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %2217
   %2219 = load i32, ptr %2218, align 4
   %2220 = shl i32 %2219, %2121
   %2221 = or i32 %2220, %2216
-  %2222 = getelementptr inbounds i8, ptr %4, i64 1024
-  %2223 = getelementptr inbounds [256 x i8], ptr %2222, i64 0, i64 %2217
+  %2222 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %2223 = getelementptr inbounds nuw [256 x i8], ptr %2222, i64 0, i64 %2217
   %2224 = load i8, ptr %2223, align 1
   %2225 = sext i8 %2224 to i32
   %2226 = add nsw i32 %2225, %2121
@@ -5497,108 +5497,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12207, label %2270, label %2241
 
 2241:                                             ; preds = %2229
-  %2242 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 1
+  %2242 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 1
   store i8 0, ptr %2242, align 1
   %.not12208 = icmp eq i64 %2239, 255
-  %.sroa.gep13996 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 2
+  %.sroa.gep13996 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 2
   %.neg12209.sroa.sel = select i1 %.not12208, ptr %.sroa.gep13996, ptr %2242
   %2243 = lshr i64 %2235, 48
   %2244 = trunc i64 %2243 to i8
   store i8 %2244, ptr %.neg12209.sroa.sel, align 1
-  %.sroa.gep16133 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 3
+  %.sroa.gep16133 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 3
   %.neg12209.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12208, ptr %.sroa.gep16133, ptr %.sroa.gep13996
   store i8 0, ptr %.neg12209.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2245 = and i64 %2235, 71776119061217280
   %.not12210 = icmp eq i64 %2245, 71776119061217280
   %.neg12211 = select i1 %.not12210, i64 2, i64 1
-  %2246 = getelementptr inbounds i8, ptr %.neg12209.sroa.sel, i64 %.neg12211
+  %2246 = getelementptr inbounds nuw i8, ptr %.neg12209.sroa.sel, i64 %.neg12211
   %2247 = lshr i64 %2235, 40
   %2248 = trunc i64 %2247 to i8
   store i8 %2248, ptr %2246, align 1
-  %2249 = getelementptr inbounds i8, ptr %2246, i64 1
+  %2249 = getelementptr inbounds nuw i8, ptr %2246, i64 1
   store i8 0, ptr %2249, align 1
   %2250 = and i64 %2235, 280375465082880
   %.not12212 = icmp eq i64 %2250, 280375465082880
-  %.sroa.gep13998 = getelementptr inbounds i8, ptr %2246, i64 2
+  %.sroa.gep13998 = getelementptr inbounds nuw i8, ptr %2246, i64 2
   %.neg12213.sroa.sel = select i1 %.not12212, ptr %.sroa.gep13998, ptr %2249
   %2251 = lshr i64 %2235, 32
   %2252 = trunc i64 %2251 to i8
   store i8 %2252, ptr %.neg12213.sroa.sel, align 1
-  %.sroa.gep16139 = getelementptr inbounds i8, ptr %2246, i64 3
+  %.sroa.gep16139 = getelementptr inbounds nuw i8, ptr %2246, i64 3
   %.neg12213.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12212, ptr %.sroa.gep16139, ptr %.sroa.gep13998
   store i8 0, ptr %.neg12213.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2253 = and i64 %2235, 1095216660480
   %.not12214 = icmp eq i64 %2253, 1095216660480
   %.neg12215 = select i1 %.not12214, i64 2, i64 1
-  %2254 = getelementptr inbounds i8, ptr %.neg12213.sroa.sel, i64 %.neg12215
+  %2254 = getelementptr inbounds nuw i8, ptr %.neg12213.sroa.sel, i64 %.neg12215
   %2255 = lshr i64 %2235, 24
   %2256 = trunc i64 %2255 to i8
   store i8 %2256, ptr %2254, align 1
-  %2257 = getelementptr inbounds i8, ptr %2254, i64 1
+  %2257 = getelementptr inbounds nuw i8, ptr %2254, i64 1
   store i8 0, ptr %2257, align 1
   %2258 = and i64 %2235, 4278190080
   %.not12216 = icmp eq i64 %2258, 4278190080
-  %.sroa.gep14000 = getelementptr inbounds i8, ptr %2254, i64 2
+  %.sroa.gep14000 = getelementptr inbounds nuw i8, ptr %2254, i64 2
   %.neg12217.sroa.sel = select i1 %.not12216, ptr %.sroa.gep14000, ptr %2257
   %2259 = lshr i64 %2235, 16
   %2260 = trunc i64 %2259 to i8
   store i8 %2260, ptr %.neg12217.sroa.sel, align 1
-  %.sroa.gep16137 = getelementptr inbounds i8, ptr %2254, i64 3
+  %.sroa.gep16137 = getelementptr inbounds nuw i8, ptr %2254, i64 3
   %.neg12217.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12216, ptr %.sroa.gep16137, ptr %.sroa.gep14000
   store i8 0, ptr %.neg12217.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2261 = and i64 %2235, 16711680
   %.not12218 = icmp eq i64 %2261, 16711680
   %.neg12219 = select i1 %.not12218, i64 2, i64 1
-  %2262 = getelementptr inbounds i8, ptr %.neg12217.sroa.sel, i64 %.neg12219
+  %2262 = getelementptr inbounds nuw i8, ptr %.neg12217.sroa.sel, i64 %.neg12219
   %2263 = lshr i64 %2235, 8
   %2264 = trunc i64 %2263 to i8
   store i8 %2264, ptr %2262, align 1
-  %2265 = getelementptr inbounds i8, ptr %2262, i64 1
+  %2265 = getelementptr inbounds nuw i8, ptr %2262, i64 1
   store i8 0, ptr %2265, align 1
   %2266 = and i64 %2235, 65280
   %.not12220 = icmp eq i64 %2266, 65280
-  %.sroa.gep14002 = getelementptr inbounds i8, ptr %2262, i64 2
+  %.sroa.gep14002 = getelementptr inbounds nuw i8, ptr %2262, i64 2
   %.neg12221.sroa.sel = select i1 %.not12220, ptr %.sroa.gep14002, ptr %2265
   %2267 = trunc i64 %2235 to i8
   store i8 %2267, ptr %.neg12221.sroa.sel, align 1
-  %.sroa.gep16135 = getelementptr inbounds i8, ptr %2262, i64 3
+  %.sroa.gep16135 = getelementptr inbounds nuw i8, ptr %2262, i64 3
   %.neg12221.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12220, ptr %.sroa.gep16135, ptr %.sroa.gep14002
   store i8 0, ptr %.neg12221.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2268 = and i64 %2235, 255
   %.not12222 = icmp eq i64 %2268, 255
   %.neg12223 = select i1 %.not12222, i64 2, i64 1
-  %2269 = getelementptr inbounds i8, ptr %.neg12221.sroa.sel, i64 %.neg12223
+  %2269 = getelementptr inbounds nuw i8, ptr %.neg12221.sroa.sel, i64 %.neg12223
   br label %2292
 
 2270:                                             ; preds = %2229
   %2271 = lshr i64 %2235, 48
   %2272 = trunc i64 %2271 to i8
-  %2273 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 1
+  %2273 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 1
   store i8 %2272, ptr %2273, align 1
   %2274 = lshr i64 %2235, 40
   %2275 = trunc i64 %2274 to i8
-  %2276 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 2
+  %2276 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 2
   store i8 %2275, ptr %2276, align 1
   %2277 = lshr i64 %2235, 32
   %2278 = trunc i64 %2277 to i8
-  %2279 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 3
+  %2279 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 3
   store i8 %2278, ptr %2279, align 1
   %2280 = lshr i64 %2235, 24
   %2281 = trunc i64 %2280 to i8
-  %2282 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 4
+  %2282 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 4
   store i8 %2281, ptr %2282, align 1
   %2283 = lshr i64 %2235, 16
   %2284 = trunc i64 %2283 to i8
-  %2285 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 5
+  %2285 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 5
   store i8 %2284, ptr %2285, align 1
   %2286 = lshr i64 %2235, 8
   %2287 = trunc i64 %2286 to i8
-  %2288 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 6
+  %2288 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 6
   store i8 %2287, ptr %2288, align 1
   %2289 = trunc i64 %2235 to i8
-  %2290 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 7
+  %2290 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 7
   store i8 %2289, ptr %2290, align 1
-  %2291 = getelementptr inbounds i8, ptr %.10611020.lcssa, i64 8
+  %2291 = getelementptr inbounds nuw i8, ptr %.10611020.lcssa, i64 8
   br label %2292
 
 2292:                                             ; preds = %2270, %2241
@@ -5619,7 +5619,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.6911109 = phi i64 [ %.6511105, %2111 ], [ %2294, %2292 ], [ %2299, %2295 ]
   %.10511019 = phi ptr [ %.9911013, %2111 ], [ %.10911023, %2292 ], [ %.10611020.lcssa, %2295 ]
   %.34 = phi i32 [ %2112, %2111 ], [ 0, %2292 ], [ 0, %2295 ]
-  %2301 = getelementptr inbounds i8, ptr %1, i64 66
+  %2301 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %2302 = load i16, ptr %2301, align 2
   %2303 = icmp eq i16 %2302, 0
   br i1 %2303, label %2304, label %2306
@@ -5643,7 +5643,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 2316:                                             ; preds = %2306
   %2317 = load ptr, ptr %7, align 8
   %2318 = load ptr, ptr %2317, align 8
-  %2319 = getelementptr inbounds i8, ptr %2318, i64 40
+  %2319 = getelementptr inbounds nuw i8, ptr %2318, i64 40
   store i32 6, ptr %2319, align 8
   %2320 = load ptr, ptr %7, align 8
   %2321 = load ptr, ptr %2320, align 8
@@ -5656,8 +5656,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %2324, label %.lr.ph14760, label %._crit_edge14761
 
 .lr.ph14760:                                      ; preds = %2323
-  %2325 = getelementptr inbounds i8, ptr %4, i64 1264
-  %2326 = getelementptr inbounds i8, ptr %4, i64 960
+  %2325 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %2326 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %2327 = load i8, ptr %2325, align 4
   %2328 = sext i8 %2327 to i32
   %2329 = sub nsw i32 %.6911363, %2328
@@ -5682,108 +5682,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12259, label %2373, label %2344
 
 2344:                                             ; preds = %2332
-  %2345 = getelementptr inbounds i8, ptr %.10511019, i64 1
+  %2345 = getelementptr inbounds nuw i8, ptr %.10511019, i64 1
   store i8 0, ptr %2345, align 1
   %.not12260 = icmp eq i64 %2342, 255
-  %.sroa.gep14004 = getelementptr inbounds i8, ptr %.10511019, i64 2
+  %.sroa.gep14004 = getelementptr inbounds nuw i8, ptr %.10511019, i64 2
   %.neg12261.sroa.sel = select i1 %.not12260, ptr %.sroa.gep14004, ptr %2345
   %2346 = lshr i64 %2334, 48
   %2347 = trunc i64 %2346 to i8
   store i8 %2347, ptr %.neg12261.sroa.sel, align 1
-  %.sroa.gep16131 = getelementptr inbounds i8, ptr %.10511019, i64 3
+  %.sroa.gep16131 = getelementptr inbounds nuw i8, ptr %.10511019, i64 3
   %.neg12261.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12260, ptr %.sroa.gep16131, ptr %.sroa.gep14004
   store i8 0, ptr %.neg12261.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2348 = and i64 %2334, 71776119061217280
   %.not12262 = icmp eq i64 %2348, 71776119061217280
   %.neg12263 = select i1 %.not12262, i64 2, i64 1
-  %2349 = getelementptr inbounds i8, ptr %.neg12261.sroa.sel, i64 %.neg12263
+  %2349 = getelementptr inbounds nuw i8, ptr %.neg12261.sroa.sel, i64 %.neg12263
   %2350 = lshr i64 %2334, 40
   %2351 = trunc i64 %2350 to i8
   store i8 %2351, ptr %2349, align 1
-  %2352 = getelementptr inbounds i8, ptr %2349, i64 1
+  %2352 = getelementptr inbounds nuw i8, ptr %2349, i64 1
   store i8 0, ptr %2352, align 1
   %2353 = and i64 %2334, 280375465082880
   %.not12264 = icmp eq i64 %2353, 280375465082880
-  %.sroa.gep14006 = getelementptr inbounds i8, ptr %2349, i64 2
+  %.sroa.gep14006 = getelementptr inbounds nuw i8, ptr %2349, i64 2
   %.neg12265.sroa.sel = select i1 %.not12264, ptr %.sroa.gep14006, ptr %2352
   %2354 = lshr i64 %2334, 32
   %2355 = trunc i64 %2354 to i8
   store i8 %2355, ptr %.neg12265.sroa.sel, align 1
-  %.sroa.gep16129 = getelementptr inbounds i8, ptr %2349, i64 3
+  %.sroa.gep16129 = getelementptr inbounds nuw i8, ptr %2349, i64 3
   %.neg12265.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12264, ptr %.sroa.gep16129, ptr %.sroa.gep14006
   store i8 0, ptr %.neg12265.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2356 = and i64 %2334, 1095216660480
   %.not12266 = icmp eq i64 %2356, 1095216660480
   %.neg12267 = select i1 %.not12266, i64 2, i64 1
-  %2357 = getelementptr inbounds i8, ptr %.neg12265.sroa.sel, i64 %.neg12267
+  %2357 = getelementptr inbounds nuw i8, ptr %.neg12265.sroa.sel, i64 %.neg12267
   %2358 = lshr i64 %2338, 24
   %2359 = trunc i64 %2358 to i8
   store i8 %2359, ptr %2357, align 1
-  %2360 = getelementptr inbounds i8, ptr %2357, i64 1
+  %2360 = getelementptr inbounds nuw i8, ptr %2357, i64 1
   store i8 0, ptr %2360, align 1
   %2361 = and i64 %2338, 4278190080
   %.not12268 = icmp eq i64 %2361, 4278190080
-  %.sroa.gep14008 = getelementptr inbounds i8, ptr %2357, i64 2
+  %.sroa.gep14008 = getelementptr inbounds nuw i8, ptr %2357, i64 2
   %.neg12269.sroa.sel = select i1 %.not12268, ptr %.sroa.gep14008, ptr %2360
   %2362 = lshr i64 %2338, 16
   %2363 = trunc i64 %2362 to i8
   store i8 %2363, ptr %.neg12269.sroa.sel, align 1
-  %.sroa.gep16127 = getelementptr inbounds i8, ptr %2357, i64 3
+  %.sroa.gep16127 = getelementptr inbounds nuw i8, ptr %2357, i64 3
   %.neg12269.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12268, ptr %.sroa.gep16127, ptr %.sroa.gep14008
   store i8 0, ptr %.neg12269.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2364 = and i64 %2338, 16711680
   %.not12270 = icmp eq i64 %2364, 16711680
   %.neg12271 = select i1 %.not12270, i64 2, i64 1
-  %2365 = getelementptr inbounds i8, ptr %.neg12269.sroa.sel, i64 %.neg12271
+  %2365 = getelementptr inbounds nuw i8, ptr %.neg12269.sroa.sel, i64 %.neg12271
   %2366 = lshr i64 %2338, 8
   %2367 = trunc i64 %2366 to i8
   store i8 %2367, ptr %2365, align 1
-  %2368 = getelementptr inbounds i8, ptr %2365, i64 1
+  %2368 = getelementptr inbounds nuw i8, ptr %2365, i64 1
   store i8 0, ptr %2368, align 1
   %2369 = and i64 %2338, 65280
   %.not12272 = icmp eq i64 %2369, 65280
-  %.sroa.gep14010 = getelementptr inbounds i8, ptr %2365, i64 2
+  %.sroa.gep14010 = getelementptr inbounds nuw i8, ptr %2365, i64 2
   %.neg12273.sroa.sel = select i1 %.not12272, ptr %.sroa.gep14010, ptr %2368
   %2370 = trunc i64 %2338 to i8
   store i8 %2370, ptr %.neg12273.sroa.sel, align 1
-  %.sroa.gep16125 = getelementptr inbounds i8, ptr %2365, i64 3
+  %.sroa.gep16125 = getelementptr inbounds nuw i8, ptr %2365, i64 3
   %.neg12273.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12272, ptr %.sroa.gep16125, ptr %.sroa.gep14010
   store i8 0, ptr %.neg12273.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2371 = and i64 %2338, 255
   %.not12274 = icmp eq i64 %2371, 255
   %.neg12275 = select i1 %.not12274, i64 2, i64 1
-  %2372 = getelementptr inbounds i8, ptr %.neg12273.sroa.sel, i64 %.neg12275
+  %2372 = getelementptr inbounds nuw i8, ptr %.neg12273.sroa.sel, i64 %.neg12275
   br label %2395
 
 2373:                                             ; preds = %2332
   %2374 = lshr i64 %2334, 48
   %2375 = trunc i64 %2374 to i8
-  %2376 = getelementptr inbounds i8, ptr %.10511019, i64 1
+  %2376 = getelementptr inbounds nuw i8, ptr %.10511019, i64 1
   store i8 %2375, ptr %2376, align 1
   %2377 = lshr i64 %2334, 40
   %2378 = trunc i64 %2377 to i8
-  %2379 = getelementptr inbounds i8, ptr %.10511019, i64 2
+  %2379 = getelementptr inbounds nuw i8, ptr %.10511019, i64 2
   store i8 %2378, ptr %2379, align 1
   %2380 = lshr i64 %2334, 32
   %2381 = trunc i64 %2380 to i8
-  %2382 = getelementptr inbounds i8, ptr %.10511019, i64 3
+  %2382 = getelementptr inbounds nuw i8, ptr %.10511019, i64 3
   store i8 %2381, ptr %2382, align 1
   %2383 = lshr i64 %2338, 24
   %2384 = trunc i64 %2383 to i8
-  %2385 = getelementptr inbounds i8, ptr %.10511019, i64 4
+  %2385 = getelementptr inbounds nuw i8, ptr %.10511019, i64 4
   store i8 %2384, ptr %2385, align 1
   %2386 = lshr i64 %2338, 16
   %2387 = trunc i64 %2386 to i8
-  %2388 = getelementptr inbounds i8, ptr %.10511019, i64 5
+  %2388 = getelementptr inbounds nuw i8, ptr %.10511019, i64 5
   store i8 %2387, ptr %2388, align 1
   %2389 = lshr i64 %2338, 8
   %2390 = trunc i64 %2389 to i8
-  %2391 = getelementptr inbounds i8, ptr %.10511019, i64 6
+  %2391 = getelementptr inbounds nuw i8, ptr %.10511019, i64 6
   store i8 %2390, ptr %2391, align 1
   %2392 = trunc i64 %2338 to i8
-  %2393 = getelementptr inbounds i8, ptr %.10511019, i64 7
+  %2393 = getelementptr inbounds nuw i8, ptr %.10511019, i64 7
   store i8 %2392, ptr %2393, align 1
-  %2394 = getelementptr inbounds i8, ptr %.10511019, i64 8
+  %2394 = getelementptr inbounds nuw i8, ptr %.10511019, i64 8
   br label %2395
 
 2395:                                             ; preds = %2373, %2344
@@ -5819,12 +5819,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2408 = xor i32 %2407, -1
   %2409 = and i32 %2309, %2408
   %2410 = zext nneg i32 %2405 to i64
-  %2411 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %2410
+  %2411 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %2410
   %2412 = load i32, ptr %2411, align 4
   %2413 = shl i32 %2412, %2314
   %2414 = or i32 %2413, %2409
-  %2415 = getelementptr inbounds i8, ptr %4, i64 1024
-  %2416 = getelementptr inbounds [256 x i8], ptr %2415, i64 0, i64 %2410
+  %2415 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %2416 = getelementptr inbounds nuw [256 x i8], ptr %2415, i64 0, i64 %2410
   %2417 = load i8, ptr %2416, align 1
   %2418 = sext i8 %2417 to i32
   %2419 = add nsw i32 %2418, %2314
@@ -5849,108 +5849,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12242, label %2463, label %2434
 
 2434:                                             ; preds = %2422
-  %2435 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 1
+  %2435 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 1
   store i8 0, ptr %2435, align 1
   %.not12243 = icmp eq i64 %2432, 255
-  %.sroa.gep14012 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 2
+  %.sroa.gep14012 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 2
   %.neg12244.sroa.sel = select i1 %.not12243, ptr %.sroa.gep14012, ptr %2435
   %2436 = lshr i64 %2428, 48
   %2437 = trunc i64 %2436 to i8
   store i8 %2437, ptr %.neg12244.sroa.sel, align 1
-  %.sroa.gep16117 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 3
+  %.sroa.gep16117 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 3
   %.neg12244.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12243, ptr %.sroa.gep16117, ptr %.sroa.gep14012
   store i8 0, ptr %.neg12244.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2438 = and i64 %2428, 71776119061217280
   %.not12245 = icmp eq i64 %2438, 71776119061217280
   %.neg12246 = select i1 %.not12245, i64 2, i64 1
-  %2439 = getelementptr inbounds i8, ptr %.neg12244.sroa.sel, i64 %.neg12246
+  %2439 = getelementptr inbounds nuw i8, ptr %.neg12244.sroa.sel, i64 %.neg12246
   %2440 = lshr i64 %2428, 40
   %2441 = trunc i64 %2440 to i8
   store i8 %2441, ptr %2439, align 1
-  %2442 = getelementptr inbounds i8, ptr %2439, i64 1
+  %2442 = getelementptr inbounds nuw i8, ptr %2439, i64 1
   store i8 0, ptr %2442, align 1
   %2443 = and i64 %2428, 280375465082880
   %.not12247 = icmp eq i64 %2443, 280375465082880
-  %.sroa.gep14014 = getelementptr inbounds i8, ptr %2439, i64 2
+  %.sroa.gep14014 = getelementptr inbounds nuw i8, ptr %2439, i64 2
   %.neg12248.sroa.sel = select i1 %.not12247, ptr %.sroa.gep14014, ptr %2442
   %2444 = lshr i64 %2428, 32
   %2445 = trunc i64 %2444 to i8
   store i8 %2445, ptr %.neg12248.sroa.sel, align 1
-  %.sroa.gep16123 = getelementptr inbounds i8, ptr %2439, i64 3
+  %.sroa.gep16123 = getelementptr inbounds nuw i8, ptr %2439, i64 3
   %.neg12248.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12247, ptr %.sroa.gep16123, ptr %.sroa.gep14014
   store i8 0, ptr %.neg12248.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2446 = and i64 %2428, 1095216660480
   %.not12249 = icmp eq i64 %2446, 1095216660480
   %.neg12250 = select i1 %.not12249, i64 2, i64 1
-  %2447 = getelementptr inbounds i8, ptr %.neg12248.sroa.sel, i64 %.neg12250
+  %2447 = getelementptr inbounds nuw i8, ptr %.neg12248.sroa.sel, i64 %.neg12250
   %2448 = lshr i64 %2428, 24
   %2449 = trunc i64 %2448 to i8
   store i8 %2449, ptr %2447, align 1
-  %2450 = getelementptr inbounds i8, ptr %2447, i64 1
+  %2450 = getelementptr inbounds nuw i8, ptr %2447, i64 1
   store i8 0, ptr %2450, align 1
   %2451 = and i64 %2428, 4278190080
   %.not12251 = icmp eq i64 %2451, 4278190080
-  %.sroa.gep14016 = getelementptr inbounds i8, ptr %2447, i64 2
+  %.sroa.gep14016 = getelementptr inbounds nuw i8, ptr %2447, i64 2
   %.neg12252.sroa.sel = select i1 %.not12251, ptr %.sroa.gep14016, ptr %2450
   %2452 = lshr i64 %2428, 16
   %2453 = trunc i64 %2452 to i8
   store i8 %2453, ptr %.neg12252.sroa.sel, align 1
-  %.sroa.gep16121 = getelementptr inbounds i8, ptr %2447, i64 3
+  %.sroa.gep16121 = getelementptr inbounds nuw i8, ptr %2447, i64 3
   %.neg12252.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12251, ptr %.sroa.gep16121, ptr %.sroa.gep14016
   store i8 0, ptr %.neg12252.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2454 = and i64 %2428, 16711680
   %.not12253 = icmp eq i64 %2454, 16711680
   %.neg12254 = select i1 %.not12253, i64 2, i64 1
-  %2455 = getelementptr inbounds i8, ptr %.neg12252.sroa.sel, i64 %.neg12254
+  %2455 = getelementptr inbounds nuw i8, ptr %.neg12252.sroa.sel, i64 %.neg12254
   %2456 = lshr i64 %2428, 8
   %2457 = trunc i64 %2456 to i8
   store i8 %2457, ptr %2455, align 1
-  %2458 = getelementptr inbounds i8, ptr %2455, i64 1
+  %2458 = getelementptr inbounds nuw i8, ptr %2455, i64 1
   store i8 0, ptr %2458, align 1
   %2459 = and i64 %2428, 65280
   %.not12255 = icmp eq i64 %2459, 65280
-  %.sroa.gep14018 = getelementptr inbounds i8, ptr %2455, i64 2
+  %.sroa.gep14018 = getelementptr inbounds nuw i8, ptr %2455, i64 2
   %.neg12256.sroa.sel = select i1 %.not12255, ptr %.sroa.gep14018, ptr %2458
   %2460 = trunc i64 %2428 to i8
   store i8 %2460, ptr %.neg12256.sroa.sel, align 1
-  %.sroa.gep16119 = getelementptr inbounds i8, ptr %2455, i64 3
+  %.sroa.gep16119 = getelementptr inbounds nuw i8, ptr %2455, i64 3
   %.neg12256.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12255, ptr %.sroa.gep16119, ptr %.sroa.gep14018
   store i8 0, ptr %.neg12256.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2461 = and i64 %2428, 255
   %.not12257 = icmp eq i64 %2461, 255
   %.neg12258 = select i1 %.not12257, i64 2, i64 1
-  %2462 = getelementptr inbounds i8, ptr %.neg12256.sroa.sel, i64 %.neg12258
+  %2462 = getelementptr inbounds nuw i8, ptr %.neg12256.sroa.sel, i64 %.neg12258
   br label %2485
 
 2463:                                             ; preds = %2422
   %2464 = lshr i64 %2428, 48
   %2465 = trunc i64 %2464 to i8
-  %2466 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 1
+  %2466 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 1
   store i8 %2465, ptr %2466, align 1
   %2467 = lshr i64 %2428, 40
   %2468 = trunc i64 %2467 to i8
-  %2469 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 2
+  %2469 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 2
   store i8 %2468, ptr %2469, align 1
   %2470 = lshr i64 %2428, 32
   %2471 = trunc i64 %2470 to i8
-  %2472 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 3
+  %2472 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 3
   store i8 %2471, ptr %2472, align 1
   %2473 = lshr i64 %2428, 24
   %2474 = trunc i64 %2473 to i8
-  %2475 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 4
+  %2475 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 4
   store i8 %2474, ptr %2475, align 1
   %2476 = lshr i64 %2428, 16
   %2477 = trunc i64 %2476 to i8
-  %2478 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 5
+  %2478 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 5
   store i8 %2477, ptr %2478, align 1
   %2479 = lshr i64 %2428, 8
   %2480 = trunc i64 %2479 to i8
-  %2481 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 6
+  %2481 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 6
   store i8 %2480, ptr %2481, align 1
   %2482 = trunc i64 %2428 to i8
-  %2483 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 7
+  %2483 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 7
   store i8 %2482, ptr %2483, align 1
-  %2484 = getelementptr inbounds i8, ptr %.11211026.lcssa, i64 8
+  %2484 = getelementptr inbounds nuw i8, ptr %.11211026.lcssa, i64 8
   br label %2485
 
 2485:                                             ; preds = %2463, %2434
@@ -5971,7 +5971,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.7311113 = phi i64 [ %.6911109, %2304 ], [ %2487, %2485 ], [ %2492, %2488 ]
   %.11111025 = phi ptr [ %.10511019, %2304 ], [ %.11511029, %2485 ], [ %.11211026.lcssa, %2488 ]
   %.36 = phi i32 [ %2305, %2304 ], [ 0, %2485 ], [ 0, %2488 ]
-  %2494 = getelementptr inbounds i8, ptr %1, i64 80
+  %2494 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %2495 = load i16, ptr %2494, align 2
   %2496 = icmp eq i16 %2495, 0
   br i1 %2496, label %2497, label %2499
@@ -5995,7 +5995,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 2509:                                             ; preds = %2499
   %2510 = load ptr, ptr %7, align 8
   %2511 = load ptr, ptr %2510, align 8
-  %2512 = getelementptr inbounds i8, ptr %2511, i64 40
+  %2512 = getelementptr inbounds nuw i8, ptr %2511, i64 40
   store i32 6, ptr %2512, align 8
   %2513 = load ptr, ptr %7, align 8
   %2514 = load ptr, ptr %2513, align 8
@@ -6008,8 +6008,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %2517, label %.lr.ph14771, label %._crit_edge14772
 
 .lr.ph14771:                                      ; preds = %2516
-  %2518 = getelementptr inbounds i8, ptr %4, i64 1264
-  %2519 = getelementptr inbounds i8, ptr %4, i64 960
+  %2518 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %2519 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %2520 = load i8, ptr %2518, align 4
   %2521 = sext i8 %2520 to i32
   %2522 = sub nsw i32 %.7311367, %2521
@@ -6034,108 +6034,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12294, label %2566, label %2537
 
 2537:                                             ; preds = %2525
-  %2538 = getelementptr inbounds i8, ptr %.11111025, i64 1
+  %2538 = getelementptr inbounds nuw i8, ptr %.11111025, i64 1
   store i8 0, ptr %2538, align 1
   %.not12295 = icmp eq i64 %2535, 255
-  %.sroa.gep14020 = getelementptr inbounds i8, ptr %.11111025, i64 2
+  %.sroa.gep14020 = getelementptr inbounds nuw i8, ptr %.11111025, i64 2
   %.neg12296.sroa.sel = select i1 %.not12295, ptr %.sroa.gep14020, ptr %2538
   %2539 = lshr i64 %2527, 48
   %2540 = trunc i64 %2539 to i8
   store i8 %2540, ptr %.neg12296.sroa.sel, align 1
-  %.sroa.gep16115 = getelementptr inbounds i8, ptr %.11111025, i64 3
+  %.sroa.gep16115 = getelementptr inbounds nuw i8, ptr %.11111025, i64 3
   %.neg12296.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12295, ptr %.sroa.gep16115, ptr %.sroa.gep14020
   store i8 0, ptr %.neg12296.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2541 = and i64 %2527, 71776119061217280
   %.not12297 = icmp eq i64 %2541, 71776119061217280
   %.neg12298 = select i1 %.not12297, i64 2, i64 1
-  %2542 = getelementptr inbounds i8, ptr %.neg12296.sroa.sel, i64 %.neg12298
+  %2542 = getelementptr inbounds nuw i8, ptr %.neg12296.sroa.sel, i64 %.neg12298
   %2543 = lshr i64 %2527, 40
   %2544 = trunc i64 %2543 to i8
   store i8 %2544, ptr %2542, align 1
-  %2545 = getelementptr inbounds i8, ptr %2542, i64 1
+  %2545 = getelementptr inbounds nuw i8, ptr %2542, i64 1
   store i8 0, ptr %2545, align 1
   %2546 = and i64 %2527, 280375465082880
   %.not12299 = icmp eq i64 %2546, 280375465082880
-  %.sroa.gep14022 = getelementptr inbounds i8, ptr %2542, i64 2
+  %.sroa.gep14022 = getelementptr inbounds nuw i8, ptr %2542, i64 2
   %.neg12300.sroa.sel = select i1 %.not12299, ptr %.sroa.gep14022, ptr %2545
   %2547 = lshr i64 %2527, 32
   %2548 = trunc i64 %2547 to i8
   store i8 %2548, ptr %.neg12300.sroa.sel, align 1
-  %.sroa.gep16113 = getelementptr inbounds i8, ptr %2542, i64 3
+  %.sroa.gep16113 = getelementptr inbounds nuw i8, ptr %2542, i64 3
   %.neg12300.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12299, ptr %.sroa.gep16113, ptr %.sroa.gep14022
   store i8 0, ptr %.neg12300.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2549 = and i64 %2527, 1095216660480
   %.not12301 = icmp eq i64 %2549, 1095216660480
   %.neg12302 = select i1 %.not12301, i64 2, i64 1
-  %2550 = getelementptr inbounds i8, ptr %.neg12300.sroa.sel, i64 %.neg12302
+  %2550 = getelementptr inbounds nuw i8, ptr %.neg12300.sroa.sel, i64 %.neg12302
   %2551 = lshr i64 %2531, 24
   %2552 = trunc i64 %2551 to i8
   store i8 %2552, ptr %2550, align 1
-  %2553 = getelementptr inbounds i8, ptr %2550, i64 1
+  %2553 = getelementptr inbounds nuw i8, ptr %2550, i64 1
   store i8 0, ptr %2553, align 1
   %2554 = and i64 %2531, 4278190080
   %.not12303 = icmp eq i64 %2554, 4278190080
-  %.sroa.gep14024 = getelementptr inbounds i8, ptr %2550, i64 2
+  %.sroa.gep14024 = getelementptr inbounds nuw i8, ptr %2550, i64 2
   %.neg12304.sroa.sel = select i1 %.not12303, ptr %.sroa.gep14024, ptr %2553
   %2555 = lshr i64 %2531, 16
   %2556 = trunc i64 %2555 to i8
   store i8 %2556, ptr %.neg12304.sroa.sel, align 1
-  %.sroa.gep16111 = getelementptr inbounds i8, ptr %2550, i64 3
+  %.sroa.gep16111 = getelementptr inbounds nuw i8, ptr %2550, i64 3
   %.neg12304.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12303, ptr %.sroa.gep16111, ptr %.sroa.gep14024
   store i8 0, ptr %.neg12304.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2557 = and i64 %2531, 16711680
   %.not12305 = icmp eq i64 %2557, 16711680
   %.neg12306 = select i1 %.not12305, i64 2, i64 1
-  %2558 = getelementptr inbounds i8, ptr %.neg12304.sroa.sel, i64 %.neg12306
+  %2558 = getelementptr inbounds nuw i8, ptr %.neg12304.sroa.sel, i64 %.neg12306
   %2559 = lshr i64 %2531, 8
   %2560 = trunc i64 %2559 to i8
   store i8 %2560, ptr %2558, align 1
-  %2561 = getelementptr inbounds i8, ptr %2558, i64 1
+  %2561 = getelementptr inbounds nuw i8, ptr %2558, i64 1
   store i8 0, ptr %2561, align 1
   %2562 = and i64 %2531, 65280
   %.not12307 = icmp eq i64 %2562, 65280
-  %.sroa.gep14026 = getelementptr inbounds i8, ptr %2558, i64 2
+  %.sroa.gep14026 = getelementptr inbounds nuw i8, ptr %2558, i64 2
   %.neg12308.sroa.sel = select i1 %.not12307, ptr %.sroa.gep14026, ptr %2561
   %2563 = trunc i64 %2531 to i8
   store i8 %2563, ptr %.neg12308.sroa.sel, align 1
-  %.sroa.gep16109 = getelementptr inbounds i8, ptr %2558, i64 3
+  %.sroa.gep16109 = getelementptr inbounds nuw i8, ptr %2558, i64 3
   %.neg12308.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12307, ptr %.sroa.gep16109, ptr %.sroa.gep14026
   store i8 0, ptr %.neg12308.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2564 = and i64 %2531, 255
   %.not12309 = icmp eq i64 %2564, 255
   %.neg12310 = select i1 %.not12309, i64 2, i64 1
-  %2565 = getelementptr inbounds i8, ptr %.neg12308.sroa.sel, i64 %.neg12310
+  %2565 = getelementptr inbounds nuw i8, ptr %.neg12308.sroa.sel, i64 %.neg12310
   br label %2588
 
 2566:                                             ; preds = %2525
   %2567 = lshr i64 %2527, 48
   %2568 = trunc i64 %2567 to i8
-  %2569 = getelementptr inbounds i8, ptr %.11111025, i64 1
+  %2569 = getelementptr inbounds nuw i8, ptr %.11111025, i64 1
   store i8 %2568, ptr %2569, align 1
   %2570 = lshr i64 %2527, 40
   %2571 = trunc i64 %2570 to i8
-  %2572 = getelementptr inbounds i8, ptr %.11111025, i64 2
+  %2572 = getelementptr inbounds nuw i8, ptr %.11111025, i64 2
   store i8 %2571, ptr %2572, align 1
   %2573 = lshr i64 %2527, 32
   %2574 = trunc i64 %2573 to i8
-  %2575 = getelementptr inbounds i8, ptr %.11111025, i64 3
+  %2575 = getelementptr inbounds nuw i8, ptr %.11111025, i64 3
   store i8 %2574, ptr %2575, align 1
   %2576 = lshr i64 %2531, 24
   %2577 = trunc i64 %2576 to i8
-  %2578 = getelementptr inbounds i8, ptr %.11111025, i64 4
+  %2578 = getelementptr inbounds nuw i8, ptr %.11111025, i64 4
   store i8 %2577, ptr %2578, align 1
   %2579 = lshr i64 %2531, 16
   %2580 = trunc i64 %2579 to i8
-  %2581 = getelementptr inbounds i8, ptr %.11111025, i64 5
+  %2581 = getelementptr inbounds nuw i8, ptr %.11111025, i64 5
   store i8 %2580, ptr %2581, align 1
   %2582 = lshr i64 %2531, 8
   %2583 = trunc i64 %2582 to i8
-  %2584 = getelementptr inbounds i8, ptr %.11111025, i64 6
+  %2584 = getelementptr inbounds nuw i8, ptr %.11111025, i64 6
   store i8 %2583, ptr %2584, align 1
   %2585 = trunc i64 %2531 to i8
-  %2586 = getelementptr inbounds i8, ptr %.11111025, i64 7
+  %2586 = getelementptr inbounds nuw i8, ptr %.11111025, i64 7
   store i8 %2585, ptr %2586, align 1
-  %2587 = getelementptr inbounds i8, ptr %.11111025, i64 8
+  %2587 = getelementptr inbounds nuw i8, ptr %.11111025, i64 8
   br label %2588
 
 2588:                                             ; preds = %2566, %2537
@@ -6171,12 +6171,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2601 = xor i32 %2600, -1
   %2602 = and i32 %2502, %2601
   %2603 = zext nneg i32 %2598 to i64
-  %2604 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %2603
+  %2604 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %2603
   %2605 = load i32, ptr %2604, align 4
   %2606 = shl i32 %2605, %2507
   %2607 = or i32 %2606, %2602
-  %2608 = getelementptr inbounds i8, ptr %4, i64 1024
-  %2609 = getelementptr inbounds [256 x i8], ptr %2608, i64 0, i64 %2603
+  %2608 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %2609 = getelementptr inbounds nuw [256 x i8], ptr %2608, i64 0, i64 %2603
   %2610 = load i8, ptr %2609, align 1
   %2611 = sext i8 %2610 to i32
   %2612 = add nsw i32 %2611, %2507
@@ -6201,108 +6201,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12277, label %2656, label %2627
 
 2627:                                             ; preds = %2615
-  %2628 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 1
+  %2628 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 1
   store i8 0, ptr %2628, align 1
   %.not12278 = icmp eq i64 %2625, 255
-  %.sroa.gep14028 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 2
+  %.sroa.gep14028 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 2
   %.neg12279.sroa.sel = select i1 %.not12278, ptr %.sroa.gep14028, ptr %2628
   %2629 = lshr i64 %2621, 48
   %2630 = trunc i64 %2629 to i8
   store i8 %2630, ptr %.neg12279.sroa.sel, align 1
-  %.sroa.gep16101 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 3
+  %.sroa.gep16101 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 3
   %.neg12279.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12278, ptr %.sroa.gep16101, ptr %.sroa.gep14028
   store i8 0, ptr %.neg12279.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2631 = and i64 %2621, 71776119061217280
   %.not12280 = icmp eq i64 %2631, 71776119061217280
   %.neg12281 = select i1 %.not12280, i64 2, i64 1
-  %2632 = getelementptr inbounds i8, ptr %.neg12279.sroa.sel, i64 %.neg12281
+  %2632 = getelementptr inbounds nuw i8, ptr %.neg12279.sroa.sel, i64 %.neg12281
   %2633 = lshr i64 %2621, 40
   %2634 = trunc i64 %2633 to i8
   store i8 %2634, ptr %2632, align 1
-  %2635 = getelementptr inbounds i8, ptr %2632, i64 1
+  %2635 = getelementptr inbounds nuw i8, ptr %2632, i64 1
   store i8 0, ptr %2635, align 1
   %2636 = and i64 %2621, 280375465082880
   %.not12282 = icmp eq i64 %2636, 280375465082880
-  %.sroa.gep14030 = getelementptr inbounds i8, ptr %2632, i64 2
+  %.sroa.gep14030 = getelementptr inbounds nuw i8, ptr %2632, i64 2
   %.neg12283.sroa.sel = select i1 %.not12282, ptr %.sroa.gep14030, ptr %2635
   %2637 = lshr i64 %2621, 32
   %2638 = trunc i64 %2637 to i8
   store i8 %2638, ptr %.neg12283.sroa.sel, align 1
-  %.sroa.gep16107 = getelementptr inbounds i8, ptr %2632, i64 3
+  %.sroa.gep16107 = getelementptr inbounds nuw i8, ptr %2632, i64 3
   %.neg12283.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12282, ptr %.sroa.gep16107, ptr %.sroa.gep14030
   store i8 0, ptr %.neg12283.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2639 = and i64 %2621, 1095216660480
   %.not12284 = icmp eq i64 %2639, 1095216660480
   %.neg12285 = select i1 %.not12284, i64 2, i64 1
-  %2640 = getelementptr inbounds i8, ptr %.neg12283.sroa.sel, i64 %.neg12285
+  %2640 = getelementptr inbounds nuw i8, ptr %.neg12283.sroa.sel, i64 %.neg12285
   %2641 = lshr i64 %2621, 24
   %2642 = trunc i64 %2641 to i8
   store i8 %2642, ptr %2640, align 1
-  %2643 = getelementptr inbounds i8, ptr %2640, i64 1
+  %2643 = getelementptr inbounds nuw i8, ptr %2640, i64 1
   store i8 0, ptr %2643, align 1
   %2644 = and i64 %2621, 4278190080
   %.not12286 = icmp eq i64 %2644, 4278190080
-  %.sroa.gep14032 = getelementptr inbounds i8, ptr %2640, i64 2
+  %.sroa.gep14032 = getelementptr inbounds nuw i8, ptr %2640, i64 2
   %.neg12287.sroa.sel = select i1 %.not12286, ptr %.sroa.gep14032, ptr %2643
   %2645 = lshr i64 %2621, 16
   %2646 = trunc i64 %2645 to i8
   store i8 %2646, ptr %.neg12287.sroa.sel, align 1
-  %.sroa.gep16105 = getelementptr inbounds i8, ptr %2640, i64 3
+  %.sroa.gep16105 = getelementptr inbounds nuw i8, ptr %2640, i64 3
   %.neg12287.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12286, ptr %.sroa.gep16105, ptr %.sroa.gep14032
   store i8 0, ptr %.neg12287.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2647 = and i64 %2621, 16711680
   %.not12288 = icmp eq i64 %2647, 16711680
   %.neg12289 = select i1 %.not12288, i64 2, i64 1
-  %2648 = getelementptr inbounds i8, ptr %.neg12287.sroa.sel, i64 %.neg12289
+  %2648 = getelementptr inbounds nuw i8, ptr %.neg12287.sroa.sel, i64 %.neg12289
   %2649 = lshr i64 %2621, 8
   %2650 = trunc i64 %2649 to i8
   store i8 %2650, ptr %2648, align 1
-  %2651 = getelementptr inbounds i8, ptr %2648, i64 1
+  %2651 = getelementptr inbounds nuw i8, ptr %2648, i64 1
   store i8 0, ptr %2651, align 1
   %2652 = and i64 %2621, 65280
   %.not12290 = icmp eq i64 %2652, 65280
-  %.sroa.gep14034 = getelementptr inbounds i8, ptr %2648, i64 2
+  %.sroa.gep14034 = getelementptr inbounds nuw i8, ptr %2648, i64 2
   %.neg12291.sroa.sel = select i1 %.not12290, ptr %.sroa.gep14034, ptr %2651
   %2653 = trunc i64 %2621 to i8
   store i8 %2653, ptr %.neg12291.sroa.sel, align 1
-  %.sroa.gep16103 = getelementptr inbounds i8, ptr %2648, i64 3
+  %.sroa.gep16103 = getelementptr inbounds nuw i8, ptr %2648, i64 3
   %.neg12291.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12290, ptr %.sroa.gep16103, ptr %.sroa.gep14034
   store i8 0, ptr %.neg12291.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2654 = and i64 %2621, 255
   %.not12292 = icmp eq i64 %2654, 255
   %.neg12293 = select i1 %.not12292, i64 2, i64 1
-  %2655 = getelementptr inbounds i8, ptr %.neg12291.sroa.sel, i64 %.neg12293
+  %2655 = getelementptr inbounds nuw i8, ptr %.neg12291.sroa.sel, i64 %.neg12293
   br label %2678
 
 2656:                                             ; preds = %2615
   %2657 = lshr i64 %2621, 48
   %2658 = trunc i64 %2657 to i8
-  %2659 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 1
+  %2659 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 1
   store i8 %2658, ptr %2659, align 1
   %2660 = lshr i64 %2621, 40
   %2661 = trunc i64 %2660 to i8
-  %2662 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 2
+  %2662 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 2
   store i8 %2661, ptr %2662, align 1
   %2663 = lshr i64 %2621, 32
   %2664 = trunc i64 %2663 to i8
-  %2665 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 3
+  %2665 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 3
   store i8 %2664, ptr %2665, align 1
   %2666 = lshr i64 %2621, 24
   %2667 = trunc i64 %2666 to i8
-  %2668 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 4
+  %2668 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 4
   store i8 %2667, ptr %2668, align 1
   %2669 = lshr i64 %2621, 16
   %2670 = trunc i64 %2669 to i8
-  %2671 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 5
+  %2671 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 5
   store i8 %2670, ptr %2671, align 1
   %2672 = lshr i64 %2621, 8
   %2673 = trunc i64 %2672 to i8
-  %2674 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 6
+  %2674 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 6
   store i8 %2673, ptr %2674, align 1
   %2675 = trunc i64 %2621 to i8
-  %2676 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 7
+  %2676 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 7
   store i8 %2675, ptr %2676, align 1
-  %2677 = getelementptr inbounds i8, ptr %.11811032.lcssa, i64 8
+  %2677 = getelementptr inbounds nuw i8, ptr %.11811032.lcssa, i64 8
   br label %2678
 
 2678:                                             ; preds = %2656, %2627
@@ -6323,7 +6323,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.7711117 = phi i64 [ %.7311113, %2497 ], [ %2680, %2678 ], [ %2685, %2681 ]
   %.11711031 = phi ptr [ %.11111025, %2497 ], [ %.12111035, %2678 ], [ %.11811032.lcssa, %2681 ]
   %.38 = phi i32 [ %2498, %2497 ], [ 0, %2678 ], [ 0, %2681 ]
-  %2687 = getelementptr inbounds i8, ptr %1, i64 96
+  %2687 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %2688 = load i16, ptr %2687, align 2
   %2689 = icmp eq i16 %2688, 0
   br i1 %2689, label %2690, label %2692
@@ -6347,7 +6347,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 2702:                                             ; preds = %2692
   %2703 = load ptr, ptr %7, align 8
   %2704 = load ptr, ptr %2703, align 8
-  %2705 = getelementptr inbounds i8, ptr %2704, i64 40
+  %2705 = getelementptr inbounds nuw i8, ptr %2704, i64 40
   store i32 6, ptr %2705, align 8
   %2706 = load ptr, ptr %7, align 8
   %2707 = load ptr, ptr %2706, align 8
@@ -6360,8 +6360,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %2710, label %.lr.ph14782, label %._crit_edge14783
 
 .lr.ph14782:                                      ; preds = %2709
-  %2711 = getelementptr inbounds i8, ptr %4, i64 1264
-  %2712 = getelementptr inbounds i8, ptr %4, i64 960
+  %2711 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %2712 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %2713 = load i8, ptr %2711, align 4
   %2714 = sext i8 %2713 to i32
   %2715 = sub nsw i32 %.7711371, %2714
@@ -6386,108 +6386,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12329, label %2759, label %2730
 
 2730:                                             ; preds = %2718
-  %2731 = getelementptr inbounds i8, ptr %.11711031, i64 1
+  %2731 = getelementptr inbounds nuw i8, ptr %.11711031, i64 1
   store i8 0, ptr %2731, align 1
   %.not12330 = icmp eq i64 %2728, 255
-  %.sroa.gep14036 = getelementptr inbounds i8, ptr %.11711031, i64 2
+  %.sroa.gep14036 = getelementptr inbounds nuw i8, ptr %.11711031, i64 2
   %.neg12331.sroa.sel = select i1 %.not12330, ptr %.sroa.gep14036, ptr %2731
   %2732 = lshr i64 %2720, 48
   %2733 = trunc i64 %2732 to i8
   store i8 %2733, ptr %.neg12331.sroa.sel, align 1
-  %.sroa.gep16099 = getelementptr inbounds i8, ptr %.11711031, i64 3
+  %.sroa.gep16099 = getelementptr inbounds nuw i8, ptr %.11711031, i64 3
   %.neg12331.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12330, ptr %.sroa.gep16099, ptr %.sroa.gep14036
   store i8 0, ptr %.neg12331.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2734 = and i64 %2720, 71776119061217280
   %.not12332 = icmp eq i64 %2734, 71776119061217280
   %.neg12333 = select i1 %.not12332, i64 2, i64 1
-  %2735 = getelementptr inbounds i8, ptr %.neg12331.sroa.sel, i64 %.neg12333
+  %2735 = getelementptr inbounds nuw i8, ptr %.neg12331.sroa.sel, i64 %.neg12333
   %2736 = lshr i64 %2720, 40
   %2737 = trunc i64 %2736 to i8
   store i8 %2737, ptr %2735, align 1
-  %2738 = getelementptr inbounds i8, ptr %2735, i64 1
+  %2738 = getelementptr inbounds nuw i8, ptr %2735, i64 1
   store i8 0, ptr %2738, align 1
   %2739 = and i64 %2720, 280375465082880
   %.not12334 = icmp eq i64 %2739, 280375465082880
-  %.sroa.gep14038 = getelementptr inbounds i8, ptr %2735, i64 2
+  %.sroa.gep14038 = getelementptr inbounds nuw i8, ptr %2735, i64 2
   %.neg12335.sroa.sel = select i1 %.not12334, ptr %.sroa.gep14038, ptr %2738
   %2740 = lshr i64 %2720, 32
   %2741 = trunc i64 %2740 to i8
   store i8 %2741, ptr %.neg12335.sroa.sel, align 1
-  %.sroa.gep16097 = getelementptr inbounds i8, ptr %2735, i64 3
+  %.sroa.gep16097 = getelementptr inbounds nuw i8, ptr %2735, i64 3
   %.neg12335.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12334, ptr %.sroa.gep16097, ptr %.sroa.gep14038
   store i8 0, ptr %.neg12335.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2742 = and i64 %2720, 1095216660480
   %.not12336 = icmp eq i64 %2742, 1095216660480
   %.neg12337 = select i1 %.not12336, i64 2, i64 1
-  %2743 = getelementptr inbounds i8, ptr %.neg12335.sroa.sel, i64 %.neg12337
+  %2743 = getelementptr inbounds nuw i8, ptr %.neg12335.sroa.sel, i64 %.neg12337
   %2744 = lshr i64 %2724, 24
   %2745 = trunc i64 %2744 to i8
   store i8 %2745, ptr %2743, align 1
-  %2746 = getelementptr inbounds i8, ptr %2743, i64 1
+  %2746 = getelementptr inbounds nuw i8, ptr %2743, i64 1
   store i8 0, ptr %2746, align 1
   %2747 = and i64 %2724, 4278190080
   %.not12338 = icmp eq i64 %2747, 4278190080
-  %.sroa.gep14040 = getelementptr inbounds i8, ptr %2743, i64 2
+  %.sroa.gep14040 = getelementptr inbounds nuw i8, ptr %2743, i64 2
   %.neg12339.sroa.sel = select i1 %.not12338, ptr %.sroa.gep14040, ptr %2746
   %2748 = lshr i64 %2724, 16
   %2749 = trunc i64 %2748 to i8
   store i8 %2749, ptr %.neg12339.sroa.sel, align 1
-  %.sroa.gep16095 = getelementptr inbounds i8, ptr %2743, i64 3
+  %.sroa.gep16095 = getelementptr inbounds nuw i8, ptr %2743, i64 3
   %.neg12339.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12338, ptr %.sroa.gep16095, ptr %.sroa.gep14040
   store i8 0, ptr %.neg12339.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2750 = and i64 %2724, 16711680
   %.not12340 = icmp eq i64 %2750, 16711680
   %.neg12341 = select i1 %.not12340, i64 2, i64 1
-  %2751 = getelementptr inbounds i8, ptr %.neg12339.sroa.sel, i64 %.neg12341
+  %2751 = getelementptr inbounds nuw i8, ptr %.neg12339.sroa.sel, i64 %.neg12341
   %2752 = lshr i64 %2724, 8
   %2753 = trunc i64 %2752 to i8
   store i8 %2753, ptr %2751, align 1
-  %2754 = getelementptr inbounds i8, ptr %2751, i64 1
+  %2754 = getelementptr inbounds nuw i8, ptr %2751, i64 1
   store i8 0, ptr %2754, align 1
   %2755 = and i64 %2724, 65280
   %.not12342 = icmp eq i64 %2755, 65280
-  %.sroa.gep14042 = getelementptr inbounds i8, ptr %2751, i64 2
+  %.sroa.gep14042 = getelementptr inbounds nuw i8, ptr %2751, i64 2
   %.neg12343.sroa.sel = select i1 %.not12342, ptr %.sroa.gep14042, ptr %2754
   %2756 = trunc i64 %2724 to i8
   store i8 %2756, ptr %.neg12343.sroa.sel, align 1
-  %.sroa.gep16093 = getelementptr inbounds i8, ptr %2751, i64 3
+  %.sroa.gep16093 = getelementptr inbounds nuw i8, ptr %2751, i64 3
   %.neg12343.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12342, ptr %.sroa.gep16093, ptr %.sroa.gep14042
   store i8 0, ptr %.neg12343.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2757 = and i64 %2724, 255
   %.not12344 = icmp eq i64 %2757, 255
   %.neg12345 = select i1 %.not12344, i64 2, i64 1
-  %2758 = getelementptr inbounds i8, ptr %.neg12343.sroa.sel, i64 %.neg12345
+  %2758 = getelementptr inbounds nuw i8, ptr %.neg12343.sroa.sel, i64 %.neg12345
   br label %2781
 
 2759:                                             ; preds = %2718
   %2760 = lshr i64 %2720, 48
   %2761 = trunc i64 %2760 to i8
-  %2762 = getelementptr inbounds i8, ptr %.11711031, i64 1
+  %2762 = getelementptr inbounds nuw i8, ptr %.11711031, i64 1
   store i8 %2761, ptr %2762, align 1
   %2763 = lshr i64 %2720, 40
   %2764 = trunc i64 %2763 to i8
-  %2765 = getelementptr inbounds i8, ptr %.11711031, i64 2
+  %2765 = getelementptr inbounds nuw i8, ptr %.11711031, i64 2
   store i8 %2764, ptr %2765, align 1
   %2766 = lshr i64 %2720, 32
   %2767 = trunc i64 %2766 to i8
-  %2768 = getelementptr inbounds i8, ptr %.11711031, i64 3
+  %2768 = getelementptr inbounds nuw i8, ptr %.11711031, i64 3
   store i8 %2767, ptr %2768, align 1
   %2769 = lshr i64 %2724, 24
   %2770 = trunc i64 %2769 to i8
-  %2771 = getelementptr inbounds i8, ptr %.11711031, i64 4
+  %2771 = getelementptr inbounds nuw i8, ptr %.11711031, i64 4
   store i8 %2770, ptr %2771, align 1
   %2772 = lshr i64 %2724, 16
   %2773 = trunc i64 %2772 to i8
-  %2774 = getelementptr inbounds i8, ptr %.11711031, i64 5
+  %2774 = getelementptr inbounds nuw i8, ptr %.11711031, i64 5
   store i8 %2773, ptr %2774, align 1
   %2775 = lshr i64 %2724, 8
   %2776 = trunc i64 %2775 to i8
-  %2777 = getelementptr inbounds i8, ptr %.11711031, i64 6
+  %2777 = getelementptr inbounds nuw i8, ptr %.11711031, i64 6
   store i8 %2776, ptr %2777, align 1
   %2778 = trunc i64 %2724 to i8
-  %2779 = getelementptr inbounds i8, ptr %.11711031, i64 7
+  %2779 = getelementptr inbounds nuw i8, ptr %.11711031, i64 7
   store i8 %2778, ptr %2779, align 1
-  %2780 = getelementptr inbounds i8, ptr %.11711031, i64 8
+  %2780 = getelementptr inbounds nuw i8, ptr %.11711031, i64 8
   br label %2781
 
 2781:                                             ; preds = %2759, %2730
@@ -6523,12 +6523,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2794 = xor i32 %2793, -1
   %2795 = and i32 %2695, %2794
   %2796 = zext nneg i32 %2791 to i64
-  %2797 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %2796
+  %2797 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %2796
   %2798 = load i32, ptr %2797, align 4
   %2799 = shl i32 %2798, %2700
   %2800 = or i32 %2799, %2795
-  %2801 = getelementptr inbounds i8, ptr %4, i64 1024
-  %2802 = getelementptr inbounds [256 x i8], ptr %2801, i64 0, i64 %2796
+  %2801 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %2802 = getelementptr inbounds nuw [256 x i8], ptr %2801, i64 0, i64 %2796
   %2803 = load i8, ptr %2802, align 1
   %2804 = sext i8 %2803 to i32
   %2805 = add nsw i32 %2804, %2700
@@ -6553,108 +6553,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12312, label %2849, label %2820
 
 2820:                                             ; preds = %2808
-  %2821 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 1
+  %2821 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 1
   store i8 0, ptr %2821, align 1
   %.not12313 = icmp eq i64 %2818, 255
-  %.sroa.gep14044 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 2
+  %.sroa.gep14044 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 2
   %.neg12314.sroa.sel = select i1 %.not12313, ptr %.sroa.gep14044, ptr %2821
   %2822 = lshr i64 %2814, 48
   %2823 = trunc i64 %2822 to i8
   store i8 %2823, ptr %.neg12314.sroa.sel, align 1
-  %.sroa.gep16085 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 3
+  %.sroa.gep16085 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 3
   %.neg12314.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12313, ptr %.sroa.gep16085, ptr %.sroa.gep14044
   store i8 0, ptr %.neg12314.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2824 = and i64 %2814, 71776119061217280
   %.not12315 = icmp eq i64 %2824, 71776119061217280
   %.neg12316 = select i1 %.not12315, i64 2, i64 1
-  %2825 = getelementptr inbounds i8, ptr %.neg12314.sroa.sel, i64 %.neg12316
+  %2825 = getelementptr inbounds nuw i8, ptr %.neg12314.sroa.sel, i64 %.neg12316
   %2826 = lshr i64 %2814, 40
   %2827 = trunc i64 %2826 to i8
   store i8 %2827, ptr %2825, align 1
-  %2828 = getelementptr inbounds i8, ptr %2825, i64 1
+  %2828 = getelementptr inbounds nuw i8, ptr %2825, i64 1
   store i8 0, ptr %2828, align 1
   %2829 = and i64 %2814, 280375465082880
   %.not12317 = icmp eq i64 %2829, 280375465082880
-  %.sroa.gep14046 = getelementptr inbounds i8, ptr %2825, i64 2
+  %.sroa.gep14046 = getelementptr inbounds nuw i8, ptr %2825, i64 2
   %.neg12318.sroa.sel = select i1 %.not12317, ptr %.sroa.gep14046, ptr %2828
   %2830 = lshr i64 %2814, 32
   %2831 = trunc i64 %2830 to i8
   store i8 %2831, ptr %.neg12318.sroa.sel, align 1
-  %.sroa.gep16091 = getelementptr inbounds i8, ptr %2825, i64 3
+  %.sroa.gep16091 = getelementptr inbounds nuw i8, ptr %2825, i64 3
   %.neg12318.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12317, ptr %.sroa.gep16091, ptr %.sroa.gep14046
   store i8 0, ptr %.neg12318.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2832 = and i64 %2814, 1095216660480
   %.not12319 = icmp eq i64 %2832, 1095216660480
   %.neg12320 = select i1 %.not12319, i64 2, i64 1
-  %2833 = getelementptr inbounds i8, ptr %.neg12318.sroa.sel, i64 %.neg12320
+  %2833 = getelementptr inbounds nuw i8, ptr %.neg12318.sroa.sel, i64 %.neg12320
   %2834 = lshr i64 %2814, 24
   %2835 = trunc i64 %2834 to i8
   store i8 %2835, ptr %2833, align 1
-  %2836 = getelementptr inbounds i8, ptr %2833, i64 1
+  %2836 = getelementptr inbounds nuw i8, ptr %2833, i64 1
   store i8 0, ptr %2836, align 1
   %2837 = and i64 %2814, 4278190080
   %.not12321 = icmp eq i64 %2837, 4278190080
-  %.sroa.gep14048 = getelementptr inbounds i8, ptr %2833, i64 2
+  %.sroa.gep14048 = getelementptr inbounds nuw i8, ptr %2833, i64 2
   %.neg12322.sroa.sel = select i1 %.not12321, ptr %.sroa.gep14048, ptr %2836
   %2838 = lshr i64 %2814, 16
   %2839 = trunc i64 %2838 to i8
   store i8 %2839, ptr %.neg12322.sroa.sel, align 1
-  %.sroa.gep16089 = getelementptr inbounds i8, ptr %2833, i64 3
+  %.sroa.gep16089 = getelementptr inbounds nuw i8, ptr %2833, i64 3
   %.neg12322.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12321, ptr %.sroa.gep16089, ptr %.sroa.gep14048
   store i8 0, ptr %.neg12322.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2840 = and i64 %2814, 16711680
   %.not12323 = icmp eq i64 %2840, 16711680
   %.neg12324 = select i1 %.not12323, i64 2, i64 1
-  %2841 = getelementptr inbounds i8, ptr %.neg12322.sroa.sel, i64 %.neg12324
+  %2841 = getelementptr inbounds nuw i8, ptr %.neg12322.sroa.sel, i64 %.neg12324
   %2842 = lshr i64 %2814, 8
   %2843 = trunc i64 %2842 to i8
   store i8 %2843, ptr %2841, align 1
-  %2844 = getelementptr inbounds i8, ptr %2841, i64 1
+  %2844 = getelementptr inbounds nuw i8, ptr %2841, i64 1
   store i8 0, ptr %2844, align 1
   %2845 = and i64 %2814, 65280
   %.not12325 = icmp eq i64 %2845, 65280
-  %.sroa.gep14050 = getelementptr inbounds i8, ptr %2841, i64 2
+  %.sroa.gep14050 = getelementptr inbounds nuw i8, ptr %2841, i64 2
   %.neg12326.sroa.sel = select i1 %.not12325, ptr %.sroa.gep14050, ptr %2844
   %2846 = trunc i64 %2814 to i8
   store i8 %2846, ptr %.neg12326.sroa.sel, align 1
-  %.sroa.gep16087 = getelementptr inbounds i8, ptr %2841, i64 3
+  %.sroa.gep16087 = getelementptr inbounds nuw i8, ptr %2841, i64 3
   %.neg12326.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12325, ptr %.sroa.gep16087, ptr %.sroa.gep14050
   store i8 0, ptr %.neg12326.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2847 = and i64 %2814, 255
   %.not12327 = icmp eq i64 %2847, 255
   %.neg12328 = select i1 %.not12327, i64 2, i64 1
-  %2848 = getelementptr inbounds i8, ptr %.neg12326.sroa.sel, i64 %.neg12328
+  %2848 = getelementptr inbounds nuw i8, ptr %.neg12326.sroa.sel, i64 %.neg12328
   br label %2871
 
 2849:                                             ; preds = %2808
   %2850 = lshr i64 %2814, 48
   %2851 = trunc i64 %2850 to i8
-  %2852 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 1
+  %2852 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 1
   store i8 %2851, ptr %2852, align 1
   %2853 = lshr i64 %2814, 40
   %2854 = trunc i64 %2853 to i8
-  %2855 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 2
+  %2855 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 2
   store i8 %2854, ptr %2855, align 1
   %2856 = lshr i64 %2814, 32
   %2857 = trunc i64 %2856 to i8
-  %2858 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 3
+  %2858 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 3
   store i8 %2857, ptr %2858, align 1
   %2859 = lshr i64 %2814, 24
   %2860 = trunc i64 %2859 to i8
-  %2861 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 4
+  %2861 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 4
   store i8 %2860, ptr %2861, align 1
   %2862 = lshr i64 %2814, 16
   %2863 = trunc i64 %2862 to i8
-  %2864 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 5
+  %2864 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 5
   store i8 %2863, ptr %2864, align 1
   %2865 = lshr i64 %2814, 8
   %2866 = trunc i64 %2865 to i8
-  %2867 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 6
+  %2867 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 6
   store i8 %2866, ptr %2867, align 1
   %2868 = trunc i64 %2814 to i8
-  %2869 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 7
+  %2869 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 7
   store i8 %2868, ptr %2869, align 1
-  %2870 = getelementptr inbounds i8, ptr %.12411038.lcssa, i64 8
+  %2870 = getelementptr inbounds nuw i8, ptr %.12411038.lcssa, i64 8
   br label %2871
 
 2871:                                             ; preds = %2849, %2820
@@ -6675,7 +6675,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.8111121 = phi i64 [ %.7711117, %2690 ], [ %2873, %2871 ], [ %2878, %2874 ]
   %.12311037 = phi ptr [ %.11711031, %2690 ], [ %.127, %2871 ], [ %.12411038.lcssa, %2874 ]
   %.40 = phi i32 [ %2691, %2690 ], [ 0, %2871 ], [ 0, %2874 ]
-  %2880 = getelementptr inbounds i8, ptr %1, i64 82
+  %2880 = getelementptr inbounds nuw i8, ptr %1, i64 82
   %2881 = load i16, ptr %2880, align 2
   %2882 = icmp eq i16 %2881, 0
   br i1 %2882, label %2883, label %2885
@@ -6699,7 +6699,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 2895:                                             ; preds = %2885
   %2896 = load ptr, ptr %7, align 8
   %2897 = load ptr, ptr %2896, align 8
-  %2898 = getelementptr inbounds i8, ptr %2897, i64 40
+  %2898 = getelementptr inbounds nuw i8, ptr %2897, i64 40
   store i32 6, ptr %2898, align 8
   %2899 = load ptr, ptr %7, align 8
   %2900 = load ptr, ptr %2899, align 8
@@ -6712,8 +6712,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %2903, label %.lr.ph14793, label %._crit_edge14794
 
 .lr.ph14793:                                      ; preds = %2902
-  %2904 = getelementptr inbounds i8, ptr %4, i64 1264
-  %2905 = getelementptr inbounds i8, ptr %4, i64 960
+  %2904 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %2905 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %2906 = load i8, ptr %2904, align 4
   %2907 = sext i8 %2906 to i32
   %2908 = sub nsw i32 %.8111375, %2907
@@ -6738,108 +6738,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12364, label %2952, label %2923
 
 2923:                                             ; preds = %2911
-  %2924 = getelementptr inbounds i8, ptr %.12311037, i64 1
+  %2924 = getelementptr inbounds nuw i8, ptr %.12311037, i64 1
   store i8 0, ptr %2924, align 1
   %.not12365 = icmp eq i64 %2921, 255
-  %.sroa.gep14052 = getelementptr inbounds i8, ptr %.12311037, i64 2
+  %.sroa.gep14052 = getelementptr inbounds nuw i8, ptr %.12311037, i64 2
   %.neg12366.sroa.sel = select i1 %.not12365, ptr %.sroa.gep14052, ptr %2924
   %2925 = lshr i64 %2913, 48
   %2926 = trunc i64 %2925 to i8
   store i8 %2926, ptr %.neg12366.sroa.sel, align 1
-  %.sroa.gep16083 = getelementptr inbounds i8, ptr %.12311037, i64 3
+  %.sroa.gep16083 = getelementptr inbounds nuw i8, ptr %.12311037, i64 3
   %.neg12366.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12365, ptr %.sroa.gep16083, ptr %.sroa.gep14052
   store i8 0, ptr %.neg12366.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2927 = and i64 %2913, 71776119061217280
   %.not12367 = icmp eq i64 %2927, 71776119061217280
   %.neg12368 = select i1 %.not12367, i64 2, i64 1
-  %2928 = getelementptr inbounds i8, ptr %.neg12366.sroa.sel, i64 %.neg12368
+  %2928 = getelementptr inbounds nuw i8, ptr %.neg12366.sroa.sel, i64 %.neg12368
   %2929 = lshr i64 %2913, 40
   %2930 = trunc i64 %2929 to i8
   store i8 %2930, ptr %2928, align 1
-  %2931 = getelementptr inbounds i8, ptr %2928, i64 1
+  %2931 = getelementptr inbounds nuw i8, ptr %2928, i64 1
   store i8 0, ptr %2931, align 1
   %2932 = and i64 %2913, 280375465082880
   %.not12369 = icmp eq i64 %2932, 280375465082880
-  %.sroa.gep14054 = getelementptr inbounds i8, ptr %2928, i64 2
+  %.sroa.gep14054 = getelementptr inbounds nuw i8, ptr %2928, i64 2
   %.neg12370.sroa.sel = select i1 %.not12369, ptr %.sroa.gep14054, ptr %2931
   %2933 = lshr i64 %2913, 32
   %2934 = trunc i64 %2933 to i8
   store i8 %2934, ptr %.neg12370.sroa.sel, align 1
-  %.sroa.gep16081 = getelementptr inbounds i8, ptr %2928, i64 3
+  %.sroa.gep16081 = getelementptr inbounds nuw i8, ptr %2928, i64 3
   %.neg12370.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12369, ptr %.sroa.gep16081, ptr %.sroa.gep14054
   store i8 0, ptr %.neg12370.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2935 = and i64 %2913, 1095216660480
   %.not12371 = icmp eq i64 %2935, 1095216660480
   %.neg12372 = select i1 %.not12371, i64 2, i64 1
-  %2936 = getelementptr inbounds i8, ptr %.neg12370.sroa.sel, i64 %.neg12372
+  %2936 = getelementptr inbounds nuw i8, ptr %.neg12370.sroa.sel, i64 %.neg12372
   %2937 = lshr i64 %2917, 24
   %2938 = trunc i64 %2937 to i8
   store i8 %2938, ptr %2936, align 1
-  %2939 = getelementptr inbounds i8, ptr %2936, i64 1
+  %2939 = getelementptr inbounds nuw i8, ptr %2936, i64 1
   store i8 0, ptr %2939, align 1
   %2940 = and i64 %2917, 4278190080
   %.not12373 = icmp eq i64 %2940, 4278190080
-  %.sroa.gep14056 = getelementptr inbounds i8, ptr %2936, i64 2
+  %.sroa.gep14056 = getelementptr inbounds nuw i8, ptr %2936, i64 2
   %.neg12374.sroa.sel = select i1 %.not12373, ptr %.sroa.gep14056, ptr %2939
   %2941 = lshr i64 %2917, 16
   %2942 = trunc i64 %2941 to i8
   store i8 %2942, ptr %.neg12374.sroa.sel, align 1
-  %.sroa.gep16079 = getelementptr inbounds i8, ptr %2936, i64 3
+  %.sroa.gep16079 = getelementptr inbounds nuw i8, ptr %2936, i64 3
   %.neg12374.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12373, ptr %.sroa.gep16079, ptr %.sroa.gep14056
   store i8 0, ptr %.neg12374.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2943 = and i64 %2917, 16711680
   %.not12375 = icmp eq i64 %2943, 16711680
   %.neg12376 = select i1 %.not12375, i64 2, i64 1
-  %2944 = getelementptr inbounds i8, ptr %.neg12374.sroa.sel, i64 %.neg12376
+  %2944 = getelementptr inbounds nuw i8, ptr %.neg12374.sroa.sel, i64 %.neg12376
   %2945 = lshr i64 %2917, 8
   %2946 = trunc i64 %2945 to i8
   store i8 %2946, ptr %2944, align 1
-  %2947 = getelementptr inbounds i8, ptr %2944, i64 1
+  %2947 = getelementptr inbounds nuw i8, ptr %2944, i64 1
   store i8 0, ptr %2947, align 1
   %2948 = and i64 %2917, 65280
   %.not12377 = icmp eq i64 %2948, 65280
-  %.sroa.gep14058 = getelementptr inbounds i8, ptr %2944, i64 2
+  %.sroa.gep14058 = getelementptr inbounds nuw i8, ptr %2944, i64 2
   %.neg12378.sroa.sel = select i1 %.not12377, ptr %.sroa.gep14058, ptr %2947
   %2949 = trunc i64 %2917 to i8
   store i8 %2949, ptr %.neg12378.sroa.sel, align 1
-  %.sroa.gep16077 = getelementptr inbounds i8, ptr %2944, i64 3
+  %.sroa.gep16077 = getelementptr inbounds nuw i8, ptr %2944, i64 3
   %.neg12378.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12377, ptr %.sroa.gep16077, ptr %.sroa.gep14058
   store i8 0, ptr %.neg12378.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %2950 = and i64 %2917, 255
   %.not12379 = icmp eq i64 %2950, 255
   %.neg12380 = select i1 %.not12379, i64 2, i64 1
-  %2951 = getelementptr inbounds i8, ptr %.neg12378.sroa.sel, i64 %.neg12380
+  %2951 = getelementptr inbounds nuw i8, ptr %.neg12378.sroa.sel, i64 %.neg12380
   br label %2974
 
 2952:                                             ; preds = %2911
   %2953 = lshr i64 %2913, 48
   %2954 = trunc i64 %2953 to i8
-  %2955 = getelementptr inbounds i8, ptr %.12311037, i64 1
+  %2955 = getelementptr inbounds nuw i8, ptr %.12311037, i64 1
   store i8 %2954, ptr %2955, align 1
   %2956 = lshr i64 %2913, 40
   %2957 = trunc i64 %2956 to i8
-  %2958 = getelementptr inbounds i8, ptr %.12311037, i64 2
+  %2958 = getelementptr inbounds nuw i8, ptr %.12311037, i64 2
   store i8 %2957, ptr %2958, align 1
   %2959 = lshr i64 %2913, 32
   %2960 = trunc i64 %2959 to i8
-  %2961 = getelementptr inbounds i8, ptr %.12311037, i64 3
+  %2961 = getelementptr inbounds nuw i8, ptr %.12311037, i64 3
   store i8 %2960, ptr %2961, align 1
   %2962 = lshr i64 %2917, 24
   %2963 = trunc i64 %2962 to i8
-  %2964 = getelementptr inbounds i8, ptr %.12311037, i64 4
+  %2964 = getelementptr inbounds nuw i8, ptr %.12311037, i64 4
   store i8 %2963, ptr %2964, align 1
   %2965 = lshr i64 %2917, 16
   %2966 = trunc i64 %2965 to i8
-  %2967 = getelementptr inbounds i8, ptr %.12311037, i64 5
+  %2967 = getelementptr inbounds nuw i8, ptr %.12311037, i64 5
   store i8 %2966, ptr %2967, align 1
   %2968 = lshr i64 %2917, 8
   %2969 = trunc i64 %2968 to i8
-  %2970 = getelementptr inbounds i8, ptr %.12311037, i64 6
+  %2970 = getelementptr inbounds nuw i8, ptr %.12311037, i64 6
   store i8 %2969, ptr %2970, align 1
   %2971 = trunc i64 %2917 to i8
-  %2972 = getelementptr inbounds i8, ptr %.12311037, i64 7
+  %2972 = getelementptr inbounds nuw i8, ptr %.12311037, i64 7
   store i8 %2971, ptr %2972, align 1
-  %2973 = getelementptr inbounds i8, ptr %.12311037, i64 8
+  %2973 = getelementptr inbounds nuw i8, ptr %.12311037, i64 8
   br label %2974
 
 2974:                                             ; preds = %2952, %2923
@@ -6875,12 +6875,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %2987 = xor i32 %2986, -1
   %2988 = and i32 %2888, %2987
   %2989 = zext nneg i32 %2984 to i64
-  %2990 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %2989
+  %2990 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %2989
   %2991 = load i32, ptr %2990, align 4
   %2992 = shl i32 %2991, %2893
   %2993 = or i32 %2992, %2988
-  %2994 = getelementptr inbounds i8, ptr %4, i64 1024
-  %2995 = getelementptr inbounds [256 x i8], ptr %2994, i64 0, i64 %2989
+  %2994 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %2995 = getelementptr inbounds nuw [256 x i8], ptr %2994, i64 0, i64 %2989
   %2996 = load i8, ptr %2995, align 1
   %2997 = sext i8 %2996 to i32
   %2998 = add nsw i32 %2997, %2893
@@ -6905,108 +6905,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12347, label %3042, label %3013
 
 3013:                                             ; preds = %3001
-  %3014 = getelementptr inbounds i8, ptr %.130.lcssa, i64 1
+  %3014 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 1
   store i8 0, ptr %3014, align 1
   %.not12348 = icmp eq i64 %3011, 255
-  %.sroa.gep14060 = getelementptr inbounds i8, ptr %.130.lcssa, i64 2
+  %.sroa.gep14060 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 2
   %.neg12349.sroa.sel = select i1 %.not12348, ptr %.sroa.gep14060, ptr %3014
   %3015 = lshr i64 %3007, 48
   %3016 = trunc i64 %3015 to i8
   store i8 %3016, ptr %.neg12349.sroa.sel, align 1
-  %.sroa.gep16069 = getelementptr inbounds i8, ptr %.130.lcssa, i64 3
+  %.sroa.gep16069 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 3
   %.neg12349.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12348, ptr %.sroa.gep16069, ptr %.sroa.gep14060
   store i8 0, ptr %.neg12349.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3017 = and i64 %3007, 71776119061217280
   %.not12350 = icmp eq i64 %3017, 71776119061217280
   %.neg12351 = select i1 %.not12350, i64 2, i64 1
-  %3018 = getelementptr inbounds i8, ptr %.neg12349.sroa.sel, i64 %.neg12351
+  %3018 = getelementptr inbounds nuw i8, ptr %.neg12349.sroa.sel, i64 %.neg12351
   %3019 = lshr i64 %3007, 40
   %3020 = trunc i64 %3019 to i8
   store i8 %3020, ptr %3018, align 1
-  %3021 = getelementptr inbounds i8, ptr %3018, i64 1
+  %3021 = getelementptr inbounds nuw i8, ptr %3018, i64 1
   store i8 0, ptr %3021, align 1
   %3022 = and i64 %3007, 280375465082880
   %.not12352 = icmp eq i64 %3022, 280375465082880
-  %.sroa.gep14062 = getelementptr inbounds i8, ptr %3018, i64 2
+  %.sroa.gep14062 = getelementptr inbounds nuw i8, ptr %3018, i64 2
   %.neg12353.sroa.sel = select i1 %.not12352, ptr %.sroa.gep14062, ptr %3021
   %3023 = lshr i64 %3007, 32
   %3024 = trunc i64 %3023 to i8
   store i8 %3024, ptr %.neg12353.sroa.sel, align 1
-  %.sroa.gep16075 = getelementptr inbounds i8, ptr %3018, i64 3
+  %.sroa.gep16075 = getelementptr inbounds nuw i8, ptr %3018, i64 3
   %.neg12353.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12352, ptr %.sroa.gep16075, ptr %.sroa.gep14062
   store i8 0, ptr %.neg12353.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3025 = and i64 %3007, 1095216660480
   %.not12354 = icmp eq i64 %3025, 1095216660480
   %.neg12355 = select i1 %.not12354, i64 2, i64 1
-  %3026 = getelementptr inbounds i8, ptr %.neg12353.sroa.sel, i64 %.neg12355
+  %3026 = getelementptr inbounds nuw i8, ptr %.neg12353.sroa.sel, i64 %.neg12355
   %3027 = lshr i64 %3007, 24
   %3028 = trunc i64 %3027 to i8
   store i8 %3028, ptr %3026, align 1
-  %3029 = getelementptr inbounds i8, ptr %3026, i64 1
+  %3029 = getelementptr inbounds nuw i8, ptr %3026, i64 1
   store i8 0, ptr %3029, align 1
   %3030 = and i64 %3007, 4278190080
   %.not12356 = icmp eq i64 %3030, 4278190080
-  %.sroa.gep14064 = getelementptr inbounds i8, ptr %3026, i64 2
+  %.sroa.gep14064 = getelementptr inbounds nuw i8, ptr %3026, i64 2
   %.neg12357.sroa.sel = select i1 %.not12356, ptr %.sroa.gep14064, ptr %3029
   %3031 = lshr i64 %3007, 16
   %3032 = trunc i64 %3031 to i8
   store i8 %3032, ptr %.neg12357.sroa.sel, align 1
-  %.sroa.gep16073 = getelementptr inbounds i8, ptr %3026, i64 3
+  %.sroa.gep16073 = getelementptr inbounds nuw i8, ptr %3026, i64 3
   %.neg12357.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12356, ptr %.sroa.gep16073, ptr %.sroa.gep14064
   store i8 0, ptr %.neg12357.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3033 = and i64 %3007, 16711680
   %.not12358 = icmp eq i64 %3033, 16711680
   %.neg12359 = select i1 %.not12358, i64 2, i64 1
-  %3034 = getelementptr inbounds i8, ptr %.neg12357.sroa.sel, i64 %.neg12359
+  %3034 = getelementptr inbounds nuw i8, ptr %.neg12357.sroa.sel, i64 %.neg12359
   %3035 = lshr i64 %3007, 8
   %3036 = trunc i64 %3035 to i8
   store i8 %3036, ptr %3034, align 1
-  %3037 = getelementptr inbounds i8, ptr %3034, i64 1
+  %3037 = getelementptr inbounds nuw i8, ptr %3034, i64 1
   store i8 0, ptr %3037, align 1
   %3038 = and i64 %3007, 65280
   %.not12360 = icmp eq i64 %3038, 65280
-  %.sroa.gep14066 = getelementptr inbounds i8, ptr %3034, i64 2
+  %.sroa.gep14066 = getelementptr inbounds nuw i8, ptr %3034, i64 2
   %.neg12361.sroa.sel = select i1 %.not12360, ptr %.sroa.gep14066, ptr %3037
   %3039 = trunc i64 %3007 to i8
   store i8 %3039, ptr %.neg12361.sroa.sel, align 1
-  %.sroa.gep16071 = getelementptr inbounds i8, ptr %3034, i64 3
+  %.sroa.gep16071 = getelementptr inbounds nuw i8, ptr %3034, i64 3
   %.neg12361.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12360, ptr %.sroa.gep16071, ptr %.sroa.gep14066
   store i8 0, ptr %.neg12361.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3040 = and i64 %3007, 255
   %.not12362 = icmp eq i64 %3040, 255
   %.neg12363 = select i1 %.not12362, i64 2, i64 1
-  %3041 = getelementptr inbounds i8, ptr %.neg12361.sroa.sel, i64 %.neg12363
+  %3041 = getelementptr inbounds nuw i8, ptr %.neg12361.sroa.sel, i64 %.neg12363
   br label %3064
 
 3042:                                             ; preds = %3001
   %3043 = lshr i64 %3007, 48
   %3044 = trunc i64 %3043 to i8
-  %3045 = getelementptr inbounds i8, ptr %.130.lcssa, i64 1
+  %3045 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 1
   store i8 %3044, ptr %3045, align 1
   %3046 = lshr i64 %3007, 40
   %3047 = trunc i64 %3046 to i8
-  %3048 = getelementptr inbounds i8, ptr %.130.lcssa, i64 2
+  %3048 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 2
   store i8 %3047, ptr %3048, align 1
   %3049 = lshr i64 %3007, 32
   %3050 = trunc i64 %3049 to i8
-  %3051 = getelementptr inbounds i8, ptr %.130.lcssa, i64 3
+  %3051 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 3
   store i8 %3050, ptr %3051, align 1
   %3052 = lshr i64 %3007, 24
   %3053 = trunc i64 %3052 to i8
-  %3054 = getelementptr inbounds i8, ptr %.130.lcssa, i64 4
+  %3054 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 4
   store i8 %3053, ptr %3054, align 1
   %3055 = lshr i64 %3007, 16
   %3056 = trunc i64 %3055 to i8
-  %3057 = getelementptr inbounds i8, ptr %.130.lcssa, i64 5
+  %3057 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 5
   store i8 %3056, ptr %3057, align 1
   %3058 = lshr i64 %3007, 8
   %3059 = trunc i64 %3058 to i8
-  %3060 = getelementptr inbounds i8, ptr %.130.lcssa, i64 6
+  %3060 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 6
   store i8 %3059, ptr %3060, align 1
   %3061 = trunc i64 %3007 to i8
-  %3062 = getelementptr inbounds i8, ptr %.130.lcssa, i64 7
+  %3062 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 7
   store i8 %3061, ptr %3062, align 1
-  %3063 = getelementptr inbounds i8, ptr %.130.lcssa, i64 8
+  %3063 = getelementptr inbounds nuw i8, ptr %.130.lcssa, i64 8
   br label %3064
 
 3064:                                             ; preds = %3042, %3013
@@ -7027,7 +7027,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.8511125 = phi i64 [ %.8111121, %2883 ], [ %3066, %3064 ], [ %3071, %3067 ]
   %.129 = phi ptr [ %.12311037, %2883 ], [ %.133, %3064 ], [ %.130.lcssa, %3067 ]
   %.42 = phi i32 [ %2884, %2883 ], [ 0, %3064 ], [ 0, %3067 ]
-  %3073 = getelementptr inbounds i8, ptr %1, i64 68
+  %3073 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %3074 = load i16, ptr %3073, align 2
   %3075 = icmp eq i16 %3074, 0
   br i1 %3075, label %3076, label %3078
@@ -7051,7 +7051,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 3088:                                             ; preds = %3078
   %3089 = load ptr, ptr %7, align 8
   %3090 = load ptr, ptr %3089, align 8
-  %3091 = getelementptr inbounds i8, ptr %3090, i64 40
+  %3091 = getelementptr inbounds nuw i8, ptr %3090, i64 40
   store i32 6, ptr %3091, align 8
   %3092 = load ptr, ptr %7, align 8
   %3093 = load ptr, ptr %3092, align 8
@@ -7064,8 +7064,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %3096, label %.lr.ph14804, label %._crit_edge14805
 
 .lr.ph14804:                                      ; preds = %3095
-  %3097 = getelementptr inbounds i8, ptr %4, i64 1264
-  %3098 = getelementptr inbounds i8, ptr %4, i64 960
+  %3097 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %3098 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %3099 = load i8, ptr %3097, align 4
   %3100 = sext i8 %3099 to i32
   %3101 = sub nsw i32 %.8511379, %3100
@@ -7090,108 +7090,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12399, label %3145, label %3116
 
 3116:                                             ; preds = %3104
-  %3117 = getelementptr inbounds i8, ptr %.129, i64 1
+  %3117 = getelementptr inbounds nuw i8, ptr %.129, i64 1
   store i8 0, ptr %3117, align 1
   %.not12400 = icmp eq i64 %3114, 255
-  %.sroa.gep14068 = getelementptr inbounds i8, ptr %.129, i64 2
+  %.sroa.gep14068 = getelementptr inbounds nuw i8, ptr %.129, i64 2
   %.neg12401.sroa.sel = select i1 %.not12400, ptr %.sroa.gep14068, ptr %3117
   %3118 = lshr i64 %3106, 48
   %3119 = trunc i64 %3118 to i8
   store i8 %3119, ptr %.neg12401.sroa.sel, align 1
-  %.sroa.gep16067 = getelementptr inbounds i8, ptr %.129, i64 3
+  %.sroa.gep16067 = getelementptr inbounds nuw i8, ptr %.129, i64 3
   %.neg12401.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12400, ptr %.sroa.gep16067, ptr %.sroa.gep14068
   store i8 0, ptr %.neg12401.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3120 = and i64 %3106, 71776119061217280
   %.not12402 = icmp eq i64 %3120, 71776119061217280
   %.neg12403 = select i1 %.not12402, i64 2, i64 1
-  %3121 = getelementptr inbounds i8, ptr %.neg12401.sroa.sel, i64 %.neg12403
+  %3121 = getelementptr inbounds nuw i8, ptr %.neg12401.sroa.sel, i64 %.neg12403
   %3122 = lshr i64 %3106, 40
   %3123 = trunc i64 %3122 to i8
   store i8 %3123, ptr %3121, align 1
-  %3124 = getelementptr inbounds i8, ptr %3121, i64 1
+  %3124 = getelementptr inbounds nuw i8, ptr %3121, i64 1
   store i8 0, ptr %3124, align 1
   %3125 = and i64 %3106, 280375465082880
   %.not12404 = icmp eq i64 %3125, 280375465082880
-  %.sroa.gep14070 = getelementptr inbounds i8, ptr %3121, i64 2
+  %.sroa.gep14070 = getelementptr inbounds nuw i8, ptr %3121, i64 2
   %.neg12405.sroa.sel = select i1 %.not12404, ptr %.sroa.gep14070, ptr %3124
   %3126 = lshr i64 %3106, 32
   %3127 = trunc i64 %3126 to i8
   store i8 %3127, ptr %.neg12405.sroa.sel, align 1
-  %.sroa.gep16065 = getelementptr inbounds i8, ptr %3121, i64 3
+  %.sroa.gep16065 = getelementptr inbounds nuw i8, ptr %3121, i64 3
   %.neg12405.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12404, ptr %.sroa.gep16065, ptr %.sroa.gep14070
   store i8 0, ptr %.neg12405.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3128 = and i64 %3106, 1095216660480
   %.not12406 = icmp eq i64 %3128, 1095216660480
   %.neg12407 = select i1 %.not12406, i64 2, i64 1
-  %3129 = getelementptr inbounds i8, ptr %.neg12405.sroa.sel, i64 %.neg12407
+  %3129 = getelementptr inbounds nuw i8, ptr %.neg12405.sroa.sel, i64 %.neg12407
   %3130 = lshr i64 %3110, 24
   %3131 = trunc i64 %3130 to i8
   store i8 %3131, ptr %3129, align 1
-  %3132 = getelementptr inbounds i8, ptr %3129, i64 1
+  %3132 = getelementptr inbounds nuw i8, ptr %3129, i64 1
   store i8 0, ptr %3132, align 1
   %3133 = and i64 %3110, 4278190080
   %.not12408 = icmp eq i64 %3133, 4278190080
-  %.sroa.gep14072 = getelementptr inbounds i8, ptr %3129, i64 2
+  %.sroa.gep14072 = getelementptr inbounds nuw i8, ptr %3129, i64 2
   %.neg12409.sroa.sel = select i1 %.not12408, ptr %.sroa.gep14072, ptr %3132
   %3134 = lshr i64 %3110, 16
   %3135 = trunc i64 %3134 to i8
   store i8 %3135, ptr %.neg12409.sroa.sel, align 1
-  %.sroa.gep16063 = getelementptr inbounds i8, ptr %3129, i64 3
+  %.sroa.gep16063 = getelementptr inbounds nuw i8, ptr %3129, i64 3
   %.neg12409.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12408, ptr %.sroa.gep16063, ptr %.sroa.gep14072
   store i8 0, ptr %.neg12409.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3136 = and i64 %3110, 16711680
   %.not12410 = icmp eq i64 %3136, 16711680
   %.neg12411 = select i1 %.not12410, i64 2, i64 1
-  %3137 = getelementptr inbounds i8, ptr %.neg12409.sroa.sel, i64 %.neg12411
+  %3137 = getelementptr inbounds nuw i8, ptr %.neg12409.sroa.sel, i64 %.neg12411
   %3138 = lshr i64 %3110, 8
   %3139 = trunc i64 %3138 to i8
   store i8 %3139, ptr %3137, align 1
-  %3140 = getelementptr inbounds i8, ptr %3137, i64 1
+  %3140 = getelementptr inbounds nuw i8, ptr %3137, i64 1
   store i8 0, ptr %3140, align 1
   %3141 = and i64 %3110, 65280
   %.not12412 = icmp eq i64 %3141, 65280
-  %.sroa.gep14074 = getelementptr inbounds i8, ptr %3137, i64 2
+  %.sroa.gep14074 = getelementptr inbounds nuw i8, ptr %3137, i64 2
   %.neg12413.sroa.sel = select i1 %.not12412, ptr %.sroa.gep14074, ptr %3140
   %3142 = trunc i64 %3110 to i8
   store i8 %3142, ptr %.neg12413.sroa.sel, align 1
-  %.sroa.gep16061 = getelementptr inbounds i8, ptr %3137, i64 3
+  %.sroa.gep16061 = getelementptr inbounds nuw i8, ptr %3137, i64 3
   %.neg12413.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12412, ptr %.sroa.gep16061, ptr %.sroa.gep14074
   store i8 0, ptr %.neg12413.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3143 = and i64 %3110, 255
   %.not12414 = icmp eq i64 %3143, 255
   %.neg12415 = select i1 %.not12414, i64 2, i64 1
-  %3144 = getelementptr inbounds i8, ptr %.neg12413.sroa.sel, i64 %.neg12415
+  %3144 = getelementptr inbounds nuw i8, ptr %.neg12413.sroa.sel, i64 %.neg12415
   br label %3167
 
 3145:                                             ; preds = %3104
   %3146 = lshr i64 %3106, 48
   %3147 = trunc i64 %3146 to i8
-  %3148 = getelementptr inbounds i8, ptr %.129, i64 1
+  %3148 = getelementptr inbounds nuw i8, ptr %.129, i64 1
   store i8 %3147, ptr %3148, align 1
   %3149 = lshr i64 %3106, 40
   %3150 = trunc i64 %3149 to i8
-  %3151 = getelementptr inbounds i8, ptr %.129, i64 2
+  %3151 = getelementptr inbounds nuw i8, ptr %.129, i64 2
   store i8 %3150, ptr %3151, align 1
   %3152 = lshr i64 %3106, 32
   %3153 = trunc i64 %3152 to i8
-  %3154 = getelementptr inbounds i8, ptr %.129, i64 3
+  %3154 = getelementptr inbounds nuw i8, ptr %.129, i64 3
   store i8 %3153, ptr %3154, align 1
   %3155 = lshr i64 %3110, 24
   %3156 = trunc i64 %3155 to i8
-  %3157 = getelementptr inbounds i8, ptr %.129, i64 4
+  %3157 = getelementptr inbounds nuw i8, ptr %.129, i64 4
   store i8 %3156, ptr %3157, align 1
   %3158 = lshr i64 %3110, 16
   %3159 = trunc i64 %3158 to i8
-  %3160 = getelementptr inbounds i8, ptr %.129, i64 5
+  %3160 = getelementptr inbounds nuw i8, ptr %.129, i64 5
   store i8 %3159, ptr %3160, align 1
   %3161 = lshr i64 %3110, 8
   %3162 = trunc i64 %3161 to i8
-  %3163 = getelementptr inbounds i8, ptr %.129, i64 6
+  %3163 = getelementptr inbounds nuw i8, ptr %.129, i64 6
   store i8 %3162, ptr %3163, align 1
   %3164 = trunc i64 %3110 to i8
-  %3165 = getelementptr inbounds i8, ptr %.129, i64 7
+  %3165 = getelementptr inbounds nuw i8, ptr %.129, i64 7
   store i8 %3164, ptr %3165, align 1
-  %3166 = getelementptr inbounds i8, ptr %.129, i64 8
+  %3166 = getelementptr inbounds nuw i8, ptr %.129, i64 8
   br label %3167
 
 3167:                                             ; preds = %3145, %3116
@@ -7227,12 +7227,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3180 = xor i32 %3179, -1
   %3181 = and i32 %3081, %3180
   %3182 = zext nneg i32 %3177 to i64
-  %3183 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %3182
+  %3183 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %3182
   %3184 = load i32, ptr %3183, align 4
   %3185 = shl i32 %3184, %3086
   %3186 = or i32 %3185, %3181
-  %3187 = getelementptr inbounds i8, ptr %4, i64 1024
-  %3188 = getelementptr inbounds [256 x i8], ptr %3187, i64 0, i64 %3182
+  %3187 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %3188 = getelementptr inbounds nuw [256 x i8], ptr %3187, i64 0, i64 %3182
   %3189 = load i8, ptr %3188, align 1
   %3190 = sext i8 %3189 to i32
   %3191 = add nsw i32 %3190, %3086
@@ -7257,108 +7257,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12382, label %3235, label %3206
 
 3206:                                             ; preds = %3194
-  %3207 = getelementptr inbounds i8, ptr %.136.lcssa, i64 1
+  %3207 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 1
   store i8 0, ptr %3207, align 1
   %.not12383 = icmp eq i64 %3204, 255
-  %.sroa.gep14076 = getelementptr inbounds i8, ptr %.136.lcssa, i64 2
+  %.sroa.gep14076 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 2
   %.neg12384.sroa.sel = select i1 %.not12383, ptr %.sroa.gep14076, ptr %3207
   %3208 = lshr i64 %3200, 48
   %3209 = trunc i64 %3208 to i8
   store i8 %3209, ptr %.neg12384.sroa.sel, align 1
-  %.sroa.gep16053 = getelementptr inbounds i8, ptr %.136.lcssa, i64 3
+  %.sroa.gep16053 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 3
   %.neg12384.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12383, ptr %.sroa.gep16053, ptr %.sroa.gep14076
   store i8 0, ptr %.neg12384.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3210 = and i64 %3200, 71776119061217280
   %.not12385 = icmp eq i64 %3210, 71776119061217280
   %.neg12386 = select i1 %.not12385, i64 2, i64 1
-  %3211 = getelementptr inbounds i8, ptr %.neg12384.sroa.sel, i64 %.neg12386
+  %3211 = getelementptr inbounds nuw i8, ptr %.neg12384.sroa.sel, i64 %.neg12386
   %3212 = lshr i64 %3200, 40
   %3213 = trunc i64 %3212 to i8
   store i8 %3213, ptr %3211, align 1
-  %3214 = getelementptr inbounds i8, ptr %3211, i64 1
+  %3214 = getelementptr inbounds nuw i8, ptr %3211, i64 1
   store i8 0, ptr %3214, align 1
   %3215 = and i64 %3200, 280375465082880
   %.not12387 = icmp eq i64 %3215, 280375465082880
-  %.sroa.gep14078 = getelementptr inbounds i8, ptr %3211, i64 2
+  %.sroa.gep14078 = getelementptr inbounds nuw i8, ptr %3211, i64 2
   %.neg12388.sroa.sel = select i1 %.not12387, ptr %.sroa.gep14078, ptr %3214
   %3216 = lshr i64 %3200, 32
   %3217 = trunc i64 %3216 to i8
   store i8 %3217, ptr %.neg12388.sroa.sel, align 1
-  %.sroa.gep16059 = getelementptr inbounds i8, ptr %3211, i64 3
+  %.sroa.gep16059 = getelementptr inbounds nuw i8, ptr %3211, i64 3
   %.neg12388.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12387, ptr %.sroa.gep16059, ptr %.sroa.gep14078
   store i8 0, ptr %.neg12388.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3218 = and i64 %3200, 1095216660480
   %.not12389 = icmp eq i64 %3218, 1095216660480
   %.neg12390 = select i1 %.not12389, i64 2, i64 1
-  %3219 = getelementptr inbounds i8, ptr %.neg12388.sroa.sel, i64 %.neg12390
+  %3219 = getelementptr inbounds nuw i8, ptr %.neg12388.sroa.sel, i64 %.neg12390
   %3220 = lshr i64 %3200, 24
   %3221 = trunc i64 %3220 to i8
   store i8 %3221, ptr %3219, align 1
-  %3222 = getelementptr inbounds i8, ptr %3219, i64 1
+  %3222 = getelementptr inbounds nuw i8, ptr %3219, i64 1
   store i8 0, ptr %3222, align 1
   %3223 = and i64 %3200, 4278190080
   %.not12391 = icmp eq i64 %3223, 4278190080
-  %.sroa.gep14080 = getelementptr inbounds i8, ptr %3219, i64 2
+  %.sroa.gep14080 = getelementptr inbounds nuw i8, ptr %3219, i64 2
   %.neg12392.sroa.sel = select i1 %.not12391, ptr %.sroa.gep14080, ptr %3222
   %3224 = lshr i64 %3200, 16
   %3225 = trunc i64 %3224 to i8
   store i8 %3225, ptr %.neg12392.sroa.sel, align 1
-  %.sroa.gep16057 = getelementptr inbounds i8, ptr %3219, i64 3
+  %.sroa.gep16057 = getelementptr inbounds nuw i8, ptr %3219, i64 3
   %.neg12392.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12391, ptr %.sroa.gep16057, ptr %.sroa.gep14080
   store i8 0, ptr %.neg12392.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3226 = and i64 %3200, 16711680
   %.not12393 = icmp eq i64 %3226, 16711680
   %.neg12394 = select i1 %.not12393, i64 2, i64 1
-  %3227 = getelementptr inbounds i8, ptr %.neg12392.sroa.sel, i64 %.neg12394
+  %3227 = getelementptr inbounds nuw i8, ptr %.neg12392.sroa.sel, i64 %.neg12394
   %3228 = lshr i64 %3200, 8
   %3229 = trunc i64 %3228 to i8
   store i8 %3229, ptr %3227, align 1
-  %3230 = getelementptr inbounds i8, ptr %3227, i64 1
+  %3230 = getelementptr inbounds nuw i8, ptr %3227, i64 1
   store i8 0, ptr %3230, align 1
   %3231 = and i64 %3200, 65280
   %.not12395 = icmp eq i64 %3231, 65280
-  %.sroa.gep14082 = getelementptr inbounds i8, ptr %3227, i64 2
+  %.sroa.gep14082 = getelementptr inbounds nuw i8, ptr %3227, i64 2
   %.neg12396.sroa.sel = select i1 %.not12395, ptr %.sroa.gep14082, ptr %3230
   %3232 = trunc i64 %3200 to i8
   store i8 %3232, ptr %.neg12396.sroa.sel, align 1
-  %.sroa.gep16055 = getelementptr inbounds i8, ptr %3227, i64 3
+  %.sroa.gep16055 = getelementptr inbounds nuw i8, ptr %3227, i64 3
   %.neg12396.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12395, ptr %.sroa.gep16055, ptr %.sroa.gep14082
   store i8 0, ptr %.neg12396.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3233 = and i64 %3200, 255
   %.not12397 = icmp eq i64 %3233, 255
   %.neg12398 = select i1 %.not12397, i64 2, i64 1
-  %3234 = getelementptr inbounds i8, ptr %.neg12396.sroa.sel, i64 %.neg12398
+  %3234 = getelementptr inbounds nuw i8, ptr %.neg12396.sroa.sel, i64 %.neg12398
   br label %3257
 
 3235:                                             ; preds = %3194
   %3236 = lshr i64 %3200, 48
   %3237 = trunc i64 %3236 to i8
-  %3238 = getelementptr inbounds i8, ptr %.136.lcssa, i64 1
+  %3238 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 1
   store i8 %3237, ptr %3238, align 1
   %3239 = lshr i64 %3200, 40
   %3240 = trunc i64 %3239 to i8
-  %3241 = getelementptr inbounds i8, ptr %.136.lcssa, i64 2
+  %3241 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 2
   store i8 %3240, ptr %3241, align 1
   %3242 = lshr i64 %3200, 32
   %3243 = trunc i64 %3242 to i8
-  %3244 = getelementptr inbounds i8, ptr %.136.lcssa, i64 3
+  %3244 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 3
   store i8 %3243, ptr %3244, align 1
   %3245 = lshr i64 %3200, 24
   %3246 = trunc i64 %3245 to i8
-  %3247 = getelementptr inbounds i8, ptr %.136.lcssa, i64 4
+  %3247 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 4
   store i8 %3246, ptr %3247, align 1
   %3248 = lshr i64 %3200, 16
   %3249 = trunc i64 %3248 to i8
-  %3250 = getelementptr inbounds i8, ptr %.136.lcssa, i64 5
+  %3250 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 5
   store i8 %3249, ptr %3250, align 1
   %3251 = lshr i64 %3200, 8
   %3252 = trunc i64 %3251 to i8
-  %3253 = getelementptr inbounds i8, ptr %.136.lcssa, i64 6
+  %3253 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 6
   store i8 %3252, ptr %3253, align 1
   %3254 = trunc i64 %3200 to i8
-  %3255 = getelementptr inbounds i8, ptr %.136.lcssa, i64 7
+  %3255 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 7
   store i8 %3254, ptr %3255, align 1
-  %3256 = getelementptr inbounds i8, ptr %.136.lcssa, i64 8
+  %3256 = getelementptr inbounds nuw i8, ptr %.136.lcssa, i64 8
   br label %3257
 
 3257:                                             ; preds = %3235, %3206
@@ -7379,7 +7379,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.8911129 = phi i64 [ %.8511125, %3076 ], [ %3259, %3257 ], [ %3264, %3260 ]
   %.135 = phi ptr [ %.129, %3076 ], [ %.139, %3257 ], [ %.136.lcssa, %3260 ]
   %.44 = phi i32 [ %3077, %3076 ], [ 0, %3257 ], [ 0, %3260 ]
-  %3266 = getelementptr inbounds i8, ptr %1, i64 54
+  %3266 = getelementptr inbounds nuw i8, ptr %1, i64 54
   %3267 = load i16, ptr %3266, align 2
   %3268 = icmp eq i16 %3267, 0
   br i1 %3268, label %3269, label %3271
@@ -7403,7 +7403,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 3281:                                             ; preds = %3271
   %3282 = load ptr, ptr %7, align 8
   %3283 = load ptr, ptr %3282, align 8
-  %3284 = getelementptr inbounds i8, ptr %3283, i64 40
+  %3284 = getelementptr inbounds nuw i8, ptr %3283, i64 40
   store i32 6, ptr %3284, align 8
   %3285 = load ptr, ptr %7, align 8
   %3286 = load ptr, ptr %3285, align 8
@@ -7416,8 +7416,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %3289, label %.lr.ph14815, label %._crit_edge14816
 
 .lr.ph14815:                                      ; preds = %3288
-  %3290 = getelementptr inbounds i8, ptr %4, i64 1264
-  %3291 = getelementptr inbounds i8, ptr %4, i64 960
+  %3290 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %3291 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %3292 = load i8, ptr %3290, align 4
   %3293 = sext i8 %3292 to i32
   %3294 = sub nsw i32 %.8911383, %3293
@@ -7442,108 +7442,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12434, label %3338, label %3309
 
 3309:                                             ; preds = %3297
-  %3310 = getelementptr inbounds i8, ptr %.135, i64 1
+  %3310 = getelementptr inbounds nuw i8, ptr %.135, i64 1
   store i8 0, ptr %3310, align 1
   %.not12435 = icmp eq i64 %3307, 255
-  %.sroa.gep14084 = getelementptr inbounds i8, ptr %.135, i64 2
+  %.sroa.gep14084 = getelementptr inbounds nuw i8, ptr %.135, i64 2
   %.neg12436.sroa.sel = select i1 %.not12435, ptr %.sroa.gep14084, ptr %3310
   %3311 = lshr i64 %3299, 48
   %3312 = trunc i64 %3311 to i8
   store i8 %3312, ptr %.neg12436.sroa.sel, align 1
-  %.sroa.gep16051 = getelementptr inbounds i8, ptr %.135, i64 3
+  %.sroa.gep16051 = getelementptr inbounds nuw i8, ptr %.135, i64 3
   %.neg12436.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12435, ptr %.sroa.gep16051, ptr %.sroa.gep14084
   store i8 0, ptr %.neg12436.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3313 = and i64 %3299, 71776119061217280
   %.not12437 = icmp eq i64 %3313, 71776119061217280
   %.neg12438 = select i1 %.not12437, i64 2, i64 1
-  %3314 = getelementptr inbounds i8, ptr %.neg12436.sroa.sel, i64 %.neg12438
+  %3314 = getelementptr inbounds nuw i8, ptr %.neg12436.sroa.sel, i64 %.neg12438
   %3315 = lshr i64 %3299, 40
   %3316 = trunc i64 %3315 to i8
   store i8 %3316, ptr %3314, align 1
-  %3317 = getelementptr inbounds i8, ptr %3314, i64 1
+  %3317 = getelementptr inbounds nuw i8, ptr %3314, i64 1
   store i8 0, ptr %3317, align 1
   %3318 = and i64 %3299, 280375465082880
   %.not12439 = icmp eq i64 %3318, 280375465082880
-  %.sroa.gep14086 = getelementptr inbounds i8, ptr %3314, i64 2
+  %.sroa.gep14086 = getelementptr inbounds nuw i8, ptr %3314, i64 2
   %.neg12440.sroa.sel = select i1 %.not12439, ptr %.sroa.gep14086, ptr %3317
   %3319 = lshr i64 %3299, 32
   %3320 = trunc i64 %3319 to i8
   store i8 %3320, ptr %.neg12440.sroa.sel, align 1
-  %.sroa.gep16049 = getelementptr inbounds i8, ptr %3314, i64 3
+  %.sroa.gep16049 = getelementptr inbounds nuw i8, ptr %3314, i64 3
   %.neg12440.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12439, ptr %.sroa.gep16049, ptr %.sroa.gep14086
   store i8 0, ptr %.neg12440.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3321 = and i64 %3299, 1095216660480
   %.not12441 = icmp eq i64 %3321, 1095216660480
   %.neg12442 = select i1 %.not12441, i64 2, i64 1
-  %3322 = getelementptr inbounds i8, ptr %.neg12440.sroa.sel, i64 %.neg12442
+  %3322 = getelementptr inbounds nuw i8, ptr %.neg12440.sroa.sel, i64 %.neg12442
   %3323 = lshr i64 %3303, 24
   %3324 = trunc i64 %3323 to i8
   store i8 %3324, ptr %3322, align 1
-  %3325 = getelementptr inbounds i8, ptr %3322, i64 1
+  %3325 = getelementptr inbounds nuw i8, ptr %3322, i64 1
   store i8 0, ptr %3325, align 1
   %3326 = and i64 %3303, 4278190080
   %.not12443 = icmp eq i64 %3326, 4278190080
-  %.sroa.gep14088 = getelementptr inbounds i8, ptr %3322, i64 2
+  %.sroa.gep14088 = getelementptr inbounds nuw i8, ptr %3322, i64 2
   %.neg12444.sroa.sel = select i1 %.not12443, ptr %.sroa.gep14088, ptr %3325
   %3327 = lshr i64 %3303, 16
   %3328 = trunc i64 %3327 to i8
   store i8 %3328, ptr %.neg12444.sroa.sel, align 1
-  %.sroa.gep16047 = getelementptr inbounds i8, ptr %3322, i64 3
+  %.sroa.gep16047 = getelementptr inbounds nuw i8, ptr %3322, i64 3
   %.neg12444.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12443, ptr %.sroa.gep16047, ptr %.sroa.gep14088
   store i8 0, ptr %.neg12444.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3329 = and i64 %3303, 16711680
   %.not12445 = icmp eq i64 %3329, 16711680
   %.neg12446 = select i1 %.not12445, i64 2, i64 1
-  %3330 = getelementptr inbounds i8, ptr %.neg12444.sroa.sel, i64 %.neg12446
+  %3330 = getelementptr inbounds nuw i8, ptr %.neg12444.sroa.sel, i64 %.neg12446
   %3331 = lshr i64 %3303, 8
   %3332 = trunc i64 %3331 to i8
   store i8 %3332, ptr %3330, align 1
-  %3333 = getelementptr inbounds i8, ptr %3330, i64 1
+  %3333 = getelementptr inbounds nuw i8, ptr %3330, i64 1
   store i8 0, ptr %3333, align 1
   %3334 = and i64 %3303, 65280
   %.not12447 = icmp eq i64 %3334, 65280
-  %.sroa.gep14090 = getelementptr inbounds i8, ptr %3330, i64 2
+  %.sroa.gep14090 = getelementptr inbounds nuw i8, ptr %3330, i64 2
   %.neg12448.sroa.sel = select i1 %.not12447, ptr %.sroa.gep14090, ptr %3333
   %3335 = trunc i64 %3303 to i8
   store i8 %3335, ptr %.neg12448.sroa.sel, align 1
-  %.sroa.gep16045 = getelementptr inbounds i8, ptr %3330, i64 3
+  %.sroa.gep16045 = getelementptr inbounds nuw i8, ptr %3330, i64 3
   %.neg12448.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12447, ptr %.sroa.gep16045, ptr %.sroa.gep14090
   store i8 0, ptr %.neg12448.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3336 = and i64 %3303, 255
   %.not12449 = icmp eq i64 %3336, 255
   %.neg12450 = select i1 %.not12449, i64 2, i64 1
-  %3337 = getelementptr inbounds i8, ptr %.neg12448.sroa.sel, i64 %.neg12450
+  %3337 = getelementptr inbounds nuw i8, ptr %.neg12448.sroa.sel, i64 %.neg12450
   br label %3360
 
 3338:                                             ; preds = %3297
   %3339 = lshr i64 %3299, 48
   %3340 = trunc i64 %3339 to i8
-  %3341 = getelementptr inbounds i8, ptr %.135, i64 1
+  %3341 = getelementptr inbounds nuw i8, ptr %.135, i64 1
   store i8 %3340, ptr %3341, align 1
   %3342 = lshr i64 %3299, 40
   %3343 = trunc i64 %3342 to i8
-  %3344 = getelementptr inbounds i8, ptr %.135, i64 2
+  %3344 = getelementptr inbounds nuw i8, ptr %.135, i64 2
   store i8 %3343, ptr %3344, align 1
   %3345 = lshr i64 %3299, 32
   %3346 = trunc i64 %3345 to i8
-  %3347 = getelementptr inbounds i8, ptr %.135, i64 3
+  %3347 = getelementptr inbounds nuw i8, ptr %.135, i64 3
   store i8 %3346, ptr %3347, align 1
   %3348 = lshr i64 %3303, 24
   %3349 = trunc i64 %3348 to i8
-  %3350 = getelementptr inbounds i8, ptr %.135, i64 4
+  %3350 = getelementptr inbounds nuw i8, ptr %.135, i64 4
   store i8 %3349, ptr %3350, align 1
   %3351 = lshr i64 %3303, 16
   %3352 = trunc i64 %3351 to i8
-  %3353 = getelementptr inbounds i8, ptr %.135, i64 5
+  %3353 = getelementptr inbounds nuw i8, ptr %.135, i64 5
   store i8 %3352, ptr %3353, align 1
   %3354 = lshr i64 %3303, 8
   %3355 = trunc i64 %3354 to i8
-  %3356 = getelementptr inbounds i8, ptr %.135, i64 6
+  %3356 = getelementptr inbounds nuw i8, ptr %.135, i64 6
   store i8 %3355, ptr %3356, align 1
   %3357 = trunc i64 %3303 to i8
-  %3358 = getelementptr inbounds i8, ptr %.135, i64 7
+  %3358 = getelementptr inbounds nuw i8, ptr %.135, i64 7
   store i8 %3357, ptr %3358, align 1
-  %3359 = getelementptr inbounds i8, ptr %.135, i64 8
+  %3359 = getelementptr inbounds nuw i8, ptr %.135, i64 8
   br label %3360
 
 3360:                                             ; preds = %3338, %3309
@@ -7579,12 +7579,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3373 = xor i32 %3372, -1
   %3374 = and i32 %3274, %3373
   %3375 = zext nneg i32 %3370 to i64
-  %3376 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %3375
+  %3376 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %3375
   %3377 = load i32, ptr %3376, align 4
   %3378 = shl i32 %3377, %3279
   %3379 = or i32 %3378, %3374
-  %3380 = getelementptr inbounds i8, ptr %4, i64 1024
-  %3381 = getelementptr inbounds [256 x i8], ptr %3380, i64 0, i64 %3375
+  %3380 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %3381 = getelementptr inbounds nuw [256 x i8], ptr %3380, i64 0, i64 %3375
   %3382 = load i8, ptr %3381, align 1
   %3383 = sext i8 %3382 to i32
   %3384 = add nsw i32 %3383, %3279
@@ -7609,108 +7609,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12417, label %3428, label %3399
 
 3399:                                             ; preds = %3387
-  %3400 = getelementptr inbounds i8, ptr %.142.lcssa, i64 1
+  %3400 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 1
   store i8 0, ptr %3400, align 1
   %.not12418 = icmp eq i64 %3397, 255
-  %.sroa.gep14092 = getelementptr inbounds i8, ptr %.142.lcssa, i64 2
+  %.sroa.gep14092 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 2
   %.neg12419.sroa.sel = select i1 %.not12418, ptr %.sroa.gep14092, ptr %3400
   %3401 = lshr i64 %3393, 48
   %3402 = trunc i64 %3401 to i8
   store i8 %3402, ptr %.neg12419.sroa.sel, align 1
-  %.sroa.gep16037 = getelementptr inbounds i8, ptr %.142.lcssa, i64 3
+  %.sroa.gep16037 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 3
   %.neg12419.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12418, ptr %.sroa.gep16037, ptr %.sroa.gep14092
   store i8 0, ptr %.neg12419.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3403 = and i64 %3393, 71776119061217280
   %.not12420 = icmp eq i64 %3403, 71776119061217280
   %.neg12421 = select i1 %.not12420, i64 2, i64 1
-  %3404 = getelementptr inbounds i8, ptr %.neg12419.sroa.sel, i64 %.neg12421
+  %3404 = getelementptr inbounds nuw i8, ptr %.neg12419.sroa.sel, i64 %.neg12421
   %3405 = lshr i64 %3393, 40
   %3406 = trunc i64 %3405 to i8
   store i8 %3406, ptr %3404, align 1
-  %3407 = getelementptr inbounds i8, ptr %3404, i64 1
+  %3407 = getelementptr inbounds nuw i8, ptr %3404, i64 1
   store i8 0, ptr %3407, align 1
   %3408 = and i64 %3393, 280375465082880
   %.not12422 = icmp eq i64 %3408, 280375465082880
-  %.sroa.gep14094 = getelementptr inbounds i8, ptr %3404, i64 2
+  %.sroa.gep14094 = getelementptr inbounds nuw i8, ptr %3404, i64 2
   %.neg12423.sroa.sel = select i1 %.not12422, ptr %.sroa.gep14094, ptr %3407
   %3409 = lshr i64 %3393, 32
   %3410 = trunc i64 %3409 to i8
   store i8 %3410, ptr %.neg12423.sroa.sel, align 1
-  %.sroa.gep16043 = getelementptr inbounds i8, ptr %3404, i64 3
+  %.sroa.gep16043 = getelementptr inbounds nuw i8, ptr %3404, i64 3
   %.neg12423.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12422, ptr %.sroa.gep16043, ptr %.sroa.gep14094
   store i8 0, ptr %.neg12423.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3411 = and i64 %3393, 1095216660480
   %.not12424 = icmp eq i64 %3411, 1095216660480
   %.neg12425 = select i1 %.not12424, i64 2, i64 1
-  %3412 = getelementptr inbounds i8, ptr %.neg12423.sroa.sel, i64 %.neg12425
+  %3412 = getelementptr inbounds nuw i8, ptr %.neg12423.sroa.sel, i64 %.neg12425
   %3413 = lshr i64 %3393, 24
   %3414 = trunc i64 %3413 to i8
   store i8 %3414, ptr %3412, align 1
-  %3415 = getelementptr inbounds i8, ptr %3412, i64 1
+  %3415 = getelementptr inbounds nuw i8, ptr %3412, i64 1
   store i8 0, ptr %3415, align 1
   %3416 = and i64 %3393, 4278190080
   %.not12426 = icmp eq i64 %3416, 4278190080
-  %.sroa.gep14096 = getelementptr inbounds i8, ptr %3412, i64 2
+  %.sroa.gep14096 = getelementptr inbounds nuw i8, ptr %3412, i64 2
   %.neg12427.sroa.sel = select i1 %.not12426, ptr %.sroa.gep14096, ptr %3415
   %3417 = lshr i64 %3393, 16
   %3418 = trunc i64 %3417 to i8
   store i8 %3418, ptr %.neg12427.sroa.sel, align 1
-  %.sroa.gep16041 = getelementptr inbounds i8, ptr %3412, i64 3
+  %.sroa.gep16041 = getelementptr inbounds nuw i8, ptr %3412, i64 3
   %.neg12427.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12426, ptr %.sroa.gep16041, ptr %.sroa.gep14096
   store i8 0, ptr %.neg12427.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3419 = and i64 %3393, 16711680
   %.not12428 = icmp eq i64 %3419, 16711680
   %.neg12429 = select i1 %.not12428, i64 2, i64 1
-  %3420 = getelementptr inbounds i8, ptr %.neg12427.sroa.sel, i64 %.neg12429
+  %3420 = getelementptr inbounds nuw i8, ptr %.neg12427.sroa.sel, i64 %.neg12429
   %3421 = lshr i64 %3393, 8
   %3422 = trunc i64 %3421 to i8
   store i8 %3422, ptr %3420, align 1
-  %3423 = getelementptr inbounds i8, ptr %3420, i64 1
+  %3423 = getelementptr inbounds nuw i8, ptr %3420, i64 1
   store i8 0, ptr %3423, align 1
   %3424 = and i64 %3393, 65280
   %.not12430 = icmp eq i64 %3424, 65280
-  %.sroa.gep14098 = getelementptr inbounds i8, ptr %3420, i64 2
+  %.sroa.gep14098 = getelementptr inbounds nuw i8, ptr %3420, i64 2
   %.neg12431.sroa.sel = select i1 %.not12430, ptr %.sroa.gep14098, ptr %3423
   %3425 = trunc i64 %3393 to i8
   store i8 %3425, ptr %.neg12431.sroa.sel, align 1
-  %.sroa.gep16039 = getelementptr inbounds i8, ptr %3420, i64 3
+  %.sroa.gep16039 = getelementptr inbounds nuw i8, ptr %3420, i64 3
   %.neg12431.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12430, ptr %.sroa.gep16039, ptr %.sroa.gep14098
   store i8 0, ptr %.neg12431.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3426 = and i64 %3393, 255
   %.not12432 = icmp eq i64 %3426, 255
   %.neg12433 = select i1 %.not12432, i64 2, i64 1
-  %3427 = getelementptr inbounds i8, ptr %.neg12431.sroa.sel, i64 %.neg12433
+  %3427 = getelementptr inbounds nuw i8, ptr %.neg12431.sroa.sel, i64 %.neg12433
   br label %3450
 
 3428:                                             ; preds = %3387
   %3429 = lshr i64 %3393, 48
   %3430 = trunc i64 %3429 to i8
-  %3431 = getelementptr inbounds i8, ptr %.142.lcssa, i64 1
+  %3431 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 1
   store i8 %3430, ptr %3431, align 1
   %3432 = lshr i64 %3393, 40
   %3433 = trunc i64 %3432 to i8
-  %3434 = getelementptr inbounds i8, ptr %.142.lcssa, i64 2
+  %3434 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 2
   store i8 %3433, ptr %3434, align 1
   %3435 = lshr i64 %3393, 32
   %3436 = trunc i64 %3435 to i8
-  %3437 = getelementptr inbounds i8, ptr %.142.lcssa, i64 3
+  %3437 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 3
   store i8 %3436, ptr %3437, align 1
   %3438 = lshr i64 %3393, 24
   %3439 = trunc i64 %3438 to i8
-  %3440 = getelementptr inbounds i8, ptr %.142.lcssa, i64 4
+  %3440 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 4
   store i8 %3439, ptr %3440, align 1
   %3441 = lshr i64 %3393, 16
   %3442 = trunc i64 %3441 to i8
-  %3443 = getelementptr inbounds i8, ptr %.142.lcssa, i64 5
+  %3443 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 5
   store i8 %3442, ptr %3443, align 1
   %3444 = lshr i64 %3393, 8
   %3445 = trunc i64 %3444 to i8
-  %3446 = getelementptr inbounds i8, ptr %.142.lcssa, i64 6
+  %3446 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 6
   store i8 %3445, ptr %3446, align 1
   %3447 = trunc i64 %3393 to i8
-  %3448 = getelementptr inbounds i8, ptr %.142.lcssa, i64 7
+  %3448 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 7
   store i8 %3447, ptr %3448, align 1
-  %3449 = getelementptr inbounds i8, ptr %.142.lcssa, i64 8
+  %3449 = getelementptr inbounds nuw i8, ptr %.142.lcssa, i64 8
   br label %3450
 
 3450:                                             ; preds = %3428, %3399
@@ -7731,7 +7731,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.9311133 = phi i64 [ %.8911129, %3269 ], [ %3452, %3450 ], [ %3457, %3453 ]
   %.141 = phi ptr [ %.135, %3269 ], [ %.145, %3450 ], [ %.142.lcssa, %3453 ]
   %.46 = phi i32 [ %3270, %3269 ], [ 0, %3450 ], [ 0, %3453 ]
-  %3459 = getelementptr inbounds i8, ptr %1, i64 40
+  %3459 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3460 = load i16, ptr %3459, align 2
   %3461 = icmp eq i16 %3460, 0
   br i1 %3461, label %3462, label %3464
@@ -7755,7 +7755,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 3474:                                             ; preds = %3464
   %3475 = load ptr, ptr %7, align 8
   %3476 = load ptr, ptr %3475, align 8
-  %3477 = getelementptr inbounds i8, ptr %3476, i64 40
+  %3477 = getelementptr inbounds nuw i8, ptr %3476, i64 40
   store i32 6, ptr %3477, align 8
   %3478 = load ptr, ptr %7, align 8
   %3479 = load ptr, ptr %3478, align 8
@@ -7768,8 +7768,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %3482, label %.lr.ph14826, label %._crit_edge14827
 
 .lr.ph14826:                                      ; preds = %3481
-  %3483 = getelementptr inbounds i8, ptr %4, i64 1264
-  %3484 = getelementptr inbounds i8, ptr %4, i64 960
+  %3483 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %3484 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %3485 = load i8, ptr %3483, align 4
   %3486 = sext i8 %3485 to i32
   %3487 = sub nsw i32 %.9311387, %3486
@@ -7794,108 +7794,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12469, label %3531, label %3502
 
 3502:                                             ; preds = %3490
-  %3503 = getelementptr inbounds i8, ptr %.141, i64 1
+  %3503 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   store i8 0, ptr %3503, align 1
   %.not12470 = icmp eq i64 %3500, 255
-  %.sroa.gep14100 = getelementptr inbounds i8, ptr %.141, i64 2
+  %.sroa.gep14100 = getelementptr inbounds nuw i8, ptr %.141, i64 2
   %.neg12471.sroa.sel = select i1 %.not12470, ptr %.sroa.gep14100, ptr %3503
   %3504 = lshr i64 %3492, 48
   %3505 = trunc i64 %3504 to i8
   store i8 %3505, ptr %.neg12471.sroa.sel, align 1
-  %.sroa.gep16035 = getelementptr inbounds i8, ptr %.141, i64 3
+  %.sroa.gep16035 = getelementptr inbounds nuw i8, ptr %.141, i64 3
   %.neg12471.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12470, ptr %.sroa.gep16035, ptr %.sroa.gep14100
   store i8 0, ptr %.neg12471.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3506 = and i64 %3492, 71776119061217280
   %.not12472 = icmp eq i64 %3506, 71776119061217280
   %.neg12473 = select i1 %.not12472, i64 2, i64 1
-  %3507 = getelementptr inbounds i8, ptr %.neg12471.sroa.sel, i64 %.neg12473
+  %3507 = getelementptr inbounds nuw i8, ptr %.neg12471.sroa.sel, i64 %.neg12473
   %3508 = lshr i64 %3492, 40
   %3509 = trunc i64 %3508 to i8
   store i8 %3509, ptr %3507, align 1
-  %3510 = getelementptr inbounds i8, ptr %3507, i64 1
+  %3510 = getelementptr inbounds nuw i8, ptr %3507, i64 1
   store i8 0, ptr %3510, align 1
   %3511 = and i64 %3492, 280375465082880
   %.not12474 = icmp eq i64 %3511, 280375465082880
-  %.sroa.gep14102 = getelementptr inbounds i8, ptr %3507, i64 2
+  %.sroa.gep14102 = getelementptr inbounds nuw i8, ptr %3507, i64 2
   %.neg12475.sroa.sel = select i1 %.not12474, ptr %.sroa.gep14102, ptr %3510
   %3512 = lshr i64 %3492, 32
   %3513 = trunc i64 %3512 to i8
   store i8 %3513, ptr %.neg12475.sroa.sel, align 1
-  %.sroa.gep16033 = getelementptr inbounds i8, ptr %3507, i64 3
+  %.sroa.gep16033 = getelementptr inbounds nuw i8, ptr %3507, i64 3
   %.neg12475.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12474, ptr %.sroa.gep16033, ptr %.sroa.gep14102
   store i8 0, ptr %.neg12475.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3514 = and i64 %3492, 1095216660480
   %.not12476 = icmp eq i64 %3514, 1095216660480
   %.neg12477 = select i1 %.not12476, i64 2, i64 1
-  %3515 = getelementptr inbounds i8, ptr %.neg12475.sroa.sel, i64 %.neg12477
+  %3515 = getelementptr inbounds nuw i8, ptr %.neg12475.sroa.sel, i64 %.neg12477
   %3516 = lshr i64 %3496, 24
   %3517 = trunc i64 %3516 to i8
   store i8 %3517, ptr %3515, align 1
-  %3518 = getelementptr inbounds i8, ptr %3515, i64 1
+  %3518 = getelementptr inbounds nuw i8, ptr %3515, i64 1
   store i8 0, ptr %3518, align 1
   %3519 = and i64 %3496, 4278190080
   %.not12478 = icmp eq i64 %3519, 4278190080
-  %.sroa.gep14104 = getelementptr inbounds i8, ptr %3515, i64 2
+  %.sroa.gep14104 = getelementptr inbounds nuw i8, ptr %3515, i64 2
   %.neg12479.sroa.sel = select i1 %.not12478, ptr %.sroa.gep14104, ptr %3518
   %3520 = lshr i64 %3496, 16
   %3521 = trunc i64 %3520 to i8
   store i8 %3521, ptr %.neg12479.sroa.sel, align 1
-  %.sroa.gep16031 = getelementptr inbounds i8, ptr %3515, i64 3
+  %.sroa.gep16031 = getelementptr inbounds nuw i8, ptr %3515, i64 3
   %.neg12479.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12478, ptr %.sroa.gep16031, ptr %.sroa.gep14104
   store i8 0, ptr %.neg12479.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3522 = and i64 %3496, 16711680
   %.not12480 = icmp eq i64 %3522, 16711680
   %.neg12481 = select i1 %.not12480, i64 2, i64 1
-  %3523 = getelementptr inbounds i8, ptr %.neg12479.sroa.sel, i64 %.neg12481
+  %3523 = getelementptr inbounds nuw i8, ptr %.neg12479.sroa.sel, i64 %.neg12481
   %3524 = lshr i64 %3496, 8
   %3525 = trunc i64 %3524 to i8
   store i8 %3525, ptr %3523, align 1
-  %3526 = getelementptr inbounds i8, ptr %3523, i64 1
+  %3526 = getelementptr inbounds nuw i8, ptr %3523, i64 1
   store i8 0, ptr %3526, align 1
   %3527 = and i64 %3496, 65280
   %.not12482 = icmp eq i64 %3527, 65280
-  %.sroa.gep14106 = getelementptr inbounds i8, ptr %3523, i64 2
+  %.sroa.gep14106 = getelementptr inbounds nuw i8, ptr %3523, i64 2
   %.neg12483.sroa.sel = select i1 %.not12482, ptr %.sroa.gep14106, ptr %3526
   %3528 = trunc i64 %3496 to i8
   store i8 %3528, ptr %.neg12483.sroa.sel, align 1
-  %.sroa.gep16029 = getelementptr inbounds i8, ptr %3523, i64 3
+  %.sroa.gep16029 = getelementptr inbounds nuw i8, ptr %3523, i64 3
   %.neg12483.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12482, ptr %.sroa.gep16029, ptr %.sroa.gep14106
   store i8 0, ptr %.neg12483.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3529 = and i64 %3496, 255
   %.not12484 = icmp eq i64 %3529, 255
   %.neg12485 = select i1 %.not12484, i64 2, i64 1
-  %3530 = getelementptr inbounds i8, ptr %.neg12483.sroa.sel, i64 %.neg12485
+  %3530 = getelementptr inbounds nuw i8, ptr %.neg12483.sroa.sel, i64 %.neg12485
   br label %3553
 
 3531:                                             ; preds = %3490
   %3532 = lshr i64 %3492, 48
   %3533 = trunc i64 %3532 to i8
-  %3534 = getelementptr inbounds i8, ptr %.141, i64 1
+  %3534 = getelementptr inbounds nuw i8, ptr %.141, i64 1
   store i8 %3533, ptr %3534, align 1
   %3535 = lshr i64 %3492, 40
   %3536 = trunc i64 %3535 to i8
-  %3537 = getelementptr inbounds i8, ptr %.141, i64 2
+  %3537 = getelementptr inbounds nuw i8, ptr %.141, i64 2
   store i8 %3536, ptr %3537, align 1
   %3538 = lshr i64 %3492, 32
   %3539 = trunc i64 %3538 to i8
-  %3540 = getelementptr inbounds i8, ptr %.141, i64 3
+  %3540 = getelementptr inbounds nuw i8, ptr %.141, i64 3
   store i8 %3539, ptr %3540, align 1
   %3541 = lshr i64 %3496, 24
   %3542 = trunc i64 %3541 to i8
-  %3543 = getelementptr inbounds i8, ptr %.141, i64 4
+  %3543 = getelementptr inbounds nuw i8, ptr %.141, i64 4
   store i8 %3542, ptr %3543, align 1
   %3544 = lshr i64 %3496, 16
   %3545 = trunc i64 %3544 to i8
-  %3546 = getelementptr inbounds i8, ptr %.141, i64 5
+  %3546 = getelementptr inbounds nuw i8, ptr %.141, i64 5
   store i8 %3545, ptr %3546, align 1
   %3547 = lshr i64 %3496, 8
   %3548 = trunc i64 %3547 to i8
-  %3549 = getelementptr inbounds i8, ptr %.141, i64 6
+  %3549 = getelementptr inbounds nuw i8, ptr %.141, i64 6
   store i8 %3548, ptr %3549, align 1
   %3550 = trunc i64 %3496 to i8
-  %3551 = getelementptr inbounds i8, ptr %.141, i64 7
+  %3551 = getelementptr inbounds nuw i8, ptr %.141, i64 7
   store i8 %3550, ptr %3551, align 1
-  %3552 = getelementptr inbounds i8, ptr %.141, i64 8
+  %3552 = getelementptr inbounds nuw i8, ptr %.141, i64 8
   br label %3553
 
 3553:                                             ; preds = %3531, %3502
@@ -7931,12 +7931,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3566 = xor i32 %3565, -1
   %3567 = and i32 %3467, %3566
   %3568 = zext nneg i32 %3563 to i64
-  %3569 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %3568
+  %3569 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %3568
   %3570 = load i32, ptr %3569, align 4
   %3571 = shl i32 %3570, %3472
   %3572 = or i32 %3571, %3567
-  %3573 = getelementptr inbounds i8, ptr %4, i64 1024
-  %3574 = getelementptr inbounds [256 x i8], ptr %3573, i64 0, i64 %3568
+  %3573 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %3574 = getelementptr inbounds nuw [256 x i8], ptr %3573, i64 0, i64 %3568
   %3575 = load i8, ptr %3574, align 1
   %3576 = sext i8 %3575 to i32
   %3577 = add nsw i32 %3576, %3472
@@ -7961,108 +7961,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12452, label %3621, label %3592
 
 3592:                                             ; preds = %3580
-  %3593 = getelementptr inbounds i8, ptr %.148.lcssa, i64 1
+  %3593 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 1
   store i8 0, ptr %3593, align 1
   %.not12453 = icmp eq i64 %3590, 255
-  %.sroa.gep14108 = getelementptr inbounds i8, ptr %.148.lcssa, i64 2
+  %.sroa.gep14108 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 2
   %.neg12454.sroa.sel = select i1 %.not12453, ptr %.sroa.gep14108, ptr %3593
   %3594 = lshr i64 %3586, 48
   %3595 = trunc i64 %3594 to i8
   store i8 %3595, ptr %.neg12454.sroa.sel, align 1
-  %.sroa.gep16021 = getelementptr inbounds i8, ptr %.148.lcssa, i64 3
+  %.sroa.gep16021 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 3
   %.neg12454.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12453, ptr %.sroa.gep16021, ptr %.sroa.gep14108
   store i8 0, ptr %.neg12454.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3596 = and i64 %3586, 71776119061217280
   %.not12455 = icmp eq i64 %3596, 71776119061217280
   %.neg12456 = select i1 %.not12455, i64 2, i64 1
-  %3597 = getelementptr inbounds i8, ptr %.neg12454.sroa.sel, i64 %.neg12456
+  %3597 = getelementptr inbounds nuw i8, ptr %.neg12454.sroa.sel, i64 %.neg12456
   %3598 = lshr i64 %3586, 40
   %3599 = trunc i64 %3598 to i8
   store i8 %3599, ptr %3597, align 1
-  %3600 = getelementptr inbounds i8, ptr %3597, i64 1
+  %3600 = getelementptr inbounds nuw i8, ptr %3597, i64 1
   store i8 0, ptr %3600, align 1
   %3601 = and i64 %3586, 280375465082880
   %.not12457 = icmp eq i64 %3601, 280375465082880
-  %.sroa.gep14110 = getelementptr inbounds i8, ptr %3597, i64 2
+  %.sroa.gep14110 = getelementptr inbounds nuw i8, ptr %3597, i64 2
   %.neg12458.sroa.sel = select i1 %.not12457, ptr %.sroa.gep14110, ptr %3600
   %3602 = lshr i64 %3586, 32
   %3603 = trunc i64 %3602 to i8
   store i8 %3603, ptr %.neg12458.sroa.sel, align 1
-  %.sroa.gep16027 = getelementptr inbounds i8, ptr %3597, i64 3
+  %.sroa.gep16027 = getelementptr inbounds nuw i8, ptr %3597, i64 3
   %.neg12458.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12457, ptr %.sroa.gep16027, ptr %.sroa.gep14110
   store i8 0, ptr %.neg12458.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3604 = and i64 %3586, 1095216660480
   %.not12459 = icmp eq i64 %3604, 1095216660480
   %.neg12460 = select i1 %.not12459, i64 2, i64 1
-  %3605 = getelementptr inbounds i8, ptr %.neg12458.sroa.sel, i64 %.neg12460
+  %3605 = getelementptr inbounds nuw i8, ptr %.neg12458.sroa.sel, i64 %.neg12460
   %3606 = lshr i64 %3586, 24
   %3607 = trunc i64 %3606 to i8
   store i8 %3607, ptr %3605, align 1
-  %3608 = getelementptr inbounds i8, ptr %3605, i64 1
+  %3608 = getelementptr inbounds nuw i8, ptr %3605, i64 1
   store i8 0, ptr %3608, align 1
   %3609 = and i64 %3586, 4278190080
   %.not12461 = icmp eq i64 %3609, 4278190080
-  %.sroa.gep14112 = getelementptr inbounds i8, ptr %3605, i64 2
+  %.sroa.gep14112 = getelementptr inbounds nuw i8, ptr %3605, i64 2
   %.neg12462.sroa.sel = select i1 %.not12461, ptr %.sroa.gep14112, ptr %3608
   %3610 = lshr i64 %3586, 16
   %3611 = trunc i64 %3610 to i8
   store i8 %3611, ptr %.neg12462.sroa.sel, align 1
-  %.sroa.gep16025 = getelementptr inbounds i8, ptr %3605, i64 3
+  %.sroa.gep16025 = getelementptr inbounds nuw i8, ptr %3605, i64 3
   %.neg12462.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12461, ptr %.sroa.gep16025, ptr %.sroa.gep14112
   store i8 0, ptr %.neg12462.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3612 = and i64 %3586, 16711680
   %.not12463 = icmp eq i64 %3612, 16711680
   %.neg12464 = select i1 %.not12463, i64 2, i64 1
-  %3613 = getelementptr inbounds i8, ptr %.neg12462.sroa.sel, i64 %.neg12464
+  %3613 = getelementptr inbounds nuw i8, ptr %.neg12462.sroa.sel, i64 %.neg12464
   %3614 = lshr i64 %3586, 8
   %3615 = trunc i64 %3614 to i8
   store i8 %3615, ptr %3613, align 1
-  %3616 = getelementptr inbounds i8, ptr %3613, i64 1
+  %3616 = getelementptr inbounds nuw i8, ptr %3613, i64 1
   store i8 0, ptr %3616, align 1
   %3617 = and i64 %3586, 65280
   %.not12465 = icmp eq i64 %3617, 65280
-  %.sroa.gep14114 = getelementptr inbounds i8, ptr %3613, i64 2
+  %.sroa.gep14114 = getelementptr inbounds nuw i8, ptr %3613, i64 2
   %.neg12466.sroa.sel = select i1 %.not12465, ptr %.sroa.gep14114, ptr %3616
   %3618 = trunc i64 %3586 to i8
   store i8 %3618, ptr %.neg12466.sroa.sel, align 1
-  %.sroa.gep16023 = getelementptr inbounds i8, ptr %3613, i64 3
+  %.sroa.gep16023 = getelementptr inbounds nuw i8, ptr %3613, i64 3
   %.neg12466.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12465, ptr %.sroa.gep16023, ptr %.sroa.gep14114
   store i8 0, ptr %.neg12466.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3619 = and i64 %3586, 255
   %.not12467 = icmp eq i64 %3619, 255
   %.neg12468 = select i1 %.not12467, i64 2, i64 1
-  %3620 = getelementptr inbounds i8, ptr %.neg12466.sroa.sel, i64 %.neg12468
+  %3620 = getelementptr inbounds nuw i8, ptr %.neg12466.sroa.sel, i64 %.neg12468
   br label %3643
 
 3621:                                             ; preds = %3580
   %3622 = lshr i64 %3586, 48
   %3623 = trunc i64 %3622 to i8
-  %3624 = getelementptr inbounds i8, ptr %.148.lcssa, i64 1
+  %3624 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 1
   store i8 %3623, ptr %3624, align 1
   %3625 = lshr i64 %3586, 40
   %3626 = trunc i64 %3625 to i8
-  %3627 = getelementptr inbounds i8, ptr %.148.lcssa, i64 2
+  %3627 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 2
   store i8 %3626, ptr %3627, align 1
   %3628 = lshr i64 %3586, 32
   %3629 = trunc i64 %3628 to i8
-  %3630 = getelementptr inbounds i8, ptr %.148.lcssa, i64 3
+  %3630 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 3
   store i8 %3629, ptr %3630, align 1
   %3631 = lshr i64 %3586, 24
   %3632 = trunc i64 %3631 to i8
-  %3633 = getelementptr inbounds i8, ptr %.148.lcssa, i64 4
+  %3633 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 4
   store i8 %3632, ptr %3633, align 1
   %3634 = lshr i64 %3586, 16
   %3635 = trunc i64 %3634 to i8
-  %3636 = getelementptr inbounds i8, ptr %.148.lcssa, i64 5
+  %3636 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 5
   store i8 %3635, ptr %3636, align 1
   %3637 = lshr i64 %3586, 8
   %3638 = trunc i64 %3637 to i8
-  %3639 = getelementptr inbounds i8, ptr %.148.lcssa, i64 6
+  %3639 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 6
   store i8 %3638, ptr %3639, align 1
   %3640 = trunc i64 %3586 to i8
-  %3641 = getelementptr inbounds i8, ptr %.148.lcssa, i64 7
+  %3641 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 7
   store i8 %3640, ptr %3641, align 1
-  %3642 = getelementptr inbounds i8, ptr %.148.lcssa, i64 8
+  %3642 = getelementptr inbounds nuw i8, ptr %.148.lcssa, i64 8
   br label %3643
 
 3643:                                             ; preds = %3621, %3592
@@ -8083,7 +8083,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.9711137 = phi i64 [ %.9311133, %3462 ], [ %3645, %3643 ], [ %3650, %3646 ]
   %.147 = phi ptr [ %.141, %3462 ], [ %.151, %3643 ], [ %.148.lcssa, %3646 ]
   %.48 = phi i32 [ %3463, %3462 ], [ 0, %3643 ], [ 0, %3646 ]
-  %3652 = getelementptr inbounds i8, ptr %1, i64 26
+  %3652 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %3653 = load i16, ptr %3652, align 2
   %3654 = icmp eq i16 %3653, 0
   br i1 %3654, label %3655, label %3657
@@ -8107,7 +8107,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 3667:                                             ; preds = %3657
   %3668 = load ptr, ptr %7, align 8
   %3669 = load ptr, ptr %3668, align 8
-  %3670 = getelementptr inbounds i8, ptr %3669, i64 40
+  %3670 = getelementptr inbounds nuw i8, ptr %3669, i64 40
   store i32 6, ptr %3670, align 8
   %3671 = load ptr, ptr %7, align 8
   %3672 = load ptr, ptr %3671, align 8
@@ -8120,8 +8120,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %3675, label %.lr.ph14837, label %._crit_edge14838
 
 .lr.ph14837:                                      ; preds = %3674
-  %3676 = getelementptr inbounds i8, ptr %4, i64 1264
-  %3677 = getelementptr inbounds i8, ptr %4, i64 960
+  %3676 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %3677 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %3678 = load i8, ptr %3676, align 4
   %3679 = sext i8 %3678 to i32
   %3680 = sub nsw i32 %.9711391, %3679
@@ -8146,108 +8146,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12504, label %3724, label %3695
 
 3695:                                             ; preds = %3683
-  %3696 = getelementptr inbounds i8, ptr %.147, i64 1
+  %3696 = getelementptr inbounds nuw i8, ptr %.147, i64 1
   store i8 0, ptr %3696, align 1
   %.not12505 = icmp eq i64 %3693, 255
-  %.sroa.gep14116 = getelementptr inbounds i8, ptr %.147, i64 2
+  %.sroa.gep14116 = getelementptr inbounds nuw i8, ptr %.147, i64 2
   %.neg12506.sroa.sel = select i1 %.not12505, ptr %.sroa.gep14116, ptr %3696
   %3697 = lshr i64 %3685, 48
   %3698 = trunc i64 %3697 to i8
   store i8 %3698, ptr %.neg12506.sroa.sel, align 1
-  %.sroa.gep16019 = getelementptr inbounds i8, ptr %.147, i64 3
+  %.sroa.gep16019 = getelementptr inbounds nuw i8, ptr %.147, i64 3
   %.neg12506.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12505, ptr %.sroa.gep16019, ptr %.sroa.gep14116
   store i8 0, ptr %.neg12506.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3699 = and i64 %3685, 71776119061217280
   %.not12507 = icmp eq i64 %3699, 71776119061217280
   %.neg12508 = select i1 %.not12507, i64 2, i64 1
-  %3700 = getelementptr inbounds i8, ptr %.neg12506.sroa.sel, i64 %.neg12508
+  %3700 = getelementptr inbounds nuw i8, ptr %.neg12506.sroa.sel, i64 %.neg12508
   %3701 = lshr i64 %3685, 40
   %3702 = trunc i64 %3701 to i8
   store i8 %3702, ptr %3700, align 1
-  %3703 = getelementptr inbounds i8, ptr %3700, i64 1
+  %3703 = getelementptr inbounds nuw i8, ptr %3700, i64 1
   store i8 0, ptr %3703, align 1
   %3704 = and i64 %3685, 280375465082880
   %.not12509 = icmp eq i64 %3704, 280375465082880
-  %.sroa.gep14118 = getelementptr inbounds i8, ptr %3700, i64 2
+  %.sroa.gep14118 = getelementptr inbounds nuw i8, ptr %3700, i64 2
   %.neg12510.sroa.sel = select i1 %.not12509, ptr %.sroa.gep14118, ptr %3703
   %3705 = lshr i64 %3685, 32
   %3706 = trunc i64 %3705 to i8
   store i8 %3706, ptr %.neg12510.sroa.sel, align 1
-  %.sroa.gep16017 = getelementptr inbounds i8, ptr %3700, i64 3
+  %.sroa.gep16017 = getelementptr inbounds nuw i8, ptr %3700, i64 3
   %.neg12510.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12509, ptr %.sroa.gep16017, ptr %.sroa.gep14118
   store i8 0, ptr %.neg12510.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3707 = and i64 %3685, 1095216660480
   %.not12511 = icmp eq i64 %3707, 1095216660480
   %.neg12512 = select i1 %.not12511, i64 2, i64 1
-  %3708 = getelementptr inbounds i8, ptr %.neg12510.sroa.sel, i64 %.neg12512
+  %3708 = getelementptr inbounds nuw i8, ptr %.neg12510.sroa.sel, i64 %.neg12512
   %3709 = lshr i64 %3689, 24
   %3710 = trunc i64 %3709 to i8
   store i8 %3710, ptr %3708, align 1
-  %3711 = getelementptr inbounds i8, ptr %3708, i64 1
+  %3711 = getelementptr inbounds nuw i8, ptr %3708, i64 1
   store i8 0, ptr %3711, align 1
   %3712 = and i64 %3689, 4278190080
   %.not12513 = icmp eq i64 %3712, 4278190080
-  %.sroa.gep14120 = getelementptr inbounds i8, ptr %3708, i64 2
+  %.sroa.gep14120 = getelementptr inbounds nuw i8, ptr %3708, i64 2
   %.neg12514.sroa.sel = select i1 %.not12513, ptr %.sroa.gep14120, ptr %3711
   %3713 = lshr i64 %3689, 16
   %3714 = trunc i64 %3713 to i8
   store i8 %3714, ptr %.neg12514.sroa.sel, align 1
-  %.sroa.gep16015 = getelementptr inbounds i8, ptr %3708, i64 3
+  %.sroa.gep16015 = getelementptr inbounds nuw i8, ptr %3708, i64 3
   %.neg12514.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12513, ptr %.sroa.gep16015, ptr %.sroa.gep14120
   store i8 0, ptr %.neg12514.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3715 = and i64 %3689, 16711680
   %.not12515 = icmp eq i64 %3715, 16711680
   %.neg12516 = select i1 %.not12515, i64 2, i64 1
-  %3716 = getelementptr inbounds i8, ptr %.neg12514.sroa.sel, i64 %.neg12516
+  %3716 = getelementptr inbounds nuw i8, ptr %.neg12514.sroa.sel, i64 %.neg12516
   %3717 = lshr i64 %3689, 8
   %3718 = trunc i64 %3717 to i8
   store i8 %3718, ptr %3716, align 1
-  %3719 = getelementptr inbounds i8, ptr %3716, i64 1
+  %3719 = getelementptr inbounds nuw i8, ptr %3716, i64 1
   store i8 0, ptr %3719, align 1
   %3720 = and i64 %3689, 65280
   %.not12517 = icmp eq i64 %3720, 65280
-  %.sroa.gep14122 = getelementptr inbounds i8, ptr %3716, i64 2
+  %.sroa.gep14122 = getelementptr inbounds nuw i8, ptr %3716, i64 2
   %.neg12518.sroa.sel = select i1 %.not12517, ptr %.sroa.gep14122, ptr %3719
   %3721 = trunc i64 %3689 to i8
   store i8 %3721, ptr %.neg12518.sroa.sel, align 1
-  %.sroa.gep16013 = getelementptr inbounds i8, ptr %3716, i64 3
+  %.sroa.gep16013 = getelementptr inbounds nuw i8, ptr %3716, i64 3
   %.neg12518.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12517, ptr %.sroa.gep16013, ptr %.sroa.gep14122
   store i8 0, ptr %.neg12518.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3722 = and i64 %3689, 255
   %.not12519 = icmp eq i64 %3722, 255
   %.neg12520 = select i1 %.not12519, i64 2, i64 1
-  %3723 = getelementptr inbounds i8, ptr %.neg12518.sroa.sel, i64 %.neg12520
+  %3723 = getelementptr inbounds nuw i8, ptr %.neg12518.sroa.sel, i64 %.neg12520
   br label %3746
 
 3724:                                             ; preds = %3683
   %3725 = lshr i64 %3685, 48
   %3726 = trunc i64 %3725 to i8
-  %3727 = getelementptr inbounds i8, ptr %.147, i64 1
+  %3727 = getelementptr inbounds nuw i8, ptr %.147, i64 1
   store i8 %3726, ptr %3727, align 1
   %3728 = lshr i64 %3685, 40
   %3729 = trunc i64 %3728 to i8
-  %3730 = getelementptr inbounds i8, ptr %.147, i64 2
+  %3730 = getelementptr inbounds nuw i8, ptr %.147, i64 2
   store i8 %3729, ptr %3730, align 1
   %3731 = lshr i64 %3685, 32
   %3732 = trunc i64 %3731 to i8
-  %3733 = getelementptr inbounds i8, ptr %.147, i64 3
+  %3733 = getelementptr inbounds nuw i8, ptr %.147, i64 3
   store i8 %3732, ptr %3733, align 1
   %3734 = lshr i64 %3689, 24
   %3735 = trunc i64 %3734 to i8
-  %3736 = getelementptr inbounds i8, ptr %.147, i64 4
+  %3736 = getelementptr inbounds nuw i8, ptr %.147, i64 4
   store i8 %3735, ptr %3736, align 1
   %3737 = lshr i64 %3689, 16
   %3738 = trunc i64 %3737 to i8
-  %3739 = getelementptr inbounds i8, ptr %.147, i64 5
+  %3739 = getelementptr inbounds nuw i8, ptr %.147, i64 5
   store i8 %3738, ptr %3739, align 1
   %3740 = lshr i64 %3689, 8
   %3741 = trunc i64 %3740 to i8
-  %3742 = getelementptr inbounds i8, ptr %.147, i64 6
+  %3742 = getelementptr inbounds nuw i8, ptr %.147, i64 6
   store i8 %3741, ptr %3742, align 1
   %3743 = trunc i64 %3689 to i8
-  %3744 = getelementptr inbounds i8, ptr %.147, i64 7
+  %3744 = getelementptr inbounds nuw i8, ptr %.147, i64 7
   store i8 %3743, ptr %3744, align 1
-  %3745 = getelementptr inbounds i8, ptr %.147, i64 8
+  %3745 = getelementptr inbounds nuw i8, ptr %.147, i64 8
   br label %3746
 
 3746:                                             ; preds = %3724, %3695
@@ -8283,12 +8283,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3759 = xor i32 %3758, -1
   %3760 = and i32 %3660, %3759
   %3761 = zext nneg i32 %3756 to i64
-  %3762 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %3761
+  %3762 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %3761
   %3763 = load i32, ptr %3762, align 4
   %3764 = shl i32 %3763, %3665
   %3765 = or i32 %3764, %3760
-  %3766 = getelementptr inbounds i8, ptr %4, i64 1024
-  %3767 = getelementptr inbounds [256 x i8], ptr %3766, i64 0, i64 %3761
+  %3766 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %3767 = getelementptr inbounds nuw [256 x i8], ptr %3766, i64 0, i64 %3761
   %3768 = load i8, ptr %3767, align 1
   %3769 = sext i8 %3768 to i32
   %3770 = add nsw i32 %3769, %3665
@@ -8313,108 +8313,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12487, label %3814, label %3785
 
 3785:                                             ; preds = %3773
-  %3786 = getelementptr inbounds i8, ptr %.154.lcssa, i64 1
+  %3786 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 1
   store i8 0, ptr %3786, align 1
   %.not12488 = icmp eq i64 %3783, 255
-  %.sroa.gep14124 = getelementptr inbounds i8, ptr %.154.lcssa, i64 2
+  %.sroa.gep14124 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 2
   %.neg12489.sroa.sel = select i1 %.not12488, ptr %.sroa.gep14124, ptr %3786
   %3787 = lshr i64 %3779, 48
   %3788 = trunc i64 %3787 to i8
   store i8 %3788, ptr %.neg12489.sroa.sel, align 1
-  %.sroa.gep16005 = getelementptr inbounds i8, ptr %.154.lcssa, i64 3
+  %.sroa.gep16005 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 3
   %.neg12489.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12488, ptr %.sroa.gep16005, ptr %.sroa.gep14124
   store i8 0, ptr %.neg12489.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3789 = and i64 %3779, 71776119061217280
   %.not12490 = icmp eq i64 %3789, 71776119061217280
   %.neg12491 = select i1 %.not12490, i64 2, i64 1
-  %3790 = getelementptr inbounds i8, ptr %.neg12489.sroa.sel, i64 %.neg12491
+  %3790 = getelementptr inbounds nuw i8, ptr %.neg12489.sroa.sel, i64 %.neg12491
   %3791 = lshr i64 %3779, 40
   %3792 = trunc i64 %3791 to i8
   store i8 %3792, ptr %3790, align 1
-  %3793 = getelementptr inbounds i8, ptr %3790, i64 1
+  %3793 = getelementptr inbounds nuw i8, ptr %3790, i64 1
   store i8 0, ptr %3793, align 1
   %3794 = and i64 %3779, 280375465082880
   %.not12492 = icmp eq i64 %3794, 280375465082880
-  %.sroa.gep14126 = getelementptr inbounds i8, ptr %3790, i64 2
+  %.sroa.gep14126 = getelementptr inbounds nuw i8, ptr %3790, i64 2
   %.neg12493.sroa.sel = select i1 %.not12492, ptr %.sroa.gep14126, ptr %3793
   %3795 = lshr i64 %3779, 32
   %3796 = trunc i64 %3795 to i8
   store i8 %3796, ptr %.neg12493.sroa.sel, align 1
-  %.sroa.gep16011 = getelementptr inbounds i8, ptr %3790, i64 3
+  %.sroa.gep16011 = getelementptr inbounds nuw i8, ptr %3790, i64 3
   %.neg12493.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12492, ptr %.sroa.gep16011, ptr %.sroa.gep14126
   store i8 0, ptr %.neg12493.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3797 = and i64 %3779, 1095216660480
   %.not12494 = icmp eq i64 %3797, 1095216660480
   %.neg12495 = select i1 %.not12494, i64 2, i64 1
-  %3798 = getelementptr inbounds i8, ptr %.neg12493.sroa.sel, i64 %.neg12495
+  %3798 = getelementptr inbounds nuw i8, ptr %.neg12493.sroa.sel, i64 %.neg12495
   %3799 = lshr i64 %3779, 24
   %3800 = trunc i64 %3799 to i8
   store i8 %3800, ptr %3798, align 1
-  %3801 = getelementptr inbounds i8, ptr %3798, i64 1
+  %3801 = getelementptr inbounds nuw i8, ptr %3798, i64 1
   store i8 0, ptr %3801, align 1
   %3802 = and i64 %3779, 4278190080
   %.not12496 = icmp eq i64 %3802, 4278190080
-  %.sroa.gep14128 = getelementptr inbounds i8, ptr %3798, i64 2
+  %.sroa.gep14128 = getelementptr inbounds nuw i8, ptr %3798, i64 2
   %.neg12497.sroa.sel = select i1 %.not12496, ptr %.sroa.gep14128, ptr %3801
   %3803 = lshr i64 %3779, 16
   %3804 = trunc i64 %3803 to i8
   store i8 %3804, ptr %.neg12497.sroa.sel, align 1
-  %.sroa.gep16009 = getelementptr inbounds i8, ptr %3798, i64 3
+  %.sroa.gep16009 = getelementptr inbounds nuw i8, ptr %3798, i64 3
   %.neg12497.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12496, ptr %.sroa.gep16009, ptr %.sroa.gep14128
   store i8 0, ptr %.neg12497.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3805 = and i64 %3779, 16711680
   %.not12498 = icmp eq i64 %3805, 16711680
   %.neg12499 = select i1 %.not12498, i64 2, i64 1
-  %3806 = getelementptr inbounds i8, ptr %.neg12497.sroa.sel, i64 %.neg12499
+  %3806 = getelementptr inbounds nuw i8, ptr %.neg12497.sroa.sel, i64 %.neg12499
   %3807 = lshr i64 %3779, 8
   %3808 = trunc i64 %3807 to i8
   store i8 %3808, ptr %3806, align 1
-  %3809 = getelementptr inbounds i8, ptr %3806, i64 1
+  %3809 = getelementptr inbounds nuw i8, ptr %3806, i64 1
   store i8 0, ptr %3809, align 1
   %3810 = and i64 %3779, 65280
   %.not12500 = icmp eq i64 %3810, 65280
-  %.sroa.gep14130 = getelementptr inbounds i8, ptr %3806, i64 2
+  %.sroa.gep14130 = getelementptr inbounds nuw i8, ptr %3806, i64 2
   %.neg12501.sroa.sel = select i1 %.not12500, ptr %.sroa.gep14130, ptr %3809
   %3811 = trunc i64 %3779 to i8
   store i8 %3811, ptr %.neg12501.sroa.sel, align 1
-  %.sroa.gep16007 = getelementptr inbounds i8, ptr %3806, i64 3
+  %.sroa.gep16007 = getelementptr inbounds nuw i8, ptr %3806, i64 3
   %.neg12501.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12500, ptr %.sroa.gep16007, ptr %.sroa.gep14130
   store i8 0, ptr %.neg12501.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3812 = and i64 %3779, 255
   %.not12502 = icmp eq i64 %3812, 255
   %.neg12503 = select i1 %.not12502, i64 2, i64 1
-  %3813 = getelementptr inbounds i8, ptr %.neg12501.sroa.sel, i64 %.neg12503
+  %3813 = getelementptr inbounds nuw i8, ptr %.neg12501.sroa.sel, i64 %.neg12503
   br label %3836
 
 3814:                                             ; preds = %3773
   %3815 = lshr i64 %3779, 48
   %3816 = trunc i64 %3815 to i8
-  %3817 = getelementptr inbounds i8, ptr %.154.lcssa, i64 1
+  %3817 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 1
   store i8 %3816, ptr %3817, align 1
   %3818 = lshr i64 %3779, 40
   %3819 = trunc i64 %3818 to i8
-  %3820 = getelementptr inbounds i8, ptr %.154.lcssa, i64 2
+  %3820 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 2
   store i8 %3819, ptr %3820, align 1
   %3821 = lshr i64 %3779, 32
   %3822 = trunc i64 %3821 to i8
-  %3823 = getelementptr inbounds i8, ptr %.154.lcssa, i64 3
+  %3823 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 3
   store i8 %3822, ptr %3823, align 1
   %3824 = lshr i64 %3779, 24
   %3825 = trunc i64 %3824 to i8
-  %3826 = getelementptr inbounds i8, ptr %.154.lcssa, i64 4
+  %3826 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 4
   store i8 %3825, ptr %3826, align 1
   %3827 = lshr i64 %3779, 16
   %3828 = trunc i64 %3827 to i8
-  %3829 = getelementptr inbounds i8, ptr %.154.lcssa, i64 5
+  %3829 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 5
   store i8 %3828, ptr %3829, align 1
   %3830 = lshr i64 %3779, 8
   %3831 = trunc i64 %3830 to i8
-  %3832 = getelementptr inbounds i8, ptr %.154.lcssa, i64 6
+  %3832 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 6
   store i8 %3831, ptr %3832, align 1
   %3833 = trunc i64 %3779 to i8
-  %3834 = getelementptr inbounds i8, ptr %.154.lcssa, i64 7
+  %3834 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 7
   store i8 %3833, ptr %3834, align 1
-  %3835 = getelementptr inbounds i8, ptr %.154.lcssa, i64 8
+  %3835 = getelementptr inbounds nuw i8, ptr %.154.lcssa, i64 8
   br label %3836
 
 3836:                                             ; preds = %3814, %3785
@@ -8435,7 +8435,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.10111141 = phi i64 [ %.9711137, %3655 ], [ %3838, %3836 ], [ %3843, %3839 ]
   %.153 = phi ptr [ %.147, %3655 ], [ %.157, %3836 ], [ %.154.lcssa, %3839 ]
   %.50 = phi i32 [ %3656, %3655 ], [ 0, %3836 ], [ 0, %3839 ]
-  %3845 = getelementptr inbounds i8, ptr %1, i64 12
+  %3845 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %3846 = load i16, ptr %3845, align 2
   %3847 = icmp eq i16 %3846, 0
   br i1 %3847, label %3848, label %3850
@@ -8459,7 +8459,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 3860:                                             ; preds = %3850
   %3861 = load ptr, ptr %7, align 8
   %3862 = load ptr, ptr %3861, align 8
-  %3863 = getelementptr inbounds i8, ptr %3862, i64 40
+  %3863 = getelementptr inbounds nuw i8, ptr %3862, i64 40
   store i32 6, ptr %3863, align 8
   %3864 = load ptr, ptr %7, align 8
   %3865 = load ptr, ptr %3864, align 8
@@ -8472,8 +8472,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %3868, label %.lr.ph14848, label %._crit_edge14849
 
 .lr.ph14848:                                      ; preds = %3867
-  %3869 = getelementptr inbounds i8, ptr %4, i64 1264
-  %3870 = getelementptr inbounds i8, ptr %4, i64 960
+  %3869 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %3870 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %3871 = load i8, ptr %3869, align 4
   %3872 = sext i8 %3871 to i32
   %3873 = sub nsw i32 %.10111395, %3872
@@ -8498,108 +8498,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12539, label %3917, label %3888
 
 3888:                                             ; preds = %3876
-  %3889 = getelementptr inbounds i8, ptr %.153, i64 1
+  %3889 = getelementptr inbounds nuw i8, ptr %.153, i64 1
   store i8 0, ptr %3889, align 1
   %.not12540 = icmp eq i64 %3886, 255
-  %.sroa.gep14132 = getelementptr inbounds i8, ptr %.153, i64 2
+  %.sroa.gep14132 = getelementptr inbounds nuw i8, ptr %.153, i64 2
   %.neg12541.sroa.sel = select i1 %.not12540, ptr %.sroa.gep14132, ptr %3889
   %3890 = lshr i64 %3878, 48
   %3891 = trunc i64 %3890 to i8
   store i8 %3891, ptr %.neg12541.sroa.sel, align 1
-  %.sroa.gep16003 = getelementptr inbounds i8, ptr %.153, i64 3
+  %.sroa.gep16003 = getelementptr inbounds nuw i8, ptr %.153, i64 3
   %.neg12541.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12540, ptr %.sroa.gep16003, ptr %.sroa.gep14132
   store i8 0, ptr %.neg12541.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3892 = and i64 %3878, 71776119061217280
   %.not12542 = icmp eq i64 %3892, 71776119061217280
   %.neg12543 = select i1 %.not12542, i64 2, i64 1
-  %3893 = getelementptr inbounds i8, ptr %.neg12541.sroa.sel, i64 %.neg12543
+  %3893 = getelementptr inbounds nuw i8, ptr %.neg12541.sroa.sel, i64 %.neg12543
   %3894 = lshr i64 %3878, 40
   %3895 = trunc i64 %3894 to i8
   store i8 %3895, ptr %3893, align 1
-  %3896 = getelementptr inbounds i8, ptr %3893, i64 1
+  %3896 = getelementptr inbounds nuw i8, ptr %3893, i64 1
   store i8 0, ptr %3896, align 1
   %3897 = and i64 %3878, 280375465082880
   %.not12544 = icmp eq i64 %3897, 280375465082880
-  %.sroa.gep14134 = getelementptr inbounds i8, ptr %3893, i64 2
+  %.sroa.gep14134 = getelementptr inbounds nuw i8, ptr %3893, i64 2
   %.neg12545.sroa.sel = select i1 %.not12544, ptr %.sroa.gep14134, ptr %3896
   %3898 = lshr i64 %3878, 32
   %3899 = trunc i64 %3898 to i8
   store i8 %3899, ptr %.neg12545.sroa.sel, align 1
-  %.sroa.gep16001 = getelementptr inbounds i8, ptr %3893, i64 3
+  %.sroa.gep16001 = getelementptr inbounds nuw i8, ptr %3893, i64 3
   %.neg12545.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12544, ptr %.sroa.gep16001, ptr %.sroa.gep14134
   store i8 0, ptr %.neg12545.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3900 = and i64 %3878, 1095216660480
   %.not12546 = icmp eq i64 %3900, 1095216660480
   %.neg12547 = select i1 %.not12546, i64 2, i64 1
-  %3901 = getelementptr inbounds i8, ptr %.neg12545.sroa.sel, i64 %.neg12547
+  %3901 = getelementptr inbounds nuw i8, ptr %.neg12545.sroa.sel, i64 %.neg12547
   %3902 = lshr i64 %3882, 24
   %3903 = trunc i64 %3902 to i8
   store i8 %3903, ptr %3901, align 1
-  %3904 = getelementptr inbounds i8, ptr %3901, i64 1
+  %3904 = getelementptr inbounds nuw i8, ptr %3901, i64 1
   store i8 0, ptr %3904, align 1
   %3905 = and i64 %3882, 4278190080
   %.not12548 = icmp eq i64 %3905, 4278190080
-  %.sroa.gep14136 = getelementptr inbounds i8, ptr %3901, i64 2
+  %.sroa.gep14136 = getelementptr inbounds nuw i8, ptr %3901, i64 2
   %.neg12549.sroa.sel = select i1 %.not12548, ptr %.sroa.gep14136, ptr %3904
   %3906 = lshr i64 %3882, 16
   %3907 = trunc i64 %3906 to i8
   store i8 %3907, ptr %.neg12549.sroa.sel, align 1
-  %.sroa.gep15999 = getelementptr inbounds i8, ptr %3901, i64 3
+  %.sroa.gep15999 = getelementptr inbounds nuw i8, ptr %3901, i64 3
   %.neg12549.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12548, ptr %.sroa.gep15999, ptr %.sroa.gep14136
   store i8 0, ptr %.neg12549.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3908 = and i64 %3882, 16711680
   %.not12550 = icmp eq i64 %3908, 16711680
   %.neg12551 = select i1 %.not12550, i64 2, i64 1
-  %3909 = getelementptr inbounds i8, ptr %.neg12549.sroa.sel, i64 %.neg12551
+  %3909 = getelementptr inbounds nuw i8, ptr %.neg12549.sroa.sel, i64 %.neg12551
   %3910 = lshr i64 %3882, 8
   %3911 = trunc i64 %3910 to i8
   store i8 %3911, ptr %3909, align 1
-  %3912 = getelementptr inbounds i8, ptr %3909, i64 1
+  %3912 = getelementptr inbounds nuw i8, ptr %3909, i64 1
   store i8 0, ptr %3912, align 1
   %3913 = and i64 %3882, 65280
   %.not12552 = icmp eq i64 %3913, 65280
-  %.sroa.gep14138 = getelementptr inbounds i8, ptr %3909, i64 2
+  %.sroa.gep14138 = getelementptr inbounds nuw i8, ptr %3909, i64 2
   %.neg12553.sroa.sel = select i1 %.not12552, ptr %.sroa.gep14138, ptr %3912
   %3914 = trunc i64 %3882 to i8
   store i8 %3914, ptr %.neg12553.sroa.sel, align 1
-  %.sroa.gep15997 = getelementptr inbounds i8, ptr %3909, i64 3
+  %.sroa.gep15997 = getelementptr inbounds nuw i8, ptr %3909, i64 3
   %.neg12553.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12552, ptr %.sroa.gep15997, ptr %.sroa.gep14138
   store i8 0, ptr %.neg12553.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3915 = and i64 %3882, 255
   %.not12554 = icmp eq i64 %3915, 255
   %.neg12555 = select i1 %.not12554, i64 2, i64 1
-  %3916 = getelementptr inbounds i8, ptr %.neg12553.sroa.sel, i64 %.neg12555
+  %3916 = getelementptr inbounds nuw i8, ptr %.neg12553.sroa.sel, i64 %.neg12555
   br label %3939
 
 3917:                                             ; preds = %3876
   %3918 = lshr i64 %3878, 48
   %3919 = trunc i64 %3918 to i8
-  %3920 = getelementptr inbounds i8, ptr %.153, i64 1
+  %3920 = getelementptr inbounds nuw i8, ptr %.153, i64 1
   store i8 %3919, ptr %3920, align 1
   %3921 = lshr i64 %3878, 40
   %3922 = trunc i64 %3921 to i8
-  %3923 = getelementptr inbounds i8, ptr %.153, i64 2
+  %3923 = getelementptr inbounds nuw i8, ptr %.153, i64 2
   store i8 %3922, ptr %3923, align 1
   %3924 = lshr i64 %3878, 32
   %3925 = trunc i64 %3924 to i8
-  %3926 = getelementptr inbounds i8, ptr %.153, i64 3
+  %3926 = getelementptr inbounds nuw i8, ptr %.153, i64 3
   store i8 %3925, ptr %3926, align 1
   %3927 = lshr i64 %3882, 24
   %3928 = trunc i64 %3927 to i8
-  %3929 = getelementptr inbounds i8, ptr %.153, i64 4
+  %3929 = getelementptr inbounds nuw i8, ptr %.153, i64 4
   store i8 %3928, ptr %3929, align 1
   %3930 = lshr i64 %3882, 16
   %3931 = trunc i64 %3930 to i8
-  %3932 = getelementptr inbounds i8, ptr %.153, i64 5
+  %3932 = getelementptr inbounds nuw i8, ptr %.153, i64 5
   store i8 %3931, ptr %3932, align 1
   %3933 = lshr i64 %3882, 8
   %3934 = trunc i64 %3933 to i8
-  %3935 = getelementptr inbounds i8, ptr %.153, i64 6
+  %3935 = getelementptr inbounds nuw i8, ptr %.153, i64 6
   store i8 %3934, ptr %3935, align 1
   %3936 = trunc i64 %3882 to i8
-  %3937 = getelementptr inbounds i8, ptr %.153, i64 7
+  %3937 = getelementptr inbounds nuw i8, ptr %.153, i64 7
   store i8 %3936, ptr %3937, align 1
-  %3938 = getelementptr inbounds i8, ptr %.153, i64 8
+  %3938 = getelementptr inbounds nuw i8, ptr %.153, i64 8
   br label %3939
 
 3939:                                             ; preds = %3917, %3888
@@ -8635,12 +8635,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %3952 = xor i32 %3951, -1
   %3953 = and i32 %3853, %3952
   %3954 = zext nneg i32 %3949 to i64
-  %3955 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %3954
+  %3955 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %3954
   %3956 = load i32, ptr %3955, align 4
   %3957 = shl i32 %3956, %3858
   %3958 = or i32 %3957, %3953
-  %3959 = getelementptr inbounds i8, ptr %4, i64 1024
-  %3960 = getelementptr inbounds [256 x i8], ptr %3959, i64 0, i64 %3954
+  %3959 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %3960 = getelementptr inbounds nuw [256 x i8], ptr %3959, i64 0, i64 %3954
   %3961 = load i8, ptr %3960, align 1
   %3962 = sext i8 %3961 to i32
   %3963 = add nsw i32 %3962, %3858
@@ -8665,108 +8665,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12522, label %4007, label %3978
 
 3978:                                             ; preds = %3966
-  %3979 = getelementptr inbounds i8, ptr %.160.lcssa, i64 1
+  %3979 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 1
   store i8 0, ptr %3979, align 1
   %.not12523 = icmp eq i64 %3976, 255
-  %.sroa.gep14140 = getelementptr inbounds i8, ptr %.160.lcssa, i64 2
+  %.sroa.gep14140 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 2
   %.neg12524.sroa.sel = select i1 %.not12523, ptr %.sroa.gep14140, ptr %3979
   %3980 = lshr i64 %3972, 48
   %3981 = trunc i64 %3980 to i8
   store i8 %3981, ptr %.neg12524.sroa.sel, align 1
-  %.sroa.gep15989 = getelementptr inbounds i8, ptr %.160.lcssa, i64 3
+  %.sroa.gep15989 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 3
   %.neg12524.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12523, ptr %.sroa.gep15989, ptr %.sroa.gep14140
   store i8 0, ptr %.neg12524.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3982 = and i64 %3972, 71776119061217280
   %.not12525 = icmp eq i64 %3982, 71776119061217280
   %.neg12526 = select i1 %.not12525, i64 2, i64 1
-  %3983 = getelementptr inbounds i8, ptr %.neg12524.sroa.sel, i64 %.neg12526
+  %3983 = getelementptr inbounds nuw i8, ptr %.neg12524.sroa.sel, i64 %.neg12526
   %3984 = lshr i64 %3972, 40
   %3985 = trunc i64 %3984 to i8
   store i8 %3985, ptr %3983, align 1
-  %3986 = getelementptr inbounds i8, ptr %3983, i64 1
+  %3986 = getelementptr inbounds nuw i8, ptr %3983, i64 1
   store i8 0, ptr %3986, align 1
   %3987 = and i64 %3972, 280375465082880
   %.not12527 = icmp eq i64 %3987, 280375465082880
-  %.sroa.gep14142 = getelementptr inbounds i8, ptr %3983, i64 2
+  %.sroa.gep14142 = getelementptr inbounds nuw i8, ptr %3983, i64 2
   %.neg12528.sroa.sel = select i1 %.not12527, ptr %.sroa.gep14142, ptr %3986
   %3988 = lshr i64 %3972, 32
   %3989 = trunc i64 %3988 to i8
   store i8 %3989, ptr %.neg12528.sroa.sel, align 1
-  %.sroa.gep15995 = getelementptr inbounds i8, ptr %3983, i64 3
+  %.sroa.gep15995 = getelementptr inbounds nuw i8, ptr %3983, i64 3
   %.neg12528.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12527, ptr %.sroa.gep15995, ptr %.sroa.gep14142
   store i8 0, ptr %.neg12528.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3990 = and i64 %3972, 1095216660480
   %.not12529 = icmp eq i64 %3990, 1095216660480
   %.neg12530 = select i1 %.not12529, i64 2, i64 1
-  %3991 = getelementptr inbounds i8, ptr %.neg12528.sroa.sel, i64 %.neg12530
+  %3991 = getelementptr inbounds nuw i8, ptr %.neg12528.sroa.sel, i64 %.neg12530
   %3992 = lshr i64 %3972, 24
   %3993 = trunc i64 %3992 to i8
   store i8 %3993, ptr %3991, align 1
-  %3994 = getelementptr inbounds i8, ptr %3991, i64 1
+  %3994 = getelementptr inbounds nuw i8, ptr %3991, i64 1
   store i8 0, ptr %3994, align 1
   %3995 = and i64 %3972, 4278190080
   %.not12531 = icmp eq i64 %3995, 4278190080
-  %.sroa.gep14144 = getelementptr inbounds i8, ptr %3991, i64 2
+  %.sroa.gep14144 = getelementptr inbounds nuw i8, ptr %3991, i64 2
   %.neg12532.sroa.sel = select i1 %.not12531, ptr %.sroa.gep14144, ptr %3994
   %3996 = lshr i64 %3972, 16
   %3997 = trunc i64 %3996 to i8
   store i8 %3997, ptr %.neg12532.sroa.sel, align 1
-  %.sroa.gep15993 = getelementptr inbounds i8, ptr %3991, i64 3
+  %.sroa.gep15993 = getelementptr inbounds nuw i8, ptr %3991, i64 3
   %.neg12532.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12531, ptr %.sroa.gep15993, ptr %.sroa.gep14144
   store i8 0, ptr %.neg12532.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %3998 = and i64 %3972, 16711680
   %.not12533 = icmp eq i64 %3998, 16711680
   %.neg12534 = select i1 %.not12533, i64 2, i64 1
-  %3999 = getelementptr inbounds i8, ptr %.neg12532.sroa.sel, i64 %.neg12534
+  %3999 = getelementptr inbounds nuw i8, ptr %.neg12532.sroa.sel, i64 %.neg12534
   %4000 = lshr i64 %3972, 8
   %4001 = trunc i64 %4000 to i8
   store i8 %4001, ptr %3999, align 1
-  %4002 = getelementptr inbounds i8, ptr %3999, i64 1
+  %4002 = getelementptr inbounds nuw i8, ptr %3999, i64 1
   store i8 0, ptr %4002, align 1
   %4003 = and i64 %3972, 65280
   %.not12535 = icmp eq i64 %4003, 65280
-  %.sroa.gep14146 = getelementptr inbounds i8, ptr %3999, i64 2
+  %.sroa.gep14146 = getelementptr inbounds nuw i8, ptr %3999, i64 2
   %.neg12536.sroa.sel = select i1 %.not12535, ptr %.sroa.gep14146, ptr %4002
   %4004 = trunc i64 %3972 to i8
   store i8 %4004, ptr %.neg12536.sroa.sel, align 1
-  %.sroa.gep15991 = getelementptr inbounds i8, ptr %3999, i64 3
+  %.sroa.gep15991 = getelementptr inbounds nuw i8, ptr %3999, i64 3
   %.neg12536.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12535, ptr %.sroa.gep15991, ptr %.sroa.gep14146
   store i8 0, ptr %.neg12536.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4005 = and i64 %3972, 255
   %.not12537 = icmp eq i64 %4005, 255
   %.neg12538 = select i1 %.not12537, i64 2, i64 1
-  %4006 = getelementptr inbounds i8, ptr %.neg12536.sroa.sel, i64 %.neg12538
+  %4006 = getelementptr inbounds nuw i8, ptr %.neg12536.sroa.sel, i64 %.neg12538
   br label %4029
 
 4007:                                             ; preds = %3966
   %4008 = lshr i64 %3972, 48
   %4009 = trunc i64 %4008 to i8
-  %4010 = getelementptr inbounds i8, ptr %.160.lcssa, i64 1
+  %4010 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 1
   store i8 %4009, ptr %4010, align 1
   %4011 = lshr i64 %3972, 40
   %4012 = trunc i64 %4011 to i8
-  %4013 = getelementptr inbounds i8, ptr %.160.lcssa, i64 2
+  %4013 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 2
   store i8 %4012, ptr %4013, align 1
   %4014 = lshr i64 %3972, 32
   %4015 = trunc i64 %4014 to i8
-  %4016 = getelementptr inbounds i8, ptr %.160.lcssa, i64 3
+  %4016 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 3
   store i8 %4015, ptr %4016, align 1
   %4017 = lshr i64 %3972, 24
   %4018 = trunc i64 %4017 to i8
-  %4019 = getelementptr inbounds i8, ptr %.160.lcssa, i64 4
+  %4019 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 4
   store i8 %4018, ptr %4019, align 1
   %4020 = lshr i64 %3972, 16
   %4021 = trunc i64 %4020 to i8
-  %4022 = getelementptr inbounds i8, ptr %.160.lcssa, i64 5
+  %4022 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 5
   store i8 %4021, ptr %4022, align 1
   %4023 = lshr i64 %3972, 8
   %4024 = trunc i64 %4023 to i8
-  %4025 = getelementptr inbounds i8, ptr %.160.lcssa, i64 6
+  %4025 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 6
   store i8 %4024, ptr %4025, align 1
   %4026 = trunc i64 %3972 to i8
-  %4027 = getelementptr inbounds i8, ptr %.160.lcssa, i64 7
+  %4027 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 7
   store i8 %4026, ptr %4027, align 1
-  %4028 = getelementptr inbounds i8, ptr %.160.lcssa, i64 8
+  %4028 = getelementptr inbounds nuw i8, ptr %.160.lcssa, i64 8
   br label %4029
 
 4029:                                             ; preds = %4007, %3978
@@ -8787,7 +8787,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.10511145 = phi i64 [ %.10111141, %3848 ], [ %4031, %4029 ], [ %4036, %4032 ]
   %.159 = phi ptr [ %.153, %3848 ], [ %.163, %4029 ], [ %.160.lcssa, %4032 ]
   %.52 = phi i32 [ %3849, %3848 ], [ 0, %4029 ], [ 0, %4032 ]
-  %4038 = getelementptr inbounds i8, ptr %1, i64 14
+  %4038 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %4039 = load i16, ptr %4038, align 2
   %4040 = icmp eq i16 %4039, 0
   br i1 %4040, label %4041, label %4043
@@ -8811,7 +8811,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 4053:                                             ; preds = %4043
   %4054 = load ptr, ptr %7, align 8
   %4055 = load ptr, ptr %4054, align 8
-  %4056 = getelementptr inbounds i8, ptr %4055, i64 40
+  %4056 = getelementptr inbounds nuw i8, ptr %4055, i64 40
   store i32 6, ptr %4056, align 8
   %4057 = load ptr, ptr %7, align 8
   %4058 = load ptr, ptr %4057, align 8
@@ -8824,8 +8824,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %4061, label %.lr.ph14859, label %._crit_edge14860
 
 .lr.ph14859:                                      ; preds = %4060
-  %4062 = getelementptr inbounds i8, ptr %4, i64 1264
-  %4063 = getelementptr inbounds i8, ptr %4, i64 960
+  %4062 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %4063 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %4064 = load i8, ptr %4062, align 4
   %4065 = sext i8 %4064 to i32
   %4066 = sub nsw i32 %.10511399, %4065
@@ -8850,108 +8850,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12574, label %4110, label %4081
 
 4081:                                             ; preds = %4069
-  %4082 = getelementptr inbounds i8, ptr %.159, i64 1
+  %4082 = getelementptr inbounds nuw i8, ptr %.159, i64 1
   store i8 0, ptr %4082, align 1
   %.not12575 = icmp eq i64 %4079, 255
-  %.sroa.gep14148 = getelementptr inbounds i8, ptr %.159, i64 2
+  %.sroa.gep14148 = getelementptr inbounds nuw i8, ptr %.159, i64 2
   %.neg12576.sroa.sel = select i1 %.not12575, ptr %.sroa.gep14148, ptr %4082
   %4083 = lshr i64 %4071, 48
   %4084 = trunc i64 %4083 to i8
   store i8 %4084, ptr %.neg12576.sroa.sel, align 1
-  %.sroa.gep15987 = getelementptr inbounds i8, ptr %.159, i64 3
+  %.sroa.gep15987 = getelementptr inbounds nuw i8, ptr %.159, i64 3
   %.neg12576.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12575, ptr %.sroa.gep15987, ptr %.sroa.gep14148
   store i8 0, ptr %.neg12576.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4085 = and i64 %4071, 71776119061217280
   %.not12577 = icmp eq i64 %4085, 71776119061217280
   %.neg12578 = select i1 %.not12577, i64 2, i64 1
-  %4086 = getelementptr inbounds i8, ptr %.neg12576.sroa.sel, i64 %.neg12578
+  %4086 = getelementptr inbounds nuw i8, ptr %.neg12576.sroa.sel, i64 %.neg12578
   %4087 = lshr i64 %4071, 40
   %4088 = trunc i64 %4087 to i8
   store i8 %4088, ptr %4086, align 1
-  %4089 = getelementptr inbounds i8, ptr %4086, i64 1
+  %4089 = getelementptr inbounds nuw i8, ptr %4086, i64 1
   store i8 0, ptr %4089, align 1
   %4090 = and i64 %4071, 280375465082880
   %.not12579 = icmp eq i64 %4090, 280375465082880
-  %.sroa.gep14150 = getelementptr inbounds i8, ptr %4086, i64 2
+  %.sroa.gep14150 = getelementptr inbounds nuw i8, ptr %4086, i64 2
   %.neg12580.sroa.sel = select i1 %.not12579, ptr %.sroa.gep14150, ptr %4089
   %4091 = lshr i64 %4071, 32
   %4092 = trunc i64 %4091 to i8
   store i8 %4092, ptr %.neg12580.sroa.sel, align 1
-  %.sroa.gep15985 = getelementptr inbounds i8, ptr %4086, i64 3
+  %.sroa.gep15985 = getelementptr inbounds nuw i8, ptr %4086, i64 3
   %.neg12580.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12579, ptr %.sroa.gep15985, ptr %.sroa.gep14150
   store i8 0, ptr %.neg12580.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4093 = and i64 %4071, 1095216660480
   %.not12581 = icmp eq i64 %4093, 1095216660480
   %.neg12582 = select i1 %.not12581, i64 2, i64 1
-  %4094 = getelementptr inbounds i8, ptr %.neg12580.sroa.sel, i64 %.neg12582
+  %4094 = getelementptr inbounds nuw i8, ptr %.neg12580.sroa.sel, i64 %.neg12582
   %4095 = lshr i64 %4075, 24
   %4096 = trunc i64 %4095 to i8
   store i8 %4096, ptr %4094, align 1
-  %4097 = getelementptr inbounds i8, ptr %4094, i64 1
+  %4097 = getelementptr inbounds nuw i8, ptr %4094, i64 1
   store i8 0, ptr %4097, align 1
   %4098 = and i64 %4075, 4278190080
   %.not12583 = icmp eq i64 %4098, 4278190080
-  %.sroa.gep14152 = getelementptr inbounds i8, ptr %4094, i64 2
+  %.sroa.gep14152 = getelementptr inbounds nuw i8, ptr %4094, i64 2
   %.neg12584.sroa.sel = select i1 %.not12583, ptr %.sroa.gep14152, ptr %4097
   %4099 = lshr i64 %4075, 16
   %4100 = trunc i64 %4099 to i8
   store i8 %4100, ptr %.neg12584.sroa.sel, align 1
-  %.sroa.gep15983 = getelementptr inbounds i8, ptr %4094, i64 3
+  %.sroa.gep15983 = getelementptr inbounds nuw i8, ptr %4094, i64 3
   %.neg12584.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12583, ptr %.sroa.gep15983, ptr %.sroa.gep14152
   store i8 0, ptr %.neg12584.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4101 = and i64 %4075, 16711680
   %.not12585 = icmp eq i64 %4101, 16711680
   %.neg12586 = select i1 %.not12585, i64 2, i64 1
-  %4102 = getelementptr inbounds i8, ptr %.neg12584.sroa.sel, i64 %.neg12586
+  %4102 = getelementptr inbounds nuw i8, ptr %.neg12584.sroa.sel, i64 %.neg12586
   %4103 = lshr i64 %4075, 8
   %4104 = trunc i64 %4103 to i8
   store i8 %4104, ptr %4102, align 1
-  %4105 = getelementptr inbounds i8, ptr %4102, i64 1
+  %4105 = getelementptr inbounds nuw i8, ptr %4102, i64 1
   store i8 0, ptr %4105, align 1
   %4106 = and i64 %4075, 65280
   %.not12587 = icmp eq i64 %4106, 65280
-  %.sroa.gep14154 = getelementptr inbounds i8, ptr %4102, i64 2
+  %.sroa.gep14154 = getelementptr inbounds nuw i8, ptr %4102, i64 2
   %.neg12588.sroa.sel = select i1 %.not12587, ptr %.sroa.gep14154, ptr %4105
   %4107 = trunc i64 %4075 to i8
   store i8 %4107, ptr %.neg12588.sroa.sel, align 1
-  %.sroa.gep15981 = getelementptr inbounds i8, ptr %4102, i64 3
+  %.sroa.gep15981 = getelementptr inbounds nuw i8, ptr %4102, i64 3
   %.neg12588.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12587, ptr %.sroa.gep15981, ptr %.sroa.gep14154
   store i8 0, ptr %.neg12588.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4108 = and i64 %4075, 255
   %.not12589 = icmp eq i64 %4108, 255
   %.neg12590 = select i1 %.not12589, i64 2, i64 1
-  %4109 = getelementptr inbounds i8, ptr %.neg12588.sroa.sel, i64 %.neg12590
+  %4109 = getelementptr inbounds nuw i8, ptr %.neg12588.sroa.sel, i64 %.neg12590
   br label %4132
 
 4110:                                             ; preds = %4069
   %4111 = lshr i64 %4071, 48
   %4112 = trunc i64 %4111 to i8
-  %4113 = getelementptr inbounds i8, ptr %.159, i64 1
+  %4113 = getelementptr inbounds nuw i8, ptr %.159, i64 1
   store i8 %4112, ptr %4113, align 1
   %4114 = lshr i64 %4071, 40
   %4115 = trunc i64 %4114 to i8
-  %4116 = getelementptr inbounds i8, ptr %.159, i64 2
+  %4116 = getelementptr inbounds nuw i8, ptr %.159, i64 2
   store i8 %4115, ptr %4116, align 1
   %4117 = lshr i64 %4071, 32
   %4118 = trunc i64 %4117 to i8
-  %4119 = getelementptr inbounds i8, ptr %.159, i64 3
+  %4119 = getelementptr inbounds nuw i8, ptr %.159, i64 3
   store i8 %4118, ptr %4119, align 1
   %4120 = lshr i64 %4075, 24
   %4121 = trunc i64 %4120 to i8
-  %4122 = getelementptr inbounds i8, ptr %.159, i64 4
+  %4122 = getelementptr inbounds nuw i8, ptr %.159, i64 4
   store i8 %4121, ptr %4122, align 1
   %4123 = lshr i64 %4075, 16
   %4124 = trunc i64 %4123 to i8
-  %4125 = getelementptr inbounds i8, ptr %.159, i64 5
+  %4125 = getelementptr inbounds nuw i8, ptr %.159, i64 5
   store i8 %4124, ptr %4125, align 1
   %4126 = lshr i64 %4075, 8
   %4127 = trunc i64 %4126 to i8
-  %4128 = getelementptr inbounds i8, ptr %.159, i64 6
+  %4128 = getelementptr inbounds nuw i8, ptr %.159, i64 6
   store i8 %4127, ptr %4128, align 1
   %4129 = trunc i64 %4075 to i8
-  %4130 = getelementptr inbounds i8, ptr %.159, i64 7
+  %4130 = getelementptr inbounds nuw i8, ptr %.159, i64 7
   store i8 %4129, ptr %4130, align 1
-  %4131 = getelementptr inbounds i8, ptr %.159, i64 8
+  %4131 = getelementptr inbounds nuw i8, ptr %.159, i64 8
   br label %4132
 
 4132:                                             ; preds = %4110, %4081
@@ -8987,12 +8987,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4145 = xor i32 %4144, -1
   %4146 = and i32 %4046, %4145
   %4147 = zext nneg i32 %4142 to i64
-  %4148 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %4147
+  %4148 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %4147
   %4149 = load i32, ptr %4148, align 4
   %4150 = shl i32 %4149, %4051
   %4151 = or i32 %4150, %4146
-  %4152 = getelementptr inbounds i8, ptr %4, i64 1024
-  %4153 = getelementptr inbounds [256 x i8], ptr %4152, i64 0, i64 %4147
+  %4152 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %4153 = getelementptr inbounds nuw [256 x i8], ptr %4152, i64 0, i64 %4147
   %4154 = load i8, ptr %4153, align 1
   %4155 = sext i8 %4154 to i32
   %4156 = add nsw i32 %4155, %4051
@@ -9017,108 +9017,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12557, label %4200, label %4171
 
 4171:                                             ; preds = %4159
-  %4172 = getelementptr inbounds i8, ptr %.166.lcssa, i64 1
+  %4172 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 1
   store i8 0, ptr %4172, align 1
   %.not12558 = icmp eq i64 %4169, 255
-  %.sroa.gep14156 = getelementptr inbounds i8, ptr %.166.lcssa, i64 2
+  %.sroa.gep14156 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 2
   %.neg12559.sroa.sel = select i1 %.not12558, ptr %.sroa.gep14156, ptr %4172
   %4173 = lshr i64 %4165, 48
   %4174 = trunc i64 %4173 to i8
   store i8 %4174, ptr %.neg12559.sroa.sel, align 1
-  %.sroa.gep15973 = getelementptr inbounds i8, ptr %.166.lcssa, i64 3
+  %.sroa.gep15973 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 3
   %.neg12559.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12558, ptr %.sroa.gep15973, ptr %.sroa.gep14156
   store i8 0, ptr %.neg12559.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4175 = and i64 %4165, 71776119061217280
   %.not12560 = icmp eq i64 %4175, 71776119061217280
   %.neg12561 = select i1 %.not12560, i64 2, i64 1
-  %4176 = getelementptr inbounds i8, ptr %.neg12559.sroa.sel, i64 %.neg12561
+  %4176 = getelementptr inbounds nuw i8, ptr %.neg12559.sroa.sel, i64 %.neg12561
   %4177 = lshr i64 %4165, 40
   %4178 = trunc i64 %4177 to i8
   store i8 %4178, ptr %4176, align 1
-  %4179 = getelementptr inbounds i8, ptr %4176, i64 1
+  %4179 = getelementptr inbounds nuw i8, ptr %4176, i64 1
   store i8 0, ptr %4179, align 1
   %4180 = and i64 %4165, 280375465082880
   %.not12562 = icmp eq i64 %4180, 280375465082880
-  %.sroa.gep14158 = getelementptr inbounds i8, ptr %4176, i64 2
+  %.sroa.gep14158 = getelementptr inbounds nuw i8, ptr %4176, i64 2
   %.neg12563.sroa.sel = select i1 %.not12562, ptr %.sroa.gep14158, ptr %4179
   %4181 = lshr i64 %4165, 32
   %4182 = trunc i64 %4181 to i8
   store i8 %4182, ptr %.neg12563.sroa.sel, align 1
-  %.sroa.gep15979 = getelementptr inbounds i8, ptr %4176, i64 3
+  %.sroa.gep15979 = getelementptr inbounds nuw i8, ptr %4176, i64 3
   %.neg12563.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12562, ptr %.sroa.gep15979, ptr %.sroa.gep14158
   store i8 0, ptr %.neg12563.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4183 = and i64 %4165, 1095216660480
   %.not12564 = icmp eq i64 %4183, 1095216660480
   %.neg12565 = select i1 %.not12564, i64 2, i64 1
-  %4184 = getelementptr inbounds i8, ptr %.neg12563.sroa.sel, i64 %.neg12565
+  %4184 = getelementptr inbounds nuw i8, ptr %.neg12563.sroa.sel, i64 %.neg12565
   %4185 = lshr i64 %4165, 24
   %4186 = trunc i64 %4185 to i8
   store i8 %4186, ptr %4184, align 1
-  %4187 = getelementptr inbounds i8, ptr %4184, i64 1
+  %4187 = getelementptr inbounds nuw i8, ptr %4184, i64 1
   store i8 0, ptr %4187, align 1
   %4188 = and i64 %4165, 4278190080
   %.not12566 = icmp eq i64 %4188, 4278190080
-  %.sroa.gep14160 = getelementptr inbounds i8, ptr %4184, i64 2
+  %.sroa.gep14160 = getelementptr inbounds nuw i8, ptr %4184, i64 2
   %.neg12567.sroa.sel = select i1 %.not12566, ptr %.sroa.gep14160, ptr %4187
   %4189 = lshr i64 %4165, 16
   %4190 = trunc i64 %4189 to i8
   store i8 %4190, ptr %.neg12567.sroa.sel, align 1
-  %.sroa.gep15977 = getelementptr inbounds i8, ptr %4184, i64 3
+  %.sroa.gep15977 = getelementptr inbounds nuw i8, ptr %4184, i64 3
   %.neg12567.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12566, ptr %.sroa.gep15977, ptr %.sroa.gep14160
   store i8 0, ptr %.neg12567.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4191 = and i64 %4165, 16711680
   %.not12568 = icmp eq i64 %4191, 16711680
   %.neg12569 = select i1 %.not12568, i64 2, i64 1
-  %4192 = getelementptr inbounds i8, ptr %.neg12567.sroa.sel, i64 %.neg12569
+  %4192 = getelementptr inbounds nuw i8, ptr %.neg12567.sroa.sel, i64 %.neg12569
   %4193 = lshr i64 %4165, 8
   %4194 = trunc i64 %4193 to i8
   store i8 %4194, ptr %4192, align 1
-  %4195 = getelementptr inbounds i8, ptr %4192, i64 1
+  %4195 = getelementptr inbounds nuw i8, ptr %4192, i64 1
   store i8 0, ptr %4195, align 1
   %4196 = and i64 %4165, 65280
   %.not12570 = icmp eq i64 %4196, 65280
-  %.sroa.gep14162 = getelementptr inbounds i8, ptr %4192, i64 2
+  %.sroa.gep14162 = getelementptr inbounds nuw i8, ptr %4192, i64 2
   %.neg12571.sroa.sel = select i1 %.not12570, ptr %.sroa.gep14162, ptr %4195
   %4197 = trunc i64 %4165 to i8
   store i8 %4197, ptr %.neg12571.sroa.sel, align 1
-  %.sroa.gep15975 = getelementptr inbounds i8, ptr %4192, i64 3
+  %.sroa.gep15975 = getelementptr inbounds nuw i8, ptr %4192, i64 3
   %.neg12571.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12570, ptr %.sroa.gep15975, ptr %.sroa.gep14162
   store i8 0, ptr %.neg12571.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4198 = and i64 %4165, 255
   %.not12572 = icmp eq i64 %4198, 255
   %.neg12573 = select i1 %.not12572, i64 2, i64 1
-  %4199 = getelementptr inbounds i8, ptr %.neg12571.sroa.sel, i64 %.neg12573
+  %4199 = getelementptr inbounds nuw i8, ptr %.neg12571.sroa.sel, i64 %.neg12573
   br label %4222
 
 4200:                                             ; preds = %4159
   %4201 = lshr i64 %4165, 48
   %4202 = trunc i64 %4201 to i8
-  %4203 = getelementptr inbounds i8, ptr %.166.lcssa, i64 1
+  %4203 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 1
   store i8 %4202, ptr %4203, align 1
   %4204 = lshr i64 %4165, 40
   %4205 = trunc i64 %4204 to i8
-  %4206 = getelementptr inbounds i8, ptr %.166.lcssa, i64 2
+  %4206 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 2
   store i8 %4205, ptr %4206, align 1
   %4207 = lshr i64 %4165, 32
   %4208 = trunc i64 %4207 to i8
-  %4209 = getelementptr inbounds i8, ptr %.166.lcssa, i64 3
+  %4209 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 3
   store i8 %4208, ptr %4209, align 1
   %4210 = lshr i64 %4165, 24
   %4211 = trunc i64 %4210 to i8
-  %4212 = getelementptr inbounds i8, ptr %.166.lcssa, i64 4
+  %4212 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 4
   store i8 %4211, ptr %4212, align 1
   %4213 = lshr i64 %4165, 16
   %4214 = trunc i64 %4213 to i8
-  %4215 = getelementptr inbounds i8, ptr %.166.lcssa, i64 5
+  %4215 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 5
   store i8 %4214, ptr %4215, align 1
   %4216 = lshr i64 %4165, 8
   %4217 = trunc i64 %4216 to i8
-  %4218 = getelementptr inbounds i8, ptr %.166.lcssa, i64 6
+  %4218 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 6
   store i8 %4217, ptr %4218, align 1
   %4219 = trunc i64 %4165 to i8
-  %4220 = getelementptr inbounds i8, ptr %.166.lcssa, i64 7
+  %4220 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 7
   store i8 %4219, ptr %4220, align 1
-  %4221 = getelementptr inbounds i8, ptr %.166.lcssa, i64 8
+  %4221 = getelementptr inbounds nuw i8, ptr %.166.lcssa, i64 8
   br label %4222
 
 4222:                                             ; preds = %4200, %4171
@@ -9139,7 +9139,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.10911149 = phi i64 [ %.10511145, %4041 ], [ %4224, %4222 ], [ %4229, %4225 ]
   %.165 = phi ptr [ %.159, %4041 ], [ %.169, %4222 ], [ %.166.lcssa, %4225 ]
   %.54 = phi i32 [ %4042, %4041 ], [ 0, %4222 ], [ 0, %4225 ]
-  %4231 = getelementptr inbounds i8, ptr %1, i64 28
+  %4231 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4232 = load i16, ptr %4231, align 2
   %4233 = icmp eq i16 %4232, 0
   br i1 %4233, label %4234, label %4236
@@ -9163,7 +9163,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 4246:                                             ; preds = %4236
   %4247 = load ptr, ptr %7, align 8
   %4248 = load ptr, ptr %4247, align 8
-  %4249 = getelementptr inbounds i8, ptr %4248, i64 40
+  %4249 = getelementptr inbounds nuw i8, ptr %4248, i64 40
   store i32 6, ptr %4249, align 8
   %4250 = load ptr, ptr %7, align 8
   %4251 = load ptr, ptr %4250, align 8
@@ -9176,8 +9176,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %4254, label %.lr.ph14870, label %._crit_edge14871
 
 .lr.ph14870:                                      ; preds = %4253
-  %4255 = getelementptr inbounds i8, ptr %4, i64 1264
-  %4256 = getelementptr inbounds i8, ptr %4, i64 960
+  %4255 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %4256 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %4257 = load i8, ptr %4255, align 4
   %4258 = sext i8 %4257 to i32
   %4259 = sub nsw i32 %.10911403, %4258
@@ -9202,108 +9202,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12609, label %4303, label %4274
 
 4274:                                             ; preds = %4262
-  %4275 = getelementptr inbounds i8, ptr %.165, i64 1
+  %4275 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   store i8 0, ptr %4275, align 1
   %.not12610 = icmp eq i64 %4272, 255
-  %.sroa.gep14164 = getelementptr inbounds i8, ptr %.165, i64 2
+  %.sroa.gep14164 = getelementptr inbounds nuw i8, ptr %.165, i64 2
   %.neg12611.sroa.sel = select i1 %.not12610, ptr %.sroa.gep14164, ptr %4275
   %4276 = lshr i64 %4264, 48
   %4277 = trunc i64 %4276 to i8
   store i8 %4277, ptr %.neg12611.sroa.sel, align 1
-  %.sroa.gep15971 = getelementptr inbounds i8, ptr %.165, i64 3
+  %.sroa.gep15971 = getelementptr inbounds nuw i8, ptr %.165, i64 3
   %.neg12611.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12610, ptr %.sroa.gep15971, ptr %.sroa.gep14164
   store i8 0, ptr %.neg12611.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4278 = and i64 %4264, 71776119061217280
   %.not12612 = icmp eq i64 %4278, 71776119061217280
   %.neg12613 = select i1 %.not12612, i64 2, i64 1
-  %4279 = getelementptr inbounds i8, ptr %.neg12611.sroa.sel, i64 %.neg12613
+  %4279 = getelementptr inbounds nuw i8, ptr %.neg12611.sroa.sel, i64 %.neg12613
   %4280 = lshr i64 %4264, 40
   %4281 = trunc i64 %4280 to i8
   store i8 %4281, ptr %4279, align 1
-  %4282 = getelementptr inbounds i8, ptr %4279, i64 1
+  %4282 = getelementptr inbounds nuw i8, ptr %4279, i64 1
   store i8 0, ptr %4282, align 1
   %4283 = and i64 %4264, 280375465082880
   %.not12614 = icmp eq i64 %4283, 280375465082880
-  %.sroa.gep14166 = getelementptr inbounds i8, ptr %4279, i64 2
+  %.sroa.gep14166 = getelementptr inbounds nuw i8, ptr %4279, i64 2
   %.neg12615.sroa.sel = select i1 %.not12614, ptr %.sroa.gep14166, ptr %4282
   %4284 = lshr i64 %4264, 32
   %4285 = trunc i64 %4284 to i8
   store i8 %4285, ptr %.neg12615.sroa.sel, align 1
-  %.sroa.gep15969 = getelementptr inbounds i8, ptr %4279, i64 3
+  %.sroa.gep15969 = getelementptr inbounds nuw i8, ptr %4279, i64 3
   %.neg12615.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12614, ptr %.sroa.gep15969, ptr %.sroa.gep14166
   store i8 0, ptr %.neg12615.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4286 = and i64 %4264, 1095216660480
   %.not12616 = icmp eq i64 %4286, 1095216660480
   %.neg12617 = select i1 %.not12616, i64 2, i64 1
-  %4287 = getelementptr inbounds i8, ptr %.neg12615.sroa.sel, i64 %.neg12617
+  %4287 = getelementptr inbounds nuw i8, ptr %.neg12615.sroa.sel, i64 %.neg12617
   %4288 = lshr i64 %4268, 24
   %4289 = trunc i64 %4288 to i8
   store i8 %4289, ptr %4287, align 1
-  %4290 = getelementptr inbounds i8, ptr %4287, i64 1
+  %4290 = getelementptr inbounds nuw i8, ptr %4287, i64 1
   store i8 0, ptr %4290, align 1
   %4291 = and i64 %4268, 4278190080
   %.not12618 = icmp eq i64 %4291, 4278190080
-  %.sroa.gep14168 = getelementptr inbounds i8, ptr %4287, i64 2
+  %.sroa.gep14168 = getelementptr inbounds nuw i8, ptr %4287, i64 2
   %.neg12619.sroa.sel = select i1 %.not12618, ptr %.sroa.gep14168, ptr %4290
   %4292 = lshr i64 %4268, 16
   %4293 = trunc i64 %4292 to i8
   store i8 %4293, ptr %.neg12619.sroa.sel, align 1
-  %.sroa.gep15967 = getelementptr inbounds i8, ptr %4287, i64 3
+  %.sroa.gep15967 = getelementptr inbounds nuw i8, ptr %4287, i64 3
   %.neg12619.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12618, ptr %.sroa.gep15967, ptr %.sroa.gep14168
   store i8 0, ptr %.neg12619.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4294 = and i64 %4268, 16711680
   %.not12620 = icmp eq i64 %4294, 16711680
   %.neg12621 = select i1 %.not12620, i64 2, i64 1
-  %4295 = getelementptr inbounds i8, ptr %.neg12619.sroa.sel, i64 %.neg12621
+  %4295 = getelementptr inbounds nuw i8, ptr %.neg12619.sroa.sel, i64 %.neg12621
   %4296 = lshr i64 %4268, 8
   %4297 = trunc i64 %4296 to i8
   store i8 %4297, ptr %4295, align 1
-  %4298 = getelementptr inbounds i8, ptr %4295, i64 1
+  %4298 = getelementptr inbounds nuw i8, ptr %4295, i64 1
   store i8 0, ptr %4298, align 1
   %4299 = and i64 %4268, 65280
   %.not12622 = icmp eq i64 %4299, 65280
-  %.sroa.gep14170 = getelementptr inbounds i8, ptr %4295, i64 2
+  %.sroa.gep14170 = getelementptr inbounds nuw i8, ptr %4295, i64 2
   %.neg12623.sroa.sel = select i1 %.not12622, ptr %.sroa.gep14170, ptr %4298
   %4300 = trunc i64 %4268 to i8
   store i8 %4300, ptr %.neg12623.sroa.sel, align 1
-  %.sroa.gep15965 = getelementptr inbounds i8, ptr %4295, i64 3
+  %.sroa.gep15965 = getelementptr inbounds nuw i8, ptr %4295, i64 3
   %.neg12623.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12622, ptr %.sroa.gep15965, ptr %.sroa.gep14170
   store i8 0, ptr %.neg12623.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4301 = and i64 %4268, 255
   %.not12624 = icmp eq i64 %4301, 255
   %.neg12625 = select i1 %.not12624, i64 2, i64 1
-  %4302 = getelementptr inbounds i8, ptr %.neg12623.sroa.sel, i64 %.neg12625
+  %4302 = getelementptr inbounds nuw i8, ptr %.neg12623.sroa.sel, i64 %.neg12625
   br label %4325
 
 4303:                                             ; preds = %4262
   %4304 = lshr i64 %4264, 48
   %4305 = trunc i64 %4304 to i8
-  %4306 = getelementptr inbounds i8, ptr %.165, i64 1
+  %4306 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   store i8 %4305, ptr %4306, align 1
   %4307 = lshr i64 %4264, 40
   %4308 = trunc i64 %4307 to i8
-  %4309 = getelementptr inbounds i8, ptr %.165, i64 2
+  %4309 = getelementptr inbounds nuw i8, ptr %.165, i64 2
   store i8 %4308, ptr %4309, align 1
   %4310 = lshr i64 %4264, 32
   %4311 = trunc i64 %4310 to i8
-  %4312 = getelementptr inbounds i8, ptr %.165, i64 3
+  %4312 = getelementptr inbounds nuw i8, ptr %.165, i64 3
   store i8 %4311, ptr %4312, align 1
   %4313 = lshr i64 %4268, 24
   %4314 = trunc i64 %4313 to i8
-  %4315 = getelementptr inbounds i8, ptr %.165, i64 4
+  %4315 = getelementptr inbounds nuw i8, ptr %.165, i64 4
   store i8 %4314, ptr %4315, align 1
   %4316 = lshr i64 %4268, 16
   %4317 = trunc i64 %4316 to i8
-  %4318 = getelementptr inbounds i8, ptr %.165, i64 5
+  %4318 = getelementptr inbounds nuw i8, ptr %.165, i64 5
   store i8 %4317, ptr %4318, align 1
   %4319 = lshr i64 %4268, 8
   %4320 = trunc i64 %4319 to i8
-  %4321 = getelementptr inbounds i8, ptr %.165, i64 6
+  %4321 = getelementptr inbounds nuw i8, ptr %.165, i64 6
   store i8 %4320, ptr %4321, align 1
   %4322 = trunc i64 %4268 to i8
-  %4323 = getelementptr inbounds i8, ptr %.165, i64 7
+  %4323 = getelementptr inbounds nuw i8, ptr %.165, i64 7
   store i8 %4322, ptr %4323, align 1
-  %4324 = getelementptr inbounds i8, ptr %.165, i64 8
+  %4324 = getelementptr inbounds nuw i8, ptr %.165, i64 8
   br label %4325
 
 4325:                                             ; preds = %4303, %4274
@@ -9339,12 +9339,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4338 = xor i32 %4337, -1
   %4339 = and i32 %4239, %4338
   %4340 = zext nneg i32 %4335 to i64
-  %4341 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %4340
+  %4341 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %4340
   %4342 = load i32, ptr %4341, align 4
   %4343 = shl i32 %4342, %4244
   %4344 = or i32 %4343, %4339
-  %4345 = getelementptr inbounds i8, ptr %4, i64 1024
-  %4346 = getelementptr inbounds [256 x i8], ptr %4345, i64 0, i64 %4340
+  %4345 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %4346 = getelementptr inbounds nuw [256 x i8], ptr %4345, i64 0, i64 %4340
   %4347 = load i8, ptr %4346, align 1
   %4348 = sext i8 %4347 to i32
   %4349 = add nsw i32 %4348, %4244
@@ -9369,108 +9369,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12592, label %4393, label %4364
 
 4364:                                             ; preds = %4352
-  %4365 = getelementptr inbounds i8, ptr %.172.lcssa, i64 1
+  %4365 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 1
   store i8 0, ptr %4365, align 1
   %.not12593 = icmp eq i64 %4362, 255
-  %.sroa.gep14172 = getelementptr inbounds i8, ptr %.172.lcssa, i64 2
+  %.sroa.gep14172 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 2
   %.neg12594.sroa.sel = select i1 %.not12593, ptr %.sroa.gep14172, ptr %4365
   %4366 = lshr i64 %4358, 48
   %4367 = trunc i64 %4366 to i8
   store i8 %4367, ptr %.neg12594.sroa.sel, align 1
-  %.sroa.gep15957 = getelementptr inbounds i8, ptr %.172.lcssa, i64 3
+  %.sroa.gep15957 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 3
   %.neg12594.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12593, ptr %.sroa.gep15957, ptr %.sroa.gep14172
   store i8 0, ptr %.neg12594.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4368 = and i64 %4358, 71776119061217280
   %.not12595 = icmp eq i64 %4368, 71776119061217280
   %.neg12596 = select i1 %.not12595, i64 2, i64 1
-  %4369 = getelementptr inbounds i8, ptr %.neg12594.sroa.sel, i64 %.neg12596
+  %4369 = getelementptr inbounds nuw i8, ptr %.neg12594.sroa.sel, i64 %.neg12596
   %4370 = lshr i64 %4358, 40
   %4371 = trunc i64 %4370 to i8
   store i8 %4371, ptr %4369, align 1
-  %4372 = getelementptr inbounds i8, ptr %4369, i64 1
+  %4372 = getelementptr inbounds nuw i8, ptr %4369, i64 1
   store i8 0, ptr %4372, align 1
   %4373 = and i64 %4358, 280375465082880
   %.not12597 = icmp eq i64 %4373, 280375465082880
-  %.sroa.gep14174 = getelementptr inbounds i8, ptr %4369, i64 2
+  %.sroa.gep14174 = getelementptr inbounds nuw i8, ptr %4369, i64 2
   %.neg12598.sroa.sel = select i1 %.not12597, ptr %.sroa.gep14174, ptr %4372
   %4374 = lshr i64 %4358, 32
   %4375 = trunc i64 %4374 to i8
   store i8 %4375, ptr %.neg12598.sroa.sel, align 1
-  %.sroa.gep15963 = getelementptr inbounds i8, ptr %4369, i64 3
+  %.sroa.gep15963 = getelementptr inbounds nuw i8, ptr %4369, i64 3
   %.neg12598.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12597, ptr %.sroa.gep15963, ptr %.sroa.gep14174
   store i8 0, ptr %.neg12598.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4376 = and i64 %4358, 1095216660480
   %.not12599 = icmp eq i64 %4376, 1095216660480
   %.neg12600 = select i1 %.not12599, i64 2, i64 1
-  %4377 = getelementptr inbounds i8, ptr %.neg12598.sroa.sel, i64 %.neg12600
+  %4377 = getelementptr inbounds nuw i8, ptr %.neg12598.sroa.sel, i64 %.neg12600
   %4378 = lshr i64 %4358, 24
   %4379 = trunc i64 %4378 to i8
   store i8 %4379, ptr %4377, align 1
-  %4380 = getelementptr inbounds i8, ptr %4377, i64 1
+  %4380 = getelementptr inbounds nuw i8, ptr %4377, i64 1
   store i8 0, ptr %4380, align 1
   %4381 = and i64 %4358, 4278190080
   %.not12601 = icmp eq i64 %4381, 4278190080
-  %.sroa.gep14176 = getelementptr inbounds i8, ptr %4377, i64 2
+  %.sroa.gep14176 = getelementptr inbounds nuw i8, ptr %4377, i64 2
   %.neg12602.sroa.sel = select i1 %.not12601, ptr %.sroa.gep14176, ptr %4380
   %4382 = lshr i64 %4358, 16
   %4383 = trunc i64 %4382 to i8
   store i8 %4383, ptr %.neg12602.sroa.sel, align 1
-  %.sroa.gep15961 = getelementptr inbounds i8, ptr %4377, i64 3
+  %.sroa.gep15961 = getelementptr inbounds nuw i8, ptr %4377, i64 3
   %.neg12602.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12601, ptr %.sroa.gep15961, ptr %.sroa.gep14176
   store i8 0, ptr %.neg12602.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4384 = and i64 %4358, 16711680
   %.not12603 = icmp eq i64 %4384, 16711680
   %.neg12604 = select i1 %.not12603, i64 2, i64 1
-  %4385 = getelementptr inbounds i8, ptr %.neg12602.sroa.sel, i64 %.neg12604
+  %4385 = getelementptr inbounds nuw i8, ptr %.neg12602.sroa.sel, i64 %.neg12604
   %4386 = lshr i64 %4358, 8
   %4387 = trunc i64 %4386 to i8
   store i8 %4387, ptr %4385, align 1
-  %4388 = getelementptr inbounds i8, ptr %4385, i64 1
+  %4388 = getelementptr inbounds nuw i8, ptr %4385, i64 1
   store i8 0, ptr %4388, align 1
   %4389 = and i64 %4358, 65280
   %.not12605 = icmp eq i64 %4389, 65280
-  %.sroa.gep14178 = getelementptr inbounds i8, ptr %4385, i64 2
+  %.sroa.gep14178 = getelementptr inbounds nuw i8, ptr %4385, i64 2
   %.neg12606.sroa.sel = select i1 %.not12605, ptr %.sroa.gep14178, ptr %4388
   %4390 = trunc i64 %4358 to i8
   store i8 %4390, ptr %.neg12606.sroa.sel, align 1
-  %.sroa.gep15959 = getelementptr inbounds i8, ptr %4385, i64 3
+  %.sroa.gep15959 = getelementptr inbounds nuw i8, ptr %4385, i64 3
   %.neg12606.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12605, ptr %.sroa.gep15959, ptr %.sroa.gep14178
   store i8 0, ptr %.neg12606.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4391 = and i64 %4358, 255
   %.not12607 = icmp eq i64 %4391, 255
   %.neg12608 = select i1 %.not12607, i64 2, i64 1
-  %4392 = getelementptr inbounds i8, ptr %.neg12606.sroa.sel, i64 %.neg12608
+  %4392 = getelementptr inbounds nuw i8, ptr %.neg12606.sroa.sel, i64 %.neg12608
   br label %4415
 
 4393:                                             ; preds = %4352
   %4394 = lshr i64 %4358, 48
   %4395 = trunc i64 %4394 to i8
-  %4396 = getelementptr inbounds i8, ptr %.172.lcssa, i64 1
+  %4396 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 1
   store i8 %4395, ptr %4396, align 1
   %4397 = lshr i64 %4358, 40
   %4398 = trunc i64 %4397 to i8
-  %4399 = getelementptr inbounds i8, ptr %.172.lcssa, i64 2
+  %4399 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 2
   store i8 %4398, ptr %4399, align 1
   %4400 = lshr i64 %4358, 32
   %4401 = trunc i64 %4400 to i8
-  %4402 = getelementptr inbounds i8, ptr %.172.lcssa, i64 3
+  %4402 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 3
   store i8 %4401, ptr %4402, align 1
   %4403 = lshr i64 %4358, 24
   %4404 = trunc i64 %4403 to i8
-  %4405 = getelementptr inbounds i8, ptr %.172.lcssa, i64 4
+  %4405 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 4
   store i8 %4404, ptr %4405, align 1
   %4406 = lshr i64 %4358, 16
   %4407 = trunc i64 %4406 to i8
-  %4408 = getelementptr inbounds i8, ptr %.172.lcssa, i64 5
+  %4408 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 5
   store i8 %4407, ptr %4408, align 1
   %4409 = lshr i64 %4358, 8
   %4410 = trunc i64 %4409 to i8
-  %4411 = getelementptr inbounds i8, ptr %.172.lcssa, i64 6
+  %4411 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 6
   store i8 %4410, ptr %4411, align 1
   %4412 = trunc i64 %4358 to i8
-  %4413 = getelementptr inbounds i8, ptr %.172.lcssa, i64 7
+  %4413 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 7
   store i8 %4412, ptr %4413, align 1
-  %4414 = getelementptr inbounds i8, ptr %.172.lcssa, i64 8
+  %4414 = getelementptr inbounds nuw i8, ptr %.172.lcssa, i64 8
   br label %4415
 
 4415:                                             ; preds = %4393, %4364
@@ -9491,7 +9491,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.11311153 = phi i64 [ %.10911149, %4234 ], [ %4417, %4415 ], [ %4422, %4418 ]
   %.171 = phi ptr [ %.165, %4234 ], [ %.175, %4415 ], [ %.172.lcssa, %4418 ]
   %.56 = phi i32 [ %4235, %4234 ], [ 0, %4415 ], [ 0, %4418 ]
-  %4424 = getelementptr inbounds i8, ptr %1, i64 42
+  %4424 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %4425 = load i16, ptr %4424, align 2
   %4426 = icmp eq i16 %4425, 0
   br i1 %4426, label %4427, label %4429
@@ -9515,7 +9515,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 4439:                                             ; preds = %4429
   %4440 = load ptr, ptr %7, align 8
   %4441 = load ptr, ptr %4440, align 8
-  %4442 = getelementptr inbounds i8, ptr %4441, i64 40
+  %4442 = getelementptr inbounds nuw i8, ptr %4441, i64 40
   store i32 6, ptr %4442, align 8
   %4443 = load ptr, ptr %7, align 8
   %4444 = load ptr, ptr %4443, align 8
@@ -9528,8 +9528,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %4447, label %.lr.ph14881, label %._crit_edge14882
 
 .lr.ph14881:                                      ; preds = %4446
-  %4448 = getelementptr inbounds i8, ptr %4, i64 1264
-  %4449 = getelementptr inbounds i8, ptr %4, i64 960
+  %4448 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %4449 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %4450 = load i8, ptr %4448, align 4
   %4451 = sext i8 %4450 to i32
   %4452 = sub nsw i32 %.11311407, %4451
@@ -9554,108 +9554,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12644, label %4496, label %4467
 
 4467:                                             ; preds = %4455
-  %4468 = getelementptr inbounds i8, ptr %.171, i64 1
+  %4468 = getelementptr inbounds nuw i8, ptr %.171, i64 1
   store i8 0, ptr %4468, align 1
   %.not12645 = icmp eq i64 %4465, 255
-  %.sroa.gep14180 = getelementptr inbounds i8, ptr %.171, i64 2
+  %.sroa.gep14180 = getelementptr inbounds nuw i8, ptr %.171, i64 2
   %.neg12646.sroa.sel = select i1 %.not12645, ptr %.sroa.gep14180, ptr %4468
   %4469 = lshr i64 %4457, 48
   %4470 = trunc i64 %4469 to i8
   store i8 %4470, ptr %.neg12646.sroa.sel, align 1
-  %.sroa.gep15955 = getelementptr inbounds i8, ptr %.171, i64 3
+  %.sroa.gep15955 = getelementptr inbounds nuw i8, ptr %.171, i64 3
   %.neg12646.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12645, ptr %.sroa.gep15955, ptr %.sroa.gep14180
   store i8 0, ptr %.neg12646.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4471 = and i64 %4457, 71776119061217280
   %.not12647 = icmp eq i64 %4471, 71776119061217280
   %.neg12648 = select i1 %.not12647, i64 2, i64 1
-  %4472 = getelementptr inbounds i8, ptr %.neg12646.sroa.sel, i64 %.neg12648
+  %4472 = getelementptr inbounds nuw i8, ptr %.neg12646.sroa.sel, i64 %.neg12648
   %4473 = lshr i64 %4457, 40
   %4474 = trunc i64 %4473 to i8
   store i8 %4474, ptr %4472, align 1
-  %4475 = getelementptr inbounds i8, ptr %4472, i64 1
+  %4475 = getelementptr inbounds nuw i8, ptr %4472, i64 1
   store i8 0, ptr %4475, align 1
   %4476 = and i64 %4457, 280375465082880
   %.not12649 = icmp eq i64 %4476, 280375465082880
-  %.sroa.gep14182 = getelementptr inbounds i8, ptr %4472, i64 2
+  %.sroa.gep14182 = getelementptr inbounds nuw i8, ptr %4472, i64 2
   %.neg12650.sroa.sel = select i1 %.not12649, ptr %.sroa.gep14182, ptr %4475
   %4477 = lshr i64 %4457, 32
   %4478 = trunc i64 %4477 to i8
   store i8 %4478, ptr %.neg12650.sroa.sel, align 1
-  %.sroa.gep15953 = getelementptr inbounds i8, ptr %4472, i64 3
+  %.sroa.gep15953 = getelementptr inbounds nuw i8, ptr %4472, i64 3
   %.neg12650.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12649, ptr %.sroa.gep15953, ptr %.sroa.gep14182
   store i8 0, ptr %.neg12650.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4479 = and i64 %4457, 1095216660480
   %.not12651 = icmp eq i64 %4479, 1095216660480
   %.neg12652 = select i1 %.not12651, i64 2, i64 1
-  %4480 = getelementptr inbounds i8, ptr %.neg12650.sroa.sel, i64 %.neg12652
+  %4480 = getelementptr inbounds nuw i8, ptr %.neg12650.sroa.sel, i64 %.neg12652
   %4481 = lshr i64 %4461, 24
   %4482 = trunc i64 %4481 to i8
   store i8 %4482, ptr %4480, align 1
-  %4483 = getelementptr inbounds i8, ptr %4480, i64 1
+  %4483 = getelementptr inbounds nuw i8, ptr %4480, i64 1
   store i8 0, ptr %4483, align 1
   %4484 = and i64 %4461, 4278190080
   %.not12653 = icmp eq i64 %4484, 4278190080
-  %.sroa.gep14184 = getelementptr inbounds i8, ptr %4480, i64 2
+  %.sroa.gep14184 = getelementptr inbounds nuw i8, ptr %4480, i64 2
   %.neg12654.sroa.sel = select i1 %.not12653, ptr %.sroa.gep14184, ptr %4483
   %4485 = lshr i64 %4461, 16
   %4486 = trunc i64 %4485 to i8
   store i8 %4486, ptr %.neg12654.sroa.sel, align 1
-  %.sroa.gep15951 = getelementptr inbounds i8, ptr %4480, i64 3
+  %.sroa.gep15951 = getelementptr inbounds nuw i8, ptr %4480, i64 3
   %.neg12654.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12653, ptr %.sroa.gep15951, ptr %.sroa.gep14184
   store i8 0, ptr %.neg12654.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4487 = and i64 %4461, 16711680
   %.not12655 = icmp eq i64 %4487, 16711680
   %.neg12656 = select i1 %.not12655, i64 2, i64 1
-  %4488 = getelementptr inbounds i8, ptr %.neg12654.sroa.sel, i64 %.neg12656
+  %4488 = getelementptr inbounds nuw i8, ptr %.neg12654.sroa.sel, i64 %.neg12656
   %4489 = lshr i64 %4461, 8
   %4490 = trunc i64 %4489 to i8
   store i8 %4490, ptr %4488, align 1
-  %4491 = getelementptr inbounds i8, ptr %4488, i64 1
+  %4491 = getelementptr inbounds nuw i8, ptr %4488, i64 1
   store i8 0, ptr %4491, align 1
   %4492 = and i64 %4461, 65280
   %.not12657 = icmp eq i64 %4492, 65280
-  %.sroa.gep14186 = getelementptr inbounds i8, ptr %4488, i64 2
+  %.sroa.gep14186 = getelementptr inbounds nuw i8, ptr %4488, i64 2
   %.neg12658.sroa.sel = select i1 %.not12657, ptr %.sroa.gep14186, ptr %4491
   %4493 = trunc i64 %4461 to i8
   store i8 %4493, ptr %.neg12658.sroa.sel, align 1
-  %.sroa.gep15949 = getelementptr inbounds i8, ptr %4488, i64 3
+  %.sroa.gep15949 = getelementptr inbounds nuw i8, ptr %4488, i64 3
   %.neg12658.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12657, ptr %.sroa.gep15949, ptr %.sroa.gep14186
   store i8 0, ptr %.neg12658.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4494 = and i64 %4461, 255
   %.not12659 = icmp eq i64 %4494, 255
   %.neg12660 = select i1 %.not12659, i64 2, i64 1
-  %4495 = getelementptr inbounds i8, ptr %.neg12658.sroa.sel, i64 %.neg12660
+  %4495 = getelementptr inbounds nuw i8, ptr %.neg12658.sroa.sel, i64 %.neg12660
   br label %4518
 
 4496:                                             ; preds = %4455
   %4497 = lshr i64 %4457, 48
   %4498 = trunc i64 %4497 to i8
-  %4499 = getelementptr inbounds i8, ptr %.171, i64 1
+  %4499 = getelementptr inbounds nuw i8, ptr %.171, i64 1
   store i8 %4498, ptr %4499, align 1
   %4500 = lshr i64 %4457, 40
   %4501 = trunc i64 %4500 to i8
-  %4502 = getelementptr inbounds i8, ptr %.171, i64 2
+  %4502 = getelementptr inbounds nuw i8, ptr %.171, i64 2
   store i8 %4501, ptr %4502, align 1
   %4503 = lshr i64 %4457, 32
   %4504 = trunc i64 %4503 to i8
-  %4505 = getelementptr inbounds i8, ptr %.171, i64 3
+  %4505 = getelementptr inbounds nuw i8, ptr %.171, i64 3
   store i8 %4504, ptr %4505, align 1
   %4506 = lshr i64 %4461, 24
   %4507 = trunc i64 %4506 to i8
-  %4508 = getelementptr inbounds i8, ptr %.171, i64 4
+  %4508 = getelementptr inbounds nuw i8, ptr %.171, i64 4
   store i8 %4507, ptr %4508, align 1
   %4509 = lshr i64 %4461, 16
   %4510 = trunc i64 %4509 to i8
-  %4511 = getelementptr inbounds i8, ptr %.171, i64 5
+  %4511 = getelementptr inbounds nuw i8, ptr %.171, i64 5
   store i8 %4510, ptr %4511, align 1
   %4512 = lshr i64 %4461, 8
   %4513 = trunc i64 %4512 to i8
-  %4514 = getelementptr inbounds i8, ptr %.171, i64 6
+  %4514 = getelementptr inbounds nuw i8, ptr %.171, i64 6
   store i8 %4513, ptr %4514, align 1
   %4515 = trunc i64 %4461 to i8
-  %4516 = getelementptr inbounds i8, ptr %.171, i64 7
+  %4516 = getelementptr inbounds nuw i8, ptr %.171, i64 7
   store i8 %4515, ptr %4516, align 1
-  %4517 = getelementptr inbounds i8, ptr %.171, i64 8
+  %4517 = getelementptr inbounds nuw i8, ptr %.171, i64 8
   br label %4518
 
 4518:                                             ; preds = %4496, %4467
@@ -9691,12 +9691,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4531 = xor i32 %4530, -1
   %4532 = and i32 %4432, %4531
   %4533 = zext nneg i32 %4528 to i64
-  %4534 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %4533
+  %4534 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %4533
   %4535 = load i32, ptr %4534, align 4
   %4536 = shl i32 %4535, %4437
   %4537 = or i32 %4536, %4532
-  %4538 = getelementptr inbounds i8, ptr %4, i64 1024
-  %4539 = getelementptr inbounds [256 x i8], ptr %4538, i64 0, i64 %4533
+  %4538 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %4539 = getelementptr inbounds nuw [256 x i8], ptr %4538, i64 0, i64 %4533
   %4540 = load i8, ptr %4539, align 1
   %4541 = sext i8 %4540 to i32
   %4542 = add nsw i32 %4541, %4437
@@ -9721,108 +9721,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12627, label %4586, label %4557
 
 4557:                                             ; preds = %4545
-  %4558 = getelementptr inbounds i8, ptr %.178.lcssa, i64 1
+  %4558 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 1
   store i8 0, ptr %4558, align 1
   %.not12628 = icmp eq i64 %4555, 255
-  %.sroa.gep14188 = getelementptr inbounds i8, ptr %.178.lcssa, i64 2
+  %.sroa.gep14188 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 2
   %.neg12629.sroa.sel = select i1 %.not12628, ptr %.sroa.gep14188, ptr %4558
   %4559 = lshr i64 %4551, 48
   %4560 = trunc i64 %4559 to i8
   store i8 %4560, ptr %.neg12629.sroa.sel, align 1
-  %.sroa.gep15941 = getelementptr inbounds i8, ptr %.178.lcssa, i64 3
+  %.sroa.gep15941 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 3
   %.neg12629.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12628, ptr %.sroa.gep15941, ptr %.sroa.gep14188
   store i8 0, ptr %.neg12629.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4561 = and i64 %4551, 71776119061217280
   %.not12630 = icmp eq i64 %4561, 71776119061217280
   %.neg12631 = select i1 %.not12630, i64 2, i64 1
-  %4562 = getelementptr inbounds i8, ptr %.neg12629.sroa.sel, i64 %.neg12631
+  %4562 = getelementptr inbounds nuw i8, ptr %.neg12629.sroa.sel, i64 %.neg12631
   %4563 = lshr i64 %4551, 40
   %4564 = trunc i64 %4563 to i8
   store i8 %4564, ptr %4562, align 1
-  %4565 = getelementptr inbounds i8, ptr %4562, i64 1
+  %4565 = getelementptr inbounds nuw i8, ptr %4562, i64 1
   store i8 0, ptr %4565, align 1
   %4566 = and i64 %4551, 280375465082880
   %.not12632 = icmp eq i64 %4566, 280375465082880
-  %.sroa.gep14190 = getelementptr inbounds i8, ptr %4562, i64 2
+  %.sroa.gep14190 = getelementptr inbounds nuw i8, ptr %4562, i64 2
   %.neg12633.sroa.sel = select i1 %.not12632, ptr %.sroa.gep14190, ptr %4565
   %4567 = lshr i64 %4551, 32
   %4568 = trunc i64 %4567 to i8
   store i8 %4568, ptr %.neg12633.sroa.sel, align 1
-  %.sroa.gep15947 = getelementptr inbounds i8, ptr %4562, i64 3
+  %.sroa.gep15947 = getelementptr inbounds nuw i8, ptr %4562, i64 3
   %.neg12633.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12632, ptr %.sroa.gep15947, ptr %.sroa.gep14190
   store i8 0, ptr %.neg12633.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4569 = and i64 %4551, 1095216660480
   %.not12634 = icmp eq i64 %4569, 1095216660480
   %.neg12635 = select i1 %.not12634, i64 2, i64 1
-  %4570 = getelementptr inbounds i8, ptr %.neg12633.sroa.sel, i64 %.neg12635
+  %4570 = getelementptr inbounds nuw i8, ptr %.neg12633.sroa.sel, i64 %.neg12635
   %4571 = lshr i64 %4551, 24
   %4572 = trunc i64 %4571 to i8
   store i8 %4572, ptr %4570, align 1
-  %4573 = getelementptr inbounds i8, ptr %4570, i64 1
+  %4573 = getelementptr inbounds nuw i8, ptr %4570, i64 1
   store i8 0, ptr %4573, align 1
   %4574 = and i64 %4551, 4278190080
   %.not12636 = icmp eq i64 %4574, 4278190080
-  %.sroa.gep14192 = getelementptr inbounds i8, ptr %4570, i64 2
+  %.sroa.gep14192 = getelementptr inbounds nuw i8, ptr %4570, i64 2
   %.neg12637.sroa.sel = select i1 %.not12636, ptr %.sroa.gep14192, ptr %4573
   %4575 = lshr i64 %4551, 16
   %4576 = trunc i64 %4575 to i8
   store i8 %4576, ptr %.neg12637.sroa.sel, align 1
-  %.sroa.gep15945 = getelementptr inbounds i8, ptr %4570, i64 3
+  %.sroa.gep15945 = getelementptr inbounds nuw i8, ptr %4570, i64 3
   %.neg12637.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12636, ptr %.sroa.gep15945, ptr %.sroa.gep14192
   store i8 0, ptr %.neg12637.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4577 = and i64 %4551, 16711680
   %.not12638 = icmp eq i64 %4577, 16711680
   %.neg12639 = select i1 %.not12638, i64 2, i64 1
-  %4578 = getelementptr inbounds i8, ptr %.neg12637.sroa.sel, i64 %.neg12639
+  %4578 = getelementptr inbounds nuw i8, ptr %.neg12637.sroa.sel, i64 %.neg12639
   %4579 = lshr i64 %4551, 8
   %4580 = trunc i64 %4579 to i8
   store i8 %4580, ptr %4578, align 1
-  %4581 = getelementptr inbounds i8, ptr %4578, i64 1
+  %4581 = getelementptr inbounds nuw i8, ptr %4578, i64 1
   store i8 0, ptr %4581, align 1
   %4582 = and i64 %4551, 65280
   %.not12640 = icmp eq i64 %4582, 65280
-  %.sroa.gep14194 = getelementptr inbounds i8, ptr %4578, i64 2
+  %.sroa.gep14194 = getelementptr inbounds nuw i8, ptr %4578, i64 2
   %.neg12641.sroa.sel = select i1 %.not12640, ptr %.sroa.gep14194, ptr %4581
   %4583 = trunc i64 %4551 to i8
   store i8 %4583, ptr %.neg12641.sroa.sel, align 1
-  %.sroa.gep15943 = getelementptr inbounds i8, ptr %4578, i64 3
+  %.sroa.gep15943 = getelementptr inbounds nuw i8, ptr %4578, i64 3
   %.neg12641.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12640, ptr %.sroa.gep15943, ptr %.sroa.gep14194
   store i8 0, ptr %.neg12641.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4584 = and i64 %4551, 255
   %.not12642 = icmp eq i64 %4584, 255
   %.neg12643 = select i1 %.not12642, i64 2, i64 1
-  %4585 = getelementptr inbounds i8, ptr %.neg12641.sroa.sel, i64 %.neg12643
+  %4585 = getelementptr inbounds nuw i8, ptr %.neg12641.sroa.sel, i64 %.neg12643
   br label %4608
 
 4586:                                             ; preds = %4545
   %4587 = lshr i64 %4551, 48
   %4588 = trunc i64 %4587 to i8
-  %4589 = getelementptr inbounds i8, ptr %.178.lcssa, i64 1
+  %4589 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 1
   store i8 %4588, ptr %4589, align 1
   %4590 = lshr i64 %4551, 40
   %4591 = trunc i64 %4590 to i8
-  %4592 = getelementptr inbounds i8, ptr %.178.lcssa, i64 2
+  %4592 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 2
   store i8 %4591, ptr %4592, align 1
   %4593 = lshr i64 %4551, 32
   %4594 = trunc i64 %4593 to i8
-  %4595 = getelementptr inbounds i8, ptr %.178.lcssa, i64 3
+  %4595 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 3
   store i8 %4594, ptr %4595, align 1
   %4596 = lshr i64 %4551, 24
   %4597 = trunc i64 %4596 to i8
-  %4598 = getelementptr inbounds i8, ptr %.178.lcssa, i64 4
+  %4598 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 4
   store i8 %4597, ptr %4598, align 1
   %4599 = lshr i64 %4551, 16
   %4600 = trunc i64 %4599 to i8
-  %4601 = getelementptr inbounds i8, ptr %.178.lcssa, i64 5
+  %4601 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 5
   store i8 %4600, ptr %4601, align 1
   %4602 = lshr i64 %4551, 8
   %4603 = trunc i64 %4602 to i8
-  %4604 = getelementptr inbounds i8, ptr %.178.lcssa, i64 6
+  %4604 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 6
   store i8 %4603, ptr %4604, align 1
   %4605 = trunc i64 %4551 to i8
-  %4606 = getelementptr inbounds i8, ptr %.178.lcssa, i64 7
+  %4606 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 7
   store i8 %4605, ptr %4606, align 1
-  %4607 = getelementptr inbounds i8, ptr %.178.lcssa, i64 8
+  %4607 = getelementptr inbounds nuw i8, ptr %.178.lcssa, i64 8
   br label %4608
 
 4608:                                             ; preds = %4586, %4557
@@ -9843,7 +9843,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.11711157 = phi i64 [ %.11311153, %4427 ], [ %4610, %4608 ], [ %4615, %4611 ]
   %.177 = phi ptr [ %.171, %4427 ], [ %.181, %4608 ], [ %.178.lcssa, %4611 ]
   %.58 = phi i32 [ %4428, %4427 ], [ 0, %4608 ], [ 0, %4611 ]
-  %4617 = getelementptr inbounds i8, ptr %1, i64 56
+  %4617 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4618 = load i16, ptr %4617, align 2
   %4619 = icmp eq i16 %4618, 0
   br i1 %4619, label %4620, label %4622
@@ -9867,7 +9867,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 4632:                                             ; preds = %4622
   %4633 = load ptr, ptr %7, align 8
   %4634 = load ptr, ptr %4633, align 8
-  %4635 = getelementptr inbounds i8, ptr %4634, i64 40
+  %4635 = getelementptr inbounds nuw i8, ptr %4634, i64 40
   store i32 6, ptr %4635, align 8
   %4636 = load ptr, ptr %7, align 8
   %4637 = load ptr, ptr %4636, align 8
@@ -9880,8 +9880,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %4640, label %.lr.ph14892, label %._crit_edge14893
 
 .lr.ph14892:                                      ; preds = %4639
-  %4641 = getelementptr inbounds i8, ptr %4, i64 1264
-  %4642 = getelementptr inbounds i8, ptr %4, i64 960
+  %4641 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %4642 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %4643 = load i8, ptr %4641, align 4
   %4644 = sext i8 %4643 to i32
   %4645 = sub nsw i32 %.11711411, %4644
@@ -9906,108 +9906,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12679, label %4689, label %4660
 
 4660:                                             ; preds = %4648
-  %4661 = getelementptr inbounds i8, ptr %.177, i64 1
+  %4661 = getelementptr inbounds nuw i8, ptr %.177, i64 1
   store i8 0, ptr %4661, align 1
   %.not12680 = icmp eq i64 %4658, 255
-  %.sroa.gep14196 = getelementptr inbounds i8, ptr %.177, i64 2
+  %.sroa.gep14196 = getelementptr inbounds nuw i8, ptr %.177, i64 2
   %.neg12681.sroa.sel = select i1 %.not12680, ptr %.sroa.gep14196, ptr %4661
   %4662 = lshr i64 %4650, 48
   %4663 = trunc i64 %4662 to i8
   store i8 %4663, ptr %.neg12681.sroa.sel, align 1
-  %.sroa.gep15939 = getelementptr inbounds i8, ptr %.177, i64 3
+  %.sroa.gep15939 = getelementptr inbounds nuw i8, ptr %.177, i64 3
   %.neg12681.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12680, ptr %.sroa.gep15939, ptr %.sroa.gep14196
   store i8 0, ptr %.neg12681.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4664 = and i64 %4650, 71776119061217280
   %.not12682 = icmp eq i64 %4664, 71776119061217280
   %.neg12683 = select i1 %.not12682, i64 2, i64 1
-  %4665 = getelementptr inbounds i8, ptr %.neg12681.sroa.sel, i64 %.neg12683
+  %4665 = getelementptr inbounds nuw i8, ptr %.neg12681.sroa.sel, i64 %.neg12683
   %4666 = lshr i64 %4650, 40
   %4667 = trunc i64 %4666 to i8
   store i8 %4667, ptr %4665, align 1
-  %4668 = getelementptr inbounds i8, ptr %4665, i64 1
+  %4668 = getelementptr inbounds nuw i8, ptr %4665, i64 1
   store i8 0, ptr %4668, align 1
   %4669 = and i64 %4650, 280375465082880
   %.not12684 = icmp eq i64 %4669, 280375465082880
-  %.sroa.gep14198 = getelementptr inbounds i8, ptr %4665, i64 2
+  %.sroa.gep14198 = getelementptr inbounds nuw i8, ptr %4665, i64 2
   %.neg12685.sroa.sel = select i1 %.not12684, ptr %.sroa.gep14198, ptr %4668
   %4670 = lshr i64 %4650, 32
   %4671 = trunc i64 %4670 to i8
   store i8 %4671, ptr %.neg12685.sroa.sel, align 1
-  %.sroa.gep15937 = getelementptr inbounds i8, ptr %4665, i64 3
+  %.sroa.gep15937 = getelementptr inbounds nuw i8, ptr %4665, i64 3
   %.neg12685.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12684, ptr %.sroa.gep15937, ptr %.sroa.gep14198
   store i8 0, ptr %.neg12685.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4672 = and i64 %4650, 1095216660480
   %.not12686 = icmp eq i64 %4672, 1095216660480
   %.neg12687 = select i1 %.not12686, i64 2, i64 1
-  %4673 = getelementptr inbounds i8, ptr %.neg12685.sroa.sel, i64 %.neg12687
+  %4673 = getelementptr inbounds nuw i8, ptr %.neg12685.sroa.sel, i64 %.neg12687
   %4674 = lshr i64 %4654, 24
   %4675 = trunc i64 %4674 to i8
   store i8 %4675, ptr %4673, align 1
-  %4676 = getelementptr inbounds i8, ptr %4673, i64 1
+  %4676 = getelementptr inbounds nuw i8, ptr %4673, i64 1
   store i8 0, ptr %4676, align 1
   %4677 = and i64 %4654, 4278190080
   %.not12688 = icmp eq i64 %4677, 4278190080
-  %.sroa.gep14200 = getelementptr inbounds i8, ptr %4673, i64 2
+  %.sroa.gep14200 = getelementptr inbounds nuw i8, ptr %4673, i64 2
   %.neg12689.sroa.sel = select i1 %.not12688, ptr %.sroa.gep14200, ptr %4676
   %4678 = lshr i64 %4654, 16
   %4679 = trunc i64 %4678 to i8
   store i8 %4679, ptr %.neg12689.sroa.sel, align 1
-  %.sroa.gep15935 = getelementptr inbounds i8, ptr %4673, i64 3
+  %.sroa.gep15935 = getelementptr inbounds nuw i8, ptr %4673, i64 3
   %.neg12689.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12688, ptr %.sroa.gep15935, ptr %.sroa.gep14200
   store i8 0, ptr %.neg12689.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4680 = and i64 %4654, 16711680
   %.not12690 = icmp eq i64 %4680, 16711680
   %.neg12691 = select i1 %.not12690, i64 2, i64 1
-  %4681 = getelementptr inbounds i8, ptr %.neg12689.sroa.sel, i64 %.neg12691
+  %4681 = getelementptr inbounds nuw i8, ptr %.neg12689.sroa.sel, i64 %.neg12691
   %4682 = lshr i64 %4654, 8
   %4683 = trunc i64 %4682 to i8
   store i8 %4683, ptr %4681, align 1
-  %4684 = getelementptr inbounds i8, ptr %4681, i64 1
+  %4684 = getelementptr inbounds nuw i8, ptr %4681, i64 1
   store i8 0, ptr %4684, align 1
   %4685 = and i64 %4654, 65280
   %.not12692 = icmp eq i64 %4685, 65280
-  %.sroa.gep14202 = getelementptr inbounds i8, ptr %4681, i64 2
+  %.sroa.gep14202 = getelementptr inbounds nuw i8, ptr %4681, i64 2
   %.neg12693.sroa.sel = select i1 %.not12692, ptr %.sroa.gep14202, ptr %4684
   %4686 = trunc i64 %4654 to i8
   store i8 %4686, ptr %.neg12693.sroa.sel, align 1
-  %.sroa.gep15933 = getelementptr inbounds i8, ptr %4681, i64 3
+  %.sroa.gep15933 = getelementptr inbounds nuw i8, ptr %4681, i64 3
   %.neg12693.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12692, ptr %.sroa.gep15933, ptr %.sroa.gep14202
   store i8 0, ptr %.neg12693.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4687 = and i64 %4654, 255
   %.not12694 = icmp eq i64 %4687, 255
   %.neg12695 = select i1 %.not12694, i64 2, i64 1
-  %4688 = getelementptr inbounds i8, ptr %.neg12693.sroa.sel, i64 %.neg12695
+  %4688 = getelementptr inbounds nuw i8, ptr %.neg12693.sroa.sel, i64 %.neg12695
   br label %4711
 
 4689:                                             ; preds = %4648
   %4690 = lshr i64 %4650, 48
   %4691 = trunc i64 %4690 to i8
-  %4692 = getelementptr inbounds i8, ptr %.177, i64 1
+  %4692 = getelementptr inbounds nuw i8, ptr %.177, i64 1
   store i8 %4691, ptr %4692, align 1
   %4693 = lshr i64 %4650, 40
   %4694 = trunc i64 %4693 to i8
-  %4695 = getelementptr inbounds i8, ptr %.177, i64 2
+  %4695 = getelementptr inbounds nuw i8, ptr %.177, i64 2
   store i8 %4694, ptr %4695, align 1
   %4696 = lshr i64 %4650, 32
   %4697 = trunc i64 %4696 to i8
-  %4698 = getelementptr inbounds i8, ptr %.177, i64 3
+  %4698 = getelementptr inbounds nuw i8, ptr %.177, i64 3
   store i8 %4697, ptr %4698, align 1
   %4699 = lshr i64 %4654, 24
   %4700 = trunc i64 %4699 to i8
-  %4701 = getelementptr inbounds i8, ptr %.177, i64 4
+  %4701 = getelementptr inbounds nuw i8, ptr %.177, i64 4
   store i8 %4700, ptr %4701, align 1
   %4702 = lshr i64 %4654, 16
   %4703 = trunc i64 %4702 to i8
-  %4704 = getelementptr inbounds i8, ptr %.177, i64 5
+  %4704 = getelementptr inbounds nuw i8, ptr %.177, i64 5
   store i8 %4703, ptr %4704, align 1
   %4705 = lshr i64 %4654, 8
   %4706 = trunc i64 %4705 to i8
-  %4707 = getelementptr inbounds i8, ptr %.177, i64 6
+  %4707 = getelementptr inbounds nuw i8, ptr %.177, i64 6
   store i8 %4706, ptr %4707, align 1
   %4708 = trunc i64 %4654 to i8
-  %4709 = getelementptr inbounds i8, ptr %.177, i64 7
+  %4709 = getelementptr inbounds nuw i8, ptr %.177, i64 7
   store i8 %4708, ptr %4709, align 1
-  %4710 = getelementptr inbounds i8, ptr %.177, i64 8
+  %4710 = getelementptr inbounds nuw i8, ptr %.177, i64 8
   br label %4711
 
 4711:                                             ; preds = %4689, %4660
@@ -10043,12 +10043,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4724 = xor i32 %4723, -1
   %4725 = and i32 %4625, %4724
   %4726 = zext nneg i32 %4721 to i64
-  %4727 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %4726
+  %4727 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %4726
   %4728 = load i32, ptr %4727, align 4
   %4729 = shl i32 %4728, %4630
   %4730 = or i32 %4729, %4725
-  %4731 = getelementptr inbounds i8, ptr %4, i64 1024
-  %4732 = getelementptr inbounds [256 x i8], ptr %4731, i64 0, i64 %4726
+  %4731 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %4732 = getelementptr inbounds nuw [256 x i8], ptr %4731, i64 0, i64 %4726
   %4733 = load i8, ptr %4732, align 1
   %4734 = sext i8 %4733 to i32
   %4735 = add nsw i32 %4734, %4630
@@ -10073,108 +10073,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12662, label %4779, label %4750
 
 4750:                                             ; preds = %4738
-  %4751 = getelementptr inbounds i8, ptr %.184.lcssa, i64 1
+  %4751 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 1
   store i8 0, ptr %4751, align 1
   %.not12663 = icmp eq i64 %4748, 255
-  %.sroa.gep14204 = getelementptr inbounds i8, ptr %.184.lcssa, i64 2
+  %.sroa.gep14204 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 2
   %.neg12664.sroa.sel = select i1 %.not12663, ptr %.sroa.gep14204, ptr %4751
   %4752 = lshr i64 %4744, 48
   %4753 = trunc i64 %4752 to i8
   store i8 %4753, ptr %.neg12664.sroa.sel, align 1
-  %.sroa.gep15925 = getelementptr inbounds i8, ptr %.184.lcssa, i64 3
+  %.sroa.gep15925 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 3
   %.neg12664.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12663, ptr %.sroa.gep15925, ptr %.sroa.gep14204
   store i8 0, ptr %.neg12664.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4754 = and i64 %4744, 71776119061217280
   %.not12665 = icmp eq i64 %4754, 71776119061217280
   %.neg12666 = select i1 %.not12665, i64 2, i64 1
-  %4755 = getelementptr inbounds i8, ptr %.neg12664.sroa.sel, i64 %.neg12666
+  %4755 = getelementptr inbounds nuw i8, ptr %.neg12664.sroa.sel, i64 %.neg12666
   %4756 = lshr i64 %4744, 40
   %4757 = trunc i64 %4756 to i8
   store i8 %4757, ptr %4755, align 1
-  %4758 = getelementptr inbounds i8, ptr %4755, i64 1
+  %4758 = getelementptr inbounds nuw i8, ptr %4755, i64 1
   store i8 0, ptr %4758, align 1
   %4759 = and i64 %4744, 280375465082880
   %.not12667 = icmp eq i64 %4759, 280375465082880
-  %.sroa.gep14206 = getelementptr inbounds i8, ptr %4755, i64 2
+  %.sroa.gep14206 = getelementptr inbounds nuw i8, ptr %4755, i64 2
   %.neg12668.sroa.sel = select i1 %.not12667, ptr %.sroa.gep14206, ptr %4758
   %4760 = lshr i64 %4744, 32
   %4761 = trunc i64 %4760 to i8
   store i8 %4761, ptr %.neg12668.sroa.sel, align 1
-  %.sroa.gep15931 = getelementptr inbounds i8, ptr %4755, i64 3
+  %.sroa.gep15931 = getelementptr inbounds nuw i8, ptr %4755, i64 3
   %.neg12668.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12667, ptr %.sroa.gep15931, ptr %.sroa.gep14206
   store i8 0, ptr %.neg12668.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4762 = and i64 %4744, 1095216660480
   %.not12669 = icmp eq i64 %4762, 1095216660480
   %.neg12670 = select i1 %.not12669, i64 2, i64 1
-  %4763 = getelementptr inbounds i8, ptr %.neg12668.sroa.sel, i64 %.neg12670
+  %4763 = getelementptr inbounds nuw i8, ptr %.neg12668.sroa.sel, i64 %.neg12670
   %4764 = lshr i64 %4744, 24
   %4765 = trunc i64 %4764 to i8
   store i8 %4765, ptr %4763, align 1
-  %4766 = getelementptr inbounds i8, ptr %4763, i64 1
+  %4766 = getelementptr inbounds nuw i8, ptr %4763, i64 1
   store i8 0, ptr %4766, align 1
   %4767 = and i64 %4744, 4278190080
   %.not12671 = icmp eq i64 %4767, 4278190080
-  %.sroa.gep14208 = getelementptr inbounds i8, ptr %4763, i64 2
+  %.sroa.gep14208 = getelementptr inbounds nuw i8, ptr %4763, i64 2
   %.neg12672.sroa.sel = select i1 %.not12671, ptr %.sroa.gep14208, ptr %4766
   %4768 = lshr i64 %4744, 16
   %4769 = trunc i64 %4768 to i8
   store i8 %4769, ptr %.neg12672.sroa.sel, align 1
-  %.sroa.gep15929 = getelementptr inbounds i8, ptr %4763, i64 3
+  %.sroa.gep15929 = getelementptr inbounds nuw i8, ptr %4763, i64 3
   %.neg12672.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12671, ptr %.sroa.gep15929, ptr %.sroa.gep14208
   store i8 0, ptr %.neg12672.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4770 = and i64 %4744, 16711680
   %.not12673 = icmp eq i64 %4770, 16711680
   %.neg12674 = select i1 %.not12673, i64 2, i64 1
-  %4771 = getelementptr inbounds i8, ptr %.neg12672.sroa.sel, i64 %.neg12674
+  %4771 = getelementptr inbounds nuw i8, ptr %.neg12672.sroa.sel, i64 %.neg12674
   %4772 = lshr i64 %4744, 8
   %4773 = trunc i64 %4772 to i8
   store i8 %4773, ptr %4771, align 1
-  %4774 = getelementptr inbounds i8, ptr %4771, i64 1
+  %4774 = getelementptr inbounds nuw i8, ptr %4771, i64 1
   store i8 0, ptr %4774, align 1
   %4775 = and i64 %4744, 65280
   %.not12675 = icmp eq i64 %4775, 65280
-  %.sroa.gep14210 = getelementptr inbounds i8, ptr %4771, i64 2
+  %.sroa.gep14210 = getelementptr inbounds nuw i8, ptr %4771, i64 2
   %.neg12676.sroa.sel = select i1 %.not12675, ptr %.sroa.gep14210, ptr %4774
   %4776 = trunc i64 %4744 to i8
   store i8 %4776, ptr %.neg12676.sroa.sel, align 1
-  %.sroa.gep15927 = getelementptr inbounds i8, ptr %4771, i64 3
+  %.sroa.gep15927 = getelementptr inbounds nuw i8, ptr %4771, i64 3
   %.neg12676.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12675, ptr %.sroa.gep15927, ptr %.sroa.gep14210
   store i8 0, ptr %.neg12676.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4777 = and i64 %4744, 255
   %.not12677 = icmp eq i64 %4777, 255
   %.neg12678 = select i1 %.not12677, i64 2, i64 1
-  %4778 = getelementptr inbounds i8, ptr %.neg12676.sroa.sel, i64 %.neg12678
+  %4778 = getelementptr inbounds nuw i8, ptr %.neg12676.sroa.sel, i64 %.neg12678
   br label %4801
 
 4779:                                             ; preds = %4738
   %4780 = lshr i64 %4744, 48
   %4781 = trunc i64 %4780 to i8
-  %4782 = getelementptr inbounds i8, ptr %.184.lcssa, i64 1
+  %4782 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 1
   store i8 %4781, ptr %4782, align 1
   %4783 = lshr i64 %4744, 40
   %4784 = trunc i64 %4783 to i8
-  %4785 = getelementptr inbounds i8, ptr %.184.lcssa, i64 2
+  %4785 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 2
   store i8 %4784, ptr %4785, align 1
   %4786 = lshr i64 %4744, 32
   %4787 = trunc i64 %4786 to i8
-  %4788 = getelementptr inbounds i8, ptr %.184.lcssa, i64 3
+  %4788 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 3
   store i8 %4787, ptr %4788, align 1
   %4789 = lshr i64 %4744, 24
   %4790 = trunc i64 %4789 to i8
-  %4791 = getelementptr inbounds i8, ptr %.184.lcssa, i64 4
+  %4791 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 4
   store i8 %4790, ptr %4791, align 1
   %4792 = lshr i64 %4744, 16
   %4793 = trunc i64 %4792 to i8
-  %4794 = getelementptr inbounds i8, ptr %.184.lcssa, i64 5
+  %4794 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 5
   store i8 %4793, ptr %4794, align 1
   %4795 = lshr i64 %4744, 8
   %4796 = trunc i64 %4795 to i8
-  %4797 = getelementptr inbounds i8, ptr %.184.lcssa, i64 6
+  %4797 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 6
   store i8 %4796, ptr %4797, align 1
   %4798 = trunc i64 %4744 to i8
-  %4799 = getelementptr inbounds i8, ptr %.184.lcssa, i64 7
+  %4799 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 7
   store i8 %4798, ptr %4799, align 1
-  %4800 = getelementptr inbounds i8, ptr %.184.lcssa, i64 8
+  %4800 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 8
   br label %4801
 
 4801:                                             ; preds = %4779, %4750
@@ -10195,7 +10195,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.12111161 = phi i64 [ %.11711157, %4620 ], [ %4803, %4801 ], [ %4808, %4804 ]
   %.183 = phi ptr [ %.177, %4620 ], [ %.187, %4801 ], [ %.184.lcssa, %4804 ]
   %.60 = phi i32 [ %4621, %4620 ], [ 0, %4801 ], [ 0, %4804 ]
-  %4810 = getelementptr inbounds i8, ptr %1, i64 70
+  %4810 = getelementptr inbounds nuw i8, ptr %1, i64 70
   %4811 = load i16, ptr %4810, align 2
   %4812 = icmp eq i16 %4811, 0
   br i1 %4812, label %4813, label %4815
@@ -10219,7 +10219,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 4825:                                             ; preds = %4815
   %4826 = load ptr, ptr %7, align 8
   %4827 = load ptr, ptr %4826, align 8
-  %4828 = getelementptr inbounds i8, ptr %4827, i64 40
+  %4828 = getelementptr inbounds nuw i8, ptr %4827, i64 40
   store i32 6, ptr %4828, align 8
   %4829 = load ptr, ptr %7, align 8
   %4830 = load ptr, ptr %4829, align 8
@@ -10232,8 +10232,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %4833, label %.lr.ph14903, label %._crit_edge14904
 
 .lr.ph14903:                                      ; preds = %4832
-  %4834 = getelementptr inbounds i8, ptr %4, i64 1264
-  %4835 = getelementptr inbounds i8, ptr %4, i64 960
+  %4834 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %4835 = getelementptr inbounds nuw i8, ptr %4, i64 960
   %4836 = load i8, ptr %4834, align 4
   %4837 = sext i8 %4836 to i32
   %4838 = sub nsw i32 %.12111415, %4837
@@ -10258,108 +10258,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12714, label %4882, label %4853
 
 4853:                                             ; preds = %4841
-  %4854 = getelementptr inbounds i8, ptr %.183, i64 1
+  %4854 = getelementptr inbounds nuw i8, ptr %.183, i64 1
   store i8 0, ptr %4854, align 1
   %.not12715 = icmp eq i64 %4851, 255
-  %.sroa.gep14212 = getelementptr inbounds i8, ptr %.183, i64 2
+  %.sroa.gep14212 = getelementptr inbounds nuw i8, ptr %.183, i64 2
   %.neg12716.sroa.sel = select i1 %.not12715, ptr %.sroa.gep14212, ptr %4854
   %4855 = lshr i64 %4843, 48
   %4856 = trunc i64 %4855 to i8
   store i8 %4856, ptr %.neg12716.sroa.sel, align 1
-  %.sroa.gep15923 = getelementptr inbounds i8, ptr %.183, i64 3
+  %.sroa.gep15923 = getelementptr inbounds nuw i8, ptr %.183, i64 3
   %.neg12716.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12715, ptr %.sroa.gep15923, ptr %.sroa.gep14212
   store i8 0, ptr %.neg12716.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4857 = and i64 %4843, 71776119061217280
   %.not12717 = icmp eq i64 %4857, 71776119061217280
   %.neg12718 = select i1 %.not12717, i64 2, i64 1
-  %4858 = getelementptr inbounds i8, ptr %.neg12716.sroa.sel, i64 %.neg12718
+  %4858 = getelementptr inbounds nuw i8, ptr %.neg12716.sroa.sel, i64 %.neg12718
   %4859 = lshr i64 %4843, 40
   %4860 = trunc i64 %4859 to i8
   store i8 %4860, ptr %4858, align 1
-  %4861 = getelementptr inbounds i8, ptr %4858, i64 1
+  %4861 = getelementptr inbounds nuw i8, ptr %4858, i64 1
   store i8 0, ptr %4861, align 1
   %4862 = and i64 %4843, 280375465082880
   %.not12719 = icmp eq i64 %4862, 280375465082880
-  %.sroa.gep14214 = getelementptr inbounds i8, ptr %4858, i64 2
+  %.sroa.gep14214 = getelementptr inbounds nuw i8, ptr %4858, i64 2
   %.neg12720.sroa.sel = select i1 %.not12719, ptr %.sroa.gep14214, ptr %4861
   %4863 = lshr i64 %4843, 32
   %4864 = trunc i64 %4863 to i8
   store i8 %4864, ptr %.neg12720.sroa.sel, align 1
-  %.sroa.gep15921 = getelementptr inbounds i8, ptr %4858, i64 3
+  %.sroa.gep15921 = getelementptr inbounds nuw i8, ptr %4858, i64 3
   %.neg12720.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12719, ptr %.sroa.gep15921, ptr %.sroa.gep14214
   store i8 0, ptr %.neg12720.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4865 = and i64 %4843, 1095216660480
   %.not12721 = icmp eq i64 %4865, 1095216660480
   %.neg12722 = select i1 %.not12721, i64 2, i64 1
-  %4866 = getelementptr inbounds i8, ptr %.neg12720.sroa.sel, i64 %.neg12722
+  %4866 = getelementptr inbounds nuw i8, ptr %.neg12720.sroa.sel, i64 %.neg12722
   %4867 = lshr i64 %4847, 24
   %4868 = trunc i64 %4867 to i8
   store i8 %4868, ptr %4866, align 1
-  %4869 = getelementptr inbounds i8, ptr %4866, i64 1
+  %4869 = getelementptr inbounds nuw i8, ptr %4866, i64 1
   store i8 0, ptr %4869, align 1
   %4870 = and i64 %4847, 4278190080
   %.not12723 = icmp eq i64 %4870, 4278190080
-  %.sroa.gep14216 = getelementptr inbounds i8, ptr %4866, i64 2
+  %.sroa.gep14216 = getelementptr inbounds nuw i8, ptr %4866, i64 2
   %.neg12724.sroa.sel = select i1 %.not12723, ptr %.sroa.gep14216, ptr %4869
   %4871 = lshr i64 %4847, 16
   %4872 = trunc i64 %4871 to i8
   store i8 %4872, ptr %.neg12724.sroa.sel, align 1
-  %.sroa.gep15919 = getelementptr inbounds i8, ptr %4866, i64 3
+  %.sroa.gep15919 = getelementptr inbounds nuw i8, ptr %4866, i64 3
   %.neg12724.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12723, ptr %.sroa.gep15919, ptr %.sroa.gep14216
   store i8 0, ptr %.neg12724.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4873 = and i64 %4847, 16711680
   %.not12725 = icmp eq i64 %4873, 16711680
   %.neg12726 = select i1 %.not12725, i64 2, i64 1
-  %4874 = getelementptr inbounds i8, ptr %.neg12724.sroa.sel, i64 %.neg12726
+  %4874 = getelementptr inbounds nuw i8, ptr %.neg12724.sroa.sel, i64 %.neg12726
   %4875 = lshr i64 %4847, 8
   %4876 = trunc i64 %4875 to i8
   store i8 %4876, ptr %4874, align 1
-  %4877 = getelementptr inbounds i8, ptr %4874, i64 1
+  %4877 = getelementptr inbounds nuw i8, ptr %4874, i64 1
   store i8 0, ptr %4877, align 1
   %4878 = and i64 %4847, 65280
   %.not12727 = icmp eq i64 %4878, 65280
-  %.sroa.gep14218 = getelementptr inbounds i8, ptr %4874, i64 2
+  %.sroa.gep14218 = getelementptr inbounds nuw i8, ptr %4874, i64 2
   %.neg12728.sroa.sel = select i1 %.not12727, ptr %.sroa.gep14218, ptr %4877
   %4879 = trunc i64 %4847 to i8
   store i8 %4879, ptr %.neg12728.sroa.sel, align 1
-  %.sroa.gep15917 = getelementptr inbounds i8, ptr %4874, i64 3
+  %.sroa.gep15917 = getelementptr inbounds nuw i8, ptr %4874, i64 3
   %.neg12728.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12727, ptr %.sroa.gep15917, ptr %.sroa.gep14218
   store i8 0, ptr %.neg12728.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4880 = and i64 %4847, 255
   %.not12729 = icmp eq i64 %4880, 255
   %.neg12730 = select i1 %.not12729, i64 2, i64 1
-  %4881 = getelementptr inbounds i8, ptr %.neg12728.sroa.sel, i64 %.neg12730
+  %4881 = getelementptr inbounds nuw i8, ptr %.neg12728.sroa.sel, i64 %.neg12730
   br label %4904
 
 4882:                                             ; preds = %4841
   %4883 = lshr i64 %4843, 48
   %4884 = trunc i64 %4883 to i8
-  %4885 = getelementptr inbounds i8, ptr %.183, i64 1
+  %4885 = getelementptr inbounds nuw i8, ptr %.183, i64 1
   store i8 %4884, ptr %4885, align 1
   %4886 = lshr i64 %4843, 40
   %4887 = trunc i64 %4886 to i8
-  %4888 = getelementptr inbounds i8, ptr %.183, i64 2
+  %4888 = getelementptr inbounds nuw i8, ptr %.183, i64 2
   store i8 %4887, ptr %4888, align 1
   %4889 = lshr i64 %4843, 32
   %4890 = trunc i64 %4889 to i8
-  %4891 = getelementptr inbounds i8, ptr %.183, i64 3
+  %4891 = getelementptr inbounds nuw i8, ptr %.183, i64 3
   store i8 %4890, ptr %4891, align 1
   %4892 = lshr i64 %4847, 24
   %4893 = trunc i64 %4892 to i8
-  %4894 = getelementptr inbounds i8, ptr %.183, i64 4
+  %4894 = getelementptr inbounds nuw i8, ptr %.183, i64 4
   store i8 %4893, ptr %4894, align 1
   %4895 = lshr i64 %4847, 16
   %4896 = trunc i64 %4895 to i8
-  %4897 = getelementptr inbounds i8, ptr %.183, i64 5
+  %4897 = getelementptr inbounds nuw i8, ptr %.183, i64 5
   store i8 %4896, ptr %4897, align 1
   %4898 = lshr i64 %4847, 8
   %4899 = trunc i64 %4898 to i8
-  %4900 = getelementptr inbounds i8, ptr %.183, i64 6
+  %4900 = getelementptr inbounds nuw i8, ptr %.183, i64 6
   store i8 %4899, ptr %4900, align 1
   %4901 = trunc i64 %4847 to i8
-  %4902 = getelementptr inbounds i8, ptr %.183, i64 7
+  %4902 = getelementptr inbounds nuw i8, ptr %.183, i64 7
   store i8 %4901, ptr %4902, align 1
-  %4903 = getelementptr inbounds i8, ptr %.183, i64 8
+  %4903 = getelementptr inbounds nuw i8, ptr %.183, i64 8
   br label %4904
 
 4904:                                             ; preds = %4882, %4853
@@ -10395,12 +10395,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %4917 = xor i32 %4916, -1
   %4918 = and i32 %4818, %4917
   %4919 = zext nneg i32 %4914 to i64
-  %4920 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %4919
+  %4920 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %4919
   %4921 = load i32, ptr %4920, align 4
   %4922 = shl i32 %4921, %4823
   %4923 = or i32 %4922, %4918
-  %4924 = getelementptr inbounds i8, ptr %4, i64 1024
-  %4925 = getelementptr inbounds [256 x i8], ptr %4924, i64 0, i64 %4919
+  %4924 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %4925 = getelementptr inbounds nuw [256 x i8], ptr %4924, i64 0, i64 %4919
   %4926 = load i8, ptr %4925, align 1
   %4927 = sext i8 %4926 to i32
   %4928 = add nsw i32 %4927, %4823
@@ -10425,108 +10425,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12697, label %4972, label %4943
 
 4943:                                             ; preds = %4931
-  %4944 = getelementptr inbounds i8, ptr %.190.lcssa, i64 1
+  %4944 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 1
   store i8 0, ptr %4944, align 1
   %.not12698 = icmp eq i64 %4941, 255
-  %.sroa.gep14220 = getelementptr inbounds i8, ptr %.190.lcssa, i64 2
+  %.sroa.gep14220 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 2
   %.neg12699.sroa.sel = select i1 %.not12698, ptr %.sroa.gep14220, ptr %4944
   %4945 = lshr i64 %4937, 48
   %4946 = trunc i64 %4945 to i8
   store i8 %4946, ptr %.neg12699.sroa.sel, align 1
-  %.sroa.gep15909 = getelementptr inbounds i8, ptr %.190.lcssa, i64 3
+  %.sroa.gep15909 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 3
   %.neg12699.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12698, ptr %.sroa.gep15909, ptr %.sroa.gep14220
   store i8 0, ptr %.neg12699.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4947 = and i64 %4937, 71776119061217280
   %.not12700 = icmp eq i64 %4947, 71776119061217280
   %.neg12701 = select i1 %.not12700, i64 2, i64 1
-  %4948 = getelementptr inbounds i8, ptr %.neg12699.sroa.sel, i64 %.neg12701
+  %4948 = getelementptr inbounds nuw i8, ptr %.neg12699.sroa.sel, i64 %.neg12701
   %4949 = lshr i64 %4937, 40
   %4950 = trunc i64 %4949 to i8
   store i8 %4950, ptr %4948, align 1
-  %4951 = getelementptr inbounds i8, ptr %4948, i64 1
+  %4951 = getelementptr inbounds nuw i8, ptr %4948, i64 1
   store i8 0, ptr %4951, align 1
   %4952 = and i64 %4937, 280375465082880
   %.not12702 = icmp eq i64 %4952, 280375465082880
-  %.sroa.gep14222 = getelementptr inbounds i8, ptr %4948, i64 2
+  %.sroa.gep14222 = getelementptr inbounds nuw i8, ptr %4948, i64 2
   %.neg12703.sroa.sel = select i1 %.not12702, ptr %.sroa.gep14222, ptr %4951
   %4953 = lshr i64 %4937, 32
   %4954 = trunc i64 %4953 to i8
   store i8 %4954, ptr %.neg12703.sroa.sel, align 1
-  %.sroa.gep15915 = getelementptr inbounds i8, ptr %4948, i64 3
+  %.sroa.gep15915 = getelementptr inbounds nuw i8, ptr %4948, i64 3
   %.neg12703.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12702, ptr %.sroa.gep15915, ptr %.sroa.gep14222
   store i8 0, ptr %.neg12703.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4955 = and i64 %4937, 1095216660480
   %.not12704 = icmp eq i64 %4955, 1095216660480
   %.neg12705 = select i1 %.not12704, i64 2, i64 1
-  %4956 = getelementptr inbounds i8, ptr %.neg12703.sroa.sel, i64 %.neg12705
+  %4956 = getelementptr inbounds nuw i8, ptr %.neg12703.sroa.sel, i64 %.neg12705
   %4957 = lshr i64 %4937, 24
   %4958 = trunc i64 %4957 to i8
   store i8 %4958, ptr %4956, align 1
-  %4959 = getelementptr inbounds i8, ptr %4956, i64 1
+  %4959 = getelementptr inbounds nuw i8, ptr %4956, i64 1
   store i8 0, ptr %4959, align 1
   %4960 = and i64 %4937, 4278190080
   %.not12706 = icmp eq i64 %4960, 4278190080
-  %.sroa.gep14224 = getelementptr inbounds i8, ptr %4956, i64 2
+  %.sroa.gep14224 = getelementptr inbounds nuw i8, ptr %4956, i64 2
   %.neg12707.sroa.sel = select i1 %.not12706, ptr %.sroa.gep14224, ptr %4959
   %4961 = lshr i64 %4937, 16
   %4962 = trunc i64 %4961 to i8
   store i8 %4962, ptr %.neg12707.sroa.sel, align 1
-  %.sroa.gep15913 = getelementptr inbounds i8, ptr %4956, i64 3
+  %.sroa.gep15913 = getelementptr inbounds nuw i8, ptr %4956, i64 3
   %.neg12707.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12706, ptr %.sroa.gep15913, ptr %.sroa.gep14224
   store i8 0, ptr %.neg12707.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4963 = and i64 %4937, 16711680
   %.not12708 = icmp eq i64 %4963, 16711680
   %.neg12709 = select i1 %.not12708, i64 2, i64 1
-  %4964 = getelementptr inbounds i8, ptr %.neg12707.sroa.sel, i64 %.neg12709
+  %4964 = getelementptr inbounds nuw i8, ptr %.neg12707.sroa.sel, i64 %.neg12709
   %4965 = lshr i64 %4937, 8
   %4966 = trunc i64 %4965 to i8
   store i8 %4966, ptr %4964, align 1
-  %4967 = getelementptr inbounds i8, ptr %4964, i64 1
+  %4967 = getelementptr inbounds nuw i8, ptr %4964, i64 1
   store i8 0, ptr %4967, align 1
   %4968 = and i64 %4937, 65280
   %.not12710 = icmp eq i64 %4968, 65280
-  %.sroa.gep14226 = getelementptr inbounds i8, ptr %4964, i64 2
+  %.sroa.gep14226 = getelementptr inbounds nuw i8, ptr %4964, i64 2
   %.neg12711.sroa.sel = select i1 %.not12710, ptr %.sroa.gep14226, ptr %4967
   %4969 = trunc i64 %4937 to i8
   store i8 %4969, ptr %.neg12711.sroa.sel, align 1
-  %.sroa.gep15911 = getelementptr inbounds i8, ptr %4964, i64 3
+  %.sroa.gep15911 = getelementptr inbounds nuw i8, ptr %4964, i64 3
   %.neg12711.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12710, ptr %.sroa.gep15911, ptr %.sroa.gep14226
   store i8 0, ptr %.neg12711.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %4970 = and i64 %4937, 255
   %.not12712 = icmp eq i64 %4970, 255
   %.neg12713 = select i1 %.not12712, i64 2, i64 1
-  %4971 = getelementptr inbounds i8, ptr %.neg12711.sroa.sel, i64 %.neg12713
+  %4971 = getelementptr inbounds nuw i8, ptr %.neg12711.sroa.sel, i64 %.neg12713
   br label %4994
 
 4972:                                             ; preds = %4931
   %4973 = lshr i64 %4937, 48
   %4974 = trunc i64 %4973 to i8
-  %4975 = getelementptr inbounds i8, ptr %.190.lcssa, i64 1
+  %4975 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 1
   store i8 %4974, ptr %4975, align 1
   %4976 = lshr i64 %4937, 40
   %4977 = trunc i64 %4976 to i8
-  %4978 = getelementptr inbounds i8, ptr %.190.lcssa, i64 2
+  %4978 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 2
   store i8 %4977, ptr %4978, align 1
   %4979 = lshr i64 %4937, 32
   %4980 = trunc i64 %4979 to i8
-  %4981 = getelementptr inbounds i8, ptr %.190.lcssa, i64 3
+  %4981 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 3
   store i8 %4980, ptr %4981, align 1
   %4982 = lshr i64 %4937, 24
   %4983 = trunc i64 %4982 to i8
-  %4984 = getelementptr inbounds i8, ptr %.190.lcssa, i64 4
+  %4984 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 4
   store i8 %4983, ptr %4984, align 1
   %4985 = lshr i64 %4937, 16
   %4986 = trunc i64 %4985 to i8
-  %4987 = getelementptr inbounds i8, ptr %.190.lcssa, i64 5
+  %4987 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 5
   store i8 %4986, ptr %4987, align 1
   %4988 = lshr i64 %4937, 8
   %4989 = trunc i64 %4988 to i8
-  %4990 = getelementptr inbounds i8, ptr %.190.lcssa, i64 6
+  %4990 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 6
   store i8 %4989, ptr %4990, align 1
   %4991 = trunc i64 %4937 to i8
-  %4992 = getelementptr inbounds i8, ptr %.190.lcssa, i64 7
+  %4992 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 7
   store i8 %4991, ptr %4992, align 1
-  %4993 = getelementptr inbounds i8, ptr %.190.lcssa, i64 8
+  %4993 = getelementptr inbounds nuw i8, ptr %.190.lcssa, i64 8
   br label %4994
 
 4994:                                             ; preds = %4972, %4943
@@ -10547,7 +10547,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.12511165 = phi i64 [ %.12111161, %4813 ], [ %4996, %4994 ], [ %5001, %4997 ]
   %.189 = phi ptr [ %.183, %4813 ], [ %.193, %4994 ], [ %.190.lcssa, %4997 ]
   %.62 = phi i32 [ %4814, %4813 ], [ 0, %4994 ], [ 0, %4997 ]
-  %5003 = getelementptr inbounds i8, ptr %1, i64 84
+  %5003 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %5004 = load i16, ptr %5003, align 2
   %5005 = icmp eq i16 %5004, 0
   br i1 %5005, label %5006, label %5008
@@ -10571,7 +10571,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 5018:                                             ; preds = %5008
   %5019 = load ptr, ptr %7, align 8
   %5020 = load ptr, ptr %5019, align 8
-  %5021 = getelementptr inbounds i8, ptr %5020, i64 40
+  %5021 = getelementptr inbounds nuw i8, ptr %5020, i64 40
   store i32 6, ptr %5021, align 8
   %5022 = load ptr, ptr %7, align 8
   %5023 = load ptr, ptr %5022, align 8
@@ -10584,8 +10584,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %5026, label %.lr.ph14914, label %._crit_edge14915
 
 .lr.ph14914:                                      ; preds = %5025
-  %5027 = getelementptr inbounds i8, ptr %4, i64 1264
-  %5028 = getelementptr inbounds i8, ptr %4, i64 960
+  %5027 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %5028 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %5029
 
 5029:                                             ; preds = %.lr.ph14914, %5108
@@ -10618,108 +10618,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12749, label %5077, label %5048
 
 5048:                                             ; preds = %5036
-  %5049 = getelementptr inbounds i8, ptr %.19614911, i64 1
+  %5049 = getelementptr inbounds nuw i8, ptr %.19614911, i64 1
   store i8 0, ptr %5049, align 1
   %.not12750 = icmp eq i64 %5046, 255
-  %.sroa.gep14228 = getelementptr inbounds i8, ptr %.19614911, i64 2
+  %.sroa.gep14228 = getelementptr inbounds nuw i8, ptr %.19614911, i64 2
   %.neg12751.sroa.sel = select i1 %.not12750, ptr %.sroa.gep14228, ptr %5049
   %5050 = lshr i64 %5038, 48
   %5051 = trunc i64 %5050 to i8
   store i8 %5051, ptr %.neg12751.sroa.sel, align 1
-  %.sroa.gep15893 = getelementptr inbounds i8, ptr %.19614911, i64 3
+  %.sroa.gep15893 = getelementptr inbounds nuw i8, ptr %.19614911, i64 3
   %.neg12751.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12750, ptr %.sroa.gep15893, ptr %.sroa.gep14228
   store i8 0, ptr %.neg12751.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5052 = and i64 %5038, 71776119061217280
   %.not12752 = icmp eq i64 %5052, 71776119061217280
   %.neg12753 = select i1 %.not12752, i64 2, i64 1
-  %5053 = getelementptr inbounds i8, ptr %.neg12751.sroa.sel, i64 %.neg12753
+  %5053 = getelementptr inbounds nuw i8, ptr %.neg12751.sroa.sel, i64 %.neg12753
   %5054 = lshr i64 %5038, 40
   %5055 = trunc i64 %5054 to i8
   store i8 %5055, ptr %5053, align 1
-  %5056 = getelementptr inbounds i8, ptr %5053, i64 1
+  %5056 = getelementptr inbounds nuw i8, ptr %5053, i64 1
   store i8 0, ptr %5056, align 1
   %5057 = and i64 %5038, 280375465082880
   %.not12754 = icmp eq i64 %5057, 280375465082880
-  %.sroa.gep14230 = getelementptr inbounds i8, ptr %5053, i64 2
+  %.sroa.gep14230 = getelementptr inbounds nuw i8, ptr %5053, i64 2
   %.neg12755.sroa.sel = select i1 %.not12754, ptr %.sroa.gep14230, ptr %5056
   %5058 = lshr i64 %5038, 32
   %5059 = trunc i64 %5058 to i8
   store i8 %5059, ptr %.neg12755.sroa.sel, align 1
-  %.sroa.gep15899 = getelementptr inbounds i8, ptr %5053, i64 3
+  %.sroa.gep15899 = getelementptr inbounds nuw i8, ptr %5053, i64 3
   %.neg12755.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12754, ptr %.sroa.gep15899, ptr %.sroa.gep14230
   store i8 0, ptr %.neg12755.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5060 = and i64 %5038, 1095216660480
   %.not12756 = icmp eq i64 %5060, 1095216660480
   %.neg12757 = select i1 %.not12756, i64 2, i64 1
-  %5061 = getelementptr inbounds i8, ptr %.neg12755.sroa.sel, i64 %.neg12757
+  %5061 = getelementptr inbounds nuw i8, ptr %.neg12755.sroa.sel, i64 %.neg12757
   %5062 = lshr i64 %5042, 24
   %5063 = trunc i64 %5062 to i8
   store i8 %5063, ptr %5061, align 1
-  %5064 = getelementptr inbounds i8, ptr %5061, i64 1
+  %5064 = getelementptr inbounds nuw i8, ptr %5061, i64 1
   store i8 0, ptr %5064, align 1
   %5065 = and i64 %5042, 4278190080
   %.not12758 = icmp eq i64 %5065, 4278190080
-  %.sroa.gep14232 = getelementptr inbounds i8, ptr %5061, i64 2
+  %.sroa.gep14232 = getelementptr inbounds nuw i8, ptr %5061, i64 2
   %.neg12759.sroa.sel = select i1 %.not12758, ptr %.sroa.gep14232, ptr %5064
   %5066 = lshr i64 %5042, 16
   %5067 = trunc i64 %5066 to i8
   store i8 %5067, ptr %.neg12759.sroa.sel, align 1
-  %.sroa.gep15897 = getelementptr inbounds i8, ptr %5061, i64 3
+  %.sroa.gep15897 = getelementptr inbounds nuw i8, ptr %5061, i64 3
   %.neg12759.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12758, ptr %.sroa.gep15897, ptr %.sroa.gep14232
   store i8 0, ptr %.neg12759.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5068 = and i64 %5042, 16711680
   %.not12760 = icmp eq i64 %5068, 16711680
   %.neg12761 = select i1 %.not12760, i64 2, i64 1
-  %5069 = getelementptr inbounds i8, ptr %.neg12759.sroa.sel, i64 %.neg12761
+  %5069 = getelementptr inbounds nuw i8, ptr %.neg12759.sroa.sel, i64 %.neg12761
   %5070 = lshr i64 %5042, 8
   %5071 = trunc i64 %5070 to i8
   store i8 %5071, ptr %5069, align 1
-  %5072 = getelementptr inbounds i8, ptr %5069, i64 1
+  %5072 = getelementptr inbounds nuw i8, ptr %5069, i64 1
   store i8 0, ptr %5072, align 1
   %5073 = and i64 %5042, 65280
   %.not12762 = icmp eq i64 %5073, 65280
-  %.sroa.gep14234 = getelementptr inbounds i8, ptr %5069, i64 2
+  %.sroa.gep14234 = getelementptr inbounds nuw i8, ptr %5069, i64 2
   %.neg12763.sroa.sel = select i1 %.not12762, ptr %.sroa.gep14234, ptr %5072
   %5074 = trunc i64 %5042 to i8
   store i8 %5074, ptr %.neg12763.sroa.sel, align 1
-  %.sroa.gep15895 = getelementptr inbounds i8, ptr %5069, i64 3
+  %.sroa.gep15895 = getelementptr inbounds nuw i8, ptr %5069, i64 3
   %.neg12763.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12762, ptr %.sroa.gep15895, ptr %.sroa.gep14234
   store i8 0, ptr %.neg12763.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5075 = and i64 %5042, 255
   %.not12764 = icmp eq i64 %5075, 255
   %.neg12765 = select i1 %.not12764, i64 2, i64 1
-  %5076 = getelementptr inbounds i8, ptr %.neg12763.sroa.sel, i64 %.neg12765
+  %5076 = getelementptr inbounds nuw i8, ptr %.neg12763.sroa.sel, i64 %.neg12765
   br label %5099
 
 5077:                                             ; preds = %5036
   %5078 = lshr i64 %5038, 48
   %5079 = trunc i64 %5078 to i8
-  %5080 = getelementptr inbounds i8, ptr %.19614911, i64 1
+  %5080 = getelementptr inbounds nuw i8, ptr %.19614911, i64 1
   store i8 %5079, ptr %5080, align 1
   %5081 = lshr i64 %5038, 40
   %5082 = trunc i64 %5081 to i8
-  %5083 = getelementptr inbounds i8, ptr %.19614911, i64 2
+  %5083 = getelementptr inbounds nuw i8, ptr %.19614911, i64 2
   store i8 %5082, ptr %5083, align 1
   %5084 = lshr i64 %5038, 32
   %5085 = trunc i64 %5084 to i8
-  %5086 = getelementptr inbounds i8, ptr %.19614911, i64 3
+  %5086 = getelementptr inbounds nuw i8, ptr %.19614911, i64 3
   store i8 %5085, ptr %5086, align 1
   %5087 = lshr i64 %5042, 24
   %5088 = trunc i64 %5087 to i8
-  %5089 = getelementptr inbounds i8, ptr %.19614911, i64 4
+  %5089 = getelementptr inbounds nuw i8, ptr %.19614911, i64 4
   store i8 %5088, ptr %5089, align 1
   %5090 = lshr i64 %5042, 16
   %5091 = trunc i64 %5090 to i8
-  %5092 = getelementptr inbounds i8, ptr %.19614911, i64 5
+  %5092 = getelementptr inbounds nuw i8, ptr %.19614911, i64 5
   store i8 %5091, ptr %5092, align 1
   %5093 = lshr i64 %5042, 8
   %5094 = trunc i64 %5093 to i8
-  %5095 = getelementptr inbounds i8, ptr %.19614911, i64 6
+  %5095 = getelementptr inbounds nuw i8, ptr %.19614911, i64 6
   store i8 %5094, ptr %5095, align 1
   %5096 = trunc i64 %5042 to i8
-  %5097 = getelementptr inbounds i8, ptr %.19614911, i64 7
+  %5097 = getelementptr inbounds nuw i8, ptr %.19614911, i64 7
   store i8 %5096, ptr %5097, align 1
-  %5098 = getelementptr inbounds i8, ptr %.19614911, i64 8
+  %5098 = getelementptr inbounds nuw i8, ptr %.19614911, i64 8
   br label %5099
 
 5099:                                             ; preds = %5077, %5048
@@ -10755,12 +10755,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5113 = xor i32 %5112, -1
   %5114 = and i32 %5011, %5113
   %5115 = zext nneg i32 %5110 to i64
-  %5116 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %5115
+  %5116 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %5115
   %5117 = load i32, ptr %5116, align 4
   %5118 = shl i32 %5117, %5016
   %5119 = or i32 %5118, %5114
-  %5120 = getelementptr inbounds i8, ptr %4, i64 1024
-  %5121 = getelementptr inbounds [256 x i8], ptr %5120, i64 0, i64 %5115
+  %5120 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %5121 = getelementptr inbounds nuw [256 x i8], ptr %5120, i64 0, i64 %5115
   %5122 = load i8, ptr %5121, align 1
   %5123 = sext i8 %5122 to i32
   %5124 = add nsw i32 %5123, %5016
@@ -10785,108 +10785,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12732, label %5168, label %5139
 
 5139:                                             ; preds = %5127
-  %5140 = getelementptr inbounds i8, ptr %.196.lcssa, i64 1
+  %5140 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 1
   store i8 0, ptr %5140, align 1
   %.not12733 = icmp eq i64 %5137, 255
-  %.sroa.gep14236 = getelementptr inbounds i8, ptr %.196.lcssa, i64 2
+  %.sroa.gep14236 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 2
   %.neg12734.sroa.sel = select i1 %.not12733, ptr %.sroa.gep14236, ptr %5140
   %5141 = lshr i64 %5133, 48
   %5142 = trunc i64 %5141 to i8
   store i8 %5142, ptr %.neg12734.sroa.sel, align 1
-  %.sroa.gep15901 = getelementptr inbounds i8, ptr %.196.lcssa, i64 3
+  %.sroa.gep15901 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 3
   %.neg12734.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12733, ptr %.sroa.gep15901, ptr %.sroa.gep14236
   store i8 0, ptr %.neg12734.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5143 = and i64 %5133, 71776119061217280
   %.not12735 = icmp eq i64 %5143, 71776119061217280
   %.neg12736 = select i1 %.not12735, i64 2, i64 1
-  %5144 = getelementptr inbounds i8, ptr %.neg12734.sroa.sel, i64 %.neg12736
+  %5144 = getelementptr inbounds nuw i8, ptr %.neg12734.sroa.sel, i64 %.neg12736
   %5145 = lshr i64 %5133, 40
   %5146 = trunc i64 %5145 to i8
   store i8 %5146, ptr %5144, align 1
-  %5147 = getelementptr inbounds i8, ptr %5144, i64 1
+  %5147 = getelementptr inbounds nuw i8, ptr %5144, i64 1
   store i8 0, ptr %5147, align 1
   %5148 = and i64 %5133, 280375465082880
   %.not12737 = icmp eq i64 %5148, 280375465082880
-  %.sroa.gep14238 = getelementptr inbounds i8, ptr %5144, i64 2
+  %.sroa.gep14238 = getelementptr inbounds nuw i8, ptr %5144, i64 2
   %.neg12738.sroa.sel = select i1 %.not12737, ptr %.sroa.gep14238, ptr %5147
   %5149 = lshr i64 %5133, 32
   %5150 = trunc i64 %5149 to i8
   store i8 %5150, ptr %.neg12738.sroa.sel, align 1
-  %.sroa.gep15907 = getelementptr inbounds i8, ptr %5144, i64 3
+  %.sroa.gep15907 = getelementptr inbounds nuw i8, ptr %5144, i64 3
   %.neg12738.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12737, ptr %.sroa.gep15907, ptr %.sroa.gep14238
   store i8 0, ptr %.neg12738.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5151 = and i64 %5133, 1095216660480
   %.not12739 = icmp eq i64 %5151, 1095216660480
   %.neg12740 = select i1 %.not12739, i64 2, i64 1
-  %5152 = getelementptr inbounds i8, ptr %.neg12738.sroa.sel, i64 %.neg12740
+  %5152 = getelementptr inbounds nuw i8, ptr %.neg12738.sroa.sel, i64 %.neg12740
   %5153 = lshr i64 %5133, 24
   %5154 = trunc i64 %5153 to i8
   store i8 %5154, ptr %5152, align 1
-  %5155 = getelementptr inbounds i8, ptr %5152, i64 1
+  %5155 = getelementptr inbounds nuw i8, ptr %5152, i64 1
   store i8 0, ptr %5155, align 1
   %5156 = and i64 %5133, 4278190080
   %.not12741 = icmp eq i64 %5156, 4278190080
-  %.sroa.gep14240 = getelementptr inbounds i8, ptr %5152, i64 2
+  %.sroa.gep14240 = getelementptr inbounds nuw i8, ptr %5152, i64 2
   %.neg12742.sroa.sel = select i1 %.not12741, ptr %.sroa.gep14240, ptr %5155
   %5157 = lshr i64 %5133, 16
   %5158 = trunc i64 %5157 to i8
   store i8 %5158, ptr %.neg12742.sroa.sel, align 1
-  %.sroa.gep15905 = getelementptr inbounds i8, ptr %5152, i64 3
+  %.sroa.gep15905 = getelementptr inbounds nuw i8, ptr %5152, i64 3
   %.neg12742.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12741, ptr %.sroa.gep15905, ptr %.sroa.gep14240
   store i8 0, ptr %.neg12742.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5159 = and i64 %5133, 16711680
   %.not12743 = icmp eq i64 %5159, 16711680
   %.neg12744 = select i1 %.not12743, i64 2, i64 1
-  %5160 = getelementptr inbounds i8, ptr %.neg12742.sroa.sel, i64 %.neg12744
+  %5160 = getelementptr inbounds nuw i8, ptr %.neg12742.sroa.sel, i64 %.neg12744
   %5161 = lshr i64 %5133, 8
   %5162 = trunc i64 %5161 to i8
   store i8 %5162, ptr %5160, align 1
-  %5163 = getelementptr inbounds i8, ptr %5160, i64 1
+  %5163 = getelementptr inbounds nuw i8, ptr %5160, i64 1
   store i8 0, ptr %5163, align 1
   %5164 = and i64 %5133, 65280
   %.not12745 = icmp eq i64 %5164, 65280
-  %.sroa.gep14242 = getelementptr inbounds i8, ptr %5160, i64 2
+  %.sroa.gep14242 = getelementptr inbounds nuw i8, ptr %5160, i64 2
   %.neg12746.sroa.sel = select i1 %.not12745, ptr %.sroa.gep14242, ptr %5163
   %5165 = trunc i64 %5133 to i8
   store i8 %5165, ptr %.neg12746.sroa.sel, align 1
-  %.sroa.gep15903 = getelementptr inbounds i8, ptr %5160, i64 3
+  %.sroa.gep15903 = getelementptr inbounds nuw i8, ptr %5160, i64 3
   %.neg12746.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12745, ptr %.sroa.gep15903, ptr %.sroa.gep14242
   store i8 0, ptr %.neg12746.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5166 = and i64 %5133, 255
   %.not12747 = icmp eq i64 %5166, 255
   %.neg12748 = select i1 %.not12747, i64 2, i64 1
-  %5167 = getelementptr inbounds i8, ptr %.neg12746.sroa.sel, i64 %.neg12748
+  %5167 = getelementptr inbounds nuw i8, ptr %.neg12746.sroa.sel, i64 %.neg12748
   br label %5190
 
 5168:                                             ; preds = %5127
   %5169 = lshr i64 %5133, 48
   %5170 = trunc i64 %5169 to i8
-  %5171 = getelementptr inbounds i8, ptr %.196.lcssa, i64 1
+  %5171 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 1
   store i8 %5170, ptr %5171, align 1
   %5172 = lshr i64 %5133, 40
   %5173 = trunc i64 %5172 to i8
-  %5174 = getelementptr inbounds i8, ptr %.196.lcssa, i64 2
+  %5174 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 2
   store i8 %5173, ptr %5174, align 1
   %5175 = lshr i64 %5133, 32
   %5176 = trunc i64 %5175 to i8
-  %5177 = getelementptr inbounds i8, ptr %.196.lcssa, i64 3
+  %5177 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 3
   store i8 %5176, ptr %5177, align 1
   %5178 = lshr i64 %5133, 24
   %5179 = trunc i64 %5178 to i8
-  %5180 = getelementptr inbounds i8, ptr %.196.lcssa, i64 4
+  %5180 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 4
   store i8 %5179, ptr %5180, align 1
   %5181 = lshr i64 %5133, 16
   %5182 = trunc i64 %5181 to i8
-  %5183 = getelementptr inbounds i8, ptr %.196.lcssa, i64 5
+  %5183 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 5
   store i8 %5182, ptr %5183, align 1
   %5184 = lshr i64 %5133, 8
   %5185 = trunc i64 %5184 to i8
-  %5186 = getelementptr inbounds i8, ptr %.196.lcssa, i64 6
+  %5186 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 6
   store i8 %5185, ptr %5186, align 1
   %5187 = trunc i64 %5133 to i8
-  %5188 = getelementptr inbounds i8, ptr %.196.lcssa, i64 7
+  %5188 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 7
   store i8 %5187, ptr %5188, align 1
-  %5189 = getelementptr inbounds i8, ptr %.196.lcssa, i64 8
+  %5189 = getelementptr inbounds nuw i8, ptr %.196.lcssa, i64 8
   br label %5190
 
 5190:                                             ; preds = %5168, %5139
@@ -10907,7 +10907,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.12911169 = phi i64 [ %.12511165, %5006 ], [ %5192, %5190 ], [ %5197, %5193 ]
   %.195 = phi ptr [ %.189, %5006 ], [ %.199, %5190 ], [ %.196.lcssa, %5193 ]
   %.64 = phi i32 [ %5007, %5006 ], [ 0, %5190 ], [ 0, %5193 ]
-  %5199 = getelementptr inbounds i8, ptr %1, i64 98
+  %5199 = getelementptr inbounds nuw i8, ptr %1, i64 98
   %5200 = load i16, ptr %5199, align 2
   %5201 = icmp eq i16 %5200, 0
   br i1 %5201, label %5202, label %5204
@@ -10931,7 +10931,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 5214:                                             ; preds = %5204
   %5215 = load ptr, ptr %7, align 8
   %5216 = load ptr, ptr %5215, align 8
-  %5217 = getelementptr inbounds i8, ptr %5216, i64 40
+  %5217 = getelementptr inbounds nuw i8, ptr %5216, i64 40
   store i32 6, ptr %5217, align 8
   %5218 = load ptr, ptr %7, align 8
   %5219 = load ptr, ptr %5218, align 8
@@ -10944,8 +10944,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %5222, label %.lr.ph14925, label %._crit_edge14926
 
 .lr.ph14925:                                      ; preds = %5221
-  %5223 = getelementptr inbounds i8, ptr %4, i64 1264
-  %5224 = getelementptr inbounds i8, ptr %4, i64 960
+  %5223 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %5224 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %5225
 
 5225:                                             ; preds = %.lr.ph14925, %5304
@@ -10978,108 +10978,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12784, label %5273, label %5244
 
 5244:                                             ; preds = %5232
-  %5245 = getelementptr inbounds i8, ptr %.20214922, i64 1
+  %5245 = getelementptr inbounds nuw i8, ptr %.20214922, i64 1
   store i8 0, ptr %5245, align 1
   %.not12785 = icmp eq i64 %5242, 255
-  %.sroa.gep14244 = getelementptr inbounds i8, ptr %.20214922, i64 2
+  %.sroa.gep14244 = getelementptr inbounds nuw i8, ptr %.20214922, i64 2
   %.neg12786.sroa.sel = select i1 %.not12785, ptr %.sroa.gep14244, ptr %5245
   %5246 = lshr i64 %5234, 48
   %5247 = trunc i64 %5246 to i8
   store i8 %5247, ptr %.neg12786.sroa.sel, align 1
-  %.sroa.gep15877 = getelementptr inbounds i8, ptr %.20214922, i64 3
+  %.sroa.gep15877 = getelementptr inbounds nuw i8, ptr %.20214922, i64 3
   %.neg12786.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12785, ptr %.sroa.gep15877, ptr %.sroa.gep14244
   store i8 0, ptr %.neg12786.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5248 = and i64 %5234, 71776119061217280
   %.not12787 = icmp eq i64 %5248, 71776119061217280
   %.neg12788 = select i1 %.not12787, i64 2, i64 1
-  %5249 = getelementptr inbounds i8, ptr %.neg12786.sroa.sel, i64 %.neg12788
+  %5249 = getelementptr inbounds nuw i8, ptr %.neg12786.sroa.sel, i64 %.neg12788
   %5250 = lshr i64 %5234, 40
   %5251 = trunc i64 %5250 to i8
   store i8 %5251, ptr %5249, align 1
-  %5252 = getelementptr inbounds i8, ptr %5249, i64 1
+  %5252 = getelementptr inbounds nuw i8, ptr %5249, i64 1
   store i8 0, ptr %5252, align 1
   %5253 = and i64 %5234, 280375465082880
   %.not12789 = icmp eq i64 %5253, 280375465082880
-  %.sroa.gep14246 = getelementptr inbounds i8, ptr %5249, i64 2
+  %.sroa.gep14246 = getelementptr inbounds nuw i8, ptr %5249, i64 2
   %.neg12790.sroa.sel = select i1 %.not12789, ptr %.sroa.gep14246, ptr %5252
   %5254 = lshr i64 %5234, 32
   %5255 = trunc i64 %5254 to i8
   store i8 %5255, ptr %.neg12790.sroa.sel, align 1
-  %.sroa.gep15883 = getelementptr inbounds i8, ptr %5249, i64 3
+  %.sroa.gep15883 = getelementptr inbounds nuw i8, ptr %5249, i64 3
   %.neg12790.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12789, ptr %.sroa.gep15883, ptr %.sroa.gep14246
   store i8 0, ptr %.neg12790.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5256 = and i64 %5234, 1095216660480
   %.not12791 = icmp eq i64 %5256, 1095216660480
   %.neg12792 = select i1 %.not12791, i64 2, i64 1
-  %5257 = getelementptr inbounds i8, ptr %.neg12790.sroa.sel, i64 %.neg12792
+  %5257 = getelementptr inbounds nuw i8, ptr %.neg12790.sroa.sel, i64 %.neg12792
   %5258 = lshr i64 %5238, 24
   %5259 = trunc i64 %5258 to i8
   store i8 %5259, ptr %5257, align 1
-  %5260 = getelementptr inbounds i8, ptr %5257, i64 1
+  %5260 = getelementptr inbounds nuw i8, ptr %5257, i64 1
   store i8 0, ptr %5260, align 1
   %5261 = and i64 %5238, 4278190080
   %.not12793 = icmp eq i64 %5261, 4278190080
-  %.sroa.gep14248 = getelementptr inbounds i8, ptr %5257, i64 2
+  %.sroa.gep14248 = getelementptr inbounds nuw i8, ptr %5257, i64 2
   %.neg12794.sroa.sel = select i1 %.not12793, ptr %.sroa.gep14248, ptr %5260
   %5262 = lshr i64 %5238, 16
   %5263 = trunc i64 %5262 to i8
   store i8 %5263, ptr %.neg12794.sroa.sel, align 1
-  %.sroa.gep15881 = getelementptr inbounds i8, ptr %5257, i64 3
+  %.sroa.gep15881 = getelementptr inbounds nuw i8, ptr %5257, i64 3
   %.neg12794.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12793, ptr %.sroa.gep15881, ptr %.sroa.gep14248
   store i8 0, ptr %.neg12794.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5264 = and i64 %5238, 16711680
   %.not12795 = icmp eq i64 %5264, 16711680
   %.neg12796 = select i1 %.not12795, i64 2, i64 1
-  %5265 = getelementptr inbounds i8, ptr %.neg12794.sroa.sel, i64 %.neg12796
+  %5265 = getelementptr inbounds nuw i8, ptr %.neg12794.sroa.sel, i64 %.neg12796
   %5266 = lshr i64 %5238, 8
   %5267 = trunc i64 %5266 to i8
   store i8 %5267, ptr %5265, align 1
-  %5268 = getelementptr inbounds i8, ptr %5265, i64 1
+  %5268 = getelementptr inbounds nuw i8, ptr %5265, i64 1
   store i8 0, ptr %5268, align 1
   %5269 = and i64 %5238, 65280
   %.not12797 = icmp eq i64 %5269, 65280
-  %.sroa.gep14250 = getelementptr inbounds i8, ptr %5265, i64 2
+  %.sroa.gep14250 = getelementptr inbounds nuw i8, ptr %5265, i64 2
   %.neg12798.sroa.sel = select i1 %.not12797, ptr %.sroa.gep14250, ptr %5268
   %5270 = trunc i64 %5238 to i8
   store i8 %5270, ptr %.neg12798.sroa.sel, align 1
-  %.sroa.gep15879 = getelementptr inbounds i8, ptr %5265, i64 3
+  %.sroa.gep15879 = getelementptr inbounds nuw i8, ptr %5265, i64 3
   %.neg12798.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12797, ptr %.sroa.gep15879, ptr %.sroa.gep14250
   store i8 0, ptr %.neg12798.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5271 = and i64 %5238, 255
   %.not12799 = icmp eq i64 %5271, 255
   %.neg12800 = select i1 %.not12799, i64 2, i64 1
-  %5272 = getelementptr inbounds i8, ptr %.neg12798.sroa.sel, i64 %.neg12800
+  %5272 = getelementptr inbounds nuw i8, ptr %.neg12798.sroa.sel, i64 %.neg12800
   br label %5295
 
 5273:                                             ; preds = %5232
   %5274 = lshr i64 %5234, 48
   %5275 = trunc i64 %5274 to i8
-  %5276 = getelementptr inbounds i8, ptr %.20214922, i64 1
+  %5276 = getelementptr inbounds nuw i8, ptr %.20214922, i64 1
   store i8 %5275, ptr %5276, align 1
   %5277 = lshr i64 %5234, 40
   %5278 = trunc i64 %5277 to i8
-  %5279 = getelementptr inbounds i8, ptr %.20214922, i64 2
+  %5279 = getelementptr inbounds nuw i8, ptr %.20214922, i64 2
   store i8 %5278, ptr %5279, align 1
   %5280 = lshr i64 %5234, 32
   %5281 = trunc i64 %5280 to i8
-  %5282 = getelementptr inbounds i8, ptr %.20214922, i64 3
+  %5282 = getelementptr inbounds nuw i8, ptr %.20214922, i64 3
   store i8 %5281, ptr %5282, align 1
   %5283 = lshr i64 %5238, 24
   %5284 = trunc i64 %5283 to i8
-  %5285 = getelementptr inbounds i8, ptr %.20214922, i64 4
+  %5285 = getelementptr inbounds nuw i8, ptr %.20214922, i64 4
   store i8 %5284, ptr %5285, align 1
   %5286 = lshr i64 %5238, 16
   %5287 = trunc i64 %5286 to i8
-  %5288 = getelementptr inbounds i8, ptr %.20214922, i64 5
+  %5288 = getelementptr inbounds nuw i8, ptr %.20214922, i64 5
   store i8 %5287, ptr %5288, align 1
   %5289 = lshr i64 %5238, 8
   %5290 = trunc i64 %5289 to i8
-  %5291 = getelementptr inbounds i8, ptr %.20214922, i64 6
+  %5291 = getelementptr inbounds nuw i8, ptr %.20214922, i64 6
   store i8 %5290, ptr %5291, align 1
   %5292 = trunc i64 %5238 to i8
-  %5293 = getelementptr inbounds i8, ptr %.20214922, i64 7
+  %5293 = getelementptr inbounds nuw i8, ptr %.20214922, i64 7
   store i8 %5292, ptr %5293, align 1
-  %5294 = getelementptr inbounds i8, ptr %.20214922, i64 8
+  %5294 = getelementptr inbounds nuw i8, ptr %.20214922, i64 8
   br label %5295
 
 5295:                                             ; preds = %5273, %5244
@@ -11115,12 +11115,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5309 = xor i32 %5308, -1
   %5310 = and i32 %5207, %5309
   %5311 = zext nneg i32 %5306 to i64
-  %5312 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %5311
+  %5312 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %5311
   %5313 = load i32, ptr %5312, align 4
   %5314 = shl i32 %5313, %5212
   %5315 = or i32 %5314, %5310
-  %5316 = getelementptr inbounds i8, ptr %4, i64 1024
-  %5317 = getelementptr inbounds [256 x i8], ptr %5316, i64 0, i64 %5311
+  %5316 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %5317 = getelementptr inbounds nuw [256 x i8], ptr %5316, i64 0, i64 %5311
   %5318 = load i8, ptr %5317, align 1
   %5319 = sext i8 %5318 to i32
   %5320 = add nsw i32 %5319, %5212
@@ -11145,108 +11145,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12767, label %5364, label %5335
 
 5335:                                             ; preds = %5323
-  %5336 = getelementptr inbounds i8, ptr %.202.lcssa, i64 1
+  %5336 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 1
   store i8 0, ptr %5336, align 1
   %.not12768 = icmp eq i64 %5333, 255
-  %.sroa.gep14252 = getelementptr inbounds i8, ptr %.202.lcssa, i64 2
+  %.sroa.gep14252 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 2
   %.neg12769.sroa.sel = select i1 %.not12768, ptr %.sroa.gep14252, ptr %5336
   %5337 = lshr i64 %5329, 48
   %5338 = trunc i64 %5337 to i8
   store i8 %5338, ptr %.neg12769.sroa.sel, align 1
-  %.sroa.gep15885 = getelementptr inbounds i8, ptr %.202.lcssa, i64 3
+  %.sroa.gep15885 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 3
   %.neg12769.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12768, ptr %.sroa.gep15885, ptr %.sroa.gep14252
   store i8 0, ptr %.neg12769.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5339 = and i64 %5329, 71776119061217280
   %.not12770 = icmp eq i64 %5339, 71776119061217280
   %.neg12771 = select i1 %.not12770, i64 2, i64 1
-  %5340 = getelementptr inbounds i8, ptr %.neg12769.sroa.sel, i64 %.neg12771
+  %5340 = getelementptr inbounds nuw i8, ptr %.neg12769.sroa.sel, i64 %.neg12771
   %5341 = lshr i64 %5329, 40
   %5342 = trunc i64 %5341 to i8
   store i8 %5342, ptr %5340, align 1
-  %5343 = getelementptr inbounds i8, ptr %5340, i64 1
+  %5343 = getelementptr inbounds nuw i8, ptr %5340, i64 1
   store i8 0, ptr %5343, align 1
   %5344 = and i64 %5329, 280375465082880
   %.not12772 = icmp eq i64 %5344, 280375465082880
-  %.sroa.gep14254 = getelementptr inbounds i8, ptr %5340, i64 2
+  %.sroa.gep14254 = getelementptr inbounds nuw i8, ptr %5340, i64 2
   %.neg12773.sroa.sel = select i1 %.not12772, ptr %.sroa.gep14254, ptr %5343
   %5345 = lshr i64 %5329, 32
   %5346 = trunc i64 %5345 to i8
   store i8 %5346, ptr %.neg12773.sroa.sel, align 1
-  %.sroa.gep15891 = getelementptr inbounds i8, ptr %5340, i64 3
+  %.sroa.gep15891 = getelementptr inbounds nuw i8, ptr %5340, i64 3
   %.neg12773.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12772, ptr %.sroa.gep15891, ptr %.sroa.gep14254
   store i8 0, ptr %.neg12773.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5347 = and i64 %5329, 1095216660480
   %.not12774 = icmp eq i64 %5347, 1095216660480
   %.neg12775 = select i1 %.not12774, i64 2, i64 1
-  %5348 = getelementptr inbounds i8, ptr %.neg12773.sroa.sel, i64 %.neg12775
+  %5348 = getelementptr inbounds nuw i8, ptr %.neg12773.sroa.sel, i64 %.neg12775
   %5349 = lshr i64 %5329, 24
   %5350 = trunc i64 %5349 to i8
   store i8 %5350, ptr %5348, align 1
-  %5351 = getelementptr inbounds i8, ptr %5348, i64 1
+  %5351 = getelementptr inbounds nuw i8, ptr %5348, i64 1
   store i8 0, ptr %5351, align 1
   %5352 = and i64 %5329, 4278190080
   %.not12776 = icmp eq i64 %5352, 4278190080
-  %.sroa.gep14256 = getelementptr inbounds i8, ptr %5348, i64 2
+  %.sroa.gep14256 = getelementptr inbounds nuw i8, ptr %5348, i64 2
   %.neg12777.sroa.sel = select i1 %.not12776, ptr %.sroa.gep14256, ptr %5351
   %5353 = lshr i64 %5329, 16
   %5354 = trunc i64 %5353 to i8
   store i8 %5354, ptr %.neg12777.sroa.sel, align 1
-  %.sroa.gep15889 = getelementptr inbounds i8, ptr %5348, i64 3
+  %.sroa.gep15889 = getelementptr inbounds nuw i8, ptr %5348, i64 3
   %.neg12777.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12776, ptr %.sroa.gep15889, ptr %.sroa.gep14256
   store i8 0, ptr %.neg12777.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5355 = and i64 %5329, 16711680
   %.not12778 = icmp eq i64 %5355, 16711680
   %.neg12779 = select i1 %.not12778, i64 2, i64 1
-  %5356 = getelementptr inbounds i8, ptr %.neg12777.sroa.sel, i64 %.neg12779
+  %5356 = getelementptr inbounds nuw i8, ptr %.neg12777.sroa.sel, i64 %.neg12779
   %5357 = lshr i64 %5329, 8
   %5358 = trunc i64 %5357 to i8
   store i8 %5358, ptr %5356, align 1
-  %5359 = getelementptr inbounds i8, ptr %5356, i64 1
+  %5359 = getelementptr inbounds nuw i8, ptr %5356, i64 1
   store i8 0, ptr %5359, align 1
   %5360 = and i64 %5329, 65280
   %.not12780 = icmp eq i64 %5360, 65280
-  %.sroa.gep14258 = getelementptr inbounds i8, ptr %5356, i64 2
+  %.sroa.gep14258 = getelementptr inbounds nuw i8, ptr %5356, i64 2
   %.neg12781.sroa.sel = select i1 %.not12780, ptr %.sroa.gep14258, ptr %5359
   %5361 = trunc i64 %5329 to i8
   store i8 %5361, ptr %.neg12781.sroa.sel, align 1
-  %.sroa.gep15887 = getelementptr inbounds i8, ptr %5356, i64 3
+  %.sroa.gep15887 = getelementptr inbounds nuw i8, ptr %5356, i64 3
   %.neg12781.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12780, ptr %.sroa.gep15887, ptr %.sroa.gep14258
   store i8 0, ptr %.neg12781.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5362 = and i64 %5329, 255
   %.not12782 = icmp eq i64 %5362, 255
   %.neg12783 = select i1 %.not12782, i64 2, i64 1
-  %5363 = getelementptr inbounds i8, ptr %.neg12781.sroa.sel, i64 %.neg12783
+  %5363 = getelementptr inbounds nuw i8, ptr %.neg12781.sroa.sel, i64 %.neg12783
   br label %5386
 
 5364:                                             ; preds = %5323
   %5365 = lshr i64 %5329, 48
   %5366 = trunc i64 %5365 to i8
-  %5367 = getelementptr inbounds i8, ptr %.202.lcssa, i64 1
+  %5367 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 1
   store i8 %5366, ptr %5367, align 1
   %5368 = lshr i64 %5329, 40
   %5369 = trunc i64 %5368 to i8
-  %5370 = getelementptr inbounds i8, ptr %.202.lcssa, i64 2
+  %5370 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 2
   store i8 %5369, ptr %5370, align 1
   %5371 = lshr i64 %5329, 32
   %5372 = trunc i64 %5371 to i8
-  %5373 = getelementptr inbounds i8, ptr %.202.lcssa, i64 3
+  %5373 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 3
   store i8 %5372, ptr %5373, align 1
   %5374 = lshr i64 %5329, 24
   %5375 = trunc i64 %5374 to i8
-  %5376 = getelementptr inbounds i8, ptr %.202.lcssa, i64 4
+  %5376 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 4
   store i8 %5375, ptr %5376, align 1
   %5377 = lshr i64 %5329, 16
   %5378 = trunc i64 %5377 to i8
-  %5379 = getelementptr inbounds i8, ptr %.202.lcssa, i64 5
+  %5379 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 5
   store i8 %5378, ptr %5379, align 1
   %5380 = lshr i64 %5329, 8
   %5381 = trunc i64 %5380 to i8
-  %5382 = getelementptr inbounds i8, ptr %.202.lcssa, i64 6
+  %5382 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 6
   store i8 %5381, ptr %5382, align 1
   %5383 = trunc i64 %5329 to i8
-  %5384 = getelementptr inbounds i8, ptr %.202.lcssa, i64 7
+  %5384 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 7
   store i8 %5383, ptr %5384, align 1
-  %5385 = getelementptr inbounds i8, ptr %.202.lcssa, i64 8
+  %5385 = getelementptr inbounds nuw i8, ptr %.202.lcssa, i64 8
   br label %5386
 
 5386:                                             ; preds = %5364, %5335
@@ -11267,7 +11267,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13311173 = phi i64 [ %.12911169, %5202 ], [ %5388, %5386 ], [ %5393, %5389 ]
   %.201 = phi ptr [ %.195, %5202 ], [ %.205, %5386 ], [ %.202.lcssa, %5389 ]
   %.66 = phi i32 [ %5203, %5202 ], [ 0, %5386 ], [ 0, %5389 ]
-  %5395 = getelementptr inbounds i8, ptr %1, i64 112
+  %5395 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5396 = load i16, ptr %5395, align 2
   %5397 = icmp eq i16 %5396, 0
   br i1 %5397, label %5398, label %5400
@@ -11291,7 +11291,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 5410:                                             ; preds = %5400
   %5411 = load ptr, ptr %7, align 8
   %5412 = load ptr, ptr %5411, align 8
-  %5413 = getelementptr inbounds i8, ptr %5412, i64 40
+  %5413 = getelementptr inbounds nuw i8, ptr %5412, i64 40
   store i32 6, ptr %5413, align 8
   %5414 = load ptr, ptr %7, align 8
   %5415 = load ptr, ptr %5414, align 8
@@ -11304,8 +11304,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %5418, label %.lr.ph14936, label %._crit_edge14937
 
 .lr.ph14936:                                      ; preds = %5417
-  %5419 = getelementptr inbounds i8, ptr %4, i64 1264
-  %5420 = getelementptr inbounds i8, ptr %4, i64 960
+  %5419 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %5420 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %5421
 
 5421:                                             ; preds = %.lr.ph14936, %5500
@@ -11338,108 +11338,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12819, label %5469, label %5440
 
 5440:                                             ; preds = %5428
-  %5441 = getelementptr inbounds i8, ptr %.20814933, i64 1
+  %5441 = getelementptr inbounds nuw i8, ptr %.20814933, i64 1
   store i8 0, ptr %5441, align 1
   %.not12820 = icmp eq i64 %5438, 255
-  %.sroa.gep14260 = getelementptr inbounds i8, ptr %.20814933, i64 2
+  %.sroa.gep14260 = getelementptr inbounds nuw i8, ptr %.20814933, i64 2
   %.neg12821.sroa.sel = select i1 %.not12820, ptr %.sroa.gep14260, ptr %5441
   %5442 = lshr i64 %5430, 48
   %5443 = trunc i64 %5442 to i8
   store i8 %5443, ptr %.neg12821.sroa.sel, align 1
-  %.sroa.gep15861 = getelementptr inbounds i8, ptr %.20814933, i64 3
+  %.sroa.gep15861 = getelementptr inbounds nuw i8, ptr %.20814933, i64 3
   %.neg12821.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12820, ptr %.sroa.gep15861, ptr %.sroa.gep14260
   store i8 0, ptr %.neg12821.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5444 = and i64 %5430, 71776119061217280
   %.not12822 = icmp eq i64 %5444, 71776119061217280
   %.neg12823 = select i1 %.not12822, i64 2, i64 1
-  %5445 = getelementptr inbounds i8, ptr %.neg12821.sroa.sel, i64 %.neg12823
+  %5445 = getelementptr inbounds nuw i8, ptr %.neg12821.sroa.sel, i64 %.neg12823
   %5446 = lshr i64 %5430, 40
   %5447 = trunc i64 %5446 to i8
   store i8 %5447, ptr %5445, align 1
-  %5448 = getelementptr inbounds i8, ptr %5445, i64 1
+  %5448 = getelementptr inbounds nuw i8, ptr %5445, i64 1
   store i8 0, ptr %5448, align 1
   %5449 = and i64 %5430, 280375465082880
   %.not12824 = icmp eq i64 %5449, 280375465082880
-  %.sroa.gep14262 = getelementptr inbounds i8, ptr %5445, i64 2
+  %.sroa.gep14262 = getelementptr inbounds nuw i8, ptr %5445, i64 2
   %.neg12825.sroa.sel = select i1 %.not12824, ptr %.sroa.gep14262, ptr %5448
   %5450 = lshr i64 %5430, 32
   %5451 = trunc i64 %5450 to i8
   store i8 %5451, ptr %.neg12825.sroa.sel, align 1
-  %.sroa.gep15867 = getelementptr inbounds i8, ptr %5445, i64 3
+  %.sroa.gep15867 = getelementptr inbounds nuw i8, ptr %5445, i64 3
   %.neg12825.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12824, ptr %.sroa.gep15867, ptr %.sroa.gep14262
   store i8 0, ptr %.neg12825.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5452 = and i64 %5430, 1095216660480
   %.not12826 = icmp eq i64 %5452, 1095216660480
   %.neg12827 = select i1 %.not12826, i64 2, i64 1
-  %5453 = getelementptr inbounds i8, ptr %.neg12825.sroa.sel, i64 %.neg12827
+  %5453 = getelementptr inbounds nuw i8, ptr %.neg12825.sroa.sel, i64 %.neg12827
   %5454 = lshr i64 %5434, 24
   %5455 = trunc i64 %5454 to i8
   store i8 %5455, ptr %5453, align 1
-  %5456 = getelementptr inbounds i8, ptr %5453, i64 1
+  %5456 = getelementptr inbounds nuw i8, ptr %5453, i64 1
   store i8 0, ptr %5456, align 1
   %5457 = and i64 %5434, 4278190080
   %.not12828 = icmp eq i64 %5457, 4278190080
-  %.sroa.gep14264 = getelementptr inbounds i8, ptr %5453, i64 2
+  %.sroa.gep14264 = getelementptr inbounds nuw i8, ptr %5453, i64 2
   %.neg12829.sroa.sel = select i1 %.not12828, ptr %.sroa.gep14264, ptr %5456
   %5458 = lshr i64 %5434, 16
   %5459 = trunc i64 %5458 to i8
   store i8 %5459, ptr %.neg12829.sroa.sel, align 1
-  %.sroa.gep15865 = getelementptr inbounds i8, ptr %5453, i64 3
+  %.sroa.gep15865 = getelementptr inbounds nuw i8, ptr %5453, i64 3
   %.neg12829.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12828, ptr %.sroa.gep15865, ptr %.sroa.gep14264
   store i8 0, ptr %.neg12829.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5460 = and i64 %5434, 16711680
   %.not12830 = icmp eq i64 %5460, 16711680
   %.neg12831 = select i1 %.not12830, i64 2, i64 1
-  %5461 = getelementptr inbounds i8, ptr %.neg12829.sroa.sel, i64 %.neg12831
+  %5461 = getelementptr inbounds nuw i8, ptr %.neg12829.sroa.sel, i64 %.neg12831
   %5462 = lshr i64 %5434, 8
   %5463 = trunc i64 %5462 to i8
   store i8 %5463, ptr %5461, align 1
-  %5464 = getelementptr inbounds i8, ptr %5461, i64 1
+  %5464 = getelementptr inbounds nuw i8, ptr %5461, i64 1
   store i8 0, ptr %5464, align 1
   %5465 = and i64 %5434, 65280
   %.not12832 = icmp eq i64 %5465, 65280
-  %.sroa.gep14266 = getelementptr inbounds i8, ptr %5461, i64 2
+  %.sroa.gep14266 = getelementptr inbounds nuw i8, ptr %5461, i64 2
   %.neg12833.sroa.sel = select i1 %.not12832, ptr %.sroa.gep14266, ptr %5464
   %5466 = trunc i64 %5434 to i8
   store i8 %5466, ptr %.neg12833.sroa.sel, align 1
-  %.sroa.gep15863 = getelementptr inbounds i8, ptr %5461, i64 3
+  %.sroa.gep15863 = getelementptr inbounds nuw i8, ptr %5461, i64 3
   %.neg12833.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12832, ptr %.sroa.gep15863, ptr %.sroa.gep14266
   store i8 0, ptr %.neg12833.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5467 = and i64 %5434, 255
   %.not12834 = icmp eq i64 %5467, 255
   %.neg12835 = select i1 %.not12834, i64 2, i64 1
-  %5468 = getelementptr inbounds i8, ptr %.neg12833.sroa.sel, i64 %.neg12835
+  %5468 = getelementptr inbounds nuw i8, ptr %.neg12833.sroa.sel, i64 %.neg12835
   br label %5491
 
 5469:                                             ; preds = %5428
   %5470 = lshr i64 %5430, 48
   %5471 = trunc i64 %5470 to i8
-  %5472 = getelementptr inbounds i8, ptr %.20814933, i64 1
+  %5472 = getelementptr inbounds nuw i8, ptr %.20814933, i64 1
   store i8 %5471, ptr %5472, align 1
   %5473 = lshr i64 %5430, 40
   %5474 = trunc i64 %5473 to i8
-  %5475 = getelementptr inbounds i8, ptr %.20814933, i64 2
+  %5475 = getelementptr inbounds nuw i8, ptr %.20814933, i64 2
   store i8 %5474, ptr %5475, align 1
   %5476 = lshr i64 %5430, 32
   %5477 = trunc i64 %5476 to i8
-  %5478 = getelementptr inbounds i8, ptr %.20814933, i64 3
+  %5478 = getelementptr inbounds nuw i8, ptr %.20814933, i64 3
   store i8 %5477, ptr %5478, align 1
   %5479 = lshr i64 %5434, 24
   %5480 = trunc i64 %5479 to i8
-  %5481 = getelementptr inbounds i8, ptr %.20814933, i64 4
+  %5481 = getelementptr inbounds nuw i8, ptr %.20814933, i64 4
   store i8 %5480, ptr %5481, align 1
   %5482 = lshr i64 %5434, 16
   %5483 = trunc i64 %5482 to i8
-  %5484 = getelementptr inbounds i8, ptr %.20814933, i64 5
+  %5484 = getelementptr inbounds nuw i8, ptr %.20814933, i64 5
   store i8 %5483, ptr %5484, align 1
   %5485 = lshr i64 %5434, 8
   %5486 = trunc i64 %5485 to i8
-  %5487 = getelementptr inbounds i8, ptr %.20814933, i64 6
+  %5487 = getelementptr inbounds nuw i8, ptr %.20814933, i64 6
   store i8 %5486, ptr %5487, align 1
   %5488 = trunc i64 %5434 to i8
-  %5489 = getelementptr inbounds i8, ptr %.20814933, i64 7
+  %5489 = getelementptr inbounds nuw i8, ptr %.20814933, i64 7
   store i8 %5488, ptr %5489, align 1
-  %5490 = getelementptr inbounds i8, ptr %.20814933, i64 8
+  %5490 = getelementptr inbounds nuw i8, ptr %.20814933, i64 8
   br label %5491
 
 5491:                                             ; preds = %5469, %5440
@@ -11475,12 +11475,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5505 = xor i32 %5504, -1
   %5506 = and i32 %5403, %5505
   %5507 = zext nneg i32 %5502 to i64
-  %5508 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %5507
+  %5508 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %5507
   %5509 = load i32, ptr %5508, align 4
   %5510 = shl i32 %5509, %5408
   %5511 = or i32 %5510, %5506
-  %5512 = getelementptr inbounds i8, ptr %4, i64 1024
-  %5513 = getelementptr inbounds [256 x i8], ptr %5512, i64 0, i64 %5507
+  %5512 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %5513 = getelementptr inbounds nuw [256 x i8], ptr %5512, i64 0, i64 %5507
   %5514 = load i8, ptr %5513, align 1
   %5515 = sext i8 %5514 to i32
   %5516 = add nsw i32 %5515, %5408
@@ -11505,108 +11505,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12802, label %5560, label %5531
 
 5531:                                             ; preds = %5519
-  %5532 = getelementptr inbounds i8, ptr %.208.lcssa, i64 1
+  %5532 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 1
   store i8 0, ptr %5532, align 1
   %.not12803 = icmp eq i64 %5529, 255
-  %.sroa.gep14268 = getelementptr inbounds i8, ptr %.208.lcssa, i64 2
+  %.sroa.gep14268 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 2
   %.neg12804.sroa.sel = select i1 %.not12803, ptr %.sroa.gep14268, ptr %5532
   %5533 = lshr i64 %5525, 48
   %5534 = trunc i64 %5533 to i8
   store i8 %5534, ptr %.neg12804.sroa.sel, align 1
-  %.sroa.gep15869 = getelementptr inbounds i8, ptr %.208.lcssa, i64 3
+  %.sroa.gep15869 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 3
   %.neg12804.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12803, ptr %.sroa.gep15869, ptr %.sroa.gep14268
   store i8 0, ptr %.neg12804.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5535 = and i64 %5525, 71776119061217280
   %.not12805 = icmp eq i64 %5535, 71776119061217280
   %.neg12806 = select i1 %.not12805, i64 2, i64 1
-  %5536 = getelementptr inbounds i8, ptr %.neg12804.sroa.sel, i64 %.neg12806
+  %5536 = getelementptr inbounds nuw i8, ptr %.neg12804.sroa.sel, i64 %.neg12806
   %5537 = lshr i64 %5525, 40
   %5538 = trunc i64 %5537 to i8
   store i8 %5538, ptr %5536, align 1
-  %5539 = getelementptr inbounds i8, ptr %5536, i64 1
+  %5539 = getelementptr inbounds nuw i8, ptr %5536, i64 1
   store i8 0, ptr %5539, align 1
   %5540 = and i64 %5525, 280375465082880
   %.not12807 = icmp eq i64 %5540, 280375465082880
-  %.sroa.gep14270 = getelementptr inbounds i8, ptr %5536, i64 2
+  %.sroa.gep14270 = getelementptr inbounds nuw i8, ptr %5536, i64 2
   %.neg12808.sroa.sel = select i1 %.not12807, ptr %.sroa.gep14270, ptr %5539
   %5541 = lshr i64 %5525, 32
   %5542 = trunc i64 %5541 to i8
   store i8 %5542, ptr %.neg12808.sroa.sel, align 1
-  %.sroa.gep15875 = getelementptr inbounds i8, ptr %5536, i64 3
+  %.sroa.gep15875 = getelementptr inbounds nuw i8, ptr %5536, i64 3
   %.neg12808.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12807, ptr %.sroa.gep15875, ptr %.sroa.gep14270
   store i8 0, ptr %.neg12808.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5543 = and i64 %5525, 1095216660480
   %.not12809 = icmp eq i64 %5543, 1095216660480
   %.neg12810 = select i1 %.not12809, i64 2, i64 1
-  %5544 = getelementptr inbounds i8, ptr %.neg12808.sroa.sel, i64 %.neg12810
+  %5544 = getelementptr inbounds nuw i8, ptr %.neg12808.sroa.sel, i64 %.neg12810
   %5545 = lshr i64 %5525, 24
   %5546 = trunc i64 %5545 to i8
   store i8 %5546, ptr %5544, align 1
-  %5547 = getelementptr inbounds i8, ptr %5544, i64 1
+  %5547 = getelementptr inbounds nuw i8, ptr %5544, i64 1
   store i8 0, ptr %5547, align 1
   %5548 = and i64 %5525, 4278190080
   %.not12811 = icmp eq i64 %5548, 4278190080
-  %.sroa.gep14272 = getelementptr inbounds i8, ptr %5544, i64 2
+  %.sroa.gep14272 = getelementptr inbounds nuw i8, ptr %5544, i64 2
   %.neg12812.sroa.sel = select i1 %.not12811, ptr %.sroa.gep14272, ptr %5547
   %5549 = lshr i64 %5525, 16
   %5550 = trunc i64 %5549 to i8
   store i8 %5550, ptr %.neg12812.sroa.sel, align 1
-  %.sroa.gep15873 = getelementptr inbounds i8, ptr %5544, i64 3
+  %.sroa.gep15873 = getelementptr inbounds nuw i8, ptr %5544, i64 3
   %.neg12812.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12811, ptr %.sroa.gep15873, ptr %.sroa.gep14272
   store i8 0, ptr %.neg12812.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5551 = and i64 %5525, 16711680
   %.not12813 = icmp eq i64 %5551, 16711680
   %.neg12814 = select i1 %.not12813, i64 2, i64 1
-  %5552 = getelementptr inbounds i8, ptr %.neg12812.sroa.sel, i64 %.neg12814
+  %5552 = getelementptr inbounds nuw i8, ptr %.neg12812.sroa.sel, i64 %.neg12814
   %5553 = lshr i64 %5525, 8
   %5554 = trunc i64 %5553 to i8
   store i8 %5554, ptr %5552, align 1
-  %5555 = getelementptr inbounds i8, ptr %5552, i64 1
+  %5555 = getelementptr inbounds nuw i8, ptr %5552, i64 1
   store i8 0, ptr %5555, align 1
   %5556 = and i64 %5525, 65280
   %.not12815 = icmp eq i64 %5556, 65280
-  %.sroa.gep14274 = getelementptr inbounds i8, ptr %5552, i64 2
+  %.sroa.gep14274 = getelementptr inbounds nuw i8, ptr %5552, i64 2
   %.neg12816.sroa.sel = select i1 %.not12815, ptr %.sroa.gep14274, ptr %5555
   %5557 = trunc i64 %5525 to i8
   store i8 %5557, ptr %.neg12816.sroa.sel, align 1
-  %.sroa.gep15871 = getelementptr inbounds i8, ptr %5552, i64 3
+  %.sroa.gep15871 = getelementptr inbounds nuw i8, ptr %5552, i64 3
   %.neg12816.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12815, ptr %.sroa.gep15871, ptr %.sroa.gep14274
   store i8 0, ptr %.neg12816.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5558 = and i64 %5525, 255
   %.not12817 = icmp eq i64 %5558, 255
   %.neg12818 = select i1 %.not12817, i64 2, i64 1
-  %5559 = getelementptr inbounds i8, ptr %.neg12816.sroa.sel, i64 %.neg12818
+  %5559 = getelementptr inbounds nuw i8, ptr %.neg12816.sroa.sel, i64 %.neg12818
   br label %5582
 
 5560:                                             ; preds = %5519
   %5561 = lshr i64 %5525, 48
   %5562 = trunc i64 %5561 to i8
-  %5563 = getelementptr inbounds i8, ptr %.208.lcssa, i64 1
+  %5563 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 1
   store i8 %5562, ptr %5563, align 1
   %5564 = lshr i64 %5525, 40
   %5565 = trunc i64 %5564 to i8
-  %5566 = getelementptr inbounds i8, ptr %.208.lcssa, i64 2
+  %5566 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 2
   store i8 %5565, ptr %5566, align 1
   %5567 = lshr i64 %5525, 32
   %5568 = trunc i64 %5567 to i8
-  %5569 = getelementptr inbounds i8, ptr %.208.lcssa, i64 3
+  %5569 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 3
   store i8 %5568, ptr %5569, align 1
   %5570 = lshr i64 %5525, 24
   %5571 = trunc i64 %5570 to i8
-  %5572 = getelementptr inbounds i8, ptr %.208.lcssa, i64 4
+  %5572 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 4
   store i8 %5571, ptr %5572, align 1
   %5573 = lshr i64 %5525, 16
   %5574 = trunc i64 %5573 to i8
-  %5575 = getelementptr inbounds i8, ptr %.208.lcssa, i64 5
+  %5575 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 5
   store i8 %5574, ptr %5575, align 1
   %5576 = lshr i64 %5525, 8
   %5577 = trunc i64 %5576 to i8
-  %5578 = getelementptr inbounds i8, ptr %.208.lcssa, i64 6
+  %5578 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 6
   store i8 %5577, ptr %5578, align 1
   %5579 = trunc i64 %5525 to i8
-  %5580 = getelementptr inbounds i8, ptr %.208.lcssa, i64 7
+  %5580 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 7
   store i8 %5579, ptr %5580, align 1
-  %5581 = getelementptr inbounds i8, ptr %.208.lcssa, i64 8
+  %5581 = getelementptr inbounds nuw i8, ptr %.208.lcssa, i64 8
   br label %5582
 
 5582:                                             ; preds = %5560, %5531
@@ -11627,7 +11627,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.13711177 = phi i64 [ %.13311173, %5398 ], [ %5584, %5582 ], [ %5589, %5585 ]
   %.207 = phi ptr [ %.201, %5398 ], [ %.211, %5582 ], [ %.208.lcssa, %5585 ]
   %.68 = phi i32 [ %5399, %5398 ], [ 0, %5582 ], [ 0, %5585 ]
-  %5591 = getelementptr inbounds i8, ptr %1, i64 114
+  %5591 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %5592 = load i16, ptr %5591, align 2
   %5593 = icmp eq i16 %5592, 0
   br i1 %5593, label %5594, label %5596
@@ -11651,7 +11651,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 5606:                                             ; preds = %5596
   %5607 = load ptr, ptr %7, align 8
   %5608 = load ptr, ptr %5607, align 8
-  %5609 = getelementptr inbounds i8, ptr %5608, i64 40
+  %5609 = getelementptr inbounds nuw i8, ptr %5608, i64 40
   store i32 6, ptr %5609, align 8
   %5610 = load ptr, ptr %7, align 8
   %5611 = load ptr, ptr %5610, align 8
@@ -11664,8 +11664,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %5614, label %.lr.ph14947, label %._crit_edge14948
 
 .lr.ph14947:                                      ; preds = %5613
-  %5615 = getelementptr inbounds i8, ptr %4, i64 1264
-  %5616 = getelementptr inbounds i8, ptr %4, i64 960
+  %5615 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %5616 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %5617
 
 5617:                                             ; preds = %.lr.ph14947, %5696
@@ -11698,108 +11698,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12854, label %5665, label %5636
 
 5636:                                             ; preds = %5624
-  %5637 = getelementptr inbounds i8, ptr %.21414944, i64 1
+  %5637 = getelementptr inbounds nuw i8, ptr %.21414944, i64 1
   store i8 0, ptr %5637, align 1
   %.not12855 = icmp eq i64 %5634, 255
-  %.sroa.gep14276 = getelementptr inbounds i8, ptr %.21414944, i64 2
+  %.sroa.gep14276 = getelementptr inbounds nuw i8, ptr %.21414944, i64 2
   %.neg12856.sroa.sel = select i1 %.not12855, ptr %.sroa.gep14276, ptr %5637
   %5638 = lshr i64 %5626, 48
   %5639 = trunc i64 %5638 to i8
   store i8 %5639, ptr %.neg12856.sroa.sel, align 1
-  %.sroa.gep15845 = getelementptr inbounds i8, ptr %.21414944, i64 3
+  %.sroa.gep15845 = getelementptr inbounds nuw i8, ptr %.21414944, i64 3
   %.neg12856.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12855, ptr %.sroa.gep15845, ptr %.sroa.gep14276
   store i8 0, ptr %.neg12856.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5640 = and i64 %5626, 71776119061217280
   %.not12857 = icmp eq i64 %5640, 71776119061217280
   %.neg12858 = select i1 %.not12857, i64 2, i64 1
-  %5641 = getelementptr inbounds i8, ptr %.neg12856.sroa.sel, i64 %.neg12858
+  %5641 = getelementptr inbounds nuw i8, ptr %.neg12856.sroa.sel, i64 %.neg12858
   %5642 = lshr i64 %5626, 40
   %5643 = trunc i64 %5642 to i8
   store i8 %5643, ptr %5641, align 1
-  %5644 = getelementptr inbounds i8, ptr %5641, i64 1
+  %5644 = getelementptr inbounds nuw i8, ptr %5641, i64 1
   store i8 0, ptr %5644, align 1
   %5645 = and i64 %5626, 280375465082880
   %.not12859 = icmp eq i64 %5645, 280375465082880
-  %.sroa.gep14278 = getelementptr inbounds i8, ptr %5641, i64 2
+  %.sroa.gep14278 = getelementptr inbounds nuw i8, ptr %5641, i64 2
   %.neg12860.sroa.sel = select i1 %.not12859, ptr %.sroa.gep14278, ptr %5644
   %5646 = lshr i64 %5626, 32
   %5647 = trunc i64 %5646 to i8
   store i8 %5647, ptr %.neg12860.sroa.sel, align 1
-  %.sroa.gep15851 = getelementptr inbounds i8, ptr %5641, i64 3
+  %.sroa.gep15851 = getelementptr inbounds nuw i8, ptr %5641, i64 3
   %.neg12860.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12859, ptr %.sroa.gep15851, ptr %.sroa.gep14278
   store i8 0, ptr %.neg12860.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5648 = and i64 %5626, 1095216660480
   %.not12861 = icmp eq i64 %5648, 1095216660480
   %.neg12862 = select i1 %.not12861, i64 2, i64 1
-  %5649 = getelementptr inbounds i8, ptr %.neg12860.sroa.sel, i64 %.neg12862
+  %5649 = getelementptr inbounds nuw i8, ptr %.neg12860.sroa.sel, i64 %.neg12862
   %5650 = lshr i64 %5630, 24
   %5651 = trunc i64 %5650 to i8
   store i8 %5651, ptr %5649, align 1
-  %5652 = getelementptr inbounds i8, ptr %5649, i64 1
+  %5652 = getelementptr inbounds nuw i8, ptr %5649, i64 1
   store i8 0, ptr %5652, align 1
   %5653 = and i64 %5630, 4278190080
   %.not12863 = icmp eq i64 %5653, 4278190080
-  %.sroa.gep14280 = getelementptr inbounds i8, ptr %5649, i64 2
+  %.sroa.gep14280 = getelementptr inbounds nuw i8, ptr %5649, i64 2
   %.neg12864.sroa.sel = select i1 %.not12863, ptr %.sroa.gep14280, ptr %5652
   %5654 = lshr i64 %5630, 16
   %5655 = trunc i64 %5654 to i8
   store i8 %5655, ptr %.neg12864.sroa.sel, align 1
-  %.sroa.gep15849 = getelementptr inbounds i8, ptr %5649, i64 3
+  %.sroa.gep15849 = getelementptr inbounds nuw i8, ptr %5649, i64 3
   %.neg12864.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12863, ptr %.sroa.gep15849, ptr %.sroa.gep14280
   store i8 0, ptr %.neg12864.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5656 = and i64 %5630, 16711680
   %.not12865 = icmp eq i64 %5656, 16711680
   %.neg12866 = select i1 %.not12865, i64 2, i64 1
-  %5657 = getelementptr inbounds i8, ptr %.neg12864.sroa.sel, i64 %.neg12866
+  %5657 = getelementptr inbounds nuw i8, ptr %.neg12864.sroa.sel, i64 %.neg12866
   %5658 = lshr i64 %5630, 8
   %5659 = trunc i64 %5658 to i8
   store i8 %5659, ptr %5657, align 1
-  %5660 = getelementptr inbounds i8, ptr %5657, i64 1
+  %5660 = getelementptr inbounds nuw i8, ptr %5657, i64 1
   store i8 0, ptr %5660, align 1
   %5661 = and i64 %5630, 65280
   %.not12867 = icmp eq i64 %5661, 65280
-  %.sroa.gep14282 = getelementptr inbounds i8, ptr %5657, i64 2
+  %.sroa.gep14282 = getelementptr inbounds nuw i8, ptr %5657, i64 2
   %.neg12868.sroa.sel = select i1 %.not12867, ptr %.sroa.gep14282, ptr %5660
   %5662 = trunc i64 %5630 to i8
   store i8 %5662, ptr %.neg12868.sroa.sel, align 1
-  %.sroa.gep15847 = getelementptr inbounds i8, ptr %5657, i64 3
+  %.sroa.gep15847 = getelementptr inbounds nuw i8, ptr %5657, i64 3
   %.neg12868.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12867, ptr %.sroa.gep15847, ptr %.sroa.gep14282
   store i8 0, ptr %.neg12868.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5663 = and i64 %5630, 255
   %.not12869 = icmp eq i64 %5663, 255
   %.neg12870 = select i1 %.not12869, i64 2, i64 1
-  %5664 = getelementptr inbounds i8, ptr %.neg12868.sroa.sel, i64 %.neg12870
+  %5664 = getelementptr inbounds nuw i8, ptr %.neg12868.sroa.sel, i64 %.neg12870
   br label %5687
 
 5665:                                             ; preds = %5624
   %5666 = lshr i64 %5626, 48
   %5667 = trunc i64 %5666 to i8
-  %5668 = getelementptr inbounds i8, ptr %.21414944, i64 1
+  %5668 = getelementptr inbounds nuw i8, ptr %.21414944, i64 1
   store i8 %5667, ptr %5668, align 1
   %5669 = lshr i64 %5626, 40
   %5670 = trunc i64 %5669 to i8
-  %5671 = getelementptr inbounds i8, ptr %.21414944, i64 2
+  %5671 = getelementptr inbounds nuw i8, ptr %.21414944, i64 2
   store i8 %5670, ptr %5671, align 1
   %5672 = lshr i64 %5626, 32
   %5673 = trunc i64 %5672 to i8
-  %5674 = getelementptr inbounds i8, ptr %.21414944, i64 3
+  %5674 = getelementptr inbounds nuw i8, ptr %.21414944, i64 3
   store i8 %5673, ptr %5674, align 1
   %5675 = lshr i64 %5630, 24
   %5676 = trunc i64 %5675 to i8
-  %5677 = getelementptr inbounds i8, ptr %.21414944, i64 4
+  %5677 = getelementptr inbounds nuw i8, ptr %.21414944, i64 4
   store i8 %5676, ptr %5677, align 1
   %5678 = lshr i64 %5630, 16
   %5679 = trunc i64 %5678 to i8
-  %5680 = getelementptr inbounds i8, ptr %.21414944, i64 5
+  %5680 = getelementptr inbounds nuw i8, ptr %.21414944, i64 5
   store i8 %5679, ptr %5680, align 1
   %5681 = lshr i64 %5630, 8
   %5682 = trunc i64 %5681 to i8
-  %5683 = getelementptr inbounds i8, ptr %.21414944, i64 6
+  %5683 = getelementptr inbounds nuw i8, ptr %.21414944, i64 6
   store i8 %5682, ptr %5683, align 1
   %5684 = trunc i64 %5630 to i8
-  %5685 = getelementptr inbounds i8, ptr %.21414944, i64 7
+  %5685 = getelementptr inbounds nuw i8, ptr %.21414944, i64 7
   store i8 %5684, ptr %5685, align 1
-  %5686 = getelementptr inbounds i8, ptr %.21414944, i64 8
+  %5686 = getelementptr inbounds nuw i8, ptr %.21414944, i64 8
   br label %5687
 
 5687:                                             ; preds = %5665, %5636
@@ -11835,12 +11835,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5701 = xor i32 %5700, -1
   %5702 = and i32 %5599, %5701
   %5703 = zext nneg i32 %5698 to i64
-  %5704 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %5703
+  %5704 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %5703
   %5705 = load i32, ptr %5704, align 4
   %5706 = shl i32 %5705, %5604
   %5707 = or i32 %5706, %5702
-  %5708 = getelementptr inbounds i8, ptr %4, i64 1024
-  %5709 = getelementptr inbounds [256 x i8], ptr %5708, i64 0, i64 %5703
+  %5708 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %5709 = getelementptr inbounds nuw [256 x i8], ptr %5708, i64 0, i64 %5703
   %5710 = load i8, ptr %5709, align 1
   %5711 = sext i8 %5710 to i32
   %5712 = add nsw i32 %5711, %5604
@@ -11865,108 +11865,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12837, label %5756, label %5727
 
 5727:                                             ; preds = %5715
-  %5728 = getelementptr inbounds i8, ptr %.214.lcssa, i64 1
+  %5728 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 1
   store i8 0, ptr %5728, align 1
   %.not12838 = icmp eq i64 %5725, 255
-  %.sroa.gep14284 = getelementptr inbounds i8, ptr %.214.lcssa, i64 2
+  %.sroa.gep14284 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 2
   %.neg12839.sroa.sel = select i1 %.not12838, ptr %.sroa.gep14284, ptr %5728
   %5729 = lshr i64 %5721, 48
   %5730 = trunc i64 %5729 to i8
   store i8 %5730, ptr %.neg12839.sroa.sel, align 1
-  %.sroa.gep15853 = getelementptr inbounds i8, ptr %.214.lcssa, i64 3
+  %.sroa.gep15853 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 3
   %.neg12839.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12838, ptr %.sroa.gep15853, ptr %.sroa.gep14284
   store i8 0, ptr %.neg12839.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5731 = and i64 %5721, 71776119061217280
   %.not12840 = icmp eq i64 %5731, 71776119061217280
   %.neg12841 = select i1 %.not12840, i64 2, i64 1
-  %5732 = getelementptr inbounds i8, ptr %.neg12839.sroa.sel, i64 %.neg12841
+  %5732 = getelementptr inbounds nuw i8, ptr %.neg12839.sroa.sel, i64 %.neg12841
   %5733 = lshr i64 %5721, 40
   %5734 = trunc i64 %5733 to i8
   store i8 %5734, ptr %5732, align 1
-  %5735 = getelementptr inbounds i8, ptr %5732, i64 1
+  %5735 = getelementptr inbounds nuw i8, ptr %5732, i64 1
   store i8 0, ptr %5735, align 1
   %5736 = and i64 %5721, 280375465082880
   %.not12842 = icmp eq i64 %5736, 280375465082880
-  %.sroa.gep14286 = getelementptr inbounds i8, ptr %5732, i64 2
+  %.sroa.gep14286 = getelementptr inbounds nuw i8, ptr %5732, i64 2
   %.neg12843.sroa.sel = select i1 %.not12842, ptr %.sroa.gep14286, ptr %5735
   %5737 = lshr i64 %5721, 32
   %5738 = trunc i64 %5737 to i8
   store i8 %5738, ptr %.neg12843.sroa.sel, align 1
-  %.sroa.gep15859 = getelementptr inbounds i8, ptr %5732, i64 3
+  %.sroa.gep15859 = getelementptr inbounds nuw i8, ptr %5732, i64 3
   %.neg12843.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12842, ptr %.sroa.gep15859, ptr %.sroa.gep14286
   store i8 0, ptr %.neg12843.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5739 = and i64 %5721, 1095216660480
   %.not12844 = icmp eq i64 %5739, 1095216660480
   %.neg12845 = select i1 %.not12844, i64 2, i64 1
-  %5740 = getelementptr inbounds i8, ptr %.neg12843.sroa.sel, i64 %.neg12845
+  %5740 = getelementptr inbounds nuw i8, ptr %.neg12843.sroa.sel, i64 %.neg12845
   %5741 = lshr i64 %5721, 24
   %5742 = trunc i64 %5741 to i8
   store i8 %5742, ptr %5740, align 1
-  %5743 = getelementptr inbounds i8, ptr %5740, i64 1
+  %5743 = getelementptr inbounds nuw i8, ptr %5740, i64 1
   store i8 0, ptr %5743, align 1
   %5744 = and i64 %5721, 4278190080
   %.not12846 = icmp eq i64 %5744, 4278190080
-  %.sroa.gep14288 = getelementptr inbounds i8, ptr %5740, i64 2
+  %.sroa.gep14288 = getelementptr inbounds nuw i8, ptr %5740, i64 2
   %.neg12847.sroa.sel = select i1 %.not12846, ptr %.sroa.gep14288, ptr %5743
   %5745 = lshr i64 %5721, 16
   %5746 = trunc i64 %5745 to i8
   store i8 %5746, ptr %.neg12847.sroa.sel, align 1
-  %.sroa.gep15857 = getelementptr inbounds i8, ptr %5740, i64 3
+  %.sroa.gep15857 = getelementptr inbounds nuw i8, ptr %5740, i64 3
   %.neg12847.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12846, ptr %.sroa.gep15857, ptr %.sroa.gep14288
   store i8 0, ptr %.neg12847.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5747 = and i64 %5721, 16711680
   %.not12848 = icmp eq i64 %5747, 16711680
   %.neg12849 = select i1 %.not12848, i64 2, i64 1
-  %5748 = getelementptr inbounds i8, ptr %.neg12847.sroa.sel, i64 %.neg12849
+  %5748 = getelementptr inbounds nuw i8, ptr %.neg12847.sroa.sel, i64 %.neg12849
   %5749 = lshr i64 %5721, 8
   %5750 = trunc i64 %5749 to i8
   store i8 %5750, ptr %5748, align 1
-  %5751 = getelementptr inbounds i8, ptr %5748, i64 1
+  %5751 = getelementptr inbounds nuw i8, ptr %5748, i64 1
   store i8 0, ptr %5751, align 1
   %5752 = and i64 %5721, 65280
   %.not12850 = icmp eq i64 %5752, 65280
-  %.sroa.gep14290 = getelementptr inbounds i8, ptr %5748, i64 2
+  %.sroa.gep14290 = getelementptr inbounds nuw i8, ptr %5748, i64 2
   %.neg12851.sroa.sel = select i1 %.not12850, ptr %.sroa.gep14290, ptr %5751
   %5753 = trunc i64 %5721 to i8
   store i8 %5753, ptr %.neg12851.sroa.sel, align 1
-  %.sroa.gep15855 = getelementptr inbounds i8, ptr %5748, i64 3
+  %.sroa.gep15855 = getelementptr inbounds nuw i8, ptr %5748, i64 3
   %.neg12851.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12850, ptr %.sroa.gep15855, ptr %.sroa.gep14290
   store i8 0, ptr %.neg12851.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5754 = and i64 %5721, 255
   %.not12852 = icmp eq i64 %5754, 255
   %.neg12853 = select i1 %.not12852, i64 2, i64 1
-  %5755 = getelementptr inbounds i8, ptr %.neg12851.sroa.sel, i64 %.neg12853
+  %5755 = getelementptr inbounds nuw i8, ptr %.neg12851.sroa.sel, i64 %.neg12853
   br label %5778
 
 5756:                                             ; preds = %5715
   %5757 = lshr i64 %5721, 48
   %5758 = trunc i64 %5757 to i8
-  %5759 = getelementptr inbounds i8, ptr %.214.lcssa, i64 1
+  %5759 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 1
   store i8 %5758, ptr %5759, align 1
   %5760 = lshr i64 %5721, 40
   %5761 = trunc i64 %5760 to i8
-  %5762 = getelementptr inbounds i8, ptr %.214.lcssa, i64 2
+  %5762 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 2
   store i8 %5761, ptr %5762, align 1
   %5763 = lshr i64 %5721, 32
   %5764 = trunc i64 %5763 to i8
-  %5765 = getelementptr inbounds i8, ptr %.214.lcssa, i64 3
+  %5765 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 3
   store i8 %5764, ptr %5765, align 1
   %5766 = lshr i64 %5721, 24
   %5767 = trunc i64 %5766 to i8
-  %5768 = getelementptr inbounds i8, ptr %.214.lcssa, i64 4
+  %5768 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 4
   store i8 %5767, ptr %5768, align 1
   %5769 = lshr i64 %5721, 16
   %5770 = trunc i64 %5769 to i8
-  %5771 = getelementptr inbounds i8, ptr %.214.lcssa, i64 5
+  %5771 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 5
   store i8 %5770, ptr %5771, align 1
   %5772 = lshr i64 %5721, 8
   %5773 = trunc i64 %5772 to i8
-  %5774 = getelementptr inbounds i8, ptr %.214.lcssa, i64 6
+  %5774 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 6
   store i8 %5773, ptr %5774, align 1
   %5775 = trunc i64 %5721 to i8
-  %5776 = getelementptr inbounds i8, ptr %.214.lcssa, i64 7
+  %5776 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 7
   store i8 %5775, ptr %5776, align 1
-  %5777 = getelementptr inbounds i8, ptr %.214.lcssa, i64 8
+  %5777 = getelementptr inbounds nuw i8, ptr %.214.lcssa, i64 8
   br label %5778
 
 5778:                                             ; preds = %5756, %5727
@@ -11987,7 +11987,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14111181 = phi i64 [ %.13711177, %5594 ], [ %5780, %5778 ], [ %5785, %5781 ]
   %.213 = phi ptr [ %.207, %5594 ], [ %.217, %5778 ], [ %.214.lcssa, %5781 ]
   %.70 = phi i32 [ %5595, %5594 ], [ 0, %5778 ], [ 0, %5781 ]
-  %5787 = getelementptr inbounds i8, ptr %1, i64 100
+  %5787 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %5788 = load i16, ptr %5787, align 2
   %5789 = icmp eq i16 %5788, 0
   br i1 %5789, label %5790, label %5792
@@ -12011,7 +12011,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 5802:                                             ; preds = %5792
   %5803 = load ptr, ptr %7, align 8
   %5804 = load ptr, ptr %5803, align 8
-  %5805 = getelementptr inbounds i8, ptr %5804, i64 40
+  %5805 = getelementptr inbounds nuw i8, ptr %5804, i64 40
   store i32 6, ptr %5805, align 8
   %5806 = load ptr, ptr %7, align 8
   %5807 = load ptr, ptr %5806, align 8
@@ -12024,8 +12024,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %5810, label %.lr.ph14958, label %._crit_edge14959
 
 .lr.ph14958:                                      ; preds = %5809
-  %5811 = getelementptr inbounds i8, ptr %4, i64 1264
-  %5812 = getelementptr inbounds i8, ptr %4, i64 960
+  %5811 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %5812 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %5813
 
 5813:                                             ; preds = %.lr.ph14958, %5892
@@ -12058,108 +12058,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12889, label %5861, label %5832
 
 5832:                                             ; preds = %5820
-  %5833 = getelementptr inbounds i8, ptr %.22014955, i64 1
+  %5833 = getelementptr inbounds nuw i8, ptr %.22014955, i64 1
   store i8 0, ptr %5833, align 1
   %.not12890 = icmp eq i64 %5830, 255
-  %.sroa.gep14292 = getelementptr inbounds i8, ptr %.22014955, i64 2
+  %.sroa.gep14292 = getelementptr inbounds nuw i8, ptr %.22014955, i64 2
   %.neg12891.sroa.sel = select i1 %.not12890, ptr %.sroa.gep14292, ptr %5833
   %5834 = lshr i64 %5822, 48
   %5835 = trunc i64 %5834 to i8
   store i8 %5835, ptr %.neg12891.sroa.sel, align 1
-  %.sroa.gep15829 = getelementptr inbounds i8, ptr %.22014955, i64 3
+  %.sroa.gep15829 = getelementptr inbounds nuw i8, ptr %.22014955, i64 3
   %.neg12891.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12890, ptr %.sroa.gep15829, ptr %.sroa.gep14292
   store i8 0, ptr %.neg12891.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5836 = and i64 %5822, 71776119061217280
   %.not12892 = icmp eq i64 %5836, 71776119061217280
   %.neg12893 = select i1 %.not12892, i64 2, i64 1
-  %5837 = getelementptr inbounds i8, ptr %.neg12891.sroa.sel, i64 %.neg12893
+  %5837 = getelementptr inbounds nuw i8, ptr %.neg12891.sroa.sel, i64 %.neg12893
   %5838 = lshr i64 %5822, 40
   %5839 = trunc i64 %5838 to i8
   store i8 %5839, ptr %5837, align 1
-  %5840 = getelementptr inbounds i8, ptr %5837, i64 1
+  %5840 = getelementptr inbounds nuw i8, ptr %5837, i64 1
   store i8 0, ptr %5840, align 1
   %5841 = and i64 %5822, 280375465082880
   %.not12894 = icmp eq i64 %5841, 280375465082880
-  %.sroa.gep14294 = getelementptr inbounds i8, ptr %5837, i64 2
+  %.sroa.gep14294 = getelementptr inbounds nuw i8, ptr %5837, i64 2
   %.neg12895.sroa.sel = select i1 %.not12894, ptr %.sroa.gep14294, ptr %5840
   %5842 = lshr i64 %5822, 32
   %5843 = trunc i64 %5842 to i8
   store i8 %5843, ptr %.neg12895.sroa.sel, align 1
-  %.sroa.gep15835 = getelementptr inbounds i8, ptr %5837, i64 3
+  %.sroa.gep15835 = getelementptr inbounds nuw i8, ptr %5837, i64 3
   %.neg12895.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12894, ptr %.sroa.gep15835, ptr %.sroa.gep14294
   store i8 0, ptr %.neg12895.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5844 = and i64 %5822, 1095216660480
   %.not12896 = icmp eq i64 %5844, 1095216660480
   %.neg12897 = select i1 %.not12896, i64 2, i64 1
-  %5845 = getelementptr inbounds i8, ptr %.neg12895.sroa.sel, i64 %.neg12897
+  %5845 = getelementptr inbounds nuw i8, ptr %.neg12895.sroa.sel, i64 %.neg12897
   %5846 = lshr i64 %5826, 24
   %5847 = trunc i64 %5846 to i8
   store i8 %5847, ptr %5845, align 1
-  %5848 = getelementptr inbounds i8, ptr %5845, i64 1
+  %5848 = getelementptr inbounds nuw i8, ptr %5845, i64 1
   store i8 0, ptr %5848, align 1
   %5849 = and i64 %5826, 4278190080
   %.not12898 = icmp eq i64 %5849, 4278190080
-  %.sroa.gep14296 = getelementptr inbounds i8, ptr %5845, i64 2
+  %.sroa.gep14296 = getelementptr inbounds nuw i8, ptr %5845, i64 2
   %.neg12899.sroa.sel = select i1 %.not12898, ptr %.sroa.gep14296, ptr %5848
   %5850 = lshr i64 %5826, 16
   %5851 = trunc i64 %5850 to i8
   store i8 %5851, ptr %.neg12899.sroa.sel, align 1
-  %.sroa.gep15833 = getelementptr inbounds i8, ptr %5845, i64 3
+  %.sroa.gep15833 = getelementptr inbounds nuw i8, ptr %5845, i64 3
   %.neg12899.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12898, ptr %.sroa.gep15833, ptr %.sroa.gep14296
   store i8 0, ptr %.neg12899.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5852 = and i64 %5826, 16711680
   %.not12900 = icmp eq i64 %5852, 16711680
   %.neg12901 = select i1 %.not12900, i64 2, i64 1
-  %5853 = getelementptr inbounds i8, ptr %.neg12899.sroa.sel, i64 %.neg12901
+  %5853 = getelementptr inbounds nuw i8, ptr %.neg12899.sroa.sel, i64 %.neg12901
   %5854 = lshr i64 %5826, 8
   %5855 = trunc i64 %5854 to i8
   store i8 %5855, ptr %5853, align 1
-  %5856 = getelementptr inbounds i8, ptr %5853, i64 1
+  %5856 = getelementptr inbounds nuw i8, ptr %5853, i64 1
   store i8 0, ptr %5856, align 1
   %5857 = and i64 %5826, 65280
   %.not12902 = icmp eq i64 %5857, 65280
-  %.sroa.gep14298 = getelementptr inbounds i8, ptr %5853, i64 2
+  %.sroa.gep14298 = getelementptr inbounds nuw i8, ptr %5853, i64 2
   %.neg12903.sroa.sel = select i1 %.not12902, ptr %.sroa.gep14298, ptr %5856
   %5858 = trunc i64 %5826 to i8
   store i8 %5858, ptr %.neg12903.sroa.sel, align 1
-  %.sroa.gep15831 = getelementptr inbounds i8, ptr %5853, i64 3
+  %.sroa.gep15831 = getelementptr inbounds nuw i8, ptr %5853, i64 3
   %.neg12903.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12902, ptr %.sroa.gep15831, ptr %.sroa.gep14298
   store i8 0, ptr %.neg12903.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5859 = and i64 %5826, 255
   %.not12904 = icmp eq i64 %5859, 255
   %.neg12905 = select i1 %.not12904, i64 2, i64 1
-  %5860 = getelementptr inbounds i8, ptr %.neg12903.sroa.sel, i64 %.neg12905
+  %5860 = getelementptr inbounds nuw i8, ptr %.neg12903.sroa.sel, i64 %.neg12905
   br label %5883
 
 5861:                                             ; preds = %5820
   %5862 = lshr i64 %5822, 48
   %5863 = trunc i64 %5862 to i8
-  %5864 = getelementptr inbounds i8, ptr %.22014955, i64 1
+  %5864 = getelementptr inbounds nuw i8, ptr %.22014955, i64 1
   store i8 %5863, ptr %5864, align 1
   %5865 = lshr i64 %5822, 40
   %5866 = trunc i64 %5865 to i8
-  %5867 = getelementptr inbounds i8, ptr %.22014955, i64 2
+  %5867 = getelementptr inbounds nuw i8, ptr %.22014955, i64 2
   store i8 %5866, ptr %5867, align 1
   %5868 = lshr i64 %5822, 32
   %5869 = trunc i64 %5868 to i8
-  %5870 = getelementptr inbounds i8, ptr %.22014955, i64 3
+  %5870 = getelementptr inbounds nuw i8, ptr %.22014955, i64 3
   store i8 %5869, ptr %5870, align 1
   %5871 = lshr i64 %5826, 24
   %5872 = trunc i64 %5871 to i8
-  %5873 = getelementptr inbounds i8, ptr %.22014955, i64 4
+  %5873 = getelementptr inbounds nuw i8, ptr %.22014955, i64 4
   store i8 %5872, ptr %5873, align 1
   %5874 = lshr i64 %5826, 16
   %5875 = trunc i64 %5874 to i8
-  %5876 = getelementptr inbounds i8, ptr %.22014955, i64 5
+  %5876 = getelementptr inbounds nuw i8, ptr %.22014955, i64 5
   store i8 %5875, ptr %5876, align 1
   %5877 = lshr i64 %5826, 8
   %5878 = trunc i64 %5877 to i8
-  %5879 = getelementptr inbounds i8, ptr %.22014955, i64 6
+  %5879 = getelementptr inbounds nuw i8, ptr %.22014955, i64 6
   store i8 %5878, ptr %5879, align 1
   %5880 = trunc i64 %5826 to i8
-  %5881 = getelementptr inbounds i8, ptr %.22014955, i64 7
+  %5881 = getelementptr inbounds nuw i8, ptr %.22014955, i64 7
   store i8 %5880, ptr %5881, align 1
-  %5882 = getelementptr inbounds i8, ptr %.22014955, i64 8
+  %5882 = getelementptr inbounds nuw i8, ptr %.22014955, i64 8
   br label %5883
 
 5883:                                             ; preds = %5861, %5832
@@ -12195,12 +12195,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %5897 = xor i32 %5896, -1
   %5898 = and i32 %5795, %5897
   %5899 = zext nneg i32 %5894 to i64
-  %5900 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %5899
+  %5900 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %5899
   %5901 = load i32, ptr %5900, align 4
   %5902 = shl i32 %5901, %5800
   %5903 = or i32 %5902, %5898
-  %5904 = getelementptr inbounds i8, ptr %4, i64 1024
-  %5905 = getelementptr inbounds [256 x i8], ptr %5904, i64 0, i64 %5899
+  %5904 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %5905 = getelementptr inbounds nuw [256 x i8], ptr %5904, i64 0, i64 %5899
   %5906 = load i8, ptr %5905, align 1
   %5907 = sext i8 %5906 to i32
   %5908 = add nsw i32 %5907, %5800
@@ -12225,108 +12225,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12872, label %5952, label %5923
 
 5923:                                             ; preds = %5911
-  %5924 = getelementptr inbounds i8, ptr %.220.lcssa, i64 1
+  %5924 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 1
   store i8 0, ptr %5924, align 1
   %.not12873 = icmp eq i64 %5921, 255
-  %.sroa.gep14300 = getelementptr inbounds i8, ptr %.220.lcssa, i64 2
+  %.sroa.gep14300 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 2
   %.neg12874.sroa.sel = select i1 %.not12873, ptr %.sroa.gep14300, ptr %5924
   %5925 = lshr i64 %5917, 48
   %5926 = trunc i64 %5925 to i8
   store i8 %5926, ptr %.neg12874.sroa.sel, align 1
-  %.sroa.gep15837 = getelementptr inbounds i8, ptr %.220.lcssa, i64 3
+  %.sroa.gep15837 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 3
   %.neg12874.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12873, ptr %.sroa.gep15837, ptr %.sroa.gep14300
   store i8 0, ptr %.neg12874.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5927 = and i64 %5917, 71776119061217280
   %.not12875 = icmp eq i64 %5927, 71776119061217280
   %.neg12876 = select i1 %.not12875, i64 2, i64 1
-  %5928 = getelementptr inbounds i8, ptr %.neg12874.sroa.sel, i64 %.neg12876
+  %5928 = getelementptr inbounds nuw i8, ptr %.neg12874.sroa.sel, i64 %.neg12876
   %5929 = lshr i64 %5917, 40
   %5930 = trunc i64 %5929 to i8
   store i8 %5930, ptr %5928, align 1
-  %5931 = getelementptr inbounds i8, ptr %5928, i64 1
+  %5931 = getelementptr inbounds nuw i8, ptr %5928, i64 1
   store i8 0, ptr %5931, align 1
   %5932 = and i64 %5917, 280375465082880
   %.not12877 = icmp eq i64 %5932, 280375465082880
-  %.sroa.gep14302 = getelementptr inbounds i8, ptr %5928, i64 2
+  %.sroa.gep14302 = getelementptr inbounds nuw i8, ptr %5928, i64 2
   %.neg12878.sroa.sel = select i1 %.not12877, ptr %.sroa.gep14302, ptr %5931
   %5933 = lshr i64 %5917, 32
   %5934 = trunc i64 %5933 to i8
   store i8 %5934, ptr %.neg12878.sroa.sel, align 1
-  %.sroa.gep15843 = getelementptr inbounds i8, ptr %5928, i64 3
+  %.sroa.gep15843 = getelementptr inbounds nuw i8, ptr %5928, i64 3
   %.neg12878.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12877, ptr %.sroa.gep15843, ptr %.sroa.gep14302
   store i8 0, ptr %.neg12878.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5935 = and i64 %5917, 1095216660480
   %.not12879 = icmp eq i64 %5935, 1095216660480
   %.neg12880 = select i1 %.not12879, i64 2, i64 1
-  %5936 = getelementptr inbounds i8, ptr %.neg12878.sroa.sel, i64 %.neg12880
+  %5936 = getelementptr inbounds nuw i8, ptr %.neg12878.sroa.sel, i64 %.neg12880
   %5937 = lshr i64 %5917, 24
   %5938 = trunc i64 %5937 to i8
   store i8 %5938, ptr %5936, align 1
-  %5939 = getelementptr inbounds i8, ptr %5936, i64 1
+  %5939 = getelementptr inbounds nuw i8, ptr %5936, i64 1
   store i8 0, ptr %5939, align 1
   %5940 = and i64 %5917, 4278190080
   %.not12881 = icmp eq i64 %5940, 4278190080
-  %.sroa.gep14304 = getelementptr inbounds i8, ptr %5936, i64 2
+  %.sroa.gep14304 = getelementptr inbounds nuw i8, ptr %5936, i64 2
   %.neg12882.sroa.sel = select i1 %.not12881, ptr %.sroa.gep14304, ptr %5939
   %5941 = lshr i64 %5917, 16
   %5942 = trunc i64 %5941 to i8
   store i8 %5942, ptr %.neg12882.sroa.sel, align 1
-  %.sroa.gep15841 = getelementptr inbounds i8, ptr %5936, i64 3
+  %.sroa.gep15841 = getelementptr inbounds nuw i8, ptr %5936, i64 3
   %.neg12882.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12881, ptr %.sroa.gep15841, ptr %.sroa.gep14304
   store i8 0, ptr %.neg12882.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5943 = and i64 %5917, 16711680
   %.not12883 = icmp eq i64 %5943, 16711680
   %.neg12884 = select i1 %.not12883, i64 2, i64 1
-  %5944 = getelementptr inbounds i8, ptr %.neg12882.sroa.sel, i64 %.neg12884
+  %5944 = getelementptr inbounds nuw i8, ptr %.neg12882.sroa.sel, i64 %.neg12884
   %5945 = lshr i64 %5917, 8
   %5946 = trunc i64 %5945 to i8
   store i8 %5946, ptr %5944, align 1
-  %5947 = getelementptr inbounds i8, ptr %5944, i64 1
+  %5947 = getelementptr inbounds nuw i8, ptr %5944, i64 1
   store i8 0, ptr %5947, align 1
   %5948 = and i64 %5917, 65280
   %.not12885 = icmp eq i64 %5948, 65280
-  %.sroa.gep14306 = getelementptr inbounds i8, ptr %5944, i64 2
+  %.sroa.gep14306 = getelementptr inbounds nuw i8, ptr %5944, i64 2
   %.neg12886.sroa.sel = select i1 %.not12885, ptr %.sroa.gep14306, ptr %5947
   %5949 = trunc i64 %5917 to i8
   store i8 %5949, ptr %.neg12886.sroa.sel, align 1
-  %.sroa.gep15839 = getelementptr inbounds i8, ptr %5944, i64 3
+  %.sroa.gep15839 = getelementptr inbounds nuw i8, ptr %5944, i64 3
   %.neg12886.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12885, ptr %.sroa.gep15839, ptr %.sroa.gep14306
   store i8 0, ptr %.neg12886.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %5950 = and i64 %5917, 255
   %.not12887 = icmp eq i64 %5950, 255
   %.neg12888 = select i1 %.not12887, i64 2, i64 1
-  %5951 = getelementptr inbounds i8, ptr %.neg12886.sroa.sel, i64 %.neg12888
+  %5951 = getelementptr inbounds nuw i8, ptr %.neg12886.sroa.sel, i64 %.neg12888
   br label %5974
 
 5952:                                             ; preds = %5911
   %5953 = lshr i64 %5917, 48
   %5954 = trunc i64 %5953 to i8
-  %5955 = getelementptr inbounds i8, ptr %.220.lcssa, i64 1
+  %5955 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 1
   store i8 %5954, ptr %5955, align 1
   %5956 = lshr i64 %5917, 40
   %5957 = trunc i64 %5956 to i8
-  %5958 = getelementptr inbounds i8, ptr %.220.lcssa, i64 2
+  %5958 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 2
   store i8 %5957, ptr %5958, align 1
   %5959 = lshr i64 %5917, 32
   %5960 = trunc i64 %5959 to i8
-  %5961 = getelementptr inbounds i8, ptr %.220.lcssa, i64 3
+  %5961 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 3
   store i8 %5960, ptr %5961, align 1
   %5962 = lshr i64 %5917, 24
   %5963 = trunc i64 %5962 to i8
-  %5964 = getelementptr inbounds i8, ptr %.220.lcssa, i64 4
+  %5964 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 4
   store i8 %5963, ptr %5964, align 1
   %5965 = lshr i64 %5917, 16
   %5966 = trunc i64 %5965 to i8
-  %5967 = getelementptr inbounds i8, ptr %.220.lcssa, i64 5
+  %5967 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 5
   store i8 %5966, ptr %5967, align 1
   %5968 = lshr i64 %5917, 8
   %5969 = trunc i64 %5968 to i8
-  %5970 = getelementptr inbounds i8, ptr %.220.lcssa, i64 6
+  %5970 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 6
   store i8 %5969, ptr %5970, align 1
   %5971 = trunc i64 %5917 to i8
-  %5972 = getelementptr inbounds i8, ptr %.220.lcssa, i64 7
+  %5972 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 7
   store i8 %5971, ptr %5972, align 1
-  %5973 = getelementptr inbounds i8, ptr %.220.lcssa, i64 8
+  %5973 = getelementptr inbounds nuw i8, ptr %.220.lcssa, i64 8
   br label %5974
 
 5974:                                             ; preds = %5952, %5923
@@ -12347,7 +12347,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14511185 = phi i64 [ %.14111181, %5790 ], [ %5976, %5974 ], [ %5981, %5977 ]
   %.219 = phi ptr [ %.213, %5790 ], [ %.223, %5974 ], [ %.220.lcssa, %5977 ]
   %.72 = phi i32 [ %5791, %5790 ], [ 0, %5974 ], [ 0, %5977 ]
-  %5983 = getelementptr inbounds i8, ptr %1, i64 86
+  %5983 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %5984 = load i16, ptr %5983, align 2
   %5985 = icmp eq i16 %5984, 0
   br i1 %5985, label %5986, label %5988
@@ -12371,7 +12371,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 5998:                                             ; preds = %5988
   %5999 = load ptr, ptr %7, align 8
   %6000 = load ptr, ptr %5999, align 8
-  %6001 = getelementptr inbounds i8, ptr %6000, i64 40
+  %6001 = getelementptr inbounds nuw i8, ptr %6000, i64 40
   store i32 6, ptr %6001, align 8
   %6002 = load ptr, ptr %7, align 8
   %6003 = load ptr, ptr %6002, align 8
@@ -12384,8 +12384,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %6006, label %.lr.ph14969, label %._crit_edge14970
 
 .lr.ph14969:                                      ; preds = %6005
-  %6007 = getelementptr inbounds i8, ptr %4, i64 1264
-  %6008 = getelementptr inbounds i8, ptr %4, i64 960
+  %6007 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %6008 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %6009
 
 6009:                                             ; preds = %.lr.ph14969, %6088
@@ -12418,108 +12418,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12924, label %6057, label %6028
 
 6028:                                             ; preds = %6016
-  %6029 = getelementptr inbounds i8, ptr %.22614966, i64 1
+  %6029 = getelementptr inbounds nuw i8, ptr %.22614966, i64 1
   store i8 0, ptr %6029, align 1
   %.not12925 = icmp eq i64 %6026, 255
-  %.sroa.gep14308 = getelementptr inbounds i8, ptr %.22614966, i64 2
+  %.sroa.gep14308 = getelementptr inbounds nuw i8, ptr %.22614966, i64 2
   %.neg12926.sroa.sel = select i1 %.not12925, ptr %.sroa.gep14308, ptr %6029
   %6030 = lshr i64 %6018, 48
   %6031 = trunc i64 %6030 to i8
   store i8 %6031, ptr %.neg12926.sroa.sel, align 1
-  %.sroa.gep15813 = getelementptr inbounds i8, ptr %.22614966, i64 3
+  %.sroa.gep15813 = getelementptr inbounds nuw i8, ptr %.22614966, i64 3
   %.neg12926.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12925, ptr %.sroa.gep15813, ptr %.sroa.gep14308
   store i8 0, ptr %.neg12926.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6032 = and i64 %6018, 71776119061217280
   %.not12927 = icmp eq i64 %6032, 71776119061217280
   %.neg12928 = select i1 %.not12927, i64 2, i64 1
-  %6033 = getelementptr inbounds i8, ptr %.neg12926.sroa.sel, i64 %.neg12928
+  %6033 = getelementptr inbounds nuw i8, ptr %.neg12926.sroa.sel, i64 %.neg12928
   %6034 = lshr i64 %6018, 40
   %6035 = trunc i64 %6034 to i8
   store i8 %6035, ptr %6033, align 1
-  %6036 = getelementptr inbounds i8, ptr %6033, i64 1
+  %6036 = getelementptr inbounds nuw i8, ptr %6033, i64 1
   store i8 0, ptr %6036, align 1
   %6037 = and i64 %6018, 280375465082880
   %.not12929 = icmp eq i64 %6037, 280375465082880
-  %.sroa.gep14310 = getelementptr inbounds i8, ptr %6033, i64 2
+  %.sroa.gep14310 = getelementptr inbounds nuw i8, ptr %6033, i64 2
   %.neg12930.sroa.sel = select i1 %.not12929, ptr %.sroa.gep14310, ptr %6036
   %6038 = lshr i64 %6018, 32
   %6039 = trunc i64 %6038 to i8
   store i8 %6039, ptr %.neg12930.sroa.sel, align 1
-  %.sroa.gep15819 = getelementptr inbounds i8, ptr %6033, i64 3
+  %.sroa.gep15819 = getelementptr inbounds nuw i8, ptr %6033, i64 3
   %.neg12930.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12929, ptr %.sroa.gep15819, ptr %.sroa.gep14310
   store i8 0, ptr %.neg12930.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6040 = and i64 %6018, 1095216660480
   %.not12931 = icmp eq i64 %6040, 1095216660480
   %.neg12932 = select i1 %.not12931, i64 2, i64 1
-  %6041 = getelementptr inbounds i8, ptr %.neg12930.sroa.sel, i64 %.neg12932
+  %6041 = getelementptr inbounds nuw i8, ptr %.neg12930.sroa.sel, i64 %.neg12932
   %6042 = lshr i64 %6022, 24
   %6043 = trunc i64 %6042 to i8
   store i8 %6043, ptr %6041, align 1
-  %6044 = getelementptr inbounds i8, ptr %6041, i64 1
+  %6044 = getelementptr inbounds nuw i8, ptr %6041, i64 1
   store i8 0, ptr %6044, align 1
   %6045 = and i64 %6022, 4278190080
   %.not12933 = icmp eq i64 %6045, 4278190080
-  %.sroa.gep14312 = getelementptr inbounds i8, ptr %6041, i64 2
+  %.sroa.gep14312 = getelementptr inbounds nuw i8, ptr %6041, i64 2
   %.neg12934.sroa.sel = select i1 %.not12933, ptr %.sroa.gep14312, ptr %6044
   %6046 = lshr i64 %6022, 16
   %6047 = trunc i64 %6046 to i8
   store i8 %6047, ptr %.neg12934.sroa.sel, align 1
-  %.sroa.gep15817 = getelementptr inbounds i8, ptr %6041, i64 3
+  %.sroa.gep15817 = getelementptr inbounds nuw i8, ptr %6041, i64 3
   %.neg12934.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12933, ptr %.sroa.gep15817, ptr %.sroa.gep14312
   store i8 0, ptr %.neg12934.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6048 = and i64 %6022, 16711680
   %.not12935 = icmp eq i64 %6048, 16711680
   %.neg12936 = select i1 %.not12935, i64 2, i64 1
-  %6049 = getelementptr inbounds i8, ptr %.neg12934.sroa.sel, i64 %.neg12936
+  %6049 = getelementptr inbounds nuw i8, ptr %.neg12934.sroa.sel, i64 %.neg12936
   %6050 = lshr i64 %6022, 8
   %6051 = trunc i64 %6050 to i8
   store i8 %6051, ptr %6049, align 1
-  %6052 = getelementptr inbounds i8, ptr %6049, i64 1
+  %6052 = getelementptr inbounds nuw i8, ptr %6049, i64 1
   store i8 0, ptr %6052, align 1
   %6053 = and i64 %6022, 65280
   %.not12937 = icmp eq i64 %6053, 65280
-  %.sroa.gep14314 = getelementptr inbounds i8, ptr %6049, i64 2
+  %.sroa.gep14314 = getelementptr inbounds nuw i8, ptr %6049, i64 2
   %.neg12938.sroa.sel = select i1 %.not12937, ptr %.sroa.gep14314, ptr %6052
   %6054 = trunc i64 %6022 to i8
   store i8 %6054, ptr %.neg12938.sroa.sel, align 1
-  %.sroa.gep15815 = getelementptr inbounds i8, ptr %6049, i64 3
+  %.sroa.gep15815 = getelementptr inbounds nuw i8, ptr %6049, i64 3
   %.neg12938.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12937, ptr %.sroa.gep15815, ptr %.sroa.gep14314
   store i8 0, ptr %.neg12938.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6055 = and i64 %6022, 255
   %.not12939 = icmp eq i64 %6055, 255
   %.neg12940 = select i1 %.not12939, i64 2, i64 1
-  %6056 = getelementptr inbounds i8, ptr %.neg12938.sroa.sel, i64 %.neg12940
+  %6056 = getelementptr inbounds nuw i8, ptr %.neg12938.sroa.sel, i64 %.neg12940
   br label %6079
 
 6057:                                             ; preds = %6016
   %6058 = lshr i64 %6018, 48
   %6059 = trunc i64 %6058 to i8
-  %6060 = getelementptr inbounds i8, ptr %.22614966, i64 1
+  %6060 = getelementptr inbounds nuw i8, ptr %.22614966, i64 1
   store i8 %6059, ptr %6060, align 1
   %6061 = lshr i64 %6018, 40
   %6062 = trunc i64 %6061 to i8
-  %6063 = getelementptr inbounds i8, ptr %.22614966, i64 2
+  %6063 = getelementptr inbounds nuw i8, ptr %.22614966, i64 2
   store i8 %6062, ptr %6063, align 1
   %6064 = lshr i64 %6018, 32
   %6065 = trunc i64 %6064 to i8
-  %6066 = getelementptr inbounds i8, ptr %.22614966, i64 3
+  %6066 = getelementptr inbounds nuw i8, ptr %.22614966, i64 3
   store i8 %6065, ptr %6066, align 1
   %6067 = lshr i64 %6022, 24
   %6068 = trunc i64 %6067 to i8
-  %6069 = getelementptr inbounds i8, ptr %.22614966, i64 4
+  %6069 = getelementptr inbounds nuw i8, ptr %.22614966, i64 4
   store i8 %6068, ptr %6069, align 1
   %6070 = lshr i64 %6022, 16
   %6071 = trunc i64 %6070 to i8
-  %6072 = getelementptr inbounds i8, ptr %.22614966, i64 5
+  %6072 = getelementptr inbounds nuw i8, ptr %.22614966, i64 5
   store i8 %6071, ptr %6072, align 1
   %6073 = lshr i64 %6022, 8
   %6074 = trunc i64 %6073 to i8
-  %6075 = getelementptr inbounds i8, ptr %.22614966, i64 6
+  %6075 = getelementptr inbounds nuw i8, ptr %.22614966, i64 6
   store i8 %6074, ptr %6075, align 1
   %6076 = trunc i64 %6022 to i8
-  %6077 = getelementptr inbounds i8, ptr %.22614966, i64 7
+  %6077 = getelementptr inbounds nuw i8, ptr %.22614966, i64 7
   store i8 %6076, ptr %6077, align 1
-  %6078 = getelementptr inbounds i8, ptr %.22614966, i64 8
+  %6078 = getelementptr inbounds nuw i8, ptr %.22614966, i64 8
   br label %6079
 
 6079:                                             ; preds = %6057, %6028
@@ -12555,12 +12555,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6093 = xor i32 %6092, -1
   %6094 = and i32 %5991, %6093
   %6095 = zext nneg i32 %6090 to i64
-  %6096 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %6095
+  %6096 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %6095
   %6097 = load i32, ptr %6096, align 4
   %6098 = shl i32 %6097, %5996
   %6099 = or i32 %6098, %6094
-  %6100 = getelementptr inbounds i8, ptr %4, i64 1024
-  %6101 = getelementptr inbounds [256 x i8], ptr %6100, i64 0, i64 %6095
+  %6100 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %6101 = getelementptr inbounds nuw [256 x i8], ptr %6100, i64 0, i64 %6095
   %6102 = load i8, ptr %6101, align 1
   %6103 = sext i8 %6102 to i32
   %6104 = add nsw i32 %6103, %5996
@@ -12585,108 +12585,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12907, label %6148, label %6119
 
 6119:                                             ; preds = %6107
-  %6120 = getelementptr inbounds i8, ptr %.226.lcssa, i64 1
+  %6120 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 1
   store i8 0, ptr %6120, align 1
   %.not12908 = icmp eq i64 %6117, 255
-  %.sroa.gep14316 = getelementptr inbounds i8, ptr %.226.lcssa, i64 2
+  %.sroa.gep14316 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 2
   %.neg12909.sroa.sel = select i1 %.not12908, ptr %.sroa.gep14316, ptr %6120
   %6121 = lshr i64 %6113, 48
   %6122 = trunc i64 %6121 to i8
   store i8 %6122, ptr %.neg12909.sroa.sel, align 1
-  %.sroa.gep15821 = getelementptr inbounds i8, ptr %.226.lcssa, i64 3
+  %.sroa.gep15821 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 3
   %.neg12909.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12908, ptr %.sroa.gep15821, ptr %.sroa.gep14316
   store i8 0, ptr %.neg12909.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6123 = and i64 %6113, 71776119061217280
   %.not12910 = icmp eq i64 %6123, 71776119061217280
   %.neg12911 = select i1 %.not12910, i64 2, i64 1
-  %6124 = getelementptr inbounds i8, ptr %.neg12909.sroa.sel, i64 %.neg12911
+  %6124 = getelementptr inbounds nuw i8, ptr %.neg12909.sroa.sel, i64 %.neg12911
   %6125 = lshr i64 %6113, 40
   %6126 = trunc i64 %6125 to i8
   store i8 %6126, ptr %6124, align 1
-  %6127 = getelementptr inbounds i8, ptr %6124, i64 1
+  %6127 = getelementptr inbounds nuw i8, ptr %6124, i64 1
   store i8 0, ptr %6127, align 1
   %6128 = and i64 %6113, 280375465082880
   %.not12912 = icmp eq i64 %6128, 280375465082880
-  %.sroa.gep14318 = getelementptr inbounds i8, ptr %6124, i64 2
+  %.sroa.gep14318 = getelementptr inbounds nuw i8, ptr %6124, i64 2
   %.neg12913.sroa.sel = select i1 %.not12912, ptr %.sroa.gep14318, ptr %6127
   %6129 = lshr i64 %6113, 32
   %6130 = trunc i64 %6129 to i8
   store i8 %6130, ptr %.neg12913.sroa.sel, align 1
-  %.sroa.gep15827 = getelementptr inbounds i8, ptr %6124, i64 3
+  %.sroa.gep15827 = getelementptr inbounds nuw i8, ptr %6124, i64 3
   %.neg12913.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12912, ptr %.sroa.gep15827, ptr %.sroa.gep14318
   store i8 0, ptr %.neg12913.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6131 = and i64 %6113, 1095216660480
   %.not12914 = icmp eq i64 %6131, 1095216660480
   %.neg12915 = select i1 %.not12914, i64 2, i64 1
-  %6132 = getelementptr inbounds i8, ptr %.neg12913.sroa.sel, i64 %.neg12915
+  %6132 = getelementptr inbounds nuw i8, ptr %.neg12913.sroa.sel, i64 %.neg12915
   %6133 = lshr i64 %6113, 24
   %6134 = trunc i64 %6133 to i8
   store i8 %6134, ptr %6132, align 1
-  %6135 = getelementptr inbounds i8, ptr %6132, i64 1
+  %6135 = getelementptr inbounds nuw i8, ptr %6132, i64 1
   store i8 0, ptr %6135, align 1
   %6136 = and i64 %6113, 4278190080
   %.not12916 = icmp eq i64 %6136, 4278190080
-  %.sroa.gep14320 = getelementptr inbounds i8, ptr %6132, i64 2
+  %.sroa.gep14320 = getelementptr inbounds nuw i8, ptr %6132, i64 2
   %.neg12917.sroa.sel = select i1 %.not12916, ptr %.sroa.gep14320, ptr %6135
   %6137 = lshr i64 %6113, 16
   %6138 = trunc i64 %6137 to i8
   store i8 %6138, ptr %.neg12917.sroa.sel, align 1
-  %.sroa.gep15825 = getelementptr inbounds i8, ptr %6132, i64 3
+  %.sroa.gep15825 = getelementptr inbounds nuw i8, ptr %6132, i64 3
   %.neg12917.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12916, ptr %.sroa.gep15825, ptr %.sroa.gep14320
   store i8 0, ptr %.neg12917.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6139 = and i64 %6113, 16711680
   %.not12918 = icmp eq i64 %6139, 16711680
   %.neg12919 = select i1 %.not12918, i64 2, i64 1
-  %6140 = getelementptr inbounds i8, ptr %.neg12917.sroa.sel, i64 %.neg12919
+  %6140 = getelementptr inbounds nuw i8, ptr %.neg12917.sroa.sel, i64 %.neg12919
   %6141 = lshr i64 %6113, 8
   %6142 = trunc i64 %6141 to i8
   store i8 %6142, ptr %6140, align 1
-  %6143 = getelementptr inbounds i8, ptr %6140, i64 1
+  %6143 = getelementptr inbounds nuw i8, ptr %6140, i64 1
   store i8 0, ptr %6143, align 1
   %6144 = and i64 %6113, 65280
   %.not12920 = icmp eq i64 %6144, 65280
-  %.sroa.gep14322 = getelementptr inbounds i8, ptr %6140, i64 2
+  %.sroa.gep14322 = getelementptr inbounds nuw i8, ptr %6140, i64 2
   %.neg12921.sroa.sel = select i1 %.not12920, ptr %.sroa.gep14322, ptr %6143
   %6145 = trunc i64 %6113 to i8
   store i8 %6145, ptr %.neg12921.sroa.sel, align 1
-  %.sroa.gep15823 = getelementptr inbounds i8, ptr %6140, i64 3
+  %.sroa.gep15823 = getelementptr inbounds nuw i8, ptr %6140, i64 3
   %.neg12921.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12920, ptr %.sroa.gep15823, ptr %.sroa.gep14322
   store i8 0, ptr %.neg12921.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6146 = and i64 %6113, 255
   %.not12922 = icmp eq i64 %6146, 255
   %.neg12923 = select i1 %.not12922, i64 2, i64 1
-  %6147 = getelementptr inbounds i8, ptr %.neg12921.sroa.sel, i64 %.neg12923
+  %6147 = getelementptr inbounds nuw i8, ptr %.neg12921.sroa.sel, i64 %.neg12923
   br label %6170
 
 6148:                                             ; preds = %6107
   %6149 = lshr i64 %6113, 48
   %6150 = trunc i64 %6149 to i8
-  %6151 = getelementptr inbounds i8, ptr %.226.lcssa, i64 1
+  %6151 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 1
   store i8 %6150, ptr %6151, align 1
   %6152 = lshr i64 %6113, 40
   %6153 = trunc i64 %6152 to i8
-  %6154 = getelementptr inbounds i8, ptr %.226.lcssa, i64 2
+  %6154 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 2
   store i8 %6153, ptr %6154, align 1
   %6155 = lshr i64 %6113, 32
   %6156 = trunc i64 %6155 to i8
-  %6157 = getelementptr inbounds i8, ptr %.226.lcssa, i64 3
+  %6157 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 3
   store i8 %6156, ptr %6157, align 1
   %6158 = lshr i64 %6113, 24
   %6159 = trunc i64 %6158 to i8
-  %6160 = getelementptr inbounds i8, ptr %.226.lcssa, i64 4
+  %6160 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 4
   store i8 %6159, ptr %6160, align 1
   %6161 = lshr i64 %6113, 16
   %6162 = trunc i64 %6161 to i8
-  %6163 = getelementptr inbounds i8, ptr %.226.lcssa, i64 5
+  %6163 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 5
   store i8 %6162, ptr %6163, align 1
   %6164 = lshr i64 %6113, 8
   %6165 = trunc i64 %6164 to i8
-  %6166 = getelementptr inbounds i8, ptr %.226.lcssa, i64 6
+  %6166 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 6
   store i8 %6165, ptr %6166, align 1
   %6167 = trunc i64 %6113 to i8
-  %6168 = getelementptr inbounds i8, ptr %.226.lcssa, i64 7
+  %6168 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 7
   store i8 %6167, ptr %6168, align 1
-  %6169 = getelementptr inbounds i8, ptr %.226.lcssa, i64 8
+  %6169 = getelementptr inbounds nuw i8, ptr %.226.lcssa, i64 8
   br label %6170
 
 6170:                                             ; preds = %6148, %6119
@@ -12707,7 +12707,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.14911189 = phi i64 [ %.14511185, %5986 ], [ %6172, %6170 ], [ %6177, %6173 ]
   %.225 = phi ptr [ %.219, %5986 ], [ %.229, %6170 ], [ %.226.lcssa, %6173 ]
   %.74 = phi i32 [ %5987, %5986 ], [ 0, %6170 ], [ 0, %6173 ]
-  %6179 = getelementptr inbounds i8, ptr %1, i64 72
+  %6179 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6180 = load i16, ptr %6179, align 2
   %6181 = icmp eq i16 %6180, 0
   br i1 %6181, label %6182, label %6184
@@ -12731,7 +12731,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 6194:                                             ; preds = %6184
   %6195 = load ptr, ptr %7, align 8
   %6196 = load ptr, ptr %6195, align 8
-  %6197 = getelementptr inbounds i8, ptr %6196, i64 40
+  %6197 = getelementptr inbounds nuw i8, ptr %6196, i64 40
   store i32 6, ptr %6197, align 8
   %6198 = load ptr, ptr %7, align 8
   %6199 = load ptr, ptr %6198, align 8
@@ -12744,8 +12744,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %6202, label %.lr.ph14980, label %._crit_edge14981
 
 .lr.ph14980:                                      ; preds = %6201
-  %6203 = getelementptr inbounds i8, ptr %4, i64 1264
-  %6204 = getelementptr inbounds i8, ptr %4, i64 960
+  %6203 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %6204 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %6205
 
 6205:                                             ; preds = %.lr.ph14980, %6284
@@ -12778,108 +12778,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12959, label %6253, label %6224
 
 6224:                                             ; preds = %6212
-  %6225 = getelementptr inbounds i8, ptr %.23214977, i64 1
+  %6225 = getelementptr inbounds nuw i8, ptr %.23214977, i64 1
   store i8 0, ptr %6225, align 1
   %.not12960 = icmp eq i64 %6222, 255
-  %.sroa.gep14324 = getelementptr inbounds i8, ptr %.23214977, i64 2
+  %.sroa.gep14324 = getelementptr inbounds nuw i8, ptr %.23214977, i64 2
   %.neg12961.sroa.sel = select i1 %.not12960, ptr %.sroa.gep14324, ptr %6225
   %6226 = lshr i64 %6214, 48
   %6227 = trunc i64 %6226 to i8
   store i8 %6227, ptr %.neg12961.sroa.sel, align 1
-  %.sroa.gep15797 = getelementptr inbounds i8, ptr %.23214977, i64 3
+  %.sroa.gep15797 = getelementptr inbounds nuw i8, ptr %.23214977, i64 3
   %.neg12961.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12960, ptr %.sroa.gep15797, ptr %.sroa.gep14324
   store i8 0, ptr %.neg12961.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6228 = and i64 %6214, 71776119061217280
   %.not12962 = icmp eq i64 %6228, 71776119061217280
   %.neg12963 = select i1 %.not12962, i64 2, i64 1
-  %6229 = getelementptr inbounds i8, ptr %.neg12961.sroa.sel, i64 %.neg12963
+  %6229 = getelementptr inbounds nuw i8, ptr %.neg12961.sroa.sel, i64 %.neg12963
   %6230 = lshr i64 %6214, 40
   %6231 = trunc i64 %6230 to i8
   store i8 %6231, ptr %6229, align 1
-  %6232 = getelementptr inbounds i8, ptr %6229, i64 1
+  %6232 = getelementptr inbounds nuw i8, ptr %6229, i64 1
   store i8 0, ptr %6232, align 1
   %6233 = and i64 %6214, 280375465082880
   %.not12964 = icmp eq i64 %6233, 280375465082880
-  %.sroa.gep14326 = getelementptr inbounds i8, ptr %6229, i64 2
+  %.sroa.gep14326 = getelementptr inbounds nuw i8, ptr %6229, i64 2
   %.neg12965.sroa.sel = select i1 %.not12964, ptr %.sroa.gep14326, ptr %6232
   %6234 = lshr i64 %6214, 32
   %6235 = trunc i64 %6234 to i8
   store i8 %6235, ptr %.neg12965.sroa.sel, align 1
-  %.sroa.gep15803 = getelementptr inbounds i8, ptr %6229, i64 3
+  %.sroa.gep15803 = getelementptr inbounds nuw i8, ptr %6229, i64 3
   %.neg12965.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12964, ptr %.sroa.gep15803, ptr %.sroa.gep14326
   store i8 0, ptr %.neg12965.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6236 = and i64 %6214, 1095216660480
   %.not12966 = icmp eq i64 %6236, 1095216660480
   %.neg12967 = select i1 %.not12966, i64 2, i64 1
-  %6237 = getelementptr inbounds i8, ptr %.neg12965.sroa.sel, i64 %.neg12967
+  %6237 = getelementptr inbounds nuw i8, ptr %.neg12965.sroa.sel, i64 %.neg12967
   %6238 = lshr i64 %6218, 24
   %6239 = trunc i64 %6238 to i8
   store i8 %6239, ptr %6237, align 1
-  %6240 = getelementptr inbounds i8, ptr %6237, i64 1
+  %6240 = getelementptr inbounds nuw i8, ptr %6237, i64 1
   store i8 0, ptr %6240, align 1
   %6241 = and i64 %6218, 4278190080
   %.not12968 = icmp eq i64 %6241, 4278190080
-  %.sroa.gep14328 = getelementptr inbounds i8, ptr %6237, i64 2
+  %.sroa.gep14328 = getelementptr inbounds nuw i8, ptr %6237, i64 2
   %.neg12969.sroa.sel = select i1 %.not12968, ptr %.sroa.gep14328, ptr %6240
   %6242 = lshr i64 %6218, 16
   %6243 = trunc i64 %6242 to i8
   store i8 %6243, ptr %.neg12969.sroa.sel, align 1
-  %.sroa.gep15801 = getelementptr inbounds i8, ptr %6237, i64 3
+  %.sroa.gep15801 = getelementptr inbounds nuw i8, ptr %6237, i64 3
   %.neg12969.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12968, ptr %.sroa.gep15801, ptr %.sroa.gep14328
   store i8 0, ptr %.neg12969.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6244 = and i64 %6218, 16711680
   %.not12970 = icmp eq i64 %6244, 16711680
   %.neg12971 = select i1 %.not12970, i64 2, i64 1
-  %6245 = getelementptr inbounds i8, ptr %.neg12969.sroa.sel, i64 %.neg12971
+  %6245 = getelementptr inbounds nuw i8, ptr %.neg12969.sroa.sel, i64 %.neg12971
   %6246 = lshr i64 %6218, 8
   %6247 = trunc i64 %6246 to i8
   store i8 %6247, ptr %6245, align 1
-  %6248 = getelementptr inbounds i8, ptr %6245, i64 1
+  %6248 = getelementptr inbounds nuw i8, ptr %6245, i64 1
   store i8 0, ptr %6248, align 1
   %6249 = and i64 %6218, 65280
   %.not12972 = icmp eq i64 %6249, 65280
-  %.sroa.gep14330 = getelementptr inbounds i8, ptr %6245, i64 2
+  %.sroa.gep14330 = getelementptr inbounds nuw i8, ptr %6245, i64 2
   %.neg12973.sroa.sel = select i1 %.not12972, ptr %.sroa.gep14330, ptr %6248
   %6250 = trunc i64 %6218 to i8
   store i8 %6250, ptr %.neg12973.sroa.sel, align 1
-  %.sroa.gep15799 = getelementptr inbounds i8, ptr %6245, i64 3
+  %.sroa.gep15799 = getelementptr inbounds nuw i8, ptr %6245, i64 3
   %.neg12973.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12972, ptr %.sroa.gep15799, ptr %.sroa.gep14330
   store i8 0, ptr %.neg12973.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6251 = and i64 %6218, 255
   %.not12974 = icmp eq i64 %6251, 255
   %.neg12975 = select i1 %.not12974, i64 2, i64 1
-  %6252 = getelementptr inbounds i8, ptr %.neg12973.sroa.sel, i64 %.neg12975
+  %6252 = getelementptr inbounds nuw i8, ptr %.neg12973.sroa.sel, i64 %.neg12975
   br label %6275
 
 6253:                                             ; preds = %6212
   %6254 = lshr i64 %6214, 48
   %6255 = trunc i64 %6254 to i8
-  %6256 = getelementptr inbounds i8, ptr %.23214977, i64 1
+  %6256 = getelementptr inbounds nuw i8, ptr %.23214977, i64 1
   store i8 %6255, ptr %6256, align 1
   %6257 = lshr i64 %6214, 40
   %6258 = trunc i64 %6257 to i8
-  %6259 = getelementptr inbounds i8, ptr %.23214977, i64 2
+  %6259 = getelementptr inbounds nuw i8, ptr %.23214977, i64 2
   store i8 %6258, ptr %6259, align 1
   %6260 = lshr i64 %6214, 32
   %6261 = trunc i64 %6260 to i8
-  %6262 = getelementptr inbounds i8, ptr %.23214977, i64 3
+  %6262 = getelementptr inbounds nuw i8, ptr %.23214977, i64 3
   store i8 %6261, ptr %6262, align 1
   %6263 = lshr i64 %6218, 24
   %6264 = trunc i64 %6263 to i8
-  %6265 = getelementptr inbounds i8, ptr %.23214977, i64 4
+  %6265 = getelementptr inbounds nuw i8, ptr %.23214977, i64 4
   store i8 %6264, ptr %6265, align 1
   %6266 = lshr i64 %6218, 16
   %6267 = trunc i64 %6266 to i8
-  %6268 = getelementptr inbounds i8, ptr %.23214977, i64 5
+  %6268 = getelementptr inbounds nuw i8, ptr %.23214977, i64 5
   store i8 %6267, ptr %6268, align 1
   %6269 = lshr i64 %6218, 8
   %6270 = trunc i64 %6269 to i8
-  %6271 = getelementptr inbounds i8, ptr %.23214977, i64 6
+  %6271 = getelementptr inbounds nuw i8, ptr %.23214977, i64 6
   store i8 %6270, ptr %6271, align 1
   %6272 = trunc i64 %6218 to i8
-  %6273 = getelementptr inbounds i8, ptr %.23214977, i64 7
+  %6273 = getelementptr inbounds nuw i8, ptr %.23214977, i64 7
   store i8 %6272, ptr %6273, align 1
-  %6274 = getelementptr inbounds i8, ptr %.23214977, i64 8
+  %6274 = getelementptr inbounds nuw i8, ptr %.23214977, i64 8
   br label %6275
 
 6275:                                             ; preds = %6253, %6224
@@ -12915,12 +12915,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6289 = xor i32 %6288, -1
   %6290 = and i32 %6187, %6289
   %6291 = zext nneg i32 %6286 to i64
-  %6292 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %6291
+  %6292 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %6291
   %6293 = load i32, ptr %6292, align 4
   %6294 = shl i32 %6293, %6192
   %6295 = or i32 %6294, %6290
-  %6296 = getelementptr inbounds i8, ptr %4, i64 1024
-  %6297 = getelementptr inbounds [256 x i8], ptr %6296, i64 0, i64 %6291
+  %6296 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %6297 = getelementptr inbounds nuw [256 x i8], ptr %6296, i64 0, i64 %6291
   %6298 = load i8, ptr %6297, align 1
   %6299 = sext i8 %6298 to i32
   %6300 = add nsw i32 %6299, %6192
@@ -12945,108 +12945,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12942, label %6344, label %6315
 
 6315:                                             ; preds = %6303
-  %6316 = getelementptr inbounds i8, ptr %.232.lcssa, i64 1
+  %6316 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 1
   store i8 0, ptr %6316, align 1
   %.not12943 = icmp eq i64 %6313, 255
-  %.sroa.gep14332 = getelementptr inbounds i8, ptr %.232.lcssa, i64 2
+  %.sroa.gep14332 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 2
   %.neg12944.sroa.sel = select i1 %.not12943, ptr %.sroa.gep14332, ptr %6316
   %6317 = lshr i64 %6309, 48
   %6318 = trunc i64 %6317 to i8
   store i8 %6318, ptr %.neg12944.sroa.sel, align 1
-  %.sroa.gep15805 = getelementptr inbounds i8, ptr %.232.lcssa, i64 3
+  %.sroa.gep15805 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 3
   %.neg12944.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12943, ptr %.sroa.gep15805, ptr %.sroa.gep14332
   store i8 0, ptr %.neg12944.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6319 = and i64 %6309, 71776119061217280
   %.not12945 = icmp eq i64 %6319, 71776119061217280
   %.neg12946 = select i1 %.not12945, i64 2, i64 1
-  %6320 = getelementptr inbounds i8, ptr %.neg12944.sroa.sel, i64 %.neg12946
+  %6320 = getelementptr inbounds nuw i8, ptr %.neg12944.sroa.sel, i64 %.neg12946
   %6321 = lshr i64 %6309, 40
   %6322 = trunc i64 %6321 to i8
   store i8 %6322, ptr %6320, align 1
-  %6323 = getelementptr inbounds i8, ptr %6320, i64 1
+  %6323 = getelementptr inbounds nuw i8, ptr %6320, i64 1
   store i8 0, ptr %6323, align 1
   %6324 = and i64 %6309, 280375465082880
   %.not12947 = icmp eq i64 %6324, 280375465082880
-  %.sroa.gep14334 = getelementptr inbounds i8, ptr %6320, i64 2
+  %.sroa.gep14334 = getelementptr inbounds nuw i8, ptr %6320, i64 2
   %.neg12948.sroa.sel = select i1 %.not12947, ptr %.sroa.gep14334, ptr %6323
   %6325 = lshr i64 %6309, 32
   %6326 = trunc i64 %6325 to i8
   store i8 %6326, ptr %.neg12948.sroa.sel, align 1
-  %.sroa.gep15811 = getelementptr inbounds i8, ptr %6320, i64 3
+  %.sroa.gep15811 = getelementptr inbounds nuw i8, ptr %6320, i64 3
   %.neg12948.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12947, ptr %.sroa.gep15811, ptr %.sroa.gep14334
   store i8 0, ptr %.neg12948.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6327 = and i64 %6309, 1095216660480
   %.not12949 = icmp eq i64 %6327, 1095216660480
   %.neg12950 = select i1 %.not12949, i64 2, i64 1
-  %6328 = getelementptr inbounds i8, ptr %.neg12948.sroa.sel, i64 %.neg12950
+  %6328 = getelementptr inbounds nuw i8, ptr %.neg12948.sroa.sel, i64 %.neg12950
   %6329 = lshr i64 %6309, 24
   %6330 = trunc i64 %6329 to i8
   store i8 %6330, ptr %6328, align 1
-  %6331 = getelementptr inbounds i8, ptr %6328, i64 1
+  %6331 = getelementptr inbounds nuw i8, ptr %6328, i64 1
   store i8 0, ptr %6331, align 1
   %6332 = and i64 %6309, 4278190080
   %.not12951 = icmp eq i64 %6332, 4278190080
-  %.sroa.gep14336 = getelementptr inbounds i8, ptr %6328, i64 2
+  %.sroa.gep14336 = getelementptr inbounds nuw i8, ptr %6328, i64 2
   %.neg12952.sroa.sel = select i1 %.not12951, ptr %.sroa.gep14336, ptr %6331
   %6333 = lshr i64 %6309, 16
   %6334 = trunc i64 %6333 to i8
   store i8 %6334, ptr %.neg12952.sroa.sel, align 1
-  %.sroa.gep15809 = getelementptr inbounds i8, ptr %6328, i64 3
+  %.sroa.gep15809 = getelementptr inbounds nuw i8, ptr %6328, i64 3
   %.neg12952.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12951, ptr %.sroa.gep15809, ptr %.sroa.gep14336
   store i8 0, ptr %.neg12952.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6335 = and i64 %6309, 16711680
   %.not12953 = icmp eq i64 %6335, 16711680
   %.neg12954 = select i1 %.not12953, i64 2, i64 1
-  %6336 = getelementptr inbounds i8, ptr %.neg12952.sroa.sel, i64 %.neg12954
+  %6336 = getelementptr inbounds nuw i8, ptr %.neg12952.sroa.sel, i64 %.neg12954
   %6337 = lshr i64 %6309, 8
   %6338 = trunc i64 %6337 to i8
   store i8 %6338, ptr %6336, align 1
-  %6339 = getelementptr inbounds i8, ptr %6336, i64 1
+  %6339 = getelementptr inbounds nuw i8, ptr %6336, i64 1
   store i8 0, ptr %6339, align 1
   %6340 = and i64 %6309, 65280
   %.not12955 = icmp eq i64 %6340, 65280
-  %.sroa.gep14338 = getelementptr inbounds i8, ptr %6336, i64 2
+  %.sroa.gep14338 = getelementptr inbounds nuw i8, ptr %6336, i64 2
   %.neg12956.sroa.sel = select i1 %.not12955, ptr %.sroa.gep14338, ptr %6339
   %6341 = trunc i64 %6309 to i8
   store i8 %6341, ptr %.neg12956.sroa.sel, align 1
-  %.sroa.gep15807 = getelementptr inbounds i8, ptr %6336, i64 3
+  %.sroa.gep15807 = getelementptr inbounds nuw i8, ptr %6336, i64 3
   %.neg12956.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12955, ptr %.sroa.gep15807, ptr %.sroa.gep14338
   store i8 0, ptr %.neg12956.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6342 = and i64 %6309, 255
   %.not12957 = icmp eq i64 %6342, 255
   %.neg12958 = select i1 %.not12957, i64 2, i64 1
-  %6343 = getelementptr inbounds i8, ptr %.neg12956.sroa.sel, i64 %.neg12958
+  %6343 = getelementptr inbounds nuw i8, ptr %.neg12956.sroa.sel, i64 %.neg12958
   br label %6366
 
 6344:                                             ; preds = %6303
   %6345 = lshr i64 %6309, 48
   %6346 = trunc i64 %6345 to i8
-  %6347 = getelementptr inbounds i8, ptr %.232.lcssa, i64 1
+  %6347 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 1
   store i8 %6346, ptr %6347, align 1
   %6348 = lshr i64 %6309, 40
   %6349 = trunc i64 %6348 to i8
-  %6350 = getelementptr inbounds i8, ptr %.232.lcssa, i64 2
+  %6350 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 2
   store i8 %6349, ptr %6350, align 1
   %6351 = lshr i64 %6309, 32
   %6352 = trunc i64 %6351 to i8
-  %6353 = getelementptr inbounds i8, ptr %.232.lcssa, i64 3
+  %6353 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 3
   store i8 %6352, ptr %6353, align 1
   %6354 = lshr i64 %6309, 24
   %6355 = trunc i64 %6354 to i8
-  %6356 = getelementptr inbounds i8, ptr %.232.lcssa, i64 4
+  %6356 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 4
   store i8 %6355, ptr %6356, align 1
   %6357 = lshr i64 %6309, 16
   %6358 = trunc i64 %6357 to i8
-  %6359 = getelementptr inbounds i8, ptr %.232.lcssa, i64 5
+  %6359 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 5
   store i8 %6358, ptr %6359, align 1
   %6360 = lshr i64 %6309, 8
   %6361 = trunc i64 %6360 to i8
-  %6362 = getelementptr inbounds i8, ptr %.232.lcssa, i64 6
+  %6362 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 6
   store i8 %6361, ptr %6362, align 1
   %6363 = trunc i64 %6309 to i8
-  %6364 = getelementptr inbounds i8, ptr %.232.lcssa, i64 7
+  %6364 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 7
   store i8 %6363, ptr %6364, align 1
-  %6365 = getelementptr inbounds i8, ptr %.232.lcssa, i64 8
+  %6365 = getelementptr inbounds nuw i8, ptr %.232.lcssa, i64 8
   br label %6366
 
 6366:                                             ; preds = %6344, %6315
@@ -13067,7 +13067,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15311193 = phi i64 [ %.14911189, %6182 ], [ %6368, %6366 ], [ %6373, %6369 ]
   %.231 = phi ptr [ %.225, %6182 ], [ %.235, %6366 ], [ %.232.lcssa, %6369 ]
   %.76 = phi i32 [ %6183, %6182 ], [ 0, %6366 ], [ 0, %6369 ]
-  %6375 = getelementptr inbounds i8, ptr %1, i64 58
+  %6375 = getelementptr inbounds nuw i8, ptr %1, i64 58
   %6376 = load i16, ptr %6375, align 2
   %6377 = icmp eq i16 %6376, 0
   br i1 %6377, label %6378, label %6380
@@ -13091,7 +13091,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 6390:                                             ; preds = %6380
   %6391 = load ptr, ptr %7, align 8
   %6392 = load ptr, ptr %6391, align 8
-  %6393 = getelementptr inbounds i8, ptr %6392, i64 40
+  %6393 = getelementptr inbounds nuw i8, ptr %6392, i64 40
   store i32 6, ptr %6393, align 8
   %6394 = load ptr, ptr %7, align 8
   %6395 = load ptr, ptr %6394, align 8
@@ -13104,8 +13104,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %6398, label %.lr.ph14991, label %._crit_edge14992
 
 .lr.ph14991:                                      ; preds = %6397
-  %6399 = getelementptr inbounds i8, ptr %4, i64 1264
-  %6400 = getelementptr inbounds i8, ptr %4, i64 960
+  %6399 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %6400 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %6401
 
 6401:                                             ; preds = %.lr.ph14991, %6480
@@ -13138,108 +13138,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12994, label %6449, label %6420
 
 6420:                                             ; preds = %6408
-  %6421 = getelementptr inbounds i8, ptr %.23814988, i64 1
+  %6421 = getelementptr inbounds nuw i8, ptr %.23814988, i64 1
   store i8 0, ptr %6421, align 1
   %.not12995 = icmp eq i64 %6418, 255
-  %.sroa.gep14340 = getelementptr inbounds i8, ptr %.23814988, i64 2
+  %.sroa.gep14340 = getelementptr inbounds nuw i8, ptr %.23814988, i64 2
   %.neg12996.sroa.sel = select i1 %.not12995, ptr %.sroa.gep14340, ptr %6421
   %6422 = lshr i64 %6410, 48
   %6423 = trunc i64 %6422 to i8
   store i8 %6423, ptr %.neg12996.sroa.sel, align 1
-  %.sroa.gep15781 = getelementptr inbounds i8, ptr %.23814988, i64 3
+  %.sroa.gep15781 = getelementptr inbounds nuw i8, ptr %.23814988, i64 3
   %.neg12996.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12995, ptr %.sroa.gep15781, ptr %.sroa.gep14340
   store i8 0, ptr %.neg12996.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6424 = and i64 %6410, 71776119061217280
   %.not12997 = icmp eq i64 %6424, 71776119061217280
   %.neg12998 = select i1 %.not12997, i64 2, i64 1
-  %6425 = getelementptr inbounds i8, ptr %.neg12996.sroa.sel, i64 %.neg12998
+  %6425 = getelementptr inbounds nuw i8, ptr %.neg12996.sroa.sel, i64 %.neg12998
   %6426 = lshr i64 %6410, 40
   %6427 = trunc i64 %6426 to i8
   store i8 %6427, ptr %6425, align 1
-  %6428 = getelementptr inbounds i8, ptr %6425, i64 1
+  %6428 = getelementptr inbounds nuw i8, ptr %6425, i64 1
   store i8 0, ptr %6428, align 1
   %6429 = and i64 %6410, 280375465082880
   %.not12999 = icmp eq i64 %6429, 280375465082880
-  %.sroa.gep14342 = getelementptr inbounds i8, ptr %6425, i64 2
+  %.sroa.gep14342 = getelementptr inbounds nuw i8, ptr %6425, i64 2
   %.neg13000.sroa.sel = select i1 %.not12999, ptr %.sroa.gep14342, ptr %6428
   %6430 = lshr i64 %6410, 32
   %6431 = trunc i64 %6430 to i8
   store i8 %6431, ptr %.neg13000.sroa.sel, align 1
-  %.sroa.gep15787 = getelementptr inbounds i8, ptr %6425, i64 3
+  %.sroa.gep15787 = getelementptr inbounds nuw i8, ptr %6425, i64 3
   %.neg13000.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12999, ptr %.sroa.gep15787, ptr %.sroa.gep14342
   store i8 0, ptr %.neg13000.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6432 = and i64 %6410, 1095216660480
   %.not13001 = icmp eq i64 %6432, 1095216660480
   %.neg13002 = select i1 %.not13001, i64 2, i64 1
-  %6433 = getelementptr inbounds i8, ptr %.neg13000.sroa.sel, i64 %.neg13002
+  %6433 = getelementptr inbounds nuw i8, ptr %.neg13000.sroa.sel, i64 %.neg13002
   %6434 = lshr i64 %6414, 24
   %6435 = trunc i64 %6434 to i8
   store i8 %6435, ptr %6433, align 1
-  %6436 = getelementptr inbounds i8, ptr %6433, i64 1
+  %6436 = getelementptr inbounds nuw i8, ptr %6433, i64 1
   store i8 0, ptr %6436, align 1
   %6437 = and i64 %6414, 4278190080
   %.not13003 = icmp eq i64 %6437, 4278190080
-  %.sroa.gep14344 = getelementptr inbounds i8, ptr %6433, i64 2
+  %.sroa.gep14344 = getelementptr inbounds nuw i8, ptr %6433, i64 2
   %.neg13004.sroa.sel = select i1 %.not13003, ptr %.sroa.gep14344, ptr %6436
   %6438 = lshr i64 %6414, 16
   %6439 = trunc i64 %6438 to i8
   store i8 %6439, ptr %.neg13004.sroa.sel, align 1
-  %.sroa.gep15785 = getelementptr inbounds i8, ptr %6433, i64 3
+  %.sroa.gep15785 = getelementptr inbounds nuw i8, ptr %6433, i64 3
   %.neg13004.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13003, ptr %.sroa.gep15785, ptr %.sroa.gep14344
   store i8 0, ptr %.neg13004.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6440 = and i64 %6414, 16711680
   %.not13005 = icmp eq i64 %6440, 16711680
   %.neg13006 = select i1 %.not13005, i64 2, i64 1
-  %6441 = getelementptr inbounds i8, ptr %.neg13004.sroa.sel, i64 %.neg13006
+  %6441 = getelementptr inbounds nuw i8, ptr %.neg13004.sroa.sel, i64 %.neg13006
   %6442 = lshr i64 %6414, 8
   %6443 = trunc i64 %6442 to i8
   store i8 %6443, ptr %6441, align 1
-  %6444 = getelementptr inbounds i8, ptr %6441, i64 1
+  %6444 = getelementptr inbounds nuw i8, ptr %6441, i64 1
   store i8 0, ptr %6444, align 1
   %6445 = and i64 %6414, 65280
   %.not13007 = icmp eq i64 %6445, 65280
-  %.sroa.gep14346 = getelementptr inbounds i8, ptr %6441, i64 2
+  %.sroa.gep14346 = getelementptr inbounds nuw i8, ptr %6441, i64 2
   %.neg13008.sroa.sel = select i1 %.not13007, ptr %.sroa.gep14346, ptr %6444
   %6446 = trunc i64 %6414 to i8
   store i8 %6446, ptr %.neg13008.sroa.sel, align 1
-  %.sroa.gep15783 = getelementptr inbounds i8, ptr %6441, i64 3
+  %.sroa.gep15783 = getelementptr inbounds nuw i8, ptr %6441, i64 3
   %.neg13008.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13007, ptr %.sroa.gep15783, ptr %.sroa.gep14346
   store i8 0, ptr %.neg13008.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6447 = and i64 %6414, 255
   %.not13009 = icmp eq i64 %6447, 255
   %.neg13010 = select i1 %.not13009, i64 2, i64 1
-  %6448 = getelementptr inbounds i8, ptr %.neg13008.sroa.sel, i64 %.neg13010
+  %6448 = getelementptr inbounds nuw i8, ptr %.neg13008.sroa.sel, i64 %.neg13010
   br label %6471
 
 6449:                                             ; preds = %6408
   %6450 = lshr i64 %6410, 48
   %6451 = trunc i64 %6450 to i8
-  %6452 = getelementptr inbounds i8, ptr %.23814988, i64 1
+  %6452 = getelementptr inbounds nuw i8, ptr %.23814988, i64 1
   store i8 %6451, ptr %6452, align 1
   %6453 = lshr i64 %6410, 40
   %6454 = trunc i64 %6453 to i8
-  %6455 = getelementptr inbounds i8, ptr %.23814988, i64 2
+  %6455 = getelementptr inbounds nuw i8, ptr %.23814988, i64 2
   store i8 %6454, ptr %6455, align 1
   %6456 = lshr i64 %6410, 32
   %6457 = trunc i64 %6456 to i8
-  %6458 = getelementptr inbounds i8, ptr %.23814988, i64 3
+  %6458 = getelementptr inbounds nuw i8, ptr %.23814988, i64 3
   store i8 %6457, ptr %6458, align 1
   %6459 = lshr i64 %6414, 24
   %6460 = trunc i64 %6459 to i8
-  %6461 = getelementptr inbounds i8, ptr %.23814988, i64 4
+  %6461 = getelementptr inbounds nuw i8, ptr %.23814988, i64 4
   store i8 %6460, ptr %6461, align 1
   %6462 = lshr i64 %6414, 16
   %6463 = trunc i64 %6462 to i8
-  %6464 = getelementptr inbounds i8, ptr %.23814988, i64 5
+  %6464 = getelementptr inbounds nuw i8, ptr %.23814988, i64 5
   store i8 %6463, ptr %6464, align 1
   %6465 = lshr i64 %6414, 8
   %6466 = trunc i64 %6465 to i8
-  %6467 = getelementptr inbounds i8, ptr %.23814988, i64 6
+  %6467 = getelementptr inbounds nuw i8, ptr %.23814988, i64 6
   store i8 %6466, ptr %6467, align 1
   %6468 = trunc i64 %6414 to i8
-  %6469 = getelementptr inbounds i8, ptr %.23814988, i64 7
+  %6469 = getelementptr inbounds nuw i8, ptr %.23814988, i64 7
   store i8 %6468, ptr %6469, align 1
-  %6470 = getelementptr inbounds i8, ptr %.23814988, i64 8
+  %6470 = getelementptr inbounds nuw i8, ptr %.23814988, i64 8
   br label %6471
 
 6471:                                             ; preds = %6449, %6420
@@ -13275,12 +13275,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6485 = xor i32 %6484, -1
   %6486 = and i32 %6383, %6485
   %6487 = zext nneg i32 %6482 to i64
-  %6488 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %6487
+  %6488 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %6487
   %6489 = load i32, ptr %6488, align 4
   %6490 = shl i32 %6489, %6388
   %6491 = or i32 %6490, %6486
-  %6492 = getelementptr inbounds i8, ptr %4, i64 1024
-  %6493 = getelementptr inbounds [256 x i8], ptr %6492, i64 0, i64 %6487
+  %6492 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %6493 = getelementptr inbounds nuw [256 x i8], ptr %6492, i64 0, i64 %6487
   %6494 = load i8, ptr %6493, align 1
   %6495 = sext i8 %6494 to i32
   %6496 = add nsw i32 %6495, %6388
@@ -13305,108 +13305,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not12977, label %6540, label %6511
 
 6511:                                             ; preds = %6499
-  %6512 = getelementptr inbounds i8, ptr %.238.lcssa, i64 1
+  %6512 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 1
   store i8 0, ptr %6512, align 1
   %.not12978 = icmp eq i64 %6509, 255
-  %.sroa.gep14348 = getelementptr inbounds i8, ptr %.238.lcssa, i64 2
+  %.sroa.gep14348 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 2
   %.neg12979.sroa.sel = select i1 %.not12978, ptr %.sroa.gep14348, ptr %6512
   %6513 = lshr i64 %6505, 48
   %6514 = trunc i64 %6513 to i8
   store i8 %6514, ptr %.neg12979.sroa.sel, align 1
-  %.sroa.gep15789 = getelementptr inbounds i8, ptr %.238.lcssa, i64 3
+  %.sroa.gep15789 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 3
   %.neg12979.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12978, ptr %.sroa.gep15789, ptr %.sroa.gep14348
   store i8 0, ptr %.neg12979.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6515 = and i64 %6505, 71776119061217280
   %.not12980 = icmp eq i64 %6515, 71776119061217280
   %.neg12981 = select i1 %.not12980, i64 2, i64 1
-  %6516 = getelementptr inbounds i8, ptr %.neg12979.sroa.sel, i64 %.neg12981
+  %6516 = getelementptr inbounds nuw i8, ptr %.neg12979.sroa.sel, i64 %.neg12981
   %6517 = lshr i64 %6505, 40
   %6518 = trunc i64 %6517 to i8
   store i8 %6518, ptr %6516, align 1
-  %6519 = getelementptr inbounds i8, ptr %6516, i64 1
+  %6519 = getelementptr inbounds nuw i8, ptr %6516, i64 1
   store i8 0, ptr %6519, align 1
   %6520 = and i64 %6505, 280375465082880
   %.not12982 = icmp eq i64 %6520, 280375465082880
-  %.sroa.gep14350 = getelementptr inbounds i8, ptr %6516, i64 2
+  %.sroa.gep14350 = getelementptr inbounds nuw i8, ptr %6516, i64 2
   %.neg12983.sroa.sel = select i1 %.not12982, ptr %.sroa.gep14350, ptr %6519
   %6521 = lshr i64 %6505, 32
   %6522 = trunc i64 %6521 to i8
   store i8 %6522, ptr %.neg12983.sroa.sel, align 1
-  %.sroa.gep15795 = getelementptr inbounds i8, ptr %6516, i64 3
+  %.sroa.gep15795 = getelementptr inbounds nuw i8, ptr %6516, i64 3
   %.neg12983.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12982, ptr %.sroa.gep15795, ptr %.sroa.gep14350
   store i8 0, ptr %.neg12983.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6523 = and i64 %6505, 1095216660480
   %.not12984 = icmp eq i64 %6523, 1095216660480
   %.neg12985 = select i1 %.not12984, i64 2, i64 1
-  %6524 = getelementptr inbounds i8, ptr %.neg12983.sroa.sel, i64 %.neg12985
+  %6524 = getelementptr inbounds nuw i8, ptr %.neg12983.sroa.sel, i64 %.neg12985
   %6525 = lshr i64 %6505, 24
   %6526 = trunc i64 %6525 to i8
   store i8 %6526, ptr %6524, align 1
-  %6527 = getelementptr inbounds i8, ptr %6524, i64 1
+  %6527 = getelementptr inbounds nuw i8, ptr %6524, i64 1
   store i8 0, ptr %6527, align 1
   %6528 = and i64 %6505, 4278190080
   %.not12986 = icmp eq i64 %6528, 4278190080
-  %.sroa.gep14352 = getelementptr inbounds i8, ptr %6524, i64 2
+  %.sroa.gep14352 = getelementptr inbounds nuw i8, ptr %6524, i64 2
   %.neg12987.sroa.sel = select i1 %.not12986, ptr %.sroa.gep14352, ptr %6527
   %6529 = lshr i64 %6505, 16
   %6530 = trunc i64 %6529 to i8
   store i8 %6530, ptr %.neg12987.sroa.sel, align 1
-  %.sroa.gep15793 = getelementptr inbounds i8, ptr %6524, i64 3
+  %.sroa.gep15793 = getelementptr inbounds nuw i8, ptr %6524, i64 3
   %.neg12987.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12986, ptr %.sroa.gep15793, ptr %.sroa.gep14352
   store i8 0, ptr %.neg12987.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6531 = and i64 %6505, 16711680
   %.not12988 = icmp eq i64 %6531, 16711680
   %.neg12989 = select i1 %.not12988, i64 2, i64 1
-  %6532 = getelementptr inbounds i8, ptr %.neg12987.sroa.sel, i64 %.neg12989
+  %6532 = getelementptr inbounds nuw i8, ptr %.neg12987.sroa.sel, i64 %.neg12989
   %6533 = lshr i64 %6505, 8
   %6534 = trunc i64 %6533 to i8
   store i8 %6534, ptr %6532, align 1
-  %6535 = getelementptr inbounds i8, ptr %6532, i64 1
+  %6535 = getelementptr inbounds nuw i8, ptr %6532, i64 1
   store i8 0, ptr %6535, align 1
   %6536 = and i64 %6505, 65280
   %.not12990 = icmp eq i64 %6536, 65280
-  %.sroa.gep14354 = getelementptr inbounds i8, ptr %6532, i64 2
+  %.sroa.gep14354 = getelementptr inbounds nuw i8, ptr %6532, i64 2
   %.neg12991.sroa.sel = select i1 %.not12990, ptr %.sroa.gep14354, ptr %6535
   %6537 = trunc i64 %6505 to i8
   store i8 %6537, ptr %.neg12991.sroa.sel, align 1
-  %.sroa.gep15791 = getelementptr inbounds i8, ptr %6532, i64 3
+  %.sroa.gep15791 = getelementptr inbounds nuw i8, ptr %6532, i64 3
   %.neg12991.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not12990, ptr %.sroa.gep15791, ptr %.sroa.gep14354
   store i8 0, ptr %.neg12991.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6538 = and i64 %6505, 255
   %.not12992 = icmp eq i64 %6538, 255
   %.neg12993 = select i1 %.not12992, i64 2, i64 1
-  %6539 = getelementptr inbounds i8, ptr %.neg12991.sroa.sel, i64 %.neg12993
+  %6539 = getelementptr inbounds nuw i8, ptr %.neg12991.sroa.sel, i64 %.neg12993
   br label %6562
 
 6540:                                             ; preds = %6499
   %6541 = lshr i64 %6505, 48
   %6542 = trunc i64 %6541 to i8
-  %6543 = getelementptr inbounds i8, ptr %.238.lcssa, i64 1
+  %6543 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 1
   store i8 %6542, ptr %6543, align 1
   %6544 = lshr i64 %6505, 40
   %6545 = trunc i64 %6544 to i8
-  %6546 = getelementptr inbounds i8, ptr %.238.lcssa, i64 2
+  %6546 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 2
   store i8 %6545, ptr %6546, align 1
   %6547 = lshr i64 %6505, 32
   %6548 = trunc i64 %6547 to i8
-  %6549 = getelementptr inbounds i8, ptr %.238.lcssa, i64 3
+  %6549 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 3
   store i8 %6548, ptr %6549, align 1
   %6550 = lshr i64 %6505, 24
   %6551 = trunc i64 %6550 to i8
-  %6552 = getelementptr inbounds i8, ptr %.238.lcssa, i64 4
+  %6552 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 4
   store i8 %6551, ptr %6552, align 1
   %6553 = lshr i64 %6505, 16
   %6554 = trunc i64 %6553 to i8
-  %6555 = getelementptr inbounds i8, ptr %.238.lcssa, i64 5
+  %6555 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 5
   store i8 %6554, ptr %6555, align 1
   %6556 = lshr i64 %6505, 8
   %6557 = trunc i64 %6556 to i8
-  %6558 = getelementptr inbounds i8, ptr %.238.lcssa, i64 6
+  %6558 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 6
   store i8 %6557, ptr %6558, align 1
   %6559 = trunc i64 %6505 to i8
-  %6560 = getelementptr inbounds i8, ptr %.238.lcssa, i64 7
+  %6560 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 7
   store i8 %6559, ptr %6560, align 1
-  %6561 = getelementptr inbounds i8, ptr %.238.lcssa, i64 8
+  %6561 = getelementptr inbounds nuw i8, ptr %.238.lcssa, i64 8
   br label %6562
 
 6562:                                             ; preds = %6540, %6511
@@ -13427,7 +13427,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.15711197 = phi i64 [ %.15311193, %6378 ], [ %6564, %6562 ], [ %6569, %6565 ]
   %.237 = phi ptr [ %.231, %6378 ], [ %.241, %6562 ], [ %.238.lcssa, %6565 ]
   %.78 = phi i32 [ %6379, %6378 ], [ 0, %6562 ], [ 0, %6565 ]
-  %6571 = getelementptr inbounds i8, ptr %1, i64 44
+  %6571 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %6572 = load i16, ptr %6571, align 2
   %6573 = icmp eq i16 %6572, 0
   br i1 %6573, label %6574, label %6576
@@ -13451,7 +13451,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 6586:                                             ; preds = %6576
   %6587 = load ptr, ptr %7, align 8
   %6588 = load ptr, ptr %6587, align 8
-  %6589 = getelementptr inbounds i8, ptr %6588, i64 40
+  %6589 = getelementptr inbounds nuw i8, ptr %6588, i64 40
   store i32 6, ptr %6589, align 8
   %6590 = load ptr, ptr %7, align 8
   %6591 = load ptr, ptr %6590, align 8
@@ -13464,8 +13464,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %6594, label %.lr.ph15002, label %._crit_edge15003
 
 .lr.ph15002:                                      ; preds = %6593
-  %6595 = getelementptr inbounds i8, ptr %4, i64 1264
-  %6596 = getelementptr inbounds i8, ptr %4, i64 960
+  %6595 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %6596 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %6597
 
 6597:                                             ; preds = %.lr.ph15002, %6676
@@ -13498,108 +13498,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13029, label %6645, label %6616
 
 6616:                                             ; preds = %6604
-  %6617 = getelementptr inbounds i8, ptr %.24414999, i64 1
+  %6617 = getelementptr inbounds nuw i8, ptr %.24414999, i64 1
   store i8 0, ptr %6617, align 1
   %.not13030 = icmp eq i64 %6614, 255
-  %.sroa.gep14356 = getelementptr inbounds i8, ptr %.24414999, i64 2
+  %.sroa.gep14356 = getelementptr inbounds nuw i8, ptr %.24414999, i64 2
   %.neg13031.sroa.sel = select i1 %.not13030, ptr %.sroa.gep14356, ptr %6617
   %6618 = lshr i64 %6606, 48
   %6619 = trunc i64 %6618 to i8
   store i8 %6619, ptr %.neg13031.sroa.sel, align 1
-  %.sroa.gep15765 = getelementptr inbounds i8, ptr %.24414999, i64 3
+  %.sroa.gep15765 = getelementptr inbounds nuw i8, ptr %.24414999, i64 3
   %.neg13031.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13030, ptr %.sroa.gep15765, ptr %.sroa.gep14356
   store i8 0, ptr %.neg13031.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6620 = and i64 %6606, 71776119061217280
   %.not13032 = icmp eq i64 %6620, 71776119061217280
   %.neg13033 = select i1 %.not13032, i64 2, i64 1
-  %6621 = getelementptr inbounds i8, ptr %.neg13031.sroa.sel, i64 %.neg13033
+  %6621 = getelementptr inbounds nuw i8, ptr %.neg13031.sroa.sel, i64 %.neg13033
   %6622 = lshr i64 %6606, 40
   %6623 = trunc i64 %6622 to i8
   store i8 %6623, ptr %6621, align 1
-  %6624 = getelementptr inbounds i8, ptr %6621, i64 1
+  %6624 = getelementptr inbounds nuw i8, ptr %6621, i64 1
   store i8 0, ptr %6624, align 1
   %6625 = and i64 %6606, 280375465082880
   %.not13034 = icmp eq i64 %6625, 280375465082880
-  %.sroa.gep14358 = getelementptr inbounds i8, ptr %6621, i64 2
+  %.sroa.gep14358 = getelementptr inbounds nuw i8, ptr %6621, i64 2
   %.neg13035.sroa.sel = select i1 %.not13034, ptr %.sroa.gep14358, ptr %6624
   %6626 = lshr i64 %6606, 32
   %6627 = trunc i64 %6626 to i8
   store i8 %6627, ptr %.neg13035.sroa.sel, align 1
-  %.sroa.gep15771 = getelementptr inbounds i8, ptr %6621, i64 3
+  %.sroa.gep15771 = getelementptr inbounds nuw i8, ptr %6621, i64 3
   %.neg13035.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13034, ptr %.sroa.gep15771, ptr %.sroa.gep14358
   store i8 0, ptr %.neg13035.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6628 = and i64 %6606, 1095216660480
   %.not13036 = icmp eq i64 %6628, 1095216660480
   %.neg13037 = select i1 %.not13036, i64 2, i64 1
-  %6629 = getelementptr inbounds i8, ptr %.neg13035.sroa.sel, i64 %.neg13037
+  %6629 = getelementptr inbounds nuw i8, ptr %.neg13035.sroa.sel, i64 %.neg13037
   %6630 = lshr i64 %6610, 24
   %6631 = trunc i64 %6630 to i8
   store i8 %6631, ptr %6629, align 1
-  %6632 = getelementptr inbounds i8, ptr %6629, i64 1
+  %6632 = getelementptr inbounds nuw i8, ptr %6629, i64 1
   store i8 0, ptr %6632, align 1
   %6633 = and i64 %6610, 4278190080
   %.not13038 = icmp eq i64 %6633, 4278190080
-  %.sroa.gep14360 = getelementptr inbounds i8, ptr %6629, i64 2
+  %.sroa.gep14360 = getelementptr inbounds nuw i8, ptr %6629, i64 2
   %.neg13039.sroa.sel = select i1 %.not13038, ptr %.sroa.gep14360, ptr %6632
   %6634 = lshr i64 %6610, 16
   %6635 = trunc i64 %6634 to i8
   store i8 %6635, ptr %.neg13039.sroa.sel, align 1
-  %.sroa.gep15769 = getelementptr inbounds i8, ptr %6629, i64 3
+  %.sroa.gep15769 = getelementptr inbounds nuw i8, ptr %6629, i64 3
   %.neg13039.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13038, ptr %.sroa.gep15769, ptr %.sroa.gep14360
   store i8 0, ptr %.neg13039.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6636 = and i64 %6610, 16711680
   %.not13040 = icmp eq i64 %6636, 16711680
   %.neg13041 = select i1 %.not13040, i64 2, i64 1
-  %6637 = getelementptr inbounds i8, ptr %.neg13039.sroa.sel, i64 %.neg13041
+  %6637 = getelementptr inbounds nuw i8, ptr %.neg13039.sroa.sel, i64 %.neg13041
   %6638 = lshr i64 %6610, 8
   %6639 = trunc i64 %6638 to i8
   store i8 %6639, ptr %6637, align 1
-  %6640 = getelementptr inbounds i8, ptr %6637, i64 1
+  %6640 = getelementptr inbounds nuw i8, ptr %6637, i64 1
   store i8 0, ptr %6640, align 1
   %6641 = and i64 %6610, 65280
   %.not13042 = icmp eq i64 %6641, 65280
-  %.sroa.gep14362 = getelementptr inbounds i8, ptr %6637, i64 2
+  %.sroa.gep14362 = getelementptr inbounds nuw i8, ptr %6637, i64 2
   %.neg13043.sroa.sel = select i1 %.not13042, ptr %.sroa.gep14362, ptr %6640
   %6642 = trunc i64 %6610 to i8
   store i8 %6642, ptr %.neg13043.sroa.sel, align 1
-  %.sroa.gep15767 = getelementptr inbounds i8, ptr %6637, i64 3
+  %.sroa.gep15767 = getelementptr inbounds nuw i8, ptr %6637, i64 3
   %.neg13043.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13042, ptr %.sroa.gep15767, ptr %.sroa.gep14362
   store i8 0, ptr %.neg13043.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6643 = and i64 %6610, 255
   %.not13044 = icmp eq i64 %6643, 255
   %.neg13045 = select i1 %.not13044, i64 2, i64 1
-  %6644 = getelementptr inbounds i8, ptr %.neg13043.sroa.sel, i64 %.neg13045
+  %6644 = getelementptr inbounds nuw i8, ptr %.neg13043.sroa.sel, i64 %.neg13045
   br label %6667
 
 6645:                                             ; preds = %6604
   %6646 = lshr i64 %6606, 48
   %6647 = trunc i64 %6646 to i8
-  %6648 = getelementptr inbounds i8, ptr %.24414999, i64 1
+  %6648 = getelementptr inbounds nuw i8, ptr %.24414999, i64 1
   store i8 %6647, ptr %6648, align 1
   %6649 = lshr i64 %6606, 40
   %6650 = trunc i64 %6649 to i8
-  %6651 = getelementptr inbounds i8, ptr %.24414999, i64 2
+  %6651 = getelementptr inbounds nuw i8, ptr %.24414999, i64 2
   store i8 %6650, ptr %6651, align 1
   %6652 = lshr i64 %6606, 32
   %6653 = trunc i64 %6652 to i8
-  %6654 = getelementptr inbounds i8, ptr %.24414999, i64 3
+  %6654 = getelementptr inbounds nuw i8, ptr %.24414999, i64 3
   store i8 %6653, ptr %6654, align 1
   %6655 = lshr i64 %6610, 24
   %6656 = trunc i64 %6655 to i8
-  %6657 = getelementptr inbounds i8, ptr %.24414999, i64 4
+  %6657 = getelementptr inbounds nuw i8, ptr %.24414999, i64 4
   store i8 %6656, ptr %6657, align 1
   %6658 = lshr i64 %6610, 16
   %6659 = trunc i64 %6658 to i8
-  %6660 = getelementptr inbounds i8, ptr %.24414999, i64 5
+  %6660 = getelementptr inbounds nuw i8, ptr %.24414999, i64 5
   store i8 %6659, ptr %6660, align 1
   %6661 = lshr i64 %6610, 8
   %6662 = trunc i64 %6661 to i8
-  %6663 = getelementptr inbounds i8, ptr %.24414999, i64 6
+  %6663 = getelementptr inbounds nuw i8, ptr %.24414999, i64 6
   store i8 %6662, ptr %6663, align 1
   %6664 = trunc i64 %6610 to i8
-  %6665 = getelementptr inbounds i8, ptr %.24414999, i64 7
+  %6665 = getelementptr inbounds nuw i8, ptr %.24414999, i64 7
   store i8 %6664, ptr %6665, align 1
-  %6666 = getelementptr inbounds i8, ptr %.24414999, i64 8
+  %6666 = getelementptr inbounds nuw i8, ptr %.24414999, i64 8
   br label %6667
 
 6667:                                             ; preds = %6645, %6616
@@ -13635,12 +13635,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6681 = xor i32 %6680, -1
   %6682 = and i32 %6579, %6681
   %6683 = zext nneg i32 %6678 to i64
-  %6684 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %6683
+  %6684 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %6683
   %6685 = load i32, ptr %6684, align 4
   %6686 = shl i32 %6685, %6584
   %6687 = or i32 %6686, %6682
-  %6688 = getelementptr inbounds i8, ptr %4, i64 1024
-  %6689 = getelementptr inbounds [256 x i8], ptr %6688, i64 0, i64 %6683
+  %6688 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %6689 = getelementptr inbounds nuw [256 x i8], ptr %6688, i64 0, i64 %6683
   %6690 = load i8, ptr %6689, align 1
   %6691 = sext i8 %6690 to i32
   %6692 = add nsw i32 %6691, %6584
@@ -13665,108 +13665,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13012, label %6736, label %6707
 
 6707:                                             ; preds = %6695
-  %6708 = getelementptr inbounds i8, ptr %.244.lcssa, i64 1
+  %6708 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 1
   store i8 0, ptr %6708, align 1
   %.not13013 = icmp eq i64 %6705, 255
-  %.sroa.gep14364 = getelementptr inbounds i8, ptr %.244.lcssa, i64 2
+  %.sroa.gep14364 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 2
   %.neg13014.sroa.sel = select i1 %.not13013, ptr %.sroa.gep14364, ptr %6708
   %6709 = lshr i64 %6701, 48
   %6710 = trunc i64 %6709 to i8
   store i8 %6710, ptr %.neg13014.sroa.sel, align 1
-  %.sroa.gep15773 = getelementptr inbounds i8, ptr %.244.lcssa, i64 3
+  %.sroa.gep15773 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 3
   %.neg13014.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13013, ptr %.sroa.gep15773, ptr %.sroa.gep14364
   store i8 0, ptr %.neg13014.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6711 = and i64 %6701, 71776119061217280
   %.not13015 = icmp eq i64 %6711, 71776119061217280
   %.neg13016 = select i1 %.not13015, i64 2, i64 1
-  %6712 = getelementptr inbounds i8, ptr %.neg13014.sroa.sel, i64 %.neg13016
+  %6712 = getelementptr inbounds nuw i8, ptr %.neg13014.sroa.sel, i64 %.neg13016
   %6713 = lshr i64 %6701, 40
   %6714 = trunc i64 %6713 to i8
   store i8 %6714, ptr %6712, align 1
-  %6715 = getelementptr inbounds i8, ptr %6712, i64 1
+  %6715 = getelementptr inbounds nuw i8, ptr %6712, i64 1
   store i8 0, ptr %6715, align 1
   %6716 = and i64 %6701, 280375465082880
   %.not13017 = icmp eq i64 %6716, 280375465082880
-  %.sroa.gep14366 = getelementptr inbounds i8, ptr %6712, i64 2
+  %.sroa.gep14366 = getelementptr inbounds nuw i8, ptr %6712, i64 2
   %.neg13018.sroa.sel = select i1 %.not13017, ptr %.sroa.gep14366, ptr %6715
   %6717 = lshr i64 %6701, 32
   %6718 = trunc i64 %6717 to i8
   store i8 %6718, ptr %.neg13018.sroa.sel, align 1
-  %.sroa.gep15779 = getelementptr inbounds i8, ptr %6712, i64 3
+  %.sroa.gep15779 = getelementptr inbounds nuw i8, ptr %6712, i64 3
   %.neg13018.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13017, ptr %.sroa.gep15779, ptr %.sroa.gep14366
   store i8 0, ptr %.neg13018.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6719 = and i64 %6701, 1095216660480
   %.not13019 = icmp eq i64 %6719, 1095216660480
   %.neg13020 = select i1 %.not13019, i64 2, i64 1
-  %6720 = getelementptr inbounds i8, ptr %.neg13018.sroa.sel, i64 %.neg13020
+  %6720 = getelementptr inbounds nuw i8, ptr %.neg13018.sroa.sel, i64 %.neg13020
   %6721 = lshr i64 %6701, 24
   %6722 = trunc i64 %6721 to i8
   store i8 %6722, ptr %6720, align 1
-  %6723 = getelementptr inbounds i8, ptr %6720, i64 1
+  %6723 = getelementptr inbounds nuw i8, ptr %6720, i64 1
   store i8 0, ptr %6723, align 1
   %6724 = and i64 %6701, 4278190080
   %.not13021 = icmp eq i64 %6724, 4278190080
-  %.sroa.gep14368 = getelementptr inbounds i8, ptr %6720, i64 2
+  %.sroa.gep14368 = getelementptr inbounds nuw i8, ptr %6720, i64 2
   %.neg13022.sroa.sel = select i1 %.not13021, ptr %.sroa.gep14368, ptr %6723
   %6725 = lshr i64 %6701, 16
   %6726 = trunc i64 %6725 to i8
   store i8 %6726, ptr %.neg13022.sroa.sel, align 1
-  %.sroa.gep15777 = getelementptr inbounds i8, ptr %6720, i64 3
+  %.sroa.gep15777 = getelementptr inbounds nuw i8, ptr %6720, i64 3
   %.neg13022.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13021, ptr %.sroa.gep15777, ptr %.sroa.gep14368
   store i8 0, ptr %.neg13022.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6727 = and i64 %6701, 16711680
   %.not13023 = icmp eq i64 %6727, 16711680
   %.neg13024 = select i1 %.not13023, i64 2, i64 1
-  %6728 = getelementptr inbounds i8, ptr %.neg13022.sroa.sel, i64 %.neg13024
+  %6728 = getelementptr inbounds nuw i8, ptr %.neg13022.sroa.sel, i64 %.neg13024
   %6729 = lshr i64 %6701, 8
   %6730 = trunc i64 %6729 to i8
   store i8 %6730, ptr %6728, align 1
-  %6731 = getelementptr inbounds i8, ptr %6728, i64 1
+  %6731 = getelementptr inbounds nuw i8, ptr %6728, i64 1
   store i8 0, ptr %6731, align 1
   %6732 = and i64 %6701, 65280
   %.not13025 = icmp eq i64 %6732, 65280
-  %.sroa.gep14370 = getelementptr inbounds i8, ptr %6728, i64 2
+  %.sroa.gep14370 = getelementptr inbounds nuw i8, ptr %6728, i64 2
   %.neg13026.sroa.sel = select i1 %.not13025, ptr %.sroa.gep14370, ptr %6731
   %6733 = trunc i64 %6701 to i8
   store i8 %6733, ptr %.neg13026.sroa.sel, align 1
-  %.sroa.gep15775 = getelementptr inbounds i8, ptr %6728, i64 3
+  %.sroa.gep15775 = getelementptr inbounds nuw i8, ptr %6728, i64 3
   %.neg13026.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13025, ptr %.sroa.gep15775, ptr %.sroa.gep14370
   store i8 0, ptr %.neg13026.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6734 = and i64 %6701, 255
   %.not13027 = icmp eq i64 %6734, 255
   %.neg13028 = select i1 %.not13027, i64 2, i64 1
-  %6735 = getelementptr inbounds i8, ptr %.neg13026.sroa.sel, i64 %.neg13028
+  %6735 = getelementptr inbounds nuw i8, ptr %.neg13026.sroa.sel, i64 %.neg13028
   br label %6758
 
 6736:                                             ; preds = %6695
   %6737 = lshr i64 %6701, 48
   %6738 = trunc i64 %6737 to i8
-  %6739 = getelementptr inbounds i8, ptr %.244.lcssa, i64 1
+  %6739 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 1
   store i8 %6738, ptr %6739, align 1
   %6740 = lshr i64 %6701, 40
   %6741 = trunc i64 %6740 to i8
-  %6742 = getelementptr inbounds i8, ptr %.244.lcssa, i64 2
+  %6742 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 2
   store i8 %6741, ptr %6742, align 1
   %6743 = lshr i64 %6701, 32
   %6744 = trunc i64 %6743 to i8
-  %6745 = getelementptr inbounds i8, ptr %.244.lcssa, i64 3
+  %6745 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 3
   store i8 %6744, ptr %6745, align 1
   %6746 = lshr i64 %6701, 24
   %6747 = trunc i64 %6746 to i8
-  %6748 = getelementptr inbounds i8, ptr %.244.lcssa, i64 4
+  %6748 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 4
   store i8 %6747, ptr %6748, align 1
   %6749 = lshr i64 %6701, 16
   %6750 = trunc i64 %6749 to i8
-  %6751 = getelementptr inbounds i8, ptr %.244.lcssa, i64 5
+  %6751 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 5
   store i8 %6750, ptr %6751, align 1
   %6752 = lshr i64 %6701, 8
   %6753 = trunc i64 %6752 to i8
-  %6754 = getelementptr inbounds i8, ptr %.244.lcssa, i64 6
+  %6754 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 6
   store i8 %6753, ptr %6754, align 1
   %6755 = trunc i64 %6701 to i8
-  %6756 = getelementptr inbounds i8, ptr %.244.lcssa, i64 7
+  %6756 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 7
   store i8 %6755, ptr %6756, align 1
-  %6757 = getelementptr inbounds i8, ptr %.244.lcssa, i64 8
+  %6757 = getelementptr inbounds nuw i8, ptr %.244.lcssa, i64 8
   br label %6758
 
 6758:                                             ; preds = %6736, %6707
@@ -13787,7 +13787,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16111201 = phi i64 [ %.15711197, %6574 ], [ %6760, %6758 ], [ %6765, %6761 ]
   %.243 = phi ptr [ %.237, %6574 ], [ %.247, %6758 ], [ %.244.lcssa, %6761 ]
   %.80 = phi i32 [ %6575, %6574 ], [ 0, %6758 ], [ 0, %6761 ]
-  %6767 = getelementptr inbounds i8, ptr %1, i64 30
+  %6767 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %6768 = load i16, ptr %6767, align 2
   %6769 = icmp eq i16 %6768, 0
   br i1 %6769, label %6770, label %6772
@@ -13811,7 +13811,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 6782:                                             ; preds = %6772
   %6783 = load ptr, ptr %7, align 8
   %6784 = load ptr, ptr %6783, align 8
-  %6785 = getelementptr inbounds i8, ptr %6784, i64 40
+  %6785 = getelementptr inbounds nuw i8, ptr %6784, i64 40
   store i32 6, ptr %6785, align 8
   %6786 = load ptr, ptr %7, align 8
   %6787 = load ptr, ptr %6786, align 8
@@ -13824,8 +13824,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %6790, label %.lr.ph15013, label %._crit_edge15014
 
 .lr.ph15013:                                      ; preds = %6789
-  %6791 = getelementptr inbounds i8, ptr %4, i64 1264
-  %6792 = getelementptr inbounds i8, ptr %4, i64 960
+  %6791 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %6792 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %6793
 
 6793:                                             ; preds = %.lr.ph15013, %6872
@@ -13858,108 +13858,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13064, label %6841, label %6812
 
 6812:                                             ; preds = %6800
-  %6813 = getelementptr inbounds i8, ptr %.25015010, i64 1
+  %6813 = getelementptr inbounds nuw i8, ptr %.25015010, i64 1
   store i8 0, ptr %6813, align 1
   %.not13065 = icmp eq i64 %6810, 255
-  %.sroa.gep14372 = getelementptr inbounds i8, ptr %.25015010, i64 2
+  %.sroa.gep14372 = getelementptr inbounds nuw i8, ptr %.25015010, i64 2
   %.neg13066.sroa.sel = select i1 %.not13065, ptr %.sroa.gep14372, ptr %6813
   %6814 = lshr i64 %6802, 48
   %6815 = trunc i64 %6814 to i8
   store i8 %6815, ptr %.neg13066.sroa.sel, align 1
-  %.sroa.gep15749 = getelementptr inbounds i8, ptr %.25015010, i64 3
+  %.sroa.gep15749 = getelementptr inbounds nuw i8, ptr %.25015010, i64 3
   %.neg13066.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13065, ptr %.sroa.gep15749, ptr %.sroa.gep14372
   store i8 0, ptr %.neg13066.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6816 = and i64 %6802, 71776119061217280
   %.not13067 = icmp eq i64 %6816, 71776119061217280
   %.neg13068 = select i1 %.not13067, i64 2, i64 1
-  %6817 = getelementptr inbounds i8, ptr %.neg13066.sroa.sel, i64 %.neg13068
+  %6817 = getelementptr inbounds nuw i8, ptr %.neg13066.sroa.sel, i64 %.neg13068
   %6818 = lshr i64 %6802, 40
   %6819 = trunc i64 %6818 to i8
   store i8 %6819, ptr %6817, align 1
-  %6820 = getelementptr inbounds i8, ptr %6817, i64 1
+  %6820 = getelementptr inbounds nuw i8, ptr %6817, i64 1
   store i8 0, ptr %6820, align 1
   %6821 = and i64 %6802, 280375465082880
   %.not13069 = icmp eq i64 %6821, 280375465082880
-  %.sroa.gep14374 = getelementptr inbounds i8, ptr %6817, i64 2
+  %.sroa.gep14374 = getelementptr inbounds nuw i8, ptr %6817, i64 2
   %.neg13070.sroa.sel = select i1 %.not13069, ptr %.sroa.gep14374, ptr %6820
   %6822 = lshr i64 %6802, 32
   %6823 = trunc i64 %6822 to i8
   store i8 %6823, ptr %.neg13070.sroa.sel, align 1
-  %.sroa.gep15755 = getelementptr inbounds i8, ptr %6817, i64 3
+  %.sroa.gep15755 = getelementptr inbounds nuw i8, ptr %6817, i64 3
   %.neg13070.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13069, ptr %.sroa.gep15755, ptr %.sroa.gep14374
   store i8 0, ptr %.neg13070.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6824 = and i64 %6802, 1095216660480
   %.not13071 = icmp eq i64 %6824, 1095216660480
   %.neg13072 = select i1 %.not13071, i64 2, i64 1
-  %6825 = getelementptr inbounds i8, ptr %.neg13070.sroa.sel, i64 %.neg13072
+  %6825 = getelementptr inbounds nuw i8, ptr %.neg13070.sroa.sel, i64 %.neg13072
   %6826 = lshr i64 %6806, 24
   %6827 = trunc i64 %6826 to i8
   store i8 %6827, ptr %6825, align 1
-  %6828 = getelementptr inbounds i8, ptr %6825, i64 1
+  %6828 = getelementptr inbounds nuw i8, ptr %6825, i64 1
   store i8 0, ptr %6828, align 1
   %6829 = and i64 %6806, 4278190080
   %.not13073 = icmp eq i64 %6829, 4278190080
-  %.sroa.gep14376 = getelementptr inbounds i8, ptr %6825, i64 2
+  %.sroa.gep14376 = getelementptr inbounds nuw i8, ptr %6825, i64 2
   %.neg13074.sroa.sel = select i1 %.not13073, ptr %.sroa.gep14376, ptr %6828
   %6830 = lshr i64 %6806, 16
   %6831 = trunc i64 %6830 to i8
   store i8 %6831, ptr %.neg13074.sroa.sel, align 1
-  %.sroa.gep15753 = getelementptr inbounds i8, ptr %6825, i64 3
+  %.sroa.gep15753 = getelementptr inbounds nuw i8, ptr %6825, i64 3
   %.neg13074.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13073, ptr %.sroa.gep15753, ptr %.sroa.gep14376
   store i8 0, ptr %.neg13074.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6832 = and i64 %6806, 16711680
   %.not13075 = icmp eq i64 %6832, 16711680
   %.neg13076 = select i1 %.not13075, i64 2, i64 1
-  %6833 = getelementptr inbounds i8, ptr %.neg13074.sroa.sel, i64 %.neg13076
+  %6833 = getelementptr inbounds nuw i8, ptr %.neg13074.sroa.sel, i64 %.neg13076
   %6834 = lshr i64 %6806, 8
   %6835 = trunc i64 %6834 to i8
   store i8 %6835, ptr %6833, align 1
-  %6836 = getelementptr inbounds i8, ptr %6833, i64 1
+  %6836 = getelementptr inbounds nuw i8, ptr %6833, i64 1
   store i8 0, ptr %6836, align 1
   %6837 = and i64 %6806, 65280
   %.not13077 = icmp eq i64 %6837, 65280
-  %.sroa.gep14378 = getelementptr inbounds i8, ptr %6833, i64 2
+  %.sroa.gep14378 = getelementptr inbounds nuw i8, ptr %6833, i64 2
   %.neg13078.sroa.sel = select i1 %.not13077, ptr %.sroa.gep14378, ptr %6836
   %6838 = trunc i64 %6806 to i8
   store i8 %6838, ptr %.neg13078.sroa.sel, align 1
-  %.sroa.gep15751 = getelementptr inbounds i8, ptr %6833, i64 3
+  %.sroa.gep15751 = getelementptr inbounds nuw i8, ptr %6833, i64 3
   %.neg13078.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13077, ptr %.sroa.gep15751, ptr %.sroa.gep14378
   store i8 0, ptr %.neg13078.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6839 = and i64 %6806, 255
   %.not13079 = icmp eq i64 %6839, 255
   %.neg13080 = select i1 %.not13079, i64 2, i64 1
-  %6840 = getelementptr inbounds i8, ptr %.neg13078.sroa.sel, i64 %.neg13080
+  %6840 = getelementptr inbounds nuw i8, ptr %.neg13078.sroa.sel, i64 %.neg13080
   br label %6863
 
 6841:                                             ; preds = %6800
   %6842 = lshr i64 %6802, 48
   %6843 = trunc i64 %6842 to i8
-  %6844 = getelementptr inbounds i8, ptr %.25015010, i64 1
+  %6844 = getelementptr inbounds nuw i8, ptr %.25015010, i64 1
   store i8 %6843, ptr %6844, align 1
   %6845 = lshr i64 %6802, 40
   %6846 = trunc i64 %6845 to i8
-  %6847 = getelementptr inbounds i8, ptr %.25015010, i64 2
+  %6847 = getelementptr inbounds nuw i8, ptr %.25015010, i64 2
   store i8 %6846, ptr %6847, align 1
   %6848 = lshr i64 %6802, 32
   %6849 = trunc i64 %6848 to i8
-  %6850 = getelementptr inbounds i8, ptr %.25015010, i64 3
+  %6850 = getelementptr inbounds nuw i8, ptr %.25015010, i64 3
   store i8 %6849, ptr %6850, align 1
   %6851 = lshr i64 %6806, 24
   %6852 = trunc i64 %6851 to i8
-  %6853 = getelementptr inbounds i8, ptr %.25015010, i64 4
+  %6853 = getelementptr inbounds nuw i8, ptr %.25015010, i64 4
   store i8 %6852, ptr %6853, align 1
   %6854 = lshr i64 %6806, 16
   %6855 = trunc i64 %6854 to i8
-  %6856 = getelementptr inbounds i8, ptr %.25015010, i64 5
+  %6856 = getelementptr inbounds nuw i8, ptr %.25015010, i64 5
   store i8 %6855, ptr %6856, align 1
   %6857 = lshr i64 %6806, 8
   %6858 = trunc i64 %6857 to i8
-  %6859 = getelementptr inbounds i8, ptr %.25015010, i64 6
+  %6859 = getelementptr inbounds nuw i8, ptr %.25015010, i64 6
   store i8 %6858, ptr %6859, align 1
   %6860 = trunc i64 %6806 to i8
-  %6861 = getelementptr inbounds i8, ptr %.25015010, i64 7
+  %6861 = getelementptr inbounds nuw i8, ptr %.25015010, i64 7
   store i8 %6860, ptr %6861, align 1
-  %6862 = getelementptr inbounds i8, ptr %.25015010, i64 8
+  %6862 = getelementptr inbounds nuw i8, ptr %.25015010, i64 8
   br label %6863
 
 6863:                                             ; preds = %6841, %6812
@@ -13995,12 +13995,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %6877 = xor i32 %6876, -1
   %6878 = and i32 %6775, %6877
   %6879 = zext nneg i32 %6874 to i64
-  %6880 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %6879
+  %6880 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %6879
   %6881 = load i32, ptr %6880, align 4
   %6882 = shl i32 %6881, %6780
   %6883 = or i32 %6882, %6878
-  %6884 = getelementptr inbounds i8, ptr %4, i64 1024
-  %6885 = getelementptr inbounds [256 x i8], ptr %6884, i64 0, i64 %6879
+  %6884 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %6885 = getelementptr inbounds nuw [256 x i8], ptr %6884, i64 0, i64 %6879
   %6886 = load i8, ptr %6885, align 1
   %6887 = sext i8 %6886 to i32
   %6888 = add nsw i32 %6887, %6780
@@ -14025,108 +14025,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13047, label %6932, label %6903
 
 6903:                                             ; preds = %6891
-  %6904 = getelementptr inbounds i8, ptr %.250.lcssa, i64 1
+  %6904 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 1
   store i8 0, ptr %6904, align 1
   %.not13048 = icmp eq i64 %6901, 255
-  %.sroa.gep14380 = getelementptr inbounds i8, ptr %.250.lcssa, i64 2
+  %.sroa.gep14380 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 2
   %.neg13049.sroa.sel = select i1 %.not13048, ptr %.sroa.gep14380, ptr %6904
   %6905 = lshr i64 %6897, 48
   %6906 = trunc i64 %6905 to i8
   store i8 %6906, ptr %.neg13049.sroa.sel, align 1
-  %.sroa.gep15757 = getelementptr inbounds i8, ptr %.250.lcssa, i64 3
+  %.sroa.gep15757 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 3
   %.neg13049.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13048, ptr %.sroa.gep15757, ptr %.sroa.gep14380
   store i8 0, ptr %.neg13049.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6907 = and i64 %6897, 71776119061217280
   %.not13050 = icmp eq i64 %6907, 71776119061217280
   %.neg13051 = select i1 %.not13050, i64 2, i64 1
-  %6908 = getelementptr inbounds i8, ptr %.neg13049.sroa.sel, i64 %.neg13051
+  %6908 = getelementptr inbounds nuw i8, ptr %.neg13049.sroa.sel, i64 %.neg13051
   %6909 = lshr i64 %6897, 40
   %6910 = trunc i64 %6909 to i8
   store i8 %6910, ptr %6908, align 1
-  %6911 = getelementptr inbounds i8, ptr %6908, i64 1
+  %6911 = getelementptr inbounds nuw i8, ptr %6908, i64 1
   store i8 0, ptr %6911, align 1
   %6912 = and i64 %6897, 280375465082880
   %.not13052 = icmp eq i64 %6912, 280375465082880
-  %.sroa.gep14382 = getelementptr inbounds i8, ptr %6908, i64 2
+  %.sroa.gep14382 = getelementptr inbounds nuw i8, ptr %6908, i64 2
   %.neg13053.sroa.sel = select i1 %.not13052, ptr %.sroa.gep14382, ptr %6911
   %6913 = lshr i64 %6897, 32
   %6914 = trunc i64 %6913 to i8
   store i8 %6914, ptr %.neg13053.sroa.sel, align 1
-  %.sroa.gep15763 = getelementptr inbounds i8, ptr %6908, i64 3
+  %.sroa.gep15763 = getelementptr inbounds nuw i8, ptr %6908, i64 3
   %.neg13053.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13052, ptr %.sroa.gep15763, ptr %.sroa.gep14382
   store i8 0, ptr %.neg13053.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6915 = and i64 %6897, 1095216660480
   %.not13054 = icmp eq i64 %6915, 1095216660480
   %.neg13055 = select i1 %.not13054, i64 2, i64 1
-  %6916 = getelementptr inbounds i8, ptr %.neg13053.sroa.sel, i64 %.neg13055
+  %6916 = getelementptr inbounds nuw i8, ptr %.neg13053.sroa.sel, i64 %.neg13055
   %6917 = lshr i64 %6897, 24
   %6918 = trunc i64 %6917 to i8
   store i8 %6918, ptr %6916, align 1
-  %6919 = getelementptr inbounds i8, ptr %6916, i64 1
+  %6919 = getelementptr inbounds nuw i8, ptr %6916, i64 1
   store i8 0, ptr %6919, align 1
   %6920 = and i64 %6897, 4278190080
   %.not13056 = icmp eq i64 %6920, 4278190080
-  %.sroa.gep14384 = getelementptr inbounds i8, ptr %6916, i64 2
+  %.sroa.gep14384 = getelementptr inbounds nuw i8, ptr %6916, i64 2
   %.neg13057.sroa.sel = select i1 %.not13056, ptr %.sroa.gep14384, ptr %6919
   %6921 = lshr i64 %6897, 16
   %6922 = trunc i64 %6921 to i8
   store i8 %6922, ptr %.neg13057.sroa.sel, align 1
-  %.sroa.gep15761 = getelementptr inbounds i8, ptr %6916, i64 3
+  %.sroa.gep15761 = getelementptr inbounds nuw i8, ptr %6916, i64 3
   %.neg13057.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13056, ptr %.sroa.gep15761, ptr %.sroa.gep14384
   store i8 0, ptr %.neg13057.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6923 = and i64 %6897, 16711680
   %.not13058 = icmp eq i64 %6923, 16711680
   %.neg13059 = select i1 %.not13058, i64 2, i64 1
-  %6924 = getelementptr inbounds i8, ptr %.neg13057.sroa.sel, i64 %.neg13059
+  %6924 = getelementptr inbounds nuw i8, ptr %.neg13057.sroa.sel, i64 %.neg13059
   %6925 = lshr i64 %6897, 8
   %6926 = trunc i64 %6925 to i8
   store i8 %6926, ptr %6924, align 1
-  %6927 = getelementptr inbounds i8, ptr %6924, i64 1
+  %6927 = getelementptr inbounds nuw i8, ptr %6924, i64 1
   store i8 0, ptr %6927, align 1
   %6928 = and i64 %6897, 65280
   %.not13060 = icmp eq i64 %6928, 65280
-  %.sroa.gep14386 = getelementptr inbounds i8, ptr %6924, i64 2
+  %.sroa.gep14386 = getelementptr inbounds nuw i8, ptr %6924, i64 2
   %.neg13061.sroa.sel = select i1 %.not13060, ptr %.sroa.gep14386, ptr %6927
   %6929 = trunc i64 %6897 to i8
   store i8 %6929, ptr %.neg13061.sroa.sel, align 1
-  %.sroa.gep15759 = getelementptr inbounds i8, ptr %6924, i64 3
+  %.sroa.gep15759 = getelementptr inbounds nuw i8, ptr %6924, i64 3
   %.neg13061.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13060, ptr %.sroa.gep15759, ptr %.sroa.gep14386
   store i8 0, ptr %.neg13061.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %6930 = and i64 %6897, 255
   %.not13062 = icmp eq i64 %6930, 255
   %.neg13063 = select i1 %.not13062, i64 2, i64 1
-  %6931 = getelementptr inbounds i8, ptr %.neg13061.sroa.sel, i64 %.neg13063
+  %6931 = getelementptr inbounds nuw i8, ptr %.neg13061.sroa.sel, i64 %.neg13063
   br label %6954
 
 6932:                                             ; preds = %6891
   %6933 = lshr i64 %6897, 48
   %6934 = trunc i64 %6933 to i8
-  %6935 = getelementptr inbounds i8, ptr %.250.lcssa, i64 1
+  %6935 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 1
   store i8 %6934, ptr %6935, align 1
   %6936 = lshr i64 %6897, 40
   %6937 = trunc i64 %6936 to i8
-  %6938 = getelementptr inbounds i8, ptr %.250.lcssa, i64 2
+  %6938 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 2
   store i8 %6937, ptr %6938, align 1
   %6939 = lshr i64 %6897, 32
   %6940 = trunc i64 %6939 to i8
-  %6941 = getelementptr inbounds i8, ptr %.250.lcssa, i64 3
+  %6941 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 3
   store i8 %6940, ptr %6941, align 1
   %6942 = lshr i64 %6897, 24
   %6943 = trunc i64 %6942 to i8
-  %6944 = getelementptr inbounds i8, ptr %.250.lcssa, i64 4
+  %6944 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 4
   store i8 %6943, ptr %6944, align 1
   %6945 = lshr i64 %6897, 16
   %6946 = trunc i64 %6945 to i8
-  %6947 = getelementptr inbounds i8, ptr %.250.lcssa, i64 5
+  %6947 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 5
   store i8 %6946, ptr %6947, align 1
   %6948 = lshr i64 %6897, 8
   %6949 = trunc i64 %6948 to i8
-  %6950 = getelementptr inbounds i8, ptr %.250.lcssa, i64 6
+  %6950 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 6
   store i8 %6949, ptr %6950, align 1
   %6951 = trunc i64 %6897 to i8
-  %6952 = getelementptr inbounds i8, ptr %.250.lcssa, i64 7
+  %6952 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 7
   store i8 %6951, ptr %6952, align 1
-  %6953 = getelementptr inbounds i8, ptr %.250.lcssa, i64 8
+  %6953 = getelementptr inbounds nuw i8, ptr %.250.lcssa, i64 8
   br label %6954
 
 6954:                                             ; preds = %6932, %6903
@@ -14147,7 +14147,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16511205 = phi i64 [ %.16111201, %6770 ], [ %6956, %6954 ], [ %6961, %6957 ]
   %.249 = phi ptr [ %.243, %6770 ], [ %.253, %6954 ], [ %.250.lcssa, %6957 ]
   %.82 = phi i32 [ %6771, %6770 ], [ 0, %6954 ], [ 0, %6957 ]
-  %6963 = getelementptr inbounds i8, ptr %1, i64 46
+  %6963 = getelementptr inbounds nuw i8, ptr %1, i64 46
   %6964 = load i16, ptr %6963, align 2
   %6965 = icmp eq i16 %6964, 0
   br i1 %6965, label %6966, label %6968
@@ -14171,7 +14171,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 6978:                                             ; preds = %6968
   %6979 = load ptr, ptr %7, align 8
   %6980 = load ptr, ptr %6979, align 8
-  %6981 = getelementptr inbounds i8, ptr %6980, i64 40
+  %6981 = getelementptr inbounds nuw i8, ptr %6980, i64 40
   store i32 6, ptr %6981, align 8
   %6982 = load ptr, ptr %7, align 8
   %6983 = load ptr, ptr %6982, align 8
@@ -14184,8 +14184,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %6986, label %.lr.ph15024, label %._crit_edge15025
 
 .lr.ph15024:                                      ; preds = %6985
-  %6987 = getelementptr inbounds i8, ptr %4, i64 1264
-  %6988 = getelementptr inbounds i8, ptr %4, i64 960
+  %6987 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %6988 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %6989
 
 6989:                                             ; preds = %.lr.ph15024, %7068
@@ -14218,108 +14218,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13099, label %7037, label %7008
 
 7008:                                             ; preds = %6996
-  %7009 = getelementptr inbounds i8, ptr %.25615021, i64 1
+  %7009 = getelementptr inbounds nuw i8, ptr %.25615021, i64 1
   store i8 0, ptr %7009, align 1
   %.not13100 = icmp eq i64 %7006, 255
-  %.sroa.gep14388 = getelementptr inbounds i8, ptr %.25615021, i64 2
+  %.sroa.gep14388 = getelementptr inbounds nuw i8, ptr %.25615021, i64 2
   %.neg13101.sroa.sel = select i1 %.not13100, ptr %.sroa.gep14388, ptr %7009
   %7010 = lshr i64 %6998, 48
   %7011 = trunc i64 %7010 to i8
   store i8 %7011, ptr %.neg13101.sroa.sel, align 1
-  %.sroa.gep15733 = getelementptr inbounds i8, ptr %.25615021, i64 3
+  %.sroa.gep15733 = getelementptr inbounds nuw i8, ptr %.25615021, i64 3
   %.neg13101.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13100, ptr %.sroa.gep15733, ptr %.sroa.gep14388
   store i8 0, ptr %.neg13101.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7012 = and i64 %6998, 71776119061217280
   %.not13102 = icmp eq i64 %7012, 71776119061217280
   %.neg13103 = select i1 %.not13102, i64 2, i64 1
-  %7013 = getelementptr inbounds i8, ptr %.neg13101.sroa.sel, i64 %.neg13103
+  %7013 = getelementptr inbounds nuw i8, ptr %.neg13101.sroa.sel, i64 %.neg13103
   %7014 = lshr i64 %6998, 40
   %7015 = trunc i64 %7014 to i8
   store i8 %7015, ptr %7013, align 1
-  %7016 = getelementptr inbounds i8, ptr %7013, i64 1
+  %7016 = getelementptr inbounds nuw i8, ptr %7013, i64 1
   store i8 0, ptr %7016, align 1
   %7017 = and i64 %6998, 280375465082880
   %.not13104 = icmp eq i64 %7017, 280375465082880
-  %.sroa.gep14390 = getelementptr inbounds i8, ptr %7013, i64 2
+  %.sroa.gep14390 = getelementptr inbounds nuw i8, ptr %7013, i64 2
   %.neg13105.sroa.sel = select i1 %.not13104, ptr %.sroa.gep14390, ptr %7016
   %7018 = lshr i64 %6998, 32
   %7019 = trunc i64 %7018 to i8
   store i8 %7019, ptr %.neg13105.sroa.sel, align 1
-  %.sroa.gep15739 = getelementptr inbounds i8, ptr %7013, i64 3
+  %.sroa.gep15739 = getelementptr inbounds nuw i8, ptr %7013, i64 3
   %.neg13105.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13104, ptr %.sroa.gep15739, ptr %.sroa.gep14390
   store i8 0, ptr %.neg13105.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7020 = and i64 %6998, 1095216660480
   %.not13106 = icmp eq i64 %7020, 1095216660480
   %.neg13107 = select i1 %.not13106, i64 2, i64 1
-  %7021 = getelementptr inbounds i8, ptr %.neg13105.sroa.sel, i64 %.neg13107
+  %7021 = getelementptr inbounds nuw i8, ptr %.neg13105.sroa.sel, i64 %.neg13107
   %7022 = lshr i64 %7002, 24
   %7023 = trunc i64 %7022 to i8
   store i8 %7023, ptr %7021, align 1
-  %7024 = getelementptr inbounds i8, ptr %7021, i64 1
+  %7024 = getelementptr inbounds nuw i8, ptr %7021, i64 1
   store i8 0, ptr %7024, align 1
   %7025 = and i64 %7002, 4278190080
   %.not13108 = icmp eq i64 %7025, 4278190080
-  %.sroa.gep14392 = getelementptr inbounds i8, ptr %7021, i64 2
+  %.sroa.gep14392 = getelementptr inbounds nuw i8, ptr %7021, i64 2
   %.neg13109.sroa.sel = select i1 %.not13108, ptr %.sroa.gep14392, ptr %7024
   %7026 = lshr i64 %7002, 16
   %7027 = trunc i64 %7026 to i8
   store i8 %7027, ptr %.neg13109.sroa.sel, align 1
-  %.sroa.gep15737 = getelementptr inbounds i8, ptr %7021, i64 3
+  %.sroa.gep15737 = getelementptr inbounds nuw i8, ptr %7021, i64 3
   %.neg13109.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13108, ptr %.sroa.gep15737, ptr %.sroa.gep14392
   store i8 0, ptr %.neg13109.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7028 = and i64 %7002, 16711680
   %.not13110 = icmp eq i64 %7028, 16711680
   %.neg13111 = select i1 %.not13110, i64 2, i64 1
-  %7029 = getelementptr inbounds i8, ptr %.neg13109.sroa.sel, i64 %.neg13111
+  %7029 = getelementptr inbounds nuw i8, ptr %.neg13109.sroa.sel, i64 %.neg13111
   %7030 = lshr i64 %7002, 8
   %7031 = trunc i64 %7030 to i8
   store i8 %7031, ptr %7029, align 1
-  %7032 = getelementptr inbounds i8, ptr %7029, i64 1
+  %7032 = getelementptr inbounds nuw i8, ptr %7029, i64 1
   store i8 0, ptr %7032, align 1
   %7033 = and i64 %7002, 65280
   %.not13112 = icmp eq i64 %7033, 65280
-  %.sroa.gep14394 = getelementptr inbounds i8, ptr %7029, i64 2
+  %.sroa.gep14394 = getelementptr inbounds nuw i8, ptr %7029, i64 2
   %.neg13113.sroa.sel = select i1 %.not13112, ptr %.sroa.gep14394, ptr %7032
   %7034 = trunc i64 %7002 to i8
   store i8 %7034, ptr %.neg13113.sroa.sel, align 1
-  %.sroa.gep15735 = getelementptr inbounds i8, ptr %7029, i64 3
+  %.sroa.gep15735 = getelementptr inbounds nuw i8, ptr %7029, i64 3
   %.neg13113.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13112, ptr %.sroa.gep15735, ptr %.sroa.gep14394
   store i8 0, ptr %.neg13113.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7035 = and i64 %7002, 255
   %.not13114 = icmp eq i64 %7035, 255
   %.neg13115 = select i1 %.not13114, i64 2, i64 1
-  %7036 = getelementptr inbounds i8, ptr %.neg13113.sroa.sel, i64 %.neg13115
+  %7036 = getelementptr inbounds nuw i8, ptr %.neg13113.sroa.sel, i64 %.neg13115
   br label %7059
 
 7037:                                             ; preds = %6996
   %7038 = lshr i64 %6998, 48
   %7039 = trunc i64 %7038 to i8
-  %7040 = getelementptr inbounds i8, ptr %.25615021, i64 1
+  %7040 = getelementptr inbounds nuw i8, ptr %.25615021, i64 1
   store i8 %7039, ptr %7040, align 1
   %7041 = lshr i64 %6998, 40
   %7042 = trunc i64 %7041 to i8
-  %7043 = getelementptr inbounds i8, ptr %.25615021, i64 2
+  %7043 = getelementptr inbounds nuw i8, ptr %.25615021, i64 2
   store i8 %7042, ptr %7043, align 1
   %7044 = lshr i64 %6998, 32
   %7045 = trunc i64 %7044 to i8
-  %7046 = getelementptr inbounds i8, ptr %.25615021, i64 3
+  %7046 = getelementptr inbounds nuw i8, ptr %.25615021, i64 3
   store i8 %7045, ptr %7046, align 1
   %7047 = lshr i64 %7002, 24
   %7048 = trunc i64 %7047 to i8
-  %7049 = getelementptr inbounds i8, ptr %.25615021, i64 4
+  %7049 = getelementptr inbounds nuw i8, ptr %.25615021, i64 4
   store i8 %7048, ptr %7049, align 1
   %7050 = lshr i64 %7002, 16
   %7051 = trunc i64 %7050 to i8
-  %7052 = getelementptr inbounds i8, ptr %.25615021, i64 5
+  %7052 = getelementptr inbounds nuw i8, ptr %.25615021, i64 5
   store i8 %7051, ptr %7052, align 1
   %7053 = lshr i64 %7002, 8
   %7054 = trunc i64 %7053 to i8
-  %7055 = getelementptr inbounds i8, ptr %.25615021, i64 6
+  %7055 = getelementptr inbounds nuw i8, ptr %.25615021, i64 6
   store i8 %7054, ptr %7055, align 1
   %7056 = trunc i64 %7002 to i8
-  %7057 = getelementptr inbounds i8, ptr %.25615021, i64 7
+  %7057 = getelementptr inbounds nuw i8, ptr %.25615021, i64 7
   store i8 %7056, ptr %7057, align 1
-  %7058 = getelementptr inbounds i8, ptr %.25615021, i64 8
+  %7058 = getelementptr inbounds nuw i8, ptr %.25615021, i64 8
   br label %7059
 
 7059:                                             ; preds = %7037, %7008
@@ -14355,12 +14355,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7073 = xor i32 %7072, -1
   %7074 = and i32 %6971, %7073
   %7075 = zext nneg i32 %7070 to i64
-  %7076 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %7075
+  %7076 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %7075
   %7077 = load i32, ptr %7076, align 4
   %7078 = shl i32 %7077, %6976
   %7079 = or i32 %7078, %7074
-  %7080 = getelementptr inbounds i8, ptr %4, i64 1024
-  %7081 = getelementptr inbounds [256 x i8], ptr %7080, i64 0, i64 %7075
+  %7080 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %7081 = getelementptr inbounds nuw [256 x i8], ptr %7080, i64 0, i64 %7075
   %7082 = load i8, ptr %7081, align 1
   %7083 = sext i8 %7082 to i32
   %7084 = add nsw i32 %7083, %6976
@@ -14385,108 +14385,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13082, label %7128, label %7099
 
 7099:                                             ; preds = %7087
-  %7100 = getelementptr inbounds i8, ptr %.256.lcssa, i64 1
+  %7100 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 1
   store i8 0, ptr %7100, align 1
   %.not13083 = icmp eq i64 %7097, 255
-  %.sroa.gep14396 = getelementptr inbounds i8, ptr %.256.lcssa, i64 2
+  %.sroa.gep14396 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 2
   %.neg13084.sroa.sel = select i1 %.not13083, ptr %.sroa.gep14396, ptr %7100
   %7101 = lshr i64 %7093, 48
   %7102 = trunc i64 %7101 to i8
   store i8 %7102, ptr %.neg13084.sroa.sel, align 1
-  %.sroa.gep15741 = getelementptr inbounds i8, ptr %.256.lcssa, i64 3
+  %.sroa.gep15741 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 3
   %.neg13084.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13083, ptr %.sroa.gep15741, ptr %.sroa.gep14396
   store i8 0, ptr %.neg13084.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7103 = and i64 %7093, 71776119061217280
   %.not13085 = icmp eq i64 %7103, 71776119061217280
   %.neg13086 = select i1 %.not13085, i64 2, i64 1
-  %7104 = getelementptr inbounds i8, ptr %.neg13084.sroa.sel, i64 %.neg13086
+  %7104 = getelementptr inbounds nuw i8, ptr %.neg13084.sroa.sel, i64 %.neg13086
   %7105 = lshr i64 %7093, 40
   %7106 = trunc i64 %7105 to i8
   store i8 %7106, ptr %7104, align 1
-  %7107 = getelementptr inbounds i8, ptr %7104, i64 1
+  %7107 = getelementptr inbounds nuw i8, ptr %7104, i64 1
   store i8 0, ptr %7107, align 1
   %7108 = and i64 %7093, 280375465082880
   %.not13087 = icmp eq i64 %7108, 280375465082880
-  %.sroa.gep14398 = getelementptr inbounds i8, ptr %7104, i64 2
+  %.sroa.gep14398 = getelementptr inbounds nuw i8, ptr %7104, i64 2
   %.neg13088.sroa.sel = select i1 %.not13087, ptr %.sroa.gep14398, ptr %7107
   %7109 = lshr i64 %7093, 32
   %7110 = trunc i64 %7109 to i8
   store i8 %7110, ptr %.neg13088.sroa.sel, align 1
-  %.sroa.gep15747 = getelementptr inbounds i8, ptr %7104, i64 3
+  %.sroa.gep15747 = getelementptr inbounds nuw i8, ptr %7104, i64 3
   %.neg13088.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13087, ptr %.sroa.gep15747, ptr %.sroa.gep14398
   store i8 0, ptr %.neg13088.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7111 = and i64 %7093, 1095216660480
   %.not13089 = icmp eq i64 %7111, 1095216660480
   %.neg13090 = select i1 %.not13089, i64 2, i64 1
-  %7112 = getelementptr inbounds i8, ptr %.neg13088.sroa.sel, i64 %.neg13090
+  %7112 = getelementptr inbounds nuw i8, ptr %.neg13088.sroa.sel, i64 %.neg13090
   %7113 = lshr i64 %7093, 24
   %7114 = trunc i64 %7113 to i8
   store i8 %7114, ptr %7112, align 1
-  %7115 = getelementptr inbounds i8, ptr %7112, i64 1
+  %7115 = getelementptr inbounds nuw i8, ptr %7112, i64 1
   store i8 0, ptr %7115, align 1
   %7116 = and i64 %7093, 4278190080
   %.not13091 = icmp eq i64 %7116, 4278190080
-  %.sroa.gep14400 = getelementptr inbounds i8, ptr %7112, i64 2
+  %.sroa.gep14400 = getelementptr inbounds nuw i8, ptr %7112, i64 2
   %.neg13092.sroa.sel = select i1 %.not13091, ptr %.sroa.gep14400, ptr %7115
   %7117 = lshr i64 %7093, 16
   %7118 = trunc i64 %7117 to i8
   store i8 %7118, ptr %.neg13092.sroa.sel, align 1
-  %.sroa.gep15745 = getelementptr inbounds i8, ptr %7112, i64 3
+  %.sroa.gep15745 = getelementptr inbounds nuw i8, ptr %7112, i64 3
   %.neg13092.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13091, ptr %.sroa.gep15745, ptr %.sroa.gep14400
   store i8 0, ptr %.neg13092.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7119 = and i64 %7093, 16711680
   %.not13093 = icmp eq i64 %7119, 16711680
   %.neg13094 = select i1 %.not13093, i64 2, i64 1
-  %7120 = getelementptr inbounds i8, ptr %.neg13092.sroa.sel, i64 %.neg13094
+  %7120 = getelementptr inbounds nuw i8, ptr %.neg13092.sroa.sel, i64 %.neg13094
   %7121 = lshr i64 %7093, 8
   %7122 = trunc i64 %7121 to i8
   store i8 %7122, ptr %7120, align 1
-  %7123 = getelementptr inbounds i8, ptr %7120, i64 1
+  %7123 = getelementptr inbounds nuw i8, ptr %7120, i64 1
   store i8 0, ptr %7123, align 1
   %7124 = and i64 %7093, 65280
   %.not13095 = icmp eq i64 %7124, 65280
-  %.sroa.gep14402 = getelementptr inbounds i8, ptr %7120, i64 2
+  %.sroa.gep14402 = getelementptr inbounds nuw i8, ptr %7120, i64 2
   %.neg13096.sroa.sel = select i1 %.not13095, ptr %.sroa.gep14402, ptr %7123
   %7125 = trunc i64 %7093 to i8
   store i8 %7125, ptr %.neg13096.sroa.sel, align 1
-  %.sroa.gep15743 = getelementptr inbounds i8, ptr %7120, i64 3
+  %.sroa.gep15743 = getelementptr inbounds nuw i8, ptr %7120, i64 3
   %.neg13096.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13095, ptr %.sroa.gep15743, ptr %.sroa.gep14402
   store i8 0, ptr %.neg13096.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7126 = and i64 %7093, 255
   %.not13097 = icmp eq i64 %7126, 255
   %.neg13098 = select i1 %.not13097, i64 2, i64 1
-  %7127 = getelementptr inbounds i8, ptr %.neg13096.sroa.sel, i64 %.neg13098
+  %7127 = getelementptr inbounds nuw i8, ptr %.neg13096.sroa.sel, i64 %.neg13098
   br label %7150
 
 7128:                                             ; preds = %7087
   %7129 = lshr i64 %7093, 48
   %7130 = trunc i64 %7129 to i8
-  %7131 = getelementptr inbounds i8, ptr %.256.lcssa, i64 1
+  %7131 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 1
   store i8 %7130, ptr %7131, align 1
   %7132 = lshr i64 %7093, 40
   %7133 = trunc i64 %7132 to i8
-  %7134 = getelementptr inbounds i8, ptr %.256.lcssa, i64 2
+  %7134 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 2
   store i8 %7133, ptr %7134, align 1
   %7135 = lshr i64 %7093, 32
   %7136 = trunc i64 %7135 to i8
-  %7137 = getelementptr inbounds i8, ptr %.256.lcssa, i64 3
+  %7137 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 3
   store i8 %7136, ptr %7137, align 1
   %7138 = lshr i64 %7093, 24
   %7139 = trunc i64 %7138 to i8
-  %7140 = getelementptr inbounds i8, ptr %.256.lcssa, i64 4
+  %7140 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 4
   store i8 %7139, ptr %7140, align 1
   %7141 = lshr i64 %7093, 16
   %7142 = trunc i64 %7141 to i8
-  %7143 = getelementptr inbounds i8, ptr %.256.lcssa, i64 5
+  %7143 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 5
   store i8 %7142, ptr %7143, align 1
   %7144 = lshr i64 %7093, 8
   %7145 = trunc i64 %7144 to i8
-  %7146 = getelementptr inbounds i8, ptr %.256.lcssa, i64 6
+  %7146 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 6
   store i8 %7145, ptr %7146, align 1
   %7147 = trunc i64 %7093 to i8
-  %7148 = getelementptr inbounds i8, ptr %.256.lcssa, i64 7
+  %7148 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 7
   store i8 %7147, ptr %7148, align 1
-  %7149 = getelementptr inbounds i8, ptr %.256.lcssa, i64 8
+  %7149 = getelementptr inbounds nuw i8, ptr %.256.lcssa, i64 8
   br label %7150
 
 7150:                                             ; preds = %7128, %7099
@@ -14507,7 +14507,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.16911209 = phi i64 [ %.16511205, %6966 ], [ %7152, %7150 ], [ %7157, %7153 ]
   %.255 = phi ptr [ %.249, %6966 ], [ %.259, %7150 ], [ %.256.lcssa, %7153 ]
   %.84 = phi i32 [ %6967, %6966 ], [ 0, %7150 ], [ 0, %7153 ]
-  %7159 = getelementptr inbounds i8, ptr %1, i64 60
+  %7159 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7160 = load i16, ptr %7159, align 2
   %7161 = icmp eq i16 %7160, 0
   br i1 %7161, label %7162, label %7164
@@ -14531,7 +14531,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 7174:                                             ; preds = %7164
   %7175 = load ptr, ptr %7, align 8
   %7176 = load ptr, ptr %7175, align 8
-  %7177 = getelementptr inbounds i8, ptr %7176, i64 40
+  %7177 = getelementptr inbounds nuw i8, ptr %7176, i64 40
   store i32 6, ptr %7177, align 8
   %7178 = load ptr, ptr %7, align 8
   %7179 = load ptr, ptr %7178, align 8
@@ -14544,8 +14544,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %7182, label %.lr.ph15035, label %._crit_edge15036
 
 .lr.ph15035:                                      ; preds = %7181
-  %7183 = getelementptr inbounds i8, ptr %4, i64 1264
-  %7184 = getelementptr inbounds i8, ptr %4, i64 960
+  %7183 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %7184 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %7185
 
 7185:                                             ; preds = %.lr.ph15035, %7264
@@ -14578,108 +14578,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13134, label %7233, label %7204
 
 7204:                                             ; preds = %7192
-  %7205 = getelementptr inbounds i8, ptr %.26215032, i64 1
+  %7205 = getelementptr inbounds nuw i8, ptr %.26215032, i64 1
   store i8 0, ptr %7205, align 1
   %.not13135 = icmp eq i64 %7202, 255
-  %.sroa.gep14404 = getelementptr inbounds i8, ptr %.26215032, i64 2
+  %.sroa.gep14404 = getelementptr inbounds nuw i8, ptr %.26215032, i64 2
   %.neg13136.sroa.sel = select i1 %.not13135, ptr %.sroa.gep14404, ptr %7205
   %7206 = lshr i64 %7194, 48
   %7207 = trunc i64 %7206 to i8
   store i8 %7207, ptr %.neg13136.sroa.sel, align 1
-  %.sroa.gep15717 = getelementptr inbounds i8, ptr %.26215032, i64 3
+  %.sroa.gep15717 = getelementptr inbounds nuw i8, ptr %.26215032, i64 3
   %.neg13136.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13135, ptr %.sroa.gep15717, ptr %.sroa.gep14404
   store i8 0, ptr %.neg13136.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7208 = and i64 %7194, 71776119061217280
   %.not13137 = icmp eq i64 %7208, 71776119061217280
   %.neg13138 = select i1 %.not13137, i64 2, i64 1
-  %7209 = getelementptr inbounds i8, ptr %.neg13136.sroa.sel, i64 %.neg13138
+  %7209 = getelementptr inbounds nuw i8, ptr %.neg13136.sroa.sel, i64 %.neg13138
   %7210 = lshr i64 %7194, 40
   %7211 = trunc i64 %7210 to i8
   store i8 %7211, ptr %7209, align 1
-  %7212 = getelementptr inbounds i8, ptr %7209, i64 1
+  %7212 = getelementptr inbounds nuw i8, ptr %7209, i64 1
   store i8 0, ptr %7212, align 1
   %7213 = and i64 %7194, 280375465082880
   %.not13139 = icmp eq i64 %7213, 280375465082880
-  %.sroa.gep14406 = getelementptr inbounds i8, ptr %7209, i64 2
+  %.sroa.gep14406 = getelementptr inbounds nuw i8, ptr %7209, i64 2
   %.neg13140.sroa.sel = select i1 %.not13139, ptr %.sroa.gep14406, ptr %7212
   %7214 = lshr i64 %7194, 32
   %7215 = trunc i64 %7214 to i8
   store i8 %7215, ptr %.neg13140.sroa.sel, align 1
-  %.sroa.gep15723 = getelementptr inbounds i8, ptr %7209, i64 3
+  %.sroa.gep15723 = getelementptr inbounds nuw i8, ptr %7209, i64 3
   %.neg13140.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13139, ptr %.sroa.gep15723, ptr %.sroa.gep14406
   store i8 0, ptr %.neg13140.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7216 = and i64 %7194, 1095216660480
   %.not13141 = icmp eq i64 %7216, 1095216660480
   %.neg13142 = select i1 %.not13141, i64 2, i64 1
-  %7217 = getelementptr inbounds i8, ptr %.neg13140.sroa.sel, i64 %.neg13142
+  %7217 = getelementptr inbounds nuw i8, ptr %.neg13140.sroa.sel, i64 %.neg13142
   %7218 = lshr i64 %7198, 24
   %7219 = trunc i64 %7218 to i8
   store i8 %7219, ptr %7217, align 1
-  %7220 = getelementptr inbounds i8, ptr %7217, i64 1
+  %7220 = getelementptr inbounds nuw i8, ptr %7217, i64 1
   store i8 0, ptr %7220, align 1
   %7221 = and i64 %7198, 4278190080
   %.not13143 = icmp eq i64 %7221, 4278190080
-  %.sroa.gep14408 = getelementptr inbounds i8, ptr %7217, i64 2
+  %.sroa.gep14408 = getelementptr inbounds nuw i8, ptr %7217, i64 2
   %.neg13144.sroa.sel = select i1 %.not13143, ptr %.sroa.gep14408, ptr %7220
   %7222 = lshr i64 %7198, 16
   %7223 = trunc i64 %7222 to i8
   store i8 %7223, ptr %.neg13144.sroa.sel, align 1
-  %.sroa.gep15721 = getelementptr inbounds i8, ptr %7217, i64 3
+  %.sroa.gep15721 = getelementptr inbounds nuw i8, ptr %7217, i64 3
   %.neg13144.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13143, ptr %.sroa.gep15721, ptr %.sroa.gep14408
   store i8 0, ptr %.neg13144.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7224 = and i64 %7198, 16711680
   %.not13145 = icmp eq i64 %7224, 16711680
   %.neg13146 = select i1 %.not13145, i64 2, i64 1
-  %7225 = getelementptr inbounds i8, ptr %.neg13144.sroa.sel, i64 %.neg13146
+  %7225 = getelementptr inbounds nuw i8, ptr %.neg13144.sroa.sel, i64 %.neg13146
   %7226 = lshr i64 %7198, 8
   %7227 = trunc i64 %7226 to i8
   store i8 %7227, ptr %7225, align 1
-  %7228 = getelementptr inbounds i8, ptr %7225, i64 1
+  %7228 = getelementptr inbounds nuw i8, ptr %7225, i64 1
   store i8 0, ptr %7228, align 1
   %7229 = and i64 %7198, 65280
   %.not13147 = icmp eq i64 %7229, 65280
-  %.sroa.gep14410 = getelementptr inbounds i8, ptr %7225, i64 2
+  %.sroa.gep14410 = getelementptr inbounds nuw i8, ptr %7225, i64 2
   %.neg13148.sroa.sel = select i1 %.not13147, ptr %.sroa.gep14410, ptr %7228
   %7230 = trunc i64 %7198 to i8
   store i8 %7230, ptr %.neg13148.sroa.sel, align 1
-  %.sroa.gep15719 = getelementptr inbounds i8, ptr %7225, i64 3
+  %.sroa.gep15719 = getelementptr inbounds nuw i8, ptr %7225, i64 3
   %.neg13148.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13147, ptr %.sroa.gep15719, ptr %.sroa.gep14410
   store i8 0, ptr %.neg13148.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7231 = and i64 %7198, 255
   %.not13149 = icmp eq i64 %7231, 255
   %.neg13150 = select i1 %.not13149, i64 2, i64 1
-  %7232 = getelementptr inbounds i8, ptr %.neg13148.sroa.sel, i64 %.neg13150
+  %7232 = getelementptr inbounds nuw i8, ptr %.neg13148.sroa.sel, i64 %.neg13150
   br label %7255
 
 7233:                                             ; preds = %7192
   %7234 = lshr i64 %7194, 48
   %7235 = trunc i64 %7234 to i8
-  %7236 = getelementptr inbounds i8, ptr %.26215032, i64 1
+  %7236 = getelementptr inbounds nuw i8, ptr %.26215032, i64 1
   store i8 %7235, ptr %7236, align 1
   %7237 = lshr i64 %7194, 40
   %7238 = trunc i64 %7237 to i8
-  %7239 = getelementptr inbounds i8, ptr %.26215032, i64 2
+  %7239 = getelementptr inbounds nuw i8, ptr %.26215032, i64 2
   store i8 %7238, ptr %7239, align 1
   %7240 = lshr i64 %7194, 32
   %7241 = trunc i64 %7240 to i8
-  %7242 = getelementptr inbounds i8, ptr %.26215032, i64 3
+  %7242 = getelementptr inbounds nuw i8, ptr %.26215032, i64 3
   store i8 %7241, ptr %7242, align 1
   %7243 = lshr i64 %7198, 24
   %7244 = trunc i64 %7243 to i8
-  %7245 = getelementptr inbounds i8, ptr %.26215032, i64 4
+  %7245 = getelementptr inbounds nuw i8, ptr %.26215032, i64 4
   store i8 %7244, ptr %7245, align 1
   %7246 = lshr i64 %7198, 16
   %7247 = trunc i64 %7246 to i8
-  %7248 = getelementptr inbounds i8, ptr %.26215032, i64 5
+  %7248 = getelementptr inbounds nuw i8, ptr %.26215032, i64 5
   store i8 %7247, ptr %7248, align 1
   %7249 = lshr i64 %7198, 8
   %7250 = trunc i64 %7249 to i8
-  %7251 = getelementptr inbounds i8, ptr %.26215032, i64 6
+  %7251 = getelementptr inbounds nuw i8, ptr %.26215032, i64 6
   store i8 %7250, ptr %7251, align 1
   %7252 = trunc i64 %7198 to i8
-  %7253 = getelementptr inbounds i8, ptr %.26215032, i64 7
+  %7253 = getelementptr inbounds nuw i8, ptr %.26215032, i64 7
   store i8 %7252, ptr %7253, align 1
-  %7254 = getelementptr inbounds i8, ptr %.26215032, i64 8
+  %7254 = getelementptr inbounds nuw i8, ptr %.26215032, i64 8
   br label %7255
 
 7255:                                             ; preds = %7233, %7204
@@ -14715,12 +14715,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7269 = xor i32 %7268, -1
   %7270 = and i32 %7167, %7269
   %7271 = zext nneg i32 %7266 to i64
-  %7272 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %7271
+  %7272 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %7271
   %7273 = load i32, ptr %7272, align 4
   %7274 = shl i32 %7273, %7172
   %7275 = or i32 %7274, %7270
-  %7276 = getelementptr inbounds i8, ptr %4, i64 1024
-  %7277 = getelementptr inbounds [256 x i8], ptr %7276, i64 0, i64 %7271
+  %7276 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %7277 = getelementptr inbounds nuw [256 x i8], ptr %7276, i64 0, i64 %7271
   %7278 = load i8, ptr %7277, align 1
   %7279 = sext i8 %7278 to i32
   %7280 = add nsw i32 %7279, %7172
@@ -14745,108 +14745,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13117, label %7324, label %7295
 
 7295:                                             ; preds = %7283
-  %7296 = getelementptr inbounds i8, ptr %.262.lcssa, i64 1
+  %7296 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 1
   store i8 0, ptr %7296, align 1
   %.not13118 = icmp eq i64 %7293, 255
-  %.sroa.gep14412 = getelementptr inbounds i8, ptr %.262.lcssa, i64 2
+  %.sroa.gep14412 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 2
   %.neg13119.sroa.sel = select i1 %.not13118, ptr %.sroa.gep14412, ptr %7296
   %7297 = lshr i64 %7289, 48
   %7298 = trunc i64 %7297 to i8
   store i8 %7298, ptr %.neg13119.sroa.sel, align 1
-  %.sroa.gep15725 = getelementptr inbounds i8, ptr %.262.lcssa, i64 3
+  %.sroa.gep15725 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 3
   %.neg13119.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13118, ptr %.sroa.gep15725, ptr %.sroa.gep14412
   store i8 0, ptr %.neg13119.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7299 = and i64 %7289, 71776119061217280
   %.not13120 = icmp eq i64 %7299, 71776119061217280
   %.neg13121 = select i1 %.not13120, i64 2, i64 1
-  %7300 = getelementptr inbounds i8, ptr %.neg13119.sroa.sel, i64 %.neg13121
+  %7300 = getelementptr inbounds nuw i8, ptr %.neg13119.sroa.sel, i64 %.neg13121
   %7301 = lshr i64 %7289, 40
   %7302 = trunc i64 %7301 to i8
   store i8 %7302, ptr %7300, align 1
-  %7303 = getelementptr inbounds i8, ptr %7300, i64 1
+  %7303 = getelementptr inbounds nuw i8, ptr %7300, i64 1
   store i8 0, ptr %7303, align 1
   %7304 = and i64 %7289, 280375465082880
   %.not13122 = icmp eq i64 %7304, 280375465082880
-  %.sroa.gep14414 = getelementptr inbounds i8, ptr %7300, i64 2
+  %.sroa.gep14414 = getelementptr inbounds nuw i8, ptr %7300, i64 2
   %.neg13123.sroa.sel = select i1 %.not13122, ptr %.sroa.gep14414, ptr %7303
   %7305 = lshr i64 %7289, 32
   %7306 = trunc i64 %7305 to i8
   store i8 %7306, ptr %.neg13123.sroa.sel, align 1
-  %.sroa.gep15731 = getelementptr inbounds i8, ptr %7300, i64 3
+  %.sroa.gep15731 = getelementptr inbounds nuw i8, ptr %7300, i64 3
   %.neg13123.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13122, ptr %.sroa.gep15731, ptr %.sroa.gep14414
   store i8 0, ptr %.neg13123.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7307 = and i64 %7289, 1095216660480
   %.not13124 = icmp eq i64 %7307, 1095216660480
   %.neg13125 = select i1 %.not13124, i64 2, i64 1
-  %7308 = getelementptr inbounds i8, ptr %.neg13123.sroa.sel, i64 %.neg13125
+  %7308 = getelementptr inbounds nuw i8, ptr %.neg13123.sroa.sel, i64 %.neg13125
   %7309 = lshr i64 %7289, 24
   %7310 = trunc i64 %7309 to i8
   store i8 %7310, ptr %7308, align 1
-  %7311 = getelementptr inbounds i8, ptr %7308, i64 1
+  %7311 = getelementptr inbounds nuw i8, ptr %7308, i64 1
   store i8 0, ptr %7311, align 1
   %7312 = and i64 %7289, 4278190080
   %.not13126 = icmp eq i64 %7312, 4278190080
-  %.sroa.gep14416 = getelementptr inbounds i8, ptr %7308, i64 2
+  %.sroa.gep14416 = getelementptr inbounds nuw i8, ptr %7308, i64 2
   %.neg13127.sroa.sel = select i1 %.not13126, ptr %.sroa.gep14416, ptr %7311
   %7313 = lshr i64 %7289, 16
   %7314 = trunc i64 %7313 to i8
   store i8 %7314, ptr %.neg13127.sroa.sel, align 1
-  %.sroa.gep15729 = getelementptr inbounds i8, ptr %7308, i64 3
+  %.sroa.gep15729 = getelementptr inbounds nuw i8, ptr %7308, i64 3
   %.neg13127.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13126, ptr %.sroa.gep15729, ptr %.sroa.gep14416
   store i8 0, ptr %.neg13127.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7315 = and i64 %7289, 16711680
   %.not13128 = icmp eq i64 %7315, 16711680
   %.neg13129 = select i1 %.not13128, i64 2, i64 1
-  %7316 = getelementptr inbounds i8, ptr %.neg13127.sroa.sel, i64 %.neg13129
+  %7316 = getelementptr inbounds nuw i8, ptr %.neg13127.sroa.sel, i64 %.neg13129
   %7317 = lshr i64 %7289, 8
   %7318 = trunc i64 %7317 to i8
   store i8 %7318, ptr %7316, align 1
-  %7319 = getelementptr inbounds i8, ptr %7316, i64 1
+  %7319 = getelementptr inbounds nuw i8, ptr %7316, i64 1
   store i8 0, ptr %7319, align 1
   %7320 = and i64 %7289, 65280
   %.not13130 = icmp eq i64 %7320, 65280
-  %.sroa.gep14418 = getelementptr inbounds i8, ptr %7316, i64 2
+  %.sroa.gep14418 = getelementptr inbounds nuw i8, ptr %7316, i64 2
   %.neg13131.sroa.sel = select i1 %.not13130, ptr %.sroa.gep14418, ptr %7319
   %7321 = trunc i64 %7289 to i8
   store i8 %7321, ptr %.neg13131.sroa.sel, align 1
-  %.sroa.gep15727 = getelementptr inbounds i8, ptr %7316, i64 3
+  %.sroa.gep15727 = getelementptr inbounds nuw i8, ptr %7316, i64 3
   %.neg13131.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13130, ptr %.sroa.gep15727, ptr %.sroa.gep14418
   store i8 0, ptr %.neg13131.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7322 = and i64 %7289, 255
   %.not13132 = icmp eq i64 %7322, 255
   %.neg13133 = select i1 %.not13132, i64 2, i64 1
-  %7323 = getelementptr inbounds i8, ptr %.neg13131.sroa.sel, i64 %.neg13133
+  %7323 = getelementptr inbounds nuw i8, ptr %.neg13131.sroa.sel, i64 %.neg13133
   br label %7346
 
 7324:                                             ; preds = %7283
   %7325 = lshr i64 %7289, 48
   %7326 = trunc i64 %7325 to i8
-  %7327 = getelementptr inbounds i8, ptr %.262.lcssa, i64 1
+  %7327 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 1
   store i8 %7326, ptr %7327, align 1
   %7328 = lshr i64 %7289, 40
   %7329 = trunc i64 %7328 to i8
-  %7330 = getelementptr inbounds i8, ptr %.262.lcssa, i64 2
+  %7330 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 2
   store i8 %7329, ptr %7330, align 1
   %7331 = lshr i64 %7289, 32
   %7332 = trunc i64 %7331 to i8
-  %7333 = getelementptr inbounds i8, ptr %.262.lcssa, i64 3
+  %7333 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 3
   store i8 %7332, ptr %7333, align 1
   %7334 = lshr i64 %7289, 24
   %7335 = trunc i64 %7334 to i8
-  %7336 = getelementptr inbounds i8, ptr %.262.lcssa, i64 4
+  %7336 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 4
   store i8 %7335, ptr %7336, align 1
   %7337 = lshr i64 %7289, 16
   %7338 = trunc i64 %7337 to i8
-  %7339 = getelementptr inbounds i8, ptr %.262.lcssa, i64 5
+  %7339 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 5
   store i8 %7338, ptr %7339, align 1
   %7340 = lshr i64 %7289, 8
   %7341 = trunc i64 %7340 to i8
-  %7342 = getelementptr inbounds i8, ptr %.262.lcssa, i64 6
+  %7342 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 6
   store i8 %7341, ptr %7342, align 1
   %7343 = trunc i64 %7289 to i8
-  %7344 = getelementptr inbounds i8, ptr %.262.lcssa, i64 7
+  %7344 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 7
   store i8 %7343, ptr %7344, align 1
-  %7345 = getelementptr inbounds i8, ptr %.262.lcssa, i64 8
+  %7345 = getelementptr inbounds nuw i8, ptr %.262.lcssa, i64 8
   br label %7346
 
 7346:                                             ; preds = %7324, %7295
@@ -14867,7 +14867,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17311213 = phi i64 [ %.16911209, %7162 ], [ %7348, %7346 ], [ %7353, %7349 ]
   %.261 = phi ptr [ %.255, %7162 ], [ %.265, %7346 ], [ %.262.lcssa, %7349 ]
   %.86 = phi i32 [ %7163, %7162 ], [ 0, %7346 ], [ 0, %7349 ]
-  %7355 = getelementptr inbounds i8, ptr %1, i64 74
+  %7355 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %7356 = load i16, ptr %7355, align 2
   %7357 = icmp eq i16 %7356, 0
   br i1 %7357, label %7358, label %7360
@@ -14891,7 +14891,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 7370:                                             ; preds = %7360
   %7371 = load ptr, ptr %7, align 8
   %7372 = load ptr, ptr %7371, align 8
-  %7373 = getelementptr inbounds i8, ptr %7372, i64 40
+  %7373 = getelementptr inbounds nuw i8, ptr %7372, i64 40
   store i32 6, ptr %7373, align 8
   %7374 = load ptr, ptr %7, align 8
   %7375 = load ptr, ptr %7374, align 8
@@ -14904,8 +14904,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %7378, label %.lr.ph15046, label %._crit_edge15047
 
 .lr.ph15046:                                      ; preds = %7377
-  %7379 = getelementptr inbounds i8, ptr %4, i64 1264
-  %7380 = getelementptr inbounds i8, ptr %4, i64 960
+  %7379 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %7380 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %7381
 
 7381:                                             ; preds = %.lr.ph15046, %7460
@@ -14938,108 +14938,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13169, label %7429, label %7400
 
 7400:                                             ; preds = %7388
-  %7401 = getelementptr inbounds i8, ptr %.26815043, i64 1
+  %7401 = getelementptr inbounds nuw i8, ptr %.26815043, i64 1
   store i8 0, ptr %7401, align 1
   %.not13170 = icmp eq i64 %7398, 255
-  %.sroa.gep14420 = getelementptr inbounds i8, ptr %.26815043, i64 2
+  %.sroa.gep14420 = getelementptr inbounds nuw i8, ptr %.26815043, i64 2
   %.neg13171.sroa.sel = select i1 %.not13170, ptr %.sroa.gep14420, ptr %7401
   %7402 = lshr i64 %7390, 48
   %7403 = trunc i64 %7402 to i8
   store i8 %7403, ptr %.neg13171.sroa.sel, align 1
-  %.sroa.gep15701 = getelementptr inbounds i8, ptr %.26815043, i64 3
+  %.sroa.gep15701 = getelementptr inbounds nuw i8, ptr %.26815043, i64 3
   %.neg13171.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13170, ptr %.sroa.gep15701, ptr %.sroa.gep14420
   store i8 0, ptr %.neg13171.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7404 = and i64 %7390, 71776119061217280
   %.not13172 = icmp eq i64 %7404, 71776119061217280
   %.neg13173 = select i1 %.not13172, i64 2, i64 1
-  %7405 = getelementptr inbounds i8, ptr %.neg13171.sroa.sel, i64 %.neg13173
+  %7405 = getelementptr inbounds nuw i8, ptr %.neg13171.sroa.sel, i64 %.neg13173
   %7406 = lshr i64 %7390, 40
   %7407 = trunc i64 %7406 to i8
   store i8 %7407, ptr %7405, align 1
-  %7408 = getelementptr inbounds i8, ptr %7405, i64 1
+  %7408 = getelementptr inbounds nuw i8, ptr %7405, i64 1
   store i8 0, ptr %7408, align 1
   %7409 = and i64 %7390, 280375465082880
   %.not13174 = icmp eq i64 %7409, 280375465082880
-  %.sroa.gep14422 = getelementptr inbounds i8, ptr %7405, i64 2
+  %.sroa.gep14422 = getelementptr inbounds nuw i8, ptr %7405, i64 2
   %.neg13175.sroa.sel = select i1 %.not13174, ptr %.sroa.gep14422, ptr %7408
   %7410 = lshr i64 %7390, 32
   %7411 = trunc i64 %7410 to i8
   store i8 %7411, ptr %.neg13175.sroa.sel, align 1
-  %.sroa.gep15707 = getelementptr inbounds i8, ptr %7405, i64 3
+  %.sroa.gep15707 = getelementptr inbounds nuw i8, ptr %7405, i64 3
   %.neg13175.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13174, ptr %.sroa.gep15707, ptr %.sroa.gep14422
   store i8 0, ptr %.neg13175.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7412 = and i64 %7390, 1095216660480
   %.not13176 = icmp eq i64 %7412, 1095216660480
   %.neg13177 = select i1 %.not13176, i64 2, i64 1
-  %7413 = getelementptr inbounds i8, ptr %.neg13175.sroa.sel, i64 %.neg13177
+  %7413 = getelementptr inbounds nuw i8, ptr %.neg13175.sroa.sel, i64 %.neg13177
   %7414 = lshr i64 %7394, 24
   %7415 = trunc i64 %7414 to i8
   store i8 %7415, ptr %7413, align 1
-  %7416 = getelementptr inbounds i8, ptr %7413, i64 1
+  %7416 = getelementptr inbounds nuw i8, ptr %7413, i64 1
   store i8 0, ptr %7416, align 1
   %7417 = and i64 %7394, 4278190080
   %.not13178 = icmp eq i64 %7417, 4278190080
-  %.sroa.gep14424 = getelementptr inbounds i8, ptr %7413, i64 2
+  %.sroa.gep14424 = getelementptr inbounds nuw i8, ptr %7413, i64 2
   %.neg13179.sroa.sel = select i1 %.not13178, ptr %.sroa.gep14424, ptr %7416
   %7418 = lshr i64 %7394, 16
   %7419 = trunc i64 %7418 to i8
   store i8 %7419, ptr %.neg13179.sroa.sel, align 1
-  %.sroa.gep15705 = getelementptr inbounds i8, ptr %7413, i64 3
+  %.sroa.gep15705 = getelementptr inbounds nuw i8, ptr %7413, i64 3
   %.neg13179.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13178, ptr %.sroa.gep15705, ptr %.sroa.gep14424
   store i8 0, ptr %.neg13179.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7420 = and i64 %7394, 16711680
   %.not13180 = icmp eq i64 %7420, 16711680
   %.neg13181 = select i1 %.not13180, i64 2, i64 1
-  %7421 = getelementptr inbounds i8, ptr %.neg13179.sroa.sel, i64 %.neg13181
+  %7421 = getelementptr inbounds nuw i8, ptr %.neg13179.sroa.sel, i64 %.neg13181
   %7422 = lshr i64 %7394, 8
   %7423 = trunc i64 %7422 to i8
   store i8 %7423, ptr %7421, align 1
-  %7424 = getelementptr inbounds i8, ptr %7421, i64 1
+  %7424 = getelementptr inbounds nuw i8, ptr %7421, i64 1
   store i8 0, ptr %7424, align 1
   %7425 = and i64 %7394, 65280
   %.not13182 = icmp eq i64 %7425, 65280
-  %.sroa.gep14426 = getelementptr inbounds i8, ptr %7421, i64 2
+  %.sroa.gep14426 = getelementptr inbounds nuw i8, ptr %7421, i64 2
   %.neg13183.sroa.sel = select i1 %.not13182, ptr %.sroa.gep14426, ptr %7424
   %7426 = trunc i64 %7394 to i8
   store i8 %7426, ptr %.neg13183.sroa.sel, align 1
-  %.sroa.gep15703 = getelementptr inbounds i8, ptr %7421, i64 3
+  %.sroa.gep15703 = getelementptr inbounds nuw i8, ptr %7421, i64 3
   %.neg13183.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13182, ptr %.sroa.gep15703, ptr %.sroa.gep14426
   store i8 0, ptr %.neg13183.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7427 = and i64 %7394, 255
   %.not13184 = icmp eq i64 %7427, 255
   %.neg13185 = select i1 %.not13184, i64 2, i64 1
-  %7428 = getelementptr inbounds i8, ptr %.neg13183.sroa.sel, i64 %.neg13185
+  %7428 = getelementptr inbounds nuw i8, ptr %.neg13183.sroa.sel, i64 %.neg13185
   br label %7451
 
 7429:                                             ; preds = %7388
   %7430 = lshr i64 %7390, 48
   %7431 = trunc i64 %7430 to i8
-  %7432 = getelementptr inbounds i8, ptr %.26815043, i64 1
+  %7432 = getelementptr inbounds nuw i8, ptr %.26815043, i64 1
   store i8 %7431, ptr %7432, align 1
   %7433 = lshr i64 %7390, 40
   %7434 = trunc i64 %7433 to i8
-  %7435 = getelementptr inbounds i8, ptr %.26815043, i64 2
+  %7435 = getelementptr inbounds nuw i8, ptr %.26815043, i64 2
   store i8 %7434, ptr %7435, align 1
   %7436 = lshr i64 %7390, 32
   %7437 = trunc i64 %7436 to i8
-  %7438 = getelementptr inbounds i8, ptr %.26815043, i64 3
+  %7438 = getelementptr inbounds nuw i8, ptr %.26815043, i64 3
   store i8 %7437, ptr %7438, align 1
   %7439 = lshr i64 %7394, 24
   %7440 = trunc i64 %7439 to i8
-  %7441 = getelementptr inbounds i8, ptr %.26815043, i64 4
+  %7441 = getelementptr inbounds nuw i8, ptr %.26815043, i64 4
   store i8 %7440, ptr %7441, align 1
   %7442 = lshr i64 %7394, 16
   %7443 = trunc i64 %7442 to i8
-  %7444 = getelementptr inbounds i8, ptr %.26815043, i64 5
+  %7444 = getelementptr inbounds nuw i8, ptr %.26815043, i64 5
   store i8 %7443, ptr %7444, align 1
   %7445 = lshr i64 %7394, 8
   %7446 = trunc i64 %7445 to i8
-  %7447 = getelementptr inbounds i8, ptr %.26815043, i64 6
+  %7447 = getelementptr inbounds nuw i8, ptr %.26815043, i64 6
   store i8 %7446, ptr %7447, align 1
   %7448 = trunc i64 %7394 to i8
-  %7449 = getelementptr inbounds i8, ptr %.26815043, i64 7
+  %7449 = getelementptr inbounds nuw i8, ptr %.26815043, i64 7
   store i8 %7448, ptr %7449, align 1
-  %7450 = getelementptr inbounds i8, ptr %.26815043, i64 8
+  %7450 = getelementptr inbounds nuw i8, ptr %.26815043, i64 8
   br label %7451
 
 7451:                                             ; preds = %7429, %7400
@@ -15075,12 +15075,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7465 = xor i32 %7464, -1
   %7466 = and i32 %7363, %7465
   %7467 = zext nneg i32 %7462 to i64
-  %7468 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %7467
+  %7468 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %7467
   %7469 = load i32, ptr %7468, align 4
   %7470 = shl i32 %7469, %7368
   %7471 = or i32 %7470, %7466
-  %7472 = getelementptr inbounds i8, ptr %4, i64 1024
-  %7473 = getelementptr inbounds [256 x i8], ptr %7472, i64 0, i64 %7467
+  %7472 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %7473 = getelementptr inbounds nuw [256 x i8], ptr %7472, i64 0, i64 %7467
   %7474 = load i8, ptr %7473, align 1
   %7475 = sext i8 %7474 to i32
   %7476 = add nsw i32 %7475, %7368
@@ -15105,108 +15105,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13152, label %7520, label %7491
 
 7491:                                             ; preds = %7479
-  %7492 = getelementptr inbounds i8, ptr %.268.lcssa, i64 1
+  %7492 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 1
   store i8 0, ptr %7492, align 1
   %.not13153 = icmp eq i64 %7489, 255
-  %.sroa.gep14428 = getelementptr inbounds i8, ptr %.268.lcssa, i64 2
+  %.sroa.gep14428 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 2
   %.neg13154.sroa.sel = select i1 %.not13153, ptr %.sroa.gep14428, ptr %7492
   %7493 = lshr i64 %7485, 48
   %7494 = trunc i64 %7493 to i8
   store i8 %7494, ptr %.neg13154.sroa.sel, align 1
-  %.sroa.gep15709 = getelementptr inbounds i8, ptr %.268.lcssa, i64 3
+  %.sroa.gep15709 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 3
   %.neg13154.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13153, ptr %.sroa.gep15709, ptr %.sroa.gep14428
   store i8 0, ptr %.neg13154.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7495 = and i64 %7485, 71776119061217280
   %.not13155 = icmp eq i64 %7495, 71776119061217280
   %.neg13156 = select i1 %.not13155, i64 2, i64 1
-  %7496 = getelementptr inbounds i8, ptr %.neg13154.sroa.sel, i64 %.neg13156
+  %7496 = getelementptr inbounds nuw i8, ptr %.neg13154.sroa.sel, i64 %.neg13156
   %7497 = lshr i64 %7485, 40
   %7498 = trunc i64 %7497 to i8
   store i8 %7498, ptr %7496, align 1
-  %7499 = getelementptr inbounds i8, ptr %7496, i64 1
+  %7499 = getelementptr inbounds nuw i8, ptr %7496, i64 1
   store i8 0, ptr %7499, align 1
   %7500 = and i64 %7485, 280375465082880
   %.not13157 = icmp eq i64 %7500, 280375465082880
-  %.sroa.gep14430 = getelementptr inbounds i8, ptr %7496, i64 2
+  %.sroa.gep14430 = getelementptr inbounds nuw i8, ptr %7496, i64 2
   %.neg13158.sroa.sel = select i1 %.not13157, ptr %.sroa.gep14430, ptr %7499
   %7501 = lshr i64 %7485, 32
   %7502 = trunc i64 %7501 to i8
   store i8 %7502, ptr %.neg13158.sroa.sel, align 1
-  %.sroa.gep15715 = getelementptr inbounds i8, ptr %7496, i64 3
+  %.sroa.gep15715 = getelementptr inbounds nuw i8, ptr %7496, i64 3
   %.neg13158.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13157, ptr %.sroa.gep15715, ptr %.sroa.gep14430
   store i8 0, ptr %.neg13158.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7503 = and i64 %7485, 1095216660480
   %.not13159 = icmp eq i64 %7503, 1095216660480
   %.neg13160 = select i1 %.not13159, i64 2, i64 1
-  %7504 = getelementptr inbounds i8, ptr %.neg13158.sroa.sel, i64 %.neg13160
+  %7504 = getelementptr inbounds nuw i8, ptr %.neg13158.sroa.sel, i64 %.neg13160
   %7505 = lshr i64 %7485, 24
   %7506 = trunc i64 %7505 to i8
   store i8 %7506, ptr %7504, align 1
-  %7507 = getelementptr inbounds i8, ptr %7504, i64 1
+  %7507 = getelementptr inbounds nuw i8, ptr %7504, i64 1
   store i8 0, ptr %7507, align 1
   %7508 = and i64 %7485, 4278190080
   %.not13161 = icmp eq i64 %7508, 4278190080
-  %.sroa.gep14432 = getelementptr inbounds i8, ptr %7504, i64 2
+  %.sroa.gep14432 = getelementptr inbounds nuw i8, ptr %7504, i64 2
   %.neg13162.sroa.sel = select i1 %.not13161, ptr %.sroa.gep14432, ptr %7507
   %7509 = lshr i64 %7485, 16
   %7510 = trunc i64 %7509 to i8
   store i8 %7510, ptr %.neg13162.sroa.sel, align 1
-  %.sroa.gep15713 = getelementptr inbounds i8, ptr %7504, i64 3
+  %.sroa.gep15713 = getelementptr inbounds nuw i8, ptr %7504, i64 3
   %.neg13162.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13161, ptr %.sroa.gep15713, ptr %.sroa.gep14432
   store i8 0, ptr %.neg13162.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7511 = and i64 %7485, 16711680
   %.not13163 = icmp eq i64 %7511, 16711680
   %.neg13164 = select i1 %.not13163, i64 2, i64 1
-  %7512 = getelementptr inbounds i8, ptr %.neg13162.sroa.sel, i64 %.neg13164
+  %7512 = getelementptr inbounds nuw i8, ptr %.neg13162.sroa.sel, i64 %.neg13164
   %7513 = lshr i64 %7485, 8
   %7514 = trunc i64 %7513 to i8
   store i8 %7514, ptr %7512, align 1
-  %7515 = getelementptr inbounds i8, ptr %7512, i64 1
+  %7515 = getelementptr inbounds nuw i8, ptr %7512, i64 1
   store i8 0, ptr %7515, align 1
   %7516 = and i64 %7485, 65280
   %.not13165 = icmp eq i64 %7516, 65280
-  %.sroa.gep14434 = getelementptr inbounds i8, ptr %7512, i64 2
+  %.sroa.gep14434 = getelementptr inbounds nuw i8, ptr %7512, i64 2
   %.neg13166.sroa.sel = select i1 %.not13165, ptr %.sroa.gep14434, ptr %7515
   %7517 = trunc i64 %7485 to i8
   store i8 %7517, ptr %.neg13166.sroa.sel, align 1
-  %.sroa.gep15711 = getelementptr inbounds i8, ptr %7512, i64 3
+  %.sroa.gep15711 = getelementptr inbounds nuw i8, ptr %7512, i64 3
   %.neg13166.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13165, ptr %.sroa.gep15711, ptr %.sroa.gep14434
   store i8 0, ptr %.neg13166.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7518 = and i64 %7485, 255
   %.not13167 = icmp eq i64 %7518, 255
   %.neg13168 = select i1 %.not13167, i64 2, i64 1
-  %7519 = getelementptr inbounds i8, ptr %.neg13166.sroa.sel, i64 %.neg13168
+  %7519 = getelementptr inbounds nuw i8, ptr %.neg13166.sroa.sel, i64 %.neg13168
   br label %7542
 
 7520:                                             ; preds = %7479
   %7521 = lshr i64 %7485, 48
   %7522 = trunc i64 %7521 to i8
-  %7523 = getelementptr inbounds i8, ptr %.268.lcssa, i64 1
+  %7523 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 1
   store i8 %7522, ptr %7523, align 1
   %7524 = lshr i64 %7485, 40
   %7525 = trunc i64 %7524 to i8
-  %7526 = getelementptr inbounds i8, ptr %.268.lcssa, i64 2
+  %7526 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 2
   store i8 %7525, ptr %7526, align 1
   %7527 = lshr i64 %7485, 32
   %7528 = trunc i64 %7527 to i8
-  %7529 = getelementptr inbounds i8, ptr %.268.lcssa, i64 3
+  %7529 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 3
   store i8 %7528, ptr %7529, align 1
   %7530 = lshr i64 %7485, 24
   %7531 = trunc i64 %7530 to i8
-  %7532 = getelementptr inbounds i8, ptr %.268.lcssa, i64 4
+  %7532 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 4
   store i8 %7531, ptr %7532, align 1
   %7533 = lshr i64 %7485, 16
   %7534 = trunc i64 %7533 to i8
-  %7535 = getelementptr inbounds i8, ptr %.268.lcssa, i64 5
+  %7535 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 5
   store i8 %7534, ptr %7535, align 1
   %7536 = lshr i64 %7485, 8
   %7537 = trunc i64 %7536 to i8
-  %7538 = getelementptr inbounds i8, ptr %.268.lcssa, i64 6
+  %7538 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 6
   store i8 %7537, ptr %7538, align 1
   %7539 = trunc i64 %7485 to i8
-  %7540 = getelementptr inbounds i8, ptr %.268.lcssa, i64 7
+  %7540 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 7
   store i8 %7539, ptr %7540, align 1
-  %7541 = getelementptr inbounds i8, ptr %.268.lcssa, i64 8
+  %7541 = getelementptr inbounds nuw i8, ptr %.268.lcssa, i64 8
   br label %7542
 
 7542:                                             ; preds = %7520, %7491
@@ -15227,7 +15227,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.17711217 = phi i64 [ %.17311213, %7358 ], [ %7544, %7542 ], [ %7549, %7545 ]
   %.267 = phi ptr [ %.261, %7358 ], [ %.271, %7542 ], [ %.268.lcssa, %7545 ]
   %.88 = phi i32 [ %7359, %7358 ], [ 0, %7542 ], [ 0, %7545 ]
-  %7551 = getelementptr inbounds i8, ptr %1, i64 88
+  %7551 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7552 = load i16, ptr %7551, align 2
   %7553 = icmp eq i16 %7552, 0
   br i1 %7553, label %7554, label %7556
@@ -15251,7 +15251,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 7566:                                             ; preds = %7556
   %7567 = load ptr, ptr %7, align 8
   %7568 = load ptr, ptr %7567, align 8
-  %7569 = getelementptr inbounds i8, ptr %7568, i64 40
+  %7569 = getelementptr inbounds nuw i8, ptr %7568, i64 40
   store i32 6, ptr %7569, align 8
   %7570 = load ptr, ptr %7, align 8
   %7571 = load ptr, ptr %7570, align 8
@@ -15264,8 +15264,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %7574, label %.lr.ph15057, label %._crit_edge15058
 
 .lr.ph15057:                                      ; preds = %7573
-  %7575 = getelementptr inbounds i8, ptr %4, i64 1264
-  %7576 = getelementptr inbounds i8, ptr %4, i64 960
+  %7575 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %7576 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %7577
 
 7577:                                             ; preds = %.lr.ph15057, %7656
@@ -15298,108 +15298,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13204, label %7625, label %7596
 
 7596:                                             ; preds = %7584
-  %7597 = getelementptr inbounds i8, ptr %.27415054, i64 1
+  %7597 = getelementptr inbounds nuw i8, ptr %.27415054, i64 1
   store i8 0, ptr %7597, align 1
   %.not13205 = icmp eq i64 %7594, 255
-  %.sroa.gep14436 = getelementptr inbounds i8, ptr %.27415054, i64 2
+  %.sroa.gep14436 = getelementptr inbounds nuw i8, ptr %.27415054, i64 2
   %.neg13206.sroa.sel = select i1 %.not13205, ptr %.sroa.gep14436, ptr %7597
   %7598 = lshr i64 %7586, 48
   %7599 = trunc i64 %7598 to i8
   store i8 %7599, ptr %.neg13206.sroa.sel, align 1
-  %.sroa.gep15685 = getelementptr inbounds i8, ptr %.27415054, i64 3
+  %.sroa.gep15685 = getelementptr inbounds nuw i8, ptr %.27415054, i64 3
   %.neg13206.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13205, ptr %.sroa.gep15685, ptr %.sroa.gep14436
   store i8 0, ptr %.neg13206.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7600 = and i64 %7586, 71776119061217280
   %.not13207 = icmp eq i64 %7600, 71776119061217280
   %.neg13208 = select i1 %.not13207, i64 2, i64 1
-  %7601 = getelementptr inbounds i8, ptr %.neg13206.sroa.sel, i64 %.neg13208
+  %7601 = getelementptr inbounds nuw i8, ptr %.neg13206.sroa.sel, i64 %.neg13208
   %7602 = lshr i64 %7586, 40
   %7603 = trunc i64 %7602 to i8
   store i8 %7603, ptr %7601, align 1
-  %7604 = getelementptr inbounds i8, ptr %7601, i64 1
+  %7604 = getelementptr inbounds nuw i8, ptr %7601, i64 1
   store i8 0, ptr %7604, align 1
   %7605 = and i64 %7586, 280375465082880
   %.not13209 = icmp eq i64 %7605, 280375465082880
-  %.sroa.gep14438 = getelementptr inbounds i8, ptr %7601, i64 2
+  %.sroa.gep14438 = getelementptr inbounds nuw i8, ptr %7601, i64 2
   %.neg13210.sroa.sel = select i1 %.not13209, ptr %.sroa.gep14438, ptr %7604
   %7606 = lshr i64 %7586, 32
   %7607 = trunc i64 %7606 to i8
   store i8 %7607, ptr %.neg13210.sroa.sel, align 1
-  %.sroa.gep15691 = getelementptr inbounds i8, ptr %7601, i64 3
+  %.sroa.gep15691 = getelementptr inbounds nuw i8, ptr %7601, i64 3
   %.neg13210.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13209, ptr %.sroa.gep15691, ptr %.sroa.gep14438
   store i8 0, ptr %.neg13210.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7608 = and i64 %7586, 1095216660480
   %.not13211 = icmp eq i64 %7608, 1095216660480
   %.neg13212 = select i1 %.not13211, i64 2, i64 1
-  %7609 = getelementptr inbounds i8, ptr %.neg13210.sroa.sel, i64 %.neg13212
+  %7609 = getelementptr inbounds nuw i8, ptr %.neg13210.sroa.sel, i64 %.neg13212
   %7610 = lshr i64 %7590, 24
   %7611 = trunc i64 %7610 to i8
   store i8 %7611, ptr %7609, align 1
-  %7612 = getelementptr inbounds i8, ptr %7609, i64 1
+  %7612 = getelementptr inbounds nuw i8, ptr %7609, i64 1
   store i8 0, ptr %7612, align 1
   %7613 = and i64 %7590, 4278190080
   %.not13213 = icmp eq i64 %7613, 4278190080
-  %.sroa.gep14440 = getelementptr inbounds i8, ptr %7609, i64 2
+  %.sroa.gep14440 = getelementptr inbounds nuw i8, ptr %7609, i64 2
   %.neg13214.sroa.sel = select i1 %.not13213, ptr %.sroa.gep14440, ptr %7612
   %7614 = lshr i64 %7590, 16
   %7615 = trunc i64 %7614 to i8
   store i8 %7615, ptr %.neg13214.sroa.sel, align 1
-  %.sroa.gep15689 = getelementptr inbounds i8, ptr %7609, i64 3
+  %.sroa.gep15689 = getelementptr inbounds nuw i8, ptr %7609, i64 3
   %.neg13214.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13213, ptr %.sroa.gep15689, ptr %.sroa.gep14440
   store i8 0, ptr %.neg13214.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7616 = and i64 %7590, 16711680
   %.not13215 = icmp eq i64 %7616, 16711680
   %.neg13216 = select i1 %.not13215, i64 2, i64 1
-  %7617 = getelementptr inbounds i8, ptr %.neg13214.sroa.sel, i64 %.neg13216
+  %7617 = getelementptr inbounds nuw i8, ptr %.neg13214.sroa.sel, i64 %.neg13216
   %7618 = lshr i64 %7590, 8
   %7619 = trunc i64 %7618 to i8
   store i8 %7619, ptr %7617, align 1
-  %7620 = getelementptr inbounds i8, ptr %7617, i64 1
+  %7620 = getelementptr inbounds nuw i8, ptr %7617, i64 1
   store i8 0, ptr %7620, align 1
   %7621 = and i64 %7590, 65280
   %.not13217 = icmp eq i64 %7621, 65280
-  %.sroa.gep14442 = getelementptr inbounds i8, ptr %7617, i64 2
+  %.sroa.gep14442 = getelementptr inbounds nuw i8, ptr %7617, i64 2
   %.neg13218.sroa.sel = select i1 %.not13217, ptr %.sroa.gep14442, ptr %7620
   %7622 = trunc i64 %7590 to i8
   store i8 %7622, ptr %.neg13218.sroa.sel, align 1
-  %.sroa.gep15687 = getelementptr inbounds i8, ptr %7617, i64 3
+  %.sroa.gep15687 = getelementptr inbounds nuw i8, ptr %7617, i64 3
   %.neg13218.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13217, ptr %.sroa.gep15687, ptr %.sroa.gep14442
   store i8 0, ptr %.neg13218.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7623 = and i64 %7590, 255
   %.not13219 = icmp eq i64 %7623, 255
   %.neg13220 = select i1 %.not13219, i64 2, i64 1
-  %7624 = getelementptr inbounds i8, ptr %.neg13218.sroa.sel, i64 %.neg13220
+  %7624 = getelementptr inbounds nuw i8, ptr %.neg13218.sroa.sel, i64 %.neg13220
   br label %7647
 
 7625:                                             ; preds = %7584
   %7626 = lshr i64 %7586, 48
   %7627 = trunc i64 %7626 to i8
-  %7628 = getelementptr inbounds i8, ptr %.27415054, i64 1
+  %7628 = getelementptr inbounds nuw i8, ptr %.27415054, i64 1
   store i8 %7627, ptr %7628, align 1
   %7629 = lshr i64 %7586, 40
   %7630 = trunc i64 %7629 to i8
-  %7631 = getelementptr inbounds i8, ptr %.27415054, i64 2
+  %7631 = getelementptr inbounds nuw i8, ptr %.27415054, i64 2
   store i8 %7630, ptr %7631, align 1
   %7632 = lshr i64 %7586, 32
   %7633 = trunc i64 %7632 to i8
-  %7634 = getelementptr inbounds i8, ptr %.27415054, i64 3
+  %7634 = getelementptr inbounds nuw i8, ptr %.27415054, i64 3
   store i8 %7633, ptr %7634, align 1
   %7635 = lshr i64 %7590, 24
   %7636 = trunc i64 %7635 to i8
-  %7637 = getelementptr inbounds i8, ptr %.27415054, i64 4
+  %7637 = getelementptr inbounds nuw i8, ptr %.27415054, i64 4
   store i8 %7636, ptr %7637, align 1
   %7638 = lshr i64 %7590, 16
   %7639 = trunc i64 %7638 to i8
-  %7640 = getelementptr inbounds i8, ptr %.27415054, i64 5
+  %7640 = getelementptr inbounds nuw i8, ptr %.27415054, i64 5
   store i8 %7639, ptr %7640, align 1
   %7641 = lshr i64 %7590, 8
   %7642 = trunc i64 %7641 to i8
-  %7643 = getelementptr inbounds i8, ptr %.27415054, i64 6
+  %7643 = getelementptr inbounds nuw i8, ptr %.27415054, i64 6
   store i8 %7642, ptr %7643, align 1
   %7644 = trunc i64 %7590 to i8
-  %7645 = getelementptr inbounds i8, ptr %.27415054, i64 7
+  %7645 = getelementptr inbounds nuw i8, ptr %.27415054, i64 7
   store i8 %7644, ptr %7645, align 1
-  %7646 = getelementptr inbounds i8, ptr %.27415054, i64 8
+  %7646 = getelementptr inbounds nuw i8, ptr %.27415054, i64 8
   br label %7647
 
 7647:                                             ; preds = %7625, %7596
@@ -15435,12 +15435,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7661 = xor i32 %7660, -1
   %7662 = and i32 %7559, %7661
   %7663 = zext nneg i32 %7658 to i64
-  %7664 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %7663
+  %7664 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %7663
   %7665 = load i32, ptr %7664, align 4
   %7666 = shl i32 %7665, %7564
   %7667 = or i32 %7666, %7662
-  %7668 = getelementptr inbounds i8, ptr %4, i64 1024
-  %7669 = getelementptr inbounds [256 x i8], ptr %7668, i64 0, i64 %7663
+  %7668 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %7669 = getelementptr inbounds nuw [256 x i8], ptr %7668, i64 0, i64 %7663
   %7670 = load i8, ptr %7669, align 1
   %7671 = sext i8 %7670 to i32
   %7672 = add nsw i32 %7671, %7564
@@ -15465,108 +15465,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13187, label %7716, label %7687
 
 7687:                                             ; preds = %7675
-  %7688 = getelementptr inbounds i8, ptr %.274.lcssa, i64 1
+  %7688 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 1
   store i8 0, ptr %7688, align 1
   %.not13188 = icmp eq i64 %7685, 255
-  %.sroa.gep14444 = getelementptr inbounds i8, ptr %.274.lcssa, i64 2
+  %.sroa.gep14444 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 2
   %.neg13189.sroa.sel = select i1 %.not13188, ptr %.sroa.gep14444, ptr %7688
   %7689 = lshr i64 %7681, 48
   %7690 = trunc i64 %7689 to i8
   store i8 %7690, ptr %.neg13189.sroa.sel, align 1
-  %.sroa.gep15693 = getelementptr inbounds i8, ptr %.274.lcssa, i64 3
+  %.sroa.gep15693 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 3
   %.neg13189.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13188, ptr %.sroa.gep15693, ptr %.sroa.gep14444
   store i8 0, ptr %.neg13189.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7691 = and i64 %7681, 71776119061217280
   %.not13190 = icmp eq i64 %7691, 71776119061217280
   %.neg13191 = select i1 %.not13190, i64 2, i64 1
-  %7692 = getelementptr inbounds i8, ptr %.neg13189.sroa.sel, i64 %.neg13191
+  %7692 = getelementptr inbounds nuw i8, ptr %.neg13189.sroa.sel, i64 %.neg13191
   %7693 = lshr i64 %7681, 40
   %7694 = trunc i64 %7693 to i8
   store i8 %7694, ptr %7692, align 1
-  %7695 = getelementptr inbounds i8, ptr %7692, i64 1
+  %7695 = getelementptr inbounds nuw i8, ptr %7692, i64 1
   store i8 0, ptr %7695, align 1
   %7696 = and i64 %7681, 280375465082880
   %.not13192 = icmp eq i64 %7696, 280375465082880
-  %.sroa.gep14446 = getelementptr inbounds i8, ptr %7692, i64 2
+  %.sroa.gep14446 = getelementptr inbounds nuw i8, ptr %7692, i64 2
   %.neg13193.sroa.sel = select i1 %.not13192, ptr %.sroa.gep14446, ptr %7695
   %7697 = lshr i64 %7681, 32
   %7698 = trunc i64 %7697 to i8
   store i8 %7698, ptr %.neg13193.sroa.sel, align 1
-  %.sroa.gep15699 = getelementptr inbounds i8, ptr %7692, i64 3
+  %.sroa.gep15699 = getelementptr inbounds nuw i8, ptr %7692, i64 3
   %.neg13193.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13192, ptr %.sroa.gep15699, ptr %.sroa.gep14446
   store i8 0, ptr %.neg13193.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7699 = and i64 %7681, 1095216660480
   %.not13194 = icmp eq i64 %7699, 1095216660480
   %.neg13195 = select i1 %.not13194, i64 2, i64 1
-  %7700 = getelementptr inbounds i8, ptr %.neg13193.sroa.sel, i64 %.neg13195
+  %7700 = getelementptr inbounds nuw i8, ptr %.neg13193.sroa.sel, i64 %.neg13195
   %7701 = lshr i64 %7681, 24
   %7702 = trunc i64 %7701 to i8
   store i8 %7702, ptr %7700, align 1
-  %7703 = getelementptr inbounds i8, ptr %7700, i64 1
+  %7703 = getelementptr inbounds nuw i8, ptr %7700, i64 1
   store i8 0, ptr %7703, align 1
   %7704 = and i64 %7681, 4278190080
   %.not13196 = icmp eq i64 %7704, 4278190080
-  %.sroa.gep14448 = getelementptr inbounds i8, ptr %7700, i64 2
+  %.sroa.gep14448 = getelementptr inbounds nuw i8, ptr %7700, i64 2
   %.neg13197.sroa.sel = select i1 %.not13196, ptr %.sroa.gep14448, ptr %7703
   %7705 = lshr i64 %7681, 16
   %7706 = trunc i64 %7705 to i8
   store i8 %7706, ptr %.neg13197.sroa.sel, align 1
-  %.sroa.gep15697 = getelementptr inbounds i8, ptr %7700, i64 3
+  %.sroa.gep15697 = getelementptr inbounds nuw i8, ptr %7700, i64 3
   %.neg13197.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13196, ptr %.sroa.gep15697, ptr %.sroa.gep14448
   store i8 0, ptr %.neg13197.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7707 = and i64 %7681, 16711680
   %.not13198 = icmp eq i64 %7707, 16711680
   %.neg13199 = select i1 %.not13198, i64 2, i64 1
-  %7708 = getelementptr inbounds i8, ptr %.neg13197.sroa.sel, i64 %.neg13199
+  %7708 = getelementptr inbounds nuw i8, ptr %.neg13197.sroa.sel, i64 %.neg13199
   %7709 = lshr i64 %7681, 8
   %7710 = trunc i64 %7709 to i8
   store i8 %7710, ptr %7708, align 1
-  %7711 = getelementptr inbounds i8, ptr %7708, i64 1
+  %7711 = getelementptr inbounds nuw i8, ptr %7708, i64 1
   store i8 0, ptr %7711, align 1
   %7712 = and i64 %7681, 65280
   %.not13200 = icmp eq i64 %7712, 65280
-  %.sroa.gep14450 = getelementptr inbounds i8, ptr %7708, i64 2
+  %.sroa.gep14450 = getelementptr inbounds nuw i8, ptr %7708, i64 2
   %.neg13201.sroa.sel = select i1 %.not13200, ptr %.sroa.gep14450, ptr %7711
   %7713 = trunc i64 %7681 to i8
   store i8 %7713, ptr %.neg13201.sroa.sel, align 1
-  %.sroa.gep15695 = getelementptr inbounds i8, ptr %7708, i64 3
+  %.sroa.gep15695 = getelementptr inbounds nuw i8, ptr %7708, i64 3
   %.neg13201.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13200, ptr %.sroa.gep15695, ptr %.sroa.gep14450
   store i8 0, ptr %.neg13201.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7714 = and i64 %7681, 255
   %.not13202 = icmp eq i64 %7714, 255
   %.neg13203 = select i1 %.not13202, i64 2, i64 1
-  %7715 = getelementptr inbounds i8, ptr %.neg13201.sroa.sel, i64 %.neg13203
+  %7715 = getelementptr inbounds nuw i8, ptr %.neg13201.sroa.sel, i64 %.neg13203
   br label %7738
 
 7716:                                             ; preds = %7675
   %7717 = lshr i64 %7681, 48
   %7718 = trunc i64 %7717 to i8
-  %7719 = getelementptr inbounds i8, ptr %.274.lcssa, i64 1
+  %7719 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 1
   store i8 %7718, ptr %7719, align 1
   %7720 = lshr i64 %7681, 40
   %7721 = trunc i64 %7720 to i8
-  %7722 = getelementptr inbounds i8, ptr %.274.lcssa, i64 2
+  %7722 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 2
   store i8 %7721, ptr %7722, align 1
   %7723 = lshr i64 %7681, 32
   %7724 = trunc i64 %7723 to i8
-  %7725 = getelementptr inbounds i8, ptr %.274.lcssa, i64 3
+  %7725 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 3
   store i8 %7724, ptr %7725, align 1
   %7726 = lshr i64 %7681, 24
   %7727 = trunc i64 %7726 to i8
-  %7728 = getelementptr inbounds i8, ptr %.274.lcssa, i64 4
+  %7728 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 4
   store i8 %7727, ptr %7728, align 1
   %7729 = lshr i64 %7681, 16
   %7730 = trunc i64 %7729 to i8
-  %7731 = getelementptr inbounds i8, ptr %.274.lcssa, i64 5
+  %7731 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 5
   store i8 %7730, ptr %7731, align 1
   %7732 = lshr i64 %7681, 8
   %7733 = trunc i64 %7732 to i8
-  %7734 = getelementptr inbounds i8, ptr %.274.lcssa, i64 6
+  %7734 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 6
   store i8 %7733, ptr %7734, align 1
   %7735 = trunc i64 %7681 to i8
-  %7736 = getelementptr inbounds i8, ptr %.274.lcssa, i64 7
+  %7736 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 7
   store i8 %7735, ptr %7736, align 1
-  %7737 = getelementptr inbounds i8, ptr %.274.lcssa, i64 8
+  %7737 = getelementptr inbounds nuw i8, ptr %.274.lcssa, i64 8
   br label %7738
 
 7738:                                             ; preds = %7716, %7687
@@ -15587,7 +15587,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18111221 = phi i64 [ %.17711217, %7554 ], [ %7740, %7738 ], [ %7745, %7741 ]
   %.273 = phi ptr [ %.267, %7554 ], [ %.277, %7738 ], [ %.274.lcssa, %7741 ]
   %.90 = phi i32 [ %7555, %7554 ], [ 0, %7738 ], [ 0, %7741 ]
-  %7747 = getelementptr inbounds i8, ptr %1, i64 102
+  %7747 = getelementptr inbounds nuw i8, ptr %1, i64 102
   %7748 = load i16, ptr %7747, align 2
   %7749 = icmp eq i16 %7748, 0
   br i1 %7749, label %7750, label %7752
@@ -15611,7 +15611,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 7762:                                             ; preds = %7752
   %7763 = load ptr, ptr %7, align 8
   %7764 = load ptr, ptr %7763, align 8
-  %7765 = getelementptr inbounds i8, ptr %7764, i64 40
+  %7765 = getelementptr inbounds nuw i8, ptr %7764, i64 40
   store i32 6, ptr %7765, align 8
   %7766 = load ptr, ptr %7, align 8
   %7767 = load ptr, ptr %7766, align 8
@@ -15624,8 +15624,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %7770, label %.lr.ph15068, label %._crit_edge15069
 
 .lr.ph15068:                                      ; preds = %7769
-  %7771 = getelementptr inbounds i8, ptr %4, i64 1264
-  %7772 = getelementptr inbounds i8, ptr %4, i64 960
+  %7771 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %7772 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %7773
 
 7773:                                             ; preds = %.lr.ph15068, %7852
@@ -15658,108 +15658,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13239, label %7821, label %7792
 
 7792:                                             ; preds = %7780
-  %7793 = getelementptr inbounds i8, ptr %.28015065, i64 1
+  %7793 = getelementptr inbounds nuw i8, ptr %.28015065, i64 1
   store i8 0, ptr %7793, align 1
   %.not13240 = icmp eq i64 %7790, 255
-  %.sroa.gep14452 = getelementptr inbounds i8, ptr %.28015065, i64 2
+  %.sroa.gep14452 = getelementptr inbounds nuw i8, ptr %.28015065, i64 2
   %.neg13241.sroa.sel = select i1 %.not13240, ptr %.sroa.gep14452, ptr %7793
   %7794 = lshr i64 %7782, 48
   %7795 = trunc i64 %7794 to i8
   store i8 %7795, ptr %.neg13241.sroa.sel, align 1
-  %.sroa.gep15669 = getelementptr inbounds i8, ptr %.28015065, i64 3
+  %.sroa.gep15669 = getelementptr inbounds nuw i8, ptr %.28015065, i64 3
   %.neg13241.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13240, ptr %.sroa.gep15669, ptr %.sroa.gep14452
   store i8 0, ptr %.neg13241.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7796 = and i64 %7782, 71776119061217280
   %.not13242 = icmp eq i64 %7796, 71776119061217280
   %.neg13243 = select i1 %.not13242, i64 2, i64 1
-  %7797 = getelementptr inbounds i8, ptr %.neg13241.sroa.sel, i64 %.neg13243
+  %7797 = getelementptr inbounds nuw i8, ptr %.neg13241.sroa.sel, i64 %.neg13243
   %7798 = lshr i64 %7782, 40
   %7799 = trunc i64 %7798 to i8
   store i8 %7799, ptr %7797, align 1
-  %7800 = getelementptr inbounds i8, ptr %7797, i64 1
+  %7800 = getelementptr inbounds nuw i8, ptr %7797, i64 1
   store i8 0, ptr %7800, align 1
   %7801 = and i64 %7782, 280375465082880
   %.not13244 = icmp eq i64 %7801, 280375465082880
-  %.sroa.gep14454 = getelementptr inbounds i8, ptr %7797, i64 2
+  %.sroa.gep14454 = getelementptr inbounds nuw i8, ptr %7797, i64 2
   %.neg13245.sroa.sel = select i1 %.not13244, ptr %.sroa.gep14454, ptr %7800
   %7802 = lshr i64 %7782, 32
   %7803 = trunc i64 %7802 to i8
   store i8 %7803, ptr %.neg13245.sroa.sel, align 1
-  %.sroa.gep15675 = getelementptr inbounds i8, ptr %7797, i64 3
+  %.sroa.gep15675 = getelementptr inbounds nuw i8, ptr %7797, i64 3
   %.neg13245.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13244, ptr %.sroa.gep15675, ptr %.sroa.gep14454
   store i8 0, ptr %.neg13245.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7804 = and i64 %7782, 1095216660480
   %.not13246 = icmp eq i64 %7804, 1095216660480
   %.neg13247 = select i1 %.not13246, i64 2, i64 1
-  %7805 = getelementptr inbounds i8, ptr %.neg13245.sroa.sel, i64 %.neg13247
+  %7805 = getelementptr inbounds nuw i8, ptr %.neg13245.sroa.sel, i64 %.neg13247
   %7806 = lshr i64 %7786, 24
   %7807 = trunc i64 %7806 to i8
   store i8 %7807, ptr %7805, align 1
-  %7808 = getelementptr inbounds i8, ptr %7805, i64 1
+  %7808 = getelementptr inbounds nuw i8, ptr %7805, i64 1
   store i8 0, ptr %7808, align 1
   %7809 = and i64 %7786, 4278190080
   %.not13248 = icmp eq i64 %7809, 4278190080
-  %.sroa.gep14456 = getelementptr inbounds i8, ptr %7805, i64 2
+  %.sroa.gep14456 = getelementptr inbounds nuw i8, ptr %7805, i64 2
   %.neg13249.sroa.sel = select i1 %.not13248, ptr %.sroa.gep14456, ptr %7808
   %7810 = lshr i64 %7786, 16
   %7811 = trunc i64 %7810 to i8
   store i8 %7811, ptr %.neg13249.sroa.sel, align 1
-  %.sroa.gep15673 = getelementptr inbounds i8, ptr %7805, i64 3
+  %.sroa.gep15673 = getelementptr inbounds nuw i8, ptr %7805, i64 3
   %.neg13249.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13248, ptr %.sroa.gep15673, ptr %.sroa.gep14456
   store i8 0, ptr %.neg13249.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7812 = and i64 %7786, 16711680
   %.not13250 = icmp eq i64 %7812, 16711680
   %.neg13251 = select i1 %.not13250, i64 2, i64 1
-  %7813 = getelementptr inbounds i8, ptr %.neg13249.sroa.sel, i64 %.neg13251
+  %7813 = getelementptr inbounds nuw i8, ptr %.neg13249.sroa.sel, i64 %.neg13251
   %7814 = lshr i64 %7786, 8
   %7815 = trunc i64 %7814 to i8
   store i8 %7815, ptr %7813, align 1
-  %7816 = getelementptr inbounds i8, ptr %7813, i64 1
+  %7816 = getelementptr inbounds nuw i8, ptr %7813, i64 1
   store i8 0, ptr %7816, align 1
   %7817 = and i64 %7786, 65280
   %.not13252 = icmp eq i64 %7817, 65280
-  %.sroa.gep14458 = getelementptr inbounds i8, ptr %7813, i64 2
+  %.sroa.gep14458 = getelementptr inbounds nuw i8, ptr %7813, i64 2
   %.neg13253.sroa.sel = select i1 %.not13252, ptr %.sroa.gep14458, ptr %7816
   %7818 = trunc i64 %7786 to i8
   store i8 %7818, ptr %.neg13253.sroa.sel, align 1
-  %.sroa.gep15671 = getelementptr inbounds i8, ptr %7813, i64 3
+  %.sroa.gep15671 = getelementptr inbounds nuw i8, ptr %7813, i64 3
   %.neg13253.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13252, ptr %.sroa.gep15671, ptr %.sroa.gep14458
   store i8 0, ptr %.neg13253.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7819 = and i64 %7786, 255
   %.not13254 = icmp eq i64 %7819, 255
   %.neg13255 = select i1 %.not13254, i64 2, i64 1
-  %7820 = getelementptr inbounds i8, ptr %.neg13253.sroa.sel, i64 %.neg13255
+  %7820 = getelementptr inbounds nuw i8, ptr %.neg13253.sroa.sel, i64 %.neg13255
   br label %7843
 
 7821:                                             ; preds = %7780
   %7822 = lshr i64 %7782, 48
   %7823 = trunc i64 %7822 to i8
-  %7824 = getelementptr inbounds i8, ptr %.28015065, i64 1
+  %7824 = getelementptr inbounds nuw i8, ptr %.28015065, i64 1
   store i8 %7823, ptr %7824, align 1
   %7825 = lshr i64 %7782, 40
   %7826 = trunc i64 %7825 to i8
-  %7827 = getelementptr inbounds i8, ptr %.28015065, i64 2
+  %7827 = getelementptr inbounds nuw i8, ptr %.28015065, i64 2
   store i8 %7826, ptr %7827, align 1
   %7828 = lshr i64 %7782, 32
   %7829 = trunc i64 %7828 to i8
-  %7830 = getelementptr inbounds i8, ptr %.28015065, i64 3
+  %7830 = getelementptr inbounds nuw i8, ptr %.28015065, i64 3
   store i8 %7829, ptr %7830, align 1
   %7831 = lshr i64 %7786, 24
   %7832 = trunc i64 %7831 to i8
-  %7833 = getelementptr inbounds i8, ptr %.28015065, i64 4
+  %7833 = getelementptr inbounds nuw i8, ptr %.28015065, i64 4
   store i8 %7832, ptr %7833, align 1
   %7834 = lshr i64 %7786, 16
   %7835 = trunc i64 %7834 to i8
-  %7836 = getelementptr inbounds i8, ptr %.28015065, i64 5
+  %7836 = getelementptr inbounds nuw i8, ptr %.28015065, i64 5
   store i8 %7835, ptr %7836, align 1
   %7837 = lshr i64 %7786, 8
   %7838 = trunc i64 %7837 to i8
-  %7839 = getelementptr inbounds i8, ptr %.28015065, i64 6
+  %7839 = getelementptr inbounds nuw i8, ptr %.28015065, i64 6
   store i8 %7838, ptr %7839, align 1
   %7840 = trunc i64 %7786 to i8
-  %7841 = getelementptr inbounds i8, ptr %.28015065, i64 7
+  %7841 = getelementptr inbounds nuw i8, ptr %.28015065, i64 7
   store i8 %7840, ptr %7841, align 1
-  %7842 = getelementptr inbounds i8, ptr %.28015065, i64 8
+  %7842 = getelementptr inbounds nuw i8, ptr %.28015065, i64 8
   br label %7843
 
 7843:                                             ; preds = %7821, %7792
@@ -15795,12 +15795,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %7857 = xor i32 %7856, -1
   %7858 = and i32 %7755, %7857
   %7859 = zext nneg i32 %7854 to i64
-  %7860 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %7859
+  %7860 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %7859
   %7861 = load i32, ptr %7860, align 4
   %7862 = shl i32 %7861, %7760
   %7863 = or i32 %7862, %7858
-  %7864 = getelementptr inbounds i8, ptr %4, i64 1024
-  %7865 = getelementptr inbounds [256 x i8], ptr %7864, i64 0, i64 %7859
+  %7864 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %7865 = getelementptr inbounds nuw [256 x i8], ptr %7864, i64 0, i64 %7859
   %7866 = load i8, ptr %7865, align 1
   %7867 = sext i8 %7866 to i32
   %7868 = add nsw i32 %7867, %7760
@@ -15825,108 +15825,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13222, label %7912, label %7883
 
 7883:                                             ; preds = %7871
-  %7884 = getelementptr inbounds i8, ptr %.280.lcssa, i64 1
+  %7884 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 1
   store i8 0, ptr %7884, align 1
   %.not13223 = icmp eq i64 %7881, 255
-  %.sroa.gep14460 = getelementptr inbounds i8, ptr %.280.lcssa, i64 2
+  %.sroa.gep14460 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 2
   %.neg13224.sroa.sel = select i1 %.not13223, ptr %.sroa.gep14460, ptr %7884
   %7885 = lshr i64 %7877, 48
   %7886 = trunc i64 %7885 to i8
   store i8 %7886, ptr %.neg13224.sroa.sel, align 1
-  %.sroa.gep15677 = getelementptr inbounds i8, ptr %.280.lcssa, i64 3
+  %.sroa.gep15677 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 3
   %.neg13224.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13223, ptr %.sroa.gep15677, ptr %.sroa.gep14460
   store i8 0, ptr %.neg13224.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7887 = and i64 %7877, 71776119061217280
   %.not13225 = icmp eq i64 %7887, 71776119061217280
   %.neg13226 = select i1 %.not13225, i64 2, i64 1
-  %7888 = getelementptr inbounds i8, ptr %.neg13224.sroa.sel, i64 %.neg13226
+  %7888 = getelementptr inbounds nuw i8, ptr %.neg13224.sroa.sel, i64 %.neg13226
   %7889 = lshr i64 %7877, 40
   %7890 = trunc i64 %7889 to i8
   store i8 %7890, ptr %7888, align 1
-  %7891 = getelementptr inbounds i8, ptr %7888, i64 1
+  %7891 = getelementptr inbounds nuw i8, ptr %7888, i64 1
   store i8 0, ptr %7891, align 1
   %7892 = and i64 %7877, 280375465082880
   %.not13227 = icmp eq i64 %7892, 280375465082880
-  %.sroa.gep14462 = getelementptr inbounds i8, ptr %7888, i64 2
+  %.sroa.gep14462 = getelementptr inbounds nuw i8, ptr %7888, i64 2
   %.neg13228.sroa.sel = select i1 %.not13227, ptr %.sroa.gep14462, ptr %7891
   %7893 = lshr i64 %7877, 32
   %7894 = trunc i64 %7893 to i8
   store i8 %7894, ptr %.neg13228.sroa.sel, align 1
-  %.sroa.gep15683 = getelementptr inbounds i8, ptr %7888, i64 3
+  %.sroa.gep15683 = getelementptr inbounds nuw i8, ptr %7888, i64 3
   %.neg13228.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13227, ptr %.sroa.gep15683, ptr %.sroa.gep14462
   store i8 0, ptr %.neg13228.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7895 = and i64 %7877, 1095216660480
   %.not13229 = icmp eq i64 %7895, 1095216660480
   %.neg13230 = select i1 %.not13229, i64 2, i64 1
-  %7896 = getelementptr inbounds i8, ptr %.neg13228.sroa.sel, i64 %.neg13230
+  %7896 = getelementptr inbounds nuw i8, ptr %.neg13228.sroa.sel, i64 %.neg13230
   %7897 = lshr i64 %7877, 24
   %7898 = trunc i64 %7897 to i8
   store i8 %7898, ptr %7896, align 1
-  %7899 = getelementptr inbounds i8, ptr %7896, i64 1
+  %7899 = getelementptr inbounds nuw i8, ptr %7896, i64 1
   store i8 0, ptr %7899, align 1
   %7900 = and i64 %7877, 4278190080
   %.not13231 = icmp eq i64 %7900, 4278190080
-  %.sroa.gep14464 = getelementptr inbounds i8, ptr %7896, i64 2
+  %.sroa.gep14464 = getelementptr inbounds nuw i8, ptr %7896, i64 2
   %.neg13232.sroa.sel = select i1 %.not13231, ptr %.sroa.gep14464, ptr %7899
   %7901 = lshr i64 %7877, 16
   %7902 = trunc i64 %7901 to i8
   store i8 %7902, ptr %.neg13232.sroa.sel, align 1
-  %.sroa.gep15681 = getelementptr inbounds i8, ptr %7896, i64 3
+  %.sroa.gep15681 = getelementptr inbounds nuw i8, ptr %7896, i64 3
   %.neg13232.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13231, ptr %.sroa.gep15681, ptr %.sroa.gep14464
   store i8 0, ptr %.neg13232.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7903 = and i64 %7877, 16711680
   %.not13233 = icmp eq i64 %7903, 16711680
   %.neg13234 = select i1 %.not13233, i64 2, i64 1
-  %7904 = getelementptr inbounds i8, ptr %.neg13232.sroa.sel, i64 %.neg13234
+  %7904 = getelementptr inbounds nuw i8, ptr %.neg13232.sroa.sel, i64 %.neg13234
   %7905 = lshr i64 %7877, 8
   %7906 = trunc i64 %7905 to i8
   store i8 %7906, ptr %7904, align 1
-  %7907 = getelementptr inbounds i8, ptr %7904, i64 1
+  %7907 = getelementptr inbounds nuw i8, ptr %7904, i64 1
   store i8 0, ptr %7907, align 1
   %7908 = and i64 %7877, 65280
   %.not13235 = icmp eq i64 %7908, 65280
-  %.sroa.gep14466 = getelementptr inbounds i8, ptr %7904, i64 2
+  %.sroa.gep14466 = getelementptr inbounds nuw i8, ptr %7904, i64 2
   %.neg13236.sroa.sel = select i1 %.not13235, ptr %.sroa.gep14466, ptr %7907
   %7909 = trunc i64 %7877 to i8
   store i8 %7909, ptr %.neg13236.sroa.sel, align 1
-  %.sroa.gep15679 = getelementptr inbounds i8, ptr %7904, i64 3
+  %.sroa.gep15679 = getelementptr inbounds nuw i8, ptr %7904, i64 3
   %.neg13236.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13235, ptr %.sroa.gep15679, ptr %.sroa.gep14466
   store i8 0, ptr %.neg13236.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7910 = and i64 %7877, 255
   %.not13237 = icmp eq i64 %7910, 255
   %.neg13238 = select i1 %.not13237, i64 2, i64 1
-  %7911 = getelementptr inbounds i8, ptr %.neg13236.sroa.sel, i64 %.neg13238
+  %7911 = getelementptr inbounds nuw i8, ptr %.neg13236.sroa.sel, i64 %.neg13238
   br label %7934
 
 7912:                                             ; preds = %7871
   %7913 = lshr i64 %7877, 48
   %7914 = trunc i64 %7913 to i8
-  %7915 = getelementptr inbounds i8, ptr %.280.lcssa, i64 1
+  %7915 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 1
   store i8 %7914, ptr %7915, align 1
   %7916 = lshr i64 %7877, 40
   %7917 = trunc i64 %7916 to i8
-  %7918 = getelementptr inbounds i8, ptr %.280.lcssa, i64 2
+  %7918 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 2
   store i8 %7917, ptr %7918, align 1
   %7919 = lshr i64 %7877, 32
   %7920 = trunc i64 %7919 to i8
-  %7921 = getelementptr inbounds i8, ptr %.280.lcssa, i64 3
+  %7921 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 3
   store i8 %7920, ptr %7921, align 1
   %7922 = lshr i64 %7877, 24
   %7923 = trunc i64 %7922 to i8
-  %7924 = getelementptr inbounds i8, ptr %.280.lcssa, i64 4
+  %7924 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 4
   store i8 %7923, ptr %7924, align 1
   %7925 = lshr i64 %7877, 16
   %7926 = trunc i64 %7925 to i8
-  %7927 = getelementptr inbounds i8, ptr %.280.lcssa, i64 5
+  %7927 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 5
   store i8 %7926, ptr %7927, align 1
   %7928 = lshr i64 %7877, 8
   %7929 = trunc i64 %7928 to i8
-  %7930 = getelementptr inbounds i8, ptr %.280.lcssa, i64 6
+  %7930 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 6
   store i8 %7929, ptr %7930, align 1
   %7931 = trunc i64 %7877 to i8
-  %7932 = getelementptr inbounds i8, ptr %.280.lcssa, i64 7
+  %7932 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 7
   store i8 %7931, ptr %7932, align 1
-  %7933 = getelementptr inbounds i8, ptr %.280.lcssa, i64 8
+  %7933 = getelementptr inbounds nuw i8, ptr %.280.lcssa, i64 8
   br label %7934
 
 7934:                                             ; preds = %7912, %7883
@@ -15947,7 +15947,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18511225 = phi i64 [ %.18111221, %7750 ], [ %7936, %7934 ], [ %7941, %7937 ]
   %.279 = phi ptr [ %.273, %7750 ], [ %.283, %7934 ], [ %.280.lcssa, %7937 ]
   %.92 = phi i32 [ %7751, %7750 ], [ 0, %7934 ], [ 0, %7937 ]
-  %7943 = getelementptr inbounds i8, ptr %1, i64 116
+  %7943 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %7944 = load i16, ptr %7943, align 2
   %7945 = icmp eq i16 %7944, 0
   br i1 %7945, label %7946, label %7948
@@ -15971,7 +15971,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 7958:                                             ; preds = %7948
   %7959 = load ptr, ptr %7, align 8
   %7960 = load ptr, ptr %7959, align 8
-  %7961 = getelementptr inbounds i8, ptr %7960, i64 40
+  %7961 = getelementptr inbounds nuw i8, ptr %7960, i64 40
   store i32 6, ptr %7961, align 8
   %7962 = load ptr, ptr %7, align 8
   %7963 = load ptr, ptr %7962, align 8
@@ -15984,8 +15984,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %7966, label %.lr.ph15079, label %._crit_edge15080
 
 .lr.ph15079:                                      ; preds = %7965
-  %7967 = getelementptr inbounds i8, ptr %4, i64 1264
-  %7968 = getelementptr inbounds i8, ptr %4, i64 960
+  %7967 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %7968 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %7969
 
 7969:                                             ; preds = %.lr.ph15079, %8048
@@ -16018,108 +16018,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13274, label %8017, label %7988
 
 7988:                                             ; preds = %7976
-  %7989 = getelementptr inbounds i8, ptr %.28615076, i64 1
+  %7989 = getelementptr inbounds nuw i8, ptr %.28615076, i64 1
   store i8 0, ptr %7989, align 1
   %.not13275 = icmp eq i64 %7986, 255
-  %.sroa.gep14468 = getelementptr inbounds i8, ptr %.28615076, i64 2
+  %.sroa.gep14468 = getelementptr inbounds nuw i8, ptr %.28615076, i64 2
   %.neg13276.sroa.sel = select i1 %.not13275, ptr %.sroa.gep14468, ptr %7989
   %7990 = lshr i64 %7978, 48
   %7991 = trunc i64 %7990 to i8
   store i8 %7991, ptr %.neg13276.sroa.sel, align 1
-  %.sroa.gep15653 = getelementptr inbounds i8, ptr %.28615076, i64 3
+  %.sroa.gep15653 = getelementptr inbounds nuw i8, ptr %.28615076, i64 3
   %.neg13276.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13275, ptr %.sroa.gep15653, ptr %.sroa.gep14468
   store i8 0, ptr %.neg13276.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %7992 = and i64 %7978, 71776119061217280
   %.not13277 = icmp eq i64 %7992, 71776119061217280
   %.neg13278 = select i1 %.not13277, i64 2, i64 1
-  %7993 = getelementptr inbounds i8, ptr %.neg13276.sroa.sel, i64 %.neg13278
+  %7993 = getelementptr inbounds nuw i8, ptr %.neg13276.sroa.sel, i64 %.neg13278
   %7994 = lshr i64 %7978, 40
   %7995 = trunc i64 %7994 to i8
   store i8 %7995, ptr %7993, align 1
-  %7996 = getelementptr inbounds i8, ptr %7993, i64 1
+  %7996 = getelementptr inbounds nuw i8, ptr %7993, i64 1
   store i8 0, ptr %7996, align 1
   %7997 = and i64 %7978, 280375465082880
   %.not13279 = icmp eq i64 %7997, 280375465082880
-  %.sroa.gep14470 = getelementptr inbounds i8, ptr %7993, i64 2
+  %.sroa.gep14470 = getelementptr inbounds nuw i8, ptr %7993, i64 2
   %.neg13280.sroa.sel = select i1 %.not13279, ptr %.sroa.gep14470, ptr %7996
   %7998 = lshr i64 %7978, 32
   %7999 = trunc i64 %7998 to i8
   store i8 %7999, ptr %.neg13280.sroa.sel, align 1
-  %.sroa.gep15659 = getelementptr inbounds i8, ptr %7993, i64 3
+  %.sroa.gep15659 = getelementptr inbounds nuw i8, ptr %7993, i64 3
   %.neg13280.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13279, ptr %.sroa.gep15659, ptr %.sroa.gep14470
   store i8 0, ptr %.neg13280.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8000 = and i64 %7978, 1095216660480
   %.not13281 = icmp eq i64 %8000, 1095216660480
   %.neg13282 = select i1 %.not13281, i64 2, i64 1
-  %8001 = getelementptr inbounds i8, ptr %.neg13280.sroa.sel, i64 %.neg13282
+  %8001 = getelementptr inbounds nuw i8, ptr %.neg13280.sroa.sel, i64 %.neg13282
   %8002 = lshr i64 %7982, 24
   %8003 = trunc i64 %8002 to i8
   store i8 %8003, ptr %8001, align 1
-  %8004 = getelementptr inbounds i8, ptr %8001, i64 1
+  %8004 = getelementptr inbounds nuw i8, ptr %8001, i64 1
   store i8 0, ptr %8004, align 1
   %8005 = and i64 %7982, 4278190080
   %.not13283 = icmp eq i64 %8005, 4278190080
-  %.sroa.gep14472 = getelementptr inbounds i8, ptr %8001, i64 2
+  %.sroa.gep14472 = getelementptr inbounds nuw i8, ptr %8001, i64 2
   %.neg13284.sroa.sel = select i1 %.not13283, ptr %.sroa.gep14472, ptr %8004
   %8006 = lshr i64 %7982, 16
   %8007 = trunc i64 %8006 to i8
   store i8 %8007, ptr %.neg13284.sroa.sel, align 1
-  %.sroa.gep15657 = getelementptr inbounds i8, ptr %8001, i64 3
+  %.sroa.gep15657 = getelementptr inbounds nuw i8, ptr %8001, i64 3
   %.neg13284.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13283, ptr %.sroa.gep15657, ptr %.sroa.gep14472
   store i8 0, ptr %.neg13284.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8008 = and i64 %7982, 16711680
   %.not13285 = icmp eq i64 %8008, 16711680
   %.neg13286 = select i1 %.not13285, i64 2, i64 1
-  %8009 = getelementptr inbounds i8, ptr %.neg13284.sroa.sel, i64 %.neg13286
+  %8009 = getelementptr inbounds nuw i8, ptr %.neg13284.sroa.sel, i64 %.neg13286
   %8010 = lshr i64 %7982, 8
   %8011 = trunc i64 %8010 to i8
   store i8 %8011, ptr %8009, align 1
-  %8012 = getelementptr inbounds i8, ptr %8009, i64 1
+  %8012 = getelementptr inbounds nuw i8, ptr %8009, i64 1
   store i8 0, ptr %8012, align 1
   %8013 = and i64 %7982, 65280
   %.not13287 = icmp eq i64 %8013, 65280
-  %.sroa.gep14474 = getelementptr inbounds i8, ptr %8009, i64 2
+  %.sroa.gep14474 = getelementptr inbounds nuw i8, ptr %8009, i64 2
   %.neg13288.sroa.sel = select i1 %.not13287, ptr %.sroa.gep14474, ptr %8012
   %8014 = trunc i64 %7982 to i8
   store i8 %8014, ptr %.neg13288.sroa.sel, align 1
-  %.sroa.gep15655 = getelementptr inbounds i8, ptr %8009, i64 3
+  %.sroa.gep15655 = getelementptr inbounds nuw i8, ptr %8009, i64 3
   %.neg13288.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13287, ptr %.sroa.gep15655, ptr %.sroa.gep14474
   store i8 0, ptr %.neg13288.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8015 = and i64 %7982, 255
   %.not13289 = icmp eq i64 %8015, 255
   %.neg13290 = select i1 %.not13289, i64 2, i64 1
-  %8016 = getelementptr inbounds i8, ptr %.neg13288.sroa.sel, i64 %.neg13290
+  %8016 = getelementptr inbounds nuw i8, ptr %.neg13288.sroa.sel, i64 %.neg13290
   br label %8039
 
 8017:                                             ; preds = %7976
   %8018 = lshr i64 %7978, 48
   %8019 = trunc i64 %8018 to i8
-  %8020 = getelementptr inbounds i8, ptr %.28615076, i64 1
+  %8020 = getelementptr inbounds nuw i8, ptr %.28615076, i64 1
   store i8 %8019, ptr %8020, align 1
   %8021 = lshr i64 %7978, 40
   %8022 = trunc i64 %8021 to i8
-  %8023 = getelementptr inbounds i8, ptr %.28615076, i64 2
+  %8023 = getelementptr inbounds nuw i8, ptr %.28615076, i64 2
   store i8 %8022, ptr %8023, align 1
   %8024 = lshr i64 %7978, 32
   %8025 = trunc i64 %8024 to i8
-  %8026 = getelementptr inbounds i8, ptr %.28615076, i64 3
+  %8026 = getelementptr inbounds nuw i8, ptr %.28615076, i64 3
   store i8 %8025, ptr %8026, align 1
   %8027 = lshr i64 %7982, 24
   %8028 = trunc i64 %8027 to i8
-  %8029 = getelementptr inbounds i8, ptr %.28615076, i64 4
+  %8029 = getelementptr inbounds nuw i8, ptr %.28615076, i64 4
   store i8 %8028, ptr %8029, align 1
   %8030 = lshr i64 %7982, 16
   %8031 = trunc i64 %8030 to i8
-  %8032 = getelementptr inbounds i8, ptr %.28615076, i64 5
+  %8032 = getelementptr inbounds nuw i8, ptr %.28615076, i64 5
   store i8 %8031, ptr %8032, align 1
   %8033 = lshr i64 %7982, 8
   %8034 = trunc i64 %8033 to i8
-  %8035 = getelementptr inbounds i8, ptr %.28615076, i64 6
+  %8035 = getelementptr inbounds nuw i8, ptr %.28615076, i64 6
   store i8 %8034, ptr %8035, align 1
   %8036 = trunc i64 %7982 to i8
-  %8037 = getelementptr inbounds i8, ptr %.28615076, i64 7
+  %8037 = getelementptr inbounds nuw i8, ptr %.28615076, i64 7
   store i8 %8036, ptr %8037, align 1
-  %8038 = getelementptr inbounds i8, ptr %.28615076, i64 8
+  %8038 = getelementptr inbounds nuw i8, ptr %.28615076, i64 8
   br label %8039
 
 8039:                                             ; preds = %8017, %7988
@@ -16155,12 +16155,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8053 = xor i32 %8052, -1
   %8054 = and i32 %7951, %8053
   %8055 = zext nneg i32 %8050 to i64
-  %8056 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %8055
+  %8056 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %8055
   %8057 = load i32, ptr %8056, align 4
   %8058 = shl i32 %8057, %7956
   %8059 = or i32 %8058, %8054
-  %8060 = getelementptr inbounds i8, ptr %4, i64 1024
-  %8061 = getelementptr inbounds [256 x i8], ptr %8060, i64 0, i64 %8055
+  %8060 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %8061 = getelementptr inbounds nuw [256 x i8], ptr %8060, i64 0, i64 %8055
   %8062 = load i8, ptr %8061, align 1
   %8063 = sext i8 %8062 to i32
   %8064 = add nsw i32 %8063, %7956
@@ -16185,108 +16185,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13257, label %8108, label %8079
 
 8079:                                             ; preds = %8067
-  %8080 = getelementptr inbounds i8, ptr %.286.lcssa, i64 1
+  %8080 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 1
   store i8 0, ptr %8080, align 1
   %.not13258 = icmp eq i64 %8077, 255
-  %.sroa.gep14476 = getelementptr inbounds i8, ptr %.286.lcssa, i64 2
+  %.sroa.gep14476 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 2
   %.neg13259.sroa.sel = select i1 %.not13258, ptr %.sroa.gep14476, ptr %8080
   %8081 = lshr i64 %8073, 48
   %8082 = trunc i64 %8081 to i8
   store i8 %8082, ptr %.neg13259.sroa.sel, align 1
-  %.sroa.gep15661 = getelementptr inbounds i8, ptr %.286.lcssa, i64 3
+  %.sroa.gep15661 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 3
   %.neg13259.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13258, ptr %.sroa.gep15661, ptr %.sroa.gep14476
   store i8 0, ptr %.neg13259.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8083 = and i64 %8073, 71776119061217280
   %.not13260 = icmp eq i64 %8083, 71776119061217280
   %.neg13261 = select i1 %.not13260, i64 2, i64 1
-  %8084 = getelementptr inbounds i8, ptr %.neg13259.sroa.sel, i64 %.neg13261
+  %8084 = getelementptr inbounds nuw i8, ptr %.neg13259.sroa.sel, i64 %.neg13261
   %8085 = lshr i64 %8073, 40
   %8086 = trunc i64 %8085 to i8
   store i8 %8086, ptr %8084, align 1
-  %8087 = getelementptr inbounds i8, ptr %8084, i64 1
+  %8087 = getelementptr inbounds nuw i8, ptr %8084, i64 1
   store i8 0, ptr %8087, align 1
   %8088 = and i64 %8073, 280375465082880
   %.not13262 = icmp eq i64 %8088, 280375465082880
-  %.sroa.gep14478 = getelementptr inbounds i8, ptr %8084, i64 2
+  %.sroa.gep14478 = getelementptr inbounds nuw i8, ptr %8084, i64 2
   %.neg13263.sroa.sel = select i1 %.not13262, ptr %.sroa.gep14478, ptr %8087
   %8089 = lshr i64 %8073, 32
   %8090 = trunc i64 %8089 to i8
   store i8 %8090, ptr %.neg13263.sroa.sel, align 1
-  %.sroa.gep15667 = getelementptr inbounds i8, ptr %8084, i64 3
+  %.sroa.gep15667 = getelementptr inbounds nuw i8, ptr %8084, i64 3
   %.neg13263.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13262, ptr %.sroa.gep15667, ptr %.sroa.gep14478
   store i8 0, ptr %.neg13263.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8091 = and i64 %8073, 1095216660480
   %.not13264 = icmp eq i64 %8091, 1095216660480
   %.neg13265 = select i1 %.not13264, i64 2, i64 1
-  %8092 = getelementptr inbounds i8, ptr %.neg13263.sroa.sel, i64 %.neg13265
+  %8092 = getelementptr inbounds nuw i8, ptr %.neg13263.sroa.sel, i64 %.neg13265
   %8093 = lshr i64 %8073, 24
   %8094 = trunc i64 %8093 to i8
   store i8 %8094, ptr %8092, align 1
-  %8095 = getelementptr inbounds i8, ptr %8092, i64 1
+  %8095 = getelementptr inbounds nuw i8, ptr %8092, i64 1
   store i8 0, ptr %8095, align 1
   %8096 = and i64 %8073, 4278190080
   %.not13266 = icmp eq i64 %8096, 4278190080
-  %.sroa.gep14480 = getelementptr inbounds i8, ptr %8092, i64 2
+  %.sroa.gep14480 = getelementptr inbounds nuw i8, ptr %8092, i64 2
   %.neg13267.sroa.sel = select i1 %.not13266, ptr %.sroa.gep14480, ptr %8095
   %8097 = lshr i64 %8073, 16
   %8098 = trunc i64 %8097 to i8
   store i8 %8098, ptr %.neg13267.sroa.sel, align 1
-  %.sroa.gep15665 = getelementptr inbounds i8, ptr %8092, i64 3
+  %.sroa.gep15665 = getelementptr inbounds nuw i8, ptr %8092, i64 3
   %.neg13267.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13266, ptr %.sroa.gep15665, ptr %.sroa.gep14480
   store i8 0, ptr %.neg13267.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8099 = and i64 %8073, 16711680
   %.not13268 = icmp eq i64 %8099, 16711680
   %.neg13269 = select i1 %.not13268, i64 2, i64 1
-  %8100 = getelementptr inbounds i8, ptr %.neg13267.sroa.sel, i64 %.neg13269
+  %8100 = getelementptr inbounds nuw i8, ptr %.neg13267.sroa.sel, i64 %.neg13269
   %8101 = lshr i64 %8073, 8
   %8102 = trunc i64 %8101 to i8
   store i8 %8102, ptr %8100, align 1
-  %8103 = getelementptr inbounds i8, ptr %8100, i64 1
+  %8103 = getelementptr inbounds nuw i8, ptr %8100, i64 1
   store i8 0, ptr %8103, align 1
   %8104 = and i64 %8073, 65280
   %.not13270 = icmp eq i64 %8104, 65280
-  %.sroa.gep14482 = getelementptr inbounds i8, ptr %8100, i64 2
+  %.sroa.gep14482 = getelementptr inbounds nuw i8, ptr %8100, i64 2
   %.neg13271.sroa.sel = select i1 %.not13270, ptr %.sroa.gep14482, ptr %8103
   %8105 = trunc i64 %8073 to i8
   store i8 %8105, ptr %.neg13271.sroa.sel, align 1
-  %.sroa.gep15663 = getelementptr inbounds i8, ptr %8100, i64 3
+  %.sroa.gep15663 = getelementptr inbounds nuw i8, ptr %8100, i64 3
   %.neg13271.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13270, ptr %.sroa.gep15663, ptr %.sroa.gep14482
   store i8 0, ptr %.neg13271.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8106 = and i64 %8073, 255
   %.not13272 = icmp eq i64 %8106, 255
   %.neg13273 = select i1 %.not13272, i64 2, i64 1
-  %8107 = getelementptr inbounds i8, ptr %.neg13271.sroa.sel, i64 %.neg13273
+  %8107 = getelementptr inbounds nuw i8, ptr %.neg13271.sroa.sel, i64 %.neg13273
   br label %8130
 
 8108:                                             ; preds = %8067
   %8109 = lshr i64 %8073, 48
   %8110 = trunc i64 %8109 to i8
-  %8111 = getelementptr inbounds i8, ptr %.286.lcssa, i64 1
+  %8111 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 1
   store i8 %8110, ptr %8111, align 1
   %8112 = lshr i64 %8073, 40
   %8113 = trunc i64 %8112 to i8
-  %8114 = getelementptr inbounds i8, ptr %.286.lcssa, i64 2
+  %8114 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 2
   store i8 %8113, ptr %8114, align 1
   %8115 = lshr i64 %8073, 32
   %8116 = trunc i64 %8115 to i8
-  %8117 = getelementptr inbounds i8, ptr %.286.lcssa, i64 3
+  %8117 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 3
   store i8 %8116, ptr %8117, align 1
   %8118 = lshr i64 %8073, 24
   %8119 = trunc i64 %8118 to i8
-  %8120 = getelementptr inbounds i8, ptr %.286.lcssa, i64 4
+  %8120 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 4
   store i8 %8119, ptr %8120, align 1
   %8121 = lshr i64 %8073, 16
   %8122 = trunc i64 %8121 to i8
-  %8123 = getelementptr inbounds i8, ptr %.286.lcssa, i64 5
+  %8123 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 5
   store i8 %8122, ptr %8123, align 1
   %8124 = lshr i64 %8073, 8
   %8125 = trunc i64 %8124 to i8
-  %8126 = getelementptr inbounds i8, ptr %.286.lcssa, i64 6
+  %8126 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 6
   store i8 %8125, ptr %8126, align 1
   %8127 = trunc i64 %8073 to i8
-  %8128 = getelementptr inbounds i8, ptr %.286.lcssa, i64 7
+  %8128 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 7
   store i8 %8127, ptr %8128, align 1
-  %8129 = getelementptr inbounds i8, ptr %.286.lcssa, i64 8
+  %8129 = getelementptr inbounds nuw i8, ptr %.286.lcssa, i64 8
   br label %8130
 
 8130:                                             ; preds = %8108, %8079
@@ -16307,7 +16307,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.18911229 = phi i64 [ %.18511225, %7946 ], [ %8132, %8130 ], [ %8137, %8133 ]
   %.285 = phi ptr [ %.279, %7946 ], [ %.289, %8130 ], [ %.286.lcssa, %8133 ]
   %.94 = phi i32 [ %7947, %7946 ], [ 0, %8130 ], [ 0, %8133 ]
-  %8139 = getelementptr inbounds i8, ptr %1, i64 118
+  %8139 = getelementptr inbounds nuw i8, ptr %1, i64 118
   %8140 = load i16, ptr %8139, align 2
   %8141 = icmp eq i16 %8140, 0
   br i1 %8141, label %8142, label %8144
@@ -16331,7 +16331,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 8154:                                             ; preds = %8144
   %8155 = load ptr, ptr %7, align 8
   %8156 = load ptr, ptr %8155, align 8
-  %8157 = getelementptr inbounds i8, ptr %8156, i64 40
+  %8157 = getelementptr inbounds nuw i8, ptr %8156, i64 40
   store i32 6, ptr %8157, align 8
   %8158 = load ptr, ptr %7, align 8
   %8159 = load ptr, ptr %8158, align 8
@@ -16344,8 +16344,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %8162, label %.lr.ph15090, label %._crit_edge15091
 
 .lr.ph15090:                                      ; preds = %8161
-  %8163 = getelementptr inbounds i8, ptr %4, i64 1264
-  %8164 = getelementptr inbounds i8, ptr %4, i64 960
+  %8163 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %8164 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %8165
 
 8165:                                             ; preds = %.lr.ph15090, %8244
@@ -16378,108 +16378,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13309, label %8213, label %8184
 
 8184:                                             ; preds = %8172
-  %8185 = getelementptr inbounds i8, ptr %.29215087, i64 1
+  %8185 = getelementptr inbounds nuw i8, ptr %.29215087, i64 1
   store i8 0, ptr %8185, align 1
   %.not13310 = icmp eq i64 %8182, 255
-  %.sroa.gep14484 = getelementptr inbounds i8, ptr %.29215087, i64 2
+  %.sroa.gep14484 = getelementptr inbounds nuw i8, ptr %.29215087, i64 2
   %.neg13311.sroa.sel = select i1 %.not13310, ptr %.sroa.gep14484, ptr %8185
   %8186 = lshr i64 %8174, 48
   %8187 = trunc i64 %8186 to i8
   store i8 %8187, ptr %.neg13311.sroa.sel, align 1
-  %.sroa.gep15637 = getelementptr inbounds i8, ptr %.29215087, i64 3
+  %.sroa.gep15637 = getelementptr inbounds nuw i8, ptr %.29215087, i64 3
   %.neg13311.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13310, ptr %.sroa.gep15637, ptr %.sroa.gep14484
   store i8 0, ptr %.neg13311.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8188 = and i64 %8174, 71776119061217280
   %.not13312 = icmp eq i64 %8188, 71776119061217280
   %.neg13313 = select i1 %.not13312, i64 2, i64 1
-  %8189 = getelementptr inbounds i8, ptr %.neg13311.sroa.sel, i64 %.neg13313
+  %8189 = getelementptr inbounds nuw i8, ptr %.neg13311.sroa.sel, i64 %.neg13313
   %8190 = lshr i64 %8174, 40
   %8191 = trunc i64 %8190 to i8
   store i8 %8191, ptr %8189, align 1
-  %8192 = getelementptr inbounds i8, ptr %8189, i64 1
+  %8192 = getelementptr inbounds nuw i8, ptr %8189, i64 1
   store i8 0, ptr %8192, align 1
   %8193 = and i64 %8174, 280375465082880
   %.not13314 = icmp eq i64 %8193, 280375465082880
-  %.sroa.gep14486 = getelementptr inbounds i8, ptr %8189, i64 2
+  %.sroa.gep14486 = getelementptr inbounds nuw i8, ptr %8189, i64 2
   %.neg13315.sroa.sel = select i1 %.not13314, ptr %.sroa.gep14486, ptr %8192
   %8194 = lshr i64 %8174, 32
   %8195 = trunc i64 %8194 to i8
   store i8 %8195, ptr %.neg13315.sroa.sel, align 1
-  %.sroa.gep15643 = getelementptr inbounds i8, ptr %8189, i64 3
+  %.sroa.gep15643 = getelementptr inbounds nuw i8, ptr %8189, i64 3
   %.neg13315.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13314, ptr %.sroa.gep15643, ptr %.sroa.gep14486
   store i8 0, ptr %.neg13315.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8196 = and i64 %8174, 1095216660480
   %.not13316 = icmp eq i64 %8196, 1095216660480
   %.neg13317 = select i1 %.not13316, i64 2, i64 1
-  %8197 = getelementptr inbounds i8, ptr %.neg13315.sroa.sel, i64 %.neg13317
+  %8197 = getelementptr inbounds nuw i8, ptr %.neg13315.sroa.sel, i64 %.neg13317
   %8198 = lshr i64 %8178, 24
   %8199 = trunc i64 %8198 to i8
   store i8 %8199, ptr %8197, align 1
-  %8200 = getelementptr inbounds i8, ptr %8197, i64 1
+  %8200 = getelementptr inbounds nuw i8, ptr %8197, i64 1
   store i8 0, ptr %8200, align 1
   %8201 = and i64 %8178, 4278190080
   %.not13318 = icmp eq i64 %8201, 4278190080
-  %.sroa.gep14488 = getelementptr inbounds i8, ptr %8197, i64 2
+  %.sroa.gep14488 = getelementptr inbounds nuw i8, ptr %8197, i64 2
   %.neg13319.sroa.sel = select i1 %.not13318, ptr %.sroa.gep14488, ptr %8200
   %8202 = lshr i64 %8178, 16
   %8203 = trunc i64 %8202 to i8
   store i8 %8203, ptr %.neg13319.sroa.sel, align 1
-  %.sroa.gep15641 = getelementptr inbounds i8, ptr %8197, i64 3
+  %.sroa.gep15641 = getelementptr inbounds nuw i8, ptr %8197, i64 3
   %.neg13319.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13318, ptr %.sroa.gep15641, ptr %.sroa.gep14488
   store i8 0, ptr %.neg13319.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8204 = and i64 %8178, 16711680
   %.not13320 = icmp eq i64 %8204, 16711680
   %.neg13321 = select i1 %.not13320, i64 2, i64 1
-  %8205 = getelementptr inbounds i8, ptr %.neg13319.sroa.sel, i64 %.neg13321
+  %8205 = getelementptr inbounds nuw i8, ptr %.neg13319.sroa.sel, i64 %.neg13321
   %8206 = lshr i64 %8178, 8
   %8207 = trunc i64 %8206 to i8
   store i8 %8207, ptr %8205, align 1
-  %8208 = getelementptr inbounds i8, ptr %8205, i64 1
+  %8208 = getelementptr inbounds nuw i8, ptr %8205, i64 1
   store i8 0, ptr %8208, align 1
   %8209 = and i64 %8178, 65280
   %.not13322 = icmp eq i64 %8209, 65280
-  %.sroa.gep14490 = getelementptr inbounds i8, ptr %8205, i64 2
+  %.sroa.gep14490 = getelementptr inbounds nuw i8, ptr %8205, i64 2
   %.neg13323.sroa.sel = select i1 %.not13322, ptr %.sroa.gep14490, ptr %8208
   %8210 = trunc i64 %8178 to i8
   store i8 %8210, ptr %.neg13323.sroa.sel, align 1
-  %.sroa.gep15639 = getelementptr inbounds i8, ptr %8205, i64 3
+  %.sroa.gep15639 = getelementptr inbounds nuw i8, ptr %8205, i64 3
   %.neg13323.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13322, ptr %.sroa.gep15639, ptr %.sroa.gep14490
   store i8 0, ptr %.neg13323.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8211 = and i64 %8178, 255
   %.not13324 = icmp eq i64 %8211, 255
   %.neg13325 = select i1 %.not13324, i64 2, i64 1
-  %8212 = getelementptr inbounds i8, ptr %.neg13323.sroa.sel, i64 %.neg13325
+  %8212 = getelementptr inbounds nuw i8, ptr %.neg13323.sroa.sel, i64 %.neg13325
   br label %8235
 
 8213:                                             ; preds = %8172
   %8214 = lshr i64 %8174, 48
   %8215 = trunc i64 %8214 to i8
-  %8216 = getelementptr inbounds i8, ptr %.29215087, i64 1
+  %8216 = getelementptr inbounds nuw i8, ptr %.29215087, i64 1
   store i8 %8215, ptr %8216, align 1
   %8217 = lshr i64 %8174, 40
   %8218 = trunc i64 %8217 to i8
-  %8219 = getelementptr inbounds i8, ptr %.29215087, i64 2
+  %8219 = getelementptr inbounds nuw i8, ptr %.29215087, i64 2
   store i8 %8218, ptr %8219, align 1
   %8220 = lshr i64 %8174, 32
   %8221 = trunc i64 %8220 to i8
-  %8222 = getelementptr inbounds i8, ptr %.29215087, i64 3
+  %8222 = getelementptr inbounds nuw i8, ptr %.29215087, i64 3
   store i8 %8221, ptr %8222, align 1
   %8223 = lshr i64 %8178, 24
   %8224 = trunc i64 %8223 to i8
-  %8225 = getelementptr inbounds i8, ptr %.29215087, i64 4
+  %8225 = getelementptr inbounds nuw i8, ptr %.29215087, i64 4
   store i8 %8224, ptr %8225, align 1
   %8226 = lshr i64 %8178, 16
   %8227 = trunc i64 %8226 to i8
-  %8228 = getelementptr inbounds i8, ptr %.29215087, i64 5
+  %8228 = getelementptr inbounds nuw i8, ptr %.29215087, i64 5
   store i8 %8227, ptr %8228, align 1
   %8229 = lshr i64 %8178, 8
   %8230 = trunc i64 %8229 to i8
-  %8231 = getelementptr inbounds i8, ptr %.29215087, i64 6
+  %8231 = getelementptr inbounds nuw i8, ptr %.29215087, i64 6
   store i8 %8230, ptr %8231, align 1
   %8232 = trunc i64 %8178 to i8
-  %8233 = getelementptr inbounds i8, ptr %.29215087, i64 7
+  %8233 = getelementptr inbounds nuw i8, ptr %.29215087, i64 7
   store i8 %8232, ptr %8233, align 1
-  %8234 = getelementptr inbounds i8, ptr %.29215087, i64 8
+  %8234 = getelementptr inbounds nuw i8, ptr %.29215087, i64 8
   br label %8235
 
 8235:                                             ; preds = %8213, %8184
@@ -16515,12 +16515,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8249 = xor i32 %8248, -1
   %8250 = and i32 %8147, %8249
   %8251 = zext nneg i32 %8246 to i64
-  %8252 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %8251
+  %8252 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %8251
   %8253 = load i32, ptr %8252, align 4
   %8254 = shl i32 %8253, %8152
   %8255 = or i32 %8254, %8250
-  %8256 = getelementptr inbounds i8, ptr %4, i64 1024
-  %8257 = getelementptr inbounds [256 x i8], ptr %8256, i64 0, i64 %8251
+  %8256 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %8257 = getelementptr inbounds nuw [256 x i8], ptr %8256, i64 0, i64 %8251
   %8258 = load i8, ptr %8257, align 1
   %8259 = sext i8 %8258 to i32
   %8260 = add nsw i32 %8259, %8152
@@ -16545,108 +16545,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13292, label %8304, label %8275
 
 8275:                                             ; preds = %8263
-  %8276 = getelementptr inbounds i8, ptr %.292.lcssa, i64 1
+  %8276 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 1
   store i8 0, ptr %8276, align 1
   %.not13293 = icmp eq i64 %8273, 255
-  %.sroa.gep14492 = getelementptr inbounds i8, ptr %.292.lcssa, i64 2
+  %.sroa.gep14492 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 2
   %.neg13294.sroa.sel = select i1 %.not13293, ptr %.sroa.gep14492, ptr %8276
   %8277 = lshr i64 %8269, 48
   %8278 = trunc i64 %8277 to i8
   store i8 %8278, ptr %.neg13294.sroa.sel, align 1
-  %.sroa.gep15645 = getelementptr inbounds i8, ptr %.292.lcssa, i64 3
+  %.sroa.gep15645 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 3
   %.neg13294.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13293, ptr %.sroa.gep15645, ptr %.sroa.gep14492
   store i8 0, ptr %.neg13294.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8279 = and i64 %8269, 71776119061217280
   %.not13295 = icmp eq i64 %8279, 71776119061217280
   %.neg13296 = select i1 %.not13295, i64 2, i64 1
-  %8280 = getelementptr inbounds i8, ptr %.neg13294.sroa.sel, i64 %.neg13296
+  %8280 = getelementptr inbounds nuw i8, ptr %.neg13294.sroa.sel, i64 %.neg13296
   %8281 = lshr i64 %8269, 40
   %8282 = trunc i64 %8281 to i8
   store i8 %8282, ptr %8280, align 1
-  %8283 = getelementptr inbounds i8, ptr %8280, i64 1
+  %8283 = getelementptr inbounds nuw i8, ptr %8280, i64 1
   store i8 0, ptr %8283, align 1
   %8284 = and i64 %8269, 280375465082880
   %.not13297 = icmp eq i64 %8284, 280375465082880
-  %.sroa.gep14494 = getelementptr inbounds i8, ptr %8280, i64 2
+  %.sroa.gep14494 = getelementptr inbounds nuw i8, ptr %8280, i64 2
   %.neg13298.sroa.sel = select i1 %.not13297, ptr %.sroa.gep14494, ptr %8283
   %8285 = lshr i64 %8269, 32
   %8286 = trunc i64 %8285 to i8
   store i8 %8286, ptr %.neg13298.sroa.sel, align 1
-  %.sroa.gep15651 = getelementptr inbounds i8, ptr %8280, i64 3
+  %.sroa.gep15651 = getelementptr inbounds nuw i8, ptr %8280, i64 3
   %.neg13298.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13297, ptr %.sroa.gep15651, ptr %.sroa.gep14494
   store i8 0, ptr %.neg13298.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8287 = and i64 %8269, 1095216660480
   %.not13299 = icmp eq i64 %8287, 1095216660480
   %.neg13300 = select i1 %.not13299, i64 2, i64 1
-  %8288 = getelementptr inbounds i8, ptr %.neg13298.sroa.sel, i64 %.neg13300
+  %8288 = getelementptr inbounds nuw i8, ptr %.neg13298.sroa.sel, i64 %.neg13300
   %8289 = lshr i64 %8269, 24
   %8290 = trunc i64 %8289 to i8
   store i8 %8290, ptr %8288, align 1
-  %8291 = getelementptr inbounds i8, ptr %8288, i64 1
+  %8291 = getelementptr inbounds nuw i8, ptr %8288, i64 1
   store i8 0, ptr %8291, align 1
   %8292 = and i64 %8269, 4278190080
   %.not13301 = icmp eq i64 %8292, 4278190080
-  %.sroa.gep14496 = getelementptr inbounds i8, ptr %8288, i64 2
+  %.sroa.gep14496 = getelementptr inbounds nuw i8, ptr %8288, i64 2
   %.neg13302.sroa.sel = select i1 %.not13301, ptr %.sroa.gep14496, ptr %8291
   %8293 = lshr i64 %8269, 16
   %8294 = trunc i64 %8293 to i8
   store i8 %8294, ptr %.neg13302.sroa.sel, align 1
-  %.sroa.gep15649 = getelementptr inbounds i8, ptr %8288, i64 3
+  %.sroa.gep15649 = getelementptr inbounds nuw i8, ptr %8288, i64 3
   %.neg13302.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13301, ptr %.sroa.gep15649, ptr %.sroa.gep14496
   store i8 0, ptr %.neg13302.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8295 = and i64 %8269, 16711680
   %.not13303 = icmp eq i64 %8295, 16711680
   %.neg13304 = select i1 %.not13303, i64 2, i64 1
-  %8296 = getelementptr inbounds i8, ptr %.neg13302.sroa.sel, i64 %.neg13304
+  %8296 = getelementptr inbounds nuw i8, ptr %.neg13302.sroa.sel, i64 %.neg13304
   %8297 = lshr i64 %8269, 8
   %8298 = trunc i64 %8297 to i8
   store i8 %8298, ptr %8296, align 1
-  %8299 = getelementptr inbounds i8, ptr %8296, i64 1
+  %8299 = getelementptr inbounds nuw i8, ptr %8296, i64 1
   store i8 0, ptr %8299, align 1
   %8300 = and i64 %8269, 65280
   %.not13305 = icmp eq i64 %8300, 65280
-  %.sroa.gep14498 = getelementptr inbounds i8, ptr %8296, i64 2
+  %.sroa.gep14498 = getelementptr inbounds nuw i8, ptr %8296, i64 2
   %.neg13306.sroa.sel = select i1 %.not13305, ptr %.sroa.gep14498, ptr %8299
   %8301 = trunc i64 %8269 to i8
   store i8 %8301, ptr %.neg13306.sroa.sel, align 1
-  %.sroa.gep15647 = getelementptr inbounds i8, ptr %8296, i64 3
+  %.sroa.gep15647 = getelementptr inbounds nuw i8, ptr %8296, i64 3
   %.neg13306.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13305, ptr %.sroa.gep15647, ptr %.sroa.gep14498
   store i8 0, ptr %.neg13306.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8302 = and i64 %8269, 255
   %.not13307 = icmp eq i64 %8302, 255
   %.neg13308 = select i1 %.not13307, i64 2, i64 1
-  %8303 = getelementptr inbounds i8, ptr %.neg13306.sroa.sel, i64 %.neg13308
+  %8303 = getelementptr inbounds nuw i8, ptr %.neg13306.sroa.sel, i64 %.neg13308
   br label %8326
 
 8304:                                             ; preds = %8263
   %8305 = lshr i64 %8269, 48
   %8306 = trunc i64 %8305 to i8
-  %8307 = getelementptr inbounds i8, ptr %.292.lcssa, i64 1
+  %8307 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 1
   store i8 %8306, ptr %8307, align 1
   %8308 = lshr i64 %8269, 40
   %8309 = trunc i64 %8308 to i8
-  %8310 = getelementptr inbounds i8, ptr %.292.lcssa, i64 2
+  %8310 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 2
   store i8 %8309, ptr %8310, align 1
   %8311 = lshr i64 %8269, 32
   %8312 = trunc i64 %8311 to i8
-  %8313 = getelementptr inbounds i8, ptr %.292.lcssa, i64 3
+  %8313 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 3
   store i8 %8312, ptr %8313, align 1
   %8314 = lshr i64 %8269, 24
   %8315 = trunc i64 %8314 to i8
-  %8316 = getelementptr inbounds i8, ptr %.292.lcssa, i64 4
+  %8316 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 4
   store i8 %8315, ptr %8316, align 1
   %8317 = lshr i64 %8269, 16
   %8318 = trunc i64 %8317 to i8
-  %8319 = getelementptr inbounds i8, ptr %.292.lcssa, i64 5
+  %8319 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 5
   store i8 %8318, ptr %8319, align 1
   %8320 = lshr i64 %8269, 8
   %8321 = trunc i64 %8320 to i8
-  %8322 = getelementptr inbounds i8, ptr %.292.lcssa, i64 6
+  %8322 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 6
   store i8 %8321, ptr %8322, align 1
   %8323 = trunc i64 %8269 to i8
-  %8324 = getelementptr inbounds i8, ptr %.292.lcssa, i64 7
+  %8324 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 7
   store i8 %8323, ptr %8324, align 1
-  %8325 = getelementptr inbounds i8, ptr %.292.lcssa, i64 8
+  %8325 = getelementptr inbounds nuw i8, ptr %.292.lcssa, i64 8
   br label %8326
 
 8326:                                             ; preds = %8304, %8275
@@ -16667,7 +16667,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19311233 = phi i64 [ %.18911229, %8142 ], [ %8328, %8326 ], [ %8333, %8329 ]
   %.291 = phi ptr [ %.285, %8142 ], [ %.295, %8326 ], [ %.292.lcssa, %8329 ]
   %.96 = phi i32 [ %8143, %8142 ], [ 0, %8326 ], [ 0, %8329 ]
-  %8335 = getelementptr inbounds i8, ptr %1, i64 104
+  %8335 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %8336 = load i16, ptr %8335, align 2
   %8337 = icmp eq i16 %8336, 0
   br i1 %8337, label %8338, label %8340
@@ -16691,7 +16691,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 8350:                                             ; preds = %8340
   %8351 = load ptr, ptr %7, align 8
   %8352 = load ptr, ptr %8351, align 8
-  %8353 = getelementptr inbounds i8, ptr %8352, i64 40
+  %8353 = getelementptr inbounds nuw i8, ptr %8352, i64 40
   store i32 6, ptr %8353, align 8
   %8354 = load ptr, ptr %7, align 8
   %8355 = load ptr, ptr %8354, align 8
@@ -16704,8 +16704,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %8358, label %.lr.ph15101, label %._crit_edge15102
 
 .lr.ph15101:                                      ; preds = %8357
-  %8359 = getelementptr inbounds i8, ptr %4, i64 1264
-  %8360 = getelementptr inbounds i8, ptr %4, i64 960
+  %8359 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %8360 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %8361
 
 8361:                                             ; preds = %.lr.ph15101, %8440
@@ -16738,108 +16738,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13344, label %8409, label %8380
 
 8380:                                             ; preds = %8368
-  %8381 = getelementptr inbounds i8, ptr %.29815098, i64 1
+  %8381 = getelementptr inbounds nuw i8, ptr %.29815098, i64 1
   store i8 0, ptr %8381, align 1
   %.not13345 = icmp eq i64 %8378, 255
-  %.sroa.gep14500 = getelementptr inbounds i8, ptr %.29815098, i64 2
+  %.sroa.gep14500 = getelementptr inbounds nuw i8, ptr %.29815098, i64 2
   %.neg13346.sroa.sel = select i1 %.not13345, ptr %.sroa.gep14500, ptr %8381
   %8382 = lshr i64 %8370, 48
   %8383 = trunc i64 %8382 to i8
   store i8 %8383, ptr %.neg13346.sroa.sel, align 1
-  %.sroa.gep15621 = getelementptr inbounds i8, ptr %.29815098, i64 3
+  %.sroa.gep15621 = getelementptr inbounds nuw i8, ptr %.29815098, i64 3
   %.neg13346.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13345, ptr %.sroa.gep15621, ptr %.sroa.gep14500
   store i8 0, ptr %.neg13346.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8384 = and i64 %8370, 71776119061217280
   %.not13347 = icmp eq i64 %8384, 71776119061217280
   %.neg13348 = select i1 %.not13347, i64 2, i64 1
-  %8385 = getelementptr inbounds i8, ptr %.neg13346.sroa.sel, i64 %.neg13348
+  %8385 = getelementptr inbounds nuw i8, ptr %.neg13346.sroa.sel, i64 %.neg13348
   %8386 = lshr i64 %8370, 40
   %8387 = trunc i64 %8386 to i8
   store i8 %8387, ptr %8385, align 1
-  %8388 = getelementptr inbounds i8, ptr %8385, i64 1
+  %8388 = getelementptr inbounds nuw i8, ptr %8385, i64 1
   store i8 0, ptr %8388, align 1
   %8389 = and i64 %8370, 280375465082880
   %.not13349 = icmp eq i64 %8389, 280375465082880
-  %.sroa.gep14502 = getelementptr inbounds i8, ptr %8385, i64 2
+  %.sroa.gep14502 = getelementptr inbounds nuw i8, ptr %8385, i64 2
   %.neg13350.sroa.sel = select i1 %.not13349, ptr %.sroa.gep14502, ptr %8388
   %8390 = lshr i64 %8370, 32
   %8391 = trunc i64 %8390 to i8
   store i8 %8391, ptr %.neg13350.sroa.sel, align 1
-  %.sroa.gep15627 = getelementptr inbounds i8, ptr %8385, i64 3
+  %.sroa.gep15627 = getelementptr inbounds nuw i8, ptr %8385, i64 3
   %.neg13350.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13349, ptr %.sroa.gep15627, ptr %.sroa.gep14502
   store i8 0, ptr %.neg13350.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8392 = and i64 %8370, 1095216660480
   %.not13351 = icmp eq i64 %8392, 1095216660480
   %.neg13352 = select i1 %.not13351, i64 2, i64 1
-  %8393 = getelementptr inbounds i8, ptr %.neg13350.sroa.sel, i64 %.neg13352
+  %8393 = getelementptr inbounds nuw i8, ptr %.neg13350.sroa.sel, i64 %.neg13352
   %8394 = lshr i64 %8374, 24
   %8395 = trunc i64 %8394 to i8
   store i8 %8395, ptr %8393, align 1
-  %8396 = getelementptr inbounds i8, ptr %8393, i64 1
+  %8396 = getelementptr inbounds nuw i8, ptr %8393, i64 1
   store i8 0, ptr %8396, align 1
   %8397 = and i64 %8374, 4278190080
   %.not13353 = icmp eq i64 %8397, 4278190080
-  %.sroa.gep14504 = getelementptr inbounds i8, ptr %8393, i64 2
+  %.sroa.gep14504 = getelementptr inbounds nuw i8, ptr %8393, i64 2
   %.neg13354.sroa.sel = select i1 %.not13353, ptr %.sroa.gep14504, ptr %8396
   %8398 = lshr i64 %8374, 16
   %8399 = trunc i64 %8398 to i8
   store i8 %8399, ptr %.neg13354.sroa.sel, align 1
-  %.sroa.gep15625 = getelementptr inbounds i8, ptr %8393, i64 3
+  %.sroa.gep15625 = getelementptr inbounds nuw i8, ptr %8393, i64 3
   %.neg13354.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13353, ptr %.sroa.gep15625, ptr %.sroa.gep14504
   store i8 0, ptr %.neg13354.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8400 = and i64 %8374, 16711680
   %.not13355 = icmp eq i64 %8400, 16711680
   %.neg13356 = select i1 %.not13355, i64 2, i64 1
-  %8401 = getelementptr inbounds i8, ptr %.neg13354.sroa.sel, i64 %.neg13356
+  %8401 = getelementptr inbounds nuw i8, ptr %.neg13354.sroa.sel, i64 %.neg13356
   %8402 = lshr i64 %8374, 8
   %8403 = trunc i64 %8402 to i8
   store i8 %8403, ptr %8401, align 1
-  %8404 = getelementptr inbounds i8, ptr %8401, i64 1
+  %8404 = getelementptr inbounds nuw i8, ptr %8401, i64 1
   store i8 0, ptr %8404, align 1
   %8405 = and i64 %8374, 65280
   %.not13357 = icmp eq i64 %8405, 65280
-  %.sroa.gep14506 = getelementptr inbounds i8, ptr %8401, i64 2
+  %.sroa.gep14506 = getelementptr inbounds nuw i8, ptr %8401, i64 2
   %.neg13358.sroa.sel = select i1 %.not13357, ptr %.sroa.gep14506, ptr %8404
   %8406 = trunc i64 %8374 to i8
   store i8 %8406, ptr %.neg13358.sroa.sel, align 1
-  %.sroa.gep15623 = getelementptr inbounds i8, ptr %8401, i64 3
+  %.sroa.gep15623 = getelementptr inbounds nuw i8, ptr %8401, i64 3
   %.neg13358.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13357, ptr %.sroa.gep15623, ptr %.sroa.gep14506
   store i8 0, ptr %.neg13358.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8407 = and i64 %8374, 255
   %.not13359 = icmp eq i64 %8407, 255
   %.neg13360 = select i1 %.not13359, i64 2, i64 1
-  %8408 = getelementptr inbounds i8, ptr %.neg13358.sroa.sel, i64 %.neg13360
+  %8408 = getelementptr inbounds nuw i8, ptr %.neg13358.sroa.sel, i64 %.neg13360
   br label %8431
 
 8409:                                             ; preds = %8368
   %8410 = lshr i64 %8370, 48
   %8411 = trunc i64 %8410 to i8
-  %8412 = getelementptr inbounds i8, ptr %.29815098, i64 1
+  %8412 = getelementptr inbounds nuw i8, ptr %.29815098, i64 1
   store i8 %8411, ptr %8412, align 1
   %8413 = lshr i64 %8370, 40
   %8414 = trunc i64 %8413 to i8
-  %8415 = getelementptr inbounds i8, ptr %.29815098, i64 2
+  %8415 = getelementptr inbounds nuw i8, ptr %.29815098, i64 2
   store i8 %8414, ptr %8415, align 1
   %8416 = lshr i64 %8370, 32
   %8417 = trunc i64 %8416 to i8
-  %8418 = getelementptr inbounds i8, ptr %.29815098, i64 3
+  %8418 = getelementptr inbounds nuw i8, ptr %.29815098, i64 3
   store i8 %8417, ptr %8418, align 1
   %8419 = lshr i64 %8374, 24
   %8420 = trunc i64 %8419 to i8
-  %8421 = getelementptr inbounds i8, ptr %.29815098, i64 4
+  %8421 = getelementptr inbounds nuw i8, ptr %.29815098, i64 4
   store i8 %8420, ptr %8421, align 1
   %8422 = lshr i64 %8374, 16
   %8423 = trunc i64 %8422 to i8
-  %8424 = getelementptr inbounds i8, ptr %.29815098, i64 5
+  %8424 = getelementptr inbounds nuw i8, ptr %.29815098, i64 5
   store i8 %8423, ptr %8424, align 1
   %8425 = lshr i64 %8374, 8
   %8426 = trunc i64 %8425 to i8
-  %8427 = getelementptr inbounds i8, ptr %.29815098, i64 6
+  %8427 = getelementptr inbounds nuw i8, ptr %.29815098, i64 6
   store i8 %8426, ptr %8427, align 1
   %8428 = trunc i64 %8374 to i8
-  %8429 = getelementptr inbounds i8, ptr %.29815098, i64 7
+  %8429 = getelementptr inbounds nuw i8, ptr %.29815098, i64 7
   store i8 %8428, ptr %8429, align 1
-  %8430 = getelementptr inbounds i8, ptr %.29815098, i64 8
+  %8430 = getelementptr inbounds nuw i8, ptr %.29815098, i64 8
   br label %8431
 
 8431:                                             ; preds = %8409, %8380
@@ -16875,12 +16875,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8445 = xor i32 %8444, -1
   %8446 = and i32 %8343, %8445
   %8447 = zext nneg i32 %8442 to i64
-  %8448 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %8447
+  %8448 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %8447
   %8449 = load i32, ptr %8448, align 4
   %8450 = shl i32 %8449, %8348
   %8451 = or i32 %8450, %8446
-  %8452 = getelementptr inbounds i8, ptr %4, i64 1024
-  %8453 = getelementptr inbounds [256 x i8], ptr %8452, i64 0, i64 %8447
+  %8452 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %8453 = getelementptr inbounds nuw [256 x i8], ptr %8452, i64 0, i64 %8447
   %8454 = load i8, ptr %8453, align 1
   %8455 = sext i8 %8454 to i32
   %8456 = add nsw i32 %8455, %8348
@@ -16905,108 +16905,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13327, label %8500, label %8471
 
 8471:                                             ; preds = %8459
-  %8472 = getelementptr inbounds i8, ptr %.298.lcssa, i64 1
+  %8472 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 1
   store i8 0, ptr %8472, align 1
   %.not13328 = icmp eq i64 %8469, 255
-  %.sroa.gep14508 = getelementptr inbounds i8, ptr %.298.lcssa, i64 2
+  %.sroa.gep14508 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 2
   %.neg13329.sroa.sel = select i1 %.not13328, ptr %.sroa.gep14508, ptr %8472
   %8473 = lshr i64 %8465, 48
   %8474 = trunc i64 %8473 to i8
   store i8 %8474, ptr %.neg13329.sroa.sel, align 1
-  %.sroa.gep15629 = getelementptr inbounds i8, ptr %.298.lcssa, i64 3
+  %.sroa.gep15629 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 3
   %.neg13329.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13328, ptr %.sroa.gep15629, ptr %.sroa.gep14508
   store i8 0, ptr %.neg13329.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8475 = and i64 %8465, 71776119061217280
   %.not13330 = icmp eq i64 %8475, 71776119061217280
   %.neg13331 = select i1 %.not13330, i64 2, i64 1
-  %8476 = getelementptr inbounds i8, ptr %.neg13329.sroa.sel, i64 %.neg13331
+  %8476 = getelementptr inbounds nuw i8, ptr %.neg13329.sroa.sel, i64 %.neg13331
   %8477 = lshr i64 %8465, 40
   %8478 = trunc i64 %8477 to i8
   store i8 %8478, ptr %8476, align 1
-  %8479 = getelementptr inbounds i8, ptr %8476, i64 1
+  %8479 = getelementptr inbounds nuw i8, ptr %8476, i64 1
   store i8 0, ptr %8479, align 1
   %8480 = and i64 %8465, 280375465082880
   %.not13332 = icmp eq i64 %8480, 280375465082880
-  %.sroa.gep14510 = getelementptr inbounds i8, ptr %8476, i64 2
+  %.sroa.gep14510 = getelementptr inbounds nuw i8, ptr %8476, i64 2
   %.neg13333.sroa.sel = select i1 %.not13332, ptr %.sroa.gep14510, ptr %8479
   %8481 = lshr i64 %8465, 32
   %8482 = trunc i64 %8481 to i8
   store i8 %8482, ptr %.neg13333.sroa.sel, align 1
-  %.sroa.gep15635 = getelementptr inbounds i8, ptr %8476, i64 3
+  %.sroa.gep15635 = getelementptr inbounds nuw i8, ptr %8476, i64 3
   %.neg13333.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13332, ptr %.sroa.gep15635, ptr %.sroa.gep14510
   store i8 0, ptr %.neg13333.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8483 = and i64 %8465, 1095216660480
   %.not13334 = icmp eq i64 %8483, 1095216660480
   %.neg13335 = select i1 %.not13334, i64 2, i64 1
-  %8484 = getelementptr inbounds i8, ptr %.neg13333.sroa.sel, i64 %.neg13335
+  %8484 = getelementptr inbounds nuw i8, ptr %.neg13333.sroa.sel, i64 %.neg13335
   %8485 = lshr i64 %8465, 24
   %8486 = trunc i64 %8485 to i8
   store i8 %8486, ptr %8484, align 1
-  %8487 = getelementptr inbounds i8, ptr %8484, i64 1
+  %8487 = getelementptr inbounds nuw i8, ptr %8484, i64 1
   store i8 0, ptr %8487, align 1
   %8488 = and i64 %8465, 4278190080
   %.not13336 = icmp eq i64 %8488, 4278190080
-  %.sroa.gep14512 = getelementptr inbounds i8, ptr %8484, i64 2
+  %.sroa.gep14512 = getelementptr inbounds nuw i8, ptr %8484, i64 2
   %.neg13337.sroa.sel = select i1 %.not13336, ptr %.sroa.gep14512, ptr %8487
   %8489 = lshr i64 %8465, 16
   %8490 = trunc i64 %8489 to i8
   store i8 %8490, ptr %.neg13337.sroa.sel, align 1
-  %.sroa.gep15633 = getelementptr inbounds i8, ptr %8484, i64 3
+  %.sroa.gep15633 = getelementptr inbounds nuw i8, ptr %8484, i64 3
   %.neg13337.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13336, ptr %.sroa.gep15633, ptr %.sroa.gep14512
   store i8 0, ptr %.neg13337.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8491 = and i64 %8465, 16711680
   %.not13338 = icmp eq i64 %8491, 16711680
   %.neg13339 = select i1 %.not13338, i64 2, i64 1
-  %8492 = getelementptr inbounds i8, ptr %.neg13337.sroa.sel, i64 %.neg13339
+  %8492 = getelementptr inbounds nuw i8, ptr %.neg13337.sroa.sel, i64 %.neg13339
   %8493 = lshr i64 %8465, 8
   %8494 = trunc i64 %8493 to i8
   store i8 %8494, ptr %8492, align 1
-  %8495 = getelementptr inbounds i8, ptr %8492, i64 1
+  %8495 = getelementptr inbounds nuw i8, ptr %8492, i64 1
   store i8 0, ptr %8495, align 1
   %8496 = and i64 %8465, 65280
   %.not13340 = icmp eq i64 %8496, 65280
-  %.sroa.gep14514 = getelementptr inbounds i8, ptr %8492, i64 2
+  %.sroa.gep14514 = getelementptr inbounds nuw i8, ptr %8492, i64 2
   %.neg13341.sroa.sel = select i1 %.not13340, ptr %.sroa.gep14514, ptr %8495
   %8497 = trunc i64 %8465 to i8
   store i8 %8497, ptr %.neg13341.sroa.sel, align 1
-  %.sroa.gep15631 = getelementptr inbounds i8, ptr %8492, i64 3
+  %.sroa.gep15631 = getelementptr inbounds nuw i8, ptr %8492, i64 3
   %.neg13341.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13340, ptr %.sroa.gep15631, ptr %.sroa.gep14514
   store i8 0, ptr %.neg13341.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8498 = and i64 %8465, 255
   %.not13342 = icmp eq i64 %8498, 255
   %.neg13343 = select i1 %.not13342, i64 2, i64 1
-  %8499 = getelementptr inbounds i8, ptr %.neg13341.sroa.sel, i64 %.neg13343
+  %8499 = getelementptr inbounds nuw i8, ptr %.neg13341.sroa.sel, i64 %.neg13343
   br label %8522
 
 8500:                                             ; preds = %8459
   %8501 = lshr i64 %8465, 48
   %8502 = trunc i64 %8501 to i8
-  %8503 = getelementptr inbounds i8, ptr %.298.lcssa, i64 1
+  %8503 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 1
   store i8 %8502, ptr %8503, align 1
   %8504 = lshr i64 %8465, 40
   %8505 = trunc i64 %8504 to i8
-  %8506 = getelementptr inbounds i8, ptr %.298.lcssa, i64 2
+  %8506 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 2
   store i8 %8505, ptr %8506, align 1
   %8507 = lshr i64 %8465, 32
   %8508 = trunc i64 %8507 to i8
-  %8509 = getelementptr inbounds i8, ptr %.298.lcssa, i64 3
+  %8509 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 3
   store i8 %8508, ptr %8509, align 1
   %8510 = lshr i64 %8465, 24
   %8511 = trunc i64 %8510 to i8
-  %8512 = getelementptr inbounds i8, ptr %.298.lcssa, i64 4
+  %8512 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 4
   store i8 %8511, ptr %8512, align 1
   %8513 = lshr i64 %8465, 16
   %8514 = trunc i64 %8513 to i8
-  %8515 = getelementptr inbounds i8, ptr %.298.lcssa, i64 5
+  %8515 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 5
   store i8 %8514, ptr %8515, align 1
   %8516 = lshr i64 %8465, 8
   %8517 = trunc i64 %8516 to i8
-  %8518 = getelementptr inbounds i8, ptr %.298.lcssa, i64 6
+  %8518 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 6
   store i8 %8517, ptr %8518, align 1
   %8519 = trunc i64 %8465 to i8
-  %8520 = getelementptr inbounds i8, ptr %.298.lcssa, i64 7
+  %8520 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 7
   store i8 %8519, ptr %8520, align 1
-  %8521 = getelementptr inbounds i8, ptr %.298.lcssa, i64 8
+  %8521 = getelementptr inbounds nuw i8, ptr %.298.lcssa, i64 8
   br label %8522
 
 8522:                                             ; preds = %8500, %8471
@@ -17027,7 +17027,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.19711237 = phi i64 [ %.19311233, %8338 ], [ %8524, %8522 ], [ %8529, %8525 ]
   %.297 = phi ptr [ %.291, %8338 ], [ %.301, %8522 ], [ %.298.lcssa, %8525 ]
   %.98 = phi i32 [ %8339, %8338 ], [ 0, %8522 ], [ 0, %8525 ]
-  %8531 = getelementptr inbounds i8, ptr %1, i64 90
+  %8531 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %8532 = load i16, ptr %8531, align 2
   %8533 = icmp eq i16 %8532, 0
   br i1 %8533, label %8534, label %8536
@@ -17051,7 +17051,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 8546:                                             ; preds = %8536
   %8547 = load ptr, ptr %7, align 8
   %8548 = load ptr, ptr %8547, align 8
-  %8549 = getelementptr inbounds i8, ptr %8548, i64 40
+  %8549 = getelementptr inbounds nuw i8, ptr %8548, i64 40
   store i32 6, ptr %8549, align 8
   %8550 = load ptr, ptr %7, align 8
   %8551 = load ptr, ptr %8550, align 8
@@ -17064,8 +17064,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %8554, label %.lr.ph15112, label %._crit_edge15113
 
 .lr.ph15112:                                      ; preds = %8553
-  %8555 = getelementptr inbounds i8, ptr %4, i64 1264
-  %8556 = getelementptr inbounds i8, ptr %4, i64 960
+  %8555 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %8556 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %8557
 
 8557:                                             ; preds = %.lr.ph15112, %8636
@@ -17098,108 +17098,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13379, label %8605, label %8576
 
 8576:                                             ; preds = %8564
-  %8577 = getelementptr inbounds i8, ptr %.30415109, i64 1
+  %8577 = getelementptr inbounds nuw i8, ptr %.30415109, i64 1
   store i8 0, ptr %8577, align 1
   %.not13380 = icmp eq i64 %8574, 255
-  %.sroa.gep14516 = getelementptr inbounds i8, ptr %.30415109, i64 2
+  %.sroa.gep14516 = getelementptr inbounds nuw i8, ptr %.30415109, i64 2
   %.neg13381.sroa.sel = select i1 %.not13380, ptr %.sroa.gep14516, ptr %8577
   %8578 = lshr i64 %8566, 48
   %8579 = trunc i64 %8578 to i8
   store i8 %8579, ptr %.neg13381.sroa.sel, align 1
-  %.sroa.gep15605 = getelementptr inbounds i8, ptr %.30415109, i64 3
+  %.sroa.gep15605 = getelementptr inbounds nuw i8, ptr %.30415109, i64 3
   %.neg13381.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13380, ptr %.sroa.gep15605, ptr %.sroa.gep14516
   store i8 0, ptr %.neg13381.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8580 = and i64 %8566, 71776119061217280
   %.not13382 = icmp eq i64 %8580, 71776119061217280
   %.neg13383 = select i1 %.not13382, i64 2, i64 1
-  %8581 = getelementptr inbounds i8, ptr %.neg13381.sroa.sel, i64 %.neg13383
+  %8581 = getelementptr inbounds nuw i8, ptr %.neg13381.sroa.sel, i64 %.neg13383
   %8582 = lshr i64 %8566, 40
   %8583 = trunc i64 %8582 to i8
   store i8 %8583, ptr %8581, align 1
-  %8584 = getelementptr inbounds i8, ptr %8581, i64 1
+  %8584 = getelementptr inbounds nuw i8, ptr %8581, i64 1
   store i8 0, ptr %8584, align 1
   %8585 = and i64 %8566, 280375465082880
   %.not13384 = icmp eq i64 %8585, 280375465082880
-  %.sroa.gep14518 = getelementptr inbounds i8, ptr %8581, i64 2
+  %.sroa.gep14518 = getelementptr inbounds nuw i8, ptr %8581, i64 2
   %.neg13385.sroa.sel = select i1 %.not13384, ptr %.sroa.gep14518, ptr %8584
   %8586 = lshr i64 %8566, 32
   %8587 = trunc i64 %8586 to i8
   store i8 %8587, ptr %.neg13385.sroa.sel, align 1
-  %.sroa.gep15611 = getelementptr inbounds i8, ptr %8581, i64 3
+  %.sroa.gep15611 = getelementptr inbounds nuw i8, ptr %8581, i64 3
   %.neg13385.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13384, ptr %.sroa.gep15611, ptr %.sroa.gep14518
   store i8 0, ptr %.neg13385.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8588 = and i64 %8566, 1095216660480
   %.not13386 = icmp eq i64 %8588, 1095216660480
   %.neg13387 = select i1 %.not13386, i64 2, i64 1
-  %8589 = getelementptr inbounds i8, ptr %.neg13385.sroa.sel, i64 %.neg13387
+  %8589 = getelementptr inbounds nuw i8, ptr %.neg13385.sroa.sel, i64 %.neg13387
   %8590 = lshr i64 %8570, 24
   %8591 = trunc i64 %8590 to i8
   store i8 %8591, ptr %8589, align 1
-  %8592 = getelementptr inbounds i8, ptr %8589, i64 1
+  %8592 = getelementptr inbounds nuw i8, ptr %8589, i64 1
   store i8 0, ptr %8592, align 1
   %8593 = and i64 %8570, 4278190080
   %.not13388 = icmp eq i64 %8593, 4278190080
-  %.sroa.gep14520 = getelementptr inbounds i8, ptr %8589, i64 2
+  %.sroa.gep14520 = getelementptr inbounds nuw i8, ptr %8589, i64 2
   %.neg13389.sroa.sel = select i1 %.not13388, ptr %.sroa.gep14520, ptr %8592
   %8594 = lshr i64 %8570, 16
   %8595 = trunc i64 %8594 to i8
   store i8 %8595, ptr %.neg13389.sroa.sel, align 1
-  %.sroa.gep15609 = getelementptr inbounds i8, ptr %8589, i64 3
+  %.sroa.gep15609 = getelementptr inbounds nuw i8, ptr %8589, i64 3
   %.neg13389.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13388, ptr %.sroa.gep15609, ptr %.sroa.gep14520
   store i8 0, ptr %.neg13389.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8596 = and i64 %8570, 16711680
   %.not13390 = icmp eq i64 %8596, 16711680
   %.neg13391 = select i1 %.not13390, i64 2, i64 1
-  %8597 = getelementptr inbounds i8, ptr %.neg13389.sroa.sel, i64 %.neg13391
+  %8597 = getelementptr inbounds nuw i8, ptr %.neg13389.sroa.sel, i64 %.neg13391
   %8598 = lshr i64 %8570, 8
   %8599 = trunc i64 %8598 to i8
   store i8 %8599, ptr %8597, align 1
-  %8600 = getelementptr inbounds i8, ptr %8597, i64 1
+  %8600 = getelementptr inbounds nuw i8, ptr %8597, i64 1
   store i8 0, ptr %8600, align 1
   %8601 = and i64 %8570, 65280
   %.not13392 = icmp eq i64 %8601, 65280
-  %.sroa.gep14522 = getelementptr inbounds i8, ptr %8597, i64 2
+  %.sroa.gep14522 = getelementptr inbounds nuw i8, ptr %8597, i64 2
   %.neg13393.sroa.sel = select i1 %.not13392, ptr %.sroa.gep14522, ptr %8600
   %8602 = trunc i64 %8570 to i8
   store i8 %8602, ptr %.neg13393.sroa.sel, align 1
-  %.sroa.gep15607 = getelementptr inbounds i8, ptr %8597, i64 3
+  %.sroa.gep15607 = getelementptr inbounds nuw i8, ptr %8597, i64 3
   %.neg13393.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13392, ptr %.sroa.gep15607, ptr %.sroa.gep14522
   store i8 0, ptr %.neg13393.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8603 = and i64 %8570, 255
   %.not13394 = icmp eq i64 %8603, 255
   %.neg13395 = select i1 %.not13394, i64 2, i64 1
-  %8604 = getelementptr inbounds i8, ptr %.neg13393.sroa.sel, i64 %.neg13395
+  %8604 = getelementptr inbounds nuw i8, ptr %.neg13393.sroa.sel, i64 %.neg13395
   br label %8627
 
 8605:                                             ; preds = %8564
   %8606 = lshr i64 %8566, 48
   %8607 = trunc i64 %8606 to i8
-  %8608 = getelementptr inbounds i8, ptr %.30415109, i64 1
+  %8608 = getelementptr inbounds nuw i8, ptr %.30415109, i64 1
   store i8 %8607, ptr %8608, align 1
   %8609 = lshr i64 %8566, 40
   %8610 = trunc i64 %8609 to i8
-  %8611 = getelementptr inbounds i8, ptr %.30415109, i64 2
+  %8611 = getelementptr inbounds nuw i8, ptr %.30415109, i64 2
   store i8 %8610, ptr %8611, align 1
   %8612 = lshr i64 %8566, 32
   %8613 = trunc i64 %8612 to i8
-  %8614 = getelementptr inbounds i8, ptr %.30415109, i64 3
+  %8614 = getelementptr inbounds nuw i8, ptr %.30415109, i64 3
   store i8 %8613, ptr %8614, align 1
   %8615 = lshr i64 %8570, 24
   %8616 = trunc i64 %8615 to i8
-  %8617 = getelementptr inbounds i8, ptr %.30415109, i64 4
+  %8617 = getelementptr inbounds nuw i8, ptr %.30415109, i64 4
   store i8 %8616, ptr %8617, align 1
   %8618 = lshr i64 %8570, 16
   %8619 = trunc i64 %8618 to i8
-  %8620 = getelementptr inbounds i8, ptr %.30415109, i64 5
+  %8620 = getelementptr inbounds nuw i8, ptr %.30415109, i64 5
   store i8 %8619, ptr %8620, align 1
   %8621 = lshr i64 %8570, 8
   %8622 = trunc i64 %8621 to i8
-  %8623 = getelementptr inbounds i8, ptr %.30415109, i64 6
+  %8623 = getelementptr inbounds nuw i8, ptr %.30415109, i64 6
   store i8 %8622, ptr %8623, align 1
   %8624 = trunc i64 %8570 to i8
-  %8625 = getelementptr inbounds i8, ptr %.30415109, i64 7
+  %8625 = getelementptr inbounds nuw i8, ptr %.30415109, i64 7
   store i8 %8624, ptr %8625, align 1
-  %8626 = getelementptr inbounds i8, ptr %.30415109, i64 8
+  %8626 = getelementptr inbounds nuw i8, ptr %.30415109, i64 8
   br label %8627
 
 8627:                                             ; preds = %8605, %8576
@@ -17235,12 +17235,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8641 = xor i32 %8640, -1
   %8642 = and i32 %8539, %8641
   %8643 = zext nneg i32 %8638 to i64
-  %8644 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %8643
+  %8644 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %8643
   %8645 = load i32, ptr %8644, align 4
   %8646 = shl i32 %8645, %8544
   %8647 = or i32 %8646, %8642
-  %8648 = getelementptr inbounds i8, ptr %4, i64 1024
-  %8649 = getelementptr inbounds [256 x i8], ptr %8648, i64 0, i64 %8643
+  %8648 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %8649 = getelementptr inbounds nuw [256 x i8], ptr %8648, i64 0, i64 %8643
   %8650 = load i8, ptr %8649, align 1
   %8651 = sext i8 %8650 to i32
   %8652 = add nsw i32 %8651, %8544
@@ -17265,108 +17265,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13362, label %8696, label %8667
 
 8667:                                             ; preds = %8655
-  %8668 = getelementptr inbounds i8, ptr %.304.lcssa, i64 1
+  %8668 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 1
   store i8 0, ptr %8668, align 1
   %.not13363 = icmp eq i64 %8665, 255
-  %.sroa.gep14524 = getelementptr inbounds i8, ptr %.304.lcssa, i64 2
+  %.sroa.gep14524 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 2
   %.neg13364.sroa.sel = select i1 %.not13363, ptr %.sroa.gep14524, ptr %8668
   %8669 = lshr i64 %8661, 48
   %8670 = trunc i64 %8669 to i8
   store i8 %8670, ptr %.neg13364.sroa.sel, align 1
-  %.sroa.gep15613 = getelementptr inbounds i8, ptr %.304.lcssa, i64 3
+  %.sroa.gep15613 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 3
   %.neg13364.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13363, ptr %.sroa.gep15613, ptr %.sroa.gep14524
   store i8 0, ptr %.neg13364.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8671 = and i64 %8661, 71776119061217280
   %.not13365 = icmp eq i64 %8671, 71776119061217280
   %.neg13366 = select i1 %.not13365, i64 2, i64 1
-  %8672 = getelementptr inbounds i8, ptr %.neg13364.sroa.sel, i64 %.neg13366
+  %8672 = getelementptr inbounds nuw i8, ptr %.neg13364.sroa.sel, i64 %.neg13366
   %8673 = lshr i64 %8661, 40
   %8674 = trunc i64 %8673 to i8
   store i8 %8674, ptr %8672, align 1
-  %8675 = getelementptr inbounds i8, ptr %8672, i64 1
+  %8675 = getelementptr inbounds nuw i8, ptr %8672, i64 1
   store i8 0, ptr %8675, align 1
   %8676 = and i64 %8661, 280375465082880
   %.not13367 = icmp eq i64 %8676, 280375465082880
-  %.sroa.gep14526 = getelementptr inbounds i8, ptr %8672, i64 2
+  %.sroa.gep14526 = getelementptr inbounds nuw i8, ptr %8672, i64 2
   %.neg13368.sroa.sel = select i1 %.not13367, ptr %.sroa.gep14526, ptr %8675
   %8677 = lshr i64 %8661, 32
   %8678 = trunc i64 %8677 to i8
   store i8 %8678, ptr %.neg13368.sroa.sel, align 1
-  %.sroa.gep15619 = getelementptr inbounds i8, ptr %8672, i64 3
+  %.sroa.gep15619 = getelementptr inbounds nuw i8, ptr %8672, i64 3
   %.neg13368.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13367, ptr %.sroa.gep15619, ptr %.sroa.gep14526
   store i8 0, ptr %.neg13368.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8679 = and i64 %8661, 1095216660480
   %.not13369 = icmp eq i64 %8679, 1095216660480
   %.neg13370 = select i1 %.not13369, i64 2, i64 1
-  %8680 = getelementptr inbounds i8, ptr %.neg13368.sroa.sel, i64 %.neg13370
+  %8680 = getelementptr inbounds nuw i8, ptr %.neg13368.sroa.sel, i64 %.neg13370
   %8681 = lshr i64 %8661, 24
   %8682 = trunc i64 %8681 to i8
   store i8 %8682, ptr %8680, align 1
-  %8683 = getelementptr inbounds i8, ptr %8680, i64 1
+  %8683 = getelementptr inbounds nuw i8, ptr %8680, i64 1
   store i8 0, ptr %8683, align 1
   %8684 = and i64 %8661, 4278190080
   %.not13371 = icmp eq i64 %8684, 4278190080
-  %.sroa.gep14528 = getelementptr inbounds i8, ptr %8680, i64 2
+  %.sroa.gep14528 = getelementptr inbounds nuw i8, ptr %8680, i64 2
   %.neg13372.sroa.sel = select i1 %.not13371, ptr %.sroa.gep14528, ptr %8683
   %8685 = lshr i64 %8661, 16
   %8686 = trunc i64 %8685 to i8
   store i8 %8686, ptr %.neg13372.sroa.sel, align 1
-  %.sroa.gep15617 = getelementptr inbounds i8, ptr %8680, i64 3
+  %.sroa.gep15617 = getelementptr inbounds nuw i8, ptr %8680, i64 3
   %.neg13372.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13371, ptr %.sroa.gep15617, ptr %.sroa.gep14528
   store i8 0, ptr %.neg13372.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8687 = and i64 %8661, 16711680
   %.not13373 = icmp eq i64 %8687, 16711680
   %.neg13374 = select i1 %.not13373, i64 2, i64 1
-  %8688 = getelementptr inbounds i8, ptr %.neg13372.sroa.sel, i64 %.neg13374
+  %8688 = getelementptr inbounds nuw i8, ptr %.neg13372.sroa.sel, i64 %.neg13374
   %8689 = lshr i64 %8661, 8
   %8690 = trunc i64 %8689 to i8
   store i8 %8690, ptr %8688, align 1
-  %8691 = getelementptr inbounds i8, ptr %8688, i64 1
+  %8691 = getelementptr inbounds nuw i8, ptr %8688, i64 1
   store i8 0, ptr %8691, align 1
   %8692 = and i64 %8661, 65280
   %.not13375 = icmp eq i64 %8692, 65280
-  %.sroa.gep14530 = getelementptr inbounds i8, ptr %8688, i64 2
+  %.sroa.gep14530 = getelementptr inbounds nuw i8, ptr %8688, i64 2
   %.neg13376.sroa.sel = select i1 %.not13375, ptr %.sroa.gep14530, ptr %8691
   %8693 = trunc i64 %8661 to i8
   store i8 %8693, ptr %.neg13376.sroa.sel, align 1
-  %.sroa.gep15615 = getelementptr inbounds i8, ptr %8688, i64 3
+  %.sroa.gep15615 = getelementptr inbounds nuw i8, ptr %8688, i64 3
   %.neg13376.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13375, ptr %.sroa.gep15615, ptr %.sroa.gep14530
   store i8 0, ptr %.neg13376.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8694 = and i64 %8661, 255
   %.not13377 = icmp eq i64 %8694, 255
   %.neg13378 = select i1 %.not13377, i64 2, i64 1
-  %8695 = getelementptr inbounds i8, ptr %.neg13376.sroa.sel, i64 %.neg13378
+  %8695 = getelementptr inbounds nuw i8, ptr %.neg13376.sroa.sel, i64 %.neg13378
   br label %8718
 
 8696:                                             ; preds = %8655
   %8697 = lshr i64 %8661, 48
   %8698 = trunc i64 %8697 to i8
-  %8699 = getelementptr inbounds i8, ptr %.304.lcssa, i64 1
+  %8699 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 1
   store i8 %8698, ptr %8699, align 1
   %8700 = lshr i64 %8661, 40
   %8701 = trunc i64 %8700 to i8
-  %8702 = getelementptr inbounds i8, ptr %.304.lcssa, i64 2
+  %8702 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 2
   store i8 %8701, ptr %8702, align 1
   %8703 = lshr i64 %8661, 32
   %8704 = trunc i64 %8703 to i8
-  %8705 = getelementptr inbounds i8, ptr %.304.lcssa, i64 3
+  %8705 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 3
   store i8 %8704, ptr %8705, align 1
   %8706 = lshr i64 %8661, 24
   %8707 = trunc i64 %8706 to i8
-  %8708 = getelementptr inbounds i8, ptr %.304.lcssa, i64 4
+  %8708 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 4
   store i8 %8707, ptr %8708, align 1
   %8709 = lshr i64 %8661, 16
   %8710 = trunc i64 %8709 to i8
-  %8711 = getelementptr inbounds i8, ptr %.304.lcssa, i64 5
+  %8711 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 5
   store i8 %8710, ptr %8711, align 1
   %8712 = lshr i64 %8661, 8
   %8713 = trunc i64 %8712 to i8
-  %8714 = getelementptr inbounds i8, ptr %.304.lcssa, i64 6
+  %8714 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 6
   store i8 %8713, ptr %8714, align 1
   %8715 = trunc i64 %8661 to i8
-  %8716 = getelementptr inbounds i8, ptr %.304.lcssa, i64 7
+  %8716 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 7
   store i8 %8715, ptr %8716, align 1
-  %8717 = getelementptr inbounds i8, ptr %.304.lcssa, i64 8
+  %8717 = getelementptr inbounds nuw i8, ptr %.304.lcssa, i64 8
   br label %8718
 
 8718:                                             ; preds = %8696, %8667
@@ -17387,7 +17387,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20111241 = phi i64 [ %.19711237, %8534 ], [ %8720, %8718 ], [ %8725, %8721 ]
   %.303 = phi ptr [ %.297, %8534 ], [ %.307, %8718 ], [ %.304.lcssa, %8721 ]
   %.100 = phi i32 [ %8535, %8534 ], [ 0, %8718 ], [ 0, %8721 ]
-  %8727 = getelementptr inbounds i8, ptr %1, i64 76
+  %8727 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %8728 = load i16, ptr %8727, align 2
   %8729 = icmp eq i16 %8728, 0
   br i1 %8729, label %8730, label %8732
@@ -17411,7 +17411,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 8742:                                             ; preds = %8732
   %8743 = load ptr, ptr %7, align 8
   %8744 = load ptr, ptr %8743, align 8
-  %8745 = getelementptr inbounds i8, ptr %8744, i64 40
+  %8745 = getelementptr inbounds nuw i8, ptr %8744, i64 40
   store i32 6, ptr %8745, align 8
   %8746 = load ptr, ptr %7, align 8
   %8747 = load ptr, ptr %8746, align 8
@@ -17424,8 +17424,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %8750, label %.lr.ph15123, label %._crit_edge15124
 
 .lr.ph15123:                                      ; preds = %8749
-  %8751 = getelementptr inbounds i8, ptr %4, i64 1264
-  %8752 = getelementptr inbounds i8, ptr %4, i64 960
+  %8751 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %8752 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %8753
 
 8753:                                             ; preds = %.lr.ph15123, %8832
@@ -17458,108 +17458,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13414, label %8801, label %8772
 
 8772:                                             ; preds = %8760
-  %8773 = getelementptr inbounds i8, ptr %.31015120, i64 1
+  %8773 = getelementptr inbounds nuw i8, ptr %.31015120, i64 1
   store i8 0, ptr %8773, align 1
   %.not13415 = icmp eq i64 %8770, 255
-  %.sroa.gep14532 = getelementptr inbounds i8, ptr %.31015120, i64 2
+  %.sroa.gep14532 = getelementptr inbounds nuw i8, ptr %.31015120, i64 2
   %.neg13416.sroa.sel = select i1 %.not13415, ptr %.sroa.gep14532, ptr %8773
   %8774 = lshr i64 %8762, 48
   %8775 = trunc i64 %8774 to i8
   store i8 %8775, ptr %.neg13416.sroa.sel, align 1
-  %.sroa.gep15589 = getelementptr inbounds i8, ptr %.31015120, i64 3
+  %.sroa.gep15589 = getelementptr inbounds nuw i8, ptr %.31015120, i64 3
   %.neg13416.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13415, ptr %.sroa.gep15589, ptr %.sroa.gep14532
   store i8 0, ptr %.neg13416.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8776 = and i64 %8762, 71776119061217280
   %.not13417 = icmp eq i64 %8776, 71776119061217280
   %.neg13418 = select i1 %.not13417, i64 2, i64 1
-  %8777 = getelementptr inbounds i8, ptr %.neg13416.sroa.sel, i64 %.neg13418
+  %8777 = getelementptr inbounds nuw i8, ptr %.neg13416.sroa.sel, i64 %.neg13418
   %8778 = lshr i64 %8762, 40
   %8779 = trunc i64 %8778 to i8
   store i8 %8779, ptr %8777, align 1
-  %8780 = getelementptr inbounds i8, ptr %8777, i64 1
+  %8780 = getelementptr inbounds nuw i8, ptr %8777, i64 1
   store i8 0, ptr %8780, align 1
   %8781 = and i64 %8762, 280375465082880
   %.not13419 = icmp eq i64 %8781, 280375465082880
-  %.sroa.gep14534 = getelementptr inbounds i8, ptr %8777, i64 2
+  %.sroa.gep14534 = getelementptr inbounds nuw i8, ptr %8777, i64 2
   %.neg13420.sroa.sel = select i1 %.not13419, ptr %.sroa.gep14534, ptr %8780
   %8782 = lshr i64 %8762, 32
   %8783 = trunc i64 %8782 to i8
   store i8 %8783, ptr %.neg13420.sroa.sel, align 1
-  %.sroa.gep15595 = getelementptr inbounds i8, ptr %8777, i64 3
+  %.sroa.gep15595 = getelementptr inbounds nuw i8, ptr %8777, i64 3
   %.neg13420.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13419, ptr %.sroa.gep15595, ptr %.sroa.gep14534
   store i8 0, ptr %.neg13420.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8784 = and i64 %8762, 1095216660480
   %.not13421 = icmp eq i64 %8784, 1095216660480
   %.neg13422 = select i1 %.not13421, i64 2, i64 1
-  %8785 = getelementptr inbounds i8, ptr %.neg13420.sroa.sel, i64 %.neg13422
+  %8785 = getelementptr inbounds nuw i8, ptr %.neg13420.sroa.sel, i64 %.neg13422
   %8786 = lshr i64 %8766, 24
   %8787 = trunc i64 %8786 to i8
   store i8 %8787, ptr %8785, align 1
-  %8788 = getelementptr inbounds i8, ptr %8785, i64 1
+  %8788 = getelementptr inbounds nuw i8, ptr %8785, i64 1
   store i8 0, ptr %8788, align 1
   %8789 = and i64 %8766, 4278190080
   %.not13423 = icmp eq i64 %8789, 4278190080
-  %.sroa.gep14536 = getelementptr inbounds i8, ptr %8785, i64 2
+  %.sroa.gep14536 = getelementptr inbounds nuw i8, ptr %8785, i64 2
   %.neg13424.sroa.sel = select i1 %.not13423, ptr %.sroa.gep14536, ptr %8788
   %8790 = lshr i64 %8766, 16
   %8791 = trunc i64 %8790 to i8
   store i8 %8791, ptr %.neg13424.sroa.sel, align 1
-  %.sroa.gep15593 = getelementptr inbounds i8, ptr %8785, i64 3
+  %.sroa.gep15593 = getelementptr inbounds nuw i8, ptr %8785, i64 3
   %.neg13424.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13423, ptr %.sroa.gep15593, ptr %.sroa.gep14536
   store i8 0, ptr %.neg13424.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8792 = and i64 %8766, 16711680
   %.not13425 = icmp eq i64 %8792, 16711680
   %.neg13426 = select i1 %.not13425, i64 2, i64 1
-  %8793 = getelementptr inbounds i8, ptr %.neg13424.sroa.sel, i64 %.neg13426
+  %8793 = getelementptr inbounds nuw i8, ptr %.neg13424.sroa.sel, i64 %.neg13426
   %8794 = lshr i64 %8766, 8
   %8795 = trunc i64 %8794 to i8
   store i8 %8795, ptr %8793, align 1
-  %8796 = getelementptr inbounds i8, ptr %8793, i64 1
+  %8796 = getelementptr inbounds nuw i8, ptr %8793, i64 1
   store i8 0, ptr %8796, align 1
   %8797 = and i64 %8766, 65280
   %.not13427 = icmp eq i64 %8797, 65280
-  %.sroa.gep14538 = getelementptr inbounds i8, ptr %8793, i64 2
+  %.sroa.gep14538 = getelementptr inbounds nuw i8, ptr %8793, i64 2
   %.neg13428.sroa.sel = select i1 %.not13427, ptr %.sroa.gep14538, ptr %8796
   %8798 = trunc i64 %8766 to i8
   store i8 %8798, ptr %.neg13428.sroa.sel, align 1
-  %.sroa.gep15591 = getelementptr inbounds i8, ptr %8793, i64 3
+  %.sroa.gep15591 = getelementptr inbounds nuw i8, ptr %8793, i64 3
   %.neg13428.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13427, ptr %.sroa.gep15591, ptr %.sroa.gep14538
   store i8 0, ptr %.neg13428.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8799 = and i64 %8766, 255
   %.not13429 = icmp eq i64 %8799, 255
   %.neg13430 = select i1 %.not13429, i64 2, i64 1
-  %8800 = getelementptr inbounds i8, ptr %.neg13428.sroa.sel, i64 %.neg13430
+  %8800 = getelementptr inbounds nuw i8, ptr %.neg13428.sroa.sel, i64 %.neg13430
   br label %8823
 
 8801:                                             ; preds = %8760
   %8802 = lshr i64 %8762, 48
   %8803 = trunc i64 %8802 to i8
-  %8804 = getelementptr inbounds i8, ptr %.31015120, i64 1
+  %8804 = getelementptr inbounds nuw i8, ptr %.31015120, i64 1
   store i8 %8803, ptr %8804, align 1
   %8805 = lshr i64 %8762, 40
   %8806 = trunc i64 %8805 to i8
-  %8807 = getelementptr inbounds i8, ptr %.31015120, i64 2
+  %8807 = getelementptr inbounds nuw i8, ptr %.31015120, i64 2
   store i8 %8806, ptr %8807, align 1
   %8808 = lshr i64 %8762, 32
   %8809 = trunc i64 %8808 to i8
-  %8810 = getelementptr inbounds i8, ptr %.31015120, i64 3
+  %8810 = getelementptr inbounds nuw i8, ptr %.31015120, i64 3
   store i8 %8809, ptr %8810, align 1
   %8811 = lshr i64 %8766, 24
   %8812 = trunc i64 %8811 to i8
-  %8813 = getelementptr inbounds i8, ptr %.31015120, i64 4
+  %8813 = getelementptr inbounds nuw i8, ptr %.31015120, i64 4
   store i8 %8812, ptr %8813, align 1
   %8814 = lshr i64 %8766, 16
   %8815 = trunc i64 %8814 to i8
-  %8816 = getelementptr inbounds i8, ptr %.31015120, i64 5
+  %8816 = getelementptr inbounds nuw i8, ptr %.31015120, i64 5
   store i8 %8815, ptr %8816, align 1
   %8817 = lshr i64 %8766, 8
   %8818 = trunc i64 %8817 to i8
-  %8819 = getelementptr inbounds i8, ptr %.31015120, i64 6
+  %8819 = getelementptr inbounds nuw i8, ptr %.31015120, i64 6
   store i8 %8818, ptr %8819, align 1
   %8820 = trunc i64 %8766 to i8
-  %8821 = getelementptr inbounds i8, ptr %.31015120, i64 7
+  %8821 = getelementptr inbounds nuw i8, ptr %.31015120, i64 7
   store i8 %8820, ptr %8821, align 1
-  %8822 = getelementptr inbounds i8, ptr %.31015120, i64 8
+  %8822 = getelementptr inbounds nuw i8, ptr %.31015120, i64 8
   br label %8823
 
 8823:                                             ; preds = %8801, %8772
@@ -17595,12 +17595,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %8837 = xor i32 %8836, -1
   %8838 = and i32 %8735, %8837
   %8839 = zext nneg i32 %8834 to i64
-  %8840 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %8839
+  %8840 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %8839
   %8841 = load i32, ptr %8840, align 4
   %8842 = shl i32 %8841, %8740
   %8843 = or i32 %8842, %8838
-  %8844 = getelementptr inbounds i8, ptr %4, i64 1024
-  %8845 = getelementptr inbounds [256 x i8], ptr %8844, i64 0, i64 %8839
+  %8844 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %8845 = getelementptr inbounds nuw [256 x i8], ptr %8844, i64 0, i64 %8839
   %8846 = load i8, ptr %8845, align 1
   %8847 = sext i8 %8846 to i32
   %8848 = add nsw i32 %8847, %8740
@@ -17625,108 +17625,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13397, label %8892, label %8863
 
 8863:                                             ; preds = %8851
-  %8864 = getelementptr inbounds i8, ptr %.310.lcssa, i64 1
+  %8864 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 1
   store i8 0, ptr %8864, align 1
   %.not13398 = icmp eq i64 %8861, 255
-  %.sroa.gep14540 = getelementptr inbounds i8, ptr %.310.lcssa, i64 2
+  %.sroa.gep14540 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 2
   %.neg13399.sroa.sel = select i1 %.not13398, ptr %.sroa.gep14540, ptr %8864
   %8865 = lshr i64 %8857, 48
   %8866 = trunc i64 %8865 to i8
   store i8 %8866, ptr %.neg13399.sroa.sel, align 1
-  %.sroa.gep15597 = getelementptr inbounds i8, ptr %.310.lcssa, i64 3
+  %.sroa.gep15597 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 3
   %.neg13399.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13398, ptr %.sroa.gep15597, ptr %.sroa.gep14540
   store i8 0, ptr %.neg13399.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8867 = and i64 %8857, 71776119061217280
   %.not13400 = icmp eq i64 %8867, 71776119061217280
   %.neg13401 = select i1 %.not13400, i64 2, i64 1
-  %8868 = getelementptr inbounds i8, ptr %.neg13399.sroa.sel, i64 %.neg13401
+  %8868 = getelementptr inbounds nuw i8, ptr %.neg13399.sroa.sel, i64 %.neg13401
   %8869 = lshr i64 %8857, 40
   %8870 = trunc i64 %8869 to i8
   store i8 %8870, ptr %8868, align 1
-  %8871 = getelementptr inbounds i8, ptr %8868, i64 1
+  %8871 = getelementptr inbounds nuw i8, ptr %8868, i64 1
   store i8 0, ptr %8871, align 1
   %8872 = and i64 %8857, 280375465082880
   %.not13402 = icmp eq i64 %8872, 280375465082880
-  %.sroa.gep14542 = getelementptr inbounds i8, ptr %8868, i64 2
+  %.sroa.gep14542 = getelementptr inbounds nuw i8, ptr %8868, i64 2
   %.neg13403.sroa.sel = select i1 %.not13402, ptr %.sroa.gep14542, ptr %8871
   %8873 = lshr i64 %8857, 32
   %8874 = trunc i64 %8873 to i8
   store i8 %8874, ptr %.neg13403.sroa.sel, align 1
-  %.sroa.gep15603 = getelementptr inbounds i8, ptr %8868, i64 3
+  %.sroa.gep15603 = getelementptr inbounds nuw i8, ptr %8868, i64 3
   %.neg13403.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13402, ptr %.sroa.gep15603, ptr %.sroa.gep14542
   store i8 0, ptr %.neg13403.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8875 = and i64 %8857, 1095216660480
   %.not13404 = icmp eq i64 %8875, 1095216660480
   %.neg13405 = select i1 %.not13404, i64 2, i64 1
-  %8876 = getelementptr inbounds i8, ptr %.neg13403.sroa.sel, i64 %.neg13405
+  %8876 = getelementptr inbounds nuw i8, ptr %.neg13403.sroa.sel, i64 %.neg13405
   %8877 = lshr i64 %8857, 24
   %8878 = trunc i64 %8877 to i8
   store i8 %8878, ptr %8876, align 1
-  %8879 = getelementptr inbounds i8, ptr %8876, i64 1
+  %8879 = getelementptr inbounds nuw i8, ptr %8876, i64 1
   store i8 0, ptr %8879, align 1
   %8880 = and i64 %8857, 4278190080
   %.not13406 = icmp eq i64 %8880, 4278190080
-  %.sroa.gep14544 = getelementptr inbounds i8, ptr %8876, i64 2
+  %.sroa.gep14544 = getelementptr inbounds nuw i8, ptr %8876, i64 2
   %.neg13407.sroa.sel = select i1 %.not13406, ptr %.sroa.gep14544, ptr %8879
   %8881 = lshr i64 %8857, 16
   %8882 = trunc i64 %8881 to i8
   store i8 %8882, ptr %.neg13407.sroa.sel, align 1
-  %.sroa.gep15601 = getelementptr inbounds i8, ptr %8876, i64 3
+  %.sroa.gep15601 = getelementptr inbounds nuw i8, ptr %8876, i64 3
   %.neg13407.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13406, ptr %.sroa.gep15601, ptr %.sroa.gep14544
   store i8 0, ptr %.neg13407.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8883 = and i64 %8857, 16711680
   %.not13408 = icmp eq i64 %8883, 16711680
   %.neg13409 = select i1 %.not13408, i64 2, i64 1
-  %8884 = getelementptr inbounds i8, ptr %.neg13407.sroa.sel, i64 %.neg13409
+  %8884 = getelementptr inbounds nuw i8, ptr %.neg13407.sroa.sel, i64 %.neg13409
   %8885 = lshr i64 %8857, 8
   %8886 = trunc i64 %8885 to i8
   store i8 %8886, ptr %8884, align 1
-  %8887 = getelementptr inbounds i8, ptr %8884, i64 1
+  %8887 = getelementptr inbounds nuw i8, ptr %8884, i64 1
   store i8 0, ptr %8887, align 1
   %8888 = and i64 %8857, 65280
   %.not13410 = icmp eq i64 %8888, 65280
-  %.sroa.gep14546 = getelementptr inbounds i8, ptr %8884, i64 2
+  %.sroa.gep14546 = getelementptr inbounds nuw i8, ptr %8884, i64 2
   %.neg13411.sroa.sel = select i1 %.not13410, ptr %.sroa.gep14546, ptr %8887
   %8889 = trunc i64 %8857 to i8
   store i8 %8889, ptr %.neg13411.sroa.sel, align 1
-  %.sroa.gep15599 = getelementptr inbounds i8, ptr %8884, i64 3
+  %.sroa.gep15599 = getelementptr inbounds nuw i8, ptr %8884, i64 3
   %.neg13411.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13410, ptr %.sroa.gep15599, ptr %.sroa.gep14546
   store i8 0, ptr %.neg13411.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8890 = and i64 %8857, 255
   %.not13412 = icmp eq i64 %8890, 255
   %.neg13413 = select i1 %.not13412, i64 2, i64 1
-  %8891 = getelementptr inbounds i8, ptr %.neg13411.sroa.sel, i64 %.neg13413
+  %8891 = getelementptr inbounds nuw i8, ptr %.neg13411.sroa.sel, i64 %.neg13413
   br label %8914
 
 8892:                                             ; preds = %8851
   %8893 = lshr i64 %8857, 48
   %8894 = trunc i64 %8893 to i8
-  %8895 = getelementptr inbounds i8, ptr %.310.lcssa, i64 1
+  %8895 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 1
   store i8 %8894, ptr %8895, align 1
   %8896 = lshr i64 %8857, 40
   %8897 = trunc i64 %8896 to i8
-  %8898 = getelementptr inbounds i8, ptr %.310.lcssa, i64 2
+  %8898 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 2
   store i8 %8897, ptr %8898, align 1
   %8899 = lshr i64 %8857, 32
   %8900 = trunc i64 %8899 to i8
-  %8901 = getelementptr inbounds i8, ptr %.310.lcssa, i64 3
+  %8901 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 3
   store i8 %8900, ptr %8901, align 1
   %8902 = lshr i64 %8857, 24
   %8903 = trunc i64 %8902 to i8
-  %8904 = getelementptr inbounds i8, ptr %.310.lcssa, i64 4
+  %8904 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 4
   store i8 %8903, ptr %8904, align 1
   %8905 = lshr i64 %8857, 16
   %8906 = trunc i64 %8905 to i8
-  %8907 = getelementptr inbounds i8, ptr %.310.lcssa, i64 5
+  %8907 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 5
   store i8 %8906, ptr %8907, align 1
   %8908 = lshr i64 %8857, 8
   %8909 = trunc i64 %8908 to i8
-  %8910 = getelementptr inbounds i8, ptr %.310.lcssa, i64 6
+  %8910 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 6
   store i8 %8909, ptr %8910, align 1
   %8911 = trunc i64 %8857 to i8
-  %8912 = getelementptr inbounds i8, ptr %.310.lcssa, i64 7
+  %8912 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 7
   store i8 %8911, ptr %8912, align 1
-  %8913 = getelementptr inbounds i8, ptr %.310.lcssa, i64 8
+  %8913 = getelementptr inbounds nuw i8, ptr %.310.lcssa, i64 8
   br label %8914
 
 8914:                                             ; preds = %8892, %8863
@@ -17747,7 +17747,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20511245 = phi i64 [ %.20111241, %8730 ], [ %8916, %8914 ], [ %8921, %8917 ]
   %.309 = phi ptr [ %.303, %8730 ], [ %.313, %8914 ], [ %.310.lcssa, %8917 ]
   %.102 = phi i32 [ %8731, %8730 ], [ 0, %8914 ], [ 0, %8917 ]
-  %8923 = getelementptr inbounds i8, ptr %1, i64 62
+  %8923 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %8924 = load i16, ptr %8923, align 2
   %8925 = icmp eq i16 %8924, 0
   br i1 %8925, label %8926, label %8928
@@ -17771,7 +17771,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 8938:                                             ; preds = %8928
   %8939 = load ptr, ptr %7, align 8
   %8940 = load ptr, ptr %8939, align 8
-  %8941 = getelementptr inbounds i8, ptr %8940, i64 40
+  %8941 = getelementptr inbounds nuw i8, ptr %8940, i64 40
   store i32 6, ptr %8941, align 8
   %8942 = load ptr, ptr %7, align 8
   %8943 = load ptr, ptr %8942, align 8
@@ -17784,8 +17784,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %8946, label %.lr.ph15134, label %._crit_edge15135
 
 .lr.ph15134:                                      ; preds = %8945
-  %8947 = getelementptr inbounds i8, ptr %4, i64 1264
-  %8948 = getelementptr inbounds i8, ptr %4, i64 960
+  %8947 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %8948 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %8949
 
 8949:                                             ; preds = %.lr.ph15134, %9028
@@ -17818,108 +17818,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13449, label %8997, label %8968
 
 8968:                                             ; preds = %8956
-  %8969 = getelementptr inbounds i8, ptr %.31615131, i64 1
+  %8969 = getelementptr inbounds nuw i8, ptr %.31615131, i64 1
   store i8 0, ptr %8969, align 1
   %.not13450 = icmp eq i64 %8966, 255
-  %.sroa.gep14548 = getelementptr inbounds i8, ptr %.31615131, i64 2
+  %.sroa.gep14548 = getelementptr inbounds nuw i8, ptr %.31615131, i64 2
   %.neg13451.sroa.sel = select i1 %.not13450, ptr %.sroa.gep14548, ptr %8969
   %8970 = lshr i64 %8958, 48
   %8971 = trunc i64 %8970 to i8
   store i8 %8971, ptr %.neg13451.sroa.sel, align 1
-  %.sroa.gep15573 = getelementptr inbounds i8, ptr %.31615131, i64 3
+  %.sroa.gep15573 = getelementptr inbounds nuw i8, ptr %.31615131, i64 3
   %.neg13451.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13450, ptr %.sroa.gep15573, ptr %.sroa.gep14548
   store i8 0, ptr %.neg13451.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8972 = and i64 %8958, 71776119061217280
   %.not13452 = icmp eq i64 %8972, 71776119061217280
   %.neg13453 = select i1 %.not13452, i64 2, i64 1
-  %8973 = getelementptr inbounds i8, ptr %.neg13451.sroa.sel, i64 %.neg13453
+  %8973 = getelementptr inbounds nuw i8, ptr %.neg13451.sroa.sel, i64 %.neg13453
   %8974 = lshr i64 %8958, 40
   %8975 = trunc i64 %8974 to i8
   store i8 %8975, ptr %8973, align 1
-  %8976 = getelementptr inbounds i8, ptr %8973, i64 1
+  %8976 = getelementptr inbounds nuw i8, ptr %8973, i64 1
   store i8 0, ptr %8976, align 1
   %8977 = and i64 %8958, 280375465082880
   %.not13454 = icmp eq i64 %8977, 280375465082880
-  %.sroa.gep14550 = getelementptr inbounds i8, ptr %8973, i64 2
+  %.sroa.gep14550 = getelementptr inbounds nuw i8, ptr %8973, i64 2
   %.neg13455.sroa.sel = select i1 %.not13454, ptr %.sroa.gep14550, ptr %8976
   %8978 = lshr i64 %8958, 32
   %8979 = trunc i64 %8978 to i8
   store i8 %8979, ptr %.neg13455.sroa.sel, align 1
-  %.sroa.gep15579 = getelementptr inbounds i8, ptr %8973, i64 3
+  %.sroa.gep15579 = getelementptr inbounds nuw i8, ptr %8973, i64 3
   %.neg13455.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13454, ptr %.sroa.gep15579, ptr %.sroa.gep14550
   store i8 0, ptr %.neg13455.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8980 = and i64 %8958, 1095216660480
   %.not13456 = icmp eq i64 %8980, 1095216660480
   %.neg13457 = select i1 %.not13456, i64 2, i64 1
-  %8981 = getelementptr inbounds i8, ptr %.neg13455.sroa.sel, i64 %.neg13457
+  %8981 = getelementptr inbounds nuw i8, ptr %.neg13455.sroa.sel, i64 %.neg13457
   %8982 = lshr i64 %8962, 24
   %8983 = trunc i64 %8982 to i8
   store i8 %8983, ptr %8981, align 1
-  %8984 = getelementptr inbounds i8, ptr %8981, i64 1
+  %8984 = getelementptr inbounds nuw i8, ptr %8981, i64 1
   store i8 0, ptr %8984, align 1
   %8985 = and i64 %8962, 4278190080
   %.not13458 = icmp eq i64 %8985, 4278190080
-  %.sroa.gep14552 = getelementptr inbounds i8, ptr %8981, i64 2
+  %.sroa.gep14552 = getelementptr inbounds nuw i8, ptr %8981, i64 2
   %.neg13459.sroa.sel = select i1 %.not13458, ptr %.sroa.gep14552, ptr %8984
   %8986 = lshr i64 %8962, 16
   %8987 = trunc i64 %8986 to i8
   store i8 %8987, ptr %.neg13459.sroa.sel, align 1
-  %.sroa.gep15577 = getelementptr inbounds i8, ptr %8981, i64 3
+  %.sroa.gep15577 = getelementptr inbounds nuw i8, ptr %8981, i64 3
   %.neg13459.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13458, ptr %.sroa.gep15577, ptr %.sroa.gep14552
   store i8 0, ptr %.neg13459.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8988 = and i64 %8962, 16711680
   %.not13460 = icmp eq i64 %8988, 16711680
   %.neg13461 = select i1 %.not13460, i64 2, i64 1
-  %8989 = getelementptr inbounds i8, ptr %.neg13459.sroa.sel, i64 %.neg13461
+  %8989 = getelementptr inbounds nuw i8, ptr %.neg13459.sroa.sel, i64 %.neg13461
   %8990 = lshr i64 %8962, 8
   %8991 = trunc i64 %8990 to i8
   store i8 %8991, ptr %8989, align 1
-  %8992 = getelementptr inbounds i8, ptr %8989, i64 1
+  %8992 = getelementptr inbounds nuw i8, ptr %8989, i64 1
   store i8 0, ptr %8992, align 1
   %8993 = and i64 %8962, 65280
   %.not13462 = icmp eq i64 %8993, 65280
-  %.sroa.gep14554 = getelementptr inbounds i8, ptr %8989, i64 2
+  %.sroa.gep14554 = getelementptr inbounds nuw i8, ptr %8989, i64 2
   %.neg13463.sroa.sel = select i1 %.not13462, ptr %.sroa.gep14554, ptr %8992
   %8994 = trunc i64 %8962 to i8
   store i8 %8994, ptr %.neg13463.sroa.sel, align 1
-  %.sroa.gep15575 = getelementptr inbounds i8, ptr %8989, i64 3
+  %.sroa.gep15575 = getelementptr inbounds nuw i8, ptr %8989, i64 3
   %.neg13463.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13462, ptr %.sroa.gep15575, ptr %.sroa.gep14554
   store i8 0, ptr %.neg13463.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %8995 = and i64 %8962, 255
   %.not13464 = icmp eq i64 %8995, 255
   %.neg13465 = select i1 %.not13464, i64 2, i64 1
-  %8996 = getelementptr inbounds i8, ptr %.neg13463.sroa.sel, i64 %.neg13465
+  %8996 = getelementptr inbounds nuw i8, ptr %.neg13463.sroa.sel, i64 %.neg13465
   br label %9019
 
 8997:                                             ; preds = %8956
   %8998 = lshr i64 %8958, 48
   %8999 = trunc i64 %8998 to i8
-  %9000 = getelementptr inbounds i8, ptr %.31615131, i64 1
+  %9000 = getelementptr inbounds nuw i8, ptr %.31615131, i64 1
   store i8 %8999, ptr %9000, align 1
   %9001 = lshr i64 %8958, 40
   %9002 = trunc i64 %9001 to i8
-  %9003 = getelementptr inbounds i8, ptr %.31615131, i64 2
+  %9003 = getelementptr inbounds nuw i8, ptr %.31615131, i64 2
   store i8 %9002, ptr %9003, align 1
   %9004 = lshr i64 %8958, 32
   %9005 = trunc i64 %9004 to i8
-  %9006 = getelementptr inbounds i8, ptr %.31615131, i64 3
+  %9006 = getelementptr inbounds nuw i8, ptr %.31615131, i64 3
   store i8 %9005, ptr %9006, align 1
   %9007 = lshr i64 %8962, 24
   %9008 = trunc i64 %9007 to i8
-  %9009 = getelementptr inbounds i8, ptr %.31615131, i64 4
+  %9009 = getelementptr inbounds nuw i8, ptr %.31615131, i64 4
   store i8 %9008, ptr %9009, align 1
   %9010 = lshr i64 %8962, 16
   %9011 = trunc i64 %9010 to i8
-  %9012 = getelementptr inbounds i8, ptr %.31615131, i64 5
+  %9012 = getelementptr inbounds nuw i8, ptr %.31615131, i64 5
   store i8 %9011, ptr %9012, align 1
   %9013 = lshr i64 %8962, 8
   %9014 = trunc i64 %9013 to i8
-  %9015 = getelementptr inbounds i8, ptr %.31615131, i64 6
+  %9015 = getelementptr inbounds nuw i8, ptr %.31615131, i64 6
   store i8 %9014, ptr %9015, align 1
   %9016 = trunc i64 %8962 to i8
-  %9017 = getelementptr inbounds i8, ptr %.31615131, i64 7
+  %9017 = getelementptr inbounds nuw i8, ptr %.31615131, i64 7
   store i8 %9016, ptr %9017, align 1
-  %9018 = getelementptr inbounds i8, ptr %.31615131, i64 8
+  %9018 = getelementptr inbounds nuw i8, ptr %.31615131, i64 8
   br label %9019
 
 9019:                                             ; preds = %8997, %8968
@@ -17955,12 +17955,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9033 = xor i32 %9032, -1
   %9034 = and i32 %8931, %9033
   %9035 = zext nneg i32 %9030 to i64
-  %9036 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %9035
+  %9036 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %9035
   %9037 = load i32, ptr %9036, align 4
   %9038 = shl i32 %9037, %8936
   %9039 = or i32 %9038, %9034
-  %9040 = getelementptr inbounds i8, ptr %4, i64 1024
-  %9041 = getelementptr inbounds [256 x i8], ptr %9040, i64 0, i64 %9035
+  %9040 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %9041 = getelementptr inbounds nuw [256 x i8], ptr %9040, i64 0, i64 %9035
   %9042 = load i8, ptr %9041, align 1
   %9043 = sext i8 %9042 to i32
   %9044 = add nsw i32 %9043, %8936
@@ -17985,108 +17985,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13432, label %9088, label %9059
 
 9059:                                             ; preds = %9047
-  %9060 = getelementptr inbounds i8, ptr %.316.lcssa, i64 1
+  %9060 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 1
   store i8 0, ptr %9060, align 1
   %.not13433 = icmp eq i64 %9057, 255
-  %.sroa.gep14556 = getelementptr inbounds i8, ptr %.316.lcssa, i64 2
+  %.sroa.gep14556 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 2
   %.neg13434.sroa.sel = select i1 %.not13433, ptr %.sroa.gep14556, ptr %9060
   %9061 = lshr i64 %9053, 48
   %9062 = trunc i64 %9061 to i8
   store i8 %9062, ptr %.neg13434.sroa.sel, align 1
-  %.sroa.gep15581 = getelementptr inbounds i8, ptr %.316.lcssa, i64 3
+  %.sroa.gep15581 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 3
   %.neg13434.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13433, ptr %.sroa.gep15581, ptr %.sroa.gep14556
   store i8 0, ptr %.neg13434.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9063 = and i64 %9053, 71776119061217280
   %.not13435 = icmp eq i64 %9063, 71776119061217280
   %.neg13436 = select i1 %.not13435, i64 2, i64 1
-  %9064 = getelementptr inbounds i8, ptr %.neg13434.sroa.sel, i64 %.neg13436
+  %9064 = getelementptr inbounds nuw i8, ptr %.neg13434.sroa.sel, i64 %.neg13436
   %9065 = lshr i64 %9053, 40
   %9066 = trunc i64 %9065 to i8
   store i8 %9066, ptr %9064, align 1
-  %9067 = getelementptr inbounds i8, ptr %9064, i64 1
+  %9067 = getelementptr inbounds nuw i8, ptr %9064, i64 1
   store i8 0, ptr %9067, align 1
   %9068 = and i64 %9053, 280375465082880
   %.not13437 = icmp eq i64 %9068, 280375465082880
-  %.sroa.gep14558 = getelementptr inbounds i8, ptr %9064, i64 2
+  %.sroa.gep14558 = getelementptr inbounds nuw i8, ptr %9064, i64 2
   %.neg13438.sroa.sel = select i1 %.not13437, ptr %.sroa.gep14558, ptr %9067
   %9069 = lshr i64 %9053, 32
   %9070 = trunc i64 %9069 to i8
   store i8 %9070, ptr %.neg13438.sroa.sel, align 1
-  %.sroa.gep15587 = getelementptr inbounds i8, ptr %9064, i64 3
+  %.sroa.gep15587 = getelementptr inbounds nuw i8, ptr %9064, i64 3
   %.neg13438.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13437, ptr %.sroa.gep15587, ptr %.sroa.gep14558
   store i8 0, ptr %.neg13438.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9071 = and i64 %9053, 1095216660480
   %.not13439 = icmp eq i64 %9071, 1095216660480
   %.neg13440 = select i1 %.not13439, i64 2, i64 1
-  %9072 = getelementptr inbounds i8, ptr %.neg13438.sroa.sel, i64 %.neg13440
+  %9072 = getelementptr inbounds nuw i8, ptr %.neg13438.sroa.sel, i64 %.neg13440
   %9073 = lshr i64 %9053, 24
   %9074 = trunc i64 %9073 to i8
   store i8 %9074, ptr %9072, align 1
-  %9075 = getelementptr inbounds i8, ptr %9072, i64 1
+  %9075 = getelementptr inbounds nuw i8, ptr %9072, i64 1
   store i8 0, ptr %9075, align 1
   %9076 = and i64 %9053, 4278190080
   %.not13441 = icmp eq i64 %9076, 4278190080
-  %.sroa.gep14560 = getelementptr inbounds i8, ptr %9072, i64 2
+  %.sroa.gep14560 = getelementptr inbounds nuw i8, ptr %9072, i64 2
   %.neg13442.sroa.sel = select i1 %.not13441, ptr %.sroa.gep14560, ptr %9075
   %9077 = lshr i64 %9053, 16
   %9078 = trunc i64 %9077 to i8
   store i8 %9078, ptr %.neg13442.sroa.sel, align 1
-  %.sroa.gep15585 = getelementptr inbounds i8, ptr %9072, i64 3
+  %.sroa.gep15585 = getelementptr inbounds nuw i8, ptr %9072, i64 3
   %.neg13442.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13441, ptr %.sroa.gep15585, ptr %.sroa.gep14560
   store i8 0, ptr %.neg13442.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9079 = and i64 %9053, 16711680
   %.not13443 = icmp eq i64 %9079, 16711680
   %.neg13444 = select i1 %.not13443, i64 2, i64 1
-  %9080 = getelementptr inbounds i8, ptr %.neg13442.sroa.sel, i64 %.neg13444
+  %9080 = getelementptr inbounds nuw i8, ptr %.neg13442.sroa.sel, i64 %.neg13444
   %9081 = lshr i64 %9053, 8
   %9082 = trunc i64 %9081 to i8
   store i8 %9082, ptr %9080, align 1
-  %9083 = getelementptr inbounds i8, ptr %9080, i64 1
+  %9083 = getelementptr inbounds nuw i8, ptr %9080, i64 1
   store i8 0, ptr %9083, align 1
   %9084 = and i64 %9053, 65280
   %.not13445 = icmp eq i64 %9084, 65280
-  %.sroa.gep14562 = getelementptr inbounds i8, ptr %9080, i64 2
+  %.sroa.gep14562 = getelementptr inbounds nuw i8, ptr %9080, i64 2
   %.neg13446.sroa.sel = select i1 %.not13445, ptr %.sroa.gep14562, ptr %9083
   %9085 = trunc i64 %9053 to i8
   store i8 %9085, ptr %.neg13446.sroa.sel, align 1
-  %.sroa.gep15583 = getelementptr inbounds i8, ptr %9080, i64 3
+  %.sroa.gep15583 = getelementptr inbounds nuw i8, ptr %9080, i64 3
   %.neg13446.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13445, ptr %.sroa.gep15583, ptr %.sroa.gep14562
   store i8 0, ptr %.neg13446.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9086 = and i64 %9053, 255
   %.not13447 = icmp eq i64 %9086, 255
   %.neg13448 = select i1 %.not13447, i64 2, i64 1
-  %9087 = getelementptr inbounds i8, ptr %.neg13446.sroa.sel, i64 %.neg13448
+  %9087 = getelementptr inbounds nuw i8, ptr %.neg13446.sroa.sel, i64 %.neg13448
   br label %9110
 
 9088:                                             ; preds = %9047
   %9089 = lshr i64 %9053, 48
   %9090 = trunc i64 %9089 to i8
-  %9091 = getelementptr inbounds i8, ptr %.316.lcssa, i64 1
+  %9091 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 1
   store i8 %9090, ptr %9091, align 1
   %9092 = lshr i64 %9053, 40
   %9093 = trunc i64 %9092 to i8
-  %9094 = getelementptr inbounds i8, ptr %.316.lcssa, i64 2
+  %9094 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 2
   store i8 %9093, ptr %9094, align 1
   %9095 = lshr i64 %9053, 32
   %9096 = trunc i64 %9095 to i8
-  %9097 = getelementptr inbounds i8, ptr %.316.lcssa, i64 3
+  %9097 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 3
   store i8 %9096, ptr %9097, align 1
   %9098 = lshr i64 %9053, 24
   %9099 = trunc i64 %9098 to i8
-  %9100 = getelementptr inbounds i8, ptr %.316.lcssa, i64 4
+  %9100 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 4
   store i8 %9099, ptr %9100, align 1
   %9101 = lshr i64 %9053, 16
   %9102 = trunc i64 %9101 to i8
-  %9103 = getelementptr inbounds i8, ptr %.316.lcssa, i64 5
+  %9103 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 5
   store i8 %9102, ptr %9103, align 1
   %9104 = lshr i64 %9053, 8
   %9105 = trunc i64 %9104 to i8
-  %9106 = getelementptr inbounds i8, ptr %.316.lcssa, i64 6
+  %9106 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 6
   store i8 %9105, ptr %9106, align 1
   %9107 = trunc i64 %9053 to i8
-  %9108 = getelementptr inbounds i8, ptr %.316.lcssa, i64 7
+  %9108 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 7
   store i8 %9107, ptr %9108, align 1
-  %9109 = getelementptr inbounds i8, ptr %.316.lcssa, i64 8
+  %9109 = getelementptr inbounds nuw i8, ptr %.316.lcssa, i64 8
   br label %9110
 
 9110:                                             ; preds = %9088, %9059
@@ -18107,7 +18107,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.20911249 = phi i64 [ %.20511245, %8926 ], [ %9112, %9110 ], [ %9117, %9113 ]
   %.315 = phi ptr [ %.309, %8926 ], [ %.319, %9110 ], [ %.316.lcssa, %9113 ]
   %.104 = phi i32 [ %8927, %8926 ], [ 0, %9110 ], [ 0, %9113 ]
-  %9119 = getelementptr inbounds i8, ptr %1, i64 78
+  %9119 = getelementptr inbounds nuw i8, ptr %1, i64 78
   %9120 = load i16, ptr %9119, align 2
   %9121 = icmp eq i16 %9120, 0
   br i1 %9121, label %9122, label %9124
@@ -18131,7 +18131,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 9134:                                             ; preds = %9124
   %9135 = load ptr, ptr %7, align 8
   %9136 = load ptr, ptr %9135, align 8
-  %9137 = getelementptr inbounds i8, ptr %9136, i64 40
+  %9137 = getelementptr inbounds nuw i8, ptr %9136, i64 40
   store i32 6, ptr %9137, align 8
   %9138 = load ptr, ptr %7, align 8
   %9139 = load ptr, ptr %9138, align 8
@@ -18144,8 +18144,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %9142, label %.lr.ph15145, label %._crit_edge15146
 
 .lr.ph15145:                                      ; preds = %9141
-  %9143 = getelementptr inbounds i8, ptr %4, i64 1264
-  %9144 = getelementptr inbounds i8, ptr %4, i64 960
+  %9143 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %9144 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %9145
 
 9145:                                             ; preds = %.lr.ph15145, %9224
@@ -18178,108 +18178,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13484, label %9193, label %9164
 
 9164:                                             ; preds = %9152
-  %9165 = getelementptr inbounds i8, ptr %.32215142, i64 1
+  %9165 = getelementptr inbounds nuw i8, ptr %.32215142, i64 1
   store i8 0, ptr %9165, align 1
   %.not13485 = icmp eq i64 %9162, 255
-  %.sroa.gep14564 = getelementptr inbounds i8, ptr %.32215142, i64 2
+  %.sroa.gep14564 = getelementptr inbounds nuw i8, ptr %.32215142, i64 2
   %.neg13486.sroa.sel = select i1 %.not13485, ptr %.sroa.gep14564, ptr %9165
   %9166 = lshr i64 %9154, 48
   %9167 = trunc i64 %9166 to i8
   store i8 %9167, ptr %.neg13486.sroa.sel, align 1
-  %.sroa.gep15557 = getelementptr inbounds i8, ptr %.32215142, i64 3
+  %.sroa.gep15557 = getelementptr inbounds nuw i8, ptr %.32215142, i64 3
   %.neg13486.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13485, ptr %.sroa.gep15557, ptr %.sroa.gep14564
   store i8 0, ptr %.neg13486.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9168 = and i64 %9154, 71776119061217280
   %.not13487 = icmp eq i64 %9168, 71776119061217280
   %.neg13488 = select i1 %.not13487, i64 2, i64 1
-  %9169 = getelementptr inbounds i8, ptr %.neg13486.sroa.sel, i64 %.neg13488
+  %9169 = getelementptr inbounds nuw i8, ptr %.neg13486.sroa.sel, i64 %.neg13488
   %9170 = lshr i64 %9154, 40
   %9171 = trunc i64 %9170 to i8
   store i8 %9171, ptr %9169, align 1
-  %9172 = getelementptr inbounds i8, ptr %9169, i64 1
+  %9172 = getelementptr inbounds nuw i8, ptr %9169, i64 1
   store i8 0, ptr %9172, align 1
   %9173 = and i64 %9154, 280375465082880
   %.not13489 = icmp eq i64 %9173, 280375465082880
-  %.sroa.gep14566 = getelementptr inbounds i8, ptr %9169, i64 2
+  %.sroa.gep14566 = getelementptr inbounds nuw i8, ptr %9169, i64 2
   %.neg13490.sroa.sel = select i1 %.not13489, ptr %.sroa.gep14566, ptr %9172
   %9174 = lshr i64 %9154, 32
   %9175 = trunc i64 %9174 to i8
   store i8 %9175, ptr %.neg13490.sroa.sel, align 1
-  %.sroa.gep15563 = getelementptr inbounds i8, ptr %9169, i64 3
+  %.sroa.gep15563 = getelementptr inbounds nuw i8, ptr %9169, i64 3
   %.neg13490.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13489, ptr %.sroa.gep15563, ptr %.sroa.gep14566
   store i8 0, ptr %.neg13490.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9176 = and i64 %9154, 1095216660480
   %.not13491 = icmp eq i64 %9176, 1095216660480
   %.neg13492 = select i1 %.not13491, i64 2, i64 1
-  %9177 = getelementptr inbounds i8, ptr %.neg13490.sroa.sel, i64 %.neg13492
+  %9177 = getelementptr inbounds nuw i8, ptr %.neg13490.sroa.sel, i64 %.neg13492
   %9178 = lshr i64 %9158, 24
   %9179 = trunc i64 %9178 to i8
   store i8 %9179, ptr %9177, align 1
-  %9180 = getelementptr inbounds i8, ptr %9177, i64 1
+  %9180 = getelementptr inbounds nuw i8, ptr %9177, i64 1
   store i8 0, ptr %9180, align 1
   %9181 = and i64 %9158, 4278190080
   %.not13493 = icmp eq i64 %9181, 4278190080
-  %.sroa.gep14568 = getelementptr inbounds i8, ptr %9177, i64 2
+  %.sroa.gep14568 = getelementptr inbounds nuw i8, ptr %9177, i64 2
   %.neg13494.sroa.sel = select i1 %.not13493, ptr %.sroa.gep14568, ptr %9180
   %9182 = lshr i64 %9158, 16
   %9183 = trunc i64 %9182 to i8
   store i8 %9183, ptr %.neg13494.sroa.sel, align 1
-  %.sroa.gep15561 = getelementptr inbounds i8, ptr %9177, i64 3
+  %.sroa.gep15561 = getelementptr inbounds nuw i8, ptr %9177, i64 3
   %.neg13494.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13493, ptr %.sroa.gep15561, ptr %.sroa.gep14568
   store i8 0, ptr %.neg13494.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9184 = and i64 %9158, 16711680
   %.not13495 = icmp eq i64 %9184, 16711680
   %.neg13496 = select i1 %.not13495, i64 2, i64 1
-  %9185 = getelementptr inbounds i8, ptr %.neg13494.sroa.sel, i64 %.neg13496
+  %9185 = getelementptr inbounds nuw i8, ptr %.neg13494.sroa.sel, i64 %.neg13496
   %9186 = lshr i64 %9158, 8
   %9187 = trunc i64 %9186 to i8
   store i8 %9187, ptr %9185, align 1
-  %9188 = getelementptr inbounds i8, ptr %9185, i64 1
+  %9188 = getelementptr inbounds nuw i8, ptr %9185, i64 1
   store i8 0, ptr %9188, align 1
   %9189 = and i64 %9158, 65280
   %.not13497 = icmp eq i64 %9189, 65280
-  %.sroa.gep14570 = getelementptr inbounds i8, ptr %9185, i64 2
+  %.sroa.gep14570 = getelementptr inbounds nuw i8, ptr %9185, i64 2
   %.neg13498.sroa.sel = select i1 %.not13497, ptr %.sroa.gep14570, ptr %9188
   %9190 = trunc i64 %9158 to i8
   store i8 %9190, ptr %.neg13498.sroa.sel, align 1
-  %.sroa.gep15559 = getelementptr inbounds i8, ptr %9185, i64 3
+  %.sroa.gep15559 = getelementptr inbounds nuw i8, ptr %9185, i64 3
   %.neg13498.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13497, ptr %.sroa.gep15559, ptr %.sroa.gep14570
   store i8 0, ptr %.neg13498.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9191 = and i64 %9158, 255
   %.not13499 = icmp eq i64 %9191, 255
   %.neg13500 = select i1 %.not13499, i64 2, i64 1
-  %9192 = getelementptr inbounds i8, ptr %.neg13498.sroa.sel, i64 %.neg13500
+  %9192 = getelementptr inbounds nuw i8, ptr %.neg13498.sroa.sel, i64 %.neg13500
   br label %9215
 
 9193:                                             ; preds = %9152
   %9194 = lshr i64 %9154, 48
   %9195 = trunc i64 %9194 to i8
-  %9196 = getelementptr inbounds i8, ptr %.32215142, i64 1
+  %9196 = getelementptr inbounds nuw i8, ptr %.32215142, i64 1
   store i8 %9195, ptr %9196, align 1
   %9197 = lshr i64 %9154, 40
   %9198 = trunc i64 %9197 to i8
-  %9199 = getelementptr inbounds i8, ptr %.32215142, i64 2
+  %9199 = getelementptr inbounds nuw i8, ptr %.32215142, i64 2
   store i8 %9198, ptr %9199, align 1
   %9200 = lshr i64 %9154, 32
   %9201 = trunc i64 %9200 to i8
-  %9202 = getelementptr inbounds i8, ptr %.32215142, i64 3
+  %9202 = getelementptr inbounds nuw i8, ptr %.32215142, i64 3
   store i8 %9201, ptr %9202, align 1
   %9203 = lshr i64 %9158, 24
   %9204 = trunc i64 %9203 to i8
-  %9205 = getelementptr inbounds i8, ptr %.32215142, i64 4
+  %9205 = getelementptr inbounds nuw i8, ptr %.32215142, i64 4
   store i8 %9204, ptr %9205, align 1
   %9206 = lshr i64 %9158, 16
   %9207 = trunc i64 %9206 to i8
-  %9208 = getelementptr inbounds i8, ptr %.32215142, i64 5
+  %9208 = getelementptr inbounds nuw i8, ptr %.32215142, i64 5
   store i8 %9207, ptr %9208, align 1
   %9209 = lshr i64 %9158, 8
   %9210 = trunc i64 %9209 to i8
-  %9211 = getelementptr inbounds i8, ptr %.32215142, i64 6
+  %9211 = getelementptr inbounds nuw i8, ptr %.32215142, i64 6
   store i8 %9210, ptr %9211, align 1
   %9212 = trunc i64 %9158 to i8
-  %9213 = getelementptr inbounds i8, ptr %.32215142, i64 7
+  %9213 = getelementptr inbounds nuw i8, ptr %.32215142, i64 7
   store i8 %9212, ptr %9213, align 1
-  %9214 = getelementptr inbounds i8, ptr %.32215142, i64 8
+  %9214 = getelementptr inbounds nuw i8, ptr %.32215142, i64 8
   br label %9215
 
 9215:                                             ; preds = %9193, %9164
@@ -18315,12 +18315,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9229 = xor i32 %9228, -1
   %9230 = and i32 %9127, %9229
   %9231 = zext nneg i32 %9226 to i64
-  %9232 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %9231
+  %9232 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %9231
   %9233 = load i32, ptr %9232, align 4
   %9234 = shl i32 %9233, %9132
   %9235 = or i32 %9234, %9230
-  %9236 = getelementptr inbounds i8, ptr %4, i64 1024
-  %9237 = getelementptr inbounds [256 x i8], ptr %9236, i64 0, i64 %9231
+  %9236 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %9237 = getelementptr inbounds nuw [256 x i8], ptr %9236, i64 0, i64 %9231
   %9238 = load i8, ptr %9237, align 1
   %9239 = sext i8 %9238 to i32
   %9240 = add nsw i32 %9239, %9132
@@ -18345,108 +18345,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13467, label %9284, label %9255
 
 9255:                                             ; preds = %9243
-  %9256 = getelementptr inbounds i8, ptr %.322.lcssa, i64 1
+  %9256 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 1
   store i8 0, ptr %9256, align 1
   %.not13468 = icmp eq i64 %9253, 255
-  %.sroa.gep14572 = getelementptr inbounds i8, ptr %.322.lcssa, i64 2
+  %.sroa.gep14572 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 2
   %.neg13469.sroa.sel = select i1 %.not13468, ptr %.sroa.gep14572, ptr %9256
   %9257 = lshr i64 %9249, 48
   %9258 = trunc i64 %9257 to i8
   store i8 %9258, ptr %.neg13469.sroa.sel, align 1
-  %.sroa.gep15565 = getelementptr inbounds i8, ptr %.322.lcssa, i64 3
+  %.sroa.gep15565 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 3
   %.neg13469.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13468, ptr %.sroa.gep15565, ptr %.sroa.gep14572
   store i8 0, ptr %.neg13469.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9259 = and i64 %9249, 71776119061217280
   %.not13470 = icmp eq i64 %9259, 71776119061217280
   %.neg13471 = select i1 %.not13470, i64 2, i64 1
-  %9260 = getelementptr inbounds i8, ptr %.neg13469.sroa.sel, i64 %.neg13471
+  %9260 = getelementptr inbounds nuw i8, ptr %.neg13469.sroa.sel, i64 %.neg13471
   %9261 = lshr i64 %9249, 40
   %9262 = trunc i64 %9261 to i8
   store i8 %9262, ptr %9260, align 1
-  %9263 = getelementptr inbounds i8, ptr %9260, i64 1
+  %9263 = getelementptr inbounds nuw i8, ptr %9260, i64 1
   store i8 0, ptr %9263, align 1
   %9264 = and i64 %9249, 280375465082880
   %.not13472 = icmp eq i64 %9264, 280375465082880
-  %.sroa.gep14574 = getelementptr inbounds i8, ptr %9260, i64 2
+  %.sroa.gep14574 = getelementptr inbounds nuw i8, ptr %9260, i64 2
   %.neg13473.sroa.sel = select i1 %.not13472, ptr %.sroa.gep14574, ptr %9263
   %9265 = lshr i64 %9249, 32
   %9266 = trunc i64 %9265 to i8
   store i8 %9266, ptr %.neg13473.sroa.sel, align 1
-  %.sroa.gep15571 = getelementptr inbounds i8, ptr %9260, i64 3
+  %.sroa.gep15571 = getelementptr inbounds nuw i8, ptr %9260, i64 3
   %.neg13473.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13472, ptr %.sroa.gep15571, ptr %.sroa.gep14574
   store i8 0, ptr %.neg13473.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9267 = and i64 %9249, 1095216660480
   %.not13474 = icmp eq i64 %9267, 1095216660480
   %.neg13475 = select i1 %.not13474, i64 2, i64 1
-  %9268 = getelementptr inbounds i8, ptr %.neg13473.sroa.sel, i64 %.neg13475
+  %9268 = getelementptr inbounds nuw i8, ptr %.neg13473.sroa.sel, i64 %.neg13475
   %9269 = lshr i64 %9249, 24
   %9270 = trunc i64 %9269 to i8
   store i8 %9270, ptr %9268, align 1
-  %9271 = getelementptr inbounds i8, ptr %9268, i64 1
+  %9271 = getelementptr inbounds nuw i8, ptr %9268, i64 1
   store i8 0, ptr %9271, align 1
   %9272 = and i64 %9249, 4278190080
   %.not13476 = icmp eq i64 %9272, 4278190080
-  %.sroa.gep14576 = getelementptr inbounds i8, ptr %9268, i64 2
+  %.sroa.gep14576 = getelementptr inbounds nuw i8, ptr %9268, i64 2
   %.neg13477.sroa.sel = select i1 %.not13476, ptr %.sroa.gep14576, ptr %9271
   %9273 = lshr i64 %9249, 16
   %9274 = trunc i64 %9273 to i8
   store i8 %9274, ptr %.neg13477.sroa.sel, align 1
-  %.sroa.gep15569 = getelementptr inbounds i8, ptr %9268, i64 3
+  %.sroa.gep15569 = getelementptr inbounds nuw i8, ptr %9268, i64 3
   %.neg13477.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13476, ptr %.sroa.gep15569, ptr %.sroa.gep14576
   store i8 0, ptr %.neg13477.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9275 = and i64 %9249, 16711680
   %.not13478 = icmp eq i64 %9275, 16711680
   %.neg13479 = select i1 %.not13478, i64 2, i64 1
-  %9276 = getelementptr inbounds i8, ptr %.neg13477.sroa.sel, i64 %.neg13479
+  %9276 = getelementptr inbounds nuw i8, ptr %.neg13477.sroa.sel, i64 %.neg13479
   %9277 = lshr i64 %9249, 8
   %9278 = trunc i64 %9277 to i8
   store i8 %9278, ptr %9276, align 1
-  %9279 = getelementptr inbounds i8, ptr %9276, i64 1
+  %9279 = getelementptr inbounds nuw i8, ptr %9276, i64 1
   store i8 0, ptr %9279, align 1
   %9280 = and i64 %9249, 65280
   %.not13480 = icmp eq i64 %9280, 65280
-  %.sroa.gep14578 = getelementptr inbounds i8, ptr %9276, i64 2
+  %.sroa.gep14578 = getelementptr inbounds nuw i8, ptr %9276, i64 2
   %.neg13481.sroa.sel = select i1 %.not13480, ptr %.sroa.gep14578, ptr %9279
   %9281 = trunc i64 %9249 to i8
   store i8 %9281, ptr %.neg13481.sroa.sel, align 1
-  %.sroa.gep15567 = getelementptr inbounds i8, ptr %9276, i64 3
+  %.sroa.gep15567 = getelementptr inbounds nuw i8, ptr %9276, i64 3
   %.neg13481.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13480, ptr %.sroa.gep15567, ptr %.sroa.gep14578
   store i8 0, ptr %.neg13481.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9282 = and i64 %9249, 255
   %.not13482 = icmp eq i64 %9282, 255
   %.neg13483 = select i1 %.not13482, i64 2, i64 1
-  %9283 = getelementptr inbounds i8, ptr %.neg13481.sroa.sel, i64 %.neg13483
+  %9283 = getelementptr inbounds nuw i8, ptr %.neg13481.sroa.sel, i64 %.neg13483
   br label %9306
 
 9284:                                             ; preds = %9243
   %9285 = lshr i64 %9249, 48
   %9286 = trunc i64 %9285 to i8
-  %9287 = getelementptr inbounds i8, ptr %.322.lcssa, i64 1
+  %9287 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 1
   store i8 %9286, ptr %9287, align 1
   %9288 = lshr i64 %9249, 40
   %9289 = trunc i64 %9288 to i8
-  %9290 = getelementptr inbounds i8, ptr %.322.lcssa, i64 2
+  %9290 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 2
   store i8 %9289, ptr %9290, align 1
   %9291 = lshr i64 %9249, 32
   %9292 = trunc i64 %9291 to i8
-  %9293 = getelementptr inbounds i8, ptr %.322.lcssa, i64 3
+  %9293 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 3
   store i8 %9292, ptr %9293, align 1
   %9294 = lshr i64 %9249, 24
   %9295 = trunc i64 %9294 to i8
-  %9296 = getelementptr inbounds i8, ptr %.322.lcssa, i64 4
+  %9296 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 4
   store i8 %9295, ptr %9296, align 1
   %9297 = lshr i64 %9249, 16
   %9298 = trunc i64 %9297 to i8
-  %9299 = getelementptr inbounds i8, ptr %.322.lcssa, i64 5
+  %9299 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 5
   store i8 %9298, ptr %9299, align 1
   %9300 = lshr i64 %9249, 8
   %9301 = trunc i64 %9300 to i8
-  %9302 = getelementptr inbounds i8, ptr %.322.lcssa, i64 6
+  %9302 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 6
   store i8 %9301, ptr %9302, align 1
   %9303 = trunc i64 %9249 to i8
-  %9304 = getelementptr inbounds i8, ptr %.322.lcssa, i64 7
+  %9304 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 7
   store i8 %9303, ptr %9304, align 1
-  %9305 = getelementptr inbounds i8, ptr %.322.lcssa, i64 8
+  %9305 = getelementptr inbounds nuw i8, ptr %.322.lcssa, i64 8
   br label %9306
 
 9306:                                             ; preds = %9284, %9255
@@ -18467,7 +18467,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21311253 = phi i64 [ %.20911249, %9122 ], [ %9308, %9306 ], [ %9313, %9309 ]
   %.321 = phi ptr [ %.315, %9122 ], [ %.325, %9306 ], [ %.322.lcssa, %9309 ]
   %.106 = phi i32 [ %9123, %9122 ], [ 0, %9306 ], [ 0, %9309 ]
-  %9315 = getelementptr inbounds i8, ptr %1, i64 92
+  %9315 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %9316 = load i16, ptr %9315, align 2
   %9317 = icmp eq i16 %9316, 0
   br i1 %9317, label %9318, label %9320
@@ -18491,7 +18491,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 9330:                                             ; preds = %9320
   %9331 = load ptr, ptr %7, align 8
   %9332 = load ptr, ptr %9331, align 8
-  %9333 = getelementptr inbounds i8, ptr %9332, i64 40
+  %9333 = getelementptr inbounds nuw i8, ptr %9332, i64 40
   store i32 6, ptr %9333, align 8
   %9334 = load ptr, ptr %7, align 8
   %9335 = load ptr, ptr %9334, align 8
@@ -18504,8 +18504,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %9338, label %.lr.ph15156, label %._crit_edge15157
 
 .lr.ph15156:                                      ; preds = %9337
-  %9339 = getelementptr inbounds i8, ptr %4, i64 1264
-  %9340 = getelementptr inbounds i8, ptr %4, i64 960
+  %9339 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %9340 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %9341
 
 9341:                                             ; preds = %.lr.ph15156, %9420
@@ -18538,108 +18538,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13519, label %9389, label %9360
 
 9360:                                             ; preds = %9348
-  %9361 = getelementptr inbounds i8, ptr %.32815153, i64 1
+  %9361 = getelementptr inbounds nuw i8, ptr %.32815153, i64 1
   store i8 0, ptr %9361, align 1
   %.not13520 = icmp eq i64 %9358, 255
-  %.sroa.gep14580 = getelementptr inbounds i8, ptr %.32815153, i64 2
+  %.sroa.gep14580 = getelementptr inbounds nuw i8, ptr %.32815153, i64 2
   %.neg13521.sroa.sel = select i1 %.not13520, ptr %.sroa.gep14580, ptr %9361
   %9362 = lshr i64 %9350, 48
   %9363 = trunc i64 %9362 to i8
   store i8 %9363, ptr %.neg13521.sroa.sel, align 1
-  %.sroa.gep15541 = getelementptr inbounds i8, ptr %.32815153, i64 3
+  %.sroa.gep15541 = getelementptr inbounds nuw i8, ptr %.32815153, i64 3
   %.neg13521.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13520, ptr %.sroa.gep15541, ptr %.sroa.gep14580
   store i8 0, ptr %.neg13521.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9364 = and i64 %9350, 71776119061217280
   %.not13522 = icmp eq i64 %9364, 71776119061217280
   %.neg13523 = select i1 %.not13522, i64 2, i64 1
-  %9365 = getelementptr inbounds i8, ptr %.neg13521.sroa.sel, i64 %.neg13523
+  %9365 = getelementptr inbounds nuw i8, ptr %.neg13521.sroa.sel, i64 %.neg13523
   %9366 = lshr i64 %9350, 40
   %9367 = trunc i64 %9366 to i8
   store i8 %9367, ptr %9365, align 1
-  %9368 = getelementptr inbounds i8, ptr %9365, i64 1
+  %9368 = getelementptr inbounds nuw i8, ptr %9365, i64 1
   store i8 0, ptr %9368, align 1
   %9369 = and i64 %9350, 280375465082880
   %.not13524 = icmp eq i64 %9369, 280375465082880
-  %.sroa.gep14582 = getelementptr inbounds i8, ptr %9365, i64 2
+  %.sroa.gep14582 = getelementptr inbounds nuw i8, ptr %9365, i64 2
   %.neg13525.sroa.sel = select i1 %.not13524, ptr %.sroa.gep14582, ptr %9368
   %9370 = lshr i64 %9350, 32
   %9371 = trunc i64 %9370 to i8
   store i8 %9371, ptr %.neg13525.sroa.sel, align 1
-  %.sroa.gep15547 = getelementptr inbounds i8, ptr %9365, i64 3
+  %.sroa.gep15547 = getelementptr inbounds nuw i8, ptr %9365, i64 3
   %.neg13525.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13524, ptr %.sroa.gep15547, ptr %.sroa.gep14582
   store i8 0, ptr %.neg13525.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9372 = and i64 %9350, 1095216660480
   %.not13526 = icmp eq i64 %9372, 1095216660480
   %.neg13527 = select i1 %.not13526, i64 2, i64 1
-  %9373 = getelementptr inbounds i8, ptr %.neg13525.sroa.sel, i64 %.neg13527
+  %9373 = getelementptr inbounds nuw i8, ptr %.neg13525.sroa.sel, i64 %.neg13527
   %9374 = lshr i64 %9354, 24
   %9375 = trunc i64 %9374 to i8
   store i8 %9375, ptr %9373, align 1
-  %9376 = getelementptr inbounds i8, ptr %9373, i64 1
+  %9376 = getelementptr inbounds nuw i8, ptr %9373, i64 1
   store i8 0, ptr %9376, align 1
   %9377 = and i64 %9354, 4278190080
   %.not13528 = icmp eq i64 %9377, 4278190080
-  %.sroa.gep14584 = getelementptr inbounds i8, ptr %9373, i64 2
+  %.sroa.gep14584 = getelementptr inbounds nuw i8, ptr %9373, i64 2
   %.neg13529.sroa.sel = select i1 %.not13528, ptr %.sroa.gep14584, ptr %9376
   %9378 = lshr i64 %9354, 16
   %9379 = trunc i64 %9378 to i8
   store i8 %9379, ptr %.neg13529.sroa.sel, align 1
-  %.sroa.gep15545 = getelementptr inbounds i8, ptr %9373, i64 3
+  %.sroa.gep15545 = getelementptr inbounds nuw i8, ptr %9373, i64 3
   %.neg13529.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13528, ptr %.sroa.gep15545, ptr %.sroa.gep14584
   store i8 0, ptr %.neg13529.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9380 = and i64 %9354, 16711680
   %.not13530 = icmp eq i64 %9380, 16711680
   %.neg13531 = select i1 %.not13530, i64 2, i64 1
-  %9381 = getelementptr inbounds i8, ptr %.neg13529.sroa.sel, i64 %.neg13531
+  %9381 = getelementptr inbounds nuw i8, ptr %.neg13529.sroa.sel, i64 %.neg13531
   %9382 = lshr i64 %9354, 8
   %9383 = trunc i64 %9382 to i8
   store i8 %9383, ptr %9381, align 1
-  %9384 = getelementptr inbounds i8, ptr %9381, i64 1
+  %9384 = getelementptr inbounds nuw i8, ptr %9381, i64 1
   store i8 0, ptr %9384, align 1
   %9385 = and i64 %9354, 65280
   %.not13532 = icmp eq i64 %9385, 65280
-  %.sroa.gep14586 = getelementptr inbounds i8, ptr %9381, i64 2
+  %.sroa.gep14586 = getelementptr inbounds nuw i8, ptr %9381, i64 2
   %.neg13533.sroa.sel = select i1 %.not13532, ptr %.sroa.gep14586, ptr %9384
   %9386 = trunc i64 %9354 to i8
   store i8 %9386, ptr %.neg13533.sroa.sel, align 1
-  %.sroa.gep15543 = getelementptr inbounds i8, ptr %9381, i64 3
+  %.sroa.gep15543 = getelementptr inbounds nuw i8, ptr %9381, i64 3
   %.neg13533.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13532, ptr %.sroa.gep15543, ptr %.sroa.gep14586
   store i8 0, ptr %.neg13533.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9387 = and i64 %9354, 255
   %.not13534 = icmp eq i64 %9387, 255
   %.neg13535 = select i1 %.not13534, i64 2, i64 1
-  %9388 = getelementptr inbounds i8, ptr %.neg13533.sroa.sel, i64 %.neg13535
+  %9388 = getelementptr inbounds nuw i8, ptr %.neg13533.sroa.sel, i64 %.neg13535
   br label %9411
 
 9389:                                             ; preds = %9348
   %9390 = lshr i64 %9350, 48
   %9391 = trunc i64 %9390 to i8
-  %9392 = getelementptr inbounds i8, ptr %.32815153, i64 1
+  %9392 = getelementptr inbounds nuw i8, ptr %.32815153, i64 1
   store i8 %9391, ptr %9392, align 1
   %9393 = lshr i64 %9350, 40
   %9394 = trunc i64 %9393 to i8
-  %9395 = getelementptr inbounds i8, ptr %.32815153, i64 2
+  %9395 = getelementptr inbounds nuw i8, ptr %.32815153, i64 2
   store i8 %9394, ptr %9395, align 1
   %9396 = lshr i64 %9350, 32
   %9397 = trunc i64 %9396 to i8
-  %9398 = getelementptr inbounds i8, ptr %.32815153, i64 3
+  %9398 = getelementptr inbounds nuw i8, ptr %.32815153, i64 3
   store i8 %9397, ptr %9398, align 1
   %9399 = lshr i64 %9354, 24
   %9400 = trunc i64 %9399 to i8
-  %9401 = getelementptr inbounds i8, ptr %.32815153, i64 4
+  %9401 = getelementptr inbounds nuw i8, ptr %.32815153, i64 4
   store i8 %9400, ptr %9401, align 1
   %9402 = lshr i64 %9354, 16
   %9403 = trunc i64 %9402 to i8
-  %9404 = getelementptr inbounds i8, ptr %.32815153, i64 5
+  %9404 = getelementptr inbounds nuw i8, ptr %.32815153, i64 5
   store i8 %9403, ptr %9404, align 1
   %9405 = lshr i64 %9354, 8
   %9406 = trunc i64 %9405 to i8
-  %9407 = getelementptr inbounds i8, ptr %.32815153, i64 6
+  %9407 = getelementptr inbounds nuw i8, ptr %.32815153, i64 6
   store i8 %9406, ptr %9407, align 1
   %9408 = trunc i64 %9354 to i8
-  %9409 = getelementptr inbounds i8, ptr %.32815153, i64 7
+  %9409 = getelementptr inbounds nuw i8, ptr %.32815153, i64 7
   store i8 %9408, ptr %9409, align 1
-  %9410 = getelementptr inbounds i8, ptr %.32815153, i64 8
+  %9410 = getelementptr inbounds nuw i8, ptr %.32815153, i64 8
   br label %9411
 
 9411:                                             ; preds = %9389, %9360
@@ -18675,12 +18675,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9425 = xor i32 %9424, -1
   %9426 = and i32 %9323, %9425
   %9427 = zext nneg i32 %9422 to i64
-  %9428 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %9427
+  %9428 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %9427
   %9429 = load i32, ptr %9428, align 4
   %9430 = shl i32 %9429, %9328
   %9431 = or i32 %9430, %9426
-  %9432 = getelementptr inbounds i8, ptr %4, i64 1024
-  %9433 = getelementptr inbounds [256 x i8], ptr %9432, i64 0, i64 %9427
+  %9432 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %9433 = getelementptr inbounds nuw [256 x i8], ptr %9432, i64 0, i64 %9427
   %9434 = load i8, ptr %9433, align 1
   %9435 = sext i8 %9434 to i32
   %9436 = add nsw i32 %9435, %9328
@@ -18705,108 +18705,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13502, label %9480, label %9451
 
 9451:                                             ; preds = %9439
-  %9452 = getelementptr inbounds i8, ptr %.328.lcssa, i64 1
+  %9452 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 1
   store i8 0, ptr %9452, align 1
   %.not13503 = icmp eq i64 %9449, 255
-  %.sroa.gep14588 = getelementptr inbounds i8, ptr %.328.lcssa, i64 2
+  %.sroa.gep14588 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 2
   %.neg13504.sroa.sel = select i1 %.not13503, ptr %.sroa.gep14588, ptr %9452
   %9453 = lshr i64 %9445, 48
   %9454 = trunc i64 %9453 to i8
   store i8 %9454, ptr %.neg13504.sroa.sel, align 1
-  %.sroa.gep15549 = getelementptr inbounds i8, ptr %.328.lcssa, i64 3
+  %.sroa.gep15549 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 3
   %.neg13504.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13503, ptr %.sroa.gep15549, ptr %.sroa.gep14588
   store i8 0, ptr %.neg13504.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9455 = and i64 %9445, 71776119061217280
   %.not13505 = icmp eq i64 %9455, 71776119061217280
   %.neg13506 = select i1 %.not13505, i64 2, i64 1
-  %9456 = getelementptr inbounds i8, ptr %.neg13504.sroa.sel, i64 %.neg13506
+  %9456 = getelementptr inbounds nuw i8, ptr %.neg13504.sroa.sel, i64 %.neg13506
   %9457 = lshr i64 %9445, 40
   %9458 = trunc i64 %9457 to i8
   store i8 %9458, ptr %9456, align 1
-  %9459 = getelementptr inbounds i8, ptr %9456, i64 1
+  %9459 = getelementptr inbounds nuw i8, ptr %9456, i64 1
   store i8 0, ptr %9459, align 1
   %9460 = and i64 %9445, 280375465082880
   %.not13507 = icmp eq i64 %9460, 280375465082880
-  %.sroa.gep14590 = getelementptr inbounds i8, ptr %9456, i64 2
+  %.sroa.gep14590 = getelementptr inbounds nuw i8, ptr %9456, i64 2
   %.neg13508.sroa.sel = select i1 %.not13507, ptr %.sroa.gep14590, ptr %9459
   %9461 = lshr i64 %9445, 32
   %9462 = trunc i64 %9461 to i8
   store i8 %9462, ptr %.neg13508.sroa.sel, align 1
-  %.sroa.gep15555 = getelementptr inbounds i8, ptr %9456, i64 3
+  %.sroa.gep15555 = getelementptr inbounds nuw i8, ptr %9456, i64 3
   %.neg13508.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13507, ptr %.sroa.gep15555, ptr %.sroa.gep14590
   store i8 0, ptr %.neg13508.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9463 = and i64 %9445, 1095216660480
   %.not13509 = icmp eq i64 %9463, 1095216660480
   %.neg13510 = select i1 %.not13509, i64 2, i64 1
-  %9464 = getelementptr inbounds i8, ptr %.neg13508.sroa.sel, i64 %.neg13510
+  %9464 = getelementptr inbounds nuw i8, ptr %.neg13508.sroa.sel, i64 %.neg13510
   %9465 = lshr i64 %9445, 24
   %9466 = trunc i64 %9465 to i8
   store i8 %9466, ptr %9464, align 1
-  %9467 = getelementptr inbounds i8, ptr %9464, i64 1
+  %9467 = getelementptr inbounds nuw i8, ptr %9464, i64 1
   store i8 0, ptr %9467, align 1
   %9468 = and i64 %9445, 4278190080
   %.not13511 = icmp eq i64 %9468, 4278190080
-  %.sroa.gep14592 = getelementptr inbounds i8, ptr %9464, i64 2
+  %.sroa.gep14592 = getelementptr inbounds nuw i8, ptr %9464, i64 2
   %.neg13512.sroa.sel = select i1 %.not13511, ptr %.sroa.gep14592, ptr %9467
   %9469 = lshr i64 %9445, 16
   %9470 = trunc i64 %9469 to i8
   store i8 %9470, ptr %.neg13512.sroa.sel, align 1
-  %.sroa.gep15553 = getelementptr inbounds i8, ptr %9464, i64 3
+  %.sroa.gep15553 = getelementptr inbounds nuw i8, ptr %9464, i64 3
   %.neg13512.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13511, ptr %.sroa.gep15553, ptr %.sroa.gep14592
   store i8 0, ptr %.neg13512.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9471 = and i64 %9445, 16711680
   %.not13513 = icmp eq i64 %9471, 16711680
   %.neg13514 = select i1 %.not13513, i64 2, i64 1
-  %9472 = getelementptr inbounds i8, ptr %.neg13512.sroa.sel, i64 %.neg13514
+  %9472 = getelementptr inbounds nuw i8, ptr %.neg13512.sroa.sel, i64 %.neg13514
   %9473 = lshr i64 %9445, 8
   %9474 = trunc i64 %9473 to i8
   store i8 %9474, ptr %9472, align 1
-  %9475 = getelementptr inbounds i8, ptr %9472, i64 1
+  %9475 = getelementptr inbounds nuw i8, ptr %9472, i64 1
   store i8 0, ptr %9475, align 1
   %9476 = and i64 %9445, 65280
   %.not13515 = icmp eq i64 %9476, 65280
-  %.sroa.gep14594 = getelementptr inbounds i8, ptr %9472, i64 2
+  %.sroa.gep14594 = getelementptr inbounds nuw i8, ptr %9472, i64 2
   %.neg13516.sroa.sel = select i1 %.not13515, ptr %.sroa.gep14594, ptr %9475
   %9477 = trunc i64 %9445 to i8
   store i8 %9477, ptr %.neg13516.sroa.sel, align 1
-  %.sroa.gep15551 = getelementptr inbounds i8, ptr %9472, i64 3
+  %.sroa.gep15551 = getelementptr inbounds nuw i8, ptr %9472, i64 3
   %.neg13516.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13515, ptr %.sroa.gep15551, ptr %.sroa.gep14594
   store i8 0, ptr %.neg13516.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9478 = and i64 %9445, 255
   %.not13517 = icmp eq i64 %9478, 255
   %.neg13518 = select i1 %.not13517, i64 2, i64 1
-  %9479 = getelementptr inbounds i8, ptr %.neg13516.sroa.sel, i64 %.neg13518
+  %9479 = getelementptr inbounds nuw i8, ptr %.neg13516.sroa.sel, i64 %.neg13518
   br label %9502
 
 9480:                                             ; preds = %9439
   %9481 = lshr i64 %9445, 48
   %9482 = trunc i64 %9481 to i8
-  %9483 = getelementptr inbounds i8, ptr %.328.lcssa, i64 1
+  %9483 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 1
   store i8 %9482, ptr %9483, align 1
   %9484 = lshr i64 %9445, 40
   %9485 = trunc i64 %9484 to i8
-  %9486 = getelementptr inbounds i8, ptr %.328.lcssa, i64 2
+  %9486 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 2
   store i8 %9485, ptr %9486, align 1
   %9487 = lshr i64 %9445, 32
   %9488 = trunc i64 %9487 to i8
-  %9489 = getelementptr inbounds i8, ptr %.328.lcssa, i64 3
+  %9489 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 3
   store i8 %9488, ptr %9489, align 1
   %9490 = lshr i64 %9445, 24
   %9491 = trunc i64 %9490 to i8
-  %9492 = getelementptr inbounds i8, ptr %.328.lcssa, i64 4
+  %9492 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 4
   store i8 %9491, ptr %9492, align 1
   %9493 = lshr i64 %9445, 16
   %9494 = trunc i64 %9493 to i8
-  %9495 = getelementptr inbounds i8, ptr %.328.lcssa, i64 5
+  %9495 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 5
   store i8 %9494, ptr %9495, align 1
   %9496 = lshr i64 %9445, 8
   %9497 = trunc i64 %9496 to i8
-  %9498 = getelementptr inbounds i8, ptr %.328.lcssa, i64 6
+  %9498 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 6
   store i8 %9497, ptr %9498, align 1
   %9499 = trunc i64 %9445 to i8
-  %9500 = getelementptr inbounds i8, ptr %.328.lcssa, i64 7
+  %9500 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 7
   store i8 %9499, ptr %9500, align 1
-  %9501 = getelementptr inbounds i8, ptr %.328.lcssa, i64 8
+  %9501 = getelementptr inbounds nuw i8, ptr %.328.lcssa, i64 8
   br label %9502
 
 9502:                                             ; preds = %9480, %9451
@@ -18827,7 +18827,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.21711257 = phi i64 [ %.21311253, %9318 ], [ %9504, %9502 ], [ %9509, %9505 ]
   %.327 = phi ptr [ %.321, %9318 ], [ %.331, %9502 ], [ %.328.lcssa, %9505 ]
   %.108 = phi i32 [ %9319, %9318 ], [ 0, %9502 ], [ 0, %9505 ]
-  %9511 = getelementptr inbounds i8, ptr %1, i64 106
+  %9511 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %9512 = load i16, ptr %9511, align 2
   %9513 = icmp eq i16 %9512, 0
   br i1 %9513, label %9514, label %9516
@@ -18851,7 +18851,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 9526:                                             ; preds = %9516
   %9527 = load ptr, ptr %7, align 8
   %9528 = load ptr, ptr %9527, align 8
-  %9529 = getelementptr inbounds i8, ptr %9528, i64 40
+  %9529 = getelementptr inbounds nuw i8, ptr %9528, i64 40
   store i32 6, ptr %9529, align 8
   %9530 = load ptr, ptr %7, align 8
   %9531 = load ptr, ptr %9530, align 8
@@ -18864,8 +18864,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %9534, label %.lr.ph15167, label %._crit_edge15168
 
 .lr.ph15167:                                      ; preds = %9533
-  %9535 = getelementptr inbounds i8, ptr %4, i64 1264
-  %9536 = getelementptr inbounds i8, ptr %4, i64 960
+  %9535 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %9536 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %9537
 
 9537:                                             ; preds = %.lr.ph15167, %9616
@@ -18898,108 +18898,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13554, label %9585, label %9556
 
 9556:                                             ; preds = %9544
-  %9557 = getelementptr inbounds i8, ptr %.33415164, i64 1
+  %9557 = getelementptr inbounds nuw i8, ptr %.33415164, i64 1
   store i8 0, ptr %9557, align 1
   %.not13555 = icmp eq i64 %9554, 255
-  %.sroa.gep14596 = getelementptr inbounds i8, ptr %.33415164, i64 2
+  %.sroa.gep14596 = getelementptr inbounds nuw i8, ptr %.33415164, i64 2
   %.neg13556.sroa.sel = select i1 %.not13555, ptr %.sroa.gep14596, ptr %9557
   %9558 = lshr i64 %9546, 48
   %9559 = trunc i64 %9558 to i8
   store i8 %9559, ptr %.neg13556.sroa.sel, align 1
-  %.sroa.gep15525 = getelementptr inbounds i8, ptr %.33415164, i64 3
+  %.sroa.gep15525 = getelementptr inbounds nuw i8, ptr %.33415164, i64 3
   %.neg13556.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13555, ptr %.sroa.gep15525, ptr %.sroa.gep14596
   store i8 0, ptr %.neg13556.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9560 = and i64 %9546, 71776119061217280
   %.not13557 = icmp eq i64 %9560, 71776119061217280
   %.neg13558 = select i1 %.not13557, i64 2, i64 1
-  %9561 = getelementptr inbounds i8, ptr %.neg13556.sroa.sel, i64 %.neg13558
+  %9561 = getelementptr inbounds nuw i8, ptr %.neg13556.sroa.sel, i64 %.neg13558
   %9562 = lshr i64 %9546, 40
   %9563 = trunc i64 %9562 to i8
   store i8 %9563, ptr %9561, align 1
-  %9564 = getelementptr inbounds i8, ptr %9561, i64 1
+  %9564 = getelementptr inbounds nuw i8, ptr %9561, i64 1
   store i8 0, ptr %9564, align 1
   %9565 = and i64 %9546, 280375465082880
   %.not13559 = icmp eq i64 %9565, 280375465082880
-  %.sroa.gep14598 = getelementptr inbounds i8, ptr %9561, i64 2
+  %.sroa.gep14598 = getelementptr inbounds nuw i8, ptr %9561, i64 2
   %.neg13560.sroa.sel = select i1 %.not13559, ptr %.sroa.gep14598, ptr %9564
   %9566 = lshr i64 %9546, 32
   %9567 = trunc i64 %9566 to i8
   store i8 %9567, ptr %.neg13560.sroa.sel, align 1
-  %.sroa.gep15531 = getelementptr inbounds i8, ptr %9561, i64 3
+  %.sroa.gep15531 = getelementptr inbounds nuw i8, ptr %9561, i64 3
   %.neg13560.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13559, ptr %.sroa.gep15531, ptr %.sroa.gep14598
   store i8 0, ptr %.neg13560.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9568 = and i64 %9546, 1095216660480
   %.not13561 = icmp eq i64 %9568, 1095216660480
   %.neg13562 = select i1 %.not13561, i64 2, i64 1
-  %9569 = getelementptr inbounds i8, ptr %.neg13560.sroa.sel, i64 %.neg13562
+  %9569 = getelementptr inbounds nuw i8, ptr %.neg13560.sroa.sel, i64 %.neg13562
   %9570 = lshr i64 %9550, 24
   %9571 = trunc i64 %9570 to i8
   store i8 %9571, ptr %9569, align 1
-  %9572 = getelementptr inbounds i8, ptr %9569, i64 1
+  %9572 = getelementptr inbounds nuw i8, ptr %9569, i64 1
   store i8 0, ptr %9572, align 1
   %9573 = and i64 %9550, 4278190080
   %.not13563 = icmp eq i64 %9573, 4278190080
-  %.sroa.gep14600 = getelementptr inbounds i8, ptr %9569, i64 2
+  %.sroa.gep14600 = getelementptr inbounds nuw i8, ptr %9569, i64 2
   %.neg13564.sroa.sel = select i1 %.not13563, ptr %.sroa.gep14600, ptr %9572
   %9574 = lshr i64 %9550, 16
   %9575 = trunc i64 %9574 to i8
   store i8 %9575, ptr %.neg13564.sroa.sel, align 1
-  %.sroa.gep15529 = getelementptr inbounds i8, ptr %9569, i64 3
+  %.sroa.gep15529 = getelementptr inbounds nuw i8, ptr %9569, i64 3
   %.neg13564.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13563, ptr %.sroa.gep15529, ptr %.sroa.gep14600
   store i8 0, ptr %.neg13564.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9576 = and i64 %9550, 16711680
   %.not13565 = icmp eq i64 %9576, 16711680
   %.neg13566 = select i1 %.not13565, i64 2, i64 1
-  %9577 = getelementptr inbounds i8, ptr %.neg13564.sroa.sel, i64 %.neg13566
+  %9577 = getelementptr inbounds nuw i8, ptr %.neg13564.sroa.sel, i64 %.neg13566
   %9578 = lshr i64 %9550, 8
   %9579 = trunc i64 %9578 to i8
   store i8 %9579, ptr %9577, align 1
-  %9580 = getelementptr inbounds i8, ptr %9577, i64 1
+  %9580 = getelementptr inbounds nuw i8, ptr %9577, i64 1
   store i8 0, ptr %9580, align 1
   %9581 = and i64 %9550, 65280
   %.not13567 = icmp eq i64 %9581, 65280
-  %.sroa.gep14602 = getelementptr inbounds i8, ptr %9577, i64 2
+  %.sroa.gep14602 = getelementptr inbounds nuw i8, ptr %9577, i64 2
   %.neg13568.sroa.sel = select i1 %.not13567, ptr %.sroa.gep14602, ptr %9580
   %9582 = trunc i64 %9550 to i8
   store i8 %9582, ptr %.neg13568.sroa.sel, align 1
-  %.sroa.gep15527 = getelementptr inbounds i8, ptr %9577, i64 3
+  %.sroa.gep15527 = getelementptr inbounds nuw i8, ptr %9577, i64 3
   %.neg13568.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13567, ptr %.sroa.gep15527, ptr %.sroa.gep14602
   store i8 0, ptr %.neg13568.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9583 = and i64 %9550, 255
   %.not13569 = icmp eq i64 %9583, 255
   %.neg13570 = select i1 %.not13569, i64 2, i64 1
-  %9584 = getelementptr inbounds i8, ptr %.neg13568.sroa.sel, i64 %.neg13570
+  %9584 = getelementptr inbounds nuw i8, ptr %.neg13568.sroa.sel, i64 %.neg13570
   br label %9607
 
 9585:                                             ; preds = %9544
   %9586 = lshr i64 %9546, 48
   %9587 = trunc i64 %9586 to i8
-  %9588 = getelementptr inbounds i8, ptr %.33415164, i64 1
+  %9588 = getelementptr inbounds nuw i8, ptr %.33415164, i64 1
   store i8 %9587, ptr %9588, align 1
   %9589 = lshr i64 %9546, 40
   %9590 = trunc i64 %9589 to i8
-  %9591 = getelementptr inbounds i8, ptr %.33415164, i64 2
+  %9591 = getelementptr inbounds nuw i8, ptr %.33415164, i64 2
   store i8 %9590, ptr %9591, align 1
   %9592 = lshr i64 %9546, 32
   %9593 = trunc i64 %9592 to i8
-  %9594 = getelementptr inbounds i8, ptr %.33415164, i64 3
+  %9594 = getelementptr inbounds nuw i8, ptr %.33415164, i64 3
   store i8 %9593, ptr %9594, align 1
   %9595 = lshr i64 %9550, 24
   %9596 = trunc i64 %9595 to i8
-  %9597 = getelementptr inbounds i8, ptr %.33415164, i64 4
+  %9597 = getelementptr inbounds nuw i8, ptr %.33415164, i64 4
   store i8 %9596, ptr %9597, align 1
   %9598 = lshr i64 %9550, 16
   %9599 = trunc i64 %9598 to i8
-  %9600 = getelementptr inbounds i8, ptr %.33415164, i64 5
+  %9600 = getelementptr inbounds nuw i8, ptr %.33415164, i64 5
   store i8 %9599, ptr %9600, align 1
   %9601 = lshr i64 %9550, 8
   %9602 = trunc i64 %9601 to i8
-  %9603 = getelementptr inbounds i8, ptr %.33415164, i64 6
+  %9603 = getelementptr inbounds nuw i8, ptr %.33415164, i64 6
   store i8 %9602, ptr %9603, align 1
   %9604 = trunc i64 %9550 to i8
-  %9605 = getelementptr inbounds i8, ptr %.33415164, i64 7
+  %9605 = getelementptr inbounds nuw i8, ptr %.33415164, i64 7
   store i8 %9604, ptr %9605, align 1
-  %9606 = getelementptr inbounds i8, ptr %.33415164, i64 8
+  %9606 = getelementptr inbounds nuw i8, ptr %.33415164, i64 8
   br label %9607
 
 9607:                                             ; preds = %9585, %9556
@@ -19035,12 +19035,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9621 = xor i32 %9620, -1
   %9622 = and i32 %9519, %9621
   %9623 = zext nneg i32 %9618 to i64
-  %9624 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %9623
+  %9624 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %9623
   %9625 = load i32, ptr %9624, align 4
   %9626 = shl i32 %9625, %9524
   %9627 = or i32 %9626, %9622
-  %9628 = getelementptr inbounds i8, ptr %4, i64 1024
-  %9629 = getelementptr inbounds [256 x i8], ptr %9628, i64 0, i64 %9623
+  %9628 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %9629 = getelementptr inbounds nuw [256 x i8], ptr %9628, i64 0, i64 %9623
   %9630 = load i8, ptr %9629, align 1
   %9631 = sext i8 %9630 to i32
   %9632 = add nsw i32 %9631, %9524
@@ -19065,108 +19065,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13537, label %9676, label %9647
 
 9647:                                             ; preds = %9635
-  %9648 = getelementptr inbounds i8, ptr %.334.lcssa, i64 1
+  %9648 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 1
   store i8 0, ptr %9648, align 1
   %.not13538 = icmp eq i64 %9645, 255
-  %.sroa.gep14604 = getelementptr inbounds i8, ptr %.334.lcssa, i64 2
+  %.sroa.gep14604 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 2
   %.neg13539.sroa.sel = select i1 %.not13538, ptr %.sroa.gep14604, ptr %9648
   %9649 = lshr i64 %9641, 48
   %9650 = trunc i64 %9649 to i8
   store i8 %9650, ptr %.neg13539.sroa.sel, align 1
-  %.sroa.gep15533 = getelementptr inbounds i8, ptr %.334.lcssa, i64 3
+  %.sroa.gep15533 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 3
   %.neg13539.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13538, ptr %.sroa.gep15533, ptr %.sroa.gep14604
   store i8 0, ptr %.neg13539.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9651 = and i64 %9641, 71776119061217280
   %.not13540 = icmp eq i64 %9651, 71776119061217280
   %.neg13541 = select i1 %.not13540, i64 2, i64 1
-  %9652 = getelementptr inbounds i8, ptr %.neg13539.sroa.sel, i64 %.neg13541
+  %9652 = getelementptr inbounds nuw i8, ptr %.neg13539.sroa.sel, i64 %.neg13541
   %9653 = lshr i64 %9641, 40
   %9654 = trunc i64 %9653 to i8
   store i8 %9654, ptr %9652, align 1
-  %9655 = getelementptr inbounds i8, ptr %9652, i64 1
+  %9655 = getelementptr inbounds nuw i8, ptr %9652, i64 1
   store i8 0, ptr %9655, align 1
   %9656 = and i64 %9641, 280375465082880
   %.not13542 = icmp eq i64 %9656, 280375465082880
-  %.sroa.gep14606 = getelementptr inbounds i8, ptr %9652, i64 2
+  %.sroa.gep14606 = getelementptr inbounds nuw i8, ptr %9652, i64 2
   %.neg13543.sroa.sel = select i1 %.not13542, ptr %.sroa.gep14606, ptr %9655
   %9657 = lshr i64 %9641, 32
   %9658 = trunc i64 %9657 to i8
   store i8 %9658, ptr %.neg13543.sroa.sel, align 1
-  %.sroa.gep15539 = getelementptr inbounds i8, ptr %9652, i64 3
+  %.sroa.gep15539 = getelementptr inbounds nuw i8, ptr %9652, i64 3
   %.neg13543.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13542, ptr %.sroa.gep15539, ptr %.sroa.gep14606
   store i8 0, ptr %.neg13543.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9659 = and i64 %9641, 1095216660480
   %.not13544 = icmp eq i64 %9659, 1095216660480
   %.neg13545 = select i1 %.not13544, i64 2, i64 1
-  %9660 = getelementptr inbounds i8, ptr %.neg13543.sroa.sel, i64 %.neg13545
+  %9660 = getelementptr inbounds nuw i8, ptr %.neg13543.sroa.sel, i64 %.neg13545
   %9661 = lshr i64 %9641, 24
   %9662 = trunc i64 %9661 to i8
   store i8 %9662, ptr %9660, align 1
-  %9663 = getelementptr inbounds i8, ptr %9660, i64 1
+  %9663 = getelementptr inbounds nuw i8, ptr %9660, i64 1
   store i8 0, ptr %9663, align 1
   %9664 = and i64 %9641, 4278190080
   %.not13546 = icmp eq i64 %9664, 4278190080
-  %.sroa.gep14608 = getelementptr inbounds i8, ptr %9660, i64 2
+  %.sroa.gep14608 = getelementptr inbounds nuw i8, ptr %9660, i64 2
   %.neg13547.sroa.sel = select i1 %.not13546, ptr %.sroa.gep14608, ptr %9663
   %9665 = lshr i64 %9641, 16
   %9666 = trunc i64 %9665 to i8
   store i8 %9666, ptr %.neg13547.sroa.sel, align 1
-  %.sroa.gep15537 = getelementptr inbounds i8, ptr %9660, i64 3
+  %.sroa.gep15537 = getelementptr inbounds nuw i8, ptr %9660, i64 3
   %.neg13547.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13546, ptr %.sroa.gep15537, ptr %.sroa.gep14608
   store i8 0, ptr %.neg13547.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9667 = and i64 %9641, 16711680
   %.not13548 = icmp eq i64 %9667, 16711680
   %.neg13549 = select i1 %.not13548, i64 2, i64 1
-  %9668 = getelementptr inbounds i8, ptr %.neg13547.sroa.sel, i64 %.neg13549
+  %9668 = getelementptr inbounds nuw i8, ptr %.neg13547.sroa.sel, i64 %.neg13549
   %9669 = lshr i64 %9641, 8
   %9670 = trunc i64 %9669 to i8
   store i8 %9670, ptr %9668, align 1
-  %9671 = getelementptr inbounds i8, ptr %9668, i64 1
+  %9671 = getelementptr inbounds nuw i8, ptr %9668, i64 1
   store i8 0, ptr %9671, align 1
   %9672 = and i64 %9641, 65280
   %.not13550 = icmp eq i64 %9672, 65280
-  %.sroa.gep14610 = getelementptr inbounds i8, ptr %9668, i64 2
+  %.sroa.gep14610 = getelementptr inbounds nuw i8, ptr %9668, i64 2
   %.neg13551.sroa.sel = select i1 %.not13550, ptr %.sroa.gep14610, ptr %9671
   %9673 = trunc i64 %9641 to i8
   store i8 %9673, ptr %.neg13551.sroa.sel, align 1
-  %.sroa.gep15535 = getelementptr inbounds i8, ptr %9668, i64 3
+  %.sroa.gep15535 = getelementptr inbounds nuw i8, ptr %9668, i64 3
   %.neg13551.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13550, ptr %.sroa.gep15535, ptr %.sroa.gep14610
   store i8 0, ptr %.neg13551.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9674 = and i64 %9641, 255
   %.not13552 = icmp eq i64 %9674, 255
   %.neg13553 = select i1 %.not13552, i64 2, i64 1
-  %9675 = getelementptr inbounds i8, ptr %.neg13551.sroa.sel, i64 %.neg13553
+  %9675 = getelementptr inbounds nuw i8, ptr %.neg13551.sroa.sel, i64 %.neg13553
   br label %9698
 
 9676:                                             ; preds = %9635
   %9677 = lshr i64 %9641, 48
   %9678 = trunc i64 %9677 to i8
-  %9679 = getelementptr inbounds i8, ptr %.334.lcssa, i64 1
+  %9679 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 1
   store i8 %9678, ptr %9679, align 1
   %9680 = lshr i64 %9641, 40
   %9681 = trunc i64 %9680 to i8
-  %9682 = getelementptr inbounds i8, ptr %.334.lcssa, i64 2
+  %9682 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 2
   store i8 %9681, ptr %9682, align 1
   %9683 = lshr i64 %9641, 32
   %9684 = trunc i64 %9683 to i8
-  %9685 = getelementptr inbounds i8, ptr %.334.lcssa, i64 3
+  %9685 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 3
   store i8 %9684, ptr %9685, align 1
   %9686 = lshr i64 %9641, 24
   %9687 = trunc i64 %9686 to i8
-  %9688 = getelementptr inbounds i8, ptr %.334.lcssa, i64 4
+  %9688 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 4
   store i8 %9687, ptr %9688, align 1
   %9689 = lshr i64 %9641, 16
   %9690 = trunc i64 %9689 to i8
-  %9691 = getelementptr inbounds i8, ptr %.334.lcssa, i64 5
+  %9691 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 5
   store i8 %9690, ptr %9691, align 1
   %9692 = lshr i64 %9641, 8
   %9693 = trunc i64 %9692 to i8
-  %9694 = getelementptr inbounds i8, ptr %.334.lcssa, i64 6
+  %9694 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 6
   store i8 %9693, ptr %9694, align 1
   %9695 = trunc i64 %9641 to i8
-  %9696 = getelementptr inbounds i8, ptr %.334.lcssa, i64 7
+  %9696 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 7
   store i8 %9695, ptr %9696, align 1
-  %9697 = getelementptr inbounds i8, ptr %.334.lcssa, i64 8
+  %9697 = getelementptr inbounds nuw i8, ptr %.334.lcssa, i64 8
   br label %9698
 
 9698:                                             ; preds = %9676, %9647
@@ -19187,7 +19187,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22111261 = phi i64 [ %.21711257, %9514 ], [ %9700, %9698 ], [ %9705, %9701 ]
   %.333 = phi ptr [ %.327, %9514 ], [ %.337, %9698 ], [ %.334.lcssa, %9701 ]
   %.110 = phi i32 [ %9515, %9514 ], [ 0, %9698 ], [ 0, %9701 ]
-  %9707 = getelementptr inbounds i8, ptr %1, i64 120
+  %9707 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9708 = load i16, ptr %9707, align 2
   %9709 = icmp eq i16 %9708, 0
   br i1 %9709, label %9710, label %9712
@@ -19211,7 +19211,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 9722:                                             ; preds = %9712
   %9723 = load ptr, ptr %7, align 8
   %9724 = load ptr, ptr %9723, align 8
-  %9725 = getelementptr inbounds i8, ptr %9724, i64 40
+  %9725 = getelementptr inbounds nuw i8, ptr %9724, i64 40
   store i32 6, ptr %9725, align 8
   %9726 = load ptr, ptr %7, align 8
   %9727 = load ptr, ptr %9726, align 8
@@ -19224,8 +19224,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %9730, label %.lr.ph15178, label %._crit_edge15179
 
 .lr.ph15178:                                      ; preds = %9729
-  %9731 = getelementptr inbounds i8, ptr %4, i64 1264
-  %9732 = getelementptr inbounds i8, ptr %4, i64 960
+  %9731 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %9732 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %9733
 
 9733:                                             ; preds = %.lr.ph15178, %9812
@@ -19258,108 +19258,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13589, label %9781, label %9752
 
 9752:                                             ; preds = %9740
-  %9753 = getelementptr inbounds i8, ptr %.34015175, i64 1
+  %9753 = getelementptr inbounds nuw i8, ptr %.34015175, i64 1
   store i8 0, ptr %9753, align 1
   %.not13590 = icmp eq i64 %9750, 255
-  %.sroa.gep14612 = getelementptr inbounds i8, ptr %.34015175, i64 2
+  %.sroa.gep14612 = getelementptr inbounds nuw i8, ptr %.34015175, i64 2
   %.neg13591.sroa.sel = select i1 %.not13590, ptr %.sroa.gep14612, ptr %9753
   %9754 = lshr i64 %9742, 48
   %9755 = trunc i64 %9754 to i8
   store i8 %9755, ptr %.neg13591.sroa.sel, align 1
-  %.sroa.gep15509 = getelementptr inbounds i8, ptr %.34015175, i64 3
+  %.sroa.gep15509 = getelementptr inbounds nuw i8, ptr %.34015175, i64 3
   %.neg13591.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13590, ptr %.sroa.gep15509, ptr %.sroa.gep14612
   store i8 0, ptr %.neg13591.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9756 = and i64 %9742, 71776119061217280
   %.not13592 = icmp eq i64 %9756, 71776119061217280
   %.neg13593 = select i1 %.not13592, i64 2, i64 1
-  %9757 = getelementptr inbounds i8, ptr %.neg13591.sroa.sel, i64 %.neg13593
+  %9757 = getelementptr inbounds nuw i8, ptr %.neg13591.sroa.sel, i64 %.neg13593
   %9758 = lshr i64 %9742, 40
   %9759 = trunc i64 %9758 to i8
   store i8 %9759, ptr %9757, align 1
-  %9760 = getelementptr inbounds i8, ptr %9757, i64 1
+  %9760 = getelementptr inbounds nuw i8, ptr %9757, i64 1
   store i8 0, ptr %9760, align 1
   %9761 = and i64 %9742, 280375465082880
   %.not13594 = icmp eq i64 %9761, 280375465082880
-  %.sroa.gep14614 = getelementptr inbounds i8, ptr %9757, i64 2
+  %.sroa.gep14614 = getelementptr inbounds nuw i8, ptr %9757, i64 2
   %.neg13595.sroa.sel = select i1 %.not13594, ptr %.sroa.gep14614, ptr %9760
   %9762 = lshr i64 %9742, 32
   %9763 = trunc i64 %9762 to i8
   store i8 %9763, ptr %.neg13595.sroa.sel, align 1
-  %.sroa.gep15515 = getelementptr inbounds i8, ptr %9757, i64 3
+  %.sroa.gep15515 = getelementptr inbounds nuw i8, ptr %9757, i64 3
   %.neg13595.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13594, ptr %.sroa.gep15515, ptr %.sroa.gep14614
   store i8 0, ptr %.neg13595.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9764 = and i64 %9742, 1095216660480
   %.not13596 = icmp eq i64 %9764, 1095216660480
   %.neg13597 = select i1 %.not13596, i64 2, i64 1
-  %9765 = getelementptr inbounds i8, ptr %.neg13595.sroa.sel, i64 %.neg13597
+  %9765 = getelementptr inbounds nuw i8, ptr %.neg13595.sroa.sel, i64 %.neg13597
   %9766 = lshr i64 %9746, 24
   %9767 = trunc i64 %9766 to i8
   store i8 %9767, ptr %9765, align 1
-  %9768 = getelementptr inbounds i8, ptr %9765, i64 1
+  %9768 = getelementptr inbounds nuw i8, ptr %9765, i64 1
   store i8 0, ptr %9768, align 1
   %9769 = and i64 %9746, 4278190080
   %.not13598 = icmp eq i64 %9769, 4278190080
-  %.sroa.gep14616 = getelementptr inbounds i8, ptr %9765, i64 2
+  %.sroa.gep14616 = getelementptr inbounds nuw i8, ptr %9765, i64 2
   %.neg13599.sroa.sel = select i1 %.not13598, ptr %.sroa.gep14616, ptr %9768
   %9770 = lshr i64 %9746, 16
   %9771 = trunc i64 %9770 to i8
   store i8 %9771, ptr %.neg13599.sroa.sel, align 1
-  %.sroa.gep15513 = getelementptr inbounds i8, ptr %9765, i64 3
+  %.sroa.gep15513 = getelementptr inbounds nuw i8, ptr %9765, i64 3
   %.neg13599.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13598, ptr %.sroa.gep15513, ptr %.sroa.gep14616
   store i8 0, ptr %.neg13599.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9772 = and i64 %9746, 16711680
   %.not13600 = icmp eq i64 %9772, 16711680
   %.neg13601 = select i1 %.not13600, i64 2, i64 1
-  %9773 = getelementptr inbounds i8, ptr %.neg13599.sroa.sel, i64 %.neg13601
+  %9773 = getelementptr inbounds nuw i8, ptr %.neg13599.sroa.sel, i64 %.neg13601
   %9774 = lshr i64 %9746, 8
   %9775 = trunc i64 %9774 to i8
   store i8 %9775, ptr %9773, align 1
-  %9776 = getelementptr inbounds i8, ptr %9773, i64 1
+  %9776 = getelementptr inbounds nuw i8, ptr %9773, i64 1
   store i8 0, ptr %9776, align 1
   %9777 = and i64 %9746, 65280
   %.not13602 = icmp eq i64 %9777, 65280
-  %.sroa.gep14618 = getelementptr inbounds i8, ptr %9773, i64 2
+  %.sroa.gep14618 = getelementptr inbounds nuw i8, ptr %9773, i64 2
   %.neg13603.sroa.sel = select i1 %.not13602, ptr %.sroa.gep14618, ptr %9776
   %9778 = trunc i64 %9746 to i8
   store i8 %9778, ptr %.neg13603.sroa.sel, align 1
-  %.sroa.gep15511 = getelementptr inbounds i8, ptr %9773, i64 3
+  %.sroa.gep15511 = getelementptr inbounds nuw i8, ptr %9773, i64 3
   %.neg13603.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13602, ptr %.sroa.gep15511, ptr %.sroa.gep14618
   store i8 0, ptr %.neg13603.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9779 = and i64 %9746, 255
   %.not13604 = icmp eq i64 %9779, 255
   %.neg13605 = select i1 %.not13604, i64 2, i64 1
-  %9780 = getelementptr inbounds i8, ptr %.neg13603.sroa.sel, i64 %.neg13605
+  %9780 = getelementptr inbounds nuw i8, ptr %.neg13603.sroa.sel, i64 %.neg13605
   br label %9803
 
 9781:                                             ; preds = %9740
   %9782 = lshr i64 %9742, 48
   %9783 = trunc i64 %9782 to i8
-  %9784 = getelementptr inbounds i8, ptr %.34015175, i64 1
+  %9784 = getelementptr inbounds nuw i8, ptr %.34015175, i64 1
   store i8 %9783, ptr %9784, align 1
   %9785 = lshr i64 %9742, 40
   %9786 = trunc i64 %9785 to i8
-  %9787 = getelementptr inbounds i8, ptr %.34015175, i64 2
+  %9787 = getelementptr inbounds nuw i8, ptr %.34015175, i64 2
   store i8 %9786, ptr %9787, align 1
   %9788 = lshr i64 %9742, 32
   %9789 = trunc i64 %9788 to i8
-  %9790 = getelementptr inbounds i8, ptr %.34015175, i64 3
+  %9790 = getelementptr inbounds nuw i8, ptr %.34015175, i64 3
   store i8 %9789, ptr %9790, align 1
   %9791 = lshr i64 %9746, 24
   %9792 = trunc i64 %9791 to i8
-  %9793 = getelementptr inbounds i8, ptr %.34015175, i64 4
+  %9793 = getelementptr inbounds nuw i8, ptr %.34015175, i64 4
   store i8 %9792, ptr %9793, align 1
   %9794 = lshr i64 %9746, 16
   %9795 = trunc i64 %9794 to i8
-  %9796 = getelementptr inbounds i8, ptr %.34015175, i64 5
+  %9796 = getelementptr inbounds nuw i8, ptr %.34015175, i64 5
   store i8 %9795, ptr %9796, align 1
   %9797 = lshr i64 %9746, 8
   %9798 = trunc i64 %9797 to i8
-  %9799 = getelementptr inbounds i8, ptr %.34015175, i64 6
+  %9799 = getelementptr inbounds nuw i8, ptr %.34015175, i64 6
   store i8 %9798, ptr %9799, align 1
   %9800 = trunc i64 %9746 to i8
-  %9801 = getelementptr inbounds i8, ptr %.34015175, i64 7
+  %9801 = getelementptr inbounds nuw i8, ptr %.34015175, i64 7
   store i8 %9800, ptr %9801, align 1
-  %9802 = getelementptr inbounds i8, ptr %.34015175, i64 8
+  %9802 = getelementptr inbounds nuw i8, ptr %.34015175, i64 8
   br label %9803
 
 9803:                                             ; preds = %9781, %9752
@@ -19395,12 +19395,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %9817 = xor i32 %9816, -1
   %9818 = and i32 %9715, %9817
   %9819 = zext nneg i32 %9814 to i64
-  %9820 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %9819
+  %9820 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %9819
   %9821 = load i32, ptr %9820, align 4
   %9822 = shl i32 %9821, %9720
   %9823 = or i32 %9822, %9818
-  %9824 = getelementptr inbounds i8, ptr %4, i64 1024
-  %9825 = getelementptr inbounds [256 x i8], ptr %9824, i64 0, i64 %9819
+  %9824 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %9825 = getelementptr inbounds nuw [256 x i8], ptr %9824, i64 0, i64 %9819
   %9826 = load i8, ptr %9825, align 1
   %9827 = sext i8 %9826 to i32
   %9828 = add nsw i32 %9827, %9720
@@ -19425,108 +19425,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13572, label %9872, label %9843
 
 9843:                                             ; preds = %9831
-  %9844 = getelementptr inbounds i8, ptr %.340.lcssa, i64 1
+  %9844 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 1
   store i8 0, ptr %9844, align 1
   %.not13573 = icmp eq i64 %9841, 255
-  %.sroa.gep14620 = getelementptr inbounds i8, ptr %.340.lcssa, i64 2
+  %.sroa.gep14620 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 2
   %.neg13574.sroa.sel = select i1 %.not13573, ptr %.sroa.gep14620, ptr %9844
   %9845 = lshr i64 %9837, 48
   %9846 = trunc i64 %9845 to i8
   store i8 %9846, ptr %.neg13574.sroa.sel, align 1
-  %.sroa.gep15517 = getelementptr inbounds i8, ptr %.340.lcssa, i64 3
+  %.sroa.gep15517 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 3
   %.neg13574.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13573, ptr %.sroa.gep15517, ptr %.sroa.gep14620
   store i8 0, ptr %.neg13574.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9847 = and i64 %9837, 71776119061217280
   %.not13575 = icmp eq i64 %9847, 71776119061217280
   %.neg13576 = select i1 %.not13575, i64 2, i64 1
-  %9848 = getelementptr inbounds i8, ptr %.neg13574.sroa.sel, i64 %.neg13576
+  %9848 = getelementptr inbounds nuw i8, ptr %.neg13574.sroa.sel, i64 %.neg13576
   %9849 = lshr i64 %9837, 40
   %9850 = trunc i64 %9849 to i8
   store i8 %9850, ptr %9848, align 1
-  %9851 = getelementptr inbounds i8, ptr %9848, i64 1
+  %9851 = getelementptr inbounds nuw i8, ptr %9848, i64 1
   store i8 0, ptr %9851, align 1
   %9852 = and i64 %9837, 280375465082880
   %.not13577 = icmp eq i64 %9852, 280375465082880
-  %.sroa.gep14622 = getelementptr inbounds i8, ptr %9848, i64 2
+  %.sroa.gep14622 = getelementptr inbounds nuw i8, ptr %9848, i64 2
   %.neg13578.sroa.sel = select i1 %.not13577, ptr %.sroa.gep14622, ptr %9851
   %9853 = lshr i64 %9837, 32
   %9854 = trunc i64 %9853 to i8
   store i8 %9854, ptr %.neg13578.sroa.sel, align 1
-  %.sroa.gep15523 = getelementptr inbounds i8, ptr %9848, i64 3
+  %.sroa.gep15523 = getelementptr inbounds nuw i8, ptr %9848, i64 3
   %.neg13578.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13577, ptr %.sroa.gep15523, ptr %.sroa.gep14622
   store i8 0, ptr %.neg13578.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9855 = and i64 %9837, 1095216660480
   %.not13579 = icmp eq i64 %9855, 1095216660480
   %.neg13580 = select i1 %.not13579, i64 2, i64 1
-  %9856 = getelementptr inbounds i8, ptr %.neg13578.sroa.sel, i64 %.neg13580
+  %9856 = getelementptr inbounds nuw i8, ptr %.neg13578.sroa.sel, i64 %.neg13580
   %9857 = lshr i64 %9837, 24
   %9858 = trunc i64 %9857 to i8
   store i8 %9858, ptr %9856, align 1
-  %9859 = getelementptr inbounds i8, ptr %9856, i64 1
+  %9859 = getelementptr inbounds nuw i8, ptr %9856, i64 1
   store i8 0, ptr %9859, align 1
   %9860 = and i64 %9837, 4278190080
   %.not13581 = icmp eq i64 %9860, 4278190080
-  %.sroa.gep14624 = getelementptr inbounds i8, ptr %9856, i64 2
+  %.sroa.gep14624 = getelementptr inbounds nuw i8, ptr %9856, i64 2
   %.neg13582.sroa.sel = select i1 %.not13581, ptr %.sroa.gep14624, ptr %9859
   %9861 = lshr i64 %9837, 16
   %9862 = trunc i64 %9861 to i8
   store i8 %9862, ptr %.neg13582.sroa.sel, align 1
-  %.sroa.gep15521 = getelementptr inbounds i8, ptr %9856, i64 3
+  %.sroa.gep15521 = getelementptr inbounds nuw i8, ptr %9856, i64 3
   %.neg13582.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13581, ptr %.sroa.gep15521, ptr %.sroa.gep14624
   store i8 0, ptr %.neg13582.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9863 = and i64 %9837, 16711680
   %.not13583 = icmp eq i64 %9863, 16711680
   %.neg13584 = select i1 %.not13583, i64 2, i64 1
-  %9864 = getelementptr inbounds i8, ptr %.neg13582.sroa.sel, i64 %.neg13584
+  %9864 = getelementptr inbounds nuw i8, ptr %.neg13582.sroa.sel, i64 %.neg13584
   %9865 = lshr i64 %9837, 8
   %9866 = trunc i64 %9865 to i8
   store i8 %9866, ptr %9864, align 1
-  %9867 = getelementptr inbounds i8, ptr %9864, i64 1
+  %9867 = getelementptr inbounds nuw i8, ptr %9864, i64 1
   store i8 0, ptr %9867, align 1
   %9868 = and i64 %9837, 65280
   %.not13585 = icmp eq i64 %9868, 65280
-  %.sroa.gep14626 = getelementptr inbounds i8, ptr %9864, i64 2
+  %.sroa.gep14626 = getelementptr inbounds nuw i8, ptr %9864, i64 2
   %.neg13586.sroa.sel = select i1 %.not13585, ptr %.sroa.gep14626, ptr %9867
   %9869 = trunc i64 %9837 to i8
   store i8 %9869, ptr %.neg13586.sroa.sel, align 1
-  %.sroa.gep15519 = getelementptr inbounds i8, ptr %9864, i64 3
+  %.sroa.gep15519 = getelementptr inbounds nuw i8, ptr %9864, i64 3
   %.neg13586.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13585, ptr %.sroa.gep15519, ptr %.sroa.gep14626
   store i8 0, ptr %.neg13586.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9870 = and i64 %9837, 255
   %.not13587 = icmp eq i64 %9870, 255
   %.neg13588 = select i1 %.not13587, i64 2, i64 1
-  %9871 = getelementptr inbounds i8, ptr %.neg13586.sroa.sel, i64 %.neg13588
+  %9871 = getelementptr inbounds nuw i8, ptr %.neg13586.sroa.sel, i64 %.neg13588
   br label %9894
 
 9872:                                             ; preds = %9831
   %9873 = lshr i64 %9837, 48
   %9874 = trunc i64 %9873 to i8
-  %9875 = getelementptr inbounds i8, ptr %.340.lcssa, i64 1
+  %9875 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 1
   store i8 %9874, ptr %9875, align 1
   %9876 = lshr i64 %9837, 40
   %9877 = trunc i64 %9876 to i8
-  %9878 = getelementptr inbounds i8, ptr %.340.lcssa, i64 2
+  %9878 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 2
   store i8 %9877, ptr %9878, align 1
   %9879 = lshr i64 %9837, 32
   %9880 = trunc i64 %9879 to i8
-  %9881 = getelementptr inbounds i8, ptr %.340.lcssa, i64 3
+  %9881 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 3
   store i8 %9880, ptr %9881, align 1
   %9882 = lshr i64 %9837, 24
   %9883 = trunc i64 %9882 to i8
-  %9884 = getelementptr inbounds i8, ptr %.340.lcssa, i64 4
+  %9884 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 4
   store i8 %9883, ptr %9884, align 1
   %9885 = lshr i64 %9837, 16
   %9886 = trunc i64 %9885 to i8
-  %9887 = getelementptr inbounds i8, ptr %.340.lcssa, i64 5
+  %9887 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 5
   store i8 %9886, ptr %9887, align 1
   %9888 = lshr i64 %9837, 8
   %9889 = trunc i64 %9888 to i8
-  %9890 = getelementptr inbounds i8, ptr %.340.lcssa, i64 6
+  %9890 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 6
   store i8 %9889, ptr %9890, align 1
   %9891 = trunc i64 %9837 to i8
-  %9892 = getelementptr inbounds i8, ptr %.340.lcssa, i64 7
+  %9892 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 7
   store i8 %9891, ptr %9892, align 1
-  %9893 = getelementptr inbounds i8, ptr %.340.lcssa, i64 8
+  %9893 = getelementptr inbounds nuw i8, ptr %.340.lcssa, i64 8
   br label %9894
 
 9894:                                             ; preds = %9872, %9843
@@ -19547,7 +19547,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22511265 = phi i64 [ %.22111261, %9710 ], [ %9896, %9894 ], [ %9901, %9897 ]
   %.339 = phi ptr [ %.333, %9710 ], [ %.343, %9894 ], [ %.340.lcssa, %9897 ]
   %.112 = phi i32 [ %9711, %9710 ], [ 0, %9894 ], [ 0, %9897 ]
-  %9903 = getelementptr inbounds i8, ptr %1, i64 122
+  %9903 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %9904 = load i16, ptr %9903, align 2
   %9905 = icmp eq i16 %9904, 0
   br i1 %9905, label %9906, label %9908
@@ -19571,7 +19571,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 9918:                                             ; preds = %9908
   %9919 = load ptr, ptr %7, align 8
   %9920 = load ptr, ptr %9919, align 8
-  %9921 = getelementptr inbounds i8, ptr %9920, i64 40
+  %9921 = getelementptr inbounds nuw i8, ptr %9920, i64 40
   store i32 6, ptr %9921, align 8
   %9922 = load ptr, ptr %7, align 8
   %9923 = load ptr, ptr %9922, align 8
@@ -19584,8 +19584,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %9926, label %.lr.ph15189, label %._crit_edge15190
 
 .lr.ph15189:                                      ; preds = %9925
-  %9927 = getelementptr inbounds i8, ptr %4, i64 1264
-  %9928 = getelementptr inbounds i8, ptr %4, i64 960
+  %9927 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %9928 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %9929
 
 9929:                                             ; preds = %.lr.ph15189, %10008
@@ -19618,108 +19618,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13624, label %9977, label %9948
 
 9948:                                             ; preds = %9936
-  %9949 = getelementptr inbounds i8, ptr %.34615186, i64 1
+  %9949 = getelementptr inbounds nuw i8, ptr %.34615186, i64 1
   store i8 0, ptr %9949, align 1
   %.not13625 = icmp eq i64 %9946, 255
-  %.sroa.gep14628 = getelementptr inbounds i8, ptr %.34615186, i64 2
+  %.sroa.gep14628 = getelementptr inbounds nuw i8, ptr %.34615186, i64 2
   %.neg13626.sroa.sel = select i1 %.not13625, ptr %.sroa.gep14628, ptr %9949
   %9950 = lshr i64 %9938, 48
   %9951 = trunc i64 %9950 to i8
   store i8 %9951, ptr %.neg13626.sroa.sel, align 1
-  %.sroa.gep15493 = getelementptr inbounds i8, ptr %.34615186, i64 3
+  %.sroa.gep15493 = getelementptr inbounds nuw i8, ptr %.34615186, i64 3
   %.neg13626.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13625, ptr %.sroa.gep15493, ptr %.sroa.gep14628
   store i8 0, ptr %.neg13626.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9952 = and i64 %9938, 71776119061217280
   %.not13627 = icmp eq i64 %9952, 71776119061217280
   %.neg13628 = select i1 %.not13627, i64 2, i64 1
-  %9953 = getelementptr inbounds i8, ptr %.neg13626.sroa.sel, i64 %.neg13628
+  %9953 = getelementptr inbounds nuw i8, ptr %.neg13626.sroa.sel, i64 %.neg13628
   %9954 = lshr i64 %9938, 40
   %9955 = trunc i64 %9954 to i8
   store i8 %9955, ptr %9953, align 1
-  %9956 = getelementptr inbounds i8, ptr %9953, i64 1
+  %9956 = getelementptr inbounds nuw i8, ptr %9953, i64 1
   store i8 0, ptr %9956, align 1
   %9957 = and i64 %9938, 280375465082880
   %.not13629 = icmp eq i64 %9957, 280375465082880
-  %.sroa.gep14630 = getelementptr inbounds i8, ptr %9953, i64 2
+  %.sroa.gep14630 = getelementptr inbounds nuw i8, ptr %9953, i64 2
   %.neg13630.sroa.sel = select i1 %.not13629, ptr %.sroa.gep14630, ptr %9956
   %9958 = lshr i64 %9938, 32
   %9959 = trunc i64 %9958 to i8
   store i8 %9959, ptr %.neg13630.sroa.sel, align 1
-  %.sroa.gep15499 = getelementptr inbounds i8, ptr %9953, i64 3
+  %.sroa.gep15499 = getelementptr inbounds nuw i8, ptr %9953, i64 3
   %.neg13630.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13629, ptr %.sroa.gep15499, ptr %.sroa.gep14630
   store i8 0, ptr %.neg13630.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9960 = and i64 %9938, 1095216660480
   %.not13631 = icmp eq i64 %9960, 1095216660480
   %.neg13632 = select i1 %.not13631, i64 2, i64 1
-  %9961 = getelementptr inbounds i8, ptr %.neg13630.sroa.sel, i64 %.neg13632
+  %9961 = getelementptr inbounds nuw i8, ptr %.neg13630.sroa.sel, i64 %.neg13632
   %9962 = lshr i64 %9942, 24
   %9963 = trunc i64 %9962 to i8
   store i8 %9963, ptr %9961, align 1
-  %9964 = getelementptr inbounds i8, ptr %9961, i64 1
+  %9964 = getelementptr inbounds nuw i8, ptr %9961, i64 1
   store i8 0, ptr %9964, align 1
   %9965 = and i64 %9942, 4278190080
   %.not13633 = icmp eq i64 %9965, 4278190080
-  %.sroa.gep14632 = getelementptr inbounds i8, ptr %9961, i64 2
+  %.sroa.gep14632 = getelementptr inbounds nuw i8, ptr %9961, i64 2
   %.neg13634.sroa.sel = select i1 %.not13633, ptr %.sroa.gep14632, ptr %9964
   %9966 = lshr i64 %9942, 16
   %9967 = trunc i64 %9966 to i8
   store i8 %9967, ptr %.neg13634.sroa.sel, align 1
-  %.sroa.gep15497 = getelementptr inbounds i8, ptr %9961, i64 3
+  %.sroa.gep15497 = getelementptr inbounds nuw i8, ptr %9961, i64 3
   %.neg13634.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13633, ptr %.sroa.gep15497, ptr %.sroa.gep14632
   store i8 0, ptr %.neg13634.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9968 = and i64 %9942, 16711680
   %.not13635 = icmp eq i64 %9968, 16711680
   %.neg13636 = select i1 %.not13635, i64 2, i64 1
-  %9969 = getelementptr inbounds i8, ptr %.neg13634.sroa.sel, i64 %.neg13636
+  %9969 = getelementptr inbounds nuw i8, ptr %.neg13634.sroa.sel, i64 %.neg13636
   %9970 = lshr i64 %9942, 8
   %9971 = trunc i64 %9970 to i8
   store i8 %9971, ptr %9969, align 1
-  %9972 = getelementptr inbounds i8, ptr %9969, i64 1
+  %9972 = getelementptr inbounds nuw i8, ptr %9969, i64 1
   store i8 0, ptr %9972, align 1
   %9973 = and i64 %9942, 65280
   %.not13637 = icmp eq i64 %9973, 65280
-  %.sroa.gep14634 = getelementptr inbounds i8, ptr %9969, i64 2
+  %.sroa.gep14634 = getelementptr inbounds nuw i8, ptr %9969, i64 2
   %.neg13638.sroa.sel = select i1 %.not13637, ptr %.sroa.gep14634, ptr %9972
   %9974 = trunc i64 %9942 to i8
   store i8 %9974, ptr %.neg13638.sroa.sel, align 1
-  %.sroa.gep15495 = getelementptr inbounds i8, ptr %9969, i64 3
+  %.sroa.gep15495 = getelementptr inbounds nuw i8, ptr %9969, i64 3
   %.neg13638.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13637, ptr %.sroa.gep15495, ptr %.sroa.gep14634
   store i8 0, ptr %.neg13638.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %9975 = and i64 %9942, 255
   %.not13639 = icmp eq i64 %9975, 255
   %.neg13640 = select i1 %.not13639, i64 2, i64 1
-  %9976 = getelementptr inbounds i8, ptr %.neg13638.sroa.sel, i64 %.neg13640
+  %9976 = getelementptr inbounds nuw i8, ptr %.neg13638.sroa.sel, i64 %.neg13640
   br label %9999
 
 9977:                                             ; preds = %9936
   %9978 = lshr i64 %9938, 48
   %9979 = trunc i64 %9978 to i8
-  %9980 = getelementptr inbounds i8, ptr %.34615186, i64 1
+  %9980 = getelementptr inbounds nuw i8, ptr %.34615186, i64 1
   store i8 %9979, ptr %9980, align 1
   %9981 = lshr i64 %9938, 40
   %9982 = trunc i64 %9981 to i8
-  %9983 = getelementptr inbounds i8, ptr %.34615186, i64 2
+  %9983 = getelementptr inbounds nuw i8, ptr %.34615186, i64 2
   store i8 %9982, ptr %9983, align 1
   %9984 = lshr i64 %9938, 32
   %9985 = trunc i64 %9984 to i8
-  %9986 = getelementptr inbounds i8, ptr %.34615186, i64 3
+  %9986 = getelementptr inbounds nuw i8, ptr %.34615186, i64 3
   store i8 %9985, ptr %9986, align 1
   %9987 = lshr i64 %9942, 24
   %9988 = trunc i64 %9987 to i8
-  %9989 = getelementptr inbounds i8, ptr %.34615186, i64 4
+  %9989 = getelementptr inbounds nuw i8, ptr %.34615186, i64 4
   store i8 %9988, ptr %9989, align 1
   %9990 = lshr i64 %9942, 16
   %9991 = trunc i64 %9990 to i8
-  %9992 = getelementptr inbounds i8, ptr %.34615186, i64 5
+  %9992 = getelementptr inbounds nuw i8, ptr %.34615186, i64 5
   store i8 %9991, ptr %9992, align 1
   %9993 = lshr i64 %9942, 8
   %9994 = trunc i64 %9993 to i8
-  %9995 = getelementptr inbounds i8, ptr %.34615186, i64 6
+  %9995 = getelementptr inbounds nuw i8, ptr %.34615186, i64 6
   store i8 %9994, ptr %9995, align 1
   %9996 = trunc i64 %9942 to i8
-  %9997 = getelementptr inbounds i8, ptr %.34615186, i64 7
+  %9997 = getelementptr inbounds nuw i8, ptr %.34615186, i64 7
   store i8 %9996, ptr %9997, align 1
-  %9998 = getelementptr inbounds i8, ptr %.34615186, i64 8
+  %9998 = getelementptr inbounds nuw i8, ptr %.34615186, i64 8
   br label %9999
 
 9999:                                             ; preds = %9977, %9948
@@ -19755,12 +19755,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10013 = xor i32 %10012, -1
   %10014 = and i32 %9911, %10013
   %10015 = zext nneg i32 %10010 to i64
-  %10016 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %10015
+  %10016 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %10015
   %10017 = load i32, ptr %10016, align 4
   %10018 = shl i32 %10017, %9916
   %10019 = or i32 %10018, %10014
-  %10020 = getelementptr inbounds i8, ptr %4, i64 1024
-  %10021 = getelementptr inbounds [256 x i8], ptr %10020, i64 0, i64 %10015
+  %10020 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %10021 = getelementptr inbounds nuw [256 x i8], ptr %10020, i64 0, i64 %10015
   %10022 = load i8, ptr %10021, align 1
   %10023 = sext i8 %10022 to i32
   %10024 = add nsw i32 %10023, %9916
@@ -19785,108 +19785,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13607, label %10068, label %10039
 
 10039:                                            ; preds = %10027
-  %10040 = getelementptr inbounds i8, ptr %.346.lcssa, i64 1
+  %10040 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 1
   store i8 0, ptr %10040, align 1
   %.not13608 = icmp eq i64 %10037, 255
-  %.sroa.gep14636 = getelementptr inbounds i8, ptr %.346.lcssa, i64 2
+  %.sroa.gep14636 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 2
   %.neg13609.sroa.sel = select i1 %.not13608, ptr %.sroa.gep14636, ptr %10040
   %10041 = lshr i64 %10033, 48
   %10042 = trunc i64 %10041 to i8
   store i8 %10042, ptr %.neg13609.sroa.sel, align 1
-  %.sroa.gep15501 = getelementptr inbounds i8, ptr %.346.lcssa, i64 3
+  %.sroa.gep15501 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 3
   %.neg13609.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13608, ptr %.sroa.gep15501, ptr %.sroa.gep14636
   store i8 0, ptr %.neg13609.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10043 = and i64 %10033, 71776119061217280
   %.not13610 = icmp eq i64 %10043, 71776119061217280
   %.neg13611 = select i1 %.not13610, i64 2, i64 1
-  %10044 = getelementptr inbounds i8, ptr %.neg13609.sroa.sel, i64 %.neg13611
+  %10044 = getelementptr inbounds nuw i8, ptr %.neg13609.sroa.sel, i64 %.neg13611
   %10045 = lshr i64 %10033, 40
   %10046 = trunc i64 %10045 to i8
   store i8 %10046, ptr %10044, align 1
-  %10047 = getelementptr inbounds i8, ptr %10044, i64 1
+  %10047 = getelementptr inbounds nuw i8, ptr %10044, i64 1
   store i8 0, ptr %10047, align 1
   %10048 = and i64 %10033, 280375465082880
   %.not13612 = icmp eq i64 %10048, 280375465082880
-  %.sroa.gep14638 = getelementptr inbounds i8, ptr %10044, i64 2
+  %.sroa.gep14638 = getelementptr inbounds nuw i8, ptr %10044, i64 2
   %.neg13613.sroa.sel = select i1 %.not13612, ptr %.sroa.gep14638, ptr %10047
   %10049 = lshr i64 %10033, 32
   %10050 = trunc i64 %10049 to i8
   store i8 %10050, ptr %.neg13613.sroa.sel, align 1
-  %.sroa.gep15507 = getelementptr inbounds i8, ptr %10044, i64 3
+  %.sroa.gep15507 = getelementptr inbounds nuw i8, ptr %10044, i64 3
   %.neg13613.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13612, ptr %.sroa.gep15507, ptr %.sroa.gep14638
   store i8 0, ptr %.neg13613.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10051 = and i64 %10033, 1095216660480
   %.not13614 = icmp eq i64 %10051, 1095216660480
   %.neg13615 = select i1 %.not13614, i64 2, i64 1
-  %10052 = getelementptr inbounds i8, ptr %.neg13613.sroa.sel, i64 %.neg13615
+  %10052 = getelementptr inbounds nuw i8, ptr %.neg13613.sroa.sel, i64 %.neg13615
   %10053 = lshr i64 %10033, 24
   %10054 = trunc i64 %10053 to i8
   store i8 %10054, ptr %10052, align 1
-  %10055 = getelementptr inbounds i8, ptr %10052, i64 1
+  %10055 = getelementptr inbounds nuw i8, ptr %10052, i64 1
   store i8 0, ptr %10055, align 1
   %10056 = and i64 %10033, 4278190080
   %.not13616 = icmp eq i64 %10056, 4278190080
-  %.sroa.gep14640 = getelementptr inbounds i8, ptr %10052, i64 2
+  %.sroa.gep14640 = getelementptr inbounds nuw i8, ptr %10052, i64 2
   %.neg13617.sroa.sel = select i1 %.not13616, ptr %.sroa.gep14640, ptr %10055
   %10057 = lshr i64 %10033, 16
   %10058 = trunc i64 %10057 to i8
   store i8 %10058, ptr %.neg13617.sroa.sel, align 1
-  %.sroa.gep15505 = getelementptr inbounds i8, ptr %10052, i64 3
+  %.sroa.gep15505 = getelementptr inbounds nuw i8, ptr %10052, i64 3
   %.neg13617.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13616, ptr %.sroa.gep15505, ptr %.sroa.gep14640
   store i8 0, ptr %.neg13617.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10059 = and i64 %10033, 16711680
   %.not13618 = icmp eq i64 %10059, 16711680
   %.neg13619 = select i1 %.not13618, i64 2, i64 1
-  %10060 = getelementptr inbounds i8, ptr %.neg13617.sroa.sel, i64 %.neg13619
+  %10060 = getelementptr inbounds nuw i8, ptr %.neg13617.sroa.sel, i64 %.neg13619
   %10061 = lshr i64 %10033, 8
   %10062 = trunc i64 %10061 to i8
   store i8 %10062, ptr %10060, align 1
-  %10063 = getelementptr inbounds i8, ptr %10060, i64 1
+  %10063 = getelementptr inbounds nuw i8, ptr %10060, i64 1
   store i8 0, ptr %10063, align 1
   %10064 = and i64 %10033, 65280
   %.not13620 = icmp eq i64 %10064, 65280
-  %.sroa.gep14642 = getelementptr inbounds i8, ptr %10060, i64 2
+  %.sroa.gep14642 = getelementptr inbounds nuw i8, ptr %10060, i64 2
   %.neg13621.sroa.sel = select i1 %.not13620, ptr %.sroa.gep14642, ptr %10063
   %10065 = trunc i64 %10033 to i8
   store i8 %10065, ptr %.neg13621.sroa.sel, align 1
-  %.sroa.gep15503 = getelementptr inbounds i8, ptr %10060, i64 3
+  %.sroa.gep15503 = getelementptr inbounds nuw i8, ptr %10060, i64 3
   %.neg13621.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13620, ptr %.sroa.gep15503, ptr %.sroa.gep14642
   store i8 0, ptr %.neg13621.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10066 = and i64 %10033, 255
   %.not13622 = icmp eq i64 %10066, 255
   %.neg13623 = select i1 %.not13622, i64 2, i64 1
-  %10067 = getelementptr inbounds i8, ptr %.neg13621.sroa.sel, i64 %.neg13623
+  %10067 = getelementptr inbounds nuw i8, ptr %.neg13621.sroa.sel, i64 %.neg13623
   br label %10090
 
 10068:                                            ; preds = %10027
   %10069 = lshr i64 %10033, 48
   %10070 = trunc i64 %10069 to i8
-  %10071 = getelementptr inbounds i8, ptr %.346.lcssa, i64 1
+  %10071 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 1
   store i8 %10070, ptr %10071, align 1
   %10072 = lshr i64 %10033, 40
   %10073 = trunc i64 %10072 to i8
-  %10074 = getelementptr inbounds i8, ptr %.346.lcssa, i64 2
+  %10074 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 2
   store i8 %10073, ptr %10074, align 1
   %10075 = lshr i64 %10033, 32
   %10076 = trunc i64 %10075 to i8
-  %10077 = getelementptr inbounds i8, ptr %.346.lcssa, i64 3
+  %10077 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 3
   store i8 %10076, ptr %10077, align 1
   %10078 = lshr i64 %10033, 24
   %10079 = trunc i64 %10078 to i8
-  %10080 = getelementptr inbounds i8, ptr %.346.lcssa, i64 4
+  %10080 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 4
   store i8 %10079, ptr %10080, align 1
   %10081 = lshr i64 %10033, 16
   %10082 = trunc i64 %10081 to i8
-  %10083 = getelementptr inbounds i8, ptr %.346.lcssa, i64 5
+  %10083 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 5
   store i8 %10082, ptr %10083, align 1
   %10084 = lshr i64 %10033, 8
   %10085 = trunc i64 %10084 to i8
-  %10086 = getelementptr inbounds i8, ptr %.346.lcssa, i64 6
+  %10086 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 6
   store i8 %10085, ptr %10086, align 1
   %10087 = trunc i64 %10033 to i8
-  %10088 = getelementptr inbounds i8, ptr %.346.lcssa, i64 7
+  %10088 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 7
   store i8 %10087, ptr %10088, align 1
-  %10089 = getelementptr inbounds i8, ptr %.346.lcssa, i64 8
+  %10089 = getelementptr inbounds nuw i8, ptr %.346.lcssa, i64 8
   br label %10090
 
 10090:                                            ; preds = %10068, %10039
@@ -19907,7 +19907,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.22911269 = phi i64 [ %.22511265, %9906 ], [ %10092, %10090 ], [ %10097, %10093 ]
   %.345 = phi ptr [ %.339, %9906 ], [ %.349, %10090 ], [ %.346.lcssa, %10093 ]
   %.114 = phi i32 [ %9907, %9906 ], [ 0, %10090 ], [ 0, %10093 ]
-  %10099 = getelementptr inbounds i8, ptr %1, i64 108
+  %10099 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %10100 = load i16, ptr %10099, align 2
   %10101 = icmp eq i16 %10100, 0
   br i1 %10101, label %10102, label %10104
@@ -19931,7 +19931,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 10114:                                            ; preds = %10104
   %10115 = load ptr, ptr %7, align 8
   %10116 = load ptr, ptr %10115, align 8
-  %10117 = getelementptr inbounds i8, ptr %10116, i64 40
+  %10117 = getelementptr inbounds nuw i8, ptr %10116, i64 40
   store i32 6, ptr %10117, align 8
   %10118 = load ptr, ptr %7, align 8
   %10119 = load ptr, ptr %10118, align 8
@@ -19944,8 +19944,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %10122, label %.lr.ph15200, label %._crit_edge15201
 
 .lr.ph15200:                                      ; preds = %10121
-  %10123 = getelementptr inbounds i8, ptr %4, i64 1264
-  %10124 = getelementptr inbounds i8, ptr %4, i64 960
+  %10123 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %10124 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %10125
 
 10125:                                            ; preds = %.lr.ph15200, %10204
@@ -19978,108 +19978,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13659, label %10173, label %10144
 
 10144:                                            ; preds = %10132
-  %10145 = getelementptr inbounds i8, ptr %.35215197, i64 1
+  %10145 = getelementptr inbounds nuw i8, ptr %.35215197, i64 1
   store i8 0, ptr %10145, align 1
   %.not13660 = icmp eq i64 %10142, 255
-  %.sroa.gep14644 = getelementptr inbounds i8, ptr %.35215197, i64 2
+  %.sroa.gep14644 = getelementptr inbounds nuw i8, ptr %.35215197, i64 2
   %.neg13661.sroa.sel = select i1 %.not13660, ptr %.sroa.gep14644, ptr %10145
   %10146 = lshr i64 %10134, 48
   %10147 = trunc i64 %10146 to i8
   store i8 %10147, ptr %.neg13661.sroa.sel, align 1
-  %.sroa.gep15477 = getelementptr inbounds i8, ptr %.35215197, i64 3
+  %.sroa.gep15477 = getelementptr inbounds nuw i8, ptr %.35215197, i64 3
   %.neg13661.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13660, ptr %.sroa.gep15477, ptr %.sroa.gep14644
   store i8 0, ptr %.neg13661.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10148 = and i64 %10134, 71776119061217280
   %.not13662 = icmp eq i64 %10148, 71776119061217280
   %.neg13663 = select i1 %.not13662, i64 2, i64 1
-  %10149 = getelementptr inbounds i8, ptr %.neg13661.sroa.sel, i64 %.neg13663
+  %10149 = getelementptr inbounds nuw i8, ptr %.neg13661.sroa.sel, i64 %.neg13663
   %10150 = lshr i64 %10134, 40
   %10151 = trunc i64 %10150 to i8
   store i8 %10151, ptr %10149, align 1
-  %10152 = getelementptr inbounds i8, ptr %10149, i64 1
+  %10152 = getelementptr inbounds nuw i8, ptr %10149, i64 1
   store i8 0, ptr %10152, align 1
   %10153 = and i64 %10134, 280375465082880
   %.not13664 = icmp eq i64 %10153, 280375465082880
-  %.sroa.gep14646 = getelementptr inbounds i8, ptr %10149, i64 2
+  %.sroa.gep14646 = getelementptr inbounds nuw i8, ptr %10149, i64 2
   %.neg13665.sroa.sel = select i1 %.not13664, ptr %.sroa.gep14646, ptr %10152
   %10154 = lshr i64 %10134, 32
   %10155 = trunc i64 %10154 to i8
   store i8 %10155, ptr %.neg13665.sroa.sel, align 1
-  %.sroa.gep15483 = getelementptr inbounds i8, ptr %10149, i64 3
+  %.sroa.gep15483 = getelementptr inbounds nuw i8, ptr %10149, i64 3
   %.neg13665.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13664, ptr %.sroa.gep15483, ptr %.sroa.gep14646
   store i8 0, ptr %.neg13665.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10156 = and i64 %10134, 1095216660480
   %.not13666 = icmp eq i64 %10156, 1095216660480
   %.neg13667 = select i1 %.not13666, i64 2, i64 1
-  %10157 = getelementptr inbounds i8, ptr %.neg13665.sroa.sel, i64 %.neg13667
+  %10157 = getelementptr inbounds nuw i8, ptr %.neg13665.sroa.sel, i64 %.neg13667
   %10158 = lshr i64 %10138, 24
   %10159 = trunc i64 %10158 to i8
   store i8 %10159, ptr %10157, align 1
-  %10160 = getelementptr inbounds i8, ptr %10157, i64 1
+  %10160 = getelementptr inbounds nuw i8, ptr %10157, i64 1
   store i8 0, ptr %10160, align 1
   %10161 = and i64 %10138, 4278190080
   %.not13668 = icmp eq i64 %10161, 4278190080
-  %.sroa.gep14648 = getelementptr inbounds i8, ptr %10157, i64 2
+  %.sroa.gep14648 = getelementptr inbounds nuw i8, ptr %10157, i64 2
   %.neg13669.sroa.sel = select i1 %.not13668, ptr %.sroa.gep14648, ptr %10160
   %10162 = lshr i64 %10138, 16
   %10163 = trunc i64 %10162 to i8
   store i8 %10163, ptr %.neg13669.sroa.sel, align 1
-  %.sroa.gep15481 = getelementptr inbounds i8, ptr %10157, i64 3
+  %.sroa.gep15481 = getelementptr inbounds nuw i8, ptr %10157, i64 3
   %.neg13669.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13668, ptr %.sroa.gep15481, ptr %.sroa.gep14648
   store i8 0, ptr %.neg13669.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10164 = and i64 %10138, 16711680
   %.not13670 = icmp eq i64 %10164, 16711680
   %.neg13671 = select i1 %.not13670, i64 2, i64 1
-  %10165 = getelementptr inbounds i8, ptr %.neg13669.sroa.sel, i64 %.neg13671
+  %10165 = getelementptr inbounds nuw i8, ptr %.neg13669.sroa.sel, i64 %.neg13671
   %10166 = lshr i64 %10138, 8
   %10167 = trunc i64 %10166 to i8
   store i8 %10167, ptr %10165, align 1
-  %10168 = getelementptr inbounds i8, ptr %10165, i64 1
+  %10168 = getelementptr inbounds nuw i8, ptr %10165, i64 1
   store i8 0, ptr %10168, align 1
   %10169 = and i64 %10138, 65280
   %.not13672 = icmp eq i64 %10169, 65280
-  %.sroa.gep14650 = getelementptr inbounds i8, ptr %10165, i64 2
+  %.sroa.gep14650 = getelementptr inbounds nuw i8, ptr %10165, i64 2
   %.neg13673.sroa.sel = select i1 %.not13672, ptr %.sroa.gep14650, ptr %10168
   %10170 = trunc i64 %10138 to i8
   store i8 %10170, ptr %.neg13673.sroa.sel, align 1
-  %.sroa.gep15479 = getelementptr inbounds i8, ptr %10165, i64 3
+  %.sroa.gep15479 = getelementptr inbounds nuw i8, ptr %10165, i64 3
   %.neg13673.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13672, ptr %.sroa.gep15479, ptr %.sroa.gep14650
   store i8 0, ptr %.neg13673.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10171 = and i64 %10138, 255
   %.not13674 = icmp eq i64 %10171, 255
   %.neg13675 = select i1 %.not13674, i64 2, i64 1
-  %10172 = getelementptr inbounds i8, ptr %.neg13673.sroa.sel, i64 %.neg13675
+  %10172 = getelementptr inbounds nuw i8, ptr %.neg13673.sroa.sel, i64 %.neg13675
   br label %10195
 
 10173:                                            ; preds = %10132
   %10174 = lshr i64 %10134, 48
   %10175 = trunc i64 %10174 to i8
-  %10176 = getelementptr inbounds i8, ptr %.35215197, i64 1
+  %10176 = getelementptr inbounds nuw i8, ptr %.35215197, i64 1
   store i8 %10175, ptr %10176, align 1
   %10177 = lshr i64 %10134, 40
   %10178 = trunc i64 %10177 to i8
-  %10179 = getelementptr inbounds i8, ptr %.35215197, i64 2
+  %10179 = getelementptr inbounds nuw i8, ptr %.35215197, i64 2
   store i8 %10178, ptr %10179, align 1
   %10180 = lshr i64 %10134, 32
   %10181 = trunc i64 %10180 to i8
-  %10182 = getelementptr inbounds i8, ptr %.35215197, i64 3
+  %10182 = getelementptr inbounds nuw i8, ptr %.35215197, i64 3
   store i8 %10181, ptr %10182, align 1
   %10183 = lshr i64 %10138, 24
   %10184 = trunc i64 %10183 to i8
-  %10185 = getelementptr inbounds i8, ptr %.35215197, i64 4
+  %10185 = getelementptr inbounds nuw i8, ptr %.35215197, i64 4
   store i8 %10184, ptr %10185, align 1
   %10186 = lshr i64 %10138, 16
   %10187 = trunc i64 %10186 to i8
-  %10188 = getelementptr inbounds i8, ptr %.35215197, i64 5
+  %10188 = getelementptr inbounds nuw i8, ptr %.35215197, i64 5
   store i8 %10187, ptr %10188, align 1
   %10189 = lshr i64 %10138, 8
   %10190 = trunc i64 %10189 to i8
-  %10191 = getelementptr inbounds i8, ptr %.35215197, i64 6
+  %10191 = getelementptr inbounds nuw i8, ptr %.35215197, i64 6
   store i8 %10190, ptr %10191, align 1
   %10192 = trunc i64 %10138 to i8
-  %10193 = getelementptr inbounds i8, ptr %.35215197, i64 7
+  %10193 = getelementptr inbounds nuw i8, ptr %.35215197, i64 7
   store i8 %10192, ptr %10193, align 1
-  %10194 = getelementptr inbounds i8, ptr %.35215197, i64 8
+  %10194 = getelementptr inbounds nuw i8, ptr %.35215197, i64 8
   br label %10195
 
 10195:                                            ; preds = %10173, %10144
@@ -20115,12 +20115,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10209 = xor i32 %10208, -1
   %10210 = and i32 %10107, %10209
   %10211 = zext nneg i32 %10206 to i64
-  %10212 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %10211
+  %10212 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %10211
   %10213 = load i32, ptr %10212, align 4
   %10214 = shl i32 %10213, %10112
   %10215 = or i32 %10214, %10210
-  %10216 = getelementptr inbounds i8, ptr %4, i64 1024
-  %10217 = getelementptr inbounds [256 x i8], ptr %10216, i64 0, i64 %10211
+  %10216 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %10217 = getelementptr inbounds nuw [256 x i8], ptr %10216, i64 0, i64 %10211
   %10218 = load i8, ptr %10217, align 1
   %10219 = sext i8 %10218 to i32
   %10220 = add nsw i32 %10219, %10112
@@ -20145,108 +20145,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13642, label %10264, label %10235
 
 10235:                                            ; preds = %10223
-  %10236 = getelementptr inbounds i8, ptr %.352.lcssa, i64 1
+  %10236 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 1
   store i8 0, ptr %10236, align 1
   %.not13643 = icmp eq i64 %10233, 255
-  %.sroa.gep14652 = getelementptr inbounds i8, ptr %.352.lcssa, i64 2
+  %.sroa.gep14652 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 2
   %.neg13644.sroa.sel = select i1 %.not13643, ptr %.sroa.gep14652, ptr %10236
   %10237 = lshr i64 %10229, 48
   %10238 = trunc i64 %10237 to i8
   store i8 %10238, ptr %.neg13644.sroa.sel, align 1
-  %.sroa.gep15485 = getelementptr inbounds i8, ptr %.352.lcssa, i64 3
+  %.sroa.gep15485 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 3
   %.neg13644.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13643, ptr %.sroa.gep15485, ptr %.sroa.gep14652
   store i8 0, ptr %.neg13644.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10239 = and i64 %10229, 71776119061217280
   %.not13645 = icmp eq i64 %10239, 71776119061217280
   %.neg13646 = select i1 %.not13645, i64 2, i64 1
-  %10240 = getelementptr inbounds i8, ptr %.neg13644.sroa.sel, i64 %.neg13646
+  %10240 = getelementptr inbounds nuw i8, ptr %.neg13644.sroa.sel, i64 %.neg13646
   %10241 = lshr i64 %10229, 40
   %10242 = trunc i64 %10241 to i8
   store i8 %10242, ptr %10240, align 1
-  %10243 = getelementptr inbounds i8, ptr %10240, i64 1
+  %10243 = getelementptr inbounds nuw i8, ptr %10240, i64 1
   store i8 0, ptr %10243, align 1
   %10244 = and i64 %10229, 280375465082880
   %.not13647 = icmp eq i64 %10244, 280375465082880
-  %.sroa.gep14654 = getelementptr inbounds i8, ptr %10240, i64 2
+  %.sroa.gep14654 = getelementptr inbounds nuw i8, ptr %10240, i64 2
   %.neg13648.sroa.sel = select i1 %.not13647, ptr %.sroa.gep14654, ptr %10243
   %10245 = lshr i64 %10229, 32
   %10246 = trunc i64 %10245 to i8
   store i8 %10246, ptr %.neg13648.sroa.sel, align 1
-  %.sroa.gep15491 = getelementptr inbounds i8, ptr %10240, i64 3
+  %.sroa.gep15491 = getelementptr inbounds nuw i8, ptr %10240, i64 3
   %.neg13648.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13647, ptr %.sroa.gep15491, ptr %.sroa.gep14654
   store i8 0, ptr %.neg13648.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10247 = and i64 %10229, 1095216660480
   %.not13649 = icmp eq i64 %10247, 1095216660480
   %.neg13650 = select i1 %.not13649, i64 2, i64 1
-  %10248 = getelementptr inbounds i8, ptr %.neg13648.sroa.sel, i64 %.neg13650
+  %10248 = getelementptr inbounds nuw i8, ptr %.neg13648.sroa.sel, i64 %.neg13650
   %10249 = lshr i64 %10229, 24
   %10250 = trunc i64 %10249 to i8
   store i8 %10250, ptr %10248, align 1
-  %10251 = getelementptr inbounds i8, ptr %10248, i64 1
+  %10251 = getelementptr inbounds nuw i8, ptr %10248, i64 1
   store i8 0, ptr %10251, align 1
   %10252 = and i64 %10229, 4278190080
   %.not13651 = icmp eq i64 %10252, 4278190080
-  %.sroa.gep14656 = getelementptr inbounds i8, ptr %10248, i64 2
+  %.sroa.gep14656 = getelementptr inbounds nuw i8, ptr %10248, i64 2
   %.neg13652.sroa.sel = select i1 %.not13651, ptr %.sroa.gep14656, ptr %10251
   %10253 = lshr i64 %10229, 16
   %10254 = trunc i64 %10253 to i8
   store i8 %10254, ptr %.neg13652.sroa.sel, align 1
-  %.sroa.gep15489 = getelementptr inbounds i8, ptr %10248, i64 3
+  %.sroa.gep15489 = getelementptr inbounds nuw i8, ptr %10248, i64 3
   %.neg13652.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13651, ptr %.sroa.gep15489, ptr %.sroa.gep14656
   store i8 0, ptr %.neg13652.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10255 = and i64 %10229, 16711680
   %.not13653 = icmp eq i64 %10255, 16711680
   %.neg13654 = select i1 %.not13653, i64 2, i64 1
-  %10256 = getelementptr inbounds i8, ptr %.neg13652.sroa.sel, i64 %.neg13654
+  %10256 = getelementptr inbounds nuw i8, ptr %.neg13652.sroa.sel, i64 %.neg13654
   %10257 = lshr i64 %10229, 8
   %10258 = trunc i64 %10257 to i8
   store i8 %10258, ptr %10256, align 1
-  %10259 = getelementptr inbounds i8, ptr %10256, i64 1
+  %10259 = getelementptr inbounds nuw i8, ptr %10256, i64 1
   store i8 0, ptr %10259, align 1
   %10260 = and i64 %10229, 65280
   %.not13655 = icmp eq i64 %10260, 65280
-  %.sroa.gep14658 = getelementptr inbounds i8, ptr %10256, i64 2
+  %.sroa.gep14658 = getelementptr inbounds nuw i8, ptr %10256, i64 2
   %.neg13656.sroa.sel = select i1 %.not13655, ptr %.sroa.gep14658, ptr %10259
   %10261 = trunc i64 %10229 to i8
   store i8 %10261, ptr %.neg13656.sroa.sel, align 1
-  %.sroa.gep15487 = getelementptr inbounds i8, ptr %10256, i64 3
+  %.sroa.gep15487 = getelementptr inbounds nuw i8, ptr %10256, i64 3
   %.neg13656.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13655, ptr %.sroa.gep15487, ptr %.sroa.gep14658
   store i8 0, ptr %.neg13656.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10262 = and i64 %10229, 255
   %.not13657 = icmp eq i64 %10262, 255
   %.neg13658 = select i1 %.not13657, i64 2, i64 1
-  %10263 = getelementptr inbounds i8, ptr %.neg13656.sroa.sel, i64 %.neg13658
+  %10263 = getelementptr inbounds nuw i8, ptr %.neg13656.sroa.sel, i64 %.neg13658
   br label %10286
 
 10264:                                            ; preds = %10223
   %10265 = lshr i64 %10229, 48
   %10266 = trunc i64 %10265 to i8
-  %10267 = getelementptr inbounds i8, ptr %.352.lcssa, i64 1
+  %10267 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 1
   store i8 %10266, ptr %10267, align 1
   %10268 = lshr i64 %10229, 40
   %10269 = trunc i64 %10268 to i8
-  %10270 = getelementptr inbounds i8, ptr %.352.lcssa, i64 2
+  %10270 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 2
   store i8 %10269, ptr %10270, align 1
   %10271 = lshr i64 %10229, 32
   %10272 = trunc i64 %10271 to i8
-  %10273 = getelementptr inbounds i8, ptr %.352.lcssa, i64 3
+  %10273 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 3
   store i8 %10272, ptr %10273, align 1
   %10274 = lshr i64 %10229, 24
   %10275 = trunc i64 %10274 to i8
-  %10276 = getelementptr inbounds i8, ptr %.352.lcssa, i64 4
+  %10276 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 4
   store i8 %10275, ptr %10276, align 1
   %10277 = lshr i64 %10229, 16
   %10278 = trunc i64 %10277 to i8
-  %10279 = getelementptr inbounds i8, ptr %.352.lcssa, i64 5
+  %10279 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 5
   store i8 %10278, ptr %10279, align 1
   %10280 = lshr i64 %10229, 8
   %10281 = trunc i64 %10280 to i8
-  %10282 = getelementptr inbounds i8, ptr %.352.lcssa, i64 6
+  %10282 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 6
   store i8 %10281, ptr %10282, align 1
   %10283 = trunc i64 %10229 to i8
-  %10284 = getelementptr inbounds i8, ptr %.352.lcssa, i64 7
+  %10284 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 7
   store i8 %10283, ptr %10284, align 1
-  %10285 = getelementptr inbounds i8, ptr %.352.lcssa, i64 8
+  %10285 = getelementptr inbounds nuw i8, ptr %.352.lcssa, i64 8
   br label %10286
 
 10286:                                            ; preds = %10264, %10235
@@ -20267,7 +20267,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23311273 = phi i64 [ %.22911269, %10102 ], [ %10288, %10286 ], [ %10293, %10289 ]
   %.351 = phi ptr [ %.345, %10102 ], [ %.355, %10286 ], [ %.352.lcssa, %10289 ]
   %.116 = phi i32 [ %10103, %10102 ], [ 0, %10286 ], [ 0, %10289 ]
-  %10295 = getelementptr inbounds i8, ptr %1, i64 94
+  %10295 = getelementptr inbounds nuw i8, ptr %1, i64 94
   %10296 = load i16, ptr %10295, align 2
   %10297 = icmp eq i16 %10296, 0
   br i1 %10297, label %10298, label %10300
@@ -20291,7 +20291,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 10310:                                            ; preds = %10300
   %10311 = load ptr, ptr %7, align 8
   %10312 = load ptr, ptr %10311, align 8
-  %10313 = getelementptr inbounds i8, ptr %10312, i64 40
+  %10313 = getelementptr inbounds nuw i8, ptr %10312, i64 40
   store i32 6, ptr %10313, align 8
   %10314 = load ptr, ptr %7, align 8
   %10315 = load ptr, ptr %10314, align 8
@@ -20304,8 +20304,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %10318, label %.lr.ph15211, label %._crit_edge15212
 
 .lr.ph15211:                                      ; preds = %10317
-  %10319 = getelementptr inbounds i8, ptr %4, i64 1264
-  %10320 = getelementptr inbounds i8, ptr %4, i64 960
+  %10319 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %10320 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %10321
 
 10321:                                            ; preds = %.lr.ph15211, %10400
@@ -20338,108 +20338,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13694, label %10369, label %10340
 
 10340:                                            ; preds = %10328
-  %10341 = getelementptr inbounds i8, ptr %.35815208, i64 1
+  %10341 = getelementptr inbounds nuw i8, ptr %.35815208, i64 1
   store i8 0, ptr %10341, align 1
   %.not13695 = icmp eq i64 %10338, 255
-  %.sroa.gep14660 = getelementptr inbounds i8, ptr %.35815208, i64 2
+  %.sroa.gep14660 = getelementptr inbounds nuw i8, ptr %.35815208, i64 2
   %.neg13696.sroa.sel = select i1 %.not13695, ptr %.sroa.gep14660, ptr %10341
   %10342 = lshr i64 %10330, 48
   %10343 = trunc i64 %10342 to i8
   store i8 %10343, ptr %.neg13696.sroa.sel, align 1
-  %.sroa.gep15461 = getelementptr inbounds i8, ptr %.35815208, i64 3
+  %.sroa.gep15461 = getelementptr inbounds nuw i8, ptr %.35815208, i64 3
   %.neg13696.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13695, ptr %.sroa.gep15461, ptr %.sroa.gep14660
   store i8 0, ptr %.neg13696.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10344 = and i64 %10330, 71776119061217280
   %.not13697 = icmp eq i64 %10344, 71776119061217280
   %.neg13698 = select i1 %.not13697, i64 2, i64 1
-  %10345 = getelementptr inbounds i8, ptr %.neg13696.sroa.sel, i64 %.neg13698
+  %10345 = getelementptr inbounds nuw i8, ptr %.neg13696.sroa.sel, i64 %.neg13698
   %10346 = lshr i64 %10330, 40
   %10347 = trunc i64 %10346 to i8
   store i8 %10347, ptr %10345, align 1
-  %10348 = getelementptr inbounds i8, ptr %10345, i64 1
+  %10348 = getelementptr inbounds nuw i8, ptr %10345, i64 1
   store i8 0, ptr %10348, align 1
   %10349 = and i64 %10330, 280375465082880
   %.not13699 = icmp eq i64 %10349, 280375465082880
-  %.sroa.gep14662 = getelementptr inbounds i8, ptr %10345, i64 2
+  %.sroa.gep14662 = getelementptr inbounds nuw i8, ptr %10345, i64 2
   %.neg13700.sroa.sel = select i1 %.not13699, ptr %.sroa.gep14662, ptr %10348
   %10350 = lshr i64 %10330, 32
   %10351 = trunc i64 %10350 to i8
   store i8 %10351, ptr %.neg13700.sroa.sel, align 1
-  %.sroa.gep15467 = getelementptr inbounds i8, ptr %10345, i64 3
+  %.sroa.gep15467 = getelementptr inbounds nuw i8, ptr %10345, i64 3
   %.neg13700.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13699, ptr %.sroa.gep15467, ptr %.sroa.gep14662
   store i8 0, ptr %.neg13700.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10352 = and i64 %10330, 1095216660480
   %.not13701 = icmp eq i64 %10352, 1095216660480
   %.neg13702 = select i1 %.not13701, i64 2, i64 1
-  %10353 = getelementptr inbounds i8, ptr %.neg13700.sroa.sel, i64 %.neg13702
+  %10353 = getelementptr inbounds nuw i8, ptr %.neg13700.sroa.sel, i64 %.neg13702
   %10354 = lshr i64 %10334, 24
   %10355 = trunc i64 %10354 to i8
   store i8 %10355, ptr %10353, align 1
-  %10356 = getelementptr inbounds i8, ptr %10353, i64 1
+  %10356 = getelementptr inbounds nuw i8, ptr %10353, i64 1
   store i8 0, ptr %10356, align 1
   %10357 = and i64 %10334, 4278190080
   %.not13703 = icmp eq i64 %10357, 4278190080
-  %.sroa.gep14664 = getelementptr inbounds i8, ptr %10353, i64 2
+  %.sroa.gep14664 = getelementptr inbounds nuw i8, ptr %10353, i64 2
   %.neg13704.sroa.sel = select i1 %.not13703, ptr %.sroa.gep14664, ptr %10356
   %10358 = lshr i64 %10334, 16
   %10359 = trunc i64 %10358 to i8
   store i8 %10359, ptr %.neg13704.sroa.sel, align 1
-  %.sroa.gep15465 = getelementptr inbounds i8, ptr %10353, i64 3
+  %.sroa.gep15465 = getelementptr inbounds nuw i8, ptr %10353, i64 3
   %.neg13704.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13703, ptr %.sroa.gep15465, ptr %.sroa.gep14664
   store i8 0, ptr %.neg13704.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10360 = and i64 %10334, 16711680
   %.not13705 = icmp eq i64 %10360, 16711680
   %.neg13706 = select i1 %.not13705, i64 2, i64 1
-  %10361 = getelementptr inbounds i8, ptr %.neg13704.sroa.sel, i64 %.neg13706
+  %10361 = getelementptr inbounds nuw i8, ptr %.neg13704.sroa.sel, i64 %.neg13706
   %10362 = lshr i64 %10334, 8
   %10363 = trunc i64 %10362 to i8
   store i8 %10363, ptr %10361, align 1
-  %10364 = getelementptr inbounds i8, ptr %10361, i64 1
+  %10364 = getelementptr inbounds nuw i8, ptr %10361, i64 1
   store i8 0, ptr %10364, align 1
   %10365 = and i64 %10334, 65280
   %.not13707 = icmp eq i64 %10365, 65280
-  %.sroa.gep14666 = getelementptr inbounds i8, ptr %10361, i64 2
+  %.sroa.gep14666 = getelementptr inbounds nuw i8, ptr %10361, i64 2
   %.neg13708.sroa.sel = select i1 %.not13707, ptr %.sroa.gep14666, ptr %10364
   %10366 = trunc i64 %10334 to i8
   store i8 %10366, ptr %.neg13708.sroa.sel, align 1
-  %.sroa.gep15463 = getelementptr inbounds i8, ptr %10361, i64 3
+  %.sroa.gep15463 = getelementptr inbounds nuw i8, ptr %10361, i64 3
   %.neg13708.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13707, ptr %.sroa.gep15463, ptr %.sroa.gep14666
   store i8 0, ptr %.neg13708.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10367 = and i64 %10334, 255
   %.not13709 = icmp eq i64 %10367, 255
   %.neg13710 = select i1 %.not13709, i64 2, i64 1
-  %10368 = getelementptr inbounds i8, ptr %.neg13708.sroa.sel, i64 %.neg13710
+  %10368 = getelementptr inbounds nuw i8, ptr %.neg13708.sroa.sel, i64 %.neg13710
   br label %10391
 
 10369:                                            ; preds = %10328
   %10370 = lshr i64 %10330, 48
   %10371 = trunc i64 %10370 to i8
-  %10372 = getelementptr inbounds i8, ptr %.35815208, i64 1
+  %10372 = getelementptr inbounds nuw i8, ptr %.35815208, i64 1
   store i8 %10371, ptr %10372, align 1
   %10373 = lshr i64 %10330, 40
   %10374 = trunc i64 %10373 to i8
-  %10375 = getelementptr inbounds i8, ptr %.35815208, i64 2
+  %10375 = getelementptr inbounds nuw i8, ptr %.35815208, i64 2
   store i8 %10374, ptr %10375, align 1
   %10376 = lshr i64 %10330, 32
   %10377 = trunc i64 %10376 to i8
-  %10378 = getelementptr inbounds i8, ptr %.35815208, i64 3
+  %10378 = getelementptr inbounds nuw i8, ptr %.35815208, i64 3
   store i8 %10377, ptr %10378, align 1
   %10379 = lshr i64 %10334, 24
   %10380 = trunc i64 %10379 to i8
-  %10381 = getelementptr inbounds i8, ptr %.35815208, i64 4
+  %10381 = getelementptr inbounds nuw i8, ptr %.35815208, i64 4
   store i8 %10380, ptr %10381, align 1
   %10382 = lshr i64 %10334, 16
   %10383 = trunc i64 %10382 to i8
-  %10384 = getelementptr inbounds i8, ptr %.35815208, i64 5
+  %10384 = getelementptr inbounds nuw i8, ptr %.35815208, i64 5
   store i8 %10383, ptr %10384, align 1
   %10385 = lshr i64 %10334, 8
   %10386 = trunc i64 %10385 to i8
-  %10387 = getelementptr inbounds i8, ptr %.35815208, i64 6
+  %10387 = getelementptr inbounds nuw i8, ptr %.35815208, i64 6
   store i8 %10386, ptr %10387, align 1
   %10388 = trunc i64 %10334 to i8
-  %10389 = getelementptr inbounds i8, ptr %.35815208, i64 7
+  %10389 = getelementptr inbounds nuw i8, ptr %.35815208, i64 7
   store i8 %10388, ptr %10389, align 1
-  %10390 = getelementptr inbounds i8, ptr %.35815208, i64 8
+  %10390 = getelementptr inbounds nuw i8, ptr %.35815208, i64 8
   br label %10391
 
 10391:                                            ; preds = %10369, %10340
@@ -20475,12 +20475,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10405 = xor i32 %10404, -1
   %10406 = and i32 %10303, %10405
   %10407 = zext nneg i32 %10402 to i64
-  %10408 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %10407
+  %10408 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %10407
   %10409 = load i32, ptr %10408, align 4
   %10410 = shl i32 %10409, %10308
   %10411 = or i32 %10410, %10406
-  %10412 = getelementptr inbounds i8, ptr %4, i64 1024
-  %10413 = getelementptr inbounds [256 x i8], ptr %10412, i64 0, i64 %10407
+  %10412 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %10413 = getelementptr inbounds nuw [256 x i8], ptr %10412, i64 0, i64 %10407
   %10414 = load i8, ptr %10413, align 1
   %10415 = sext i8 %10414 to i32
   %10416 = add nsw i32 %10415, %10308
@@ -20505,108 +20505,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13677, label %10460, label %10431
 
 10431:                                            ; preds = %10419
-  %10432 = getelementptr inbounds i8, ptr %.358.lcssa, i64 1
+  %10432 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 1
   store i8 0, ptr %10432, align 1
   %.not13678 = icmp eq i64 %10429, 255
-  %.sroa.gep14668 = getelementptr inbounds i8, ptr %.358.lcssa, i64 2
+  %.sroa.gep14668 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 2
   %.neg13679.sroa.sel = select i1 %.not13678, ptr %.sroa.gep14668, ptr %10432
   %10433 = lshr i64 %10425, 48
   %10434 = trunc i64 %10433 to i8
   store i8 %10434, ptr %.neg13679.sroa.sel, align 1
-  %.sroa.gep15469 = getelementptr inbounds i8, ptr %.358.lcssa, i64 3
+  %.sroa.gep15469 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 3
   %.neg13679.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13678, ptr %.sroa.gep15469, ptr %.sroa.gep14668
   store i8 0, ptr %.neg13679.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10435 = and i64 %10425, 71776119061217280
   %.not13680 = icmp eq i64 %10435, 71776119061217280
   %.neg13681 = select i1 %.not13680, i64 2, i64 1
-  %10436 = getelementptr inbounds i8, ptr %.neg13679.sroa.sel, i64 %.neg13681
+  %10436 = getelementptr inbounds nuw i8, ptr %.neg13679.sroa.sel, i64 %.neg13681
   %10437 = lshr i64 %10425, 40
   %10438 = trunc i64 %10437 to i8
   store i8 %10438, ptr %10436, align 1
-  %10439 = getelementptr inbounds i8, ptr %10436, i64 1
+  %10439 = getelementptr inbounds nuw i8, ptr %10436, i64 1
   store i8 0, ptr %10439, align 1
   %10440 = and i64 %10425, 280375465082880
   %.not13682 = icmp eq i64 %10440, 280375465082880
-  %.sroa.gep14670 = getelementptr inbounds i8, ptr %10436, i64 2
+  %.sroa.gep14670 = getelementptr inbounds nuw i8, ptr %10436, i64 2
   %.neg13683.sroa.sel = select i1 %.not13682, ptr %.sroa.gep14670, ptr %10439
   %10441 = lshr i64 %10425, 32
   %10442 = trunc i64 %10441 to i8
   store i8 %10442, ptr %.neg13683.sroa.sel, align 1
-  %.sroa.gep15475 = getelementptr inbounds i8, ptr %10436, i64 3
+  %.sroa.gep15475 = getelementptr inbounds nuw i8, ptr %10436, i64 3
   %.neg13683.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13682, ptr %.sroa.gep15475, ptr %.sroa.gep14670
   store i8 0, ptr %.neg13683.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10443 = and i64 %10425, 1095216660480
   %.not13684 = icmp eq i64 %10443, 1095216660480
   %.neg13685 = select i1 %.not13684, i64 2, i64 1
-  %10444 = getelementptr inbounds i8, ptr %.neg13683.sroa.sel, i64 %.neg13685
+  %10444 = getelementptr inbounds nuw i8, ptr %.neg13683.sroa.sel, i64 %.neg13685
   %10445 = lshr i64 %10425, 24
   %10446 = trunc i64 %10445 to i8
   store i8 %10446, ptr %10444, align 1
-  %10447 = getelementptr inbounds i8, ptr %10444, i64 1
+  %10447 = getelementptr inbounds nuw i8, ptr %10444, i64 1
   store i8 0, ptr %10447, align 1
   %10448 = and i64 %10425, 4278190080
   %.not13686 = icmp eq i64 %10448, 4278190080
-  %.sroa.gep14672 = getelementptr inbounds i8, ptr %10444, i64 2
+  %.sroa.gep14672 = getelementptr inbounds nuw i8, ptr %10444, i64 2
   %.neg13687.sroa.sel = select i1 %.not13686, ptr %.sroa.gep14672, ptr %10447
   %10449 = lshr i64 %10425, 16
   %10450 = trunc i64 %10449 to i8
   store i8 %10450, ptr %.neg13687.sroa.sel, align 1
-  %.sroa.gep15473 = getelementptr inbounds i8, ptr %10444, i64 3
+  %.sroa.gep15473 = getelementptr inbounds nuw i8, ptr %10444, i64 3
   %.neg13687.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13686, ptr %.sroa.gep15473, ptr %.sroa.gep14672
   store i8 0, ptr %.neg13687.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10451 = and i64 %10425, 16711680
   %.not13688 = icmp eq i64 %10451, 16711680
   %.neg13689 = select i1 %.not13688, i64 2, i64 1
-  %10452 = getelementptr inbounds i8, ptr %.neg13687.sroa.sel, i64 %.neg13689
+  %10452 = getelementptr inbounds nuw i8, ptr %.neg13687.sroa.sel, i64 %.neg13689
   %10453 = lshr i64 %10425, 8
   %10454 = trunc i64 %10453 to i8
   store i8 %10454, ptr %10452, align 1
-  %10455 = getelementptr inbounds i8, ptr %10452, i64 1
+  %10455 = getelementptr inbounds nuw i8, ptr %10452, i64 1
   store i8 0, ptr %10455, align 1
   %10456 = and i64 %10425, 65280
   %.not13690 = icmp eq i64 %10456, 65280
-  %.sroa.gep14674 = getelementptr inbounds i8, ptr %10452, i64 2
+  %.sroa.gep14674 = getelementptr inbounds nuw i8, ptr %10452, i64 2
   %.neg13691.sroa.sel = select i1 %.not13690, ptr %.sroa.gep14674, ptr %10455
   %10457 = trunc i64 %10425 to i8
   store i8 %10457, ptr %.neg13691.sroa.sel, align 1
-  %.sroa.gep15471 = getelementptr inbounds i8, ptr %10452, i64 3
+  %.sroa.gep15471 = getelementptr inbounds nuw i8, ptr %10452, i64 3
   %.neg13691.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13690, ptr %.sroa.gep15471, ptr %.sroa.gep14674
   store i8 0, ptr %.neg13691.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10458 = and i64 %10425, 255
   %.not13692 = icmp eq i64 %10458, 255
   %.neg13693 = select i1 %.not13692, i64 2, i64 1
-  %10459 = getelementptr inbounds i8, ptr %.neg13691.sroa.sel, i64 %.neg13693
+  %10459 = getelementptr inbounds nuw i8, ptr %.neg13691.sroa.sel, i64 %.neg13693
   br label %10482
 
 10460:                                            ; preds = %10419
   %10461 = lshr i64 %10425, 48
   %10462 = trunc i64 %10461 to i8
-  %10463 = getelementptr inbounds i8, ptr %.358.lcssa, i64 1
+  %10463 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 1
   store i8 %10462, ptr %10463, align 1
   %10464 = lshr i64 %10425, 40
   %10465 = trunc i64 %10464 to i8
-  %10466 = getelementptr inbounds i8, ptr %.358.lcssa, i64 2
+  %10466 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 2
   store i8 %10465, ptr %10466, align 1
   %10467 = lshr i64 %10425, 32
   %10468 = trunc i64 %10467 to i8
-  %10469 = getelementptr inbounds i8, ptr %.358.lcssa, i64 3
+  %10469 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 3
   store i8 %10468, ptr %10469, align 1
   %10470 = lshr i64 %10425, 24
   %10471 = trunc i64 %10470 to i8
-  %10472 = getelementptr inbounds i8, ptr %.358.lcssa, i64 4
+  %10472 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 4
   store i8 %10471, ptr %10472, align 1
   %10473 = lshr i64 %10425, 16
   %10474 = trunc i64 %10473 to i8
-  %10475 = getelementptr inbounds i8, ptr %.358.lcssa, i64 5
+  %10475 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 5
   store i8 %10474, ptr %10475, align 1
   %10476 = lshr i64 %10425, 8
   %10477 = trunc i64 %10476 to i8
-  %10478 = getelementptr inbounds i8, ptr %.358.lcssa, i64 6
+  %10478 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 6
   store i8 %10477, ptr %10478, align 1
   %10479 = trunc i64 %10425 to i8
-  %10480 = getelementptr inbounds i8, ptr %.358.lcssa, i64 7
+  %10480 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 7
   store i8 %10479, ptr %10480, align 1
-  %10481 = getelementptr inbounds i8, ptr %.358.lcssa, i64 8
+  %10481 = getelementptr inbounds nuw i8, ptr %.358.lcssa, i64 8
   br label %10482
 
 10482:                                            ; preds = %10460, %10431
@@ -20627,7 +20627,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.23711277 = phi i64 [ %.23311273, %10298 ], [ %10484, %10482 ], [ %10489, %10485 ]
   %.357 = phi ptr [ %.351, %10298 ], [ %.361, %10482 ], [ %.358.lcssa, %10485 ]
   %.118 = phi i32 [ %10299, %10298 ], [ 0, %10482 ], [ 0, %10485 ]
-  %10491 = getelementptr inbounds i8, ptr %1, i64 110
+  %10491 = getelementptr inbounds nuw i8, ptr %1, i64 110
   %10492 = load i16, ptr %10491, align 2
   %10493 = icmp eq i16 %10492, 0
   br i1 %10493, label %10494, label %10496
@@ -20651,7 +20651,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 10506:                                            ; preds = %10496
   %10507 = load ptr, ptr %7, align 8
   %10508 = load ptr, ptr %10507, align 8
-  %10509 = getelementptr inbounds i8, ptr %10508, i64 40
+  %10509 = getelementptr inbounds nuw i8, ptr %10508, i64 40
   store i32 6, ptr %10509, align 8
   %10510 = load ptr, ptr %7, align 8
   %10511 = load ptr, ptr %10510, align 8
@@ -20664,8 +20664,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %10514, label %.lr.ph15222, label %._crit_edge15223
 
 .lr.ph15222:                                      ; preds = %10513
-  %10515 = getelementptr inbounds i8, ptr %4, i64 1264
-  %10516 = getelementptr inbounds i8, ptr %4, i64 960
+  %10515 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %10516 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %10517
 
 10517:                                            ; preds = %.lr.ph15222, %10596
@@ -20698,108 +20698,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13729, label %10565, label %10536
 
 10536:                                            ; preds = %10524
-  %10537 = getelementptr inbounds i8, ptr %.36415219, i64 1
+  %10537 = getelementptr inbounds nuw i8, ptr %.36415219, i64 1
   store i8 0, ptr %10537, align 1
   %.not13730 = icmp eq i64 %10534, 255
-  %.sroa.gep14676 = getelementptr inbounds i8, ptr %.36415219, i64 2
+  %.sroa.gep14676 = getelementptr inbounds nuw i8, ptr %.36415219, i64 2
   %.neg13731.sroa.sel = select i1 %.not13730, ptr %.sroa.gep14676, ptr %10537
   %10538 = lshr i64 %10526, 48
   %10539 = trunc i64 %10538 to i8
   store i8 %10539, ptr %.neg13731.sroa.sel, align 1
-  %.sroa.gep15445 = getelementptr inbounds i8, ptr %.36415219, i64 3
+  %.sroa.gep15445 = getelementptr inbounds nuw i8, ptr %.36415219, i64 3
   %.neg13731.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13730, ptr %.sroa.gep15445, ptr %.sroa.gep14676
   store i8 0, ptr %.neg13731.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10540 = and i64 %10526, 71776119061217280
   %.not13732 = icmp eq i64 %10540, 71776119061217280
   %.neg13733 = select i1 %.not13732, i64 2, i64 1
-  %10541 = getelementptr inbounds i8, ptr %.neg13731.sroa.sel, i64 %.neg13733
+  %10541 = getelementptr inbounds nuw i8, ptr %.neg13731.sroa.sel, i64 %.neg13733
   %10542 = lshr i64 %10526, 40
   %10543 = trunc i64 %10542 to i8
   store i8 %10543, ptr %10541, align 1
-  %10544 = getelementptr inbounds i8, ptr %10541, i64 1
+  %10544 = getelementptr inbounds nuw i8, ptr %10541, i64 1
   store i8 0, ptr %10544, align 1
   %10545 = and i64 %10526, 280375465082880
   %.not13734 = icmp eq i64 %10545, 280375465082880
-  %.sroa.gep14678 = getelementptr inbounds i8, ptr %10541, i64 2
+  %.sroa.gep14678 = getelementptr inbounds nuw i8, ptr %10541, i64 2
   %.neg13735.sroa.sel = select i1 %.not13734, ptr %.sroa.gep14678, ptr %10544
   %10546 = lshr i64 %10526, 32
   %10547 = trunc i64 %10546 to i8
   store i8 %10547, ptr %.neg13735.sroa.sel, align 1
-  %.sroa.gep15451 = getelementptr inbounds i8, ptr %10541, i64 3
+  %.sroa.gep15451 = getelementptr inbounds nuw i8, ptr %10541, i64 3
   %.neg13735.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13734, ptr %.sroa.gep15451, ptr %.sroa.gep14678
   store i8 0, ptr %.neg13735.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10548 = and i64 %10526, 1095216660480
   %.not13736 = icmp eq i64 %10548, 1095216660480
   %.neg13737 = select i1 %.not13736, i64 2, i64 1
-  %10549 = getelementptr inbounds i8, ptr %.neg13735.sroa.sel, i64 %.neg13737
+  %10549 = getelementptr inbounds nuw i8, ptr %.neg13735.sroa.sel, i64 %.neg13737
   %10550 = lshr i64 %10530, 24
   %10551 = trunc i64 %10550 to i8
   store i8 %10551, ptr %10549, align 1
-  %10552 = getelementptr inbounds i8, ptr %10549, i64 1
+  %10552 = getelementptr inbounds nuw i8, ptr %10549, i64 1
   store i8 0, ptr %10552, align 1
   %10553 = and i64 %10530, 4278190080
   %.not13738 = icmp eq i64 %10553, 4278190080
-  %.sroa.gep14680 = getelementptr inbounds i8, ptr %10549, i64 2
+  %.sroa.gep14680 = getelementptr inbounds nuw i8, ptr %10549, i64 2
   %.neg13739.sroa.sel = select i1 %.not13738, ptr %.sroa.gep14680, ptr %10552
   %10554 = lshr i64 %10530, 16
   %10555 = trunc i64 %10554 to i8
   store i8 %10555, ptr %.neg13739.sroa.sel, align 1
-  %.sroa.gep15449 = getelementptr inbounds i8, ptr %10549, i64 3
+  %.sroa.gep15449 = getelementptr inbounds nuw i8, ptr %10549, i64 3
   %.neg13739.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13738, ptr %.sroa.gep15449, ptr %.sroa.gep14680
   store i8 0, ptr %.neg13739.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10556 = and i64 %10530, 16711680
   %.not13740 = icmp eq i64 %10556, 16711680
   %.neg13741 = select i1 %.not13740, i64 2, i64 1
-  %10557 = getelementptr inbounds i8, ptr %.neg13739.sroa.sel, i64 %.neg13741
+  %10557 = getelementptr inbounds nuw i8, ptr %.neg13739.sroa.sel, i64 %.neg13741
   %10558 = lshr i64 %10530, 8
   %10559 = trunc i64 %10558 to i8
   store i8 %10559, ptr %10557, align 1
-  %10560 = getelementptr inbounds i8, ptr %10557, i64 1
+  %10560 = getelementptr inbounds nuw i8, ptr %10557, i64 1
   store i8 0, ptr %10560, align 1
   %10561 = and i64 %10530, 65280
   %.not13742 = icmp eq i64 %10561, 65280
-  %.sroa.gep14682 = getelementptr inbounds i8, ptr %10557, i64 2
+  %.sroa.gep14682 = getelementptr inbounds nuw i8, ptr %10557, i64 2
   %.neg13743.sroa.sel = select i1 %.not13742, ptr %.sroa.gep14682, ptr %10560
   %10562 = trunc i64 %10530 to i8
   store i8 %10562, ptr %.neg13743.sroa.sel, align 1
-  %.sroa.gep15447 = getelementptr inbounds i8, ptr %10557, i64 3
+  %.sroa.gep15447 = getelementptr inbounds nuw i8, ptr %10557, i64 3
   %.neg13743.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13742, ptr %.sroa.gep15447, ptr %.sroa.gep14682
   store i8 0, ptr %.neg13743.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10563 = and i64 %10530, 255
   %.not13744 = icmp eq i64 %10563, 255
   %.neg13745 = select i1 %.not13744, i64 2, i64 1
-  %10564 = getelementptr inbounds i8, ptr %.neg13743.sroa.sel, i64 %.neg13745
+  %10564 = getelementptr inbounds nuw i8, ptr %.neg13743.sroa.sel, i64 %.neg13745
   br label %10587
 
 10565:                                            ; preds = %10524
   %10566 = lshr i64 %10526, 48
   %10567 = trunc i64 %10566 to i8
-  %10568 = getelementptr inbounds i8, ptr %.36415219, i64 1
+  %10568 = getelementptr inbounds nuw i8, ptr %.36415219, i64 1
   store i8 %10567, ptr %10568, align 1
   %10569 = lshr i64 %10526, 40
   %10570 = trunc i64 %10569 to i8
-  %10571 = getelementptr inbounds i8, ptr %.36415219, i64 2
+  %10571 = getelementptr inbounds nuw i8, ptr %.36415219, i64 2
   store i8 %10570, ptr %10571, align 1
   %10572 = lshr i64 %10526, 32
   %10573 = trunc i64 %10572 to i8
-  %10574 = getelementptr inbounds i8, ptr %.36415219, i64 3
+  %10574 = getelementptr inbounds nuw i8, ptr %.36415219, i64 3
   store i8 %10573, ptr %10574, align 1
   %10575 = lshr i64 %10530, 24
   %10576 = trunc i64 %10575 to i8
-  %10577 = getelementptr inbounds i8, ptr %.36415219, i64 4
+  %10577 = getelementptr inbounds nuw i8, ptr %.36415219, i64 4
   store i8 %10576, ptr %10577, align 1
   %10578 = lshr i64 %10530, 16
   %10579 = trunc i64 %10578 to i8
-  %10580 = getelementptr inbounds i8, ptr %.36415219, i64 5
+  %10580 = getelementptr inbounds nuw i8, ptr %.36415219, i64 5
   store i8 %10579, ptr %10580, align 1
   %10581 = lshr i64 %10530, 8
   %10582 = trunc i64 %10581 to i8
-  %10583 = getelementptr inbounds i8, ptr %.36415219, i64 6
+  %10583 = getelementptr inbounds nuw i8, ptr %.36415219, i64 6
   store i8 %10582, ptr %10583, align 1
   %10584 = trunc i64 %10530 to i8
-  %10585 = getelementptr inbounds i8, ptr %.36415219, i64 7
+  %10585 = getelementptr inbounds nuw i8, ptr %.36415219, i64 7
   store i8 %10584, ptr %10585, align 1
-  %10586 = getelementptr inbounds i8, ptr %.36415219, i64 8
+  %10586 = getelementptr inbounds nuw i8, ptr %.36415219, i64 8
   br label %10587
 
 10587:                                            ; preds = %10565, %10536
@@ -20835,12 +20835,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10601 = xor i32 %10600, -1
   %10602 = and i32 %10499, %10601
   %10603 = zext nneg i32 %10598 to i64
-  %10604 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %10603
+  %10604 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %10603
   %10605 = load i32, ptr %10604, align 4
   %10606 = shl i32 %10605, %10504
   %10607 = or i32 %10606, %10602
-  %10608 = getelementptr inbounds i8, ptr %4, i64 1024
-  %10609 = getelementptr inbounds [256 x i8], ptr %10608, i64 0, i64 %10603
+  %10608 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %10609 = getelementptr inbounds nuw [256 x i8], ptr %10608, i64 0, i64 %10603
   %10610 = load i8, ptr %10609, align 1
   %10611 = sext i8 %10610 to i32
   %10612 = add nsw i32 %10611, %10504
@@ -20865,108 +20865,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13712, label %10656, label %10627
 
 10627:                                            ; preds = %10615
-  %10628 = getelementptr inbounds i8, ptr %.364.lcssa, i64 1
+  %10628 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 1
   store i8 0, ptr %10628, align 1
   %.not13713 = icmp eq i64 %10625, 255
-  %.sroa.gep14684 = getelementptr inbounds i8, ptr %.364.lcssa, i64 2
+  %.sroa.gep14684 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 2
   %.neg13714.sroa.sel = select i1 %.not13713, ptr %.sroa.gep14684, ptr %10628
   %10629 = lshr i64 %10621, 48
   %10630 = trunc i64 %10629 to i8
   store i8 %10630, ptr %.neg13714.sroa.sel, align 1
-  %.sroa.gep15453 = getelementptr inbounds i8, ptr %.364.lcssa, i64 3
+  %.sroa.gep15453 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 3
   %.neg13714.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13713, ptr %.sroa.gep15453, ptr %.sroa.gep14684
   store i8 0, ptr %.neg13714.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10631 = and i64 %10621, 71776119061217280
   %.not13715 = icmp eq i64 %10631, 71776119061217280
   %.neg13716 = select i1 %.not13715, i64 2, i64 1
-  %10632 = getelementptr inbounds i8, ptr %.neg13714.sroa.sel, i64 %.neg13716
+  %10632 = getelementptr inbounds nuw i8, ptr %.neg13714.sroa.sel, i64 %.neg13716
   %10633 = lshr i64 %10621, 40
   %10634 = trunc i64 %10633 to i8
   store i8 %10634, ptr %10632, align 1
-  %10635 = getelementptr inbounds i8, ptr %10632, i64 1
+  %10635 = getelementptr inbounds nuw i8, ptr %10632, i64 1
   store i8 0, ptr %10635, align 1
   %10636 = and i64 %10621, 280375465082880
   %.not13717 = icmp eq i64 %10636, 280375465082880
-  %.sroa.gep14686 = getelementptr inbounds i8, ptr %10632, i64 2
+  %.sroa.gep14686 = getelementptr inbounds nuw i8, ptr %10632, i64 2
   %.neg13718.sroa.sel = select i1 %.not13717, ptr %.sroa.gep14686, ptr %10635
   %10637 = lshr i64 %10621, 32
   %10638 = trunc i64 %10637 to i8
   store i8 %10638, ptr %.neg13718.sroa.sel, align 1
-  %.sroa.gep15459 = getelementptr inbounds i8, ptr %10632, i64 3
+  %.sroa.gep15459 = getelementptr inbounds nuw i8, ptr %10632, i64 3
   %.neg13718.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13717, ptr %.sroa.gep15459, ptr %.sroa.gep14686
   store i8 0, ptr %.neg13718.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10639 = and i64 %10621, 1095216660480
   %.not13719 = icmp eq i64 %10639, 1095216660480
   %.neg13720 = select i1 %.not13719, i64 2, i64 1
-  %10640 = getelementptr inbounds i8, ptr %.neg13718.sroa.sel, i64 %.neg13720
+  %10640 = getelementptr inbounds nuw i8, ptr %.neg13718.sroa.sel, i64 %.neg13720
   %10641 = lshr i64 %10621, 24
   %10642 = trunc i64 %10641 to i8
   store i8 %10642, ptr %10640, align 1
-  %10643 = getelementptr inbounds i8, ptr %10640, i64 1
+  %10643 = getelementptr inbounds nuw i8, ptr %10640, i64 1
   store i8 0, ptr %10643, align 1
   %10644 = and i64 %10621, 4278190080
   %.not13721 = icmp eq i64 %10644, 4278190080
-  %.sroa.gep14688 = getelementptr inbounds i8, ptr %10640, i64 2
+  %.sroa.gep14688 = getelementptr inbounds nuw i8, ptr %10640, i64 2
   %.neg13722.sroa.sel = select i1 %.not13721, ptr %.sroa.gep14688, ptr %10643
   %10645 = lshr i64 %10621, 16
   %10646 = trunc i64 %10645 to i8
   store i8 %10646, ptr %.neg13722.sroa.sel, align 1
-  %.sroa.gep15457 = getelementptr inbounds i8, ptr %10640, i64 3
+  %.sroa.gep15457 = getelementptr inbounds nuw i8, ptr %10640, i64 3
   %.neg13722.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13721, ptr %.sroa.gep15457, ptr %.sroa.gep14688
   store i8 0, ptr %.neg13722.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10647 = and i64 %10621, 16711680
   %.not13723 = icmp eq i64 %10647, 16711680
   %.neg13724 = select i1 %.not13723, i64 2, i64 1
-  %10648 = getelementptr inbounds i8, ptr %.neg13722.sroa.sel, i64 %.neg13724
+  %10648 = getelementptr inbounds nuw i8, ptr %.neg13722.sroa.sel, i64 %.neg13724
   %10649 = lshr i64 %10621, 8
   %10650 = trunc i64 %10649 to i8
   store i8 %10650, ptr %10648, align 1
-  %10651 = getelementptr inbounds i8, ptr %10648, i64 1
+  %10651 = getelementptr inbounds nuw i8, ptr %10648, i64 1
   store i8 0, ptr %10651, align 1
   %10652 = and i64 %10621, 65280
   %.not13725 = icmp eq i64 %10652, 65280
-  %.sroa.gep14690 = getelementptr inbounds i8, ptr %10648, i64 2
+  %.sroa.gep14690 = getelementptr inbounds nuw i8, ptr %10648, i64 2
   %.neg13726.sroa.sel = select i1 %.not13725, ptr %.sroa.gep14690, ptr %10651
   %10653 = trunc i64 %10621 to i8
   store i8 %10653, ptr %.neg13726.sroa.sel, align 1
-  %.sroa.gep15455 = getelementptr inbounds i8, ptr %10648, i64 3
+  %.sroa.gep15455 = getelementptr inbounds nuw i8, ptr %10648, i64 3
   %.neg13726.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13725, ptr %.sroa.gep15455, ptr %.sroa.gep14690
   store i8 0, ptr %.neg13726.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10654 = and i64 %10621, 255
   %.not13727 = icmp eq i64 %10654, 255
   %.neg13728 = select i1 %.not13727, i64 2, i64 1
-  %10655 = getelementptr inbounds i8, ptr %.neg13726.sroa.sel, i64 %.neg13728
+  %10655 = getelementptr inbounds nuw i8, ptr %.neg13726.sroa.sel, i64 %.neg13728
   br label %10678
 
 10656:                                            ; preds = %10615
   %10657 = lshr i64 %10621, 48
   %10658 = trunc i64 %10657 to i8
-  %10659 = getelementptr inbounds i8, ptr %.364.lcssa, i64 1
+  %10659 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 1
   store i8 %10658, ptr %10659, align 1
   %10660 = lshr i64 %10621, 40
   %10661 = trunc i64 %10660 to i8
-  %10662 = getelementptr inbounds i8, ptr %.364.lcssa, i64 2
+  %10662 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 2
   store i8 %10661, ptr %10662, align 1
   %10663 = lshr i64 %10621, 32
   %10664 = trunc i64 %10663 to i8
-  %10665 = getelementptr inbounds i8, ptr %.364.lcssa, i64 3
+  %10665 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 3
   store i8 %10664, ptr %10665, align 1
   %10666 = lshr i64 %10621, 24
   %10667 = trunc i64 %10666 to i8
-  %10668 = getelementptr inbounds i8, ptr %.364.lcssa, i64 4
+  %10668 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 4
   store i8 %10667, ptr %10668, align 1
   %10669 = lshr i64 %10621, 16
   %10670 = trunc i64 %10669 to i8
-  %10671 = getelementptr inbounds i8, ptr %.364.lcssa, i64 5
+  %10671 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 5
   store i8 %10670, ptr %10671, align 1
   %10672 = lshr i64 %10621, 8
   %10673 = trunc i64 %10672 to i8
-  %10674 = getelementptr inbounds i8, ptr %.364.lcssa, i64 6
+  %10674 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 6
   store i8 %10673, ptr %10674, align 1
   %10675 = trunc i64 %10621 to i8
-  %10676 = getelementptr inbounds i8, ptr %.364.lcssa, i64 7
+  %10676 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 7
   store i8 %10675, ptr %10676, align 1
-  %10677 = getelementptr inbounds i8, ptr %.364.lcssa, i64 8
+  %10677 = getelementptr inbounds nuw i8, ptr %.364.lcssa, i64 8
   br label %10678
 
 10678:                                            ; preds = %10656, %10627
@@ -20987,7 +20987,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.24111281 = phi i64 [ %.23711277, %10494 ], [ %10680, %10678 ], [ %10685, %10681 ]
   %.363 = phi ptr [ %.357, %10494 ], [ %.367, %10678 ], [ %.364.lcssa, %10681 ]
   %.120 = phi i32 [ %10495, %10494 ], [ 0, %10678 ], [ 0, %10681 ]
-  %10687 = getelementptr inbounds i8, ptr %1, i64 124
+  %10687 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %10688 = load i16, ptr %10687, align 2
   %10689 = icmp eq i16 %10688, 0
   br i1 %10689, label %10690, label %10692
@@ -21011,7 +21011,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 10702:                                            ; preds = %10692
   %10703 = load ptr, ptr %7, align 8
   %10704 = load ptr, ptr %10703, align 8
-  %10705 = getelementptr inbounds i8, ptr %10704, i64 40
+  %10705 = getelementptr inbounds nuw i8, ptr %10704, i64 40
   store i32 6, ptr %10705, align 8
   %10706 = load ptr, ptr %7, align 8
   %10707 = load ptr, ptr %10706, align 8
@@ -21024,8 +21024,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %10710, label %.lr.ph15233, label %._crit_edge15234
 
 .lr.ph15233:                                      ; preds = %10709
-  %10711 = getelementptr inbounds i8, ptr %4, i64 1264
-  %10712 = getelementptr inbounds i8, ptr %4, i64 960
+  %10711 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %10712 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %10713
 
 10713:                                            ; preds = %.lr.ph15233, %10792
@@ -21058,108 +21058,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13764, label %10761, label %10732
 
 10732:                                            ; preds = %10720
-  %10733 = getelementptr inbounds i8, ptr %.37015230, i64 1
+  %10733 = getelementptr inbounds nuw i8, ptr %.37015230, i64 1
   store i8 0, ptr %10733, align 1
   %.not13765 = icmp eq i64 %10730, 255
-  %.sroa.gep14692 = getelementptr inbounds i8, ptr %.37015230, i64 2
+  %.sroa.gep14692 = getelementptr inbounds nuw i8, ptr %.37015230, i64 2
   %.neg13766.sroa.sel = select i1 %.not13765, ptr %.sroa.gep14692, ptr %10733
   %10734 = lshr i64 %10722, 48
   %10735 = trunc i64 %10734 to i8
   store i8 %10735, ptr %.neg13766.sroa.sel, align 1
-  %.sroa.gep15429 = getelementptr inbounds i8, ptr %.37015230, i64 3
+  %.sroa.gep15429 = getelementptr inbounds nuw i8, ptr %.37015230, i64 3
   %.neg13766.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13765, ptr %.sroa.gep15429, ptr %.sroa.gep14692
   store i8 0, ptr %.neg13766.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10736 = and i64 %10722, 71776119061217280
   %.not13767 = icmp eq i64 %10736, 71776119061217280
   %.neg13768 = select i1 %.not13767, i64 2, i64 1
-  %10737 = getelementptr inbounds i8, ptr %.neg13766.sroa.sel, i64 %.neg13768
+  %10737 = getelementptr inbounds nuw i8, ptr %.neg13766.sroa.sel, i64 %.neg13768
   %10738 = lshr i64 %10722, 40
   %10739 = trunc i64 %10738 to i8
   store i8 %10739, ptr %10737, align 1
-  %10740 = getelementptr inbounds i8, ptr %10737, i64 1
+  %10740 = getelementptr inbounds nuw i8, ptr %10737, i64 1
   store i8 0, ptr %10740, align 1
   %10741 = and i64 %10722, 280375465082880
   %.not13769 = icmp eq i64 %10741, 280375465082880
-  %.sroa.gep14694 = getelementptr inbounds i8, ptr %10737, i64 2
+  %.sroa.gep14694 = getelementptr inbounds nuw i8, ptr %10737, i64 2
   %.neg13770.sroa.sel = select i1 %.not13769, ptr %.sroa.gep14694, ptr %10740
   %10742 = lshr i64 %10722, 32
   %10743 = trunc i64 %10742 to i8
   store i8 %10743, ptr %.neg13770.sroa.sel, align 1
-  %.sroa.gep15435 = getelementptr inbounds i8, ptr %10737, i64 3
+  %.sroa.gep15435 = getelementptr inbounds nuw i8, ptr %10737, i64 3
   %.neg13770.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13769, ptr %.sroa.gep15435, ptr %.sroa.gep14694
   store i8 0, ptr %.neg13770.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10744 = and i64 %10722, 1095216660480
   %.not13771 = icmp eq i64 %10744, 1095216660480
   %.neg13772 = select i1 %.not13771, i64 2, i64 1
-  %10745 = getelementptr inbounds i8, ptr %.neg13770.sroa.sel, i64 %.neg13772
+  %10745 = getelementptr inbounds nuw i8, ptr %.neg13770.sroa.sel, i64 %.neg13772
   %10746 = lshr i64 %10726, 24
   %10747 = trunc i64 %10746 to i8
   store i8 %10747, ptr %10745, align 1
-  %10748 = getelementptr inbounds i8, ptr %10745, i64 1
+  %10748 = getelementptr inbounds nuw i8, ptr %10745, i64 1
   store i8 0, ptr %10748, align 1
   %10749 = and i64 %10726, 4278190080
   %.not13773 = icmp eq i64 %10749, 4278190080
-  %.sroa.gep14696 = getelementptr inbounds i8, ptr %10745, i64 2
+  %.sroa.gep14696 = getelementptr inbounds nuw i8, ptr %10745, i64 2
   %.neg13774.sroa.sel = select i1 %.not13773, ptr %.sroa.gep14696, ptr %10748
   %10750 = lshr i64 %10726, 16
   %10751 = trunc i64 %10750 to i8
   store i8 %10751, ptr %.neg13774.sroa.sel, align 1
-  %.sroa.gep15433 = getelementptr inbounds i8, ptr %10745, i64 3
+  %.sroa.gep15433 = getelementptr inbounds nuw i8, ptr %10745, i64 3
   %.neg13774.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13773, ptr %.sroa.gep15433, ptr %.sroa.gep14696
   store i8 0, ptr %.neg13774.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10752 = and i64 %10726, 16711680
   %.not13775 = icmp eq i64 %10752, 16711680
   %.neg13776 = select i1 %.not13775, i64 2, i64 1
-  %10753 = getelementptr inbounds i8, ptr %.neg13774.sroa.sel, i64 %.neg13776
+  %10753 = getelementptr inbounds nuw i8, ptr %.neg13774.sroa.sel, i64 %.neg13776
   %10754 = lshr i64 %10726, 8
   %10755 = trunc i64 %10754 to i8
   store i8 %10755, ptr %10753, align 1
-  %10756 = getelementptr inbounds i8, ptr %10753, i64 1
+  %10756 = getelementptr inbounds nuw i8, ptr %10753, i64 1
   store i8 0, ptr %10756, align 1
   %10757 = and i64 %10726, 65280
   %.not13777 = icmp eq i64 %10757, 65280
-  %.sroa.gep14698 = getelementptr inbounds i8, ptr %10753, i64 2
+  %.sroa.gep14698 = getelementptr inbounds nuw i8, ptr %10753, i64 2
   %.neg13778.sroa.sel = select i1 %.not13777, ptr %.sroa.gep14698, ptr %10756
   %10758 = trunc i64 %10726 to i8
   store i8 %10758, ptr %.neg13778.sroa.sel, align 1
-  %.sroa.gep15431 = getelementptr inbounds i8, ptr %10753, i64 3
+  %.sroa.gep15431 = getelementptr inbounds nuw i8, ptr %10753, i64 3
   %.neg13778.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13777, ptr %.sroa.gep15431, ptr %.sroa.gep14698
   store i8 0, ptr %.neg13778.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10759 = and i64 %10726, 255
   %.not13779 = icmp eq i64 %10759, 255
   %.neg13780 = select i1 %.not13779, i64 2, i64 1
-  %10760 = getelementptr inbounds i8, ptr %.neg13778.sroa.sel, i64 %.neg13780
+  %10760 = getelementptr inbounds nuw i8, ptr %.neg13778.sroa.sel, i64 %.neg13780
   br label %10783
 
 10761:                                            ; preds = %10720
   %10762 = lshr i64 %10722, 48
   %10763 = trunc i64 %10762 to i8
-  %10764 = getelementptr inbounds i8, ptr %.37015230, i64 1
+  %10764 = getelementptr inbounds nuw i8, ptr %.37015230, i64 1
   store i8 %10763, ptr %10764, align 1
   %10765 = lshr i64 %10722, 40
   %10766 = trunc i64 %10765 to i8
-  %10767 = getelementptr inbounds i8, ptr %.37015230, i64 2
+  %10767 = getelementptr inbounds nuw i8, ptr %.37015230, i64 2
   store i8 %10766, ptr %10767, align 1
   %10768 = lshr i64 %10722, 32
   %10769 = trunc i64 %10768 to i8
-  %10770 = getelementptr inbounds i8, ptr %.37015230, i64 3
+  %10770 = getelementptr inbounds nuw i8, ptr %.37015230, i64 3
   store i8 %10769, ptr %10770, align 1
   %10771 = lshr i64 %10726, 24
   %10772 = trunc i64 %10771 to i8
-  %10773 = getelementptr inbounds i8, ptr %.37015230, i64 4
+  %10773 = getelementptr inbounds nuw i8, ptr %.37015230, i64 4
   store i8 %10772, ptr %10773, align 1
   %10774 = lshr i64 %10726, 16
   %10775 = trunc i64 %10774 to i8
-  %10776 = getelementptr inbounds i8, ptr %.37015230, i64 5
+  %10776 = getelementptr inbounds nuw i8, ptr %.37015230, i64 5
   store i8 %10775, ptr %10776, align 1
   %10777 = lshr i64 %10726, 8
   %10778 = trunc i64 %10777 to i8
-  %10779 = getelementptr inbounds i8, ptr %.37015230, i64 6
+  %10779 = getelementptr inbounds nuw i8, ptr %.37015230, i64 6
   store i8 %10778, ptr %10779, align 1
   %10780 = trunc i64 %10726 to i8
-  %10781 = getelementptr inbounds i8, ptr %.37015230, i64 7
+  %10781 = getelementptr inbounds nuw i8, ptr %.37015230, i64 7
   store i8 %10780, ptr %10781, align 1
-  %10782 = getelementptr inbounds i8, ptr %.37015230, i64 8
+  %10782 = getelementptr inbounds nuw i8, ptr %.37015230, i64 8
   br label %10783
 
 10783:                                            ; preds = %10761, %10732
@@ -21195,12 +21195,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10797 = xor i32 %10796, -1
   %10798 = and i32 %10695, %10797
   %10799 = zext nneg i32 %10794 to i64
-  %10800 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %10799
+  %10800 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %10799
   %10801 = load i32, ptr %10800, align 4
   %10802 = shl i32 %10801, %10700
   %10803 = or i32 %10802, %10798
-  %10804 = getelementptr inbounds i8, ptr %4, i64 1024
-  %10805 = getelementptr inbounds [256 x i8], ptr %10804, i64 0, i64 %10799
+  %10804 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %10805 = getelementptr inbounds nuw [256 x i8], ptr %10804, i64 0, i64 %10799
   %10806 = load i8, ptr %10805, align 1
   %10807 = sext i8 %10806 to i32
   %10808 = add nsw i32 %10807, %10700
@@ -21225,108 +21225,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13747, label %10852, label %10823
 
 10823:                                            ; preds = %10811
-  %10824 = getelementptr inbounds i8, ptr %.370.lcssa, i64 1
+  %10824 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 1
   store i8 0, ptr %10824, align 1
   %.not13748 = icmp eq i64 %10821, 255
-  %.sroa.gep14700 = getelementptr inbounds i8, ptr %.370.lcssa, i64 2
+  %.sroa.gep14700 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 2
   %.neg13749.sroa.sel = select i1 %.not13748, ptr %.sroa.gep14700, ptr %10824
   %10825 = lshr i64 %10817, 48
   %10826 = trunc i64 %10825 to i8
   store i8 %10826, ptr %.neg13749.sroa.sel, align 1
-  %.sroa.gep15437 = getelementptr inbounds i8, ptr %.370.lcssa, i64 3
+  %.sroa.gep15437 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 3
   %.neg13749.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13748, ptr %.sroa.gep15437, ptr %.sroa.gep14700
   store i8 0, ptr %.neg13749.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10827 = and i64 %10817, 71776119061217280
   %.not13750 = icmp eq i64 %10827, 71776119061217280
   %.neg13751 = select i1 %.not13750, i64 2, i64 1
-  %10828 = getelementptr inbounds i8, ptr %.neg13749.sroa.sel, i64 %.neg13751
+  %10828 = getelementptr inbounds nuw i8, ptr %.neg13749.sroa.sel, i64 %.neg13751
   %10829 = lshr i64 %10817, 40
   %10830 = trunc i64 %10829 to i8
   store i8 %10830, ptr %10828, align 1
-  %10831 = getelementptr inbounds i8, ptr %10828, i64 1
+  %10831 = getelementptr inbounds nuw i8, ptr %10828, i64 1
   store i8 0, ptr %10831, align 1
   %10832 = and i64 %10817, 280375465082880
   %.not13752 = icmp eq i64 %10832, 280375465082880
-  %.sroa.gep14702 = getelementptr inbounds i8, ptr %10828, i64 2
+  %.sroa.gep14702 = getelementptr inbounds nuw i8, ptr %10828, i64 2
   %.neg13753.sroa.sel = select i1 %.not13752, ptr %.sroa.gep14702, ptr %10831
   %10833 = lshr i64 %10817, 32
   %10834 = trunc i64 %10833 to i8
   store i8 %10834, ptr %.neg13753.sroa.sel, align 1
-  %.sroa.gep15443 = getelementptr inbounds i8, ptr %10828, i64 3
+  %.sroa.gep15443 = getelementptr inbounds nuw i8, ptr %10828, i64 3
   %.neg13753.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13752, ptr %.sroa.gep15443, ptr %.sroa.gep14702
   store i8 0, ptr %.neg13753.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10835 = and i64 %10817, 1095216660480
   %.not13754 = icmp eq i64 %10835, 1095216660480
   %.neg13755 = select i1 %.not13754, i64 2, i64 1
-  %10836 = getelementptr inbounds i8, ptr %.neg13753.sroa.sel, i64 %.neg13755
+  %10836 = getelementptr inbounds nuw i8, ptr %.neg13753.sroa.sel, i64 %.neg13755
   %10837 = lshr i64 %10817, 24
   %10838 = trunc i64 %10837 to i8
   store i8 %10838, ptr %10836, align 1
-  %10839 = getelementptr inbounds i8, ptr %10836, i64 1
+  %10839 = getelementptr inbounds nuw i8, ptr %10836, i64 1
   store i8 0, ptr %10839, align 1
   %10840 = and i64 %10817, 4278190080
   %.not13756 = icmp eq i64 %10840, 4278190080
-  %.sroa.gep14704 = getelementptr inbounds i8, ptr %10836, i64 2
+  %.sroa.gep14704 = getelementptr inbounds nuw i8, ptr %10836, i64 2
   %.neg13757.sroa.sel = select i1 %.not13756, ptr %.sroa.gep14704, ptr %10839
   %10841 = lshr i64 %10817, 16
   %10842 = trunc i64 %10841 to i8
   store i8 %10842, ptr %.neg13757.sroa.sel, align 1
-  %.sroa.gep15441 = getelementptr inbounds i8, ptr %10836, i64 3
+  %.sroa.gep15441 = getelementptr inbounds nuw i8, ptr %10836, i64 3
   %.neg13757.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13756, ptr %.sroa.gep15441, ptr %.sroa.gep14704
   store i8 0, ptr %.neg13757.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10843 = and i64 %10817, 16711680
   %.not13758 = icmp eq i64 %10843, 16711680
   %.neg13759 = select i1 %.not13758, i64 2, i64 1
-  %10844 = getelementptr inbounds i8, ptr %.neg13757.sroa.sel, i64 %.neg13759
+  %10844 = getelementptr inbounds nuw i8, ptr %.neg13757.sroa.sel, i64 %.neg13759
   %10845 = lshr i64 %10817, 8
   %10846 = trunc i64 %10845 to i8
   store i8 %10846, ptr %10844, align 1
-  %10847 = getelementptr inbounds i8, ptr %10844, i64 1
+  %10847 = getelementptr inbounds nuw i8, ptr %10844, i64 1
   store i8 0, ptr %10847, align 1
   %10848 = and i64 %10817, 65280
   %.not13760 = icmp eq i64 %10848, 65280
-  %.sroa.gep14706 = getelementptr inbounds i8, ptr %10844, i64 2
+  %.sroa.gep14706 = getelementptr inbounds nuw i8, ptr %10844, i64 2
   %.neg13761.sroa.sel = select i1 %.not13760, ptr %.sroa.gep14706, ptr %10847
   %10849 = trunc i64 %10817 to i8
   store i8 %10849, ptr %.neg13761.sroa.sel, align 1
-  %.sroa.gep15439 = getelementptr inbounds i8, ptr %10844, i64 3
+  %.sroa.gep15439 = getelementptr inbounds nuw i8, ptr %10844, i64 3
   %.neg13761.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13760, ptr %.sroa.gep15439, ptr %.sroa.gep14706
   store i8 0, ptr %.neg13761.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10850 = and i64 %10817, 255
   %.not13762 = icmp eq i64 %10850, 255
   %.neg13763 = select i1 %.not13762, i64 2, i64 1
-  %10851 = getelementptr inbounds i8, ptr %.neg13761.sroa.sel, i64 %.neg13763
+  %10851 = getelementptr inbounds nuw i8, ptr %.neg13761.sroa.sel, i64 %.neg13763
   br label %10874
 
 10852:                                            ; preds = %10811
   %10853 = lshr i64 %10817, 48
   %10854 = trunc i64 %10853 to i8
-  %10855 = getelementptr inbounds i8, ptr %.370.lcssa, i64 1
+  %10855 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 1
   store i8 %10854, ptr %10855, align 1
   %10856 = lshr i64 %10817, 40
   %10857 = trunc i64 %10856 to i8
-  %10858 = getelementptr inbounds i8, ptr %.370.lcssa, i64 2
+  %10858 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 2
   store i8 %10857, ptr %10858, align 1
   %10859 = lshr i64 %10817, 32
   %10860 = trunc i64 %10859 to i8
-  %10861 = getelementptr inbounds i8, ptr %.370.lcssa, i64 3
+  %10861 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 3
   store i8 %10860, ptr %10861, align 1
   %10862 = lshr i64 %10817, 24
   %10863 = trunc i64 %10862 to i8
-  %10864 = getelementptr inbounds i8, ptr %.370.lcssa, i64 4
+  %10864 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 4
   store i8 %10863, ptr %10864, align 1
   %10865 = lshr i64 %10817, 16
   %10866 = trunc i64 %10865 to i8
-  %10867 = getelementptr inbounds i8, ptr %.370.lcssa, i64 5
+  %10867 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 5
   store i8 %10866, ptr %10867, align 1
   %10868 = lshr i64 %10817, 8
   %10869 = trunc i64 %10868 to i8
-  %10870 = getelementptr inbounds i8, ptr %.370.lcssa, i64 6
+  %10870 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 6
   store i8 %10869, ptr %10870, align 1
   %10871 = trunc i64 %10817 to i8
-  %10872 = getelementptr inbounds i8, ptr %.370.lcssa, i64 7
+  %10872 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 7
   store i8 %10871, ptr %10872, align 1
-  %10873 = getelementptr inbounds i8, ptr %.370.lcssa, i64 8
+  %10873 = getelementptr inbounds nuw i8, ptr %.370.lcssa, i64 8
   br label %10874
 
 10874:                                            ; preds = %10852, %10823
@@ -21347,7 +21347,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %.24511285 = phi i64 [ %.24111281, %10690 ], [ %10876, %10874 ], [ %10881, %10877 ]
   %.369 = phi ptr [ %.363, %10690 ], [ %.373, %10874 ], [ %.370.lcssa, %10877 ]
   %.122 = phi i32 [ %10691, %10690 ], [ 0, %10874 ], [ 0, %10877 ]
-  %10883 = getelementptr inbounds i8, ptr %1, i64 126
+  %10883 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %10884 = load i16, ptr %10883, align 2
   %10885 = icmp eq i16 %10884, 0
   br i1 %10885, label %11076, label %10886
@@ -21367,7 +21367,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 10896:                                            ; preds = %10886
   %10897 = load ptr, ptr %7, align 8
   %10898 = load ptr, ptr %10897, align 8
-  %10899 = getelementptr inbounds i8, ptr %10898, i64 40
+  %10899 = getelementptr inbounds nuw i8, ptr %10898, i64 40
   store i32 6, ptr %10899, align 8
   %10900 = load ptr, ptr %7, align 8
   %10901 = load ptr, ptr %10900, align 8
@@ -21380,8 +21380,8 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %10904, label %.lr.ph15244, label %._crit_edge15245
 
 .lr.ph15244:                                      ; preds = %10903
-  %10905 = getelementptr inbounds i8, ptr %4, i64 1264
-  %10906 = getelementptr inbounds i8, ptr %4, i64 960
+  %10905 = getelementptr inbounds nuw i8, ptr %4, i64 1264
+  %10906 = getelementptr inbounds nuw i8, ptr %4, i64 960
   br label %10907
 
 10907:                                            ; preds = %.lr.ph15244, %10986
@@ -21414,108 +21414,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13799, label %10955, label %10926
 
 10926:                                            ; preds = %10914
-  %10927 = getelementptr inbounds i8, ptr %.37615241, i64 1
+  %10927 = getelementptr inbounds nuw i8, ptr %.37615241, i64 1
   store i8 0, ptr %10927, align 1
   %.not13800 = icmp eq i64 %10924, 255
-  %.sroa.gep14708 = getelementptr inbounds i8, ptr %.37615241, i64 2
+  %.sroa.gep14708 = getelementptr inbounds nuw i8, ptr %.37615241, i64 2
   %.neg13801.sroa.sel = select i1 %.not13800, ptr %.sroa.gep14708, ptr %10927
   %10928 = lshr i64 %10916, 48
   %10929 = trunc i64 %10928 to i8
   store i8 %10929, ptr %.neg13801.sroa.sel, align 1
-  %.sroa.gep15413 = getelementptr inbounds i8, ptr %.37615241, i64 3
+  %.sroa.gep15413 = getelementptr inbounds nuw i8, ptr %.37615241, i64 3
   %.neg13801.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13800, ptr %.sroa.gep15413, ptr %.sroa.gep14708
   store i8 0, ptr %.neg13801.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10930 = and i64 %10916, 71776119061217280
   %.not13802 = icmp eq i64 %10930, 71776119061217280
   %.neg13803 = select i1 %.not13802, i64 2, i64 1
-  %10931 = getelementptr inbounds i8, ptr %.neg13801.sroa.sel, i64 %.neg13803
+  %10931 = getelementptr inbounds nuw i8, ptr %.neg13801.sroa.sel, i64 %.neg13803
   %10932 = lshr i64 %10916, 40
   %10933 = trunc i64 %10932 to i8
   store i8 %10933, ptr %10931, align 1
-  %10934 = getelementptr inbounds i8, ptr %10931, i64 1
+  %10934 = getelementptr inbounds nuw i8, ptr %10931, i64 1
   store i8 0, ptr %10934, align 1
   %10935 = and i64 %10916, 280375465082880
   %.not13804 = icmp eq i64 %10935, 280375465082880
-  %.sroa.gep14710 = getelementptr inbounds i8, ptr %10931, i64 2
+  %.sroa.gep14710 = getelementptr inbounds nuw i8, ptr %10931, i64 2
   %.neg13805.sroa.sel = select i1 %.not13804, ptr %.sroa.gep14710, ptr %10934
   %10936 = lshr i64 %10916, 32
   %10937 = trunc i64 %10936 to i8
   store i8 %10937, ptr %.neg13805.sroa.sel, align 1
-  %.sroa.gep15419 = getelementptr inbounds i8, ptr %10931, i64 3
+  %.sroa.gep15419 = getelementptr inbounds nuw i8, ptr %10931, i64 3
   %.neg13805.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13804, ptr %.sroa.gep15419, ptr %.sroa.gep14710
   store i8 0, ptr %.neg13805.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10938 = and i64 %10916, 1095216660480
   %.not13806 = icmp eq i64 %10938, 1095216660480
   %.neg13807 = select i1 %.not13806, i64 2, i64 1
-  %10939 = getelementptr inbounds i8, ptr %.neg13805.sroa.sel, i64 %.neg13807
+  %10939 = getelementptr inbounds nuw i8, ptr %.neg13805.sroa.sel, i64 %.neg13807
   %10940 = lshr i64 %10920, 24
   %10941 = trunc i64 %10940 to i8
   store i8 %10941, ptr %10939, align 1
-  %10942 = getelementptr inbounds i8, ptr %10939, i64 1
+  %10942 = getelementptr inbounds nuw i8, ptr %10939, i64 1
   store i8 0, ptr %10942, align 1
   %10943 = and i64 %10920, 4278190080
   %.not13808 = icmp eq i64 %10943, 4278190080
-  %.sroa.gep14712 = getelementptr inbounds i8, ptr %10939, i64 2
+  %.sroa.gep14712 = getelementptr inbounds nuw i8, ptr %10939, i64 2
   %.neg13809.sroa.sel = select i1 %.not13808, ptr %.sroa.gep14712, ptr %10942
   %10944 = lshr i64 %10920, 16
   %10945 = trunc i64 %10944 to i8
   store i8 %10945, ptr %.neg13809.sroa.sel, align 1
-  %.sroa.gep15417 = getelementptr inbounds i8, ptr %10939, i64 3
+  %.sroa.gep15417 = getelementptr inbounds nuw i8, ptr %10939, i64 3
   %.neg13809.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13808, ptr %.sroa.gep15417, ptr %.sroa.gep14712
   store i8 0, ptr %.neg13809.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10946 = and i64 %10920, 16711680
   %.not13810 = icmp eq i64 %10946, 16711680
   %.neg13811 = select i1 %.not13810, i64 2, i64 1
-  %10947 = getelementptr inbounds i8, ptr %.neg13809.sroa.sel, i64 %.neg13811
+  %10947 = getelementptr inbounds nuw i8, ptr %.neg13809.sroa.sel, i64 %.neg13811
   %10948 = lshr i64 %10920, 8
   %10949 = trunc i64 %10948 to i8
   store i8 %10949, ptr %10947, align 1
-  %10950 = getelementptr inbounds i8, ptr %10947, i64 1
+  %10950 = getelementptr inbounds nuw i8, ptr %10947, i64 1
   store i8 0, ptr %10950, align 1
   %10951 = and i64 %10920, 65280
   %.not13812 = icmp eq i64 %10951, 65280
-  %.sroa.gep14714 = getelementptr inbounds i8, ptr %10947, i64 2
+  %.sroa.gep14714 = getelementptr inbounds nuw i8, ptr %10947, i64 2
   %.neg13813.sroa.sel = select i1 %.not13812, ptr %.sroa.gep14714, ptr %10950
   %10952 = trunc i64 %10920 to i8
   store i8 %10952, ptr %.neg13813.sroa.sel, align 1
-  %.sroa.gep15415 = getelementptr inbounds i8, ptr %10947, i64 3
+  %.sroa.gep15415 = getelementptr inbounds nuw i8, ptr %10947, i64 3
   %.neg13813.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13812, ptr %.sroa.gep15415, ptr %.sroa.gep14714
   store i8 0, ptr %.neg13813.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %10953 = and i64 %10920, 255
   %.not13814 = icmp eq i64 %10953, 255
   %.neg13815 = select i1 %.not13814, i64 2, i64 1
-  %10954 = getelementptr inbounds i8, ptr %.neg13813.sroa.sel, i64 %.neg13815
+  %10954 = getelementptr inbounds nuw i8, ptr %.neg13813.sroa.sel, i64 %.neg13815
   br label %10977
 
 10955:                                            ; preds = %10914
   %10956 = lshr i64 %10916, 48
   %10957 = trunc i64 %10956 to i8
-  %10958 = getelementptr inbounds i8, ptr %.37615241, i64 1
+  %10958 = getelementptr inbounds nuw i8, ptr %.37615241, i64 1
   store i8 %10957, ptr %10958, align 1
   %10959 = lshr i64 %10916, 40
   %10960 = trunc i64 %10959 to i8
-  %10961 = getelementptr inbounds i8, ptr %.37615241, i64 2
+  %10961 = getelementptr inbounds nuw i8, ptr %.37615241, i64 2
   store i8 %10960, ptr %10961, align 1
   %10962 = lshr i64 %10916, 32
   %10963 = trunc i64 %10962 to i8
-  %10964 = getelementptr inbounds i8, ptr %.37615241, i64 3
+  %10964 = getelementptr inbounds nuw i8, ptr %.37615241, i64 3
   store i8 %10963, ptr %10964, align 1
   %10965 = lshr i64 %10920, 24
   %10966 = trunc i64 %10965 to i8
-  %10967 = getelementptr inbounds i8, ptr %.37615241, i64 4
+  %10967 = getelementptr inbounds nuw i8, ptr %.37615241, i64 4
   store i8 %10966, ptr %10967, align 1
   %10968 = lshr i64 %10920, 16
   %10969 = trunc i64 %10968 to i8
-  %10970 = getelementptr inbounds i8, ptr %.37615241, i64 5
+  %10970 = getelementptr inbounds nuw i8, ptr %.37615241, i64 5
   store i8 %10969, ptr %10970, align 1
   %10971 = lshr i64 %10920, 8
   %10972 = trunc i64 %10971 to i8
-  %10973 = getelementptr inbounds i8, ptr %.37615241, i64 6
+  %10973 = getelementptr inbounds nuw i8, ptr %.37615241, i64 6
   store i8 %10972, ptr %10973, align 1
   %10974 = trunc i64 %10920 to i8
-  %10975 = getelementptr inbounds i8, ptr %.37615241, i64 7
+  %10975 = getelementptr inbounds nuw i8, ptr %.37615241, i64 7
   store i8 %10974, ptr %10975, align 1
-  %10976 = getelementptr inbounds i8, ptr %.37615241, i64 8
+  %10976 = getelementptr inbounds nuw i8, ptr %.37615241, i64 8
   br label %10977
 
 10977:                                            ; preds = %10955, %10926
@@ -21551,12 +21551,12 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   %10991 = xor i32 %10990, -1
   %10992 = and i32 %10889, %10991
   %10993 = zext nneg i32 %10988 to i64
-  %10994 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %10993
+  %10994 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %10993
   %10995 = load i32, ptr %10994, align 4
   %10996 = shl i32 %10995, %10894
   %10997 = or i32 %10996, %10992
-  %10998 = getelementptr inbounds i8, ptr %4, i64 1024
-  %10999 = getelementptr inbounds [256 x i8], ptr %10998, i64 0, i64 %10993
+  %10998 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %10999 = getelementptr inbounds nuw [256 x i8], ptr %10998, i64 0, i64 %10993
   %11000 = load i8, ptr %10999, align 1
   %11001 = sext i8 %11000 to i32
   %11002 = add nsw i32 %11001, %10894
@@ -21581,108 +21581,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13782, label %11046, label %11017
 
 11017:                                            ; preds = %11005
-  %11018 = getelementptr inbounds i8, ptr %.376.lcssa, i64 1
+  %11018 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 1
   store i8 0, ptr %11018, align 1
   %.not13783 = icmp eq i64 %11015, 255
-  %.sroa.gep14716 = getelementptr inbounds i8, ptr %.376.lcssa, i64 2
+  %.sroa.gep14716 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 2
   %.neg13784.sroa.sel = select i1 %.not13783, ptr %.sroa.gep14716, ptr %11018
   %11019 = lshr i64 %11011, 48
   %11020 = trunc i64 %11019 to i8
   store i8 %11020, ptr %.neg13784.sroa.sel, align 1
-  %.sroa.gep15421 = getelementptr inbounds i8, ptr %.376.lcssa, i64 3
+  %.sroa.gep15421 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 3
   %.neg13784.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13783, ptr %.sroa.gep15421, ptr %.sroa.gep14716
   store i8 0, ptr %.neg13784.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11021 = and i64 %11011, 71776119061217280
   %.not13785 = icmp eq i64 %11021, 71776119061217280
   %.neg13786 = select i1 %.not13785, i64 2, i64 1
-  %11022 = getelementptr inbounds i8, ptr %.neg13784.sroa.sel, i64 %.neg13786
+  %11022 = getelementptr inbounds nuw i8, ptr %.neg13784.sroa.sel, i64 %.neg13786
   %11023 = lshr i64 %11011, 40
   %11024 = trunc i64 %11023 to i8
   store i8 %11024, ptr %11022, align 1
-  %11025 = getelementptr inbounds i8, ptr %11022, i64 1
+  %11025 = getelementptr inbounds nuw i8, ptr %11022, i64 1
   store i8 0, ptr %11025, align 1
   %11026 = and i64 %11011, 280375465082880
   %.not13787 = icmp eq i64 %11026, 280375465082880
-  %.sroa.gep14718 = getelementptr inbounds i8, ptr %11022, i64 2
+  %.sroa.gep14718 = getelementptr inbounds nuw i8, ptr %11022, i64 2
   %.neg13788.sroa.sel = select i1 %.not13787, ptr %.sroa.gep14718, ptr %11025
   %11027 = lshr i64 %11011, 32
   %11028 = trunc i64 %11027 to i8
   store i8 %11028, ptr %.neg13788.sroa.sel, align 1
-  %.sroa.gep15427 = getelementptr inbounds i8, ptr %11022, i64 3
+  %.sroa.gep15427 = getelementptr inbounds nuw i8, ptr %11022, i64 3
   %.neg13788.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13787, ptr %.sroa.gep15427, ptr %.sroa.gep14718
   store i8 0, ptr %.neg13788.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11029 = and i64 %11011, 1095216660480
   %.not13789 = icmp eq i64 %11029, 1095216660480
   %.neg13790 = select i1 %.not13789, i64 2, i64 1
-  %11030 = getelementptr inbounds i8, ptr %.neg13788.sroa.sel, i64 %.neg13790
+  %11030 = getelementptr inbounds nuw i8, ptr %.neg13788.sroa.sel, i64 %.neg13790
   %11031 = lshr i64 %11011, 24
   %11032 = trunc i64 %11031 to i8
   store i8 %11032, ptr %11030, align 1
-  %11033 = getelementptr inbounds i8, ptr %11030, i64 1
+  %11033 = getelementptr inbounds nuw i8, ptr %11030, i64 1
   store i8 0, ptr %11033, align 1
   %11034 = and i64 %11011, 4278190080
   %.not13791 = icmp eq i64 %11034, 4278190080
-  %.sroa.gep14720 = getelementptr inbounds i8, ptr %11030, i64 2
+  %.sroa.gep14720 = getelementptr inbounds nuw i8, ptr %11030, i64 2
   %.neg13792.sroa.sel = select i1 %.not13791, ptr %.sroa.gep14720, ptr %11033
   %11035 = lshr i64 %11011, 16
   %11036 = trunc i64 %11035 to i8
   store i8 %11036, ptr %.neg13792.sroa.sel, align 1
-  %.sroa.gep15425 = getelementptr inbounds i8, ptr %11030, i64 3
+  %.sroa.gep15425 = getelementptr inbounds nuw i8, ptr %11030, i64 3
   %.neg13792.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13791, ptr %.sroa.gep15425, ptr %.sroa.gep14720
   store i8 0, ptr %.neg13792.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11037 = and i64 %11011, 16711680
   %.not13793 = icmp eq i64 %11037, 16711680
   %.neg13794 = select i1 %.not13793, i64 2, i64 1
-  %11038 = getelementptr inbounds i8, ptr %.neg13792.sroa.sel, i64 %.neg13794
+  %11038 = getelementptr inbounds nuw i8, ptr %.neg13792.sroa.sel, i64 %.neg13794
   %11039 = lshr i64 %11011, 8
   %11040 = trunc i64 %11039 to i8
   store i8 %11040, ptr %11038, align 1
-  %11041 = getelementptr inbounds i8, ptr %11038, i64 1
+  %11041 = getelementptr inbounds nuw i8, ptr %11038, i64 1
   store i8 0, ptr %11041, align 1
   %11042 = and i64 %11011, 65280
   %.not13795 = icmp eq i64 %11042, 65280
-  %.sroa.gep14722 = getelementptr inbounds i8, ptr %11038, i64 2
+  %.sroa.gep14722 = getelementptr inbounds nuw i8, ptr %11038, i64 2
   %.neg13796.sroa.sel = select i1 %.not13795, ptr %.sroa.gep14722, ptr %11041
   %11043 = trunc i64 %11011 to i8
   store i8 %11043, ptr %.neg13796.sroa.sel, align 1
-  %.sroa.gep15423 = getelementptr inbounds i8, ptr %11038, i64 3
+  %.sroa.gep15423 = getelementptr inbounds nuw i8, ptr %11038, i64 3
   %.neg13796.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13795, ptr %.sroa.gep15423, ptr %.sroa.gep14722
   store i8 0, ptr %.neg13796.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11044 = and i64 %11011, 255
   %.not13797 = icmp eq i64 %11044, 255
   %.neg13798 = select i1 %.not13797, i64 2, i64 1
-  %11045 = getelementptr inbounds i8, ptr %.neg13796.sroa.sel, i64 %.neg13798
+  %11045 = getelementptr inbounds nuw i8, ptr %.neg13796.sroa.sel, i64 %.neg13798
   br label %11068
 
 11046:                                            ; preds = %11005
   %11047 = lshr i64 %11011, 48
   %11048 = trunc i64 %11047 to i8
-  %11049 = getelementptr inbounds i8, ptr %.376.lcssa, i64 1
+  %11049 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 1
   store i8 %11048, ptr %11049, align 1
   %11050 = lshr i64 %11011, 40
   %11051 = trunc i64 %11050 to i8
-  %11052 = getelementptr inbounds i8, ptr %.376.lcssa, i64 2
+  %11052 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 2
   store i8 %11051, ptr %11052, align 1
   %11053 = lshr i64 %11011, 32
   %11054 = trunc i64 %11053 to i8
-  %11055 = getelementptr inbounds i8, ptr %.376.lcssa, i64 3
+  %11055 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 3
   store i8 %11054, ptr %11055, align 1
   %11056 = lshr i64 %11011, 24
   %11057 = trunc i64 %11056 to i8
-  %11058 = getelementptr inbounds i8, ptr %.376.lcssa, i64 4
+  %11058 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 4
   store i8 %11057, ptr %11058, align 1
   %11059 = lshr i64 %11011, 16
   %11060 = trunc i64 %11059 to i8
-  %11061 = getelementptr inbounds i8, ptr %.376.lcssa, i64 5
+  %11061 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 5
   store i8 %11060, ptr %11061, align 1
   %11062 = lshr i64 %11011, 8
   %11063 = trunc i64 %11062 to i8
-  %11064 = getelementptr inbounds i8, ptr %.376.lcssa, i64 6
+  %11064 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 6
   store i8 %11063, ptr %11064, align 1
   %11065 = trunc i64 %11011 to i8
-  %11066 = getelementptr inbounds i8, ptr %.376.lcssa, i64 7
+  %11066 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 7
   store i8 %11065, ptr %11066, align 1
-  %11067 = getelementptr inbounds i8, ptr %.376.lcssa, i64 8
+  %11067 = getelementptr inbounds nuw i8, ptr %.376.lcssa, i64 8
   br label %11068
 
 11068:                                            ; preds = %11046, %11017
@@ -21699,7 +21699,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br label %.thread
 
 11076:                                            ; preds = %10882
-  %11077 = getelementptr inbounds i8, ptr %4, i64 1024
+  %11077 = getelementptr inbounds nuw i8, ptr %4, i64 1024
   %11078 = load i8, ptr %11077, align 4
   %11079 = sext i8 %11078 to i32
   %11080 = sub nsw i32 %.24511539, %11079
@@ -21724,108 +21724,108 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
   br i1 %.not13816, label %11124, label %11095
 
 11095:                                            ; preds = %11083
-  %11096 = getelementptr inbounds i8, ptr %.369, i64 1
+  %11096 = getelementptr inbounds nuw i8, ptr %.369, i64 1
   store i8 0, ptr %11096, align 1
   %.not13817 = icmp eq i64 %11093, 255
-  %.sroa.gep14724 = getelementptr inbounds i8, ptr %.369, i64 2
+  %.sroa.gep14724 = getelementptr inbounds nuw i8, ptr %.369, i64 2
   %.neg13818.sroa.sel = select i1 %.not13817, ptr %.sroa.gep14724, ptr %11096
   %11097 = lshr i64 %11085, 48
   %11098 = trunc i64 %11097 to i8
   store i8 %11098, ptr %.neg13818.sroa.sel, align 1
-  %.sroa.gep15411 = getelementptr inbounds i8, ptr %.369, i64 3
+  %.sroa.gep15411 = getelementptr inbounds nuw i8, ptr %.369, i64 3
   %.neg13818.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13817, ptr %.sroa.gep15411, ptr %.sroa.gep14724
   store i8 0, ptr %.neg13818.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11099 = and i64 %11085, 71776119061217280
   %.not13819 = icmp eq i64 %11099, 71776119061217280
   %.neg13820 = select i1 %.not13819, i64 2, i64 1
-  %11100 = getelementptr inbounds i8, ptr %.neg13818.sroa.sel, i64 %.neg13820
+  %11100 = getelementptr inbounds nuw i8, ptr %.neg13818.sroa.sel, i64 %.neg13820
   %11101 = lshr i64 %11085, 40
   %11102 = trunc i64 %11101 to i8
   store i8 %11102, ptr %11100, align 1
-  %11103 = getelementptr inbounds i8, ptr %11100, i64 1
+  %11103 = getelementptr inbounds nuw i8, ptr %11100, i64 1
   store i8 0, ptr %11103, align 1
   %11104 = and i64 %11085, 280375465082880
   %.not13821 = icmp eq i64 %11104, 280375465082880
-  %.sroa.gep14726 = getelementptr inbounds i8, ptr %11100, i64 2
+  %.sroa.gep14726 = getelementptr inbounds nuw i8, ptr %11100, i64 2
   %.neg13822.sroa.sel = select i1 %.not13821, ptr %.sroa.gep14726, ptr %11103
   %11105 = lshr i64 %11085, 32
   %11106 = trunc i64 %11105 to i8
   store i8 %11106, ptr %.neg13822.sroa.sel, align 1
-  %.sroa.gep15409 = getelementptr inbounds i8, ptr %11100, i64 3
+  %.sroa.gep15409 = getelementptr inbounds nuw i8, ptr %11100, i64 3
   %.neg13822.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13821, ptr %.sroa.gep15409, ptr %.sroa.gep14726
   store i8 0, ptr %.neg13822.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11107 = and i64 %11085, 1095216660480
   %.not13823 = icmp eq i64 %11107, 1095216660480
   %.neg13824 = select i1 %.not13823, i64 2, i64 1
-  %11108 = getelementptr inbounds i8, ptr %.neg13822.sroa.sel, i64 %.neg13824
+  %11108 = getelementptr inbounds nuw i8, ptr %.neg13822.sroa.sel, i64 %.neg13824
   %11109 = lshr i64 %11089, 24
   %11110 = trunc i64 %11109 to i8
   store i8 %11110, ptr %11108, align 1
-  %11111 = getelementptr inbounds i8, ptr %11108, i64 1
+  %11111 = getelementptr inbounds nuw i8, ptr %11108, i64 1
   store i8 0, ptr %11111, align 1
   %11112 = and i64 %11089, 4278190080
   %.not13825 = icmp eq i64 %11112, 4278190080
-  %.sroa.gep14728 = getelementptr inbounds i8, ptr %11108, i64 2
+  %.sroa.gep14728 = getelementptr inbounds nuw i8, ptr %11108, i64 2
   %.neg13826.sroa.sel = select i1 %.not13825, ptr %.sroa.gep14728, ptr %11111
   %11113 = lshr i64 %11089, 16
   %11114 = trunc i64 %11113 to i8
   store i8 %11114, ptr %.neg13826.sroa.sel, align 1
-  %.sroa.gep15407 = getelementptr inbounds i8, ptr %11108, i64 3
+  %.sroa.gep15407 = getelementptr inbounds nuw i8, ptr %11108, i64 3
   %.neg13826.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13825, ptr %.sroa.gep15407, ptr %.sroa.gep14728
   store i8 0, ptr %.neg13826.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11115 = and i64 %11089, 16711680
   %.not13827 = icmp eq i64 %11115, 16711680
   %.neg13828 = select i1 %.not13827, i64 2, i64 1
-  %11116 = getelementptr inbounds i8, ptr %.neg13826.sroa.sel, i64 %.neg13828
+  %11116 = getelementptr inbounds nuw i8, ptr %.neg13826.sroa.sel, i64 %.neg13828
   %11117 = lshr i64 %11089, 8
   %11118 = trunc i64 %11117 to i8
   store i8 %11118, ptr %11116, align 1
-  %11119 = getelementptr inbounds i8, ptr %11116, i64 1
+  %11119 = getelementptr inbounds nuw i8, ptr %11116, i64 1
   store i8 0, ptr %11119, align 1
   %11120 = and i64 %11089, 65280
   %.not13829 = icmp eq i64 %11120, 65280
-  %.sroa.gep14730 = getelementptr inbounds i8, ptr %11116, i64 2
+  %.sroa.gep14730 = getelementptr inbounds nuw i8, ptr %11116, i64 2
   %.neg13830.sroa.sel = select i1 %.not13829, ptr %.sroa.gep14730, ptr %11119
   %11121 = trunc i64 %11089 to i8
   store i8 %11121, ptr %.neg13830.sroa.sel, align 1
-  %.sroa.gep15405 = getelementptr inbounds i8, ptr %11116, i64 3
+  %.sroa.gep15405 = getelementptr inbounds nuw i8, ptr %11116, i64 3
   %.neg13830.sroa.sel.sroa.sel.v.sroa.sel = select i1 %.not13829, ptr %.sroa.gep15405, ptr %.sroa.gep14730
   store i8 0, ptr %.neg13830.sroa.sel.sroa.sel.v.sroa.sel, align 1
   %11122 = and i64 %11089, 255
   %.not13831 = icmp eq i64 %11122, 255
   %.neg13832 = select i1 %.not13831, i64 2, i64 1
-  %11123 = getelementptr inbounds i8, ptr %.neg13830.sroa.sel, i64 %.neg13832
+  %11123 = getelementptr inbounds nuw i8, ptr %.neg13830.sroa.sel, i64 %.neg13832
   br label %11146
 
 11124:                                            ; preds = %11083
   %11125 = lshr i64 %11085, 48
   %11126 = trunc i64 %11125 to i8
-  %11127 = getelementptr inbounds i8, ptr %.369, i64 1
+  %11127 = getelementptr inbounds nuw i8, ptr %.369, i64 1
   store i8 %11126, ptr %11127, align 1
   %11128 = lshr i64 %11085, 40
   %11129 = trunc i64 %11128 to i8
-  %11130 = getelementptr inbounds i8, ptr %.369, i64 2
+  %11130 = getelementptr inbounds nuw i8, ptr %.369, i64 2
   store i8 %11129, ptr %11130, align 1
   %11131 = lshr i64 %11085, 32
   %11132 = trunc i64 %11131 to i8
-  %11133 = getelementptr inbounds i8, ptr %.369, i64 3
+  %11133 = getelementptr inbounds nuw i8, ptr %.369, i64 3
   store i8 %11132, ptr %11133, align 1
   %11134 = lshr i64 %11089, 24
   %11135 = trunc i64 %11134 to i8
-  %11136 = getelementptr inbounds i8, ptr %.369, i64 4
+  %11136 = getelementptr inbounds nuw i8, ptr %.369, i64 4
   store i8 %11135, ptr %11136, align 1
   %11137 = lshr i64 %11089, 16
   %11138 = trunc i64 %11137 to i8
-  %11139 = getelementptr inbounds i8, ptr %.369, i64 5
+  %11139 = getelementptr inbounds nuw i8, ptr %.369, i64 5
   store i8 %11138, ptr %11139, align 1
   %11140 = lshr i64 %11089, 8
   %11141 = trunc i64 %11140 to i8
-  %11142 = getelementptr inbounds i8, ptr %.369, i64 6
+  %11142 = getelementptr inbounds nuw i8, ptr %.369, i64 6
   store i8 %11141, ptr %11142, align 1
   %11143 = trunc i64 %11089 to i8
-  %11144 = getelementptr inbounds i8, ptr %.369, i64 7
+  %11144 = getelementptr inbounds nuw i8, ptr %.369, i64 7
   store i8 %11143, ptr %11144, align 1
-  %11145 = getelementptr inbounds i8, ptr %.369, i64 8
+  %11145 = getelementptr inbounds nuw i8, ptr %.369, i64 8
   br label %11146
 
 11146:                                            ; preds = %11124, %11095
@@ -21881,9 +21881,9 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 
 11167:                                            ; preds = %.lr.ph15254
   %11168 = load ptr, ptr %7, align 8
-  %11169 = getelementptr inbounds i8, ptr %11168, i64 40
+  %11169 = getelementptr inbounds nuw i8, ptr %11168, i64 40
   %11170 = load ptr, ptr %11169, align 8
-  %11171 = getelementptr inbounds i8, ptr %11170, i64 24
+  %11171 = getelementptr inbounds nuw i8, ptr %11170, i64 24
   %11172 = load ptr, ptr %11171, align 8
   %11173 = call i32 %11172(ptr noundef %11168) #6
   %.not.i = icmp eq i32 %11173, 0
@@ -21892,7 +21892,7 @@ define internal fastcc range(i32 0, 2) i32 @encode_one_block(ptr noundef nonnull
 dump_buffer.exit:                                 ; preds = %11167
   %11174 = load ptr, ptr %11170, align 8
   store ptr %11174, ptr %0, align 8
-  %11175 = getelementptr inbounds i8, ptr %11170, i64 8
+  %11175 = getelementptr inbounds nuw i8, ptr %11170, i64 8
   %11176 = load i64, ptr %11175, align 8
   store i64 %11176, ptr %16, align 8
   br label %11177

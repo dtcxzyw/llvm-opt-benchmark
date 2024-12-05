@@ -15,7 +15,7 @@ define dso_local ptr @Curl_slist_append_nodup(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %6, align 8
   store ptr %1, ptr %4, align 8
   %.not13 = icmp eq ptr %0, null
@@ -23,13 +23,13 @@ define dso_local ptr @Curl_slist_append_nodup(ptr noundef %0, ptr noundef %1) lo
 
 .preheader:                                       ; preds = %5, %.preheader
   %.0.i = phi ptr [ %8, %.preheader ], [ %0, %5 ]
-  %7 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %slist_get_last.exit, label %.preheader, !llvm.loop !5
 
 slist_get_last.exit:                              ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %4, ptr %9, align 8
   br label %10
 
@@ -52,7 +52,7 @@ define dso_local ptr @curl_slist_append(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not.i, label %Curl_slist_append_nodup.exit.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %9, align 8
   store ptr %4, ptr %7, align 8
   %.not13.i = icmp eq ptr %0, null
@@ -60,13 +60,13 @@ define dso_local ptr @curl_slist_append(ptr noundef %0, ptr noundef %1) local_un
 
 .preheader.i:                                     ; preds = %8, %.preheader.i
   %.0.i.i = phi ptr [ %11, %.preheader.i ], [ %0, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %Curl_slist_append_nodup.exit, label %.preheader.i, !llvm.loop !5
 
 Curl_slist_append_nodup.exit:                     ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store ptr %7, ptr %12, align 8
   br label %Curl_slist_append_nodup.exit.thread13
 
@@ -101,7 +101,7 @@ define dso_local ptr @Curl_slist_duplicate(ptr noundef readonly %0) local_unname
   br i1 %.not.i.i, label %Curl_slist_append_nodup.exit.thread.i, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %9, align 8
   store ptr %4, ptr %7, align 8
   %.not13.i.i = icmp eq ptr %.0930, null
@@ -109,7 +109,7 @@ define dso_local ptr @Curl_slist_duplicate(ptr noundef readonly %0) local_unname
 
 .preheader.i.i:                                   ; preds = %8, %.preheader.i.i
   %.0.i.i.i = phi ptr [ %11, %.preheader.i.i ], [ %.0930, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %curl_slist_append.exit, label %.preheader.i.i, !llvm.loop !5
@@ -120,7 +120,7 @@ Curl_slist_append_nodup.exit.thread.i:            ; preds = %5
   br label %.loopexit
 
 curl_slist_append.exit:                           ; preds = %.preheader.i.i
-  %13 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store ptr %7, ptr %13, align 8
   br label %curl_slist_append.exit.thread17
 
@@ -130,7 +130,7 @@ curl_slist_append.exit:                           ; preds = %.preheader.i.i
 
 .preheader.i:                                     ; preds = %.loopexit, %.preheader.i
   %.0.i14 = phi ptr [ %15, %.preheader.i ], [ %.0930, %.loopexit ]
-  %14 = getelementptr inbounds i8, ptr %.0.i14, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @Curl_cfree, align 8
   %17 = load ptr, ptr %.0.i14, align 8
@@ -143,7 +143,7 @@ curl_slist_append.exit:                           ; preds = %.preheader.i.i
 
 curl_slist_append.exit.thread17:                  ; preds = %curl_slist_append.exit, %8
   %.0.i20 = phi ptr [ %.0930, %curl_slist_append.exit ], [ %7, %8 ]
-  %19 = getelementptr inbounds i8, ptr %.01029, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.01029, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %curl_slist_free_all.exit, label %.lr.ph, !llvm.loop !8
@@ -160,7 +160,7 @@ define dso_local void @curl_slist_free_all(ptr noundef %0) local_unnamed_addr #0
 
 .preheader:                                       ; preds = %1, %.preheader
   %.0 = phi ptr [ %3, %.preheader ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @Curl_cfree, align 8
   %5 = load ptr, ptr %.0, align 8

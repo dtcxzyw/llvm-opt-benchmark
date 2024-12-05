@@ -59,7 +59,7 @@ define internal noundef zeroext i8 @setCommand(ptr noundef %0, ptr noundef %1) #
 20:                                               ; preds = %16
   %21 = icmp eq i8 %3, 42
   %spec.select = zext i1 %21 to i32
-  %22 = getelementptr inbounds i8, ptr %17, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %spec.select, ptr %22, align 4
   %23 = tail call ptr @getEnv() #2
   %24 = tail call fastcc zeroext i16 @readAndSetFilters(ptr noundef %23, ptr noundef %0, ptr noundef %17, i32 noundef %9)

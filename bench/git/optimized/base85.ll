@@ -17,7 +17,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [85 x i8], ptr @en85, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [85 x i8], ptr @en85, i64 0, i64 %indvars.iv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %idxprom4.i = sext i8 %1 to i64
@@ -44,7 +44,7 @@ do.body1:                                         ; preds = %do.body1.preheader,
   %cnt.0 = phi i32 [ %dec5, %if.end ], [ 4, %do.body1.preheader ]
   %3 = load i8, ptr %buffer.addr.1, align 1
   %idxprom = zext i8 %3 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @de85, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @de85, i64 0, i64 %idxprom
   %4 = load i8, ptr %arrayidx, align 1
   %cmp = icmp slt i8 %4, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -55,7 +55,7 @@ if.then:                                          ; preds = %do.body1
   br label %return
 
 if.end:                                           ; preds = %do.body1
-  %incdec.ptr = getelementptr inbounds i8, ptr %buffer.addr.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buffer.addr.1, i64 1
   %conv = zext nneg i8 %4 to i32
   %mul = mul i32 %acc.0, 85
   %dec = add i32 %mul, -1
@@ -68,7 +68,7 @@ do.end7:                                          ; preds = %if.end
   %incdec.ptr8 = getelementptr i8, ptr %buffer.addr.029, i64 5
   %5 = load i8, ptr %scevgep, align 1
   %idxprom9 = zext i8 %5 to i64
-  %arrayidx10 = getelementptr inbounds [256 x i8], ptr @de85, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [256 x i8], ptr @de85, i64 0, i64 %idxprom9
   %6 = load i8, ptr %arrayidx10, align 1
   %conv11 = sext i8 %6 to i32
   %cmp13 = icmp slt i8 %6, 1
@@ -105,7 +105,7 @@ do.body36:                                        ; preds = %do.body36, %if.end2
   %cnt.1 = phi i32 [ %cond, %if.end28 ], [ %dec40, %do.body36 ]
   %or = tail call i32 @llvm.fshl.i32(i32 %acc.1, i32 %acc.1, i32 8)
   %conv37 = trunc i32 %or to i8
-  %incdec.ptr38 = getelementptr inbounds i8, ptr %dst.addr.1, i64 1
+  %incdec.ptr38 = getelementptr inbounds nuw i8, ptr %dst.addr.1, i64 1
   store i8 %conv37, ptr %dst.addr.1, align 1
   %dec40 = add nsw i32 %cnt.1, -1
   %tobool41.not = icmp eq i32 %dec40, 0
@@ -140,7 +140,7 @@ for.body:                                         ; preds = %for.body, %for.cond
   %cnt.013 = phi i32 [ 24, %for.cond.preheader ], [ %sub, %for.body ]
   %acc.012 = phi i32 [ 0, %for.cond.preheader ], [ %or, %for.body ]
   %bytes.addr.111 = phi i32 [ %bytes.addr.018, %for.cond.preheader ], [ %dec, %for.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %data.addr.114, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %data.addr.114, i64 1
   %0 = load i8, ptr %data.addr.114, align 1
   %conv = zext i8 %0 to i32
   %shl = shl i32 %conv, %cnt.013
@@ -158,16 +158,16 @@ for.body8:                                        ; preds = %for.body, %for.body
   %rem = urem i32 %acc.215, 85
   %div = udiv i32 %acc.215, 85
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds [85 x i8], ptr @en85, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [85 x i8], ptr @en85, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  %arrayidx10 = getelementptr inbounds i8, ptr %buf.addr.020, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %buf.addr.020, i64 %indvars.iv
   store i8 %1, ptr %arrayidx10, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp6.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp6.not, label %for.end13, label %for.body8, !llvm.loop !11
 
 for.end13:                                        ; preds = %for.body8
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.020, i64 5
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.020, i64 5
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %do.end15, label %for.cond.preheader, !llvm.loop !12
 

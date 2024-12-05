@@ -4301,17 +4301,17 @@ define internal i32 @dissect_ranap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca %struct._asn1_ctx_t, align 8
   store i32 0, ptr @pdu_type, align 4
   store i32 0, ptr @ProtocolIE_ID, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1623) #3
   %8 = load i32, ptr @proto_ranap, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %10 = load i32, ptr @ett_ranap, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_ranap, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 376
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %16 = load i8, ptr %15, align 8
   %17 = zext i8 %16 to i32
   tail call void @p_add_proto_data(ptr noundef %13, ptr noundef %1, i32 noundef %14, i32 noundef %17, ptr noundef %3) #3
@@ -4328,14 +4328,14 @@ define internal i32 @dissect_ranap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %38, label %23
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 2, ptr %28, align 8
   br label %29
 
@@ -5738,7 +5738,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_OldBSS_ToNewBSS_In
   br i1 %.not.i, label %dissect_ranap_OldBSS_ToNewBSS_Information.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @bssmap_old_bss_to_new_bss_info(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %12) #3
   br label %dissect_ranap_OldBSS_ToNewBSS_Information.exit
@@ -5765,7 +5765,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_L3_Information_PDU
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @nas_pdu_dissector_table, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @proto_tree_get_root(ptr noundef %2) #3
   %15 = call i32 @dissector_try_uint(ptr noundef %11, i32 noundef 1, ptr noundef nonnull %9, ptr noundef %13, ptr noundef %14) #3
@@ -6457,9 +6457,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LAI_PDU(ptr nounde
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_LAI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val.i = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val.i, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ranap, align 4
   %11 = call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %.val.i, i32 noundef %10, i32 noundef 0) #3
@@ -6476,7 +6476,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LAI_PDU(ptr nounde
 
 ranap_get_private_data.exit.i:                    ; preds = %13, %4
   %.0.i.i = phi ptr [ %15, %13 ], [ %11, %4 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 2
   br i1 %.not.i, label %dissect_ranap_LAI.exit, label %20
@@ -6522,9 +6522,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SAI_PDU(ptr nounde
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SAI_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val.i = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val.i, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ranap, align 4
   %11 = call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %.val.i, i32 noundef %10, i32 noundef 0) #3
@@ -6541,7 +6541,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SAI_PDU(ptr nounde
 
 dissect_ranap_SAI.exit:                           ; preds = %4, %13
   %.0.i.i = phi ptr [ %15, %13 ], [ %11, %4 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 3, ptr %18, align 4
   %19 = load i32, ptr @ett_ranap_SAI, align 4
   %20 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %19, ptr noundef nonnull @SAI_sequence) #3
@@ -6565,7 +6565,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NAS_PDU_PDU(ptr no
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @nas_pdu_dissector_table, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @proto_tree_get_root(ptr noundef %2) #3
   %15 = call i32 @dissector_try_uint(ptr noundef %11, i32 noundef 1, ptr noundef nonnull %9, ptr noundef %13, ptr noundef %14) #3
@@ -6726,9 +6726,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_SetupOrModifie
   %8 = load i32, ptr @hf_ranap_RAB_SetupOrModifiedItem_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val.i = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val.i, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %.val.i, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_ranap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %.val.i, i32 noundef %12, i32 noundef 0) #3
@@ -6747,7 +6747,7 @@ private_data_set_transportLayerAddress_ipv4.exit.i: ; preds = %15, %4
   %.0.i.i.i = phi ptr [ %17, %15 ], [ %13, %4 ]
   store i32 0, ptr %.0.i.i.i, align 4
   %.val20.i = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %.val20.i, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @proto_ranap, align 4
   %23 = call ptr @p_get_proto_data(ptr noundef %21, ptr noundef %.val20.i, i32 noundef %22, i32 noundef 0) #3
@@ -6764,12 +6764,12 @@ private_data_set_transportLayerAddress_ipv4.exit.i: ; preds = %15, %4
 
 private_data_set_binding_id_port.exit.i:          ; preds = %25, %private_data_set_transportLayerAddress_ipv4.exit.i
   %.0.i.i23.i = phi ptr [ %27, %25 ], [ %23, %private_data_set_transportLayerAddress_ipv4.exit.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i23.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i23.i, i64 4
   store i16 0, ptr %30, align 4
   %31 = load i32, ptr @ett_ranap_RAB_SetupOrModifiedItem, align 4
   %32 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %8, i32 noundef %31, ptr noundef nonnull @RAB_SetupOrModifiedItem_sequence) #3
   %.val21.i = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %.val21.i, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr @proto_ranap, align 4
   %36 = call ptr @p_get_proto_data(ptr noundef %34, ptr noundef %.val21.i, i32 noundef %35, i32 noundef 0) #3
@@ -6789,7 +6789,7 @@ private_data_get_transportLayerAddress_ipv4.exit.i: ; preds = %38, %private_data
   %43 = load i32, ptr %.0.i.i24.i, align 4
   store i32 %43, ptr %6, align 4
   %.val22.i = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %.val22.i, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @proto_ranap, align 4
   %47 = call ptr @p_get_proto_data(ptr noundef %45, ptr noundef %.val22.i, i32 noundef %46, i32 noundef 0) #3
@@ -6806,12 +6806,12 @@ private_data_get_transportLayerAddress_ipv4.exit.i: ; preds = %38, %private_data
 
 private_data_get_binding_id_port.exit.i:          ; preds = %49, %private_data_get_transportLayerAddress_ipv4.exit.i
   %.0.i.i25.i = phi ptr [ %51, %49 ], [ %47, %private_data_get_transportLayerAddress_ipv4.exit.i ]
-  %54 = getelementptr inbounds i8, ptr %.0.i.i25.i, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i25.i, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 50
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 50
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 8
   %62 = icmp ne i16 %61, 0
@@ -6824,13 +6824,13 @@ private_data_get_binding_id_port.exit.i:          ; preds = %49, %private_data_g
 65:                                               ; preds = %private_data_get_binding_id_port.exit.i
   %66 = zext i16 %55 to i32
   store i32 2, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %56, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %71 = load i32, ptr %70, align 4
   call void @rtp_add_address(ptr noundef nonnull %56, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %66, i32 noundef 0, ptr noundef nonnull @.str.1623, i32 noundef %71, i32 noundef 0, ptr noundef null) #3
   br label %dissect_ranap_RAB_SetupOrModifiedItem.exit
@@ -7631,9 +7631,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_SetupOrModifyI
   %8 = load i32, ptr @hf_ranap_RAB_SetupOrModifyItemFirst_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val.i = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val.i, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %.val.i, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_ranap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %.val.i, i32 noundef %12, i32 noundef 0) #3
@@ -7652,7 +7652,7 @@ private_data_set_transportLayerAddress_ipv4.exit.i: ; preds = %15, %4
   %.0.i.i.i = phi ptr [ %17, %15 ], [ %13, %4 ]
   store i32 0, ptr %.0.i.i.i, align 4
   %.val20.i = load ptr, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %.val20.i, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @proto_ranap, align 4
   %23 = call ptr @p_get_proto_data(ptr noundef %21, ptr noundef %.val20.i, i32 noundef %22, i32 noundef 0) #3
@@ -7669,12 +7669,12 @@ private_data_set_transportLayerAddress_ipv4.exit.i: ; preds = %15, %4
 
 private_data_set_binding_id_port.exit.i:          ; preds = %25, %private_data_set_transportLayerAddress_ipv4.exit.i
   %.0.i.i23.i = phi ptr [ %27, %25 ], [ %23, %private_data_set_transportLayerAddress_ipv4.exit.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i23.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i23.i, i64 4
   store i16 0, ptr %30, align 4
   %31 = load i32, ptr @ett_ranap_RAB_SetupOrModifyItemFirst, align 4
   %32 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %8, i32 noundef %31, ptr noundef nonnull @RAB_SetupOrModifyItemFirst_sequence) #3
   %.val21.i = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %.val21.i, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr @proto_ranap, align 4
   %36 = call ptr @p_get_proto_data(ptr noundef %34, ptr noundef %.val21.i, i32 noundef %35, i32 noundef 0) #3
@@ -7694,7 +7694,7 @@ private_data_get_transportLayerAddress_ipv4.exit.i: ; preds = %38, %private_data
   %43 = load i32, ptr %.0.i.i24.i, align 4
   store i32 %43, ptr %6, align 4
   %.val22.i = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %.val22.i, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @proto_ranap, align 4
   %47 = call ptr @p_get_proto_data(ptr noundef %45, ptr noundef %.val22.i, i32 noundef %46, i32 noundef 0) #3
@@ -7711,12 +7711,12 @@ private_data_get_transportLayerAddress_ipv4.exit.i: ; preds = %38, %private_data
 
 private_data_get_binding_id_port.exit.i:          ; preds = %49, %private_data_get_transportLayerAddress_ipv4.exit.i
   %.0.i.i25.i = phi ptr [ %51, %49 ], [ %47, %private_data_get_transportLayerAddress_ipv4.exit.i ]
-  %54 = getelementptr inbounds i8, ptr %.0.i.i25.i, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i25.i, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 50
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 50
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, 8
   %62 = icmp ne i16 %61, 0
@@ -7729,13 +7729,13 @@ private_data_get_binding_id_port.exit.i:          ; preds = %49, %private_data_g
 65:                                               ; preds = %private_data_get_binding_id_port.exit.i
   %66 = zext i16 %55 to i32
   store i32 2, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %56, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %71 = load i32, ptr %70, align 4
   call void @rtp_add_address(ptr noundef nonnull %56, i32 noundef 3, ptr noundef nonnull %5, i32 noundef %66, i32 noundef 0, ptr noundef nonnull @.str.1623, i32 noundef %71, i32 noundef 0, ptr noundef null) #3
   br label %dissect_ranap_RAB_SetupOrModifyItemFirst.exit
@@ -8134,7 +8134,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_NewBSS_To_OldBSS_I
   br i1 %.not.i, label %dissect_ranap_NewBSS_To_OldBSS_Information.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   call void @bssmap_new_bss_to_old_bss_info(ptr noundef nonnull %9, ptr noundef %2, ptr noundef %12) #3
   br label %dissect_ranap_NewBSS_To_OldBSS_Information.exit
@@ -8405,7 +8405,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UE_History_Informa
   br i1 %.not.i, label %dissect_ranap_UE_History_Information.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @dissect_s1ap_UE_HistoryInformation_PDU(ptr noundef nonnull %9, ptr noundef %12, ptr noundef %2, ptr noundef null) #3
   br label %dissect_ranap_UE_History_Information.exit
@@ -9040,9 +9040,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Iu_ReleaseCommand_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_Iu_ReleaseCommand_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2340) #3
   %11 = load i32, ptr @ett_ranap_Iu_ReleaseCommand, align 4
@@ -9057,9 +9057,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Iu_ReleaseComplete
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_Iu_ReleaseComplete_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2341) #3
   %11 = load i32, ptr @ett_ranap_Iu_ReleaseComplete, align 4
@@ -9074,9 +9074,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationRequired
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationRequired_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2342) #3
   %11 = load i32, ptr @ett_ranap_RelocationRequired, align 4
@@ -9091,9 +9091,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationCommand_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationCommand_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2343) #3
   %11 = load i32, ptr @ett_ranap_RelocationCommand, align 4
@@ -9108,9 +9108,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationPreparat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationPreparationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2344) #3
   %11 = load i32, ptr @ett_ranap_RelocationPreparationFailure, align 4
@@ -9125,9 +9125,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationRequest_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2345) #3
   %11 = load i32, ptr @ett_ranap_RelocationRequest, align 4
@@ -9142,9 +9142,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationRequestA
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationRequestAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2346) #3
   %11 = load i32, ptr @ett_ranap_RelocationRequestAcknowledge, align 4
@@ -9159,9 +9159,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationFailure_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2347) #3
   %11 = load i32, ptr @ett_ranap_RelocationFailure, align 4
@@ -9176,9 +9176,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationCancel_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationCancel_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2348) #3
   %11 = load i32, ptr @ett_ranap_RelocationCancel, align 4
@@ -9193,9 +9193,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationCancelAc
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationCancelAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2349) #3
   %11 = load i32, ptr @ett_ranap_RelocationCancelAcknowledge, align 4
@@ -9210,9 +9210,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SRNS_ContextReques
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SRNS_ContextRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2350) #3
   %11 = load i32, ptr @ett_ranap_SRNS_ContextRequest, align 4
@@ -9227,9 +9227,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SRNS_ContextRespon
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SRNS_ContextResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2351) #3
   %11 = load i32, ptr @ett_ranap_SRNS_ContextResponse, align 4
@@ -9244,9 +9244,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityModeComman
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SecurityModeCommand_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2352) #3
   %11 = load i32, ptr @ett_ranap_SecurityModeCommand, align 4
@@ -9261,9 +9261,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityModeComple
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SecurityModeComplete_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2353) #3
   %11 = load i32, ptr @ett_ranap_SecurityModeComplete, align 4
@@ -9278,9 +9278,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SecurityModeReject
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SecurityModeReject_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2354) #3
   %11 = load i32, ptr @ett_ranap_SecurityModeReject, align 4
@@ -9295,9 +9295,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataVolumeReportRe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_DataVolumeReportRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2355) #3
   %11 = load i32, ptr @ett_ranap_DataVolumeReportRequest, align 4
@@ -9312,9 +9312,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DataVolumeReport_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_DataVolumeReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2356) #3
   %11 = load i32, ptr @ett_ranap_DataVolumeReport, align 4
@@ -9329,9 +9329,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Reset_PDU(ptr noun
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_Reset_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2357) #3
   %11 = load i32, ptr @ett_ranap_Reset, align 4
@@ -9346,9 +9346,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResetAcknowledge_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_ResetAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2358) #3
   %11 = load i32, ptr @ett_ranap_ResetAcknowledge, align 4
@@ -9363,9 +9363,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_ReleaseRequest
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RAB_ReleaseRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2359) #3
   %11 = load i32, ptr @ett_ranap_RAB_ReleaseRequest, align 4
@@ -9380,9 +9380,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Iu_ReleaseRequest_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_Iu_ReleaseRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2360) #3
   %11 = load i32, ptr @ett_ranap_Iu_ReleaseRequest, align 4
@@ -9397,9 +9397,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationDetect_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationDetect_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2361) #3
   %11 = load i32, ptr @ett_ranap_RelocationDetect, align 4
@@ -9414,9 +9414,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RelocationComplete
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RelocationComplete_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2362) #3
   %11 = load i32, ptr @ett_ranap_RelocationComplete, align 4
@@ -9431,9 +9431,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Paging_PDU(ptr nou
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_Paging_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2363) #3
   %11 = load i32, ptr @ett_ranap_Paging, align 4
@@ -9448,9 +9448,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonID_PDU(ptr n
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_CommonID_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2364) #3
   %11 = load i32, ptr @ett_ranap_CommonID, align 4
@@ -9465,9 +9465,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CN_InvokeTrace_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_CN_InvokeTrace_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2365) #3
   %11 = load i32, ptr @ett_ranap_CN_InvokeTrace, align 4
@@ -9482,9 +9482,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CN_DeactivateTrace
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_CN_DeactivateTrace_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2366) #3
   %11 = load i32, ptr @ett_ranap_CN_DeactivateTrace, align 4
@@ -9499,9 +9499,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReportingC
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_LocationReportingControl_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2367) #3
   %11 = load i32, ptr @ett_ranap_LocationReportingControl, align 4
@@ -9516,9 +9516,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationReport_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_LocationReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2368) #3
   %11 = load i32, ptr @ett_ranap_LocationReport, align 4
@@ -9533,9 +9533,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InitialUE_Message_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_InitialUE_Message_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2369) #3
   %11 = load i32, ptr @ett_ranap_InitialUE_Message, align 4
@@ -9550,9 +9550,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DirectTransfer_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_DirectTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2370) #3
   %11 = load i32, ptr @ett_ranap_DirectTransfer, align 4
@@ -9567,9 +9567,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Overload_PDU(ptr n
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_Overload_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2371) #3
   %11 = load i32, ptr @ett_ranap_Overload, align 4
@@ -9584,9 +9584,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_ErrorIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2372) #3
   %11 = load i32, ptr @ett_ranap_ErrorIndication, align 4
@@ -9601,9 +9601,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SRNS_DataForwardCo
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SRNS_DataForwardCommand_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2373) #3
   %11 = load i32, ptr @ett_ranap_SRNS_DataForwardCommand, align 4
@@ -9618,9 +9618,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ForwardSRNS_Contex
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_ForwardSRNS_Context_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2374) #3
   %11 = load i32, ptr @ett_ranap_ForwardSRNS_Context, align 4
@@ -9635,9 +9635,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_AssignmentRequ
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RAB_AssignmentRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2375) #3
   %11 = load i32, ptr @ett_ranap_RAB_AssignmentRequest, align 4
@@ -9652,9 +9652,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_AssignmentResp
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RAB_AssignmentResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2376) #3
   %11 = load i32, ptr @ett_ranap_RAB_AssignmentResponse, align 4
@@ -9669,9 +9669,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_PrivateMessage_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2377) #3
   %11 = load i32, ptr @ett_ranap_PrivateMessage, align 4
@@ -9686,9 +9686,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResetResource_PDU(
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_ResetResource_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2378) #3
   %11 = load i32, ptr @ett_ranap_ResetResource, align 4
@@ -9703,9 +9703,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResetResourceAckno
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_ResetResourceAcknowledge_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2379) #3
   %11 = load i32, ptr @ett_ranap_ResetResourceAcknowledge, align 4
@@ -9720,9 +9720,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANAP_RelocationIn
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RANAP_RelocationInformation_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2380) #3
   %11 = load i32, ptr @ett_ranap_RANAP_RelocationInformation, align 4
@@ -9737,9 +9737,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RAB_ModifyRequest_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RAB_ModifyRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2381) #3
   %11 = load i32, ptr @ett_ranap_RAB_ModifyRequest, align 4
@@ -9754,9 +9754,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationRelatedDat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_LocationRelatedDataRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2382) #3
   %11 = load i32, ptr @ett_ranap_LocationRelatedDataRequest, align 4
@@ -9771,9 +9771,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationRelatedDat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_LocationRelatedDataResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2383) #3
   %11 = load i32, ptr @ett_ranap_LocationRelatedDataResponse, align 4
@@ -9788,9 +9788,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_LocationRelatedDat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_LocationRelatedDataFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2384) #3
   %11 = load i32, ptr @ett_ranap_LocationRelatedDataFailure, align 4
@@ -9805,9 +9805,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InformationTransfe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_InformationTransferIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2385) #3
   %11 = load i32, ptr @ett_ranap_InformationTransferIndication, align 4
@@ -9822,9 +9822,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InformationTransfe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_InformationTransferConfirmation_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2386) #3
   %11 = load i32, ptr @ett_ranap_InformationTransferConfirmation, align 4
@@ -9839,9 +9839,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_InformationTransfe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_InformationTransferFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2387) #3
   %11 = load i32, ptr @ett_ranap_InformationTransferFailure, align 4
@@ -9856,9 +9856,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UESpecificInformat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UESpecificInformationIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2388) #3
   %11 = load i32, ptr @ett_ranap_UESpecificInformationIndication, align 4
@@ -9873,9 +9873,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DirectInformationT
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_DirectInformationTransfer_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2389) #3
   %11 = load i32, ptr @ett_ranap_DirectInformationTransfer, align 4
@@ -9890,9 +9890,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkInformationE
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UplinkInformationExchangeRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2390) #3
   %11 = load i32, ptr @ett_ranap_UplinkInformationExchangeRequest, align 4
@@ -9907,9 +9907,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkInformationE
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UplinkInformationExchangeResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2391) #3
   %11 = load i32, ptr @ett_ranap_UplinkInformationExchangeResponse, align 4
@@ -9924,9 +9924,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UplinkInformationE
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UplinkInformationExchangeFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2392) #3
   %11 = load i32, ptr @ett_ranap_UplinkInformationExchangeFailure, align 4
@@ -9941,9 +9941,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionStart_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionStart_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2393) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionStart, align 4
@@ -9958,9 +9958,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionStartRe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionStartResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2394) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionStartResponse, align 4
@@ -9975,9 +9975,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionStartFa
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionStartFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2395) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionStartFailure, align 4
@@ -9992,9 +9992,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionUpdate_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionUpdate_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2396) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionUpdate, align 4
@@ -10009,9 +10009,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionUpdateR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionUpdateResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2397) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionUpdateResponse, align 4
@@ -10026,9 +10026,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionUpdateF
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionUpdateFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2398) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionUpdateFailure, align 4
@@ -10043,9 +10043,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionStop_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionStop_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2399) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionStop, align 4
@@ -10060,9 +10060,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSSessionStopRes
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSSessionStopResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2400) #3
   %11 = load i32, ptr @ett_ranap_MBMSSessionStopResponse, align 4
@@ -10077,9 +10077,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSUELinkingReque
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSUELinkingRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2401) #3
   %11 = load i32, ptr @ett_ranap_MBMSUELinkingRequest, align 4
@@ -10094,9 +10094,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSUELinkingRespo
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSUELinkingResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2402) #3
   %11 = load i32, ptr @ett_ranap_MBMSUELinkingResponse, align 4
@@ -10111,9 +10111,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRegistrationRe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRegistrationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2403) #3
   %11 = load i32, ptr @ett_ranap_MBMSRegistrationRequest, align 4
@@ -10128,9 +10128,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRegistrationRe
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRegistrationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2404) #3
   %11 = load i32, ptr @ett_ranap_MBMSRegistrationResponse, align 4
@@ -10145,9 +10145,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRegistrationFa
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRegistrationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2405) #3
   %11 = load i32, ptr @ett_ranap_MBMSRegistrationFailure, align 4
@@ -10162,9 +10162,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSCNDe_Registrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSCNDe_RegistrationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2406) #3
   %11 = load i32, ptr @ett_ranap_MBMSCNDe_RegistrationRequest, align 4
@@ -10179,9 +10179,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSCNDe_Registrat
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSCNDe_RegistrationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2407) #3
   %11 = load i32, ptr @ett_ranap_MBMSCNDe_RegistrationResponse, align 4
@@ -10196,9 +10196,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRABEstablishme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRABEstablishmentIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2408) #3
   %11 = load i32, ptr @ett_ranap_MBMSRABEstablishmentIndication, align 4
@@ -10213,9 +10213,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRABReleaseRequ
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRABReleaseRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2409) #3
   %11 = load i32, ptr @ett_ranap_MBMSRABReleaseRequest, align 4
@@ -10230,9 +10230,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRABRelease_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRABRelease_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2410) #3
   %11 = load i32, ptr @ett_ranap_MBMSRABRelease, align 4
@@ -10247,9 +10247,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_MBMSRABReleaseFail
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_MBMSRABReleaseFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2411) #3
   %11 = load i32, ptr @ett_ranap_MBMSRABReleaseFailure, align 4
@@ -10264,9 +10264,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EnhancedRelocation
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_EnhancedRelocationCompleteRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2412) #3
   %11 = load i32, ptr @ett_ranap_EnhancedRelocationCompleteRequest, align 4
@@ -10281,9 +10281,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EnhancedRelocation
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_EnhancedRelocationCompleteResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2413) #3
   %11 = load i32, ptr @ett_ranap_EnhancedRelocationCompleteResponse, align 4
@@ -10298,9 +10298,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EnhancedRelocation
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_EnhancedRelocationCompleteFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2414) #3
   %11 = load i32, ptr @ett_ranap_EnhancedRelocationCompleteFailure, align 4
@@ -10315,9 +10315,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_EnhancedRelocation
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_EnhancedRelocationCompleteConfirm_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2415) #3
   %11 = load i32, ptr @ett_ranap_EnhancedRelocationCompleteConfirm, align 4
@@ -10332,9 +10332,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANAP_EnhancedRelo
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RANAP_EnhancedRelocationInformationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2416) #3
   %11 = load i32, ptr @ett_ranap_RANAP_EnhancedRelocationInformationRequest, align 4
@@ -10349,9 +10349,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RANAP_EnhancedRelo
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RANAP_EnhancedRelocationInformationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2417) #3
   %11 = load i32, ptr @ett_ranap_RANAP_EnhancedRelocationInformationResponse, align 4
@@ -10366,9 +10366,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SRVCC_CSKeysReques
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SRVCC_CSKeysRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2418) #3
   %11 = load i32, ptr @ett_ranap_SRVCC_CSKeysRequest, align 4
@@ -10383,9 +10383,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SRVCC_CSKeysRespon
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_SRVCC_CSKeysResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2419) #3
   %11 = load i32, ptr @ett_ranap_SRVCC_CSKeysResponse, align 4
@@ -10400,9 +10400,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UeRadioCapabilityM
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UeRadioCapabilityMatchRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2420) #3
   %11 = load i32, ptr @ett_ranap_UeRadioCapabilityMatchRequest, align 4
@@ -10417,9 +10417,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UeRadioCapabilityM
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UeRadioCapabilityMatchResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2421) #3
   %11 = load i32, ptr @ett_ranap_UeRadioCapabilityMatchResponse, align 4
@@ -10434,9 +10434,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UeRegistrationQuer
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UeRegistrationQueryRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2422) #3
   %11 = load i32, ptr @ett_ranap_UeRegistrationQueryRequest, align 4
@@ -10451,9 +10451,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UeRegistrationQuer
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_UeRegistrationQueryResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2423) #3
   %11 = load i32, ptr @ett_ranap_UeRegistrationQueryResponse, align 4
@@ -10468,9 +10468,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RerouteNASRequest_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
   %6 = load i32, ptr @hf_ranap_RerouteNASRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2424) #3
   %11 = load i32, ptr @ett_ranap_RerouteNASRequest, align 4
@@ -10583,7 +10583,7 @@ define internal i32 @dissect_ranap_IntegrityProtectionAlgorithm(ptr noundef %0, 
 define internal i32 @dissect_ranap_LAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
@@ -10600,7 +10600,7 @@ define internal i32 @dissect_ranap_LAI(ptr noundef %0, i32 noundef %1, ptr nound
 
 ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 2
   br i1 %.not, label %20, label %19
@@ -10626,7 +10626,7 @@ define internal i32 @dissect_ranap_RAC(ptr noundef %0, i32 noundef %1, ptr nound
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -10652,7 +10652,7 @@ define internal i32 @dissect_ranap_PLMNidentity(ptr noundef %0, i32 noundef %1, 
   store ptr null, ptr %6, align 8
   %7 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.val, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_ranap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %.val, i32 noundef %10, i32 noundef 0) #3
@@ -10669,7 +10669,7 @@ define internal i32 @dissect_ranap_PLMNidentity(ptr noundef %0, i32 noundef %1, 
 
 ranap_get_private_data.exit:                      ; preds = %5, %13
   %.0.i = phi ptr [ %15, %13 ], [ %11, %5 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load i32, ptr %18, align 4
   store i32 0, ptr %18, align 4
   %20 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %6) #3
@@ -10697,7 +10697,7 @@ define internal i32 @dissect_ranap_LAC(ptr noundef %0, i32 noundef %1, ptr nound
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -10822,7 +10822,7 @@ define internal i32 @dissect_ranap_SourceUTRANCellID(ptr noundef %0, i32 noundef
 define internal i32 @dissect_ranap_CGI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
@@ -10839,7 +10839,7 @@ define internal i32 @dissect_ranap_CGI(ptr noundef %0, i32 noundef %1, ptr nound
 
 ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 4, ptr %17, align 4
   %18 = load i32, ptr @ett_ranap_CGI, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @CGI_sequence) #3
@@ -10879,7 +10879,7 @@ define internal i32 @dissect_ranap_RRC_Container(ptr noundef %0, i32 noundef %1,
 16:                                               ; preds = %14
   %17 = load ptr, ptr @rrc_s_to_trnc_handle, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @proto_tree_get_root(ptr noundef %3) #3
   %22 = call i32 @call_dissector(ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %21) #3
@@ -10890,7 +10890,7 @@ define internal i32 @dissect_ranap_RRC_Container(ptr noundef %0, i32 noundef %1,
   %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef 0) #3
   %.not13 = icmp ugt i8 %25, -33
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load ptr, ptr %27, align 8
   br i1 %.not13, label %33, label %29
 
@@ -11045,9 +11045,9 @@ define internal i32 @dissect_ranap_Outcome(ptr noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ranap_ProcedureCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ProcedureCode, i32 noundef 0) #3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @ProcedureCode, align 4
   %12 = tail call ptr @val_to_str_ext_const(i32 noundef %11, ptr noundef nonnull @ranap_ProcedureCode_vals_ext, ptr noundef nonnull @.str.2330) #3
@@ -11188,7 +11188,7 @@ define internal i32 @dissect_ranap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @proto_item_get_parent_nth(ptr noundef %9, i32 noundef 2) #3
   %11 = load i32, ptr @ProtocolIE_ID, align 4
@@ -11333,7 +11333,7 @@ define internal i32 @dissect_ranap_SourceRNC_ID(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_ranap_SAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
@@ -11350,7 +11350,7 @@ define internal i32 @dissect_ranap_SAI(ptr noundef %0, i32 noundef %1, ptr nound
 
 ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 3, ptr %17, align 4
   %18 = load i32, ptr @ett_ranap_SAI, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @SAI_sequence) #3
@@ -11368,7 +11368,7 @@ define internal i32 @dissect_ranap_SAC(ptr noundef %0, i32 noundef %1, ptr nound
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -11394,7 +11394,7 @@ define internal i32 @dissect_ranap_ENB_ID(ptr noundef %0, i32 noundef %1, ptr no
 define internal i32 @dissect_ranap_TAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
@@ -11411,7 +11411,7 @@ define internal i32 @dissect_ranap_TAI(ptr noundef %0, i32 noundef %1, ptr nound
 
 ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 6, ptr %17, align 4
   %18 = load i32, ptr @ett_ranap_TAI, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @TAI_sequence) #3
@@ -11453,7 +11453,7 @@ define internal i32 @dissect_ranap_TAC(ptr noundef %0, i32 noundef %1, ptr nound
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 
@@ -11476,7 +11476,7 @@ define internal i32 @dissect_ranap_TransportLayerAddress(ptr noundef %0, i32 nou
 
 9:                                                ; preds = %5
   %10 = call i32 @tvb_reported_length(ptr noundef nonnull %8) #3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_ranap_transportLayerAddress, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #3
@@ -11495,7 +11495,7 @@ define internal i32 @dissect_ranap_TransportLayerAddress(ptr noundef %0, i32 nou
   %20 = call i32 @tvb_get_ipv4(ptr noundef %19, i32 noundef 0) #3
   %21 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.val, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @proto_ranap, align 4
   %25 = call ptr @p_get_proto_data(ptr noundef %23, ptr noundef %.val, i32 noundef %24, i32 noundef 0) #3
@@ -11522,9 +11522,9 @@ private_data_set_transportLayerAddress_ipv4.exit: ; preds = %15, %27
   br label %.thread
 
 36:                                               ; preds = %9
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = call noalias ptr @wmem_alloc0(ptr noundef %40, i64 noundef 20) #3
   %42 = load ptr, ptr %6, align 8
@@ -11556,7 +11556,7 @@ private_data_set_transportLayerAddress_ipv4.exit: ; preds = %15, %27
   %59 = call i32 @tvb_get_ipv4(ptr noundef %58, i32 noundef 3) #3
   %60 = getelementptr i8, ptr %2, i64 16
   %.val34 = load ptr, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.val34, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %.val34, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr @proto_ranap, align 4
   %64 = call ptr @p_get_proto_data(ptr noundef %62, ptr noundef %.val34, i32 noundef %63, i32 noundef 0) #3
@@ -11635,7 +11635,7 @@ define internal i32 @dissect_ranap_BindingID(ptr noundef %0, i32 noundef %1, ptr
   %13 = call zeroext i16 @tvb_get_ntohs(ptr noundef %12, i32 noundef 0) #3
   %14 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.val, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @proto_ranap, align 4
   %18 = call ptr @p_get_proto_data(ptr noundef %16, ptr noundef %.val, i32 noundef %17, i32 noundef 0) #3
@@ -11652,9 +11652,9 @@ define internal i32 @dissect_ranap_BindingID(ptr noundef %0, i32 noundef %1, ptr
 
 private_data_set_binding_id_port.exit:            ; preds = %11, %20
   %.0.i.i = phi ptr [ %22, %20 ], [ %18, %11 ]
-  %25 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i16 %13, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = zext i16 %13 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.2337, i32 noundef %28) #3
@@ -11680,34 +11680,34 @@ define internal i32 @dissect_ranap_IMSI(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not, label %46, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 4
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %9, %12, %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @tvb_reported_length(ptr noundef nonnull %8) #3
   %22 = call ptr @dissect_e212_imsi(ptr noundef nonnull %8, ptr noundef %20, ptr noundef %3, i32 noundef 0, i32 noundef %21, i32 noundef 0) #3
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr @proto_ranap, align 4
-  %27 = getelementptr inbounds i8, ptr %23, i64 376
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 376
   %28 = load i8, ptr %27, align 8
   %29 = zext i8 %28 to i32
   %30 = call ptr @p_get_proto_data(ptr noundef %25, ptr noundef %23, i32 noundef %26, i32 noundef %29) #3
@@ -11715,13 +11715,13 @@ proto_item_set_hidden.exit:                       ; preds = %9, %12, %15
   br i1 %.not21, label %46, label %31
 
 31:                                               ; preds = %proto_item_set_hidden.exit
-  %32 = getelementptr inbounds i8, ptr %30, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
   %.not22 = icmp eq ptr %33, null
   br i1 %.not22, label %46, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %36 = load ptr, ptr %35, align 8
   %.not23 = icmp eq ptr %36, null
   br i1 %.not23, label %37, label %46
@@ -11730,12 +11730,12 @@ proto_item_set_hidden.exit:                       ; preds = %9, %12, %15
   %38 = call ptr @wmem_file_scope() #3
   %39 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %38, ptr noundef nonnull @.str.2338, ptr noundef %22) #3
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store ptr %39, ptr %41, align 8
   %42 = call ptr @wmem_file_scope() #3
   %43 = call noalias ptr @wmem_strdup(ptr noundef %42, ptr noundef %22) #3
   %44 = load ptr, ptr %32, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
   store ptr %43, ptr %45, align 8
   br label %46
 
@@ -11770,7 +11770,7 @@ define internal i32 @dissect_ranap_NAS_PDU(ptr noundef %0, i32 noundef %1, ptr n
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @nas_pdu_dissector_table, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @proto_tree_get_root(ptr noundef %3) #3
   %14 = call i32 @dissector_try_uint(ptr noundef %10, i32 noundef 1, ptr noundef nonnull %8, ptr noundef %12, ptr noundef %13) #3
@@ -12048,7 +12048,7 @@ define internal i32 @dissect_ranap_P_TMSI(ptr noundef %0, i32 noundef %1, ptr no
 define internal i32 @dissect_ranap_RAI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.val, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_ranap, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %.val, i32 noundef %9, i32 noundef 0) #3
@@ -12065,7 +12065,7 @@ define internal i32 @dissect_ranap_RAI(ptr noundef %0, i32 noundef %1, ptr nound
 
 ranap_get_private_data.exit:                      ; preds = %5, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %5 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 2, ptr %17, align 4
   %18 = load i32, ptr @ett_ranap_RAI, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @RAI_sequence) #3
@@ -12438,7 +12438,7 @@ define internal i32 @dissect_ranap_RIMInformation(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @bssgp_handle, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @call_dissector_only(ptr noundef %10, ptr noundef nonnull %8, ptr noundef %12, ptr noundef %3, ptr noundef null) #3
   br label %14
@@ -13432,7 +13432,7 @@ define internal i32 @dissect_ranap_Port_Number(ptr noundef %0, i32 noundef %1, p
 
 9:                                                ; preds = %5
   %10 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 2, i32 noundef 0) #3
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %10, ptr %11, align 8
   br label %12
 

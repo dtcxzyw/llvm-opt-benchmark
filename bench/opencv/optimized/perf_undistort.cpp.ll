@@ -222,7 +222,7 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test8TestBodyEv
   %10 = extractvalue { ptr, i32 } %5, 0
   %11 = call ptr @__cxa_begin_catch(ptr %10) #14
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(148) %11) #14
   %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %15)
@@ -234,7 +234,7 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test8TestBodyEv
           to label %18 unwind label %25
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %21
@@ -294,7 +294,7 @@ declare void @_ZN6cvtest12testTearDownEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -316,7 +316,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
@@ -334,7 +334,7 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test5SetUpEv(pt
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
   store i8 1, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(148) %10) #14
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %14)
@@ -371,14 +371,14 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test12PerfTestB
           to label %13 unwind label %49
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %16, align 8
   store i32 50397184, ptr %5, align 8
   store ptr %2, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %18, align 8
   store i32 50397184, ptr %6, align 8
   store ptr %3, ptr %17, align 8
@@ -386,8 +386,8 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test12PerfTestB
           to label %20 unwind label %53
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %22, align 8
   store i32 50397184, ptr %7, align 8
   store ptr %4, ptr %21, align 8
@@ -395,17 +395,17 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test12PerfTestB
           to label %.preheader unwind label %55
 
 .preheader:                                       ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
-  %25 = getelementptr inbounds i8, ptr %8, i64 20
-  %26 = getelementptr inbounds i8, ptr %8, i64 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 16
-  %28 = getelementptr inbounds i8, ptr %9, i64 20
-  %29 = getelementptr inbounds i8, ptr %9, i64 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 16
-  %31 = getelementptr inbounds i8, ptr %10, i64 20
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
-  %33 = getelementptr inbounds i8, ptr %11, i64 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %35
 
 35:                                               ; preds = %.preheader, %46
@@ -489,7 +489,7 @@ define hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Test12PerfTestB
   br label %62
 
 .critedge:                                        ; preds = %37, %40
-  %61 = getelementptr inbounds i8, ptr %0, i64 232
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 1, ptr %61, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #14
@@ -558,7 +558,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
   %10 = extractvalue { ptr, i32 } %5, 0
   %11 = call ptr @__cxa_begin_catch(ptr %10) #14
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(148) %11) #14
   %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %15)
@@ -570,7 +570,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
           to label %18 unwind label %25
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %21
@@ -602,7 +602,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
@@ -620,7 +620,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
   store i8 1, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(148) %10) #14
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %14)
@@ -648,7 +648,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
   %11 = alloca %"class.cv::_InputArray", align 8
   %12 = alloca %"class.cv::_OutputArray", align 8
   store i32 515, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 512, ptr %13, align 4
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 3, i32 noundef 3, i32 noundef 5)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1, i32 noundef 14, i32 noundef 6)
@@ -660,14 +660,14 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
           to label %15 unwind label %51
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 240
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %18, align 8
   store i32 50397184, ptr %6, align 8
   store ptr %3, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %20, align 8
   store i32 50397184, ptr %7, align 8
   store ptr %4, ptr %19, align 8
@@ -675,8 +675,8 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
           to label %22 unwind label %55
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %24, align 8
   store i32 50397184, ptr %8, align 8
   store ptr %5, ptr %23, align 8
@@ -684,17 +684,17 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
           to label %.preheader unwind label %57
 
 .preheader:                                       ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
-  %27 = getelementptr inbounds i8, ptr %9, i64 20
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 16
-  %30 = getelementptr inbounds i8, ptr %10, i64 20
-  %31 = getelementptr inbounds i8, ptr %10, i64 8
-  %32 = getelementptr inbounds i8, ptr %11, i64 16
-  %33 = getelementptr inbounds i8, ptr %11, i64 20
-  %34 = getelementptr inbounds i8, ptr %11, i64 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
-  %36 = getelementptr inbounds i8, ptr %12, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %37
 
 37:                                               ; preds = %.preheader, %48
@@ -778,7 +778,7 @@ define hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificatio
   br label %64
 
 .critedge:                                        ; preds = %39, %42
-  %63 = getelementptr inbounds i8, ptr %0, i64 232
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 1, ptr %63, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #14
@@ -828,7 +828,7 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
   %10 = extractvalue { ptr, i32 } %5, 0
   %11 = call ptr @__cxa_begin_catch(ptr %10) #14
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(148) %11) #14
   %16 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %15)
@@ -840,7 +840,7 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
           to label %18 unwind label %25
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %21
@@ -872,7 +872,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
@@ -890,7 +890,7 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #14
   store i8 1, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(148) %10) #14
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %14)
@@ -928,39 +928,39 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
   %21 = alloca %"class.cv::_InputArray", align 8
   %22 = alloca %"class.cv::TermCriteria", align 8
   store double 0x408173D31FBB116A, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double 0.000000e+00, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double 0x408363AB0A19FC46, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double 0.000000e+00, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double 0x4081840DDC0A8D52, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double 0x4077DF07E2598B45, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 48
-  %29 = getelementptr inbounds i8, ptr %2, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %29, align 8
   store double 2.810000e-06, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double 1.310000e-06, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double -4.420000e-06, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double -1.250000e-06, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %33, %1
   %.idx = phi i64 [ 0, %1 ], [ %.add, %33 ]
-  %.ptr = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #14
   %.add = add nuw nsw i64 %.idx, 96
   %34 = icmp eq i64 %.add, 192
   br i1 %34, label %35, label %33
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %4, i64 192
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 192
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 100000, i32 noundef 1, i32 noundef 6)
           to label %37 unwind label %82
 
@@ -969,28 +969,28 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
           to label %39 unwind label %82
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %41, align 8
   store i32 50397184, ptr %5, align 8
   store ptr %4, ptr %40, align 8
   store double 0.000000e+00, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 -1056833530, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %43, align 8
   store i64 4294967297, ptr %42, align 8
   store double 1.280000e+03, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 -1056833530, ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %45, align 8
   store i64 4294967297, ptr %44, align 8
   invoke void @_ZN2cv3RNG4fillERKNS_17_InputOutputArrayEiRKNS_11_InputArrayES6_b(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext false)
           to label %46 unwind label %84
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %4, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 96
   invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %47, i32 noundef 100000, i32 noundef 1, i32 noundef 6)
           to label %48 unwind label %82
 
@@ -999,21 +999,21 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
           to label %50 unwind label %82
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %10, i64 8
-  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %52, align 8
   store i32 50397184, ptr %10, align 8
   store ptr %47, ptr %51, align 8
   store double 0.000000e+00, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %11, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 -1056833530, ptr %11, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %12, ptr %54, align 8
   store i64 4294967297, ptr %53, align 8
   store double 8.000000e+02, ptr %14, align 8
-  %55 = getelementptr inbounds i8, ptr %13, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 -1056833530, ptr %13, align 8
-  %56 = getelementptr inbounds i8, ptr %13, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %14, ptr %56, align 8
   store i64 4294967297, ptr %55, align 8
   invoke void @_ZN2cv3RNG4fillERKNS_17_InputOutputArrayEiRKNS_11_InputArrayES6_b(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13, i1 noundef zeroext false)
@@ -1021,8 +1021,8 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
 
 57:                                               ; preds = %50
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #14
-  %58 = getelementptr inbounds i8, ptr %16, i64 8
-  %59 = getelementptr inbounds i8, ptr %16, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %59, align 8
   store i32 33619968, ptr %16, align 8
   store ptr %15, ptr %58, align 8
@@ -1031,17 +1031,17 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
 
 60:                                               ; preds = %57
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #14
-  %61 = getelementptr inbounds i8, ptr %18, i64 16
-  %62 = getelementptr inbounds i8, ptr %18, i64 20
-  %63 = getelementptr inbounds i8, ptr %18, i64 8
-  %64 = getelementptr inbounds i8, ptr %19, i64 8
-  %65 = getelementptr inbounds i8, ptr %19, i64 16
-  %66 = getelementptr inbounds i8, ptr %20, i64 16
-  %67 = getelementptr inbounds i8, ptr %20, i64 8
-  %68 = getelementptr inbounds i8, ptr %21, i64 16
-  %69 = getelementptr inbounds i8, ptr %21, i64 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %70
 
 70:                                               ; preds = %81, %60
@@ -1121,7 +1121,7 @@ define hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10i
   br label %100
 
 .critedge:                                        ; preds = %72, %75
-  %94 = getelementptr inbounds i8, ptr %0, i64 232
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 1, ptr %94, align 8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #14
@@ -1178,7 +1178,7 @@ declare void @_ZN2cv7fisheye15undistortPointsERKNS_11_InputArrayERKNS_12_OutputA
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %4
@@ -1188,7 +1188,7 @@ define linkonce_odr hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Te
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, label %7
@@ -1198,7 +1198,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i, label %_ZN4perf8TestBaseD2Ev.exit, label %10
@@ -1215,7 +1215,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i, label %4
@@ -1225,7 +1225,7 @@ define linkonce_odr hidden void @_ZN11opencv_test31Undistort_InitUndistortMap_Te
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, label %7
@@ -1235,7 +1235,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %4, %1
   br label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i.i, label %_ZN11opencv_test31Undistort_InitUndistortMap_TestD2Ev.exit, label %10
@@ -1260,7 +1260,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %4
@@ -1270,7 +1270,7 @@ define linkonce_odr hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInvers
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, label %7
@@ -1280,7 +1280,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i, label %_ZN4perf8TestBaseD2Ev.exit, label %10
@@ -1297,7 +1297,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i, label %4
@@ -1307,7 +1307,7 @@ define linkonce_odr hidden void @_ZN11opencv_test51Undistort_DISABLED_InitInvers
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, label %7
@@ -1317,7 +1317,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %4, %1
   br label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i.i, label %_ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestD2Ev.exit, label %10
@@ -1335,7 +1335,7 @@ _ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestD2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %4
@@ -1345,7 +1345,7 @@ define linkonce_odr hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPo
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, label %7
@@ -1355,7 +1355,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
   br label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i, label %_ZN4perf8TestBaseD2Ev.exit, label %10
@@ -1372,7 +1372,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i, label %4
@@ -1382,7 +1382,7 @@ define linkonce_odr hidden void @_ZN11opencv_test50Undistort_fisheye_undistortPo
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i, label %7
@@ -1392,7 +1392,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %4, %1
   br label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i2.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i.i, label %_ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_TestD2Ev.exit, label %10
@@ -1433,7 +1433,7 @@ define linkonce_odr hidden noundef ptr @_ZN11opencv_test33UndistortInitUndistort
 
 _ZN11opencv_test31Undistort_InitUndistortMap_TestC2Ev.exit: ; preds = %5
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test31Undistort_InitUndistortMap_TestE, i64 16), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i8 0, ptr %6, align 8
   br label %32
 
@@ -1464,7 +1464,7 @@ _ZN11opencv_test31Undistort_InitUndistortMap_TestC2Ev.exit: ; preds = %5
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(148) %15) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
@@ -1528,7 +1528,7 @@ _ZN11opencv_test31Undistort_InitUndistortMap_TestC2Ev.exit: ; preds = %5
 define linkonce_odr hidden void @_ZN12SkipThisTestC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12SkipThisTest, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
 
@@ -1552,7 +1552,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12SkipThisTestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12SkipThisTest, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   ret void
@@ -1561,7 +1561,7 @@ define linkonce_odr hidden void @_ZN12SkipThisTestD2Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12SkipThisTestD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV12SkipThisTest, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
@@ -1574,7 +1574,7 @@ declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN12SkipThisTest8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef %3)
   ret void
@@ -1609,7 +1609,7 @@ define linkonce_odr hidden noundef ptr @_ZN11opencv_test53UndistortDISABLED_Init
 
 _ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestC2Ev.exit: ; preds = %5
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestE, i64 16), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i8 0, ptr %6, align 8
   br label %32
 
@@ -1640,7 +1640,7 @@ _ZN11opencv_test51Undistort_DISABLED_InitInverseRectificationMap_TestC2Ev.exit: 
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(148) %15) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
@@ -1724,7 +1724,7 @@ define linkonce_odr hidden noundef ptr @_ZN11opencv_test52Undistortfisheye_undis
 
 _ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_TestC2Ev.exit: ; preds = %5
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_TestE, i64 16), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i8 0, ptr %6, align 8
   br label %32
 
@@ -1755,7 +1755,7 @@ _ZN11opencv_test50Undistort_fisheye_undistortPoints_100k_10iter_TestC2Ev.exit: ;
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(148) %15) #14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #14
@@ -1840,7 +1840,7 @@ define internal void @_GLOBAL__sub_I_perf_undistort.cpp() #11 section ".text.sta
           to label %12 unwind label %21
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 8, ptr %13, align 8
   %14 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %15 unwind label %23
@@ -1901,7 +1901,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %17
           to label %27 unwind label %36
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 19, ptr %28, align 8
   %29 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %30 unwind label %38
@@ -1956,7 +1956,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %32
           to label %42 unwind label %51
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 30, ptr %43, align 8
   %44 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %45 unwind label %53

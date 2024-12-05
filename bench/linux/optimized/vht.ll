@@ -30,27 +30,27 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %4, label %206, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4056
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 2
   br i1 %8, label %9, label %206
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 2236
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2236
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 16
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 2224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, -17
   store i32 %22, ptr %20, align 4
@@ -64,14 +64,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 2224
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 32
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, -33
   store i32 %35, ptr %33, align 4
@@ -85,14 +85,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 2224
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 64
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, -65
   store i32 %48, ptr %46, align 4
@@ -106,14 +106,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %52, label %62, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 2224
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 128
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %1, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, -129
   store i32 %61, ptr %59, align 4
@@ -127,14 +127,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %65, label %75, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 2224
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 2048
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %1, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, -2049
   store i32 %74, ptr %72, align 4
@@ -148,14 +148,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %78, label %88, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %0, i64 2224
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %81 = load i32, ptr %80, align 8
   %82 = and i32 %81, 4096
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %1, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, -4097
   store i32 %87, ptr %85, align 4
@@ -169,14 +169,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %91, label %101, label %92
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %0, i64 2224
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %94 = load i32, ptr %93, align 8
   %95 = and i32 %94, 268435456
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %1, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -268435457
   store i32 %100, ptr %98, align 4
@@ -190,14 +190,14 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %0, i64 2224
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 536870912
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %114
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %1, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, -536870913
   store i32 %113, ptr %111, align 4
@@ -211,11 +211,11 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br i1 %117, label %132, label %118
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %0, i64 2224
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 2224
   %120 = load i32, ptr %119, align 8
   %121 = lshr i32 %120, 23
   %122 = and i32 %121, 7
-  %123 = getelementptr inbounds i8, ptr %1, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = lshr i32 %124, 23
   %126 = and i32 %125, 7
@@ -230,21 +230,21 @@ define dso_local void @ieee80211_apply_vhtcap_overrides(ptr nocapture noundef re
   br label %132
 
 132:                                              ; preds = %128, %118, %114
-  %133 = getelementptr inbounds i8, ptr %0, i64 2240
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   %134 = load i16, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %0, i64 2228
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 2228
   %136 = load i16, ptr %135, align 4
   %137 = zext i16 %134 to i32
   %138 = and i16 %136, %134
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %140 = load i16, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %0, i64 2244
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 2244
   %142 = load i16, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %0, i64 2232
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   %144 = load i16, ptr %143, align 4
   %145 = zext i16 %142 to i32
   %146 = and i16 %144, %142
-  %147 = getelementptr inbounds i8, ptr %1, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %148 = load i16, ptr %147, align 4
   %149 = zext i16 %138 to i32
   %150 = zext i16 %146 to i32
@@ -344,13 +344,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #2 align 16 {
   %6 = alloca %struct.ieee80211_sta_vht_cap, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 912
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 912
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 68
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 46
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 46
   %12 = load i8, ptr %11, align 2, !range !5, !noundef !6
   %13 = icmp eq i8 %12, 0
   %14 = icmp eq ptr %2, null
@@ -358,13 +358,13 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %18 = load i8, ptr %17, align 4, !range !5, !noundef !6
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %24
@@ -389,16 +389,16 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 34:                                               ; preds = %29
   store i8 1, ptr %9, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef align 4 dereferenceable(16) %17, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %0, i64 4056
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4056
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 2
   br i1 %37, label %38, label %46
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 216
   %42 = load volatile i64, ptr %41, align 8
   %43 = and i64 %42, 2048
   %44 = icmp eq i64 %43, 0
@@ -410,10 +410,10 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 46:                                               ; preds = %45, %38, %34
   %47 = load i32, ptr %2, align 1
-  %48 = getelementptr inbounds i8, ptr %8, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %49 = and i32 %47, 1071644688
   %50 = and i32 %47, 3
-  %51 = getelementptr inbounds i8, ptr %6, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 3
   %54 = tail call i32 @llvm.umin.i32(i32 %50, i32 %53)
@@ -469,13 +469,13 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   %93 = select i1 %91, i32 0, i32 %92
   %94 = or i32 %89, %93
   store i32 %94, ptr %48, align 4
-  %95 = getelementptr inbounds i8, ptr %8, i64 76
-  %96 = getelementptr inbounds i8, ptr %2, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %97 = load i64, ptr %96, align 1
   store i64 %97, ptr %95, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 1256
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 88
   %101 = load volatile i64, ptr %100, align 8
   %102 = and i64 %101, 8796093022208
   %103 = icmp eq i64 %102, 0
@@ -493,20 +493,20 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 110:                                              ; preds = %62
   %111 = lshr i64 %97, 48
   %112 = trunc nuw i64 %111 to i16
-  %113 = getelementptr inbounds i8, ptr %8, i64 82
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 82
   %114 = and i16 %112, -8193
   store i16 %114, ptr %113, align 2
   br label %115
 
 115:                                              ; preds = %110, %107
   %116 = phi i32 [ %94, %110 ], [ %109, %107 ]
-  %117 = getelementptr inbounds i8, ptr %6, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %118 = load i16, ptr %117, align 4
   %119 = zext i16 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %6, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %121 = load i16, ptr %120, align 4
   %122 = zext i16 %121 to i32
-  %123 = getelementptr inbounds i8, ptr %8, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 80
   br label %124
 
 124:                                              ; preds = %161, %115
@@ -585,11 +585,11 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 
 180:                                              ; preds = %178
   store i8 0, ptr %9, align 4
-  %181 = getelementptr inbounds i8, ptr %0, i64 1280
-  %182 = getelementptr inbounds i8, ptr %4, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 64
-  %185 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %181, ptr noundef %184, ptr noundef %4) #13
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
+  %185 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %181, ptr noundef nonnull %184, ptr noundef %4) #13
   br label %.loopexit
 
 186:                                              ; preds = %178
@@ -600,14 +600,14 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
   ]
 
 188:                                              ; preds = %186, %186
-  %189 = getelementptr inbounds i8, ptr %4, i64 904
+  %189 = getelementptr inbounds nuw i8, ptr %4, i64 904
   store i32 3, ptr %189, align 8
   br label %199
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds i8, ptr %4, i64 904
+  %191 = getelementptr inbounds nuw i8, ptr %4, i64 904
   store i32 2, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %8, i64 82
+  %192 = getelementptr inbounds nuw i8, ptr %8, i64 82
   %193 = load i16, ptr %192, align 2
   %194 = and i16 %193, 8192
   %195 = icmp eq i16 %194, 0
@@ -620,7 +620,7 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 199:                                              ; preds = %190, %188
   %200 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %4)
   %201 = load ptr, ptr %7, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 232
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 232
   store i32 %200, ptr %202, align 8
   %203 = load i32, ptr %48, align 4
   %204 = and i32 %203, 3
@@ -636,16 +636,16 @@ define dso_local void @ieee80211_vht_cap_ie_to_sta_vht_cap(ptr noundef %0, ptr n
 210:                                              ; preds = %206, %199
   %211 = phi i32 [ %209, %206 ], [ %204, %199 ]
   %212 = load ptr, ptr %7, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 194
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 194
   %214 = icmp eq i32 %211, 1
   %215 = select i1 %214, i16 7991, i16 3895
   %216 = icmp eq i32 %211, 2
   %217 = select i1 %216, i16 11454, i16 %215
   store i16 %217, ptr %213, align 2
-  %218 = getelementptr inbounds i8, ptr %4, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 2680
-  tail call void @ieee80211_sta_recalc_aggregates(ptr noundef %220) #12
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 2680
+  tail call void @ieee80211_sta_recalc_aggregates(ptr noundef nonnull %220) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %210, %180, %20, %16, %5
@@ -664,13 +664,13 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @__rcu_read_lock() #12
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4936
-  %7 = getelementptr inbounds i8, ptr %0, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4936
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i64
   %10 = getelementptr [15 x ptr], ptr %6, i64 0, i64 %9
@@ -685,7 +685,7 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr nocapture nou
   br label %17
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %16 = load i32, ptr %15, align 8
   br label %17
 
@@ -693,9 +693,9 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr nocapture nou
   %18 = phi i32 [ %16, %14 ], [ 0, %13 ]
   tail call void @__rcu_read_unlock() #12
   %19 = tail call i32 @ieee80211_sta_cap_rx_bw(ptr noundef %0), !range !16
-  %20 = getelementptr inbounds i8, ptr %0, i64 904
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %23 = load volatile i64, ptr %22, align 8
   %24 = and i64 %23, 2048
   %25 = icmp eq i64 %24, 0
@@ -714,13 +714,13 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cur_vht_bw(ptr nocapture nou
   br i1 %33, label %46, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %3, i64 1336
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %46, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %3, i64 1344
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 1344
   %40 = load i32, ptr %39, align 8
   switch i32 %40, label %45 [
     i32 0, label %52
@@ -791,29 +791,29 @@ declare dso_local void @ieee80211_sta_recalc_aggregates(ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 912
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 84
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %5 = load i8, ptr %4, align 1, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %46, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 141
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 141
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %14 = load i8, ptr %13, align 2
   tail call void @__rcu_read_lock() #12
-  %15 = getelementptr inbounds i8, ptr %12, i64 4936
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4936
   %16 = zext i8 %14 to i64
   %17 = getelementptr [15 x ptr], ptr %15, i64 0, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %20 = icmp ne i8 %19, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 128
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre1 = load i32, ptr %.pre, align 8
   %21 = icmp eq i32 %.pre1, 3
@@ -821,19 +821,19 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noun
   br i1 %or.cond, label %22, label %._crit_edge
 
 22:                                               ; preds = %7
-  %23 = getelementptr inbounds i8, ptr %3, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %24 = load i8, ptr %23, align 1
   %25 = and i8 %24, 2
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.thread, label %44
 
 .thread:                                          ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %3, i64 91
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 91
   %28 = load i8, ptr %27, align 1
   br label %36
 
 ._crit_edge:                                      ; preds = %7
-  %29 = getelementptr inbounds i8, ptr %3, i64 91
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 91
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i32 %.pre1, 0
   br i1 %31, label %32, label %36
@@ -862,13 +862,13 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noun
   br label %63
 
 46:                                               ; preds = %1
-  %47 = getelementptr inbounds i8, ptr %3, i64 68
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %48 = load i8, ptr %47, align 4, !range !5, !noundef !6
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %3, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %52 = load i16, ptr %51, align 4
   %53 = lshr i16 %52, 1
   %54 = and i16 %53, 1
@@ -876,7 +876,7 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noun
   br label %63
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %3, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 12
   switch i32 %59, label %60 [
@@ -896,21 +896,21 @@ define dso_local range(i32 0, 5) i32 @ieee80211_sta_cap_rx_bw(ptr nocapture noun
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i32 0, 6) i32 @ieee80211_sta_cap_chan_bw(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 912
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %5 = load i8, ptr %4, align 4, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 46
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 46
   %9 = load i8, ptr %8, align 2, !range !5, !noundef !6
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %13 = load i16, ptr %12, align 4
   %14 = and i16 %13, 2
   %15 = icmp eq i16 %14, 0
@@ -918,7 +918,7 @@ define dso_local range(i32 0, 6) i32 @ieee80211_sta_cap_chan_bw(ptr nocapture no
   br label %25
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %3, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 12
   %21 = icmp eq i32 %20, 8
@@ -934,9 +934,9 @@ define dso_local range(i32 0, 6) i32 @ieee80211_sta_cap_chan_bw(ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i32 0, 6) i32 @ieee80211_sta_rx_bw_to_chan_width(ptr nocapture noundef readonly %0) local_unnamed_addr #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 912
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %17 [
     i32 0, label %6
@@ -946,7 +946,7 @@ define dso_local range(i32 0, 6) i32 @ieee80211_sta_rx_bw_to_chan_width(ptr noca
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 46
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 46
   %8 = load i8, ptr %7, align 2, !range !5, !noundef !6
   %9 = zext nneg i8 %8 to i32
   br label %18
@@ -955,7 +955,7 @@ define dso_local range(i32 0, 6) i32 @ieee80211_sta_rx_bw_to_chan_width(ptr noca
   br label %18
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 12
   %15 = icmp eq i32 %14, 4
@@ -1007,21 +1007,21 @@ define dso_local noundef range(i32 0, 5) i32 @ieee80211_chan_width_to_rx_bw(i32 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 912
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 230
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 230
   %5 = load i8, ptr %4, align 2
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %127
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 141
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 141
   %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 153
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 153
   br label %13
 
 13:                                               ; preds = %13, %11
@@ -1041,14 +1041,14 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
 
 24:                                               ; preds = %22, %7
   %25 = phi i32 [ %23, %22 ], [ 0, %7 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 84
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %27 = load i8, ptr %26, align 4, !range !5, !noundef !6
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %71, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %3, i64 102
-  %31 = getelementptr inbounds i8, ptr %3, i64 106
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 102
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 106
   %32 = load i16, ptr %31, align 1
   %33 = load i16, ptr %30, align 1
   %34 = zext i16 %32 to i32
@@ -1089,7 +1089,7 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
   br i1 %62, label %63, label %50, !llvm.loop !22
 
 63:                                               ; preds = %50
-  %64 = getelementptr inbounds i8, ptr %3, i64 91
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 91
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, 8
   %67 = icmp eq i8 %66, 0
@@ -1100,13 +1100,13 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
 
 71:                                               ; preds = %63, %24
   %72 = phi i32 [ %70, %63 ], [ 0, %24 ]
-  %73 = getelementptr inbounds i8, ptr %3, i64 46
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 46
   %74 = load i8, ptr %73, align 2, !range !5, !noundef !6
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %96, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %3, i64 49
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 49
   %78 = load i8, ptr %77, align 1
   %79 = icmp ne i8 %78, 0
   %80 = zext i1 %79 to i32
@@ -1129,13 +1129,13 @@ define dso_local void @ieee80211_sta_set_rx_nss(ptr nocapture noundef readonly %
 
 96:                                               ; preds = %76, %71
   %97 = phi i32 [ 0, %71 ], [ %95, %76 ]
-  %98 = getelementptr inbounds i8, ptr %3, i64 68
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %99 = load i8, ptr %98, align 4, !range !5, !noundef !6
   %100 = icmp eq i8 %99, 0
   br i1 %100, label %120, label %101
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %3, i64 76
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %103 = load i16, ptr %102, align 4
   %104 = zext i16 %103 to i32
   br label %105
@@ -1185,9 +1185,9 @@ define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocaptu
 8:                                                ; preds = %4
   %9 = lshr i8 %2, 4
   %10 = add nuw nsw i8 %9, 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 912
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 230
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 230
   %14 = load i8, ptr %13, align 2
   %15 = zext nneg i8 %10 to i32
   %16 = icmp eq i8 %14, %10
@@ -1197,14 +1197,14 @@ define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocaptu
   store i8 0, ptr %13, align 2
   tail call void @ieee80211_sta_set_rx_nss(ptr noundef %1)
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 230
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 230
   %20 = load i8, ptr %19, align 2
   %21 = icmp ult i8 %9, %20
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
   store i8 %10, ptr %19, align 2
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %10, ptr %23, align 4
   store i32 4, ptr %5, align 4
   br label %31
@@ -1217,8 +1217,8 @@ define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocaptu
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %29, i32 noundef %15) #13
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %29, i32 noundef %15) #13
   br label %31
 
 31:                                               ; preds = %27, %24, %22, %8
@@ -1234,19 +1234,19 @@ define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocaptu
   ]
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 904
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store i32 0, ptr %36, align 8
   br label %47
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %1, i64 904
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store i32 1, ptr %38, align 8
   br label %47
 
 39:                                               ; preds = %31
   %40 = and i32 %6, 4
   %41 = icmp eq i32 %40, 0
-  %42 = getelementptr inbounds i8, ptr %1, i64 904
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 904
   br i1 %41, label %44, label %43
 
 43:                                               ; preds = %39
@@ -1258,7 +1258,7 @@ define dso_local range(i32 0, 16) i32 @__ieee80211_vht_handle_opmode(ptr nocaptu
   br label %47
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %1, i64 904
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 904
   store i32 3, ptr %46, align 8
   br label %47
 
@@ -1268,7 +1268,7 @@ default.unreachable4:                             ; preds = %31
 47:                                               ; preds = %45, %44, %43, %37, %35
   %48 = tail call i32 @ieee80211_sta_cur_vht_bw(ptr noundef %1)
   %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 232
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 232
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %48, %51
   br i1 %52, label %72, label %53
@@ -1276,7 +1276,7 @@ default.unreachable4:                             ; preds = %31
 53:                                               ; preds = %47
   store i32 %48, ptr %50, align 8
   %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 232
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 232
   %56 = load i32, ptr %55, align 8
   switch i32 %56, label %68 [
     i32 0, label %57
@@ -1286,7 +1286,7 @@ default.unreachable4:                             ; preds = %31
   ]
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %54, i64 46
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 46
   %59 = load i8, ptr %58, align 2, !range !5, !noundef !6
   %60 = zext nneg i8 %59 to i32
   br label %.thread
@@ -1295,7 +1295,7 @@ default.unreachable4:                             ; preds = %31
   br label %.thread
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %54, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 12
   %66 = icmp eq i32 %65, 4
@@ -1307,7 +1307,7 @@ default.unreachable4:                             ; preds = %31
 
 .thread:                                          ; preds = %53, %57, %61, %62, %68
   %69 = phi i32 [ 1, %68 ], [ 3, %61 ], [ %60, %57 ], [ 2, %53 ], [ %67, %62 ]
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %69, ptr %70, align 4
   %71 = or disjoint i32 %33, 1
   store i32 %.pr, ptr %5, align 4
@@ -1318,7 +1318,7 @@ default.unreachable4:                             ; preds = %31
 
 73:                                               ; preds = %.thread, %72
   %74 = phi i32 [ %71, %.thread ], [ %33, %72 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 1248
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %76 = load ptr, ptr %75, align 8
   call void @cfg80211_sta_opmode_change_notify(ptr noundef %76, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 3264) #12
   br label %77
@@ -1337,32 +1337,32 @@ declare dso_local void @cfg80211_sta_opmode_change_notify(ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_process_mu_groups(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 720
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 766
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 766
   %7 = load i8, ptr %6, align 2, !range !5, !noundef !6
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 34
-  %11 = getelementptr inbounds i8, ptr %5, i64 160
-  %12 = getelementptr inbounds i8, ptr %5, i64 168
-  %13 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %10, ptr noundef dereferenceable(16) %12, i64 16)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 34
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %10, ptr noundef nonnull dereferenceable(16) %12, i64 16)
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %2, i64 26
-  %17 = tail call i32 @bcmp(ptr noundef dereferenceable(8) %16, ptr noundef dereferenceable(8) %11, i64 8)
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 26
+  %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %16, ptr noundef nonnull dereferenceable(8) %11, i64 8)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15, %9
-  %20 = getelementptr inbounds i8, ptr %2, i64 26
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %21 = load i64, ptr %20, align 1
   store i64 %21, ptr %11, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %12, ptr noundef align 1 dereferenceable(16) %10, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) %10, i64 16, i1 false)
   tail call void @ieee80211_link_info_change_notify(ptr noundef %0, ptr noundef %1, i64 noundef 8388608) #12
   br label %22
 
@@ -1376,7 +1376,7 @@ declare dso_local void @ieee80211_link_info_change_notify(ptr noundef, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #2 align 16 {
   tail call void @__rcu_read_lock() #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 880
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %6 = zext i32 %1 to i64
   %7 = getelementptr [15 x ptr], ptr %5, i64 0, i64 %6
   %8 = load volatile ptr, ptr %7, align 8
@@ -1384,7 +1384,7 @@ define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 766
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 766
   %12 = load i8, ptr %11, align 2, !range !5, !noundef !6
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %15, !prof !12
@@ -1396,11 +1396,11 @@ define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1
   br label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %17 = load i64, ptr %2, align 1
   store i64 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %18, ptr noundef align 1 dereferenceable(16) %3, i64 16, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef align 1 dereferenceable(16) %3, i64 16, i1 false)
   br label %19
 
 19:                                               ; preds = %15, %14
@@ -1410,11 +1410,11 @@ define dso_local void @ieee80211_update_mu_groups(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #2 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = zext i32 %3 to i64
   %11 = getelementptr [6 x ptr], ptr %9, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
@@ -1423,11 +1423,11 @@ define dso_local void @ieee80211_vht_handle_opmode(ptr noundef %0, ptr noundef %
   br i1 %14, label %23, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i32
   tail call void @ieee80211_recalc_min_chandef(ptr noundef %0, i32 noundef %18) #12
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %16, align 2
   %22 = zext i8 %21 to i32

@@ -38,20 +38,20 @@ define dso_local void @mei_cl_bus_dev_fixup(ptr noundef %0) local_unnamed_addr #
   %3 = alloca %struct.uuid_le, align 8
   %4 = alloca %struct.uuid_le, align 8
   %5 = alloca %struct.uuid_le, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 752
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 28
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %13
 
 13:                                               ; preds = %29, %1
   %14 = phi i64 [ 0, %1 ], [ %30, %29 ]
   %15 = getelementptr [10 x %struct.mei_fixup], ptr @mei_fixups, i64 0, i64 %14
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -80,7 +80,7 @@ define dso_local void @mei_cl_bus_dev_fixup(ptr noundef %0) local_unnamed_addr #
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %21, %13
-  %27 = getelementptr inbounds i8, ptr %15, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %0) #10
   br label %29
@@ -102,15 +102,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @number_of_connections(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 37
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 37
   %5 = load i8, ptr %4, align 1
   %6 = icmp ugt i8 %5, 1
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 880
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, -2
   store i8 %10, ptr %8, align 8
@@ -122,7 +122,7 @@ define internal void @number_of_connections(ptr nocapture noundef %0) #2 align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @blacklist(ptr nocapture noundef %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 880
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
   store i8 %4, ptr %2, align 8
@@ -133,10 +133,10 @@ define internal void @blacklist(ptr nocapture noundef %0) #3 align 16 {
 define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.mei_nfc_cmd, align 8
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 216
-  tail call void @mutex_lock(ptr noundef %6) #10
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  tail call void @mutex_lock(ptr noundef nonnull %6) #10
   %7 = tail call ptr @mei_cl_alloc_linked(ptr noundef %5) #10
   %8 = icmp ugt ptr %7, inttoptr (i64 -4096 to ptr)
   br i1 %8, label %9, label %13
@@ -164,24 +164,24 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str.2, i32 noundef %19) #11
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, i32 noundef %19) #11
   br label %78
 
 23:                                               ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %6) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %2) #10
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %2, align 8
   store i16 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %25, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   store i8 0, ptr %3, align 1, !annotation !8
-  %26 = getelementptr inbounds i8, ptr %7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 216
-  %29 = tail call zeroext i1 @mutex_is_locked(ptr noundef %28) #10
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 216
+  %29 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %28) #10
   br i1 %29, label %30, label %31, !prof !9
 
 30:                                               ; preds = %23
@@ -231,11 +231,11 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   br label %70
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %39, i64 22
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 22
   %52 = load i8, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %39, i64 23
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 23
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %39, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %56 = load i8, ptr %55, align 8
   %57 = load ptr, ptr %27, align 8
   %58 = zext i8 %52 to i32
@@ -259,19 +259,19 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   br i1 %64, label %67, label %65
 
 65:                                               ; preds = %61, %63, %50
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.3, i32 noundef -2) #11
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %66, ptr noundef nonnull @.str.3, i32 noundef -2) #11
   br label %70
 
 67:                                               ; preds = %61, %63
   %.ph10 = phi ptr [ @.str.11, %63 ], [ @.str.10, %61 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 768
-  %69 = call i64 @strscpy(ptr noundef %68, ptr noundef nonnull %.ph10, i64 noundef 32) #10
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %69 = call i64 @strscpy(ptr noundef nonnull %68, ptr noundef nonnull %.ph10, i64 noundef 32) #10
   br label %70
 
 70:                                               ; preds = %48, %.thread, %67, %65
   %71 = phi i32 [ -5, %48 ], [ 0, %67 ], [ -2, %65 ], [ %.ph, %.thread ]
-  call void @mutex_lock(ptr noundef %6) #10
+  call void @mutex_lock(ptr noundef nonnull %6) #10
   %72 = call i32 @mei_cl_disconnect(ptr noundef %7) #10
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %76
@@ -290,14 +290,14 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
   %80 = phi ptr [ null, %9 ], [ %14, %21 ], [ %14, %76 ], [ null, %16 ]
   %81 = phi i32 [ %11, %9 ], [ -25, %21 ], [ %71, %76 ], [ -25, %16 ]
   %82 = call i32 @mei_cl_unlink(ptr noundef %79) #10
-  call void @mutex_unlock(ptr noundef %6) #10
+  call void @mutex_unlock(ptr noundef nonnull %6) #10
   call void @mei_me_cl_put(ptr noundef %80) #10
   call void @kfree(ptr noundef %79) #10
   %83 = icmp eq i32 %81, 0
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %0, i64 880
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %86 = load i8, ptr %85, align 8
   %87 = and i8 %86, -2
   store i8 %87, ptr %85, align 8
@@ -309,7 +309,7 @@ define internal void @mei_nfc(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @mei_wd(ptr nocapture noundef %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -122
   %5 = load i16, ptr %4, align 2
@@ -320,14 +320,14 @@ define internal void @mei_wd(ptr nocapture noundef %0) #4 align 16 {
   ]
 
 6:                                                ; preds = %1, %1, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 752
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i8 2, ptr %9, align 4
   br label %10
 
 10:                                               ; preds = %6, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 880
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %12 = load i8, ptr %11, align 8
   %13 = or i8 %12, 1
   store i8 %13, ptr %11, align 8
@@ -337,16 +337,16 @@ define internal void @mei_wd(ptr nocapture noundef %0) #4 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
   %2 = alloca [17 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 3348
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 3348
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %4, i64 3322
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 3322
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 64
   %13 = icmp eq i16 %12, 0
@@ -359,7 +359,7 @@ define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 3348
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 3348
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 1
   %22 = icmp eq i8 %21, 0
@@ -371,13 +371,13 @@ define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %27, ptr noundef nonnull @.str.12, i32 noundef %24) #11
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %27, ptr noundef nonnull @.str.12, i32 noundef %24) #11
   br label %28
 
 28:                                               ; preds = %26, %23, %17
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 3322
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 3322
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 64
   %33 = icmp eq i16 %32, 0
@@ -387,15 +387,15 @@ define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %2, i8 0, i64 17, i1 false)
   store i8 3, ptr %2, align 16
-  %35 = getelementptr inbounds i8, ptr %2, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 6, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %2, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 16, ptr %36, align 2
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 8, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 13
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 2, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 760
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %40 = load ptr, ptr %39, align 8
   %41 = call i64 @__mei_cl_send(ptr noundef %40, ptr noundef nonnull %2, i64 noundef 17, i8 noundef zeroext 0, i32 noundef 3) #10
   %42 = trunc i64 %41 to i32
@@ -404,8 +404,8 @@ define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %45, ptr noundef nonnull @.str.13, i32 noundef %42) #11
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %45, ptr noundef nonnull @.str.13, i32 noundef %42) #11
   br label %46
 
 46:                                               ; preds = %44, %34, %28
@@ -419,16 +419,16 @@ define internal void @mei_mkhi_fix(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.mkhi_gfx_mem_ready, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 3348
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 3348
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %4, i64 432
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 432
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %39
@@ -440,7 +440,7 @@ define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 432
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 432
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %32
@@ -448,7 +448,7 @@ define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
 21:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 4294967600, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 760
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %23 = load ptr, ptr %22, align 8
   %24 = call i64 @__mei_cl_send_timeout(ptr noundef %23, ptr noundef nonnull %2, i64 noundef 8, i8 noundef zeroext 0, i32 noundef 3, i64 noundef 200) #10
   %25 = trunc i64 %24 to i32
@@ -457,13 +457,13 @@ define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull @.str.16, i32 noundef %25) #11
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull @.str.16, i32 noundef %25) #11
   br label %37
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 432
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 432
   store i32 2, ptr %31, align 8
   br label %37
 
@@ -473,8 +473,8 @@ define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.12, i32 noundef %33) #11
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.12, i32 noundef %33) #11
   br label %37
 
 37:                                               ; preds = %35, %32, %29, %27
@@ -487,9 +487,9 @@ define internal void @mei_gsc_mkhi_fix_ver(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @mei_gsc_mkhi_ver(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 3348
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 3348
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 3
   %7 = icmp eq i8 %6, 1
@@ -506,8 +506,8 @@ define internal void @mei_gsc_mkhi_ver(ptr noundef %0) #0 align 16 {
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %15, ptr noundef nonnull @.str.12, i32 noundef %12) #11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %15, ptr noundef nonnull @.str.12, i32 noundef %12) #11
   br label %16
 
 16:                                               ; preds = %14, %11
@@ -520,7 +520,7 @@ define internal void @mei_gsc_mkhi_ver(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @whitelist(ptr nocapture noundef %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 880
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 1
   store i8 %4, ptr %2, align 8
@@ -529,16 +529,16 @@ define internal void @whitelist(ptr nocapture noundef %0) #3 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @vt_support(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 39
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 39
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 2
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 880
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %10 = load i8, ptr %9, align 8
   %11 = or i8 %10, 1
   store i8 %11, ptr %9, align 8
@@ -550,9 +550,9 @@ define internal void @vt_support(ptr nocapture noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @pxp_is_ready(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 432
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 432
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %10 [
     i32 3, label %6
@@ -560,14 +560,14 @@ define internal void @pxp_is_ready(ptr nocapture noundef %0) #2 align 16 {
   ]
 
 6:                                                ; preds = %1, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 880
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %8 = load i8, ptr %7, align 8
   %9 = or i8 %8, 1
   store i8 %9, ptr %7, align 8
   br label %14
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 880
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, -2
   store i8 %13, ptr %11, align 8
@@ -642,7 +642,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   store i32 767, ptr %3, align 4, !annotation !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %2, i8 0, i64 28, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = call i64 @__mei_cl_send(ptr noundef %5, ptr noundef nonnull %3, i64 noundef 4, i8 noundef zeroext 0, i32 noundef 1) #10
   %7 = trunc i64 %6 to i32
@@ -650,15 +650,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %10, ptr noundef nonnull @.str.14, i32 noundef %7) #11
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, i32 noundef %7) #11
   br label %68
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 3536
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3536
   %16 = load i64, ptr %15, align 8
   %17 = call i64 @__mei_cl_recv(ptr noundef %12, ptr noundef nonnull %2, i64 noundef 28, ptr noundef null, i32 noundef 0, i64 noundef %16) #10
   %18 = trunc i64 %17 to i32
@@ -670,15 +670,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.15, i32 noundef %18) #11
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %25, ptr noundef nonnull @.str.15, i32 noundef %18) #11
   br label %68
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 3324
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %29, i8 0, i64 24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 3324
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   br label %30
 
 30:                                               ; preds = %36, %26
@@ -691,13 +691,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
 
 36:                                               ; preds = %30
   %37 = getelementptr [3 x %struct.mkhi_fw_ver_block], ptr %27, i64 0, i64 %31
-  %38 = getelementptr inbounds i8, ptr %37, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 3
   %39 = load i8, ptr %38, align 1
   %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 3324
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 3324
   %42 = getelementptr [3 x %struct.mei_fw_version], ptr %41, i64 0, i64 %31
   store i8 %39, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %37, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = load ptr, ptr %13, align 8
   %.idx = shl i64 %31, 3
@@ -709,13 +709,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
   %50 = getelementptr i8, ptr %49, i64 3326
   %51 = getelementptr i8, ptr %50, i64 %.idx
   store i16 %48, ptr %51, align 2
-  %52 = getelementptr inbounds i8, ptr %37, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 6
   %53 = load i16, ptr %52, align 2
   %54 = load ptr, ptr %13, align 8
   %55 = getelementptr i8, ptr %54, i64 3330
   %56 = getelementptr i8, ptr %55, i64 %.idx
   store i16 %53, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %37, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %58 = load i16, ptr %57, align 8
   %59 = load ptr, ptr %13, align 8
   %60 = getelementptr i8, ptr %59, i64 3328
@@ -726,7 +726,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mei_fwver(ptr noundef %0) 
 
 63:                                               ; preds = %36, %30
   %64 = load ptr, ptr %13, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 3348
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 3348
   %66 = load i8, ptr %65, align 4
   %67 = or i8 %66, 2
   store i8 %67, ptr %65, align 4

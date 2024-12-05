@@ -34,8 +34,8 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br i1 %8, label %11, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %13
 
 11:                                               ; preds = %7
@@ -56,7 +56,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br label %218
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.058, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %23 [
     i8 106, label %20
@@ -65,7 +65,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   ]
 
 20:                                               ; preds = %17, %17, %17
-  %21 = getelementptr inbounds i8, ptr %.058, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.058, i64 2
   %22 = zext nneg i8 %19 to i32
   %.pr = load i8, ptr %21, align 1
   br label %23
@@ -460,7 +460,7 @@ append_int.exit:                                  ; preds = %95, %97
 
 218:                                              ; preds = %25, %38, %append_int.exit, %216, %112, %118, %132, %154, %148, %215, %214, %213, %15
   %.1 = phi ptr [ %.058, %15 ], [ %.058, %216 ], [ %.2, %215 ], [ %.2, %214 ], [ %.2, %213 ], [ %.2, %154 ], [ %.2, %148 ], [ %.2, %118 ], [ %.2, %112 ], [ %.2, %132 ], [ %.2, %append_int.exit ], [ %.2, %38 ], [ %.2, %25 ]
-  %219 = getelementptr inbounds i8, ptr %.1, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %13, !llvm.loop !5
 
 .loopexit:                                        ; preds = %13, %11
@@ -497,7 +497,7 @@ define internal fastcc void @append_uint(ptr noundef %0, i64 noundef %1, i32 nou
 
 7:                                                ; preds = %5, %3
   %8 = urem i64 %1, %4
-  %9 = getelementptr inbounds [17 x i8], ptr @append_uint.digits, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [17 x i8], ptr @append_uint.digits, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %10) #6
   ret void

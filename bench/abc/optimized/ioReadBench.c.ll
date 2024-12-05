@@ -65,14 +65,14 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4)
   %8 = tail call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %5) #12
   %9 = tail call ptr @Abc_NtkStartRead(ptr noundef %8) #12
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store i32 0, ptr %10, align 8
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   store i32 100, ptr %11, align 8
   %13 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #13
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @stdout, align 8
   %16 = tail call i32 @Extra_FileReaderGetFileSize(ptr noundef nonnull %5) #12
@@ -83,7 +83,7 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph312.i:                                      ; preds = %7
   %.not.i.i = icmp eq ptr %17, null
-  %19 = getelementptr inbounds i8, ptr %9, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 256
   br label %20
 
 20:                                               ; preds = %370, %.lr.ph312.i
@@ -103,7 +103,7 @@ define ptr @Io_ReadBench(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %Extra_ProgressBarUpdate.exit.i
 
 Extra_ProgressBarUpdate.exit.i:                   ; preds = %27, %24
-  %28 = getelementptr inbounds i8, ptr %22, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %35
@@ -123,7 +123,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   br label %Io_ReadBenchNetwork.exit.thread
 
 35:                                               ; preds = %Extra_ProgressBarUpdate.exit.i
-  %36 = getelementptr inbounds i8, ptr %22, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #14
@@ -131,7 +131,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @Io_ReadCreatePi(ptr noundef %9, ptr noundef %43) #12
   br label %370
@@ -139,7 +139,7 @@ Vec_StrFree.exit.i:                               ; preds = %34, %31
 45:                                               ; preds = %35
   %46 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.12, i64 noundef 5) #14
   %47 = icmp eq i32 %46, 0
-  %48 = getelementptr inbounds i8, ptr %37, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %49 = load ptr, ptr %48, align 8
   br i1 %47, label %50, label %sub_0.i
 
@@ -153,13 +153,13 @@ sub_0.i:                                          ; preds = %45
   br i1 %.not313.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %53 = getelementptr inbounds i8, ptr %49, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %54 = load i8, ptr %53, align 1
   %.not314.i = icmp eq i8 %54, 70
   br i1 %.not314.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %55 = getelementptr inbounds i8, ptr %49, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 70
   br i1 %57, label %58, label %.tail.thread.i
@@ -179,7 +179,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %60 ]
   %.val225.i = load ptr, ptr %36, align 8
-  %64 = getelementptr inbounds ptr, ptr %.val225.i, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw ptr, ptr %.val225.i, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %38, ptr noundef %65) #12
   %67 = call ptr @Abc_NtkFindOrCreateNet(ptr noundef %9, ptr noundef %65) #12
@@ -201,12 +201,12 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %370
 
 75:                                               ; preds = %58
-  %76 = getelementptr inbounds i8, ptr %37, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr @Io_ReadCreateLatch(ptr noundef %9, ptr noundef %77, ptr noundef %38) #12
-  %79 = getelementptr inbounds i8, ptr %49, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %49, i64 3
   %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %78, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 56
   switch i8 %80, label %84 [
     i8 48, label %82
     i8 49, label %83
@@ -230,7 +230,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br i1 %86, label %87, label %241
 
 87:                                               ; preds = %.tail.thread.i
-  %88 = getelementptr inbounds i8, ptr %37, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %89 = add nsw i32 %29, -3
   %90 = icmp sgt i32 %29, 18
   br i1 %90, label %91, label %sub_0257.i
@@ -250,14 +250,14 @@ Vec_StrFree.exit233.i:                            ; preds = %94, %91
   br label %Io_ReadBenchNetwork.exit.thread
 
 sub_0257.i:                                       ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %37, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = load i8, ptr %96, align 1
   %.not327.i = icmp eq i8 %97, 48
   br i1 %.not327.i, label %.tail256.i, label %.tail256.thread.i
 
 .tail256.i:                                       ; preds = %sub_0257.i
-  %98 = getelementptr inbounds i8, ptr %96, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 120
   br i1 %100, label %104, label %.tail256.thread.i
@@ -277,7 +277,7 @@ Vec_StrFree.exit235.i:                            ; preds = %103, %.tail256.thre
   br label %Io_ReadBenchNetwork.exit.thread
 
 104:                                              ; preds = %.tail256.i
-  %105 = getelementptr inbounds i8, ptr %96, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %106 = shl nuw nsw i32 1, %89
   %107 = lshr i32 %106, 2
   %108 = icmp ult i32 %89, 2
@@ -336,7 +336,7 @@ Vec_StrFill.exit.i:                               ; preds = %.lr.ph.i.preheader.
 
 130:                                              ; preds = %Vec_StrPush.exit.i.i, %.lr.ph.i236.i
   %indvars.iv.i237.i = phi i64 [ 0, %.lr.ph.i236.i ], [ %indvars.iv.next.i238.i, %Vec_StrPush.exit.i.i ]
-  %131 = getelementptr inbounds i8, ptr %105, i64 %indvars.iv.i237.i
+  %131 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv.i237.i
   %132 = load i8, ptr %131, align 1
   %133 = load i32, ptr %12, align 4
   %134 = load i32, ptr %11, align 8
@@ -502,7 +502,7 @@ Vec_StrFree.exit242.i:                            ; preds = %191, %188
 
 200:                                              ; preds = %198
   %indvars.iv.next.i244.i = add nsw i64 %indvars.iv.i243.i, -1
-  %201 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i244.i
+  %201 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i244.i
   %202 = load i32, ptr %201, align 4
   %.not.i245.i = icmp eq i32 %202, 0
   br i1 %.not.i245.i, label %198, label %.preheader.i, !llvm.loop !7
@@ -513,7 +513,7 @@ Extra_TruthIsConst0.exit.i:                       ; preds = %198
   %205 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %204, ptr noundef nonnull %88, i32 noundef 0) #12
   %206 = load ptr, ptr %19, align 8
   %207 = call ptr @Abc_SopRegister(ptr noundef %206, ptr noundef nonnull @.str.20) #12
-  %208 = getelementptr inbounds i8, ptr %205, i64 56
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 56
   store ptr %207, ptr %208, align 8
   br label %370
 
@@ -524,7 +524,7 @@ Extra_TruthIsConst0.exit.i:                       ; preds = %198
 
 210:                                              ; preds = %.preheader.i
   %indvars.iv.next.i248.i = add nsw i64 %indvars.iv.i246.i, -1
-  %211 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i248.i
+  %211 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i248.i
   %212 = load i32, ptr %211, align 4
   %.not.i249.i = icmp eq i32 %212, -1
   br i1 %.not.i249.i, label %.preheader.i, label %219, !llvm.loop !8
@@ -535,7 +535,7 @@ Extra_TruthIsConst1.exit.i:                       ; preds = %.preheader.i
   %215 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %214, ptr noundef nonnull %88, i32 noundef 0) #12
   %216 = load ptr, ptr %19, align 8
   %217 = call ptr @Abc_SopRegister(ptr noundef %216, ptr noundef nonnull @.str.21) #12
-  %218 = getelementptr inbounds i8, ptr %215, i64 56
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 56
   store ptr %217, ptr %218, align 8
   br label %370
 
@@ -549,7 +549,7 @@ Extra_TruthIsConst1.exit.i:                       ; preds = %.preheader.i
 224:                                              ; preds = %219
   %225 = load ptr, ptr %19, align 8
   %226 = call ptr @Abc_SopCreateFromTruth(ptr noundef %225, i32 noundef %89, ptr noundef nonnull %3) #12
-  %227 = getelementptr inbounds i8, ptr %222, i64 56
+  %227 = getelementptr inbounds nuw i8, ptr %222, i64 56
   store ptr %226, ptr %227, align 8
   br label %370
 
@@ -563,14 +563,14 @@ Extra_TruthIsConst1.exit.i:                       ; preds = %.preheader.i
 230:                                              ; preds = %228
   %231 = load ptr, ptr %19, align 8
   %232 = call ptr @Abc_SopCreateBuf(ptr noundef %231) #12
-  %233 = getelementptr inbounds i8, ptr %222, i64 56
+  %233 = getelementptr inbounds nuw i8, ptr %222, i64 56
   store ptr %232, ptr %233, align 8
   br label %370
 
 234:                                              ; preds = %228
   %235 = load ptr, ptr %19, align 8
   %236 = call ptr @Abc_SopCreateInv(ptr noundef %235) #12
-  %237 = getelementptr inbounds i8, ptr %222, i64 56
+  %237 = getelementptr inbounds nuw i8, ptr %222, i64 56
   store ptr %236, ptr %237, align 8
   br label %370
 
@@ -581,7 +581,7 @@ Extra_TruthIsConst1.exit.i:                       ; preds = %.preheader.i
   br label %Io_ReadBenchNetwork.exit.thread
 
 241:                                              ; preds = %.tail.thread.i
-  %242 = getelementptr inbounds i8, ptr %37, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %243 = add nsw i32 %29, -2
   %244 = call ptr @Io_ReadCreateNode(ptr noundef %9, ptr noundef %38, ptr noundef nonnull %242, i32 noundef %243) #12
   %245 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(4) @.str.23) #14
@@ -596,7 +596,7 @@ Extra_TruthIsConst1.exit.i:                       ; preds = %.preheader.i
 250:                                              ; preds = %247, %241
   %251 = load ptr, ptr %19, align 8
   %252 = call ptr @Abc_SopCreateAnd(ptr noundef %251, i32 noundef %243, ptr noundef null) #12
-  %253 = getelementptr inbounds i8, ptr %244, i64 56
+  %253 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %252, ptr %253, align 8
   br label %370
 
@@ -608,25 +608,25 @@ sub_0261.i:                                       ; preds = %247
   ]
 
 sub_1262.i:                                       ; preds = %sub_0261.i
-  %255 = getelementptr inbounds i8, ptr %49, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %256 = load i8, ptr %255, align 1
   %.not316.i = icmp eq i8 %256, 82
   br i1 %.not316.i, label %.tail260.i, label %.tail265.thread.i
 
 .tail260.i:                                       ; preds = %sub_1262.i
-  %257 = getelementptr inbounds i8, ptr %49, i64 2
+  %257 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %258 = load i8, ptr %257, align 1
   %259 = icmp eq i8 %258, 0
   br i1 %259, label %265, label %.tail265.thread.i
 
 sub_1267.i:                                       ; preds = %sub_0261.i
-  %260 = getelementptr inbounds i8, ptr %49, i64 1
+  %260 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %261 = load i8, ptr %260, align 1
   %.not318.i = icmp eq i8 %261, 114
   br i1 %.not318.i, label %.tail265.i, label %.tail265.thread.i
 
 .tail265.i:                                       ; preds = %sub_1267.i
-  %262 = getelementptr inbounds i8, ptr %49, i64 2
+  %262 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %263 = load i8, ptr %262, align 1
   %264 = icmp eq i8 %263, 0
   br i1 %264, label %265, label %.tail265.thread.i
@@ -634,7 +634,7 @@ sub_1267.i:                                       ; preds = %sub_0261.i
 265:                                              ; preds = %.tail265.i, %.tail260.i
   %266 = load ptr, ptr %19, align 8
   %267 = call ptr @Abc_SopCreateOr(ptr noundef %266, i32 noundef %243, ptr noundef null) #12
-  %268 = getelementptr inbounds i8, ptr %244, i64 56
+  %268 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %267, ptr %268, align 8
   br label %370
 
@@ -651,7 +651,7 @@ sub_1267.i:                                       ; preds = %sub_0261.i
 274:                                              ; preds = %271, %.tail265.thread.i
   %275 = load ptr, ptr %19, align 8
   %276 = call ptr @Abc_SopCreateNand(ptr noundef %275, i32 noundef %243) #12
-  %277 = getelementptr inbounds i8, ptr %244, i64 56
+  %277 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %276, ptr %277, align 8
   br label %370
 
@@ -668,7 +668,7 @@ sub_1267.i:                                       ; preds = %sub_0261.i
 284:                                              ; preds = %281, %278
   %285 = load ptr, ptr %19, align 8
   %286 = call ptr @Abc_SopCreateNor(ptr noundef %285, i32 noundef %243) #12
-  %287 = getelementptr inbounds i8, ptr %244, i64 56
+  %287 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %286, ptr %287, align 8
   br label %370
 
@@ -685,7 +685,7 @@ sub_1267.i:                                       ; preds = %sub_0261.i
 294:                                              ; preds = %291, %288
   %295 = load ptr, ptr %19, align 8
   %296 = call ptr @Abc_SopCreateXor(ptr noundef %295, i32 noundef %243) #12
-  %297 = getelementptr inbounds i8, ptr %244, i64 56
+  %297 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %296, ptr %297, align 8
   br label %370
 
@@ -712,7 +712,7 @@ sub_1267.i:                                       ; preds = %sub_0261.i
 310:                                              ; preds = %307, %304, %301, %298
   %311 = load ptr, ptr %19, align 8
   %312 = call ptr @Abc_SopCreateNxor(ptr noundef %311, i32 noundef %243) #12
-  %313 = getelementptr inbounds i8, ptr %244, i64 56
+  %313 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %312, ptr %313, align 8
   br label %370
 
@@ -721,13 +721,13 @@ sub_0271.i:                                       ; preds = %307
   br i1 %.not319.i, label %sub_1272.i, label %.tail270.thread.i
 
 sub_1272.i:                                       ; preds = %sub_0271.i
-  %314 = getelementptr inbounds i8, ptr %49, i64 1
+  %314 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %315 = load i8, ptr %314, align 1
   %.not320.i = icmp eq i8 %315, 85
   br i1 %.not320.i, label %.tail270.i, label %.tail270.thread.i
 
 .tail270.i:                                       ; preds = %sub_1272.i
-  %316 = getelementptr inbounds i8, ptr %49, i64 2
+  %316 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %317 = load i8, ptr %316, align 1
   %318 = icmp eq i8 %317, 70
   br i1 %318, label %321, label %.tail270.thread.i
@@ -740,7 +740,7 @@ sub_1272.i:                                       ; preds = %sub_0271.i
 321:                                              ; preds = %.tail270.thread.i, %.tail270.i
   %322 = load ptr, ptr %19, align 8
   %323 = call ptr @Abc_SopCreateBuf(ptr noundef %322) #12
-  %324 = getelementptr inbounds i8, ptr %244, i64 56
+  %324 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %323, ptr %324, align 8
   br label %370
 
@@ -757,7 +757,7 @@ sub_1272.i:                                       ; preds = %sub_0271.i
 331:                                              ; preds = %328, %325
   %332 = load ptr, ptr %19, align 8
   %333 = call ptr @Abc_SopCreateInv(ptr noundef %332) #12
-  %334 = getelementptr inbounds i8, ptr %244, i64 56
+  %334 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %333, ptr %334, align 8
   br label %370
 
@@ -766,13 +766,13 @@ sub_0276.i:                                       ; preds = %328
   br i1 %.not321.i, label %sub_1277.i, label %.tail275.thread.i
 
 sub_1277.i:                                       ; preds = %sub_0276.i
-  %335 = getelementptr inbounds i8, ptr %49, i64 1
+  %335 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %336 = load i8, ptr %335, align 1
   %.not322.i = icmp eq i8 %336, 85
   br i1 %.not322.i, label %.tail275.i, label %.tail275.thread.thread.i
 
 .tail275.i:                                       ; preds = %sub_1277.i
-  %337 = getelementptr inbounds i8, ptr %49, i64 2
+  %337 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %338 = load i8, ptr %337, align 1
   %339 = icmp eq i8 %338, 88
   br i1 %339, label %346, label %.thread.i
@@ -795,7 +795,7 @@ sub_1277.i:                                       ; preds = %sub_0276.i
 346:                                              ; preds = %.thread.i, %.tail275.thread.thread.i, %.tail275.thread.i, %.tail275.i
   %347 = load ptr, ptr %19, align 8
   %348 = call ptr @Abc_SopRegister(ptr noundef %347, ptr noundef nonnull @.str.43) #12
-  %349 = getelementptr inbounds i8, ptr %244, i64 56
+  %349 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %348, ptr %349, align 8
   br label %370
 
@@ -806,13 +806,13 @@ sub_0281.i:                                       ; preds = %.tail275.thread.i
   ]
 
 sub_1282.i:                                       ; preds = %sub_0281.i
-  %350 = getelementptr inbounds i8, ptr %49, i64 1
+  %350 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %351 = load i8, ptr %350, align 1
   %.not324.i = icmp eq i8 %351, 110
   br i1 %.not324.i, label %.tail280.i, label %.tail285.thread.i
 
 .tail280.i:                                       ; preds = %sub_1282.i
-  %352 = getelementptr inbounds i8, ptr %49, i64 2
+  %352 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %353 = load i8, ptr %352, align 1
   %354 = icmp eq i8 %353, 100
   br i1 %354, label %355, label %.tail285.thread.i
@@ -820,18 +820,18 @@ sub_1282.i:                                       ; preds = %sub_0281.i
 355:                                              ; preds = %.tail280.i
   %356 = load ptr, ptr %19, align 8
   %357 = call ptr @Abc_SopRegister(ptr noundef %356, ptr noundef nonnull @.str.20) #12
-  %358 = getelementptr inbounds i8, ptr %244, i64 56
+  %358 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %357, ptr %358, align 8
   br label %370
 
 sub_1287.i:                                       ; preds = %sub_0281.i
-  %359 = getelementptr inbounds i8, ptr %49, i64 1
+  %359 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %360 = load i8, ptr %359, align 1
   %.not326.i = icmp eq i8 %360, 100
   br i1 %.not326.i, label %.tail285.i, label %.tail285.thread.i
 
 .tail285.i:                                       ; preds = %sub_1287.i
-  %361 = getelementptr inbounds i8, ptr %49, i64 2
+  %361 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %362 = load i8, ptr %361, align 1
   %363 = icmp eq i8 %362, 100
   br i1 %363, label %364, label %.tail285.thread.i
@@ -839,7 +839,7 @@ sub_1287.i:                                       ; preds = %sub_0281.i
 364:                                              ; preds = %.tail285.i
   %365 = load ptr, ptr %19, align 8
   %366 = call ptr @Abc_SopRegister(ptr noundef %365, ptr noundef nonnull @.str.21) #12
-  %367 = getelementptr inbounds i8, ptr %244, i64 56
+  %367 = getelementptr inbounds nuw i8, ptr %244, i64 56
   store ptr %366, ptr %367, align 8
   br label %370
 
@@ -1013,7 +1013,7 @@ define void @Io_ReadBenchInit(ptr nocapture noundef readonly %0, ptr noundef %1)
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr i8, ptr %0, i64 32
   br label %11
 
@@ -1042,7 +1042,7 @@ define void @Io_ReadBenchInit(ptr nocapture noundef readonly %0, ptr noundef %1)
   %20 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %20, align 8
   %21 = zext nneg i32 %14 to i64
-  %22 = getelementptr inbounds ptr, ptr %.val.val, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.val22 = load ptr, ptr %23, align 8
   %24 = getelementptr i8, ptr %23, i64 32
@@ -1075,17 +1075,17 @@ define void @Io_ReadBenchInit(ptr nocapture noundef readonly %0, ptr noundef %1)
   ]
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %29, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store ptr inttoptr (i64 1 to ptr), ptr %38, align 8
   br label %.backedge
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %29, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store ptr inttoptr (i64 2 to ptr), ptr %40, align 8
   br label %.backedge
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %29, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store ptr inttoptr (i64 3 to ptr), ptr %42, align 8
   br label %.backedge
 
@@ -1143,7 +1143,7 @@ declare i32 @Extra_FileReaderGetCurPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_StrFree(ptr nocapture noundef %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

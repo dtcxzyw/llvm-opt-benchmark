@@ -127,7 +127,7 @@ define hidden ptr @av1_decoder_create(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %32 ]
   %.0..0..0..0.13 = load volatile ptr, ptr %3, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 960
-  %34 = getelementptr inbounds [8 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x ptr], ptr %33, i64 0, i64 %indvars.iv
   store ptr null, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -223,7 +223,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds %struct.DecWorkerData, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.DecWorkerData, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call void @av1_free_mc_tmp_buf(ptr noundef %18) #10
   %19 = load ptr, ptr %17, align 8
@@ -256,7 +256,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %.lr.ph51, %29
   %indvars.iv58 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next59, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds %struct.AVxWorker, ptr %30, i64 %indvars.iv58
+  %31 = getelementptr inbounds nuw %struct.AVxWorker, ptr %30, i64 %indvars.iv58
   %32 = tail call ptr @aom_get_worker_interface() #10
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
@@ -304,7 +304,7 @@ define hidden void @av1_decoder_remove(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %.lr.ph55, %54
   %indvars.iv61 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next62, %54 ]
   %55 = load ptr, ptr %53, align 32
-  %56 = getelementptr inbounds %struct.TileDataDec, ptr %55, i64 %indvars.iv61, i32 4
+  %56 = getelementptr inbounds nuw %struct.TileDataDec, ptr %55, i64 %indvars.iv61, i32 4
   tail call void @av1_dec_row_mt_dealloc(ptr noundef nonnull %56) #10
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %57 = load i32, ptr %50, align 8
@@ -549,7 +549,7 @@ is_inter_block.exit:                              ; preds = %4
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 150
-  %24 = getelementptr inbounds [2 x i8], ptr %23, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 0, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   %.not12 = icmp eq i8 %25, 0
   br i1 %.not12, label %28, label %26
@@ -581,7 +581,7 @@ define hidden i32 @av1_copy_reference_dec(ptr noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48928
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds [8 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x ptr], ptr %7, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1312
@@ -655,7 +655,7 @@ define hidden i32 @av1_set_reference_dec(ptr noundef %0, i32 noundef %1, i32 nou
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds [8 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1312
@@ -780,11 +780,11 @@ equal_dimensions_and_border.exit.thread:          ; preds = %37, %38, %42, %48, 
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 1360
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %11, i64 1392
+  %85 = getelementptr inbounds nuw i8, ptr %11, i64 1392
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 1368
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %11, i64 1400
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 1400
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %90 = load ptr, ptr %89, align 8
@@ -951,7 +951,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %10, %get_ref_frame_
 
 28:                                               ; preds = %32, %23
   %indvars.iv.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i, %32 ]
-  %29 = getelementptr inbounds %struct.RefCntBuffer, ptr %26, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %26, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.thread.i.i, label %32
@@ -968,7 +968,7 @@ assign_cur_frame_new_fb.exit.thread:              ; preds = %32
 
 .thread.i.i:                                      ; preds = %28
   %35 = and i64 %indvars.iv.i.i, 4294967295
-  %36 = getelementptr inbounds %struct.RefCntBuffer, ptr %26, i64 %35
+  %36 = getelementptr inbounds nuw %struct.RefCntBuffer, ptr %26, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1376
   %38 = load i32, ptr %37, align 8
   %.not21.i.i = icmp eq i32 %38, 0
@@ -979,11 +979,11 @@ assign_cur_frame_new_fb.exit.thread:              ; preds = %32
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 1352
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 1392
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 1392
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 1360
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %36, i64 1400
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 1400
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 1368
   store ptr %47, ptr %48, align 8
@@ -1044,7 +1044,7 @@ assign_cur_frame_new_fb.exit:                     ; preds = %.thread.i.i, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
   %77 = load ptr, ptr %68, align 8
   %78 = load ptr, ptr %75, align 8
-  %79 = getelementptr inbounds %struct.AVxWorker, ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw %struct.AVxWorker, ptr %78, i64 %indvars.iv
   %80 = call i32 %77(ptr noundef %79) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = load i32, ptr %72, align 32
@@ -1174,7 +1174,7 @@ release_current_frame.exit59:                     ; preds = %112, %118, %122, %1
   br i1 %.not51.i, label %164, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds [8 x ptr], ptr %141, i64 0, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [8 x ptr], ptr %141, i64 0, i64 %indvars.iv.i
   %149 = load ptr, ptr %148, align 8
   %.not.i.i61 = icmp eq ptr %149, null
   br i1 %.not.i.i61, label %decrease_ref_count.exit.i, label %150
@@ -1275,7 +1275,7 @@ decrease_ref_count.exit59.i:                      ; preds = %190, %187, %183, %1
 
 197:                                              ; preds = %176
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 431800
-  %199 = getelementptr inbounds [4 x ptr], ptr %198, i64 0, i64 %175
+  %199 = getelementptr inbounds nuw [4 x ptr], ptr %198, i64 0, i64 %175
   store ptr %179, ptr %199, align 8
   %200 = load i64, ptr %174, align 8
   %201 = add i64 %200, 1

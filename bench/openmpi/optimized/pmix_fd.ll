@@ -53,7 +53,7 @@ define range(i32 -26, 1) i32 @pmix_fd_read(i32 noundef %0, i32 noundef %1, ptr n
 .outer:                                           ; preds = %.split.us
   %16 = sub nsw i32 %.013.ph25, %.us-phi20
   %17 = and i64 %.us-phi, 2147483647
-  %18 = getelementptr inbounds i8, ptr %.0.ph26, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %.0.ph26, i64 %17
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !4
 
@@ -108,7 +108,7 @@ define range(i32 -26, 1) i32 @pmix_fd_write(i32 noundef %0, i32 noundef %1, ptr 
 .outer:                                           ; preds = %.split.us
   %16 = sub nsw i32 %.012.ph25, %.us-phi20
   %17 = and i64 %.us-phi, 2147483647
-  %18 = getelementptr inbounds i8, ptr %.0.ph26, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %.0.ph26, i64 %17
   %19 = icmp sgt i32 %16, 0
   br i1 %19, label %.lr.ph.split.us, label %.thread, !llvm.loop !6
 
@@ -145,7 +145,7 @@ define zeroext i1 @pmix_fd_is_regular(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #9
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 32768
@@ -161,7 +161,7 @@ define zeroext i1 @pmix_fd_is_chardev(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #9
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 8192
@@ -174,7 +174,7 @@ define zeroext i1 @pmix_fd_is_blkdev(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @fstat(i32 noundef %0, ptr noundef nonnull %2) #9
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 24576
@@ -202,7 +202,7 @@ define ptr @pmix_fd_get_peer_name(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull @str, i32 noundef 16) #9
   br label %13
 
@@ -251,7 +251,7 @@ define void @pmix_close_open_file_descriptors(i32 noundef %0) local_unnamed_addr
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi ptr [ %7, %.lr.ph ], [ %31, %.backedge ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 19
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 19
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i64
   %16 = getelementptr inbounds i16, ptr %12, i64 %15

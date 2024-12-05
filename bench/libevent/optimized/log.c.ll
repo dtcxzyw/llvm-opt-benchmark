@@ -78,7 +78,7 @@ if.then5:                                         ; preds = %if.end3
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.then5
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %call7
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %call7
   %sub = sub nuw nsw i64 1024, %call7
   %call11 = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str, ptr noundef nonnull %errstr) #13
   br label %if.end13
@@ -98,7 +98,7 @@ if.else.i:                                        ; preds = %if.end13
 
 switch.lookup:                                    ; preds = %if.else.i
   %3 = zext nneg i32 %severity to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.event_logv_, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.event_logv_, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog.i
 
@@ -174,7 +174,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end13.i
 
 if.then9.i:                                       ; preds = %if.then5.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %call7.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %call7.i
   %sub.i = sub nuw nsw i64 1024, %call7.i
   %call11.i = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull @.str, ptr noundef nonnull %call1) #13
   br label %if.end13.i
@@ -244,7 +244,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end13.i
 
 if.then9.i:                                       ; preds = %if.then5.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %call7.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %call7.i
   %sub.i = sub nuw nsw i64 1024, %call7.i
   %call11.i = call i32 (ptr, i64, ptr, ...) @evutil_snprintf(ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull @.str, ptr noundef nonnull %call1) #13
   br label %if.end13.i

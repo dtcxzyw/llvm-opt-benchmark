@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ebf001e4ed6dd33E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !alias.scope !6, !noalias !9, !noundef !4
   %6 = and i32 %5, 16
   %7 = icmp eq i32 %6, 0
@@ -51,7 +51,7 @@ define void @"_ZN3nom8internal59Err$LT$$LP$$RF$$u5b$u8$u5d$$C$nom..error..ErrorK
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = load i64, ptr %1, align 8, !range !16, !alias.scope !14, !noalias !11, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %3, label %default.unreachable [
     i64 0, label %5
     i64 1, label %8
@@ -63,15 +63,15 @@ default.unreachable:                              ; preds = %2
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %4, align 8, !alias.scope !14, !noalias !11, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8, !alias.scope !11, !noalias !14
   br label %"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h9b027c9c5d26bac3E.exit"
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8, !alias.scope !14, !noalias !11, !nonnull !4, !align !17, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !14, !noalias !11, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8, !range !18, !alias.scope !14, !noalias !11, !noundef !4
   %14 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %11, i1 noundef zeroext false), !noalias !19
   %15 = extractvalue { i64, ptr } %14, 0
@@ -79,21 +79,21 @@ default.unreachable:                              ; preds = %2
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %18, align 8, !alias.scope !11, !noalias !14
-  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %11, ptr %.sroa.03.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   br label %"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h9b027c9c5d26bac3E.exit"
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %4, align 8, !alias.scope !14, !noalias !11, !nonnull !4, !align !17, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !14, !noalias !11, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i8, ptr %23, align 8, !range !18, !alias.scope !14, !noalias !11, !noundef !4
   %25 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %22, i1 noundef zeroext false), !noalias !29
   %26 = extractvalue { i64, ptr } %25, 0
@@ -101,13 +101,13 @@ default.unreachable:                              ; preds = %2
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %20, i64 %22, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %29, align 8, !alias.scope !11, !noalias !14
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %22, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %24, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !11, !noalias !14
   br label %"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h9b027c9c5d26bac3E.exit"
 
@@ -121,7 +121,7 @@ define void @"_ZN3nom8internal50Err$LT$$LP$$RF$str$C$nom..error..ErrorKind$RP$$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %3 = load i64, ptr %1, align 8, !range !16, !alias.scope !42, !noalias !39, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %3, label %default.unreachable [
     i64 0, label %5
     i64 1, label %8
@@ -133,15 +133,15 @@ default.unreachable:                              ; preds = %2
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %4, align 8, !alias.scope !42, !noalias !39, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8, !alias.scope !39, !noalias !42
   br label %"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h6b41c7f56c3d53c3E.exit"
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !17, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !42, !noalias !39, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8, !range !18, !alias.scope !42, !noalias !39, !noundef !4
   %14 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %11, i1 noundef zeroext false), !noalias !44
   %15 = extractvalue { i64, ptr } %14, 0
@@ -149,21 +149,21 @@ default.unreachable:                              ; preds = %2
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %18, align 8, !alias.scope !39, !noalias !42
-  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 8, !alias.scope !39, !noalias !42
-  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %11, ptr %.sroa.03.sroa.5.0..sroa_idx.i, align 8, !alias.scope !39, !noalias !42
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !39, !noalias !42
   br label %"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h6b41c7f56c3d53c3E.exit"
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %4, align 8, !alias.scope !42, !noalias !39, !nonnull !4, !align !17, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !42, !noalias !39, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i8, ptr %23, align 8, !range !18, !alias.scope !42, !noalias !39, !noundef !4
   %25 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %22, i1 noundef zeroext false), !noalias !51
   %26 = extractvalue { i64, ptr } %25, 0
@@ -171,13 +171,13 @@ default.unreachable:                              ; preds = %2
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %20, i64 %22, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %29, align 8, !alias.scope !39, !noalias !42
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !39, !noalias !42
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %22, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !39, !noalias !42
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %24, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !39, !noalias !42
   br label %"_ZN3nom8internal44Err$LT$$LP$T$C$nom..error..ErrorKind$RP$$GT$9map_input17h6b41c7f56c3d53c3E.exit"
 
@@ -191,7 +191,7 @@ define void @"_ZN3nom8internal52Err$LT$nom..error..Error$LT$$RF$$u5b$u8$u5d$$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %3 = load i64, ptr %1, align 8, !range !16, !alias.scope !61, !noalias !58, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %3, label %default.unreachable [
     i64 0, label %5
     i64 1, label %8
@@ -203,15 +203,15 @@ default.unreachable:                              ; preds = %2
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %4, align 8, !alias.scope !61, !noalias !58, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8, !alias.scope !58, !noalias !61
   br label %"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h80d84b75b2ff0ec0E.exit"
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8, !alias.scope !61, !noalias !58, !nonnull !4, !align !17, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !61, !noalias !58, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8, !range !18, !alias.scope !61, !noalias !58, !noundef !4
   %14 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %11, i1 noundef zeroext false), !noalias !63
   %15 = extractvalue { i64, ptr } %14, 0
@@ -219,21 +219,21 @@ default.unreachable:                              ; preds = %2
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %18, align 8, !alias.scope !58, !noalias !61
-  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
-  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %11, ptr %.sroa.03.sroa.5.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
   br label %"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h80d84b75b2ff0ec0E.exit"
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %4, align 8, !alias.scope !61, !noalias !58, !nonnull !4, !align !17, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !61, !noalias !58, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i8, ptr %23, align 8, !range !18, !alias.scope !61, !noalias !58, !noundef !4
   %25 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %22, i1 noundef zeroext false), !noalias !73
   %26 = extractvalue { i64, ptr } %25, 0
@@ -241,13 +241,13 @@ default.unreachable:                              ; preds = %2
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %20, i64 %22, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %29, align 8, !alias.scope !58, !noalias !61
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %22, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %24, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !58, !noalias !61
   br label %"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h80d84b75b2ff0ec0E.exit"
 
@@ -261,7 +261,7 @@ define void @"_ZN3nom8internal43Err$LT$nom..error..Error$LT$$RF$str$GT$$GT$8to_o
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %3 = load i64, ptr %1, align 8, !range !16, !alias.scope !86, !noalias !83, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %3, label %default.unreachable [
     i64 0, label %5
     i64 1, label %8
@@ -273,15 +273,15 @@ default.unreachable:                              ; preds = %2
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %4, align 8, !alias.scope !86, !noalias !83, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8, !alias.scope !83, !noalias !86
   br label %"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h1f62dbf3e2bf18bfE.exit"
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8, !alias.scope !86, !noalias !83, !nonnull !4, !align !17, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !86, !noalias !83, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i8, ptr %12, align 8, !range !18, !alias.scope !86, !noalias !83, !noundef !4
   %14 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %11, i1 noundef zeroext false), !noalias !88
   %15 = extractvalue { i64, ptr } %14, 0
@@ -289,21 +289,21 @@ default.unreachable:                              ; preds = %2
   %17 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %9, i64 %11, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %18, align 8, !alias.scope !83, !noalias !86
-  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.03.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %.sroa.03.sroa.4.0..sroa_idx.i, align 8, !alias.scope !83, !noalias !86
-  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.03.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %11, ptr %.sroa.03.sroa.5.0..sroa_idx.i, align 8, !alias.scope !83, !noalias !86
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %13, ptr %.sroa.44.0..sroa_idx.i, align 8, !alias.scope !83, !noalias !86
   br label %"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h1f62dbf3e2bf18bfE.exit"
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %4, align 8, !alias.scope !86, !noalias !83, !nonnull !4, !align !17, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8, !alias.scope !86, !noalias !83, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i8, ptr %23, align 8, !range !18, !alias.scope !86, !noalias !83, !noundef !4
   %25 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h1191f941152d7f69E"(i64 noundef %22, i1 noundef zeroext false), !noalias !95
   %26 = extractvalue { i64, ptr } %25, 0
@@ -311,13 +311,13 @@ default.unreachable:                              ; preds = %2
   %28 = icmp ne ptr %27, null
   tail call void @llvm.assume(i1 %28)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr nonnull readonly align 1 %20, i64 %22, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %29, align 8, !alias.scope !83, !noalias !86
-  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !83, !noalias !86
-  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %22, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !83, !noalias !86
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %24, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !83, !noalias !86
   br label %"_ZN3nom8internal37Err$LT$nom..error..Error$LT$T$GT$$GT$9map_input17h1f62dbf3e2bf18bfE.exit"
 

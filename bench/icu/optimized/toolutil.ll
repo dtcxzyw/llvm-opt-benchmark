@@ -42,7 +42,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_7516IcuToolErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 16), ptr %this, align 8
-  %errorCode.i = getelementptr inbounds i8, ptr %this, i64 8
+  %errorCode.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %errorCode.i, align 8
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -98,11 +98,11 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define void @_ZNK6icu_7516IcuToolErrorCode13handleFailureEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %location = getelementptr inbounds i8, ptr %this, i64 16
+  %location = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %location, align 8
   %call = tail call noundef ptr @_ZNK6icu_759ErrorCode9errorNameEv(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1, ptr noundef %call) #24
-  %errorCode = getelementptr inbounds i8, ptr %this, i64 8
+  %errorCode = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %errorCode, align 8
   tail call void @exit(i32 noundef %2) #23
   unreachable
@@ -128,7 +128,7 @@ if.then:                                          ; preds = %entry
   %call = tail call i64 @time(ptr noundef null) #22
   store i64 %call, ptr %now, align 8
   %call1 = call ptr @gmtime(ptr noundef nonnull %now) #22
-  %tm_year = getelementptr inbounds i8, ptr %call1, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %call1, i64 20
   %1 = load i32, ptr %tm_year, align 4
   %add = add nsw i32 %1, 1900
   store i32 %add, ptr @_ZL11currentYear, align 4
@@ -174,7 +174,7 @@ if.then8:                                         ; preds = %if.end
   %resultPtr.0 = select i1 %tobool2.not, ptr @.str.1, ptr %path
   %conv9 = zext nneg i32 %resultLen.0 to i64
   %call10 = tail call ptr @strncpy(ptr noundef %buffer, ptr noundef %resultPtr.0, i64 noundef %conv9) #22
-  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %conv9
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv9
   store i8 0, ptr %arrayidx, align 1
   br label %return
 
@@ -198,7 +198,7 @@ define ptr @findBasename(ptr noundef readonly %filename) local_unnamed_addr #12 
 entry:
   %call = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #25
   %cmp.not = icmp eq ptr %call, null
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %retval.0 = select i1 %cmp.not, ptr %filename, ptr %add.ptr
   ret ptr %retval.0
 }
@@ -300,7 +300,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 while.body:                                       ; preds = %invoke.cont6
   %3 = load i8, ptr %c, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %cmp10.not = icmp eq i8 %3, %4
   br i1 %cmp10.not, label %if.end12, label %while.end
@@ -401,17 +401,17 @@ if.then2:                                         ; preds = %entry
 
 if.end4:                                          ; preds = %entry
   %spec.select = tail call i32 @llvm.smax.i32(i32 %maxCapacity, i32 %initialCapacity)
-  %staticArray = getelementptr inbounds i8, ptr %call, i64 96
-  %array = getelementptr inbounds i8, ptr %call, i64 80
+  %staticArray = getelementptr inbounds nuw i8, ptr %call, i64 96
+  %array = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr %staticArray, ptr %array, align 16
   %call7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %name) #22
-  %capacity = getelementptr inbounds i8, ptr %call, i64 64
+  %capacity = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i32 %initialCapacity, ptr %capacity, align 16
-  %maxCapacity8 = getelementptr inbounds i8, ptr %call, i64 68
+  %maxCapacity8 = getelementptr inbounds nuw i8, ptr %call, i64 68
   store i32 %spec.select, ptr %maxCapacity8, align 4
-  %size9 = getelementptr inbounds i8, ptr %call, i64 72
+  %size9 = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i32 %size, ptr %size9, align 8
-  %idx = getelementptr inbounds i8, ptr %call, i64 76
+  %idx = getelementptr inbounds nuw i8, ptr %call, i64 76
   store i32 0, ptr %idx, align 4
   ret ptr %call
 }
@@ -429,9 +429,9 @@ entry:
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %array = getelementptr inbounds i8, ptr %mem, i64 80
+  %array = getelementptr inbounds nuw i8, ptr %mem, i64 80
   %0 = load ptr, ptr %array, align 16
-  %staticArray = getelementptr inbounds i8, ptr %mem, i64 96
+  %staticArray = getelementptr inbounds nuw i8, ptr %mem, i64 96
   %cmp1.not = icmp eq ptr %0, %staticArray
   br i1 %cmp1.not, label %if.end, label %if.then2
 
@@ -452,7 +452,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @utm_getStart(ptr nocapture noundef readonly %mem) local_unnamed_addr #17 {
 entry:
-  %array = getelementptr inbounds i8, ptr %mem, i64 80
+  %array = getelementptr inbounds nuw i8, ptr %mem, i64 80
   %0 = load ptr, ptr %array, align 16
   ret ptr %0
 }
@@ -460,7 +460,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @utm_countItems(ptr nocapture noundef readonly %mem) local_unnamed_addr #17 {
 entry:
-  %idx = getelementptr inbounds i8, ptr %mem, i64 76
+  %idx = getelementptr inbounds nuw i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   ret i32 %0
 }
@@ -468,13 +468,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_alloc(ptr noundef %mem) local_unnamed_addr #15 {
 entry:
-  %idx = getelementptr inbounds i8, ptr %mem, i64 76
+  %idx = getelementptr inbounds nuw i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   %add = add nsw i32 %0, 1
   tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %add)
-  %array = getelementptr inbounds i8, ptr %mem, i64 80
+  %array = getelementptr inbounds nuw i8, ptr %mem, i64 80
   %1 = load ptr, ptr %array, align 16
-  %size = getelementptr inbounds i8, ptr %mem, i64 72
+  %size = getelementptr inbounds nuw i8, ptr %mem, i64 72
   %2 = load i32, ptr %size, align 8
   %mul = mul nsw i32 %2, %0
   %idx.ext = sext i32 %mul to i64
@@ -488,13 +488,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %capacity) unnamed_addr #15 {
 entry:
-  %capacity1 = getelementptr inbounds i8, ptr %mem, i64 64
+  %capacity1 = getelementptr inbounds nuw i8, ptr %mem, i64 64
   %0 = load i32, ptr %capacity1, align 16
   %cmp = icmp slt i32 %0, %capacity
   br i1 %cmp, label %if.then, label %if.end52
 
 if.then:                                          ; preds = %entry
-  %maxCapacity = getelementptr inbounds i8, ptr %mem, i64 68
+  %maxCapacity = getelementptr inbounds nuw i8, ptr %mem, i64 68
   %1 = load i32, ptr %maxCapacity, align 4
   %cmp2 = icmp slt i32 %1, %capacity
   br i1 %cmp2, label %if.then3, label %if.end
@@ -519,11 +519,11 @@ if.else:                                          ; preds = %if.end
 
 if.end17:                                         ; preds = %if.else, %if.end
   %newCapacity.0 = phi i32 [ %capacity, %if.end ], [ %.mul, %if.else ]
-  %array = getelementptr inbounds i8, ptr %mem, i64 80
+  %array = getelementptr inbounds nuw i8, ptr %mem, i64 80
   %3 = load ptr, ptr %array, align 16
-  %staticArray = getelementptr inbounds i8, ptr %mem, i64 96
+  %staticArray = getelementptr inbounds nuw i8, ptr %mem, i64 96
   %cmp19 = icmp eq ptr %3, %staticArray
-  %size = getelementptr inbounds i8, ptr %mem, i64 72
+  %size = getelementptr inbounds nuw i8, ptr %mem, i64 72
   %4 = load i32, ptr %size, align 8
   %mul21 = mul nsw i32 %4, %newCapacity.0
   %conv22 = sext i32 %mul21 to i64
@@ -536,7 +536,7 @@ if.then20:                                        ; preds = %if.end17
   br i1 %cmp26.not, label %if.then46, label %if.end43.thread
 
 if.end43.thread:                                  ; preds = %if.then20
-  %idx = getelementptr inbounds i8, ptr %mem, i64 76
+  %idx = getelementptr inbounds nuw i8, ptr %mem, i64 76
   %5 = load i32, ptr %idx, align 4
   %conv31 = sext i32 %5 to i64
   %6 = load i32, ptr %size, align 8
@@ -571,13 +571,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define ptr @utm_allocN(ptr noundef %mem, i32 noundef %n) local_unnamed_addr #15 {
 entry:
-  %idx = getelementptr inbounds i8, ptr %mem, i64 76
+  %idx = getelementptr inbounds nuw i8, ptr %mem, i64 76
   %0 = load i32, ptr %idx, align 4
   %add = add nsw i32 %0, %n
   tail call fastcc void @_ZL15utm_hasCapacityP11UToolMemoryi(ptr noundef %mem, i32 noundef %add)
-  %array = getelementptr inbounds i8, ptr %mem, i64 80
+  %array = getelementptr inbounds nuw i8, ptr %mem, i64 80
   %1 = load ptr, ptr %array, align 16
-  %size = getelementptr inbounds i8, ptr %mem, i64 72
+  %size = getelementptr inbounds nuw i8, ptr %mem, i64 72
   %2 = load i32, ptr %size, align 8
   %mul = mul nsw i32 %2, %0
   %idx.ext = sext i32 %mul to i64

@@ -26,7 +26,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %13
   %10 = phi i64 [ %15, %13 ], [ 0, %.lr.ph.i ]
   %.02243.us.i = phi i32 [ %14, %13 ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %10
   %12 = icmp ugt i64 %4, %10
   br i1 %12, label %16, label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
 
@@ -37,7 +37,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
   br i1 %.not.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.us.i, !llvm.loop !4
 
 16:                                               ; preds = %.lr.ph.split.us.i
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %10
+  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %18) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
@@ -86,12 +86,12 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %33
   %36 = phi i64 [ %35, %33 ], [ 0, %.lr.ph.i ]
   %.02243.i = phi i32 [ %34, %33 ], [ 0, %.lr.ph.i ]
-  %37 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %36
   %38 = icmp ugt i64 %4, %36
   br i1 %38, label %39, label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i
 
 39:                                               ; preds = %.lr.ph.split.i
-  %40 = getelementptr inbounds ptr, ptr %3, i64 %36
+  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %36
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %41) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i
@@ -156,7 +156,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 .preheader.split45.us.i:                          ; preds = %.preheader.i, %70
   %67 = phi i64 [ %72, %70 ], [ 0, %.preheader.i ]
   %.144.us.i = phi i32 [ %71, %70 ], [ 0, %.preheader.i ]
-  %68 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %67
+  %68 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %67
   %69 = icmp ugt i64 %4, %67
   br i1 %69, label %73, label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
 
@@ -167,7 +167,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
   br i1 %.not25.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang4ExprEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split45.us.i, !llvm.loop !6
 
 73:                                               ; preds = %.preheader.split45.us.i
-  %74 = getelementptr inbounds ptr, ptr %3, i64 %67
+  %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %67
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %75) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
@@ -217,12 +217,12 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_4ExprEEENS_
 .preheader.split45.i:                             ; preds = %.preheader.i, %90
   %93 = phi i64 [ %92, %90 ], [ 0, %.preheader.i ]
   %.144.i = phi i32 [ %91, %90 ], [ 0, %.preheader.i ]
-  %94 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %93
+  %94 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %93
   %95 = icmp ugt i64 %4, %93
   br i1 %95, label %96, label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i
 
 96:                                               ; preds = %.preheader.split45.i
-  %97 = getelementptr inbounds ptr, ptr %3, i64 %93
+  %97 = getelementptr inbounds nuw ptr, ptr %3, i64 %93
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %98) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i
@@ -295,7 +295,7 @@ define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8Ar
   br i1 %9, label %10, label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds ptr, ptr %3, i64 %8
+  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %12) #5
   br label %_ZN12_GLOBAL__N_19getArgLocIN5clang4ExprEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit
@@ -374,7 +374,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %13
   %10 = phi i64 [ %15, %13 ], [ 0, %.lr.ph.i ]
   %.02244.us.i = phi i32 [ %14, %13 ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %10
   %12 = icmp ugt i64 %4, %10
   br i1 %12, label %16, label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.us.i
 
@@ -385,7 +385,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang23hasStandardSelectorLocs
   br i1 %.not.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.lr.ph.split.us.i, !llvm.loop !7
 
 16:                                               ; preds = %.lr.ph.split.us.i
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %10
+  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %10
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %18) #6
   %spec.select.i.i.i.us.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %19, i32 1)
@@ -435,12 +435,12 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %33
   %36 = phi i64 [ %35, %33 ], [ 0, %.lr.ph.i ]
   %.02244.i = phi i32 [ %34, %33 ], [ 0, %.lr.ph.i ]
-  %37 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %36
   %38 = icmp ugt i64 %4, %36
   br i1 %38, label %39, label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i.i
 
 39:                                               ; preds = %.lr.ph.split.i
-  %40 = getelementptr inbounds ptr, ptr %3, i64 %36
+  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %36
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %41) #6
   %spec.select.i.i.i.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %42, i32 1)
@@ -506,7 +506,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 .preheader.split46.us.i:                          ; preds = %.preheader.i, %70
   %67 = phi i64 [ %72, %70 ], [ 0, %.preheader.i ]
   %.145.us.i = phi i32 [ %71, %70 ], [ 0, %.preheader.i ]
-  %68 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %67
+  %68 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %67
   %69 = icmp ugt i64 %4, %67
   br i1 %69, label %73, label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.us.i
 
@@ -517,7 +517,7 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
   br i1 %.not25.us.i, label %_ZN12_GLOBAL__N_118hasStandardSelLocsIN5clang11ParmVarDeclEEENS1_21SelectorLocationsKindENS1_8SelectorEN4llvm8ArrayRefINS1_14SourceLocationEEENS6_IPT_EES7_.exit, label %.preheader.split46.us.i, !llvm.loop !8
 
 73:                                               ; preds = %.preheader.split46.us.i
-  %74 = getelementptr inbounds ptr, ptr %3, i64 %67
+  %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %67
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %75) #6
   %spec.select.i.i.i33.us.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %76, i32 1)
@@ -568,12 +568,12 @@ _ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8ArrayRefIPNS_11ParmVarDe
 .preheader.split46.i:                             ; preds = %.preheader.i, %90
   %93 = phi i64 [ %92, %90 ], [ 0, %.preheader.i ]
   %.145.i = phi i32 [ %91, %90 ], [ 0, %.preheader.i ]
-  %94 = getelementptr inbounds %"class.clang::SourceLocation", ptr %1, i64 %93
+  %94 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1, i64 %93
   %95 = icmp ugt i64 %4, %93
   br i1 %95, label %96, label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit.i26.i
 
 96:                                               ; preds = %.preheader.split46.i
-  %97 = getelementptr inbounds ptr, ptr %3, i64 %93
+  %97 = getelementptr inbounds nuw ptr, ptr %3, i64 %93
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %98) #6
   %spec.select.i.i.i33.i = call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %99, i32 1)
@@ -647,7 +647,7 @@ define dso_local i32 @_ZN5clang22getStandardSelectorLocEjNS_8SelectorEbN4llvm8Ar
   br i1 %9, label %10, label %_ZN12_GLOBAL__N_19getArgLocIN5clang11ParmVarDeclEEENS1_14SourceLocationEjN4llvm8ArrayRefIPT_EE.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds ptr, ptr %3, i64 %8
+  %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %12) #6
   %spec.select.i.i = tail call range(i32 0, -1) i32 @llvm.usub.sat.i32(i32 %13, i32 1)

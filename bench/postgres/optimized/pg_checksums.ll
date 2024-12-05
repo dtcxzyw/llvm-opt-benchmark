@@ -120,7 +120,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i32], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 4
   store i16 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
@@ -220,13 +220,13 @@ sub_0:                                            ; preds = %10
   br i1 %.not, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %16 = getelementptr inbounds i8, ptr %12, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %17 = load i8, ptr %16, align 1
   %.not60 = icmp eq i8 %17, 63
   br i1 %.not60, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %18 = getelementptr inbounds i8, ptr %12, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.thread
@@ -252,13 +252,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %27, label %33, label %sub_154
 
 sub_154:                                          ; preds = %.tail.thread, %.thread
-  %28 = getelementptr inbounds i8, ptr %12, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %29 = load i8, ptr %28, align 1
   %.not62 = icmp eq i8 %29, 86
   br i1 %.not62, label %.tail52, label %.tail52.thread.preheader
 
 .tail52:                                          ; preds = %sub_154
-  %30 = getelementptr inbounds i8, ptr %12, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %.tail52.thread.preheader
@@ -424,7 +424,7 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   unreachable
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %89, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %95 = load i32, ptr %94, align 8
   %.not45 = icmp eq i32 %95, 1300
   br i1 %.not45, label %97, label %96
@@ -435,7 +435,7 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   unreachable
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %89, i64 216
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 216
   %99 = load i32, ptr %98, align 8
   %.not46 = icmp eq i32 %99, 8192
   br i1 %.not46, label %104, label %100
@@ -443,14 +443,14 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
 100:                                              ; preds = %97
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24) #12
   %101 = load ptr, ptr @ControlFile, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 216
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 216
   %103 = load i32, ptr %102, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.25, i32 noundef %103, i32 noundef 8192) #12
   call void @exit(i32 noundef 1) #15
   unreachable
 
 104:                                              ; preds = %97
-  %105 = getelementptr inbounds i8, ptr %89, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %106 = load i32, ptr %105, align 8
   %.off = add i32 %106, -1
   %switch = icmp ult i32 %.off, 2
@@ -462,7 +462,7 @@ sub_154:                                          ; preds = %.tail.thread, %.thr
   unreachable
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %89, i64 252
+  %109 = getelementptr inbounds nuw i8, ptr %89, i64 252
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, 0
   %112 = load i32, ptr @mode, align 4
@@ -575,7 +575,7 @@ progress_report.exit:                             ; preds = %142, %144
   %163 = load i64, ptr @badblocks, align 8
   %164 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, i64 noundef %163) #12
   %165 = load ptr, ptr @ControlFile, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 252
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 252
   %167 = load i32, ptr %166, align 4
   %168 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37, i32 noundef %167) #12
   %169 = load i64, ptr @badblocks, align 8
@@ -603,7 +603,7 @@ progress_report.exit:                             ; preds = %142, %144
   %181 = icmp eq i32 %178, 2
   %182 = zext i1 %181 to i32
   %183 = load ptr, ptr @ControlFile, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 252
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 252
   store i32 %182, ptr %184, align 4
   %.b41 = load i1, ptr @do_sync, align 1
   br i1 %.b41, label %187, label %185
@@ -625,7 +625,7 @@ progress_report.exit:                             ; preds = %142, %144
 
 189:                                              ; preds = %187
   %190 = load ptr, ptr @ControlFile, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 252
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 252
   %192 = load i32, ptr %191, align 4
   %193 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37, i32 noundef %192) #12
   br label %.sink.split
@@ -716,8 +716,8 @@ skipfile.exit.preheader:                          ; preds = %3
   br i1 %.not395557, label %skipfile.exit.outer._crit_edge, label %sub_0.lr.ph.lr.ph
 
 sub_0.lr.ph.lr.ph:                                ; preds = %skipfile.exit.preheader
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
-  %14 = getelementptr inbounds i8, ptr %6, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %sub_0.lr.ph
 
 15:                                               ; preds = %3
@@ -727,25 +727,25 @@ sub_0.lr.ph.lr.ph:                                ; preds = %skipfile.exit.prehe
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %skipfile.exit.backedge
   %16 = phi ptr [ %90, %sub_0.lr.ph ], [ %27, %skipfile.exit.backedge ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 19
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 19
   %18 = load i8, ptr %17, align 1
   %.not60 = icmp eq i8 %18, 46
   br i1 %.not60, label %.tail, label %.tail44.thread
 
 .tail:                                            ; preds = %sub_0
-  %19 = getelementptr inbounds i8, ptr %16, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %skipfile.exit.backedge, label %sub_146
 
 sub_146:                                          ; preds = %.tail
-  %22 = getelementptr inbounds i8, ptr %16, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %23 = load i8, ptr %22, align 1
   %.not62 = icmp eq i8 %23, 46
   br i1 %.not62, label %.tail44, label %.tail44.thread
 
 .tail44:                                          ; preds = %sub_146
-  %24 = getelementptr inbounds i8, ptr %16, i64 21
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 21
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %skipfile.exit.backedge, label %.tail44.thread
@@ -798,7 +798,7 @@ skipfile.exit.backedge:                           ; preds = %.preheader, %.tail,
   %44 = phi ptr [ %43, %41 ], [ @.str.75, %38 ]
   %45 = phi ptr [ %42, %41 ], [ @skip, %38 ]
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #13
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i8, ptr %47, align 8
   %49 = and i8 %48, 1
   %50 = xor i8 %49, 1
@@ -1008,9 +1008,9 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
   %12 = load i64, ptr @files_scanned, align 8
   %13 = add i64 %12, 1
   store i64 %13, ptr @files_scanned, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %15 = shl i32 %1, 17
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %17
 
 17:                                               ; preds = %87, %11
@@ -1130,7 +1130,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr @ControlFile, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 252
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 252
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 1
   br i1 %66, label %67, label %68

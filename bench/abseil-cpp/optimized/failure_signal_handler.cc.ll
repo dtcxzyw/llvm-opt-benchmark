@@ -47,14 +47,14 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %__begin2.0.idx5 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.cond ]
-  %__begin2.0.ptr6 = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
+  %__begin2.0.ptr6 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
   %0 = load i32, ptr %__begin2.0.ptr6, align 8
   %cmp2 = icmp eq i32 %0, %signo
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %__begin2.0.ptr6.le = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
-  %as_string = getelementptr inbounds i8, ptr %__begin2.0.ptr6.le, i64 8
+  %__begin2.0.ptr6.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
+  %as_string = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr6.le, i64 8
   %1 = load ptr, ptr %as_string, align 8
   br label %return
 
@@ -68,13 +68,13 @@ define dso_local void @_ZN4absl27InstallFailureSignalHandlerERKNS_27FailureSigna
 entry:
   %act.i = alloca %struct.sigaction, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN4abslL11fsh_optionsE, ptr noundef nonnull align 8 dereferenceable(24) %options, i64 24, i1 false)
-  %sa_mask.i = getelementptr inbounds i8, ptr %act.i, i64 8
-  %sa_flags.i = getelementptr inbounds i8, ptr %act.i, i64 136
+  %sa_mask.i = getelementptr inbounds nuw i8, ptr %act.i, i64 8
+  %sa_flags.i = getelementptr inbounds nuw i8, ptr %act.i, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit
   %__begin1.0.idx3 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx3
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx3
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %act.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %act.i, i8 0, i64 152, i1 false)
   %call.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #13
@@ -118,7 +118,7 @@ _ZN4abslL24MaybeSetupAlternateStackEv.exit.i:     ; preds = %invoke.cont.i.i, %i
 if.end.i:                                         ; preds = %_ZN4abslL24MaybeSetupAlternateStackEv.exit.i, %for.body
   store ptr @_ZN4abslL24AbslFailureSignalHandlerEiP9siginfo_tPv, ptr %act.i, align 8
   %6 = load i32, ptr %__begin1.0.ptr, align 8
-  %previous_action.i = getelementptr inbounds i8, ptr %__begin1.0.ptr, i64 16
+  %previous_action.i = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr, i64 16
   %call6.i = call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %act.i, ptr noundef nonnull %previous_action.i) #13
   %cmp.not.i = icmp eq i32 %call6.i, 0
   br i1 %cmp.not.i, label %_ZN4abslL24InstallOneFailureHandlerEPNS_17FailureSignalDataEPFviP9siginfo_tPvE.exit, label %do.body8.i
@@ -159,7 +159,7 @@ do.body:                                          ; preds = %entry
 if.then3:                                         ; preds = %do.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %sleep_time.i)
   store i64 3, ptr %sleep_time.i, align 8
-  %tv_nsec.i = getelementptr inbounds i8, ptr %sleep_time.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %sleep_time.i, i64 8
   store i64 0, ptr %tv_nsec.i, align 8
   br label %while.cond.i
 
@@ -217,14 +217,14 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.end15, %for.cond.i
   %__begin1.0.idx8.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %if.end15 ]
-  %__begin1.0.ptr9.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
+  %__begin1.0.ptr9.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
   %10 = load i32, ptr %__begin1.0.ptr9.i, align 8
   %cmp2.i41 = icmp eq i32 %10, %signo
   br i1 %cmp2.i41, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %__begin1.0.ptr9.i.le = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
-  %previous_action.i = getelementptr inbounds i8, ptr %__begin1.0.ptr9.i.le, i64 16
+  %__begin1.0.ptr9.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
+  %previous_action.i = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr9.i.le, i64 16
   %call.i43 = tail call i32 @sigaction(i32 noundef %signo, ptr noundef nonnull %previous_action.i, ptr noundef null) #13
   br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
@@ -270,9 +270,9 @@ entry:
   %add = add i64 %sub, %.sroa.speculated
   %not = sub i64 0, %call
   %and = and i64 %add, %not
-  %0 = getelementptr inbounds i8, ptr %sigstk, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %sigstk, i64 8
   store i64 0, ptr %0, align 8
-  %ss_size = getelementptr inbounds i8, ptr %sigstk, i64 16
+  %ss_size = getelementptr inbounds nuw i8, ptr %sigstk, i64 16
   store i64 %and, ptr %ss_size, align 8
   %call5 = tail call ptr @mmap(ptr noundef null, i64 noundef %and, i32 noundef 3, i32 noundef 131106, i32 noundef -1, i64 noundef 0) #13
   store ptr %call5, ptr %sigstk, align 8
@@ -369,14 +369,14 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.cond.i.i
   %__begin2.0.idx5.i.i = phi i64 [ %__begin2.0.add.i.i, %for.cond.i.i ], [ 0, %for.body.i.i.preheader ]
-  %__begin2.0.ptr6.i.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
+  %__begin2.0.ptr6.i.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
   %0 = load i32, ptr %__begin2.0.ptr6.i.i, align 8
   %cmp2.i.i = icmp eq i32 %0, %signo
   br i1 %cmp2.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i, label %for.cond.i.i
 
 _ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i: ; preds = %for.body.i.i
-  %__begin2.0.ptr6.i.i.le = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
-  %as_string.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr6.i.i.le, i64 8
+  %__begin2.0.ptr6.i.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
+  %as_string.i.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr6.i.i.le, i64 8
   %1 = load ptr, ptr %as_string.i.i, align 8
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i

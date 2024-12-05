@@ -194,9 +194,9 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !8
   store i32 0, ptr %7, align 4, !annotation !8
   store i16 0, ptr %8, align 2, !annotation !8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %1, %14
   %16 = sub i32 %12, %15
@@ -217,7 +217,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br label %.thread21
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %1 to i64
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -227,7 +227,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 .thread21:                                        ; preds = %..thread21_crit_edge, %23
   %29 = phi i32 [ %12, %23 ], [ %.pre, %..thread21_crit_edge ]
   %30 = phi ptr [ %27, %23 ], [ %6, %..thread21_crit_edge ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i16, ptr %31, align 4
   %33 = lshr i16 %32, 2
   %34 = and i16 %33, 60
@@ -249,7 +249,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %46, label %52, label %47, !prof !9
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %0, i64 200
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %36 to i64
   %51 = getelementptr i8, ptr %49, i64 %50
@@ -467,7 +467,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %168, label %183, label %169
 
 169:                                              ; preds = %162
-  %170 = getelementptr inbounds i8, ptr %2, i64 128
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %171 = load i64, ptr %170, align 8
   %172 = and i64 %171, 48
   %173 = icmp eq i64 %172, 0

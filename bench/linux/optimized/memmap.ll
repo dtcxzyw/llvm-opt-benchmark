@@ -68,7 +68,7 @@ define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr noc
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %10, label %9, !prof !6
@@ -83,15 +83,15 @@ define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr noc
   %11 = zext i32 %0 to i64
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
   %13 = mul i64 %12, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %13, ptr %14, align 8
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 240), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %15, ptr %16, align 8
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 248), align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, -7
   store i64 %21, ptr %19, align 8
@@ -166,15 +166,15 @@ declare dso_local i32 @__efi_memmap_init(ptr noundef) local_unnamed_addr #2 sect
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
 define dso_local range(i32 0, 4) i32 @efi_memmap_split_count(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = shl i64 %6, 12
   %8 = add i64 %4, -1
   %9 = add i64 %8, %7
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ule i64 %10, %4
   %14 = icmp ult i64 %4, %12
@@ -194,9 +194,9 @@ define dso_local range(i32 0, 4) i32 @efi_memmap_split_count(ptr nocapture nound
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 section ".init.text" align 16 {
   %4 = load i64, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %4, 4095
   %10 = icmp eq i64 %9, 0
@@ -215,15 +215,15 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   br label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ult ptr %18, %20
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %reass.sub = sub i64 %6, %4
   %24 = add i64 %reass.sub, 1
   %25 = lshr i64 %24, 12
@@ -235,9 +235,9 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   %28 = phi ptr [ %1, %22 ], [ %107, %103 ]
   %29 = phi ptr [ %18, %22 ], [ %106, %103 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %29, i64 %27, i1 false)
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = shl i64 %33, 12
   %35 = add i64 %31, -1
@@ -248,7 +248,7 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %26
-  %41 = getelementptr inbounds i8, ptr %28, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %8
   store i64 %43, ptr %41, align 8
@@ -262,7 +262,7 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %28, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = or i64 %51, %8
   store i64 %52, ptr %50, align 8
@@ -272,11 +272,11 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   %55 = load i64, ptr %23, align 8
   %56 = getelementptr i8, ptr %28, i64 %55
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %56, ptr align 1 %29, i64 %55, i1 false)
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 %12, ptr %57, align 8
   %58 = sub nuw i64 %36, %6
   %59 = lshr i64 %58, 12
-  %60 = getelementptr inbounds i8, ptr %56, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i64 %59, ptr %60, align 8
   br label %61
 
@@ -291,27 +291,27 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
 67:                                               ; preds = %61
   %68 = sub i64 %4, %62
   %69 = lshr i64 %68, 12
-  %70 = getelementptr inbounds i8, ptr %63, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i64 %69, ptr %70, align 8
   %71 = load i64, ptr %23, align 8
   %72 = getelementptr i8, ptr %63, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %29, i64 %71, i1 false)
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i64, ptr %73, align 8
   %75 = or i64 %74, %8
   store i64 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %72, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 %4, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %72, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i64 %25, ptr %77, align 8
   %78 = load i64, ptr %23, align 8
   %79 = getelementptr i8, ptr %72, i64 %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 1 %29, i64 %78, i1 false)
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 %12, ptr %80, align 8
   %81 = sub nuw i64 %36, %6
   %82 = lshr i64 %81, 12
-  %83 = getelementptr inbounds i8, ptr %79, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 24
   store i64 %82, ptr %83, align 8
   br label %84
 
@@ -322,23 +322,23 @@ define dso_local void @efi_memmap_insert(ptr nocapture noundef readonly %0, ptr 
   br i1 %87, label %103, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %85, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = sub i64 %4, %90
   %92 = lshr i64 %91, 12
-  %93 = getelementptr inbounds i8, ptr %85, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store i64 %92, ptr %93, align 8
   %94 = load i64, ptr %23, align 8
   %95 = getelementptr i8, ptr %85, i64 %94
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %29, i64 %94, i1 false)
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %4, ptr %96, align 8
   %reass.sub5 = sub nuw i64 %36, %4
   %97 = add nuw i64 %reass.sub5, 1
   %98 = lshr i64 %97, 12
-  %99 = getelementptr inbounds i8, ptr %95, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store i64 %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %95, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %101 = load i64, ptr %100, align 8
   %102 = or i64 %101, %8
   store i64 %102, ptr %100, align 8

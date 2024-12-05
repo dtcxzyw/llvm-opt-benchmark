@@ -37,17 +37,17 @@ $_ZTIN3net13QuicDecrypterE = comdat any
 define dso_local void @_ZN3net17AeadBaseDecrypterC2EPK11evp_aead_stmmm(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 41)) %this, ptr noundef %aead_alg, i64 noundef %key_size, i64 noundef %auth_tag_size, i64 noundef %nonce_prefix_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17AeadBaseDecrypterE, i64 16), ptr %this, align 8
-  %aead_alg_ = getelementptr inbounds i8, ptr %this, i64 8
+  %aead_alg_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %aead_alg, ptr %aead_alg_, align 8
-  %key_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %key_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %key_size, ptr %key_size_, align 8
-  %auth_tag_size_ = getelementptr inbounds i8, ptr %this, i64 24
+  %auth_tag_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %auth_tag_size, ptr %auth_tag_size_, align 8
-  %nonce_prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %nonce_prefix_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %nonce_prefix_size, ptr %nonce_prefix_size_, align 8
-  %have_preliminary_key_ = getelementptr inbounds i8, ptr %this, i64 40
+  %have_preliminary_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %have_preliminary_key_, align 8
-  %ctx_ = getelementptr inbounds i8, ptr %this, i64 80
+  %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN3net16ScopedEVPAEADCtxC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ctx_)
   ret void
 }
@@ -66,7 +66,7 @@ declare void @_ZN3net16ScopedEVPAEADCtxD1Ev(ptr noundef nonnull align 8 derefere
 define dso_local void @_ZN3net17AeadBaseDecrypterD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17AeadBaseDecrypterE, i64 16), ptr %this, align 8
-  %ctx_ = getelementptr inbounds i8, ptr %this, i64 80
+  %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN3net16ScopedEVPAEADCtxD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ctx_) #7
   ret void
 }
@@ -86,27 +86,27 @@ define dso_local noundef zeroext i1 @_ZN3net17AeadBaseDecrypter6SetKeyEN4base16B
 if.end:
   %key = alloca %"class.base::BasicStringPiece", align 8
   store ptr %key.coerce0, ptr %key, align 8
-  %0 = getelementptr inbounds i8, ptr %key, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %key, i64 8
   store i64 %key.coerce1, ptr %0, align 8
   %call4 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
-  %key_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %key_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %key_size_, align 8
   %cmp.not = icmp eq i64 %call4, %1
   br i1 %cmp.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %key_ = getelementptr inbounds i8, ptr %this, i64 41
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 41
   %call7 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %key_, ptr align 1 %call7, i64 %call8, i1 false)
-  %ctx_ = getelementptr inbounds i8, ptr %this, i64 80
+  %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call9 = call noundef ptr @_ZN3net16ScopedEVPAEADCtx3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ctx_)
   call void @EVP_AEAD_CTX_cleanup(ptr noundef %call9)
   %call11 = call noundef ptr @_ZN3net16ScopedEVPAEADCtx3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ctx_)
-  %aead_alg_ = getelementptr inbounds i8, ptr %this, i64 8
+  %aead_alg_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %aead_alg_, align 8
   %3 = load i64, ptr %key_size_, align 8
-  %auth_tag_size_ = getelementptr inbounds i8, ptr %this, i64 24
+  %auth_tag_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i64, ptr %auth_tag_size_, align 8
   %call15 = call i32 @EVP_AEAD_CTX_init(ptr noundef %call11, ptr noundef %2, ptr noundef nonnull %key_, i64 noundef %3, i64 noundef %4, ptr noundef null)
   %tobool.not = icmp eq i32 %call15, 0
@@ -140,16 +140,16 @@ define dso_local noundef zeroext i1 @_ZN3net17AeadBaseDecrypter14SetNoncePrefixE
 if.end:
   %nonce_prefix = alloca %"class.base::BasicStringPiece", align 8
   store ptr %nonce_prefix.coerce0, ptr %nonce_prefix, align 8
-  %0 = getelementptr inbounds i8, ptr %nonce_prefix, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %nonce_prefix, i64 8
   store i64 %nonce_prefix.coerce1, ptr %0, align 8
   %call4 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce_prefix)
-  %nonce_prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %nonce_prefix_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %nonce_prefix_size_, align 8
   %cmp.not = icmp eq i64 %call4, %1
   br i1 %cmp.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %nonce_prefix_ = getelementptr inbounds i8, ptr %this, i64 73
+  %nonce_prefix_ = getelementptr inbounds nuw i8, ptr %this, i64 73
   %call7 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce_prefix)
   %call8 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce_prefix)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %nonce_prefix_, ptr align 1 %call7, i64 %call8, i1 false)
@@ -163,10 +163,10 @@ return:                                           ; preds = %if.end, %if.end6
 define dso_local noundef zeroext i1 @_ZN3net17AeadBaseDecrypter17SetPreliminaryKeyEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr %key.coerce0, i64 %key.coerce1) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr %key.coerce0, i64 %key.coerce1)
-  %have_preliminary_key_ = getelementptr inbounds i8, ptr %this, i64 40
+  %have_preliminary_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 1, ptr %have_preliminary_key_, align 8
   ret i1 true
 }
@@ -180,7 +180,7 @@ entry:
   %agg.tmp2 = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp8 = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp11 = alloca %"class.base::BasicStringPiece", align 8
-  %have_preliminary_key_ = getelementptr inbounds i8, ptr %this, i64 40
+  %have_preliminary_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %have_preliminary_key_, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %return
@@ -188,15 +188,15 @@ entry:
 if.end:                                           ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nonce_prefix) #7
-  %key_ = getelementptr inbounds i8, ptr %this, i64 41
-  %key_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 41
+  %key_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %key_size_, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull %key_, i64 noundef %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %nonce_prefix_ = getelementptr inbounds i8, ptr %this, i64 73
-  %nonce_prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %nonce_prefix_ = getelementptr inbounds nuw i8, ptr %this, i64 73
+  %nonce_prefix_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i64, ptr %nonce_prefix_size_, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull %nonce_prefix_, i64 noundef %2)
           to label %invoke.cont4 unwind label %lpad
@@ -205,10 +205,10 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %3 = load i64, ptr %key_size_, align 8
   %4 = load i64, ptr %nonce_prefix_size_, align 8
   %5 = load ptr, ptr %agg.tmp, align 8
-  %6 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %agg.tmp2, align 8
-  %9 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
   %10 = load i64, ptr %9, align 8
   invoke void @_ZN3net13QuicDecrypter23DiversifyPreliminaryKeyEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_RKSt5arrayIcLm32EEmmPS8_SE_(ptr %5, i64 %7, ptr %8, i64 %10, ptr noundef nonnull align 1 %nonce, i64 noundef %3, i64 noundef %4, ptr noundef nonnull %key, ptr noundef nonnull %nonce_prefix)
           to label %invoke.cont7 unwind label %lpad
@@ -219,10 +219,10 @@ invoke.cont7:                                     ; preds = %invoke.cont4
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %11 = load ptr, ptr %agg.tmp8, align 8
-  %12 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
   %13 = load i64, ptr %12, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   %call = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr %11, i64 %13)
           to label %invoke.cont10 unwind label %lpad
@@ -236,10 +236,10 @@ lor.lhs.false:                                    ; preds = %invoke.cont10
 
 invoke.cont12:                                    ; preds = %lor.lhs.false
   %15 = load ptr, ptr %agg.tmp11, align 8
-  %16 = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
   %17 = load i64, ptr %16, align 8
   %vtable13 = load ptr, ptr %this, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 24
   %18 = load ptr, ptr %vfn14, align 8
   %call16 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr %15, i64 %17)
           to label %invoke.cont15 unwind label %lpad
@@ -288,16 +288,16 @@ entry:
   %ref.tmp4 = alloca %"class.logging::LogMessage", align 8
   %nonce = alloca [12 x i8], align 1
   store ptr %associated_data.coerce0, ptr %associated_data, align 8
-  %0 = getelementptr inbounds i8, ptr %associated_data, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %associated_data, i64 8
   store i64 %associated_data.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %ciphertext)
-  %auth_tag_size_ = getelementptr inbounds i8, ptr %this, i64 24
+  %auth_tag_size_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %auth_tag_size_, align 8
   %cmp = icmp ult i64 %call, %1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %have_preliminary_key_ = getelementptr inbounds i8, ptr %this, i64 40
+  %have_preliminary_key_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load i8, ptr %have_preliminary_key_, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then2, label %if.end12
@@ -308,7 +308,7 @@ if.then2:                                         ; preds = %if.end
 
 cond.false:                                       ; preds = %if.then2
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 130, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
@@ -323,16 +323,16 @@ lpad:                                             ; preds = %cond.false
   resume { ptr, i32 } %3
 
 if.end12:                                         ; preds = %if.end
-  %nonce_prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %nonce_prefix_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load i64, ptr %nonce_prefix_size_, align 8
   %add = add i64 %4, 8
-  %nonce_prefix_ = getelementptr inbounds i8, ptr %this, i64 73
+  %nonce_prefix_ = getelementptr inbounds nuw i8, ptr %this, i64 73
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %nonce, ptr nonnull align 1 %nonce_prefix_, i64 %4, i1 false)
   %call15 = call noundef i64 @_ZN3net9QuicUtils25PackPathIdAndPacketNumberEhm(i8 noundef zeroext %path_id, i64 noundef %packet_number)
   %5 = load i64, ptr %nonce_prefix_size_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 %5
   store i64 %call15, ptr %add.ptr, align 1
-  %ctx_ = getelementptr inbounds i8, ptr %this, i64 80
+  %ctx_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call18 = call noundef ptr @_ZN3net16ScopedEVPAEADCtx3getEv(ptr noundef nonnull align 8 dereferenceable(16) %ctx_)
   %call20 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %ciphertext)
   %call21 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %ciphertext)
@@ -368,13 +368,13 @@ declare i32 @EVP_AEAD_CTX_open(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 define dso_local { ptr, i64 } @_ZNK3net17AeadBaseDecrypter6GetKeyB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
-  %key_ = getelementptr inbounds i8, ptr %this, i64 41
-  %key_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 41
+  %key_size_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %key_size_, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull %key_, i64 noundef %0)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -384,7 +384,7 @@ entry:
 define dso_local { ptr, i64 } @_ZNK3net17AeadBaseDecrypter14GetNoncePrefixB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"class.base::BasicStringPiece", align 8
-  %nonce_prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
+  %nonce_prefix_size_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %nonce_prefix_size_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -394,14 +394,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %nonce_prefix_ = getelementptr inbounds i8, ptr %this, i64 73
+  %nonce_prefix_ = getelementptr inbounds nuw i8, ptr %this, i64 73
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull %nonce_prefix_, i64 noundef %0)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert

@@ -45,16 +45,16 @@ define i32 @cli_parsetiff(ptr noundef %0) local_unnamed_addr #0 {
   br label %fmap_readn.exit.thread
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load i64, ptr %11, align 8
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %fmap_readn.exit.thread, label %13
 
 13:                                               ; preds = %8
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %12, i64 4)
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %10, i64 noundef range(i64 0, 4294967296) 0, i64 noundef range(i64 0, 13) %spec.select.i, i32 noundef 0) #5
   %.not26.i = icmp eq ptr %16, null
@@ -110,12 +110,12 @@ fmap_readn.exit85.thread:                         ; preds = %22, %19, %fmap_read
   br i1 %.not61, label %30, label %.preheader
 
 .preheader:                                       ; preds = %27
-  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
-  %.2..2..2..sroa_idx202 = getelementptr inbounds i8, ptr %5, i64 2
-  %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  %.4..4..4..sroa_idx203 = getelementptr inbounds i8, ptr %5, i64 4
-  %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.8..8..8..sroa_idx204 = getelementptr inbounds i8, ptr %5, i64 8
+  %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.2..2..2..sroa_idx202 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.4..4..4..sroa_idx203 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..sroa_idx204 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %32
 
 30:                                               ; preds = %27

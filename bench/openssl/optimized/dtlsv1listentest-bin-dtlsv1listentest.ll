@@ -76,7 +76,7 @@ lor.lhs.false9:                                   ; preds = %if.end
 if.end15:                                         ; preds = %lor.lhs.false9
   tail call void @SSL_set0_wbio(ptr noundef %call6, ptr noundef %call11) #4
   %0 = load ptr, ptr %arrayidx, align 16
-  %inlen = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %inlen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %inlen, align 8
   %call16 = tail call ptr @BIO_new_mem_buf(ptr noundef %0, i32 noundef %1) #4
   %call17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @.str.6, ptr noundef %call16) #4
@@ -93,7 +93,7 @@ if.end20:                                         ; preds = %if.end15
 
 if.end26:                                         ; preds = %if.end20
   %call27 = call i64 @BIO_ctrl(ptr noundef %call11, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %data) #4
-  %outtype = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %outtype = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %2 = load i32, ptr %outtype, align 4
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then28, label %if.else
@@ -176,7 +176,7 @@ for.body:                                         ; preds = %entry, %for.body
   %conv = trunc nuw nsw i32 %i.05 to i8
   store i8 %conv, ptr %cookie.addr.04, align 1
   %inc = add nuw nsw i32 %i.05, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %cookie.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cookie.addr.04, i64 1
   %exitcond.not = icmp eq i32 %inc, 20
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -203,7 +203,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.05, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %cookie.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cookie.addr.04, i64 1
   %exitcond.not = icmp eq i32 %inc, 20
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 

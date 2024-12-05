@@ -15,13 +15,13 @@ define hidden void @pm_constant_id_list_init(ptr nocapture noundef writeonly ini
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp ult i64 %3, %5
   br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %14
 
@@ -30,7 +30,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_append(ptr nocapture nound
   %8 = shl i64 %5, 1
   %spec.select = select i1 %7, i64 8, i64 %8
   store i64 %spec.select, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = shl i64 %spec.select, 2
   %12 = tail call ptr @realloc(ptr noundef %10, i64 noundef %11) #13
@@ -66,7 +66,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr nocapture nou
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -87,7 +87,7 @@ define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden range(i64 24, 21) i64 @pm_constant_id_list_memsize(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = shl i64 %3, 2
   %5 = add i64 %4, 24
@@ -96,7 +96,7 @@ define hidden range(i64 24, 21) i64 @pm_constant_id_list_memsize(ptr nocapture n
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden void @pm_constant_id_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -147,11 +147,11 @@ next_power_of_two.exit:                           ; preds = %4, %6
   store ptr %20, ptr %0, align 8
   %23 = shl nuw nsw i64 %19, 3
   %24 = getelementptr i8, ptr %20, i64 %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0.i, ptr %27, align 4
   br label %28
 
@@ -165,7 +165,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden ptr @pm_constant_pool_id_to_constant(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = add i32 %1, -1
   %6 = zext i32 %5 to i64
@@ -175,7 +175,7 @@ define hidden ptr @pm_constant_pool_id_to_constant(ptr nocapture noundef readonl
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1
   %.not.i = icmp eq i64 %2, 0
@@ -205,7 +205,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pm_constant_pool_hash.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -249,9 +249,9 @@ define hidden i32 @pm_constant_pool_insert_shared(ptr nocapture noundef %0, ptr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @pm_constant_pool_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #9 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = lshr i32 %8, 2
   %10 = mul nuw i32 %9, 3
@@ -294,7 +294,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr nocapture noundef %0, pt
   br i1 %.not.i, label %38, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %28 = load i32, ptr %27, align 4
   br label %29
 
@@ -321,7 +321,7 @@ define internal fastcc i32 @pm_constant_pool_insert(ptr nocapture noundef %0, pt
   br i1 %exitcond.not.i, label %pm_constant_pool_resize.exit, label %22, !llvm.loop !12
 
 pm_constant_pool_resize.exit:                     ; preds = %38, %19
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = zext i32 %6 to i64
   %42 = shl nuw nsw i64 %41, 4
@@ -361,7 +361,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i45, %43
   br i1 %.not4361, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pm_constant_pool_hash.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   br label %57
 
@@ -433,14 +433,14 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i45, %43
   %93 = shl nuw i32 %3, 30
   %94 = or disjoint i32 %92, %93
   store i32 %94, ptr %89, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %.07.lcssa.i, ptr %.sroa.5.0..sroa_idx, align 4
-  %95 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = zext i32 %90 to i64
   %98 = getelementptr %struct.pm_constant_t, ptr %96, i64 %97
   store ptr %1, ptr %98, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   br label %pm_constant_pool_resize.exit.thread
 
@@ -463,13 +463,13 @@ define hidden i32 @pm_constant_pool_insert_constant(ptr nocapture noundef %0, pt
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_constant_pool_free(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not12 = icmp eq i32 %3, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %18

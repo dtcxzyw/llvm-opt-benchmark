@@ -91,7 +91,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10GridSample7forwardERKSt
   %5 = alloca %"class.ncnn::Mat", align 8
   %6 = alloca %"class.ncnn::Mat", align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %11 = load i32, ptr %10, align 4
@@ -114,11 +114,11 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10GridSample7forwardERKSt
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  %26 = getelementptr inbounds i8, ptr %7, i64 120
-  %27 = getelementptr inbounds i8, ptr %7, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %.in = select i1 %25, ptr %26, ptr %27
   %28 = load i32, ptr %.in, align 4
-  %29 = getelementptr inbounds i8, ptr %7, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %.in2589 = select i1 %25, ptr %29, ptr %26
   %30 = load i32, ptr %.in2589, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -186,8 +186,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10GridSample7forwardERKSt
   %69 = load i64, ptr %34, align 8
   %70 = mul i64 %69, %56
   %71 = getelementptr inbounds i8, ptr %53, i64 %70
-  %72 = getelementptr inbounds i8, ptr %7, i64 136
-  %73 = getelementptr inbounds i8, ptr %7, i64 88
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %74 = icmp sgt i32 %28, 0
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %76 = add nsw i32 %11, -1
@@ -222,7 +222,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn10GridSample7forwardERKSt
   %.016523372 = phi ptr [ %111, %_ZN4ncnnL22grid_sample_unormalizeEifi.exit2641 ], [ %90, %.lr.ph.preheader ]
   %.016533371 = phi i32 [ %114, %_ZN4ncnnL22grid_sample_unormalizeEifi.exit2641 ], [ 0, %.lr.ph.preheader ]
   %91 = load float, ptr %.016523372, align 4
-  %92 = getelementptr inbounds i8, ptr %.016523372, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.016523372, i64 4
   %93 = load float, ptr %92, align 4
   %94 = load i32, ptr %75, align 8
   %.not.i = icmp eq i32 %94, 0
@@ -251,9 +251,9 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit2641:   ; preds = %95, %102
   %110 = phi fast float [ %101, %95 ], [ %108, %102 ]
   store float %109, ptr %.116483374, align 4
   store float %110, ptr %.116503373, align 4
-  %111 = getelementptr inbounds i8, ptr %.016523372, i64 8
-  %112 = getelementptr inbounds i8, ptr %.116483374, i64 4
-  %113 = getelementptr inbounds i8, ptr %.116503373, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %.016523372, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.116483374, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %.116503373, i64 4
   %114 = add nuw nsw i32 %.016533371, 1
   %exitcond3648.not = icmp eq i32 %114, %28
   br i1 %exitcond3648.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -283,9 +283,9 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit2641:   ; preds = %95, %102
 
 .preheader3356.us.preheader:                      ; preds = %.preheader3356.lr.ph
   %126 = load ptr, ptr %8, align 8
-  %127 = getelementptr inbounds i8, ptr %7, i64 88
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %128 = load i64, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %7, i64 136
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %130 = load i64, ptr %129, align 8
   %131 = mul i64 %128, %130
   %132 = getelementptr inbounds i8, ptr %126, i64 %131
@@ -337,10 +337,10 @@ _ZN4ncnnL22grid_sample_unormalizeEifi.exit2645.us: ; preds = %147, %140
   %155 = phi fast float [ %146, %140 ], [ %153, %147 ]
   store float %154, ptr %.116593360.us, align 4
   store float %155, ptr %.116613359.us, align 4
-  %156 = getelementptr inbounds i8, ptr %.116553362.us, i64 4
-  %157 = getelementptr inbounds i8, ptr %.116573361.us, i64 4
-  %158 = getelementptr inbounds i8, ptr %.116593360.us, i64 4
-  %159 = getelementptr inbounds i8, ptr %.116613359.us, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %.116553362.us, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.116573361.us, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %.116593360.us, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.116613359.us, i64 4
   %160 = add nuw nsw i32 %.016633358.us, 1
   %exitcond3646.not = icmp eq i32 %160, %28
   br i1 %exitcond3646.not, label %._crit_edge.us, label %136, !llvm.loop !7
@@ -610,9 +610,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit2671.us: ; preds = %291, %_ZN4ncnn
   %311 = fmul fast float %310, %302
   %312 = fadd fast float %311, %306
   store float %312, ptr %.116663416.us, align 4
-  %313 = getelementptr inbounds i8, ptr %.116663416.us, i64 4
-  %314 = getelementptr inbounds i8, ptr %.116683415.us, i64 4
-  %315 = getelementptr inbounds i8, ptr %.116703414.us, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %.116663416.us, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %.116683415.us, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %.116703414.us, i64 4
   %316 = add nuw nsw i32 %.016723413.us, 1
   %exitcond3668.not = icmp eq i32 %316, %28
   br i1 %exitcond3668.not, label %._crit_edge3418.us, label %219, !llvm.loop !9
@@ -757,9 +757,9 @@ _ZN4ncnnL13compute_coordEfiii.exit2685.us:        ; preds = %_ZN4ncnnL13compute_
 _ZN4ncnnL17get_value_boundedERKNS_3MatEii.exit2691.us: ; preds = %383, %_ZN4ncnnL13compute_coordEfiii.exit2685.us
   %390 = phi fast float [ %389, %383 ], [ 0.000000e+00, %_ZN4ncnnL13compute_coordEfiii.exit2685.us ]
   store float %390, ptr %.116753400.us, align 4
-  %391 = getelementptr inbounds i8, ptr %.116753400.us, i64 4
-  %392 = getelementptr inbounds i8, ptr %.116773399.us, i64 4
-  %393 = getelementptr inbounds i8, ptr %.116793398.us, i64 4
+  %391 = getelementptr inbounds nuw i8, ptr %.116753400.us, i64 4
+  %392 = getelementptr inbounds nuw i8, ptr %.116773399.us, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %.116793398.us, i64 4
   %394 = add nuw nsw i32 %.016813397.us, 1
   %exitcond3661.not = icmp eq i32 %394, %28
   br i1 %exitcond3661.not, label %._crit_edge3402.us, label %340, !llvm.loop !12
@@ -2282,9 +2282,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit2961.us: ; preds = %1203, %_ZN4n
   %1287 = fmul fast float %1253, %1281
   %1288 = fsub fast float %1286, %1287
   store float %1288, ptr %.116893381.us, align 4
-  %1289 = getelementptr inbounds i8, ptr %.116893381.us, i64 4
-  %1290 = getelementptr inbounds i8, ptr %.116873382.us, i64 4
-  %1291 = getelementptr inbounds i8, ptr %.116853383.us, i64 4
+  %1289 = getelementptr inbounds nuw i8, ptr %.116893381.us, i64 4
+  %1290 = getelementptr inbounds nuw i8, ptr %.116873382.us, i64 4
+  %1291 = getelementptr inbounds nuw i8, ptr %.116853383.us, i64 4
   %1292 = add nuw nsw i32 %.016823384.us, 1
   %exitcond3654.not = icmp eq i32 %1292, %28
   br i1 %exitcond3654.not, label %._crit_edge3386.us, label %424, !llvm.loop !15
@@ -2318,7 +2318,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit2961.us: ; preds = %1203, %_ZN4n
 
 1301:                                             ; preds = %1298
   %1302 = load ptr, ptr %1299, align 8
-  %1303 = getelementptr inbounds i8, ptr %1302, i64 24
+  %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 24
   %1304 = load ptr, ptr %1303, align 8
   invoke void %1304(ptr noundef nonnull align 8 dereferenceable(8) %1299, ptr noundef %1300)
           to label %1307 unwind label %1308
@@ -2354,7 +2354,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit2961.us: ; preds = %1203, %_ZN4n
 
 1317:                                             ; preds = %1314
   %1318 = load ptr, ptr %1315, align 8
-  %1319 = getelementptr inbounds i8, ptr %1318, i64 24
+  %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 24
   %1320 = load ptr, ptr %1319, align 8
   invoke void %1320(ptr noundef nonnull align 8 dereferenceable(8) %1315, ptr noundef %1316)
           to label %1919 unwind label %1322
@@ -2374,14 +2374,14 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit2961.us: ; preds = %1203, %_ZN4n
   %1326 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %1327 = load i32, ptr %1326, align 4
   %1328 = icmp eq i32 %1327, 0
-  %1329 = getelementptr inbounds i8, ptr %7, i64 120
-  %1330 = getelementptr inbounds i8, ptr %7, i64 116
+  %1329 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %1330 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %.in2614 = select i1 %1328, ptr %1329, ptr %1330
   %1331 = load i32, ptr %.in2614, align 4
-  %1332 = getelementptr inbounds i8, ptr %7, i64 124
+  %1332 = getelementptr inbounds nuw i8, ptr %7, i64 124
   %.in2615 = select i1 %1328, ptr %1332, ptr %1329
   %1333 = load i32, ptr %.in2615, align 4
-  %1334 = getelementptr inbounds i8, ptr %7, i64 128
+  %1334 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %.in2616 = select i1 %1328, ptr %1334, ptr %1332
   %1335 = load i32, ptr %.in2616, align 4
   %1336 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2452,8 +2452,8 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit2961.us: ; preds = %1203, %_ZN4n
   %1377 = getelementptr inbounds i8, ptr %1358, i64 %1376
   %1378 = mul i64 %1375, %1361
   %1379 = getelementptr inbounds i8, ptr %1358, i64 %1378
-  %1380 = getelementptr inbounds i8, ptr %7, i64 136
-  %1381 = getelementptr inbounds i8, ptr %7, i64 88
+  %1380 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %1381 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %1382 = icmp slt i32 %1333, 1
   %1383 = icmp slt i32 %1331, 1
   %1384 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -2505,9 +2505,9 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiiii.exit2961.us: ; preds = %1203, %_ZN4n
   %.216323475.us = phi ptr [ %.116313486.us, %.preheader3343.us ], [ %1492, %_ZN4ncnnL13compute_coordEfiii.exit2989.us ]
   %.216353474.us = phi ptr [ %.116343485.us, %.preheader3343.us ], [ %1491, %_ZN4ncnnL13compute_coordEfiii.exit2989.us ]
   %1406 = load float, ptr %.116253477.us, align 4
-  %1407 = getelementptr inbounds i8, ptr %.116253477.us, i64 4
+  %1407 = getelementptr inbounds nuw i8, ptr %.116253477.us, i64 4
   %1408 = load float, ptr %1407, align 4
-  %1409 = getelementptr inbounds i8, ptr %.116253477.us, i64 8
+  %1409 = getelementptr inbounds nuw i8, ptr %.116253477.us, i64 8
   %1410 = load float, ptr %1409, align 4
   %1411 = load i32, ptr %1384, align 8
   %.not.i2963.us = icmp eq i32 %1411, 0
@@ -2680,10 +2680,10 @@ _ZN4ncnnL13compute_coordEfiii.exit2989.us:        ; preds = %1487, %1478, %1473,
   store float %.0.i29663294.us, ptr %.216353474.us, align 4
   store float %.0.i29753300.us, ptr %.216323475.us, align 4
   store float %.0.i2984.us, ptr %.216293476.us, align 4
-  %1490 = getelementptr inbounds i8, ptr %.116253477.us, i64 12
-  %1491 = getelementptr inbounds i8, ptr %.216353474.us, i64 4
-  %1492 = getelementptr inbounds i8, ptr %.216323475.us, i64 4
-  %1493 = getelementptr inbounds i8, ptr %.216293476.us, i64 4
+  %1490 = getelementptr inbounds nuw i8, ptr %.116253477.us, i64 12
+  %1491 = getelementptr inbounds nuw i8, ptr %.216353474.us, i64 4
+  %1492 = getelementptr inbounds nuw i8, ptr %.216323475.us, i64 4
+  %1493 = getelementptr inbounds nuw i8, ptr %.216293476.us, i64 4
   %1494 = add nuw nsw i32 %.016223478.us, 1
   %exitcond3626.not = icmp eq i32 %1494, %1331
   br i1 %exitcond3626.not, label %._crit_edge3480.us, label %1405, !llvm.loop !18
@@ -2726,9 +2726,9 @@ _ZN4ncnnL13compute_coordEfiii.exit2989.us:        ; preds = %1487, %1478, %1473,
 
 .preheader3345.us.us.preheader:                   ; preds = %.preheader3345.lr.ph
   %1513 = load ptr, ptr %8, align 8
-  %1514 = getelementptr inbounds i8, ptr %7, i64 88
+  %1514 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %1515 = load i64, ptr %1514, align 8
-  %1516 = getelementptr inbounds i8, ptr %7, i64 136
+  %1516 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %1517 = load i64, ptr %1516, align 8
   %1518 = mul i64 %1515, %1517
   %1519 = getelementptr inbounds i8, ptr %1513, i64 %1518
@@ -2945,12 +2945,12 @@ _ZN4ncnnL13compute_coordEfiii.exit3016.us.us.us:  ; preds = %1609, %1600, %1595,
   store float %.0.i29933306.us.us.us, ptr %.216123432.us.us.us, align 4
   store float %.0.i30023312.us.us.us, ptr %.216093433.us.us.us, align 4
   store float %.0.i3011.us.us.us, ptr %.216063434.us.us.us, align 4
-  %1612 = getelementptr inbounds i8, ptr %.216213429.us.us.us, i64 4
-  %1613 = getelementptr inbounds i8, ptr %.216183430.us.us.us, i64 4
-  %1614 = getelementptr inbounds i8, ptr %.216153431.us.us.us, i64 4
-  %1615 = getelementptr inbounds i8, ptr %.216123432.us.us.us, i64 4
-  %1616 = getelementptr inbounds i8, ptr %.216093433.us.us.us, i64 4
-  %1617 = getelementptr inbounds i8, ptr %.216063434.us.us.us, i64 4
+  %1612 = getelementptr inbounds nuw i8, ptr %.216213429.us.us.us, i64 4
+  %1613 = getelementptr inbounds nuw i8, ptr %.216183430.us.us.us, i64 4
+  %1614 = getelementptr inbounds nuw i8, ptr %.216153431.us.us.us, i64 4
+  %1615 = getelementptr inbounds nuw i8, ptr %.216123432.us.us.us, i64 4
+  %1616 = getelementptr inbounds nuw i8, ptr %.216093433.us.us.us, i64 4
+  %1617 = getelementptr inbounds nuw i8, ptr %.216063434.us.us.us, i64 4
   %1618 = add nuw nsw i32 %.016013435.us.us.us, 1
   %exitcond.not = icmp eq i32 %1618, %1331
   br i1 %exitcond.not, label %._crit_edge3437.us.us.us, label %1529, !llvm.loop !21
@@ -3281,10 +3281,10 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit3052.us.us.us: ; preds = %1771, %
   %1809 = fmul fast float %1808, %1787
   %1810 = fadd fast float %1809, %1804
   store float %1810, ptr %.215993539.us.us.us, align 4
-  %1811 = getelementptr inbounds i8, ptr %.215993539.us.us.us, i64 4
-  %1812 = getelementptr inbounds i8, ptr %.215963540.us.us.us, i64 4
-  %1813 = getelementptr inbounds i8, ptr %.215933541.us.us.us, i64 4
-  %1814 = getelementptr inbounds i8, ptr %.215903542.us.us.us, i64 4
+  %1811 = getelementptr inbounds nuw i8, ptr %.215993539.us.us.us, i64 4
+  %1812 = getelementptr inbounds nuw i8, ptr %.215963540.us.us.us, i64 4
+  %1813 = getelementptr inbounds nuw i8, ptr %.215933541.us.us.us, i64 4
+  %1814 = getelementptr inbounds nuw i8, ptr %.215903542.us.us.us, i64 4
   %1815 = add nuw nsw i32 %.015853543.us.us.us, 1
   %exitcond3638.not = icmp eq i32 %1815, %1331
   br i1 %exitcond3638.not, label %._crit_edge3545.us.us.us, label %1663, !llvm.loop !24
@@ -3401,10 +3401,10 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit3052.us.us.us: ; preds = %1771, %
 _ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit3057.us.us.us: ; preds = %1864, %1846
   %1874 = phi fast float [ %1873, %1864 ], [ 0.000000e+00, %1846 ]
   store float %1874, ptr %.215833502.us.us.us, align 4
-  %1875 = getelementptr inbounds i8, ptr %.215833502.us.us.us, i64 4
-  %1876 = getelementptr inbounds i8, ptr %.215803503.us.us.us, i64 4
-  %1877 = getelementptr inbounds i8, ptr %.215773504.us.us.us, i64 4
-  %1878 = getelementptr inbounds i8, ptr %.23505.us.us.us, i64 4
+  %1875 = getelementptr inbounds nuw i8, ptr %.215833502.us.us.us, i64 4
+  %1876 = getelementptr inbounds nuw i8, ptr %.215803503.us.us.us, i64 4
+  %1877 = getelementptr inbounds nuw i8, ptr %.215773504.us.us.us, i64 4
+  %1878 = getelementptr inbounds nuw i8, ptr %.23505.us.us.us, i64 4
   %1879 = add nuw nsw i32 %.03506.us.us.us, 1
   %exitcond3630.not = icmp eq i32 %1879, %1331
   br i1 %exitcond3630.not, label %._crit_edge3508.us.us.us, label %1846, !llvm.loop !28
@@ -3451,7 +3451,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit3057.us.us.us: ; preds = %1864, %
 
 1893:                                             ; preds = %1890
   %1894 = load ptr, ptr %1891, align 8
-  %1895 = getelementptr inbounds i8, ptr %1894, i64 24
+  %1895 = getelementptr inbounds nuw i8, ptr %1894, i64 24
   %1896 = load ptr, ptr %1895, align 8
   invoke void %1896(ptr noundef nonnull align 8 dereferenceable(8) %1891, ptr noundef %1892)
           to label %1899 unwind label %1900
@@ -3487,7 +3487,7 @@ _ZN4ncnnL17get_value_boundedERKNS_3MatEiii.exit3057.us.us.us: ; preds = %1864, %
 
 1909:                                             ; preds = %1906
   %1910 = load ptr, ptr %1907, align 8
-  %1911 = getelementptr inbounds i8, ptr %1910, i64 24
+  %1911 = getelementptr inbounds nuw i8, ptr %1910, i64 24
   %1912 = load ptr, ptr %1911, align 8
   invoke void %1912(ptr noundef nonnull align 8 dereferenceable(8) %1907, ptr noundef %1908)
           to label %1919 unwind label %1914

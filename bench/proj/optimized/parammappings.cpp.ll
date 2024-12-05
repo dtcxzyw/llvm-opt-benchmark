@@ -676,8 +676,8 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef %0
 
 3:                                                ; preds = %1, %2
   %.07.idx8 = phi i64 [ 0, %1 ], [ %.07.add, %2 ]
-  %.07.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.07.idx8
-  %4 = getelementptr inbounds i8, ptr %.07.ptr, i64 8
+  %.07.ptr = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.07.idx8
+  %4 = getelementptr inbounds nuw i8, ptr %.07.ptr, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
@@ -689,17 +689,17 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEi(i32 noundef %0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_15OperationMethodE(ptr noundef nonnull %0) local_unnamed_addr #2 {
-  %2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #15
-  %3 = tail call noundef i32 @_ZNK5osgeo4proj9operation15OperationMethod11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
+  %2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #16
+  %3 = tail call noundef i32 @_ZNK5osgeo4proj9operation15OperationMethod11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #16
   %.not14 = icmp eq i32 %3, 0
   br i1 %.not14, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %1, %7
   %.012.idx15.us = phi i64 [ %.012.add.us, %7 ], [ 0, %1 ]
-  %.012.ptr16.us = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15.us
+  %.012.ptr16.us = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15.us
   %4 = load ptr, ptr %.012.ptr16.us, align 16
-  %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %6 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %4, ptr noundef %5) #16
+  %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  %6 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %4, ptr noundef %5) #17
   br i1 %6, label %.split18.us.loopexit.split.loop.exit, label %7
 
 7:                                                ; preds = %.split.us
@@ -714,20 +714,20 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_15Operatio
 
 .split:                                           ; preds = %1, %8
   %.012.idx15 = phi i64 [ %.012.add, %8 ], [ 0, %1 ]
-  %.012.ptr16 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15
-  %9 = getelementptr inbounds i8, ptr %.012.ptr16, i64 8
+  %.012.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15
+  %9 = getelementptr inbounds nuw i8, ptr %.012.ptr16, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %3
   br i1 %11, label %.split18.us, label %12
 
 12:                                               ; preds = %.split
   %13 = load ptr, ptr %.012.ptr16, align 16
-  %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %15 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %13, ptr noundef %14) #16
+  %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  %15 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %13, ptr noundef %14) #17
   br i1 %15, label %.split18.us, label %8
 
 .split18.us.loopexit.split.loop.exit:             ; preds = %.split.us
-  %.012.ptr16.us.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15.us
+  %.012.ptr16.us.le = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.012.idx15.us
   br label %.split18.us
 
 .split18.us:                                      ; preds = %12, %.split, %8, %7, %.split18.us.loopexit.split.loop.exit
@@ -751,27 +751,27 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %4 unwind label %12
 
 4:                                                ; preds = %1
-  %5 = call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  %5 = call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   br i1 %5, label %_ZN5osgeo4proj9operation10getMappingEi.exit, label %.preheader13
 
 .preheader13:                                     ; preds = %4, %11
   %.010.idx16 = phi i64 [ %.010.add, %11 ], [ 0, %4 ]
-  %.010.ptr17 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.010.idx16
-  %6 = getelementptr inbounds i8, ptr %.010.ptr17, i64 16
+  %.010.ptr17 = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.010.idx16
+  %6 = getelementptr inbounds nuw i8, ptr %.010.ptr17, i64 16
   %7 = load ptr, ptr %6, align 16
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %11, label %8
 
 8:                                                ; preds = %.preheader13
-  %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  %10 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef nonnull %7, ptr noundef %9) #16
+  %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
+  %10 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef nonnull %7, ptr noundef %9) #17
   br i1 %10, label %_ZN5osgeo4proj9operation10getMappingEi.exit, label %11
 
 11:                                               ; preds = %.preheader13, %8
@@ -787,7 +787,7 @@ _ZN5osgeo4proj9operation10getMappingEi.exit:      ; preds = %11, %8, %4
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #17
+  call void @__clang_call_terminate(ptr %14) #18
   unreachable
 }
 
@@ -803,8 +803,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -825,9 +825,9 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef 
 
 2:                                                ; preds = %1, %5
   %.015.idx19 = phi i64 [ 0, %1 ], [ %.015.add, %5 ]
-  %.015.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.015.idx19
+  %.015.ptr = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.015.idx19
   %3 = load ptr, ptr %.015.ptr, align 16
-  %4 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %3, ptr noundef %0) #16
+  %4 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %3, ptr noundef %0) #17
   br i1 %4, label %.loopexit.loopexit25, label %5
 
 5:                                                ; preds = %2
@@ -837,9 +837,9 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef 
 
 .preheader:                                       ; preds = %5, %8
   %.016.idx22 = phi i64 [ %.016.add, %8 ], [ 0, %5 ]
-  %.016.ptr = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.016.idx22
+  %.016.ptr = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.016.idx22
   %6 = load ptr, ptr %.016.ptr, align 16
-  %7 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %6, ptr noundef %0) #16
+  %7 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %6, ptr noundef %0) #17
   br i1 %7, label %.loopexit.loopexit.split.loop.exit, label %8
 
 8:                                                ; preds = %.preheader
@@ -848,11 +848,11 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef 
   br i1 %.not17, label %.loopexit, label %.preheader
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
-  %.016.ptr.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.016.idx22
+  %.016.ptr.le = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL19otherMethodMappingsE, i64 %.016.idx22
   br label %.loopexit
 
 .loopexit.loopexit25:                             ; preds = %2
-  %.015.ptr.le = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.015.idx19
+  %.015.ptr.le = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.015.idx19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit25
@@ -863,22 +863,22 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKc(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5osgeo4proj9operation23getMappingsFromPROJNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
 5:                                                ; preds = %2, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
-  %6 = phi ptr [ null, %2 ], [ %41, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit ]
+  %6 = phi ptr [ null, %2 ], [ %38, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit ]
   %.0.idx18 = phi i64 [ 0, %2 ], [ %.0.add, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit ]
-  %7 = phi ptr [ null, %2 ], [ %42, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit ]
-  %.0.ptr19 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx18
-  %8 = getelementptr inbounds i8, ptr %.0.ptr19, i64 24
+  %7 = phi ptr [ null, %2 ], [ %39, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit ]
+  %.0.ptr19 = getelementptr inbounds nuw i8, ptr @_ZN5osgeo4proj9operationL24projectionMethodMappingsE, i64 %.0.idx18
+  %8 = getelementptr inbounds nuw i8, ptr %.0.ptr19, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9) #16
+  %11 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %9) #17
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
 
@@ -889,7 +889,7 @@ define hidden void @_ZN5osgeo4proj9operation23getMappingsFromPROJNameERKNSt7__cx
 
 15:                                               ; preds = %13
   store ptr %.0.ptr19, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %16, ptr %3, align 8
   br label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
 
@@ -902,7 +902,7 @@ define hidden void @_ZN5osgeo4proj9operation23getMappingsFromPROJNameERKNSt7__cx
 
 22:                                               ; preds = %17
   store ptr %7, ptr %0, align 8
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.476) #18
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.476) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %22
@@ -915,73 +915,69 @@ _ZNKSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE12_M_check_lenEmPK
   %25 = icmp ult i64 %24, %23
   %26 = tail call i64 @llvm.umin.i64(i64 %24, i64 1152921504606846975)
   %27 = select i1 %25, i64 1152921504606846975, i64 %26
-  %.not.i.i.i.i = icmp eq i64 %27, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_M_allocateEm.exit.i.i.i, label %28
+  %.not.i.i.i.i = icmp ne i64 %27, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %28 = shl nuw nsw i64 %27, 3
+  %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #20
+          to label %.noexc12 unwind label %.loopexit
 
-28:                                               ; preds = %_ZNKSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %29 = shl nuw nsw i64 %27, 3
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #19
-          to label %_ZNSt12_Vector_baseIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_M_allocateEm.exit.i.i.i unwind label %.loopexit
+.noexc12:                                         ; preds = %_ZNKSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %30 = getelementptr inbounds i8, ptr %29, i64 %20
+  store ptr %.0.ptr19, ptr %30, align 8
+  %31 = icmp sgt i64 %20, 0
+  br i1 %31, label %32, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
 
-_ZNSt12_Vector_baseIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %28, %_ZNKSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %31 = phi ptr [ null, %_ZNKSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %30, %28 ]
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %23
-  store ptr %.0.ptr19, ptr %32, align 8
-  %33 = icmp sgt i64 %20, 0
-  br i1 %33, label %34, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
-
-34:                                               ; preds = %_ZNSt12_Vector_baseIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %7, i64 %20, i1 false)
+32:                                               ; preds = %.noexc12
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %7, i64 %20, i1 false)
   br label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
 
-_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i: ; preds = %34, %_ZNSt12_Vector_baseIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_M_allocateEm.exit.i.i.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 %20
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i: ; preds = %32, %.noexc12
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not.i17.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %37
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %34
 
-37:                                               ; preds = %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #20
+34:                                               ; preds = %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #21
   br label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
-  store ptr %36, ptr %3, align 8
-  %38 = getelementptr inbounds ptr, ptr %31, i64 %27
-  store ptr %38, ptr %4, align 8
+_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit16.i.i.i
+  store ptr %33, ptr %3, align 8
+  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  store ptr %35, ptr %4, align 8
   br label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
 
-.loopexit:                                        ; preds = %28
+.loopexit:                                        ; preds = %_ZNKSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   store ptr %7, ptr %0, align 8
-  br label %39
+  br label %36
 
 .loopexit.split-lp:                               ; preds = %22
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %36
 
-39:                                               ; preds = %.loopexit.split-lp, %.loopexit
+36:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev.exit, label %40
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev.exit, label %37
 
-40:                                               ; preds = %39
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #20
+37:                                               ; preds = %36
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #21
   br label %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev.exit
 
-_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev.exit: ; preds = %39, %40
+_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EED2Ev.exit: ; preds = %36, %37
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %15, %5, %10
-  %41 = phi ptr [ %36, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %16, %15 ], [ %6, %5 ], [ %6, %10 ]
-  %42 = phi ptr [ %31, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %7, %15 ], [ %7, %5 ], [ %7, %10 ]
+  %38 = phi ptr [ %33, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %16, %15 ], [ %6, %5 ], [ %6, %10 ]
+  %39 = phi ptr [ %29, %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %7, %15 ], [ %7, %5 ], [ %7, %10 ]
   %.0.add = add nuw nsw i64 %.0.idx18, 48
   %.not = icmp eq i64 %.0.add, 4608
-  br i1 %.not, label %43, label %5
+  br i1 %.not, label %40, label %5
 
-43:                                               ; preds = %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
-  store ptr %42, ptr %0, align 8
+40:                                               ; preds = %_ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exit
+  store ptr %39, ptr %0, align 8
   ret void
 }
 
@@ -989,14 +985,14 @@ _ZNSt6vectorIPKN5osgeo4proj9operation13MethodMappingESaIS5_EE9push_backEOS5_.exi
 define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMappingERKN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEE(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %1, align 8
-  %10 = tail call noundef i32 @_ZNK5osgeo4proj9operation18OperationParameter11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #15
+  %10 = tail call noundef i32 @_ZNK5osgeo4proj9operation18OperationParameter11getEPSGCodeEv(ptr noundef nonnull align 8 dereferenceable(56) %9) #16
   %.not = icmp eq i32 %10, 0
   %.pre = load ptr, ptr %6, align 8
   br i1 %.not, label %.loopexit45, label %.preheader44
@@ -1007,7 +1003,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
 
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
   %.not39 = icmp eq ptr %13, null
   br i1 %.not39, label %.loopexit45, label %.lr.ph, !llvm.loop !4
@@ -1015,20 +1011,20 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
 .lr.ph:                                           ; preds = %.preheader44, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader44 ]
   %14 = phi ptr [ %13, %11 ], [ %.pre, %.preheader44 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %10
   br i1 %17, label %.loopexit, label %11
 
 .loopexit45:                                      ; preds = %11, %8
-  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #15
+  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj6common16IdentifiedObject7nameStrB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #16
   %.not4051 = icmp eq ptr %.pre, null
   br i1 %.not4051, label %.loopexit, label %.lr.ph53
 
 19:                                               ; preds = %.lr.ph53
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.next66
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next66
   %22 = load ptr, ptr %21, align 8
   %.not40 = icmp eq ptr %22, null
   br i1 %.not40, label %.preheader, label %.lr.ph53, !llvm.loop !6
@@ -1042,14 +1038,14 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %19 ], [ 0, %.loopexit45 ]
   %23 = phi ptr [ %22, %19 ], [ %.pre, %.loopexit45 ]
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #16
-  %26 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %24, ptr noundef %25) #16
+  %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
+  %26 = tail call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef %24, ptr noundef %25) #17
   br i1 %26, label %.loopexit, label %19
 
 27:                                               ; preds = %35
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.next69
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next69
   %30 = load ptr, ptr %29, align 8
   %.not41 = icmp eq ptr %30, null
   br i1 %.not41, label %.loopexit, label %.lr.ph56, !llvm.loop !7
@@ -1058,7 +1054,7 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %27 ], [ 0, %.preheader ]
   %31 = phi ptr [ %30, %27 ], [ %.pre71, %.preheader ]
   %32 = load ptr, ptr %31, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %33 unwind label %36
 
@@ -1067,8 +1063,8 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
           to label %35 unwind label %38
 
 35:                                               ; preds = %33
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   br i1 %34, label %.loopexit, label %27
 
 36:                                               ; preds = %.lr.ph56
@@ -1079,12 +1075,12 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation10getMappingEPKNS1_13MethodMa
 38:                                               ; preds = %33
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %40
 
 40:                                               ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph53, %35, %27, %.preheader44, %.loopexit45, %.preheader, %2
@@ -1101,7 +1097,7 @@ declare noundef zeroext i1 @_ZN5osgeo4proj9operation23areEquivalentParametersERK
 define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1EPKNS1_13MethodMappingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %.not30 = icmp eq ptr %7, null
@@ -1111,19 +1107,19 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1EPKNS1_13
   %8 = phi ptr [ %24, %.thread ], [ %6, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %2 ]
   %9 = phi ptr [ %26, %.thread ], [ %7, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not24 = icmp eq ptr %11, null
   br i1 %.not24, label %.thread, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %14 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef nonnull %11, ptr noundef %13) #16
+  %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %14 = call noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef nonnull %11, ptr noundef %13) #17
   br i1 %14, label %.thread.thread, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %10, align 8
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %17 unwind label %19
 
@@ -1132,8 +1128,8 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1EPKNS1_13
           to label %.critedge unwind label %21
 
 .critedge:                                        ; preds = %17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   br i1 %18, label %.thread.thread, label %.critedge..thread_crit_edge
 
 .critedge..thread_crit_edge:                      ; preds = %.critedge
@@ -1148,18 +1144,18 @@ define hidden noundef ptr @_ZN5osgeo4proj9operation18getMappingFromWKT1EPKNS1_13
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %23
 
 23:                                               ; preds = %19, %21
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   resume { ptr, i32 } %.pn
 
 .thread:                                          ; preds = %.critedge..thread_crit_edge, %.lr.ph
   %24 = phi ptr [ %.pre, %.critedge..thread_crit_edge ], [ %8, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %.thread.thread, label %.lr.ph, !llvm.loop !8
@@ -1193,6 +1189,9 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #15
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1208,12 +1207,13 @@ attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-mat
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { noreturn }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

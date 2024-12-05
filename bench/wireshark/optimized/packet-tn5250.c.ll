@@ -2669,9 +2669,9 @@ define hidden void @add_tn5250_conversation(ptr noundef %0, i32 noundef %1) loca
 7:                                                ; preds = %2
   %8 = tail call ptr @wmem_file_scope() #5
   %9 = tail call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 16) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %11, ptr %12, align 8
   %13 = load i32, ptr @proto_tn5250, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %3, i32 noundef %13, ptr noundef %9) #5
@@ -2679,7 +2679,7 @@ define hidden void @add_tn5250_conversation(ptr noundef %0, i32 noundef %1) loca
 
 14:                                               ; preds = %7, %2
   %.0 = phi ptr [ %9, %7 ], [ %5, %2 ]
-  %15 = getelementptr inbounds i8, ptr %.0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   store i32 %1, ptr %15, align 4
   ret void
 }
@@ -2749,22 +2749,22 @@ define internal i32 @dissect_tn5250(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not40, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 50
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %15 = load i16, ptr %14, align 2
   %16 = or i16 %15, 4
   store i16 %16, ptr %14, align 2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.838) #5
   %19 = load i32, ptr @proto_tn5250, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %21 = load i32, ptr @ett_tn5250, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #5
-  %23 = getelementptr inbounds i8, ptr %1, i64 284
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %24, %26
   %28 = load ptr, ptr %17, align 8
@@ -2779,76 +2779,76 @@ define internal i32 @dissect_tn5250(ptr noundef %0, ptr noundef %1, ptr noundef 
   %31 = zext i16 %.fr to i32
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   store ptr @hf_tn5250_logical_record_length, ptr %6, align 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 2, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %6, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @hf_tn5250_sna_record_type, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %6, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 2, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr null, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %6, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @hf_tn5250_reserved, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %6, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 76
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 2, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %6, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr null, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %6, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @hf_tn5250_variable_record_length, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %6, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 108
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr null, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %6, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr @hf_tn5250_header_flags, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %6, i64 136
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %53 = load i32, ptr @ett_tn5250_header_flags, align 4
   store i32 %53, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 140
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 1, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %6, i64 144
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr @dissect_tn5250_header.byte, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %6, i64 152
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr @hf_tn5250_reserved, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %6, i64 168
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 172
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 172
   store i32 1, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %6, i64 176
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr null, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %6, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 192
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr @hf_tn5250_operation_code, ptr %62, align 16
-  %63 = getelementptr inbounds i8, ptr %6, i64 200
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 204
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 204
   store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %6, i64 208
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr null, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 216
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 224
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %67, i8 0, i64 32, i1 false)
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #5
   %69 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %22, ptr noundef %0, i32 noundef 0, ptr noundef %6)
@@ -2870,231 +2870,231 @@ dissect_tn5250_header.exit:                       ; preds = %29, %71
 .lr.ph:                                           ; preds = %dissect_tn5250_header.exit
   %76 = and i32 %31, 1
   %.not.i42 = icmp eq i32 %76, 0
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 12
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
-  %80 = getelementptr inbounds i8, ptr %5, i64 24
-  %81 = getelementptr inbounds i8, ptr %5, i64 32
-  %82 = getelementptr inbounds i8, ptr %5, i64 40
-  %83 = getelementptr inbounds i8, ptr %5, i64 44
-  %84 = getelementptr inbounds i8, ptr %5, i64 48
-  %85 = getelementptr inbounds i8, ptr %5, i64 56
-  %86 = getelementptr inbounds i8, ptr %5, i64 64
-  %87 = getelementptr inbounds i8, ptr %5, i64 72
-  %88 = getelementptr inbounds i8, ptr %5, i64 76
-  %89 = getelementptr inbounds i8, ptr %5, i64 80
-  %90 = getelementptr inbounds i8, ptr %5, i64 88
-  %91 = getelementptr inbounds i8, ptr %5, i64 96
-  %92 = getelementptr inbounds i8, ptr %5, i64 104
-  %93 = getelementptr inbounds i8, ptr %5, i64 108
-  %94 = getelementptr inbounds i8, ptr %5, i64 112
-  %95 = getelementptr inbounds i8, ptr %5, i64 120
-  %96 = getelementptr inbounds i8, ptr %5, i64 128
-  %97 = getelementptr inbounds i8, ptr %5, i64 136
-  %98 = getelementptr inbounds i8, ptr %5, i64 140
-  %99 = getelementptr inbounds i8, ptr %5, i64 144
-  %100 = getelementptr inbounds i8, ptr %5, i64 152
-  %101 = getelementptr inbounds i8, ptr %5, i64 160
-  %102 = getelementptr inbounds i8, ptr %5, i64 168
-  %103 = getelementptr inbounds i8, ptr %5, i64 172
-  %104 = getelementptr inbounds i8, ptr %5, i64 176
-  %105 = getelementptr inbounds i8, ptr %5, i64 184
-  %106 = getelementptr inbounds i8, ptr %5, i64 192
-  %107 = getelementptr inbounds i8, ptr %5, i64 200
-  %108 = getelementptr inbounds i8, ptr %5, i64 204
-  %109 = getelementptr inbounds i8, ptr %5, i64 208
-  %110 = getelementptr inbounds i8, ptr %5, i64 216
-  %111 = getelementptr inbounds i8, ptr %5, i64 224
-  %112 = getelementptr inbounds i8, ptr %5, i64 232
-  %113 = getelementptr inbounds i8, ptr %5, i64 236
-  %114 = getelementptr inbounds i8, ptr %5, i64 240
-  %115 = getelementptr inbounds i8, ptr %5, i64 248
-  %116 = getelementptr inbounds i8, ptr %5, i64 256
-  %117 = getelementptr inbounds i8, ptr %5, i64 264
-  %118 = getelementptr inbounds i8, ptr %5, i64 268
-  %119 = getelementptr inbounds i8, ptr %5, i64 272
-  %120 = getelementptr inbounds i8, ptr %5, i64 280
-  %121 = getelementptr inbounds i8, ptr %5, i64 288
-  %122 = getelementptr inbounds i8, ptr %5, i64 296
-  %123 = getelementptr inbounds i8, ptr %5, i64 300
-  %124 = getelementptr inbounds i8, ptr %5, i64 304
-  %125 = getelementptr inbounds i8, ptr %5, i64 312
-  %126 = getelementptr inbounds i8, ptr %5, i64 320
-  %127 = getelementptr inbounds i8, ptr %5, i64 328
-  %128 = getelementptr inbounds i8, ptr %5, i64 332
-  %129 = getelementptr inbounds i8, ptr %5, i64 336
-  %130 = getelementptr inbounds i8, ptr %5, i64 344
-  %131 = getelementptr inbounds i8, ptr %5, i64 352
-  %132 = getelementptr inbounds i8, ptr %5, i64 360
-  %133 = getelementptr inbounds i8, ptr %5, i64 364
-  %134 = getelementptr inbounds i8, ptr %5, i64 368
-  %135 = getelementptr inbounds i8, ptr %5, i64 376
-  %136 = getelementptr inbounds i8, ptr %5, i64 384
-  %137 = getelementptr inbounds i8, ptr %5, i64 392
-  %138 = getelementptr inbounds i8, ptr %5, i64 396
-  %139 = getelementptr inbounds i8, ptr %5, i64 400
-  %140 = getelementptr inbounds i8, ptr %5, i64 408
-  %141 = getelementptr inbounds i8, ptr %5, i64 416
-  %142 = getelementptr inbounds i8, ptr %5, i64 424
-  %143 = getelementptr inbounds i8, ptr %5, i64 428
-  %144 = getelementptr inbounds i8, ptr %5, i64 432
-  %145 = getelementptr inbounds i8, ptr %5, i64 440
-  %146 = getelementptr inbounds i8, ptr %5, i64 448
-  %147 = getelementptr inbounds i8, ptr %5, i64 456
-  %148 = getelementptr inbounds i8, ptr %5, i64 460
-  %149 = getelementptr inbounds i8, ptr %5, i64 464
-  %150 = getelementptr inbounds i8, ptr %5, i64 472
-  %151 = getelementptr inbounds i8, ptr %5, i64 480
-  %152 = getelementptr inbounds i8, ptr %5, i64 488
-  %153 = getelementptr inbounds i8, ptr %5, i64 492
-  %154 = getelementptr inbounds i8, ptr %5, i64 496
-  %155 = getelementptr inbounds i8, ptr %5, i64 504
-  %156 = getelementptr inbounds i8, ptr %5, i64 512
-  %157 = getelementptr inbounds i8, ptr %5, i64 520
-  %158 = getelementptr inbounds i8, ptr %5, i64 524
-  %159 = getelementptr inbounds i8, ptr %5, i64 528
-  %160 = getelementptr inbounds i8, ptr %5, i64 536
-  %161 = getelementptr inbounds i8, ptr %5, i64 544
-  %162 = getelementptr inbounds i8, ptr %5, i64 552
-  %163 = getelementptr inbounds i8, ptr %5, i64 556
-  %164 = getelementptr inbounds i8, ptr %5, i64 560
-  %165 = getelementptr inbounds i8, ptr %5, i64 568
-  %166 = getelementptr inbounds i8, ptr %5, i64 576
-  %167 = getelementptr inbounds i8, ptr %5, i64 584
-  %168 = getelementptr inbounds i8, ptr %5, i64 588
-  %169 = getelementptr inbounds i8, ptr %5, i64 592
-  %170 = getelementptr inbounds i8, ptr %5, i64 600
-  %171 = getelementptr inbounds i8, ptr %5, i64 608
-  %172 = getelementptr inbounds i8, ptr %5, i64 616
-  %173 = getelementptr inbounds i8, ptr %5, i64 620
-  %174 = getelementptr inbounds i8, ptr %5, i64 624
-  %175 = getelementptr inbounds i8, ptr %5, i64 632
-  %176 = getelementptr inbounds i8, ptr %5, i64 640
-  %177 = getelementptr inbounds i8, ptr %5, i64 648
-  %178 = getelementptr inbounds i8, ptr %5, i64 652
-  %179 = getelementptr inbounds i8, ptr %5, i64 656
-  %180 = getelementptr inbounds i8, ptr %5, i64 664
-  %181 = getelementptr inbounds i8, ptr %5, i64 672
-  %182 = getelementptr inbounds i8, ptr %5, i64 680
-  %183 = getelementptr inbounds i8, ptr %5, i64 684
-  %184 = getelementptr inbounds i8, ptr %5, i64 688
-  %185 = getelementptr inbounds i8, ptr %5, i64 696
-  %186 = getelementptr inbounds i8, ptr %5, i64 704
-  %187 = getelementptr inbounds i8, ptr %5, i64 712
-  %188 = getelementptr inbounds i8, ptr %5, i64 716
-  %189 = getelementptr inbounds i8, ptr %5, i64 720
-  %190 = getelementptr inbounds i8, ptr %5, i64 728
-  %191 = getelementptr inbounds i8, ptr %5, i64 736
-  %192 = getelementptr inbounds i8, ptr %5, i64 744
-  %193 = getelementptr inbounds i8, ptr %5, i64 748
-  %194 = getelementptr inbounds i8, ptr %5, i64 752
-  %195 = getelementptr inbounds i8, ptr %5, i64 760
-  %196 = getelementptr inbounds i8, ptr %5, i64 768
-  %197 = getelementptr inbounds i8, ptr %5, i64 776
-  %198 = getelementptr inbounds i8, ptr %5, i64 780
-  %199 = getelementptr inbounds i8, ptr %5, i64 784
-  %200 = getelementptr inbounds i8, ptr %5, i64 792
-  %201 = getelementptr inbounds i8, ptr %5, i64 800
-  %202 = getelementptr inbounds i8, ptr %5, i64 808
-  %203 = getelementptr inbounds i8, ptr %5, i64 812
-  %204 = getelementptr inbounds i8, ptr %5, i64 816
-  %205 = getelementptr inbounds i8, ptr %5, i64 824
-  %206 = getelementptr inbounds i8, ptr %5, i64 832
-  %207 = getelementptr inbounds i8, ptr %5, i64 840
-  %208 = getelementptr inbounds i8, ptr %5, i64 844
-  %209 = getelementptr inbounds i8, ptr %5, i64 848
-  %210 = getelementptr inbounds i8, ptr %5, i64 856
-  %211 = getelementptr inbounds i8, ptr %5, i64 864
-  %212 = getelementptr inbounds i8, ptr %5, i64 872
-  %213 = getelementptr inbounds i8, ptr %5, i64 876
-  %214 = getelementptr inbounds i8, ptr %5, i64 880
-  %215 = getelementptr inbounds i8, ptr %5, i64 888
-  %216 = getelementptr inbounds i8, ptr %5, i64 896
-  %217 = getelementptr inbounds i8, ptr %5, i64 904
-  %218 = getelementptr inbounds i8, ptr %5, i64 908
-  %219 = getelementptr inbounds i8, ptr %5, i64 912
-  %220 = getelementptr inbounds i8, ptr %5, i64 920
-  %221 = getelementptr inbounds i8, ptr %5, i64 928
-  %222 = getelementptr inbounds i8, ptr %5, i64 936
-  %223 = getelementptr inbounds i8, ptr %5, i64 940
-  %224 = getelementptr inbounds i8, ptr %5, i64 944
-  %225 = getelementptr inbounds i8, ptr %5, i64 952
-  %226 = getelementptr inbounds i8, ptr %5, i64 960
-  %227 = getelementptr inbounds i8, ptr %5, i64 968
-  %228 = getelementptr inbounds i8, ptr %5, i64 972
-  %229 = getelementptr inbounds i8, ptr %5, i64 976
-  %230 = getelementptr inbounds i8, ptr %5, i64 984
-  %231 = getelementptr inbounds i8, ptr %5, i64 992
-  %232 = getelementptr inbounds i8, ptr %5, i64 1000
-  %233 = getelementptr inbounds i8, ptr %5, i64 1004
-  %234 = getelementptr inbounds i8, ptr %5, i64 1008
-  %235 = getelementptr inbounds i8, ptr %5, i64 1016
-  %236 = getelementptr inbounds i8, ptr %5, i64 1024
-  %237 = getelementptr inbounds i8, ptr %5, i64 1032
-  %238 = getelementptr inbounds i8, ptr %5, i64 1036
-  %239 = getelementptr inbounds i8, ptr %5, i64 1040
-  %240 = getelementptr inbounds i8, ptr %5, i64 1048
-  %241 = getelementptr inbounds i8, ptr %5, i64 1056
-  %242 = getelementptr inbounds i8, ptr %5, i64 1064
-  %243 = getelementptr inbounds i8, ptr %5, i64 1068
-  %244 = getelementptr inbounds i8, ptr %5, i64 1072
-  %245 = getelementptr inbounds i8, ptr %5, i64 1080
-  %246 = getelementptr inbounds i8, ptr %5, i64 1088
-  %247 = getelementptr inbounds i8, ptr %5, i64 1096
-  %248 = getelementptr inbounds i8, ptr %5, i64 1100
-  %249 = getelementptr inbounds i8, ptr %5, i64 1104
-  %250 = getelementptr inbounds i8, ptr %5, i64 1112
-  %251 = getelementptr inbounds i8, ptr %5, i64 1120
-  %252 = getelementptr inbounds i8, ptr %5, i64 1128
-  %253 = getelementptr inbounds i8, ptr %5, i64 1132
-  %254 = getelementptr inbounds i8, ptr %5, i64 1136
-  %255 = getelementptr inbounds i8, ptr %5, i64 1144
-  %256 = getelementptr inbounds i8, ptr %5, i64 1152
-  %257 = getelementptr inbounds i8, ptr %5, i64 1160
-  %258 = getelementptr inbounds i8, ptr %5, i64 1164
-  %259 = getelementptr inbounds i8, ptr %5, i64 1168
-  %260 = getelementptr inbounds i8, ptr %5, i64 1176
-  %261 = getelementptr inbounds i8, ptr %5, i64 1184
-  %262 = getelementptr inbounds i8, ptr %5, i64 1192
-  %263 = getelementptr inbounds i8, ptr %5, i64 1196
-  %264 = getelementptr inbounds i8, ptr %5, i64 1200
-  %265 = getelementptr inbounds i8, ptr %5, i64 1208
-  %266 = getelementptr inbounds i8, ptr %5, i64 1216
-  %267 = getelementptr inbounds i8, ptr %5, i64 1224
-  %268 = getelementptr inbounds i8, ptr %5, i64 1228
-  %269 = getelementptr inbounds i8, ptr %5, i64 1232
-  %270 = getelementptr inbounds i8, ptr %5, i64 1240
-  %271 = getelementptr inbounds i8, ptr %5, i64 1248
-  %272 = getelementptr inbounds i8, ptr %5, i64 1256
-  %273 = getelementptr inbounds i8, ptr %5, i64 1260
-  %274 = getelementptr inbounds i8, ptr %5, i64 1264
-  %275 = getelementptr inbounds i8, ptr %5, i64 1272
-  %276 = getelementptr inbounds i8, ptr %5, i64 1280
-  %277 = getelementptr inbounds i8, ptr %5, i64 1288
-  %278 = getelementptr inbounds i8, ptr %5, i64 1292
-  %279 = getelementptr inbounds i8, ptr %5, i64 1296
-  %280 = getelementptr inbounds i8, ptr %5, i64 1304
-  %281 = getelementptr inbounds i8, ptr %5, i64 1312
-  %282 = getelementptr inbounds i8, ptr %5, i64 1320
-  %283 = getelementptr inbounds i8, ptr %5, i64 1324
-  %284 = getelementptr inbounds i8, ptr %5, i64 1328
-  %285 = getelementptr inbounds i8, ptr %5, i64 1336
-  %286 = getelementptr inbounds i8, ptr %5, i64 1344
-  %287 = getelementptr inbounds i8, ptr %5, i64 1352
-  %288 = getelementptr inbounds i8, ptr %5, i64 1356
-  %289 = getelementptr inbounds i8, ptr %5, i64 1360
-  %290 = getelementptr inbounds i8, ptr %5, i64 1368
-  %291 = getelementptr inbounds i8, ptr %5, i64 1376
-  %292 = getelementptr inbounds i8, ptr %5, i64 1384
-  %293 = getelementptr inbounds i8, ptr %5, i64 1388
-  %294 = getelementptr inbounds i8, ptr %5, i64 1392
-  %295 = getelementptr inbounds i8, ptr %5, i64 1400
-  %296 = getelementptr inbounds i8, ptr %5, i64 1408
-  %297 = getelementptr inbounds i8, ptr %5, i64 1416
-  %298 = getelementptr inbounds i8, ptr %5, i64 1420
-  %299 = getelementptr inbounds i8, ptr %5, i64 1424
-  %300 = getelementptr inbounds i8, ptr %5, i64 1432
-  %301 = getelementptr inbounds i8, ptr %5, i64 1440
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 108
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 172
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 204
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %115 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 264
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 268
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 272
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 280
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 288
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 296
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 300
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 328
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 332
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 336
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 344
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 360
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 364
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 368
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 376
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 392
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 396
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 408
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 416
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 424
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 428
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 432
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 440
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 448
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 456
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 460
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 464
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 472
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 480
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 488
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 492
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 496
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 504
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 520
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 524
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 528
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 536
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 544
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 552
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 556
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 560
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 568
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 576
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 584
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 588
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 592
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 600
+  %171 = getelementptr inbounds nuw i8, ptr %5, i64 608
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 616
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 620
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 624
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 632
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 640
+  %177 = getelementptr inbounds nuw i8, ptr %5, i64 648
+  %178 = getelementptr inbounds nuw i8, ptr %5, i64 652
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 656
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 664
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 672
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 680
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 684
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 688
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 696
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 704
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 712
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 716
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 720
+  %190 = getelementptr inbounds nuw i8, ptr %5, i64 728
+  %191 = getelementptr inbounds nuw i8, ptr %5, i64 736
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 744
+  %193 = getelementptr inbounds nuw i8, ptr %5, i64 748
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 752
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 760
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 768
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 776
+  %198 = getelementptr inbounds nuw i8, ptr %5, i64 780
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 784
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 792
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 800
+  %202 = getelementptr inbounds nuw i8, ptr %5, i64 808
+  %203 = getelementptr inbounds nuw i8, ptr %5, i64 812
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 816
+  %205 = getelementptr inbounds nuw i8, ptr %5, i64 824
+  %206 = getelementptr inbounds nuw i8, ptr %5, i64 832
+  %207 = getelementptr inbounds nuw i8, ptr %5, i64 840
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 844
+  %209 = getelementptr inbounds nuw i8, ptr %5, i64 848
+  %210 = getelementptr inbounds nuw i8, ptr %5, i64 856
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 864
+  %212 = getelementptr inbounds nuw i8, ptr %5, i64 872
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 876
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 880
+  %215 = getelementptr inbounds nuw i8, ptr %5, i64 888
+  %216 = getelementptr inbounds nuw i8, ptr %5, i64 896
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 904
+  %218 = getelementptr inbounds nuw i8, ptr %5, i64 908
+  %219 = getelementptr inbounds nuw i8, ptr %5, i64 912
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 920
+  %221 = getelementptr inbounds nuw i8, ptr %5, i64 928
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 936
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 940
+  %224 = getelementptr inbounds nuw i8, ptr %5, i64 944
+  %225 = getelementptr inbounds nuw i8, ptr %5, i64 952
+  %226 = getelementptr inbounds nuw i8, ptr %5, i64 960
+  %227 = getelementptr inbounds nuw i8, ptr %5, i64 968
+  %228 = getelementptr inbounds nuw i8, ptr %5, i64 972
+  %229 = getelementptr inbounds nuw i8, ptr %5, i64 976
+  %230 = getelementptr inbounds nuw i8, ptr %5, i64 984
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 992
+  %232 = getelementptr inbounds nuw i8, ptr %5, i64 1000
+  %233 = getelementptr inbounds nuw i8, ptr %5, i64 1004
+  %234 = getelementptr inbounds nuw i8, ptr %5, i64 1008
+  %235 = getelementptr inbounds nuw i8, ptr %5, i64 1016
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 1024
+  %237 = getelementptr inbounds nuw i8, ptr %5, i64 1032
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 1036
+  %239 = getelementptr inbounds nuw i8, ptr %5, i64 1040
+  %240 = getelementptr inbounds nuw i8, ptr %5, i64 1048
+  %241 = getelementptr inbounds nuw i8, ptr %5, i64 1056
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 1064
+  %243 = getelementptr inbounds nuw i8, ptr %5, i64 1068
+  %244 = getelementptr inbounds nuw i8, ptr %5, i64 1072
+  %245 = getelementptr inbounds nuw i8, ptr %5, i64 1080
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 1088
+  %247 = getelementptr inbounds nuw i8, ptr %5, i64 1096
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 1100
+  %249 = getelementptr inbounds nuw i8, ptr %5, i64 1104
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 1112
+  %251 = getelementptr inbounds nuw i8, ptr %5, i64 1120
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 1128
+  %253 = getelementptr inbounds nuw i8, ptr %5, i64 1132
+  %254 = getelementptr inbounds nuw i8, ptr %5, i64 1136
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 1144
+  %256 = getelementptr inbounds nuw i8, ptr %5, i64 1152
+  %257 = getelementptr inbounds nuw i8, ptr %5, i64 1160
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 1164
+  %259 = getelementptr inbounds nuw i8, ptr %5, i64 1168
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 1176
+  %261 = getelementptr inbounds nuw i8, ptr %5, i64 1184
+  %262 = getelementptr inbounds nuw i8, ptr %5, i64 1192
+  %263 = getelementptr inbounds nuw i8, ptr %5, i64 1196
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 1200
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 1208
+  %266 = getelementptr inbounds nuw i8, ptr %5, i64 1216
+  %267 = getelementptr inbounds nuw i8, ptr %5, i64 1224
+  %268 = getelementptr inbounds nuw i8, ptr %5, i64 1228
+  %269 = getelementptr inbounds nuw i8, ptr %5, i64 1232
+  %270 = getelementptr inbounds nuw i8, ptr %5, i64 1240
+  %271 = getelementptr inbounds nuw i8, ptr %5, i64 1248
+  %272 = getelementptr inbounds nuw i8, ptr %5, i64 1256
+  %273 = getelementptr inbounds nuw i8, ptr %5, i64 1260
+  %274 = getelementptr inbounds nuw i8, ptr %5, i64 1264
+  %275 = getelementptr inbounds nuw i8, ptr %5, i64 1272
+  %276 = getelementptr inbounds nuw i8, ptr %5, i64 1280
+  %277 = getelementptr inbounds nuw i8, ptr %5, i64 1288
+  %278 = getelementptr inbounds nuw i8, ptr %5, i64 1292
+  %279 = getelementptr inbounds nuw i8, ptr %5, i64 1296
+  %280 = getelementptr inbounds nuw i8, ptr %5, i64 1304
+  %281 = getelementptr inbounds nuw i8, ptr %5, i64 1312
+  %282 = getelementptr inbounds nuw i8, ptr %5, i64 1320
+  %283 = getelementptr inbounds nuw i8, ptr %5, i64 1324
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 1328
+  %285 = getelementptr inbounds nuw i8, ptr %5, i64 1336
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 1344
+  %287 = getelementptr inbounds nuw i8, ptr %5, i64 1352
+  %288 = getelementptr inbounds nuw i8, ptr %5, i64 1356
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 1360
+  %290 = getelementptr inbounds nuw i8, ptr %5, i64 1368
+  %291 = getelementptr inbounds nuw i8, ptr %5, i64 1376
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 1384
+  %293 = getelementptr inbounds nuw i8, ptr %5, i64 1388
+  %294 = getelementptr inbounds nuw i8, ptr %5, i64 1392
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 1400
+  %296 = getelementptr inbounds nuw i8, ptr %5, i64 1408
+  %297 = getelementptr inbounds nuw i8, ptr %5, i64 1416
+  %298 = getelementptr inbounds nuw i8, ptr %5, i64 1420
+  %299 = getelementptr inbounds nuw i8, ptr %5, i64 1424
+  %300 = getelementptr inbounds nuw i8, ptr %5, i64 1432
+  %301 = getelementptr inbounds nuw i8, ptr %5, i64 1440
   br i1 %.not.i42, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -3609,26 +3609,26 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
 24:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
   store ptr @hf_tn5250_wtd_ccc1, ptr %8, align 16
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %27, align 16
-  %28 = getelementptr inbounds i8, ptr %8, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @hf_tn5250_wtd_ccc2, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %8, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %31 = load i32, ptr @ett_tn5250_wcc, align 4
   store i32 %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @dissect_wcc.wcc_byte, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %35, i8 0, i64 32, i1 false)
   %36 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
@@ -3676,26 +3676,26 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
 66:                                               ; preds = %4, %4, %4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   store ptr @hf_tn5250_wtd_ccc1, ptr %7, align 16
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %7, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %7, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %7, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @hf_tn5250_wtd_ccc2, ptr %71, align 16
-  %72 = getelementptr inbounds i8, ptr %7, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %73 = load i32, ptr @ett_tn5250_wcc, align 4
   store i32 %73, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %7, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 1, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %7, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @dissect_wcc.wcc_byte, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %7, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %77, i8 0, i64 32, i1 false)
   %78 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -3705,66 +3705,66 @@ define internal fastcc i32 @dissect_outbound_stream(ptr noundef %0, ptr noundef 
 80:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %6)
   store ptr @hf_tn5250_soh_length, ptr %6, align 16
-  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %6, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %6, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %83, align 16
-  %84 = getelementptr inbounds i8, ptr %6, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @hf_tn5250_sps_flag1, ptr %85, align 16
-  %86 = getelementptr inbounds i8, ptr %6, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %87 = load i32, ptr @ett_tn5250_sps_mask, align 4
   store i32 %87, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %6, i64 44
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %6, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @dissect_save_partial_screen.byte, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %6, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @hf_tn5250_sps_top_row, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %6, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 76
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 1, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %6, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr null, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %6, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @hf_tn5250_sps_left_column, ptr %96, align 16
-  %97 = getelementptr inbounds i8, ptr %6, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %6, i64 108
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 1, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %6, i64 112
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr null, ptr %99, align 16
-  %100 = getelementptr inbounds i8, ptr %6, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %6, i64 128
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr @hf_tn5250_sps_window_depth, ptr %101, align 16
-  %102 = getelementptr inbounds i8, ptr %6, i64 136
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %6, i64 140
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %6, i64 144
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr null, ptr %104, align 16
-  %105 = getelementptr inbounds i8, ptr %6, i64 152
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %6, i64 160
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr @hf_tn5250_sps_window_width, ptr %106, align 16
-  %107 = getelementptr inbounds i8, ptr %6, i64 168
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i32 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %6, i64 172
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 172
   store i32 1, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %6, i64 176
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr null, ptr %109, align 16
-  %110 = getelementptr inbounds i8, ptr %6, i64 184
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %6, i64 192
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %111, i8 0, i64 32, i1 false)
   %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %17) #5
   %113 = zext i8 %112 to i32
@@ -3802,36 +3802,36 @@ dissect_save_partial_screen.exit:                 ; preds = %80, %118
 134:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   store ptr @hf_tn5250_roll_flag1, ptr %5, align 16
-  %135 = getelementptr inbounds i8, ptr %5, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %136 = load i32, ptr @ett_tn5250_roll_mask, align 4
   store i32 %136, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %5, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %5, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @dissect_roll.byte, ptr %138, align 16
-  %139 = getelementptr inbounds i8, ptr %5, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %5, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr @hf_tn5250_roll_top_line, ptr %140, align 16
-  %141 = getelementptr inbounds i8, ptr %5, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %5, i64 44
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 1, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %5, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %143, align 16
-  %144 = getelementptr inbounds i8, ptr %5, i64 56
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %5, i64 64
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @hf_tn5250_roll_bottom_line, ptr %145, align 16
-  %146 = getelementptr inbounds i8, ptr %5, i64 72
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %5, i64 76
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 1, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %5, i64 80
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr null, ptr %148, align 16
-  %149 = getelementptr inbounds i8, ptr %5, i64 88
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 0, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %5, i64 96
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %150, i8 0, i64 32, i1 false)
   %151 = call fastcc i32 @tn5250_add_hf_items(ptr noundef %13, ptr noundef %2, i32 noundef %17, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
@@ -3886,7 +3886,7 @@ define internal fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, 
   %7 = phi ptr [ %36, %32 ], [ %3, %4 ]
   %.041 = phi i32 [ %34, %32 ], [ 0, %4 ]
   %.03440 = phi i32 [ %33, %32 ], [ %2, %4 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %22
@@ -3898,23 +3898,23 @@ define internal fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, 
   %spec.select = add i32 %.03440, %14
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %spec.select, i32 noundef %18, i32 noundef %20) #5
   br label %27
 
 22:                                               ; preds = %.lr.ph
   %23 = load i32, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %.03440, i32 noundef %23, i32 noundef %25, ptr noundef nonnull %9, i32 noundef 0) #5
   br label %27
 
 27:                                               ; preds = %22, %11
   %.2 = phi i32 [ %spec.select, %11 ], [ %.03440, %22 ]
-  %28 = getelementptr inbounds i8, ptr %7, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %32, label %31
@@ -3969,761 +3969,761 @@ define internal fastcc noundef i32 @dissect_tn5250_orders_and_data(ptr noundef %
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 12
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
-  %28 = getelementptr inbounds i8, ptr %17, i64 24
-  %29 = getelementptr inbounds i8, ptr %17, i64 32
-  %30 = getelementptr inbounds i8, ptr %17, i64 40
-  %31 = getelementptr inbounds i8, ptr %17, i64 44
-  %32 = getelementptr inbounds i8, ptr %17, i64 48
-  %33 = getelementptr inbounds i8, ptr %17, i64 56
-  %34 = getelementptr inbounds i8, ptr %17, i64 64
-  %35 = getelementptr inbounds i8, ptr %17, i64 72
-  %36 = getelementptr inbounds i8, ptr %17, i64 76
-  %37 = getelementptr inbounds i8, ptr %17, i64 80
-  %38 = getelementptr inbounds i8, ptr %17, i64 88
-  %39 = getelementptr inbounds i8, ptr %17, i64 96
-  %40 = getelementptr inbounds i8, ptr %18, i64 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 12
-  %42 = getelementptr inbounds i8, ptr %18, i64 16
-  %43 = getelementptr inbounds i8, ptr %18, i64 24
-  %44 = getelementptr inbounds i8, ptr %18, i64 32
-  %45 = getelementptr inbounds i8, ptr %18, i64 40
-  %46 = getelementptr inbounds i8, ptr %18, i64 44
-  %47 = getelementptr inbounds i8, ptr %18, i64 48
-  %48 = getelementptr inbounds i8, ptr %18, i64 56
-  %49 = getelementptr inbounds i8, ptr %18, i64 64
-  %50 = getelementptr inbounds i8, ptr %18, i64 72
-  %51 = getelementptr inbounds i8, ptr %18, i64 76
-  %52 = getelementptr inbounds i8, ptr %18, i64 80
-  %53 = getelementptr inbounds i8, ptr %18, i64 88
-  %54 = getelementptr inbounds i8, ptr %18, i64 96
-  %55 = getelementptr inbounds i8, ptr %19, i64 8
-  %56 = getelementptr inbounds i8, ptr %19, i64 12
-  %57 = getelementptr inbounds i8, ptr %19, i64 16
-  %58 = getelementptr inbounds i8, ptr %19, i64 24
-  %59 = getelementptr inbounds i8, ptr %19, i64 32
-  %60 = getelementptr inbounds i8, ptr %19, i64 40
-  %61 = getelementptr inbounds i8, ptr %19, i64 44
-  %62 = getelementptr inbounds i8, ptr %19, i64 48
-  %63 = getelementptr inbounds i8, ptr %19, i64 56
-  %64 = getelementptr inbounds i8, ptr %19, i64 64
-  %65 = getelementptr inbounds i8, ptr %20, i64 8
-  %66 = getelementptr inbounds i8, ptr %20, i64 12
-  %67 = getelementptr inbounds i8, ptr %20, i64 16
-  %68 = getelementptr inbounds i8, ptr %20, i64 24
-  %69 = getelementptr inbounds i8, ptr %20, i64 32
-  %70 = getelementptr inbounds i8, ptr %20, i64 40
-  %71 = getelementptr inbounds i8, ptr %20, i64 44
-  %72 = getelementptr inbounds i8, ptr %20, i64 48
-  %73 = getelementptr inbounds i8, ptr %20, i64 56
-  %74 = getelementptr inbounds i8, ptr %20, i64 64
-  %75 = getelementptr inbounds i8, ptr %20, i64 72
-  %76 = getelementptr inbounds i8, ptr %20, i64 76
-  %77 = getelementptr inbounds i8, ptr %20, i64 80
-  %78 = getelementptr inbounds i8, ptr %20, i64 88
-  %79 = getelementptr inbounds i8, ptr %20, i64 96
-  %80 = getelementptr inbounds i8, ptr %20, i64 104
-  %81 = getelementptr inbounds i8, ptr %20, i64 108
-  %82 = getelementptr inbounds i8, ptr %20, i64 112
-  %83 = getelementptr inbounds i8, ptr %20, i64 120
-  %84 = getelementptr inbounds i8, ptr %20, i64 128
-  %85 = getelementptr inbounds i8, ptr %4, i64 8
-  %86 = getelementptr inbounds i8, ptr %4, i64 12
-  %87 = getelementptr inbounds i8, ptr %4, i64 16
-  %88 = getelementptr inbounds i8, ptr %4, i64 24
-  %89 = getelementptr inbounds i8, ptr %4, i64 32
-  %90 = getelementptr inbounds i8, ptr %4, i64 40
-  %91 = getelementptr inbounds i8, ptr %4, i64 44
-  %92 = getelementptr inbounds i8, ptr %4, i64 48
-  %93 = getelementptr inbounds i8, ptr %4, i64 56
-  %94 = getelementptr inbounds i8, ptr %4, i64 64
-  %95 = getelementptr inbounds i8, ptr %4, i64 72
-  %96 = getelementptr inbounds i8, ptr %4, i64 76
-  %97 = getelementptr inbounds i8, ptr %4, i64 80
-  %98 = getelementptr inbounds i8, ptr %4, i64 88
-  %99 = getelementptr inbounds i8, ptr %4, i64 96
-  %100 = getelementptr inbounds i8, ptr %4, i64 104
-  %101 = getelementptr inbounds i8, ptr %4, i64 108
-  %102 = getelementptr inbounds i8, ptr %4, i64 112
-  %103 = getelementptr inbounds i8, ptr %4, i64 120
-  %104 = getelementptr inbounds i8, ptr %4, i64 128
-  %105 = getelementptr inbounds i8, ptr %4, i64 136
-  %106 = getelementptr inbounds i8, ptr %4, i64 140
-  %107 = getelementptr inbounds i8, ptr %4, i64 144
-  %108 = getelementptr inbounds i8, ptr %4, i64 152
-  %109 = getelementptr inbounds i8, ptr %4, i64 160
-  %110 = getelementptr inbounds i8, ptr %4, i64 168
-  %111 = getelementptr inbounds i8, ptr %4, i64 172
-  %112 = getelementptr inbounds i8, ptr %4, i64 176
-  %113 = getelementptr inbounds i8, ptr %4, i64 184
-  %114 = getelementptr inbounds i8, ptr %4, i64 192
-  %115 = getelementptr inbounds i8, ptr %4, i64 200
-  %116 = getelementptr inbounds i8, ptr %4, i64 204
-  %117 = getelementptr inbounds i8, ptr %4, i64 208
-  %118 = getelementptr inbounds i8, ptr %4, i64 216
-  %119 = getelementptr inbounds i8, ptr %4, i64 224
-  %120 = getelementptr inbounds i8, ptr %5, i64 8
-  %121 = getelementptr inbounds i8, ptr %5, i64 12
-  %122 = getelementptr inbounds i8, ptr %5, i64 16
-  %123 = getelementptr inbounds i8, ptr %5, i64 24
-  %124 = getelementptr inbounds i8, ptr %5, i64 32
-  %125 = getelementptr inbounds i8, ptr %5, i64 40
-  %126 = getelementptr inbounds i8, ptr %5, i64 44
-  %127 = getelementptr inbounds i8, ptr %5, i64 48
-  %128 = getelementptr inbounds i8, ptr %5, i64 56
-  %129 = getelementptr inbounds i8, ptr %5, i64 64
-  %130 = getelementptr inbounds i8, ptr %5, i64 72
-  %131 = getelementptr inbounds i8, ptr %5, i64 76
-  %132 = getelementptr inbounds i8, ptr %5, i64 80
-  %133 = getelementptr inbounds i8, ptr %5, i64 88
-  %134 = getelementptr inbounds i8, ptr %5, i64 96
-  %135 = getelementptr inbounds i8, ptr %5, i64 104
-  %136 = getelementptr inbounds i8, ptr %5, i64 108
-  %137 = getelementptr inbounds i8, ptr %5, i64 112
-  %138 = getelementptr inbounds i8, ptr %5, i64 120
-  %139 = getelementptr inbounds i8, ptr %5, i64 128
-  %140 = getelementptr inbounds i8, ptr %5, i64 136
-  %141 = getelementptr inbounds i8, ptr %5, i64 140
-  %142 = getelementptr inbounds i8, ptr %5, i64 144
-  %143 = getelementptr inbounds i8, ptr %5, i64 152
-  %144 = getelementptr inbounds i8, ptr %5, i64 160
-  %145 = getelementptr inbounds i8, ptr %5, i64 168
-  %146 = getelementptr inbounds i8, ptr %5, i64 172
-  %147 = getelementptr inbounds i8, ptr %5, i64 176
-  %148 = getelementptr inbounds i8, ptr %5, i64 184
-  %149 = getelementptr inbounds i8, ptr %5, i64 192
-  %150 = getelementptr inbounds i8, ptr %5, i64 200
-  %151 = getelementptr inbounds i8, ptr %5, i64 204
-  %152 = getelementptr inbounds i8, ptr %5, i64 208
-  %153 = getelementptr inbounds i8, ptr %5, i64 216
-  %154 = getelementptr inbounds i8, ptr %5, i64 224
-  %155 = getelementptr inbounds i8, ptr %5, i64 232
-  %156 = getelementptr inbounds i8, ptr %5, i64 236
-  %157 = getelementptr inbounds i8, ptr %5, i64 240
-  %158 = getelementptr inbounds i8, ptr %5, i64 248
-  %159 = getelementptr inbounds i8, ptr %5, i64 256
-  %160 = getelementptr inbounds i8, ptr %5, i64 264
-  %161 = getelementptr inbounds i8, ptr %5, i64 268
-  %162 = getelementptr inbounds i8, ptr %5, i64 272
-  %163 = getelementptr inbounds i8, ptr %5, i64 280
-  %164 = getelementptr inbounds i8, ptr %5, i64 288
-  %165 = getelementptr inbounds i8, ptr %5, i64 296
-  %166 = getelementptr inbounds i8, ptr %5, i64 300
-  %167 = getelementptr inbounds i8, ptr %5, i64 304
-  %168 = getelementptr inbounds i8, ptr %5, i64 312
-  %169 = getelementptr inbounds i8, ptr %5, i64 320
-  %170 = getelementptr inbounds i8, ptr %6, i64 8
-  %171 = getelementptr inbounds i8, ptr %6, i64 12
-  %172 = getelementptr inbounds i8, ptr %6, i64 16
-  %173 = getelementptr inbounds i8, ptr %6, i64 24
-  %174 = getelementptr inbounds i8, ptr %6, i64 32
-  %175 = getelementptr inbounds i8, ptr %6, i64 40
-  %176 = getelementptr inbounds i8, ptr %6, i64 44
-  %177 = getelementptr inbounds i8, ptr %6, i64 48
-  %178 = getelementptr inbounds i8, ptr %6, i64 56
-  %179 = getelementptr inbounds i8, ptr %6, i64 64
-  %180 = getelementptr inbounds i8, ptr %6, i64 72
-  %181 = getelementptr inbounds i8, ptr %6, i64 76
-  %182 = getelementptr inbounds i8, ptr %6, i64 80
-  %183 = getelementptr inbounds i8, ptr %6, i64 88
-  %184 = getelementptr inbounds i8, ptr %6, i64 96
-  %185 = getelementptr inbounds i8, ptr %6, i64 104
-  %186 = getelementptr inbounds i8, ptr %6, i64 108
-  %187 = getelementptr inbounds i8, ptr %6, i64 112
-  %188 = getelementptr inbounds i8, ptr %6, i64 120
-  %189 = getelementptr inbounds i8, ptr %6, i64 128
-  %190 = getelementptr inbounds i8, ptr %6, i64 136
-  %191 = getelementptr inbounds i8, ptr %6, i64 140
-  %192 = getelementptr inbounds i8, ptr %6, i64 144
-  %193 = getelementptr inbounds i8, ptr %6, i64 152
-  %194 = getelementptr inbounds i8, ptr %6, i64 160
-  %195 = getelementptr inbounds i8, ptr %7, i64 8
-  %196 = getelementptr inbounds i8, ptr %7, i64 12
-  %197 = getelementptr inbounds i8, ptr %7, i64 16
-  %198 = getelementptr inbounds i8, ptr %7, i64 24
-  %199 = getelementptr inbounds i8, ptr %7, i64 32
-  %200 = getelementptr inbounds i8, ptr %7, i64 40
-  %201 = getelementptr inbounds i8, ptr %7, i64 44
-  %202 = getelementptr inbounds i8, ptr %7, i64 48
-  %203 = getelementptr inbounds i8, ptr %7, i64 56
-  %204 = getelementptr inbounds i8, ptr %7, i64 64
-  %205 = getelementptr inbounds i8, ptr %7, i64 72
-  %206 = getelementptr inbounds i8, ptr %7, i64 76
-  %207 = getelementptr inbounds i8, ptr %7, i64 80
-  %208 = getelementptr inbounds i8, ptr %7, i64 88
-  %209 = getelementptr inbounds i8, ptr %7, i64 96
-  %210 = getelementptr inbounds i8, ptr %7, i64 104
-  %211 = getelementptr inbounds i8, ptr %7, i64 108
-  %212 = getelementptr inbounds i8, ptr %7, i64 112
-  %213 = getelementptr inbounds i8, ptr %7, i64 120
-  %214 = getelementptr inbounds i8, ptr %7, i64 128
-  %215 = getelementptr inbounds i8, ptr %7, i64 136
-  %216 = getelementptr inbounds i8, ptr %7, i64 140
-  %217 = getelementptr inbounds i8, ptr %7, i64 144
-  %218 = getelementptr inbounds i8, ptr %7, i64 152
-  %219 = getelementptr inbounds i8, ptr %7, i64 160
-  %220 = getelementptr inbounds i8, ptr %7, i64 168
-  %221 = getelementptr inbounds i8, ptr %7, i64 172
-  %222 = getelementptr inbounds i8, ptr %7, i64 176
-  %223 = getelementptr inbounds i8, ptr %7, i64 184
-  %224 = getelementptr inbounds i8, ptr %7, i64 192
-  %225 = getelementptr inbounds i8, ptr %7, i64 200
-  %226 = getelementptr inbounds i8, ptr %7, i64 204
-  %227 = getelementptr inbounds i8, ptr %7, i64 208
-  %228 = getelementptr inbounds i8, ptr %7, i64 216
-  %229 = getelementptr inbounds i8, ptr %7, i64 224
-  %230 = getelementptr inbounds i8, ptr %7, i64 232
-  %231 = getelementptr inbounds i8, ptr %7, i64 236
-  %232 = getelementptr inbounds i8, ptr %7, i64 240
-  %233 = getelementptr inbounds i8, ptr %7, i64 248
-  %234 = getelementptr inbounds i8, ptr %7, i64 256
-  %235 = getelementptr inbounds i8, ptr %7, i64 264
-  %236 = getelementptr inbounds i8, ptr %7, i64 268
-  %237 = getelementptr inbounds i8, ptr %7, i64 272
-  %238 = getelementptr inbounds i8, ptr %7, i64 280
-  %239 = getelementptr inbounds i8, ptr %7, i64 288
-  %240 = getelementptr inbounds i8, ptr %7, i64 296
-  %241 = getelementptr inbounds i8, ptr %7, i64 300
-  %242 = getelementptr inbounds i8, ptr %7, i64 304
-  %243 = getelementptr inbounds i8, ptr %7, i64 312
-  %244 = getelementptr inbounds i8, ptr %7, i64 320
-  %245 = getelementptr inbounds i8, ptr %7, i64 328
-  %246 = getelementptr inbounds i8, ptr %7, i64 332
-  %247 = getelementptr inbounds i8, ptr %7, i64 336
-  %248 = getelementptr inbounds i8, ptr %7, i64 344
-  %249 = getelementptr inbounds i8, ptr %7, i64 352
-  %250 = getelementptr inbounds i8, ptr %8, i64 8
-  %251 = getelementptr inbounds i8, ptr %8, i64 12
-  %252 = getelementptr inbounds i8, ptr %8, i64 16
-  %253 = getelementptr inbounds i8, ptr %8, i64 24
-  %254 = getelementptr inbounds i8, ptr %8, i64 32
-  %255 = getelementptr inbounds i8, ptr %8, i64 40
-  %256 = getelementptr inbounds i8, ptr %8, i64 44
-  %257 = getelementptr inbounds i8, ptr %8, i64 48
-  %258 = getelementptr inbounds i8, ptr %8, i64 56
-  %259 = getelementptr inbounds i8, ptr %8, i64 64
-  %260 = getelementptr inbounds i8, ptr %8, i64 72
-  %261 = getelementptr inbounds i8, ptr %8, i64 76
-  %262 = getelementptr inbounds i8, ptr %8, i64 80
-  %263 = getelementptr inbounds i8, ptr %8, i64 88
-  %264 = getelementptr inbounds i8, ptr %8, i64 96
-  %265 = getelementptr inbounds i8, ptr %8, i64 104
-  %266 = getelementptr inbounds i8, ptr %8, i64 108
-  %267 = getelementptr inbounds i8, ptr %8, i64 112
-  %268 = getelementptr inbounds i8, ptr %8, i64 120
-  %269 = getelementptr inbounds i8, ptr %8, i64 128
-  %270 = getelementptr inbounds i8, ptr %8, i64 136
-  %271 = getelementptr inbounds i8, ptr %8, i64 140
-  %272 = getelementptr inbounds i8, ptr %8, i64 144
-  %273 = getelementptr inbounds i8, ptr %8, i64 152
-  %274 = getelementptr inbounds i8, ptr %8, i64 160
-  %275 = getelementptr inbounds i8, ptr %8, i64 168
-  %276 = getelementptr inbounds i8, ptr %8, i64 172
-  %277 = getelementptr inbounds i8, ptr %8, i64 176
-  %278 = getelementptr inbounds i8, ptr %8, i64 184
-  %279 = getelementptr inbounds i8, ptr %8, i64 192
-  %280 = getelementptr inbounds i8, ptr %8, i64 200
-  %281 = getelementptr inbounds i8, ptr %8, i64 204
-  %282 = getelementptr inbounds i8, ptr %8, i64 208
-  %283 = getelementptr inbounds i8, ptr %8, i64 216
-  %284 = getelementptr inbounds i8, ptr %8, i64 224
-  %285 = getelementptr inbounds i8, ptr %8, i64 232
-  %286 = getelementptr inbounds i8, ptr %8, i64 236
-  %287 = getelementptr inbounds i8, ptr %8, i64 240
-  %288 = getelementptr inbounds i8, ptr %8, i64 248
-  %289 = getelementptr inbounds i8, ptr %8, i64 256
-  %290 = getelementptr inbounds i8, ptr %8, i64 264
-  %291 = getelementptr inbounds i8, ptr %8, i64 268
-  %292 = getelementptr inbounds i8, ptr %8, i64 272
-  %293 = getelementptr inbounds i8, ptr %8, i64 280
-  %294 = getelementptr inbounds i8, ptr %8, i64 288
-  %295 = getelementptr inbounds i8, ptr %8, i64 296
-  %296 = getelementptr inbounds i8, ptr %8, i64 300
-  %297 = getelementptr inbounds i8, ptr %8, i64 304
-  %298 = getelementptr inbounds i8, ptr %8, i64 312
-  %299 = getelementptr inbounds i8, ptr %8, i64 320
-  %300 = getelementptr inbounds i8, ptr %8, i64 328
-  %301 = getelementptr inbounds i8, ptr %8, i64 332
-  %302 = getelementptr inbounds i8, ptr %8, i64 336
-  %303 = getelementptr inbounds i8, ptr %8, i64 344
-  %304 = getelementptr inbounds i8, ptr %8, i64 352
-  %305 = getelementptr inbounds i8, ptr %8, i64 360
-  %306 = getelementptr inbounds i8, ptr %8, i64 364
-  %307 = getelementptr inbounds i8, ptr %8, i64 368
-  %308 = getelementptr inbounds i8, ptr %8, i64 376
-  %309 = getelementptr inbounds i8, ptr %8, i64 384
-  %310 = getelementptr inbounds i8, ptr %8, i64 392
-  %311 = getelementptr inbounds i8, ptr %8, i64 396
-  %312 = getelementptr inbounds i8, ptr %8, i64 400
-  %313 = getelementptr inbounds i8, ptr %8, i64 408
-  %314 = getelementptr inbounds i8, ptr %8, i64 416
-  %315 = getelementptr inbounds i8, ptr %8, i64 424
-  %316 = getelementptr inbounds i8, ptr %8, i64 428
-  %317 = getelementptr inbounds i8, ptr %8, i64 432
-  %318 = getelementptr inbounds i8, ptr %8, i64 440
-  %319 = getelementptr inbounds i8, ptr %8, i64 448
-  %320 = getelementptr inbounds i8, ptr %8, i64 456
-  %321 = getelementptr inbounds i8, ptr %8, i64 460
-  %322 = getelementptr inbounds i8, ptr %8, i64 464
-  %323 = getelementptr inbounds i8, ptr %8, i64 472
-  %324 = getelementptr inbounds i8, ptr %8, i64 480
-  %325 = getelementptr inbounds i8, ptr %8, i64 488
-  %326 = getelementptr inbounds i8, ptr %8, i64 492
-  %327 = getelementptr inbounds i8, ptr %8, i64 496
-  %328 = getelementptr inbounds i8, ptr %8, i64 504
-  %329 = getelementptr inbounds i8, ptr %8, i64 512
-  %330 = getelementptr inbounds i8, ptr %8, i64 520
-  %331 = getelementptr inbounds i8, ptr %8, i64 524
-  %332 = getelementptr inbounds i8, ptr %8, i64 528
-  %333 = getelementptr inbounds i8, ptr %8, i64 536
-  %334 = getelementptr inbounds i8, ptr %8, i64 544
-  %335 = getelementptr inbounds i8, ptr %8, i64 552
-  %336 = getelementptr inbounds i8, ptr %8, i64 556
-  %337 = getelementptr inbounds i8, ptr %8, i64 560
-  %338 = getelementptr inbounds i8, ptr %8, i64 568
-  %339 = getelementptr inbounds i8, ptr %8, i64 576
-  %340 = getelementptr inbounds i8, ptr %9, i64 8
-  %341 = getelementptr inbounds i8, ptr %9, i64 12
-  %342 = getelementptr inbounds i8, ptr %9, i64 16
-  %343 = getelementptr inbounds i8, ptr %9, i64 24
-  %344 = getelementptr inbounds i8, ptr %9, i64 32
-  %345 = getelementptr inbounds i8, ptr %9, i64 40
-  %346 = getelementptr inbounds i8, ptr %9, i64 44
-  %347 = getelementptr inbounds i8, ptr %9, i64 48
-  %348 = getelementptr inbounds i8, ptr %9, i64 56
-  %349 = getelementptr inbounds i8, ptr %9, i64 64
-  %350 = getelementptr inbounds i8, ptr %9, i64 72
-  %351 = getelementptr inbounds i8, ptr %9, i64 76
-  %352 = getelementptr inbounds i8, ptr %9, i64 80
-  %353 = getelementptr inbounds i8, ptr %9, i64 88
-  %354 = getelementptr inbounds i8, ptr %9, i64 96
-  %355 = getelementptr inbounds i8, ptr %9, i64 104
-  %356 = getelementptr inbounds i8, ptr %9, i64 108
-  %357 = getelementptr inbounds i8, ptr %9, i64 112
-  %358 = getelementptr inbounds i8, ptr %9, i64 120
-  %359 = getelementptr inbounds i8, ptr %9, i64 128
-  %360 = getelementptr inbounds i8, ptr %9, i64 136
-  %361 = getelementptr inbounds i8, ptr %9, i64 140
-  %362 = getelementptr inbounds i8, ptr %9, i64 144
-  %363 = getelementptr inbounds i8, ptr %9, i64 152
-  %364 = getelementptr inbounds i8, ptr %9, i64 160
-  %365 = getelementptr inbounds i8, ptr %9, i64 168
-  %366 = getelementptr inbounds i8, ptr %9, i64 172
-  %367 = getelementptr inbounds i8, ptr %9, i64 176
-  %368 = getelementptr inbounds i8, ptr %9, i64 184
-  %369 = getelementptr inbounds i8, ptr %9, i64 192
-  %370 = getelementptr inbounds i8, ptr %9, i64 200
-  %371 = getelementptr inbounds i8, ptr %9, i64 204
-  %372 = getelementptr inbounds i8, ptr %9, i64 208
-  %373 = getelementptr inbounds i8, ptr %9, i64 216
-  %374 = getelementptr inbounds i8, ptr %9, i64 224
-  %375 = getelementptr inbounds i8, ptr %9, i64 232
-  %376 = getelementptr inbounds i8, ptr %9, i64 236
-  %377 = getelementptr inbounds i8, ptr %9, i64 240
-  %378 = getelementptr inbounds i8, ptr %9, i64 248
-  %379 = getelementptr inbounds i8, ptr %9, i64 256
-  %380 = getelementptr inbounds i8, ptr %9, i64 264
-  %381 = getelementptr inbounds i8, ptr %9, i64 268
-  %382 = getelementptr inbounds i8, ptr %9, i64 272
-  %383 = getelementptr inbounds i8, ptr %9, i64 280
-  %384 = getelementptr inbounds i8, ptr %9, i64 288
-  %385 = getelementptr inbounds i8, ptr %10, i64 8
-  %386 = getelementptr inbounds i8, ptr %10, i64 12
-  %387 = getelementptr inbounds i8, ptr %10, i64 16
-  %388 = getelementptr inbounds i8, ptr %10, i64 24
-  %389 = getelementptr inbounds i8, ptr %10, i64 32
-  %390 = getelementptr inbounds i8, ptr %10, i64 40
-  %391 = getelementptr inbounds i8, ptr %10, i64 44
-  %392 = getelementptr inbounds i8, ptr %10, i64 48
-  %393 = getelementptr inbounds i8, ptr %10, i64 56
-  %394 = getelementptr inbounds i8, ptr %10, i64 64
-  %395 = getelementptr inbounds i8, ptr %10, i64 72
-  %396 = getelementptr inbounds i8, ptr %10, i64 76
-  %397 = getelementptr inbounds i8, ptr %10, i64 80
-  %398 = getelementptr inbounds i8, ptr %10, i64 88
-  %399 = getelementptr inbounds i8, ptr %10, i64 96
-  %400 = getelementptr inbounds i8, ptr %10, i64 104
-  %401 = getelementptr inbounds i8, ptr %10, i64 108
-  %402 = getelementptr inbounds i8, ptr %10, i64 112
-  %403 = getelementptr inbounds i8, ptr %10, i64 120
-  %404 = getelementptr inbounds i8, ptr %10, i64 128
-  %405 = getelementptr inbounds i8, ptr %10, i64 136
-  %406 = getelementptr inbounds i8, ptr %10, i64 140
-  %407 = getelementptr inbounds i8, ptr %10, i64 144
-  %408 = getelementptr inbounds i8, ptr %10, i64 152
-  %409 = getelementptr inbounds i8, ptr %10, i64 160
-  %410 = getelementptr inbounds i8, ptr %10, i64 168
-  %411 = getelementptr inbounds i8, ptr %10, i64 172
-  %412 = getelementptr inbounds i8, ptr %10, i64 176
-  %413 = getelementptr inbounds i8, ptr %10, i64 184
-  %414 = getelementptr inbounds i8, ptr %10, i64 192
-  %415 = getelementptr inbounds i8, ptr %10, i64 200
-  %416 = getelementptr inbounds i8, ptr %10, i64 204
-  %417 = getelementptr inbounds i8, ptr %10, i64 208
-  %418 = getelementptr inbounds i8, ptr %10, i64 216
-  %419 = getelementptr inbounds i8, ptr %10, i64 224
-  %420 = getelementptr inbounds i8, ptr %10, i64 232
-  %421 = getelementptr inbounds i8, ptr %10, i64 236
-  %422 = getelementptr inbounds i8, ptr %10, i64 240
-  %423 = getelementptr inbounds i8, ptr %10, i64 248
-  %424 = getelementptr inbounds i8, ptr %10, i64 256
-  %425 = getelementptr inbounds i8, ptr %10, i64 264
-  %426 = getelementptr inbounds i8, ptr %10, i64 268
-  %427 = getelementptr inbounds i8, ptr %10, i64 272
-  %428 = getelementptr inbounds i8, ptr %10, i64 280
-  %429 = getelementptr inbounds i8, ptr %10, i64 288
-  %430 = getelementptr inbounds i8, ptr %11, i64 8
-  %431 = getelementptr inbounds i8, ptr %11, i64 12
-  %432 = getelementptr inbounds i8, ptr %11, i64 16
-  %433 = getelementptr inbounds i8, ptr %11, i64 24
-  %434 = getelementptr inbounds i8, ptr %11, i64 32
-  %435 = getelementptr inbounds i8, ptr %11, i64 40
-  %436 = getelementptr inbounds i8, ptr %11, i64 44
-  %437 = getelementptr inbounds i8, ptr %11, i64 48
-  %438 = getelementptr inbounds i8, ptr %11, i64 56
-  %439 = getelementptr inbounds i8, ptr %11, i64 64
-  %440 = getelementptr inbounds i8, ptr %11, i64 72
-  %441 = getelementptr inbounds i8, ptr %11, i64 76
-  %442 = getelementptr inbounds i8, ptr %11, i64 80
-  %443 = getelementptr inbounds i8, ptr %11, i64 88
-  %444 = getelementptr inbounds i8, ptr %11, i64 96
-  %445 = getelementptr inbounds i8, ptr %11, i64 104
-  %446 = getelementptr inbounds i8, ptr %11, i64 108
-  %447 = getelementptr inbounds i8, ptr %11, i64 112
-  %448 = getelementptr inbounds i8, ptr %11, i64 120
-  %449 = getelementptr inbounds i8, ptr %11, i64 128
-  %450 = getelementptr inbounds i8, ptr %11, i64 136
-  %451 = getelementptr inbounds i8, ptr %11, i64 140
-  %452 = getelementptr inbounds i8, ptr %11, i64 144
-  %453 = getelementptr inbounds i8, ptr %11, i64 152
-  %454 = getelementptr inbounds i8, ptr %11, i64 160
-  %455 = getelementptr inbounds i8, ptr %11, i64 168
-  %456 = getelementptr inbounds i8, ptr %11, i64 172
-  %457 = getelementptr inbounds i8, ptr %11, i64 176
-  %458 = getelementptr inbounds i8, ptr %11, i64 184
-  %459 = getelementptr inbounds i8, ptr %11, i64 192
-  %460 = getelementptr inbounds i8, ptr %11, i64 200
-  %461 = getelementptr inbounds i8, ptr %11, i64 204
-  %462 = getelementptr inbounds i8, ptr %11, i64 208
-  %463 = getelementptr inbounds i8, ptr %11, i64 216
-  %464 = getelementptr inbounds i8, ptr %11, i64 224
-  %465 = getelementptr inbounds i8, ptr %11, i64 232
-  %466 = getelementptr inbounds i8, ptr %11, i64 236
-  %467 = getelementptr inbounds i8, ptr %11, i64 240
-  %468 = getelementptr inbounds i8, ptr %11, i64 248
-  %469 = getelementptr inbounds i8, ptr %11, i64 256
-  %470 = getelementptr inbounds i8, ptr %11, i64 264
-  %471 = getelementptr inbounds i8, ptr %11, i64 268
-  %472 = getelementptr inbounds i8, ptr %11, i64 272
-  %473 = getelementptr inbounds i8, ptr %11, i64 280
-  %474 = getelementptr inbounds i8, ptr %11, i64 288
-  %475 = getelementptr inbounds i8, ptr %11, i64 296
-  %476 = getelementptr inbounds i8, ptr %11, i64 300
-  %477 = getelementptr inbounds i8, ptr %11, i64 304
-  %478 = getelementptr inbounds i8, ptr %11, i64 312
-  %479 = getelementptr inbounds i8, ptr %11, i64 320
-  %480 = getelementptr inbounds i8, ptr %11, i64 328
-  %481 = getelementptr inbounds i8, ptr %11, i64 332
-  %482 = getelementptr inbounds i8, ptr %11, i64 336
-  %483 = getelementptr inbounds i8, ptr %11, i64 344
-  %484 = getelementptr inbounds i8, ptr %11, i64 352
-  %485 = getelementptr inbounds i8, ptr %11, i64 360
-  %486 = getelementptr inbounds i8, ptr %11, i64 364
-  %487 = getelementptr inbounds i8, ptr %11, i64 368
-  %488 = getelementptr inbounds i8, ptr %11, i64 376
-  %489 = getelementptr inbounds i8, ptr %11, i64 384
-  %490 = getelementptr inbounds i8, ptr %11, i64 392
-  %491 = getelementptr inbounds i8, ptr %11, i64 396
-  %492 = getelementptr inbounds i8, ptr %11, i64 400
-  %493 = getelementptr inbounds i8, ptr %11, i64 408
-  %494 = getelementptr inbounds i8, ptr %11, i64 416
-  %495 = getelementptr inbounds i8, ptr %11, i64 424
-  %496 = getelementptr inbounds i8, ptr %11, i64 428
-  %497 = getelementptr inbounds i8, ptr %11, i64 432
-  %498 = getelementptr inbounds i8, ptr %11, i64 440
-  %499 = getelementptr inbounds i8, ptr %11, i64 448
-  %500 = getelementptr inbounds i8, ptr %11, i64 456
-  %501 = getelementptr inbounds i8, ptr %11, i64 460
-  %502 = getelementptr inbounds i8, ptr %11, i64 464
-  %503 = getelementptr inbounds i8, ptr %11, i64 472
-  %504 = getelementptr inbounds i8, ptr %11, i64 480
-  %505 = getelementptr inbounds i8, ptr %11, i64 488
-  %506 = getelementptr inbounds i8, ptr %11, i64 492
-  %507 = getelementptr inbounds i8, ptr %11, i64 496
-  %508 = getelementptr inbounds i8, ptr %11, i64 504
-  %509 = getelementptr inbounds i8, ptr %11, i64 512
-  %510 = getelementptr inbounds i8, ptr %11, i64 520
-  %511 = getelementptr inbounds i8, ptr %11, i64 524
-  %512 = getelementptr inbounds i8, ptr %11, i64 528
-  %513 = getelementptr inbounds i8, ptr %11, i64 536
-  %514 = getelementptr inbounds i8, ptr %11, i64 544
-  %515 = getelementptr inbounds i8, ptr %11, i64 552
-  %516 = getelementptr inbounds i8, ptr %11, i64 556
-  %517 = getelementptr inbounds i8, ptr %11, i64 560
-  %518 = getelementptr inbounds i8, ptr %11, i64 568
-  %519 = getelementptr inbounds i8, ptr %11, i64 576
-  %520 = getelementptr inbounds i8, ptr %11, i64 584
-  %521 = getelementptr inbounds i8, ptr %11, i64 588
-  %522 = getelementptr inbounds i8, ptr %11, i64 592
-  %523 = getelementptr inbounds i8, ptr %11, i64 600
-  %524 = getelementptr inbounds i8, ptr %11, i64 608
-  %525 = getelementptr inbounds i8, ptr %12, i64 8
-  %526 = getelementptr inbounds i8, ptr %12, i64 12
-  %527 = getelementptr inbounds i8, ptr %12, i64 16
-  %528 = getelementptr inbounds i8, ptr %12, i64 24
-  %529 = getelementptr inbounds i8, ptr %12, i64 32
-  %530 = getelementptr inbounds i8, ptr %12, i64 40
-  %531 = getelementptr inbounds i8, ptr %12, i64 44
-  %532 = getelementptr inbounds i8, ptr %12, i64 48
-  %533 = getelementptr inbounds i8, ptr %12, i64 56
-  %534 = getelementptr inbounds i8, ptr %12, i64 64
-  %535 = getelementptr inbounds i8, ptr %12, i64 72
-  %536 = getelementptr inbounds i8, ptr %12, i64 76
-  %537 = getelementptr inbounds i8, ptr %12, i64 80
-  %538 = getelementptr inbounds i8, ptr %12, i64 88
-  %539 = getelementptr inbounds i8, ptr %12, i64 96
-  %540 = getelementptr inbounds i8, ptr %12, i64 104
-  %541 = getelementptr inbounds i8, ptr %12, i64 108
-  %542 = getelementptr inbounds i8, ptr %12, i64 112
-  %543 = getelementptr inbounds i8, ptr %12, i64 120
-  %544 = getelementptr inbounds i8, ptr %12, i64 128
-  %545 = getelementptr inbounds i8, ptr %12, i64 136
-  %546 = getelementptr inbounds i8, ptr %12, i64 140
-  %547 = getelementptr inbounds i8, ptr %12, i64 144
-  %548 = getelementptr inbounds i8, ptr %12, i64 152
-  %549 = getelementptr inbounds i8, ptr %12, i64 160
-  %550 = getelementptr inbounds i8, ptr %12, i64 168
-  %551 = getelementptr inbounds i8, ptr %12, i64 172
-  %552 = getelementptr inbounds i8, ptr %12, i64 176
-  %553 = getelementptr inbounds i8, ptr %12, i64 184
-  %554 = getelementptr inbounds i8, ptr %12, i64 192
-  %555 = getelementptr inbounds i8, ptr %13, i64 8
-  %556 = getelementptr inbounds i8, ptr %13, i64 12
-  %557 = getelementptr inbounds i8, ptr %13, i64 16
-  %558 = getelementptr inbounds i8, ptr %13, i64 24
-  %559 = getelementptr inbounds i8, ptr %13, i64 32
-  %560 = getelementptr inbounds i8, ptr %13, i64 40
-  %561 = getelementptr inbounds i8, ptr %13, i64 44
-  %562 = getelementptr inbounds i8, ptr %13, i64 48
-  %563 = getelementptr inbounds i8, ptr %13, i64 56
-  %564 = getelementptr inbounds i8, ptr %13, i64 64
-  %565 = getelementptr inbounds i8, ptr %13, i64 72
-  %566 = getelementptr inbounds i8, ptr %13, i64 76
-  %567 = getelementptr inbounds i8, ptr %13, i64 80
-  %568 = getelementptr inbounds i8, ptr %13, i64 88
-  %569 = getelementptr inbounds i8, ptr %13, i64 96
-  %570 = getelementptr inbounds i8, ptr %13, i64 104
-  %571 = getelementptr inbounds i8, ptr %13, i64 108
-  %572 = getelementptr inbounds i8, ptr %13, i64 112
-  %573 = getelementptr inbounds i8, ptr %13, i64 120
-  %574 = getelementptr inbounds i8, ptr %13, i64 128
-  %575 = getelementptr inbounds i8, ptr %13, i64 136
-  %576 = getelementptr inbounds i8, ptr %13, i64 140
-  %577 = getelementptr inbounds i8, ptr %13, i64 144
-  %578 = getelementptr inbounds i8, ptr %13, i64 152
-  %579 = getelementptr inbounds i8, ptr %13, i64 160
-  %580 = getelementptr inbounds i8, ptr %13, i64 168
-  %581 = getelementptr inbounds i8, ptr %13, i64 172
-  %582 = getelementptr inbounds i8, ptr %13, i64 176
-  %583 = getelementptr inbounds i8, ptr %13, i64 184
-  %584 = getelementptr inbounds i8, ptr %13, i64 192
-  %585 = getelementptr inbounds i8, ptr %13, i64 200
-  %586 = getelementptr inbounds i8, ptr %13, i64 204
-  %587 = getelementptr inbounds i8, ptr %13, i64 208
-  %588 = getelementptr inbounds i8, ptr %13, i64 216
-  %589 = getelementptr inbounds i8, ptr %13, i64 224
-  %590 = getelementptr inbounds i8, ptr %13, i64 232
-  %591 = getelementptr inbounds i8, ptr %13, i64 236
-  %592 = getelementptr inbounds i8, ptr %13, i64 240
-  %593 = getelementptr inbounds i8, ptr %13, i64 248
-  %594 = getelementptr inbounds i8, ptr %13, i64 256
-  %595 = getelementptr inbounds i8, ptr %13, i64 264
-  %596 = getelementptr inbounds i8, ptr %13, i64 268
-  %597 = getelementptr inbounds i8, ptr %13, i64 272
-  %598 = getelementptr inbounds i8, ptr %13, i64 280
-  %599 = getelementptr inbounds i8, ptr %13, i64 288
-  %600 = getelementptr inbounds i8, ptr %13, i64 296
-  %601 = getelementptr inbounds i8, ptr %13, i64 300
-  %602 = getelementptr inbounds i8, ptr %13, i64 304
-  %603 = getelementptr inbounds i8, ptr %13, i64 312
-  %604 = getelementptr inbounds i8, ptr %13, i64 320
-  %605 = getelementptr inbounds i8, ptr %13, i64 328
-  %606 = getelementptr inbounds i8, ptr %13, i64 332
-  %607 = getelementptr inbounds i8, ptr %13, i64 336
-  %608 = getelementptr inbounds i8, ptr %13, i64 344
-  %609 = getelementptr inbounds i8, ptr %13, i64 352
-  %610 = getelementptr inbounds i8, ptr %14, i64 8
-  %611 = getelementptr inbounds i8, ptr %14, i64 12
-  %612 = getelementptr inbounds i8, ptr %14, i64 16
-  %613 = getelementptr inbounds i8, ptr %14, i64 24
-  %614 = getelementptr inbounds i8, ptr %14, i64 32
-  %615 = getelementptr inbounds i8, ptr %14, i64 40
-  %616 = getelementptr inbounds i8, ptr %14, i64 44
-  %617 = getelementptr inbounds i8, ptr %14, i64 48
-  %618 = getelementptr inbounds i8, ptr %14, i64 56
-  %619 = getelementptr inbounds i8, ptr %14, i64 64
-  %620 = getelementptr inbounds i8, ptr %14, i64 72
-  %621 = getelementptr inbounds i8, ptr %14, i64 76
-  %622 = getelementptr inbounds i8, ptr %14, i64 80
-  %623 = getelementptr inbounds i8, ptr %14, i64 88
-  %624 = getelementptr inbounds i8, ptr %14, i64 96
-  %625 = getelementptr inbounds i8, ptr %14, i64 104
-  %626 = getelementptr inbounds i8, ptr %14, i64 108
-  %627 = getelementptr inbounds i8, ptr %14, i64 112
-  %628 = getelementptr inbounds i8, ptr %14, i64 120
-  %629 = getelementptr inbounds i8, ptr %14, i64 128
-  %630 = getelementptr inbounds i8, ptr %14, i64 136
-  %631 = getelementptr inbounds i8, ptr %14, i64 140
-  %632 = getelementptr inbounds i8, ptr %14, i64 144
-  %633 = getelementptr inbounds i8, ptr %14, i64 152
-  %634 = getelementptr inbounds i8, ptr %14, i64 160
-  %635 = getelementptr inbounds i8, ptr %15, i64 8
-  %636 = getelementptr inbounds i8, ptr %15, i64 12
-  %637 = getelementptr inbounds i8, ptr %15, i64 16
-  %638 = getelementptr inbounds i8, ptr %15, i64 24
-  %639 = getelementptr inbounds i8, ptr %15, i64 32
-  %640 = getelementptr inbounds i8, ptr %15, i64 40
-  %641 = getelementptr inbounds i8, ptr %15, i64 44
-  %642 = getelementptr inbounds i8, ptr %15, i64 48
-  %643 = getelementptr inbounds i8, ptr %15, i64 56
-  %644 = getelementptr inbounds i8, ptr %15, i64 64
-  %645 = getelementptr inbounds i8, ptr %15, i64 72
-  %646 = getelementptr inbounds i8, ptr %15, i64 76
-  %647 = getelementptr inbounds i8, ptr %15, i64 80
-  %648 = getelementptr inbounds i8, ptr %15, i64 88
-  %649 = getelementptr inbounds i8, ptr %15, i64 96
-  %650 = getelementptr inbounds i8, ptr %15, i64 104
-  %651 = getelementptr inbounds i8, ptr %15, i64 108
-  %652 = getelementptr inbounds i8, ptr %15, i64 112
-  %653 = getelementptr inbounds i8, ptr %15, i64 120
-  %654 = getelementptr inbounds i8, ptr %15, i64 128
-  %655 = getelementptr inbounds i8, ptr %15, i64 136
-  %656 = getelementptr inbounds i8, ptr %15, i64 140
-  %657 = getelementptr inbounds i8, ptr %15, i64 144
-  %658 = getelementptr inbounds i8, ptr %15, i64 152
-  %659 = getelementptr inbounds i8, ptr %15, i64 160
-  %660 = getelementptr inbounds i8, ptr %15, i64 168
-  %661 = getelementptr inbounds i8, ptr %15, i64 172
-  %662 = getelementptr inbounds i8, ptr %15, i64 176
-  %663 = getelementptr inbounds i8, ptr %15, i64 184
-  %664 = getelementptr inbounds i8, ptr %15, i64 192
-  %665 = getelementptr inbounds i8, ptr %15, i64 200
-  %666 = getelementptr inbounds i8, ptr %15, i64 204
-  %667 = getelementptr inbounds i8, ptr %15, i64 208
-  %668 = getelementptr inbounds i8, ptr %15, i64 216
-  %669 = getelementptr inbounds i8, ptr %15, i64 224
-  %670 = getelementptr inbounds i8, ptr %15, i64 232
-  %671 = getelementptr inbounds i8, ptr %15, i64 236
-  %672 = getelementptr inbounds i8, ptr %15, i64 240
-  %673 = getelementptr inbounds i8, ptr %15, i64 248
-  %674 = getelementptr inbounds i8, ptr %15, i64 256
-  %675 = getelementptr inbounds i8, ptr %15, i64 264
-  %676 = getelementptr inbounds i8, ptr %15, i64 268
-  %677 = getelementptr inbounds i8, ptr %15, i64 272
-  %678 = getelementptr inbounds i8, ptr %15, i64 280
-  %679 = getelementptr inbounds i8, ptr %15, i64 288
-  %680 = getelementptr inbounds i8, ptr %15, i64 296
-  %681 = getelementptr inbounds i8, ptr %15, i64 300
-  %682 = getelementptr inbounds i8, ptr %15, i64 304
-  %683 = getelementptr inbounds i8, ptr %15, i64 312
-  %684 = getelementptr inbounds i8, ptr %15, i64 320
-  %685 = getelementptr inbounds i8, ptr %15, i64 328
-  %686 = getelementptr inbounds i8, ptr %15, i64 332
-  %687 = getelementptr inbounds i8, ptr %15, i64 336
-  %688 = getelementptr inbounds i8, ptr %15, i64 344
-  %689 = getelementptr inbounds i8, ptr %15, i64 352
-  %690 = getelementptr inbounds i8, ptr %15, i64 360
-  %691 = getelementptr inbounds i8, ptr %15, i64 364
-  %692 = getelementptr inbounds i8, ptr %15, i64 368
-  %693 = getelementptr inbounds i8, ptr %15, i64 376
-  %694 = getelementptr inbounds i8, ptr %15, i64 384
-  %695 = getelementptr inbounds i8, ptr %15, i64 392
-  %696 = getelementptr inbounds i8, ptr %15, i64 396
-  %697 = getelementptr inbounds i8, ptr %15, i64 400
-  %698 = getelementptr inbounds i8, ptr %15, i64 408
-  %699 = getelementptr inbounds i8, ptr %15, i64 416
-  %700 = getelementptr inbounds i8, ptr %16, i64 8
-  %701 = getelementptr inbounds i8, ptr %16, i64 12
-  %702 = getelementptr inbounds i8, ptr %16, i64 16
-  %703 = getelementptr inbounds i8, ptr %16, i64 24
-  %704 = getelementptr inbounds i8, ptr %16, i64 32
-  %705 = getelementptr inbounds i8, ptr %16, i64 40
-  %706 = getelementptr inbounds i8, ptr %16, i64 44
-  %707 = getelementptr inbounds i8, ptr %16, i64 48
-  %708 = getelementptr inbounds i8, ptr %16, i64 56
-  %709 = getelementptr inbounds i8, ptr %16, i64 64
-  %710 = getelementptr inbounds i8, ptr %16, i64 72
-  %711 = getelementptr inbounds i8, ptr %16, i64 76
-  %712 = getelementptr inbounds i8, ptr %16, i64 80
-  %713 = getelementptr inbounds i8, ptr %16, i64 88
-  %714 = getelementptr inbounds i8, ptr %16, i64 96
-  %715 = getelementptr inbounds i8, ptr %16, i64 104
-  %716 = getelementptr inbounds i8, ptr %16, i64 108
-  %717 = getelementptr inbounds i8, ptr %16, i64 112
-  %718 = getelementptr inbounds i8, ptr %16, i64 120
-  %719 = getelementptr inbounds i8, ptr %16, i64 128
-  %720 = getelementptr inbounds i8, ptr %16, i64 136
-  %721 = getelementptr inbounds i8, ptr %16, i64 140
-  %722 = getelementptr inbounds i8, ptr %16, i64 144
-  %723 = getelementptr inbounds i8, ptr %16, i64 152
-  %724 = getelementptr inbounds i8, ptr %16, i64 160
-  %725 = getelementptr inbounds i8, ptr %16, i64 168
-  %726 = getelementptr inbounds i8, ptr %16, i64 172
-  %727 = getelementptr inbounds i8, ptr %16, i64 176
-  %728 = getelementptr inbounds i8, ptr %16, i64 184
-  %729 = getelementptr inbounds i8, ptr %16, i64 192
-  %730 = getelementptr inbounds i8, ptr %21, i64 8
-  %731 = getelementptr inbounds i8, ptr %21, i64 12
-  %732 = getelementptr inbounds i8, ptr %21, i64 16
-  %733 = getelementptr inbounds i8, ptr %21, i64 24
-  %734 = getelementptr inbounds i8, ptr %21, i64 32
-  %735 = getelementptr inbounds i8, ptr %21, i64 40
-  %736 = getelementptr inbounds i8, ptr %21, i64 44
-  %737 = getelementptr inbounds i8, ptr %21, i64 48
-  %738 = getelementptr inbounds i8, ptr %21, i64 56
-  %739 = getelementptr inbounds i8, ptr %21, i64 64
-  %740 = getelementptr inbounds i8, ptr %22, i64 8
-  %741 = getelementptr inbounds i8, ptr %22, i64 12
-  %742 = getelementptr inbounds i8, ptr %22, i64 16
-  %743 = getelementptr inbounds i8, ptr %22, i64 24
-  %744 = getelementptr inbounds i8, ptr %22, i64 32
-  %745 = getelementptr inbounds i8, ptr %22, i64 40
-  %746 = getelementptr inbounds i8, ptr %22, i64 44
-  %747 = getelementptr inbounds i8, ptr %22, i64 48
-  %748 = getelementptr inbounds i8, ptr %22, i64 56
-  %749 = getelementptr inbounds i8, ptr %22, i64 64
-  %750 = getelementptr inbounds i8, ptr %22, i64 72
-  %751 = getelementptr inbounds i8, ptr %22, i64 76
-  %752 = getelementptr inbounds i8, ptr %22, i64 80
-  %753 = getelementptr inbounds i8, ptr %22, i64 88
-  %754 = getelementptr inbounds i8, ptr %22, i64 96
-  %755 = getelementptr inbounds i8, ptr %22, i64 104
-  %756 = getelementptr inbounds i8, ptr %22, i64 108
-  %757 = getelementptr inbounds i8, ptr %22, i64 112
-  %758 = getelementptr inbounds i8, ptr %22, i64 120
-  %759 = getelementptr inbounds i8, ptr %22, i64 128
-  %760 = getelementptr inbounds i8, ptr %22, i64 136
-  %761 = getelementptr inbounds i8, ptr %22, i64 140
-  %762 = getelementptr inbounds i8, ptr %22, i64 144
-  %763 = getelementptr inbounds i8, ptr %22, i64 152
-  %764 = getelementptr inbounds i8, ptr %22, i64 160
-  %765 = getelementptr inbounds i8, ptr %22, i64 168
-  %766 = getelementptr inbounds i8, ptr %22, i64 172
-  %767 = getelementptr inbounds i8, ptr %22, i64 176
-  %768 = getelementptr inbounds i8, ptr %22, i64 184
-  %769 = getelementptr inbounds i8, ptr %22, i64 192
-  %770 = getelementptr inbounds i8, ptr %22, i64 200
-  %771 = getelementptr inbounds i8, ptr %22, i64 204
-  %772 = getelementptr inbounds i8, ptr %22, i64 208
-  %773 = getelementptr inbounds i8, ptr %22, i64 216
-  %774 = getelementptr inbounds i8, ptr %22, i64 224
-  %775 = getelementptr inbounds i8, ptr %22, i64 232
-  %776 = getelementptr inbounds i8, ptr %22, i64 236
-  %777 = getelementptr inbounds i8, ptr %22, i64 240
-  %778 = getelementptr inbounds i8, ptr %22, i64 248
-  %779 = getelementptr inbounds i8, ptr %22, i64 256
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 76
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %18, i64 76
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %20, i64 76
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %20, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %20, i64 108
+  %82 = getelementptr inbounds nuw i8, ptr %20, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %20, i64 120
+  %84 = getelementptr inbounds nuw i8, ptr %20, i64 128
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 108
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 140
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 172
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 204
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 216
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 224
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 108
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 140
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 152
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 172
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 204
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 256
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 264
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 268
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 272
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 280
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 288
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 296
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 300
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 304
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 312
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %170 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %172 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %177 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %178 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %181 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %183 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %184 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %185 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %186 = getelementptr inbounds nuw i8, ptr %6, i64 108
+  %187 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %188 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %190 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 140
+  %192 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %195 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %197 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %203 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %206 = getelementptr inbounds nuw i8, ptr %7, i64 76
+  %207 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %209 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %211 = getelementptr inbounds nuw i8, ptr %7, i64 108
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %213 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %215 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %216 = getelementptr inbounds nuw i8, ptr %7, i64 140
+  %217 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %218 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %221 = getelementptr inbounds nuw i8, ptr %7, i64 172
+  %222 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %224 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %225 = getelementptr inbounds nuw i8, ptr %7, i64 200
+  %226 = getelementptr inbounds nuw i8, ptr %7, i64 204
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 208
+  %228 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %229 = getelementptr inbounds nuw i8, ptr %7, i64 224
+  %230 = getelementptr inbounds nuw i8, ptr %7, i64 232
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 236
+  %232 = getelementptr inbounds nuw i8, ptr %7, i64 240
+  %233 = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %234 = getelementptr inbounds nuw i8, ptr %7, i64 256
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 264
+  %236 = getelementptr inbounds nuw i8, ptr %7, i64 268
+  %237 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %238 = getelementptr inbounds nuw i8, ptr %7, i64 280
+  %239 = getelementptr inbounds nuw i8, ptr %7, i64 288
+  %240 = getelementptr inbounds nuw i8, ptr %7, i64 296
+  %241 = getelementptr inbounds nuw i8, ptr %7, i64 300
+  %242 = getelementptr inbounds nuw i8, ptr %7, i64 304
+  %243 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %244 = getelementptr inbounds nuw i8, ptr %7, i64 320
+  %245 = getelementptr inbounds nuw i8, ptr %7, i64 328
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 332
+  %247 = getelementptr inbounds nuw i8, ptr %7, i64 336
+  %248 = getelementptr inbounds nuw i8, ptr %7, i64 344
+  %249 = getelementptr inbounds nuw i8, ptr %7, i64 352
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %252 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %256 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %257 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %258 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %259 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %260 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %261 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  %262 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %263 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %265 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %266 = getelementptr inbounds nuw i8, ptr %8, i64 108
+  %267 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %268 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  %269 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %270 = getelementptr inbounds nuw i8, ptr %8, i64 136
+  %271 = getelementptr inbounds nuw i8, ptr %8, i64 140
+  %272 = getelementptr inbounds nuw i8, ptr %8, i64 144
+  %273 = getelementptr inbounds nuw i8, ptr %8, i64 152
+  %274 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %275 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  %276 = getelementptr inbounds nuw i8, ptr %8, i64 172
+  %277 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %278 = getelementptr inbounds nuw i8, ptr %8, i64 184
+  %279 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %280 = getelementptr inbounds nuw i8, ptr %8, i64 200
+  %281 = getelementptr inbounds nuw i8, ptr %8, i64 204
+  %282 = getelementptr inbounds nuw i8, ptr %8, i64 208
+  %283 = getelementptr inbounds nuw i8, ptr %8, i64 216
+  %284 = getelementptr inbounds nuw i8, ptr %8, i64 224
+  %285 = getelementptr inbounds nuw i8, ptr %8, i64 232
+  %286 = getelementptr inbounds nuw i8, ptr %8, i64 236
+  %287 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %288 = getelementptr inbounds nuw i8, ptr %8, i64 248
+  %289 = getelementptr inbounds nuw i8, ptr %8, i64 256
+  %290 = getelementptr inbounds nuw i8, ptr %8, i64 264
+  %291 = getelementptr inbounds nuw i8, ptr %8, i64 268
+  %292 = getelementptr inbounds nuw i8, ptr %8, i64 272
+  %293 = getelementptr inbounds nuw i8, ptr %8, i64 280
+  %294 = getelementptr inbounds nuw i8, ptr %8, i64 288
+  %295 = getelementptr inbounds nuw i8, ptr %8, i64 296
+  %296 = getelementptr inbounds nuw i8, ptr %8, i64 300
+  %297 = getelementptr inbounds nuw i8, ptr %8, i64 304
+  %298 = getelementptr inbounds nuw i8, ptr %8, i64 312
+  %299 = getelementptr inbounds nuw i8, ptr %8, i64 320
+  %300 = getelementptr inbounds nuw i8, ptr %8, i64 328
+  %301 = getelementptr inbounds nuw i8, ptr %8, i64 332
+  %302 = getelementptr inbounds nuw i8, ptr %8, i64 336
+  %303 = getelementptr inbounds nuw i8, ptr %8, i64 344
+  %304 = getelementptr inbounds nuw i8, ptr %8, i64 352
+  %305 = getelementptr inbounds nuw i8, ptr %8, i64 360
+  %306 = getelementptr inbounds nuw i8, ptr %8, i64 364
+  %307 = getelementptr inbounds nuw i8, ptr %8, i64 368
+  %308 = getelementptr inbounds nuw i8, ptr %8, i64 376
+  %309 = getelementptr inbounds nuw i8, ptr %8, i64 384
+  %310 = getelementptr inbounds nuw i8, ptr %8, i64 392
+  %311 = getelementptr inbounds nuw i8, ptr %8, i64 396
+  %312 = getelementptr inbounds nuw i8, ptr %8, i64 400
+  %313 = getelementptr inbounds nuw i8, ptr %8, i64 408
+  %314 = getelementptr inbounds nuw i8, ptr %8, i64 416
+  %315 = getelementptr inbounds nuw i8, ptr %8, i64 424
+  %316 = getelementptr inbounds nuw i8, ptr %8, i64 428
+  %317 = getelementptr inbounds nuw i8, ptr %8, i64 432
+  %318 = getelementptr inbounds nuw i8, ptr %8, i64 440
+  %319 = getelementptr inbounds nuw i8, ptr %8, i64 448
+  %320 = getelementptr inbounds nuw i8, ptr %8, i64 456
+  %321 = getelementptr inbounds nuw i8, ptr %8, i64 460
+  %322 = getelementptr inbounds nuw i8, ptr %8, i64 464
+  %323 = getelementptr inbounds nuw i8, ptr %8, i64 472
+  %324 = getelementptr inbounds nuw i8, ptr %8, i64 480
+  %325 = getelementptr inbounds nuw i8, ptr %8, i64 488
+  %326 = getelementptr inbounds nuw i8, ptr %8, i64 492
+  %327 = getelementptr inbounds nuw i8, ptr %8, i64 496
+  %328 = getelementptr inbounds nuw i8, ptr %8, i64 504
+  %329 = getelementptr inbounds nuw i8, ptr %8, i64 512
+  %330 = getelementptr inbounds nuw i8, ptr %8, i64 520
+  %331 = getelementptr inbounds nuw i8, ptr %8, i64 524
+  %332 = getelementptr inbounds nuw i8, ptr %8, i64 528
+  %333 = getelementptr inbounds nuw i8, ptr %8, i64 536
+  %334 = getelementptr inbounds nuw i8, ptr %8, i64 544
+  %335 = getelementptr inbounds nuw i8, ptr %8, i64 552
+  %336 = getelementptr inbounds nuw i8, ptr %8, i64 556
+  %337 = getelementptr inbounds nuw i8, ptr %8, i64 560
+  %338 = getelementptr inbounds nuw i8, ptr %8, i64 568
+  %339 = getelementptr inbounds nuw i8, ptr %8, i64 576
+  %340 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %342 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %344 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %345 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %346 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  %347 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %348 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %349 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %350 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %351 = getelementptr inbounds nuw i8, ptr %9, i64 76
+  %352 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %353 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %354 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %355 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %356 = getelementptr inbounds nuw i8, ptr %9, i64 108
+  %357 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %358 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %359 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %360 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %361 = getelementptr inbounds nuw i8, ptr %9, i64 140
+  %362 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %363 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %364 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %365 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  %366 = getelementptr inbounds nuw i8, ptr %9, i64 172
+  %367 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %368 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %369 = getelementptr inbounds nuw i8, ptr %9, i64 192
+  %370 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %371 = getelementptr inbounds nuw i8, ptr %9, i64 204
+  %372 = getelementptr inbounds nuw i8, ptr %9, i64 208
+  %373 = getelementptr inbounds nuw i8, ptr %9, i64 216
+  %374 = getelementptr inbounds nuw i8, ptr %9, i64 224
+  %375 = getelementptr inbounds nuw i8, ptr %9, i64 232
+  %376 = getelementptr inbounds nuw i8, ptr %9, i64 236
+  %377 = getelementptr inbounds nuw i8, ptr %9, i64 240
+  %378 = getelementptr inbounds nuw i8, ptr %9, i64 248
+  %379 = getelementptr inbounds nuw i8, ptr %9, i64 256
+  %380 = getelementptr inbounds nuw i8, ptr %9, i64 264
+  %381 = getelementptr inbounds nuw i8, ptr %9, i64 268
+  %382 = getelementptr inbounds nuw i8, ptr %9, i64 272
+  %383 = getelementptr inbounds nuw i8, ptr %9, i64 280
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 288
+  %385 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %387 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %389 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %390 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %391 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %392 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %393 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %394 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %395 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %396 = getelementptr inbounds nuw i8, ptr %10, i64 76
+  %397 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %398 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %399 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %400 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %401 = getelementptr inbounds nuw i8, ptr %10, i64 108
+  %402 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %403 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %404 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %405 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %406 = getelementptr inbounds nuw i8, ptr %10, i64 140
+  %407 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  %408 = getelementptr inbounds nuw i8, ptr %10, i64 152
+  %409 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  %410 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  %411 = getelementptr inbounds nuw i8, ptr %10, i64 172
+  %412 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  %413 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  %414 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  %415 = getelementptr inbounds nuw i8, ptr %10, i64 200
+  %416 = getelementptr inbounds nuw i8, ptr %10, i64 204
+  %417 = getelementptr inbounds nuw i8, ptr %10, i64 208
+  %418 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  %419 = getelementptr inbounds nuw i8, ptr %10, i64 224
+  %420 = getelementptr inbounds nuw i8, ptr %10, i64 232
+  %421 = getelementptr inbounds nuw i8, ptr %10, i64 236
+  %422 = getelementptr inbounds nuw i8, ptr %10, i64 240
+  %423 = getelementptr inbounds nuw i8, ptr %10, i64 248
+  %424 = getelementptr inbounds nuw i8, ptr %10, i64 256
+  %425 = getelementptr inbounds nuw i8, ptr %10, i64 264
+  %426 = getelementptr inbounds nuw i8, ptr %10, i64 268
+  %427 = getelementptr inbounds nuw i8, ptr %10, i64 272
+  %428 = getelementptr inbounds nuw i8, ptr %10, i64 280
+  %429 = getelementptr inbounds nuw i8, ptr %10, i64 288
+  %430 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %432 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %433 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %435 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %436 = getelementptr inbounds nuw i8, ptr %11, i64 44
+  %437 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %438 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %439 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %440 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %441 = getelementptr inbounds nuw i8, ptr %11, i64 76
+  %442 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %443 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %444 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %445 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %446 = getelementptr inbounds nuw i8, ptr %11, i64 108
+  %447 = getelementptr inbounds nuw i8, ptr %11, i64 112
+  %448 = getelementptr inbounds nuw i8, ptr %11, i64 120
+  %449 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %450 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %451 = getelementptr inbounds nuw i8, ptr %11, i64 140
+  %452 = getelementptr inbounds nuw i8, ptr %11, i64 144
+  %453 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  %454 = getelementptr inbounds nuw i8, ptr %11, i64 160
+  %455 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  %456 = getelementptr inbounds nuw i8, ptr %11, i64 172
+  %457 = getelementptr inbounds nuw i8, ptr %11, i64 176
+  %458 = getelementptr inbounds nuw i8, ptr %11, i64 184
+  %459 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %460 = getelementptr inbounds nuw i8, ptr %11, i64 200
+  %461 = getelementptr inbounds nuw i8, ptr %11, i64 204
+  %462 = getelementptr inbounds nuw i8, ptr %11, i64 208
+  %463 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %464 = getelementptr inbounds nuw i8, ptr %11, i64 224
+  %465 = getelementptr inbounds nuw i8, ptr %11, i64 232
+  %466 = getelementptr inbounds nuw i8, ptr %11, i64 236
+  %467 = getelementptr inbounds nuw i8, ptr %11, i64 240
+  %468 = getelementptr inbounds nuw i8, ptr %11, i64 248
+  %469 = getelementptr inbounds nuw i8, ptr %11, i64 256
+  %470 = getelementptr inbounds nuw i8, ptr %11, i64 264
+  %471 = getelementptr inbounds nuw i8, ptr %11, i64 268
+  %472 = getelementptr inbounds nuw i8, ptr %11, i64 272
+  %473 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  %474 = getelementptr inbounds nuw i8, ptr %11, i64 288
+  %475 = getelementptr inbounds nuw i8, ptr %11, i64 296
+  %476 = getelementptr inbounds nuw i8, ptr %11, i64 300
+  %477 = getelementptr inbounds nuw i8, ptr %11, i64 304
+  %478 = getelementptr inbounds nuw i8, ptr %11, i64 312
+  %479 = getelementptr inbounds nuw i8, ptr %11, i64 320
+  %480 = getelementptr inbounds nuw i8, ptr %11, i64 328
+  %481 = getelementptr inbounds nuw i8, ptr %11, i64 332
+  %482 = getelementptr inbounds nuw i8, ptr %11, i64 336
+  %483 = getelementptr inbounds nuw i8, ptr %11, i64 344
+  %484 = getelementptr inbounds nuw i8, ptr %11, i64 352
+  %485 = getelementptr inbounds nuw i8, ptr %11, i64 360
+  %486 = getelementptr inbounds nuw i8, ptr %11, i64 364
+  %487 = getelementptr inbounds nuw i8, ptr %11, i64 368
+  %488 = getelementptr inbounds nuw i8, ptr %11, i64 376
+  %489 = getelementptr inbounds nuw i8, ptr %11, i64 384
+  %490 = getelementptr inbounds nuw i8, ptr %11, i64 392
+  %491 = getelementptr inbounds nuw i8, ptr %11, i64 396
+  %492 = getelementptr inbounds nuw i8, ptr %11, i64 400
+  %493 = getelementptr inbounds nuw i8, ptr %11, i64 408
+  %494 = getelementptr inbounds nuw i8, ptr %11, i64 416
+  %495 = getelementptr inbounds nuw i8, ptr %11, i64 424
+  %496 = getelementptr inbounds nuw i8, ptr %11, i64 428
+  %497 = getelementptr inbounds nuw i8, ptr %11, i64 432
+  %498 = getelementptr inbounds nuw i8, ptr %11, i64 440
+  %499 = getelementptr inbounds nuw i8, ptr %11, i64 448
+  %500 = getelementptr inbounds nuw i8, ptr %11, i64 456
+  %501 = getelementptr inbounds nuw i8, ptr %11, i64 460
+  %502 = getelementptr inbounds nuw i8, ptr %11, i64 464
+  %503 = getelementptr inbounds nuw i8, ptr %11, i64 472
+  %504 = getelementptr inbounds nuw i8, ptr %11, i64 480
+  %505 = getelementptr inbounds nuw i8, ptr %11, i64 488
+  %506 = getelementptr inbounds nuw i8, ptr %11, i64 492
+  %507 = getelementptr inbounds nuw i8, ptr %11, i64 496
+  %508 = getelementptr inbounds nuw i8, ptr %11, i64 504
+  %509 = getelementptr inbounds nuw i8, ptr %11, i64 512
+  %510 = getelementptr inbounds nuw i8, ptr %11, i64 520
+  %511 = getelementptr inbounds nuw i8, ptr %11, i64 524
+  %512 = getelementptr inbounds nuw i8, ptr %11, i64 528
+  %513 = getelementptr inbounds nuw i8, ptr %11, i64 536
+  %514 = getelementptr inbounds nuw i8, ptr %11, i64 544
+  %515 = getelementptr inbounds nuw i8, ptr %11, i64 552
+  %516 = getelementptr inbounds nuw i8, ptr %11, i64 556
+  %517 = getelementptr inbounds nuw i8, ptr %11, i64 560
+  %518 = getelementptr inbounds nuw i8, ptr %11, i64 568
+  %519 = getelementptr inbounds nuw i8, ptr %11, i64 576
+  %520 = getelementptr inbounds nuw i8, ptr %11, i64 584
+  %521 = getelementptr inbounds nuw i8, ptr %11, i64 588
+  %522 = getelementptr inbounds nuw i8, ptr %11, i64 592
+  %523 = getelementptr inbounds nuw i8, ptr %11, i64 600
+  %524 = getelementptr inbounds nuw i8, ptr %11, i64 608
+  %525 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %526 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %527 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %528 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %529 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %530 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %531 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %532 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %533 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %534 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %535 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %536 = getelementptr inbounds nuw i8, ptr %12, i64 76
+  %537 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %538 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %539 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %540 = getelementptr inbounds nuw i8, ptr %12, i64 104
+  %541 = getelementptr inbounds nuw i8, ptr %12, i64 108
+  %542 = getelementptr inbounds nuw i8, ptr %12, i64 112
+  %543 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  %544 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %545 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  %546 = getelementptr inbounds nuw i8, ptr %12, i64 140
+  %547 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  %548 = getelementptr inbounds nuw i8, ptr %12, i64 152
+  %549 = getelementptr inbounds nuw i8, ptr %12, i64 160
+  %550 = getelementptr inbounds nuw i8, ptr %12, i64 168
+  %551 = getelementptr inbounds nuw i8, ptr %12, i64 172
+  %552 = getelementptr inbounds nuw i8, ptr %12, i64 176
+  %553 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  %554 = getelementptr inbounds nuw i8, ptr %12, i64 192
+  %555 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %557 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %559 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %560 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %561 = getelementptr inbounds nuw i8, ptr %13, i64 44
+  %562 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %563 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %564 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %565 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %566 = getelementptr inbounds nuw i8, ptr %13, i64 76
+  %567 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  %568 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  %569 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %570 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  %571 = getelementptr inbounds nuw i8, ptr %13, i64 108
+  %572 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  %573 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %574 = getelementptr inbounds nuw i8, ptr %13, i64 128
+  %575 = getelementptr inbounds nuw i8, ptr %13, i64 136
+  %576 = getelementptr inbounds nuw i8, ptr %13, i64 140
+  %577 = getelementptr inbounds nuw i8, ptr %13, i64 144
+  %578 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  %579 = getelementptr inbounds nuw i8, ptr %13, i64 160
+  %580 = getelementptr inbounds nuw i8, ptr %13, i64 168
+  %581 = getelementptr inbounds nuw i8, ptr %13, i64 172
+  %582 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %583 = getelementptr inbounds nuw i8, ptr %13, i64 184
+  %584 = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %585 = getelementptr inbounds nuw i8, ptr %13, i64 200
+  %586 = getelementptr inbounds nuw i8, ptr %13, i64 204
+  %587 = getelementptr inbounds nuw i8, ptr %13, i64 208
+  %588 = getelementptr inbounds nuw i8, ptr %13, i64 216
+  %589 = getelementptr inbounds nuw i8, ptr %13, i64 224
+  %590 = getelementptr inbounds nuw i8, ptr %13, i64 232
+  %591 = getelementptr inbounds nuw i8, ptr %13, i64 236
+  %592 = getelementptr inbounds nuw i8, ptr %13, i64 240
+  %593 = getelementptr inbounds nuw i8, ptr %13, i64 248
+  %594 = getelementptr inbounds nuw i8, ptr %13, i64 256
+  %595 = getelementptr inbounds nuw i8, ptr %13, i64 264
+  %596 = getelementptr inbounds nuw i8, ptr %13, i64 268
+  %597 = getelementptr inbounds nuw i8, ptr %13, i64 272
+  %598 = getelementptr inbounds nuw i8, ptr %13, i64 280
+  %599 = getelementptr inbounds nuw i8, ptr %13, i64 288
+  %600 = getelementptr inbounds nuw i8, ptr %13, i64 296
+  %601 = getelementptr inbounds nuw i8, ptr %13, i64 300
+  %602 = getelementptr inbounds nuw i8, ptr %13, i64 304
+  %603 = getelementptr inbounds nuw i8, ptr %13, i64 312
+  %604 = getelementptr inbounds nuw i8, ptr %13, i64 320
+  %605 = getelementptr inbounds nuw i8, ptr %13, i64 328
+  %606 = getelementptr inbounds nuw i8, ptr %13, i64 332
+  %607 = getelementptr inbounds nuw i8, ptr %13, i64 336
+  %608 = getelementptr inbounds nuw i8, ptr %13, i64 344
+  %609 = getelementptr inbounds nuw i8, ptr %13, i64 352
+  %610 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %611 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %612 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %613 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %614 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %615 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %616 = getelementptr inbounds nuw i8, ptr %14, i64 44
+  %617 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  %618 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %619 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %620 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %621 = getelementptr inbounds nuw i8, ptr %14, i64 76
+  %622 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %623 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  %624 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %625 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %626 = getelementptr inbounds nuw i8, ptr %14, i64 108
+  %627 = getelementptr inbounds nuw i8, ptr %14, i64 112
+  %628 = getelementptr inbounds nuw i8, ptr %14, i64 120
+  %629 = getelementptr inbounds nuw i8, ptr %14, i64 128
+  %630 = getelementptr inbounds nuw i8, ptr %14, i64 136
+  %631 = getelementptr inbounds nuw i8, ptr %14, i64 140
+  %632 = getelementptr inbounds nuw i8, ptr %14, i64 144
+  %633 = getelementptr inbounds nuw i8, ptr %14, i64 152
+  %634 = getelementptr inbounds nuw i8, ptr %14, i64 160
+  %635 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %636 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %637 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %638 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %639 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %640 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %641 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %642 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %643 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %644 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %645 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %646 = getelementptr inbounds nuw i8, ptr %15, i64 76
+  %647 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %648 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %649 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  %650 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  %651 = getelementptr inbounds nuw i8, ptr %15, i64 108
+  %652 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %653 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  %654 = getelementptr inbounds nuw i8, ptr %15, i64 128
+  %655 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  %656 = getelementptr inbounds nuw i8, ptr %15, i64 140
+  %657 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  %658 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  %659 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %660 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  %661 = getelementptr inbounds nuw i8, ptr %15, i64 172
+  %662 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  %663 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  %664 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  %665 = getelementptr inbounds nuw i8, ptr %15, i64 200
+  %666 = getelementptr inbounds nuw i8, ptr %15, i64 204
+  %667 = getelementptr inbounds nuw i8, ptr %15, i64 208
+  %668 = getelementptr inbounds nuw i8, ptr %15, i64 216
+  %669 = getelementptr inbounds nuw i8, ptr %15, i64 224
+  %670 = getelementptr inbounds nuw i8, ptr %15, i64 232
+  %671 = getelementptr inbounds nuw i8, ptr %15, i64 236
+  %672 = getelementptr inbounds nuw i8, ptr %15, i64 240
+  %673 = getelementptr inbounds nuw i8, ptr %15, i64 248
+  %674 = getelementptr inbounds nuw i8, ptr %15, i64 256
+  %675 = getelementptr inbounds nuw i8, ptr %15, i64 264
+  %676 = getelementptr inbounds nuw i8, ptr %15, i64 268
+  %677 = getelementptr inbounds nuw i8, ptr %15, i64 272
+  %678 = getelementptr inbounds nuw i8, ptr %15, i64 280
+  %679 = getelementptr inbounds nuw i8, ptr %15, i64 288
+  %680 = getelementptr inbounds nuw i8, ptr %15, i64 296
+  %681 = getelementptr inbounds nuw i8, ptr %15, i64 300
+  %682 = getelementptr inbounds nuw i8, ptr %15, i64 304
+  %683 = getelementptr inbounds nuw i8, ptr %15, i64 312
+  %684 = getelementptr inbounds nuw i8, ptr %15, i64 320
+  %685 = getelementptr inbounds nuw i8, ptr %15, i64 328
+  %686 = getelementptr inbounds nuw i8, ptr %15, i64 332
+  %687 = getelementptr inbounds nuw i8, ptr %15, i64 336
+  %688 = getelementptr inbounds nuw i8, ptr %15, i64 344
+  %689 = getelementptr inbounds nuw i8, ptr %15, i64 352
+  %690 = getelementptr inbounds nuw i8, ptr %15, i64 360
+  %691 = getelementptr inbounds nuw i8, ptr %15, i64 364
+  %692 = getelementptr inbounds nuw i8, ptr %15, i64 368
+  %693 = getelementptr inbounds nuw i8, ptr %15, i64 376
+  %694 = getelementptr inbounds nuw i8, ptr %15, i64 384
+  %695 = getelementptr inbounds nuw i8, ptr %15, i64 392
+  %696 = getelementptr inbounds nuw i8, ptr %15, i64 396
+  %697 = getelementptr inbounds nuw i8, ptr %15, i64 400
+  %698 = getelementptr inbounds nuw i8, ptr %15, i64 408
+  %699 = getelementptr inbounds nuw i8, ptr %15, i64 416
+  %700 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %702 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %703 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %704 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %705 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %706 = getelementptr inbounds nuw i8, ptr %16, i64 44
+  %707 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %708 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %709 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %710 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %711 = getelementptr inbounds nuw i8, ptr %16, i64 76
+  %712 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  %713 = getelementptr inbounds nuw i8, ptr %16, i64 88
+  %714 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %715 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  %716 = getelementptr inbounds nuw i8, ptr %16, i64 108
+  %717 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %718 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %719 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %720 = getelementptr inbounds nuw i8, ptr %16, i64 136
+  %721 = getelementptr inbounds nuw i8, ptr %16, i64 140
+  %722 = getelementptr inbounds nuw i8, ptr %16, i64 144
+  %723 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  %724 = getelementptr inbounds nuw i8, ptr %16, i64 160
+  %725 = getelementptr inbounds nuw i8, ptr %16, i64 168
+  %726 = getelementptr inbounds nuw i8, ptr %16, i64 172
+  %727 = getelementptr inbounds nuw i8, ptr %16, i64 176
+  %728 = getelementptr inbounds nuw i8, ptr %16, i64 184
+  %729 = getelementptr inbounds nuw i8, ptr %16, i64 192
+  %730 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %731 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %732 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %733 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %734 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %735 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %736 = getelementptr inbounds nuw i8, ptr %21, i64 44
+  %737 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %738 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %739 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %740 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %741 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %742 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %743 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %744 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %745 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %746 = getelementptr inbounds nuw i8, ptr %22, i64 44
+  %747 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %748 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %749 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %750 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %751 = getelementptr inbounds nuw i8, ptr %22, i64 76
+  %752 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  %753 = getelementptr inbounds nuw i8, ptr %22, i64 88
+  %754 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %755 = getelementptr inbounds nuw i8, ptr %22, i64 104
+  %756 = getelementptr inbounds nuw i8, ptr %22, i64 108
+  %757 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  %758 = getelementptr inbounds nuw i8, ptr %22, i64 120
+  %759 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  %760 = getelementptr inbounds nuw i8, ptr %22, i64 136
+  %761 = getelementptr inbounds nuw i8, ptr %22, i64 140
+  %762 = getelementptr inbounds nuw i8, ptr %22, i64 144
+  %763 = getelementptr inbounds nuw i8, ptr %22, i64 152
+  %764 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  %765 = getelementptr inbounds nuw i8, ptr %22, i64 168
+  %766 = getelementptr inbounds nuw i8, ptr %22, i64 172
+  %767 = getelementptr inbounds nuw i8, ptr %22, i64 176
+  %768 = getelementptr inbounds nuw i8, ptr %22, i64 184
+  %769 = getelementptr inbounds nuw i8, ptr %22, i64 192
+  %770 = getelementptr inbounds nuw i8, ptr %22, i64 200
+  %771 = getelementptr inbounds nuw i8, ptr %22, i64 204
+  %772 = getelementptr inbounds nuw i8, ptr %22, i64 208
+  %773 = getelementptr inbounds nuw i8, ptr %22, i64 216
+  %774 = getelementptr inbounds nuw i8, ptr %22, i64 224
+  %775 = getelementptr inbounds nuw i8, ptr %22, i64 232
+  %776 = getelementptr inbounds nuw i8, ptr %22, i64 236
+  %777 = getelementptr inbounds nuw i8, ptr %22, i64 240
+  %778 = getelementptr inbounds nuw i8, ptr %22, i64 248
+  %779 = getelementptr inbounds nuw i8, ptr %22, i64 256
   br label %780
 
 780:                                              ; preds = %.lr.ph, %dissect_erase_to_address.exit
@@ -6284,230 +6284,230 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %7 = alloca [14 x %struct.hf_items], align 16
   %8 = alloca [8 x %struct.hf_items], align 16
   store ptr @hf_tn5250_wssf_flag1, ptr %6, align 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @hf_tn5250_wssf_flag2, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load i32, ptr @ett_tn5250_wssf_mask, align 4
   store i32 %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @dissect_write_single_structured_field.byte, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_wssf_ifc_flag1, ptr %7, align 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i32, ptr @ett_tn5250_wssf_ifc_mask, align 4
   store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @dissect_write_single_structured_field.ifc_byte, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @hf_tn5250_wssf_ifc_flag2, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %21, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %7, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @dissect_write_single_structured_field.ifc_byte2, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %7, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @hf_tn5250_wssf_ifc_image_format, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %7, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 2, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr null, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %7, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr @hf_tn5250_wssf_ifc_viewport_location_row, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %7, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 108
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i32 1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %7, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr null, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %7, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store ptr @hf_tn5250_wssf_ifc_viewport_location_col, ptr %40, align 16
-  %41 = getelementptr inbounds i8, ptr %7, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 140
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 140
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %7, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr null, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %7, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 160
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @hf_tn5250_wssf_ifc_viewport_size_row, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %7, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 172
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 172
   store i32 1, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %7, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr null, ptr %48, align 16
-  %49 = getelementptr inbounds i8, ptr %7, i64 184
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %7, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr @hf_tn5250_wssf_ifc_viewport_size_col, ptr %50, align 16
-  %51 = getelementptr inbounds i8, ptr %7, i64 200
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 204
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %7, i64 208
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store ptr null, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %7, i64 216
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 224
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store ptr @hf_tn5250_wssf_ifc_scaling, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %7, i64 232
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 236
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 236
   store i32 2, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %7, i64 240
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store ptr null, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %7, i64 248
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 256
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 256
   store ptr @hf_tn5250_wssf_ifc_viewimage_location_row, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %7, i64 264
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 264
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %7, i64 268
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 268
   store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %7, i64 272
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 272
   store ptr null, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %7, i64 280
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 280
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store ptr @hf_tn5250_wssf_ifc_viewimage_location_col, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %7, i64 296
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %7, i64 300
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i32 1, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %7, i64 304
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 304
   store ptr null, ptr %68, align 16
-  %69 = getelementptr inbounds i8, ptr %7, i64 312
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 312
   store i32 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 320
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 320
   store ptr @hf_tn5250_wssf_ifc_rotation, ptr %70, align 16
-  %71 = getelementptr inbounds i8, ptr %7, i64 328
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 328
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 332
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 332
   store i32 2, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %7, i64 336
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 336
   store ptr null, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %7, i64 344
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 344
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %7, i64 352
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 352
   store ptr @hf_tn5250_wssf_ifc_foreground_color, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %7, i64 360
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 360
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 364
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 364
   store i32 1, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %7, i64 368
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 368
   store ptr null, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %7, i64 376
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 376
   store i32 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %7, i64 384
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 384
   store ptr @hf_tn5250_wssf_ifc_background_color, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %7, i64 392
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 392
   store i32 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %7, i64 396
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 396
   store i32 1, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %7, i64 400
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 400
   store ptr null, ptr %83, align 16
-  %84 = getelementptr inbounds i8, ptr %7, i64 408
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 408
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 416
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 416
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %85, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_wssf_ifd_flag1, ptr %8, align 16
-  %86 = getelementptr inbounds i8, ptr %8, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %87 = load i32, ptr @ett_tn5250_wssf_ifd_mask, align 4
   store i32 %87, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %8, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %8, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @dissect_write_single_structured_field.ifd_byte, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %8, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @hf_tn5250_reserved, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %8, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %8, i64 44
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 1, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %8, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr null, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %8, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %8, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr @hf_tn5250_reserved, ptr %96, align 16
-  %97 = getelementptr inbounds i8, ptr %8, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %8, i64 76
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store i32 1, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %8, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr null, ptr %99, align 16
-  %100 = getelementptr inbounds i8, ptr %8, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %8, i64 96
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr @hf_tn5250_reserved, ptr %101, align 16
-  %102 = getelementptr inbounds i8, ptr %8, i64 104
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %8, i64 108
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %8, i64 112
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr null, ptr %104, align 16
-  %105 = getelementptr inbounds i8, ptr %8, i64 120
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i32 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %8, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr @hf_tn5250_reserved, ptr %106, align 16
-  %107 = getelementptr inbounds i8, ptr %8, i64 136
+  %107 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i32 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %8, i64 140
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 140
   store i32 1, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %8, i64 144
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store ptr null, ptr %109, align 16
-  %110 = getelementptr inbounds i8, ptr %8, i64 152
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %8, i64 160
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store ptr @hf_tn5250_reserved, ptr %111, align 16
-  %112 = getelementptr inbounds i8, ptr %8, i64 168
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 168
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %8, i64 172
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 172
   store i32 1, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %8, i64 176
+  %114 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store ptr null, ptr %114, align 16
-  %115 = getelementptr inbounds i8, ptr %8, i64 184
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 184
   store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %8, i64 192
+  %116 = getelementptr inbounds nuw i8, ptr %8, i64 192
   store ptr @hf_tn5250_length, ptr %116, align 16
-  %117 = getelementptr inbounds i8, ptr %8, i64 200
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 200
   store i32 0, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %8, i64 204
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 204
   store i32 2, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %8, i64 208
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store ptr null, ptr %119, align 16
-  %120 = getelementptr inbounds i8, ptr %8, i64 216
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store i32 0, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %8, i64 224
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %121, i8 0, i64 32, i1 false)
   %122 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #5
   %123 = zext i16 %122 to i32
@@ -6520,36 +6520,36 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   br i1 %129, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %130 = getelementptr inbounds i8, ptr %4, i64 8
-  %131 = getelementptr inbounds i8, ptr %4, i64 12
-  %132 = getelementptr inbounds i8, ptr %4, i64 16
-  %133 = getelementptr inbounds i8, ptr %4, i64 24
-  %134 = getelementptr inbounds i8, ptr %4, i64 32
-  %135 = getelementptr inbounds i8, ptr %4, i64 40
-  %136 = getelementptr inbounds i8, ptr %4, i64 44
-  %137 = getelementptr inbounds i8, ptr %4, i64 48
-  %138 = getelementptr inbounds i8, ptr %4, i64 56
-  %139 = getelementptr inbounds i8, ptr %4, i64 64
-  %140 = getelementptr inbounds i8, ptr %4, i64 72
-  %141 = getelementptr inbounds i8, ptr %4, i64 76
-  %142 = getelementptr inbounds i8, ptr %4, i64 80
-  %143 = getelementptr inbounds i8, ptr %4, i64 88
-  %144 = getelementptr inbounds i8, ptr %4, i64 96
-  %145 = getelementptr inbounds i8, ptr %5, i64 8
-  %146 = getelementptr inbounds i8, ptr %5, i64 12
-  %147 = getelementptr inbounds i8, ptr %5, i64 16
-  %148 = getelementptr inbounds i8, ptr %5, i64 24
-  %149 = getelementptr inbounds i8, ptr %5, i64 32
-  %150 = getelementptr inbounds i8, ptr %5, i64 40
-  %151 = getelementptr inbounds i8, ptr %5, i64 44
-  %152 = getelementptr inbounds i8, ptr %5, i64 48
-  %153 = getelementptr inbounds i8, ptr %5, i64 56
-  %154 = getelementptr inbounds i8, ptr %5, i64 64
-  %155 = getelementptr inbounds i8, ptr %5, i64 72
-  %156 = getelementptr inbounds i8, ptr %5, i64 76
-  %157 = getelementptr inbounds i8, ptr %5, i64 80
-  %158 = getelementptr inbounds i8, ptr %5, i64 88
-  %159 = getelementptr inbounds i8, ptr %5, i64 96
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 96
   switch i8 %125, label %.lr.ph.split [
     i8 113, label %.lr.ph.split.us
     i8 102, label %.lr.ph.split.us105
@@ -6625,14 +6625,14 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %172 = phi ptr [ %200, %196 ], [ %.sink23.i.us, %169 ]
   %.041.i.us = phi i32 [ %198, %196 ], [ 0, %169 ]
   %.03440.i.us = phi i32 [ %197, %196 ], [ %.01618.i.us, %169 ]
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, null
   br i1 %175, label %181, label %176
 
 176:                                              ; preds = %.lr.ph.i99.us
   %177 = load i32, ptr %171, align 4
-  %178 = getelementptr inbounds i8, ptr %172, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %179 = load i32, ptr %178, align 8
   %180 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %.03440.i.us, i32 noundef %177, i32 noundef %179, ptr noundef nonnull %174, i32 noundef 0) #5
   br label %192
@@ -6644,16 +6644,16 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %spec.select.i.us = add i32 %.03440.i.us, %184
   %185 = load ptr, ptr %172, align 8
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %172, i64 12
+  %187 = getelementptr inbounds nuw i8, ptr %172, i64 12
   %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds i8, ptr %172, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %190 = load i32, ptr %189, align 8
   %191 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %186, ptr noundef %1, i32 noundef %spec.select.i.us, i32 noundef %188, i32 noundef %190) #5
   br label %192
 
 192:                                              ; preds = %181, %176
   %.2.i.us = phi i32 [ %spec.select.i.us, %181 ], [ %.03440.i.us, %176 ]
-  %193 = getelementptr inbounds i8, ptr %172, i64 12
+  %193 = getelementptr inbounds nuw i8, ptr %172, i64 12
   %194 = load i32, ptr %193, align 4
   %195 = icmp sgt i32 %194, 0
   br i1 %195, label %196, label %.split.us
@@ -6788,520 +6788,520 @@ define internal fastcc i32 @dissect_write_structured_field(ptr noundef %0, ptr n
   %11 = alloca [5 x %struct.hf_items], align 16
   %12 = alloca [7 x %struct.hf_items], align 16
   store ptr @hf_tn5250_wsf_qss_flag1, ptr %4, align 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i32, ptr @ett_tn5250_wsf_qss_mask, align 4
   store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @dissect_write_structured_field.qss_byte1, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @hf_tn5250_wsf_qss_flag2, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %14, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr @dissect_write_structured_field.qss_byte2, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_rts_partition, ptr %5, align 16
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr @hf_tn5250_rts_flag1, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %30 = load i32, ptr @ett_tn5250_wsf_rts_mask, align 4
   store i32 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr @dissect_write_structured_field.rts_byte1, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %5, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @hf_tn5250_reserved, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %5, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 76
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr null, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %5, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr @hf_tn5250_reserved, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %5, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 108
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %5, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr null, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %5, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_dpo_partition, ptr %6, align 16
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @hf_tn5250_dpo_flag1, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %6, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %51 = load i32, ptr @ett_tn5250_wsf_dpo_mask, align 4
   store i32 %51, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %6, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @dissect_write_structured_field.dpo_byte1, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %6, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr @hf_tn5250_dpo_flag2, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %6, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 %51, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 76
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 1, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %6, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @dissect_write_structured_field.dpo_byte2, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %6, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @hf_tn5250_dpo_displace_characters, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %6, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 108
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 108
   store i32 3, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %6, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr null, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %6, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 46, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr @hf_tn5250_dpo_start_location_row, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 140
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 2, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %6, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr null, ptr %68, align 16
-  %69 = getelementptr inbounds i8, ptr %6, i64 152
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %6, i64 160
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store ptr @hf_tn5250_dpo_start_location_col, ptr %70, align 16
-  %71 = getelementptr inbounds i8, ptr %6, i64 168
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i32 0, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 172
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 172
   store i32 2, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %6, i64 176
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr null, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 184
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 192
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_dtsf_partition, ptr %7, align 16
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %7, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %7, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %7, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @hf_tn5250_dtsf_flag1, ptr %80, align 16
-  %81 = getelementptr inbounds i8, ptr %7, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load i32, ptr @ett_tn5250_wsf_dtsf_mask, align 4
   store i32 %82, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %7, i64 44
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 1, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %7, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @dissect_write_structured_field.dtsf_byte1, ptr %84, align 16
-  %85 = getelementptr inbounds i8, ptr %7, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %7, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @hf_tn5250_dtsf_flag2, ptr %86, align 16
-  %87 = getelementptr inbounds i8, ptr %7, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 %82, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %7, i64 76
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %7, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr @dissect_write_structured_field.dtsf_byte2, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %7, i64 88
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %7, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr @hf_tn5250_dtsf_text_body_height, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %7, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %7, i64 108
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i32 2, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %7, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr null, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %7, i64 120
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store i32 0, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %7, i64 128
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store ptr @hf_tn5250_dtsf_text_body_width, ptr %96, align 16
-  %97 = getelementptr inbounds i8, ptr %7, i64 136
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %7, i64 140
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 140
   store i32 2, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %7, i64 144
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr null, ptr %99, align 16
-  %100 = getelementptr inbounds i8, ptr %7, i64 152
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %7, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr @hf_tn5250_dtsf_line_cmd_field_size, ptr %101, align 16
-  %102 = getelementptr inbounds i8, ptr %7, i64 168
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %7, i64 172
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 172
   store i32 1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %7, i64 176
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store ptr null, ptr %104, align 16
-  %105 = getelementptr inbounds i8, ptr %7, i64 184
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i32 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %7, i64 192
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 192
   store ptr @hf_tn5250_dtsf_location_of_pitch, ptr %106, align 16
-  %107 = getelementptr inbounds i8, ptr %7, i64 200
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i32 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %7, i64 204
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i32 1, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %7, i64 208
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store ptr null, ptr %109, align 16
-  %110 = getelementptr inbounds i8, ptr %7, i64 216
+  %110 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %7, i64 224
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store ptr @hf_tn5250_dtsf_first_line, ptr %111, align 16
-  %112 = getelementptr inbounds i8, ptr %7, i64 232
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %7, i64 236
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 236
   store i32 1, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %7, i64 240
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store ptr null, ptr %114, align 16
-  %115 = getelementptr inbounds i8, ptr %7, i64 248
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %7, i64 256
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_length, ptr %8, align 16
-  %117 = getelementptr inbounds i8, ptr %8, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %8, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %8, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %119, align 16
-  %120 = getelementptr inbounds i8, ptr %8, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %8, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @hf_tn5250_dsl_flag1, ptr %121, align 16
-  %122 = getelementptr inbounds i8, ptr %8, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %123 = load i32, ptr @ett_tn5250_wsf_dsl_mask, align 4
   store i32 %123, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %8, i64 44
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 1, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %8, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @dissect_write_structured_field.dsl_byte1, ptr %125, align 16
-  %126 = getelementptr inbounds i8, ptr %8, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %8, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr @hf_tn5250_dsl_id, ptr %127, align 16
-  %128 = getelementptr inbounds i8, ptr %8, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i32 0, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %8, i64 76
+  %129 = getelementptr inbounds nuw i8, ptr %8, i64 76
   store i32 1, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %8, i64 80
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr null, ptr %130, align 16
-  %131 = getelementptr inbounds i8, ptr %8, i64 88
+  %131 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 0, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %8, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr @hf_tn5250_dsl_location, ptr %132, align 16
-  %133 = getelementptr inbounds i8, ptr %8, i64 104
+  %133 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 0, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %8, i64 108
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 1, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %8, i64 112
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr null, ptr %135, align 16
-  %136 = getelementptr inbounds i8, ptr %8, i64 120
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i32 0, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %8, i64 128
+  %137 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr @hf_tn5250_dsl_function, ptr %137, align 16
-  %138 = getelementptr inbounds i8, ptr %8, i64 136
+  %138 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i32 0, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %8, i64 140
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 140
   store i32 1, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %8, i64 144
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store ptr null, ptr %140, align 16
-  %141 = getelementptr inbounds i8, ptr %8, i64 152
+  %141 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i32 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %8, i64 160
+  %142 = getelementptr inbounds nuw i8, ptr %8, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %142, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_wts_partition, ptr %9, align 16
-  %143 = getelementptr inbounds i8, ptr %9, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %9, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 1, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %9, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %145, align 16
-  %146 = getelementptr inbounds i8, ptr %9, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %9, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr @hf_tn5250_wts_flag1, ptr %147, align 16
-  %148 = getelementptr inbounds i8, ptr %9, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %149 = load i32, ptr @ett_tn5250_wts_mask, align 4
   store i32 %149, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %9, i64 44
+  %150 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 1, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %9, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr @dissect_write_structured_field.wts_byte1, ptr %151, align 16
-  %152 = getelementptr inbounds i8, ptr %9, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %9, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr @hf_tn5250_wts_flag2, ptr %153, align 16
-  %154 = getelementptr inbounds i8, ptr %9, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 %149, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %9, i64 76
+  %155 = getelementptr inbounds nuw i8, ptr %9, i64 76
   store i32 1, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %9, i64 80
+  %156 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr @dissect_write_structured_field.wts_byte2, ptr %156, align 16
-  %157 = getelementptr inbounds i8, ptr %9, i64 88
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 0, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %9, i64 96
+  %158 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr @hf_tn5250_wts_flag3, ptr %158, align 16
-  %159 = getelementptr inbounds i8, ptr %9, i64 104
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i32 %149, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %9, i64 108
+  %160 = getelementptr inbounds nuw i8, ptr %9, i64 108
   store i32 1, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %9, i64 112
+  %161 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr @dissect_write_structured_field.wts_byte3, ptr %161, align 16
-  %162 = getelementptr inbounds i8, ptr %9, i64 120
+  %162 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i32 0, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %9, i64 128
+  %163 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr @hf_tn5250_wts_home_position_row, ptr %163, align 16
-  %164 = getelementptr inbounds i8, ptr %9, i64 136
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i32 0, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %9, i64 140
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 140
   store i32 2, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %9, i64 144
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr null, ptr %166, align 16
-  %167 = getelementptr inbounds i8, ptr %9, i64 152
+  %167 = getelementptr inbounds nuw i8, ptr %9, i64 152
   store i32 0, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %9, i64 160
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store ptr @hf_tn5250_wts_home_position_col, ptr %168, align 16
-  %169 = getelementptr inbounds i8, ptr %9, i64 168
+  %169 = getelementptr inbounds nuw i8, ptr %9, i64 168
   store i32 0, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %9, i64 172
+  %170 = getelementptr inbounds nuw i8, ptr %9, i64 172
   store i32 2, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %9, i64 176
+  %171 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store ptr null, ptr %171, align 16
-  %172 = getelementptr inbounds i8, ptr %9, i64 184
+  %172 = getelementptr inbounds nuw i8, ptr %9, i64 184
   store i32 0, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %9, i64 192
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %173, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_length, ptr %10, align 16
-  %174 = getelementptr inbounds i8, ptr %10, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %10, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %10, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %176, align 16
-  %177 = getelementptr inbounds i8, ptr %10, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 0, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %10, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr @hf_tn5250_wts_cld_flag1, ptr %178, align 16
-  %179 = getelementptr inbounds i8, ptr %10, i64 40
+  %179 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %149, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %10, i64 44
+  %180 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 1, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %10, i64 48
+  %181 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr @dissect_write_structured_field.wts_cld_byte1, ptr %181, align 16
-  %182 = getelementptr inbounds i8, ptr %10, i64 56
+  %182 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 0, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %10, i64 64
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store ptr @hf_tn5250_wts_cld_flag2, ptr %183, align 16
-  %184 = getelementptr inbounds i8, ptr %10, i64 72
+  %184 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i32 %149, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %10, i64 76
+  %185 = getelementptr inbounds nuw i8, ptr %10, i64 76
   store i32 1, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %10, i64 80
+  %186 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store ptr @dissect_write_structured_field.wts_cld_byte2, ptr %186, align 16
-  %187 = getelementptr inbounds i8, ptr %10, i64 88
+  %187 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store i32 0, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %10, i64 96
+  %188 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr @hf_tn5250_wts_cld_row, ptr %188, align 16
-  %189 = getelementptr inbounds i8, ptr %10, i64 104
+  %189 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i32 0, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %10, i64 108
+  %190 = getelementptr inbounds nuw i8, ptr %10, i64 108
   store i32 2, ptr %190, align 4
-  %191 = getelementptr inbounds i8, ptr %10, i64 112
+  %191 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store ptr null, ptr %191, align 16
-  %192 = getelementptr inbounds i8, ptr %10, i64 120
+  %192 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i32 0, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %10, i64 128
+  %193 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store ptr @hf_tn5250_wts_cld_flag3, ptr %193, align 16
-  %194 = getelementptr inbounds i8, ptr %10, i64 136
+  %194 = getelementptr inbounds nuw i8, ptr %10, i64 136
   store i32 %149, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %10, i64 140
+  %195 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 1, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %10, i64 144
+  %196 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store ptr @dissect_write_structured_field.wts_cld_byte3, ptr %196, align 16
-  %197 = getelementptr inbounds i8, ptr %10, i64 152
+  %197 = getelementptr inbounds nuw i8, ptr %10, i64 152
   store i32 0, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %10, i64 160
+  %198 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store ptr @hf_tn5250_wts_cld_page_num, ptr %198, align 16
-  %199 = getelementptr inbounds i8, ptr %10, i64 168
+  %199 = getelementptr inbounds nuw i8, ptr %10, i64 168
   store i32 0, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %10, i64 172
+  %200 = getelementptr inbounds nuw i8, ptr %10, i64 172
   store i32 2, ptr %200, align 4
-  %201 = getelementptr inbounds i8, ptr %10, i64 176
+  %201 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store ptr null, ptr %201, align 16
-  %202 = getelementptr inbounds i8, ptr %10, i64 184
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 184
   store i32 0, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %10, i64 192
+  %203 = getelementptr inbounds nuw i8, ptr %10, i64 192
   store ptr @hf_tn5250_wts_cld_lmo, ptr %203, align 16
-  %204 = getelementptr inbounds i8, ptr %10, i64 200
+  %204 = getelementptr inbounds nuw i8, ptr %10, i64 200
   store i32 0, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %10, i64 204
+  %205 = getelementptr inbounds nuw i8, ptr %10, i64 204
   store i32 1, ptr %205, align 4
-  %206 = getelementptr inbounds i8, ptr %10, i64 208
+  %206 = getelementptr inbounds nuw i8, ptr %10, i64 208
   store ptr null, ptr %206, align 16
-  %207 = getelementptr inbounds i8, ptr %10, i64 216
+  %207 = getelementptr inbounds nuw i8, ptr %10, i64 216
   store i32 0, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %10, i64 224
+  %208 = getelementptr inbounds nuw i8, ptr %10, i64 224
   store ptr @hf_tn5250_wts_cld_io, ptr %208, align 16
-  %209 = getelementptr inbounds i8, ptr %10, i64 232
+  %209 = getelementptr inbounds nuw i8, ptr %10, i64 232
   store i32 0, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %10, i64 236
+  %210 = getelementptr inbounds nuw i8, ptr %10, i64 236
   store i32 1, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %10, i64 240
+  %211 = getelementptr inbounds nuw i8, ptr %10, i64 240
   store ptr null, ptr %211, align 16
-  %212 = getelementptr inbounds i8, ptr %10, i64 248
+  %212 = getelementptr inbounds nuw i8, ptr %10, i64 248
   store i32 0, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %10, i64 256
+  %213 = getelementptr inbounds nuw i8, ptr %10, i64 256
   store ptr @hf_tn5250_wts_cld_sli, ptr %213, align 16
-  %214 = getelementptr inbounds i8, ptr %10, i64 264
+  %214 = getelementptr inbounds nuw i8, ptr %10, i64 264
   store i32 0, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %10, i64 268
+  %215 = getelementptr inbounds nuw i8, ptr %10, i64 268
   store i32 1, ptr %215, align 4
-  %216 = getelementptr inbounds i8, ptr %10, i64 272
+  %216 = getelementptr inbounds nuw i8, ptr %10, i64 272
   store ptr null, ptr %216, align 16
-  %217 = getelementptr inbounds i8, ptr %10, i64 280
+  %217 = getelementptr inbounds nuw i8, ptr %10, i64 280
   store i32 0, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %10, i64 288
+  %218 = getelementptr inbounds nuw i8, ptr %10, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %218, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_length, ptr %11, align 16
-  %219 = getelementptr inbounds i8, ptr %11, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %11, i64 12
+  %220 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 1, ptr %220, align 4
-  %221 = getelementptr inbounds i8, ptr %11, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %221, align 16
-  %222 = getelementptr inbounds i8, ptr %11, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %11, i64 32
+  %223 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr @hf_tn5250_dfdpck_data_field, ptr %223, align 16
-  %224 = getelementptr inbounds i8, ptr %11, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 0, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %11, i64 44
+  %225 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 1, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %11, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr null, ptr %226, align 16
-  %227 = getelementptr inbounds i8, ptr %11, i64 56
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 0, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %11, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store ptr @hf_tn5250_dfdpck_coreflag, ptr %228, align 16
-  %229 = getelementptr inbounds i8, ptr %11, i64 72
+  %229 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %230 = load i32, ptr @ett_tn5250_dfdpck_mask, align 4
   store i32 %230, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %11, i64 76
+  %231 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i32 1, ptr %231, align 4
-  %232 = getelementptr inbounds i8, ptr %11, i64 80
+  %232 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr @dissect_write_structured_field.dfdpck_coreflag, ptr %232, align 16
-  %233 = getelementptr inbounds i8, ptr %11, i64 88
+  %233 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i32 0, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %11, i64 96
+  %234 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store ptr @hf_tn5250_reserved, ptr %234, align 16
-  %235 = getelementptr inbounds i8, ptr %11, i64 104
+  %235 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store i32 0, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %11, i64 108
+  %236 = getelementptr inbounds nuw i8, ptr %11, i64 108
   store i32 1, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %11, i64 112
+  %237 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store ptr null, ptr %237, align 16
-  %238 = getelementptr inbounds i8, ptr %11, i64 120
+  %238 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i32 0, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %11, i64 128
+  %239 = getelementptr inbounds nuw i8, ptr %11, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %239, i8 0, i64 32, i1 false)
   store ptr @hf_tn5250_length, ptr %12, align 16
-  %240 = getelementptr inbounds i8, ptr %12, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %12, i64 12
+  %241 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 1, ptr %241, align 4
-  %242 = getelementptr inbounds i8, ptr %12, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %242, align 16
-  %243 = getelementptr inbounds i8, ptr %12, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 0, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %12, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr @hf_tn5250_dfdpck_data_field, ptr %244, align 16
-  %245 = getelementptr inbounds i8, ptr %12, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 0, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %12, i64 44
+  %246 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 1, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %12, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr null, ptr %247, align 16
-  %248 = getelementptr inbounds i8, ptr %12, i64 56
+  %248 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 0, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %12, i64 64
+  %249 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr @hf_tn5250_dfdpck_toprowflag1, ptr %249, align 16
-  %250 = getelementptr inbounds i8, ptr %12, i64 72
+  %250 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store i32 %230, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %12, i64 76
+  %251 = getelementptr inbounds nuw i8, ptr %12, i64 76
   store i32 1, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %12, i64 80
+  %252 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr @dissect_write_structured_field.dfdpck_toprowflag1, ptr %252, align 16
-  %253 = getelementptr inbounds i8, ptr %12, i64 88
+  %253 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 0, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %12, i64 96
+  %254 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store ptr @hf_tn5250_dfdpck_toprowflag2, ptr %254, align 16
-  %255 = getelementptr inbounds i8, ptr %12, i64 104
+  %255 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store i32 %230, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %12, i64 108
+  %256 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 1, ptr %256, align 4
-  %257 = getelementptr inbounds i8, ptr %12, i64 112
+  %257 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store ptr @dissect_write_structured_field.dfdpck_toprowflag2, ptr %257, align 16
-  %258 = getelementptr inbounds i8, ptr %12, i64 120
+  %258 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i32 0, ptr %258, align 8
-  %259 = getelementptr inbounds i8, ptr %12, i64 128
+  %259 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store ptr @hf_tn5250_dfdpck_toprowflag3, ptr %259, align 16
-  %260 = getelementptr inbounds i8, ptr %12, i64 136
+  %260 = getelementptr inbounds nuw i8, ptr %12, i64 136
   store i32 %230, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %12, i64 140
+  %261 = getelementptr inbounds nuw i8, ptr %12, i64 140
   store i32 1, ptr %261, align 4
-  %262 = getelementptr inbounds i8, ptr %12, i64 144
+  %262 = getelementptr inbounds nuw i8, ptr %12, i64 144
   store ptr @dissect_write_structured_field.dfdpck_toprowflag3, ptr %262, align 16
-  %263 = getelementptr inbounds i8, ptr %12, i64 152
+  %263 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store i32 0, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %12, i64 160
+  %264 = getelementptr inbounds nuw i8, ptr %12, i64 160
   store ptr @hf_tn5250_reserved, ptr %264, align 16
-  %265 = getelementptr inbounds i8, ptr %12, i64 168
+  %265 = getelementptr inbounds nuw i8, ptr %12, i64 168
   store i32 0, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %12, i64 172
+  %266 = getelementptr inbounds nuw i8, ptr %12, i64 172
   store i32 1, ptr %266, align 4
-  %267 = getelementptr inbounds i8, ptr %12, i64 176
+  %267 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store ptr null, ptr %267, align 16
-  %268 = getelementptr inbounds i8, ptr %12, i64 184
+  %268 = getelementptr inbounds nuw i8, ptr %12, i64 184
   store i32 0, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %12, i64 192
+  %269 = getelementptr inbounds nuw i8, ptr %12, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %269, i8 0, i64 32, i1 false)
   %270 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #5
   %271 = icmp sgt i32 %270, 0
@@ -7444,7 +7444,7 @@ tn5250_add_hf_items.exit.us:                      ; preds = %.lr.ph225, %tn5250_
   %345 = phi ptr [ %.be294, %.lr.ph.i.backedge ], [ %8, %.lr.ph225 ]
   %.041.i = phi i32 [ %.041.i.be, %.lr.ph.i.backedge ], [ 0, %.lr.ph225 ]
   %.03440.i = phi i32 [ %371, %.lr.ph.i.backedge ], [ %339, %.lr.ph225 ]
-  %346 = getelementptr inbounds i8, ptr %345, i64 16
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %347 = load ptr, ptr %346, align 8
   %348 = icmp eq ptr %347, null
   br i1 %348, label %349, label %360
@@ -7456,23 +7456,23 @@ tn5250_add_hf_items.exit.us:                      ; preds = %.lr.ph225, %tn5250_
   %spec.select.i = add i32 %.03440.i, %352
   %353 = load ptr, ptr %345, align 8
   %354 = load i32, ptr %353, align 4
-  %355 = getelementptr inbounds i8, ptr %345, i64 12
+  %355 = getelementptr inbounds nuw i8, ptr %345, i64 12
   %356 = load i32, ptr %355, align 4
-  %357 = getelementptr inbounds i8, ptr %345, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %358 = load i32, ptr %357, align 8
   %359 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %354, ptr noundef %1, i32 noundef %spec.select.i, i32 noundef %356, i32 noundef %358) #5
   br label %365
 
 360:                                              ; preds = %.lr.ph.i
   %361 = load i32, ptr %344, align 4
-  %362 = getelementptr inbounds i8, ptr %345, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %363 = load i32, ptr %362, align 8
   %364 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %.03440.i, i32 noundef %361, i32 noundef %363, ptr noundef nonnull %347, i32 noundef 0) #5
   br label %365
 
 365:                                              ; preds = %360, %349
   %.2.i = phi i32 [ %spec.select.i, %349 ], [ %.03440.i, %360 ]
-  %366 = getelementptr inbounds i8, ptr %345, i64 12
+  %366 = getelementptr inbounds nuw i8, ptr %345, i64 12
   %367 = load i32, ptr %366, align 4
   %368 = icmp sgt i32 %367, 0
   br i1 %368, label %370, label %369

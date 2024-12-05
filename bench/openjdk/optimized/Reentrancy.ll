@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden i32 @confirmingTLSSet(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 816
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #3
   %9 = icmp eq i32 %8, 112
@@ -21,7 +21,7 @@ define hidden i32 @confirmingTLSSet(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 808
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 808
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #3
   %15 = icmp eq i32 %14, 112
@@ -50,7 +50,7 @@ define hidden void @assertTLSValue(ptr noundef %0, ptr noundef %1, ptr noundef r
   %4 = alloca ptr, align 8
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #3
   %9 = icmp eq i32 %8, 112
@@ -79,7 +79,7 @@ define hidden zeroext range(i8 0, 2) i8 @tryToAcquireReentrancyToken(ptr noundef
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5) #3
   %10 = icmp eq i32 %9, 112
@@ -98,7 +98,7 @@ define hidden zeroext range(i8 0, 2) i8 @tryToAcquireReentrancyToken(ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 808
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 808
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %19(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #3
   %21 = icmp eq i32 %20, 112
@@ -117,7 +117,7 @@ define hidden zeroext range(i8 0, 2) i8 @tryToAcquireReentrancyToken(ptr noundef
 assertTLSValue.exit:                              ; preds = %16, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull inttoptr (i64 2130690235 to ptr)) #3
   %32 = icmp eq i32 %31, 112
@@ -127,7 +127,7 @@ assertTLSValue.exit:                              ; preds = %16, %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %3, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 808
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 808
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 %36(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #3
   %38 = icmp eq i32 %37, 112
@@ -162,7 +162,7 @@ define hidden void @releaseReentrancyToken(ptr noundef %0, ptr noundef %1) local
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #3
   %9 = icmp eq i32 %8, 112
@@ -181,7 +181,7 @@ define hidden void @releaseReentrancyToken(ptr noundef %0, ptr noundef %1) local
 assertTLSValue.exit:                              ; preds = %2, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 816
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 816
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #3
   %20 = icmp eq i32 %19, 112
@@ -191,7 +191,7 @@ assertTLSValue.exit:                              ; preds = %2, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr inttoptr (i64 2576980377 to ptr), ptr %3, align 8
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 808
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 808
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 %24(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3) #3
   %26 = icmp eq i32 %25, 112

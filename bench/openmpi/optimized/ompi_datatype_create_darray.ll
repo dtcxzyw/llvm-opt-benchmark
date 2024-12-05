@@ -41,14 +41,14 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
   %.0104140 = phi i32 [ %0, %19 ], [ %29, %26 ]
   %.0105139 = phi i32 [ %1, %19 ], [ %32, %26 ]
   %.sroa.6.0138 = phi i64 [ %22, %19 ], [ %36, %26 ]
-  %27 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sdiv i32 %.0104140, %28
   %30 = sdiv i32 %.0105139, %29
-  %31 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   store i32 %30, ptr %31, align 4
   %32 = srem i32 %.0105139, %29
-  %33 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %.sroa.6.0138, %35
@@ -71,9 +71,9 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
   %.0109 = select i1 %42, i32 -1, i32 1
   %44 = icmp eq i32 %7, 1
   %45 = add nsw i64 %23, -1
-  %46 = getelementptr inbounds i8, ptr %14, i64 8
-  %47 = getelementptr inbounds i8, ptr %12, i64 8
-  %48 = getelementptr inbounds i8, ptr %11, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %49 = sext i32 %.0111 to i64
   %50 = sext i32 %.0109 to i64
   %51 = zext nneg i32 %2 to i64
@@ -162,7 +162,7 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
 .lr.ph111.i:                                      ; preds = %.preheader102.i, %.lr.ph111.i
   %indvars.iv126.i = phi i64 [ %indvars.iv.next127.i, %.lr.ph111.i ], [ 0, %.preheader102.i ]
   %.0110.i = phi i64 [ %99, %.lr.ph111.i ], [ %93, %.preheader102.i ]
-  %96 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv126.i
+  %96 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv126.i
   %97 = load i32, ptr %96, align 4
   %98 = sext i32 %97 to i64
   %99 = mul nsw i64 %.0110.i, %98
@@ -232,7 +232,7 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
 .lr.ph119.i:                                      ; preds = %.lr.ph119.i, %.lr.ph119.preheader.i
   %indvars.iv132.i = phi i64 [ 0, %.lr.ph119.preheader.i ], [ %indvars.iv.next133.i, %.lr.ph119.i ]
   %117 = phi i64 [ %22, %.lr.ph119.preheader.i ], [ %121, %.lr.ph119.i ]
-  %118 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv132.i
+  %118 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv132.i
   %119 = load i32, ptr %118, align 4
   %120 = sext i32 %119 to i64
   %121 = mul nsw i64 %117, %120
@@ -313,7 +313,7 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
 
 148:                                              ; preds = %145
   %149 = zext nneg i32 %.0111 to i64
-  %150 = getelementptr inbounds i64, ptr %39, i64 %149
+  %150 = getelementptr inbounds nuw i64, ptr %39, i64 %149
   %151 = load i64, ptr %150, align 8
   %.2145 = add nsw i32 %.0111, %.0109
   %.not122146 = icmp eq i32 %.2145, %.0110
@@ -346,7 +346,7 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
 ._crit_edge:                                      ; preds = %.lr.ph, %148
   %.sroa.0.0.lcssa = phi i64 [ %151, %148 ], [ %161, %.lr.ph ]
   %164 = mul nsw i64 %.sroa.0.0.lcssa, %22
-  %165 = getelementptr inbounds i8, ptr %146, i64 152
+  %165 = getelementptr inbounds nuw i8, ptr %146, i64 152
   %166 = load i64, ptr %165, align 8
   %167 = trunc i64 %166 to i32
   %168 = call ptr @ompi_datatype_create(i32 noundef %167) #6
@@ -463,7 +463,7 @@ define internal fastcc i32 @block(ptr nocapture noundef readonly %0, i32 noundef
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.lr.ph88
   %indvars.iv97 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next98, %.lr.ph88 ]
   %.sroa.2.087 = phi i64 [ %7, %.lr.ph88.preheader ], [ %44, %.lr.ph88 ]
-  %41 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv97
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv97
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = mul nsw i64 %.sroa.2.087, %43

@@ -61,17 +61,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C__log_trace_set_up(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @H5C_trace_log_class_g, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
   %7 = icmp eq ptr %5, null
   br i1 %7, label %42, label %8
 
 8:                                                ; preds = %3
   %9 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 1, i64 noundef 4096) #7
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %16
@@ -179,9 +179,9 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_tear_down_logging(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @H5MM_xfree(ptr noundef %5) #8
   %7 = load ptr, ptr %3, align 8
@@ -198,7 +198,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_tear_down_logging(ptr nocapture
 14:                                               ; preds = %1
   store ptr null, ptr %3, align 8
   %15 = tail call ptr @H5MM_xfree(ptr noundef nonnull %3) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %17
 
@@ -209,7 +209,7 @@ define internal range(i32 -1, 1) i32 @H5C__trace_tear_down_logging(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_expunge_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.10, i64 noundef %1, i32 noundef %2, i32 noundef %3) #8
   %8 = load ptr, ptr %5, align 8
@@ -241,7 +241,7 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_flush_cache_log_msg(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.13, i32 noundef %1) #8
   %6 = load ptr, ptr %3, align 8
@@ -273,7 +273,7 @@ H5C__trace_write_log_message.exit:                ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_insert_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = trunc i64 %4 to i32
   %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.14, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %9, i32 noundef %5) #8
@@ -306,9 +306,9 @@ H5C__trace_write_log_message.exit:                ; preds = %6
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_dirty_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.15, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8
@@ -340,9 +340,9 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_entry_clean_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.16, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8
@@ -374,9 +374,9 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_unserialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.17, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8
@@ -408,9 +408,9 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_mark_serialized_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.18, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8
@@ -442,7 +442,7 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_move_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.19, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #8
   %9 = load ptr, ptr %6, align 8
@@ -474,9 +474,9 @@ H5C__trace_write_log_message.exit:                ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_pin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.20, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8
@@ -508,11 +508,11 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_create_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.21, i64 noundef %8, i64 noundef %10, i32 noundef %3) #8
   %12 = load ptr, ptr %5, align 8
@@ -544,11 +544,11 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_protect_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.22, i64 noundef %9, i32 noundef %2, i32 noundef %3, i32 noundef %12, i32 noundef %4) #8
@@ -581,9 +581,9 @@ H5C__trace_write_log_message.exit:                ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_resize_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %2 to i32
   %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.23, i64 noundef %8, i32 noundef %9, i32 noundef %3) #8
@@ -616,9 +616,9 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_unpin_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.24, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8
@@ -650,11 +650,11 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_destroy_fd_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.25, i64 noundef %8, i64 noundef %10, i32 noundef %3) #8
   %12 = load ptr, ptr %5, align 8
@@ -686,7 +686,7 @@ H5C__trace_write_log_message.exit:                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_unprotect_entry_log_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #8
   %9 = load ptr, ptr %6, align 8
@@ -718,86 +718,86 @@ H5C__trace_write_log_message.exit:                ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_set_cache_config_log_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %1, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, 1
   %14 = zext nneg i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %16 = load i8, ptr %15, align 2
   %17 = and i8 %16, 1
   %18 = zext nneg i8 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %1, i64 7
-  %20 = getelementptr inbounds i8, ptr %1, i64 1032
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %21 = load i8, ptr %20, align 8
   %22 = and i8 %21, 1
   %23 = zext nneg i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 1033
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1033
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 1
   %27 = zext nneg i8 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %1, i64 1040
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %1, i64 1048
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1048
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 1056
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %1, i64 1064
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1064
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %1, i64 1072
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 1080
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 1088
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 1096
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 1120
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 1120
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 1128
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1128
   %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 1136
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 1136
   %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 1104
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 1104
   %54 = load i8, ptr %53, align 8
   %55 = and i8 %54, 1
   %56 = zext nneg i8 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %1, i64 1112
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 1112
   %58 = load i64, ptr %57, align 8
   %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %1, i64 1144
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 1152
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 1152
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 1160
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 1160
   %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 1168
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %67 = load i8, ptr %66, align 8
   %68 = and i8 %67, 1
   %69 = zext nneg i8 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %1, i64 1176
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 1176
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %1, i64 1184
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 1184
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 1188
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 1188
   %76 = load i8, ptr %75, align 4
   %77 = and i8 %76, 1
   %78 = zext nneg i8 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %1, i64 1192
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 1192
   %80 = load double, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 1200
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 1200
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 1208
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1208
   %84 = load i32, ptr %83, align 8
   %85 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.27, i32 noundef %6, i32 noundef %10, i32 noundef %14, i32 noundef %18, ptr noundef nonnull %19, i32 noundef %23, i32 noundef %27, i32 noundef %30, double noundef %32, i32 noundef %35, i32 noundef %38, i64 noundef %40, i32 noundef %42, double noundef %44, double noundef %46, i32 noundef %48, double noundef %50, double noundef %52, i32 noundef %56, i32 noundef %59, i32 noundef %61, double noundef %63, double noundef %65, i32 noundef %69, i32 noundef %72, i32 noundef %74, i32 noundef %78, double noundef %80, i64 noundef %82, i32 noundef %84, i32 noundef %2) #8
   %86 = load ptr, ptr %4, align 8
@@ -829,9 +829,9 @@ H5C__trace_write_log_message.exit:                ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5C__trace_write_remove_entry_log_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.28, i64 noundef %7, i32 noundef %2) #8
   %9 = load ptr, ptr %4, align 8

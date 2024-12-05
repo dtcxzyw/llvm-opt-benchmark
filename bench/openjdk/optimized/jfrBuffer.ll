@@ -17,19 +17,19 @@ define hidden void @_ZN9JfrBufferC2Ev(ptr nocapture noundef nonnull writeonly al
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer10initializeEmm(ptr noundef nonnull align 8 dereferenceable(48) initializes((32, 42)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = trunc i64 %1 to i16
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i16 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %6, align 8
   %7 = and i64 %1, 65535
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %8, ptr %9, align 8
   %10 = load i16, ptr %5, align 8
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %12, ptr %13, align 8
   ret void
@@ -37,7 +37,7 @@ define hidden void @_ZN9JfrBuffer10initializeEmm(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %1, ptr %3, align 8
   ret void
@@ -45,7 +45,7 @@ define hidden void @_ZN9JfrBuffer7set_topEPKh(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer12reinitializeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %.backedge, %1
@@ -63,19 +63,19 @@ _ZNK9JfrBuffer10stable_topEv.exit.i:              ; preds = %3
   br i1 %7, label %_ZNK9JfrBuffer28acquire_critical_section_topEv.exit, label %.backedge
 
 _ZNK9JfrBuffer28acquire_critical_section_topEv.exit: ; preds = %_ZNK9JfrBuffer10stable_topEv.exit.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %11, ptr %12, align 8
   %13 = load i16, ptr %8, align 8
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %15, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 42
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %17 = load volatile i8, ptr %16, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %18 = and i8 %17, 1
@@ -95,7 +95,7 @@ _ZN9JfrBuffer13clear_retiredEv.exit:              ; preds = %_ZNK9JfrBuffer28acq
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZNK9JfrBuffer28acquire_critical_section_topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %.backedge, %1
@@ -118,7 +118,7 @@ _ZNK9JfrBuffer10stable_topEv.exit:                ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %1, ptr %3, align 8
   ret void
@@ -126,7 +126,7 @@ define hidden void @_ZN9JfrBuffer28release_critical_section_topEPKh(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer13clear_retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = and i8 %3, 1
@@ -146,7 +146,7 @@ define hidden void @_ZN9JfrBuffer13clear_retiredEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   ret ptr %3
@@ -154,7 +154,7 @@ define hidden noundef ptr @_ZNK9JfrBuffer3topEv(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZNK9JfrBuffer10stable_topEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -169,7 +169,7 @@ define hidden noundef nonnull ptr @_ZNK9JfrBuffer10stable_topEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK9JfrBuffer11acquired_byEPKv(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %5 = icmp eq ptr %4, %1
@@ -180,7 +180,7 @@ define hidden noundef zeroext i1 @_ZNK9JfrBuffer11acquired_byEPKv(ptr noundef no
 define hidden noundef zeroext i1 @_ZNK9JfrBuffer16acquired_by_selfEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %6 = icmp eq ptr %5, %3
@@ -189,7 +189,7 @@ define hidden noundef zeroext i1 @_ZNK9JfrBuffer16acquired_by_selfEv(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer7acquireEPKv(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %2
@@ -212,7 +212,7 @@ define hidden void @_ZN9JfrBuffer7acquireEPKv(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9JfrBuffer11try_acquireEPKv(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %5 = icmp eq ptr %4, null
@@ -231,14 +231,14 @@ define hidden noundef zeroext i1 @_ZN9JfrBuffer11try_acquireEPKv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer12set_identityEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer7releaseEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr null, ptr %2, align 8
   ret void
@@ -246,7 +246,7 @@ define hidden void @_ZN9JfrBuffer7releaseEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer4moveEPS_m(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %.backedge, %3
@@ -264,7 +264,7 @@ _ZNK9JfrBuffer10stable_topEv.exit.i:              ; preds = %5
   br i1 %9, label %_ZNK9JfrBuffer28acquire_critical_section_topEv.exit, label %.backedge
 
 _ZNK9JfrBuffer28acquire_critical_section_topEv.exit: ; preds = %_ZNK9JfrBuffer10stable_topEv.exit.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %20, label %12
@@ -273,7 +273,7 @@ _ZNK9JfrBuffer28acquire_critical_section_topEv.exit: ; preds = %_ZNK9JfrBuffer10
   %13 = ptrtoint ptr %6 to i64
   %14 = ptrtoint ptr %11 to i64
   %15 = sub i64 %14, %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull align 1 %6, i64 %15, i1 false)
   %18 = load ptr, ptr %16, align 8
@@ -283,18 +283,18 @@ _ZNK9JfrBuffer28acquire_critical_section_topEv.exit: ; preds = %_ZNK9JfrBuffer10
   br label %20
 
 20:                                               ; preds = %12, %_ZNK9JfrBuffer28acquire_critical_section_topEv.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i16, ptr %22, align 8
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %25, ptr %10, align 8
   %26 = load i16, ptr %22, align 8
   %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile ptr %28, ptr %4, align 8
   ret void
@@ -305,9 +305,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN9JfrBuffer7discardEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %5, %1
@@ -327,9 +327,9 @@ _ZNK9JfrBuffer10stable_topEv.exit:                ; preds = %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK9JfrBuffer14unflushed_sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %5, %1
@@ -347,7 +347,7 @@ _ZNK9JfrBuffer10stable_topEv.exit:                ; preds = %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK9JfrBuffer9transientEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = and i8 %3, 2
@@ -357,7 +357,7 @@ define hidden noundef zeroext i1 @_ZNK9JfrBuffer9transientEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer13set_transientEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %3 = load i8, ptr %2, align 2
   %4 = or i8 %3, 2
@@ -367,7 +367,7 @@ define hidden void @_ZN9JfrBuffer13set_transientEv(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer15clear_transientEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = and i8 %3, 2
@@ -387,7 +387,7 @@ define hidden void @_ZN9JfrBuffer15clear_transientEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = and i8 %3, 4
@@ -397,7 +397,7 @@ define hidden noundef zeroext i1 @_ZNK9JfrBuffer5leaseEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer9set_leaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %3 = load i8, ptr %2, align 2
   %4 = or i8 %3, 4
@@ -407,7 +407,7 @@ define hidden void @_ZN9JfrBuffer9set_leaseEv(ptr nocapture noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer11clear_leaseEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = and i8 %3, 4
@@ -427,7 +427,7 @@ define hidden void @_ZN9JfrBuffer11clear_leaseEv(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK9JfrBuffer7retiredEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = and i8 %3, 1
@@ -437,7 +437,7 @@ define hidden noundef zeroext i1 @_ZNK9JfrBuffer7retiredEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer11set_retiredEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 42
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %3 = load i8, ptr %2, align 2
   %4 = or i8 %3, 1
@@ -447,7 +447,7 @@ define hidden void @_ZN9JfrBuffer11set_retiredEv(ptr nocapture noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i8 @_ZNK9JfrBuffer7contextEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 43
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %3 = load volatile i8, ptr %2, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   ret i8 %3
@@ -455,7 +455,7 @@ define hidden noundef zeroext i8 @_ZNK9JfrBuffer7contextEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9JfrBuffer11set_contextEh(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 43
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 43
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %4 = load i8, ptr %3, align 1
   %5 = or i8 %4, %1

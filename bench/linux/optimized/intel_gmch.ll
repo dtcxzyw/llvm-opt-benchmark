@@ -13,15 +13,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_gmch_bridge_setup(ptr noundef initializes((7816, 7824)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @pci_get_domain_bus_and_slot(i32 noundef %8, i32 noundef 0, i32 noundef 0) #4
-  %10 = getelementptr inbounds i8, ptr %0, i64 7816
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 7816
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %18
@@ -75,7 +75,7 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 7184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = and i64 %7, 18874368
@@ -84,8 +84,8 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
 
 10:                                               ; preds = %1
   store i32 0, ptr %4, align 4, !annotation !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 7816
-  %12 = getelementptr inbounds i8, ptr %0, i64 7888
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 7816
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 7888
   store i8 0, ptr %12, align 8
   %13 = and i64 %7, 768
   %14 = icmp eq i64 %13, 0
@@ -99,7 +99,7 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   br label %27
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 7176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %22 = load i8, ptr %21, align 8
   %23 = icmp ugt i8 %22, 3
   %24 = select i1 %23, i32 72, i32 68
@@ -118,7 +118,7 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   store i32 0, ptr %2, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
   store i32 0, ptr %3, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 7176
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %33 = load i8, ptr %32, align 8
   %34 = icmp ugt i8 %33, 3
   br i1 %34, label %35, label %40
@@ -151,16 +151,16 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   br i1 %54, label %55, label %89
 
 55:                                               ; preds = %51, %40
-  %56 = getelementptr inbounds i8, ptr %0, i64 7824
-  %57 = getelementptr inbounds i8, ptr %0, i64 7840
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 7824
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 7840
   store ptr @.str.4, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 7848
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 7848
   store i64 512, ptr %58, align 8
   %59 = load ptr, ptr %11, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = load i64, ptr @pci_mem_start, align 8
-  %63 = call i32 @pci_bus_alloc_resource(ptr noundef %61, ptr noundef %56, i64 noundef 16384, i64 noundef 16384, i64 noundef %62, i64 noundef 0, ptr noundef nonnull @pcibios_align_resource, ptr noundef %59) #4
+  %63 = call i32 @pci_bus_alloc_resource(ptr noundef %61, ptr noundef nonnull %56, i64 noundef 16384, i64 noundef 16384, i64 noundef %62, i64 noundef 0, ptr noundef nonnull @pcibios_align_resource, ptr noundef %59) #4
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %72, label %65
 
@@ -169,7 +169,7 @@ define dso_local void @intel_gmch_bar_setup(ptr noundef %0) local_unnamed_addr #
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -250,14 +250,14 @@ declare dso_local i32 @pci_write_config_dword(ptr noundef, i32 noundef, i32 noun
 define dso_local void @intel_gmch_bar_teardown(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 7816
-  %5 = getelementptr inbounds i8, ptr %0, i64 7888
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 7816
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7888
   %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 7184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 768
   %12 = icmp eq i32 %11, 0
@@ -280,7 +280,7 @@ define dso_local void @intel_gmch_bar_teardown(ptr noundef %0) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
   store i32 0, ptr %3, align 4, !annotation !5
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 7176
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %23 = load i8, ptr %22, align 8
   %24 = icmp ugt i8 %23, 3
   %25 = select i1 %24, i32 72, i32 68
@@ -297,13 +297,13 @@ define dso_local void @intel_gmch_bar_teardown(ptr noundef %0) local_unnamed_add
   br label %34
 
 34:                                               ; preds = %20, %13, %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 7824
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 7824
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %34
-  %39 = call i32 @release_resource(ptr noundef %35) #4
+  %39 = call i32 @release_resource(ptr noundef nonnull %35) #4
   br label %40
 
 40:                                               ; preds = %38, %34
@@ -316,13 +316,13 @@ declare dso_local i32 @release_resource(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @intel_gmch_vga_set_state(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
-  %4 = getelementptr inbounds i8, ptr %0, i64 2632
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 5
   %7 = select i1 %6, i32 80, i32 82
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #4
   store i16 0, ptr %3, align 2, !annotation !5
-  %8 = getelementptr inbounds i8, ptr %0, i64 7816
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 7816
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @pci_read_config_word(ptr noundef %9, i32 noundef %7, ptr noundef nonnull %3) #4
   %11 = icmp eq i32 %10, 0
@@ -333,7 +333,7 @@ define dso_local noundef range(i32 -5, 1) i32 @intel_gmch_vga_set_state(ptr noun
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -364,7 +364,7 @@ define dso_local noundef range(i32 -5, 1) i32 @intel_gmch_vga_set_state(ptr noun
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %36
 
@@ -387,7 +387,7 @@ declare dso_local i32 @pci_write_config_word(ptr noundef, i32 noundef, i16 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 12, 16) i32 @intel_gmch_vga_set_decode(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @intel_gmch_vga_set_state(ptr noundef %4, i1 noundef zeroext %1), !range !8
   %6 = select i1 %1, i32 15, i32 12

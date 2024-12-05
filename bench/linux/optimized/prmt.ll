@@ -75,7 +75,7 @@ declare dso_local i32 @acpi_table_parse_entries(ptr noundef, i64 noundef, i32 no
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef readonly %0, i64 %1) #0 section ".init.text" align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i16, ptr %3, align 1
   %5 = zext i16 %4 to i64
   %6 = mul nuw nsw i64 %5, 56
@@ -85,22 +85,22 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef align 1 dereferenceable(16) %11, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(16) %11, i64 16, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i16, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i16 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %16 = load i16, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %8, i64 18
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 18
   store i16 %16, ptr %17, align 2
   %18 = load i16, ptr %3, align 1
-  %19 = getelementptr inbounds i8, ptr %8, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 30
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %22 = load i64, ptr %21, align 1
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %43, label %24
@@ -118,7 +118,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
   %32 = tail call noundef i64 @llvm.uadd.sat.i64(i64 %31, i64 8)
   %33 = select i1 %30, i64 -1, i64 %32
   %34 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %33, i32 noundef 3264) #14
-  %35 = getelementptr inbounds i8, ptr %8, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %34, ptr %35, align 8
   %36 = icmp eq ptr %34, null
   br i1 %36, label %85, label %37
@@ -137,7 +137,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
 43:                                               ; preds = %10
   %44 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %45 = tail call noalias align 8 dereferenceable_or_null(8) ptr @kmalloc_trace(ptr noundef %44, i32 noundef 3264, i64 noundef 8) #15
-  %46 = getelementptr inbounds i8, ptr %8, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %45, ptr %46, align 8
   %47 = icmp eq ptr %45, null
   br i1 %47, label %86, label %48
@@ -147,44 +147,44 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
   br label %49
 
 49:                                               ; preds = %48, %42
-  %50 = getelementptr inbounds i8, ptr %8, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store volatile ptr %50, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store volatile ptr %50, ptr %51, align 8
   %52 = load ptr, ptr @prm_module_list, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %50, ptr %53, align 8
   store ptr %52, ptr %50, align 8
   store ptr @prm_module_list, ptr %51, align 8
   store volatile ptr %50, ptr @prm_module_list, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 26
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %55 = load i32, ptr %54, align 1
   %56 = zext i32 %55 to i64
   %57 = getelementptr i8, ptr %0, i64 %56
-  %58 = getelementptr inbounds i8, ptr %8, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 56
   br label %59
 
 59:                                               ; preds = %59, %49
   %60 = phi ptr [ %57, %49 ], [ %81, %59 ]
   %61 = phi i64 [ 0, %49 ], [ %77, %59 ]
   %62 = getelementptr [0 x %struct.prm_handler_info], ptr %58, i64 0, i64 %61
-  %63 = getelementptr inbounds i8, ptr %60, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %62, ptr noundef align 1 dereferenceable(16) %63, i64 16, i1 false)
-  %64 = getelementptr inbounds i8, ptr %60, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %62, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %65 = load i64, ptr %64, align 1
   %66 = tail call fastcc i64 @efi_pa_va_lookup(i64 noundef %65)
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %62, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %60, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %70 = load i64, ptr %69, align 1
   %71 = tail call fastcc i64 @efi_pa_va_lookup(i64 noundef %70)
-  %72 = getelementptr inbounds i8, ptr %62, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %60, i64 36
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %74 = load i64, ptr %73, align 1
   %75 = tail call fastcc i64 @efi_pa_va_lookup(i64 noundef %74)
-  %76 = getelementptr inbounds i8, ptr %62, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store i64 %75, ptr %76, align 8
   %77 = add nuw nsw i64 %61, 1
   %78 = load i16, ptr %19, align 4
@@ -240,9 +240,9 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
   br label %145
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %17, i8 0, i64 32, i1 false), !annotation !5
-  %18 = getelementptr inbounds i8, ptr %3, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %144 [
     i8 0, label %20
@@ -251,7 +251,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
   ]
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %3, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %22 = load ptr, ptr @prm_module_list, align 8
   %23 = icmp eq ptr %22, @prm_module_list
   br i1 %23, label %.thread20, label %.preheader
@@ -281,7 +281,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 36:                                               ; preds = %33, %30
   %37 = phi i64 [ 0, %30 ], [ %34, %33 ]
   %38 = getelementptr [0 x %struct.prm_handler_info], ptr %31, i64 0, i64 %37
-  %39 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %21, ptr noundef dereferenceable(16) %38, i64 16)
+  %39 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef dereferenceable(16) %38, i64 16)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit25, label %33
 
@@ -314,7 +314,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 55:                                               ; preds = %52, %49
   %56 = phi i64 [ 0, %49 ], [ %53, %52 ]
   %57 = getelementptr [0 x %struct.prm_handler_info], ptr %50, i64 0, i64 %56
-  %58 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %21, ptr noundef dereferenceable(16) %57, i64 16)
+  %58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef dereferenceable(16) %57, i64 16)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %52
 
@@ -327,23 +327,23 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 65:                                               ; preds = %60
   store i32 1129140816, ptr %7, align 4
-  %66 = getelementptr inbounds i8, ptr %7, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 0, ptr %66, align 1
-  %67 = getelementptr inbounds i8, ptr %7, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 0, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
-  %69 = getelementptr inbounds i8, ptr %41, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %70, ptr %71, align 1
   %72 = getelementptr i8, ptr %45, i64 -16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %7, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %73, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %41, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %41, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %78 = load i64, ptr %77, align 8
   %79 = call i64 @efi_call_acpi_prm_handler(ptr noundef %76, i64 noundef %78, ptr noundef nonnull %7) #12
   %80 = icmp eq i64 %79, 0
@@ -355,12 +355,12 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 82:                                               ; preds = %65
   store i8 1, ptr %3, align 1
-  %83 = getelementptr inbounds i8, ptr %3, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i64 %79, ptr %83, align 1
   br label %145
 
 84:                                               ; preds = %16
-  %85 = getelementptr inbounds i8, ptr %3, i64 10
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %86 = load ptr, ptr @prm_module_list, align 8
   %87 = icmp eq ptr %86, @prm_module_list
   br i1 %87, label %.thread20, label %.preheader29
@@ -390,7 +390,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 100:                                              ; preds = %97, %94
   %101 = phi i64 [ 0, %94 ], [ %98, %97 ]
   %102 = getelementptr [0 x %struct.prm_handler_info], ptr %95, i64 0, i64 %101
-  %103 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %85, ptr noundef dereferenceable(16) %102, i64 16)
+  %103 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %85, ptr noundef dereferenceable(16) %102, i64 16)
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %97
 
@@ -414,7 +414,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
   br label %145
 
 114:                                              ; preds = %16
-  %115 = getelementptr inbounds i8, ptr %3, i64 10
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %116 = load ptr, ptr @prm_module_list, align 8
   %117 = icmp eq ptr %116, @prm_module_list
   br i1 %117, label %.thread20, label %.preheader32
@@ -444,7 +444,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 130:                                              ; preds = %127, %124
   %131 = phi i64 [ 0, %124 ], [ %128, %127 ]
   %132 = getelementptr [0 x %struct.prm_handler_info], ptr %125, i64 0, i64 %131
-  %133 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %115, ptr noundef dereferenceable(16) %132, i64 16)
+  %133 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %115, ptr noundef dereferenceable(16) %132, i64 16)
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %127
 
@@ -504,13 +504,13 @@ define internal fastcc i64 @efi_pa_va_lookup(i64 noundef %0) unnamed_addr #6 ali
 .preheader:                                       ; preds = %1, %25
   %9 = phi ptr [ %27, %25 ], [ %6, %1 ]
   %10 = phi ptr [ %9, %25 ], [ %2, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %0
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %16, 12
   %18 = add i64 %17, %12
@@ -518,7 +518,7 @@ define internal fastcc i64 @efi_pa_va_lookup(i64 noundef %0) unnamed_addr #6 ali
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %10, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %0, %12
   %24 = add i64 %23, %22

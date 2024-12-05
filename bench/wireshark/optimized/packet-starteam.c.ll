@@ -423,11 +423,11 @@ define internal i32 @get_starteam_pdu_len(ptr nocapture readnone %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_starteam(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.49) #3
   %7 = load i32, ptr @iPreviousFrameNumber, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %7, %9
   %10 = load ptr, ptr %5, align 8

@@ -57,7 +57,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master2 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master2 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %master, ptr %master2, align 8
   %call3 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %master, i32 noundef 1) #8
   br i1 %call3, label %if.then, label %if.end
@@ -70,7 +70,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call5 = tail call ptr @object_ref(ptr noundef %master) #8
   %call6 = tail call ptr @qcrypto_tls_session_new(ptr noundef %creds, ptr noundef null, ptr noundef %aclname, i32 noundef 1, ptr noundef %errp) #8
-  %session = getelementptr inbounds i8, ptr %call.i, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %call6, ptr %session, align 8
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %error, label %if.end9
@@ -100,7 +100,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call.i, ptr noundef %master, ptr noundef %creds, ptr noundef %aclname) #8
   br label %trace_qio_channel_tls_new_server.exit
@@ -138,7 +138,7 @@ declare void @qcrypto_tls_session_set_callbacks(ptr noundef, ptr noundef, ptr no
 define internal range(i64 -1, -9223372036854775808) i64 @qio_channel_tls_write_handler(ptr noundef %buf, i64 noundef %len, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   %call1 = tail call i64 @qio_channel_write(ptr noundef %0, ptr noundef %buf, i64 noundef %len, ptr noundef null) #8
   %cmp = icmp eq i64 %call1, -2
@@ -163,7 +163,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal range(i64 -1, -9223372036854775808) i64 @qio_channel_tls_read_handler(ptr noundef %buf, i64 noundef %len, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   %call1 = tail call i64 @qio_channel_read(ptr noundef %0, ptr noundef %buf, i64 noundef %len, ptr noundef null) #8
   %cmp = icmp eq i64 %call1, -2
@@ -193,7 +193,7 @@ entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
   %call.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
-  %master3 = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master3 = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr %master, ptr %master3, align 8
   %call4 = tail call zeroext i1 @qio_channel_has_feature(ptr noundef %master, i32 noundef 1) #8
   br i1 %call4, label %if.then, label %if.end
@@ -205,7 +205,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call5 = tail call ptr @object_ref(ptr noundef %master) #8
   %call6 = tail call ptr @qcrypto_tls_session_new(ptr noundef %creds, ptr noundef %hostname, ptr noundef null, i32 noundef 0, ptr noundef %errp) #8
-  %session = getelementptr inbounds i8, ptr %call.i, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr %call6, ptr %session, align 8
   %tobool.not = icmp eq ptr %call6, null
   br i1 %tobool.not, label %error, label %if.end9
@@ -235,7 +235,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef nonnull %call.i, ptr noundef %master, ptr noundef %creds, ptr noundef %hostname) #8
   br label %trace_qio_channel_tls_new_client.exit
@@ -285,7 +285,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ioc) #8
   br label %trace_qio_channel_tls_handshake_start.exit
@@ -313,7 +313,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %session = getelementptr inbounds i8, ptr %ioc, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %ioc, i64 104
   %0 = load ptr, ptr %session, align 8
   %call = call i32 @qcrypto_tls_session_handshake(ptr noundef %0, ptr noundef nonnull %err) #8
   %cmp = icmp slt i32 %call, 0
@@ -343,7 +343,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_handshake_fail.exit
@@ -389,7 +389,7 @@ if.then8.i.i31:                                   ; preds = %if.then.i.i28
   %call9.i.i32 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i21, ptr noundef null) #8
   %call10.i.i33 = call i32 @qemu_get_thread_id() #8
   %13 = load i64, ptr %_now.i.i21, align 8
-  %tv_usec.i.i34 = getelementptr inbounds i8, ptr %_now.i.i21, i64 8
+  %tv_usec.i.i34 = getelementptr inbounds nuw i8, ptr %_now.i.i21, i64 8
   %14 = load i64, ptr %tv_usec.i.i34, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i33, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_handshake_complete.exit
@@ -429,7 +429,7 @@ if.then8.i.i45:                                   ; preds = %if.then.i.i42
   %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i35, ptr noundef null) #8
   %call10.i.i47 = call i32 @qemu_get_thread_id() #8
   %20 = load i64, ptr %_now.i.i35, align 8
-  %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i35, i64 8
+  %tv_usec.i.i48 = getelementptr inbounds nuw i8, ptr %_now.i.i35, i64 8
   %21 = load i64, ptr %tv_usec.i.i48, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i47, i64 noundef %20, i64 noundef %21, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_credentials_deny.exit
@@ -468,7 +468,7 @@ if.then8.i.i59:                                   ; preds = %if.then.i.i56
   %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i49, ptr noundef null) #8
   %call10.i.i61 = call i32 @qemu_get_thread_id() #8
   %27 = load i64, ptr %_now.i.i49, align 8
-  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i49, i64 8
+  %tv_usec.i.i62 = getelementptr inbounds nuw i8, ptr %_now.i.i49, i64 8
   %28 = load i64, ptr %tv_usec.i.i62, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i61, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %ioc) #8
   br label %trace_qio_channel_tls_credentials_allow.exit
@@ -488,7 +488,7 @@ if.end9:                                          ; preds = %trace_qio_channel_t
 if.else10:                                        ; preds = %if.end
   %call11 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #10
   store ptr %task, ptr %call11, align 8
-  %context13 = getelementptr inbounds i8, ptr %call11, i64 8
+  %context13 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr %context, ptr %context13, align 8
   %tobool.not = icmp eq ptr %context, null
   br i1 %tobool.not, label %if.end16, label %if.then14
@@ -525,7 +525,7 @@ if.then8.i.i73:                                   ; preds = %if.then.i.i70
   %call9.i.i74 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i63, ptr noundef null) #8
   %call10.i.i75 = call i32 @qemu_get_thread_id() #8
   %33 = load i64, ptr %_now.i.i63, align 8
-  %tv_usec.i.i76 = getelementptr inbounds i8, ptr %_now.i.i63, i64 8
+  %tv_usec.i.i76 = getelementptr inbounds nuw i8, ptr %_now.i.i63, i64 8
   %34 = load i64, ptr %tv_usec.i.i76, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i75, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %ioc, i32 noundef range(i32 1, 0) 1) #8
   br label %trace_qio_channel_tls_handshake_pending.exit
@@ -562,7 +562,7 @@ if.then8.i.i87:                                   ; preds = %if.then.i.i84
   %call9.i.i88 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i77, ptr noundef null) #8
   %call10.i.i89 = call i32 @qemu_get_thread_id() #8
   %39 = load i64, ptr %_now.i.i77, align 8
-  %tv_usec.i.i90 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
+  %tv_usec.i.i90 = getelementptr inbounds nuw i8, ptr %_now.i.i77, i64 8
   %40 = load i64, ptr %tv_usec.i.i90, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i89, i64 noundef %39, i64 noundef %40, ptr noundef nonnull %ioc, i32 noundef range(i32 1, 0) %call2) #8
   br label %trace_qio_channel_tls_handshake_pending.exit91
@@ -577,10 +577,10 @@ trace_qio_channel_tls_handshake_pending.exit91:   ; preds = %if.else19.split, %l
 
 if.end20:                                         ; preds = %trace_qio_channel_tls_handshake_pending.exit91, %trace_qio_channel_tls_handshake_pending.exit
   %condition.0 = phi i32 [ 4, %trace_qio_channel_tls_handshake_pending.exit ], [ 1, %trace_qio_channel_tls_handshake_pending.exit91 ]
-  %master = getelementptr inbounds i8, ptr %ioc, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %ioc, i64 96
   %41 = load ptr, ptr %master, align 8
   %call21 = call i32 @qio_channel_add_watch_full(ptr noundef %41, i32 noundef %condition.0, ptr noundef nonnull @qio_channel_tls_handshake_io, ptr noundef nonnull %call11, ptr noundef null, ptr noundef %context) #8
-  %hs_ioc_tag = getelementptr inbounds i8, ptr %ioc, i64 116
+  %hs_ioc_tag = getelementptr inbounds nuw i8, ptr %ioc, i64 116
   store i32 %call21, ptr %hs_ioc_tag, align 4
   br label %if.end22
 
@@ -591,7 +591,7 @@ if.end22:                                         ; preds = %if.end20, %if.end9,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @qio_channel_tls_get_session(ptr nocapture noundef readonly %ioc) local_unnamed_addr #2 {
 entry:
-  %session = getelementptr inbounds i8, ptr %ioc, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %ioc, i64 104
   %0 = load ptr, ptr %session, align 8
   ret ptr %0
 }
@@ -649,11 +649,11 @@ declare i32 @qio_channel_add_watch_full(ptr noundef, i32 noundef, ptr noundef, p
 define internal noundef i32 @qio_channel_tls_handshake_io(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %user_data) #0 {
 entry:
   %0 = load ptr, ptr %user_data, align 8
-  %context2 = getelementptr inbounds i8, ptr %user_data, i64 8
+  %context2 = getelementptr inbounds nuw i8, ptr %user_data, i64 8
   %1 = load ptr, ptr %context2, align 8
   %call = tail call ptr @qio_task_get_source(ptr noundef %0) #8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %hs_ioc_tag = getelementptr inbounds i8, ptr %call.i, i64 116
+  %hs_ioc_tag = getelementptr inbounds nuw i8, ptr %call.i, i64 116
   store i32 0, ptr %hs_ioc_tag, align 4
   tail call void @g_free(ptr noundef nonnull %user_data) #8
   tail call fastcc void @qio_channel_tls_handshake_task(ptr noundef %call.i, ptr noundef %0, ptr noundef %1)
@@ -686,10 +686,10 @@ entry:
 define internal void @qio_channel_tls_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @object_unref(ptr noundef %0) #8
-  %session = getelementptr inbounds i8, ptr %call.i, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   %1 = load ptr, ptr %session, align 8
   tail call void @qcrypto_tls_session_free(ptr noundef %1) #8
   ret void
@@ -699,23 +699,23 @@ entry:
 define internal void @qio_channel_tls_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #8
-  %io_writev = getelementptr inbounds i8, ptr %call.i, i64 96
+  %io_writev = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr @qio_channel_tls_writev, ptr %io_writev, align 8
-  %io_readv = getelementptr inbounds i8, ptr %call.i, i64 104
+  %io_readv = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @qio_channel_tls_readv, ptr %io_readv, align 8
-  %io_set_blocking = getelementptr inbounds i8, ptr %call.i, i64 128
+  %io_set_blocking = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr @qio_channel_tls_set_blocking, ptr %io_set_blocking, align 8
-  %io_set_delay = getelementptr inbounds i8, ptr %call.i, i64 152
+  %io_set_delay = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr @qio_channel_tls_set_delay, ptr %io_set_delay, align 8
-  %io_set_cork = getelementptr inbounds i8, ptr %call.i, i64 144
+  %io_set_cork = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @qio_channel_tls_set_cork, ptr %io_set_cork, align 8
-  %io_close = getelementptr inbounds i8, ptr %call.i, i64 112
+  %io_close = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @qio_channel_tls_close, ptr %io_close, align 8
-  %io_shutdown = getelementptr inbounds i8, ptr %call.i, i64 136
+  %io_shutdown = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @qio_channel_tls_shutdown, ptr %io_shutdown, align 8
-  %io_create_watch = getelementptr inbounds i8, ptr %call.i, i64 120
+  %io_create_watch = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @qio_channel_tls_create_watch, ptr %io_create_watch, align 8
-  %io_set_aio_fd_handler = getelementptr inbounds i8, ptr %call.i, i64 168
+  %io_set_aio_fd_handler = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr @qio_channel_tls_set_aio_fd_handler, ptr %io_set_aio_fd_handler, align 8
   ret void
 }
@@ -730,7 +730,7 @@ entry:
   br i1 %cmp13.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %call.i, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   br label %for.body
 
 for.body:                                         ; preds = %if.end9, %for.body.lr.ph
@@ -739,7 +739,7 @@ for.body:                                         ; preds = %if.end9, %for.body.
   %0 = load ptr, ptr %session, align 8
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.014
   %1 = load ptr, ptr %arrayidx, align 8
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %call2 = tail call i64 @qcrypto_tls_session_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   %cmp3 = icmp slt i64 %call2, 1
@@ -782,7 +782,7 @@ entry:
   br i1 %cmp14.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %call.i, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   br label %for.body
 
 for.body:                                         ; preds = %if.end15, %for.body.lr.ph
@@ -791,7 +791,7 @@ for.body:                                         ; preds = %if.end15, %for.body
   %0 = load ptr, ptr %session, align 8
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.016
   %1 = load ptr, ptr %arrayidx, align 8
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %call2 = tail call i64 @qcrypto_tls_session_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) #8
   %cmp3 = icmp slt i64 %call2, 0
@@ -811,7 +811,7 @@ if.then6:                                         ; preds = %if.then
   br label %return
 
 while.end:                                        ; preds = %if.then
-  %shutdown = getelementptr inbounds i8, ptr %call.i, i64 112
+  %shutdown = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   %4 = load atomic i32, ptr %shutdown acquire, align 8
   %and = and i32 %4, 1
   %tobool11.not = icmp eq i32 %and, 0
@@ -844,7 +844,7 @@ return:                                           ; preds = %if.end15, %entry, %
 define internal i32 @qio_channel_tls_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   %call1 = tail call i32 @qio_channel_set_blocking(ptr noundef %0, i1 noundef zeroext %enabled, ptr noundef %errp) #8
   ret i32 %call1
@@ -854,7 +854,7 @@ entry:
 define internal void @qio_channel_tls_set_delay(ptr noundef %ioc, i1 noundef zeroext %enabled) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @qio_channel_set_delay(ptr noundef %0, i1 noundef zeroext %enabled) #8
   ret void
@@ -864,7 +864,7 @@ entry:
 define internal void @qio_channel_tls_set_cork(ptr noundef %ioc, i1 noundef zeroext %enabled) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @qio_channel_set_cork(ptr noundef %0, i1 noundef zeroext %enabled) #8
   ret void
@@ -874,7 +874,7 @@ entry:
 define internal i32 @qio_channel_tls_close(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %hs_ioc_tag = getelementptr inbounds i8, ptr %call.i, i64 116
+  %hs_ioc_tag = getelementptr inbounds nuw i8, ptr %call.i, i64 116
   %0 = load i32, ptr %hs_ioc_tag, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end4, label %if.then2
@@ -885,7 +885,7 @@ if.then2:                                         ; preds = %entry
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %entry
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %1 = load ptr, ptr %master, align 8
   %call5 = tail call i32 @qio_channel_close(ptr noundef %1, ptr noundef %errp) #8
   ret i32 %call5
@@ -895,9 +895,9 @@ if.end4:                                          ; preds = %if.then2, %entry
 define internal i32 @qio_channel_tls_shutdown(ptr noundef %ioc, i32 noundef %how, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %shutdown = getelementptr inbounds i8, ptr %call.i, i64 112
+  %shutdown = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   %0 = atomicrmw or ptr %shutdown, i32 %how seq_cst, align 8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %1 = load ptr, ptr %master, align 8
   %call1 = tail call i32 @qio_channel_shutdown(ptr noundef %1, i32 noundef %how, ptr noundef %errp) #8
   ret i32 %call1
@@ -907,7 +907,7 @@ entry:
 define internal ptr @qio_channel_tls_create_watch(ptr noundef %ioc, i32 noundef %condition) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   %call1 = tail call ptr @qio_channel_create_watch(ptr noundef %0, i32 noundef %condition) #8
   %and = and i32 %condition, 1
@@ -916,7 +916,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i4 = tail call ptr @g_source_new(ptr noundef nonnull @qio_channel_tls_source_funcs, i32 noundef 104) #8
-  %tioc1.i = getelementptr inbounds i8, ptr %call.i4, i64 96
+  %tioc1.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 96
   store ptr %call.i, ptr %tioc1.i, align 8
   %call2.i = tail call ptr @object_ref(ptr noundef nonnull %call.i) #8
   tail call void @g_source_add_child_source(ptr noundef %call1, ptr noundef %call.i4) #8
@@ -931,7 +931,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @qio_channel_tls_set_aio_fd_handler(ptr noundef %ioc, ptr noundef %read_ctx, ptr noundef %io_read, ptr noundef %write_ctx, ptr noundef %io_write, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_TLS) #8
-  %master = getelementptr inbounds i8, ptr %call.i, i64 96
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %master, align 8
   tail call void @qio_channel_set_aio_fd_handler(ptr noundef %0, ptr noundef %read_ctx, ptr noundef %io_read, ptr noundef %write_ctx, ptr noundef %io_write, ptr noundef %opaque) #8
   ret void
@@ -969,9 +969,9 @@ declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 define internal range(i32 0, 2) i32 @qio_channel_tls_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #0 {
 entry:
   store i32 -1, ptr %timeout, align 4
-  %tioc.i = getelementptr inbounds i8, ptr %source, i64 96
+  %tioc.i = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %tioc.i, align 8
-  %session.i = getelementptr inbounds i8, ptr %0, i64 104
+  %session.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %session.i, align 8
   %call.i = tail call i64 @qcrypto_tls_session_check_pending(ptr noundef %1) #8
   %cmp.i = icmp ne i64 %call.i, 0
@@ -982,9 +982,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @qio_channel_tls_source_check(ptr nocapture noundef readonly %source) #0 {
 entry:
-  %tioc = getelementptr inbounds i8, ptr %source, i64 96
+  %tioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %tioc, align 8
-  %session = getelementptr inbounds i8, ptr %0, i64 104
+  %session = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1 = load ptr, ptr %session, align 8
   %call = tail call i64 @qcrypto_tls_session_check_pending(ptr noundef %1) #8
   %cmp = icmp ne i64 %call, 0
@@ -1001,7 +1001,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qio_channel_tls_source_finalize(ptr nocapture noundef readonly %source) #0 {
 entry:
-  %tioc = getelementptr inbounds i8, ptr %source, i64 96
+  %tioc = getelementptr inbounds nuw i8, ptr %source, i64 96
   %0 = load ptr, ptr %tioc, align 8
   tail call void @object_unref(ptr noundef %0) #8
   ret void

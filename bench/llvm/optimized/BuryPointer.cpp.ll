@@ -18,7 +18,7 @@ define dso_local void @_ZN4llvm11BuryPointerEPKv(ptr noundef %0) local_unnamed_a
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds [16 x ptr], ptr @_ZZN4llvm11BuryPointerEPKvE9GraveYard, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [16 x ptr], ptr @_ZZN4llvm11BuryPointerEPKvE9GraveYard, i64 0, i64 %5
   store ptr %0, ptr %6, align 8
   br label %7
 

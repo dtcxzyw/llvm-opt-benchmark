@@ -342,7 +342,7 @@ define hidden range(i32 -135, 1) i32 @psa_validate_unstructured_key_bit_size(i16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 -141, 1) i32 @psa_allocate_buffer_to_slot(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %10
@@ -354,7 +354,7 @@ define hidden range(i32 -141, 1) i32 @psa_allocate_buffer_to_slot(ptr nocapture 
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %9, align 8
   br label %10
 
@@ -368,7 +368,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden range(i32 -141, 1) i32 @psa_copy_key_material_into_slot(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %psa_allocate_buffer_to_slot.exit.thread
@@ -380,7 +380,7 @@ define hidden range(i32 -141, 1) i32 @psa_copy_key_material_into_slot(ptr nocapt
   br i1 %8, label %psa_allocate_buffer_to_slot.exit.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %1, i64 %2, i1 false)
   br label %psa_allocate_buffer_to_slot.exit.thread
@@ -493,13 +493,13 @@ declare i32 @mbedtls_psa_rsa_import_key(ptr noundef, ptr noundef, i64 noundef, p
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @psa_remove_key_data_from_memory(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef %6) #15
   %.pre = load ptr, ptr %2, align 8
@@ -519,13 +519,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -151, 1) i32 @psa_wipe_key_slot(ptr nocapture noundef initializes((0, 32)) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %psa_remove_key_data_from_memory.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef %6) #15
   %.pre.i = load ptr, ptr %2, align 8
@@ -534,7 +534,7 @@ define hidden range(i32 -151, 1) i32 @psa_wipe_key_slot(ptr nocapture noundef in
 psa_remove_key_data_from_memory.exit:             ; preds = %1, %4
   %7 = phi ptr [ %.pre.i, %4 ], [ null, %1 ]
   tail call void @free(ptr noundef %7) #15
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 1
   %spec.store.select = select i1 %.not, i32 0, i32 -151
@@ -558,7 +558,7 @@ define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #5 {
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 1
   br i1 %9, label %10, label %12
@@ -568,7 +568,7 @@ define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #5 {
   br label %29
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %14 = load i32, ptr %13, align 4
   %trunc = trunc i32 %14 to i8
   switch i8 %trunc, label %15 [
@@ -577,7 +577,7 @@ define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #5 {
   ]
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = call i32 @psa_destroy_persistent_key(i32 noundef %17) #15
   %.pre = load ptr, ptr %2, align 8
@@ -589,13 +589,13 @@ define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #5 {
 19:                                               ; preds = %12, %.fold.split, %15
   %20 = phi ptr [ %.pre, %15 ], [ %6, %12 ], [ %6, %.fold.split ]
   %.0 = phi i32 [ %18, %15 ], [ -133, %12 ], [ 0, %.fold.split ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %psa_wipe_key_slot.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %25 = load i64, ptr %24, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %22, i64 noundef %25) #15
   %.pre.i.i = load ptr, ptr %21, align 8
@@ -604,7 +604,7 @@ define hidden i32 @psa_destroy_key(i32 noundef %0) local_unnamed_addr #5 {
 psa_wipe_key_slot.exit:                           ; preds = %19, %23
   %26 = phi ptr [ %.pre.i.i, %23 ], [ null, %19 ]
   call void @free(ptr noundef %26) #15
-  %27 = getelementptr inbounds i8, ptr %20, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %28 = load i64, ptr %27, align 8
   %.not.i = icmp eq i64 %28, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
@@ -635,7 +635,7 @@ define hidden i32 @psa_get_key_attributes(i32 noundef %0, ptr noundef %1) local_
 7:                                                ; preds = %2
   %8 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %8, i64 28, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 1
   store i16 %11, ptr %9, align 8
@@ -646,16 +646,16 @@ define hidden i32 @psa_get_key_attributes(i32 noundef %0, ptr noundef %1) local_
   ]
 
 13:                                               ; preds = %7, %7
-  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 256
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %13
   store ptr null, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = call i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %12, ptr noundef %19, i64 noundef %21, ptr noundef nonnull %5) #15
   %.not17 = icmp eq i32 %22, 0
@@ -686,9 +686,9 @@ define hidden i32 @psa_get_key_attributes(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not21.i, label %35, label %.split15.i
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %31, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %30, ptr %37, align 8
   br label %.split.i
 
@@ -750,7 +750,7 @@ define internal fastcc i32 @psa_get_and_lock_key_slot_with_policy(i32 noundef %0
   %10 = icmp eq i16 %9, 16384
   %11 = and i32 %2, 32766
   %spec.select = select i1 %10, i32 %11, i32 %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %spec.select, %13
   %.not23 = icmp eq i32 %14, %spec.select
@@ -822,14 +822,14 @@ switch.early.test44.i:                            ; preds = %21
   br i1 %32, label %psa_key_policy_permits.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %31, %29, %27, %23, %switch.early.test44.i
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load i32, ptr %33, align 4
   %35 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %34, i32 noundef range(i32 1, 0) %3)
   %.not35.i = icmp eq i32 %35, 0
   br i1 %.not35.i, label %36, label %psa_key_policy_permits.exit
 
 36:                                               ; preds = %.critedge.i
-  %37 = getelementptr inbounds i8, ptr %7, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %38 = load i32, ptr %37, align 4
   %39 = tail call fastcc i32 @psa_key_algorithm_permits(i16 noundef zeroext %8, i32 noundef %38, i32 noundef range(i32 1, 0) %3)
   %.not36.i = icmp eq i32 %39, 0
@@ -901,7 +901,7 @@ define hidden i32 @psa_export_key(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %13 = and i16 %12, 28672
   %14 = icmp ne i16 %13, 16384
   %spec.select.i = zext i1 %14 to i32
-  %15 = getelementptr inbounds i8, ptr %11, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, %spec.select.i
   %.not23.i = icmp eq i32 %17, %spec.select.i
@@ -914,11 +914,11 @@ psa_key_policy_permits.exit.thread.i:             ; preds = %10
 
 psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false)
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  %20 = getelementptr inbounds i8, ptr %11, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %23 = load i64, ptr %22, align 8
   %24 = call i32 @psa_driver_wrapper_export_key(ptr noundef nonnull %6, ptr noundef %21, i64 noundef %23, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) #15
   %25 = load ptr, ptr %5, align 8
@@ -1008,11 +1008,11 @@ define hidden i32 @psa_export_public_key(i32 noundef %0, ptr noundef %1, i64 nou
 
 15:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false)
-  %16 = getelementptr inbounds i8, ptr %6, i64 32
-  %17 = getelementptr inbounds i8, ptr %11, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = call i32 @psa_driver_wrapper_export_public_key(ptr noundef nonnull %6, ptr noundef %18, i64 noundef %20, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) #15
   %.fr = freeze i32 %21
@@ -1053,18 +1053,18 @@ define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not, label %14, label %.thread
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.pr40.pre46, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.pr40.pre46, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %._crit_edge43
 
 ._crit_edge43:                                    ; preds = %14
-  %.phi.trans.insert44 = getelementptr inbounds i8, ptr %.pr40.pre46, i64 48
+  %.phi.trans.insert44 = getelementptr inbounds nuw i8, ptr %.pr40.pre46, i64 48
   %.pre45 = load i64, ptr %.phi.trans.insert44, align 8
   br label %32
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 256
   br i1 %21, label %.thread53, label %22
@@ -1077,7 +1077,7 @@ define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 24:                                               ; preds = %22
   %.pre41 = load i64, ptr %8, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr40.pre47, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr40.pre47, i64 40
   %.pre42 = load ptr, ptr %.phi.trans.insert, align 8
   %25 = icmp eq ptr %.pre42, null
   br i1 %25, label %.thread53, label %.thread.thread
@@ -1085,14 +1085,14 @@ define hidden i32 @psa_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2
 .thread53:                                        ; preds = %18, %24
   %26 = phi ptr [ %.pr40.pre47, %24 ], [ %.pr40.pre46, %18 ]
   %27 = phi i64 [ %.pre41, %24 ], [ %2, %18 ]
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %29 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %27) #14
   store ptr %29, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread.thread, label %psa_allocate_buffer_to_slot.exit
 
 psa_allocate_buffer_to_slot.exit:                 ; preds = %.thread53
-  %31 = getelementptr inbounds i8, ptr %26, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i64 %27, ptr %31, align 8
   br label %32
 
@@ -1100,18 +1100,18 @@ psa_allocate_buffer_to_slot.exit:                 ; preds = %.thread53
   %33 = phi i64 [ %27, %psa_allocate_buffer_to_slot.exit ], [ %.pre45, %._crit_edge43 ]
   %34 = phi ptr [ %29, %psa_allocate_buffer_to_slot.exit ], [ %16, %._crit_edge43 ]
   %35 = phi ptr [ %26, %psa_allocate_buffer_to_slot.exit ], [ %.pr40.pre46, %._crit_edge43 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i64
   store i64 %38, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %40 = call i32 @psa_driver_wrapper_import_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %34, i64 noundef %33, ptr noundef nonnull %39, ptr noundef nonnull %7) #15
   %.not31 = icmp eq i32 %40, 0
   %.pr40.pre48 = load ptr, ptr %5, align 8
   br i1 %.not31, label %41, label %.thread
 
 41:                                               ; preds = %32
-  %42 = getelementptr inbounds i8, ptr %.pr40.pre48, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.pr40.pre48, i64 2
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, 0
   %45 = load i64, ptr %7, align 8
@@ -1159,13 +1159,13 @@ psa_allocate_buffer_to_slot.exit:                 ; preds = %.thread53
 .thread.thread:                                   ; preds = %48, %.thread53, %24, %.thread
   %.03956 = phi i32 [ %.039, %.thread ], [ -135, %48 ], [ -141, %.thread53 ], [ -139, %24 ]
   %59 = phi ptr [ %57, %.thread ], [ %.pr40.pre48, %48 ], [ %26, %.thread53 ], [ %.pr40.pre47, %24 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load ptr, ptr %60, align 8
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %62
 
 62:                                               ; preds = %.thread.thread
-  %63 = getelementptr inbounds i8, ptr %59, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %64 = load i64, ptr %63, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %61, i64 noundef %64) #15
   %.pre.i.i.i = load ptr, ptr %60, align 8
@@ -1215,7 +1215,7 @@ define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonl
   br i1 %.not21.i, label %psa_validate_key_attributes.exit.thread, label %16
 
 16:                                               ; preds = %14, %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.val27.i = load i32, ptr %17, align 4
   %18 = and i32 %.val27.i, -65284
   %.not.i.i = icmp eq i32 %18, 0
@@ -1228,7 +1228,7 @@ define internal fastcc i32 @psa_start_key_creation(ptr nocapture noundef readonl
   br i1 %21, label %psa_validate_key_attributes.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i16, ptr %23, align 8
   %.not24.i = icmp ult i16 %24, 2
   br i1 %.not24.i, label %psa_validate_key_attributes.exit, label %psa_validate_key_attributes.exit.thread
@@ -1241,7 +1241,7 @@ psa_validate_key_attributes.exit:                 ; preds = %22
 26:                                               ; preds = %psa_validate_key_attributes.exit
   %27 = load ptr, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %0, i64 28, i1 false)
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 255
   %31 = icmp eq i32 %30, 0
@@ -1249,12 +1249,12 @@ psa_validate_key_attributes.exit:                 ; preds = %22
 
 32:                                               ; preds = %26
   %33 = load i32, ptr %4, align 4
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %33, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %32, %26
-  %36 = getelementptr inbounds i8, ptr %27, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load i16, ptr %36, align 8
   %38 = and i16 %37, -2
   store i16 %38, ptr %36, align 8
@@ -1284,7 +1284,7 @@ define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture nound
   br i1 %.not25, label %9, label %43
 
 9:                                                ; preds = %7, %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i64, ptr %10, align 8
   %.not26 = icmp eq i64 %11, 0
   br i1 %.not26, label %36, label %12
@@ -1297,9 +1297,9 @@ define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture nound
 
 16:                                               ; preds = %12
   store ptr null, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = call i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %13, ptr noundef %18, i64 noundef %20, ptr noundef nonnull %3) #15
   %.not27 = icmp eq i32 %21, 0
@@ -1318,7 +1318,7 @@ define internal fastcc i32 @psa_validate_optional_attributes(ptr nocapture nound
   br i1 %.not28, label %27, label %select.unfold
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = load i64, ptr %10, align 8
   %31 = call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %5, ptr noundef %29, i64 noundef %30) #15
@@ -1343,13 +1343,13 @@ select.unfold:                                    ; preds = %32, %27, %22
   br label %43
 
 36:                                               ; preds = %select.unfold, %9
-  %37 = getelementptr inbounds i8, ptr %1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %38 = load i16, ptr %37, align 2
   %.not32 = icmp eq i16 %38, 0
   br i1 %.not32, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %41 = load i16, ptr %40, align 2
   %.not33 = icmp eq i16 %38, %41
   br i1 %.not33, label %42, label %43
@@ -1364,23 +1364,23 @@ select.unfold:                                    ; preds = %32, %27, %22
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @psa_finish_key_creation(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 255
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 @psa_save_persistent_key(ptr noundef nonnull %0, ptr noundef %9, i64 noundef %11) #15
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %18
 
 .thread:                                          ; preds = %2, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %1, align 4
   %16 = tail call i32 @psa_unlock_key_slot(ptr noundef nonnull %0) #15
@@ -1415,7 +1415,7 @@ define hidden i32 @psa_copy_key(i32 noundef %0, ptr nocapture noundef readonly %
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 2
   %.not23.i.not = icmp eq i32 %14, 0
@@ -1433,22 +1433,22 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
 
 17:                                               ; preds = %psa_get_and_lock_key_slot_with_policy.exit
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i16, ptr %19, align 2
-  %21 = getelementptr inbounds i8, ptr %6, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %20, ptr %21, align 2
   %22 = load i16, ptr %18, align 8
   store i16 %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 12
-  %24 = getelementptr inbounds i8, ptr %18, i64 12
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = call fastcc i32 @psa_key_policy_algorithm_intersection(i16 noundef zeroext %22, i32 noundef %26, i32 noundef %28)
-  %30 = getelementptr inbounds i8, ptr %6, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %18, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = call fastcc i32 @psa_key_policy_algorithm_intersection(i16 noundef zeroext %22, i32 noundef %31, i32 noundef %33)
   %35 = icmp ne i32 %29, 0
@@ -1479,17 +1479,17 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   br i1 %.not26, label %43, label %.thread
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %.pr.pre53, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.pr.pre53, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %.not27.unshifted = xor i32 %48, %45
   %.not27 = icmp ult i32 %.not27.unshifted, 256
   br i1 %.not27, label %49, label %.thread.thread60
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %6, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp ult i32 %51, 256
   br i1 %52, label %70, label %53
@@ -1502,7 +1502,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
 
 55:                                               ; preds = %53
   %56 = load i64, ptr %8, align 8
-  %57 = getelementptr inbounds i8, ptr %.pr.pre54, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.pr.pre54, i64 40
   %58 = load ptr, ptr %57, align 8
   %.not.i36 = icmp eq ptr %58, null
   br i1 %.not.i36, label %59, label %.thread.thread60
@@ -1514,12 +1514,12 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   br i1 %61, label %.thread.thread60, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %.pr.pre54, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.pr.pre54, i64 48
   store i64 %56, ptr %63, align 8
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %68 = load i64, ptr %67, align 8
   %69 = call i32 @psa_driver_wrapper_copy_key(ptr noundef nonnull %6, ptr noundef %66, i64 noundef %68, ptr noundef nonnull %60, i64 noundef %56, ptr noundef nonnull %63) #15
   %.not32 = icmp eq i32 %69, 0
@@ -1527,11 +1527,11 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   br i1 %.not32, label %._crit_edge, label %.thread
 
 70:                                               ; preds = %49
-  %71 = getelementptr inbounds i8, ptr %46, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %46, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.pr.pre53, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %.pr.pre53, i64 40
   %76 = load ptr, ptr %75, align 8
   %.not.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i, label %77, label %.thread.thread60
@@ -1543,7 +1543,7 @@ psa_get_and_lock_key_slot_with_policy.exit:       ; preds = %10
   br i1 %79, label %.thread.thread60, label %psa_copy_key_material_into_slot.exit
 
 psa_copy_key_material_into_slot.exit:             ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.pr.pre53, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %.pr.pre53, i64 48
   store i64 %74, ptr %80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr readonly align 1 %72, i64 %74, i1 false)
   br label %._crit_edge
@@ -1567,13 +1567,13 @@ psa_copy_key_material_into_slot.exit:             ; preds = %77
 .thread.thread60:                                 ; preds = %43, %59, %70, %77, %55, %.thread
   %.04962 = phi i32 [ %.049, %.thread ], [ -134, %43 ], [ -141, %59 ], [ -139, %70 ], [ -141, %77 ], [ -139, %55 ]
   %85 = phi ptr [ %83, %.thread ], [ %.pr.pre53, %43 ], [ %.pr.pre54, %59 ], [ %.pr.pre53, %70 ], [ %.pr.pre53, %77 ], [ %.pr.pre54, %55 ]
-  %86 = getelementptr inbounds i8, ptr %85, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8
   %.not.i.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %88
 
 88:                                               ; preds = %.thread.thread60
-  %89 = getelementptr inbounds i8, ptr %85, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %90 = load i64, ptr %89, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %87, i64 noundef %90) #15
   %.pre.i.i.i = load ptr, ptr %86, align 8
@@ -1635,7 +1635,7 @@ define hidden i32 @psa_hash_setup(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %6, label %7, label %psa_hash_abort.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %8, i8 0, i64 224, i1 false)
   %9 = tail call i32 @psa_driver_wrapper_hash_setup(ptr noundef nonnull %0, i32 noundef %1) #15
   %.not7 = icmp eq i32 %9, 0
@@ -1900,9 +1900,9 @@ define hidden i32 @psa_mac_abort(ptr noundef %0) local_unnamed_addr #5 {
 
 4:                                                ; preds = %1
   %5 = tail call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, -2
   store i8 %9, ptr %7, align 1
@@ -1941,8 +1941,8 @@ define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 no
 11:                                               ; preds = %8
   %12 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %12, i64 28, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %.val = load i16, ptr %6, align 8
   %15 = call fastcc i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %2, i16 %.val, ptr noundef nonnull %14)
@@ -1950,15 +1950,15 @@ define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %.not23, label %16, label %.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 5
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %18 = trunc nuw nsw i32 %3 to i8
   %19 = load i8, ptr %17, align 1
   %20 = and i8 %19, -2
   %21 = or disjoint i8 %20, %18
   store i8 %21, ptr %17, align 1
-  %22 = getelementptr inbounds i8, ptr %12, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %25 = load i64, ptr %24, align 8
   br i1 %.not21, label %28, label %26
 
@@ -1984,9 +1984,9 @@ define internal fastcc i32 @psa_mac_setup(ptr noundef %0, i32 noundef %1, i32 no
 .thread.thread:                                   ; preds = %4, %.thread
   %.02835 = phi i32 [ %.028.ph, %.thread ], [ -137, %4 ]
   %32 = call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 5
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, -2
   store i8 %36, ptr %34, align 1
@@ -2037,9 +2037,9 @@ define hidden i32 @psa_mac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 13:                                               ; preds = %10
   %14 = tail call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, -2
   store i8 %18, ptr %16, align 1
@@ -2060,14 +2060,14 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.thread, label %15
@@ -2090,7 +2090,7 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
 .thread:                                          ; preds = %15, %11, %7, %4, %18
   %.028 = phi i32 [ %19, %18 ], [ -138, %15 ], [ -137, %11 ], [ -137, %7 ], [ -137, %4 ]
   store i64 %2, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %21, align 4
   br label %22
 
@@ -2098,12 +2098,12 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
   %23 = phi i64 [ 0, %.thread ], [ %20, %._crit_edge ]
   %.not2531 = phi i1 [ false, %.thread ], [ true, %._crit_edge ]
   %.029 = phi i32 [ %.028, %.thread ], [ 0, %._crit_edge ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = icmp ugt i64 %2, %23
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 %23
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %23
   %28 = sub nuw i64 %2, %23
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 33, i64 %28, i1 false)
   br label %29
@@ -2116,7 +2116,7 @@ define hidden i32 @psa_mac_sign_finish(ptr noundef %0, ptr noundef %1, i64 nound
 32:                                               ; preds = %29
   %33 = tail call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
   store i8 0, ptr %24, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 5
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, -2
   store i8 %36, ptr %34, align 1
@@ -2138,14 +2138,14 @@ define hidden i32 @psa_mac_verify_finish(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %5, label %psa_mac_abort.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %10, label %.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i64
   %.not11 = icmp eq i64 %2, %13
@@ -2161,7 +2161,7 @@ define hidden i32 @psa_mac_verify_finish(ptr noundef %0, ptr noundef %1, i64 nou
 .thread:                                          ; preds = %6, %10, %14
   %.0.ph20 = phi i32 [ %16, %14 ], [ -137, %6 ], [ -149, %10 ]
   %18 = tail call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %0) #15
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %19, align 4
   %20 = load i8, ptr %7, align 1
   %21 = and i8 %20, -2
@@ -2204,7 +2204,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
 14:                                               ; preds = %8
   %15 = load ptr, ptr %9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef nonnull align 8 dereferenceable(28) %15, i64 28, i1 false)
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %.val = load i16, ptr %11, align 8
   %17 = call fastcc i32 @psa_mac_finalize_alg_and_key_validation(i32 noundef %1, i16 %.val, ptr noundef nonnull %10)
@@ -2218,9 +2218,9 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %15, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %26 = load i64, ptr %25, align 8
   %27 = call i32 @psa_driver_wrapper_mac_compute(ptr noundef nonnull %11, ptr noundef %24, i64 noundef %26, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %20, ptr noundef %6) #15
   %.not27 = icmp eq i32 %27, 0
@@ -2240,7 +2240,7 @@ define internal fastcc i32 @psa_mac_compute_internal(i32 noundef %0, i32 noundef
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %4, i64 %30
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %30
   %34 = sub nuw i64 %5, %30
   call void @llvm.memset.p0.i64(ptr align 1 %33, i8 33, i64 %34, i1 false)
   br label %35
@@ -2391,11 +2391,11 @@ define internal fastcc i32 @psa_sign_internal(i32 noundef %0, i32 noundef range(
 
 22:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false)
-  %23 = getelementptr inbounds i8, ptr %10, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %27 = load i64, ptr %26, align 8
   br i1 %.not37, label %30, label %28
 
@@ -2563,11 +2563,11 @@ psa_sign_verify_check_alg.exit:                   ; preds = %23, %20, %switch.ea
 25:                                               ; preds = %psa_sign_verify_check_alg.exit
   %26 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef nonnull align 8 dereferenceable(28) %26, i64 28, i1 false)
-  %27 = getelementptr inbounds i8, ptr %8, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = call i32 @psa_driver_wrapper_verify_message(ptr noundef nonnull %8, ptr noundef %29, i64 noundef %31, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #15
   %33 = load ptr, ptr %7, align 8
@@ -2699,11 +2699,11 @@ select.unfold:                                    ; preds = %switch.early.test54
 12:                                               ; preds = %select.unfold
   %13 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr noundef nonnull align 8 dereferenceable(28) %13, i64 28, i1 false)
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %18 = load i64, ptr %17, align 8
   %19 = call i32 @psa_driver_wrapper_verify_hash(ptr noundef nonnull %8, ptr noundef %16, i64 noundef %18, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #15
   %20 = load ptr, ptr %7, align 8
@@ -2737,7 +2737,7 @@ define hidden i32 @psa_asymmetric_encrypt(i32 noundef %0, i32 noundef %1, ptr no
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 256
   br i1 %21, label %psa_get_and_lock_transparent_key_slot_with_policy.exit, label %22
@@ -2760,11 +2760,11 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %17
 
 27:                                               ; preds = %psa_get_and_lock_transparent_key_slot_with_policy.exit, %psa_get_and_lock_transparent_key_slot_with_policy.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false)
-  %28 = getelementptr inbounds i8, ptr %11, i64 32
-  %29 = getelementptr inbounds i8, ptr %18, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %18, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %32 = load i64, ptr %31, align 8
   %33 = call i32 @psa_driver_wrapper_asymmetric_encrypt(ptr noundef nonnull %11, ptr noundef %30, i64 noundef %32, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %8) #15
   %.fr = freeze i32 %33
@@ -2799,7 +2799,7 @@ define hidden i32 @psa_asymmetric_decrypt(i32 noundef %0, i32 noundef %1, ptr no
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %20, 256
   br i1 %21, label %psa_get_and_lock_transparent_key_slot_with_policy.exit, label %22
@@ -2820,11 +2820,11 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %17
 
 28:                                               ; preds = %psa_get_and_lock_transparent_key_slot_with_policy.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false)
-  %29 = getelementptr inbounds i8, ptr %11, i64 32
-  %30 = getelementptr inbounds i8, ptr %18, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %18, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %33 = load i64, ptr %32, align 8
   %34 = call i32 @psa_driver_wrapper_asymmetric_decrypt(ptr noundef nonnull %11, ptr noundef %31, i64 noundef %33, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %8) #15
   %.fr = freeze i32 %34
@@ -2869,7 +2869,7 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, i32 noundef %1, i32
   br i1 %.not42, label %14, label %.thread
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i8, ptr %15, align 4
   %17 = icmp ne i32 %2, 71320576
   %18 = and i8 %16, -4
@@ -2920,14 +2920,14 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, i32 noundef %1, i32
 46:                                               ; preds = %36, %33, %40
   %47 = phi i16 [ %45, %40 ], [ %39, %36 ], [ 0, %33 ]
   %48 = trunc nuw i16 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %0, i64 5
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %48, ptr %49, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %20, i64 28, i1 false)
-  %50 = getelementptr inbounds i8, ptr %6, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
-  %51 = getelementptr inbounds i8, ptr %20, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %54 = load i64, ptr %53, align 8
   br i1 %.not, label %57, label %55
 
@@ -2954,7 +2954,7 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, i32 noundef %1, i32
   %.04656 = phi i32 [ %.046.ph, %.thread ], [ -137, %4 ]
   %61 = call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %63 = load i8, ptr %62, align 4
   %64 = and i8 %63, -4
   store i8 %64, ptr %62, align 4
@@ -2990,14 +2990,14 @@ define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr nocapture noundef 
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i8, ptr %9, align 4
   %11 = and i8 %10, 3
   %or.cond.not = icmp eq i8 %11, 1
   br i1 %or.cond.not, label %12, label %.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
   %16 = icmp ult i64 %2, %15
@@ -3027,7 +3027,7 @@ define hidden i32 @psa_cipher_generate_iv(ptr noundef %0, ptr nocapture noundef 
 
 25:                                               ; preds = %.lr.ph.i
   %26 = sub i64 %.01216.i, %23
-  %27 = getelementptr inbounds i8, ptr %.01117.i, i64 %23
+  %27 = getelementptr inbounds nuw i8, ptr %.01117.i, i64 %23
   %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %psa_generate_random.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
@@ -3059,7 +3059,7 @@ psa_generate_random.exit.thread:                  ; preds = %25, %.preheader.i, 
 36:                                               ; preds = %.thread
   %37 = call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, -4
   store i8 %40, ptr %38, align 4
@@ -3095,7 +3095,7 @@ define hidden range(i32 -151, 1) i32 @psa_generate_random(ptr noundef %0, i64 no
 
 10:                                               ; preds = %.lr.ph
   %11 = sub i64 %.01216, %6
-  %12 = getelementptr inbounds i8, ptr %.01117, i64 %6
+  %12 = getelementptr inbounds nuw i8, ptr %.01117, i64 %6
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -3115,7 +3115,7 @@ define hidden noundef i32 @psa_cipher_abort(ptr noundef %0) local_unnamed_addr #
 4:                                                ; preds = %1
   %5 = tail call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, -4
   store i8 %8, ptr %6, align 4
@@ -3132,7 +3132,7 @@ define hidden i32 @psa_cipher_set_iv(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %5, label %psa_cipher_abort.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 3
   %or.cond.not = icmp eq i8 %9, 1
@@ -3183,7 +3183,7 @@ define hidden i32 @psa_cipher_update(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %8, label %psa_cipher_abort.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i8, ptr %10, align 4
   %12 = and i8 %11, 3
   %or.cond = icmp eq i8 %12, 1
@@ -3222,7 +3222,7 @@ define hidden i32 @psa_cipher_finish(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 3
   %or.cond = icmp eq i8 %10, 1
@@ -3256,7 +3256,7 @@ define hidden i32 @psa_cipher_finish(ptr noundef %0, ptr noundef %1, i64 noundef
 23:                                               ; preds = %.thread
   %24 = tail call i32 @psa_driver_wrapper_cipher_abort(ptr noundef nonnull %0) #15
   store i32 0, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, -4
   store i8 %27, ptr %25, align 4
@@ -3289,7 +3289,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
 
 15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(28) %.pre71, i64 28, i1 false)
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = load i16, ptr %.pre71, align 8
   %18 = zext i16 %17 to i32
@@ -3350,7 +3350,7 @@ define hidden i32 @psa_cipher_encrypt(i32 noundef %0, i32 noundef %1, ptr nounde
 
 48:                                               ; preds = %.lr.ph.i
   %49 = sub i64 %.01216.i, %46
-  %50 = getelementptr inbounds i8, ptr %.01117.i, i64 %46
+  %50 = getelementptr inbounds nuw i8, ptr %.01117.i, i64 %46
   %.not.i = icmp eq i64 %49, 0
   br i1 %.not.i, label %psa_generate_random.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !6
 
@@ -3373,11 +3373,11 @@ psa_generate_random.exit.thread.loopexit:         ; preds = %48
 psa_generate_random.exit.thread:                  ; preds = %psa_generate_random.exit.thread.loopexit, %34, %psa_generate_random.exit
   %54 = phi ptr [ %.pre73, %psa_generate_random.exit ], [ %.pre71, %34 ], [ %.pre72, %psa_generate_random.exit.thread.loopexit ]
   %55 = phi i64 [ %40, %psa_generate_random.exit ], [ 0, %34 ], [ %40, %psa_generate_random.exit.thread.loopexit ]
-  %56 = getelementptr inbounds i8, ptr %54, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 %55
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 %55
   %61 = sub i64 %5, %55
   %62 = call i32 @psa_driver_wrapper_cipher_encrypt(ptr noundef nonnull %10, ptr noundef %57, i64 noundef %59, i32 noundef %1, ptr noundef nonnull %9, i64 noundef %55, ptr noundef %2, i64 noundef %3, ptr noundef %60, i64 noundef %61, ptr noundef %6) #15
   %.fr = freeze i32 %62
@@ -3427,7 +3427,7 @@ define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr nounde
 
 14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull align 8 dereferenceable(28) %.pre43, i64 28, i1 false)
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %16 = icmp eq i32 %1, 79696640
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %.pre = load i16, ptr %.pre43, align 8
@@ -3490,9 +3490,9 @@ define hidden i32 @psa_cipher_decrypt(i32 noundef %0, i32 noundef %1, ptr nounde
   br label %59
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %.pre43, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %.pre43, i64 40
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.pre43, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.pre43, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = call i32 @psa_driver_wrapper_cipher_decrypt(ptr noundef nonnull %9, ptr noundef %52, i64 noundef %54, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #15
   %.fr = freeze i32 %55
@@ -3532,7 +3532,7 @@ define hidden i32 @psa_aead_encrypt(i32 noundef %0, i32 noundef %1, ptr noundef 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false)
-  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %20 = and i32 %1, -2050981889
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   switch i32 %20, label %psa_aead_check_nonce_length.exit [
@@ -3557,9 +3557,9 @@ psa_aead_get_base_algorithm.exit.i:               ; preds = %17
   br i1 %switch.selectcmp10.i, label %select.unfold, label %psa_aead_check_nonce_length.exit
 
 select.unfold:                                    ; preds = %psa_aead_get_base_algorithm.exit.i, %21, %22
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = call i32 @psa_driver_wrapper_aead_encrypt(ptr noundef nonnull %13, ptr noundef %25, i64 noundef %27, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %10) #15
   %29 = icmp ne i32 %28, 0
@@ -3601,7 +3601,7 @@ define hidden i32 @psa_aead_decrypt(i32 noundef %0, i32 noundef %1, ptr noundef 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false)
-  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %20 = and i32 %1, -2050981889
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   switch i32 %20, label %psa_aead_check_nonce_length.exit [
@@ -3626,9 +3626,9 @@ psa_aead_get_base_algorithm.exit.i:               ; preds = %17
   br i1 %switch.selectcmp10.i, label %select.unfold, label %psa_aead_check_nonce_length.exit
 
 select.unfold:                                    ; preds = %psa_aead_get_base_algorithm.exit.i, %21, %22
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = call i32 @psa_driver_wrapper_aead_decrypt(ptr noundef nonnull %13, ptr noundef %25, i64 noundef %27, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %10) #15
   %29 = icmp ne i32 %28, 0
@@ -3674,7 +3674,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef range(i32
   br i1 %.not33, label %10, label %.thread48
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 15
   %or.cond43 = icmp eq i8 %13, 0
@@ -3698,22 +3698,22 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef range(i32
 
 18:                                               ; preds = %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %.pre55, i64 28, i1 false)
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  %20 = getelementptr inbounds i8, ptr %.pre55, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.pre55, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.pre55, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.pre55, i64 48
   %23 = load i64, ptr %22, align 8
   %24 = call i32 @psa_driver_wrapper_aead_encrypt_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %21, i64 noundef %23, i32 noundef %3) #15
   br label %32
 
 25:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, ptr noundef nonnull align 8 dereferenceable(28) %.pre53, i64 28, i1 false)
-  %26 = getelementptr inbounds i8, ptr %6, i64 32
-  %27 = getelementptr inbounds i8, ptr %.pre53, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.pre53, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.pre53, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.pre53, i64 48
   %30 = load i64, ptr %29, align 8
   %31 = call i32 @psa_driver_wrapper_aead_decrypt_setup(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %28, i64 noundef %30, i32 noundef %3) #15
   br label %32
@@ -3735,7 +3735,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef range(i32
 
 .thread51:                                        ; preds = %33
   %.val = load i16, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.val, ptr %35, align 8
   %36 = call i32 @psa_unlock_key_slot(ptr noundef %.pre54) #15
   %37 = and i32 %3, -2050981889
@@ -3764,7 +3764,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef range(i32
 
 psa_aead_get_base_algorithm.exit:                 ; preds = %.thread51, %42, %.fold.split.i
   %45 = phi i32 [ 89129216, %.thread51 ], [ %44, %42 ], [ 89129472, %.fold.split.i ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %45, ptr %46, align 4
   %47 = trunc nuw nsw i32 %1 to i8
   %48 = load i8, ptr %11, align 8
@@ -3805,21 +3805,21 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef
   br i1 %7, label %psa_aead_abort.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 17
   %or.cond.not = icmp eq i8 %11, 16
   br i1 %or.cond.not, label %12, label %psa_generate_random.exit.thread38.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = and i16 %14, 30464
   %16 = icmp eq i16 %15, 9216
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, -4161537
   %.not27 = icmp eq i32 %20, 88080640
@@ -3835,7 +3835,7 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef
   br i1 %24, label %25, label %.thread32
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, -4161537
   %.not26 = icmp eq i32 %28, 83887360
@@ -3873,7 +3873,7 @@ define hidden i32 @psa_aead_generate_nonce(ptr noundef %0, ptr nocapture noundef
 
 42:                                               ; preds = %.lr.ph.i
   %43 = sub i64 %.01216.i, %40
-  %44 = getelementptr inbounds i8, ptr %.01117.i, i64 %40
+  %44 = getelementptr inbounds nuw i8, ptr %.01117.i, i64 %40
   %.not.i = icmp eq i64 %43, 0
   br i1 %.not.i, label %psa_generate_random.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !6
 
@@ -3900,7 +3900,7 @@ psa_generate_random.exit.thread.thread:           ; preds = %.thread32, %.prehea
   br i1 %.not.i30, label %51, label %psa_aead_check_nonce_length.exit.thread16.thread.i
 
 51:                                               ; preds = %psa_generate_random.exit.thread.thread
-  %52 = getelementptr inbounds i8, ptr %0, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, -4161537
   switch i32 %54, label %psa_aead_check_nonce_length.exit.thread16.thread.i [
@@ -3968,14 +3968,14 @@ define hidden i32 @psa_aead_set_nonce(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %5, label %psa_aead_abort.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %10, label %psa_aead_check_nonce_length.exit.thread16.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, -4161537
   switch i32 %13, label %psa_aead_check_nonce_length.exit.thread16.thread [
@@ -4049,14 +4049,14 @@ define hidden i32 @psa_aead_set_lengths(ptr noundef %0, i64 noundef %1, i64 noun
   br i1 %5, label %psa_aead_abort.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 14
   %or.cond22 = icmp eq i8 %9, 0
   br i1 %or.cond22, label %10, label %.thread.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %18 [
     i32 89129472, label %13
@@ -4079,9 +4079,9 @@ define hidden i32 @psa_aead_set_lengths(ptr noundef %0, i64 noundef %1, i64 noun
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %23, align 8
   %24 = load i8, ptr %7, align 8
   %25 = or i8 %24, 2
@@ -4113,7 +4113,7 @@ define hidden i32 @psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %5, label %psa_aead_abort.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 9
   %or.cond = icmp eq i8 %9, 1
@@ -4125,7 +4125,7 @@ define hidden i32 @psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not18, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %14, %2
   br i1 %15, label %.thread.thread, label %16
@@ -4136,7 +4136,7 @@ define hidden i32 @psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %22
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 89129216
   br i1 %21, label %.thread.thread, label %22
@@ -4178,7 +4178,7 @@ define hidden i32 @psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %8, label %psa_aead_abort.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 1
   %.not = icmp eq i8 %12, 0
@@ -4190,13 +4190,13 @@ define hidden i32 @psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %.not21, label %24, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not22 = icmp eq i64 %17, 0
   br i1 %.not22, label %18, label %.thread.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp ult i64 %20, %2
   br i1 %21, label %.thread.thread, label %22
@@ -4207,7 +4207,7 @@ define hidden i32 @psa_aead_update(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %28
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 89129216
   br i1 %27, label %.thread.thread, label %28
@@ -4250,7 +4250,7 @@ define hidden i32 @psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %9, label %psa_aead_final_checks.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 1
   %.not.i = icmp eq i8 %13, 0
@@ -4262,13 +4262,13 @@ define hidden i32 @psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %.not5.i, label %psa_aead_final_checks.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   %.not6.i = icmp eq i64 %18, 0
   br i1 %.not6.i, label %19, label %psa_aead_final_checks.exit.thread
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %.not7.i = icmp eq i64 %21, 0
   br i1 %.not7.i, label %psa_aead_final_checks.exit, label %psa_aead_final_checks.exit.thread
@@ -4336,7 +4336,7 @@ define hidden i32 @psa_aead_verify(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %8, label %psa_aead_abort.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, 1
   %.not.i = icmp eq i8 %12, 0
@@ -4348,13 +4348,13 @@ define hidden i32 @psa_aead_verify(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %.not5.i, label %psa_aead_final_checks.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not6.i = icmp eq i64 %17, 0
   br i1 %.not6.i, label %18, label %psa_aead_final_checks.exit.thread.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %.not7.i = icmp eq i64 %20, 0
   br i1 %.not7.i, label %psa_aead_final_checks.exit, label %psa_aead_final_checks.exit.thread.thread
@@ -4407,19 +4407,19 @@ define hidden i32 @psa_key_derivation_abort(ptr noundef %0) local_unnamed_addr #
   ]
 
 9:                                                ; preds = %6, %6, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #15
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %psa_mac_abort.exit, label %15
 
 15:                                               ; preds = %9
   %16 = tail call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %12) #15
-  %17 = getelementptr inbounds i8, ptr %0, i64 172
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 173
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 173
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, -2
   store i8 %20, ptr %18, align 1
@@ -4427,13 +4427,13 @@ define hidden i32 @psa_key_derivation_abort(ptr noundef %0) local_unnamed_addr #
   br label %psa_mac_abort.exit
 
 21:                                               ; preds = %6, %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i64, ptr %25, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %23, i64 noundef %26) #15
   %27 = load ptr, ptr %22, align 8
@@ -4441,13 +4441,13 @@ define hidden i32 @psa_key_derivation_abort(ptr noundef %0) local_unnamed_addr #
   br label %28
 
 28:                                               ; preds = %24, %21
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %.not32 = icmp eq ptr %30, null
   br i1 %.not32, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i64, ptr %32, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %30, i64 noundef %33) #15
   %34 = load ptr, ptr %29, align 8
@@ -4455,13 +4455,13 @@ define hidden i32 @psa_key_derivation_abort(ptr noundef %0) local_unnamed_addr #
   br label %35
 
 35:                                               ; preds = %31, %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load ptr, ptr %36, align 8
   %.not33 = icmp eq ptr %37, null
   br i1 %.not33, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load i64, ptr %39, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %37, i64 noundef %40) #15
   %41 = load ptr, ptr %36, align 8
@@ -4469,13 +4469,13 @@ define hidden i32 @psa_key_derivation_abort(ptr noundef %0) local_unnamed_addr #
   br label %42
 
 42:                                               ; preds = %38, %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load ptr, ptr %43, align 8
   %.not34 = icmp eq ptr %44, null
   br i1 %.not34, label %psa_mac_abort.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load i64, ptr %46, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %44, i64 noundef %47) #15
   %48 = load ptr, ptr %43, align 8
@@ -4495,7 +4495,7 @@ define hidden range(i32 -137, 1) i32 @psa_key_derivation_get_capacity(ptr nocapt
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %1, align 8
   br label %8
@@ -4512,7 +4512,7 @@ define hidden range(i32 -137, 1) i32 @psa_key_derivation_set_capacity(ptr nocapt
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %1, %7
   br i1 %8, label %10, label %9
@@ -4543,7 +4543,7 @@ define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr nocapture
   br i1 %13, label %psa_key_derivation_tls12_prf_read.exit.thread46, label %14
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %2, %16
   br i1 %17, label %18, label %19
@@ -4572,7 +4572,7 @@ define hidden i32 @psa_key_derivation_output_bytes(ptr noundef %0, ptr nocapture
   ]
 
 26:                                               ; preds = %21, %21, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %28 = and i32 %.0.i, 255
   %trunc.i = trunc i32 %.0.i to i8
@@ -4593,14 +4593,14 @@ switch.hole_check:                                ; preds = %26
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %33 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %33
+  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %33
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %34
 
 34:                                               ; preds = %switch.lookup, %30
   %35 = phi i8 [ %32, %30 ], [ %switch.load, %switch.lookup ]
   %.not76.i = icmp eq i32 %23, 134218752
-  %36 = getelementptr inbounds i8, ptr %0, i64 34
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %37 = load i8, ptr %36, align 2
   %38 = and i8 %37, 2
   %.not.not.i = icmp eq i8 %38, 0
@@ -4615,31 +4615,31 @@ switch.lookup:                                    ; preds = %switch.hole_check
 41:                                               ; preds = %39
   %42 = or i8 %37, 3
   store i8 %42, ptr %36, align 2
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
-  %44 = getelementptr inbounds i8, ptr %0, i64 35
-  %45 = getelementptr inbounds i8, ptr %0, i64 33
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 35
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %46 = select i1 %.not76.i, i32 0, i32 255
-  %47 = getelementptr inbounds i8, ptr %0, i64 168
-  %48 = getelementptr inbounds i8, ptr %0, i64 99
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %49 = zext nneg i8 %35 to i64
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 173
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 173
   %.tr.i = zext nneg i8 %35 to i16
   %50 = shl nuw nsw i16 %.tr.i, 3
-  %51 = getelementptr inbounds i8, ptr %8, i64 2
-  %52 = getelementptr inbounds i8, ptr %8, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %53 = icmp eq i32 %28, 19
   %54 = select i1 %53, i8 64, i8 0
-  %55 = getelementptr inbounds i8, ptr %0, i64 172
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %56 = or disjoint i32 %28, 58720256
   %57 = icmp eq i8 %35, 0
-  %.in.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %switch.tableidx77 = add nsw i32 %28, -3
   %58 = icmp ult i32 %switch.tableidx77, 16
   %switch.maskindex80 = trunc nuw nsw i32 %switch.tableidx77 to i16
   %switch.shifted81 = lshr i16 -6169, %switch.maskindex80
   %switch.lobit82 = trunc i16 %switch.shifted81 to i1
   %59 = zext nneg i32 %switch.tableidx77 to i64
-  %switch.gep83 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %59
+  %switch.gep83 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %59
   br label %60
 
 60:                                               ; preds = %psa_mac_sign_finish.exit.i, %41
@@ -4656,10 +4656,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %66 = trunc nuw i64 %.067.i to i8
   %spec.select.i = select i1 %65, i8 %66, i8 %63
   %67 = zext i8 %62 to i64
-  %68 = getelementptr inbounds i8, ptr %44, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 %67
   %69 = zext i8 %spec.select.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.066.i, ptr nonnull align 1 %68, i64 %69, i1 false)
-  %70 = getelementptr inbounds i8, ptr %.066.i, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %.066.i, i64 %69
   %71 = sub i64 %.067.i, %69
   %72 = load i8, ptr %43, align 8
   %73 = add i8 %spec.select.i, %72
@@ -4800,7 +4800,7 @@ psa_mac_update.exit99.i:                          ; preds = %psa_mac_update.exit
   %.029.i114.i = phi i32 [ %.028.i.i, %.thread.i ], [ 0, %118 ]
   %.not2531.i112.i = phi i1 [ false, %.thread.i ], [ true, %118 ]
   %122 = phi i64 [ 0, %.thread.i ], [ %119, %118 ]
-  %123 = getelementptr inbounds i8, ptr %44, i64 %122
+  %123 = getelementptr inbounds nuw i8, ptr %44, i64 %122
   %124 = sub nuw nsw i64 64, %122
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %123, i8 33, i64 %124, i1 false)
   br label %125
@@ -4838,7 +4838,7 @@ psa_mac_update.exit.thread.sink.split.i:          ; preds = %106, %102, %92
   br label %psa_key_derivation_tls12_prf_read.exit.thread50
 
 136:                                              ; preds = %21, %21
-  %137 = getelementptr inbounds i8, ptr %0, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = and i32 %.0.i, 255
   %trunc.i34 = trunc i32 %.0.i to i8
   %switch.tableidx86 = add i8 %trunc.i34, -3
@@ -4858,13 +4858,13 @@ switch.hole_check87:                              ; preds = %136
 
 switch.lookup88:                                  ; preds = %switch.hole_check87
   %143 = zext nneg i8 %switch.tableidx86 to i64
-  %switch.gep92 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %143
+  %switch.gep92 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %143
   %switch.load93 = load i8, ptr %switch.gep92, align 1
   br label %144
 
 144:                                              ; preds = %switch.lookup88, %140
   %145 = phi i8 [ %142, %140 ], [ %switch.load93, %switch.lookup88 ]
-  %146 = getelementptr inbounds i8, ptr %0, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %147 = load i32, ptr %146, align 4
   switch i32 %147, label %psa_key_derivation_tls12_prf_read.exit.thread [
     i32 4, label %148
@@ -4878,22 +4878,22 @@ switch.lookup88:                                  ; preds = %switch.hole_check87
 149:                                              ; preds = %148, %144
   %150 = icmp eq i32 %138, 19
   %151 = select i1 %150, i8 64, i8 0
-  %152 = getelementptr inbounds i8, ptr %0, i64 17
-  %153 = getelementptr inbounds i8, ptr %0, i64 24
-  %154 = getelementptr inbounds i8, ptr %0, i64 32
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %6, i64 5
-  %155 = getelementptr inbounds i8, ptr %5, i64 2
-  %156 = getelementptr inbounds i8, ptr %5, i64 12
-  %157 = getelementptr inbounds i8, ptr %6, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %158 = or disjoint i32 %138, 58720256
-  %159 = getelementptr inbounds i8, ptr %0, i64 88
-  %160 = getelementptr inbounds i8, ptr %0, i64 56
-  %161 = getelementptr inbounds i8, ptr %0, i64 64
-  %.in.i.i = getelementptr inbounds i8, ptr %0, i64 48
-  %.in118.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %162 = getelementptr inbounds i8, ptr %4, i64 2
-  %163 = getelementptr inbounds i8, ptr %4, i64 12
-  %164 = getelementptr inbounds i8, ptr %0, i64 152
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.in118.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.not.i3558 = icmp eq i64 %2, 0
   br i1 %.not.i3558, label %psa_key_derivation_tls12_prf_read.exit.thread46, label %.outer.split.i.preheader.preheader
 
@@ -4904,21 +4904,21 @@ switch.lookup88:                                  ; preds = %switch.hole_check87
   %switch.shifted99 = lshr i16 -6169, %switch.maskindex98
   %switch.lobit100 = trunc i16 %switch.shifted99 to i1
   %166 = zext nneg i8 %switch.tableidx95 to i64
-  %switch.gep101 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %166
+  %switch.gep101 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %166
   %switch.tableidx104 = add nsw i32 %138, -3
   %167 = icmp ult i32 %switch.tableidx104, 16
   %switch.maskindex107 = trunc nuw nsw i32 %switch.tableidx104 to i16
   %switch.shifted108 = lshr i16 -6169, %switch.maskindex107
   %switch.lobit109 = trunc i16 %switch.shifted108 to i1
   %168 = zext nneg i32 %switch.tableidx104 to i64
-  %switch.gep110 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %168
+  %switch.gep110 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %168
   %switch.tableidx113 = add nsw i32 %138, -3
   %169 = icmp ult i32 %switch.tableidx113, 16
   %switch.maskindex116 = trunc nuw nsw i32 %switch.tableidx113 to i16
   %switch.shifted117 = lshr i16 -6169, %switch.maskindex116
   %switch.lobit118 = trunc i16 %switch.shifted117 to i1
   %170 = zext nneg i32 %switch.tableidx113 to i64
-  %switch.gep119 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %170
+  %switch.gep119 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %170
   br label %.outer.split.i.preheader
 
 .outer.split.i.preheader:                         ; preds = %.outer.split.i.preheader.preheader, %.outer.i
@@ -5123,7 +5123,7 @@ psa_mac_update.exit88.thread113.i.i:              ; preds = %psa_mac_update.exit
   br i1 %242, label %243, label %246
 
 243:                                              ; preds = %239
-  %244 = getelementptr inbounds i8, ptr %159, i64 %241
+  %244 = getelementptr inbounds nuw i8, ptr %159, i64 %241
   %245 = sub nuw nsw i64 %240, %241
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %244, i8 33, i64 %245, i1 false)
   br label %246
@@ -5271,10 +5271,10 @@ psa_key_derivation_tls12_prf_generate_next_block.exit.i: ; preds = %291, %psa_ma
   %.0.i36 = select i1 %296, i8 %297, i8 %171
   %298 = sub i8 %145, %171
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds i8, ptr %164, i64 %299
+  %300 = getelementptr inbounds nuw i8, ptr %164, i64 %299
   %301 = zext i8 %.0.i36 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.039.ph.i60, ptr nonnull align 1 %300, i64 %301, i1 false)
-  %302 = getelementptr inbounds i8, ptr %.039.ph.i60, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %.039.ph.i60, i64 %301
   %303 = sub i64 %.040.ph.i59, %301
   %304 = load i8, ptr %137, align 8
   %305 = sub i8 %304, %.0.i36
@@ -5329,7 +5329,7 @@ define hidden i32 @psa_key_derivation_output_key(ptr nocapture noundef readonly 
   br i1 %17, label %psa_finish_key_creation.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 1
   %.not = icmp eq i8 %21, 0
@@ -5447,12 +5447,12 @@ mbedtls_ecc_group_of_psa.exit.thread.i.i:         ; preds = %mbedtls_ecc_group_o
   br i1 %.not.i.i, label %58, label %.loopexit.i.i
 
 58:                                               ; preds = %mbedtls_ecc_group_of_psa.exit.thread.i.i
-  %59 = getelementptr inbounds i8, ptr %7, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %60 = load i64, ptr %59, align 8
   %.fr71.i.i = freeze i64 %60
   %61 = add i64 %.fr71.i.i, 7
   %62 = lshr i64 %61, 3
-  %63 = getelementptr inbounds i8, ptr %7, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %64 = call i32 @mbedtls_mpi_sub_int(ptr noundef nonnull %6, ptr noundef nonnull %63, i64 noundef 2) #15
   %.not39.i.i = icmp eq i32 %64, 0
   br i1 %.not39.i.i, label %65, label %.loopexit.i.i
@@ -5583,7 +5583,7 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i: ; preds = %ps
   %101 = load i8, ptr %95, align 1
   %102 = and i8 %101, -8
   store i8 %102, ptr %95, align 1
-  %103 = getelementptr inbounds i8, ptr %95, i64 31
+  %103 = getelementptr inbounds nuw i8, ptr %95, i64 31
   %104 = load i8, ptr %103, align 1
   %105 = and i8 %104, 127
   store i8 %105, ptr %103, align 1
@@ -5593,7 +5593,7 @@ psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i: ; preds = %ps
   %107 = load i8, ptr %95, align 1
   %108 = and i8 %107, -4
   store i8 %108, ptr %95, align 1
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %95, i64 55
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %95, i64 55
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   br label %psa_generate_derived_ecc_key_montgomery_helper.exit.i
 
@@ -5601,7 +5601,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
   %109 = phi i8 [ %105, %100 ], [ %.pre.i, %106 ]
   %.sink23.i.i = phi i64 [ 31, %100 ], [ 55, %106 ]
   %.sink21.i.i = phi i8 [ 64, %100 ], [ -128, %106 ]
-  %110 = getelementptr inbounds i8, ptr %95, i64 %.sink23.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %95, i64 %.sink23.i.i
   %111 = or i8 %.sink21.i.i, %109
   store i8 %111, ptr %110, align 1
   br label %125
@@ -5640,11 +5640,11 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
 125:                                              ; preds = %124, %121, %psa_generate_derived_ecc_key_montgomery_helper.exit.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i
   %126 = phi i16 [ %91, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %27, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %27, %124 ], [ %27, %121 ]
   %.1.i = phi ptr [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %95, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %117, %124 ], [ %117, %121 ]
-  %127 = getelementptr inbounds i8, ptr %26, i64 2
+  %127 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store i16 %126, ptr %127, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(28) %26, i64 28, i1 false)
-  %128 = getelementptr inbounds i8, ptr %10, i64 32
-  %129 = getelementptr inbounds i8, ptr %10, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, i8 0, i64 16, i1 false)
   %130 = load i32, ptr %129, align 4
   %131 = icmp ult i32 %130, 256
@@ -5657,7 +5657,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
 
 134:                                              ; preds = %132, %125
   %135 = load i64, ptr %9, align 8
-  %136 = getelementptr inbounds i8, ptr %26, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %137 = load ptr, ptr %136, align 8
   %.not.i45.i = icmp eq ptr %137, null
   br i1 %.not.i45.i, label %138, label %.thread20
@@ -5669,7 +5669,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
   br i1 %140, label %.thread20, label %141
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %26, i64 48
+  %142 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i64 %135, ptr %142, align 8
   %143 = call i32 @psa_driver_wrapper_import_key(ptr noundef nonnull %10, ptr noundef %.1.i, i64 noundef %30, ptr noundef nonnull %139, i64 noundef %135, ptr noundef nonnull %142, ptr noundef nonnull %8) #15
   %144 = load i64, ptr %8, align 8
@@ -5704,23 +5704,23 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
 
 149:                                              ; preds = %147
   %150 = load ptr, ptr %11, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = and i32 %152, 255
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %.thread.i, label %155
 
 155:                                              ; preds = %149
-  %156 = getelementptr inbounds i8, ptr %150, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %150, i64 48
+  %158 = getelementptr inbounds nuw i8, ptr %150, i64 48
   %159 = load i64, ptr %158, align 8
   %160 = call i32 @psa_save_persistent_key(ptr noundef nonnull %150, ptr noundef %157, i64 noundef %159) #15
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %.thread.i, label %.thread
 
 .thread.i:                                        ; preds = %155, %149
-  %162 = getelementptr inbounds i8, ptr %150, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %163 = load i32, ptr %162, align 8
   store i32 %163, ptr %2, align 4
   %164 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %150) #15
@@ -5738,13 +5738,13 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %106, %100
   br i1 %167, label %psa_finish_key_creation.exit, label %168
 
 168:                                              ; preds = %.thread
-  %169 = getelementptr inbounds i8, ptr %166, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 40
   %170 = load ptr, ptr %169, align 8
   %.not.i.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %166, i64 48
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %173 = load i64, ptr %172, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %170, i64 noundef %173) #15
   %.pre.i.i.i = load ptr, ptr %169, align 8
@@ -5803,7 +5803,7 @@ define hidden i32 @psa_key_derivation_setup(ptr nocapture noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @psa_key_derivation_setup_kdf(ptr nocapture noundef writeonly initializes((16, 552)) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = alloca %struct.psa_hash_operation_s, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %4, i8 0, i64 536, i1 false)
   %5 = add i32 %1, -134219264
   %switch.i = icmp ult i32 %5, -1280
@@ -5825,7 +5825,7 @@ switch.hole_check:                                ; preds = %6
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x i64], ptr @switch.table.psa_key_derivation_setup_kdf, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [17 x i64], ptr @switch.table.psa_key_derivation_setup_kdf, i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %3, i8 0, i64 232, i1 false)
@@ -5867,7 +5867,7 @@ switch.early.test:                                ; preds = %14
 
 .sink.split:                                      ; preds = %14, %17
   %.ph.sink = phi i64 [ %18, %17 ], [ %switch.load, %14 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.ph.sink, ptr %19, align 8
   br label %20
 
@@ -5932,7 +5932,7 @@ psa_key_derivation_check_input_type.exit:         ; preds = %14, %14, %13, %13, 
   ]
 
 18:                                               ; preds = %psa_key_derivation_check_input_type.exit, %psa_key_derivation_check_input_type.exit, %psa_key_derivation_check_input_type.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 %4, ptr %8, align 8
   %20 = and i32 %.0.i, 255
@@ -5947,26 +5947,26 @@ psa_key_derivation_check_input_type.exit:         ; preds = %14, %14, %13, %13, 
   br i1 %22, label %psa_hkdf_input.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 34
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %25 = load i8, ptr %24, align 2
   %26 = and i8 %25, 3
   %.not103.i = icmp eq i8 %26, 0
   br i1 %.not103.i, label %27, label %psa_hkdf_input.exit
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 168
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   store i16 4352, ptr %7, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 173
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 173
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1
   %29 = shl i64 %4, 3
   %30 = icmp ugt i64 %29, 65528
   %31 = trunc nuw i64 %29 to i16
   %spec.select.i.i.i = select i1 %30, i16 -1, i16 %31
-  %32 = getelementptr inbounds i8, ptr %7, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %spec.select.i.i.i, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %7, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 5120, ptr %33, align 4
   %34 = or i8 %.pre.i.i, 1
   store i8 %34, ptr %.phi.trans.insert.i.i, align 1
@@ -5987,13 +5987,13 @@ switch.hole_check:                                ; preds = %27
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %39 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %39
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %psa_key_derivation_start_hmac.exit.i
 
 psa_key_derivation_start_hmac.exit.i:             ; preds = %switch.lookup, %36
   %40 = phi i8 [ %38, %36 ], [ %switch.load, %switch.lookup ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 172
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 %40, ptr %41, align 4
   %42 = or disjoint i32 %20, 58720256
   %43 = call i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noundef %3, i64 noundef %4, i32 noundef %42) #15
@@ -6011,7 +6011,7 @@ psa_key_derivation_start_hmac.exit.i:             ; preds = %switch.lookup, %36
 
 48:                                               ; preds = %18
   %49 = icmp eq i32 %15, 134219008
-  %50 = getelementptr inbounds i8, ptr %0, i64 34
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %51 = load i8, ptr %50, align 2
   %52 = and i8 %51, 3
   %.not101.i = icmp eq i8 %52, 0
@@ -6039,7 +6039,7 @@ switch.hole_check46:                              ; preds = %54
 
 switch.lookup47:                                  ; preds = %switch.hole_check46
   %59 = zext nneg i8 %switch.tableidx45 to i64
-  %switch.gep51 = getelementptr inbounds [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.23, i64 0, i64 %59
+  %switch.gep51 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.23, i64 0, i64 %59
   %switch.load52 = load i64, ptr %switch.gep51, align 8
   br label %60
 
@@ -6049,11 +6049,11 @@ switch.lookup47:                                  ; preds = %switch.hole_check46
   br i1 %.not102.i, label %.thread.i, label %psa_hkdf_input.exit
 
 .thread.i:                                        ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 99
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 99
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %3, i64 %4, i1 false)
   %63 = or disjoint i8 %51, 2
   store i8 %63, ptr %50, align 2
-  %64 = getelementptr inbounds i8, ptr %0, i64 33
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 0, ptr %64, align 1
   br label %123
 
@@ -6065,13 +6065,13 @@ switch.lookup47:                                  ; preds = %switch.hole_check46
   br i1 %67, label %psa_hkdf_input.exit, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 168
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   store i16 4352, ptr %6, align 8
-  %.phi.trans.insert.i137.i = getelementptr inbounds i8, ptr %0, i64 173
+  %.phi.trans.insert.i137.i = getelementptr inbounds nuw i8, ptr %0, i64 173
   %.pre.i138.i = load i8, ptr %.phi.trans.insert.i137.i, align 1
-  %70 = getelementptr inbounds i8, ptr %6, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 5120, ptr %70, align 4
   %71 = or i8 %.pre.i138.i, 1
   store i8 %71, ptr %.phi.trans.insert.i137.i, align 1
@@ -6092,13 +6092,13 @@ switch.hole_check55:                              ; preds = %68
 
 switch.lookup56:                                  ; preds = %switch.hole_check55
   %76 = zext nneg i32 %switch.tableidx54 to i64
-  %switch.gep60 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %76
+  %switch.gep60 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %76
   %switch.load61 = load i8, ptr %switch.gep60, align 1
   br label %psa_key_derivation_start_hmac.exit144.i
 
 psa_key_derivation_start_hmac.exit144.i:          ; preds = %switch.lookup56, %73
   %77 = phi i8 [ %75, %73 ], [ %switch.load61, %switch.lookup56 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 172
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 %77, ptr %78, align 4
   %79 = or disjoint i32 %20, 58720256
   %80 = call i32 @psa_driver_wrapper_mac_sign_setup(ptr noundef nonnull %69, ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i32 noundef %79) #15
@@ -6121,7 +6121,7 @@ psa_key_derivation_start_hmac.exit144.i:          ; preds = %switch.lookup56, %7
   br i1 %.not98.i, label %88, label %psa_hkdf_input.exit
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %0, i64 168
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %90 = load i32, ptr %89, align 8
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %psa_hkdf_input.exit, label %92
@@ -6142,9 +6142,9 @@ psa_key_derivation_start_hmac.exit144.i:          ; preds = %switch.lookup56, %7
 
 99:                                               ; preds = %96
   %100 = call i32 @psa_driver_wrapper_mac_abort(ptr noundef nonnull %89) #15
-  %101 = getelementptr inbounds i8, ptr %0, i64 172
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store i8 0, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %0, i64 173
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 173
   %103 = load i8, ptr %102, align 1
   %104 = and i8 %103, -2
   store i8 %104, ptr %102, align 1
@@ -6152,7 +6152,7 @@ psa_key_derivation_start_hmac.exit144.i:          ; preds = %switch.lookup56, %7
   br label %psa_hkdf_input.exit
 
 psa_mac_update.exit.i:                            ; preds = %94, %92
-  %105 = getelementptr inbounds i8, ptr %0, i64 99
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 99
   %106 = call i32 @psa_mac_sign_finish(ptr noundef nonnull %89, ptr noundef nonnull %105, i64 noundef 64, ptr noundef nonnull %8)
   %.not100.i = icmp eq i32 %106, 0
   br i1 %.not100.i, label %107, label %psa_hkdf_input.exit
@@ -6162,7 +6162,7 @@ psa_mac_update.exit.i:                            ; preds = %94, %92
   %109 = and i8 %108, -4
   %110 = or disjoint i8 %109, 2
   store i8 %110, ptr %50, align 2
-  %111 = getelementptr inbounds i8, ptr %0, i64 33
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 0, ptr %111, align 1
   %112 = icmp eq i32 %15, 134218752
   br i1 %112, label %113, label %._crit_edge150.i
@@ -6172,7 +6172,7 @@ psa_mac_update.exit.i:                            ; preds = %94, %92
   br label %123
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %0, i64 35
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %trunc.i = trunc i32 %.0.i to i8
   %switch.tableidx63 = add i8 %trunc.i, -3
   %115 = icmp ult i8 %switch.tableidx63, 16
@@ -6191,14 +6191,14 @@ switch.hole_check64:                              ; preds = %113
 
 switch.lookup65:                                  ; preds = %switch.hole_check64
   %119 = zext nneg i8 %switch.tableidx63 to i64
-  %switch.gep69 = getelementptr inbounds [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.23, i64 0, i64 %119
+  %switch.gep69 = getelementptr inbounds nuw [16 x i64], ptr @switch.table.psa_key_derivation_input_internal.23, i64 0, i64 %119
   %switch.load70 = load i64, ptr %switch.gep69, align 8
   br label %120
 
 120:                                              ; preds = %switch.lookup65, %116
   %121 = phi i64 [ %118, %116 ], [ %switch.load70, %switch.lookup65 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %105, i64 %121, i1 false)
-  %122 = getelementptr inbounds i8, ptr %0, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %122, align 8
   br label %psa_hkdf_input.exit
 
@@ -6221,13 +6221,13 @@ switch.hole_check73:                              ; preds = %123
 
 switch.lookup74:                                  ; preds = %switch.hole_check73
   %128 = zext nneg i8 %switch.tableidx72 to i64
-  %switch.gep78 = getelementptr inbounds [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %128
+  %switch.gep78 = getelementptr inbounds nuw [16 x i8], ptr @switch.table.psa_key_derivation_input_internal.24, i64 0, i64 %128
   %switch.load79 = load i8, ptr %switch.gep78, align 1
   br label %129
 
 129:                                              ; preds = %switch.lookup74, %125
   %130 = phi i8 [ %127, %125 ], [ %switch.load79, %switch.lookup74 ]
-  %131 = getelementptr inbounds i8, ptr %0, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %130, ptr %131, align 8
   br label %psa_hkdf_input.exit
 
@@ -6238,13 +6238,13 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
   ]
 
 ._crit_edge.i:                                    ; preds = %132
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 34
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 34
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 2
   %.pre149.i = and i8 %.pre.i, 3
   br label %138
 
 133:                                              ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %0, i64 34
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %135 = load i8, ptr %134, align 2
   %136 = and i8 %135, 3
   %137 = icmp eq i8 %136, 0
@@ -6253,7 +6253,7 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
 138:                                              ; preds = %133, %._crit_edge.i
   %.pre-phi.i = phi i8 [ %.pre149.i, %._crit_edge.i ], [ %136, %133 ]
   %139 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %135, %133 ]
-  %140 = getelementptr inbounds i8, ptr %0, i64 34
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %141 = icmp ne i8 %.pre-phi.i, 3
   %142 = and i8 %139, 4
   %.not.i = icmp eq i8 %142, 0
@@ -6261,7 +6261,7 @@ switch.lookup74:                                  ; preds = %switch.hole_check73
   br i1 %or.cond.i, label %143, label %psa_hkdf_input.exit
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds i8, ptr %0, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %144, align 8
   %.not96.i = icmp eq i64 %4, 0
   br i1 %.not96.i, label %149, label %145
@@ -6287,7 +6287,7 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
 151:                                              ; preds = %psa_key_derivation_check_input_type.exit
-  %152 = getelementptr inbounds i8, ptr %0, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %152, i16 noundef zeroext %1, ptr noundef %3, i64 noundef %4)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
@@ -6298,14 +6298,14 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   ]
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %0, i64 20
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, 2
   br i1 %158, label %159, label %164
 
 159:                                              ; preds = %155
   %160 = add i64 %4, 4
-  %161 = getelementptr inbounds i8, ptr %0, i64 80
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %160, %162
   br label %167
@@ -6329,20 +6329,20 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   br i1 %158, label %174, label %187
 
 174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %0, i64 80
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %176 = load i64, ptr %175, align 8
   %177 = lshr i64 %176, 8
   %178 = trunc i64 %177 to i8
-  %179 = getelementptr inbounds i8, ptr %171, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %171, i64 1
   store i8 %178, ptr %171, align 1
   %180 = trunc i64 %176 to i8
-  %181 = getelementptr inbounds i8, ptr %171, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %171, i64 2
   store i8 %180, ptr %179, align 1
   %.not.i.i32 = icmp eq i64 %176, 0
   br i1 %.not.i.i32, label %192, label %182
 
 182:                                              ; preds = %174
-  %183 = getelementptr inbounds i8, ptr %0, i64 72
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %184 = load ptr, ptr %183, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %181, ptr align 1 %184, i64 %176, i1 false)
   tail call void @mbedtls_platform_zeroize(ptr noundef %184, i64 noundef %176) #15
@@ -6352,23 +6352,23 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
   br label %192
 
 187:                                              ; preds = %173
-  %188 = getelementptr inbounds i8, ptr %171, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %171, i64 1
   %189 = trunc nuw i64 %4 to i8
-  %190 = getelementptr inbounds i8, ptr %171, i64 2
+  %190 = getelementptr inbounds nuw i8, ptr %171, i64 2
   store i8 %189, ptr %188, align 1
-  %191 = getelementptr inbounds i8, ptr %190, i64 %4
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %4
   br label %192
 
 192:                                              ; preds = %187, %182, %174
   %193 = phi i32 [ %.pre.i.i33, %182 ], [ 2, %174 ], [ %157, %187 ]
   %.0.i.i = phi ptr [ %186, %182 ], [ %181, %174 ], [ %191, %187 ]
-  %194 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 0, ptr %.0.i.i, align 1
   %195 = trunc nuw i64 %4 to i8
-  %196 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %196 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   store i8 %195, ptr %194, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %196, ptr readonly align 1 %3, i64 %4, i1 false)
-  %197 = getelementptr inbounds i8, ptr %196, i64 %4
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %4
   %198 = ptrtoint ptr %197 to i64
   %199 = ptrtoint ptr %171 to i64
   %200 = sub i64 %198, %199
@@ -6382,14 +6382,14 @@ psa_hkdf_input.exit:                              ; preds = %18, %21, %23, %psa_
 
 202:                                              ; preds = %201
   %203 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %200) #14
-  %204 = getelementptr inbounds i8, ptr %0, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %203, ptr %204, align 8
   %205 = icmp eq ptr %203, null
   br i1 %205, label %psa_tls12_prf_set_key.exit.i.i, label %206
 
 206:                                              ; preds = %202
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr nonnull readonly align 1 %171, i64 %200, i1 false)
-  %207 = getelementptr inbounds i8, ptr %0, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %200, ptr %207, align 8
   br label %208
 
@@ -6404,7 +6404,7 @@ psa_tls12_prf_set_key.exit.i.i:                   ; preds = %208, %202, %192
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
 209:                                              ; preds = %154
-  %210 = getelementptr inbounds i8, ptr %0, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %211 = load i32, ptr %210, align 4
   %.not.i11.i = icmp eq i32 %211, 1
   br i1 %.not.i11.i, label %212, label %psa_tls12_prf_psk_to_ms_input.exit.thread
@@ -6415,7 +6415,7 @@ psa_tls12_prf_set_key.exit.i.i:                   ; preds = %208, %202, %192
 
 213:                                              ; preds = %212
   %214 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %4) #14
-  %215 = getelementptr inbounds i8, ptr %0, i64 72
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %214, ptr %215, align 8
   %216 = icmp eq ptr %214, null
   br i1 %216, label %psa_tls12_prf_psk_to_ms_input.exit.thread, label %217
@@ -6425,13 +6425,13 @@ psa_tls12_prf_set_key.exit.i.i:                   ; preds = %208, %202, %192
   br label %psa_tls12_prf_psk_to_ms_input.exit.thread41
 
 psa_tls12_prf_psk_to_ms_input.exit.thread41:      ; preds = %212, %217
-  %218 = getelementptr inbounds i8, ptr %0, i64 80
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %4, ptr %218, align 8
   store i32 2, ptr %210, align 4
   br label %223
 
 219:                                              ; preds = %154
-  %220 = getelementptr inbounds i8, ptr %0, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %221 = tail call fastcc i32 @psa_tls12_prf_input(ptr noundef nonnull %220, i16 noundef zeroext %1, ptr noundef readonly %3, i64 noundef %4)
   br label %psa_tls12_prf_psk_to_ms_input.exit
 
@@ -6460,7 +6460,7 @@ define hidden i32 @psa_key_derivation_input_key(ptr noundef %0, i16 noundef zero
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 256
   br i1 %11, label %psa_get_and_lock_transparent_key_slot_with_policy.exit, label %12
@@ -6480,7 +6480,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %7
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %psa_get_and_lock_transparent_key_slot_with_policy.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i8, ptr %18, align 4
   %20 = or i8 %19, 1
   store i8 %20, ptr %18, align 4
@@ -6488,9 +6488,9 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %7
 
 21:                                               ; preds = %17, %psa_get_and_lock_transparent_key_slot_with_policy.exit
   %22 = load i16, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %26 = load i64, ptr %25, align 8
   %27 = call fastcc i32 @psa_key_derivation_input_internal(ptr noundef nonnull %0, i16 noundef zeroext %1, i16 noundef zeroext %22, ptr noundef %24, i64 noundef %26)
   %28 = load ptr, ptr %4, align 8
@@ -6521,7 +6521,7 @@ define hidden i32 @psa_key_derivation_key_agreement(ptr noundef %0, i16 noundef 
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, 256
   br i1 %18, label %psa_get_and_lock_transparent_key_slot_with_policy.exit, label %19
@@ -6562,7 +6562,7 @@ psa_key_agreement_internal.exit:                  ; preds = %psa_get_and_lock_tr
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i8, ptr %31, align 4
   %33 = or i8 %32, 1
   store i8 %33, ptr %31, align 4
@@ -6600,7 +6600,7 @@ define hidden i32 @psa_raw_key_agreement(i32 noundef %0, i32 noundef %1, ptr nou
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 256
   br i1 %17, label %psa_get_and_lock_transparent_key_slot_with_policy.exit, label %18
@@ -6617,7 +6617,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %13
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %psa_get_and_lock_transparent_key_slot_with_policy.exit
-  %24 = getelementptr inbounds i8, ptr %14, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i64
   %27 = add nuw nsw i64 %26, 7
@@ -6646,7 +6646,7 @@ psa_get_and_lock_transparent_key_slot_with_policy.exit: ; preds = %13
   %35 = call i32 @mbedtls_ctr_drbg_random(ptr noundef nonnull getelementptr inbounds (i8, ptr @global_data, i64 1056), ptr noundef %.01117.i, i64 noundef %34) #15
   %.not14.i = icmp ne i32 %35, 0
   %36 = sub i64 %.01216.i, %34
-  %37 = getelementptr inbounds i8, ptr %.01117.i, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr %.01117.i, i64 %34
   %.not.i23 = icmp eq i64 %36, 0
   %or.cond34 = or i1 %.not14.i, %.not.i23
   br i1 %or.cond34, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -6683,12 +6683,12 @@ define internal fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr n
 
 15:                                               ; preds = %11
   store ptr null, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = call i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %12, i64 noundef %18, ptr noundef %20, i64 noundef %22, ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %23, 0
@@ -6706,10 +6706,10 @@ define internal fastcc i32 @psa_key_agreement_raw_internal(i32 noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %24
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [13 x i64], ptr @switch.table.psa_key_agreement_raw_internal, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [13 x i64], ptr @switch.table.psa_key_agreement_raw_internal, i64 0, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep15 = getelementptr inbounds [13 x i16], ptr @switch.table.psa_key_agreement_raw_internal.25, i64 0, i64 %29
+  %switch.gep15 = getelementptr inbounds nuw [13 x i16], ptr @switch.table.psa_key_agreement_raw_internal.25, i64 0, i64 %29
   %switch.load16 = load i16, ptr %switch.gep15, align 2
   br label %mbedtls_ecc_group_to_psa.exit.i
 
@@ -6777,13 +6777,13 @@ declare i32 @mbedtls_ctr_drbg_random(ptr noundef, ptr noundef, i64 noundef) #6
 ; Function Attrs: nounwind uwtable
 define hidden i32 @psa_generate_key_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = load i16, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %12, label %psa_des_set_key_parity.exit
@@ -6815,7 +6815,7 @@ define hidden i32 @psa_generate_key_internal(ptr noundef %0, ptr noundef %1, i64
 
 20:                                               ; preds = %.lr.ph.i
   %21 = sub i64 %.01216.i, %18
-  %22 = getelementptr inbounds i8, ptr %.01117.i, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %.01117.i, i64 %18
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %psa_generate_random.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
@@ -6836,13 +6836,13 @@ psa_generate_random.exit.thread:                  ; preds = %20, %psa_generate_r
   br i1 %27, label %28, label %psa_des_set_key_parity.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @mbedtls_des_key_set_parity(ptr noundef nonnull %29) #15
   %30 = icmp ugt i64 %2, 23
   br i1 %30, label %31, label %psa_des_set_key_parity.exit
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @mbedtls_des_key_set_parity(ptr noundef nonnull %32) #15
   br label %psa_des_set_key_parity.exit
 
@@ -6879,13 +6879,13 @@ define internal fastcc void @psa_des_set_key_parity(ptr noundef %0, i64 noundef 
   br i1 %5, label %6, label %.thread5
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_des_key_set_parity(ptr noundef nonnull %7) #15
   %8 = icmp ugt i64 %1, 23
   br i1 %8, label %9, label %.thread5
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @mbedtls_des_key_set_parity(ptr noundef nonnull %10) #15
   br label %.thread5
 
@@ -6923,18 +6923,18 @@ define hidden i32 @psa_generate_key(ptr noundef %0, ptr nocapture noundef writeo
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %14
-  %.phi.trans.insert75 = getelementptr inbounds i8, ptr %15, i64 48
+  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %.pre76 = load i64, ptr %.phi.trans.insert75, align 8
   br label %88
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp ult i32 %21, 256
   br i1 %22, label %23, label %77
@@ -7100,7 +7100,7 @@ psa_validate_key_type_and_size_for_key_generation.exit.thread69: ; preds = %33, 
 79:                                               ; preds = %77
   %.pre = load ptr, ptr %3, align 8
   %.pre72 = load i64, ptr %5, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre73 = load ptr, ptr %.phi.trans.insert, align 8
   %80 = icmp eq ptr %.pre73, null
   br i1 %80, label %81, label %.thread.thread
@@ -7108,14 +7108,14 @@ psa_validate_key_type_and_size_for_key_generation.exit.thread69: ; preds = %33, 
 81:                                               ; preds = %.thread77, %79
   %82 = phi ptr [ %15, %.thread77 ], [ %.pre, %79 ]
   %83 = phi i64 [ %76, %.thread77 ], [ %.pre72, %79 ]
-  %84 = getelementptr inbounds i8, ptr %82, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %85 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %83) #14
   store ptr %85, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %.thread, label %psa_allocate_buffer_to_slot.exit
 
 psa_allocate_buffer_to_slot.exit:                 ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %82, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store i64 %83, ptr %87, align 8
   br label %88
 
@@ -7123,20 +7123,20 @@ psa_allocate_buffer_to_slot.exit:                 ; preds = %81
   %89 = phi i64 [ %83, %psa_allocate_buffer_to_slot.exit ], [ %.pre76, %._crit_edge74 ]
   %90 = phi ptr [ %85, %psa_allocate_buffer_to_slot.exit ], [ %17, %._crit_edge74 ]
   %91 = phi ptr [ %82, %psa_allocate_buffer_to_slot.exit ], [ %15, %._crit_edge74 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %93 = call i32 @psa_driver_wrapper_generate_key(ptr noundef nonnull %0, ptr noundef nonnull %90, i64 noundef %89, ptr noundef nonnull %92) #15
   %.not54 = icmp eq i32 %93, 0
   %94 = load ptr, ptr %3, align 8
   br i1 %.not54, label %102, label %95
 
 95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %94, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not.i57 = icmp eq ptr %97, null
   br i1 %.not.i57, label %psa_remove_key_data_from_memory.exit, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %94, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %100 = load i64, ptr %99, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %97, i64 noundef %100) #15
   %.pre.i = load ptr, ptr %96, align 8
@@ -7149,23 +7149,23 @@ psa_remove_key_data_from_memory.exit:             ; preds = %95, %98
   br label %.thread
 
 102:                                              ; preds = %88
-  %103 = getelementptr inbounds i8, ptr %94, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, 255
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.thread.i, label %107
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %94, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %94, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %111 = load i64, ptr %110, align 8
   %112 = call i32 @psa_save_persistent_key(ptr noundef nonnull %94, ptr noundef %109, i64 noundef %111) #15
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %.thread.i, label %.thread
 
 .thread.i:                                        ; preds = %107, %102
-  %114 = getelementptr inbounds i8, ptr %94, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %115 = load i32, ptr %114, align 8
   store i32 %115, ptr %1, align 4
   %116 = call i32 @psa_unlock_key_slot(ptr noundef nonnull %94) #15
@@ -7185,13 +7185,13 @@ psa_remove_key_data_from_memory.exit:             ; preds = %95, %98
 .thread.thread:                                   ; preds = %79, %.thread
   %.1.ph80 = phi i32 [ %.1.ph.ph, %.thread ], [ -139, %79 ]
   %119 = phi ptr [ %.pr, %.thread ], [ %.pre, %79 ]
-  %120 = getelementptr inbounds i8, ptr %119, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load ptr, ptr %120, align 8
   %.not.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i, label %psa_wipe_key_slot.exit.i, label %122
 
 122:                                              ; preds = %.thread.thread
-  %123 = getelementptr inbounds i8, ptr %119, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %124 = load i64, ptr %123, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %121, i64 noundef %124) #15
   %.pre.i.i.i = load ptr, ptr %120, align 8
@@ -7496,7 +7496,7 @@ switch.hole_check:                                ; preds = %54
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %69
+  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -7820,7 +7820,7 @@ switch.hole_check:                                ; preds = %70
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %84
+  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %84
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %85
 
@@ -7870,7 +7870,7 @@ switch.hole_check223:                             ; preds = %92
 
 switch.lookup224:                                 ; preds = %switch.hole_check223
   %106 = zext nneg i32 %switch.tableidx222 to i64
-  %switch.gep228 = getelementptr inbounds [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %106
+  %switch.gep228 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.psa_key_policy_algorithm_intersection.26, i64 0, i64 %106
   %switch.load229 = load i32, ptr %switch.gep228, align 4
   br label %107
 
@@ -8275,7 +8275,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %8, label %psa_tls12_prf_set_seed.exit
@@ -8286,14 +8286,14 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
 
 9:                                                ; preds = %8
   %10 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %psa_tls12_prf_set_seed.exit, label %13
 
 13:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr readonly align 1 %2, i64 %3, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %3, ptr %14, align 8
   br label %15
 
@@ -8302,7 +8302,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
   br label %psa_tls12_prf_set_seed.exit
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %.off.i = add i32 %18, -1
   %switch.i = icmp ult i32 %.off.i, 2
@@ -8314,14 +8314,14 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
 
 20:                                               ; preds = %19
   %21 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #14
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %psa_tls12_prf_set_seed.exit, label %24
 
 24:                                               ; preds = %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr readonly align 1 %2, i64 %3, i1 false)
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %25, align 8
   br label %26
 
@@ -8330,7 +8330,7 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
   br label %psa_tls12_prf_set_seed.exit
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %.not.i11 = icmp eq i32 %29, 3
   br i1 %.not.i11, label %30, label %psa_tls12_prf_set_seed.exit
@@ -8341,14 +8341,14 @@ define internal fastcc range(i32 -141, 1) i32 @psa_tls12_prf_input(ptr nocapture
 
 31:                                               ; preds = %30
   %32 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %3) #14
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %32, ptr %33, align 8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %psa_tls12_prf_set_seed.exit, label %35
 
 35:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr readonly align 1 %2, i64 %3, i1 false)
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %3, ptr %36, align 8
   br label %37
 

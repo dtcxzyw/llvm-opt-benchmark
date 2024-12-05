@@ -189,7 +189,7 @@ define hidden noundef i32 @_ZNK4ncnn15BNLL_x86_avx51215forward_inplaceERNS_3MatE
   %120 = tail call fast <16 x float> @llvm.maxnum.v16f32(<16 x float> %63, <16 x float> zeroinitializer)
   %121 = fadd fast <16 x float> %119, %120
   store <16 x float> %121, ptr %.0822993, align 1
-  %122 = getelementptr inbounds i8, ptr %.0822993, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %.0822993, i64 64
   %123 = add nuw nsw i32 %.0823992, 16
   %124 = or disjoint i32 %123, 15
   %125 = icmp slt i32 %124, %16
@@ -268,7 +268,7 @@ define hidden noundef i32 @_ZNK4ncnn15BNLL_x86_avx51215forward_inplaceERNS_3MatE
   %188 = select <8 x i1> %129, <8 x float> %128, <8 x float> zeroinitializer
   %189 = fadd fast <8 x float> %187, %188
   store <8 x float> %189, ptr %.1996, align 1
-  %190 = getelementptr inbounds i8, ptr %.1996, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %.1996, i64 32
   %191 = add nuw nsw i32 %.1824995, 8
   %192 = or disjoint i32 %191, 7
   %193 = icmp slt i32 %192, %16
@@ -348,7 +348,7 @@ define hidden noundef i32 @_ZNK4ncnn15BNLL_x86_avx51215forward_inplaceERNS_3MatE
   %257 = select <4 x i1> %196, <4 x float> %195, <4 x float> zeroinitializer
   %258 = fadd fast <4 x float> %256, %257
   store <4 x float> %258, ptr %.21001, align 16
-  %259 = getelementptr inbounds i8, ptr %.21001, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %.21001, i64 16
   %260 = add nuw nsw i32 %.28251000, 4
   %261 = or disjoint i32 %260, 3
   %262 = icmp slt i32 %261, %16
@@ -378,7 +378,7 @@ define hidden noundef i32 @_ZNK4ncnn15BNLL_x86_avx51215forward_inplaceERNS_3MatE
 275:                                              ; preds = %271, %265
   %storemerge = phi float [ %274, %271 ], [ %270, %265 ]
   store float %storemerge, ptr %.31006, align 4
-  %276 = getelementptr inbounds i8, ptr %.31006, i64 4
+  %276 = getelementptr inbounds nuw i8, ptr %.31006, i64 4
   %277 = add nuw nsw i32 %.38261005, 1
   %exitcond.not = icmp eq i32 %277, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1007, !llvm.loop !8

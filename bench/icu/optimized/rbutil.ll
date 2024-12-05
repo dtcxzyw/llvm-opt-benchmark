@@ -10,7 +10,7 @@ define dso_local void @get_dirname(ptr noundef %dirname, ptr noundef %filename) 
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #7
   %cmp.not = icmp eq ptr %call, null
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %spec.select = select i1 %cmp.not, ptr null, ptr %incdec.ptr
   %cmp1 = icmp ugt ptr %spec.select, %filename
   br i1 %cmp1, label %if.then2, label %if.else
@@ -43,7 +43,7 @@ define dso_local void @get_basename(ptr noundef %basename, ptr noundef readonly 
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %filename, i32 noundef 47) #7
   %cmp.not = icmp eq ptr %call, null
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %spec.select = select i1 %cmp.not, ptr null, ptr %incdec.ptr
   %cmp1 = icmp ugt ptr %spec.select, %filename
   %spec.select.filename = select i1 %cmp1, ptr %spec.select, ptr %filename
@@ -77,10 +77,10 @@ do.body:                                          ; preds = %do.body, %entry
   %i.addr.1 = phi i32 [ %div, %do.body ], [ %spec.select, %entry ]
   %rem = urem i32 %i.addr.1, %radix
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds [16 x i8], ptr @__const.itostr.digits, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @__const.itostr.digits, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv
   store i8 %1, ptr %arrayidx2, align 1
   %div = udiv i32 %i.addr.1, %radix
   %tobool.not = icmp ugt i32 %radix, %i.addr.1
@@ -112,7 +112,7 @@ while.end:                                        ; preds = %while.body.preheade
 if.then8:                                         ; preds = %while.end
   %inc9 = add nuw nsw i32 %length.1.lcssa, 1
   %idxprom10 = zext nneg i32 %length.1.lcssa to i64
-  %arrayidx11 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom10
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %buffer, i64 %idxprom10
   store i8 45, ptr %arrayidx11, align 1
   br label %if.end12
 
@@ -145,7 +145,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom23 = sext i32 %sub22 to i64
   %arrayidx24 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom23
   %11 = load i8, ptr %arrayidx24, align 1
-  %arrayidx26 = getelementptr inbounds i8, ptr %buffer, i64 %indvars.iv45
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %buffer, i64 %indvars.iv45
   %12 = load i8, ptr %arrayidx26, align 1
   store i8 %12, ptr %arrayidx24, align 1
   store i8 %11, ptr %arrayidx26, align 1

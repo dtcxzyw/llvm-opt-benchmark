@@ -30,14 +30,14 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
 
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #12
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %archive_compressor_program_free.exit, label %10
 
 10:                                               ; preds = %6
   %11 = tail call noalias ptr @strdup(ptr noundef %1) #11
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
   br i1 %13, label %.thread, label %14
@@ -48,15 +48,15 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 -1, ptr %19, align 8
   %20 = tail call noalias ptr @strdup(ptr noundef readonly %1) #11
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %20, ptr %21, align 8
   store ptr %15, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %24 = add i64 %23, 10
   %25 = tail call ptr @archive_string_ensure(ptr noundef nonnull %22, i64 noundef %24) #11
@@ -64,22 +64,22 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
   br i1 %26, label %38, label %27
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %28, align 8
   %29 = tail call ptr @archive_strncat(ptr noundef nonnull %22, ptr noundef nonnull @archive_write_add_filter_program.prefix, i64 noundef 9) #11
   %30 = tail call ptr @archive_strcat(ptr noundef nonnull %22, ptr noundef %1) #11
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @archive_compressor_program_open, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @archive_compressor_program_write, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @archive_compressor_program_close, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr @archive_compressor_program_free, ptr %37, align 8
   br label %48
 
@@ -90,20 +90,20 @@ define dso_local range(i32 -30, 1) i32 @archive_write_add_filter_program(ptr nou
 
 .thread:                                          ; preds = %14, %10, %38
   %.pr32 = phi ptr [ %.pr.pre, %38 ], [ %7, %10 ], [ %7, %14 ]
-  %39 = getelementptr inbounds i8, ptr %.pr32, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.pr32, i64 32
   %40 = load ptr, ptr %39, align 8
   tail call void @free(ptr noundef %40) #11
-  %41 = getelementptr inbounds i8, ptr %.pr32, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.pr32, i64 8
   tail call void @archive_string_free(ptr noundef nonnull %41) #11
   %42 = load ptr, ptr %.pr32, align 8
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %__archive_write_program_free.exit.i, label %43
 
 43:                                               ; preds = %.thread
-  %44 = getelementptr inbounds i8, ptr %42, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %45 = load ptr, ptr %44, align 8
   tail call void @free(ptr noundef %45) #11
-  %46 = getelementptr inbounds i8, ptr %42, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call void @free(ptr noundef %47) #11
   tail call void @free(ptr noundef nonnull %42) #11
@@ -140,12 +140,12 @@ define dso_local noalias noundef ptr @__archive_write_program_allocate(ptr nocap
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %6, align 8
   %7 = tail call noalias ptr @strdup(ptr noundef %0) #11
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %7, ptr %8, align 8
   br label %9
 
@@ -164,20 +164,20 @@ declare ptr @archive_strcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_program_open(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 65536, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %12, align 8
   %13 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #14
   store ptr %13, ptr %7, align 8
@@ -185,20 +185,20 @@ define internal range(i32 -30, 1) i32 @archive_compressor_program_open(ptr nocap
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %17, i32 noundef 12, ptr noundef nonnull @.str.2) #11
   br label %__archive_write_program_open.exit
 
 18:                                               ; preds = %10, %1
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = tail call i32 @__archive_create_child(ptr noundef %6, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %__archive_write_program_open.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %24, i32 noundef 22, ptr noundef nonnull @.str.3, ptr noundef %6) #11
   br label %__archive_write_program_open.exit
@@ -210,7 +210,7 @@ __archive_write_program_open.exit:                ; preds = %15, %18, %22
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_program_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @__archive_write_program_write(ptr noundef %0, ptr noundef %6, ptr noundef %1, i64 noundef %2)
@@ -219,7 +219,7 @@ define internal range(i32 -30, 1) i32 @archive_compressor_program_write(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_compressor_program_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @__archive_write_program_close(ptr noundef %0, ptr noundef %4)
@@ -228,26 +228,26 @@ define internal range(i32 -30, 1) i32 @archive_compressor_program_close(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @archive_compressor_program_free(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @archive_string_free(ptr noundef nonnull %7) #11
   %8 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %__archive_write_program_free.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #11
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #11
   tail call void @free(ptr noundef nonnull %8) #11
@@ -270,10 +270,10 @@ define dso_local noundef i32 @__archive_write_program_free(ptr noundef %0) local
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #11
   tail call void @free(ptr noundef nonnull %0) #11
@@ -288,15 +288,15 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -30, 1) i32 @__archive_write_program_open(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 65536, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %9, align 8
   %10 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #14
   store ptr %10, ptr %4, align 8
@@ -304,20 +304,20 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_open(ptr nocaptu
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %14, i32 noundef 12, ptr noundef nonnull @.str.2) #11
   br label %22
 
 15:                                               ; preds = %7, %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = tail call i32 @__archive_create_child(ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %1) #11
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %21, i32 noundef 22, ptr noundef nonnull @.str.3, ptr noundef %2) #11
   br label %22
@@ -341,12 +341,12 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapt
   br i1 %or.cond, label %.loopexit23, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %child_write.exit
@@ -454,14 +454,14 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapt
 
 child_write.exit:                                 ; preds = %.critedge.i
   %60 = sub i64 %.01742, %17
-  %61 = getelementptr inbounds i8, ptr %.043, i64 %17
+  %61 = getelementptr inbounds nuw i8, ptr %.043, i64 %17
   %.not = icmp eq i64 %60, 0
   br i1 %.not, label %.loopexit23, label %13, !llvm.loop !5
 
 child_write.exit.thread:                          ; preds = %13, %.critedge46.i, %19, %44, %25
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %65 = load ptr, ptr %64, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %63, i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef %65) #11
   br label %.loopexit23
@@ -479,17 +479,17 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nocapt
   br i1 %5, label %60, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @close(i32 noundef %8) #11
   store i32 -1, ptr %7, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %11, i32 noundef 4, i32 noundef 0) #11
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %17
 
 17:                                               ; preds = %.backedge, %6
@@ -514,9 +514,9 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nocapt
   ]
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %30, i32 noundef %27, ptr noundef nonnull @.str.5, ptr noundef %32) #11
   br label %.loopexit
@@ -579,9 +579,9 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_close(ptr nocapt
   br i1 %.not40, label %60, label %55
 
 55:                                               ; preds = %.critedge2
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %59 = load ptr, ptr %58, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %57, i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %59) #11
   br label %60

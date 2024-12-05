@@ -29,9 +29,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63760E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp ult i64 %6, %4
   br i1 %.not, label %7, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread"
@@ -40,16 +40,16 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !5
   %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %6
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !6, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = load i64, ptr %1, align 8, !noalias !7, !noundef !4
   %14 = icmp ult i64 %13, 6
   br i1 %14, label %15, label %22, !prof !10
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds [0 x { ptr, i64 }], ptr @anon.0d780a28b50e5aabcf6cc8b92a0a1700.20, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr @anon.0d780a28b50e5aabcf6cc8b92a0a1700.20, i64 0, i64 %13
   %17 = load ptr, ptr %16, align 8, !noalias !7, !nonnull !4, !align !5, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !noalias !7, !noundef !4
   %20 = getelementptr inbounds { { ptr, i64 }, { i8, [1 x i8] }, [6 x i8] }, ptr %17, i64 %19
   %21 = icmp eq i64 %19, 0
@@ -61,8 +61,8 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
 
 .lr.ph.i:                                         ; preds = %15, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i"
   %.sroa.0.04.i = phi ptr [ %23, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i" ], [ %17, %15 ]
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 24
-  %24 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 8
   %25 = load i64, ptr %24, align 8, !noalias !7, !noundef !4
   %.not.i.i = icmp eq i64 %12, %25
   br i1 %.not.i.i, label %26, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E.exit.backedge.i"
@@ -78,9 +78,9 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   br i1 %29, label %"_ZN7uu_expr11syntax_tree6Parser8parse_op28_$u7b$$u7b$closure$u7d$$u7d$17h1239a408bd16a8a0E.exit.thread", label %.lr.ph.i
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 16
   %32 = load i8, ptr %31, align 8, !range !15, !noalias !7, !noundef !4
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.04.i, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i, i64 17
   %34 = load i8, ptr %33, align 1, !noalias !7, !noundef !4
   %35 = add i64 %6, 1
   store i64 %35, ptr %5, align 8

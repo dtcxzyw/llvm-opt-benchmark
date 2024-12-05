@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @proto_enable_heuristic_by_name(ptr noundef %0) local
   br i1 %.not.i, label %proto_set_heuristic_by_name.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, 1
   %7 = zext i1 %6 to i32
@@ -170,7 +170,7 @@ define range(i32 0, 2) i32 @proto_disable_heuristic_by_name(ptr noundef %0) loca
   br i1 %.not.i, label %proto_set_heuristic_by_name.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, 0
   %7 = zext i1 %6 to i32
@@ -328,7 +328,7 @@ define void @read_enabled_and_disabled_lists() local_unnamed_addr #1 {
   %55 = load ptr, ptr %54, align 8
   tail call void @g_free(ptr noundef %55) #12
   tail call void @g_free(ptr noundef nonnull %54) #12
-  %56 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not10.i.i = icmp eq ptr %57, null
   br i1 %.not10.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -397,7 +397,7 @@ heur_discard_existing_list.exit.i:                ; preds = %._crit_edge.i.i, %5
   %80 = load ptr, ptr %79, align 8
   tail call void @g_free(ptr noundef %80) #12
   tail call void @g_free(ptr noundef nonnull %79) #12
-  %81 = getelementptr inbounds i8, ptr %.012.i46.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.012.i46.i, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not10.i47.i = icmp eq ptr %82, null
   br i1 %.not10.i47.i, label %._crit_edge.i48.i, label %.lr.ph.i45.i, !llvm.loop !4
@@ -529,14 +529,14 @@ read_heur_dissector_list.exit:                    ; preds = %89, %95, %96
   br i1 %.not18.i, label %133, label %129
 
 129:                                              ; preds = %.lr.ph.i
-  %130 = getelementptr inbounds i8, ptr %126, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %131 = load i32, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %128, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 40
   store i32 %131, ptr %132, align 8
   br label %133
 
 133:                                              ; preds = %129, %.lr.ph.i
-  %134 = getelementptr inbounds i8, ptr %.023.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not.i35 = icmp eq ptr %135, null
   br i1 %.not.i35, label %.loopexit21.i, label %.lr.ph.i, !llvm.loop !6
@@ -560,14 +560,14 @@ read_heur_dissector_list.exit:                    ; preds = %89, %95, %96
   br i1 %.not20.i, label %147, label %143
 
 143:                                              ; preds = %.lr.ph26.i
-  %144 = getelementptr inbounds i8, ptr %140, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %142, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 40
   store i32 %145, ptr %146, align 8
   br label %147
 
 147:                                              ; preds = %143, %.lr.ph26.i
-  %148 = getelementptr inbounds i8, ptr %.125.i, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.125.i, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not19.i = icmp eq ptr %149, null
   br i1 %.not19.i, label %set_disabled_heur_dissector_list.exit, label %.lr.ph26.i, !llvm.loop !7
@@ -595,7 +595,7 @@ define internal fastcc void @read_protos_list(ptr nocapture noundef nonnull writ
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15) #12
   tail call void @g_free(ptr noundef nonnull %14) #12
-  %16 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not10.i = icmp eq ptr %17, null
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
@@ -664,7 +664,7 @@ discard_existing_list.exit:                       ; preds = %9, %._crit_edge.i
   %37 = load ptr, ptr %36, align 8
   tail call void @g_free(ptr noundef %37) #12
   tail call void @g_free(ptr noundef nonnull %36) #12
-  %38 = getelementptr inbounds i8, ptr %.012.i52, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.012.i52, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not10.i53 = icmp eq ptr %39, null
   br i1 %.not10.i53, label %._crit_edge.i54, label %.lr.ph.i51, !llvm.loop !8
@@ -755,7 +755,7 @@ define internal fastcc void @set_protos_list(ptr noundef %0, ptr noundef %1, i32
   br label %14
 
 14:                                               ; preds = %11, %13, %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.029, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.loopexit27, label %.lr.ph, !llvm.loop !9
@@ -788,7 +788,7 @@ define internal fastcc void @set_protos_list(ptr noundef %0, ptr noundef %1, i32
   br label %27
 
 27:                                               ; preds = %24, %26, %.lr.ph32
-  %28 = getelementptr inbounds i8, ptr %.131, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.131, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not25 = icmp eq ptr %29, null
   br i1 %.not25, label %.loopexit, label %.lr.ph32, !llvm.loop !10
@@ -1525,7 +1525,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   %69 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #16
   %70 = tail call noalias ptr @g_strdup(ptr noundef %.5) #12
   store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %.069, ptr %71, align 8
   %72 = load ptr, ptr %2, align 8
   %73 = tail call ptr @g_list_append(ptr noundef %72, ptr noundef nonnull %69) #12
@@ -1590,9 +1590,9 @@ declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @write_heur_dissector(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %.not = icmp ne i32 %6, 0
   %7 = zext i1 %.not to i32
@@ -1616,9 +1616,9 @@ declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @heur_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #13
   ret i32 %7

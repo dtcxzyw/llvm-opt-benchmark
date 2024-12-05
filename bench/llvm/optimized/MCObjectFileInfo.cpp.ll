@@ -649,7 +649,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %245, %248
 _ZN4llvm9StringRefC2EPKc.exit412:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %256
   %258 = phi i64 [ %257, %256 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit ]
   %259 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %253, ptr %255, i64 %258, ptr nonnull @.str.79, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %260 = getelementptr inbounds i8, ptr %0, i64 816
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr %259, ptr %260, align 8
   %261 = load ptr, ptr %4, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
@@ -664,7 +664,7 @@ _ZN4llvm9StringRefC2EPKc.exit412:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit414:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit412, %264
   %266 = phi i64 [ %265, %264 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit412 ]
   %267 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %261, ptr %263, i64 %266, ptr nonnull @.str.80, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %268 = getelementptr inbounds i8, ptr %0, i64 824
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store ptr %267, ptr %268, align 8
   %269 = load ptr, ptr %4, align 8
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
@@ -679,7 +679,7 @@ _ZN4llvm9StringRefC2EPKc.exit414:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit416:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit414, %272
   %274 = phi i64 [ %273, %272 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit414 ]
   %275 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %269, ptr %271, i64 %274, ptr nonnull @.str.81, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %276 = getelementptr inbounds i8, ptr %0, i64 832
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr %275, ptr %276, align 8
   %277 = load ptr, ptr %4, align 8
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
@@ -694,7 +694,7 @@ _ZN4llvm9StringRefC2EPKc.exit416:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit418:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit416, %280
   %282 = phi i64 [ %281, %280 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit416 ]
   %283 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %277, ptr %279, i64 %282, ptr nonnull @.str.82, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %284 = getelementptr inbounds i8, ptr %0, i64 840
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr %283, ptr %284, align 8
   %285 = load ptr, ptr %4, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
@@ -709,7 +709,7 @@ _ZN4llvm9StringRefC2EPKc.exit418:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit420:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit418, %288
   %290 = phi i64 [ %289, %288 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit418 ]
   %291 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %285, ptr %287, i64 %290, ptr nonnull @.str.83, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %292 = getelementptr inbounds i8, ptr %0, i64 848
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr %291, ptr %292, align 8
   %293 = load ptr, ptr %4, align 8
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
@@ -724,7 +724,7 @@ _ZN4llvm9StringRefC2EPKc.exit420:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit422:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit420, %296
   %298 = phi i64 [ %297, %296 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit420 ]
   %299 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %293, ptr %295, i64 %298, ptr nonnull @.str.84, i64 14, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %300 = getelementptr inbounds i8, ptr %0, i64 856
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store ptr %299, ptr %300, align 8
   %301 = load ptr, ptr %4, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
@@ -739,7 +739,7 @@ _ZN4llvm9StringRefC2EPKc.exit422:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit424:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit422, %304
   %306 = phi i64 [ %305, %304 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit422 ]
   %307 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %301, ptr %303, i64 %306, ptr nonnull @.str.85, i64 15, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %308 = getelementptr inbounds i8, ptr %0, i64 864
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %307, ptr %308, align 8
   %309 = load ptr, ptr %4, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
@@ -754,7 +754,7 @@ _ZN4llvm9StringRefC2EPKc.exit424:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit426:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit424, %312
   %314 = phi i64 [ %313, %312 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit424 ]
   %315 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %309, ptr %311, i64 %314, ptr nonnull @.str.86, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %316 = getelementptr inbounds i8, ptr %0, i64 872
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %315, ptr %316, align 8
   %317 = load ptr, ptr %4, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
@@ -769,7 +769,7 @@ _ZN4llvm9StringRefC2EPKc.exit426:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit428:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit426, %320
   %322 = phi i64 [ %321, %320 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit426 ]
   %323 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %317, ptr %319, i64 %322, ptr nonnull @.str.87, i64 15, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %324 = getelementptr inbounds i8, ptr %0, i64 880
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store ptr %323, ptr %324, align 8
   %325 = load ptr, ptr %4, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
@@ -784,7 +784,7 @@ _ZN4llvm9StringRefC2EPKc.exit428:                 ; preds = %_ZN4llvm9StringRefC
 _ZN4llvm9StringRefC2EPKc.exit430:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit428, %328
   %330 = phi i64 [ %329, %328 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit428 ]
   %331 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %325, ptr %327, i64 %330, ptr nonnull @.str.38, i64 11, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
-  %332 = getelementptr inbounds i8, ptr %0, i64 888
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store ptr %331, ptr %332, align 8
   br label %333
 
@@ -2589,13 +2589,13 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr @.str.164, ptr %9, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 64
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store i8 1, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store ptr @.str.164, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i155 = getelementptr inbounds i8, ptr %5, i64 168
+  %.sroa.2.0..sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i64 0, ptr %.sroa.2.0..sroa_idx.i155, align 8
   %12 = load ptr, ptr %3, align 8
   %13 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %12, ptr nonnull @.str.90, i64 5, i32 19, i24 65797, i1 noundef zeroext true, i64 0) #11
@@ -2835,12 +2835,12 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %18, %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %23 = getelementptr inbounds i8, ptr %6, i64 21
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %24 = icmp eq i64 %2, 0
   br i1 %24, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %_ZN4llvm5TwineC2EPKc.exit
-  %25 = getelementptr inbounds i8, ptr %6, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i8 48, ptr %25, align 4, !noalias !4
   br label %_ZN4llvm6utostrB5cxx11Emb.exit
 
@@ -2893,12 +2893,12 @@ _ZN4llvm5TwineC2EPKc.exit8:                       ; preds = %36, %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %41 = getelementptr inbounds i8, ptr %4, i64 21
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %42 = icmp eq i64 %2, 0
   br i1 %42, label %.thread.i14, label %.lr.ph.i9
 
 .thread.i14:                                      ; preds = %_ZN4llvm5TwineC2EPKc.exit8
-  %43 = getelementptr inbounds i8, ptr %4, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 48, ptr %43, align 4, !noalias !9
   br label %_ZN4llvm6utostrB5cxx11Emb.exit15
 
@@ -3004,7 +3004,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.thread:             ; preds = %8, %_ZNK4llvm6Tripl
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %23, i64 -8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i64, ptr %30, align 8
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit
 
@@ -3066,7 +3066,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo19getBBAddrMapSectionER
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %11, i64 -8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %18, align 8
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit
 
@@ -3126,7 +3126,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo18getKCFITrapSectionERK
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %11, i64 -8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i64, ptr %18, align 8
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit
 
@@ -3191,7 +3191,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getPseudoProbeSection
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %14, i64 -8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i64, ptr %21, align 8
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit
 
@@ -3203,7 +3203,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %19, %15, %11
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %.sroa.0.0.copyload.i = load ptr, ptr %26, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 136
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 136
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 5, ptr %27, align 8
@@ -3263,7 +3263,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %14
   %20 = or i32 %19, 512
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 136
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 136
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 5, ptr %22, align 8
@@ -3288,7 +3288,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %14
   store ptr %6, ptr %5, align 8, !alias.scope !15
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %33, align 8, !alias.scope !15
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !alias.scope !15
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 2, ptr %34, align 8, !alias.scope !15
@@ -3346,7 +3346,7 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo12getPCSectionENS_9Stri
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %15, i64 -8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i64, ptr %22, align 8
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit
 

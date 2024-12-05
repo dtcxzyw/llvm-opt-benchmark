@@ -456,7 +456,7 @@ define dso_local i64 @rb_stat_new(ptr noundef readonly %0) local_unnamed_addr #0
   %2 = load i64, ptr @rb_cStat, align 8
   %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 152, ptr noundef nonnull @stat_data_type) #22
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %.not.i.i = icmp eq i64 %7, 0
@@ -474,7 +474,7 @@ RTYPEDDATA_GET_DATA.exit.i:                       ; preds = %9, %1
 
 12:                                               ; preds = %RTYPEDDATA_GET_DATA.exit.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull readonly align 8 dereferenceable(144) %0, i64 144, i1 false)
-  %13 = getelementptr inbounds i8, ptr %11, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 144
   store i8 1, ptr %13, align 8
   br label %stat_new_0.exit
 
@@ -487,7 +487,7 @@ define dso_local range(i64 0, 21) i64 @rb_file_directory_p(i64 %0, i64 noundef %
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 16384
@@ -512,13 +512,13 @@ define internal fastcc i32 @rb_stat(i64 noundef %0, ptr noundef nonnull %1) unna
 11:                                               ; preds = %2
   %12 = tail call i64 @rb_io_taint_check(i64 noundef %9) #22
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @rb_io_check_closed(ptr noundef %15) #22
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %17, ptr %18, align 8
   store ptr %1, ptr %5, align 8
   %19 = call i64 @rb_thread_io_blocking_region(ptr noundef nonnull @no_gvl_fstat, ptr noundef nonnull %5, i32 noundef %17) #22
@@ -573,7 +573,7 @@ rb_get_path.exit:                                 ; preds = %25, %rbimpl_intern_
   %38 = load i64, ptr %37, align 8, !noalias !10
   %39 = and i64 %38, 8192
   %.not.i.i = icmp eq i64 %39, 0
-  %40 = getelementptr inbounds i8, ptr %37, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %41
 
 41:                                               ; preds = %rb_get_path.exit
@@ -583,7 +583,7 @@ rb_get_path.exit:                                 ; preds = %25, %rbimpl_intern_
 RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %41
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %41 ], [ %40, %rb_get_path.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.2.0.i, ptr %42, align 8
   store ptr %1, ptr %3, align 8
   %43 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_stat, ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -624,20 +624,20 @@ define hidden i64 @rb_file_s_birthtime(i64 %0, i64 noundef %1) #0 {
 14:                                               ; preds = %2
   %15 = tail call i64 @rb_io_taint_check(i64 noundef %12) #22
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void @rb_io_check_closed(ptr noundef %18) #22
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %10, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.121, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 4096, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 2048, ptr %24, align 4
   %25 = call i64 @rb_thread_io_blocking_region(ptr noundef nonnull @io_blocking_statx, ptr noundef nonnull %5, i32 noundef %20) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -691,7 +691,7 @@ rb_get_path.exit.i:                               ; preds = %rbimpl_intern_const
   %44 = load i64, ptr %43, align 8, !noalias !15
   %45 = and i64 %44, 8192
   %.not.i.i.i = icmp eq i64 %45, 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %47
 
 47:                                               ; preds = %rb_get_path.exit.i
@@ -702,13 +702,13 @@ RSTRING_PTR.exit.i:                               ; preds = %47, %rb_get_path.ex
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %47 ], [ %46, %rb_get_path.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %10, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -100, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.2.0.i.i, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 2048, ptr %51, align 4
   %52 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_statx, ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
   %53 = ptrtoint ptr %52 to i64
@@ -752,9 +752,9 @@ rb_statx.exit:                                    ; preds = %14, %RSTRING_PTR.ex
   unreachable
 
 statx_birthtime.exit:                             ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %10, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %10, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
   %73 = call i64 @rb_time_nano_new(i64 noundef %69, i64 noundef %72) #22
@@ -785,10 +785,10 @@ define dso_local i64 @rb_file_size(i64 noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %7
   %13 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @rb_io_check_closed(ptr noundef %16) #22
-  %17 = getelementptr inbounds i8, ptr %16, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 2
   %.not = icmp eq i32 %19, 0
@@ -799,7 +799,7 @@ define dso_local i64 @rb_file_size(i64 noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %20, %12
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = call i32 @fstat(i32 noundef %24, ptr noundef nonnull %2) #22
   %26 = icmp eq i32 %25, -1
@@ -808,13 +808,13 @@ define dso_local i64 @rb_file_size(i64 noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %22
   %28 = tail call ptr @rb_errno_ptr() #22
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %16, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %31 = load i64, ptr %30, align 8
   tail call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_size, i32 noundef %29, i64 noundef %31) #24
   unreachable
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %2, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %34 = load i64, ptr %33, align 8
   br label %rb_num2long_inline.exit
 
@@ -898,9 +898,9 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
   store volatile i64 %20, ptr %21, align 8
   %22 = call i64 @rb_enc_str_new_static(ptr noundef null, i64 noundef 100, ptr noundef %1) #22
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %27
 
 27:                                               ; preds = %41, %rb_get_path.exit
@@ -912,7 +912,7 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
   %31 = load i64, ptr %30, align 8, !noalias !21
   %32 = and i64 %31, 8192
   %.not.i.i.i19 = icmp eq i64 %32, 0
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   br i1 %.not.i.i.i19, label %RSTRING_PTR.exit.i, label %34
 
 34:                                               ; preds = %27
@@ -1101,7 +1101,7 @@ define hidden noundef i64 @rb_home_dir_of(i64 noundef %0, i64 noundef returned %
   %4 = load i64, ptr %3, align 8, !noalias !33
   %5 = and i64 %4, 8192
   %.not.i.i = icmp eq i64 %5, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %7
 
 7:                                                ; preds = %2
@@ -1121,7 +1121,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %7
   %13 = load i64, ptr %12, align 8, !noalias !36
   %14 = and i64 %13, 8192
   %.not.i.i17 = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i17, label %RSTRING_PTR.exit20, label %16
 
 16:                                               ; preds = %10
@@ -1141,7 +1141,7 @@ RSTRING_PTR.exit20:                               ; preds = %16, %10, %RSTRING_P
   unreachable
 
 20:                                               ; preds = %RSTRING_PTR.exit20
-  %21 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #23
   %24 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %23) #22
@@ -1149,7 +1149,7 @@ RSTRING_PTR.exit20:                               ; preds = %16, %10, %RSTRING_P
   %26 = load i64, ptr %25, align 8, !noalias !39
   %27 = and i64 %26, 8192
   %.not.i.i.i = icmp eq i64 %27, 0
-  %28 = getelementptr inbounds i8, ptr %25, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %29
 
 29:                                               ; preds = %20
@@ -1213,7 +1213,7 @@ define hidden noundef i64 @rb_default_home_dir(i64 noundef returned %0) local_un
   %16 = load i64, ptr %15, align 8, !noalias !42
   %17 = and i64 %16, 8192
   %.not.i.i = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %19
 
 19:                                               ; preds = %14
@@ -1228,7 +1228,7 @@ RSTRING_PTR.exit:                                 ; preds = %14, %19
   %23 = load i64, ptr %22, align 8, !noalias !45
   %24 = and i64 %23, 8192
   %.not.i.i.i = icmp eq i64 %24, 0
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %26
 
 26:                                               ; preds = %RSTRING_PTR.exit
@@ -1257,7 +1257,7 @@ copy_home_path.exit:                              ; preds = %RSTRING_PTR.exit.i,
   %35 = load i64, ptr %34, align 8, !noalias !48
   %36 = and i64 %35, 8192
   %.not.i.i.i14 = icmp eq i64 %36, 0
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   br i1 %.not.i.i.i14, label %RSTRING_PTR.exit.i16, label %38
 
 38:                                               ; preds = %31
@@ -1302,7 +1302,7 @@ define hidden noundef i64 @rb_file_expand_path_internal(i64 noundef %0, i64 noun
   %8 = call ptr @rb_string_value_ptr(ptr noundef nonnull %6) #22
   %9 = load i64, ptr %6, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %8, i64 %12
   %14 = call ptr @rb_enc_get(i64 noundef %9) #22
@@ -1310,7 +1310,7 @@ define hidden noundef i64 @rb_file_expand_path_internal(i64 noundef %0, i64 noun
   %16 = load i64, ptr %15, align 8, !noalias !51
   %17 = and i64 %16, 8192
   %.not.i.i = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %19
 
 19:                                               ; preds = %5
@@ -1319,7 +1319,7 @@ define hidden noundef i64 @rb_file_expand_path_internal(i64 noundef %0, i64 noun
 
 RSTRING_PTR.exit:                                 ; preds = %5, %19
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %19 ], [ %18, %5 ]
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = load i8, ptr %8, align 1
   %23 = icmp eq i8 %22, 126
@@ -1544,9 +1544,9 @@ fs_enc_check.exit.i:                              ; preds = %108, %99
   %113 = load i64, ptr %112, align 8, !noalias !64
   %114 = and i64 %113, 8192
   %.not.i.i338 = icmp eq i64 %114, 0
-  %115 = getelementptr inbounds i8, ptr %112, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %116 = load i64, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %112, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 24
   br i1 %.not.i.i338, label %rbimpl_rstring_getmem.exit.i, label %118
 
 118:                                              ; preds = %110
@@ -2202,7 +2202,7 @@ rb_get_path.exit13:                               ; preds = %25, %rbimpl_intern_
   %36 = call i64 @rb_usascii_str_new_static(ptr noundef null, i64 noundef 1) #22
   %37 = call i64 @rb_file_expand_path_internal(i64 noundef %18, i64 noundef %.0, i32 noundef 0, i32 noundef 1, i64 noundef %36)
   %38 = inttoptr i64 %36 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef %40) #22
   ret i64 %36
@@ -2215,7 +2215,7 @@ define hidden noundef i64 @rb_file_expand_path_fast(i64 noundef %0, i64 noundef 
   %3 = tail call i64 @rb_usascii_str_new_static(ptr noundef null, i64 noundef 1) #22
   %4 = tail call i64 @rb_file_expand_path_internal(i64 noundef %0, i64 noundef %1, i32 noundef 0, i32 noundef 0, i64 noundef %3)
   %5 = inttoptr i64 %3 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @rb_str_resize(i64 noundef %3, i64 noundef %7) #22
   ret i64 %3
@@ -2336,7 +2336,7 @@ rb_get_path.exit13:                               ; preds = %25, %rbimpl_intern_
   %36 = call i64 @rb_usascii_str_new_static(ptr noundef null, i64 noundef 1) #22
   %37 = call i64 @rb_file_expand_path_internal(i64 noundef %18, i64 noundef %.0, i32 noundef 1, i32 noundef 1, i64 noundef %36)
   %38 = inttoptr i64 %36 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = call i64 @rb_str_resize(i64 noundef %36, i64 noundef %40) #22
   ret i64 %36
@@ -2398,7 +2398,7 @@ define internal fastcc i64 @rb_check_realpath_internal(i64 noundef %0, i64 nound
   %16 = load i64, ptr %15, align 8, !noalias !97
   %17 = and i64 %16, 8192
   %.not.i.i = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %19
 
 19:                                               ; preds = %13
@@ -2428,7 +2428,7 @@ RSTRING_PTR.exit:                                 ; preds = %13, %19
   %26 = phi i64 [ %24, %22 ], [ %14, %RSTRING_PTR.exit ]
   %.not40 = icmp eq ptr %2, null
   %.not.i.i44 = icmp eq i64 %.pre-phi54, 0
-  %27 = getelementptr inbounds i8, ptr %.pre-phi, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 24
   br i1 %.not.i.i44, label %RSTRING_PTR.exit47, label %28
 
 28:                                               ; preds = %25
@@ -2483,7 +2483,7 @@ RSTRING_PTR.exit47:                               ; preds = %25, %28
   %54 = load i64, ptr %53, align 8, !noalias !103
   %55 = and i64 %54, 8192
   %.not.i.i48 = icmp eq i64 %55, 0
-  %56 = getelementptr inbounds i8, ptr %53, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
   br i1 %.not.i.i48, label %RSTRING_PTR.exit51, label %57
 
 57:                                               ; preds = %49
@@ -2493,7 +2493,7 @@ RSTRING_PTR.exit47:                               ; preds = %25, %28
 RSTRING_PTR.exit51:                               ; preds = %49, %57
   %.sroa.2.0.i50 = phi ptr [ %.sroa.2.0.copyload.i49, %57 ], [ %56, %49 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.2.0.i50, ptr %58, align 8
   store ptr %8, ptr %5, align 8
   %59 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_stat, ptr noundef nonnull %5, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -2836,7 +2836,7 @@ rb_get_path.exit:                                 ; preds = %14, %rbimpl_intern_
   %24 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #22
   %25 = load i64, ptr %4, align 8
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr i8, ptr %24, i64 %28
   %30 = call ptr @rb_enc_get(i64 noundef %25) #22
@@ -3163,7 +3163,7 @@ define dso_local range(i32 0, 2) i32 @rb_path_check(ptr noundef %0) local_unname
   %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #23
   %.not23 = icmp eq ptr %8, null
   %spec.select = select i1 %.not23, ptr %7, ptr %8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %10
 
 10:                                               ; preds = %66, %5
@@ -3198,7 +3198,7 @@ define dso_local range(i32 0, 2) i32 @rb_path_check(ptr noundef %0) local_unname
   %23 = load i64, ptr %22, align 8, !noalias !117
   %24 = and i64 %23, 8192
   %.not.i.i.i = icmp eq i64 %24, 0
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %26
 
 26:                                               ; preds = %17
@@ -3209,7 +3209,7 @@ RSTRING_PTR.exit.i:                               ; preds = %26, %17, %.RSTRING_
   %.pre-phi.i = phi ptr [ %.pre47.i, %.RSTRING_PTR.exit_crit_edge.i ], [ %22, %26 ], [ %22, %17 ]
   %27 = phi i64 [ %.pre.i, %.RSTRING_PTR.exit_crit_edge.i ], [ %19, %26 ], [ %19, %17 ]
   %.027.i = phi ptr [ %15, %.RSTRING_PTR.exit_crit_edge.i ], [ %.sroa.2.0.copyload.i.i, %26 ], [ %25, %17 ]
-  %28 = getelementptr inbounds i8, ptr %.pre-phi.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.pre-phi.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr i8, ptr %.027.i, i64 %29
   %31 = call ptr @rb_enc_get(i64 noundef %27) #22
@@ -3345,7 +3345,7 @@ define hidden range(i32 -1, 2) i32 @ruby_is_fd_loadable(i32 noundef %0) local_un
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = add nsw i32 %8, -4096
@@ -3403,7 +3403,7 @@ define hidden range(i32 -1, 2) i32 @rb_file_load_ok(ptr noundef %0) local_unname
   br i1 %14, label %ruby_is_fd_loadable.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 61440
   %19 = add nsw i32 %18, -4096
@@ -3493,14 +3493,14 @@ is_explicit_relative.exit:                        ; preds = %12
 .critedge:                                        ; preds = %.thread, %21
   %.1 = phi i64 [ %22, %21 ], [ %14, %.thread ]
   %24 = inttoptr i64 %.1 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = load ptr, ptr %1, align 8
   %.not6892 = icmp eq ptr %27, null
   br i1 %.not6892, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.critedge
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %29
 
 29:                                               ; preds = %.lr.ph94, %41
@@ -3552,9 +3552,9 @@ is_explicit_relative.exit.thread:                 ; preds = %12, %is_explicit_re
   %49 = load i64, ptr %0, align 8
   %50 = call i64 @rb_str_dup(i64 noundef %49) #22
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = call i64 @rb_str_tmp_new(i64 noundef 4098) #22
   %56 = call i64 @rb_enc_associate_index(i64 noundef %55, i32 noundef 2) #22
@@ -3564,7 +3564,7 @@ is_explicit_relative.exit.thread:                 ; preds = %12, %is_explicit_re
 
 .lr.ph:                                           ; preds = %48
   %58 = inttoptr i64 %55 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   br label %60
 
 60:                                               ; preds = %.lr.ph, %113
@@ -3583,7 +3583,7 @@ is_explicit_relative.exit.thread:                 ; preds = %12, %is_explicit_re
   br i1 %.not.i74, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = icmp slt i64 %.158, %69
   br i1 %70, label %75, label %113
@@ -3595,11 +3595,11 @@ rb_array_len.exit.thread:                         ; preds = %63
   br i1 %73, label %.thread85, label %113
 
 .thread85:                                        ; preds = %rb_array_len.exit.thread
-  %74 = getelementptr inbounds i8, ptr %65, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 16
   br label %RARRAY_AREF.exit
 
 75:                                               ; preds = %rb_array_len.exit
-  %76 = getelementptr inbounds i8, ptr %65, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %77 = load ptr, ptr %76, align 8
   br label %RARRAY_AREF.exit
 
@@ -3651,7 +3651,7 @@ rb_get_path.exit:                                 ; preds = %84, %rbimpl_intern_
   store volatile i64 %93, ptr %94, align 8
   %95 = load i64, ptr %6, align 8
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = icmp eq i64 %98, 0
   br i1 %99, label %111, label %100
@@ -3732,11 +3732,11 @@ define internal fastcc noundef i64 @copy_path_class(i64 noundef returned %0, i64
   %.0 = phi i32 [ %6, %5 ], [ %3, %2 ]
   %8 = tail call i64 @rb_enc_associate_index(i64 noundef %0, i32 noundef %.0) #22
   %9 = inttoptr i64 %0 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = tail call i64 @rb_str_resize(i64 noundef %0, i64 noundef %11) #22
   %13 = tail call i64 @rb_obj_class(i64 noundef %1) #22
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %13, ptr %14, align 8
   %15 = and i64 %13, 7
   %16 = icmp ne i64 %15, 0
@@ -3789,7 +3789,7 @@ define dso_local i64 @rb_find_file(i64 noundef %0) local_unnamed_addr #0 {
   %17 = load i64, ptr %16, align 8, !noalias !133
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br i1 %.not.i.i, label %.thread, label %20
 
 20:                                               ; preds = %10
@@ -3841,7 +3841,7 @@ is_explicit_relative.exit.thread:                 ; preds = %1, %is_explicit_rel
   %39 = call i64 @rb_str_tmp_new(i64 noundef 4098) #22
   %40 = call i64 @rb_enc_associate_index(i64 noundef %39, i32 noundef 2) #22
   %41 = inttoptr i64 %39 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   br label %43
 
 43:                                               ; preds = %87, %38
@@ -3854,7 +3854,7 @@ is_explicit_relative.exit.thread:                 ; preds = %1, %is_explicit_rel
   br i1 %.not.i26, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp slt i64 %.018, %49
   br i1 %50, label %55, label %89
@@ -3866,11 +3866,11 @@ rb_array_len.exit.thread:                         ; preds = %43
   br i1 %53, label %.thread40, label %89
 
 .thread40:                                        ; preds = %rb_array_len.exit.thread
-  %54 = getelementptr inbounds i8, ptr %45, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
   br label %RARRAY_AREF.exit
 
 55:                                               ; preds = %rb_array_len.exit
-  %56 = getelementptr inbounds i8, ptr %45, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %57 = load ptr, ptr %56, align 8
   br label %RARRAY_AREF.exit
 
@@ -3922,7 +3922,7 @@ rb_get_path.exit:                                 ; preds = %64, %rbimpl_intern_
   store volatile i64 %73, ptr %74, align 8
   %75 = load i64, ptr %6, align 8
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = icmp sgt i64 %78, 0
   br i1 %79, label %80, label %87
@@ -4367,7 +4367,7 @@ define internal range(i64 1, 1024) i64 @rb_file_world_readable_p(i64 %0, i64 nou
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 4
   %.not = icmp eq i32 %9, 0
@@ -4409,7 +4409,7 @@ define internal range(i64 1, 1024) i64 @rb_file_world_writable_p(i64 %0, i64 nou
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 2
   %.not = icmp eq i32 %9, 0
@@ -4448,7 +4448,7 @@ define internal range(i64 0, 21) i64 @rb_file_file_p(i64 %0, i64 noundef %1) #0 
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 32768
@@ -4462,7 +4462,7 @@ define internal range(i64 0, 21) i64 @rb_file_zero_p(i64 %0, i64 noundef %1) #0 
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   %9 = select i1 %8, i64 20, i64 0
@@ -4478,7 +4478,7 @@ define internal i64 @rb_file_size_p(i64 %0, i64 noundef %1) #0 {
   br i1 %5, label %rb_long2num_inline.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %rb_long2num_inline.exit, label %10
@@ -4525,7 +4525,7 @@ define internal i64 @rb_file_s_size(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 4611686018427387904
   %or.cond.i = icmp sgt i64 %17, -1
@@ -4553,7 +4553,7 @@ define internal range(i64 0, 21) i64 @rb_file_owned_p(i64 %0, i64 noundef %1) #0
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = call i32 @geteuid() #22
   %10 = icmp eq i32 %8, %9
@@ -4573,7 +4573,7 @@ define internal range(i64 0, 21) i64 @rb_file_grpowned_p(i64 %0, i64 noundef %1)
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = call fastcc i32 @rb_group_member(i32 noundef %8)
   %.not = icmp eq i32 %9, 0
@@ -4590,7 +4590,7 @@ define internal range(i64 0, 21) i64 @rb_file_pipe_p(i64 %0, i64 noundef %1) #0 
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 4096
@@ -4650,7 +4650,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   store volatile i64 %21, ptr %22, align 8
   %23 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   store ptr %6, ptr %3, align 8
   %25 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_lstat, ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -4658,7 +4658,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %27 = and i64 %26, 2147483648
   %.not = icmp eq i64 %27, 0
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 61440
   %31 = icmp eq i32 %30, 40960
@@ -4672,7 +4672,7 @@ define internal range(i64 0, 21) i64 @rb_file_socket_p(i64 %0, i64 noundef %1) #
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 49152
@@ -4686,7 +4686,7 @@ define internal range(i64 0, 21) i64 @rb_file_blockdev_p(i64 %0, i64 noundef %1)
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 24576
@@ -4700,7 +4700,7 @@ define internal range(i64 0, 21) i64 @rb_file_chardev_p(i64 %0, i64 noundef %1) 
   %3 = alloca %struct.stat, align 8
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 8192
@@ -4715,7 +4715,7 @@ define internal range(i64 0, 21) i64 @rb_file_suid_p(i64 %0, i64 noundef %1) #0 
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2048
   %.not.i = icmp eq i32 %8, 0
@@ -4731,7 +4731,7 @@ define internal range(i64 0, 21) i64 @rb_file_sgid_p(i64 %0, i64 noundef %1) #0 
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1024
   %.not.i = icmp eq i32 %8, 0
@@ -4747,7 +4747,7 @@ define internal range(i64 0, 21) i64 @rb_file_sticky_p(i64 %0, i64 noundef %1) #
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 512
   %.not.i = icmp eq i32 %8, 0
@@ -4777,9 +4777,9 @@ define internal range(i64 0, 21) i64 @rb_file_identical_p(i64 %0, i64 noundef %1
   br i1 %.not, label %14, label %19
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load i64, ptr %17, align 8
   %.not3 = icmp eq i64 %16, %18
   %. = select i1 %.not3, i64 20, i64 0
@@ -4844,7 +4844,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   %25 = load i64, ptr %24, align 8, !noalias !145
   %26 = and i64 %25, 8192
   %.not.i.i = icmp eq i64 %26, 0
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %28
 
 28:                                               ; preds = %rb_get_path.exit
@@ -4854,7 +4854,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
 RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %28
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %28 ], [ %27, %rb_get_path.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.2.0.i, ptr %29, align 8
   store ptr %6, ptr %3, align 8
   %30 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_stat, ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -4875,7 +4875,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
   %38 = load i64, ptr @rb_cStat, align 8
   %39 = call i64 @rb_data_typed_object_zalloc(i64 noundef %38, i64 noundef 152, ptr noundef nonnull @stat_data_type) #22
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 2
   %.not.i.i.i1 = icmp eq i64 %43, 0
@@ -4889,7 +4889,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
 rb_stat_new.exit:                                 ; preds = %37, %45
   %47 = phi ptr [ %46, %45 ], [ %44, %37 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef nonnull readonly align 8 dereferenceable(144) %6, i64 144, i1 false)
-  %48 = getelementptr inbounds i8, ptr %47, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 144
   store i8 1, ptr %48, align 8
   ret i64 %39
 }
@@ -4945,7 +4945,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   store volatile i64 %21, ptr %22, align 8
   %23 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   store ptr %6, ptr %3, align 8
   %25 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_lstat, ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -4966,7 +4966,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   %34 = load i64, ptr @rb_cStat, align 8
   %35 = call i64 @rb_data_typed_object_zalloc(i64 noundef %34, i64 noundef 152, ptr noundef nonnull @stat_data_type) #22
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, 2
   %.not.i.i.i1 = icmp eq i64 %39, 0
@@ -4980,7 +4980,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
 rb_stat_new.exit:                                 ; preds = %33, %41
   %43 = phi ptr [ %42, %41 ], [ %40, %33 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %43, ptr noundef nonnull readonly align 8 dereferenceable(144) %6, i64 144, i1 false)
-  %44 = getelementptr inbounds i8, ptr %43, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 144
   store i8 1, ptr %44, align 8
   ret i64 %35
 }
@@ -5036,7 +5036,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   store volatile i64 %21, ptr %22, align 8
   %23 = call ptr @rb_string_value_cstr(ptr noundef nonnull %5) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   store ptr %6, ptr %3, align 8
   %25 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_lstat, ptr noundef nonnull %3, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -5054,7 +5054,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
   unreachable
 
 33:                                               ; preds = %rb_get_path.exit
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.val = load i32, ptr %34, align 8
   %35 = and i32 %.val, 61440
   %36 = add nsw i32 %35, -4096
@@ -5064,7 +5064,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
 switch.lookup:                                    ; preds = %33
   %38 = lshr exact i32 %36, 12
   %39 = zext nneg i32 %38 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.rb_stat_ftype, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.rb_stat_ftype, i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rb_file_ftype.exit
 
@@ -5097,9 +5097,9 @@ define internal i64 @rb_file_s_atime(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %.val = load i64, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %.val1 = load i64, ptr %16, align 8
   %17 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val1) #22
   ret i64 %17
@@ -5128,9 +5128,9 @@ define internal i64 @rb_file_s_mtime(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %4, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.val = load i64, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.val1 = load i64, ptr %16, align 8
   %17 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val1) #22
   ret i64 %17
@@ -5159,9 +5159,9 @@ define internal i64 @rb_file_s_ctime(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %.val = load i64, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %.val1 = load i64, ptr %16, align 8
   %17 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val1) #22
   ret i64 %17
@@ -5183,12 +5183,12 @@ define internal range(i64 1, 0) i64 @rb_file_s_utime(i32 noundef %0, ptr nocaptu
 rb_check_arity.exit.i:                            ; preds = %3
   %8 = getelementptr i8, ptr %1, i64 8
   %9 = load i64, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %10, align 8
   %11 = load i64, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %13, align 8
   %14 = icmp eq i64 %9, 4
   %15 = icmp eq i64 %11, 4
@@ -5200,10 +5200,10 @@ rb_check_arity.exit.i:                            ; preds = %3
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   store i64 %18, ptr %5, align 16
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %19, ptr %.sroa.22.0..sroa_idx.i, align 8
   %20 = icmp eq i64 %9, %11
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %16
@@ -5215,7 +5215,7 @@ rb_check_arity.exit.i:                            ; preds = %3
   %25 = extractvalue { i64, i64 } %24, 0
   %26 = extractvalue { i64, i64 } %24, 1
   store i64 %25, ptr %21, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %26, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %utime_internal_i.exit
 
@@ -5288,7 +5288,7 @@ to_gid.exit:                                      ; preds = %to_uid.exit, %15
   %.0.i5 = phi i32 [ %17, %15 ], [ -1, %to_uid.exit ]
   %18 = getelementptr i8, ptr %1, i64 16
   %19 = add nsw i32 %0, -2
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.0.i5, ptr %20, align 4
   %21 = call fastcc i64 @apply2files(ptr noundef nonnull @chown_internal, i32 noundef %19, ptr noundef %18, ptr noundef nonnull %4)
   ret i64 %21
@@ -5352,7 +5352,7 @@ to_gid.exit:                                      ; preds = %to_uid.exit, %15
   %.0.i5 = phi i32 [ %17, %15 ], [ -1, %to_uid.exit ]
   %18 = getelementptr i8, ptr %1, i64 16
   %19 = add nsw i32 %0, -2
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.0.i5, ptr %20, align 4
   %21 = call fastcc i64 @apply2files(ptr noundef nonnull @lchown_internal, i32 noundef %19, ptr noundef %18, ptr noundef nonnull %4)
   ret i64 %21
@@ -5374,12 +5374,12 @@ define internal range(i64 1, 0) i64 @rb_file_s_lutime(i32 noundef %0, ptr nocapt
 rb_check_arity.exit.i:                            ; preds = %3
   %8 = getelementptr i8, ptr %1, i64 8
   %9 = load i64, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %10, align 8
   %11 = load i64, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %13, align 8
   %14 = icmp eq i64 %9, 4
   %15 = icmp eq i64 %11, 4
@@ -5391,10 +5391,10 @@ rb_check_arity.exit.i:                            ; preds = %3
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
   store i64 %18, ptr %5, align 16
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %19, ptr %.sroa.22.0..sroa_idx.i, align 8
   %20 = icmp eq i64 %9, %11
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %16
@@ -5406,7 +5406,7 @@ rb_check_arity.exit.i:                            ; preds = %3
   %25 = extractvalue { i64, i64 } %24, 0
   %26 = extractvalue { i64, i64 } %24, 1
   store i64 %25, ptr %21, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %26, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %utime_internal_i.exit
 
@@ -5756,7 +5756,7 @@ rb_get_path.exit10:                               ; preds = %32, %rbimpl_intern_
   %45 = call ptr @rb_string_value_cstr(ptr noundef nonnull %9) #22
   store ptr %45, ptr %8, align 8
   %46 = call ptr @rb_string_value_cstr(ptr noundef nonnull %10) #22
-  %47 = getelementptr inbounds i8, ptr %8, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %46, ptr %47, align 8
   %48 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_rename, ptr noundef nonnull %8, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
   %49 = ptrtoint ptr %48 to i64
@@ -5828,7 +5828,7 @@ define internal noundef i64 @rb_file_s_truncate(i64 %0, i64 noundef %1, i64 noun
 
 rb_num2long_inline.exit:                          ; preds = %9, %11
   %.0.i = phi i64 [ %10, %9 ], [ %12, %11 ]
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.0.i, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %14 = and i64 %1, 7
@@ -5896,7 +5896,7 @@ define internal noundef i64 @rb_file_s_mkfifo(i32 noundef %0, ptr nocapture noun
   %5 = alloca i64, align 8
   %6 = alloca %struct.mkfifo_arg, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 438, ptr %8, align 8
   %9 = add i32 %0, -3
   %or.cond = icmp ult i32 %9, -2
@@ -5967,7 +5967,7 @@ rb_get_path.exit:                                 ; preds = %23, %rbimpl_intern_
   %36 = load i64, ptr %35, align 8, !noalias !161
   %37 = and i64 %36, 8192
   %.not.i.i = icmp eq i64 %37, 0
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %39
 
 39:                                               ; preds = %rb_get_path.exit
@@ -6088,7 +6088,7 @@ rb_get_path.exit:                                 ; preds = %8, %rbimpl_intern_c
   %19 = load i64, ptr %18, align 8, !noalias !164
   %20 = and i64 %19, 8192
   %.not.i.i = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %22
 
 22:                                               ; preds = %rb_get_path.exit
@@ -6352,7 +6352,7 @@ rb_get_path.exit:                                 ; preds = %30, %rbimpl_intern_
 46:                                               ; preds = %44, %42
   %.021 = phi ptr [ %45, %44 ], [ %43, %42 ]
   %47 = inttoptr i64 %39 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   store i64 %49, ptr %9, align 8
   %50 = icmp eq i64 %49, 0
@@ -6362,7 +6362,7 @@ rb_get_path.exit:                                 ; preds = %30, %rbimpl_intern_
   %52 = load i64, ptr %47, align 8, !noalias !169
   %53 = and i64 %52, 8192
   %.not.i.i26 = icmp eq i64 %53, 0
-  %54 = getelementptr inbounds i8, ptr %47, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 24
   br i1 %.not.i.i26, label %RSTRING_PTR.exit, label %55
 
 55:                                               ; preds = %51
@@ -6404,7 +6404,7 @@ RSTRING_PTR.exit:                                 ; preds = %51, %55
   %70 = load i64, ptr %9, align 8
   %71 = load i64, ptr %7, align 8
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load i64, ptr %73, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -6610,7 +6610,7 @@ rb_get_path.exit:                                 ; preds = %9, %rbimpl_intern_c
   %19 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #22
   %20 = load i64, ptr %4, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = call ptr @rb_enc_get(i64 noundef %20) #22
   %25 = getelementptr i8, ptr %19, i64 %23
@@ -6837,10 +6837,10 @@ define internal i64 @rb_io_stat(i64 noundef %0) #0 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @rb_io_check_closed(ptr noundef %6) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = call i32 @fstat(i32 noundef %8, ptr noundef nonnull %2) #22
   %10 = icmp eq i32 %9, -1
@@ -6849,7 +6849,7 @@ define internal i64 @rb_io_stat(i64 noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = tail call ptr @rb_errno_ptr() #22
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i64, ptr %14, align 8
   tail call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_io_stat, i32 noundef %13, i64 noundef %15) #24
   unreachable
@@ -6858,7 +6858,7 @@ define internal i64 @rb_io_stat(i64 noundef %0) #0 {
   %17 = load i64, ptr @rb_cStat, align 8
   %18 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %17, i64 noundef 152, ptr noundef nonnull @stat_data_type) #22
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 2
   %.not.i.i.i = icmp eq i64 %22, 0
@@ -6872,7 +6872,7 @@ define internal i64 @rb_io_stat(i64 noundef %0) #0 {
 rb_stat_new.exit:                                 ; preds = %16, %24
   %26 = phi ptr [ %25, %24 ], [ %23, %16 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %26, ptr noundef nonnull readonly align 8 dereferenceable(144) %2, i64 144, i1 false)
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   store i8 1, ptr %27, align 8
   ret i64 %18
 }
@@ -6883,10 +6883,10 @@ define internal i64 @rb_file_lstat(i64 noundef %0) #0 {
   %3 = alloca %struct.stat, align 8
   %4 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @rb_io_check_closed(ptr noundef %7) #22
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 4
   br i1 %10, label %38, label %11
@@ -6896,7 +6896,7 @@ define internal i64 @rb_file_lstat(i64 noundef %0) #0 {
   %13 = load i64, ptr %12, align 8, !noalias !174
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %11
@@ -6906,7 +6906,7 @@ define internal i64 @rb_file_lstat(i64 noundef %0) #0 {
 RSTRING_PTR.exit:                                 ; preds = %11, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sroa.2.0.i, ptr %17, align 8
   store ptr %3, ptr %2, align 8
   %18 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_lstat, ptr noundef nonnull %2, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -6927,7 +6927,7 @@ RSTRING_PTR.exit:                                 ; preds = %11, %16
   %27 = load i64, ptr @rb_cStat, align 8
   %28 = call i64 @rb_data_typed_object_zalloc(i64 noundef %27, i64 noundef 152, ptr noundef nonnull @stat_data_type) #22
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 2
   %.not.i.i.i = icmp eq i64 %32, 0
@@ -6941,7 +6941,7 @@ RSTRING_PTR.exit:                                 ; preds = %11, %16
 rb_stat_new.exit:                                 ; preds = %26, %34
   %36 = phi ptr [ %35, %34 ], [ %33, %26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %36, ptr noundef nonnull readonly align 8 dereferenceable(144) %3, i64 144, i1 false)
-  %37 = getelementptr inbounds i8, ptr %36, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   store i8 1, ptr %37, align 8
   br label %38
 
@@ -6955,10 +6955,10 @@ define internal i64 @rb_file_atime(i64 noundef %0) #0 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @rb_io_check_closed(ptr noundef %6) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = call i32 @fstat(i32 noundef %8, ptr noundef nonnull %2) #22
   %10 = icmp eq i32 %9, -1
@@ -6967,15 +6967,15 @@ define internal i64 @rb_file_atime(i64 noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = tail call ptr @rb_errno_ptr() #22
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i64, ptr %14, align 8
   tail call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_atime, i32 noundef %13, i64 noundef %15) #24
   unreachable
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %2, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %.val = load i64, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %.val3 = load i64, ptr %18, align 8
   %19 = tail call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val3) #22
   ret i64 %19
@@ -6986,10 +6986,10 @@ define internal i64 @rb_file_mtime(i64 noundef %0) #0 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @rb_io_check_closed(ptr noundef %6) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = call i32 @fstat(i32 noundef %8, ptr noundef nonnull %2) #22
   %10 = icmp eq i32 %9, -1
@@ -6998,15 +6998,15 @@ define internal i64 @rb_file_mtime(i64 noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = tail call ptr @rb_errno_ptr() #22
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i64, ptr %14, align 8
   tail call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_mtime, i32 noundef %13, i64 noundef %15) #24
   unreachable
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.val = load i64, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %.val3 = load i64, ptr %18, align 8
   %19 = tail call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val3) #22
   ret i64 %19
@@ -7017,10 +7017,10 @@ define internal i64 @rb_file_ctime(i64 noundef %0) #0 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @rb_io_check_closed(ptr noundef %6) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = call i32 @fstat(i32 noundef %8, ptr noundef nonnull %2) #22
   %10 = icmp eq i32 %9, -1
@@ -7029,15 +7029,15 @@ define internal i64 @rb_file_ctime(i64 noundef %0) #0 {
 11:                                               ; preds = %1
   %12 = tail call ptr @rb_errno_ptr() #22
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i64, ptr %14, align 8
   tail call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_ctime, i32 noundef %13, i64 noundef %15) #24
   unreachable
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %2, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %.val = load i64, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %.val3 = load i64, ptr %18, align 8
   %19 = tail call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val3) #22
   ret i64 %19
@@ -7049,20 +7049,20 @@ define internal i64 @rb_file_birthtime(i64 noundef %0) #0 {
   %3 = alloca %struct.statx, align 8
   %4 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @rb_io_check_closed(ptr noundef %7) #22
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.121, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 4096, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 2048, ptr %13, align 4
   %14 = call i64 @rb_thread_io_blocking_region(ptr noundef nonnull @io_blocking_statx, ptr noundef nonnull %2, i32 noundef %9) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -7073,7 +7073,7 @@ define internal i64 @rb_file_birthtime(i64 noundef %0) #0 {
 17:                                               ; preds = %1
   %18 = call ptr @rb_errno_ptr() #22
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load i64, ptr %20, align 8
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_birthtime, i32 noundef %19, i64 noundef %21) #24
   unreachable
@@ -7089,9 +7089,9 @@ define internal i64 @rb_file_birthtime(i64 noundef %0) #0 {
   unreachable
 
 statx_birthtime.exit:                             ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %3, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %31 = call i64 @rb_time_nano_new(i64 noundef %27, i64 noundef %30) #22
@@ -7126,14 +7126,14 @@ define internal noundef i64 @rb_file_chmod(i64 noundef %0, i64 noundef %1) #0 {
   %5 = trunc i64 %4 to i32
   %6 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @rb_io_check_closed(ptr noundef %9) #22
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %11, ptr %3, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %5, ptr %12, align 4
   %13 = call i64 @rb_thread_io_blocking_region(ptr noundef nonnull @io_blocking_fchmod, ptr noundef nonnull %3, i32 noundef %11) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -7144,7 +7144,7 @@ define internal noundef i64 @rb_file_chmod(i64 noundef %0, i64 noundef %1) #0 {
 16:                                               ; preds = %2
   %17 = call ptr @rb_errno_ptr() #22
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %20 = load i64, ptr %19, align 8
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_chmod, i32 noundef %18, i64 noundef %20) #24
   unreachable
@@ -7178,16 +7178,16 @@ to_gid.exit:                                      ; preds = %to_uid.exit, %10
   %.0.i7 = phi i32 [ %12, %10 ], [ -1, %to_uid.exit ]
   %13 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @rb_io_check_closed(ptr noundef %16) #22
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.0.i, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %.0.i7, ptr %20, align 4
   %21 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @nogvl_fchown, ptr noundef nonnull %4, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
   %22 = ptrtoint ptr %21 to i64
@@ -7199,7 +7199,7 @@ to_gid.exit:                                      ; preds = %to_uid.exit, %10
 25:                                               ; preds = %to_gid.exit
   %26 = call ptr @rb_errno_ptr() #22
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %16, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %29 = load i64, ptr %28, align 8
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_chown, i32 noundef %27, i64 noundef %29) #24
   unreachable
@@ -7225,14 +7225,14 @@ define internal noundef i64 @rb_file_truncate(i64 noundef %0, i64 noundef %1) #0
 
 rb_num2long_inline.exit:                          ; preds = %5, %7
   %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ]
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.0.i, ptr %9, align 8
   %10 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @rb_io_check_closed(ptr noundef %13) #22
-  %14 = getelementptr inbounds i8, ptr %13, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 2
   %.not = icmp eq i32 %16, 0
@@ -7245,7 +7245,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
 
 19:                                               ; preds = %rb_num2long_inline.exit
   %20 = tail call i64 @rb_io_flush_raw(i64 noundef %0, i32 noundef 0) #22
-  %21 = getelementptr inbounds i8, ptr %13, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %3, align 8
   %23 = call i64 @rb_thread_io_blocking_region(ptr noundef nonnull @nogvl_ftruncate, ptr noundef nonnull %3, i32 noundef %22) #22
@@ -7256,7 +7256,7 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
 25:                                               ; preds = %19
   %26 = call ptr @rb_errno_ptr() #22
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %13, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %29 = load i64, ptr %28, align 8
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_truncate, i32 noundef %27, i64 noundef %29) #24
   unreachable
@@ -7284,17 +7284,17 @@ rb_num2int_inline.exit:                           ; preds = %5, %7
   %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ]
   %.0.i.fr = freeze i64 %.0.i
   %9 = trunc i64 %.0.i.fr to i32
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %9, ptr %10, align 4
   %11 = tail call i64 @rb_io_taint_check(i64 noundef %0) #22
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @rb_io_check_closed(ptr noundef %14) #22
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %3, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 2
   %.not = icmp eq i32 %19, 0
@@ -7351,7 +7351,7 @@ rb_num2int_inline.exit:                           ; preds = %5, %7
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i32 [ %28, %.lr.ph.split.us ], [ %34, %.lr.ph.split ]
-  %35 = getelementptr inbounds i8, ptr %14, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %36 = load i64, ptr %35, align 8
   call void @rb_syserr_fail_path_in(ptr noundef nonnull @__func__.rb_file_flock, i32 noundef %.us-phi, i64 noundef %36) #24
   unreachable
@@ -7423,7 +7423,7 @@ define internal i64 @rb_f_test(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   br i1 %38, label %39, label %.critedge.i
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %35, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %43, label %.critedge.i
@@ -7431,7 +7431,7 @@ define internal i64 @rb_f_test(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
 43:                                               ; preds = %39
   %44 = and i64 %36, 8192
   %.not.i.i.i = icmp eq i64 %44, 0
-  %45 = getelementptr inbounds i8, ptr %35, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %46
 
 46:                                               ; preds = %43
@@ -7505,7 +7505,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %20)
   %61 = call fastcc i32 @rb_stat(i64 noundef %60, ptr noundef %20)
   %62 = icmp slt i32 %61, 0
-  %63 = getelementptr inbounds i8, ptr %20, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 61440
   %66 = icmp eq i32 %65, 24576
@@ -7520,7 +7520,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19)
   %70 = call fastcc i32 @rb_stat(i64 noundef %69, ptr noundef %19)
   %71 = icmp slt i32 %70, 0
-  %72 = getelementptr inbounds i8, ptr %19, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 61440
   %75 = icmp eq i32 %74, 8192
@@ -7535,7 +7535,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18)
   %79 = call fastcc i32 @rb_stat(i64 noundef %78, ptr noundef %18)
   %80 = icmp slt i32 %79, 0
-  %81 = getelementptr inbounds i8, ptr %18, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = and i32 %82, 61440
   %84 = icmp eq i32 %83, 16384
@@ -7560,7 +7560,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16)
   %93 = call fastcc i32 @rb_stat(i64 noundef %92, ptr noundef %16)
   %94 = icmp slt i32 %93, 0
-  %95 = getelementptr inbounds i8, ptr %16, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %96 = load i32, ptr %95, align 8
   %97 = and i32 %96, 61440
   %98 = icmp eq i32 %97, 32768
@@ -7575,7 +7575,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15)
   %103 = call fastcc i32 @rb_stat(i64 noundef %102, ptr noundef %15)
   %104 = icmp slt i32 %103, 0
-  %105 = getelementptr inbounds i8, ptr %15, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %106 = load i32, ptr %105, align 8
   %107 = and i32 %106, 1024
   %.not.i.i100 = icmp eq i32 %107, 0
@@ -7593,7 +7593,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   br i1 %113, label %rb_file_grpowned_p.exit, label %114
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds i8, ptr %14, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %116 = load i32, ptr %115, align 8
   %117 = call fastcc i32 @rb_group_member(i32 noundef %116)
   %.not.i = icmp eq i32 %117, 0
@@ -7611,7 +7611,7 @@ rb_file_grpowned_p.exit:                          ; preds = %109, %114
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13)
   %121 = call fastcc i32 @rb_stat(i64 noundef %120, ptr noundef %13)
   %122 = icmp slt i32 %121, 0
-  %123 = getelementptr inbounds i8, ptr %13, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %124 = load i32, ptr %123, align 8
   %125 = and i32 %124, 512
   %.not.i.i104 = icmp eq i32 %125, 0
@@ -7635,7 +7635,7 @@ rb_file_grpowned_p.exit:                          ; preds = %109, %114
   br i1 %135, label %rb_file_owned_p.exit, label %136
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds i8, ptr %12, i64 28
+  %137 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %138 = load i32, ptr %137, align 4
   %139 = call i32 @geteuid() #22
   %140 = icmp eq i32 %138, %139
@@ -7656,7 +7656,7 @@ rb_file_owned_p.exit:                             ; preds = %131, %136
   br i1 %146, label %rb_file_rowned_p.exit, label %147
 
 147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %11, i64 28
+  %148 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %149 = load i32, ptr %148, align 4
   %150 = call i32 @getuid() #22
   %151 = icmp eq i32 %149, %150
@@ -7674,7 +7674,7 @@ rb_file_rowned_p.exit:                            ; preds = %142, %147
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
   %156 = call fastcc i32 @rb_stat(i64 noundef %155, ptr noundef %10)
   %157 = icmp slt i32 %156, 0
-  %158 = getelementptr inbounds i8, ptr %10, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %159 = load i32, ptr %158, align 8
   %160 = and i32 %159, 61440
   %161 = icmp eq i32 %160, 4096
@@ -7708,7 +7708,7 @@ rb_file_rowned_p.exit:                            ; preds = %142, %147
   br i1 %178, label %rb_file_size_p.exit, label %179
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %9, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %181 = load i64, ptr %180, align 8
   %182 = icmp eq i64 %181, 0
   br i1 %182, label %rb_file_size_p.exit, label %183
@@ -7738,7 +7738,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
   %193 = call fastcc i32 @rb_stat(i64 noundef %192, ptr noundef %8)
   %194 = icmp slt i32 %193, 0
-  %195 = getelementptr inbounds i8, ptr %8, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %196 = load i32, ptr %195, align 8
   %197 = and i32 %196, 61440
   %198 = icmp eq i32 %197, 49152
@@ -7753,7 +7753,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   %202 = call fastcc i32 @rb_stat(i64 noundef %201, ptr noundef %7)
   %203 = icmp slt i32 %202, 0
-  %204 = getelementptr inbounds i8, ptr %7, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %205 = load i32, ptr %204, align 8
   %206 = and i32 %205, 2048
   %.not.i.i113 = icmp eq i32 %206, 0
@@ -7800,7 +7800,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   %235 = call fastcc i32 @rb_stat(i64 noundef %234, ptr noundef %6)
   %236 = icmp slt i32 %235, 0
-  %237 = getelementptr inbounds i8, ptr %6, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %238 = load i64, ptr %237, align 8
   %239 = icmp eq i64 %238, 0
   %240 = select i1 %239, i64 20, i64 0
@@ -7843,25 +7843,25 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   ]
 
 254:                                              ; preds = %253
-  %255 = getelementptr inbounds i8, ptr %21, i64 72
+  %255 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %.val92 = load i64, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %21, i64 80
+  %256 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %.val93 = load i64, ptr %256, align 8
   %257 = call i64 @rb_time_nano_new(i64 noundef %.val92, i64 noundef %.val93) #22
   br label %329
 
 258:                                              ; preds = %253
-  %259 = getelementptr inbounds i8, ptr %21, i64 88
+  %259 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %.val90 = load i64, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %21, i64 96
+  %260 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %.val91 = load i64, ptr %260, align 8
   %261 = call i64 @rb_time_nano_new(i64 noundef %.val90, i64 noundef %.val91) #22
   br label %329
 
 262:                                              ; preds = %253
-  %263 = getelementptr inbounds i8, ptr %21, i64 104
+  %263 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %.val = load i64, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %21, i64 112
+  %264 = getelementptr inbounds nuw i8, ptr %21, i64 112
   %.val85 = load i64, ptr %264, align 8
   %265 = call i64 @rb_time_nano_new(i64 noundef %.val, i64 noundef %.val85) #22
   br label %329
@@ -7894,9 +7894,9 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   br i1 %.not.i116, label %281, label %rb_file_identical_p.exit
 
 281:                                              ; preds = %278
-  %282 = getelementptr inbounds i8, ptr %4, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %283 = load i64, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %5, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %285 = load i64, ptr %284, align 8
   %.not3.i = icmp eq i64 %283, %285
   %..i118 = select i1 %.not3.i, i64 20, i64 0
@@ -7934,13 +7934,13 @@ rb_file_identical_p.exit:                         ; preds = %268, %275, %278, %2
   br i1 %300, label %329, label %301
 
 301:                                              ; preds = %296
-  %302 = getelementptr inbounds i8, ptr %24, i64 88
+  %302 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %.val86 = load i64, ptr %302, align 8
-  %303 = getelementptr inbounds i8, ptr %24, i64 96
+  %303 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %.val87 = load i64, ptr %303, align 8
-  %304 = getelementptr inbounds i8, ptr %25, i64 88
+  %304 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %.val88 = load i64, ptr %304, align 8
-  %305 = getelementptr inbounds i8, ptr %25, i64 96
+  %305 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %.val89 = load i64, ptr %305, align 8
   switch i8 %.022.i, label %319 [
     i8 61, label %306
@@ -8075,7 +8075,7 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
 29:                                               ; preds = %rb_get_path.exit
   %30 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false)
-  %31 = getelementptr inbounds i8, ptr %30, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 144
   store i8 1, ptr %31, align 8
   ret i64 4
 }
@@ -8105,7 +8105,7 @@ define internal range(i64 -1, 5) i64 @rb_stat_cmp(i64 noundef %0, i64 noundef %1
 
 5:                                                ; preds = %2
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %get_stat.exit, label %10
@@ -8121,7 +8121,7 @@ get_stat.exit:                                    ; preds = %5
   %13 = getelementptr i8, ptr %6, i64 96
   %.val16 = load i64, ptr %13, align 8
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @stat_data_type) #22
-  %15 = getelementptr inbounds i8, ptr %14, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %get_stat.exit19, label %18
@@ -8161,7 +8161,7 @@ get_stat.exit19:                                  ; preds = %get_stat.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_dev(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8193,7 +8193,7 @@ rb_ulong2num_inline.exit:                         ; preds = %10, %13
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_dev_major(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8215,7 +8215,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_dev_minor(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8237,7 +8237,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_ino(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8248,7 +8248,7 @@ define internal i64 @rb_stat_ino(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 4611686018427387904
   br i1 %10, label %11, label %14
@@ -8270,7 +8270,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_mode(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8281,7 +8281,7 @@ define internal range(i64 1, 8589934592) i64 @rb_stat_mode(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 1
@@ -8292,7 +8292,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_nlink(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8303,7 +8303,7 @@ define internal i64 @rb_stat_nlink(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 4611686018427387904
   br i1 %10, label %11, label %14
@@ -8325,7 +8325,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_uid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8336,7 +8336,7 @@ define internal range(i64 1, 8589934592) i64 @rb_stat_uid(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 1
@@ -8347,7 +8347,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_gid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8358,7 +8358,7 @@ define internal range(i64 1, 8589934592) i64 @rb_stat_gid(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 1
@@ -8369,7 +8369,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_rdev(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8380,7 +8380,7 @@ define internal i64 @rb_stat_rdev(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 4611686018427387904
   br i1 %10, label %11, label %14
@@ -8402,7 +8402,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_rdev_major(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8413,7 +8413,7 @@ define internal range(i64 1, 8589934592) i64 @rb_stat_rdev_major(i64 noundef %0)
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 @gnu_dev_major(i64 noundef %9) #28
   %11 = zext i32 %10 to i64
@@ -8425,7 +8425,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @rb_stat_rdev_minor(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8436,7 +8436,7 @@ define internal range(i64 1, 8589934592) i64 @rb_stat_rdev_minor(i64 noundef %0)
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 @gnu_dev_minor(i64 noundef %9) #28
   %11 = zext i32 %10 to i64
@@ -8448,7 +8448,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8459,7 +8459,7 @@ define internal i64 @rb_stat_size(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 4611686018427387904
   %or.cond.i = icmp sgt i64 %10, -1
@@ -8482,7 +8482,7 @@ rb_long2num_inline.exit:                          ; preds = %11, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_blksize(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8493,7 +8493,7 @@ define internal i64 @rb_stat_blksize(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 4611686018427387904
   br i1 %10, label %11, label %14
@@ -8515,7 +8515,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_blocks(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8526,7 +8526,7 @@ define internal i64 @rb_stat_blocks(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, 4611686018427387904
   br i1 %10, label %11, label %14
@@ -8548,7 +8548,7 @@ rb_ulong2num_inline.exit:                         ; preds = %11, %14
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_atime(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8570,7 +8570,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_mtime(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8592,7 +8592,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_ctime(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8617,7 +8617,7 @@ declare i64 @rb_f_notimplement(i32 noundef, ptr noundef, i64 noundef, i64 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_inspect(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
@@ -8649,7 +8649,7 @@ define internal i64 @rb_stat_inspect(i64 noundef %0) #0 {
   %20 = load ptr, ptr %19, align 16
   %21 = tail call i64 @rb_str_cat_cstr(i64 noundef %11, ptr noundef %20) #22
   %22 = tail call i64 @rb_str_cat(i64 noundef %11, ptr noundef nonnull @.str.151, i64 noundef 1) #22
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 %24(i64 noundef %0) #22
   switch i64 %.02731, label %40 [
@@ -8716,7 +8716,7 @@ rb_num2ulong_inline.exit30:                       ; preds = %35, %37
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_ftype(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8737,7 +8737,7 @@ get_stat.exit:                                    ; preds = %1
 switch.lookup:                                    ; preds = %get_stat.exit
   %12 = lshr exact i32 %10, 12
   %13 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.rb_stat_ftype, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.rb_stat_ftype, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rb_file_ftype.exit
 
@@ -8750,7 +8750,7 @@ rb_file_ftype.exit:                               ; preds = %get_stat.exit, %swi
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_d(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8761,7 +8761,7 @@ define internal range(i64 0, 21) i64 @rb_stat_d(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 16384
@@ -8772,7 +8772,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_r(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8789,7 +8789,7 @@ get_stat.exit:                                    ; preds = %1
 
 10:                                               ; preds = %get_stat.exit
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %rb_stat_owned.exit, label %15
@@ -8800,14 +8800,14 @@ get_stat.exit:                                    ; preds = %1
   unreachable
 
 rb_stat_owned.exit:                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @geteuid() #22
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %20, label %25
 
 20:                                               ; preds = %rb_stat_owned.exit
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 256
   %.not9 = icmp eq i32 %23, 0
@@ -8816,7 +8816,7 @@ rb_stat_owned.exit:                               ; preds = %10
 
 25:                                               ; preds = %rb_stat_owned.exit
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %rb_stat_grpowned.exit, label %30
@@ -8827,11 +8827,11 @@ rb_stat_owned.exit:                               ; preds = %10
   unreachable
 
 rb_stat_grpowned.exit:                            ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33)
   %.not.i = icmp eq i32 %34, 0
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8
   br i1 %.not.i, label %40, label %37
 
@@ -8855,7 +8855,7 @@ rb_stat_grpowned.exit:                            ; preds = %25
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_R(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8872,7 +8872,7 @@ get_stat.exit:                                    ; preds = %1
 
 10:                                               ; preds = %get_stat.exit
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %rb_stat_rowned.exit, label %15
@@ -8883,14 +8883,14 @@ get_stat.exit:                                    ; preds = %1
   unreachable
 
 rb_stat_rowned.exit:                              ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @getuid() #22
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %20, label %25
 
 20:                                               ; preds = %rb_stat_rowned.exit
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 256
   %.not9 = icmp eq i32 %23, 0
@@ -8899,7 +8899,7 @@ rb_stat_rowned.exit:                              ; preds = %10
 
 25:                                               ; preds = %rb_stat_rowned.exit
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %get_stat.exit10, label %30
@@ -8910,11 +8910,11 @@ rb_stat_rowned.exit:                              ; preds = %10
   unreachable
 
 get_stat.exit10:                                  ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33)
   %.not6 = icmp eq i32 %34, 0
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8
   br i1 %.not6, label %40, label %37
 
@@ -8938,7 +8938,7 @@ get_stat.exit10:                                  ; preds = %25
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 1024) i64 @rb_stat_wr(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8949,7 +8949,7 @@ define internal range(i64 1, 1024) i64 @rb_stat_wr(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 4
   %.not = icmp eq i32 %10, 0
@@ -8964,7 +8964,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_w(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -8981,7 +8981,7 @@ get_stat.exit:                                    ; preds = %1
 
 10:                                               ; preds = %get_stat.exit
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %rb_stat_owned.exit, label %15
@@ -8992,14 +8992,14 @@ get_stat.exit:                                    ; preds = %1
   unreachable
 
 rb_stat_owned.exit:                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @geteuid() #22
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %20, label %25
 
 20:                                               ; preds = %rb_stat_owned.exit
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 128
   %.not9 = icmp eq i32 %23, 0
@@ -9008,7 +9008,7 @@ rb_stat_owned.exit:                               ; preds = %10
 
 25:                                               ; preds = %rb_stat_owned.exit
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %rb_stat_grpowned.exit, label %30
@@ -9019,11 +9019,11 @@ rb_stat_owned.exit:                               ; preds = %10
   unreachable
 
 rb_stat_grpowned.exit:                            ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33)
   %.not.i = icmp eq i32 %34, 0
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8
   br i1 %.not.i, label %40, label %37
 
@@ -9047,7 +9047,7 @@ rb_stat_grpowned.exit:                            ; preds = %25
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_W(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9064,7 +9064,7 @@ get_stat.exit:                                    ; preds = %1
 
 10:                                               ; preds = %get_stat.exit
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %rb_stat_rowned.exit, label %15
@@ -9075,14 +9075,14 @@ get_stat.exit:                                    ; preds = %1
   unreachable
 
 rb_stat_rowned.exit:                              ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @getuid() #22
   %.not = icmp eq i32 %18, %19
   br i1 %.not, label %20, label %25
 
 20:                                               ; preds = %rb_stat_rowned.exit
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 128
   %.not9 = icmp eq i32 %23, 0
@@ -9091,7 +9091,7 @@ rb_stat_rowned.exit:                              ; preds = %10
 
 25:                                               ; preds = %rb_stat_rowned.exit
   %26 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %get_stat.exit10, label %30
@@ -9102,11 +9102,11 @@ rb_stat_rowned.exit:                              ; preds = %10
   unreachable
 
 get_stat.exit10:                                  ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = tail call fastcc i32 @rb_group_member(i32 noundef %33)
   %.not6 = icmp eq i32 %34, 0
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = load i32, ptr %35, align 8
   br i1 %.not6, label %40, label %37
 
@@ -9130,7 +9130,7 @@ get_stat.exit10:                                  ; preds = %25
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 1024) i64 @rb_stat_ww(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9141,7 +9141,7 @@ define internal range(i64 1, 1024) i64 @rb_stat_ww(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2
   %.not = icmp eq i32 %10, 0
@@ -9156,7 +9156,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_x(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9172,14 +9172,14 @@ get_stat.exit:                                    ; preds = %1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %get_stat.exit
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 73
   br label %44
 
 14:                                               ; preds = %get_stat.exit
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %rb_stat_owned.exit, label %19
@@ -9190,21 +9190,21 @@ get_stat.exit:                                    ; preds = %1
   unreachable
 
 rb_stat_owned.exit:                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @geteuid() #22
   %.not = icmp eq i32 %22, %23
   br i1 %.not, label %24, label %28
 
 24:                                               ; preds = %rb_stat_owned.exit
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 64
   br label %44
 
 28:                                               ; preds = %rb_stat_owned.exit
   %29 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %30 = getelementptr inbounds i8, ptr %29, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %rb_stat_grpowned.exit, label %33
@@ -9215,11 +9215,11 @@ rb_stat_owned.exit:                               ; preds = %14
   unreachable
 
 rb_stat_grpowned.exit:                            ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %29, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = tail call fastcc i32 @rb_group_member(i32 noundef %36)
   %.not.i = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %39 = load i32, ptr %38, align 8
   br i1 %.not.i, label %42, label %40
 
@@ -9241,7 +9241,7 @@ rb_stat_grpowned.exit:                            ; preds = %28
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_X(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9257,14 +9257,14 @@ get_stat.exit:                                    ; preds = %1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %get_stat.exit
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 73
   br label %44
 
 14:                                               ; preds = %get_stat.exit
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %rb_stat_rowned.exit, label %19
@@ -9275,21 +9275,21 @@ get_stat.exit:                                    ; preds = %1
   unreachable
 
 rb_stat_rowned.exit:                              ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = tail call i32 @getuid() #22
   %.not = icmp eq i32 %22, %23
   br i1 %.not, label %24, label %28
 
 24:                                               ; preds = %rb_stat_rowned.exit
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 64
   br label %44
 
 28:                                               ; preds = %rb_stat_rowned.exit
   %29 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %30 = getelementptr inbounds i8, ptr %29, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %get_stat.exit12, label %33
@@ -9300,11 +9300,11 @@ rb_stat_rowned.exit:                              ; preds = %14
   unreachable
 
 get_stat.exit12:                                  ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %29, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = tail call fastcc i32 @rb_group_member(i32 noundef %36)
   %.not7 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %39 = load i32, ptr %38, align 8
   br i1 %.not7, label %42, label %40
 
@@ -9326,7 +9326,7 @@ get_stat.exit12:                                  ; preds = %28
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_f(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9337,7 +9337,7 @@ define internal range(i64 0, 21) i64 @rb_stat_f(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 32768
@@ -9348,7 +9348,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_z(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9359,7 +9359,7 @@ define internal range(i64 0, 21) i64 @rb_stat_z(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   %. = select i1 %10, i64 20, i64 0
@@ -9369,7 +9369,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_stat_s(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9380,7 +9380,7 @@ define internal i64 @rb_stat_s(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %rb_long2num_inline.exit, label %11
@@ -9407,7 +9407,7 @@ rb_long2num_inline.exit:                          ; preds = %16, %13, %get_stat.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_owned(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9418,7 +9418,7 @@ define internal range(i64 0, 21) i64 @rb_stat_owned(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 @geteuid() #22
   %11 = icmp eq i32 %9, %10
@@ -9429,7 +9429,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_grpowned(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9440,7 +9440,7 @@ define internal range(i64 0, 21) i64 @rb_stat_grpowned(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = tail call fastcc i32 @rb_group_member(i32 noundef %9)
   %.not = icmp eq i32 %10, 0
@@ -9451,7 +9451,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9462,7 +9462,7 @@ define internal range(i64 0, 21) i64 @rb_stat_p(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 4096
@@ -9473,7 +9473,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_l(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9484,7 +9484,7 @@ define internal range(i64 0, 21) i64 @rb_stat_l(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 40960
@@ -9495,7 +9495,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_S(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9506,7 +9506,7 @@ define internal range(i64 0, 21) i64 @rb_stat_S(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 49152
@@ -9517,7 +9517,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_b(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9528,7 +9528,7 @@ define internal range(i64 0, 21) i64 @rb_stat_b(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 24576
@@ -9539,7 +9539,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_c(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9550,7 +9550,7 @@ define internal range(i64 0, 21) i64 @rb_stat_c(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 61440
   %11 = icmp eq i32 %10, 8192
@@ -9561,7 +9561,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_suid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9572,7 +9572,7 @@ define internal range(i64 0, 21) i64 @rb_stat_suid(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2048
   %.not = icmp eq i32 %10, 0
@@ -9583,7 +9583,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_sgid(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9594,7 +9594,7 @@ define internal range(i64 0, 21) i64 @rb_stat_sgid(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 1024
   %.not = icmp eq i32 %10, 0
@@ -9605,7 +9605,7 @@ get_stat.exit:                                    ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_stat_sticky(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @stat_data_type) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %get_stat.exit, label %6
@@ -9616,7 +9616,7 @@ define internal range(i64 0, 21) i64 @rb_stat_sticky(i64 noundef %0) #0 {
   unreachable
 
 get_stat.exit:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 512
   %.not = icmp eq i32 %10, 0
@@ -9652,7 +9652,7 @@ declare i64 @rb_thread_io_blocking_region(ptr noundef, ptr noundef, i32 noundef)
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @no_gvl_fstat(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @fstat(i32 noundef %3, ptr noundef %4) #22
@@ -9664,7 +9664,7 @@ declare ptr @rb_thread_call_without_gvl(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef ptr @no_gvl_stat(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @stat(ptr noundef %3, ptr noundef %4) #22
@@ -9678,13 +9678,13 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @io_blocking_statx(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 @statx(i32 noundef %3, ptr noundef %5, i32 noundef %7, i32 noundef %9, ptr noundef %10) #22
@@ -9697,13 +9697,13 @@ declare i32 @statx(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr nound
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @no_gvl_statx(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i32 @statx(i32 noundef %3, ptr noundef %5, i32 noundef %7, i32 noundef %9, ptr noundef %10) #22
@@ -9726,9 +9726,9 @@ declare i64 @rb_num2long(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef ptr @nogvl_readlink(ptr nocapture noundef readonly %0) #12 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @readlink(ptr noundef %2, ptr noundef %4, i64 noundef %6) #22
   %8 = inttoptr i64 %7 to ptr
@@ -9825,7 +9825,7 @@ rb_get_path.exit:                                 ; preds = %21, %rbimpl_intern_
   %37 = load i64, ptr %36, align 8, !noalias !182
   %38 = and i64 %37, 8192
   %.not.i = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %40
 
 40:                                               ; preds = %34
@@ -9834,7 +9834,7 @@ rb_get_path.exit:                                 ; preds = %21, %rbimpl_intern_
 
 rbimpl_rstring_getmem.exit:                       ; preds = %34, %40
   %.sroa.393.0 = phi ptr [ %.sroa.393.0.copyload, %40 ], [ %39, %34 ]
-  %.sroa.192.0.in = getelementptr inbounds i8, ptr %36, i64 16
+  %.sroa.192.0.in = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.sroa.192.0 = load i64, ptr %.sroa.192.0.in, align 8
   %41 = getelementptr i8, ptr %.sroa.393.0, i64 %.sroa.192.0
   %42 = call ptr @rb_enc_get(i64 noundef %14) #22
@@ -9867,7 +9867,7 @@ skipprefixroot.exit:                              ; preds = %.lr.ph.i.i, %46, %r
   %53 = load i64, ptr %52, align 8, !noalias !185
   %54 = and i64 %53, 8192
   %.not.i65 = icmp eq i64 %54, 0
-  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %.not.i65, label %rbimpl_rstring_getmem.exit66, label %56
 
 56:                                               ; preds = %51
@@ -9876,7 +9876,7 @@ skipprefixroot.exit:                              ; preds = %.lr.ph.i.i, %46, %r
 
 rbimpl_rstring_getmem.exit66:                     ; preds = %51, %56
   %.sroa.389.0 = phi ptr [ %.sroa.389.0.copyload, %56 ], [ %55, %51 ]
-  %.sroa.188.0.in = getelementptr inbounds i8, ptr %52, i64 16
+  %.sroa.188.0.in = getelementptr inbounds nuw i8, ptr %52, i64 16
   %.sroa.188.0 = load i64, ptr %.sroa.188.0.in, align 8
   %57 = getelementptr i8, ptr %.sroa.389.0, i64 %.sroa.188.0
   %58 = call ptr @rb_enc_get(i64 noundef %49) #22
@@ -9911,7 +9911,7 @@ skipprefixroot.exit72:                            ; preds = %.lr.ph.i.i69, %62, 
   %69 = load i64, ptr %68, align 8, !noalias !188
   %70 = and i64 %69, 8192
   %.not.i73 = icmp eq i64 %70, 0
-  %71 = getelementptr inbounds i8, ptr %68, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
   br i1 %.not.i73, label %rbimpl_rstring_getmem.exit74, label %72
 
 72:                                               ; preds = %66
@@ -9920,7 +9920,7 @@ skipprefixroot.exit72:                            ; preds = %.lr.ph.i.i69, %62, 
 
 rbimpl_rstring_getmem.exit74:                     ; preds = %66, %72
   %.sroa.385.0 = phi ptr [ %.sroa.385.0.copyload, %72 ], [ %71, %66 ]
-  %.sroa.184.0.in = getelementptr inbounds i8, ptr %68, i64 16
+  %.sroa.184.0.in = getelementptr inbounds nuw i8, ptr %68, i64 16
   %.sroa.184.0 = load i64, ptr %.sroa.184.0.in, align 8
   %73 = getelementptr i8, ptr %.sroa.385.0, i64 %.sroa.184.0
   %74 = call ptr @rb_enc_get(i64 noundef %67) #22
@@ -9953,7 +9953,7 @@ skipprefixroot.exit80:                            ; preds = %78, %.lr.ph.i.i77, 
   %85 = load i64, ptr %84, align 8, !noalias !191
   %86 = and i64 %85, 8192
   %.not.i81 = icmp eq i64 %86, 0
-  %87 = getelementptr inbounds i8, ptr %84, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
   br i1 %.not.i81, label %rbimpl_rstring_getmem.exit82, label %88
 
 88:                                               ; preds = %skipprefixroot.exit80
@@ -9962,7 +9962,7 @@ skipprefixroot.exit80:                            ; preds = %78, %.lr.ph.i.i77, 
 
 rbimpl_rstring_getmem.exit82:                     ; preds = %skipprefixroot.exit80, %88
   %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %88 ], [ %87, %skipprefixroot.exit80 ]
-  %.sroa.1.0.in = getelementptr inbounds i8, ptr %84, i64 16
+  %.sroa.1.0.in = getelementptr inbounds nuw i8, ptr %84, i64 16
   %.sroa.1.0 = load i64, ptr %.sroa.1.0.in, align 8
   store i64 %.sroa.1.0, ptr %7, align 8
   %89 = getelementptr i8, ptr %.sroa.3.0, i64 %.sroa.1.0
@@ -10105,7 +10105,7 @@ define internal fastcc i64 @rb_file_join(i64 noundef %0) unnamed_addr #0 {
   br label %rb_array_len.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   br label %rb_array_len.exit
 
@@ -10115,8 +10115,8 @@ rb_array_len.exit:                                ; preds = %7, %10
   br i1 %13, label %16, label %.preheader
 
 .preheader:                                       ; preds = %rb_array_len.exit
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %18
 
 16:                                               ; preds = %rb_array_len.exit
@@ -10185,7 +10185,7 @@ rb_enc_asciicompat.exit.thread.i:                 ; preds = %rb_enc_asciicompat.
   unreachable
 
 check_path_encoding.exit:                         ; preds = %rb_enc_asciicompat.exit.i
-  %45 = getelementptr inbounds i8, ptr %34, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %46 = load i64, ptr %45, align 8
   %.pre.pre = load i64, ptr %4, align 8
   br label %.critedge
@@ -10203,10 +10203,10 @@ check_path_encoding.exit:                         ; preds = %rb_enc_asciicompat.
   %50 = add i64 %49, %.0.i7195
   %51 = tail call i64 @rb_str_buf_new(i64 noundef %50) #22
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 0, ptr %53, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 24
-  %.sroa.1.0.in = getelementptr inbounds i8, ptr %52, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %.sroa.1.0.in = getelementptr inbounds nuw i8, ptr %52, i64 16
   br label %54
 
 54:                                               ; preds = %fs_enc_check.exit, %48
@@ -10394,7 +10394,7 @@ chompdirsep.exit:                                 ; preds = %.critedge.thread.i,
   %122 = load i64, ptr %121, align 8, !noalias !200
   %123 = and i64 %122, 8192
   %.not.i.i88 = icmp eq i64 %123, 0
-  %124 = getelementptr inbounds i8, ptr %121, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 24
   br i1 %.not.i.i88, label %RSTRING_PTR.exit92, label %RSTRING_PTR.exit
 
 RSTRING_PTR.exit:                                 ; preds = %chompdirsep.exit
@@ -10506,8 +10506,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %7
   br i1 %18, label %.lr.ph.i131.preheader.lr.ph, label %.loopexit
 
 .lr.ph.i131.preheader.lr.ph:                      ; preds = %rbimpl_intern_const.exit
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %.lr.ph.i131.preheader
 
 .lr.ph.i131.preheader:                            ; preds = %.lr.ph.i131.preheader.lr.ph, %199
@@ -10573,7 +10573,7 @@ rb_enc_path_next.exit:                            ; preds = %.lr.ph.i131, %22
   %47 = load i64, ptr %0, align 8
   %48 = load i64, ptr %1, align 8
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = icmp slt i64 %47, %51
   br i1 %52, label %53, label %199
@@ -10582,7 +10582,7 @@ rb_enc_path_next.exit:                            ; preds = %.lr.ph.i131, %22
   %54 = load i64, ptr %49, align 8, !noalias !205
   %55 = and i64 %54, 8192
   %.not.i.i = icmp eq i64 %55, 0
-  %56 = getelementptr inbounds i8, ptr %49, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %57
 
 57:                                               ; preds = %53
@@ -10644,7 +10644,7 @@ rb_enc_path_last_separator.exit:                  ; preds = %.critedge.thread.i,
   %82 = call i64 @rb_str_dup(i64 noundef %81) #22
   %83 = load i64, ptr %0, align 8
   %84 = inttoptr i64 %82 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i64, ptr %85, align 8
   %87 = icmp slt i64 %83, %86
   br i1 %87, label %88, label %90
@@ -10686,7 +10686,7 @@ rb_enc_path_last_separator.exit:                  ; preds = %.critedge.thread.i,
   %105 = load i64, ptr %84, align 8, !noalias !208
   %106 = and i64 %105, 8192
   %.not.i.i134 = icmp eq i64 %106, 0
-  %107 = getelementptr inbounds i8, ptr %84, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %84, i64 24
   br i1 %.not.i.i134, label %RSTRING_PTR.exit137, label %108
 
 108:                                              ; preds = %104
@@ -10720,7 +10720,7 @@ RSTRING_PTR.exit137:                              ; preds = %104, %108
   %121 = load i64, ptr %120, align 8, !noalias !211
   %122 = and i64 %121, 8192
   %.not.i.i138 = icmp eq i64 %122, 0
-  %123 = getelementptr inbounds i8, ptr %120, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 24
   br i1 %.not.i.i138, label %RSTRING_PTR.exit141, label %124
 
 124:                                              ; preds = %119
@@ -10730,7 +10730,7 @@ RSTRING_PTR.exit137:                              ; preds = %104, %108
 RSTRING_PTR.exit141:                              ; preds = %119, %124
   %.sroa.2.0.i140 = phi ptr [ %.sroa.2.0.copyload.i139, %124 ], [ %123, %119 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %125 = getelementptr inbounds i8, ptr %8, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.2.0.i140, ptr %125, align 8
   store ptr %10, ptr %8, align 8
   %126 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @no_gvl_stat, ptr noundef nonnull %8, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
@@ -10791,7 +10791,7 @@ RSTRING_PTR.exit141:                              ; preds = %119, %124
   %152 = load i64, ptr %151, align 8, !noalias !214
   %153 = and i64 %152, 8192
   %.not.i.i142 = icmp eq i64 %153, 0
-  %154 = getelementptr inbounds i8, ptr %151, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 24
   br i1 %.not.i.i142, label %RSTRING_PTR.exit145, label %155
 
 155:                                              ; preds = %147
@@ -10800,7 +10800,7 @@ RSTRING_PTR.exit141:                              ; preds = %119, %124
 
 RSTRING_PTR.exit145:                              ; preds = %147, %155
   %.sroa.2.0.i144 = phi ptr [ %.sroa.2.0.copyload.i143, %155 ], [ %154, %147 ]
-  %156 = getelementptr inbounds i8, ptr %151, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %157 = load i64, ptr %156, align 8
   %158 = getelementptr i8, ptr %.sroa.2.0.i144, i64 %157
   %159 = call ptr @rb_enc_get(i64 noundef %150) #22
@@ -10910,7 +10910,7 @@ declare i64 @rb_hash_aset(i64 noundef, i64 noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef ptr @no_gvl_lstat(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @lstat(ptr noundef %3, ptr noundef %4) #22
@@ -11026,7 +11026,7 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
   store volatile i64 %20, ptr %21, align 8
   %22 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #22
   store ptr %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %23, align 8
   %24 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @nogvl_eaccess, ptr noundef nonnull %5, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
   %25 = ptrtoint ptr %24 to i64
@@ -11037,7 +11037,7 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @nogvl_eaccess(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @eaccess(ptr noundef %2, i32 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -11098,7 +11098,7 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
   store volatile i64 %20, ptr %21, align 8
   %22 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #22
   store ptr %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %23, align 8
   %24 = call ptr @rb_thread_call_without_gvl(ptr noundef nonnull @nogvl_access, ptr noundef nonnull %5, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef null) #22
   %25 = ptrtoint ptr %24 to i64
@@ -11109,7 +11109,7 @@ rb_get_path.exit:                                 ; preds = %11, %rbimpl_intern_
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef ptr @nogvl_access(ptr nocapture noundef readonly %0) #12 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @access(ptr noundef %2, i32 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -11224,13 +11224,13 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
 
 .thread:                                          ; preds = %4
   %11 = call noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef nonnull %6, i64 noundef %9) #29
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %0, ptr %15, align 8
   store i32 0, ptr %11, align 8
   br label %.lr.ph
@@ -11238,13 +11238,13 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
 16:                                               ; preds = %4
   store i64 0, ptr %6, align 8
   %17 = alloca i8, i64 %9, align 16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %0, ptr %21, align 16
   store i32 0, ptr %17, align 16
   %22 = icmp sgt i32 %1, 0
@@ -11253,7 +11253,7 @@ define internal fastcc range(i64 1, 0) i64 @apply2files(ptr noundef %0, i32 noun
 .lr.ph:                                           ; preds = %.thread, %16
   %23 = phi ptr [ %12, %.thread ], [ %18, %16 ]
   %24 = phi ptr [ %11, %.thread ], [ %17, %16 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   br label %26
 
 26:                                               ; preds = %.lr.ph, %RSTRING_PTR.exit
@@ -11302,7 +11302,7 @@ rb_get_path.exit:                                 ; preds = %34, %rbimpl_intern_
   %45 = load i64, ptr %44, align 8, !noalias !222
   %46 = and i64 %45, 8192
   %.not.i.i = icmp eq i64 %46, 0
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %48
 
 48:                                               ; preds = %rb_get_path.exit
@@ -11363,7 +11363,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_get_path.exit, %
 define internal i32 @utime_internal(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca [2 x %struct.timeval], align 16
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
@@ -11406,23 +11406,23 @@ define internal i32 @utime_internal(ptr noundef %0, ptr nocapture noundef readon
 20:                                               ; preds = %19
   %21 = load i64, ptr %4, align 8
   store i64 %21, ptr %3, align 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sdiv i64 %23, 1000
   %sext = shl i64 %24, 32
   %25 = ashr exact i64 %sext, 32
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %25, ptr %26, align 8
   %27 = getelementptr i8, ptr %4, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %28, ptr %29, align 16
   %30 = getelementptr i8, ptr %4, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = sdiv i64 %31, 1000
   %sext27 = shl i64 %32, 32
   %33 = ashr exact i64 %sext27, 32
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %33, ptr %34, align 8
   br label %35
 
@@ -11448,16 +11448,16 @@ declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) local
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @no_gvl_apply2files(ptr nocapture noundef initializes((0, 4)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %20
@@ -11474,7 +11474,7 @@ define internal noundef ptr @no_gvl_apply2files(ptr nocapture noundef initialize
 16:                                               ; preds = %8
   %17 = tail call ptr @rb_errno_ptr() #22
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %18, ptr %19, align 8
   br label %.loopexit
 
@@ -11514,7 +11514,7 @@ declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_un
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef i32 @chown_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @chown(ptr noundef %0, i32 noundef %3, i32 noundef %5) #22
   ret i32 %6
@@ -11536,7 +11536,7 @@ declare i32 @lchmod(ptr noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef i32 @lchown_internal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #12 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @lchown(ptr noundef %0, i32 noundef %3, i32 noundef %5) #22
   ret i32 %6
@@ -11589,7 +11589,7 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal noundef ptr @no_gvl_rename(ptr nocapture noundef readonly %0) #12 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @rename(ptr noundef %2, ptr noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -11606,7 +11606,7 @@ declare i32 @umask(i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @nogvl_truncate(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @truncate(ptr noundef %2, i64 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -11620,7 +11620,7 @@ declare i32 @truncate(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @nogvl_mkfifo(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @mkfifo(ptr noundef %2, i32 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -11649,7 +11649,7 @@ declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @io_blocking_fchmod(ptr nocapture noundef readonly %0) #0 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 @fchmod(i32 noundef %2, i32 noundef %4) #22
   %6 = sext i32 %5 to i64
@@ -11662,9 +11662,9 @@ declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @nogvl_fchown(ptr nocapture noundef readonly %0) #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 @fchown(i32 noundef %2, i32 noundef %4, i32 noundef %6) #22
   %8 = sext i32 %7 to i64
@@ -11678,7 +11678,7 @@ declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @nogvl_ftruncate(ptr nocapture noundef readonly %0) #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @ftruncate(i32 noundef %2, i64 noundef %4) #22
   %6 = sext i32 %5 to i64

@@ -752,7 +752,7 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %11, label %95
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.401) #4
   %14 = load ptr, ptr %12, align 8
@@ -1036,7 +1036,7 @@ define internal fastcc void @dissect_uftp_announce(ptr noundef %0, ptr noundef %
   %43 = trunc nuw nsw i64 %42 to i32
   %44 = mul nuw nsw i32 %43, 1000
   store i64 %41, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %44, ptr %.sroa.2.0..sroa_idx, align 8
   %45 = load i32, ptr @hf_uftp_announce_tstamp, align 4
   %46 = call ptr @proto_tree_add_time(ptr noundef %24, i32 noundef %45, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4) #4
@@ -1281,7 +1281,7 @@ define internal fastcc void @dissect_uftp_register(ptr noundef %0, ptr noundef %
   %35 = trunc nuw nsw i64 %34 to i32
   %36 = mul nuw nsw i32 %35, 1000
   store i64 %33, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %36, ptr %.sroa.2.0..sroa_idx, align 8
   %37 = load i32, ptr @hf_uftp_register_tstamp, align 4
   %38 = call ptr @proto_tree_add_time(ptr noundef %25, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull %4) #4
@@ -1659,7 +1659,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
 
 30:                                               ; preds = %22
   %31 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i16 %31 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.415, i32 noundef %34) #4
@@ -1692,7 +1692,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %61 = zext i32 %60 to i64
   %62 = or i64 %51, %61
   store i64 %62, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %4, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %63, align 8
   %64 = load i32, ptr @hf_uftp_fileinfo_ftstamp, align 4
   %65 = call ptr @proto_tree_add_time(ptr noundef %38, i32 noundef %64, ptr noundef %0, i32 noundef 16, i32 noundef 4, ptr noundef nonnull %4) #4
@@ -1702,7 +1702,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
   %69 = trunc nuw nsw i64 %68 to i32
   %70 = mul nuw nsw i32 %69, 1000
   store i64 %67, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %70, ptr %.sroa.2.0..sroa_idx, align 8
   %71 = load i32, ptr @hf_uftp_fileinfo_tstamp, align 4
   %72 = call ptr @proto_tree_add_time(ptr noundef %38, i32 noundef %71, ptr noundef %0, i32 noundef 20, i32 noundef 8, ptr noundef nonnull %5) #4
@@ -1780,7 +1780,7 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
 
 22:                                               ; preds = %20
   %23 = zext i16 %21 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.415, i32 noundef %23) #4
   br label %26
@@ -1807,7 +1807,7 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = mul nuw nsw i32 %45, 1000
   store i64 %43, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %46, ptr %.sroa.2.0..sroa_idx, align 8
   %47 = load i32, ptr @hf_uftp_fileinfoack_tstamp, align 4
   %48 = call ptr @proto_tree_add_time(ptr noundef %30, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4) #4
@@ -1870,7 +1870,7 @@ define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %20 to i32
   %26 = zext i16 %21 to i32
@@ -2029,7 +2029,7 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
 
 22:                                               ; preds = %19
   %23 = zext i16 %20 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i16 %21 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.417, i32 noundef %23, i32 noundef %26) #4
@@ -2108,7 +2108,7 @@ define internal fastcc void @dissect_uftp_status(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %9
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = zext i16 %20 to i32
   %25 = zext i16 %21 to i32
@@ -2195,7 +2195,7 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %19
   %22 = zext i16 %20 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.415, i32 noundef %22) #4
   br label %25
@@ -2707,7 +2707,7 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %47 = trunc nuw nsw i64 %46 to i32
   %48 = mul nuw nsw i32 %47, 1000
   store i64 %45, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %48, ptr %.sroa.2.0..sroa_idx, align 8
   %49 = load i32, ptr @hf_uftp_congctrl_tstamp, align 4
   %50 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %49, ptr noundef %0, i32 noundef 8, i32 noundef 8, ptr noundef nonnull %4) #4
@@ -3131,7 +3131,7 @@ unquantize_rate.exit:                             ; preds = %.lr.ph.i, %20
   %52 = trunc nuw nsw i64 %51 to i32
   %53 = mul nuw nsw i32 %52, 1000
   store i64 %50, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %53, ptr %.sroa.2.0..sroa_idx, align 8
   %54 = load i32, ptr @hf_uftp_tfmccack_tstamp, align 4
   %55 = call ptr @proto_tree_add_time(ptr noundef %33, i32 noundef %54, ptr noundef %0, i32 noundef 12, i32 noundef 8, ptr noundef nonnull %4) #4

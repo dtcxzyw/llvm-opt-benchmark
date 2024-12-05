@@ -115,7 +115,7 @@ define hidden noundef i64 @_ZNK9XRelocate15relocate_objectEP11XForwardingm(ptr n
   %6 = and i64 %5, %2
   %7 = sub i64 %6, %.val.i
   %8 = lshr i64 %7, %.val4.i
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 4294967295
   %12 = trunc i64 %8 to i32
@@ -135,7 +135,7 @@ define hidden noundef i64 @_ZNK9XRelocate15relocate_objectEP11XForwardingm(ptr n
   %26 = ptrtoint ptr %1 to i64
   %27 = add i64 %26, 136
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw %class.XForwardingEntry, ptr %28, i64 %25
   %30 = load volatile i64, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %31 = and i64 %30, 1
@@ -186,7 +186,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit.thread: ; preds = %_ZNK11XForwarding4
   %53 = inttoptr i64 %2 to ptr
   %54 = load i8, ptr @UseCompressedClassPointers, align 1
   %55 = trunc i8 %54 to i1
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   br i1 %55, label %57, label %67
 
 57:                                               ; preds = %52
@@ -207,7 +207,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit.thread: ; preds = %_ZNK11XForwarding4
 
 _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %67, %57
   %.0.i.i.i.i = phi ptr [ %66, %57 ], [ %68, %67 ]
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %82
@@ -224,7 +224,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %67, %57
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %.0.i.i.i.i, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 256
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 256
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %53) #8
   br label %_ZN6XUtils11object_sizeEm.exit.i
@@ -235,7 +235,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %67, %57
 
 84:                                               ; preds = %82
   %85 = select i1 %55, i64 12, i64 16
-  %86 = getelementptr inbounds i8, ptr %53, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %53, i64 %85
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = and i32 %70, 63
@@ -257,7 +257,7 @@ _ZNK7oopDesc5klassEv.exit.i.i.i:                  ; preds = %67, %57
 
 104:                                              ; preds = %82
   %105 = load ptr, ptr %.0.i.i.i.i, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 256
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 256
   %107 = load ptr, ptr %106, align 8
   %108 = tail call noundef i64 %107(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %53) #8
   br label %_ZN6XUtils11object_sizeEm.exit.i
@@ -266,8 +266,8 @@ _ZN6XUtils11object_sizeEm.exit.i:                 ; preds = %104, %84, %77, %74
   %.0.i1.i.i.i = phi i64 [ %81, %77 ], [ %76, %74 ], [ %103, %84 ], [ %108, %104 ]
   %109 = shl i64 %.0.i1.i.i.i, 3
   %110 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 120
-  %112 = getelementptr inbounds i8, ptr %110, i64 792
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 792
   %113 = tail call noundef i64 @_ZN16XObjectAllocator27alloc_object_for_relocationEPK10XPageTablem(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull %112, i64 noundef %109) #8
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %_ZL21relocate_object_innerP11XForwardingmPm.exit.thread, label %115
@@ -292,50 +292,50 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit.thread: ; preds = %_ZN6XUtils11
   ]
 
 118:                                              ; preds = %115
-  %119 = getelementptr inbounds i8, ptr %53, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %116, i64 56
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 56
   store ptr %120, ptr %121, align 8
   br label %122
 
 122:                                              ; preds = %118, %115
-  %123 = getelementptr inbounds i8, ptr %53, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %116, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 48
   store ptr %124, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %122, %115
-  %127 = getelementptr inbounds i8, ptr %53, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %116, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store ptr %128, ptr %129, align 8
   br label %130
 
 130:                                              ; preds = %126, %115
-  %131 = getelementptr inbounds i8, ptr %53, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %116, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr %132, ptr %133, align 8
   br label %134
 
 134:                                              ; preds = %130, %115
-  %135 = getelementptr inbounds i8, ptr %53, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %116, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store ptr %136, ptr %137, align 8
   br label %138
 
 138:                                              ; preds = %134, %115
-  %139 = getelementptr inbounds i8, ptr %53, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %116, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store ptr %140, ptr %141, align 8
   br label %142
 
 142:                                              ; preds = %138, %115
   %143 = load ptr, ptr %56, align 8
-  %144 = getelementptr inbounds i8, ptr %116, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %143, ptr %144, align 8
   br label %145
 
@@ -422,11 +422,11 @@ _ZL17forwarding_insertP11XForwardingmmPm.exit.i:  ; preds = %.loopexit.i.i.i, %1
   %184 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   %185 = and i64 %179, %113
   %186 = lshr i64 %185, 21
-  %187 = getelementptr inbounds i8, ptr %184, i64 800
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 800
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds ptr, ptr %188, i64 %186
+  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %186
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %184, i64 120
+  %191 = getelementptr inbounds nuw i8, ptr %184, i64 120
   tail call void @_ZN16XObjectAllocator32undo_alloc_object_for_relocationEP5XPagemm(ptr noundef nonnull align 8 dereferenceable(56) %191, ptr noundef %190, i64 noundef %113, i64 noundef %109) #8
   br label %_ZL21relocate_object_innerP11XForwardingmPm.exit
 
@@ -531,7 +531,7 @@ _ZL17forwarding_insertP11XForwardingmmPm.exit:    ; preds = %.loopexit.i.i, %194
   %247 = xor i32 %246, %245
   %248 = zext i32 %247 to i64
   %249 = and i64 %235, %248
-  %250 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %249
+  %250 = getelementptr inbounds nuw %class.XForwardingEntry, ptr %28, i64 %249
   %251 = load volatile i64, ptr %250, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %252 = and i64 %251, 1
@@ -592,7 +592,7 @@ define hidden noundef i64 @_ZNK9XRelocate14forward_objectEP11XForwardingm(ptr no
   %6 = and i64 %5, %2
   %7 = sub i64 %6, %.val.i
   %8 = lshr i64 %7, %.val4.i
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 4294967295
   %12 = trunc i64 %8 to i32
@@ -612,7 +612,7 @@ define hidden noundef i64 @_ZNK9XRelocate14forward_objectEP11XForwardingm(ptr no
   %26 = ptrtoint ptr %1 to i64
   %27 = add i64 %26, 136
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw %class.XForwardingEntry, ptr %28, i64 %25
   %30 = load volatile i64, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %31 = and i64 %30, 1
@@ -663,25 +663,25 @@ define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture nound
   %3 = alloca %class.XRelocateTask, align 8
   call void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull @.str) #8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13XRelocateTask, i64 16), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   store ptr %6, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = getelementptr inbounds ptr, ptr %6, i64 %8
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store volatile i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, i8 0, i64 88, i1 false)
   call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %12) #8
-  %13 = getelementptr inbounds i8, ptr %3, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store volatile i64 0, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   call void @_ZN8XWorkers3runEP5XTask(ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull %3) #8
@@ -694,9 +694,9 @@ define hidden void @_ZN9XRelocate8relocateEP14XRelocationSet(ptr nocapture nound
   br i1 %.not.i.i.i, label %_ZN13XRelocateTaskD2Ev.exit, label %_ZL23should_free_target_pageP5XPage.exit.i.i
 
 _ZL23should_free_target_pageP5XPage.exit.i.i:     ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load volatile i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %21, %23
   br i1 %24, label %25, label %_ZN13XRelocateTaskD2Ev.exit
@@ -812,20 +812,20 @@ declare void @_ZN5XTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40), p
 define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #1 comdat align 2 {
   %2 = alloca %class.XRelocateClosure, align 8
   %3 = alloca %class.XRelocateClosure.17, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI23XRelocateSmallAllocatorE, i64 16), ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %12
 
 12:                                               ; preds = %.backedge, %1
@@ -839,14 +839,14 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
   br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %18 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %17, ptr %.011.i.i, ptr nonnull align 8 dereferenceable(16) %10) #8, !srcloc !9
   %19 = icmp eq ptr %18, %.011.i.i
   br i1 %19, label %20, label %14, !llvm.loop !12
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %.011.i.i, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 0
@@ -866,15 +866,15 @@ define linkonce_odr hidden void @_ZN13XRelocateTask4workEv(ptr noundef nonnull a
 _ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit: ; preds = %14
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI24XRelocateMediumAllocatorE, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16XRelocateClosureI23XRelocateSmallAllocatorE, i64 16), ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i, label %_ZN16XRelocateClosureI23XRelocateSmallAllocatorED2Ev.exit, label %_ZL23should_free_target_pageP5XPage.exit.i.i
 
 _ZL23should_free_target_pageP5XPage.exit.i.i:     ; preds = %_ZN18XArrayIteratorImplIP11XForwardingLb1EE4nextEPS1_.exit
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load volatile i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %31, %33
   br i1 %34, label %35, label %_ZN16XRelocateClosureI23XRelocateSmallAllocatorED2Ev.exit
@@ -895,7 +895,7 @@ declare void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16XRelocateClosureI23XRelocateSmallAllocatorE13do_forwardingEP11XForwarding(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = load volatile i8, ptr @_ZN6XAbort13_should_abortE, align 1
   %5 = trunc i8 %4 to i1
@@ -908,7 +908,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI23XRelocateSmallAllocator
   br label %24
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5XPage14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull %0)
   %11 = load i8, ptr @ZVerifyForwarding, align 1
@@ -924,7 +924,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI23XRelocateSmallAllocator
   %16 = load ptr, ptr %3, align 8
   tail call void @_ZN11XForwarding12release_pageEv(ptr noundef nonnull align 8 dereferenceable(134) %16) #8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 133
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 133
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %24, label %21
@@ -941,7 +941,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI23XRelocateSmallAllocator
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocatorE13do_forwardingEP11XForwarding(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = load volatile i8, ptr @_ZN6XAbort13_should_abortE, align 1
   %5 = trunc i8 %4 to i1
@@ -954,7 +954,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   br label %35
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN5XPage14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(136) %10, ptr noundef nonnull %0)
   %11 = load i8, ptr @ZVerifyForwarding, align 1
@@ -970,22 +970,22 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   %16 = load ptr, ptr %3, align 8
   tail call void @_ZN11XForwarding12release_pageEv(ptr noundef nonnull align 8 dereferenceable(134) %16) #8
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 133
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 133
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(112) %23) #8
-  %27 = getelementptr inbounds i8, ptr %23, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 88
   store ptr %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store i8 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %30 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %29) #8
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(112) %23) #8
   br label %35
@@ -1007,9 +1007,9 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI23XRelocateSmallAllocator
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.backedge
@@ -1021,10 +1021,10 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI23XRelocateSmallAllocator
 _ZL10alloc_pagePK11XForwarding.exit.i:            ; preds = %8
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr %12, align 8
   %20 = sub i64 %18, %19
@@ -1044,7 +1044,7 @@ _ZN23XRelocateSmallAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; pr
   store ptr %26, ptr %7, align 8
   tail call void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #8
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 133
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 133
   store i8 1, ptr %28, align 1
   br label %.backedge
 
@@ -1058,7 +1058,7 @@ _ZN23XRelocateSmallAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16XRelocateClosureI23XRelocateSmallAllocatorE15relocate_objectEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.val.i = load i64, ptr %4, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -1067,7 +1067,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16XRelocateClosureI23XRelocat
   %7 = and i64 %6, %1
   %8 = sub i64 %7, %.val.i
   %9 = lshr i64 %8, %.val4.i
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 4294967295
   %13 = trunc i64 %9 to i32
@@ -1087,7 +1087,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16XRelocateClosureI23XRelocat
   %27 = ptrtoint ptr %4 to i64
   %28 = add i64 %27, 136
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds %class.XForwardingEntry, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw %class.XForwardingEntry, ptr %29, i64 %26
   %31 = load volatile i64, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %32 = and i64 %31, 1
@@ -1134,7 +1134,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit.thread: ; preds = %_ZNK11XForwarding4
   %52 = inttoptr i64 %1 to ptr
   %53 = load i8, ptr @UseCompressedClassPointers, align 1
   %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   br i1 %54, label %56, label %66
 
 56:                                               ; preds = %_ZL15forwarding_findP11XForwardingmPm.exit.thread
@@ -1155,7 +1155,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit.thread: ; preds = %_ZNK11XForwarding4
 
 _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %81
@@ -1172,7 +1172,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %.0.i.i.i, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 256
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
@@ -1183,7 +1183,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 83:                                               ; preds = %81
   %84 = select i1 %54, i64 12, i64 16
-  %85 = getelementptr inbounds i8, ptr %52, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %52, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
   %88 = and i32 %69, 63
@@ -1205,7 +1205,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 103:                                              ; preds = %81
   %104 = load ptr, ptr %.0.i.i.i, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 256
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
   %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
@@ -1213,7 +1213,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
   %.0.i1.i.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
   %108 = shl i64 %.0.i1.i.i, 3
-  %109 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i23 = icmp eq ptr %110, null
   br i1 %.not.i23, label %_ZNK23XRelocateSmallAllocator17undo_alloc_objectEP5XPagemm.exit, label %111
@@ -1241,10 +1241,10 @@ _ZNK5XPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5XPage16object_
   %118 = add i64 %117, %.0.i.i.i24
   %119 = sub nsw i64 0, %.0.i.i.i24
   %120 = and i64 %118, %119
-  %121 = getelementptr inbounds i8, ptr %110, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %122 = load volatile i64, ptr %121, align 8
   %123 = add i64 %120, %122
-  %124 = getelementptr inbounds i8, ptr %110, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %125 = load i64, ptr %124, align 8
   %126 = icmp ugt i64 %123, %125
   br i1 %126, label %_ZNK23XRelocateSmallAllocator17undo_alloc_objectEP5XPagemm.exit, label %_ZNK23XRelocateSmallAllocator12alloc_objectEP5XPagem.exit
@@ -1260,7 +1260,7 @@ _ZNK23XRelocateSmallAllocator12alloc_objectEP5XPagem.exit: ; preds = %_ZNK5XPage
 
 132:                                              ; preds = %_ZNK23XRelocateSmallAllocator12alloc_objectEP5XPagem.exit
   %133 = load ptr, ptr %3, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 133
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 133
   %135 = load i8, ptr %134, align 1
   %136 = trunc i8 %135 to i1
   %137 = add i64 %130, %108
@@ -1293,50 +1293,50 @@ _ZNK23XRelocateSmallAllocator12alloc_objectEP5XPagem.exit: ; preds = %_ZNK5XPage
   ]
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %52, i64 56
+  %146 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %143, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 56
   store ptr %147, ptr %148, align 8
   br label %149
 
 149:                                              ; preds = %145, %142
-  %150 = getelementptr inbounds i8, ptr %52, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %143, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %143, i64 48
   store ptr %151, ptr %152, align 8
   br label %153
 
 153:                                              ; preds = %149, %142
-  %154 = getelementptr inbounds i8, ptr %52, i64 40
+  %154 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %143, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %143, i64 40
   store ptr %155, ptr %156, align 8
   br label %157
 
 157:                                              ; preds = %153, %142
-  %158 = getelementptr inbounds i8, ptr %52, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %143, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %143, i64 32
   store ptr %159, ptr %160, align 8
   br label %161
 
 161:                                              ; preds = %157, %142
-  %162 = getelementptr inbounds i8, ptr %52, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %143, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %143, i64 24
   store ptr %163, ptr %164, align 8
   br label %165
 
 165:                                              ; preds = %161, %142
-  %166 = getelementptr inbounds i8, ptr %52, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %143, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr %167, ptr %168, align 8
   br label %169
 
 169:                                              ; preds = %165, %142
   %170 = load ptr, ptr %55, align 8
-  %171 = getelementptr inbounds i8, ptr %143, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %170, ptr %171, align 8
   br label %172
 
@@ -1374,7 +1374,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
   br i1 %.not20.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i
 
 .lr.ph21.i.i:                                     ; preds = %_ZN6XUtils20object_copy_conjointEmmm.exit
-  %192 = getelementptr inbounds i8, ptr %175, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %175, i64 24
   br label %196
 
 .loopexit.i.i:                                    ; preds = %205, %196
@@ -1451,7 +1451,7 @@ _ZNK5XPage16object_alignmentEv.exit.i.i29:        ; preds = %_ZNK5XPage16object_
   %225 = add i64 %117, %.0.i.i.i30
   %226 = sub nsw i64 0, %.0.i.i.i30
   %227 = and i64 %225, %226
-  %228 = getelementptr inbounds i8, ptr %218, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %229 = load volatile i64, ptr %228, align 8
   %230 = sub i64 %229, %227
   %.not.i.i31 = icmp eq i64 %230, %219
@@ -1482,9 +1482,9 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.backedge
@@ -1492,7 +1492,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(112) %9) #8
-  %13 = getelementptr inbounds i8, ptr %9, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i
@@ -1504,7 +1504,7 @@ define linkonce_odr hidden void @_ZN16XRelocateClosureI24XRelocateMediumAllocato
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
-  %19 = getelementptr inbounds i8, ptr %9, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %11
   br i1 %21, label %22, label %_ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit
@@ -1520,10 +1520,10 @@ _ZL10alloc_pagePK11XForwarding.exit.thread.i:     ; preds = %22
 
 _ZL10alloc_pagePK11XForwarding.exit.i:            ; preds = %22
   %25 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = load i64, ptr %10, align 8
   %32 = sub i64 %30, %31
@@ -1538,7 +1538,7 @@ _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit.thre
   br label %.backedge
 
 36:                                               ; preds = %_ZL10alloc_pagePK11XForwarding.exit.i, %_ZL10alloc_pagePK11XForwarding.exit.thread.i
-  %37 = getelementptr inbounds i8, ptr %9, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %38 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %37) #8, !srcloc !14
   store i8 1, ptr %13, align 8
   %.pre.i = load ptr, ptr %19, align 8
@@ -1557,7 +1557,7 @@ _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; p
   store ptr %43, ptr %7, align 8
   tail call void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(136) %43) #8
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 133
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 133
   store i8 1, ptr %45, align 1
   br label %.backedge
 
@@ -1571,7 +1571,7 @@ _ZN24XRelocateMediumAllocator17alloc_target_pageEP11XForwardingP5XPage.exit: ; p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16XRelocateClosureI24XRelocateMediumAllocatorE15relocate_objectEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.val.i = load i64, ptr %4, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -1580,7 +1580,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16XRelocateClosureI24XRelocat
   %7 = and i64 %6, %1
   %8 = sub i64 %7, %.val.i
   %9 = lshr i64 %8, %.val4.i
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 4294967295
   %13 = trunc i64 %9 to i32
@@ -1600,7 +1600,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16XRelocateClosureI24XRelocat
   %27 = ptrtoint ptr %4 to i64
   %28 = add i64 %27, 136
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds %class.XForwardingEntry, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw %class.XForwardingEntry, ptr %29, i64 %26
   %31 = load volatile i64, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %32 = and i64 %31, 1
@@ -1647,7 +1647,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit.thread: ; preds = %_ZNK11XForwarding4
   %52 = inttoptr i64 %1 to ptr
   %53 = load i8, ptr @UseCompressedClassPointers, align 1
   %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   br i1 %54, label %56, label %66
 
 56:                                               ; preds = %_ZL15forwarding_findP11XForwardingmPm.exit.thread
@@ -1668,7 +1668,7 @@ _ZL15forwarding_findP11XForwardingmPm.exit.thread: ; preds = %_ZNK11XForwarding4
 
 _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %81
@@ -1685,7 +1685,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %.0.i.i.i, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 256
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
@@ -1696,7 +1696,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 83:                                               ; preds = %81
   %84 = select i1 %54, i64 12, i64 16
-  %85 = getelementptr inbounds i8, ptr %52, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %52, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
   %88 = and i32 %69, 63
@@ -1718,7 +1718,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 103:                                              ; preds = %81
   %104 = load ptr, ptr %.0.i.i.i, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 256
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
   %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
@@ -1726,7 +1726,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
   %.0.i1.i.i = phi i64 [ %80, %76 ], [ %75, %73 ], [ %102, %83 ], [ %107, %103 ]
   %108 = shl i64 %.0.i1.i.i, 3
-  %109 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not.i23 = icmp eq ptr %110, null
   br i1 %.not.i23, label %_ZNK24XRelocateMediumAllocator17undo_alloc_objectEP5XPagemm.exit, label %111
@@ -1754,9 +1754,9 @@ _ZNK5XPage16object_alignmentEv.exit.i.i:          ; preds = %_ZNK5XPage16object_
   %118 = add i64 %117, %.0.i.i.i24
   %119 = sub nsw i64 0, %.0.i.i.i24
   %120 = and i64 %118, %119
-  %121 = getelementptr inbounds i8, ptr %110, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %122 = load volatile i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %110, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %110, i64 16
   br label %124
 
 124:                                              ; preds = %128, %_ZNK5XPage16object_alignmentEv.exit.i.i
@@ -1781,7 +1781,7 @@ _ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit: ; preds = %128
 
 136:                                              ; preds = %_ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit
   %137 = load ptr, ptr %3, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 133
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 133
   %139 = load i8, ptr %138, align 1
   %140 = trunc i8 %139 to i1
   %141 = add i64 %134, %108
@@ -1814,50 +1814,50 @@ _ZNK24XRelocateMediumAllocator12alloc_objectEP5XPagem.exit: ; preds = %128
   ]
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %52, i64 56
+  %150 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %147, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 56
   store ptr %151, ptr %152, align 8
   br label %153
 
 153:                                              ; preds = %149, %146
-  %154 = getelementptr inbounds i8, ptr %52, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %147, i64 48
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 48
   store ptr %155, ptr %156, align 8
   br label %157
 
 157:                                              ; preds = %153, %146
-  %158 = getelementptr inbounds i8, ptr %52, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %147, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %147, i64 40
   store ptr %159, ptr %160, align 8
   br label %161
 
 161:                                              ; preds = %157, %146
-  %162 = getelementptr inbounds i8, ptr %52, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %147, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr %163, ptr %164, align 8
   br label %165
 
 165:                                              ; preds = %161, %146
-  %166 = getelementptr inbounds i8, ptr %52, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %147, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %167, ptr %168, align 8
   br label %169
 
 169:                                              ; preds = %165, %146
-  %170 = getelementptr inbounds i8, ptr %52, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %147, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %171, ptr %172, align 8
   br label %173
 
 173:                                              ; preds = %169, %146
   %174 = load ptr, ptr %55, align 8
-  %175 = getelementptr inbounds i8, ptr %147, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %174, ptr %175, align 8
   br label %176
 
@@ -1895,7 +1895,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
   br i1 %.not20.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i
 
 .lr.ph21.i.i:                                     ; preds = %_ZN6XUtils20object_copy_conjointEmmm.exit
-  %196 = getelementptr inbounds i8, ptr %179, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %179, i64 24
   br label %200
 
 .loopexit.i.i:                                    ; preds = %209, %200
@@ -1972,7 +1972,7 @@ _ZNK5XPage16object_alignmentEv.exit.i.i29:        ; preds = %_ZNK5XPage16object_
   %229 = add i64 %117, %.0.i.i.i30
   %230 = sub nsw i64 0, %.0.i.i.i30
   %231 = and i64 %229, %230
-  %232 = getelementptr inbounds i8, ptr %222, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %233 = load volatile i64, ptr %232, align 8
   br label %234
 
@@ -2008,8 +2008,8 @@ declare noundef ptr @_ZN11XForwarding11detach_pageEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5XPage14object_iterateEP13ObjectClosure(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr @XAddressOffsetMask, align 8
   %7 = and i64 %6, %5
@@ -2040,7 +2040,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit:        ; preds = %_ZNK5XPage22object_
   br i1 %17, label %18, label %_ZN8XLiveMap7iterateEP13ObjectClosuremm.exit
 
 18:                                               ; preds = %_ZNK5XPage22object_alignment_shiftEv.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1
   %.not.i.i.i.i = icmp eq i64 %21, 0
@@ -2085,20 +2085,20 @@ _ZN8XLiveMap7iterateEP13ObjectClosuremm.exit:     ; preds = %30, %28, %_ZNK8XLiv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8XLiveMap15iterate_segmentEP13ObjectClosuremmm(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 comdat align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8
   %8 = lshr i64 %7, 6
   %9 = mul i64 %8, %2
   %10 = add i64 %2, 1
   %11 = mul i64 %8, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = icmp ult i64 %9, %11
   br i1 %13, label %14, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
 14:                                               ; preds = %5
   %15 = lshr i64 %9, 6
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i64, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %9, 63
   %20 = lshr i64 %18, %19
@@ -2122,7 +2122,7 @@ define linkonce_odr hidden void @_ZN8XLiveMap15iterate_segmentEP13ObjectClosurem
   br i1 %29, label %30, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i64, ptr %16, i64 %28
+  %31 = getelementptr inbounds nuw i64, ptr %16, i64 %28
   %32 = load i64, ptr %31, align 8
   %.not36.i.i = icmp eq i64 %32, 0
   br i1 %.not36.i.i, label %27, label %33, !llvm.loop !21
@@ -2164,7 +2164,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %14, %35
   %52 = inttoptr i64 %51 to ptr
   %53 = load i8, ptr @UseCompressedClassPointers, align 1
   %54 = trunc i8 %53 to i1
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   br i1 %54, label %56, label %66
 
 56:                                               ; preds = %48
@@ -2185,7 +2185,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %14, %35
 
 _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
   %.0.i.i.i = phi ptr [ %65, %56 ], [ %67, %66 ]
-  %68 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %81
@@ -2202,7 +2202,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %.0.i.i.i, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 256
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 256
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
@@ -2213,7 +2213,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 83:                                               ; preds = %81
   %84 = select i1 %54, i64 12, i64 16
-  %85 = getelementptr inbounds i8, ptr %52, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %52, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
   %88 = and i32 %69, 63
@@ -2235,7 +2235,7 @@ _ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %66, %56
 
 103:                                              ; preds = %81
   %104 = load ptr, ptr %.0.i.i.i, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 256
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 256
   %106 = load ptr, ptr %105, align 8
   %107 = tail call noundef i64 %106(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %52) #8
   br label %_ZN6XUtils11object_sizeEm.exit
@@ -2258,7 +2258,7 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
 116:                                              ; preds = %_ZN6XUtils11object_sizeEm.exit
   %117 = lshr i64 %115, 6
   %118 = load ptr, ptr %12, align 8
-  %119 = getelementptr inbounds i64, ptr %118, i64 %117
+  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %117
   %120 = load i64, ptr %119, align 8
   %121 = and i64 %115, 62
   %122 = lshr i64 %120, %121
@@ -2277,7 +2277,7 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
   br i1 %127, label %128, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
 
 128:                                              ; preds = %.preheader
-  %129 = getelementptr inbounds i64, ptr %118, i64 %126
+  %129 = getelementptr inbounds nuw i64, ptr %118, i64 %126
   %130 = load i64, ptr %129, align 8
   %.not36.i.i30 = icmp eq i64 %130, 0
   br i1 %.not36.i.i30, label %.preheader, label %131, !llvm.loop !21

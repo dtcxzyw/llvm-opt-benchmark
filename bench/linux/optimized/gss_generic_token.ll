@@ -118,7 +118,7 @@ define dso_local void @g_make_token_header(ptr nocapture noundef readonly %0, i3
   store ptr %43, ptr %2, align 8
   store i8 %41, ptr %42, align 1
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %0, align 8
   %48 = sext i32 %47 to i64
@@ -230,7 +230,7 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nocapt
   br i1 %71, label %72, label %.thread6
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 @bcmp(ptr %62, ptr %74, i64 %68)
   %76 = icmp eq i32 %75, 0

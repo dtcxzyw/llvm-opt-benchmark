@@ -12,9 +12,9 @@ define noundef nonnull ptr @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys12thread_loca
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8, !alias.scope !10
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !10
   store i64 0, ptr %1, align 8, !alias.scope !13, !noalias !14
   %trunc = trunc nuw i64 %.sroa.0.0.copyload to i1
@@ -29,10 +29,10 @@ define noundef nonnull ptr @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys12thread_loca
 9:                                                ; preds = %4, %5
   %.sroa.5.0 = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload, %4 ]
   %.sroa.03.0 = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload, %4 ]
-  %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %0, align 8
   store i64 %.sroa.03.0, ptr %.sroa.56.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.5.0, ptr %.sroa.3.0..sroa_idx, align 8
   ret ptr %.sroa.56.0..sroa_idx
 }

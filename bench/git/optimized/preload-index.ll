@@ -45,7 +45,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cache_nr = getelementptr inbounds i8, ptr %index, i64 12
+  %cache_nr = getelementptr inbounds nuw i8, ptr %index, i64 12
   %1 = load i32, ptr %cache_nr, align 4
   %2 = add i32 %1, -2
   %or.cond = icmp ult i32 %2, 998
@@ -95,15 +95,15 @@ _.exit:                                           ; preds = %if.then20, %if.end3
   %5 = load i32, ptr %cache_nr, align 4
   %conv = zext i32 %5 to i64
   %call23 = tail call ptr @start_delayed_progress(ptr noundef %retval.0.i, i64 noundef %conv) #8
-  %progress = getelementptr inbounds i8, ptr %pd, i64 8
+  %progress = getelementptr inbounds nuw i8, ptr %pd, i64 8
   store ptr %call23, ptr %progress, align 8
-  %mutex = getelementptr inbounds i8, ptr %pd, i64 16
+  %mutex = getelementptr inbounds nuw i8, ptr %pd, i64 16
   %call24 = call i32 @pthread_mutex_init(ptr noundef nonnull %mutex, ptr noundef null) #8
   br label %if.end25
 
 if.end25:                                         ; preds = %_.exit, %land.lhs.true17, %if.end9
   %tobool29.not = icmp eq ptr %pathspec, null
-  %progress34 = getelementptr inbounds i8, ptr %pd, i64 8
+  %progress34 = getelementptr inbounds nuw i8, ptr %pd, i64 8
   %umax52 = call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
   %wide.trip.count53 = zext nneg i32 %umax52 to i64
   br i1 %tobool29.not, label %for.body.us, label %for.body
@@ -111,19 +111,19 @@ if.end25:                                         ; preds = %_.exit, %land.lhs.t
 for.body.us:                                      ; preds = %if.end25, %for.inc.us
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %for.inc.us ], [ 0, %if.end25 ]
   %offset.039.us = phi i32 [ %add39.us, %for.inc.us ], [ 0, %if.end25 ]
-  %add.ptr.us = getelementptr inbounds %struct.thread_data, ptr %data, i64 %indvars.iv49
-  %index28.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 8
+  %add.ptr.us = getelementptr inbounds nuw %struct.thread_data, ptr %data, i64 %indvars.iv49
+  %index28.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 8
   store ptr %index, ptr %index28.us, align 8
-  %offset33.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 48
+  %offset33.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 48
   store i32 %offset.039.us, ptr %offset33.us, align 16
-  %nr.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 52
+  %nr.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 52
   store i32 %div15, ptr %nr.us, align 4
   %6 = load ptr, ptr %progress34, align 8
   %tobool35.not.us = icmp eq ptr %6, null
   br i1 %tobool35.not.us, label %if.end38.us, label %if.then36.us
 
 if.then36.us:                                     ; preds = %for.body.us
-  %progress37.us = getelementptr inbounds i8, ptr %add.ptr.us, i64 40
+  %progress37.us = getelementptr inbounds nuw i8, ptr %add.ptr.us, i64 40
   store ptr %pd, ptr %progress37.us, align 8
   br label %if.end38.us
 
@@ -141,21 +141,21 @@ for.inc.us:                                       ; preds = %if.end38.us
 for.body:                                         ; preds = %if.end25, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end25 ]
   %offset.039 = phi i32 [ %add39, %for.inc ], [ 0, %if.end25 ]
-  %add.ptr = getelementptr inbounds %struct.thread_data, ptr %data, i64 %indvars.iv
-  %index28 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %add.ptr = getelementptr inbounds nuw %struct.thread_data, ptr %data, i64 %indvars.iv
+  %index28 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %index, ptr %index28, align 8
-  %pathspec31 = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %pathspec31 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   call void @copy_pathspec(ptr noundef nonnull %pathspec31, ptr noundef nonnull %pathspec) #8
-  %offset33 = getelementptr inbounds i8, ptr %add.ptr, i64 48
+  %offset33 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   store i32 %offset.039, ptr %offset33, align 16
-  %nr = getelementptr inbounds i8, ptr %add.ptr, i64 52
+  %nr = getelementptr inbounds nuw i8, ptr %add.ptr, i64 52
   store i32 %div15, ptr %nr, align 4
   %7 = load ptr, ptr %progress34, align 8
   %tobool35.not = icmp eq ptr %7, null
   br i1 %tobool35.not, label %if.end38, label %if.then36
 
 if.then36:                                        ; preds = %for.body
-  %progress37 = getelementptr inbounds i8, ptr %add.ptr, i64 40
+  %progress37 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
   store ptr %pd, ptr %progress37, align 8
   br label %if.end38
 
@@ -183,7 +183,7 @@ for.body49.preheader:                             ; preds = %for.inc, %for.inc.u
 for.body49:                                       ; preds = %for.body49.preheader, %if.end58
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %if.end58 ], [ 0, %for.body49.preheader ]
   %t2_sum_lstat.041 = phi i32 [ %add59, %if.end58 ], [ 0, %for.body49.preheader ]
-  %add.ptr53 = getelementptr inbounds %struct.thread_data, ptr %data, i64 %indvars.iv55
+  %add.ptr53 = getelementptr inbounds nuw %struct.thread_data, ptr %data, i64 %indvars.iv55
   %8 = load i64, ptr %add.ptr53, align 16
   %call55 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #8
   %tobool56.not = icmp eq i32 %call55, 0
@@ -194,7 +194,7 @@ if.then57:                                        ; preds = %for.body49
   unreachable
 
 if.end58:                                         ; preds = %for.body49
-  %t2_nr_lstat = getelementptr inbounds i8, ptr %add.ptr53, i64 56
+  %t2_nr_lstat = getelementptr inbounds nuw i8, ptr %add.ptr53, i64 56
   %9 = load i32, ptr %t2_nr_lstat, align 8
   %add59 = add nsw i32 %9, %t2_sum_lstat.041
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
@@ -217,7 +217,7 @@ stop_progress.exit:                               ; preds = %for.end62, %if.end3
 
 for.body69:                                       ; preds = %stop_progress.exit, %for.body69
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %for.body69 ], [ 0, %stop_progress.exit ]
-  %pathspec70 = getelementptr inbounds [20 x %struct.thread_data], ptr %data, i64 0, i64 %indvars.iv61, i32 2
+  %pathspec70 = getelementptr inbounds nuw [20 x %struct.thread_data], ptr %data, i64 0, i64 %indvars.iv61, i32 2
   call void @clear_pathspec(ptr noundef nonnull %pathspec70) #8
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count53
@@ -295,43 +295,43 @@ define internal noalias noundef ptr @preload_thread(ptr noundef %_data) #0 {
 entry:
   %cache2 = alloca %struct.cache_def, align 8
   %st = alloca %struct.stat, align 8
-  %index1 = getelementptr inbounds i8, ptr %_data, i64 8
+  %index1 = getelementptr inbounds nuw i8, ptr %_data, i64 8
   %0 = load ptr, ptr %index1, align 8
   %1 = load ptr, ptr %0, align 8
-  %offset = getelementptr inbounds i8, ptr %_data, i64 48
+  %offset = getelementptr inbounds nuw i8, ptr %_data, i64 48
   %2 = load i32, ptr %offset, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds ptr, ptr %1, i64 %idx.ext
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cache2, ptr noundef nonnull align 8 dereferenceable(40) @__const.preload_thread.cache, i64 40, i1 false)
-  %nr3 = getelementptr inbounds i8, ptr %_data, i64 52
+  %nr3 = getelementptr inbounds nuw i8, ptr %_data, i64 52
   %3 = load i32, ptr %nr3, align 4
   %add = add nsw i32 %3, %2
-  %cache_nr = getelementptr inbounds i8, ptr %0, i64 12
+  %cache_nr = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %cache_nr, align 4
   %cmp = icmp ugt i32 %add, %4
   %sub = sub i32 %4, %2
   %spec.select = select i1 %cmp, i32 %sub, i32 %3
-  %progress = getelementptr inbounds i8, ptr %_data, i64 40
-  %pathspec = getelementptr inbounds i8, ptr %_data, i64 16
-  %t2_nr_lstat = getelementptr inbounds i8, ptr %_data, i64 56
-  %repo.i = getelementptr inbounds i8, ptr %0, i64 240
-  %cache_changed.i = getelementptr inbounds i8, ptr %0, i64 20
+  %progress = getelementptr inbounds nuw i8, ptr %_data, i64 40
+  %pathspec = getelementptr inbounds nuw i8, ptr %_data, i64 16
+  %t2_nr_lstat = getelementptr inbounds nuw i8, ptr %_data, i64 56
+  %repo.i = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %cache_changed.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
   %cep.0 = phi ptr [ %add.ptr, %entry ], [ %incdec.ptr, %do.cond ]
   %last_nr.0 = phi i32 [ %spec.select, %entry ], [ %last_nr.1, %do.cond ]
   %nr.1 = phi i32 [ %spec.select, %entry ], [ %dec, %do.cond ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %cep.0, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cep.0, i64 8
   %5 = load ptr, ptr %cep.0, align 8
-  %ce_flags = getelementptr inbounds i8, ptr %5, i64 56
+  %ce_flags = getelementptr inbounds nuw i8, ptr %5, i64 56
   %6 = load i32, ptr %ce_flags, align 8
   %7 = and i32 %6, 12288
   %tobool.not = icmp eq i32 %7, 0
   br i1 %tobool.not, label %if.end8, label %do.cond
 
 if.end8:                                          ; preds = %do.body
-  %ce_mode = getelementptr inbounds i8, ptr %5, i64 52
+  %ce_mode = getelementptr inbounds nuw i8, ptr %5, i64 52
   %8 = load i32, ptr %ce_mode, align 4
   %and9 = and i32 %8, 61440
   %cmp10 = icmp ne i32 %and9, 57344
@@ -349,14 +349,14 @@ if.end27:                                         ; preds = %if.end8
   br i1 %or.cond44, label %if.then31, label %if.end39
 
 if.then31:                                        ; preds = %if.end27
-  %mutex = getelementptr inbounds i8, ptr %11, i64 16
+  %mutex = getelementptr inbounds nuw i8, ptr %11, i64 16
   %call = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #8
   %sub33 = sub nsw i32 %last_nr.0, %nr.1
   %conv = sext i32 %sub33 to i64
   %12 = load i64, ptr %11, align 8
   %add34 = add i64 %12, %conv
   store i64 %add34, ptr %11, align 8
-  %progress35 = getelementptr inbounds i8, ptr %11, i64 8
+  %progress35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %progress35, align 8
   call void @display_progress(ptr noundef %13, i64 noundef %add34) #8
   %call38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex) #8
@@ -367,13 +367,13 @@ if.then31:                                        ; preds = %if.end27
 if.end39:                                         ; preds = %if.then31, %if.end27
   %and.i.pre-phi = phi i32 [ %.pre50, %if.then31 ], [ %and9, %if.end27 ]
   %last_nr.2 = phi i32 [ %nr.1, %if.then31 ], [ %last_nr.0, %if.end27 ]
-  %ce_namelen.i = getelementptr inbounds i8, ptr %5, i64 64
+  %ce_namelen.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   %14 = load i32, ptr %ce_namelen.i, align 8
   %cmp.i = icmp eq i32 %and.i.pre-phi, 16384
   %cmp3.i = icmp eq i32 %and.i.pre-phi, 57344
   %narrow.i = or i1 %cmp.i, %cmp3.i
   %lor.ext.i = zext i1 %narrow.i to i32
-  %name.i = getelementptr inbounds i8, ptr %5, i64 108
+  %name.i = getelementptr inbounds nuw i8, ptr %5, i64 108
   %call.i = call i32 @match_pathspec(ptr noundef nonnull %0, ptr noundef nonnull %pathspec, ptr noundef nonnull %name.i, i32 noundef %14, i32 noundef 0, ptr noundef null, i32 noundef %lor.ext.i) #8
   %tobool41.not = icmp eq i32 %call.i, 0
   br i1 %tobool41.not, label %do.cond, label %if.end43
@@ -449,9 +449,9 @@ do.end:                                           ; preds = %do.cond
   br i1 %tobool62.not, label %if.end74, label %if.then63
 
 if.then63:                                        ; preds = %do.end
-  %mutex66 = getelementptr inbounds i8, ptr %23, i64 16
+  %mutex66 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %call67 = call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex66) #8
-  %progress68 = getelementptr inbounds i8, ptr %23, i64 8
+  %progress68 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = load ptr, ptr %progress68, align 8
   %25 = load i64, ptr %23, align 8
   %conv70 = sext i32 %last_nr.1 to i64
@@ -487,7 +487,7 @@ declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 define dso_local i32 @repo_read_index_preload(ptr noundef %repo, ptr noundef %pathspec, i32 noundef %refresh_flags) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @repo_read_index(ptr noundef %repo) #8
-  %index = getelementptr inbounds i8, ptr %repo, i64 240
+  %index = getelementptr inbounds nuw i8, ptr %repo, i64 240
   %0 = load ptr, ptr %index, align 8
   tail call void @preload_index(ptr noundef %0, ptr noundef %pathspec, i32 noundef %refresh_flags)
   ret i32 %call

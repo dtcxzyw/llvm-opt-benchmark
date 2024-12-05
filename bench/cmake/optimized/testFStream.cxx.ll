@@ -85,16 +85,16 @@ _ZL10testNoFilev.exit:                            ; preds = %2
 16:                                               ; preds = %55, %_ZL10testNoFilev.exit
   %indvars.iv.i = phi i64 [ 0, %_ZL10testNoFilev.exit ], [ %indvars.iv.next.i, %55 ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull @.str.1, i32 noundef 4)
-  %17 = getelementptr inbounds [7 x [5 x i8]], ptr @_ZL17expected_bom_data, i64 0, i64 %indvars.iv.i
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %17 = getelementptr inbounds nuw [7 x [5 x i8]], ptr @_ZL17expected_bom_data, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %17, align 1
   %20 = zext i8 %19 to i64
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %18, i64 noundef %20)
           to label %22 unwind label %36
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %23 = getelementptr inbounds nuw [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %23, align 1
   %26 = zext i8 %25 to i64
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %24, i64 noundef %26)
@@ -107,7 +107,7 @@ _ZL10testNoFilev.exit:                            ; preds = %2
           to label %30 unwind label %.loopexit25.i
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %.not.i = icmp eq i32 %29, %32
   br i1 %.not.i, label %39, label %.invoke
@@ -188,22 +188,22 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %4)
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %57
 
 57:                                               ; preds = %103, %_ZL7testBOMv.exit
   %indvars.iv.i4 = phi i64 [ 0, %_ZL7testBOMv.exit ], [ %indvars.iv.next.i14, %103 ]
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.6, i32 noundef 60)
-  %58 = getelementptr inbounds [7 x [5 x i8]], ptr @_ZL17expected_bom_data, i64 0, i64 %indvars.iv.i4
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %58 = getelementptr inbounds nuw [7 x [5 x i8]], ptr @_ZL17expected_bom_data, i64 0, i64 %indvars.iv.i4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %58, align 1
   %61 = zext i8 %60 to i64
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %59, i64 noundef %61)
           to label %63 unwind label %.loopexit23.i
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i4
-  %65 = getelementptr inbounds i8, ptr %64, i64 1
+  %64 = getelementptr inbounds nuw [7 x [45 x i8]], ptr @_ZL9file_data, i64 0, i64 %indvars.iv.i4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %66 = load i8, ptr %64, align 1
   %67 = zext i8 %66 to i64
   %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %65, i64 noundef %67)
@@ -253,7 +253,7 @@ _ZL7testBOMv.exit:                                ; preds = %55, %.thread.i
           to label %84 unwind label %.loopexit23.i
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i4
+  %85 = getelementptr inbounds nuw [7 x i32], ptr @_ZL12expected_bom, i64 0, i64 %indvars.iv.i4
   %86 = load i32, ptr %85, align 4
   %.not.i12 = icmp eq i32 %83, %86
   br i1 %.not.i12, label %87, label %.invoke64

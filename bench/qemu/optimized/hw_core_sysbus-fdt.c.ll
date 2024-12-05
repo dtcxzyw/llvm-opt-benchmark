@@ -99,14 +99,14 @@ if.end:                                           ; preds = %entry
   store i32 16777216, ptr %qdt_tmp10, align 4
   %call26 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.6, ptr noundef nonnull %qdt_tmp10, i32 noundef 4) #11
   store i32 0, ptr %qdt_tmp29, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp29, i64 4
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %qdt_tmp29, i64 4
   %shr = lshr i64 %addr, 32
   %conv30 = trunc nuw i64 %shr to i32
   store i32 %conv30, ptr %arrayinit.element, align 4
-  %arrayinit.element31 = getelementptr inbounds i8, ptr %qdt_tmp29, i64 8
+  %arrayinit.element31 = getelementptr inbounds nuw i8, ptr %qdt_tmp29, i64 8
   %conv32 = trunc i64 %addr to i32
   store i32 %conv32, ptr %arrayinit.element31, align 8
-  %arrayinit.element33 = getelementptr inbounds i8, ptr %qdt_tmp29, i64 12
+  %arrayinit.element33 = getelementptr inbounds nuw i8, ptr %qdt_tmp29, i64 12
   %conv34 = trunc i64 %bus_size to i32
   store i32 %conv34, ptr %arrayinit.element33, align 4
   br label %for.body40
@@ -128,11 +128,11 @@ for.end48:                                        ; preds = %for.body40
   %call54 = call ptr @qdev_find_recursive(ptr noundef %call53, ptr noundef nonnull @.str.9) #11
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call54, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #11
   store ptr %fdt, ptr %data, align 8
-  %irq_start57 = getelementptr inbounds i8, ptr %data, i64 8
+  %irq_start57 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i32 %irq_start, ptr %irq_start57, align 8
-  %pbus_node_name = getelementptr inbounds i8, ptr %data, i64 16
+  %pbus_node_name = getelementptr inbounds nuw i8, ptr %data, i64 16
   store ptr %call, ptr %pbus_node_name, align 8
-  %pbus58 = getelementptr inbounds i8, ptr %data, i64 24
+  %pbus58 = getelementptr inbounds nuw i8, ptr %data, i64 24
   store ptr %call.i, ptr %pbus58, align 8
   call void @foreach_dynamic_sysbus_device(ptr noundef nonnull @add_fdt_node, ptr noundef nonnull %data) #11
   call void @g_free(ptr noundef %call) #11
@@ -174,7 +174,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %match_fn = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %match_fn = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %1 = load ptr, ptr %match_fn, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then5, label %lor.lhs.false
@@ -184,7 +184,7 @@ lor.lhs.false:                                    ; preds = %if.then
   br i1 %call3, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then
-  %add_fn = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %add_fn = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %add_fn, align 8
   %call6 = tail call i32 %2(ptr noundef %sbdev, ptr noundef %opaque) #11
   %tobool7.not = icmp eq i32 %call6, 0
@@ -234,25 +234,25 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @add_calxeda_midway_xgmac_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %pbus1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
+  %pbus_node_name = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %pbus_node_name, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
   %call4 = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #11
-  %name = getelementptr inbounds i8, ptr %call.i, i64 888
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 888
   %3 = load ptr, ptr %name, align 8
   %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %2, ptr noundef %3, i64 noundef %call4) #11
   %call6 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef %call5) #11
-  %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
+  %compat = getelementptr inbounds nuw i8, ptr %call.i, i64 1000
   %4 = load ptr, ptr %compat, align 8
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
   %5 = trunc i64 %call7 to i32
   %conv = add i32 %5, 1
   %call9 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.3, ptr noundef %4, i32 noundef %conv) #11
   %call10 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, i32 noundef 0) #11
-  %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
+  %num_regions = getelementptr inbounds nuw i8, ptr %call.i, i64 932
   %6 = load i32, ptr %num_regions, align 4
   %mul = shl i32 %6, 1
   %conv11 = zext i32 %mul to i64
@@ -262,7 +262,7 @@ entry:
   br i1 %cmp48.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %regions = getelementptr inbounds i8, ptr %call.i, i64 968
+  %regions = getelementptr inbounds nuw i8, ptr %call.i, i64 968
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -278,7 +278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom19 = sext i32 %i.049 to i64
   %arrayidx20 = getelementptr ptr, ptr %9, i64 %idxprom19
   %10 = load ptr, ptr %arrayidx20, align 8
-  %mem = getelementptr inbounds i8, ptr %10, i64 16
+  %mem = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %mem, align 8
   %call21 = tail call i64 @memory_region_size(ptr noundef %11) #11
   %conv22 = trunc i64 %call21 to i32
@@ -299,7 +299,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %.lcssa47 = phi i32 [ 0, %entry ], [ %14, %for.end.loopexit ]
   %call33 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.22, ptr noundef %call12, i32 noundef %.lcssa47) #11
-  %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 928
+  %num_irqs = getelementptr inbounds nuw i8, ptr %call.i, i64 928
   %15 = load i32, ptr %num_irqs, align 8
   %mul34 = mul i32 %15, 3
   %conv35 = zext i32 %mul34 to i64
@@ -309,7 +309,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp3950.not, label %for.end62, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %for.end
-  %irq_start = getelementptr inbounds i8, ptr %opaque, i64 8
+  %irq_start = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
@@ -353,14 +353,14 @@ define internal noundef i32 @add_amd_xgbe_fdt_node(ptr noundef %sbdev, ptr nocap
 entry:
   %prop_len = alloca i32, align 4
   %qdt_tmp = alloca [2 x i32], align 4
-  %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %pbus1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
-  %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
+  %pbus_node_name = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %pbus_node_name, align 8
   %2 = load ptr, ptr %opaque, align 8
   %call3 = tail call ptr @load_device_tree_from_sysfs() #11
-  %name = getelementptr inbounds i8, ptr %call.i, i64 888
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 888
   %3 = load ptr, ptr %name, align 8
   %call.i82 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.31, i32 noundef 2) #11
   %tobool.not.i = icmp eq ptr %call.i82, null
@@ -394,7 +394,7 @@ if.then:                                          ; preds = %sysfs_to_dt_name.ex
   unreachable
 
 if.end:                                           ; preds = %sysfs_to_dt_name.exit
-  %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
+  %compat = getelementptr inbounds nuw i8, ptr %call.i, i64 1000
   %7 = load ptr, ptr %compat, align 8
   %call6 = tail call ptr @qemu_fdt_node_path(ptr noundef %call3, ptr noundef nonnull %call7.i, ptr noundef %7, ptr noundef nonnull @error_fatal) #11
   %tobool7.not = icmp eq ptr %call6, null
@@ -425,7 +425,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.end16:                                         ; preds = %if.end11
   tail call void @g_free(ptr noundef nonnull %call7.i) #11
-  %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
+  %num_regions = getelementptr inbounds nuw i8, ptr %call.i, i64 932
   %12 = load i32, ptr %num_regions, align 4
   %cmp.not = icmp eq i32 %12, 5
   br i1 %cmp.not, label %if.end18, label %if.then17
@@ -464,11 +464,11 @@ if.end23:                                         ; preds = %if.end18
   %20 = load ptr, ptr %call6, align 8
   call fastcc void @copy_properties_from_host(ptr noundef nonnull @amd_xgbe_copied_properties, i32 noundef 13, ptr noundef %call3, ptr noundef %2, ptr noundef %20, ptr noundef %call36)
   store i32 %call24, ptr %qdt_tmp, align 4
-  %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp, i64 4
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %qdt_tmp, i64 4
   store i32 %call26, ptr %arrayinit.element, align 4
   %21 = call noundef i32 @llvm.bswap.i32(i32 %call24)
   store i32 %21, ptr %qdt_tmp, align 4
-  %arrayidx43.c = getelementptr inbounds i8, ptr %qdt_tmp, i64 4
+  %arrayidx43.c = getelementptr inbounds nuw i8, ptr %qdt_tmp, i64 4
   %22 = call noundef i32 @llvm.bswap.i32(i32 %call26)
   store i32 %22, ptr %arrayidx43.c, align 4
   %call47 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.29, ptr noundef nonnull %qdt_tmp, i32 noundef 8) #11
@@ -481,7 +481,7 @@ if.end23:                                         ; preds = %if.end18
   br i1 %cmp5387.not, label %for.end72, label %for.body55.lr.ph
 
 for.body55.lr.ph:                                 ; preds = %if.end23
-  %regions = getelementptr inbounds i8, ptr %call.i, i64 968
+  %regions = getelementptr inbounds nuw i8, ptr %call.i, i64 968
   br label %for.body55
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
@@ -497,7 +497,7 @@ for.body55:                                       ; preds = %for.body55.lr.ph, %
   %idxprom62 = sext i32 %i.088 to i64
   %arrayidx63 = getelementptr ptr, ptr %26, i64 %idxprom62
   %27 = load ptr, ptr %arrayidx63, align 8
-  %mem = getelementptr inbounds i8, ptr %27, i64 16
+  %mem = getelementptr inbounds nuw i8, ptr %27, i64 16
   %28 = load ptr, ptr %mem, align 8
   %call64 = call i64 @memory_region_size(ptr noundef %28) #11
   %conv65 = trunc i64 %call64 to i32
@@ -518,7 +518,7 @@ for.end72.loopexit:                               ; preds = %for.body55
 for.end72:                                        ; preds = %for.end72.loopexit, %if.end23
   %.lcssa85 = phi i32 [ 0, %if.end23 ], [ %31, %for.end72.loopexit ]
   %call78 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.22, ptr noundef %call50, i32 noundef %.lcssa85) #11
-  %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 928
+  %num_irqs = getelementptr inbounds nuw i8, ptr %call.i, i64 928
   %32 = load i32, ptr %num_irqs, align 8
   %mul79 = mul i32 %32, 3
   %conv80 = zext i32 %mul79 to i64
@@ -528,8 +528,8 @@ for.end72:                                        ; preds = %for.end72.loopexit,
   br i1 %cmp8489.not, label %for.end125, label %for.body86.lr.ph
 
 for.body86.lr.ph:                                 ; preds = %for.end72
-  %irq_start = getelementptr inbounds i8, ptr %opaque, i64 8
-  %intp_list = getelementptr inbounds i8, ptr %call.i, i64 976
+  %irq_start = getelementptr inbounds nuw i8, ptr %opaque, i64 8
+  %intp_list = getelementptr inbounds nuw i8, ptr %call.i, i64 976
   br label %for.body86
 
 for.body86:                                       ; preds = %for.body86.lr.ph, %for.end109
@@ -555,14 +555,14 @@ for.cond100:                                      ; preds = %for.body102, %for.b
   br i1 %tobool101.not, label %for.end109, label %for.body102
 
 for.body102:                                      ; preds = %for.cond100
-  %pin = getelementptr inbounds i8, ptr %intp.0, i64 60
+  %pin = getelementptr inbounds nuw i8, ptr %intp.0, i64 60
   %36 = load i8, ptr %pin, align 4
   %conv103 = zext i8 %36 to i32
   %cmp104 = icmp eq i32 %i.190, %conv103
   br i1 %cmp104, label %for.end109, label %for.cond100, !llvm.loop !11
 
 for.end109:                                       ; preds = %for.body102, %for.cond100
-  %flags = getelementptr inbounds i8, ptr %intp.0, i64 64
+  %flags = getelementptr inbounds nuw i8, ptr %intp.0, i64 64
   %37 = load i32, ptr %flags, align 8
   %and = and i32 %37, 4
   %tobool110.not = icmp eq i32 %and, 0
@@ -595,14 +595,14 @@ for.end125:                                       ; preds = %for.end125.loopexit
 define internal noundef zeroext i1 @vfio_platform_match(ptr noundef %sbdev, ptr nocapture noundef readonly %entry1) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #11
-  %num_compat = getelementptr inbounds i8, ptr %call.i, i64 1008
+  %num_compat = getelementptr inbounds nuw i8, ptr %call.i, i64 1008
   %0 = load i32, ptr %num_compat, align 8
   %cmp.not5.not = icmp eq i32 %0, 0
   br i1 %cmp.not5.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %compat3 = getelementptr inbounds i8, ptr %entry1, i64 8
-  %compat2 = getelementptr inbounds i8, ptr %call.i, i64 1000
+  %compat3 = getelementptr inbounds nuw i8, ptr %entry1, i64 8
+  %compat2 = getelementptr inbounds nuw i8, ptr %call.i, i64 1000
   %1 = load ptr, ptr %compat2, align 8
   %2 = load ptr, ptr %compat3, align 8
   br label %for.body
@@ -617,8 +617,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.inc:                                          ; preds = %for.body
   %dec = add i32 %n.07, -1
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compat.06) #12
-  %add = add i64 %call5, 1
-  %add.ptr = getelementptr i8, ptr %compat.06, i64 %add
+  %3 = getelementptr i8, ptr %compat.06, i64 %call5
+  %add.ptr = getelementptr i8, ptr %3, i64 1
   %cmp.not.not = icmp eq i32 %dec, 0
   br i1 %cmp.not.not, label %return, label %for.body, !llvm.loop !13
 
@@ -631,10 +631,10 @@ return:                                           ; preds = %for.body, %for.inc,
 define internal noundef i32 @add_tpm_tis_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %reg_attr = alloca [2 x i32], align 4
-  %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
+  %pbus1 = getelementptr inbounds nuw i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
+  %pbus_node_name = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %pbus_node_name, align 8
   %call = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #11
   %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef %2, i64 noundef %call) #11
@@ -643,7 +643,7 @@ entry:
   %conv = trunc i64 %call to i32
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   store i32 %3, ptr %reg_attr, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %reg_attr, i64 4
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %reg_attr, i64 4
   store i32 5242880, ptr %arrayidx8, align 4
   %call9 = call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull @.str.22, ptr noundef nonnull %reg_attr, i32 noundef 8) #11
   call void @g_free(ptr noundef %call3) #11
@@ -760,7 +760,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %optional = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %optional = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i8, ptr %optional, align 8
   %tobool7 = trunc i8 %3 to i1
   %4 = load i32, ptr %prop_len, align 4

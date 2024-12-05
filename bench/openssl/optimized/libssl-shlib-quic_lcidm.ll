@@ -24,27 +24,27 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @lcid_hash, ptr noundef nonnull @lcid_comp) #10
-  %lcids = getelementptr inbounds i8, ptr %call, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call.i, ptr %lcids, align 8
   %cmp5 = icmp eq ptr %call.i, null
   br i1 %cmp5, label %if.then15, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
   %call.i10 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @lcidm_conn_hash, ptr noundef nonnull @lcidm_conn_comp) #10
-  %conns = getelementptr inbounds i8, ptr %call, i64 16
+  %conns = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call.i10, ptr %conns, align 8
   %cmp9 = icmp eq ptr %call.i10, null
   br i1 %cmp9, label %if.then15, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
   store ptr %libctx, ptr %call, align 8
-  %lcid_len13 = getelementptr inbounds i8, ptr %call, i64 24
+  %lcid_len13 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %lcid_len, ptr %lcid_len13, align 8
   br label %return
 
 if.then15:                                        ; preds = %if.end3, %if.end7
   tail call void @OPENSSL_LH_free(ptr noundef %call.i) #10
-  %conns17 = getelementptr inbounds i8, ptr %call, i64 16
+  %conns17 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %conns17, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %0) #10
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 122) #10
@@ -60,7 +60,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i64 @lcid_hash(ptr nocapture noundef readonly %lcid_obj) #2 {
 entry:
-  %id = getelementptr inbounds i8, ptr %lcid_obj, i64 1
+  %id = getelementptr inbounds nuw i8, ptr %lcid_obj, i64 1
   %0 = load i8, ptr %lcid_obj, align 8
   %conv = zext i8 %0 to i64
   %cmp5.not.i = icmp eq i8 %0, 0
@@ -69,7 +69,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %entry ]
   %hash.06.i = phi i64 [ %xor.i, %for.body.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %id, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %id, i64 %i.07.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %1 to i64
   %rem.i = shl i64 %i.07.i, 3
@@ -96,8 +96,8 @@ entry:
   br i1 %or.cond.i, label %ossl_quic_conn_id_eq.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %id.i = getelementptr inbounds i8, ptr %a, i64 1
-  %id8.i = getelementptr inbounds i8, ptr %b, i64 1
+  %id.i = getelementptr inbounds nuw i8, ptr %a, i64 1
+  %id8.i = getelementptr inbounds nuw i8, ptr %b, i64 1
   %conv11.i = zext nneg i8 %0 to i64
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
   %cmp12.i = icmp ne i32 %bcmp.i, 0
@@ -112,7 +112,7 @@ ossl_quic_conn_id_eq.exit:                        ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @lcidm_conn_hash(ptr nocapture noundef readonly %conn) #4 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %conn, i64 16
+  %opaque = getelementptr inbounds nuw i8, ptr %conn, i64 16
   %0 = load ptr, ptr %opaque, align 8
   %1 = ptrtoint ptr %0 to i64
   ret i64 %1
@@ -121,9 +121,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @lcidm_conn_comp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #4 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %a, i64 16
+  %opaque = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load ptr, ptr %opaque, align 8
-  %opaque1 = getelementptr inbounds i8, ptr %b, i64 16
+  %opaque1 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %1 = load ptr, ptr %opaque1, align 8
   %cmp = icmp ne ptr %0, %1
   %conv = zext i1 %cmp to i32
@@ -139,12 +139,12 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conns = getelementptr inbounds i8, ptr %lcidm, i64 16
+  %conns = getelementptr inbounds nuw i8, ptr %lcidm, i64 16
   %0 = load ptr, ptr %conns, align 8
   tail call void @OPENSSL_LH_set_down_load(ptr noundef %0, i64 noundef 0) #10
   %1 = load ptr, ptr %conns, align 8
   tail call void @OPENSSL_LH_doall_arg(ptr noundef %1, ptr noundef nonnull @lcidm_delete_conn_, ptr noundef nonnull %lcidm) #10
-  %lcids = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   %2 = load ptr, ptr %lcids, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %2) #10
   %3 = load ptr, ptr %conns, align 8
@@ -159,12 +159,12 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @lcidm_delete_conn_(ptr noundef %conn, ptr noundef %arg) #0 {
 entry:
-  %lcids.i = getelementptr inbounds i8, ptr %conn, i64 8
+  %lcids.i = getelementptr inbounds nuw i8, ptr %conn, i64 8
   %0 = load ptr, ptr %lcids.i, align 8
   tail call void @OPENSSL_LH_set_down_load(ptr noundef %0, i64 noundef 0) #10
   %1 = load ptr, ptr %lcids.i, align 8
   tail call void @OPENSSL_LH_doall_arg(ptr noundef %1, ptr noundef nonnull @lcidm_delete_conn_lcid_, ptr noundef %arg) #10
-  %conns.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %conns.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %2 = load ptr, ptr %conns.i, align 8
   %call.i.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %2, ptr noundef %conn) #10
   %3 = load ptr, ptr %lcids.i, align 8
@@ -176,7 +176,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_lcidm_get_lcid_len(ptr nocapture noundef readonly %lcidm) local_unnamed_addr #4 {
 entry:
-  %lcid_len = getelementptr inbounds i8, ptr %lcidm, i64 24
+  %lcid_len = getelementptr inbounds nuw i8, ptr %lcidm, i64 24
   %0 = load i64, ptr %lcid_len, align 8
   ret i64 %0
 }
@@ -188,7 +188,7 @@ entry:
   %0 = getelementptr i8, ptr %lcidm, i64 16
   %lcidm.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
-  %opaque1.i = getelementptr inbounds i8, ptr %key.i, i64 16
+  %opaque1.i = getelementptr inbounds nuw i8, ptr %key.i, i64 16
   store ptr %opaque, ptr %opaque1.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %lcidm.val, ptr noundef nonnull %key.i) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i)
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp8, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  %done_odcid = getelementptr inbounds i8, ptr %call, i64 40
+  %done_odcid = getelementptr inbounds nuw i8, ptr %call, i64 40
   %bf.load = load i8, ptr %done_odcid, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -231,7 +231,7 @@ if.end11:                                         ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key, ptr noundef nonnull align 1 dereferenceable(21) %initial_odcid, i64 21, i1 false)
-  %lcids = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   %2 = load ptr, ptr %lcids, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %2, ptr noundef nonnull %key) #10
   %cmp15.not = icmp eq ptr %call.i, null
@@ -243,13 +243,13 @@ if.end18:                                         ; preds = %if.end13
   br i1 %cmp20, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %seq_num = getelementptr inbounds i8, ptr %call19, i64 24
+  %seq_num = getelementptr inbounds nuw i8, ptr %call19, i64 24
   store i64 -1, ptr %seq_num, align 8
-  %type = getelementptr inbounds i8, ptr %call19, i64 40
+  %type = getelementptr inbounds nuw i8, ptr %call19, i64 40
   %bf.load24 = load i8, ptr %type, align 8
   %bf.clear25 = and i8 %bf.load24, -4
   store i8 %bf.clear25, ptr %type, align 8
-  %odcid_lcid_obj = getelementptr inbounds i8, ptr %call, i64 24
+  %odcid_lcid_obj = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %call19, ptr %odcid_lcid_obj, align 8
   %bf.load27 = load i8, ptr %done_odcid, align 8
   %bf.set29 = or i8 %bf.load27, 1
@@ -268,7 +268,7 @@ entry:
   %0 = getelementptr i8, ptr %lcidm, i64 16
   %lcidm.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %key.i)
-  %opaque1.i = getelementptr inbounds i8, ptr %key.i, i64 16
+  %opaque1.i = getelementptr inbounds nuw i8, ptr %key.i, i64 16
   store ptr %opaque, ptr %opaque1.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %lcidm.val, ptr noundef nonnull %key.i) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i)
@@ -282,13 +282,13 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call.i = call ptr @OPENSSL_LH_new(ptr noundef nonnull @lcid_hash, ptr noundef nonnull @lcid_comp) #10
-  %lcids = getelementptr inbounds i8, ptr %call1, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call.i, ptr %lcids, align 8
   %cmp6 = icmp eq ptr %call.i, null
   br i1 %cmp6, label %if.then16, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %opaque9 = getelementptr inbounds i8, ptr %call1, i64 16
+  %opaque9 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr %opaque, ptr %opaque9, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i12 = call ptr @OPENSSL_LH_insert(ptr noundef %1, ptr noundef nonnull %call1) #10
@@ -329,9 +329,9 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %call, ptr noundef nonnull align 1 dereferenceable(21) %lcid, i64 21, i1 false)
-  %conn6 = getelementptr inbounds i8, ptr %call, i64 32
+  %conn6 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %conn, ptr %conn6, align 8
-  %lcids = getelementptr inbounds i8, ptr %conn, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %conn, i64 8
   %1 = load ptr, ptr %lcids, align 8
   %call.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %1, ptr noundef nonnull %call) #10
   %2 = load ptr, ptr %lcids, align 8
@@ -340,7 +340,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end11, label %err
 
 if.end11:                                         ; preds = %if.end5
-  %lcids12 = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %lcids12 = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   %3 = load ptr, ptr %lcids12, align 8
   %call.i14 = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %call) #10
   %4 = load ptr, ptr %lcids12, align 8
@@ -385,7 +385,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq i32 %type, 1
-  %next_seq_num = getelementptr inbounds i8, ptr %call, i64 32
+  %next_seq_num = getelementptr inbounds nuw i8, ptr %call, i64 32
   %0 = load i64, ptr %next_seq_num, align 8
   br i1 %cmp1, label %land.lhs.true, label %lor.lhs.false
 
@@ -398,10 +398,10 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %1, label %return, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %land.lhs.true, %lor.lhs.false
-  %next_seq_num319 = getelementptr inbounds i8, ptr %call, i64 32
+  %next_seq_num319 = getelementptr inbounds nuw i8, ptr %call, i64 32
   %2 = getelementptr i8, ptr %lcidm, i64 24
-  %id.i.i = getelementptr inbounds i8, ptr %lcid_out, i64 1
-  %lcids = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %id.i.i = getelementptr inbounds nuw i8, ptr %lcid_out, i64 1
+  %lcids = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end12
@@ -446,9 +446,9 @@ do.end:                                           ; preds = %if.end12
 
 if.end18:                                         ; preds = %do.end
   %4 = load i64, ptr %next_seq_num319, align 8
-  %seq_num20 = getelementptr inbounds i8, ptr %call15, i64 24
+  %seq_num20 = getelementptr inbounds nuw i8, ptr %call15, i64 24
   store i64 %4, ptr %seq_num20, align 8
-  %type21 = getelementptr inbounds i8, ptr %call15, i64 40
+  %type21 = getelementptr inbounds nuw i8, ptr %call15, i64 40
   %5 = trunc nuw nsw i32 %type to i8
   %bf.load = load i8, ptr %type21, align 8
   %bf.clear = and i8 %bf.load, -4
@@ -475,7 +475,7 @@ return:                                           ; preds = %if.end9, %do.body, 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef initializes((0, 16)) %ncid_frame) local_unnamed_addr #0 {
 entry:
-  %conn_id = getelementptr inbounds i8, ptr %ncid_frame, i64 16
+  %conn_id = getelementptr inbounds nuw i8, ptr %ncid_frame, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ncid_frame, i8 0, i64 16, i1 false)
   %call = tail call fastcc i32 @lcidm_generate(ptr noundef %lcidm, ptr noundef %opaque, i32 noundef 2, ptr noundef nonnull %conn_id, ptr noundef nonnull %ncid_frame)
   ret i32 %call
@@ -489,7 +489,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %odcid_lcid_obj = getelementptr inbounds i8, ptr %call, i64 24
+  %odcid_lcid_obj = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load ptr, ptr %odcid_lcid_obj, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
@@ -498,9 +498,9 @@ if.end3:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %lcidm, i64 8
   %lcidm.val = load ptr, ptr %1, align 8
   %call.i.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %lcidm.val, ptr noundef nonnull %0) #10
-  %conn.i = getelementptr inbounds i8, ptr %0, i64 32
+  %conn.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %conn.i, align 8
-  %lcids1.i = getelementptr inbounds i8, ptr %2, i64 8
+  %lcids1.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %lcids1.i, align 8
   %call.i5.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %3, ptr noundef nonnull %0) #10
   %4 = load ptr, ptr %conn.i, align 8
@@ -522,25 +522,25 @@ entry:
   %key = alloca %struct.quic_lcidm_conn_st, align 8
   %args = alloca %struct.retire_args, align 8
   store i64 0, ptr %args, align 8
-  %opaque1 = getelementptr inbounds i8, ptr %key, i64 16
+  %opaque1 = getelementptr inbounds nuw i8, ptr %key, i64 16
   store ptr %opaque, ptr %opaque1, align 8
   %cmp = icmp eq ptr %did_retire, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %did_retire, align 4
-  %conns = getelementptr inbounds i8, ptr %lcidm, i64 16
+  %conns = getelementptr inbounds nuw i8, ptr %lcidm, i64 16
   %0 = load ptr, ptr %conns, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #10
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %retire_prior_to5 = getelementptr inbounds i8, ptr %args, i64 16
+  %retire_prior_to5 = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i64 %retire_prior_to, ptr %retire_prior_to5, align 8
-  %earliest_seq_num = getelementptr inbounds i8, ptr %args, i64 8
+  %earliest_seq_num = getelementptr inbounds nuw i8, ptr %args, i64 8
   store i64 -1, ptr %earliest_seq_num, align 8
-  %lcids = getelementptr inbounds i8, ptr %call.i, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %lcids, align 8
   call void @OPENSSL_LH_doall_arg(ptr noundef %1, ptr noundef nonnull @retire_for_conn, ptr noundef nonnull %args) #10
   %2 = load ptr, ptr %args, align 8
@@ -560,8 +560,8 @@ land.lhs.true:                                    ; preds = %if.end8
   br i1 %or.cond.i, label %if.end13, label %ossl_quic_conn_id_eq.exit
 
 ossl_quic_conn_id_eq.exit:                        ; preds = %land.lhs.true
-  %id.i = getelementptr inbounds i8, ptr %2, i64 1
-  %id8.i = getelementptr inbounds i8, ptr %containing_pkt_dcid, i64 1
+  %id.i = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %id8.i = getelementptr inbounds nuw i8, ptr %containing_pkt_dcid, i64 1
   %conv11.i = zext nneg i8 %3 to i64
   %bcmp.i = call i32 @bcmp(ptr nonnull readonly %id.i, ptr nonnull readonly %id8.i, i64 %conv11.i)
   %cmp12.i.not = icmp eq i32 %bcmp.i, 0
@@ -581,7 +581,7 @@ if.end18:                                         ; preds = %if.then15, %if.end1
   br i1 %cmp19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %seq_num = getelementptr inbounds i8, ptr %2, i64 24
+  %seq_num = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %seq_num, align 8
   store i64 %5, ptr %retired_seq_num, align 8
   br label %if.end22
@@ -590,9 +590,9 @@ if.end22:                                         ; preds = %if.then20, %if.end1
   %6 = getelementptr i8, ptr %lcidm, i64 8
   %lcidm.val = load ptr, ptr %6, align 8
   %call.i.i = call ptr @OPENSSL_LH_delete(ptr noundef %lcidm.val, ptr noundef nonnull %2) #10
-  %conn.i = getelementptr inbounds i8, ptr %2, i64 32
+  %conn.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load ptr, ptr %conn.i, align 8
-  %lcids1.i = getelementptr inbounds i8, ptr %7, i64 8
+  %lcids1.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %lcids1.i, align 8
   %call.i5.i = call ptr @OPENSSL_LH_delete(ptr noundef %8, ptr noundef nonnull %2) #10
   %9 = load ptr, ptr %conn.i, align 8
@@ -613,22 +613,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @retire_for_conn(ptr noundef %lcid_obj, ptr nocapture noundef %arg) #7 {
 entry:
-  %type = getelementptr inbounds i8, ptr %lcid_obj, i64 40
+  %type = getelementptr inbounds nuw i8, ptr %lcid_obj, i64 40
   %bf.load = load i8, ptr %type, align 8
   %bf.clear = and i8 %bf.load, 3
   %cmp = icmp eq i8 %bf.clear, 0
   br i1 %cmp, label %if.end7, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %seq_num = getelementptr inbounds i8, ptr %lcid_obj, i64 24
+  %seq_num = getelementptr inbounds nuw i8, ptr %lcid_obj, i64 24
   %0 = load i64, ptr %seq_num, align 8
-  %retire_prior_to = getelementptr inbounds i8, ptr %arg, i64 16
+  %retire_prior_to = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %1 = load i64, ptr %retire_prior_to, align 8
   %cmp1.not = icmp ult i64 %0, %1
   br i1 %cmp1.not, label %if.end, label %if.end7
 
 if.end:                                           ; preds = %lor.lhs.false
-  %earliest_seq_num = getelementptr inbounds i8, ptr %arg, i64 8
+  %earliest_seq_num = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %2 = load i64, ptr %earliest_seq_num, align 8
   %cmp3 = icmp ult i64 %0, %2
   br i1 %cmp3, label %if.then4, label %if.end7
@@ -646,16 +646,16 @@ if.end7:                                          ; preds = %entry, %lor.lhs.fal
 define range(i32 0, 2) i32 @ossl_quic_lcidm_cull(ptr noundef %lcidm, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %key = alloca %struct.quic_lcidm_conn_st, align 8
-  %opaque1 = getelementptr inbounds i8, ptr %key, i64 16
+  %opaque1 = getelementptr inbounds nuw i8, ptr %key, i64 16
   store ptr %opaque, ptr %opaque1, align 8
-  %conns = getelementptr inbounds i8, ptr %lcidm, i64 16
+  %conns = getelementptr inbounds nuw i8, ptr %lcidm, i64 16
   %0 = load ptr, ptr %conns, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #10
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lcids.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %lcids.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %lcids.i, align 8
   call void @OPENSSL_LH_set_down_load(ptr noundef %1, i64 noundef 0) #10
   %2 = load ptr, ptr %lcids.i, align 8
@@ -691,7 +691,7 @@ lcidm_get0_lcid.exit.thread:                      ; preds = %if.end
   br label %return
 
 lcidm_get0_lcid.exit:                             ; preds = %if.end
-  %lcids.i = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %lcids.i = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   %1 = load ptr, ptr %lcids.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key.i) #10
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %key.i)
@@ -703,7 +703,7 @@ if.end3:                                          ; preds = %lcidm_get0_lcid.exi
   br i1 %cmp4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %seq_num6 = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %seq_num6 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %2 = load i64, ptr %seq_num6, align 8
   store i64 %2, ptr %seq_num, align 8
   br label %if.end7
@@ -713,9 +713,9 @@ if.end7:                                          ; preds = %if.then5, %if.end3
   br i1 %cmp8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %conn = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %conn = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %3 = load ptr, ptr %conn, align 8
-  %opaque10 = getelementptr inbounds i8, ptr %3, i64 16
+  %opaque10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %opaque10, align 8
   store ptr %4, ptr %opaque, align 8
   br label %return
@@ -730,7 +730,7 @@ define range(i32 0, 2) i32 @ossl_quic_lcidm_debug_remove(ptr nocapture noundef r
 entry:
   %key = alloca %struct.quic_lcid_st, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key, ptr noundef nonnull align 1 dereferenceable(21) %lcid, i64 21, i1 false)
-  %lcids = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   %0 = load ptr, ptr %lcids, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %0, ptr noundef nonnull %key) #10
   %cmp = icmp eq ptr %call.i, null
@@ -739,9 +739,9 @@ entry:
 if.end:                                           ; preds = %entry
   %lcidm.val = load ptr, ptr %lcids, align 8
   %call.i.i = call ptr @OPENSSL_LH_delete(ptr noundef %lcidm.val, ptr noundef nonnull %call.i) #10
-  %conn.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %conn.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   %1 = load ptr, ptr %conn.i, align 8
-  %lcids1.i = getelementptr inbounds i8, ptr %1, i64 8
+  %lcids1.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %lcids1.i, align 8
   %call.i5.i = call ptr @OPENSSL_LH_delete(ptr noundef %2, ptr noundef nonnull %call.i) #10
   %3 = load ptr, ptr %conn.i, align 8
@@ -775,7 +775,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end6:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %key, ptr noundef nonnull align 1 dereferenceable(21) %lcid, i64 21, i1 false)
-  %lcids = getelementptr inbounds i8, ptr %lcidm, i64 8
+  %lcids = getelementptr inbounds nuw i8, ptr %lcidm, i64 8
   %1 = load ptr, ptr %lcids, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %1, ptr noundef nonnull %key) #10
   %cmp8.not = icmp eq ptr %call.i, null
@@ -787,9 +787,9 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp13, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %seq_num17 = getelementptr inbounds i8, ptr %call12, i64 24
+  %seq_num17 = getelementptr inbounds nuw i8, ptr %call12, i64 24
   store i64 %seq_num, ptr %seq_num17, align 8
-  %type = getelementptr inbounds i8, ptr %call12, i64 40
+  %type = getelementptr inbounds nuw i8, ptr %call12, i64 40
   %bf.load = load i8, ptr %type, align 8
   %bf.clear = and i8 %bf.load, -4
   %bf.set = or disjoint i8 %bf.clear, 2
@@ -831,9 +831,9 @@ entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
   %call.i.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %arg.val, ptr noundef %lcid_obj) #10
-  %conn.i = getelementptr inbounds i8, ptr %lcid_obj, i64 32
+  %conn.i = getelementptr inbounds nuw i8, ptr %lcid_obj, i64 32
   %1 = load ptr, ptr %conn.i, align 8
-  %lcids1.i = getelementptr inbounds i8, ptr %1, i64 8
+  %lcids1.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %lcids1.i, align 8
   %call.i5.i = tail call ptr @OPENSSL_LH_delete(ptr noundef %2, ptr noundef %lcid_obj) #10
   %3 = load ptr, ptr %conn.i, align 8

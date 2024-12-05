@@ -831,7 +831,7 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr nocapture noundef %0, 
   %7 = and i64 %6, 4294967288
   %8 = sub i64 %7, %3
   %9 = lshr i64 %6, 3
-  %10 = getelementptr inbounds i8, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
@@ -1066,20 +1066,20 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr nocapture noundef %0, ptr n
 
 .lr.ph.i:                                         ; preds = %5, %14
   %.09.i = phi ptr [ %16, %14 ], [ %6, %5 ]
-  %7 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, %2
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %.09.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %12 = load ptr, ptr %11, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %12, ptr readonly %1, i64 %2)
   %13 = icmp eq i32 %bcmp.i, 0
   br i1 %13, label %asn1_find_named_data.exit, label %14
 
 14:                                               ; preds = %10, %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -1090,10 +1090,10 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr nocapture noundef %0, ptr n
   br i1 %18, label %52, label %19
 
 19:                                               ; preds = %.loopexit
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %2, ptr %20, align 8
   %21 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %2) #11
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %25
@@ -1104,14 +1104,14 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr nocapture noundef %0, ptr n
 
 25:                                               ; preds = %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %1, i64 %2, i1 false)
-  %26 = getelementptr inbounds i8, ptr %17, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 %4, ptr %26, align 8
   %.not51 = icmp eq i64 %4, 0
   br i1 %.not51, label %32, label %27
 
 27:                                               ; preds = %25
   %28 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %4) #11
-  %29 = getelementptr inbounds i8, ptr %17, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %31, label %32
@@ -1122,7 +1122,7 @@ define hidden ptr @mbedtls_asn1_store_named_data(ptr nocapture noundef %0, ptr n
   br label %52
 
 32:                                               ; preds = %27, %25
-  %33 = getelementptr inbounds i8, ptr %17, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %6, ptr %33, align 8
   store ptr %17, ptr %0, align 8
   br label %46
@@ -1132,14 +1132,14 @@ asn1_find_named_data.exit:                        ; preds = %10
   br i1 %34, label %.thread, label %37
 
 .thread:                                          ; preds = %asn1_find_named_data.exit
-  %35 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36) #10
   store ptr null, ptr %35, align 8
   br label %52
 
 37:                                               ; preds = %asn1_find_named_data.exit
-  %38 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %39 = load i64, ptr %38, align 8
   %.not = icmp eq i64 %39, %4
   br i1 %.not, label %46, label %40
@@ -1150,7 +1150,7 @@ asn1_find_named_data.exit:                        ; preds = %10
   br i1 %42, label %52, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %45 = load ptr, ptr %44, align 8
   tail call void @free(ptr noundef %45) #10
   store ptr %41, ptr %44, align 8
@@ -1165,7 +1165,7 @@ asn1_find_named_data.exit:                        ; preds = %10
   br i1 %or.cond, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %.044, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.044, i64 40
   %51 = load ptr, ptr %50, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %3, i64 %4, i1 false)
   br label %52

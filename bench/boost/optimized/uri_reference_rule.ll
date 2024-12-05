@@ -279,7 +279,7 @@ define linkonce_odr hidden void @_ZN5boost4urls7grammar6detail13parse_variantINS
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i: ; preds = %27
   %30 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !24, !noalias !39
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8, !noalias !39
   %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #13, !noalias !39
   br i1 %33, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i, label %_ZN5boost4urls7grammar6detail13parse_variantINS0_22implementation_defined10uri_rule_tEJNS4_19relative_ref_rule_tEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS7_10error_codeEEERPKcSK_RKNS2_5tupleIJSB_DpSD_EEERKSt17integral_constantImXT1_EERKSR_IbLb0EE.exit.i
@@ -291,9 +291,9 @@ _ZN5boost4urls7grammar6detail13parse_variantINS0_22implementation_defined10uri_r
   %34 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread.i.i ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.i.i ]
   %35 = or disjoint i64 %34, ptrtoint (ptr @_ZZN5boost4urls7grammar6detail13parse_variantINS0_22implementation_defined10uri_rule_tEJNS4_19relative_ref_rule_tEELm2EEENS_6system6resultINS_8variant27variantIJNT_10value_typeEDpNT0_10value_typeEEEENS7_10error_codeEEERPKcSK_RKNS2_5tupleIJSB_DpSD_EEERKSt17integral_constantImXT1_EERKSR_IbLb0EEE11loc__LINE__ to i64)
   store i64 2, ptr %0, align 8, !alias.scope !42
-  %.sroa.52.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.52.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.52.0..sroa_idx.i.i, align 8, !tbaa !14, !alias.scope !42
-  %.sroa.63.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.63.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %35, ptr %.sroa.63.0..sroa_idx.i.i, align 8, !tbaa !15, !alias.scope !42
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 2, ptr %36, align 8, !tbaa !8, !alias.scope !42

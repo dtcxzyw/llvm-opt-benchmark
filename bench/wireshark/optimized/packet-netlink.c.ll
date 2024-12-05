@@ -206,7 +206,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   unreachable
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp slt i32 %8, 0
   br i1 %18, label %19, label %20
@@ -272,13 +272,13 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
 
 53:                                               ; preds = %52, %40
   %54 = call ptr @proto_registrar_get_nth(i32 noundef %1) #5
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %.not129 = icmp eq ptr %56, null
   br i1 %.not129, label %68, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %54, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 512
   %.not130 = icmp eq i32 %60, 0
@@ -436,13 +436,13 @@ define hidden noundef i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %1
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not80 = icmp eq ptr %30, null
   br i1 %.not80, label %39, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %26, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 512
   %.not81 = icmp eq i32 %34, 0
@@ -546,7 +546,7 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %7, label %.loopexit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.122) #5
   %10 = load ptr, ptr %8, align 8
@@ -578,9 +578,9 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %33, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7
-  %34 = getelementptr inbounds i8, ptr %1, i64 348
-  %35 = getelementptr inbounds i8, ptr %5, i64 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = zext i16 %17 to i32
   br label %38
 

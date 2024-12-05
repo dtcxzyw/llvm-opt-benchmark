@@ -50,7 +50,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end6, %entry
-  %crlNum = getelementptr inbounds i8, ptr %in, i64 8
+  %crlNum = getelementptr inbounds nuw i8, ptr %in, i64 8
   %2 = load ptr, ptr %crlNum, align 8
   %tobool12.not = icmp eq ptr %2, null
   br i1 %tobool12.not, label %if.end27, label %if.then13
@@ -72,7 +72,7 @@ if.end22:                                         ; preds = %if.end17
   br i1 %cmp24, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end22, %if.end11
-  %crlTime = getelementptr inbounds i8, ptr %in, i64 16
+  %crlTime = getelementptr inbounds nuw i8, ptr %in, i64 16
   %4 = load ptr, ptr %crlTime, align 8
   %tobool28.not = icmp eq ptr %4, null
   br i1 %tobool28.not, label %return, label %if.then29
@@ -221,7 +221,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %pp, align 8
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %a, align 8
   %conv = sext i32 %2 to i64
@@ -287,7 +287,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %locator = getelementptr inbounds i8, ptr %in, i64 8
+  %locator = getelementptr inbounds nuw i8, ptr %in, i64 8
   %1 = load ptr, ptr %locator, align 8
   %call612 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %cmp713 = icmp sgt i32 %call612, 0
@@ -324,7 +324,7 @@ if.end19:                                         ; preds = %if.end14
   br i1 %cmp21, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end19
-  %location = getelementptr inbounds i8, ptr %call10, i64 8
+  %location = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %5 = load ptr, ptr %location, align 8
   %call24 = tail call i32 @GENERAL_NAME_print(ptr noundef %bp, ptr noundef %5) #5
   %cmp25 = icmp slt i32 %call24, 1

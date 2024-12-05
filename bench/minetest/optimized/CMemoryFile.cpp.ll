@@ -75,11 +75,11 @@ $_ZTIN3irr2io10IWriteFileE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io15CMemoryReadFileC2EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %this, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %4 = load ptr, ptr %3, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %2, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
@@ -87,7 +87,7 @@ entry:
   store ptr %4, ptr %add.ptr.i.i, align 8, !tbaa !3
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %this, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %vtt, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %vtt, i64 32
   %7 = load ptr, ptr %6, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %5, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -95,22 +95,22 @@ entry:
   store ptr %7, ptr %add.ptr.i, align 8, !tbaa !3
   %8 = load ptr, ptr %vtt, align 8
   store ptr %8, ptr %this, align 8, !tbaa !3
-  %9 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %vtt, i64 40
   %10 = load ptr, ptr %9, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %8, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %10, ptr %add.ptr, align 8, !tbaa !3
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %memory, ptr %Buffer, align 8, !tbaa !6
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %len, ptr %Len, align 8, !tbaa !17
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %Pos, align 8, !tbaa !18
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
-  %11 = getelementptr inbounds i8, ptr %this, i64 48
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %11, ptr %Filename, align 8, !tbaa !19
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   store i8 0, ptr %11, align 8, !tbaa !21
   %cmp.i.i = icmp eq ptr %Filename, %fileName
@@ -122,7 +122,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
   %frombool = zext i1 %d to i8
-  %deleteMemoryWhenDropped = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 %frombool, ptr %deleteMemoryWhenDropped, align 8, !tbaa !22
   ret void
 }
@@ -130,23 +130,23 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io15CMemoryReadFileC1EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32), (72, 92)) %this, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 72
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %DebugName.i, align 8, !tbaa !23
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 88
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %0, align 8, !tbaa !3
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %memory, ptr %Buffer, align 8, !tbaa !6
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %len, ptr %Len, align 8, !tbaa !17
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %Pos, align 8, !tbaa !18
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = getelementptr inbounds i8, ptr %this, i64 48
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %1, ptr %Filename, align 8, !tbaa !19
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   store i8 0, ptr %1, align 8, !tbaa !21
   %cmp.i.i = icmp eq ptr %Filename, %fileName
@@ -158,7 +158,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
   %frombool = zext i1 %d to i8
-  %deleteMemoryWhenDropped = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 %frombool, ptr %deleteMemoryWhenDropped, align 8, !tbaa !22
   ret void
 }
@@ -168,19 +168,19 @@ define void @_ZN3irr2io15CMemoryReadFileD2Ev(ptr noundef nonnull align 8 derefer
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 40
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
-  %deleteMemoryWhenDropped = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load i8, ptr %deleteMemoryWhenDropped, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %Buffer, align 8, !tbaa !6
   %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %if.end, label %delete.notnull
@@ -190,14 +190,14 @@ delete.notnull:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %if.then, %entry
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %Filename, align 8, !tbaa !29
-  %6 = getelementptr inbounds i8, ptr %this, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -218,15 +218,15 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #1
 define void @_ZN3irr2io15CMemoryReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %Buffer.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %Buffer.i, align 8, !tbaa !6
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %if.end.i, label %delete.notnull.i
@@ -236,14 +236,14 @@ delete.notnull.i:                                 ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.then.i, %entry
-  %Filename.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %Filename.i, align 8, !tbaa !29
-  %3 = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %if.end.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -265,15 +265,15 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %3, i64 64
+  %deleteMemoryWhenDropped.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Buffer.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Buffer.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %Buffer.i.i, align 8, !tbaa !6
   %isnull.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i, label %if.end.i.i, label %delete.notnull.i.i
@@ -283,14 +283,14 @@ delete.notnull.i.i:                               ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i, %if.then.i.i, %entry
-  %Filename.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %Filename.i.i, align 8, !tbaa !29
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.end.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -308,15 +308,15 @@ _ZN3irr2io15CMemoryReadFileD1Ev.exit:             ; preds = %if.then.i.i.i.i.i, 
 define void @_ZN3irr2io15CMemoryReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Buffer.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %Buffer.i.i, align 8, !tbaa !6
   %isnull.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i, label %if.end.i.i, label %delete.notnull.i.i
@@ -326,14 +326,14 @@ delete.notnull.i.i:                               ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i, %if.then.i.i, %entry
-  %Filename.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %Filename.i.i, align 8, !tbaa !29
-  %3 = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.end.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -359,15 +359,15 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
+  %deleteMemoryWhenDropped.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i.i, align 8, !tbaa !22, !range !27, !noundef !28
   %tobool.not.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %Buffer.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Buffer.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %Buffer.i.i.i, align 8, !tbaa !6
   %isnull.i.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i.i, label %if.end.i.i.i, label %delete.notnull.i.i.i
@@ -377,14 +377,14 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i, %if.then.i.i.i, %entry
-  %Filename.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %Filename.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %Filename.i.i.i, align 8, !tbaa !29
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %if.end.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -402,10 +402,10 @@ _ZN3irr2io15CMemoryReadFileD0Ev.exit:             ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef range(i64 0, -9223372036854775808) i64 @_ZN3irr2io15CMemoryReadFile4readEPvm(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef writeonly %buffer, i64 noundef %sizeToRead) unnamed_addr #3 align 2 {
 entry:
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Pos, align 8, !tbaa !18
   %add = add nsw i64 %0, %sizeToRead
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %Len, align 8, !tbaa !17
   %cmp = icmp sgt i64 %add, %1
   %sub.neg = sub i64 %1, %add
@@ -415,7 +415,7 @@ entry:
   br i1 %cmp6, label %cleanup, label %if.end8
 
 if.end8:                                          ; preds = %entry
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Buffer, align 8, !tbaa !6
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %add.ptr, i64 %amount.0, i1 false)
@@ -438,11 +438,11 @@ entry:
   br i1 %relativeMovement, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Pos, align 8, !tbaa !18
   %add = add nsw i64 %0, %finalPos
   %cmp = icmp slt i64 %add, 0
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %Len, align 8
   %cmp4 = icmp sgt i64 %add, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
@@ -454,14 +454,14 @@ if.end:                                           ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %cmp8 = icmp slt i64 %finalPos, 0
-  %Len10 = getelementptr inbounds i8, ptr %this, i64 16
+  %Len10 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %Len10, align 8
   %cmp11 = icmp slt i64 %2, %finalPos
   %or.cond21 = select i1 %cmp8, i1 true, i1 %cmp11
   br i1 %or.cond21, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.else
-  %Pos14 = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos14 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %finalPos, ptr %Pos14, align 8, !tbaa !18
   br label %return
 
@@ -473,7 +473,7 @@ return:                                           ; preds = %if.end13, %if.else,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK3irr2io15CMemoryReadFile7getSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this) unnamed_addr #6 align 2 {
 entry:
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %Len, align 8, !tbaa !17
   ret i64 %0
 }
@@ -481,7 +481,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK3irr2io15CMemoryReadFile6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this) unnamed_addr #6 align 2 {
 entry:
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Pos, align 8, !tbaa !18
   ret i64 %0
 }
@@ -489,17 +489,17 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io15CMemoryReadFile11getFileNameEv(ptr noundef nonnull readnone align 8 dereferenceable(65) %this) unnamed_addr #7 align 2 {
 entry:
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %Filename
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io16CMemoryWriteFileC2EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -507,22 +507,22 @@ entry:
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %memory, ptr %Buffer, align 8, !tbaa !30
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %len, ptr %Len, align 8, !tbaa !33
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %Pos, align 8, !tbaa !34
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
-  %7 = getelementptr inbounds i8, ptr %this, i64 48
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %7, ptr %Filename, align 8, !tbaa !19
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   store i8 0, ptr %7, align 8, !tbaa !21
   %cmp.i.i = icmp eq ptr %Filename, %fileName
@@ -534,7 +534,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
   %frombool = zext i1 %d to i8
-  %deleteMemoryWhenDropped = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 %frombool, ptr %deleteMemoryWhenDropped, align 8, !tbaa !35
   ret void
 }
@@ -542,23 +542,23 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io16CMemoryWriteFileC1EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32), (72, 92)) %this, ptr noundef %memory, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %d) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 72
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr null, ptr %DebugName.i, align 8, !tbaa !23
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 88
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %memory, ptr %Buffer, align 8, !tbaa !30
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %len, ptr %Len, align 8, !tbaa !33
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %Pos, align 8, !tbaa !34
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = getelementptr inbounds i8, ptr %this, i64 48
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %1, ptr %Filename, align 8, !tbaa !19
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   store i8 0, ptr %1, align 8, !tbaa !21
   %cmp.i.i = icmp eq ptr %Filename, %fileName
@@ -570,7 +570,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
   %frombool = zext i1 %d to i8
-  %deleteMemoryWhenDropped = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 %frombool, ptr %deleteMemoryWhenDropped, align 8, !tbaa !35
   ret void
 }
@@ -580,19 +580,19 @@ define void @_ZN3irr2io16CMemoryWriteFileD2Ev(ptr noundef nonnull align 8 derefe
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
-  %deleteMemoryWhenDropped = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load i8, ptr %deleteMemoryWhenDropped, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %Buffer, align 8, !tbaa !30
   %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %if.end, label %delete.notnull
@@ -602,14 +602,14 @@ delete.notnull:                                   ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %if.then, %entry
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %Filename, align 8, !tbaa !29
-  %6 = getelementptr inbounds i8, ptr %this, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -627,15 +627,15 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 define void @_ZN3irr2io16CMemoryWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %Buffer.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %Buffer.i, align 8, !tbaa !30
   %isnull.i = icmp eq ptr %1, null
   br i1 %isnull.i, label %if.end.i, label %delete.notnull.i
@@ -645,14 +645,14 @@ delete.notnull.i:                                 ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %if.then.i, %entry
-  %Filename.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %Filename.i, align 8, !tbaa !29
-  %3 = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %if.end.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -674,15 +674,15 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %3, i64 64
+  %deleteMemoryWhenDropped.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Buffer.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Buffer.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %Buffer.i.i, align 8, !tbaa !30
   %isnull.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i, label %if.end.i.i, label %delete.notnull.i.i
@@ -692,14 +692,14 @@ delete.notnull.i.i:                               ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i, %if.then.i.i, %entry
-  %Filename.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %Filename.i.i, align 8, !tbaa !29
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.end.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -717,15 +717,15 @@ _ZN3irr2io16CMemoryWriteFileD1Ev.exit:            ; preds = %if.then.i.i.i.i.i, 
 define void @_ZN3irr2io16CMemoryWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %deleteMemoryWhenDropped.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %deleteMemoryWhenDropped.i.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Buffer.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %Buffer.i.i, align 8, !tbaa !30
   %isnull.i.i = icmp eq ptr %1, null
   br i1 %isnull.i.i, label %if.end.i.i, label %delete.notnull.i.i
@@ -735,14 +735,14 @@ delete.notnull.i.i:                               ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %delete.notnull.i.i, %if.then.i.i, %entry
-  %Filename.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %Filename.i.i, align 8, !tbaa !29
-  %3 = getelementptr inbounds i8, ptr %this, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.end.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -765,15 +765,15 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  %deleteMemoryWhenDropped.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
+  %deleteMemoryWhenDropped.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = load i8, ptr %deleteMemoryWhenDropped.i.i.i, align 8, !tbaa !35, !range !27, !noundef !28
   %tobool.not.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %Buffer.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Buffer.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %Buffer.i.i.i, align 8, !tbaa !30
   %isnull.i.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i.i, label %if.end.i.i.i, label %delete.notnull.i.i.i
@@ -783,14 +783,14 @@ delete.notnull.i.i.i:                             ; preds = %if.then.i.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %delete.notnull.i.i.i, %if.then.i.i.i, %entry
-  %Filename.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
+  %Filename.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %Filename.i.i.i, align 8, !tbaa !29
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %if.end.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -808,10 +808,10 @@ _ZN3irr2io16CMemoryWriteFileD0Ev.exit:            ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef range(i64 0, -9223372036854775808) i64 @_ZN3irr2io16CMemoryWriteFile5writeEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef readonly %buffer, i64 noundef %sizeToWrite) unnamed_addr #3 align 2 {
 entry:
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Pos, align 8, !tbaa !34
   %add = add nsw i64 %0, %sizeToWrite
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %Len, align 8, !tbaa !33
   %cmp = icmp sgt i64 %add, %1
   %sub.neg = sub i64 %1, %add
@@ -821,7 +821,7 @@ entry:
   br i1 %cmp6, label %cleanup, label %if.end8
 
 if.end8:                                          ; preds = %entry
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Buffer, align 8, !tbaa !30
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buffer, i64 %amount.0, i1 false)
@@ -841,11 +841,11 @@ entry:
   br i1 %relativeMovement, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Pos, align 8, !tbaa !34
   %add = add nsw i64 %0, %finalPos
   %cmp = icmp slt i64 %add, 0
-  %Len = getelementptr inbounds i8, ptr %this, i64 16
+  %Len = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %Len, align 8
   %cmp4 = icmp sgt i64 %add, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
@@ -857,14 +857,14 @@ if.end:                                           ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %cmp8 = icmp slt i64 %finalPos, 0
-  %Len10 = getelementptr inbounds i8, ptr %this, i64 16
+  %Len10 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %Len10, align 8
   %cmp11 = icmp slt i64 %2, %finalPos
   %or.cond21 = select i1 %cmp8, i1 true, i1 %cmp11
   br i1 %or.cond21, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.else
-  %Pos14 = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos14 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %finalPos, ptr %Pos14, align 8, !tbaa !34
   br label %return
 
@@ -876,7 +876,7 @@ return:                                           ; preds = %if.end13, %if.else,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK3irr2io16CMemoryWriteFile6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this) unnamed_addr #6 align 2 {
 entry:
-  %Pos = getelementptr inbounds i8, ptr %this, i64 24
+  %Pos = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Pos, align 8, !tbaa !34
   ret i64 %0
 }
@@ -884,7 +884,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io16CMemoryWriteFile11getFileNameEv(ptr noundef nonnull readnone align 8 dereferenceable(65) %this) unnamed_addr #7 align 2 {
 entry:
-  %Filename = getelementptr inbounds i8, ptr %this, i64 32
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %Filename
 }
 
@@ -898,23 +898,23 @@ entry:
 define noundef nonnull ptr @_ZN3irr2io20createMemoryReadFileEPKvlRKNS_4core6stringIcEEb(ptr noundef %memory, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %deleteMemoryWhenDropped) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #16
-  %0 = getelementptr inbounds i8, ptr %call, i64 72
-  %DebugName.i.i = getelementptr inbounds i8, ptr %call, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 72
+  %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !23
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 24), ptr %call, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io15CMemoryReadFileE, i64 120), ptr %0, align 8, !tbaa !3
-  %Buffer.i = getelementptr inbounds i8, ptr %call, i64 8
+  %Buffer.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %memory, ptr %Buffer.i, align 8, !tbaa !6
-  %Len.i = getelementptr inbounds i8, ptr %call, i64 16
+  %Len.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %size, ptr %Len.i, align 8, !tbaa !17
-  %Pos.i = getelementptr inbounds i8, ptr %call, i64 24
+  %Pos.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 0, ptr %Pos.i, align 8, !tbaa !18
-  %Filename.i = getelementptr inbounds i8, ptr %call, i64 32
-  %1 = getelementptr inbounds i8, ptr %call, i64 48
+  %Filename.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %1, ptr %Filename.i, align 8, !tbaa !19
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
   store i8 0, ptr %1, align 1, !tbaa !21
   %cmp.i.i.i = icmp eq ptr %Filename.i, %fileName
@@ -926,7 +926,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 _ZN3irr2io15CMemoryReadFileC1EPKvlRKNS_4core6stringIcEEb.exit: ; preds = %if.end.i.i.i, %entry
   %frombool.i = zext i1 %deleteMemoryWhenDropped to i8
-  %deleteMemoryWhenDropped.i = getelementptr inbounds i8, ptr %call, i64 64
+  %deleteMemoryWhenDropped.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i8 %frombool.i, ptr %deleteMemoryWhenDropped.i, align 8, !tbaa !22
   ret ptr %call
 }
@@ -938,23 +938,23 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 define noundef nonnull ptr @_ZN3irr2io21createMemoryWriteFileEPvlRKNS_4core6stringIcEEb(ptr noundef %memory, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %deleteMemoryWhenDropped) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #16
-  %0 = getelementptr inbounds i8, ptr %call, i64 72
-  %DebugName.i.i = getelementptr inbounds i8, ptr %call, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 72
+  %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !23
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !26
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 24), ptr %call, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io16CMemoryWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
-  %Buffer.i = getelementptr inbounds i8, ptr %call, i64 8
+  %Buffer.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %memory, ptr %Buffer.i, align 8, !tbaa !30
-  %Len.i = getelementptr inbounds i8, ptr %call, i64 16
+  %Len.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %size, ptr %Len.i, align 8, !tbaa !33
-  %Pos.i = getelementptr inbounds i8, ptr %call, i64 24
+  %Pos.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 0, ptr %Pos.i, align 8, !tbaa !34
-  %Filename.i = getelementptr inbounds i8, ptr %call, i64 32
-  %1 = getelementptr inbounds i8, ptr %call, i64 48
+  %Filename.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr %1, ptr %Filename.i, align 8, !tbaa !19
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !20
   store i8 0, ptr %1, align 1, !tbaa !21
   %cmp.i.i.i = icmp eq ptr %Filename.i, %fileName
@@ -966,7 +966,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 _ZN3irr2io16CMemoryWriteFileC1EPvlRKNS_4core6stringIcEEb.exit: ; preds = %if.end.i.i.i, %entry
   %frombool.i = zext i1 %deleteMemoryWhenDropped to i8
-  %deleteMemoryWhenDropped.i = getelementptr inbounds i8, ptr %call, i64 64
+  %deleteMemoryWhenDropped.i = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i8 %frombool.i, ptr %deleteMemoryWhenDropped.i, align 8, !tbaa !35
   ret ptr %call
 }
@@ -1044,7 +1044,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK3irr2io15CMemoryReadFile9getBufferEv(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %Buffer = getelementptr inbounds i8, ptr %this, i64 8
+  %Buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buffer, align 8, !tbaa !6
   ret ptr %0
 }

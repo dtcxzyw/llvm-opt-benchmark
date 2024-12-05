@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_coll_base_gather_intra_binomial(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef readonly %8) local_unnamed_addr #0 {
   %10 = alloca %struct.ompi_status_public_t, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 584
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 584
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %7, i64 248
   %.val = load ptr, ptr %13, align 8
@@ -33,13 +33,13 @@ define i32 @ompi_coll_base_gather_intra_binomial(ptr noundef %0, i32 noundef %1,
   %.val.val = load i32, ptr %14, align 8
   %15 = getelementptr i8, ptr %7, i64 220
   %.val186 = load i32, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.thread, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %12, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %6
   br i1 %21, label %26, label %22
@@ -51,7 +51,7 @@ define i32 @ompi_coll_base_gather_intra_binomial(ptr noundef %0, i32 noundef %1,
 .thread:                                          ; preds = %9, %22
   %24 = tail call ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr noundef nonnull %7, i32 noundef %6) #5
   store ptr %24, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 %6, ptr %25, align 8
   br label %26
 
@@ -70,7 +70,7 @@ define i32 @ompi_coll_base_gather_intra_binomial(ptr noundef %0, i32 noundef %1,
   %.val188 = load i64, ptr %34, align 8
   %35 = sub nsw i64 %.val188, %.val187
   %36 = sext i32 %4 to i64
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, 0
   %40 = icmp eq i32 %4, 0
@@ -80,9 +80,9 @@ define i32 @ompi_coll_base_gather_intra_binomial(ptr noundef %0, i32 noundef %1,
 41:                                               ; preds = %32
   %42 = sext i32 %.val.val to i64
   %43 = mul nsw i64 %42, %36
-  %44 = getelementptr inbounds i8, ptr %5, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = add nsw i64 %43, -1
   %49 = mul i64 %35, %48
@@ -160,7 +160,7 @@ opal_datatype_span.exit:                          ; preds = %32, %41
   %79 = getelementptr i8, ptr %2, i64 56
   %.val190 = load i64, ptr %79, align 8
   %80 = sub nsw i64 %.val190, %.val189
-  %81 = getelementptr inbounds i8, ptr %2, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %82, 0
   %84 = icmp eq i32 %1, 0
@@ -171,9 +171,9 @@ opal_datatype_span.exit:                          ; preds = %32, %41
   %86 = sext i32 %1 to i64
   %87 = sext i32 %.val.val to i64
   %88 = mul nsw i64 %87, %86
-  %89 = getelementptr inbounds i8, ptr %2, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %2, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %92 = load i64, ptr %91, align 8
   %93 = add nsw i64 %88, -1
   %94 = mul i64 %80, %93
@@ -207,13 +207,13 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
   br i1 %.not178, label %.preheader, label %.loopexit254
 
 .preheader:                                       ; preds = %ompi_datatype_copy_content_same_ddt.exit.thread
-  %104 = getelementptr inbounds i8, ptr %27, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %105 = load i32, ptr %104, align 4
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph, label %.loopexit254
 
 .lr.ph:                                           ; preds = %.preheader
-  %107 = getelementptr inbounds i8, ptr %27, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %108 = sext i32 %.0141 to i64
   %109 = sext i32 %.val.val to i64
   %110 = mul nsw i64 %108, %109
@@ -222,7 +222,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
 111:                                              ; preds = %.lr.ph, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
   %.2264 = phi i32 [ %.0144, %.lr.ph ], [ %126, %120 ]
-  %112 = getelementptr inbounds [0 x i32], ptr %107, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [0 x i32], ptr %107, i64 0, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
   %115 = sext i32 %.2264 to i64
@@ -254,7 +254,7 @@ ompi_datatype_copy_content_same_ddt.exit.thread:  ; preds = %70, %64, %99, %75, 
 130:                                              ; preds = %.loopexit254
   %131 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
   %132 = sext i32 %.1 to i64
-  %133 = getelementptr inbounds i8, ptr %27, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %134 = load i32, ptr %133, align 4
   %135 = call i32 %131(ptr noundef %.1150, i64 noundef %132, ptr noundef %2, i32 noundef %134, i32 noundef -19, i32 noundef 4, ptr noundef %7) #5
   %.not181 = icmp eq i32 %135, 0
@@ -384,9 +384,9 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
 15:                                               ; preds = %10
   %16 = getelementptr i8, ptr %2, i64 24
   %.val155 = load i64, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %20 = load i64, ptr %19, align 8
   %21 = sub nsw i64 %20, %18
   %22 = sext i32 %9 to i64
@@ -436,7 +436,7 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   br label %ompi_coll_base_free_reqs.exit
 
 50:                                               ; preds = %10
-  %51 = getelementptr inbounds i8, ptr %8, i64 584
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 584
   %52 = load ptr, ptr %51, align 8
   %53 = tail call ptr @ompi_coll_base_comm_get_reqs(ptr noundef %52, i32 noundef %.val.val) #5
   %54 = icmp eq ptr %53, null
@@ -445,9 +445,9 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
 55:                                               ; preds = %50
   %56 = getelementptr i8, ptr %5, i64 24
   %.val156 = load i64, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %60 = load i64, ptr %59, align 8
   %61 = sub nsw i64 %60, %58
   %62 = sext i32 %9 to i64
@@ -486,7 +486,7 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   %81 = sext i32 %80 to i64
   %82 = zext i32 %6 to i64
   %wide.trip.count = zext nneg i32 %.val.val to i64
-  %83 = getelementptr inbounds ptr, ptr %53, i64 %82
+  %83 = getelementptr inbounds nuw ptr, ptr %53, i64 %82
   br label %84
 
 84:                                               ; preds = %.lr.ph, %106
@@ -519,7 +519,7 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
   %98 = mul nsw i64 %97, %61
   %99 = getelementptr inbounds i8, ptr %3, i64 %98
   %100 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %101 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %102 = call i32 %100(ptr noundef %99, i64 noundef %81, ptr noundef %5, i32 noundef %91, i32 noundef -19, ptr noundef %7, ptr noundef nonnull %101) #5
   %.not144 = icmp eq i32 %102, 0
   br i1 %.not144, label %103, label %.loopexit166
@@ -570,13 +570,13 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %125
   %indvars.iv173 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next174, %125 ]
-  %119 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv173
+  %119 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv173
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, @ompi_request_null
   br i1 %121, label %125, label %122
 
 122:                                              ; preds = %.lr.ph169
-  %123 = getelementptr inbounds i8, ptr %120, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 72
   %124 = load i32, ptr %123, align 8
   switch i32 %124, label %.loopexit [
     i32 19, label %125
@@ -598,20 +598,20 @@ define i32 @ompi_coll_base_gather_intra_linear_sync(ptr noundef %0, i32 noundef 
 
 .lr.ph.i:                                         ; preds = %142, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %142 ]
-  %126 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i
   %127 = load ptr, ptr %126, align 8
   %.not.i = icmp eq ptr %127, @ompi_request_null
   br i1 %.not.i, label %142, label %128
 
 128:                                              ; preds = %.lr.ph.i
-  %129 = getelementptr inbounds i8, ptr %127, i64 72
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 72
   %130 = load i32, ptr %129, align 8
   %.off.i = add i32 %130, -75
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %131, label %138
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %127, i64 128
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 128
   %133 = load ptr, ptr %132, align 8
   %.not.i.i = icmp eq ptr %133, null
   br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %134
@@ -626,7 +626,7 @@ ompi_request_cancel.exit.i:                       ; preds = %134, %131
   br label %142
 
 138:                                              ; preds = %128
-  %139 = getelementptr inbounds i8, ptr %127, i64 120
+  %139 = getelementptr inbounds nuw i8, ptr %127, i64 120
   %140 = load ptr, ptr %139, align 8
   %141 = call i32 %140(ptr noundef nonnull %126) #5
   br label %142
@@ -661,9 +661,9 @@ define i32 @ompi_coll_base_gather_intra_basic_linear(ptr noundef %0, i32 noundef
   br label %.loopexit
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %5, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %21 = load i64, ptr %20, align 8
   %22 = sub nsw i64 %21, %19
   %23 = sext i32 %4 to i64

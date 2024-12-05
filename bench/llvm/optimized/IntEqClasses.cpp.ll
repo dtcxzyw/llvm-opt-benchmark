@@ -18,7 +18,7 @@ define dso_local void @_ZN4llvm12IntEqClasses4growEj(ptr noundef nonnull align 8
   br i1 %5, label %6, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %3, i64 noundef 4) #5
   br label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
 
@@ -28,7 +28,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %2, %6
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
@@ -66,10 +66,10 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 define dso_local noundef i32 @_ZN4llvm12IntEqClasses4joinEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i32, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %4
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4
   %.not21 = icmp eq i32 %7, %10
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -85,21 +85,21 @@ define dso_local noundef i32 @_ZN4llvm12IntEqClasses4joinEjj(ptr nocapture nound
 
 13:                                               ; preds = %.lr.ph
   %14 = zext i32 %.01723 to i64
-  %15 = getelementptr inbounds i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %11, i64 %14
   store i32 %.01524, ptr %15, align 4
   %16 = zext i32 %.025 to i64
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4
   br label %27
 
 20:                                               ; preds = %.lr.ph
   %21 = zext i32 %.01922 to i64
-  %22 = getelementptr inbounds i32, ptr %11, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %11, i64 %21
   store i32 %.025, ptr %22, align 4
   %23 = zext i32 %.01524 to i64
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i32, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -125,7 +125,7 @@ define dso_local noundef i32 @_ZNK4llvm12IntEqClasses10findLeaderEj(ptr nocaptur
 4:                                                ; preds = %4, %2
   %.0 = phi i32 [ %1, %2 ], [ %7, %4 ]
   %5 = zext i32 %.0 to i64
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw i32, ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %.0, %7
   br i1 %.not, label %8, label %4, !llvm.loop !7
@@ -154,7 +154,7 @@ define dso_local void @_ZN4llvm12IntEqClasses8compressEv(ptr noundef nonnull ali
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = icmp eq i64 %indvars.iv, %11
@@ -167,7 +167,7 @@ define dso_local void @_ZN4llvm12IntEqClasses8compressEv(ptr noundef nonnull ali
   br label %19
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i32, ptr %8, i64 %11
+  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %11
   %18 = load i32, ptr %17, align 4
   br label %19
 
@@ -191,7 +191,7 @@ define dso_local void @_ZN4llvm12IntEqClasses10uncompressEv(ptr noundef nonnull 
   br i1 %.not, label %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %6, i64 noundef 8) #5
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5
   %8 = and i64 %7, 4294967295
@@ -205,20 +205,20 @@ define dso_local void @_ZN4llvm12IntEqClasses10uncompressEv(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #5
   %15 = icmp ugt i64 %14, %13
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   br i1 %15, label %18, label %24
 
 18:                                               ; preds = %.lr.ph
   %19 = load i32, ptr %17, align 4
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %17, align 4
   br label %35

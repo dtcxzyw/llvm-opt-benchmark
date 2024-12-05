@@ -25,17 +25,17 @@ define range(i32 0, 2) i32 @ssl3_change_cipher_state(ptr noundef %s, i32 noundef
 entry:
   %and = and i32 %which, 1
   %cond = xor i32 %and, 1
-  %new_sym_enc = getelementptr inbounds i8, ptr %s, i64 760
+  %new_sym_enc = getelementptr inbounds nuw i8, ptr %s, i64 760
   %0 = load ptr, ptr %new_sym_enc, align 8
-  %new_hash = getelementptr inbounds i8, ptr %s, i64 768
+  %new_hash = getelementptr inbounds nuw i8, ptr %s, i64 768
   %1 = load ptr, ptr %new_hash, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %err.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %new_compression = getelementptr inbounds i8, ptr %s, i64 792
+  %new_compression = getelementptr inbounds nuw i8, ptr %s, i64 792
   %2 = load ptr, ptr %new_compression, align 8
-  %key_block = getelementptr inbounds i8, ptr %s, i64 752
+  %key_block = getelementptr inbounds nuw i8, ptr %s, i64 752
   %3 = load ptr, ptr %key_block, align 8
   %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %1) #8
   %cmp12 = icmp slt i32 %call, 0
@@ -61,7 +61,7 @@ if.then25:                                        ; preds = %if.end15, %if.end15
   br label %if.end40
 
 if.else:                                          ; preds = %if.end15
-  %arrayidx32 = getelementptr inbounds i8, ptr %3, i64 %conv16
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %3, i64 %conv16
   %reass.add = shl nuw nsw i64 %conv16, 1
   %add34 = add nsw i64 %reass.add, %conv18
   %add36 = add nsw i64 %conv20, %conv18
@@ -74,7 +74,7 @@ if.end40:                                         ; preds = %if.else, %if.then25
   %n.0 = phi i64 [ %add31, %if.then25 ], [ %add39, %if.else ]
   %add.pn = phi i64 [ %add, %if.then25 ], [ %add34, %if.else ]
   %mac_secret.0 = phi ptr [ %3, %if.then25 ], [ %arrayidx32, %if.else ]
-  %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
+  %key_block_length = getelementptr inbounds nuw i8, ptr %s, i64 744
   %4 = load i64, ptr %key_block_length, align 8
   %cmp43 = icmp ugt i64 %n.0, %4
   br i1 %cmp43, label %err.sink.split, label %if.end46
@@ -123,15 +123,15 @@ entry:
   %c = alloca ptr, align 8
   %hash = alloca ptr, align 8
   %comp = alloca ptr, align 8
-  %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
+  %key_block_length = getelementptr inbounds nuw i8, ptr %s, i64 744
   %0 = load i64, ptr %key_block_length, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ctx = getelementptr inbounds i8, ptr %s, i64 8
+  %ctx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %1 = load ptr, ptr %ctx, align 8
-  %session = getelementptr inbounds i8, ptr %s, i64 2176
+  %session = getelementptr inbounds nuw i8, ptr %s, i64 2176
   %2 = load ptr, ptr %session, align 8
   %call = call i32 @ssl_cipher_get_evp(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %c, ptr noundef nonnull %hash, ptr noundef null, ptr noundef null, ptr noundef nonnull %comp, i32 noundef 0) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -142,18 +142,18 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %new_sym_enc = getelementptr inbounds i8, ptr %s, i64 760
+  %new_sym_enc = getelementptr inbounds nuw i8, ptr %s, i64 760
   %3 = load ptr, ptr %new_sym_enc, align 8
   call void @ssl_evp_cipher_free(ptr noundef %3) #8
   %4 = load ptr, ptr %c, align 8
   store ptr %4, ptr %new_sym_enc, align 8
-  %new_hash = getelementptr inbounds i8, ptr %s, i64 768
+  %new_hash = getelementptr inbounds nuw i8, ptr %s, i64 768
   %5 = load ptr, ptr %new_hash, align 8
   call void @ssl_evp_md_free(ptr noundef %5) #8
   %6 = load ptr, ptr %hash, align 8
   store ptr %6, ptr %new_hash, align 8
   %7 = load ptr, ptr %comp, align 8
-  %new_compression = getelementptr inbounds i8, ptr %s, i64 792
+  %new_compression = getelementptr inbounds nuw i8, ptr %s, i64 792
   store ptr %7, ptr %new_compression, align 8
   %call15 = call i32 @EVP_MD_get_size(ptr noundef %6) #8
   %cmp16 = icmp slt i32 %call15, 0
@@ -167,7 +167,7 @@ if.end18:                                         ; preds = %if.end2
   %call20 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %9) #8
   %add21 = add i32 %add, %call20
   %mul = shl i32 %add21, 1
-  %key_block.i = getelementptr inbounds i8, ptr %s, i64 752
+  %key_block.i = getelementptr inbounds nuw i8, ptr %s, i64 752
   %10 = load ptr, ptr %key_block.i, align 8
   %11 = load i64, ptr %key_block_length, align 8
   call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 214) #8
@@ -190,7 +190,7 @@ if.end26:                                         ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %smd.i)
   %12 = load ptr, ptr %ctx, align 8
   %13 = load ptr, ptr %12, align 8
-  %propq.i = getelementptr inbounds i8, ptr %12, i64 1096
+  %propq.i = getelementptr inbounds nuw i8, ptr %12, i64 1096
   %14 = load ptr, ptr %propq.i, align 8
   %call.i = call ptr @ssl_evp_md_fetch(ptr noundef %13, i32 noundef 4, ptr noundef %14) #8
   %15 = load ptr, ptr %12, align 8
@@ -212,8 +212,8 @@ for.cond.preheader.i:                             ; preds = %if.end26
   br i1 %cmp1145.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %server_random.i = getelementptr inbounds i8, ptr %s, i64 288
-  %client_random.i = getelementptr inbounds i8, ptr %s, i64 320
+  %server_random.i = getelementptr inbounds nuw i8, ptr %s, i64 288
+  %client_random.i = getelementptr inbounds nuw i8, ptr %s, i64 320
   %17 = zext i32 %mul to i64
   %umax = call i64 @llvm.umax.i64(i64 %17, i64 16)
   %18 = add nsw i64 %umax, -1
@@ -255,8 +255,8 @@ lor.lhs.false20.i:                                ; preds = %if.end15.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i
   %20 = load ptr, ptr %session, align 8
-  %master_key.i = getelementptr inbounds i8, ptr %20, i64 80
-  %master_key_length.i = getelementptr inbounds i8, ptr %20, i64 8
+  %master_key.i = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %master_key_length.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load i64, ptr %master_key_length.i, align 8
   %call28.i = call i32 @EVP_DigestUpdate(ptr noundef %call5.i, ptr noundef nonnull %master_key.i, i64 noundef %21) #8
   %tobool29.not.i = icmp eq i32 %call28.i, 0
@@ -284,8 +284,8 @@ lor.lhs.false43.i:                                ; preds = %lor.lhs.false39.i
 
 lor.lhs.false46.i:                                ; preds = %lor.lhs.false43.i
   %22 = load ptr, ptr %session, align 8
-  %master_key48.i = getelementptr inbounds i8, ptr %22, i64 80
-  %master_key_length51.i = getelementptr inbounds i8, ptr %22, i64 8
+  %master_key48.i = getelementptr inbounds nuw i8, ptr %22, i64 80
+  %master_key_length51.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %23 = load i64, ptr %master_key_length51.i, align 8
   %call52.i = call i32 @EVP_DigestUpdate(ptr noundef %call4.i, ptr noundef nonnull %master_key48.i, i64 noundef %23) #8
   %tobool53.not.i = icmp eq i32 %call52.i, 0
@@ -337,7 +337,7 @@ if.then72.i:                                      ; preds = %if.else.i
   br label %ssl3_generate_key_block.exit
 
 if.end74.i:                                       ; preds = %if.else.i, %if.end67.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %km.addr.049.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %km.addr.049.i, i64 16
   %exitcond.not = icmp eq i64 %indvars.iv.i, %19
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !4
 
@@ -371,9 +371,9 @@ declare void @ssl_evp_md_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @ssl3_cleanup_key_block(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %key_block = getelementptr inbounds i8, ptr %s, i64 752
+  %key_block = getelementptr inbounds nuw i8, ptr %s, i64 752
   %0 = load ptr, ptr %key_block, align 8
-  %key_block_length = getelementptr inbounds i8, ptr %s, i64 744
+  %key_block_length = getelementptr inbounds nuw i8, ptr %s, i64 744
   %1 = load i64, ptr %key_block_length, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 214) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_block_length, i8 0, i64 16, i1 false)
@@ -399,11 +399,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %handshake_buffer.i = getelementptr inbounds i8, ptr %s, i64 352
+  %handshake_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 352
   %0 = load ptr, ptr %handshake_buffer.i, align 8
   %call.i = tail call i32 @BIO_free(ptr noundef %0) #8
   store ptr null, ptr %handshake_buffer.i, align 8
-  %handshake_dgst.i = getelementptr inbounds i8, ptr %s, i64 360
+  %handshake_dgst.i = getelementptr inbounds nuw i8, ptr %s, i64 360
   %1 = load ptr, ptr %handshake_dgst.i, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %1) #8
   store ptr null, ptr %handshake_dgst.i, align 8
@@ -423,11 +423,11 @@ declare ptr @BIO_s_mem() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @ssl3_free_digest_list(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %s, i64 352
   %0 = load ptr, ptr %handshake_buffer, align 8
   %call = tail call i32 @BIO_free(ptr noundef %0) #8
   store ptr null, ptr %handshake_buffer, align 8
-  %handshake_dgst = getelementptr inbounds i8, ptr %s, i64 360
+  %handshake_dgst = getelementptr inbounds nuw i8, ptr %s, i64 360
   %1 = load ptr, ptr %handshake_dgst, align 8
   tail call void @EVP_MD_CTX_free(ptr noundef %1) #8
   store ptr null, ptr %handshake_dgst, align 8
@@ -443,7 +443,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ssl3_finish_mac(ptr noundef %s, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %handshake_dgst = getelementptr inbounds i8, ptr %s, i64 360
+  %handshake_dgst = getelementptr inbounds nuw i8, ptr %s, i64 360
   %0 = load ptr, ptr %handshake_dgst, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -453,7 +453,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %s, i64 352
   %1 = load ptr, ptr %handshake_buffer, align 8
   %conv = trunc nuw nsw i64 %len to i32
   %call = tail call i32 @BIO_write(ptr noundef %1, ptr noundef %buf, i32 noundef %conv) #8
@@ -488,13 +488,13 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 define range(i32 0, 2) i32 @ssl3_digest_cached_records(ptr noundef %s, i32 noundef %keep) local_unnamed_addr #0 {
 entry:
   %hdata = alloca ptr, align 8
-  %handshake_dgst = getelementptr inbounds i8, ptr %s, i64 360
+  %handshake_dgst = getelementptr inbounds nuw i8, ptr %s, i64 360
   %0 = load ptr, ptr %handshake_dgst, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end25
 
 if.then:                                          ; preds = %entry
-  %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %s, i64 352
   %1 = load ptr, ptr %handshake_buffer, align 8
   %call = call i64 @BIO_ctrl(ptr noundef %1, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %hdata) #8
   %cmp2 = icmp slt i64 %call, 1
@@ -553,7 +553,7 @@ if.end25:                                         ; preds = %lor.lhs.false, %ent
   br i1 %cmp26, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end25
-  %handshake_buffer29 = getelementptr inbounds i8, ptr %s, i64 352
+  %handshake_buffer29 = getelementptr inbounds nuw i8, ptr %s, i64 352
   %5 = load ptr, ptr %handshake_buffer29, align 8
   %call30 = call i32 @BIO_free(ptr noundef %5) #8
   store ptr null, ptr %handshake_buffer29, align 8
@@ -575,12 +575,12 @@ define void @ssl3_digest_master_key_set_params(ptr noundef %session, ptr nocaptu
 entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp4 = alloca %struct.ossl_param_st, align 8
-  %master_key = getelementptr inbounds i8, ptr %session, i64 80
-  %master_key_length = getelementptr inbounds i8, ptr %session, i64 8
+  %master_key = getelementptr inbounds nuw i8, ptr %session, i64 80
+  %master_key_length = getelementptr inbounds nuw i8, ptr %session, i64 8
   %0 = load i64, ptr %master_key_length, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key, i64 noundef %0) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
   ret void
@@ -603,7 +603,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %handshake_dgst = getelementptr inbounds i8, ptr %s, i64 360
+  %handshake_dgst = getelementptr inbounds nuw i8, ptr %s, i64 360
   %0 = load ptr, ptr %handshake_dgst, align 8
   %call1 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %0) #8
   %call2 = tail call i32 @EVP_MD_get_type(ptr noundef %call1) #8
@@ -656,15 +656,15 @@ if.end19:                                         ; preds = %if.end14
   br i1 %cmp20.not, label %err, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %session = getelementptr inbounds i8, ptr %s, i64 2176
+  %session = getelementptr inbounds nuw i8, ptr %s, i64 2176
   %2 = load ptr, ptr %session, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
-  %master_key.i = getelementptr inbounds i8, ptr %2, i64 80
-  %master_key_length.i = getelementptr inbounds i8, ptr %2, i64 8
+  %master_key.i = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %master_key_length.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %master_key_length.i, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %master_key.i, i64 noundef %3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %digest_cmd_params, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx3.i = getelementptr inbounds i8, ptr %digest_cmd_params, i64 40
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %digest_cmd_params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %arrayidx3.i) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   %call22 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call5, ptr noundef nonnull %sender, i64 noundef %len) #8
@@ -718,9 +718,9 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %ctx2 = getelementptr inbounds i8, ptr %s, i64 8
-  %client_random = getelementptr inbounds i8, ptr %s, i64 320
-  %server_random = getelementptr inbounds i8, ptr %s, i64 288
+  %ctx2 = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %client_random = getelementptr inbounds nuw i8, ptr %s, i64 320
+  %server_random = getelementptr inbounds nuw i8, ptr %s, i64 288
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -734,14 +734,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ret_secret_size.031 = phi i64 [ 0, %for.cond.preheader ], [ %add, %if.end43 ]
   %out.addr.029 = phi ptr [ %out, %for.cond.preheader ], [ %add.ptr, %if.end43 ]
   %0 = load ptr, ptr %ctx2, align 8
-  %sha1 = getelementptr inbounds i8, ptr %0, i64 264
+  %sha1 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %1 = load ptr, ptr %sha1, align 8
   %call3 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %1, ptr noundef null) #8
   %cmp4 = icmp slt i32 %call3, 1
   br i1 %cmp4, label %if.then42, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @ssl3_generate_master_secret.salt, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @ssl3_generate_master_secret.salt, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %call8 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef %2, i64 noundef %call7) #8
@@ -770,7 +770,7 @@ lor.lhs.false22:                                  ; preds = %lor.lhs.false17
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false22
   %3 = load ptr, ptr %ctx2, align 8
-  %md5 = getelementptr inbounds i8, ptr %3, i64 256
+  %md5 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %4 = load ptr, ptr %md5, align 8
   %call28 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call, ptr noundef %4, ptr noundef null) #8
   %cmp29 = icmp slt i32 %call28, 1
@@ -802,7 +802,7 @@ if.then42:                                        ; preds = %lor.lhs.false38, %l
 if.end43:                                         ; preds = %lor.lhs.false38
   %6 = load i32, ptr %n, align 4
   %idx.ext = zext i32 %6 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.029, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out.addr.029, i64 %idx.ext
   %add = add i64 %ret_secret_size.031, %idx.ext
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

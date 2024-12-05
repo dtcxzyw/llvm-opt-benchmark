@@ -61,7 +61,7 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN5vcpkg7Unicode22utf8_encode_cod
   %17 = trunc i32 %1 to i8
   %18 = and i8 %17, 63
   %19 = or disjoint i8 %18, -128
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %19, ptr %20, align 1
   br label %66
 
@@ -78,12 +78,12 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN5vcpkg7Unicode22utf8_encode_cod
   %28 = trunc i32 %27 to i8
   %29 = and i8 %28, 63
   %30 = or disjoint i8 %29, -128
-  %31 = getelementptr inbounds i8, ptr %0, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %30, ptr %31, align 1
   %32 = trunc i32 %1 to i8
   %33 = and i8 %32, 63
   %34 = or disjoint i8 %33, -128
-  %35 = getelementptr inbounds i8, ptr %0, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %34, ptr %35, align 1
   br label %66
 
@@ -100,24 +100,24 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN5vcpkg7Unicode22utf8_encode_cod
   %43 = trunc i32 %42 to i8
   %44 = and i8 %43, 63
   %45 = or disjoint i8 %44, -128
-  %46 = getelementptr inbounds i8, ptr %0, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %1, 6
   %48 = trunc i32 %47 to i8
   %49 = and i8 %48, 63
   %50 = or disjoint i8 %49, -128
-  %51 = getelementptr inbounds i8, ptr %0, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %50, ptr %51, align 1
   %52 = trunc i32 %1 to i8
   %53 = and i8 %52, 63
   %54 = or disjoint i8 %53, -128
-  %55 = getelementptr inbounds i8, ptr %0, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %54, ptr %55, align 1
   br label %66
 
 56:                                               ; preds = %36
   store i32 43, ptr %4, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str, ptr %57, align 8
   %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg19msgInvalidCodePointE, align 8
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, i64 %.sroa.0.0.copyload)
@@ -132,7 +132,7 @@ define dso_local noundef range(i32 1, 5) i32 @_ZN5vcpkg7Unicode22utf8_encode_cod
 59:                                               ; preds = %58
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %62 = load i64, ptr %61, align 8
   %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString10append_rawENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr %60, i64 %62)
           to label %64 unwind label %67
@@ -208,7 +208,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
 11:                                               ; preds = %7
   store i32 %9, ptr %2, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %0, align 8
   br label %108
 
@@ -238,7 +238,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %4, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %27 = load i8, ptr %26, align 1
   %.not.i = icmp slt i8 %27, -64
   br i1 %.not.i, label %30, label %28
@@ -258,7 +258,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   %35 = or disjoint i32 %32, %34
   store i32 %35, ptr %2, align 4
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store ptr %37, ptr %0, align 8
   br label %108
 
@@ -279,7 +279,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %4, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %48 = load i8, ptr %47, align 1
   %.not.i86 = icmp slt i8 %48, -64
   %49 = icmp ugt i8 %48, -9
@@ -287,7 +287,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br i1 %.not.i86, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %4, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %52 = load i8, ptr %51, align 1
   %.not.i89 = icmp slt i8 %52, -64
   %53 = icmp ugt i8 %52, -9
@@ -312,7 +312,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   %64 = or disjoint i32 %61, %63
   store i32 %64, ptr %2, align 4
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 3
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 3
   store ptr %66, ptr %0, align 8
   br label %108
 
@@ -333,7 +333,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br label %108
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %4, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %77 = load i8, ptr %76, align 1
   %.not.i92 = icmp slt i8 %77, -64
   %78 = icmp ugt i8 %77, -9
@@ -341,7 +341,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br i1 %.not.i92, label %79, label %87
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %4, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %81 = load i8, ptr %80, align 1
   %.not.i95 = icmp slt i8 %81, -64
   %82 = icmp ugt i8 %81, -9
@@ -349,7 +349,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
   br i1 %.not.i95, label %83, label %87
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %4, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %85 = load i8, ptr %84, align 1
   %.not.i98 = icmp slt i8 %85, -64
   %86 = icmp ugt i8 %85, -9
@@ -387,7 +387,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode22utf8_decode_cod
 
 104:                                              ; preds = %88
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   store ptr %106, ptr %0, align 8
   br label %108
 
@@ -407,11 +407,11 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg7Unicode20utf8_is_valid_stringEPKc
   %4 = alloca i32, align 4
   %5 = alloca %"struct.vcpkg::Unicode::Utf8Decoder", align 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %8, align 8
   %.not.i = icmp eq ptr %0, %1
   br i1 %.not.i, label %._crit_edge, label %9
@@ -507,7 +507,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nex
 
 6:                                                ; preds = %1
   store i32 220, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str, ptr %7, align 8
   invoke void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
           to label %8 unwind label %34
@@ -516,16 +516,16 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nex
   unreachable
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %9
   store i32 -1, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %16, align 8
   br label %33
 
@@ -536,7 +536,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nex
 
 19:                                               ; preds = %17
   store i32 -1, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %20, align 8
   br label %33
 
@@ -554,14 +554,14 @@ define dso_local noundef range(i32 0, 7) i32 @_ZN5vcpkg7Unicode11Utf8Decoder4nex
 
 29:                                               ; preds = %25
   store i32 -1, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %30, align 8
   store ptr %13, ptr %10, align 8
   br label %33
 
 31:                                               ; preds = %25, %21
   store i32 %22, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %32, align 8
   br label %33
 
@@ -582,7 +582,7 @@ define dso_local noundef zeroext range(i32 65536, 1114112) i32 @_ZN5vcpkg7Unicod
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   store i32 190, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str, ptr %5, align 8
   %6 = and i32 %0, -1024
   %7 = icmp eq i32 %6, 55296
@@ -591,7 +591,7 @@ define dso_local noundef zeroext range(i32 65536, 1114112) i32 @_ZN5vcpkg7Unicod
 
 8:                                                ; preds = %2
   store i32 191, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str, ptr %9, align 8
   %10 = and i32 %1, -1024
   %11 = icmp eq i32 %10, 56320
@@ -634,7 +634,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
 
 9:                                                ; preds = %1
   store i32 220, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str, ptr %10, align 8
   invoke void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
           to label %11 unwind label %32
@@ -643,9 +643,9 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   unreachable
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %14, %16
   br i1 %17, label %44, label %18
@@ -657,7 +657,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
 
 20:                                               ; preds = %18
   store i32 -1, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %21, align 8
   br label %35
 
@@ -675,7 +675,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
 
 30:                                               ; preds = %26
   store i32 -1, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %31, align 8
   store ptr %16, ptr %13, align 8
   br label %35
@@ -692,7 +692,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   store i32 259, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str, ptr %36, align 8
   %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg23msgUtf8ConversionFailedE, align 8
   invoke void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %5, i64 %.sroa.0.0.copyload)
@@ -721,7 +721,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
   %.sink5 = phi i32 [ -1, %12 ], [ %23, %26 ], [ %23, %22 ]
   %.sink = phi ptr [ %16, %12 ], [ %14, %26 ], [ %14, %22 ]
   store i32 %.sink5, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -827,7 +827,7 @@ define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead
 
 15:                                               ; preds = %2
   store i32 211, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str, ptr %16, align 8
   call void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   unreachable
@@ -839,11 +839,11 @@ define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unicode11Utf8DecoderaSENS1_8sentinelE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 4), (8, 24)) %0) local_unnamed_addr #10 align 2 {
   store i32 -1, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 8
   ret ptr %0
 }

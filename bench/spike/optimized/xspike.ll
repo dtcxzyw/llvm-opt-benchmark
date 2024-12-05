@@ -35,7 +35,7 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
 
 13:                                               ; preds = %11
   %14 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #8
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = call i32 @dup2(i32 noundef %16, i32 noundef 1) #8
   %18 = icmp slt i32 %17, 0

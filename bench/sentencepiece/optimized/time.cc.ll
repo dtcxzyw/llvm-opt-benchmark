@@ -177,7 +177,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77.us: ; pred
   %.neg99.us = mul nsw i64 %39, -86400
   %40 = add i64 %.neg99.us, %.4.us115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv.next
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = mul nsw i64 %43, 86400
@@ -195,7 +195,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit: ; preds = %
   br i1 %.not61, label %.split.us, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
-  %46 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv128
+  %46 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %indvars.iv128
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, 86400
@@ -235,16 +235,16 @@ _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit77: ; preds =
   %61 = sext i16 %60 to i32
   %62 = srem i16 %.lhs.trunc95, 60
   store i32 %.354, ptr %1, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.us-phi, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %56, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %58, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %61, ptr %66, align 4
   %67 = sext i16 %62 to i32
-  %68 = getelementptr inbounds i8, ptr %1, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
@@ -261,26 +261,26 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -13
   %or.cond25.i = icmp ult i32 %8, -12
   br i1 %or.cond25.i, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -32
   %or.cond26.i = icmp ult i32 %12, -31
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %or.cond27.i = icmp ugt i32 %14, 23
   %or.cond34.i = select i1 %or.cond26.i, i1 true, i1 %or.cond27.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 4
   %or.cond28.i = icmp ugt i32 %16, 59
   %or.cond36.i = select i1 %or.cond34.i, i1 true, i1 %or.cond28.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %or.cond29.i = icmp ugt i32 %18, 59
   %or.cond38.i = select i1 %or.cond36.i, i1 true, i1 %or.cond29.i
@@ -310,7 +310,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i: ; preds 
 
 _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit: ; preds = %19, %24
   %29 = zext nneg i32 %7 to i64
-  %30 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %.not = icmp sgt i32 %11, %31
   br i1 %.not, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread, label %32
@@ -420,7 +420,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i: ; preds = %
   %.338.lcssa.i = phi i32 [ %.237.lcssa.i, %.preheader.i ], [ %.fr47.i, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i ]
   %.3.lcssa.i = phi i64 [ %.2.lcssa.i, %.preheader.i ], [ %73, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i ]
   %75 = zext nneg i32 %7 to i64
-  %76 = getelementptr inbounds [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_113kDaysSinceJanE, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [13 x i32], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_113kDaysSinceJanE, i64 0, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = mul nsw i64 %78, 86400
@@ -532,15 +532,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 17:                                               ; preds = %9
   %18 = load i32, ptr %4, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %28 = load i32, ptr %27, align 4
   call void (ptr, ptr, ...) @_ZN6google8protobuf12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.1, i32 noundef %18, i32 noundef %20, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %28)
   %.not = icmp eq i32 %2, 0
@@ -677,7 +677,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal9ParseTimeERKNSt7__cxx111
   %17 = add i32 %15, -48
   %18 = add i32 %17, %16
   %19 = add nuw nsw i32 %.021.i, 1
-  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01719.i, i64 1
   %exitcond.not.i = icmp eq i32 %19, 4
   br i1 %exitcond.not.i, label %21, label %.preheader.i, !llvm.loop !12
 
@@ -699,8 +699,8 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit: ; preds = %21
   br i1 %.not, label %26, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 1
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %29 = load i8, ptr %27, align 1
   %30 = add i8 %29, -48
   %31 = icmp ult i8 %30, 10
@@ -725,7 +725,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit: ; preds = %21
   %38 = add i32 %36, -48
   %39 = add i32 %38, %37
   %40 = add nuw nsw i32 %.021.i49, 1
-  %41 = getelementptr inbounds i8, ptr %.01719.i51, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.01719.i51, i64 1
   %exitcond.not.i57 = icmp eq i32 %40, 2
   br i1 %exitcond.not.i57, label %42, label %.preheader.i48, !llvm.loop !12
 
@@ -747,8 +747,8 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58: ; preds = %
   br i1 %.not41, label %47, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.017.lcssa.i52, i64 1
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i52, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load i8, ptr %48, align 1
   %51 = add i8 %50, -48
   %52 = icmp ult i8 %51, 10
@@ -773,7 +773,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit58: ; preds = %
   %59 = add i32 %57, -48
   %60 = add i32 %59, %58
   %61 = add nuw nsw i32 %.021.i63, 1
-  %62 = getelementptr inbounds i8, ptr %.01719.i65, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.01719.i65, i64 1
   %exitcond.not.i71 = icmp eq i32 %61, 2
   br i1 %exitcond.not.i71, label %63, label %.preheader.i62, !llvm.loop !12
 
@@ -795,8 +795,8 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72: ; preds = %
   br i1 %.not42, label %68, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.017.lcssa.i66, i64 1
-  %70 = getelementptr inbounds i8, ptr %4, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i66, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %71 = load i8, ptr %69, align 1
   %72 = add i8 %71, -48
   %73 = icmp ult i8 %72, 10
@@ -821,7 +821,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit72: ; preds = %
   %80 = add i32 %78, -48
   %81 = add i32 %80, %79
   %82 = add nuw nsw i32 %.021.i77, 1
-  %83 = getelementptr inbounds i8, ptr %.01719.i79, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.01719.i79, i64 1
   %exitcond.not.i85 = icmp eq i32 %82, 2
   br i1 %exitcond.not.i85, label %84, label %.preheader.i76, !llvm.loop !12
 
@@ -842,8 +842,8 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86: ; preds = %
   br i1 %.not43, label %88, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.017.lcssa.i80, i64 1
-  %90 = getelementptr inbounds i8, ptr %4, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i80, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %91 = load i8, ptr %89, align 1
   %92 = add i8 %91, -48
   %93 = icmp ult i8 %92, 10
@@ -868,7 +868,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit86: ; preds = %
   %100 = add i32 %98, -48
   %101 = add i32 %100, %99
   %102 = add nuw nsw i32 %.021.i91, 1
-  %103 = getelementptr inbounds i8, ptr %.01719.i93, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.01719.i93, i64 1
   %exitcond.not.i99 = icmp eq i32 %102, 2
   br i1 %exitcond.not.i99, label %104, label %.preheader.i90, !llvm.loop !12
 
@@ -889,8 +889,8 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100: ; preds = 
   br i1 %.not44, label %108, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %.017.lcssa.i94, i64 1
-  %110 = getelementptr inbounds i8, ptr %4, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i94, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %111 = load i8, ptr %109, align 1
   %112 = add i8 %111, -48
   %113 = icmp ult i8 %112, 10
@@ -915,7 +915,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit100: ; preds = 
   %120 = add i32 %118, -48
   %121 = add i32 %120, %119
   %122 = add nuw nsw i32 %.021.i105, 1
-  %123 = getelementptr inbounds i8, ptr %.01719.i107, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.01719.i107, i64 1
   %exitcond.not.i113 = icmp eq i32 %122, 2
   br i1 %exitcond.not.i113, label %124, label %.preheader.i104, !llvm.loop !12
 
@@ -940,7 +940,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114: ; preds = 
   br i1 %130, label %131, label %135
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %.017.lcssa.i108, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i108, i64 1
   %133 = tail call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110ParseNanosEPKcPi(ptr noundef %132, ptr noundef %2)
   %134 = icmp eq ptr %133, null
   br i1 %134, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %136
@@ -959,11 +959,11 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114: ; preds = 
   ]
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %.0, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %156
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %.0, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %142 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %141, ptr noundef %5)
   %143 = icmp eq ptr %142, null
   br i1 %143, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %144
@@ -976,7 +976,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit114: ; preds = 
   br label %156
 
 148:                                              ; preds = %136
-  %149 = getelementptr inbounds i8, ptr %.0, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %150 = call fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119ParseTimezoneOffsetEPKcPl(ptr noundef %149, ptr noundef %6)
   %151 = icmp eq ptr %150, null
   br i1 %151, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread, label %152
@@ -1025,7 +1025,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_110
   %12 = add i32 %11, %10
   %.114 = select i1 %8, i32 %12, i32 %.01319
   %13 = add nuw nsw i32 %.020, 1
-  %14 = getelementptr inbounds i8, ptr %.01618, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01618, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = add i8 %15, -48
   %17 = icmp ult i8 %16, 10
@@ -1075,7 +1075,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119
   %12 = add i32 %10, -48
   %13 = add i32 %12, %11
   %14 = add nuw nsw i32 %.021.i, 1
-  %15 = getelementptr inbounds i8, ptr %.01719.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01719.i, i64 1
   %exitcond.not.i = icmp eq i32 %14, 2
   br i1 %exitcond.not.i, label %16, label %.preheader.i, !llvm.loop !12
 
@@ -1093,7 +1093,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119
   br i1 %.not, label %20, label %_ZN6google8protobuf8internal12_GLOBAL__N_18ParseIntEPKciiiPi.exit.thread
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.017.lcssa.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.017.lcssa.i, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = add i8 %22, -48
   %24 = icmp ult i8 %23, 10
@@ -1118,7 +1118,7 @@ define internal fastcc noundef ptr @_ZN6google8protobuf8internal12_GLOBAL__N_119
   %31 = add i32 %29, -48
   %32 = add i32 %31, %30
   %33 = add nuw nsw i32 %.021.i12, 1
-  %34 = getelementptr inbounds i8, ptr %.01719.i14, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.01719.i14, i64 1
   %exitcond.not.i20 = icmp eq i32 %33, 2
   br i1 %exitcond.not.i20, label %35, label %.preheader.i11, !llvm.loop !12
 

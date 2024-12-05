@@ -52,36 +52,36 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0(i64 noundef 280) #9
-  %type = getelementptr inbounds i8, ptr %call, i64 160
+  %type = getelementptr inbounds nuw i8, ptr %call, i64 160
   store i32 1, ptr %type, align 8
   store ptr @opts_start_struct, ptr %call, align 8
-  %check_struct = getelementptr inbounds i8, ptr %call, i64 8
+  %check_struct = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr @opts_check_struct, ptr %check_struct, align 8
-  %end_struct = getelementptr inbounds i8, ptr %call, i64 16
+  %end_struct = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr @opts_end_struct, ptr %end_struct, align 8
-  %start_list = getelementptr inbounds i8, ptr %call, i64 24
+  %start_list = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr @opts_start_list, ptr %start_list, align 8
-  %next_list = getelementptr inbounds i8, ptr %call, i64 32
+  %next_list = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr @opts_next_list, ptr %next_list, align 8
-  %check_list = getelementptr inbounds i8, ptr %call, i64 40
+  %check_list = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr @opts_check_list, ptr %check_list, align 8
-  %end_list = getelementptr inbounds i8, ptr %call, i64 48
+  %end_list = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr @opts_end_list, ptr %end_list, align 8
-  %type_int64 = getelementptr inbounds i8, ptr %call, i64 72
+  %type_int64 = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr @opts_type_int64, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds i8, ptr %call, i64 80
+  %type_uint64 = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr @opts_type_uint64, ptr %type_uint64, align 8
-  %type_size = getelementptr inbounds i8, ptr %call, i64 88
+  %type_size = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr @opts_type_size, ptr %type_size, align 8
-  %type_bool = getelementptr inbounds i8, ptr %call, i64 96
+  %type_bool = getelementptr inbounds nuw i8, ptr %call, i64 96
   store ptr @opts_type_bool, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds i8, ptr %call, i64 104
+  %type_str = getelementptr inbounds nuw i8, ptr %call, i64 104
   store ptr @opts_type_str, ptr %type_str, align 8
-  %optional = getelementptr inbounds i8, ptr %call, i64 136
+  %optional = getelementptr inbounds nuw i8, ptr %call, i64 136
   store ptr @opts_optional, ptr %optional, align 8
-  %free = getelementptr inbounds i8, ptr %call, i64 208
+  %free = getelementptr inbounds nuw i8, ptr %call, i64 208
   store ptr @opts_free, ptr %free, align 8
-  %opts_root = getelementptr inbounds i8, ptr %call, i64 216
+  %opts_root = getelementptr inbounds nuw i8, ptr %call, i64 216
   store ptr %opts, ptr %opts_root, align 8
   ret ptr %call
 }
@@ -104,7 +104,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %depth = getelementptr inbounds i8, ptr %v, i64 224
+  %depth = getelementptr inbounds nuw i8, ptr %v, i64 224
   %0 = load i32, ptr %depth, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %depth, align 8
@@ -113,11 +113,11 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @destroy_list) #10
-  %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts = getelementptr inbounds nuw i8, ptr %v, i64 232
   store ptr %call4, ptr %unprocessed_opts, align 8
-  %opts_root = getelementptr inbounds i8, ptr %v, i64 216
+  %opts_root = getelementptr inbounds nuw i8, ptr %v, i64 216
   %1 = load ptr, ptr %opts_root, align 8
-  %opt.0.in22 = getelementptr inbounds i8, ptr %1, i64 40
+  %opt.0.in22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %opt.023 = load ptr, ptr %opt.0.in22, align 8
   %tobool5.not24 = icmp eq ptr %opt.023, null
   br i1 %tobool5.not24, label %for.end, label %for.body
@@ -130,13 +130,13 @@ for.body:                                         ; preds = %if.end3, %opts_visi
   br i1 %.not, label %sub_1, label %if.end10
 
 sub_1:                                            ; preds = %for.body
-  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %5 = load i8, ptr %4, align 1
   %.not26 = icmp eq i8 %5, 100
   br i1 %.not26, label %for.body.tail, label %if.end10
 
 for.body.tail:                                    ; preds = %sub_1
-  %6 = getelementptr inbounds i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %if.else, label %if.end10
@@ -160,7 +160,7 @@ if.then.i:                                        ; preds = %if.end10
 opts_visitor_insert.exit:                         ; preds = %if.end10, %if.then.i
   %list.0.i = phi ptr [ %call1.i, %if.then.i ], [ %call.i, %if.end10 ]
   tail call void @g_queue_push_tail(ptr noundef %list.0.i, ptr noundef nonnull %opt.025) #10
-  %opt.0.in = getelementptr inbounds i8, ptr %opt.025, i64 40
+  %opt.0.in = getelementptr inbounds nuw i8, ptr %opt.025, i64 40
   %opt.0 = load ptr, ptr %opt.0.in, align 8
   %tobool5.not = icmp eq ptr %opt.0, null
   br i1 %tobool5.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
@@ -177,7 +177,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.then14:                                        ; preds = %for.end
   %call15 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #9
-  %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
+  %fake_id_opt = getelementptr inbounds nuw i8, ptr %v, i64 272
   store ptr %call15, ptr %fake_id_opt, align 8
   %call16 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #10
   %13 = load ptr, ptr %fake_id_opt, align 8
@@ -186,7 +186,7 @@ if.then14:                                        ; preds = %for.end
   %15 = load ptr, ptr %14, align 8
   %call21 = tail call noalias ptr @g_strdup(ptr noundef %15) #10
   %16 = load ptr, ptr %fake_id_opt, align 8
-  %str = getelementptr inbounds i8, ptr %16, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %call21, ptr %str, align 8
   %17 = load ptr, ptr %unprocessed_opts, align 8
   %18 = load ptr, ptr %fake_id_opt, align 8
@@ -215,13 +215,13 @@ define internal noundef zeroext i1 @opts_check_struct(ptr nocapture noundef read
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %any = alloca ptr, align 8
-  %depth = getelementptr inbounds i8, ptr %v, i64 224
+  %depth = getelementptr inbounds nuw i8, ptr %v, i64 224
   %0 = load i32, ptr %depth, align 8
   %cmp = icmp ugt i32 %0, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts = getelementptr inbounds nuw i8, ptr %v, i64 232
   %1 = load ptr, ptr %unprocessed_opts, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %iter, ptr noundef %1) #10
   %call1 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %iter, ptr noundef null, ptr noundef nonnull %any) #10
@@ -243,7 +243,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @opts_end_struct(ptr nocapture noundef %v, ptr nocapture readnone %obj) #0 {
 entry:
-  %depth = getelementptr inbounds i8, ptr %v, i64 224
+  %depth = getelementptr inbounds nuw i8, ptr %v, i64 224
   %0 = load i32, ptr %depth, align 8
   %dec = add i32 %0, -1
   store i32 %dec, ptr %depth, align 8
@@ -251,11 +251,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts = getelementptr inbounds nuw i8, ptr %v, i64 232
   %1 = load ptr, ptr %unprocessed_opts, align 8
   tail call void @g_hash_table_destroy(ptr noundef %1) #10
   store ptr null, ptr %unprocessed_opts, align 8
-  %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
+  %fake_id_opt = getelementptr inbounds nuw i8, ptr %v, i64 272
   %2 = load ptr, ptr %fake_id_opt, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then2
@@ -264,7 +264,7 @@ if.then2:                                         ; preds = %if.end
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #10
   %4 = load ptr, ptr %fake_id_opt, align 8
-  %str = getelementptr inbounds i8, ptr %4, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %str, align 8
   tail call void @g_free(ptr noundef %5) #10
   %6 = load ptr, ptr %fake_id_opt, align 8
@@ -282,7 +282,7 @@ return:                                           ; preds = %entry, %if.end6
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @opts_start_list(ptr nocapture noundef %v, ptr noundef %name, ptr noundef writeonly %list, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
-  %list_mode = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -308,12 +308,12 @@ if.end3:                                          ; preds = %if.end
 
 lookup_distinct.exit:                             ; preds = %if.end3
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 221, ptr noundef nonnull @__func__.lookup_distinct, ptr noundef nonnull @.str.7, ptr noundef %name) #10
-  %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
+  %repeated_opts = getelementptr inbounds nuw i8, ptr %v, i64 248
   store ptr null, ptr %repeated_opts, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %repeated_opts7 = getelementptr inbounds i8, ptr %v, i64 248
+  %repeated_opts7 = getelementptr inbounds nuw i8, ptr %v, i64 248
   store ptr %call.i, ptr %repeated_opts7, align 8
   store i32 1, ptr %list_mode, align 8
   %call10 = tail call noalias ptr @g_malloc0(i64 noundef %size) #9
@@ -328,7 +328,7 @@ return:                                           ; preds = %lookup_distinct.exi
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @opts_next_list(ptr nocapture noundef %v, ptr nocapture noundef writeonly %tail, i64 noundef %size) #0 {
 entry:
-  %list_mode = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
   switch i32 %0, label %sw.default [
     i32 4, label %return
@@ -338,9 +338,9 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %range_next = getelementptr inbounds i8, ptr %v, i64 256
+  %range_next = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load i64, ptr %range_next, align 8
-  %range_limit = getelementptr inbounds i8, ptr %v, i64 264
+  %range_limit = getelementptr inbounds nuw i8, ptr %v, i64 264
   %2 = load i64, ptr %range_limit, align 8
   %cmp3 = icmp slt i64 %1, %2
   br i1 %cmp3, label %if.then4, label %if.end13
@@ -351,9 +351,9 @@ if.then4:                                         ; preds = %if.then
   br label %sw.epilog
 
 if.else:                                          ; preds = %entry
-  %range_next6 = getelementptr inbounds i8, ptr %v, i64 256
+  %range_next6 = getelementptr inbounds nuw i8, ptr %v, i64 256
   %3 = load i64, ptr %range_next6, align 8
-  %range_limit7 = getelementptr inbounds i8, ptr %v, i64 264
+  %range_limit7 = getelementptr inbounds nuw i8, ptr %v, i64 264
   %4 = load i64, ptr %range_limit7, align 8
   %cmp8 = icmp ult i64 %3, %4
   br i1 %cmp8, label %if.then9, label %if.end13
@@ -368,7 +368,7 @@ if.end13:                                         ; preds = %if.else, %if.then
   br label %sw.bb15
 
 sw.bb15:                                          ; preds = %entry, %if.end13
-  %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
+  %repeated_opts = getelementptr inbounds nuw i8, ptr %v, i64 248
   %5 = load ptr, ptr %repeated_opts, align 8
   %call16 = tail call ptr @g_queue_pop_head(ptr noundef %5) #10
   %6 = load ptr, ptr %repeated_opts, align 8
@@ -377,7 +377,7 @@ sw.bb15:                                          ; preds = %entry, %if.end13
   br i1 %tobool.not, label %sw.epilog, label %if.then19
 
 if.then19:                                        ; preds = %sw.bb15
-  %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts = getelementptr inbounds nuw i8, ptr %v, i64 232
   %7 = load ptr, ptr %unprocessed_opts, align 8
   %8 = load ptr, ptr %call16, align 8
   %call20 = tail call i32 @g_hash_table_remove(ptr noundef %7, ptr noundef %8) #10
@@ -408,7 +408,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @opts_end_list(ptr nocapture noundef %v, ptr nocapture readnone %obj) #0 {
 entry:
-  %list_mode = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
   %.off = add i32 %0, -1
   %switch = icmp ult i32 %.off, 4
@@ -419,7 +419,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %repeated_opts = getelementptr inbounds i8, ptr %v, i64 248
+  %repeated_opts = getelementptr inbounds nuw i8, ptr %v, i64 248
   store ptr null, ptr %repeated_opts, align 8
   store i32 0, ptr %list_mode, align 8
   ret void
@@ -429,13 +429,13 @@ if.end:                                           ; preds = %entry
 define internal noundef zeroext i1 @opts_type_int64(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %endptr = alloca ptr, align 8
-  %list_mode = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %range_next = getelementptr inbounds i8, ptr %v, i64 256
+  %range_next = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load i64, ptr %range_next, align 8
   store i64 %1, ptr %obj, align 8
   br label %return
@@ -446,7 +446,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %str4 = getelementptr inbounds i8, ptr %call1, i64 8
+  %str4 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %2 = load ptr, ptr %str4, align 8
   %tobool5.not = icmp eq ptr %2, null
   %spec.select = select i1 %tobool5.not, ptr @.str.9, ptr %2
@@ -515,9 +515,9 @@ land.lhs.true55:                                  ; preds = %land.lhs.true42
   br i1 %or.cond38, label %if.then61, label %if.end67
 
 if.then61:                                        ; preds = %land.lhs.true55
-  %range_next62 = getelementptr inbounds i8, ptr %v, i64 256
+  %range_next62 = getelementptr inbounds nuw i8, ptr %v, i64 256
   store i64 %call14, ptr %range_next62, align 8
-  %range_limit = getelementptr inbounds i8, ptr %v, i64 264
+  %range_limit = getelementptr inbounds nuw i8, ptr %v, i64 264
   store i64 %call35, ptr %range_limit, align 8
   store i32 2, ptr %list_mode, align 8
   store i64 %call14, ptr %obj, align 8
@@ -542,13 +542,13 @@ entry:
   %val = alloca i64, align 8
   %endptr = alloca ptr, align 8
   %val2 = alloca i64, align 8
-  %list_mode = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %range_next = getelementptr inbounds i8, ptr %v, i64 256
+  %range_next = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load i64, ptr %range_next, align 8
   store i64 %1, ptr %obj, align 8
   br label %return
@@ -568,7 +568,7 @@ if.else:                                          ; preds = %if.end3
   unreachable
 
 if.end10:                                         ; preds = %if.end3
-  %str4 = getelementptr inbounds i8, ptr %call1, i64 8
+  %str4 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %3 = load ptr, ptr %str4, align 8
   %call11 = call i32 @parse_uint(ptr noundef %3, ptr noundef nonnull %endptr, i32 noundef 0, ptr noundef nonnull %val) #10
   %cmp12 = icmp eq i32 %call11, 0
@@ -592,7 +592,7 @@ if.then16:                                        ; preds = %if.then13
   ]
 
 if.then.i:                                        ; preds = %if.then16
-  %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts.i = getelementptr inbounds nuw i8, ptr %v, i64 232
   %8 = load ptr, ptr %unprocessed_opts.i, align 8
   %call.i = call i32 @g_hash_table_remove(ptr noundef %8, ptr noundef %name) #10
   br label %return
@@ -622,9 +622,9 @@ land.lhs.true28:                                  ; preds = %if.then24
   br i1 %or.cond, label %if.then34, label %if.end40
 
 if.then34:                                        ; preds = %land.lhs.true28
-  %range_next35 = getelementptr inbounds i8, ptr %v, i64 256
+  %range_next35 = getelementptr inbounds nuw i8, ptr %v, i64 256
   store i64 %10, ptr %range_next35, align 8
-  %range_limit = getelementptr inbounds i8, ptr %v, i64 264
+  %range_limit = getelementptr inbounds nuw i8, ptr %v, i64 264
   store i64 %11, ptr %range_limit, align 8
   store i32 3, ptr %list_mode, align 8
   store i64 %10, ptr %obj, align 8
@@ -651,7 +651,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %str = getelementptr inbounds i8, ptr %call1, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load ptr, ptr %str, align 8
   %tobool2.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool2.not, ptr @.str.9, ptr %0
@@ -665,7 +665,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %list_mode.i = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode.i = getelementptr inbounds nuw i8, ptr %v, i64 240
   %2 = load i32, ptr %list_mode.i, align 8
   switch i32 %2, label %if.else.i [
     i32 0, label %if.then.i
@@ -673,7 +673,7 @@ if.end7:                                          ; preds = %if.end
   ]
 
 if.then.i:                                        ; preds = %if.end7
-  %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts.i = getelementptr inbounds nuw i8, ptr %v, i64 232
   %3 = load ptr, ptr %unprocessed_opts.i, align 8
   %call.i = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #10
   br label %return
@@ -695,7 +695,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %str = getelementptr inbounds i8, ptr %call1, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load ptr, ptr %str, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -710,7 +710,7 @@ if.else:                                          ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %if.else
-  %list_mode.i = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode.i = getelementptr inbounds nuw i8, ptr %v, i64 240
   %2 = load i32, ptr %list_mode.i, align 8
   switch i32 %2, label %if.else.i [
     i32 0, label %if.then.i
@@ -718,7 +718,7 @@ if.end9:                                          ; preds = %if.then3, %if.else
   ]
 
 if.then.i:                                        ; preds = %if.end9
-  %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts.i = getelementptr inbounds nuw i8, ptr %v, i64 232
   %3 = load ptr, ptr %unprocessed_opts.i, align 8
   %call.i = tail call i32 @g_hash_table_remove(ptr noundef %3, ptr noundef %name) #10
   br label %return
@@ -744,13 +744,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %str = getelementptr inbounds i8, ptr %call1, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load ptr, ptr %str, align 8
   %tobool2.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool2.not, ptr @.str.9, ptr %0
   %call4 = tail call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #10
   store ptr %call4, ptr %obj, align 8
-  %list_mode.i = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode.i = getelementptr inbounds nuw i8, ptr %v, i64 240
   %1 = load i32, ptr %list_mode.i, align 8
   switch i32 %1, label %if.else.i [
     i32 0, label %if.then.i
@@ -758,7 +758,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %if.end
-  %unprocessed_opts.i = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts.i = getelementptr inbounds nuw i8, ptr %v, i64 232
   %2 = load ptr, ptr %unprocessed_opts.i, align 8
   %call.i = tail call i32 @g_hash_table_remove(ptr noundef %2, ptr noundef %name) #10
   br label %return
@@ -774,7 +774,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @opts_optional(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %present) #0 {
 entry:
-  %list_mode = getelementptr inbounds i8, ptr %v, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %v, i64 240
   %0 = load i32, ptr %list_mode, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -804,7 +804,7 @@ lookup_distinct.exit:                             ; preds = %if.end, %if.then.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @opts_free(ptr noundef %v) #0 {
 entry:
-  %unprocessed_opts = getelementptr inbounds i8, ptr %v, i64 232
+  %unprocessed_opts = getelementptr inbounds nuw i8, ptr %v, i64 232
   %0 = load ptr, ptr %unprocessed_opts, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -814,7 +814,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %fake_id_opt = getelementptr inbounds i8, ptr %v, i64 272
+  %fake_id_opt = getelementptr inbounds nuw i8, ptr %v, i64 272
   %1 = load ptr, ptr %fake_id_opt, align 8
   tail call void @g_free(ptr noundef %1) #10
   tail call void @g_free(ptr noundef nonnull %v) #10
@@ -870,7 +870,7 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @lookup_scalar(ptr nocapture noundef readonly %ov, ptr noundef %name, ptr noundef %errp) unnamed_addr #0 {
 entry:
-  %list_mode = getelementptr inbounds i8, ptr %ov, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %ov, i64 240
   %0 = load i32, ptr %list_mode, align 8
   switch i32 %0, label %if.else [
     i32 0, label %if.then
@@ -902,7 +902,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end9:                                          ; preds = %entry
-  %repeated_opts = getelementptr inbounds i8, ptr %ov, i64 248
+  %repeated_opts = getelementptr inbounds nuw i8, ptr %ov, i64 248
   %2 = load ptr, ptr %repeated_opts, align 8
   %call10 = tail call ptr @g_queue_peek_head(ptr noundef %2) #10
   br label %return
@@ -921,7 +921,7 @@ declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @processed(ptr nocapture noundef readonly %ov, ptr noundef %name) unnamed_addr #0 {
 entry:
-  %list_mode = getelementptr inbounds i8, ptr %ov, i64 240
+  %list_mode = getelementptr inbounds nuw i8, ptr %ov, i64 240
   %0 = load i32, ptr %list_mode, align 8
   switch i32 %0, label %if.else [
     i32 0, label %if.then
@@ -929,7 +929,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %unprocessed_opts = getelementptr inbounds i8, ptr %ov, i64 232
+  %unprocessed_opts = getelementptr inbounds nuw i8, ptr %ov, i64 232
   %1 = load ptr, ptr %unprocessed_opts, align 8
   %call = tail call i32 @g_hash_table_remove(ptr noundef %1, ptr noundef %name) #10
   br label %if.end4

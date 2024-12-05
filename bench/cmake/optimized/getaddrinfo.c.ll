@@ -97,7 +97,7 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
 13:                                               ; preds = %12
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %15 = getelementptr inbounds i8, ptr %3, i64 %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %17 = call i64 @uv__idna_toascii(ptr noundef nonnull %3, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %16) #13
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %19, label %21
@@ -132,21 +132,21 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %34, label %79, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 8, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 144
-  %43 = getelementptr inbounds i8, ptr %1, i64 120
-  %44 = getelementptr inbounds i8, ptr %1, i64 136
-  %45 = getelementptr inbounds i8, ptr %1, i64 128
-  %46 = getelementptr inbounds i8, ptr %1, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %43, i8 0, i64 36, i1 false)
   br i1 %.not68, label %48, label %47
 
@@ -160,7 +160,7 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %11, label %52, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %33, i64 %.057
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 %.057
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %4, i64 %29, i1 false)
   store ptr %50, ptr %44, align 8
   %51 = add i64 %.057, %29
@@ -181,7 +181,7 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not69, label %58, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %1, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @uv__work_submit(ptr noundef nonnull %0, ptr noundef nonnull %57, i32 noundef 2, ptr noundef nonnull @uv__getaddrinfo_work, ptr noundef nonnull @uv__getaddrinfo_done) #13
   br label %79
 
@@ -193,7 +193,7 @@ define dso_local i32 @uv_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef
   %63 = call i32 @uv__getaddrinfo_translate_error(i32 noundef %62)
   store i32 %63, ptr %46, align 8
   %64 = load ptr, ptr %40, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, -1
   store i32 %67, ptr %65, align 8
@@ -251,16 +251,16 @@ declare void @uv__work_submit(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__getaddrinfo_work(ptr noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = tail call i32 @getaddrinfo(ptr noundef %3, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %8) #13
   %10 = tail call i32 @uv__getaddrinfo_translate_error(i32 noundef %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %10, ptr %11, align 8
   ret void
 }
@@ -270,23 +270,23 @@ define internal void @uv__getaddrinfo_done(ptr noundef %0, i32 noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -72
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %.sink.split
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not20 = icmp eq ptr %13, null
   br i1 %.not20, label %14, label %.sink.split
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %.not21 = icmp eq ptr %16, null
   br i1 %.not21, label %17, label %.sink.split
@@ -302,20 +302,20 @@ define internal void @uv__getaddrinfo_done(ptr noundef %0, i32 noundef %1) #3 {
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -3003, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %19, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not22 = icmp eq ptr %23, null
   br i1 %.not22, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8
   tail call void %23(ptr noundef nonnull %3, i32 noundef %26, ptr noundef %28) #13
   br label %29

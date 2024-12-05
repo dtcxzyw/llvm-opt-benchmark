@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local void @init_packobject(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #0 {
   store i8 0, ptr %0, align 1
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %invariant.gep = getelementptr i8, ptr %0, i64 264
   br label %3
 
@@ -35,9 +35,9 @@ define dso_local void @init_packobject(ptr nocapture noundef writeonly initializ
   %indvar = phi i64 [ 0, %1 ], [ %indvar.next, %3 ]
   %4 = mul nuw nsw i64 %indvar, 96
   %gep = getelementptr i8, ptr %invariant.gep, i64 %4
-  %5 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %2, i64 0, i64 %indvar
+  %5 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %2, i64 0, i64 %indvar
   store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 20, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep, i8 0, i64 80, i1 false)
   %indvar.next = add nuw nsw i64 %indvar, 1
@@ -45,13 +45,13 @@ define dso_local void @init_packobject(ptr nocapture noundef writeonly initializ
   br i1 %exitcond.not, label %7, label %3
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i64 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 836
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 836
   store i32 -1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 832
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store i32 0, ptr %11, align 8
   ret void
 }
@@ -93,10 +93,10 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr nocapture noundef 
 
 20:                                               ; preds = %1
   store i32 30, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %21, align 4
   %22 = tail call noalias dereferenceable_or_null(33360) ptr @malloc(i64 noundef 33360) #15
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
   br i1 %24, label %25, label %.lr.ph
@@ -130,9 +130,9 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %20, %init_packobject.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %init_packobject.exit ], [ 0, %20 ]
-  %41 = getelementptr inbounds %struct.pack_info_t, ptr %22, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.pack_info_t, ptr %22, i64 %indvars.iv
   store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds i8, ptr %41, i64 256
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 256
   %invariant.gep.i = getelementptr i8, ptr %41, i64 264
   br label %43
 
@@ -140,9 +140,9 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr nocapture noundef 
   %indvar.i = phi i64 [ 0, %.lr.ph ], [ %indvar.next.i, %43 ]
   %44 = mul nuw nsw i64 %indvar.i, 96
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %44
-  %45 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %42, i64 0, i64 %indvar.i
+  %45 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %42, i64 0, i64 %indvar.i
   store i32 -1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store i64 20, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
@@ -150,13 +150,13 @@ define dso_local range(i32 -1, 1) i32 @options_table_init(ptr nocapture noundef 
   br i1 %exitcond.not.i, label %init_packobject.exit, label %43
 
 init_packobject.exit:                             ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %41, i64 1096
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 1096
   store i32 -1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %41, i64 1104
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 1104
   store i64 -1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 836
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 836
   store i32 -1, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %41, i64 832
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 832
   store i32 0, ptr %50, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = icmp samesign ult i64 %indvars.iv, 29
@@ -184,7 +184,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local noundef i32 @options_table_free(ptr nocapture noundef %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
   tail call void @free(ptr noundef %0) #16
@@ -193,7 +193,7 @@ define dso_local noundef i32 @options_table_free(ptr nocapture noundef %0) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @options_add_layout(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, %1
   %8 = load i32, ptr %3, align 8
@@ -219,10 +219,10 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not117, label %.loopexit, label %.preheader94.lr.ph
 
 .preheader94.lr.ph:                               ; preds = %.preheader95
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 836
-  %16 = getelementptr inbounds i8, ptr %2, i64 840
-  %17 = getelementptr inbounds i8, ptr %2, i64 1096
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 836
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 840
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %wide.trip.count130 = zext i32 %1 to i64
   br label %.preheader94
 
@@ -230,10 +230,10 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not117, label %.loopexit, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 836
-  %20 = getelementptr inbounds i8, ptr %2, i64 840
-  %21 = getelementptr inbounds i8, ptr %2, i64 1096
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 836
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 840
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %wide.trip.count137 = zext i32 %1 to i64
   br label %142
 
@@ -246,21 +246,21 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not116, label %aux_tblinsert_layout.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader94
-  %23 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv128
+  %23 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv128
   %24 = load ptr, ptr %14, align 8
   %wide.trip.count = zext i32 %22 to i64
   br label %25
 
 25:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %26 = getelementptr inbounds %struct.pack_info_t, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %struct.pack_info_t, ptr %24, i64 %indvars.iv
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %26) #18
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %75
 
 29:                                               ; preds = %25
   %30 = trunc nuw i64 %indvars.iv to i32
-  %31 = getelementptr inbounds i8, ptr %26, i64 1096
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 1096
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %51
@@ -297,7 +297,7 @@ thread-pre-split:                                 ; preds = %9
 
 51:                                               ; preds = %29
   %52 = load i32, ptr %15, align 4
-  %53 = getelementptr inbounds %struct.pack_info_t, ptr %24, i64 %indvars.iv, i32 3
+  %53 = getelementptr inbounds nuw %struct.pack_info_t, ptr %24, i64 %indvars.iv, i32 3
   store i32 %52, ptr %53, align 4
   %54 = icmp eq i32 %52, 2
   br i1 %54, label %55, label %aux_tblinsert_layout.exit.thread
@@ -309,15 +309,15 @@ thread-pre-split:                                 ; preds = %9
   br i1 %57, label %59, label %63
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds %struct.pack_info_t, ptr %58, i64 %indvars.iv, i32 3
+  %60 = getelementptr inbounds nuw %struct.pack_info_t, ptr %58, i64 %indvars.iv, i32 3
   store i32 1, ptr %60, align 4
   %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds %struct.pack_info_t, ptr %61, i64 %indvars.iv, i32 4, i32 1
+  %62 = getelementptr inbounds nuw %struct.pack_info_t, ptr %61, i64 %indvars.iv, i32 4, i32 1
   store i32 -2, ptr %62, align 8
   br label %aux_tblinsert_layout.exit.thread
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds %struct.pack_info_t, ptr %58, i64 %indvars.iv, i32 4, i32 1
+  %64 = getelementptr inbounds nuw %struct.pack_info_t, ptr %58, i64 %indvars.iv, i32 4, i32 1
   store i32 %56, ptr %64, align 8
   %65 = load i32, ptr %17, align 8
   %66 = icmp sgt i32 %65, 0
@@ -325,11 +325,11 @@ thread-pre-split:                                 ; preds = %9
 
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %63 ]
-  %67 = getelementptr inbounds [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i
   %68 = load i64, ptr %67, align 8
   %69 = load ptr, ptr %14, align 8
-  %70 = getelementptr inbounds %struct.pack_info_t, ptr %69, i64 %indvars.iv, i32 4
-  %71 = getelementptr inbounds [32 x i64], ptr %70, i64 0, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw %struct.pack_info_t, ptr %69, i64 %indvars.iv, i32 4
+  %71 = getelementptr inbounds nuw [32 x i64], ptr %70, i64 0, i64 %indvars.iv.i
   store i64 %68, ptr %71, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %72 = load i32, ptr %17, align 8
@@ -350,12 +350,12 @@ aux_tblinsert_layout.exit:                        ; preds = %75, %.preheader94
   %78 = add i32 %.069108, 1
   %79 = load ptr, ptr %14, align 8
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds %struct.pack_info_t, ptr %79, i64 %80
-  %82 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv128
+  %81 = getelementptr inbounds nuw %struct.pack_info_t, ptr %79, i64 %80
+  %82 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv128
   %83 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %82) #16
   %84 = load i32, ptr %15, align 4
   %85 = load ptr, ptr %14, align 8
-  %86 = getelementptr inbounds %struct.pack_info_t, ptr %85, i64 %80, i32 3
+  %86 = getelementptr inbounds nuw %struct.pack_info_t, ptr %85, i64 %80, i32 3
   store i32 %84, ptr %86, align 4
   %87 = icmp eq i32 %84, 2
   br i1 %87, label %88, label %aux_tblinsert_layout.exit81
@@ -367,12 +367,12 @@ aux_tblinsert_layout.exit:                        ; preds = %75, %.preheader94
   br i1 %90, label %92, label %94
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds %struct.pack_info_t, ptr %91, i64 %80, i32 3
+  %93 = getelementptr inbounds nuw %struct.pack_info_t, ptr %91, i64 %80, i32 3
   store i32 1, ptr %93, align 4
   br label %aux_tblinsert_layout.exit81.sink.split
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds %struct.pack_info_t, ptr %91, i64 %80, i32 4, i32 1
+  %95 = getelementptr inbounds nuw %struct.pack_info_t, ptr %91, i64 %80, i32 4, i32 1
   store i32 %89, ptr %95, align 8
   %96 = load i32, ptr %17, align 8
   %97 = icmp sgt i32 %96, 0
@@ -380,11 +380,11 @@ aux_tblinsert_layout.exit:                        ; preds = %75, %.preheader94
 
 .lr.ph.i78:                                       ; preds = %94, %.lr.ph.i78
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %.lr.ph.i78 ], [ 0, %94 ]
-  %98 = getelementptr inbounds [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i79
+  %98 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i79
   %99 = load i64, ptr %98, align 8
   %100 = load ptr, ptr %14, align 8
-  %101 = getelementptr inbounds %struct.pack_info_t, ptr %100, i64 %80, i32 4
-  %102 = getelementptr inbounds [32 x i64], ptr %101, i64 0, i64 %indvars.iv.i79
+  %101 = getelementptr inbounds nuw %struct.pack_info_t, ptr %100, i64 %80, i32 4
+  %102 = getelementptr inbounds nuw [32 x i64], ptr %101, i64 0, i64 %indvars.iv.i79
   store i64 %99, ptr %102, align 8
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %103 = load i32, ptr %17, align 8
@@ -394,10 +394,10 @@ aux_tblinsert_layout.exit:                        ; preds = %75, %.preheader94
 
 aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59, %51, %aux_tblinsert_layout.exit
   %.07398 = phi i32 [ %22, %aux_tblinsert_layout.exit ], [ %30, %51 ], [ %30, %59 ], [ %30, %63 ], [ %30, %.lr.ph.i ]
-  %106 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv128
+  %106 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv128
   %107 = load ptr, ptr %14, align 8
   %108 = zext i32 %.07398 to i64
-  %109 = getelementptr inbounds %struct.pack_info_t, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw %struct.pack_info_t, ptr %107, i64 %108
   %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) %109) #18
   %.not77 = icmp eq i32 %110, 0
   br i1 %.not77, label %aux_tblinsert_layout.exit81, label %111
@@ -407,11 +407,11 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59,
   %113 = add i32 %112, %.069108
   %114 = add i32 %.069108, 1
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds %struct.pack_info_t, ptr %107, i64 %115
+  %116 = getelementptr inbounds nuw %struct.pack_info_t, ptr %107, i64 %115
   %117 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %106) #16
   %118 = load i32, ptr %15, align 4
   %119 = load ptr, ptr %14, align 8
-  %120 = getelementptr inbounds %struct.pack_info_t, ptr %119, i64 %115, i32 3
+  %120 = getelementptr inbounds nuw %struct.pack_info_t, ptr %119, i64 %115, i32 3
   store i32 %118, ptr %120, align 4
   %121 = icmp eq i32 %118, 2
   br i1 %121, label %122, label %aux_tblinsert_layout.exit81
@@ -423,12 +423,12 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59,
   br i1 %124, label %126, label %128
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds %struct.pack_info_t, ptr %125, i64 %115, i32 3
+  %127 = getelementptr inbounds nuw %struct.pack_info_t, ptr %125, i64 %115, i32 3
   store i32 1, ptr %127, align 4
   br label %aux_tblinsert_layout.exit81.sink.split
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds %struct.pack_info_t, ptr %125, i64 %115, i32 4, i32 1
+  %129 = getelementptr inbounds nuw %struct.pack_info_t, ptr %125, i64 %115, i32 4, i32 1
   store i32 %123, ptr %129, align 8
   %130 = load i32, ptr %17, align 8
   %131 = icmp sgt i32 %130, 0
@@ -436,11 +436,11 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %.lr.ph.i, %63, %59,
 
 .lr.ph.i82:                                       ; preds = %128, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i82 ], [ 0, %128 ]
-  %132 = getelementptr inbounds [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i83
+  %132 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %indvars.iv.i83
   %133 = load i64, ptr %132, align 8
   %134 = load ptr, ptr %14, align 8
-  %135 = getelementptr inbounds %struct.pack_info_t, ptr %134, i64 %115, i32 4
-  %136 = getelementptr inbounds [32 x i64], ptr %135, i64 0, i64 %indvars.iv.i83
+  %135 = getelementptr inbounds nuw %struct.pack_info_t, ptr %134, i64 %115, i32 4
+  %136 = getelementptr inbounds nuw [32 x i64], ptr %135, i64 0, i64 %indvars.iv.i83
   store i64 %133, ptr %136, align 8
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %137 = load i32, ptr %17, align 8
@@ -453,7 +453,7 @@ aux_tblinsert_layout.exit81.sink.split:           ; preds = %92, %126
   %.191.ph = phi i1 [ true, %126 ], [ false, %92 ]
   %.170.ph = phi i32 [ %114, %126 ], [ %78, %92 ]
   %140 = load ptr, ptr %14, align 8
-  %141 = getelementptr inbounds %struct.pack_info_t, ptr %140, i64 %.sink145, i32 4, i32 1
+  %141 = getelementptr inbounds nuw %struct.pack_info_t, ptr %140, i64 %.sink145, i32 4, i32 1
   store i32 -2, ptr %141, align 8
   br label %aux_tblinsert_layout.exit81
 
@@ -472,12 +472,12 @@ aux_tblinsert_layout.exit81:                      ; preds = %.lr.ph.i78, %.lr.ph
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %145 = load ptr, ptr %18, align 8
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds %struct.pack_info_t, ptr %145, i64 %146
-  %148 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv132
+  %147 = getelementptr inbounds nuw %struct.pack_info_t, ptr %145, i64 %146
+  %148 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv132
   %149 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %147, ptr noundef nonnull dereferenceable(1) %148) #16
   %150 = load i32, ptr %19, align 4
   %151 = load ptr, ptr %18, align 8
-  %152 = getelementptr inbounds %struct.pack_info_t, ptr %151, i64 %146, i32 3
+  %152 = getelementptr inbounds nuw %struct.pack_info_t, ptr %151, i64 %146, i32 3
   store i32 %150, ptr %152, align 4
   %153 = icmp eq i32 %150, 2
   br i1 %153, label %154, label %aux_tblinsert_layout.exit89
@@ -489,15 +489,15 @@ aux_tblinsert_layout.exit81:                      ; preds = %.lr.ph.i78, %.lr.ph
   br i1 %156, label %158, label %162
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds %struct.pack_info_t, ptr %157, i64 %146, i32 3
+  %159 = getelementptr inbounds nuw %struct.pack_info_t, ptr %157, i64 %146, i32 3
   store i32 1, ptr %159, align 4
   %160 = load ptr, ptr %18, align 8
-  %161 = getelementptr inbounds %struct.pack_info_t, ptr %160, i64 %146, i32 4, i32 1
+  %161 = getelementptr inbounds nuw %struct.pack_info_t, ptr %160, i64 %146, i32 4, i32 1
   store i32 -2, ptr %161, align 8
   br label %aux_tblinsert_layout.exit89
 
 162:                                              ; preds = %154
-  %163 = getelementptr inbounds %struct.pack_info_t, ptr %157, i64 %146, i32 4, i32 1
+  %163 = getelementptr inbounds nuw %struct.pack_info_t, ptr %157, i64 %146, i32 4, i32 1
   store i32 %155, ptr %163, align 8
   %164 = load i32, ptr %21, align 8
   %165 = icmp sgt i32 %164, 0
@@ -505,11 +505,11 @@ aux_tblinsert_layout.exit81:                      ; preds = %.lr.ph.i78, %.lr.ph
 
 .lr.ph.i86:                                       ; preds = %162, %.lr.ph.i86
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %.lr.ph.i86 ], [ 0, %162 ]
-  %166 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %indvars.iv.i87
+  %166 = getelementptr inbounds nuw [32 x i64], ptr %20, i64 0, i64 %indvars.iv.i87
   %167 = load i64, ptr %166, align 8
   %168 = load ptr, ptr %18, align 8
-  %169 = getelementptr inbounds %struct.pack_info_t, ptr %168, i64 %146, i32 4
-  %170 = getelementptr inbounds [32 x i64], ptr %169, i64 0, i64 %indvars.iv.i87
+  %169 = getelementptr inbounds nuw %struct.pack_info_t, ptr %168, i64 %146, i32 4
+  %170 = getelementptr inbounds nuw [32 x i64], ptr %169, i64 0, i64 %indvars.iv.i87
   store i64 %167, ptr %170, align 8
   %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
   %171 = load i32, ptr %21, align 8
@@ -538,7 +538,7 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr nocapture noundef 
   %3 = load i32, ptr %0, align 8
   %4 = add i32 %3, %1
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
   %8 = mul nuw nsw i64 %7, 1112
@@ -574,7 +574,7 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr nocapture noundef 
   br label %.loopexit
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %0, align 8
   %31 = icmp ult i32 %29, %30
@@ -587,9 +587,9 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr nocapture noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %init_packobject.exit
   %indvars.iv = phi i64 [ %32, %.lr.ph.preheader ], [ %indvars.iv.next, %init_packobject.exit ]
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.pack_info_t, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %struct.pack_info_t, ptr %33, i64 %indvars.iv
   store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %34, i64 256
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 256
   %invariant.gep.i = getelementptr i8, ptr %34, i64 264
   br label %36
 
@@ -597,9 +597,9 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr nocapture noundef 
   %indvar.i = phi i64 [ 0, %.lr.ph ], [ %indvar.next.i, %36 ]
   %37 = mul nuw nsw i64 %indvar.i, 96
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %37
-  %38 = getelementptr inbounds [6 x %struct.filter_info_t], ptr %35, i64 0, i64 %indvar.i
+  %38 = getelementptr inbounds nuw [6 x %struct.filter_info_t], ptr %35, i64 0, i64 %indvar.i
   store i32 -1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
   store i64 20, ptr %39, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %gep.i, i8 0, i64 80, i1 false)
   %indvar.next.i = add nuw nsw i64 %indvar.i, 1
@@ -607,13 +607,13 @@ define internal fastcc range(i32 -1, 1) i32 @aux_inctable(ptr nocapture noundef 
   br i1 %exitcond.not.i, label %init_packobject.exit, label %36
 
 init_packobject.exit:                             ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %34, i64 1096
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 1096
   store i32 -1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %34, i64 1104
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 1104
   store i64 -1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %34, i64 836
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 836
   store i32 -1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %34, i64 832
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 832
   store i32 0, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %0, align 8
@@ -634,7 +634,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @options_add_filter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.filter_info_t) align 8 %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, %1
   %8 = load i32, ptr %3, align 8
@@ -660,7 +660,7 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not97, label %.loopexit, label %.preheader79.lr.ph
 
 .preheader79.lr.ph:                               ; preds = %.preheader80
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %wide.trip.count106 = zext i32 %1 to i64
   br label %.preheader79
 
@@ -668,7 +668,7 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not97, label %.loopexit, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %wide.trip.count113 = zext i32 %1 to i64
   br label %119
 
@@ -682,26 +682,26 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not96, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader79
-  %17 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv104
+  %17 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv104
   %wide.trip.count = zext i32 %16 to i64
   br label %18
 
 18:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %19 = getelementptr inbounds %struct.pack_info_t, ptr %.pre115.pre, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre115.pre, i64 %indvars.iv
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #18
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %48
 
 22:                                               ; preds = %18
   %23 = trunc nuw i64 %indvars.iv to i32
-  %24 = getelementptr inbounds i8, ptr %19, i64 832
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 832
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %25, 6
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %19, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 256
   %29 = add nsw i32 %25, 1
   store i32 %29, ptr %24, align 8
   %30 = sext i32 %25 to i64
@@ -751,18 +751,18 @@ thread-pre-split:                                 ; preds = %9
   %50 = add i32 %16, %.05688
   %51 = add i32 %.05688, 1
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds %struct.pack_info_t, ptr %.pre115.pre, i64 %52
-  %54 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv104
+  %53 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.pre115.pre, i64 %52
+  %54 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv104
   %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %54) #16
   %.val64 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds %struct.pack_info_t, ptr %.val64, i64 %52
-  %57 = getelementptr inbounds i8, ptr %56, i64 832
+  %56 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val64, i64 %52
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 832
   %58 = load i32, ptr %57, align 8
   %59 = icmp slt i32 %58, 6
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %49
-  %61 = getelementptr inbounds i8, ptr %56, i64 256
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 256
   %62 = add nsw i32 %58, 1
   store i32 %62, ptr %57, align 8
   %63 = sext i32 %58 to i64
@@ -799,9 +799,9 @@ thread-pre-split:                                 ; preds = %9
 81:                                               ; preds = %.thread, %._crit_edge
   %82 = phi ptr [ %.pre, %.thread ], [ %.pre115.pre, %._crit_edge ]
   %.06083 = phi i32 [ %23, %.thread ], [ %16, %._crit_edge ]
-  %83 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv104
+  %83 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv104
   %84 = zext i32 %.06083 to i64
-  %85 = getelementptr inbounds %struct.pack_info_t, ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw %struct.pack_info_t, ptr %82, i64 %84
   %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %83, ptr noundef nonnull dereferenceable(1) %85) #18
   %.not63 = icmp eq i32 %86, 0
   br i1 %.not63, label %aux_tblinsert_filter.exit69, label %87
@@ -811,17 +811,17 @@ thread-pre-split:                                 ; preds = %9
   %89 = add i32 %88, %.05688
   %90 = add i32 %.05688, 1
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds %struct.pack_info_t, ptr %82, i64 %91
+  %92 = getelementptr inbounds nuw %struct.pack_info_t, ptr %82, i64 %91
   %93 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %83) #16
   %.val65 = load ptr, ptr %14, align 8
-  %94 = getelementptr inbounds %struct.pack_info_t, ptr %.val65, i64 %91
-  %95 = getelementptr inbounds i8, ptr %94, i64 832
+  %94 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val65, i64 %91
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 832
   %96 = load i32, ptr %95, align 8
   %97 = icmp slt i32 %96, 6
   br i1 %97, label %98, label %103
 
 98:                                               ; preds = %87
-  %99 = getelementptr inbounds i8, ptr %94, i64 256
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 256
   %100 = add nsw i32 %96, 1
   store i32 %100, ptr %95, align 8
   %101 = sext i32 %96 to i64
@@ -870,18 +870,18 @@ aux_tblinsert_filter.exit69:                      ; preds = %115, %111, %103, %9
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %122 = load ptr, ptr %15, align 8
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds %struct.pack_info_t, ptr %122, i64 %123
-  %125 = getelementptr inbounds %struct.obj_list_t, ptr %0, i64 %indvars.iv108
+  %124 = getelementptr inbounds nuw %struct.pack_info_t, ptr %122, i64 %123
+  %125 = getelementptr inbounds nuw %struct.obj_list_t, ptr %0, i64 %indvars.iv108
   %126 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %125) #16
   %.val66 = load ptr, ptr %15, align 8
-  %127 = getelementptr inbounds %struct.pack_info_t, ptr %.val66, i64 %123
-  %128 = getelementptr inbounds i8, ptr %127, i64 832
+  %127 = getelementptr inbounds nuw %struct.pack_info_t, ptr %.val66, i64 %123
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 832
   %129 = load i32, ptr %128, align 8
   %130 = icmp slt i32 %129, 6
   br i1 %130, label %131, label %136
 
 131:                                              ; preds = %119
-  %132 = getelementptr inbounds i8, ptr %127, i64 256
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 256
   %133 = add nsw i32 %129, 1
   store i32 %133, ptr %128, align 8
   %134 = sext i32 %129 to i64
@@ -934,13 +934,13 @@ aux_tblinsert_filter.exit75:                      ; preds = %131, %136, %144, %1
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @options_get_object(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
   %3 = alloca [257 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %.not16 = icmp eq i32 %5, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext i32 %5 to i64
   br label %9
@@ -952,7 +952,7 @@ define dso_local noundef ptr @options_get_object(ptr nocapture noundef readonly 
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds %struct.pack_info_t, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.pack_info_t, ptr %7, i64 %indvars.iv
   %lhsc = load i8, ptr %10, align 1
   %.not = icmp eq i8 %lhsc, 47
   br i1 %.not, label %13, label %11

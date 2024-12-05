@@ -93,7 +93,7 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   %4 = tail call ptr @lv_obj_get_parent(ptr noundef %3) #2
   %5 = tail call ptr @lv_calendar_get_showed_date(ptr noundef %4) #2
   %.sroa.0.0.copyload = load i16, ptr %5, align 2, !tbaa !3
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 2
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..sroa_idx, align 2, !tbaa !7
   %6 = add i8 %.sroa.10.0.copyload, -1
   %or.cond7 = icmp ult i8 %6, 12
@@ -135,7 +135,7 @@ define internal void @month_event_cb(ptr noundef %0) #0 {
   %22 = tail call ptr @lv_obj_get_child(ptr noundef %3, i32 noundef 1) #2
   %23 = add nsw i32 %21, -1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds [12 x ptr], ptr @month_names_def, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [12 x ptr], ptr @month_names_def, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !8
   tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %22, ptr noundef nonnull @.str.3, i32 noundef %20, ptr noundef %26) #2
   ret void

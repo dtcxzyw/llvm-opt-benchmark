@@ -121,9 +121,9 @@ define internal i32 @knc_pmu_handle_irq(ptr noundef %0) #2 align 16 {
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %4, i64 512
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %42
 
 30:                                               ; preds = %24
@@ -210,7 +210,7 @@ define internal i32 @knc_pmu_handle_irq(ptr noundef %0) #2 align 16 {
   %71 = getelementptr [64 x ptr], ptr %4, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = add i32 %60, 1
-  %74 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %27, i64 %70) #10, !srcloc !18
+  %74 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %27, i64 %70) #10, !srcloc !18
   %75 = icmp ult i8 %74, 2
   call void @llvm.assume(i1 %75)
   %76 = icmp eq i8 %74, 0
@@ -222,7 +222,7 @@ define internal i32 @knc_pmu_handle_irq(ptr noundef %0) #2 align 16 {
   br i1 %79, label %86, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %72, i64 504
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 504
   %82 = load i64, ptr %81, align 8
   store i64 256, ptr %2, align 64
   store i64 %82, ptr %28, align 8
@@ -261,7 +261,7 @@ define internal i32 @knc_pmu_handle_irq(ptr noundef %0) #2 align 16 {
 
 .loopexit:                                        ; preds = %96, %56
   %98 = phi i32 [ %45, %56 ], [ %.lcssa, %96 ]
-  %99 = getelementptr inbounds i8, ptr %4, i64 528
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %117, label %102
@@ -364,12 +364,12 @@ define internal void @knc_pmu_enable_all(i32 %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @knc_pmu_enable_event(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 360
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 4194304
-  %5 = getelementptr inbounds i8, ptr %0, i64 376
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 396
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %8 = load i32, ptr %7, align 4
   %9 = trunc i64 %6 to i32
   %10 = add i32 %8, %9
@@ -390,12 +390,12 @@ define internal void @knc_pmu_enable_event(ptr nocapture noundef readonly %0) #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal void @knc_pmu_disable_event(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 360
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -4194305
-  %5 = getelementptr inbounds i8, ptr %0, i64 376
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 396
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %8 = load i32, ptr %7, align 4
   %9 = trunc i64 %6 to i32
   %10 = add i32 %8, %9

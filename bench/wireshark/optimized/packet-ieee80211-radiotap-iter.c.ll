@@ -21,7 +21,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
   br i1 %.not, label %8, label %.loopexit
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.val = load i16, ptr %9, align 1
   %10 = zext i16 %.val to i32
   %11 = icmp samesign ult i32 %2, %10
@@ -36,34 +36,34 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
   %15 = shl nuw nsw i32 %14, 8
   %16 = zext i8 %.val47 to i32
   %17 = or disjoint i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 92
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %21, ptr %22, align 4
   %23 = getelementptr i8, ptr %1, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @radiotap_ns, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 76
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %33, align 8
   %.not40 = icmp sgt i32 %21, -1
   br i1 %.not40, label %.loopexit53, label %34
@@ -101,7 +101,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
 
 .loopexit53:                                      ; preds = %37, %12
   %48 = phi ptr [ %23, %12 ], [ %40, %37 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %48, ptr %49, align 8
   br label %.loopexit
 
@@ -112,33 +112,33 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_init(ptr nocapt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not, label %.preheader, label %19
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.promoted = load i32, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 92
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 84
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = getelementptr inbounds i8, ptr %0, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.pre.pre = load i32, ptr %6, align 4
   br label %.backedge
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 3
   %23 = and i32 %22, -4
@@ -151,7 +151,7 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapt
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 84
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %.not126 = icmp sgt i64 %32, %35
@@ -186,9 +186,9 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapt
   %49 = shl nuw nsw i32 %48, 8
   %50 = zext i8 %.val137 to i32
   %51 = or disjoint i32 %49, %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 68
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %39, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %.val135 = load i8, ptr %53, align 1
   %54 = getelementptr i8, ptr %39, i64 3
   %.val136 = load i8, ptr %54, align 1
@@ -196,13 +196,13 @@ define hidden range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nocapt
   %56 = shl nuw nsw i32 %55, 8
   %57 = zext i8 %.val135 to i32
   %58 = or disjoint i32 %56, %57
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %44, ptr %60, align 8
   %61 = icmp ne i32 %51, 30
   %62 = zext i1 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %0, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %62, ptr %63, align 4
   %64 = zext nneg i32 %58 to i64
   %65 = getelementptr i8, ptr %39, i64 %64
@@ -287,7 +287,7 @@ find_override.exit.thread:                        ; preds = %85, %.preheader.i, 
   br i1 %.not114, label %.thread163, label %95
 
 95:                                               ; preds = %find_override.exit.thread
-  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load i32, ptr %96, align 8
   %.not115 = icmp slt i32 %73, %97
   br i1 %.not115, label %100, label %98
@@ -404,7 +404,7 @@ switch.lookup:                                    ; preds = %.thread
   br i1 %.not.i139, label %find_ns.exit.thread, label %.preheader.i140
 
 .preheader.i140:                                  ; preds = %139
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
   %157 = icmp sgt i32 %156, 0
   br i1 %157, label %.lr.ph.i141, label %find_ns.exit.thread
@@ -417,13 +417,13 @@ switch.lookup:                                    ; preds = %.thread
 159:                                              ; preds = %166, %.lr.ph.i141
   %indvars.iv.i143 = phi i64 [ 0, %.lr.ph.i141 ], [ %indvars.iv.next.i144, %166 ]
   %160 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %158, i64 %indvars.iv.i143
-  %161 = getelementptr inbounds i8, ptr %160, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 12
   %162 = load i32, ptr %161, align 4
   %.not13.i = icmp eq i32 %162, %151
   br i1 %.not13.i, label %163, label %166
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %160, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %165 = load i8, ptr %164, align 8
   %.not14.i = icmp eq i8 %165, %153
   br i1 %.not14.i, label %find_ns.exit, label %166

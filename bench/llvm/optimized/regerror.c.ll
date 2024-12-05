@@ -60,13 +60,13 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %8, %15
   %.012.i25 = phi ptr [ %13, %15 ], [ @rerrs, %8 ]
-  %13 = getelementptr inbounds i8, ptr %.012.i25, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.012.i25, i64 24
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %regatoi.exit, label %15, !llvm.loop !4
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.012.i25, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.012.i25, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %10) #4
   %19 = icmp eq i32 %18, 0
@@ -83,7 +83,7 @@ define dso_local i64 @llvm_regerror(i32 noundef %0, ptr nocapture noundef readon
   %.not = icmp eq i32 %21, 0
   %22 = icmp eq i32 %21, %6
   %or.cond = or i1 %.not, %22
-  %23 = getelementptr inbounds i8, ptr %.017, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.017, i64 24
   br i1 %or.cond, label %24, label %.preheader, !llvm.loop !6
 
 24:                                               ; preds = %.preheader

@@ -150,7 +150,7 @@ define range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.preheader ]
   %.022 = phi i32 [ %.1, %23 ], [ 0, %.preheader ]
   %8 = load ptr, ptr @g_context, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not19 = icmp eq ptr %10, null
   br i1 %.not19, label %23, label %11
@@ -167,9 +167,9 @@ define range(i32 -1, 1) i32 @hash_g_fini() local_unnamed_addr #0 {
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @g_context, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @slurm_strerror(i32 noundef %12) #5
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.hash_g_fini, ptr noundef %21, ptr noundef %22) #5
@@ -224,7 +224,7 @@ define i32 @hash_g_compute(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
 
 8:                                                ; preds = %5
   %9 = zext nneg i8 %6 to i64
-  %10 = getelementptr inbounds [4 x i8], ptr @hash_id_to_inx, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @hash_id_to_inx, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, -1
   br i1 %12, label %13, label %16
@@ -237,7 +237,7 @@ define i32 @hash_g_compute(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
 16:                                               ; preds = %8
   %17 = load ptr, ptr @ops, align 8
   %18 = zext i8 %11 to i64
-  %19 = getelementptr inbounds %struct.slurm_ops, ptr %17, i64 %18, i32 2
+  %19 = getelementptr inbounds nuw %struct.slurm_ops, ptr %17, i64 %18, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) #5
   br label %22

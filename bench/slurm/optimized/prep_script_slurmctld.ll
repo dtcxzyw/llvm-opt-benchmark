@@ -23,7 +23,7 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) local_unnam
   %8 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load i32, ptr %9, align 8
   br i1 %1, label %13, label %11
 
@@ -44,10 +44,10 @@ define void @slurmctld_script(ptr noundef %0, i1 noundef zeroext %1) local_unnam
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %15 ]
-  %17 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   call void @slurm_xfree(ptr noundef nonnull %17) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

@@ -44,13 +44,13 @@ define dso_local i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .preheader:                                       ; preds = %3, %20
   %12 = phi ptr [ %21, %20 ], [ %10, %3 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %23, label %20
@@ -65,7 +65,7 @@ define dso_local i32 @sel_netif_sid(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %24, label %.thread, label %25, !prof !8
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %12, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %2, align 4
   tail call void @__rcu_read_unlock() #5
@@ -101,13 +101,13 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
 
 .preheader:                                       ; preds = %6, %23
   %15 = phi ptr [ %24, %23 ], [ %13, %6 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %0
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %1
   br i1 %22, label %26, label %23
@@ -122,14 +122,14 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %15, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %2, align 4
   br label %52
 
 .thread:                                          ; preds = %23, %6, %26
-  %31 = getelementptr inbounds i8, ptr %4, i64 296
-  %32 = tail call i32 @security_netif_sid(ptr noundef %31, ptr noundef %2) #5
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %32 = tail call i32 @security_netif_sid(ptr noundef nonnull %31, ptr noundef %2) #5
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %52
 
@@ -140,12 +140,12 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
   br i1 %37, label %52, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 %1, ptr %40, align 8
   %41 = load i32, ptr %2, align 4
-  %42 = getelementptr inbounds i8, ptr %36, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 28
   store i32 %41, ptr %42, align 4
   %43 = load i32, ptr @sel_netif_total, align 4
   %44 = icmp ult i32 %43, 1024
@@ -154,11 +154,11 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
 45:                                               ; preds = %38
   %46 = load ptr, ptr %12, align 16
   store ptr %46, ptr %36, align 8
-  %47 = getelementptr inbounds i8, ptr %36, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %12, ptr %47, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   store volatile ptr %36, ptr %12, align 16
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %36, ptr %48, align 8
   %49 = load i32, ptr @sel_netif_total, align 4
   %50 = add i32 %49, 1
@@ -172,7 +172,7 @@ define internal fastcc i32 @sel_netif_sid_slow(ptr noundef %0, i32 noundef %1, p
 52:                                               ; preds = %51, %45, %34, %.thread, %28
   %53 = phi i32 [ 0, %28 ], [ %32, %.thread ], [ 0, %51 ], [ 0, %45 ], [ 0, %34 ]
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @sel_netif_lock) #5
-  %54 = getelementptr inbounds i8, ptr %4, i64 1280
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 1280
   %55 = load ptr, ptr %54, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, ptr elementtype(i32) %55) #5, !srcloc !11
   %56 = icmp eq i32 %53, 0
@@ -203,10 +203,10 @@ define dso_local void @sel_netif_flush() local_unnamed_addr #0 align 16 {
 
 .preheader:                                       ; preds = %1, %16
   %6 = phi ptr [ %17, %16 ], [ %4, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %7, align 8
@@ -217,8 +217,8 @@ define dso_local void @sel_netif_flush() local_unnamed_addr #0 align 16 {
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef %15, ptr noundef nonnull %6) #5
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %15, ptr noundef nonnull %6) #5
   br label %16
 
 16:                                               ; preds = %14, %.preheader
@@ -246,7 +246,7 @@ define internal noundef i32 @sel_netif_init() #1 section ".init.text" align 16 {
   %3 = phi i64 [ %6, %.preheader ], [ 0, %0 ]
   %4 = getelementptr [64 x %struct.list_head], ptr @sel_netif_hash, i64 0, i64 %3
   store volatile ptr %4, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %4, ptr %5, align 8
   %6 = add nuw nsw i64 %3, 1
   %7 = icmp eq i64 %6, 64
@@ -300,9 +300,9 @@ define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr nocapture rea
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %10 = load i32, ptr %9, align 8
   tail call void @__rcu_read_lock() #5
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @sel_netif_lock) #5
@@ -318,13 +318,13 @@ define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr nocapture rea
 
 .preheader:                                       ; preds = %5, %27
   %19 = phi ptr [ %28, %27 ], [ %17, %5 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %8
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %10
   br i1 %26, label %30, label %27
@@ -339,18 +339,18 @@ define internal noundef i32 @sel_netif_netdev_notifier_handler(ptr nocapture rea
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %19, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %34, ptr %36, align 8
   store volatile ptr %35, ptr %34, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %33, align 8
   %37 = load i32, ptr @sel_netif_total, align 4
   %38 = add i32 %37, -1
   store i32 %38, ptr @sel_netif_total, align 4
-  %39 = getelementptr inbounds i8, ptr %19, i64 32
-  tail call void @kvfree_call_rcu(ptr noundef %39, ptr noundef nonnull %19) #5
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %39, ptr noundef nonnull %19) #5
   br label %.thread
 
 .thread:                                          ; preds = %27, %5, %32, %30

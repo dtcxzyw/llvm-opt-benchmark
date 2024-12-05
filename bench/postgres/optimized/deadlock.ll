@@ -135,15 +135,15 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
   %12 = load ptr, ptr @waitOrders, align 8
   %13 = getelementptr %struct.WAIT_ORDER, ptr %12, i64 %indvars.iv26
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %19, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 0, ptr %21, align 8
   %22 = icmp sgt i32 %18, 0
   br i1 %22, label %.lr.ph.preheader, label %._crit_edge
@@ -167,11 +167,11 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
   br label %dclist_push_tail.exit
 
 dclist_push_tail.exit:                            ; preds = %.lr.ph, %27
-  %28 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %19, ptr %28, align 8
   %29 = load ptr, ptr %19, align 8
   store ptr %29, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %24, ptr %30, align 8
   store ptr %24, ptr %19, align 8
   %31 = load i32, ptr %21, align 8
@@ -358,7 +358,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv, %10
   %12 = getelementptr i8, ptr %8, i64 44
-  %13 = getelementptr inbounds i8, ptr %7, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %.015.in = select i1 %11, ptr %12, ptr %13
   %.015 = load i32, ptr %.015.in, align 4
   call void @resetStringInfo(ptr noundef nonnull %3) #10
@@ -371,12 +371,12 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   br label %15
 
 15:                                               ; preds = %14, %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 15
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 15
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = call ptr @GetLockmodeName(i16 noundef zeroext %20, i32 noundef %22) #10
   %24 = load ptr, ptr %3, align 8
@@ -389,7 +389,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
 
 ._crit_edge:                                      ; preds = %15, %0
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %28, i32 noundef %30) #10
   %31 = load i32, ptr @nDeadlockDetails, align 4
@@ -457,21 +457,21 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @RememberSimpleDeadLock(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr @deadlockDetails, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %8, ptr %9, align 4
   %10 = getelementptr i8, ptr %5, i64 24
-  %11 = getelementptr inbounds i8, ptr %3, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %3, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr i8, ptr %5, i64 40
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr i8, ptr %5, i64 44
   store i32 %17, ptr %18, align 4
@@ -567,12 +567,12 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %53 = getelementptr ptr, ptr %17, i64 %52
   %54 = getelementptr %struct.WAIT_ORDER, ptr %16, i64 %50, i32 1
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %37, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %56 = getelementptr i8, ptr %37, i64 56
   %.val.i = load i32, ptr %56, align 8
   %57 = getelementptr %struct.WAIT_ORDER, ptr %16, i64 %50, i32 2
   store i32 %.val.i, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %37, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %59 = load ptr, ptr %58, align 8
   %.not.i.i = icmp eq ptr %59, null
   %.not147159199.i.i = icmp eq ptr %59, %55
@@ -586,7 +586,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %61 = sext i32 %.0122161.i.i to i64
   %62 = getelementptr ptr, ptr %18, i64 %61
   store ptr %.sroa.0.0160.i.i, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0160.i.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0160.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not147.i.i = icmp eq ptr %64, %55
   br i1 %.not147.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
@@ -675,7 +675,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %.lr.ph170.i.us.i
-  %99 = getelementptr inbounds i8, ptr %96, i64 848
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 848
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, %94
   br i1 %101, label %102, label %107
@@ -701,7 +701,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %109, label %._crit_edge171.thread.i.us.i, label %110
 
 110:                                              ; preds = %._crit_edge171.i.us.i
-  %111 = getelementptr inbounds i8, ptr %93, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %112 = load ptr, ptr %111, align 8
   br label %.lr.ph174.i.us.i
 
@@ -714,7 +714,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %115, label %120, label %116
 
 116:                                              ; preds = %.lr.ph174.i.us.i
-  %117 = getelementptr inbounds i8, ptr %114, i64 848
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 848
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, %112
   br i1 %119, label %120, label %125
@@ -745,12 +745,12 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, 1
   store i32 %132, ptr %130, align 4
-  %133 = getelementptr inbounds i8, ptr %93, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store i32 %.1128.i.us.i, ptr %133, align 8
   %134 = zext nneg i32 %.1132.i.us.i to i64
   %135 = getelementptr i32, ptr %25, i64 %134
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %93, i64 28
+  %137 = getelementptr inbounds nuw i8, ptr %93, i64 28
   store i32 %136, ptr %137, align 4
   %138 = trunc i64 %indvars.iv207.i.us.i to i32
   %139 = add i32 %138, 1
@@ -814,7 +814,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %158 = and i64 %indvars.iv211.i.i, 4294967295
   %159 = getelementptr ptr, ptr %18, i64 %158
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 848
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 848
   %162 = load ptr, ptr %161, align 8
   %.not149.i.i = icmp eq ptr %162, null
   %spec.select.i.i = select i1 %.not149.i.i, ptr %160, ptr %162
@@ -833,7 +833,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not151.i.i, label %176, label %167
 
 167:                                              ; preds = %166
-  %168 = getelementptr inbounds i8, ptr %164, i64 848
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 848
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, %spec.select.i.i
   br i1 %170, label %171, label %176
@@ -953,7 +953,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 848
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %spec.select = select i1 %.not, ptr %0, ptr %6
@@ -989,13 +989,13 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   %19 = sext i32 %7 to i64
   %20 = getelementptr ptr, ptr %.pre, i64 %19
   store ptr %spec.select, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not37 = icmp eq ptr %22, null
   br i1 %.not37, label %28, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %spec.select, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %spec.select, i64 112
   %25 = load ptr, ptr %24, align 8
   %.not38 = icmp eq ptr %25, null
   br i1 %.not38, label %28, label %26
@@ -1005,8 +1005,8 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %26, %23, %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %spec.select, i64 856
-  %30 = getelementptr inbounds i8, ptr %spec.select, i64 864
+  %29 = getelementptr inbounds nuw i8, ptr %spec.select, i64 856
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select, i64 864
   %31 = load ptr, ptr %30, align 8
   %.not39 = icmp eq ptr %31, null
   %.not404755 = icmp eq ptr %31, %29
@@ -1034,7 +1034,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %.lr.ph50, %35, %38
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not40 = icmp eq ptr %42, %29
   br i1 %.not40, label %.loopexit, label %.lr.ph50, !llvm.loop !24
@@ -1046,9 +1046,9 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 14
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %9 = load i8, ptr %8, align 2
   %10 = icmp eq i8 %9, 1
   br i1 %10, label %.loopexit, label %11
@@ -1057,15 +1057,15 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %12 = tail call ptr @GetLocksMethodTable(ptr noundef nonnull %7) #10
   %13 = load i32, ptr %12, align 8
   %.fr = freeze i32 %13
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = getelementptr i32, ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   %.not144169187 = icmp eq ptr %23, %21
@@ -1091,7 +1091,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %.sroa.051.0170 = phi ptr [ %61, %..loopexit165_crit_edge ], [ %23, %.lr.ph171 ]
   %28 = getelementptr i8, ptr %.sroa.051.0170, i64 -24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 848
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 848
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %.157 = select i1 %32, ptr %29, ptr %31
@@ -1128,11 +1128,11 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %46 = getelementptr %struct.DEADLOCK_INFO, ptr %44, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %47 = load i32, ptr %16, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 60
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %46, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i32 %50, ptr %51, align 4
   br label %.loopexit
 
@@ -1142,7 +1142,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br i1 %54, label %55, label %..loopexit165_crit_edge
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %29, i64 148
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 148
   %57 = load i8, ptr %56, align 4
   %58 = and i8 %57, 1
   %.not156 = icmp eq i8 %58, 0
@@ -1153,7 +1153,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br label %..loopexit165_crit_edge
 
 ..loopexit165_crit_edge:                          ; preds = %35, %.lr.ph171.split, %52, %55, %59
-  %60 = getelementptr inbounds i8, ptr %.sroa.051.0170, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.051.0170, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not144 = icmp eq ptr %61, %21
   br i1 %.not144, label %.preheader, label %.lr.ph171.split, !llvm.loop !26
@@ -1173,9 +1173,9 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 67:                                               ; preds = %62
   %68 = and i64 %indvars.iv, 4294967295
   %69 = getelementptr %struct.WAIT_ORDER, ptr %27, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph185, label %.loopexit
@@ -1189,7 +1189,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %indvars.iv195 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next196, %110 ]
   %77 = getelementptr ptr, ptr %71, i64 %indvars.iv195
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 848
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 848
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   %.158 = select i1 %81, ptr %78, ptr %80
@@ -1197,7 +1197,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br i1 %82, label %.loopexit, label %83
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %78, i64 128
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 128
   %85 = load i32, ptr %84, align 8
   %86 = shl nuw i32 1, %85
   %87 = and i32 %86, %20
@@ -1214,11 +1214,11 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %93 = getelementptr %struct.DEADLOCK_INFO, ptr %91, i64 %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %94 = load i32, ptr %16, align 8
-  %95 = getelementptr inbounds i8, ptr %93, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i32 %94, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 60
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %93, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 20
   store i32 %97, ptr %98, align 4
   %99 = load i32, ptr %4, align 4
   %100 = sext i32 %99 to i64
@@ -1243,11 +1243,11 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br i1 %exitcond199.not, label %.loopexit, label %76, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %66, %.preheader
-  %111 = getelementptr inbounds i8, ptr %7, i64 40
-  %112 = getelementptr inbounds i8, ptr %0, i64 848
+  %111 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %114, label %.loopexit163, label %115
 
@@ -1260,11 +1260,11 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 .lr.ph177:                                        ; preds = %115, %.lr.ph177
   %.0132175 = phi ptr [ %spec.select, %.lr.ph177 ], [ null, %115 ]
   %.sroa.0.0174 = phi ptr [ %120, %.lr.ph177 ], [ %.pre, %115 ]
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 848
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.0174, i64 848
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %1
   %spec.select = select i1 %118, ptr %.sroa.0.0174, ptr %.0132175
-  %119 = getelementptr inbounds i8, ptr %.sroa.0.0174, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0174, i64 8
   %120 = load ptr, ptr %119, align 8
   %.not146 = icmp eq ptr %120, %111
   br i1 %.not146, label %.loopexit163, label %.lr.ph177, !llvm.loop !29
@@ -1282,7 +1282,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 
 122:                                              ; preds = %.lr.ph181, %154
   %.sroa.0.1179 = phi ptr [ %.pre, %.lr.ph181 ], [ %156, %154 ]
-  %123 = getelementptr inbounds i8, ptr %.sroa.0.1179, i64 848
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.1179, i64 848
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
   %.sroa.0.1. = select i1 %125, ptr %.sroa.0.1179, ptr %124
@@ -1290,7 +1290,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br i1 %126, label %.loopexit, label %127
 
 127:                                              ; preds = %122
-  %128 = getelementptr inbounds i8, ptr %.sroa.0.1179, i64 128
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.1179, i64 128
   %129 = load i32, ptr %128, align 8
   %130 = shl nuw i32 1, %129
   %131 = and i32 %130, %20
@@ -1309,11 +1309,11 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %137 = getelementptr %struct.DEADLOCK_INFO, ptr %135, i64 %136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %138 = load i32, ptr %16, align 8
-  %139 = getelementptr inbounds i8, ptr %137, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i32 %138, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %0, i64 60
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %137, i64 20
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 20
   store i32 %141, ptr %142, align 4
   %143 = load i32, ptr %4, align 4
   %144 = sext i32 %143 to i64
@@ -1333,7 +1333,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br label %.loopexit
 
 154:                                              ; preds = %127, %132
-  %155 = getelementptr inbounds i8, ptr %.sroa.0.1179, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.1179, i64 8
   %156 = load ptr, ptr %155, align 8
   %.not148 = icmp eq ptr %156, %111
   br i1 %.not148, label %.loopexit, label %122, !llvm.loop !30

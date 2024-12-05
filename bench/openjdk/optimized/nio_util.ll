@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 65538) #1
   %.not = icmp eq i32 %7, 0

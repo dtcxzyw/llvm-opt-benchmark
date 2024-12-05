@@ -60,7 +60,7 @@ entry:
 define hidden void @_ZN10ODDLParser5Value8IteratorC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %start) unnamed_addr #0 align 2 {
 entry:
   store ptr %start, ptr %this, align 8
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %start, ptr %m_current, align 8
   ret void
 }
@@ -70,8 +70,8 @@ define hidden void @_ZN10ODDLParser5Value8IteratorC2ERKS1_(ptr nocapture noundef
 entry:
   %0 = load ptr, ptr %rhs, align 8
   store ptr %0, ptr %this, align 8
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
-  %m_current3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_current3 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %1 = load ptr, ptr %m_current3, align 8
   store ptr %1, ptr %m_current, align 8
   ret void
@@ -86,13 +86,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK10ODDLParser5Value8Iterator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_current, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_next.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_next.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_next.i, align 8
   %cmp3 = icmp ne ptr %1, null
   br label %return
@@ -105,7 +105,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser5Value7getNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_next = getelementptr inbounds i8, ptr %this, i64 24
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_next, align 8
   ret ptr %0
 }
@@ -113,13 +113,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN10ODDLParser5Value8Iterator7getNextEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_current.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_current.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %return, label %_ZNK10ODDLParser5Value8Iterator7hasNextEv.exit
 
 _ZNK10ODDLParser5Value8Iterator7hasNextEv.exit:   ; preds = %entry
-  %m_next.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_next.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_next.i.i, align 8
   %cmp3.i.not = icmp eq ptr %1, null
   br i1 %cmp3.i.not, label %return, label %if.end
@@ -136,18 +136,18 @@ return:                                           ; preds = %entry, %_ZNK10ODDLP
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN10ODDLParser5Value8IteratorppEi(ptr noalias nocapture writeonly sret(%"class.ODDLParser::Value::Iterator") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #5 align 2 {
 entry:
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_current, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @_ZN10ODDLParserL3endE, align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ODDLParserL3endE, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ODDLParserL3endE, i64 8), align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_next.i = getelementptr inbounds i8, ptr %1, i64 24
+  %m_next.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %m_next.i, align 8
   store ptr %4, ptr %m_current, align 8
   br label %return
@@ -156,7 +156,7 @@ return:                                           ; preds = %if.end, %if.then
   %.sink2 = phi ptr [ %2, %if.then ], [ %4, %if.end ]
   %.sink = phi ptr [ %3, %if.then ], [ %4, %if.end ]
   store ptr %.sink2, ptr %agg.result, align 8
-  %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %.sink, ptr %5, align 8
   ret void
 }
@@ -164,13 +164,13 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10ODDLParser5Value8IteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_current, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_next.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_next.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_next.i, align 8
   store ptr %1, ptr %m_current, align 8
   br label %return
@@ -183,9 +183,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK10ODDLParser5Value8IteratoreqERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #4 align 2 {
 entry:
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_current, align 8
-  %m_current2 = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_current2 = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %1 = load ptr, ptr %m_current2, align 8
   %cmp = icmp eq ptr %0, %1
   ret i1 %cmp
@@ -194,7 +194,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser5Value8IteratorptEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_current = getelementptr inbounds i8, ptr %this, i64 8
+  %m_current = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_current, align 8
   ret ptr %0
 }
@@ -203,7 +203,7 @@ entry:
 define hidden void @_ZN10ODDLParser5ValueC2ENS0_9ValueTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %this, i32 noundef %type) unnamed_addr #0 align 2 {
 entry:
   store i32 %type, ptr %this, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size, i8 0, i64 24, i1 false)
   ret void
 }
@@ -211,7 +211,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser5ValueD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end12, label %if.then
@@ -231,7 +231,7 @@ delete.notnull9:                                  ; preds = %if.then
   br label %if.end12
 
 if.end12:                                         ; preds = %delete.notnull, %delete.notnull9, %entry
-  %m_next = getelementptr inbounds i8, ptr %this, i64 24
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_next, align 8
   %isnull13 = icmp eq ptr %2, null
   br i1 %isnull13, label %common.ret3, label %delete.notnull14
@@ -260,9 +260,9 @@ entry:
   %value.addr = alloca i8, align 1
   %frombool = zext i1 %value to i8
   store i8 %frombool, ptr %value.addr, align 1
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %value.addr, i64 %1, i1 false)
   ret void
@@ -274,7 +274,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN10ODDLParser5Value7getBoolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   %1 = load i8, ptr %0, align 1
   %cmp = icmp eq i8 %1, 1
@@ -286,9 +286,9 @@ define hidden void @_ZN10ODDLParser5Value7setInt8Ea(ptr nocapture noundef nonnul
 entry:
   %value.addr = alloca i8, align 1
   store i8 %value, ptr %value.addr, align 1
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %value.addr, i64 %1, i1 false)
   ret void
@@ -297,7 +297,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef signext i8 @_ZN10ODDLParser5Value7getInt8Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   %1 = load i8, ptr %0, align 1
   ret i8 %1
@@ -308,9 +308,9 @@ define hidden void @_ZN10ODDLParser5Value8setInt16Es(ptr nocapture noundef nonnu
 entry:
   %value.addr = alloca i16, align 2
   store i16 %value, ptr %value.addr, align 2
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 2 %value.addr, i64 %1, i1 false)
   ret void
@@ -320,9 +320,9 @@ entry:
 define hidden noundef signext i16 @_ZN10ODDLParser5Value8getInt16Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i16, align 2
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i16, ptr %i, align 2
@@ -334,9 +334,9 @@ define hidden void @_ZN10ODDLParser5Value8setInt32Ei(ptr nocapture noundef nonnu
 entry:
   %value.addr = alloca i32, align 4
   store i32 %value, ptr %value.addr, align 4
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 4 %value.addr, i64 %1, i1 false)
   ret void
@@ -346,9 +346,9 @@ entry:
 define hidden noundef i32 @_ZN10ODDLParser5Value8getInt32Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i32, align 4
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i32, ptr %i, align 4
@@ -360,9 +360,9 @@ define hidden void @_ZN10ODDLParser5Value8setInt64El(ptr nocapture noundef nonnu
 entry:
   %value.addr = alloca i64, align 8
   store i64 %value, ptr %value.addr, align 8
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 8 %value.addr, i64 %1, i1 false)
   ret void
@@ -372,9 +372,9 @@ entry:
 define hidden noundef i64 @_ZN10ODDLParser5Value8getInt64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i64, align 8
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i64, ptr %i, align 8
@@ -386,9 +386,9 @@ define hidden void @_ZN10ODDLParser5Value15setUnsignedInt8Eh(ptr nocapture nound
 entry:
   %value.addr = alloca i8, align 1
   store i8 %value, ptr %value.addr, align 1
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %value.addr, i64 %1, i1 false)
   ret void
@@ -398,9 +398,9 @@ entry:
 define hidden noundef zeroext i8 @_ZNK10ODDLParser5Value15getUnsignedInt8Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i8, align 1
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i8, ptr %i, align 1
@@ -412,9 +412,9 @@ define hidden void @_ZN10ODDLParser5Value16setUnsignedInt16Et(ptr nocapture noun
 entry:
   %value.addr = alloca i16, align 2
   store i16 %value, ptr %value.addr, align 2
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 2 %value.addr, i64 %1, i1 false)
   ret void
@@ -424,9 +424,9 @@ entry:
 define hidden noundef zeroext i16 @_ZNK10ODDLParser5Value16getUnsignedInt16Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i16, align 2
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i16, ptr %i, align 2
@@ -438,9 +438,9 @@ define hidden void @_ZN10ODDLParser5Value16setUnsignedInt32Ej(ptr nocapture noun
 entry:
   %value.addr = alloca i32, align 4
   store i32 %value, ptr %value.addr, align 4
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 4 %value.addr, i64 %1, i1 false)
   ret void
@@ -450,9 +450,9 @@ entry:
 define hidden noundef i32 @_ZNK10ODDLParser5Value16getUnsignedInt32Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i32, align 4
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i32, ptr %i, align 4
@@ -464,9 +464,9 @@ define hidden void @_ZN10ODDLParser5Value16setUnsignedInt64Em(ptr nocapture noun
 entry:
   %value.addr = alloca i64, align 8
   store i64 %value, ptr %value.addr, align 8
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 8 %value.addr, i64 %1, i1 false)
   ret void
@@ -476,9 +476,9 @@ entry:
 define hidden noundef i64 @_ZNK10ODDLParser5Value16getUnsignedInt64Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %i = alloca i64, align 8
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %i, ptr align 1 %0, i64 %1, i1 false)
   %i.0.i.0.i.0.i.0. = load i64, ptr %i, align 8
@@ -490,9 +490,9 @@ define hidden void @_ZN10ODDLParser5Value8setFloatEf(ptr nocapture noundef nonnu
 entry:
   %value.addr = alloca float, align 4
   store float %value, ptr %value.addr, align 4
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 4 %value.addr, i64 %1, i1 false)
   ret void
@@ -504,12 +504,12 @@ entry:
   %v = alloca float, align 4
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 10
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_data, align 8
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %v, ptr align 1 %1, i64 %2, i1 false)
   br label %return
@@ -525,9 +525,9 @@ define hidden void @_ZN10ODDLParser5Value9setDoubleEd(ptr nocapture noundef nonn
 entry:
   %value.addr = alloca double, align 8
   store double %value, ptr %value.addr, align 8
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 8 %value.addr, i64 %1, i1 false)
   ret void
@@ -539,12 +539,12 @@ entry:
   %v = alloca double, align 8
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 11
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_data, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_size = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %m_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %v, ptr align 1 %1, i64 %2, i1 false)
   %v.0.v.0.v.0.v.0. = load double, ptr %v, align 8
@@ -566,7 +566,7 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ODDLParser5Value9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #6 align 2 {
 entry:
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
   %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #23
@@ -587,7 +587,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser5Value9getStringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   ret ptr %0
 }
@@ -604,7 +604,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2.not, label %if.end10, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.end, label %delete.notnull
@@ -644,7 +644,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK10ODDLParser5Value6getRefEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_data = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data, align 8
   ret ptr %0
 }
@@ -728,7 +728,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   %vtable = load ptr, ptr %stream, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
@@ -755,7 +755,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   br label %eh.resume
 
 sw.bb5:                                           ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_data.i, align 8
   %6 = load i8, ptr %5, align 1
   %cmp.i = icmp eq i8 %6, 1
@@ -767,7 +767,7 @@ sw.bb5:                                           ; preds = %entry
 invoke.cont10:                                    ; preds = %sw.bb5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %call.i48) #23
   %vtable11 = load ptr, ptr %stream, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 48
+  %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 48
   %7 = load ptr, ptr %vfn12, align 8
   %call15 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)
           to label %invoke.cont14 unwind label %lpad13
@@ -794,7 +794,7 @@ ehcleanup17:                                      ; preds = %lpad13, %lpad9
   br label %eh.resume
 
 sw.bb18:                                          ; preds = %entry
-  %m_data.i49 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i49 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %10 = load ptr, ptr %m_data.i49, align 8
   %11 = load i8, ptr %10, align 1
   %conv22 = sext i8 %11 to i32
@@ -805,7 +805,7 @@ sw.bb18:                                          ; preds = %entry
 invoke.cont24:                                    ; preds = %sw.bb18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %call.i51) #23
   %vtable25 = load ptr, ptr %stream, align 8
-  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 48
+  %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 48
   %12 = load ptr, ptr %vfn26, align 8
   %call29 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
           to label %invoke.cont28 unwind label %lpad27
@@ -833,9 +833,9 @@ ehcleanup31:                                      ; preds = %lpad27, %lpad23
 
 sw.bb32:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %i.i)
-  %m_data.i53 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i53 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %15 = load ptr, ptr %m_data.i53, align 8
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load i64, ptr %m_size.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %i.i, ptr align 1 %15, i64 %16, i1 false)
   %i.i.0.i.i.0.i.i.0.i.0.i.0.i.0..i = load i16, ptr %i.i, align 2
@@ -848,7 +848,7 @@ sw.bb32:                                          ; preds = %entry
 invoke.cont38:                                    ; preds = %sw.bb32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(32) %call.i55) #23
   %vtable39 = load ptr, ptr %stream, align 8
-  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 48
+  %vfn40 = getelementptr inbounds nuw i8, ptr %vtable39, i64 48
   %17 = load ptr, ptr %vfn40, align 8
   %call43 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33)
           to label %invoke.cont42 unwind label %lpad41
@@ -876,9 +876,9 @@ ehcleanup45:                                      ; preds = %lpad41, %lpad37
 
 sw.bb46:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i.i57)
-  %m_data.i58 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i58 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %20 = load ptr, ptr %m_data.i58, align 8
-  %m_size.i59 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i59 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %21 = load i64, ptr %m_size.i59, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %i.i57, ptr align 1 %20, i64 %21, i1 false)
   %i.i57.0.i.i57.0.i.i57.0.i.0.i.0.i.0..i60 = load i32, ptr %i.i57, align 4
@@ -890,7 +890,7 @@ sw.bb46:                                          ; preds = %entry
 invoke.cont51:                                    ; preds = %sw.bb46
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47, ptr noundef nonnull align 8 dereferenceable(32) %call.i62) #23
   %vtable52 = load ptr, ptr %stream, align 8
-  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 48
+  %vfn53 = getelementptr inbounds nuw i8, ptr %vtable52, i64 48
   %22 = load ptr, ptr %vfn53, align 8
   %call56 = invoke noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %invoke.cont55 unwind label %lpad54
@@ -918,9 +918,9 @@ ehcleanup58:                                      ; preds = %lpad54, %lpad50
 
 sw.bb59:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %i.i64)
-  %m_data.i65 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i65 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %25 = load ptr, ptr %m_data.i65, align 8
-  %m_size.i66 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i66 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %26 = load i64, ptr %m_size.i66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %i.i64, ptr align 1 %25, i64 %26, i1 false)
   %i.i64.0.i.i64.0.i.i64.0.i.0.i.0.i.0..i67 = load i64, ptr %i.i64, align 8
@@ -932,7 +932,7 @@ sw.bb59:                                          ; preds = %entry
 invoke.cont64:                                    ; preds = %sw.bb59
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60, ptr noundef nonnull align 8 dereferenceable(32) %call.i69) #23
   %vtable65 = load ptr, ptr %stream, align 8
-  %vfn66 = getelementptr inbounds i8, ptr %vtable65, i64 48
+  %vfn66 = getelementptr inbounds nuw i8, ptr %vtable65, i64 48
   %27 = load ptr, ptr %vfn66, align 8
   %call69 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60)
           to label %invoke.cont68 unwind label %lpad67
@@ -979,7 +979,7 @@ lpad.i73:                                         ; preds = %.noexc76
 
 invoke.cont76:                                    ; preds = %.noexc76
   %vtable77 = load ptr, ptr %stream, align 8
-  %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 48
+  %vfn78 = getelementptr inbounds nuw i8, ptr %vtable77, i64 48
   %31 = load ptr, ptr %vfn78, align 8
   %call81 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73)
           to label %invoke.cont80 unwind label %lpad79
@@ -1026,7 +1026,7 @@ lpad.i81:                                         ; preds = %.noexc84
 
 invoke.cont88:                                    ; preds = %.noexc84
   %vtable89 = load ptr, ptr %stream, align 8
-  %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 48
+  %vfn90 = getelementptr inbounds nuw i8, ptr %vtable89, i64 48
   %35 = load ptr, ptr %vfn90, align 8
   %call93 = invoke noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85)
           to label %invoke.cont92 unwind label %lpad91
@@ -1073,7 +1073,7 @@ lpad.i89:                                         ; preds = %.noexc92
 
 invoke.cont100:                                   ; preds = %.noexc92
   %vtable101 = load ptr, ptr %stream, align 8
-  %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 48
+  %vfn102 = getelementptr inbounds nuw i8, ptr %vtable101, i64 48
   %39 = load ptr, ptr %vfn102, align 8
   %call105 = invoke noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97)
           to label %invoke.cont104 unwind label %lpad103
@@ -1120,7 +1120,7 @@ lpad.i97:                                         ; preds = %.noexc100
 
 invoke.cont112:                                   ; preds = %.noexc100
   %vtable113 = load ptr, ptr %stream, align 8
-  %vfn114 = getelementptr inbounds i8, ptr %vtable113, i64 48
+  %vfn114 = getelementptr inbounds nuw i8, ptr %vtable113, i64 48
   %43 = load ptr, ptr %vfn114, align 8
   %call117 = invoke noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109)
           to label %invoke.cont116 unwind label %lpad115
@@ -1167,7 +1167,7 @@ lpad.i105:                                        ; preds = %.noexc108
 
 invoke.cont124:                                   ; preds = %.noexc108
   %vtable125 = load ptr, ptr %stream, align 8
-  %vfn126 = getelementptr inbounds i8, ptr %vtable125, i64 48
+  %vfn126 = getelementptr inbounds nuw i8, ptr %vtable125, i64 48
   %47 = load ptr, ptr %vfn126, align 8
   %call129 = invoke noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121)
           to label %invoke.cont128 unwind label %lpad127
@@ -1195,9 +1195,9 @@ ehcleanup131:                                     ; preds = %lpad123, %lpad.i105
 
 _ZNK10ODDLParser5Value8getFloatEv.exit:           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %v.i)
-  %m_data.i112 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i112 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %50 = load ptr, ptr %m_data.i112, align 8
-  %m_size.i113 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i113 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %51 = load i64, ptr %m_size.i113, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %v.i, ptr align 1 %50, i64 %51, i1 false)
   %v.i.0.v.i.0.retval.0.i = load float, ptr %v.i, align 4
@@ -1210,7 +1210,7 @@ _ZNK10ODDLParser5Value8getFloatEv.exit:           ; preds = %entry
 invoke.cont137:                                   ; preds = %_ZNK10ODDLParser5Value8getFloatEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(32) %call.i115) #23
   %vtable138 = load ptr, ptr %stream, align 8
-  %vfn139 = getelementptr inbounds i8, ptr %vtable138, i64 48
+  %vfn139 = getelementptr inbounds nuw i8, ptr %vtable138, i64 48
   %52 = load ptr, ptr %vfn139, align 8
   %call142 = invoke noundef i64 %52(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133)
           to label %invoke.cont141 unwind label %lpad140
@@ -1238,9 +1238,9 @@ ehcleanup144:                                     ; preds = %lpad140, %lpad136
 
 _ZNK10ODDLParser5Value9getDoubleEv.exit:          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i117)
-  %m_data.i119 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i119 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %55 = load ptr, ptr %m_data.i119, align 8
-  %m_size.i122 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i122 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %56 = load i64, ptr %m_size.i122, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %v.i117, ptr align 1 %55, i64 %56, i1 false)
   %v.i117.0.v.i117.0.v.i117.0.v.0.v.0.v.0..i = load double, ptr %v.i117, align 8
@@ -1254,7 +1254,7 @@ _ZNK10ODDLParser5Value9getDoubleEv.exit:          ; preds = %entry
 invoke.cont150:                                   ; preds = %_ZNK10ODDLParser5Value9getDoubleEv.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146, ptr noundef nonnull align 8 dereferenceable(32) %call.i125) #23
   %vtable151 = load ptr, ptr %stream, align 8
-  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 48
+  %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 48
   %57 = load ptr, ptr %vfn152, align 8
   %call155 = invoke noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146)
           to label %invoke.cont154 unwind label %lpad153
@@ -1281,7 +1281,7 @@ ehcleanup157:                                     ; preds = %lpad153, %lpad149
   br label %eh.resume
 
 sw.bb158:                                         ; preds = %entry
-  %m_data.i127 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_data.i127 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %60 = load ptr, ptr %m_data.i127, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp162) #23
   %call.i134 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160)
@@ -1321,7 +1321,7 @@ invoke.cont164:                                   ; preds = %if.end.i
 invoke.cont166:                                   ; preds = %invoke.cont164
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(32) %call.i139) #23
   %vtable167 = load ptr, ptr %stream, align 8
-  %vfn168 = getelementptr inbounds i8, ptr %vtable167, i64 48
+  %vfn168 = getelementptr inbounds nuw i8, ptr %vtable167, i64 48
   %62 = load ptr, ptr %vfn168, align 8
   %call171 = invoke noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp159)
           to label %invoke.cont170 unwind label %lpad169
@@ -1379,7 +1379,7 @@ lpad.i144:                                        ; preds = %.noexc147
 
 invoke.cont179:                                   ; preds = %.noexc147
   %vtable180 = load ptr, ptr %stream, align 8
-  %vfn181 = getelementptr inbounds i8, ptr %vtable180, i64 48
+  %vfn181 = getelementptr inbounds nuw i8, ptr %vtable180, i64 48
   %67 = load ptr, ptr %vfn181, align 8
   %call184 = invoke noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176)
           to label %invoke.cont183 unwind label %lpad182
@@ -1507,17 +1507,17 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %div.i = udiv i32 %__val.addr.016.i, 100
   %add.i10 = or disjoint i32 %mul.i, 1
   %idxprom.i = zext nneg i32 %add.i10 to i64
-  %arrayidx.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
-  %arrayidx2.i = getelementptr inbounds i8, ptr %call7, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call7, i64 %idxprom1.i
   store i8 %2, ptr %arrayidx2.i, align 1
   %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
   %3 = load i8, ptr %arrayidx4.i, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call7, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call7, i64 %idxprom6.i
   store i8 %3, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i11 = icmp ugt i32 %__val.addr.016.i, 9999
@@ -1532,12 +1532,12 @@ if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
   %add12.i = or disjoint i32 %mul11.i, 1
   %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
   %4 = load i8, ptr %arrayidx14.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %call7, i64 1
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %call7, i64 1
   store i8 %4, ptr %arrayidx15.i, align 1
   %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
+  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
   %5 = load i8, ptr %arrayidx17.i, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -1647,16 +1647,16 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %mul.i = shl nuw nsw i64 %rem.i, 1
   %div.i11 = udiv i64 %__val.addr.016.i, 100
   %add.i12 = or disjoint i64 %mul.i, 1
-  %arrayidx.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i12
+  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add.i12
   %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i32 %__pos.015.i to i64
-  %arrayidx1.i = getelementptr inbounds i8, ptr %call8, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %call8, i64 %idxprom.i
   store i8 %1, ptr %arrayidx1.i, align 1
-  %arrayidx2.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
+  %arrayidx2.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul.i
   %2 = load i8, ptr %arrayidx2.i, align 2
   %sub3.i = add i32 %__pos.015.i, -1
   %idxprom4.i = zext i32 %sub3.i to i64
-  %arrayidx5.i = getelementptr inbounds i8, ptr %call8, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call8, i64 %idxprom4.i
   store i8 %2, ptr %arrayidx5.i, align 1
   %sub6.i = add i32 %__pos.015.i, -2
   %cmp.i13 = icmp ugt i64 %__val.addr.016.i, 9999
@@ -1670,11 +1670,11 @@ while.end.i:                                      ; preds = %while.body.i, %invo
 if.then.i:                                        ; preds = %while.end.i
   %mul9.i = shl nuw nsw i64 %__val.addr.0.lcssa.i, 1
   %add10.i = or disjoint i64 %mul9.i, 1
-  %arrayidx11.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
+  %arrayidx11.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %add10.i
   %3 = load i8, ptr %arrayidx11.i, align 1
-  %arrayidx12.i = getelementptr inbounds i8, ptr %call8, i64 1
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %call8, i64 1
   store i8 %3, ptr %arrayidx12.i, align 1
-  %arrayidx13.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
+  %arrayidx13.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %mul9.i
   %4 = load i8, ptr %arrayidx13.i, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -1712,7 +1712,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10ODDLParser5Value7setNextEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef %next) local_unnamed_addr #0 align 2 {
 entry:
-  %m_next = getelementptr inbounds i8, ptr %this, i64 24
+  %m_next = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %next, ptr %m_next, align 8
   ret void
 }
@@ -1725,7 +1725,7 @@ entry:
 while.cond:                                       ; preds = %while.cond, %entry
   %result.0 = phi i64 [ 1, %entry ], [ %inc, %while.cond ]
   %this.pn = phi ptr [ %this, %entry ], [ %n.0, %while.cond ]
-  %n.0.in = getelementptr inbounds i8, ptr %this.pn, i64 24
+  %n.0.in = getelementptr inbounds nuw i8, ptr %this.pn, i64 24
   %n.0 = load ptr, ptr %n.0.in, align 8
   %cmp.not = icmp eq ptr %n.0, null
   %inc = add i64 %result.0, 1
@@ -1746,7 +1746,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   store i32 %type, ptr %call, align 8
-  %m_size.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_size.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_size.i, i8 0, i64 24, i1 false)
   switch i32 %type, label %return [
     i32 0, label %if.then30.sink.split
@@ -1787,7 +1787,7 @@ if.then30.sink.split:                             ; preds = %if.end, %if.end, %i
 if.then30:                                        ; preds = %if.then30.sink.split, %sw.epilog
   %0 = phi i64 [ %add, %sw.epilog ], [ %.sink, %if.then30.sink.split ]
   %call32 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #25
-  %m_data = getelementptr inbounds i8, ptr %call, i64 16
+  %m_data = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call32, ptr %m_data, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call32, i8 0, i64 %0, i1 false)
   br label %return
@@ -1870,7 +1870,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %0, ptr noundef nonnull %add.ptr)
           to label %invoke.cont unwind label %lpad.i

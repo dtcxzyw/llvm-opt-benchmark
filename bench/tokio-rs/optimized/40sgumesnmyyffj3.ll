@@ -11,9 +11,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 
 3:                                                ; preds = %2
   %.sroa.02.0.copyload.i = load i64, ptr %1, align 8, !alias.scope !4
-  %.sroa.5.0..0.1.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0..0.1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..0.1.sroa_idx.i, align 8, !alias.scope !4
-  %.sroa.6.0..0.1.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.6.0..0.1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.1.sroa_idx.i, align 8, !alias.scope !4
   store i64 0, ptr %1, align 8, !alias.scope !4
   %4 = icmp eq i64 %.sroa.02.0.copyload.i, 1
@@ -33,9 +33,9 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   %10 = extractvalue { i64, i64 } %.merged.i, 0
   %11 = extractvalue { i64, i64 } %.merged.i, 1
   store i64 1, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %11, ptr %.sroa.5.0..sroa_idx, align 8
   ret ptr %.sroa.4.0..sroa_idx
 }
@@ -48,9 +48,9 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local4laz
 
 3:                                                ; preds = %2
   %.sroa.02.0.copyload.i = load i32, ptr %1, align 4, !alias.scope !7
-  %.sroa.5.0..0.1.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.5.0..0.1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..0.1.sroa_idx.i, align 4, !alias.scope !7
-  %.sroa.6.0..0.1.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.6.0..0.1.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..0.1.sroa_idx.i, align 4, !alias.scope !7
   store i32 0, ptr %1, align 4, !alias.scope !7
   %4 = icmp eq i32 %.sroa.02.0.copyload.i, 1
@@ -68,9 +68,9 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local4laz
   %.sroa.5.0.copyload.pn.i = phi i32 [ %8, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.6.0.copyload.pn.i = phi i32 [ %spec.store.select.i.i, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
   store i32 1, ptr %0, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.5.0.copyload.pn.i, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.6.0.copyload.pn.i, ptr %.sroa.5.0..sroa_idx, align 4
   ret ptr %.sroa.4.0..sroa_idx
 }
@@ -82,9 +82,9 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
 
 2:                                                ; preds = %1
   %.sroa.02.0.copyload = load i64, ptr %0, align 8
-  %.sroa.5.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..0.1.sroa_idx, align 8
-  %.sroa.6.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.1.sroa_idx, align 8
   store i64 0, ptr %0, align 8
   %3 = icmp eq i64 %.sroa.02.0.copyload, 1
@@ -111,9 +111,9 @@ define hidden { i32, i32 } @"_ZN12tokio_stream10stream_map4rand12thread_rng_n10T
 
 2:                                                ; preds = %1
   %.sroa.02.0.copyload = load i32, ptr %0, align 4
-  %.sroa.5.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.5.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..0.1.sroa_idx, align 4
-  %.sroa.6.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.6.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..0.1.sroa_idx, align 4
   store i32 0, ptr %0, align 4
   %3 = icmp eq i32 %.sroa.02.0.copyload, 1

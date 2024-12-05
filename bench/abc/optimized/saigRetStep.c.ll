@@ -111,12 +111,12 @@ Saig_ObjIsLo.exit80:                              ; preds = %Saig_ObjIsLo.exit
   %.val74 = load i32, ptr %58, align 8
   %59 = add nsw i32 %.val74, -1
   store i32 %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %61 = load i32, ptr %60, align 8
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %60, align 8
   %.val75 = load i32, ptr %19, align 8
-  %63 = getelementptr inbounds i8, ptr %57, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i32 %.val75, ptr %63, align 8
   %64 = ptrtoint ptr %57 to i64
   %65 = xor i64 %51, %64
@@ -203,7 +203,7 @@ define ptr @Saig_ManRetimeNodeBwd(ptr noundef %0, ptr nocapture noundef readonly
   %47 = ptrtoint ptr %42 to i64
   %48 = xor i64 %28, %47
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %0, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %51 = load i32, ptr %50, align 8
   %52 = add nsw i32 %51, 2
   store i32 %52, ptr %50, align 8
@@ -219,7 +219,7 @@ define ptr @Saig_ManRetimeNodeBwd(ptr noundef %0, ptr nocapture noundef readonly
 define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @Aig_ManSetCioIds(ptr noundef %0) #3
   tail call void @Aig_ManFanoutStart(ptr noundef %0) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 440
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 1, ptr %5, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader69, label %20
@@ -230,13 +230,13 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 .preheader.lr.ph:                                 ; preds = %.preheader69
   %7 = getelementptr i8, ptr %0, i64 104
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr i8, ptr %0, i64 108
   %10 = getelementptr i8, ptr %0, i64 24
   %11 = getelementptr i8, ptr %0, i64 112
   %12 = getelementptr i8, ptr %0, i64 140
   %13 = getelementptr i8, ptr %0, i64 136
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %7, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.preheader, label %.preheader.lr.ph.split.us
@@ -255,7 +255,7 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %21, label %.preheader70.lr.ph, label %.loopexit
 
 .preheader70.lr.ph:                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = icmp eq i32 %3, 0
   %24 = getelementptr i8, ptr %0, i64 108
   %25 = getelementptr i8, ptr %0, i64 312
@@ -263,7 +263,7 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %27 = getelementptr i8, ptr %0, i64 112
   %28 = getelementptr i8, ptr %0, i64 140
   %29 = getelementptr i8, ptr %0, i64 136
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -293,7 +293,7 @@ define i32 @Saig_ManRetimeSteps(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_ManRetimeNodeFwd.exit.thread ]
   %42 = getelementptr i8, ptr %41, i64 8
   %.val55 = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds ptr, ptr %.val55, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %.val55, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %Saig_ManRetimeNodeFwd.exit.thread, label %46
@@ -409,7 +409,7 @@ Saig_ManRetimeNodeFwd.exit:                       ; preds = %69, %90
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %30, align 8
   %.val75.i = load i32, ptr %25, align 8
-  %103 = getelementptr inbounds i8, ptr %99, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 32
   store i32 %.val75.i, ptr %103, align 8
   %104 = ptrtoint ptr %99 to i64
   %105 = icmp eq i64 %94, %104
@@ -575,7 +575,7 @@ Saig_ManRetimeNodeBwd.exit.thread:                ; preds = %Saig_ManRetimeNodeB
   store i32 0, ptr %5, align 8
   tail call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #3
   %181 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %0) #3
-  %182 = getelementptr inbounds i8, ptr %0, i64 104
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %183 = load i32, ptr %182, align 8
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %0, i32 noundef %183) #3
   ret i32 %.150

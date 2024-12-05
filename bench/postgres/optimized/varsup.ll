@@ -79,12 +79,12 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @MyProc, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store i32 1, ptr %11, align 4
   %12 = load ptr, ptr @ProcGlobal, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr i32, ptr %14, i64 %17
@@ -107,23 +107,23 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %26 = getelementptr i8, ptr %25, i64 384
   %27 = tail call zeroext i1 @LWLockAcquire(ptr noundef %26, i32 noundef 0) #7
   %28 = load ptr, ptr @TransamVariables, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.0.0.copyload = load i64, ptr %29, align 8
   %30 = trunc i64 %.sroa.0.0.copyload to i32
-  %31 = getelementptr inbounds i8, ptr %28, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %32) #7
   br i1 %33, label %34, label %FullTransactionIdAdvance.exit
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr @TransamVariables, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr i8, ptr %44, i64 384
@@ -206,7 +206,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %82 = getelementptr i8, ptr %81, i64 384
   %83 = tail call zeroext i1 @LWLockAcquire(ptr noundef %82, i32 noundef 0) #7
   %84 = load ptr, ptr @TransamVariables, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.sroa.0.0.copyload28 = load i64, ptr %85, align 8
   %86 = trunc i64 %.sroa.0.0.copyload28 to i32
   br label %FullTransactionIdAdvance.exit
@@ -218,7 +218,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   tail call void @ExtendCommitTs(i32 noundef %.0) #7
   tail call void @ExtendSUBTRANS(i32 noundef %.0) #7
   %87 = load ptr, ptr @TransamVariables, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, 1
   %91 = icmp ugt i64 %90, 2
@@ -235,12 +235,12 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
 
 98:                                               ; preds = %FullTransactionIdAdvance.exit
   %99 = load ptr, ptr @MyProc, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 52
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 52
   store i32 %.0, ptr %100, align 4
   %101 = load ptr, ptr @ProcGlobal, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %99, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %105 = load i32, ptr %104, align 8
   %106 = sext i32 %105 to i64
   %107 = getelementptr i32, ptr %103, i64 %106
@@ -249,20 +249,20 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
 
 108:                                              ; preds = %FullTransactionIdAdvance.exit
   %109 = load ptr, ptr @ProcGlobal, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr @MyProc, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 64
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load i32, ptr %113, align 8
   %115 = sext i32 %114 to i64
   %116 = getelementptr %struct.XidCacheStatus, ptr %111, i64 %115
-  %117 = getelementptr inbounds i8, ptr %112, i64 440
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 440
   %118 = load i8, ptr %117, align 8
   %119 = icmp ult i8 %118, 64
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %108
-  %121 = getelementptr inbounds i8, ptr %112, i64 444
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 444
   %122 = zext nneg i8 %118 to i64
   %123 = getelementptr [64 x i32], ptr %121, i64 0, i64 %122
   store i32 %.0, ptr %123, align 4
@@ -270,15 +270,15 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   %narrow = add nuw nsw i8 %118, 1
   store i8 %narrow, ptr %116, align 1
   %124 = load ptr, ptr @MyProc, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 440
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 440
   store i8 %narrow, ptr %125, align 8
   br label %130
 
 126:                                              ; preds = %108
-  %127 = getelementptr inbounds i8, ptr %116, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %116, i64 1
   store i8 1, ptr %127, align 1
   %128 = load ptr, ptr @MyProc, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 441
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 441
   store i8 1, ptr %129, align 1
   br label %130
 
@@ -334,7 +334,7 @@ define dso_local i64 @ReadNextFullTransactionId() local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %1, i64 384
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #7
   %4 = load ptr, ptr @TransamVariables, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr i8, ptr %6, i64 384
@@ -345,7 +345,7 @@ define dso_local i64 @ReadNextFullTransactionId() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @AdvanceNextFullTransactionIdPastXid(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @TransamVariables, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %5) #7
@@ -355,7 +355,7 @@ define dso_local void @AdvanceNextFullTransactionIdPastXid(i32 noundef %0) local
   %8 = add i32 %0, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %8, i32 3)
   %9 = load ptr, ptr @TransamVariables, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i32 %spec.store.select, %5
   %spec.select10 = select i1 %12, i64 4294967296, i64 0
@@ -367,7 +367,7 @@ define dso_local void @AdvanceNextFullTransactionIdPastXid(i32 noundef %0) local
   %18 = getelementptr i8, ptr %17, i64 384
   %19 = tail call zeroext i1 @LWLockAcquire(ptr noundef %18, i32 noundef 0) #7
   %20 = load ptr, ptr @TransamVariables, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %16, ptr %21, align 8
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr i8, ptr %22, i64 384
@@ -384,14 +384,14 @@ define dso_local void @AdvanceOldestClogXid(i32 noundef %0) local_unnamed_addr #
   %3 = getelementptr i8, ptr %2, i64 5632
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #7
   %5 = load ptr, ptr @TransamVariables, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %7, i32 noundef %0) #7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @TransamVariables, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 %0, ptr %11, align 8
   br label %12
 
@@ -427,19 +427,19 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %17 = getelementptr i8, ptr %16, i64 384
   %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #7
   %19 = load ptr, ptr @TransamVariables, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %.031, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 %.034, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 28
   store i32 %.033, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i32 %spec.select, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 %1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
   %29 = load ptr, ptr @MainLWLockArray, align 8
@@ -525,13 +525,13 @@ define dso_local zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr 
   %2 = getelementptr i8, ptr %1, i64 384
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef %2, i32 noundef 1) #7
   %4 = load ptr, ptr @TransamVariables, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr i8, ptr %13, i64 384
@@ -590,13 +590,13 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
 .sink.split:                                      ; preds = %12
   store i32 16384, ptr %9, align 8
   %16 = load ptr, ptr @TransamVariables, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %17, align 4
   br label %18
 
 18:                                               ; preds = %12, %.sink.split, %5
   %19 = load ptr, ptr @TransamVariables, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %28
@@ -606,7 +606,7 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
   %25 = add i32 %24, 8192
   tail call void @XLogPutNextOid(i32 noundef %25) #7
   %26 = load ptr, ptr @TransamVariables, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 8192, ptr %27, align 4
   %.pre = load ptr, ptr @TransamVariables, align 8
   br label %28
@@ -617,7 +617,7 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 8
   %32 = load ptr, ptr @TransamVariables, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, -1
   store i32 %35, ptr %33, align 4
@@ -663,7 +663,7 @@ define dso_local void @StopGeneratingPinnedObjectIds() local_unnamed_addr #1 {
 SetNextObjectId.exit:                             ; preds = %6
   store i32 12000, ptr %10, align 8
   %18 = load ptr, ptr @TransamVariables, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4
   %20 = load ptr, ptr @MainLWLockArray, align 8
   %21 = getelementptr i8, ptr %20, i64 256

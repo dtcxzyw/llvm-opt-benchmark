@@ -469,19 +469,19 @@ define internal i32 @dissect_zbee_zcl_color_control(ptr noundef %0, ptr nocaptur
   br i1 %6, label %48, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %46
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %13 to i32
   %17 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @zbee_zcl_color_control_srv_rx_cmd_names, ptr noundef nonnull @.str.236) #5
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.235, ptr noundef %17, i32 noundef %20) #5

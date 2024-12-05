@@ -11,39 +11,39 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @opal_convertor_create_stack_with_pos_general(ptr noundef initializes((104, 108)) %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 524288
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %66, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, 16
   %.not173 = icmp eq i16 %19, 0
   br i1 %.not173, label %66, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = udiv i64 %1, %22
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = sub nsw i64 %25, %27
-  %29 = getelementptr inbounds i8, ptr %12, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %.lr.ph.i, label %GET_FIRST_NON_LOOP.exit
@@ -51,9 +51,9 @@ define noundef i32 @opal_convertor_create_stack_with_pos_general(ptr noundef ini
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %.05.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %20 ]
   %.034.i = phi ptr [ %32, %.lr.ph.i ], [ %12, %20 ]
-  %32 = getelementptr inbounds i8, ptr %.034.i, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.034.i, i64 32
   %33 = add nuw nsw i32 %.05.i, 1
-  %34 = getelementptr inbounds i8, ptr %.034.i, i64 34
+  %34 = getelementptr inbounds nuw i8, ptr %.034.i, i64 34
   %35 = load i16, ptr %34, align 2
   %36 = icmp eq i16 %35, 0
   br i1 %36, label %.lr.ph.i, label %GET_FIRST_NON_LOOP.exit.loopexit, !llvm.loop !4
@@ -64,33 +64,33 @@ GET_FIRST_NON_LOOP.exit.loopexit:                 ; preds = %.lr.ph.i
 
 GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.exit.loopexit, %20
   %.0.lcssa.i = phi i64 [ 0, %20 ], [ %37, %GET_FIRST_NON_LOOP.exit.loopexit ]
-  %38 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %.0.lcssa.i, i32 0, i32 4
+  %38 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %12, i64 %.0.lcssa.i, i32 0, i32 4
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load i64, ptr %42, align 8
   %sext177 = shl i64 %23, 32
   %44 = ashr exact i64 %sext177, 32
   %45 = sub i64 %43, %44
-  %46 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %45, ptr %46, align 8
   %47 = load i64, ptr %21, align 8
   %48 = mul i64 %47, %23
   %49 = sub i64 %1, %48
-  %50 = getelementptr inbounds i8, ptr %8, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i16 9, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %8, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %39, ptr %52, align 8
   %53 = load i64, ptr %21, align 8
   %sext178 = shl i64 %49, 32
   %54 = ashr exact i64 %sext178, 32
   %55 = sub i64 %53, %54
-  %56 = getelementptr inbounds i8, ptr %8, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %55, ptr %56, align 8
   %57 = load i64, ptr %21, align 8
   %58 = icmp eq i64 %57, %28
@@ -107,7 +107,7 @@ GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.
   %.pn = phi i64 [ %63, %59 ], [ %1, %GET_FIRST_NON_LOOP.exit ]
   %storemerge = add i64 %.pn, %39
   store i64 %storemerge, ptr %52, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %1, ptr %65, align 8
   store i32 1, ptr %6, align 8
   br label %246
@@ -117,13 +117,13 @@ GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.
   %68 = udiv i64 %1, %67
   %69 = mul i64 %68, %67
   %.recomposed = urem i64 %1, %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load i64, ptr %70, align 8
   %72 = sub i64 %71, %68
-  %73 = getelementptr inbounds i8, ptr %8, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %72, ptr %73, align 8
   store i32 -1, ptr %8, align 8
-  %74 = getelementptr inbounds i8, ptr %12, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %75 = load i16, ptr %74, align 2
   %76 = icmp eq i16 %75, 0
   br i1 %76, label %.lr.ph.i180, label %GET_FIRST_NON_LOOP.exit183
@@ -131,9 +131,9 @@ GET_FIRST_NON_LOOP.exit:                          ; preds = %GET_FIRST_NON_LOOP.
 .lr.ph.i180:                                      ; preds = %66, %.lr.ph.i180
   %.05.i181 = phi i32 [ %78, %.lr.ph.i180 ], [ 0, %66 ]
   %.034.i182 = phi ptr [ %77, %.lr.ph.i180 ], [ %12, %66 ]
-  %77 = getelementptr inbounds i8, ptr %.034.i182, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %.034.i182, i64 32
   %78 = add nuw nsw i32 %.05.i181, 1
-  %79 = getelementptr inbounds i8, ptr %.034.i182, i64 34
+  %79 = getelementptr inbounds nuw i8, ptr %.034.i182, i64 34
   %80 = load i16, ptr %79, align 2
   %81 = icmp eq i16 %80, 0
   br i1 %81, label %.lr.ph.i180, label %GET_FIRST_NON_LOOP.exit183.loopexit, !llvm.loop !4
@@ -144,19 +144,19 @@ GET_FIRST_NON_LOOP.exit183.loopexit:              ; preds = %.lr.ph.i180
 
 GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.exit183.loopexit, %66
   %.0.lcssa.i179 = phi i64 [ 0, %66 ], [ %82, %GET_FIRST_NON_LOOP.exit183.loopexit ]
-  %83 = getelementptr inbounds i8, ptr %5, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %86 = load i64, ptr %85, align 8
   %87 = sub nsw i64 %84, %86
   %88 = mul i64 %87, %68
-  %89 = getelementptr inbounds %union.dt_elem_desc, ptr %12, i64 %.0.lcssa.i179, i32 0, i32 4
+  %89 = getelementptr inbounds nuw %union.dt_elem_desc, ptr %12, i64 %.0.lcssa.i179, i32 0, i32 4
   %90 = load i64, ptr %89, align 8
   %91 = add i64 %88, %90
-  %92 = getelementptr inbounds i8, ptr %8, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %91, ptr %92, align 8
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 76
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 76
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, 1
   %97 = zext i32 %96 to i64
@@ -164,7 +164,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %99 = alloca i8, i64 %98, align 16
   store i64 0, ptr %99, align 16
   %100 = load ptr, ptr %9, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = trunc i64 %102 to i32
   %104 = icmp sgt i32 %103, 0
@@ -176,8 +176,8 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %.0162.ph225 = phi i64 [ %.0162.ph.be, %.outer.backedge ], [ 0, %GET_FIRST_NON_LOOP.exit183 ]
   %.0166.ph224 = phi i64 [ %.0166.ph.be, %.outer.backedge ], [ %.recomposed, %GET_FIRST_NON_LOOP.exit183 ]
   %.0168.ph223 = phi ptr [ %.0168.ph.be, %.outer.backedge ], [ %12, %GET_FIRST_NON_LOOP.exit183 ]
-  %105 = getelementptr inbounds i8, ptr %.0159.ph227, i64 8
-  %106 = getelementptr inbounds i8, ptr %.0159.ph227, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.0159.ph227, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.0159.ph227, i64 16
   br label %107
 
 107:                                              ; preds = %.lr.ph, %129
@@ -185,7 +185,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %.0162209 = phi i64 [ %.0162.ph225, %.lr.ph ], [ 0, %129 ]
   %.0166208 = phi i64 [ %.0166.ph224, %.lr.ph ], [ %135, %129 ]
   %.0168207 = phi ptr [ %.0168.ph223, %.lr.ph ], [ %145, %129 ]
-  %108 = getelementptr inbounds i8, ptr %.0168207, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.0168207, i64 2
   %109 = load i16, ptr %108, align 2
   switch i16 %109, label %.loopexit184 [
     i16 1, label %110
@@ -211,7 +211,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   br label %129
 
 122:                                              ; preds = %114
-  %123 = getelementptr inbounds i8, ptr %.0168207, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %.0168207, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = zext i32 %124 to i64
   %126 = sub nsw i64 0, %125
@@ -233,7 +233,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %137 = load i64, ptr %106, align 8
   %138 = add nsw i64 %137, %136
   store i64 %138, ptr %106, align 8
-  %139 = getelementptr inbounds i8, ptr %.0168207, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %.0168207, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = add i32 %140, -1
   %142 = sub i32 %.0160210, %141
@@ -242,10 +242,10 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %145 = getelementptr inbounds %union.dt_elem_desc, ptr %.0168207, i64 %144
   %146 = load i32, ptr %6, align 8
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds i64, ptr %99, i64 %147
+  %148 = getelementptr inbounds nuw i64, ptr %99, i64 %147
   store i64 0, ptr %148, align 8
   %149 = load ptr, ptr %9, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load i64, ptr %150, align 8
   %152 = trunc i64 %151 to i32
   %153 = icmp slt i32 %142, %152
@@ -260,12 +260,12 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %160 = add i32 %159, -1
   store i32 %160, ptr %6, align 8
   %161 = add nsw i32 %.0160210, 1
-  %162 = getelementptr inbounds i8, ptr %.0168207, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %.0168207, i64 32
   %163 = getelementptr inbounds i8, ptr %.0159.ph227, i64 -16
   %164 = load i64, ptr %163, align 8
   %165 = mul i64 %164, %.0162209
   %166 = zext i32 %160 to i64
-  %167 = getelementptr inbounds i64, ptr %99, i64 %166
+  %167 = getelementptr inbounds nuw i64, ptr %99, i64 %166
   %168 = load i64, ptr %167, align 8
   %169 = add i64 %168, %165
   store i64 %169, ptr %167, align 8
@@ -278,7 +278,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %.0160.ph.be = phi i32 [ %161, %154 ], [ %.1161, %.loopexit184 ], [ %237, %234 ]
   %.0159.ph.be = phi ptr [ %158, %154 ], [ %.1, %.loopexit184 ], [ %.1, %234 ]
   %170 = load ptr, ptr %9, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load i64, ptr %171, align 8
   %173 = trunc i64 %172 to i32
   %174 = icmp slt i32 %.0160.ph.be, %173
@@ -287,29 +287,29 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
 175:                                              ; preds = %107
   %176 = load i32, ptr %6, align 8
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds i64, ptr %99, i64 %177
+  %178 = getelementptr inbounds nuw i64, ptr %99, i64 %177
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, %.0162209
   store i64 %180, ptr %178, align 8
-  %181 = getelementptr inbounds i8, ptr %.0159.ph227, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %.0159.ph227, i64 24
   store i32 %.0160210, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %.0159.ph227, i64 28
+  %182 = getelementptr inbounds nuw i8, ptr %.0159.ph227, i64 28
   store i16 0, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %.0168207, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %.0168207, i64 8
   %184 = load i32, ptr %183, align 8
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds i8, ptr %.0159.ph227, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %.0159.ph227, i64 32
   store i64 %185, ptr %186, align 8
   %187 = load i64, ptr %106, align 8
-  %188 = getelementptr inbounds i8, ptr %.0159.ph227, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %.0159.ph227, i64 40
   store i64 %187, ptr %188, align 8
   %189 = load i32, ptr %6, align 8
   %190 = add i32 %189, 1
   store i32 %190, ptr %6, align 8
   %191 = add nsw i32 %.0160210, 1
-  %192 = getelementptr inbounds i8, ptr %.0168207, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %.0168207, i64 32
   %193 = zext i32 %190 to i64
-  %194 = getelementptr inbounds i64, ptr %99, i64 %193
+  %194 = getelementptr inbounds nuw i64, ptr %99, i64 %193
   store i64 0, ptr %194, align 8
   br label %.loopexit184
 
@@ -328,52 +328,52 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %.2164216 = phi i64 [ %235, %234 ], [ %.1163, %.loopexit184 ]
   %.1167215 = phi i64 [ %236, %234 ], [ %.0166208, %.loopexit184 ]
   %.2170214 = phi ptr [ %238, %234 ], [ %.1169, %.loopexit184 ]
-  %197 = getelementptr inbounds i8, ptr %.2170214, i64 2
+  %197 = getelementptr inbounds nuw i8, ptr %.2170214, i64 2
   %198 = load i16, ptr %197, align 2
   %199 = zext i16 %198 to i64
-  %200 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %199
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %.2170214, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %.2170214, i64 4
   %203 = load i32, ptr %202, align 4
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr %201, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %206 = load i64, ptr %205, align 8
   %207 = mul i64 %206, %204
   %208 = icmp ult i64 %.1167215, %207
   br i1 %208, label %209, label %234
 
 209:                                              ; preds = %.lr.ph219
-  %210 = getelementptr inbounds i8, ptr %.2170214, i64 2
-  %211 = getelementptr inbounds i8, ptr %.2170214, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.2170214, i64 2
+  %211 = getelementptr inbounds nuw i8, ptr %.2170214, i64 4
   %212 = udiv i64 %.1167215, %206
   %213 = trunc i64 %212 to i32
   %sext = shl i64 %212, 32
   %214 = ashr exact i64 %sext, 32
   %215 = mul i64 %214, %206
-  %216 = getelementptr inbounds i8, ptr %.1, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   store i32 %.2217, ptr %216, align 8
   %217 = load i16, ptr %210, align 2
-  %218 = getelementptr inbounds i8, ptr %.1, i64 28
+  %218 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   store i16 %217, ptr %218, align 4
   %219 = load i32, ptr %211, align 4
   %220 = sub i32 %219, %213
   %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds i8, ptr %.1, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   store i64 %221, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %.2170214, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %.2170214, i64 24
   %224 = load i64, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %.2170214, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %.2170214, i64 16
   %226 = load i64, ptr %225, align 8
   %227 = mul nsw i64 %226, %214
   %228 = add nsw i64 %227, %224
-  %229 = getelementptr inbounds i8, ptr %.1, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   store i64 %228, ptr %229, align 8
   %230 = load i32, ptr %6, align 8
   %231 = add i32 %230, 1
   store i32 %231, ptr %6, align 8
   %.neg = sub i64 %1, %.1167215
   %232 = add i64 %.neg, %215
-  %233 = getelementptr inbounds i8, ptr %0, i64 120
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %232, ptr %233, align 8
   br label %246
 
@@ -381,7 +381,7 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %235 = add i64 %207, %.2164216
   %236 = sub nuw i64 %.1167215, %207
   %237 = add nsw i32 %.2217, 1
-  %238 = getelementptr inbounds i8, ptr %.2170214, i64 32
+  %238 = getelementptr inbounds nuw i8, ptr %.2170214, i64 32
   %239 = load i16, ptr %238, align 8
   %240 = and i16 %239, 256
   %.not174 = icmp eq i16 %240, 0
@@ -391,9 +391,9 @@ GET_FIRST_NON_LOOP.exit183:                       ; preds = %GET_FIRST_NON_LOOP.
   %241 = load i32, ptr %13, align 4
   %242 = or i32 %241, 134217728
   store i32 %242, ptr %13, align 4
-  %243 = getelementptr inbounds i8, ptr %0, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %244 = load i64, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %0, i64 120
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %244, ptr %245, align 8
   br label %246
 

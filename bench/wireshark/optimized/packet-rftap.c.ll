@@ -213,12 +213,12 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %12, label %147
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.114) #4
   %15 = load ptr, ptr %13, align 8
   tail call void @col_clear(ptr noundef %15, i32 noundef 25) #4
-  %16 = getelementptr inbounds i8, ptr %1, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
   %17 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #4
   %18 = zext i16 %17 to i32
@@ -394,7 +394,7 @@ define internal i32 @dissect_rftap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %127 = zext i8 %119 to i32
   %128 = load i32, ptr @hf_rftap_subdissector_name, align 4
   %129 = add nsw i32 %.1.i, 4
-  %130 = getelementptr inbounds i8, ptr %1, i64 408
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %131 = load ptr, ptr %130, align 8
   %132 = call ptr @proto_tree_add_item_ret_string(ptr noundef %24, i32 noundef %128, ptr noundef %20, i32 noundef %129, i32 noundef %127, i32 noundef 0, ptr noundef %131, ptr noundef nonnull %7) #4
   br label %dissect_rftap_header.exit

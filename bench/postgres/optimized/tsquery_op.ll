@@ -9,10 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_numnode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   ret i64 %7
@@ -22,7 +22,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsquery_and(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -30,7 +30,7 @@ define dso_local i64 @tsquery_and(ptr nocapture noundef readonly %0) local_unnam
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %16
@@ -42,7 +42,7 @@ define dso_local i64 @tsquery_and(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not28, label %56, label %.sink.split
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %9, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %23
@@ -55,7 +55,7 @@ define dso_local i64 @tsquery_and(ptr nocapture noundef readonly %0) local_unnam
 
 23:                                               ; preds = %16
   %24 = tail call ptr @palloc0(i64 noundef 40) #9
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, 1
   store i32 %27, ptr %25, align 8
@@ -63,10 +63,10 @@ define dso_local i64 @tsquery_and(ptr nocapture noundef readonly %0) local_unnam
   store ptr %28, ptr %24, align 8
   store i8 2, ptr %28, align 4
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 2, ptr %30, align 1
   %31 = tail call ptr @palloc0(i64 noundef 16) #9
-  %32 = getelementptr inbounds i8, ptr %24, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %9, i64 8
   %34 = load i32, ptr %17, align 4
@@ -85,7 +85,7 @@ define dso_local i64 @tsquery_and(ptr nocapture noundef readonly %0) local_unnam
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr i8, ptr %46, i64 8
   store ptr %45, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %24, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 2, ptr %48, align 4
   %49 = tail call ptr @QTN2QT(ptr noundef nonnull %24) #9
   tail call void @QTNFree(ptr noundef nonnull %24) #9
@@ -122,7 +122,7 @@ declare void @QTNFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -130,7 +130,7 @@ define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unname
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %16
@@ -142,7 +142,7 @@ define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not28, label %56, label %.sink.split
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %9, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %23
@@ -155,7 +155,7 @@ define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unname
 
 23:                                               ; preds = %16
   %24 = tail call ptr @palloc0(i64 noundef 40) #9
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, 1
   store i32 %27, ptr %25, align 8
@@ -163,10 +163,10 @@ define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unname
   store ptr %28, ptr %24, align 8
   store i8 2, ptr %28, align 4
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 3, ptr %30, align 1
   %31 = tail call ptr @palloc0(i64 noundef 16) #9
-  %32 = getelementptr inbounds i8, ptr %24, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %9, i64 8
   %34 = load i32, ptr %17, align 4
@@ -185,7 +185,7 @@ define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unname
   %46 = load ptr, ptr %32, align 8
   %47 = getelementptr i8, ptr %46, i64 8
   store ptr %45, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %24, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 2, ptr %48, align 4
   %49 = tail call ptr @QTN2QT(ptr noundef nonnull %24) #9
   tail call void @QTNFree(ptr noundef nonnull %24) #9
@@ -218,7 +218,7 @@ define dso_local i64 @tsquery_or(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsquery_phrase_distance(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -241,7 +241,7 @@ define dso_local i64 @tsquery_phrase_distance(ptr nocapture noundef readonly %0)
   unreachable
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %24
@@ -253,7 +253,7 @@ define dso_local i64 @tsquery_phrase_distance(ptr nocapture noundef readonly %0)
   br i1 %.not34, label %67, label %.sink.split
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %31
@@ -267,7 +267,7 @@ define dso_local i64 @tsquery_phrase_distance(ptr nocapture noundef readonly %0)
 31:                                               ; preds = %24
   %32 = trunc i64 %11 to i16
   %33 = tail call ptr @palloc0(i64 noundef 40) #9
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = or i32 %35, 1
   store i32 %36, ptr %34, align 8
@@ -275,13 +275,13 @@ define dso_local i64 @tsquery_phrase_distance(ptr nocapture noundef readonly %0)
   store ptr %37, ptr %33, align 8
   store i8 2, ptr %37, align 4
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store i8 4, ptr %39, align 1
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store i16 %32, ptr %41, align 2
   %42 = tail call ptr @palloc0(i64 noundef 16) #9
-  %43 = getelementptr inbounds i8, ptr %33, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %42, ptr %43, align 8
   %44 = getelementptr i8, ptr %9, i64 8
   %45 = load i32, ptr %25, align 4
@@ -300,7 +300,7 @@ define dso_local i64 @tsquery_phrase_distance(ptr nocapture noundef readonly %0)
   %57 = load ptr, ptr %43, align 8
   %58 = getelementptr i8, ptr %57, i64 8
   store ptr %56, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %33, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 2, ptr %59, align 4
   %60 = tail call ptr @QTN2QT(ptr noundef nonnull %33) #9
   tail call void @QTNFree(ptr noundef nonnull %33) #9
@@ -342,7 +342,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsquery_phrase(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -354,18 +354,18 @@ declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsquery_not(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %1
   %10 = tail call ptr @palloc0(i64 noundef 40) #9
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %12, 1
   store i32 %13, ptr %11, align 8
@@ -373,10 +373,10 @@ define dso_local i64 @tsquery_not(ptr nocapture noundef readonly %0) local_unnam
   store ptr %14, ptr %10, align 8
   store i8 2, ptr %14, align 4
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 1, ptr %16, align 1
   %17 = tail call ptr @palloc0(i64 noundef 8) #9
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %17, ptr %18, align 8
   %19 = getelementptr i8, ptr %5, i64 8
   %20 = load i32, ptr %6, align 4
@@ -386,7 +386,7 @@ define dso_local i64 @tsquery_not(ptr nocapture noundef readonly %0) local_unnam
   %24 = tail call ptr @QT2QTN(ptr noundef %19, ptr noundef %23) #9
   %25 = load ptr, ptr %18, align 8
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %26, align 4
   %27 = tail call ptr @QTN2QT(ptr noundef nonnull %10) #9
   tail call void @QTNFree(ptr noundef nonnull %10) #9
@@ -411,7 +411,7 @@ declare ptr @QT2QTN(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -419,9 +419,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tsquery_cmp(ptr nocaptu
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %17, label %14
@@ -493,7 +493,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsquery_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -501,9 +501,9 @@ define dso_local range(i64 0, 2) i64 @tsquery_lt(ptr nocapture noundef readonly 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %16, label %14
@@ -574,7 +574,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsquery_le(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -582,9 +582,9 @@ define dso_local range(i64 0, 2) i64 @tsquery_le(ptr nocapture noundef readonly 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %16, label %14
@@ -655,7 +655,7 @@ CompareTSQ.exit:                                  ; preds = %14, %21, %23, %24
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsquery_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -663,9 +663,9 @@ define dso_local range(i64 0, 2) i64 @tsquery_eq(ptr nocapture noundef readonly 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %14, label %CompareTSQ.exit
@@ -727,7 +727,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsquery_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -735,9 +735,9 @@ define dso_local range(i64 0, 2) i64 @tsquery_ge(ptr nocapture noundef readonly 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %17, label %14
@@ -810,7 +810,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsquery_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -818,9 +818,9 @@ define dso_local range(i64 0, 2) i64 @tsquery_gt(ptr nocapture noundef readonly 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %17, label %14
@@ -893,7 +893,7 @@ CompareTSQ.exit:                                  ; preds = %14, %22, %25, %26
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsquery_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #9
@@ -901,9 +901,9 @@ define dso_local range(i64 0, 2) i64 @tsquery_ne(ptr nocapture noundef readonly 
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_copy(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %11, %13
   br i1 %.not.i, label %14, label %CompareTSQ.exit
@@ -965,7 +965,7 @@ CompareTSQ.exit:                                  ; preds = %14, %1, %17, %18
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i64 @makeTSQuerySign(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -983,7 +983,7 @@ define dso_local i64 @makeTSQuerySign(ptr nocapture noundef readonly %0) local_u
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.0811, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 63
   %12 = zext nneg i32 %11 to i64
@@ -1005,14 +1005,14 @@ define dso_local i64 @makeTSQuerySign(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = mul nsw i64 %11, 12
@@ -1033,7 +1033,7 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readon
   br i1 %20, label %21, label %37
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.026.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 4095
   %25 = add nuw nsw i32 %24, 1
@@ -1065,7 +1065,7 @@ define dso_local range(i64 0, 2) i64 @tsq_mcontains(ptr nocapture noundef readon
 collectTSQueryValues.exit:                        ; preds = %37, %1
   %.022.lcssa.i = phi i32 [ 0, %1 ], [ %.1.i, %37 ]
   %42 = getelementptr i8, ptr %7, i64 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = mul nsw i64 %45, 12
@@ -1086,7 +1086,7 @@ collectTSQueryValues.exit:                        ; preds = %37, %1
   br i1 %54, label %55, label %71
 
 55:                                               ; preds = %.lr.ph.i20
-  %56 = getelementptr inbounds i8, ptr %.026.i21, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.026.i21, i64 8
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, 4095
   %59 = add nuw nsw i32 %58, 1
@@ -1274,7 +1274,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @tsq_mcontained(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %2, align 8

@@ -38,9 +38,9 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4int
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17haac5fc189b2d8ddeE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hfca0302627bbc104E"(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   ret i1 %7
@@ -62,7 +62,7 @@ define hidden void @_ZN8uu_paste10read_until17hcc585be026d6b79cE(ptr noalias noc
   %11 = extractvalue { ptr, i1 } %10, 0
   %12 = extractvalue { ptr, i1 } %10, 1
   store ptr %11, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 8
   invoke void @"_ZN62_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..BufRead$GT$10read_until17h26eaab85eba0294dE"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
@@ -83,7 +83,7 @@ define hidden void @_ZN8uu_paste10read_until17hcc585be026d6b79cE(ptr noalias noc
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %19 = load ptr, ptr %6, align 8, !alias.scope !19, !nonnull !4, !align !5, !noundef !4
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %21 = load i8, ptr %13, align 8, !range !23, !alias.scope !24, !noundef !4
   %22 = trunc nuw i8 %21 to i1

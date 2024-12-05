@@ -153,15 +153,15 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 define void @_ZN2cv14DownhillSolver6createERKNS_3PtrINS_16MinProblemSolver8FunctionEEERKNS_11_InputArrayENS_12TermCriteriaE(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 %3, double %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::TermCriteria", align 8
   store i64 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %4, ptr %7, align 8
   %8 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #13, !noalias !4
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %9, align 8, !noalias !4
-  %10 = getelementptr inbounds i8, ptr %8, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSolverImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %8, align 8, !noalias !4
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   invoke void @_ZN2cv18DownhillSolverImplC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %11)
           to label %_ZN2cv3PtrINS_18DownhillSolverImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv18DownhillSolverImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !4
 
@@ -177,24 +177,24 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv18DownhillSolverImplES
 
 _ZN2cv3PtrINS_18DownhillSolverImplEED2Ev.exit:    ; preds = %5
   store ptr %11, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %13, align 8
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %17 unwind label %25
 
 17:                                               ; preds = %_ZN2cv3PtrINS_18DownhillSolverImplEED2Ev.exit
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load ptr, ptr %19, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %21 unwind label %25
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %24 = load ptr, ptr %23, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %27 unwind label %25
@@ -213,13 +213,13 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_14DownhillSolverEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv14DownhillSolverEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -227,10 +227,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_14DownhillSolverEED2Ev(ptr nounde
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -256,10 +256,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_14DownhillSolverEED2Ev(ptr nounde
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -281,7 +281,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_14DownhillSolverEED2Ev(ptr nounde
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt10shared_ptrIN2cv14DownhillSolverEED2Ev.exit
@@ -309,15 +309,15 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSolverImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv18DownhillSolverImplEEEvRS0_PT_.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -325,10 +325,10 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSo
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
@@ -354,10 +354,10 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSo
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %32, label %29
@@ -379,13 +379,13 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSo
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i: ; preds = %34, %10
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN2cv18DownhillSolverImplEEEvRS0_PT_.exit
 
 _ZNSt16allocator_traitsISaIvEE7destroyIN2cv18DownhillSolverImplEEEvRS0_PT_.exit: ; preds = %1, %21, %34, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %39) #15
   ret void
 }
@@ -399,12 +399,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv18DownhillSolverImplES
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv18DownhillSolverImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
@@ -433,18 +433,18 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplC2Ev(ptr noundef nonn
   %2 = alloca %"class.cv::Mat_", align 8
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv18DownhillSolverImplE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %10 = icmp eq i64 %9, 4294967297
   %11 = trunc i64 %9 to i32
@@ -452,10 +452,10 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplC2Ev(ptr noundef nonn
 
 12:                                               ; preds = %7
   store i32 0, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -481,10 +481,10 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplC2Ev(ptr noundef nonn
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
-  %29 = getelementptr inbounds i8, ptr %6, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i.i.i.i, label %34, label %31
@@ -506,7 +506,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplC2Ev(ptr noundef nonn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %36, %12
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
@@ -543,13 +543,13 @@ declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv16MinProblemSolver8FunctionEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -557,10 +557,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -586,10 +586,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -611,7 +611,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt10shared_ptrIN2cv16MinProblemSolver8FunctionEED2Ev.exit
@@ -627,15 +627,15 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -643,10 +643,10 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD2Ev(ptr noundef nonn
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -672,10 +672,10 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD2Ev(ptr noundef nonn
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i.i.i.i.i.i, label %32, label %29
@@ -697,7 +697,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD2Ev(ptr noundef nonn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %34, %10
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev.exit
@@ -709,15 +709,15 @@ _ZN2cv3PtrINS_16MinProblemSolver8FunctionEED2Ev.exit: ; preds = %1, %21, %34, %_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN2cv18DownhillSolverImplD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -725,10 +725,10 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD0Ev(ptr noundef nonn
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -754,10 +754,10 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD0Ev(ptr noundef nonn
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %32, label %29
@@ -779,7 +779,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImplD0Ev(ptr noundef nonn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %34, %10
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %4) #15
   br label %_ZN2cv18DownhillSolverImplD2Ev.exit
@@ -816,18 +816,18 @@ declare void @_ZNK2cv9Algorithm14getDefaultNameB5cxx11Ev(ptr dead_on_unwind writ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv18DownhillSolverImpl11getFunctionEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.4") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i.i.i.i, label %14, label %11
@@ -848,11 +848,11 @@ _ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit: ; preds = %2, %11, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl11setFunctionERKNS_3PtrINS_16MinProblemSolver8FunctionEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %7, %8
@@ -863,7 +863,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl11setFunctionERKNS_3P
   br i1 %.not7.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i.i.i, label %16, label %13
@@ -888,7 +888,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   br i1 %.not8.i.i.i.i, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i, label %19
 
 19:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load atomic i64, ptr %20 acquire, align 8
   %22 = icmp eq i64 %21, 4294967297
   %23 = trunc i64 %21 to i32
@@ -896,10 +896,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 24:                                               ; preds = %19
   store i32 0, ptr %20, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 0, ptr %25, align 4
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -925,10 +925,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %18, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
-  %41 = getelementptr inbounds i8, ptr %18, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %42 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %42, 0
   br i1 %.not.i.i.i.i.i.i.i, label %46, label %43
@@ -950,7 +950,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %48, %24
   %50 = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %18) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
@@ -965,9 +965,9 @@ _ZN2cv3PtrINS_16MinProblemSolver8FunctionEEaSERKS3_.exit: ; preds = %2, %_ZNSt16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, double } @_ZNK2cv18DownhillSolverImpl15getTermCriteriaEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { i64, double } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, double } %.fca.0.insert, double %.sroa.2.0.copyload, 1
@@ -980,11 +980,11 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl15setTermCriteriaERKN
   %4 = alloca %"class.std::allocator.9", align 1
   %5 = load i32, ptr %1, align 8
   %6 = icmp eq i32 %5, 3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fcmp ogt double %8, 0.000000e+00
   %or.cond = select i1 %6, i1 %9, i1 false
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   %or.cond12 = select i1 %or.cond, i1 %12, i1 false
@@ -1019,7 +1019,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl15setTermCriteriaERKN
   resume { ptr, i32 } %.pn
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
@@ -1038,7 +1038,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl8minimizeER
   %12 = alloca %"class.cv::Mat", align 8
   %13 = alloca %"class.cv::_OutputArray", align 8
   %14 = alloca %"class.cv::Mat", align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %26
@@ -1072,9 +1072,9 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl8minimizeER
   br label %93
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr %28, align 4
   %32 = tail call i32 @llvm.smin.i32(i32 %30, i32 %31)
@@ -1124,7 +1124,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl8minimizeER
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8, !noalias !9
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %53)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -1140,9 +1140,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %51, %54
 
 55:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   store i32 0, ptr %11, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = invoke noundef double @_ZN2cv18DownhillSolverImpl20innerDownhillSimplexERNS_3MatEddRii(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %10, double noundef %57, double noundef %57, ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef %59)
           to label %61 unwind label %76
@@ -1155,18 +1155,18 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %51, %54
   br i1 %62, label %80, label %64
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %9, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %9, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %10, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %70 = load ptr, ptr %69, align 8
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef %66, i32 noundef %68, i32 noundef 6, ptr noundef %70, i64 noundef 0)
           to label %71 unwind label %76
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %13, i64 8
-  %73 = getelementptr inbounds i8, ptr %13, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %73, align 8
   store i32 33619968, ptr %13, align 8
   store ptr %9, ptr %72, align 8
@@ -1202,7 +1202,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %51, %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 0, ptr %3, align 4, !noalias !12
-  %87 = getelementptr inbounds i8, ptr %3, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %87, align 4, !noalias !12
   store i64 9223372034707292160, ptr %4, align 8, !noalias !12
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %14, ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4)
@@ -1240,7 +1240,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %51, %54
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK2cv18DownhillSolverImpl11getInitStepERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
 }
@@ -1256,7 +1256,7 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl11setInitStepERKNS_11
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !15
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %11)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -1266,15 +1266,15 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl11setInitStepERKNS_11
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
 _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %19, align 8
   store i32 33619968, ptr %4, align 8
   store ptr %17, ptr %18, align 8
@@ -1287,16 +1287,16 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br label %32
 
 22:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %24, align 4
   store i32 16842752, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %28, align 8
   store i32 33619968, ptr %6, align 8
   store ptr %26, ptr %27, align 8
@@ -1358,12 +1358,12 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl20createInitialSimple
   %12 = alloca %"class.std::allocator.9", align 1
   %13 = alloca %"class.cv::Mat", align 8
   %14 = alloca %"class.cv::_OutputArray", align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %23 = icmp eq i32 %22, %16
@@ -1412,17 +1412,17 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl20createInitialSimple
 36:                                               ; preds = %35
   %37 = load ptr, ptr %8, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(352) %8, ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef -1)
           to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %46
 
 _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %8, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #15
-  %42 = getelementptr inbounds i8, ptr %8, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %42) #15
-  %43 = getelementptr inbounds i8, ptr %8, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %43) #15
   br label %48
 
@@ -1438,10 +1438,10 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %36
   br label %114
 
 48:                                               ; preds = %34, %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %49 = getelementptr inbounds i8, ptr %7, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 1
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, %16
   %or.cond61 = select i1 %51, i1 %54, i1 false
@@ -1524,15 +1524,15 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %36
 79:                                               ; preds = %77
   %80 = load i32, ptr %52, align 8
   %81 = load i32, ptr %49, align 4
-  %82 = getelementptr inbounds i8, ptr %2, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %2, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 72
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef %80, i32 noundef %81, i32 noundef 6, ptr noundef %83, i64 noundef 0)
           to label %85 unwind label %44
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
-  %87 = getelementptr inbounds i8, ptr %14, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %87, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %13, ptr %86, align 8
@@ -1541,7 +1541,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %36
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %82, align 8
-  %90 = getelementptr inbounds i8, ptr %3, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not63 = icmp slt i32 %16, 1
   br i1 %.not63, label %._crit_edge, label %.lr.ph.us.preheader
@@ -1562,9 +1562,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %36
 
 97:                                               ; preds = %.lr.ph.us, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds double, ptr %89, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv
   %99 = load double, ptr %98, align 8
-  %100 = getelementptr inbounds double, ptr %96, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw double, ptr %96, i64 %indvars.iv
   store double %99, ptr %100, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1594,9 +1594,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next75, %.lr.ph ]
-  %109 = getelementptr inbounds double, ptr %91, i64 %indvars.iv74
+  %109 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv74
   %110 = load double, ptr %109, align 8
-  %111 = getelementptr inbounds double, ptr %89, i64 %indvars.iv74
+  %111 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv74
   %112 = load double, ptr %111, align 8
   %113 = call double @llvm.fmuladd.f64(double %110, double -5.000000e-01, double %112)
   store double %113, ptr %111, align 8
@@ -1630,7 +1630,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
   %13 = alloca %"class.cv::Mat", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::allocator.9", align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef 1, i32 noundef %17, i32 noundef 6)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 1, i32 noundef %17, i32 noundef 6)
@@ -1642,17 +1642,17 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
           to label %20 unwind label %51
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %13, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i32 %19, ptr %4, align 4
   %.not258 = icmp slt i32 %17, 0
   br i1 %.not258, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext i32 %19 to i64
   br label %27
 
@@ -1667,7 +1667,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %33 = load ptr, ptr %26, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = invoke noundef double %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %32)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1708,7 +1708,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
 47:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %48 = getelementptr inbounds double, ptr %22, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
   store double %37, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1749,14 +1749,14 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
           to label %.preheader236 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader236:                                    ; preds = %._crit_edge
-  %53 = getelementptr inbounds i8, ptr %22, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %54 = icmp sgt i32 %17, 0
-  %55 = getelementptr inbounds i8, ptr %1, i64 16
-  %56 = getelementptr inbounds i8, ptr %1, i64 72
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  %58 = getelementptr inbounds i8, ptr %11, i64 16
-  %59 = getelementptr inbounds i8, ptr %13, i64 64
-  %60 = getelementptr inbounds i8, ptr %13, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %wide.trip.count320 = zext i32 %19 to i64
   %wide.trip.count325 = zext i32 %19 to i64
   %wide.trip.count335 = zext nneg i32 %17 to i64
@@ -1779,10 +1779,10 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
   %.0162263 = phi i32 [ %.1163, %81 ], [ 0, %_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit ]
   %.1166262 = phi i32 [ %.2167, %81 ], [ %.191, %_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit ]
   %.1169261 = phi i32 [ %.2170, %81 ], [ %., %_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit ]
-  %64 = getelementptr inbounds double, ptr %22, i64 %indvars.iv317
+  %64 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv317
   %65 = load double, ptr %64, align 8
   %66 = zext nneg i32 %.0162263 to i64
-  %67 = getelementptr inbounds double, ptr %22, i64 %66
+  %67 = getelementptr inbounds nuw double, ptr %22, i64 %66
   %68 = load double, ptr %67, align 8
   %69 = fcmp ugt double %65, %68
   %70 = trunc nuw nsw i64 %indvars.iv317 to i32
@@ -1851,7 +1851,7 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
 
 .lr.ph272:                                        ; preds = %90
   %93 = zext nneg i32 %.1163 to i64
-  %94 = getelementptr inbounds double, ptr %22, i64 %93
+  %94 = getelementptr inbounds nuw double, ptr %22, i64 %93
   %95 = load double, ptr %94, align 8
   %96 = zext i32 %.2170 to i64
   %97 = zext i32 %.2167 to i64
@@ -1859,7 +1859,7 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
 
 98:                                               ; preds = %.lr.ph272, %102
   %indvars.iv322 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next323, %102 ]
-  %99 = getelementptr inbounds double, ptr %22, i64 %indvars.iv322
+  %99 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv322
   %100 = load double, ptr %99, align 8
   %101 = fcmp une double %100, %95
   %.not180 = icmp eq i64 %indvars.iv322, %97
@@ -1952,11 +1952,11 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
   %indvars.iv347 = phi i64 [ 0, %.lr.ph300 ], [ %indvars.iv.next348, %129 ]
   %130 = load ptr, ptr %55, align 8
   %131 = load ptr, ptr %56, align 8
-  %132 = getelementptr inbounds double, ptr %130, i64 %indvars.iv347
+  %132 = getelementptr inbounds nuw double, ptr %130, i64 %indvars.iv347
   %133 = load i64, ptr %131, align 8
   %134 = mul i64 %133, %107
   %135 = getelementptr inbounds i8, ptr %130, i64 %134
-  %136 = getelementptr inbounds double, ptr %135, i64 %indvars.iv347
+  %136 = getelementptr inbounds nuw double, ptr %135, i64 %indvars.iv347
   %137 = load double, ptr %132, align 8
   %138 = load double, ptr %136, align 8
   store double %138, ptr %132, align 8
@@ -2015,9 +2015,9 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
 
 167:                                              ; preds = %167, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %167 ]
-  %168 = getelementptr inbounds double, ptr %163, i64 %indvars.iv.i
+  %168 = getelementptr inbounds nuw double, ptr %163, i64 %indvars.iv.i
   %169 = load double, ptr %168, align 8
-  %170 = getelementptr inbounds double, ptr %162, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw double, ptr %162, i64 %indvars.iv.i
   %171 = load double, ptr %170, align 8
   %172 = fmul double %171, %166
   %173 = call double @llvm.fmuladd.f64(double %169, double %157, double %172)
@@ -2044,7 +2044,7 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
   br label %_ZN2cv3Mat2atIdEERT_i.exit.i
 
 183:                                              ; preds = %176
-  %184 = getelementptr inbounds i8, ptr %177, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = icmp eq i32 %185, 1
   br i1 %186, label %187, label %193
@@ -2113,9 +2113,9 @@ _ZN2cv3Mat2atIdEERT_i.exit.i:                     ; preds = %193, %187, %180
 
 223:                                              ; preds = %223, %.lr.ph.i204
   %indvars.iv.i206 = phi i64 [ 0, %.lr.ph.i204 ], [ %indvars.iv.next.i207, %223 ]
-  %224 = getelementptr inbounds double, ptr %219, i64 %indvars.iv.i206
+  %224 = getelementptr inbounds nuw double, ptr %219, i64 %indvars.iv.i206
   %225 = load double, ptr %224, align 8
-  %226 = getelementptr inbounds double, ptr %218, i64 %indvars.iv.i206
+  %226 = getelementptr inbounds nuw double, ptr %218, i64 %indvars.iv.i206
   %227 = load double, ptr %226, align 8
   %228 = fmul double %227, %222
   %229 = call double @llvm.fmuladd.f64(double %225, double %213, double %228)
@@ -2142,7 +2142,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.i:                     ; preds = %193, %187, %180
   br label %_ZN2cv3Mat2atIdEERT_i.exit.i202
 
 239:                                              ; preds = %232
-  %240 = getelementptr inbounds i8, ptr %233, i64 4
+  %240 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %241 = load i32, ptr %240, align 4
   %242 = icmp eq i32 %241, 1
   br i1 %242, label %243, label %249
@@ -2194,11 +2194,11 @@ _ZN2cv3Mat2atIdEERT_i.exit.i202.invoke:           ; preds = %._crit_edge297, %_Z
   %263 = load i64, ptr %262, align 8
   %264 = mul i64 %263, %indvars.iv342
   %265 = getelementptr inbounds i8, ptr %261, i64 %264
-  %266 = getelementptr inbounds double, ptr %265, i64 %indvars.iv337
+  %266 = getelementptr inbounds nuw double, ptr %265, i64 %indvars.iv337
   %267 = load double, ptr %266, align 8
   %268 = mul i64 %263, %107
   %269 = getelementptr inbounds i8, ptr %261, i64 %268
-  %270 = getelementptr inbounds double, ptr %269, i64 %indvars.iv337
+  %270 = getelementptr inbounds nuw double, ptr %269, i64 %indvars.iv337
   %271 = load double, ptr %270, align 8
   %272 = fadd double %267, %271
   %273 = fmul double %272, 5.000000e-01
@@ -2217,7 +2217,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.i202.invoke:           ; preds = %._crit_edge297, %_Z
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %279 = load ptr, ptr %57, align 8
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 32
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %282 = load ptr, ptr %281, align 8
   %283 = invoke noundef double %282(ptr noundef nonnull align 8 dereferenceable(8) %279, ptr noundef %278)
           to label %.noexc213 unwind label %.loopexit
@@ -2258,7 +2258,7 @@ _ZN2cv3Mat2atIdEERT_i.exit.i202.invoke:           ; preds = %._crit_edge297, %_Z
 293:                                              ; preds = %.noexc213
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %294 = getelementptr inbounds double, ptr %22, i64 %indvars.iv342
+  %294 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv342
   store double %283, ptr %294, align 8
   br label %295
 
@@ -2316,11 +2316,11 @@ declare void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind writable sret(%"class.cv::
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #15
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   ret void
 }
@@ -2336,16 +2336,16 @@ declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.9", align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %9
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 1
   %or.cond = select i1 %14, i1 %17, i1 false
@@ -2391,8 +2391,8 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS
   br i1 %29, label %.lr.ph34.us.preheader, label %._crit_edge37
 
 .lr.ph34.us.preheader:                            ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
-  %31 = getelementptr inbounds i8, ptr %1, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %wide.trip.count44 = zext nneg i32 %7 to i64
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %.lr.ph34.us
@@ -2408,9 +2408,9 @@ define linkonce_odr hidden void @_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS
 
 37:                                               ; preds = %.lr.ph34.us, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph34.us ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds double, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %41 = load double, ptr %40, align 8
   %42 = fadd double %39, %41
   store double %42, ptr %40, align 8
@@ -2434,22 +2434,22 @@ declare double @llvm.fabs.f64(double) #8
 define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, double noundef %4, ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.9", align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = fsub double 1.000000e+00, %4
   %13 = sitofp i32 %11 to double
   %14 = fdiv double %12, %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %18, align 8
   %20 = sext i32 %3 to i64
   %21 = mul i64 %19, %20
   %22 = getelementptr inbounds i8, ptr %16, i64 %21
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp sgt i32 %11, 0
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -2462,13 +2462,13 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl11tryNewPoi
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds double, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds double, ptr %22, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
   %34 = load double, ptr %33, align 8
   %35 = fmul double %34, %29
   %36 = tail call double @llvm.fmuladd.f64(double %32, double %14, double %35)
-  %37 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   store double %36, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2480,10 +2480,10 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl11tryNewPoi
   store i32 %39, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef double %44(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %24)
   %46 = tail call double @llvm.fabs.f64(double %45)

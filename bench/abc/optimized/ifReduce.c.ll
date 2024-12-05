@@ -27,7 +27,7 @@ define void @If_ManImproveMapping(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load i64, ptr %3, align 8
   %.neg12 = mul i64 %7, -1000000
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %.neg = sdiv i64 %9, -1000
   %.neg13 = add i64 %.neg, %.neg12
@@ -36,14 +36,14 @@ define void @If_ManImproveMapping(ptr noundef %0) local_unnamed_addr #0 {
 Abc_Clock.exit:                                   ; preds = %1, %6
   %.0.i.neg = phi i64 [ %.neg13, %6 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %14 = add i32 %12, -1
   %or.cond.i.i = icmp ult i32 %14, 7
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %15, align 4
   store i32 %spec.store.select.i.i, ptr %13, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
@@ -57,10 +57,10 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 Vec_PtrAlloc.exit.i:                              ; preds = %16, %Abc_Clock.exit
   %20 = phi ptr [ %19, %16 ], [ null, %Abc_Clock.exit ]
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %20, ptr %21, align 8
   %22 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %23, align 4
   store i32 %spec.store.select.i.i, ptr %22, align 8
   br i1 %.not.i.i, label %Vec_PtrAlloc.exit20.i, label %24
@@ -73,16 +73,16 @@ Vec_PtrAlloc.exit.i:                              ; preds = %16, %Abc_Clock.exit
 
 Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.exit.i
   %28 = phi ptr [ %27, %24 ], [ null, %Vec_PtrAlloc.exit.i ]
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %28, ptr %29, align 8
   %30 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 0, ptr %31, align 4
   store i32 100, ptr %30, align 8
   %32 = call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #14
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr i8, ptr %35, i64 4
   %.val45.i = load i32, ptr %36, align 4
@@ -90,7 +90,7 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
   br i1 %37, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %Vec_PtrAlloc.exit20.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %39
 
 39:                                               ; preds = %If_ManImproveNodeExpand.exit.i, %.lr.ph.i
@@ -98,7 +98,7 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
   %40 = phi ptr [ %35, %.lr.ph.i ], [ %282, %If_ManImproveNodeExpand.exit.i ]
   %41 = getelementptr i8, ptr %40, i64 8
   %.val16.i = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds ptr, ptr %.val16.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw ptr, ptr %.val16.i, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 15
@@ -106,11 +106,11 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
   br i1 %.not.i, label %46, label %If_ManImproveNodeExpand.exit.i
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %43, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %48 = call float @If_CutDelay(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull %47) #13
-  %49 = getelementptr inbounds i8, ptr %43, i64 92
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 92
   store float %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %43, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %If_ManImproveNodeExpand.exit.i, label %53
@@ -120,8 +120,8 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
   store i32 0, ptr %15, align 4
   store i32 0, ptr %23, align 4
   store i32 0, ptr %31, align 4
-  %55 = getelementptr inbounds i8, ptr %43, i64 116
-  %56 = getelementptr inbounds i8, ptr %43, i64 108
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 116
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 108
   %57 = load i64, ptr %56, align 4
   %58 = and i64 %57, 4278190080
   %.not36.i.i.i = icmp eq i64 %58, 0
@@ -129,7 +129,7 @@ Vec_PtrAlloc.exit20.i:                            ; preds = %24, %Vec_PtrAlloc.e
 
 .lr.ph.i.i.i:                                     ; preds = %53, %Vec_PtrPush.exit33.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %Vec_PtrPush.exit33.i.i.i ], [ 0, %53 ]
-  %59 = getelementptr inbounds [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i.i.i
+  %59 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i.i.i
   %60 = load i32, ptr %59, align 4
   %.val.i.i.i = load ptr, ptr %34, align 8
   %61 = getelementptr i8, ptr %.val.i.i.i, i64 8
@@ -350,7 +350,7 @@ If_ManImproveNodePrepare.exit.i.i:                ; preds = %Vec_PtrPush.exit33.
 
 156:                                              ; preds = %188, %.lr.ph.i.i27.i
   %indvars.iv.i.i28.i = phi i64 [ 0, %.lr.ph.i.i27.i ], [ %indvars.iv.next.i.i33.i, %188 ]
-  %157 = getelementptr inbounds ptr, ptr %.val16.i.i.i, i64 %indvars.iv.i.i28.i
+  %157 = getelementptr inbounds nuw ptr, ptr %.val16.i.i.i, i64 %indvars.iv.i.i28.i
   %158 = load ptr, ptr %157, align 8
   %.val17.i.i29.i = load i32, ptr %158, align 8
   %159 = and i32 %.val17.i.i29.i, 15
@@ -374,7 +374,7 @@ If_ManImproveNodeWillGrow.exit.i.i.i:             ; preds = %160
   br i1 %.not15.not.i.i.i, label %188, label %171
 
 167:                                              ; preds = %160
-  %168 = getelementptr inbounds i8, ptr %158, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %169 = load i32, ptr %168, align 4
   %170 = icmp eq i32 %169, 0
   %spec.select.i.i.i.i = sext i1 %170 to i32
@@ -384,11 +384,11 @@ If_ManImproveNodeWillGrow.exit.i.i.i:             ; preds = %160
   br label %179
 
 171:                                              ; preds = %If_ManImproveNodeWillGrow.exit.i.i.i
-  %172 = getelementptr inbounds i8, ptr %158, i64 12
+  %172 = getelementptr inbounds nuw i8, ptr %158, i64 12
   %173 = load i32, ptr %172, align 4
   %174 = icmp eq i32 %173, 0
   %spec.select.i20.i.i.i = sext i1 %174 to i32
-  %175 = getelementptr inbounds i8, ptr %.val.i.i.i31.i, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %.val.i.i.i31.i, i64 12
   %176 = load i32, ptr %175, align 4
   %177 = icmp eq i32 %176, 0
   %not..i.i.i.i = xor i1 %174, true
@@ -405,7 +405,7 @@ If_ManImproveNodeWillGrow.exit.i.i.i:             ; preds = %160
   br i1 %.not8.i.i.i.i, label %182, label %If_ManImproveNodeFaninCost.exit.i.i.i
 
 182:                                              ; preds = %179
-  %183 = getelementptr inbounds i8, ptr %.val13.i.i.i.i, i64 12
+  %183 = getelementptr inbounds nuw i8, ptr %.val13.i.i.i.i, i64 12
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, 0
   %186 = zext i1 %185 to i32
@@ -428,7 +428,7 @@ thread-pre-split.i.i:                             ; preds = %188
 
 .lr.ph.i15.i.i:                                   ; preds = %thread-pre-split.i.i, %215
   %indvars.iv.i17.i.i = phi i64 [ %indvars.iv.next.i26.i.i, %215 ], [ 0, %thread-pre-split.i.i ]
-  %190 = getelementptr inbounds ptr, ptr %.val16.i.i.i, i64 %indvars.iv.i17.i.i
+  %190 = getelementptr inbounds nuw ptr, ptr %.val16.i.i.i, i64 %indvars.iv.i17.i.i
   %191 = load ptr, ptr %190, align 8
   %.val14.i.i.i = load i32, ptr %191, align 8
   %192 = and i32 %.val14.i.i.i, 15
@@ -436,7 +436,7 @@ thread-pre-split.i.i:                             ; preds = %188
   br i1 %.not.i18.i.i, label %215, label %193
 
 193:                                              ; preds = %.lr.ph.i15.i.i
-  %194 = getelementptr inbounds i8, ptr %191, i64 12
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 12
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, 0
   %spec.select.i.i19.i.i = sext i1 %196 to i32
@@ -448,7 +448,7 @@ thread-pre-split.i.i:                             ; preds = %188
   br i1 %.not.i.i20.i.i, label %200, label %205
 
 200:                                              ; preds = %193
-  %201 = getelementptr inbounds i8, ptr %.val11.i.i.i.i, i64 12
+  %201 = getelementptr inbounds nuw i8, ptr %.val11.i.i.i.i, i64 12
   %202 = load i32, ptr %201, align 4
   %203 = icmp eq i32 %202, 0
   %not..i.i29.i.i = xor i1 %196, true
@@ -466,7 +466,7 @@ thread-pre-split.i.i:                             ; preds = %188
   br i1 %.not8.i.i23.i.i, label %209, label %If_ManImproveNodeFaninCost.exit.i24.i.i
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i8, ptr %.val13.i.i22.i.i, i64 12
+  %210 = getelementptr inbounds nuw i8, ptr %.val13.i.i22.i.i, i64 12
   %211 = load i32, ptr %210, align 4
   %212 = icmp eq i32 %211, 0
   %213 = zext i1 %212 to i32
@@ -500,7 +500,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 .lr.ph.i.i:                                       ; preds = %If_ManImproveCutCost.exit70.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %If_ManImproveCutCost.exit70.i.i ]
   %.val54.i.i = load ptr, ptr %33, align 8
-  %219 = getelementptr inbounds ptr, ptr %.val54.i.i, i64 %indvars.iv.i.i
+  %219 = getelementptr inbounds nuw ptr, ptr %.val54.i.i, i64 %indvars.iv.i.i
   %220 = load ptr, ptr %219, align 8
   %221 = load i32, ptr %220, align 8
   %222 = and i32 %221, -257
@@ -529,11 +529,11 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 
 .lr.ph.i71.i.i:                                   ; preds = %.lr.ph.i71.i.i, %.lr.ph.i71.i.preheader.i
   %indvars.iv.i72.i.i = phi i64 [ %indvars.iv.next.i73.i.i, %.lr.ph.i71.i.i ], [ 0, %.lr.ph.i71.i.preheader.i ]
-  %233 = getelementptr inbounds ptr, ptr %.val18.i.i.i, i64 %indvars.iv.i72.i.i
+  %233 = getelementptr inbounds nuw ptr, ptr %.val18.i.i.i, i64 %indvars.iv.i72.i.i
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %236 = load i32, ptr %235, align 4
-  %237 = getelementptr inbounds [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i72.i.i
+  %237 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i72.i.i
   store i32 %236, ptr %237, align 4
   %indvars.iv.next.i73.i.i = add nuw nsw i64 %indvars.iv.i72.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i73.i.i, %232
@@ -554,7 +554,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 240:                                              ; preds = %240, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %240 ]
   %.067.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %245, %240 ]
-  %241 = getelementptr inbounds [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i.i.i.i
+  %241 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i.i.i.i
   %242 = load i32, ptr %241, align 4
   %243 = urem i32 %242, 31
   %244 = shl nuw nsw i32 1, %243
@@ -565,7 +565,7 @@ If_ManImproveCutCost.exit70.i.i:                  ; preds = %If_ManImproveNodeFa
 
 If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i.i
   %.06.lcssa.i.i.i.i = phi i32 [ 0, %.critedge.i.i.i ], [ %245, %240 ]
-  %246 = getelementptr inbounds i8, ptr %43, i64 104
+  %246 = getelementptr inbounds nuw i8, ptr %43, i64 104
   store i32 %.06.lcssa.i.i.i.i, ptr %246, align 4
   %247 = call float @If_CutAreaRef(ptr noundef %0, ptr noundef nonnull %47) #13
   %248 = call float @If_CutDelay(ptr noundef %0, ptr noundef nonnull %43, ptr noundef nonnull %47) #13
@@ -576,7 +576,7 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
 
 251:                                              ; preds = %If_ManImproveNodeUpdate.exit.i.i
   %252 = load float, ptr %49, align 4
-  %253 = getelementptr inbounds i8, ptr %43, i64 52
+  %253 = getelementptr inbounds nuw i8, ptr %43, i64 52
   %254 = load float, ptr %253, align 4
   %255 = load float, ptr %38, align 8
   %256 = fadd float %254, %255
@@ -602,11 +602,11 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
 
 .lr.ph.i87.i.i:                                   ; preds = %.lr.ph.i87.i.i, %.lr.ph.i87.i.preheader.i
   %indvars.iv.i88.i.i = phi i64 [ %indvars.iv.next.i90.i.i, %.lr.ph.i87.i.i ], [ 0, %.lr.ph.i87.i.preheader.i ]
-  %267 = getelementptr inbounds ptr, ptr %.val18.i89.i.i, i64 %indvars.iv.i88.i.i
+  %267 = getelementptr inbounds nuw ptr, ptr %.val18.i89.i.i, i64 %indvars.iv.i88.i.i
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %270 = load i32, ptr %269, align 4
-  %271 = getelementptr inbounds [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i88.i.i
+  %271 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i88.i.i
   store i32 %270, ptr %271, align 4
   %indvars.iv.next.i90.i.i = add nuw nsw i64 %indvars.iv.i88.i.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next.i90.i.i, %266
@@ -627,7 +627,7 @@ If_ManImproveNodeUpdate.exit.i.i:                 ; preds = %240, %.critedge.i.i
 274:                                              ; preds = %274, %.lr.ph.i.i80.i.i
   %indvars.iv.i.i82.i.i = phi i64 [ 0, %.lr.ph.i.i80.i.i ], [ %indvars.iv.next.i.i84.i.i, %274 ]
   %.067.i.i83.i.i = phi i32 [ 0, %.lr.ph.i.i80.i.i ], [ %279, %274 ]
-  %275 = getelementptr inbounds [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i.i82.i.i
+  %275 = getelementptr inbounds nuw [0 x i32], ptr %55, i64 0, i64 %indvars.iv.i.i82.i.i
   %276 = load i32, ptr %275, align 4
   %277 = urem i32 %276, 31
   %278 = shl nuw nsw i32 1, %277
@@ -690,22 +690,22 @@ If_ManImproveExpand.exit:                         ; preds = %Vec_PtrFree.exit23.
   call void @free(ptr noundef nonnull %30) #13
   call void @If_ManComputeRequired(ptr noundef nonnull %0) #13
   %292 = load ptr, ptr %10, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 188
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 188
   %294 = load i32, ptr %293, align 4
   %.not = icmp eq i32 %294, 0
   br i1 %.not, label %324, label %295
 
 295:                                              ; preds = %If_ManImproveExpand.exit
-  %296 = getelementptr inbounds i8, ptr %0, i64 92
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %297 = load float, ptr %296, align 4
   %298 = fpext float %297 to double
-  %299 = getelementptr inbounds i8, ptr %0, i64 100
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %300 = load float, ptr %299, align 4
   %301 = fpext float %300 to double
-  %302 = getelementptr inbounds i8, ptr %0, i64 104
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %303 = load i32, ptr %302, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, double noundef %298, double noundef %301, i32 noundef %303)
-  %304 = getelementptr inbounds i8, ptr %0, i64 108
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %305 = load float, ptr %304, align 4
   %306 = fcmp une float %305, 0.000000e+00
   br i1 %306, label %307, label %309
@@ -716,7 +716,7 @@ If_ManImproveExpand.exit:                         ; preds = %Vec_PtrFree.exit23.
   br label %309
 
 309:                                              ; preds = %307, %295
-  %310 = getelementptr inbounds i8, ptr %0, i64 116
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %311 = load i32, ptr %310, align 4
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %311)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
@@ -727,7 +727,7 @@ If_ManImproveExpand.exit:                         ; preds = %Vec_PtrFree.exit23.
 314:                                              ; preds = %309
   %315 = load i64, ptr %2, align 8
   %316 = mul nsw i64 %315, 1000000
-  %317 = getelementptr inbounds i8, ptr %2, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %318 = load i64, ptr %317, align 8
   %319 = sdiv i64 %318, 1000
   %320 = add nsw i64 %319, %316
@@ -800,9 +800,9 @@ define i32 @If_ManImproveCutCost(ptr nocapture noundef readnone %0, ptr nocaptur
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %6 ]
-  %7 = getelementptr inbounds ptr, ptr %.val8, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %.val8, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   %12 = zext i1 %11 to i32
@@ -830,14 +830,14 @@ define void @If_ManImproveMark_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = getelementptr i8, ptr %1, i64 32
   %.val10 = load ptr, ptr %8, align 8
   tail call void @If_ManImproveMark_rec(ptr noundef %0, ptr noundef %.val10, ptr noundef %2)
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr %2, align 8
   %12 = icmp eq i32 %10, %11
   br i1 %12, label %13, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %6
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -846,7 +846,7 @@ define void @If_ManImproveMark_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not9.i.i = icmp eq ptr %17, null
   br i1 %.not9.i.i, label %20, label %18
@@ -867,7 +867,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %20, %18
 
 23:                                               ; preds = %13
   %24 = shl nuw nsw i32 %10, 1
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not9.i10.i = icmp eq ptr %26, null
   %27 = zext nneg i32 %24 to i64
@@ -930,7 +930,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeWillGrow(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   %spec.select = sext i1 %5 to i32
@@ -942,7 +942,7 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr nocapture noundef re
   br i1 %.not, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %.val11, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.val11, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   %not. = xor i1 %5, true
@@ -960,7 +960,7 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr nocapture noundef re
   br i1 %.not8, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.val13, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.val13, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   %22 = zext i1 %21 to i32
@@ -974,9 +974,9 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define void @If_ManImproveNodeFaninUpdate(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = zext i32 %6 to i64
   %smin.i = tail call i32 @llvm.smin.i32(i32 %6, i32 0)
   br label %9
@@ -990,7 +990,7 @@ define void @If_ManImproveNodeFaninUpdate(ptr nocapture readnone %0, ptr noundef
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i, -1
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %9, !llvm.loop !14
@@ -1090,14 +1090,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %59 = sext i32 %57 to i64
   %60 = getelementptr inbounds ptr, ptr %56, i64 %59
   store ptr %.val, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %3, align 8
   %64 = icmp eq i32 %62, %63
   br i1 %64, label %65, label %.Vec_PtrGrow.exit11_crit_edge.i18
 
 .Vec_PtrGrow.exit11_crit_edge.i18:                ; preds = %Vec_PtrPush.exit
-  %.phi.trans.insert.i19 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i20 = load ptr, ptr %.phi.trans.insert.i19, align 8
   br label %Vec_PtrPush.exit24
 
@@ -1106,7 +1106,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %66, label %67, label %75
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not9.i.i22 = icmp eq ptr %69, null
   br i1 %.not9.i.i22, label %72, label %70
@@ -1127,7 +1127,7 @@ Vec_PtrGrow.exit.i23:                             ; preds = %72, %70
 
 75:                                               ; preds = %65
   %76 = shl nuw nsw i32 %62, 1
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not9.i10.i21 = icmp eq ptr %78, null
   %79 = zext nneg i32 %76 to i64
@@ -1232,14 +1232,14 @@ Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11
   %125 = sext i32 %123 to i64
   %126 = getelementptr inbounds ptr, ptr %122, i64 %125
   store ptr %.val17, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %3, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = load i32, ptr %3, align 8
   %130 = icmp eq i32 %128, %129
   br i1 %130, label %131, label %.Vec_PtrGrow.exit11_crit_edge.i32
 
 .Vec_PtrGrow.exit11_crit_edge.i32:                ; preds = %Vec_PtrPush.exit31
-  %.phi.trans.insert.i33 = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert.i33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre.i34 = load ptr, ptr %.phi.trans.insert.i33, align 8
   br label %Vec_PtrPush.exit38
 
@@ -1248,7 +1248,7 @@ Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %132, label %133, label %141
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %3, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not9.i.i36 = icmp eq ptr %135, null
   br i1 %.not9.i.i36, label %138, label %136
@@ -1269,7 +1269,7 @@ Vec_PtrGrow.exit.i37:                             ; preds = %138, %136
 
 141:                                              ; preds = %131
   %142 = shl nuw nsw i32 %128, 1
-  %143 = getelementptr inbounds i8, ptr %3, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %144 = load ptr, ptr %143, align 8
   %.not9.i10.i35 = icmp eq ptr %144, null
   %145 = zext nneg i32 %142 to i64
@@ -1322,7 +1322,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact0(ptr nocapture noundef
 
 9:                                                ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %10 = getelementptr inbounds ptr, ptr %.val16, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.val17 = load i32, ptr %11, align 8
   %12 = and i32 %.val17, 15
@@ -1346,7 +1346,7 @@ If_ManImproveNodeWillGrow.exit:                   ; preds = %13
   br i1 %.not15.not, label %42, label %24
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %11, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   %spec.select.i = sext i1 %23 to i32
@@ -1356,11 +1356,11 @@ If_ManImproveNodeWillGrow.exit:                   ; preds = %13
   br label %32
 
 24:                                               ; preds = %If_ManImproveNodeWillGrow.exit
-  %25 = getelementptr inbounds i8, ptr %11, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %spec.select.i20 = sext i1 %27 to i32
-  %28 = getelementptr inbounds i8, ptr %.val.i, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %not..i = xor i1 %27, true
@@ -1377,7 +1377,7 @@ If_ManImproveNodeWillGrow.exit:                   ; preds = %13
   br i1 %.not8.i, label %35, label %If_ManImproveNodeFaninCost.exit
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.val13.i, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   %39 = zext i1 %38 to i32
@@ -1418,7 +1418,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr nocapture noundef
 
 9:                                                ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %10 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.val14 = load i32, ptr %11, align 8
   %12 = and i32 %.val14, 15
@@ -1426,7 +1426,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr nocapture noundef
   br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   %spec.select.i = sext i1 %16 to i32
@@ -1438,7 +1438,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr nocapture noundef
   br i1 %.not.i, label %20, label %25
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.val11.i, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %.val11.i, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   %not..i = xor i1 %16, true
@@ -1456,7 +1456,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact1(ptr nocapture noundef
   br i1 %.not8.i, label %29, label %If_ManImproveNodeFaninCost.exit
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.val13.i, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   %33 = zext i1 %32 to i32
@@ -1497,7 +1497,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr nocapture noundef
 
 9:                                                ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %10 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.val14 = load i32, ptr %11, align 8
   %12 = and i32 %.val14, 15
@@ -1505,7 +1505,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr nocapture noundef
   br i1 %.not, label %36, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   %spec.select.i = sext i1 %16 to i32
@@ -1517,7 +1517,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr nocapture noundef
   br i1 %.not.i, label %20, label %25
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.val11.i, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %.val11.i, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   %not..i = xor i1 %16, true
@@ -1535,7 +1535,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact2(ptr nocapture noundef
   br i1 %.not8.i, label %29, label %If_ManImproveNodeFaninCost.exit
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.val13.i, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.val13.i, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   %33 = zext i1 %32 to i32
@@ -1576,7 +1576,7 @@ define range(i32 0, 2) i32 @If_ManImproveNodeFaninCompact_int(ptr nocapture noun
 
 9:                                                ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %10 = getelementptr inbounds ptr, ptr %.val16.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr %.val16.i, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.val17.i = load i32, ptr %11, align 8
   %12 = and i32 %.val17.i, 15
@@ -1600,7 +1600,7 @@ If_ManImproveNodeWillGrow.exit.i:                 ; preds = %13
   br i1 %.not15.not.i, label %41, label %24
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %11, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   %spec.select.i.i = sext i1 %23 to i32
@@ -1610,11 +1610,11 @@ If_ManImproveNodeWillGrow.exit.i:                 ; preds = %13
   br label %32
 
 24:                                               ; preds = %If_ManImproveNodeWillGrow.exit.i
-  %25 = getelementptr inbounds i8, ptr %11, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %spec.select.i20.i = sext i1 %27 to i32
-  %28 = getelementptr inbounds i8, ptr %.val.i.i, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %not..i.i = xor i1 %27, true
@@ -1631,7 +1631,7 @@ If_ManImproveNodeWillGrow.exit.i:                 ; preds = %13
   br i1 %.not8.i.i, label %35, label %If_ManImproveNodeFaninCost.exit.i
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.val13.i.i, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %.val13.i.i, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
   %39 = zext i1 %38 to i32
@@ -1660,7 +1660,7 @@ thread-pre-split:                                 ; preds = %41
 
 44:                                               ; preds = %70, %.lr.ph.i15
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i15 ], [ %indvars.iv.next.i26, %70 ]
-  %45 = getelementptr inbounds ptr, ptr %.val13.i, i64 %indvars.iv.i17
+  %45 = getelementptr inbounds nuw ptr, ptr %.val13.i, i64 %indvars.iv.i17
   %46 = load ptr, ptr %45, align 8
   %.val14.i = load i32, ptr %46, align 8
   %47 = and i32 %.val14.i, 15
@@ -1668,7 +1668,7 @@ thread-pre-split:                                 ; preds = %41
   br i1 %.not.i18, label %70, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %46, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   %spec.select.i.i19 = sext i1 %51 to i32
@@ -1680,7 +1680,7 @@ thread-pre-split:                                 ; preds = %41
   br i1 %.not.i.i20, label %55, label %60
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %.val11.i.i, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.val11.i.i, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   %not..i.i29 = xor i1 %51, true
@@ -1698,7 +1698,7 @@ thread-pre-split:                                 ; preds = %41
   br i1 %.not8.i.i23, label %64, label %If_ManImproveNodeFaninCost.exit.i24
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.val13.i.i22, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %.val13.i.i22, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   %68 = zext i1 %67 to i32

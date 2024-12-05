@@ -313,7 +313,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr @time_adjust, align 8
   %15 = load i64, ptr @tick_usec, align 8
@@ -338,7 +338,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br label %29
 
 29:                                               ; preds = %12, %8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %30, align 8
   %.pre14 = load i32, ptr @time_status, align 4
   br label %240
@@ -375,7 +375,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 1
   %53 = icmp eq i32 %52, 0
@@ -394,7 +394,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
 
 57:                                               ; preds = %.thread16, %54
   %58 = phi i32 [ 64, %.thread16 ], [ %.pre13, %54 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 1
   %62 = icmp eq i32 %61, 0
@@ -411,7 +411,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   %.pre7 = phi i32 [ %.pre7.pre, %63 ], [ %43, %57 ], [ %43, %54 ]
   %66 = phi i32 [ %.pre, %63 ], [ %58, %57 ], [ %.pre13, %54 ]
   %67 = and i32 %66, 65280
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, -65281
   %71 = or disjoint i32 %70, %67
@@ -441,7 +441,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %84, label %91, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %0, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = mul i64 %87, 65536000
   %89 = tail call i64 @llvm.smin.i64(i64 %88, i64 2147483648000000)
@@ -455,7 +455,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load i64, ptr %95, align 8
   store i64 %96, ptr @time_maxerror, align 8
   br label %97
@@ -466,7 +466,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %99, label %103, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %0, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load i64, ptr %101, align 8
   store i64 %102, ptr @time_esterror, align 8
   br label %103
@@ -477,7 +477,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %105, label %114, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %0, i64 48
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %108 = load i64, ptr %107, align 8
   %109 = and i32 %79, 8192
   %110 = icmp eq i32 %109, 0
@@ -494,7 +494,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %116, label %123, label %117
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %0, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %119 = load i64, ptr %118, align 8
   %120 = icmp ult i64 %119, 100001
   br i1 %120, label %121, label %123
@@ -512,7 +512,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %126, label %189, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %0, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %129 = load i64, ptr %128, align 8
   %130 = and i32 %79, 1
   %131 = icmp eq i32 %130, 0
@@ -611,7 +611,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   br i1 %193, label %197, label %194
 
 194:                                              ; preds = %189
-  %195 = getelementptr inbounds i8, ptr %0, i64 88
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %196 = load i64, ptr %195, align 8
   store i64 %196, ptr @tick_usec, align 8
   %.pre10 = load i32, ptr %0, align 8
@@ -669,7 +669,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   %231 = sub nsw i64 0, %230
   %232 = lshr i64 %227, 32
   %233 = select i1 %228, i64 %231, i64 %232
-  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %233, ptr %234, align 8
   %235 = and i32 %225, 8192
   %236 = icmp eq i32 %235, 0
@@ -697,39 +697,39 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr nocapture noundef initia
   %252 = sub nsw i64 0, %251
   %253 = lshr i64 %248, 32
   %254 = select i1 %249, i64 %252, i64 %253
-  %255 = getelementptr inbounds i8, ptr %0, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %254, ptr %255, align 8
   %256 = load i64, ptr @time_maxerror, align 8
-  %257 = getelementptr inbounds i8, ptr %0, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %256, ptr %257, align 8
   %258 = load i64, ptr @time_esterror, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %258, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %0, i64 40
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %241, ptr %260, align 8
   %261 = load i64, ptr @time_constant, align 8
-  %262 = getelementptr inbounds i8, ptr %0, i64 48
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %261, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %0, i64 56
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 1, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 64
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 32768000, ptr %264, align 8
   %265 = load i64, ptr @tick_usec, align 8
-  %266 = getelementptr inbounds i8, ptr %0, i64 88
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %265, ptr %266, align 8
   %267 = load i32, ptr %2, align 4
-  %268 = getelementptr inbounds i8, ptr %0, i64 160
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %267, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %0, i64 96
-  %270 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(20) %269, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %270, i8 0, i64 40, i1 false)
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %269, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %270, i8 0, i64 40, i1 false)
   %271 = load i64, ptr %1, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 72
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %271, ptr %272, align 8
-  %273 = getelementptr inbounds i8, ptr %1, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %274 = load i64, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %0, i64 80
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %276 = and i32 %241, 8192
   %277 = icmp eq i32 %276, 0
   %278 = sdiv i64 %274, 1000
@@ -850,7 +850,7 @@ define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
   call void @ktime_get_real_ts64(ptr noundef nonnull %4) #10
   %13 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
   %14 = load i64, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
@@ -858,7 +858,7 @@ define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
   %18 = add i64 %16, %13
   call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %17, i64 noundef %18) #10
   %19 = load i64, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %22 = icmp ult i64 %21, 5000000
@@ -897,20 +897,20 @@ define internal void @sync_hw_clock(ptr nocapture readnone %0) #3 align 16 {
   br label %66
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 744
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 744
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread8, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread8, label %48
 
 48:                                               ; preds = %44
   %49 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
-  %50 = getelementptr inbounds i8, ptr %38, i64 1200
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 1200
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %49, %51
   br i1 %52, label %53, label %.thread9
